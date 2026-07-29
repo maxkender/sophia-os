@@ -16,12 +16,12 @@ export async function chargerAssignationReglages(
 ): Promise<AssignationReglages> {
   const { data } = await supabase.from("reglages").select("cle, valeur");
   const map = new Map((data ?? []).map((r) => [r.cle, r.valeur]));
-  const frequence = (map.get("frequence") ?? { posts_par_jour: 2 }) as {
+  const frequence = (map.get("frequence") ?? { posts_par_jour: 1 }) as {
     posts_par_jour?: number;
   };
   const scoring = (map.get("scoring") ?? {}) as Record<string, number>;
   return {
-    postsParJour: frequence.posts_par_jour ?? 2,
+    postsParJour: Math.min(3, Math.max(1, frequence.posts_par_jour ?? 1)),
     top_k: scoring.top_k ?? 5,
     temperature: scoring.temperature ?? 0.7,
     saturation_jours: scoring.saturation_jours ?? 7,
@@ -89,7 +89,8 @@ export async function assignerCompteJour(
   reglages: AssignationReglages,
   forcer = false,
 ): Promise<string[]> {
-  const quota = compte.posts_par_jour ?? reglages.postsParJour;
+  const brut = Number(compte.posts_par_jour ?? reglages.postsParJour ?? 1);
+  const quota = Math.min(3, Math.max(1, Number.isFinite(brut) ? brut : 1));
   const langue: string = compte.langue ?? "fr";
 
   const { data: existants } = await supabase
@@ -99,9 +100,8 @@ export async function assignerCompteJour(
     .eq("date_publication_prevue", jour);
 
   const dejaLa = existants?.length ?? 0;
-  // Non-écrasement : si déjà un passage ce jour, on ne touche à rien.
-  if (!forcer && dejaLa > 0) return [];
-
+  // Non-écrasement : on ne touche pas aux passages déjà là, on complète
+  // seulement jusqu'au quota (1–3) du compte.
   const manquants = forcer ? 1 : Math.max(0, quota - dejaLa);
   if (manquants <= 0) return [];
 

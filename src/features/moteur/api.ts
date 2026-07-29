@@ -236,12 +236,23 @@ export async function creerCompte(input: {
     langue: input.langue,
     persona_nom: input.personaNom.trim() || null,
     handle_tiktok: input.handleTiktok.trim().replace(/^@/, "") || null,
+    posts_par_jour: 1,
   });
   if (error) throw error;
 }
 
+/** Clamp le quota poster à 1–3 avant écriture. */
+function normaliserPostsParJour(n: number): number {
+  if (!Number.isFinite(n)) return 1;
+  return Math.min(3, Math.max(1, Math.round(n)));
+}
+
 export async function majCompte(id: string, patch: Partial<Compte>): Promise<void> {
-  const { error } = await supabase.from("comptes").update(patch).eq("id", id);
+  const body = { ...patch };
+  if (body.posts_par_jour != null) {
+    body.posts_par_jour = normaliserPostsParJour(Number(body.posts_par_jour));
+  }
+  const { error } = await supabase.from("comptes").update(body).eq("id", id);
   if (error) throw error;
 }
 
@@ -1360,11 +1371,11 @@ export async function lireReglages(): Promise<Reglages> {
 
   return {
     repartition: map.get("repartition") ?? { recycle: 60, remanie: 20, nouveau: 20 },
-    frequence: map.get("frequence") ?? { posts_par_jour: 2 },
+    frequence: map.get("frequence") ?? { posts_par_jour: 1 },
     semaine1: map.get("semaine1") ?? {
       actif: true,
       jours: 7,
-      posts_par_jour: 2,
+      posts_par_jour: 1,
       tout_recycle: true,
     },
     scoring: {
@@ -1839,7 +1850,7 @@ export async function suiviAssignation(date: string): Promise<SuiviMinuit[]> {
   if (comptesRes.error) throw comptesRes.error;
   if (postsRes.error) throw postsRes.error;
 
-  const quotaGlobal = (regRes.data?.valeur as { posts_par_jour?: number } | null)?.posts_par_jour ?? 2;
+  const quotaGlobal = (regRes.data?.valeur as { posts_par_jour?: number } | null)?.posts_par_jour ?? 1;
 
   const parCompte = new Map<string, SuiviMinuit["posts"]>();
   for (const p of postsRes.data ?? []) {

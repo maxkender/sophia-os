@@ -21,8 +21,8 @@ const POSTS_RELEVES = 30;
  *   3) ASSIGNATION labels ∩ + score langue (import) + top-K + softmax
  *
  * Règles d'assignation (par compte actif, jour Paris) :
- *   - quota = posts_par_jour du compte (sinon réglage global)
- *   - non-écrasement : si déjà un passage ce jour → skip (sauf forcer)
+ *   - quota = posts_par_jour du compte (1–3, défaut 1 ; sinon réglage global)
+ *   - non-écrasement : complète jusqu'au quota sans toucher aux passages déjà là
  *   - labels compte ∩ labels contenu requis
  *   - pool = contenus valide + import done + ligne contenu_langues[langue du compte]
  *   - ranking = score langue − pénalité saturation (comptes distincts récents)

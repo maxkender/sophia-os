@@ -16,7 +16,7 @@ import {
   EmptyState,
 } from "@/components/ui/card";
 import { useAuth } from "@/features/auth/AuthContext";
-import { CompteEditor } from "@/features/moteur/CompteEditor";
+import { CompteEditor, PostsParJourCompte } from "@/features/moteur/CompteEditor";
 import { CreateurPublications } from "@/features/moteur/CreateurPublications";
 import { LabelEditor } from "@/features/moteur/LabelPicker";
 import {
@@ -664,23 +664,26 @@ export function AdminPostersPage() {
               </div>
 
               {estPoster && compte && (
-                <div className="flex items-start gap-3 border-t border-dashed bg-muted/25 px-3 py-2">
-                  <span className="w-14 shrink-0 pt-0.5 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
-                    {t("labels.title")}
-                  </span>
-                  <div className="min-w-0 flex-1">
-                    <LabelEditor
-                      afficherTitre={false}
-                      queryKey={["compte-labels", compte.id]}
-                      load={() => labelsDuCompte(compte.id)}
-                      save={async (ids) => {
-                        await setLabelsCompte(compte.id, ids);
-                        await queryClient.invalidateQueries({
-                          queryKey: ["compte-labels-all"],
-                        });
-                      }}
-                    />
+                <div className="space-y-2 border-t border-dashed bg-muted/25 px-3 py-2">
+                  <div className="flex items-start gap-3">
+                    <span className="w-14 shrink-0 pt-0.5 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+                      {t("labels.title")}
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <LabelEditor
+                        afficherTitre={false}
+                        queryKey={["compte-labels", compte.id]}
+                        load={() => labelsDuCompte(compte.id)}
+                        save={async (ids) => {
+                          await setLabelsCompte(compte.id, ids);
+                          await queryClient.invalidateQueries({
+                            queryKey: ["compte-labels-all"],
+                          });
+                        }}
+                      />
+                    </div>
                   </div>
+                  <PostsParJourCompte compte={compte} />
                 </div>
               )}
 

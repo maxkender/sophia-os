@@ -15,6 +15,7 @@ function ChampNombre({
   valeur,
   onChange,
   min = 0,
+  max,
   step,
 }: {
   id: string;
@@ -22,6 +23,7 @@ function ChampNombre({
   valeur: number;
   onChange: (n: number) => void;
   min?: number;
+  max?: number;
   step?: number;
 }) {
   return (
@@ -31,9 +33,15 @@ function ChampNombre({
         id={id}
         type="number"
         min={min}
+        max={max}
         step={step}
         value={valeur}
-        onChange={(e) => onChange(Number(e.target.value))}
+        onChange={(e) => {
+          let n = Number(e.target.value);
+          if (max != null) n = Math.min(max, n);
+          if (min != null) n = Math.max(min, n);
+          onChange(n);
+        }}
       />
     </div>
   );
@@ -297,6 +305,7 @@ export function AdminReglagesPage() {
                 id="parJour"
                 label={t("reglages.postsParJour")}
                 min={1}
+                max={3}
                 valeur={reglages.frequence.posts_par_jour}
                 onChange={(n) => maj({ frequence: { posts_par_jour: n } })}
               />
@@ -363,6 +372,7 @@ export function AdminReglagesPage() {
                   id="s1posts"
                   label={t("reglages.semaine1Posts")}
                   min={1}
+                  max={3}
                   valeur={reglages.semaine1.posts_par_jour}
                   onChange={(n) =>
                     maj({ semaine1: { ...reglages.semaine1, posts_par_jour: n } })

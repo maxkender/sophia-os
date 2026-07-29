@@ -43,7 +43,8 @@ export interface Compte {
   is_active: boolean;
   /** null = suit les réglages globaux. */
   repartition: { recycle: number; remanie: number; nouveau: number } | null;
-  posts_par_jour: number | null;
+  /** Quota d'assignation minuit : 1 à 3 (défaut 1). */
+  posts_par_jour: number;
   /** Forme du compte (EWMA), défaut 50. */
   score: number;
   score_maj_at: string | null;

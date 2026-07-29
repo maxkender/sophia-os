@@ -159,28 +159,62 @@ function GenerationPersona({ compte }: { compte: CompteAvecDetails }) {
   );
 }
 
+/** Quota d'assignation du jour (1–3). Enregistré dès le clic. */
+export function PostsParJourCompte({ compte }: { compte: CompteAvecDetails }) {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const valeur = Math.min(3, Math.max(1, Number(compte.posts_par_jour) || 1));
+
+  const maj = useMutation({
+    mutationFn: (n: number) => majCompte(compte.id, { posts_par_jour: n }),
+    onSuccess: () => rafraichirComptes(queryClient),
+  });
+
+  return (
+    <div className="flex flex-wrap items-center gap-2">
+      <Label className="text-xs text-muted-foreground">{t("reglages.postsParJour")}</Label>
+      <div className="inline-flex rounded-md border p-0.5">
+        {([1, 2, 3] as const).map((n) => (
+          <button
+            key={n}
+            type="button"
+            disabled={maj.isPending}
+            onClick={() => maj.mutate(n)}
+            className={
+              valeur === n
+                ? "rounded px-2.5 py-1 text-xs font-medium bg-primary text-primary-foreground"
+                : "rounded px-2.5 py-1 text-xs text-muted-foreground hover:bg-muted"
+            }
+          >
+            {n}
+          </button>
+        ))}
+      </div>
+      <CoutEstime postsParJour={valeur} />
+    </div>
+  );
+}
+
 /**
- * Réglages propres à un compte. Tant qu'ils sont vides, le compte suit les
- * réglages globaux ; les renseigner permet par exemple de dédier un compte au
- * seul recopiage sans toucher aux autres.
+ * Répartition recycle / remanié / nouveau propre au compte.
+ * Tant qu'elle est vide, le compte suit les réglages globaux.
  */
 function ReglagesCompte({ compte }: { compte: CompteAvecDetails }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
-  const surcharge = compte.repartition !== null || compte.posts_par_jour !== null;
+  const surcharge = compte.repartition !== null;
 
   const [repartition, setRepartition] = React.useState(
     compte.repartition ?? { recycle: 60, remanie: 20, nouveau: 20 },
   );
-  const [parJour, setParJour] = React.useState(compte.posts_par_jour ?? 2);
 
   const rafraichir = () => rafraichirComptes(queryClient);
   const enregistrer = useMutation({
-    mutationFn: () => majCompte(compte.id, { repartition, posts_par_jour: parJour }),
+    mutationFn: () => majCompte(compte.id, { repartition }),
     onSuccess: rafraichir,
   });
   const reinitialiser = useMutation({
-    mutationFn: () => majCompte(compte.id, { repartition: null, posts_par_jour: null }),
+    mutationFn: () => majCompte(compte.id, { repartition: null }),
     onSuccess: rafraichir,
   });
 
@@ -196,7 +230,7 @@ function ReglagesCompte({ compte }: { compte: CompteAvecDetails }) {
         </Badge>
       </div>
 
-      <div className="grid gap-3 sm:grid-cols-4">
+      <div className="grid gap-3 sm:grid-cols-3">
         {(["recycle", "remanie", "nouveau"] as const).map((cle) => (
           <div key={cle} className="space-y-1">
             <Label htmlFor={`${cle}-${compte.id}`} className="text-xs">
@@ -211,18 +245,6 @@ function ReglagesCompte({ compte }: { compte: CompteAvecDetails }) {
             />
           </div>
         ))}
-        <div className="space-y-1">
-          <Label htmlFor={`jour-${compte.id}`} className="text-xs">
-            {t("reglages.postsParJour")}
-          </Label>
-          <Input
-            id={`jour-${compte.id}`}
-            type="number"
-            min={1}
-            value={parJour}
-            onChange={(e) => setParJour(Number(e.target.value))}
-          />
-        </div>
       </div>
 
       {!totalValide && <p className="text-xs text-destructive">{t("reglages.totalInvalide")}</p>}
@@ -237,7 +259,6 @@ function ReglagesCompte({ compte }: { compte: CompteAvecDetails }) {
           </Button>
         )}
       </div>
-      <CoutEstime postsParJour={parJour} />
       <p className="text-xs text-muted-foreground">{t("comptes.reglagesHint")}</p>
     </div>
   );
@@ -397,6 +418,10 @@ export function CompteEditor({ compte }: { compte: CompteAvecDetails }) {
         </Button>
       </div>
 
+      <div className="rounded-lg border p-3">
+        <PostsParJourCompte compte={compte} />
+        <p className="mt-1.5 text-xs text-muted-foreground">{t("comptes.postsParJourHint")}</p>
+      </div>
       <InfosCompte compte={compte} />
       <ChoixAvatar compte={compte} />
       <GenerationPersona compte={compte} />

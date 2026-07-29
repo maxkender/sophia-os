@@ -110,11 +110,15 @@ async function chargerReglages(supabase: Supabase): Promise<Reglages> {
   const map = new Map((data ?? []).map((r) => [r.cle, r.valeur]));
 
   const repartition = map.get("repartition") ?? { recycle: 60, remanie: 20, nouveau: 20 };
-  const frequence = map.get("frequence") ?? { posts_par_jour: 2 };
+  const frequence = map.get("frequence") ?? { posts_par_jour: 1 };
   const semaine1 = map.get("semaine1") ??
-    { actif: true, jours: 7, posts_par_jour: 2, tout_recycle: true };
+    { actif: true, jours: 7, posts_par_jour: 1, tout_recycle: true };
 
-  return { repartition, postsParJour: frequence.posts_par_jour ?? 2, semaine1 };
+  return {
+    repartition,
+    postsParJour: Math.min(3, Math.max(1, frequence.posts_par_jour ?? 1)),
+    semaine1,
+  };
 }
 
 /** Complète la journée d'un compte jusqu'au quota, et renvoie le nombre créé. */
@@ -132,8 +136,13 @@ async function completerJournee(
   // Les réglages du compte l'emportent sur les réglages globaux : c'est ce qui
   // permet de dédier un compte au seul recopiage sans toucher aux autres.
   const repartition = compte.repartition ?? reglages.repartition;
-  const parJour = compte.posts_par_jour ?? reglages.postsParJour;
-  const quota = enLancement ? reglages.semaine1.posts_par_jour : parJour;
+  const parJourBrut = Number(compte.posts_par_jour ?? reglages.postsParJour ?? 1);
+  const parJour = Math.min(3, Math.max(1, Number.isFinite(parJourBrut) ? parJourBrut : 1));
+  const semaine1Quota = Math.min(
+    3,
+    Math.max(1, Number(reglages.semaine1.posts_par_jour ?? 1) || 1),
+  );
+  const quota = enLancement ? semaine1Quota : parJour;
 
   const { data: existants } = await supabase
     .from("posts")
@@ -142,13 +151,10 @@ async function completerJournee(
     .eq("date_publication_prevue", jour)
     .eq("est_test", false); // les posts de test ne bloquent pas l'assignation
 
-  // RÈGLE : si le poster a DÉJÀ un post ce jour-là (par ex. un TikTok assigné à
-  // la main), le cron ne touche à rien — pas d'ajout automatique par-dessus.
-  // Seul le mode test forcé passe outre.
+  // Non-écrasement : on ne touche pas aux posts déjà là, on complète jusqu'au
+  // quota (1–3). Mode test forcé = +1 même au-delà.
   const dejaLa = existants?.length ?? 0;
-  if (!forcer && dejaLa > 0) return [];
-
-  const manquants = forcer ? 1 : quota;
+  const manquants = forcer ? 1 : Math.max(0, quota - dejaLa);
   if (manquants <= 0) return [];
 
   // On renvoie le type RÉELLEMENT produit : recopiage et remaniement retombent

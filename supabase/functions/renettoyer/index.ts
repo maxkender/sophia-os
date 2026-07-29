@@ -1,4 +1,5 @@
-import { cleanImage, verifyClean } from "../_shared/gemini.ts";
+import { cleanImage, verifyClean, type EvenementEtape } from "../_shared/gemini.ts";
+import { reponseNdjson, veutStream } from "../_shared/nettoyage_etapes.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
@@ -7,12 +8,7 @@ const BUCKET = "medias";
 /**
  * Re-nettoie la photo d'UNE slide, à la demande de l'admin.
  *
- * On repart toujours de l'original (`reference_url`). Si le nettoyage échoue
- * vraiment (refus, texte résiduel, aucune image), on NE laisse pas la slide en
- * plan : on la remplace par un autre visuel DÉJÀ propre de la bibliothèque du
- * compte de référence. Le poster a toujours une photo utilisable.
- *
- *   { postSlideId }
+ *   { postSlideId, stream?: true }
  */
 Deno.serve(async (request) => {
   const denied = await assertAuthorised(request);
@@ -20,21 +16,29 @@ Deno.serve(async (request) => {
 
   const supabase = serviceClient();
 
-  let postSlideId: string | null = null;
+  let corps: { postSlideId?: string; stream?: boolean } = {};
   try {
-    postSlideId = (await request.json())?.postSlideId ?? null;
+    corps = await request.json();
   } catch {
     // corps vide
   }
+  const postSlideId = corps.postSlideId ?? null;
   if (!postSlideId) return json({ error: "postSlideId requis" }, 400);
 
-  try {
+  const stream = veutStream(request, corps);
+
+  const executer = async (
+    emit?: (e: Record<string, unknown>) => void,
+  ) => {
     const { data: slide } = await supabase
       .from("post_slides")
       .select("id, position, reference_url, post_id")
       .eq("id", postSlideId)
       .single();
-    if (!slide) return json({ error: "slide introuvable" }, 404);
+    if (!slide) {
+      emit?.({ etape: "ready", statut: "echec", detail: "slide introuvable" });
+      return { ok: false as const, nettoyee: false, motif: "slide introuvable" };
+    }
 
     const { data: post } = await supabase
       .from("posts")
@@ -44,19 +48,17 @@ Deno.serve(async (request) => {
     // deno-lint-ignore no-explicit-any
     const refId = (post as any)?.comptes?.compte_reference_id ?? null;
 
-    // 1 — Tentative de nettoyage (Seedream en priorité, cf. cleanImage).
     if (slide.reference_url) {
       try {
-        // On re-vérifie la sortie : le moteur renvoie parfois l'image SANS l'avoir
-        // nettoyée. Si du texte reste, on ne la garde pas → on passe au
-        // remplacement par une photo propre de la bibliothèque.
-        const propre = await cleanImage(slide.reference_url);
-        if (propre && (await verifyClean(propre.base64, "image/png"))) {
-          const path = `propre/manuel/${slide.id}.png`;
+        const onEtape = emit ? (e: EvenementEtape) => emit(e) : undefined;
+        const propre = await cleanImage(slide.reference_url, onEtape);
+        if (propre && (await verifyClean(propre.base64, propre.mime))) {
+          const ext = propre.mime === "image/jpeg" ? "jpg" : "png";
+          const path = `propre/manuel/${slide.id}.${ext}`;
           const bytes = Uint8Array.from(atob(propre.base64), (c) => c.charCodeAt(0));
           const { error: upErr } = await supabase.storage
             .from(BUCKET)
-            .upload(path, bytes, { contentType: "image/png", upsert: true });
+            .upload(path, bytes, { contentType: propre.mime, upsert: true });
           if (upErr) throw upErr;
 
           const url = supabase.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
@@ -69,7 +71,6 @@ Deno.serve(async (request) => {
                 url,
                 source: "nettoye_reference",
                 visage_identifiable: null,
-                // Vérifiée juste au-dessus : inutile que l'audit y repasse.
                 verifie_le: new Date().toISOString(),
                 texte_restant: false,
               },
@@ -80,36 +81,69 @@ Deno.serve(async (request) => {
           if (insErr) throw insErr;
 
           await supabase.from("post_slides").update({ media_id: media.id }).eq("id", slide.id);
-          return json({ ok: true, nettoyee: true, moteur: propre.moteur });
+          emit?.({
+            etape: "ready",
+            statut: "ok",
+            ok: true,
+            nettoyee: true,
+            moteur: propre.moteur,
+          });
+          return {
+            ok: true as const,
+            nettoyee: true,
+            moteur: propre.moteur,
+            etapes: propre.etapes,
+          };
         }
       } catch (error) {
         console.warn(`[renettoyer] nettoyage échoué, on remplace : ${messageErreur(error)}`);
+        emit?.({
+          etape: "ready",
+          statut: "echec",
+          detail: `nettoyage échoué — remplacement: ${messageErreur(error)}`,
+        });
       }
     }
 
-    // 2 — Le nettoyage n'a rien donné : on remplace par un visuel déjà propre
-    // de la bibliothèque du compte.
     const alt = await visuelPropreDeSecours(supabase, refId, slide.post_id);
     if (alt) {
       await supabase.from("post_slides").update({ media_id: alt }).eq("id", slide.id);
-      return json({ ok: true, nettoyee: false, remplacee: true });
+      emit?.({
+        etape: "ready",
+        statut: "ok",
+        ok: true,
+        nettoyee: false,
+        remplacee: true,
+      });
+      return { ok: true as const, nettoyee: false, remplacee: true };
     }
 
-    return json({
-      ok: false,
-      nettoyee: false,
-      motif: "nettoyage impossible et aucune photo propre de rechange dans la bibliothèque du compte",
+    emit?.({
+      etape: "ready",
+      statut: "echec",
+      detail: "nettoyage impossible et aucune photo propre de rechange",
     });
+    return {
+      ok: false as const,
+      nettoyee: false,
+      motif:
+        "nettoyage impossible et aucune photo propre de rechange dans la bibliothèque du compte",
+    };
+  };
+
+  if (stream) {
+    return reponseNdjson(async (emit) => {
+      await executer(emit);
+    });
+  }
+
+  try {
+    return json(await executer());
   } catch (error) {
     return json({ ok: false, nettoyee: false, erreur: messageErreur(error) }, 500);
   }
 });
 
-/**
- * Un visuel DÉJÀ nettoyé de la bibliothèque du compte de référence, de
- * préférence pas déjà utilisé sur ce post (pour éviter un doublon visuel) et le
- * moins utilisé possible.
- */
 async function visuelPropreDeSecours(
   supabase: Supabase,
   refId: string | null,

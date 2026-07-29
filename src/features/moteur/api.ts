@@ -1,6 +1,7 @@
 import { supabase } from "@/lib/supabase/client";
 import { LANGUES_CIBLES } from "@/features/moteur/langues";
 import type { Role } from "@/features/auth/AuthContext";
+import type { EvenementEtape } from "@/features/moteur/nettoyageEtapes";
 import type {
   Compte,
   StatsCompte,
@@ -48,6 +49,82 @@ async function invoke<T>(name: string, body: Record<string, unknown>): Promise<T
   const result = data as { error?: string };
   if (result?.error) throw new Error(result.error);
   return data as T;
+}
+
+/**
+ * Appelle une edge function de nettoyage en NDJSON streamé : chaque ligne =
+ * une étape (Seedream → proxy → inpaint → C2PA → ready).
+ */
+async function invokeNettoyageStream(
+  name: string,
+  body: Record<string, unknown>,
+  onEtape: (e: EvenementEtape) => void,
+): Promise<EvenementEtape> {
+  const url = import.meta.env.VITE_SUPABASE_URL;
+  const anon = import.meta.env.VITE_SUPABASE_ANON_KEY;
+  if (!url || !anon) throw new Error("Supabase non configuré");
+
+  const { data: sessionData } = await supabase.auth.getSession();
+  const token = sessionData.session?.access_token;
+  if (!token) throw new Error("Session expirée — reconnecte-toi.");
+
+  const res = await fetch(`${url}/functions/v1/${name}`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      apikey: anon,
+      "Content-Type": "application/json",
+      Accept: "application/x-ndjson",
+    },
+    body: JSON.stringify({ ...body, stream: true }),
+  });
+
+  if (!res.ok || !res.body) {
+    let message = `Edge ${name} ${res.status}`;
+    try {
+      const j = await res.json();
+      if (j?.error || j?.erreur) message = j.error ?? j.erreur;
+    } catch {
+      // ignore
+    }
+    throw new Error(message);
+  }
+
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+  let dernier: EvenementEtape | null = null;
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+    const lignes = buffer.split("\n");
+    buffer = lignes.pop() ?? "";
+    for (const ligne of lignes) {
+      const trim = ligne.trim();
+      if (!trim) continue;
+      try {
+        const ev = JSON.parse(trim) as EvenementEtape;
+        dernier = ev;
+        onEtape(ev);
+      } catch {
+        // ligne partielle / bruit
+      }
+    }
+  }
+  if (buffer.trim()) {
+    try {
+      const ev = JSON.parse(buffer.trim()) as EvenementEtape;
+      dernier = ev;
+      onEtape(ev);
+    } catch {
+      // ignore
+    }
+  }
+
+  if (!dernier) throw new Error("Aucune étape reçue du nettoyage");
+  return dernier;
 }
 
 // --- Comptes de référence ---------------------------------------------------
@@ -797,16 +874,30 @@ export async function majTexteSlide(slideId: string, texte: string): Promise<voi
 /** Relance le nettoyage d'une seule photo (déclenché à la main par l'admin).
  *  `remplacee` = le nettoyage a échoué mais la photo a été remplacée par une
  *  autre déjà propre de la bibliothèque du compte. */
-export const renettoyerSlide = (postSlideId: string) =>
-  invoke<{
-    ok: boolean;
-    nettoyee: boolean;
-    remplacee?: boolean;
-    verifie_sans_texte?: boolean;
-    moteur?: "seedream" | "proxy" | "inpaint";
-    erreur?: string;
-    motif?: string;
-  }>("renettoyer", { postSlideId });
+export async function renettoyerSlide(
+  postSlideId: string,
+  onEtape?: (e: EvenementEtape) => void,
+) {
+  if (!onEtape) {
+    return invoke<{
+      ok: boolean;
+      nettoyee: boolean;
+      remplacee?: boolean;
+      moteur?: "seedream" | "proxy" | "inpaint";
+      erreur?: string;
+      motif?: string;
+    }>("renettoyer", { postSlideId });
+  }
+  const fin = await invokeNettoyageStream("renettoyer", { postSlideId }, onEtape);
+  return {
+    ok: fin.ok !== false && fin.statut !== "echec",
+    nettoyee: Boolean(fin.nettoyee),
+    remplacee: fin.remplacee,
+    moteur: fin.moteur,
+    motif: fin.detail,
+    erreur: fin.statut === "echec" ? fin.detail : undefined,
+  };
+}
 
 /** Fait pointer une slide vers un autre visuel déjà en bibliothèque. */
 export async function majMediaSlide(slideId: string, mediaId: string): Promise<void> {
@@ -853,23 +944,50 @@ export async function supprimerSlide(slideId: string): Promise<void> {
 }
 
 /** Nettoie une photo de la bibliothèque à la demande (bouton admin). */
-export const nettoyerMedia = (mediaId: string) =>
-  invoke<{
-    ok: boolean;
-    nettoyee: boolean;
-    moteur?: "seedream" | "proxy" | "inpaint";
-    erreur?: string;
-  }>("nettoyer-media", { mediaId });
+export async function nettoyerMedia(
+  mediaId: string,
+  onEtape?: (e: EvenementEtape) => void,
+) {
+  if (!onEtape) {
+    return invoke<{
+      ok: boolean;
+      nettoyee: boolean;
+      moteur?: "seedream" | "proxy" | "inpaint";
+      erreur?: string;
+    }>("nettoyer-media", { mediaId });
+  }
+  const fin = await invokeNettoyageStream("nettoyer-media", { mediaId }, onEtape);
+  return {
+    ok: fin.ok !== false && fin.statut !== "echec",
+    nettoyee: Boolean(fin.nettoyee ?? fin.ok),
+    moteur: fin.moteur,
+    erreur: fin.statut === "echec" ? fin.detail : undefined,
+  };
+}
 
 /** Nettoyage de test NON destructif : renvoie l'image nettoyée sans rien écraser. */
-export const nettoyerTest = (url: string) =>
-  invoke<{
-    ok: boolean;
-    url?: string;
-    moteur?: "seedream" | "proxy" | "inpaint";
-    erreur?: string;
-    motif?: string;
-  }>("nettoyer-test", { url });
+export async function nettoyerTest(
+  url: string,
+  onEtape?: (e: EvenementEtape) => void,
+) {
+  if (!onEtape) {
+    return invoke<{
+      ok: boolean;
+      url?: string;
+      moteur?: "seedream" | "proxy" | "inpaint";
+      erreur?: string;
+      motif?: string;
+    }>("nettoyer-test", { url });
+  }
+  const fin = await invokeNettoyageStream("nettoyer-test", { url }, onEtape);
+  return {
+    ok: fin.ok !== false && fin.statut === "ok",
+    url: fin.url,
+    moteur: fin.moteur,
+    erreur: fin.statut === "echec" ? fin.detail : undefined,
+    motif: fin.detail,
+  };
+}
 
 /** Visuels bruts (à texte) regroupés par compte de référence, pour l'écran de test. */
 export interface MediaTest {

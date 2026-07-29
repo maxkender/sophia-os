@@ -6,42 +6,56 @@ import { Sparkles } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardHeader, CardTitle, EmptyState } from "@/components/ui/card";
+import { NettoyageEtapes } from "@/components/moteur/NettoyageEtapes";
 import { executerEnLot } from "@/lib/lot";
 import { mediasBrutsParSource, nettoyerTest, type MediaTest } from "@/features/moteur/api";
+import {
+  appliquerEvenement,
+  etapesInitiales,
+  type EvenementEtape,
+} from "@/features/moteur/nettoyageEtapes";
 
-/** État d'un test pour une image : au repos, en cours, réussi (url) ou échoué. */
 type EtatTest =
   | { statut: "repos" }
-  | { statut: "encours" }
-  | { statut: "ok"; url: string; moteur?: "seedream" | "proxy" | "inpaint" }
-  | { statut: "echec"; erreur?: string };
+  | { statut: "encours"; etapes: EvenementEtape[] }
+  | {
+      statut: "ok";
+      url: string;
+      moteur?: "seedream" | "proxy" | "inpaint";
+      etapes: EvenementEtape[];
+    }
+  | { statut: "echec"; erreur?: string; etapes: EvenementEtape[] };
 
 const REPOS: EtatTest = { statut: "repos" };
 
-/** Borne le temps d'attente : le spinner ne doit jamais tourner indéfiniment,
- *  même si le nettoyage d'une image coince côté serveur. */
-function avecTimeout<T>(promesse: Promise<T>, ms: number): Promise<T> {
-  return Promise.race([
-    promesse,
-    new Promise<T>((_, rejeter) =>
-      setTimeout(() => rejeter(new Error("Trop long — réessaie.")), ms),
-    ),
-  ]);
-}
-
-/** Lance le nettoyage-test d'une image et renvoie son état final. */
-async function testerImage(media: MediaTest): Promise<EtatTest> {
+async function testerImage(
+  media: MediaTest,
+  onEtapes: (etapes: EvenementEtape[]) => void,
+): Promise<EtatTest> {
+  let etapes = etapesInitiales();
+  onEtapes(etapes);
   try {
-    const res = await avecTimeout(nettoyerTest(media.url), 130000);
-    if (res.ok && res.url) return { statut: "ok", url: res.url, moteur: res.moteur };
-    return { statut: "echec", erreur: res.erreur ?? res.motif };
+    const res = await nettoyerTest(media.url, (ev) => {
+      etapes = appliquerEvenement(etapes, ev);
+      onEtapes(etapes);
+    });
+    if (res.ok && res.url) {
+      return { statut: "ok", url: res.url, moteur: res.moteur, etapes };
+    }
+    return {
+      statut: "echec",
+      erreur: res.erreur ?? res.motif,
+      etapes,
+    };
   } catch (error) {
-    return { statut: "echec", erreur: (error as Error)?.message };
+    return {
+      statut: "echec",
+      erreur: (error as Error)?.message,
+      etapes,
+    };
   }
 }
 
-/** Vignette purement présentationnelle : origine, résultat, bouton. L'état et le
- *  déclenchement sont pilotés par le parent (pour le lot parallèle). */
 function CarteTest({
   media,
   etat,
@@ -68,9 +82,8 @@ function CarteTest({
             {t("testNet.apres")}
           </figcaption>
           {enCours ? (
-            <div className="flex aspect-[3/4] flex-col items-center justify-center gap-1 rounded border bg-muted/40 px-2 text-center text-[11px] text-muted-foreground">
-              <span>{t("testNet.enCours")}</span>
-              <span className="font-medium text-foreground">{t("testNet.moteurSeedream")}</span>
+            <div className="flex aspect-[3/4] flex-col justify-center gap-2 rounded border bg-muted/40 p-2">
+              <NettoyageEtapes etapes={etat.etapes} />
             </div>
           ) : etat.statut === "ok" ? (
             <img src={etat.url} alt="" className="aspect-[3/4] w-full rounded border object-cover" />
@@ -93,6 +106,10 @@ function CarteTest({
         {enCours ? t("testNet.enCours") : t("testNet.tester")}
       </Button>
 
+      {etat.statut !== "repos" && etat.statut !== "encours" && "etapes" in etat ? (
+        <NettoyageEtapes etapes={etat.etapes} />
+      ) : null}
+
       {etat.statut === "ok" && etat.moteur ? (
         <p className="text-[10px] text-muted-foreground">
           {etat.moteur === "seedream"
@@ -109,8 +126,6 @@ function CarteTest({
   );
 }
 
-/** Un compte de référence : sa grille de photos + un bouton « tout tester » qui
- *  lance plusieurs agents en parallèle. */
 function GroupeTest({ source, medias }: { source: string; medias: MediaTest[] }) {
   const { t } = useTranslation();
   const [etats, setEtats] = React.useState<Record<string, EtatTest>>({});
@@ -119,13 +134,20 @@ function GroupeTest({ source, medias }: { source: string; medias: MediaTest[] })
   const maj = (id: string, etat: EtatTest) => setEtats((e) => ({ ...e, [id]: etat }));
 
   async function lancerUn(media: MediaTest) {
-    maj(media.id, { statut: "encours" });
-    maj(media.id, await testerImage(media));
+    maj(media.id, { statut: "encours", etapes: etapesInitiales() });
+    const final = await testerImage(media, (etapes) => {
+      maj(media.id, { statut: "encours", etapes });
+    });
+    maj(media.id, final);
   }
 
   async function lancerTout() {
     setLot({ fait: 0, total: medias.length });
-    setEtats(Object.fromEntries(medias.map((m) => [m.id, { statut: "encours" } as EtatTest])));
+    setEtats(
+      Object.fromEntries(
+        medias.map((m) => [m.id, { statut: "encours", etapes: etapesInitiales() } as EtatTest]),
+      ),
+    );
     await executerEnLot(medias, lancerUn, {
       onProgres: (fait, total) => setLot({ fait, total }),
     });

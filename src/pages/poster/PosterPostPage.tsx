@@ -19,6 +19,7 @@ import JSZip from "jszip";
 import QRCode from "qrcode";
 
 import { useAuth } from "@/features/auth/AuthContext";
+import { NettoyageEtapes } from "@/components/moteur/NettoyageEtapes";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -34,6 +35,11 @@ import {
   renettoyerSlide,
   reordonnerSlides,
 } from "@/features/moteur/api";
+import {
+  appliquerEvenement,
+  etapesInitiales,
+  type EvenementEtape,
+} from "@/features/moteur/nettoyageEtapes";
 import {
   partagerFichiers,
   peutPartager,
@@ -201,6 +207,7 @@ function ControlesAdminSlide({
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const [picker, setPicker] = React.useState(false);
+  const [etapes, setEtapes] = React.useState<EvenementEtape[] | null>(null);
   const rafraichir = () => {
     queryClient.invalidateQueries({ queryKey: ["slides", postId] });
     queryClient.invalidateQueries({ queryKey: ["fichiers", postId] });
@@ -211,7 +218,18 @@ function ControlesAdminSlide({
     queryFn: () => listerMedias(compteReferenceId ?? undefined),
     enabled: picker && Boolean(compteReferenceId),
   });
-  const renettoyer = useMutation({ mutationFn: () => renettoyerSlide(slide.id), onSuccess: rafraichir });
+  const renettoyer = useMutation({
+    mutationFn: () => {
+      setEtapes(etapesInitiales());
+      return renettoyerSlide(slide.id, (ev) => {
+        setEtapes((prev) => appliquerEvenement(prev ?? etapesInitiales(), ev));
+      });
+    },
+    onSuccess: () => {
+      setEtapes(null);
+      rafraichir();
+    },
+  });
   const remplacer = useMutation({
     mutationFn: (mediaId: string) => majMediaSlide(slide.id, mediaId),
     onSuccess: () => {
@@ -241,6 +259,10 @@ function ControlesAdminSlide({
           {remplacer.isPending ? t("common.saving") : t("adminPost.remplacerPhoto")}
         </Button>
       </div>
+
+      {etapes && (renettoyer.isPending || renettoyer.isError) ? (
+        <NettoyageEtapes etapes={etapes} className="mt-2 rounded border bg-muted/30 p-2" />
+      ) : null}
 
       {renettoyer.data && !renettoyer.data.nettoyee && !renettoyer.data.remplacee && (
         <p className="mt-2 text-xs text-destructive">

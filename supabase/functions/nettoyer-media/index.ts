@@ -1,4 +1,5 @@
-import { cleanImage, verifyClean } from "../_shared/gemini.ts";
+import { cleanImage, verifyClean, type EvenementEtape } from "../_shared/gemini.ts";
+import { reponseNdjson, veutStream } from "../_shared/nettoyage_etapes.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 const BUCKET = "medias";
@@ -6,12 +7,7 @@ const BUCKET = "medias";
 /**
  * Nettoie une photo de la bibliothèque à la demande de l'admin, en place.
  *
- * On part de l'URL actuelle du média (pour un `brut/…`, c'est l'original avec
- * son texte) et on écrit le résultat vérifié dans `propre/…`. La MÊME ligne
- * bascule alors de brut à propre : toutes les slides qui la pointaient reçoivent
- * la version nettoyée sans autre manipulation.
- *
- *   { mediaId }
+ *   { mediaId, stream?: true }
  */
 Deno.serve(async (request) => {
   const denied = await assertAuthorised(request);
@@ -19,41 +15,61 @@ Deno.serve(async (request) => {
 
   const supabase = serviceClient();
 
-  let mediaId: string | null = null;
+  let corps: { mediaId?: string; stream?: boolean } = {};
   try {
-    mediaId = (await request.json())?.mediaId ?? null;
+    corps = await request.json();
   } catch {
     // corps vide
   }
+  const mediaId = corps.mediaId ?? null;
   if (!mediaId) return json({ error: "mediaId requis" }, 400);
 
-  try {
+  const stream = veutStream(request, corps);
+
+  const executer = async (
+    emit?: (e: Record<string, unknown>) => void,
+  ) => {
     const { data: media } = await supabase
       .from("media_library")
       .select("id, url, storage_path, texte_restant")
       .eq("id", mediaId)
       .single();
-    if (!media) return json({ error: "média introuvable" }, 404);
+    if (!media) {
+      emit?.({ etape: "ready", statut: "echec", detail: "média introuvable" });
+      return { ok: false as const, nettoyee: false, motif: "média introuvable" };
+    }
 
-    // « Déjà nettoyée » SAUF si l'audit a signalé du texte restant : dans ce
-    // cas on la re-nettoie vraiment.
     if (media.storage_path.startsWith("propre/") && !media.texte_restant) {
-      return json({ ok: true, nettoyee: true, note: "déjà nettoyée" });
+      emit?.({ etape: "ready", statut: "ok", detail: "déjà nettoyée", ok: true });
+      return { ok: true as const, nettoyee: true, note: "déjà nettoyée" };
     }
 
-    const propre = await cleanImage(media.url);
-    if (!propre) return json({ ok: false, nettoyee: false, motif: "aucune image renvoyée" });
-    // Le proxy renvoie parfois l'image non nettoyée en disant « réussi » : on
-    // vérifie qu'il n'y a plus de texte avant de la marquer propre.
-    if (!(await verifyClean(propre.base64, "image/png"))) {
-      return json({ ok: false, nettoyee: false, motif: "texte encore présent après nettoyage" });
+    const onEtape = emit ? (e: EvenementEtape) => emit(e) : undefined;
+    const propre = await cleanImage(media.url, onEtape);
+    if (!propre) {
+      emit?.({ etape: "ready", statut: "echec", detail: "aucune image renvoyée" });
+      return { ok: false as const, nettoyee: false, motif: "aucune image renvoyée" };
+    }
+    if (!(await verifyClean(propre.base64, propre.mime))) {
+      emit?.({
+        etape: "ready",
+        statut: "echec",
+        detail: "texte encore présent après nettoyage",
+      });
+      return {
+        ok: false as const,
+        nettoyee: false,
+        motif: "texte encore présent après nettoyage",
+        etapes: propre.etapes,
+      };
     }
 
-    const path = `propre/manuel/${media.id}.png`;
+    const ext = propre.mime === "image/jpeg" ? "jpg" : "png";
+    const path = `propre/manuel/${media.id}.${ext}`;
     const bytes = Uint8Array.from(atob(propre.base64), (c) => c.charCodeAt(0));
     const { error: upErr } = await supabase.storage
       .from(BUCKET)
-      .upload(path, bytes, { contentType: "image/png", upsert: true });
+      .upload(path, bytes, { contentType: propre.mime, upsert: true });
     if (upErr) throw upErr;
 
     const url = supabase.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
@@ -69,7 +85,31 @@ Deno.serve(async (request) => {
       .eq("id", media.id);
     if (majErr) throw majErr;
 
-    return json({ ok: true, nettoyee: true, url, moteur: propre.moteur });
+    emit?.({
+      etape: "ready",
+      statut: "ok",
+      ok: true,
+      nettoyee: true,
+      url,
+      moteur: propre.moteur,
+    });
+    return {
+      ok: true as const,
+      nettoyee: true,
+      url,
+      moteur: propre.moteur,
+      etapes: propre.etapes,
+    };
+  };
+
+  if (stream) {
+    return reponseNdjson(async (emit) => {
+      await executer(emit);
+    });
+  }
+
+  try {
+    return json(await executer());
   } catch (error) {
     return json({ ok: false, nettoyee: false, erreur: messageErreur(error) }, 500);
   }

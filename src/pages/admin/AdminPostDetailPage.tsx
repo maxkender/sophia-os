@@ -10,6 +10,7 @@ import { Progress } from "@/components/ui/progress";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { executerEnLot } from "@/lib/lot";
+import { NettoyageEtapes } from "@/components/moteur/NettoyageEtapes";
 import {
   apercuSujet,
   avancerUnPost,
@@ -25,6 +26,11 @@ import {
   revoquerPost,
   supprimerSlide,
 } from "@/features/moteur/api";
+import {
+  appliquerEvenement,
+  etapesInitiales,
+  type EvenementEtape,
+} from "@/features/moteur/nettoyageEtapes";
 import { supabase } from "@/lib/supabase/client";
 import type { Media, PostSlide } from "@/features/moteur/types";
 
@@ -89,18 +95,23 @@ function SlideAdmin({
   slide,
   postId,
   compteReferenceId,
+  etapesLot,
 }: {
   slide: PostSlide;
   postId: string;
   compteReferenceId: string | null;
+  /** Timeline fournie par un nettoyage en lot (sinon locale). */
+  etapesLot?: EvenementEtape[] | null;
 }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const [texte, setTexte] = React.useState(slide.texte_overlay ?? "");
   const [picker, setPicker] = React.useState(false);
+  const [etapesLocales, setEtapesLocales] = React.useState<EvenementEtape[] | null>(null);
 
   const rafraichir = () => queryClient.invalidateQueries({ queryKey: ["slides", postId] });
   const texteModifie = texte !== (slide.texte_overlay ?? "");
+  const etapes = etapesLocales ?? etapesLot ?? null;
 
   const bibliotheque = useQuery({
     queryKey: ["medias", compteReferenceId],
@@ -113,8 +124,16 @@ function SlideAdmin({
     onSuccess: rafraichir,
   });
   const renettoyer = useMutation({
-    mutationFn: () => renettoyerSlide(slide.id),
-    onSuccess: rafraichir,
+    mutationFn: () => {
+      setEtapesLocales(etapesInitiales());
+      return renettoyerSlide(slide.id, (ev) => {
+        setEtapesLocales((prev) => appliquerEvenement(prev ?? etapesInitiales(), ev));
+      });
+    },
+    onSuccess: () => {
+      setEtapesLocales(null);
+      rafraichir();
+    },
   });
   const remplacer = useMutation({
     mutationFn: (mediaId: string) => majMediaSlide(slide.id, mediaId),
@@ -180,11 +199,13 @@ function SlideAdmin({
           <Button
             size="sm"
             variant="outline"
-            disabled={renettoyer.isPending}
+            disabled={renettoyer.isPending || Boolean(etapesLot)}
             onClick={() => renettoyer.mutate()}
           >
             <Sparkles />
-            {renettoyer.isPending ? t("adminPost.nettoyageEnCours") : t("adminPost.renettoyer")}
+            {renettoyer.isPending || etapesLot
+              ? t("adminPost.nettoyageEnCours")
+              : t("adminPost.renettoyer")}
           </Button>
 
           <Button
@@ -225,6 +246,10 @@ function SlideAdmin({
             {t("adminPost.supprimerSlide")}
           </Button>
         </div>
+
+        {etapes && (renettoyer.isPending || renettoyer.isError || etapesLot) ? (
+          <NettoyageEtapes etapes={etapes} className="rounded border bg-muted/30 p-2" />
+        ) : null}
 
         {picker && (
           <SelecteurBibliotheque
@@ -277,6 +302,7 @@ export function AdminPostDetailPage() {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const [lot, setLot] = React.useState<{ fait: number; total: number } | null>(null);
+  const [etapesLot, setEtapesLot] = React.useState<Record<string, EvenementEtape[]>>({});
   const [revoq, setRevoq] = React.useState<string | null>(null);
 
   /**
@@ -403,10 +429,24 @@ export function AdminPostDetailPage() {
   async function nettoyerTout() {
     const aFaire = liste.filter((s) => !estPropre(s));
     setLot({ fait: 0, total: aFaire.length });
-    await executerEnLot(aFaire, (slide) => renettoyerSlide(slide.id), {
-      onProgres: (fait, total) => setLot({ fait, total }),
-    });
+    setEtapesLot(
+      Object.fromEntries(aFaire.map((s) => [s.id, etapesInitiales()])),
+    );
+    await executerEnLot(
+      aFaire,
+      (slide) =>
+        renettoyerSlide(slide.id, (ev) => {
+          setEtapesLot((prev) => ({
+            ...prev,
+            [slide.id]: appliquerEvenement(prev[slide.id] ?? etapesInitiales(), ev),
+          }));
+        }),
+      {
+        onProgres: (fait, total) => setLot({ fait, total }),
+      },
+    );
     setLot(null);
+    setEtapesLot({});
     queryClient.invalidateQueries({ queryKey: ["slides", id] });
   }
 
@@ -562,6 +602,7 @@ export function AdminPostDetailPage() {
           slide={slide}
           postId={id!}
           compteReferenceId={refId.data ?? null}
+          etapesLot={etapesLot[slide.id] ?? null}
         />
       ))}
     </div>

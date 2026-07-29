@@ -15,12 +15,18 @@ import {
   CardTitle,
   EmptyState,
 } from "@/components/ui/card";
+import { NettoyageEtapes } from "@/components/moteur/NettoyageEtapes";
 import {
   listerMedias,
   listerSources,
   nettoyerMedia,
   supprimerMedia,
 } from "@/features/moteur/api";
+import {
+  appliquerEvenement,
+  etapesInitiales,
+  type EvenementEtape,
+} from "@/features/moteur/nettoyageEtapes";
 import type { Media } from "@/features/moteur/types";
 
 const selectClass =
@@ -36,16 +42,34 @@ function VignetteMedia({
   onChange,
   selectionne,
   onToggle,
+  etapesLot,
 }: {
   media: Media;
   onChange: () => void;
   selectionne: boolean;
   onToggle: () => void;
+  etapesLot?: EvenementEtape[] | null;
 }) {
   const { t } = useTranslation();
   const propre = estPropre(media);
+  const [etapesLocales, setEtapesLocales] = React.useState<EvenementEtape[] | null>(null);
+  const etapes = etapesLocales ?? etapesLot ?? null;
 
-  const nettoyer = useMutation({ mutationFn: () => nettoyerMedia(media.id), onSuccess: onChange });
+  const nettoyer = useMutation({
+    mutationFn: () => {
+      setEtapesLocales(etapesInitiales());
+      return nettoyerMedia(media.id, (ev) => {
+        setEtapesLocales((prev) => appliquerEvenement(prev ?? etapesInitiales(), ev));
+      });
+    },
+    onSuccess: () => {
+      setEtapesLocales(null);
+      onChange();
+    },
+    onError: () => {
+      /* garde la timeline pour voir l'échec */
+    },
+  });
   const supprimer = useMutation({ mutationFn: () => supprimerMedia(media.id), onSuccess: onChange });
 
   return (
@@ -93,17 +117,23 @@ function VignetteMedia({
         )}
       </div>
 
+      {etapes && (nettoyer.isPending || nettoyer.isError || etapesLot) ? (
+        <NettoyageEtapes etapes={etapes} className="rounded border bg-muted/30 p-1.5" />
+      ) : null}
+
       <div className="flex gap-1">
         {!propre && (
           <Button
             size="sm"
             variant="outline"
             className="h-7 flex-1 px-2 text-xs"
-            disabled={nettoyer.isPending}
+            disabled={nettoyer.isPending || Boolean(etapesLot)}
             onClick={() => nettoyer.mutate()}
           >
             <Sparkles className="size-3" />
-            {nettoyer.isPending ? t("bibliotheque.nettoyageEnCours") : t("bibliotheque.nettoyer")}
+            {nettoyer.isPending || etapesLot
+              ? t("bibliotheque.nettoyageEnCours")
+              : t("bibliotheque.nettoyer")}
           </Button>
         )}
         <Button
@@ -131,6 +161,7 @@ export function AdminBibliothequePage() {
   const queryClient = useQueryClient();
   const [sourceId, setSourceId] = React.useState("");
   const [lot, setLot] = React.useState<{ fait: number; total: number } | null>(null);
+  const [etapesLot, setEtapesLot] = React.useState<Record<string, EvenementEtape[]>>({});
   const [selection, setSelection] = React.useState<Set<string>>(new Set());
   const [suppr, setSuppr] = React.useState<{ fait: number; total: number } | null>(null);
 
@@ -157,10 +188,24 @@ export function AdminBibliothequePage() {
   /** Nettoie tous les visuels à texte via un pool d'agents parallèles. */
   async function nettoyerTout() {
     setLot({ fait: 0, total: aNettoyerListe.length });
-    await executerEnLot(aNettoyerListe, (media) => nettoyerMedia(media.id), {
-      onProgres: (fait, total) => setLot({ fait, total }),
-    });
+    setEtapesLot(
+      Object.fromEntries(aNettoyerListe.map((m) => [m.id, etapesInitiales()])),
+    );
+    await executerEnLot(
+      aNettoyerListe,
+      (media) =>
+        nettoyerMedia(media.id, (ev) => {
+          setEtapesLot((prev) => ({
+            ...prev,
+            [media.id]: appliquerEvenement(prev[media.id] ?? etapesInitiales(), ev),
+          }));
+        }),
+      {
+        onProgres: (fait, total) => setLot({ fait, total }),
+      },
+    );
     setLot(null);
+    setEtapesLot({});
     rafraichir();
   }
 
@@ -200,11 +245,7 @@ export function AdminBibliothequePage() {
           )}
         </div>
         {lot && (
-          <p className="pt-1 text-xs text-muted-foreground">
-            <span className="font-medium text-foreground">{t("testNet.moteurSeedream")}</span>
-            {" — "}
-            {t("adminPost.lotAide")}
-          </p>
+          <p className="pt-1 text-xs text-muted-foreground">{t("adminPost.lotAide")}</p>
         )}
       </CardHeader>
       <CardContent className="space-y-4">
@@ -266,6 +307,7 @@ export function AdminBibliothequePage() {
               onChange={rafraichir}
               selectionne={selection.has(media.id)}
               onToggle={() => basculer(media.id)}
+              etapesLot={etapesLot[media.id] ?? null}
             />
           ))}
         </div>

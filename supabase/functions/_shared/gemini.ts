@@ -3,6 +3,7 @@ import { messageErreur } from "./supabase.ts";
 import { dimensionsImage, effacerTexte, type Zone } from "./inpaint.ts";
 import { nettoyerViaSeedream } from "./fal_seedream.ts";
 import { nettoyerViaProxy } from "./proxy.ts";
+import { retirerContentCredentials } from "./c2pa.ts";
 
 const BASE = "https://generativelanguage.googleapis.com/v1beta/models";
 
@@ -590,61 +591,153 @@ async function luminanceMoyenne(bytes: Uint8Array): Promise<number | null> {
 /** Moteur effectivement utilisé pour un nettoyage réussi. */
 export type MoteurNettoyage = "seedream" | "proxy" | "inpaint";
 
+/** Identifiants d'étapes exposés au front (timeline de chargement). */
+export type EtapeNettoyageId = "seedream" | "proxy" | "inpaint" | "c2pa" | "ready";
+
+export interface EvenementEtape {
+  etape: EtapeNettoyageId;
+  statut: "encours" | "ok" | "echec" | "saute";
+  detail?: string;
+}
+
 export interface ImageNettoyee {
   base64: string;
   moteur: MoteurNettoyage;
+  mime: string;
+  etapes: EvenementEtape[];
 }
 
+export type OnEtapeNettoyage = (e: EvenementEtape) => void | Promise<void>;
+
 /**
- * Nettoyage pour le recyclage :
+ * Nettoyage :
  *  1. Seedream (prompt : keep the photo, only get rid of the text overlay)
  *  2. Proxy Lovable
- *  3. LaMa inpaint (Replicate) — pas de modération, sauve les photos refusées
- *     par le checker partenaire ByteDance
+ *  3. LaMa inpaint (Replicate)
+ *  4. Retrait Content Credentials (C2PA)
  *
- * Toute sortie noire/dégénérée est rejetée ; on enchaîne sur le repli suivant.
+ * `onEtape` permet au front de tracer le déroulé en direct (stream NDJSON).
  */
-export async function cleanImage(imageUrl: string): Promise<ImageNettoyee | null> {
+export async function cleanImage(
+  imageUrl: string,
+  onEtape?: OnEtapeNettoyage,
+): Promise<ImageNettoyee | null> {
+  const etapes: EvenementEtape[] = [];
+  const emit = async (e: EvenementEtape) => {
+    etapes.push(e);
+    await onEtape?.(e);
+  };
+
+  let base64: string | null = null;
+  let moteur: MoteurNettoyage | null = null;
+
+  await emit({ etape: "seedream", statut: "encours" });
   try {
     const parSeedream = await nettoyerViaSeedream(imageUrl);
     if (parSeedream && !(await sembleDegeneree(parSeedream))) {
-      return { base64: parSeedream, moteur: "seedream" };
-    }
-    if (parSeedream) {
-      console.warn("[cleanImage] Seedream noir/dégénéré — repli suivant");
+      base64 = parSeedream;
+      moteur = "seedream";
+      await emit({ etape: "seedream", statut: "ok" });
+    } else if (parSeedream) {
+      await emit({
+        etape: "seedream",
+        statut: "echec",
+        detail: "sortie noire / dégénérée",
+      });
+    } else {
+      await emit({ etape: "seedream", statut: "saute", detail: "FAL_KEY absent" });
     }
   } catch (error) {
-    console.warn(`[cleanImage] Seedream échec — repli suivant: ${messageErreur(error)}`);
+    await emit({ etape: "seedream", statut: "echec", detail: messageErreur(error) });
   }
 
+  if (!base64) {
+    await emit({ etape: "proxy", statut: "encours" });
+    try {
+      const parProxy = await nettoyerViaProxy(imageUrl);
+      if (parProxy && !(await sembleDegeneree(parProxy))) {
+        base64 = parProxy;
+        moteur = "proxy";
+        await emit({ etape: "proxy", statut: "ok" });
+      } else if (parProxy) {
+        await emit({
+          etape: "proxy",
+          statut: "echec",
+          detail: "sortie noire / dégénérée",
+        });
+      } else {
+        await emit({
+          etape: "proxy",
+          statut: "saute",
+          detail: "CLEAN_PHOTO_PROXY_TOKEN absent",
+        });
+      }
+    } catch (error) {
+      await emit({ etape: "proxy", statut: "echec", detail: messageErreur(error) });
+    }
+  } else {
+    await emit({ etape: "proxy", statut: "saute", detail: "Seedream OK" });
+  }
+
+  if (!base64) {
+    await emit({ etape: "inpaint", statut: "encours" });
+    try {
+      const image = await fetchImageAsInline(imageUrl);
+      const parInpaint = await inpaintFallback(image, imageUrl);
+      if (parInpaint && !(await sembleDegeneree(parInpaint))) {
+        base64 = parInpaint;
+        moteur = "inpaint";
+        await emit({ etape: "inpaint", statut: "ok" });
+      } else if (parInpaint) {
+        await emit({
+          etape: "inpaint",
+          statut: "echec",
+          detail: "sortie noire / dégénérée",
+        });
+      } else {
+        await emit({ etape: "inpaint", statut: "echec", detail: "aucune zone / échec" });
+      }
+    } catch (error) {
+      await emit({ etape: "inpaint", statut: "echec", detail: messageErreur(error) });
+    }
+  } else {
+    await emit({ etape: "inpaint", statut: "saute", detail: "étape précédente OK" });
+  }
+
+  if (!base64 || !moteur) {
+    await emit({
+      etape: "ready",
+      statut: "echec",
+      detail: "Seedream/proxy/inpaint indisponibles ou sorties noires",
+    });
+    throw new RefusRetouche(
+      "nettoyage: Seedream/proxy/inpaint indisponibles ou sorties noires",
+    );
+  }
+
+  await emit({ etape: "c2pa", statut: "encours", detail: "Content Credentials" });
   try {
-    const parProxy = await nettoyerViaProxy(imageUrl);
-    if (parProxy && !(await sembleDegeneree(parProxy))) {
-      return { base64: parProxy, moteur: "proxy" };
-    }
-    if (parProxy) {
-      console.warn("[cleanImage] proxy noir/dégénéré — repli inpaint");
-    }
+    const stripped = await retirerContentCredentials(base64);
+    base64 = stripped.base64;
+    await emit({
+      etape: "c2pa",
+      statut: "ok",
+      detail: stripped.retire
+        ? "Content Credentials retirées"
+        : "pas de Content Credentials détectées",
+    });
+    // `ready` est émis par l'edge function après upload / persistance.
+    return { base64, moteur, mime: stripped.mime, etapes };
   } catch (error) {
-    console.warn(`[cleanImage] proxy échec — repli inpaint: ${messageErreur(error)}`);
+    await emit({ etape: "c2pa", statut: "echec", detail: messageErreur(error) });
+    // On livre quand même l'image nettoyée ; le caller pourra marquer ready.
+    return {
+      base64,
+      moteur,
+      mime: "image/jpeg",
+      etapes,
+    };
   }
-
-  try {
-    const image = await fetchImageAsInline(imageUrl);
-    const parInpaint = await inpaintFallback(image, imageUrl);
-    if (parInpaint && !(await sembleDegeneree(parInpaint))) {
-      return { base64: parInpaint, moteur: "inpaint" };
-    }
-    if (parInpaint) {
-      console.warn("[cleanImage] inpaint noir/dégénéré");
-    }
-  } catch (error) {
-    console.warn(`[cleanImage] inpaint échec: ${messageErreur(error)}`);
-  }
-
-  throw new RefusRetouche(
-    "nettoyage: Seedream/proxy/inpaint indisponibles ou sorties noires",
-  );
 }
 
 /**

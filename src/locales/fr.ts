@@ -474,7 +474,7 @@ export const fr = {
       aNettoyer: "À nettoyer",
       texteRestant: "Texte présent",
       nettoyer: "Nettoyer",
-      nettoyageEnCours: "Nettoyage Seedream…",
+      nettoyageEnCours: "Nettoyage en cours…",
       nettoyageEchec:
         "Le nettoyage Seedream n'a pas abouti (Fal saturé, ou image trop chargée en texte). Réessaie, ou supprime la photo.",
       confirmSuppr: "Supprimer cette photo de la bibliothèque ?",
@@ -739,19 +739,26 @@ export const fr = {
     testNet: {
       title: "Test du nettoyage",
       subtitle:
-        "Photos non nettoyées de chaque compte. Clique « Tester » pour voir le rendu Seedream (Fal), sans rien modifier. « Tout tester » enchaîne le lot 2 par 2.",
+        "Photos non nettoyées de chaque compte. Clique « Tester » pour suivre chaque étape (Seedream → proxy → inpaint → Content Credentials), sans rien modifier.",
       vide: "Aucune photo à texte à tester — tout est déjà nettoyé.",
       avant: "Avant",
       apres: "Après",
-      tester: "Tester Seedream",
+      tester: "Tester le nettoyage",
       toutTester: "Tout tester",
-      enCours: "Seedream en cours…",
+      enCours: "Nettoyage…",
       moteurSeedream: "Fal · Seedream 5.0",
       viaSeedream: "Nettoyé via Seedream (Fal)",
       viaProxy: "Nettoyé via proxy (repli)",
       viaInpaint: "Nettoyé via LaMa inpaint (repli)",
       pasEncore: "Clique « Tester »",
       echec: "Échec — voir le message",
+    },
+    nettoyageEtapes: {
+      seedream: "Seedream",
+      proxy: "Proxy",
+      inpaint: "Inpaint LaMa",
+      c2pa: "Content Credentials",
+      ready: "Ready",
     },
     adminCal: {
       legende:
@@ -768,7 +775,7 @@ export const fr = {
       texteRestant: "Texte non retiré",
       renettoyer: "Re-nettoyer la photo",
       outilsAdmin: "Outils admin",
-      nettoyageEnCours: "Nettoyage Seedream…",
+      nettoyageEnCours: "Nettoyage en cours…",
       nettoyageEchec:
         "Le nettoyage Seedream n'a pas abouti sur cette photo (Fal saturé, ou texte trop dense). Réessaie, ou remplace-la.",
       nettoyageTexteResiduel: "Nettoyée, mais du texte semble subsister — revérifie.",
@@ -777,7 +784,8 @@ export const fr = {
       nettoyerTout_one: "Nettoyer la photo à vérifier",
       nettoyerTout_other: "Nettoyer les {{count}} photos à vérifier",
       lotEnCours: "Seedream… {{fait}}/{{total}}",
-      lotAide: "Chaque photo passe par Seedream (Fal) ; ~1 min / image, 3 en parallèle. Tu peux laisser tourner.",
+      lotAide:
+        "Chaque photo : Seedream → proxy → inpaint → retrait Content Credentials ; ~1 min / image, 3 en parallèle.",
       choisirBiblio: "Choisir une photo de la bibliothèque du compte",
       biblioVide: "Aucune photo dans la bibliothèque de ce compte.",
       retirerPhoto: "Retirer la photo",

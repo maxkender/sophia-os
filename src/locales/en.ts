@@ -474,7 +474,7 @@ export const en = {
       aNettoyer: "To clean",
       texteRestant: "Text present",
       nettoyer: "Clean",
-      nettoyageEnCours: "Seedream cleaning…",
+      nettoyageEnCours: "Cleaning in progress…",
       nettoyageEchec:
         "Seedream cleaning didn't succeed (Fal overloaded, or image too text-heavy). Retry, or delete the photo.",
       confirmSuppr: "Delete this photo from the library?",
@@ -739,19 +739,26 @@ export const en = {
     testNet: {
       title: "Cleaning test",
       subtitle:
-        "Uncleaned photos from each account. Click \"Test\" to see the Seedream (Fal) result, without changing anything. \"Test all\" runs the batch 2 by 2.",
+        "Uncleaned photos from each account. Click \"Test\" to follow each step (Seedream → proxy → inpaint → Content Credentials), without changing anything.",
       vide: "No text photo to test — everything is already cleaned.",
       avant: "Before",
       apres: "After",
-      tester: "Test Seedream",
+      tester: "Test cleaning",
       toutTester: "Test all",
-      enCours: "Seedream running…",
+      enCours: "Cleaning…",
       moteurSeedream: "Fal · Seedream 5.0",
       viaSeedream: "Cleaned via Seedream (Fal)",
       viaProxy: "Cleaned via proxy (fallback)",
       viaInpaint: "Cleaned via LaMa inpaint (fallback)",
       pasEncore: "Click \"Test\"",
       echec: "Failed — see the message",
+    },
+    nettoyageEtapes: {
+      seedream: "Seedream",
+      proxy: "Proxy",
+      inpaint: "LaMa inpaint",
+      c2pa: "Content Credentials",
+      ready: "Ready",
     },
     adminCal: {
       legende:
@@ -768,7 +775,7 @@ export const en = {
       texteRestant: "Text not removed",
       renettoyer: "Re-clean the photo",
       outilsAdmin: "Admin tools",
-      nettoyageEnCours: "Seedream cleaning…",
+      nettoyageEnCours: "Cleaning in progress…",
       nettoyageEchec:
         "Seedream cleaning didn't succeed on this photo (Fal overloaded, or text too dense). Retry, or replace it.",
       nettoyageTexteResiduel: "Cleaned, but some text seems to remain — check again.",
@@ -777,7 +784,8 @@ export const en = {
       nettoyerTout_one: "Clean the photo to check",
       nettoyerTout_other: "Clean the {{count}} photos to check",
       lotEnCours: "Seedream… {{fait}}/{{total}}",
-      lotAide: "Each photo goes through Seedream (Fal); ~1 min / image, 3 in parallel. You can let it run.",
+      lotAide:
+        "Each photo: Seedream → proxy → inpaint → Content Credentials removal; ~1 min / image, 3 in parallel.",
       choisirBiblio: "Choose a photo from the account's library",
       biblioVide: "No photo in this account's library.",
       retirerPhoto: "Remove the photo",

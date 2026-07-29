@@ -259,12 +259,17 @@ function kickWorkers(request: Request, n: number): void {
   else if (auth) headers.Authorization = auth;
 
   const target = `${url}/functions/v1/import-contenu`;
+  const edge = (globalThis as {
+    EdgeRuntime?: { waitUntil: (p: Promise<unknown>) => void };
+  }).EdgeRuntime;
+
   for (let i = 0; i < Math.max(1, n); i += 1) {
-    void fetch(target, {
+    const p = fetch(target, {
       method: "POST",
       headers,
       body: JSON.stringify({ worker: true }),
     }).catch(() => null);
+    if (edge?.waitUntil) edge.waitUntil(p);
   }
 }
 

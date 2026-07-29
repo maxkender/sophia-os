@@ -45,51 +45,49 @@ create policy import_file_admin on public.import_file
 grant select, insert, update, delete on public.import_file to authenticated;
 grant all on public.import_file to service_role;
 
--- Active les drains (secret repris du cron preparation-nuit existant).
+-- Active les drains : clone le command de preparation-nuit (évite d’injecter
+-- le secret en clair dans le SQL — WAF Cloudflare bloque souvent ça).
 do $$
 declare
-  secret text;
-  base_url text := 'https://mbikecieskoobeizixig.supabase.co/functions/v1/import-contenu';
+  template text;
+  cmd text;
   i int;
   jobname text;
-  cmd text;
 begin
-  select (regexp_match(command, '''x-cron-secret'',''([^'']+)'''))[1]
-    into secret
-  from cron.job
-  where jobname = 'preparation-nuit'
+  select c.command into template
+  from cron.job c
+  where c.jobname = 'preparation-nuit'
   limit 1;
 
-  if secret is null then
-    raise notice 'import_file: secret cron introuvable — schedule manuelle requise';
+  if template is null or position('x-cron-secret' in template) = 0 then
+    raise notice 'import_file: cron template preparation-nuit introuvable — schedule manuelle requise';
     return;
   end if;
 
-  -- Nettoie d'éventuels anciens jobs
   for jobname in
     select j.jobname from cron.job j where j.jobname like 'import-contenu-drain%'
   loop
-    perform cron.unschedule(jobname);
+    begin
+      perform cron.unschedule(jobname);
+    exception when others then
+      null;
+    end;
   end loop;
 
-  -- 12 workers chaque minute = parallélisation agressive (scrape + pipeline).
+  -- 12 workers / minute = parallélisation agressive (scrape + pipeline).
   for i in 1..12 loop
     jobname := format('import-contenu-drain-%s', i);
-    cmd := format(
-      $job$
-      select net.http_post(
-        url := %L,
-        headers := jsonb_build_object(
-          'content-type', 'application/json',
-          'x-cron-secret', %L
-        ),
-        body := '{"worker":true}'::jsonb,
-        timeout_milliseconds := 140000
-      );
-      $job$,
-      base_url,
-      secret
+    cmd := replace(template, 'preparation-nuit', 'import-contenu');
+    cmd := regexp_replace(
+      cmd,
+      $$body\s*:=\s*'[^']*'::jsonb$$,
+      $$body := '{"worker":true}'::jsonb$$,
+      'i'
     );
+    if position('import-contenu' in cmd) = 0 then
+      raise notice 'import_file: remplacement URL échoué pour %', jobname;
+      continue;
+    end if;
     perform cron.schedule(jobname, '* * * * *', cmd);
   end loop;
 end $$;

@@ -148,15 +148,20 @@ export async function creerSource(input: {
   parent_id?: string | null;
   /** Genre hérité du principal (les conjoints partagent le même genre). */
   genre?: "homme" | "femme";
-}): Promise<void> {
-  const { error } = await supabase.from("comptes_reference").insert({
-    handle_tiktok: input.handle.trim().replace(/^@/, ""),
-    niche: input.niche.trim() || null,
-    langue: input.langue,
-    parent_id: input.parent_id ?? null,
-    ...(input.genre ? { genre: input.genre } : {}),
-  });
+}): Promise<CompteReference> {
+  const { data, error } = await supabase
+    .from("comptes_reference")
+    .insert({
+      handle_tiktok: input.handle.trim().replace(/^@/, ""),
+      niche: input.niche.trim() || null,
+      langue: input.langue,
+      parent_id: input.parent_id ?? null,
+      ...(input.genre ? { genre: input.genre } : {}),
+    })
+    .select()
+    .single();
   if (error) throw error;
+  return data as CompteReference;
 }
 
 /** Stock de slideshows reproductibles PAR source (compte de référence). Le front
@@ -1134,6 +1139,28 @@ export const lancerImportContenu = (contenuId?: string) =>
   invoke<{ ok: boolean; contenuId?: string; etape?: string; idle?: boolean }>("import-contenu", {
     contenuId: contenuId ?? null,
   });
+
+/** Avance le pipeline d'import d'un contenu sur plusieurs pas. */
+export async function avancerImportContenuPlusieursPas(
+  contenuId: string,
+  maxPas = 8,
+): Promise<string | undefined> {
+  let derniere: string | undefined;
+  for (let i = 0; i < maxPas; i += 1) {
+    const r = await lancerImportContenu(contenuId).catch(() => null);
+    if (!r) break;
+    derniere = r.etape;
+    if (
+      r.idle ||
+      r.etape === "done" ||
+      r.etape === "rejete" ||
+      r.etape === "elo_insuffisant"
+    ) {
+      break;
+    }
+  }
+  return derniere;
+}
 
 /** Import v-next d'un TikTok isolé (labels optionnels) → contenu en file de pré-calcul. */
 export const importerContenuDepuisLien = (

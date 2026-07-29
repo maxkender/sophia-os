@@ -3,7 +3,6 @@ import { Check, Loader2, Minus, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import type { EvenementEtape, EtapeNettoyageId } from "@/features/moteur/nettoyageEtapes";
-import { ORDRE_ETAPES } from "@/features/moteur/nettoyageEtapes";
 
 const LABEL_KEY: Record<EtapeNettoyageId, string> = {
   text_removal: "nettoyageEtapes.textRemoval",
@@ -25,7 +24,7 @@ function Icone({ statut }: { statut: EvenementEtape["statut"] }) {
   return <Minus className="size-3 text-muted-foreground/50" />;
 }
 
-/** Timeline compacte du nettoyage (text-removal → … → C2PA → ready). */
+/** Timeline compacte du nettoyage — ordre = celui des `etapes` (Fal/Replicate selon réglage). */
 export function NettoyageEtapes({
   etapes,
   className,
@@ -34,37 +33,33 @@ export function NettoyageEtapes({
   className?: string;
 }) {
   const { t } = useTranslation();
-  const parId = new Map(etapes.map((e) => [e.etape, e]));
 
   return (
     <ol className={cn("space-y-1 text-[10px] leading-snug", className)}>
-      {ORDRE_ETAPES.map((id) => {
-        const e = parId.get(id) ?? { etape: id, statut: "attente" as const };
-        return (
-          <li key={id} className="flex items-start gap-1.5">
-            <span className="mt-0.5 shrink-0">
-              <Icone statut={e.statut} />
+      {etapes.map((e) => (
+        <li key={e.etape} className="flex items-start gap-1.5">
+          <span className="mt-0.5 shrink-0">
+            <Icone statut={e.statut} />
+          </span>
+          <span className="min-w-0">
+            <span
+              className={cn(
+                "font-medium",
+                e.statut === "encours" && "text-foreground",
+                e.statut === "ok" && "text-foreground",
+                e.statut === "echec" && "text-destructive",
+                (e.statut === "saute" || e.statut === "attente") &&
+                  "text-muted-foreground",
+              )}
+            >
+              {t(LABEL_KEY[e.etape])}
             </span>
-            <span className="min-w-0">
-              <span
-                className={cn(
-                  "font-medium",
-                  e.statut === "encours" && "text-foreground",
-                  e.statut === "ok" && "text-foreground",
-                  e.statut === "echec" && "text-destructive",
-                  (e.statut === "saute" || e.statut === "attente") &&
-                    "text-muted-foreground",
-                )}
-              >
-                {t(LABEL_KEY[id])}
-              </span>
-              {e.detail ? (
-                <span className="block truncate text-muted-foreground">{e.detail}</span>
-              ) : null}
-            </span>
-          </li>
-        );
-      })}
+            {e.detail ? (
+              <span className="block truncate text-muted-foreground">{e.detail}</span>
+            ) : null}
+          </span>
+        </li>
+      ))}
     </ol>
   );
 }

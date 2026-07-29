@@ -9,6 +9,9 @@ export type StatutEtape = "encours" | "ok" | "echec" | "saute" | "attente";
 
 export type MoteurNettoyage = "text_removal" | "replicate_text_removal";
 
+/** Qui tourne en premier dans cleanImage (réglage `nettoyage.provider_principal`). */
+export type ProviderNettoyage = "fal" | "replicate";
+
 export interface EvenementEtape {
   etape: EtapeNettoyageId;
   statut: StatutEtape;
@@ -22,24 +25,38 @@ export interface EvenementEtape {
   erreur?: string;
 }
 
-export const ORDRE_ETAPES: EtapeNettoyageId[] = [
-  "text_removal",
-  "replicate_text_removal",
-  "c2pa",
-  "ready",
-];
+export function ordreEtapesNettoyage(
+  premier: ProviderNettoyage = "fal",
+): EtapeNettoyageId[] {
+  const a: EtapeNettoyageId =
+    premier === "fal" ? "text_removal" : "replicate_text_removal";
+  const b: EtapeNettoyageId =
+    premier === "fal" ? "replicate_text_removal" : "text_removal";
+  return [a, b, "c2pa", "ready"];
+}
 
-export function etapesInitiales(): EvenementEtape[] {
-  return ORDRE_ETAPES.map((etape) => ({
+/** @deprecated préférer ordreEtapesNettoyage(premier) */
+export const ORDRE_ETAPES: EtapeNettoyageId[] = ordreEtapesNettoyage("fal");
+
+export function etapesInitiales(
+  premier: ProviderNettoyage = "fal",
+): EvenementEtape[] {
+  const ordre = ordreEtapesNettoyage(premier);
+  return ordre.map((etape, i) => ({
     etape,
-    statut: etape === "text_removal" ? "encours" : "attente",
+    statut: i === 0 ? "encours" : "attente",
   }));
 }
 
-/** Anciens ids d'étapes (proxy / LaMa) → fallback Replicate actuel. */
+/** Anciens ids d'étapes (proxy / LaMa) → replicate. */
 function normaliserEtape(etape: string): EtapeNettoyageId | null {
-  if ((ORDRE_ETAPES as readonly string[]).includes(etape)) {
-    return etape as EtapeNettoyageId;
+  if (
+    etape === "text_removal" ||
+    etape === "replicate_text_removal" ||
+    etape === "c2pa" ||
+    etape === "ready"
+  ) {
+    return etape;
   }
   if (etape === "proxy" || etape === "inpaint") return "replicate_text_removal";
   return null;
@@ -49,11 +66,12 @@ function normaliserEtape(etape: string): EtapeNettoyageId | null {
 export function appliquerEvenement(
   prev: EvenementEtape[],
   ev: EvenementEtape,
+  premier: ProviderNettoyage = "fal",
 ): EvenementEtape[] {
   const etape = normaliserEtape(ev.etape);
   if (!etape) return prev;
+  const ordre = ordreEtapesNettoyage(premier);
   const map = new Map(prev.map((e) => [e.etape, e]));
   map.set(etape, { ...map.get(etape), ...ev, etape });
-  // Si une étape démarre, les suivantes non encore jouées restent en attente.
-  return ORDRE_ETAPES.map((id) => map.get(id) ?? { etape: id, statut: "attente" });
+  return ordre.map((id) => map.get(id) ?? { etape: id, statut: "attente" });
 }

@@ -3,6 +3,7 @@ import { messageErreur } from "./supabase.ts";
 import { dimensionsImage, effacerTexte, type Zone } from "./inpaint.ts";
 import { nettoyerViaFalTextRemoval } from "./fal_text_removal.ts";
 import { nettoyerViaReplicateTextRemoval } from "./replicate_text_removal.ts";
+import { serviceClient } from "./supabase.ts";
 import { retirerContentCredentials } from "./c2pa.ts";
 
 const BASE = "https://generativelanguage.googleapis.com/v1beta/models";
@@ -596,6 +597,8 @@ async function luminanceMoyenne(bytes: Uint8Array): Promise<number | null> {
 /** Moteur effectivement utilisé pour un nettoyage réussi. */
 export type MoteurNettoyage = "text_removal" | "replicate_text_removal";
 
+export type ProviderNettoyage = "fal" | "replicate";
+
 /** Identifiants d'étapes exposés au front (timeline de chargement). */
 export type EtapeNettoyageId =
   | "text_removal"
@@ -618,11 +621,24 @@ export interface ImageNettoyee {
 
 export type OnEtapeNettoyage = (e: EvenementEtape) => void | Promise<void>;
 
+async function lireProviderPrincipal(): Promise<ProviderNettoyage> {
+  try {
+    const sb = serviceClient();
+    const { data } = await sb
+      .from("reglages")
+      .select("valeur")
+      .eq("cle", "nettoyage")
+      .maybeSingle();
+    const v = (data?.valeur ?? {}) as { provider_principal?: string };
+    return v.provider_principal === "replicate" ? "replicate" : "fal";
+  } catch {
+    return "fal";
+  }
+}
+
 /**
- * Nettoyage :
- *  1. Fal text-removal
- *  2. Replicate flux-kontext-apps/text-removal (fallback)
- *  3. Retrait Content Credentials (C2PA)
+ * Nettoyage : Fal + Replicate (ordre configurable via réglage `nettoyage`),
+ * puis retrait Content Credentials (C2PA).
  *
  * `onEtape` permet au front de tracer le déroulé en direct (stream NDJSON).
  */
@@ -636,144 +652,134 @@ export async function cleanImage(
     await onEtape?.(e);
   };
 
+  const premier = await lireProviderPrincipal();
+  const second: ProviderNettoyage = premier === "fal" ? "replicate" : "fal";
+  const chaine: ProviderNettoyage[] = [premier, second];
+
   let base64: string | null = null;
   let moteur: MoteurNettoyage | null = null;
 
-  await emit({
-    etape: "text_removal",
-    statut: "encours",
-    detail:
-      "① Fal text-removal — si échec/clé absente → FALLBACK Replicate flux-kontext text-removal → enlève C2PA",
-  });
-  let falPolls = 0;
-  try {
-    const parFal = await nettoyerViaFalTextRemoval(imageUrl, async (p) => {
-      if (typeof p.polls === "number") falPolls = p.polls;
-      if (p.phase === "submit") {
-        await emit({
-          etape: "text_removal",
-          statut: "encours",
-          detail: `① Fal: submit queue (${p.detail ?? "ok"})`,
-        });
-      } else if (p.phase === "poll") {
-        await emit({
-          etape: "text_removal",
-          statut: "encours",
-          detail: `① Fal: poll #${p.polls} statut=${p.statut ?? "?"}`,
-        });
-      } else if (p.phase === "result") {
-        await emit({
-          etape: "text_removal",
-          statut: "encours",
-          detail: `① Fal: COMPLETED après ${falPolls} polls — fetch résultat`,
-        });
-      } else if (p.phase === "download") {
-        await emit({
-          etape: "text_removal",
-          statut: "encours",
-          detail: "① Fal: téléchargement image résultat",
-        });
-      }
-    });
-    if (parFal && !(await sembleDegeneree(parFal))) {
-      base64 = parFal;
-      moteur = "text_removal";
-      await emit({
-        etape: "text_removal",
-        statut: "ok",
-        detail: `① Fal OK (${falPolls} polls HTTP status)`,
-      });
-    } else if (parFal) {
-      await emit({
-        etape: "text_removal",
-        statut: "echec",
-        detail: `① Fal: sortie noire/dégénérée → FALLBACK Replicate (${falPolls} polls)`,
-      });
-    } else {
-      await emit({
-        etape: "text_removal",
-        statut: "saute",
-        detail: "① Fal SAUTÉ — FAL_KEY absente → FALLBACK Replicate",
-      });
-    }
-  } catch (error) {
-    await emit({
-      etape: "text_removal",
-      statut: "echec",
-      detail: `① Fal ÉCHEC: ${redactSecrets(messageErreur(error))} → FALLBACK Replicate (${falPolls} polls)`,
-    });
-  }
+  for (let i = 0; i < chaine.length; i += 1) {
+    const provider = chaine[i]!;
+    const rang = i + 1;
+    const estPremier = i === 0;
+    const autre = provider === "fal" ? "Replicate" : "Fal";
+    const etapeId: EtapeNettoyageId =
+      provider === "fal" ? "text_removal" : "replicate_text_removal";
+    const nom = provider === "fal" ? "Fal" : "Replicate";
 
-  if (!base64) {
-    await emit({
-      etape: "replicate_text_removal",
-      statut: "encours",
-      detail: "② FALLBACK Replicate · flux-kontext-apps/text-removal",
-    });
-    let repPolls = 0;
-    try {
-      const parRep = await nettoyerViaReplicateTextRemoval(imageUrl, async (p) => {
-        if (typeof p.polls === "number") repPolls = p.polls;
-        if (p.phase === "submit") {
-          await emit({
-            etape: "replicate_text_removal",
-            statut: "encours",
-            detail: `② Replicate: submit (${p.detail ?? "ok"})`,
-          });
-        } else if (p.phase === "poll") {
-          await emit({
-            etape: "replicate_text_removal",
-            statut: "encours",
-            detail: `② Replicate: poll #${p.polls} statut=${p.statut ?? "?"}`,
-          });
-        } else if (p.phase === "result") {
-          await emit({
-            etape: "replicate_text_removal",
-            statut: "encours",
-            detail: `② Replicate: succeeded après ${repPolls} polls — fetch résultat`,
-          });
-        } else if (p.phase === "download") {
-          await emit({
-            etape: "replicate_text_removal",
-            statut: "encours",
-            detail: "② Replicate: téléchargement image résultat",
-          });
-        }
+    if (base64) {
+      await emit({
+        etape: etapeId,
+        statut: "saute",
+        detail: `${rang === 1 ? "①" : "②"} ${nom} non appelé (précédent OK)`,
       });
-      if (parRep && !(await sembleDegeneree(parRep))) {
-        base64 = parRep;
-        moteur = "replicate_text_removal";
+      continue;
+    }
+
+    await emit({
+      etape: etapeId,
+      statut: "encours",
+      detail: estPremier
+        ? `${rang === 1 ? "①" : "②"} ${nom} (principal) — si échec → FALLBACK ${autre}`
+        : `${rang === 1 ? "①" : "②"} FALLBACK ${nom}`,
+    });
+
+    let polls = 0;
+    try {
+      const resultat =
+        provider === "fal"
+          ? await nettoyerViaFalTextRemoval(imageUrl, async (p) => {
+              if (typeof p.polls === "number") polls = p.polls;
+              if (p.phase === "submit") {
+                await emit({
+                  etape: etapeId,
+                  statut: "encours",
+                  detail: `${rang === 1 ? "①" : "②"} ${nom}: submit (${p.detail ?? "ok"})`,
+                });
+              } else if (p.phase === "poll") {
+                await emit({
+                  etape: etapeId,
+                  statut: "encours",
+                  detail: `${rang === 1 ? "①" : "②"} ${nom}: poll #${p.polls} statut=${p.statut ?? "?"}`,
+                });
+              } else if (p.phase === "result") {
+                await emit({
+                  etape: etapeId,
+                  statut: "encours",
+                  detail: `${rang === 1 ? "①" : "②"} ${nom}: terminé après ${polls} polls — fetch`,
+                });
+              } else if (p.phase === "download") {
+                await emit({
+                  etape: etapeId,
+                  statut: "encours",
+                  detail: `${rang === 1 ? "①" : "②"} ${nom}: téléchargement résultat`,
+                });
+              }
+            })
+          : await nettoyerViaReplicateTextRemoval(imageUrl, async (p) => {
+              if (typeof p.polls === "number") polls = p.polls;
+              if (p.phase === "submit") {
+                await emit({
+                  etape: etapeId,
+                  statut: "encours",
+                  detail: `${rang === 1 ? "①" : "②"} ${nom}: submit (${p.detail ?? "ok"})`,
+                });
+              } else if (p.phase === "poll") {
+                await emit({
+                  etape: etapeId,
+                  statut: "encours",
+                  detail: `${rang === 1 ? "①" : "②"} ${nom}: poll #${p.polls} statut=${p.statut ?? "?"}`,
+                });
+              } else if (p.phase === "result") {
+                await emit({
+                  etape: etapeId,
+                  statut: "encours",
+                  detail: `${rang === 1 ? "①" : "②"} ${nom}: succeeded après ${polls} polls — fetch`,
+                });
+              } else if (p.phase === "download") {
+                await emit({
+                  etape: etapeId,
+                  statut: "encours",
+                  detail: `${rang === 1 ? "①" : "②"} ${nom}: téléchargement résultat`,
+                });
+              }
+            });
+
+      if (resultat && !(await sembleDegeneree(resultat))) {
+        base64 = resultat;
+        moteur = etapeId === "text_removal" ? "text_removal" : "replicate_text_removal";
         await emit({
-          etape: "replicate_text_removal",
+          etape: etapeId,
           statut: "ok",
-          detail: `② FALLBACK Replicate OK (${repPolls} polls)`,
+          detail: `${rang === 1 ? "①" : "②"} ${nom} OK (${polls} polls)`,
         });
-      } else if (parRep) {
+      } else if (resultat) {
         await emit({
-          etape: "replicate_text_removal",
+          etape: etapeId,
           statut: "echec",
-          detail: "② FALLBACK Replicate: sortie noire/dégénérée",
+          detail: estPremier
+            ? `${rang === 1 ? "①" : "②"} ${nom}: sortie noire/dégénérée → FALLBACK ${autre}`
+            : `${rang === 1 ? "①" : "②"} ${nom}: sortie noire/dégénérée`,
         });
       } else {
         await emit({
-          etape: "replicate_text_removal",
+          etape: etapeId,
           statut: "saute",
-          detail: "② FALLBACK Replicate SAUTÉ — REPLICATE_API_TOKEN absente",
+          detail: estPremier
+            ? `${rang === 1 ? "①" : "②"} ${nom} SAUTÉ — clé absente → FALLBACK ${autre}`
+            : `${rang === 1 ? "①" : "②"} ${nom} SAUTÉ — clé absente`,
         });
       }
     } catch (error) {
       await emit({
-        etape: "replicate_text_removal",
+        etape: etapeId,
         statut: "echec",
-        detail: `② FALLBACK Replicate ÉCHEC: ${redactSecrets(messageErreur(error))}`,
+        detail: estPremier
+          ? `${rang === 1 ? "①" : "②"} ${nom} ÉCHEC: ${redactSecrets(messageErreur(error))} → FALLBACK ${autre}`
+          : `${rang === 1 ? "①" : "②"} ${nom} ÉCHEC: ${redactSecrets(messageErreur(error))}`,
       });
     }
-  } else {
-    await emit({
-      etape: "replicate_text_removal",
-      statut: "saute",
-      detail: "② FALLBACK Replicate non appelé (Fal OK)",
-    });
   }
 
   if (!base64 || !moteur) {
@@ -802,7 +808,6 @@ export async function cleanImage(
         ? "③ Enlève clés C2PA: Content Credentials RETIRÉES"
         : "③ Enlève clés C2PA: aucune Content Credential détectée",
     });
-    // `ready` est émis par l'edge function après upload / persistance.
     return { base64, moteur, mime: stripped.mime, etapes };
   } catch (error) {
     await emit({

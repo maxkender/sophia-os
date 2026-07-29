@@ -664,6 +664,13 @@ export const fr = {
       vnextTitle: "Moteur v-next",
       vnextSubtitle: "Assignation par labels, scoring, exploration. Activer seulement après labels posés.",
       vnextActif: "Activer le runtime v-next (minuit / assignation / variations)",
+      nettoyageTitle: "Nettoyage d'images",
+      nettoyageAide:
+        "Choisis qui tente le retrait de texte en premier. L'autre sert de secours si le principal échoue.",
+      nettoyageFalPremier: "Fal en premier (Replicate en secours)",
+      nettoyageFalPremierAide: "Défaut. Fal text-removal, puis Replicate si échec.",
+      nettoyageReplicatePremier: "Replicate en premier (Fal en secours)",
+      nettoyageReplicatePremierAide: "Replicate flux-kontext text-removal, puis Fal si échec.",
       scoring: "Scoring & exploration",
       ewma: "EWMA α (comptes)",
       regularisation: "Régularisation k",

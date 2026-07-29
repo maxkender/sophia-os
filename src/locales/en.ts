@@ -663,6 +663,13 @@ export const en = {
       vnextTitle: "v-next engine",
       vnextSubtitle: "Label-based assignment, scoring, exploration. Enable only after labels are set.",
       vnextActif: "Enable v-next runtime (midnight / assignment / variations)",
+      nettoyageTitle: "Image cleaning",
+      nettoyageAide:
+        "Choose which provider tries text removal first. The other is the fallback if the primary fails.",
+      nettoyageFalPremier: "Fal first (Replicate fallback)",
+      nettoyageFalPremierAide: "Default. Fal text-removal, then Replicate on failure.",
+      nettoyageReplicatePremier: "Replicate first (Fal fallback)",
+      nettoyageReplicatePremierAide: "Replicate flux-kontext text-removal, then Fal on failure.",
       scoring: "Scoring & exploration",
       ewma: "EWMA α (accounts)",
       regularisation: "Regularization k",

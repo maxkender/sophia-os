@@ -1368,6 +1368,10 @@ export async function lireReglages(): Promise<Reglages> {
     moteur_vnext: (map.get("moteur_vnext") as Reglages["moteur_vnext"] | undefined) ?? {
       actif: false,
     },
+    nettoyage: {
+      provider_principal: "fal",
+      ...((map.get("nettoyage") as Partial<Reglages["nettoyage"]> | undefined) ?? {}),
+    },
   };
 }
 

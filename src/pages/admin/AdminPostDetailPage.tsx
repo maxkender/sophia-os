@@ -17,6 +17,7 @@ import {
   compteReferenceDuPost,
   lancerPreparation,
   lirePost,
+  lireReglages,
   listerMedias,
   listerSlides,
   majMediaSlide,
@@ -30,6 +31,7 @@ import {
   appliquerEvenement,
   etapesInitiales,
   type EvenementEtape,
+  type ProviderNettoyage,
 } from "@/features/moteur/nettoyageEtapes";
 import { supabase } from "@/lib/supabase/client";
 import type { Media, PostSlide } from "@/features/moteur/types";
@@ -95,11 +97,13 @@ function SlideAdmin({
   slide,
   postId,
   compteReferenceId,
+  premier,
   etapesLot,
 }: {
   slide: PostSlide;
   postId: string;
   compteReferenceId: string | null;
+  premier: ProviderNettoyage;
   /** Timeline fournie par un nettoyage en lot (sinon locale). */
   etapesLot?: EvenementEtape[] | null;
 }) {
@@ -125,9 +129,11 @@ function SlideAdmin({
   });
   const renettoyer = useMutation({
     mutationFn: () => {
-      setEtapesLocales(etapesInitiales());
+      setEtapesLocales(etapesInitiales(premier));
       return renettoyerSlide(slide.id, (ev) => {
-        setEtapesLocales((prev) => appliquerEvenement(prev ?? etapesInitiales(), ev));
+        setEtapesLocales((prev) =>
+          appliquerEvenement(prev ?? etapesInitiales(premier), ev, premier),
+        );
       });
     },
     onSuccess: () => {
@@ -305,6 +311,13 @@ export function AdminPostDetailPage() {
   const [etapesLot, setEtapesLot] = React.useState<Record<string, EvenementEtape[]>>({});
   const [revoq, setRevoq] = React.useState<string | null>(null);
 
+  const { data: reglages } = useQuery({
+    queryKey: ["reglages"],
+    queryFn: lireReglages,
+    staleTime: 30_000,
+  });
+  const premier: ProviderNettoyage = reglages?.nettoyage.provider_principal ?? "fal";
+
   /**
    * Post inutilisable (thème incohérent pour Sophia) : on rejette CE slideshow
    * (pas le hook — un autre post peut commencer pareil et rester bon), on en
@@ -430,7 +443,7 @@ export function AdminPostDetailPage() {
     const aFaire = liste.filter((s) => !estPropre(s));
     setLot({ fait: 0, total: aFaire.length });
     setEtapesLot(
-      Object.fromEntries(aFaire.map((s) => [s.id, etapesInitiales()])),
+      Object.fromEntries(aFaire.map((s) => [s.id, etapesInitiales(premier)])),
     );
     await executerEnLot(
       aFaire,
@@ -438,7 +451,11 @@ export function AdminPostDetailPage() {
         renettoyerSlide(slide.id, (ev) => {
           setEtapesLot((prev) => ({
             ...prev,
-            [slide.id]: appliquerEvenement(prev[slide.id] ?? etapesInitiales(), ev),
+            [slide.id]: appliquerEvenement(
+              prev[slide.id] ?? etapesInitiales(premier),
+              ev,
+              premier,
+            ),
           }));
         }),
       {
@@ -602,6 +619,7 @@ export function AdminPostDetailPage() {
           slide={slide}
           postId={id!}
           compteReferenceId={refId.data ?? null}
+          premier={premier}
           etapesLot={etapesLot[slide.id] ?? null}
         />
       ))}

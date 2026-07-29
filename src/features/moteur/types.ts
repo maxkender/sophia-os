@@ -178,6 +178,12 @@ export interface ReglagesPaiement {
   tarif_par_post_jour: number;
 }
 
+/** Ordre Fal / Replicate pour le nettoyage d'images. */
+export interface ReglagesNettoyage {
+  /** Qui est appelé en premier ; l'autre sert de fallback. */
+  provider_principal: "fal" | "replicate";
+}
+
 export interface Reglages {
   repartition: { recycle: number; remanie: number; nouveau: number };
   frequence: { posts_par_jour: number };
@@ -191,6 +197,7 @@ export interface Reglages {
   scoring: ReglagesScoring;
   paiement: ReglagesPaiement;
   moteur_vnext: { actif: boolean };
+  nettoyage: ReglagesNettoyage;
 }
 
 export interface StatsCompte {

@@ -19,6 +19,7 @@ import { NettoyageEtapes } from "@/components/moteur/NettoyageEtapes";
 import { LabelEditor } from "@/features/moteur/LabelPicker";
 import {
   labelsDuContenu,
+  lireReglages,
   lireSlideshow,
   listerContenus,
   listerMediasPourContenu,
@@ -33,6 +34,7 @@ import {
   appliquerEvenement,
   etapesInitiales,
   type EvenementEtape,
+  type ProviderNettoyage,
 } from "@/features/moteur/nettoyageEtapes";
 import { nomLangue } from "@/features/moteur/langues";
 import type { ContenuLangue, ContenuSlide, Media } from "@/features/moteur/types";
@@ -262,6 +264,15 @@ function VisuelsContenu({ contenu }: { contenu: SlideshowDetail }) {
   const structure = [...(contenu.structure_slides ?? [])].sort((a, b) => a.position - b.position);
   const [pickerPos, setPickerPos] = React.useState<number | null>(null);
   const [etapesParPos, setEtapesParPos] = React.useState<Record<number, EvenementEtape[]>>({});
+  const [enCours, setEnCours] = React.useState<Set<number>>(() => new Set());
+  const [erreurs, setErreurs] = React.useState<Record<number, string>>({});
+
+  const { data: reglages } = useQuery({
+    queryKey: ["reglages"],
+    queryFn: lireReglages,
+    staleTime: 30_000,
+  });
+  const premier: ProviderNettoyage = reglages?.nettoyage.provider_principal ?? "fal";
 
   const candidats = useQuery({
     queryKey: ["medias-contenu", contenu.id],
@@ -275,25 +286,44 @@ function VisuelsContenu({ contenu }: { contenu: SlideshowDetail }) {
     void queryClient.invalidateQueries({ queryKey: ["medias"] });
   };
 
-  const renettoyer = useMutation({
-    mutationFn: (position: number) => {
-      setEtapesParPos((prev) => ({ ...prev, [position]: etapesInitiales() }));
-      return renettoyerSlideContenu(contenu.id, position, (ev) => {
+  async function lancerRenettoyer(position: number) {
+    setEnCours((prev) => new Set(prev).add(position));
+    setErreurs((prev) => {
+      const n = { ...prev };
+      delete n[position];
+      return n;
+    });
+    setEtapesParPos((prev) => ({ ...prev, [position]: etapesInitiales(premier) }));
+    try {
+      await renettoyerSlideContenu(contenu.id, position, (ev) => {
         setEtapesParPos((prev) => ({
           ...prev,
-          [position]: appliquerEvenement(prev[position] ?? etapesInitiales(), ev),
+          [position]: appliquerEvenement(
+            prev[position] ?? etapesInitiales(premier),
+            ev,
+            premier,
+          ),
         }));
       });
-    },
-    onSuccess: (_r, position) => {
       setEtapesParPos((prev) => {
         const n = { ...prev };
         delete n[position];
         return n;
       });
       rafraichir();
-    },
-  });
+    } catch (err) {
+      setErreurs((prev) => ({
+        ...prev,
+        [position]: err instanceof Error ? err.message : String(err),
+      }));
+    } finally {
+      setEnCours((prev) => {
+        const next = new Set(prev);
+        next.delete(position);
+        return next;
+      });
+    }
+  }
 
   const remplacer = useMutation({
     mutationFn: (input: { position: number; mediaId: string }) =>
@@ -316,7 +346,8 @@ function VisuelsContenu({ contenu }: { contenu: SlideshowDetail }) {
         {structure.map((s) => {
           const img = urlPropre(contenu, s) ?? s.raw_url ?? s.reference_url;
           const etapes = etapesParPos[s.position];
-          const enCours = renettoyer.isPending && renettoyer.variables === s.position;
+          const slideEnCours = enCours.has(s.position);
+          const erreur = erreurs[s.position];
           return (
             <div key={s.position} className="rounded border p-2">
               <div className="flex gap-2">
@@ -340,11 +371,11 @@ function VisuelsContenu({ contenu }: { contenu: SlideshowDetail }) {
                       size="sm"
                       variant="outline"
                       className="h-7 text-xs"
-                      disabled={enCours || !(s.raw_url || s.reference_url)}
-                      onClick={() => renettoyer.mutate(s.position)}
+                      disabled={slideEnCours || !(s.raw_url || s.reference_url)}
+                      onClick={() => void lancerRenettoyer(s.position)}
                     >
                       <Sparkles className="size-3" />
-                      {enCours
+                      {slideEnCours
                         ? t("slideshows.nettoyageEnCours")
                         : t("slideshows.renettoyer")}
                     </Button>
@@ -361,17 +392,15 @@ function VisuelsContenu({ contenu }: { contenu: SlideshowDetail }) {
                       {t("slideshows.remplacer")}
                     </Button>
                   </div>
-                  {etapes && (enCours || renettoyer.isError) ? (
+                  {etapes && (slideEnCours || erreur) ? (
                     <NettoyageEtapes
                       etapes={etapes}
                       className="rounded border bg-muted/30 p-1.5"
                     />
                   ) : null}
-                  {renettoyer.isError && renettoyer.variables === s.position && (
-                    <p className="text-[11px] text-destructive">
-                      {(renettoyer.error as Error).message}
-                    </p>
-                  )}
+                  {erreur ? (
+                    <p className="text-[11px] text-destructive">{erreur}</p>
+                  ) : null}
                 </div>
               </div>
               {pickerPos === s.position && (

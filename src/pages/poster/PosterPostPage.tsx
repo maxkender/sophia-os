@@ -28,6 +28,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import {
   compteReferenceDuPost,
   lirePost,
+  lireReglages,
   listerMedias,
   listerSlides,
   majMediaSlide,
@@ -39,6 +40,7 @@ import {
   appliquerEvenement,
   etapesInitiales,
   type EvenementEtape,
+  type ProviderNettoyage,
 } from "@/features/moteur/nettoyageEtapes";
 import {
   partagerFichiers,
@@ -218,11 +220,19 @@ function ControlesAdminSlide({
     queryFn: () => listerMedias(compteReferenceId ?? undefined),
     enabled: picker && Boolean(compteReferenceId),
   });
+  const { data: reglages } = useQuery({
+    queryKey: ["reglages"],
+    queryFn: lireReglages,
+    staleTime: 30_000,
+  });
+  const premier: ProviderNettoyage = reglages?.nettoyage.provider_principal ?? "fal";
   const renettoyer = useMutation({
     mutationFn: () => {
-      setEtapes(etapesInitiales());
+      setEtapes(etapesInitiales(premier));
       return renettoyerSlide(slide.id, (ev) => {
-        setEtapes((prev) => appliquerEvenement(prev ?? etapesInitiales(), ev));
+        setEtapes((prev) =>
+          appliquerEvenement(prev ?? etapesInitiales(premier), ev, premier),
+        );
       });
     },
     onSuccess: () => {

@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/card";
 import { NettoyageEtapes } from "@/components/moteur/NettoyageEtapes";
 import {
+  lireReglages,
   listerMedias,
   listerSources,
   nettoyerMedia,
@@ -28,6 +29,7 @@ import {
   appliquerEvenement,
   etapesInitiales,
   type EvenementEtape,
+  type ProviderNettoyage,
 } from "@/features/moteur/nettoyageEtapes";
 import type { Media } from "@/features/moteur/types";
 
@@ -44,12 +46,14 @@ function VignetteMedia({
   onChange,
   selectionne,
   onToggle,
+  premier,
   etapesLot,
 }: {
   media: Media;
   onChange: () => void;
   selectionne: boolean;
   onToggle: () => void;
+  premier: ProviderNettoyage;
   etapesLot?: EvenementEtape[] | null;
 }) {
   const { t } = useTranslation();
@@ -59,9 +63,11 @@ function VignetteMedia({
 
   const nettoyer = useMutation({
     mutationFn: () => {
-      setEtapesLocales(etapesInitiales());
+      setEtapesLocales(etapesInitiales(premier));
       return nettoyerMedia(media.id, (ev) => {
-        setEtapesLocales((prev) => appliquerEvenement(prev ?? etapesInitiales(), ev));
+        setEtapesLocales((prev) =>
+          appliquerEvenement(prev ?? etapesInitiales(premier), ev, premier),
+        );
       });
     },
     onSuccess: () => {
@@ -182,6 +188,12 @@ export function AdminBibliothequePage() {
     queryKey: ["medias", sourceId || "tous"],
     queryFn: () => listerMedias(sourceId || undefined),
   });
+  const { data: reglages } = useQuery({
+    queryKey: ["reglages"],
+    queryFn: lireReglages,
+    staleTime: 30_000,
+  });
+  const premier: ProviderNettoyage = reglages?.nettoyage.provider_principal ?? "fal";
 
   const rafraichir = () => queryClient.invalidateQueries({ queryKey: ["medias"] });
   const aNettoyerListe = (medias.data ?? []).filter((m) => !estPropre(m));
@@ -201,7 +213,7 @@ export function AdminBibliothequePage() {
   async function nettoyerTout() {
     setLot({ fait: 0, total: aNettoyerListe.length });
     setEtapesLot(
-      Object.fromEntries(aNettoyerListe.map((m) => [m.id, etapesInitiales()])),
+      Object.fromEntries(aNettoyerListe.map((m) => [m.id, etapesInitiales(premier)])),
     );
     await executerEnLot(
       aNettoyerListe,
@@ -209,7 +221,11 @@ export function AdminBibliothequePage() {
         nettoyerMedia(media.id, (ev) => {
           setEtapesLot((prev) => ({
             ...prev,
-            [media.id]: appliquerEvenement(prev[media.id] ?? etapesInitiales(), ev),
+            [media.id]: appliquerEvenement(
+              prev[media.id] ?? etapesInitiales(premier),
+              ev,
+              premier,
+            ),
           }));
         }),
       {
@@ -389,6 +405,7 @@ export function AdminBibliothequePage() {
               onChange={rafraichir}
               selectionne={selection.has(media.id)}
               onToggle={() => basculer(media.id)}
+              premier={premier}
               etapesLot={etapesLot[media.id] ?? null}
             />
           ))}

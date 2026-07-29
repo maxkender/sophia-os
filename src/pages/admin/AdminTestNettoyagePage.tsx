@@ -8,11 +8,17 @@ import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardHeader, CardTitle, EmptyState } from "@/components/ui/card";
 import { NettoyageEtapes } from "@/components/moteur/NettoyageEtapes";
 import { executerEnLot } from "@/lib/lot";
-import { mediasBrutsParSource, nettoyerTest, type MediaTest } from "@/features/moteur/api";
+import {
+  lireReglages,
+  mediasBrutsParSource,
+  nettoyerTest,
+  type MediaTest,
+} from "@/features/moteur/api";
 import {
   appliquerEvenement,
   etapesInitiales,
   type EvenementEtape,
+  type ProviderNettoyage,
 } from "@/features/moteur/nettoyageEtapes";
 
 type EtatTest =
@@ -30,13 +36,14 @@ const REPOS: EtatTest = { statut: "repos" };
 
 async function testerImage(
   media: MediaTest,
+  premier: ProviderNettoyage,
   onEtapes: (etapes: EvenementEtape[]) => void,
 ): Promise<EtatTest> {
-  let etapes = etapesInitiales();
+  let etapes = etapesInitiales(premier);
   onEtapes(etapes);
   try {
     const res = await nettoyerTest(media.url, (ev) => {
-      etapes = appliquerEvenement(etapes, ev);
+      etapes = appliquerEvenement(etapes, ev, premier);
       onEtapes(etapes);
     });
     if (res.ok && res.url) {
@@ -128,12 +135,18 @@ function GroupeTest({ source, medias }: { source: string; medias: MediaTest[] })
   const { t } = useTranslation();
   const [etats, setEtats] = React.useState<Record<string, EtatTest>>({});
   const [lot, setLot] = React.useState<{ fait: number; total: number } | null>(null);
+  const { data: reglages } = useQuery({
+    queryKey: ["reglages"],
+    queryFn: lireReglages,
+    staleTime: 30_000,
+  });
+  const premier: ProviderNettoyage = reglages?.nettoyage.provider_principal ?? "fal";
 
   const maj = (id: string, etat: EtatTest) => setEtats((e) => ({ ...e, [id]: etat }));
 
   async function lancerUn(media: MediaTest) {
-    maj(media.id, { statut: "encours", etapes: etapesInitiales() });
-    const final = await testerImage(media, (etapes) => {
+    maj(media.id, { statut: "encours", etapes: etapesInitiales(premier) });
+    const final = await testerImage(media, premier, (etapes) => {
       maj(media.id, { statut: "encours", etapes });
     });
     maj(media.id, final);
@@ -143,7 +156,10 @@ function GroupeTest({ source, medias }: { source: string; medias: MediaTest[] })
     setLot({ fait: 0, total: medias.length });
     setEtats(
       Object.fromEntries(
-        medias.map((m) => [m.id, { statut: "encours", etapes: etapesInitiales() } as EtatTest]),
+        medias.map((m) => [
+          m.id,
+          { statut: "encours", etapes: etapesInitiales(premier) } as EtatTest,
+        ]),
       ),
     );
     await executerEnLot(medias, lancerUn, {

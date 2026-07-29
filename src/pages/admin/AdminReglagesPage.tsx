@@ -55,6 +55,7 @@ export function AdminReglagesPage() {
       await ecrireReglage("scoring", r.scoring);
       await ecrireReglage("paiement", r.paiement);
       await ecrireReglage("moteur_vnext", r.moteur_vnext);
+      await ecrireReglage("nettoyage", r.nettoyage);
     },
     onSuccess: () => {
       setBrouillon(null);
@@ -89,6 +90,47 @@ export function AdminReglagesPage() {
             />
             {t("reglages.vnextActif")}
           </label>
+
+          <section className="space-y-3">
+            <h3 className="text-sm font-medium">{t("reglages.nettoyageTitle")}</h3>
+            <p className="text-xs text-muted-foreground">{t("reglages.nettoyageAide")}</p>
+            <div className="space-y-2">
+              <label className="flex items-start gap-2 text-sm">
+                <input
+                  type="radio"
+                  name="nettoyage-provider"
+                  className="mt-1"
+                  checked={reglages.nettoyage.provider_principal === "fal"}
+                  onChange={() =>
+                    maj({ nettoyage: { provider_principal: "fal" } })
+                  }
+                />
+                <span>
+                  <span className="font-medium">{t("reglages.nettoyageFalPremier")}</span>
+                  <span className="mt-0.5 block text-xs text-muted-foreground">
+                    {t("reglages.nettoyageFalPremierAide")}
+                  </span>
+                </span>
+              </label>
+              <label className="flex items-start gap-2 text-sm">
+                <input
+                  type="radio"
+                  name="nettoyage-provider"
+                  className="mt-1"
+                  checked={reglages.nettoyage.provider_principal === "replicate"}
+                  onChange={() =>
+                    maj({ nettoyage: { provider_principal: "replicate" } })
+                  }
+                />
+                <span>
+                  <span className="font-medium">{t("reglages.nettoyageReplicatePremier")}</span>
+                  <span className="mt-0.5 block text-xs text-muted-foreground">
+                    {t("reglages.nettoyageReplicatePremierAide")}
+                  </span>
+                </span>
+              </label>
+            </div>
+          </section>
 
           <section className="space-y-3">
             <h3 className="text-sm font-medium">{t("reglages.scoring")}</h3>

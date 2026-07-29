@@ -1,4 +1,8 @@
 import { cleanImage, verifyClean, type EvenementEtape } from "../_shared/gemini.ts";
+import {
+  attacherLabelsAuMedia,
+  mediaPropreMemeLabel,
+} from "../_shared/media_labels.ts";
 import { reponseNdjson, veutStream } from "../_shared/nettoyage_etapes.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
@@ -93,6 +97,7 @@ Deno.serve(async (request) => {
           .select("id")
           .single();
         if (insErr) throw insErr;
+        await attacherLabelsAuMedia(supabase, media.id, contenu.id);
 
         slides[idx] = { ...slide, media_id: media.id };
         await supabase
@@ -118,6 +123,42 @@ Deno.serve(async (request) => {
           etapes: propre.etapes,
         };
       }
+
+      // Texte résiduel → remplacement par un propre même label.
+      const exclus = slides
+        .map((s) => s.media_id)
+        .filter((id): id is string => Boolean(id));
+      const alt = await mediaPropreMemeLabel(supabase, {
+        contenuId: contenu.id,
+        excludeMediaIds: exclus,
+        compteReferenceId: contenu.compte_reference_id,
+      });
+      if (alt) {
+        slides[idx] = { ...slide, media_id: alt.id };
+        await supabase
+          .from("contenus")
+          .update({ structure_slides: slides })
+          .eq("id", contenu.id);
+        emit?.({
+          etape: "ready",
+          statut: "ok",
+          ok: true,
+          nettoyee: false,
+          remplacee: true,
+          mediaId: alt.id,
+          url: alt.url,
+          detail: "texte résiduel → remplacé (même label)",
+        });
+        return {
+          ok: true as const,
+          nettoyee: false,
+          remplacee: true,
+          mediaId: alt.id,
+          url: alt.url,
+          motif: "texte résiduel → remplacé (même label)",
+        };
+      }
+
       emit?.({
         etape: "ready",
         statut: "echec",

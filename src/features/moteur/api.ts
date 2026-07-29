@@ -1205,6 +1205,26 @@ export async function listerMediasPourContenu(contenuId: string): Promise<Media[
   }
 
   if (labelIds.length > 0) {
+    // Via media_labels (labels du slideshow mère posés à l'import).
+    const { data: liens } = await supabase
+      .from("media_labels")
+      .select("media_id")
+      .in("label_id", labelIds)
+      .limit(200);
+    const mediaIds = [...new Set((liens ?? []).map((l) => l.media_id as string))];
+    if (mediaIds.length > 0) {
+      const { data: mediaLabels } = await supabase
+        .from("media_library")
+        .select("*")
+        .in("id", mediaIds)
+        .like("storage_path", "propre/%")
+        .eq("texte_restant", false)
+        .order("created_at", { ascending: false })
+        .limit(80);
+      for (const m of mediaLabels ?? []) byId.set(m.id, m as Media);
+    }
+
+    // Repli frères contenu_labels (si media_labels encore partiel).
     const { data: freres } = await supabase
       .from("contenu_labels")
       .select("contenu_id")
@@ -2052,8 +2072,26 @@ export const setLabelsCompte = (compteId: string, labelIds: string[]) =>
 export const setLabelsSource = (compteReferenceId: string, labelIds: string[]) =>
   syncLabels("compte_reference_labels", "compte_reference_id", compteReferenceId, labelIds);
 
-export const setLabelsContenu = (contenuId: string, labelIds: string[]) =>
-  syncLabels("contenu_labels", "contenu_id", contenuId, labelIds);
+export async function setLabelsContenu(
+  contenuId: string,
+  labelIds: string[],
+): Promise<void> {
+  await syncLabels("contenu_labels", "contenu_id", contenuId, labelIds);
+  // Propager aux images de la bibliothèque liées à ce slideshow.
+  const { data: medias } = await supabase
+    .from("media_library")
+    .select("id")
+    .eq("contenu_id", contenuId);
+  const mediaIds = (medias ?? []).map((m) => m.id as string);
+  if (mediaIds.length === 0) return;
+  await supabase.from("media_labels").delete().in("media_id", mediaIds);
+  if (labelIds.length === 0) return;
+  const rows = mediaIds.flatMap((media_id) =>
+    labelIds.map((label_id) => ({ media_id, label_id })),
+  );
+  const { error } = await supabase.from("media_labels").insert(rows);
+  if (error) throw error;
+}
 
 /** Applique rétroactivement les labels d'une source à tous ses contenus. */
 export async function propagerLabelsSource(compteReferenceId: string): Promise<number> {

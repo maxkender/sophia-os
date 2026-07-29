@@ -1,4 +1,5 @@
 import { cleanImage, verifyClean, type EvenementEtape } from "../_shared/gemini.ts";
+import { attacherLabelsAuMedia } from "../_shared/media_labels.ts";
 import { reponseNdjson, veutStream } from "../_shared/nettoyage_etapes.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
@@ -31,7 +32,7 @@ Deno.serve(async (request) => {
   ) => {
     const { data: media } = await supabase
       .from("media_library")
-      .select("id, url, storage_path, texte_restant")
+      .select("id, url, storage_path, texte_restant, contenu_id")
       .eq("id", mediaId)
       .single();
     if (!media) {
@@ -84,6 +85,7 @@ Deno.serve(async (request) => {
       })
       .eq("id", media.id);
     if (majErr) throw majErr;
+    await attacherLabelsAuMedia(supabase, media.id, media.contenu_id);
 
     emit?.({
       etape: "ready",

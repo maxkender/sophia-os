@@ -13,6 +13,10 @@ import {
   translateSlideshow,
   verifyClean,
 } from "./gemini.ts";
+import {
+  attacherLabelsAuMedia,
+  mediaPropreMemeLabel,
+} from "./media_labels.ts";
 import { chargerPrompt, messageErreur, serviceClient } from "./supabase.ts";
 
 export type Supabase = ReturnType<typeof serviceClient>;
@@ -803,17 +807,29 @@ export async function avancerImport(
           slide.media_id = r.mediaId;
           slide.tentatives = undefined;
         } else {
-          slide.tentatives = (slide.tentatives ?? 0) + 1;
-          if (slide.tentatives >= MAX_TENTATIVES_NETTOYAGE) {
-            slide.media_id = await stockerBrut(supabase, contenu, slide);
-            r.rapport.lignes.push(
-              `→ brut stocké après ${slide.tentatives} échecs (plus de retry)`,
-            );
-            r.rapport.motif = "brut après max tentatives";
+          // Texte encore là (verifyClean) ou Fal/Replicate KO → biblio même label.
+          const remplace = await tenterRemplacementLabel(
+            supabase,
+            contenu,
+            slides,
+            r.rapport,
+          );
+          if (remplace) {
+            slide.media_id = remplace;
+            slide.tentatives = undefined;
           } else {
-            r.rapport.lignes.push(
-              `→ retry prévu (${slide.tentatives}/${MAX_TENTATIVES_NETTOYAGE})`,
-            );
+            slide.tentatives = (slide.tentatives ?? 0) + 1;
+            if (slide.tentatives >= MAX_TENTATIVES_NETTOYAGE) {
+              slide.media_id = await stockerBrut(supabase, contenu, slide);
+              r.rapport.lignes.push(
+                `→ brut stocké après ${slide.tentatives} échecs (plus de retry)`,
+              );
+              r.rapport.motif = "brut après max tentatives";
+            } else {
+              r.rapport.lignes.push(
+                `→ retry prévu (${slide.tentatives}/${MAX_TENTATIVES_NETTOYAGE})`,
+              );
+            }
           }
         }
         await marquer(supabase, contenu.id, {
@@ -1063,7 +1079,7 @@ async function nettoyerSlide(
   };
   const lignes: string[] = [
     `slide #${slide.position} · url=${(slide.raw_url ?? "").slice(0, 72)}…`,
-    `pipeline: ① Fal text-removal → ② FALLBACK Replicate flux-kontext text-removal → ③ Enlève clés C2PA → ④ verifyClean`,
+    `pipeline: ① Fal → ② FALLBACK Replicate → ③ C2PA → ④ verifyClean → ⑤ biblio même label si texte`,
     `note: chaque poll Fal/Replicate = 1 appel HTTP (compteur dashboard)`,
   ];
   const rapport: NettoyageSlideRapport = {
@@ -1153,8 +1169,12 @@ async function nettoyerSlide(
     .select("id")
     .single();
   if (error) throw error;
+  const labels = await attacherLabelsAuMedia(supabase, media.id, contenu.id);
   rapport.ok = true;
-  lignes.push(`upload OK → media_id=${media.id} · moteur=${moteur ?? "?"}`);
+  lignes.push(
+    `upload OK → media_id=${media.id} · moteur=${moteur ?? "?"}` +
+      (labels.length ? ` · labels=${labels.length}` : ""),
+  );
   return { mediaId: media.id, rapport };
 }
 
@@ -1183,7 +1203,41 @@ async function stockerBrut(
     .select("id")
     .single();
   if (error) throw error;
+  await attacherLabelsAuMedia(supabase, media.id, contenu.id);
   return media.id;
+}
+
+/** Remplace une slide ratée par un propre même label (biblio). */
+async function tenterRemplacementLabel(
+  supabase: Supabase,
+  // deno-lint-ignore no-explicit-any
+  contenu: any,
+  slides: SlideBrut[],
+  rapport: NettoyageSlideRapport,
+): Promise<string | null> {
+  const exclus = slides
+    .map((s) => s.media_id)
+    .filter((id): id is string => Boolean(id));
+  const alt = await mediaPropreMemeLabel(supabase, {
+    contenuId: contenu.id,
+    excludeMediaIds: exclus,
+    compteReferenceId: contenu.compte_reference_id,
+  });
+  if (!alt) {
+    rapport.lignes.push(
+      "⑥ remplacement biblio : aucun propre avec le même label",
+    );
+    return null;
+  }
+  rapport.ok = true;
+  rapport.motif = "remplacé (texte résiduel → biblio même label)";
+  rapport.lignes.push(
+    `⑥ verifyClean KO → remplacement biblio même label → media_id=${alt.id}`,
+  );
+  console.log(
+    `[import nettoyage] contenu=${contenu.id} slide=#${rapport.position} remplacé par ${alt.id}`,
+  );
+  return alt.id;
 }
 
 /** Prochain contenu à faire avancer (file d'import). */

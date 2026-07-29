@@ -288,11 +288,27 @@ export const fr = {
       creerNiche: "crée-en dans Pilotage",
       modeCompte: "Compte TikTok",
       modeLien: "Lien TikTok",
-      modeCompteAide: "Ajoute un compte source : on pourra ensuite scraper tous ses slideshows.",
+      modeCompteAide:
+        "Ajoute un compte source : l'import de tous ses TikToks démarre tout de suite en arrière-plan (plusieurs comptes en parallèle).",
       modeLienAide:
-        "Importe un seul slideshow par son lien — même pipeline (ELO → nettoyage → traductions).",
+        "Importe un seul slideshow par son lien — même pipeline (ELO → nettoyage → traductions), en arrière-plan.",
       lienTikTok: "Lien du TikTok",
       compteAjoute: "Compte @{handle} ajouté.",
+      compteAjouteJob:
+        "Compte @{handle} ajouté — scrape + scores + nettoyage lancés en arrière-plan (voir logs ci-dessous).",
+      importJobLance:
+        "Import lancé en arrière-plan — la page reste utilisable. Suis les logs ci-dessous.",
+      jobsTitre: "Imports en cours",
+      jobsEncours_one: "{{count}} import en cours (parallèle OK)",
+      jobsEncours_other: "{{count}} imports en cours (parallèle OK)",
+      jobsTermine: "Tous les imports affichés sont terminés",
+      jobsClear: "Effacer les terminés",
+      jobEncours: "En cours",
+      jobOk: "OK",
+      jobEchec: "Échec",
+      jobLogs: "logs",
+      jobLogsVides: "Démarrage…",
+
       langue: "Langue",
       add: "Ajouter",
       voix: "Prompt adapté (voix / ton de traduction)",
@@ -305,10 +321,10 @@ export const fr = {
       deactivate: "Désactiver",
       extraire: "Extraire",
       extraireAide:
-        "Va chercher les derniers posts photo de ce compte de référence (triés par vues), en crée des sujets prêts à traduire. C'est ce que fait le cron chaque soir ; ce bouton le lance à la main.",
+        "Scrape tous les TikToks photo de ce compte, calcule pertinence / ELO, nettoie et traduit les langues retenues — en arrière-plan, sans bloquer la page. Plusieurs comptes peuvent tourner en parallèle.",
       importLien: "Importer un TikTok",
       importLienAide:
-        "Colle le lien d'un seul slideshow TikTok. Il part dans le pipeline v-next (ELO → nettoyage → traductions) rattaché à cette source et ses labels.",
+        "Colle le lien d'un seul slideshow TikTok. Il part dans le pipeline v-next (ELO → nettoyage → traductions) en arrière-plan, rattaché à cette source et ses labels.",
       importLienGo: "Importer",
       importLienEnCours: "Import…",
       importLienRequis: "Colle un lien TikTok.",

@@ -1176,10 +1176,13 @@ export const importerContenuDepuisLien = (
 
 /** Scrape v-next d'un compte de référence → jusqu'à N contenus en file. */
 export const scraperSourceVersContenus = (compteReferenceId: string) =>
-  invoke<{ ok: boolean; crees: number; ids: string[] }>("import-contenu", {
-    compteReferenceId,
-    scrape: true,
-  });
+  invoke<{ ok: boolean; crees: number; ids: string[]; scrapes?: number }>(
+    "import-contenu",
+    {
+      compteReferenceId,
+      scrape: true,
+    },
+  );
 
 /** Pipeline minuit v-next : stats passages → scores → assignation contenus. */
 export const lancerMinuitVnext = (body: Record<string, unknown> = {}) =>

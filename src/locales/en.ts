@@ -288,11 +288,27 @@ export const en = {
       creerNiche: "create one in Pilotage",
       modeCompte: "TikTok account",
       modeLien: "TikTok link",
-      modeCompteAide: "Add a source account: you can then scrape all its slideshows.",
+      modeCompteAide:
+        "Add a source account: importing all its TikToks starts immediately in the background (several accounts can run in parallel).",
       modeLienAide:
-        "Import a single slideshow by URL — same pipeline (ELO → cleaning → translations).",
+        "Import a single slideshow by URL — same pipeline (ELO → cleaning → translations), in the background.",
       lienTikTok: "TikTok link",
       compteAjoute: "Account @{handle} added.",
+      compteAjouteJob:
+        "Account @{handle} added — scrape + scores + cleaning started in the background (see logs below).",
+      importJobLance:
+        "Import started in the background — the page stays usable. Follow the logs below.",
+      jobsTitre: "Imports in progress",
+      jobsEncours_one: "{{count}} import running (parallel OK)",
+      jobsEncours_other: "{{count}} imports running (parallel OK)",
+      jobsTermine: "All listed imports are finished",
+      jobsClear: "Clear finished",
+      jobEncours: "Running",
+      jobOk: "OK",
+      jobEchec: "Failed",
+      jobLogs: "logs",
+      jobLogsVides: "Starting…",
+
       langue: "Language",
       add: "Add",
       voix: "Tailored prompt (translation voice / tone)",
@@ -305,10 +321,10 @@ export const en = {
       deactivate: "Deactivate",
       extraire: "Extract",
       extraireAide:
-        "Fetches this reference account's latest photo posts (sorted by views) and turns them into topics ready to translate. This is what the nightly cron does; this button runs it manually.",
+        "Scrapes all photo TikToks from this account, scores relevance / ELO, cleans and translates retained languages — in the background, without blocking the page. Several accounts can run in parallel.",
       importLien: "Import a TikTok",
       importLienAide:
-        "Paste a single TikTok slideshow link. It goes through the v-next pipeline (ELO → cleaning → translations) attached to this source and its labels.",
+        "Paste a single TikTok slideshow link. It goes through the v-next pipeline (ELO → cleaning → translations) in the background, attached to this source and its labels.",
       importLienGo: "Import",
       importLienEnCours: "Importing…",
       importLienRequis: "Paste a TikTok link.",

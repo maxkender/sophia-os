@@ -18,11 +18,8 @@ import {
 } from "@/components/ui/card";
 import { LabelEditor } from "@/features/moteur/LabelPicker";
 import {
-  avancerImportContenuPlusieursPas,
   creerSource,
-  importerContenuDepuisLien,
   labelsDeLaSource,
-  lancerExtraction,
   listerLabels,
   listerSources,
   majSource,
@@ -31,6 +28,8 @@ import {
   stockParSource,
   supprimerSource,
 } from "@/features/moteur/api";
+import { demarrerImportCompte, demarrerImportLien } from "@/features/moteur/importJobs";
+import { ImportJobsPanel } from "@/features/moteur/ImportJobsPanel";
 import type { CompteReference, Label as NicheLabel } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
 
@@ -108,19 +107,10 @@ function VoixSource({ source }: { source: CompteReference }) {
   );
 }
 
-function BoutonExtraire({ sourceId }: { sourceId: string }) {
+/** Scrape + pipeline v-next en arrière-plan (ne bloque pas la page). */
+function BoutonExtraire({ sourceId, handle }: { sourceId: string; handle: string }) {
   const { t } = useTranslation();
-  const queryClient = useQueryClient();
   const [resultat, setResultat] = React.useState<string | null>(null);
-
-  const extraire = useMutation({
-    mutationFn: () => lancerExtraction(sourceId),
-    onSuccess: (r) => {
-      setResultat(t("sujets.slides", { count: r.sujetsCrees }));
-      queryClient.invalidateQueries();
-    },
-    onError: (e) => setResultat((e as Error).message),
-  });
 
   return (
     <div className="flex flex-col items-end gap-1">
@@ -128,10 +118,12 @@ function BoutonExtraire({ sourceId }: { sourceId: string }) {
         size="sm"
         variant="outline"
         title={t("sources.extraireAide")}
-        disabled={extraire.isPending}
-        onClick={() => extraire.mutate()}
+        onClick={() => {
+          demarrerImportCompte({ compteReferenceId: sourceId, handle });
+          setResultat(t("sources.importJobLance"));
+        }}
       >
-        {extraire.isPending ? t("sources.extraction") : t("sources.extraire")}
+        {t("sources.extraire")}
       </Button>
       {resultat && <span className="text-xs text-muted-foreground">{resultat}</span>}
     </div>
@@ -141,34 +133,31 @@ function BoutonExtraire({ sourceId }: { sourceId: string }) {
 /** Import v-next d'un seul TikTok rattaché à cette source (+ ses labels). */
 function ImportLienSource({ sourceId }: { sourceId: string }) {
   const { t } = useTranslation();
-  const queryClient = useQueryClient();
   const [url, setUrl] = React.useState("");
   const [ouvert, setOuvert] = React.useState(false);
   const [message, setMessage] = React.useState<string | null>(null);
 
-  const importer = useMutation({
-    mutationFn: async () => {
-      const lien = url.trim();
-      if (!lien) throw new Error(t("sources.importLienRequis"));
+  const lancer = async () => {
+    const lien = url.trim();
+    if (!lien) {
+      setMessage(t("sources.importLienRequis"));
+      return;
+    }
+    try {
       const labelIds = await labelsDeLaSource(sourceId);
-      const cree = await importerContenuDepuisLien(lien, sourceId, labelIds);
-      if (cree.contenuId) {
-        await avancerImportContenuPlusieursPas(cree.contenuId);
-      }
-      return cree;
-    },
-    onSuccess: (r) => {
-      setMessage(
-        r.reused
-          ? t("sources.importLienDeja")
-          : t("sources.importLienOk", { etape: r.etape ?? "…" }),
-      );
+      demarrerImportLien({
+        url: lien,
+        compteReferenceId: sourceId,
+        labelIds,
+        titre: lien,
+      });
+      setMessage(t("sources.importJobLance"));
       setUrl("");
-      queryClient.invalidateQueries({ queryKey: ["slideshows"] });
-      queryClient.invalidateQueries({ queryKey: ["contenus"] });
-    },
-    onError: (e) => setMessage((e as Error).message),
-  });
+      setOuvert(false);
+    } catch (e) {
+      setMessage((e as Error).message);
+    }
+  };
 
   if (!ouvert) {
     return (
@@ -186,7 +175,7 @@ function ImportLienSource({ sourceId }: { sourceId: string }) {
         className="flex flex-wrap items-center gap-2"
         onSubmit={(e) => {
           e.preventDefault();
-          importer.mutate();
+          void lancer();
         }}
       >
         <Input
@@ -196,16 +185,14 @@ function ImportLienSource({ sourceId }: { sourceId: string }) {
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           className="min-w-[16rem] flex-1 text-xs"
-          disabled={importer.isPending}
         />
-        <Button type="submit" size="sm" disabled={importer.isPending || !url.trim()}>
-          {importer.isPending ? t("sources.importLienEnCours") : t("sources.importLienGo")}
+        <Button type="submit" size="sm" disabled={!url.trim()}>
+          {t("sources.importLienGo")}
         </Button>
         <Button
           type="button"
           size="sm"
           variant="ghost"
-          disabled={importer.isPending}
           onClick={() => {
             setOuvert(false);
             setMessage(null);
@@ -214,15 +201,7 @@ function ImportLienSource({ sourceId }: { sourceId: string }) {
           {t("common.cancel")}
         </Button>
       </form>
-      {message && (
-        <p
-          className={
-            importer.isError ? "text-xs text-destructive" : "text-xs text-muted-foreground"
-          }
-        >
-          {message}
-        </p>
-      )}
+      {message && <p className="text-xs text-muted-foreground">{message}</p>}
     </div>
   );
 }
@@ -310,7 +289,7 @@ function LigneSource({
         </div>
 
         <div className="flex items-start gap-2">
-          <BoutonExtraire sourceId={source.id} />
+          <BoutonExtraire sourceId={source.id} handle={source.handle_tiktok} />
           <Button size="sm" variant="outline" onClick={() => basculer.mutate()}>
             {source.is_active ? t("sources.deactivate") : t("sources.activate")}
           </Button>
@@ -478,28 +457,30 @@ function FormAjoutSource({ niches }: { niches: NicheLabel[] }) {
           langue: "fr",
         });
         await setLabelsSource(cree.id, [nicheId]);
+        // Scrape + pipeline en arrière-plan — la page reste utilisable.
+        demarrerImportCompte({
+          compteReferenceId: cree.id,
+          handle: cree.handle_tiktok,
+        });
         return { kind: "compte" as const, handle: cree.handle_tiktok };
       }
 
       const lien = url.trim();
       if (!lien) throw new Error(t("sources.importLienRequis"));
-      const cree = await importerContenuDepuisLien(lien, null, [nicheId]);
-      let etape = cree.etape;
-      if (cree.contenuId) {
-        etape = (await avancerImportContenuPlusieursPas(cree.contenuId)) ?? etape;
-      }
-      return { kind: "lien" as const, reused: cree.reused, etape };
+      demarrerImportLien({
+        url: lien,
+        compteReferenceId: null,
+        labelIds: [nicheId],
+        titre: lien,
+      });
+      return { kind: "lien" as const };
     },
     onSuccess: (r) => {
       if (r.kind === "compte") {
-        setMessage(t("sources.compteAjoute", { handle: r.handle }));
+        setMessage(t("sources.compteAjouteJob", { handle: r.handle }));
         setHandle("");
       } else {
-        setMessage(
-          r.reused
-            ? t("sources.importLienDeja")
-            : t("sources.importLienOk", { etape: r.etape ?? "…" }),
-        );
+        setMessage(t("sources.importJobLance"));
         setUrl("");
       }
       queryClient.invalidateQueries({ queryKey: ["sources"] });
@@ -639,6 +620,7 @@ export function AdminSourcesPage() {
       </CardHeader>
       <CardContent className="space-y-6">
         <FormAjoutSource niches={niches.data ?? []} />
+        <ImportJobsPanel />
 
         <div className="space-y-3">
           {sources.isPending && (

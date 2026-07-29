@@ -50,9 +50,10 @@ Deno.serve(async (request) => {
       return json({ ok: true, saute: true, raison: "moteur_vnext inactif" });
     }
 
+    // scores retiré du défaut tant que PAUSE_ELO_RUNTIME est true.
     const etapes: string[] = Array.isArray(body?.etapes)
       ? body.etapes
-      : ["stats", "scores", "assignation"];
+      : ["stats", "assignation"];
     const jour = body?.date ?? aujourdhuiParis();
     const compteId: string | null = body?.compteId ?? null;
 
@@ -62,6 +63,7 @@ Deno.serve(async (request) => {
       out.stats = await releverPassages(supabase, compteId);
     }
     if (etapes.includes("scores")) {
+      // No-op si PAUSE_ELO_RUNTIME (voir _shared/scoring.ts).
       out.scores = await majScoresDepuisPassages(supabase, { compteId });
     }
     if (etapes.includes("assignation")) {

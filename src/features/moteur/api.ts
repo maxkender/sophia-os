@@ -1694,7 +1694,7 @@ export const scraperSourceVersContenus = (compteReferenceId: string) =>
     },
   );
 
-/** Pipeline minuit v-next : stats passages → scores → assignation contenus. */
+/** Pipeline minuit v-next : stats → (scores PAUSE) → assignation contenus. */
 export const lancerMinuitVnext = (body: Record<string, unknown> = {}) =>
   invoke<{ ok: boolean; saute?: boolean; jour?: string }>("minuit-vnext", body);
 

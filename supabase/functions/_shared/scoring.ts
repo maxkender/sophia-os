@@ -2,6 +2,14 @@ import { serviceClient } from "./supabase.ts";
 
 export type Supabase = ReturnType<typeof serviceClient>;
 
+/**
+ * PAUSE temporaire — ne plus faire évoluer `contenu_langues.score` / EWMA
+ * comptes à partir des stats TikTok fetchées.
+ * L'assignation midnight continue d'utiliser les scores d'import (ELO cold-start).
+ * Remettre à `false` pour réactiver (prévu demain).
+ */
+export const PAUSE_ELO_RUNTIME = true;
+
 export interface ScoringReglages {
   ewma_alpha: number;
   regularisation_k: number;
@@ -47,7 +55,16 @@ export function performanceNormalisee(perf: number, scoreCompte: number, prior: 
 export async function majScoresDepuisPassages(
   supabase: Supabase,
   opts: { depuisHeures?: number; compteId?: string | null } = {},
-): Promise<{ contenus: number; comptes: number }> {
+): Promise<{ contenus: number; comptes: number; saute?: boolean; raison?: string }> {
+  if (PAUSE_ELO_RUNTIME) {
+    return {
+      contenus: 0,
+      comptes: 0,
+      saute: true,
+      raison: "PAUSE_ELO_RUNTIME — évolution ELO langue depuis stats désactivée",
+    };
+  }
+
   const scoring = await chargerScoring(supabase);
   const depuis = new Date(
     Date.now() - (opts.depuisHeures ?? 36) * 3600_000,

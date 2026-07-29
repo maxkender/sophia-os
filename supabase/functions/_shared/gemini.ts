@@ -214,6 +214,14 @@ const LANGUES: Record<string, string> = {
   it: "italien",
   de: "allemand",
   pt: "portugais",
+  cs: "tchèque",
+  nl: "néerlandais",
+  el: "grec",
+  hu: "hongrois",
+  pl: "polonais",
+  ro: "roumain",
+  sv: "suédois",
+  tr: "turc",
 };
 
 export async function translateSlideshow(input: {

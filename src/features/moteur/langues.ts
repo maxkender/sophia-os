@@ -4,7 +4,22 @@
 // re-traduit vers chacune de ces langues (images nettoyées réutilisées, seul le
 // texte change + insertion Sophia). Ajouter une langue ici suffit à l'exposer
 // partout (création poster/recruteur, édition de compte).
-export const LANGUES_CIBLES = ["fr", "en", "de", "it", "es", "pt"] as const;
+export const LANGUES_CIBLES = [
+  "fr",
+  "en",
+  "de",
+  "it",
+  "es",
+  "pt",
+  "cs",
+  "nl",
+  "el",
+  "hu",
+  "pl",
+  "ro",
+  "sv",
+  "tr",
+] as const;
 
 const NOM_LANGUE: Record<string, string> = {
   fr: "Français",
@@ -13,6 +28,14 @@ const NOM_LANGUE: Record<string, string> = {
   it: "Italien",
   es: "Espagnol",
   pt: "Portugais",
+  cs: "Tchèque",
+  nl: "Néerlandais",
+  el: "Grec",
+  hu: "Hongrois",
+  pl: "Polonais",
+  ro: "Roumain",
+  sv: "Suédois",
+  tr: "Turc",
 };
 
 /** Nom lisible d'une langue (« Allemand » plutôt que « DE »). */

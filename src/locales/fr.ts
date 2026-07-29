@@ -336,6 +336,11 @@ export const fr = {
         "Monte l'ELO de chaque langue jusqu'au seuil d'import, puis lance le nettoyage.",
 
       langue: "Langue",
+      langueOrigine: "Langue du TikTok",
+      langueChoisir: "Choisir la langue…",
+      langueRequis: "Indique la langue d'origine du TikTok.",
+      langueAide:
+        "Langue réelle du contenu (pas forcément le français). C'est elle qui reçoit le boost ELO à l'import.",
       add: "Ajouter",
       voix: "Prompt adapté (voix / ton de traduction)",
       voixPlaceholder: "Ex. : ton complice et direct, tutoiement, phrases courtes, pas d'anglicismes…",

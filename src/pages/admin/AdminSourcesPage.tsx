@@ -30,11 +30,45 @@ import {
 import { demarrerImportCompte, demarrerImportLien } from "@/features/moteur/importJobs";
 import { ImportHistoriquePanel } from "@/features/moteur/ImportHistoriquePanel";
 import { ImportJobsPanel } from "@/features/moteur/ImportJobsPanel";
+import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import type { CompteReference, Label as NicheLabel } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
 
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
+
+function LangueSelect({
+  id,
+  value,
+  onChange,
+  disabled,
+}: {
+  id: string;
+  value: string;
+  onChange: (code: string) => void;
+  disabled?: boolean;
+}) {
+  const { t } = useTranslation();
+  return (
+    <select
+      id={id}
+      className={selectClass}
+      value={value}
+      disabled={disabled}
+      required
+      onChange={(e) => onChange(e.target.value)}
+    >
+      <option value="" disabled>
+        {t("sources.langueChoisir")}
+      </option>
+      {LANGUES_CIBLES.map((l) => (
+        <option key={l} value={l}>
+          {nomLangue(l)}
+        </option>
+      ))}
+    </select>
+  );
+}
 
 function NicheSelect({
   id,
@@ -108,7 +142,15 @@ function VoixSource({ source }: { source: CompteReference }) {
 }
 
 /** Scrape + pipeline v-next en arrière-plan (ne bloque pas la page). */
-function BoutonExtraire({ sourceId, handle }: { sourceId: string; handle: string }) {
+function BoutonExtraire({
+  sourceId,
+  handle,
+  langue,
+}: {
+  sourceId: string;
+  handle: string;
+  langue: string;
+}) {
   const { t } = useTranslation();
   const [resultat, setResultat] = React.useState<string | null>(null);
 
@@ -118,8 +160,9 @@ function BoutonExtraire({ sourceId, handle }: { sourceId: string; handle: string
         size="sm"
         variant="outline"
         title={t("sources.extraireAide")}
+        disabled={!langue}
         onClick={() => {
-          demarrerImportCompte({ compteReferenceId: sourceId, handle });
+          demarrerImportCompte({ compteReferenceId: sourceId, handle, langue });
           setResultat(t("sources.importJobLance"));
         }}
       >
@@ -131,16 +174,31 @@ function BoutonExtraire({ sourceId, handle }: { sourceId: string; handle: string
 }
 
 /** Import v-next d'un seul TikTok rattaché à cette source (+ ses labels). */
-function ImportLienSource({ sourceId }: { sourceId: string }) {
+function ImportLienSource({
+  sourceId,
+  langueSource,
+}: {
+  sourceId: string;
+  langueSource: string;
+}) {
   const { t } = useTranslation();
   const [url, setUrl] = React.useState("");
+  const [langue, setLangue] = React.useState(langueSource || "");
   const [ouvert, setOuvert] = React.useState(false);
   const [message, setMessage] = React.useState<string | null>(null);
+
+  React.useEffect(() => {
+    setLangue(langueSource || "");
+  }, [langueSource]);
 
   const lancer = async () => {
     const lien = url.trim();
     if (!lien) {
       setMessage(t("sources.importLienRequis"));
+      return;
+    }
+    if (!langue) {
+      setMessage(t("sources.langueRequis"));
       return;
     }
     try {
@@ -149,6 +207,7 @@ function ImportLienSource({ sourceId }: { sourceId: string }) {
         url: lien,
         compteReferenceId: sourceId,
         labelIds,
+        langue,
         titre: lien,
       });
       setMessage(t("sources.importJobLance"));
@@ -172,7 +231,7 @@ function ImportLienSource({ sourceId }: { sourceId: string }) {
       <p className="text-xs font-medium">{t("sources.importLien")}</p>
       <p className="text-[11px] text-muted-foreground">{t("sources.importLienAide")}</p>
       <form
-        className="flex flex-wrap items-center gap-2"
+        className="flex flex-wrap items-end gap-2"
         onSubmit={(e) => {
           e.preventDefault();
           void lancer();
@@ -186,7 +245,17 @@ function ImportLienSource({ sourceId }: { sourceId: string }) {
           onChange={(e) => setUrl(e.target.value)}
           className="min-w-[16rem] flex-1 text-xs"
         />
-        <Button type="submit" size="sm" disabled={!url.trim()}>
+        <div className="w-40 space-y-1">
+          <Label htmlFor={`langue-lien-${sourceId}`} className="text-[11px]">
+            {t("sources.langueOrigine")}
+          </Label>
+          <LangueSelect
+            id={`langue-lien-${sourceId}`}
+            value={langue}
+            onChange={setLangue}
+          />
+        </div>
+        <Button type="submit" size="sm" disabled={!url.trim() || !langue}>
           {t("sources.importLienGo")}
         </Button>
         <Button
@@ -226,6 +295,10 @@ function LigneSource({
     mutationFn: (g: "homme" | "femme") => majSource(source.id, { genre: g }),
     onSuccess: rafraichir,
   });
+  const changerLangue = useMutation({
+    mutationFn: (langue: string) => majSource(source.id, { langue }),
+    onSuccess: rafraichir,
+  });
   const retirer = useMutation({
     mutationFn: () => supprimerSource(source.id),
     onSuccess: rafraichir,
@@ -250,6 +323,9 @@ function LigneSource({
             </button>
             {estConjoint && <Badge variant="outline">{t("sources.conjoint")}</Badge>}
             {!source.is_active && <Badge variant="secondary">{t("sources.inactive")}</Badge>}
+            {source.langue && (
+              <Badge variant="outline">{nomLangue(source.langue)}</Badge>
+            )}
           </div>
           <p className="text-xs text-muted-foreground">
             {[
@@ -264,32 +340,49 @@ function LigneSource({
               .join(" · ")}
           </p>
 
-          {!estConjoint && (
-            <div className="flex items-center gap-2 pt-2">
-              <span className="text-xs text-muted-foreground">{t("sources.genre")}</span>
-              <div className="inline-flex overflow-hidden rounded-md border">
-                {(["femme", "homme"] as const).map((g) => (
-                  <button
-                    key={g}
-                    type="button"
-                    disabled={changerGenre.isPending}
-                    onClick={() => changerGenre.mutate(g)}
-                    className={
-                      source.genre === g
-                        ? "bg-primary px-2.5 py-1 text-xs font-medium text-primary-foreground"
-                        : "bg-background px-2.5 py-1 text-xs text-muted-foreground hover:bg-muted"
-                    }
-                  >
-                    {g === "femme" ? t("sources.genreFemme") : t("sources.genreHomme")}
-                  </button>
-                ))}
+          <div className="flex flex-wrap items-center gap-3 pt-2">
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-muted-foreground">{t("sources.langueOrigine")}</span>
+              <div className="w-36">
+                <LangueSelect
+                  id={`langue-source-${source.id}`}
+                  value={source.langue || ""}
+                  disabled={changerLangue.isPending}
+                  onChange={(l) => changerLangue.mutate(l)}
+                />
               </div>
             </div>
-          )}
+            {!estConjoint && (
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-muted-foreground">{t("sources.genre")}</span>
+                <div className="inline-flex overflow-hidden rounded-md border">
+                  {(["femme", "homme"] as const).map((g) => (
+                    <button
+                      key={g}
+                      type="button"
+                      disabled={changerGenre.isPending}
+                      onClick={() => changerGenre.mutate(g)}
+                      className={
+                        source.genre === g
+                          ? "bg-primary px-2.5 py-1 text-xs font-medium text-primary-foreground"
+                          : "bg-background px-2.5 py-1 text-xs text-muted-foreground hover:bg-muted"
+                      }
+                    >
+                      {g === "femme" ? t("sources.genreFemme") : t("sources.genreHomme")}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
 
         <div className="flex items-start gap-2">
-          <BoutonExtraire sourceId={source.id} handle={source.handle_tiktok} />
+          <BoutonExtraire
+            sourceId={source.id}
+            handle={source.handle_tiktok}
+            langue={source.langue}
+          />
           <Button size="sm" variant="outline" onClick={() => basculer.mutate()}>
             {source.is_active ? t("sources.deactivate") : t("sources.activate")}
           </Button>
@@ -306,7 +399,7 @@ function LigneSource({
         </div>
       </div>
 
-      <ImportLienSource sourceId={source.id} />
+      <ImportLienSource sourceId={source.id} langueSource={source.langue} />
 
       <div className="border-t pt-3">
         <LabelEditor
@@ -441,6 +534,7 @@ function FormAjoutSource({ niches }: { niches: NicheLabel[] }) {
   const [handle, setHandle] = React.useState("");
   const [url, setUrl] = React.useState("");
   const [nicheId, setNicheId] = React.useState("");
+  const [langue, setLangue] = React.useState("");
   const [message, setMessage] = React.useState<string | null>(null);
 
   const nicheNom = niches.find((n) => n.id === nicheId)?.nom ?? "";
@@ -448,19 +542,21 @@ function FormAjoutSource({ niches }: { niches: NicheLabel[] }) {
   const ajouter = useMutation({
     mutationFn: async () => {
       if (!nicheId) throw new Error(t("sources.nicheRequis"));
+      if (!langue) throw new Error(t("sources.langueRequis"));
 
       if (mode === "compte") {
         if (!handle.trim()) throw new Error(t("sources.handleRequis"));
         const cree = await creerSource({
           handle,
           niche: nicheNom,
-          langue: "fr",
+          langue,
         });
         await setLabelsSource(cree.id, [nicheId]);
         // Scrape + pipeline en arrière-plan — la page reste utilisable.
         demarrerImportCompte({
           compteReferenceId: cree.id,
           handle: cree.handle_tiktok,
+          langue,
         });
         return { kind: "compte" as const, handle: cree.handle_tiktok };
       }
@@ -471,6 +567,7 @@ function FormAjoutSource({ niches }: { niches: NicheLabel[] }) {
         url: lien,
         compteReferenceId: null,
         labelIds: [nicheId],
+        langue,
         titre: lien,
       });
       return { kind: "lien" as const };
@@ -532,7 +629,7 @@ function FormAjoutSource({ niches }: { niches: NicheLabel[] }) {
             e.preventDefault();
             ajouter.mutate();
           }}
-          className="grid gap-3 sm:grid-cols-3"
+          className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
         >
           {mode === "compte" ? (
             <div className="space-y-2">
@@ -547,7 +644,7 @@ function FormAjoutSource({ niches }: { niches: NicheLabel[] }) {
               />
             </div>
           ) : (
-            <div className="space-y-2 sm:col-span-1">
+            <div className="space-y-2">
               <Label htmlFor="tiktok-url">{t("sources.lienTikTok")}</Label>
               <Input
                 id="tiktok-url"
@@ -571,8 +668,23 @@ function FormAjoutSource({ niches }: { niches: NicheLabel[] }) {
             />
           </div>
 
+          <div className="space-y-2">
+            <Label htmlFor="langue-ajout">{t("sources.langueOrigine")}</Label>
+            <LangueSelect
+              id="langue-ajout"
+              value={langue}
+              onChange={setLangue}
+              disabled={ajouter.isPending}
+            />
+            <p className="text-[11px] text-muted-foreground">{t("sources.langueAide")}</p>
+          </div>
+
           <div className="flex items-end">
-            <Button type="submit" className="w-full" disabled={ajouter.isPending || !nicheId}>
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={ajouter.isPending || !nicheId || !langue}
+            >
               {ajouter.isPending
                 ? mode === "lien"
                   ? t("sources.importLienEnCours")

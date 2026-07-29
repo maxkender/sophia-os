@@ -1502,7 +1502,11 @@ export const listerSlideshowsCompte = (compteReferenceId: string) =>
   });
 
 /** Enfile toutes les URLs d'un compte + kick workers serveur. */
-export const enqueueImportCompte = (compteReferenceId: string, labelIds?: string[]) =>
+export const enqueueImportCompte = (
+  compteReferenceId: string,
+  labelIds?: string[],
+  langue?: string | null,
+) =>
   invoke<{
     ok: boolean;
     handle: string;
@@ -1512,10 +1516,12 @@ export const enqueueImportCompte = (compteReferenceId: string, labelIds?: string
     batchId: string;
     enqueued: number;
     skipped: number;
+    langue?: string | null;
   }>("import-contenu", {
     enqueueCompte: true,
     compteReferenceId,
     labelIds: labelIds ?? [],
+    langue: langue ?? null,
   });
 
 /** Enfile une liste d'URLs pour scrape+pipeline serveur. */
@@ -1524,6 +1530,8 @@ export const enqueueImportUrls = (opts: {
   compteReferenceId: string | null;
   labelIds?: string[];
   batchId?: string;
+  /** Langue d'origine du TikTok (boost ELO). */
+  langue?: string | null;
 }) =>
   invoke<{
     ok: boolean;
@@ -1536,6 +1544,7 @@ export const enqueueImportUrls = (opts: {
     compteReferenceId: opts.compteReferenceId,
     labelIds: opts.labelIds ?? [],
     batchId: opts.batchId ?? null,
+    langue: opts.langue ?? null,
   });
 
 /** Progression d'un batch d'import serveur. */

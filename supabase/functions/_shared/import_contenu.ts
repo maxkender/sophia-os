@@ -486,25 +486,43 @@ export async function assurerLanguesAuDessusSeuilElo(
   return retenues.map((r) => r.langue);
 }
 
-/** Import d'un lien TikTok isolé. */
+/** Normalise un code langue (fr, en, …) ou null si invalide. */
+function normaliserLangue(raw: string | null | undefined): string | null {
+  if (!raw) return null;
+  const code = raw.trim().toLowerCase().slice(0, 8);
+  if (!(LANGUES_CIBLES as readonly string[]).includes(code)) return null;
+  return code;
+}
+
+/**
+ * Import d'un lien TikTok isolé.
+ * `langueExplicit` = langue d'origine choisie à l'import (prioritaire).
+ * Sinon `comptes_reference.langue`. Plus de défaut silencieux « fr ».
+ */
 export async function importerLien(
   supabase: Supabase,
   postUrl: string,
   compteReferenceId: string | null,
   labelIds: string[] | null,
+  langueExplicit: string | null = null,
 ): Promise<{ id: string; reused: boolean }> {
   const [post] = await scrapePost(postUrl);
   if (!post) throw new Error("Post introuvable ou non scrapable");
   if (post.imageUrls.length === 0) throw new Error("Pas un diaporama (aucune image)");
 
-  let langue = "fr";
-  if (compteReferenceId) {
+  let langue = normaliserLangue(langueExplicit);
+  if (!langue && compteReferenceId) {
     const { data: ref } = await supabase
       .from("comptes_reference")
       .select("langue")
       .eq("id", compteReferenceId)
       .maybeSingle();
-    langue = ref?.langue ?? "fr";
+    langue = normaliserLangue(ref?.langue ?? null);
+  }
+  if (!langue) {
+    throw new Error(
+      "Langue d'origine du TikTok requise (précise-la à l'import)",
+    );
   }
   return creerContenuDepuisPost(supabase, post, compteReferenceId, labelIds, langue);
 }
@@ -1397,6 +1415,8 @@ export interface ImportFileRow {
   post_url: string;
   compte_reference_id: string | null;
   label_ids: string[];
+  /** Langue d'origine du TikTok (boost ELO). */
+  langue: string | null;
   batch_id: string | null;
   statut: string;
   contenu_id: string | null;
@@ -1412,9 +1432,12 @@ export async function enqueueImportUrls(
     compteReferenceId: string | null;
     labelIds?: string[] | null;
     batchId?: string | null;
+    /** Langue d'origine — stockée sur chaque ligne import_file. */
+    langue?: string | null;
   },
 ): Promise<{ batchId: string; enqueued: number; skipped: number }> {
   const batchId = opts.batchId ?? crypto.randomUUID();
+  const langue = normaliserLangue(opts.langue ?? null);
   let enqueued = 0;
   let skipped = 0;
   for (const url of opts.urls) {
@@ -1423,6 +1446,7 @@ export async function enqueueImportUrls(
       compte_reference_id: opts.compteReferenceId,
       label_ids: opts.labelIds ?? [],
       batch_id: batchId,
+      langue,
       statut: "pending",
     });
     if (error) {
@@ -1480,6 +1504,7 @@ export async function traiterImportFile(
       row.post_url,
       row.compte_reference_id,
       row.label_ids?.length ? row.label_ids : null,
+      row.langue ?? null,
     );
     await supabase
       .from("import_file")

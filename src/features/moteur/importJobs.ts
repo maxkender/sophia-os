@@ -165,6 +165,8 @@ export function demarrerImportLien(opts: {
   url: string;
   compteReferenceId: string | null;
   labelIds: string[];
+  /** Langue d'origine du TikTok (requis pour le boost ELO). */
+  langue: string;
   titre?: string;
 }): string {
   const jobId = newJob(opts.titre ?? opts.url);
@@ -173,13 +175,14 @@ export function demarrerImportLien(opts: {
       log(
         jobId,
         "info",
-        "Enqueue serveur (tu peux quitter la page — le drain continue)…",
+        `Enqueue serveur (langue=${opts.langue}) — tu peux quitter la page…`,
         opts.url,
       );
       const r = await enqueueImportUrls({
         urls: [opts.url],
         compteReferenceId: opts.compteReferenceId,
         labelIds: opts.labelIds,
+        langue: opts.langue,
       });
       const cur = jobs.find((j) => j.id === jobId);
       if (cur) upsertJob({ ...cur, batchId: r.batchId });
@@ -187,7 +190,7 @@ export function demarrerImportLien(opts: {
         jobId,
         "ok",
         `Enfilé — batch ${r.batchId.slice(0, 8)}… · workers kickés`,
-        `enqueued=${r.enqueued} skipped=${r.skipped}`,
+        `enqueued=${r.enqueued} skipped=${r.skipped} · langue=${opts.langue}`,
       );
       startPolling(jobId, r.batchId);
     } catch (e) {
@@ -205,6 +208,8 @@ export function demarrerImportLien(opts: {
 export function demarrerImportCompte(opts: {
   compteReferenceId: string;
   handle: string;
+  /** Langue d'origine des TikToks de ce compte. */
+  langue: string;
   /** Ignoré — la largeur est côté serveur (workers). */
   largeur?: number;
 }): string {
@@ -214,10 +219,14 @@ export function demarrerImportCompte(opts: {
       log(
         jobId,
         "info",
-        "Listing + enqueue serveur (fermeture OK — 12 workers/min + chaîne)…",
+        `Listing + enqueue (langue=${opts.langue}) — fermeture OK…`,
         `@${opts.handle.replace(/^@/, "")}`,
       );
-      const r = await enqueueImportCompte(opts.compteReferenceId);
+      const r = await enqueueImportCompte(
+        opts.compteReferenceId,
+        undefined,
+        opts.langue,
+      );
       const cur = jobs.find((j) => j.id === jobId);
       if (cur) upsertJob({ ...cur, batchId: r.batchId });
       log(
@@ -226,7 +235,7 @@ export function demarrerImportCompte(opts: {
         `File créée — ${r.enqueued} URLs enqueued` +
           (r.skipped ? ` (${r.skipped} déjà en file)` : "") +
           (r.connus ? ` · ${r.connus} déjà connus (re-pipeline)` : ""),
-        `batch=${r.batchId} · total profil=${r.total} · source=${r.source}`,
+        `batch=${r.batchId} · total profil=${r.total} · source=${r.source} · langue=${opts.langue}`,
       );
       if (r.enqueued === 0 && r.skipped === 0 && r.total === 0) {
         log(jobId, "warn", "Aucun slideshow à importer");

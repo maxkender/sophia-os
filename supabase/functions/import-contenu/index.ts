@@ -55,15 +55,25 @@ Deno.serve(async (request) => {
 
     // Enfile toutes les URLs d'un compte (listing rapide, pas de scrape lourd).
     if (body?.enqueueCompte && body?.compteReferenceId) {
-      const listed = await listerUrlsCompteReference(
-        supabase,
-        String(body.compteReferenceId),
-      );
+      const compteId = String(body.compteReferenceId);
+      const listed = await listerUrlsCompteReference(supabase, compteId);
+      // Langue explicite, sinon celle du compte source.
+      let langue: string | null =
+        typeof body.langue === "string" ? body.langue : null;
+      if (!langue) {
+        const { data: ref } = await supabase
+          .from("comptes_reference")
+          .select("langue")
+          .eq("id", compteId)
+          .maybeSingle();
+        langue = (ref?.langue as string | null) ?? null;
+      }
       const r = await enqueueImportUrls(supabase, {
         urls: listed.urls,
-        compteReferenceId: String(body.compteReferenceId),
+        compteReferenceId: compteId,
         labelIds: Array.isArray(body.labelIds) ? body.labelIds : [],
         batchId: body.batchId ? String(body.batchId) : null,
+        langue,
       });
       // Kick immédiat de workers (ne dépend pas du cron pour démarrer).
       kickWorkers(request, 10);
@@ -76,6 +86,7 @@ Deno.serve(async (request) => {
         batchId: r.batchId,
         enqueued: r.enqueued,
         skipped: r.skipped,
+        langue,
       });
     }
 
@@ -85,6 +96,7 @@ Deno.serve(async (request) => {
         compteReferenceId: body.compteReferenceId ?? null,
         labelIds: Array.isArray(body.labelIds) ? body.labelIds : [],
         batchId: body.batchId ? String(body.batchId) : null,
+        langue: typeof body.langue === "string" ? body.langue : null,
       });
       kickWorkers(request, Math.min(10, Math.max(2, r.enqueued)));
       return json({ ok: true, ...r });
@@ -102,12 +114,14 @@ Deno.serve(async (request) => {
 
     // Entrée : lien isolé → enqueue (serveur drain) sauf scrapeNow
     if (body?.postUrl) {
+      const langue = typeof body.langue === "string" ? body.langue : null;
       if (body.scrapeNow) {
         const cree = await importerLien(
           supabase,
           String(body.postUrl),
           body.compteReferenceId ?? null,
           Array.isArray(body.labelIds) ? body.labelIds : null,
+          langue,
         );
         const contenu = await prochainContenu(supabase, cree.id);
         if (!contenu) {
@@ -127,6 +141,7 @@ Deno.serve(async (request) => {
         urls: [String(body.postUrl)],
         compteReferenceId: body.compteReferenceId ?? null,
         labelIds: Array.isArray(body.labelIds) ? body.labelIds : [],
+        langue,
       });
       kickWorkers(request, 2);
       return json({ ok: true, batchId: r.batchId, enqueued: r.enqueued, skipped: r.skipped });

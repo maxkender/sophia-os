@@ -463,7 +463,7 @@ export const fr = {
       creerCompte: "Créer le compte de publication",
       sansCompteCree: "Ce poster n'a pas encore de compte de publication.",
       labelsAide:
-        "Labels (une fois en tête de page) : sans label sur un créateur, minuit n’assigne rien — intersection labels créateur ∩ contenus.",
+        "Sans label sur un créateur, minuit n’assigne rien (intersection labels créateur ∩ contenus).",
       sansLabels: "Sans labels",
       createursDuRecruteur: "Créateurs rattachés",
 

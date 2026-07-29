@@ -891,7 +891,7 @@ export const fr = {
       outilsAdmin: "Outils admin",
       nettoyageEnCours: "Nettoyage en cours…",
       nettoyageEchec:
-        "Le nettoyage n'a pas abouti sur cette photo (Fal saturé, ou texte trop dense). Réessaie, ou remplace-la.",
+        "Le nettoyage n'a pas abouti sur cette photo (Fal / Replicate en échec, ou texte trop dense). Réessaie, ou remplace-la.",
       nettoyageTexteResiduel: "Nettoyée, mais du texte semble subsister — revérifie.",
       photoRemplacee: "Nettoyage impossible : photo remplacée par une autre propre du compte.",
       remplacerPhoto: "Remplacer la photo",

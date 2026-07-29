@@ -890,7 +890,7 @@ export const en = {
       outilsAdmin: "Admin tools",
       nettoyageEnCours: "Cleaning in progress…",
       nettoyageEchec:
-        "Cleaning didn't succeed on this photo (Fal overloaded, or text too dense). Retry, or replace it.",
+        "Cleaning didn't succeed on this photo (Fal / Replicate failed, or text too dense). Retry, or replace it.",
       nettoyageTexteResiduel: "Cleaned, but some text seems to remain — check again.",
       photoRemplacee: "Cleaning impossible: photo replaced with another clean one from the account.",
       remplacerPhoto: "Replace the photo",

@@ -7,6 +7,8 @@ const BUCKET = "medias";
 
 /**
  * Re-nettoie la photo d'UNE slide, à la demande de l'admin.
+ * Même pipeline que l'import : Fal text-removal → Replicate flux-kontext
+ * text-removal → C2PA (`cleanImage`).
  *
  *   { postSlideId, stream?: true }
  */

@@ -6,6 +6,7 @@ const BUCKET = "medias";
 
 /**
  * Re-nettoie UNE slide d'un contenu v-next (structure_slides), à la demande.
+ * Même pipeline que l'import : Fal → Replicate text-removal → C2PA (`cleanImage`).
  *
  *   { contenuId, position, stream?: true }
  */

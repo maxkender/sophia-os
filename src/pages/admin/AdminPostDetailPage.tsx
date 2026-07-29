@@ -381,7 +381,7 @@ export function AdminPostDetailPage() {
     (async () => {
       try {
         // 1 — Nettoyage du sujet (jusqu'à done ; le cleanImage retombe sur une
-        //     photo de la bibliothèque si le proxy échoue, donc ça aboutit).
+        //     photo de la bibliothèque si Fal+Replicate échouent, donc ça aboutit).
         if (p.sujet_id) {
           for (let i = 0; i < 80; i += 1) {
             const { data: s } = await supabase

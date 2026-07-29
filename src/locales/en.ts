@@ -294,6 +294,14 @@ export const en = {
       extraire: "Extract",
       extraireAide:
         "Fetches this reference account's latest photo posts (sorted by views) and turns them into topics ready to translate. This is what the nightly cron does; this button runs it manually.",
+      importLien: "Import a TikTok",
+      importLienAide:
+        "Paste a single TikTok slideshow link. It goes through the v-next pipeline (ELO → cleaning → translations) attached to this source and its labels.",
+      importLienGo: "Import",
+      importLienEnCours: "Importing…",
+      importLienRequis: "Paste a TikTok link.",
+      importLienOk: "Imported — step {{etape}}. Visible in Slideshows.",
+      importLienDeja: "This TikTok was already imported — source labels updated.",
       copierLien: "Copy link",
       extraction: "Extracting…",
       extraitLe: "Extracted on {{date}}",

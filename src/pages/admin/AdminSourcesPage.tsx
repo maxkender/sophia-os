@@ -18,8 +18,10 @@ import {
 import { LabelEditor } from "@/features/moteur/LabelPicker";
 import {
   creerSource,
+  importerContenuDepuisLien,
   labelsDeLaSource,
   lancerExtraction,
+  lancerImportContenu,
   listerSources,
   majSource,
   propagerLabelsSource,
@@ -94,6 +96,101 @@ function BoutonExtraire({ sourceId }: { sourceId: string }) {
         {extraire.isPending ? t("sources.extraction") : t("sources.extraire")}
       </Button>
       {resultat && <span className="text-xs text-muted-foreground">{resultat}</span>}
+    </div>
+  );
+}
+
+/** Import v-next d'un seul TikTok rattaché à cette source (+ ses labels). */
+function ImportLienSource({ sourceId }: { sourceId: string }) {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const [url, setUrl] = React.useState("");
+  const [ouvert, setOuvert] = React.useState(false);
+  const [message, setMessage] = React.useState<string | null>(null);
+
+  const importer = useMutation({
+    mutationFn: async () => {
+      const lien = url.trim();
+      if (!lien) throw new Error(t("sources.importLienRequis"));
+      const labelIds = await labelsDeLaSource(sourceId);
+      const cree = await importerContenuDepuisLien(lien, sourceId, labelIds);
+      // Avance encore quelques pas du pipeline (ELO → clean → trad…).
+      if (cree.contenuId) {
+        for (let i = 0; i < 8; i += 1) {
+          const r = await lancerImportContenu(cree.contenuId).catch(() => null);
+          if (!r || r.idle || r.etape === "done" || r.etape === "rejete" || r.etape === "elo_insuffisant") {
+            break;
+          }
+        }
+      }
+      return cree;
+    },
+    onSuccess: (r) => {
+      setMessage(
+        r.reused
+          ? t("sources.importLienDeja")
+          : t("sources.importLienOk", { etape: r.etape ?? "…" }),
+      );
+      setUrl("");
+      queryClient.invalidateQueries({ queryKey: ["slideshows"] });
+      queryClient.invalidateQueries({ queryKey: ["contenus"] });
+    },
+    onError: (e) => setMessage((e as Error).message),
+  });
+
+  if (!ouvert) {
+    return (
+      <Button size="sm" variant="outline" onClick={() => setOuvert(true)}>
+        {t("sources.importLien")}
+      </Button>
+    );
+  }
+
+  return (
+    <div className="space-y-2 rounded-md border border-dashed p-2.5">
+      <p className="text-xs font-medium">{t("sources.importLien")}</p>
+      <p className="text-[11px] text-muted-foreground">{t("sources.importLienAide")}</p>
+      <form
+        className="flex flex-wrap items-center gap-2"
+        onSubmit={(e) => {
+          e.preventDefault();
+          importer.mutate();
+        }}
+      >
+        <Input
+          type="url"
+          required
+          placeholder="https://www.tiktok.com/@…/photo/…"
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+          className="min-w-[16rem] flex-1 text-xs"
+          disabled={importer.isPending}
+        />
+        <Button type="submit" size="sm" disabled={importer.isPending || !url.trim()}>
+          {importer.isPending ? t("sources.importLienEnCours") : t("sources.importLienGo")}
+        </Button>
+        <Button
+          type="button"
+          size="sm"
+          variant="ghost"
+          disabled={importer.isPending}
+          onClick={() => {
+            setOuvert(false);
+            setMessage(null);
+          }}
+        >
+          {t("common.cancel")}
+        </Button>
+      </form>
+      {message && (
+        <p
+          className={
+            importer.isError ? "text-xs text-destructive" : "text-xs text-muted-foreground"
+          }
+        >
+          {message}
+        </p>
+      )}
     </div>
   );
 }
@@ -198,6 +295,8 @@ function LigneSource({
           </Button>
         </div>
       </div>
+
+      <ImportLienSource sourceId={source.id} />
 
       <div className="border-t pt-3">
         <LabelEditor

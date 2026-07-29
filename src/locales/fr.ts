@@ -294,6 +294,14 @@ export const fr = {
       extraire: "Extraire",
       extraireAide:
         "Va chercher les derniers posts photo de ce compte de référence (triés par vues), en crée des sujets prêts à traduire. C'est ce que fait le cron chaque soir ; ce bouton le lance à la main.",
+      importLien: "Importer un TikTok",
+      importLienAide:
+        "Colle le lien d'un seul slideshow TikTok. Il part dans le pipeline v-next (ELO → nettoyage → traductions) rattaché à cette source et ses labels.",
+      importLienGo: "Importer",
+      importLienEnCours: "Import…",
+      importLienRequis: "Colle un lien TikTok.",
+      importLienOk: "Importé — étape {{etape}}. Visible dans Slideshows.",
+      importLienDeja: "Ce TikTok était déjà importé — labels de la source mis à jour.",
       copierLien: "Copier le lien",
       extraction: "Extraction…",
       extraitLe: "Extrait le {{date}}",

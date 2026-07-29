@@ -7,8 +7,7 @@ import { ORDRE_ETAPES } from "@/features/moteur/nettoyageEtapes";
 
 const LABEL_KEY: Record<EtapeNettoyageId, string> = {
   text_removal: "nettoyageEtapes.textRemoval",
-  proxy: "nettoyageEtapes.proxy",
-  inpaint: "nettoyageEtapes.inpaint",
+  replicate_text_removal: "nettoyageEtapes.replicateTextRemoval",
   c2pa: "nettoyageEtapes.c2pa",
   ready: "nettoyageEtapes.ready",
 };

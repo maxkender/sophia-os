@@ -791,12 +791,10 @@ export async function avancerImport(
           .map((s) => {
             const moteurLabel =
               s.moteur === "text_removal"
-                ? "Fal/Seedream"
-                : s.moteur === "proxy"
-                  ? "FALLBACK proxy"
-                  : s.moteur === "inpaint"
-                    ? "FALLBACK LaMa"
-                    : s.moteur ?? "—";
+                ? "Fal"
+                : s.moteur === "replicate_text_removal"
+                  ? "FALLBACK Replicate"
+                  : s.moteur ?? "—";
             const head =
               `══ slide #${s.position} · ${s.ok ? "OK" : "ÉCHEC"} · moteur=${moteurLabel}` +
               (s.motif ? ` · ${s.motif}` : "");
@@ -1019,16 +1017,15 @@ async function nettoyerSlide(
   slide: SlideBrut,
 ): Promise<{ mediaId: string | null; rapport: NettoyageSlideRapport }> {
   const labelEtape: Record<string, string> = {
-    text_removal: "① Fal/Seedream",
-    proxy: "② FALLBACK proxy",
-    inpaint: "③ FALLBACK LaMa",
-    c2pa: "④ Enlève clés C2PA",
-    ready: "⑤ Ready",
+    text_removal: "① Fal",
+    replicate_text_removal: "② FALLBACK Replicate",
+    c2pa: "③ Enlève clés C2PA",
+    ready: "④ Ready",
   };
   const lignes: string[] = [
     `slide #${slide.position} · url=${(slide.raw_url ?? "").slice(0, 72)}…`,
-    `pipeline: ① Fal/Seedream (text-removal) → ② FALLBACK proxy → ③ FALLBACK LaMa → ④ Enlève clés C2PA → ⑤ verifyClean`,
-    `note: chaque poll Fal = 1 appel HTTP (d'où ~10 hits / photo si la queue est lente)`,
+    `pipeline: ① Fal text-removal → ② FALLBACK Replicate flux-kontext text-removal → ③ Enlève clés C2PA → ④ verifyClean`,
+    `note: chaque poll Fal/Replicate = 1 appel HTTP (compteur dashboard)`,
   ];
   const rapport: NettoyageSlideRapport = {
     position: slide.position,

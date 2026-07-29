@@ -854,7 +854,7 @@ export const en = {
     testNet: {
       title: "Cleaning test",
       subtitle:
-        "Uncleaned photos from each account. Click \"Test\" to follow each step (text-removal → proxy → inpaint → Content Credentials), without changing anything.",
+        "Uncleaned photos from each account. Click \"Test\" to follow each step (Fal → Replicate text-removal → Content Credentials), without changing anything.",
       vide: "No text photo to test — everything is already cleaned.",
       avant: "Before",
       apres: "After",
@@ -863,15 +863,13 @@ export const en = {
       enCours: "Cleaning…",
       moteurTextRemoval: "Fal · text-removal",
       viaTextRemoval: "Cleaned via Fal text-removal",
-      viaProxy: "Cleaned via proxy (fallback)",
-      viaInpaint: "Cleaned via LaMa inpaint (fallback)",
+      viaReplicate: "Cleaned via Replicate text-removal (fallback)",
       pasEncore: "Click \"Test\"",
       echec: "Failed — see the message",
     },
     nettoyageEtapes: {
       textRemoval: "Fal text-removal",
-      proxy: "Proxy (fallback)",
-      inpaint: "LaMa inpaint (fallback)",
+      replicateTextRemoval: "Replicate text-removal (fallback)",
       c2pa: "Content Credentials",
       ready: "Ready",
     },
@@ -900,7 +898,7 @@ export const en = {
       nettoyerTout_other: "Clean the {{count}} photos to check",
       lotEnCours: "Cleaning… {{fait}}/{{total}}",
       lotAide:
-        "Each photo: text-removal → proxy → inpaint → Content Credentials removal; ~1 min / image, 3 in parallel.",
+        "Each photo: Fal → Replicate text-removal → Content Credentials removal; ~1 min / image, 3 in parallel.",
       choisirBiblio: "Choose a photo from the account's library",
       biblioVide: "No photo in this account's library.",
       retirerPhoto: "Remove the photo",

@@ -56,7 +56,7 @@ async function invoke<T>(name: string, body: Record<string, unknown>): Promise<T
 
 /**
  * Appelle une edge function de nettoyage en NDJSON streamé : chaque ligne =
- * une étape (text-removal → proxy → inpaint → C2PA → ready).
+ * une étape (Fal → Replicate text-removal → C2PA → ready).
  */
 async function invokeNettoyageStream(
   name: string,
@@ -1031,7 +1031,7 @@ export async function renettoyerSlide(
       ok: boolean;
       nettoyee: boolean;
       remplacee?: boolean;
-      moteur?: "text_removal" | "proxy" | "inpaint";
+      moteur?: "text_removal" | "replicate_text_removal";
       erreur?: string;
       motif?: string;
     }>("renettoyer", { postSlideId });
@@ -1100,7 +1100,7 @@ export async function nettoyerMedia(
     return invoke<{
       ok: boolean;
       nettoyee: boolean;
-      moteur?: "text_removal" | "proxy" | "inpaint";
+      moteur?: "text_removal" | "replicate_text_removal";
       erreur?: string;
     }>("nettoyer-media", { mediaId });
   }
@@ -1123,7 +1123,7 @@ export async function renettoyerSlideContenu(
     return invoke<{
       ok: boolean;
       nettoyee: boolean;
-      moteur?: "text_removal" | "proxy" | "inpaint";
+      moteur?: "text_removal" | "replicate_text_removal";
       mediaId?: string;
       url?: string;
       motif?: string;
@@ -1234,7 +1234,7 @@ export async function nettoyerTest(
     return invoke<{
       ok: boolean;
       url?: string;
-      moteur?: "text_removal" | "proxy" | "inpaint";
+      moteur?: "text_removal" | "replicate_text_removal";
       erreur?: string;
       motif?: string;
     }>("nettoyer-test", { url });

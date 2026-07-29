@@ -1,14 +1,13 @@
 /** Étapes du pipeline de nettoyage (miroir du backend). */
 export type EtapeNettoyageId =
   | "text_removal"
-  | "proxy"
-  | "inpaint"
+  | "replicate_text_removal"
   | "c2pa"
   | "ready";
 
 export type StatutEtape = "encours" | "ok" | "echec" | "saute" | "attente";
 
-export type MoteurNettoyage = "text_removal" | "proxy" | "inpaint";
+export type MoteurNettoyage = "text_removal" | "replicate_text_removal";
 
 export interface EvenementEtape {
   etape: EtapeNettoyageId;
@@ -25,8 +24,7 @@ export interface EvenementEtape {
 
 export const ORDRE_ETAPES: EtapeNettoyageId[] = [
   "text_removal",
-  "proxy",
-  "inpaint",
+  "replicate_text_removal",
   "c2pa",
   "ready",
 ];

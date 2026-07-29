@@ -2,7 +2,7 @@ import { downloadImage } from "./apify.ts";
 import { messageErreur } from "./supabase.ts";
 import { dimensionsImage, effacerTexte, type Zone } from "./inpaint.ts";
 import { nettoyerViaFalTextRemoval } from "./fal_text_removal.ts";
-import { nettoyerViaProxy } from "./proxy.ts";
+import { nettoyerViaReplicateTextRemoval } from "./replicate_text_removal.ts";
 import { retirerContentCredentials } from "./c2pa.ts";
 
 const BASE = "https://generativelanguage.googleapis.com/v1beta/models";
@@ -586,13 +586,12 @@ async function luminanceMoyenne(bytes: Uint8Array): Promise<number | null> {
 }
 
 /** Moteur effectivement utilisé pour un nettoyage réussi. */
-export type MoteurNettoyage = "text_removal" | "proxy" | "inpaint";
+export type MoteurNettoyage = "text_removal" | "replicate_text_removal";
 
 /** Identifiants d'étapes exposés au front (timeline de chargement). */
 export type EtapeNettoyageId =
   | "text_removal"
-  | "proxy"
-  | "inpaint"
+  | "replicate_text_removal"
   | "c2pa"
   | "ready";
 
@@ -613,10 +612,9 @@ export type OnEtapeNettoyage = (e: EvenementEtape) => void | Promise<void>;
 
 /**
  * Nettoyage :
- *  1. Fal text-removal (spécialisé retrait de texte)
- *  2. Proxy Lovable
- *  3. LaMa inpaint (Replicate)
- *  4. Retrait Content Credentials (C2PA)
+ *  1. Fal text-removal
+ *  2. Replicate flux-kontext-apps/text-removal (fallback)
+ *  3. Retrait Content Credentials (C2PA)
  *
  * `onEtape` permet au front de tracer le déroulé en direct (stream NDJSON).
  */
@@ -633,13 +631,11 @@ export async function cleanImage(
   let base64: string | null = null;
   let moteur: MoteurNettoyage | null = null;
 
-  // Chaîne : Fal text-removal (ex-Seedream / « Seedance » côté usage) →
-  // fallback proxy → fallback LaMa → enlève clés C2PA.
   await emit({
     etape: "text_removal",
     statut: "encours",
     detail:
-      "① Fal text-removal (ex-Seedream) — si échec/clé absente → fallback proxy → LaMa → enlève C2PA",
+      "① Fal text-removal — si échec/clé absente → FALLBACK Replicate flux-kontext text-removal → enlève C2PA",
   });
   let falPolls = 0;
   try {
@@ -649,26 +645,25 @@ export async function cleanImage(
         await emit({
           etape: "text_removal",
           statut: "encours",
-          detail: `① Fal/Seedream: submit queue (${p.detail ?? "ok"})`,
+          detail: `① Fal: submit queue (${p.detail ?? "ok"})`,
         });
       } else if (p.phase === "poll") {
-        // Chaque poll = 1 appel HTTP status — c'est ce qui gonfle le compteur.
         await emit({
           etape: "text_removal",
           statut: "encours",
-          detail: `① Fal/Seedream: poll #${p.polls} statut=${p.statut ?? "?"}`,
+          detail: `① Fal: poll #${p.polls} statut=${p.statut ?? "?"}`,
         });
       } else if (p.phase === "result") {
         await emit({
           etape: "text_removal",
           statut: "encours",
-          detail: `① Fal/Seedream: COMPLETED après ${falPolls} polls — fetch résultat`,
+          detail: `① Fal: COMPLETED après ${falPolls} polls — fetch résultat`,
         });
       } else if (p.phase === "download") {
         await emit({
           etape: "text_removal",
           statut: "encours",
-          detail: "① Fal/Seedream: téléchargement image résultat",
+          detail: "① Fal: téléchargement image résultat",
         });
       }
     });
@@ -678,115 +673,98 @@ export async function cleanImage(
       await emit({
         etape: "text_removal",
         statut: "ok",
-        detail: `① Fal/Seedream OK (${falPolls} polls HTTP status)`,
+        detail: `① Fal OK (${falPolls} polls HTTP status)`,
       });
     } else if (parFal) {
       await emit({
         etape: "text_removal",
         statut: "echec",
-        detail: `① Fal/Seedream: sortie noire/dégénérée → FALLBACK proxy (${falPolls} polls)`,
+        detail: `① Fal: sortie noire/dégénérée → FALLBACK Replicate (${falPolls} polls)`,
       });
     } else {
       await emit({
         etape: "text_removal",
         statut: "saute",
-        detail: "① Fal/Seedream SAUTÉ — FAL_KEY / FAL_API_KEY absente → FALLBACK proxy",
+        detail: "① Fal SAUTÉ — FAL_KEY absente → FALLBACK Replicate",
       });
     }
   } catch (error) {
     await emit({
       etape: "text_removal",
       statut: "echec",
-      detail: `① Fal/Seedream ÉCHEC: ${redactSecrets(messageErreur(error))} → FALLBACK proxy (${falPolls} polls)`,
+      detail: `① Fal ÉCHEC: ${redactSecrets(messageErreur(error))} → FALLBACK Replicate (${falPolls} polls)`,
     });
   }
 
   if (!base64) {
     await emit({
-      etape: "proxy",
+      etape: "replicate_text_removal",
       statut: "encours",
-      detail: "② FALLBACK proxy Lovable (jusqu'à 5 retries, timeout 70s)",
+      detail: "② FALLBACK Replicate · flux-kontext-apps/text-removal",
     });
+    let repPolls = 0;
     try {
-      const parProxy = await nettoyerViaProxy(imageUrl);
-      if (parProxy && !(await sembleDegeneree(parProxy))) {
-        base64 = parProxy;
-        moteur = "proxy";
+      const parRep = await nettoyerViaReplicateTextRemoval(imageUrl, async (p) => {
+        if (typeof p.polls === "number") repPolls = p.polls;
+        if (p.phase === "submit") {
+          await emit({
+            etape: "replicate_text_removal",
+            statut: "encours",
+            detail: `② Replicate: submit (${p.detail ?? "ok"})`,
+          });
+        } else if (p.phase === "poll") {
+          await emit({
+            etape: "replicate_text_removal",
+            statut: "encours",
+            detail: `② Replicate: poll #${p.polls} statut=${p.statut ?? "?"}`,
+          });
+        } else if (p.phase === "result") {
+          await emit({
+            etape: "replicate_text_removal",
+            statut: "encours",
+            detail: `② Replicate: succeeded après ${repPolls} polls — fetch résultat`,
+          });
+        } else if (p.phase === "download") {
+          await emit({
+            etape: "replicate_text_removal",
+            statut: "encours",
+            detail: "② Replicate: téléchargement image résultat",
+          });
+        }
+      });
+      if (parRep && !(await sembleDegeneree(parRep))) {
+        base64 = parRep;
+        moteur = "replicate_text_removal";
         await emit({
-          etape: "proxy",
+          etape: "replicate_text_removal",
           statut: "ok",
-          detail: "② FALLBACK proxy OK",
+          detail: `② FALLBACK Replicate OK (${repPolls} polls)`,
         });
-      } else if (parProxy) {
+      } else if (parRep) {
         await emit({
-          etape: "proxy",
+          etape: "replicate_text_removal",
           statut: "echec",
-          detail: "② FALLBACK proxy: sortie noire/dégénérée → FALLBACK LaMa",
+          detail: "② FALLBACK Replicate: sortie noire/dégénérée",
         });
       } else {
         await emit({
-          etape: "proxy",
+          etape: "replicate_text_removal",
           statut: "saute",
-          detail: "② FALLBACK proxy SAUTÉ — CLEAN_PHOTO_PROXY_TOKEN absente → FALLBACK LaMa",
+          detail: "② FALLBACK Replicate SAUTÉ — REPLICATE_API_TOKEN absente",
         });
       }
     } catch (error) {
       await emit({
-        etape: "proxy",
+        etape: "replicate_text_removal",
         statut: "echec",
-        detail: `② FALLBACK proxy ÉCHEC: ${redactSecrets(messageErreur(error))} → FALLBACK LaMa`,
+        detail: `② FALLBACK Replicate ÉCHEC: ${redactSecrets(messageErreur(error))}`,
       });
     }
   } else {
     await emit({
-      etape: "proxy",
+      etape: "replicate_text_removal",
       statut: "saute",
-      detail: "② FALLBACK proxy non appelé (Fal/Seedream OK)",
-    });
-  }
-
-  if (!base64) {
-    await emit({
-      etape: "inpaint",
-      statut: "encours",
-      detail: "③ FALLBACK LaMa — Gemini détecte zones texte → Replicate efface",
-    });
-    try {
-      const image = await fetchImageAsInline(imageUrl);
-      const parInpaint = await inpaintFallback(image, imageUrl);
-      if (parInpaint && !(await sembleDegeneree(parInpaint))) {
-        base64 = parInpaint;
-        moteur = "inpaint";
-        await emit({
-          etape: "inpaint",
-          statut: "ok",
-          detail: "③ FALLBACK LaMa OK",
-        });
-      } else if (parInpaint) {
-        await emit({
-          etape: "inpaint",
-          statut: "echec",
-          detail: "③ FALLBACK LaMa: sortie noire/dégénérée",
-        });
-      } else {
-        await emit({
-          etape: "inpaint",
-          statut: "echec",
-          detail: "③ FALLBACK LaMa: aucune zone détectée ou échec Replicate",
-        });
-      }
-    } catch (error) {
-      await emit({
-        etape: "inpaint",
-        statut: "echec",
-        detail: `③ FALLBACK LaMa ÉCHEC: ${redactSecrets(messageErreur(error))}`,
-      });
-    }
-  } else {
-    await emit({
-      etape: "inpaint",
-      statut: "saute",
-      detail: "③ FALLBACK LaMa non appelé (étape précédente OK)",
+      detail: "② FALLBACK Replicate non appelé (Fal OK)",
     });
   }
 
@@ -794,17 +772,17 @@ export async function cleanImage(
     await emit({
       etape: "ready",
       statut: "echec",
-      detail: "Fal/Seedream + fallbacks proxy/LaMa indisponibles ou sorties noires",
+      detail: "Fal + Replicate text-removal indisponibles ou sorties noires",
     });
     throw new RefusRetouche(
-      "nettoyage: text-removal/proxy/inpaint indisponibles ou sorties noires",
+      "nettoyage: Fal/Replicate text-removal indisponibles ou sorties noires",
     );
   }
 
   await emit({
     etape: "c2pa",
     statut: "encours",
-    detail: "④ Enlève clés / Content Credentials (C2PA) de l'image",
+    detail: "③ Enlève clés / Content Credentials (C2PA) de l'image",
   });
   try {
     const stripped = await retirerContentCredentials(base64);
@@ -813,8 +791,8 @@ export async function cleanImage(
       etape: "c2pa",
       statut: "ok",
       detail: stripped.retire
-        ? "④ Enlève clés C2PA: Content Credentials RETIRÉES"
-        : "④ Enlève clés C2PA: aucune Content Credential détectée",
+        ? "③ Enlève clés C2PA: Content Credentials RETIRÉES"
+        : "③ Enlève clés C2PA: aucune Content Credential détectée",
     });
     // `ready` est émis par l'edge function après upload / persistance.
     return { base64, moteur, mime: stripped.mime, etapes };
@@ -822,9 +800,8 @@ export async function cleanImage(
     await emit({
       etape: "c2pa",
       statut: "echec",
-      detail: `④ Enlève clés C2PA ÉCHEC: ${redactSecrets(messageErreur(error))} — image livrée quand même`,
+      detail: `③ Enlève clés C2PA ÉCHEC: ${redactSecrets(messageErreur(error))} — image livrée quand même`,
     });
-    // On livre quand même l'image nettoyée ; le caller pourra marquer ready.
     return {
       base64,
       moteur,

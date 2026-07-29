@@ -1,7 +1,7 @@
 import { downloadImage } from "./apify.ts";
 import { messageErreur } from "./supabase.ts";
 import { dimensionsImage, effacerTexte, type Zone } from "./inpaint.ts";
-import { nettoyerViaSeedream } from "./fal_seedream.ts";
+import { nettoyerViaFalTextRemoval } from "./fal_text_removal.ts";
 import { nettoyerViaProxy } from "./proxy.ts";
 import { retirerContentCredentials } from "./c2pa.ts";
 
@@ -466,9 +466,6 @@ Réponds UNIQUEMENT en JSON, sans bloc de code ni commentaire :
  * aucun n'a rendu d'image — l'appelant conserve alors l'original plutôt que de
  * casser le slideshow.
  */
-/** Aligné sur Seedream : consigne courte, pas de régénération. */
-const PROMPT_NETTOYAGE = "Keep the photo, only get rid of the text overlay.";
-
 /**
  * Une image DÉGÉNÉRÉE (quasi entièrement noire/unie).
  *
@@ -589,10 +586,15 @@ async function luminanceMoyenne(bytes: Uint8Array): Promise<number | null> {
 }
 
 /** Moteur effectivement utilisé pour un nettoyage réussi. */
-export type MoteurNettoyage = "seedream" | "proxy" | "inpaint";
+export type MoteurNettoyage = "text_removal" | "proxy" | "inpaint";
 
 /** Identifiants d'étapes exposés au front (timeline de chargement). */
-export type EtapeNettoyageId = "seedream" | "proxy" | "inpaint" | "c2pa" | "ready";
+export type EtapeNettoyageId =
+  | "text_removal"
+  | "proxy"
+  | "inpaint"
+  | "c2pa"
+  | "ready";
 
 export interface EvenementEtape {
   etape: EtapeNettoyageId;
@@ -611,7 +613,7 @@ export type OnEtapeNettoyage = (e: EvenementEtape) => void | Promise<void>;
 
 /**
  * Nettoyage :
- *  1. Seedream (prompt : keep the photo, only get rid of the text overlay)
+ *  1. Fal text-removal (spécialisé retrait de texte)
  *  2. Proxy Lovable
  *  3. LaMa inpaint (Replicate)
  *  4. Retrait Content Credentials (C2PA)
@@ -631,24 +633,32 @@ export async function cleanImage(
   let base64: string | null = null;
   let moteur: MoteurNettoyage | null = null;
 
-  await emit({ etape: "seedream", statut: "encours" });
+  await emit({ etape: "text_removal", statut: "encours" });
   try {
-    const parSeedream = await nettoyerViaSeedream(imageUrl);
-    if (parSeedream && !(await sembleDegeneree(parSeedream))) {
-      base64 = parSeedream;
-      moteur = "seedream";
-      await emit({ etape: "seedream", statut: "ok" });
-    } else if (parSeedream) {
+    const parFal = await nettoyerViaFalTextRemoval(imageUrl);
+    if (parFal && !(await sembleDegeneree(parFal))) {
+      base64 = parFal;
+      moteur = "text_removal";
+      await emit({ etape: "text_removal", statut: "ok" });
+    } else if (parFal) {
       await emit({
-        etape: "seedream",
+        etape: "text_removal",
         statut: "echec",
         detail: "sortie noire / dégénérée",
       });
     } else {
-      await emit({ etape: "seedream", statut: "saute", detail: "FAL_KEY absent" });
+      await emit({
+        etape: "text_removal",
+        statut: "saute",
+        detail: "FAL_KEY absent",
+      });
     }
   } catch (error) {
-    await emit({ etape: "seedream", statut: "echec", detail: messageErreur(error) });
+    await emit({
+      etape: "text_removal",
+      statut: "echec",
+      detail: messageErreur(error),
+    });
   }
 
   if (!base64) {
@@ -676,7 +686,7 @@ export async function cleanImage(
       await emit({ etape: "proxy", statut: "echec", detail: messageErreur(error) });
     }
   } else {
-    await emit({ etape: "proxy", statut: "saute", detail: "Seedream OK" });
+    await emit({ etape: "proxy", statut: "saute", detail: "text-removal OK" });
   }
 
   if (!base64) {
@@ -708,10 +718,10 @@ export async function cleanImage(
     await emit({
       etape: "ready",
       statut: "echec",
-      detail: "Seedream/proxy/inpaint indisponibles ou sorties noires",
+      detail: "text-removal/proxy/inpaint indisponibles ou sorties noires",
     });
     throw new RefusRetouche(
-      "nettoyage: Seedream/proxy/inpaint indisponibles ou sorties noires",
+      "nettoyage: text-removal/proxy/inpaint indisponibles ou sorties noires",
     );
   }
 

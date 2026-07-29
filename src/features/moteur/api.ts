@@ -53,7 +53,7 @@ async function invoke<T>(name: string, body: Record<string, unknown>): Promise<T
 
 /**
  * Appelle une edge function de nettoyage en NDJSON streamé : chaque ligne =
- * une étape (Seedream → proxy → inpaint → C2PA → ready).
+ * une étape (text-removal → proxy → inpaint → C2PA → ready).
  */
 async function invokeNettoyageStream(
   name: string,
@@ -883,7 +883,7 @@ export async function renettoyerSlide(
       ok: boolean;
       nettoyee: boolean;
       remplacee?: boolean;
-      moteur?: "seedream" | "proxy" | "inpaint";
+      moteur?: "text_removal" | "proxy" | "inpaint";
       erreur?: string;
       motif?: string;
     }>("renettoyer", { postSlideId });
@@ -952,7 +952,7 @@ export async function nettoyerMedia(
     return invoke<{
       ok: boolean;
       nettoyee: boolean;
-      moteur?: "seedream" | "proxy" | "inpaint";
+      moteur?: "text_removal" | "proxy" | "inpaint";
       erreur?: string;
     }>("nettoyer-media", { mediaId });
   }
@@ -974,7 +974,7 @@ export async function nettoyerTest(
     return invoke<{
       ok: boolean;
       url?: string;
-      moteur?: "seedream" | "proxy" | "inpaint";
+      moteur?: "text_removal" | "proxy" | "inpaint";
       erreur?: string;
       motif?: string;
     }>("nettoyer-test", { url });

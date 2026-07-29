@@ -1,14 +1,21 @@
 /** Étapes du pipeline de nettoyage (miroir du backend). */
-export type EtapeNettoyageId = "seedream" | "proxy" | "inpaint" | "c2pa" | "ready";
+export type EtapeNettoyageId =
+  | "text_removal"
+  | "proxy"
+  | "inpaint"
+  | "c2pa"
+  | "ready";
 
 export type StatutEtape = "encours" | "ok" | "echec" | "saute" | "attente";
+
+export type MoteurNettoyage = "text_removal" | "proxy" | "inpaint";
 
 export interface EvenementEtape {
   etape: EtapeNettoyageId;
   statut: StatutEtape;
   detail?: string;
   url?: string;
-  moteur?: "seedream" | "proxy" | "inpaint";
+  moteur?: MoteurNettoyage;
   ok?: boolean;
   nettoyee?: boolean;
   remplacee?: boolean;
@@ -16,7 +23,7 @@ export interface EvenementEtape {
 }
 
 export const ORDRE_ETAPES: EtapeNettoyageId[] = [
-  "seedream",
+  "text_removal",
   "proxy",
   "inpaint",
   "c2pa",
@@ -26,7 +33,7 @@ export const ORDRE_ETAPES: EtapeNettoyageId[] = [
 export function etapesInitiales(): EvenementEtape[] {
   return ORDRE_ETAPES.map((etape) => ({
     etape,
-    statut: etape === "seedream" ? "encours" : "attente",
+    statut: etape === "text_removal" ? "encours" : "attente",
   }));
 }
 

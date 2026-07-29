@@ -1,5 +1,5 @@
 /**
- * Helpers pour exposer le déroulé du nettoyage (Seedream → … → C2PA → ready)
+ * Helpers pour exposer le déroulé du nettoyage (text-removal → … → C2PA → ready)
  * en NDJSON streamé vers le front.
  */
 

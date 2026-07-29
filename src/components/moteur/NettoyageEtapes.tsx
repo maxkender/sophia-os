@@ -6,7 +6,7 @@ import type { EvenementEtape, EtapeNettoyageId } from "@/features/moteur/nettoya
 import { ORDRE_ETAPES } from "@/features/moteur/nettoyageEtapes";
 
 const LABEL_KEY: Record<EtapeNettoyageId, string> = {
-  seedream: "nettoyageEtapes.seedream",
+  text_removal: "nettoyageEtapes.textRemoval",
   proxy: "nettoyageEtapes.proxy",
   inpaint: "nettoyageEtapes.inpaint",
   c2pa: "nettoyageEtapes.c2pa",
@@ -26,7 +26,7 @@ function Icone({ statut }: { statut: EvenementEtape["statut"] }) {
   return <Minus className="size-3 text-muted-foreground/50" />;
 }
 
-/** Timeline compacte du nettoyage (Seedream → … → C2PA → ready). */
+/** Timeline compacte du nettoyage (text-removal → … → C2PA → ready). */
 export function NettoyageEtapes({
   etapes,
   className,

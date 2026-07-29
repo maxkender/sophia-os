@@ -1,7 +1,7 @@
 /**
  * Retrait des Content Credentials (C2PA) — métadonnées signées qui indiquent
- * comment une image a été créée ou modifiée (souvent injectées par Seedream /
- * les modèles d'édition).
+ * comment une image a été créée ou modifiée (souvent injectées par les
+ * modèles d'édition Fal / partenaires).
  *
  * JPEG : décode + ré-encode (tous les marqueurs APP / XMP / JUMBF partent).
  * PNG  : on retire les chunks `caBX` / `c2pa` et les textes XMP associés.

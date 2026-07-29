@@ -205,7 +205,7 @@ async function nettoyerVersBibliotheque(
     const propre = await cleanImage(slide.raw_url);
     propreBase64 = propre?.base64 ?? null;
   } catch (error) {
-    // Surcharge Seedream/proxy ou refus : échec de CE passage, pas du sujet. On
+    // Surcharge Fal/proxy ou refus : échec de CE passage, pas du sujet. On
     // renvoie null pour re-tenter plus tard.
     console.warn(`[nettoyage échec] sujet=${sujet.id} slide=${slide.position} ${messageErreur(error)}`);
     return null;

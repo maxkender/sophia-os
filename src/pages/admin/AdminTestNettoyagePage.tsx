@@ -21,7 +21,7 @@ type EtatTest =
   | {
       statut: "ok";
       url: string;
-      moteur?: "seedream" | "proxy" | "inpaint";
+      moteur?: "text_removal" | "proxy" | "inpaint";
       etapes: EvenementEtape[];
     }
   | { statut: "echec"; erreur?: string; etapes: EvenementEtape[] };
@@ -112,8 +112,8 @@ function CarteTest({
 
       {etat.statut === "ok" && etat.moteur ? (
         <p className="text-[10px] text-muted-foreground">
-          {etat.moteur === "seedream"
-            ? t("testNet.viaSeedream")
+          {etat.moteur === "text_removal"
+            ? t("testNet.viaTextRemoval")
             : etat.moteur === "inpaint"
               ? t("testNet.viaInpaint")
               : t("testNet.viaProxy")}

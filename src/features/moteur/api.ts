@@ -1463,7 +1463,7 @@ export async function avancerImportContenuPlusieursPas(
   return derniere;
 }
 
-/** Import v-next d'un TikTok isolé (labels optionnels) → contenu en file de pré-calcul. */
+/** Import v-next d'un TikTok isolé — enqueue serveur (drain autonome). */
 export const importerContenuDepuisLien = (
   postUrl: string,
   compteReferenceId: string | null,
@@ -1471,11 +1471,9 @@ export const importerContenuDepuisLien = (
 ) =>
   invoke<{
     ok: boolean;
-    contenuId: string;
-    reused: boolean;
-    etape?: string;
-    elo?: EloImportRapport | null;
-    nettoyage?: { texte: string } | null;
+    batchId: string;
+    enqueued: number;
+    skipped: number;
   }>("import-contenu", {
     postUrl,
     compteReferenceId,
@@ -1495,6 +1493,56 @@ export const listerSlideshowsCompte = (compteReferenceId: string) =>
     compteReferenceId,
     lister: true,
   });
+
+/** Enfile toutes les URLs d'un compte + kick workers serveur. */
+export const enqueueImportCompte = (compteReferenceId: string, labelIds?: string[]) =>
+  invoke<{
+    ok: boolean;
+    handle: string;
+    total: number;
+    connus: number;
+    source: string;
+    batchId: string;
+    enqueued: number;
+    skipped: number;
+  }>("import-contenu", {
+    enqueueCompte: true,
+    compteReferenceId,
+    labelIds: labelIds ?? [],
+  });
+
+/** Enfile une liste d'URLs pour scrape+pipeline serveur. */
+export const enqueueImportUrls = (opts: {
+  urls: string[];
+  compteReferenceId: string | null;
+  labelIds?: string[];
+  batchId?: string;
+}) =>
+  invoke<{
+    ok: boolean;
+    batchId: string;
+    enqueued: number;
+    skipped: number;
+  }>("import-contenu", {
+    enqueueUrls: true,
+    urls: opts.urls,
+    compteReferenceId: opts.compteReferenceId,
+    labelIds: opts.labelIds ?? [],
+    batchId: opts.batchId ?? null,
+  });
+
+/** Progression d'un batch d'import serveur. */
+export const statsImportBatch = (batchId: string) =>
+  invoke<{
+    ok: boolean;
+    total: number;
+    pending: number;
+    running: number;
+    done: number;
+    failed: number;
+    contenusPending: number;
+    contenusDone: number;
+  }>("import-contenu", { stats: true, batchId });
 
 /** Scrape v-next d'un compte de référence → jusqu'à N contenus en file (legacy série). */
 export const scraperSourceVersContenus = (compteReferenceId: string) =>

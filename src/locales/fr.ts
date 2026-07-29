@@ -297,10 +297,14 @@ export const fr = {
       compteAjouteJob:
         "Compte @{handle} ajouté — scrape + scores + nettoyage lancés en arrière-plan (voir logs ci-dessous).",
       importJobLance:
-        "Import lancé en arrière-plan — la page reste utilisable. Suis les logs ci-dessous.",
+        "Import lancé côté serveur — tu peux changer de page ou quitter le site, ça continue.",
       jobsTitre: "Imports en cours",
-      jobsEncours_one: "{{count}} import en cours (parallèle OK)",
-      jobsEncours_other: "{{count}} imports en cours (parallèle OK)",
+      jobsEncours_one: "{{count}} import en cours (serveur · tu peux quitter)",
+      jobsEncours_other: "{{count}} imports en cours (serveur · tu peux quitter)",
+      jobsEncoursServeur_one:
+        "{{count}} import côté serveur — tu peux quitter la page",
+      jobsEncoursServeur_other:
+        "{{count}} imports côté serveur — tu peux quitter la page",
       jobsTermine: "Tous les imports affichés sont terminés",
       jobsClear: "Effacer les terminés",
       jobEncours: "En cours",

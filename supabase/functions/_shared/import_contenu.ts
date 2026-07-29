@@ -1171,3 +1171,200 @@ export async function prochainContenu(
   const { data } = await query.limit(1);
   return data?.[0] ?? null;
 }
+
+const LEASE_MS = 3 * 60_000;
+
+/** Claim atomique d'un contenu libre (lease) pour workers parallèles. */
+export async function claimContenu(
+  supabase: Supabase,
+  // deno-lint-ignore no-explicit-any
+): Promise<any | null> {
+  const now = new Date().toISOString();
+  const libre = `import_lease_until.is.null,import_lease_until.lt."${now}"`;
+  const { data: candidats } = await supabase
+    .from("contenus")
+    .select("id")
+    .in("import_statut", ["pending", "running", "failed"])
+    .or(libre)
+    .order("pertinence_score", { ascending: true, nullsFirst: true })
+    .order("created_at")
+    .limit(8);
+
+  for (const c of candidats ?? []) {
+    const lease = new Date(Date.now() + LEASE_MS).toISOString();
+    const { data: claimed } = await supabase
+      .from("contenus")
+      .update({
+        import_statut: "running",
+        import_lease_until: lease,
+      })
+      .eq("id", c.id)
+      .in("import_statut", ["pending", "running", "failed"])
+      .or(libre)
+      .select("*")
+      .maybeSingle();
+    if (claimed) return claimed;
+  }
+  return null;
+}
+
+export interface ImportFileRow {
+  id: string;
+  post_url: string;
+  compte_reference_id: string | null;
+  label_ids: string[];
+  batch_id: string | null;
+  statut: string;
+  contenu_id: string | null;
+  erreur: string | null;
+  tentatives: number;
+}
+
+/** Enfile des URLs pour scrape+pipeline serveur (idempotent sur pending/running). */
+export async function enqueueImportUrls(
+  supabase: Supabase,
+  opts: {
+    urls: string[];
+    compteReferenceId: string | null;
+    labelIds?: string[] | null;
+    batchId?: string | null;
+  },
+): Promise<{ batchId: string; enqueued: number; skipped: number }> {
+  const batchId = opts.batchId ?? crypto.randomUUID();
+  let enqueued = 0;
+  let skipped = 0;
+  for (const url of opts.urls) {
+    const { error } = await supabase.from("import_file").insert({
+      post_url: url,
+      compte_reference_id: opts.compteReferenceId,
+      label_ids: opts.labelIds ?? [],
+      batch_id: batchId,
+      statut: "pending",
+    });
+    if (error) {
+      // Unique pending/running sur post_url → déjà en file
+      skipped += 1;
+      continue;
+    }
+    enqueued += 1;
+  }
+  return { batchId, enqueued, skipped };
+}
+
+/** Claim d'une ligne import_file libre. */
+export async function claimImportFile(
+  supabase: Supabase,
+): Promise<ImportFileRow | null> {
+  const now = new Date().toISOString();
+  const libre = `lease_until.is.null,lease_until.lt."${now}"`;
+  const { data: candidats } = await supabase
+    .from("import_file")
+    .select("id")
+    .in("statut", ["pending", "failed"])
+    .lt("tentatives", 5)
+    .or(libre)
+    .order("created_at")
+    .limit(8);
+
+  for (const c of candidats ?? []) {
+    const lease = new Date(Date.now() + LEASE_MS).toISOString();
+    const { data: claimed } = await supabase
+      .from("import_file")
+      .update({
+        statut: "running",
+        lease_until: lease,
+        updated_at: now,
+      })
+      .eq("id", c.id)
+      .in("statut", ["pending", "failed", "running"])
+      .or(libre)
+      .select("*")
+      .maybeSingle();
+    if (claimed) return claimed as ImportFileRow;
+  }
+  return null;
+}
+
+/** Scrape une URL en file → crée/réouvre le contenu (pipeline ensuite via claimContenu). */
+export async function traiterImportFile(
+  supabase: Supabase,
+  row: ImportFileRow,
+): Promise<{ ok: boolean; contenuId?: string; erreur?: string }> {
+  try {
+    const cree = await importerLien(
+      supabase,
+      row.post_url,
+      row.compte_reference_id,
+      row.label_ids?.length ? row.label_ids : null,
+    );
+    await supabase
+      .from("import_file")
+      .update({
+        statut: "done",
+        contenu_id: cree.id,
+        erreur: null,
+        lease_until: null,
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", row.id);
+    return { ok: true, contenuId: cree.id };
+  } catch (error) {
+    const msg = messageErreur(error);
+    await supabase
+      .from("import_file")
+      .update({
+        statut: "failed",
+        erreur: msg,
+        tentatives: (row.tentatives ?? 0) + 1,
+        lease_until: null,
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", row.id);
+    return { ok: false, erreur: msg };
+  }
+}
+
+/** Stats d'un batch pour le panneau UI. */
+export async function statsImportBatch(
+  supabase: Supabase,
+  batchId: string,
+): Promise<{
+  total: number;
+  pending: number;
+  running: number;
+  done: number;
+  failed: number;
+  contenusPending: number;
+  contenusDone: number;
+}> {
+  const { data: rows } = await supabase
+    .from("import_file")
+    .select("statut, contenu_id")
+    .eq("batch_id", batchId);
+  const list = rows ?? [];
+  const contenuIds = list.map((r) => r.contenu_id).filter(Boolean) as string[];
+  let contenusPending = 0;
+  let contenusDone = 0;
+  if (contenuIds.length > 0) {
+    const { data: contenus } = await supabase
+      .from("contenus")
+      .select("id, import_statut, statut, import_etape")
+      .in("id", contenuIds);
+    for (const c of contenus ?? []) {
+      if (c.import_statut === "done" || c.import_etape === "elo_insuffisant") {
+        contenusDone += 1;
+      } else {
+        contenusPending += 1;
+      }
+    }
+  }
+  return {
+    total: list.length,
+    pending: list.filter((r) => r.statut === "pending").length,
+    running: list.filter((r) => r.statut === "running").length,
+    done: list.filter((r) => r.statut === "done").length,
+    failed: list.filter((r) => r.statut === "failed").length,
+    contenusPending,
+    contenusDone,
+  };
+}

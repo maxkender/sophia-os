@@ -114,7 +114,7 @@ export function ImportJobsPanel() {
           <p className="text-sm font-medium">{t("sources.jobsTitre")}</p>
           <p className="text-xs text-muted-foreground">
             {encours > 0
-              ? t("sources.jobsEncours", { count: encours })
+              ? t("sources.jobsEncoursServeur", { count: encours })
               : t("sources.jobsTermine")}
           </p>
         </div>

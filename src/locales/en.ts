@@ -299,8 +299,12 @@ export const en = {
       importJobLance:
         "Import started in the background — the page stays usable. Follow the logs below.",
       jobsTitre: "Imports in progress",
-      jobsEncours_one: "{{count}} import running (parallel OK)",
-      jobsEncours_other: "{{count}} imports running (parallel OK)",
+      jobsEncours_one: "{{count}} import running (server · you can leave)",
+      jobsEncours_other: "{{count}} imports running (server · you can leave)",
+      jobsEncoursServeur_one:
+        "{{count}} server-side import — you can leave the page",
+      jobsEncoursServeur_other:
+        "{{count}} server-side imports — you can leave the page",
       jobsTermine: "All listed imports are finished",
       jobsClear: "Clear finished",
       jobEncours: "Running",

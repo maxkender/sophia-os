@@ -3,6 +3,7 @@ import {
   claimContenu,
   claimImportFile,
   enqueueImportUrls,
+  forcerImportElo,
   importerCompteReference,
   importerLien,
   listerUrlsCompteReference,
@@ -42,6 +43,14 @@ Deno.serve(async (request) => {
     if (body?.stats && body?.batchId) {
       const s = await statsImportBatch(supabase, String(body.batchId));
       return json({ ok: true, ...s });
+    }
+
+    // Relance manuelle : boost ELO au seuil puis file nettoyage.
+    if (body?.forcerElo && body?.contenuId) {
+      const r = await forcerImportElo(supabase, String(body.contenuId));
+      if (!r.ok) return json({ ok: false, error: r.erreur }, 400);
+      kickWorkers(request, 2);
+      return json({ ok: true, contenuId: String(body.contenuId), elo: r.elo, langues: r.langues });
     }
 
     // Enfile toutes les URLs d'un compte (listing rapide, pas de scrape lourd).
@@ -224,6 +233,7 @@ async function runWorker(
     more: await hasMoreWork(supabase),
     contenuId: contenu.id,
     etape: r.etape,
+    ...(r.elo ? { elo: r.elo } : {}),
   };
 }
 

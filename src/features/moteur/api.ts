@@ -19,8 +19,11 @@ import type {
   Contenu,
   ContenuLangue,
   ContenuSlide,
+  EloImportRapport,
   Passage,
 } from "./types";
+
+export type { EloImportRapport };
 
 /** Date du jour en YYYY-MM-DD, en heure locale — le poster raisonne sur sa
  *  journée, pas sur celle de Greenwich. */
@@ -1406,32 +1409,6 @@ export const lancerExtraction = (compteReferenceId?: string) =>
 export const lancerPreparation = (sujetId?: string) =>
   invoke<{ etape?: string; idle?: boolean }>("preparation", { sujetId: sujetId ?? null });
 
-/** Détail ELO renvoyé par import-contenu (étapes elo / elo_insuffisant). */
-export interface EloImportRapport {
-  texte: string;
-  vues: number;
-  pertinence: number;
-  vuesScore: number;
-  poidsVues: number;
-  vuesPlafond: number;
-  prior: number;
-  k: number;
-  seuil: number;
-  langueSource: string;
-  lignes: Array<{
-    langue: string;
-    estSource: boolean;
-    pertinence: number;
-    vuesScore: number;
-    base: number;
-    kk: number;
-    prior: number;
-    elo: number;
-    seuil: number;
-    retenue: boolean;
-  }>;
-}
-
 /** Pipeline v-next : avance d'un pas l'import pré-calculé d'un contenu (ou la file). */
 export const lancerImportContenu = (contenuId?: string) =>
   invoke<{
@@ -1547,6 +1524,130 @@ export const statsImportBatch = (batchId: string) =>
     contenusPending: number;
     contenusDone: number;
   }>("import-contenu", { stats: true, batchId });
+
+/** Contenu d'un batch avec rapport ELO (pour logs live). */
+export async function contenusEloDuBatch(batchId: string): Promise<
+  Array<{
+    contenuId: string;
+    postUrl: string;
+    importEtape: string | null;
+    importErreur: string | null;
+    statut: string | null;
+    elo: EloImportRapport | null;
+    forceSeuil: boolean;
+  }>
+> {
+  const { data: rows, error } = await supabase
+    .from("import_file")
+    .select("contenu_id, post_url")
+    .eq("batch_id", batchId)
+    .not("contenu_id", "is", null);
+  if (error) throw error;
+  const ids = (rows ?? []).map((r) => r.contenu_id as string).filter(Boolean);
+  if (ids.length === 0) return [];
+  const { data: contenus, error: cErr } = await supabase
+    .from("contenus")
+    .select(
+      "id, statut, import_etape, import_erreur, import_elo_rapport, import_elo_force_seuil, source_url",
+    )
+    .in("id", ids);
+  if (cErr) throw cErr;
+  const byId = new Map((contenus ?? []).map((c) => [c.id as string, c]));
+  return (rows ?? []).flatMap((r) => {
+    const c = byId.get(r.contenu_id as string);
+    if (!c) return [];
+    return [
+      {
+        contenuId: c.id as string,
+        postUrl: (r.post_url as string) || (c.source_url as string) || "",
+        importEtape: (c.import_etape as string | null) ?? null,
+        importErreur: (c.import_erreur as string | null) ?? null,
+        statut: (c.statut as string | null) ?? null,
+        elo: (c.import_elo_rapport as EloImportRapport | null) ?? null,
+        forceSeuil: Boolean(c.import_elo_force_seuil),
+      },
+    ];
+  });
+}
+
+export interface ImportHistoriqueLigne {
+  fileId: string;
+  postUrl: string;
+  fileStatut: string;
+  fileErreur: string | null;
+  batchId: string | null;
+  createdAt: string;
+  contenuId: string | null;
+  contenuStatut: string | null;
+  importStatut: string | null;
+  importEtape: string | null;
+  importErreur: string | null;
+  vues: number | null;
+  pertinence: number | null;
+  elo: EloImportRapport | null;
+  forceSeuil: boolean;
+  titre: string | null;
+}
+
+/** Historique des imports (file serveur + ELO persisté). */
+export async function listerHistoriqueImports(
+  limit = 80,
+): Promise<ImportHistoriqueLigne[]> {
+  const { data, error } = await supabase
+    .from("import_file")
+    .select(
+      "id, post_url, statut, erreur, batch_id, created_at, contenu_id, contenus:contenu_id(id, titre, statut, import_statut, import_etape, import_erreur, vues_source, pertinence_score, import_elo_rapport, import_elo_force_seuil)",
+    )
+    .order("created_at", { ascending: false })
+    .limit(limit);
+  if (error) throw error;
+  return (data ?? []).map((r) => {
+    const c = Array.isArray(r.contenus) ? r.contenus[0] : r.contenus;
+    const contenu = c as
+      | {
+          id: string;
+          titre: string | null;
+          statut: string;
+          import_statut: string;
+          import_etape: string | null;
+          import_erreur: string | null;
+          vues_source: number | null;
+          pertinence_score: number | null;
+          import_elo_rapport: EloImportRapport | null;
+          import_elo_force_seuil: boolean | null;
+        }
+      | null
+      | undefined;
+    return {
+      fileId: r.id as string,
+      postUrl: r.post_url as string,
+      fileStatut: r.statut as string,
+      fileErreur: (r.erreur as string | null) ?? null,
+      batchId: (r.batch_id as string | null) ?? null,
+      createdAt: r.created_at as string,
+      contenuId: contenu?.id ?? (r.contenu_id as string | null) ?? null,
+      contenuStatut: contenu?.statut ?? null,
+      importStatut: contenu?.import_statut ?? null,
+      importEtape: contenu?.import_etape ?? null,
+      importErreur: contenu?.import_erreur ?? null,
+      vues: contenu?.vues_source ?? null,
+      pertinence: contenu?.pertinence_score ?? null,
+      elo: contenu?.import_elo_rapport ?? null,
+      forceSeuil: Boolean(contenu?.import_elo_force_seuil),
+      titre: contenu?.titre ?? null,
+    };
+  });
+}
+
+/** Boost ELO au seuil + relance le pipeline (nettoyage…). */
+export const forcerImportEloContenu = (contenuId: string) =>
+  invoke<{
+    ok: boolean;
+    contenuId?: string;
+    elo?: EloImportRapport | null;
+    langues?: string[];
+    error?: string;
+  }>("import-contenu", { forcerElo: true, contenuId });
 
 /** Scrape v-next d'un compte de référence → jusqu'à N contenus en file (legacy série). */
 export const scraperSourceVersContenus = (compteReferenceId: string) =>

@@ -266,6 +266,32 @@ export interface ContenuLangueSlide {
   position_sophia: boolean;
 }
 
+/** Détail ELO d'un import (formule + par langue). */
+export interface EloImportRapport {
+  texte: string;
+  vues: number;
+  pertinence: number;
+  vuesScore: number;
+  poidsVues: number;
+  vuesPlafond: number;
+  prior: number;
+  k: number;
+  seuil: number;
+  langueSource: string;
+  lignes: Array<{
+    langue: string;
+    estSource: boolean;
+    pertinence: number;
+    vuesScore: number;
+    base: number;
+    kk: number;
+    prior: number;
+    elo: number;
+    seuil: number;
+    retenue: boolean;
+  }>;
+}
+
 export interface Contenu {
   id: string;
   titre: string;
@@ -285,6 +311,10 @@ export interface Contenu {
   import_etape: string | null;
   import_erreur: string | null;
   import_tentatives: number;
+  /** Rapport ELO détaillé (persistant pour historique / logs). */
+  import_elo_rapport?: EloImportRapport | null;
+  /** Scores plancherés au seuil (relance manuelle admin). */
+  import_elo_force_seuil?: boolean;
   parent_id: string | null;
   profondeur: number;
   /** Langue qui a déclenché la variation (null si contenu original). */

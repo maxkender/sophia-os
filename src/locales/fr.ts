@@ -313,6 +313,26 @@ export const fr = {
       jobLogs: "logs",
       jobLogsVides: "Démarrage…",
 
+      histTitre: "Historique des imports",
+      histAide:
+        "Chaque TikTok scrapé : lien, ELO calculé (formule), et forçage si sous le seuil.",
+      histRafraichir: "Rafraîchir",
+      histVide: "Aucun import récent.",
+      histOk: "Importé",
+      histEloSousSeuil: "ELO sous seuil",
+      histScrapeEchec: "Scrape échoué",
+      histPipelineEchec: "Pipeline échoué",
+      histPipeline: "Pipeline…",
+      histEnCours: "En file",
+      histAutre: "Traité",
+      histForce: "ELO forcé",
+      histEloAbsent: "Pas encore de calcul ELO (scrape / OCR en cours, ou ancien import).",
+      histForcer: "Forcer (≥ seuil)",
+      histForcerEnCours: "Forçage…",
+      histForcerOk: "ELO planché au seuil — nettoyage relancé en arrière-plan.",
+      histForcerAide:
+        "Monte l'ELO de chaque langue jusqu'au seuil d'import, puis lance le nettoyage.",
+
       langue: "Langue",
       add: "Ajouter",
       voix: "Prompt adapté (voix / ton de traduction)",

@@ -734,6 +734,8 @@ export async function avancerImport(
         vuesPlafond: scoring.vuesPlafond,
         seuil: scoring.eloSeuil,
       });
+      // Toujours persister le détail (historique + logs UI).
+      await marquer(supabase, contenu.id, { import_elo_rapport: elo });
 
       const retenues = await assurerLanguesAuDessusSeuilElo(
         supabase,
@@ -748,6 +750,7 @@ export async function avancerImport(
           import_statut: "done",
           import_etape: "elo_insuffisant",
           import_erreur: "Aucune langue avec ELO au-dessus du seuil — TikTok non importé",
+          import_elo_rapport: elo,
         });
         return { etape: "elo_insuffisant", elo };
       }
@@ -840,20 +843,23 @@ export async function avancerImport(
       .eq("contenu_id", contenu.id);
 
     const scoring = await lireScoring(supabase);
+    const forcerSeuil = Boolean(contenu.import_elo_force_seuil);
     for (const l of langues ?? []) {
+      let score = eloParLangue({
+        pertinence: Number(contenu.pertinence_score ?? 0),
+        vues: contenu.vues_source,
+        langue: l.langue,
+        langueSource,
+        prior: scoring.prior,
+        k: scoring.k,
+        poidsVues: scoring.poidsVues,
+        vuesPlafond: scoring.vuesPlafond,
+      });
+      if (forcerSeuil) score = Math.max(score, scoring.eloSeuil);
       await supabase
         .from("contenu_langues")
         .update({
-          score: eloParLangue({
-            pertinence: Number(contenu.pertinence_score ?? 0),
-            vues: contenu.vues_source,
-            langue: l.langue,
-            langueSource,
-            prior: scoring.prior,
-            k: scoring.k,
-            poidsVues: scoring.poidsVues,
-            vuesPlafond: scoring.vuesPlafond,
-          }),
+          score,
           score_maj_at: new Date().toISOString(),
         })
         .eq("id", l.id);
@@ -1345,6 +1351,111 @@ export async function traiterImportFile(
       .eq("id", row.id);
     return { ok: false, erreur: msg };
   }
+}
+
+/**
+ * Relance un import rejeté pour ELO insuffisant : planche chaque score au seuil,
+ * crée les `contenu_langues`, remet le pipeline en file (nettoyage → valide).
+ */
+export async function forcerImportElo(
+  supabase: Supabase,
+  contenuId: string,
+): Promise<{ ok: true; elo: EloRapport; langues: string[] } | { ok: false; erreur: string }> {
+  const { data: contenu, error } = await supabase
+    .from("contenus")
+    .select("*")
+    .eq("id", contenuId)
+    .maybeSingle();
+  if (error) return { ok: false, erreur: error.message };
+  if (!contenu) return { ok: false, erreur: "Contenu introuvable" };
+
+  const etape = contenu.import_etape as string | null;
+  const statut = contenu.statut as string;
+  if (statut !== "rejete" && etape !== "elo_insuffisant") {
+    return {
+      ok: false,
+      erreur: "Forçage réservé aux imports rejetés / sous seuil ELO",
+    };
+  }
+
+  const slides = (contenu.structure_slides ?? []) as SlideBrut[];
+  if (slides.length === 0) {
+    return { ok: false, erreur: "Aucune slide — scrape incomplet" };
+  }
+
+  const langueSource = (contenu.langue_source as string) || "fr";
+  const scoring = await lireScoring(supabase);
+  const eloBase = rapportEloComplet({
+    pertinence: Number(contenu.pertinence_score ?? 0),
+    vues: contenu.vues_source ?? null,
+    langueSource,
+    prior: scoring.prior,
+    k: scoring.k,
+    poidsVues: scoring.poidsVues,
+    vuesPlafond: scoring.vuesPlafond,
+    seuil: scoring.eloSeuil,
+  });
+
+  const lignesForcees = eloBase.lignes.map((l) => {
+    const elo = Math.max(l.elo, scoring.eloSeuil);
+    return { ...l, elo, retenue: true };
+  });
+  const elo: EloRapport = {
+    ...eloBase,
+    lignes: lignesForcees,
+    texte: [
+      `FORCÉ manuellement → ELO plancher = seuil (${scoring.eloSeuil})`,
+      eloBase.texte,
+      ...lignesForcees.map((l) => {
+        const natif = eloBase.lignes.find((x) => x.langue === l.langue);
+        const avant = natif?.elo.toFixed(2) ?? "?";
+        return `  ${l.langue}: ${avant} → ${l.elo.toFixed(2)} (forcé ≥ seuil)`;
+      }),
+    ].join("\n"),
+  };
+
+  // Remplace les lignes langues éventuelles (souvent absentes si rejet ELO).
+  await supabase.from("contenu_langues").delete().eq("contenu_id", contenuId);
+
+  const rows = lignesForcees.map((l) => ({
+    contenu_id: contenuId,
+    langue: l.langue,
+    slides: [] as SlideLangue[],
+    score: l.elo,
+    nb_passages: 0,
+    score_maj_at: new Date().toISOString(),
+  }));
+  const { error: insErr } = await supabase.from("contenu_langues").insert(rows);
+  if (insErr) return { ok: false, erreur: insErr.message };
+
+  // Deck OCR → langue source (comme après un passage ELO OK).
+  const { data: cl } = await supabase
+    .from("contenu_langues")
+    .select("id, slides")
+    .eq("contenu_id", contenuId)
+    .eq("langue", langueSource)
+    .maybeSingle();
+  if (cl) {
+    const slidesSource: SlideLangue[] = slides.map((s) => ({
+      position: s.position,
+      texte_overlay: s.texte_original ?? "",
+      position_sophia: false,
+    }));
+    await supabase.from("contenu_langues").update({ slides: slidesSource }).eq("id", cl.id);
+  }
+
+  await marquer(supabase, contenuId, {
+    statut: "brouillon",
+    import_statut: "pending",
+    import_etape: "elo",
+    import_erreur: null,
+    import_tentatives: 0,
+    import_lease_until: null,
+    import_elo_rapport: elo,
+    import_elo_force_seuil: true,
+  });
+
+  return { ok: true, elo, langues: lignesForcees.map((l) => l.langue) };
 }
 
 /** Stats d'un batch pour le panneau UI. */

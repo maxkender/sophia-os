@@ -29,6 +29,7 @@ import {
   supprimerSource,
 } from "@/features/moteur/api";
 import { demarrerImportCompte, demarrerImportLien } from "@/features/moteur/importJobs";
+import { ImportHistoriquePanel } from "@/features/moteur/ImportHistoriquePanel";
 import { ImportJobsPanel } from "@/features/moteur/ImportJobsPanel";
 import type { CompteReference, Label as NicheLabel } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
@@ -621,6 +622,7 @@ export function AdminSourcesPage() {
       <CardContent className="space-y-6">
         <FormAjoutSource niches={niches.data ?? []} />
         <ImportJobsPanel />
+        <ImportHistoriquePanel />
 
         <div className="space-y-3">
           {sources.isPending && (

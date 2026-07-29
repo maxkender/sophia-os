@@ -313,6 +313,26 @@ export const en = {
       jobLogs: "logs",
       jobLogsVides: "Starting…",
 
+      histTitre: "Import history",
+      histAide:
+        "Every scraped TikTok: link, calculated ELO (formula), and force-import if under threshold.",
+      histRafraichir: "Refresh",
+      histVide: "No recent imports.",
+      histOk: "Imported",
+      histEloSousSeuil: "ELO under threshold",
+      histScrapeEchec: "Scrape failed",
+      histPipelineEchec: "Pipeline failed",
+      histPipeline: "Pipeline…",
+      histEnCours: "Queued",
+      histAutre: "Processed",
+      histForce: "ELO forced",
+      histEloAbsent: "No ELO yet (scrape / OCR in progress, or legacy import).",
+      histForcer: "Force (≥ threshold)",
+      histForcerEnCours: "Forcing…",
+      histForcerOk: "ELO floored to threshold — cleaning restarted in the background.",
+      histForcerAide:
+        "Raises each language's ELO up to the import threshold, then starts cleaning.",
+
       langue: "Language",
       add: "Add",
       voix: "Tailored prompt (translation voice / tone)",

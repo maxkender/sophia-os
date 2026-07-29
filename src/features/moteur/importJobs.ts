@@ -5,6 +5,7 @@
  */
 
 import {
+  contenusEloDuBatch,
   enqueueImportCompte,
   enqueueImportUrls,
   statsImportBatch,
@@ -93,6 +94,7 @@ function newJob(titre: string, batchId?: string): string {
 
 function startPolling(jobId: string, batchId: string) {
   let lastKey = "";
+  const eloVus = new Set<string>();
   const tick = async () => {
     try {
       const s = await statsImportBatch(batchId);
@@ -109,10 +111,25 @@ function startPolling(jobId: string, batchId: string) {
         );
       }
 
+      // Rapport ELO dès qu'il est persisté (rejeté ou accepté).
+      const eloRows = await contenusEloDuBatch(batchId).catch(() => []);
+      for (const row of eloRows) {
+        if (!row.elo || eloVus.has(row.contenuId)) continue;
+        eloVus.add(row.contenuId);
+        const sousSeuil = row.importEtape === "elo_insuffisant";
+        log(
+          jobId,
+          sousSeuil ? "warn" : "ok",
+          sousSeuil
+            ? `ELO sous seuil — ${row.postUrl}`
+            : `calcul ELO — ${row.postUrl}`,
+          row.elo.texte,
+        );
+      }
+
       const fileVide = s.pending === 0 && s.running === 0;
       const pipelineVide = s.contenusPending === 0;
       if (fileVide && pipelineVide && s.total > 0) {
-        // Détail final : derniers contenus du batch
         const { data: rows } = await supabase
           .from("import_file")
           .select("contenu_id, statut, erreur, post_url")
@@ -124,10 +141,13 @@ function startPolling(jobId: string, batchId: string) {
             log(jobId, "warn", `scrape échoué`, `${r.post_url}\n${r.erreur ?? ""}`);
           }
         }
+        const sousElo = eloRows.filter((r) => r.importEtape === "elo_insuffisant").length;
         log(
           jobId,
-          fail > 0 && ok === 0 ? "error" : fail > 0 ? "warn" : "ok",
-          `Terminé (serveur) — ${ok} scrapés, ${fail} échecs, ${s.contenusDone} contenus prêts`,
+          fail > 0 && ok === 0 ? "error" : fail > 0 || sousElo > 0 ? "warn" : "ok",
+          `Terminé (serveur) — ${ok} scrapés, ${fail} échecs scrape` +
+            (sousElo ? `, ${sousElo} ELO sous seuil` : "") +
+            `, ${s.contenusDone} contenus traités`,
         );
         fin(jobId, fail > 0 && ok === 0 ? "echec" : "ok");
       }

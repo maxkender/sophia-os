@@ -98,6 +98,7 @@ export function ImportJobsPanel() {
       void queryClient.invalidateQueries({ queryKey: ["slideshows"] });
       void queryClient.invalidateQueries({ queryKey: ["contenus"] });
       void queryClient.invalidateQueries({ queryKey: ["stock-sources"] });
+      void queryClient.invalidateQueries({ queryKey: ["historique-imports"] });
     }
     prevEncours.current = encours;
   }, [jobs, queryClient]);

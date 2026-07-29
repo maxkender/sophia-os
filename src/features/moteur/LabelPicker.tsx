@@ -76,10 +76,13 @@ export function LabelEditor({
   load,
   save,
   queryKey,
+  afficherTitre = true,
 }: {
   load: () => Promise<string[]>;
   save: (ids: string[]) => Promise<unknown>;
   queryKey: unknown[];
+  /** Masquer le titre « Labels » quand le parent l'affiche déjà. */
+  afficherTitre?: boolean;
 }) {
   const { t } = useTranslation();
   const qc = useQueryClient();
@@ -98,7 +101,7 @@ export function LabelEditor({
 
   return (
     <div className="space-y-1.5">
-      <p className="text-xs font-medium">{t("labels.title")}</p>
+      {afficherTitre && <p className="text-xs font-medium">{t("labels.title")}</p>}
       {q.isError && (
         <p className="text-xs text-destructive">
           {t("labels.erreurChargement")}: {(q.error as Error).message}

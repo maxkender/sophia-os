@@ -462,10 +462,10 @@ export const en = {
       gererCompte: "Manage account",
       creerCompte: "Create the publishing account",
       sansCompteCree: "This poster doesn't have a publishing account yet.",
-      labelsTitre: "Creator labels",
       labelsAide:
-        "Without labels, midnight assigns nothing to this account (creator ∩ content label intersection).",
+        "Without a label on a creator, midnight assigns nothing (creator ∩ content label intersection).",
       sansLabels: "No labels",
+      createursDuRecruteur: "Assigned creators",
       creerRecruteur: "Create a recruiter",
       creerRecruteurDesc:
         "Enter their name and language: their recruiting workspace is ready on first login.",

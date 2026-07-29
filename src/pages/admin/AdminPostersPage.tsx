@@ -62,7 +62,7 @@ function CreateurLiens({
     : null;
 
   return (
-    <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
+    <>
       {tiktok && (
         <a href={tiktok} target="_blank" rel="noreferrer" className="underline underline-offset-2">
           TikTok ↗
@@ -102,7 +102,7 @@ function CreateurLiens({
         </button>
       )}
       {edit && (
-        <span className="flex items-center gap-1">
+        <span className="inline-flex items-center gap-1">
           <Input
             value={url}
             onChange={(e) => setUrl(e.target.value)}
@@ -124,7 +124,7 @@ function CreateurLiens({
           </Button>
         </span>
       )}
-    </div>
+    </>
   );
 }
 
@@ -143,40 +143,42 @@ function CoutMensuel({ poster }: { poster: PosterProfil }) {
     },
   });
 
+  if (edit) {
+    return (
+      <span className="inline-flex items-center gap-1">
+        <span className="text-muted-foreground">{t("posters.coutMensuel")}</span>
+        <Input
+          type="number"
+          min={0}
+          value={val}
+          onChange={(e) => setVal(e.target.value)}
+          placeholder="0"
+          className="h-7 w-24 text-xs"
+        />
+        <span>€</span>
+        <Button size="sm" className="h-7" disabled={save.isPending} onClick={() => save.mutate()}>
+          {t("common.save")}
+        </Button>
+        <Button size="sm" variant="ghost" className="h-7" onClick={() => setEdit(false)}>
+          {t("common.cancel")}
+        </Button>
+      </span>
+    );
+  }
+
   return (
-    <div className="mt-1 flex items-center gap-2 text-xs">
-      <span className="text-muted-foreground">{t("posters.coutMensuel")} :</span>
-      {edit ? (
-        <span className="flex items-center gap-1">
-          <Input
-            type="number"
-            min={0}
-            value={val}
-            onChange={(e) => setVal(e.target.value)}
-            placeholder="0"
-            className="h-7 w-24 text-xs"
-          />
-          <span>€</span>
-          <Button size="sm" className="h-7" disabled={save.isPending} onClick={() => save.mutate()}>
-            {t("common.save")}
-          </Button>
-          <Button size="sm" variant="ghost" className="h-7" onClick={() => setEdit(false)}>
-            {t("common.cancel")}
-          </Button>
-        </span>
-      ) : (
-        <button
-          type="button"
-          onClick={() => {
-            setVal(poster.cout_mensuel != null ? String(poster.cout_mensuel) : "");
-            setEdit(true);
-          }}
-          className="font-medium underline underline-offset-2"
-        >
-          {poster.cout_mensuel != null ? `${poster.cout_mensuel} €/mois` : t("posters.coutAjouter")}
-        </button>
-      )}
-    </div>
+    <button
+      type="button"
+      onClick={() => {
+        setVal(poster.cout_mensuel != null ? String(poster.cout_mensuel) : "");
+        setEdit(true);
+      }}
+      className="underline underline-offset-2"
+    >
+      {poster.cout_mensuel != null
+        ? `${poster.cout_mensuel} €/mois`
+        : t("posters.coutAjouter")}
+    </button>
   );
 }
 
@@ -514,9 +516,9 @@ export function AdminPostersPage() {
           const nomAffiche =
             [poster.prenom, poster.nom].filter(Boolean).join(" ") || poster.email;
           return (
-            <div key={poster.id} className="rounded-xl border bg-card">
-              <div className="flex flex-wrap items-center justify-between gap-3 p-3">
-                <div className="min-w-0 flex-1">
+            <article key={poster.id} className="overflow-hidden rounded-lg border bg-card">
+              <div className="flex flex-wrap items-start justify-between gap-3 px-3 py-2.5">
+                <div className="min-w-0 flex-1 space-y-1">
                   <div className="flex flex-wrap items-center gap-2">
                     {estPoster ? (
                       <button
@@ -541,31 +543,38 @@ export function AdminPostersPage() {
                     {estPoster && compte && labs.length === 0 && (
                       <Badge variant="warning">{t("posters.sansLabels")}</Badge>
                     )}
-                    {labs.map((lab) => (
-                      <Badge
-                        key={lab.id}
-                        variant="outline"
-                        style={
-                          lab.couleur
-                            ? { borderColor: lab.couleur, color: lab.couleur }
-                            : undefined
-                        }
-                      >
-                        {lab.nom}
-                      </Badge>
-                    ))}
                   </div>
-                  <p className="truncate text-xs text-muted-foreground">{poster.email}</p>
+
+                  <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs text-muted-foreground">
+                    <span className="truncate">{poster.email}</span>
+                    {estPoster && (
+                      <>
+                        <span aria-hidden className="text-border">
+                          ·
+                        </span>
+                        <CreateurLiens
+                          poster={poster}
+                          onSave={(url) =>
+                            enregistrerUpwork.mutate({ id: poster.id, url })
+                          }
+                        />
+                      </>
+                    )}
+                    {poster.role !== "admin" && (
+                      <>
+                        <span aria-hidden className="text-border">
+                          ·
+                        </span>
+                        <CoutMensuel poster={poster} />
+                      </>
+                    )}
+                  </div>
+
                   {poster.role === "hiring_manager" && <LangueRecruteur recruteur={poster} />}
-                  <CreateurLiens
-                    poster={poster}
-                    onSave={(url) => enregistrerUpwork.mutate({ id: poster.id, url })}
-                  />
-                  {poster.role !== "admin" && <CoutMensuel poster={poster} />}
                 </div>
 
                 {!soiMeme && (
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap justify-end gap-1.5">
                     {poster.role === "hiring_manager" && (
                       <Button
                         size="sm"
@@ -655,22 +664,28 @@ export function AdminPostersPage() {
               </div>
 
               {estPoster && compte && (
-                <div className="space-y-2 border-t p-3">
-                  <p className="text-xs font-medium">{t("posters.labelsTitre")}</p>
-                  <p className="text-[11px] text-muted-foreground">{t("posters.labelsAide")}</p>
-                  <LabelEditor
-                    queryKey={["compte-labels", compte.id]}
-                    load={() => labelsDuCompte(compte.id)}
-                    save={async (ids) => {
-                      await setLabelsCompte(compte.id, ids);
-                      await queryClient.invalidateQueries({ queryKey: ["compte-labels-all"] });
-                    }}
-                  />
+                <div className="flex items-start gap-3 border-t border-dashed bg-muted/25 px-3 py-2">
+                  <span className="w-14 shrink-0 pt-0.5 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+                    {t("labels.title")}
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <LabelEditor
+                      afficherTitre={false}
+                      queryKey={["compte-labels", compte.id]}
+                      load={() => labelsDuCompte(compte.id)}
+                      save={async (ids) => {
+                        await setLabelsCompte(compte.id, ids);
+                        await queryClient.invalidateQueries({
+                          queryKey: ["compte-labels-all"],
+                        });
+                      }}
+                    />
+                  </div>
                 </div>
               )}
 
               {estPoster && pubsOuvert && (
-                <div className="border-t p-3">
+                <div className="border-t px-3 py-3">
                   <CreateurPublications
                     poster={poster}
                     onClose={() => setPubsId(null)}
@@ -679,7 +694,7 @@ export function AdminPostersPage() {
               )}
 
               {estPoster && ouvert && (
-                <div className="border-t p-3">
+                <div className="border-t px-3 py-3">
                   {compte ? (
                     <CompteEditor compte={compte} />
                   ) : comptes.isPending ? (
@@ -698,7 +713,7 @@ export function AdminPostersPage() {
                   )}
                 </div>
               )}
-            </div>
+            </article>
           );
         };
 
@@ -707,31 +722,46 @@ export function AdminPostersPage() {
         }
         if (tous.length === 0) return <EmptyState title={t("posters.empty")} />;
 
-        const section = (titre: string, count: number, membres: typeof tous, badge?: string) => (
-          <Card key={titre}>
-            <CardHeader className="pb-3">
-              <div className="flex items-center gap-2">
-                <CardTitle className="text-sm">{titre}</CardTitle>
-                <Badge variant="secondary">{count}</Badge>
-                {badge && <Badge variant="outline">{badge}</Badge>}
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-2 pt-0">
+        const section = (
+          titre: string,
+          count: number,
+          membres: typeof tous,
+          opts?: { badge?: string; sousTitre?: string },
+        ) => (
+          <section key={titre} className="space-y-2">
+            <div className="flex flex-wrap items-baseline gap-2 border-b pb-1.5">
+              <h2 className="text-sm font-semibold">{titre}</h2>
+              <span className="text-xs tabular-nums text-muted-foreground">{count}</span>
+              {opts?.badge && <Badge variant="outline">{opts.badge}</Badge>}
+              {opts?.sousTitre && (
+                <span className="w-full text-[11px] text-muted-foreground sm:w-auto sm:ml-auto">
+                  {opts.sousTitre}
+                </span>
+              )}
+            </div>
+            <div className="space-y-2">
               {membres.length === 0 ? (
                 <p className="text-xs text-muted-foreground">{t("posters.aucunCreateur")}</p>
               ) : (
                 membres.map(ligne)
               )}
-            </CardContent>
-          </Card>
+            </div>
+          </section>
         );
 
         return (
-          <div className="space-y-4">
+          <div className="space-y-8">
             {recruteurs.length > 0 &&
-              section(t("posters.recruteurs"), recruteurs.length, recruteurs, t("hiring.badge"))}
+              section(t("posters.recruteurs"), recruteurs.length, recruteurs, {
+                badge: t("hiring.badge"),
+              })}
             {recruteurs.map((rec) =>
-              section(nomDe(rec), (parManager.get(rec.id) ?? []).length, parManager.get(rec.id) ?? []),
+              section(
+                nomDe(rec),
+                (parManager.get(rec.id) ?? []).length,
+                parManager.get(rec.id) ?? [],
+                { sousTitre: t("posters.createursDuRecruteur") },
+              ),
             )}
             {(parManager.get("__none__") ?? []).length > 0 &&
               section(
@@ -749,10 +779,11 @@ export function AdminPostersPage() {
       {/* Barre du haut : titre + un seul « + » pour ajouter un poster OU un
           recruteur. Le formulaire ne s'affiche que si on clique — la liste
           reste la vedette. */}
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div>
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div className="max-w-2xl space-y-1">
           <h1 className="text-lg font-semibold">{t("posters.title")}</h1>
           <p className="text-sm text-muted-foreground">{t("posters.subtitle")}</p>
+          <p className="text-xs text-muted-foreground">{t("posters.labelsAide")}</p>
         </div>
         {ajout === "ferme" ? (
           <div className="flex gap-2">

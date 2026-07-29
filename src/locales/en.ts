@@ -316,6 +316,7 @@ export const en = {
       jobLogsVides: "Starting…",
 
       histTitre: "Import history",
+      histVoirPlus: "View more",
       histAide:
         "Every scraped TikTok: link, calculated ELO (formula), and force-import if under threshold.",
       histRafraichir: "Refresh",

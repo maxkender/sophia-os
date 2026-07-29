@@ -316,6 +316,7 @@ export const fr = {
       jobLogsVides: "Démarrage…",
 
       histTitre: "Historique des imports",
+      histVoirPlus: "Voir plus",
       histAide:
         "Chaque TikTok scrapé : lien, ELO calculé (formule), et forçage si sous le seuil.",
       histRafraichir: "Rafraîchir",

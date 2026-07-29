@@ -1637,17 +1637,20 @@ export interface ImportHistoriqueLigne {
 
 /** Historique des imports (file serveur + ELO persisté). */
 export async function listerHistoriqueImports(
-  limit = 80,
-): Promise<ImportHistoriqueLigne[]> {
+  limit = 15,
+): Promise<{ lignes: ImportHistoriqueLigne[]; hasMore: boolean }> {
+  // +1 pour savoir s'il reste une page sans compter en SQL.
   const { data, error } = await supabase
     .from("import_file")
     .select(
       "id, post_url, statut, erreur, batch_id, created_at, contenu_id, contenus:contenu_id(id, titre, statut, import_statut, import_etape, import_erreur, vues_source, pertinence_score, import_elo_rapport, import_elo_force_seuil)",
     )
     .order("created_at", { ascending: false })
-    .limit(limit);
+    .limit(limit + 1);
   if (error) throw error;
-  return (data ?? []).map((r) => {
+  const rows = data ?? [];
+  const hasMore = rows.length > limit;
+  const lignes = rows.slice(0, limit).map((r) => {
     const c = Array.isArray(r.contenus) ? r.contenus[0] : r.contenus;
     const contenu = c as
       | {
@@ -1683,6 +1686,7 @@ export async function listerHistoriqueImports(
       titre: contenu?.titre ?? null,
     };
   });
+  return { lignes, hasMore };
 }
 
 /** Boost ELO au seuil + relance le pipeline (nettoyage…). */

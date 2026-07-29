@@ -162,17 +162,21 @@ function LigneHistorique({
   );
 }
 
+const PAGE = 15;
+
 /** Historique durable des imports : lien TT, ELO, forçage sous-seuil. */
 export function ImportHistoriquePanel() {
   const { t } = useTranslation();
   const [ouvertId, setOuvertId] = React.useState<string | null>(null);
+  const [limit, setLimit] = React.useState(PAGE);
   const hist = useQuery({
-    queryKey: ["historique-imports"],
-    queryFn: () => listerHistoriqueImports(80),
+    queryKey: ["historique-imports", limit],
+    queryFn: () => listerHistoriqueImports(limit),
     refetchInterval: 8_000,
   });
 
-  const lignes = hist.data ?? [];
+  const lignes = hist.data?.lignes ?? [];
+  const hasMore = Boolean(hist.data?.hasMore);
 
   return (
     <div className="space-y-2 rounded-lg border p-3">
@@ -208,6 +212,18 @@ export function ImportHistoriquePanel() {
           />
         ))}
       </div>
+      {hasMore && (
+        <div className="flex justify-center pt-1">
+          <Button
+            size="sm"
+            variant="outline"
+            disabled={hist.isFetching}
+            onClick={() => setLimit((n) => n + PAGE)}
+          >
+            {t("sources.histVoirPlus")}
+          </Button>
+        </div>
+      )}
     </div>
   );
 }

@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/card";
 import { useAuth } from "@/features/auth/AuthContext";
 import { CompteEditor } from "@/features/moteur/CompteEditor";
+import { CreateurPublications } from "@/features/moteur/CreateurPublications";
 import { LabelEditor } from "@/features/moteur/LabelPicker";
 import {
   creerCompte,
@@ -252,6 +253,8 @@ export function AdminPostersPage() {
     return m;
   }, [comptes.data]);
   const [ouverts, setOuverts] = React.useState<Set<string>>(new Set());
+  /** Créateur dont on affiche la liste des TikToks publiés (clic sur le nom). */
+  const [pubsId, setPubsId] = React.useState<string | null>(null);
   const basculerCompte = (id: string) =>
     setOuverts((s) => {
       const n = new Set(s);
@@ -506,15 +509,27 @@ export function AdminPostersPage() {
           const estPoster = poster.role === "poster";
           const compte = compteDe.get(poster.id);
           const ouvert = ouverts.has(poster.id);
+          const pubsOuvert = pubsId === poster.id;
           const labs = compte ? (labelsComptes.data?.get(compte.id) ?? []) : [];
+          const nomAffiche =
+            [poster.prenom, poster.nom].filter(Boolean).join(" ") || poster.email;
           return (
             <div key={poster.id} className="rounded-xl border bg-card">
               <div className="flex flex-wrap items-center justify-between gap-3 p-3">
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="text-sm font-medium">
-                      {[poster.prenom, poster.nom].filter(Boolean).join(" ") || poster.email}
-                    </span>
+                    {estPoster ? (
+                      <button
+                        type="button"
+                        onClick={() => setPubsId(pubsOuvert ? null : poster.id)}
+                        className="text-sm font-medium underline underline-offset-2"
+                        title={t("posters.tiktoksPublies")}
+                      >
+                        {nomAffiche}
+                      </button>
+                    ) : (
+                      <span className="text-sm font-medium">{nomAffiche}</span>
+                    )}
                     {soiMeme && <Badge variant="outline">{t("posters.you")}</Badge>}
                     {poster.role === "admin" && <Badge>{t("nav.admin")}</Badge>}
                     {poster.role === "hiring_manager" && (
@@ -650,6 +665,15 @@ export function AdminPostersPage() {
                       await setLabelsCompte(compte.id, ids);
                       await queryClient.invalidateQueries({ queryKey: ["compte-labels-all"] });
                     }}
+                  />
+                </div>
+              )}
+
+              {estPoster && pubsOuvert && (
+                <div className="border-t p-3">
+                  <CreateurPublications
+                    poster={poster}
+                    onClose={() => setPubsId(null)}
                   />
                 </div>
               )}

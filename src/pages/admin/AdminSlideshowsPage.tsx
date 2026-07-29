@@ -1,10 +1,11 @@
 import * as React from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { X } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Card,
   CardContent,
@@ -18,6 +19,7 @@ import {
   labelsDuContenu,
   lireSlideshow,
   listerContenus,
+  renseignerLienPublie,
   setLabelsContenu,
   type ContenuListe,
   type SlideshowDetail,
@@ -25,6 +27,89 @@ import {
 import { nomLangue } from "@/features/moteur/langues";
 import type { ContenuLangue, ContenuSlide } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
+
+function PassageLien({
+  passageId,
+  postId,
+  publieUrl,
+  statut,
+  contenuId,
+}: {
+  passageId: string;
+  postId: string | null;
+  publieUrl: string | null;
+  statut: string;
+  contenuId: string;
+}) {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const peutEditer = statut === "publie";
+  const [edit, setEdit] = React.useState(peutEditer && !publieUrl);
+  const [url, setUrl] = React.useState(publieUrl ?? "");
+  const save = useMutation({
+    mutationFn: () => renseignerLienPublie({ passageId, postId }, url),
+    onSuccess: () => {
+      setEdit(false);
+      void queryClient.invalidateQueries({ queryKey: ["slideshow", contenuId] });
+      void queryClient.invalidateQueries({ queryKey: ["publications-compte"] });
+    },
+  });
+
+  if (!peutEditer && !publieUrl) return null;
+
+  if (!edit && publieUrl) {
+    return (
+      <div className="mt-1 flex flex-wrap items-center gap-2">
+        <a
+          href={publieUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="underline underline-offset-2"
+        >
+          TikTok ↗
+        </a>
+        {peutEditer && (
+          <button
+            type="button"
+            className="text-muted-foreground underline underline-offset-2"
+            onClick={() => {
+              setUrl(publieUrl);
+              setEdit(true);
+            }}
+          >
+            {t("slideshows.modifierLien")}
+          </button>
+        )}
+      </div>
+    );
+  }
+
+  if (!edit) return null;
+
+  return (
+    <div className="mt-1 flex flex-wrap items-center gap-1">
+      <Input
+        value={url}
+        onChange={(e) => setUrl(e.target.value)}
+        placeholder={t("slideshows.lienPlaceholder")}
+        className="h-7 min-w-[12rem] flex-1 text-xs"
+      />
+      <Button
+        size="sm"
+        className="h-7"
+        disabled={save.isPending || !url.trim()}
+        onClick={() => save.mutate()}
+      >
+        {save.isPending ? t("common.saving") : t("common.save")}
+      </Button>
+      {publieUrl && (
+        <Button size="sm" variant="ghost" className="h-7" onClick={() => setEdit(false)}>
+          {t("common.cancel")}
+        </Button>
+      )}
+    </div>
+  );
+}
 
 function urlPropre(c: ContenuListe, slide: ContenuSlide): string | null {
   if (slide.media_id && c.mediaUrls?.[slide.media_id]) return c.mediaUrls[slide.media_id];
@@ -368,16 +453,13 @@ function DetailSlideshow({
                           coms: p.commentaires?.toLocaleString(i18n.language) ?? "—",
                         })}
                       </p>
-                      {p.publie_url && (
-                        <a
-                          href={p.publie_url}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="underline underline-offset-2"
-                        >
-                          TikTok ↗
-                        </a>
-                      )}
+                      <PassageLien
+                        passageId={p.id}
+                        postId={p.post_id}
+                        publieUrl={p.publie_url}
+                        statut={p.statut}
+                        contenuId={d.id}
+                      />
                     </li>
                   ))}
                 </ul>

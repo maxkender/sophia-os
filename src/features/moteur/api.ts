@@ -753,6 +753,146 @@ export async function majPassage(
   if (error) throw error;
 }
 
+/** Un TikTok déjà publié par un créateur (passage v-next et/ou post legacy). */
+export interface PublicationCompte {
+  key: string;
+  passage_id: string | null;
+  post_id: string | null;
+  date_publication_prevue: string | null;
+  publie_at: string | null;
+  publie_url: string | null;
+  titre: string | null;
+  langue: string | null;
+  statut: string;
+}
+
+/** Tous les posts publiés d'un compte (passages + posts legacy, dédupliqués). */
+export async function listerPublicationsCompte(
+  compteId: string,
+): Promise<PublicationCompte[]> {
+  const [{ data: passages, error: e1 }, { data: posts, error: e2 }] = await Promise.all([
+    supabase
+      .from("passages")
+      .select(
+        "id, post_id, date_publication_prevue, publie_at, publie_url, langue, statut, contenus(titre)",
+      )
+      .eq("compte_id", compteId)
+      .eq("statut", "publie")
+      .order("date_publication_prevue", { ascending: false }),
+    supabase
+      .from("posts")
+      .select(
+        "id, date_publication_prevue, publie_at, publie_url, statut, sujets(titre)",
+      )
+      .eq("compte_id", compteId)
+      .eq("statut", "publie")
+      .eq("est_test", false)
+      .order("date_publication_prevue", { ascending: false }),
+  ]);
+  if (e1) throw e1;
+  if (e2) throw e2;
+
+  const byPostId = new Map<string, PublicationCompte>();
+  const result: PublicationCompte[] = [];
+
+  for (const p of passages ?? []) {
+    const titre =
+      (p as { contenus?: { titre?: string | null } | null }).contenus?.titre ?? null;
+    const row: PublicationCompte = {
+      key: `passage:${p.id}`,
+      passage_id: p.id,
+      post_id: p.post_id,
+      date_publication_prevue: p.date_publication_prevue,
+      publie_at: p.publie_at,
+      publie_url: p.publie_url,
+      titre,
+      langue: p.langue,
+      statut: p.statut,
+    };
+    if (p.post_id) byPostId.set(p.post_id, row);
+    result.push(row);
+  }
+
+  for (const p of posts ?? []) {
+    const existing = byPostId.get(p.id);
+    if (existing) {
+      if (!existing.publie_url && p.publie_url) existing.publie_url = p.publie_url;
+      if (!existing.titre) {
+        existing.titre =
+          (p as { sujets?: { titre?: string | null } | null }).sujets?.titre ?? null;
+      }
+      continue;
+    }
+    result.push({
+      key: `post:${p.id}`,
+      passage_id: null,
+      post_id: p.id,
+      date_publication_prevue: p.date_publication_prevue,
+      publie_at: p.publie_at,
+      publie_url: p.publie_url,
+      titre: (p as { sujets?: { titre?: string | null } | null }).sujets?.titre ?? null,
+      langue: null,
+      statut: p.statut,
+    });
+  }
+
+  result.sort((a, b) => {
+    const da = a.date_publication_prevue ?? a.publie_at ?? "";
+    const db = b.date_publication_prevue ?? b.publie_at ?? "";
+    return db.localeCompare(da);
+  });
+  return result;
+}
+
+/**
+ * Renseigne / corrige le lien TikTok d'une publication déjà faite.
+ * Met à jour le post ET le passage lié — sans toucher aux scores ELO langues.
+ */
+export async function renseignerLienPublie(
+  opts: { passageId?: string | null; postId?: string | null },
+  url: string,
+): Promise<void> {
+  const lien = url.trim();
+  if (!lien) throw new Error("Lien TikTok requis");
+
+  let postId = opts.postId ?? null;
+  let passageId = opts.passageId ?? null;
+
+  if (passageId && !postId) {
+    const { data } = await supabase
+      .from("passages")
+      .select("post_id")
+      .eq("id", passageId)
+      .maybeSingle();
+    postId = data?.post_id ?? null;
+  }
+  if (postId && !passageId) {
+    const { data } = await supabase
+      .from("passages")
+      .select("id")
+      .eq("post_id", postId)
+      .maybeSingle();
+    passageId = data?.id ?? null;
+  }
+
+  if (!postId && !passageId) throw new Error("Publication introuvable");
+
+  if (postId) {
+    const { error } = await supabase
+      .from("posts")
+      .update({ publie_url: lien })
+      .eq("id", postId);
+    if (error) throw error;
+  }
+  if (passageId) {
+    const { error } = await supabase
+      .from("passages")
+      .update({ publie_url: lien })
+      .eq("id", passageId);
+    if (error) throw error;
+  }
+}
+
 // --- Analyse ----------------------------------------------------------------
 
 export async function statsComptes(): Promise<StatsCompte[]> {

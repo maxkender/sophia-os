@@ -477,6 +477,15 @@ export const fr = {
       sansCompte: "Sans compte de publication (à configurer plus tard)",
       langueAide:
         "Choisis une langue : le compte de référence et la persona (pseudo, bio, avatar) sont générés automatiquement.",
+      tiktoksPublies: "TikToks publiés",
+      tiktoksPubliesDesc:
+        "Tous les posts déjà publiés par {{nom}}. Ouvre les liens connus, ou ajoute manuellement ceux qui manquent.",
+      ouvrirTous: "Ouvrir les {{count}} liens",
+      aucunPublie: "Aucun post publié pour l’instant.",
+      lienManquant: "Lien TikTok manquant — colle-le ici",
+      modifierLien: "modifier le lien",
+      lienPlaceholder: "https://www.tiktok.com/@…/photo/…",
+      sansLien: "{{count}} sans lien",
     },
     hiring: {
       title: "Créer un poster",
@@ -607,6 +616,9 @@ export const fr = {
       historique: "Passages / stats",
       pasDePassage: "Pas encore assigné à un créateur.",
       statsLigne: "{{vues}} vues · {{likes}} likes · {{coms}} coms",
+      ajouterLien: "Ajouter le lien TikTok",
+      modifierLien: "modifier",
+      lienPlaceholder: "https://www.tiktok.com/@…/photo/…",
     },
     paiement: {
       title: "Paiement créateurs",

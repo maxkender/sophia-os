@@ -15,14 +15,23 @@ type Supabase = ReturnType<typeof serviceClient>;
 const POSTS_RELEVES = 30;
 
 /**
- * Minuit v-next (rapide) :
- *   1) FETCH stats des passages publiés (via publie_url)
- *   2) MAJ scores contenu[langue] → transfert → EWMA comptes
- *   3) ASSIGNATION labels ∩ + top-K + saturation
+ * Minuit v-next (manuel ou cron — l'heure importe peu) :
+ *   1) FETCH stats des passages publiés (via publie_url) — optionnel
+ *   2) MAJ ELO langue depuis stats — PAUSE (PAUSE_ELO_RUNTIME)
+ *   3) ASSIGNATION labels ∩ + score langue (import) + top-K + softmax
  *
- * Le contenu est déjà pré-cuit à l'import : pas de composition ici.
+ * Règles d'assignation (par compte actif, jour Paris) :
+ *   - quota = posts_par_jour du compte (sinon réglage global)
+ *   - non-écrasement : si déjà un passage ce jour → skip (sauf forcer)
+ *   - labels compte ∩ labels contenu requis
+ *   - pool = contenus valide + import done + ligne contenu_langues[langue du compte]
+ *   - ranking = score langue − pénalité saturation (comptes distincts récents)
+ *   - préfère jamais posté sur ce compte ; sinon le moins récent
+ *   - tirage softmax top-K (température)
+ *   - deck : traduction + Sophia à la demande (assurerDeckPourLangue)
+ *   - crée passages statut=assigne (musique + hashtags)
  *
- *   {}  → pipeline complet (si reglages.moteur_vnext.actif)
+ *   {}  → stats + assignation (scores en pause) si moteur_vnext.actif
  *   { etapes?: ['stats'|'scores'|'assignation'|'variations'], compteId?, date?, forcer? }
  */
 Deno.serve(async (request) => {

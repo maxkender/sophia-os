@@ -78,7 +78,8 @@ export async function nettoyerViaReplicateTextRemoval(
 
   let polls = 0;
   const debut = Date.now();
-  const BUDGET = 140_000;
+  // Edge Function ~150 s : laisser de la marge pour download + C2PA + upload.
+  const BUDGET = 90_000;
 
   while (
     (prediction.status === "starting" || prediction.status === "processing") &&

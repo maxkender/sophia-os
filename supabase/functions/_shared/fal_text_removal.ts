@@ -83,7 +83,8 @@ export async function nettoyerViaFalTextRemoval(
   }
 
   const debut = Date.now();
-  const BUDGET = 140_000;
+  // Edge Function ~150 s : laisser de la marge pour download + C2PA + upload.
+  const BUDGET = 90_000;
   let statut = queued.status as string | undefined;
   let polls = 0;
 

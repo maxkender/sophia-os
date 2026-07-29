@@ -8,6 +8,7 @@ import {
   mediaPropreMemeLabel,
 } from "../_shared/media_labels.ts";
 import { reponseNdjson, veutStream } from "../_shared/nettoyage_etapes.ts";
+import { patchSlideMediaId, trouverPropreExistant } from "../_shared/slide_media.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 const BUCKET = "medias";
@@ -73,8 +74,28 @@ Deno.serve(async (request) => {
       const onEtape = emit ? (e: EvenementEtape) => emit(e) : undefined;
       const propre = await cleanImage(sourceUrl, onEtape);
 
-      // Pas de résultat provider → biblio, sinon échec.
+      // Pas de résultat provider → réutiliser un propre orphelin, sinon biblio.
       if (!propre?.base64) {
+        const orphelin = await trouverPropreExistant(supabase, contenu.id, position);
+        if (orphelin) {
+          await patchSlideMediaId(supabase, contenu.id, position, orphelin.id);
+          emit?.({
+            etape: "ready",
+            statut: "ok",
+            ok: true,
+            nettoyee: true,
+            mediaId: orphelin.id,
+            url: orphelin.url,
+            detail: "propre orphelin rattache (Fal/Replicate sans bytes)",
+          });
+          return {
+            ok: true as const,
+            nettoyee: true,
+            mediaId: orphelin.id,
+            url: orphelin.url,
+            motif: "propre orphelin rattache",
+          };
+        }
         const exclus = slides
           .map((s) => s.media_id)
           .filter((id): id is string => Boolean(id));
@@ -84,11 +105,7 @@ Deno.serve(async (request) => {
           compteReferenceId: contenu.compte_reference_id,
         });
         if (alt) {
-          slides[idx] = { ...slide, media_id: alt.id };
-          await supabase
-            .from("contenus")
-            .update({ structure_slides: slides })
-            .eq("id", contenu.id);
+          await patchSlideMediaId(supabase, contenu.id, position, alt.id);
           emit?.({
             etape: "ready",
             statut: "ok",
@@ -125,7 +142,7 @@ Deno.serve(async (request) => {
         .upload(path, bytes, {
           contentType: mime,
           upsert: true,
-          cacheControl: "60",
+          cacheControl: "0",
         });
       if (upErr) throw upErr;
 
@@ -150,13 +167,16 @@ Deno.serve(async (request) => {
         .select("id")
         .single();
       if (insErr) throw insErr;
-      await attacherLabelsAuMedia(supabase, media.id, contenu.id);
 
-      slides[idx] = { ...slide, media_id: media.id };
-      await supabase
-        .from("contenus")
-        .update({ structure_slides: slides })
-        .eq("id", contenu.id);
+      // Patch atomique AVANT labels — le lien slide→propre ne doit plus se perdre.
+      await patchSlideMediaId(supabase, contenu.id, position, media.id);
+      try {
+        await attacherLabelsAuMedia(supabase, media.id, contenu.id);
+      } catch (labErr) {
+        console.warn(
+          `[renettoyer-contenu] labels ${contenuId}#${position}: ${messageErreur(labErr)}`,
+        );
+      }
 
       emit?.({
         etape: "ready",
@@ -178,6 +198,31 @@ Deno.serve(async (request) => {
     } catch (error) {
       const msg = messageErreur(error);
       console.warn(`[renettoyer-contenu] ${contenuId}#${position}: ${msg}`);
+      // Si l'upload a réussi malgré l'erreur aval, rattacher le propre.
+      try {
+        const orphelin = await trouverPropreExistant(supabase, contenu.id, position);
+        if (orphelin) {
+          await patchSlideMediaId(supabase, contenu.id, position, orphelin.id);
+          emit?.({
+            etape: "ready",
+            statut: "ok",
+            ok: true,
+            nettoyee: true,
+            mediaId: orphelin.id,
+            url: orphelin.url,
+            detail: `recupere apres erreur: ${msg}`,
+          });
+          return {
+            ok: true as const,
+            nettoyee: true,
+            mediaId: orphelin.id,
+            url: orphelin.url,
+            motif: `recupere apres erreur: ${msg}`,
+          };
+        }
+      } catch {
+        // ignore
+      }
       emit?.({ etape: "ready", statut: "echec", detail: msg });
       return { ok: false as const, nettoyee: false, motif: msg };
     }

@@ -17,6 +17,7 @@ import {
   attacherLabelsAuMedia,
   mediaPropreMemeLabel,
 } from "./media_labels.ts";
+import { patchSlideMediaId, trouverPropreExistant } from "./slide_media.ts";
 import { chargerPrompt, messageErreur, serviceClient } from "./supabase.ts";
 
 export type Supabase = ReturnType<typeof serviceClient>;
@@ -39,6 +40,8 @@ export const LANGUES_CIBLES = [
   "tr",
 ] as const;
 const SLIDES_PAR_PASSAGE = 2;
+/** 1 slide / passage nettoyage : Fal≤90s + store doit tenir sous le mur Edge ~150s. */
+const SLIDES_NETTOYAGE_PAR_PASSAGE = 1;
 const MAX_TENTATIVES_NETTOYAGE = 4;
 /** Apify `resultsPerPage` — on vise tout le profil (plafond acteur). */
 const SCRAPE_TOUS = 100;
@@ -800,35 +803,90 @@ export async function avancerImport(
     const aNettoyer = slides.filter((s) => !s.media_id);
     if (aNettoyer.length > 0) {
       const rapports: NettoyageSlideRapport[] = [];
-      for (const slide of aNettoyer.slice(0, SLIDES_PAR_PASSAGE)) {
+      for (const slide of aNettoyer.slice(0, SLIDES_NETTOYAGE_PAR_PASSAGE)) {
         const r = await nettoyerSlide(supabase, contenu, slide);
         rapports.push(r.rapport);
         if (r.mediaId) {
           slide.media_id = r.mediaId;
           slide.tentatives = undefined;
+          // Patch atomique : survit aux lost-updates / timeout après upload.
+          await patchSlideMediaId(supabase, contenu.id, slide.position, r.mediaId);
         } else {
-          // Texte encore là (verifyClean) ou Fal/Replicate KO → biblio même label.
-          const remplace = await tenterRemplacementLabel(
+          // Fal a peut‑être uploadé puis le worker est mort avant le lien.
+          const orphelin = await trouverPropreExistant(
             supabase,
-            contenu,
-            slides,
-            r.rapport,
+            contenu.id,
+            slide.position,
           );
-          if (remplace) {
-            slide.media_id = remplace;
+          if (orphelin) {
+            slide.media_id = orphelin.id;
             slide.tentatives = undefined;
+            r.rapport.ok = true;
+            r.rapport.motif = "propre orphelin rattache";
+            r.rapport.lignes.push(
+              `→ propre deja en storage rattache media_id=${orphelin.id}`,
+            );
+            await patchSlideMediaId(
+              supabase,
+              contenu.id,
+              slide.position,
+              orphelin.id,
+            );
           } else {
-            slide.tentatives = (slide.tentatives ?? 0) + 1;
-            if (slide.tentatives >= MAX_TENTATIVES_NETTOYAGE) {
-              slide.media_id = await stockerBrut(supabase, contenu, slide);
-              r.rapport.lignes.push(
-                `→ brut stocké après ${slide.tentatives} échecs (plus de retry)`,
+            const remplace = await tenterRemplacementLabel(
+              supabase,
+              contenu,
+              slides,
+              r.rapport,
+            );
+            if (remplace) {
+              slide.media_id = remplace;
+              slide.tentatives = undefined;
+              await patchSlideMediaId(
+                supabase,
+                contenu.id,
+                slide.position,
+                remplace,
               );
-              r.rapport.motif = "brut après max tentatives";
             } else {
-              r.rapport.lignes.push(
-                `→ retry prévu (${slide.tentatives}/${MAX_TENTATIVES_NETTOYAGE})`,
-              );
+              slide.tentatives = (slide.tentatives ?? 0) + 1;
+              if (slide.tentatives >= MAX_TENTATIVES_NETTOYAGE) {
+                // Dernière chance : un propre a pu être écrit entre-temps.
+                const encore = await trouverPropreExistant(
+                  supabase,
+                  contenu.id,
+                  slide.position,
+                );
+                if (encore) {
+                  slide.media_id = encore.id;
+                  r.rapport.ok = true;
+                  r.rapport.lignes.push(
+                    `→ propre trouvé avant brut media_id=${encore.id}`,
+                  );
+                  await patchSlideMediaId(
+                    supabase,
+                    contenu.id,
+                    slide.position,
+                    encore.id,
+                  );
+                } else {
+                  slide.media_id = await stockerBrut(supabase, contenu, slide);
+                  r.rapport.lignes.push(
+                    `→ brut stocké après ${slide.tentatives} échecs (plus de retry)`,
+                  );
+                  r.rapport.motif = "brut après max tentatives";
+                  await patchSlideMediaId(
+                    supabase,
+                    contenu.id,
+                    slide.position,
+                    slide.media_id,
+                  );
+                }
+              } else {
+                r.rapport.lignes.push(
+                  `→ retry prévu (${slide.tentatives}/${MAX_TENTATIVES_NETTOYAGE})`,
+                );
+              }
             }
           }
         }
@@ -1100,6 +1158,16 @@ async function nettoyerSlide(
 
   await prolongerLease(supabase, contenu.id);
 
+  // Reprise : upload OK lors d'un passage précédent, lien media_id perdu.
+  const deja = await trouverPropreExistant(supabase, contenu.id, slide.position);
+  if (deja) {
+    rapport.ok = true;
+    rapport.moteur = "reuse";
+    lignes.push(`reuse propre existant ${deja.storage_path} → ${deja.id}`);
+    await patchSlideMediaId(supabase, contenu.id, slide.position, deja.id);
+    return { mediaId: deja.id, rapport };
+  }
+
   let propreBase64: string | null = null;
   let moteur: string | undefined;
   let mimeDeclare = "image/jpeg";
@@ -1144,6 +1212,8 @@ async function nettoyerSlide(
     return { mediaId: null, rapport };
   }
 
+  await prolongerLease(supabase, contenu.id);
+
   const { mime, ext } = mimeDepuisBase64(propreBase64, mimeDeclare);
   const path = `propre/${contenu.id}/${slide.position}.${ext}`;
   const bytes = Uint8Array.from(atob(propreBase64), (c) => c.charCodeAt(0));
@@ -1152,9 +1222,11 @@ async function nettoyerSlide(
     .upload(path, bytes, {
       contentType: mime,
       upsert: true,
-      cacheControl: "60",
+      cacheControl: "0",
     });
   if (upErr) throw upErr;
+
+  // Lien media_id AVANT labels (labels ne doivent pas faire perdre le Fal OK).
   const publicUrl = supabase.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
   const url = `${publicUrl}?v=${Date.now()}`;
 
@@ -1177,12 +1249,25 @@ async function nettoyerSlide(
     .select("id")
     .single();
   if (error) throw error;
-  const labels = await attacherLabelsAuMedia(supabase, media.id, contenu.id);
+
+  try {
+    await patchSlideMediaId(supabase, contenu.id, slide.position, media.id);
+  } catch (e) {
+    lignes.push(`warn patch media_id: ${messageErreur(e)}`);
+  }
+
+  try {
+    const labels = await attacherLabelsAuMedia(supabase, media.id, contenu.id);
+    lignes.push(
+      `upload OK → media_id=${media.id} · moteur=${moteur ?? "?"}` +
+        (labels.length ? ` · labels=${labels.length}` : ""),
+    );
+  } catch (e) {
+    lignes.push(
+      `upload OK → media_id=${media.id} · labels KO: ${messageErreur(e)}`,
+    );
+  }
   rapport.ok = true;
-  lignes.push(
-    `upload OK → media_id=${media.id} · moteur=${moteur ?? "?"}` +
-      (labels.length ? ` · labels=${labels.length}` : ""),
-  );
   return { mediaId: media.id, rapport };
 }
 

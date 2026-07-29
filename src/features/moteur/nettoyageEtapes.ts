@@ -16,6 +16,7 @@ export interface EvenementEtape {
   detail?: string;
   url?: string;
   moteur?: MoteurNettoyage;
+  mediaId?: string;
   ok?: boolean;
   nettoyee?: boolean;
   remplacee?: boolean;

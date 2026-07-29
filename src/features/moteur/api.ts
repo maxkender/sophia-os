@@ -18,6 +18,7 @@ import type {
   Label,
   Contenu,
   ContenuLangue,
+  ContenuSlide,
   Passage,
 } from "./types";
 
@@ -1112,6 +1113,118 @@ export async function nettoyerMedia(
   };
 }
 
+/** Re-nettoie une slide d'un slideshow v-next (structure_slides). */
+export async function renettoyerSlideContenu(
+  contenuId: string,
+  position: number,
+  onEtape?: (e: EvenementEtape) => void,
+) {
+  if (!onEtape) {
+    return invoke<{
+      ok: boolean;
+      nettoyee: boolean;
+      moteur?: "text_removal" | "proxy" | "inpaint";
+      mediaId?: string;
+      url?: string;
+      motif?: string;
+      erreur?: string;
+    }>("renettoyer-contenu", { contenuId, position });
+  }
+  const fin = await invokeNettoyageStream(
+    "renettoyer-contenu",
+    { contenuId, position },
+    onEtape,
+  );
+  return {
+    ok: fin.ok !== false && fin.statut !== "echec",
+    nettoyee: Boolean(fin.nettoyee),
+    moteur: fin.moteur,
+    mediaId: typeof fin.mediaId === "string" ? fin.mediaId : undefined,
+    url: fin.url,
+    motif: fin.detail,
+    erreur: fin.statut === "echec" ? fin.detail : undefined,
+  };
+}
+
+/** Remplace le visuel d'une slide de contenu par un média bibliothèque. */
+export async function majMediaSlideContenu(
+  contenuId: string,
+  position: number,
+  mediaId: string,
+): Promise<void> {
+  const { data: contenu, error } = await supabase
+    .from("contenus")
+    .select("structure_slides")
+    .eq("id", contenuId)
+    .single();
+  if (error) throw error;
+  const slides = [...((contenu.structure_slides ?? []) as ContenuSlide[])];
+  const idx = slides.findIndex((s) => s.position === position);
+  if (idx < 0) throw new Error("Slide introuvable");
+  slides[idx] = { ...slides[idx], media_id: mediaId };
+  const { error: majErr } = await supabase
+    .from("contenus")
+    .update({ structure_slides: slides })
+    .eq("id", contenuId);
+  if (majErr) throw majErr;
+}
+
+/**
+ * Visuels candidats pour remplacer une slide : même compte de référence,
+ * plus médias des contenus partageant au moins un label.
+ */
+export async function listerMediasPourContenu(contenuId: string): Promise<Media[]> {
+  const { data: contenu, error } = await supabase
+    .from("contenus")
+    .select("compte_reference_id")
+    .eq("id", contenuId)
+    .single();
+  if (error) throw error;
+
+  const { data: labs } = await supabase
+    .from("contenu_labels")
+    .select("label_id")
+    .eq("contenu_id", contenuId);
+  const labelIds = (labs ?? []).map((l) => l.label_id);
+
+  const byId = new Map<string, Media>();
+
+  if (contenu.compte_reference_id) {
+    const { data: memes } = await supabase
+      .from("media_library")
+      .select("*")
+      .eq("compte_reference_id", contenu.compte_reference_id)
+      .like("storage_path", "propre/%")
+      .eq("texte_restant", false)
+      .order("created_at", { ascending: false })
+      .limit(80);
+    for (const m of memes ?? []) byId.set(m.id, m as Media);
+  }
+
+  if (labelIds.length > 0) {
+    const { data: freres } = await supabase
+      .from("contenu_labels")
+      .select("contenu_id")
+      .in("label_id", labelIds)
+      .neq("contenu_id", contenuId)
+      .limit(60);
+    const contenuIds = [...new Set((freres ?? []).map((f) => f.contenu_id))];
+    if (contenuIds.length > 0) {
+      const { data: mediaFreres } = await supabase
+        .from("media_library")
+        .select("*")
+        .in("contenu_id", contenuIds)
+        .like("storage_path", "propre/%")
+        .eq("texte_restant", false)
+        .order("created_at", { ascending: false })
+        .limit(80);
+      for (const m of mediaFreres ?? []) byId.set(m.id, m as Media);
+    }
+  }
+
+  return [...byId.values()];
+}
+
 /** Nettoyage de test NON destructif : renvoie l'image nettoyée sans rien écraser. */
 export async function nettoyerTest(
   url: string,
@@ -1323,6 +1436,7 @@ export const lancerImportContenu = (contenuId?: string) =>
     etape?: string;
     idle?: boolean;
     elo?: EloImportRapport | null;
+    nettoyage?: { texte: string } | null;
   }>("import-contenu", {
     contenuId: contenuId ?? null,
   });
@@ -1361,6 +1475,7 @@ export const importerContenuDepuisLien = (
     reused: boolean;
     etape?: string;
     elo?: EloImportRapport | null;
+    nettoyage?: { texte: string } | null;
   }>("import-contenu", {
     postUrl,
     compteReferenceId,

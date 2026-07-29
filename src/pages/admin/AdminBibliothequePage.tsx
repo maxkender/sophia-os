@@ -1,7 +1,8 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Check, Sparkles, Trash2 } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Check, ExternalLink, Sparkles, Trash2 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { executerEnLot } from "@/lib/lot";
@@ -122,7 +123,15 @@ function VignetteMedia({
         <NettoyageEtapes etapes={etapes} className="rounded border bg-muted/30 p-1.5" />
       ) : null}
 
-      <div className="flex gap-1">
+      <div className="flex flex-wrap gap-1">
+        {media.contenu_id && (
+          <Button size="sm" variant="outline" className="h-7 flex-1 px-2 text-xs" asChild>
+            <Link to={`/admin/slideshows?id=${media.contenu_id}`}>
+              <ExternalLink className="size-3" />
+              {t("bibliotheque.ouvrirSlideshow")}
+            </Link>
+          </Button>
+        )}
         {!propre && (
           <Button
             size="sm"

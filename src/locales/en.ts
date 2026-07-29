@@ -524,6 +524,7 @@ export const en = {
       nettoyee: "Cleaned",
       aNettoyer: "To clean",
       texteRestant: "Text present",
+      ouvrirSlideshow: "Open slideshow",
       nettoyer: "Clean",
       nettoyageEnCours: "Cleaning in progress…",
       nettoyageEchec:
@@ -587,7 +588,7 @@ export const en = {
     slideshows: {
       title: "Slideshows",
       subtitle:
-        "Imported TikToks (v-next): source deck cleaned at import; other languages translated at midnight assignment when needed.",
+        "Imported TikToks: visuals + OCR text at import. Translation and Sophia ad at midnight assignment (per language).",
       empty: "No imported slideshow yet.",
       sansImage: "No image",
       detail: "Slideshow detail",
@@ -618,6 +619,19 @@ export const en = {
       ajouterLien: "Add TikTok link",
       modifierLien: "edit",
       lienPlaceholder: "https://www.tiktok.com/@…/photo/…",
+      pasEncorePassage:
+        "No passage in {{langue}} yet — showing original OCR text. Translation + Sophia happen at midnight assignment.",
+      texteOriginel: "original",
+      visuelsEdit: "Cleaned visuals",
+      visuelsEditAide:
+        "Re-clean a slide, or replace it with another visual from the same account / label.",
+      slideN: "Slide {{n}}",
+      renettoyer: "Re-clean",
+      remplacer: "Replace",
+      nettoyageEnCours: "Cleaning…",
+      choisirVisuel: "Pick a visual (same label / source)",
+      aucunVisuelLabel: "No other clean visual found for these labels.",
+      ouvrirDepuisBiblio: "Open slideshow",
     },
     paiement: {
       title: "Creator pay",
@@ -852,9 +866,9 @@ export const en = {
       echec: "Failed — see the message",
     },
     nettoyageEtapes: {
-      textRemoval: "Text removal",
-      proxy: "Proxy",
-      inpaint: "LaMa inpaint",
+      textRemoval: "Fal text-removal",
+      proxy: "Proxy (fallback)",
+      inpaint: "LaMa inpaint (fallback)",
       c2pa: "Content Credentials",
       ready: "Ready",
     },

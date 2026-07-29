@@ -54,6 +54,7 @@ Deno.serve(async (request) => {
         reused: cree.reused,
         etape: r.etape,
         elo: r.elo ?? null,
+        nettoyage: r.nettoyage ?? null,
       });
     }
 
@@ -87,15 +88,21 @@ Deno.serve(async (request) => {
     if (!contenu) return json({ ok: true, idle: true });
 
     const r = await avancerImport(supabase, contenu);
-    return json({ ok: true, contenuId: contenu.id, etape: r.etape, elo: r.elo ?? null });
+    return json({
+      ok: true,
+      contenuId: contenu.id,
+      etape: r.etape,
+      elo: r.elo ?? null,
+      nettoyage: r.nettoyage ?? null,
+    });
   } catch (error) {
     return json({ ok: false, error: messageErreur(error) }, 500);
   }
 });
 
 /**
- * Remet en file un contenu valide auquel il manque le deck SOURCE (OCR/Sophia).
- * Les autres langues se cuisent à l'assignation — pas de backfill traduction.
+ * Remet en file un contenu valide auquel il manque le deck SOURCE (OCR).
+ * Sophia + traductions → assignation minuit ; pas de backfill ici.
  */
 async function prochainBackfill(
   supabase: ReturnType<typeof serviceClient>,
@@ -122,9 +129,7 @@ async function prochainBackfill(
       position_sophia?: boolean;
     }>;
     const manque =
-      slides.length === 0 ||
-      slides.every((s) => !s.texte_overlay) ||
-      !slides.some((s) => s.position_sophia);
+      slides.length === 0 || slides.every((s) => !s.texte_overlay);
 
     if (!manque) continue;
 

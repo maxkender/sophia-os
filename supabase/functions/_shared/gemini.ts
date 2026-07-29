@@ -633,71 +633,101 @@ export async function cleanImage(
   let base64: string | null = null;
   let moteur: MoteurNettoyage | null = null;
 
-  await emit({ etape: "text_removal", statut: "encours" });
+  await emit({
+    etape: "text_removal",
+    statut: "encours",
+    detail: "Fal text-removal (ex-Seedream) — chaîne: fal → proxy → LaMa → C2PA",
+  });
+  let falPolls = 0;
   try {
-    const parFal = await nettoyerViaFalTextRemoval(imageUrl);
+    const parFal = await nettoyerViaFalTextRemoval(imageUrl, async (p) => {
+      if (typeof p.polls === "number") falPolls = p.polls;
+      if (p.phase === "poll" && p.polls && p.polls % 5 === 0) {
+        await emit({
+          etape: "text_removal",
+          statut: "encours",
+          detail: `Fal queue: ${p.polls} polls, statut=${p.statut ?? "?"}`,
+        });
+      }
+    });
     if (parFal && !(await sembleDegeneree(parFal))) {
       base64 = parFal;
       moteur = "text_removal";
-      await emit({ etape: "text_removal", statut: "ok" });
+      await emit({
+        etape: "text_removal",
+        statut: "ok",
+        detail: `Fal text-removal OK (${falPolls} polls status API)`,
+      });
     } else if (parFal) {
       await emit({
         etape: "text_removal",
         statut: "echec",
-        detail: "sortie noire / dégénérée",
+        detail: `sortie noire / dégénérée → fallback proxy (${falPolls} polls)`,
       });
     } else {
       await emit({
         etape: "text_removal",
         statut: "saute",
-        detail: "FAL_KEY absent",
+        detail: "FAL_KEY / FAL_API_KEY absent → fallback proxy",
       });
     }
   } catch (error) {
     await emit({
       etape: "text_removal",
       statut: "echec",
-      detail: messageErreur(error),
+      detail: `${messageErreur(error)} → fallback proxy (${falPolls} polls)`,
     });
   }
 
   if (!base64) {
-    await emit({ etape: "proxy", statut: "encours" });
+    await emit({
+      etape: "proxy",
+      statut: "encours",
+      detail: "fallback Lovable proxy (jusqu'à 5 retries)",
+    });
     try {
       const parProxy = await nettoyerViaProxy(imageUrl);
       if (parProxy && !(await sembleDegeneree(parProxy))) {
         base64 = parProxy;
         moteur = "proxy";
-        await emit({ etape: "proxy", statut: "ok" });
+        await emit({ etape: "proxy", statut: "ok", detail: "proxy OK" });
       } else if (parProxy) {
         await emit({
           etape: "proxy",
           statut: "echec",
-          detail: "sortie noire / dégénérée",
+          detail: "sortie noire / dégénérée → fallback LaMa",
         });
       } else {
         await emit({
           etape: "proxy",
           statut: "saute",
-          detail: "CLEAN_PHOTO_PROXY_TOKEN absent",
+          detail: "CLEAN_PHOTO_PROXY_TOKEN absent → fallback LaMa",
         });
       }
     } catch (error) {
-      await emit({ etape: "proxy", statut: "echec", detail: messageErreur(error) });
+      await emit({
+        etape: "proxy",
+        statut: "echec",
+        detail: `${messageErreur(error)} → fallback LaMa`,
+      });
     }
   } else {
-    await emit({ etape: "proxy", statut: "saute", detail: "text-removal OK" });
+    await emit({ etape: "proxy", statut: "saute", detail: "text-removal OK — proxy non appelé" });
   }
 
   if (!base64) {
-    await emit({ etape: "inpaint", statut: "encours" });
+    await emit({
+      etape: "inpaint",
+      statut: "encours",
+      detail: "fallback LaMa: Gemini détecte zones → Replicate efface",
+    });
     try {
       const image = await fetchImageAsInline(imageUrl);
       const parInpaint = await inpaintFallback(image, imageUrl);
       if (parInpaint && !(await sembleDegeneree(parInpaint))) {
         base64 = parInpaint;
         moteur = "inpaint";
-        await emit({ etape: "inpaint", statut: "ok" });
+        await emit({ etape: "inpaint", statut: "ok", detail: "LaMa inpaint OK" });
       } else if (parInpaint) {
         await emit({
           etape: "inpaint",
@@ -705,13 +735,21 @@ export async function cleanImage(
           detail: "sortie noire / dégénérée",
         });
       } else {
-        await emit({ etape: "inpaint", statut: "echec", detail: "aucune zone / échec" });
+        await emit({
+          etape: "inpaint",
+          statut: "echec",
+          detail: "aucune zone détectée ou échec LaMa",
+        });
       }
     } catch (error) {
       await emit({ etape: "inpaint", statut: "echec", detail: messageErreur(error) });
     }
   } else {
-    await emit({ etape: "inpaint", statut: "saute", detail: "étape précédente OK" });
+    await emit({
+      etape: "inpaint",
+      statut: "saute",
+      detail: "étape précédente OK — LaMa non appelé",
+    });
   }
 
   if (!base64 || !moteur) {

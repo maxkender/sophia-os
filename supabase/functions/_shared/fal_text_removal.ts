@@ -30,16 +30,26 @@ function authHeaders(key: string): Record<string, string> {
   };
 }
 
+export type FalProgress = (info: {
+  phase: "submit" | "poll" | "result" | "download";
+  requestId?: string;
+  polls?: number;
+  statut?: string;
+  detail?: string;
+}) => void | Promise<void>;
+
 /**
- * Nettoie `imageUrl` via Fal text-removal. Renvoie le JPEG en base64, ou
- * `null` si `FAL_KEY` n'est pas configuré.
+ * Nettoie `imageUrl` via Fal text-removal (ex-Seedream Pro Edit).
+ * Renvoie le JPEG en base64, ou `null` si `FAL_KEY` n'est pas configuré.
  */
 export async function nettoyerViaFalTextRemoval(
   imageUrl: string,
+  onProgress?: FalProgress,
 ): Promise<string | null> {
   const key = falKey();
   if (!key) return null;
 
+  await onProgress?.({ phase: "submit", detail: `modèle=${MODEL}` });
   const submit = await fetch(QUEUE, {
     method: "POST",
     headers: authHeaders(key),
@@ -75,8 +85,10 @@ export async function nettoyerViaFalTextRemoval(
   const debut = Date.now();
   const BUDGET = 140_000;
   let statut = queued.status as string | undefined;
+  let polls = 0;
 
   while (Date.now() - debut < BUDGET) {
+    polls += 1;
     const st = await fetch(`${statusUrl}?logs=0`, { headers: authHeaders(key) });
     if (!st.ok) {
       throw new Error(
@@ -85,6 +97,13 @@ export async function nettoyerViaFalTextRemoval(
     }
     const body = await st.json();
     statut = body.status as string;
+    await onProgress?.({
+      phase: "poll",
+      requestId,
+      polls,
+      statut,
+      detail: `poll #${polls} → ${statut}`,
+    });
 
     if (statut === "COMPLETED") break;
     if (statut === "FAILED" || statut === "CANCELLED") {
@@ -97,10 +116,11 @@ export async function nettoyerViaFalTextRemoval(
 
   if (statut !== "COMPLETED") {
     throw new Error(
-      `Fal text-removal: timeout (${BUDGET / 1000}s), dernier statut=${statut}`,
+      `Fal text-removal: timeout (${BUDGET / 1000}s), dernier statut=${statut}, polls=${polls}`,
     );
   }
 
+  await onProgress?.({ phase: "result", requestId, polls, statut });
   const res = await fetch(resultUrl, { headers: authHeaders(key) });
   const texte = await res.text();
   if (!res.ok) {
@@ -121,6 +141,7 @@ export async function nettoyerViaFalTextRemoval(
     throw new Error(`Fal text-removal: aucune image — ${texte.slice(0, 250)}`);
   }
 
+  await onProgress?.({ phase: "download", requestId, polls, detail: "téléchargement résultat" });
   const img = await fetch(url);
   if (!img.ok) {
     throw new Error(`Fal text-removal: téléchargement résultat ${img.status}`);

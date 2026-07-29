@@ -21,7 +21,6 @@ const BUCKET = "medias";
 export const LANGUES_CIBLES = ["fr", "en", "de", "it", "es", "pt"] as const;
 const SLIDES_PAR_PASSAGE = 2;
 const MAX_TENTATIVES_NETTOYAGE = 4;
-const MAX_TENTATIVES_SOPHIA = 15;
 /** Apify `resultsPerPage` — on vise tout le profil (plafond acteur). */
 const SCRAPE_TOUS = 100;
 
@@ -587,19 +586,35 @@ async function marquer(
   if (error) throw error;
 }
 
+export interface NettoyageSlideRapport {
+  position: number;
+  ok: boolean;
+  moteur?: string;
+  motif?: string;
+  lignes: string[];
+}
+
+export interface NettoyageRapport {
+  slides: NettoyageSlideRapport[];
+  /** Texte multiligne pour les logs d'import. */
+  texte: string;
+}
+
 export interface AvancerImportResultat {
   etape: string;
   /** Présent sur les étapes elo / elo_insuffisant. */
   elo?: EloRapport;
+  /** Présent sur l'étape nettoyage. */
+  nettoyage?: NettoyageRapport;
 }
 
 /**
  * Avance le pipeline d'UN pas. Ordre :
  * OCR hook → pertinence → OCR reste → ELO par langue (gate) → nettoyage (1×)
- * → Sophia source → valide.
+ * → valide (texte OCR source uniquement).
  *
- * Les contenus déjà `import_statut=done` / stocks existants ne sont pas
- * re-gatés ici (file d'attente = pending/running seulement).
+ * Sophia + traduction hors-source = à l'assignation minuit
+ * (`assurerDeckPourLangue`), pas à l'import.
  */
 // deno-lint-ignore no-explicit-any
 export async function avancerImport(
@@ -744,15 +759,25 @@ export async function avancerImport(
     // 5 — Nettoyage image UNE fois (language-agnostique)
     const aNettoyer = slides.filter((s) => !s.media_id);
     if (aNettoyer.length > 0) {
+      const rapports: NettoyageSlideRapport[] = [];
       for (const slide of aNettoyer.slice(0, SLIDES_PAR_PASSAGE)) {
-        const propre = await nettoyerSlide(supabase, contenu, slide);
-        if (propre) {
-          slide.media_id = propre;
+        const r = await nettoyerSlide(supabase, contenu, slide);
+        rapports.push(r.rapport);
+        if (r.mediaId) {
+          slide.media_id = r.mediaId;
           slide.tentatives = undefined;
         } else {
           slide.tentatives = (slide.tentatives ?? 0) + 1;
           if (slide.tentatives >= MAX_TENTATIVES_NETTOYAGE) {
             slide.media_id = await stockerBrut(supabase, contenu, slide);
+            r.rapport.lignes.push(
+              `→ brut stocké après ${slide.tentatives} échecs (plus de retry)`,
+            );
+            r.rapport.motif = "brut après max tentatives";
+          } else {
+            r.rapport.lignes.push(
+              `→ retry prévu (${slide.tentatives}/${MAX_TENTATIVES_NETTOYAGE})`,
+            );
           }
         }
         await marquer(supabase, contenu.id, {
@@ -760,67 +785,29 @@ export async function avancerImport(
           import_etape: "nettoyage",
         });
       }
-      return { etape: "nettoyage" };
+      const nettoyage: NettoyageRapport = {
+        slides: rapports,
+        texte: rapports
+          .map(
+            (s) =>
+              `slide #${s.position}: ${s.ok ? "OK" : "échec"}` +
+              (s.moteur ? ` · moteur=${s.moteur}` : "") +
+              (s.motif ? ` · ${s.motif}` : "") +
+              (s.lignes.length ? `\n${s.lignes.map((l) => `  ${l}`).join("\n")}` : ""),
+          )
+          .join("\n"),
+      };
+      return { etape: "nettoyage", nettoyage };
     }
 
-    // 6 — Sophia UNIQUEMENT sur la langue source.
-    // Les autres langues (≥ seuil ELO) restent vides jusqu'à l'assignation minuit
-    // (`assurerDeckPourLangue`) — pas de traduction inutile à l'import.
+    // 6 — Recalcule ELO cold-start puis valide.
+    // Texte stocké = OCR source uniquement (pas de pub Sophia, pas de trad).
+    // Sophia + traduction hors-source → `assurerDeckPourLangue` à l'assignation.
     const { data: langues } = await supabase
       .from("contenu_langues")
       .select("id, langue, slides, score")
       .eq("contenu_id", contenu.id);
 
-    const sourceCl = (langues ?? []).find((l) => l.langue === langueSource);
-    const deckSource = [...((sourceCl?.slides ?? []) as SlideLangue[])];
-    const sourceSansSophia =
-      Boolean(sourceCl) &&
-      deckSource.length > 0 &&
-      !deckSource.some((x) => x.position_sophia);
-
-    if (sourceSansSophia && sourceCl) {
-      const sophiaOk = await placerSophiaSurDeck(
-        supabase,
-        contenu,
-        sourceCl.id,
-        deckSource,
-        langueSource,
-      );
-      if (sophiaOk === "retry") {
-        const tentatives = (contenu.import_tentatives ?? 0) + 1;
-        if (tentatives < MAX_TENTATIVES_SOPHIA) {
-          await marquer(supabase, contenu.id, {
-            import_statut: "pending",
-            import_etape: "sophia",
-            import_tentatives: tentatives,
-          });
-          return { etape: "sophia_retry" };
-        }
-        // Repli
-        const derniere = deckSource[deckSource.length - 1];
-        if (derniere) {
-          derniere.texte_overlay = sophiaParDefaut(langueSource);
-          derniere.position_sophia = true;
-          await supabase
-            .from("contenu_langues")
-            .update({ slides: deckSource })
-            .eq("id", sourceCl.id);
-        }
-        await marquer(supabase, contenu.id, {
-          import_etape: "sophia",
-          import_tentatives: 0,
-          import_erreur: "Sophia placée en repli (texte par défaut)",
-        });
-        return { etape: "sophia_repli" };
-      }
-      await marquer(supabase, contenu.id, {
-        import_etape: "sophia",
-        import_tentatives: 0,
-      });
-      return { etape: "sophia" };
-    }
-
-    // 7 — Recalcule ELO cold-start puis valide (traductions hors-source → minuit)
     const scoring = await lireScoring(supabase);
     for (const l of langues ?? []) {
       await supabase
@@ -922,9 +909,10 @@ async function placerSophiaSurDeck(
 }
 
 /**
- * Garantit un deck prêt (texte + Sophia) pour une langue à l'assignation.
- * - Langue source : déjà cuit à l'import.
- * - Autre langue : traduit depuis le deck source + Sophia, une seule fois.
+ * Garantit un deck prêt (texte + Sophia) pour une langue à l'assignation minuit.
+ * - Import ne stocke que l'OCR source (sans Sophia).
+ * - Ici : si langue ≠ source → traduit depuis OCR source ; puis place Sophia.
+ * - Une fois cuit, le deck langue est persisté (réutilisé aux passages suivants).
  */
 export async function assurerDeckPourLangue(
   supabase: Supabase,
@@ -1022,19 +1010,57 @@ async function nettoyerSlide(
   supabase: Supabase,
   contenu: any,
   slide: SlideBrut,
-): Promise<string | null> {
-  let propreBase64: string | null;
+): Promise<{ mediaId: string | null; rapport: NettoyageSlideRapport }> {
+  const lignes: string[] = [
+    `url=${(slide.raw_url ?? "").slice(0, 80)}…`,
+    `chaîne: Fal text-removal → proxy Lovable → LaMa inpaint → C2PA → verifyClean (Gemini)`,
+    `chaque moteur = plusieurs appels HTTP (submit + polls status + download + vérif)`,
+  ];
+  const rapport: NettoyageSlideRapport = {
+    position: slide.position,
+    ok: false,
+    lignes,
+  };
+
+  let propreBase64: string | null = null;
+  let moteur: string | undefined;
   try {
-    const propre = await cleanImage(slide.raw_url);
+    const propre = await cleanImage(slide.raw_url, (e) => {
+      const line = `[${e.etape}] ${e.statut}${e.detail ? ` — ${e.detail}` : ""}`;
+      lignes.push(line);
+      console.log(
+        `[import nettoyage] contenu=${contenu.id} slide=${slide.position} ${line}`,
+      );
+    });
     propreBase64 = propre?.base64 ?? null;
+    moteur = propre?.moteur;
+    rapport.moteur = moteur;
   } catch (error) {
+    const msg = messageErreur(error);
+    lignes.push(`exception: ${msg}`);
+    rapport.motif = msg;
     console.warn(
-      `[import nettoyage] contenu=${contenu.id} slide=${slide.position} ${messageErreur(error)}`,
+      `[import nettoyage] contenu=${contenu.id} slide=${slide.position} ${msg}`,
     );
-    return null;
+    return { mediaId: null, rapport };
   }
-  if (!propreBase64) return null;
-  if (!(await verifyClean(propreBase64, "image/png"))) return null;
+  if (!propreBase64) {
+    rapport.motif = "aucune image renvoyée";
+    lignes.push("échec: aucune image");
+    return { mediaId: null, rapport };
+  }
+
+  lignes.push("verifyClean (Gemini)…");
+  const propreOk = await verifyClean(propreBase64, "image/png");
+  if (!propreOk) {
+    rapport.motif = "texte encore détecté après nettoyage (verifyClean=OUI)";
+    lignes.push(`verifyClean → texte restant — retry (moteur était ${moteur ?? "?"})`);
+    console.warn(
+      `[import nettoyage] contenu=${contenu.id} slide=${slide.position} verifyClean KO`,
+    );
+    return { mediaId: null, rapport };
+  }
+  lignes.push("verifyClean → OK (pas de texte)");
 
   const path = `propre/${contenu.id}/${slide.position}.png`;
   const bytes = Uint8Array.from(atob(propreBase64), (c) => c.charCodeAt(0));
@@ -1063,7 +1089,9 @@ async function nettoyerSlide(
     .select("id")
     .single();
   if (error) throw error;
-  return media.id;
+  rapport.ok = true;
+  lignes.push(`upload OK → media_id=${media.id} · moteur=${moteur ?? "?"}`);
+  return { mediaId: media.id, rapport };
 }
 
 // deno-lint-ignore no-explicit-any

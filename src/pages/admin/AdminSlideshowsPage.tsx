@@ -1,7 +1,8 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { X } from "lucide-react";
+import { useSearchParams } from "react-router-dom";
+import { ImageUp, Sparkles, X } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -14,18 +15,27 @@ import {
   CardTitle,
   EmptyState,
 } from "@/components/ui/card";
+import { NettoyageEtapes } from "@/components/moteur/NettoyageEtapes";
 import { LabelEditor } from "@/features/moteur/LabelPicker";
 import {
   labelsDuContenu,
   lireSlideshow,
   listerContenus,
+  listerMediasPourContenu,
+  majMediaSlideContenu,
+  renettoyerSlideContenu,
   renseignerLienPublie,
   setLabelsContenu,
   type ContenuListe,
   type SlideshowDetail,
 } from "@/features/moteur/api";
+import {
+  appliquerEvenement,
+  etapesInitiales,
+  type EvenementEtape,
+} from "@/features/moteur/nettoyageEtapes";
 import { nomLangue } from "@/features/moteur/langues";
-import type { ContenuLangue, ContenuSlide } from "@/features/moteur/types";
+import type { ContenuLangue, ContenuSlide, Media } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
 
 function PassageLien({
@@ -137,35 +147,38 @@ function DeckLangue({
 }) {
   const { t } = useTranslation();
   const structure = [...(contenu.structure_slides ?? [])].sort((a, b) => a.position - b.position);
-  const textes = new Map(
-    (langue.slides ?? []).map((s) => [s.position, s] as const),
-  );
-
-  const aTexte = (langue.slides ?? []).some((s) => s.texte_overlay?.trim());
+  const aPassage = contenu.passages.some((p) => p.langue === langue.langue);
+  const aTexteLangue = (langue.slides ?? []).some((s) => s.texte_overlay?.trim());
+  const sourceCl = contenu.langues.find((l) => l.langue === contenu.langue_source);
+  // Pas encore de passage sur cette langue → on montre le texte OCR d'origine
+  // (stocké à l'import, sans pub Sophia). Traduction + Sophia = à l'assignation.
+  const montrerOriginel = !aPassage || (!estSource && !aTexteLangue);
+  const slidesTexte = montrerOriginel
+    ? (sourceCl?.slides ?? [])
+    : (langue.slides ?? []);
+  const textes = new Map(slidesTexte.map((s) => [s.position, s] as const));
 
   if (structure.length === 0) {
     return <p className="text-xs text-muted-foreground">{t("slideshows.deckVide")}</p>;
   }
 
-  if (!estSource && !aTexte) {
-    return (
-      <p className="text-xs text-muted-foreground">{t("slideshows.deckLazy")}</p>
-    );
-  }
-
   return (
     <div className="space-y-2">
-      <p className="text-[11px] text-muted-foreground">
-        {estSource
-          ? t("slideshows.deckSourceAide")
-          : t("slideshows.deckTradAide")}
-      </p>
+      {montrerOriginel ? (
+        <p className="rounded border border-amber-500/30 bg-amber-500/5 px-2 py-1.5 text-[11px] text-amber-900 dark:text-amber-200">
+          {t("slideshows.pasEncorePassage", { langue: nomLangue(langue.langue) })}
+        </p>
+      ) : (
+        <p className="text-[11px] text-muted-foreground">
+          {estSource ? t("slideshows.deckSourceAide") : t("slideshows.deckTradAide")}
+        </p>
+      )}
       <div className="grid grid-cols-2 gap-2">
         {structure.map((s) => {
           const img = urlPropre(contenu, s) ?? s.raw_url ?? s.reference_url;
           const meta = textes.get(s.position);
           const texte = meta?.texte_overlay?.trim() || null;
-          const sophia = Boolean(meta?.position_sophia);
+          const sophia = !montrerOriginel && Boolean(meta?.position_sophia);
           return (
             <div key={s.position} className="overflow-hidden rounded border">
               {img ? (
@@ -183,6 +196,11 @@ function DeckLangue({
                       Sophia
                     </Badge>
                   )}
+                  {montrerOriginel && (
+                    <Badge variant="outline" className="text-[10px]">
+                      {t("slideshows.texteOriginel")}
+                    </Badge>
+                  )}
                 </div>
                 {texte ? (
                   <p className="text-xs leading-snug">{texte}</p>
@@ -197,6 +215,185 @@ function DeckLangue({
         })}
       </div>
     </div>
+  );
+}
+
+function SelecteurMediaContenu({
+  medias,
+  onChoisir,
+  onFermer,
+}: {
+  medias: Media[];
+  onChoisir: (mediaId: string) => void;
+  onFermer: () => void;
+}) {
+  const { t } = useTranslation();
+  return (
+    <div className="space-y-2 rounded border bg-muted/20 p-2">
+      <div className="flex items-center justify-between gap-2">
+        <p className="text-xs font-medium">{t("slideshows.choisirVisuel")}</p>
+        <Button size="sm" variant="ghost" className="h-7" onClick={onFermer}>
+          {t("common.close")}
+        </Button>
+      </div>
+      {medias.length === 0 ? (
+        <p className="text-[11px] text-muted-foreground">{t("slideshows.aucunVisuelLabel")}</p>
+      ) : (
+        <div className="grid max-h-56 grid-cols-3 gap-1.5 overflow-y-auto">
+          {medias.map((m) => (
+            <button
+              key={m.id}
+              type="button"
+              className="overflow-hidden rounded border hover:ring-2 hover:ring-primary"
+              onClick={() => onChoisir(m.id)}
+            >
+              <img src={m.url} alt="" className="aspect-[3/4] w-full object-cover" />
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function VisuelsContenu({ contenu }: { contenu: SlideshowDetail }) {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const structure = [...(contenu.structure_slides ?? [])].sort((a, b) => a.position - b.position);
+  const [pickerPos, setPickerPos] = React.useState<number | null>(null);
+  const [etapesParPos, setEtapesParPos] = React.useState<Record<number, EvenementEtape[]>>({});
+
+  const candidats = useQuery({
+    queryKey: ["medias-contenu", contenu.id],
+    queryFn: () => listerMediasPourContenu(contenu.id),
+    enabled: pickerPos != null,
+  });
+
+  const rafraichir = () => {
+    void queryClient.invalidateQueries({ queryKey: ["slideshow", contenu.id] });
+    void queryClient.invalidateQueries({ queryKey: ["slideshows"] });
+    void queryClient.invalidateQueries({ queryKey: ["medias"] });
+  };
+
+  const renettoyer = useMutation({
+    mutationFn: (position: number) => {
+      setEtapesParPos((prev) => ({ ...prev, [position]: etapesInitiales() }));
+      return renettoyerSlideContenu(contenu.id, position, (ev) => {
+        setEtapesParPos((prev) => ({
+          ...prev,
+          [position]: appliquerEvenement(prev[position] ?? etapesInitiales(), ev),
+        }));
+      });
+    },
+    onSuccess: (_r, position) => {
+      setEtapesParPos((prev) => {
+        const n = { ...prev };
+        delete n[position];
+        return n;
+      });
+      rafraichir();
+    },
+  });
+
+  const remplacer = useMutation({
+    mutationFn: (input: { position: number; mediaId: string }) =>
+      majMediaSlideContenu(contenu.id, input.position, input.mediaId),
+    onSuccess: () => {
+      setPickerPos(null);
+      rafraichir();
+    },
+  });
+
+  if (structure.length === 0) return null;
+
+  return (
+    <section className="space-y-2">
+      <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+        {t("slideshows.visuelsEdit")}
+      </h3>
+      <p className="text-[11px] text-muted-foreground">{t("slideshows.visuelsEditAide")}</p>
+      <div className="space-y-3">
+        {structure.map((s) => {
+          const img = urlPropre(contenu, s) ?? s.raw_url ?? s.reference_url;
+          const etapes = etapesParPos[s.position];
+          const enCours = renettoyer.isPending && renettoyer.variables === s.position;
+          return (
+            <div key={s.position} className="rounded border p-2">
+              <div className="flex gap-2">
+                {img ? (
+                  <img
+                    src={img}
+                    alt=""
+                    className="h-28 w-20 shrink-0 rounded object-cover"
+                  />
+                ) : (
+                  <div className="flex h-28 w-20 shrink-0 items-center justify-center rounded bg-muted text-[10px] text-muted-foreground">
+                    #{s.position}
+                  </div>
+                )}
+                <div className="min-w-0 flex-1 space-y-1.5">
+                  <p className="text-xs font-medium">
+                    {t("slideshows.slideN", { n: s.position })}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="h-7 text-xs"
+                      disabled={enCours || !(s.raw_url || s.reference_url)}
+                      onClick={() => renettoyer.mutate(s.position)}
+                    >
+                      <Sparkles className="size-3" />
+                      {enCours
+                        ? t("slideshows.nettoyageEnCours")
+                        : t("slideshows.renettoyer")}
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="h-7 text-xs"
+                      disabled={remplacer.isPending}
+                      onClick={() =>
+                        setPickerPos(pickerPos === s.position ? null : s.position)
+                      }
+                    >
+                      <ImageUp className="size-3" />
+                      {t("slideshows.remplacer")}
+                    </Button>
+                  </div>
+                  {etapes && (enCours || renettoyer.isError) ? (
+                    <NettoyageEtapes
+                      etapes={etapes}
+                      className="rounded border bg-muted/30 p-1.5"
+                    />
+                  ) : null}
+                  {renettoyer.isError && renettoyer.variables === s.position && (
+                    <p className="text-[11px] text-destructive">
+                      {(renettoyer.error as Error).message}
+                    </p>
+                  )}
+                </div>
+              </div>
+              {pickerPos === s.position && (
+                <div className="mt-2">
+                  {candidats.isPending ? (
+                    <p className="text-[11px] text-muted-foreground">{t("common.loading")}</p>
+                  ) : (
+                    <SelecteurMediaContenu
+                      medias={candidats.data ?? []}
+                      onChoisir={(mediaId) =>
+                        remplacer.mutate({ position: s.position, mediaId })
+                      }
+                      onFermer={() => setPickerPos(null)}
+                    />
+                  )}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </section>
   );
 }
 
@@ -348,6 +545,8 @@ function DetailSlideshow({
               )}
             </section>
 
+            <VisuelsContenu contenu={d} />
+
             <section className="space-y-2">
               <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                 {t("slideshows.decks")}
@@ -485,10 +684,18 @@ function DetailSlideshow({
 
 export function AdminSlideshowsPage() {
   const { t } = useTranslation();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [filtre, setFiltre] = React.useState<"tous" | "valide" | "brouillon" | "rejete">(
     "tous",
   );
-  const [ouvert, setOuvert] = React.useState<string | null>(null);
+  const [ouvert, setOuvert] = React.useState<string | null>(
+    searchParams.get("id"),
+  );
+
+  React.useEffect(() => {
+    const id = searchParams.get("id");
+    if (id) setOuvert(id);
+  }, [searchParams]);
 
   const contenus = useQuery({
     queryKey: ["slideshows", filtre],
@@ -498,6 +705,15 @@ export function AdminSlideshowsPage() {
         limit: 200,
       }),
   });
+
+  function fermerDetail() {
+    setOuvert(null);
+    if (searchParams.has("id")) {
+      const next = new URLSearchParams(searchParams);
+      next.delete("id");
+      setSearchParams(next, { replace: true });
+    }
+  }
 
   return (
     <div className="space-y-4">
@@ -538,7 +754,10 @@ export function AdminSlideshowsPage() {
                 <button
                   key={c.id}
                   type="button"
-                  onClick={() => setOuvert(c.id)}
+                  onClick={() => {
+                    setOuvert(c.id);
+                    setSearchParams({ id: c.id }, { replace: true });
+                  }}
                   className={cn(
                     "overflow-hidden rounded-lg border text-left transition hover:ring-2 hover:ring-primary",
                     c.statut === "rejete" && "opacity-70",
@@ -589,7 +808,7 @@ export function AdminSlideshowsPage() {
         </CardContent>
       </Card>
 
-      {ouvert && <DetailSlideshow id={ouvert} onFermer={() => setOuvert(null)} />}
+      {ouvert && <DetailSlideshow id={ouvert} onFermer={fermerDetail} />}
     </div>
   );
 }

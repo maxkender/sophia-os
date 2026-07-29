@@ -215,6 +215,7 @@ export async function drainContenuAvecLogs(
     const detail = [
       snap ? detailSnap(snap) : null,
       r.elo?.texte ? `calcul ELO:\n${r.elo.texte}` : null,
+      r.nettoyage?.texte ? `nettoyage:\n${r.nettoyage.texte}` : null,
     ]
       .filter(Boolean)
       .join("\n");
@@ -258,6 +259,7 @@ async function agentSlideshow(opts: {
       const detail = [
         snap ? detailSnap(snap) : null,
         cree.elo?.texte ? `calcul ELO:\n${cree.elo.texte}` : null,
+        cree.nettoyage?.texte ? `nettoyage:\n${cree.nettoyage.texte}` : null,
       ]
         .filter(Boolean)
         .join("\n");

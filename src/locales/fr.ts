@@ -525,6 +525,7 @@ export const fr = {
       nettoyee: "Nettoyée",
       aNettoyer: "À nettoyer",
       texteRestant: "Texte présent",
+      ouvrirSlideshow: "Ouvrir le slideshow",
       nettoyer: "Nettoyer",
       nettoyageEnCours: "Nettoyage en cours…",
       nettoyageEchec:
@@ -588,7 +589,7 @@ export const fr = {
     slideshows: {
       title: "Slideshows",
       subtitle:
-        "TikToks importés (v-next) : deck source nettoyé à l'import ; autres langues traduites à l'assignation minuit si besoin.",
+        "TikToks importés : visuels + texte OCR à l'import. Traduction et pub Sophia à l'assignation minuit (par langue).",
       empty: "Aucun slideshow importé pour l'instant.",
       sansImage: "Sans image",
       detail: "Détail du slideshow",
@@ -619,6 +620,19 @@ export const fr = {
       ajouterLien: "Ajouter le lien TikTok",
       modifierLien: "modifier",
       lienPlaceholder: "https://www.tiktok.com/@…/photo/…",
+      pasEncorePassage:
+        "Pas encore de passage en {{langue}} — texte originel (OCR) affiché. Traduction + Sophia à l’assignation minuit.",
+      texteOriginel: "originel",
+      visuelsEdit: "Visuels nettoyés",
+      visuelsEditAide:
+        "Re-nettoyer une slide, ou la remplacer par un autre visuel du même compte / label.",
+      slideN: "Slide {{n}}",
+      renettoyer: "Re-nettoyer",
+      remplacer: "Remplacer",
+      nettoyageEnCours: "Nettoyage…",
+      choisirVisuel: "Choisir un visuel (même label / source)",
+      aucunVisuelLabel: "Aucun autre visuel propre trouvé pour ces labels.",
+      ouvrirDepuisBiblio: "Ouvrir le slideshow",
     },
     paiement: {
       title: "Paiement créateurs",
@@ -853,9 +867,9 @@ export const fr = {
       echec: "Échec — voir le message",
     },
     nettoyageEtapes: {
-      textRemoval: "Text removal",
-      proxy: "Proxy",
-      inpaint: "Inpaint LaMa",
+      textRemoval: "Fal text-removal",
+      proxy: "Proxy (fallback)",
+      inpaint: "Inpaint LaMa (fallback)",
       c2pa: "Content Credentials",
       ready: "Ready",
     },

@@ -2,6 +2,7 @@ import {
   avancerImport,
   importerCompteReference,
   importerLien,
+  listerUrlsCompteReference,
   prochainContenu,
 } from "../_shared/import_contenu.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
@@ -17,7 +18,8 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
  *   {}                              → prochain contenu en file
  *   { contenuId }                   → ce contenu
  *   { postUrl, compteReferenceId?, labelIds? } → TikTok isolé + file
- *   { compteReferenceId, scrape: true } → scrape TOUS les TikToks + file
+ *   { compteReferenceId, lister: true } → liste URLs photo (sans scrape lourd)
+ *   { compteReferenceId, scrape: true } → legacy : scrape+crée en série
  */
 Deno.serve(async (request) => {
   const denied = await assertAuthorised(request);
@@ -54,7 +56,20 @@ Deno.serve(async (request) => {
       });
     }
 
-    // Entrée : scrape compte de référence
+    // Entrée : lister les URLs à importer (1 agent scrapePost / URL côté client)
+    if (body?.compteReferenceId && body?.lister) {
+      const r = await listerUrlsCompteReference(supabase, String(body.compteReferenceId));
+      return json({
+        ok: true,
+        handle: r.handle,
+        urls: r.urls,
+        total: r.total,
+        connus: r.connus,
+        source: r.source,
+      });
+    }
+
+    // Entrée : scrape compte de référence (legacy, série)
     if (body?.compteReferenceId && body?.scrape) {
       const r = await importerCompteReference(supabase, String(body.compteReferenceId));
       return json({ ok: true, crees: r.crees, ids: r.ids, scrapes: r.scrapes });

@@ -321,7 +321,7 @@ export const en = {
       deactivate: "Deactivate",
       extraire: "Extract",
       extraireAide:
-        "Scrapes all photo TikToks from this account, scores relevance / ELO, cleans and translates retained languages — in the background, without blocking the page. Several accounts can run in parallel.",
+        "Lists slideshows, then runs 1 scrape + pipeline agent per TikTok in parallel (relevance, ELO, cleaning, translation). Full logs. Without blocking the page — several accounts can also run in parallel.",
       importLien: "Import a TikTok",
       importLienAide:
         "Paste a single TikTok slideshow link. It goes through the v-next pipeline (ELO → cleaning → translations) in the background, attached to this source and its labels.",

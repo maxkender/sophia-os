@@ -1,12 +1,15 @@
 /**
  * File d'imports v-next en arrière-plan : logs complets, jobs parallèles,
  * la page Sources ne bloque pas.
+ *
+ * Compte : liste les URLs → 1 agent scrapePost + pipeline par slideshow,
+ * en parallèle (pool borné).
  */
 
 import {
   importerContenuDepuisLien,
   lancerImportContenu,
-  scraperSourceVersContenus,
+  listerSlideshowsCompte,
 } from "@/features/moteur/api";
 import { supabase } from "@/lib/supabase/client";
 import { executerEnLot } from "@/lib/lot";
@@ -81,6 +84,11 @@ function newJob(titre: string): string {
     startedAt: Date.now(),
   });
   return id;
+}
+
+function tagUrl(url: string): string {
+  const id = url.match(/\/(?:photo|video)\/(\d+)/)?.[1];
+  return id ? id.slice(-8) : url.slice(-12);
 }
 
 interface SnapLangue {
@@ -214,6 +222,75 @@ export async function drainContenuAvecLogs(
   }
 }
 
+/** Un agent = scrapePost (Apify) + pipeline complet pour UN slideshow. */
+async function agentSlideshow(opts: {
+  jobId: string;
+  url: string;
+  compteReferenceId: string | null;
+  labelIds: string[];
+}): Promise<"ok" | "rejete" | "echec"> {
+  const tag = `[${tagUrl(opts.url)}]`;
+  log(opts.jobId, "info", `${tag} agent scrape démarré`, opts.url);
+  try {
+    const cree = await importerContenuDepuisLien(
+      opts.url,
+      opts.compteReferenceId,
+      opts.labelIds,
+    );
+    if (cree.reused) {
+      log(
+        opts.jobId,
+        "warn",
+        `${tag} déjà connu — reprise pipeline`,
+        cree.contenuId,
+      );
+    } else {
+      log(
+        opts.jobId,
+        "ok",
+        `${tag} scrape OK — contenu créé`,
+        `${cree.contenuId}${cree.etape ? ` · premier pas=${cree.etape}` : ""}`,
+      );
+    }
+    if (cree.etape) {
+      const snap = await snapshotContenu(cree.contenuId);
+      log(
+        opts.jobId,
+        "info",
+        `${tag} étape « ${cree.etape} »`,
+        snap ? detailSnap(snap) : undefined,
+      );
+      if (ETAPES_TERMINALES.has(cree.etape)) {
+        // importerContenuDepuisLien a déjà avancé un pas terminal
+      } else {
+        await drainContenuAvecLogs(opts.jobId, cree.contenuId, tag);
+      }
+    } else {
+      await drainContenuAvecLogs(opts.jobId, cree.contenuId, tag);
+    }
+
+    const snap = await snapshotContenu(cree.contenuId);
+    if (snap?.statut === "valide" && snap.import_statut === "done") {
+      log(opts.jobId, "ok", `${tag} terminé — prêt`, detailSnap(snap));
+      return "ok";
+    }
+    if (snap?.import_etape === "elo_insuffisant" || snap?.statut === "rejete") {
+      log(opts.jobId, "warn", `${tag} rejeté`, snap ? detailSnap(snap) : undefined);
+      return "rejete";
+    }
+    log(
+      opts.jobId,
+      "warn",
+      `${tag} incomplet`,
+      snap ? detailSnap(snap) : undefined,
+    );
+    return "echec";
+  } catch (e) {
+    log(opts.jobId, "error", `${tag} échec agent`, (e as Error).message);
+    return "echec";
+  }
+}
+
 /** Lance l'import d'un lien TikTok en arrière-plan (ne bloque pas l'UI). */
 export function demarrerImportLien(opts: {
   url: string;
@@ -224,32 +301,14 @@ export function demarrerImportLien(opts: {
   const jobId = newJob(opts.titre ?? opts.url);
   void (async () => {
     try {
-      log(jobId, "info", "Démarrage import lien…", opts.url);
-      const cree = await importerContenuDepuisLien(
-        opts.url,
-        opts.compteReferenceId,
-        opts.labelIds,
-      );
-      if (cree.reused) {
-        log(jobId, "warn", "TikTok déjà connu — reprise du pipeline", cree.contenuId);
-      } else {
-        log(jobId, "ok", "Contenu créé", cree.contenuId);
-      }
-      if (cree.etape) {
-        log(jobId, "info", `Premier pas : ${cree.etape}`);
-      }
-      await drainContenuAvecLogs(jobId, cree.contenuId);
-      const snap = await snapshotContenu(cree.contenuId);
-      if (snap?.statut === "valide" && snap.import_statut === "done") {
-        log(jobId, "ok", "Import terminé — contenu prêt", detailSnap(snap));
-        fin(jobId, "ok");
-      } else if (snap?.import_etape === "elo_insuffisant" || snap?.statut === "rejete") {
-        log(jobId, "warn", "Import rejeté", snap ? detailSnap(snap) : undefined);
-        fin(jobId, "ok");
-      } else {
-        log(jobId, "warn", "Import interrompu / incomplet", snap ? detailSnap(snap) : undefined);
-        fin(jobId, "echec");
-      }
+      log(jobId, "info", "Démarrage import lien (1 agent)…", opts.url);
+      const statut = await agentSlideshow({
+        jobId,
+        url: opts.url,
+        compteReferenceId: opts.compteReferenceId,
+        labelIds: opts.labelIds,
+      });
+      fin(jobId, statut === "echec" ? "echec" : "ok");
     } catch (e) {
       log(jobId, "error", "Échec import", (e as Error).message);
       fin(jobId, "echec");
@@ -259,46 +318,86 @@ export function demarrerImportLien(opts: {
 }
 
 /**
- * Scrape un compte puis drain chaque contenu créé — contenus en parallèle
- * (pool borné). Plusieurs jobs compte peuvent tourner en même temps.
+ * Import d'un compte : liste les slideshows, puis 1 agent scrape+pipeline
+ * par URL, en parallèle. Plusieurs jobs compte peuvent coexister.
  */
 export function demarrerImportCompte(opts: {
   compteReferenceId: string;
   handle: string;
+  /** Nombre d'agents slideshow simultanés (défaut 6). */
   largeur?: number;
 }): string {
   const jobId = newJob(`@${opts.handle.replace(/^@/, "")}`);
+  const largeur = opts.largeur ?? 6;
   void (async () => {
     try {
-      log(jobId, "info", "Scrape de tous les TikToks du compte…");
-      const r = await scraperSourceVersContenus(opts.compteReferenceId);
-      log(
-        jobId,
-        "ok",
-        `Scrape OK — ${r.crees} nouveaux contenus` +
-          (r.scrapes != null ? ` (${r.scrapes} posts photo vus)` : ""),
-        r.ids.length ? `ids: ${r.ids.map((id) => id.slice(0, 8)).join(", ")}` : undefined,
-      );
-      if (r.ids.length === 0) {
-        log(jobId, "warn", "Aucun nouveau contenu à traiter");
-        fin(jobId, "ok");
-        return;
-      }
       log(
         jobId,
         "info",
-        `Pipeline (OCR → pertinence → ELO → clean → trad → Sophia) sur ${r.ids.length} contenus en parallèle…`,
+        "Listing des slideshows du compte (sans scrape lourd)…",
+        `@${opts.handle.replace(/^@/, "")}`,
       );
+      const listed = await listerSlideshowsCompte(opts.compteReferenceId);
+      log(
+        jobId,
+        "ok",
+        `Liste OK — ${listed.urls.length} inédits / ${listed.total} photo(s) vues` +
+          (listed.connus > 0 ? ` (${listed.connus} déjà connus)` : ""),
+        `source=${listed.source}`,
+      );
+
+      if (listed.urls.length === 0) {
+        log(jobId, "warn", "Aucun slideshow inédit à importer");
+        fin(jobId, "ok");
+        return;
+      }
+
+      log(
+        jobId,
+        "info",
+        `Lancement de ${listed.urls.length} agent(s) — 1 scrape Apify + pipeline par slideshow (parallèle ×${Math.min(largeur, listed.urls.length)})`,
+      );
+      for (const url of listed.urls) {
+        log(jobId, "info", `file d'attente agent [${tagUrl(url)}]`, url);
+      }
+
+      let ok = 0;
+      let rejetes = 0;
+      let echecs = 0;
       await executerEnLot(
-        r.ids,
-        (contenuId) =>
-          drainContenuAvecLogs(jobId, contenuId, `[${contenuId.slice(0, 8)}]`),
-        { largeur: opts.largeur ?? 3 },
+        listed.urls,
+        async (url) => {
+          const r = await agentSlideshow({
+            jobId,
+            url,
+            compteReferenceId: opts.compteReferenceId,
+            labelIds: [],
+          });
+          if (r === "ok") ok += 1;
+          else if (r === "rejete") rejetes += 1;
+          else echecs += 1;
+        },
+        {
+          largeur,
+          onProgres: (fait, total) => {
+            log(
+              jobId,
+              "info",
+              `Progression agents ${fait}/${total}`,
+              `ok=${ok} · rejetés=${rejetes} · échecs=${echecs}`,
+            );
+          },
+        },
       );
-      log(jobId, "ok", "Tous les contenus du compte ont été drainés");
-      fin(jobId, "ok");
+
+      log(
+        jobId,
+        echecs > 0 ? "warn" : "ok",
+        `Compte terminé — ${ok} prêts, ${rejetes} rejetés, ${echecs} échecs / ${listed.urls.length}`,
+      );
+      fin(jobId, echecs > 0 && ok === 0 ? "echec" : "ok");
     } catch (e) {
-      log(jobId, "error", "Échec scrape / import compte", (e as Error).message);
+      log(jobId, "error", "Échec import compte", (e as Error).message);
       fin(jobId, "echec");
     }
   })();

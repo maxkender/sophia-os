@@ -321,7 +321,7 @@ export const fr = {
       deactivate: "Désactiver",
       extraire: "Extraire",
       extraireAide:
-        "Scrape tous les TikToks photo de ce compte, calcule pertinence / ELO, nettoie et traduit les langues retenues — en arrière-plan, sans bloquer la page. Plusieurs comptes peuvent tourner en parallèle.",
+        "Liste les slideshows, puis lance 1 agent de scrape + pipeline par TikTok en parallèle (pertinence, ELO, nettoyage, trad). Logs complets. Sans bloquer la page — plusieurs comptes aussi en parallèle.",
       importLien: "Importer un TikTok",
       importLienAide:
         "Colle le lien d'un seul slideshow TikTok. Il part dans le pipeline v-next (ELO → nettoyage → traductions) en arrière-plan, rattaché à cette source et ses labels.",

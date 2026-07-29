@@ -1174,7 +1174,21 @@ export const importerContenuDepuisLien = (
     labelIds: labelIds ?? null,
   });
 
-/** Scrape v-next d'un compte de référence → jusqu'à N contenus en file. */
+/** Liste les URLs photo inédites d'un compte (sans scrape lourd des visuels). */
+export const listerSlideshowsCompte = (compteReferenceId: string) =>
+  invoke<{
+    ok: boolean;
+    handle: string;
+    urls: string[];
+    total: number;
+    connus: number;
+    source: "page" | "apify" | "mixte";
+  }>("import-contenu", {
+    compteReferenceId,
+    lister: true,
+  });
+
+/** Scrape v-next d'un compte de référence → jusqu'à N contenus en file (legacy série). */
 export const scraperSourceVersContenus = (compteReferenceId: string) =>
   invoke<{ ok: boolean; crees: number; ids: string[]; scrapes?: number }>(
     "import-contenu",

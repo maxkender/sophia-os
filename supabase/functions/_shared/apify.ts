@@ -149,6 +149,24 @@ export function scrapeProfile(handle: string, resultsPerPage: number) {
   return runActor({ profiles: [handle], resultsPerPage });
 }
 
+/**
+ * Liste les posts d'un profil SANS télécharger les images slideshow.
+ * Sert à découvrir les URLs ; chaque diaporama est ensuite scrapé via scrapePost
+ * (1 agent Apify / slideshow).
+ */
+export function listerPostsProfil(handle: string, resultsPerPage: number) {
+  return runActor(
+    {
+      profiles: [handle],
+      resultsPerPage,
+      shouldDownloadSlideshowImages: false,
+    },
+    // Sans download, imageUrls peut être vide même pour un photo-post :
+    // on garde tout et on filtre /photo/ côté appelant.
+    false,
+  );
+}
+
 /** La bio (signature) et le nom affiché d'un profil TikTok, via Apify. Sert
  *  d'inspiration pour générer l'identité d'un poster. Renvoie null en cas d'échec. */
 export async function scrapeProfileBio(

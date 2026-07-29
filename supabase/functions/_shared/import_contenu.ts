@@ -1,4 +1,10 @@
-import { downloadImage, scrapePost, scrapeProfile, type ScrapedPost } from "./apify.ts";
+import {
+  downloadImage,
+  listerDiaporamas,
+  listerPostsProfil,
+  scrapePost,
+  type ScrapedPost,
+} from "./apify.ts";
 import {
   cleanImage,
   integrateSophia,
@@ -252,48 +258,110 @@ export async function importerLien(
   return creerContenuDepuisPost(supabase, post, compteReferenceId, labelIds, langue);
 }
 
-/** Scrape un compte de référence : crée un contenu pending pour CHAQUE TikTok inédit. */
-export async function importerCompteReference(
+/**
+ * Liste les URLs de diaporamas à importer pour un compte (sans scraper les
+ * visuels). Le client lance ensuite 1 agent scrapePost par URL en parallèle.
+ */
+export async function listerUrlsCompteReference(
   supabase: Supabase,
   compteReferenceId: string,
-): Promise<{ crees: number; ids: string[]; scrapes: number }> {
+): Promise<{
+  handle: string;
+  urls: string[];
+  total: number;
+  connus: number;
+  source: "page" | "apify" | "mixte";
+}> {
   const { data: ref } = await supabase
     .from("comptes_reference")
-    .select("id, handle_tiktok, langue")
+    .select("id, handle_tiktok")
     .eq("id", compteReferenceId)
     .single();
   if (!ref) throw new Error("Compte de référence introuvable");
 
-  const { data: connusContenu } = await supabase.from("contenus").select("source_url");
+  const handle = String(ref.handle_tiktok).replace(/^@/, "");
+  const { data: connusContenu } = await supabase
+    .from("contenus")
+    .select("source_url")
+    .not("source_url", "is", null);
   const deja = new Set((connusContenu ?? []).map((s) => idDe(s.source_url ?? "")));
 
-  const posts = await scrapeProfile(ref.handle_tiktok, SCRAPE_TOUS);
-  const inedits = posts
-    .filter((p) => p.imageUrls.length > 0 && !deja.has(idDe(p.webVideoUrl)))
-    .sort((a, b) => (b.stats?.vues ?? 0) - (a.stats?.vues ?? 0));
+  const vues = new Map<string, number>();
+  let source: "page" | "apify" | "mixte" = "page";
+  const urlsSet = new Set<string>();
 
-  const ids: string[] = [];
-  let crees = 0;
-  for (const post of inedits) {
-    const r = await creerContenuDepuisPost(
-      supabase,
-      post,
-      compteReferenceId,
-      null,
-      ref.langue ?? "fr",
-    );
-    if (!r.reused) {
-      crees += 1;
-      ids.push(r.id);
-    }
+  // 1) Page publique TikTok (gratuit, rapide) — IDs photo uniquement.
+  try {
+    for (const u of await listerDiaporamas(handle)) urlsSet.add(u);
+  } catch {
+    // on retombe sur Apify ci-dessous
   }
+
+  // 2) Apify profil sans télécharger les images — complète / ordonne par vues.
+  //    Chaque slideshow sera re-scrapé individuellement ensuite (1 agent / post).
+  try {
+    const posts = await listerPostsProfil(handle, SCRAPE_TOUS);
+    if (posts.length > 0) {
+      source = urlsSet.size > 0 ? "mixte" : "apify";
+      for (const p of posts) {
+        if (!p.webVideoUrl) continue;
+        const estPhoto =
+          p.imageUrls.length > 0 ||
+          /\/photo\//.test(p.webVideoUrl) ||
+          urlsSet.has(p.webVideoUrl);
+        if (!estPhoto) continue;
+        urlsSet.add(p.webVideoUrl);
+        vues.set(idDe(p.webVideoUrl), p.stats?.vues ?? 0);
+      }
+    }
+  } catch {
+    // Si Apify cale, on garde la liste page seule.
+  }
+
+  const toutes = [...urlsSet];
+  const inedites = toutes
+    .filter((u) => !deja.has(idDe(u)))
+    .sort((a, b) => (vues.get(idDe(b)) ?? 0) - (vues.get(idDe(a)) ?? 0));
 
   await supabase
     .from("comptes_reference")
     .update({ dernier_scrape_at: new Date().toISOString() })
     .eq("id", compteReferenceId);
 
-  return { crees, ids, scrapes: posts.length };
+  return {
+    handle,
+    urls: inedites,
+    total: toutes.length,
+    connus: toutes.length - inedites.length,
+    source,
+  };
+}
+
+/**
+ * Legacy : scrape profil + crée tous les contenus en série.
+ * Préférer listerUrls + 1 agent scrapePost / slideshow côté client.
+ */
+export async function importerCompteReference(
+  supabase: Supabase,
+  compteReferenceId: string,
+): Promise<{ crees: number; ids: string[]; scrapes: number }> {
+  const listed = await listerUrlsCompteReference(supabase, compteReferenceId);
+  const ids: string[] = [];
+  let crees = 0;
+  for (const url of listed.urls) {
+    try {
+      const r = await importerLien(supabase, url, compteReferenceId, null);
+      if (!r.reused) {
+        crees += 1;
+        ids.push(r.id);
+      } else {
+        ids.push(r.id);
+      }
+    } catch {
+      // un post isolé en échec n'arrête pas le lot
+    }
+  }
+  return { crees, ids, scrapes: listed.total };
 }
 
 async function marquer(

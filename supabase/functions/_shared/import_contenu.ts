@@ -83,6 +83,34 @@ export function scoreDepuisVues(
   );
 }
 
+export interface EloLigneDetail {
+  langue: string;
+  estSource: boolean;
+  pertinence: number;
+  vuesScore: number;
+  base: number;
+  kk: number;
+  prior: number;
+  elo: number;
+  seuil: number;
+  retenue: boolean;
+}
+
+export interface EloRapport {
+  vues: number;
+  pertinence: number;
+  vuesScore: number;
+  poidsVues: number;
+  vuesPlafond: number;
+  prior: number;
+  k: number;
+  seuil: number;
+  langueSource: string;
+  lignes: EloLigneDetail[];
+  /** Texte multiligne prêt pour les logs d'import. */
+  texte: string;
+}
+
 /**
  * ELO cold-start par langue :
  *   base = (1−poidsVues)×pertinence + poidsVues×scoreVues   (défaut 20/80)
@@ -98,13 +126,94 @@ export function eloParLangue(opts: {
   poidsVues?: number;
   vuesPlafond?: number;
 }): number {
+  return decomposerElo(opts).elo;
+}
+
+/** Décomposition complète d'un ELO (pour logs). */
+export function decomposerElo(opts: {
+  pertinence: number;
+  vues: number | null | undefined;
+  langue: string;
+  langueSource: string;
+  prior: number;
+  k: number;
+  poidsVues?: number;
+  vuesPlafond?: number;
+  seuil?: number;
+}): EloLigneDetail & { poidsVues: number; vuesPlafond: number; vues: number } {
   const poidsVues = Math.min(1, Math.max(0, opts.poidsVues ?? 0.8));
-  const vuesScore = scoreDepuisVues(opts.vues, opts.vuesPlafond ?? 120_000);
-  const pert = Math.min(100, Math.max(0, opts.pertinence));
-  const base = (1 - poidsVues) * pert + poidsVues * vuesScore;
-  const langueSource = opts.langue === opts.langueSource;
-  const kk = langueSource ? opts.k / 2 : opts.k * 2;
-  return (kk * opts.prior + base) / (kk + 1);
+  const vuesPlafond = opts.vuesPlafond ?? 120_000;
+  const vues = opts.vues ?? 0;
+  const vuesScore = scoreDepuisVues(vues, vuesPlafond);
+  const pertinence = Math.min(100, Math.max(0, opts.pertinence));
+  const base = (1 - poidsVues) * pertinence + poidsVues * vuesScore;
+  const estSource = opts.langue === opts.langueSource;
+  const kk = estSource ? opts.k / 2 : opts.k * 2;
+  const elo = (kk * opts.prior + base) / (kk + 1);
+  const seuil = opts.seuil ?? 55;
+  return {
+    langue: opts.langue,
+    estSource,
+    pertinence,
+    vuesScore,
+    base,
+    kk,
+    prior: opts.prior,
+    elo,
+    seuil,
+    retenue: elo >= seuil,
+    poidsVues,
+    vuesPlafond,
+    vues,
+  };
+}
+
+/** Rapport ELO pour toutes les langues cibles — texte prêt pour les logs. */
+export function rapportEloComplet(opts: {
+  pertinence: number;
+  vues: number | null | undefined;
+  langueSource: string;
+  prior: number;
+  k: number;
+  poidsVues: number;
+  vuesPlafond: number;
+  seuil: number;
+}): EloRapport {
+  const lignes = LANGUES_CIBLES.map((langue) =>
+    decomposerElo({ ...opts, langue, seuil: opts.seuil }),
+  );
+  const head = lignes[0]!;
+  const pctVues = Math.round(opts.poidsVues * 100);
+  const pctPert = 100 - pctVues;
+  const texte = [
+    `vues=${head.vues} → scoreVues=${head.vuesScore.toFixed(2)} (log, plafond ${opts.vuesPlafond})`,
+    `pertinence=${head.pertinence}`,
+    `base = ${pctPert}%×pert + ${pctVues}%×vues = ${((1 - opts.poidsVues) * head.pertinence + opts.poidsVues * head.vuesScore).toFixed(2)}`,
+    `régularisation: prior=${opts.prior} k=${opts.k} · seuil=${opts.seuil} · source=${opts.langueSource}`,
+    `kk = k/2 si langue source, sinon 2k · ELO = (kk×prior + base) / (kk+1)`,
+    ...lignes.map((l) => {
+      const flag = l.retenue ? "✓ retenue" : "✗ sous seuil";
+      const src = l.estSource ? " · SOURCE" : "";
+      return (
+        `  ${l.langue}: base=${l.base.toFixed(2)} kk=${l.kk}` +
+        ` → ELO=${l.elo.toFixed(2)} ${flag}${src}`
+      );
+    }),
+  ].join("\n");
+
+  return {
+    vues: head.vues,
+    pertinence: head.pertinence,
+    vuesScore: head.vuesScore,
+    poidsVues: opts.poidsVues,
+    vuesPlafond: opts.vuesPlafond,
+    prior: opts.prior,
+    k: opts.k,
+    seuil: opts.seuil,
+    langueSource: opts.langueSource,
+    lignes: lignes.map(({ poidsVues: _p, vuesPlafond: _v, vues: _u, ...l }) => l),
+    texte,
+  };
 }
 
 /** Hérite les labels du compte de référence + labels explicites. */
@@ -478,16 +587,25 @@ async function marquer(
   if (error) throw error;
 }
 
+export interface AvancerImportResultat {
+  etape: string;
+  /** Présent sur les étapes elo / elo_insuffisant. */
+  elo?: EloRapport;
+}
+
 /**
  * Avance le pipeline d'UN pas. Ordre :
  * OCR hook → pertinence → OCR reste → ELO par langue (gate) → nettoyage (1×)
- * → traduction (langues retenues) → Sophia → valide.
+ * → Sophia source → valide.
  *
  * Les contenus déjà `import_statut=done` / stocks existants ne sont pas
  * re-gatés ici (file d'attente = pending/running seulement).
  */
 // deno-lint-ignore no-explicit-any
-export async function avancerImport(supabase: Supabase, contenu: any): Promise<string> {
+export async function avancerImport(
+  supabase: Supabase,
+  contenu: any,
+): Promise<AvancerImportResultat> {
   const slides: SlideBrut[] = [...(contenu.structure_slides ?? [])];
   const langueSource: string = contenu.langue_source ?? "fr";
 
@@ -525,7 +643,7 @@ export async function avancerImport(supabase: Supabase, contenu: any): Promise<s
         structure_slides: slides,
         import_etape: "ocr",
       });
-      return "ocr";
+      return { etape: "ocr" };
     }
 
     // 2 — Pertinence (métrique ELO ; pas de rejet dur ici)
@@ -541,12 +659,12 @@ export async function avancerImport(supabase: Supabase, contenu: any): Promise<s
         statut: "brouillon",
         import_etape: "pertinence",
       });
-      return "pertinence";
+      return { etape: "pertinence" };
     }
 
     if (contenu.statut === "rejete") {
       await marquer(supabase, contenu.id, { import_statut: "done", import_etape: "rejete" });
-      return "rejete";
+      return { etape: "rejete" };
     }
 
     // 3 — OCR du reste
@@ -559,11 +677,23 @@ export async function avancerImport(supabase: Supabase, contenu: any): Promise<s
         structure_slides: slides,
         import_etape: "ocr",
       });
-      return "ocr";
+      return { etape: "ocr" };
     }
 
     // 4 — ELO par langue → ne garde que les langues ≥ seuil
     {
+      const scoring = await lireScoring(supabase);
+      const elo = rapportEloComplet({
+        pertinence: Number(contenu.pertinence_score ?? 0),
+        vues: contenu.vues_source ?? null,
+        langueSource,
+        prior: scoring.prior,
+        k: scoring.k,
+        poidsVues: scoring.poidsVues,
+        vuesPlafond: scoring.vuesPlafond,
+        seuil: scoring.eloSeuil,
+      });
+
       const retenues = await assurerLanguesAuDessusSeuilElo(
         supabase,
         contenu.id,
@@ -578,7 +708,7 @@ export async function avancerImport(supabase: Supabase, contenu: any): Promise<s
           import_etape: "elo_insuffisant",
           import_erreur: "Aucune langue avec ELO au-dessus du seuil — TikTok non importé",
         });
-        return "elo_insuffisant";
+        return { etape: "elo_insuffisant", elo };
       }
 
       // Sync OCR → deck langue source (toujours, base pour traductions ultérieures).
@@ -607,7 +737,7 @@ export async function avancerImport(supabase: Supabase, contenu: any): Promise<s
           contenu.import_etape !== "traduction" && contenu.import_etape !== "sophia" &&
           contenu.import_etape !== "done") {
         await marquer(supabase, contenu.id, { import_etape: "elo" });
-        return "elo";
+        return { etape: "elo", elo };
       }
     }
 
@@ -630,7 +760,7 @@ export async function avancerImport(supabase: Supabase, contenu: any): Promise<s
           import_etape: "nettoyage",
         });
       }
-      return "nettoyage";
+      return { etape: "nettoyage" };
     }
 
     // 6 — Sophia UNIQUEMENT sur la langue source.
@@ -664,7 +794,7 @@ export async function avancerImport(supabase: Supabase, contenu: any): Promise<s
             import_etape: "sophia",
             import_tentatives: tentatives,
           });
-          return "sophia_retry";
+          return { etape: "sophia_retry" };
         }
         // Repli
         const derniere = deckSource[deckSource.length - 1];
@@ -681,13 +811,13 @@ export async function avancerImport(supabase: Supabase, contenu: any): Promise<s
           import_tentatives: 0,
           import_erreur: "Sophia placée en repli (texte par défaut)",
         });
-        return "sophia_repli";
+        return { etape: "sophia_repli" };
       }
       await marquer(supabase, contenu.id, {
         import_etape: "sophia",
         import_tentatives: 0,
       });
-      return "sophia";
+      return { etape: "sophia" };
     }
 
     // 7 — Recalcule ELO cold-start puis valide (traductions hors-source → minuit)
@@ -727,13 +857,13 @@ export async function avancerImport(supabase: Supabase, contenu: any): Promise<s
       import_erreur: null,
       import_tentatives: 0,
     });
-    return "done";
+    return { etape: "done" };
   } catch (error) {
     await marquer(supabase, contenu.id, {
       import_statut: "failed",
       import_erreur: messageErreur(error),
     });
-    return "failed";
+    return { etape: "failed" };
   }
 }
 

@@ -1149,9 +1149,41 @@ export const lancerExtraction = (compteReferenceId?: string) =>
 export const lancerPreparation = (sujetId?: string) =>
   invoke<{ etape?: string; idle?: boolean }>("preparation", { sujetId: sujetId ?? null });
 
+/** Détail ELO renvoyé par import-contenu (étapes elo / elo_insuffisant). */
+export interface EloImportRapport {
+  texte: string;
+  vues: number;
+  pertinence: number;
+  vuesScore: number;
+  poidsVues: number;
+  vuesPlafond: number;
+  prior: number;
+  k: number;
+  seuil: number;
+  langueSource: string;
+  lignes: Array<{
+    langue: string;
+    estSource: boolean;
+    pertinence: number;
+    vuesScore: number;
+    base: number;
+    kk: number;
+    prior: number;
+    elo: number;
+    seuil: number;
+    retenue: boolean;
+  }>;
+}
+
 /** Pipeline v-next : avance d'un pas l'import pré-calculé d'un contenu (ou la file). */
 export const lancerImportContenu = (contenuId?: string) =>
-  invoke<{ ok: boolean; contenuId?: string; etape?: string; idle?: boolean }>("import-contenu", {
+  invoke<{
+    ok: boolean;
+    contenuId?: string;
+    etape?: string;
+    idle?: boolean;
+    elo?: EloImportRapport | null;
+  }>("import-contenu", {
     contenuId: contenuId ?? null,
   });
 
@@ -1183,7 +1215,13 @@ export const importerContenuDepuisLien = (
   compteReferenceId: string | null,
   labelIds?: string[],
 ) =>
-  invoke<{ ok: boolean; contenuId: string; reused: boolean; etape?: string }>("import-contenu", {
+  invoke<{
+    ok: boolean;
+    contenuId: string;
+    reused: boolean;
+    etape?: string;
+    elo?: EloImportRapport | null;
+  }>("import-contenu", {
     postUrl,
     compteReferenceId,
     labelIds: labelIds ?? null,

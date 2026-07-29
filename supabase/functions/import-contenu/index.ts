@@ -47,12 +47,13 @@ Deno.serve(async (request) => {
       // Enchaîne un pas tout de suite pour ne pas attendre le cron.
       const contenu = await prochainContenu(supabase, cree.id);
       if (!contenu) return json({ ok: true, contenuId: cree.id, reused: cree.reused, idle: true });
-      const etape = await avancerImport(supabase, contenu);
+      const r = await avancerImport(supabase, contenu);
       return json({
         ok: true,
         contenuId: cree.id,
         reused: cree.reused,
-        etape,
+        etape: r.etape,
+        elo: r.elo ?? null,
       });
     }
 
@@ -85,8 +86,8 @@ Deno.serve(async (request) => {
 
     if (!contenu) return json({ ok: true, idle: true });
 
-    const etape = await avancerImport(supabase, contenu);
-    return json({ ok: true, contenuId: contenu.id, etape });
+    const r = await avancerImport(supabase, contenu);
+    return json({ ok: true, contenuId: contenu.id, etape: r.etape, elo: r.elo ?? null });
   } catch (error) {
     return json({ ok: false, error: messageErreur(error) }, 500);
   }

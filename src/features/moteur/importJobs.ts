@@ -212,12 +212,13 @@ export async function drainContenuAvecLogs(
         : etape === "rejete" || etape === "elo_insuffisant" || etape === "failed"
           ? "warn"
           : "info";
-    log(
-      jobId,
-      level,
-      `${p}étape « ${etape} »`,
-      snap ? detailSnap(snap) : undefined,
-    );
+    const detail = [
+      snap ? detailSnap(snap) : null,
+      r.elo?.texte ? `calcul ELO:\n${r.elo.texte}` : null,
+    ]
+      .filter(Boolean)
+      .join("\n");
+    log(jobId, level, `${p}étape « ${etape} »`, detail || undefined);
     if (ETAPES_TERMINALES.has(etape) || snap?.import_statut === "done") break;
   }
 }
@@ -254,12 +255,13 @@ async function agentSlideshow(opts: {
     }
     if (cree.etape) {
       const snap = await snapshotContenu(cree.contenuId);
-      log(
-        opts.jobId,
-        "info",
-        `${tag} étape « ${cree.etape} »`,
-        snap ? detailSnap(snap) : undefined,
-      );
+      const detail = [
+        snap ? detailSnap(snap) : null,
+        cree.elo?.texte ? `calcul ELO:\n${cree.elo.texte}` : null,
+      ]
+        .filter(Boolean)
+        .join("\n");
+      log(opts.jobId, "info", `${tag} étape « ${cree.etape} »`, detail || undefined);
       if (ETAPES_TERMINALES.has(cree.etape)) {
         // importerContenuDepuisLien a déjà avancé un pas terminal
       } else {

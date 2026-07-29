@@ -1,7 +1,6 @@
 import {
   cleanImage,
   mimeDepuisBase64,
-  verifyClean,
   type EvenementEtape,
 } from "../_shared/gemini.ts";
 import {
@@ -117,51 +116,8 @@ Deno.serve(async (request) => {
         return { ok: false as const, nettoyee: false, motif: "aucune image renvoyée" };
       }
 
+      // verifyClean en pause — stocke directement le résultat Fal/Replicate.
       const { mime, ext } = mimeDepuisBase64(propre.base64, propre.mime);
-      let texteRestant = false;
-      try {
-        texteRestant = !(await verifyClean(propre.base64, mime));
-      } catch {
-        texteRestant = false; // Gemini KO → on garde Fal
-      }
-
-      if (texteRestant) {
-        const exclus = slides
-          .map((s) => s.media_id)
-          .filter((id): id is string => Boolean(id));
-        const alt = await mediaPropreMemeLabel(supabase, {
-          contenuId: contenu.id,
-          excludeMediaIds: exclus,
-          compteReferenceId: contenu.compte_reference_id,
-        });
-        if (alt) {
-          slides[idx] = { ...slide, media_id: alt.id };
-          await supabase
-            .from("contenus")
-            .update({ structure_slides: slides })
-            .eq("id", contenu.id);
-          emit?.({
-            etape: "ready",
-            statut: "ok",
-            ok: true,
-            nettoyee: false,
-            remplacee: true,
-            mediaId: alt.id,
-            url: alt.url,
-            detail: "verifyClean suspect → remplacé (même label)",
-          });
-          return {
-            ok: true as const,
-            nettoyee: false,
-            remplacee: true,
-            mediaId: alt.id,
-            url: alt.url,
-            motif: "verifyClean suspect → remplacé (même label)",
-          };
-        }
-      }
-
-      // TOUJOURS stocker le JPEG Fal/Replicate — jamais revenir au brut.
       const path = `propre/${contenu.id}/${slide.position}.${ext}`;
       const bytes = Uint8Array.from(atob(propre.base64), (c) => c.charCodeAt(0));
       const { error: upErr } = await supabase.storage
@@ -187,7 +143,7 @@ Deno.serve(async (request) => {
             langue: contenu.langue_source,
             visage_identifiable: null,
             verifie_le: new Date().toISOString(),
-            texte_restant: texteRestant,
+            texte_restant: false,
           },
           { onConflict: "storage_path" },
         )
@@ -206,24 +162,18 @@ Deno.serve(async (request) => {
         etape: "ready",
         statut: "ok",
         ok: true,
-        nettoyee: !texteRestant,
+        nettoyee: true,
         moteur: propre.moteur,
         mediaId: media.id,
         url,
-        detail: texteRestant
-          ? "Fal gardé malgré verifyClean suspect"
-          : undefined,
       });
       return {
         ok: true as const,
-        nettoyee: !texteRestant,
+        nettoyee: true,
         moteur: propre.moteur,
         mediaId: media.id,
         url,
         etapes: propre.etapes,
-        motif: texteRestant
-          ? "Fal gardé malgré verifyClean suspect"
-          : undefined,
       };
     } catch (error) {
       const msg = messageErreur(error);

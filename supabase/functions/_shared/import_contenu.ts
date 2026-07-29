@@ -12,7 +12,6 @@ import {
   ocrFrame,
   scoreRelevance,
   translateSlideshow,
-  verifyClean,
 } from "./gemini.ts";
 import {
   attacherLabelsAuMedia,
@@ -1077,13 +1076,7 @@ async function prolongerLease(supabase: Supabase, contenuId: string): Promise<vo
     .eq("id", contenuId);
 }
 
-/**
- * Stocke TOUJOURS le résultat Fal/Replicate s'il existe.
- * verifyClean ne sert qu'à flagger / tenter un remplacement biblio —
- * on ne jette plus jamais l'image provider pour retomber sur le brut TikTok
- * (cause du « Fal OK sur le dashboard, texte encore dans l'OS » intermittent :
- * Gemini verifyClean est flaky ~1 fois sur 2).
- */
+/** Stocke le résultat Fal/Replicate. verifyClean est en pause (pas d'appel Gemini). */
 async function nettoyerSlide(
   supabase: Supabase,
   contenu: any,
@@ -1097,8 +1090,7 @@ async function nettoyerSlide(
   };
   const lignes: string[] = [
     `slide #${slide.position} · url=${(slide.raw_url ?? "").slice(0, 72)}…`,
-    `pipeline: ① Fal → ② Replicate → ③ C2PA → ④ stocke TOUJOURS → ⑤ verifyClean (flag/remplace)`,
-    `note: on ne jette plus le résultat Fal si Gemini hésite`,
+    `pipeline: ① Fal → ② Replicate → ③ C2PA → ④ stockage (verifyClean PAUSE)`,
   ];
   const rapport: NettoyageSlideRapport = {
     position: slide.position,
@@ -1153,43 +1145,6 @@ async function nettoyerSlide(
   }
 
   const { mime, ext } = mimeDepuisBase64(propreBase64, mimeDeclare);
-  lignes.push(`⑤ verifyClean (Gemini, ${mime}) — contrôle qualité (ne jette pas Fal)`);
-  let texteRestant = false;
-  try {
-    texteRestant = !(await verifyClean(propreBase64, mime));
-  } catch (error) {
-    // Gemini down / timeout : on GARDE le résultat Fal (souvent bon).
-    lignes.push(
-      `⑤ verifyClean indisponible (${messageErreur(error)}) — on garde le résultat provider`,
-    );
-    texteRestant = false;
-  }
-
-  if (texteRestant) {
-    lignes.push(
-      `⑤ verifyClean → texte SUSPECTÉ — on garde quand même le résultat ${moteur ?? "provider"}` +
-        ` (pas de retour au brut TikTok)`,
-    );
-    // Tentative remplacement biblio ; si trouvé on l'utilise, sinon Fal reste.
-    const exclus = ((contenu.structure_slides ?? []) as SlideBrut[])
-      .map((s) => s.media_id)
-      .filter((id): id is string => Boolean(id));
-    const alt = await mediaPropreMemeLabel(supabase, {
-      contenuId: contenu.id,
-      excludeMediaIds: exclus,
-      compteReferenceId: contenu.compte_reference_id,
-    });
-    if (alt) {
-      rapport.ok = true;
-      rapport.motif = "remplacé (verifyClean suspect → biblio même label)";
-      lignes.push(`⑥ remplacement biblio → media_id=${alt.id}`);
-      return { mediaId: alt.id, rapport };
-    }
-    lignes.push("⑥ pas d'alternatif biblio — stockage du résultat Fal/Replicate");
-  } else {
-    lignes.push("⑤ verifyClean → OK (pas de texte)");
-  }
-
   const path = `propre/${contenu.id}/${slide.position}.${ext}`;
   const bytes = Uint8Array.from(atob(propreBase64), (c) => c.charCodeAt(0));
   const { error: upErr } = await supabase.storage
@@ -1215,8 +1170,7 @@ async function nettoyerSlide(
         langue: contenu.langue_source,
         visage_identifiable: null,
         verifie_le: new Date().toISOString(),
-        // Flag seulement — l'image affichée reste celle de Fal/Replicate.
-        texte_restant: texteRestant,
+        texte_restant: false,
       },
       { onConflict: "storage_path" },
     )
@@ -1225,12 +1179,8 @@ async function nettoyerSlide(
   if (error) throw error;
   const labels = await attacherLabelsAuMedia(supabase, media.id, contenu.id);
   rapport.ok = true;
-  if (texteRestant) {
-    rapport.motif = " Fal gardé malgré verifyClean suspect";
-  }
   lignes.push(
     `upload OK → media_id=${media.id} · moteur=${moteur ?? "?"}` +
-      (texteRestant ? " · texte_restant=true" : "") +
       (labels.length ? ` · labels=${labels.length}` : ""),
   );
   return { mediaId: media.id, rapport };

@@ -1,7 +1,6 @@
 import {
   cleanImage,
   mimeDepuisBase64,
-  verifyClean,
   type EvenementEtape,
 } from "../_shared/gemini.ts";
 import { attacherLabelsAuMedia } from "../_shared/media_labels.ts";
@@ -56,20 +55,8 @@ Deno.serve(async (request) => {
       emit?.({ etape: "ready", statut: "echec", detail: "aucune image renvoyée" });
       return { ok: false as const, nettoyee: false, motif: "aucune image renvoyée" };
     }
+    // verifyClean en pause — on stocke le résultat provider directement.
     const { mime, ext } = mimeDepuisBase64(propre.base64, propre.mime);
-    if (!(await verifyClean(propre.base64, mime))) {
-      emit?.({
-        etape: "ready",
-        statut: "echec",
-        detail: "texte encore présent après nettoyage",
-      });
-      return {
-        ok: false as const,
-        nettoyee: false,
-        motif: "texte encore présent après nettoyage",
-        etapes: propre.etapes,
-      };
-    }
 
     const path = `propre/manuel/${media.id}.${ext}`;
     const bytes = Uint8Array.from(atob(propre.base64), (c) => c.charCodeAt(0));

@@ -1,7 +1,6 @@
 import {
   cleanImage,
   mimeDepuisBase64,
-  verifyClean,
   type EvenementEtape,
 } from "../_shared/gemini.ts";
 import { reponseNdjson, veutStream } from "../_shared/nettoyage_etapes.ts";
@@ -59,14 +58,11 @@ Deno.serve(async (request) => {
       try {
         const onEtape = emit ? (e: EvenementEtape) => emit(e) : undefined;
         const propre = await cleanImage(slide.reference_url, onEtape);
+        // verifyClean en pause — stocke dès que Fal/Replicate renvoie une image.
         const meta = propre
           ? mimeDepuisBase64(propre.base64, propre.mime)
           : null;
-        if (
-          propre &&
-          meta &&
-          (await verifyClean(propre.base64, meta.mime))
-        ) {
+        if (propre && meta) {
           const path = `propre/manuel/${slide.id}.${meta.ext}`;
           const bytes = Uint8Array.from(atob(propre.base64), (c) => c.charCodeAt(0));
           const { error: upErr } = await supabase.storage

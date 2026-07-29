@@ -3,7 +3,6 @@ import {
   mimeDepuisBase64,
   ocrFrame,
   scoreRelevance,
-  verifyClean,
 } from "../_shared/gemini.ts";
 import { assertAuthorised, chargerPrompt, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
@@ -220,20 +219,8 @@ async function nettoyerVersBibliotheque(
   }
   if (!propreBase64) return null;
 
-  // On STOCKE toujours le résultat Fal/Replicate. verifyClean ne fait que flager
-  // (Gemini est flaky — jeter Fal → brut TikTok = bug intermittent).
+  // verifyClean en pause — on stocke directement le résultat Fal/Replicate.
   const { mime, ext } = mimeDepuisBase64(propreBase64, mimeDeclare);
-  let texteRestant = false;
-  try {
-    texteRestant = !(await verifyClean(propreBase64, mime));
-  } catch {
-    texteRestant = false;
-  }
-  if (texteRestant) {
-    console.warn(
-      `[nettoyage suspect] sujet=${sujet.id} slide=${slide.position} — on garde quand même Fal`,
-    );
-  }
 
   const path = `propre/${sujet.id}/${slide.position}.${ext}`;
   const bytes = Uint8Array.from(atob(propreBase64), (c) => c.charCodeAt(0));
@@ -257,7 +244,7 @@ async function nettoyerVersBibliotheque(
         langue: sujet.langue,
         visage_identifiable: null,
         verifie_le: new Date().toISOString(),
-        texte_restant: texteRestant,
+        texte_restant: false,
       },
       { onConflict: "storage_path" },
     )

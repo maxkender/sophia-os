@@ -1,6 +1,5 @@
-import { downloadImage, scrapePost } from "../_shared/apify.ts";
+import { scrapePost } from "../_shared/apify.ts";
 import { preparerAvatarReference } from "../_shared/avatar.ts";
-import { mimeDepuisBase64, verifyClean } from "../_shared/gemini.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 /**
@@ -14,8 +13,7 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
  */
 const MUSIQUE_PAR_PASSAGE = 3;
 const PERSONAS_PAR_PASSAGE = 1;
-const AUDITS_PAR_PASSAGE = 2;
-const AVATARS_REF_PAR_PASSAGE = 2;
+const AVATARS_REF_PAR_PASSAGE = 0; // pause : Gemini avatar en cron = dépenses sans action admin
 
 Deno.serve(async (request) => {
   const denied = await assertAuthorised(request);
@@ -78,39 +76,8 @@ Deno.serve(async (request) => {
       }
     }
 
-    // 3 — AUDIT BIBLIOTHÈQUE : quelques images « propres » jamais contrôlées.
-    // Celles nettoyées AVANT l'ajout de la vérification peuvent encore porter du
-    // texte. Texte trouvé → `texte_restant` : l'image sort du pipeline et
-    // s'affiche « texte présent » dans la bibliothèque (re-nettoyable).
-    const { data: aAuditer } = await supabase
-      .from("media_library")
-      .select("id, url")
-      .like("storage_path", "propre/%")
-      .is("verifie_le", null)
-      .limit(AUDITS_PAR_PASSAGE);
-
-    for (const m of aAuditer ?? []) {
-      try {
-        const bytes = await downloadImage(m.url);
-        let bin = "";
-        const CHUNK = 0x8000;
-        for (let i = 0; i < bytes.length; i += CHUNK) {
-          bin += String.fromCharCode(...bytes.subarray(i, i + CHUNK));
-        }
-        // Mime réel (JPEG Fal souvent) — image/png forcé faussait l'audit.
-        const b64 = btoa(bin);
-        const { mime } = mimeDepuisBase64(b64, "image/jpeg");
-        const propre = await verifyClean(b64, mime);
-        await supabase
-          .from("media_library")
-          .update({ verifie_le: new Date().toISOString(), texte_restant: !propre })
-          .eq("id", m.id);
-        rapport.audits += 1;
-        if (!propre) rapport.sales += 1;
-      } catch {
-        // un échec isolé (429, image inaccessible) : on réessaiera au prochain tour
-      }
-    }
+    // 3 — AUDIT BIBLIOTHÈQUE : PAUSE (verifyClean Gemini désactivé — plus de
+    // dépenses vision en boucle via le cron maintenance).
 
     // 4 — AVATARS DE RÉFÉRENCE : on prépare À L'AVANCE une photo de profil sans
     // visage pour chaque source active qui n'en a pas encore. Ainsi la création

@@ -1095,24 +1095,14 @@ export function mimeDepuisBase64(
   return { mime: "image/jpeg", ext: "jpg" };
 }
 
-/** Vérifie qu'il ne reste pas de texte incrusté après nettoyage. */
-export async function verifyClean(base64Image: string, mimeType: string): Promise<boolean> {
-  // Toujours aligner le mime sur les octets réels — un JPEG déclaré PNG
-  // fait échouer Gemini → on jetait le résultat Fal propre et on gardait le brut.
-  const { mime } = mimeDepuisBase64(base64Image, mimeType);
-  const parts = await callWithFallback(TEXT_MODELS, [
-    {
-      text: `Regarde attentivement. Reste-t-il le MOINDRE texte incrusté, sous-titre,
-légende, titre, sticker, watermark, pseudo ou bouton sur cette image ?
-(Ignore uniquement une petite URL ou source citée en tout petit, c'est légitime.)
-RÈGLE : au moindre doute, ou s'il reste ne serait-ce qu'un fragment de texte,
-réponds OUI. On préfère remplacer une photo que d'en livrer une avec du texte.
-Réponds uniquement par OUI ou NON.`,
-    },
-    { inline_data: { mime_type: mime, data: base64Image } },
-  ]);
-
-  // Par prudence : toute réponse qui n'est pas un NON net = on considère qu'il
-  // reste du texte (donc l'appelant re-tente puis remplace).
-  return textOf(parts).trim().toUpperCase().startsWith("NON");
+/**
+ * PAUSE — plus aucun appel Gemini.
+ * Avant : vision OUI/NON après chaque nettoyage + audit cron → dépenses continues.
+ * Remettre en service = supprimer le early-return et restaurer l'appel TEXT_MODELS.
+ */
+export async function verifyClean(
+  _base64Image: string,
+  _mimeType: string,
+): Promise<boolean> {
+  return true;
 }

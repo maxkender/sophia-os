@@ -1067,6 +1067,23 @@ export async function assurerDeckPourLangue(
 }
 
 // deno-lint-ignore no-explicit-any
+async function prolongerLease(supabase: Supabase, contenuId: string): Promise<void> {
+  await supabase
+    .from("contenus")
+    .update({
+      import_lease_until: new Date(Date.now() + LEASE_MS).toISOString(),
+      import_statut: "running",
+    })
+    .eq("id", contenuId);
+}
+
+/**
+ * Stocke TOUJOURS le résultat Fal/Replicate s'il existe.
+ * verifyClean ne sert qu'à flagger / tenter un remplacement biblio —
+ * on ne jette plus jamais l'image provider pour retomber sur le brut TikTok
+ * (cause du « Fal OK sur le dashboard, texte encore dans l'OS » intermittent :
+ * Gemini verifyClean est flaky ~1 fois sur 2).
+ */
 async function nettoyerSlide(
   supabase: Supabase,
   contenu: any,
@@ -1080,14 +1097,16 @@ async function nettoyerSlide(
   };
   const lignes: string[] = [
     `slide #${slide.position} · url=${(slide.raw_url ?? "").slice(0, 72)}…`,
-    `pipeline: ① Fal → ② FALLBACK Replicate → ③ C2PA → ④ verifyClean → ⑤ biblio même label si texte`,
-    `note: chaque poll Fal/Replicate = 1 appel HTTP (compteur dashboard)`,
+    `pipeline: ① Fal → ② Replicate → ③ C2PA → ④ stocke TOUJOURS → ⑤ verifyClean (flag/remplace)`,
+    `note: on ne jette plus le résultat Fal si Gemini hésite`,
   ];
   const rapport: NettoyageSlideRapport = {
     position: slide.position,
     ok: false,
     lignes,
   };
+
+  await prolongerLease(supabase, contenu.id);
 
   let propreBase64: string | null = null;
   let moteur: string | undefined;
@@ -1096,7 +1115,6 @@ async function nettoyerSlide(
     const propre = await cleanImage(slide.raw_url, (e) => {
       const nom = labelEtape[e.etape] ?? e.etape;
       const line = `${nom} · ${e.statut}${e.detail ? ` — ${e.detail}` : ""}`;
-      // Évite de dupliquer chaque poll ligne à ligne si le détail est déjà explicite.
       if (
         e.etape === "text_removal" &&
         e.statut === "encours" &&
@@ -1125,27 +1143,52 @@ async function nettoyerSlide(
     );
     return { mediaId: null, rapport };
   }
+
+  await prolongerLease(supabase, contenu.id);
+
   if (!propreBase64) {
     rapport.motif = "aucune image renvoyée";
     lignes.push("échec: aucune image après Fal + fallbacks");
     return { mediaId: null, rapport };
   }
 
-  // Fal sort du JPEG — ne JAMAIS forcer image/png (cassait verifyClean → brut sale).
   const { mime, ext } = mimeDepuisBase64(propreBase64, mimeDeclare);
-  lignes.push(`⑤ verifyClean (Gemini, ${mime}) — reste-t-il du texte ?`);
-  const propreOk = await verifyClean(propreBase64, mime);
-  if (!propreOk) {
-    rapport.motif = "texte encore détecté après nettoyage (verifyClean=OUI)";
+  lignes.push(`⑤ verifyClean (Gemini, ${mime}) — contrôle qualité (ne jette pas Fal)`);
+  let texteRestant = false;
+  try {
+    texteRestant = !(await verifyClean(propreBase64, mime));
+  } catch (error) {
+    // Gemini down / timeout : on GARDE le résultat Fal (souvent bon).
     lignes.push(
-      `⑤ verifyClean → texte RESTANT — retry (moteur était ${moteur ?? "?"})`,
+      `⑤ verifyClean indisponible (${messageErreur(error)}) — on garde le résultat provider`,
     );
-    console.warn(
-      `[import nettoyage] contenu=${contenu.id} slide=${slide.position} verifyClean KO`,
-    );
-    return { mediaId: null, rapport };
+    texteRestant = false;
   }
-  lignes.push("⑤ verifyClean → OK (pas de texte)");
+
+  if (texteRestant) {
+    lignes.push(
+      `⑤ verifyClean → texte SUSPECTÉ — on garde quand même le résultat ${moteur ?? "provider"}` +
+        ` (pas de retour au brut TikTok)`,
+    );
+    // Tentative remplacement biblio ; si trouvé on l'utilise, sinon Fal reste.
+    const exclus = ((contenu.structure_slides ?? []) as SlideBrut[])
+      .map((s) => s.media_id)
+      .filter((id): id is string => Boolean(id));
+    const alt = await mediaPropreMemeLabel(supabase, {
+      contenuId: contenu.id,
+      excludeMediaIds: exclus,
+      compteReferenceId: contenu.compte_reference_id,
+    });
+    if (alt) {
+      rapport.ok = true;
+      rapport.motif = "remplacé (verifyClean suspect → biblio même label)";
+      lignes.push(`⑥ remplacement biblio → media_id=${alt.id}`);
+      return { mediaId: alt.id, rapport };
+    }
+    lignes.push("⑥ pas d'alternatif biblio — stockage du résultat Fal/Replicate");
+  } else {
+    lignes.push("⑤ verifyClean → OK (pas de texte)");
+  }
 
   const path = `propre/${contenu.id}/${slide.position}.${ext}`;
   const bytes = Uint8Array.from(atob(propreBase64), (c) => c.charCodeAt(0));
@@ -1157,7 +1200,6 @@ async function nettoyerSlide(
       cacheControl: "60",
     });
   if (upErr) throw upErr;
-  // ?v= force le refresh CDN si on réécrit le même storage_path.
   const publicUrl = supabase.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
   const url = `${publicUrl}?v=${Date.now()}`;
 
@@ -1173,7 +1215,8 @@ async function nettoyerSlide(
         langue: contenu.langue_source,
         visage_identifiable: null,
         verifie_le: new Date().toISOString(),
-        texte_restant: false,
+        // Flag seulement — l'image affichée reste celle de Fal/Replicate.
+        texte_restant: texteRestant,
       },
       { onConflict: "storage_path" },
     )
@@ -1182,8 +1225,12 @@ async function nettoyerSlide(
   if (error) throw error;
   const labels = await attacherLabelsAuMedia(supabase, media.id, contenu.id);
   rapport.ok = true;
+  if (texteRestant) {
+    rapport.motif = " Fal gardé malgré verifyClean suspect";
+  }
   lignes.push(
     `upload OK → media_id=${media.id} · moteur=${moteur ?? "?"}` +
+      (texteRestant ? " · texte_restant=true" : "") +
       (labels.length ? ` · labels=${labels.length}` : ""),
   );
   return { mediaId: media.id, rapport };
@@ -1273,7 +1320,8 @@ export async function prochainContenu(
   return data?.[0] ?? null;
 }
 
-const LEASE_MS = 3 * 60_000;
+/** Fal peut prendre ~2 min/slide × 2 slides — lease court → double worker écrase le résultat. */
+const LEASE_MS = 8 * 60_000;
 
 /** Claim atomique d'un contenu libre (lease) pour workers parallèles. */
 export async function claimContenu(

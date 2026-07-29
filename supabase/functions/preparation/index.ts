@@ -220,15 +220,19 @@ async function nettoyerVersBibliotheque(
   }
   if (!propreBase64) return null;
 
-  // CONTRÔLE : le moteur renvoie PARFOIS l'image sans l'avoir nettoyée (il dit
-  // « réussi » quand même). On ne la stocke donc pas comme propre à l'aveugle :
-  // s'il reste du texte incrusté, on renvoie null → re-tentée au passage suivant
-  // puis remplacée par une photo propre de la bibliothèque en dernier recours.
-  // Mime réel (Fal = JPEG) — ne pas forcer image/png.
+  // On STOCKE toujours le résultat Fal/Replicate. verifyClean ne fait que flager
+  // (Gemini est flaky — jeter Fal → brut TikTok = bug intermittent).
   const { mime, ext } = mimeDepuisBase64(propreBase64, mimeDeclare);
-  if (!(await verifyClean(propreBase64, mime))) {
-    console.warn(`[nettoyage non abouti] sujet=${sujet.id} slide=${slide.position} — texte encore présent`);
-    return null;
+  let texteRestant = false;
+  try {
+    texteRestant = !(await verifyClean(propreBase64, mime));
+  } catch {
+    texteRestant = false;
+  }
+  if (texteRestant) {
+    console.warn(
+      `[nettoyage suspect] sujet=${sujet.id} slide=${slide.position} — on garde quand même Fal`,
+    );
   }
 
   const path = `propre/${sujet.id}/${slide.position}.${ext}`;
@@ -252,10 +256,8 @@ async function nettoyerVersBibliotheque(
         source: "nettoye_reference",
         langue: sujet.langue,
         visage_identifiable: null,
-        // Vérifiée au stockage (verifyClean ci-dessus) : l'audit de la
-        // maintenance n'a pas besoin d'y repasser.
         verifie_le: new Date().toISOString(),
-        texte_restant: false,
+        texte_restant: texteRestant,
       },
       { onConflict: "storage_path" },
     )

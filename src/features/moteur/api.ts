@@ -2127,16 +2127,16 @@ async function urlsMediasPropres(
     ),
   ];
   if (mediaIds.length === 0) return {};
-  // Uniquement les vrais propres — un media brut (raw_url avec texte) ne doit
-  // jamais être affiché comme « nettoyé » via mediaUrls.
+  // Uniquement storage propre/ — jamais le brut TikTok (même si texte_restant
+  // est flagué : c'est encore le JPEG Fal, pas le raw).
   const { data } = await supabase
     .from("media_library")
-    .select("id, url, storage_path, texte_restant")
+    .select("id, url, storage_path")
     .in("id", mediaIds);
   const map: Record<string, string> = {};
   for (const m of data ?? []) {
     const path = (m.storage_path as string) ?? "";
-    if (path.startsWith("propre/") && !m.texte_restant) {
+    if (path.startsWith("propre/")) {
       map[m.id as string] = m.url as string;
     }
   }

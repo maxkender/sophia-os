@@ -73,114 +73,157 @@ Deno.serve(async (request) => {
     try {
       const onEtape = emit ? (e: EvenementEtape) => emit(e) : undefined;
       const propre = await cleanImage(sourceUrl, onEtape);
-      if (propre) {
-        const { mime, ext } = mimeDepuisBase64(propre.base64, propre.mime);
-        if (await verifyClean(propre.base64, mime)) {
-          const path = `propre/${contenu.id}/${slide.position}.${ext}`;
-          const bytes = Uint8Array.from(atob(propre.base64), (c) => c.charCodeAt(0));
-          const { error: upErr } = await supabase.storage
-            .from(BUCKET)
-            .upload(path, bytes, {
-              contentType: mime,
-              upsert: true,
-              cacheControl: "60",
-            });
-          if (upErr) throw upErr;
 
-          const publicUrl = supabase.storage.from(BUCKET).getPublicUrl(path).data
-            .publicUrl;
-          const url = `${publicUrl}?v=${Date.now()}`;
-          const { data: media, error: insErr } = await supabase
-            .from("media_library")
-            .upsert(
-              {
-                compte_reference_id: contenu.compte_reference_id,
-                contenu_id: contenu.id,
-                storage_path: path,
-                url,
-                source: "nettoye_reference",
-                langue: contenu.langue_source,
-                visage_identifiable: null,
-                verifie_le: new Date().toISOString(),
-                texte_restant: false,
-              },
-              { onConflict: "storage_path" },
-            )
-            .select("id")
-            .single();
-          if (insErr) throw insErr;
-          await attacherLabelsAuMedia(supabase, media.id, contenu.id);
-
-          slides[idx] = { ...slide, media_id: media.id };
+      // Pas de résultat provider → biblio, sinon échec.
+      if (!propre?.base64) {
+        const exclus = slides
+          .map((s) => s.media_id)
+          .filter((id): id is string => Boolean(id));
+        const alt = await mediaPropreMemeLabel(supabase, {
+          contenuId: contenu.id,
+          excludeMediaIds: exclus,
+          compteReferenceId: contenu.compte_reference_id,
+        });
+        if (alt) {
+          slides[idx] = { ...slide, media_id: alt.id };
           await supabase
             .from("contenus")
             .update({ structure_slides: slides })
             .eq("id", contenu.id);
-
           emit?.({
             etape: "ready",
             statut: "ok",
             ok: true,
-            nettoyee: true,
-            moteur: propre.moteur,
-            mediaId: media.id,
-            url,
+            nettoyee: false,
+            remplacee: true,
+            mediaId: alt.id,
+            url: alt.url,
+            detail: "nettoyage vide → remplacé (même label)",
           });
           return {
             ok: true as const,
-            nettoyee: true,
-            moteur: propre.moteur,
-            mediaId: media.id,
-            url,
-            etapes: propre.etapes,
+            nettoyee: false,
+            remplacee: true,
+            mediaId: alt.id,
+            url: alt.url,
+            motif: "nettoyage vide → remplacé (même label)",
+          };
+        }
+        emit?.({
+          etape: "ready",
+          statut: "echec",
+          detail: "aucune image renvoyée",
+        });
+        return { ok: false as const, nettoyee: false, motif: "aucune image renvoyée" };
+      }
+
+      const { mime, ext } = mimeDepuisBase64(propre.base64, propre.mime);
+      let texteRestant = false;
+      try {
+        texteRestant = !(await verifyClean(propre.base64, mime));
+      } catch {
+        texteRestant = false; // Gemini KO → on garde Fal
+      }
+
+      if (texteRestant) {
+        const exclus = slides
+          .map((s) => s.media_id)
+          .filter((id): id is string => Boolean(id));
+        const alt = await mediaPropreMemeLabel(supabase, {
+          contenuId: contenu.id,
+          excludeMediaIds: exclus,
+          compteReferenceId: contenu.compte_reference_id,
+        });
+        if (alt) {
+          slides[idx] = { ...slide, media_id: alt.id };
+          await supabase
+            .from("contenus")
+            .update({ structure_slides: slides })
+            .eq("id", contenu.id);
+          emit?.({
+            etape: "ready",
+            statut: "ok",
+            ok: true,
+            nettoyee: false,
+            remplacee: true,
+            mediaId: alt.id,
+            url: alt.url,
+            detail: "verifyClean suspect → remplacé (même label)",
+          });
+          return {
+            ok: true as const,
+            nettoyee: false,
+            remplacee: true,
+            mediaId: alt.id,
+            url: alt.url,
+            motif: "verifyClean suspect → remplacé (même label)",
           };
         }
       }
 
-      // Texte résiduel / nettoyage vide → remplacement par un propre même label.
-      const exclus = slides
-        .map((s) => s.media_id)
-        .filter((id): id is string => Boolean(id));
-      const alt = await mediaPropreMemeLabel(supabase, {
-        contenuId: contenu.id,
-        excludeMediaIds: exclus,
-        compteReferenceId: contenu.compte_reference_id,
-      });
-      if (alt) {
-        slides[idx] = { ...slide, media_id: alt.id };
-        await supabase
-          .from("contenus")
-          .update({ structure_slides: slides })
-          .eq("id", contenu.id);
-        emit?.({
-          etape: "ready",
-          statut: "ok",
-          ok: true,
-          nettoyee: false,
-          remplacee: true,
-          mediaId: alt.id,
-          url: alt.url,
-          detail: "texte résiduel → remplacé (même label)",
+      // TOUJOURS stocker le JPEG Fal/Replicate — jamais revenir au brut.
+      const path = `propre/${contenu.id}/${slide.position}.${ext}`;
+      const bytes = Uint8Array.from(atob(propre.base64), (c) => c.charCodeAt(0));
+      const { error: upErr } = await supabase.storage
+        .from(BUCKET)
+        .upload(path, bytes, {
+          contentType: mime,
+          upsert: true,
+          cacheControl: "60",
         });
-        return {
-          ok: true as const,
-          nettoyee: false,
-          remplacee: true,
-          mediaId: alt.id,
-          url: alt.url,
-          motif: "texte résiduel → remplacé (même label)",
-        };
-      }
+      if (upErr) throw upErr;
+
+      const publicUrl = supabase.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
+      const url = `${publicUrl}?v=${Date.now()}`;
+      const { data: media, error: insErr } = await supabase
+        .from("media_library")
+        .upsert(
+          {
+            compte_reference_id: contenu.compte_reference_id,
+            contenu_id: contenu.id,
+            storage_path: path,
+            url,
+            source: "nettoye_reference",
+            langue: contenu.langue_source,
+            visage_identifiable: null,
+            verifie_le: new Date().toISOString(),
+            texte_restant: texteRestant,
+          },
+          { onConflict: "storage_path" },
+        )
+        .select("id")
+        .single();
+      if (insErr) throw insErr;
+      await attacherLabelsAuMedia(supabase, media.id, contenu.id);
+
+      slides[idx] = { ...slide, media_id: media.id };
+      await supabase
+        .from("contenus")
+        .update({ structure_slides: slides })
+        .eq("id", contenu.id);
 
       emit?.({
         etape: "ready",
-        statut: "echec",
-        detail: "texte encore présent ou nettoyage vide",
+        statut: "ok",
+        ok: true,
+        nettoyee: !texteRestant,
+        moteur: propre.moteur,
+        mediaId: media.id,
+        url,
+        detail: texteRestant
+          ? "Fal gardé malgré verifyClean suspect"
+          : undefined,
       });
       return {
-        ok: false as const,
-        nettoyee: false,
-        motif: "texte encore présent ou nettoyage vide",
+        ok: true as const,
+        nettoyee: !texteRestant,
+        moteur: propre.moteur,
+        mediaId: media.id,
+        url,
+        etapes: propre.etapes,
+        motif: texteRestant
+          ? "Fal gardé malgré verifyClean suspect"
+          : undefined,
       };
     } catch (error) {
       const msg = messageErreur(error);

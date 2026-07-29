@@ -81,31 +81,37 @@ async function lireScoring(supabase: Supabase) {
   const v = (data?.valeur ?? {}) as Record<string, number>;
   return {
     prior: v.score_prior ?? 50,
-    k: v.regularisation_k ?? 5,
+    /**
+     * Régularisation ELO à l'import (≠ regularisation_k des comptes).
+     * Faible (1) pour ne pas écraser 1k vs 20k vers le prior.
+     */
+    k: v.elo_regularisation_k ?? 1,
     pertinence: v.pertinence_seuil ?? 50,
     /** Seuil ELO : en-dessous → langue non cuite ; si aucune langue → pas d'import. */
     eloSeuil: v.elo_seuil_import ?? 55,
-    /** Poids des vues dans la base ELO (reste = pertinence). Défaut 80 %. */
-    poidsVues: v.elo_poids_vues ?? 0.8,
+    /** Poids des vues dans la base ELO (reste = pertinence). Défaut 90 %. */
+    poidsVues: v.elo_poids_vues ?? 0.9,
     /**
-     * Plafond log des vues → score 100.
-     * 120k : un post à ~100k vues ≈ 96/100 — c'est énorme.
-     * (Avant : 5M, ce qui écrasait 100k vers ~75.)
+     * Plafond des vues → score 100.
+     * 80k : meilleure résolution dans la zone 1k–20k.
      */
-    vuesPlafond: v.elo_vues_plafond ?? 120_000,
+    vuesPlafond: v.elo_vues_plafond ?? 80_000,
   };
 }
 
-/** Score « force » du TikTok à partir des vues (0..100), échelle log. */
+/**
+ * Score « force » du TikTok à partir des vues (0..100).
+ * log^1.3 : plus d'écart entre 1k et 20k qu'un log pur (qui compressait le milieu).
+ */
 export function scoreDepuisVues(
   vues: number | null | undefined,
-  plafond = 120_000,
+  plafond = 80_000,
 ): number {
   const p = Math.max(1, plafond);
-  return Math.min(
-    100,
-    Math.max(0, (Math.log(1 + (vues ?? 0)) / Math.log(1 + p)) * 100),
-  );
+  const exp = 1.3;
+  const num = Math.log(1 + (vues ?? 0)) ** exp;
+  const den = Math.log(1 + p) ** exp;
+  return Math.min(100, Math.max(0, (num / den) * 100));
 }
 
 export interface EloLigneDetail {
@@ -138,8 +144,9 @@ export interface EloRapport {
 
 /**
  * ELO cold-start par langue :
- *   base = (1−poidsVues)×pertinence + poidsVues×scoreVues   (défaut 20/80)
- *   puis régularisation vers le prior, avec bonus langue d'origine (k/2 vs 2k).
+ *   base = (1−poidsVues)×pertinence + poidsVues×scoreVues   (défaut 10/90)
+ *   puis légère régularisation vers le prior (elo_regularisation_k, défaut 1),
+ *   avec bonus langue d'origine (k/2 vs 2k).
  */
 export function eloParLangue(opts: {
   pertinence: number;
@@ -166,8 +173,8 @@ export function decomposerElo(opts: {
   vuesPlafond?: number;
   seuil?: number;
 }): EloLigneDetail & { poidsVues: number; vuesPlafond: number; vues: number } {
-  const poidsVues = Math.min(1, Math.max(0, opts.poidsVues ?? 0.8));
-  const vuesPlafond = opts.vuesPlafond ?? 120_000;
+  const poidsVues = Math.min(1, Math.max(0, opts.poidsVues ?? 0.9));
+  const vuesPlafond = opts.vuesPlafond ?? 80_000;
   const vues = opts.vues ?? 0;
   const vuesScore = scoreDepuisVues(vues, vuesPlafond);
   const pertinence = Math.min(100, Math.max(0, opts.pertinence));
@@ -211,10 +218,10 @@ export function rapportEloComplet(opts: {
   const pctVues = Math.round(opts.poidsVues * 100);
   const pctPert = 100 - pctVues;
   const texte = [
-    `vues=${head.vues} → scoreVues=${head.vuesScore.toFixed(2)} (log, plafond ${opts.vuesPlafond})`,
+    `vues=${head.vues} → scoreVues=${head.vuesScore.toFixed(2)} (log^1.3, plafond ${opts.vuesPlafond})`,
     `pertinence=${head.pertinence}`,
     `base = ${pctPert}%×pert + ${pctVues}%×vues = ${((1 - opts.poidsVues) * head.pertinence + opts.poidsVues * head.vuesScore).toFixed(2)}`,
-    `régularisation: prior=${opts.prior} k=${opts.k} · seuil=${opts.seuil} · source=${opts.langueSource}`,
+    `régularisation ELO: prior=${opts.prior} k=${opts.k} · seuil=${opts.seuil} · source=${opts.langueSource}`,
     `kk = k/2 si langue source, sinon 2k · ELO = (kk×prior + base) / (kk+1)`,
     ...lignes.map((l) => {
       const flag = l.retenue ? "✓ retenue" : "✗ sous seuil";

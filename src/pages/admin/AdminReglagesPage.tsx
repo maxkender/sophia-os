@@ -238,6 +238,16 @@ export function AdminReglagesPage() {
                 valeur={reglages.scoring.elo_vues_plafond}
                 onChange={(n) => majScoring({ elo_vues_plafond: n })}
               />
+              <ChampNombre
+                id="eloK"
+                label={t("reglages.eloRegularisation")}
+                min={0.1}
+                step={0.1}
+                valeur={reglages.scoring.elo_regularisation_k}
+                onChange={(n) =>
+                  majScoring({ elo_regularisation_k: Math.max(0.1, n) })
+                }
+              />
             </div>
             <p className="text-xs text-muted-foreground">{t("reglages.eloVuesAide")}</p>
           </section>

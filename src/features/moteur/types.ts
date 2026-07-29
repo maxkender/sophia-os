@@ -167,10 +167,15 @@ export interface ReglagesScoring {
   pertinence_seuil: number;
   /** Seuil ELO à l'import : langues en-dessous non cuites ; 0 langue → non importé. */
   elo_seuil_import: number;
-  /** Poids des vues dans la base ELO (0..1). Défaut 0.8. */
+  /** Poids des vues dans la base ELO (0..1). Défaut 0.9. */
   elo_poids_vues: number;
-  /** Vues qui valent score 100 sur l'échelle log. Défaut 120000. */
+  /** Vues qui valent score 100 (échelle log^1.3). Défaut 80000. */
   elo_vues_plafond: number;
+  /**
+   * Régularisation ELO à l'import (≠ regularisation_k des comptes).
+   * Faible = l'écart 1k vs 20k vues reste visible. Défaut 1.
+   */
+  elo_regularisation_k: number;
 }
 
 export interface ReglagesPaiement {

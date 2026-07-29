@@ -707,8 +707,9 @@ export const fr = {
       eloSeuil: "Seuil ELO import (langues)",
       eloPoidsVues: "Poids des vues dans l'ELO (0–1)",
       eloVuesPlafond: "Plafond vues (= score 100)",
+      eloRegularisation: "Régularisation ELO k (import)",
       eloVuesAide:
-        "Défaut : 80 % vues / 20 % pertinence, plafond 120k. Un TikTok à ~100k vues score ~96/100 sur les vues — c'est énorme.",
+        "Défaut : 90 % vues / 10 % pertinence, plafond 80k, k ELO = 1 (log^1.3). Un post à 1k vues et un à 20k doivent clairement diverger — baisse k si tout se ressemble encore.",
       legacyTitle: "Legacy (ratios / semaine 1)",
       legacySubtitle: "Conservé jusqu'au cutover. Ignoré quand le v-next est actif.",
     },

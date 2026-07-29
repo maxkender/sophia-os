@@ -706,8 +706,9 @@ export const en = {
       eloSeuil: "Import ELO threshold (languages)",
       eloPoidsVues: "Views weight in ELO (0–1)",
       eloVuesPlafond: "Views ceiling (= score 100)",
+      eloRegularisation: "ELO regularization k (import)",
       eloVuesAide:
-        "Default: 80% views / 20% relevance, ceiling 120k. A TikTok with ~100k views scores ~96/100 on views — that's huge.",
+        "Default: 90% views / 10% relevance, ceiling 80k, ELO k = 1 (log^1.3). A 1k-view post and a 20k one should clearly diverge — lower k if scores still look alike.",
       legacyTitle: "Legacy (ratios / week 1)",
       legacySubtitle: "Kept until cutover. Ignored when v-next is active.",
     },

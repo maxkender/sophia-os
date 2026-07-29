@@ -16,7 +16,8 @@ export const LANGUES_CIBLES = ["fr", "en", "de", "it", "es", "pt"] as const;
 const SLIDES_PAR_PASSAGE = 2;
 const MAX_TENTATIVES_NETTOYAGE = 4;
 const MAX_TENTATIVES_SOPHIA = 15;
-const CONTENUS_PAR_SCRAPE = 5;
+/** Apify `resultsPerPage` — on vise tout le profil (plafond acteur). */
+const SCRAPE_TOUS = 100;
 
 export interface SlideBrut {
   position: number;
@@ -51,19 +52,38 @@ async function lireScoring(supabase: Supabase) {
     prior: v.score_prior ?? 50,
     k: v.regularisation_k ?? 5,
     pertinence: v.pertinence_seuil ?? 50,
+    /** Seuil ELO : en-dessous → langue non cuite ; si aucune langue → pas d'import. */
+    eloSeuil: v.elo_seuil_import ?? 55,
   };
 }
 
-function scoreBaseDepuisVues(vues: number | null | undefined): number {
+/** Score « force » du TikTok à partir des vues (0..100). */
+export function scoreDepuisVues(vues: number | null | undefined): number {
   return Math.min(
     100,
-    Math.max(50, 50 + Math.log(1 + (vues ?? 0)) / Math.log(1 + 5_000_000) * 50),
+    Math.max(0, Math.log(1 + (vues ?? 0)) / Math.log(1 + 5_000_000) * 100),
   );
 }
 
-function scoreInitial(base: number, prior: number, k: number, langueSource: boolean): number {
-  const kk = langueSource ? k / 2 : k * 2;
-  return (kk * prior + base) / (kk + 1);
+/**
+ * ELO cold-start par langue :
+ *   base = 45% pertinence + 55% vues
+ *   puis régularisation vers le prior, avec bonus langue d'origine (k/2 vs 2k).
+ */
+export function eloParLangue(opts: {
+  pertinence: number;
+  vues: number | null | undefined;
+  langue: string;
+  langueSource: string;
+  prior: number;
+  k: number;
+}): number {
+  const vuesScore = scoreDepuisVues(opts.vues);
+  const pert = Math.min(100, Math.max(0, opts.pertinence));
+  const base = 0.45 * pert + 0.55 * vuesScore;
+  const langueSource = opts.langue === opts.langueSource;
+  const kk = langueSource ? opts.k / 2 : opts.k * 2;
+  return (kk * opts.prior + base) / (kk + 1);
 }
 
 /** Hérite les labels du compte de référence + labels explicites. */
@@ -159,36 +179,54 @@ export async function creerContenuDepuisPost(
   if (error || !contenu) throw error ?? new Error("Création contenu échouée");
 
   await attacherLabels(supabase, contenu.id, compteReferenceId, labelIds);
-  await assurerContenuLangues(supabase, contenu.id, langueSource, post.stats?.vues ?? null);
+  // Les lignes `contenu_langues` sont créées APRÈS pertinence + gate ELO
+  // (uniquement les langues au-dessus du seuil).
   return { id: contenu.id, reused: false };
 }
 
-export async function assurerContenuLangues(
+/**
+ * Crée les `contenu_langues` uniquement pour les langues dont l'ELO ≥ seuil.
+ * Renvoie les langues retenues (vide = TikTok non importé / rejeté).
+ * Ne touche pas aux lignes déjà présentes (stocks existants).
+ */
+export async function assurerLanguesAuDessusSeuilElo(
   supabase: Supabase,
   contenuId: string,
   langueSource: string,
   vuesSource: number | null,
-): Promise<void> {
+  pertinence: number,
+): Promise<string[]> {
   const scoring = await lireScoring(supabase);
-  const base = scoreBaseDepuisVues(vuesSource);
   const { data: existantes } = await supabase
     .from("contenu_langues")
     .select("langue")
     .eq("contenu_id", contenuId);
-  const deja = new Set((existantes ?? []).map((r) => r.langue));
+  if ((existantes ?? []).length > 0) {
+    // Stock déjà en place : on ne reconstruit pas.
+    return (existantes ?? []).map((r) => r.langue as string);
+  }
 
-  const rows = LANGUES_CIBLES.filter((l) => !deja.has(l)).map((langue) => ({
+  const rows = LANGUES_CIBLES.map((langue) => ({
     contenu_id: contenuId,
     langue,
     slides: [] as SlideLangue[],
-    score: scoreInitial(base, scoring.prior, scoring.k, langue === langueSource),
+    score: eloParLangue({
+      pertinence,
+      vues: vuesSource,
+      langue,
+      langueSource,
+      prior: scoring.prior,
+      k: scoring.k,
+    }),
     nb_passages: 0,
     score_maj_at: new Date().toISOString(),
-  }));
-  if (rows.length > 0) {
-    const { error } = await supabase.from("contenu_langues").insert(rows);
-    if (error) throw error;
-  }
+  })).filter((r) => r.score >= scoring.eloSeuil);
+
+  if (rows.length === 0) return [];
+
+  const { error } = await supabase.from("contenu_langues").insert(rows);
+  if (error) throw error;
+  return rows.map((r) => r.langue);
 }
 
 /** Import d'un lien TikTok isolé. */
@@ -214,11 +252,11 @@ export async function importerLien(
   return creerContenuDepuisPost(supabase, post, compteReferenceId, labelIds, langue);
 }
 
-/** Scrape un compte de référence : crée jusqu'à N contenus inédits. */
+/** Scrape un compte de référence : crée un contenu pending pour CHAQUE TikTok inédit. */
 export async function importerCompteReference(
   supabase: Supabase,
   compteReferenceId: string,
-): Promise<{ crees: number; ids: string[] }> {
+): Promise<{ crees: number; ids: string[]; scrapes: number }> {
   const { data: ref } = await supabase
     .from("comptes_reference")
     .select("id, handle_tiktok, langue")
@@ -229,7 +267,7 @@ export async function importerCompteReference(
   const { data: connusContenu } = await supabase.from("contenus").select("source_url");
   const deja = new Set((connusContenu ?? []).map((s) => idDe(s.source_url ?? "")));
 
-  const posts = await scrapeProfile(ref.handle_tiktok, 30);
+  const posts = await scrapeProfile(ref.handle_tiktok, SCRAPE_TOUS);
   const inedits = posts
     .filter((p) => p.imageUrls.length > 0 && !deja.has(idDe(p.webVideoUrl)))
     .sort((a, b) => (b.stats?.vues ?? 0) - (a.stats?.vues ?? 0));
@@ -237,7 +275,6 @@ export async function importerCompteReference(
   const ids: string[] = [];
   let crees = 0;
   for (const post of inedits) {
-    if (crees >= CONTENUS_PAR_SCRAPE) break;
     const r = await creerContenuDepuisPost(
       supabase,
       post,
@@ -256,7 +293,7 @@ export async function importerCompteReference(
     .update({ dernier_scrape_at: new Date().toISOString() })
     .eq("id", compteReferenceId);
 
-  return { crees, ids };
+  return { crees, ids, scrapes: posts.length };
 }
 
 async function marquer(
@@ -270,8 +307,11 @@ async function marquer(
 
 /**
  * Avance le pipeline d'UN pas. Ordre :
- * OCR hook → pertinence → OCR reste → nettoyage (1×) → traduction (1 langue)
- * → Sophia (1 langue) → scores → valide.
+ * OCR hook → pertinence → OCR reste → ELO par langue (gate) → nettoyage (1×)
+ * → traduction (langues retenues) → Sophia → valide.
+ *
+ * Les contenus déjà `import_statut=done` / stocks existants ne sont pas
+ * re-gatés ici (file d'attente = pending/running seulement).
  */
 // deno-lint-ignore no-explicit-any
 export async function avancerImport(supabase: Supabase, contenu: any): Promise<string> {
@@ -286,8 +326,7 @@ export async function avancerImport(supabase: Supabase, contenu: any): Promise<s
       import_erreur: null,
     });
 
-    // Reprise / backfill : réhydrate l'OCR depuis la langue source si besoin
-    // (structure_slides migrée sans texte_original).
+    // Reprise : réhydrate l'OCR depuis la langue source si besoin.
     if (slides.some((s) => s.texte_original == null)) {
       const { data: srcLang } = await supabase
         .from("contenu_langues")
@@ -306,13 +345,6 @@ export async function avancerImport(supabase: Supabase, contenu: any): Promise<s
       }
     }
 
-    await assurerContenuLangues(
-      supabase,
-      contenu.id,
-      langueSource,
-      contenu.vues_source ?? null,
-    );
-
     // 1 — OCR du hook
     if (slides[0] && (slides[0].texte_original === null || slides[0].texte_original === undefined)) {
       slides[0].texte_original = await ocrFrame(slides[0].raw_url);
@@ -323,23 +355,20 @@ export async function avancerImport(supabase: Supabase, contenu: any): Promise<s
       return "ocr";
     }
 
-    // 2 — Pertinence (garde Sophia)
+    // 2 — Pertinence (métrique ELO ; pas de rejet dur ici)
     if (contenu.pertinence_score === null || contenu.pertinence_score === undefined) {
-      const scoring = await lireScoring(supabase);
       const { score, reason } = await scoreRelevance({
         caption: contenu.titre ?? "",
         hookText: slides[0]?.texte_original ?? "",
         instructions: await chargerPrompt(supabase, "pertinence"),
       });
-      const retenu = score >= scoring.pertinence;
       await marquer(supabase, contenu.id, {
         pertinence_score: score,
         pertinence_raison: reason,
-        statut: retenu ? "brouillon" : "rejete",
-        import_statut: retenu ? "running" : "done",
-        import_etape: retenu ? "pertinence" : "rejete",
+        statut: "brouillon",
+        import_etape: "pertinence",
       });
-      return retenu ? "pertinence" : "rejete";
+      return "pertinence";
     }
 
     if (contenu.statut === "rejete") {
@@ -353,17 +382,6 @@ export async function avancerImport(supabase: Supabase, contenu: any): Promise<s
       for (const slide of aOcr.slice(0, SLIDES_PAR_PASSAGE)) {
         slide.texte_original = await ocrFrame(slide.raw_url);
       }
-      // Sync OCR → langue source
-      const slidesSource: SlideLangue[] = slides.map((s) => ({
-        position: s.position,
-        texte_overlay: s.texte_original ?? "",
-        position_sophia: false,
-      }));
-      await supabase
-        .from("contenu_langues")
-        .update({ slides: slidesSource })
-        .eq("contenu_id", contenu.id)
-        .eq("langue", langueSource);
       await marquer(supabase, contenu.id, {
         structure_slides: slides,
         import_etape: "ocr",
@@ -371,30 +389,56 @@ export async function avancerImport(supabase: Supabase, contenu: any): Promise<s
       return "ocr";
     }
 
-    // Sync source si pas encore fait
+    // 4 — ELO par langue → ne garde que les langues ≥ seuil
     {
-      const { data: cl } = await supabase
-        .from("contenu_langues")
-        .select("slides")
-        .eq("contenu_id", contenu.id)
-        .eq("langue", langueSource)
-        .maybeSingle();
-      const vides = !cl?.slides || (Array.isArray(cl.slides) && cl.slides.length === 0);
-      if (vides) {
-        const slidesSource: SlideLangue[] = slides.map((s) => ({
-          position: s.position,
-          texte_overlay: s.texte_original ?? "",
-          position_sophia: false,
-        }));
-        await supabase
+      const retenues = await assurerLanguesAuDessusSeuilElo(
+        supabase,
+        contenu.id,
+        langueSource,
+        contenu.vues_source ?? null,
+        Number(contenu.pertinence_score ?? 0),
+      );
+      if (retenues.length === 0) {
+        await marquer(supabase, contenu.id, {
+          statut: "rejete",
+          import_statut: "done",
+          import_etape: "elo_insuffisant",
+          import_erreur: "Aucune langue avec ELO au-dessus du seuil — TikTok non importé",
+        });
+        return "elo_insuffisant";
+      }
+
+      // Sync OCR → deck langue source SI elle a passé le seuil.
+      if (retenues.includes(langueSource)) {
+        const { data: cl } = await supabase
           .from("contenu_langues")
-          .update({ slides: slidesSource })
+          .select("id, slides")
           .eq("contenu_id", contenu.id)
-          .eq("langue", langueSource);
+          .eq("langue", langueSource)
+          .maybeSingle();
+        const vides = !cl?.slides || (Array.isArray(cl.slides) && cl.slides.length === 0);
+        if (vides && cl) {
+          const slidesSource: SlideLangue[] = slides.map((s) => ({
+            position: s.position,
+            texte_overlay: s.texte_original ?? "",
+            position_sophia: false,
+          }));
+          await supabase
+            .from("contenu_langues")
+            .update({ slides: slidesSource })
+            .eq("id", cl.id);
+        }
+      }
+
+      if (contenu.import_etape !== "elo" && contenu.import_etape !== "nettoyage" &&
+          contenu.import_etape !== "traduction" && contenu.import_etape !== "sophia" &&
+          contenu.import_etape !== "done") {
+        await marquer(supabase, contenu.id, { import_etape: "elo" });
+        return "elo";
       }
     }
 
-    // 4 — Nettoyage image UNE fois (language-agnostique)
+    // 5 — Nettoyage image UNE fois (language-agnostique)
     const aNettoyer = slides.filter((s) => !s.media_id);
     if (aNettoyer.length > 0) {
       for (const slide of aNettoyer.slice(0, SLIDES_PAR_PASSAGE)) {
@@ -416,10 +460,10 @@ export async function avancerImport(supabase: Supabase, contenu: any): Promise<s
       return "nettoyage";
     }
 
-    // 5 — Traduction : une langue cible manquante par passage
+    // 6 — Traduction : uniquement les langues retenues par l'ELO (hors source)
     const { data: langues } = await supabase
       .from("contenu_langues")
-      .select("id, langue, slides")
+      .select("id, langue, slides, score")
       .eq("contenu_id", contenu.id);
 
     const aTraduire = (langues ?? []).find((l) => {
@@ -458,7 +502,7 @@ export async function avancerImport(supabase: Supabase, contenu: any): Promise<s
       return "traduction";
     }
 
-    // 6 — Sophia : une langue sans placement par passage
+    // 7 — Sophia : une langue retenue sans placement
     const aSophia = (langues ?? []).find((l) => {
       const s = (l.slides ?? []) as SlideLangue[];
       return s.length > 0 && !s.some((x) => x.position_sophia);
@@ -525,14 +569,20 @@ export async function avancerImport(supabase: Supabase, contenu: any): Promise<s
       return "sophia_repli";
     }
 
-    // 7 — Recalcule scores cold-start puis valide
+    // 8 — Recalcule ELO cold-start (pert + vues + bonus langue) puis valide
     const scoring = await lireScoring(supabase);
-    const base = scoreBaseDepuisVues(contenu.vues_source);
     for (const l of langues ?? []) {
       await supabase
         .from("contenu_langues")
         .update({
-          score: scoreInitial(base, scoring.prior, scoring.k, l.langue === langueSource),
+          score: eloParLangue({
+            pertinence: Number(contenu.pertinence_score ?? 0),
+            vues: contenu.vues_source,
+            langue: l.langue,
+            langueSource,
+            prior: scoring.prior,
+            k: scoring.k,
+          }),
           score_maj_at: new Date().toISOString(),
         })
         .eq("id", l.id);

@@ -165,6 +165,8 @@ export interface ReglagesScoring {
   variation_profondeur_max: number;
   score_prior: number;
   pertinence_seuil: number;
+  /** Seuil ELO à l'import : langues en-dessous non cuites ; 0 langue → non importé. */
+  elo_seuil_import: number;
 }
 
 export interface ReglagesPaiement {

@@ -25,6 +25,7 @@ import { AdminPostsPage } from "@/pages/admin/AdminPostsPage";
 import { AdminCalendrierPage } from "@/pages/admin/AdminCalendrierPage";
 import { AdminMinuitPage } from "@/pages/admin/AdminMinuitPage";
 import { AdminContenusPage } from "@/pages/admin/AdminContenusPage";
+import { AdminSlideshowsPage } from "@/pages/admin/AdminSlideshowsPage";
 import { AdminPostDetailPage } from "@/pages/admin/AdminPostDetailPage";
 import { AdminTestNettoyagePage } from "@/pages/admin/AdminTestNettoyagePage";
 import { AdminTestsPage } from "@/pages/admin/AdminTestsPage";
@@ -60,6 +61,7 @@ export function AppRouter() {
             <Route path="/admin/posts" element={<AdminPostsPage />} />
             <Route path="/admin/sources" element={<AdminSourcesPage />} />
             <Route path="/admin/contenus" element={<AdminContenusPage />} />
+            <Route path="/admin/slideshows" element={<AdminSlideshowsPage />} />
             <Route path="/admin/assignation-sources" element={<Navigate to="/admin/sources" replace />} />
             <Route path="/admin/reproduisibles" element={<AdminReproduciblesPage />} />
             <Route path="/admin/posters" element={<AdminPostersPage />} />

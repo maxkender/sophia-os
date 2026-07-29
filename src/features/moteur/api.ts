@@ -17,6 +17,8 @@ import type {
   SujetSlide,
   Label,
   Contenu,
+  ContenuLangue,
+  Passage,
 } from "./types";
 
 /** Date du jour en YYYY-MM-DD, en heure locale — le poster raisonne sur sa
@@ -1069,7 +1071,7 @@ export async function lireReglages(): Promise<Reglages> {
       posts_par_jour: 2,
       tout_recycle: true,
     },
-    scoring: (map.get("scoring") as Reglages["scoring"] | undefined) ?? {
+    scoring: {
       ewma_alpha: 0.3,
       regularisation_k: 5,
       transfert_inter_langue: 0.15,
@@ -1083,6 +1085,8 @@ export async function lireReglages(): Promise<Reglages> {
       variation_profondeur_max: 2,
       score_prior: 50,
       pertinence_seuil: 50,
+      elo_seuil_import: 55,
+      ...((map.get("scoring") as Partial<Reglages["scoring"]> | undefined) ?? {}),
     },
     paiement: (map.get("paiement") as Reglages["paiement"] | undefined) ?? {
       tarif_base_mensuel: 0,
@@ -1587,6 +1591,66 @@ export async function listerContenus(opts?: {
     labels: labelsPar.get(c.id) ?? [],
     scores: scoresPar.get(c.id) ?? [],
   }));
+}
+
+export interface SlideshowDetail extends ContenuListe {
+  langues: ContenuLangue[];
+  passages: Array<
+    Passage & {
+      comptes?: { handle_tiktok: string | null; persona_nom: string | null; langue: string } | null;
+    }
+  >;
+  source?: { handle_tiktok: string } | null;
+}
+
+/** Détail d'un slideshow importé : ELO par langue, passages, stats. */
+export async function lireSlideshow(id: string): Promise<SlideshowDetail | null> {
+  const { data: contenu, error } = await supabase.from("contenus").select("*").eq("id", id).maybeSingle();
+  if (error) throw error;
+  if (!contenu) return null;
+
+  const [{ data: langues }, { data: passages }, { data: liens }] = await Promise.all([
+    supabase
+      .from("contenu_langues")
+      .select("*")
+      .eq("contenu_id", id)
+      .order("score", { ascending: false }),
+    supabase
+      .from("passages")
+      .select("*, comptes(handle_tiktok, persona_nom, langue)")
+      .eq("contenu_id", id)
+      .order("date_publication_prevue", { ascending: false }),
+    supabase.from("contenu_labels").select("label_id, labels(*)").eq("contenu_id", id),
+  ]);
+
+  let source: { handle_tiktok: string } | null = null;
+  if (contenu.compte_reference_id) {
+    const { data: ref } = await supabase
+      .from("comptes_reference")
+      .select("handle_tiktok")
+      .eq("id", contenu.compte_reference_id)
+      .maybeSingle();
+    source = ref;
+  }
+
+  const labels: Label[] = [];
+  for (const l of liens ?? []) {
+    const row = l as unknown as { labels: Label | null };
+    if (row.labels) labels.push(row.labels);
+  }
+
+  return {
+    ...(contenu as Contenu),
+    labels,
+    scores: (langues ?? []).map((l) => ({
+      langue: l.langue,
+      score: l.score,
+      nb_passages: l.nb_passages,
+    })),
+    langues: (langues ?? []) as ContenuLangue[],
+    passages: (passages ?? []) as SlideshowDetail["passages"],
+    source,
+  };
 }
 
 /** Coût mensuel = base + posts_par_jour × unitaire. */

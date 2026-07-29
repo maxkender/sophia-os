@@ -174,6 +174,12 @@ export function AdminReglagesPage() {
                 valeur={reglages.scoring.pertinence_seuil}
                 onChange={(n) => majScoring({ pertinence_seuil: n })}
               />
+              <ChampNombre
+                id="elo"
+                label={t("reglages.eloSeuil")}
+                valeur={reglages.scoring.elo_seuil_import}
+                onChange={(n) => majScoring({ elo_seuil_import: n })}
+              />
             </div>
           </section>
 

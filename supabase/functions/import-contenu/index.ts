@@ -7,15 +7,17 @@ import {
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 /**
- * Import pré-calculé v-next : scrape → OCR → pertinence → nettoyage (1×) →
- * traduction TOUTES langues → Sophia par langue → score → pool `valide`.
+ * Import pré-calculé v-next :
+ *   scrape (tous / lien) → OCR → pertinence + vues + langue
+ *   → ELO par langue → si aucune ≥ seuil : rejeté (non importé)
+ *   → sinon nettoyage 1× + traduction / Sophia des langues retenues → valide.
  *
- * Avance par petits pas (Edge Function) ; le cron (ou l'admin) rappelle.
+ * Ne réécrit pas les posts du jour ni les stocks déjà `done`.
  *
  *   {}                              → prochain contenu en file
  *   { contenuId }                   → ce contenu
  *   { postUrl, compteReferenceId?, labelIds? } → TikTok isolé + file
- *   { compteReferenceId, scrape: true } → scrape source (N contenus) + file
+ *   { compteReferenceId, scrape: true } → scrape TOUS les TikToks + file
  */
 Deno.serve(async (request) => {
   const denied = await assertAuthorised(request);
@@ -55,7 +57,7 @@ Deno.serve(async (request) => {
     // Entrée : scrape compte de référence
     if (body?.compteReferenceId && body?.scrape) {
       const r = await importerCompteReference(supabase, String(body.compteReferenceId));
-      return json({ ok: true, crees: r.crees, ids: r.ids });
+      return json({ ok: true, crees: r.crees, ids: r.ids, scrapes: r.scrapes });
     }
 
     const contenuId: string | null = body?.contenuId ?? null;

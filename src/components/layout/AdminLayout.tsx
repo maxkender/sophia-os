@@ -49,9 +49,15 @@ export function AdminLayout() {
             },
             { to: "/admin/sources", label: t("nav.sources"), icon: AtSign, description: t("navDesc.sources") },
             {
+              to: "/admin/slideshows",
+              label: t("nav.slideshows"),
+              icon: ListOrdered,
+              description: t("navDesc.slideshows"),
+            },
+            {
               to: "/admin/contenus",
               label: t("nav.contenus"),
-              icon: ListOrdered,
+              icon: BookOpen,
               description: t("navDesc.contenus"),
             },
             {

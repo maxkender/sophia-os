@@ -685,9 +685,7 @@ function DetailSlideshow({
 export function AdminSlideshowsPage() {
   const { t } = useTranslation();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [filtre, setFiltre] = React.useState<"tous" | "valide" | "brouillon" | "rejete">(
-    "tous",
-  );
+  const [filtre, setFiltre] = React.useState<"tous" | "valide" | "rejete">("tous");
   const [ouvert, setOuvert] = React.useState<string | null>(
     searchParams.get("id"),
   );
@@ -724,7 +722,7 @@ export function AdminSlideshowsPage() {
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex flex-wrap gap-2">
-            {(["tous", "valide", "brouillon", "rejete"] as const).map((f) => (
+            {(["tous", "valide", "rejete"] as const).map((f) => (
               <button
                 key={f}
                 type="button"

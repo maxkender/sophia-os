@@ -585,7 +585,6 @@ export const en = {
       filtre: {
         tous: "All",
         valide: "Valid",
-        brouillon: "Drafts",
         rejete: "Rejected",
       },
     },

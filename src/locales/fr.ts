@@ -586,7 +586,6 @@ export const fr = {
       filtre: {
         tous: "Tous",
         valide: "Valides",
-        brouillon: "Brouillons",
         rejete: "Rejetés",
       },
     },

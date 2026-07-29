@@ -52,12 +52,6 @@ export function AdminLayout() {
               description: t("navDesc.slideshows"),
             },
             {
-              to: "/admin/contenus",
-              label: t("nav.contenus"),
-              icon: BookOpen,
-              description: t("navDesc.contenus"),
-            },
-            {
               to: "/admin/bibliotheque",
               label: t("nav.bibliotheque"),
               icon: Images,

@@ -240,8 +240,8 @@ async function agentSlideshow(opts: {
     if (cree.reused) {
       log(
         opts.jobId,
-        "warn",
-        `${tag} déjà connu — reprise pipeline`,
+        "ok",
+        `${tag} déjà importé — re-pipeline sur le même contenu (Passages / stats conservés)`,
         cree.contenuId,
       );
     } else {
@@ -341,13 +341,15 @@ export function demarrerImportCompte(opts: {
       log(
         jobId,
         "ok",
-        `Liste OK — ${listed.urls.length} inédits / ${listed.total} photo(s) vues` +
-          (listed.connus > 0 ? ` (${listed.connus} déjà connus)` : ""),
+        `Liste OK — ${listed.urls.length} slideshow(s)` +
+          (listed.connus > 0
+            ? ` dont ${listed.connus} déjà connus (re-pipeline branché)`
+            : " (tous nouveaux)"),
         `source=${listed.source}`,
       );
 
       if (listed.urls.length === 0) {
-        log(jobId, "warn", "Aucun slideshow inédit à importer");
+        log(jobId, "warn", "Aucun slideshow à importer");
         fin(jobId, "ok");
         return;
       }
@@ -355,7 +357,7 @@ export function demarrerImportCompte(opts: {
       log(
         jobId,
         "info",
-        `Lancement de ${listed.urls.length} agent(s) — scrape + OCR/ELO/clean/Sophia source (trad hors-source à minuit) ×${Math.min(largeur, listed.urls.length)}`,
+        `Lancement de ${listed.urls.length} agent(s) — scrape + OCR/ELO/clean/Sophia source (connus → même contenu) ×${Math.min(largeur, listed.urls.length)}`,
       );
       for (const url of listed.urls) {
         log(jobId, "info", `file d'attente agent [${tagUrl(url)}]`, url);

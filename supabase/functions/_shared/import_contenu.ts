@@ -148,24 +148,33 @@ async function stockerVisuelBrut(
   }
 }
 
-/** Crée un contenu depuis un post scrapé (idempotent sur source_url). */
-export async function creerContenuDepuisPost(
+async function trouverContenuParUrl(
   supabase: Supabase,
-  post: ScrapedPost,
-  compteReferenceId: string | null,
-  labelIds: string[] | null = null,
-  langueSource = "fr",
-): Promise<{ id: string; reused: boolean }> {
-  const { data: existant } = await supabase
+  postUrl: string,
+): Promise<{ id: string } | null> {
+  const { data: exact } = await supabase
     .from("contenus")
     .select("id")
-    .eq("source_url", post.webVideoUrl)
+    .eq("source_url", postUrl)
     .maybeSingle();
-  if (existant) {
-    await attacherLabels(supabase, existant.id, compteReferenceId, labelIds);
-    return { id: existant.id, reused: true };
-  }
+  if (exact) return exact;
 
+  const pid = idDe(postUrl);
+  if (!pid || pid === postUrl) return null;
+  // Variantes /photo/ vs /video/ : match sur l'id TikTok.
+  const { data: approx } = await supabase
+    .from("contenus")
+    .select("id, source_url")
+    .or(`source_url.ilike.%/photo/${pid}%,source_url.ilike.%/video/${pid}%`)
+    .limit(1)
+    .maybeSingle();
+  return approx ? { id: approx.id } : null;
+}
+
+async function slidesBrutesDepuisPost(
+  supabase: Supabase,
+  post: ScrapedPost,
+): Promise<SlideBrut[]> {
   const slides: SlideBrut[] = [];
   for (const [index, url] of post.imageUrls.entries()) {
     const position = index + 1;
@@ -178,6 +187,72 @@ export async function creerContenuDepuisPost(
       texte_original: null,
     });
   }
+  return slides;
+}
+
+/**
+ * Réouvre un contenu déjà importé pour un nouveau passage pipeline
+ * (OCR → ELO → clean → Sophia source). Même id → l'historique Passages / stats
+ * reste branché. Les decks `contenu_langues` sont remis à zéro (recalcul ELO).
+ */
+async function reouvrirContenuPourReimport(
+  supabase: Supabase,
+  contenuId: string,
+  post: ScrapedPost,
+  compteReferenceId: string | null,
+  labelIds: string[] | null,
+  langueSource: string,
+): Promise<void> {
+  const slides = await slidesBrutesDepuisPost(supabase, post);
+  const { error } = await supabase
+    .from("contenus")
+    .update({
+      titre: post.text.slice(0, 160) || "Sans titre",
+      structure_slides: slides,
+      compte_reference_id: compteReferenceId,
+      source_url: post.webVideoUrl,
+      langue_source: langueSource,
+      musique_url: post.musicUrl,
+      musique_titre: post.musicTitle,
+      vues_source: post.stats?.vues ?? null,
+      pertinence_score: null,
+      pertinence_raison: null,
+      statut: "brouillon",
+      import_statut: "pending",
+      import_etape: null,
+      import_erreur: null,
+      import_tentatives: 0,
+    })
+    .eq("id", contenuId);
+  if (error) throw error;
+
+  // Recalcul ELO / decks à l'import — les passages déjà créés gardent leur snapshot.
+  await supabase.from("contenu_langues").delete().eq("contenu_id", contenuId);
+  await attacherLabels(supabase, contenuId, compteReferenceId, labelIds);
+}
+
+/** Crée un contenu depuis un post scrapé (idempotent sur source_url). */
+export async function creerContenuDepuisPost(
+  supabase: Supabase,
+  post: ScrapedPost,
+  compteReferenceId: string | null,
+  labelIds: string[] | null = null,
+  langueSource = "fr",
+): Promise<{ id: string; reused: boolean }> {
+  const existant = await trouverContenuParUrl(supabase, post.webVideoUrl);
+  if (existant) {
+    await reouvrirContenuPourReimport(
+      supabase,
+      existant.id,
+      post,
+      compteReferenceId,
+      labelIds,
+      langueSource,
+    );
+    return { id: existant.id, reused: true };
+  }
+
+  const slides = await slidesBrutesDepuisPost(supabase, post);
 
   const { data: contenu, error } = await supabase
     .from("contenus")
@@ -346,10 +421,12 @@ export async function listerUrlsCompteReference(
     // Si Apify cale, on garde la liste page seule.
   }
 
-  const toutes = [...urlsSet];
-  const inedites = toutes
-    .filter((u) => !deja.has(idDe(u)))
-    .sort((a, b) => (vues.get(idDe(b)) ?? 0) - (vues.get(idDe(a)) ?? 0));
+  // Tous les slideshows (inédits + déjà connus) : les connus seront réouverts
+  // sur le même contenu (re-pipeline, historique Passages conservé).
+  const toutes = [...urlsSet].sort(
+    (a, b) => (vues.get(idDe(b)) ?? 0) - (vues.get(idDe(a)) ?? 0),
+  );
+  const connus = toutes.filter((u) => deja.has(idDe(u))).length;
 
   await supabase
     .from("comptes_reference")
@@ -358,9 +435,9 @@ export async function listerUrlsCompteReference(
 
   return {
     handle,
-    urls: inedites,
+    urls: toutes,
     total: toutes.length,
-    connus: toutes.length - inedites.length,
+    connus,
     source,
   };
 }

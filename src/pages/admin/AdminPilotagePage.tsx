@@ -326,11 +326,11 @@ export function AdminPilotagePage() {
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0">
           <div>
-            <CardTitle>{t("contenus.title")}</CardTitle>
-            <CardDescription>{t("contenus.subtitle")}</CardDescription>
+            <CardTitle>{t("slideshows.title")}</CardTitle>
+            <CardDescription>{t("slideshows.subtitle")}</CardDescription>
           </div>
           <Button asChild variant="outline" size="sm">
-            <Link to="/admin/contenus">{t("contenus.ouvrir")}</Link>
+            <Link to="/admin/slideshows">{t("contenus.ouvrir")}</Link>
           </Button>
         </CardHeader>
       </Card>

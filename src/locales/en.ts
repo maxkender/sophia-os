@@ -458,6 +458,10 @@ export const en = {
       gererCompte: "Manage account",
       creerCompte: "Create the publishing account",
       sansCompteCree: "This poster doesn't have a publishing account yet.",
+      labelsTitre: "Creator labels",
+      labelsAide:
+        "Without labels, midnight assigns nothing to this account (creator ∩ content label intersection).",
+      sansLabels: "No labels",
       creerRecruteur: "Create a recruiter",
       creerRecruteurDesc:
         "Enter their name and language: their recruiting workspace is ready on first login.",
@@ -526,6 +530,13 @@ export const en = {
       compteur_other: "{{count}} visuals still have text to clean.",
       nettoyerTout_one: "Clean the text visual",
       nettoyerTout_other: "Clean the {{count}} text visuals",
+      c2paTout_one: "Strip Content Credentials ({{count}})",
+      c2paTout_other: "Strip Content Credentials ({{count}})",
+      c2paEnCours: "C2PA… {{fait}}/{{total}}",
+      c2paAide:
+        "Removes C2PA / Content Credentials metadata from all displayed photos, without re-cleaning pixels. Logs below.",
+      c2paDebut: "C2PA strip on {{count}} photo(s)…",
+      c2paFin: "Done — stripped={{retires}} · already clean={{sautes}} · failed={{echecs}}",
       utilise_one: "used {{count}} time",
       utilise_other: "used {{count}} times",
       source: {
@@ -567,7 +578,7 @@ export const en = {
     slideshows: {
       title: "Slideshows",
       subtitle:
-        "Imported TikToks (v-next): cleaned and translated decks for each language above the ELO threshold, plus passages and stats.",
+        "Imported TikToks (v-next): source deck cleaned at import; other languages translated at midnight assignment when needed.",
       empty: "No imported slideshow yet.",
       sansImage: "No image",
       detail: "Slideshow detail",
@@ -581,9 +592,11 @@ export const en = {
       origine: "origin",
       nbPassages_one: "{{count}} passage",
       nbPassages_other: "{{count}} passages",
-      decks: "Ready decks (by language)",
+      decks: "Decks (by language)",
       decksVide: "No language retained (ELO below threshold or still importing).",
       deckVide: "No slides for this language yet.",
+      deckLazy:
+        "Not translated yet — translation + Sophia happen at midnight if a creator in this language is assigned.",
       deckSourceAide: "Cleaned visuals + original text (source language).",
       deckTradAide: "Cleaned visuals + translated text for this language.",
       sansTexte: "No text on this slide",

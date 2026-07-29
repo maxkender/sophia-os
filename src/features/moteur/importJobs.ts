@@ -355,7 +355,7 @@ export function demarrerImportCompte(opts: {
       log(
         jobId,
         "info",
-        `Lancement de ${listed.urls.length} agent(s) — 1 scrape Apify + pipeline par slideshow (parallèle ×${Math.min(largeur, listed.urls.length)})`,
+        `Lancement de ${listed.urls.length} agent(s) — scrape + OCR/ELO/clean/Sophia source (trad hors-source à minuit) ×${Math.min(largeur, listed.urls.length)}`,
       );
       for (const url of listed.urls) {
         log(jobId, "info", `file d'attente agent [${tagUrl(url)}]`, url);

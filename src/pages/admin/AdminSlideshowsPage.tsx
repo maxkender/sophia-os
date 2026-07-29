@@ -56,8 +56,16 @@ function DeckLangue({
     (langue.slides ?? []).map((s) => [s.position, s] as const),
   );
 
+  const aTexte = (langue.slides ?? []).some((s) => s.texte_overlay?.trim());
+
   if (structure.length === 0) {
     return <p className="text-xs text-muted-foreground">{t("slideshows.deckVide")}</p>;
+  }
+
+  if (!estSource && !aTexte) {
+    return (
+      <p className="text-xs text-muted-foreground">{t("slideshows.deckLazy")}</p>
+    );
   }
 
   return (

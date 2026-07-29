@@ -1,3 +1,4 @@
+import { assurerDeckPourLangue } from "./import_contenu.ts";
 import { serviceClient } from "./supabase.ts";
 
 export type Supabase = ReturnType<typeof serviceClient>;
@@ -125,6 +126,9 @@ export async function assignerCompteJour(
     );
     if (!choisi) break;
 
+    // Traduction + Sophia à la demande (hors langue source) — pas à l'import.
+    const slides = await assurerDeckPourLangue(supabase, choisi.contenuId, langue);
+
     const { data: passage, error } = await supabase
       .from("passages")
       .insert({
@@ -133,7 +137,7 @@ export async function assignerCompteJour(
         langue,
         date_publication_prevue: jour,
         statut: "assigne",
-        slides: choisi.slides ?? [],
+        slides,
         musique_url: choisi.musique_url,
         musique_titre: choisi.musique_titre,
         musique_plateforme: choisi.musique_plateforme,
@@ -220,13 +224,8 @@ async function choisirContenu(
   for (const cl of langues ?? []) {
     const cid = cl.contenu_id as string;
     if (dejaCreesCetteSession.includes(cid)) continue;
-    const slides = cl.slides as unknown[] | null;
-    if (!slides || slides.length === 0) continue;
-    // Exige au moins un texte
-    const aTexte = slides.some(
-      (s) => s && typeof s === "object" && (s as { texte_overlay?: string }).texte_overlay,
-    );
-    if (!aTexte) continue;
+    // Ligne `contenu_langues` = ELO ≥ seuil à l'import. Le deck peut être vide
+    // (traduction lazy à l'assignation) — on ne filtre plus sur slides pleines.
 
     const m = meta.get(cid);
     if (!m) continue;

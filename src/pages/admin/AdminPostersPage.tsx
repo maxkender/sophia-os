@@ -17,11 +17,13 @@ import {
 } from "@/components/ui/card";
 import { useAuth } from "@/features/auth/AuthContext";
 import { CompteEditor } from "@/features/moteur/CompteEditor";
+import { LabelEditor } from "@/features/moteur/LabelPicker";
 import {
   creerCompte,
   creerPoster,
   creerRecruteur,
   definirRole,
+  labelsDesComptes,
   listerComptes,
   listerLanguesReference,
   listerPosters,
@@ -29,6 +31,8 @@ import {
   majLanguesRecruteur,
   majPoster,
   majUpwork,
+  setLabelsCompte,
+  labelsDuCompte,
   supprimerPoster,
 } from "@/features/moteur/api";
 import { nomLangue } from "@/features/moteur/langues";
@@ -234,6 +238,11 @@ export function AdminPostersPage() {
   const posters = useQuery({ queryKey: ["posters"], queryFn: listerPosters });
   const comptes = useQuery({ queryKey: ["comptes"], queryFn: listerComptes });
   const langues = useQuery({ queryKey: ["langues-reference"], queryFn: listerLanguesReference });
+  const labelsComptes = useQuery({
+    queryKey: ["compte-labels-all", (comptes.data ?? []).map((c) => c.id).join(",")],
+    queryFn: () => labelsDesComptes((comptes.data ?? []).map((c) => c.id)),
+    enabled: (comptes.data?.length ?? 0) > 0,
+  });
 
   // Un compte de publication par poster (le TikTok qu'il tient) : on l'édite
   // directement ici, dépliable — plus besoin d'une page « Comptes » à part.
@@ -497,10 +506,11 @@ export function AdminPostersPage() {
           const estPoster = poster.role === "poster";
           const compte = compteDe.get(poster.id);
           const ouvert = ouverts.has(poster.id);
+          const labs = compte ? (labelsComptes.data?.get(compte.id) ?? []) : [];
           return (
             <div key={poster.id} className="rounded-xl border bg-card">
               <div className="flex flex-wrap items-center justify-between gap-3 p-3">
-                <div className="min-w-0">
+                <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="text-sm font-medium">
                       {[poster.prenom, poster.nom].filter(Boolean).join(" ") || poster.email}
@@ -513,6 +523,22 @@ export function AdminPostersPage() {
                     {!poster.is_active && (
                       <Badge variant="secondary">{t("posters.disabled")}</Badge>
                     )}
+                    {estPoster && compte && labs.length === 0 && (
+                      <Badge variant="warning">{t("posters.sansLabels")}</Badge>
+                    )}
+                    {labs.map((lab) => (
+                      <Badge
+                        key={lab.id}
+                        variant="outline"
+                        style={
+                          lab.couleur
+                            ? { borderColor: lab.couleur, color: lab.couleur }
+                            : undefined
+                        }
+                      >
+                        {lab.nom}
+                      </Badge>
+                    ))}
                   </div>
                   <p className="truncate text-xs text-muted-foreground">{poster.email}</p>
                   {poster.role === "hiring_manager" && <LangueRecruteur recruteur={poster} />}
@@ -612,6 +638,21 @@ export function AdminPostersPage() {
                   </div>
                 )}
               </div>
+
+              {estPoster && compte && (
+                <div className="space-y-2 border-t p-3">
+                  <p className="text-xs font-medium">{t("posters.labelsTitre")}</p>
+                  <p className="text-[11px] text-muted-foreground">{t("posters.labelsAide")}</p>
+                  <LabelEditor
+                    queryKey={["compte-labels", compte.id]}
+                    load={() => labelsDuCompte(compte.id)}
+                    save={async (ids) => {
+                      await setLabelsCompte(compte.id, ids);
+                      await queryClient.invalidateQueries({ queryKey: ["compte-labels-all"] });
+                    }}
+                  />
+                </div>
+              )}
 
               {estPoster && ouvert && (
                 <div className="border-t p-3">

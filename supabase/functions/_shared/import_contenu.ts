@@ -191,8 +191,9 @@ export async function creerContenuDepuisPost(
 }
 
 /**
- * Crée les `contenu_langues` uniquement pour les langues dont l'ELO ≥ seuil.
- * Renvoie les langues retenues (vide = TikTok non importé / rejeté).
+ * Crée les `contenu_langues` pour les langues ELO ≥ seuil (+ toujours la
+ * langue source, deck de base pour traduire plus tard à l'assignation).
+ * Renvoie les langues ≥ seuil (vide = TikTok non importé / rejeté).
  * Ne touche pas aux lignes déjà présentes (stocks existants).
  */
 export async function assurerLanguesAuDessusSeuilElo(
@@ -205,14 +206,16 @@ export async function assurerLanguesAuDessusSeuilElo(
   const scoring = await lireScoring(supabase);
   const { data: existantes } = await supabase
     .from("contenu_langues")
-    .select("langue")
+    .select("langue, score")
     .eq("contenu_id", contenuId);
   if ((existantes ?? []).length > 0) {
     // Stock déjà en place : on ne reconstruit pas.
-    return (existantes ?? []).map((r) => r.langue as string);
+    return (existantes ?? [])
+      .filter((r) => Number(r.score) >= scoring.eloSeuil)
+      .map((r) => r.langue as string);
   }
 
-  const rows = LANGUES_CIBLES.map((langue) => ({
+  const calculees = LANGUES_CIBLES.map((langue) => ({
     contenu_id: contenuId,
     langue,
     slides: [] as SlideLangue[],
@@ -226,13 +229,21 @@ export async function assurerLanguesAuDessusSeuilElo(
     }),
     nb_passages: 0,
     score_maj_at: new Date().toISOString(),
-  })).filter((r) => r.score >= scoring.eloSeuil);
+  }));
 
-  if (rows.length === 0) return [];
+  const retenues = calculees.filter((r) => r.score >= scoring.eloSeuil);
+  if (retenues.length === 0) return [];
 
-  const { error } = await supabase.from("contenu_langues").insert(rows);
+  // Langue source toujours présente (deck OCR / base de traduction), même si
+  // son ELO est sous le seuil — les autres langues ≥ seuil restent vides jusqu'à
+  // l'assignation minuit.
+  const parLangue = new Map(retenues.map((r) => [r.langue, r]));
+  const source = calculees.find((r) => r.langue === langueSource);
+  if (source && !parLangue.has(langueSource)) parLangue.set(langueSource, source);
+
+  const { error } = await supabase.from("contenu_langues").insert([...parLangue.values()]);
   if (error) throw error;
-  return rows.map((r) => r.langue);
+  return retenues.map((r) => r.langue);
 }
 
 /** Import d'un lien TikTok isolé. */
@@ -476,8 +487,8 @@ export async function avancerImport(supabase: Supabase, contenu: any): Promise<s
         return "elo_insuffisant";
       }
 
-      // Sync OCR → deck langue source SI elle a passé le seuil.
-      if (retenues.includes(langueSource)) {
+      // Sync OCR → deck langue source (toujours, base pour traductions ultérieures).
+      {
         const { data: cl } = await supabase
           .from("contenu_langues")
           .select("id, slides")
@@ -528,116 +539,64 @@ export async function avancerImport(supabase: Supabase, contenu: any): Promise<s
       return "nettoyage";
     }
 
-    // 6 — Traduction : uniquement les langues retenues par l'ELO (hors source)
+    // 6 — Sophia UNIQUEMENT sur la langue source.
+    // Les autres langues (≥ seuil ELO) restent vides jusqu'à l'assignation minuit
+    // (`assurerDeckPourLangue`) — pas de traduction inutile à l'import.
     const { data: langues } = await supabase
       .from("contenu_langues")
       .select("id, langue, slides, score")
       .eq("contenu_id", contenu.id);
 
-    const aTraduire = (langues ?? []).find((l) => {
-      if (l.langue === langueSource) return false;
-      const s = l.slides as SlideLangue[] | null;
-      return !s || s.length === 0 || s.every((x) => !x.texte_overlay);
-    });
+    const sourceCl = (langues ?? []).find((l) => l.langue === langueSource);
+    const deckSource = [...((sourceCl?.slides ?? []) as SlideLangue[])];
+    const sourceSansSophia =
+      Boolean(sourceCl) &&
+      deckSource.length > 0 &&
+      !deckSource.some((x) => x.position_sophia);
 
-    if (aTraduire) {
-      const voix = await voixSource(supabase, contenu.compte_reference_id);
-      const dedie = await chargerPrompt(supabase, `traduction_${aTraduire.langue}`);
-      const base = dedie ??
-        (aTraduire.langue === "fr" ? await chargerPrompt(supabase, "traduction") : undefined);
-      const regles = [base, voix ? `Voix propre à cette source :\n${voix}` : null]
-        .filter(Boolean)
-        .join("\n\n");
-
-      const traductions = await translateSlideshow({
-        slides: slides.map((s) => ({
-          position: s.position,
-          original: s.texte_original ?? "",
-        })),
-        sourceTitle: contenu.titre ?? "",
-        rules: regles || undefined,
-        langue: aTraduire.langue,
-        variation: false,
-      });
-      const parPos = new Map(traductions.map((t) => [t.position, t.translated]));
-      const deck: SlideLangue[] = slides.map((s) => ({
-        position: s.position,
-        texte_overlay: parPos.get(s.position) ?? "",
-        position_sophia: false,
-      }));
-      await supabase.from("contenu_langues").update({ slides: deck }).eq("id", aTraduire.id);
-      await marquer(supabase, contenu.id, { import_etape: "traduction" });
-      return "traduction";
-    }
-
-    // 7 — Sophia : une langue retenue sans placement
-    const aSophia = (langues ?? []).find((l) => {
-      const s = (l.slides ?? []) as SlideLangue[];
-      return s.length > 0 && !s.some((x) => x.position_sophia);
-    });
-
-    if (aSophia) {
-      const deck = [...((aSophia.slides ?? []) as SlideLangue[])];
-      const { data: corrections } = await supabase
-        .from("corrections")
-        .select("texte_origine, texte_corrige")
-        .order("created_at", { ascending: false })
-        .limit(40);
-
-      const placement = await integrateSophia({
-        masterPrompt: (await chargerPrompt(supabase, "placement_sophia")) ?? "",
-        corrections: (corrections ?? []).map((c) => ({
-          original_text: c.texte_origine,
-          corrected_text: c.texte_corrige,
-        })),
-        slides: deck.map((s) => ({ position: s.position, text: s.texte_overlay ?? "" })),
-        caption: contenu.titre ?? "",
-        langue: aSophia.langue,
-      });
-
-      if (placement) {
-        const idx = deck.findIndex((s) => s.position === placement.chosenPosition);
-        if (idx >= 0) {
-          deck[idx] = {
-            ...deck[idx],
-            texte_overlay: placement.variants[placement.bestIndex],
-            position_sophia: true,
-          };
-          await supabase.from("contenu_langues").update({ slides: deck }).eq("id", aSophia.id);
+    if (sourceSansSophia && sourceCl) {
+      const sophiaOk = await placerSophiaSurDeck(
+        supabase,
+        contenu,
+        sourceCl.id,
+        deckSource,
+        langueSource,
+      );
+      if (sophiaOk === "retry") {
+        const tentatives = (contenu.import_tentatives ?? 0) + 1;
+        if (tentatives < MAX_TENTATIVES_SOPHIA) {
           await marquer(supabase, contenu.id, {
+            import_statut: "pending",
             import_etape: "sophia",
-            import_tentatives: 0,
+            import_tentatives: tentatives,
           });
-          return "sophia";
+          return "sophia_retry";
         }
-      }
-
-      const tentatives = (contenu.import_tentatives ?? 0) + 1;
-      if (tentatives < MAX_TENTATIVES_SOPHIA) {
+        // Repli
+        const derniere = deckSource[deckSource.length - 1];
+        if (derniere) {
+          derniere.texte_overlay = sophiaParDefaut(langueSource);
+          derniere.position_sophia = true;
+          await supabase
+            .from("contenu_langues")
+            .update({ slides: deckSource })
+            .eq("id", sourceCl.id);
+        }
         await marquer(supabase, contenu.id, {
-          import_statut: "pending",
           import_etape: "sophia",
-          import_tentatives: tentatives,
+          import_tentatives: 0,
+          import_erreur: "Sophia placée en repli (texte par défaut)",
         });
-        return "sophia_retry";
-      }
-
-      // Repli
-      const derniere = deck[deck.length - 1];
-      if (derniere) {
-        derniere.texte_overlay = sophiaParDefaut(aSophia.langue);
-        derniere.position_sophia = true;
-        await supabase.from("contenu_langues").update({ slides: deck }).eq("id", aSophia.id);
+        return "sophia_repli";
       }
       await marquer(supabase, contenu.id, {
         import_etape: "sophia",
         import_tentatives: 0,
-        import_erreur: "Sophia placée en repli (texte par défaut)",
       });
-      return "sophia_repli";
+      return "sophia";
     }
 
-    // 8 — Recalcule ELO cold-start (pert + vues + bonus langue) puis valide
+    // 7 — Recalcule ELO cold-start puis valide (traductions hors-source → minuit)
     const scoring = await lireScoring(supabase);
     for (const l of langues ?? []) {
       await supabase
@@ -693,6 +652,143 @@ async function voixSource(
     .eq("id", compteReferenceId)
     .maybeSingle();
   return data?.style_profile ?? null;
+}
+
+/** Place Sophia sur un deck déjà texté. Renvoie "ok" | "retry". */
+async function placerSophiaSurDeck(
+  supabase: Supabase,
+  // deno-lint-ignore no-explicit-any
+  contenu: any,
+  contenuLangueId: string,
+  deck: SlideLangue[],
+  langue: string,
+): Promise<"ok" | "retry"> {
+  const { data: corrections } = await supabase
+    .from("corrections")
+    .select("texte_origine, texte_corrige")
+    .order("created_at", { ascending: false })
+    .limit(40);
+
+  const placement = await integrateSophia({
+    masterPrompt: (await chargerPrompt(supabase, "placement_sophia")) ?? "",
+    corrections: (corrections ?? []).map((c) => ({
+      original_text: c.texte_origine,
+      corrected_text: c.texte_corrige,
+    })),
+    slides: deck.map((s) => ({ position: s.position, text: s.texte_overlay ?? "" })),
+    caption: contenu.titre ?? "",
+    langue,
+  });
+
+  if (placement) {
+    const idx = deck.findIndex((s) => s.position === placement.chosenPosition);
+    if (idx >= 0) {
+      deck[idx] = {
+        ...deck[idx],
+        texte_overlay: placement.variants[placement.bestIndex],
+        position_sophia: true,
+      };
+      await supabase.from("contenu_langues").update({ slides: deck }).eq("id", contenuLangueId);
+      return "ok";
+    }
+  }
+  return "retry";
+}
+
+/**
+ * Garantit un deck prêt (texte + Sophia) pour une langue à l'assignation.
+ * - Langue source : déjà cuit à l'import.
+ * - Autre langue : traduit depuis le deck source + Sophia, une seule fois.
+ */
+export async function assurerDeckPourLangue(
+  supabase: Supabase,
+  contenuId: string,
+  langue: string,
+): Promise<SlideLangue[]> {
+  const { data: contenu } = await supabase
+    .from("contenus")
+    .select("id, titre, langue_source, compte_reference_id, structure_slides")
+    .eq("id", contenuId)
+    .single();
+  if (!contenu) throw new Error("Contenu introuvable");
+
+  const { data: cl } = await supabase
+    .from("contenu_langues")
+    .select("id, langue, slides")
+    .eq("contenu_id", contenuId)
+    .eq("langue", langue)
+    .maybeSingle();
+  if (!cl) throw new Error(`Langue ${langue} non éligible (pas de ligne ELO)`);
+
+  let deck = [...((cl.slides ?? []) as SlideLangue[])];
+  const pret =
+    deck.length > 0 &&
+    deck.some((s) => s.texte_overlay) &&
+    deck.some((s) => s.position_sophia);
+  if (pret) return deck;
+
+  const langueSource = contenu.langue_source ?? "fr";
+
+  // Besoin du deck source comme base de traduction
+  const { data: clSource } = await supabase
+    .from("contenu_langues")
+    .select("id, slides")
+    .eq("contenu_id", contenuId)
+    .eq("langue", langueSource)
+    .maybeSingle();
+  const deckSource = [...((clSource?.slides ?? []) as SlideLangue[])];
+  if (deckSource.length === 0 || !deckSource.some((s) => s.texte_overlay)) {
+    throw new Error("Deck langue source vide — impossible de traduire");
+  }
+
+  if (langue === langueSource) {
+    deck = deckSource;
+  } else if (deck.length === 0 || deck.every((s) => !s.texte_overlay)) {
+    const voix = await voixSource(supabase, contenu.compte_reference_id);
+    const dedie = await chargerPrompt(supabase, `traduction_${langue}`);
+    const base =
+      dedie ?? (langue === "fr" ? await chargerPrompt(supabase, "traduction") : undefined);
+    const regles = [base, voix ? `Voix propre à cette source :\n${voix}` : null]
+      .filter(Boolean)
+      .join("\n\n");
+
+    const traductions = await translateSlideshow({
+      slides: deckSource.map((s) => ({
+        position: s.position,
+        original: s.texte_overlay ?? "",
+      })),
+      sourceTitle: contenu.titre ?? "",
+      rules: regles || undefined,
+      langue,
+      variation: false,
+    });
+    const parPos = new Map(traductions.map((t) => [t.position, t.translated]));
+    deck = deckSource.map((s) => ({
+      position: s.position,
+      texte_overlay: parPos.get(s.position) ?? "",
+      position_sophia: false,
+    }));
+    await supabase.from("contenu_langues").update({ slides: deck }).eq("id", cl.id);
+  }
+
+  if (!deck.some((s) => s.position_sophia)) {
+    const r = await placerSophiaSurDeck(supabase, contenu, cl.id, deck, langue);
+    if (r === "retry") {
+      const derniere = deck[deck.length - 1];
+      if (derniere) {
+        derniere.texte_overlay = sophiaParDefaut(langue);
+        derniere.position_sophia = true;
+        await supabase.from("contenu_langues").update({ slides: deck }).eq("id", cl.id);
+      }
+    }
+  }
+
+  const { data: frais } = await supabase
+    .from("contenu_langues")
+    .select("slides")
+    .eq("id", cl.id)
+    .single();
+  return (frais?.slides ?? deck) as SlideLangue[];
 }
 
 // deno-lint-ignore no-explicit-any

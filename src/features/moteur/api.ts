@@ -1036,6 +1036,19 @@ export async function supprimerMedia(mediaId: string): Promise<void> {
   if (error) throw error;
 }
 
+/** Retire les Content Credentials (C2PA) d'une photo, sans re-nettoyer. */
+export const stripC2paMedia = (mediaId: string) =>
+  invoke<{
+    ok: boolean;
+    mediaId: string;
+    saute?: boolean;
+    retire?: boolean;
+    detail?: string;
+    url?: string;
+    error?: string;
+  }>("strip-c2pa", { mediaId });
+
+
 /** Le compte de référence dont dépend un post — pour filtrer sa bibliothèque. */
 export async function compteReferenceDuPost(postId: string): Promise<string | null> {
   const { data, error } = await supabase
@@ -1529,6 +1542,27 @@ export async function labelsDuCompte(compteId: string): Promise<string[]> {
     .eq("compte_id", compteId);
   if (error) throw error;
   return (data ?? []).map((r) => r.label_id as string);
+}
+
+/** Labels de plusieurs comptes (pour afficher sur la liste posters). */
+export async function labelsDesComptes(
+  compteIds: string[],
+): Promise<Map<string, Label[]>> {
+  const out = new Map<string, Label[]>();
+  if (compteIds.length === 0) return out;
+  const { data, error } = await supabase
+    .from("compte_labels")
+    .select("compte_id, labels(*)")
+    .in("compte_id", compteIds);
+  if (error) throw error;
+  for (const row of data ?? []) {
+    const r = row as unknown as { compte_id: string; labels: Label | null };
+    if (!r.labels) continue;
+    const list = out.get(r.compte_id) ?? [];
+    list.push(r.labels);
+    out.set(r.compte_id, list);
+  }
+  return out;
 }
 
 export async function labelsDeLaSource(compteReferenceId: string): Promise<string[]> {

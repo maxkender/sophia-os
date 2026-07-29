@@ -458,6 +458,11 @@ export const fr = {
       gererCompte: "Gérer le compte",
       creerCompte: "Créer le compte de publication",
       sansCompteCree: "Ce poster n'a pas encore de compte de publication.",
+      labelsTitre: "Labels du créateur",
+      labelsAide:
+        "Sans label, minuit n'assigne rien à ce compte (intersection labels créateur ∩ contenus).",
+      sansLabels: "Sans labels",
+
       creerRecruteur: "Créer un recruteur",
       creerRecruteurDesc:
         "Saisis son nom et sa langue : son espace de recrutement est prêt à sa première connexion.",
@@ -526,6 +531,13 @@ export const fr = {
       compteur_other: "{{count}} visuels portent encore du texte à nettoyer.",
       nettoyerTout_one: "Nettoyer le visuel à texte",
       nettoyerTout_other: "Nettoyer les {{count}} visuels à texte",
+      c2paTout_one: "Retirer Content Credentials ({{count}})",
+      c2paTout_other: "Retirer Content Credentials ({{count}})",
+      c2paEnCours: "C2PA… {{fait}}/{{total}}",
+      c2paAide:
+        "Retire les métadonnées C2PA / Content Credentials de toutes les photos affichées, sans re-nettoyer les pixels. Logs ci-dessous.",
+      c2paDebut: "Strip C2PA sur {{count}} photo(s)…",
+      c2paFin: "Terminé — retirés={{retires}} · déjà propres={{sautes}} · échecs={{echecs}}",
       utilise_one: "utilisé {{count}} fois",
       utilise_other: "utilisé {{count}} fois",
       source: {
@@ -567,7 +579,7 @@ export const fr = {
     slideshows: {
       title: "Slideshows",
       subtitle:
-        "TikToks importés (v-next) : decks nettoyés et traduits pour chaque langue au-dessus du seuil ELO, plus passages et stats.",
+        "TikToks importés (v-next) : deck source nettoyé à l'import ; autres langues traduites à l'assignation minuit si besoin.",
       empty: "Aucun slideshow importé pour l'instant.",
       sansImage: "Sans image",
       detail: "Détail du slideshow",
@@ -581,9 +593,11 @@ export const fr = {
       origine: "origine",
       nbPassages_one: "{{count}} passage",
       nbPassages_other: "{{count}} passages",
-      decks: "Decks prêts (par langue)",
+      decks: "Decks (par langue)",
       decksVide: "Aucune langue retenue (ELO sous le seuil ou import en cours).",
       deckVide: "Pas encore de slides pour cette langue.",
+      deckLazy:
+        "Pas encore traduit — la traduction + Sophia se feront à minuit si un créateur de cette langue est assigné.",
       deckSourceAide: "Visuels nettoyés + texte d'origine (langue source).",
       deckTradAide: "Visuels nettoyés + texte traduit pour cette langue.",
       sansTexte: "Pas de texte sur cette slide",

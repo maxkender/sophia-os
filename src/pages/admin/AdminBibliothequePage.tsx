@@ -20,6 +20,7 @@ import {
   listerMedias,
   listerSources,
   nettoyerMedia,
+  stripC2paMedia,
   supprimerMedia,
 } from "@/features/moteur/api";
 import {
@@ -164,6 +165,8 @@ export function AdminBibliothequePage() {
   const [etapesLot, setEtapesLot] = React.useState<Record<string, EvenementEtape[]>>({});
   const [selection, setSelection] = React.useState<Set<string>>(new Set());
   const [suppr, setSuppr] = React.useState<{ fait: number; total: number } | null>(null);
+  const [c2pa, setC2pa] = React.useState<{ fait: number; total: number } | null>(null);
+  const [c2paLogs, setC2paLogs] = React.useState<string[]>([]);
 
   const sources = useQuery({ queryKey: ["sources"], queryFn: listerSources });
   const medias = useQuery({
@@ -223,6 +226,54 @@ export function AdminBibliothequePage() {
     rafraichir();
   }
 
+  /** Strip C2PA / Content Credentials sur toutes les photos affichées. */
+  async function stripC2paTout() {
+    const liste = affichees;
+    if (liste.length === 0) return;
+    setC2pa({ fait: 0, total: liste.length });
+    setC2paLogs([t("bibliotheque.c2paDebut", { count: liste.length })]);
+    let retires = 0;
+    let sautes = 0;
+    let echecs = 0;
+    await executerEnLot(
+      liste,
+      async (media) => {
+        try {
+          const r = await stripC2paMedia(media.id);
+          if (r.retire) {
+            retires += 1;
+            setC2paLogs((prev) => [
+              ...prev,
+              `✓ ${media.id.slice(0, 8)} — ${r.detail ?? "C2PA retiré"}`,
+            ]);
+          } else {
+            sautes += 1;
+            setC2paLogs((prev) => [
+              ...prev,
+              `· ${media.id.slice(0, 8)} — ${r.detail ?? "rien à retirer"}`,
+            ]);
+          }
+        } catch (e) {
+          echecs += 1;
+          setC2paLogs((prev) => [
+            ...prev,
+            `✗ ${media.id.slice(0, 8)} — ${(e as Error).message}`,
+          ]);
+        }
+      },
+      {
+        largeur: 4,
+        onProgres: (fait, total) => setC2pa({ fait, total }),
+      },
+    );
+    setC2paLogs((prev) => [
+      ...prev,
+      t("bibliotheque.c2paFin", { retires, sautes, echecs }),
+    ]);
+    setC2pa(null);
+    rafraichir();
+  }
+
   return (
     <Card>
       <CardHeader>
@@ -235,17 +286,39 @@ export function AdminBibliothequePage() {
                 : t("bibliotheque.subtitle")}
             </CardDescription>
           </div>
-          {aNettoyer > 0 && (
-            <Button size="sm" disabled={lot !== null} onClick={nettoyerTout}>
-              <Sparkles />
-              {lot
-                ? t("adminPost.lotEnCours", { fait: lot.fait, total: lot.total })
-                : t("bibliotheque.nettoyerTout", { count: aNettoyer })}
+          <div className="flex flex-wrap gap-2">
+            <Button
+              size="sm"
+              variant="outline"
+              disabled={c2pa !== null || affichees.length === 0}
+              onClick={() => void stripC2paTout()}
+              title={t("bibliotheque.c2paAide")}
+            >
+              {c2pa
+                ? t("bibliotheque.c2paEnCours", { fait: c2pa.fait, total: c2pa.total })
+                : t("bibliotheque.c2paTout", { count: affichees.length })}
             </Button>
-          )}
+            {aNettoyer > 0 && (
+              <Button size="sm" disabled={lot !== null} onClick={nettoyerTout}>
+                <Sparkles />
+                {lot
+                  ? t("adminPost.lotEnCours", { fait: lot.fait, total: lot.total })
+                  : t("bibliotheque.nettoyerTout", { count: aNettoyer })}
+              </Button>
+            )}
+          </div>
         </div>
         {lot && (
           <p className="pt-1 text-xs text-muted-foreground">{t("adminPost.lotAide")}</p>
+        )}
+        {c2paLogs.length > 0 && (
+          <div className="mt-2 max-h-40 space-y-0.5 overflow-y-auto rounded border bg-muted/30 px-2.5 py-2 font-mono text-[11px] leading-relaxed">
+            {c2paLogs.map((l, i) => (
+              <div key={`${i}-${l.slice(0, 12)}`} className="break-words text-muted-foreground">
+                {l}
+              </div>
+            ))}
+          </div>
         )}
       </CardHeader>
       <CardContent className="space-y-4">

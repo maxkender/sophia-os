@@ -92,7 +92,10 @@ Deno.serve(async (request) => {
   }
 });
 
-/** Remet en file un contenu valide auquel il manque traductions / Sophia. */
+/**
+ * Remet en file un contenu valide auquel il manque le deck SOURCE (OCR/Sophia).
+ * Les autres langues se cuisent à l'assignation — pas de backfill traduction.
+ */
 async function prochainBackfill(
   supabase: ReturnType<typeof serviceClient>,
   // deno-lint-ignore no-explicit-any
@@ -106,22 +109,21 @@ async function prochainBackfill(
     .limit(20);
 
   for (const c of candidats ?? []) {
-    const { data: langues } = await supabase
+    const { data: source } = await supabase
       .from("contenu_langues")
       .select("langue, slides")
-      .eq("contenu_id", c.id);
+      .eq("contenu_id", c.id)
+      .eq("langue", c.langue_source)
+      .maybeSingle();
 
-    const manque = (langues ?? []).some((l) => {
-      const slides = (l.slides ?? []) as Array<{ texte_overlay?: string; position_sophia?: boolean }>;
-      if (l.langue === c.langue_source) {
-        return slides.length === 0 || !slides.some((s) => s.position_sophia);
-      }
-      return (
-        slides.length === 0 ||
-        slides.every((s) => !s.texte_overlay) ||
-        !slides.some((s) => s.position_sophia)
-      );
-    });
+    const slides = (source?.slides ?? []) as Array<{
+      texte_overlay?: string;
+      position_sophia?: boolean;
+    }>;
+    const manque =
+      slides.length === 0 ||
+      slides.every((s) => !s.texte_overlay) ||
+      !slides.some((s) => s.position_sophia);
 
     if (!manque) continue;
 

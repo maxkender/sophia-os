@@ -648,6 +648,10 @@ export const en = {
       varProfondeur: "Variation — max depth",
       pertinence: "Relevance threshold (ELO metric)",
       eloSeuil: "Import ELO threshold (languages)",
+      eloPoidsVues: "Views weight in ELO (0–1)",
+      eloVuesPlafond: "Views ceiling (= score 100)",
+      eloVuesAide:
+        "Default: 80% views / 20% relevance, ceiling 120k. A TikTok with ~100k views scores ~96/100 on views — that's huge.",
       legacyTitle: "Legacy (ratios / week 1)",
       legacySubtitle: "Kept until cutover. Ignored when v-next is active.",
     },

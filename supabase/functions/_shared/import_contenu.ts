@@ -60,20 +60,32 @@ async function lireScoring(supabase: Supabase) {
     pertinence: v.pertinence_seuil ?? 50,
     /** Seuil ELO : en-dessous → langue non cuite ; si aucune langue → pas d'import. */
     eloSeuil: v.elo_seuil_import ?? 55,
+    /** Poids des vues dans la base ELO (reste = pertinence). Défaut 80 %. */
+    poidsVues: v.elo_poids_vues ?? 0.8,
+    /**
+     * Plafond log des vues → score 100.
+     * 120k : un post à ~100k vues ≈ 96/100 — c'est énorme.
+     * (Avant : 5M, ce qui écrasait 100k vers ~75.)
+     */
+    vuesPlafond: v.elo_vues_plafond ?? 120_000,
   };
 }
 
-/** Score « force » du TikTok à partir des vues (0..100). */
-export function scoreDepuisVues(vues: number | null | undefined): number {
+/** Score « force » du TikTok à partir des vues (0..100), échelle log. */
+export function scoreDepuisVues(
+  vues: number | null | undefined,
+  plafond = 120_000,
+): number {
+  const p = Math.max(1, plafond);
   return Math.min(
     100,
-    Math.max(0, Math.log(1 + (vues ?? 0)) / Math.log(1 + 5_000_000) * 100),
+    Math.max(0, (Math.log(1 + (vues ?? 0)) / Math.log(1 + p)) * 100),
   );
 }
 
 /**
  * ELO cold-start par langue :
- *   base = 45% pertinence + 55% vues
+ *   base = (1−poidsVues)×pertinence + poidsVues×scoreVues   (défaut 20/80)
  *   puis régularisation vers le prior, avec bonus langue d'origine (k/2 vs 2k).
  */
 export function eloParLangue(opts: {
@@ -83,10 +95,13 @@ export function eloParLangue(opts: {
   langueSource: string;
   prior: number;
   k: number;
+  poidsVues?: number;
+  vuesPlafond?: number;
 }): number {
-  const vuesScore = scoreDepuisVues(opts.vues);
+  const poidsVues = Math.min(1, Math.max(0, opts.poidsVues ?? 0.8));
+  const vuesScore = scoreDepuisVues(opts.vues, opts.vuesPlafond ?? 120_000);
   const pert = Math.min(100, Math.max(0, opts.pertinence));
-  const base = 0.45 * pert + 0.55 * vuesScore;
+  const base = (1 - poidsVues) * pert + poidsVues * vuesScore;
   const langueSource = opts.langue === opts.langueSource;
   const kk = langueSource ? opts.k / 2 : opts.k * 2;
   return (kk * opts.prior + base) / (kk + 1);
@@ -226,6 +241,8 @@ export async function assurerLanguesAuDessusSeuilElo(
       langueSource,
       prior: scoring.prior,
       k: scoring.k,
+      poidsVues: scoring.poidsVues,
+      vuesPlafond: scoring.vuesPlafond,
     }),
     nb_passages: 0,
     score_maj_at: new Date().toISOString(),
@@ -609,6 +626,8 @@ export async function avancerImport(supabase: Supabase, contenu: any): Promise<s
             langueSource,
             prior: scoring.prior,
             k: scoring.k,
+            poidsVues: scoring.poidsVues,
+            vuesPlafond: scoring.vuesPlafond,
           }),
           score_maj_at: new Date().toISOString(),
         })

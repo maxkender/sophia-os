@@ -180,7 +180,24 @@ export function AdminReglagesPage() {
                 valeur={reglages.scoring.elo_seuil_import}
                 onChange={(n) => majScoring({ elo_seuil_import: n })}
               />
+              <ChampNombre
+                id="eloPoids"
+                label={t("reglages.eloPoidsVues")}
+                min={0}
+                step={0.05}
+                valeur={reglages.scoring.elo_poids_vues}
+                onChange={(n) => majScoring({ elo_poids_vues: Math.min(1, Math.max(0, n)) })}
+              />
+              <ChampNombre
+                id="eloPlafond"
+                label={t("reglages.eloVuesPlafond")}
+                min={10_000}
+                step={10_000}
+                valeur={reglages.scoring.elo_vues_plafond}
+                onChange={(n) => majScoring({ elo_vues_plafond: n })}
+              />
             </div>
+            <p className="text-xs text-muted-foreground">{t("reglages.eloVuesAide")}</p>
           </section>
 
           <section className="space-y-3">

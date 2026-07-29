@@ -649,6 +649,10 @@ export const fr = {
       varProfondeur: "Variation — profondeur max",
       pertinence: "Seuil pertinence (métrique ELO)",
       eloSeuil: "Seuil ELO import (langues)",
+      eloPoidsVues: "Poids des vues dans l'ELO (0–1)",
+      eloVuesPlafond: "Plafond vues (= score 100)",
+      eloVuesAide:
+        "Défaut : 80 % vues / 20 % pertinence, plafond 120k. Un TikTok à ~100k vues score ~96/100 sur les vues — c'est énorme.",
       legacyTitle: "Legacy (ratios / semaine 1)",
       legacySubtitle: "Conservé jusqu'au cutover. Ignoré quand le v-next est actif.",
     },

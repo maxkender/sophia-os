@@ -202,6 +202,8 @@ export interface Reglages {
   scoring: ReglagesScoring;
   paiement: ReglagesPaiement;
   moteur_vnext: { actif: boolean };
+  /** false = cron minuit + rattrapage en pause (manuel OK). */
+  assignation_auto: { actif: boolean };
   nettoyage: ReglagesNettoyage;
 }
 

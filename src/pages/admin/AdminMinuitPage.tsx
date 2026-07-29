@@ -19,6 +19,7 @@ import {
 import {
   aujourdhui,
   lancerAssignationJour,
+  lireReglages,
   suiviAssignation,
   type SuiviMinuit,
 } from "@/features/moteur/api";
@@ -138,6 +139,9 @@ export function AdminMinuitPage() {
         : false,
   });
 
+  const reglages = useQuery({ queryKey: ["reglages"], queryFn: lireReglages });
+  const autoEnPause = reglages.data?.assignation_auto.actif === false;
+
   const relancer = useMutation({
     mutationFn: () => lancerAssignationJour(date),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["suivi-minuit", date] }),
@@ -166,6 +170,11 @@ export function AdminMinuitPage() {
           <CardDescription>{t("minuit.desc")}</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
+          {autoEnPause && (
+            <div className="rounded-md border border-warning/40 bg-warning/10 p-3 text-sm text-warning">
+              {t("minuit.pauseBanner")}
+            </div>
+          )}
           <div className="flex flex-wrap items-end gap-3">
             <div className="space-y-1">
               <label className="text-xs font-medium text-muted-foreground">{t("minuit.jour")}</label>

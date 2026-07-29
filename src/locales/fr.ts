@@ -224,6 +224,8 @@ export const fr = {
       aucunCompte: "Aucun compte actif.",
       faitSur: "{{faits}}/{{quota}} post(s)",
       manquant: "{{count}} post(s) non créé(s) pour ce jour.",
+      pauseBanner:
+        "Assignations automatiques en pause — le cron de minuit ne tourne pas. Tu peux quand même lancer manuellement ci-dessous (Réglages pour réactiver).",
     },
     assignSources: {
       title: "Ordre d'assignation des sources",
@@ -686,6 +688,10 @@ export const fr = {
       vnextTitle: "Moteur v-next",
       vnextSubtitle: "Assignation par labels, scoring, exploration. Activer seulement après labels posés.",
       vnextActif: "Activer le runtime v-next (minuit / assignation / variations)",
+      assignationAutoTitle: "Assignation automatique",
+      assignationAutoAide:
+        "Quand c'est en pause, le cron de minuit et le rattrapage ne créent plus de posts. Tu peux toujours lancer une assignation manuellement depuis Assignation de minuit.",
+      assignationAutoPause: "Mettre en pause les assignations automatiques (minuit + rattrapage)",
       nettoyageTitle: "Nettoyage d'images",
       nettoyageAide:
         "Choisis qui tente le retrait de texte en premier. L'autre sert de secours si le principal échoue.",

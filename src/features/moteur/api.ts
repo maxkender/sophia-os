@@ -1394,6 +1394,9 @@ export async function lireReglages(): Promise<Reglages> {
     moteur_vnext: (map.get("moteur_vnext") as Reglages["moteur_vnext"] | undefined) ?? {
       actif: false,
     },
+    assignation_auto: (map.get("assignation_auto") as Reglages["assignation_auto"] | undefined) ?? {
+      actif: true,
+    },
     nettoyage: {
       provider_principal: "fal",
       ...((map.get("nettoyage") as Partial<Reglages["nettoyage"]> | undefined) ?? {}),
@@ -1780,16 +1783,18 @@ export const lancerAssignation = (
 ) =>
   invoke<{ resultats: Array<{ compteId: string; crees: number; types?: string[] }> }>(
     "assignation",
-    { compteId: compteId ?? null, type: type ?? null, forcer },
+    { compteId: compteId ?? null, type: type ?? null, forcer, manuel: true },
   );
 
 /** Simule le cron de minuit : assigne la journée à TOUS les comptes actifs pour
- *  la date choisie (comme minuit). */
+ *  la date choisie (comme minuit). Contourne la pause auto. */
 export const lancerAssignationJour = (date: string) =>
   invoke<{
     jour: string;
     resultats: Array<{ compteId: string; crees: number; types?: string[]; erreur?: string }>;
-  }>("assignation", { date });
+    saute?: boolean;
+    raison?: string;
+  }>("assignation", { date, manuel: true });
 
 /** Une ligne de suivi « minuit » : un compte actif, son quota du jour, et les
  *  posts réellement produits ce jour-là (avec leur avancement et leurs erreurs). */

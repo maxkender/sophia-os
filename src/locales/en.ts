@@ -224,6 +224,8 @@ export const en = {
       aucunCompte: "No active account.",
       faitSur: "{{faits}}/{{quota}} post(s)",
       manquant: "{{count}} post(s) not created for this day.",
+      pauseBanner:
+        "Automatic assignments paused — the midnight cron is not running. You can still launch manually below (Settings to re-enable).",
     },
     assignSources: {
       title: "Source assignment order",
@@ -685,6 +687,10 @@ export const en = {
       vnextTitle: "v-next engine",
       vnextSubtitle: "Label-based assignment, scoring, exploration. Enable only after labels are set.",
       vnextActif: "Enable v-next runtime (midnight / assignment / variations)",
+      assignationAutoTitle: "Automatic assignment",
+      assignationAutoAide:
+        "When paused, the midnight cron and catch-up no longer create posts. You can still run an assignment manually from Midnight assignment.",
+      assignationAutoPause: "Pause automatic assignments (midnight + catch-up)",
       nettoyageTitle: "Image cleaning",
       nettoyageAide:
         "Choose which provider tries text removal first. The other is the fallback if the primary fails.",

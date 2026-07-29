@@ -55,6 +55,7 @@ export function AdminReglagesPage() {
       await ecrireReglage("scoring", r.scoring);
       await ecrireReglage("paiement", r.paiement);
       await ecrireReglage("moteur_vnext", r.moteur_vnext);
+      await ecrireReglage("assignation_auto", r.assignation_auto);
       await ecrireReglage("nettoyage", r.nettoyage);
     },
     onSuccess: () => {
@@ -90,6 +91,21 @@ export function AdminReglagesPage() {
             />
             {t("reglages.vnextActif")}
           </label>
+
+          <section className="space-y-3">
+            <h3 className="text-sm font-medium">{t("reglages.assignationAutoTitle")}</h3>
+            <p className="text-xs text-muted-foreground">{t("reglages.assignationAutoAide")}</p>
+            <label className="flex items-center gap-2 text-sm">
+              <input
+                type="checkbox"
+                checked={!reglages.assignation_auto.actif}
+                onChange={(e) =>
+                  maj({ assignation_auto: { actif: !e.target.checked } })
+                }
+              />
+              {t("reglages.assignationAutoPause")}
+            </label>
+          </section>
 
           <section className="space-y-3">
             <h3 className="text-sm font-medium">{t("reglages.nettoyageTitle")}</h3>

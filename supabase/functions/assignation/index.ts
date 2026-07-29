@@ -11,8 +11,9 @@ type TypePost = "recycle" | "remanie" | "nouveau";
  *
  * Idempotente : elle ne crée que ce qui manque, donc la relancer ne double rien.
  *
- *   {}             → tous les comptes actifs
+ *   {}             → tous les comptes actifs (respecte pause assignation_auto)
  *   { compteId }   → ce seul compte (essai admin)
+ *   { manuel: true } → contourne la pause (lancement admin)
  */
 Deno.serve(async (request) => {
   const denied = await assertAuthorised(request);
@@ -24,6 +25,7 @@ Deno.serve(async (request) => {
   let date: string | null = null;
   let typeForce: TypePost | null = null;
   let forcer = false;
+  let manuel = false;
   try {
     const body = await request.json();
     compteId = body?.compteId ?? null;
@@ -32,6 +34,8 @@ Deno.serve(async (request) => {
     // Mode test : on crée un post même si le quota du jour est déjà atteint,
     // sinon un second essai le même jour ne produirait rien.
     forcer = Boolean(body?.forcer);
+    // Lancement admin (Minuit / tests) : ignore le toggle « pause ».
+    manuel = Boolean(body?.manuel);
   } catch {
     // Corps vide : tous les comptes, aujourd'hui.
   }
@@ -42,6 +46,23 @@ Deno.serve(async (request) => {
   const jour = date ?? aujourdhuiParis();
 
   try {
+    if (!manuel) {
+      const { data: flag } = await supabase
+        .from("reglages")
+        .select("valeur")
+        .eq("cle", "assignation_auto")
+        .maybeSingle();
+      const actif = (flag?.valeur as { actif?: boolean } | null)?.actif !== false;
+      if (!actif) {
+        return json({
+          ok: true,
+          saute: true,
+          raison: "assignation_auto en pause",
+          jour,
+        });
+      }
+    }
+
     const reglages = await chargerReglages(supabase);
 
     let query = supabase.from("comptes").select("*").eq("is_active", true);

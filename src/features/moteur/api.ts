@@ -190,6 +190,8 @@ export async function majSource(id: string, patch: Partial<CompteReference>): Pr
   if (error) throw error;
 }
 
+/** Supprime le compte source uniquement. Slideshows, images et labels de
+ *  contenus restent (FK ON DELETE SET NULL — jamais de cascade). */
 export async function supprimerSource(id: string): Promise<void> {
   const { error } = await supabase.from("comptes_reference").delete().eq("id", id);
   if (error) throw error;
@@ -2069,8 +2071,18 @@ async function syncLabels(
 export const setLabelsCompte = (compteId: string, labelIds: string[]) =>
   syncLabels("compte_labels", "compte_id", compteId, labelIds);
 
-export const setLabelsSource = (compteReferenceId: string, labelIds: string[]) =>
-  syncLabels("compte_reference_labels", "compte_reference_id", compteReferenceId, labelIds);
+/** Écrit les labels de la source puis les propage à tous ses slideshows + images. */
+export async function setLabelsSource(
+  compteReferenceId: string,
+  labelIds: string[],
+): Promise<number> {
+  const { data, error } = await supabase.rpc("set_labels_source", {
+    p_compte_reference_id: compteReferenceId,
+    p_label_ids: labelIds,
+  });
+  if (error) throw error;
+  return (data as number) ?? 0;
+}
 
 export async function setLabelsContenu(
   contenuId: string,
@@ -2093,18 +2105,13 @@ export async function setLabelsContenu(
   if (error) throw error;
 }
 
-/** Applique rétroactivement les labels d'une source à tous ses contenus. */
+/** Applique rétroactivement les labels d'une source à tous ses contenus + images. */
 export async function propagerLabelsSource(compteReferenceId: string): Promise<number> {
-  const labelIds = await labelsDeLaSource(compteReferenceId);
-  const { data: contenus, error } = await supabase
-    .from("contenus")
-    .select("id")
-    .eq("compte_reference_id", compteReferenceId);
+  const { data, error } = await supabase.rpc("propager_labels_source", {
+    p_compte_reference_id: compteReferenceId,
+  });
   if (error) throw error;
-  for (const c of contenus ?? []) {
-    await setLabelsContenu(c.id, labelIds);
-  }
-  return contenus?.length ?? 0;
+  return (data as number) ?? 0;
 }
 
 export interface ContenuListe extends Contenu {

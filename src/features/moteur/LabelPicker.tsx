@@ -96,6 +96,9 @@ export function LabelEditor({
       setLocal(null);
       qc.invalidateQueries({ queryKey });
       qc.invalidateQueries({ queryKey: ["labels"] });
+      // Labels source → contenus / médias peuvent avoir changé.
+      qc.invalidateQueries({ queryKey: ["contenus"] });
+      qc.invalidateQueries({ queryKey: ["slideshows"] });
     },
   });
 

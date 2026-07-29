@@ -366,7 +366,8 @@ export const fr = {
       stock: "{{count}} slideshow(s) en stock",
       stockFaible: "Stock faible — ajoute un compte conjoint pour élargir la matière.",
       epuise: "Épuisé — ajoute un compte conjoint (source similaire) pour continuer.",
-      confirmDelete: "Supprimer ce compte de référence ?",
+      confirmDelete:
+        "Supprimer ce compte source TikTok ? Les slideshows et images déjà importés sont conservés (rien n'est effacé).",
     },
     sujets: {
       title: "Sujets",
@@ -594,7 +595,8 @@ export const fr = {
       erreurCreation: "Impossible de créer le label",
       erreurSuppression: "Impossible de supprimer le label",
       confirmDelete: "Supprimer ce label ?",
-      retroactif: "Les labels de la source s'appliquent rétroactivement à tous ses contenus.",
+      retroactif:
+        "Ajouter ou modifier un label ici le propage automatiquement à tous les slideshows de cette source et à toutes leurs images.",
     },
     contenus: {
       title: "Pool de contenus",

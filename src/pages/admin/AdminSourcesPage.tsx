@@ -23,7 +23,6 @@ import {
   listerLabels,
   listerSources,
   majSource,
-  propagerLabelsSource,
   setLabelsSource,
   stockParSource,
   supprimerSource,
@@ -314,8 +313,8 @@ function LigneSource({
           queryKey={["source-labels", source.id]}
           load={() => labelsDeLaSource(source.id)}
           save={async (ids) => {
+            // RPC : écrit les labels source + sync tous les slideshows + images.
             await setLabelsSource(source.id, ids);
-            await propagerLabelsSource(source.id);
           }}
         />
         <p className="mt-1 text-[11px] text-muted-foreground">{t("labels.retroactif")}</p>

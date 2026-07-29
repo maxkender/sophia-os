@@ -366,7 +366,8 @@ export const en = {
       stock: "{{count}} slideshow(s) in stock",
       stockFaible: "Low stock — add a linked account to widen the material.",
       epuise: "Out of stock — add a linked account (similar source) to keep going.",
-      confirmDelete: "Delete this reference account?",
+      confirmDelete:
+        "Delete this TikTok source account? Already imported slideshows and images are kept (nothing is erased).",
     },
     sujets: {
       title: "Topics",
@@ -593,7 +594,8 @@ export const en = {
       erreurCreation: "Could not create label",
       erreurSuppression: "Could not delete label",
       confirmDelete: "Delete this label?",
-      retroactif: "Source labels apply retroactively to all its contents.",
+      retroactif:
+        "Adding or changing a label here automatically applies it to all slideshows from this source and all their images.",
     },
     contenus: {
       title: "Content pool",

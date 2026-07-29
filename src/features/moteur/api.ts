@@ -704,6 +704,63 @@ export async function listerMedias(compteReferenceId?: string): Promise<Media[]>
   return data as Media[];
 }
 
+export type MediaBibliotheque = Media & { labelIds: string[] };
+
+/**
+ * Photos propres pour la page Bibliothèque, avec leurs labels.
+ * Filtre optionnel par label (via media_labels).
+ */
+export async function listerMediasBibliotheque(
+  labelId?: string,
+): Promise<MediaBibliotheque[]> {
+  let mediaIdsFiltre: string[] | null = null;
+  if (labelId) {
+    const { data: liens, error: errL } = await supabase
+      .from("media_labels")
+      .select("media_id")
+      .eq("label_id", labelId);
+    if (errL) throw errL;
+    mediaIdsFiltre = [...new Set((liens ?? []).map((r) => r.media_id as string))];
+    if (mediaIdsFiltre.length === 0) return [];
+  }
+
+  let query = supabase
+    .from("media_library")
+    .select("*")
+    .like("storage_path", "propre/%")
+    .order("created_at", { ascending: false })
+    .limit(500);
+  if (mediaIdsFiltre) query = query.in("id", mediaIdsFiltre);
+
+  const { data, error } = await query;
+  if (error) throw error;
+  const medias = (data ?? []) as Media[];
+  if (medias.length === 0) return [];
+
+  const { data: liens, error: errLabels } = await supabase
+    .from("media_labels")
+    .select("media_id, label_id")
+    .in(
+      "media_id",
+      medias.map((m) => m.id),
+    );
+  if (errLabels) throw errLabels;
+
+  const parMedia = new Map<string, string[]>();
+  for (const l of liens ?? []) {
+    const mid = l.media_id as string;
+    const lid = l.label_id as string;
+    const arr = parMedia.get(mid) ?? [];
+    arr.push(lid);
+    parMedia.set(mid, arr);
+  }
+
+  return medias.map((m) => ({
+    ...m,
+    labelIds: parMedia.get(m.id) ?? [],
+  }));
+}
+
 // --- Posts ------------------------------------------------------------------
 
 export async function listerPosts(compteId?: string): Promise<Post[]> {

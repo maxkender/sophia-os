@@ -93,7 +93,7 @@ export const en = {
       reproduisibles: "The stock of posts ready to reproduce, per source",
       comptes: "Posters' publishing accounts (persona)",
       posters: "Poster access and roles (recruiter)",
-      bibliotheque: "Cleaned photos, by reference account",
+      bibliotheque: "Cleaned photos, by label",
       testNettoyage: "Test cleaning without changing anything",
       reglages: "Assignment ratios and cadence",
       prompts: "Edit the AI prompts (translation, Sophia…)",

@@ -1,4 +1,9 @@
-import { cleanImage, verifyClean, type EvenementEtape } from "../_shared/gemini.ts";
+import {
+  cleanImage,
+  mimeDepuisBase64,
+  verifyClean,
+  type EvenementEtape,
+} from "../_shared/gemini.ts";
 import {
   attacherLabelsAuMedia,
   mediaPropreMemeLabel,
@@ -68,63 +73,71 @@ Deno.serve(async (request) => {
     try {
       const onEtape = emit ? (e: EvenementEtape) => emit(e) : undefined;
       const propre = await cleanImage(sourceUrl, onEtape);
-      if (propre && (await verifyClean(propre.base64, propre.mime))) {
-        const ext = propre.mime === "image/jpeg" ? "jpg" : "png";
-        const path = `propre/${contenu.id}/${slide.position}.${ext}`;
-        const bytes = Uint8Array.from(atob(propre.base64), (c) => c.charCodeAt(0));
-        const { error: upErr } = await supabase.storage
-          .from(BUCKET)
-          .upload(path, bytes, { contentType: propre.mime, upsert: true });
-        if (upErr) throw upErr;
+      if (propre) {
+        const { mime, ext } = mimeDepuisBase64(propre.base64, propre.mime);
+        if (await verifyClean(propre.base64, mime)) {
+          const path = `propre/${contenu.id}/${slide.position}.${ext}`;
+          const bytes = Uint8Array.from(atob(propre.base64), (c) => c.charCodeAt(0));
+          const { error: upErr } = await supabase.storage
+            .from(BUCKET)
+            .upload(path, bytes, {
+              contentType: mime,
+              upsert: true,
+              cacheControl: "60",
+            });
+          if (upErr) throw upErr;
 
-        const url = supabase.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
-        const { data: media, error: insErr } = await supabase
-          .from("media_library")
-          .upsert(
-            {
-              compte_reference_id: contenu.compte_reference_id,
-              contenu_id: contenu.id,
-              storage_path: path,
-              url,
-              source: "nettoye_reference",
-              langue: contenu.langue_source,
-              visage_identifiable: null,
-              verifie_le: new Date().toISOString(),
-              texte_restant: false,
-            },
-            { onConflict: "storage_path" },
-          )
-          .select("id")
-          .single();
-        if (insErr) throw insErr;
-        await attacherLabelsAuMedia(supabase, media.id, contenu.id);
+          const publicUrl = supabase.storage.from(BUCKET).getPublicUrl(path).data
+            .publicUrl;
+          const url = `${publicUrl}?v=${Date.now()}`;
+          const { data: media, error: insErr } = await supabase
+            .from("media_library")
+            .upsert(
+              {
+                compte_reference_id: contenu.compte_reference_id,
+                contenu_id: contenu.id,
+                storage_path: path,
+                url,
+                source: "nettoye_reference",
+                langue: contenu.langue_source,
+                visage_identifiable: null,
+                verifie_le: new Date().toISOString(),
+                texte_restant: false,
+              },
+              { onConflict: "storage_path" },
+            )
+            .select("id")
+            .single();
+          if (insErr) throw insErr;
+          await attacherLabelsAuMedia(supabase, media.id, contenu.id);
 
-        slides[idx] = { ...slide, media_id: media.id };
-        await supabase
-          .from("contenus")
-          .update({ structure_slides: slides })
-          .eq("id", contenu.id);
+          slides[idx] = { ...slide, media_id: media.id };
+          await supabase
+            .from("contenus")
+            .update({ structure_slides: slides })
+            .eq("id", contenu.id);
 
-        emit?.({
-          etape: "ready",
-          statut: "ok",
-          ok: true,
-          nettoyee: true,
-          moteur: propre.moteur,
-          mediaId: media.id,
-          url,
-        });
-        return {
-          ok: true as const,
-          nettoyee: true,
-          moteur: propre.moteur,
-          mediaId: media.id,
-          url,
-          etapes: propre.etapes,
-        };
+          emit?.({
+            etape: "ready",
+            statut: "ok",
+            ok: true,
+            nettoyee: true,
+            moteur: propre.moteur,
+            mediaId: media.id,
+            url,
+          });
+          return {
+            ok: true as const,
+            nettoyee: true,
+            moteur: propre.moteur,
+            mediaId: media.id,
+            url,
+            etapes: propre.etapes,
+          };
+        }
       }
 
-      // Texte résiduel → remplacement par un propre même label.
+      // Texte résiduel / nettoyage vide → remplacement par un propre même label.
       const exclus = slides
         .map((s) => s.media_id)
         .filter((id): id is string => Boolean(id));

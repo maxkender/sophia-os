@@ -1,4 +1,9 @@
-import { cleanImage, verifyClean, type EvenementEtape } from "../_shared/gemini.ts";
+import {
+  cleanImage,
+  mimeDepuisBase64,
+  verifyClean,
+  type EvenementEtape,
+} from "../_shared/gemini.ts";
 import { reponseNdjson, veutStream } from "../_shared/nettoyage_etapes.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
@@ -54,16 +59,28 @@ Deno.serve(async (request) => {
       try {
         const onEtape = emit ? (e: EvenementEtape) => emit(e) : undefined;
         const propre = await cleanImage(slide.reference_url, onEtape);
-        if (propre && (await verifyClean(propre.base64, propre.mime))) {
-          const ext = propre.mime === "image/jpeg" ? "jpg" : "png";
-          const path = `propre/manuel/${slide.id}.${ext}`;
+        const meta = propre
+          ? mimeDepuisBase64(propre.base64, propre.mime)
+          : null;
+        if (
+          propre &&
+          meta &&
+          (await verifyClean(propre.base64, meta.mime))
+        ) {
+          const path = `propre/manuel/${slide.id}.${meta.ext}`;
           const bytes = Uint8Array.from(atob(propre.base64), (c) => c.charCodeAt(0));
           const { error: upErr } = await supabase.storage
             .from(BUCKET)
-            .upload(path, bytes, { contentType: propre.mime, upsert: true });
+            .upload(path, bytes, {
+              contentType: meta.mime,
+              upsert: true,
+              cacheControl: "60",
+            });
           if (upErr) throw upErr;
 
-          const url = supabase.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
+          const publicUrl = supabase.storage.from(BUCKET).getPublicUrl(path).data
+            .publicUrl;
+          const url = `${publicUrl}?v=${Date.now()}`;
           const { data: media, error: insErr } = await supabase
             .from("media_library")
             .upsert(

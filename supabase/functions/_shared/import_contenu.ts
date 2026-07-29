@@ -8,6 +8,7 @@ import {
 import {
   cleanImage,
   integrateSophia,
+  mimeDepuisBase64,
   ocrFrame,
   scoreRelevance,
   translateSlideshow,
@@ -1090,6 +1091,7 @@ async function nettoyerSlide(
 
   let propreBase64: string | null = null;
   let moteur: string | undefined;
+  let mimeDeclare = "image/jpeg";
   try {
     const propre = await cleanImage(slide.raw_url, (e) => {
       const nom = labelEtape[e.etape] ?? e.etape;
@@ -1112,6 +1114,7 @@ async function nettoyerSlide(
     });
     propreBase64 = propre?.base64 ?? null;
     moteur = propre?.moteur;
+    mimeDeclare = propre?.mime ?? "image/jpeg";
     rapport.moteur = moteur;
   } catch (error) {
     const msg = messageErreur(error);
@@ -1128,8 +1131,10 @@ async function nettoyerSlide(
     return { mediaId: null, rapport };
   }
 
-  lignes.push("⑤ verifyClean (Gemini) — reste-t-il du texte ?");
-  const propreOk = await verifyClean(propreBase64, "image/png");
+  // Fal sort du JPEG — ne JAMAIS forcer image/png (cassait verifyClean → brut sale).
+  const { mime, ext } = mimeDepuisBase64(propreBase64, mimeDeclare);
+  lignes.push(`⑤ verifyClean (Gemini, ${mime}) — reste-t-il du texte ?`);
+  const propreOk = await verifyClean(propreBase64, mime);
   if (!propreOk) {
     rapport.motif = "texte encore détecté après nettoyage (verifyClean=OUI)";
     lignes.push(
@@ -1142,13 +1147,19 @@ async function nettoyerSlide(
   }
   lignes.push("⑤ verifyClean → OK (pas de texte)");
 
-  const path = `propre/${contenu.id}/${slide.position}.png`;
+  const path = `propre/${contenu.id}/${slide.position}.${ext}`;
   const bytes = Uint8Array.from(atob(propreBase64), (c) => c.charCodeAt(0));
   const { error: upErr } = await supabase.storage
     .from(BUCKET)
-    .upload(path, bytes, { contentType: "image/png", upsert: true });
+    .upload(path, bytes, {
+      contentType: mime,
+      upsert: true,
+      cacheControl: "60",
+    });
   if (upErr) throw upErr;
-  const url = supabase.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
+  // ?v= force le refresh CDN si on réécrit le même storage_path.
+  const publicUrl = supabase.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
+  const url = `${publicUrl}?v=${Date.now()}`;
 
   const { data: media, error } = await supabase
     .from("media_library")

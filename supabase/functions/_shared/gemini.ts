@@ -1077,8 +1077,29 @@ ${input.contenuHtml}`;
   return { titre_en: m[1].trim(), contenu_en: m[2].trim() };
 }
 
+/** Détecte JPEG/PNG depuis les magic bytes (Fal renvoie du JPEG). */
+export function mimeDepuisBase64(
+  base64: string,
+  fallback = "image/jpeg",
+): { mime: string; ext: "jpg" | "png" } {
+  try {
+    const head = atob(base64.slice(0, 24));
+    const b0 = head.charCodeAt(0);
+    const b1 = head.charCodeAt(1);
+    if (b0 === 0xff && b1 === 0xd8) return { mime: "image/jpeg", ext: "jpg" };
+    if (b0 === 0x89 && b1 === 0x50) return { mime: "image/png", ext: "png" };
+  } catch {
+    /* ignore */
+  }
+  if (fallback.includes("png")) return { mime: "image/png", ext: "png" };
+  return { mime: "image/jpeg", ext: "jpg" };
+}
+
 /** Vérifie qu'il ne reste pas de texte incrusté après nettoyage. */
 export async function verifyClean(base64Image: string, mimeType: string): Promise<boolean> {
+  // Toujours aligner le mime sur les octets réels — un JPEG déclaré PNG
+  // fait échouer Gemini → on jetait le résultat Fal propre et on gardait le brut.
+  const { mime } = mimeDepuisBase64(base64Image, mimeType);
   const parts = await callWithFallback(TEXT_MODELS, [
     {
       text: `Regarde attentivement. Reste-t-il le MOINDRE texte incrusté, sous-titre,
@@ -1088,7 +1109,7 @@ RÈGLE : au moindre doute, ou s'il reste ne serait-ce qu'un fragment de texte,
 réponds OUI. On préfère remplacer une photo que d'en livrer une avec du texte.
 Réponds uniquement par OUI ou NON.`,
     },
-    { inline_data: { mime_type: mimeType, data: base64Image } },
+    { inline_data: { mime_type: mime, data: base64Image } },
   ]);
 
   // Par prudence : toute réponse qui n'est pas un NON net = on considère qu'il

@@ -1,4 +1,9 @@
-import { cleanImage, verifyClean, type EvenementEtape } from "../_shared/gemini.ts";
+import {
+  cleanImage,
+  mimeDepuisBase64,
+  verifyClean,
+  type EvenementEtape,
+} from "../_shared/gemini.ts";
 import { attacherLabelsAuMedia } from "../_shared/media_labels.ts";
 import { reponseNdjson, veutStream } from "../_shared/nettoyage_etapes.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
@@ -51,7 +56,8 @@ Deno.serve(async (request) => {
       emit?.({ etape: "ready", statut: "echec", detail: "aucune image renvoyée" });
       return { ok: false as const, nettoyee: false, motif: "aucune image renvoyée" };
     }
-    if (!(await verifyClean(propre.base64, propre.mime))) {
+    const { mime, ext } = mimeDepuisBase64(propre.base64, propre.mime);
+    if (!(await verifyClean(propre.base64, mime))) {
       emit?.({
         etape: "ready",
         statut: "echec",
@@ -65,15 +71,15 @@ Deno.serve(async (request) => {
       };
     }
 
-    const ext = propre.mime === "image/jpeg" ? "jpg" : "png";
     const path = `propre/manuel/${media.id}.${ext}`;
     const bytes = Uint8Array.from(atob(propre.base64), (c) => c.charCodeAt(0));
     const { error: upErr } = await supabase.storage
       .from(BUCKET)
-      .upload(path, bytes, { contentType: propre.mime, upsert: true });
+      .upload(path, bytes, { contentType: mime, upsert: true, cacheControl: "60" });
     if (upErr) throw upErr;
 
-    const url = supabase.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
+    const publicUrl = supabase.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
+    const url = `${publicUrl}?v=${Date.now()}`;
 
     const { error: majErr } = await supabase
       .from("media_library")

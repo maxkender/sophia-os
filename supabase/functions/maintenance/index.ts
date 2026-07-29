@@ -1,6 +1,6 @@
 import { downloadImage, scrapePost } from "../_shared/apify.ts";
 import { preparerAvatarReference } from "../_shared/avatar.ts";
-import { verifyClean } from "../_shared/gemini.ts";
+import { mimeDepuisBase64, verifyClean } from "../_shared/gemini.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 /**
@@ -97,7 +97,10 @@ Deno.serve(async (request) => {
         for (let i = 0; i < bytes.length; i += CHUNK) {
           bin += String.fromCharCode(...bytes.subarray(i, i + CHUNK));
         }
-        const propre = await verifyClean(btoa(bin), "image/png");
+        // Mime réel (JPEG Fal souvent) — image/png forcé faussait l'audit.
+        const b64 = btoa(bin);
+        const { mime } = mimeDepuisBase64(b64, "image/jpeg");
+        const propre = await verifyClean(b64, mime);
         await supabase
           .from("media_library")
           .update({ verifie_le: new Date().toISOString(), texte_restant: !propre })

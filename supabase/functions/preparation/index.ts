@@ -1,4 +1,10 @@
-import { cleanImage, ocrFrame, scoreRelevance, verifyClean } from "../_shared/gemini.ts";
+import {
+  cleanImage,
+  mimeDepuisBase64,
+  ocrFrame,
+  scoreRelevance,
+  verifyClean,
+} from "../_shared/gemini.ts";
 import { assertAuthorised, chargerPrompt, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
@@ -199,11 +205,13 @@ async function nettoyerVersBibliotheque(
   slide: Slide,
 ): Promise<string | null> {
   let propreBase64: string | null;
+  let mimeDeclare = "image/jpeg";
   try {
     // cleanImage rend une sortie de confiance (proxy) ou déjà vérifiée en interne
     // (repli inpaint/génératif). Elle réessaie déjà le proxy 5× avec backoff.
     const propre = await cleanImage(slide.raw_url);
     propreBase64 = propre?.base64 ?? null;
+    mimeDeclare = propre?.mime ?? "image/jpeg";
   } catch (error) {
     // Surcharge Fal/proxy ou refus : échec de CE passage, pas du sujet. On
     // renvoie null pour re-tenter plus tard.
@@ -216,18 +224,21 @@ async function nettoyerVersBibliotheque(
   // « réussi » quand même). On ne la stocke donc pas comme propre à l'aveugle :
   // s'il reste du texte incrusté, on renvoie null → re-tentée au passage suivant
   // puis remplacée par une photo propre de la bibliothèque en dernier recours.
-  if (!(await verifyClean(propreBase64, "image/png"))) {
+  // Mime réel (Fal = JPEG) — ne pas forcer image/png.
+  const { mime, ext } = mimeDepuisBase64(propreBase64, mimeDeclare);
+  if (!(await verifyClean(propreBase64, mime))) {
     console.warn(`[nettoyage non abouti] sujet=${sujet.id} slide=${slide.position} — texte encore présent`);
     return null;
   }
 
-  const path = `propre/${sujet.id}/${slide.position}.png`;
+  const path = `propre/${sujet.id}/${slide.position}.${ext}`;
   const bytes = Uint8Array.from(atob(propreBase64), (c) => c.charCodeAt(0));
   const { error: upErr } = await supabase.storage
     .from(BUCKET)
-    .upload(path, bytes, { contentType: "image/png", upsert: true });
+    .upload(path, bytes, { contentType: mime, upsert: true, cacheControl: "60" });
   if (upErr) throw upErr;
-  const url = supabase.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
+  const publicUrl = supabase.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
+  const url = `${publicUrl}?v=${Date.now()}`;
 
   // Upsert et non insert : `storage_path` est unique, et une reprise après un
   // worker tué retomberait sinon sur un doublon.

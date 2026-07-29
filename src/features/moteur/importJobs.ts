@@ -215,11 +215,18 @@ export async function drainContenuAvecLogs(
     const detail = [
       snap ? detailSnap(snap) : null,
       r.elo?.texte ? `calcul ELO:\n${r.elo.texte}` : null,
-      r.nettoyage?.texte ? `nettoyage:\n${r.nettoyage.texte}` : null,
     ]
       .filter(Boolean)
       .join("\n");
     log(jobId, level, `${p}étape « ${etape} »`, detail || undefined);
+    if (r.nettoyage?.texte) {
+      log(
+        jobId,
+        r.nettoyage.texte.includes("ÉCHEC") ? "warn" : "info",
+        `${p}nettoyage Fal/Seedream → fallback → enlève C2PA`,
+        r.nettoyage.texte,
+      );
+    }
     if (ETAPES_TERMINALES.has(etape) || snap?.import_statut === "done") break;
   }
 }
@@ -259,11 +266,18 @@ async function agentSlideshow(opts: {
       const detail = [
         snap ? detailSnap(snap) : null,
         cree.elo?.texte ? `calcul ELO:\n${cree.elo.texte}` : null,
-        cree.nettoyage?.texte ? `nettoyage:\n${cree.nettoyage.texte}` : null,
       ]
         .filter(Boolean)
         .join("\n");
       log(opts.jobId, "info", `${tag} étape « ${cree.etape} »`, detail || undefined);
+      if (cree.nettoyage?.texte) {
+        log(
+          opts.jobId,
+          cree.nettoyage.texte.includes("ÉCHEC") ? "warn" : "info",
+          `${tag} nettoyage Fal/Seedream → fallback → enlève C2PA`,
+          cree.nettoyage.texte,
+        );
+      }
       if (ETAPES_TERMINALES.has(cree.etape)) {
         // importerContenuDepuisLien a déjà avancé un pas terminal
       } else {

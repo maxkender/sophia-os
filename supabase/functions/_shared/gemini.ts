@@ -633,20 +633,42 @@ export async function cleanImage(
   let base64: string | null = null;
   let moteur: MoteurNettoyage | null = null;
 
+  // Chaîne : Fal text-removal (ex-Seedream / « Seedance » côté usage) →
+  // fallback proxy → fallback LaMa → enlève clés C2PA.
   await emit({
     etape: "text_removal",
     statut: "encours",
-    detail: "Fal text-removal (ex-Seedream) — chaîne: fal → proxy → LaMa → C2PA",
+    detail:
+      "① Fal text-removal (ex-Seedream) — si échec/clé absente → fallback proxy → LaMa → enlève C2PA",
   });
   let falPolls = 0;
   try {
     const parFal = await nettoyerViaFalTextRemoval(imageUrl, async (p) => {
       if (typeof p.polls === "number") falPolls = p.polls;
-      if (p.phase === "poll" && p.polls && p.polls % 5 === 0) {
+      if (p.phase === "submit") {
         await emit({
           etape: "text_removal",
           statut: "encours",
-          detail: `Fal queue: ${p.polls} polls, statut=${p.statut ?? "?"}`,
+          detail: `① Fal/Seedream: submit queue (${p.detail ?? "ok"})`,
+        });
+      } else if (p.phase === "poll") {
+        // Chaque poll = 1 appel HTTP status — c'est ce qui gonfle le compteur.
+        await emit({
+          etape: "text_removal",
+          statut: "encours",
+          detail: `① Fal/Seedream: poll #${p.polls} statut=${p.statut ?? "?"}`,
+        });
+      } else if (p.phase === "result") {
+        await emit({
+          etape: "text_removal",
+          statut: "encours",
+          detail: `① Fal/Seedream: COMPLETED après ${falPolls} polls — fetch résultat`,
+        });
+      } else if (p.phase === "download") {
+        await emit({
+          etape: "text_removal",
+          statut: "encours",
+          detail: "① Fal/Seedream: téléchargement image résultat",
         });
       }
     });
@@ -656,26 +678,26 @@ export async function cleanImage(
       await emit({
         etape: "text_removal",
         statut: "ok",
-        detail: `Fal text-removal OK (${falPolls} polls status API)`,
+        detail: `① Fal/Seedream OK (${falPolls} polls HTTP status)`,
       });
     } else if (parFal) {
       await emit({
         etape: "text_removal",
         statut: "echec",
-        detail: `sortie noire / dégénérée → fallback proxy (${falPolls} polls)`,
+        detail: `① Fal/Seedream: sortie noire/dégénérée → FALLBACK proxy (${falPolls} polls)`,
       });
     } else {
       await emit({
         etape: "text_removal",
         statut: "saute",
-        detail: "FAL_KEY / FAL_API_KEY absent → fallback proxy",
+        detail: "① Fal/Seedream SAUTÉ — FAL_KEY / FAL_API_KEY absente → FALLBACK proxy",
       });
     }
   } catch (error) {
     await emit({
       etape: "text_removal",
       statut: "echec",
-      detail: `${messageErreur(error)} → fallback proxy (${falPolls} polls)`,
+      detail: `① Fal/Seedream ÉCHEC: ${redactSecrets(messageErreur(error))} → FALLBACK proxy (${falPolls} polls)`,
     });
   }
 
@@ -683,43 +705,51 @@ export async function cleanImage(
     await emit({
       etape: "proxy",
       statut: "encours",
-      detail: "fallback Lovable proxy (jusqu'à 5 retries)",
+      detail: "② FALLBACK proxy Lovable (jusqu'à 5 retries, timeout 70s)",
     });
     try {
       const parProxy = await nettoyerViaProxy(imageUrl);
       if (parProxy && !(await sembleDegeneree(parProxy))) {
         base64 = parProxy;
         moteur = "proxy";
-        await emit({ etape: "proxy", statut: "ok", detail: "proxy OK" });
+        await emit({
+          etape: "proxy",
+          statut: "ok",
+          detail: "② FALLBACK proxy OK",
+        });
       } else if (parProxy) {
         await emit({
           etape: "proxy",
           statut: "echec",
-          detail: "sortie noire / dégénérée → fallback LaMa",
+          detail: "② FALLBACK proxy: sortie noire/dégénérée → FALLBACK LaMa",
         });
       } else {
         await emit({
           etape: "proxy",
           statut: "saute",
-          detail: "CLEAN_PHOTO_PROXY_TOKEN absent → fallback LaMa",
+          detail: "② FALLBACK proxy SAUTÉ — CLEAN_PHOTO_PROXY_TOKEN absente → FALLBACK LaMa",
         });
       }
     } catch (error) {
       await emit({
         etape: "proxy",
         statut: "echec",
-        detail: `${messageErreur(error)} → fallback LaMa`,
+        detail: `② FALLBACK proxy ÉCHEC: ${redactSecrets(messageErreur(error))} → FALLBACK LaMa`,
       });
     }
   } else {
-    await emit({ etape: "proxy", statut: "saute", detail: "text-removal OK — proxy non appelé" });
+    await emit({
+      etape: "proxy",
+      statut: "saute",
+      detail: "② FALLBACK proxy non appelé (Fal/Seedream OK)",
+    });
   }
 
   if (!base64) {
     await emit({
       etape: "inpaint",
       statut: "encours",
-      detail: "fallback LaMa: Gemini détecte zones → Replicate efface",
+      detail: "③ FALLBACK LaMa — Gemini détecte zones texte → Replicate efface",
     });
     try {
       const image = await fetchImageAsInline(imageUrl);
@@ -727,28 +757,36 @@ export async function cleanImage(
       if (parInpaint && !(await sembleDegeneree(parInpaint))) {
         base64 = parInpaint;
         moteur = "inpaint";
-        await emit({ etape: "inpaint", statut: "ok", detail: "LaMa inpaint OK" });
+        await emit({
+          etape: "inpaint",
+          statut: "ok",
+          detail: "③ FALLBACK LaMa OK",
+        });
       } else if (parInpaint) {
         await emit({
           etape: "inpaint",
           statut: "echec",
-          detail: "sortie noire / dégénérée",
+          detail: "③ FALLBACK LaMa: sortie noire/dégénérée",
         });
       } else {
         await emit({
           etape: "inpaint",
           statut: "echec",
-          detail: "aucune zone détectée ou échec LaMa",
+          detail: "③ FALLBACK LaMa: aucune zone détectée ou échec Replicate",
         });
       }
     } catch (error) {
-      await emit({ etape: "inpaint", statut: "echec", detail: messageErreur(error) });
+      await emit({
+        etape: "inpaint",
+        statut: "echec",
+        detail: `③ FALLBACK LaMa ÉCHEC: ${redactSecrets(messageErreur(error))}`,
+      });
     }
   } else {
     await emit({
       etape: "inpaint",
       statut: "saute",
-      detail: "étape précédente OK — LaMa non appelé",
+      detail: "③ FALLBACK LaMa non appelé (étape précédente OK)",
     });
   }
 
@@ -756,14 +794,18 @@ export async function cleanImage(
     await emit({
       etape: "ready",
       statut: "echec",
-      detail: "text-removal/proxy/inpaint indisponibles ou sorties noires",
+      detail: "Fal/Seedream + fallbacks proxy/LaMa indisponibles ou sorties noires",
     });
     throw new RefusRetouche(
       "nettoyage: text-removal/proxy/inpaint indisponibles ou sorties noires",
     );
   }
 
-  await emit({ etape: "c2pa", statut: "encours", detail: "Content Credentials" });
+  await emit({
+    etape: "c2pa",
+    statut: "encours",
+    detail: "④ Enlève clés / Content Credentials (C2PA) de l'image",
+  });
   try {
     const stripped = await retirerContentCredentials(base64);
     base64 = stripped.base64;
@@ -771,13 +813,17 @@ export async function cleanImage(
       etape: "c2pa",
       statut: "ok",
       detail: stripped.retire
-        ? "Content Credentials retirées"
-        : "pas de Content Credentials détectées",
+        ? "④ Enlève clés C2PA: Content Credentials RETIRÉES"
+        : "④ Enlève clés C2PA: aucune Content Credential détectée",
     });
     // `ready` est émis par l'edge function après upload / persistance.
     return { base64, moteur, mime: stripped.mime, etapes };
   } catch (error) {
-    await emit({ etape: "c2pa", statut: "echec", detail: messageErreur(error) });
+    await emit({
+      etape: "c2pa",
+      statut: "echec",
+      detail: `④ Enlève clés C2PA ÉCHEC: ${redactSecrets(messageErreur(error))} — image livrée quand même`,
+    });
     // On livre quand même l'image nettoyée ; le caller pourra marquer ready.
     return {
       base64,
@@ -786,6 +832,14 @@ export async function cleanImage(
       etapes,
     };
   }
+}
+
+/** Masque tokens / clés éventuels dans les messages d'erreur des logs. */
+function redactSecrets(s: string): string {
+  return s
+    .replace(/(?:api[_-]?key|token|authorization|bearer)\s*[:=]\s*["']?[^\s"',}]+/gi, "$1=[REDACTED]")
+    .replace(/\bKey\s+[A-Za-z0-9_\-]{12,}/g, "Key [REDACTED]")
+    .replace(/\bsk-[A-Za-z0-9]{10,}/g, "sk-[REDACTED]");
 }
 
 /**

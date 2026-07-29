@@ -788,13 +788,20 @@ export async function avancerImport(
       const nettoyage: NettoyageRapport = {
         slides: rapports,
         texte: rapports
-          .map(
-            (s) =>
-              `slide #${s.position}: ${s.ok ? "OK" : "échec"}` +
-              (s.moteur ? ` · moteur=${s.moteur}` : "") +
-              (s.motif ? ` · ${s.motif}` : "") +
-              (s.lignes.length ? `\n${s.lignes.map((l) => `  ${l}`).join("\n")}` : ""),
-          )
+          .map((s) => {
+            const moteurLabel =
+              s.moteur === "text_removal"
+                ? "Fal/Seedream"
+                : s.moteur === "proxy"
+                  ? "FALLBACK proxy"
+                  : s.moteur === "inpaint"
+                    ? "FALLBACK LaMa"
+                    : s.moteur ?? "—";
+            const head =
+              `══ slide #${s.position} · ${s.ok ? "OK" : "ÉCHEC"} · moteur=${moteurLabel}` +
+              (s.motif ? ` · ${s.motif}` : "");
+            return [head, ...s.lignes.map((l) => `  ${l}`)].join("\n");
+          })
           .join("\n"),
       };
       return { etape: "nettoyage", nettoyage };
@@ -1011,10 +1018,17 @@ async function nettoyerSlide(
   contenu: any,
   slide: SlideBrut,
 ): Promise<{ mediaId: string | null; rapport: NettoyageSlideRapport }> {
+  const labelEtape: Record<string, string> = {
+    text_removal: "① Fal/Seedream",
+    proxy: "② FALLBACK proxy",
+    inpaint: "③ FALLBACK LaMa",
+    c2pa: "④ Enlève clés C2PA",
+    ready: "⑤ Ready",
+  };
   const lignes: string[] = [
-    `url=${(slide.raw_url ?? "").slice(0, 80)}…`,
-    `chaîne: Fal text-removal → proxy Lovable → LaMa inpaint → C2PA → verifyClean (Gemini)`,
-    `chaque moteur = plusieurs appels HTTP (submit + polls status + download + vérif)`,
+    `slide #${slide.position} · url=${(slide.raw_url ?? "").slice(0, 72)}…`,
+    `pipeline: ① Fal/Seedream (text-removal) → ② FALLBACK proxy → ③ FALLBACK LaMa → ④ Enlève clés C2PA → ⑤ verifyClean`,
+    `note: chaque poll Fal = 1 appel HTTP (d'où ~10 hits / photo si la queue est lente)`,
   ];
   const rapport: NettoyageSlideRapport = {
     position: slide.position,
@@ -1026,8 +1040,20 @@ async function nettoyerSlide(
   let moteur: string | undefined;
   try {
     const propre = await cleanImage(slide.raw_url, (e) => {
-      const line = `[${e.etape}] ${e.statut}${e.detail ? ` — ${e.detail}` : ""}`;
-      lignes.push(line);
+      const nom = labelEtape[e.etape] ?? e.etape;
+      const line = `${nom} · ${e.statut}${e.detail ? ` — ${e.detail}` : ""}`;
+      // Évite de dupliquer chaque poll ligne à ligne si le détail est déjà explicite.
+      if (
+        e.etape === "text_removal" &&
+        e.statut === "encours" &&
+        e.detail?.includes("poll #") &&
+        lignes.length > 0 &&
+        lignes[lignes.length - 1]?.includes("poll #")
+      ) {
+        lignes[lignes.length - 1] = line;
+      } else {
+        lignes.push(line);
+      }
       console.log(
         `[import nettoyage] contenu=${contenu.id} slide=${slide.position} ${line}`,
       );
@@ -1046,21 +1072,23 @@ async function nettoyerSlide(
   }
   if (!propreBase64) {
     rapport.motif = "aucune image renvoyée";
-    lignes.push("échec: aucune image");
+    lignes.push("échec: aucune image après Fal + fallbacks");
     return { mediaId: null, rapport };
   }
 
-  lignes.push("verifyClean (Gemini)…");
+  lignes.push("⑤ verifyClean (Gemini) — reste-t-il du texte ?");
   const propreOk = await verifyClean(propreBase64, "image/png");
   if (!propreOk) {
     rapport.motif = "texte encore détecté après nettoyage (verifyClean=OUI)";
-    lignes.push(`verifyClean → texte restant — retry (moteur était ${moteur ?? "?"})`);
+    lignes.push(
+      `⑤ verifyClean → texte RESTANT — retry (moteur était ${moteur ?? "?"})`,
+    );
     console.warn(
       `[import nettoyage] contenu=${contenu.id} slide=${slide.position} verifyClean KO`,
     );
     return { mediaId: null, rapport };
   }
-  lignes.push("verifyClean → OK (pas de texte)");
+  lignes.push("⑤ verifyClean → OK (pas de texte)");
 
   const path = `propre/${contenu.id}/${slide.position}.png`;
   const bytes = Uint8Array.from(atob(propreBase64), (c) => c.charCodeAt(0));

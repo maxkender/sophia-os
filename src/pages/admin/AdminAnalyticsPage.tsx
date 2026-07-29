@@ -190,7 +190,7 @@ export function AdminAnalyticsPage() {
           {comptes.data?.map((c) => (
             <Link
               key={c.compte_id}
-              to={`/admin/posts?compte=${c.compte_id}`}
+              to={`/admin/calendrier?compte=${c.compte_id}`}
               className="flex flex-wrap items-center justify-between gap-3 rounded-lg border p-3 transition-colors hover:bg-muted/50"
             >
               <div className="min-w-0">

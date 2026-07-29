@@ -23,13 +23,88 @@ import {
   type SlideshowDetail,
 } from "@/features/moteur/api";
 import { nomLangue } from "@/features/moteur/langues";
+import type { ContenuLangue, ContenuSlide } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
 
+function urlPropre(c: ContenuListe, slide: ContenuSlide): string | null {
+  if (slide.media_id && c.mediaUrls?.[slide.media_id]) return c.mediaUrls[slide.media_id];
+  return null;
+}
+
 function vignette(c: ContenuListe): string | null {
-  const slides = c.structure_slides ?? [];
+  const slides = [...(c.structure_slides ?? [])].sort((a, b) => a.position - b.position);
+  for (const s of slides) {
+    const propre = urlPropre(c, s);
+    if (propre) return propre;
+  }
   const first = slides[0];
-  if (!first) return null;
-  return first.raw_url ?? first.reference_url ?? null;
+  return first?.raw_url ?? first?.reference_url ?? null;
+}
+
+function DeckLangue({
+  contenu,
+  langue,
+  estSource,
+}: {
+  contenu: SlideshowDetail;
+  langue: ContenuLangue;
+  estSource: boolean;
+}) {
+  const { t } = useTranslation();
+  const structure = [...(contenu.structure_slides ?? [])].sort((a, b) => a.position - b.position);
+  const textes = new Map(
+    (langue.slides ?? []).map((s) => [s.position, s] as const),
+  );
+
+  if (structure.length === 0) {
+    return <p className="text-xs text-muted-foreground">{t("slideshows.deckVide")}</p>;
+  }
+
+  return (
+    <div className="space-y-2">
+      <p className="text-[11px] text-muted-foreground">
+        {estSource
+          ? t("slideshows.deckSourceAide")
+          : t("slideshows.deckTradAide")}
+      </p>
+      <div className="grid grid-cols-2 gap-2">
+        {structure.map((s) => {
+          const img = urlPropre(contenu, s) ?? s.raw_url ?? s.reference_url;
+          const meta = textes.get(s.position);
+          const texte = meta?.texte_overlay?.trim() || null;
+          const sophia = Boolean(meta?.position_sophia);
+          return (
+            <div key={s.position} className="overflow-hidden rounded border">
+              {img ? (
+                <img src={img} alt="" className="aspect-[3/4] w-full object-cover" />
+              ) : (
+                <div className="flex aspect-[3/4] items-center justify-center bg-muted text-[10px] text-muted-foreground">
+                  #{s.position}
+                </div>
+              )}
+              <div className="space-y-1 p-2">
+                <div className="flex items-center justify-between gap-1">
+                  <span className="text-[10px] text-muted-foreground">#{s.position}</span>
+                  {sophia && (
+                    <Badge variant="success" className="text-[10px]">
+                      Sophia
+                    </Badge>
+                  )}
+                </div>
+                {texte ? (
+                  <p className="text-xs leading-snug">{texte}</p>
+                ) : (
+                  <p className="text-[11px] text-muted-foreground">
+                    {t("slideshows.sansTexte")}
+                  </p>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
 }
 
 function DetailSlideshow({
@@ -46,6 +121,20 @@ function DetailSlideshow({
   });
 
   const d = detail.data as SlideshowDetail | null | undefined;
+  const langues = d?.langues ?? [];
+  const [langueSel, setLangueSel] = React.useState<string | null>(null);
+  const [voirOriginal, setVoirOriginal] = React.useState(false);
+
+  React.useEffect(() => {
+    if (!d) return;
+    const prefer =
+      d.langues.find((l) => l.langue === d.langue_source)?.langue ??
+      d.langues[0]?.langue ??
+      null;
+    setLangueSel(prefer);
+  }, [d?.id]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const langueActive = langues.find((l) => l.langue === langueSel) ?? langues[0];
 
   return (
     <div
@@ -137,11 +226,11 @@ function DetailSlideshow({
               <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                 {t("slideshows.elo")}
               </h3>
-              {(d.langues ?? []).length === 0 ? (
+              {langues.length === 0 ? (
                 <p className="text-xs text-muted-foreground">{t("slideshows.eloVide")}</p>
               ) : (
                 <ul className="space-y-1.5">
-                  {d.langues.map((l) => (
+                  {langues.map((l) => (
                     <li
                       key={l.id}
                       className="flex items-center justify-between rounded border px-2.5 py-1.5 text-sm"
@@ -168,28 +257,73 @@ function DetailSlideshow({
 
             <section className="space-y-2">
               <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                {t("slideshows.visuels")}
+                {t("slideshows.decks")}
               </h3>
-              <div className="grid grid-cols-3 gap-1.5">
-                {(d.structure_slides ?? []).map((s) => {
-                  const url = s.raw_url ?? s.reference_url;
-                  return url ? (
-                    <img
-                      key={s.position}
-                      src={url}
-                      alt=""
-                      className="aspect-[3/4] w-full rounded border object-cover"
+              {langues.length === 0 ? (
+                <p className="text-xs text-muted-foreground">{t("slideshows.decksVide")}</p>
+              ) : (
+                <>
+                  <div className="flex flex-wrap gap-1.5">
+                    {langues.map((l) => (
+                      <button
+                        key={l.id}
+                        type="button"
+                        onClick={() => setLangueSel(l.langue)}
+                        className={cn(
+                          "rounded-md border px-2.5 py-1 text-xs font-medium",
+                          (langueActive?.langue ?? langueSel) === l.langue
+                            ? "border-primary bg-primary text-primary-foreground"
+                            : "bg-background text-muted-foreground hover:bg-muted",
+                        )}
+                      >
+                        {l.langue.toUpperCase()}
+                        <span className="ml-1 opacity-80">{l.score.toFixed(0)}</span>
+                      </button>
+                    ))}
+                  </div>
+                  {langueActive && (
+                    <DeckLangue
+                      contenu={d}
+                      langue={langueActive}
+                      estSource={langueActive.langue === d.langue_source}
                     />
-                  ) : (
-                    <div
-                      key={s.position}
-                      className="flex aspect-[3/4] items-center justify-center rounded border text-[10px] text-muted-foreground"
-                    >
-                      #{s.position}
-                    </div>
-                  );
-                })}
-              </div>
+                  )}
+                </>
+              )}
+            </section>
+
+            <section className="space-y-2">
+              <button
+                type="button"
+                className="text-xs font-semibold uppercase tracking-wide text-muted-foreground underline-offset-2 hover:underline"
+                onClick={() => setVoirOriginal((v) => !v)}
+              >
+                {voirOriginal ? t("slideshows.masquerOriginal") : t("slideshows.voirOriginal")}
+              </button>
+              {voirOriginal && (
+                <div className="grid grid-cols-3 gap-1.5">
+                  {[...(d.structure_slides ?? [])]
+                    .sort((a, b) => a.position - b.position)
+                    .map((s) => {
+                      const url = s.raw_url ?? s.reference_url;
+                      return url ? (
+                        <img
+                          key={s.position}
+                          src={url}
+                          alt=""
+                          className="aspect-[3/4] w-full rounded border object-cover"
+                        />
+                      ) : (
+                        <div
+                          key={s.position}
+                          className="flex aspect-[3/4] items-center justify-center rounded border text-[10px] text-muted-foreground"
+                        >
+                          #{s.position}
+                        </div>
+                      );
+                    })}
+                </div>
+              )}
             </section>
 
             <section className="space-y-2">

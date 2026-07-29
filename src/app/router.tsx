@@ -13,7 +13,6 @@ import { HiringPosterPage } from "@/pages/hiring/HiringPosterPage";
 import { AdminDocumentsPage } from "@/pages/admin/AdminDocumentsPage";
 import { DocumentView } from "@/features/documents/DocumentView";
 import { AdminPilotagePage } from "@/pages/admin/AdminPilotagePage";
-import { AdminReproduciblesPage } from "@/pages/admin/AdminReproduciblesPage";
 import { AdminSourcesPage } from "@/pages/admin/AdminSourcesPage";
 import { AdminPostersPage } from "@/pages/admin/AdminPostersPage";
 import { AdminBibliothequePage } from "@/pages/admin/AdminBibliothequePage";
@@ -21,7 +20,6 @@ import { AdminReglagesPage } from "@/pages/admin/AdminReglagesPage";
 import { AdminPromptsPage } from "@/pages/admin/AdminPromptsPage";
 import { AdminAnalyticsPage } from "@/pages/admin/AdminAnalyticsPage";
 import { AdminReviewsPage } from "@/pages/admin/AdminReviewsPage";
-import { AdminPostsPage } from "@/pages/admin/AdminPostsPage";
 import { AdminCalendrierPage } from "@/pages/admin/AdminCalendrierPage";
 import { AdminMinuitPage } from "@/pages/admin/AdminMinuitPage";
 import { AdminContenusPage } from "@/pages/admin/AdminContenusPage";
@@ -57,13 +55,13 @@ export function AppRouter() {
             <Route path="/admin/calendrier" element={<AdminCalendrierPage />} />
             <Route path="/admin/minuit" element={<AdminMinuitPage />} />
             <Route path="/admin/posts/:id" element={<AdminPostDetailPage />} />
+            <Route path="/admin/posts" element={<Navigate to="/admin/calendrier" replace />} />
             <Route path="/admin/analytics" element={<AdminAnalyticsPage />} />
-            <Route path="/admin/posts" element={<AdminPostsPage />} />
             <Route path="/admin/sources" element={<AdminSourcesPage />} />
             <Route path="/admin/contenus" element={<AdminContenusPage />} />
             <Route path="/admin/slideshows" element={<AdminSlideshowsPage />} />
             <Route path="/admin/assignation-sources" element={<Navigate to="/admin/sources" replace />} />
-            <Route path="/admin/reproduisibles" element={<AdminReproduciblesPage />} />
+            <Route path="/admin/reproduisibles" element={<Navigate to="/admin/slideshows" replace />} />
             <Route path="/admin/posters" element={<AdminPostersPage />} />
             <Route path="/admin/reviews" element={<AdminReviewsPage />} />
             <Route path="/admin/bibliotheque" element={<AdminBibliothequePage />} />

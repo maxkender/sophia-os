@@ -1589,6 +1589,27 @@ export async function propagerLabelsSource(compteReferenceId: string): Promise<n
 export interface ContenuListe extends Contenu {
   labels?: Label[];
   scores?: Array<{ langue: string; score: number; nb_passages: number }>;
+  /** URL des visuels nettoyés indexés par media_id. */
+  mediaUrls?: Record<string, string>;
+}
+
+async function urlsMediasPropres(
+  contenus: Contenu[],
+): Promise<Record<string, string>> {
+  const mediaIds = [
+    ...new Set(
+      contenus.flatMap((c) =>
+        ((c.structure_slides ?? []) as Contenu["structure_slides"])
+          .map((s) => s.media_id)
+          .filter((id): id is string => Boolean(id)),
+      ),
+    ),
+  ];
+  if (mediaIds.length === 0) return {};
+  const { data } = await supabase.from("media_library").select("id, url").in("id", mediaIds);
+  const map: Record<string, string> = {};
+  for (const m of data ?? []) map[m.id] = m.url;
+  return map;
 }
 
 export async function listerContenus(opts?: {
@@ -1607,12 +1628,13 @@ export async function listerContenus(opts?: {
   if (contenus.length === 0) return [];
 
   const ids = contenus.map((c) => c.id);
-  const [{ data: liens }, { data: scores }] = await Promise.all([
+  const [{ data: liens }, { data: scores }, mediaUrls] = await Promise.all([
     supabase.from("contenu_labels").select("contenu_id, label_id, labels(*)").in("contenu_id", ids),
     supabase
       .from("contenu_langues")
       .select("contenu_id, langue, score, nb_passages")
       .in("contenu_id", ids),
+    urlsMediasPropres(contenus),
   ]);
 
   const labelsPar = new Map<string, Label[]>();
@@ -1630,11 +1652,23 @@ export async function listerContenus(opts?: {
     scoresPar.set(s.contenu_id, list);
   }
 
-  return contenus.map((c) => ({
-    ...c,
-    labels: labelsPar.get(c.id) ?? [],
-    scores: scoresPar.get(c.id) ?? [],
-  }));
+  return contenus.map((c) => {
+    const idsContenu = new Set(
+      (c.structure_slides ?? [])
+        .map((s) => s.media_id)
+        .filter((id): id is string => Boolean(id)),
+    );
+    const urls: Record<string, string> = {};
+    for (const mid of idsContenu) {
+      if (mediaUrls[mid]) urls[mid] = mediaUrls[mid];
+    }
+    return {
+      ...c,
+      labels: labelsPar.get(c.id) ?? [],
+      scores: scoresPar.get(c.id) ?? [],
+      mediaUrls: urls,
+    };
+  });
 }
 
 export interface SlideshowDetail extends ContenuListe {
@@ -1647,13 +1681,13 @@ export interface SlideshowDetail extends ContenuListe {
   source?: { handle_tiktok: string } | null;
 }
 
-/** Détail d'un slideshow importé : ELO par langue, passages, stats. */
+/** Détail d'un slideshow importé : decks propres/traduits, ELO, passages. */
 export async function lireSlideshow(id: string): Promise<SlideshowDetail | null> {
   const { data: contenu, error } = await supabase.from("contenus").select("*").eq("id", id).maybeSingle();
   if (error) throw error;
   if (!contenu) return null;
 
-  const [{ data: langues }, { data: passages }, { data: liens }] = await Promise.all([
+  const [{ data: langues }, { data: passages }, { data: liens }, mediaUrls] = await Promise.all([
     supabase
       .from("contenu_langues")
       .select("*")
@@ -1665,6 +1699,7 @@ export async function lireSlideshow(id: string): Promise<SlideshowDetail | null>
       .eq("contenu_id", id)
       .order("date_publication_prevue", { ascending: false }),
     supabase.from("contenu_labels").select("label_id, labels(*)").eq("contenu_id", id),
+    urlsMediasPropres([contenu as Contenu]),
   ]);
 
   let source: { handle_tiktok: string } | null = null;
@@ -1686,6 +1721,7 @@ export async function lireSlideshow(id: string): Promise<SlideshowDetail | null>
   return {
     ...(contenu as Contenu),
     labels,
+    mediaUrls,
     scores: (langues ?? []).map((l) => ({
       langue: l.langue,
       score: l.score,

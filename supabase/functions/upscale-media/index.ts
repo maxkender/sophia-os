@@ -38,7 +38,7 @@ Deno.serve(async (request) => {
   const scaleRaw = Number(body?.scale);
   const scale = Number.isFinite(scaleRaw) && scaleRaw >= 1 && scaleRaw <= 4
     ? scaleRaw
-    : 2;
+    : 1;
   if (!mediaId) return json({ ok: false, error: "mediaId requis" }, 400);
 
   try {

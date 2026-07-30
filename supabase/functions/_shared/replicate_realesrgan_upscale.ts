@@ -11,8 +11,8 @@ const MODEL_VERSION =
 const MODEL_LABEL = "juergengunz/real-esrgan-v2";
 const PREDICTIONS_URL = "https://api.replicate.com/v1/predictions";
 
-/** Facteur d’agrandissement (exemple Replicate = 1 ; 2× pour un vrai upscale biblio). */
-const SCALE_DEFAUT = 2;
+/** Facteur d’agrandissement — défaut = exemple Replicate (`scale: 1`). */
+const SCALE_DEFAUT = 1;
 
 function replicateToken(): string | null {
   return Deno.env.get("REPLICATE_API_TOKEN") ?? null;

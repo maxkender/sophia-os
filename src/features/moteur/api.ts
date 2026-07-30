@@ -1443,9 +1443,12 @@ export async function lireCompteCreateur(compteId: string): Promise<CompteCreate
     .eq("compte_id", compteId)
     .maybeSingle();
 
-  const profiles = data.profiles as
+  // Supabase type parfois `profiles` en tableau (join) — on normalise.
+  const raw = data.profiles as
     | { prenom: string | null; nom: string | null; email: string | null }
+    | Array<{ prenom: string | null; nom: string | null; email: string | null }>
     | null;
+  const profiles = Array.isArray(raw) ? (raw[0] ?? null) : raw;
 
   return {
     id: data.id as string,

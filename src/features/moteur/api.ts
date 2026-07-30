@@ -1912,8 +1912,9 @@ export const lancerAssignation = (
     { compteId: compteId ?? null, type: type ?? null, forcer, manuel: true },
   );
 
-/** Simule le cron de minuit v-next : labels ∩ + score → passages (+ pont posts).
- *  Contourne la pause auto. Traduction / Sophia déjà faites à l'assignation. */
+/** Assignation du jour (v-next) : labels ∩ + score → passages (+ pont posts).
+ *  Contourne la pause auto via `manuel`. Appelle `assignation` (cutover côté Edge
+ *  — plus de recycle). Quota = posts_par_jour du compte (1–3). */
 export const lancerAssignationJour = (date: string, compteId?: string) =>
   invoke<{
     ok?: boolean;
@@ -1927,10 +1928,10 @@ export const lancerAssignationJour = (date: string, compteId?: string) =>
     }>;
     saute?: boolean;
     raison?: string;
-  }>("assignation-contenu", {
+  }>("assignation", {
     date,
+    manuel: true,
     compteId: compteId ?? null,
-    forcer: false,
   });
 
 /** Une ligne de suivi « minuit » : un compte actif, son quota du jour, et les

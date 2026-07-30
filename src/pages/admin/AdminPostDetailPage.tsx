@@ -488,16 +488,18 @@ export function AdminPostDetailPage() {
               </Link>
             </Button>
           )}
-          <Button
-            variant="outline"
-            size="sm"
-            className="text-destructive hover:text-destructive"
-            disabled={revoq !== null}
-            onClick={revoquerEtRefaire}
-          >
-            <RefreshCcw className="size-4" />
-            {revoq ?? t("adminPost.revoquer")}
-          </Button>
+          {post.data.type !== "contenu" && (
+            <Button
+              variant="outline"
+              size="sm"
+              className="text-destructive hover:text-destructive"
+              disabled={revoq !== null}
+              onClick={revoquerEtRefaire}
+            >
+              <RefreshCcw className="size-4" />
+              {revoq ?? t("adminPost.revoquer")}
+            </Button>
+          )}
           <Badge variant="secondary">{t(`type.${post.data.type}`)}</Badge>
           <Badge variant={post.data.publie_at ? "success" : "outline"}>
             {t(`statut.${post.data.statut}`)}
@@ -505,8 +507,7 @@ export function AdminPostDetailPage() {
         </div>
       </div>
 
-      {/* Mode du slideshow, bien visible en tête : l'admin voit d'un coup d'œil si
-          c'est un recyclé (repro fidèle), un remanié ou un nouveau. */}
+      {/* Mode : v-next = Slideshow bibliothèque ; legacy recycle/remanie/nouveau. */}
       <div
         className={
           post.data.type === "remanie"
@@ -520,7 +521,9 @@ export function AdminPostDetailPage() {
         <p className="text-xs text-muted-foreground">{t(`adminPost.mode_${post.data.type}`)}</p>
       </div>
 
-      <p className="text-xs text-muted-foreground">{t("adminPost.revoquerAide")}</p>
+      {post.data.type !== "contenu" && (
+        <p className="text-xs text-muted-foreground">{t("adminPost.revoquerAide")}</p>
+      )}
 
       {/* Fabrication en direct (posts de test) : nettoyage photo par photo, puis
           Sophia, puis le QR apparaît. Reprend tout seul si l'onglet a dormi. */}

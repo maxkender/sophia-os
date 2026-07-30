@@ -98,6 +98,29 @@ export async function assignerCompteJour(
   const quota = Math.min(3, Math.max(1, Number.isFinite(brut) ? brut : 1));
   const langue: string = compte.langue ?? "fr";
 
+  // Purge les coquilles legacy recycle/remanie/nouveau du jour (non publiées,
+  // sans passage) — sinon « Assigner » empile du Recyclé à côté du v-next.
+  if (!forcer) {
+    const { data: legacy } = await supabase
+      .from("posts")
+      .select("id, type, statut")
+      .eq("compte_id", compte.id)
+      .eq("date_publication_prevue", jour)
+      .eq("est_test", false)
+      .in("type", ["recycle", "remanie", "nouveau"])
+      .in("statut", ["brouillon", "assigne"]);
+    for (const lp of legacy ?? []) {
+      const { data: lie } = await supabase
+        .from("passages")
+        .select("id")
+        .eq("post_id", lp.id)
+        .maybeSingle();
+      if (!lie) {
+        await supabase.from("posts").delete().eq("id", lp.id);
+      }
+    }
+  }
+
   const { data: existants } = await supabase
     .from("passages")
     .select("id")

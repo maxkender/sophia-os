@@ -83,7 +83,7 @@ export const en = {
     navDesc: {
       pilotage: "Overview and pipeline launch",
       calendrier: "All posts by day, drag and drop",
-      minuit: "What midnight produced, and the errors",
+      minuit: "Day's passages (labels ∩ score), and gaps",
       assignSources: "Who gets assigned next, per language",
       contenus: "Content pool and per-language scores",
       slideshows: "Imported slideshows — cleaned/translated decks, ELO, passages",
@@ -104,21 +104,21 @@ export const en = {
     simMinuit: {
       title: "Simulate midnight",
       subtitle:
-        "Pick a date: we assign the day to ALL creators (like the midnight cron) and you watch each post being built live.",
+        "Pick a date: we assign the day to ALL creators from the library (labels ∩ score), like the midnight cron.",
       date: "Assignment date",
       lancer: "Run the assignment",
       enCours: "In progress…",
       assignation: "Assigning the day…",
-      fabrication: "Building the posts…",
+      fabrication: "Checking posts…",
       prets: "ready",
       voir: "View →",
-      aucun: "No post to build for this date (accounts already have their post, or no material ready).",
+      aucun: "No passage for this date (quota already filled, or no label/score-ready slideshows).",
       etat: {
         pending: "Pending",
         running: "In progress",
         attente_preparation: "Cleaning in progress",
       },
-      cout: "Each post consumes Gemini credit. \"Test\" posts (link) aren't counted.",
+      cout: "Translation + Sophia at assignment time (Gemini credit). \"Test\" posts (link) aren't counted.",
     },
     tests: {
       title: "Tests",
@@ -209,24 +209,24 @@ export const en = {
     },
     minuit: {
       titre: "Midnight assignment",
-      desc: "What the midnight cron produced for the day, account by account — and where it got stuck.",
+      desc: "Picks from the slideshow library (account labels ∩ language score), translates + Sophia, then assigns — no more Recycled / Reworked / New types.",
       jour: "Day",
       relancer: "Re-run assignment",
       enCours: "Assigning…",
-      lance: "Assignment re-run: {{crees}} post(s) created. Gemini translation running in parallel — the tracker refreshes on its own.",
-      erreursAssignation: "Accounts not assigned (before build even started):",
-      prets: "Posts ready",
-      enCoursLabel: "Building",
+      lance: "Assignment re-run: {{crees}} passage(s) created. Decks already translated + Sophia — the tracker refreshes on its own.",
+      erreursAssignation: "Accounts not assigned:",
+      prets: "Passages ready",
+      enCoursLabel: "In progress",
       echoues: "Failed",
       comptesIncomplets: "Incomplete accounts",
       parCompte: "Per-account detail",
       parCompteDesc:
-        "Each active account, its daily quota, and the progress of every post. You can assign one creator at a time.",
+        "Each active account, its daily quota, and assigned passages (labels ∩ score). You can assign one creator at a time.",
       aucunCompte: "No active account.",
       faitSur: "{{faits}}/{{quota}} post(s)",
       manquant: "{{count}} post(s) not created for this day.",
       assignerUn: "Assign",
-      assignerUnAide: "Fill this creator's quota only (Gemini translation follows).",
+      assignerUnAide: "Fill this creator's quota only (labels ∩ score → ready deck).",
       pauseBanner:
         "Automatic assignments paused — the midnight cron is not running. You can still launch manually below (Settings to re-enable).",
     },
@@ -266,6 +266,7 @@ export const en = {
       recycle: "Recycled",
       remanie: "Reworked",
       nouveau: "New",
+      contenu: "Slideshow",
     },
     pilotage: {
       title: "Engine control",
@@ -685,7 +686,7 @@ export const en = {
     reglages: {
       title: "Engine settings",
       subtitle: "Ratios and frequency. Nothing is hard-coded.",
-      repartition: "Post type distribution",
+      repartition: "Type mix (legacy — unused by midnight v-next)",
       recycle: "Recycled (%)",
       remanie: "Reworked (%)",
       nouveau: "New (%)",
@@ -958,11 +959,13 @@ export const en = {
       qrTelechargement: "QR & download",
       revoquer: "Revoke and find a new one",
       mode_recycle:
-        "Recycled: faithful reproduction of a reference-account TikTok — its cleaned images (text removed) + its text translated into the creator's language, then Sophia.",
+        "Legacy Recycled mode — midnight assignment no longer uses it.",
       mode_remanie:
-        "Reworked: text from ANOTHER source (idea reused), re-illustrated with images from the creator's library — not the other source's images.",
+        "Legacy Reworked mode — midnight assignment no longer uses it.",
       mode_nouveau:
-        "New: composed from the common topic pool (not the creator's own source).",
+        "Legacy New mode — midnight assignment no longer uses it.",
+      mode_contenu:
+        "Library slideshow: picked by account labels ∩ language score, cleaned images, translated text + Sophia — ready to post.",
       revoquerAide:
         "If this slideshow makes no sense for Sophia (theme can't be integrated), revoke it: we reject THIS slideshow (not the hook — another post can start the same way and still be good) and build a new one for this creator on this date.",
       revoquerEnCours: "Revoking and building…",

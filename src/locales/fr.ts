@@ -83,7 +83,7 @@ export const fr = {
     navDesc: {
       pilotage: "Vue d'ensemble et lancement du pipeline",
       calendrier: "Tous les posts par jour, glisser-déposer",
-      minuit: "Ce que minuit a produit, et les erreurs",
+      minuit: "Passages du jour (labels ∩ score), et les trous",
       assignSources: "Qui est assigné ensuite, par langue",
       contenus: "Pool de contenus et scores par langue",
       slideshows: "Slideshows importés — decks propres/traduits, ELO, passages",
@@ -104,21 +104,21 @@ export const fr = {
     simMinuit: {
       title: "Simuler minuit",
       subtitle:
-        "Choisis une date : on assigne la journée à TOUS les créateurs (comme le cron de minuit) et tu vois chaque post se fabriquer en direct.",
+        "Choisis une date : on assigne la journée à TOUS les créateurs via la bibliothèque (labels ∩ score), comme le cron de minuit.",
       date: "Date d'assignation",
       lancer: "Lancer l'assignation",
       enCours: "En cours…",
       assignation: "Assignation de la journée…",
-      fabrication: "Fabrication des posts…",
+      fabrication: "Vérification des posts…",
       prets: "prêts",
       voir: "Voir →",
-      aucun: "Aucun post à fabriquer pour cette date (les comptes ont déjà leur post, ou pas de matière prête).",
+      aucun: "Aucun passage pour cette date (quota déjà rempli, ou pas de slideshows labels/score prêts).",
       etat: {
         pending: "En attente",
         running: "En cours",
         attente_preparation: "Nettoyage en cours",
       },
-      cout: "Chaque post consomme du crédit Gemini. Les posts « test » (lien) n'y sont pas comptés.",
+      cout: "Traduction + Sophia à l'assignation (crédit Gemini). Les posts « test » (lien) n'y sont pas comptés.",
     },
     tests: {
       title: "Tests",
@@ -209,24 +209,24 @@ export const fr = {
     },
     minuit: {
       titre: "Assignation de minuit",
-      desc: "Ce que le cron de minuit a produit pour la journée, compte par compte — et où ça a coincé.",
+      desc: "Pioche dans la bibliothèque de slideshows (labels du compte ∩ score langue), traduit + Sophia, puis assigne — plus de types Recyclé / Remanié / Nouveau.",
       jour: "Journée",
       relancer: "Relancer l'assignation",
       enCours: "Assignation…",
-      lance: "Assignation relancée : {{crees}} post(s) créé(s). Traduction Gemini en cours en parallèle — le suivi se met à jour tout seul.",
-      erreursAssignation: "Comptes non assignés (avant même la fabrication) :",
-      prets: "Posts prêts",
-      enCoursLabel: "En fabrication",
+      lance: "Assignation relancée : {{crees}} passage(s) créé(s). Decks déjà traduits + Sophia — le suivi se met à jour tout seul.",
+      erreursAssignation: "Comptes non assignés :",
+      prets: "Passages prêts",
+      enCoursLabel: "En cours",
       echoues: "En échec",
       comptesIncomplets: "Comptes incomplets",
       parCompte: "Détail par compte",
       parCompteDesc:
-        "Chaque compte actif, son quota du jour, et l'avancement de chaque post. Tu peux assigner un créateur seul.",
+        "Chaque compte actif, son quota du jour, et les passages assignés (labels ∩ score). Tu peux assigner un créateur seul.",
       aucunCompte: "Aucun compte actif.",
       faitSur: "{{faits}}/{{quota}} post(s)",
       manquant: "{{count}} post(s) non créé(s) pour ce jour.",
       assignerUn: "Assigner",
-      assignerUnAide: "Complète le quota de ce créateur uniquement (trad Gemini ensuite).",
+      assignerUnAide: "Complète le quota de ce créateur uniquement (labels ∩ score → deck prêt).",
       pauseBanner:
         "Assignations automatiques en pause — le cron de minuit ne tourne pas. Tu peux quand même lancer manuellement ci-dessous (Réglages pour réactiver).",
     },
@@ -266,6 +266,7 @@ export const fr = {
       recycle: "Recyclé",
       remanie: "Remanié",
       nouveau: "Nouveau",
+      contenu: "Slideshow",
     },
     pilotage: {
       title: "Pilotage du moteur",
@@ -686,7 +687,7 @@ export const fr = {
     reglages: {
       title: "Réglages du moteur",
       subtitle: "Scoring, paiement, fréquence. Rien n'est figé dans le code.",
-      repartition: "Répartition des types de post",
+      repartition: "Répartition des types (legacy — inutilisée par minuit v-next)",
       recycle: "Recyclé (%)",
       remanie: "Remanié (%)",
       nouveau: "Nouveau (%)",
@@ -959,11 +960,13 @@ export const fr = {
       qrTelechargement: "QR & téléchargement",
       revoquer: "Révoquer et trouver un nouveau",
       mode_recycle:
-        "Recyclé : reproduction fidèle d'un TikTok du compte de référence — ses images nettoyées (texte retiré) + son texte traduit dans la langue du créateur, puis Sophia.",
+        "Ancien mode Recyclé (legacy) — l'assignation de minuit ne l'utilise plus.",
       mode_remanie:
-        "Remanié : le texte d'une AUTRE source (idée reprise), revisualisé avec des images de la bibliothèque du créateur — pas les images de l'autre source.",
+        "Ancien mode Remanié (legacy) — l'assignation de minuit ne l'utilise plus.",
       mode_nouveau:
-        "Nouveau : composé depuis le pool commun de sujets (pas la source propre du créateur).",
+        "Ancien mode Nouveau (legacy) — l'assignation de minuit ne l'utilise plus.",
+      mode_contenu:
+        "Slideshow de la bibliothèque : choisi par labels du compte ∩ score langue, images nettoyées, texte traduit + Sophia — prêt à poster.",
       revoquerAide:
         "Si ce slideshow n'a pas de sens pour Sophia (thème non intégrable), révoque-le : on rejette CE slideshow (pas le hook — un autre post peut commencer pareil et rester bon) et on en refait un autre pour ce créateur à cette date.",
       revoquerEnCours: "Révocation et fabrication…",

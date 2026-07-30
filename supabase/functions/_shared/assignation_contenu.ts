@@ -133,6 +133,7 @@ export async function assignerCompteJour(
 
     // Traduction + Sophia à la demande (hors langue source) — pas à l'import.
     const slides = await assurerDeckPourLangue(supabase, choisi.contenuId, langue);
+    const hashtags = hashtagsPour(langue, `${compte.id}-${jour}-${i}`);
 
     const { data: passage, error } = await supabase
       .from("passages")
@@ -146,14 +147,115 @@ export async function assignerCompteJour(
         musique_url: choisi.musique_url,
         musique_titre: choisi.musique_titre,
         musique_plateforme: choisi.musique_plateforme,
-        hashtags: hashtagsPour(langue, `${compte.id}-${jour}-${i}`),
+        hashtags,
       })
       .select("id")
       .single();
     if (error) throw error;
+
+    // Pont poster : le calendrier / détail créateur lit encore `posts` +
+    // `post_slides`. On matérialise un post déjà cuit (pipeline done) et on
+    // le lie via passages.post_id — plus de type recycle/remanie/nouveau.
+    await materialiserPostDepuisPassage(supabase, {
+      passageId: passage.id,
+      compteId: compte.id as string,
+      contenuId: choisi.contenuId,
+      jour,
+      slides,
+      musique_url: choisi.musique_url,
+      musique_titre: choisi.musique_titre,
+      musique_plateforme: choisi.musique_plateforme,
+      hashtags,
+    });
+
     crees.push(passage.id);
   }
   return crees;
+}
+
+interface SlideStructure {
+  position: number;
+  media_id?: string | null;
+  raw_url?: string | null;
+  reference_url?: string | null;
+}
+
+interface SlideLangue {
+  position: number;
+  texte_overlay: string | null;
+  position_sophia: boolean;
+}
+
+/**
+ * Crée le `posts` + `post_slides` que le poster consomme, liés au passage.
+ * Deck déjà traduit + Sophia (assurerDeckPourLangue) → pipeline_statut = done.
+ */
+async function materialiserPostDepuisPassage(
+  supabase: Supabase,
+  args: {
+    passageId: string;
+    compteId: string;
+    contenuId: string;
+    jour: string;
+    slides: SlideLangue[];
+    musique_url: string | null;
+    musique_titre: string | null;
+    musique_plateforme: string | null;
+    hashtags: string;
+  },
+): Promise<void> {
+  const { data: contenu, error: errC } = await supabase
+    .from("contenus")
+    .select("id, sujet_id, structure_slides, titre")
+    .eq("id", args.contenuId)
+    .single();
+  if (errC || !contenu) throw errC ?? new Error("Contenu introuvable pour pont post");
+
+  const structure = (contenu.structure_slides ?? []) as SlideStructure[];
+  const parPos = new Map(structure.map((s) => [s.position, s]));
+
+  const { data: post, error: errP } = await supabase
+    .from("posts")
+    .insert({
+      compte_id: args.compteId,
+      sujet_id: contenu.sujet_id ?? null,
+      type: "contenu",
+      statut: "assigne",
+      date_publication_prevue: args.jour,
+      musique_url: args.musique_url,
+      musique_titre: args.musique_titre,
+      musique_plateforme: args.musique_plateforme,
+      hashtags: args.hashtags,
+      pipeline_statut: "done",
+      pipeline_etape: null,
+      pipeline_erreur: null,
+      est_test: false,
+    })
+    .select("id")
+    .single();
+  if (errP || !post) throw errP ?? new Error("Création post pont échouée");
+
+  const rows = args.slides.map((s) => {
+    const visuel = parPos.get(s.position);
+    return {
+      post_id: post.id,
+      position: s.position,
+      media_id: visuel?.media_id ?? null,
+      texte_overlay: s.texte_overlay ?? "",
+      position_sophia: Boolean(s.position_sophia),
+      reference_url: visuel?.reference_url ?? visuel?.raw_url ?? null,
+    };
+  });
+  if (rows.length > 0) {
+    const { error: errS } = await supabase.from("post_slides").insert(rows);
+    if (errS) throw errS;
+  }
+
+  const { error: errL } = await supabase
+    .from("passages")
+    .update({ post_id: post.id })
+    .eq("id", args.passageId);
+  if (errL) throw errL;
 }
 
 async function choisirContenu(

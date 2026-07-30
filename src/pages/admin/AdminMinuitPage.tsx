@@ -105,30 +105,35 @@ function LigneCompte({
         </p>
       )}
 
-      {ligne.posts.map((p) => (
-        <div
-          key={p.id}
-          className="flex flex-wrap items-center justify-between gap-2 rounded-md border bg-muted/30 p-2"
-        >
-          <div className="flex flex-wrap items-center gap-1.5">
-            <Badge variant="secondary">{t(`type.${p.type}`)}</Badge>
-            <Badge variant={badgePipeline(p.pipeline_statut)}>
-              {t(`statut.${p.pipeline_statut}`)}
-            </Badge>
-            {p.pipeline_etape && p.pipeline_statut === "running" && (
-              <span className="text-xs text-muted-foreground">{p.pipeline_etape}</span>
+      {ligne.posts.map((p) => {
+        const aUnPost = Boolean(p.passage_id && p.id !== p.passage_id) || !p.passage_id;
+        return (
+          <div
+            key={p.passage_id ?? p.id}
+            className="flex flex-wrap items-center justify-between gap-2 rounded-md border bg-muted/30 p-2"
+          >
+            <div className="flex flex-wrap items-center gap-1.5">
+              <Badge variant="secondary">{t(`type.${p.type}`)}</Badge>
+              <Badge variant={badgePipeline(p.pipeline_statut)}>
+                {t(`statut.${p.pipeline_statut}`)}
+              </Badge>
+              {p.pipeline_etape && p.pipeline_statut === "running" && (
+                <span className="text-xs text-muted-foreground">{p.pipeline_etape}</span>
+              )}
+            </div>
+            {aUnPost && (
+              <Button size="sm" variant="outline" asChild>
+                <Link to={`/admin/posts/${p.id}`}>{t("posts.ouvrir")}</Link>
+              </Button>
+            )}
+            {p.pipeline_erreur && (
+              <p className="w-full rounded bg-destructive/10 p-2 text-xs text-destructive">
+                {p.pipeline_erreur}
+              </p>
             )}
           </div>
-          <Button size="sm" variant="outline" asChild>
-            <Link to={`/admin/posts/${p.id}`}>{t("posts.ouvrir")}</Link>
-          </Button>
-          {p.pipeline_erreur && (
-            <p className="w-full rounded bg-destructive/10 p-2 text-xs text-destructive">
-              {p.pipeline_erreur}
-            </p>
-          )}
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }

@@ -43,10 +43,8 @@ export function SimulerMinuitCard() {
     setErreur(null);
     setLignes([]);
     try {
-      // 1 — Assignation de la journée à tous les comptes (comme minuit). On
-      // retente une fois si ça hoquette, et de toute façon on continue avec les
-      // posts qui existent : l'assignation crée les coquilles même si la réponse
-      // se perd, inutile de tout bloquer pour un aléa passager.
+      // Assignation v-next (labels ∩ score → passages + posts déjà cuits).
+      // On retente une fois si ça hoquette, puis on affiche ce qui existe.
       setEtape(t("simMinuit.assignation"));
       try {
         await lancerAssignationJour(date);
@@ -58,8 +56,6 @@ export function SimulerMinuitCard() {
         }
       }
 
-      // 2 — On récupère les coquilles créées, puis on fait avancer chaque post
-      // pas à pas en rafraîchissant l'affichage : l'évolution est visible.
       setEtape(t("simMinuit.fabrication"));
       let posts = await postsDuJour(date);
       if (posts.length === 0) {
@@ -69,13 +65,11 @@ export function SimulerMinuitCard() {
       }
       setLignes(posts);
 
+      // Filet : si d'anciens posts legacy sont encore en pending, on les avance.
       for (let i = 0; i < MAX_PASSAGES; i += 1) {
         const aFaire = posts.filter((p) => p.statut !== "done" && p.statut !== "failed");
         if (aFaire.length === 0) break;
-
-        // Un pas pour chaque post pas encore fini.
         await Promise.all(aFaire.map((p) => avancerUnPost(p.id).catch(() => null)));
-
         posts = await postsDuJour(date);
         setLignes(posts);
       }

@@ -1,6 +1,6 @@
 export type PipelineStatut = "pending" | "running" | "done" | "failed";
 export type SujetStatut = "propose" | "retenu" | "rejete" | "utilise";
-export type PostType = "recycle" | "remanie" | "nouveau";
+export type PostType = "recycle" | "remanie" | "nouveau" | "contenu";
 export type PostStatut = "brouillon" | "assigne" | "valide_par_poster" | "publie";
 export type MediaSource =
   | "nettoye_reference"

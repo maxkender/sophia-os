@@ -842,6 +842,19 @@ export async function majPost(id: string, patch: Partial<Post>): Promise<void> {
   }
   const { error } = await supabase.from("posts").update(patch).eq("id", id);
   if (error) throw error;
+
+  // Miroir v-next : un passage lié doit suivre statut / lien TikTok (scoring).
+  if (
+    patch.statut !== undefined ||
+    patch.publie_url !== undefined ||
+    patch.publie_at !== undefined
+  ) {
+    const miroir: Record<string, unknown> = {};
+    if (patch.statut !== undefined) miroir.statut = patch.statut;
+    if (patch.publie_url !== undefined) miroir.publie_url = patch.publie_url;
+    if (patch.publie_at !== undefined) miroir.publie_at = patch.publie_at;
+    await supabase.from("passages").update(miroir).eq("post_id", id);
+  }
 }
 
 export async function majPassage(
@@ -1899,22 +1912,29 @@ export const lancerAssignation = (
     { compteId: compteId ?? null, type: type ?? null, forcer, manuel: true },
   );
 
-/** Simule le cron de minuit : assigne la journée (tous les comptes, ou un seul).
- *  Contourne la pause auto. Parallélisé côté Edge ; kick composition (Gemini). */
+/** Simule le cron de minuit v-next : labels ∩ + score → passages (+ pont posts).
+ *  Contourne la pause auto. Traduction / Sophia déjà faites à l'assignation. */
 export const lancerAssignationJour = (date: string, compteId?: string) =>
   invoke<{
+    ok?: boolean;
     jour: string;
-    resultats: Array<{ compteId: string; crees: number; types?: string[]; erreur?: string }>;
+    resultats: Array<{
+      compteId: string;
+      crees: number;
+      passageIds?: string[];
+      types?: string[];
+      erreur?: string;
+    }>;
     saute?: boolean;
     raison?: string;
-  }>("assignation", {
+  }>("assignation-contenu", {
     date,
-    manuel: true,
     compteId: compteId ?? null,
+    forcer: false,
   });
 
 /** Une ligne de suivi « minuit » : un compte actif, son quota du jour, et les
- *  posts réellement produits ce jour-là (avec leur avancement et leurs erreurs). */
+ *  passages / posts réellement produits ce jour-là. */
 export interface SuiviMinuit {
   compteId: string;
   nom: string;
@@ -1922,38 +1942,65 @@ export interface SuiviMinuit {
   avatar_url: string | null;
   langue: string;
   quota: number;
-  posts: Array<
-    Pick<Post, "id" | "type" | "statut" | "pipeline_statut" | "pipeline_etape" | "pipeline_erreur">
-  >;
+  posts: Array<{
+    id: string;
+    passage_id: string | null;
+    type: Post["type"];
+    statut: string;
+    pipeline_statut: string;
+    pipeline_etape: string | null;
+    pipeline_erreur: string | null;
+  }>;
 }
 
-/** État de l'assignation d'une date, compte par compte : ce que minuit a produit,
- *  ce qui manque, ce qui a échoué. Ne déclenche rien — lecture seule. */
+/** État de l'assignation d'une date, compte par compte : passages v-next
+ *  (source de vérité), avec le post pont pour l'ouverture admin / poster. */
 export async function suiviAssignation(date: string): Promise<SuiviMinuit[]> {
-  const [comptesRes, postsRes, regRes] = await Promise.all([
+  const [comptesRes, passagesRes, postsRes, regRes] = await Promise.all([
     supabase
       .from("comptes")
       .select("id, persona_nom, handle_tiktok, avatar_url, langue, posts_par_jour")
       .eq("is_active", true)
       .order("persona_nom", { nullsFirst: false }),
     supabase
+      .from("passages")
+      .select("id, compte_id, post_id, statut")
+      .eq("date_publication_prevue", date)
+      .order("created_at"),
+    supabase
       .from("posts")
       .select("id, compte_id, type, statut, pipeline_statut, pipeline_etape, pipeline_erreur")
       .eq("date_publication_prevue", date)
       .eq("est_test", false)
+      .eq("type", "contenu")
       .order("created_at"),
     supabase.from("reglages").select("valeur").eq("cle", "frequence").maybeSingle(),
   ]);
   if (comptesRes.error) throw comptesRes.error;
+  if (passagesRes.error) throw passagesRes.error;
   if (postsRes.error) throw postsRes.error;
 
-  const quotaGlobal = (regRes.data?.valeur as { posts_par_jour?: number } | null)?.posts_par_jour ?? 1;
+  const quotaGlobal =
+    (regRes.data?.valeur as { posts_par_jour?: number } | null)?.posts_par_jour ?? 1;
+
+  const postsById = new Map(
+    (postsRes.data ?? []).map((p) => [p.id as string, p]),
+  );
 
   const parCompte = new Map<string, SuiviMinuit["posts"]>();
-  for (const p of postsRes.data ?? []) {
-    const liste = parCompte.get(p.compte_id) ?? [];
-    liste.push(p as SuiviMinuit["posts"][number]);
-    parCompte.set(p.compte_id, liste);
+  for (const pas of passagesRes.data ?? []) {
+    const post = pas.post_id ? postsById.get(pas.post_id as string) : undefined;
+    const liste = parCompte.get(pas.compte_id as string) ?? [];
+    liste.push({
+      id: (pas.post_id as string | null) ?? (pas.id as string),
+      passage_id: pas.id as string,
+      type: "contenu",
+      statut: (post?.statut as string) ?? (pas.statut as string),
+      pipeline_statut: (post?.pipeline_statut as string) ?? "done",
+      pipeline_etape: (post?.pipeline_etape as string | null) ?? null,
+      pipeline_erreur: (post?.pipeline_erreur as string | null) ?? null,
+    });
+    parCompte.set(pas.compte_id as string, liste);
   }
 
   // deno-lint-ignore no-explicit-any

@@ -51,6 +51,25 @@ Deno.serve(async (request) => {
   const jour = date ?? aujourdhuiParis();
 
   try {
+    // Cutover v-next : l'assignation labels→passages est le chemin nominal.
+    // On refuse le legacy recycle/remanie/nouveau dès que le flag est actif
+    // (cron ou manuel) — utiliser `assignation-contenu` / `minuit-vnext`.
+    {
+      const { data: vnext } = await supabase
+        .from("reglages")
+        .select("valeur")
+        .eq("cle", "moteur_vnext")
+        .maybeSingle();
+      if (Boolean((vnext?.valeur as { actif?: boolean } | null)?.actif)) {
+        return json({
+          ok: true,
+          saute: true,
+          raison: "moteur_vnext actif — utiliser assignation-contenu / minuit-vnext",
+          jour,
+        });
+      }
+    }
+
     if (!manuel) {
       const { data: flag } = await supabase
         .from("reglages")

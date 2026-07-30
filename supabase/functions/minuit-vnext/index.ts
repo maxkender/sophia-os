@@ -59,6 +59,22 @@ Deno.serve(async (request) => {
       return json({ ok: true, saute: true, raison: "moteur_vnext inactif" });
     }
 
+    // Pause auto (réglage Pilotage) — manuel admin passe forcer / manuel.
+    if (!body?.forcer && !body?.manuel) {
+      const { data: pause } = await supabase
+        .from("reglages")
+        .select("valeur")
+        .eq("cle", "assignation_auto")
+        .maybeSingle();
+      if ((pause?.valeur as { actif?: boolean } | null)?.actif === false) {
+        return json({
+          ok: true,
+          saute: true,
+          raison: "assignation_auto en pause",
+        });
+      }
+    }
+
     // scores retiré du défaut tant que PAUSE_ELO_RUNTIME est true.
     const etapes: string[] = Array.isArray(body?.etapes)
       ? body.etapes

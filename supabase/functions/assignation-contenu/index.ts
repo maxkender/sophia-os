@@ -9,7 +9,8 @@ import {
 
 /**
  * Assignation v-next : pioche dans le pool `contenus` via labels ∩ score ×
- * exploration top-K. Crée des `passages` déjà cuits (pas de composition lazy).
+ * exploration top-K. Crée des `passages` déjà cuits (trad + Sophia) et un
+ * post pont (`type=contenu`, pipeline done) pour le calendrier poster.
  *
  *   {}             → tous les comptes, jour Paris
  *   { compteId, date, forcer }

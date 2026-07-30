@@ -1,11 +1,13 @@
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 /**
- * Révoque un post inutilisable et en refabrique un autre pour le MÊME créateur et
- * la MÊME date. On rejette le SUJET (ce slideshow précis est incohérent pour
- * Sophia) — PAS le hook : un autre post peut commencer pareil et rester bon. Puis
- * on relance l'assignation forcée du jour pour ce compte, qui pioche un sujet
- * différent (le rejeté est écarté).
+ * Révoque un post inutilisable et en refabrique un autre pour le MÊME créateur
+ * et la MÊME date.
+ *
+ * v-next (`type=contenu`) : rejette le contenu, supprime le passage lié + le
+ * post, puis relance l'assignation forcée (labels ∩ score).
+ *
+ * Legacy (sujet) : rejette le sujet puis même flux.
  *
  *   { postId }  → { ok, newPostId }
  */
@@ -22,14 +24,28 @@ Deno.serve(async (request) => {
 
     const { data: post } = await supabase
       .from("posts")
-      .select("id, compte_id, date_publication_prevue, sujet_id")
+      .select("id, compte_id, date_publication_prevue, sujet_id, type")
       .eq("id", postId)
       .single();
     if (!post) return json({ error: "Post introuvable" }, 404);
 
-    // 1 — On REJETTE le sujet (le slideshow entier), pas le hook : il ne sera plus
-    // repioché par personne. On garde une trace de la raison.
-    if (post.sujet_id) {
+    // Passage v-next lié (pont post)
+    const { data: passage } = await supabase
+      .from("passages")
+      .select("id, contenu_id")
+      .eq("post_id", post.id)
+      .maybeSingle();
+
+    if (passage?.contenu_id) {
+      await supabase
+        .from("contenus")
+        .update({
+          statut: "rejete",
+          pertinence_raison: "Révoqué à la main : incohérent / non intégrable pour Sophia",
+        })
+        .eq("id", passage.contenu_id);
+      await supabase.from("passages").delete().eq("id", passage.id);
+    } else if (post.sujet_id) {
       await supabase
         .from("sujets")
         .update({
@@ -39,11 +55,9 @@ Deno.serve(async (request) => {
         .eq("id", post.sujet_id);
     }
 
-    // 2 — On supprime le post révoqué (les slides tombent en cascade).
     await supabase.from("posts").delete().eq("id", post.id);
 
-    // 3 — On refait un post pour le même compte + date (assignation forcée), qui
-    // choisit un sujet DIFFÉRENT (le rejeté est écarté par choisirSujet).
+    // Assignation forcée v-next (même endpoint — cutover)
     const secret = Deno.env.get("CRON_SECRET");
     const base = new URL(request.url);
     const urlAssign = `${base.origin}${base.pathname.replace(/revoquer-post\/?$/, "")}assignation`;
@@ -54,10 +68,10 @@ Deno.serve(async (request) => {
         compteId: post.compte_id,
         date: post.date_publication_prevue,
         forcer: true,
+        manuel: true,
       }),
     }).catch(() => null);
 
-    // 4 — On récupère l'id du nouveau post (le plus récent du compte à cette date).
     const { data: neuf } = await supabase
       .from("posts")
       .select("id")

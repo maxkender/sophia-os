@@ -54,12 +54,15 @@ grant select on public.posts_poster to authenticated;
 -- ---------------------------------------------------------------------------
 -- Crons : pause legacy assignation ; active minuit-vnext (+ rattrapage)
 -- ---------------------------------------------------------------------------
-do $$
+do $cutover$
 declare
   r record;
   template text;
   cmd text;
   secret_ok boolean;
+  re_body text := 'body\s*:=\s*''[^'']*''::jsonb';
+  body_minuit text := 'body := ''{}''::jsonb';
+  body_rattrapage text := 'body := ''{"etapes":["assignation"]}''::jsonb';
 begin
   -- Pause assignation legacy (minuit + rattrapage)
   for r in
@@ -104,12 +107,7 @@ begin
     'functions/v1/minuit-vnext',
     'i'
   );
-  cmd := regexp_replace(
-    cmd,
-    $$body\s*:=\s*'[^']*'::jsonb$$,
-    $$body := '{}'::jsonb$$,
-    'i'
-  );
+  cmd := regexp_replace(cmd, re_body, body_minuit, 'i');
   if secret_ok and position('minuit-vnext' in cmd) > 0 then
     perform cron.schedule('minuit-vnext', '0 22 * * *', cmd);
   else
@@ -123,15 +121,11 @@ begin
     'functions/v1/minuit-vnext',
     'i'
   );
-  cmd := regexp_replace(
-    cmd,
-    $$body\s*:=\s*'[^']*'::jsonb$$,
-    $$body := '{"etapes":["assignation"]}'::jsonb$$,
-    'i'
-  );
+  cmd := regexp_replace(cmd, re_body, body_rattrapage, 'i');
   if secret_ok and position('minuit-vnext' in cmd) > 0 then
     perform cron.schedule('minuit-vnext-rattrapage', '0 4 * * *', cmd);
   else
     raise notice 'cutover v-next: schedule minuit-vnext-rattrapage échoué (cmd invalide)';
   end if;
-end $$;
+end
+$cutover$;

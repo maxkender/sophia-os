@@ -693,6 +693,17 @@ export const fr = {
       confirmDelete:
         "Supprimer définitivement ce slideshow ? Les passages / posts liés et les images nettoyées associées seront aussi effacés.",
       supprime: "Slideshow supprimé.",
+      reimportPhotos: "Réimporter photos (valides)",
+      reimportAide:
+        "Re-nettoie toutes les photos des slideshows valides depuis le brut TikTok (pipeline qualité actuelle : PNG + C2PA lossless). Texte, OCR et decks inchangés. Parallèle — laisse l’onglet ouvert.",
+      reimportScan: "Scan des slideshows valides…",
+      reimportVide: "Aucune photo à réimporter (pas de brut source).",
+      reimportConfirm:
+        "Réimporter {{count}} photo(s) des slideshows valides ? Texte inchangé — seules les images nettoyées sont remplacées. Ça peut prendre longtemps : laisse l’onglet ouvert.",
+      reimportDebut:
+        "Réimport de {{count}} photo(s) ({{pool}} en parallèle)…",
+      reimportLot: "Réimport… {{fait}}/{{total}}",
+      reimportFin: "Terminé — ok={{ok}} · échecs={{echecs}}",
     },
     paiement: {
       title: "Paiement créateurs",

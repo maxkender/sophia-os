@@ -2,7 +2,7 @@ import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
-import { ImageUp, Sparkles, Trash2, X } from "lucide-react";
+import { ImageUp, RefreshCw, Sparkles, Trash2, X } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -22,6 +22,7 @@ import {
   lireReglages,
   lireSlideshow,
   listerContenus,
+  listerJobsReimportPhotosValides,
   listerMediasPourContenu,
   majMediaSlideContenu,
   renettoyerSlideContenu,
@@ -39,6 +40,7 @@ import {
 } from "@/features/moteur/nettoyageEtapes";
 import { nomLangue } from "@/features/moteur/langues";
 import type { ContenuLangue, ContenuSlide, Media } from "@/features/moteur/types";
+import { AGENTS_NETTOYAGE, executerEnLot } from "@/lib/lot";
 import { cn } from "@/lib/utils";
 
 function PassageLien({
@@ -744,11 +746,17 @@ function DetailSlideshow({
 
 export function AdminSlideshowsPage() {
   const { t } = useTranslation();
+  const queryClient = useQueryClient();
   const [searchParams, setSearchParams] = useSearchParams();
   const [filtre, setFiltre] = React.useState<"tous" | "valide" | "rejete">("tous");
   const [ouvert, setOuvert] = React.useState<string | null>(
     searchParams.get("id"),
   );
+  const [reimport, setReimport] = React.useState<{
+    fait: number;
+    total: number;
+  } | null>(null);
+  const [reimportLogs, setReimportLogs] = React.useState<string[]>([]);
 
   React.useEffect(() => {
     const id = searchParams.get("id");
@@ -773,14 +781,121 @@ export function AdminSlideshowsPage() {
     }
   }
 
+  /** Re-nettoie toutes les photos des slideshows valides (brut → propre qualité
+   *  actuelle). Texte / OCR / decks / passages inchangés. */
+  async function reimporterPhotosValides() {
+    if (reimport) return;
+    setReimportLogs([t("slideshows.reimportScan")]);
+    let jobs;
+    try {
+      jobs = await listerJobsReimportPhotosValides();
+    } catch (e) {
+      setReimportLogs([
+        `✗ ${e instanceof Error ? e.message : String(e)}`,
+      ]);
+      return;
+    }
+    if (jobs.length === 0) {
+      setReimportLogs([t("slideshows.reimportVide")]);
+      return;
+    }
+    if (
+      !window.confirm(
+        t("slideshows.reimportConfirm", { count: jobs.length }),
+      )
+    ) {
+      setReimportLogs([]);
+      return;
+    }
+
+    setReimport({ fait: 0, total: jobs.length });
+    setReimportLogs([
+      t("slideshows.reimportDebut", {
+        count: jobs.length,
+        pool: AGENTS_NETTOYAGE,
+      }),
+    ]);
+    let ok = 0;
+    let echecs = 0;
+    await executerEnLot(
+      jobs,
+      async (job) => {
+        try {
+          const r = await renettoyerSlideContenu(job.contenuId, job.position);
+          if (r.ok && (r.nettoyee || r.remplacee)) {
+            ok += 1;
+          } else {
+            echecs += 1;
+            setReimportLogs((prev) => [
+              ...prev.slice(-80),
+              `✗ ${job.contenuId.slice(0, 8)}#${job.position} — ${r.motif ?? r.erreur ?? "échec"}`,
+            ]);
+          }
+        } catch (e) {
+          echecs += 1;
+          setReimportLogs((prev) => [
+            ...prev.slice(-80),
+            `✗ ${job.contenuId.slice(0, 8)}#${job.position} — ${
+              e instanceof Error ? e.message : String(e)
+            }`,
+          ]);
+        }
+      },
+      {
+        largeur: AGENTS_NETTOYAGE,
+        onProgres: (fait, total) => setReimport({ fait, total }),
+      },
+    );
+    setReimportLogs((prev) => [
+      ...prev,
+      t("slideshows.reimportFin", { ok, echecs }),
+    ]);
+    setReimport(null);
+    void queryClient.invalidateQueries({ queryKey: ["slideshows"] });
+    void queryClient.invalidateQueries({ queryKey: ["slideshow"] });
+    void queryClient.invalidateQueries({ queryKey: ["medias"] });
+    void queryClient.invalidateQueries({ queryKey: ["medias-biblio"] });
+  }
+
   return (
     <div className="space-y-4">
       <Card>
         <CardHeader>
-          <CardTitle>{t("slideshows.title")}</CardTitle>
-          <CardDescription>{t("slideshows.subtitle")}</CardDescription>
+          <div className="flex flex-wrap items-start justify-between gap-2">
+            <div>
+              <CardTitle>{t("slideshows.title")}</CardTitle>
+              <CardDescription>{t("slideshows.subtitle")}</CardDescription>
+            </div>
+            <Button
+              size="sm"
+              variant="outline"
+              disabled={reimport !== null}
+              onClick={() => void reimporterPhotosValides()}
+              title={t("slideshows.reimportAide")}
+            >
+              <RefreshCw className={cn("size-4", reimport && "animate-spin")} />
+              {reimport
+                ? t("slideshows.reimportLot", {
+                    fait: reimport.fait,
+                    total: reimport.total,
+                  })
+                : t("slideshows.reimportPhotos")}
+            </Button>
+          </div>
         </CardHeader>
         <CardContent className="space-y-4">
+          {reimportLogs.length > 0 && (
+            <div className="max-h-40 space-y-0.5 overflow-y-auto rounded border bg-muted/30 px-2.5 py-2 font-mono text-[11px] leading-relaxed">
+              {reimportLogs.map((l, i) => (
+                <div
+                  key={`reimp-${i}-${l.slice(0, 16)}`}
+                  className="break-words text-muted-foreground"
+                >
+                  {l}
+                </div>
+              ))}
+            </div>
+          )}
           <div className="flex flex-wrap gap-2">
             {(["tous", "valide", "rejete"] as const).map((f) => (
               <button

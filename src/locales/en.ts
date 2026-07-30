@@ -692,6 +692,17 @@ export const en = {
       confirmDelete:
         "Permanently delete this slideshow? Linked passages/posts and cleaned images will also be removed.",
       supprime: "Slideshow deleted.",
+      reimportPhotos: "Reimport photos (valid)",
+      reimportAide:
+        "Re-cleans all photos of valid slideshows from the TikTok raw (current quality pipeline: PNG + lossless C2PA). Text, OCR and decks unchanged. Parallel — keep the tab open.",
+      reimportScan: "Scanning valid slideshows…",
+      reimportVide: "No photos to reimport (no raw source).",
+      reimportConfirm:
+        "Reimport {{count}} photo(s) from valid slideshows? Text unchanged — only cleaned images are replaced. This can take a long time: keep the tab open.",
+      reimportDebut:
+        "Reimporting {{count}} photo(s) ({{pool}} in parallel)…",
+      reimportLot: "Reimport… {{fait}}/{{total}}",
+      reimportFin: "Done — ok={{ok}} · failed={{echecs}}",
     },
     paiement: {
       title: "Creator pay",

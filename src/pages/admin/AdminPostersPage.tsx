@@ -570,13 +570,18 @@ export function AdminPostersPage() {
                     {!poster.is_active && (
                       <Badge variant="secondary">{t("posters.disabled")}</Badge>
                     )}
-                    {estPoster && poster.compte_id && (
+                    {estPoster && (
                       <WarmupBadge
+                        compteId={poster.compte_id}
                         startedAt={poster.warmup_started_at}
                         endsAt={poster.warmup_ends_at}
-                        showStart
+                        showStart={Boolean(poster.compte_id)}
                         startPending={warmupStart.isPending}
-                        onStart={() => warmupStart.mutate(poster.compte_id!)}
+                        onStart={
+                          poster.compte_id
+                            ? () => warmupStart.mutate(poster.compte_id!)
+                            : undefined
+                        }
                       />
                     )}
                     {estPoster && compte && labs.length === 0 && (
@@ -862,6 +867,12 @@ export function AdminPostersPage() {
           <h1 className="text-lg font-semibold">{t("posters.title")}</h1>
           <p className="text-sm text-muted-foreground">{t("posters.subtitle")}</p>
           <p className="text-xs text-muted-foreground">{t("posters.labelsAide")}</p>
+          <div className="flex flex-wrap items-center gap-2 pt-1 text-xs text-muted-foreground">
+            <span>{t("warmup.phasesLegende")}</span>
+            <Badge variant="outline">{t("warmup.phasePasCree")}</Badge>
+            <Badge variant="warning">{t("warmup.phaseWarmupAttente")}</Badge>
+            <Badge variant="success">{t("warmup.phaseActif")}</Badge>
+          </div>
         </div>
         {ajout === "ferme" ? (
           <div className="flex gap-2">

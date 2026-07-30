@@ -82,15 +82,14 @@ function LignePoster({ poster: p }: { poster: PosterProfil }) {
             {[p.prenom, p.nom].filter(Boolean).join(" ") || p.email}
           </span>
           {!p.is_active && <Badge variant="secondary">{t("posters.disabled")}</Badge>}
-          {p.compte_id && (
-            <WarmupBadge
-              startedAt={p.warmup_started_at}
-              endsAt={p.warmup_ends_at}
-              showStart
-              startPending={startWarmup.isPending}
-              onStart={() => startWarmup.mutate()}
-            />
-          )}
+          <WarmupBadge
+            compteId={p.compte_id}
+            startedAt={p.warmup_started_at}
+            endsAt={p.warmup_ends_at}
+            showStart={Boolean(p.compte_id)}
+            startPending={startWarmup.isPending}
+            onStart={p.compte_id ? () => startWarmup.mutate() : undefined}
+          />
           {startWarmup.isError && (
             <span className="text-xs text-destructive">
               {(startWarmup.error as Error).message}

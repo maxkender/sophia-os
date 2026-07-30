@@ -1,4 +1,7 @@
-/** Helpers statut warmup d'un compte de publication. */
+/** Phases cycle de vie d'un créateur (poster). */
+
+/** Compte publication absent / warmup / en process. */
+export type PhaseCreateur = "pas_cree" | "warmup" | "actif";
 
 export type StatutWarmup = "attente" | "en_cours" | "termine";
 
@@ -17,6 +20,17 @@ export function compteEnProcessus(compte: {
   warmup_ends_at?: string | null;
 }): boolean {
   return statutWarmup(compte) === "termine";
+}
+
+/** Les 3 phases visibles admin / HM. */
+export function phaseCreateur(opts: {
+  compteId?: string | null;
+  warmup_started_at?: string | null;
+  warmup_ends_at?: string | null;
+}): PhaseCreateur {
+  if (!opts.compteId) return "pas_cree";
+  if (compteEnProcessus(opts)) return "actif";
+  return "warmup";
 }
 
 /** ms restantes avant fin warmup (0 si terminé / pas démarré). */

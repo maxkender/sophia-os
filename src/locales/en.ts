@@ -1209,6 +1209,11 @@ export const en = {
       enCours: "Warmup · {{temps}}",
       apresCreation:
         "Next: click “Start warmup” to start the timer. The account enters the process when it ends.",
+      phasePasCree: "Account not created",
+      phaseWarmupAttente: "Warmup — not started",
+      phaseWarmup: "Warmup · {{temps}}",
+      phaseActif: "Active",
+      phasesLegende: "Phases: account not created → warmup → active",
     },
   },
 };

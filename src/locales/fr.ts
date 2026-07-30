@@ -1206,6 +1206,11 @@ export const fr = {
       enCours: "Warmup · {{temps}}",
       apresCreation:
         "Ensuite : clique sur « Start warmup » pour lancer le timer. Le compte entre dans le process à la fin.",
+      phasePasCree: "Compte pas créé",
+      phaseWarmupAttente: "Warmup — à démarrer",
+      phaseWarmup: "Warmup · {{temps}}",
+      phaseActif: "Actif",
+      phasesLegende: "Phases : compte pas créé → warmup → actif",
     },
   },
 };

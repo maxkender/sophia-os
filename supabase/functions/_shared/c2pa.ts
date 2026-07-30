@@ -1,10 +1,12 @@
 /**
- * Retrait des Content Credentials (C2PA) — métadonnées signées qui indiquent
- * comment une image a été créée ou modifiée (souvent injectées par les
- * modèles d'édition Fal / partenaires).
+ * Retrait des Content Credentials (C2PA) — métadonnées signées injectées
+ * souvent par Fal / partenaires.
  *
- * JPEG : décode + ré-encode (tous les marqueurs APP / XMP / JUMBF partent).
- * PNG  : on retire les chunks `caBX` / `c2pa` et les textes XMP associés.
+ * IMPORTANT QUALITÉ : aucun ré-encodage lossy.
+ * - JPEG : on retire uniquement les marqueurs APP (XMP / JUMBF / C2PA),
+ *   les données image (SOS…) restent byte-à-byte.
+ * - PNG  : on retire les chunks `caBX` / `c2pa` et textes XMP associés.
+ * - Si rien à retirer : bytes inchangés.
  */
 
 function enBase64(bytes: Uint8Array): string {
@@ -45,17 +47,97 @@ export function contientContentCredentials(bytes: Uint8Array): boolean {
   return /c2pa|jumb|contentcredentials|content credentials/i.test(ascii);
 }
 
-async function jpegSansMetadonnees(bytes: Uint8Array): Promise<Uint8Array> {
-  const { decode, encode } = await import("npm:jpeg-js@0.4.4");
-  const raw = decode(bytes, { maxMemoryUsageInMB: 256, useTArray: true });
-  if (!raw?.width || !raw?.height || !raw?.data) {
-    throw new Error("c2pa: décodage JPEG impossible");
+function payloadSuspectC2pa(payload: Uint8Array): boolean {
+  const max = Math.min(payload.length, 64_000);
+  let ascii = "";
+  for (let i = 0; i < max; i += 1) {
+    const b = payload[i]!;
+    ascii += b >= 32 && b < 127 ? String.fromCharCode(b) : "\n";
   }
-  const out = encode(
-    { data: raw.data, width: raw.width, height: raw.height },
-    92,
-  );
-  return out.data as Uint8Array;
+  return /c2pa|jumb|contentcredentials|content credentials|adobe:claim/i.test(ascii);
+}
+
+/**
+ * Retire les segments APP JPEG liés à C2PA / XMP / JUMBF sans décoder
+ * ni ré-encoder l'image (lossless au niveau bitstream).
+ */
+function jpegStripC2paLossless(bytes: Uint8Array): { bytes: Uint8Array; modifie: boolean } {
+  if (!estJpeg(bytes)) return { bytes, modifie: false };
+
+  const out: number[] = [0xff, 0xd8];
+  let i = 2;
+  let modifie = false;
+
+  while (i + 1 < bytes.length) {
+    if (bytes[i] !== 0xff) {
+      // Données non alignées — on copie le reste tel quel.
+      for (let j = i; j < bytes.length; j += 1) out.push(bytes[j]!);
+      break;
+    }
+
+    // Sauter les fill bytes 0xFF
+    while (i + 1 < bytes.length && bytes[i] === 0xff && bytes[i + 1] === 0xff) {
+      out.push(0xff);
+      i += 1;
+    }
+    if (i + 1 >= bytes.length) break;
+
+    const marker = bytes[i + 1]!;
+
+    // SOI déjà consommé ; EOI
+    if (marker === 0xd9) {
+      out.push(0xff, 0xd9);
+      i += 2;
+      // Copie éventuelle traîne après EOI
+      for (let j = i; j < bytes.length; j += 1) out.push(bytes[j]!);
+      break;
+    }
+
+    // RST0–RST7 / TEM : pas de longueur
+    if ((marker >= 0xd0 && marker <= 0xd7) || marker === 0x01) {
+      out.push(0xff, marker);
+      i += 2;
+      continue;
+    }
+
+    // SOS : début des données entropiques — on copie TOUT le reste (pas de
+    // parse des FF 00), donc zéro altération des pixels.
+    if (marker === 0xda) {
+      for (let j = i; j < bytes.length; j += 1) out.push(bytes[j]!);
+      break;
+    }
+
+    if (i + 3 >= bytes.length) {
+      for (let j = i; j < bytes.length; j += 1) out.push(bytes[j]!);
+      break;
+    }
+
+    const len = (bytes[i + 2]! << 8) | bytes[i + 3]!;
+    if (len < 2 || i + 2 + len > bytes.length) {
+      for (let j = i; j < bytes.length; j += 1) out.push(bytes[j]!);
+      break;
+    }
+
+    const segmentEnd = i + 2 + len;
+    const payload = bytes.subarray(i + 4, segmentEnd);
+
+    // APP0–APP15 (E0–EF) : candidats C2PA / XMP / JUMBF.
+    // APP11 (EB) porte souvent le JUMBF C2PA ; APP1 (E1) l'XMP.
+    const estApp = marker >= 0xe0 && marker <= 0xef;
+    const drop = estApp && (
+      marker === 0xeb || // APP11 / JUMBF — quasi toujours C2PA chez Fal
+      payloadSuspectC2pa(payload)
+    );
+
+    if (drop) {
+      modifie = true;
+    } else {
+      for (let j = i; j < segmentEnd; j += 1) out.push(bytes[j]!);
+    }
+    i = segmentEnd;
+  }
+
+  return { bytes: new Uint8Array(out), modifie };
 }
 
 function pngSansC2pa(bytes: Uint8Array): { bytes: Uint8Array; modifie: boolean } {
@@ -110,28 +192,33 @@ export interface ResultatC2pa {
 }
 
 /**
- * Retire les Content Credentials. Toujours appelé en fin de chaîne de
- * nettoyage, avant stockage.
+ * Retire les Content Credentials SANS ré-encodage lossy.
+ * Toujours appelé en fin de chaîne de nettoyage, avant stockage.
  */
 export async function retirerContentCredentials(base64: string): Promise<ResultatC2pa> {
   const bytes = deBase64(base64);
 
   if (estJpeg(bytes)) {
-    const clean = await jpegSansMetadonnees(bytes);
+    if (!contientContentCredentials(bytes)) {
+      return { base64, mime: "image/jpeg", retire: false };
+    }
+    const { bytes: clean, modifie } = jpegStripC2paLossless(bytes);
     return {
-      base64: enBase64(clean),
+      base64: modifie ? enBase64(clean) : base64,
       mime: "image/jpeg",
-      // Ré-encode = métadonnées garanties absentes.
-      retire: true,
+      retire: modifie,
     };
   }
 
   if (estPng(bytes)) {
+    if (!contientContentCredentials(bytes)) {
+      return { base64, mime: "image/png", retire: false };
+    }
     const { bytes: clean, modifie } = pngSansC2pa(bytes);
     return {
-      base64: enBase64(clean),
+      base64: modifie ? enBase64(clean) : base64,
       mime: "image/png",
-      retire: modifie || contientContentCredentials(bytes),
+      retire: modifie,
     };
   }
 

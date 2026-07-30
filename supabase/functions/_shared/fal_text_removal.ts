@@ -40,7 +40,7 @@ export type FalProgress = (info: {
 
 /**
  * Nettoie `imageUrl` via Fal text-removal (ex-Seedream Pro Edit).
- * Renvoie le JPEG en base64, ou `null` si `FAL_KEY` n'est pas configuré.
+ * Renvoie le PNG en base64 (pas de JPEG), ou `null` si `FAL_KEY` absent.
  */
 export async function nettoyerViaFalTextRemoval(
   imageUrl: string,
@@ -55,7 +55,8 @@ export async function nettoyerViaFalTextRemoval(
     headers: authHeaders(key),
     body: JSON.stringify({
       image_url: imageUrl,
-      output_format: "jpeg",
+      // PNG : pas de compression JPEG en sortie (qualité max pour le poster).
+      output_format: "png",
       // 6 = le plus permissif (photos TikTok souvent borderline).
       safety_tolerance: "6",
     }),

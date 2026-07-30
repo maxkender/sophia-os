@@ -796,7 +796,7 @@ export async function cleanImage(
   await emit({
     etape: "c2pa",
     statut: "encours",
-    detail: "③ Enlève clés / Content Credentials (C2PA) de l'image",
+    detail: "③ Strip C2PA lossless (pas de ré-encode JPEG)",
   });
   try {
     const stripped = await retirerContentCredentials(base64);
@@ -805,20 +805,22 @@ export async function cleanImage(
       etape: "c2pa",
       statut: "ok",
       detail: stripped.retire
-        ? "③ Enlève clés C2PA: Content Credentials RETIRÉES"
-        : "③ Enlève clés C2PA: aucune Content Credential détectée",
+        ? "③ C2PA retiré (bitstream lossless, pixels inchangés)"
+        : "③ Pas de C2PA — octets inchangés",
     });
     return { base64, moteur, mime: stripped.mime, etapes };
   } catch (error) {
     await emit({
       etape: "c2pa",
       statut: "echec",
-      detail: `③ Enlève clés C2PA ÉCHEC: ${redactSecrets(messageErreur(error))} — image livrée quand même`,
+      detail: `③ Strip C2PA ÉCHEC: ${redactSecrets(messageErreur(error))} — image livrée quand même`,
     });
+    // fallback mime : détecter PNG/JPEG depuis les octets (pas forcer jpeg).
+    const { mime } = mimeDepuisBase64(base64, "image/png");
     return {
       base64,
       moteur,
-      mime: "image/jpeg",
+      mime,
       etapes,
     };
   }
@@ -1077,7 +1079,7 @@ ${input.contenuHtml}`;
   return { titre_en: m[1].trim(), contenu_en: m[2].trim() };
 }
 
-/** Détecte JPEG/PNG depuis les magic bytes (Fal renvoie du JPEG). */
+/** Détecte JPEG/PNG depuis les magic bytes (Fal/Replicate sortent en PNG). */
 export function mimeDepuisBase64(
   base64: string,
   fallback = "image/jpeg",

@@ -310,11 +310,6 @@ function VisuelsContenu({ contenu }: { contenu: SlideshowDetail }) {
   const [etapesParPos, setEtapesParPos] = React.useState<Record<number, EvenementEtape[]>>({});
   const [enCours, setEnCours] = React.useState<Set<number>>(() => new Set());
   const [erreurs, setErreurs] = React.useState<Record<number, string>>({});
-  const [reimport, setReimport] = React.useState<{
-    fait: number;
-    total: number;
-  } | null>(null);
-  const [reimportLogs, setReimportLogs] = React.useState<string[]>([]);
 
   const { data: reglages } = useQuery({
     queryKey: ["reglages"],
@@ -329,51 +324,12 @@ function VisuelsContenu({ contenu }: { contenu: SlideshowDetail }) {
     enabled: pickerPos != null,
   });
 
-  const jobsCeSlideshow = React.useMemo(
-    () => jobsReimportDepuisSlides(contenu.id, contenu.structure_slides),
-    [contenu.id, contenu.structure_slides],
-  );
-
   const rafraichir = () => {
     void queryClient.invalidateQueries({ queryKey: ["slideshow", contenu.id] });
     void queryClient.invalidateQueries({ queryKey: ["slideshows"] });
     void queryClient.invalidateQueries({ queryKey: ["medias"] });
     void queryClient.invalidateQueries({ queryKey: ["medias-biblio"] });
   };
-
-  async function reimporterCeSlideshow() {
-    if (reimport) return;
-    const jobs = jobsCeSlideshow;
-    if (jobs.length === 0) {
-      setReimportLogs([t("slideshows.reimportVide")]);
-      return;
-    }
-    if (
-      !window.confirm(
-        t("slideshows.reimportUnConfirm", { count: jobs.length }),
-      )
-    ) {
-      return;
-    }
-    setReimport({ fait: 0, total: jobs.length });
-    setReimportLogs([
-      t("slideshows.reimportDebut", {
-        count: jobs.length,
-        pool: AGENTS_REIMPORT_PHOTOS,
-      }),
-    ]);
-    const { ok, echecs } = await executerReimportPhotos(jobs, {
-      onProgres: (fait, total) => setReimport({ fait, total }),
-      onLog: (ligne) =>
-        setReimportLogs((prev) => [...prev.slice(-80), ligne]),
-    });
-    setReimportLogs((prev) => [
-      ...prev,
-      t("slideshows.reimportFin", { ok, echecs }),
-    ]);
-    setReimport(null);
-    rafraichir();
-  }
 
   async function lancerRenettoyer(position: number) {
     setEnCours((prev) => new Set(prev).add(position));
@@ -427,39 +383,10 @@ function VisuelsContenu({ contenu }: { contenu: SlideshowDetail }) {
 
   return (
     <section className="space-y-2">
-      <div className="flex flex-wrap items-start justify-between gap-2">
-        <div className="min-w-0 space-y-1">
-          <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            {t("slideshows.visuelsEdit")}
-          </h3>
-          <p className="text-[11px] text-muted-foreground">{t("slideshows.visuelsEditAide")}</p>
-        </div>
-        <Button
-          size="sm"
-          variant="outline"
-          className="h-7 shrink-0 text-xs"
-          disabled={reimport !== null || jobsCeSlideshow.length === 0 || enCours.size > 0}
-          onClick={() => void reimporterCeSlideshow()}
-          title={t("slideshows.reimportUnAide")}
-        >
-          <RefreshCw className={cn("size-3", reimport && "animate-spin")} />
-          {reimport
-            ? t("slideshows.reimportLot", {
-                fait: reimport.fait,
-                total: reimport.total,
-              })
-            : t("slideshows.reimportUn")}
-        </Button>
-      </div>
-      {reimportLogs.length > 0 && (
-        <div className="max-h-32 space-y-0.5 overflow-y-auto rounded border bg-muted/30 px-2 py-1.5 font-mono text-[10px] leading-relaxed text-muted-foreground">
-          {reimportLogs.map((l, i) => (
-            <div key={`reimp-un-${i}-${l.slice(0, 16)}`} className="break-words">
-              {l}
-            </div>
-          ))}
-        </div>
-      )}
+      <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+        {t("slideshows.visuelsEdit")}
+      </h3>
+      <p className="text-[11px] text-muted-foreground">{t("slideshows.visuelsEditAide")}</p>
       <div className="space-y-3">
         {structure.map((s) => {
           const img = urlPropre(contenu, s) ?? s.raw_url ?? s.reference_url;
@@ -489,11 +416,7 @@ function VisuelsContenu({ contenu }: { contenu: SlideshowDetail }) {
                       size="sm"
                       variant="outline"
                       className="h-7 text-xs"
-                      disabled={
-                        slideEnCours ||
-                        reimport !== null ||
-                        !(s.raw_url || s.reference_url)
-                      }
+                      disabled={slideEnCours || !(s.raw_url || s.reference_url)}
                       onClick={() => void lancerRenettoyer(s.position)}
                     >
                       <Sparkles className="size-3" />
@@ -575,6 +498,46 @@ function DetailSlideshow({
   const langues = d?.langues ?? [];
   const [langueSel, setLangueSel] = React.useState<string | null>(null);
   const [voirOriginal, setVoirOriginal] = React.useState(false);
+  const [reimportDetail, setReimportDetail] = React.useState<{
+    fait: number;
+    total: number;
+  } | null>(null);
+  const [reimportDetailLogs, setReimportDetailLogs] = React.useState<string[]>([]);
+
+  async function reimporterCeSlideshow() {
+    if (!d || reimportDetail) return;
+    const jobs = jobsReimportDepuisSlides(d.id, d.structure_slides);
+    if (jobs.length === 0) {
+      setReimportDetailLogs([t("slideshows.reimportVide")]);
+      return;
+    }
+    if (
+      !window.confirm(t("slideshows.reimportUnConfirm", { count: jobs.length }))
+    ) {
+      return;
+    }
+    setReimportDetail({ fait: 0, total: jobs.length });
+    setReimportDetailLogs([
+      t("slideshows.reimportDebut", {
+        count: jobs.length,
+        pool: AGENTS_REIMPORT_PHOTOS,
+      }),
+    ]);
+    const { ok, echecs } = await executerReimportPhotos(jobs, {
+      onProgres: (fait, total) => setReimportDetail({ fait, total }),
+      onLog: (ligne) =>
+        setReimportDetailLogs((prev) => [...prev.slice(-80), ligne]),
+    });
+    setReimportDetailLogs((prev) => [
+      ...prev,
+      t("slideshows.reimportFin", { ok, echecs }),
+    ]);
+    setReimportDetail(null);
+    void queryClient.invalidateQueries({ queryKey: ["slideshow", id] });
+    void queryClient.invalidateQueries({ queryKey: ["slideshows"] });
+    void queryClient.invalidateQueries({ queryKey: ["medias"] });
+    void queryClient.invalidateQueries({ queryKey: ["medias-biblio"] });
+  }
 
   React.useEffect(() => {
     if (!d) return;
@@ -631,7 +594,7 @@ function DetailSlideshow({
               )}
             </div>
 
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <Badge
                 variant={
                   d.statut === "valide"
@@ -645,7 +608,37 @@ function DetailSlideshow({
               </Badge>
               <Badge variant="outline">{d.import_statut}</Badge>
               {d.import_etape && <Badge variant="outline">{d.import_etape}</Badge>}
+              <Button
+                size="sm"
+                variant="outline"
+                className="h-7 text-xs"
+                disabled={
+                  reimportDetail !== null ||
+                  jobsReimportDepuisSlides(d.id, d.structure_slides).length === 0
+                }
+                onClick={() => void reimporterCeSlideshow()}
+                title={t("slideshows.reimportUnAide")}
+              >
+                <RefreshCw
+                  className={cn("size-3", reimportDetail && "animate-spin")}
+                />
+                {reimportDetail
+                  ? t("slideshows.reimportLot", {
+                      fait: reimportDetail.fait,
+                      total: reimportDetail.total,
+                    })
+                  : t("slideshows.reimportUn")}
+              </Button>
             </div>
+            {reimportDetailLogs.length > 0 && (
+              <div className="max-h-32 space-y-0.5 overflow-y-auto rounded border bg-muted/30 px-2 py-1.5 font-mono text-[10px] leading-relaxed text-muted-foreground">
+                {reimportDetailLogs.map((l, i) => (
+                  <div key={`reimp-d-${i}-${l.slice(0, 16)}`} className="break-words">
+                    {l}
+                  </div>
+                ))}
+              </div>
+            )}
 
             <div className="grid grid-cols-3 gap-2 text-center text-xs">
               <div className="rounded border p-2">

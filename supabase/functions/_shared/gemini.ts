@@ -603,7 +603,6 @@ export type ProviderNettoyage = "fal" | "replicate";
 export type EtapeNettoyageId =
   | "text_removal"
   | "replicate_text_removal"
-  | "restore_resolution"
   | "c2pa"
   | "ready";
 
@@ -640,10 +639,6 @@ async function lireProviderPrincipal(): Promise<ProviderNettoyage> {
 /**
  * Nettoyage : Fal + Replicate (ordre configurable via réglage `nettoyage`),
  * puis retrait Content Credentials (C2PA).
- *
- * La restauration de résolution (~1 MP → source) se fait APRÈS upload via
- * `restaurerResolutionMediaSiBesoin` (appel HTTP à `upscale-media`) pour
- * éviter un OOM Edge dans ce worker.
  *
  * `onEtape` permet au front de tracer le déroulé en direct (stream NDJSON).
  */

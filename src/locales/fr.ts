@@ -956,7 +956,6 @@ export const fr = {
     nettoyageEtapes: {
       textRemoval: "Fal text-removal",
       replicateTextRemoval: "Replicate text-removal (fallback)",
-      restoreResolution: "Restauration résolution",
       c2pa: "Content Credentials",
       ready: "Ready",
     },

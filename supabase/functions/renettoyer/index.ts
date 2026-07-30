@@ -4,7 +4,6 @@ import {
   type EvenementEtape,
 } from "../_shared/gemini.ts";
 import { reponseNdjson, veutStream } from "../_shared/nettoyage_etapes.ts";
-import { restaurerResolutionMediaSiBesoin } from "../_shared/restore_resolution.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
@@ -97,12 +96,6 @@ Deno.serve(async (request) => {
           if (insErr) throw insErr;
 
           await supabase.from("post_slides").update({ media_id: media.id }).eq("id", slide.id);
-          await restaurerResolutionMediaSiBesoin(
-            media.id,
-            slide.reference_url,
-            url,
-            emit,
-          );
           emit?.({
             etape: "ready",
             statut: "ok",

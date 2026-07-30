@@ -5,8 +5,7 @@
 export const AGENTS_NETTOYAGE = 5;
 
 /** Pool réimport photos slideshows valides — plus large que le nettoyage unitaire. */
-/** Pool bas : chaque photo = text-removal + éventuel Recraft Crisp (~2 appels lourds). */
-export const AGENTS_REIMPORT_PHOTOS = 4;
+export const AGENTS_REIMPORT_PHOTOS = 12;
 
 /** Pool upscale Recraft Crisp (~9 s/image) — large pour finir vite la biblio. */
 export const AGENTS_UPSCALE = 12;

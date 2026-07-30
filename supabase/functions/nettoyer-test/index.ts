@@ -1,6 +1,5 @@
 import { cleanImage, type EvenementEtape } from "../_shared/gemini.ts";
 import { reponseNdjson, veutStream } from "../_shared/nettoyage_etapes.ts";
-import { restaurerResolutionMediaSiBesoin } from "../_shared/restore_resolution.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 const BUCKET = "medias";
@@ -47,55 +46,17 @@ Deno.serve(async (request) => {
     if (error) throw error;
 
     const publique = supabase.storage.from(BUCKET).getPublicUrl(chemin).data.publicUrl;
-
-    // Pour le test : upsert media_library temporaire + restore via upscale-media.
-    const { data: mediaTmp } = await supabase
-      .from("media_library")
-      .upsert(
-        {
-          storage_path: chemin,
-          url: `${publique}?v=${Date.now()}`,
-          source: "nettoye_reference",
-          verifie_le: new Date().toISOString(),
-          texte_restant: false,
-        },
-        { onConflict: "storage_path" },
-      )
-      .select("id, url")
-      .single();
-
-    let urlFinale = mediaTmp?.url ?? `${publique}?v=${Date.now()}`;
-    let restaure = false;
-    if (mediaTmp?.id) {
-      const restore = await restaurerResolutionMediaSiBesoin(
-        mediaTmp.id,
-        url,
-        urlFinale,
-        emit,
-      );
-      restaure = restore.restaure;
-      if (restore.url) urlFinale = restore.url;
-    } else {
-      emit?.({
-        etape: "restore_resolution",
-        statut: "saute",
-        detail: "③ Restore SAUTÉ — media_library tmp non créé",
-      });
-    }
-
     emit?.({
       etape: "ready",
       statut: "ok",
-      url: urlFinale,
+      url: publique,
       moteur: propre.moteur,
       ok: true,
-      restaure,
     });
     return {
       ok: true as const,
-      url: urlFinale,
+      url: publique,
       moteur: propre.moteur,
-      restaure,
       etapes: propre.etapes,
     };
   };

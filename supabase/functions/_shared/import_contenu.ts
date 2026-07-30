@@ -17,7 +17,6 @@ import {
   attacherLabelsAuMedia,
   mediaPropreMemeLabel,
 } from "./media_labels.ts";
-import { restaurerResolutionMediaSiBesoin } from "./restore_resolution.ts";
 import { patchSlideMediaId, trouverPropreExistant } from "./slide_media.ts";
 import { chargerPrompt, messageErreur, serviceClient } from "./supabase.ts";
 
@@ -1163,12 +1162,11 @@ async function nettoyerSlide(
     text_removal: "① Fal",
     replicate_text_removal: "② FALLBACK Replicate",
     c2pa: "③ Enlève clés C2PA",
-    restore_resolution: "④ Restore résolution",
-    ready: "⑤ Ready",
+    ready: "④ Ready",
   };
   const lignes: string[] = [
     `slide #${slide.position} · url=${(slide.raw_url ?? "").slice(0, 72)}…`,
-    `pipeline: ① Fal → ② Replicate → ③ C2PA → ④ restore → ⑤ stockage`,
+    `pipeline: ① Fal → ② Replicate → ③ C2PA → ④ stockage (verifyClean PAUSE)`,
   ];
   const rapport: NettoyageSlideRapport = {
     position: slide.position,
@@ -1286,27 +1284,6 @@ async function nettoyerSlide(
     lignes.push(
       `upload OK → media_id=${media.id} · labels KO: ${messageErreur(e)}`,
     );
-  }
-
-  try {
-    const restore = await restaurerResolutionMediaSiBesoin(
-      media.id,
-      slide.raw_url,
-      url,
-      async (e) => {
-        const nom = labelEtape[e.etape] ?? e.etape;
-        const line = `${nom} · ${e.statut}${e.detail ? ` — ${e.detail}` : ""}`;
-        lignes.push(line);
-        console.log(
-          `[import nettoyage] contenu=${contenu.id} slide=${slide.position} ${line}`,
-        );
-      },
-    );
-    if (restore.restaure) {
-      lignes.push(`restore résolution OK → ${restore.url ?? url}`);
-    }
-  } catch (e) {
-    lignes.push(`warn restore résolution: ${messageErreur(e)}`);
   }
 
   rapport.ok = true;

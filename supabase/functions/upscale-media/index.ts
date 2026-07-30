@@ -1,8 +1,11 @@
 import { retirerContentCredentials } from "../_shared/c2pa.ts";
+import { upscaleViaSeedVr } from "../_shared/fal_seedvr_upscale.ts";
 import { upscaleViaRealEsrgan } from "../_shared/replicate_realesrgan_upscale.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 const BUCKET = "medias";
+
+export type ModeleUpscale = "realesrgan" | "seedvr";
 
 function extPourMime(mime: string): string {
   if (mime === "image/png") return "png";
@@ -11,13 +14,17 @@ function extPourMime(mime: string): string {
   return "bin";
 }
 
+function parserModele(brut: unknown): ModeleUpscale {
+  return brut === "seedvr" ? "seedvr" : "realesrgan";
+}
+
 /**
- * Upscale une photo de la bibliothèque (Real-ESRGAN v2 via Replicate) :
- *   1) upscale
- *   2) strip C2PA lossless (pixels inchangés)
+ * Upscale une photo de la bibliothèque :
+ *   1) Real-ESRGAN v2 (Replicate) OU SeedVR2 (Fal)
+ *   2) strip C2PA lossless
  *   3) remplace le fichier + pose `upscale_le`
  *
- *   { mediaId, forcer?: boolean, scale?: number }
+ *   { mediaId, forcer?: boolean, modele?: "realesrgan"|"seedvr", scale?: number }
  */
 Deno.serve(async (request) => {
   const denied = await assertAuthorised(request);
@@ -35,10 +42,13 @@ Deno.serve(async (request) => {
 
   const mediaId = body?.mediaId ? String(body.mediaId) : null;
   const forcer = Boolean(body?.forcer);
+  const modele = parserModele(body?.modele);
   const scaleRaw = Number(body?.scale);
   const scale = Number.isFinite(scaleRaw) && scaleRaw >= 1 && scaleRaw <= 4
     ? scaleRaw
-    : 1;
+    : modele === "seedvr"
+      ? 2
+      : 1;
   if (!mediaId) return json({ ok: false, error: "mediaId requis" }, 400);
 
   try {
@@ -59,11 +69,16 @@ Deno.serve(async (request) => {
       });
     }
 
-    const resultat = await upscaleViaRealEsrgan(media.url, undefined, scale);
+    const resultat = modele === "seedvr"
+      ? await upscaleViaSeedVr(media.url, undefined, scale)
+      : await upscaleViaRealEsrgan(media.url, undefined, scale);
+
     if (!resultat) {
       return json({
         ok: false,
-        error: "REPLICATE_API_TOKEN manquant",
+        error: modele === "seedvr"
+          ? "FAL_KEY manquant"
+          : "REPLICATE_API_TOKEN manquant",
       }, 500);
     }
 
@@ -73,7 +88,6 @@ Deno.serve(async (request) => {
     const bytes = Uint8Array.from(atob(strip.base64), (c) => c.charCodeAt(0));
     const ext = extPourMime(mime);
 
-    // Nouveau path (évite cache CDN / ancien format) dans le même dossier.
     const basePath = String(media.storage_path)
       .replace(/\.[^.]+$/, "")
       .replace(/-upscale$/, "")
@@ -103,21 +117,22 @@ Deno.serve(async (request) => {
       .eq("id", media.id);
     if (majErr) throw majErr;
 
-    // Best-effort : retire l'ancien fichier s'il a changé de chemin.
     if (media.storage_path && media.storage_path !== path) {
       await supabase.storage.from(BUCKET).remove([media.storage_path]).catch(() => null);
     }
 
+    const label = modele === "seedvr" ? "SeedVR" : "Real-ESRGAN";
     return json({
       ok: true,
       mediaId,
       saute: false,
       url,
       mime,
+      modele,
       scale,
       upscale_le: maintenant,
       c2pa_retire: strip.retire,
-      detail: "upscalée Real-ESRGAN + métadonnées stripées (lossless)",
+      detail: `upscalée ${label} + métadonnées stripées (lossless)`,
     });
   } catch (error) {
     return json({ ok: false, error: messageErreur(error) }, 500);

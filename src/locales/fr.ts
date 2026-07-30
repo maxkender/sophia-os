@@ -598,12 +598,19 @@ export const fr = {
       upscaleTout_one: "Upscale la photo non upscalée",
       upscaleTout_other: "Upscale les {{count}} photos non upscalées",
       upscaleLot: "Upscale… {{fait}}/{{total}}",
+      upscaleModele: "Modèle d'upscale",
+      upscaleRealesrgan: "Real-ESRGAN v2",
+      upscaleSeedvr: "SeedVR (Fal)",
       upscaleAide:
-        "Real-ESRGAN v2 (Replicate) → strip métadonnées lossless → remplace la photo. Uniquement les photos jamais upscalées. Pool parallèle large.",
-      upscaleDebut: "Upscale de {{count}} photo(s) non upscalée(s)…",
+        "Upscale → strip métadonnées lossless → remplace la photo. Uniquement les photos jamais upscalées.",
+      upscaleAideRealesrgan:
+        "Real-ESRGAN v2 (Replicate) — fidèle, peu « IA ». Scale ×1 par défaut.",
+      upscaleAideSeedvr:
+        "SeedVR2 (Fal) — ~0,001 $/MP de sortie. Ex. photo ~1 MP → ×2 ≈ 4 MP ≈ 0,004 $ (~0,4 cent).",
+      upscaleDebut: "Upscale ({{modele}}) de {{count}} photo(s) non upscalée(s)…",
       upscaleFin: "Terminé — ok={{ok}} · déjà faits={{sautes}} · échecs={{echecs}}",
       upscaleConfirm:
-        "Lancer l'upscale Real-ESRGAN sur {{count}} photo(s) ? Ça consomme du crédit Replicate.",
+        "Lancer l'upscale {{modele}} sur {{count}} photo(s) ?",
       utilise_one: "utilisé {{count}} fois",
       utilise_other: "utilisé {{count}} fois",
       source: {

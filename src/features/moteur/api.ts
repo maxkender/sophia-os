@@ -1491,19 +1491,30 @@ export const stripC2paMedia = (mediaId: string) =>
     error?: string;
   }>("strip-c2pa", { mediaId });
 
-/** Upscale Real-ESRGAN v2 (Replicate) → strip C2PA lossless → remplace en place. */
-export const upscaleMedia = (mediaId: string, forcer = false) =>
+export type ModeleUpscale = "realesrgan" | "seedvr";
+
+/** Upscale biblio (Real-ESRGAN ou SeedVR) → strip C2PA lossless → remplace en place. */
+export const upscaleMedia = (
+  mediaId: string,
+  opts?: { forcer?: boolean; modele?: ModeleUpscale },
+) =>
   invoke<{
     ok: boolean;
     mediaId: string;
     saute?: boolean;
     url?: string;
     mime?: string;
+    modele?: ModeleUpscale;
+    scale?: number;
     upscale_le?: string;
     c2pa_retire?: boolean;
     detail?: string;
     error?: string;
-  }>("upscale-media", { mediaId, forcer });
+  }>("upscale-media", {
+    mediaId,
+    forcer: opts?.forcer ?? false,
+    modele: opts?.modele ?? "realesrgan",
+  });
 
 
 /** Le compte de référence dont dépend un post — pour filtrer sa bibliothèque. */

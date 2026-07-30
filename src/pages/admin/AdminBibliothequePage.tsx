@@ -25,6 +25,7 @@ import {
   stripC2paMedia,
   supprimerMedia,
   upscaleMedia,
+  type ModeleUpscale,
 } from "@/features/moteur/api";
 import {
   appliquerEvenement,
@@ -49,6 +50,7 @@ function VignetteMedia({
   onToggle,
   premier,
   etapesLot,
+  modeleUpscale,
 }: {
   media: Media;
   onChange: () => void;
@@ -56,6 +58,7 @@ function VignetteMedia({
   onToggle: () => void;
   premier: ProviderNettoyage;
   etapesLot?: EvenementEtape[] | null;
+  modeleUpscale: ModeleUpscale;
 }) {
   const { t } = useTranslation();
   const propre = estPropre(media);
@@ -83,7 +86,7 @@ function VignetteMedia({
     },
   });
   const upscale = useMutation({
-    mutationFn: () => upscaleMedia(media.id, false),
+    mutationFn: () => upscaleMedia(media.id, { modele: modeleUpscale }),
     onSuccess: () => onChange(),
   });
   const supprimer = useMutation({ mutationFn: () => supprimerMedia(media.id), onSuccess: onChange });
@@ -172,7 +175,11 @@ function VignetteMedia({
             className="h-7 flex-1 px-2 text-xs"
             disabled={upscale.isPending || upscaleBusy}
             onClick={() => upscale.mutate()}
-            title={t("bibliotheque.upscaleAide")}
+            title={
+              modeleUpscale === "seedvr"
+                ? t("bibliotheque.upscaleAideSeedvr")
+                : t("bibliotheque.upscaleAideRealesrgan")
+            }
           >
             <Maximize2 className="size-3" />
             {upscale.isPending ? t("bibliotheque.upscaleEnCours") : t("bibliotheque.upscale")}
@@ -213,6 +220,7 @@ export function AdminBibliothequePage() {
   const [c2paLogs, setC2paLogs] = React.useState<string[]>([]);
   const [upscaleLot, setUpscaleLot] = React.useState<{ fait: number; total: number } | null>(null);
   const [upscaleLogs, setUpscaleLogs] = React.useState<string[]>([]);
+  const [modeleUpscale, setModeleUpscale] = React.useState<ModeleUpscale>("realesrgan");
 
   const labels = useQuery({ queryKey: ["labels"], queryFn: listerLabels });
   const biblio = useQuery({
@@ -348,13 +356,25 @@ export function AdminBibliothequePage() {
     rafraichir();
   }
 
-  /** Upscale Real-ESRGAN v2 — uniquement les photos jamais upscalées. */
+  /** Upscale (modèle choisi) — uniquement les photos jamais upscalées. */
   async function upscaleTout() {
     const liste = aUpscalerListe;
     if (liste.length === 0) return;
-    if (!window.confirm(t("bibliotheque.upscaleConfirm", { count: liste.length }))) return;
+    const labelModele =
+      modeleUpscale === "seedvr"
+        ? t("bibliotheque.upscaleSeedvr")
+        : t("bibliotheque.upscaleRealesrgan");
+    if (
+      !window.confirm(
+        t("bibliotheque.upscaleConfirm", { count: liste.length, modele: labelModele }),
+      )
+    ) {
+      return;
+    }
     setUpscaleLot({ fait: 0, total: liste.length });
-    setUpscaleLogs([t("bibliotheque.upscaleDebut", { count: liste.length })]);
+    setUpscaleLogs([
+      t("bibliotheque.upscaleDebut", { count: liste.length, modele: labelModele }),
+    ]);
     let ok = 0;
     let sautes = 0;
     let echecs = 0;
@@ -362,7 +382,7 @@ export function AdminBibliothequePage() {
       liste,
       async (media) => {
         try {
-          const r = await upscaleMedia(media.id, false);
+          const r = await upscaleMedia(media.id, { modele: modeleUpscale });
           if (r.saute) {
             sautes += 1;
             setUpscaleLogs((prev) => [
@@ -415,7 +435,28 @@ export function AdminBibliothequePage() {
                 : t("bibliotheque.subtitle")}
             </CardDescription>
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <label className="flex items-center gap-1.5 text-xs text-muted-foreground">
+              <span className="sr-only">{t("bibliotheque.upscaleModele")}</span>
+              <select
+                className="h-8 rounded-md border border-input bg-background px-2 text-xs shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                value={modeleUpscale}
+                disabled={lotEnCours}
+                onChange={(e) =>
+                  setModeleUpscale(
+                    e.target.value === "seedvr" ? "seedvr" : "realesrgan",
+                  )
+                }
+                title={
+                  modeleUpscale === "seedvr"
+                    ? t("bibliotheque.upscaleAideSeedvr")
+                    : t("bibliotheque.upscaleAideRealesrgan")
+                }
+              >
+                <option value="realesrgan">{t("bibliotheque.upscaleRealesrgan")}</option>
+                <option value="seedvr">{t("bibliotheque.upscaleSeedvr")}</option>
+              </select>
+            </label>
             <Button
               size="sm"
               variant="outline"
@@ -433,7 +474,11 @@ export function AdminBibliothequePage() {
                 variant="outline"
                 disabled={lotEnCours}
                 onClick={() => void upscaleTout()}
-                title={t("bibliotheque.upscaleAide")}
+                title={
+                  modeleUpscale === "seedvr"
+                    ? t("bibliotheque.upscaleAideSeedvr")
+                    : t("bibliotheque.upscaleAideRealesrgan")
+                }
               >
                 <Maximize2 className="size-4" />
                 {upscaleLot

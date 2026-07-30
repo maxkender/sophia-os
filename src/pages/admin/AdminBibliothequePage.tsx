@@ -19,12 +19,11 @@ import {
 import { NettoyageEtapes } from "@/components/moteur/NettoyageEtapes";
 import {
   lireReglages,
+  listerBibliothequeParLabels,
   listerLabels,
-  listerMediasBibliotheque,
   nettoyerMedia,
   stripC2paMedia,
   supprimerMedia,
-  type MediaBibliotheque,
 } from "@/features/moteur/api";
 import {
   appliquerEvenement,
@@ -32,7 +31,7 @@ import {
   type EvenementEtape,
   type ProviderNettoyage,
 } from "@/features/moteur/nettoyageEtapes";
-import type { Label, Media } from "@/features/moteur/types";
+import type { Media } from "@/features/moteur/types";
 
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring sm:w-64";
@@ -173,42 +172,6 @@ function VignetteMedia({
   );
 }
 
-type GroupeLabel = {
-  key: string;
-  label: Label | null;
-  medias: MediaBibliotheque[];
-};
-
-function grouperParLabel(
-  medias: MediaBibliotheque[],
-  labels: Label[],
-): GroupeLabel[] {
-  const byId = new Map(labels.map((l) => [l.id, l]));
-  const buckets = new Map<string, MediaBibliotheque[]>();
-
-  for (const m of medias) {
-    const ids = m.labelIds.length > 0 ? m.labelIds : ["__sans__"];
-    // Une photo multi-labels apparaît dans chaque section concernée.
-    for (const id of ids) {
-      const arr = buckets.get(id) ?? [];
-      arr.push(m);
-      buckets.set(id, arr);
-    }
-  }
-
-  const groupes: GroupeLabel[] = [];
-  for (const label of [...labels].sort((a, b) => a.nom.localeCompare(b.nom))) {
-    const mediasLabel = buckets.get(label.id);
-    if (!mediasLabel?.length) continue;
-    groupes.push({ key: label.id, label, medias: mediasLabel });
-  }
-  const sans = buckets.get("__sans__");
-  if (sans?.length) {
-    groupes.push({ key: "__sans__", label: null, medias: sans });
-  }
-  return groupes;
-}
-
 export function AdminBibliothequePage() {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
@@ -221,9 +184,9 @@ export function AdminBibliothequePage() {
   const [c2paLogs, setC2paLogs] = React.useState<string[]>([]);
 
   const labels = useQuery({ queryKey: ["labels"], queryFn: listerLabels });
-  const medias = useQuery({
+  const biblio = useQuery({
     queryKey: ["medias-biblio", labelId || "tous"],
-    queryFn: () => listerMediasBibliotheque(labelId || undefined),
+    queryFn: () => listerBibliothequeParLabels(labelId || undefined),
   });
   const { data: reglages } = useQuery({
     queryKey: ["reglages"],
@@ -236,13 +199,21 @@ export function AdminBibliothequePage() {
     void queryClient.invalidateQueries({ queryKey: ["medias-biblio"] });
     void queryClient.invalidateQueries({ queryKey: ["medias"] });
   };
-  const aNettoyerListe = (medias.data ?? []).filter((m) => !estPropre(m));
+  const groupes = biblio.data ?? [];
+  const affichees = React.useMemo(() => {
+    const seen = new Set<string>();
+    const out: Media[] = [];
+    for (const g of groupes) {
+      for (const m of g.medias) {
+        if (seen.has(m.id)) continue;
+        seen.add(m.id);
+        out.push(m);
+      }
+    }
+    return out;
+  }, [groupes]);
+  const aNettoyerListe = affichees.filter((m) => !estPropre(m));
   const aNettoyer = aNettoyerListe.length;
-  const affichees = medias.data ?? [];
-  const groupes = React.useMemo(
-    () => grouperParLabel(affichees, labels.data ?? []),
-    [affichees, labels.data],
-  );
 
   const basculer = (id: string) =>
     setSelection((s) => {
@@ -441,48 +412,51 @@ export function AdminBibliothequePage() {
           </div>
         )}
 
-        {medias.isPending && <p className="text-sm text-muted-foreground">{t("common.loading")}</p>}
-        {!medias.isPending && affichees.length === 0 && (
+        {biblio.isPending && (
+          <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
+        )}
+        {biblio.isError && (
+          <p className="text-sm text-destructive">{(biblio.error as Error).message}</p>
+        )}
+        {!biblio.isPending && affichees.length === 0 && (
           <EmptyState title={t("bibliotheque.empty")} />
         )}
 
-        <div className="space-y-6">
-          {groupes.map((groupe) => (
-            <section key={groupe.key} className="space-y-2">
-              <div className="flex flex-wrap items-center gap-2">
-                {groupe.label ? (
-                  <Badge
-                    variant="secondary"
-                    style={
-                      groupe.label.couleur
-                        ? { backgroundColor: groupe.label.couleur, color: "#fff" }
-                        : undefined
-                    }
-                  >
-                    {groupe.label.nom}
+        <div className="space-y-8">
+          {groupes.map((groupe) => {
+            const key = groupe.label?.id ?? "__sans__";
+            return (
+              <section key={key} className="space-y-3">
+                <div className="flex flex-wrap items-center gap-2 border-b pb-2">
+                  {groupe.label ? (
+                    <h3 className="text-base font-semibold tracking-tight">
+                      {groupe.label.nom}
+                    </h3>
+                  ) : (
+                    <h3 className="text-base font-semibold tracking-tight text-muted-foreground">
+                      {t("bibliotheque.sansLabel")}
+                    </h3>
+                  )}
+                  <Badge variant="secondary">
+                    {t("bibliotheque.nbPhotos", { count: groupe.medias.length })}
                   </Badge>
-                ) : (
-                  <Badge variant="outline">{t("bibliotheque.sansLabel")}</Badge>
-                )}
-                <span className="text-xs text-muted-foreground">
-                  {t("bibliotheque.nbPhotos", { count: groupe.medias.length })}
-                </span>
-              </div>
-              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-6">
-                {groupe.medias.map((media) => (
-                  <VignetteMedia
-                    key={`${groupe.key}-${media.id}`}
-                    media={media}
-                    onChange={rafraichir}
-                    selectionne={selection.has(media.id)}
-                    onToggle={() => basculer(media.id)}
-                    premier={premier}
-                    etapesLot={etapesLot[media.id] ?? null}
-                  />
-                ))}
-              </div>
-            </section>
-          ))}
+                </div>
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-6">
+                  {groupe.medias.map((media) => (
+                    <VignetteMedia
+                      key={`${key}-${media.id}`}
+                      media={media}
+                      onChange={rafraichir}
+                      selectionne={selection.has(media.id)}
+                      onToggle={() => basculer(media.id)}
+                      premier={premier}
+                      etapesLot={etapesLot[media.id] ?? null}
+                    />
+                  ))}
+                </div>
+              </section>
+            );
+          })}
         </div>
       </CardContent>
     </Card>

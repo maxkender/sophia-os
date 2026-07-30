@@ -704,61 +704,93 @@ export async function listerMedias(compteReferenceId?: string): Promise<Media[]>
   return data as Media[];
 }
 
-export type MediaBibliotheque = Media & { labelIds: string[] };
+export type GroupeBiblio = {
+  label: Label | null;
+  medias: Media[];
+};
+
+const CHUNK_IDS = 80;
+
+async function mediasPropresParIds(ids: string[]): Promise<Media[]> {
+  if (ids.length === 0) return [];
+  const out: Media[] = [];
+  for (let i = 0; i < ids.length; i += CHUNK_IDS) {
+    const chunk = ids.slice(i, i + CHUNK_IDS);
+    const { data, error } = await supabase
+      .from("media_library")
+      .select("*")
+      .like("storage_path", "propre/%")
+      .in("id", chunk)
+      .order("created_at", { ascending: false });
+    if (error) throw error;
+    out.push(...((data ?? []) as Media[]));
+  }
+  return out;
+}
 
 /**
- * Photos propres pour la page Bibliothèque, avec leurs labels.
- * Filtre optionnel par label (via media_labels).
+ * Bibliothèque groupée par label (source de vérité = media_labels).
+ * Plus de plafond « 500 derniers » qui faisait ressembler le tri à un tri par compte.
  */
-export async function listerMediasBibliotheque(
+export async function listerBibliothequeParLabels(
   labelId?: string,
-): Promise<MediaBibliotheque[]> {
-  let mediaIdsFiltre: string[] | null = null;
-  if (labelId) {
-    const { data: liens, error: errL } = await supabase
-      .from("media_labels")
-      .select("media_id")
-      .eq("label_id", labelId);
-    if (errL) throw errL;
-    mediaIdsFiltre = [...new Set((liens ?? []).map((r) => r.media_id as string))];
-    if (mediaIdsFiltre.length === 0) return [];
-  }
-
-  let query = supabase
-    .from("media_library")
+): Promise<GroupeBiblio[]> {
+  const { data: rowsLabels, error: errLabels } = await supabase
+    .from("labels")
     .select("*")
-    .like("storage_path", "propre/%")
-    .order("created_at", { ascending: false })
-    .limit(500);
-  if (mediaIdsFiltre) query = query.in("id", mediaIdsFiltre);
-
-  const { data, error } = await query;
-  if (error) throw error;
-  const medias = (data ?? []) as Media[];
-  if (medias.length === 0) return [];
-
-  const { data: liens, error: errLabels } = await supabase
-    .from("media_labels")
-    .select("media_id, label_id")
-    .in(
-      "media_id",
-      medias.map((m) => m.id),
-    );
+    .order("nom");
   if (errLabels) throw errLabels;
+  const labels = (rowsLabels ?? []) as Label[];
+  const cibles = labelId ? labels.filter((l) => l.id === labelId) : labels;
 
-  const parMedia = new Map<string, string[]>();
-  for (const l of liens ?? []) {
-    const mid = l.media_id as string;
-    const lid = l.label_id as string;
-    const arr = parMedia.get(mid) ?? [];
-    arr.push(lid);
-    parMedia.set(mid, arr);
+  const bruts = await Promise.all(
+    cibles.map(async (label): Promise<GroupeBiblio | null> => {
+      const { data: liens, error } = await supabase
+        .from("media_labels")
+        .select("media_id")
+        .eq("label_id", label.id);
+      if (error) throw error;
+      const ids = [...new Set((liens ?? []).map((r) => r.media_id as string))];
+      const medias = await mediasPropresParIds(ids);
+      if (medias.length === 0) return null;
+      return { label, medias };
+    }),
+  );
+  const groupes: GroupeBiblio[] = bruts.filter((g): g is GroupeBiblio => g != null);
+
+  groupes.sort((a, b) => (a.label?.nom ?? "").localeCompare(b.label?.nom ?? "", "fr"));
+
+  // Section « Sans label » seulement en vue globale.
+  if (!labelId) {
+    const { data: tousLiens, error: errTous } = await supabase
+      .from("media_labels")
+      .select("media_id");
+    if (errTous) throw errTous;
+    const labeled = new Set((tousLiens ?? []).map((r) => r.media_id as string));
+
+    const sans: Media[] = [];
+    let from = 0;
+    const page = 1000;
+    while (true) {
+      const { data, error } = await supabase
+        .from("media_library")
+        .select("*")
+        .like("storage_path", "propre/%")
+        .order("created_at", { ascending: false })
+        .range(from, from + page - 1);
+      if (error) throw error;
+      const batch = (data ?? []) as Media[];
+      if (batch.length === 0) break;
+      for (const m of batch) {
+        if (!labeled.has(m.id)) sans.push(m);
+      }
+      if (batch.length < page) break;
+      from += page;
+    }
+    if (sans.length > 0) groupes.push({ label: null, medias: sans });
   }
 
-  return medias.map((m) => ({
-    ...m,
-    labelIds: parMedia.get(m.id) ?? [],
-  }));
+  return groupes;
 }
 
 // --- Posts ------------------------------------------------------------------

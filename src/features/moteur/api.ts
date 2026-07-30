@@ -756,88 +756,126 @@ export type GroupeBiblio = {
   medias: Media[];
 };
 
-const CHUNK_IDS = 80;
+export const BIBLIO_PAGE_SIZE = 100;
 
-async function mediasPropresParIds(ids: string[]): Promise<Media[]> {
-  if (ids.length === 0) return [];
-  const out: Media[] = [];
-  for (let i = 0; i < ids.length; i += CHUNK_IDS) {
-    const chunk = ids.slice(i, i + CHUNK_IDS);
-    const { data, error } = await supabase
-      .from("media_library")
-      .select("*")
-      .like("storage_path", "propre/%")
-      .in("id", chunk)
-      .order("created_at", { ascending: false });
-    if (error) throw error;
-    out.push(...((data ?? []) as Media[]));
+export type PageBiblio = {
+  medias: Media[];
+  /** Groupes pour l'affichage (labels des médias de la page). */
+  groupes: GroupeBiblio[];
+  total: number;
+  page: number;
+  pageSize: number;
+  totalPages: number;
+};
+
+/** Regroupe une page de médias par leurs labels (pour l'UI). */
+async function grouperMediasParLabels(medias: Media[]): Promise<GroupeBiblio[]> {
+  if (medias.length === 0) return [];
+  const byId = new Map(medias.map((m) => [m.id, m]));
+  const ids = medias.map((m) => m.id);
+
+  const { data: liens, error } = await supabase
+    .from("media_labels")
+    .select("media_id, label_id, labels(*)")
+    .in("media_id", ids);
+  if (error) throw error;
+
+  const parLabel = new Map<string, { label: Label; medias: Media[] }>();
+  const vus = new Set<string>();
+
+  for (const row of liens ?? []) {
+    const r = row as unknown as {
+      media_id: string;
+      label_id: string;
+      labels: Label | null;
+    };
+    const media = byId.get(r.media_id);
+    if (!media || !r.labels) continue;
+    vus.add(media.id);
+    let g = parLabel.get(r.label_id);
+    if (!g) {
+      g = { label: r.labels, medias: [] };
+      parLabel.set(r.label_id, g);
+    }
+    if (!g.medias.some((m) => m.id === media.id)) g.medias.push(media);
   }
-  return out;
+
+  const groupes: GroupeBiblio[] = [...parLabel.values()]
+    .map((g) => ({
+      label: g.label,
+      medias: g.medias.sort(
+        (a, b) =>
+          new Date(b.created_at).getTime() - new Date(a.created_at).getTime(),
+      ),
+    }))
+    .sort((a, b) => (a.label?.nom ?? "").localeCompare(b.label?.nom ?? "", "fr"));
+
+  const sans = medias.filter((m) => !vus.has(m.id));
+  if (sans.length > 0) groupes.push({ label: null, medias: sans });
+
+  return groupes;
 }
 
 /**
- * Bibliothèque groupée par label (source de vérité = media_labels).
- * Plus de plafond « 500 derniers » qui faisait ressembler le tri à un tri par compte.
+ * Bibliothèque paginée (100 / page) — ne charge que la page demandée.
+ * Filtre optionnel par label via `media_labels`.
+ */
+export async function listerBibliothequePage(opts?: {
+  labelId?: string;
+  page?: number;
+  pageSize?: number;
+}): Promise<PageBiblio> {
+  const pageSize = opts?.pageSize ?? BIBLIO_PAGE_SIZE;
+  const page = Math.max(1, opts?.page ?? 1);
+  const from = (page - 1) * pageSize;
+  const to = from + pageSize - 1;
+
+  let medias: Media[] = [];
+  let total = 0;
+
+  if (opts?.labelId) {
+    const { data, error, count } = await supabase
+      .from("media_library")
+      .select("*, media_labels!inner(label_id)", { count: "exact" })
+      .eq("media_labels.label_id", opts.labelId)
+      .like("storage_path", "propre/%")
+      .order("created_at", { ascending: false })
+      .range(from, to);
+    if (error) throw error;
+    // deno-lint-ignore no-explicit-any
+    medias = ((data ?? []) as any[]).map(({ media_labels: _ml, ...m }) => m as Media);
+    total = count ?? 0;
+  } else {
+    const { data, error, count } = await supabase
+      .from("media_library")
+      .select("*", { count: "exact" })
+      .like("storage_path", "propre/%")
+      .order("created_at", { ascending: false })
+      .range(from, to);
+    if (error) throw error;
+    medias = (data ?? []) as Media[];
+    total = count ?? 0;
+  }
+
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
+  const groupes = await grouperMediasParLabels(medias);
+
+  return { medias, groupes, total, page, pageSize, totalPages };
+}
+
+/**
+ * @deprecated Préférer `listerBibliothequePage` (pagination).
+ * Bibliothèque groupée par label — charge tout (lourd).
  */
 export async function listerBibliothequeParLabels(
   labelId?: string,
 ): Promise<GroupeBiblio[]> {
-  const { data: rowsLabels, error: errLabels } = await supabase
-    .from("labels")
-    .select("*")
-    .order("nom");
-  if (errLabels) throw errLabels;
-  const labels = (rowsLabels ?? []) as Label[];
-  const cibles = labelId ? labels.filter((l) => l.id === labelId) : labels;
-
-  const bruts = await Promise.all(
-    cibles.map(async (label): Promise<GroupeBiblio | null> => {
-      const { data: liens, error } = await supabase
-        .from("media_labels")
-        .select("media_id")
-        .eq("label_id", label.id);
-      if (error) throw error;
-      const ids = [...new Set((liens ?? []).map((r) => r.media_id as string))];
-      const medias = await mediasPropresParIds(ids);
-      if (medias.length === 0) return null;
-      return { label, medias };
-    }),
-  );
-  const groupes: GroupeBiblio[] = bruts.filter((g): g is GroupeBiblio => g != null);
-
-  groupes.sort((a, b) => (a.label?.nom ?? "").localeCompare(b.label?.nom ?? "", "fr"));
-
-  // Section « Sans label » seulement en vue globale.
-  if (!labelId) {
-    const { data: tousLiens, error: errTous } = await supabase
-      .from("media_labels")
-      .select("media_id");
-    if (errTous) throw errTous;
-    const labeled = new Set((tousLiens ?? []).map((r) => r.media_id as string));
-
-    const sans: Media[] = [];
-    let from = 0;
-    const page = 1000;
-    while (true) {
-      const { data, error } = await supabase
-        .from("media_library")
-        .select("*")
-        .like("storage_path", "propre/%")
-        .order("created_at", { ascending: false })
-        .range(from, from + page - 1);
-      if (error) throw error;
-      const batch = (data ?? []) as Media[];
-      if (batch.length === 0) break;
-      for (const m of batch) {
-        if (!labeled.has(m.id)) sans.push(m);
-      }
-      if (batch.length < page) break;
-      from += page;
-    }
-    if (sans.length > 0) groupes.push({ label: null, medias: sans });
-  }
-
-  return groupes;
+  const page = await listerBibliothequePage({
+    labelId,
+    page: 1,
+    pageSize: 10_000,
+  });
+  return page.groupes;
 }
 
 // --- Posts ------------------------------------------------------------------

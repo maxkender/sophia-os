@@ -2,7 +2,15 @@ import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Check, ExternalLink, Maximize2, Sparkles, Trash2 } from "lucide-react";
+import {
+  Check,
+  ChevronLeft,
+  ChevronRight,
+  ExternalLink,
+  Maximize2,
+  Sparkles,
+  Trash2,
+} from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { AGENTS_UPSCALE, AGENTS_UPSCALE_SEEDVR, executerEnLot } from "@/lib/lot";
@@ -18,8 +26,9 @@ import {
 } from "@/components/ui/card";
 import { NettoyageEtapes } from "@/components/moteur/NettoyageEtapes";
 import {
+  BIBLIO_PAGE_SIZE,
   lireReglages,
-  listerBibliothequeParLabels,
+  listerBibliothequePage,
   listerLabels,
   nettoyerMedia,
   stripC2paMedia,
@@ -105,6 +114,8 @@ function VignetteMedia({
           <img
             src={media.url}
             alt=""
+            loading="lazy"
+            decoding="async"
             className={cn(
               "aspect-[3/4] w-full rounded-md border object-cover transition",
               !propre && "border-2 border-warning/60",
@@ -212,6 +223,7 @@ export function AdminBibliothequePage() {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const [labelId, setLabelId] = React.useState("");
+  const [page, setPage] = React.useState(1);
   const [lot, setLot] = React.useState<{ fait: number; total: number } | null>(null);
   const [etapesLot, setEtapesLot] = React.useState<Record<string, EvenementEtape[]>>({});
   const [selection, setSelection] = React.useState<Set<string>>(new Set());
@@ -224,8 +236,13 @@ export function AdminBibliothequePage() {
 
   const labels = useQuery({ queryKey: ["labels"], queryFn: listerLabels });
   const biblio = useQuery({
-    queryKey: ["medias-biblio", labelId || "tous"],
-    queryFn: () => listerBibliothequeParLabels(labelId || undefined),
+    queryKey: ["medias-biblio", labelId || "tous", page, BIBLIO_PAGE_SIZE],
+    queryFn: () =>
+      listerBibliothequePage({
+        labelId: labelId || undefined,
+        page,
+        pageSize: BIBLIO_PAGE_SIZE,
+      }),
   });
   const { data: reglages } = useQuery({
     queryKey: ["reglages"],
@@ -238,19 +255,19 @@ export function AdminBibliothequePage() {
     void queryClient.invalidateQueries({ queryKey: ["medias-biblio"] });
     void queryClient.invalidateQueries({ queryKey: ["medias"] });
   };
-  const groupes = biblio.data ?? [];
-  const affichees = React.useMemo(() => {
-    const seen = new Set<string>();
-    const out: Media[] = [];
-    for (const g of groupes) {
-      for (const m of g.medias) {
-        if (seen.has(m.id)) continue;
-        seen.add(m.id);
-        out.push(m);
-      }
+  const groupes = biblio.data?.groupes ?? [];
+  const affichees = biblio.data?.medias ?? [];
+  const total = biblio.data?.total ?? 0;
+  const totalPages = biblio.data?.totalPages ?? 1;
+  const pageCourante = biblio.data?.page ?? page;
+
+  // Si le filtre change et la page devient hors bornes après refetch.
+  React.useEffect(() => {
+    if (biblio.data && page > biblio.data.totalPages) {
+      setPage(biblio.data.totalPages);
     }
-    return out;
-  }, [groupes]);
+  }, [biblio.data, page]);
+
   const aNettoyerListe = affichees.filter((m) => !estPropre(m));
   const aNettoyer = aNettoyerListe.length;
   const aUpscalerListe = affichees.filter((m) => !m.upscale_le);
@@ -265,6 +282,19 @@ export function AdminBibliothequePage() {
     });
   const toutSelectionner = () => setSelection(new Set(affichees.map((m) => m.id)));
   const viderSelection = () => setSelection(new Set());
+
+  function changerLabel(id: string) {
+    setLabelId(id);
+    setPage(1);
+    viderSelection();
+  }
+
+  function allerPage(p: number) {
+    const cible = Math.min(totalPages, Math.max(1, p));
+    setPage(cible);
+    viderSelection();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   /** Nettoie tous les visuels à texte via un pool d'agents parallèles. */
   async function nettoyerTout() {
@@ -431,9 +461,17 @@ export function AdminBibliothequePage() {
           <div>
             <CardTitle>{t("bibliotheque.title")}</CardTitle>
             <CardDescription>
-              {aNettoyer > 0
-                ? t("bibliotheque.compteur", { count: aNettoyer })
+              {total > 0
+                ? t("bibliotheque.paginationResume", {
+                    total,
+                    page: pageCourante,
+                    pages: totalPages,
+                    size: BIBLIO_PAGE_SIZE,
+                  })
                 : t("bibliotheque.subtitle")}
+              {aNettoyer > 0
+                ? ` · ${t("bibliotheque.compteur", { count: aNettoyer })}`
+                : ""}
             </CardDescription>
           </div>
           <div className="flex flex-wrap items-center gap-2">
@@ -528,10 +566,7 @@ export function AdminBibliothequePage() {
             aria-label={t("labels.title")}
             className={selectClass}
             value={labelId}
-            onChange={(e) => {
-              setLabelId(e.target.value);
-              viderSelection();
-            }}
+            onChange={(e) => changerLabel(e.target.value)}
           >
             <option value="">{t("bibliotheque.tousLabels")}</option>
             {(labels.data ?? []).map((l) => (
@@ -545,6 +580,32 @@ export function AdminBibliothequePage() {
             <Button size="sm" variant="outline" onClick={toutSelectionner}>
               {t("bibliotheque.toutSelectionner", { count: affichees.length })}
             </Button>
+          )}
+
+          {totalPages > 1 && (
+            <div className="ml-auto flex flex-wrap items-center gap-2">
+              <Button
+                size="sm"
+                variant="outline"
+                disabled={pageCourante <= 1 || biblio.isFetching}
+                onClick={() => allerPage(pageCourante - 1)}
+              >
+                <ChevronLeft className="size-4" />
+                {t("bibliotheque.pagePrecedente")}
+              </Button>
+              <span className="text-sm tabular-nums text-muted-foreground">
+                {t("bibliotheque.pageSur", { page: pageCourante, pages: totalPages })}
+              </span>
+              <Button
+                size="sm"
+                variant="outline"
+                disabled={pageCourante >= totalPages || biblio.isFetching}
+                onClick={() => allerPage(pageCourante + 1)}
+              >
+                {t("bibliotheque.pageSuivante")}
+                <ChevronRight className="size-4" />
+              </Button>
+            </div>
           )}
         </div>
 
@@ -620,6 +681,32 @@ export function AdminBibliothequePage() {
             );
           })}
         </div>
+
+        {totalPages > 1 && (
+          <div className="flex flex-wrap items-center justify-center gap-3 border-t pt-4">
+            <Button
+              size="sm"
+              variant="outline"
+              disabled={pageCourante <= 1 || biblio.isFetching}
+              onClick={() => allerPage(pageCourante - 1)}
+            >
+              <ChevronLeft className="size-4" />
+              {t("bibliotheque.pagePrecedente")}
+            </Button>
+            <span className="text-sm tabular-nums text-muted-foreground">
+              {t("bibliotheque.pageSur", { page: pageCourante, pages: totalPages })}
+            </span>
+            <Button
+              size="sm"
+              variant="outline"
+              disabled={pageCourante >= totalPages || biblio.isFetching}
+              onClick={() => allerPage(pageCourante + 1)}
+            >
+              {t("bibliotheque.pageSuivante")}
+              <ChevronRight className="size-4" />
+            </Button>
+          </div>
+        )}
       </CardContent>
     </Card>
   );

@@ -660,7 +660,7 @@ export const fr = {
       upscaleRealesrgan: "Real-ESRGAN v2",
       upscaleSeedvr: "SeedVR (Fal)",
       upscaleAide:
-        "Upscale → strip métadonnées lossless → remplace la photo. Uniquement les photos jamais upscalées.",
+        "Upscale → strip métadonnées lossless → remplace la photo. Uniquement les photos jamais upscalées de la page affichée.",
       upscaleAideRealesrgan:
         "Real-ESRGAN v2 (Replicate) — fidèle, peu « IA ». Scale ×1 par défaut.",
       upscaleAideSeedvr:
@@ -669,6 +669,11 @@ export const fr = {
       upscaleFin: "Terminé — ok={{ok}} · déjà faits={{sautes}} · échecs={{echecs}}",
       upscaleConfirm:
         "Lancer l'upscale {{modele}} sur {{count}} photo(s) ?",
+      paginationResume:
+        "{{total}} photo(s) · page {{page}}/{{pages}} ({{size}} / page)",
+      pageSur: "{{page}} / {{pages}}",
+      pagePrecedente: "Précédent",
+      pageSuivante: "Suivant",
       utilise_one: "utilisé {{count}} fois",
       utilise_other: "utilisé {{count}} fois",
       source: {

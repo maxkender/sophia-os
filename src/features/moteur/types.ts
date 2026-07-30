@@ -362,6 +362,8 @@ export interface Passage {
   commentaires: number | null;
   partages: number | null;
   stats_maj_at: string | null;
+  /** Horodatage de l'application ELO langue (delta rattrapage). */
+  elo_maj_at?: string | null;
   post_id: string | null;
   created_at: string;
 }

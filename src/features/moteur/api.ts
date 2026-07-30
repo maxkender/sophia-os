@@ -1905,6 +1905,34 @@ export const lancerScoringVnext = (compteId?: string) =>
     compteId: compteId ?? null,
   });
 
+/** Rattrapage ELO (4 jours Paris) : stats → deltas langue (vues) → ELO compte ≤10 posts. */
+export const lancerRattrapageElo = (opts?: {
+  compteId?: string;
+  jours?: number;
+  forcer?: boolean;
+  dryRun?: boolean;
+}) =>
+  invoke<{
+    ok: boolean;
+    fenetre: { debut: string; fin: string; jours: number };
+    stats: {
+      comptes: number;
+      releves: number;
+      fallbackUrl: number;
+      fallbackCoherence: number;
+      erreurs: Array<{ compteId: string; erreur: string }>;
+    };
+    eloLangue: { appliques: number; ignores: number; deltas: number };
+    eloCompte: { maj: number };
+    dryRun: boolean;
+    error?: string;
+  }>("rattrapage-elo", {
+    compteId: opts?.compteId ?? null,
+    jours: opts?.jours ?? 4,
+    forcer: opts?.forcer ?? false,
+    dryRun: opts?.dryRun ?? false,
+  });
+
 export const lancerAssignationContenu = (opts?: {
   compteId?: string;
   date?: string;

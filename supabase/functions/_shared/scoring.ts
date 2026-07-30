@@ -4,9 +4,10 @@ export type Supabase = ReturnType<typeof serviceClient>;
 
 /**
  * PAUSE temporaire — ne plus faire évoluer `contenu_langues.score` / EWMA
- * comptes à partir des stats TikTok fetchées.
+ * comptes à partir des stats TikTok fetchées au minuit runtime.
  * L'assignation midnight continue d'utiliser les scores d'import (ELO cold-start).
- * Remettre à `false` pour réactiver (prévu demain).
+ * Le rattrapage admin (`rattrapage-elo` / etape minuit `rattrapage`) contourne
+ * cette pause volontairement.
  */
 export const PAUSE_ELO_RUNTIME = true;
 

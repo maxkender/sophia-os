@@ -231,6 +231,13 @@ export const en = {
       assignerUnAide: "Fill this creator's quota only (labels ∩ score → ready deck).",
       pauseBanner:
         "Automatic assignments paused — the midnight cron is not running. You can still launch manually below (Settings to re-enable).",
+      rattrapageElo: "ELO catch-up (4d)",
+      rattrapageEloAide:
+        "Fetches views for published posts (last 4 days), updates language ELO (↑/↓) and account ELO (≤10 posts).",
+      rattrapageEloEnCours: "ELO catch-up…",
+      rattrapageEloOk:
+        "ELO OK — window {{debut}}→{{fin}}: {{releves}} stats, {{langues}} languages, {{comptes}} accounts.",
+      rattrapageEloErreur: "ELO catch-up failed",
     },
     assignSources: {
       title: "Source assignment order",

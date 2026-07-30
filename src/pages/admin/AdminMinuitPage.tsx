@@ -19,6 +19,7 @@ import {
 import {
   aujourdhui,
   lancerAssignationJour,
+  lancerRattrapageElo,
   lireReglages,
   suiviAssignation,
   type SuiviMinuit,
@@ -207,6 +208,10 @@ export function AdminMinuitPage() {
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["suivi-minuit", date] }),
   });
 
+  const rattrapageElo = useMutation({
+    mutationFn: () => lancerRattrapageElo({ jours: 4 }),
+  });
+
   const lignes = suivi.data ?? [];
   const posts = lignes.flatMap((l) => l.posts);
   const prets = posts.filter((p) => p.pipeline_statut === "done").length;
@@ -257,12 +262,20 @@ export function AdminMinuitPage() {
             <Button onClick={() => relancer.mutate()} disabled={relancer.isPending}>
               {relancer.isPending ? t("minuit.enCours") : t("minuit.relancer")}
             </Button>
+            <Button
+              variant="secondary"
+              onClick={() => rattrapageElo.mutate()}
+              disabled={rattrapageElo.isPending}
+              title={t("minuit.rattrapageEloAide")}
+            >
+              {rattrapageElo.isPending ? t("minuit.rattrapageEloEnCours") : t("minuit.rattrapageElo")}
+            </Button>
           </div>
 
           <BarreChargement
-            actif={relancer.isPending}
-            dureeMs={9_000}
-            label={t("minuit.enCours")}
+            actif={relancer.isPending || rattrapageElo.isPending}
+            dureeMs={rattrapageElo.isPending ? 45_000 : 9_000}
+            label={rattrapageElo.isPending ? t("minuit.rattrapageEloEnCours") : t("minuit.enCours")}
           />
 
 
@@ -285,6 +298,22 @@ export function AdminMinuitPage() {
           {relancer.isError && (
             <div className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">
               {(relancer.error as Error).message}
+            </div>
+          )}
+          {rattrapageElo.isSuccess && rattrapageElo.data.ok && (
+            <div className="rounded-md bg-success/10 p-3 text-sm text-success">
+              {t("minuit.rattrapageEloOk", {
+                debut: rattrapageElo.data.fenetre.debut,
+                fin: rattrapageElo.data.fenetre.fin,
+                releves: rattrapageElo.data.stats.releves,
+                langues: rattrapageElo.data.eloLangue.appliques,
+                comptes: rattrapageElo.data.eloCompte.maj,
+              })}
+            </div>
+          )}
+          {rattrapageElo.isError && (
+            <div className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">
+              {t("minuit.rattrapageEloErreur")} — {(rattrapageElo.error as Error).message}
             </div>
           )}
           {erreursAssignation.length > 0 && (

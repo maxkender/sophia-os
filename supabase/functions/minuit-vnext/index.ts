@@ -1,5 +1,6 @@
 import { assignerTousComptes } from "../_shared/assignation_contenu.ts";
 import { scrapeStats } from "../_shared/apify.ts";
+import { rattrapageElo } from "../_shared/rattrapage_elo.ts";
 import { majScoresDepuisPassages } from "../_shared/scoring.ts";
 import { avancerVariations } from "../_shared/variations.ts";
 import {
@@ -32,7 +33,8 @@ const POSTS_RELEVES = 30;
  *   - crée passages statut=assigne (musique + hashtags)
  *
  *   {}  → stats + assignation (scores en pause) si moteur_vnext.actif
- *   { etapes?: ['stats'|'scores'|'assignation'|'variations'], compteId?, date?, forcer? }
+ *   { etapes?: ['stats'|'scores'|'assignation'|'variations'|'rattrapage'], compteId?, date?, forcer? }
+ *   etape `rattrapage` : stats 4j + ELO langue (deltas) + ELO compte (contourne la pause)
  */
 Deno.serve(async (request) => {
   const denied = await assertAuthorised(request);
@@ -90,6 +92,15 @@ Deno.serve(async (request) => {
     if (etapes.includes("scores")) {
       // No-op si PAUSE_ELO_RUNTIME (voir _shared/scoring.ts).
       out.scores = await majScoresDepuisPassages(supabase, { compteId });
+    }
+    if (etapes.includes("rattrapage")) {
+      // Contourne PAUSE_ELO_RUNTIME — chemin volontaire de reprise ELO.
+      out.rattrapage = await rattrapageElo(supabase, {
+        compteId,
+        jours: typeof body?.jours === "number" ? body.jours : undefined,
+        forcer: Boolean(body?.forcerElo),
+        dryRun: Boolean(body?.dryRun),
+      });
     }
     if (etapes.includes("assignation")) {
       out.assignation = await assignerTousComptes(

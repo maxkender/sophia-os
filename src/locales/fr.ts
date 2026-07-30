@@ -231,6 +231,13 @@ export const fr = {
       assignerUnAide: "Complète le quota de ce créateur uniquement (labels ∩ score → deck prêt).",
       pauseBanner:
         "Assignations automatiques en pause — le cron de minuit ne tourne pas. Tu peux quand même lancer manuellement ci-dessous (Réglages pour réactiver).",
+      rattrapageElo: "Rattrapage ELO (4j)",
+      rattrapageEloAide:
+        "Relève les vues des posts publiés (4 derniers jours), met à jour l’ELO langue (↑/↓) et l’ELO compte (≤10 posts).",
+      rattrapageEloEnCours: "Rattrapage ELO…",
+      rattrapageEloOk:
+        "ELO OK — fenêtre {{debut}}→{{fin}} : {{releves}} stats, {{langues}} langues, {{comptes}} comptes.",
+      rattrapageEloErreur: "Échec du rattrapage ELO",
     },
     assignSources: {
       title: "Ordre d'assignation des sources",

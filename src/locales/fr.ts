@@ -677,6 +677,10 @@ export const fr = {
       choisirVisuel: "Choisir un visuel (même label / source)",
       aucunVisuelLabel: "Aucun autre visuel propre trouvé pour ces labels.",
       ouvrirDepuisBiblio: "Ouvrir le slideshow",
+      supprimer: "Supprimer le slideshow",
+      confirmDelete:
+        "Supprimer définitivement ce slideshow ? Les passages / posts liés et les images nettoyées associées seront aussi effacés.",
+      supprime: "Slideshow supprimé.",
     },
     paiement: {
       title: "Paiement créateurs",

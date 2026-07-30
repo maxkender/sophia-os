@@ -676,6 +676,10 @@ export const en = {
       choisirVisuel: "Pick a visual (same label / source)",
       aucunVisuelLabel: "No other clean visual found for these labels.",
       ouvrirDepuisBiblio: "Open slideshow",
+      supprimer: "Delete slideshow",
+      confirmDelete:
+        "Permanently delete this slideshow? Linked passages/posts and cleaned images will also be removed.",
+      supprime: "Slideshow deleted.",
     },
     paiement: {
       title: "Creator pay",

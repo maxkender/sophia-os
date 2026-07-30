@@ -2390,6 +2390,70 @@ export interface SlideshowDetail extends ContenuListe {
   source?: { handle_tiktok: string } | null;
 }
 
+/**
+ * Supprime un slideshow (`contenus`) et son entourage :
+ * posts pontés via passages, médias liés, puis la ligne (cascade labels /
+ * langues / passages). Réservé admin (RLS).
+ */
+export async function supprimerContenu(id: string): Promise<void> {
+  const { data: contenu, error: errC } = await supabase
+    .from("contenus")
+    .select("id, structure_slides")
+    .eq("id", id)
+    .maybeSingle();
+  if (errC) throw errC;
+  if (!contenu) throw new Error("Slideshow introuvable");
+
+  const { data: passages, error: errP } = await supabase
+    .from("passages")
+    .select("post_id")
+    .eq("contenu_id", id);
+  if (errP) throw errP;
+  const postIds = [
+    ...new Set(
+      (passages ?? [])
+        .map((p) => p.post_id as string | null)
+        .filter((pid): pid is string => Boolean(pid)),
+    ),
+  ];
+  if (postIds.length > 0) {
+    const { error } = await supabase.from("posts").delete().in("id", postIds);
+    if (error) throw error;
+  }
+
+  const mediaIds = new Set<string>();
+  const slides = (contenu.structure_slides ?? []) as Array<{ media_id?: string | null }>;
+  for (const s of slides) {
+    if (s.media_id) mediaIds.add(s.media_id);
+  }
+  const { data: mediasContenu } = await supabase
+    .from("media_library")
+    .select("id, storage_path")
+    .eq("contenu_id", id);
+  for (const m of mediasContenu ?? []) {
+    mediaIds.add(m.id as string);
+  }
+
+  if (mediaIds.size > 0) {
+    const ids = [...mediaIds];
+    const { data: medias } = await supabase
+      .from("media_library")
+      .select("id, storage_path")
+      .in("id", ids);
+    const paths = (medias ?? [])
+      .map((m) => m.storage_path as string | null)
+      .filter((p): p is string => Boolean(p));
+    if (paths.length > 0) {
+      await supabase.storage.from("medias").remove(paths);
+    }
+    const { error: errM } = await supabase.from("media_library").delete().in("id", ids);
+    if (errM) throw errM;
+  }
+
+  const { error } = await supabase.from("contenus").delete().eq("id", id);
+  if (error) throw error;
+}
+
 /** Détail d'un slideshow importé : decks propres/traduits, ELO, passages. */
 export async function lireSlideshow(id: string): Promise<SlideshowDetail | null> {
   const { data: contenu, error } = await supabase.from("contenus").select("*").eq("id", id).maybeSingle();

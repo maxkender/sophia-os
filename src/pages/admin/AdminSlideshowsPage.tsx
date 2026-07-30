@@ -2,7 +2,7 @@ import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
-import { ImageUp, Sparkles, X } from "lucide-react";
+import { ImageUp, Sparkles, Trash2, X } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -27,6 +27,7 @@ import {
   renettoyerSlideContenu,
   renseignerLienPublie,
   setLabelsContenu,
+  supprimerContenu,
   type ContenuListe,
   type SlideshowDetail,
 } from "@/features/moteur/api";
@@ -434,9 +435,19 @@ function DetailSlideshow({
   onFermer: () => void;
 }) {
   const { t, i18n } = useTranslation();
+  const queryClient = useQueryClient();
   const detail = useQuery({
     queryKey: ["slideshow", id],
     queryFn: () => lireSlideshow(id),
+  });
+
+  const supprimer = useMutation({
+    mutationFn: () => supprimerContenu(id),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: ["slideshows"] });
+      void queryClient.removeQueries({ queryKey: ["slideshow", id] });
+      onFermer();
+    },
   });
 
   const d = detail.data as SlideshowDetail | null | undefined;
@@ -703,6 +714,26 @@ function DetailSlideshow({
                 load={() => labelsDuContenu(d.id)}
                 save={(ids) => setLabelsContenu(d.id, ids)}
               />
+            </section>
+
+            <section className="space-y-2 border-t pt-4">
+              <Button
+                variant="outline"
+                className="w-full text-destructive hover:text-destructive"
+                disabled={supprimer.isPending}
+                onClick={() => {
+                  if (!window.confirm(t("slideshows.confirmDelete"))) return;
+                  supprimer.mutate();
+                }}
+              >
+                <Trash2 className="size-4" />
+                {supprimer.isPending ? t("common.loading") : t("slideshows.supprimer")}
+              </Button>
+              {supprimer.isError && (
+                <p className="text-xs text-destructive">
+                  {(supprimer.error as Error).message}
+                </p>
+              )}
             </section>
           </div>
         )}

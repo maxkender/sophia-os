@@ -2,12 +2,21 @@ import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ecrireReglage, lireReglages } from "@/features/moteur/api";
+import {
+  SCHEMA_ASSIGNATION,
+  SCHEMA_UPDATE_ELO,
+  schemaCleaning,
+  type PipelineAction,
+  type PipelineStep,
+} from "@/features/moteur/pipelinesSchema";
 import type { Reglages } from "@/features/moteur/types";
+import { cn } from "@/lib/utils";
 
 function ChampNombre({
   id,
@@ -43,6 +52,132 @@ function ChampNombre({
           onChange(n);
         }}
       />
+    </div>
+  );
+}
+
+function kindBadge(kind: PipelineStep["kind"], t: (k: string) => string): string {
+  switch (kind) {
+    case "api":
+      return t("reglages.schemaKindApi");
+    case "fallback":
+      return t("reglages.schemaKindFallback");
+    case "gate":
+      return t("reglages.schemaKindGate");
+    case "persist":
+      return t("reglages.schemaKindPersist");
+    default:
+      return t("reglages.schemaKindLogic");
+  }
+}
+
+function kindClass(kind: PipelineStep["kind"]): string {
+  switch (kind) {
+    case "api":
+      return "border-emerald-600/30 bg-emerald-600/10 text-emerald-800 dark:text-emerald-300";
+    case "fallback":
+      return "border-amber-600/30 bg-amber-600/10 text-amber-800 dark:text-amber-300";
+    case "gate":
+      return "border-rose-600/30 bg-rose-600/10 text-rose-800 dark:text-rose-300";
+    case "persist":
+      return "border-sky-600/30 bg-sky-600/10 text-sky-800 dark:text-sky-300";
+    default:
+      return "border-border bg-muted/50 text-muted-foreground";
+  }
+}
+
+function SchemaPipeline({ action }: { action: PipelineAction }) {
+  const { t } = useTranslation();
+  return (
+    <div className="space-y-3 rounded-md border border-border/80 bg-muted/20 p-3">
+      <div className="flex flex-wrap items-baseline justify-between gap-2">
+        <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+          {t("reglages.schemaTitre")}
+        </p>
+        <code className="text-[11px] text-muted-foreground">{action.edge}</code>
+      </div>
+      <p className="text-xs text-muted-foreground">{action.description}</p>
+      <ol className="space-y-2">
+        {action.steps.map((s) => (
+          <li
+            key={s.id}
+            className="rounded-md border border-border/60 bg-background/80 px-2.5 py-2 text-sm"
+          >
+            <div className="flex flex-wrap items-center gap-2">
+              {s.rang ? (
+                <span className="font-mono text-xs text-muted-foreground">{s.rang}</span>
+              ) : null}
+              <span className="font-medium">{s.label}</span>
+              <span
+                className={cn(
+                  "rounded border px-1.5 py-0.5 text-[10px] font-medium uppercase",
+                  kindClass(s.kind),
+                )}
+              >
+                {kindBadge(s.kind, t)}
+              </span>
+            </div>
+            <dl className="mt-1.5 grid gap-0.5 text-xs text-muted-foreground sm:grid-cols-2">
+              {s.api && (
+                <div>
+                  <dt className="inline text-[10px] uppercase tracking-wide opacity-70">
+                    {t("reglages.schemaApi")} ·{" "}
+                  </dt>
+                  <dd className="inline font-mono text-foreground/80">{s.api}</dd>
+                </div>
+              )}
+              {s.env && (
+                <div>
+                  <dt className="inline text-[10px] uppercase tracking-wide opacity-70">
+                    {t("reglages.schemaEnv")} ·{" "}
+                  </dt>
+                  <dd className="inline font-mono text-foreground/80">{s.env}</dd>
+                </div>
+              )}
+              {s.reglage && (
+                <div>
+                  <dt className="inline text-[10px] uppercase tracking-wide opacity-70">
+                    {t("reglages.schemaReglage")} ·{" "}
+                  </dt>
+                  <dd className="inline font-mono text-foreground/80">{s.reglage}</dd>
+                </div>
+              )}
+              {s.onFail && (
+                <div className="sm:col-span-2">
+                  <dt className="inline text-[10px] uppercase tracking-wide opacity-70">
+                    {t("reglages.schemaOnFail")} ·{" "}
+                  </dt>
+                  <dd className="inline">{s.onFail}</dd>
+                </div>
+              )}
+              {s.detail && (
+                <div className="sm:col-span-2">
+                  <dd>{s.detail}</dd>
+                </div>
+              )}
+            </dl>
+          </li>
+        ))}
+      </ol>
+      {action.constants && action.constants.length > 0 && (
+        <div className="space-y-1.5">
+          <p className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
+            {t("reglages.schemaConstants")}
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {action.constants.map((c) => (
+              <Badge
+                key={c.cle}
+                variant="secondary"
+                className="font-mono text-[10px] font-normal"
+                title={c.detail}
+              >
+                {c.cle} = {c.valeur}
+              </Badge>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -83,40 +218,26 @@ export function AdminReglagesPage() {
     reglages.repartition.recycle + reglages.repartition.remanie + reglages.repartition.nouveau;
   const totalValide = total === 100;
 
+  const cleaningSchema = schemaCleaning(reglages.nettoyage.provider_principal);
+
   return (
     <div className="space-y-4">
+      <div>
+        <h1 className="text-lg font-semibold tracking-tight">{t("reglages.title")}</h1>
+        <p className="text-sm text-muted-foreground">{t("reglages.subtitleActions")}</p>
+      </div>
+
+      {/* ── Cleaning ── */}
       <Card>
         <CardHeader>
-          <CardTitle>{t("reglages.vnextTitle")}</CardTitle>
-          <CardDescription>{t("reglages.vnextSubtitle")}</CardDescription>
+          <CardTitle>{t("reglages.actionCleaning")}</CardTitle>
+          <CardDescription>{t("reglages.actionCleaningDesc")}</CardDescription>
         </CardHeader>
-        <CardContent className="space-y-6">
-          <label className="flex items-center gap-2 text-sm">
-            <input
-              type="checkbox"
-              checked={reglages.moteur_vnext.actif}
-              onChange={(e) => maj({ moteur_vnext: { actif: e.target.checked } })}
-            />
-            {t("reglages.vnextActif")}
-          </label>
+        <CardContent className="space-y-5">
+          <SchemaPipeline action={cleaningSchema} />
 
           <section className="space-y-3">
-            <h3 className="text-sm font-medium">{t("reglages.assignationAutoTitle")}</h3>
-            <p className="text-xs text-muted-foreground">{t("reglages.assignationAutoAide")}</p>
-            <label className="flex items-center gap-2 text-sm">
-              <input
-                type="checkbox"
-                checked={!reglages.assignation_auto.actif}
-                onChange={(e) =>
-                  maj({ assignation_auto: { actif: !e.target.checked } })
-                }
-              />
-              {t("reglages.assignationAutoPause")}
-            </label>
-          </section>
-
-          <section className="space-y-3">
-            <h3 className="text-sm font-medium">{t("reglages.nettoyageTitle")}</h3>
+            <h3 className="text-sm font-medium">{t("reglages.nettoyageOrdre")}</h3>
             <p className="text-xs text-muted-foreground">{t("reglages.nettoyageAide")}</p>
             <div className="space-y-2">
               <label className="flex items-start gap-2 text-sm">
@@ -125,9 +246,7 @@ export function AdminReglagesPage() {
                   name="nettoyage-provider"
                   className="mt-1"
                   checked={reglages.nettoyage.provider_principal === "fal"}
-                  onChange={() =>
-                    maj({ nettoyage: { provider_principal: "fal" } })
-                  }
+                  onChange={() => maj({ nettoyage: { provider_principal: "fal" } })}
                 />
                 <span>
                   <span className="font-medium">{t("reglages.nettoyageFalPremier")}</span>
@@ -142,9 +261,7 @@ export function AdminReglagesPage() {
                   name="nettoyage-provider"
                   className="mt-1"
                   checked={reglages.nettoyage.provider_principal === "replicate"}
-                  onChange={() =>
-                    maj({ nettoyage: { provider_principal: "replicate" } })
-                  }
+                  onChange={() => maj({ nettoyage: { provider_principal: "replicate" } })}
                 />
                 <span>
                   <span className="font-medium">{t("reglages.nettoyageReplicatePremier")}</span>
@@ -155,9 +272,64 @@ export function AdminReglagesPage() {
               </label>
             </div>
           </section>
+        </CardContent>
+      </Card>
+
+      {/* ── Update ELO ── */}
+      <Card>
+        <CardHeader>
+          <CardTitle>{t("reglages.actionElo")}</CardTitle>
+          <CardDescription>{t("reglages.actionEloDesc")}</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-5">
+          <SchemaPipeline action={SCHEMA_UPDATE_ELO} />
 
           <section className="space-y-3">
-            <h3 className="text-sm font-medium">{t("reglages.scoring")}</h3>
+            <h3 className="text-sm font-medium">{t("reglages.eloImportParams")}</h3>
+            <p className="text-xs text-muted-foreground">{t("reglages.eloVuesAide")}</p>
+            <div className="grid gap-4 sm:grid-cols-3">
+              <ChampNombre
+                id="elo"
+                label={t("reglages.eloSeuil")}
+                valeur={reglages.scoring.elo_seuil_import}
+                onChange={(n) => majScoring({ elo_seuil_import: n })}
+              />
+              <ChampNombre
+                id="eloPoids"
+                label={t("reglages.eloPoidsVues")}
+                min={0}
+                step={0.05}
+                valeur={reglages.scoring.elo_poids_vues}
+                onChange={(n) => majScoring({ elo_poids_vues: Math.min(1, Math.max(0, n)) })}
+              />
+              <ChampNombre
+                id="eloPlafond"
+                label={t("reglages.eloVuesPlafond")}
+                min={10_000}
+                step={10_000}
+                valeur={reglages.scoring.elo_vues_plafond}
+                onChange={(n) => majScoring({ elo_vues_plafond: n })}
+              />
+              <ChampNombre
+                id="eloK"
+                label={t("reglages.eloRegularisation")}
+                min={0.1}
+                step={0.1}
+                valeur={reglages.scoring.elo_regularisation_k}
+                onChange={(n) => majScoring({ elo_regularisation_k: Math.max(0.1, n) })}
+              />
+              <ChampNombre
+                id="pert"
+                label={t("reglages.pertinence")}
+                valeur={reglages.scoring.pertinence_seuil}
+                onChange={(n) => majScoring({ pertinence_seuil: n })}
+              />
+            </div>
+          </section>
+
+          <section className="space-y-3">
+            <h3 className="text-sm font-medium">{t("reglages.eloRuntimePause")}</h3>
+            <p className="text-xs text-muted-foreground">{t("reglages.eloRuntimePauseAide")}</p>
             <div className="grid gap-4 sm:grid-cols-3">
               <ChampNombre
                 id="ewma"
@@ -178,6 +350,52 @@ export function AdminReglagesPage() {
                 step={0.05}
                 valeur={reglages.scoring.transfert_inter_langue}
                 onChange={(n) => majScoring({ transfert_inter_langue: n })}
+              />
+            </div>
+          </section>
+        </CardContent>
+      </Card>
+
+      {/* ── Assignation ── */}
+      <Card>
+        <CardHeader>
+          <CardTitle>{t("reglages.actionAssignation")}</CardTitle>
+          <CardDescription>{t("reglages.actionAssignationDesc")}</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-5">
+          <SchemaPipeline action={SCHEMA_ASSIGNATION} />
+
+          <section className="space-y-3">
+            <h3 className="text-sm font-medium">{t("reglages.vnextTitle")}</h3>
+            <label className="flex items-center gap-2 text-sm">
+              <input
+                type="checkbox"
+                checked={reglages.moteur_vnext.actif}
+                onChange={(e) => maj({ moteur_vnext: { actif: e.target.checked } })}
+              />
+              {t("reglages.vnextActif")}
+            </label>
+            <label className="flex items-center gap-2 text-sm">
+              <input
+                type="checkbox"
+                checked={!reglages.assignation_auto.actif}
+                onChange={(e) => maj({ assignation_auto: { actif: !e.target.checked } })}
+              />
+              {t("reglages.assignationAutoPause")}
+            </label>
+            <p className="text-xs text-muted-foreground">{t("reglages.assignationAutoAide")}</p>
+          </section>
+
+          <section className="space-y-3">
+            <h3 className="text-sm font-medium">{t("reglages.assignationParams")}</h3>
+            <div className="grid gap-4 sm:grid-cols-3">
+              <ChampNombre
+                id="parJour"
+                label={t("reglages.postsParJour")}
+                min={1}
+                max={3}
+                valeur={reglages.frequence.posts_par_jour}
+                onChange={(n) => maj({ frequence: { posts_par_jour: n } })}
               />
               <ChampNombre
                 id="topk"
@@ -207,6 +425,12 @@ export function AdminReglagesPage() {
                 valeur={reglages.scoring.saturation_penalite}
                 onChange={(n) => majScoring({ saturation_penalite: n })}
               />
+            </div>
+          </section>
+
+          <section className="space-y-3">
+            <h3 className="text-sm font-medium">{t("reglages.variationParams")}</h3>
+            <div className="grid gap-4 sm:grid-cols-3">
               <ChampNombre
                 id="vseuil"
                 label={t("reglages.varSeuil")}
@@ -234,86 +458,40 @@ export function AdminReglagesPage() {
                 valeur={reglages.scoring.variation_profondeur_max}
                 onChange={(n) => majScoring({ variation_profondeur_max: n })}
               />
-              <ChampNombre
-                id="pert"
-                label={t("reglages.pertinence")}
-                valeur={reglages.scoring.pertinence_seuil}
-                onChange={(n) => majScoring({ pertinence_seuil: n })}
-              />
-              <ChampNombre
-                id="elo"
-                label={t("reglages.eloSeuil")}
-                valeur={reglages.scoring.elo_seuil_import}
-                onChange={(n) => majScoring({ elo_seuil_import: n })}
-              />
-              <ChampNombre
-                id="eloPoids"
-                label={t("reglages.eloPoidsVues")}
-                min={0}
-                step={0.05}
-                valeur={reglages.scoring.elo_poids_vues}
-                onChange={(n) => majScoring({ elo_poids_vues: Math.min(1, Math.max(0, n)) })}
-              />
-              <ChampNombre
-                id="eloPlafond"
-                label={t("reglages.eloVuesPlafond")}
-                min={10_000}
-                step={10_000}
-                valeur={reglages.scoring.elo_vues_plafond}
-                onChange={(n) => majScoring({ elo_vues_plafond: n })}
-              />
-              <ChampNombre
-                id="eloK"
-                label={t("reglages.eloRegularisation")}
-                min={0.1}
-                step={0.1}
-                valeur={reglages.scoring.elo_regularisation_k}
-                onChange={(n) =>
-                  majScoring({ elo_regularisation_k: Math.max(0.1, n) })
-                }
-              />
-            </div>
-            <p className="text-xs text-muted-foreground">{t("reglages.eloVuesAide")}</p>
-          </section>
-
-          <section className="space-y-3">
-            <h3 className="text-sm font-medium">{t("paiement.title")}</h3>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <ChampNombre
-                id="pbase"
-                label={t("paiement.base")}
-                valeur={reglages.paiement.tarif_base_mensuel}
-                onChange={(n) =>
-                  maj({ paiement: { ...reglages.paiement, tarif_base_mensuel: n } })
-                }
-              />
-              <ChampNombre
-                id="punit"
-                label={t("paiement.unitaire")}
-                valeur={reglages.paiement.tarif_par_post_jour}
-                onChange={(n) =>
-                  maj({ paiement: { ...reglages.paiement, tarif_par_post_jour: n } })
-                }
-              />
-            </div>
-          </section>
-
-          <section className="space-y-3">
-            <h3 className="text-sm font-medium">{t("reglages.frequence")}</h3>
-            <div className="sm:max-w-xs">
-              <ChampNombre
-                id="parJour"
-                label={t("reglages.postsParJour")}
-                min={1}
-                max={3}
-                valeur={reglages.frequence.posts_par_jour}
-                onChange={(n) => maj({ frequence: { posts_par_jour: n } })}
-              />
             </div>
           </section>
         </CardContent>
       </Card>
 
+      {/* ── Paiement ── */}
+      <Card>
+        <CardHeader>
+          <CardTitle>{t("paiement.title")}</CardTitle>
+          <CardDescription>{t("paiement.subtitle")}</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <ChampNombre
+              id="pbase"
+              label={t("paiement.base")}
+              valeur={reglages.paiement.tarif_base_mensuel}
+              onChange={(n) =>
+                maj({ paiement: { ...reglages.paiement, tarif_base_mensuel: n } })
+              }
+            />
+            <ChampNombre
+              id="punit"
+              label={t("paiement.unitaire")}
+              valeur={reglages.paiement.tarif_par_post_jour}
+              onChange={(n) =>
+                maj({ paiement: { ...reglages.paiement, tarif_par_post_jour: n } })
+              }
+            />
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* ── Legacy ── */}
       <Card>
         <CardHeader>
           <CardTitle>{t("reglages.legacyTitle")}</CardTitle>

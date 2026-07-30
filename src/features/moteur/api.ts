@@ -1925,6 +1925,7 @@ export const lancerAssignationJour = (date: string, compteId?: string) =>
       passageIds?: string[];
       types?: string[];
       erreur?: string;
+      raison?: string;
     }>;
     saute?: boolean;
     raison?: string;

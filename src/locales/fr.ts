@@ -214,6 +214,8 @@ export const fr = {
       relancer: "Relancer l'assignation",
       enCours: "Assignation…",
       lance: "Assignation relancée : {{crees}} passage(s) créé(s). Decks déjà traduits + Sophia — le suivi se met à jour tout seul.",
+      lanceZero:
+        "Aucun passage créé — pool vide (labels / slideshows / langue ELO). Voir le détail ci-dessous.",
       erreursAssignation: "Comptes non assignés :",
       prets: "Passages prêts",
       enCoursLabel: "En cours",

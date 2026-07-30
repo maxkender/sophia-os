@@ -91,13 +91,28 @@ function LigneCompte({
       {assignerUn.isError && (
         <p className="text-xs text-destructive">{(assignerUn.error as Error).message}</p>
       )}
-      {assignerUn.isSuccess && (
-        <p className="text-xs text-success">
-          {t("minuit.lance", {
-            crees: assignerUn.data.resultats.reduce((n, r) => n + r.crees, 0),
-          })}
-        </p>
-      )}
+      {assignerUn.isSuccess && (() => {
+        const crees = assignerUn.data.resultats.reduce((n, r) => n + r.crees, 0);
+        const motif =
+          assignerUn.data.resultats.find((r) => r.erreur)?.erreur ??
+          assignerUn.data.resultats.find((r) => r.raison)?.raison;
+        if (crees === 0) {
+          return (
+            <p className="text-xs text-warning">
+              {t("minuit.lanceZero")}
+              {motif ? ` — ${motif}` : ""}
+            </p>
+          );
+        }
+        return (
+          <div className="space-y-1">
+            <p className="text-xs text-success">
+              {t("minuit.lance", { crees })}
+            </p>
+            {motif && <p className="text-xs text-warning">{motif}</p>}
+          </div>
+        );
+      })()}
 
       {manque > 0 && !echec && (
         <p className="rounded-md bg-warning/10 p-2 text-xs text-warning">
@@ -203,9 +218,10 @@ export function AdminMinuitPage() {
     (l) => l.posts.some((p) => p.pipeline_statut === "failed") || l.posts.length < l.quota,
   ).length;
 
-  // Résumé du dernier lancement manuel (par compte, avec les erreurs d'assignation
-  // — celles qui empêchent MÊME de créer le post, distinctes des erreurs pipeline).
-  const erreursAssignation = (relancer.data?.resultats ?? []).filter((r) => r.erreur);
+  // Comptes qui n'ont rien reçu (erreur dure ou pool vide expliqué).
+  const erreursAssignation = (relancer.data?.resultats ?? []).filter(
+    (r) => r.erreur || (r.crees === 0 && r.raison),
+  );
 
   return (
     <div className="space-y-6">
@@ -250,13 +266,22 @@ export function AdminMinuitPage() {
           />
 
 
-          {relancer.isSuccess && (
-            <div className="rounded-md bg-success/10 p-3 text-sm text-success">
-              {t("minuit.lance", {
-                crees: relancer.data.resultats.reduce((n, r) => n + r.crees, 0),
-              })}
-            </div>
-          )}
+          {relancer.isSuccess && (() => {
+            const crees = relancer.data.resultats.reduce((n, r) => n + r.crees, 0);
+            return (
+              <div
+                className={
+                  crees === 0
+                    ? "rounded-md bg-warning/10 p-3 text-sm text-warning"
+                    : "rounded-md bg-success/10 p-3 text-sm text-success"
+                }
+              >
+                {crees === 0
+                  ? t("minuit.lanceZero")
+                  : t("minuit.lance", { crees })}
+              </div>
+            );
+          })()}
           {relancer.isError && (
             <div className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">
               {(relancer.error as Error).message}
@@ -268,7 +293,7 @@ export function AdminMinuitPage() {
               {erreursAssignation.map((r) => (
                 <p key={r.compteId}>
                   {lignes.find((l) => l.compteId === r.compteId)?.nom ?? r.compteId.slice(0, 8)} —{" "}
-                  {r.erreur}
+                  {r.erreur ?? r.raison}
                 </p>
               ))}
             </div>

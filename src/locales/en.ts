@@ -214,6 +214,8 @@ export const en = {
       relancer: "Re-run assignment",
       enCours: "Assigning…",
       lance: "Assignment re-run: {{crees}} passage(s) created. Decks already translated + Sophia — the tracker refreshes on its own.",
+      lanceZero:
+        "No passage created — empty pool (labels / slideshows / language ELO). See detail below.",
       erreursAssignation: "Accounts not assigned:",
       prets: "Passages ready",
       enCoursLabel: "In progress",

@@ -82,6 +82,12 @@ export function echantillonnerTopK(
   return slice[slice.length - 1];
 }
 
+export interface AssignationCompteDetail {
+  ids: string[];
+  /** Motif si rien (ou pas assez) n'a pu être créé — pour l'UI admin. */
+  raison?: string;
+}
+
 /**
  * Assignation v-next pour un compte : labels ∩, score langue, top-K,
  * pénalité saturation, non-écrasement, fallbacks.
@@ -93,7 +99,7 @@ export async function assignerCompteJour(
   jour: string,
   reglages: AssignationReglages,
   forcer = false,
-): Promise<string[]> {
+): Promise<AssignationCompteDetail> {
   const brut = Number(compte.posts_par_jour ?? reglages.postsParJour ?? 1);
   const quota = Math.min(3, Math.max(1, Number.isFinite(brut) ? brut : 1));
   const langue: string = compte.langue ?? "fr";
@@ -131,15 +137,26 @@ export async function assignerCompteJour(
   // Non-écrasement : on ne touche pas aux passages déjà là, on complète
   // seulement jusqu'au quota (1–3) du compte.
   const manquants = forcer ? 1 : Math.max(0, quota - dejaLa);
-  if (manquants <= 0) return [];
+  if (manquants <= 0) {
+    return { ids: [], raison: `Quota déjà rempli (${dejaLa}/${quota} passage(s) ce jour).` };
+  }
 
   const { data: labelsCompte } = await supabase
     .from("compte_labels")
-    .select("label_id")
+    .select("label_id, labels(nom)")
     .eq("compte_id", compte.id);
   const labelIds = (labelsCompte ?? []).map((l) => l.label_id as string);
+  // deno-lint-ignore no-explicit-any
+  const labelNoms = (labelsCompte ?? [])
+    .map((l: any) => l.labels?.nom as string | undefined)
+    .filter(Boolean) as string[];
   // Sans labels : impossible d'intersecter → compte vide ce jour.
-  if (labelIds.length === 0) return [];
+  if (labelIds.length === 0) {
+    return {
+      ids: [],
+      raison: "Aucun label sur ce compte — ajoute un label (Bibliothèque / Compte) pour piocher.",
+    };
+  }
 
   const crees: string[] = [];
   for (let i = 0; i < manquants; i += 1) {
@@ -193,7 +210,64 @@ export async function assignerCompteJour(
 
     crees.push(passage.id);
   }
-  return crees;
+
+  if (crees.length < manquants) {
+    const diag = await diagnostiquerPoolVide(supabase, labelIds, labelNoms, langue);
+    if (crees.length === 0) return { ids: [], raison: diag };
+    return {
+      ids: crees,
+      raison: `${crees}/${manquants} créé(s). ${diag}`,
+    };
+  }
+  return { ids: crees };
+}
+
+/** Explique pourquoi le pool labels ∩ langue est vide / trop petit. */
+async function diagnostiquerPoolVide(
+  supabase: Supabase,
+  labelIds: string[],
+  labelNoms: string[],
+  langue: string,
+): Promise<string> {
+  const labelsTxt = labelNoms.length > 0 ? labelNoms.join(", ") : `${labelIds.length} label(s)`;
+
+  const { data: liens } = await supabase
+    .from("contenu_labels")
+    .select("contenu_id")
+    .in("label_id", labelIds);
+  const idsLabel = [...new Set((liens ?? []).map((l) => l.contenu_id as string))];
+  if (idsLabel.length === 0) {
+    return `Aucun slideshow tagué « ${labelsTxt} » dans la bibliothèque.`;
+  }
+
+  const { data: prets } = await supabase
+    .from("contenus")
+    .select("id")
+    .eq("statut", "valide")
+    .eq("import_statut", "done")
+    .in("id", idsLabel);
+  const idsPrets = (prets ?? []).map((c) => c.id as string);
+  if (idsPrets.length === 0) {
+    return `${idsLabel.length} slideshow(s) « ${labelsTxt} » mais aucun valide + import terminé.`;
+  }
+
+  const { count } = await supabase
+    .from("contenu_langues")
+    .select("contenu_id", { count: "exact", head: true })
+    .eq("langue", langue)
+    .in("contenu_id", idsPrets);
+  const nLangue = count ?? 0;
+  if (nLangue === 0) {
+    return (
+      `${idsPrets.length} slideshow(s) « ${labelsTxt} » prêts, mais aucun éligible en ` +
+      `${langue.toUpperCase()} (pas de ligne ELO pour cette langue à l'import).`
+    );
+  }
+
+  return (
+    `Pool « ${labelsTxt} » × ${langue.toUpperCase()} épuisé ou déjà tout assigné ` +
+    `(${nLangue} candidat(s) ELO) — importe / labellise d'autres slideshows.`
+  );
 }
 
 interface SlideStructure {
@@ -393,7 +467,15 @@ export async function assignerTousComptes(
   jour: string,
   compteId: string | null = null,
   forcer = false,
-): Promise<Array<{ compteId: string; crees: number; passageIds?: string[]; erreur?: string }>> {
+): Promise<
+  Array<{
+    compteId: string;
+    crees: number;
+    passageIds?: string[];
+    erreur?: string;
+    raison?: string;
+  }>
+> {
   const reglages = await chargerAssignationReglages(supabase);
   let query = supabase.from("comptes").select("*").eq("is_active", true);
   if (compteId) query = query.eq("id", compteId);
@@ -402,8 +484,13 @@ export async function assignerTousComptes(
 
   return await mapPool(comptes ?? [], LARGEUR_ASSIGNATION, async (compte) => {
     try {
-      const ids = await assignerCompteJour(supabase, compte, jour, reglages, forcer);
-      return { compteId: compte.id as string, crees: ids.length, passageIds: ids };
+      const detail = await assignerCompteJour(supabase, compte, jour, reglages, forcer);
+      return {
+        compteId: compte.id as string,
+        crees: detail.ids.length,
+        passageIds: detail.ids,
+        raison: detail.raison,
+      };
     } catch (e) {
       return {
         compteId: compte.id as string,

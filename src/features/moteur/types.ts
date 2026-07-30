@@ -94,6 +94,8 @@ export interface Media {
   visage_identifiable: boolean | null;
   /** L'audit a vu du texte sur une image pourtant rangée en propre. */
   texte_restant: boolean;
+  /** Date du dernier upscale Recraft Crisp (null = jamais). */
+  upscale_le: string | null;
   used_count: number;
   created_at: string;
 }

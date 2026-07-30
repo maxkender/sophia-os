@@ -36,6 +36,20 @@ function estPng(bytes: Uint8Array): boolean {
   );
 }
 
+function estWebp(bytes: Uint8Array): boolean {
+  return (
+    bytes.length >= 12 &&
+    bytes[0] === 0x52 &&
+    bytes[1] === 0x49 &&
+    bytes[2] === 0x46 &&
+    bytes[3] === 0x46 &&
+    bytes[8] === 0x57 &&
+    bytes[9] === 0x45 &&
+    bytes[10] === 0x42 &&
+    bytes[11] === 0x50
+  );
+}
+
 /** Heuristique : la charge utile mentionne C2PA / Content Credentials. */
 export function contientContentCredentials(bytes: Uint8Array): boolean {
   const max = Math.min(bytes.length, 256_000);
@@ -220,6 +234,11 @@ export async function retirerContentCredentials(base64: string): Promise<Resulta
       mime: "image/png",
       retire: modifie,
     };
+  }
+
+  // WebP (sortie Recraft) : pas de strip segmentaire ici — on ne ré-encode jamais.
+  if (estWebp(bytes)) {
+    return { base64, mime: "image/webp", retire: false };
   }
 
   return { base64, mime: "application/octet-stream", retire: false };

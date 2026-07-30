@@ -4,6 +4,9 @@
  *  5 en parallèle : bon débit sans saturer les queues externes. */
 export const AGENTS_NETTOYAGE = 5;
 
+/** Pool upscale Recraft Crisp (~9 s/image) — large pour finir vite la biblio. */
+export const AGENTS_UPSCALE = 12;
+
 /**
  * Exécute `tache` sur chaque élément avec un pool borné de workers parallèles.
  * Un échec isolé ne stoppe pas le lot (on nettoie le maximum). `onProgres` est

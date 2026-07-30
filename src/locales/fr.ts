@@ -592,6 +592,18 @@ export const fr = {
         "Retire les métadonnées C2PA / Content Credentials de toutes les photos affichées, sans re-nettoyer les pixels. Logs ci-dessous.",
       c2paDebut: "Strip C2PA sur {{count}} photo(s)…",
       c2paFin: "Terminé — retirés={{retires}} · déjà propres={{sautes}} · échecs={{echecs}}",
+      upscale: "Upscale",
+      upscaleEnCours: "Upscale…",
+      dejaUpscale: "Upscalée",
+      upscaleTout_one: "Upscale la photo non upscalée",
+      upscaleTout_other: "Upscale les {{count}} photos non upscalées",
+      upscaleLot: "Upscale… {{fait}}/{{total}}",
+      upscaleAide:
+        "Recraft Crisp (Replicate) → strip métadonnées lossless → remplace la photo. Uniquement les photos jamais upscalées. Pool parallèle large.",
+      upscaleDebut: "Upscale de {{count}} photo(s) non upscalée(s)…",
+      upscaleFin: "Terminé — ok={{ok}} · déjà faits={{sautes}} · échecs={{echecs}}",
+      upscaleConfirm:
+        "Lancer l'upscale Recraft Crisp sur {{count}} photo(s) ? Ça consomme du crédit Replicate.",
       utilise_one: "utilisé {{count}} fois",
       utilise_other: "utilisé {{count}} fois",
       source: {

@@ -2,10 +2,10 @@ import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Check, ExternalLink, Sparkles, Trash2 } from "lucide-react";
+import { Check, ExternalLink, Maximize2, Sparkles, Trash2 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { executerEnLot } from "@/lib/lot";
+import { AGENTS_UPSCALE, executerEnLot } from "@/lib/lot";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -24,6 +24,7 @@ import {
   nettoyerMedia,
   stripC2paMedia,
   supprimerMedia,
+  upscaleMedia,
 } from "@/features/moteur/api";
 import {
   appliquerEvenement,
@@ -61,6 +62,9 @@ function VignetteMedia({
   const [etapesLocales, setEtapesLocales] = React.useState<EvenementEtape[] | null>(null);
   const etapes = etapesLocales ?? etapesLot ?? null;
 
+  const dejaUpscale = Boolean(media.upscale_le);
+  const upscaleBusy = Boolean(etapesLot); // lot nettoyage en cours sur cette vignette
+
   const nettoyer = useMutation({
     mutationFn: () => {
       setEtapesLocales(etapesInitiales(premier));
@@ -77,6 +81,10 @@ function VignetteMedia({
     onError: () => {
       /* garde la timeline pour voir l'échec */
     },
+  });
+  const upscale = useMutation({
+    mutationFn: () => upscaleMedia(media.id, false),
+    onSuccess: () => onChange(),
   });
   const supprimer = useMutation({ mutationFn: () => supprimerMedia(media.id), onSuccess: onChange });
 
@@ -110,6 +118,11 @@ function VignetteMedia({
         >
           {selectionne && <Check className="size-3.5" />}
         </span>
+        {dejaUpscale && (
+          <span className="pointer-events-none absolute right-1.5 top-1.5 rounded bg-background/90 px-1.5 py-0.5 text-[10px] font-medium shadow-sm">
+            {t("bibliotheque.dejaUpscale")}
+          </span>
+        )}
         {!propre && (
           <span className="pointer-events-none absolute inset-x-0 bottom-0 rounded-b-md bg-warning/85 py-0.5 text-center text-[10px] font-medium text-warning-foreground">
             {t("bibliotheque.texteRestant")}
@@ -152,6 +165,19 @@ function VignetteMedia({
               : t("bibliotheque.nettoyer")}
           </Button>
         )}
+        {!dejaUpscale && (
+          <Button
+            size="sm"
+            variant="outline"
+            className="h-7 flex-1 px-2 text-xs"
+            disabled={upscale.isPending || upscaleBusy}
+            onClick={() => upscale.mutate()}
+            title={t("bibliotheque.upscaleAide")}
+          >
+            <Maximize2 className="size-3" />
+            {upscale.isPending ? t("bibliotheque.upscaleEnCours") : t("bibliotheque.upscale")}
+          </Button>
+        )}
         <Button
           size="sm"
           variant="ghost"
@@ -168,6 +194,9 @@ function VignetteMedia({
       {nettoyer.data && !nettoyer.data.nettoyee && (
         <p className="text-[11px] text-destructive">{t("bibliotheque.nettoyageEchec")}</p>
       )}
+      {upscale.isError && (
+        <p className="text-[11px] text-destructive">{(upscale.error as Error).message}</p>
+      )}
     </div>
   );
 }
@@ -182,6 +211,8 @@ export function AdminBibliothequePage() {
   const [suppr, setSuppr] = React.useState<{ fait: number; total: number } | null>(null);
   const [c2pa, setC2pa] = React.useState<{ fait: number; total: number } | null>(null);
   const [c2paLogs, setC2paLogs] = React.useState<string[]>([]);
+  const [upscaleLot, setUpscaleLot] = React.useState<{ fait: number; total: number } | null>(null);
+  const [upscaleLogs, setUpscaleLogs] = React.useState<string[]>([]);
 
   const labels = useQuery({ queryKey: ["labels"], queryFn: listerLabels });
   const biblio = useQuery({
@@ -214,6 +245,9 @@ export function AdminBibliothequePage() {
   }, [groupes]);
   const aNettoyerListe = affichees.filter((m) => !estPropre(m));
   const aNettoyer = aNettoyerListe.length;
+  const aUpscalerListe = affichees.filter((m) => !m.upscale_le);
+  const aUpscaler = aUpscalerListe.length;
+  const lotEnCours = lot !== null || c2pa !== null || upscaleLot !== null;
 
   const basculer = (id: string) =>
     setSelection((s) => {
@@ -314,6 +348,61 @@ export function AdminBibliothequePage() {
     rafraichir();
   }
 
+  /** Upscale Recraft Crisp — uniquement les photos jamais upscalées. */
+  async function upscaleTout() {
+    const liste = aUpscalerListe;
+    if (liste.length === 0) return;
+    if (!window.confirm(t("bibliotheque.upscaleConfirm", { count: liste.length }))) return;
+    setUpscaleLot({ fait: 0, total: liste.length });
+    setUpscaleLogs([t("bibliotheque.upscaleDebut", { count: liste.length })]);
+    let ok = 0;
+    let sautes = 0;
+    let echecs = 0;
+    await executerEnLot(
+      liste,
+      async (media) => {
+        try {
+          const r = await upscaleMedia(media.id, false);
+          if (r.saute) {
+            sautes += 1;
+            setUpscaleLogs((prev) => [
+              ...prev,
+              `· ${media.id.slice(0, 8)} — ${r.detail ?? "déjà upscalée"}`,
+            ]);
+          } else if (r.ok) {
+            ok += 1;
+            setUpscaleLogs((prev) => [
+              ...prev,
+              `✓ ${media.id.slice(0, 8)} — ${r.detail ?? "ok"}`,
+            ]);
+          } else {
+            echecs += 1;
+            setUpscaleLogs((prev) => [
+              ...prev,
+              `✗ ${media.id.slice(0, 8)} — ${r.error ?? "échec"}`,
+            ]);
+          }
+        } catch (e) {
+          echecs += 1;
+          setUpscaleLogs((prev) => [
+            ...prev,
+            `✗ ${media.id.slice(0, 8)} — ${(e as Error).message}`,
+          ]);
+        }
+      },
+      {
+        largeur: AGENTS_UPSCALE,
+        onProgres: (fait, total) => setUpscaleLot({ fait, total }),
+      },
+    );
+    setUpscaleLogs((prev) => [
+      ...prev,
+      t("bibliotheque.upscaleFin", { ok, sautes, echecs }),
+    ]);
+    setUpscaleLot(null);
+    rafraichir();
+  }
+
   return (
     <Card>
       <CardHeader>
@@ -330,7 +419,7 @@ export function AdminBibliothequePage() {
             <Button
               size="sm"
               variant="outline"
-              disabled={c2pa !== null || affichees.length === 0}
+              disabled={lotEnCours || affichees.length === 0}
               onClick={() => void stripC2paTout()}
               title={t("bibliotheque.c2paAide")}
             >
@@ -338,8 +427,25 @@ export function AdminBibliothequePage() {
                 ? t("bibliotheque.c2paEnCours", { fait: c2pa.fait, total: c2pa.total })
                 : t("bibliotheque.c2paTout", { count: affichees.length })}
             </Button>
+            {aUpscaler > 0 && (
+              <Button
+                size="sm"
+                variant="outline"
+                disabled={lotEnCours}
+                onClick={() => void upscaleTout()}
+                title={t("bibliotheque.upscaleAide")}
+              >
+                <Maximize2 className="size-4" />
+                {upscaleLot
+                  ? t("bibliotheque.upscaleLot", {
+                      fait: upscaleLot.fait,
+                      total: upscaleLot.total,
+                    })
+                  : t("bibliotheque.upscaleTout", { count: aUpscaler })}
+              </Button>
+            )}
             {aNettoyer > 0 && (
-              <Button size="sm" disabled={lot !== null} onClick={nettoyerTout}>
+              <Button size="sm" disabled={lotEnCours} onClick={nettoyerTout}>
                 <Sparkles />
                 {lot
                   ? t("adminPost.lotEnCours", { fait: lot.fait, total: lot.total })
@@ -354,7 +460,16 @@ export function AdminBibliothequePage() {
         {c2paLogs.length > 0 && (
           <div className="mt-2 max-h-40 space-y-0.5 overflow-y-auto rounded border bg-muted/30 px-2.5 py-2 font-mono text-[11px] leading-relaxed">
             {c2paLogs.map((l, i) => (
-              <div key={`${i}-${l.slice(0, 12)}`} className="break-words text-muted-foreground">
+              <div key={`c2pa-${i}-${l.slice(0, 12)}`} className="break-words text-muted-foreground">
+                {l}
+              </div>
+            ))}
+          </div>
+        )}
+        {upscaleLogs.length > 0 && (
+          <div className="mt-2 max-h-40 space-y-0.5 overflow-y-auto rounded border bg-muted/30 px-2.5 py-2 font-mono text-[11px] leading-relaxed">
+            {upscaleLogs.map((l, i) => (
+              <div key={`up-${i}-${l.slice(0, 12)}`} className="break-words text-muted-foreground">
                 {l}
               </div>
             ))}

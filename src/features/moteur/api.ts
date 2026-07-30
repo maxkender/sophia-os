@@ -1439,6 +1439,20 @@ export const stripC2paMedia = (mediaId: string) =>
     error?: string;
   }>("strip-c2pa", { mediaId });
 
+/** Upscale Recraft Crisp (Replicate) → strip C2PA lossless → remplace en place. */
+export const upscaleMedia = (mediaId: string, forcer = false) =>
+  invoke<{
+    ok: boolean;
+    mediaId: string;
+    saute?: boolean;
+    url?: string;
+    mime?: string;
+    upscale_le?: string;
+    c2pa_retire?: boolean;
+    detail?: string;
+    error?: string;
+  }>("upscale-media", { mediaId, forcer });
+
 
 /** Le compte de référence dont dépend un post — pour filtrer sa bibliothèque. */
 export async function compteReferenceDuPost(postId: string): Promise<string | null> {

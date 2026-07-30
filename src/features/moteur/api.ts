@@ -44,8 +44,16 @@ async function invoke<T>(name: string, body: Record<string, unknown>): Promise<T
     try {
       const ctx = (error as { context?: Response }).context;
       if (ctx && typeof ctx.json === "function") {
-        const corps = await ctx.json();
-        if (corps?.error) message = corps.error as string;
+        const corps = (await ctx.json()) as {
+          error?: string;
+          message?: string;
+          code?: string;
+        };
+        if (corps?.error) message = corps.error;
+        else if (corps?.code === "WORKER_RESOURCE_LIMIT") {
+          message =
+            "Mémoire Edge saturée (WORKER_RESOURCE_LIMIT) — relance une photo à la fois, ou Real-ESRGAN.";
+        } else if (corps?.message) message = corps.message;
       }
     } catch {
       // corps illisible : on garde le message générique

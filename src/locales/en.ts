@@ -605,7 +605,7 @@ export const en = {
       upscaleAideRealesrgan:
         "Real-ESRGAN v2 (Replicate) — faithful, less “AI”. Default scale ×1.",
       upscaleAideSeedvr:
-        "SeedVR2 (Fal) — ~$0.001/MP output. E.g. ~1 MP photo → ×2 ≈ 4 MP ≈ $0.004 (~0.4¢).",
+        "SeedVR2 (Fal) — ~$0.001/MP output. E.g. ~1 MP → ×2 ≈ 4 MP ≈ $0.004. Lot runs serially (1 at a time) to avoid Edge OOM.",
       upscaleDebut: "Upscaling ({{modele}}) {{count}} non-upscaled photo(s)…",
       upscaleFin: "Done — ok={{ok}} · already done={{sautes}} · failed={{echecs}}",
       upscaleConfirm:

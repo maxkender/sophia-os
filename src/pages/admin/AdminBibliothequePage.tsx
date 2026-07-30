@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Check, ExternalLink, Maximize2, Sparkles, Trash2 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { AGENTS_UPSCALE, executerEnLot } from "@/lib/lot";
+import { AGENTS_UPSCALE, AGENTS_UPSCALE_SEEDVR, executerEnLot } from "@/lib/lot";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -411,7 +411,8 @@ export function AdminBibliothequePage() {
         }
       },
       {
-        largeur: AGENTS_UPSCALE,
+        largeur:
+          modeleUpscale === "seedvr" ? AGENTS_UPSCALE_SEEDVR : AGENTS_UPSCALE,
         onProgres: (fait, total) => setUpscaleLot({ fait, total }),
       },
     );

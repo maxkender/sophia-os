@@ -7,8 +7,10 @@ export const AGENTS_NETTOYAGE = 5;
 /** Pool réimport photos slideshows valides — plus large que le nettoyage unitaire. */
 export const AGENTS_REIMPORT_PHOTOS = 12;
 
-/** Pool upscale Real-ESRGAN v2 — large pour finir vite la biblio. */
-export const AGENTS_UPSCALE = 12;
+/** Pool upscale Real-ESRGAN — modéré (Edge mémoire limitée). */
+export const AGENTS_UPSCALE = 4;
+/** SeedVR charge des PNG ×2 en mémoire : 1 seul worker sinon WORKER_RESOURCE_LIMIT. */
+export const AGENTS_UPSCALE_SEEDVR = 1;
 
 /**
  * Exécute `tache` sur chaque élément avec un pool borné de workers parallèles.

@@ -320,13 +320,13 @@ export const en = {
         "No snapshot yet — run an ELO catch-up from Midnight assignment.",
       dernierDelta: "Latest Δ:",
       totalVues: "total {{n}}",
-      alerte1Titre: "Alert 1 — no post yesterday",
+      alerte1Titre: "Alert 1 — no post today",
       alerte1Desc:
-        "No publication yesterday (Paris day). Based on last post date / publie_at.",
+        "Last post was yesterday (Paris day), nothing today yet. A post today clears the alert.",
       alerte2Titre: "Alert 2 — 2+ days without a post",
       alerte2Desc:
-        "Last post was 2+ days ago (based only on the most recent post’s date).",
-      pasVeille: "Yesterday",
+        "Last post was 2+ days ago (Paris day of publie_at).",
+      pasVeille: "Today pending",
       joursSans: "{{n}}d",
       eloBasTitre: "Account ELO — bottom 5",
       eloBasDesc: "Accounts to watch (weak form).",

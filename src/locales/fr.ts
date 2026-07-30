@@ -320,13 +320,13 @@ export const fr = {
         "Pas encore de snapshot — lance un Rattrapage ELO depuis Assignation de minuit.",
       dernierDelta: "Dernier Δ :",
       totalVues: "total {{n}}",
-      alerte1Titre: "Alerte 1 — pas posté hier",
+      alerte1Titre: "Alerte 1 — pas posté aujourd’hui",
       alerte1Desc:
-        "Pas de publication hier (jour Paris). Basé sur la date du dernier post / publie_at.",
+        "Dernier post hier (jour Paris), rien aujourd’hui encore. Un post d’aujourd’hui retire l’alerte.",
       alerte2Titre: "Alerte 2 — 2 jours ou + sans post",
       alerte2Desc:
-        "Le dernier post date d’il y a 2 jours ou plus (uniquement la récence du dernier post).",
-      pasVeille: "Hier",
+        "Le dernier post date d’il y a 2 jours ou plus (jour Paris de publie_at).",
+      pasVeille: "Aujourd’hui en retard",
       joursSans: "{{n}}j",
       eloBasTitre: "ELO compte — les 5 plus bas",
       eloBasDesc: "Comptes à surveiller (forme faible).",

@@ -1195,7 +1195,7 @@ export type PilotageDashboard = {
 export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
   // Fuseau Paris (comme minuit / assignation) — pas l'heure locale du navigateur.
   const auj = aujourdhuiParis();
-  const veille = ajouterJoursLocal(auj, -1);
+  const veille = ajouterJoursParisCalendaire(auj, -1);
 
   const [{ data: serie }, { data: comptes }, { data: roles }, { data: profils }, { data: postsVeille }] =
     await Promise.all([
@@ -1284,31 +1284,38 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
     .sort((a, b) => b.eloMoyen - a.eloMoyen);
 
   /**
-   * Alertes = uniquement les DERNIERS posts (récence).
-   * Jour « posté » = date_publication_prevue OU jour Paris de publie_at,
-   * pour les passages vraiment publiés (statut / lien / publie_at).
+   * Alertes = récence du DERNIER post réel (jour Paris de publie_at,
+   * fallback date_publication_prevue si publie_at null).
+   * - L2 : dernier post ≥ 2 jours
+   * - L1 : pas posté hier et pas encore aujourd'hui (dernier = avant-hier serait L2)
+   *   → concrètement : dernier post = hier est OK ; si posté aujourd'hui → aucune alerte
+   *     (évite les faux positifs « posté il y a 5 h » dans L1).
    */
   const compteIds = eloListe.map((c) => c.compte_id);
-  const parCompteDates = new Map<string, Set<string>>();
+  /** Dernier jour de publication (YYYY-MM-DD Paris) par compte. */
+  const dernierPostParCompte = new Map<string, string>();
   if (compteIds.length > 0) {
-    const depuis = ajouterJoursLocal(auj, -30);
-    const { data: postsRecents } = await supabase
-      .from("passages")
-      .select("compte_id, date_publication_prevue, publie_at, publie_url, statut")
-      .in("compte_id", compteIds)
-      .or("statut.eq.publie,publie_url.not.is.null,publie_at.not.is.null")
-      .or(
-        `date_publication_prevue.gte.${depuis},publie_at.gte.${depuis}T00:00:00+00:00`,
-      );
+    const depuis = ajouterJoursParisCalendaire(auj, -30);
+    // Chunk .in() (limite URL PostgREST) + filtre simple statut=publie.
+    const chunk = 80;
+    for (let i = 0; i < compteIds.length; i += chunk) {
+      const ids = compteIds.slice(i, i + chunk);
+      const { data: postsRecents } = await supabase
+        .from("passages")
+        .select("compte_id, date_publication_prevue, publie_at")
+        .in("compte_id", ids)
+        .eq("statut", "publie");
 
-    for (const p of postsRecents ?? []) {
-      const cid = p.compte_id as string;
-      const set = parCompteDates.get(cid) ?? new Set<string>();
-      const prevue = p.date_publication_prevue as string | null;
-      if (prevue) set.add(prevue);
-      const jourPublie = jourParisDepuisIso(p.publie_at as string | null);
-      if (jourPublie) set.add(jourPublie);
-      parCompteDates.set(cid, set);
+      for (const p of postsRecents ?? []) {
+        const cid = p.compte_id as string;
+        const jourPublie = jourParisDepuisIso(p.publie_at as string | null);
+        const prevue = p.date_publication_prevue as string | null;
+        // Jour effectif = quand c'est parti en ligne ; sinon jour prévu.
+        const jour = jourPublie ?? prevue;
+        if (!jour || jour < depuis) continue;
+        const prev = dernierPostParCompte.get(cid);
+        if (!prev || jour > prev) dernierPostParCompte.set(cid, jour);
+      }
     }
   }
 
@@ -1316,22 +1323,17 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
   const niveau2: PilotageDashboard["alertes"]["niveau2"] = [];
 
   for (const c of eloListe) {
-    const dates = parCompteDates.get(c.compte_id) ?? new Set<string>();
-    let dernier: string | null = null;
-    for (const d of dates) {
-      if (!dernier || d > dernier) dernier = d;
-    }
+    const dernier = dernierPostParCompte.get(c.compte_id) ?? null;
 
     let joursSans = 99;
     if (dernier) {
-      const a = new Date(`${auj}T12:00:00`);
-      const b = new Date(`${dernier}T12:00:00`);
-      joursSans = Math.max(0, Math.round((a.getTime() - b.getTime()) / 86_400_000));
+      joursSans = Math.max(0, diffJoursParis(dernier, auj));
     }
 
-    const aPosteVeille = dates.has(veille);
+    // Posté aujourd'hui → à jour, hors alertes (même s'il a loupé hier).
+    if (joursSans === 0) continue;
 
-    // L2 : dernier post il y a 2 jours ou plus (basé sur le plus récent uniquement).
+    // L2 : 2 jours ou + sans post.
     if (joursSans >= 2) {
       niveau2.push({
         compte_id: c.compte_id,
@@ -1339,8 +1341,11 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
         handle: c.handle,
         joursSansPost: Math.min(joursSans, 99),
       });
-    } else if (!aPosteVeille) {
-      // L1 : pas posté hier, mais activité plus récente (aujourd'hui) ou gap < 2j.
+      continue;
+    }
+
+    // L1 : dernier post hier, rien aujourd'hui encore.
+    if (joursSans === 1) {
       niveau1.push({
         compte_id: c.compte_id,
         nom: c.nom,
@@ -2446,13 +2451,18 @@ export type RattrapageEloProgress = {
   erreur?: string;
 };
 
-function ajouterJoursLocal(yyyyMmDd: string, delta: number): string {
-  const d = new Date(`${yyyyMmDd}T12:00:00`);
-  d.setDate(d.getDate() + delta);
-  const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
-  return `${y}-${m}-${day}`;
+/** Ajoute des jours calendaires en ancrage Paris (midi UTC → format en-CA). */
+function ajouterJoursParisCalendaire(yyyyMmDd: string, delta: number): string {
+  const d = new Date(`${yyyyMmDd}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + delta);
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(d);
+}
+
+/** Nombre de jours calendaires Paris entre deux YYYY-MM-DD (fin − début). */
+function diffJoursParis(debut: string, fin: string): number {
+  const a = new Date(`${debut}T12:00:00Z`).getTime();
+  const b = new Date(`${fin}T12:00:00Z`).getTime();
+  return Math.round((b - a) / 86_400_000);
 }
 
 /** Tous les comptes en process (warmup terminé) avec @ — ELO + metrics. */

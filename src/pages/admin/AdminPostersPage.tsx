@@ -351,7 +351,8 @@ export function AdminPostersPage() {
     enabled: (comptes.data?.length ?? 0) > 0,
   });
 
-  const [filtrePhase, setFiltrePhase] = React.useState<"tous" | PhaseCreateur>("tous");
+  /** Défaut = actifs seulement (warmup / pas créé via le filtre Phase). */
+  const [filtrePhase, setFiltrePhase] = React.useState<"tous" | PhaseCreateur>("actif");
   const [filtreLangue, setFiltreLangue] = React.useState("");
   const [filtreLabel, setFiltreLabel] = React.useState("");
 
@@ -670,8 +671,8 @@ export function AdminPostersPage() {
       return na.localeCompare(nb, "fr");
     });
 
-  const filtresActifs =
-    filtrePhase !== "tous" || Boolean(filtreLangue) || Boolean(filtreLabel);
+  /** Vue plate seulement pour langue/label (la phase filtre dans les groupes). */
+  const filtresActifs = Boolean(filtreLangue) || Boolean(filtreLabel);
 
   const barreFiltres = (
     <div className="grid gap-3 rounded-lg border bg-muted/20 p-3 sm:grid-cols-3">
@@ -1047,21 +1048,22 @@ export function AdminPostersPage() {
               section(t("posters.recruteurs"), recruteurs.length, recruteurs, {
                 badge: t("hiring.badge"),
               })}
-            {recruteurs.map((rec) =>
-              section(
-                nomDe(rec),
-                (parManager.get(rec.id) ?? []).length,
-                parManager.get(rec.id) ?? [],
-                { sousTitre: t("posters.createursDuRecruteur") },
-              ),
-            )}
+            {recruteurs.map((rec) => {
+              const membres = parManager.get(rec.id) ?? [];
+              if (membres.length === 0) return null;
+              return section(nomDe(rec), membres.length, membres, {
+                sousTitre: t("posters.createursDuRecruteur"),
+              });
+            })}
             {(parManager.get("__none__") ?? []).length > 0 &&
               section(
                 t("posters.sansRecruteur"),
                 (parManager.get("__none__") ?? []).length,
                 parManager.get("__none__") ?? [],
               )}
-            {admins.length > 0 && section(t("nav.admin"), admins.length, admins)}
+            {filtrePhase === "tous" &&
+              admins.length > 0 &&
+              section(t("nav.admin"), admins.length, admins)}
           </div>
         );
   })();

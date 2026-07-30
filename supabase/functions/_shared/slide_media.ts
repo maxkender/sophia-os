@@ -46,3 +46,40 @@ export async function patchSlideMediaId(
   });
   if (error) throw error;
 }
+
+/**
+ * Propager un nouveau propre vers les `post_slides` des posts déjà matérialisés
+ * pour ce contenu (passages.post_id). Texte overlay inchangé — media_id seul.
+ * Les futurs assignements lisent déjà `structure_slides` à la matérialisation.
+ */
+export async function propagerMediaAuxPostsAssignes(
+  supabase: Supabase,
+  contenuId: string,
+  position: number,
+  mediaId: string,
+): Promise<number> {
+  const { data: passages, error } = await supabase
+    .from("passages")
+    .select("post_id")
+    .eq("contenu_id", contenuId)
+    .not("post_id", "is", null);
+  if (error) throw error;
+
+  const postIds = [
+    ...new Set(
+      (passages ?? [])
+        .map((p) => p.post_id as string | null)
+        .filter((id): id is string => Boolean(id)),
+    ),
+  ];
+  if (postIds.length === 0) return 0;
+
+  const { data: updated, error: updErr } = await supabase
+    .from("post_slides")
+    .update({ media_id: mediaId })
+    .in("post_id", postIds)
+    .eq("position", position)
+    .select("id");
+  if (updErr) throw updErr;
+  return updated?.length ?? 0;
+}

@@ -8,8 +8,45 @@ import {
   mediaPropreMemeLabel,
 } from "../_shared/media_labels.ts";
 import { reponseNdjson, veutStream } from "../_shared/nettoyage_etapes.ts";
-import { patchSlideMediaId, trouverPropreExistant } from "../_shared/slide_media.ts";
+import {
+  patchSlideMediaId,
+  propagerMediaAuxPostsAssignes,
+  trouverPropreExistant,
+} from "../_shared/slide_media.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+
+/** Patch contenu + propage aux post_slides déjà assignés (texte inchangé). */
+async function lierMedia(
+  supabase: ReturnType<typeof serviceClient>,
+  contenuId: string,
+  position: number,
+  mediaId: string,
+  emit?: (e: Record<string, unknown>) => void,
+): Promise<void> {
+  await patchSlideMediaId(supabase, contenuId, position, mediaId);
+  try {
+    const n = await propagerMediaAuxPostsAssignes(
+      supabase,
+      contenuId,
+      position,
+      mediaId,
+    );
+    if (n > 0) {
+      emit?.({
+        etape: "log",
+        statut: "info",
+        detail: `propagé vers ${n} post_slide(s) déjà assigné(s)`,
+      });
+      console.log(
+        `[renettoyer-contenu] ${contenuId}#${position}: propagé → ${n} post_slide(s)`,
+      );
+    }
+  } catch (e) {
+    console.warn(
+      `[renettoyer-contenu] propagation posts ${contenuId}#${position}: ${messageErreur(e)}`,
+    );
+  }
+}
 
 const BUCKET = "medias";
 
@@ -78,7 +115,7 @@ Deno.serve(async (request) => {
       if (!propre?.base64) {
         const orphelin = await trouverPropreExistant(supabase, contenu.id, position);
         if (orphelin) {
-          await patchSlideMediaId(supabase, contenu.id, position, orphelin.id);
+          await lierMedia(supabase, contenu.id, position, orphelin.id, emit);
           emit?.({
             etape: "ready",
             statut: "ok",
@@ -105,7 +142,7 @@ Deno.serve(async (request) => {
           compteReferenceId: contenu.compte_reference_id,
         });
         if (alt) {
-          await patchSlideMediaId(supabase, contenu.id, position, alt.id);
+          await lierMedia(supabase, contenu.id, position, alt.id, emit);
           emit?.({
             etape: "ready",
             statut: "ok",
@@ -169,7 +206,8 @@ Deno.serve(async (request) => {
       if (insErr) throw insErr;
 
       // Patch atomique AVANT labels — le lien slide→propre ne doit plus se perdre.
-      await patchSlideMediaId(supabase, contenu.id, position, media.id);
+      // Propage aussi aux post_slides déjà assignés (futurs assignements lisent structure_slides).
+      await lierMedia(supabase, contenu.id, position, media.id, emit);
       try {
         await attacherLabelsAuMedia(supabase, media.id, contenu.id);
       } catch (labErr) {
@@ -202,7 +240,7 @@ Deno.serve(async (request) => {
       try {
         const orphelin = await trouverPropreExistant(supabase, contenu.id, position);
         if (orphelin) {
-          await patchSlideMediaId(supabase, contenu.id, position, orphelin.id);
+          await lierMedia(supabase, contenu.id, position, orphelin.id, emit);
           emit?.({
             etape: "ready",
             statut: "ok",

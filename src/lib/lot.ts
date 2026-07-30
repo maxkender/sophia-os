@@ -4,6 +4,9 @@
  *  5 en parallèle : bon débit sans saturer les queues externes. */
 export const AGENTS_NETTOYAGE = 5;
 
+/** Pool réimport photos slideshows valides — plus large que le nettoyage unitaire. */
+export const AGENTS_REIMPORT_PHOTOS = 12;
+
 /** Pool upscale Recraft Crisp (~9 s/image) — large pour finir vite la biblio. */
 export const AGENTS_UPSCALE = 12;
 

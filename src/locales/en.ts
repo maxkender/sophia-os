@@ -694,11 +694,11 @@ export const en = {
       supprime: "Slideshow deleted.",
       reimportPhotos: "Reimport photos (valid)",
       reimportAide:
-        "Re-cleans all photos of valid slideshows from the TikTok raw (current quality pipeline: PNG + lossless C2PA). Text, OCR and decks unchanged. Parallel — keep the tab open.",
+        "Re-cleans all photos of valid slideshows from the TikTok raw (PNG + lossless C2PA). Text unchanged. Also updates already-assigned posts; future assignments pick up the new cleans. ×12 parallel — keep the tab open.",
       reimportScan: "Scanning valid slideshows…",
       reimportVide: "No photos to reimport (no raw source).",
       reimportConfirm:
-        "Reimport {{count}} photo(s) from valid slideshows? Text unchanged — only cleaned images are replaced. This can take a long time: keep the tab open.",
+        "Reimport {{count}} photo(s) from valid slideshows? Text unchanged — images also replaced on already-assigned posts. This can take a long time: keep the tab open.",
       reimportDebut:
         "Reimporting {{count}} photo(s) ({{pool}} in parallel)…",
       reimportLot: "Reimport… {{fait}}/{{total}}",

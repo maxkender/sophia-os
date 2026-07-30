@@ -40,7 +40,7 @@ import {
 } from "@/features/moteur/nettoyageEtapes";
 import { nomLangue } from "@/features/moteur/langues";
 import type { ContenuLangue, ContenuSlide, Media } from "@/features/moteur/types";
-import { AGENTS_NETTOYAGE, executerEnLot } from "@/lib/lot";
+import { AGENTS_REIMPORT_PHOTOS, executerEnLot } from "@/lib/lot";
 import { cn } from "@/lib/utils";
 
 function PassageLien({
@@ -812,7 +812,7 @@ export function AdminSlideshowsPage() {
     setReimportLogs([
       t("slideshows.reimportDebut", {
         count: jobs.length,
-        pool: AGENTS_NETTOYAGE,
+        pool: AGENTS_REIMPORT_PHOTOS,
       }),
     ]);
     let ok = 0;
@@ -842,7 +842,7 @@ export function AdminSlideshowsPage() {
         }
       },
       {
-        largeur: AGENTS_NETTOYAGE,
+        largeur: AGENTS_REIMPORT_PHOTOS,
         onProgres: (fait, total) => setReimport({ fait, total }),
       },
     );

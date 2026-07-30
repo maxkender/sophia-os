@@ -55,7 +55,7 @@ Deno.serve(async (request) => {
         {
           storage_path: chemin,
           url: `${publique}?v=${Date.now()}`,
-          source: "test_nettoyage",
+          source: "nettoye_reference",
           verifie_le: new Date().toISOString(),
           texte_restant: false,
         },

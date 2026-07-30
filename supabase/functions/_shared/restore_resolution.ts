@@ -100,11 +100,15 @@ export async function restaurerResolutionMediaSiBesoin(
   });
 
   try {
+    const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
     const res = await fetch(`${base}/upscale-media`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
         "x-cron-secret": secret,
+        ...(serviceKey
+          ? { Authorization: `Bearer ${serviceKey}`, apikey: serviceKey }
+          : {}),
       },
       body: JSON.stringify({ mediaId, forcer: true }),
     });

@@ -18,7 +18,6 @@ import {
 import { useAuth } from "@/features/auth/AuthContext";
 import { CompteEditor, PostsParJourCompte } from "@/features/moteur/CompteEditor";
 import { CreateurPublications } from "@/features/moteur/CreateurPublications";
-import { LabelEditor } from "@/features/moteur/LabelPicker";
 import {
   creerCompte,
   creerPoster,
@@ -27,19 +26,21 @@ import {
   demarrerWarmup,
   labelsDesComptes,
   listerComptes,
+  listerLabels,
   listerLanguesReference,
   listerPosters,
+  majCompte,
   majCoutMensuel,
   majLanguesRecruteur,
   majPoster,
   majUpwork,
   setLabelsCompte,
-  labelsDuCompte,
   supprimerPoster,
 } from "@/features/moteur/api";
 import { nomLangue } from "@/features/moteur/langues";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
-import type { CompteAvecDetails, PosterProfil } from "@/features/moteur/types";
+import { phaseCreateur, type PhaseCreateur } from "@/features/moteur/warmup";
+import type { CompteAvecDetails, Label as LabelType, PosterProfil } from "@/features/moteur/types";
 
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
@@ -236,6 +237,106 @@ function LangueRecruteur({ recruteur }: { recruteur: PosterProfil }) {
   );
 }
 
+/** Langue du compte publication — select simple. */
+function LangueCompteSelect({ compte }: { compte: CompteAvecDetails }) {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const langues = useQuery({ queryKey: ["langues-reference"], queryFn: listerLanguesReference });
+  const maj = useMutation({
+    mutationFn: (langue: string) => majCompte(compte.id, { langue }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["comptes"] });
+      queryClient.invalidateQueries({ queryKey: ["posters"] });
+    },
+  });
+
+  return (
+    <div className="space-y-1">
+      <Label className="text-[10px] uppercase tracking-wide text-muted-foreground">
+        {t("hiring.langue")}
+      </Label>
+      <select
+        className={selectClass}
+        value={compte.langue}
+        disabled={maj.isPending}
+        onChange={(e) => maj.mutate(e.target.value)}
+      >
+        {(langues.data ?? []).map((l) => (
+          <option key={l} value={l}>
+            {nomLangue(l)}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
+/** Labels du compte — dropdown d'ajout + retraits. */
+function LabelsCompteSelect({
+  compteId,
+  actifs,
+}: {
+  compteId: string;
+  actifs: LabelType[];
+}) {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const labels = useQuery({ queryKey: ["labels"], queryFn: listerLabels });
+  const ids = actifs.map((l) => l.id);
+  const maj = useMutation({
+    mutationFn: (next: string[]) => setLabelsCompte(compteId, next),
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: ["compte-labels-all"] });
+      await queryClient.invalidateQueries({ queryKey: ["compte-labels", compteId] });
+    },
+  });
+
+  const disponibles = (labels.data ?? []).filter((l) => !ids.includes(l.id));
+
+  return (
+    <div className="space-y-1">
+      <Label className="text-[10px] uppercase tracking-wide text-muted-foreground">
+        {t("labels.title")}
+      </Label>
+      <select
+        className={selectClass}
+        value=""
+        disabled={maj.isPending || disponibles.length === 0}
+        onChange={(e) => {
+          const id = e.target.value;
+          if (!id) return;
+          maj.mutate([...ids, id]);
+        }}
+      >
+        <option value="">
+          {actifs.length === 0 ? t("posters.choisirLabel") : t("posters.ajouterLabel")}
+        </option>
+        {disponibles.map((l) => (
+          <option key={l.id} value={l.id}>
+            {l.nom}
+          </option>
+        ))}
+      </select>
+      {actifs.length > 0 && (
+        <div className="flex flex-wrap gap-1">
+          {actifs.map((lab) => (
+            <button
+              key={lab.id}
+              type="button"
+              disabled={maj.isPending}
+              onClick={() => maj.mutate(ids.filter((id) => id !== lab.id))}
+              className="rounded-md border px-1.5 py-0.5 text-[11px] hover:bg-muted"
+              title={t("common.delete")}
+            >
+              {lab.nom} ×
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function AdminPostersPage() {
   const { t } = useTranslation();
   const { user } = useAuth();
@@ -243,11 +344,16 @@ export function AdminPostersPage() {
   const posters = useQuery({ queryKey: ["posters"], queryFn: listerPosters });
   const comptes = useQuery({ queryKey: ["comptes"], queryFn: listerComptes });
   const langues = useQuery({ queryKey: ["langues-reference"], queryFn: listerLanguesReference });
+  const labels = useQuery({ queryKey: ["labels"], queryFn: listerLabels });
   const labelsComptes = useQuery({
     queryKey: ["compte-labels-all", (comptes.data ?? []).map((c) => c.id).join(",")],
     queryFn: () => labelsDesComptes((comptes.data ?? []).map((c) => c.id)),
     enabled: (comptes.data?.length ?? 0) > 0,
   });
+
+  const [filtrePhase, setFiltrePhase] = React.useState<"tous" | PhaseCreateur>("tous");
+  const [filtreLangue, setFiltreLangue] = React.useState("");
+  const [filtreLabel, setFiltreLabel] = React.useState("");
 
   // Un compte de publication par poster (le TikTok qu'il tient) : on l'édite
   // directement ici, dépliable — plus besoin d'une page « Comptes » à part.
@@ -523,12 +629,107 @@ export function AdminPostersPage() {
       </Card>
   );
 
+  const ordrePhase: Record<PhaseCreateur, number> = {
+    pas_cree: 0,
+    warmup: 1,
+    actif: 2,
+  };
+
+  const matchCreateur = (p: PosterProfil) => {
+    const phase = phaseCreateur({
+      compteId: p.compte_id,
+      warmup_started_at: p.warmup_started_at,
+      warmup_ends_at: p.warmup_ends_at,
+    });
+    if (filtrePhase !== "tous" && phase !== filtrePhase) return false;
+    const compte = compteDe.get(p.id);
+    if (filtreLangue && compte?.langue !== filtreLangue) return false;
+    if (filtreLabel) {
+      const labs = compte ? (labelsComptes.data?.get(compte.id) ?? []) : [];
+      if (!labs.some((l) => l.id === filtreLabel)) return false;
+    }
+    return true;
+  };
+
+  const trierCreateurs = (liste: PosterProfil[]) =>
+    [...liste].sort((a, b) => {
+      const pa = phaseCreateur({
+        compteId: a.compte_id,
+        warmup_started_at: a.warmup_started_at,
+        warmup_ends_at: a.warmup_ends_at,
+      });
+      const pb = phaseCreateur({
+        compteId: b.compte_id,
+        warmup_started_at: b.warmup_started_at,
+        warmup_ends_at: b.warmup_ends_at,
+      });
+      const d = ordrePhase[pa] - ordrePhase[pb];
+      if (d !== 0) return d;
+      const na = [a.prenom, a.nom].filter(Boolean).join(" ") || a.email || "";
+      const nb = [b.prenom, b.nom].filter(Boolean).join(" ") || b.email || "";
+      return na.localeCompare(nb, "fr");
+    });
+
+  const filtresActifs =
+    filtrePhase !== "tous" || Boolean(filtreLangue) || Boolean(filtreLabel);
+
+  const barreFiltres = (
+    <div className="grid gap-3 rounded-lg border bg-muted/20 p-3 sm:grid-cols-3">
+      <div className="space-y-1">
+        <Label htmlFor="filtrePhase">{t("posters.filtrePhase")}</Label>
+        <select
+          id="filtrePhase"
+          className={selectClass}
+          value={filtrePhase}
+          onChange={(e) => setFiltrePhase(e.target.value as "tous" | PhaseCreateur)}
+        >
+          <option value="tous">{t("posters.filtreTous")}</option>
+          <option value="pas_cree">{t("warmup.phasePasCree")}</option>
+          <option value="warmup">{t("posters.filtreWarmup")}</option>
+          <option value="actif">{t("warmup.phaseActif")}</option>
+        </select>
+      </div>
+      <div className="space-y-1">
+        <Label htmlFor="filtreLangue">{t("posters.filtreLangue")}</Label>
+        <select
+          id="filtreLangue"
+          className={selectClass}
+          value={filtreLangue}
+          onChange={(e) => setFiltreLangue(e.target.value)}
+        >
+          <option value="">{t("posters.filtreTous")}</option>
+          {(langues.data ?? []).map((l) => (
+            <option key={l} value={l}>
+              {nomLangue(l)}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div className="space-y-1">
+        <Label htmlFor="filtreLabel">{t("posters.filtreLabel")}</Label>
+        <select
+          id="filtreLabel"
+          className={selectClass}
+          value={filtreLabel}
+          onChange={(e) => setFiltreLabel(e.target.value)}
+        >
+          <option value="">{t("posters.filtreTous")}</option>
+          {(labels.data ?? []).map((l) => (
+            <option key={l.id} value={l.id}>
+              {l.nom}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
+  );
+
   const liste = (() => {
         const tous = posters.data ?? [];
         const nomDe = (p: (typeof tous)[number]) =>
           [p.prenom, p.nom].filter(Boolean).join(" ") || p.email || "—";
         const recruteurs = tous.filter((p) => p.role === "hiring_manager");
-        const creators = tous.filter((p) => p.role === "poster");
+        const creators = trierCreateurs(tous.filter((p) => p.role === "poster").filter(matchCreateur));
         const admins = tous.filter((p) => p.role === "admin");
         const parManager = new Map<string, typeof tous>();
         for (const c of creators) {
@@ -546,92 +747,93 @@ export function AdminPostersPage() {
           const nomAffiche =
             [poster.prenom, poster.nom].filter(Boolean).join(" ") || poster.email;
           return (
-            <article key={poster.id} className="overflow-hidden rounded-lg border bg-card">
-              <div className="flex flex-wrap items-start justify-between gap-3 px-3 py-2.5">
-                <div className="min-w-0 flex-1 space-y-1">
-                  <div className="flex flex-wrap items-center gap-2">
-                    {estPoster ? (
-                      <button
-                        type="button"
-                        onClick={() => setPubsId(pubsOuvert ? null : poster.id)}
-                        className="text-sm font-medium underline underline-offset-2"
-                        title={t("posters.tiktoksPublies")}
-                      >
-                        {nomAffiche}
-                      </button>
-                    ) : (
-                      <span className="text-sm font-medium">{nomAffiche}</span>
-                    )}
-                    {soiMeme && <Badge variant="outline">{t("posters.you")}</Badge>}
-                    {poster.role === "admin" && <Badge>{t("nav.admin")}</Badge>}
-                    {poster.role === "hiring_manager" && (
-                      <Badge variant="secondary">{t("hiring.badge")}</Badge>
-                    )}
-                    {!poster.is_active && (
-                      <Badge variant="secondary">{t("posters.disabled")}</Badge>
-                    )}
-                    {estPoster && (
-                      <WarmupBadge
-                        compteId={poster.compte_id}
-                        startedAt={poster.warmup_started_at}
-                        endsAt={poster.warmup_ends_at}
-                        showStart={Boolean(poster.compte_id)}
-                        startPending={warmupStart.isPending}
-                        onStart={
-                          poster.compte_id
-                            ? () => warmupStart.mutate(poster.compte_id!)
-                            : undefined
-                        }
-                      />
-                    )}
-                    {estPoster && compte && labs.length === 0 && (
-                      <Badge variant="warning">{t("posters.sansLabels")}</Badge>
-                    )}
-                    {estPoster && poster.score != null && (
-                      <Badge
-                        variant="secondary"
-                        title={
-                          t("posters.eloCompteAide") +
-                          (poster.score_maj_at
-                            ? ` · ${new Date(poster.score_maj_at).toLocaleString()}`
-                            : "")
-                        }
-                      >
-                        {t("posters.eloCompte", { score: Number(poster.score).toFixed(1) })}
-                      </Badge>
-                    )}
-                  </div>
-
-                  <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs text-muted-foreground">
-                    <span className="truncate">{poster.email}</span>
-                    {estPoster && (
-                      <>
-                        <span aria-hidden className="text-border">
-                          ·
-                        </span>
-                        <CreateurLiens
-                          poster={poster}
-                          onSave={(url) =>
-                            enregistrerUpwork.mutate({ id: poster.id, url })
-                          }
-                        />
-                      </>
-                    )}
-                    {poster.role !== "admin" && (
-                      <>
-                        <span aria-hidden className="text-border">
-                          ·
-                        </span>
-                        <CoutMensuel poster={poster} />
-                      </>
-                    )}
-                  </div>
-
-                  {poster.role === "hiring_manager" && <LangueRecruteur recruteur={poster} />}
+            <article
+              key={poster.id}
+              className="flex h-full flex-col overflow-hidden rounded-lg border bg-card"
+            >
+              <div className="flex flex-1 flex-col gap-2 px-3 py-2.5">
+                <div className="flex flex-wrap items-center gap-2">
+                  {estPoster ? (
+                    <button
+                      type="button"
+                      onClick={() => setPubsId(pubsOuvert ? null : poster.id)}
+                      className="text-sm font-medium underline underline-offset-2"
+                      title={t("posters.tiktoksPublies")}
+                    >
+                      {nomAffiche}
+                    </button>
+                  ) : (
+                    <span className="text-sm font-medium">{nomAffiche}</span>
+                  )}
+                  {soiMeme && <Badge variant="outline">{t("posters.you")}</Badge>}
+                  {poster.role === "admin" && <Badge>{t("nav.admin")}</Badge>}
+                  {poster.role === "hiring_manager" && (
+                    <Badge variant="secondary">{t("hiring.badge")}</Badge>
+                  )}
+                  {!poster.is_active && (
+                    <Badge variant="secondary">{t("posters.disabled")}</Badge>
+                  )}
+                  {estPoster && (
+                    <WarmupBadge
+                      compteId={poster.compte_id}
+                      startedAt={poster.warmup_started_at}
+                      endsAt={poster.warmup_ends_at}
+                      showStart={Boolean(poster.compte_id)}
+                      startPending={warmupStart.isPending}
+                      onStart={
+                        poster.compte_id
+                          ? () => warmupStart.mutate(poster.compte_id!)
+                          : undefined
+                      }
+                    />
+                  )}
+                  {estPoster && compte && labs.length === 0 && (
+                    <Badge variant="warning">{t("posters.sansLabels")}</Badge>
+                  )}
+                  {estPoster && poster.score != null && (
+                    <Badge
+                      variant="secondary"
+                      title={
+                        t("posters.eloCompteAide") +
+                        (poster.score_maj_at
+                          ? ` · ${new Date(poster.score_maj_at).toLocaleString()}`
+                          : "")
+                      }
+                    >
+                      {t("posters.eloCompte", { score: Number(poster.score).toFixed(1) })}
+                    </Badge>
+                  )}
                 </div>
 
+                <div className="space-y-1 text-xs text-muted-foreground">
+                  <p className="truncate">{poster.email}</p>
+                  {estPoster && (
+                    <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                      <CreateurLiens
+                        poster={poster}
+                        onSave={(url) =>
+                          enregistrerUpwork.mutate({ id: poster.id, url })
+                        }
+                      />
+                    </div>
+                  )}
+                  {poster.role !== "admin" && <CoutMensuel poster={poster} />}
+                </div>
+
+                {poster.role === "hiring_manager" && <LangueRecruteur recruteur={poster} />}
+
+                {estPoster && compte && (
+                  <div className="grid gap-2 border-t border-dashed pt-2 sm:grid-cols-2">
+                    <LangueCompteSelect compte={compte} />
+                    <LabelsCompteSelect compteId={compte.id} actifs={labs} />
+                    <div className="sm:col-span-2">
+                      <PostsParJourCompte compte={compte} />
+                    </div>
+                  </div>
+                )}
+
                 {!soiMeme && (
-                  <div className="flex flex-wrap justify-end gap-1.5">
+                  <div className="mt-auto flex flex-wrap gap-1.5 border-t pt-2">
                     {poster.role === "hiring_manager" && (
                       <Button
                         size="sm"
@@ -664,23 +866,38 @@ export function AdminPostersPage() {
                       </Button>
                     )}
                     {poster.role === "poster" && promoId === poster.id && (
-                      <div className="flex max-w-xs flex-col items-end gap-1.5">
-                        <div className="flex flex-wrap justify-end gap-1">
-                          {(langues.data ?? []).map((l) => (
-                            <button
-                              key={l}
-                              type="button"
-                              onClick={() => basculerPromoLangue(l)}
-                              className={
-                                promoLangues.includes(l)
-                                  ? "rounded-full bg-primary px-2 py-0.5 text-[11px] font-medium text-primary-foreground"
-                                  : "rounded-full border px-2 py-0.5 text-[11px] hover:bg-muted"
-                              }
-                            >
-                              {nomLangue(l)}
-                            </button>
-                          ))}
-                        </div>
+                      <div className="flex w-full flex-col gap-1.5">
+                        <select
+                          className={selectClass}
+                          value=""
+                          onChange={(e) => {
+                            const l = e.target.value;
+                            if (l) basculerPromoLangue(l);
+                          }}
+                        >
+                          <option value="">{t("posters.choisirLangue")}</option>
+                          {(langues.data ?? [])
+                            .filter((l) => !promoLangues.includes(l))
+                            .map((l) => (
+                              <option key={l} value={l}>
+                                {nomLangue(l)}
+                              </option>
+                            ))}
+                        </select>
+                        {promoLangues.length > 0 && (
+                          <div className="flex flex-wrap gap-1">
+                            {promoLangues.map((l) => (
+                              <button
+                                key={l}
+                                type="button"
+                                onClick={() => basculerPromoLangue(l)}
+                                className="rounded-md border px-1.5 py-0.5 text-[11px]"
+                              >
+                                {nomLangue(l)} ×
+                              </button>
+                            ))}
+                          </div>
+                        )}
                         <div className="flex items-center gap-1">
                           <Button
                             size="sm"
@@ -743,30 +960,6 @@ export function AdminPostersPage() {
                 )}
               </div>
 
-              {estPoster && compte && (
-                <div className="space-y-2 border-t border-dashed bg-muted/25 px-3 py-2">
-                  <div className="flex items-start gap-3">
-                    <span className="w-14 shrink-0 pt-0.5 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
-                      {t("labels.title")}
-                    </span>
-                    <div className="min-w-0 flex-1">
-                      <LabelEditor
-                        afficherTitre={false}
-                        queryKey={["compte-labels", compte.id]}
-                        load={() => labelsDuCompte(compte.id)}
-                        save={async (ids) => {
-                          await setLabelsCompte(compte.id, ids);
-                          await queryClient.invalidateQueries({
-                            queryKey: ["compte-labels-all"],
-                          });
-                        }}
-                      />
-                    </div>
-                  </div>
-                  <PostsParJourCompte compte={compte} />
-                </div>
-              )}
-
               {estPoster && pubsOuvert && (
                 <div className="border-t px-3 py-3">
                   <CreateurPublications
@@ -805,6 +998,13 @@ export function AdminPostersPage() {
         }
         if (tous.length === 0) return <EmptyState title={t("posters.empty")} />;
 
+        const grille = (membres: typeof tous) =>
+          membres.length === 0 ? (
+            <p className="text-xs text-muted-foreground">{t("posters.aucunCreateur")}</p>
+          ) : (
+            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">{membres.map(ligne)}</div>
+          );
+
         const section = (
           titre: string,
           count: number,
@@ -822,15 +1022,24 @@ export function AdminPostersPage() {
                 </span>
               )}
             </div>
-            <div className="space-y-2">
-              {membres.length === 0 ? (
-                <p className="text-xs text-muted-foreground">{t("posters.aucunCreateur")}</p>
-              ) : (
-                membres.map(ligne)
-              )}
-            </div>
+            {grille(membres)}
           </section>
         );
+
+        // Filtres actifs : vue plate des créateurs matchés (plus simple à scanner).
+        if (filtresActifs) {
+          return (
+            <div className="space-y-3">
+              <div className="flex items-baseline gap-2 border-b pb-1.5">
+                <h2 className="text-sm font-semibold">{t("posters.createursFiltres")}</h2>
+                <span className="text-xs tabular-nums text-muted-foreground">
+                  {creators.length}
+                </span>
+              </div>
+              {grille(creators)}
+            </div>
+          );
+        }
 
         return (
           <div className="space-y-8">
@@ -896,6 +1105,7 @@ export function AdminPostersPage() {
       {ajout === "poster" && formulairePoster}
       {ajout === "recruteur" && formulaireRecruteur}
 
+      {barreFiltres}
       {liste}
     </div>
   );

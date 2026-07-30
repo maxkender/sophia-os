@@ -559,6 +559,15 @@ export const fr = {
       eloCompte: "ELO {{score}}",
       eloCompteAide: "Forme du compte (moyenne pondérée des derniers posts mesurés)",
       createursDuRecruteur: "Créateurs rattachés",
+      filtrePhase: "Phase",
+      filtreLangue: "Langue",
+      filtreLabel: "Label",
+      filtreTous: "Tous",
+      filtreWarmup: "Compte warmup",
+      createursFiltres: "Créateurs filtrés",
+      choisirLabel: "Choisir un label…",
+      ajouterLabel: "Ajouter un label…",
+      choisirLangue: "Choisir une langue…",
 
       creerRecruteur: "Créer un recruteur",
       creerRecruteurDesc:

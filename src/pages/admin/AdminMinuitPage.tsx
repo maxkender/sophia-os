@@ -262,15 +262,13 @@ export function AdminMinuitPage() {
   const reglages = useQuery({ queryKey: ["reglages"], queryFn: lireReglages });
   const autoEnPause = reglages.data?.assignation_auto.actif === false;
 
-  /** Pause cron minuit / rattrapage auto — le manuel reste possible. */
+  /**
+   * Pause cron minuit / rattrapage auto — UNIQUEMENT via ce toggle.
+   * Relancer / ELO refresh ne touchent JAMAIS assignation_auto.
+   */
   const basculerPause = useMutation({
     mutationFn: (enPause: boolean) => ecrireReglage("assignation_auto", { actif: !enPause }),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["reglages"] }),
-  });
-
-  const relancer = useMutation({
-    mutationFn: () => lancerAssignationJour(date),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["suivi-minuit", date] }),
   });
 
   const [eloLive, setEloLive] = React.useState<{
@@ -281,45 +279,90 @@ export function AdminMinuitPage() {
     done: boolean;
   }>({ logs: [], brief: null, progress: null, erreurs: [], done: false });
 
-  const rattrapageElo = useMutation({
-    mutationFn: () => {
-      setEloLive({ logs: [], brief: null, progress: t("minuit.rattrapageEloEnCours"), erreurs: [], done: false });
-      return lancerRattrapageEloLive({
-        jours: 4,
-        onProgress: (p) => {
-          const label = p.handle
-            ? t("minuit.rattrapageEloProgress", {
-                i: p.index,
-                n: p.total,
-                handle: p.handle,
-              })
-            : t("minuit.rattrapageEloEnCours");
-          setEloLive({
-            logs: p.logs,
-            brief: p.briefPartial,
-            progress: label,
-            erreurs: [],
-            done: false,
-          });
-        },
-      });
+  const [phaseRelance, setPhaseRelance] = React.useState<"idle" | "elo" | "assignation">("idle");
+
+  function invaliderApresElo() {
+    void queryClient.invalidateQueries({ queryKey: ["posters"] });
+    void queryClient.invalidateQueries({ queryKey: ["comptes"] });
+    // Analytics + Pilotage se nourrissent du même scrape / ELO compte.
+    void queryClient.invalidateQueries({ queryKey: ["stats-comptes"] });
+    void queryClient.invalidateQueries({ queryKey: ["stats-posts"] });
+    void queryClient.invalidateQueries({ queryKey: ["stats-posts-viraux"] });
+    void queryClient.invalidateQueries({ queryKey: ["pilotage-dashboard"] });
+  }
+
+  async function executerEloRefresh() {
+    setEloLive({
+      logs: [],
+      brief: null,
+      progress: t("minuit.rattrapageEloEnCours"),
+      erreurs: [],
+      done: false,
+    });
+    const data = await lancerRattrapageEloLive({
+      jours: 4,
+      onProgress: (p) => {
+        const label = p.handle
+          ? t("minuit.rattrapageEloProgress", {
+              i: p.index,
+              n: p.total,
+              handle: p.handle,
+            })
+          : t("minuit.rattrapageEloEnCours");
+        setEloLive({
+          logs: p.logs,
+          brief: p.briefPartial,
+          progress: label,
+          erreurs: [],
+          done: false,
+        });
+      },
+    });
+    setEloLive({
+      logs: data.logs,
+      brief: data.brief,
+      progress: null,
+      erreurs: data.stats.erreurs ?? [],
+      done: true,
+    });
+    invaliderApresElo();
+    return data;
+  }
+
+  /** Relancer = ELO refresh PUIS assignation manuelle. Ne change pas la pause auto. */
+  const relancer = useMutation({
+    mutationFn: async () => {
+      setPhaseRelance("elo");
+      await executerEloRefresh();
+      setPhaseRelance("assignation");
+      return lancerAssignationJour(date);
     },
-    onSuccess: (data) => {
-      setEloLive({
-        logs: data.logs,
-        brief: data.brief,
+    onSuccess: () => {
+      setPhaseRelance("idle");
+      void queryClient.invalidateQueries({ queryKey: ["suivi-minuit", date] });
+    },
+    onError: (err) => {
+      setPhaseRelance("idle");
+      setEloLive((prev) => ({
+        ...prev,
         progress: null,
-        erreurs: data.stats.erreurs ?? [],
-        done: true,
-      });
-      void queryClient.invalidateQueries({ queryKey: ["posters"] });
-      void queryClient.invalidateQueries({ queryKey: ["comptes"] });
-      // Analytics + Pilotage se nourrissent du même scrape / ELO compte.
-      void queryClient.invalidateQueries({ queryKey: ["stats-comptes"] });
-      void queryClient.invalidateQueries({ queryKey: ["stats-posts"] });
-      void queryClient.invalidateQueries({ queryKey: ["stats-posts-viraux"] });
-      void queryClient.invalidateQueries({ queryKey: ["pilotage-dashboard"] });
+        done: false,
+        logs: [
+          ...prev.logs,
+          {
+            at: new Date().toISOString(),
+            level: "error",
+            message: t("minuit.rattrapageEloErreur"),
+            detail: (err as Error).message,
+          },
+        ],
+      }));
     },
+  });
+
+  /** ELO seul (sans assignation) — invalide aussi Analytics. */
+  const rattrapageElo = useMutation({
+    mutationFn: () => executerEloRefresh(),
     onError: (err) => {
       setEloLive((prev) => ({
         ...prev,
@@ -411,13 +454,21 @@ export function AdminMinuitPage() {
               <RefreshCw className={`mr-2 size-4 ${suivi.isFetching ? "animate-spin" : ""}`} />
               {t("common.refresh")}
             </Button>
-            <Button onClick={() => relancer.mutate()} disabled={relancer.isPending}>
-              {relancer.isPending ? t("minuit.enCours") : t("minuit.relancer")}
+            <Button
+              onClick={() => relancer.mutate()}
+              disabled={relancer.isPending || rattrapageElo.isPending}
+              title={t("minuit.relancerAide")}
+            >
+              {relancer.isPending
+                ? phaseRelance === "elo"
+                  ? t("minuit.rattrapageEloEnCours")
+                  : t("minuit.enCours")
+                : t("minuit.relancer")}
             </Button>
             <Button
               variant="secondary"
               onClick={() => rattrapageElo.mutate()}
-              disabled={rattrapageElo.isPending}
+              disabled={rattrapageElo.isPending || relancer.isPending}
               title={t("minuit.rattrapageEloAide")}
             >
               {rattrapageElo.isPending ? t("minuit.rattrapageEloEnCours") : t("minuit.rattrapageElo")}
@@ -426,11 +477,15 @@ export function AdminMinuitPage() {
 
           <BarreChargement
             actif={relancer.isPending || rattrapageElo.isPending}
-            dureeMs={rattrapageElo.isPending ? 60_000 : 9_000}
+            dureeMs={
+              rattrapageElo.isPending || phaseRelance === "elo" ? 60_000 : 9_000
+            }
             label={
-              rattrapageElo.isPending
+              phaseRelance === "elo" || rattrapageElo.isPending
                 ? (eloLive.progress ?? t("minuit.rattrapageEloEnCours"))
-                : t("minuit.enCours")
+                : phaseRelance === "assignation"
+                  ? t("minuit.enCours")
+                  : t("minuit.enCours")
             }
           />
 

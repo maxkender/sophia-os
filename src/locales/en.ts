@@ -211,9 +211,11 @@ export const en = {
       titre: "Midnight assignment",
       desc: "Picks from the slideshow library (account labels ∩ language score), translates + Sophia, then assigns — no more Recycled / Reworked / New types.",
       jour: "Day",
-      relancer: "Re-run assignment",
+      relancer: "Re-run (ELO → assignment)",
+      relancerAide:
+        "1) ELO refresh (scrape + scores) → Analytics updated · 2) Manual assignment. Does not change the auto-pause toggle.",
       enCours: "Assigning…",
-      lance: "Assignment re-run: {{crees}} passage(s) created. Decks already translated + Sophia — the tracker refreshes on its own.",
+      lance: "ELO then assignment: {{crees}} passage(s) created. Decks already translated + Sophia — the tracker refreshes on its own.",
       lanceZero:
         "No passage created — empty pool (labels / slideshows / language ELO). See detail below.",
       erreursAssignation: "Accounts not assigned:",

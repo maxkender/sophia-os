@@ -211,9 +211,11 @@ export const fr = {
       titre: "Assignation de minuit",
       desc: "Pioche dans la bibliothèque de slideshows (labels du compte ∩ score langue), traduit + Sophia, puis assigne — plus de types Recyclé / Remanié / Nouveau.",
       jour: "Journée",
-      relancer: "Relancer l'assignation",
+      relancer: "Relancer (ELO → assignation)",
+      relancerAide:
+        "1) ELO refresh (scrape + scores) → Analytics mis à jour · 2) Assignation manuelle. Ne change pas le toggle pause auto.",
       enCours: "Assignation…",
-      lance: "Assignation relancée : {{crees}} passage(s) créé(s). Decks déjà traduits + Sophia — le suivi se met à jour tout seul.",
+      lance: "ELO puis assignation : {{crees}} passage(s) créé(s). Decks déjà traduits + Sophia — le suivi se met à jour tout seul.",
       lanceZero:
         "Aucun passage créé — pool vide (labels / slideshows / langue ELO). Voir le détail ci-dessous.",
       erreursAssignation: "Comptes non assignés :",

@@ -21,6 +21,7 @@ import { AdminPromptsPage } from "@/pages/admin/AdminPromptsPage";
 import { AdminAnalyticsPage } from "@/pages/admin/AdminAnalyticsPage";
 import { AdminReviewsPage } from "@/pages/admin/AdminReviewsPage";
 import { AdminCalendrierPage } from "@/pages/admin/AdminCalendrierPage";
+import { AdminCreateurPage } from "@/pages/admin/AdminCreateurPage";
 import { AdminMinuitPage } from "@/pages/admin/AdminMinuitPage";
 import { AdminSlideshowsPage } from "@/pages/admin/AdminSlideshowsPage";
 import { AdminPostDetailPage } from "@/pages/admin/AdminPostDetailPage";
@@ -52,6 +53,7 @@ export function AppRouter() {
           <Route element={<AdminLayout />}>
             <Route path="/admin" element={<AdminPilotagePage />} />
             <Route path="/admin/calendrier" element={<AdminCalendrierPage />} />
+            <Route path="/admin/createurs/:compteId" element={<AdminCreateurPage />} />
             <Route path="/admin/minuit" element={<AdminMinuitPage />} />
             <Route path="/admin/posts/:id" element={<AdminPostDetailPage />} />
             <Route path="/admin/posts" element={<Navigate to="/admin/calendrier" replace />} />

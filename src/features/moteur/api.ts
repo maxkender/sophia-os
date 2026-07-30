@@ -1074,6 +1074,7 @@ export interface PostCalendrierAdmin {
   persona_nom: string | null;
   handle_tiktok: string | null;
   avatar_url: string | null;
+  score: number | null;
   poster_prenom: string | null;
   poster_nom: string | null;
   sujet_titre: string | null;
@@ -1088,7 +1089,7 @@ export async function postsCalendrierAdmin(): Promise<PostCalendrierAdmin[]> {
     .from("posts")
     .select(
       "id, compte_id, date_publication_prevue, type, statut, pipeline_statut, publie_at, publie_url, " +
-        "sujets(titre), comptes(persona_nom, handle_tiktok, avatar_url, langue, profiles(prenom, nom))",
+        "sujets(titre), comptes(persona_nom, handle_tiktok, avatar_url, score, langue, profiles(prenom, nom))",
     )
     .eq("est_test", false)
     .order("date_publication_prevue", { ascending: false, nullsFirst: false })
@@ -1108,11 +1109,67 @@ export async function postsCalendrierAdmin(): Promise<PostCalendrierAdmin[]> {
     persona_nom: p.comptes?.persona_nom ?? null,
     handle_tiktok: p.comptes?.handle_tiktok ?? null,
     avatar_url: p.comptes?.avatar_url ?? null,
+    score: p.comptes?.score ?? null,
     poster_prenom: p.comptes?.profiles?.prenom ?? null,
     poster_nom: p.comptes?.profiles?.nom ?? null,
     sujet_titre: p.sujets?.titre ?? null,
     langue: p.comptes?.langue ?? null,
   }));
+}
+
+export interface CompteCreateurDetail {
+  id: string;
+  poster_id: string;
+  persona_nom: string | null;
+  handle_tiktok: string | null;
+  avatar_url: string | null;
+  langue: string;
+  score: number;
+  score_maj_at: string | null;
+  is_active: boolean;
+  poster_prenom: string | null;
+  poster_nom: string | null;
+  poster_email: string | null;
+  stats: StatsCompte | null;
+}
+
+/** Fiche créateur admin : identité + ELO + stats globales. */
+export async function lireCompteCreateur(compteId: string): Promise<CompteCreateurDetail | null> {
+  const { data, error } = await supabase
+    .from("comptes")
+    .select(
+      "id, poster_id, persona_nom, handle_tiktok, avatar_url, langue, score, score_maj_at, is_active, profiles(prenom, nom, email)",
+    )
+    .eq("id", compteId)
+    .maybeSingle();
+  if (error) throw error;
+  if (!data) return null;
+
+  const { data: stats } = await supabase
+    .from("stats_comptes")
+    .select("*")
+    .eq("compte_id", compteId)
+    .maybeSingle();
+
+  const profiles = data.profiles as
+    | { prenom: string | null; nom: string | null; email: string | null }
+    | null;
+
+  return {
+    id: data.id as string,
+    poster_id: data.poster_id as string,
+    persona_nom: (data.persona_nom as string | null) ?? null,
+    handle_tiktok: (data.handle_tiktok as string | null) ?? null,
+    avatar_url: (data.avatar_url as string | null) ?? null,
+    langue: (data.langue as string) ?? "fr",
+    score: Number(data.score ?? 50),
+    score_maj_at: (data.score_maj_at as string | null) ?? null,
+    is_active: Boolean(data.is_active),
+    poster_prenom: profiles?.prenom ?? null,
+    poster_nom: profiles?.nom ?? null,
+    poster_email: profiles?.email ?? null,
+    stats: (stats as StatsCompte | null) ?? null,
+  };
 }
 
 /** Supprime un post et ses slides (cascade). Action admin, depuis le calendrier. */

@@ -1,14 +1,8 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import {
-  CheckCircle2,
-  ChevronLeft,
-  ChevronRight,
-  ExternalLink,
-  Trash2,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -21,7 +15,7 @@ import {
   CardTitle,
   EmptyState,
 } from "@/components/ui/card";
-import { aujourdhui, postsCalendrierAdmin, supprimerPost, type PostCalendrierAdmin } from "@/features/moteur/api";
+import { aujourdhui, postsCalendrierAdmin, type PostCalendrierAdmin } from "@/features/moteur/api";
 import { nomLangue } from "@/features/moteur/langues";
 import { cn } from "@/lib/utils";
 
@@ -43,27 +37,14 @@ function estPoste(post: PostCalendrierAdmin): boolean {
   return post.statut === "publie" || Boolean(post.publie_at) || Boolean(post.publie_url);
 }
 
-function badgePipeline(statut: string) {
-  if (statut === "done") return "success" as const;
-  if (statut === "failed") return "destructive" as const;
-  if (statut === "running" || statut === "pending") return "warning" as const;
-  return "secondary" as const;
-}
-
 export function AdminCalendrierPage() {
   const { t, i18n } = useTranslation();
-  const queryClient = useQueryClient();
   const [date, setDate] = React.useState(aujourdhui);
   const [filtreLangue, setFiltreLangue] = React.useState("");
 
   const { data: posts, isPending } = useQuery({
     queryKey: ["posts-calendrier-admin"],
     queryFn: postsCalendrierAdmin,
-  });
-
-  const supprimer = useMutation({
-    mutationFn: supprimerPost,
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["posts-calendrier-admin"] }),
   });
 
   const langues = React.useMemo(
@@ -91,6 +72,7 @@ export function AdminCalendrierPage() {
         handle: postsCompte[0]?.handle_tiktok ?? null,
         avatar: postsCompte[0]?.avatar_url ?? null,
         langue: postsCompte[0]?.langue ?? null,
+        score: postsCompte[0]?.score ?? null,
         postes: postsCompte.filter(estPoste).length,
       }))
       .sort((a, b) => a.nom.localeCompare(b.nom, i18n.language));
@@ -208,112 +190,54 @@ export function AdminCalendrierPage() {
         </CardContent>
       </Card>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>{t("adminCal.parCreateur")}</CardTitle>
-          <CardDescription>{t("adminCal.parCreateurDesc")}</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-3">
-          {isPending && <p className="text-sm text-muted-foreground">{t("common.loading")}</p>}
-          {!isPending && parCreateur.length === 0 && (
-            <EmptyState title={t("adminCal.videJour")} />
-          )}
+      {isPending && <p className="text-sm text-muted-foreground">{t("common.loading")}</p>}
+      {!isPending && parCreateur.length === 0 && <EmptyState title={t("adminCal.videJour")} />}
 
-          {parCreateur.map((groupe) => (
-            <div key={groupe.compteId} className="space-y-2 rounded-lg border p-3">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <div className="flex min-w-0 items-center gap-2.5">
-                  <div className="size-9 shrink-0 overflow-hidden rounded-full bg-muted">
-                    {groupe.avatar ? (
-                      <img src={groupe.avatar} alt="" className="size-full object-cover" />
-                    ) : null}
-                  </div>
-                  <div className="min-w-0">
-                    <p className="truncate text-sm font-medium">{groupe.nom}</p>
-                    <p className="truncate text-xs text-muted-foreground">
-                      {groupe.handle ? `@${groupe.handle}` : "—"}
-                      {groupe.langue ? ` · ${groupe.langue.toUpperCase()}` : ""}
-                    </p>
-                  </div>
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        {parCreateur.map((groupe) => {
+          const complet = groupe.postes === groupe.posts.length;
+          return (
+            <Link
+              key={groupe.compteId}
+              to={`/admin/createurs/${groupe.compteId}?date=${date}`}
+              className={cn(
+                "group flex flex-col gap-3 rounded-xl border bg-card p-3 transition-colors",
+                "hover:border-foreground/20 hover:bg-muted/40",
+              )}
+            >
+              <div className="flex items-start gap-2.5">
+                <div className="size-11 shrink-0 overflow-hidden rounded-full bg-muted">
+                  {groupe.avatar ? (
+                    <img src={groupe.avatar} alt="" className="size-full object-cover" />
+                  ) : null}
                 </div>
-                <Badge variant={groupe.postes === groupe.posts.length ? "success" : "warning"}>
-                  {t("adminCal.faitSur", { faits: groupe.postes, total: groupe.posts.length })}
-                </Badge>
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-sm font-medium leading-tight group-hover:underline">
+                    {groupe.nom}
+                  </p>
+                  <p className="truncate text-xs text-muted-foreground">
+                    {groupe.handle ? `@${groupe.handle}` : "—"}
+                  </p>
+                </div>
               </div>
 
-              <ul className="space-y-1.5">
-                {groupe.posts.map((post) => {
-                  const poste = estPoste(post);
-                  return (
-                    <li
-                      key={post.id}
-                      className="flex flex-wrap items-center justify-between gap-2 rounded-md border bg-muted/30 px-2.5 py-2"
-                    >
-                      <div className="flex min-w-0 flex-wrap items-center gap-1.5">
-                        <Badge variant={poste ? "success" : "outline"}>
-                          {poste ? (
-                            <span className="inline-flex items-center gap-1">
-                              <CheckCircle2 className="size-3" />
-                              {t("adminCal.poste")}
-                            </span>
-                          ) : (
-                            t("adminCal.prevu")
-                          )}
-                        </Badge>
-                        <Badge variant="secondary">{t(`type.${post.type}`)}</Badge>
-                        <Badge variant={badgePipeline(post.pipeline_statut)}>
-                          {t(`statut.${post.pipeline_statut}`)}
-                        </Badge>
-                        {post.sujet_titre && (
-                          <span className="truncate text-xs text-muted-foreground">
-                            {post.sujet_titre}
-                          </span>
-                        )}
-                      </div>
-                      <div className="flex flex-wrap items-center gap-1.5">
-                        {post.publie_url && (
-                          <Button size="sm" variant="outline" asChild>
-                            <a
-                              href={post.publie_url}
-                              target="_blank"
-                              rel="noreferrer"
-                              title={t("adminCal.voirTiktok")}
-                            >
-                              <ExternalLink className="mr-1.5 size-3.5" />
-                              {t("adminCal.voirTiktok")}
-                            </a>
-                          </Button>
-                        )}
-                        <Button size="sm" variant="outline" asChild>
-                          <Link to={`/admin/posts/${post.id}`}>{t("adminCal.voirPost")}</Link>
-                        </Button>
-                        <Button
-                          size="icon"
-                          variant="ghost"
-                          className="size-8 text-destructive hover:bg-destructive/10"
-                          aria-label={t("common.delete")}
-                          disabled={supprimer.isPending}
-                          onClick={() => {
-                            if (
-                              window.confirm(
-                                t("adminCal.confirmSuppr", { nom: nomCreateur(post) }),
-                              )
-                            ) {
-                              supprimer.mutate(post.id);
-                            }
-                          }}
-                        >
-                          <Trash2 className="size-3.5" />
-                        </Button>
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          ))}
-        </CardContent>
-      </Card>
+              <div className="mt-auto flex flex-wrap items-center gap-1.5">
+                <Badge variant={complet ? "success" : "warning"}>
+                  {t("adminCal.faitSur", { faits: groupe.postes, total: groupe.posts.length })}
+                </Badge>
+                {groupe.score != null && (
+                  <Badge variant="secondary">
+                    {t("adminCal.eloCourt", { score: Number(groupe.score).toFixed(0) })}
+                  </Badge>
+                )}
+                {groupe.langue && (
+                  <Badge variant="outline">{groupe.langue.toUpperCase()}</Badge>
+                )}
+              </div>
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 }

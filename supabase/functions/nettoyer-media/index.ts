@@ -5,6 +5,7 @@ import {
 } from "../_shared/gemini.ts";
 import { attacherLabelsAuMedia } from "../_shared/media_labels.ts";
 import { reponseNdjson, veutStream } from "../_shared/nettoyage_etapes.ts";
+import { restaurerResolutionMediaSiBesoin } from "../_shared/restore_resolution.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 const BUCKET = "medias";
@@ -80,19 +81,29 @@ Deno.serve(async (request) => {
     if (majErr) throw majErr;
     await attacherLabelsAuMedia(supabase, media.id, media.contenu_id);
 
+    const restore = await restaurerResolutionMediaSiBesoin(
+      media.id,
+      media.url,
+      url,
+      emit,
+    );
+    const urlFinale = restore.url ?? url;
+
     emit?.({
       etape: "ready",
       statut: "ok",
       ok: true,
       nettoyee: true,
-      url,
+      url: urlFinale,
       moteur: propre.moteur,
+      restaure: restore.restaure,
     });
     return {
       ok: true as const,
       nettoyee: true,
-      url,
+      url: urlFinale,
       moteur: propre.moteur,
+      restaure: restore.restaure,
       etapes: propre.etapes,
     };
   };

@@ -3,7 +3,6 @@ import { messageErreur } from "./supabase.ts";
 import { dimensionsImage, effacerTexte, type Zone } from "./inpaint.ts";
 import { nettoyerViaFalTextRemoval } from "./fal_text_removal.ts";
 import { nettoyerViaReplicateTextRemoval } from "./replicate_text_removal.ts";
-import { restaurerResolutionSiBesoin } from "./restore_resolution.ts";
 import { serviceClient } from "./supabase.ts";
 import { retirerContentCredentials } from "./c2pa.ts";
 
@@ -640,7 +639,11 @@ async function lireProviderPrincipal(): Promise<ProviderNettoyage> {
 
 /**
  * Nettoyage : Fal + Replicate (ordre configurable via réglage `nettoyage`),
- * restauration de résolution si downscale (~1 MP), puis retrait C2PA.
+ * puis retrait Content Credentials (C2PA).
+ *
+ * La restauration de résolution (~1 MP → source) se fait APRÈS upload via
+ * `restaurerResolutionMediaSiBesoin` (appel HTTP à `upscale-media`) pour
+ * éviter un OOM Edge dans ce worker.
  *
  * `onEtape` permet au front de tracer le déroulé en direct (stream NDJSON).
  */
@@ -795,53 +798,10 @@ export async function cleanImage(
     );
   }
 
-  // Fal/Replicate Flux Kontext sortent ~1 MP (ex. 1080×1920 → ~752×1392).
-  // Recraft Crisp remonte vers la résolution source quand c’est le cas.
-  await emit({
-    etape: "restore_resolution",
-    statut: "encours",
-    detail: "③ Restauration résolution si downscale…",
-  });
-  try {
-    let dernierDetail = "③ Restauration résolution si downscale…";
-    const restored = await restaurerResolutionSiBesoin(
-      base64,
-      imageUrl,
-      async (p) => {
-        dernierDetail = p.detail;
-        await emit({
-          etape: "restore_resolution",
-          statut: "encours",
-          detail: p.detail,
-        });
-      },
-    );
-    base64 = restored.base64;
-    if (restored.restaure) {
-      await emit({
-        etape: "restore_resolution",
-        statut: "ok",
-        detail: dernierDetail,
-      });
-    } else {
-      await emit({
-        etape: "restore_resolution",
-        statut: "saute",
-        detail: dernierDetail,
-      });
-    }
-  } catch (error) {
-    await emit({
-      etape: "restore_resolution",
-      statut: "echec",
-      detail: `③ Restore ÉCHEC: ${redactSecrets(messageErreur(error))} — suite en basse rés.`,
-    });
-  }
-
   await emit({
     etape: "c2pa",
     statut: "encours",
-    detail: "④ Strip C2PA lossless (pas de ré-encode JPEG)",
+    detail: "③ Strip C2PA lossless (pas de ré-encode JPEG)",
   });
   try {
     const stripped = await retirerContentCredentials(base64);
@@ -850,15 +810,15 @@ export async function cleanImage(
       etape: "c2pa",
       statut: "ok",
       detail: stripped.retire
-        ? "④ C2PA retiré (bitstream lossless, pixels inchangés)"
-        : "④ Pas de C2PA — octets inchangés",
+        ? "③ C2PA retiré (bitstream lossless, pixels inchangés)"
+        : "③ Pas de C2PA — octets inchangés",
     });
     return { base64, moteur, mime: stripped.mime, etapes };
   } catch (error) {
     await emit({
       etape: "c2pa",
       statut: "echec",
-      detail: `④ Strip C2PA ÉCHEC: ${redactSecrets(messageErreur(error))} — image livrée quand même`,
+      detail: `③ Strip C2PA ÉCHEC: ${redactSecrets(messageErreur(error))} — image livrée quand même`,
     });
     // fallback mime : détecter PNG/JPEG depuis les octets (pas forcer jpeg).
     const { mime } = mimeDepuisBase64(base64, "image/png");

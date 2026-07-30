@@ -4,6 +4,7 @@ import {
   ocrFrame,
   scoreRelevance,
 } from "../_shared/gemini.ts";
+import { restaurerResolutionMediaSiBesoin } from "../_shared/restore_resolution.ts";
 import { assertAuthorised, chargerPrompt, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
@@ -252,6 +253,15 @@ async function nettoyerVersBibliotheque(
     .single();
 
   if (error) throw error;
+
+  try {
+    await restaurerResolutionMediaSiBesoin(media.id, slide.raw_url, url);
+  } catch (e) {
+    console.warn(
+      `[nettoyage restore] sujet=${sujet.id} slide=${slide.position} ${messageErreur(e)}`,
+    );
+  }
+
   return media.id;
 }
 

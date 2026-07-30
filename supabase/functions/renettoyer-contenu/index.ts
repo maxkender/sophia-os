@@ -8,6 +8,7 @@ import {
   mediaPropreMemeLabel,
 } from "../_shared/media_labels.ts";
 import { reponseNdjson, veutStream } from "../_shared/nettoyage_etapes.ts";
+import { restaurerResolutionMediaSiBesoin } from "../_shared/restore_resolution.ts";
 import {
   patchSlideMediaId,
   propagerMediaAuxPostsAssignes,
@@ -52,7 +53,8 @@ const BUCKET = "medias";
 
 /**
  * Re-nettoie UNE slide d'un contenu v-next (structure_slides), à la demande.
- * Même pipeline que l'import : Fal → Replicate text-removal → restore résolution → C2PA (`cleanImage`).
+ * Pipeline : Fal → Replicate text-removal → C2PA (`cleanImage`), puis restore
+ * résolution via `upscale-media` si downscale (~1 MP).
  *
  *   { contenuId, position, stream?: true }
  */
@@ -216,6 +218,15 @@ Deno.serve(async (request) => {
         );
       }
 
+      // Restore résolution hors process cleanImage (évite OOM Edge).
+      const restore = await restaurerResolutionMediaSiBesoin(
+        media.id,
+        sourceUrl,
+        url,
+        emit,
+      );
+      const urlFinale = restore.url ?? url;
+
       emit?.({
         etape: "ready",
         statut: "ok",
@@ -223,14 +234,16 @@ Deno.serve(async (request) => {
         nettoyee: true,
         moteur: propre.moteur,
         mediaId: media.id,
-        url,
+        url: urlFinale,
+        restaure: restore.restaure,
       });
       return {
         ok: true as const,
         nettoyee: true,
         moteur: propre.moteur,
         mediaId: media.id,
-        url,
+        url: urlFinale,
+        restaure: restore.restaure,
         etapes: propre.etapes,
       };
     } catch (error) {

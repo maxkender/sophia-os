@@ -33,7 +33,8 @@ export function ordreEtapesNettoyage(
     premier === "fal" ? "text_removal" : "replicate_text_removal";
   const b: EtapeNettoyageId =
     premier === "fal" ? "replicate_text_removal" : "text_removal";
-  return [a, b, "restore_resolution", "c2pa", "ready"];
+  // restore_resolution après upload (appel HTTP upscale-media), pas dans cleanImage.
+  return [a, b, "c2pa", "restore_resolution", "ready"];
 }
 
 /** @deprecated préférer ordreEtapesNettoyage(premier) */

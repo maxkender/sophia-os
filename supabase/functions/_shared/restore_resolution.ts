@@ -1,177 +1,153 @@
 /**
  * Fal / Flux Kontext text-removal sortent ~1 MP (ex. 1080×1920 → ~752×1392).
- * On restaure la résolution source via Recraft Crisp (Replicate) après clean.
+ *
+ * Après upload du média propre, on détecte le downscale puis on délègue
+ * l’upscale Recraft Crisp à la Edge Function `upscale-media` (isolate séparé)
+ * pour éviter WORKER_RESOURCE_LIMIT dans le worker de nettoyage.
  */
 
 import { dimensionsImage } from "./inpaint.ts";
-import { upscaleViaRecraftCrisp } from "./replicate_crisp_upscale.ts";
-import { serviceClient } from "./supabase.ts";
 
-function deBase64(base64: string): Uint8Array {
-  return Uint8Array.from(atob(base64), (c) => c.charCodeAt(0));
-}
+export type RestoreEtapeEmit = (e: {
+  etape: "restore_resolution";
+  statut: "encours" | "ok" | "echec" | "saute";
+  detail?: string;
+}) => void | Promise<void>;
 
-function enBase64(bytes: Uint8Array): string {
-  let binaire = "";
-  const CHUNK = 0x8000;
-  for (let i = 0; i < bytes.length; i += CHUNK) {
-    binaire += String.fromCharCode(...bytes.subarray(i, i + CHUNK));
-  }
-  return btoa(binaire);
-}
-
-function mimeDepuisOctets(bytes: Uint8Array): string {
-  if (bytes.length >= 3 && bytes[0] === 0xff && bytes[1] === 0xd8) {
-    return "image/jpeg";
-  }
-  if (
-    bytes.length >= 8 &&
-    bytes[0] === 0x89 &&
-    bytes[1] === 0x50 &&
-    bytes[2] === 0x4e &&
-    bytes[3] === 0x47
-  ) {
-    return "image/png";
-  }
-  if (
-    bytes.length >= 12 &&
-    bytes[0] === 0x52 &&
-    bytes[1] === 0x49 &&
-    bytes[2] === 0x46 &&
-    bytes[3] === 0x46 &&
-    bytes[8] === 0x57 &&
-    bytes[9] === 0x45 &&
-    bytes[10] === 0x42 &&
-    bytes[11] === 0x50
-  ) {
-    return "image/webp";
-  }
-  return "image/png";
-}
-
-async function dimsDepuisUrl(
+/** Lit seulement le début du fichier pour obtenir w×h (pas le fichier entier). */
+async function dimsDepuisUrlLeger(
   url: string,
 ): Promise<{ w: number; h: number } | null> {
   try {
-    const res = await fetch(url);
-    if (!res.ok) return null;
-    const bytes = new Uint8Array(await res.arrayBuffer());
-    return dimensionsImage(bytes);
-  } catch {
-    return null;
-  }
-}
-
-/** Upload temporaire public pour donner une URL à Replicate. */
-async function uploadTempPublic(
-  bytes: Uint8Array,
-  mime: string,
-): Promise<{ url: string; path: string } | null> {
-  try {
-    const sb = serviceClient();
-    const ext = mime === "image/jpeg" ? "jpg" : mime === "image/webp" ? "webp" : "png";
-    const path = `tmp/restore/${crypto.randomUUID()}.${ext}`;
-    const { error } = await sb.storage.from("medias").upload(path, bytes, {
-      contentType: mime,
-      upsert: true,
-      cacheControl: "60",
+    const res = await fetch(url, {
+      headers: { Range: "bytes=0-131071" },
     });
-    if (error) return null;
-    const publicUrl = sb.storage.from("medias").getPublicUrl(path).data.publicUrl;
-    return { url: publicUrl, path };
+    if (!res.ok && res.status !== 206) {
+      // Certains CDN ignorent Range → fallback complet (souvent < 200 Ko en JPEG TikTok).
+      const full = await fetch(url);
+      if (!full.ok) return null;
+      return dimensionsImage(new Uint8Array(await full.arrayBuffer()));
+    }
+    return dimensionsImage(new Uint8Array(await res.arrayBuffer()));
   } catch {
     return null;
   }
 }
 
-async function supprimerTemp(path: string): Promise<void> {
-  try {
-    const sb = serviceClient();
-    await sb.storage.from("medias").remove([path]);
-  } catch {
-    // best-effort
-  }
+function supabaseFunctionsBase(): string | null {
+  const url = Deno.env.get("SUPABASE_URL");
+  if (!url) return null;
+  return `${url.replace(/\/$/, "")}/functions/v1`;
 }
-
-export type RestoreProgress = (info: {
-  detail: string;
-  saute?: boolean;
-  ok?: boolean;
-}) => void | Promise<void>;
 
 /**
- * Si le résultat clean est nettement plus petit que la source TikTok,
- * upscale Recraft Crisp pour retrouver une résolution utilisable.
- * Renvoie base64 + mime (inchangés si pas besoin / échec soft).
+ * Si le média propre est nettement plus petit que la source TikTok,
+ * appelle `upscale-media` (Recraft Crisp) en HTTP — worker séparé.
+ * Soft-fail : en cas d’échec on garde la version basse rés.
  */
-export async function restaurerResolutionSiBesoin(
-  base64: string,
+export async function restaurerResolutionMediaSiBesoin(
+  mediaId: string,
   sourceUrl: string,
-  onProgress?: RestoreProgress,
-): Promise<{ base64: string; mime: string; restaure: boolean }> {
-  const outBytes = deBase64(base64);
-  const outMime = mimeDepuisOctets(outBytes);
-  const outDims = dimensionsImage(outBytes);
-  const srcDims = await dimsDepuisUrl(sourceUrl);
+  mediaUrl: string,
+  emit?: RestoreEtapeEmit,
+): Promise<{ restaure: boolean; url?: string }> {
+  await emit?.({
+    etape: "restore_resolution",
+    statut: "encours",
+    detail: "③ Comparaison résolution source vs propre…",
+  });
 
-  if (!outDims || !srcDims) {
-    await onProgress?.({
-      detail: "③ Restore résolution SAUTÉ — dims illisibles",
-      saute: true,
+  const [srcDims, outDims] = await Promise.all([
+    dimsDepuisUrlLeger(sourceUrl),
+    dimsDepuisUrlLeger(mediaUrl),
+  ]);
+
+  if (!srcDims || !outDims) {
+    await emit?.({
+      etape: "restore_resolution",
+      statut: "saute",
+      detail: "③ Restore SAUTÉ — dims illisibles",
     });
-    return { base64, mime: outMime, restaure: false };
+    return { restaure: false };
   }
 
   const ratioW = outDims.w / srcDims.w;
   const ratioH = outDims.h / srcDims.h;
-  // Flux Kontext ~1 MP : typiquement 0.6–0.8× sur du 1080p.
   if (ratioW >= 0.92 && ratioH >= 0.92) {
-    await onProgress?.({
+    await emit?.({
+      etape: "restore_resolution",
+      statut: "saute",
       detail: `③ Résolution OK ${outDims.w}×${outDims.h} (source ${srcDims.w}×${srcDims.h})`,
-      saute: true,
     });
-    return { base64, mime: outMime, restaure: false };
+    return { restaure: false };
   }
 
-  await onProgress?.({
-    detail: `③ Downscale détecté ${outDims.w}×${outDims.h} ← source ${srcDims.w}×${srcDims.h} — Recraft Crisp…`,
+  const base = supabaseFunctionsBase();
+  const secret = Deno.env.get("CRON_SECRET") ?? Deno.env.get("TEST_SECRET");
+  if (!base || !secret) {
+    await emit?.({
+      etape: "restore_resolution",
+      statut: "saute",
+      detail: "③ Restore SAUTÉ — CRON_SECRET / SUPABASE_URL absents",
+    });
+    return { restaure: false };
+  }
+
+  await emit?.({
+    etape: "restore_resolution",
+    statut: "encours",
+    detail: `③ Downscale ${outDims.w}×${outDims.h} ← ${srcDims.w}×${srcDims.h} — Recraft Crisp (worker dédié)…`,
   });
 
-  const temp = await uploadTempPublic(outBytes, outMime);
-  if (!temp) {
-    await onProgress?.({
-      detail: "③ Restore ÉCHEC — upload temp impossible (image livrée en basse rés.)",
-      ok: false,
-    });
-    return { base64, mime: outMime, restaure: false };
-  }
-
   try {
-    const up = await upscaleViaRecraftCrisp(temp.url);
-    if (!up) {
-      await onProgress?.({
-        detail: "③ Restore SAUTÉ — REPLICATE_API_TOKEN absent",
-        saute: true,
-      });
-      return { base64, mime: outMime, restaure: false };
-    }
-    const upBytes = deBase64(up.base64);
-    const upDims = dimensionsImage(upBytes);
-    await onProgress?.({
-      detail: upDims
-        ? `③ Restore OK → ${upDims.w}×${upDims.h} (était ${outDims.w}×${outDims.h})`
-        : `③ Restore OK (dims inconnues, était ${outDims.w}×${outDims.h})`,
-      ok: true,
+    const res = await fetch(`${base}/upscale-media`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "x-cron-secret": secret,
+      },
+      body: JSON.stringify({ mediaId, forcer: true }),
     });
-    return { base64: up.base64, mime: up.mime, restaure: true };
+    const corps = await res.json().catch(() => ({})) as {
+      ok?: boolean;
+      url?: string;
+      error?: string;
+      detail?: string;
+      saute?: boolean;
+    };
+
+    if (!res.ok || !corps.ok) {
+      await emit?.({
+        etape: "restore_resolution",
+        statut: "echec",
+        detail: `③ Restore ÉCHEC: ${(corps.error ?? res.statusText).slice(0, 180)} — basse rés. conservée`,
+      });
+      return { restaure: false };
+    }
+
+    // Vérifie les dims après upscale (best-effort).
+    let detail = `③ Restore OK via Recraft Crisp (était ${outDims.w}×${outDims.h})`;
+    if (corps.url) {
+      const upDims = await dimsDepuisUrlLeger(corps.url);
+      if (upDims) {
+        detail =
+          `③ Restore OK → ${upDims.w}×${upDims.h} (était ${outDims.w}×${outDims.h}, source ${srcDims.w}×${srcDims.h})`;
+      }
+    }
+
+    await emit?.({
+      etape: "restore_resolution",
+      statut: "ok",
+      detail,
+    });
+    return { restaure: true, url: corps.url };
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e);
-    await onProgress?.({
-      detail: `③ Restore ÉCHEC: ${msg.slice(0, 180)} — image livrée en basse rés.`,
-      ok: false,
+    await emit?.({
+      etape: "restore_resolution",
+      statut: "echec",
+      detail: `③ Restore ÉCHEC: ${msg.slice(0, 180)} — basse rés. conservée`,
     });
-    return { base64, mime: outMime, restaure: false };
-  } finally {
-    await supprimerTemp(temp.path);
+    return { restaure: false };
   }
 }

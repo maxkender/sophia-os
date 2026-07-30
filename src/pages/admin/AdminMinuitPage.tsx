@@ -32,11 +32,30 @@ function badgePipeline(statut: string) {
 }
 
 /** Un compte et ce que minuit lui a (ou non) fabriqué ce jour-là. */
-function LigneCompte({ ligne }: { ligne: SuiviMinuit }) {
+function LigneCompte({
+  ligne,
+  date,
+  onAssigne,
+  assignationEnCours,
+}: {
+  ligne: SuiviMinuit;
+  date: string;
+  onAssigne: () => void;
+  assignationEnCours: boolean;
+}) {
   const { t } = useTranslation();
+  const queryClient = useQueryClient();
   const faits = ligne.posts.length;
   const manque = Math.max(0, ligne.quota - faits);
   const echec = ligne.posts.some((p) => p.pipeline_statut === "failed");
+
+  const assignerUn = useMutation({
+    mutationFn: () => lancerAssignationJour(date, ligne.compteId),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: ["suivi-minuit", date] });
+      onAssigne();
+    },
+  });
 
   return (
     <div className="space-y-2.5 rounded-lg border p-3">
@@ -54,10 +73,31 @@ function LigneCompte({ ligne }: { ligne: SuiviMinuit }) {
             </p>
           </div>
         </div>
-        <Badge variant={manque > 0 || echec ? "warning" : "success"}>
-          {t("minuit.faitSur", { faits, quota: ligne.quota })}
-        </Badge>
+        <div className="flex flex-wrap items-center gap-2">
+          <Badge variant={manque > 0 || echec ? "warning" : "success"}>
+            {t("minuit.faitSur", { faits, quota: ligne.quota })}
+          </Badge>
+          <Button
+            size="sm"
+            variant="outline"
+            disabled={assignationEnCours || assignerUn.isPending}
+            onClick={() => assignerUn.mutate()}
+            title={t("minuit.assignerUnAide")}
+          >
+            {assignerUn.isPending ? t("minuit.enCours") : t("minuit.assignerUn")}
+          </Button>
+        </div>
       </div>
+      {assignerUn.isError && (
+        <p className="text-xs text-destructive">{(assignerUn.error as Error).message}</p>
+      )}
+      {assignerUn.isSuccess && (
+        <p className="text-xs text-success">
+          {t("minuit.lance", {
+            crees: assignerUn.data.resultats.reduce((n, r) => n + r.crees, 0),
+          })}
+        </p>
+      )}
 
       {manque > 0 && !echec && (
         <p className="rounded-md bg-warning/10 p-2 text-xs text-warning">
@@ -252,7 +292,15 @@ export function AdminMinuitPage() {
           {suivi.isPending && <p className="text-sm text-muted-foreground">{t("common.loading")}</p>}
           {suivi.data?.length === 0 && <EmptyState title={t("minuit.aucunCompte")} />}
           {lignes.map((ligne) => (
-            <LigneCompte key={ligne.compteId} ligne={ligne} />
+            <LigneCompte
+              key={ligne.compteId}
+              ligne={ligne}
+              date={date}
+              assignationEnCours={relancer.isPending}
+              onAssigne={() =>
+                void queryClient.invalidateQueries({ queryKey: ["suivi-minuit", date] })
+              }
+            />
           ))}
         </CardContent>
       </Card>

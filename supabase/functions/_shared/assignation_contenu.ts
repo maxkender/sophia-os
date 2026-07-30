@@ -1,5 +1,10 @@
 import { assurerDeckPourLangue } from "./import_contenu.ts";
+import { mapPool } from "./parallel.ts";
 import { serviceClient } from "./supabase.ts";
+
+/** Comptes traités en parallèle. Gemini (trad + Sophia) est dans assurerDeck —
+ *  trop large → 429 ; trop petit → assignation lente. */
+const LARGEUR_ASSIGNATION = 4;
 
 export type Supabase = ReturnType<typeof serviceClient>;
 
@@ -270,24 +275,16 @@ export async function assignerTousComptes(
   const { data: comptes, error } = await query;
   if (error) throw error;
 
-  const resultats: Array<{
-    compteId: string;
-    crees: number;
-    passageIds?: string[];
-    erreur?: string;
-  }> = [];
-
-  for (const compte of comptes ?? []) {
+  return await mapPool(comptes ?? [], LARGEUR_ASSIGNATION, async (compte) => {
     try {
       const ids = await assignerCompteJour(supabase, compte, jour, reglages, forcer);
-      resultats.push({ compteId: compte.id, crees: ids.length, passageIds: ids });
+      return { compteId: compte.id as string, crees: ids.length, passageIds: ids };
     } catch (e) {
-      resultats.push({
-        compteId: compte.id,
+      return {
+        compteId: compte.id as string,
         crees: 0,
         erreur: e instanceof Error ? e.message : String(e),
-      });
+      };
     }
-  }
-  return resultats;
+  });
 }

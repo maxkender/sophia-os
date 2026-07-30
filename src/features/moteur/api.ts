@@ -1867,15 +1867,19 @@ export const lancerAssignation = (
     { compteId: compteId ?? null, type: type ?? null, forcer, manuel: true },
   );
 
-/** Simule le cron de minuit : assigne la journée à TOUS les comptes actifs pour
- *  la date choisie (comme minuit). Contourne la pause auto. */
-export const lancerAssignationJour = (date: string) =>
+/** Simule le cron de minuit : assigne la journée (tous les comptes, ou un seul).
+ *  Contourne la pause auto. Parallélisé côté Edge ; kick composition (Gemini). */
+export const lancerAssignationJour = (date: string, compteId?: string) =>
   invoke<{
     jour: string;
     resultats: Array<{ compteId: string; crees: number; types?: string[]; erreur?: string }>;
     saute?: boolean;
     raison?: string;
-  }>("assignation", { date, manuel: true });
+  }>("assignation", {
+    date,
+    manuel: true,
+    compteId: compteId ?? null,
+  });
 
 /** Une ligne de suivi « minuit » : un compte actif, son quota du jour, et les
  *  posts réellement produits ce jour-là (avec leur avancement et leurs erreurs). */

@@ -56,8 +56,40 @@ Deno.serve(async (request) => {
     if (!post) return json({ ok: true, idle: true });
 
     const etape = await avancerPost(supabase, post);
-    return json({ ok: true, postId: post.id, etape });
+
+    // Auto-chaîne tant qu'il reste de la file (cron composition souvent en pause).
+    const { count } = await supabase
+      .from("posts")
+      .select("id", { count: "exact", head: true })
+      .in("pipeline_statut", ["running", "pending"]);
+    if ((count ?? 0) > 0) kickComposition(request, 1);
+
+    return json({ ok: true, postId: post.id, etape, more: (count ?? 0) > 0 });
   } catch (error) {
     return json({ ok: false, error: messageErreur(error) }, 500);
   }
 });
+
+function kickComposition(request: Request, n: number): void {
+  const url = Deno.env.get("SUPABASE_URL");
+  if (!url) return;
+  const secret = Deno.env.get("CRON_SECRET");
+  const auth = request.headers.get("Authorization");
+  const headers: Record<string, string> = { "content-type": "application/json" };
+  if (secret) headers["x-cron-secret"] = secret;
+  else if (auth) headers.Authorization = auth;
+
+  const target = `${url}/functions/v1/composition`;
+  const edge = (globalThis as {
+    EdgeRuntime?: { waitUntil: (p: Promise<unknown>) => void };
+  }).EdgeRuntime;
+
+  for (let i = 0; i < Math.max(1, n); i += 1) {
+    const p = fetch(target, {
+      method: "POST",
+      headers,
+      body: JSON.stringify({}),
+    }).catch(() => null);
+    if (edge?.waitUntil) edge.waitUntil(p);
+  }
+}

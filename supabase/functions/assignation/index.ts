@@ -1,5 +1,10 @@
 import { creerPost as creerCoquille } from "../_shared/composer.ts";
+import { mapPool } from "../_shared/parallel.ts";
 import { assertAuthorised, aujourdhuiParis, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+
+/** Comptes en parallèle. La trad Gemini est dans le drain `composition`
+ *  (kické après) — ici on peut monter un peu plus haut. */
+const LARGEUR_ASSIGNATION = 6;
 
 type Supabase = ReturnType<typeof serviceClient>;
 type TypePost = "recycle" | "remanie" | "nouveau";
@@ -71,26 +76,25 @@ Deno.serve(async (request) => {
     const { data: comptes, error } = await query;
     if (error) throw error;
 
-    const resultats: Array<{
-      compteId: string;
-      crees: number;
-      types?: string[];
-      erreur?: string;
-    }> = [];
-
-    for (const compte of comptes ?? []) {
+    const resultats = await mapPool(comptes ?? [], LARGEUR_ASSIGNATION, async (compte) => {
       try {
         const types = await completerJournee(
           supabase, compte, jour, reglages, typeForce, forcer,
         );
-        resultats.push({ compteId: compte.id, crees: types.length, types });
+        return { compteId: compte.id as string, crees: types.length, types };
       } catch (error) {
-        resultats.push({
-          compteId: compte.id,
+        return {
+          compteId: compte.id as string,
           crees: 0,
           erreur: messageErreur(error),
-        });
+        };
       }
+    });
+
+    const creesTotal = resultats.reduce((n, r) => n + r.crees, 0);
+    // Cron composition souvent en pause : on kick le drain Gemini tout de suite.
+    if (creesTotal > 0) {
+      kickComposition(request, Math.min(8, Math.max(2, creesTotal)));
     }
 
     return json({ ok: true, jour, resultats });
@@ -98,6 +102,31 @@ Deno.serve(async (request) => {
     return json({ ok: false, error: messageErreur(error) }, 500);
   }
 });
+
+/** Déclenche N drains composition en parallèle (fire-and-forget). */
+function kickComposition(request: Request, n: number): void {
+  const url = Deno.env.get("SUPABASE_URL");
+  if (!url) return;
+  const secret = Deno.env.get("CRON_SECRET");
+  const auth = request.headers.get("Authorization");
+  const headers: Record<string, string> = { "content-type": "application/json" };
+  if (secret) headers["x-cron-secret"] = secret;
+  else if (auth) headers.Authorization = auth;
+
+  const target = `${url}/functions/v1/composition`;
+  const edge = (globalThis as {
+    EdgeRuntime?: { waitUntil: (p: Promise<unknown>) => void };
+  }).EdgeRuntime;
+
+  for (let i = 0; i < Math.max(1, n); i += 1) {
+    const p = fetch(target, {
+      method: "POST",
+      headers,
+      body: JSON.stringify({}),
+    }).catch(() => null);
+    if (edge?.waitUntil) edge.waitUntil(p);
+  }
+}
 
 interface Reglages {
   repartition: Record<TypePost, number>;

@@ -15,7 +15,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import {
-  aujourdhui,
+  aujourdhuiParis,
   ecrireReglage,
   lancerAssignationJourLive,
   lancerRattrapageEloLive,
@@ -245,7 +245,8 @@ function Tuile({
 export function AdminMinuitPage() {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
-  const [date, setDate] = React.useState(aujourdhui());
+  // Jour Paris (comme Edge assignation / ELO) — pas le fuseau navigateur.
+  const [date, setDate] = React.useState(aujourdhuiParis());
 
   const suivi = useQuery({
     queryKey: ["suivi-minuit", date],
@@ -303,6 +304,8 @@ export function AdminMinuitPage() {
     });
     const data = await lancerRattrapageEloLive({
       jours: 4,
+      // Rejoue l'ELO langue sur les posts déjà scorés (vues du jour à jour).
+      forcer: true,
       onProgress: (p) => {
         const label = p.handle
           ? t("minuit.rattrapageEloProgress", {

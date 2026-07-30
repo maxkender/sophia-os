@@ -254,6 +254,8 @@ type PassageFenetre = {
   partages: number | null;
   elo_maj_at: string | null;
   slides: unknown;
+  /** Stats relues dans ce run → ELO langue doit suivre même si déjà maj. */
+  statsFresh?: boolean;
 };
 
 async function chargerPassagesFenetre(
@@ -433,6 +435,9 @@ async function releverStatsFenetre(
         passage.likes = match.stats.likes;
         passage.commentaires = match.stats.commentaires;
         passage.partages = match.stats.partages;
+        // Marque pour que l'ELO langue re-applique avec les vues fraîches
+        // (sinon elo_maj_at du matin bloque le re-run du soir).
+        passage.statsFresh = true;
         out.releves += 1;
         relevesCompte += 1;
         if (via === "fallbackUrl") out.fallbackUrl += 1;
@@ -505,7 +510,10 @@ async function appliquerEloLangue(
       );
       continue;
     }
-    if (p.elo_maj_at && !opts.forcer) {
+    // Déjà scorés : on ignore SAUF forcer admin, ou stats fraîches ce run
+    // (re-run Relancer le soir doit reprendre les posts du jour).
+    const rejouer = Boolean(opts.forcer || p.statsFresh);
+    if (p.elo_maj_at && !rejouer) {
       out.ignores += 1;
       continue;
     }
@@ -545,7 +553,8 @@ async function appliquerEloLangue(
     const brut = LR_LANGUE * (perf - cl.score);
     const delta = clamp(brut, -MAX_DELTA_LANGUE, MAX_DELTA_LANGUE);
     const next = clamp(cl.score + delta, 0, 100);
-    const nb = opts.forcer && p.elo_maj_at ? cl.nb : cl.nb + 1;
+    // Rejeu (forcer / stats fraîches) : ne pas recompter le passage.
+    const nb = p.elo_maj_at && rejouer ? cl.nb : cl.nb + 1;
 
     if (!opts.dryRun) {
       await supabase
@@ -603,6 +612,8 @@ async function appliquerEloLangue(
 /**
  * Jours passés de la fenêtre où le compte était actif mais n'a pas publié.
  * Aujourd'hui exclu (créneau encore ouvert).
+ * Crédit publication = date_publication_prevue OU jour Paris de publie_at
+ * (aligné Pilotage L1/L2).
  */
 async function joursSansPublication(
   supabase: Supabase,
@@ -613,21 +624,33 @@ async function joursSansPublication(
   const joursEligibles = joursPasses.filter((j) => etaitActifAuJour(compte, j));
   if (joursEligibles.length === 0) return 0;
 
+  // Fenêtre élargie : prevue OU publie_at (jour Paris) dans les jours éligibles.
+  const debut = joursEligibles[0]!;
   const { data } = await supabase
     .from("passages")
     .select("date_publication_prevue, publie_at, publie_url, statut")
     .eq("compte_id", compteId)
-    .in("date_publication_prevue", joursEligibles);
+    .gte("date_publication_prevue", ajouterJoursParis(debut, -2));
 
   const postes = new Set<string>();
+  const fmtParis = (iso: string | null) => {
+    if (!iso) return null;
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) return null;
+    return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(d);
+  };
+  const elig = new Set(joursEligibles);
+
   for (const p of data ?? []) {
-    const jour = p.date_publication_prevue as string | null;
-    if (!jour) continue;
     const publie =
       p.statut === "publie" ||
       Boolean(p.publie_url) ||
       Boolean(p.publie_at);
-    if (publie) postes.add(jour);
+    if (!publie) continue;
+    const prevue = p.date_publication_prevue as string | null;
+    if (prevue && elig.has(prevue)) postes.add(prevue);
+    const jourPublie = fmtParis(p.publie_at as string | null);
+    if (jourPublie && elig.has(jourPublie)) postes.add(jourPublie);
   }
 
   return joursEligibles.filter((j) => !postes.has(j)).length;
@@ -649,6 +672,8 @@ async function appliquerEloComptes(
 ): Promise<RattrapageResultat["eloCompte"]> {
   const scoring = await chargerScoring(supabase);
   const details: EloCompteDetail[] = [];
+  // Pénalité = jours passés sans post. Aujourd'hui exclu (créneau ouvert),
+  // mais les posts du jour alimentent bien l'ELO compte via les vues mesurées.
   const auj = aujourdhuiParis();
   const joursPasses = datesFenetre.filter((d) => d < auj);
 

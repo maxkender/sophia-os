@@ -5,6 +5,8 @@
  * 2) ELO langue : deltas ↑/↓ incrémentaux (signal = vues seules), idempotents
  *    via passages.elo_maj_at — contourne PAUSE_ELO_RUNTIME.
  * 3) ELO compte : moyenne pondérée récence des ≤10 derniers posts mesurés.
+ *
+ * Renvoie aussi `logs` (trace) + `brief` (résumé UI).
  */
 import { scrapePost, scrapeStats, type ScrapedPost } from "./apify.ts";
 import {
@@ -25,6 +27,17 @@ const COMPTE_MAX_POSTS = 10;
 const COMPTE_DECAY = 0.85;
 /** Fenêtre (±h) pour matcher le « dernier post » profil vs date attendue. */
 const COHERENCE_HEURES = 36;
+/** Max d’entrées détaillées dans le brief (UI). */
+const BRIEF_TOP = 12;
+
+export type LogLevel = "info" | "ok" | "warn" | "error";
+
+export interface RattrapageLog {
+  at: string;
+  level: LogLevel;
+  message: string;
+  detail?: string;
+}
 
 export interface RattrapageOpts {
   compteId?: string | null;
@@ -35,6 +48,53 @@ export interface RattrapageOpts {
   dryRun?: boolean;
 }
 
+export interface EloLangueDetail {
+  passageId: string;
+  contenuId: string;
+  compteId: string;
+  handle: string | null;
+  langue: string;
+  date: string | null;
+  vues: number;
+  avant: number;
+  apres: number;
+  delta: number;
+}
+
+export interface EloCompteDetail {
+  compteId: string;
+  handle: string | null;
+  avant: number;
+  apres: number;
+  posts: number;
+}
+
+export interface RattrapageBrief {
+  resume: string;
+  fenetre: string;
+  passages: number;
+  stats: {
+    comptes: number;
+    releves: number;
+    sansMatch: number;
+    fallbackUrl: number;
+    fallbackCoherence: number;
+    erreurs: number;
+  };
+  eloLangue: {
+    appliques: number;
+    ignores: number;
+    deltaNet: number;
+    hausses: number;
+    baisses: number;
+    top: EloLangueDetail[];
+  };
+  eloCompte: {
+    maj: number;
+    top: EloCompteDetail[];
+  };
+}
+
 export interface RattrapageResultat {
   fenetre: { debut: string; fin: string; jours: number };
   stats: {
@@ -42,11 +102,31 @@ export interface RattrapageResultat {
     releves: number;
     fallbackUrl: number;
     fallbackCoherence: number;
-    erreurs: Array<{ compteId: string; erreur: string }>;
+    sansMatch: number;
+    erreurs: Array<{ compteId: string; handle?: string | null; erreur: string }>;
   };
-  eloLangue: { appliques: number; ignores: number; deltas: number };
-  eloCompte: { maj: number };
+  eloLangue: {
+    appliques: number;
+    ignores: number;
+    deltas: number;
+    hausses: number;
+    baisses: number;
+    details: EloLangueDetail[];
+  };
+  eloCompte: { maj: number; details: EloCompteDetail[] };
+  brief: RattrapageBrief;
+  logs: RattrapageLog[];
   dryRun: boolean;
+}
+
+class Journal {
+  readonly lines: RattrapageLog[] = [];
+  push(level: LogLevel, message: string, detail?: string) {
+    const at = new Date().toISOString();
+    this.lines.push({ at, level, message, detail });
+    const prefix = level === "error" ? "ERR" : level === "warn" ? "WRN" : level === "ok" ? "OK" : "INF";
+    console.log(`[rattrapage-elo] ${prefix} ${message}${detail ? ` — ${detail}` : ""}`);
+  }
 }
 
 function ajouterJoursParis(yyyyMmDd: string, delta: number): string {
@@ -123,6 +203,15 @@ function clamp(n: number, min: number, max: number): number {
   return Math.min(max, Math.max(min, n));
 }
 
+function fmt(n: number, digits = 1): string {
+  return (Math.round(n * 10 ** digits) / 10 ** digits).toFixed(digits);
+}
+
+function signe(n: number): string {
+  if (n > 0) return `+${fmt(n)}`;
+  return fmt(n);
+}
+
 type PassageFenetre = {
   id: string;
   contenu_id: string;
@@ -188,12 +277,15 @@ async function releverStatsFenetre(
   supabase: Supabase,
   passages: PassageFenetre[],
   dryRun: boolean,
+  handles: Map<string, string | null>,
+  journal: Journal,
 ): Promise<RattrapageResultat["stats"]> {
   const out: RattrapageResultat["stats"] = {
     comptes: 0,
     releves: 0,
     fallbackUrl: 0,
     fallbackCoherence: 0,
+    sansMatch: 0,
     erreurs: [],
   };
 
@@ -205,7 +297,10 @@ async function releverStatsFenetre(
   }
 
   const compteIds = [...parCompte.keys()];
-  if (compteIds.length === 0) return out;
+  if (compteIds.length === 0) {
+    journal.push("warn", "Aucun passage publié avec publie_url dans la fenêtre");
+    return out;
+  }
 
   const { data: comptes, error } = await supabase
     .from("comptes")
@@ -214,14 +309,26 @@ async function releverStatsFenetre(
     .not("handle_tiktok", "is", null);
   if (error) throw error;
 
+  for (const c of comptes ?? []) {
+    handles.set(c.id as string, (c.handle_tiktok as string) ?? null);
+  }
+
   out.comptes = (comptes ?? []).length;
+  journal.push(
+    "info",
+    `Stats — ${out.comptes} compte(s), ${passages.length} passage(s)`,
+  );
 
   for (const compte of comptes ?? []) {
     const handle = compte.handle_tiktok as string;
     const liste = parCompte.get(compte.id) ?? [];
+    let relevesCompte = 0;
+    let sansMatchCompte = 0;
     try {
+      journal.push("info", `@${handle} — scrape profil (${liste.length} passage(s))`);
       const enLigne = await scrapeStats(handle, POSTS_RELEVES);
       const parId = new Map(enLigne.map((p) => [idDuLien(p.webVideoUrl), p]));
+      journal.push("info", `@${handle} — ${enLigne.length} post(s) TikTok scrapés`);
 
       for (const passage of liste) {
         if (!passage.publie_url) continue;
@@ -236,8 +343,12 @@ async function releverStatsFenetre(
               match = seuls[0];
               via = "fallbackUrl";
             }
-          } catch {
-            // on tente la cohérence ci-dessous
+          } catch (e) {
+            journal.push(
+              "warn",
+              `@${handle} — scrapePost échoué`,
+              e instanceof Error ? e.message : String(e),
+            );
           }
         }
 
@@ -254,7 +365,6 @@ async function releverStatsFenetre(
             const postMs = post.createTime * 1000;
             if (Math.abs(postMs - ancreMs) > COHERENCE_HEURES * 3600_000) continue;
             const sim = similariteTexte(attendu, post.text);
-            // Date seule si pas de texte exploitable ; sinon exige un peu de overlap.
             const score = attendu.trim() ? sim : 0.5;
             if (attendu.trim() && sim < 0.15) continue;
             if (!best || score > best.score) best = { post, score };
@@ -265,21 +375,42 @@ async function releverStatsFenetre(
           }
         }
 
-        if (!match) continue;
+        if (!match) {
+          sansMatchCompte += 1;
+          out.sansMatch += 1;
+          journal.push(
+            "warn",
+            `@${handle} — pas de match stats`,
+            `${passage.date_publication_prevue ?? "?"} · ${passage.id.slice(0, 8)}`,
+          );
+          continue;
+        }
+
         await ecrireStats(supabase, passage.id, match.stats, dryRun);
         passage.vues = match.stats.vues;
         passage.likes = match.stats.likes;
         passage.commentaires = match.stats.commentaires;
         passage.partages = match.stats.partages;
         out.releves += 1;
+        relevesCompte += 1;
         if (via === "fallbackUrl") out.fallbackUrl += 1;
         if (via === "coherence") out.fallbackCoherence += 1;
+        journal.push(
+          "ok",
+          `@${handle} · ${passage.date_publication_prevue ?? "?"} → ${match.stats.vues} vues`,
+          via === "url" ? "match URL" : via === "fallbackUrl" ? "fallback scrapePost" : "fallback cohérence",
+        );
       }
+
+      journal.push(
+        relevesCompte > 0 ? "ok" : "warn",
+        `@${handle} — ${relevesCompte}/${liste.length} relevé(s)` +
+          (sansMatchCompte ? `, ${sansMatchCompte} sans match` : ""),
+      );
     } catch (e) {
-      out.erreurs.push({
-        compteId: compte.id,
-        erreur: e instanceof Error ? e.message : String(e),
-      });
+      const erreur = e instanceof Error ? e.message : String(e);
+      out.erreurs.push({ compteId: compte.id, handle, erreur });
+      journal.push("error", `@${handle} — erreur scrape`, erreur);
     }
   }
 
@@ -290,11 +421,19 @@ async function appliquerEloLangue(
   supabase: Supabase,
   passages: PassageFenetre[],
   opts: { forcer: boolean; dryRun: boolean },
+  handles: Map<string, string | null>,
+  journal: Journal,
 ): Promise<RattrapageResultat["eloLangue"]> {
   const scoring = await chargerScoring(supabase);
-  const out = { appliques: 0, ignores: 0, deltas: 0 };
+  const out: RattrapageResultat["eloLangue"] = {
+    appliques: 0,
+    ignores: 0,
+    deltas: 0,
+    hausses: 0,
+    baisses: 0,
+    details: [],
+  };
 
-  // Chronologique : publie_at puis date prévue puis id.
   const ordonnés = [...passages].sort((a, b) => {
     const ta = a.publie_at ?? `${a.date_publication_prevue ?? ""}T00:00:00Z`;
     const tb = b.publie_at ?? `${b.date_publication_prevue ?? ""}T00:00:00Z`;
@@ -311,12 +450,17 @@ async function appliquerEloLangue(
     (comptesRows ?? []).map((c) => [c.id as string, (c.score as number) ?? scoring.score_prior]),
   );
 
-  // Cache des scores langue en mémoire pour chaîner les deltas du même run.
   const scoreLangue = new Map<string, { id: string; score: number; nb: number }>();
+  journal.push("info", `ELO langue — ${ordonnés.length} passage(s) à examiner`);
 
   for (const p of ordonnés) {
     if (p.vues == null) {
       out.ignores += 1;
+      journal.push(
+        "warn",
+        `ELO langue ignoré (pas de vues)`,
+        `${p.date_publication_prevue ?? "?"} · ${p.langue} · ${p.id.slice(0, 8)}`,
+      );
       continue;
     }
     if (p.elo_maj_at && !opts.forcer) {
@@ -335,6 +479,11 @@ async function appliquerEloLangue(
         .maybeSingle();
       if (!row) {
         out.ignores += 1;
+        journal.push(
+          "warn",
+          `ELO langue — pas de contenu_langues`,
+          `${p.contenu_id.slice(0, 8)} · ${p.langue}`,
+        );
         continue;
       }
       cl = {
@@ -345,6 +494,7 @@ async function appliquerEloLangue(
       scoreLangue.set(key, cl);
     }
 
+    const avant = cl.score;
     const perf = performanceNormalisee(
       performancePassage(p.vues),
       scoreCompte.get(p.compte_id) ?? scoring.score_prior,
@@ -375,7 +525,35 @@ async function appliquerEloLangue(
     p.elo_maj_at = new Date().toISOString();
     out.appliques += 1;
     out.deltas += delta;
+    if (delta > 0.05) out.hausses += 1;
+    else if (delta < -0.05) out.baisses += 1;
+
+    const detail: EloLangueDetail = {
+      passageId: p.id,
+      contenuId: p.contenu_id,
+      compteId: p.compte_id,
+      handle: handles.get(p.compte_id) ?? null,
+      langue: p.langue,
+      date: p.date_publication_prevue,
+      vues: p.vues,
+      avant,
+      apres: next,
+      delta,
+    };
+    out.details.push(detail);
+
+    const handle = detail.handle ? `@${detail.handle}` : p.compte_id.slice(0, 8);
+    journal.push(
+      delta >= 0 ? "ok" : "warn",
+      `ELO ${p.langue.toUpperCase()} ${handle} ${signe(delta)} → ${fmt(next)}`,
+      `${p.date_publication_prevue ?? "?"} · ${p.vues} vues · ${fmt(avant)} → ${fmt(next)}`,
+    );
   }
+
+  journal.push(
+    "info",
+    `ELO langue — ${out.appliques} appliqué(s), ${out.ignores} ignoré(s), Δnet ${signe(out.deltas)} (${out.hausses}↑ ${out.baisses}↓)`,
+  );
 
   return out;
 }
@@ -388,11 +566,25 @@ async function appliquerEloComptes(
   supabase: Supabase,
   compteIds: string[],
   dryRun: boolean,
+  handles: Map<string, string | null>,
+  journal: Journal,
 ): Promise<RattrapageResultat["eloCompte"]> {
   const scoring = await chargerScoring(supabase);
-  let maj = 0;
+  const details: EloCompteDetail[] = [];
+
+  journal.push("info", `ELO compte — ${compteIds.length} compte(s)`);
 
   for (const cid of compteIds) {
+    const { data: rowAvant } = await supabase
+      .from("comptes")
+      .select("score, handle_tiktok")
+      .eq("id", cid)
+      .maybeSingle();
+    const avant = (rowAvant?.score as number | null) ?? scoring.score_prior;
+    if (rowAvant?.handle_tiktok) {
+      handles.set(cid, rowAvant.handle_tiktok as string);
+    }
+
     const { data: posts } = await supabase
       .from("passages")
       .select("vues, publie_at, date_publication_prevue, created_at")
@@ -402,9 +594,11 @@ async function appliquerEloComptes(
       .limit(40);
 
     const mesurés = (posts ?? []).filter((p) => p.vues != null);
-    if (mesurés.length === 0) continue;
+    if (mesurés.length === 0) {
+      journal.push("warn", `ELO compte — aucun post mesuré`, handles.get(cid) ?? cid.slice(0, 8));
+      continue;
+    }
 
-    // Plus récent d'abord (publie_at → date prévue → created_at).
     mesurés.sort((a, b) => {
       const ta = (a.publie_at as string | null) ??
         (a.date_publication_prevue as string | null) ??
@@ -427,7 +621,6 @@ async function appliquerEloComptes(
       sum += w * perf;
     });
     const next = clamp(sum / sumW, 0, 100);
-    // Garde-fou soft vers le prior si très peu de posts.
     const regularise =
       (scoring.regularisation_k * scoring.score_prior + top.length * next) /
       (scoring.regularisation_k + top.length);
@@ -438,33 +631,119 @@ async function appliquerEloComptes(
         .update({ score: regularise, score_maj_at: new Date().toISOString() })
         .eq("id", cid);
     }
-    maj += 1;
+
+    const handle = handles.get(cid) ?? null;
+    details.push({
+      compteId: cid,
+      handle,
+      avant,
+      apres: regularise,
+      posts: top.length,
+    });
+    journal.push(
+      regularise >= avant ? "ok" : "warn",
+      `ELO compte ${handle ? `@${handle}` : cid.slice(0, 8)} ${signe(regularise - avant)} → ${fmt(regularise)}`,
+      `${fmt(avant)} → ${fmt(regularise)} · ${top.length} post(s)`,
+    );
   }
 
-  return { maj };
+  journal.push("info", `ELO compte — ${details.length} mis à jour`);
+  return { maj: details.length, details };
+}
+
+function construireBrief(
+  fenetre: { debut: string; fin: string; jours: number },
+  passages: number,
+  stats: RattrapageResultat["stats"],
+  eloLangue: RattrapageResultat["eloLangue"],
+  eloCompte: RattrapageResultat["eloCompte"],
+  dryRun: boolean,
+): RattrapageBrief {
+  const topLangue = [...eloLangue.details]
+    .sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta))
+    .slice(0, BRIEF_TOP);
+  const topCompte = [...eloCompte.details]
+    .sort((a, b) => Math.abs(b.apres - b.avant) - Math.abs(a.apres - a.avant))
+    .slice(0, BRIEF_TOP);
+
+  const resume =
+    `${dryRun ? "[dry-run] " : ""}` +
+    `${fenetre.debut}→${fenetre.fin} · ${stats.releves} stats · ` +
+    `${eloLangue.appliques} ELO langue (${eloLangue.hausses}↑ ${eloLangue.baisses}↓, Δ ${signe(eloLangue.deltas)}) · ` +
+    `${eloCompte.maj} ELO compte` +
+    (stats.sansMatch ? ` · ${stats.sansMatch} sans match` : "") +
+    (stats.erreurs.length ? ` · ${stats.erreurs.length} erreur(s)` : "");
+
+  return {
+    resume,
+    fenetre: `${fenetre.debut} → ${fenetre.fin} (${fenetre.jours}j)`,
+    passages,
+    stats: {
+      comptes: stats.comptes,
+      releves: stats.releves,
+      sansMatch: stats.sansMatch,
+      fallbackUrl: stats.fallbackUrl,
+      fallbackCoherence: stats.fallbackCoherence,
+      erreurs: stats.erreurs.length,
+    },
+    eloLangue: {
+      appliques: eloLangue.appliques,
+      ignores: eloLangue.ignores,
+      deltaNet: eloLangue.deltas,
+      hausses: eloLangue.hausses,
+      baisses: eloLangue.baisses,
+      top: topLangue,
+    },
+    eloCompte: {
+      maj: eloCompte.maj,
+      top: topCompte,
+    },
+  };
 }
 
 export async function rattrapageElo(
   supabase: Supabase,
   opts: RattrapageOpts = {},
 ): Promise<RattrapageResultat> {
+  const journal = new Journal();
   const jours = Math.max(1, Math.min(14, opts.jours ?? RATTRAPAGE_JOURS_DEFAUT));
   const dryRun = Boolean(opts.dryRun);
   const forcer = Boolean(opts.forcer);
   const { debut, fin, dates } = joursFenetreParis(jours);
+  const handles = new Map<string, string | null>();
+
+  journal.push(
+    "info",
+    `Démarrage rattrapage ELO${dryRun ? " (dry-run)" : ""}${forcer ? " (forcer)" : ""}`,
+    `fenêtre ${debut} → ${fin} (${jours}j)` +
+      (opts.compteId ? ` · compte ${opts.compteId.slice(0, 8)}` : " · tous comptes"),
+  );
 
   const passages = await chargerPassagesFenetre(supabase, dates, opts.compteId ?? null);
-  const stats = await releverStatsFenetre(supabase, passages, dryRun);
-  const eloLangue = await appliquerEloLangue(supabase, passages, { forcer, dryRun });
+  journal.push("info", `${passages.length} passage(s) publiés avec lien dans la fenêtre`);
 
+  const stats = await releverStatsFenetre(supabase, passages, dryRun, handles, journal);
+  const eloLangue = await appliquerEloLangue(supabase, passages, { forcer, dryRun }, handles, journal);
   const compteIds = [...new Set(passages.map((p) => p.compte_id))];
-  const eloCompte = await appliquerEloComptes(supabase, compteIds, dryRun);
+  const eloCompte = await appliquerEloComptes(supabase, compteIds, dryRun, handles, journal);
+
+  const brief = construireBrief(
+    { debut, fin, jours },
+    passages.length,
+    stats,
+    eloLangue,
+    eloCompte,
+    dryRun,
+  );
+  journal.push("ok", "Terminé", brief.resume);
 
   return {
     fenetre: { debut, fin, jours },
     stats,
     eloLangue,
     eloCompte,
+    brief,
+    logs: journal.lines,
     dryRun,
   };
 }

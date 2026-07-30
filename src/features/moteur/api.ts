@@ -1905,6 +1905,56 @@ export const lancerScoringVnext = (compteId?: string) =>
     compteId: compteId ?? null,
   });
 
+export type RattrapageEloLog = {
+  at: string;
+  level: "info" | "ok" | "warn" | "error";
+  message: string;
+  detail?: string;
+};
+
+export type RattrapageEloBrief = {
+  resume: string;
+  fenetre: string;
+  passages: number;
+  stats: {
+    comptes: number;
+    releves: number;
+    sansMatch: number;
+    fallbackUrl: number;
+    fallbackCoherence: number;
+    erreurs: number;
+  };
+  eloLangue: {
+    appliques: number;
+    ignores: number;
+    deltaNet: number;
+    hausses: number;
+    baisses: number;
+    top: Array<{
+      passageId: string;
+      contenuId: string;
+      compteId: string;
+      handle: string | null;
+      langue: string;
+      date: string | null;
+      vues: number;
+      avant: number;
+      apres: number;
+      delta: number;
+    }>;
+  };
+  eloCompte: {
+    maj: number;
+    top: Array<{
+      compteId: string;
+      handle: string | null;
+      avant: number;
+      apres: number;
+      posts: number;
+    }>;
+  };
+};
+
 /** Rattrapage ELO (4 jours Paris) : stats → deltas langue (vues) → ELO compte ≤10 posts. */
 export const lancerRattrapageElo = (opts?: {
   compteId?: string;
@@ -1920,10 +1970,19 @@ export const lancerRattrapageElo = (opts?: {
       releves: number;
       fallbackUrl: number;
       fallbackCoherence: number;
-      erreurs: Array<{ compteId: string; erreur: string }>;
+      sansMatch: number;
+      erreurs: Array<{ compteId: string; handle?: string | null; erreur: string }>;
     };
-    eloLangue: { appliques: number; ignores: number; deltas: number };
+    eloLangue: {
+      appliques: number;
+      ignores: number;
+      deltas: number;
+      hausses: number;
+      baisses: number;
+    };
     eloCompte: { maj: number };
+    brief: RattrapageEloBrief;
+    logs: RattrapageEloLog[];
     dryRun: boolean;
     error?: string;
   }>("rattrapage-elo", {

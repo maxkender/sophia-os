@@ -1236,6 +1236,20 @@ export type JobReimportPhoto = {
   position: number;
 };
 
+/** Jobs réimport pour un contenu (slides avec brut source). */
+export function jobsReimportDepuisSlides(
+  contenuId: string,
+  slides: ContenuSlide[] | null | undefined,
+): JobReimportPhoto[] {
+  const jobs: JobReimportPhoto[] = [];
+  for (const s of slides ?? []) {
+    if (s.raw_url || s.reference_url) {
+      jobs.push({ contenuId, position: s.position });
+    }
+  }
+  return jobs;
+}
+
 /**
  * Toutes les slides des contenus `valide` qui ont une URL source (brut TikTok).
  * Sert au lot « réimporter photos » — texte / OCR / decks inchangés.
@@ -1254,12 +1268,12 @@ export async function listerJobsReimportPhotosValides(): Promise<JobReimportPhot
     if (error) throw error;
     const batch = data ?? [];
     for (const row of batch) {
-      const slides = (row.structure_slides ?? []) as ContenuSlide[];
-      for (const s of slides) {
-        if (s.raw_url || s.reference_url) {
-          jobs.push({ contenuId: row.id as string, position: s.position });
-        }
-      }
+      jobs.push(
+        ...jobsReimportDepuisSlides(
+          row.id as string,
+          (row.structure_slides ?? []) as ContenuSlide[],
+        ),
+      );
     }
     if (batch.length < pageSize) break;
     from += pageSize;

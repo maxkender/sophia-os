@@ -695,6 +695,11 @@ export const en = {
       reimportPhotos: "Reimport photos (valid)",
       reimportAide:
         "Re-cleans all photos of valid slideshows from the TikTok raw (PNG + lossless C2PA). Text unchanged. Also updates already-assigned posts; future assignments pick up the new cleans. ×12 parallel — keep the tab open.",
+      reimportUn: "Reimport photos",
+      reimportUnAide:
+        "Re-clean photos for THIS slideshow only (test). Text unchanged, assigned posts updated.",
+      reimportUnConfirm:
+        "Reimport the {{count}} photo(s) of this slideshow? Text unchanged — images also replaced on already-assigned posts.",
       reimportScan: "Scanning valid slideshows…",
       reimportVide: "No photos to reimport (no raw source).",
       reimportConfirm:

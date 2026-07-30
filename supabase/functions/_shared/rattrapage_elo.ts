@@ -18,7 +18,8 @@ import {
 import { aujourdhuiParis } from "./supabase.ts";
 
 export const RATTRAPAGE_JOURS_DEFAUT = 4;
-const POSTS_RELEVES = 30;
+/** Profil TikTok scrapé — garder bas pour rester sous le timeout Edge 150s / compte. */
+const POSTS_RELEVES = 12;
 /** Sensibilité ELO langue (plus fort que l'EWMA comptes 0.3). */
 const LR_LANGUE = 0.4;
 /** Plafond |Δ| par passage pour éviter les coups trop violents. */

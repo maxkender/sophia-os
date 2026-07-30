@@ -215,6 +215,8 @@ export const fr = {
       relancerAide:
         "1) ELO refresh (scrape + scores) → Analytics mis à jour · 2) Assignation manuelle. Ne change pas le toggle pause auto.",
       enCours: "Assignation…",
+      assignProgress: "Assignation {{i}}/{{n}} — {{nom}}",
+      assignErreur: "Échec de l’assignation",
       lance: "ELO puis assignation : {{crees}} passage(s) créé(s). Decks déjà traduits + Sophia — le suivi se met à jour tout seul.",
       lanceZero:
         "Aucun passage créé — pool vide (labels / slideshows / langue ELO). Voir le détail ci-dessous.",

@@ -2554,9 +2554,34 @@ function fusionnerBriefs(
   return agg;
 }
 
+function estTimeoutEdge(err: unknown): boolean {
+  const m = err instanceof Error ? err.message : String(err);
+  return /idle timeout|150s|Timeout Edge/i.test(m);
+}
+
+/** Un compte ELO : 1 essai, puis retry fenêtre courte si timeout 150s. */
+async function lancerRattrapageEloCompteRobuste(opts: {
+  compteId: string;
+  jours: number;
+  forcer: boolean;
+}): Promise<RattrapageEloResultat> {
+  try {
+    return await lancerRattrapageElo(opts);
+  } catch (e) {
+    if (!estTimeoutEdge(e)) throw e;
+    // 2e chance : fenêtre plus courte pour rester sous 150s.
+    return await lancerRattrapageElo({
+      compteId: opts.compteId,
+      jours: Math.min(2, opts.jours),
+      forcer: opts.forcer,
+    });
+  }
+}
+
 /**
  * Rattrapage ELO compte-par-compte (évite le timeout Edge 150s) avec
  * progression + logs live via `onProgress`.
+ * Ne throw jamais pour un timeout partiel — continue les autres comptes.
  */
 export async function lancerRattrapageEloLive(opts?: {
   jours?: number;
@@ -2647,7 +2672,11 @@ export async function lancerRattrapageEloLive(opts?: {
     });
 
     try {
-      const r = await lancerRattrapageElo({ compteId: c.id, jours, forcer });
+      const r = await lancerRattrapageEloCompteRobuste({
+        compteId: c.id,
+        jours,
+        forcer,
+      });
       fenetre = r.fenetre;
       for (const l of r.logs ?? []) logs.push(l);
       if (r.brief) briefs.push(r.brief);
@@ -2678,8 +2707,11 @@ export async function lancerRattrapageEloLive(opts?: {
       });
     } catch (e) {
       const erreur = e instanceof Error ? e.message : String(e);
-      erreurs.push({ compteId: c.id, handle: c.handle, erreur });
-      pushLog("error", `[${i + 1}/${comptes.length}] @${c.handle ?? "?"} — échec`, erreur);
+      const detail = estTimeoutEdge(e)
+        ? `${erreur} — compte sauté, on continue`
+        : erreur;
+      erreurs.push({ compteId: c.id, handle: c.handle, erreur: detail });
+      pushLog("error", `[${i + 1}/${comptes.length}] @${c.handle ?? "?"} — échec`, detail);
       onProgress?.({
         index: i + 1,
         total: comptes.length,
@@ -2688,7 +2720,7 @@ export async function lancerRattrapageEloLive(opts?: {
         phase: "error",
         logs: [...logs],
         briefPartial: briefs.length ? fusionnerBriefs(jours, briefs, erreurs.length) : null,
-        erreur,
+        erreur: detail,
       });
     }
   }
@@ -2848,6 +2880,50 @@ export const lancerAssignationJour = (date: string, compteId?: string) =>
     manuel: true,
     compteId: compteId ?? null,
   });
+
+export type AssignationJourResultat = Awaited<ReturnType<typeof lancerAssignationJour>>;
+
+/**
+ * Assignation compte-par-compte (évite timeout Edge 150s sur Relancer).
+ * Continue même si un compte échoue / timeout.
+ */
+export async function lancerAssignationJourLive(
+  date: string,
+  opts?: {
+    onProgress?: (p: {
+      index: number;
+      total: number;
+      compteId: string;
+      nom: string;
+    }) => void;
+  },
+): Promise<AssignationJourResultat> {
+  const lignes = await suiviAssignation(date);
+  const resultats: AssignationJourResultat["resultats"] = [];
+
+  for (let i = 0; i < lignes.length; i++) {
+    const l = lignes[i]!;
+    opts?.onProgress?.({
+      index: i + 1,
+      total: lignes.length,
+      compteId: l.compteId,
+      nom: l.nom,
+    });
+    try {
+      const r = await lancerAssignationJour(date, l.compteId);
+      resultats.push(...(r.resultats ?? []));
+    } catch (e) {
+      const erreur = e instanceof Error ? e.message : String(e);
+      resultats.push({
+        compteId: l.compteId,
+        crees: 0,
+        erreur: estTimeoutEdge(e) ? `${erreur} — compte sauté` : erreur,
+      });
+    }
+  }
+
+  return { ok: true, jour: date, resultats };
+}
 
 /** Une ligne de suivi « minuit » : un compte actif, son quota du jour, et les
  *  passages / posts réellement produits ce jour-là. */

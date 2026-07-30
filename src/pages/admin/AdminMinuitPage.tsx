@@ -17,7 +17,7 @@ import {
 import {
   aujourdhui,
   ecrireReglage,
-  lancerAssignationJour,
+  lancerAssignationJourLive,
   lancerRattrapageEloLive,
   lireReglages,
   suiviAssignation,
@@ -280,6 +280,8 @@ export function AdminMinuitPage() {
   }>({ logs: [], brief: null, progress: null, erreurs: [], done: false });
 
   const [phaseRelance, setPhaseRelance] = React.useState<"idle" | "elo" | "assignation">("idle");
+  const phaseRelanceRef = React.useRef(phaseRelance);
+  phaseRelanceRef.current = phaseRelance;
 
   function invaliderApresElo() {
     void queryClient.invalidateQueries({ queryKey: ["posters"] });
@@ -333,15 +335,31 @@ export function AdminMinuitPage() {
   const relancer = useMutation({
     mutationFn: async () => {
       setPhaseRelance("elo");
+      // Ne throw pas sur timeouts partiels — continue compte par compte.
       await executerEloRefresh();
       setPhaseRelance("assignation");
-      return lancerAssignationJour(date);
+      // Assignation aussi compte-par-compte (évite timeout Edge 150s).
+      return lancerAssignationJourLive(date, {
+        onProgress: (p) => {
+          setEloLive((prev) => ({
+            ...prev,
+            progress: t("minuit.assignProgress", {
+              i: p.index,
+              n: p.total,
+              nom: p.nom,
+            }),
+          }));
+        },
+      });
     },
     onSuccess: () => {
       setPhaseRelance("idle");
+      setEloLive((prev) => ({ ...prev, progress: null }));
       void queryClient.invalidateQueries({ queryKey: ["suivi-minuit", date] });
+      invaliderApresElo();
     },
     onError: (err) => {
+      const enElo = phaseRelanceRef.current === "elo";
       setPhaseRelance("idle");
       setEloLive((prev) => ({
         ...prev,
@@ -352,7 +370,7 @@ export function AdminMinuitPage() {
           {
             at: new Date().toISOString(),
             level: "error",
-            message: t("minuit.rattrapageEloErreur"),
+            message: enElo ? t("minuit.rattrapageEloErreur") : t("minuit.assignErreur"),
             detail: (err as Error).message,
           },
         ],

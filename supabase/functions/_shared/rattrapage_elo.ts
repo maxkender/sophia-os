@@ -29,6 +29,8 @@ const COMPTE_DECAY = 0.85;
 const COHERENCE_HEURES = 36;
 /** Max d’entrées détaillées dans le brief (UI). */
 const BRIEF_TOP = 12;
+/** Pénalité ELO compte par jour actif sans publication (jours passés de la fenêtre). */
+const ELO_PENALITE_NOPOST = 5;
 
 export type LogLevel = "info" | "ok" | "warn" | "error";
 
@@ -67,6 +69,9 @@ export interface EloCompteDetail {
   avant: number;
   apres: number;
   posts: number;
+  /** Jours passés (fenêtre) sans publication → −5 chacun. */
+  joursSansPost?: number;
+  penalite?: number;
 }
 
 export interface RattrapageBrief {
@@ -143,6 +148,28 @@ function joursFenetreParis(jours: number): { debut: string; fin: string; dates: 
     dates.push(ajouterJoursParis(fin, -i));
   }
   return { debut: dates[0]!, fin, dates };
+}
+
+/** Compte en process = warmup terminé (ends_at ≤ now). Hors process → pas d'ELO compte. */
+function compteEnProcessus(c: {
+  warmup_started_at?: string | null;
+  warmup_ends_at?: string | null;
+}): boolean {
+  if (!c.warmup_started_at || !c.warmup_ends_at) return false;
+  return new Date(c.warmup_ends_at).getTime() <= Date.now();
+}
+
+/** Était déjà actif (warmup fini) au jour Paris `jour` (YYYY-MM-DD). */
+function etaitActifAuJour(
+  c: { warmup_ends_at?: string | null },
+  jour: string,
+): boolean {
+  if (!c.warmup_ends_at) return false;
+  // Compare en date Paris : fin warmup ≤ fin de ce jour.
+  const endsParis = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(
+    new Date(c.warmup_ends_at),
+  );
+  return endsParis <= jour;
 }
 
 function idDuLien(url: string): string {
@@ -573,30 +600,83 @@ async function appliquerEloLangue(
 }
 
 /**
+ * Jours passés de la fenêtre où le compte était actif mais n'a pas publié.
+ * Aujourd'hui exclu (créneau encore ouvert).
+ */
+async function joursSansPublication(
+  supabase: Supabase,
+  compteId: string,
+  joursPasses: string[],
+  compte: { warmup_ends_at?: string | null },
+): Promise<number> {
+  const joursEligibles = joursPasses.filter((j) => etaitActifAuJour(compte, j));
+  if (joursEligibles.length === 0) return 0;
+
+  const { data } = await supabase
+    .from("passages")
+    .select("date_publication_prevue, publie_at, publie_url, statut")
+    .eq("compte_id", compteId)
+    .in("date_publication_prevue", joursEligibles);
+
+  const postes = new Set<string>();
+  for (const p of data ?? []) {
+    const jour = p.date_publication_prevue as string | null;
+    if (!jour) continue;
+    const publie =
+      p.statut === "publie" ||
+      Boolean(p.publie_url) ||
+      Boolean(p.publie_at);
+    if (publie) postes.add(jour);
+  }
+
+  return joursEligibles.filter((j) => !postes.has(j)).length;
+}
+
+/**
  * ELO compte = moyenne pondérée (décroissance récence) des ≤10 derniers
- * passages publiés mesurés (vues seules → performancePassage).
+ * passages publiés mesurés (vues seules → performancePassage),
+ * puis −5 par jour actif sans publication (idempotent sur la fenêtre).
+ * Comptes en warmup : ignorés (score inchangé).
  */
 async function appliquerEloComptes(
   supabase: Supabase,
   compteIds: string[],
+  datesFenetre: string[],
   dryRun: boolean,
   handles: Map<string, string | null>,
   journal: Journal,
 ): Promise<RattrapageResultat["eloCompte"]> {
   const scoring = await chargerScoring(supabase);
   const details: EloCompteDetail[] = [];
+  const auj = aujourdhuiParis();
+  const joursPasses = datesFenetre.filter((d) => d < auj);
 
   journal.push("info", `ELO compte — ${compteIds.length} compte(s)`);
 
   for (const cid of compteIds) {
     const { data: rowAvant } = await supabase
       .from("comptes")
-      .select("score, handle_tiktok")
+      .select("score, handle_tiktok, warmup_started_at, warmup_ends_at")
       .eq("id", cid)
       .maybeSingle();
-    const avant = (rowAvant?.score as number | null) ?? scoring.score_prior;
-    if (rowAvant?.handle_tiktok) {
+    if (!rowAvant) continue;
+
+    const avant = (rowAvant.score as number | null) ?? scoring.score_prior;
+    if (rowAvant.handle_tiktok) {
       handles.set(cid, rowAvant.handle_tiktok as string);
+    }
+    const handle = handles.get(cid) ?? null;
+    const label = handle ? `@${handle}` : cid.slice(0, 8);
+
+    // Warmup / pas encore en process → ne pas toucher l'ELO compte.
+    if (
+      !compteEnProcessus({
+        warmup_started_at: rowAvant.warmup_started_at as string | null,
+        warmup_ends_at: rowAvant.warmup_ends_at as string | null,
+      })
+    ) {
+      journal.push("info", `ELO compte — skip warmup ${label}`);
+      continue;
     }
 
     // Les DERNIERS posts mesurés d'abord (order serveur — pas un limit aveugle).
@@ -611,11 +691,6 @@ async function appliquerEloComptes(
       .limit(COMPTE_MAX_POSTS);
 
     const mesurés = (posts ?? []).filter((p) => p.vues != null);
-    if (mesurés.length === 0) {
-      journal.push("warn", `ELO compte — aucun post mesuré`, handles.get(cid) ?? cid.slice(0, 8));
-      continue;
-    }
-
     mesurés.sort((a, b) => {
       const ta = (a.publie_at as string | null) ??
         (a.date_publication_prevue as string | null) ??
@@ -629,39 +704,62 @@ async function appliquerEloComptes(
     });
     const top = mesurés.slice(0, COMPTE_MAX_POSTS);
 
-    let sumW = 0;
-    let sum = 0;
-    top.forEach((p, i) => {
-      const w = Math.pow(COMPTE_DECAY, i);
-      const perf = performancePassage(p.vues as number, scoring.elo_vues_plafond);
-      sumW += w;
-      sum += w * perf;
-    });
-    const next = clamp(sum / sumW, 0, 100);
-    // k ELO import (défaut 1) — PAS regularisation_k=5 qui collait le score à 50.
-    const k = Math.max(0.1, scoring.elo_regularisation_k);
-    const regularise =
-      (k * scoring.score_prior + top.length * next) / (k + top.length);
+    let base: number;
+    if (top.length === 0) {
+      // Pas de posts mesurés : ancre sur le prior (idempotent) puis pénalités.
+      base = scoring.score_prior;
+    } else {
+      let sumW = 0;
+      let sum = 0;
+      top.forEach((p, i) => {
+        const w = Math.pow(COMPTE_DECAY, i);
+        const perf = performancePassage(p.vues as number, scoring.elo_vues_plafond);
+        sumW += w;
+        sum += w * perf;
+      });
+      const next = clamp(sum / sumW, 0, 100);
+      // k ELO import (défaut 1) — PAS regularisation_k=5 qui collait le score à 50.
+      const k = Math.max(0.1, scoring.elo_regularisation_k);
+      base = (k * scoring.score_prior + top.length * next) / (k + top.length);
+    }
+
+    const joursSans = await joursSansPublication(
+      supabase,
+      cid,
+      joursPasses,
+      { warmup_ends_at: rowAvant.warmup_ends_at as string | null },
+    );
+    const penalite = joursSans * ELO_PENALITE_NOPOST;
+    const apres = clamp(base - penalite, 0, 100);
+
+    if (top.length === 0 && joursSans === 0) {
+      journal.push("warn", `ELO compte — aucun post mesuré, pas de pénalité`, label);
+      continue;
+    }
 
     if (!dryRun) {
       await supabase
         .from("comptes")
-        .update({ score: regularise, score_maj_at: new Date().toISOString() })
+        .update({ score: apres, score_maj_at: new Date().toISOString() })
         .eq("id", cid);
     }
 
-    const handle = handles.get(cid) ?? null;
     details.push({
       compteId: cid,
       handle,
       avant,
-      apres: regularise,
+      apres,
       posts: top.length,
+      joursSansPost: joursSans,
+      penalite,
     });
     journal.push(
-      regularise >= avant ? "ok" : "warn",
-      `ELO compte ${handle ? `@${handle}` : cid.slice(0, 8)} ${signe(regularise - avant)} → ${fmt(regularise)}`,
-      `${fmt(avant)} → ${fmt(regularise)} · ${top.length} post(s)`,
+      apres >= avant ? "ok" : "warn",
+      `ELO compte ${label} ${signe(apres - avant)} → ${fmt(apres)}`,
+      `${fmt(avant)} → ${fmt(apres)} · ${top.length} post(s)` +
+        (joursSans > 0
+          ? ` · −${penalite} (${joursSans}j sans post × ${ELO_PENALITE_NOPOST})`
+          : ""),
     );
   }
 
@@ -889,12 +987,82 @@ export async function rattrapageElo(
     }
   }
 
+  // Warmup : ne pas toucher ELO compte (ni langue pour ce compte isolé).
+  if (opts.compteId) {
+    const { data: cWarm } = await supabase
+      .from("comptes")
+      .select("id, handle_tiktok, warmup_started_at, warmup_ends_at")
+      .eq("id", opts.compteId)
+      .maybeSingle();
+    if (
+      cWarm &&
+      !compteEnProcessus({
+        warmup_started_at: cWarm.warmup_started_at as string | null,
+        warmup_ends_at: cWarm.warmup_ends_at as string | null,
+      })
+    ) {
+      const h = (cWarm.handle_tiktok as string | null) ?? opts.compteId.slice(0, 8);
+      journal.push("info", `Skip warmup — ELO inchangé`, h.startsWith("@") ? h : `@${h}`);
+      const vide = {
+        comptes: 0,
+        releves: 0,
+        fallbackUrl: 0,
+        fallbackCoherence: 0,
+        sansMatch: 0,
+        erreurs: [] as RattrapageResultat["stats"]["erreurs"],
+      };
+      const eloVide = {
+        appliques: 0,
+        ignores: 0,
+        deltas: 0,
+        hausses: 0,
+        baisses: 0,
+        details: [] as EloLangueDetail[],
+      };
+      const compteVide = { maj: 0, details: [] as EloCompteDetail[] };
+      const brief = construireBrief({ debut, fin, jours }, 0, vide, eloVide, compteVide, dryRun);
+      journal.push("ok", "Terminé (warmup)", brief.resume);
+      return {
+        fenetre: { debut, fin, jours },
+        stats: vide,
+        eloLangue: eloVide,
+        eloCompte: compteVide,
+        brief,
+        logs: journal.lines,
+        dryRun,
+      };
+    }
+  }
+
   const stats = await releverStatsFenetre(supabase, passages, dryRun, handles, journal);
   const eloLangue = await appliquerEloLangue(supabase, passages, { forcer, dryRun }, handles, journal);
-  const compteIds = opts.compteId
-    ? [opts.compteId]
-    : [...new Set(passages.map((p) => p.compte_id))];
-  const eloCompte = await appliquerEloComptes(supabase, compteIds, dryRun, handles, journal);
+
+  // ELO compte : tous les actifs en process (pénalité no-post même sans passage publié).
+  let compteIds: string[];
+  if (opts.compteId) {
+    compteIds = [opts.compteId];
+  } else {
+    const { data: actifs } = await supabase
+      .from("comptes")
+      .select("id, warmup_started_at, warmup_ends_at")
+      .eq("is_active", true);
+    compteIds = (actifs ?? [])
+      .filter((c) =>
+        compteEnProcessus({
+          warmup_started_at: c.warmup_started_at as string | null,
+          warmup_ends_at: c.warmup_ends_at as string | null,
+        }),
+      )
+      .map((c) => c.id as string);
+  }
+  const eloCompte = await appliquerEloComptes(
+    supabase,
+    compteIds,
+    dates,
+    dryRun,
+    handles,
+    journal,
+  );
 
   let snapshot: Awaited<ReturnType<typeof snapshotVuesGlobales>> | undefined;
   // Snapshot global seulement sur un run « tous comptes » (pas un compte isolé).

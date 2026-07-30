@@ -168,7 +168,7 @@ export const SCHEMA_UPDATE_ELO: PipelineAction = {
       kind: "logic",
       api: "rattrapage_elo.appliquerEloComptes",
       detail:
-        "perf = log^1.3(vues)/plafond · k=elo_regularisation_k (défaut 1) · decay 0.85",
+        "perf = log^1.3(vues)/plafond · k=elo_regularisation_k (défaut 1) · decay 0.85 · −5 / jour actif sans post (jours passés) · skip warmup",
       reglage: "scoring.elo_vues_plafond · elo_regularisation_k",
     },
     {
@@ -185,6 +185,11 @@ export const SCHEMA_UPDATE_ELO: PipelineAction = {
     { cle: "MAX_DELTA_LANGUE", valeur: "±18", detail: "Plafond |Δ| par passage" },
     { cle: "COMPTE_MAX_POSTS", valeur: "10", detail: "Derniers posts mesurés seulement" },
     { cle: "COMPTE_DECAY", valeur: "0.85" },
+    {
+      cle: "ELO_PENALITE_NOPOST",
+      valeur: "−5 / jour",
+      detail: "Compte actif sans publication (jours passés de la fenêtre, hors aujourd’hui)",
+    },
     { cle: "perf(1 vue)", valeur: "~2.7 / 100", detail: "ex-plancher 40 — corrigé" },
     { cle: "perf(4 vues)", valeur: "~8 / 100" },
     { cle: "COHERENCE_HEURES", valeur: "36" },

@@ -1186,5 +1186,26 @@ export const fr = {
       aFaire: "À faire",
       legende: "Clique sur un jour pour ouvrir son post.",
     },
+    warmup: {
+      settingsTitre: "Warmup & file de labels",
+      settingsDesc:
+        "À la création d’un poster, un label est pris en tête de file. Le compte n’entre dans le process (assignation, classements, stats) qu’après le warmup.",
+      heures: "Durée du warmup (heures)",
+      heuresAide: "Timer lancé au clic « Start warmup » du recruteur (défaut 24 h).",
+      fileTitre: "File des labels (prochains comptes)",
+      fileDesc:
+        "Ordre FIFO : le premier label de la liste est assigné au prochain compte créé, puis retiré de la file.",
+      fileVideListe: "File vide — aucun poster ne pourra être créé tant qu’un label n’est pas ajouté.",
+      fileVide:
+        "La file de labels est vide. Un admin doit en ajouter dans Réglages avant de créer un poster.",
+      ajouterLabel: "Ajouter un label",
+      ajouter: "Ajouter",
+      attente: "Warmup pas démarré",
+      start: "Start warmup",
+      demarrage: "Démarrage…",
+      enCours: "Warmup · {{temps}}",
+      apresCreation:
+        "Ensuite : clique sur « Start warmup » pour lancer le timer. Le compte entre dans le process à la fin.",
+    },
   },
 };

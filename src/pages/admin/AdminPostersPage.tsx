@@ -24,6 +24,7 @@ import {
   creerPoster,
   creerRecruteur,
   definirRole,
+  demarrerWarmup,
   labelsDesComptes,
   listerComptes,
   listerLanguesReference,
@@ -37,6 +38,7 @@ import {
   supprimerPoster,
 } from "@/features/moteur/api";
 import { nomLangue } from "@/features/moteur/langues";
+import { WarmupBadge } from "@/features/moteur/WarmupBadge";
 import type { CompteAvecDetails, PosterProfil } from "@/features/moteur/types";
 
 const selectClass =
@@ -338,6 +340,13 @@ export function AdminPostersPage() {
       majPoster(input.id, { is_active: input.actif }),
     onSuccess: rafraichir,
   });
+  const warmupStart = useMutation({
+    mutationFn: (compteId: string) => demarrerWarmup(compteId),
+    onSuccess: () => {
+      rafraichir();
+      queryClient.invalidateQueries({ queryKey: ["comptes"] });
+    },
+  });
   const retirer = useMutation({ mutationFn: supprimerPoster, onSuccess: rafraichir });
   const enregistrerUpwork = useMutation({
     mutationFn: (input: { id: string; url: string }) => majUpwork(input.id, input.url),
@@ -417,9 +426,11 @@ export function AdminPostersPage() {
               </Button>
               {creer.isError && (
                 <p className="mt-2 text-sm text-destructive">
-                  {(creer.error as Error).message === "NO_FREE_REFERENCE"
-                    ? t("posters.plusDeReference")
-                    : (creer.error as Error).message}
+                  {(creer.error as Error).message === "NO_LABEL_QUEUE"
+                    ? t("warmup.fileVide")
+                    : (creer.error as Error).message === "NO_FREE_REFERENCE"
+                      ? t("posters.plusDeReference")
+                      : (creer.error as Error).message}
                 </p>
               )}
             </div>
@@ -437,6 +448,7 @@ export function AdminPostersPage() {
                 <code className="rounded bg-muted px-1">{cree.password}</code>
               </p>
               <p className="pt-1 text-xs text-muted-foreground">{t("posters.transmit")}</p>
+              <p className="text-xs text-muted-foreground">{t("warmup.apresCreation")}</p>
             </div>
           )}
         </CardContent>
@@ -557,6 +569,15 @@ export function AdminPostersPage() {
                     )}
                     {!poster.is_active && (
                       <Badge variant="secondary">{t("posters.disabled")}</Badge>
+                    )}
+                    {estPoster && poster.compte_id && (
+                      <WarmupBadge
+                        startedAt={poster.warmup_started_at}
+                        endsAt={poster.warmup_ends_at}
+                        showStart
+                        startPending={warmupStart.isPending}
+                        onStart={() => warmupStart.mutate(poster.compte_id!)}
+                      />
                     )}
                     {estPoster && compte && labs.length === 0 && (
                       <Badge variant="warning">{t("posters.sansLabels")}</Badge>

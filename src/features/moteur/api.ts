@@ -22,6 +22,7 @@ import type {
   EloImportRapport,
   Passage,
 } from "./types";
+import { compteEnProcessus } from "./warmup";
 
 export type { EloImportRapport };
 
@@ -307,7 +308,7 @@ export async function listerPosters(): Promise<PosterProfil[]> {
   const { data: comptes } = await supabase
     .from("comptes")
     .select(
-      "id, poster_id, handle_tiktok, persona_nom, persona_bio, avatar_url, score, score_maj_at, comptes_reference(handle_tiktok)",
+      "id, poster_id, handle_tiktok, persona_nom, persona_bio, avatar_url, score, score_maj_at, warmup_started_at, warmup_ends_at, comptes_reference(handle_tiktok)",
     )
     .eq("is_active", true)
     .order("created_at", { ascending: false });
@@ -345,6 +346,8 @@ export async function listerPosters(): Promise<PosterProfil[]> {
       /** ELO / forme du compte TikTok (moyenne pondérée des perfs). */
       score: compte?.score ?? null,
       score_maj_at: compte?.score_maj_at ?? null,
+      warmup_started_at: (compte?.warmup_started_at as string | null) ?? null,
+      warmup_ends_at: (compte?.warmup_ends_at as string | null) ?? null,
       manager_nom: p.manager_id ? (nomParId.get(p.manager_id) ?? null) : null,
     };
   });
@@ -520,10 +523,29 @@ export function creerPoster(input: {
   return invoke<{
     userId: string;
     email: string;
-    compte: { id: string; reference: string | null; persona: boolean } | null;
+    compte: {
+      id: string;
+      reference: string | null;
+      persona: boolean;
+      labelId: string | null;
+    } | null;
   }>("manage-users", {
     action: "create",
     ...input,
+  });
+}
+
+/** Démarre le warmup 24h d'un compte (HM / admin). */
+export function demarrerWarmup(compteId: string) {
+  return invoke<{
+    ok: boolean;
+    deja?: boolean;
+    warmup_started_at: string;
+    warmup_ends_at: string;
+    heures?: number;
+  }>("manage-users", {
+    action: "start_warmup",
+    compteId,
   });
 }
 
@@ -1184,7 +1206,9 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
         .limit(60),
       supabase
         .from("comptes")
-        .select("id, poster_id, persona_nom, handle_tiktok, score, is_active")
+        .select(
+          "id, poster_id, persona_nom, handle_tiktok, score, is_active, warmup_started_at, warmup_ends_at",
+        )
         .eq("is_active", true),
       supabase.from("user_roles").select("user_id, role"),
       supabase.from("profiles").select("id, prenom, nom, manager_id, is_active"),
@@ -1211,7 +1235,14 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
     return perso || c.persona_nom || (c.handle_tiktok ? `@${c.handle_tiktok}` : "—");
   };
 
+  // Hors warmup uniquement (pas encore démarré / en cours → exclus classements + alertes).
   const eloListe = (comptes ?? [])
+    .filter((c) =>
+      compteEnProcessus({
+        warmup_started_at: c.warmup_started_at as string | null,
+        warmup_ends_at: c.warmup_ends_at as string | null,
+      }),
+    )
     .map((c) => ({
       compte_id: c.id as string,
       nom: nomCompte(c as never),
@@ -1991,6 +2022,15 @@ export async function lireReglages(): Promise<Reglages> {
       provider_principal: "fal",
       ...((map.get("nettoyage") as Partial<Reglages["nettoyage"]> | undefined) ?? {}),
     },
+    file_labels_comptes: {
+      label_ids: [],
+      ...((map.get("file_labels_comptes") as Partial<Reglages["file_labels_comptes"]> | undefined) ??
+        {}),
+    },
+    warmup: {
+      heures: 24,
+      ...((map.get("warmup") as Partial<Reglages["warmup"]> | undefined) ?? {}),
+    },
   };
 }
 
@@ -2415,22 +2455,29 @@ function ajouterJoursLocal(yyyyMmDd: string, delta: number): string {
   return `${y}-${m}-${day}`;
 }
 
-/** Tous les comptes actifs avec @ — ELO + metrics + snapshot Pilotage. */
+/** Tous les comptes en process (warmup terminé) avec @ — ELO + metrics. */
 async function comptesPourRattrapage(
   _jours: number,
 ): Promise<Array<{ id: string; handle: string | null }>> {
   const { data: comptes, error } = await supabase
     .from("comptes")
-    .select("id, handle_tiktok")
+    .select("id, handle_tiktok, warmup_started_at, warmup_ends_at")
     .eq("is_active", true)
     .not("handle_tiktok", "is", null)
     .order("handle_tiktok");
   if (error) throw error;
 
-  return (comptes ?? []).map((c) => ({
-    id: c.id as string,
-    handle: (c.handle_tiktok as string | null) ?? null,
-  }));
+  return (comptes ?? [])
+    .filter((c) =>
+      compteEnProcessus({
+        warmup_started_at: c.warmup_started_at as string | null,
+        warmup_ends_at: c.warmup_ends_at as string | null,
+      }),
+    )
+    .map((c) => ({
+      id: c.id as string,
+      handle: (c.handle_tiktok as string | null) ?? null,
+    }));
 }
 
 function fusionnerBriefs(
@@ -2818,7 +2865,9 @@ export async function suiviAssignation(date: string): Promise<SuiviMinuit[]> {
   const [comptesRes, passagesRes, postsRes, regRes] = await Promise.all([
     supabase
       .from("comptes")
-      .select("id, persona_nom, handle_tiktok, avatar_url, langue, posts_par_jour")
+      .select(
+        "id, persona_nom, handle_tiktok, avatar_url, langue, posts_par_jour, warmup_started_at, warmup_ends_at",
+      )
       .eq("is_active", true)
       .order("persona_nom", { nullsFirst: false }),
     supabase
@@ -2863,15 +2912,22 @@ export async function suiviAssignation(date: string): Promise<SuiviMinuit[]> {
   }
 
   // deno-lint-ignore no-explicit-any
-  return (comptesRes.data ?? []).map((c: any) => ({
-    compteId: c.id,
-    nom: c.persona_nom ?? c.handle_tiktok ?? c.id.slice(0, 8),
-    handle: c.handle_tiktok,
-    avatar_url: c.avatar_url,
-    langue: c.langue,
-    quota: c.posts_par_jour ?? quotaGlobal,
-    posts: parCompte.get(c.id) ?? [],
-  }));
+  return (comptesRes.data ?? [])
+    .filter((c: any) =>
+      compteEnProcessus({
+        warmup_started_at: c.warmup_started_at,
+        warmup_ends_at: c.warmup_ends_at,
+      }),
+    )
+    .map((c: any) => ({
+      compteId: c.id,
+      nom: c.persona_nom ?? c.handle_tiktok ?? c.id.slice(0, 8),
+      handle: c.handle_tiktok,
+      avatar_url: c.avatar_url,
+      langue: c.langue,
+      quota: c.posts_par_jour ?? quotaGlobal,
+      posts: parCompte.get(c.id) ?? [],
+    }));
 }
 
 /** Un pas de fabrication pour un post précis (avance le pipeline d'une étape). */

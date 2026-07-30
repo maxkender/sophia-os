@@ -48,6 +48,10 @@ export interface Compte {
   /** Forme du compte (EWMA), défaut 50. */
   score: number;
   score_maj_at: string | null;
+  /** Clic « Start warmup » — null = créé, warmup pas lancé. */
+  warmup_started_at: string | null;
+  /** Fin warmup (started + N h). En process si now >= ends. */
+  warmup_ends_at: string | null;
 }
 
 export interface CompteAvecDetails extends Compte {
@@ -150,6 +154,8 @@ export interface PosterProfil {
   /** ELO / forme du compte TikTok (`comptes.score`), null si pas de compte. */
   score: number | null;
   score_maj_at: string | null;
+  warmup_started_at: string | null;
+  warmup_ends_at: string | null;
   manager_id: string | null;
   manager_nom: string | null;
   is_active: boolean;
@@ -195,6 +201,16 @@ export interface ReglagesNettoyage {
   provider_principal: "fal" | "replicate";
 }
 
+/** File FIFO des labels assignés aux prochains comptes créés. */
+export interface ReglagesFileLabels {
+  label_ids: string[];
+}
+
+export interface ReglagesWarmup {
+  /** Durée du warmup en heures (défaut 24). */
+  heures: number;
+}
+
 export interface Reglages {
   repartition: { recycle: number; remanie: number; nouveau: number };
   frequence: { posts_par_jour: number };
@@ -211,6 +227,8 @@ export interface Reglages {
   /** false = cron minuit + rattrapage en pause (manuel OK). */
   assignation_auto: { actif: boolean };
   nettoyage: ReglagesNettoyage;
+  file_labels_comptes: ReglagesFileLabels;
+  warmup: ReglagesWarmup;
 }
 
 export interface StatsCompte {

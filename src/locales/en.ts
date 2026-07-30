@@ -1189,5 +1189,26 @@ export const en = {
       aFaire: "To do",
       legende: "Click a day to open its post.",
     },
+    warmup: {
+      settingsTitre: "Warmup & label queue",
+      settingsDesc:
+        "When a poster is created, a label is taken from the front of the queue. The account only enters the process (assignment, rankings, stats) after warmup.",
+      heures: "Warmup duration (hours)",
+      heuresAide: "Timer starts when the recruiter clicks “Start warmup” (default 24 h).",
+      fileTitre: "Label queue (next accounts)",
+      fileDesc:
+        "FIFO order: the first label is assigned to the next account created, then removed from the queue.",
+      fileVideListe: "Empty queue — no poster can be created until a label is added.",
+      fileVide:
+        "The label queue is empty. An admin must add labels in Settings before creating a poster.",
+      ajouterLabel: "Add a label",
+      ajouter: "Add",
+      attente: "Warmup not started",
+      start: "Start warmup",
+      demarrage: "Starting…",
+      enCours: "Warmup · {{temps}}",
+      apresCreation:
+        "Next: click “Start warmup” to start the timer. The account enters the process when it ends.",
+    },
   },
 };

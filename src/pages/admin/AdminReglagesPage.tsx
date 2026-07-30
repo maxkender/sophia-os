@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ecrireReglage, lireReglages } from "@/features/moteur/api";
+import { ecrireReglage, lireReglages, listerLabels } from "@/features/moteur/api";
 import {
   SCHEMA_ASSIGNATION,
   SCHEMA_UPDATE_ELO,
@@ -186,9 +186,11 @@ export function AdminReglagesPage() {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const { data, isPending } = useQuery({ queryKey: ["reglages"], queryFn: lireReglages });
+  const labels = useQuery({ queryKey: ["labels"], queryFn: listerLabels });
 
   const [brouillon, setBrouillon] = React.useState<Reglages | null>(null);
   const reglages = brouillon ?? data ?? null;
+  const [labelAjout, setLabelAjout] = React.useState("");
 
   const enregistrer = useMutation({
     mutationFn: async (r: Reglages) => {
@@ -200,6 +202,8 @@ export function AdminReglagesPage() {
       await ecrireReglage("moteur_vnext", r.moteur_vnext);
       await ecrireReglage("assignation_auto", r.assignation_auto);
       await ecrireReglage("nettoyage", r.nettoyage);
+      await ecrireReglage("file_labels_comptes", r.file_labels_comptes);
+      await ecrireReglage("warmup", r.warmup);
     },
     onSuccess: () => {
       setBrouillon(null);
@@ -458,6 +462,126 @@ export function AdminReglagesPage() {
                 valeur={reglages.scoring.variation_profondeur_max}
                 onChange={(n) => majScoring({ variation_profondeur_max: n })}
               />
+            </div>
+          </section>
+        </CardContent>
+      </Card>
+
+      {/* ── Warmup + file labels ── */}
+      <Card>
+        <CardHeader>
+          <CardTitle>{t("warmup.settingsTitre")}</CardTitle>
+          <CardDescription>{t("warmup.settingsDesc")}</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-5">
+          <section className="space-y-3 sm:max-w-xs">
+            <ChampNombre
+              id="warmupH"
+              label={t("warmup.heures")}
+              min={1}
+              max={168}
+              valeur={reglages.warmup.heures}
+              onChange={(n) => maj({ warmup: { heures: n } })}
+            />
+            <p className="text-xs text-muted-foreground">{t("warmup.heuresAide")}</p>
+          </section>
+
+          <section className="space-y-3">
+            <h3 className="text-sm font-medium">{t("warmup.fileTitre")}</h3>
+            <p className="text-xs text-muted-foreground">{t("warmup.fileDesc")}</p>
+            <ol className="space-y-1.5">
+              {reglages.file_labels_comptes.label_ids.length === 0 && (
+                <li className="text-sm text-muted-foreground">{t("warmup.fileVideListe")}</li>
+              )}
+              {reglages.file_labels_comptes.label_ids.map((id, i) => {
+                const lab = (labels.data ?? []).find((l) => l.id === id);
+                return (
+                  <li
+                    key={`${id}-${i}`}
+                    className="flex flex-wrap items-center justify-between gap-2 rounded-md border px-2.5 py-2 text-sm"
+                  >
+                    <span className="truncate">
+                      <span className="mr-2 text-muted-foreground">{i + 1}.</span>
+                      {lab?.nom ?? id.slice(0, 8)}
+                    </span>
+                    <div className="flex items-center gap-1">
+                      <Button
+                        type="button"
+                        size="sm"
+                        variant="ghost"
+                        disabled={i === 0}
+                        onClick={() => {
+                          const ids = [...reglages.file_labels_comptes.label_ids];
+                          [ids[i - 1], ids[i]] = [ids[i]!, ids[i - 1]!];
+                          maj({ file_labels_comptes: { label_ids: ids } });
+                        }}
+                      >
+                        ↑
+                      </Button>
+                      <Button
+                        type="button"
+                        size="sm"
+                        variant="ghost"
+                        disabled={i >= reglages.file_labels_comptes.label_ids.length - 1}
+                        onClick={() => {
+                          const ids = [...reglages.file_labels_comptes.label_ids];
+                          [ids[i], ids[i + 1]] = [ids[i + 1]!, ids[i]!];
+                          maj({ file_labels_comptes: { label_ids: ids } });
+                        }}
+                      >
+                        ↓
+                      </Button>
+                      <Button
+                        type="button"
+                        size="sm"
+                        variant="ghost"
+                        className="text-destructive"
+                        onClick={() => {
+                          const ids = reglages.file_labels_comptes.label_ids.filter(
+                            (_, j) => j !== i,
+                          );
+                          maj({ file_labels_comptes: { label_ids: ids } });
+                        }}
+                      >
+                        ×
+                      </Button>
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
+            <div className="flex flex-wrap items-end gap-2">
+              <div className="min-w-[180px] flex-1 space-y-1">
+                <Label htmlFor="ajoutLabel">{t("warmup.ajouterLabel")}</Label>
+                <select
+                  id="ajoutLabel"
+                  className="h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm"
+                  value={labelAjout}
+                  onChange={(e) => setLabelAjout(e.target.value)}
+                >
+                  <option value="">{t("common.none")}</option>
+                  {(labels.data ?? []).map((l) => (
+                    <option key={l.id} value={l.id}>
+                      {l.nom}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <Button
+                type="button"
+                size="sm"
+                disabled={!labelAjout}
+                onClick={() => {
+                  maj({
+                    file_labels_comptes: {
+                      label_ids: [...reglages.file_labels_comptes.label_ids, labelAjout],
+                    },
+                  });
+                  setLabelAjout("");
+                }}
+              >
+                {t("warmup.ajouter")}
+              </Button>
             </div>
           </section>
         </CardContent>

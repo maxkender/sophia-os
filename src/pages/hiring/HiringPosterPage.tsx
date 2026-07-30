@@ -19,11 +19,13 @@ import {
 import { useAuth } from "@/features/auth/AuthContext";
 import {
   creerPoster,
+  demarrerWarmup,
   listerLanguesReference,
   listerPosters,
   majCompte,
   supprimerPoster,
 } from "@/features/moteur/api";
+import { WarmupBadge } from "@/features/moteur/WarmupBadge";
 import type { PosterProfil } from "@/features/moteur/types";
 
 /** Mot de passe commun à tous les posters (dicté de vive voix). */
@@ -62,6 +64,10 @@ function LignePoster({ poster: p }: { poster: PosterProfil }) {
     mutationFn: () => supprimerPoster(p.id),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["posters"] }),
   });
+  const startWarmup = useMutation({
+    mutationFn: () => demarrerWarmup(p.compte_id!),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["posters"] }),
+  });
 
   return (
     <div className="flex items-start gap-3 rounded-lg border p-3">
@@ -76,6 +82,20 @@ function LignePoster({ poster: p }: { poster: PosterProfil }) {
             {[p.prenom, p.nom].filter(Boolean).join(" ") || p.email}
           </span>
           {!p.is_active && <Badge variant="secondary">{t("posters.disabled")}</Badge>}
+          {p.compte_id && (
+            <WarmupBadge
+              startedAt={p.warmup_started_at}
+              endsAt={p.warmup_ends_at}
+              showStart
+              startPending={startWarmup.isPending}
+              onStart={() => startWarmup.mutate()}
+            />
+          )}
+          {startWarmup.isError && (
+            <span className="text-xs text-destructive">
+              {(startWarmup.error as Error).message}
+            </span>
+          )}
           {!edite && (
             <span className="ml-auto flex items-center gap-3">
               {p.compte_id && (
@@ -281,7 +301,9 @@ export function HiringPosterPage() {
                 <p className="mt-2 text-sm text-destructive">
                   {(creer.error as Error).message === "NO_FREE_REFERENCE"
                     ? t("posters.plusDeReference")
-                    : (creer.error as Error).message}
+                    : (creer.error as Error).message === "NO_LABEL_QUEUE"
+                      ? t("warmup.fileVide")
+                      : (creer.error as Error).message}
                 </p>
               )}
             </div>
@@ -301,6 +323,7 @@ export function HiringPosterPage() {
               <p className="pt-1 text-xs text-muted-foreground">
                 {cree.persona ? t("hiring.personaOk") : t("hiring.personaPlusTard")}
               </p>
+              <p className="text-xs text-muted-foreground">{t("warmup.apresCreation")}</p>
             </div>
           )}
         </CardContent>

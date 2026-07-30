@@ -5,19 +5,15 @@ type Supabase = ReturnType<typeof serviceClient>;
 const DOMAINE = "sophia.com";
 
 /**
- * Gestion des posters. Créer un compte avec mot de passe exige le service_role,
- * donc ça vit ici et jamais dans le navigateur.
- *
- * Deux appelants : l'admin, et le HIRING MANAGER (dont c'est le seul pouvoir).
- * Le hiring manager peut créer un poster mais pas en supprimer.
+ * Gestion des posters / recruteurs.
  *
  *   { action: "create", prenom, nom, password, langue?, langues?, role? }
- *   { action: "delete", userId }        (admin uniquement)
+ *   { action: "start_warmup", compteId }
+ *   { action: "delete", userId }
  *
- * - Poster : si `langue` est fournie, rattache un compte de référence libre
- *   de cette langue + identité instantanée.
- * - Hiring manager : `langues` (tableau) = langues dans lesquelles il peut
- *   recruter (plusieurs OK). `langue` seule reste acceptée (rétrocompat).
+ * Création poster : compte créé immédiatement (warmup non démarré).
+ * Label tiré de la file `file_labels_comptes` (ordre admin).
+ * Référence source = best-effort (plus bloquant).
  */
 Deno.serve(async (request) => {
   const acces = await assertRole(request, ["admin", "hiring_manager"]);
@@ -33,6 +29,58 @@ Deno.serve(async (request) => {
     return json({ error: "corps JSON attendu" }, 400);
   }
 
+  if (body.action === "start_warmup") {
+    const compteId = String(body.compteId ?? "").trim();
+    if (!compteId) return json({ error: "compteId requis" }, 400);
+
+    const { data: compte, error } = await supabase
+      .from("comptes")
+      .select("id, poster_id, warmup_started_at, warmup_ends_at")
+      .eq("id", compteId)
+      .maybeSingle();
+    if (error) return json({ error: error.message }, 400);
+    if (!compte) return json({ error: "compte introuvable" }, 404);
+
+    if (acces.role === "hiring_manager" && acces.userId !== "cron") {
+      const { data: pr } = await supabase
+        .from("profiles")
+        .select("manager_id")
+        .eq("id", compte.poster_id)
+        .maybeSingle();
+      if (!pr || pr.manager_id !== acces.userId) {
+        return json({ error: "forbidden" }, 403);
+      }
+    }
+
+    if (compte.warmup_started_at && compte.warmup_ends_at) {
+      return json({
+        ok: true,
+        deja: true,
+        warmup_started_at: compte.warmup_started_at,
+        warmup_ends_at: compte.warmup_ends_at,
+      });
+    }
+
+    const heures = await lireWarmupHeures(supabase);
+    const start = new Date();
+    const end = new Date(start.getTime() + heures * 3600_000);
+    const { error: updErr } = await supabase
+      .from("comptes")
+      .update({
+        warmup_started_at: start.toISOString(),
+        warmup_ends_at: end.toISOString(),
+      })
+      .eq("id", compteId);
+    if (updErr) return json({ error: updErr.message }, 400);
+
+    return json({
+      ok: true,
+      warmup_started_at: start.toISOString(),
+      warmup_ends_at: end.toISOString(),
+      heures,
+    });
+  }
+
   if (body.action === "create") {
     const prenom = String(body.prenom ?? "").trim();
     const nom = String(body.nom ?? "").trim();
@@ -43,8 +91,6 @@ Deno.serve(async (request) => {
         .map((l) => String(l ?? "").trim().toLowerCase())
         .filter(Boolean)
       : [];
-    // Rôle voulu : "poster" (défaut) ou "hiring_manager". Seul l'admin peut
-    // créer un recruteur ; un recruteur ne crée que des posters.
     const roleVoulu =
       body.role === "hiring_manager" && acces.role === "admin" ? "hiring_manager" : "poster";
 
@@ -52,7 +98,6 @@ Deno.serve(async (request) => {
       return json({ error: "Prénom requis et mot de passe d'au moins 8 caractères" }, 400);
     }
 
-    // HM qui crée un poster : la langue doit être dans SES langues gérées.
     if (roleVoulu === "poster" && acces.role === "hiring_manager" && acces.userId !== "cron") {
       const { data: hm } = await supabase
         .from("profiles")
@@ -70,14 +115,17 @@ Deno.serve(async (request) => {
       }
     }
 
-    // Un poster occupe UN compte de référence LIBRE de sa langue (1 poster =
-    // 1 source). S'il n'y en a plus, on n'ouvre aucun accès et on le dit tout de
-    // suite — AVANT de créer quoi que ce soit. Le front affiche « plus de
-    // créateurs possibles dans cette langue ».
+    // Label obligatoire pour un poster : tiré de la file admin (FIFO).
+    let labelId: string | null = null;
+    if (roleVoulu === "poster") {
+      labelId = await popLabelFile(supabase);
+      if (!labelId) return json({ error: "NO_LABEL_QUEUE" }, 409);
+    }
+
+    // Référence source : best-effort (plus bloquant).
     let referenceId: string | null = null;
     if (roleVoulu === "poster" && langue) {
       referenceId = await referenceLibre(supabase, langue);
-      if (!referenceId) return json({ error: "NO_FREE_REFERENCE" }, 409);
     }
 
     const email = await emailDisponible(supabase, prenom, nom);
@@ -90,29 +138,24 @@ Deno.serve(async (request) => {
     });
 
     if (error) {
-      // `error.message` remonte parfois vide sur l'API admin : sans le code ni
-      // le statut, le message affiché à l'admin est inexploitable.
+      // Remettre le label en tête de file si la création auth échoue.
+      if (labelId) await unshiftLabelFile(supabase, labelId);
       const detail = [error.message, error.code, error.status].filter(Boolean).join(" · ");
       return json({ error: detail || `Création refusée pour ${email}` }, 400);
     }
 
-    // Le trigger a posé le profil et le rôle poster. On complète l'état civil
-    // et on active le compte : c'est un accès validé de vive voix.
     if (data.user) {
       await supabase
         .from("profiles")
-        // Pas de changement de mot de passe imposé : le mot de passe reste
-        // 12345678 pour tout le monde, c'est un choix assumé sur un outil
-        // interne où l'admin dicte les accès de vive voix.
         .update({ prenom, nom: nom || null, is_active: true, must_change_password: false })
         .eq("id", data.user.id);
 
       if (roleVoulu === "hiring_manager") {
-        // Recruteur : rôle hiring_manager + ensemble de langues gérées
-        // (plusieurs OK → créateurs de langues différentes sous le même HM).
         await supabase.from("user_roles").delete().eq("user_id", data.user.id);
         await supabase.from("user_roles").insert({ user_id: data.user.id, role: "hiring_manager" });
-        const ensemble = [...new Set(languesRecues.length > 0 ? languesRecues : (langue ? [langue] : []))];
+        const ensemble = [
+          ...new Set(languesRecues.length > 0 ? languesRecues : (langue ? [langue] : [])),
+        ];
         if (ensemble.length > 0) {
           await supabase
             .from("profiles")
@@ -120,8 +163,6 @@ Deno.serve(async (request) => {
             .eq("id", data.user.id);
         }
       } else if (acces.role === "hiring_manager" && acces.userId !== "cron") {
-        // Poster créé par un recruteur : on mémorise qui le gère, pour le grouper
-        // sous son recruteur dans la vue admin.
         await supabase
           .from("profiles")
           .update({ manager_id: acces.userId })
@@ -129,13 +170,14 @@ Deno.serve(async (request) => {
       }
     }
 
-    // Compte de publication (posters seulement, avec langue) : identité posée
-    // INSTANTANÉMENT et de façon déterministe (pseudo + nom + bio + avatar), sans
-    // aucun appel Gemini. La création reste sous la seconde et l'identité est
-    // TOUJOURS remplie — fini le « identité en cours » qui traîne.
-    let compte: { id: string; reference: string | null; persona: boolean } | null = null;
+    let compte: {
+      id: string;
+      reference: string | null;
+      persona: boolean;
+      labelId: string | null;
+    } | null = null;
     if (data.user && roleVoulu === "poster" && langue) {
-      compte = await preparerCompte(supabase, data.user.id, langue, referenceId);
+      compte = await preparerCompte(supabase, data.user.id, langue, referenceId, labelId);
     }
 
     return json({ ok: true, userId: data.user?.id, email, compte, role: roleVoulu });
@@ -143,10 +185,6 @@ Deno.serve(async (request) => {
 
   if (body.action === "delete") {
     if (!body.userId) return json({ error: "userId requis" }, 400);
-    // L'admin supprime n'importe qui ; le hiring manager, SEULEMENT ses propres
-    // créateurs (profiles.manager_id = lui). La suppression de l'utilisateur
-    // casacade sur profil → compte → et LIBÈRE ainsi son compte de référence
-    // (referenceLibre ne le voit plus pris) : il redevient dispo pour un futur poster.
     if (acces.role !== "admin") {
       const { data: cible } = await supabase
         .from("profiles")
@@ -155,19 +193,11 @@ Deno.serve(async (request) => {
         .single();
       if (!cible || cible.manager_id !== acces.userId) return json({ error: "forbidden" }, 403);
     }
-    // Supprimer un RECRUTEUR ne doit JAMAIS supprimer ses créateurs : on les
-    // détache d'abord (manager_id → null) pour qu'ils rejoignent « Sans recruteur ».
-    // (Le FK est déjà `on delete set null`, mais on l'explicite pour être sûr.)
     await supabase
       .from("profiles")
       .update({ manager_id: null })
       .eq("manager_id", body.userId);
 
-    // On NE passe PAS par auth.admin.deleteUser : depuis la migration du projet
-    // vers des clés JWT ES256, GoTrue rejette la suppression d'un utilisateur
-    // réel (« unrecognized JWT kid <nil> »). On supprime la ligne auth.users en
-    // SQL (RPC SECURITY DEFINER), ce qui cascade sur profiles → comptes et libère
-    // le compte de référence.
     const { error } = await supabase.rpc("supprimer_auth_user", { uid: body.userId });
     if (error) return json({ error: error.message }, 400);
     return json({ ok: true });
@@ -176,7 +206,6 @@ Deno.serve(async (request) => {
   return json({ error: "action inconnue" }, 400);
 });
 
-/** Retire accents et caractères parasites : un email doit rester saisissable. */
 function normaliser(valeur: string): string {
   return valeur
     .normalize("NFD")
@@ -185,14 +214,6 @@ function normaliser(valeur: string): string {
     .replace(/[^a-z0-9]/g, "");
 }
 
-/**
- * `prenom` collé à la première lettre du nom, puis `@domaine` — sans aucun
- * séparateur : `Test Poster` donne `testp@sophia.com`. `normaliser` retire
- * accents et ponctuation, un `+` ou un point ne peut donc pas s'y glisser.
- *
- * Suffixé d'un numéro si l'adresse est déjà prise : deux homonymes ne doivent
- * pas se bloquer mutuellement.
- */
 async function emailDisponible(
   supabase: ReturnType<typeof serviceClient>,
   prenom: string,
@@ -213,56 +234,98 @@ async function emailDisponible(
   return `${base}${Date.now()}@${DOMAINE}`;
 }
 
+async function lireWarmupHeures(supabase: Supabase): Promise<number> {
+  const { data } = await supabase
+    .from("reglages")
+    .select("valeur")
+    .eq("cle", "warmup")
+    .maybeSingle();
+  const h = Number((data?.valeur as { heures?: number } | null)?.heures ?? 24);
+  return Number.isFinite(h) && h > 0 ? Math.min(168, h) : 24;
+}
+
+/** Tire le premier label de la file (FIFO) et persiste le reste. */
+async function popLabelFile(supabase: Supabase): Promise<string | null> {
+  const { data } = await supabase
+    .from("reglages")
+    .select("valeur")
+    .eq("cle", "file_labels_comptes")
+    .maybeSingle();
+  const ids = ((data?.valeur as { label_ids?: string[] } | null)?.label_ids ?? []).filter(
+    Boolean,
+  );
+  if (ids.length === 0) return null;
+  const [first, ...rest] = ids;
+  await supabase.from("reglages").upsert(
+    {
+      cle: "file_labels_comptes",
+      valeur: { label_ids: rest },
+      updated_at: new Date().toISOString(),
+    },
+    { onConflict: "cle" },
+  );
+  return first ?? null;
+}
+
+async function unshiftLabelFile(supabase: Supabase, labelId: string): Promise<void> {
+  const { data } = await supabase
+    .from("reglages")
+    .select("valeur")
+    .eq("cle", "file_labels_comptes")
+    .maybeSingle();
+  const ids = ((data?.valeur as { label_ids?: string[] } | null)?.label_ids ?? []).filter(
+    Boolean,
+  );
+  await supabase.from("reglages").upsert(
+    {
+      cle: "file_labels_comptes",
+      valeur: { label_ids: [labelId, ...ids] },
+      updated_at: new Date().toISOString(),
+    },
+    { onConflict: "cle" },
+  );
+}
+
 /**
- * Prépare le compte de publication d'un poster tout juste créé : rattache un
- * compte de référence de la bonne langue et génère la persona via l'IA.
- *
- * Best-effort : si aucun compte de référence n'existe pour la langue, on crée
- * quand même le compte (référence nulle) ; si la persona échoue, le compte
- * existe et l'admin pourra la (re)générer. On ne bloque jamais la création du
- * poster pour un aléa d'automatisation.
+ * Compte créé avec warmup NON démarré (started/ends null).
+ * Label posé tout de suite ; identité instantanée.
  */
 async function preparerCompte(
   supabase: Supabase,
   posterId: string,
   langue: string,
   referenceId: string | null,
-): Promise<{ id: string; reference: string | null; persona: boolean }> {
+  labelId: string | null,
+): Promise<{ id: string; reference: string | null; persona: boolean; labelId: string | null }> {
   const { data: compte, error } = await supabase
     .from("comptes")
-    .insert({ poster_id: posterId, compte_reference_id: referenceId, langue })
+    .insert({
+      poster_id: posterId,
+      compte_reference_id: referenceId,
+      langue,
+      warmup_started_at: null,
+      warmup_ends_at: null,
+      is_active: true,
+    })
     .select("id")
     .single();
   if (error || !compte) {
-    return { id: "", reference: referenceId, persona: false };
+    if (labelId) await unshiftLabelFile(supabase, labelId);
+    return { id: "", reference: referenceId, persona: false, labelId };
   }
 
-  // Identité posée immédiatement, sans Gemini : sous la seconde, et toujours
-  // remplie. Un enrichissement IA (bio/pseudo plus travaillés) reste possible à
-  // la demande via la fonction `persona`, mais il ne bloque pas la création.
+  if (labelId) {
+    await supabase.from("compte_labels").insert({ compte_id: compte.id, label_id: labelId });
+  }
+
   const { applique } = await appliquerIdentiteInstantanee(supabase, compte.id);
-  return { id: compte.id, reference: referenceId, persona: applique };
+  return { id: compte.id, reference: referenceId, persona: applique, labelId };
 }
 
-/**
- * Choisit une source de référence pour un poster de la langue demandée.
- *
- * Une même source est REPIOCHABLE une fois PAR LANGUE : son contenu est traduit
- * vers la langue du poster, donc une source anglaise peut nourrir à la fois un
- * poster EN, un poster DE, un poster FR… mais UN SEUL par langue. On exclut donc
- * uniquement les sources déjà prises par un compte de CETTE langue ; la langue
- * propre de la source n'entre pas en compte (sauf comme préférence : à qualité
- * égale on prend une source native pour éviter une traduction). Renvoie null
- * seulement si TOUTES les sources sont déjà prises dans cette langue.
- */
 async function referenceLibre(
   supabase: Supabase,
   langue: string,
 ): Promise<string | null> {
-  // Seuls les comptes PRINCIPAUX (parent_id null) sont assignables à un poster ;
-  // les conjoints ne font qu'élargir la matière de leur principal. Triés par
-  // ORDRE D'ASSIGNATION (défini par l'admin) : c'est lui qui décide qui vient
-  // ensuite, par langue.
   const { data: refs } = await supabase
     .from("comptes_reference")
     .select("id, langue, ordre_assignation, ordre_par_langue, created_at")
@@ -270,7 +333,6 @@ async function referenceLibre(
     .is("parent_id", null);
   if (!refs || refs.length === 0) return null;
 
-  // Sources déjà attribuées à un poster DE LA MÊME LANGUE (les seules à exclure).
   const { data: comptes } = await supabase
     .from("comptes")
     .select("compte_reference_id")
@@ -281,12 +343,11 @@ async function referenceLibre(
   const libres = refs.filter((r) => !prisDansCetteLangue.has(r.id));
   if (libres.length === 0) return null;
 
-  // Ordre PROPRE À CETTE LANGUE (l'admin range chaque langue à part), repli sur
-  // l'ordre global puis la date. On prend la première libre.
   // deno-lint-ignore no-explicit-any
   const rang = (r: any) =>
     (r.ordre_par_langue?.[langue] as number | undefined) ?? r.ordre_assignation ?? 9999;
-  libres.sort((a, b) => rang(a) - rang(b) || String(a.created_at).localeCompare(String(b.created_at)));
+  libres.sort(
+    (a, b) => rang(a) - rang(b) || String(a.created_at).localeCompare(String(b.created_at)),
+  );
   return libres[0].id;
 }
-

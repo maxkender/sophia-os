@@ -479,10 +479,18 @@ export async function assignerTousComptes(
   const reglages = await chargerAssignationReglages(supabase);
   let query = supabase.from("comptes").select("*").eq("is_active", true);
   if (compteId) query = query.eq("id", compteId);
-  const { data: comptes, error } = await query;
+  const { data: comptesBruts, error } = await query;
   if (error) throw error;
 
-  return await mapPool(comptes ?? [], LARGEUR_ASSIGNATION, async (compte) => {
+  // Warmup : uniquement les comptes dont warmup_ends_at est passé (en process).
+  const maintenant = Date.now();
+  const comptes = (comptesBruts ?? []).filter((c) => {
+    const ends = c.warmup_ends_at as string | null | undefined;
+    if (!ends) return false; // pas démarré → hors process
+    return new Date(ends).getTime() <= maintenant;
+  });
+
+  return await mapPool(comptes, LARGEUR_ASSIGNATION, async (compte) => {
     try {
       const detail = await assignerCompteJour(supabase, compte, jour, reglages, forcer);
       return {

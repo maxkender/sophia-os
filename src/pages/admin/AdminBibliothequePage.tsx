@@ -64,6 +64,8 @@ function VignetteMedia({
 
   const dejaUpscale = Boolean(media.upscale_le);
   const upscaleBusy = Boolean(etapesLot); // lot nettoyage en cours sur cette vignette
+  const [upscaleLogs, setUpscaleLogs] = React.useState<string[]>([]);
+  const [upscaleOk, setUpscaleOk] = React.useState<string | null>(null);
 
   const nettoyer = useMutation({
     mutationFn: () => {
@@ -83,8 +85,17 @@ function VignetteMedia({
     },
   });
   const upscale = useMutation({
-    mutationFn: () => upscaleMedia(media.id, false),
-    onSuccess: () => onChange(),
+    mutationFn: () => {
+      setUpscaleLogs([]);
+      setUpscaleOk(null);
+      return upscaleMedia(media.id, false, (ligne) => {
+        setUpscaleLogs((prev) => [...prev, ligne]);
+      });
+    },
+    onSuccess: (r) => {
+      setUpscaleOk(r.detail ?? (r.saute ? "déjà upscalée" : "ok"));
+      onChange();
+    },
   });
   const supprimer = useMutation({ mutationFn: () => supprimerMedia(media.id), onSuccess: onChange });
 
@@ -194,8 +205,20 @@ function VignetteMedia({
       {nettoyer.data && !nettoyer.data.nettoyee && (
         <p className="text-[11px] text-destructive">{t("bibliotheque.nettoyageEchec")}</p>
       )}
+      {upscaleOk && (
+        <p className="text-[11px] text-emerald-700 dark:text-emerald-400">{upscaleOk}</p>
+      )}
       {upscale.isError && (
         <p className="text-[11px] text-destructive">{(upscale.error as Error).message}</p>
+      )}
+      {upscaleLogs.length > 0 && (
+        <div className="max-h-36 space-y-0.5 overflow-y-auto rounded border bg-muted/30 px-1.5 py-1 font-mono text-[10px] leading-relaxed text-muted-foreground">
+          {upscaleLogs.map((l, i) => (
+            <div key={`up-${i}-${l.slice(0, 24)}`} className="break-words">
+              {l}
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );

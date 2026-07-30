@@ -1448,19 +1448,125 @@ export const stripC2paMedia = (mediaId: string) =>
     error?: string;
   }>("strip-c2pa", { mediaId });
 
-/** Upscale Recraft Crisp (Replicate) → strip C2PA lossless → remplace en place. */
-export const upscaleMedia = (mediaId: string, forcer = false) =>
-  invoke<{
-    ok: boolean;
-    mediaId: string;
-    saute?: boolean;
-    url?: string;
-    mime?: string;
-    upscale_le?: string;
-    c2pa_retire?: boolean;
-    detail?: string;
-    error?: string;
-  }>("upscale-media", { mediaId, forcer });
+export type UpscaleResultat = {
+  ok: boolean;
+  mediaId: string;
+  saute?: boolean;
+  url?: string;
+  mime?: string;
+  upscale_le?: string;
+  c2pa_retire?: boolean;
+  detail?: string;
+  error?: string;
+  logs: string[];
+};
+
+/**
+ * Upscale Recraft Crisp (Replicate) → strip C2PA lossless → remplace en place.
+ * Stream NDJSON : chaque ligne = log / ready (visible sous la vignette).
+ */
+export async function upscaleMedia(
+  mediaId: string,
+  forcer = false,
+  onLog?: (ligne: string) => void,
+): Promise<UpscaleResultat> {
+  const url = import.meta.env.VITE_SUPABASE_URL;
+  const anon = import.meta.env.VITE_SUPABASE_ANON_KEY;
+  if (!url || !anon) throw new Error("Supabase non configuré");
+
+  const { data: sessionData } = await supabase.auth.getSession();
+  const token = sessionData.session?.access_token;
+  if (!token) throw new Error("Session expirée — reconnecte-toi.");
+
+  onLog?.(`→ POST upscale-media mediaId=${mediaId.slice(0, 8)}…`);
+
+  const res = await fetch(`${url}/functions/v1/upscale-media`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      apikey: anon,
+      "Content-Type": "application/json",
+      Accept: "application/x-ndjson",
+    },
+    body: JSON.stringify({ mediaId, forcer, stream: true }),
+  });
+
+  if (!res.ok || !res.body) {
+    let message = `Edge upscale-media ${res.status}`;
+    try {
+      const j = await res.json();
+      if (typeof j?.error === "string" && j.error) message = j.error;
+      else if (typeof j?.message === "string" && j.message) {
+        message = j.code ? `${j.message} (${j.code})` : j.message;
+      }
+    } catch {
+      // ignore
+    }
+    onLog?.(`✗ ${message}`);
+    throw new Error(message);
+  }
+
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+  const logs: string[] = [];
+  let ready: Record<string, unknown> | null = null;
+
+  const pousser = (ligne: string) => {
+    logs.push(ligne);
+    onLog?.(ligne);
+  };
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+    const lignes = buffer.split("\n");
+    buffer = lignes.pop() ?? "";
+    for (const ligne of lignes) {
+      const trim = ligne.trim();
+      if (!trim) continue;
+      try {
+        const ev = JSON.parse(trim) as Record<string, unknown>;
+        if (typeof ev.detail === "string" && ev.detail) pousser(ev.detail);
+        if (ev.etape === "ready") ready = ev;
+      } catch {
+        pousser(`(ligne brute) ${trim.slice(0, 120)}`);
+      }
+    }
+  }
+  if (buffer.trim()) {
+    try {
+      const ev = JSON.parse(buffer.trim()) as Record<string, unknown>;
+      if (typeof ev.detail === "string" && ev.detail) pousser(ev.detail);
+      if (ev.etape === "ready") ready = ev;
+    } catch {
+      // ignore
+    }
+  }
+
+  if (!ready) {
+    pousser("✗ aucune réponse ready du stream");
+    throw new Error("Upscale: aucune réponse (stream vide)");
+  }
+
+  if (ready.statut === "echec" || ready.ok === false) {
+    const detail = typeof ready.detail === "string" ? ready.detail : "échec upscale";
+    throw new Error(detail);
+  }
+
+  return {
+    ok: true,
+    mediaId,
+    saute: Boolean(ready.saute),
+    url: typeof ready.url === "string" ? ready.url : undefined,
+    mime: typeof ready.mime === "string" ? ready.mime : undefined,
+    upscale_le: typeof ready.upscale_le === "string" ? ready.upscale_le : undefined,
+    c2pa_retire: Boolean(ready.c2pa_retire),
+    detail: typeof ready.detail === "string" ? ready.detail : undefined,
+    logs,
+  };
+}
 
 
 /** Le compte de référence dont dépend un post — pour filtrer sa bibliothèque. */

@@ -26,3 +26,14 @@ enable_signup = true
 enable_signup = true
 double_confirm_changes = true
 enable_confirmations = false
+
+# Auth réelle = assertAuthorised (PostgREST + rôles). Le verify JWT du
+# gateway casse les sessions ES256 (UNAUTHORIZED_ASYMMETRIC_JWT).
+[functions.upscale-media]
+verify_jwt = false
+
+[functions.strip-c2pa]
+verify_jwt = false
+
+[functions.renettoyer-contenu]
+verify_jwt = false

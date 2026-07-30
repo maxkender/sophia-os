@@ -39,13 +39,19 @@ async function invoke<T>(name: string, body: Record<string, unknown>): Promise<T
   if (error) {
     // Sur une réponse non-2xx, supabase renvoie un message générique
     // (« Edge Function returned a non-2xx status code ») : on va lire le vrai
-    // message dans le corps de la réponse pour l'afficher tel quel.
+    // message dans le corps (fonction `{ error }` ou gateway `{ code, message }`).
     let message = error.message;
     try {
       const ctx = (error as { context?: Response }).context;
       if (ctx && typeof ctx.json === "function") {
         const corps = await ctx.json();
-        if (corps?.error) message = corps.error as string;
+        if (typeof corps?.error === "string" && corps.error) {
+          message = corps.error;
+        } else if (typeof corps?.message === "string" && corps.message) {
+          message = corps.code
+            ? `${corps.message} (${corps.code})`
+            : corps.message;
+        }
       }
     } catch {
       // corps illisible : on garde le message générique

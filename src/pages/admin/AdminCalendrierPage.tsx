@@ -1,49 +1,37 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { ChevronLeft, ChevronRight, Trash2, X } from "lucide-react";
-
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, EmptyState } from "@/components/ui/card";
 import {
-  postsCalendrierAdmin,
-  reassignerPost,
-  supprimerPost,
-  supprimerPostsDuJour,
-  type PostCalendrierAdmin,
-} from "@/features/moteur/api";
+  CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
+  ExternalLink,
+  Trash2,
+} from "lucide-react";
+
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  EmptyState,
+} from "@/components/ui/card";
+import { aujourdhui, postsCalendrierAdmin, supprimerPost, type PostCalendrierAdmin } from "@/features/moteur/api";
 import { nomLangue } from "@/features/moteur/langues";
 import { cn } from "@/lib/utils";
 
-function isoDuJour(annee: number, mois: number, jour: number): string {
-  return `${annee}-${String(mois + 1).padStart(2, "0")}-${String(jour).padStart(2, "0")}`;
-}
-
-function grilleDuMois(annee: number, mois: number) {
-  const decalage = (new Date(annee, mois, 1).getDay() + 6) % 7;
-  const joursDansLeMois = new Date(annee, mois + 1, 0).getDate();
-  const cases: Array<number | null> = Array.from({ length: decalage }, () => null);
-  for (let jour = 1; jour <= joursDansLeMois; jour += 1) cases.push(jour);
-  while (cases.length % 7 !== 0) cases.push(null);
-  return cases;
-}
-
-/** Teinte stable par compte : le même créateur garde sa couleur d'un jour à
- *  l'autre, ce qui laisse repérer sa cadence d'un coup d'œil. */
-function teinte(compteId: string): number {
-  let hash = 0;
-  for (const c of compteId) hash = (hash * 31 + c.charCodeAt(0)) % 360;
-  return hash;
-}
-
-function couleurs(compteId: string): React.CSSProperties {
-  const h = teinte(compteId);
-  return {
-    backgroundColor: `hsl(${h} 70% 93%)`,
-    color: `hsl(${h} 55% 30%)`,
-    borderColor: `hsl(${h} 60% 80%)`,
-  };
+function ajouterJours(yyyyMmDd: string, delta: number): string {
+  const d = new Date(`${yyyyMmDd}T12:00:00`);
+  d.setDate(d.getDate() + delta);
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
 }
 
 function nomCreateur(post: PostCalendrierAdmin): string {
@@ -51,240 +39,281 @@ function nomCreateur(post: PostCalendrierAdmin): string {
   return perso || post.persona_nom || (post.handle_tiktok ? `@${post.handle_tiktok}` : "—");
 }
 
+function estPoste(post: PostCalendrierAdmin): boolean {
+  return post.statut === "publie" || Boolean(post.publie_at) || Boolean(post.publie_url);
+}
+
+function badgePipeline(statut: string) {
+  if (statut === "done") return "success" as const;
+  if (statut === "failed") return "destructive" as const;
+  if (statut === "running" || statut === "pending") return "warning" as const;
+  return "secondary" as const;
+}
+
 export function AdminCalendrierPage() {
   const { t, i18n } = useTranslation();
-  const navigate = useNavigate();
   const queryClient = useQueryClient();
+  const [date, setDate] = React.useState(aujourdhui);
+  const [filtreLangue, setFiltreLangue] = React.useState("");
 
   const { data: posts, isPending } = useQuery({
     queryKey: ["posts-calendrier-admin"],
     queryFn: postsCalendrierAdmin,
   });
 
-  const rafraichir = () => queryClient.invalidateQueries({ queryKey: ["posts-calendrier-admin"] });
-
-  const deplacer = useMutation({
-    mutationFn: (v: { id: string; date: string }) =>
-      reassignerPost(v.id, { date_publication_prevue: v.date }),
-    onSuccess: rafraichir,
+  const supprimer = useMutation({
+    mutationFn: supprimerPost,
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["posts-calendrier-admin"] }),
   });
-  const supprimer = useMutation({ mutationFn: supprimerPost, onSuccess: rafraichir });
-  const supprimerJour = useMutation({ mutationFn: supprimerPostsDuJour, onSuccess: rafraichir });
 
-  const maintenant = new Date();
-  const [mois, setMois] = React.useState(() => ({
-    annee: maintenant.getFullYear(),
-    mois: maintenant.getMonth(),
-  }));
-  const [surVol, setSurVol] = React.useState<string | null>(null);
-  const [filtreLangue, setFiltreLangue] = React.useState("");
-
-  // Langues présentes au calendrier (pour le filtre).
   const langues = React.useMemo(
     () => [...new Set((posts ?? []).map((p) => p.langue).filter(Boolean))].sort() as string[],
     [posts],
   );
 
-  const postsFiltres = React.useMemo(
-    () => (filtreLangue ? (posts ?? []).filter((p) => p.langue === filtreLangue) : posts ?? []),
-    [posts, filtreLangue],
-  );
+  const duJour = React.useMemo(() => {
+    const list = (posts ?? []).filter((p) => p.date_publication_prevue === date);
+    return filtreLangue ? list.filter((p) => p.langue === filtreLangue) : list;
+  }, [posts, date, filtreLangue]);
 
-  const parJour = React.useMemo(() => {
-    const carte = new Map<string, PostCalendrierAdmin[]>();
-    for (const post of postsFiltres) {
-      const date = post.date_publication_prevue;
-      if (!date) continue;
-      carte.set(date, [...(carte.get(date) ?? []), post]);
+  const parCreateur = React.useMemo(() => {
+    const map = new Map<string, PostCalendrierAdmin[]>();
+    for (const p of duJour) {
+      const list = map.get(p.compte_id) ?? [];
+      list.push(p);
+      map.set(p.compte_id, list);
     }
-    return carte;
-  }, [postsFiltres]);
+    return [...map.entries()]
+      .map(([compteId, postsCompte]) => ({
+        compteId,
+        posts: postsCompte,
+        nom: nomCreateur(postsCompte[0]!),
+        handle: postsCompte[0]?.handle_tiktok ?? null,
+        avatar: postsCompte[0]?.avatar_url ?? null,
+        langue: postsCompte[0]?.langue ?? null,
+        postes: postsCompte.filter(estPoste).length,
+      }))
+      .sort((a, b) => a.nom.localeCompare(b.nom, i18n.language));
+  }, [duJour, i18n.language]);
 
-  // Légende : un créateur, sa couleur. Dédoublonné par compte.
-  const legende = React.useMemo(() => {
-    const vus = new Map<string, PostCalendrierAdmin>();
-    for (const post of postsFiltres) if (!vus.has(post.compte_id)) vus.set(post.compte_id, post);
-    return [...vus.values()];
-  }, [postsFiltres]);
-
-  if (isPending) {
-    return <p className="text-sm text-muted-foreground">{t("common.loading")}</p>;
-  }
-
-  const cases = grilleDuMois(mois.annee, mois.mois);
-  const nomDuMois = new Date(mois.annee, mois.mois, 1).toLocaleDateString(i18n.language, {
+  const prevus = duJour.length;
+  const postes = duJour.filter(estPoste).length;
+  const labelDate = new Date(`${date}T12:00:00`).toLocaleDateString(i18n.language, {
+    weekday: "long",
+    day: "numeric",
     month: "long",
     year: "numeric",
   });
-  const enTetes = Array.from({ length: 7 }, (_, index) =>
-    new Date(2024, 0, index + 1).toLocaleDateString(i18n.language, { weekday: "short" }),
-  );
-  const decaler = (pas: number) =>
-    setMois((actuel) => {
-      const date = new Date(actuel.annee, actuel.mois + pas, 1);
-      return { annee: date.getFullYear(), mois: date.getMonth() };
-    });
-  const jour = isoDuJour(maintenant.getFullYear(), maintenant.getMonth(), maintenant.getDate());
+  const estAujourdhui = date === aujourdhui();
 
   return (
-    <div className="space-y-4">
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <h2 className="text-lg font-semibold capitalize tracking-tight">{nomDuMois}</h2>
-        <div className="flex items-center gap-2">
-          {langues.length > 1 && (
-            <select
-              aria-label={t("calendrier.filtreLangue")}
-              value={filtreLangue}
-              onChange={(e) => setFiltreLangue(e.target.value)}
-              className="h-9 rounded-md border border-input bg-background px-2 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-            >
-              <option value="">{t("calendrier.toutesLangues")}</option>
-              {langues.map((l) => (
-                <option key={l} value={l}>
-                  {nomLangue(l)}
-                </option>
-              ))}
-            </select>
-          )}
-          <div className="flex items-center gap-1">
-          <Button size="icon" variant="ghost" aria-label={t("calendrier.moisPrecedent")} onClick={() => decaler(-1)}>
-            <ChevronLeft />
-          </Button>
-          <Button
-            size="sm"
-            variant="outline"
-            onClick={() => setMois({ annee: maintenant.getFullYear(), mois: maintenant.getMonth() })}
-          >
-            {t("calendrier.revenirAujourdhui")}
-          </Button>
-          <Button size="icon" variant="ghost" aria-label={t("calendrier.moisSuivant")} onClick={() => decaler(1)}>
-            <ChevronRight />
-          </Button>
-          </div>
-        </div>
-      </div>
-
-      {legende.length > 0 && (
-        <div className="flex flex-wrap gap-x-4 gap-y-1.5">
-          {legende.map((post) => (
-            <span key={post.compte_id} className="flex items-center gap-1.5 text-xs">
-              <span className="size-3 rounded-full border" style={couleurs(post.compte_id)} />
-              {nomCreateur(post)}
-            </span>
-          ))}
-        </div>
-      )}
-
-      {posts?.length === 0 && <EmptyState title={t("posts.empty")} />}
-
+    <div className="space-y-6">
       <Card>
-        <CardContent className="p-0">
-          <div className="grid grid-cols-7 border-b bg-muted/40">
-            {enTetes.map((nom) => (
-              <div key={nom} className="p-2 text-center text-xs font-medium uppercase text-muted-foreground">
-                {nom}
+        <CardHeader>
+          <CardTitle>{t("adminCal.titre")}</CardTitle>
+          <CardDescription>{t("adminCal.desc")}</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="flex flex-wrap items-end gap-3">
+            <div className="space-y-1">
+              <label className="text-xs font-medium text-muted-foreground">{t("adminCal.jour")}</label>
+              <Input
+                type="date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                className="w-44"
+              />
+            </div>
+            <div className="flex items-center gap-1">
+              <Button
+                size="icon"
+                variant="ghost"
+                aria-label={t("adminCal.jourPrecedent")}
+                onClick={() => setDate((d) => ajouterJours(d, -1))}
+              >
+                <ChevronLeft />
+              </Button>
+              <Button
+                size="sm"
+                variant={estAujourdhui ? "secondary" : "outline"}
+                onClick={() => setDate(aujourdhui())}
+              >
+                {t("calendrier.revenirAujourdhui")}
+              </Button>
+              <Button
+                size="icon"
+                variant="ghost"
+                aria-label={t("adminCal.jourSuivant")}
+                onClick={() => setDate((d) => ajouterJours(d, 1))}
+              >
+                <ChevronRight />
+              </Button>
+            </div>
+            {langues.length > 1 && (
+              <div className="space-y-1">
+                <label className="text-xs font-medium text-muted-foreground">
+                  {t("calendrier.filtreLangue")}
+                </label>
+                <select
+                  aria-label={t("calendrier.filtreLangue")}
+                  value={filtreLangue}
+                  onChange={(e) => setFiltreLangue(e.target.value)}
+                  className="flex h-9 w-44 rounded-md border border-input bg-background px-2 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                >
+                  <option value="">{t("calendrier.toutesLangues")}</option>
+                  {langues.map((l) => (
+                    <option key={l} value={l}>
+                      {nomLangue(l)}
+                    </option>
+                  ))}
+                </select>
               </div>
-            ))}
+            )}
           </div>
 
-          <div className="grid grid-cols-7">
-            {cases.map((numero, index) => {
-              if (numero === null) {
-                return <div key={`vide-${index}`} className="min-h-24 border-b border-r bg-muted/20" />;
-              }
-              const date = isoDuJour(mois.annee, mois.mois, numero);
-              const duJour = parJour.get(date) ?? [];
-              const estAujourdhui = date === jour;
+          <p className="text-sm capitalize text-muted-foreground">{labelDate}</p>
 
-              return (
-                <div
-                  key={date}
-                  onDragOver={(e) => {
-                    e.preventDefault();
-                    setSurVol(date);
-                  }}
-                  onDragLeave={() => setSurVol((d) => (d === date ? null : d))}
-                  onDrop={(e) => {
-                    e.preventDefault();
-                    setSurVol(null);
-                    const id = e.dataTransfer.getData("text/plain");
-                    if (id) deplacer.mutate({ id, date });
-                  }}
-                  className={cn(
-                    "min-h-24 min-w-0 space-y-1 border-b border-r p-1.5 transition-colors",
-                    estAujourdhui && "bg-primary/5",
-                    surVol === date && "bg-primary/15 ring-1 ring-inset ring-primary",
-                  )}
-                >
-                  <div className="group/jour flex items-center justify-between">
-                    <span
-                      className={cn(
-                        "inline-flex size-6 items-center justify-center rounded-full text-xs",
-                        estAujourdhui
-                          ? "bg-primary font-semibold text-primary-foreground"
-                          : "text-muted-foreground",
-                      )}
-                    >
-                      {numero}
-                    </span>
-                    {/* Supprimer TOUS les posts du jour d'un coup. */}
-                    {duJour.length > 1 && (
-                      <button
-                        type="button"
-                        aria-label={t("adminCal.supprimerJour")}
-                        title={t("adminCal.supprimerJour")}
-                        disabled={supprimerJour.isPending}
-                        className="hidden shrink-0 rounded p-0.5 text-destructive hover:bg-destructive/10 group-hover/jour:block"
-                        onClick={() => {
-                          if (window.confirm(t("adminCal.confirmSupprimerJour", { count: duJour.length })))
-                            supprimerJour.mutate(date);
-                        }}
-                      >
-                        <Trash2 className="size-3.5" />
-                      </button>
-                    )}
-                  </div>
-
-                  {duJour.map((post) => (
-                    <div
-                      key={post.id}
-                      draggable
-                      onDragStart={(e) => e.dataTransfer.setData("text/plain", post.id)}
-                      onClick={() => navigate(`/admin/posts/${post.id}`)}
-                      title={`${nomCreateur(post)} — ${post.sujet_titre ?? ""}`}
-                      style={couleurs(post.compte_id)}
-                      className={cn(
-                        "group flex w-full max-w-full cursor-grab items-center gap-1 rounded border px-1.5 py-1",
-                        "text-[11px] leading-tight active:cursor-grabbing",
-                        post.pipeline_statut !== "done" && "opacity-60",
-                      )}
-                    >
-                      <span className="min-w-0 flex-1 truncate">
-                        {post.publie_at ? "✓ " : ""}
-                        {nomCreateur(post)}
-                      </span>
-                      <button
-                        type="button"
-                        aria-label={t("common.delete")}
-                        className="hidden shrink-0 rounded p-0.5 hover:bg-black/10 group-hover:block"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          if (window.confirm(t("adminCal.confirmSuppr", { nom: nomCreateur(post) })))
-                            supprimer.mutate(post.id);
-                        }}
-                      >
-                        <X className="size-3" />
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              );
-            })}
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <div className="rounded-lg border p-3">
+              <p className="text-xs text-muted-foreground">{t("adminCal.statsPrevus")}</p>
+              <p className="text-2xl font-semibold tabular-nums">{prevus}</p>
+            </div>
+            <div className="rounded-lg border p-3">
+              <p className="text-xs text-muted-foreground">{t("adminCal.statsPostes")}</p>
+              <p
+                className={cn(
+                  "text-2xl font-semibold tabular-nums",
+                  postes === prevus && prevus > 0 ? "text-success" : "",
+                )}
+              >
+                {postes}
+              </p>
+            </div>
+            <div className="rounded-lg border p-3">
+              <p className="text-xs text-muted-foreground">{t("adminCal.statsRestants")}</p>
+              <p
+                className={cn(
+                  "text-2xl font-semibold tabular-nums",
+                  prevus - postes > 0 ? "text-warning" : "text-success",
+                )}
+              >
+                {Math.max(0, prevus - postes)}
+              </p>
+            </div>
+            <div className="rounded-lg border p-3">
+              <p className="text-xs text-muted-foreground">{t("adminCal.statsCreateurs")}</p>
+              <p className="text-2xl font-semibold tabular-nums">{parCreateur.length}</p>
+            </div>
           </div>
         </CardContent>
       </Card>
 
-      <p className="text-xs text-muted-foreground">{t("adminCal.legende")}</p>
+      <Card>
+        <CardHeader>
+          <CardTitle>{t("adminCal.parCreateur")}</CardTitle>
+          <CardDescription>{t("adminCal.parCreateurDesc")}</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-3">
+          {isPending && <p className="text-sm text-muted-foreground">{t("common.loading")}</p>}
+          {!isPending && parCreateur.length === 0 && (
+            <EmptyState title={t("adminCal.videJour")} />
+          )}
+
+          {parCreateur.map((groupe) => (
+            <div key={groupe.compteId} className="space-y-2 rounded-lg border p-3">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div className="flex min-w-0 items-center gap-2.5">
+                  <div className="size-9 shrink-0 overflow-hidden rounded-full bg-muted">
+                    {groupe.avatar ? (
+                      <img src={groupe.avatar} alt="" className="size-full object-cover" />
+                    ) : null}
+                  </div>
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-medium">{groupe.nom}</p>
+                    <p className="truncate text-xs text-muted-foreground">
+                      {groupe.handle ? `@${groupe.handle}` : "—"}
+                      {groupe.langue ? ` · ${groupe.langue.toUpperCase()}` : ""}
+                    </p>
+                  </div>
+                </div>
+                <Badge variant={groupe.postes === groupe.posts.length ? "success" : "warning"}>
+                  {t("adminCal.faitSur", { faits: groupe.postes, total: groupe.posts.length })}
+                </Badge>
+              </div>
+
+              <ul className="space-y-1.5">
+                {groupe.posts.map((post) => {
+                  const poste = estPoste(post);
+                  return (
+                    <li
+                      key={post.id}
+                      className="flex flex-wrap items-center justify-between gap-2 rounded-md border bg-muted/30 px-2.5 py-2"
+                    >
+                      <div className="flex min-w-0 flex-wrap items-center gap-1.5">
+                        <Badge variant={poste ? "success" : "outline"}>
+                          {poste ? (
+                            <span className="inline-flex items-center gap-1">
+                              <CheckCircle2 className="size-3" />
+                              {t("adminCal.poste")}
+                            </span>
+                          ) : (
+                            t("adminCal.prevu")
+                          )}
+                        </Badge>
+                        <Badge variant="secondary">{t(`type.${post.type}`)}</Badge>
+                        <Badge variant={badgePipeline(post.pipeline_statut)}>
+                          {t(`statut.${post.pipeline_statut}`)}
+                        </Badge>
+                        {post.sujet_titre && (
+                          <span className="truncate text-xs text-muted-foreground">
+                            {post.sujet_titre}
+                          </span>
+                        )}
+                      </div>
+                      <div className="flex flex-wrap items-center gap-1.5">
+                        {post.publie_url && (
+                          <Button size="sm" variant="outline" asChild>
+                            <a
+                              href={post.publie_url}
+                              target="_blank"
+                              rel="noreferrer"
+                              title={t("adminCal.voirTiktok")}
+                            >
+                              <ExternalLink className="mr-1.5 size-3.5" />
+                              {t("adminCal.voirTiktok")}
+                            </a>
+                          </Button>
+                        )}
+                        <Button size="sm" variant="outline" asChild>
+                          <Link to={`/admin/posts/${post.id}`}>{t("adminCal.voirPost")}</Link>
+                        </Button>
+                        <Button
+                          size="icon"
+                          variant="ghost"
+                          className="size-8 text-destructive hover:bg-destructive/10"
+                          aria-label={t("common.delete")}
+                          disabled={supprimer.isPending}
+                          onClick={() => {
+                            if (
+                              window.confirm(
+                                t("adminCal.confirmSuppr", { nom: nomCreateur(post) }),
+                              )
+                            ) {
+                              supprimer.mutate(post.id);
+                            }
+                          }}
+                        >
+                          <Trash2 className="size-3.5" />
+                        </Button>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ))}
+        </CardContent>
+      </Card>
     </div>
   );
 }

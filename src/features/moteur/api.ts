@@ -1070,26 +1070,29 @@ export interface PostCalendrierAdmin {
   statut: string;
   pipeline_statut: string;
   publie_at: string | null;
+  publie_url: string | null;
   persona_nom: string | null;
   handle_tiktok: string | null;
+  avatar_url: string | null;
   poster_prenom: string | null;
   poster_nom: string | null;
   sujet_titre: string | null;
   langue: string | null;
 }
 
-/** Tous les posts, pour le calendrier admin. RLS admin = accès complet. */
+/** Posts (non-test) pour le planning admin jour par jour. */
 export async function postsCalendrierAdmin(): Promise<PostCalendrierAdmin[]> {
   // L'embed profiles sous comptes fonctionne depuis la FK
   // comptes.poster_id → profiles.id (migration 0109).
   const { data, error } = await supabase
     .from("posts")
     .select(
-      "id, compte_id, date_publication_prevue, type, statut, pipeline_statut, publie_at, " +
-        "sujets(titre), comptes(persona_nom, handle_tiktok, langue, profiles(prenom, nom))",
+      "id, compte_id, date_publication_prevue, type, statut, pipeline_statut, publie_at, publie_url, " +
+        "sujets(titre), comptes(persona_nom, handle_tiktok, avatar_url, langue, profiles(prenom, nom))",
     )
+    .eq("est_test", false)
     .order("date_publication_prevue", { ascending: false, nullsFirst: false })
-    .limit(400);
+    .limit(800);
   if (error) throw error;
 
   // deno-lint-ignore no-explicit-any
@@ -1101,8 +1104,10 @@ export async function postsCalendrierAdmin(): Promise<PostCalendrierAdmin[]> {
     statut: p.statut,
     pipeline_statut: p.pipeline_statut,
     publie_at: p.publie_at,
+    publie_url: p.publie_url ?? null,
     persona_nom: p.comptes?.persona_nom ?? null,
     handle_tiktok: p.comptes?.handle_tiktok ?? null,
+    avatar_url: p.comptes?.avatar_url ?? null,
     poster_prenom: p.comptes?.profiles?.prenom ?? null,
     poster_nom: p.comptes?.profiles?.nom ?? null,
     sujet_titre: p.sujets?.titre ?? null,

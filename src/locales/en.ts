@@ -238,6 +238,7 @@ export const en = {
       rattrapageEloOk:
         "ELO OK — window {{debut}}→{{fin}}: {{releves}} stats, {{langues}} languages, {{comptes}} accounts.",
       rattrapageEloErreur: "ELO catch-up failed",
+      rattrapageEloProgress: "{{i}}/{{n}} — @{{handle}}",
       rattrapageEloBriefTitre: "Catch-up brief",
       rattrapageEloStats: "Stats",
       rattrapageEloLangues: "Language ELO",
@@ -525,6 +526,8 @@ export const en = {
       labelsAide:
         "Without a label on a creator, midnight assigns nothing (creator ∩ content label intersection).",
       sansLabels: "No labels",
+      eloCompte: "ELO {{score}}",
+      eloCompteAide: "Account form (recency-weighted average of last measured posts)",
       createursDuRecruteur: "Assigned creators",
       creerRecruteur: "Create a recruiter",
       creerRecruteurDesc:

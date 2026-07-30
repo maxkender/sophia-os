@@ -41,6 +41,10 @@ async function invoke<T>(name: string, body: Record<string, unknown>): Promise<T
     // (« Edge Function returned a non-2xx status code ») : on va lire le vrai
     // message dans le corps de la réponse pour l'afficher tel quel.
     let message = error.message;
+    if (/idle timeout|150s/i.test(message)) {
+      message =
+        "Timeout Edge (150s) — le rattrapage doit tourner compte par compte (logs live).";
+    }
     try {
       const ctx = (error as { context?: Response }).context;
       if (ctx && typeof ctx.json === "function") {
@@ -289,7 +293,9 @@ export async function listerPosters(): Promise<PosterProfil[]> {
   // TikTok du header (bug où la liste montrait un @ ≠ de celui de l'éditeur).
   const { data: comptes } = await supabase
     .from("comptes")
-    .select("id, poster_id, handle_tiktok, persona_nom, persona_bio, avatar_url, comptes_reference(handle_tiktok)")
+    .select(
+      "id, poster_id, handle_tiktok, persona_nom, persona_bio, avatar_url, score, score_maj_at, comptes_reference(handle_tiktok)",
+    )
     .eq("is_active", true)
     .order("created_at", { ascending: false });
   // Un poster ne doit avoir qu'UN compte actif ; si par accident il y en a
@@ -323,6 +329,9 @@ export async function listerPosters(): Promise<PosterProfil[]> {
       persona_nom: compte?.persona_nom ?? null,
       persona_bio: compte?.persona_bio ?? null,
       avatar_url: compte?.avatar_url ?? null,
+      /** ELO / forme du compte TikTok (moyenne pondérée des perfs). */
+      score: compte?.score ?? null,
+      score_maj_at: compte?.score_maj_at ?? null,
       manager_nom: p.manager_id ? (nomParId.get(p.manager_id) ?? null) : null,
     };
   });
@@ -1991,6 +2000,284 @@ export const lancerRattrapageElo = (opts?: {
     forcer: opts?.forcer ?? false,
     dryRun: opts?.dryRun ?? false,
   });
+
+export type RattrapageEloResultat = Awaited<ReturnType<typeof lancerRattrapageElo>>;
+
+export type RattrapageEloProgress = {
+  index: number;
+  total: number;
+  compteId: string;
+  handle: string | null;
+  phase: "start" | "done" | "error";
+  logs: RattrapageEloLog[];
+  briefPartial: RattrapageEloBrief | null;
+  erreur?: string;
+};
+
+function ajouterJoursLocal(yyyyMmDd: string, delta: number): string {
+  const d = new Date(`${yyyyMmDd}T12:00:00`);
+  d.setDate(d.getDate() + delta);
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
+/** Comptes actifs ayant au moins un passage publié (avec lien) dans la fenêtre. */
+async function comptesPourRattrapage(jours: number): Promise<Array<{ id: string; handle: string | null }>> {
+  const fin = aujourdhui();
+  const dates: string[] = [];
+  for (let i = jours - 1; i >= 0; i--) dates.push(ajouterJoursLocal(fin, -i));
+
+  const { data: passages, error } = await supabase
+    .from("passages")
+    .select("compte_id")
+    .eq("statut", "publie")
+    .in("date_publication_prevue", dates)
+    .not("publie_url", "is", null);
+  if (error) throw error;
+
+  const ids = [...new Set((passages ?? []).map((p) => p.compte_id as string))];
+  if (ids.length === 0) return [];
+
+  const { data: comptes, error: errC } = await supabase
+    .from("comptes")
+    .select("id, handle_tiktok")
+    .in("id", ids)
+    .eq("is_active", true)
+    .not("handle_tiktok", "is", null)
+    .order("handle_tiktok");
+  if (errC) throw errC;
+
+  return (comptes ?? []).map((c) => ({
+    id: c.id as string,
+    handle: (c.handle_tiktok as string | null) ?? null,
+  }));
+}
+
+function fusionnerBriefs(
+  jours: number,
+  parts: RattrapageEloBrief[],
+  erreurs: number,
+): RattrapageEloBrief {
+  const empty: RattrapageEloBrief = {
+    resume: "",
+    fenetre: parts[0]?.fenetre ?? `${jours}j`,
+    passages: 0,
+    stats: {
+      comptes: 0,
+      releves: 0,
+      sansMatch: 0,
+      fallbackUrl: 0,
+      fallbackCoherence: 0,
+      erreurs,
+    },
+    eloLangue: {
+      appliques: 0,
+      ignores: 0,
+      deltaNet: 0,
+      hausses: 0,
+      baisses: 0,
+      top: [],
+    },
+    eloCompte: { maj: 0, top: [] },
+  };
+  const agg = parts.reduce((a, b) => {
+    a.passages += b.passages;
+    a.stats.comptes += b.stats.comptes;
+    a.stats.releves += b.stats.releves;
+    a.stats.sansMatch += b.stats.sansMatch;
+    a.stats.fallbackUrl += b.stats.fallbackUrl;
+    a.stats.fallbackCoherence += b.stats.fallbackCoherence;
+    a.eloLangue.appliques += b.eloLangue.appliques;
+    a.eloLangue.ignores += b.eloLangue.ignores;
+    a.eloLangue.deltaNet += b.eloLangue.deltaNet;
+    a.eloLangue.hausses += b.eloLangue.hausses;
+    a.eloLangue.baisses += b.eloLangue.baisses;
+    a.eloLangue.top.push(...b.eloLangue.top);
+    a.eloCompte.maj += b.eloCompte.maj;
+    a.eloCompte.top.push(...b.eloCompte.top);
+    return a;
+  }, empty);
+
+  agg.eloLangue.top = [...agg.eloLangue.top]
+    .sort((x, y) => Math.abs(y.delta) - Math.abs(x.delta))
+    .slice(0, 12);
+  agg.eloCompte.top = [...agg.eloCompte.top]
+    .sort((x, y) => Math.abs(y.apres - y.avant) - Math.abs(x.apres - x.avant))
+    .slice(0, 12);
+
+  const delta = Math.round(agg.eloLangue.deltaNet * 10) / 10;
+  const deltaStr = delta > 0 ? `+${delta.toFixed(1)}` : delta.toFixed(1);
+  agg.resume =
+    `${agg.fenetre} · ${agg.stats.releves} stats · ` +
+    `${agg.eloLangue.appliques} ELO langue (${agg.eloLangue.hausses}↑ ${agg.eloLangue.baisses}↓, Δ ${deltaStr}) · ` +
+    `${agg.eloCompte.maj} ELO compte` +
+    (agg.stats.sansMatch ? ` · ${agg.stats.sansMatch} sans match` : "") +
+    (erreurs ? ` · ${erreurs} erreur(s)` : "");
+  agg.stats.erreurs = erreurs;
+  return agg;
+}
+
+/**
+ * Rattrapage ELO compte-par-compte (évite le timeout Edge 150s) avec
+ * progression + logs live via `onProgress`.
+ */
+export async function lancerRattrapageEloLive(opts?: {
+  jours?: number;
+  forcer?: boolean;
+  onProgress?: (p: RattrapageEloProgress) => void;
+}): Promise<{
+  ok: boolean;
+  brief: RattrapageEloBrief;
+  logs: RattrapageEloLog[];
+  stats: RattrapageEloResultat["stats"];
+  eloLangue: RattrapageEloResultat["eloLangue"];
+  eloCompte: { maj: number };
+  fenetre: { debut: string; fin: string; jours: number };
+}> {
+  const jours = opts?.jours ?? 4;
+  const forcer = opts?.forcer ?? false;
+  const onProgress = opts?.onProgress;
+
+  const comptes = await comptesPourRattrapage(jours);
+  const logs: RattrapageEloLog[] = [];
+  const briefs: RattrapageEloBrief[] = [];
+  const erreurs: Array<{ compteId: string; handle?: string | null; erreur: string }> = [];
+  let fenetre = { debut: aujourdhui(), fin: aujourdhui(), jours };
+  let releves = 0;
+  let sansMatch = 0;
+  let fallbackUrl = 0;
+  let fallbackCoherence = 0;
+  let eloLangue = {
+    appliques: 0,
+    ignores: 0,
+    deltas: 0,
+    hausses: 0,
+    baisses: 0,
+  };
+  let eloCompteMaj = 0;
+
+  const pushLog = (level: RattrapageEloLog["level"], message: string, detail?: string) => {
+    logs.push({ at: new Date().toISOString(), level, message, detail });
+  };
+
+  pushLog(
+    "info",
+    `Rattrapage ELO live — ${comptes.length} compte(s) avec posts publiés (${jours}j)`,
+  );
+  onProgress?.({
+    index: 0,
+    total: comptes.length,
+    compteId: "",
+    handle: null,
+    phase: "start",
+    logs: [...logs],
+    briefPartial: null,
+  });
+
+  if (comptes.length === 0) {
+    pushLog("warn", "Aucun passage publié avec lien dans la fenêtre — rien à faire");
+    const brief = fusionnerBriefs(jours, [], 0);
+    brief.resume = `Aucun compte à traiter (${jours}j)`;
+    return {
+      ok: true,
+      brief,
+      logs,
+      stats: {
+        comptes: 0,
+        releves: 0,
+        fallbackUrl: 0,
+        fallbackCoherence: 0,
+        sansMatch: 0,
+        erreurs: [],
+      },
+      eloLangue,
+      eloCompte: { maj: 0 },
+      fenetre,
+    };
+  }
+
+  for (let i = 0; i < comptes.length; i++) {
+    const c = comptes[i]!;
+    pushLog("info", `[${i + 1}/${comptes.length}] @${c.handle ?? c.id.slice(0, 8)} — démarrage`);
+    onProgress?.({
+      index: i + 1,
+      total: comptes.length,
+      compteId: c.id,
+      handle: c.handle,
+      phase: "start",
+      logs: [...logs],
+      briefPartial: briefs.length ? fusionnerBriefs(jours, briefs, erreurs.length) : null,
+    });
+
+    try {
+      const r = await lancerRattrapageElo({ compteId: c.id, jours, forcer });
+      fenetre = r.fenetre;
+      for (const l of r.logs ?? []) logs.push(l);
+      if (r.brief) briefs.push(r.brief);
+      releves += r.stats.releves;
+      sansMatch += r.stats.sansMatch ?? 0;
+      fallbackUrl += r.stats.fallbackUrl;
+      fallbackCoherence += r.stats.fallbackCoherence;
+      erreurs.push(...(r.stats.erreurs ?? []));
+      eloLangue.appliques += r.eloLangue.appliques;
+      eloLangue.ignores += r.eloLangue.ignores;
+      eloLangue.deltas += r.eloLangue.deltas;
+      eloLangue.hausses += r.eloLangue.hausses ?? 0;
+      eloLangue.baisses += r.eloLangue.baisses ?? 0;
+      eloCompteMaj += r.eloCompte.maj;
+      pushLog(
+        "ok",
+        `[${i + 1}/${comptes.length}] @${c.handle ?? "?"} — OK`,
+        `${r.stats.releves} stats · ${r.eloLangue.appliques} langue · ${r.eloCompte.maj} compte`,
+      );
+      onProgress?.({
+        index: i + 1,
+        total: comptes.length,
+        compteId: c.id,
+        handle: c.handle,
+        phase: "done",
+        logs: [...logs],
+        briefPartial: fusionnerBriefs(jours, briefs, erreurs.length),
+      });
+    } catch (e) {
+      const erreur = e instanceof Error ? e.message : String(e);
+      erreurs.push({ compteId: c.id, handle: c.handle, erreur });
+      pushLog("error", `[${i + 1}/${comptes.length}] @${c.handle ?? "?"} — échec`, erreur);
+      onProgress?.({
+        index: i + 1,
+        total: comptes.length,
+        compteId: c.id,
+        handle: c.handle,
+        phase: "error",
+        logs: [...logs],
+        briefPartial: briefs.length ? fusionnerBriefs(jours, briefs, erreurs.length) : null,
+        erreur,
+      });
+    }
+  }
+
+  const brief = fusionnerBriefs(jours, briefs, erreurs.length);
+  pushLog("ok", "Rattrapage terminé", brief.resume);
+
+  return {
+    ok: true,
+    brief,
+    logs,
+    stats: {
+      comptes: comptes.length,
+      releves,
+      fallbackUrl,
+      fallbackCoherence,
+      sansMatch,
+      erreurs,
+    },
+    eloLangue,
+    eloCompte: { maj: eloCompteMaj },
+    fenetre,
+  };
+}
 
 export const lancerAssignationContenu = (opts?: {
   compteId?: string;

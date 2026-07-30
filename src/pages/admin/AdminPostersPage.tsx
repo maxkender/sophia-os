@@ -543,6 +543,19 @@ export function AdminPostersPage() {
                     {estPoster && compte && labs.length === 0 && (
                       <Badge variant="warning">{t("posters.sansLabels")}</Badge>
                     )}
+                    {estPoster && poster.score != null && (
+                      <Badge
+                        variant="secondary"
+                        title={
+                          t("posters.eloCompteAide") +
+                          (poster.score_maj_at
+                            ? ` · ${new Date(poster.score_maj_at).toLocaleString()}`
+                            : "")
+                        }
+                      >
+                        {t("posters.eloCompte", { score: Number(poster.score).toFixed(1) })}
+                      </Badge>
+                    )}
                   </div>
 
                   <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs text-muted-foreground">

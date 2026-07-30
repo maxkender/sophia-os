@@ -147,6 +147,9 @@ export interface PosterProfil {
   persona_nom: string | null;
   persona_bio: string | null;
   avatar_url: string | null;
+  /** ELO / forme du compte TikTok (`comptes.score`), null si pas de compte. */
+  score: number | null;
+  score_maj_at: string | null;
   manager_id: string | null;
   manager_nom: string | null;
   is_active: boolean;

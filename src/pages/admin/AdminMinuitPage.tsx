@@ -19,7 +19,7 @@ import {
 import {
   aujourdhui,
   lancerAssignationJour,
-  lancerRattrapageElo,
+  lancerRattrapageEloLive,
   lireReglages,
   suiviAssignation,
   type RattrapageEloBrief,
@@ -398,8 +398,64 @@ export function AdminMinuitPage() {
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["suivi-minuit", date] }),
   });
 
+  const [eloLive, setEloLive] = React.useState<{
+    logs: RattrapageEloLog[];
+    brief: RattrapageEloBrief | null;
+    progress: string | null;
+    erreurs: Array<{ compteId: string; handle?: string | null; erreur: string }>;
+    done: boolean;
+  }>({ logs: [], brief: null, progress: null, erreurs: [], done: false });
+
   const rattrapageElo = useMutation({
-    mutationFn: () => lancerRattrapageElo({ jours: 4 }),
+    mutationFn: () => {
+      setEloLive({ logs: [], brief: null, progress: t("minuit.rattrapageEloEnCours"), erreurs: [], done: false });
+      return lancerRattrapageEloLive({
+        jours: 4,
+        onProgress: (p) => {
+          const label = p.handle
+            ? t("minuit.rattrapageEloProgress", {
+                i: p.index,
+                n: p.total,
+                handle: p.handle,
+              })
+            : t("minuit.rattrapageEloEnCours");
+          setEloLive({
+            logs: p.logs,
+            brief: p.briefPartial,
+            progress: label,
+            erreurs: [],
+            done: false,
+          });
+        },
+      });
+    },
+    onSuccess: (data) => {
+      setEloLive({
+        logs: data.logs,
+        brief: data.brief,
+        progress: null,
+        erreurs: data.stats.erreurs ?? [],
+        done: true,
+      });
+      void queryClient.invalidateQueries({ queryKey: ["posters"] });
+      void queryClient.invalidateQueries({ queryKey: ["comptes"] });
+    },
+    onError: (err) => {
+      setEloLive((prev) => ({
+        ...prev,
+        progress: null,
+        done: false,
+        logs: [
+          ...prev.logs,
+          {
+            at: new Date().toISOString(),
+            level: "error",
+            message: t("minuit.rattrapageEloErreur"),
+            detail: (err as Error).message,
+          },
+        ],
+      }));
+    },
   });
 
   const lignes = suivi.data ?? [];
@@ -464,10 +520,13 @@ export function AdminMinuitPage() {
 
           <BarreChargement
             actif={relancer.isPending || rattrapageElo.isPending}
-            dureeMs={rattrapageElo.isPending ? 45_000 : 9_000}
-            label={rattrapageElo.isPending ? t("minuit.rattrapageEloEnCours") : t("minuit.enCours")}
+            dureeMs={rattrapageElo.isPending ? 60_000 : 9_000}
+            label={
+              rattrapageElo.isPending
+                ? (eloLive.progress ?? t("minuit.rattrapageEloEnCours"))
+                : t("minuit.enCours")
+            }
           />
-
 
           {relancer.isSuccess && (() => {
             const crees = relancer.data.resultats.reduce((n, r) => n + r.crees, 0);
@@ -490,12 +549,46 @@ export function AdminMinuitPage() {
               {(relancer.error as Error).message}
             </div>
           )}
-          {rattrapageElo.isSuccess && rattrapageElo.data.ok && rattrapageElo.data.brief && (
-            <BriefRattrapageElo
-              brief={rattrapageElo.data.brief}
-              logs={rattrapageElo.data.logs ?? []}
-              erreurs={rattrapageElo.data.stats.erreurs ?? []}
-            />
+          {(rattrapageElo.isPending || eloLive.done || eloLive.logs.length > 0) && (
+            <div className="space-y-2">
+              {rattrapageElo.isPending && eloLive.progress && (
+                <p className="text-sm text-muted-foreground">{eloLive.progress}</p>
+              )}
+              {eloLive.brief ? (
+                <BriefRattrapageElo
+                  brief={eloLive.brief}
+                  logs={eloLive.logs}
+                  erreurs={eloLive.erreurs}
+                />
+              ) : eloLive.logs.length > 0 ? (
+                <BriefRattrapageElo
+                  brief={{
+                    resume: eloLive.progress ?? t("minuit.rattrapageEloEnCours"),
+                    fenetre: "…",
+                    passages: 0,
+                    stats: {
+                      comptes: 0,
+                      releves: 0,
+                      sansMatch: 0,
+                      fallbackUrl: 0,
+                      fallbackCoherence: 0,
+                      erreurs: 0,
+                    },
+                    eloLangue: {
+                      appliques: 0,
+                      ignores: 0,
+                      deltaNet: 0,
+                      hausses: 0,
+                      baisses: 0,
+                      top: [],
+                    },
+                    eloCompte: { maj: 0, top: [] },
+                  }}
+                  logs={eloLive.logs}
+                  erreurs={[]}
+                />
+              ) : null}
+            </div>
           )}
           {rattrapageElo.isError && (
             <div className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">

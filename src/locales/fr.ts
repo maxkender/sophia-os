@@ -238,6 +238,7 @@ export const fr = {
       rattrapageEloOk:
         "ELO OK — fenêtre {{debut}}→{{fin}} : {{releves}} stats, {{langues}} langues, {{comptes}} comptes.",
       rattrapageEloErreur: "Échec du rattrapage ELO",
+      rattrapageEloProgress: "{{i}}/{{n}} — @{{handle}}",
       rattrapageEloBriefTitre: "Brief du rattrapage",
       rattrapageEloStats: "Stats",
       rattrapageEloLangues: "ELO langue",
@@ -525,6 +526,8 @@ export const fr = {
       labelsAide:
         "Sans label sur un créateur, minuit n’assigne rien (intersection labels créateur ∩ contenus).",
       sansLabels: "Sans labels",
+      eloCompte: "ELO {{score}}",
+      eloCompteAide: "Forme du compte (moyenne pondérée des derniers posts mesurés)",
       createursDuRecruteur: "Créateurs rattachés",
 
       creerRecruteur: "Créer un recruteur",

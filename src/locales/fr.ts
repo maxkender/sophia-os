@@ -296,9 +296,11 @@ export const fr = {
       contenu: "Slideshow",
     },
     pilotage: {
-      title: "Pilotage du moteur",
+      title: "Pilotage",
       subtitle:
         "Déclenche les étapes à la main. Chaque passage consomme du crédit Apify ou Gemini.",
+      subtitleNew:
+        "Vue d’ensemble alimentée par l’update ELO (rattrapage) : vues, classements, alertes posts.",
       autoTitre: "Le moteur tourne tout seul",
       autoDesc:
         "Extraction, nettoyage, traduction, assignation à minuit : tout est automatique (crons de nuit). Pour tester à la main, va sur la page Tests.",
@@ -307,6 +309,32 @@ export const fr = {
       posts: "Posts",
       medias: "Médias",
       comptes: "Comptes",
+      contenus: "Contenus",
+      passages: "Passages",
+      labels: "Labels",
+      vide: "Rien à afficher pour l’instant.",
+      vuesTitre: "Vues quotidiennes (tous comptes)",
+      vuesDesc:
+        "Δ vues = total du jour − total de la veille, figé à chaque update ELO (rattrapage).",
+      vuesVide:
+        "Pas encore de snapshot — lance un Rattrapage ELO depuis Assignation de minuit.",
+      dernierDelta: "Dernier Δ :",
+      totalVues: "total {{n}}",
+      alerte1Titre: "Alerte 1 — pas posté hier",
+      alerte1Desc: "Comptes actifs sans publication hier.",
+      alerte2Titre: "Alerte 2 — 2 jours ou + sans post",
+      alerte2Desc: "Comptes actifs sans publication depuis au moins 2 jours.",
+      pasVeille: "Hier",
+      joursSans: "{{n}}j",
+      eloBasTitre: "ELO compte — les 5 plus bas",
+      eloBasDesc: "Comptes à surveiller (forme faible).",
+      eloTopTitre: "Classement ELO compte",
+      eloTopDesc: "Meilleurs scores de forme (moyenne pondérée des posts).",
+      recruteursTitre: "Classement recruteurs",
+      recruteursDesc: "ELO moyen des créateurs rattachés à chaque recruteur.",
+      nbCreateurs: "{{n}} créateur(s)",
+      postsVeilleTitre: "Posts d’hier — vues",
+      postsVeilleDesc: "Classement des posts publiés hier par nombre de vues.",
     },
     sources: {
       title: "Comptes de référence",

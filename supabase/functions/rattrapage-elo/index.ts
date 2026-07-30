@@ -10,7 +10,8 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
  * Contourne PAUSE_ELO_RUNTIME (c’est le chemin volontaire de reprise).
  *
  *   {}                  → tous les comptes, 4 jours
- *   { compteId, jours, forcer, dryRun }
+ *   { compteId, jours, forcer, dryRun, snapshot }
+ *   { snapshot: true }  → fige seulement vues_globales_jour (fin de run live)
  */
 Deno.serve(async (request) => {
   const denied = await assertAuthorised(request);
@@ -31,6 +32,7 @@ Deno.serve(async (request) => {
       jours: body?.jours ?? undefined,
       forcer: Boolean(body?.forcer),
       dryRun: Boolean(body?.dryRun),
+      snapshot: Boolean(body?.snapshot),
     });
     return json({ ok: true, ...r });
   } catch (error) {

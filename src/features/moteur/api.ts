@@ -1040,6 +1040,230 @@ export async function statsComptes(): Promise<StatsCompte[]> {
   return data as StatsCompte[];
 }
 
+export type PilotageDashboard = {
+  vuesSerie: Array<{
+    jour: string;
+    vues_totales: number;
+    vues_delta: number | null;
+    nb_comptes: number;
+  }>;
+  recruteurs: Array<{
+    id: string;
+    nom: string;
+    eloMoyen: number;
+    nbCreateurs: number;
+  }>;
+  postsVeille: Array<{
+    id: string;
+    titre: string | null;
+    handle: string | null;
+    vues: number;
+    publie_url: string | null;
+    compte_id: string;
+  }>;
+  eloTop: Array<{
+    compte_id: string;
+    nom: string;
+    handle: string | null;
+    score: number;
+  }>;
+  eloBas: Array<{
+    compte_id: string;
+    nom: string;
+    handle: string | null;
+    score: number;
+  }>;
+  alertes: {
+    niveau1: Array<{
+      compte_id: string;
+      nom: string;
+      handle: string | null;
+    }>;
+    niveau2: Array<{
+      compte_id: string;
+      nom: string;
+      handle: string | null;
+      joursSansPost: number;
+    }>;
+  };
+};
+
+/** Données Pilotage : courbe vues, classements ELO / recruteurs, alertes posts. */
+export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
+  const auj = aujourdhui();
+  const veille = ajouterJoursLocal(auj, -1);
+  const avantHier = ajouterJoursLocal(auj, -2);
+
+  const [{ data: serie }, { data: comptes }, { data: roles }, { data: profils }, { data: postsVeille }] =
+    await Promise.all([
+      supabase
+        .from("vues_globales_jour")
+        .select("jour, vues_totales, vues_delta, nb_comptes")
+        .order("jour", { ascending: true })
+        .limit(60),
+      supabase
+        .from("comptes")
+        .select("id, poster_id, persona_nom, handle_tiktok, score, is_active")
+        .eq("is_active", true),
+      supabase.from("user_roles").select("user_id, role"),
+      supabase.from("profiles").select("id, prenom, nom, manager_id, is_active"),
+      supabase
+        .from("passages")
+        .select("id, compte_id, vues, publie_url, contenus(titre), comptes(handle_tiktok, persona_nom)")
+        .eq("statut", "publie")
+        .eq("date_publication_prevue", veille)
+        .not("vues", "is", null)
+        .order("vues", { ascending: false })
+        .limit(15),
+    ]);
+
+  const profilParId = new Map((profils ?? []).map((p) => [p.id as string, p]));
+  const roleParUser = new Map((roles ?? []).map((r) => [r.user_id as string, r.role as string]));
+
+  const nomCompte = (c: {
+    persona_nom: string | null;
+    handle_tiktok: string | null;
+    poster_id: string;
+  }) => {
+    const p = profilParId.get(c.poster_id);
+    const perso = [p?.prenom, p?.nom].filter(Boolean).join(" ");
+    return perso || c.persona_nom || (c.handle_tiktok ? `@${c.handle_tiktok}` : "—");
+  };
+
+  const eloListe = (comptes ?? [])
+    .map((c) => ({
+      compte_id: c.id as string,
+      nom: nomCompte(c as never),
+      handle: (c.handle_tiktok as string | null) ?? null,
+      score: Number(c.score ?? 50),
+      poster_id: c.poster_id as string,
+    }))
+    .sort((a, b) => b.score - a.score);
+
+  // Recruteurs = hiring_manager ; moyenne ELO des créateurs rattachés (manager_id).
+  const recruteursIds = [...roleParUser.entries()]
+    .filter(([, role]) => role === "hiring_manager")
+    .map(([id]) => id);
+
+  const recruteurs = recruteursIds
+    .map((rid) => {
+      const p = profilParId.get(rid);
+      const createurs = eloListe.filter((c) => {
+        const pr = profilParId.get(c.poster_id);
+        return pr?.manager_id === rid;
+      });
+      if (createurs.length === 0) {
+        return {
+          id: rid,
+          nom: [p?.prenom, p?.nom].filter(Boolean).join(" ") || "—",
+          eloMoyen: 0,
+          nbCreateurs: 0,
+        };
+      }
+      const eloMoyen = createurs.reduce((s, c) => s + c.score, 0) / createurs.length;
+      return {
+        id: rid,
+        nom: [p?.prenom, p?.nom].filter(Boolean).join(" ") || "—",
+        eloMoyen,
+        nbCreateurs: createurs.length,
+      };
+    })
+    .filter((r) => r.nbCreateurs > 0)
+    .sort((a, b) => b.eloMoyen - a.eloMoyen);
+
+  // Posts publiés hier / avant-hier (pour alertes).
+  const { data: postsRecents } = await supabase
+    .from("passages")
+    .select("compte_id, date_publication_prevue")
+    .eq("statut", "publie")
+    .gte("date_publication_prevue", ajouterJoursLocal(auj, -14));
+
+  const parCompteDates = new Map<string, Set<string>>();
+  for (const p of postsRecents ?? []) {
+    const cid = p.compte_id as string;
+    const d = p.date_publication_prevue as string | null;
+    if (!d) continue;
+    const set = parCompteDates.get(cid) ?? new Set();
+    set.add(d);
+    parCompteDates.set(cid, set);
+  }
+
+  const niveau1: PilotageDashboard["alertes"]["niveau1"] = [];
+  const niveau2: PilotageDashboard["alertes"]["niveau2"] = [];
+
+  for (const c of eloListe) {
+    const dates = parCompteDates.get(c.compte_id) ?? new Set();
+    const aPosteVeille = dates.has(veille);
+    const aPosteAvantHier = dates.has(avantHier);
+    if (!aPosteVeille && !aPosteAvantHier) {
+      // Dernier post dans la fenêtre 14j ?
+      let dernier: string | null = null;
+      for (const d of dates) {
+        if (!dernier || d > dernier) dernier = d;
+      }
+      let joursSans = 2;
+      if (dernier) {
+        const a = new Date(`${auj}T12:00:00`);
+        const b = new Date(`${dernier}T12:00:00`);
+        joursSans = Math.max(2, Math.round((a.getTime() - b.getTime()) / 86_400_000));
+      } else {
+        joursSans = 14;
+      }
+      niveau2.push({
+        compte_id: c.compte_id,
+        nom: c.nom,
+        handle: c.handle,
+        joursSansPost: joursSans,
+      });
+    } else if (!aPosteVeille) {
+      niveau1.push({
+        compte_id: c.compte_id,
+        nom: c.nom,
+        handle: c.handle,
+      });
+    }
+  }
+
+  niveau2.sort((a, b) => b.joursSansPost - a.joursSansPost);
+
+  // deno-lint-ignore no-explicit-any
+  const postsVeilleMapped = ((postsVeille ?? []) as any[]).map((p) => ({
+    id: p.id as string,
+    titre: (p.contenus?.titre as string | null) ?? null,
+    handle: (p.comptes?.handle_tiktok as string | null) ?? null,
+    vues: Number(p.vues ?? 0),
+    publie_url: (p.publie_url as string | null) ?? null,
+    compte_id: p.compte_id as string,
+  }));
+
+  return {
+    vuesSerie: (serie ?? []).map((s) => ({
+      jour: s.jour as string,
+      vues_totales: Number(s.vues_totales),
+      vues_delta: s.vues_delta == null ? null : Number(s.vues_delta),
+      nb_comptes: Number(s.nb_comptes ?? 0),
+    })),
+    recruteurs,
+    postsVeille: postsVeilleMapped,
+    eloTop: eloListe.slice(0, 10).map(({ compte_id, nom, handle, score }) => ({
+      compte_id,
+      nom,
+      handle,
+      score,
+    })),
+    eloBas: [...eloListe]
+      .sort((a, b) => a.score - b.score)
+      .slice(0, 5)
+      .map(({ compte_id, nom, handle, score }) => ({
+        compte_id,
+        nom,
+        handle,
+        score,
+      })),
+    alertes: { niveau1, niveau2 },
+  };
+}
+
 export async function statsPosts(compteId?: string): Promise<StatsPost[]> {
   let query = supabase
     .from("stats_posts")
@@ -2032,6 +2256,8 @@ export const lancerRattrapageElo = (opts?: {
   jours?: number;
   forcer?: boolean;
   dryRun?: boolean;
+  /** Figé seulement vues_globales_jour (fin de run live). */
+  snapshot?: boolean;
 }) =>
   invoke<{
     ok: boolean;
@@ -2055,12 +2281,19 @@ export const lancerRattrapageElo = (opts?: {
     brief: RattrapageEloBrief;
     logs: RattrapageEloLog[];
     dryRun: boolean;
+    snapshot?: {
+      jour: string;
+      vues_totales: number;
+      vues_delta: number | null;
+      nb_comptes: number;
+    };
     error?: string;
   }>("rattrapage-elo", {
     compteId: opts?.compteId ?? null,
     jours: opts?.jours ?? 4,
     forcer: opts?.forcer ?? false,
     dryRun: opts?.dryRun ?? false,
+    snapshot: opts?.snapshot ?? false,
   });
 
 export type RattrapageEloResultat = Awaited<ReturnType<typeof lancerRattrapageElo>>;
@@ -2085,31 +2318,17 @@ function ajouterJoursLocal(yyyyMmDd: string, delta: number): string {
   return `${y}-${m}-${day}`;
 }
 
-/** Comptes actifs ayant au moins un passage publié (avec lien) dans la fenêtre. */
-async function comptesPourRattrapage(jours: number): Promise<Array<{ id: string; handle: string | null }>> {
-  const fin = aujourdhui();
-  const dates: string[] = [];
-  for (let i = jours - 1; i >= 0; i--) dates.push(ajouterJoursLocal(fin, -i));
-
-  const { data: passages, error } = await supabase
-    .from("passages")
-    .select("compte_id")
-    .eq("statut", "publie")
-    .in("date_publication_prevue", dates)
-    .not("publie_url", "is", null);
-  if (error) throw error;
-
-  const ids = [...new Set((passages ?? []).map((p) => p.compte_id as string))];
-  if (ids.length === 0) return [];
-
-  const { data: comptes, error: errC } = await supabase
+/** Tous les comptes actifs avec @ — ELO + metrics + snapshot Pilotage. */
+async function comptesPourRattrapage(
+  _jours: number,
+): Promise<Array<{ id: string; handle: string | null }>> {
+  const { data: comptes, error } = await supabase
     .from("comptes")
     .select("id, handle_tiktok")
-    .in("id", ids)
     .eq("is_active", true)
     .not("handle_tiktok", "is", null)
     .order("handle_tiktok");
-  if (errC) throw errC;
+  if (error) throw error;
 
   return (comptes ?? []).map((c) => ({
     id: c.id as string,
@@ -2226,7 +2445,7 @@ export async function lancerRattrapageEloLive(opts?: {
 
   pushLog(
     "info",
-    `Rattrapage ELO live — ${comptes.length} compte(s) avec posts publiés (${jours}j)`,
+    `Rattrapage ELO live — ${comptes.length} compte(s) actifs (${jours}j)`,
   );
   onProgress?.({
     index: 0,
@@ -2239,7 +2458,7 @@ export async function lancerRattrapageEloLive(opts?: {
   });
 
   if (comptes.length === 0) {
-    pushLog("warn", "Aucun passage publié avec lien dans la fenêtre — rien à faire");
+    pushLog("warn", "Aucun compte actif avec @ TikTok");
     const brief = fusionnerBriefs(jours, [], 0);
     brief.resume = `Aucun compte à traiter (${jours}j)`;
     return {
@@ -2318,6 +2537,26 @@ export async function lancerRattrapageEloLive(opts?: {
         erreur,
       });
     }
+  }
+
+  // Snapshot vues globales (Pilotage : courbe Δ j0−j1).
+  try {
+    pushLog("info", "Snapshot vues globales…");
+    const snapRes = await lancerRattrapageElo({ snapshot: true });
+    for (const l of snapRes.logs ?? []) logs.push(l);
+    if (snapRes.snapshot) {
+      pushLog(
+        "ok",
+        `Snapshot ${snapRes.snapshot.jour}`,
+        `total ${snapRes.snapshot.vues_totales} · Δ ${snapRes.snapshot.vues_delta ?? "n/a"}`,
+      );
+    }
+  } catch (e) {
+    pushLog(
+      "warn",
+      "Snapshot vues globales échoué",
+      e instanceof Error ? e.message : String(e),
+    );
   }
 
   const brief = fusionnerBriefs(jours, briefs, erreurs.length);

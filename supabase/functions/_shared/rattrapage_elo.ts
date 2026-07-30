@@ -330,6 +330,20 @@ async function releverStatsFenetre(
       const parId = new Map(enLigne.map((p) => [idDuLien(p.webVideoUrl), p]));
       journal.push("info", `@${handle} — ${enLigne.length} post(s) TikTok scrapés`);
 
+      // Total profil → compte_metrics (alimente le snapshot Pilotage j0−j1).
+      if (!dryRun && enLigne.length > 0) {
+        const somme = (f: (s: ScrapedPost["stats"]) => number) =>
+          enLigne.reduce((n, p) => n + (f(p.stats) || 0), 0);
+        await supabase.from("compte_metrics").insert({
+          compte_id: compte.id,
+          vues: somme((s) => s.vues),
+          likes: somme((s) => s.likes),
+          commentaires: somme((s) => s.commentaires),
+          partages: somme((s) => s.partages),
+          nb_posts: enLigne.length,
+        });
+      }
+
       for (const passage of liste) {
         if (!passage.publie_url) continue;
         const complet = await resoudreLien(passage.publie_url);
@@ -701,11 +715,129 @@ function construireBrief(
   };
 }
 
+/**
+ * Figé le total des vues (dernier compte_metrics par compte actif) pour le
+ * jour Paris courant. vues_delta = total − total de la veille.
+ */
+export async function snapshotVuesGlobales(
+  supabase: Supabase,
+  journal?: Journal,
+): Promise<{ jour: string; vues_totales: number; vues_delta: number | null; nb_comptes: number }> {
+  const jour = aujourdhuiParis();
+  const { data: comptes, error } = await supabase
+    .from("comptes")
+    .select("id")
+    .eq("is_active", true);
+  if (error) throw error;
+
+  let vuesTotales = 0;
+  let nb = 0;
+  for (const c of comptes ?? []) {
+    const { data: m } = await supabase
+      .from("compte_metrics")
+      .select("vues")
+      .eq("compte_id", c.id)
+      .order("collecte_at", { ascending: false })
+      .limit(1)
+      .maybeSingle();
+    if (m?.vues != null) {
+      vuesTotales += Number(m.vues);
+      nb += 1;
+    }
+  }
+
+  const veille = (() => {
+    const d = new Date(`${jour}T12:00:00Z`);
+    d.setUTCDate(d.getUTCDate() - 1);
+    return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(d);
+  })();
+
+  const { data: prev } = await supabase
+    .from("vues_globales_jour")
+    .select("vues_totales")
+    .eq("jour", veille)
+    .maybeSingle();
+
+  const vuesDelta = prev?.vues_totales != null
+    ? vuesTotales - Number(prev.vues_totales)
+    : null;
+
+  await supabase.from("vues_globales_jour").upsert(
+    {
+      jour,
+      vues_totales: vuesTotales,
+      vues_delta: vuesDelta,
+      nb_comptes: nb,
+    },
+    { onConflict: "jour" },
+  );
+
+  journal?.push(
+    "ok",
+    `Snapshot vues ${jour}`,
+    `total ${vuesTotales} · Δ ${vuesDelta ?? "n/a"} · ${nb} compte(s)`,
+  );
+
+  return { jour, vues_totales: vuesTotales, vues_delta: vuesDelta, nb_comptes: nb };
+}
+
 export async function rattrapageElo(
   supabase: Supabase,
-  opts: RattrapageOpts = {},
-): Promise<RattrapageResultat> {
+  opts: RattrapageOpts & { snapshot?: boolean } = {},
+): Promise<RattrapageResultat & { snapshot?: Awaited<ReturnType<typeof snapshotVuesGlobales>> }> {
   const journal = new Journal();
+
+  // Mode snapshot seul (fin de run live / cron).
+  if (opts.snapshot && !opts.compteId) {
+    const snap = await snapshotVuesGlobales(supabase, journal);
+    const { debut, fin, dates } = joursFenetreParis(RATTRAPAGE_JOURS_DEFAUT);
+    return {
+      fenetre: { debut, fin, jours: dates.length },
+      stats: {
+        comptes: 0,
+        releves: 0,
+        fallbackUrl: 0,
+        fallbackCoherence: 0,
+        sansMatch: 0,
+        erreurs: [],
+      },
+      eloLangue: {
+        appliques: 0,
+        ignores: 0,
+        deltas: 0,
+        hausses: 0,
+        baisses: 0,
+        details: [],
+      },
+      eloCompte: { maj: 0, details: [] },
+      brief: construireBrief(
+        { debut, fin, jours: dates.length },
+        0,
+        {
+          comptes: 0,
+          releves: 0,
+          fallbackUrl: 0,
+          fallbackCoherence: 0,
+          sansMatch: 0,
+          erreurs: [],
+        },
+        {
+          appliques: 0,
+          ignores: 0,
+          deltas: 0,
+          hausses: 0,
+          baisses: 0,
+          details: [],
+        },
+        { maj: 0, details: [] },
+        false,
+      ),
+      logs: journal.lines,
+      dryRun: false,
+      snapshot: snap,
+    };
+  }
+
   const jours = Math.max(1, Math.min(14, opts.jours ?? RATTRAPAGE_JOURS_DEFAUT));
   const dryRun = Boolean(opts.dryRun);
   const forcer = Boolean(opts.forcer);
@@ -722,10 +854,49 @@ export async function rattrapageElo(
   const passages = await chargerPassagesFenetre(supabase, dates, opts.compteId ?? null);
   journal.push("info", `${passages.length} passage(s) publiés avec lien dans la fenêtre`);
 
+  // Compte isolé sans passage dans la fenêtre : scraper quand même pour metrics + ELO compte.
+  if (opts.compteId && passages.length === 0) {
+    const { data: c } = await supabase
+      .from("comptes")
+      .select("id, handle_tiktok")
+      .eq("id", opts.compteId)
+      .maybeSingle();
+    if (c?.handle_tiktok && !dryRun) {
+      try {
+        const enLigne = await scrapeStats(c.handle_tiktok as string, POSTS_RELEVES);
+        const somme = (f: (s: ScrapedPost["stats"]) => number) =>
+          enLigne.reduce((n, p) => n + (f(p.stats) || 0), 0);
+        await supabase.from("compte_metrics").insert({
+          compte_id: c.id,
+          vues: somme((s) => s.vues),
+          likes: somme((s) => s.likes),
+          commentaires: somme((s) => s.commentaires),
+          partages: somme((s) => s.partages),
+          nb_posts: enLigne.length,
+        });
+        journal.push("ok", `@${c.handle_tiktok} — metrics profil (${enLigne.length} posts)`);
+      } catch (e) {
+        journal.push(
+          "error",
+          `@${c.handle_tiktok} — scrape metrics`,
+          e instanceof Error ? e.message : String(e),
+        );
+      }
+    }
+  }
+
   const stats = await releverStatsFenetre(supabase, passages, dryRun, handles, journal);
   const eloLangue = await appliquerEloLangue(supabase, passages, { forcer, dryRun }, handles, journal);
-  const compteIds = [...new Set(passages.map((p) => p.compte_id))];
+  const compteIds = opts.compteId
+    ? [opts.compteId]
+    : [...new Set(passages.map((p) => p.compte_id))];
   const eloCompte = await appliquerEloComptes(supabase, compteIds, dryRun, handles, journal);
+
+  let snapshot: Awaited<ReturnType<typeof snapshotVuesGlobales>> | undefined;
+  // Snapshot global seulement sur un run « tous comptes » (pas un compte isolé).
+  if (!dryRun && !opts.compteId) {
+    snapshot = await snapshotVuesGlobales(supabase, journal);
+  }
 
   const brief = construireBrief(
     { debut, fin, jours },
@@ -745,5 +916,6 @@ export async function rattrapageElo(
     brief,
     logs: journal.lines,
     dryRun,
+    snapshot,
   };
 }

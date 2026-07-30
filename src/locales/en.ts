@@ -296,9 +296,11 @@ export const en = {
       contenu: "Slideshow",
     },
     pilotage: {
-      title: "Engine control",
+      title: "Control panel",
       subtitle:
         "Trigger the steps manually. Each run consumes Apify or Gemini credit.",
+      subtitleNew:
+        "Overview fed by the ELO update (catch-up): views, rankings, posting alerts.",
       autoTitre: "The engine runs on its own",
       autoDesc:
         "Extraction, cleaning, translation, midnight assignment: all automatic (nightly crons). To test manually, go to the Tests page.",
@@ -307,6 +309,32 @@ export const en = {
       posts: "Posts",
       medias: "Media",
       comptes: "Accounts",
+      contenus: "Contents",
+      passages: "Passages",
+      labels: "Labels",
+      vide: "Nothing to show yet.",
+      vuesTitre: "Daily views (all accounts)",
+      vuesDesc:
+        "Δ views = day total − previous day total, frozen on each ELO update (catch-up).",
+      vuesVide:
+        "No snapshot yet — run an ELO catch-up from Midnight assignment.",
+      dernierDelta: "Latest Δ:",
+      totalVues: "total {{n}}",
+      alerte1Titre: "Alert 1 — no post yesterday",
+      alerte1Desc: "Active accounts with no publication yesterday.",
+      alerte2Titre: "Alert 2 — 2+ days without a post",
+      alerte2Desc: "Active accounts with no publication for at least 2 days.",
+      pasVeille: "Yesterday",
+      joursSans: "{{n}}d",
+      eloBasTitre: "Account ELO — bottom 5",
+      eloBasDesc: "Accounts to watch (weak form).",
+      eloTopTitre: "Account ELO ranking",
+      eloTopDesc: "Best form scores (recency-weighted post average).",
+      recruteursTitre: "Recruiter ranking",
+      recruteursDesc: "Average ELO of creators attached to each recruiter.",
+      nbCreateurs: "{{n}} creator(s)",
+      postsVeilleTitre: "Yesterday’s posts — views",
+      postsVeilleDesc: "Yesterday’s published posts ranked by views.",
     },
     sources: {
       title: "Reference accounts",

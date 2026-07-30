@@ -1,6 +1,6 @@
 import { assignerTousComptes } from "../_shared/assignation_contenu.ts";
 import { scrapeStats } from "../_shared/apify.ts";
-import { rattrapageElo } from "../_shared/rattrapage_elo.ts";
+import { rattrapageElo, snapshotVuesGlobales } from "../_shared/rattrapage_elo.ts";
 import { majScoresDepuisPassages } from "../_shared/scoring.ts";
 import { avancerVariations } from "../_shared/variations.ts";
 import {
@@ -88,6 +88,11 @@ Deno.serve(async (request) => {
 
     if (etapes.includes("stats")) {
       out.stats = await releverPassages(supabase, compteId);
+      // Figé les vues globales (Pilotage Δ j0−j1) après le scrape de minuit.
+      // Sur un run compte isolé, le rattrapage/snapshot dédié s'en charge.
+      if (!compteId) {
+        out.snapshotVues = await snapshotVuesGlobales(supabase);
+      }
     }
     if (etapes.includes("scores")) {
       // No-op si PAUSE_ELO_RUNTIME (voir _shared/scoring.ts).
@@ -95,6 +100,7 @@ Deno.serve(async (request) => {
     }
     if (etapes.includes("rattrapage")) {
       // Contourne PAUSE_ELO_RUNTIME — chemin volontaire de reprise ELO.
+      // Inclut déjà snapshotVuesGlobales sur run tous comptes.
       out.rattrapage = await rattrapageElo(supabase, {
         compteId,
         jours: typeof body?.jours === "number" ? body.jours : undefined,
@@ -162,6 +168,20 @@ async function releverComptePassages(
   handle: string,
 ): Promise<number> {
   const enLigne = await scrapeStats(handle, POSTS_RELEVES);
+
+  // Total profil → compte_metrics (alimente le snapshot Pilotage j0−j1).
+  if (enLigne.length > 0) {
+    const somme = (f: (s: (typeof enLigne)[number]["stats"]) => number) =>
+      enLigne.reduce((n, p) => n + (f(p.stats) || 0), 0);
+    await supabase.from("compte_metrics").insert({
+      compte_id: compteId,
+      vues: somme((s) => s.vues),
+      likes: somme((s) => s.likes),
+      commentaires: somme((s) => s.commentaires),
+      partages: somme((s) => s.partages),
+      nb_posts: enLigne.length,
+    });
+  }
 
   const { data: passages } = await supabase
     .from("passages")

@@ -229,8 +229,13 @@ export const en = {
       manquant: "{{count}} post(s) not created for this day.",
       assignerUn: "Assign",
       assignerUnAide: "Fill this creator's quota only (labels ∩ score → ready deck).",
+      pauseToggle: "Pause midnight processes",
+      pauseAide:
+        "Midnight cron + auto catch-up are on. Turn the toggle on to allow manual runs only.",
       pauseBanner:
-        "Automatic assignments paused — the midnight cron is not running. You can still launch manually below (Settings to re-enable).",
+        "Auto processes paused — the midnight cron is not running. You can still launch manually below.",
+      pauseOn: "Paused (manual only)",
+      pauseOff: "Auto on",
       rattrapageElo: "ELO catch-up (4d)",
       rattrapageEloAide:
         "Fetches views for published posts (last 4 days), updates language ELO (↑/↓) and account ELO (≤10 posts).",
@@ -847,8 +852,8 @@ export const en = {
       vnextActif: "Enable v-next runtime (midnight / assignment / variations)",
       assignationAutoTitle: "Automatic assignment",
       assignationAutoAide:
-        "When paused, the midnight cron and catch-up no longer create posts. You can still run an assignment manually from Midnight assignment.",
-      assignationAutoPause: "Pause automatic assignments (midnight + catch-up)",
+        "When paused, the midnight cron and catch-up no longer create posts. You can still run an assignment manually from Midnight assignment (same toggle).",
+      assignationAutoPause: "Pause midnight processes (manual only)",
       nettoyageTitle: "Image cleaning",
       nettoyageAide:
         "Choose which provider tries text removal first. The other is the fallback if the primary fails.",

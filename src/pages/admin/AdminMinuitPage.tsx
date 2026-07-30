@@ -5,6 +5,7 @@ import { AlertTriangle, CheckCircle2, Clock, RefreshCw } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { BarreChargement } from "@/components/ui/progress";
 import {
   Card,
@@ -15,6 +16,7 @@ import {
 } from "@/components/ui/card";
 import {
   aujourdhui,
+  ecrireReglage,
   lancerAssignationJour,
   lancerRattrapageEloLive,
   lireReglages,
@@ -260,6 +262,12 @@ export function AdminMinuitPage() {
   const reglages = useQuery({ queryKey: ["reglages"], queryFn: lireReglages });
   const autoEnPause = reglages.data?.assignation_auto.actif === false;
 
+  /** Pause cron minuit / rattrapage auto — le manuel reste possible. */
+  const basculerPause = useMutation({
+    mutationFn: (enPause: boolean) => ecrireReglage("assignation_auto", { actif: !enPause }),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["reglages"] }),
+  });
+
   const relancer = useMutation({
     mutationFn: () => lancerAssignationJour(date),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["suivi-minuit", date] }),
@@ -354,11 +362,37 @@ export function AdminMinuitPage() {
           <CardDescription>{t("minuit.desc")}</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          {autoEnPause && (
-            <div className="rounded-md border border-warning/40 bg-warning/10 p-3 text-sm text-warning">
-              {t("minuit.pauseBanner")}
+          <div
+            className={cn(
+              "flex flex-wrap items-center justify-between gap-3 rounded-md border p-3",
+              autoEnPause
+                ? "border-warning/40 bg-warning/10"
+                : "border-border bg-muted/20",
+            )}
+          >
+            <div className="min-w-0 space-y-0.5">
+              <Label htmlFor="pauseMinuit" className="text-sm font-medium">
+                {t("minuit.pauseToggle")}
+              </Label>
+              <p className="text-xs text-muted-foreground">
+                {autoEnPause ? t("minuit.pauseBanner") : t("minuit.pauseAide")}
+              </p>
             </div>
-          )}
+            <label className="inline-flex cursor-pointer items-center gap-2 text-sm">
+              <input
+                id="pauseMinuit"
+                type="checkbox"
+                className="size-4 accent-primary"
+                checked={autoEnPause}
+                disabled={basculerPause.isPending || reglages.isPending}
+                onChange={(e) => basculerPause.mutate(e.target.checked)}
+              />
+              <span className={autoEnPause ? "font-medium text-warning" : "text-muted-foreground"}>
+                {autoEnPause ? t("minuit.pauseOn") : t("minuit.pauseOff")}
+              </span>
+            </label>
+          </div>
+
           <div className="flex flex-wrap items-end gap-3">
             <div className="space-y-1">
               <label className="text-xs font-medium text-muted-foreground">{t("minuit.jour")}</label>

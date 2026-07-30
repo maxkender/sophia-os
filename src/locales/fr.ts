@@ -229,8 +229,13 @@ export const fr = {
       manquant: "{{count}} post(s) non créé(s) pour ce jour.",
       assignerUn: "Assigner",
       assignerUnAide: "Complète le quota de ce créateur uniquement (labels ∩ score → deck prêt).",
+      pauseToggle: "Pause des process à minuit",
+      pauseAide:
+        "Cron minuit + rattrapage auto actifs. Décoche pour tout passer en manuel uniquement.",
       pauseBanner:
-        "Assignations automatiques en pause — le cron de minuit ne tourne pas. Tu peux quand même lancer manuellement ci-dessous (Réglages pour réactiver).",
+        "Process auto en pause — le cron de minuit ne tourne pas. Tu peux toujours lancer manuellement ci-dessous.",
+      pauseOn: "En pause (manuel seul)",
+      pauseOff: "Auto actif",
       rattrapageElo: "Rattrapage ELO (4j)",
       rattrapageEloAide:
         "Relève les vues des posts publiés (4 derniers jours), met à jour l’ELO langue (↑/↓) et l’ELO compte (≤10 posts).",
@@ -848,8 +853,8 @@ export const fr = {
       vnextActif: "Activer le runtime v-next (minuit / assignation / variations)",
       assignationAutoTitle: "Assignation automatique",
       assignationAutoAide:
-        "Quand c'est en pause, le cron de minuit et le rattrapage ne créent plus de posts. Tu peux toujours lancer une assignation manuellement depuis Assignation de minuit.",
-      assignationAutoPause: "Mettre en pause les assignations automatiques (minuit + rattrapage)",
+        "Quand c'est en pause, le cron de minuit et le rattrapage ne créent plus de posts. Tu peux toujours lancer une assignation manuellement depuis Assignation de minuit (même toggle).",
+      assignationAutoPause: "Mettre en pause les process à minuit (manuel seul)",
       nettoyageTitle: "Nettoyage d'images",
       nettoyageAide:
         "Choisis qui tente le retrait de texte en premier. L'autre sert de secours si le principal échoue.",

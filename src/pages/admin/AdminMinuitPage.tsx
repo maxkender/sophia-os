@@ -306,6 +306,11 @@ export function AdminMinuitPage() {
       });
       void queryClient.invalidateQueries({ queryKey: ["posters"] });
       void queryClient.invalidateQueries({ queryKey: ["comptes"] });
+      // Analytics + Pilotage se nourrissent du même scrape / ELO compte.
+      void queryClient.invalidateQueries({ queryKey: ["stats-comptes"] });
+      void queryClient.invalidateQueries({ queryKey: ["stats-posts"] });
+      void queryClient.invalidateQueries({ queryKey: ["stats-posts-viraux"] });
+      void queryClient.invalidateQueries({ queryKey: ["pilotage-dashboard"] });
     },
     onError: (err) => {
       setEloLive((prev) => ({

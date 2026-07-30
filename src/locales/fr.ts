@@ -1021,16 +1021,19 @@ export const fr = {
     analytics: {
       title: "Analytics",
       subtitle:
-        "Performances réelles, tirées du profil TikTok de chaque compte. Clique « Rafraîchir » pour aller chercher les derniers chiffres.",
+        "Performances réelles, tirées du profil TikTok de chaque compte. Mise à jour aussi après un « ELO refresh » (Assignation de minuit).",
       rafraichir: "Rafraîchir les stats",
       rafraichirEnCours: "Scraping des comptes…",
       rafraichiOk: "{{count}} relevés mis à jour depuis TikTok.",
       vues: "Vues",
       likes: "Likes",
+      elo: "ELO",
+      trierPar: "Classer les créateurs par",
       publies: "Publiés",
       enAttente: "En attente",
       parCompte: "Par compte",
-      parCompteDesc: "Cumul des derniers relevés de chaque post. Clique une ligne pour voir ses posts.",
+      parCompteDesc:
+        "Classe par vues, ELO ou likes. Les chiffres se mettent à jour après un refresh stats ou ELO.",
       aucunCompte: "Aucun compte.",
       sansLien: "{{count}} publié(s) sans lien",
       viraux: "Viraux",

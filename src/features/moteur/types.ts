@@ -237,6 +237,8 @@ export interface StatsCompte {
   handle_tiktok: string | null;
   langue: string;
   is_active: boolean;
+  /** ELO / forme du compte (`comptes.score`). */
+  elo: number | null;
   poster_prenom: string | null;
   poster_nom: string | null;
   posts_total: number;

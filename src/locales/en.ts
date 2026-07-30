@@ -1020,16 +1020,19 @@ export const en = {
     analytics: {
       title: "Analytics",
       subtitle:
-        "Real performance, pulled from each account's TikTok profile. Click \"Refresh\" to fetch the latest numbers.",
+        "Real performance from each account's TikTok profile. Also updates after an “ELO refresh” (Midnight assignment).",
       rafraichir: "Refresh stats",
       rafraichirEnCours: "Scraping accounts…",
       rafraichiOk: "{{count}} readings updated from TikTok.",
       vues: "Views",
       likes: "Likes",
+      elo: "ELO",
+      trierPar: "Rank creators by",
       publies: "Published",
       enAttente: "Pending",
       parCompte: "By account",
-      parCompteDesc: "Sum of each post's latest readings. Click a row to see its posts.",
+      parCompteDesc:
+        "Rank by views, ELO or likes. Numbers refresh after a stats or ELO update.",
       aucunCompte: "No account.",
       sansLien: "{{count}} published without a link",
       viraux: "Viral",

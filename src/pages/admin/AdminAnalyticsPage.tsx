@@ -48,10 +48,13 @@ function Total({ label, valeur }: { label: string; valeur: string }) {
   );
 }
 
+type TriCreateur = "vues" | "elo" | "likes";
+
 export function AdminAnalyticsPage() {
   const { t, i18n } = useTranslation();
   const queryClient = useQueryClient();
   const [compteId, setCompteId] = React.useState("");
+  const [tri, setTri] = React.useState<TriCreateur>("vues");
 
   const comptes = useQuery({ queryKey: ["stats-comptes"], queryFn: statsComptes });
   const posts = useQuery({
@@ -84,6 +87,16 @@ export function AdminAnalyticsPage() {
     }),
     { vues: 0, likes: 0, publies: 0, attente: 0 },
   );
+
+  const comptesTries = React.useMemo(() => {
+    const liste = [...(comptes.data ?? [])];
+    liste.sort((a, b) => {
+      if (tri === "elo") return Number(b.elo ?? 0) - Number(a.elo ?? 0);
+      if (tri === "likes") return Number(b.likes_totaux) - Number(a.likes_totaux);
+      return Number(b.vues_totales) - Number(a.vues_totales);
+    });
+    return liste;
+  }, [comptes.data, tri]);
 
   const mesures = (posts.data ?? []).filter((p) => p.vues !== null);
 
@@ -178,16 +191,41 @@ export function AdminAnalyticsPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>{t("analytics.parCompte")}</CardTitle>
-          <CardDescription>{t("analytics.parCompteDesc")}</CardDescription>
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <div>
+              <CardTitle>{t("analytics.parCompte")}</CardTitle>
+              <CardDescription>{t("analytics.parCompteDesc")}</CardDescription>
+            </div>
+            <div className="flex flex-wrap items-center gap-1.5" role="group" aria-label={t("analytics.trierPar")}>
+              {(
+                [
+                  ["vues", t("analytics.vues")],
+                  ["elo", t("analytics.elo")],
+                  ["likes", t("analytics.likes")],
+                ] as const
+              ).map(([cle, label]) => (
+                <Button
+                  key={cle}
+                  type="button"
+                  size="sm"
+                  variant={tri === cle ? "default" : "outline"}
+                  onClick={() => setTri(cle)}
+                >
+                  {label}
+                </Button>
+              ))}
+            </div>
+          </div>
         </CardHeader>
         <CardContent className="space-y-2">
           {comptes.isPending && (
             <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
           )}
-          {comptes.data?.length === 0 && <EmptyState title={t("analytics.aucunCompte")} />}
+          {comptesTries.length === 0 && !comptes.isPending && (
+            <EmptyState title={t("analytics.aucunCompte")} />
+          )}
 
-          {comptes.data?.map((c) => (
+          {comptesTries.map((c, rang) => (
             <Link
               key={c.compte_id}
               to={`/admin/createurs/${c.compte_id}`}
@@ -195,6 +233,9 @@ export function AdminAnalyticsPage() {
             >
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2">
+                  <span className="w-6 shrink-0 text-xs tabular-nums text-muted-foreground">
+                    {rang + 1}.
+                  </span>
                   <span className="text-sm font-medium">
                     {c.persona_nom ?? c.handle_tiktok ?? "—"}
                   </span>
@@ -209,14 +250,30 @@ export function AdminAnalyticsPage() {
                     </Badge>
                   )}
                 </div>
-                <p className="text-xs text-muted-foreground">
+                <p className="pl-8 text-xs text-muted-foreground">
                   {[c.poster_prenom, c.poster_nom].filter(Boolean).join(" ") || "—"}
                 </p>
               </div>
 
               <div className="flex items-center gap-4 text-sm tabular-nums">
-                <span title={t("analytics.vues")}>👁 {abrege(Number(c.vues_totales))}</span>
-                <span title={t("analytics.likes")}>♥ {abrege(Number(c.likes_totaux))}</span>
+                <span
+                  title={t("analytics.vues")}
+                  className={tri === "vues" ? "font-semibold" : undefined}
+                >
+                  👁 {abrege(Number(c.vues_totales))}
+                </span>
+                <span
+                  title={t("analytics.elo")}
+                  className={tri === "elo" ? "font-semibold" : undefined}
+                >
+                  ELO {c.elo != null ? Number(c.elo).toFixed(1) : "—"}
+                </span>
+                <span
+                  title={t("analytics.likes")}
+                  className={tri === "likes" ? "font-semibold" : undefined}
+                >
+                  ♥ {abrege(Number(c.likes_totaux))}
+                </span>
                 <span className="text-muted-foreground">
                   {c.posts_publies}/{c.posts_total}
                 </span>
@@ -244,7 +301,7 @@ export function AdminAnalyticsPage() {
               onChange={(e) => setCompteId(e.target.value)}
             >
               <option value="">{t("analytics.tousComptes")}</option>
-              {comptes.data?.map((c) => (
+              {comptesTries.map((c) => (
                 <option key={c.compte_id} value={c.compte_id}>
                   {c.persona_nom ?? c.handle_tiktok ?? c.compte_id.slice(0, 8)}
                 </option>

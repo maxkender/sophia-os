@@ -1,4 +1,4 @@
-import { retirerContentCredentials } from "../_shared/c2pa.ts";
+import { retirerContentCredentialsOctets } from "../_shared/c2pa.ts";
 import { upscaleViaRecraftCrisp } from "../_shared/replicate_crisp_upscale.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
@@ -14,7 +14,7 @@ function extPourMime(mime: string): string {
 /**
  * Upscale une photo de la bibliothèque (Recraft Crisp via Replicate) :
  *   1) upscale
- *   2) strip C2PA lossless (pixels inchangés)
+ *   2) strip C2PA lossless (pixels inchangés) — chemin octets, pas de base64
  *   3) remplace le fichier + pose `upscale_le`
  *
  *   { mediaId, forcer?: boolean }
@@ -63,10 +63,10 @@ Deno.serve(async (request) => {
       }, 500);
     }
 
-    // Strip métadonnées SANS ré-encode lossy (JPEG/PNG) ; webp inchangé si pas C2PA.
-    const strip = await retirerContentCredentials(resultat.base64);
+    // Strip métadonnées SANS ré-encode lossy ; chemin octets (évite OOM Edge).
+    const strip = await retirerContentCredentialsOctets(resultat.bytes);
     const mime = strip.mime === "application/octet-stream" ? resultat.mime : strip.mime;
-    const bytes = Uint8Array.from(atob(strip.base64), (c) => c.charCodeAt(0));
+    const bytes = strip.bytes;
     const ext = extPourMime(mime);
 
     // Nouveau path (évite cache CDN / ancien format) dans le même dossier.

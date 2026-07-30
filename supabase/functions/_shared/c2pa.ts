@@ -205,41 +205,52 @@ export interface ResultatC2pa {
   retire: boolean;
 }
 
+export interface ResultatC2paOctets {
+  bytes: Uint8Array;
+  mime: string;
+  retire: boolean;
+}
+
+/**
+ * Variante octets — évite les allers-retours base64 (critique pour l'upscale
+ * Recraft : images lourdes, workers Edge à mémoire limitée).
+ */
+export async function retirerContentCredentialsOctets(
+  bytes: Uint8Array,
+): Promise<ResultatC2paOctets> {
+  if (estJpeg(bytes)) {
+    if (!contientContentCredentials(bytes)) {
+      return { bytes, mime: "image/jpeg", retire: false };
+    }
+    const { bytes: clean, modifie } = jpegStripC2paLossless(bytes);
+    return { bytes: clean, mime: "image/jpeg", retire: modifie };
+  }
+
+  if (estPng(bytes)) {
+    if (!contientContentCredentials(bytes)) {
+      return { bytes, mime: "image/png", retire: false };
+    }
+    const { bytes: clean, modifie } = pngSansC2pa(bytes);
+    return { bytes: clean, mime: "image/png", retire: modifie };
+  }
+
+  // WebP (sortie Recraft) : pas de strip segmentaire — on ne ré-encode jamais.
+  if (estWebp(bytes)) {
+    return { bytes, mime: "image/webp", retire: false };
+  }
+
+  return { bytes, mime: "application/octet-stream", retire: false };
+}
+
 /**
  * Retire les Content Credentials SANS ré-encodage lossy.
  * Toujours appelé en fin de chaîne de nettoyage, avant stockage.
  */
 export async function retirerContentCredentials(base64: string): Promise<ResultatC2pa> {
-  const bytes = deBase64(base64);
-
-  if (estJpeg(bytes)) {
-    if (!contientContentCredentials(bytes)) {
-      return { base64, mime: "image/jpeg", retire: false };
-    }
-    const { bytes: clean, modifie } = jpegStripC2paLossless(bytes);
-    return {
-      base64: modifie ? enBase64(clean) : base64,
-      mime: "image/jpeg",
-      retire: modifie,
-    };
-  }
-
-  if (estPng(bytes)) {
-    if (!contientContentCredentials(bytes)) {
-      return { base64, mime: "image/png", retire: false };
-    }
-    const { bytes: clean, modifie } = pngSansC2pa(bytes);
-    return {
-      base64: modifie ? enBase64(clean) : base64,
-      mime: "image/png",
-      retire: modifie,
-    };
-  }
-
-  // WebP (sortie Recraft) : pas de strip segmentaire ici — on ne ré-encode jamais.
-  if (estWebp(bytes)) {
-    return { base64, mime: "image/webp", retire: false };
-  }
-
-  return { base64, mime: "application/octet-stream", retire: false };
+  const strip = await retirerContentCredentialsOctets(deBase64(base64));
+  return {
+    base64: enBase64(strip.bytes),
+    mime: strip.mime,
+    retire: strip.retire,
+  };
 }

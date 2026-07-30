@@ -598,7 +598,7 @@ export const en = {
       upscaleTout_other: "Upscale the {{count}} non-upscaled photos",
       upscaleLot: "Upscale… {{fait}}/{{total}}",
       upscaleAide:
-        "Recraft Crisp (Replicate) → lossless metadata strip → replace photo. Only photos never upscaled. Large parallel pool.",
+        "Recraft Crisp (Replicate) → lossless metadata strip → replace photo. Only photos never upscaled. 2 in parallel (Edge memory limit).",
       upscaleDebut: "Upscaling {{count}} non-upscaled photo(s)…",
       upscaleFin: "Done — ok={{ok}} · already done={{sautes}} · failed={{echecs}}",
       upscaleConfirm:

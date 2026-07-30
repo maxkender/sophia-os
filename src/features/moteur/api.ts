@@ -43,11 +43,14 @@ async function invoke<T>(name: string, body: Record<string, unknown>): Promise<T
     let message = error.message;
     try {
       const ctx = (error as { context?: Response }).context;
-      if (ctx && typeof ctx.json === "function") {
-        const corps = await ctx.json();
+      if (ctx) {
+        const corps = typeof ctx.json === "function"
+          ? await ctx.clone().json()
+          : null;
         if (typeof corps?.error === "string" && corps.error) {
           message = corps.error;
         } else if (typeof corps?.message === "string" && corps.message) {
+          // ex. WORKER_RESOURCE_LIMIT (546) quand trop d'upscales en parallèle
           message = corps.code
             ? `${corps.message} (${corps.code})`
             : corps.message;

@@ -4,8 +4,9 @@
  *  5 en parallèle : bon débit sans saturer les queues externes. */
 export const AGENTS_NETTOYAGE = 5;
 
-/** Pool upscale Recraft Crisp (~9 s/image) — large pour finir vite la biblio. */
-export const AGENTS_UPSCALE = 12;
+/** Pool upscale Recraft Crisp. Faible volontairement : chaque invocation charge
+ *  l'image upscalée en mémoire worker ; trop de parallèle → WORKER_RESOURCE_LIMIT (546). */
+export const AGENTS_UPSCALE = 2;
 
 /**
  * Exécute `tache` sur chaque élément avec un pool borné de workers parallèles.

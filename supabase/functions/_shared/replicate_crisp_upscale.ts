@@ -3,7 +3,7 @@
  *
  * Secret : `REPLICATE_API_TOKEN` (même jeton que text-removal).
  * Input : `{ image: <url publique> }`
- * Output : URL fichier (souvent webp).
+ * Output : octets image (souvent webp) — pas de base64 pour limiter la RAM Edge.
  */
 
 const MODEL = "recraft-ai/recraft-crisp-upscale";
@@ -12,15 +12,6 @@ const PREDICTIONS_URL =
 
 function replicateToken(): string | null {
   return Deno.env.get("REPLICATE_API_TOKEN") ?? null;
-}
-
-function enBase64(bytes: Uint8Array): string {
-  let binaire = "";
-  const CHUNK = 0x8000;
-  for (let i = 0; i < bytes.length; i += CHUNK) {
-    binaire += String.fromCharCode(...bytes.subarray(i, i + CHUNK));
-  }
-  return btoa(binaire);
 }
 
 export type UpscaleProgress = (info: {
@@ -32,7 +23,7 @@ export type UpscaleProgress = (info: {
 }) => void | Promise<void>;
 
 export interface UpscaleResultat {
-  base64: string;
+  bytes: Uint8Array;
   /** image/webp | image/png | image/jpeg */
   mime: string;
 }
@@ -179,5 +170,5 @@ export async function upscaleViaRecraftCrisp(
     throw new Error(`Recraft upscale: téléchargement résultat ${img.status}`);
   }
   const bytes = new Uint8Array(await img.arrayBuffer());
-  return { base64: enBase64(bytes), mime: mimeDepuisOctets(bytes) };
+  return { bytes, mime: mimeDepuisOctets(bytes) };
 }

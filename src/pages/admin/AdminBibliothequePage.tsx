@@ -611,6 +611,7 @@ export function AdminBibliothequePage() {
                       onToggle={() => basculer(media.id)}
                       premier={premier}
                       etapesLot={etapesLot[media.id] ?? null}
+                      modeleUpscale={modeleUpscale}
                     />
                   ))}
                 </div>

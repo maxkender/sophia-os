@@ -531,11 +531,13 @@ export const en = {
       createursDuRecruteur: "Assigned creators",
       creerRecruteur: "Create a recruiter",
       creerRecruteurDesc:
-        "Enter their name and language: their recruiting workspace is ready on first login.",
+        "Enter their name and the languages they manage — they can hire creators in each one.",
       recruteurs: "Recruiters",
       sansRecruteur: "No recruiter",
       langueRecruteur: "Language",
       languesRecruteur: "Managed languages",
+      languesRecruteurAide:
+        "Click to enable several languages — the recruiter can create creators in each.",
       aucuneLangue: "none — click a language",
       aucunCreateur: "No creator.",
       reference: "Ref.",
@@ -556,9 +558,10 @@ export const en = {
     hiring: {
       title: "Create a poster",
       subtitle:
-        "Enter the first name, last name and language. The rest — reference account and TikTok identity (handle, bio, avatar) — is generated automatically by the AI.",
+        "Enter the first name, last name and this creator’s language. You can hire across several languages. The rest (reference account + TikTok identity) is generated automatically.",
       langue: "Poster's language",
-      langueAide: "Material and identity will be drawn from a reference account in this language.",
+      langueAide:
+        "Pick THIS creator’s language. You can create others in other languages (among those you manage).",
       langueVerrouillee: "You recruit in your language — it's set by your profile.",
       aucuneLangue: "No language available",
       create: "Create poster",

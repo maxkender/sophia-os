@@ -11,13 +11,13 @@ const DOMAINE = "sophia.com";
  * Deux appelants : l'admin, et le HIRING MANAGER (dont c'est le seul pouvoir).
  * Le hiring manager peut créer un poster mais pas en supprimer.
  *
- *   { action: "create", prenom, nom, password, langue? }
+ *   { action: "create", prenom, nom, password, langue?, langues?, role? }
  *   { action: "delete", userId }        (admin uniquement)
  *
- * À la création, si une `langue` est fournie, tout ce qui concerne le compte de
- * publication est AUTOMATISÉ : on rattache un compte de référence de cette
- * langue (le moins chargé) et on génère la persona (pseudo, bio, avatar) via
- * l'IA, en s'inspirant du compte de référence.
+ * - Poster : si `langue` est fournie, rattache un compte de référence libre
+ *   de cette langue + identité instantanée.
+ * - Hiring manager : `langues` (tableau) = langues dans lesquelles il peut
+ *   recruter (plusieurs OK). `langue` seule reste acceptée (rétrocompat).
  */
 Deno.serve(async (request) => {
   const acces = await assertRole(request, ["admin", "hiring_manager"]);
@@ -25,7 +25,8 @@ Deno.serve(async (request) => {
 
   const supabase = serviceClient();
 
-  let body: Record<string, string>;
+  // deno-lint-ignore no-explicit-any
+  let body: any = {};
   try {
     body = await request.json();
   } catch {
@@ -33,10 +34,15 @@ Deno.serve(async (request) => {
   }
 
   if (body.action === "create") {
-    const prenom = (body.prenom ?? "").trim();
-    const nom = (body.nom ?? "").trim();
-    const password = body.password ?? "";
-    const langue = (body.langue ?? "").trim().toLowerCase();
+    const prenom = String(body.prenom ?? "").trim();
+    const nom = String(body.nom ?? "").trim();
+    const password = String(body.password ?? "");
+    const langue = String(body.langue ?? "").trim().toLowerCase();
+    const languesRecues = Array.isArray(body.langues)
+      ? (body.langues as unknown[])
+        .map((l) => String(l ?? "").trim().toLowerCase())
+        .filter(Boolean)
+      : [];
     // Rôle voulu : "poster" (défaut) ou "hiring_manager". Seul l'admin peut
     // créer un recruteur ; un recruteur ne crée que des posters.
     const roleVoulu =
@@ -44,6 +50,24 @@ Deno.serve(async (request) => {
 
     if (!prenom || password.length < 8) {
       return json({ error: "Prénom requis et mot de passe d'au moins 8 caractères" }, 400);
+    }
+
+    // HM qui crée un poster : la langue doit être dans SES langues gérées.
+    if (roleVoulu === "poster" && acces.role === "hiring_manager" && acces.userId !== "cron") {
+      const { data: hm } = await supabase
+        .from("profiles")
+        .select("langues")
+        .eq("id", acces.userId)
+        .maybeSingle();
+      const gerees = ((hm?.langues as string[] | null) ?? [])
+        .map((l) => l.toLowerCase())
+        .filter(Boolean);
+      if (gerees.length > 0 && langue && !gerees.includes(langue)) {
+        return json(
+          { error: `Langue « ${langue} » hors des langues gérées (${gerees.join(", ")})` },
+          400,
+        );
+      }
     }
 
     // Un poster occupe UN compte de référence LIBRE de sa langue (1 poster =
@@ -84,16 +108,15 @@ Deno.serve(async (request) => {
         .eq("id", data.user.id);
 
       if (roleVoulu === "hiring_manager") {
-        // Recruteur : on remplace le rôle poster par hiring_manager et on pose
-        // sa nationalité (langue par défaut de ses futurs posters).
+        // Recruteur : rôle hiring_manager + ensemble de langues gérées
+        // (plusieurs OK → créateurs de langues différentes sous le même HM).
         await supabase.from("user_roles").delete().eq("user_id", data.user.id);
         await supabase.from("user_roles").insert({ user_id: data.user.id, role: "hiring_manager" });
-        if (langue) {
-          // nationalite = langue primaire ; langues = l'ENSEMBLE géré (l'admin peut
-          // en ajouter ensuite pour qu'il crée des créateurs dans plusieurs langues).
+        const ensemble = [...new Set(languesRecues.length > 0 ? languesRecues : (langue ? [langue] : []))];
+        if (ensemble.length > 0) {
           await supabase
             .from("profiles")
-            .update({ nationalite: langue, langues: [langue] })
+            .update({ nationalite: ensemble[0], langues: ensemble })
             .eq("id", data.user.id);
         }
       } else if (acces.role === "hiring_manager" && acces.userId !== "cron") {

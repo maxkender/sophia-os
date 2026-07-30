@@ -297,28 +297,39 @@ export function AdminPostersPage() {
       rafraichir();
     },
   });
-  // Création directe d'un recruteur (hiring manager) par son nom.
+  // Création directe d'un recruteur (hiring manager) par son nom + langues.
   const [recPrenom, setRecPrenom] = React.useState("");
   const [recNom, setRecNom] = React.useState("");
-  const [recLangue, setRecLangue] = React.useState("");
+  const [recLangues, setRecLangues] = React.useState<string[]>([]);
   const [recCree, setRecCree] = React.useState<{ email: string } | null>(null);
+  const basculerRecLangue = (l: string) =>
+    setRecLangues((prev) => (prev.includes(l) ? prev.filter((x) => x !== l) : [...prev, l]));
   const creerRec = useMutation({
-    mutationFn: () => creerRecruteur({ prenom: recPrenom, nom: recNom, langue: recLangue || undefined }),
+    mutationFn: () =>
+      creerRecruteur({ prenom: recPrenom, nom: recNom, langues: recLangues }),
     onSuccess: (r) => {
       setRecCree({ email: r.email });
       setRecPrenom("");
       setRecNom("");
+      setRecLangues([]);
       rafraichir();
     },
   });
 
   const [promoId, setPromoId] = React.useState<string | null>(null);
-  const [promoLangue, setPromoLangue] = React.useState("");
+  const [promoLangues, setPromoLangues] = React.useState<string[]>([]);
+  const basculerPromoLangue = (l: string) =>
+    setPromoLangues((prev) => (prev.includes(l) ? prev.filter((x) => x !== l) : [...prev, l]));
   const changerRole = useMutation({
-    mutationFn: (input: { id: string; role: "poster" | "hiring_manager"; nationalite?: string }) =>
-      definirRole(input.id, input.role, input.nationalite),
+    mutationFn: (input: {
+      id: string;
+      role: "poster" | "hiring_manager";
+      nationalite?: string;
+      langues?: string[];
+    }) => definirRole(input.id, input.role, input.nationalite, input.langues),
     onSuccess: () => {
       setPromoId(null);
+      setPromoLangues([]);
       rafraichir();
     },
   });
@@ -458,24 +469,31 @@ export function AdminPostersPage() {
               <Label htmlFor="recNom">{t("posters.nom")}</Label>
               <Input id="recNom" value={recNom} onChange={(e) => setRecNom(e.target.value)} />
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="recLangue">{t("hiring.langue")}</Label>
-              <select
-                id="recLangue"
-                className={selectClass}
-                value={recLangue}
-                onChange={(e) => setRecLangue(e.target.value)}
-              >
-                <option value="">{t("common.none")}</option>
-                {langues.data?.map((l) => (
-                  <option key={l} value={l}>
+            <div className="space-y-2 sm:col-span-3">
+              <Label>{t("posters.languesRecruteur")}</Label>
+              <div className="flex flex-wrap gap-1.5">
+                {(langues.data ?? []).map((l) => (
+                  <button
+                    key={l}
+                    type="button"
+                    onClick={() => basculerRecLangue(l)}
+                    className={
+                      recLangues.includes(l)
+                        ? "rounded-full bg-primary px-2.5 py-1 text-xs font-medium text-primary-foreground"
+                        : "rounded-full border px-2.5 py-1 text-xs hover:bg-muted"
+                    }
+                  >
                     {nomLangue(l)}
-                  </option>
+                  </button>
                 ))}
-              </select>
+              </div>
+              <p className="text-xs text-muted-foreground">{t("posters.languesRecruteurAide")}</p>
             </div>
             <div className="sm:col-span-3">
-              <Button type="submit" disabled={creerRec.isPending || !recPrenom.trim()}>
+              <Button
+                type="submit"
+                disabled={creerRec.isPending || !recPrenom.trim() || recLangues.length === 0}
+              >
                 {creerRec.isPending ? t("common.saving") : t("posters.creerRecruteur")}
               </Button>
               {creerRec.isError && (
@@ -604,42 +622,65 @@ export function AdminPostersPage() {
                         variant="outline"
                         onClick={() => {
                           setPromoId(poster.id);
-                          setPromoLangue(langues.data?.[0] ?? "");
+                          const compteLangue = compteDe.get(poster.id)?.langue;
+                          setPromoLangues(
+                            compteLangue
+                              ? [compteLangue]
+                              : poster.langues?.length
+                                ? [...poster.langues]
+                                : langues.data?.[0]
+                                  ? [langues.data[0]]
+                                  : [],
+                          );
                         }}
                       >
                         {t("hiring.promote")}
                       </Button>
                     )}
                     {poster.role === "poster" && promoId === poster.id && (
-                      <div className="flex items-center gap-1">
-                        <select
-                          aria-label={t("hiring.langue")}
-                          className={`${selectClass} h-8 w-24`}
-                          value={promoLangue}
-                          onChange={(e) => setPromoLangue(e.target.value)}
-                        >
-                          {langues.data?.map((l) => (
-                            <option key={l} value={l}>
+                      <div className="flex max-w-xs flex-col items-end gap-1.5">
+                        <div className="flex flex-wrap justify-end gap-1">
+                          {(langues.data ?? []).map((l) => (
+                            <button
+                              key={l}
+                              type="button"
+                              onClick={() => basculerPromoLangue(l)}
+                              className={
+                                promoLangues.includes(l)
+                                  ? "rounded-full bg-primary px-2 py-0.5 text-[11px] font-medium text-primary-foreground"
+                                  : "rounded-full border px-2 py-0.5 text-[11px] hover:bg-muted"
+                              }
+                            >
                               {nomLangue(l)}
-                            </option>
+                            </button>
                           ))}
-                        </select>
-                        <Button
-                          size="sm"
-                          disabled={changerRole.isPending || !promoLangue}
-                          onClick={() =>
-                            changerRole.mutate({
-                              id: poster.id,
-                              role: "hiring_manager",
-                              nationalite: promoLangue,
-                            })
-                          }
-                        >
-                          {t("hiring.valider")}
-                        </Button>
-                        <Button size="sm" variant="ghost" onClick={() => setPromoId(null)}>
-                          {t("common.cancel")}
-                        </Button>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Button
+                            size="sm"
+                            disabled={changerRole.isPending || promoLangues.length === 0}
+                            onClick={() =>
+                              changerRole.mutate({
+                                id: poster.id,
+                                role: "hiring_manager",
+                                langues: promoLangues,
+                                nationalite: promoLangues[0],
+                              })
+                            }
+                          >
+                            {t("hiring.valider")}
+                          </Button>
+                          <Button
+                            size="sm"
+                            variant="ghost"
+                            onClick={() => {
+                              setPromoId(null);
+                              setPromoLangues([]);
+                            }}
+                          >
+                            {t("common.cancel")}
+                          </Button>
+                        </div>
                       </div>
                     )}
                     {estPoster && (

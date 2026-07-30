@@ -389,16 +389,26 @@ export async function marquerReviewVue(id: string): Promise<void> {
   if (error) throw error;
 }
 
-/** Crée directement un recruteur (hiring manager) par son nom + sa langue
- *  (admin). Son espace est prêt à sa première connexion. */
-export function creerRecruteur(input: { prenom: string; nom: string; langue?: string }) {
+/** Crée un recruteur (hiring manager) avec une ou plusieurs langues gérées
+ *  (admin). Il pourra créer des créateurs dans chacune de ces langues. */
+export function creerRecruteur(input: {
+  prenom: string;
+  nom: string;
+  /** @deprecated préfère `langues` */
+  langue?: string;
+  langues?: string[];
+}) {
+  const langues =
+    input.langues?.filter(Boolean) ??
+    (input.langue ? [input.langue] : []);
   return invoke<{ userId: string; email: string }>("manage-users", {
     action: "create",
     role: "hiring_manager",
     prenom: input.prenom,
     nom: input.nom,
     password: "12345678",
-    langue: input.langue,
+    langue: langues[0],
+    langues,
   });
 }
 
@@ -514,18 +524,38 @@ export async function listerLanguesReference(): Promise<string[]> {
 }
 
 /** Définit LE rôle d'un utilisateur (admin uniquement, via RLS). On remplace :
- *  un utilisateur a un seul rôle à la fois dans notre modèle. La `nationalite`,
- *  quand elle est fournie (promotion en recruteur), sert de langue par défaut à
- *  la création de posters. */
+ *  un utilisateur a un seul rôle à la fois dans notre modèle.
+ *  À la promotion en recruteur, `langues` (ou `nationalite` seule) fixe les
+ *  langues dans lesquelles il pourra créer des créateurs. */
 export async function definirRole(
   userId: string,
   role: Role,
   nationalite?: string,
+  langues?: string[],
 ): Promise<void> {
   const { error: delErr } = await supabase.from("user_roles").delete().eq("user_id", userId);
   if (delErr) throw delErr;
   const { error } = await supabase.from("user_roles").insert({ user_id: userId, role });
   if (error) throw error;
+
+  if (role === "hiring_manager") {
+    const ensemble = [
+      ...new Set(
+        (langues?.filter(Boolean) ?? (nationalite ? [nationalite] : [])).map((l) =>
+          l.toLowerCase(),
+        ),
+      ),
+    ];
+    if (ensemble.length > 0) {
+      const { error: langErr } = await supabase
+        .from("profiles")
+        .update({ langues: ensemble, nationalite: ensemble[0] ?? null })
+        .eq("id", userId);
+      if (langErr) throw langErr;
+      return;
+    }
+  }
+
   if (nationalite !== undefined) {
     const { error: natErr } = await supabase
       .from("profiles")

@@ -532,11 +532,13 @@ export const fr = {
 
       creerRecruteur: "Créer un recruteur",
       creerRecruteurDesc:
-        "Saisis son nom et sa langue : son espace de recrutement est prêt à sa première connexion.",
+        "Saisis son nom et les langues qu’il gère : il pourra embaucher des créateurs dans chacune.",
       recruteurs: "Recruteurs",
       sansRecruteur: "Sans recruteur",
       langueRecruteur: "Langue",
       languesRecruteur: "Langues gérées",
+      languesRecruteurAide:
+        "Clique pour activer plusieurs langues — le recruteur créera des créateurs dans chacune.",
       aucuneLangue: "aucune — clique une langue",
       aucunCreateur: "Aucun créateur.",
       reference: "Réf.",
@@ -557,9 +559,10 @@ export const fr = {
     hiring: {
       title: "Créer un poster",
       subtitle:
-        "Saisis le prénom, le nom et la langue. Le reste — compte de référence et identité TikTok (pseudo, bio, avatar) — est généré automatiquement par l'IA.",
+        "Saisis le prénom, le nom et la langue de ce créateur. Tu peux en créer dans plusieurs langues. Le reste (compte de référence + identité TikTok) est généré automatiquement.",
       langue: "Langue du poster",
-      langueAide: "La matière et l'identité seront tirées d'un compte de référence de cette langue.",
+      langueAide:
+        "Choisis la langue de CE créateur. Tu peux en créer d’autres dans d’autres langues (parmi celles que tu gères).",
       langueVerrouillee: "Tu recrutes dans ta langue — elle est fixée par ton profil.",
       aucuneLangue: "Aucune langue disponible",
       create: "Créer le poster",

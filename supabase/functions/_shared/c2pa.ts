@@ -236,7 +236,7 @@ export async function retirerContentCredentials(base64: string): Promise<Resulta
     };
   }
 
-  // WebP (sortie Recraft) : pas de strip segmentaire ici — on ne ré-encode jamais.
+  // WebP : pas de strip segmentaire ici — on ne ré-encode jamais.
   if (estWebp(bytes)) {
     return { base64, mime: "image/webp", retire: false };
   }

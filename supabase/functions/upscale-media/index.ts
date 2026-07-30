@@ -1,5 +1,5 @@
 import { retirerContentCredentials } from "../_shared/c2pa.ts";
-import { upscaleViaRecraftCrisp } from "../_shared/replicate_crisp_upscale.ts";
+import { upscaleViaRealEsrgan } from "../_shared/replicate_realesrgan_upscale.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 const BUCKET = "medias";
@@ -12,12 +12,12 @@ function extPourMime(mime: string): string {
 }
 
 /**
- * Upscale une photo de la bibliothèque (Recraft Crisp via Replicate) :
+ * Upscale une photo de la bibliothèque (Real-ESRGAN v2 via Replicate) :
  *   1) upscale
  *   2) strip C2PA lossless (pixels inchangés)
  *   3) remplace le fichier + pose `upscale_le`
  *
- *   { mediaId, forcer?: boolean }
+ *   { mediaId, forcer?: boolean, scale?: number }
  */
 Deno.serve(async (request) => {
   const denied = await assertAuthorised(request);
@@ -35,6 +35,10 @@ Deno.serve(async (request) => {
 
   const mediaId = body?.mediaId ? String(body.mediaId) : null;
   const forcer = Boolean(body?.forcer);
+  const scaleRaw = Number(body?.scale);
+  const scale = Number.isFinite(scaleRaw) && scaleRaw >= 1 && scaleRaw <= 4
+    ? scaleRaw
+    : 2;
   if (!mediaId) return json({ ok: false, error: "mediaId requis" }, 400);
 
   try {
@@ -55,7 +59,7 @@ Deno.serve(async (request) => {
       });
     }
 
-    const resultat = await upscaleViaRecraftCrisp(media.url);
+    const resultat = await upscaleViaRealEsrgan(media.url, undefined, scale);
     if (!resultat) {
       return json({
         ok: false,
@@ -110,9 +114,10 @@ Deno.serve(async (request) => {
       saute: false,
       url,
       mime,
+      scale,
       upscale_le: maintenant,
       c2pa_retire: strip.retire,
-      detail: "upscalée + métadonnées stripées (lossless)",
+      detail: "upscalée Real-ESRGAN + métadonnées stripées (lossless)",
     });
   } catch (error) {
     return json({ ok: false, error: messageErreur(error) }, 500);

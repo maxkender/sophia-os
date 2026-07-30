@@ -348,7 +348,7 @@ export function AdminBibliothequePage() {
     rafraichir();
   }
 
-  /** Upscale Recraft Crisp — uniquement les photos jamais upscalées. */
+  /** Upscale Real-ESRGAN v2 — uniquement les photos jamais upscalées. */
   async function upscaleTout() {
     const liste = aUpscalerListe;
     if (liste.length === 0) return;

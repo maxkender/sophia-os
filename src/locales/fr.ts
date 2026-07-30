@@ -599,11 +599,11 @@ export const fr = {
       upscaleTout_other: "Upscale les {{count}} photos non upscalées",
       upscaleLot: "Upscale… {{fait}}/{{total}}",
       upscaleAide:
-        "Recraft Crisp (Replicate) → strip métadonnées lossless → remplace la photo. Uniquement les photos jamais upscalées. Pool parallèle large.",
+        "Real-ESRGAN v2 (Replicate) → strip métadonnées lossless → remplace la photo. Uniquement les photos jamais upscalées. Pool parallèle large.",
       upscaleDebut: "Upscale de {{count}} photo(s) non upscalée(s)…",
       upscaleFin: "Terminé — ok={{ok}} · déjà faits={{sautes}} · échecs={{echecs}}",
       upscaleConfirm:
-        "Lancer l'upscale Recraft Crisp sur {{count}} photo(s) ? Ça consomme du crédit Replicate.",
+        "Lancer l'upscale Real-ESRGAN sur {{count}} photo(s) ? Ça consomme du crédit Replicate.",
       utilise_one: "utilisé {{count}} fois",
       utilise_other: "utilisé {{count}} fois",
       source: {

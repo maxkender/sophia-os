@@ -1491,7 +1491,7 @@ export const stripC2paMedia = (mediaId: string) =>
     error?: string;
   }>("strip-c2pa", { mediaId });
 
-/** Upscale Recraft Crisp (Replicate) → strip C2PA lossless → remplace en place. */
+/** Upscale Real-ESRGAN v2 (Replicate) → strip C2PA lossless → remplace en place. */
 export const upscaleMedia = (mediaId: string, forcer = false) =>
   invoke<{
     ok: boolean;

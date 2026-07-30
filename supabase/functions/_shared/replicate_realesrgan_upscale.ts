@@ -1,14 +1,18 @@
 /**
- * Upscale via Replicate — `recraft-ai/recraft-crisp-upscale`.
+ * Upscale via Replicate — `juergengunz/real-esrgan-v2`.
  *
  * Secret : `REPLICATE_API_TOKEN` (même jeton que text-removal).
- * Input : `{ image: <url publique> }`
- * Output : URL fichier (souvent webp).
+ * Input : `{ image: <url publique>, scale: number }`
+ * Output : URL fichier (png/jpeg).
  */
 
-const MODEL = "recraft-ai/recraft-crisp-upscale";
-const PREDICTIONS_URL =
-  `https://api.replicate.com/v1/models/${MODEL}/predictions`;
+const MODEL_VERSION =
+  "e4265d21c4770b339080060fab33e452d77b8ef3ee9781fec9cae81d1973a2cf";
+const MODEL_LABEL = "juergengunz/real-esrgan-v2";
+const PREDICTIONS_URL = "https://api.replicate.com/v1/predictions";
+
+/** Facteur d’agrandissement (exemple Replicate = 1 ; 2× pour un vrai upscale biblio). */
+const SCALE_DEFAUT = 2;
 
 function replicateToken(): string | null {
   return Deno.env.get("REPLICATE_API_TOKEN") ?? null;
@@ -50,7 +54,6 @@ function mimeDepuisOctets(bytes: Uint8Array): string {
   ) {
     return "image/png";
   }
-  // RIFF....WEBP
   if (
     bytes.length >= 12 &&
     bytes[0] === 0x52 &&
@@ -67,21 +70,38 @@ function mimeDepuisOctets(bytes: Uint8Array): string {
   return "application/octet-stream";
 }
 
+function urlDepuisOutput(output: unknown): string | null {
+  if (typeof output === "string") return output;
+  if (Array.isArray(output)) {
+    const first = output[0];
+    if (typeof first === "string") return first;
+    if (first && typeof first === "object" && "url" in first) {
+      const u = (first as { url: unknown }).url;
+      if (typeof u === "string") return u;
+    }
+  }
+  if (output && typeof output === "object" && "url" in output) {
+    const u = (output as { url: unknown }).url;
+    if (typeof u === "string") return u;
+  }
+  return null;
+}
+
 /**
- * Upscale `imageUrl` via Recraft Crisp. Renvoie octets + mime, ou `null`
+ * Upscale `imageUrl` via Real-ESRGAN v2. Renvoie octets + mime, ou `null`
  * si le token est absent.
  */
-export async function upscaleViaRecraftCrisp(
+export async function upscaleViaRealEsrgan(
   imageUrl: string,
   onProgress?: UpscaleProgress,
+  scale: number = SCALE_DEFAUT,
 ): Promise<UpscaleResultat | null> {
   const token = replicateToken();
   if (!token) return null;
 
-  // Cache-bust `?v=` OK pour Replicate ; on garde l'URL telle quelle.
   await onProgress?.({
     phase: "submit",
-    detail: `modèle=${MODEL}`,
+    detail: `modèle=${MODEL_LABEL} scale=${scale}`,
   });
 
   const submit = await fetch(PREDICTIONS_URL, {
@@ -92,13 +112,17 @@ export async function upscaleViaRecraftCrisp(
       Prefer: "wait",
     },
     body: JSON.stringify({
-      input: { image: imageUrl },
+      version: MODEL_VERSION,
+      input: {
+        image: imageUrl,
+        scale,
+      },
     }),
   });
 
   if (!submit.ok) {
     throw new Error(
-      `Recraft upscale submit ${submit.status}: ${(await submit.text()).slice(0, 300)}`,
+      `Real-ESRGAN submit ${submit.status}: ${(await submit.text()).slice(0, 300)}`,
     );
   }
 
@@ -108,7 +132,6 @@ export async function upscaleViaRecraftCrisp(
 
   let polls = 0;
   const debut = Date.now();
-  // Edge ~150 s : marge pour download + C2PA + upload.
   const BUDGET = 100_000;
 
   while (
@@ -130,7 +153,7 @@ export async function upscaleViaRecraftCrisp(
     });
     if (!suivi.ok) {
       throw new Error(
-        `Recraft upscale status ${suivi.status}: ${(await suivi.text()).slice(0, 250)}`,
+        `Real-ESRGAN status ${suivi.status}: ${(await suivi.text()).slice(0, 250)}`,
       );
     }
     prediction = await suivi.json();
@@ -138,7 +161,7 @@ export async function upscaleViaRecraftCrisp(
 
   if (prediction.status !== "succeeded") {
     throw new Error(
-      `Recraft upscale ${prediction.status}: ${
+      `Real-ESRGAN ${prediction.status}: ${
         JSON.stringify(prediction.error ?? prediction).slice(0, 250)
       } (${polls} polls)`,
     );
@@ -151,20 +174,10 @@ export async function upscaleViaRecraftCrisp(
     statut: "succeeded",
   });
 
-  const sortie = Array.isArray(prediction.output)
-    ? prediction.output[0]
-    : prediction.output;
-  const url =
-    typeof sortie === "string"
-      ? sortie
-      : typeof sortie?.url === "function"
-        ? String(sortie.url())
-        : typeof sortie?.url === "string"
-          ? sortie.url
-          : null;
+  const url = urlDepuisOutput(prediction.output);
   if (!url) {
     throw new Error(
-      `Recraft upscale: aucune image — ${JSON.stringify(prediction.output).slice(0, 200)}`,
+      `Real-ESRGAN: aucune image — ${JSON.stringify(prediction.output).slice(0, 200)}`,
     );
   }
 
@@ -176,7 +189,7 @@ export async function upscaleViaRecraftCrisp(
   });
   const img = await fetch(url);
   if (!img.ok) {
-    throw new Error(`Recraft upscale: téléchargement résultat ${img.status}`);
+    throw new Error(`Real-ESRGAN: téléchargement résultat ${img.status}`);
   }
   const bytes = new Uint8Array(await img.arrayBuffer());
   return { base64: enBase64(bytes), mime: mimeDepuisOctets(bytes) };

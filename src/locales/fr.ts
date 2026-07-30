@@ -233,9 +233,9 @@ export const fr = {
       assignerUnAide: "Complète le quota de ce créateur uniquement (labels ∩ score → deck prêt).",
       pauseToggle: "Pause des process à minuit",
       pauseAide:
-        "Cron minuit + rattrapage auto actifs. Décoche pour tout passer en manuel uniquement.",
+        "Cron minuit + rattrapage auto actifs. Ce toggle est le seul moyen de couper l’auto — Relancer ne le change pas.",
       pauseBanner:
-        "Process auto en pause — le cron de minuit ne tourne pas. Tu peux toujours lancer manuellement ci-dessous.",
+        "Process auto en pause — le cron de minuit ne tourne pas. Relancer reste manuel (ELO → assignation) sans réactiver l’auto.",
       pauseOn: "En pause (manuel seul)",
       pauseOff: "Auto actif",
       rattrapageElo: "Rattrapage ELO (4j)",

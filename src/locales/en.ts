@@ -233,9 +233,9 @@ export const en = {
       assignerUnAide: "Fill this creator's quota only (labels ∩ score → ready deck).",
       pauseToggle: "Pause midnight processes",
       pauseAide:
-        "Midnight cron + auto catch-up are on. Turn the toggle on to allow manual runs only.",
+        "Midnight cron + auto catch-up are on. This toggle is the only way to pause auto — Re-run never changes it.",
       pauseBanner:
-        "Auto processes paused — the midnight cron is not running. You can still launch manually below.",
+        "Auto processes paused — the midnight cron is not running. Re-run stays manual (ELO → assignment) and does not re-enable auto.",
       pauseOn: "Paused (manual only)",
       pauseOff: "Auto on",
       rattrapageElo: "ELO catch-up (4d)",

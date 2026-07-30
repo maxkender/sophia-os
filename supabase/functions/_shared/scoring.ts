@@ -16,6 +16,10 @@ export interface ScoringReglages {
   regularisation_k: number;
   transfert_inter_langue: number;
   score_prior: number;
+  /** Régularisation ELO compte / import (défaut 1 — faible pour laisser les vues parler). */
+  elo_regularisation_k: number;
+  /** Plafond vues (= score 100) pour l’échelle log^1.3. */
+  elo_vues_plafond: number;
 }
 
 export async function chargerScoring(supabase: Supabase): Promise<ScoringReglages> {
@@ -26,15 +30,24 @@ export async function chargerScoring(supabase: Supabase): Promise<ScoringReglage
     regularisation_k: v.regularisation_k ?? 5,
     transfert_inter_langue: v.transfert_inter_langue ?? 0.15,
     score_prior: v.score_prior ?? 50,
+    elo_regularisation_k: v.elo_regularisation_k ?? 1,
+    elo_vues_plafond: v.elo_vues_plafond ?? 80_000,
   };
 }
 
-/** Performance brute d'un passage (0..100), avant normalisation compte. */
-export function performancePassage(vues: number | null | undefined): number {
-  return Math.min(
-    100,
-    Math.max(20, 40 + Math.log(1 + (vues ?? 0)) / Math.log(1 + 1_000_000) * 60),
-  );
+/**
+ * Performance brute d'un passage (0..100) depuis les vues.
+ * Échelle log^1.3 alignée sur l'ELO import — 1–4 vues ≈ 3–8 (plus de plancher à 40).
+ */
+export function performancePassage(
+  vues: number | null | undefined,
+  plafond = 80_000,
+): number {
+  const p = Math.max(1, plafond);
+  const exp = 1.3;
+  const num = Math.log(1 + (vues ?? 0)) ** exp;
+  const den = Math.log(1 + p) ** exp;
+  return Math.min(100, Math.max(0, (num / den) * 100));
 }
 
 /**
@@ -107,7 +120,7 @@ export async function majScoresDepuisPassages(
   for (const p of tous ?? []) {
     const key = `${p.contenu_id}::${p.langue}`;
     const perf = performanceNormalisee(
-      performancePassage(p.vues),
+      performancePassage(p.vues, scoring.elo_vues_plafond),
       scoreCompte.get(p.compte_id) ?? scoring.score_prior,
       scoring.score_prior,
     );
@@ -180,7 +193,7 @@ export async function majScoresDepuisPassages(
   const perfParCompte = new Map<string, number[]>();
   for (const p of passagesCompte ?? []) {
     const perf = performanceNormalisee(
-      performancePassage(p.vues),
+      performancePassage(p.vues, scoring.elo_vues_plafond),
       scoreCompte.get(p.compte_id) ?? scoring.score_prior,
       scoring.score_prior,
     );

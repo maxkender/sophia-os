@@ -34,6 +34,19 @@ export function aujourdhui(): string {
     .slice(0, 10);
 }
 
+/** Jour calendaire Paris (YYYY-MM-DD) — aligné sur minuit / assignation / alertes. */
+export function aujourdhuiParis(): string {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(new Date());
+}
+
+/** Jour Paris d'un timestamptz ISO (ou null). */
+function jourParisDepuisIso(iso: string | null | undefined): string | null {
+  if (!iso) return null;
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return null;
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(d);
+}
+
 async function invoke<T>(name: string, body: Record<string, unknown>): Promise<T> {
   const { data, error } = await supabase.functions.invoke(name, { body });
   if (error) {
@@ -1158,9 +1171,9 @@ export type PilotageDashboard = {
 
 /** Données Pilotage : courbe vues, classements ELO / recruteurs, alertes posts. */
 export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
-  const auj = aujourdhui();
+  // Fuseau Paris (comme minuit / assignation) — pas l'heure locale du navigateur.
+  const auj = aujourdhuiParis();
   const veille = ajouterJoursLocal(auj, -1);
-  const avantHier = ajouterJoursLocal(auj, -2);
 
   const [{ data: serie }, { data: comptes }, { data: roles }, { data: profils }, { data: postsVeille }] =
     await Promise.all([
@@ -1239,51 +1252,64 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
     .filter((r) => r.nbCreateurs > 0)
     .sort((a, b) => b.eloMoyen - a.eloMoyen);
 
-  // Posts publiés hier / avant-hier (pour alertes).
-  const { data: postsRecents } = await supabase
-    .from("passages")
-    .select("compte_id, date_publication_prevue")
-    .eq("statut", "publie")
-    .gte("date_publication_prevue", ajouterJoursLocal(auj, -14));
-
+  /**
+   * Alertes = uniquement les DERNIERS posts (récence).
+   * Jour « posté » = date_publication_prevue OU jour Paris de publie_at,
+   * pour les passages vraiment publiés (statut / lien / publie_at).
+   */
+  const compteIds = eloListe.map((c) => c.compte_id);
   const parCompteDates = new Map<string, Set<string>>();
-  for (const p of postsRecents ?? []) {
-    const cid = p.compte_id as string;
-    const d = p.date_publication_prevue as string | null;
-    if (!d) continue;
-    const set = parCompteDates.get(cid) ?? new Set();
-    set.add(d);
-    parCompteDates.set(cid, set);
+  if (compteIds.length > 0) {
+    const depuis = ajouterJoursLocal(auj, -30);
+    const { data: postsRecents } = await supabase
+      .from("passages")
+      .select("compte_id, date_publication_prevue, publie_at, publie_url, statut")
+      .in("compte_id", compteIds)
+      .or("statut.eq.publie,publie_url.not.is.null,publie_at.not.is.null")
+      .or(
+        `date_publication_prevue.gte.${depuis},publie_at.gte.${depuis}T00:00:00+00:00`,
+      );
+
+    for (const p of postsRecents ?? []) {
+      const cid = p.compte_id as string;
+      const set = parCompteDates.get(cid) ?? new Set<string>();
+      const prevue = p.date_publication_prevue as string | null;
+      if (prevue) set.add(prevue);
+      const jourPublie = jourParisDepuisIso(p.publie_at as string | null);
+      if (jourPublie) set.add(jourPublie);
+      parCompteDates.set(cid, set);
+    }
   }
 
   const niveau1: PilotageDashboard["alertes"]["niveau1"] = [];
   const niveau2: PilotageDashboard["alertes"]["niveau2"] = [];
 
   for (const c of eloListe) {
-    const dates = parCompteDates.get(c.compte_id) ?? new Set();
+    const dates = parCompteDates.get(c.compte_id) ?? new Set<string>();
+    let dernier: string | null = null;
+    for (const d of dates) {
+      if (!dernier || d > dernier) dernier = d;
+    }
+
+    let joursSans = 99;
+    if (dernier) {
+      const a = new Date(`${auj}T12:00:00`);
+      const b = new Date(`${dernier}T12:00:00`);
+      joursSans = Math.max(0, Math.round((a.getTime() - b.getTime()) / 86_400_000));
+    }
+
     const aPosteVeille = dates.has(veille);
-    const aPosteAvantHier = dates.has(avantHier);
-    if (!aPosteVeille && !aPosteAvantHier) {
-      // Dernier post dans la fenêtre 14j ?
-      let dernier: string | null = null;
-      for (const d of dates) {
-        if (!dernier || d > dernier) dernier = d;
-      }
-      let joursSans = 2;
-      if (dernier) {
-        const a = new Date(`${auj}T12:00:00`);
-        const b = new Date(`${dernier}T12:00:00`);
-        joursSans = Math.max(2, Math.round((a.getTime() - b.getTime()) / 86_400_000));
-      } else {
-        joursSans = 14;
-      }
+
+    // L2 : dernier post il y a 2 jours ou plus (basé sur le plus récent uniquement).
+    if (joursSans >= 2) {
       niveau2.push({
         compte_id: c.compte_id,
         nom: c.nom,
         handle: c.handle,
-        joursSansPost: joursSans,
+        joursSansPost: Math.min(joursSans, 99),
       });
     } else if (!aPosteVeille) {
+      // L1 : pas posté hier, mais activité plus récente (aujourd'hui) ou gap < 2j.
       niveau1.push({
         compte_id: c.compte_id,
         nom: c.nom,

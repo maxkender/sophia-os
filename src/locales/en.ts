@@ -321,9 +321,11 @@ export const en = {
       dernierDelta: "Latest Δ:",
       totalVues: "total {{n}}",
       alerte1Titre: "Alert 1 — no post yesterday",
-      alerte1Desc: "Active accounts with no publication yesterday.",
+      alerte1Desc:
+        "No publication yesterday (Paris day). Based on last post date / publie_at.",
       alerte2Titre: "Alert 2 — 2+ days without a post",
-      alerte2Desc: "Active accounts with no publication for at least 2 days.",
+      alerte2Desc:
+        "Last post was 2+ days ago (based only on the most recent post’s date).",
       pasVeille: "Yesterday",
       joursSans: "{{n}}d",
       eloBasTitre: "Account ELO — bottom 5",

@@ -510,7 +510,7 @@ async function appliquerEloLangue(
 
     const avant = cl.score;
     const perf = performanceNormalisee(
-      performancePassage(p.vues),
+      performancePassage(p.vues, scoring.elo_vues_plafond),
       scoreCompte.get(p.compte_id) ?? scoring.score_prior,
       scoring.score_prior,
     );
@@ -599,13 +599,16 @@ async function appliquerEloComptes(
       handles.set(cid, rowAvant.handle_tiktok as string);
     }
 
+    // Les DERNIERS posts mesurés d'abord (order serveur — pas un limit aveugle).
     const { data: posts } = await supabase
       .from("passages")
       .select("vues, publie_at, date_publication_prevue, created_at")
       .eq("compte_id", cid)
       .eq("statut", "publie")
       .not("vues", "is", null)
-      .limit(40);
+      .order("date_publication_prevue", { ascending: false, nullsFirst: false })
+      .order("publie_at", { ascending: false, nullsFirst: false })
+      .limit(COMPTE_MAX_POSTS);
 
     const mesurés = (posts ?? []).filter((p) => p.vues != null);
     if (mesurés.length === 0) {
@@ -630,14 +633,15 @@ async function appliquerEloComptes(
     let sum = 0;
     top.forEach((p, i) => {
       const w = Math.pow(COMPTE_DECAY, i);
-      const perf = performancePassage(p.vues as number);
+      const perf = performancePassage(p.vues as number, scoring.elo_vues_plafond);
       sumW += w;
       sum += w * perf;
     });
     const next = clamp(sum / sumW, 0, 100);
+    // k ELO import (défaut 1) — PAS regularisation_k=5 qui collait le score à 50.
+    const k = Math.max(0.1, scoring.elo_regularisation_k);
     const regularise =
-      (scoring.regularisation_k * scoring.score_prior + top.length * next) /
-      (scoring.regularisation_k + top.length);
+      (k * scoring.score_prior + top.length * next) / (k + top.length);
 
     if (!dryRun) {
       await supabase

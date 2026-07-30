@@ -321,9 +321,11 @@ export const fr = {
       dernierDelta: "Dernier Δ :",
       totalVues: "total {{n}}",
       alerte1Titre: "Alerte 1 — pas posté hier",
-      alerte1Desc: "Comptes actifs sans publication hier.",
+      alerte1Desc:
+        "Pas de publication hier (jour Paris). Basé sur la date du dernier post / publie_at.",
       alerte2Titre: "Alerte 2 — 2 jours ou + sans post",
-      alerte2Desc: "Comptes actifs sans publication depuis au moins 2 jours.",
+      alerte2Desc:
+        "Le dernier post date d’il y a 2 jours ou plus (uniquement la récence du dernier post).",
       pasVeille: "Hier",
       joursSans: "{{n}}j",
       eloBasTitre: "ELO compte — les 5 plus bas",

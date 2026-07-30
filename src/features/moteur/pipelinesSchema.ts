@@ -164,10 +164,12 @@ export const SCHEMA_UPDATE_ELO: PipelineAction = {
     {
       id: "elo_compte",
       rang: "⑤",
-      label: "ELO compte — moyenne pondérée ≤10 posts",
+      label: "ELO compte — moyenne pondérée ≤10 derniers posts",
       kind: "logic",
       api: "rattrapage_elo.appliquerEloComptes",
-      detail: "Decay récence 0.85 → comptes.score",
+      detail:
+        "perf = log^1.3(vues)/plafond · k=elo_regularisation_k (défaut 1) · decay 0.85",
+      reglage: "scoring.elo_vues_plafond · elo_regularisation_k",
     },
     {
       id: "snapshot",
@@ -181,8 +183,10 @@ export const SCHEMA_UPDATE_ELO: PipelineAction = {
     { cle: "RATTRAPAGE_JOURS_DEFAUT", valeur: "4", detail: "Jours Paris (fenêtre)" },
     { cle: "LR_LANGUE", valeur: "0.4", detail: "Learning rate deltas langue" },
     { cle: "MAX_DELTA_LANGUE", valeur: "±18", detail: "Plafond |Δ| par passage" },
-    { cle: "COMPTE_MAX_POSTS", valeur: "10" },
+    { cle: "COMPTE_MAX_POSTS", valeur: "10", detail: "Derniers posts mesurés seulement" },
     { cle: "COMPTE_DECAY", valeur: "0.85" },
+    { cle: "perf(1 vue)", valeur: "~2.7 / 100", detail: "ex-plancher 40 — corrigé" },
+    { cle: "perf(4 vues)", valeur: "~8 / 100" },
     { cle: "COHERENCE_HEURES", valeur: "36" },
     { cle: "POSTS_RELEVES", valeur: "30", detail: "Posts scrapés par profil" },
   ],

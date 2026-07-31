@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -15,8 +15,16 @@ import {
   CardTitle,
   EmptyState,
 } from "@/components/ui/card";
-import { aujourdhui, postsCalendrierAdmin, type PostCalendrierAdmin } from "@/features/moteur/api";
+import {
+  aujourdhui,
+  mediasPostsPrevusJour,
+  postsCalendrierAdmin,
+  upscaleMedia,
+  type ModeleUpscale,
+  type PostCalendrierAdmin,
+} from "@/features/moteur/api";
 import { nomLangue } from "@/features/moteur/langues";
+import { AGENTS_UPSCALE, AGENTS_UPSCALE_SEEDVR, executerEnLot } from "@/lib/lot";
 import { cn } from "@/lib/utils";
 
 function ajouterJours(yyyyMmDd: string, delta: number): string {
@@ -39,8 +47,14 @@ function estPoste(post: PostCalendrierAdmin): boolean {
 
 export function AdminCalendrierPage() {
   const { t, i18n } = useTranslation();
+  const queryClient = useQueryClient();
   const [date, setDate] = React.useState(aujourdhui);
   const [filtreLangue, setFiltreLangue] = React.useState("");
+  const [modeleUpscale, setModeleUpscale] = React.useState<ModeleUpscale>("realesrgan");
+  const [upscaleLot, setUpscaleLot] = React.useState<{ fait: number; total: number } | null>(
+    null,
+  );
+  const [upscaleLogs, setUpscaleLogs] = React.useState<string[]>([]);
 
   const { data: posts, isPending } = useQuery({
     queryKey: ["posts-calendrier-admin"],
@@ -87,6 +101,104 @@ export function AdminCalendrierPage() {
     year: "numeric",
   });
   const estAujourdhui = date === aujourdhui();
+  const lotEnCours = upscaleLot !== null;
+
+  async function upscalePostsDuJour() {
+    if (lotEnCours || duJour.length === 0) return;
+
+    const postIdsFiltre = new Set(duJour.map((p) => p.id));
+    const tous = await mediasPostsPrevusJour(date);
+    // Respecte le filtre langue affiché (posts du jour visibles).
+    const medias = tous.filter((m) => postIdsFiltre.has(m.postId));
+    const aFaire = medias.filter((m) => !m.upscale_le);
+    const deja = medias.length - aFaire.length;
+
+    const labelModele =
+      modeleUpscale === "seedvr"
+        ? t("bibliotheque.upscaleSeedvr")
+        : t("bibliotheque.upscaleRealesrgan");
+
+    if (aFaire.length === 0) {
+      setUpscaleLogs([
+        t("adminCal.upscaleRien", { total: medias.length, deja }),
+      ]);
+      return;
+    }
+
+    if (
+      !window.confirm(
+        t("adminCal.upscaleConfirm", {
+          count: aFaire.length,
+          modele: labelModele,
+          deja,
+        }),
+      )
+    ) {
+      return;
+    }
+
+    setUpscaleLot({ fait: 0, total: aFaire.length });
+    setUpscaleLogs([
+      t("adminCal.upscaleDebut", {
+        count: aFaire.length,
+        modele: labelModele,
+        posts: duJour.length,
+        deja,
+      }),
+    ]);
+
+    let ok = 0;
+    let sautes = 0;
+    let echecs = 0;
+
+    await executerEnLot(
+      aFaire,
+      async (media) => {
+        try {
+          const r = await upscaleMedia(media.mediaId, { modele: modeleUpscale });
+          if (r.saute) {
+            sautes += 1;
+            setUpscaleLogs((prev) => [
+              ...prev,
+              `· ${media.mediaId.slice(0, 8)} — ${r.detail ?? "déjà upscalée"}`,
+            ]);
+          } else if (r.ok) {
+            ok += 1;
+            setUpscaleLogs((prev) => [
+              ...prev,
+              `✓ ${media.mediaId.slice(0, 8)} — ${r.detail ?? "ok"}`,
+            ]);
+          } else {
+            echecs += 1;
+            setUpscaleLogs((prev) => [
+              ...prev,
+              `✗ ${media.mediaId.slice(0, 8)} — ${r.error ?? "échec"}`,
+            ]);
+          }
+        } catch (e) {
+          echecs += 1;
+          setUpscaleLogs((prev) => [
+            ...prev,
+            `✗ ${media.mediaId.slice(0, 8)} — ${(e as Error).message}`,
+          ]);
+        }
+      },
+      {
+        largeur: modeleUpscale === "seedvr" ? AGENTS_UPSCALE_SEEDVR : AGENTS_UPSCALE,
+        onProgres: (fait, total) => setUpscaleLot({ fait, total }),
+      },
+    );
+
+    setUpscaleLogs((prev) => [
+      ...prev,
+      t("bibliotheque.upscaleFin", { ok, sautes, echecs }),
+    ]);
+    setUpscaleLot(null);
+    void queryClient.invalidateQueries({ queryKey: ["posts-calendrier-admin"] });
+    void queryClient.invalidateQueries({ queryKey: ["slides"] });
+    void queryClient.invalidateQueries({ queryKey: ["medias"] });
+    void queryClient.invalidateQueries({ queryKey: ["medias-biblio"] });
+  }
 
   return (
     <div className="space-y-6">
@@ -187,6 +299,47 @@ export function AdminCalendrierPage() {
               <p className="text-2xl font-semibold tabular-nums">{parCreateur.length}</p>
             </div>
           </div>
+
+          <div className="flex flex-wrap items-center gap-2 border-t pt-4">
+            <span className="sr-only">{t("bibliotheque.upscaleModele")}</span>
+            <select
+              value={modeleUpscale}
+              disabled={lotEnCours}
+              onChange={(e) =>
+                setModeleUpscale(e.target.value === "seedvr" ? "seedvr" : "realesrgan")
+              }
+              title={
+                modeleUpscale === "seedvr"
+                  ? t("bibliotheque.upscaleAideSeedvr")
+                  : t("bibliotheque.upscaleAideRealesrgan")
+              }
+              className="flex h-9 rounded-md border border-input bg-background px-2 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+            >
+              <option value="realesrgan">{t("bibliotheque.upscaleRealesrgan")}</option>
+              <option value="seedvr">{t("bibliotheque.upscaleSeedvr")}</option>
+            </select>
+            <Button
+              size="sm"
+              variant="outline"
+              disabled={lotEnCours || prevus === 0}
+              onClick={() => void upscalePostsDuJour()}
+              title={t("adminCal.upscaleAide")}
+            >
+              <Maximize2 className="size-4" />
+              {upscaleLot
+                ? t("adminCal.upscaleLot", {
+                    fait: upscaleLot.fait,
+                    total: upscaleLot.total,
+                  })
+                : t("adminCal.upscaleTout")}
+            </Button>
+          </div>
+
+          {upscaleLogs.length > 0 && (
+            <pre className="max-h-48 overflow-auto rounded-md border bg-muted/40 p-2 text-[11px] leading-relaxed text-muted-foreground">
+              {upscaleLogs.join("\n")}
+            </pre>
+          )}
         </CardContent>
       </Card>
 

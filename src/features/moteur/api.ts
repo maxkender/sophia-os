@@ -1440,6 +1440,46 @@ export interface PostCalendrierAdmin {
   langue: string | null;
 }
 
+/** Médias uniques liés aux slides des posts prévus un jour (planning). */
+export async function mediasPostsPrevusJour(date: string): Promise<
+  Array<{ mediaId: string; postId: string; upscale_le: string | null }>
+> {
+  const { data: posts, error: e1 } = await supabase
+    .from("posts")
+    .select("id")
+    .eq("date_publication_prevue", date)
+    .eq("est_test", false);
+  if (e1) throw e1;
+  const postIds = (posts ?? []).map((p) => p.id as string);
+  if (postIds.length === 0) return [];
+
+  const out: Array<{ mediaId: string; postId: string; upscale_le: string | null }> = [];
+  const vus = new Set<string>();
+  const chunk = 80;
+  for (let i = 0; i < postIds.length; i += chunk) {
+    const ids = postIds.slice(i, i + chunk);
+    const { data: slides, error: e2 } = await supabase
+      .from("post_slides")
+      .select("media_id, post_id, media_library(upscale_le)")
+      .in("post_id", ids)
+      .not("media_id", "is", null);
+    if (e2) throw e2;
+    for (const s of slides ?? []) {
+      const mediaId = s.media_id as string | null;
+      if (!mediaId || vus.has(mediaId)) continue;
+      vus.add(mediaId);
+      // deno-lint-ignore no-explicit-any
+      const lib = (s as any).media_library as { upscale_le?: string | null } | null;
+      out.push({
+        mediaId,
+        postId: s.post_id as string,
+        upscale_le: lib?.upscale_le ?? null,
+      });
+    }
+  }
+  return out;
+}
+
 /** Posts (non-test) pour le planning admin jour par jour. */
 export async function postsCalendrierAdmin(): Promise<PostCalendrierAdmin[]> {
   // L'embed profiles sous comptes fonctionne depuis la FK

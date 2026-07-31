@@ -16,6 +16,7 @@ import {
   EmptyState,
 } from "@/components/ui/card";
 import { NettoyageEtapes } from "@/components/moteur/NettoyageEtapes";
+import { UpscaleMediaControl } from "@/components/moteur/UpscaleMediaControl";
 import { LabelEditor } from "@/features/moteur/LabelPicker";
 import {
   labelsDuContenu,
@@ -436,6 +437,14 @@ function VisuelsContenu({ contenu }: { contenu: SlideshowDetail }) {
                       <ImageUp className="size-3" />
                       {t("slideshows.remplacer")}
                     </Button>
+                    {s.media_id && (
+                      <UpscaleMediaControl
+                        mediaId={s.media_id}
+                        compact
+                        disabled={slideEnCours}
+                        onSuccess={rafraichir}
+                      />
+                    )}
                   </div>
                   {etapes && (slideEnCours || erreur) ? (
                     <NettoyageEtapes

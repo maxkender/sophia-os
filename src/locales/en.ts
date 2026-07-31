@@ -670,6 +670,7 @@ export const en = {
       c2paDebut: "C2PA strip on {{count}} photo(s)…",
       c2paFin: "Done — stripped={{retires}} · already clean={{sautes}} · failed={{echecs}}",
       upscale: "Upscale",
+      upscaleEncore: "Re-upscale",
       upscaleEnCours: "Upscaling…",
       dejaUpscale: "Upscaled",
       upscaleTout_one: "Upscale the non-upscaled photo",
@@ -679,7 +680,7 @@ export const en = {
       upscaleRealesrgan: "Real-ESRGAN v2",
       upscaleSeedvr: "SeedVR (Fal)",
       upscaleAide:
-        "Upscale → lossless metadata strip → replace photo. Only never-upscaled photos on the current page.",
+        "Upscale → lossless metadata strip → replace photo. Pick a model, then run.",
       upscaleAideRealesrgan:
         "Real-ESRGAN v2 (Replicate) — faithful, less “AI”. Default scale ×1.",
       upscaleAideSeedvr:

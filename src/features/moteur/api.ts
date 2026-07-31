@@ -942,7 +942,8 @@ export async function listerSlides(postId: string): Promise<PostSlide[]> {
     .from("post_slides")
     // storage_path distingue une photo nettoyée (`propre/…`) d'un original
     // gardé faute de nettoyage (`brut/…`), qui porte encore son texte.
-    .select("*, media_library(url, storage_path)")
+    // upscale_le : badge / forcer re-upscale depuis le détail post.
+    .select("*, media_library(url, storage_path, upscale_le)")
     .eq("post_id", postId)
     .order("position");
   if (error) throw error;

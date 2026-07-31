@@ -25,6 +25,7 @@ import {
   EmptyState,
 } from "@/components/ui/card";
 import { NettoyageEtapes } from "@/components/moteur/NettoyageEtapes";
+import { UpscaleMediaControl } from "@/components/moteur/UpscaleMediaControl";
 import {
   BIBLIO_PAGE_SIZE,
   lireReglages,
@@ -93,10 +94,6 @@ function VignetteMedia({
     onError: () => {
       /* garde la timeline pour voir l'échec */
     },
-  });
-  const upscale = useMutation({
-    mutationFn: () => upscaleMedia(media.id, { modele: modeleUpscale }),
-    onSuccess: () => onChange(),
   });
   const supprimer = useMutation({ mutationFn: () => supprimerMedia(media.id), onSuccess: onChange });
 
@@ -179,23 +176,15 @@ function VignetteMedia({
               : t("bibliotheque.nettoyer")}
           </Button>
         )}
-        {!dejaUpscale && (
-          <Button
-            size="sm"
-            variant="outline"
-            className="h-7 flex-1 px-2 text-xs"
-            disabled={upscale.isPending || upscaleBusy}
-            onClick={() => upscale.mutate()}
-            title={
-              modeleUpscale === "seedvr"
-                ? t("bibliotheque.upscaleAideSeedvr")
-                : t("bibliotheque.upscaleAideRealesrgan")
-            }
-          >
-            <Maximize2 className="size-3" />
-            {upscale.isPending ? t("bibliotheque.upscaleEnCours") : t("bibliotheque.upscale")}
-          </Button>
-        )}
+        <UpscaleMediaControl
+          mediaId={media.id}
+          dejaUpscale={dejaUpscale}
+          compact
+          disabled={upscaleBusy || nettoyer.isPending}
+          modele={modeleUpscale}
+          hideModeleSelect
+          onSuccess={onChange}
+        />
         <Button
           size="sm"
           variant="ghost"
@@ -211,9 +200,6 @@ function VignetteMedia({
 
       {nettoyer.data && !nettoyer.data.nettoyee && (
         <p className="text-[11px] text-destructive">{t("bibliotheque.nettoyageEchec")}</p>
-      )}
-      {upscale.isError && (
-        <p className="text-[11px] text-destructive">{(upscale.error as Error).message}</p>
       )}
     </div>
   );

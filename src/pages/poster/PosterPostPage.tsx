@@ -20,6 +20,7 @@ import QRCode from "qrcode";
 
 import { useAuth } from "@/features/auth/AuthContext";
 import { NettoyageEtapes } from "@/components/moteur/NettoyageEtapes";
+import { UpscaleMediaControl } from "@/components/moteur/UpscaleMediaControl";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -211,9 +212,12 @@ function ControlesAdminSlide({
   const [picker, setPicker] = React.useState(false);
   const [etapes, setEtapes] = React.useState<EvenementEtape[] | null>(null);
   const rafraichir = () => {
-    queryClient.invalidateQueries({ queryKey: ["slides", postId] });
-    queryClient.invalidateQueries({ queryKey: ["fichiers", postId] });
+    void queryClient.invalidateQueries({ queryKey: ["slides", postId] });
+    void queryClient.invalidateQueries({ queryKey: ["fichiers", postId] });
+    void queryClient.invalidateQueries({ queryKey: ["medias"] });
+    void queryClient.invalidateQueries({ queryKey: ["medias-biblio"] });
   };
+  const dejaUpscale = Boolean(slide.media_library?.upscale_le);
 
   const medias = useQuery({
     queryKey: ["medias", compteReferenceId],
@@ -268,6 +272,14 @@ function ControlesAdminSlide({
           <ImageUp className="size-4" />
           {remplacer.isPending ? t("common.saving") : t("adminPost.remplacerPhoto")}
         </Button>
+        {slide.media_id && (
+          <UpscaleMediaControl
+            mediaId={slide.media_id}
+            dejaUpscale={dejaUpscale}
+            disabled={renettoyer.isPending}
+            onSuccess={rafraichir}
+          />
+        )}
       </div>
 
       {etapes && (renettoyer.isPending || renettoyer.isError) ? (

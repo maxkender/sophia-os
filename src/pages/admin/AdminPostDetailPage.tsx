@@ -11,6 +11,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { cn } from "@/lib/utils";
 import { executerEnLot } from "@/lib/lot";
 import { NettoyageEtapes } from "@/components/moteur/NettoyageEtapes";
+import { UpscaleMediaControl } from "@/components/moteur/UpscaleMediaControl";
 import {
   apercuSujet,
   avancerUnPost,
@@ -113,9 +114,14 @@ function SlideAdmin({
   const [picker, setPicker] = React.useState(false);
   const [etapesLocales, setEtapesLocales] = React.useState<EvenementEtape[] | null>(null);
 
-  const rafraichir = () => queryClient.invalidateQueries({ queryKey: ["slides", postId] });
+  const rafraichir = () => {
+    void queryClient.invalidateQueries({ queryKey: ["slides", postId] });
+    void queryClient.invalidateQueries({ queryKey: ["medias"] });
+    void queryClient.invalidateQueries({ queryKey: ["medias-biblio"] });
+  };
   const texteModifie = texte !== (slide.texte_overlay ?? "");
   const etapes = etapesLocales ?? etapesLot ?? null;
+  const dejaUpscale = Boolean(slide.media_library?.upscale_le);
 
   const bibliotheque = useQuery({
     queryKey: ["medias", compteReferenceId],
@@ -163,11 +169,12 @@ function SlideAdmin({
   return (
     <Card>
       <CardContent className="space-y-4 p-4">
-        <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
           <span className="text-sm font-medium">{t("posts.slide", { position: slide.position })}</span>
           {slide.position_sophia && <Badge>{t("posts.sophia")}</Badge>}
           {!propre && photoUrl && <Badge variant="warning">{t("adminPost.texteRestant")}</Badge>}
           {!photoUrl && <Badge variant="warning">{t("posts.photoManquante")}</Badge>}
+          {dejaUpscale && <Badge variant="success">{t("bibliotheque.dejaUpscale")}</Badge>}
         </div>
 
         <div className="grid gap-3 sm:grid-cols-2">
@@ -223,6 +230,15 @@ function SlideAdmin({
             <ImageUp />
             {remplacer.isPending ? t("common.saving") : t("adminPost.remplacerPhoto")}
           </Button>
+
+          {slide.media_id && (
+            <UpscaleMediaControl
+              mediaId={slide.media_id}
+              dejaUpscale={dejaUpscale}
+              disabled={Boolean(etapesLot) || renettoyer.isPending}
+              onSuccess={rafraichir}
+            />
+          )}
 
           {photoUrl && (
             <Button

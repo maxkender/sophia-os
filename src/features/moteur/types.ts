@@ -133,7 +133,11 @@ export interface PostSlide {
   position_sophia: boolean;
   /** Visuel d'origine, texte encore incrusté : modèle de placement. */
   reference_url: string | null;
-  media_library: { url: string; storage_path: string } | null;
+  media_library: {
+    url: string;
+    storage_path: string;
+    upscale_le: string | null;
+  } | null;
 }
 
 export interface PosterProfil {

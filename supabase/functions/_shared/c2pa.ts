@@ -7,6 +7,9 @@
  *   les données image (SOS…) restent byte-à-byte.
  * - PNG  : on retire les chunks `caBX` / `c2pa` et textes XMP associés.
  * - Si rien à retirer : bytes inchangés.
+ *
+ * Mémoire : on concatène des sous-vues `Uint8Array` (pas de `number[]` ni
+ * base64 intermédiaire) — critique pour l’upscale SeedVR en Edge.
  */
 
 function enBase64(bytes: Uint8Array): string {
@@ -20,6 +23,18 @@ function enBase64(bytes: Uint8Array): string {
 
 function deBase64(base64: string): Uint8Array {
   return Uint8Array.from(atob(base64), (c) => c.charCodeAt(0));
+}
+
+function concatBytes(parts: Uint8Array[]): Uint8Array {
+  let total = 0;
+  for (const p of parts) total += p.length;
+  const out = new Uint8Array(total);
+  let o = 0;
+  for (const p of parts) {
+    out.set(p, o);
+    o += p.length;
+  }
+  return out;
 }
 
 function estJpeg(bytes: Uint8Array): boolean {
@@ -78,86 +93,72 @@ function payloadSuspectC2pa(payload: Uint8Array): boolean {
 function jpegStripC2paLossless(bytes: Uint8Array): { bytes: Uint8Array; modifie: boolean } {
   if (!estJpeg(bytes)) return { bytes, modifie: false };
 
-  const out: number[] = [0xff, 0xd8];
+  const parts: Uint8Array[] = [bytes.subarray(0, 2)]; // SOI
   let i = 2;
   let modifie = false;
 
   while (i + 1 < bytes.length) {
     if (bytes[i] !== 0xff) {
-      // Données non alignées — on copie le reste tel quel.
-      for (let j = i; j < bytes.length; j += 1) out.push(bytes[j]!);
+      parts.push(bytes.subarray(i));
       break;
     }
 
-    // Sauter les fill bytes 0xFF
     while (i + 1 < bytes.length && bytes[i] === 0xff && bytes[i + 1] === 0xff) {
-      out.push(0xff);
+      parts.push(bytes.subarray(i, i + 1));
       i += 1;
     }
     if (i + 1 >= bytes.length) break;
 
     const marker = bytes[i + 1]!;
 
-    // SOI déjà consommé ; EOI
     if (marker === 0xd9) {
-      out.push(0xff, 0xd9);
+      parts.push(bytes.subarray(i, i + 2));
       i += 2;
-      // Copie éventuelle traîne après EOI
-      for (let j = i; j < bytes.length; j += 1) out.push(bytes[j]!);
+      if (i < bytes.length) parts.push(bytes.subarray(i));
       break;
     }
 
-    // RST0–RST7 / TEM : pas de longueur
     if ((marker >= 0xd0 && marker <= 0xd7) || marker === 0x01) {
-      out.push(0xff, marker);
+      parts.push(bytes.subarray(i, i + 2));
       i += 2;
       continue;
     }
 
-    // SOS : début des données entropiques — on copie TOUT le reste (pas de
-    // parse des FF 00), donc zéro altération des pixels.
+    // SOS : copie du reste byte-à-byte.
     if (marker === 0xda) {
-      for (let j = i; j < bytes.length; j += 1) out.push(bytes[j]!);
+      parts.push(bytes.subarray(i));
       break;
     }
 
     if (i + 3 >= bytes.length) {
-      for (let j = i; j < bytes.length; j += 1) out.push(bytes[j]!);
+      parts.push(bytes.subarray(i));
       break;
     }
 
     const len = (bytes[i + 2]! << 8) | bytes[i + 3]!;
     if (len < 2 || i + 2 + len > bytes.length) {
-      for (let j = i; j < bytes.length; j += 1) out.push(bytes[j]!);
+      parts.push(bytes.subarray(i));
       break;
     }
 
     const segmentEnd = i + 2 + len;
     const payload = bytes.subarray(i + 4, segmentEnd);
-
-    // APP0–APP15 (E0–EF) : candidats C2PA / XMP / JUMBF.
-    // APP11 (EB) porte souvent le JUMBF C2PA ; APP1 (E1) l'XMP.
     const estApp = marker >= 0xe0 && marker <= 0xef;
     const drop = estApp && (
-      marker === 0xeb || // APP11 / JUMBF — quasi toujours C2PA chez Fal
+      marker === 0xeb ||
       payloadSuspectC2pa(payload)
     );
 
-    if (drop) {
-      modifie = true;
-    } else {
-      for (let j = i; j < segmentEnd; j += 1) out.push(bytes[j]!);
-    }
+    if (drop) modifie = true;
+    else parts.push(bytes.subarray(i, segmentEnd));
     i = segmentEnd;
   }
 
-  return { bytes: new Uint8Array(out), modifie };
+  return { bytes: modifie ? concatBytes(parts) : bytes, modifie };
 }
 
 function pngSansC2pa(bytes: Uint8Array): { bytes: Uint8Array; modifie: boolean } {
-  const out: number[] = [];
-  for (let i = 0; i < 8; i += 1) out.push(bytes[i]!);
-
+  const parts: Uint8Array[] = [bytes.subarray(0, 8)];
   let i = 8;
   let modifie = false;
   const dv = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
@@ -190,13 +191,13 @@ function pngSansC2pa(bytes: Uint8Array): { bytes: Uint8Array; modifie: boolean }
     }
 
     if (drop) modifie = true;
-    else for (let j = chunkStart; j < chunkEnd; j += 1) out.push(bytes[j]!);
+    else parts.push(bytes.subarray(chunkStart, chunkEnd));
 
     i = chunkEnd;
     if (type === "IEND") break;
   }
 
-  return { bytes: new Uint8Array(out), modifie };
+  return { bytes: modifie ? concatBytes(parts) : bytes, modifie };
 }
 
 export interface ResultatC2pa {
@@ -205,41 +206,49 @@ export interface ResultatC2pa {
   retire: boolean;
 }
 
+export interface ResultatC2paBytes {
+  bytes: Uint8Array;
+  mime: string;
+  retire: boolean;
+}
+
+/** Variante bytes — évite base64 (upscale Edge / gros fichiers). */
+export async function retirerContentCredentialsBytes(
+  bytes: Uint8Array,
+): Promise<ResultatC2paBytes> {
+  if (estJpeg(bytes)) {
+    if (!contientContentCredentials(bytes)) {
+      return { bytes, mime: "image/jpeg", retire: false };
+    }
+    const { bytes: clean, modifie } = jpegStripC2paLossless(bytes);
+    return { bytes: clean, mime: "image/jpeg", retire: modifie };
+  }
+
+  if (estPng(bytes)) {
+    if (!contientContentCredentials(bytes)) {
+      return { bytes, mime: "image/png", retire: false };
+    }
+    const { bytes: clean, modifie } = pngSansC2pa(bytes);
+    return { bytes: clean, mime: "image/png", retire: modifie };
+  }
+
+  if (estWebp(bytes)) {
+    return { bytes, mime: "image/webp", retire: false };
+  }
+
+  return { bytes, mime: "application/octet-stream", retire: false };
+}
+
 /**
  * Retire les Content Credentials SANS ré-encodage lossy.
  * Toujours appelé en fin de chaîne de nettoyage, avant stockage.
  */
 export async function retirerContentCredentials(base64: string): Promise<ResultatC2pa> {
   const bytes = deBase64(base64);
-
-  if (estJpeg(bytes)) {
-    if (!contientContentCredentials(bytes)) {
-      return { base64, mime: "image/jpeg", retire: false };
-    }
-    const { bytes: clean, modifie } = jpegStripC2paLossless(bytes);
-    return {
-      base64: modifie ? enBase64(clean) : base64,
-      mime: "image/jpeg",
-      retire: modifie,
-    };
-  }
-
-  if (estPng(bytes)) {
-    if (!contientContentCredentials(bytes)) {
-      return { base64, mime: "image/png", retire: false };
-    }
-    const { bytes: clean, modifie } = pngSansC2pa(bytes);
-    return {
-      base64: modifie ? enBase64(clean) : base64,
-      mime: "image/png",
-      retire: modifie,
-    };
-  }
-
-  // WebP : pas de strip segmentaire ici — on ne ré-encode jamais.
-  if (estWebp(bytes)) {
-    return { base64, mime: "image/webp", retire: false };
-  }
-
-  return { base64, mime: "application/octet-stream", retire: false };
+  const r = await retirerContentCredentialsBytes(bytes);
+  return {
+    base64: r.retire ? enBase64(r.bytes) : base64,
+    mime: r.mime,
+    retire: r.retire,
+  };
 }

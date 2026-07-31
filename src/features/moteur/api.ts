@@ -70,8 +70,12 @@ async function invoke<T>(name: string, body: Record<string, unknown>): Promise<T
         if (corps?.error) message = corps.error;
         else if (corps?.code === "WORKER_RESOURCE_LIMIT") {
           message =
-            "Mémoire Edge saturée (WORKER_RESOURCE_LIMIT) — relance une photo à la fois, ou Real-ESRGAN.";
-        } else if (corps?.message) message = corps.message;
+            "Mémoire Edge saturée (WORKER_RESOURCE_LIMIT) — SeedVR : 1 photo à la fois / JPEG ; sinon Real-ESRGAN.";
+        } else if (corps?.message) {
+          message = /WORKER_RESOURCE_LIMIT/i.test(corps.message)
+            ? "Mémoire Edge saturée (WORKER_RESOURCE_LIMIT) — SeedVR : 1 photo à la fois / JPEG ; sinon Real-ESRGAN."
+            : corps.message;
+        }
       }
     } catch {
       // corps illisible : on garde le message générique

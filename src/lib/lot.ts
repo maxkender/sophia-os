@@ -9,7 +9,7 @@ export const AGENTS_REIMPORT_PHOTOS = 12;
 
 /** Pool upscale Real-ESRGAN — modéré (Edge mémoire limitée). */
 export const AGENTS_UPSCALE = 4;
-/** SeedVR charge des PNG ×2 en mémoire : 1 seul worker sinon WORKER_RESOURCE_LIMIT. */
+/** SeedVR (Fal) : 1 seul worker — même en JPEG, l’Edge reste serrée. */
 export const AGENTS_UPSCALE_SEEDVR = 1;
 
 /**

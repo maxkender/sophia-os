@@ -3,24 +3,20 @@
  *
  * Secret : `FAL_KEY` (même clé que text-removal).
  * Tarif typique : ~$0.001 / mégapixel de sortie.
+ *
+ * Sortie JPEG (pas PNG) : les PNG ×2 saturent la mémoire Edge
+ * (WORKER_RESOURCE_LIMIT) au téléchargement + strip C2PA.
  */
 
 import type { UpscaleProgress, UpscaleResultat } from "./replicate_realesrgan_upscale.ts";
 
 const MODEL = "fal-ai/seedvr/upscale/image";
 const QUEUE = `https://queue.fal.run/${MODEL}`;
+/** Au-delà, l’Edge risque l’OOM même en JPEG — message clair côté admin. */
+const MAX_OCTETS = 12 * 1024 * 1024;
 
 function falKey(): string | null {
   return Deno.env.get("FAL_KEY") ?? Deno.env.get("FAL_API_KEY") ?? null;
-}
-
-function enBase64(bytes: Uint8Array): string {
-  let binaire = "";
-  const CHUNK = 0x8000;
-  for (let i = 0; i < bytes.length; i += CHUNK) {
-    binaire += String.fromCharCode(...bytes.subarray(i, i + CHUNK));
-  }
-  return btoa(binaire);
 }
 
 function authHeaders(key: string): Record<string, string> {
@@ -61,7 +57,7 @@ function mimeDepuisOctets(bytes: Uint8Array): string {
 
 /**
  * Upscale `imageUrl` via SeedVR2. Renvoie octets + mime, ou `null` si clé absente.
- * Défaut : factor ×2, sortie PNG (pas le JPEG par défaut Fal).
+ * Défaut : factor ×2, sortie JPEG (léger pour Edge).
  */
 export async function upscaleViaSeedVr(
   imageUrl: string,
@@ -73,7 +69,7 @@ export async function upscaleViaSeedVr(
 
   await onProgress?.({
     phase: "submit",
-    detail: `modèle=${MODEL} factor=${upscaleFactor}`,
+    detail: `modèle=${MODEL} factor=${upscaleFactor} format=jpg`,
   });
 
   const submit = await fetch(QUEUE, {
@@ -84,7 +80,8 @@ export async function upscaleViaSeedVr(
       upscale_mode: "factor",
       upscale_factor: upscaleFactor,
       noise_scale: 0.1,
-      output_format: "png",
+      // JPEG ≪ PNG en RAM Edge (évite WORKER_RESOURCE_LIMIT).
+      output_format: "jpg",
     }),
   });
 
@@ -184,6 +181,17 @@ export async function upscaleViaSeedVr(
   if (!img.ok) {
     throw new Error(`SeedVR: téléchargement résultat ${img.status}`);
   }
+  const lenHdr = Number(img.headers.get("content-length") ?? 0);
+  if (lenHdr > MAX_OCTETS) {
+    throw new Error(
+      `SeedVR: résultat trop gros (${Math.round(lenHdr / 1024 / 1024)} Mo) pour Edge — utilise Real-ESRGAN ou ×1.`,
+    );
+  }
   const bytes = new Uint8Array(await img.arrayBuffer());
-  return { base64: enBase64(bytes), mime: mimeDepuisOctets(bytes) };
+  if (bytes.length > MAX_OCTETS) {
+    throw new Error(
+      `SeedVR: résultat trop gros (${Math.round(bytes.length / 1024 / 1024)} Mo) pour Edge — utilise Real-ESRGAN ou ×1.`,
+    );
+  }
+  return { bytes, mime: mimeDepuisOctets(bytes) };
 }

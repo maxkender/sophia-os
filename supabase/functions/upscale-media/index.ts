@@ -1,4 +1,4 @@
-import { retirerContentCredentials } from "../_shared/c2pa.ts";
+import { retirerContentCredentialsBytes } from "../_shared/c2pa.ts";
 import { upscaleViaSeedVr } from "../_shared/fal_seedvr_upscale.ts";
 import { upscaleViaRealEsrgan } from "../_shared/replicate_realesrgan_upscale.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
@@ -21,7 +21,7 @@ function parserModele(brut: unknown): ModeleUpscale {
 /**
  * Upscale une photo de la bibliothèque :
  *   1) Real-ESRGAN v2 (Replicate) OU SeedVR2 (Fal)
- *   2) strip C2PA lossless
+ *   2) strip C2PA lossless (bytes, sans base64)
  *   3) remplace le fichier + pose `upscale_le`
  *
  *   { mediaId, forcer?: boolean, modele?: "realesrgan"|"seedvr", scale?: number }
@@ -47,8 +47,8 @@ Deno.serve(async (request) => {
   const scale = Number.isFinite(scaleRaw) && scaleRaw >= 1 && scaleRaw <= 4
     ? scaleRaw
     : modele === "seedvr"
-      ? 2
-      : 1;
+    ? 2
+    : 1;
   if (!mediaId) return json({ ok: false, error: "mediaId requis" }, 400);
 
   try {
@@ -82,10 +82,10 @@ Deno.serve(async (request) => {
       }, 500);
     }
 
-    // Strip métadonnées SANS ré-encode lossy (JPEG/PNG) ; webp inchangé si pas C2PA.
-    const strip = await retirerContentCredentials(resultat.base64);
+    // Strip métadonnées SANS base64 ni ré-encode lossy.
+    const strip = await retirerContentCredentialsBytes(resultat.bytes);
     const mime = strip.mime === "application/octet-stream" ? resultat.mime : strip.mime;
-    const bytes = Uint8Array.from(atob(strip.base64), (c) => c.charCodeAt(0));
+    const bytes = strip.bytes;
     const ext = extPourMime(mime);
 
     const basePath = String(media.storage_path)
@@ -132,6 +132,7 @@ Deno.serve(async (request) => {
       scale,
       upscale_le: maintenant,
       c2pa_retire: strip.retire,
+      octets: bytes.length,
       detail: `upscalée ${label} + métadonnées stripées (lossless)`,
     });
   } catch (error) {

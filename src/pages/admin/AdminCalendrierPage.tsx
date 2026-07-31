@@ -203,9 +203,49 @@ export function AdminCalendrierPage() {
   return (
     <div className="space-y-6">
       <Card>
-        <CardHeader>
-          <CardTitle>{t("adminCal.titre")}</CardTitle>
-          <CardDescription>{t("adminCal.desc")}</CardDescription>
+        <CardHeader className="gap-4 space-y-0 sm:flex-row sm:items-start sm:justify-between">
+          <div className="space-y-1.5">
+            <CardTitle>{t("adminCal.titre")}</CardTitle>
+            <CardDescription>{t("adminCal.desc")}</CardDescription>
+          </div>
+          <div className="flex w-full flex-col gap-2 sm:w-auto sm:items-end">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="sr-only">{t("bibliotheque.upscaleModele")}</span>
+              <select
+                value={modeleUpscale}
+                disabled={lotEnCours}
+                onChange={(e) =>
+                  setModeleUpscale(e.target.value === "seedvr" ? "seedvr" : "realesrgan")
+                }
+                title={
+                  modeleUpscale === "seedvr"
+                    ? t("bibliotheque.upscaleAideSeedvr")
+                    : t("bibliotheque.upscaleAideRealesrgan")
+                }
+                className="flex h-10 rounded-md border border-input bg-background px-2 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+              >
+                <option value="realesrgan">{t("bibliotheque.upscaleRealesrgan")}</option>
+                <option value="seedvr">{t("bibliotheque.upscaleSeedvr")}</option>
+              </select>
+              <Button
+                size="default"
+                disabled={lotEnCours || prevus === 0}
+                onClick={() => void upscalePostsDuJour()}
+                title={t("adminCal.upscaleAide")}
+              >
+                <Maximize2 className="size-4" />
+                {upscaleLot
+                  ? t("adminCal.upscaleLot", {
+                      fait: upscaleLot.fait,
+                      total: upscaleLot.total,
+                    })
+                  : t("adminCal.upscaleTout")}
+              </Button>
+            </div>
+            {prevus === 0 && !lotEnCours && (
+              <p className="text-xs text-muted-foreground">{t("adminCal.upscaleBesoinPosts")}</p>
+            )}
+          </div>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex flex-wrap items-end gap-3">
@@ -298,41 +338,6 @@ export function AdminCalendrierPage() {
               <p className="text-xs text-muted-foreground">{t("adminCal.statsCreateurs")}</p>
               <p className="text-2xl font-semibold tabular-nums">{parCreateur.length}</p>
             </div>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-2 border-t pt-4">
-            <span className="sr-only">{t("bibliotheque.upscaleModele")}</span>
-            <select
-              value={modeleUpscale}
-              disabled={lotEnCours}
-              onChange={(e) =>
-                setModeleUpscale(e.target.value === "seedvr" ? "seedvr" : "realesrgan")
-              }
-              title={
-                modeleUpscale === "seedvr"
-                  ? t("bibliotheque.upscaleAideSeedvr")
-                  : t("bibliotheque.upscaleAideRealesrgan")
-              }
-              className="flex h-9 rounded-md border border-input bg-background px-2 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-            >
-              <option value="realesrgan">{t("bibliotheque.upscaleRealesrgan")}</option>
-              <option value="seedvr">{t("bibliotheque.upscaleSeedvr")}</option>
-            </select>
-            <Button
-              size="sm"
-              variant="outline"
-              disabled={lotEnCours || prevus === 0}
-              onClick={() => void upscalePostsDuJour()}
-              title={t("adminCal.upscaleAide")}
-            >
-              <Maximize2 className="size-4" />
-              {upscaleLot
-                ? t("adminCal.upscaleLot", {
-                    fait: upscaleLot.fait,
-                    total: upscaleLot.total,
-                  })
-                : t("adminCal.upscaleTout")}
-            </Button>
           </div>
 
           {upscaleLogs.length > 0 && (

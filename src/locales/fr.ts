@@ -1101,7 +1101,7 @@ export const fr = {
       voirTiktok: "TikTok",
       eloCourt: "ELO {{score}}",
       confirmSuppr: "Supprimer le post de {{nom}} ? Cette action est définitive.",
-      upscaleTout: "Upscale toutes les images des posts prévus du jour",
+      upscaleTout: "Upscale images du jour",
       upscaleAide:
         "Upscale chaque photo des slides des posts prévus ce jour (filtre langue respecté). Choisis le modèle. Parallèle Real-ESRGAN ×4 / SeedVR ×1.",
       upscaleConfirm:
@@ -1110,6 +1110,7 @@ export const fr = {
         "Upscale {{modele}} — {{count}} photo(s) sur {{posts}} post(s) ({{deja}} déjà faites sautées)…",
       upscaleLot: "Upscale… {{fait}}/{{total}}",
       upscaleRien: "Rien à upscaler — {{total}} photo(s), {{deja}} déjà upscalée(s).",
+      upscaleBesoinPosts: "Choisis un jour avec des posts prévus pour activer l’upscale.",
     },
     adminCreateur: {
       retour: "Planning",

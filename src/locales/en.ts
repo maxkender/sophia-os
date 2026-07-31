@@ -1104,7 +1104,7 @@ export const en = {
         "One color per creator. Click a post to edit it, drag it onto another day to move it, ✕ to delete it. Faded = being built.",
       supprimerJour: "Delete all posts for this day",
       confirmSupprimerJour: "Delete all {{count}} posts for this day? This action is permanent.",
-      upscaleTout: "Upscale all images of posts planned for the day",
+      upscaleTout: "Upscale day's images",
       upscaleAide:
         "Upscale every slide photo of posts planned that day (language filter applied). Pick a model. Parallel Real-ESRGAN ×4 / SeedVR ×1.",
       upscaleConfirm:
@@ -1113,6 +1113,7 @@ export const en = {
         "Upscale {{modele}} — {{count}} photo(s) across {{posts}} post(s) ({{deja}} already done skipped)…",
       upscaleLot: "Upscale… {{fait}}/{{total}}",
       upscaleRien: "Nothing to upscale — {{total}} photo(s), {{deja}} already upscaled.",
+      upscaleBesoinPosts: "Pick a day with planned posts to enable upscale.",
     },
     adminCreateur: {
       retour: "Schedule",

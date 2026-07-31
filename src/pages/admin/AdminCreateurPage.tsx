@@ -6,6 +6,7 @@ import {
   ArrowLeft,
   CheckCircle2,
   ExternalLink,
+  RefreshCw,
   Trash2,
 } from "lucide-react";
 
@@ -23,6 +24,7 @@ import {
   lireCompteCreateur,
   listerPublicationsCompte,
   postsCalendrierAdmin,
+  revoquerPost,
   supprimerPost,
   type PostCalendrierAdmin,
 } from "@/features/moteur/api";
@@ -85,6 +87,20 @@ export function AdminCreateurPage() {
     onSuccess: () => {
       void queryClient.invalidateQueries({ queryKey: ["posts-calendrier-admin"] });
     },
+  });
+
+  const [reassignMsg, setReassignMsg] = React.useState<string | null>(null);
+  const reassigner = useMutation({
+    mutationFn: (postId: string) => revoquerPost(postId),
+    onSuccess: (r) => {
+      void queryClient.invalidateQueries({ queryKey: ["posts-calendrier-admin"] });
+      if (!r.newPostId) {
+        setReassignMsg(t("adminCreateur.reassignerAucun"));
+      } else {
+        setReassignMsg(t("adminCreateur.reassignerOk"));
+      }
+    },
+    onError: (e) => setReassignMsg((e as Error).message),
   });
 
   const postsDuJour = React.useMemo(() => {
@@ -219,12 +235,19 @@ export function AdminCreateurPage() {
             {!posts.isPending && postsDuJour.length === 0 && (
               <EmptyState title={t("adminCreateur.aucunPostJour")} />
             )}
+            {reassignMsg && (
+              <p className="text-xs text-muted-foreground">{reassignMsg}</p>
+            )}
             {postsDuJour.map((post) => {
               const poste = estPoste(post);
+              const vide = post.slideshow_vide && !poste;
               return (
                 <div
                   key={post.id}
-                  className="flex flex-wrap items-center justify-between gap-2 rounded-md border bg-muted/30 px-2.5 py-2"
+                  className={cn(
+                    "flex flex-wrap items-center justify-between gap-2 rounded-md border px-2.5 py-2",
+                    vide ? "border-destructive/40 bg-destructive/5" : "bg-muted/30",
+                  )}
                 >
                   <div className="flex min-w-0 flex-wrap items-center gap-1.5">
                     <Badge variant={poste ? "success" : "outline"}>
@@ -237,6 +260,11 @@ export function AdminCreateurPage() {
                         t("adminCal.prevu")
                       )}
                     </Badge>
+                    {vide && (
+                      <Badge variant="destructive" title={t("adminCal.slideshowVideAide")}>
+                        {t("adminCal.slideshowVide")}
+                      </Badge>
+                    )}
                     <Badge variant="secondary">{t(`type.${post.type}`)}</Badge>
                     <Badge variant={badgePipeline(post.pipeline_statut)}>
                       {t(`statut.${post.pipeline_statut}`)}
@@ -248,6 +276,23 @@ export function AdminCreateurPage() {
                     )}
                   </div>
                   <div className="flex flex-wrap items-center gap-1.5">
+                    {vide && (
+                      <Button
+                        size="sm"
+                        disabled={reassigner.isPending}
+                        onClick={() => {
+                          if (window.confirm(t("adminCreateur.confirmReassigner"))) {
+                            setReassignMsg(null);
+                            reassigner.mutate(post.id);
+                          }
+                        }}
+                      >
+                        <RefreshCw className="mr-1.5 size-3.5" />
+                        {reassigner.isPending
+                          ? t("adminCreateur.reassignerEnCours")
+                          : t("adminCreateur.reassignerSlideshow")}
+                      </Button>
+                    )}
                     {post.publie_url && (
                       <Button size="sm" variant="outline" asChild>
                         <a href={post.publie_url} target="_blank" rel="noreferrer">

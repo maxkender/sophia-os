@@ -1438,6 +1438,12 @@ export interface PostCalendrierAdmin {
   poster_nom: string | null;
   sujet_titre: string | null;
   langue: string | null;
+  /** Nombre de slides (0 = slideshow vide / matérialisation ratée). */
+  nb_slides: number;
+  /** Slides avec un media_id non null. */
+  nb_media: number;
+  /** Aucune slide, ou aucune image — inutilisable pour le poster. */
+  slideshow_vide: boolean;
 }
 
 /** Médias uniques liés aux slides des posts prévus un jour (planning). */
@@ -1495,25 +1501,53 @@ export async function postsCalendrierAdmin(): Promise<PostCalendrierAdmin[]> {
     .limit(800);
   if (error) throw error;
 
+  // Embeds profils / sujets : typage PostgREST parfois trop strict.
   // deno-lint-ignore no-explicit-any
-  return (data as any[]).map((p) => ({
-    id: p.id,
-    compte_id: p.compte_id,
-    date_publication_prevue: p.date_publication_prevue,
-    type: p.type,
-    statut: p.statut,
-    pipeline_statut: p.pipeline_statut,
-    publie_at: p.publie_at,
-    publie_url: p.publie_url ?? null,
-    persona_nom: p.comptes?.persona_nom ?? null,
-    handle_tiktok: p.comptes?.handle_tiktok ?? null,
-    avatar_url: p.comptes?.avatar_url ?? null,
-    score: p.comptes?.score ?? null,
-    poster_prenom: p.comptes?.profiles?.prenom ?? null,
-    poster_nom: p.comptes?.profiles?.nom ?? null,
-    sujet_titre: p.sujets?.titre ?? null,
-    langue: p.comptes?.langue ?? null,
-  }));
+  const rows = (data ?? []) as any[];
+  const ids = rows.map((p) => p.id as string);
+  const slidesParPost = new Map<string, { nb: number; media: number }>();
+  const chunk = 80;
+  for (let i = 0; i < ids.length; i += chunk) {
+    const slice = ids.slice(i, i + chunk);
+    const { data: slides, error: e2 } = await supabase
+      .from("post_slides")
+      .select("post_id, media_id")
+      .in("post_id", slice);
+    if (e2) throw e2;
+    for (const s of slides ?? []) {
+      const pid = s.post_id as string;
+      const cur = slidesParPost.get(pid) ?? { nb: 0, media: 0 };
+      cur.nb += 1;
+      if (s.media_id) cur.media += 1;
+      slidesParPost.set(pid, cur);
+    }
+  }
+
+  return rows.map((p) => {
+    const counts = slidesParPost.get(p.id as string) ?? { nb: 0, media: 0 };
+    const slideshow_vide = counts.nb === 0 || counts.media === 0;
+    return {
+      id: p.id as string,
+      compte_id: p.compte_id as string,
+      date_publication_prevue: p.date_publication_prevue as string | null,
+      type: p.type as string,
+      statut: p.statut as string,
+      pipeline_statut: p.pipeline_statut as string,
+      publie_at: (p.publie_at as string | null) ?? null,
+      publie_url: (p.publie_url as string | null) ?? null,
+      persona_nom: (p.comptes?.persona_nom as string | null) ?? null,
+      handle_tiktok: (p.comptes?.handle_tiktok as string | null) ?? null,
+      avatar_url: (p.comptes?.avatar_url as string | null) ?? null,
+      score: (p.comptes?.score as number | null) ?? null,
+      poster_prenom: (p.comptes?.profiles?.prenom as string | null) ?? null,
+      poster_nom: (p.comptes?.profiles?.nom as string | null) ?? null,
+      sujet_titre: (p.sujets?.titre as string | null) ?? null,
+      langue: (p.comptes?.langue as string | null) ?? null,
+      nb_slides: counts.nb,
+      nb_media: counts.media,
+      slideshow_vide,
+    };
+  });
 }
 
 export interface CompteCreateurDetail {

@@ -88,12 +88,14 @@ export function AdminCalendrierPage() {
         langue: postsCompte[0]?.langue ?? null,
         score: postsCompte[0]?.score ?? null,
         postes: postsCompte.filter(estPoste).length,
+        vides: postsCompte.filter((p) => p.slideshow_vide && !estPoste(p)).length,
       }))
       .sort((a, b) => a.nom.localeCompare(b.nom, i18n.language));
   }, [duJour, i18n.language]);
 
   const prevus = duJour.length;
   const postes = duJour.filter(estPoste).length;
+  const vides = duJour.filter((p) => p.slideshow_vide && !estPoste(p)).length;
   const labelDate = new Date(`${date}T12:00:00`).toLocaleDateString(i18n.language, {
     weekday: "long",
     day: "numeric",
@@ -307,7 +309,7 @@ export function AdminCalendrierPage() {
 
           <p className="text-sm capitalize text-muted-foreground">{labelDate}</p>
 
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-5">
             <div className="rounded-lg border p-3">
               <p className="text-xs text-muted-foreground">{t("adminCal.statsPrevus")}</p>
               <p className="text-2xl font-semibold tabular-nums">{prevus}</p>
@@ -338,6 +340,18 @@ export function AdminCalendrierPage() {
               <p className="text-xs text-muted-foreground">{t("adminCal.statsCreateurs")}</p>
               <p className="text-2xl font-semibold tabular-nums">{parCreateur.length}</p>
             </div>
+            <div className="rounded-lg border p-3">
+              <p className="text-xs text-muted-foreground">{t("adminCal.statsVides")}</p>
+              <p
+                className={cn(
+                  "text-2xl font-semibold tabular-nums",
+                  vides > 0 ? "text-destructive" : "text-success",
+                )}
+                title={t("adminCal.slideshowVideAide")}
+              >
+                {vides}
+              </p>
+            </div>
           </div>
 
           {upscaleLogs.length > 0 && (
@@ -361,6 +375,7 @@ export function AdminCalendrierPage() {
               className={cn(
                 "group flex flex-col gap-3 rounded-xl border bg-card p-3 transition-colors",
                 "hover:border-foreground/20 hover:bg-muted/40",
+                groupe.vides > 0 && "border-destructive/50 bg-destructive/5",
               )}
             >
               <div className="flex items-start gap-2.5">
@@ -383,6 +398,12 @@ export function AdminCalendrierPage() {
                 <Badge variant={complet ? "success" : "warning"}>
                   {t("adminCal.faitSur", { faits: groupe.postes, total: groupe.posts.length })}
                 </Badge>
+                {groupe.vides > 0 && (
+                  <Badge variant="destructive" title={t("adminCal.slideshowVideAide")}>
+                    {t("adminCal.slideshowVide")}
+                    {groupe.vides > 1 ? ` ×${groupe.vides}` : ""}
+                  </Badge>
+                )}
                 {groupe.score != null && (
                   <Badge variant="secondary">
                     {t("adminCal.eloCourt", { score: Number(groupe.score).toFixed(0) })}

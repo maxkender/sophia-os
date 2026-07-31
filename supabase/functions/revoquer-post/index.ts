@@ -9,6 +9,9 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
  *
  * Legacy (sujet) : rejette le sujet puis même flux.
  *
+ * Gère aussi les coquilles « slideshow vide » : post sans slides / passage
+ * orphelin (matérialisation ratée) qui bloquaient le quota.
+ *
  *   { postId }  → { ok, newPostId }
  */
 Deno.serve(async (request) => {
@@ -29,6 +32,9 @@ Deno.serve(async (request) => {
       .single();
     if (!post) return json({ error: "Post introuvable" }, 404);
 
+    const compteId = post.compte_id as string;
+    const jour = post.date_publication_prevue as string;
+
     // Passage v-next lié (pont post)
     const { data: passage } = await supabase
       .from("passages")
@@ -36,15 +42,37 @@ Deno.serve(async (request) => {
       .eq("post_id", post.id)
       .maybeSingle();
 
-    if (passage?.contenu_id) {
+    let contenuRejete: string | null = passage?.contenu_id ?? null;
+
+    // Post vide sans lien : retrouver un passage orphelin du même créateur/jour
+    // (créé juste avant l'échec de matérialisation).
+    if (!passage) {
+      const { data: orphelin } = await supabase
+        .from("passages")
+        .select("id, contenu_id")
+        .eq("compte_id", compteId)
+        .eq("date_publication_prevue", jour)
+        .is("post_id", null)
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .maybeSingle();
+      if (orphelin) {
+        contenuRejete = orphelin.contenu_id as string;
+        await supabase.from("passages").delete().eq("id", orphelin.id);
+      }
+    }
+
+    if (contenuRejete) {
       await supabase
         .from("contenus")
         .update({
           statut: "rejete",
           pertinence_raison: "Révoqué à la main : incohérent / non intégrable pour Sophia",
         })
-        .eq("id", passage.contenu_id);
-      await supabase.from("passages").delete().eq("id", passage.id);
+        .eq("id", contenuRejete);
+      if (passage) {
+        await supabase.from("passages").delete().eq("id", passage.id);
+      }
     } else if (post.sujet_id) {
       await supabase
         .from("sujets")
@@ -57,6 +85,17 @@ Deno.serve(async (request) => {
 
     await supabase.from("posts").delete().eq("id", post.id);
 
+    // Autres coquilles du même jour (orphelins / posts sans slides)
+    const { data: autresOrphelins } = await supabase
+      .from("passages")
+      .select("id")
+      .eq("compte_id", compteId)
+      .eq("date_publication_prevue", jour)
+      .is("post_id", null);
+    for (const o of autresOrphelins ?? []) {
+      await supabase.from("passages").delete().eq("id", o.id);
+    }
+
     // Assignation forcée v-next (même endpoint — cutover)
     const secret = Deno.env.get("CRON_SECRET");
     const base = new URL(request.url);
@@ -65,8 +104,8 @@ Deno.serve(async (request) => {
       method: "POST",
       headers: { "Content-Type": "application/json", "x-cron-secret": secret ?? "" },
       body: JSON.stringify({
-        compteId: post.compte_id,
-        date: post.date_publication_prevue,
+        compteId,
+        date: jour,
         forcer: true,
         manuel: true,
       }),
@@ -75,12 +114,23 @@ Deno.serve(async (request) => {
     const { data: neuf } = await supabase
       .from("posts")
       .select("id")
-      .eq("compte_id", post.compte_id)
-      .eq("date_publication_prevue", post.date_publication_prevue)
+      .eq("compte_id", compteId)
+      .eq("date_publication_prevue", jour)
       .eq("est_test", false)
       .order("created_at", { ascending: false })
       .limit(1)
       .maybeSingle();
+
+    // Vérifie qu'on n'a pas re-créé une coquille vide
+    if (neuf?.id) {
+      const { count } = await supabase
+        .from("post_slides")
+        .select("id", { count: "exact", head: true })
+        .eq("post_id", neuf.id);
+      if ((count ?? 0) === 0) {
+        return json({ ok: true, newPostId: null });
+      }
+    }
 
     return json({ ok: true, newPostId: neuf?.id ?? null });
   } catch (error) {

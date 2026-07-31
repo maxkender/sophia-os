@@ -1111,10 +1111,20 @@ export const fr = {
       upscaleLot: "Upscale… {{fait}}/{{total}}",
       upscaleRien: "Rien à upscaler — {{total}} photo(s), {{deja}} déjà upscalée(s).",
       upscaleBesoinPosts: "Choisis un jour avec des posts prévus pour activer l’upscale.",
+      statsVides: "Slideshows vides",
+      slideshowVide: "Slideshow vide",
+      slideshowVideAide:
+        "Post marqué assigné mais sans slides utilisables (images manquantes ou matérialisation ratée).",
     },
     adminCreateur: {
       retour: "Planning",
       introuvable: "Créateur introuvable.",
+      reassignerSlideshow: "Ré-assigner un slideshow",
+      reassignerEnCours: "Ré-assignation…",
+      confirmReassigner:
+        "Supprimer ce slideshow vide et en assigner un autre pour ce créateur à cette date ?",
+      reassignerAucun: "Aucun autre slideshow disponible pour l’instant — réessaie plus tard.",
+      reassignerOk: "Nouveau slideshow assigné.",
       elo: "ELO {{score}}",
       eloAide: "Forme du compte (moyenne pondérée des derniers posts mesurés)",
       eloMaj: "ELO maj. {{date}}",

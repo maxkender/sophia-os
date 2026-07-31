@@ -1114,10 +1114,20 @@ export const en = {
       upscaleLot: "Upscale… {{fait}}/{{total}}",
       upscaleRien: "Nothing to upscale — {{total}} photo(s), {{deja}} already upscaled.",
       upscaleBesoinPosts: "Pick a day with planned posts to enable upscale.",
+      statsVides: "Empty slideshows",
+      slideshowVide: "Empty slideshow",
+      slideshowVideAide:
+        "Marked as assigned but has no usable slides (missing images or failed materialization).",
     },
     adminCreateur: {
       retour: "Schedule",
       introuvable: "Creator not found.",
+      reassignerSlideshow: "Reassign a slideshow",
+      reassignerEnCours: "Reassigning…",
+      confirmReassigner:
+        "Delete this empty slideshow and assign another for this creator on this date?",
+      reassignerAucun: "No other slideshow available right now — try again later.",
+      reassignerOk: "New slideshow assigned.",
       elo: "ELO {{score}}",
       eloAide: "Account form (recency-weighted average of last measured posts)",
       eloMaj: "ELO updated {{date}}",

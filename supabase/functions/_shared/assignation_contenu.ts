@@ -89,6 +89,50 @@ export interface AssignationCompteDetail {
 }
 
 /**
+ * Matérialisation ratée = passage sans `post_id` + post sans slides.
+ * Sans purge, le quota compte ces passages et le Planning affiche des
+ * slideshows « assignés » vides.
+ */
+async function purgerAssignationIncomplete(
+  supabase: Supabase,
+  compteId: string,
+  jour: string,
+): Promise<void> {
+  const { data: orphelins } = await supabase
+    .from("passages")
+    .select("id")
+    .eq("compte_id", compteId)
+    .eq("date_publication_prevue", jour)
+    .is("post_id", null);
+  for (const o of orphelins ?? []) {
+    await supabase.from("passages").delete().eq("id", o.id);
+  }
+
+  const { data: posts } = await supabase
+    .from("posts")
+    .select("id")
+    .eq("compte_id", compteId)
+    .eq("date_publication_prevue", jour)
+    .eq("est_test", false)
+    .in("statut", ["brouillon", "assigne"]);
+  for (const p of posts ?? []) {
+    const { count } = await supabase
+      .from("post_slides")
+      .select("id", { count: "exact", head: true })
+      .eq("post_id", p.id);
+    if ((count ?? 0) > 0) continue;
+    const { data: lie } = await supabase
+      .from("passages")
+      .select("id")
+      .eq("post_id", p.id)
+      .maybeSingle();
+    if (!lie) {
+      await supabase.from("posts").delete().eq("id", p.id);
+    }
+  }
+}
+
+/**
  * Assignation v-next pour un compte : labels ∩, score langue, top-K,
  * pénalité saturation, non-écrasement, fallbacks.
  */
@@ -127,11 +171,16 @@ export async function assignerCompteJour(
     }
   }
 
+  // Toujours : passages orphelins / posts sans slides ne doivent pas
+  // bloquer le quota ni apparaître comme « assignés ».
+  await purgerAssignationIncomplete(supabase, compte.id as string, jour);
+
   const { data: existants } = await supabase
     .from("passages")
     .select("id")
     .eq("compte_id", compte.id)
-    .eq("date_publication_prevue", jour);
+    .eq("date_publication_prevue", jour)
+    .not("post_id", "is", null);
 
   const dejaLa = existants?.length ?? 0;
   // Non-écrasement : on ne touche pas aux passages déjà là, on complète
@@ -159,7 +208,10 @@ export async function assignerCompteJour(
   }
 
   const crees: string[] = [];
-  for (let i = 0; i < manquants; i += 1) {
+  /** Contenu IDs déjà pris / exclus cette session (choisirContenu filtre dessus). */
+  const contenusSession: string[] = [];
+  const maxTentatives = manquants + 8;
+  for (let t = 0; t < maxTentatives && crees.length < manquants; t += 1) {
     const choisi = await choisirContenu(
       supabase,
       compte.id,
@@ -167,13 +219,20 @@ export async function assignerCompteJour(
       labelIds,
       jour,
       reglages,
-      crees,
+      contenusSession,
     );
     if (!choisi) break;
+    contenusSession.push(choisi.contenuId);
 
     // Traduction + Sophia à la demande (hors langue source) — pas à l'import.
-    const slides = await assurerDeckPourLangue(supabase, choisi.contenuId, langue);
-    const hashtags = hashtagsPour(langue, `${compte.id}-${jour}-${i}`);
+    let slides: SlideLangue[];
+    try {
+      slides = await assurerDeckPourLangue(supabase, choisi.contenuId, langue);
+    } catch {
+      continue;
+    }
+    if (!slides.length) continue;
+    const hashtags = hashtagsPour(langue, `${compte.id}-${jour}-${crees.length}`);
 
     const { data: passage, error } = await supabase
       .from("passages")
@@ -196,17 +255,24 @@ export async function assignerCompteJour(
     // Pont poster : le calendrier / détail créateur lit encore `posts` +
     // `post_slides`. On matérialise un post déjà cuit (pipeline done) et on
     // le lie via passages.post_id — plus de type recycle/remanie/nouveau.
-    await materialiserPostDepuisPassage(supabase, {
-      passageId: passage.id,
-      compteId: compte.id as string,
-      contenuId: choisi.contenuId,
-      jour,
-      slides,
-      musique_url: choisi.musique_url,
-      musique_titre: choisi.musique_titre,
-      musique_plateforme: choisi.musique_plateforme,
-      hashtags,
-    });
+    try {
+      await materialiserPostDepuisPassage(supabase, {
+        passageId: passage.id,
+        compteId: compte.id as string,
+        contenuId: choisi.contenuId,
+        jour,
+        slides,
+        musique_url: choisi.musique_url,
+        musique_titre: choisi.musique_titre,
+        musique_plateforme: choisi.musique_plateforme,
+        hashtags,
+      });
+    } catch {
+      // Pas de transaction multi-tables : nettoyer le passage pour ne pas
+      // bloquer le quota, puis piocher un autre contenu.
+      await supabase.from("passages").delete().eq("id", passage.id);
+      continue;
+    }
 
     crees.push(passage.id);
   }
@@ -286,6 +352,11 @@ interface SlideLangue {
 /**
  * Crée le `posts` + `post_slides` que le poster consomme, liés au passage.
  * Deck déjà traduit + Sophia (assurerDeckPourLangue) → pipeline_statut = done.
+ *
+ * Important : un `media_id` fantôme (média supprimé) faisait échouer l'INSERT
+ * `post_slides` (FK) après création du post — passage orphelin + post vide.
+ * On nullifie les médias absents, et on rollback le post si les slides
+ * n'ont pas pu être écrites.
  */
 async function materialiserPostDepuisPassage(
   supabase: Supabase,
@@ -308,8 +379,29 @@ async function materialiserPostDepuisPassage(
     .single();
   if (errC || !contenu) throw errC ?? new Error("Contenu introuvable pour pont post");
 
+  if (!args.slides.length) {
+    throw new Error("Deck vide — impossible de matérialiser le post");
+  }
+
   const structure = (contenu.structure_slides ?? []) as SlideStructure[];
-  const parPos = new Map(structure.map((s) => [s.position, s]));
+  // Positions parfois number / parfois string selon JSONB → clé normalisée.
+  const parPos = new Map(structure.map((s) => [Number(s.position), s]));
+
+  const mediaIds = [
+    ...new Set(
+      structure
+        .map((s) => s.media_id)
+        .filter((id): id is string => typeof id === "string" && id.length > 0),
+    ),
+  ];
+  const mediaOk = new Set<string>();
+  if (mediaIds.length > 0) {
+    const { data: existants } = await supabase
+      .from("media_library")
+      .select("id")
+      .in("id", mediaIds);
+    for (const m of existants ?? []) mediaOk.add(m.id as string);
+  }
 
   const { data: post, error: errP } = await supabase
     .from("posts")
@@ -333,26 +425,32 @@ async function materialiserPostDepuisPassage(
   if (errP || !post) throw errP ?? new Error("Création post pont échouée");
 
   const rows = args.slides.map((s) => {
-    const visuel = parPos.get(s.position);
+    const visuel = parPos.get(Number(s.position));
+    const mid = visuel?.media_id ?? null;
     return {
       post_id: post.id,
-      position: s.position,
-      media_id: visuel?.media_id ?? null,
+      position: Number(s.position),
+      media_id: mid && mediaOk.has(mid) ? mid : null,
       texte_overlay: s.texte_overlay ?? "",
       position_sophia: Boolean(s.position_sophia),
       reference_url: visuel?.reference_url ?? visuel?.raw_url ?? null,
     };
   });
-  if (rows.length > 0) {
-    const { error: errS } = await supabase.from("post_slides").insert(rows);
-    if (errS) throw errS;
+
+  const { error: errS } = await supabase.from("post_slides").insert(rows);
+  if (errS) {
+    await supabase.from("posts").delete().eq("id", post.id);
+    throw errS;
   }
 
   const { error: errL } = await supabase
     .from("passages")
     .update({ post_id: post.id })
     .eq("id", args.passageId);
-  if (errL) throw errL;
+  if (errL) {
+    await supabase.from("posts").delete().eq("id", post.id);
+    throw errL;
+  }
 }
 
 async function choisirContenu(

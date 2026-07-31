@@ -107,7 +107,8 @@ export async function upscaleViaSeedVr(
   }
 
   const debut = Date.now();
-  const BUDGET = 100_000;
+  // Avec stream NDJSON (keepalive), l’idle 150s ne coupe plus — budget large.
+  const BUDGET = 280_000;
   let statut = queued.status as string | undefined;
   let polls = 0;
 
@@ -121,12 +122,13 @@ export async function upscaleViaSeedVr(
     }
     const body = await st.json();
     statut = body.status as string;
+    const elapsed = Math.round((Date.now() - debut) / 1000);
     await onProgress?.({
       phase: "poll",
       predictionId: requestId,
       polls,
       statut,
-      detail: `poll #${polls} → ${statut}`,
+      detail: `SeedVR poll #${polls} → ${statut} (${elapsed}s)`,
     });
 
     if (statut === "COMPLETED") break;

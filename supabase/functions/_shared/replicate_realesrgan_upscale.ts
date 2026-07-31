@@ -96,12 +96,13 @@ export async function upscaleViaRealEsrgan(
     detail: `modèle=${MODEL_LABEL} scale=${scale}`,
   });
 
+  // Pas de Prefer: wait — sinon un seul fetch silencieux > idle Edge 150s.
+  // On poll avec onProgress (keepalive NDJSON).
   const submit = await fetch(PREDICTIONS_URL, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
-      Prefer: "wait",
     },
     body: JSON.stringify({
       version: MODEL_VERSION,
@@ -124,7 +125,8 @@ export async function upscaleViaRealEsrgan(
 
   let polls = 0;
   const debut = Date.now();
-  const BUDGET = 100_000;
+  // Stream NDJSON keepalive côté Edge — budget large (idle 150s sinon).
+  const BUDGET = 280_000;
 
   while (
     (prediction.status === "starting" || prediction.status === "processing") &&
@@ -132,12 +134,13 @@ export async function upscaleViaRealEsrgan(
   ) {
     if (!getUrl) break;
     polls += 1;
+    const elapsed = Math.round((Date.now() - debut) / 1000);
     await onProgress?.({
       phase: "poll",
       predictionId,
       polls,
       statut: prediction.status,
-      detail: `poll #${polls} → ${prediction.status}`,
+      detail: `Real-ESRGAN poll #${polls} → ${prediction.status} (${elapsed}s)`,
     });
     await new Promise((r) => setTimeout(r, 1500));
     const suivi = await fetch(getUrl, {

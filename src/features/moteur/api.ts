@@ -1933,28 +1933,131 @@ export const stripC2paMedia = (mediaId: string) =>
 
 export type ModeleUpscale = "realesrgan" | "seedvr";
 
-/** Upscale biblio (Real-ESRGAN ou SeedVR) → strip C2PA lossless → remplace en place. */
-export const upscaleMedia = (
+export type UpscaleMediaResultat = {
+  ok: boolean;
+  mediaId: string;
+  saute?: boolean;
+  url?: string;
+  mime?: string;
+  modele?: ModeleUpscale;
+  scale?: number;
+  upscale_le?: string;
+  c2pa_retire?: boolean;
+  detail?: string;
+  error?: string;
+};
+
+/**
+ * Upscale biblio (Real-ESRGAN ou SeedVR) → strip C2PA → remplace en place.
+ * Toujours en NDJSON streamé : le poll Fal/Replicate dépasse l’idle Edge 150s
+ * sans keepalive.
+ */
+export async function upscaleMedia(
   mediaId: string,
-  opts?: { forcer?: boolean; modele?: ModeleUpscale },
-) =>
-  invoke<{
-    ok: boolean;
-    mediaId: string;
-    saute?: boolean;
-    url?: string;
-    mime?: string;
+  opts?: {
+    forcer?: boolean;
     modele?: ModeleUpscale;
-    scale?: number;
-    upscale_le?: string;
-    c2pa_retire?: boolean;
-    detail?: string;
-    error?: string;
-  }>("upscale-media", {
-    mediaId,
-    forcer: opts?.forcer ?? false,
-    modele: opts?.modele ?? "realesrgan",
+    onProgress?: (detail: string) => void;
+  },
+): Promise<UpscaleMediaResultat> {
+  const url = import.meta.env.VITE_SUPABASE_URL;
+  const anon = import.meta.env.VITE_SUPABASE_ANON_KEY;
+  if (!url || !anon) throw new Error("Supabase non configuré");
+
+  const { data: sessionData } = await supabase.auth.getSession();
+  const token = sessionData.session?.access_token;
+  if (!token) throw new Error("Session expirée — reconnecte-toi.");
+
+  const modele = opts?.modele ?? "realesrgan";
+  const res = await fetch(`${url}/functions/v1/upscale-media`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      apikey: anon,
+      "Content-Type": "application/json",
+      Accept: "application/x-ndjson",
+    },
+    body: JSON.stringify({
+      mediaId,
+      forcer: opts?.forcer ?? false,
+      modele,
+      stream: true,
+    }),
   });
+
+  if (!res.ok || !res.body) {
+    let message = `Edge upscale-media ${res.status}`;
+    if (/idle timeout|150s/i.test(message)) {
+      message =
+        "Timeout Edge (150s) — l’upscale doit streamer (UI à jour). Réessaie ou Real-ESRGAN.";
+    }
+    try {
+      const j = (await res.json()) as { error?: string; message?: string; code?: string };
+      if (j?.error) message = j.error;
+      else if (j?.code === "WORKER_RESOURCE_LIMIT") {
+        message =
+          "Mémoire Edge saturée (WORKER_RESOURCE_LIMIT) — SeedVR : 1 photo / JPEG ; sinon Real-ESRGAN.";
+      } else if (j?.message) message = j.message;
+    } catch {
+      // ignore
+    }
+    throw new Error(message);
+  }
+
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+  let dernier: UpscaleMediaResultat | null = null;
+  let erreurStream: string | null = null;
+
+  const traiter = (trim: string) => {
+    let ev: UpscaleMediaResultat & { statut?: string; detail?: string };
+    try {
+      ev = JSON.parse(trim) as UpscaleMediaResultat & {
+        statut?: string;
+        detail?: string;
+      };
+    } catch {
+      return; // ligne partielle / bruit
+    }
+    if (ev.detail) opts?.onProgress?.(ev.detail);
+    if (ev.statut === "echec") {
+      erreurStream = ev.detail ?? ev.error ?? "Échec upscale";
+      return;
+    }
+    if (ev.statut === "ok" || ev.ok === true) {
+      dernier = {
+        ok: true,
+        mediaId: ev.mediaId ?? mediaId,
+        saute: ev.saute,
+        url: ev.url,
+        mime: ev.mime,
+        modele: ev.modele ?? modele,
+        scale: ev.scale,
+        upscale_le: ev.upscale_le,
+        c2pa_retire: ev.c2pa_retire,
+        detail: ev.detail,
+      };
+    }
+  };
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+    const lignes = buffer.split("\n");
+    buffer = lignes.pop() ?? "";
+    for (const ligne of lignes) {
+      const trim = ligne.trim();
+      if (trim) traiter(trim);
+    }
+  }
+  if (buffer.trim()) traiter(buffer.trim());
+
+  if (erreurStream) throw new Error(erreurStream);
+  if (!dernier) throw new Error("Upscale : aucune réponse (stream coupé ?)");
+  return dernier;
+}
 
 
 /** Le compte de référence dont dépend un post — pour filtrer sa bibliothèque. */

@@ -324,9 +324,11 @@ export const en = {
       vide: "Nothing to show yet.",
       vuesTitre: "Daily views (all accounts)",
       vuesDesc:
-        "Δ views = day total − previous day total, frozen on each ELO update (catch-up).",
+        "Δ views = day total − previous snapshot total, frozen on each ELO update (catch-up).",
       vuesVide:
         "No snapshot yet — run an ELO catch-up from Midnight assignment.",
+      vuesSansDelta:
+        "Snapshot exists, but no Δ yet (need at least two days). Re-run an ELO catch-up to freeze the next point.",
       dernierDelta: "Latest Δ:",
       totalVues: "total {{n}}",
       alerte1Titre: "Alert 1 — no post today",

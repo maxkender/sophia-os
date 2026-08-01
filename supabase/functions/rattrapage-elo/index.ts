@@ -1,4 +1,7 @@
-import { rattrapageElo } from "../_shared/rattrapage_elo.ts";
+import {
+  backfillSnapshotVuesJour,
+  rattrapageElo,
+} from "../_shared/rattrapage_elo.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 /**
@@ -12,6 +15,7 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
  *   {}                  → tous les comptes, 4 jours
  *   { compteId, jours, forcer, dryRun, snapshot }
  *   { snapshot: true }  → fige seulement vues_globales_jour (fin de run live)
+ *   { backfillJour: "YYYY-MM-DD" } → reconstruit un jour manqué depuis compte_metrics
  */
 Deno.serve(async (request) => {
   const denied = await assertAuthorised(request);
@@ -27,6 +31,11 @@ Deno.serve(async (request) => {
   }
 
   try {
+    if (typeof body?.backfillJour === "string" && /^\d{4}-\d{2}-\d{2}$/.test(body.backfillJour)) {
+      const snapshot = await backfillSnapshotVuesJour(supabase, body.backfillJour);
+      return json({ ok: true, snapshot, backfill: true });
+    }
+
     const r = await rattrapageElo(supabase, {
       compteId: body?.compteId ?? null,
       jours: body?.jours ?? undefined,

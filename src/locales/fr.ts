@@ -324,9 +324,11 @@ export const fr = {
       vide: "Rien à afficher pour l’instant.",
       vuesTitre: "Vues quotidiennes (tous comptes)",
       vuesDesc:
-        "Δ vues = total du jour − total de la veille, figé à chaque update ELO (rattrapage).",
+        "Δ vues = total du jour − total du snapshot précédent, figé à chaque update ELO (rattrapage).",
       vuesVide:
         "Pas encore de snapshot — lance un Rattrapage ELO depuis Assignation de minuit.",
+      vuesSansDelta:
+        "Snapshot présent, mais pas encore de Δ (il faut au moins deux jours). Relance un rattrapage ELO pour figer la suite.",
       dernierDelta: "Dernier Δ :",
       totalVues: "total {{n}}",
       alerte1Titre: "Alerte 1 — pas posté aujourd’hui",

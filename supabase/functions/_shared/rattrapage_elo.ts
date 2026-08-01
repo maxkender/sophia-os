@@ -845,13 +845,44 @@ function construireBrief(
 
 /**
  * Figé le total des vues (dernier compte_metrics par compte actif) pour le
- * jour Paris courant. vues_delta = total − total de la veille.
+ * jour Paris courant. vues_delta = total − total du dernier snapshot antérieur
+ * (pas seulement la veille calendaire : un jour manqué ne casse plus la courbe).
  */
+function veilleParisDe(jour: string): string {
+  const d = new Date(`${jour}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() - 1);
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(d);
+}
+
 export async function snapshotVuesGlobales(
   supabase: Supabase,
   journal?: Journal,
+  jourForce?: string,
 ): Promise<{ jour: string; vues_totales: number; vues_delta: number | null; nb_comptes: number }> {
-  const jour = aujourdhuiParis();
+  const jour = jourForce ?? aujourdhuiParis();
+
+  // Auto-répare la veille si absente (sinon Δ reste null et Pilotage paraît vide).
+  if (!jourForce) {
+    const veille = veilleParisDe(jour);
+    const { data: veilleRow } = await supabase
+      .from("vues_globales_jour")
+      .select("jour")
+      .eq("jour", veille)
+      .maybeSingle();
+    if (!veilleRow) {
+      try {
+        journal?.push("info", `Veille ${veille} absente — backfill depuis compte_metrics`);
+        await backfillSnapshotVuesJour(supabase, veille, journal);
+      } catch (e) {
+        journal?.push(
+          "warn",
+          `Backfill veille ${veille} échoué`,
+          e instanceof Error ? e.message : String(e),
+        );
+      }
+    }
+  }
+
   const { data: comptes, error } = await supabase
     .from("comptes")
     .select("id")
@@ -874,23 +905,20 @@ export async function snapshotVuesGlobales(
     }
   }
 
-  const veille = (() => {
-    const d = new Date(`${jour}T12:00:00Z`);
-    d.setUTCDate(d.getUTCDate() - 1);
-    return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(d);
-  })();
-
+  // Dernier snapshot strictement avant ce jour (tolère un trou calendaire).
   const { data: prev } = await supabase
     .from("vues_globales_jour")
-    .select("vues_totales")
-    .eq("jour", veille)
+    .select("vues_totales, jour")
+    .lt("jour", jour)
+    .order("jour", { ascending: false })
+    .limit(1)
     .maybeSingle();
 
   const vuesDelta = prev?.vues_totales != null
     ? vuesTotales - Number(prev.vues_totales)
     : null;
 
-  await supabase.from("vues_globales_jour").upsert(
+  const { error: errUp } = await supabase.from("vues_globales_jour").upsert(
     {
       jour,
       vues_totales: vuesTotales,
@@ -899,14 +927,122 @@ export async function snapshotVuesGlobales(
     },
     { onConflict: "jour" },
   );
+  if (errUp) throw errUp;
 
   journal?.push(
     "ok",
     `Snapshot vues ${jour}`,
-    `total ${vuesTotales} · Δ ${vuesDelta ?? "n/a"} · ${nb} compte(s)`,
+    `total ${vuesTotales} · Δ ${vuesDelta ?? "n/a"}` +
+      (prev?.jour ? ` (vs ${prev.jour})` : " (premier)") +
+      ` · ${nb} compte(s)`,
   );
 
   return { jour, vues_totales: vuesTotales, vues_delta: vuesDelta, nb_comptes: nb };
+}
+
+/**
+ * Reconstruit un snapshot pour un jour Paris passé à partir des
+ * `compte_metrics` connus à la fin de ce jour (Europe/Paris).
+ * Sert de patch quand un run minuit / ELO a sauté un jour.
+ */
+export async function backfillSnapshotVuesJour(
+  supabase: Supabase,
+  jour: string,
+  journal?: Journal,
+): Promise<{ jour: string; vues_totales: number; vues_delta: number | null; nb_comptes: number }> {
+  const borne = parisDebutJourSuivantIso(jour);
+
+  const { data: comptes, error } = await supabase
+    .from("comptes")
+    .select("id")
+    .eq("is_active", true);
+  if (error) throw error;
+
+  let vuesTotales = 0;
+  let nb = 0;
+  for (const c of comptes ?? []) {
+    const { data: m } = await supabase
+      .from("compte_metrics")
+      .select("vues")
+      .eq("compte_id", c.id)
+      .lt("collecte_at", borne)
+      .order("collecte_at", { ascending: false })
+      .limit(1)
+      .maybeSingle();
+    if (m?.vues != null) {
+      vuesTotales += Number(m.vues);
+      nb += 1;
+    }
+  }
+
+  const { data: prev } = await supabase
+    .from("vues_globales_jour")
+    .select("vues_totales, jour")
+    .lt("jour", jour)
+    .order("jour", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
+  const vuesDelta = prev?.vues_totales != null
+    ? vuesTotales - Number(prev.vues_totales)
+    : null;
+
+  const { error: errUp } = await supabase.from("vues_globales_jour").upsert(
+    {
+      jour,
+      vues_totales: vuesTotales,
+      vues_delta: vuesDelta,
+      nb_comptes: nb,
+    },
+    { onConflict: "jour" },
+  );
+  if (errUp) throw errUp;
+
+  journal?.push(
+    "ok",
+    `Backfill snapshot ${jour}`,
+    `total ${vuesTotales} · Δ ${vuesDelta ?? "n/a"} · ${nb} compte(s)`,
+  );
+
+  // Recalcule le Δ du snapshot suivant s'il existe (ex. après patch d'hier).
+  const { data: suivant } = await supabase
+    .from("vues_globales_jour")
+    .select("jour, vues_totales")
+    .gt("jour", jour)
+    .order("jour", { ascending: true })
+    .limit(1)
+    .maybeSingle();
+  if (suivant) {
+    const deltaSuiv = Number(suivant.vues_totales) - vuesTotales;
+    await supabase
+      .from("vues_globales_jour")
+      .update({ vues_delta: deltaSuiv })
+      .eq("jour", suivant.jour);
+    journal?.push("ok", `Δ recalculé ${suivant.jour}`, String(deltaSuiv));
+  }
+
+  return { jour, vues_totales: vuesTotales, vues_delta: vuesDelta, nb_comptes: nb };
+}
+
+/** Instant UTC exclusif = début du jour calendaire Paris suivant. */
+function parisDebutJourSuivantIso(jourParis: string): string {
+  const d = new Date(`${jourParis}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + 1);
+  const next = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(d);
+  const probe = new Date(`${next}T12:00:00Z`);
+  const fmt = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Europe/Paris",
+    timeZoneName: "shortOffset",
+    hour12: false,
+  });
+  const parts = fmt.formatToParts(probe);
+  const tz = parts.find((p) => p.type === "timeZoneName")?.value ?? "GMT+2";
+  const m = /GMT([+-]\d{1,2})(?::?(\d{2}))?/.exec(tz);
+  const oh = m ? Number(m[1]) : 2;
+  const om = m?.[2] ? Number(m[2]) : 0;
+  const sign = oh >= 0 ? "+" : "-";
+  const offset = `${sign}${String(Math.abs(oh)).padStart(2, "0")}:${String(om).padStart(2, "0")}`;
+  return new Date(`${next}T00:00:00${offset}`).toISOString();
 }
 
 export async function rattrapageElo(

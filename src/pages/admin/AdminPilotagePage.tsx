@@ -194,19 +194,40 @@ function GraphVuesDelta({
   serie: Array<{ jour: string; vues_delta: number | null; vues_totales: number }>;
 }) {
   const { t, i18n } = useTranslation();
-  const points = serie.filter((s) => s.vues_delta != null);
-  if (points.length === 0) {
+  // Recalcule un Δ d’affichage si le snapshot l’a laissé null (trou d’un jour).
+  const points = serie
+    .map((s, i) => {
+      if (s.vues_delta != null) return { ...s, vues_delta: s.vues_delta };
+      const prev = i > 0 ? serie[i - 1] : null;
+      if (!prev) return { ...s, vues_delta: null as number | null };
+      return { ...s, vues_delta: s.vues_totales - prev.vues_totales };
+    })
+    .filter((s): s is typeof s & { vues_delta: number } => s.vues_delta != null);
+
+  if (serie.length === 0) {
     return (
       <p className="text-sm text-muted-foreground">{t("pilotage.vuesVide")}</p>
     );
   }
-  const max = Math.max(...points.map((p) => Math.abs(p.vues_delta!)), 1);
+  if (points.length === 0) {
+    const last = serie[serie.length - 1]!;
+    return (
+      <div className="space-y-1">
+        <p className="text-sm text-muted-foreground">{t("pilotage.vuesSansDelta")}</p>
+        <p className="text-sm">
+          <span className="text-muted-foreground">{t("pilotage.totalVues", { n: abrege(last.vues_totales) })}</span>
+          <span className="text-muted-foreground"> · {last.jour}</span>
+        </p>
+      </div>
+    );
+  }
+  const max = Math.max(...points.map((p) => Math.abs(p.vues_delta)), 1);
 
   return (
     <div className="space-y-3">
       <div className="flex h-40 items-end gap-1">
         {points.map((p) => {
-          const d = p.vues_delta!;
+          const d = p.vues_delta;
           const h = Math.max(4, (Math.abs(d) / max) * 100);
           return (
             <div
@@ -247,11 +268,11 @@ function GraphVuesDelta({
             <span
               className={cn(
                 "font-semibold tabular-nums",
-                (last.vues_delta ?? 0) >= 0 ? "text-success" : "text-warning",
+                last.vues_delta >= 0 ? "text-success" : "text-warning",
               )}
             >
-              {(last.vues_delta ?? 0) >= 0 ? "+" : ""}
-              {abrege(last.vues_delta ?? 0)}
+              {last.vues_delta >= 0 ? "+" : ""}
+              {abrege(last.vues_delta)}
             </span>
             <span className="text-muted-foreground">
               {" "}

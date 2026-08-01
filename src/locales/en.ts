@@ -1241,10 +1241,13 @@ export const en = {
       heuresAide: "Timer starts when the recruiter clicks “Start warmup” (default 24 h).",
       fileTitre: "Label queue (next accounts)",
       fileDesc:
-        "FIFO order: the first label is assigned to the next account created, then removed from the queue.",
-      fileVideListe: "Empty queue — no poster can be created until a label is added.",
+        "FIFO order: the first label is assigned to the next account created, then removed from the queue. Empty queue → random label among all labels.",
+      fileVideListe:
+        "Empty queue — the next account will get a random label among all labels.",
       fileVide:
-        "The label queue is empty. An admin must add labels in Settings before creating a poster.",
+        "The label queue is empty: a label will be picked at random among all existing labels.",
+      aucunLabel:
+        "No labels in the database — create at least one (Library / Labels) before creating a poster.",
       ajouterLabel: "Add a label",
       ajouter: "Add",
       attente: "Warmup not started",

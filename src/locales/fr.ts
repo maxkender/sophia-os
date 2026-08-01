@@ -1238,10 +1238,13 @@ export const fr = {
       heuresAide: "Timer lancé au clic « Start warmup » du recruteur (défaut 24 h).",
       fileTitre: "File des labels (prochains comptes)",
       fileDesc:
-        "Ordre FIFO : le premier label de la liste est assigné au prochain compte créé, puis retiré de la file.",
-      fileVideListe: "File vide — aucun poster ne pourra être créé tant qu’un label n’est pas ajouté.",
+        "Ordre FIFO : le premier label de la liste est assigné au prochain compte créé, puis retiré de la file. File vide → label tiré au hasard parmi tous les labels.",
+      fileVideListe:
+        "File vide — le prochain compte recevra un label au hasard parmi tous les labels.",
       fileVide:
-        "La file de labels est vide. Un admin doit en ajouter dans Réglages avant de créer un poster.",
+        "La file de labels est vide : un label sera tiré au hasard parmi tous les labels existants.",
+      aucunLabel:
+        "Aucun label en base — crée-en au moins un (Bibliothèque / Labels) avant de créer un poster.",
       ajouterLabel: "Ajouter un label",
       ajouter: "Ajouter",
       attente: "Warmup pas démarré",

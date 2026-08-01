@@ -300,8 +300,8 @@ export function HiringPosterPage() {
                 <p className="mt-2 text-sm text-destructive">
                   {(creer.error as Error).message === "NO_FREE_REFERENCE"
                     ? t("posters.plusDeReference")
-                    : (creer.error as Error).message === "NO_LABEL_QUEUE"
-                      ? t("warmup.fileVide")
+                    : (creer.error as Error).message === "NO_LABELS"
+                      ? t("warmup.aucunLabel")
                       : (creer.error as Error).message}
                 </p>
               )}

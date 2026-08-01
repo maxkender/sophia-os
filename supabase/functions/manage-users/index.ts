@@ -115,11 +115,12 @@ Deno.serve(async (request) => {
       }
     }
 
-    // Label obligatoire pour un poster : tiré de la file admin (FIFO).
+    // Label obligatoire pour un poster : file FIFO, sinon tirage aléatoire
+    // parmi tous les labels existants.
     let labelId: string | null = null;
     if (roleVoulu === "poster") {
       labelId = await popLabelFile(supabase);
-      if (!labelId) return json({ error: "NO_LABEL_QUEUE" }, 409);
+      if (!labelId) return json({ error: "NO_LABELS" }, 409);
     }
 
     // Référence source : best-effort (plus bloquant).
@@ -244,7 +245,10 @@ async function lireWarmupHeures(supabase: Supabase): Promise<number> {
   return Number.isFinite(h) && h > 0 ? Math.min(168, h) : 24;
 }
 
-/** Tire le premier label de la file (FIFO) et persiste le reste. */
+/**
+ * Tire le premier label de la file (FIFO) et persiste le reste.
+ * File vide → tirage aléatoire parmi `labels` (ne consomme pas la file).
+ */
 async function popLabelFile(supabase: Supabase): Promise<string | null> {
   const { data } = await supabase
     .from("reglages")
@@ -254,17 +258,23 @@ async function popLabelFile(supabase: Supabase): Promise<string | null> {
   const ids = ((data?.valeur as { label_ids?: string[] } | null)?.label_ids ?? []).filter(
     Boolean,
   );
-  if (ids.length === 0) return null;
-  const [first, ...rest] = ids;
-  await supabase.from("reglages").upsert(
-    {
-      cle: "file_labels_comptes",
-      valeur: { label_ids: rest },
-      updated_at: new Date().toISOString(),
-    },
-    { onConflict: "cle" },
-  );
-  return first ?? null;
+  if (ids.length > 0) {
+    const [first, ...rest] = ids;
+    await supabase.from("reglages").upsert(
+      {
+        cle: "file_labels_comptes",
+        valeur: { label_ids: rest },
+        updated_at: new Date().toISOString(),
+      },
+      { onConflict: "cle" },
+    );
+    return first ?? null;
+  }
+
+  const { data: tous } = await supabase.from("labels").select("id");
+  const pool = (tous ?? []).map((l) => l.id as string).filter(Boolean);
+  if (pool.length === 0) return null;
+  return pool[Math.floor(Math.random() * pool.length)] ?? null;
 }
 
 async function unshiftLabelFile(supabase: Supabase, labelId: string): Promise<void> {

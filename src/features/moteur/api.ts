@@ -2741,6 +2741,18 @@ function estTimeoutEdge(err: unknown): boolean {
   return /idle timeout|150s|Timeout Edge/i.test(m);
 }
 
+/** Erreur réseau / gateway supabase-js — souvent après un Relancer long. */
+function estFetchEdgeEchoue(err: unknown): boolean {
+  const m = err instanceof Error ? err.message : String(err);
+  return /Failed to send a request to the Edge Function|Failed to fetch|NetworkError|Load failed/i.test(
+    m,
+  );
+}
+
+async function sleepMs(ms: number): Promise<void> {
+  await new Promise((r) => setTimeout(r, ms));
+}
+
 /** Un compte ELO : 1 essai, puis retry fenêtre courte si timeout 150s. */
 async function lancerRattrapageEloCompteRobuste(opts: {
   compteId: string;
@@ -3068,6 +3080,7 @@ export type AssignationJourResultat = Awaited<ReturnType<typeof lancerAssignatio
 /**
  * Assignation compte-par-compte (évite timeout Edge 150s sur Relancer).
  * Continue même si un compte échoue / timeout.
+ * Skip les comptes déjà au quota ; retry les « Failed to send… » (réseau).
  */
 export async function lancerAssignationJourLive(
   date: string,
@@ -3081,25 +3094,40 @@ export async function lancerAssignationJourLive(
   },
 ): Promise<AssignationJourResultat> {
   const lignes = await suiviAssignation(date);
+  const aFaire = lignes.filter((l) => l.posts.length < l.quota);
   const resultats: AssignationJourResultat["resultats"] = [];
 
-  for (let i = 0; i < lignes.length; i++) {
-    const l = lignes[i]!;
+  for (let i = 0; i < aFaire.length; i++) {
+    const l = aFaire[i]!;
     opts?.onProgress?.({
       index: i + 1,
-      total: lignes.length,
+      total: aFaire.length,
       compteId: l.compteId,
       nom: l.nom,
     });
-    try {
-      const r = await lancerAssignationJour(date, l.compteId);
-      resultats.push(...(r.resultats ?? []));
-    } catch (e) {
-      const erreur = e instanceof Error ? e.message : String(e);
+
+    let dernierErr: unknown = null;
+    let ok = false;
+    for (let essai = 0; essai < 3 && !ok; essai++) {
+      try {
+        if (essai > 0) await sleepMs(1500 * essai);
+        const r = await lancerAssignationJour(date, l.compteId);
+        resultats.push(...(r.resultats ?? []));
+        ok = true;
+      } catch (e) {
+        dernierErr = e;
+        // Retry seulement les échecs réseau / gateway ; le reste saute.
+        if (!estFetchEdgeEchoue(e) && !estTimeoutEdge(e)) break;
+      }
+    }
+    if (!ok) {
+      const erreur = dernierErr instanceof Error ? dernierErr.message : String(dernierErr);
       resultats.push({
         compteId: l.compteId,
         crees: 0,
-        erreur: estTimeoutEdge(e) ? `${erreur} — compte sauté` : erreur,
+        erreur: estTimeoutEdge(dernierErr) || estFetchEdgeEchoue(dernierErr)
+          ? `${erreur} — compte sauté après retry`
+          : erreur,
       });
     }
   }

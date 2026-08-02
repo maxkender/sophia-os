@@ -1202,30 +1202,40 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
   const auj = aujourdhuiParis();
   const veille = ajouterJoursParisCalendaire(auj, -1);
 
-  const [{ data: serie }, { data: comptes }, { data: roles }, { data: profils }, { data: postsVeille }] =
-    await Promise.all([
-      supabase
-        .from("vues_globales_jour")
-        .select("jour, vues_totales, vues_delta, nb_comptes")
-        .order("jour", { ascending: true })
-        .limit(60),
-      supabase
-        .from("comptes")
-        .select(
-          "id, poster_id, persona_nom, handle_tiktok, score, is_active, warmup_started_at, warmup_ends_at",
-        )
-        .eq("is_active", true),
-      supabase.from("user_roles").select("user_id, role"),
-      supabase.from("profiles").select("id, prenom, nom, manager_id, is_active"),
-      supabase
-        .from("passages")
-        .select("id, compte_id, vues, publie_url, contenus(titre), comptes(handle_tiktok, persona_nom)")
-        .eq("statut", "publie")
-        .eq("date_publication_prevue", veille)
-        .not("vues", "is", null)
-        .order("vues", { ascending: false })
-        .limit(15),
-    ]);
+  const [
+    { data: serie, error: errSerie },
+    { data: comptes, error: errComptes },
+    { data: roles, error: errRoles },
+    { data: profils, error: errProfils },
+    { data: postsVeille, error: errPosts },
+  ] = await Promise.all([
+    supabase
+      .from("vues_globales_jour")
+      .select("jour, vues_totales, vues_delta, nb_comptes")
+      .order("jour", { ascending: true })
+      .limit(60),
+    supabase
+      .from("comptes")
+      .select(
+        "id, poster_id, persona_nom, handle_tiktok, score, is_active, warmup_started_at, warmup_ends_at",
+      )
+      .eq("is_active", true),
+    supabase.from("user_roles").select("user_id, role"),
+    supabase.from("profiles").select("id, prenom, nom, manager_id, is_active"),
+    supabase
+      .from("passages")
+      .select("id, compte_id, vues, publie_url, contenus(titre), comptes(handle_tiktok, persona_nom)")
+      .eq("statut", "publie")
+      .eq("date_publication_prevue", veille)
+      .not("vues", "is", null)
+      .order("vues", { ascending: false })
+      .limit(15),
+  ]);
+  if (errSerie) throw errSerie;
+  if (errComptes) throw errComptes;
+  if (errRoles) throw errRoles;
+  if (errProfils) throw errProfils;
+  if (errPosts) throw errPosts;
 
   const profilParId = new Map((profils ?? []).map((p) => [p.id as string, p]));
   const roleParUser = new Map((roles ?? []).map((r) => [r.user_id as string, r.role as string]));

@@ -222,25 +222,27 @@ function GraphVuesDelta({
     );
   }
   const max = Math.max(...points.map((p) => Math.abs(p.vues_delta)), 1);
+  /** Hauteur fixe en px — un % sur parent `height: auto` donnait des barres à 0. */
+  const chartH = 160;
 
   return (
     <div className="space-y-3">
-      <div className="flex h-40 items-end gap-1">
+      <div className="flex items-end gap-1.5" style={{ height: chartH }}>
         {points.map((p) => {
           const d = p.vues_delta;
-          const h = Math.max(4, (Math.abs(d) / max) * 100);
+          const hPx = Math.max(6, Math.round((Math.abs(d) / max) * chartH));
           return (
             <div
               key={p.jour}
-              className="group relative flex flex-1 flex-col items-center justify-end"
+              className="group relative flex h-full min-w-0 flex-1 flex-col items-center justify-end"
               title={`${p.jour}: ${d >= 0 ? "+" : ""}${abrege(d)}`}
             >
               <div
                 className={cn(
-                  "w-full max-w-[28px] rounded-t-sm transition-colors",
+                  "w-full max-w-[36px] rounded-t-sm transition-colors",
                   d >= 0 ? "bg-emerald-600/80 group-hover:bg-emerald-600" : "bg-amber-600/80",
                 )}
-                style={{ height: `${h}%` }}
+                style={{ height: hPx }}
               />
             </div>
           );
@@ -328,6 +330,11 @@ export function AdminPilotagePage() {
 
       {dash.isPending && (
         <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
+      )}
+      {dash.isError && (
+        <p className="text-sm text-destructive">
+          {(dash.error as Error).message || t("common.error")}
+        </p>
       )}
 
       {d && (

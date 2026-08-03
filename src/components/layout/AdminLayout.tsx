@@ -5,6 +5,7 @@ import {
   BarChart3,
   BookOpen,
   CalendarDays,
+  Clapperboard,
   FlaskConical,
   Gauge,
   Images,
@@ -12,7 +13,9 @@ import {
   MessageSquareQuote,
   MoonStar,
   Settings,
+  UserRound,
   Users,
+  Video,
   Wand2,
 } from "lucide-react";
 
@@ -56,6 +59,29 @@ export function AdminLayout() {
               label: t("nav.bibliotheque"),
               icon: Images,
               description: t("navDesc.bibliotheque"),
+            },
+          ],
+        },
+        {
+          title: t("navSection.ugc"),
+          items: [
+            {
+              to: "/admin/ugc/personas",
+              label: t("nav.ugcPersonas"),
+              icon: UserRound,
+              description: t("navDesc.ugcPersonas"),
+            },
+            {
+              to: "/admin/ugc/slideshows",
+              label: t("nav.ugcSlideshows"),
+              icon: Clapperboard,
+              description: t("navDesc.ugcSlideshows"),
+            },
+            {
+              to: "/admin/ugc/videos",
+              label: t("nav.ugcVideos"),
+              icon: Video,
+              description: t("navDesc.ugcVideos"),
             },
           ],
         },

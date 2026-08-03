@@ -27,6 +27,9 @@ import { AdminSlideshowsPage } from "@/pages/admin/AdminSlideshowsPage";
 import { AdminPostDetailPage } from "@/pages/admin/AdminPostDetailPage";
 import { AdminTestNettoyagePage } from "@/pages/admin/AdminTestNettoyagePage";
 import { AdminTestsPage } from "@/pages/admin/AdminTestsPage";
+import { AdminUgcPersonasPage } from "@/pages/admin/AdminUgcPersonasPage";
+import { AdminUgcSlideshowsPage } from "@/pages/admin/AdminUgcSlideshowsPage";
+import { AdminUgcVideosPage } from "@/pages/admin/AdminUgcVideosPage";
 import { PosterCalendrierPage } from "@/pages/poster/PosterCalendrierPage";
 import { PosterPostPage } from "@/pages/poster/PosterPostPage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
@@ -71,6 +74,9 @@ export function AppRouter() {
             <Route path="/admin/reglages" element={<AdminReglagesPage />} />
             <Route path="/admin/prompts" element={<AdminPromptsPage />} />
             <Route path="/admin/documents" element={<AdminDocumentsPage />} />
+            <Route path="/admin/ugc/personas" element={<AdminUgcPersonasPage />} />
+            <Route path="/admin/ugc/slideshows" element={<AdminUgcSlideshowsPage />} />
+            <Route path="/admin/ugc/videos" element={<AdminUgcVideosPage />} />
           </Route>
         </Route>
 

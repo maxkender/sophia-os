@@ -201,6 +201,33 @@ export async function genererUgcAngle(
   };
 }
 
+/** Photo de profil 1:1 — Nano Banana Edit (4 angles en refs). */
+export async function genererUgcProfile(
+  input: {
+    faceUrl?: string;
+    leftUrl?: string;
+    rightUrl?: string;
+    downUrl?: string;
+    draftId?: string;
+    prompt?: string;
+    personaId?: string;
+  },
+  onProgress?: (detail: string) => void,
+): Promise<{
+  imageUrl: string;
+  prompt: string;
+  draftId: string;
+  persona: UgcPersona | null;
+}> {
+  const r = await invokeUgcStream({ action: "generate_profile", ...input }, onProgress);
+  return {
+    imageUrl: String(r.imageUrl ?? ""),
+    prompt: String(r.prompt ?? input.prompt ?? ""),
+    draftId: String(r.draftId ?? input.draftId ?? ""),
+    persona: (r.persona as UgcPersona | null) ?? null,
+  };
+}
+
 export function sauverUgcPersona(input: {
   nom: string;
   promptBase: string;
@@ -208,10 +235,12 @@ export function sauverUgcPersona(input: {
   leftUrl: string;
   rightUrl: string;
   downUrl: string;
+  profileUrl: string;
   draftId?: string;
   promptLeft?: string;
   promptRight?: string;
   promptDown?: string;
+  promptProfile?: string;
 }) {
   return invokeUgc<{ ok: boolean; persona: UgcPersona }>({ action: "save", ...input });
 }

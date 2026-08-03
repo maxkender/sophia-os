@@ -21,6 +21,7 @@ interface PersonaUgcLibre {
   id: string;
   nom: string;
   image_face_url: string;
+  image_profile_url: string | null;
 }
 
 /**
@@ -34,8 +35,8 @@ interface PersonaUgcLibre {
  *
  * Création poster : compte créé immédiatement (warmup non démarré).
  * File FIFO `file_labels_comptes` : { items: [{ label_id, ugc }] }.
- * UGC → persona libre, nom + avatar face sans métadonnées ; label forcé
- * parmi ceux qui ont des slideshows ugc_compatible.
+ * UGC → persona libre, nom + avatar (profil 1:1 si dispo, sinon face)
+ * sans métadonnées ; label forcé parmi ceux qui ont des slideshows ugc_compatible.
  * File vide → label classique le moins utilisé pour la LANGUE.
  */
 Deno.serve(async (request) => {
@@ -560,7 +561,7 @@ async function unshiftLabelFile(supabase: Supabase, item: FileLabelItem): Promis
 async function personaUgcLibre(supabase: Supabase): Promise<PersonaUgcLibre | null> {
   const { data: personas } = await supabase
     .from("ugc_personas")
-    .select("id, nom, image_face_url");
+    .select("id, nom, image_face_url, image_profile_url");
   if (!personas?.length) return null;
 
   const { data: pris } = await supabase
@@ -581,7 +582,7 @@ async function personaUgcLibre(supabase: Supabase): Promise<PersonaUgcLibre | nu
   return libres[Math.floor(Math.random() * libres.length)] ?? null;
 }
 
-/** Télécharge la face persona, strip C2PA, upload avatar compte. */
+/** Télécharge la PDP persona (profil 1:1 ou face), strip C2PA, upload avatar compte. */
 async function avatarDepuisFacePersona(
   supabase: Supabase,
   compteId: string,
@@ -681,10 +682,15 @@ async function preparerCompte(
   }
 
   if (ugc && personaUgc) {
+    const sourceAvatar =
+      (typeof personaUgc.image_profile_url === "string" &&
+        personaUgc.image_profile_url.length > 0
+        ? personaUgc.image_profile_url
+        : null) || personaUgc.image_face_url;
     const avatarUrl = await avatarDepuisFacePersona(
       supabase,
       compte.id,
-      personaUgc.image_face_url,
+      sourceAvatar,
     );
     if (avatarUrl) {
       await supabase

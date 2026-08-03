@@ -50,6 +50,10 @@ Change ONLY the head/camera orientation to: head slightly tilted down, looking d
 
 Photorealistic, head-and-shoulders, natural skin texture, sharp focus.`;
 
+const PROMPT_PROFILE_DEFAUT = `Same exact person as the reference images (Figures 1–4) — identical face, hairstyle, hair color, skin tone, eye color and overall look.
+
+Photorealistic casual iPhone mirror selfie, square 1:1 crop. She is standing in front of a bathroom or bedroom mirror, holding a white iPhone up to take the photo. Natural soft daylight, candid Gen-Z vibe, slightly imperfect real-phone look. Looking toward the phone screen / her reflection. Soft natural skin texture with visible pores, no heavy retouching. Authentic bathroom/bedroom mirror selfie aesthetic, head-and-shoulders filling the square frame. Sharp focus, high resolution.`;
+
 type Supabase = ReturnType<typeof serviceClient>;
 
 async function uploader(
@@ -110,8 +114,10 @@ function parseAngle(raw: unknown): AngleCle | null {
  *   { action: "generate_face", prompt?, stream? }
  *   { action: "generate_angles", faceUrl, promptLeft?, promptRight?, promptDown?, stream? }
  *   { action: "generate_angle", angle, faceUrl?, prompt?, draftId?, personaId?, stream? }
+ *   { action: "generate_profile", faceUrl, leftUrl, rightUrl, downUrl, prompt?,
+ *                                draftId?, personaId?, stream? }
  *   { action: "save", nom, promptBase, faceUrl, leftUrl, rightUrl, downUrl,
- *                     promptLeft?, promptRight?, promptDown? }
+ *                     profileUrl, promptLeft?, promptRight?, promptDown?, promptProfile? }
  *   { action: "list" }
  *   { action: "delete", id }
  */
@@ -138,11 +144,12 @@ Deno.serve(async (request) => {
 
   try {
     if (action === "defaults") {
-      const [face, left, right, down] = await Promise.all([
+      const [face, left, right, down, profile] = await Promise.all([
         chargerPrompt(supabase, "ugc_persona_face"),
         chargerPrompt(supabase, "ugc_persona_edit_left"),
         chargerPrompt(supabase, "ugc_persona_edit_right"),
         chargerPrompt(supabase, "ugc_persona_edit_down"),
+        chargerPrompt(supabase, "ugc_persona_profile"),
       ]);
       return json({
         ok: true,
@@ -150,6 +157,7 @@ Deno.serve(async (request) => {
         promptLeft: left ?? PROMPT_LEFT_DEFAUT,
         promptRight: right ?? PROMPT_RIGHT_DEFAUT,
         promptDown: down ?? PROMPT_DOWN_DEFAUT,
+        promptProfile: profile ?? PROMPT_PROFILE_DEFAUT,
       });
     }
 
@@ -385,16 +393,134 @@ Deno.serve(async (request) => {
       return json(await run());
     }
 
+    /** Photo de profil 1:1 — Nano Banana Edit avec les 4 angles en refs. */
+    if (action === "generate_profile") {
+      const personaId = body.personaId ? String(body.personaId).trim() : "";
+      let faceUrl = String(body.faceUrl ?? "").trim();
+      let leftUrl = String(body.leftUrl ?? "").trim();
+      let rightUrl = String(body.rightUrl ?? "").trim();
+      let downUrl = String(body.downUrl ?? "").trim();
+      let draftId = String(body.draftId ?? "").trim();
+      let prompt = String(body.prompt ?? "").trim();
+
+      if (personaId) {
+        const { data: persona, error } = await supabase
+          .from("ugc_personas")
+          .select("*")
+          .eq("id", personaId)
+          .maybeSingle();
+        if (error) return json({ error: error.message }, 400);
+        if (!persona) return json({ error: "persona introuvable" }, 404);
+        faceUrl = faceUrl || String(persona.image_face_url ?? "");
+        leftUrl = leftUrl || String(persona.image_left_url ?? "");
+        rightUrl = rightUrl || String(persona.image_right_url ?? "");
+        downUrl = downUrl || String(persona.image_down_url ?? "");
+        if (!prompt) prompt = String(persona.prompt_profile ?? "").trim();
+        if (!draftId) {
+          draftId =
+            String(persona.storage_prefix ?? "")
+              .replace(/^ugc\/personas\/draft\//, "")
+              .split("/")[0] || personaId;
+        }
+      }
+
+      if (!faceUrl || !leftUrl || !rightUrl || !downUrl) {
+        return json({ error: "les 4 images (face + angles) sont requises" }, 400);
+      }
+      if (!draftId) draftId = crypto.randomUUID();
+      if (!prompt) {
+        prompt =
+          (await chargerPrompt(supabase, "ugc_persona_profile")) || PROMPT_PROFILE_DEFAUT;
+      }
+
+      const refs = [faceUrl, leftUrl, rightUrl, downUrl];
+
+      const run = async (emit?: (e: Record<string, unknown>) => void) => {
+        const hb = setInterval(() => {
+          emit?.({
+            etape: "profile",
+            statut: "en_cours",
+            detail: "… encore en cours (profil 1:1)",
+          });
+        }, 25_000);
+        try {
+          emit?.({
+            etape: "profile",
+            statut: "en_cours",
+            detail: "Nano Banana Edit — photo de profil 1:1…",
+          });
+          const img = await editerNanoBananaPro(
+            refs,
+            prompt,
+            (p) => {
+              emit?.({
+                etape: "profile",
+                statut: "en_cours",
+                detail: p.detail ?? p.statut ?? p.phase,
+                polls: p.polls,
+              });
+            },
+            { aspectRatio: "1:1" },
+          );
+          const path = personaId
+            ? `ugc/personas/${personaId}/profile.png`
+            : `ugc/personas/draft/${draftId}/profile.png`;
+          emit?.({ etape: "upload", statut: "en_cours", detail: "Upload profil…" });
+          const imageUrl = await uploader(supabase, path, img.bytes, img.mime);
+
+          let persona = null;
+          if (personaId) {
+            const { data, error: errUp } = await supabase
+              .from("ugc_personas")
+              .update({
+                image_profile_url: imageUrl,
+                prompt_profile: prompt,
+                updated_at: new Date().toISOString(),
+              })
+              .eq("id", personaId)
+              .select("*")
+              .single();
+            if (errUp) throw new Error(errUp.message);
+            persona = data;
+          }
+
+          const payload = {
+            ok: true as const,
+            imageUrl,
+            prompt,
+            draftId,
+            personaId: personaId || null,
+            persona,
+          };
+          emit?.({ etape: "ready", statut: "ok", ...payload });
+          return payload;
+        } finally {
+          clearInterval(hb);
+        }
+      };
+
+      if (stream) {
+        return reponseNdjson(async (emit) => {
+          await run(emit);
+        });
+      }
+      return json(await run());
+    }
+
     if (action === "save") {
       const nom = String(body.nom ?? "").trim();
       const faceUrl = String(body.faceUrl ?? "").trim();
       const leftUrl = String(body.leftUrl ?? "").trim();
       const rightUrl = String(body.rightUrl ?? "").trim();
       const downUrl = String(body.downUrl ?? "").trim();
+      const profileUrl = String(body.profileUrl ?? "").trim();
       const promptBase = String(body.promptBase ?? "").trim();
       if (!nom) return json({ error: "nom requis" }, 400);
       if (!faceUrl || !leftUrl || !rightUrl || !downUrl) {
         return json({ error: "les 4 images sont requises" }, 400);
+      }
+      if (!profileUrl) {
+        return json({ error: "photo de profil (1:1) requise" }, 400);
       }
 
       const { data, error } = await supabase
@@ -405,10 +531,12 @@ Deno.serve(async (request) => {
           prompt_left: body.promptLeft ? String(body.promptLeft) : null,
           prompt_right: body.promptRight ? String(body.promptRight) : null,
           prompt_down: body.promptDown ? String(body.promptDown) : null,
+          prompt_profile: body.promptProfile ? String(body.promptProfile) : null,
           image_face_url: faceUrl,
           image_left_url: leftUrl,
           image_right_url: rightUrl,
           image_down_url: downUrl,
+          image_profile_url: profileUrl,
           storage_prefix: body.draftId ? `ugc/personas/draft/${body.draftId}` : null,
         })
         .select("*")

@@ -169,6 +169,23 @@ export const fr = {
       },
       cout: "Traduction + Sophia à l'assignation (crédit Gemini). Les posts « test » (lien) n'y sont pas comptés.",
     },
+    simMinuitCompte: {
+      title: "Test assignation (1 créateur)",
+      subtitle:
+        "Simule l’assignation de minuit pour UNE personne — sans rattrapage ELO, posts test invisibles sur les calendriers. Annule pour tout effacer.",
+      date: "Date d'assignation",
+      compte: "Créateur",
+      lancer: "Lancer le test",
+      enCours: "Assignation test…",
+      annuler: "Annuler le test",
+      annulerEnCours: "Annulation…",
+      annulerConfirm:
+        "Supprimer tous les posts test de ce créateur pour cette date ? Comme s’ils n’avaient jamais existé.",
+      aide: "Pas de check ELO préalable. Les posts sont marqués test (hors prod). « Annuler » retire posts, passages et swaps UGC associés.",
+      ok: "{{crees}} passage(s) test créé(s).",
+      aucun: "Aucun passage créé — labels / pool / persona UGC à vérifier.",
+      annuleOk: "Rollback OK — {{posts}} post(s), {{passages}} passage(s) supprimé(s).",
+    },
     tests: {
       title: "Tests",
       subtitle:
@@ -1376,6 +1393,9 @@ export const fr = {
       attente: "Warmup pas démarré",
       start: "Commencer le warmup",
       demarrage: "Démarrage…",
+      skip: "Activer maintenant",
+      skipEnCours: "Activation…",
+      skipAide: "Coupe le timer warmup — le compte devient immédiatement actif (en process).",
       enCours: "Warmup · {{temps}}",
       apresCreation:
         "Ensuite : le créateur clique « Commencer le warmup » dans son calendrier pour lancer le timer. À la fin, le compte entre dans le process.",

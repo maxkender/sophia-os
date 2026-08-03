@@ -13,6 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { assignerTikTok, listerComptes, listerPostsTest, testerTraduction } from "@/features/moteur/api";
 import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import { SimulerMinuitCard } from "@/features/moteur/SimulerMinuitCard";
+import { SimulerMinuitCompteCard } from "@/features/moteur/SimulerMinuitCompteCard";
 import { TestCompletCard } from "@/features/moteur/TestCompletCard";
 import { TestScrapeCard } from "@/features/moteur/TestScrapeCard";
 
@@ -273,6 +274,12 @@ function TestsRecents() {
 // test choisi s'affiche seul en dessous — plus de mur de cartes empilées.
 const TESTS = [
   { value: "minuit", titreKey: "simMinuit.title", descKey: "simMinuit.subtitle", render: () => <SimulerMinuitCard /> },
+  {
+    value: "minuit-compte",
+    titreKey: "simMinuitCompte.title",
+    descKey: "simMinuitCompte.subtitle",
+    render: () => <SimulerMinuitCompteCard />,
+  },
   { value: "tiktok", titreKey: "tests.tiktokTitre", descKey: "tests.tiktokDesc", render: () => <TesterUnTikTok /> },
   { value: "traduction", titreKey: "tests.tradTitre", descKey: "tests.tradDesc", render: () => <TestTraduction /> },
   { value: "complet", titreKey: "tests.completTitre", descKey: "tests.completDesc", render: () => <TestCompletCard /> },

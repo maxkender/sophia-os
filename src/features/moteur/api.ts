@@ -563,6 +563,18 @@ export function demarrerWarmup(compteId: string) {
   });
 }
 
+/** Admin : coupe le timer warmup — compte immédiatement actif. */
+export function skipWarmup(compteId: string) {
+  return invoke<{
+    ok: boolean;
+    warmup_started_at: string;
+    warmup_ends_at: string;
+  }>("manage-users", {
+    action: "skip_warmup",
+    compteId,
+  });
+}
+
 /** Langues distinctes des comptes de référence actifs (pour le hiring manager
  *  et l'admin : on ne propose que des langues qui ont de la matière). */
 /** Langues proposées pour un poster = langues CIBLES supportées (ce dans quoi il
@@ -3111,6 +3123,44 @@ export const lancerAssignationJour = (date: string, compteId?: string) =>
     compteId: compteId ?? null,
   });
 
+/**
+ * Assignation test pour UN compte : posts `est_test` (invisibles calendrier),
+ * sans rattrapage ELO ni filtre seuil ELO, ignore warmup. Annulable ensuite.
+ */
+export const lancerAssignationTestCompte = (date: string, compteId: string) =>
+  invoke<{
+    ok?: boolean;
+    jour: string;
+    test?: boolean;
+    resultats: Array<{
+      compteId: string;
+      crees: number;
+      passageIds?: string[];
+      erreur?: string;
+      raison?: string;
+    }>;
+  }>("assignation", {
+    date,
+    compteId,
+    manuel: true,
+    test: true,
+  });
+
+/** Rollback assignation test (compte + jour) — posts/passages/médias UGC swap. */
+export const annulerAssignationTestCompte = (date: string, compteId: string) =>
+  invoke<{
+    ok: boolean;
+    jour: string;
+    compteId: string;
+    posts: number;
+    passages: number;
+    medias: number;
+  }>("assignation", {
+    action: "annuler_test",
+    date,
+    compteId,
+  });
+
 export type AssignationJourResultat = Awaited<ReturnType<typeof lancerAssignationJour>>;
 
 /**
@@ -3326,6 +3376,25 @@ export async function listerPostsTest(): Promise<PostTest[]> {
     persona: p.comptes?.persona_nom ?? null,
     pipeline_statut: p.pipeline_statut,
     created_at: p.created_at,
+  }));
+}
+
+/** Posts test d'un compte pour un jour (après assignation test / avant rollback). */
+export async function listerPostsTestCompte(
+  compteId: string,
+  date: string,
+): Promise<Array<{ id: string; pipeline_statut: string }>> {
+  const { data, error } = await supabase
+    .from("posts")
+    .select("id, pipeline_statut")
+    .eq("compte_id", compteId)
+    .eq("date_publication_prevue", date)
+    .eq("est_test", true)
+    .order("created_at");
+  if (error) throw error;
+  return (data ?? []).map((p) => ({
+    id: p.id as string,
+    pipeline_statut: p.pipeline_statut as string,
   }));
 }
 

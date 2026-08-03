@@ -24,6 +24,7 @@ import {
   creerRecruteur,
   definirRole,
   demarrerWarmup,
+  skipWarmup,
   labelsDesComptes,
   listerComptes,
   listerLabels,
@@ -454,6 +455,14 @@ export function AdminPostersPage() {
       queryClient.invalidateQueries({ queryKey: ["comptes"] });
     },
   });
+  const warmupSkip = useMutation({
+    mutationFn: (compteId: string) => skipWarmup(compteId),
+    onSuccess: () => {
+      rafraichir();
+      queryClient.invalidateQueries({ queryKey: ["comptes"] });
+      queryClient.invalidateQueries({ queryKey: ["suivi-minuit"] });
+    },
+  });
   const retirer = useMutation({ mutationFn: supprimerPoster, onSuccess: rafraichir });
   const enregistrerUpwork = useMutation({
     mutationFn: (input: { id: string; url: string }) => majUpwork(input.id, input.url),
@@ -788,6 +797,13 @@ export function AdminPostersPage() {
                       onStart={
                         poster.compte_id
                           ? () => warmupStart.mutate(poster.compte_id!)
+                          : undefined
+                      }
+                      showSkip={Boolean(poster.compte_id)}
+                      skipPending={warmupSkip.isPending}
+                      onSkip={
+                        poster.compte_id
+                          ? () => warmupSkip.mutate(poster.compte_id!)
                           : undefined
                       }
                     />

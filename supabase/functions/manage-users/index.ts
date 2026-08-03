@@ -28,6 +28,7 @@ interface PersonaUgcLibre {
  *
  *   { action: "create", prenom, nom, password, langue?, langues?, role?, posts_par_jour? }
  *   { action: "start_warmup", compteId }  — créateur (son compte) ou admin
+ *   { action: "skip_warmup", compteId }   — admin : compte actif immédiat
  *   { action: "delete", userId }
  *
  * Création poster : compte créé immédiatement (warmup non démarré).
@@ -108,6 +109,39 @@ async function gererRequete(request: Request): Promise<Response> {
       warmup_started_at: start.toISOString(),
       warmup_ends_at: end.toISOString(),
       heures,
+    });
+  }
+
+  // Admin : coupe le timer warmup → compte immédiatement actif (en process).
+  if (body.action === "skip_warmup") {
+    const acces = await assertRole(request, ["admin"]);
+    if (acces instanceof Response) return acces;
+
+    const compteId = String(body.compteId ?? "").trim();
+    if (!compteId) return json({ error: "compteId requis" }, 400);
+
+    const { data: compte, error } = await supabase
+      .from("comptes")
+      .select("id, warmup_started_at, warmup_ends_at")
+      .eq("id", compteId)
+      .maybeSingle();
+    if (error) return json({ error: error.message }, 400);
+    if (!compte) return json({ error: "compte introuvable" }, 404);
+
+    const now = new Date().toISOString();
+    const { error: updErr } = await supabase
+      .from("comptes")
+      .update({
+        warmup_started_at: compte.warmup_started_at ?? now,
+        warmup_ends_at: now,
+      })
+      .eq("id", compteId);
+    if (updErr) return json({ error: updErr.message }, 400);
+
+    return json({
+      ok: true,
+      warmup_started_at: compte.warmup_started_at ?? now,
+      warmup_ends_at: now,
     });
   }
 

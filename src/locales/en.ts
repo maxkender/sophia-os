@@ -169,6 +169,23 @@ export const en = {
       },
       cout: "Translation + Sophia at assignment time (Gemini credit). \"Test\" posts (link) aren't counted.",
     },
+    simMinuitCompte: {
+      title: "Test assignment (1 creator)",
+      subtitle:
+        "Simulate midnight assignment for ONE person — no ELO refresh, test posts hidden from calendars. Cancel to wipe them.",
+      date: "Assignment date",
+      compte: "Creator",
+      lancer: "Run test",
+      enCours: "Test assignment…",
+      annuler: "Cancel test",
+      annulerEnCours: "Cancelling…",
+      annulerConfirm:
+        "Delete all test posts for this creator on this date? As if they never existed.",
+      aide: "No prior ELO check. Posts are marked as test (off prod). Cancel removes posts, passages and related UGC swaps.",
+      ok: "{{crees}} test passage(s) created.",
+      aucun: "No passage created — check labels / pool / UGC persona.",
+      annuleOk: "Rollback OK — {{posts}} post(s), {{passages}} passage(s) deleted.",
+    },
     tests: {
       title: "Tests",
       subtitle:
@@ -1379,6 +1396,9 @@ export const en = {
       attente: "Warmup not started",
       start: "Start warmup",
       demarrage: "Starting…",
+      skip: "Activate now",
+      skipEnCours: "Activating…",
+      skipAide: "Skip the warmup timer — the account becomes active (in process) immediately.",
       enCours: "Warmup · {{temps}}",
       apresCreation:
         "Next: the creator clicks “Start warmup” in their calendar to start the timer. When it ends, the account enters the process.",

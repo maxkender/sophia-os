@@ -92,6 +92,17 @@ export interface AssignationCompteDetail {
   raison?: string;
 }
 
+/** Options d'assignation (test admin = posts invisibles + rollback). */
+export interface AssignationOpts {
+  forcer?: boolean;
+  /** Posts `est_test` — hors calendriers créateurs. */
+  test?: boolean;
+  /** Ignore le filtre `contenu_langues` (seuil ELO à l'import). */
+  ignorerElo?: boolean;
+  /** Ignore `warmup_ends_at` (compte hors process OK). */
+  ignorerWarmup?: boolean;
+}
+
 /**
  * Matérialisation ratée = passage sans `post_id` + post sans slides.
  * Sans purge, le quota compte ces passages et le Planning affiche des
@@ -146,8 +157,13 @@ export async function assignerCompteJour(
   compte: any,
   jour: string,
   reglages: AssignationReglages,
-  forcer = false,
+  opts: AssignationOpts | boolean = {},
 ): Promise<AssignationCompteDetail> {
+  const o: AssignationOpts = typeof opts === "boolean" ? { forcer: opts } : (opts ?? {});
+  const forcer = Boolean(o.forcer);
+  const estTest = Boolean(o.test);
+  const ignorerElo = Boolean(o.ignorerElo ?? estTest);
+
   const brut = Number(compte.posts_par_jour ?? reglages.postsParJour ?? 1);
   const quota = Math.min(3, Math.max(1, Number.isFinite(brut) ? brut : 1));
   const langue: string = compte.langue ?? "fr";
@@ -164,7 +180,7 @@ export async function assignerCompteJour(
 
   // Purge les coquilles legacy recycle/remanie/nouveau du jour (non publiées,
   // sans passage) — sinon « Assigner » empile du Recyclé à côté du v-next.
-  if (!forcer) {
+  if (!forcer && !estTest) {
     const { data: legacy } = await supabase
       .from("posts")
       .select("id, type, statut")
@@ -187,14 +203,18 @@ export async function assignerCompteJour(
 
   // Toujours : passages orphelins / posts sans slides ne doivent pas
   // bloquer le quota ni apparaître comme « assignés ».
-  await purgerAssignationIncomplete(supabase, compte.id as string, jour);
+  if (!estTest) {
+    await purgerAssignationIncomplete(supabase, compte.id as string, jour);
+  }
 
+  // Quota prod / test séparés : les posts `est_test` n'entrent pas dans le
+  // calendrier ni le quota de minuit réel.
   const { data: existants } = await supabase
     .from("passages")
-    .select("id")
+    .select("id, posts!inner(est_test)")
     .eq("compte_id", compte.id)
     .eq("date_publication_prevue", jour)
-    .not("post_id", "is", null);
+    .eq("posts.est_test", estTest);
 
   const dejaLa = existants?.length ?? 0;
   // Non-écrasement : on ne touche pas aux passages déjà là, on complète
@@ -247,6 +267,7 @@ export async function assignerCompteJour(
       reglages,
       contenusSession,
       ugcAi,
+      { ignorerElo, exclureTestsHisto: true },
     );
     if (!choisi) break;
     contenusSession.push(choisi.contenuId);
@@ -294,6 +315,7 @@ export async function assignerCompteJour(
         musique_titre: choisi.musique_titre,
         musique_plateforme: choisi.musique_plateforme,
         hashtags,
+        estTest,
       });
     } catch {
       // Pas de transaction multi-tables : nettoyer le passage pour ne pas
@@ -326,6 +348,7 @@ export async function assignerCompteJour(
       labelNoms,
       langue,
       ugcAi,
+      ignorerElo,
     );
     if (crees.length === 0) return { ids: [], raison: diag };
     return {
@@ -343,6 +366,7 @@ async function diagnostiquerPoolVide(
   labelNoms: string[],
   langue: string,
   ugcAi = false,
+  ignorerElo = false,
 ): Promise<string> {
   const labelsTxt = labelNoms.length > 0 ? labelNoms.join(", ") : `${labelIds.length} label(s)`;
 
@@ -368,6 +392,13 @@ async function diagnostiquerPoolVide(
       `${idsLabel.length} slideshow(s) « ${labelsTxt} » mais aucun valide + import terminé` +
       (ugcAi ? " + checkmark UGC" : " (non-UGC)") +
       "."
+    );
+  }
+
+  if (ignorerElo) {
+    return (
+      `Pool « ${labelsTxt} » × ${langue.toUpperCase()} épuisé (mode test sans filtre ELO) — ` +
+      `${idsPrets.length} slideshow(s) prêt(s), déjà tout assigné ou deck impossible.`
     );
   }
 
@@ -424,6 +455,7 @@ async function materialiserPostDepuisPassage(
     musique_titre: string | null;
     musique_plateforme: string | null;
     hashtags: string;
+    estTest?: boolean;
   },
 ): Promise<string> {
   const { data: contenu, error: errC } = await supabase
@@ -472,7 +504,7 @@ async function materialiserPostDepuisPassage(
       pipeline_statut: "done",
       pipeline_etape: null,
       pipeline_erreur: null,
-      est_test: false,
+      est_test: Boolean(args.estTest),
     })
     .select("id")
     .single();
@@ -517,7 +549,9 @@ async function choisirContenu(
   reglages: AssignationReglages,
   dejaCreesCetteSession: string[],
   ugcAi = false,
+  opts: { ignorerElo?: boolean; exclureTestsHisto?: boolean } = {},
 ): Promise<Candidat | null> {
+  const ignorerElo = Boolean(opts.ignorerElo);
   // Contenu IDs portant au moins un label du compte
   const { data: liens } = await supabase
     .from("contenu_labels")
@@ -544,32 +578,41 @@ async function choisirContenu(
     .select("contenu_id, score, slides")
     .eq("langue", langue)
     .in("contenu_id", contenuIds);
+  const scoreParContenu = new Map(
+    (langues ?? []).map((cl) => [cl.contenu_id as string, Number(cl.score ?? 50)]),
+  );
 
-  // Historique passages de CE compte
-  const { data: hist } = await supabase
+  // Historique passages de CE compte (hors posts test si demandé).
+  let histQuery = supabase
     .from("passages")
-    .select("contenu_id, date_publication_prevue")
+    .select("contenu_id, date_publication_prevue, posts(est_test)")
     .eq("compte_id", compteId)
     .in("contenu_id", contenuIds);
+  const { data: hist } = await histQuery;
   const derniere = new Map<string, string>();
   for (const h of hist ?? []) {
+    // deno-lint-ignore no-explicit-any
+    const estTestHisto = Boolean((h as any).posts?.est_test);
+    if (opts.exclureTestsHisto && estTestHisto) continue;
     const d = h.date_publication_prevue ?? "";
     const prev = derniere.get(h.contenu_id);
     if (!prev || d > prev) derniere.set(h.contenu_id, d);
   }
 
-  // Saturation réseau : nb de comptes distincts ayant posté ce contenu récemment
+  // Saturation réseau : nb de comptes distincts (hors tests) ayant posté récemment
   const depuis = new Date(`${jour}T00:00:00Z`);
   depuis.setUTCDate(depuis.getUTCDate() - reglages.saturation_jours);
   const seuil = depuis.toISOString().slice(0, 10);
   const { data: recents } = await supabase
     .from("passages")
-    .select("contenu_id, compte_id")
+    .select("contenu_id, compte_id, posts(est_test)")
     .in("contenu_id", contenuIds)
     .gte("date_publication_prevue", seuil)
     .in("statut", ["assigne", "valide_par_poster", "publie"]);
   const saturation = new Map<string, Set<string>>();
   for (const r of recents ?? []) {
+    // deno-lint-ignore no-explicit-any
+    if (Boolean((r as any).posts?.est_test)) continue;
     let set = saturation.get(r.contenu_id);
     if (!set) {
       set = new Set();
@@ -581,20 +624,24 @@ async function choisirContenu(
   const frais: Candidat[] = [];
   const deja: Candidat[] = [];
 
-  for (const cl of langues ?? []) {
-    const cid = cl.contenu_id as string;
+  const idsCandidats = ignorerElo
+    ? contenuIds
+    : (langues ?? []).map((cl) => cl.contenu_id as string);
+
+  for (const cid of idsCandidats) {
     if (dejaCreesCetteSession.includes(cid)) continue;
-    // Ligne `contenu_langues` = ELO ≥ seuil à l'import. Le deck peut être vide
-    // (traduction lazy à l'assignation) — on ne filtre plus sur slides pleines.
+    // Sans ignorerElo : ligne `contenu_langues` = ELO ≥ seuil à l'import.
+    // Mode test : on pioche aussi les contenus sans ligne ELO (score 50).
 
     const m = meta.get(cid);
     if (!m) continue;
     const sat = saturation.get(cid)?.size ?? 0;
-    const score = (cl.score ?? 50) - reglages.saturation_penalite * sat * 10;
+    const base = scoreParContenu.get(cid) ?? 50;
+    const score = base - reglages.saturation_penalite * sat * 10;
     const candidat: Candidat = {
       contenuId: cid,
       score,
-      slides: cl.slides,
+      slides: null,
       musique_url: m.musique_url,
       musique_titre: m.musique_titre,
       musique_plateforme: m.musique_plateforme,
@@ -622,7 +669,7 @@ export async function assignerTousComptes(
   supabase: Supabase,
   jour: string,
   compteId: string | null = null,
-  forcer = false,
+  opts: AssignationOpts | boolean = {},
 ): Promise<
   Array<{
     compteId: string;
@@ -632,6 +679,7 @@ export async function assignerTousComptes(
     raison?: string;
   }>
 > {
+  const o: AssignationOpts = typeof opts === "boolean" ? { forcer: opts } : (opts ?? {});
   const reglages = await chargerAssignationReglages(supabase);
   let query = supabase.from("comptes").select("*").eq("is_active", true);
   if (compteId) query = query.eq("id", compteId);
@@ -639,8 +687,10 @@ export async function assignerTousComptes(
   if (error) throw error;
 
   // Warmup : uniquement les comptes dont warmup_ends_at est passé (en process).
+  // Mode test : on peut cibler un compte hors process (ignorerWarmup).
   const maintenant = Date.now();
   const comptes = (comptesBruts ?? []).filter((c) => {
+    if (o.ignorerWarmup) return true;
     const ends = c.warmup_ends_at as string | null | undefined;
     if (!ends) return false; // pas démarré → hors process
     return new Date(ends).getTime() <= maintenant;
@@ -648,7 +698,7 @@ export async function assignerTousComptes(
 
   return await mapPool(comptes, LARGEUR_ASSIGNATION, async (compte) => {
     try {
-      const detail = await assignerCompteJour(supabase, compte, jour, reglages, forcer);
+      const detail = await assignerCompteJour(supabase, compte, jour, reglages, o);
       return {
         compteId: compte.id as string,
         crees: detail.ids.length,
@@ -663,4 +713,68 @@ export async function assignerTousComptes(
       };
     }
   });
+}
+
+/**
+ * Annule une assignation test : supprime posts `est_test` + passages liés
+ * (+ médias UGC face-swap créés pour ces posts). Comme si rien n'avait existé.
+ */
+export async function annulerAssignationTest(
+  supabase: Supabase,
+  compteId: string,
+  jour: string,
+): Promise<{ posts: number; passages: number; medias: number }> {
+  const { data: posts } = await supabase
+    .from("posts")
+    .select("id")
+    .eq("compte_id", compteId)
+    .eq("date_publication_prevue", jour)
+    .eq("est_test", true);
+  const postIds = (posts ?? []).map((p) => p.id as string);
+  if (postIds.length === 0) {
+    return { posts: 0, passages: 0, medias: 0 };
+  }
+
+  const { data: passages } = await supabase
+    .from("passages")
+    .select("id")
+    .in("post_id", postIds);
+  const passageIds = (passages ?? []).map((p) => p.id as string);
+
+  const { data: slides } = await supabase
+    .from("post_slides")
+    .select("media_id")
+    .in("post_id", postIds)
+    .not("media_id", "is", null);
+  const mediaIds = [...new Set((slides ?? []).map((s) => s.media_id as string).filter(Boolean))];
+
+  let mediasUgc: string[] = [];
+  if (mediaIds.length > 0) {
+    const { data: medias } = await supabase
+      .from("media_library")
+      .select("id, ugc_face_regen, storage_path")
+      .in("id", mediaIds)
+      .eq("ugc_face_regen", true);
+    mediasUgc = (medias ?? []).map((m) => m.id as string);
+    const paths = (medias ?? [])
+      .map((m) => m.storage_path as string | null)
+      .filter((p): p is string => Boolean(p));
+    if (paths.length > 0) {
+      await supabase.storage.from("medias").remove(paths).catch(() => null);
+    }
+  }
+
+  if (passageIds.length > 0) {
+    await supabase.from("passages").delete().in("id", passageIds);
+  }
+  await supabase.from("posts").delete().in("id", postIds);
+  if (mediasUgc.length > 0) {
+    await supabase.from("media_library").delete().in("id", mediasUgc);
+  }
+
+  return {
+    posts: postIds.length,
+    passages: passageIds.length,
+    medias: mediasUgc.length,
+  };
 }

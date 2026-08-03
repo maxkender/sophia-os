@@ -12,7 +12,8 @@ import {
 
 /**
  * Badge des 3 phases créateur : compte pas créé → warmup → actif.
- * Le bouton Start est côté créateur (calendrier) ; admin peut aussi le montrer.
+ * Le bouton Start est côté créateur (calendrier) ; admin peut aussi le montrer
+ * et couper le timer (skip → actif immédiat).
  */
 export function WarmupBadge({
   compteId,
@@ -21,6 +22,9 @@ export function WarmupBadge({
   onStart,
   startPending,
   showStart,
+  onSkip,
+  skipPending,
+  showSkip,
 }: {
   /** Null / absent = phase « compte pas créé ». */
   compteId?: string | null;
@@ -30,6 +34,10 @@ export function WarmupBadge({
   startPending?: boolean;
   /** Affiche le bouton « Commencer le warmup » (créateur / admin). */
   showStart?: boolean;
+  /** Admin : coupe le timer → compte actif. */
+  onSkip?: () => void;
+  skipPending?: boolean;
+  showSkip?: boolean;
 }) {
   const { t } = useTranslation();
   const phase = phaseCreateur({
@@ -60,8 +68,19 @@ export function WarmupBadge({
       <span className="inline-flex flex-wrap items-center gap-2">
         <Badge variant="warning">{t("warmup.phaseWarmupAttente")}</Badge>
         {showStart && onStart && (
-          <Button size="sm" disabled={startPending} onClick={onStart}>
+          <Button size="sm" disabled={startPending || skipPending} onClick={onStart}>
             {startPending ? t("warmup.demarrage") : t("warmup.start")}
+          </Button>
+        )}
+        {showSkip && onSkip && (
+          <Button
+            size="sm"
+            variant="outline"
+            disabled={skipPending || startPending}
+            onClick={onSkip}
+            title={t("warmup.skipAide")}
+          >
+            {skipPending ? t("warmup.skipEnCours") : t("warmup.skip")}
           </Button>
         )}
       </span>
@@ -70,8 +89,21 @@ export function WarmupBadge({
 
   const restant = warmupRestantMs(endsAt);
   return (
-    <Badge variant="warning" title={endsAt ? new Date(endsAt).toLocaleString() : undefined}>
-      {t("warmup.phaseWarmup", { temps: formaterDuree(restant) })}
-    </Badge>
+    <span className="inline-flex flex-wrap items-center gap-2">
+      <Badge variant="warning" title={endsAt ? new Date(endsAt).toLocaleString() : undefined}>
+        {t("warmup.phaseWarmup", { temps: formaterDuree(restant) })}
+      </Badge>
+      {showSkip && onSkip && (
+        <Button
+          size="sm"
+          variant="outline"
+          disabled={skipPending}
+          onClick={onSkip}
+          title={t("warmup.skipAide")}
+        >
+          {skipPending ? t("warmup.skipEnCours") : t("warmup.skip")}
+        </Button>
+      )}
+    </span>
   );
 }

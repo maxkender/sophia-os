@@ -2,6 +2,7 @@ import {
   annulerAssignationTest,
   assignerTousComptes,
 } from "../_shared/assignation_contenu.ts";
+import { reponseNdjson, veutStream } from "../_shared/nettoyage_etapes.ts";
 import {
   assertAuthorised,
   aujourdhuiParis,
@@ -23,8 +24,9 @@ import {
  *   { date }         → jour Paris cible
  *   { manuel: true } → contourne la pause (lancement admin Minuit)
  *   { forcer: true } → crée 1 passage même si quota atteint
- *   { test: true, compteId, date, manuel: true }
+ *   { test: true, compteId, date, manuel: true, stream? }
  *     → assignation test (est_test, sans filtre ELO, ignore warmup)
+ *     → NDJSON si stream / Accept ndjson (évite idle Edge 150s)
  *   { action: "annuler_test", compteId, date }
  *     → rollback des posts test de ce compte/jour
  */
@@ -34,6 +36,8 @@ Deno.serve(async (request) => {
 
   const supabase = serviceClient();
 
+  // deno-lint-ignore no-explicit-any
+  let body: any = {};
   let compteId: string | null = null;
   let date: string | null = null;
   let forcer = false;
@@ -41,7 +45,7 @@ Deno.serve(async (request) => {
   let test = false;
   let action: string | null = null;
   try {
-    const body = await request.json();
+    body = await request.json();
     compteId = body?.compteId ?? null;
     date = body?.date ?? null;
     forcer = Boolean(body?.forcer);
@@ -53,6 +57,8 @@ Deno.serve(async (request) => {
   }
 
   const jour = date ?? aujourdhuiParis();
+  // Test = toujours stream (Face swap / deck > 150s idle sinon).
+  const stream = test || veutStream(request, body);
 
   try {
     if (action === "annuler_test") {
@@ -82,12 +88,56 @@ Deno.serve(async (request) => {
       }
     }
 
-    const resultats = await assignerTousComptes(supabase, jour, compteId, {
+    const opts = {
       forcer,
       test,
       ignorerElo: test,
       ignorerWarmup: test,
-    });
+    };
+
+    if (stream) {
+      return reponseNdjson(async (emit) => {
+        const log = (detail: string) =>
+          emit({
+            etape: "assignation",
+            statut: "en_cours",
+            detail,
+            at: new Date().toISOString(),
+          });
+
+        // Keepalive si une sous-étape reste silencieuse trop longtemps.
+        const hb = setInterval(() => log("… encore en cours"), 25_000);
+        try {
+          log(
+            test
+              ? `Assignation TEST · ${jour} · compte ${String(compteId).slice(0, 8)}`
+              : `Assignation · ${jour}${compteId ? ` · compte ${String(compteId).slice(0, 8)}` : ""}`,
+          );
+          const resultats = await assignerTousComptes(supabase, jour, compteId, {
+            ...opts,
+            onLog: log,
+          });
+          const crees = resultats.reduce((n, r) => n + (r.crees ?? 0), 0);
+          const detail =
+            crees > 0
+              ? `Terminé — ${crees} passage(s)`
+              : resultats[0]?.erreur ?? resultats[0]?.raison ?? "Aucun passage créé";
+          emit({
+            etape: "ready",
+            statut: resultats.some((r) => r.erreur) && crees === 0 ? "echec" : "ok",
+            ok: true,
+            jour,
+            resultats,
+            test,
+            detail,
+          });
+        } finally {
+          clearInterval(hb);
+        }
+      });
+    }
+
+    const resultats = await assignerTousComptes(supabase, jour, compteId, opts);
     return json({ ok: true, jour, resultats, test });
   } catch (error) {
     return json({ ok: false, error: messageErreur(error) }, 500);

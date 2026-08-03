@@ -14,7 +14,9 @@ import {
   lancerAssignationTestCompte,
   listerComptes,
   listerPostsTestCompte,
+  type AssignationTestLog,
 } from "./api";
+import { cn } from "@/lib/utils";
 
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
@@ -22,6 +24,7 @@ const selectClass =
 /**
  * Assignation minuit en mode test pour UN créateur.
  * Pas de rattrapage ELO — posts `est_test` — rollback propre.
+ * Stream NDJSON + logs (évite idle Edge 150s sur face swap / deck).
  */
 export function SimulerMinuitCompteCard() {
   const { t } = useTranslation();
@@ -29,9 +32,21 @@ export function SimulerMinuitCompteCard() {
   const comptes = useQuery({ queryKey: ["comptes"], queryFn: listerComptes });
   const [date, setDate] = React.useState(aujourdhuiParis());
   const [compteId, setCompteId] = React.useState("");
+  const [logs, setLogs] = React.useState<AssignationTestLog[]>([]);
+  const logsRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    if (!logsRef.current) return;
+    logsRef.current.scrollTop = logsRef.current.scrollHeight;
+  }, [logs.length]);
 
   const assigner = useMutation({
-    mutationFn: () => lancerAssignationTestCompte(date, compteId),
+    mutationFn: () => {
+      setLogs([]);
+      return lancerAssignationTestCompte(date, compteId, (ligne) => {
+        setLogs((prev) => [...prev, ligne]);
+      });
+    },
     onSuccess: () => {
       void queryClient.invalidateQueries({ queryKey: ["posts-test"] });
       void queryClient.invalidateQueries({ queryKey: ["posts-test-compte"] });
@@ -92,6 +107,7 @@ export function SimulerMinuitCompteCard() {
                 <option key={c.id} value={c.id}>
                   {c.persona_nom ?? c.handle_tiktok ?? c.id.slice(0, 8)}
                   {c.langue ? ` · ${c.langue}` : ""}
+                  {c.ugc_ai ? " · UGC" : ""}
                 </option>
               ))}
             </select>
@@ -120,6 +136,37 @@ export function SimulerMinuitCompteCard() {
         </div>
 
         <p className="text-xs text-muted-foreground">{t("simMinuitCompte.aide")}</p>
+
+        {(assigner.isPending || logs.length > 0) && (
+          <div className="space-y-1.5">
+            <p className="text-xs font-medium text-muted-foreground">
+              {t("simMinuitCompte.logs")}
+              {assigner.isPending ? ` — ${t("simMinuitCompte.enCours")}` : ""}
+            </p>
+            <div
+              ref={logsRef}
+              className="max-h-56 overflow-y-auto rounded-md border bg-muted/20 p-2 font-mono text-[11px] leading-relaxed"
+            >
+              {logs.length === 0 && assigner.isPending && (
+                <p className="text-muted-foreground">{t("simMinuitCompte.logsAttente")}</p>
+              )}
+              {logs.map((l, i) => (
+                <p
+                  key={`${l.at}-${i}`}
+                  className={cn(
+                    l.statut === "echec" && "text-destructive",
+                    l.statut === "ok" && "text-emerald-700 dark:text-emerald-400",
+                  )}
+                >
+                  <span className="text-muted-foreground">
+                    {new Date(l.at).toLocaleTimeString()}
+                  </span>{" "}
+                  {l.detail}
+                </p>
+              ))}
+            </div>
+          </div>
+        )}
 
         {assigner.isSuccess && (
           <div

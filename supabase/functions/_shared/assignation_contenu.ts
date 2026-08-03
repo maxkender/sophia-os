@@ -101,6 +101,8 @@ export interface AssignationOpts {
   ignorerElo?: boolean;
   /** Ignore `warmup_ends_at` (compte hors process OK). */
   ignorerWarmup?: boolean;
+  /** Logs progression (stream NDJSON / UI test). */
+  onLog?: (detail: string) => void;
 }
 
 /**
@@ -163,14 +165,28 @@ export async function assignerCompteJour(
   const forcer = Boolean(o.forcer);
   const estTest = Boolean(o.test);
   const ignorerElo = Boolean(o.ignorerElo ?? estTest);
+  const log = (detail: string) => {
+    try {
+      o.onLog?.(detail);
+    } catch {
+      // ignore
+    }
+  };
 
   const brut = Number(compte.posts_par_jour ?? reglages.postsParJour ?? 1);
   const quota = Math.min(3, Math.max(1, Number.isFinite(brut) ? brut : 1));
   const langue: string = compte.langue ?? "fr";
   const ugcAi = Boolean(compte.ugc_ai);
   const ugcPersonaId = (compte.ugc_persona_id as string | null) ?? null;
+  const nomCompte =
+    (compte.persona_nom as string | null) ??
+    (compte.handle_tiktok as string | null) ??
+    String(compte.id).slice(0, 8);
+
+  log(`Compte ${nomCompte} · langue=${langue} · quota=${quota}${ugcAi ? " · UGC" : ""}${estTest ? " · test" : ""}`);
 
   if (ugcAi && !ugcPersonaId) {
+    log("Échec : compte UGC sans persona");
     return {
       ids: [],
       raison:
@@ -220,6 +236,7 @@ export async function assignerCompteJour(
   // Non-écrasement : on ne touche pas aux passages déjà là, on complète
   // seulement jusqu'au quota (1–3) du compte.
   const manquants = forcer ? 1 : Math.max(0, quota - dejaLa);
+  log(`Passages déjà là : ${dejaLa}/${quota} → à créer : ${manquants}`);
   if (manquants <= 0) {
     return { ids: [], raison: `Quota déjà rempli (${dejaLa}/${quota} passage(s) ce jour).` };
   }
@@ -235,11 +252,13 @@ export async function assignerCompteJour(
     .filter(Boolean) as string[];
   // Sans labels : impossible d'intersecter → compte vide ce jour.
   if (labelIds.length === 0) {
+    log("Échec : aucun label sur le compte");
     return {
       ids: [],
       raison: "Aucun label sur ce compte — ajoute un label (Bibliothèque / Compte) pour piocher.",
     };
   }
+  log(`Labels : ${labelNoms.length ? labelNoms.join(", ") : `${labelIds.length} id(s)`}`);
 
   const crees: string[] = [];
   /** Contenu IDs déjà pris / exclus cette session (choisirContenu filtre dessus). */
@@ -248,16 +267,20 @@ export async function assignerCompteJour(
 
   let persona = null;
   if (ugcAi && ugcPersonaId) {
+    log("Chargement persona UGC…");
     persona = await chargerPersonaUgc(supabase, ugcPersonaId);
     if (!persona) {
+      log("Échec : persona UGC introuvable");
       return {
         ids: [],
         raison: "Persona UGC introuvable — recrée / réassigne le persona du créateur.",
       };
     }
+    log(`Persona UGC OK (${persona.id.slice(0, 8)})`);
   }
 
   for (let t = 0; t < maxTentatives && crees.length < manquants; t += 1) {
+    log(`Pioche contenu ${crees.length + 1}/${manquants} (tentative ${t + 1})…`);
     const choisi = await choisirContenu(
       supabase,
       compte.id,
@@ -269,17 +292,26 @@ export async function assignerCompteJour(
       ugcAi,
       { ignorerElo, exclureTestsHisto: true },
     );
-    if (!choisi) break;
+    if (!choisi) {
+      log("Plus de candidat dans le pool");
+      break;
+    }
     contenusSession.push(choisi.contenuId);
+    log(`Contenu ${choisi.contenuId.slice(0, 8)} (score≈${Math.round(choisi.score)}) — deck ${langue}…`);
 
     // Traduction + Sophia à la demande (hors langue source) — pas à l'import.
     let slides: SlideLangue[];
     try {
       slides = await assurerDeckPourLangue(supabase, choisi.contenuId, langue);
-    } catch {
+    } catch (e) {
+      log(`Deck échoué : ${e instanceof Error ? e.message : String(e)}`);
       continue;
     }
-    if (!slides.length) continue;
+    if (!slides.length) {
+      log("Deck vide — contenu suivant");
+      continue;
+    }
+    log(`Deck prêt (${slides.length} slides) — matérialisation…`);
     const hashtags = hashtagsPour(langue, `${compte.id}-${jour}-${crees.length}`);
 
     const { data: passage, error } = await supabase
@@ -317,28 +349,35 @@ export async function assignerCompteJour(
         hashtags,
         estTest,
       });
-    } catch {
+    } catch (e) {
       // Pas de transaction multi-tables : nettoyer le passage pour ne pas
       // bloquer le quota, puis piocher un autre contenu.
+      log(`Matérialisation échouée : ${e instanceof Error ? e.message : String(e)}`);
       await supabase.from("passages").delete().eq("id", passage.id);
       continue;
     }
+    log(`Post ${postId.slice(0, 8)} créé`);
 
     // UGC AI : swap Nano Banana sur slides à visage (hors upscale ensuite).
     if (persona) {
       try {
-        await appliquerFaceSwapUgcPost(supabase, {
+        log("UGC face swap (Nano Banana)…");
+        const swap = await appliquerFaceSwapUgcPost(supabase, {
           postId,
           compteId: compte.id as string,
           contenuId: choisi.contenuId,
           persona,
+          onLog: log,
         });
-      } catch {
+        log(`Face swap : ${swap.swaps} ok · ${swap.echecs} échec(s)`);
+      } catch (e) {
         // Post déjà utilisable avec médias d'origine — on ne rollback pas.
+        log(`Face swap erreur (post gardé) : ${e instanceof Error ? e.message : String(e)}`);
       }
     }
 
     crees.push(passage.id);
+    log(`Passage ${crees.length}/${manquants} prêt`);
   }
 
   if (crees.length < manquants) {
@@ -350,12 +389,14 @@ export async function assignerCompteJour(
       ugcAi,
       ignorerElo,
     );
+    log(diag);
     if (crees.length === 0) return { ids: [], raison: diag };
     return {
       ids: crees,
       raison: `${crees}/${manquants} créé(s). ${diag}`,
     };
   }
+  log(`Terminé : ${crees.length} passage(s)`);
   return { ids: crees };
 }
 

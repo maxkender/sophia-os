@@ -3153,28 +3153,135 @@ export const lancerAssignationJour = (date: string, compteId?: string) =>
     compteId: compteId ?? null,
   });
 
+export type AssignationTestResultat = {
+  ok?: boolean;
+  jour: string;
+  test?: boolean;
+  resultats: Array<{
+    compteId: string;
+    crees: number;
+    passageIds?: string[];
+    erreur?: string;
+    raison?: string;
+  }>;
+};
+
+export type AssignationTestLog = {
+  at: string;
+  detail: string;
+  statut?: string;
+};
+
 /**
- * Assignation test pour UN compte : posts `est_test` (invisibles calendrier),
- * sans rattrapage ELO ni filtre seuil ELO, ignore warmup. Annulable ensuite.
+ * Assignation test UN compte — NDJSON streamé (évite idle Edge 150s) + logs.
+ * Face swap / deck peuvent durer plusieurs minutes.
  */
-export const lancerAssignationTestCompte = (date: string, compteId: string) =>
-  invoke<{
-    ok?: boolean;
-    jour: string;
-    test?: boolean;
-    resultats: Array<{
-      compteId: string;
-      crees: number;
-      passageIds?: string[];
-      erreur?: string;
-      raison?: string;
-    }>;
-  }>("assignation", {
-    date,
-    compteId,
-    manuel: true,
-    test: true,
+export async function lancerAssignationTestCompte(
+  date: string,
+  compteId: string,
+  onLog?: (ligne: AssignationTestLog) => void,
+): Promise<AssignationTestResultat> {
+  const url = import.meta.env.VITE_SUPABASE_URL;
+  const anon = import.meta.env.VITE_SUPABASE_ANON_KEY;
+  if (!url || !anon) throw new Error("Supabase non configuré");
+
+  const { data: sessionData } = await supabase.auth.getSession();
+  const token = sessionData.session?.access_token;
+  if (!token) throw new Error("Session expirée — reconnecte-toi.");
+
+  const res = await fetch(`${url}/functions/v1/assignation`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      apikey: anon,
+      "Content-Type": "application/json",
+      Accept: "application/x-ndjson",
+    },
+    body: JSON.stringify({
+      date,
+      compteId,
+      manuel: true,
+      test: true,
+      stream: true,
+    }),
   });
+
+  if (!res.ok || !res.body) {
+    let message = `Edge assignation ${res.status}`;
+    try {
+      const j = (await res.json()) as { error?: string };
+      if (j?.error) message = j.error;
+    } catch {
+      // ignore
+    }
+    if (/idle timeout|150s/i.test(message)) {
+      message =
+        "Timeout Edge (150s) — relance le test (stream NDJSON requis pour UGC / deck).";
+    }
+    throw new Error(message);
+  }
+
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+  let dernier: Record<string, unknown> | null = null;
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+    const lignes = buffer.split("\n");
+    buffer = lignes.pop() ?? "";
+    for (const ligne of lignes) {
+      const trim = ligne.trim();
+      if (!trim) continue;
+      try {
+        const ev = JSON.parse(trim) as Record<string, unknown>;
+        dernier = ev;
+        const detail = typeof ev.detail === "string" ? ev.detail : "";
+        if (detail) {
+          onLog?.({
+            at: typeof ev.at === "string" ? ev.at : new Date().toISOString(),
+            detail,
+            statut: typeof ev.statut === "string" ? ev.statut : undefined,
+          });
+        }
+        if (ev.statut === "echec" && ev.etape !== "ready" && detail) {
+          // échec partiel loggé — le ready final tranche
+        }
+      } catch {
+        // ligne partielle
+      }
+    }
+  }
+
+  if (!dernier) throw new Error("Assignation test : aucune réponse stream");
+
+  if (dernier.etape === "ready" && dernier.ok === false) {
+    throw new Error(
+      typeof dernier.error === "string"
+        ? dernier.error
+        : typeof dernier.detail === "string"
+          ? dernier.detail
+          : "Assignation test échouée",
+    );
+  }
+
+  if (dernier.statut === "echec" && !Array.isArray(dernier.resultats)) {
+    throw new Error(
+      typeof dernier.detail === "string" ? dernier.detail : "Assignation test échouée",
+    );
+  }
+
+  return {
+    ok: true,
+    jour: String(dernier.jour ?? date),
+    test: true,
+    resultats: Array.isArray(dernier.resultats)
+      ? (dernier.resultats as AssignationTestResultat["resultats"])
+      : [],
+  };
+}
 
 /** Rollback assignation test (compte + jour) — posts/passages/médias UGC swap. */
 export const annulerAssignationTestCompte = (date: string, compteId: string) =>

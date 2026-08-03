@@ -183,7 +183,9 @@ export const en = {
       annulerEnCours: "Cancelling…",
       annulerConfirm:
         "Delete all test posts for this creator on this date? As if they never existed.",
-      aide: "No prior ELO check. Posts are marked as test (off prod). Cancel removes posts, passages and related UGC swaps.",
+      aide: "No prior ELO check. Posts are marked as test (off prod). Stream + logs avoid the 150s timeout (deck / face swap). Cancel removes posts, passages and related UGC swaps.",
+      logs: "Logs",
+      logsAttente: "Connecting to stream…",
       ok: "{{crees}} test passage(s) created.",
       aucun: "No passage created — check labels / pool / UGC persona.",
       annuleOk: "Rollback OK — {{posts}} post(s), {{passages}} passage(s) deleted.",

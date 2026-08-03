@@ -57,8 +57,16 @@ export async function appliquerFaceSwapUgcPost(
     compteId: string;
     contenuId: string;
     persona: UgcPersonaAngles;
+    onLog?: (detail: string) => void;
   },
 ): Promise<{ swaps: number; echecs: number }> {
+  const log = (detail: string) => {
+    try {
+      args.onLog?.(detail);
+    } catch {
+      // ignore
+    }
+  };
   const { data: slides, error } = await supabase
     .from("post_slides")
     .select("id, position, media_id")
@@ -88,7 +96,11 @@ export async function appliquerFaceSwapUgcPost(
     return m.visage_premier_plan === true;
   });
 
-  if (aSwapper.length === 0) return { swaps: 0, echecs: 0 };
+  if (aSwapper.length === 0) {
+    log("Aucune slide à visage à swapper");
+    return { swaps: 0, echecs: 0 };
+  }
+  log(`${aSwapper.length} slide(s) visage à régénérer`);
 
   const prompt =
     (await chargerPrompt(supabase, "ugc_face_swap"))?.trim() || PROMPT_DEFAUT;
@@ -104,13 +116,28 @@ export async function appliquerFaceSwapUgcPost(
 
   await mapPool(aSwapper, LARGEUR_SWAP, async (slide) => {
     const src = parId.get(slide.media_id as string)!;
+    const pos = Number(slide.position);
     try {
       // Ratio = slide de référence (Figure 1), pas le 9:16 des personas.
+      log(`Slide ${pos} : lecture ratio…`);
       const aspectRatio = await aspectDepuisUrl(src.url as string);
       const imageUrls = [src.url as string, ...personaUrls];
-      const edit = await editerNanoBananaPro(imageUrls, prompt, undefined, {
-        aspectRatio,
-      });
+      log(`Slide ${pos} : Nano Banana edit (aspect=${aspectRatio})…`);
+      const edit = await editerNanoBananaPro(
+        imageUrls,
+        prompt,
+        (p) => {
+          if (p.phase === "poll") {
+            log(`Slide ${pos} : Fal ${p.statut ?? "…"} (#${p.polls ?? 0})`);
+          } else if (p.phase === "submit") {
+            log(`Slide ${pos} : ${p.detail ?? "submit"}`);
+          } else if (p.phase === "download") {
+            log(`Slide ${pos} : téléchargement…`);
+          }
+        },
+        { aspectRatio },
+      );
+      log(`Slide ${pos} : strip C2PA + upload…`);
       const strip = await retirerContentCredentialsBytes(edit.bytes);
       const mime =
         strip.mime === "application/octet-stream" ? edit.mime : strip.mime;
@@ -120,7 +147,7 @@ export async function appliquerFaceSwapUgcPost(
           ? "webp"
           : "png";
       const path =
-        `ugc/swaps/${args.postId}/${Number(slide.position)}-${Date.now()}.${ext}`;
+        `ugc/swaps/${args.postId}/${pos}-${Date.now()}.${ext}`;
       const url = await uploader(supabase, path, strip.bytes, mime);
 
       const { data: nouveau, error: errM } = await supabase
@@ -146,8 +173,10 @@ export async function appliquerFaceSwapUgcPost(
         .eq("id", slide.id);
       if (errS) throw errS;
       swaps += 1;
-    } catch {
+      log(`Slide ${pos} : OK`);
+    } catch (e) {
       echecs += 1;
+      log(`Slide ${pos} : échec — ${e instanceof Error ? e.message : String(e)}`);
     }
   });
 

@@ -183,7 +183,9 @@ export const fr = {
       annulerEnCours: "Annulation…",
       annulerConfirm:
         "Supprimer tous les posts test de ce créateur pour cette date ? Comme s’ils n’avaient jamais existé.",
-      aide: "Pas de check ELO préalable. Les posts sont marqués test (hors prod). « Annuler » retire posts, passages et swaps UGC associés.",
+      aide: "Pas de check ELO préalable. Les posts sont marqués test (hors prod). Stream + logs pour éviter le timeout 150s (deck / face swap). « Annuler » retire posts, passages et swaps UGC associés.",
+      logs: "Logs",
+      logsAttente: "Connexion au stream…",
       ok: "{{crees}} passage(s) test créé(s).",
       aucun: "Aucun passage créé — labels / pool / persona UGC à vérifier.",
       annuleOk: "Rollback OK — {{posts}} post(s), {{passages}} passage(s) supprimé(s).",

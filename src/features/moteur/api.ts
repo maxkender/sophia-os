@@ -271,6 +271,36 @@ export async function creerCompte(input: {
   if (error) throw error;
 }
 
+/**
+ * Crée le compte d'un poster existant en consommant la file admin
+ * (label + UGC + persona) — même logique que la création poster.
+ */
+export function assurerComptePoster(input: {
+  userId: string;
+  langue: string;
+  posts_par_jour?: number;
+}) {
+  return invoke<{
+    ok: boolean;
+    deja?: boolean;
+    compteId?: string;
+    compte?: {
+      id: string;
+      reference: string | null;
+      persona: boolean;
+      labelId: string | null;
+      ugc: boolean;
+    };
+  }>("manage-users", {
+    action: "ensure_compte",
+    userId: input.userId,
+    langue: input.langue,
+    ...(input.posts_par_jour != null
+      ? { posts_par_jour: normaliserPostsParJour(Number(input.posts_par_jour)) }
+      : {}),
+  });
+}
+
 /** Clamp le quota poster à 1–3 avant écriture. Défaut 2 si invalide. */
 function normaliserPostsParJour(n: number): number {
   if (!Number.isFinite(n)) return 2;

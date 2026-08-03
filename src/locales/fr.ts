@@ -639,6 +639,8 @@ export const fr = {
       labelsAide:
         "Sans label sur un créateur, minuit n’assigne rien (intersection labels créateur ∩ contenus).",
       sansLabels: "Sans labels",
+      ugcPersona: "Persona UGC : {{nom}}",
+      ugcSansPersona: "UGC AI — aucun persona assigné",
       eloCompte: "ELO {{score}}",
       eloCompteAide: "Forme du compte (moyenne pondérée des derniers posts mesurés)",
       createursDuRecruteur: "Créateurs rattachés",
@@ -667,7 +669,7 @@ export const fr = {
       compteReference: "Compte de référence (source) — visible admin uniquement",
       sansCompte: "Sans compte de publication (à configurer plus tard)",
       langueAide:
-        "Choisis une langue : le compte de référence et la persona (pseudo, bio, avatar) sont générés automatiquement.",
+        "Langue requise pour créer le compte : la file Settings (label + UGC) est consommée, puis persona / avatar générés. Sans langue = poster seul, file intacte.",
       tiktoksPublies: "TikToks publiés",
       tiktoksPubliesDesc:
         "Tous les posts déjà publiés par {{nom}}. Ouvre les liens connus, ou ajoute manuellement ceux qui manquent.",
@@ -1374,7 +1376,10 @@ export const fr = {
         "Timer lancé quand le créateur clique « Commencer le warmup » dans son calendrier (défaut 24 h).",
       fileTitre: "File des prochains comptes (label + UGC)",
       fileDesc:
-        "Ordre FIFO : la première entrée décide le label et si le compte est UGC. UGC → persona libre, nom + photo de face sans métadonnées. File vide → label classique le moins utilisé dans la langue.",
+        "Ordre FIFO : la première entrée décide le label et si le compte est UGC. UGC → persona libre, nom + photo de face sans métadonnées. File vide → label classique le moins utilisé dans la langue. Ce classement prévaut toujours sur l’assignation auto.",
+      fileAutosave:
+        "Enregistré immédiatement à chaque ajout / réordonnancement — pas besoin du bouton Enregistrer en bas.",
+      fileSauvee: "file à jour",
       fileVideListe:
         "File vide — le prochain compte recevra le label (non-UGC) le moins utilisé dans sa langue.",
       fileVide:

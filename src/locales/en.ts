@@ -639,6 +639,8 @@ export const en = {
       labelsAide:
         "Without a label on a creator, midnight assigns nothing (creator ∩ content label intersection).",
       sansLabels: "No labels",
+      ugcPersona: "UGC persona: {{nom}}",
+      ugcSansPersona: "UGC AI — no persona assigned",
       eloCompte: "ELO {{score}}",
       eloCompteAide: "Account form (recency-weighted average of last measured posts)",
       createursDuRecruteur: "Assigned creators",
@@ -1377,7 +1379,10 @@ export const en = {
         "Timer starts when the creator clicks “Start warmup” in their calendar (default 24 h).",
       fileTitre: "Next accounts queue (label + UGC)",
       fileDesc:
-        "FIFO order: the first entry sets the label and whether the account is UGC. UGC → unused persona, name + face photo without metadata. Empty queue → classic least-used label in the language.",
+        "FIFO order: the first entry sets the label and whether the account is UGC. UGC → unused persona, name + face photo without metadata. Empty queue → classic least-used label in the language. This ranking always overrides auto label assignment.",
+      fileAutosave:
+        "Saved immediately on every add / reorder — no need for the bottom Save button.",
+      fileSauvee: "queue up to date",
       fileVideListe:
         "Empty queue — the next account will get the least-used (non-UGC) label in its language.",
       fileVide:

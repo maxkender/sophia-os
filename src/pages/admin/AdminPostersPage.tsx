@@ -19,7 +19,7 @@ import { useAuth } from "@/features/auth/AuthContext";
 import { CompteEditor, PostsParJourCompte } from "@/features/moteur/CompteEditor";
 import { CreateurPublications } from "@/features/moteur/CreateurPublications";
 import {
-  creerCompte,
+  assurerComptePoster,
   creerPoster,
   creerRecruteur,
   definirRole,
@@ -38,6 +38,7 @@ import {
   setLabelsCompte,
   supprimerPoster,
 } from "@/features/moteur/api";
+import { listerUgcPersonas } from "@/features/ugc/api";
 import { nomLangue } from "@/features/moteur/langues";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
 import { phaseCreateur, type PhaseCreateur } from "@/features/moteur/warmup";
@@ -373,16 +374,29 @@ export function AdminPostersPage() {
       n.has(id) ? n.delete(id) : n.add(id);
       return n;
     });
+  const personasUgc = useQuery({
+    queryKey: ["ugc-personas"],
+    queryFn: async () => (await listerUgcPersonas()).personas,
+    staleTime: 60_000,
+  });
+  const personaParId = React.useMemo(() => {
+    const m = new Map<string, string>();
+    for (const p of personasUgc.data ?? []) m.set(p.id, p.nom);
+    return m;
+  }, [personasUgc.data]);
+
   const creerCompteVide = useMutation({
     mutationFn: (p: PosterProfil) =>
-      creerCompte({
-        posterId: p.id,
-        compteReferenceId: null,
+      assurerComptePoster({
+        userId: p.id,
         langue: p.langues[0] ?? "fr",
-        personaNom: "",
-        handleTiktok: "",
       }),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["comptes"] }),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: ["comptes"] });
+      void queryClient.invalidateQueries({ queryKey: ["posters"] });
+      void queryClient.invalidateQueries({ queryKey: ["reglages"] });
+      void queryClient.invalidateQueries({ queryKey: ["compte-labels-all"] });
+    },
   });
 
   // Panneau d'ajout replié par défaut : la liste reste la vedette. On choisit
@@ -405,6 +419,9 @@ export function AdminPostersPage() {
       setNom("");
       setPassword(MOT_DE_PASSE_INITIAL);
       rafraichir();
+      void queryClient.invalidateQueries({ queryKey: ["comptes"] });
+      void queryClient.invalidateQueries({ queryKey: ["reglages"] });
+      void queryClient.invalidateQueries({ queryKey: ["compte-labels-all"] });
     },
   });
   // Création directe d'un recruteur (hiring manager) par son nom + langues.
@@ -807,6 +824,29 @@ export function AdminPostersPage() {
                           : undefined
                       }
                     />
+                  )}
+                  {estPoster && compte?.ugc_ai && (
+                    <Badge
+                      title={
+                        compte.ugc_persona_id
+                          ? t("posters.ugcPersona", {
+                              nom:
+                                personaParId.get(compte.ugc_persona_id) ??
+                                compte.persona_nom ??
+                                "—",
+                            })
+                          : t("posters.ugcSansPersona")
+                      }
+                    >
+                      UGC
+                    </Badge>
+                  )}
+                  {estPoster && compte?.ugc_ai && compte.ugc_persona_id && (
+                    <Badge variant="outline" className="max-w-[10rem] truncate">
+                      {personaParId.get(compte.ugc_persona_id) ??
+                        compte.persona_nom ??
+                        compte.ugc_persona_id.slice(0, 8)}
+                    </Badge>
                   )}
                   {estPoster && compte && labs.length === 0 && (
                     <Badge variant="warning">{t("posters.sansLabels")}</Badge>

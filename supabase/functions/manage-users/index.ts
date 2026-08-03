@@ -182,33 +182,17 @@ async function gererRequete(request: Request): Promise<Response> {
       }
     }
 
-    // Label (+ mode UGC) : file FIFO, sinon moins utilisé (classique) dans
-    // la langue du créateur. Persona UGC tirée AVANT createUser.
+    // File admin (label + UGC) : uniquement si on VA créer un compte (= langue).
+    // Sinon on ne consomme pas la file (prévaut toujours sur l'auto least-used).
     let fileItem: FileLabelItem | null = null;
+    let fileItemQueue: FileLabelItem | null = null;
     let personaUgc: PersonaUgcLibre | null = null;
-    if (roleVoulu === "poster") {
-      const popped = await popLabelFile(supabase, langue);
-      if (!popped.ok) return json({ error: popped.error }, 409);
-      fileItem = popped.item;
-
-      if (fileItem.ugc) {
-        const labelOk = await labelADesContenusUgc(supabase, fileItem.label_id);
-        if (!labelOk) {
-          const fallback = await labelMoinsUtiliseParLangue(supabase, langue, {
-            ugcOnly: true,
-          });
-          if (!fallback) {
-            await unshiftLabelFile(supabase, fileItem);
-            return json({ error: "NO_UGC_LABEL" }, 409);
-          }
-          fileItem = { label_id: fallback, ugc: true };
-        }
-        personaUgc = await personaUgcLibre(supabase);
-        if (!personaUgc) {
-          await unshiftLabelFile(supabase, fileItem);
-          return json({ error: "NO_UGC_PERSONA" }, 409);
-        }
-      }
+    if (roleVoulu === "poster" && langue) {
+      const prep = await preparerFileEtPersona(supabase, langue);
+      if (!prep.ok) return json({ error: prep.error }, 409);
+      fileItem = prep.fileItem;
+      fileItemQueue = prep.fileItemQueue;
+      personaUgc = prep.personaUgc;
     }
 
     // Référence source : best-effort (plus bloquant).
@@ -227,7 +211,7 @@ async function gererRequete(request: Request): Promise<Response> {
     });
 
     if (error) {
-      if (fileItem) await unshiftLabelFile(supabase, fileItem);
+      if (fileItemQueue) await unshiftLabelFile(supabase, fileItemQueue);
       const detail = [error.message, error.code, error.status].filter(Boolean).join(" · ");
       return json({ error: detail || `Création refusée pour ${email}` }, 400);
     }
@@ -275,10 +259,59 @@ async function gererRequete(request: Request): Promise<Response> {
         fileItem,
         postsParJour,
         personaUgc,
+        fileItemQueue,
       );
+    } else if (fileItemQueue) {
+      await unshiftLabelFile(supabase, fileItemQueue);
     }
 
     return json({ ok: true, userId: data.user?.id, email, compte, role: roleVoulu });
+  }
+
+  // Poster existant sans compte : consomme la file admin (label + UGC) comme à la création.
+  if (body.action === "ensure_compte") {
+    const userId = String(body.userId ?? "").trim();
+    const langue = String(body.langue ?? "").trim().toLowerCase();
+    if (!userId || !langue) {
+      return json({ error: "userId et langue requis" }, 400);
+    }
+    if (acces.role === "hiring_manager" && acces.userId !== "cron") {
+      const { data: cible } = await supabase
+        .from("profiles")
+        .select("manager_id")
+        .eq("id", userId)
+        .maybeSingle();
+      if (!cible || cible.manager_id !== acces.userId) {
+        return json({ error: "forbidden" }, 403);
+      }
+    }
+
+    const { data: deja } = await supabase
+      .from("comptes")
+      .select("id")
+      .eq("poster_id", userId)
+      .maybeSingle();
+    if (deja?.id) {
+      return json({ ok: true, deja: true, compteId: deja.id });
+    }
+
+    const prep = await preparerFileEtPersona(supabase, langue);
+    if (!prep.ok) return json({ error: prep.error }, 409);
+
+    const referenceId = await referenceLibre(supabase, langue);
+    const postsParJour = normaliserPostsParJour(body.posts_par_jour);
+    const compte = await preparerCompte(
+      supabase,
+      userId,
+      langue,
+      referenceId,
+      prep.fileItem,
+      postsParJour,
+      prep.personaUgc,
+      prep.fileItemQueue,
+    );
+    if (!compte.id) return json({ error: "CREATION_COMPTE_ECHOUEE" }, 500);
+    return json({ ok: true, compte });
   }
 
   if (body.action === "delete") {
@@ -365,11 +398,15 @@ function normaliserFileItems(valeur: unknown): FileLabelItem[] {
 /**
  * Tire la première entrée de la file (FIFO) et persiste le reste.
  * File vide → label classique le moins utilisé (ne consomme pas la file).
+ * `fromQueue` : true si l'entrée vient du classement admin (à restaurer en échec).
  */
 async function popLabelFile(
   supabase: Supabase,
   langue: string,
-): Promise<{ ok: true; item: FileLabelItem } | { ok: false; error: string }> {
+): Promise<
+  | { ok: true; item: FileLabelItem; fromQueue: boolean }
+  | { ok: false; error: string }
+> {
   const { data } = await supabase
     .from("reglages")
     .select("valeur")
@@ -387,12 +424,57 @@ async function popLabelFile(
       { onConflict: "cle" },
     );
     if (!first) return { ok: false, error: "NO_LABELS" };
-    return { ok: true, item: first };
+    return { ok: true, item: first, fromQueue: true };
   }
 
   const labelId = await labelMoinsUtiliseParLangue(supabase, langue, { ugcOnly: false });
   if (!labelId) return { ok: false, error: "NO_LABELS" };
-  return { ok: true, item: { label_id: labelId, ugc: false } };
+  return { ok: true, item: { label_id: labelId, ugc: false }, fromQueue: false };
+}
+
+/**
+ * Consomme la file admin (prévaut toujours) + persona UGC si besoin.
+ * `fileItemQueue` = entrée exacte à remettre en tête en cas d'échec auth/compte.
+ */
+async function preparerFileEtPersona(
+  supabase: Supabase,
+  langue: string,
+): Promise<
+  | {
+    ok: true;
+    fileItem: FileLabelItem;
+    fileItemQueue: FileLabelItem | null;
+    personaUgc: PersonaUgcLibre | null;
+  }
+  | { ok: false; error: string }
+> {
+  const popped = await popLabelFile(supabase, langue);
+  if (!popped.ok) return { ok: false, error: popped.error };
+
+  let fileItem = popped.item;
+  const fileItemQueue = popped.fromQueue ? { ...popped.item } : null;
+  let personaUgc: PersonaUgcLibre | null = null;
+
+  if (fileItem.ugc) {
+    const labelOk = await labelADesContenusUgc(supabase, fileItem.label_id);
+    if (!labelOk) {
+      const fallback = await labelMoinsUtiliseParLangue(supabase, langue, {
+        ugcOnly: true,
+      });
+      if (!fallback) {
+        if (fileItemQueue) await unshiftLabelFile(supabase, fileItemQueue);
+        return { ok: false, error: "NO_UGC_LABEL" };
+      }
+      fileItem = { label_id: fallback, ugc: true };
+    }
+    personaUgc = await personaUgcLibre(supabase);
+    if (!personaUgc) {
+      if (fileItemQueue) await unshiftLabelFile(supabase, fileItemQueue);
+      return { ok: false, error: "NO_UGC_PERSONA" };
+    }
+  }
+
+  return { ok: true, fileItem, fileItemQueue, personaUgc };
 }
 
 /** Label avec le moins de comptes actifs dans la langue (ou global si langue vide). */
@@ -552,6 +634,8 @@ async function preparerCompte(
   fileItem: FileLabelItem | null,
   postsParJour: number,
   personaUgc: PersonaUgcLibre | null,
+  /** Entrée admin à restaurer si l'insert échoue (pas le fallback label). */
+  fileItemQueue: FileLabelItem | null = null,
 ): Promise<{
   id: string;
   reference: string | null;
@@ -561,6 +645,7 @@ async function preparerCompte(
 }> {
   const ugc = Boolean(fileItem?.ugc && personaUgc);
   const labelId = fileItem?.label_id ?? null;
+  const aRestaurer = fileItemQueue ?? fileItem;
 
   const { data: compte, error } = await supabase
     .from("comptes")
@@ -579,7 +664,7 @@ async function preparerCompte(
     .select("id")
     .single();
   if (error || !compte) {
-    if (fileItem) await unshiftLabelFile(supabase, fileItem);
+    if (aRestaurer) await unshiftLabelFile(supabase, aRestaurer);
     return { id: "", reference: referenceId, persona: false, labelId, ugc };
   }
 

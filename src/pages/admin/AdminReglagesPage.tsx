@@ -202,6 +202,7 @@ export function AdminReglagesPage() {
   const reglages = brouillon ?? data ?? null;
   const [labelAjout, setLabelAjout] = React.useState("");
   const [ugcAjout, setUgcAjout] = React.useState(false);
+  const [fileSauveAt, setFileSauveAt] = React.useState<number | null>(null);
 
   const enregistrer = useMutation({
     mutationFn: async (r: Reglages) => {
@@ -213,6 +214,7 @@ export function AdminReglagesPage() {
       await ecrireReglage("moteur_vnext", r.moteur_vnext);
       await ecrireReglage("assignation_auto", r.assignation_auto);
       await ecrireReglage("nettoyage", r.nettoyage);
+      // File déjà autosauvegardée à chaque edit — on resync quand même.
       await ecrireReglage("file_labels_comptes", r.file_labels_comptes);
       await ecrireReglage("warmup", r.warmup);
     },
@@ -222,11 +224,28 @@ export function AdminReglagesPage() {
     },
   });
 
+  /** File admin : persistée immédiatement (prévaut sur l’auto à la création). */
+  const persisterFile = useMutation({
+    mutationFn: (file: Reglages["file_labels_comptes"]) =>
+      ecrireReglage("file_labels_comptes", file),
+    onSuccess: (_void, file) => {
+      setFileSauveAt(Date.now());
+      queryClient.setQueryData<Reglages>(["reglages"], (old) =>
+        old ? { ...old, file_labels_comptes: file } : old,
+      );
+    },
+  });
+
   if (isPending || !reglages) {
     return <p className="text-sm text-muted-foreground">{t("common.loading")}</p>;
   }
 
   const maj = (patch: Partial<Reglages>) => setBrouillon({ ...reglages, ...patch });
+  const majFile = (items: FileLabelCompteItem[]) => {
+    const file = { items };
+    setBrouillon({ ...reglages, file_labels_comptes: file });
+    persisterFile.mutate(file);
+  };
   const majScoring = (patch: Partial<Reglages["scoring"]>) =>
     maj({ scoring: { ...reglages.scoring, ...patch } });
   const total =
@@ -500,14 +519,20 @@ export function AdminReglagesPage() {
           <section className="space-y-3">
             <h3 className="text-sm font-medium">{t("warmup.fileTitre")}</h3>
             <p className="text-xs text-muted-foreground">{t("warmup.fileDesc")}</p>
+            <p className="text-xs text-muted-foreground">
+              {t("warmup.fileAutosave")}
+              {persisterFile.isPending
+                ? ` — ${t("common.saving")}`
+                : fileSauveAt
+                  ? ` — ${t("warmup.fileSauvee")}`
+                  : ""}
+            </p>
             <ol className="space-y-1.5">
               {reglages.file_labels_comptes.items.length === 0 && (
                 <li className="text-sm text-muted-foreground">{t("warmup.fileVideListe")}</li>
               )}
               {reglages.file_labels_comptes.items.map((item, i) => {
                 const lab = (labels.data ?? []).find((l) => l.id === item.label_id);
-                const majItems = (items: FileLabelCompteItem[]) =>
-                  maj({ file_labels_comptes: { items } });
                 return (
                   <li
                     key={`${item.label_id}-${item.ugc}-${i}`}
@@ -527,11 +552,11 @@ export function AdminReglagesPage() {
                         type="button"
                         size="sm"
                         variant="ghost"
-                        disabled={i === 0}
+                        disabled={i === 0 || persisterFile.isPending}
                         onClick={() => {
                           const items = [...reglages.file_labels_comptes.items];
                           [items[i - 1], items[i]] = [items[i]!, items[i - 1]!];
-                          majItems(items);
+                          majFile(items);
                         }}
                       >
                         ↑
@@ -540,11 +565,14 @@ export function AdminReglagesPage() {
                         type="button"
                         size="sm"
                         variant="ghost"
-                        disabled={i >= reglages.file_labels_comptes.items.length - 1}
+                        disabled={
+                          i >= reglages.file_labels_comptes.items.length - 1 ||
+                          persisterFile.isPending
+                        }
                         onClick={() => {
                           const items = [...reglages.file_labels_comptes.items];
                           [items[i], items[i + 1]] = [items[i + 1]!, items[i]!];
-                          majItems(items);
+                          majFile(items);
                         }}
                       >
                         ↓
@@ -554,8 +582,9 @@ export function AdminReglagesPage() {
                         size="sm"
                         variant="ghost"
                         className="text-destructive"
+                        disabled={persisterFile.isPending}
                         onClick={() => {
-                          majItems(
+                          majFile(
                             reglages.file_labels_comptes.items.filter((_, j) => j !== i),
                           );
                         }}
@@ -609,17 +638,14 @@ export function AdminReglagesPage() {
                 size="sm"
                 disabled={
                   !labelAjout ||
+                  persisterFile.isPending ||
                   (ugcAjout && !(labelsUgc.data ?? []).includes(labelAjout))
                 }
                 onClick={() => {
-                  maj({
-                    file_labels_comptes: {
-                      items: [
-                        ...reglages.file_labels_comptes.items,
-                        { label_id: labelAjout, ugc: ugcAjout },
-                      ],
-                    },
-                  });
+                  majFile([
+                    ...reglages.file_labels_comptes.items,
+                    { label_id: labelAjout, ugc: ugcAjout },
+                  ]);
                   setLabelAjout("");
                   setUgcAjout(false);
                 }}
@@ -629,6 +655,11 @@ export function AdminReglagesPage() {
             </div>
             {ugcAjout && (labelsUgc.data ?? []).length === 0 && (
               <p className="text-xs text-destructive">{t("warmup.aucunLabelUgc")}</p>
+            )}
+            {persisterFile.isError && (
+              <p className="text-xs text-destructive">
+                {(persisterFile.error as Error).message}
+              </p>
             )}
           </section>
         </CardContent>

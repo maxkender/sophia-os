@@ -158,7 +158,10 @@ function vignette(c: ContenuListe): string | null {
   return first?.raw_url ?? first?.reference_url ?? null;
 }
 
-type TriSlideshow = "recent" | "label" | "elo" | "posts";
+type TriSlideshow = "recent" | "elo" | "posts";
+/** null = tous ; "__none__" = sans label ; sinon id label */
+type FiltreLabel = string | null;
+type FiltreUgc = "tous" | "oui" | "non";
 
 function eloMax(c: ContenuListe): number {
   const scores = c.scores ?? [];
@@ -166,12 +169,21 @@ function eloMax(c: ContenuListe): number {
   return Math.max(...scores.map((s) => s.score));
 }
 
-function labelCle(c: ContenuListe): string {
-  const noms = (c.labels ?? [])
-    .map((l) => l.nom.trim())
-    .filter(Boolean)
-    .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }));
-  return noms[0] ?? "";
+function filtreSlideshows(
+  liste: ContenuListe[],
+  opts: { labelId: FiltreLabel; ugc: FiltreUgc },
+): ContenuListe[] {
+  return liste.filter((c) => {
+    if (opts.ugc === "oui" && !c.ugc_compatible) return false;
+    if (opts.ugc === "non" && c.ugc_compatible) return false;
+    if (opts.labelId === "__none__") {
+      return (c.labels ?? []).length === 0;
+    }
+    if (opts.labelId) {
+      return (c.labels ?? []).some((l) => l.id === opts.labelId);
+    }
+    return true;
+  });
 }
 
 function trierSlideshows(liste: ContenuListe[], tri: TriSlideshow): ContenuListe[] {
@@ -179,15 +191,6 @@ function trierSlideshows(liste: ContenuListe[], tri: TriSlideshow): ContenuListe
   const parDate = (a: ContenuListe, b: ContenuListe) =>
     b.created_at.localeCompare(a.created_at);
   switch (tri) {
-    case "label":
-      return arr.sort((a, b) => {
-        const la = labelCle(a);
-        const lb = labelCle(b);
-        if (!la && lb) return 1;
-        if (la && !lb) return -1;
-        const cmp = la.localeCompare(lb, undefined, { sensitivity: "base" });
-        return cmp !== 0 ? cmp : parDate(a, b);
-      });
     case "elo":
       return arr.sort((a, b) => {
         const diff = eloMax(b) - eloMax(a);
@@ -201,6 +204,33 @@ function trierSlideshows(liste: ContenuListe[], tri: TriSlideshow): ContenuListe
     default:
       return arr.sort(parDate);
   }
+}
+
+function Chip({
+  actif,
+  onClick,
+  children,
+  style,
+}: {
+  actif: boolean;
+  onClick: () => void;
+  children: React.ReactNode;
+  style?: React.CSSProperties;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      style={style}
+      className={
+        actif
+          ? "rounded-md bg-primary px-2.5 py-1 text-xs font-medium text-primary-foreground"
+          : "rounded-md border px-2.5 py-1 text-xs hover:bg-muted"
+      }
+    >
+      {children}
+    </button>
+  );
 }
 
 function DeckLangue({
@@ -1231,6 +1261,8 @@ export function AdminSlideshowsPage() {
   const queryClient = useQueryClient();
   const [searchParams, setSearchParams] = useSearchParams();
   const [filtre, setFiltre] = React.useState<"tous" | "valide" | "rejete">("tous");
+  const [filtreLabel, setFiltreLabel] = React.useState<FiltreLabel>(null);
+  const [filtreUgc, setFiltreUgc] = React.useState<FiltreUgc>("tous");
   const [tri, setTri] = React.useState<TriSlideshow>("recent");
   const [ouvert, setOuvert] = React.useState<string | null>(
     searchParams.get("id"),
@@ -1255,10 +1287,38 @@ export function AdminSlideshowsPage() {
       }),
   });
 
-  const contenusTries = React.useMemo(
-    () => trierSlideshows(contenus.data ?? [], tri),
-    [contenus.data, tri],
-  );
+  const labelsTous = useQuery({
+    queryKey: ["labels"],
+    queryFn: listerLabels,
+    staleTime: 60_000,
+  });
+
+  const labelsDisponibles = React.useMemo(() => {
+    const fromListe = labelsTous.data ?? [];
+    if (fromListe.length > 0) {
+      return [...fromListe].sort((a, b) =>
+        a.nom.localeCompare(b.nom, undefined, { sensitivity: "base" }),
+      );
+    }
+    // Fallback : labels présents sur les contenus chargés
+    const map = new Map<string, { id: string; nom: string; couleur: string | null }>();
+    for (const c of contenus.data ?? []) {
+      for (const l of c.labels ?? []) {
+        if (!map.has(l.id)) map.set(l.id, l);
+      }
+    }
+    return [...map.values()].sort((a, b) =>
+      a.nom.localeCompare(b.nom, undefined, { sensitivity: "base" }),
+    );
+  }, [labelsTous.data, contenus.data]);
+
+  const contenusTries = React.useMemo(() => {
+    const filtres = filtreSlideshows(contenus.data ?? [], {
+      labelId: filtreLabel,
+      ugc: filtreUgc,
+    });
+    return trierSlideshows(filtres, tri);
+  }, [contenus.data, filtreLabel, filtreUgc, tri]);
 
   function fermerDetail() {
     setOuvert(null);
@@ -1358,35 +1418,94 @@ export function AdminSlideshowsPage() {
               ))}
             </div>
           )}
-          <div className="flex flex-wrap items-center gap-2">
-            {(["tous", "valide", "rejete"] as const).map((f) => (
-              <button
-                key={f}
-                type="button"
-                onClick={() => setFiltre(f)}
-                className={
-                  filtre === f
-                    ? "rounded-md bg-primary px-3 py-1 text-xs font-medium text-primary-foreground"
-                    : "rounded-md border px-3 py-1 text-xs"
-                }
-              >
-                {t(`contenus.filtre.${f}`)}
-              </button>
-            ))}
-            <label className="ml-auto flex items-center gap-1.5 text-xs text-muted-foreground">
-              <span className="whitespace-nowrap">{t("slideshows.triLabel")}</span>
-              <select
-                className="h-7 rounded-md border bg-background px-2 text-xs text-foreground"
-                value={tri}
-                onChange={(e) => setTri(e.target.value as TriSlideshow)}
-              >
-                {(["recent", "label", "elo", "posts"] as const).map((k) => (
-                  <option key={k} value={k}>
-                    {t(`slideshows.tri.${k}`)}
-                  </option>
+          <div className="space-y-3">
+            <div className="flex flex-wrap items-center gap-1.5">
+              {(["tous", "valide", "rejete"] as const).map((f) => (
+                <Chip key={f} actif={filtre === f} onClick={() => setFiltre(f)}>
+                  {t(`contenus.filtre.${f}`)}
+                </Chip>
+              ))}
+            </div>
+
+            <div className="space-y-1.5">
+              <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
+                {t("slideshows.filtreLabel")}
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                <Chip
+                  actif={filtreLabel === null}
+                  onClick={() => setFiltreLabel(null)}
+                >
+                  {t("slideshows.filtreLabelsTous")}
+                </Chip>
+                <Chip
+                  actif={filtreLabel === "__none__"}
+                  onClick={() => setFiltreLabel("__none__")}
+                >
+                  {t("slideshows.sansLabel")}
+                </Chip>
+                {labelsDisponibles.map((l) => (
+                  <Chip
+                    key={l.id}
+                    actif={filtreLabel === l.id}
+                    onClick={() =>
+                      setFiltreLabel(filtreLabel === l.id ? null : l.id)
+                    }
+                    style={
+                      filtreLabel === l.id || !l.couleur
+                        ? undefined
+                        : { borderColor: l.couleur, color: l.couleur }
+                    }
+                  >
+                    {l.nom}
+                  </Chip>
                 ))}
-              </select>
-            </label>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-end justify-between gap-3">
+              <div className="space-y-1.5">
+                <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
+                  {t("slideshows.filtreUgc")}
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {(
+                    [
+                      ["tous", "filtreUgcTous"],
+                      ["oui", "filtreUgcOui"],
+                      ["non", "filtreUgcNon"],
+                    ] as const
+                  ).map(([k, cle]) => (
+                    <Chip
+                      key={k}
+                      actif={filtreUgc === k}
+                      onClick={() => setFiltreUgc(k)}
+                    >
+                      {t(`slideshows.${cle}`)}
+                    </Chip>
+                  ))}
+                </div>
+              </div>
+
+              <div className="space-y-1.5">
+                <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
+                  {t("slideshows.triLabel")}
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {(["recent", "elo", "posts"] as const).map((k) => (
+                    <Chip key={k} actif={tri === k} onClick={() => setTri(k)}>
+                      {t(`slideshows.tri.${k}`)}
+                    </Chip>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {!contenus.isPending && (
+              <p className="text-[11px] text-muted-foreground">
+                {t("slideshows.resultatFiltre", { count: contenusTries.length })}
+              </p>
+            )}
           </div>
 
           {contenus.isPending && (
@@ -1437,12 +1556,25 @@ export function AdminSlideshowsPage() {
                         labels.slice(0, 3).map((l) => (
                           <span
                             key={l.id}
-                            className="rounded border px-1 py-0.5 text-[10px]"
+                            role="button"
+                            tabIndex={0}
+                            className="rounded border px-1 py-0.5 text-[10px] hover:bg-muted"
                             style={
                               l.couleur
                                 ? { borderColor: l.couleur, color: l.couleur }
                                 : undefined
                             }
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setFiltreLabel(l.id);
+                            }}
+                            onKeyDown={(e) => {
+                              if (e.key === "Enter" || e.key === " ") {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                setFiltreLabel(l.id);
+                              }
+                            }}
                           >
                             {l.nom}
                           </span>

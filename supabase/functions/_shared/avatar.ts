@@ -9,74 +9,116 @@ export interface VisuelAvatar {
   used_count: number;
 }
 
-/**
- * Choisit une photo de profil : n'importe quelle image NETTOYÉE de la source (ou
- * globale), INSTANTANÉMENT — plus de détection de visage par Gemini à la création
- * (c'était le vrai goulot : jusqu'à 6 appels ~2 s = identité qui traîne). On
- * privilégie une image déjà jugée sans visage si dispo, sinon n'importe quelle
- * photo nettoyée fait l'affaire. On évite les avatars déjà attribués à un autre
- * compte (sinon deux posters partagent la même photo). La maintenance peut
- * affiner « sans visage » plus tard, hors du chemin critique.
- */
-export async function choisirVisuelSansVisage(
-  supabase: Supabase,
-  compteReferenceId: string | null,
-): Promise<VisuelAvatar | null> {
+async function urlsDejaPrises(supabase: Supabase): Promise<Set<string>> {
   const { data: dejaAvatars } = await supabase
     .from("comptes")
     .select("avatar_url")
     .not("avatar_url", "is", null);
-  const pris = new Set((dejaAvatars ?? []).map((c) => c.avatar_url as string));
-  const premierLibre = (medias: VisuelAvatar[] | null) =>
-    (medias ?? []).find((m) => !pris.has(m.url)) ?? null;
+  return new Set((dejaAvatars ?? []).map((c) => c.avatar_url as string));
+}
 
-  // Une seule requête (pas d'appel Gemini). `sansVisageDabord` place les images
-  // déjà jugées sans visage en tête, mais n'exclut PAS les autres.
-  const chercher = async (limiterALaSource: boolean) => {
-    let q = supabase
-      .from("media_library")
-      .select("id, url, used_count")
-      .eq("texte_restant", false)
-      .like("storage_path", "propre/%")
-      // false (sans visage) avant null (non jugé) avant true — nulls en dernier.
-      .order("visage_identifiable", { ascending: true, nullsFirst: false })
-      .order("used_count")
-      .limit(80);
-    if (limiterALaSource && compteReferenceId) q = q.eq("compte_reference_id", compteReferenceId);
-    const { data } = await q;
-    return premierLibre(data);
-  };
+async function chercherVisuels(
+  supabase: Supabase,
+  opts: { labelId?: string | null; sourceId?: string | null },
+): Promise<VisuelAvatar[]> {
+  let q = supabase
+    .from("media_library")
+    .select(
+      opts.labelId
+        ? "id, url, used_count, media_labels!inner(label_id)"
+        : "id, url, used_count",
+    )
+    .eq("texte_restant", false)
+    .like("storage_path", "propre/%")
+    .order("visage_identifiable", { ascending: true, nullsFirst: false })
+    .order("used_count")
+    .limit(80);
+  if (opts.labelId) q = q.eq("media_labels.label_id", opts.labelId);
+  if (opts.sourceId) q = q.eq("compte_reference_id", opts.sourceId);
+  const { data } = await q;
+  return (data as VisuelAvatar[] | null) ?? [];
+}
 
-  return (compteReferenceId ? await chercher(true) : null) ?? (await chercher(false));
+function premierLibre(medias: VisuelAvatar[], pris: Set<string>): VisuelAvatar | null {
+  return medias.find((m) => !pris.has(m.url)) ?? null;
 }
 
 /**
- * Photo de profil À COPIER pour un poster de cette source : l'avatar PRÉPARÉ à
- * l'avance sur le compte de référence (aucun appel), sinon on en choisit un à la
- * volée. Renvoie null seulement si vraiment aucune image sans visage n'existe.
+ * Choisit une photo de profil nettoyée, INSTANTANÉMENT.
+ * Ordre : label → source → global. Privilégie sans visage, évite les doublons.
  */
+export async function choisirVisuelSansVisage(
+  supabase: Supabase,
+  compteReferenceId: string | null,
+  labelId?: string | null,
+): Promise<VisuelAvatar | null> {
+  const pris = await urlsDejaPrises(supabase);
+
+  if (labelId) {
+    const parLabel = premierLibre(await chercherVisuels(supabase, { labelId }), pris);
+    if (parLabel) return parLabel;
+  }
+  if (compteReferenceId) {
+    const parSource = premierLibre(
+      await chercherVisuels(supabase, { sourceId: compteReferenceId }),
+      pris,
+    );
+    if (parSource) return parSource;
+  }
+  return premierLibre(await chercherVisuels(supabase, {}), pris);
+}
+
+/**
+ * Photo de profil pour un compte :
+ *   1) média du LABEL
+ *   2) avatar préparé de la source
+ *   3) média de la source
+ *   4) biblio globale
+ */
+export async function avatarPourCompte(
+  supabase: Supabase,
+  opts: { compteReferenceId: string | null; labelId?: string | null },
+): Promise<VisuelAvatar | null> {
+  const pris = await urlsDejaPrises(supabase);
+
+  if (opts.labelId) {
+    const parLabel = premierLibre(
+      await chercherVisuels(supabase, { labelId: opts.labelId }),
+      pris,
+    );
+    if (parLabel) return parLabel;
+  }
+
+  if (opts.compteReferenceId) {
+    const { data: ref } = await supabase
+      .from("comptes_reference")
+      .select("avatar_url, avatar_media_id")
+      .eq("id", opts.compteReferenceId)
+      .maybeSingle();
+    if (ref?.avatar_url && !pris.has(ref.avatar_url)) {
+      return { id: ref.avatar_media_id ?? "", url: ref.avatar_url, used_count: 0 };
+    }
+
+    const parSource = premierLibre(
+      await chercherVisuels(supabase, { sourceId: opts.compteReferenceId }),
+      pris,
+    );
+    if (parSource) return parSource;
+  }
+
+  return premierLibre(await chercherVisuels(supabase, {}), pris);
+}
+
+/** @deprecated préférer avatarPourCompte — conservé pour maintenance. */
 export async function avatarPourSource(
   supabase: Supabase,
   compteReferenceId: string | null,
 ): Promise<VisuelAvatar | null> {
-  if (compteReferenceId) {
-    const { data: ref } = await supabase
-      .from("comptes_reference")
-      .select("avatar_url, avatar_media_id")
-      .eq("id", compteReferenceId)
-      .maybeSingle();
-    if (ref?.avatar_url) {
-      return { id: ref.avatar_media_id ?? "", url: ref.avatar_url, used_count: 0 };
-    }
-  }
-  return choisirVisuelSansVisage(supabase, compteReferenceId);
+  return avatarPourCompte(supabase, { compteReferenceId });
 }
 
 /**
- * PRÉPARE (à l'avance, la nuit) la photo de profil d'un compte de référence :
- * choisit un visuel sans visage et le mémorise sur la source. À la création d'un
- * poster, il n'y a plus qu'à le copier — zéro appel, zéro attente. Renvoie l'URL
- * préparée, ou null si la source n'a encore aucune image exploitable.
+ * PRÉPARE (à l'avance, la nuit) la photo de profil d'un compte de référence.
  */
 export async function preparerAvatarReference(
   supabase: Supabase,

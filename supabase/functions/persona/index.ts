@@ -1,15 +1,15 @@
-import { avatarPourSource } from "../_shared/avatar.ts";
+import { avatarPourCompte } from "../_shared/avatar.ts";
 import {
   appliquerIdentiteInstantanee,
   genererIdentite,
+  genreDuLabel,
   type Genre,
 } from "../_shared/persona.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 /**
- * Identité d'un compte de publication : @ « prenom.mot-culture+chiffres » selon
- * le GENRE du compte de référence (toggle homme/femme sur la page source) + nom
- * « Prénom Nom » + bio + avatar. 100 % déterministe et instantané (aucun Gemini).
+ * Identité d'un compte de publication : @ selon LANGUE + LABEL (thème) + genre,
+ * nom, bio, avatar filtré par label. 100 % déterministe et instantané.
  *
  *   { compteId }              → proposition (aperçu, sans appliquer)
  *   { compteId, appliquer }   → applique l'identité sur le compte
@@ -33,8 +33,6 @@ Deno.serve(async (request) => {
   if (!compteId) return json({ error: "compteId requis" }, 400);
 
   try {
-    // Appliquer : on passe par le chemin instantané partagé (lit le genre de la
-    // référence, ne remplit que ce qui manque), puis on relit l'état pour le front.
     if (appliquer) {
       const { handle } = await appliquerIdentiteInstantanee(supabase, compteId);
       const { data: c } = await supabase
@@ -53,7 +51,6 @@ Deno.serve(async (request) => {
       });
     }
 
-    // Proposition : on génère une identité candidate SANS l'appliquer.
     const { data: compte, error } = await supabase
       .from("comptes")
       .select("langue, compte_reference_id, comptes_reference(genre)")
@@ -61,10 +58,27 @@ Deno.serve(async (request) => {
       .single();
     if (error || !compte) return json({ error: "Compte introuvable" }, 404);
 
+    const { data: cl } = await supabase
+      .from("compte_labels")
+      .select("label_id, labels(nom, slug)")
+      .eq("compte_id", compteId)
+      .limit(1)
+      .maybeSingle();
     // deno-lint-ignore no-explicit-any
-    const genre: Genre = (compte as any).comptes_reference?.genre === "homme" ? "homme" : "femme";
-    const identite = await genererIdentite(supabase, compte.langue, genre);
-    const avatar = await avatarPourSource(supabase, compte.compte_reference_id);
+    const labelRow = cl as any;
+    const labelNom: string | null = labelRow?.labels?.nom ?? labelRow?.labels?.slug ?? null;
+    const labelId: string | null = (labelRow?.label_id as string | undefined) ?? null;
+
+    // deno-lint-ignore no-explicit-any
+    const genreSource: Genre =
+      (compte as any).comptes_reference?.genre === "homme" ? "homme" : "femme";
+    const genre = genreDuLabel(labelNom) ?? genreSource;
+
+    const identite = await genererIdentite(supabase, compte.langue, genre, labelNom);
+    const avatar = await avatarPourCompte(supabase, {
+      compteReferenceId: compte.compte_reference_id,
+      labelId,
+    });
 
     return json({
       ok: true,

@@ -1261,11 +1261,11 @@ export const en = {
         "Timer starts when the creator clicks “Start warmup” in their calendar (default 24 h).",
       fileTitre: "Label queue (next accounts)",
       fileDesc:
-        "FIFO order: the first label is assigned to the next account created, then removed from the queue. Empty queue → random label among all labels.",
+        "FIFO order: the first label is assigned to the next account created, then removed from the queue. Empty queue → least-used label among active accounts in the same language.",
       fileVideListe:
-        "Empty queue — the next account will get a random label among all labels.",
+        "Empty queue — the next account will get the least-used label in its language.",
       fileVide:
-        "The label queue is empty: a label will be picked at random among all existing labels.",
+        "The label queue is empty: we assign the least-used label for the creator’s language.",
       aucunLabel:
         "No labels in the database — create at least one (Library / Labels) before creating a poster.",
       ajouterLabel: "Add a label",

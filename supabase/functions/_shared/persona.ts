@@ -1,66 +1,214 @@
-import { avatarPourSource } from "./avatar.ts";
+import { avatarPourCompte } from "./avatar.ts";
 
 type Supabase = ReturnType<typeof import("./supabase.ts").serviceClient>;
 
 /**
  * Identité d'un compte de publication (pseudo, nom, bio, avatar), déterministe et
- * INSTANTANÉE (aucun appel Gemini). Format du @ : `prenom.mot-culture` + 3
- * chiffres — ex. « matteo.cultive473 ». Le prénom respecte le GENRE du compte de
- * référence (toggle homme/femme sur la page source) et la langue du poster.
+ * INSTANTANÉE (aucun appel Gemini).
+ *
+ * Format du @ : `prenom.mot-theme` + 3 chiffres — ex. « jakob.disziplin473 ».
+ * — Prénoms / noms : selon la LANGUE du créateur
+ * — Mot du @ : selon le LABEL (thème) + la langue
+ * — Genre : hint label (alpha_male / *_girl) sinon genre de la source
  */
 
 export type Genre = "homme" | "femme";
+
+/** Thèmes dérivés des labels (slug/nom normalisé). */
+export type ThemeLabel =
+  | "alpha_male"
+  | "smart_girl"
+  | "clean_girl"
+  | "cinema"
+  | "anciens"
+  | "default";
 
 interface JeuDeNoms {
   prenomsH: string[];
   prenomsF: string[];
   noms: string[];
-  /** Mots évoquant la culture / le développement personnel, pour le @. */
-  culture: string[];
 }
 
-/** Prénoms (connus dans le pays), noms de famille et mots « culture/dév » par
- *  langue. Volontairement courants pour rester crédibles. */
+/** Prénoms + noms de famille par langue (crédibles localement). */
 const NOMS_PAR_LANGUE: Record<string, JeuDeNoms> = {
   fr: {
     prenomsH: ["matteo", "lucas", "nathan", "gabriel", "hugo", "louis", "adam", "raphael", "arthur", "jules", "leo", "ethan", "noah", "paul"],
     prenomsF: ["emma", "lea", "chloe", "manon", "sarah", "camille", "ines", "jade", "louise", "alice", "lina", "anna", "clara", "eva"],
     noms: ["martin", "bernard", "dubois", "moreau", "laurent", "lefevre", "roux", "fournier", "girard", "bonnet"],
-    culture: ["cultive", "savoir", "culture", "evolue", "grandit", "apprend", "progresse", "developpe", "inspire", "eclaire"],
   },
   en: {
     prenomsH: ["mark", "james", "jack", "ryan", "ethan", "liam", "noah", "luke", "adam", "ben", "jacob", "dylan", "owen", "sam"],
     prenomsF: ["emily", "olivia", "sophie", "grace", "chloe", "mia", "ava", "ella", "lily", "hannah", "zoe", "ruby", "isla", "erin"],
     noms: ["smith", "jones", "brooks", "carter", "reed", "hayes", "morgan", "bennett", "cole", "ward"],
-    culture: ["culture", "growth", "mindset", "develops", "learns", "evolves", "thrives", "wisdom", "improve", "development"],
   },
   de: {
     prenomsH: ["jakob", "felix", "lukas", "jonas", "leon", "paul", "ben", "elias", "finn", "noah", "luca", "tim", "max", "moritz"],
     prenomsF: ["mia", "emma", "hannah", "lena", "lea", "marie", "lina", "clara", "anna", "sophie", "laura", "nele", "ida", "greta"],
     noms: ["mueller", "schmidt", "weber", "wagner", "becker", "hoffmann", "koch", "richter", "klein", "wolf"],
-    culture: ["kultur", "wissen", "wachstum", "entwickelt", "lernt", "klarheit", "staerke", "fortschritt", "inspiriert", "bildung"],
   },
   it: {
     prenomsH: ["matteo", "leonardo", "francesco", "alessandro", "lorenzo", "andrea", "gabriele", "marco", "luca", "davide", "riccardo", "tommaso", "giulio", "pietro"],
     prenomsF: ["giulia", "sofia", "aurora", "alice", "emma", "giorgia", "martina", "chiara", "sara", "beatrice", "gaia", "elisa", "viola", "alessia"],
     noms: ["rossi", "bianchi", "ferrari", "russo", "romano", "gallo", "costa", "conti", "ricci", "marino"],
-    culture: ["cultura", "crescita", "sapere", "evolve", "impara", "mentalita", "sviluppo", "ispira", "migliora", "saggezza"],
   },
   es: {
     prenomsH: ["hugo", "mateo", "martin", "lucas", "pablo", "alvaro", "adrian", "diego", "daniel", "alejandro", "marco", "javier", "mario", "leo"],
     prenomsF: ["lucia", "sofia", "martina", "maria", "paula", "julia", "valeria", "alba", "emma", "carla", "daniela", "sara", "vega", "alma"],
     noms: ["garcia", "martinez", "lopez", "sanchez", "romero", "torres", "ramos", "vega", "castro", "iglesias"],
-    culture: ["cultura", "crecimiento", "saber", "evoluciona", "aprende", "mentalidad", "desarrollo", "inspira", "mejora", "sabiduria"],
   },
   pt: {
     prenomsH: ["joao", "francisco", "afonso", "tomas", "martim", "guilherme", "rodrigo", "tiago", "miguel", "diogo", "gabriel", "duarte", "santiago", "pedro"],
     prenomsF: ["maria", "matilde", "leonor", "beatriz", "carolina", "ana", "mariana", "ines", "sofia", "margarida", "francisca", "lara", "alice", "clara"],
     noms: ["silva", "santos", "ferreira", "costa", "oliveira", "sousa", "rocha", "martins", "pinto", "carvalho"],
-    culture: ["cultura", "crescimento", "saber", "evolui", "aprende", "mentalidade", "desenvolve", "inspira", "melhora", "sabedoria"],
+  },
+  cs: {
+    prenomsH: ["jan", "adam", "tomas", "lukas", "matej", "filip", "david", "jakub", "ondrej", "martin", "petr", "varek", "daniel", "simon"],
+    prenomsF: ["elina", "tereza", "anna", "katerina", "natalie", "viktorie", "adela", "nikola", "barbora", "karolina", "julie", "sofie", "emma", "lucie"],
+    noms: ["novak", "svoboda", "novotny", "dvorak", "cerny", "prochazka", "kucera", "vesely", "horak", "nemec"],
+  },
+  nl: {
+    prenomsH: ["daan", "sem", "lucas", "levi", "finn", "milan", "noah", "luuk", "jesse", "thijs", "max", "sam", "thomas", "bram"],
+    prenomsF: ["emma", "julia", "sophie", "mila", "sara", "lisa", "nova", "liv", "fleur", "anna", "lotte", "isa", "nora", "eva"],
+    noms: ["deboer", "jansen", "devries", "bakker", "visser", "smit", "meijer", "mulder", "bos", "vos"],
+  },
+  el: {
+    prenomsH: ["giorgos", "nikos", "dimitris", "giannis", "kostas", "alexandros", "panagiotis", "christos", "antonis", "stefanos", "manolis", "thodoris", "vasilis", "petros"],
+    prenomsF: ["maria", "eleni", "katerina", "sofia", "anna", "despoina", "ioanna", "christina", "georgia", "daphne", "irene", "nikoleta", "eva", "alexandra"],
+    noms: ["papadopoulos", "nikolaou", "georgiou", "dimitriou", "ioannou", "papadakis", "vasileiou", "antonis", "christou", "markou"],
+  },
+  hu: {
+    prenomsH: ["balint", "mate", "dominik", "levente", "adam", "david", "balazs", "tamas", "gabor", "marton", "zoltan", "peter", "laszlo", "istvan"],
+    prenomsF: ["hanna", "anna", "lila", "zsofia", "emma", "nora", "laura", "reka", "vivien", "dora", "kata", "petra", "luca", "sara"],
+    noms: ["nagy", "kovacs", "toth", "szabo", "horvath", "varga", "kiss", "molnar", "nemeth", "farkas"],
+  },
+  pl: {
+    prenomsH: ["jakub", "antoni", "jan", "szymon", "franciszek", "filip", "aleksander", "mikolaj", "wojciech", "kacper", "mateusz", "bartek", "adam", "piotr"],
+    prenomsF: ["zofia", "zuzanna", "hanna", "julia", "maja", "laura", "olena", "alicia", "lena", "maria", "natalia", "emilia", "pola", "anna"],
+    noms: ["nowak", "kowalski", "wisniewski", "wojcik", "kaminski", "lewandowski", "zielinski", "szymanski", "wozniak", "kozlowski"],
+  },
+  ro: {
+    prenomsH: ["andrej", "mihai", "alexandru", "andrei", "david", "stefan", "gabriel", "matei", "cristian", "ionut", "daniel", "razvan", "vlad", "radu"],
+    prenomsF: ["maria", "elena", "ioana", "andreea", "sofia", "ana", "daria", "sara", "alexandra", "lara", "emma", "karina", "iris", "teodora"],
+    noms: ["popescu", "ionescu", "pop", "stan", "dumitru", "georgescu", "stoica", "ciobanu", "marin", "tureac"],
+  },
+  sv: {
+    prenomsH: ["erik", "lars", "karl", "anders", "johan", "per", "nils", "olof", "gustav", "axel", "hugo", "william", "oskar", "elias"],
+    prenomsF: ["emma", "alice", "maja", "ella", "wilma", "alma", "lily", "ebba", "saga", "astrid", "freja", "nova", "clara", "selma"],
+    noms: ["andersson", "johansson", "karlsson", "nilsson", "eriksson", "larsson", "olsson", "persson", "svensson", "gustafsson"],
+  },
+  tr: {
+    prenomsH: ["emir", "yusuf", "miraç", "ege", "ali", "can", "burak", "kerem", "mert", "arda", "emre", "deniz", "baran", "onur"],
+    prenomsF: ["zeynep", "ela", "defne", "azra", "asya", "miray", "eylul", "derya", "selin", "ece", "melis", "irem", "deniz", "su"],
+    noms: ["yilmaz", "kaya", "demir", "celik", "sahin", "yildiz", "yildirim", "ozturk", "aydin", "ozdemir"],
   },
 };
 
-/** Bio par langue (culture générale). */
+/** Mots du @ par thème × langue (sans accents, minuscules). */
+const CULTURE_PAR_THEME: Record<ThemeLabel, Record<string, string[]>> = {
+  alpha_male: {
+    fr: ["discipline", "focus", "ambition", "force", "mental", "progres", "leader", "rigueur", "drive", "niveau"],
+    en: ["discipline", "focus", "ambition", "mindset", "grind", "level", "leader", "drive", "strength", "growth"],
+    de: ["disziplin", "fokus", "ambition", "mindset", "staerke", "level", "antrieb", "fortschritt", "klarheit", "wille"],
+    it: ["disciplina", "focus", "ambizione", "mentalita", "forza", "livello", "drive", "crescita", "rigore", "leader"],
+    es: ["disciplina", "enfoque", "ambicion", "mentalidad", "fuerza", "nivel", "drive", "crecimiento", "lider", "progreso"],
+    pt: ["disciplina", "foco", "ambicao", "mentalidade", "forca", "nivel", "drive", "crescimento", "lider", "progresso"],
+    cs: ["disciplína", "fokus", "ambice", "mysleni", "sila", "uroven", "rust", "vule", "leader", "pokrok"],
+    nl: ["discipline", "focus", "ambitie", "mindset", "kracht", "niveau", "drive", "groei", "wil", "leider"],
+    el: ["peitharxia", "focus", "filodoxia", "nootropia", "dynami", "epipedo", "anaptyxi", "igetis", "ormi", "proodos"],
+    hu: ["fegyelem", "fokus", "ambicio", "mentalitas", "ero", "szint", "novekedes", "vezeto", "akarat", "haladas"],
+    pl: ["dyscyplina", "fokus", "ambicja", "mindset", "sila", "poziom", "drive", "rozwoj", "lider", "postep"],
+    ro: ["disciplina", "focus", "ambitíe", "mentalitate", "forta", "nivel", "drive", "crestere", "lider", "progres"],
+    sv: ["disciplin", "fokus", "ambition", "mindset", "styrka", "niva", "drive", "tillvaxt", "vilja", "ledare"],
+    tr: ["disiplin", "odak", "hedef", "zihniyet", "guc", "seviye", "azim", "buyume", "lider", "ilerleme"],
+  },
+  smart_girl: {
+    fr: ["cultive", "savoir", "lit", "apprend", "inspire", "curiosite", "eclaire", "pense", "ideas", "livres"],
+    en: ["curious", "reads", "learns", "smart", "books", "ideas", "wisdom", "thinks", "insight", "study"],
+    de: ["neugierig", "lernt", "liest", "klug", "wissen", "buecher", "ideen", "denkt", "bildung", "klarheit"],
+    it: ["curiosa", "legge", "impara", "sapere", "libri", "idee", "pensa", "cultura", "insight", "studia"],
+    es: ["curiosa", "lee", "aprende", "saber", "libros", "ideas", "piensa", "cultura", "insight", "estudia"],
+    pt: ["curiosa", "le", "aprende", "saber", "livros", "ideias", "pensa", "cultura", "insight", "estuda"],
+    cs: ["zvedava", "cte", "uci", "chytra", "knihy", "napady", "mysli", "vedeni", "studium", "moudrost"],
+    nl: ["nieuwsgierig", "leest", "leert", "slim", "boeken", "ideeen", "denkt", "kennis", "studie", "wijsheid"],
+    el: ["periergi", "diavazei", "mathainei", "eksypni", "vivlia", "idees", "skeftetai", "gnosi", "meleti", "sofia"],
+    hu: ["kivancsi", "olvas", "tanul", "okos", "konyvek", "otletek", "gondol", "tudás", "tanulas", "bolcsesseg"],
+    pl: ["ciekawa", "czyta", "uczy", "madrze", "ksiazki", "pomysly", "mysli", "wiedza", "nauka", "madrosc"],
+    ro: ["curioasa", "citeste", "invata", "inteligenta", "carti", "idei", "gandeste", "cultura", "studiu", "intelepciune"],
+    sv: ["nyfiken", "laser", "lar", "smart", "bocker", "ideer", "tankar", "kunskap", "studier", "visdom"],
+    tr: ["merakli", "okur", "ogrenir", "akilli", "kitap", "fikir", "dusunur", "bilgi", "calisir", "bilgelik"],
+  },
+  clean_girl: {
+    fr: ["douce", "naturel", "glow", "simple", "calme", "soft", "pure", "zen", "fresh", "light"],
+    en: ["soft", "natural", "glow", "simple", "calm", "fresh", "pure", "light", "gentle", "clean"],
+    de: ["sanft", "natuerlich", "glow", "einfach", "ruhe", "frisch", "pur", "leicht", "clean", "klar"],
+    it: ["soft", "naturale", "glow", "semplice", "calma", "fresh", "pura", "light", "gentle", "clean"],
+    es: ["suave", "natural", "glow", "simple", "calma", "fresh", "pura", "light", "gentle", "clean"],
+    pt: ["suave", "natural", "glow", "simples", "calma", "fresh", "pura", "leve", "gentle", "clean"],
+    cs: ["jemna", "prirodni", "glow", "jednoducha", "klid", "cista", "lehka", "soft", "fresh", "pure"],
+    nl: ["zacht", "natuurlijk", "glow", "simpel", "rust", "fris", "puur", "licht", "soft", "clean"],
+    el: ["apali", "fysiki", "glow", "apli", "iremia", "fresc", "kathari", "elafria", "soft", "pure"],
+    hu: ["lagy", "termeszetes", "glow", "egyszeru", "nyugodt", "friss", "tiszta", "konnyu", "soft", "clean"],
+    pl: ["delikatna", "naturalna", "glow", "prosta", "spokoj", "swieza", "czysta", "lekka", "soft", "clean"],
+    ro: ["blanda", "naturala", "glow", "simpla", "liniște", "fresh", "pura", "usoara", "soft", "clean"],
+    sv: ["mjuk", "naturlig", "glow", "enkel", "lugn", "frisk", "ren", "latt", "soft", "clean"],
+    tr: ["yumusak", "dogal", "glow", "sade", "sakin", "taze", "saf", "hafif", "soft", "clean"],
+  },
+  cinema: {
+    fr: ["cinema", "scene", "film", "plan", "ecran", "cadre", "story", "take", "reel", "cut"],
+    en: ["cinema", "scene", "film", "frame", "screen", "story", "take", "reel", "cut", "shot"],
+    de: ["kino", "szene", "film", "bild", "leinwand", "story", "take", "schnitt", "shot", "reel"],
+    it: ["cinema", "scena", "film", "inquadratura", "schermo", "story", "take", "reel", "cut", "shot"],
+    es: ["cine", "escena", "film", "plano", "pantalla", "story", "take", "reel", "cut", "shot"],
+    pt: ["cinema", "cena", "filme", "plano", "tela", "story", "take", "reel", "cut", "shot"],
+    cs: ["kino", "scena", "film", "zaber", "platno", "story", "take", "strih", "shot", "reel"],
+    nl: ["cinema", "scene", "film", "shot", "doek", "story", "take", "reel", "cut", "frame"],
+    el: ["kinimatografos", "skini", "tainia", "plano", "othoni", "story", "take", "reel", "cut", "shot"],
+    hu: ["mozi", "jelenet", "film", "kepkocka", "vazson", "story", "take", "vagás", "shot", "reel"],
+    pl: ["kino", "scena", "film", "klatka", "ekran", "story", "take", "ciecie", "shot", "reel"],
+    ro: ["cinema", "scena", "film", "cadru", "ecran", "story", "take", "reel", "cut", "shot"],
+    sv: ["bio", "scen", "film", "bild", "duk", "story", "take", "klipp", "shot", "reel"],
+    tr: ["sinema", "sahne", "film", "kare", "ekran", "hikaye", "take", "kesit", "shot", "reel"],
+  },
+  anciens: {
+    fr: ["histoire", "antique", "mythe", "legende", "savoir", "epoque", "relique", "ancien", "memoire", "heritage"],
+    en: ["history", "ancient", "myth", "legend", "relic", "era", "heritage", "memory", "classic", "past"],
+    de: ["geschichte", "antik", "mythos", "legende", "relict", "epoche", "erbe", "erinnerung", "klassik", "vergangen"],
+    it: ["storia", "antico", "mito", "leggenda", "reperto", "epoca", "eredita", "memoria", "classico", "passato"],
+    es: ["historia", "antiguo", "mito", "leyenda", "relicto", "epoca", "herencia", "memoria", "clasico", "pasado"],
+    pt: ["historia", "antigo", "mito", "lenda", "reliquia", "epoca", "heranca", "memoria", "classico", "passado"],
+    cs: ["historie", "antika", "mytus", "legenda", "relic", "epocha", "dedictvi", "pamet", "klasika", "minulost"],
+    nl: ["geschiedenis", "antiek", "mythe", "legende", "relict", "tijdperk", "erfgoed", "geheugen", "klassiek", "verleden"],
+    el: ["istoria", "archaia", "mythos", "thrylos", "relic", "epoxi", "klironomia", "mnimi", "klasiko", "parelthon"],
+    hu: ["tortenelem", "okori", "mitosz", "legenda", "ereklye", "korszak", "orokseg", "emlek", "klasszikus", "mult"],
+    pl: ["historia", "antyk", "mit", "legenda", "relict", "epoka", "dziedzictwo", "pamiec", "klasyka", "przeszlosc"],
+    ro: ["istorie", "antic", "mit", "legenda", "relicva", "epoca", "mostenire", "memorie", "clasic", "trecut"],
+    sv: ["historia", "antik", "myt", "legend", "relik", "era", "arv", "minne", "klassisk", "fortid"],
+    tr: ["tarih", "antik", "efsane", "mit", "kalinti", "cag", "miras", "bellek", "klasik", "gecmis"],
+  },
+  default: {
+    fr: ["cultive", "savoir", "culture", "evolue", "grandit", "apprend", "progresse", "developpe", "inspire", "eclaire"],
+    en: ["culture", "growth", "mindset", "develops", "learns", "evolves", "thrives", "wisdom", "improve", "development"],
+    de: ["kultur", "wissen", "wachstum", "entwickelt", "lernt", "klarheit", "staerke", "fortschritt", "inspiriert", "bildung"],
+    it: ["cultura", "crescita", "sapere", "evolve", "impara", "mentalita", "sviluppo", "ispira", "migliora", "saggezza"],
+    es: ["cultura", "crecimiento", "saber", "evoluciona", "aprende", "mentalidad", "desarrollo", "inspira", "mejora", "sabiduria"],
+    pt: ["cultura", "crescimento", "saber", "evolui", "aprende", "mentalidade", "desenvolve", "inspira", "melhora", "sabedoria"],
+    cs: ["kultura", "rust", "vedeni", "vyviji", "uci", "mysleni", "rozvoj", "inspiruje", "zlepsuje", "moudrost"],
+    nl: ["cultuur", "groei", "kennis", "groeit", "leert", "mindset", "ontwikkeling", "inspireert", "verbetert", "wijsheid"],
+    el: ["politismos", "anaptyxi", "gnosi", "exelissetai", "mathainei", "nootropia", "anaptyxi", "empneei", "veltionetai", "sofia"],
+    hu: ["kultura", "novekedes", "tudas", "fejlodik", "tanul", "mentalitas", "fejlesztes", "inspirál", "javul", "bolcsesseg"],
+    pl: ["kultura", "rozwoj", "wiedza", "ewoluuje", "uczy", "mindset", "rozwoj", "inspiruje", "poprawia", "madrosc"],
+    ro: ["cultura", "crestere", "stiinta", "evolueaza", "invata", "mentalitate", "dezvoltare", "inspira", "imbunatateste", "intelepciune"],
+    sv: ["kultur", "tillvaxt", "kunskap", "utvecklas", "lar", "mindset", "utveckling", "inspirerar", "forbattrar", "visdom"],
+    tr: ["kultur", "buyume", "bilgi", "gelisir", "ogrenir", "zihniyet", "gelisim", "ilham", "gelistirir", "bilgelik"],
+  },
+};
+
+/** Helper pour initialiser des listes avec accents retirés à la définition. */
+function sansAccentsStatic(s: string): string {
+  return s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+}
+
+/** Bio par langue (culture générale) — legacy, peu utilisée à la création. */
 export const BIO_SECOURS: Record<string, string> = {
   fr: "un peu de culture chaque jour 🧠\nabonne-toi pour apprendre quelque chose de nouveau ✨",
   en: "a little knowledge every day 🧠\nfollow to learn something new ✨",
@@ -74,9 +222,43 @@ export function bioDeSecours(langue: string): string {
   return BIO_SECOURS[langue] ?? BIO_SECOURS.fr;
 }
 
+/** Normalise un nom/slug de label pour le matching thème. */
+function normaliserLabel(s: string): string {
+  return sansAccentsStatic(s).replace(/[^a-z0-9]+/g, "_");
+}
+
+/** Déduit le thème persona depuis le nom ou slug du label. */
+export function themeDuLabel(nomOuSlug: string | null | undefined): ThemeLabel {
+  const s = normaliserLabel(nomOuSlug ?? "");
+  if (!s) return "default";
+  if (s.includes("ancien")) return "anciens";
+  if (s.includes("cinema") || (s.includes("film") && !s.includes("alpha"))) return "cinema";
+  if (s.includes("clean")) return "clean_girl";
+  if (s.includes("alpha") || (s.includes("male") && !s.includes("girl"))) return "alpha_male";
+  if (s.includes("girl") || s.includes("smart") || s.includes("beau")) return "smart_girl";
+  return "default";
+}
+
+/** Genre implicite du label, ou null si ambigu. */
+export function genreDuLabel(nomOuSlug: string | null | undefined): Genre | null {
+  const s = normaliserLabel(nomOuSlug ?? "");
+  if (!s) return null;
+  if (s.includes("girl") || s.includes("femme") || s.includes("woman")) return "femme";
+  if (s.includes("male") || s.includes("homme") || s.includes("man") || s.includes("alpha")) {
+    return "homme";
+  }
+  return null;
+}
+
+function motsCulture(theme: ThemeLabel, langue: string): string[] {
+  const parLangue = CULTURE_PAR_THEME[theme] ?? CULTURE_PAR_THEME.default;
+  const mots = parLangue[langue] ?? parLangue.en ?? CULTURE_PAR_THEME.default.en;
+  return (mots ?? []).filter(Boolean);
+}
+
 /** Retire accents et casse : « Raphaël » → « raphael » (pour le @). */
 function sansAccents(s: string): string {
-  return s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  return sansAccentsStatic(s);
 }
 
 function capitaliser(s: string): string {
@@ -94,19 +276,20 @@ function melanger<T>(arr: T[]): T[] {
 }
 
 /**
- * Génère une identité (handle « prenom.mot-culture+3 chiffres », nom « Prénom
- * Nom », bio) pour une langue et un GENRE donnés, en évitant les racines et noms
- * déjà pris par nos comptes. 100 % local, aucune IA.
+ * Génère une identité pour une langue + genre + label (thème du @).
+ * 100 % local, aucune IA.
  */
 export async function genererIdentite(
   supabase: Supabase,
   langue: string,
   genre: Genre,
+  labelNom?: string | null,
 ): Promise<{ handle: string; nom: string; bio: string }> {
   const jeu = NOMS_PAR_LANGUE[langue] ?? NOMS_PAR_LANGUE.en;
   const prenoms = genre === "homme" ? jeu.prenomsH : jeu.prenomsF;
+  const theme = themeDuLabel(labelNom);
+  const culture = motsCulture(theme, langue);
 
-  // Déjà pris chez nous : racine du @ SANS les chiffres de fin, et noms affichés.
   const { data: pris } = await supabase.from("comptes").select("handle_tiktok, persona_nom");
   const sansChiffres = (s: string) => s.replace(/\d+$/, "").toLowerCase();
   const rootsPris = new Set<string>();
@@ -116,11 +299,10 @@ export async function genererIdentite(
     if (c.persona_nom) nomsPris.add(c.persona_nom.toLowerCase());
   }
 
-  // 1) Racine « prenom.mot » libre (on mélange pour varier les prénoms/mots).
-  let prenom = prenoms[0];
+  let prenom = prenoms[0] ?? "alex";
   let root = "";
   for (const p of melanger(prenoms)) {
-    for (const mot of melanger(jeu.culture)) {
+    for (const mot of melanger(culture)) {
       const r = `${sansAccents(p)}.${mot}`;
       if (!rootsPris.has(r)) {
         prenom = p;
@@ -130,14 +312,12 @@ export async function genererIdentite(
     }
     if (root) break;
   }
-  // Tout pris (rare) : on force, les 3 chiffres garantissent l'unicité du @.
   if (!root) {
-    prenom = melanger(prenoms)[0];
-    root = `${sansAccents(prenom)}.${melanger(jeu.culture)[0]}`;
+    prenom = melanger(prenoms)[0] ?? "alex";
+    root = `${sansAccents(prenom)}.${melanger(culture)[0] ?? "culture"}`;
   }
 
-  // 2) Nom d'affichage « Prénom Nom », unique si possible.
-  let nomAffiche = `${capitaliser(prenom)} ${capitaliser(jeu.noms[0])}`;
+  let nomAffiche = `${capitaliser(prenom)} ${capitaliser(jeu.noms[0] ?? "martin")}`;
   for (const nf of melanger(jeu.noms)) {
     const candidat = `${capitaliser(prenom)} ${capitaliser(nf)}`;
     if (!nomsPris.has(candidat.toLowerCase())) {
@@ -146,18 +326,15 @@ export async function genererIdentite(
     }
   }
 
-  const handle = `${root}${Math.floor(Math.random() * 900) + 100}`; // 3 chiffres
-  // Bio = le prénom (celui du @) + un « âge » aléatoire 20-30, façon « Jakob 24 ».
-  const age = Math.floor(Math.random() * 11) + 20; // 20 à 30 inclus
+  const handle = `${root}${Math.floor(Math.random() * 900) + 100}`;
+  const age = Math.floor(Math.random() * 11) + 20;
   const bio = `${capitaliser(prenom)} ${age}`;
   return { handle, nom: nomAffiche, bio };
 }
 
 /**
- * Pose une identité complète (pseudo + nom + bio + avatar) sur un compte, de
- * façon INSTANTANÉE : le genre vient du compte de référence (toggle homme/femme).
- * On ne remplit QUE ce qui manque (un @ ou un nom édités à la main sont
- * préservés). Renvoie le @ posé (ou null si le compte est introuvable).
+ * Pose une identité complète (pseudo + nom + bio + avatar) sur un compte.
+ * Label (compte_labels) → thème du @ + filtre PDP ; langue → prénoms/mots.
  */
 export async function appliquerIdentiteInstantanee(
   supabase: Supabase,
@@ -170,11 +347,27 @@ export async function appliquerIdentiteInstantanee(
     .single();
   if (error || !compte) return { applique: false, handle: null };
 
+  const { data: cl } = await supabase
+    .from("compte_labels")
+    .select("label_id, labels(nom, slug)")
+    .eq("compte_id", compteId)
+    .limit(1)
+    .maybeSingle();
   // deno-lint-ignore no-explicit-any
-  const genre: Genre = (compte as any).comptes_reference?.genre === "homme" ? "homme" : "femme";
+  const labelRow = cl as any;
+  const labelNom: string | null = labelRow?.labels?.nom ?? labelRow?.labels?.slug ?? null;
+  const labelId: string | null = (labelRow?.label_id as string | undefined) ?? null;
 
-  const identite = await genererIdentite(supabase, compte.langue, genre);
-  const avatar = await avatarPourSource(supabase, compte.compte_reference_id);
+  // deno-lint-ignore no-explicit-any
+  const genreSource: Genre =
+    (compte as any).comptes_reference?.genre === "homme" ? "homme" : "femme";
+  const genre = genreDuLabel(labelNom) ?? genreSource;
+
+  const identite = await genererIdentite(supabase, compte.langue, genre, labelNom);
+  const avatar = await avatarPourCompte(supabase, {
+    compteReferenceId: compte.compte_reference_id,
+    labelId,
+  });
 
   await supabase
     .from("comptes")

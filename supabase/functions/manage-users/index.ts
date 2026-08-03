@@ -12,7 +12,8 @@ const DOMAINE = "sophia.com";
  *   { action: "delete", userId }
  *
  * Création poster : compte créé immédiatement (warmup non démarré).
- * Label tiré de la file `file_labels_comptes` (ordre admin).
+ * Label : file FIFO `file_labels_comptes`, sinon label le moins utilisé
+ * pour la LANGUE du créateur. Identité (@ / PDP) selon label + langue.
  * Référence source = best-effort (plus bloquant).
  */
 Deno.serve(async (request) => {
@@ -114,11 +115,11 @@ Deno.serve(async (request) => {
       }
     }
 
-    // Label obligatoire pour un poster : file FIFO, sinon tirage aléatoire
-    // parmi tous les labels existants.
+    // Label obligatoire pour un poster : file FIFO, sinon moins utilisé dans
+    // la langue du créateur.
     let labelId: string | null = null;
     if (roleVoulu === "poster") {
-      labelId = await popLabelFile(supabase);
+      labelId = await popLabelFile(supabase, langue);
       if (!labelId) return json({ error: "NO_LABELS" }, 409);
     }
 
@@ -254,9 +255,10 @@ async function lireWarmupHeures(supabase: Supabase): Promise<number> {
 
 /**
  * Tire le premier label de la file (FIFO) et persiste le reste.
- * File vide → tirage aléatoire parmi `labels` (ne consomme pas la file).
+ * File vide → label le moins utilisé par les comptes actifs de cette langue
+ * (ex æquo : tirage parmi les minima). Ne consomme pas la file.
  */
-async function popLabelFile(supabase: Supabase): Promise<string | null> {
+async function popLabelFile(supabase: Supabase, langue: string): Promise<string | null> {
   const { data } = await supabase
     .from("reglages")
     .select("valeur")
@@ -278,10 +280,44 @@ async function popLabelFile(supabase: Supabase): Promise<string | null> {
     return first ?? null;
   }
 
+  return labelMoinsUtiliseParLangue(supabase, langue);
+}
+
+/** Label avec le moins de comptes actifs dans la langue (ou global si langue vide). */
+async function labelMoinsUtiliseParLangue(
+  supabase: Supabase,
+  langue: string,
+): Promise<string | null> {
   const { data: tous } = await supabase.from("labels").select("id");
   const pool = (tous ?? []).map((l) => l.id as string).filter(Boolean);
   if (pool.length === 0) return null;
-  return pool[Math.floor(Math.random() * pool.length)] ?? null;
+
+  const counts = new Map<string, number>(pool.map((id) => [id, 0]));
+  let q = supabase
+    .from("compte_labels")
+    .select("label_id, comptes!inner(langue, is_active)")
+    .eq("comptes.is_active", true);
+  if (langue) q = q.eq("comptes.langue", langue);
+  const { data: usages } = await q;
+  for (const u of usages ?? []) {
+    const id = u.label_id as string;
+    if (!counts.has(id)) continue;
+    counts.set(id, (counts.get(id) ?? 0) + 1);
+  }
+
+  let min = Infinity;
+  const candidats: string[] = [];
+  for (const [id, n] of counts) {
+    if (n < min) {
+      min = n;
+      candidats.length = 0;
+      candidats.push(id);
+    } else if (n === min) {
+      candidats.push(id);
+    }
+  }
+  if (candidats.length === 0) return null;
+  return candidats[Math.floor(Math.random() * candidats.length)] ?? null;
 }
 
 async function unshiftLabelFile(supabase: Supabase, labelId: string): Promise<void> {

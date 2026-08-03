@@ -1258,11 +1258,11 @@ export const fr = {
         "Timer lancé quand le créateur clique « Commencer le warmup » dans son calendrier (défaut 24 h).",
       fileTitre: "File des labels (prochains comptes)",
       fileDesc:
-        "Ordre FIFO : le premier label de la liste est assigné au prochain compte créé, puis retiré de la file. File vide → label tiré au hasard parmi tous les labels.",
+        "Ordre FIFO : le premier label de la liste est assigné au prochain compte créé, puis retiré de la file. File vide → label le moins utilisé parmi les comptes actifs de la même langue.",
       fileVideListe:
-        "File vide — le prochain compte recevra un label au hasard parmi tous les labels.",
+        "File vide — le prochain compte recevra le label le moins utilisé dans sa langue.",
       fileVide:
-        "La file de labels est vide : un label sera tiré au hasard parmi tous les labels existants.",
+        "La file de labels est vide : on assigne le label le moins utilisé pour la langue du créateur.",
       aucunLabel:
         "Aucun label en base — crée-en au moins un (Bibliothèque / Labels) avant de créer un poster.",
       ajouterLabel: "Ajouter un label",

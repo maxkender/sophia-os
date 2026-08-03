@@ -1,5 +1,11 @@
 import { appliquerIdentiteInstantanee } from "../_shared/persona.ts";
-import { assertRole, json, serviceClient } from "../_shared/supabase.ts";
+import {
+  assertRole,
+  corsHeaders,
+  json,
+  messageErreur,
+  serviceClient,
+} from "../_shared/supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
 const DOMAINE = "sophia.com";
@@ -17,6 +23,19 @@ const DOMAINE = "sophia.com";
  * Référence source = best-effort (plus bloquant).
  */
 Deno.serve(async (request) => {
+  // Préflight CORS : doit répondre 2xx AVANT tout parse JSON, sinon le
+  // navigateur bloque avec « Failed to send a request to the Edge Function ».
+  if (request.method === "OPTIONS") {
+    return new Response(null, { status: 204, headers: corsHeaders });
+  }
+  try {
+    return await gererRequete(request);
+  } catch (error) {
+    return json({ error: messageErreur(error) }, 500);
+  }
+});
+
+async function gererRequete(request: Request): Promise<Response> {
   const supabase = serviceClient();
 
   // deno-lint-ignore no-explicit-any
@@ -213,7 +232,8 @@ Deno.serve(async (request) => {
   }
 
   return json({ error: "action inconnue" }, 400);
-});
+}
+
 
 function normaliser(valeur: string): string {
   return valeur

@@ -27,6 +27,7 @@ interface PersonaUgcLibre {
  * Gestion des posters / recruteurs.
  *
  *   { action: "create", prenom, nom, password, langue?, langues?, role?, posts_par_jour? }
+ *   { action: "ensure_compte", userId, langue, posts_par_jour? } — file admin → compte
  *   { action: "start_warmup", compteId }  — créateur (son compte) ou admin
  *   { action: "skip_warmup", compteId }   — admin : compte actif immédiat
  *   { action: "delete", userId }

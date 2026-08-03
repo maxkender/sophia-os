@@ -668,7 +668,7 @@ export const en = {
       compteReference: "Reference account (source) — admin only",
       sansCompte: "No publishing account (configure later)",
       langueAide:
-        "Pick a language: the reference account and persona (handle, bio, avatar) are generated automatically.",
+        "Language required to create the account: the Settings queue (label + UGC) is consumed, then persona / avatar are generated. No language = poster only, queue untouched.",
       tiktoksPublies: "Published TikToks",
       tiktoksPubliesDesc:
         "Every post already published by {{nom}}. Open known links, or add missing ones manually.",

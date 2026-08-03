@@ -396,11 +396,21 @@ async function preparerCompte(
     return { id: "", reference: referenceId, persona: false, labelId };
   }
 
+  let labelNom: string | null = null;
   if (labelId) {
     await supabase.from("compte_labels").insert({ compte_id: compte.id, label_id: labelId });
+    const { data: lab } = await supabase
+      .from("labels")
+      .select("nom, slug")
+      .eq("id", labelId)
+      .maybeSingle();
+    labelNom = (lab?.nom as string | undefined) ?? (lab?.slug as string | undefined) ?? null;
   }
 
-  const { applique } = await appliquerIdentiteInstantanee(supabase, compte.id);
+  const { applique } = await appliquerIdentiteInstantanee(supabase, compte.id, {
+    labelId,
+    labelNom,
+  });
   return { id: compte.id, reference: referenceId, persona: applique, labelId };
 }
 

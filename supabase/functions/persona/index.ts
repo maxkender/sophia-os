@@ -3,18 +3,22 @@ import {
   appliquerIdentiteInstantanee,
   genererIdentite,
   genreDuLabel,
+  labelDuCompte,
   type Genre,
 } from "../_shared/persona.ts";
-import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { assertAuthorised, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 /**
- * Identité d'un compte de publication : @ selon LANGUE + LABEL (thème) + genre,
- * nom, bio, avatar filtré par label. 100 % déterministe et instantané.
+ * Identité d'un compte : @ selon LANGUE + LABEL (thème + genre H/F) + PDP label.
  *
  *   { compteId }              → proposition (aperçu, sans appliquer)
  *   { compteId, appliquer }   → applique l'identité sur le compte
  */
 Deno.serve(async (request) => {
+  if (request.method === "OPTIONS") {
+    return new Response(null, { status: 204, headers: corsHeaders });
+  }
+
   const denied = await assertAuthorised(request);
   if (denied) return denied;
 
@@ -58,16 +62,9 @@ Deno.serve(async (request) => {
       .single();
     if (error || !compte) return json({ error: "Compte introuvable" }, 404);
 
-    const { data: cl } = await supabase
-      .from("compte_labels")
-      .select("label_id, labels(nom, slug)")
-      .eq("compte_id", compteId)
-      .limit(1)
-      .maybeSingle();
-    // deno-lint-ignore no-explicit-any
-    const labelRow = cl as any;
-    const labelNom: string | null = labelRow?.labels?.nom ?? labelRow?.labels?.slug ?? null;
-    const labelId: string | null = (labelRow?.label_id as string | undefined) ?? null;
+    const lab = await labelDuCompte(supabase, compteId);
+    const labelNom = lab?.labelNom ?? null;
+    const labelId = lab?.labelId ?? null;
 
     // deno-lint-ignore no-explicit-any
     const genreSource: Genre =
@@ -78,6 +75,7 @@ Deno.serve(async (request) => {
     const avatar = await avatarPourCompte(supabase, {
       compteReferenceId: compte.compte_reference_id,
       labelId,
+      labelNom,
     });
 
     return json({
@@ -88,6 +86,8 @@ Deno.serve(async (request) => {
       avatarUrl: avatar?.url ?? null,
       handle: null,
       applique: false,
+      genre,
+      label: labelNom,
     });
   } catch (error) {
     return json({ ok: false, error: messageErreur(error) }, 500);

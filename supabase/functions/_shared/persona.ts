@@ -1,4 +1,14 @@
 import { avatarPourCompte } from "./avatar.ts";
+import {
+  genreDuLabel,
+  normaliserLabel,
+  themeDuLabel,
+  type Genre,
+  type ThemeLabel,
+} from "./label_theme.ts";
+
+export type { Genre, ThemeLabel };
+export { genreDuLabel, themeDuLabel, normaliserLabel };
 
 type Supabase = ReturnType<typeof import("./supabase.ts").serviceClient>;
 
@@ -7,21 +17,10 @@ type Supabase = ReturnType<typeof import("./supabase.ts").serviceClient>;
  * INSTANTANÉE (aucun appel Gemini).
  *
  * Format du @ : `prenom.mot-theme` + 3 chiffres — ex. « jakob.disziplin473 ».
- * — Prénoms / noms : selon la LANGUE du créateur
+ * — Prénoms / noms : selon la LANGUE du créateur + GENRE du label
  * — Mot du @ : selon le LABEL (thème) + la langue
- * — Genre : hint label (alpha_male / *_girl) sinon genre de la source
+ * — Genre : label (alpha_male → H, clean_girl → F) sinon genre de la source
  */
-
-export type Genre = "homme" | "femme";
-
-/** Thèmes dérivés des labels (slug/nom normalisé). */
-export type ThemeLabel =
-  | "alpha_male"
-  | "smart_girl"
-  | "clean_girl"
-  | "cinema"
-  | "anciens"
-  | "default";
 
 interface JeuDeNoms {
   prenomsH: string[];
@@ -222,32 +221,27 @@ export function bioDeSecours(langue: string): string {
   return BIO_SECOURS[langue] ?? BIO_SECOURS.fr;
 }
 
-/** Normalise un nom/slug de label pour le matching thème. */
-function normaliserLabel(s: string): string {
-  return sansAccentsStatic(s).replace(/[^a-z0-9]+/g, "_");
-}
-
-/** Déduit le thème persona depuis le nom ou slug du label. */
-export function themeDuLabel(nomOuSlug: string | null | undefined): ThemeLabel {
-  const s = normaliserLabel(nomOuSlug ?? "");
-  if (!s) return "default";
-  if (s.includes("ancien")) return "anciens";
-  if (s.includes("cinema") || (s.includes("film") && !s.includes("alpha"))) return "cinema";
-  if (s.includes("clean")) return "clean_girl";
-  if (s.includes("alpha") || (s.includes("male") && !s.includes("girl"))) return "alpha_male";
-  if (s.includes("girl") || s.includes("smart") || s.includes("beau")) return "smart_girl";
-  return "default";
-}
-
-/** Genre implicite du label, ou null si ambigu. */
-export function genreDuLabel(nomOuSlug: string | null | undefined): Genre | null {
-  const s = normaliserLabel(nomOuSlug ?? "");
-  if (!s) return null;
-  if (s.includes("girl") || s.includes("femme") || s.includes("woman")) return "femme";
-  if (s.includes("male") || s.includes("homme") || s.includes("man") || s.includes("alpha")) {
-    return "homme";
-  }
-  return null;
+/** Charge le label principal d'un compte (sans embed fragile). */
+export async function labelDuCompte(
+  supabase: Supabase,
+  compteId: string,
+): Promise<{ labelId: string; labelNom: string } | null> {
+  const { data: cl } = await supabase
+    .from("compte_labels")
+    .select("label_id")
+    .eq("compte_id", compteId)
+    .limit(1)
+    .maybeSingle();
+  const labelId = (cl?.label_id as string | undefined) ?? null;
+  if (!labelId) return null;
+  const { data: lab } = await supabase
+    .from("labels")
+    .select("nom, slug")
+    .eq("id", labelId)
+    .maybeSingle();
+  const labelNom = (lab?.nom as string | undefined) ?? (lab?.slug as string | undefined) ?? null;
+  if (!labelNom) return { labelId, labelNom: labelId };
+  return { labelId, labelNom };
 }
 
 function motsCulture(theme: ThemeLabel, langue: string): string[] {
@@ -334,11 +328,13 @@ export async function genererIdentite(
 
 /**
  * Pose une identité complète (pseudo + nom + bio + avatar) sur un compte.
- * Label (compte_labels) → thème du @ + filtre PDP ; langue → prénoms/mots.
+ * Label → genre (H/F) + thème du @ + PDP ; langue → prénoms/mots.
+ * `labelHint` évite une relecture juste après l'insert compte_labels.
  */
 export async function appliquerIdentiteInstantanee(
   supabase: Supabase,
   compteId: string,
+  labelHint?: { labelId: string | null; labelNom?: string | null },
 ): Promise<{ applique: boolean; handle: string | null }> {
   const { data: compte, error } = await supabase
     .from("comptes")
@@ -347,26 +343,32 @@ export async function appliquerIdentiteInstantanee(
     .single();
   if (error || !compte) return { applique: false, handle: null };
 
-  const { data: cl } = await supabase
-    .from("compte_labels")
-    .select("label_id, labels(nom, slug)")
-    .eq("compte_id", compteId)
-    .limit(1)
-    .maybeSingle();
-  // deno-lint-ignore no-explicit-any
-  const labelRow = cl as any;
-  const labelNom: string | null = labelRow?.labels?.nom ?? labelRow?.labels?.slug ?? null;
-  const labelId: string | null = (labelRow?.label_id as string | undefined) ?? null;
+  let labelId = labelHint?.labelId ?? null;
+  let labelNom = labelHint?.labelNom ?? null;
+  if (!labelId || !labelNom) {
+    const lab = await labelDuCompte(supabase, compteId);
+    labelId = labelId ?? lab?.labelId ?? null;
+    labelNom = labelNom ?? lab?.labelNom ?? null;
+  } else if (labelId && !labelNom) {
+    const { data: lab } = await supabase
+      .from("labels")
+      .select("nom, slug")
+      .eq("id", labelId)
+      .maybeSingle();
+    labelNom = (lab?.nom as string | undefined) ?? (lab?.slug as string | undefined) ?? null;
+  }
 
   // deno-lint-ignore no-explicit-any
   const genreSource: Genre =
     (compte as any).comptes_reference?.genre === "homme" ? "homme" : "femme";
+  // Label genré gagne TOUJOURS (alpha_male → homme, clean_girl → femme).
   const genre = genreDuLabel(labelNom) ?? genreSource;
 
   const identite = await genererIdentite(supabase, compte.langue, genre, labelNom);
   const avatar = await avatarPourCompte(supabase, {
     compteReferenceId: compte.compte_reference_id,
     labelId,
+    labelNom,
   });
 
   await supabase

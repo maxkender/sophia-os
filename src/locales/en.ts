@@ -257,6 +257,25 @@ export const en = {
       aucun: "No video — check labels / pret reactions / utilisations / persona.",
       annuleOk: "Rollback OK — {{posts}} test video(s) deleted.",
     },
+    simUgcVideoFace: {
+      title: "UGC VIDEO test — steps 0–1 (face-ref)",
+      subtitle:
+        "Reaction + Nano Banana face-ref only. No Kling, concat, or caption.",
+      date: "Assignment date",
+      compte: "UGC AI VIDEO creator",
+      lancer: "Run steps 0–1",
+      enCours: "Nano Banana face-ref…",
+      annuler: "Cancel test",
+      annulerEnCours: "Cancelling…",
+      annulerConfirm:
+        "Delete this creator’s test videos for this date (storage + DB)?",
+      aide: "Step 0 = pick reaction (+ utilisation for the row). Step 1 = Nano Banana (frame 10 + persona). Stops once the face-ref photo is ready.",
+      logs: "Exact logs",
+      logsAttente: "Connecting to stream…",
+      ok: "{{crees}} test face-ref(s) created.",
+      aucun: "Nothing created — check labels / pret reactions / utilisations / persona.",
+      annuleOk: "Rollback OK — {{posts}} test video(s) deleted.",
+    },
     tests: {
       title: "Tests",
       subtitle:

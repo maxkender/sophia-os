@@ -1,7 +1,8 @@
 /**
  * Assignation UGC AI VIDEO (reaction → NB → Kling → concat → caption).
  *
- *   {} | { date, compteId?, manuel?, test?, stream?, forcer? }
+ *   {} | { date, compteId?, manuel?, test?, stream?, forcer?, jusquA? }
+ *   jusquA: "face_ref" | "complet" (défaut) — "face_ref" = étapes 0–1 seulement
  *   { action: "annuler_test", compteId, date }
  *
  * Stream NDJSON recommandé (Kling / merge > 150s idle).
@@ -44,6 +45,8 @@ Deno.serve(async (request) => {
   const test = Boolean(body?.test);
   const forcer = Boolean(body?.forcer);
   const manuel = Boolean(body?.manuel);
+  const jusquA =
+    body?.jusquA === "face_ref" ? ("face_ref" as const) : ("complet" as const);
   const action = typeof body?.action === "string" ? body.action : null;
   const stream = test || veutStream(request, body);
 
@@ -77,6 +80,7 @@ Deno.serve(async (request) => {
     const opts = {
       test,
       forcer,
+      jusquA,
       ignorerWarmup: test || Boolean(body?.ignorerWarmup),
     };
 
@@ -89,11 +93,17 @@ Deno.serve(async (request) => {
             detail,
             at: new Date().toISOString(),
           });
-        const hb = setInterval(() => log("… encore en cours (Kling / merge)"), 25_000);
+        const hbMsg =
+          jusquA === "face_ref"
+            ? "… encore en cours (Nano Banana)"
+            : "… encore en cours (Kling / merge)";
+        const hb = setInterval(() => log(hbMsg), 25_000);
         try {
           log(
             test
-              ? `Assignation UGC AI VIDEO TEST · ${jour} · compte ${String(compteId).slice(0, 8)}`
+              ? `Assignation UGC AI VIDEO TEST · ${jour} · compte ${String(compteId).slice(0, 8)}${
+                  jusquA === "face_ref" ? " · jusqu'à face_ref (0–1)" : ""
+                }`
               : `Assignation UGC AI VIDEO · ${jour}${compteId ? ` · ${String(compteId).slice(0, 8)}` : " · tous"}`,
           );
           const resultats = await assignerTousComptesUgcVideo(

@@ -252,6 +252,8 @@ async function chargerPersonaUrls(
 /**
  * Pipeline complet pour UN slot d'un compte UGC AI VIDEO.
  */
+export type AssignationUgcVideoJusqua = "face_ref" | "complet";
+
 export async function assignerUgcVideoSlot(
   supabase: Supabase,
   compte: {
@@ -262,7 +264,12 @@ export async function assignerUgcVideoSlot(
     handle_tiktok: string | null;
   },
   jour: string,
-  opts: { test?: boolean; onLog?: AssignationUgcVideoLog } = {},
+  opts: {
+    test?: boolean;
+    /** Stop après Nano Banana (étapes 0–1). Défaut = pipeline complet. */
+    jusquA?: AssignationUgcVideoJusqua;
+    onLog?: AssignationUgcVideoLog;
+  } = {},
 ): Promise<{ postId: string } | { erreur: string }> {
   const log = (d: string) => {
     try {
@@ -271,9 +278,15 @@ export async function assignerUgcVideoSlot(
       // ignore
     }
   };
+  const jusquA: AssignationUgcVideoJusqua =
+    opts.jusquA === "face_ref" ? "face_ref" : "complet";
   const nom =
     compte.persona_nom ?? compte.handle_tiktok ?? compte.id.slice(0, 8);
-  log(`── Slot UGC AI VIDEO · ${nom} · jour=${jour}${opts.test ? " · TEST" : ""}`);
+  log(
+    `── Slot UGC AI VIDEO · ${nom} · jour=${jour}${opts.test ? " · TEST" : ""}${
+      jusquA === "face_ref" ? " · jusqu'à face_ref (0–1)" : ""
+    }`,
+  );
 
   if (!compte.ugc_persona_id) {
     return { erreur: "Compte UGC AI VIDEO sans persona" };
@@ -325,8 +338,9 @@ export async function assignerUgcVideoSlot(
     if (personaUrls.length === 0) {
       throw new Error("Persona sans images");
     }
+    const etapeTotal = jusquA === "face_ref" ? 1 : 4;
     log(
-      `Étape 1/4 Nano Banana · Figure1=frame10 · Figures2+=${personaUrls.length} persona`,
+      `Étape 1/${etapeTotal} Nano Banana · Figure1=frame10 · Figures2+=${personaUrls.length} persona`,
     );
     const promptFace =
       (await chargerPrompt(supabase, "ugc_video_face_ref"))?.trim() ||
@@ -364,6 +378,21 @@ export async function assignerUgcVideoSlot(
       })
       .eq("id", postId);
     log(`  Photo ref uploadée · ${imagePath}`);
+
+    if (jusquA === "face_ref") {
+      await supabase
+        .from("ugc_video_posts")
+        .update({
+          statut: "pret",
+          pipeline_erreur: null,
+          updated_at: new Date().toISOString(),
+        })
+        .eq("id", postId);
+      log(
+        `── Terminé (étapes 0–1) · post ${postId.slice(0, 8)} statut=pret · face_ref seule`,
+      );
+      return { postId };
+    }
 
     // ── 2) Kling motion-control ─────────────────────────────────────
     // Reactions admin = souvent WebM MediaRecorder → Kling 422 « Video format
@@ -510,6 +539,7 @@ export async function assignerCompteUgcVideo(
     test?: boolean;
     forcer?: boolean;
     ignorerWarmup?: boolean;
+    jusquA?: AssignationUgcVideoJusqua;
     onLog?: AssignationUgcVideoLog;
   } = {},
 ): Promise<AssignationUgcVideoResultat> {
@@ -539,6 +569,7 @@ export async function assignerCompteUgcVideo(
     log(`Slot ${i + 1}/${manque}`);
     const r = await assignerUgcVideoSlot(supabase, compte, jour, {
       test: estTest,
+      jusquA: opts.jusquA,
       onLog: log,
     });
     if ("postId" in r) postIds.push(r.postId);
@@ -566,6 +597,7 @@ export async function assignerTousComptesUgcVideo(
     test?: boolean;
     forcer?: boolean;
     ignorerWarmup?: boolean;
+    jusquA?: AssignationUgcVideoJusqua;
     onLog?: AssignationUgcVideoLog;
   } = {},
 ): Promise<AssignationUgcVideoResultat[]> {

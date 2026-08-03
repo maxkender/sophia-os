@@ -20,8 +20,15 @@ import { cn } from "@/lib/utils";
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
 
-/** Test assignation UGC AI VIDEO — logs NDJSON exacts (NB → Kling → concat → caption). */
-export function SimulerUgcVideoAssignationCard() {
+type Mode = "complet" | "face_ref";
+
+type Props = {
+  /** `face_ref` = étapes 0–1 (reaction + Nano Banana) seulement. */
+  mode?: Mode;
+};
+
+/** Test assignation UGC AI VIDEO — logs NDJSON exacts. */
+export function SimulerUgcVideoAssignationCard({ mode = "complet" }: Props) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const comptes = useQuery({ queryKey: ["comptes"], queryFn: listerComptes });
@@ -29,6 +36,7 @@ export function SimulerUgcVideoAssignationCard() {
   const [compteId, setCompteId] = React.useState("");
   const [logs, setLogs] = React.useState<AssignationTestLog[]>([]);
   const logsRef = React.useRef<HTMLDivElement>(null);
+  const i18nKey = mode === "face_ref" ? "simUgcVideoFace" : "simUgcVideo";
 
   const videoComptes = React.useMemo(
     () => (comptes.data ?? []).filter((c) => c.ugc_ai_video),
@@ -43,9 +51,14 @@ export function SimulerUgcVideoAssignationCard() {
   const assigner = useMutation({
     mutationFn: () => {
       setLogs([]);
-      return lancerAssignationUgcVideoTest(date, compteId, (ligne) => {
-        setLogs((prev) => [...prev, ligne]);
-      });
+      return lancerAssignationUgcVideoTest(
+        date,
+        compteId,
+        (ligne) => {
+          setLogs((prev) => [...prev, ligne]);
+        },
+        { jusquA: mode },
+      );
     },
     onSuccess: () => {
       void queryClient.invalidateQueries({ queryKey: ["ugc-video-posts-test"] });
@@ -60,7 +73,7 @@ export function SimulerUgcVideoAssignationCard() {
   });
 
   const posts = useQuery({
-    queryKey: ["ugc-video-posts-test", compteId, date],
+    queryKey: ["ugc-video-posts-test", mode, compteId, date],
     queryFn: () => listerUgcVideoPostsTest(compteId, date),
     enabled: Boolean(compteId && date),
   });
@@ -76,25 +89,25 @@ export function SimulerUgcVideoAssignationCard() {
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <FlaskConical className="size-4 text-primary" />
-          {t("simUgcVideo.title")}
+          {t(`${i18nKey}.title`)}
         </CardTitle>
-        <CardDescription>{t("simUgcVideo.subtitle")}</CardDescription>
+        <CardDescription>{t(`${i18nKey}.subtitle`)}</CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-2">
-            <Label htmlFor="ugcVideoDate">{t("simUgcVideo.date")}</Label>
+            <Label htmlFor={`ugcVideoDate-${mode}`}>{t(`${i18nKey}.date`)}</Label>
             <Input
-              id="ugcVideoDate"
+              id={`ugcVideoDate-${mode}`}
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="ugcVideoCompte">{t("simUgcVideo.compte")}</Label>
+            <Label htmlFor={`ugcVideoCompte-${mode}`}>{t(`${i18nKey}.compte`)}</Label>
             <select
-              id="ugcVideoCompte"
+              id={`ugcVideoCompte-${mode}`}
               className={selectClass}
               value={compteId}
               onChange={(e) => setCompteId(e.target.value)}
@@ -117,35 +130,35 @@ export function SimulerUgcVideoAssignationCard() {
             disabled={!compteId || !date || assigner.isPending || annuler.isPending}
             onClick={() => assigner.mutate()}
           >
-            {assigner.isPending ? t("simUgcVideo.enCours") : t("simUgcVideo.lancer")}
+            {assigner.isPending ? t(`${i18nKey}.enCours`) : t(`${i18nKey}.lancer`)}
           </Button>
           <Button
             type="button"
             variant="outline"
             disabled={!compteId || !date || annuler.isPending || assigner.isPending}
             onClick={() => {
-              if (window.confirm(t("simUgcVideo.annulerConfirm"))) annuler.mutate();
+              if (window.confirm(t(`${i18nKey}.annulerConfirm`))) annuler.mutate();
             }}
           >
             <RotateCcw className="mr-2 size-4" />
-            {annuler.isPending ? t("simUgcVideo.annulerEnCours") : t("simUgcVideo.annuler")}
+            {annuler.isPending ? t(`${i18nKey}.annulerEnCours`) : t(`${i18nKey}.annuler`)}
           </Button>
         </div>
 
-        <p className="text-xs text-muted-foreground">{t("simUgcVideo.aide")}</p>
+        <p className="text-xs text-muted-foreground">{t(`${i18nKey}.aide`)}</p>
 
         {(assigner.isPending || logs.length > 0) && (
           <div className="space-y-1.5">
             <p className="text-xs font-medium text-muted-foreground">
-              {t("simUgcVideo.logs")}
-              {assigner.isPending ? ` — ${t("simUgcVideo.enCours")}` : ""}
+              {t(`${i18nKey}.logs`)}
+              {assigner.isPending ? ` — ${t(`${i18nKey}.enCours`)}` : ""}
             </p>
             <div
               ref={logsRef}
               className="max-h-72 overflow-y-auto rounded-md border bg-muted/20 p-2 font-mono text-[11px] leading-relaxed"
             >
               {logs.length === 0 && assigner.isPending && (
-                <p className="text-muted-foreground">{t("simUgcVideo.logsAttente")}</p>
+                <p className="text-muted-foreground">{t(`${i18nKey}.logsAttente`)}</p>
               )}
               {logs.map((l, i) => (
                 <p
@@ -174,8 +187,8 @@ export function SimulerUgcVideoAssignationCard() {
             }
           >
             {crees === 0
-              ? raison ?? t("simUgcVideo.aucun")
-              : t("simUgcVideo.ok", { crees })}
+              ? raison ?? t(`${i18nKey}.aucun`)
+              : t(`${i18nKey}.ok`, { crees })}
           </div>
         )}
 
@@ -194,14 +207,14 @@ export function SimulerUgcVideoAssignationCard() {
                     className="max-h-40 rounded border object-contain"
                   />
                 )}
-                {p.video_finale_url && (
+                {mode === "complet" && p.video_finale_url && (
                   <video
                     src={p.video_finale_url}
                     controls
                     className="aspect-[9/16] max-h-64 w-auto rounded border"
                   />
                 )}
-                {p.caption && (
+                {mode === "complet" && p.caption && (
                   <pre className="whitespace-pre-wrap rounded border bg-background p-2 text-xs">
                     {p.caption}
                   </pre>
@@ -219,7 +232,7 @@ export function SimulerUgcVideoAssignationCard() {
         )}
         {annuler.isSuccess && (
           <div className="rounded-md bg-muted/40 p-3 text-sm">
-            {t("simUgcVideo.annuleOk", { posts: annuler.data.posts })}
+            {t(`${i18nKey}.annuleOk`, { posts: annuler.data.posts })}
           </div>
         )}
         {annuler.isError && (

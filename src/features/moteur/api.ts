@@ -3327,6 +3327,7 @@ export async function lancerAssignationUgcVideoTest(
   date: string,
   compteId: string,
   onLog?: (ligne: AssignationTestLog) => void,
+  opts: { jusquA?: "face_ref" | "complet" } = {},
 ): Promise<{
   ok: boolean;
   jour: string;
@@ -3362,6 +3363,7 @@ export async function lancerAssignationUgcVideoTest(
       test: true,
       stream: true,
       ignorerWarmup: true,
+      jusquA: opts.jusquA === "face_ref" ? "face_ref" : "complet",
     }),
   });
 

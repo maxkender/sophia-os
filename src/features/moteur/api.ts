@@ -3527,6 +3527,8 @@ export async function propagerLabelsSource(compteReferenceId: string): Promise<n
 export interface ContenuListe extends Contenu {
   labels?: Label[];
   scores?: Array<{ langue: string; score: number; nb_passages: number }>;
+  /** Nombre de passages / posts assignés sur ce slideshow. */
+  nb_posts?: number;
   /** URL des visuels nettoyés indexés par media_id. */
   mediaUrls?: Record<string, string>;
   /** visage_premier_plan par media_id (scan UGC). */
@@ -3584,14 +3586,19 @@ export async function listerContenus(opts?: {
   if (contenus.length === 0) return [];
 
   const ids = contenus.map((c) => c.id);
-  const [{ data: liens }, { data: scores }, metas] = await Promise.all([
-    supabase.from("contenu_labels").select("contenu_id, label_id, labels(*)").in("contenu_id", ids),
-    supabase
-      .from("contenu_langues")
-      .select("contenu_id, langue, score, nb_passages")
-      .in("contenu_id", ids),
-    metasMediasPropres(contenus),
-  ]);
+  const [{ data: liens }, { data: scores }, { data: passages }, metas] =
+    await Promise.all([
+      supabase
+        .from("contenu_labels")
+        .select("contenu_id, label_id, labels(*)")
+        .in("contenu_id", ids),
+      supabase
+        .from("contenu_langues")
+        .select("contenu_id, langue, score, nb_passages")
+        .in("contenu_id", ids),
+      supabase.from("passages").select("contenu_id").in("contenu_id", ids),
+      metasMediasPropres(contenus),
+    ]);
 
   const labelsPar = new Map<string, Label[]>();
   for (const l of liens ?? []) {
@@ -3606,6 +3613,11 @@ export async function listerContenus(opts?: {
     const list = scoresPar.get(s.contenu_id) ?? [];
     list.push({ langue: s.langue, score: s.score, nb_passages: s.nb_passages });
     scoresPar.set(s.contenu_id, list);
+  }
+  const postsPar = new Map<string, number>();
+  for (const p of passages ?? []) {
+    const cid = p.contenu_id as string;
+    postsPar.set(cid, (postsPar.get(cid) ?? 0) + 1);
   }
 
   return contenus.map((c) => {
@@ -3625,6 +3637,7 @@ export async function listerContenus(opts?: {
       ugc_compatible: Boolean((c as Contenu).ugc_compatible),
       labels: labelsPar.get(c.id) ?? [],
       scores: scoresPar.get(c.id) ?? [],
+      nb_posts: postsPar.get(c.id) ?? 0,
       mediaUrls: urls,
       mediaVisages: visages,
     };

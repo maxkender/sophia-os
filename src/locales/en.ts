@@ -873,6 +873,16 @@ export const en = {
       ugcVisageNon: "No",
       ugcVisageInconnu: "?",
       ugcVisageAide: "Manually editable — stored in the database.",
+      triLabel: "Sort by",
+      tri: {
+        recent: "Most recent",
+        label: "Label",
+        elo: "ELO (max)",
+        posts: "Post count",
+      },
+      nbPosts_one: "{{count}} post",
+      nbPosts_other: "{{count}} posts",
+      sansLabel: "No label",
     },
     paiement: {
       title: "Creator pay",

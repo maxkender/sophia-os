@@ -158,6 +158,51 @@ function vignette(c: ContenuListe): string | null {
   return first?.raw_url ?? first?.reference_url ?? null;
 }
 
+type TriSlideshow = "recent" | "label" | "elo" | "posts";
+
+function eloMax(c: ContenuListe): number {
+  const scores = c.scores ?? [];
+  if (scores.length === 0) return -1;
+  return Math.max(...scores.map((s) => s.score));
+}
+
+function labelCle(c: ContenuListe): string {
+  const noms = (c.labels ?? [])
+    .map((l) => l.nom.trim())
+    .filter(Boolean)
+    .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }));
+  return noms[0] ?? "";
+}
+
+function trierSlideshows(liste: ContenuListe[], tri: TriSlideshow): ContenuListe[] {
+  const arr = [...liste];
+  const parDate = (a: ContenuListe, b: ContenuListe) =>
+    b.created_at.localeCompare(a.created_at);
+  switch (tri) {
+    case "label":
+      return arr.sort((a, b) => {
+        const la = labelCle(a);
+        const lb = labelCle(b);
+        if (!la && lb) return 1;
+        if (la && !lb) return -1;
+        const cmp = la.localeCompare(lb, undefined, { sensitivity: "base" });
+        return cmp !== 0 ? cmp : parDate(a, b);
+      });
+    case "elo":
+      return arr.sort((a, b) => {
+        const diff = eloMax(b) - eloMax(a);
+        return diff !== 0 ? diff : parDate(a, b);
+      });
+    case "posts":
+      return arr.sort((a, b) => {
+        const diff = (b.nb_posts ?? 0) - (a.nb_posts ?? 0);
+        return diff !== 0 ? diff : parDate(a, b);
+      });
+    default:
+      return arr.sort(parDate);
+  }
+}
+
 function DeckLangue({
   contenu,
   langue,
@@ -1186,6 +1231,7 @@ export function AdminSlideshowsPage() {
   const queryClient = useQueryClient();
   const [searchParams, setSearchParams] = useSearchParams();
   const [filtre, setFiltre] = React.useState<"tous" | "valide" | "rejete">("tous");
+  const [tri, setTri] = React.useState<TriSlideshow>("recent");
   const [ouvert, setOuvert] = React.useState<string | null>(
     searchParams.get("id"),
   );
@@ -1208,6 +1254,11 @@ export function AdminSlideshowsPage() {
         limit: 200,
       }),
   });
+
+  const contenusTries = React.useMemo(
+    () => trierSlideshows(contenus.data ?? [], tri),
+    [contenus.data, tri],
+  );
 
   function fermerDetail() {
     setOuvert(null);
@@ -1307,7 +1358,7 @@ export function AdminSlideshowsPage() {
               ))}
             </div>
           )}
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             {(["tous", "valide", "rejete"] as const).map((f) => (
               <button
                 key={f}
@@ -1322,18 +1373,37 @@ export function AdminSlideshowsPage() {
                 {t(`contenus.filtre.${f}`)}
               </button>
             ))}
+            <label className="ml-auto flex items-center gap-1.5 text-xs text-muted-foreground">
+              <span className="whitespace-nowrap">{t("slideshows.triLabel")}</span>
+              <select
+                className="h-7 rounded-md border bg-background px-2 text-xs text-foreground"
+                value={tri}
+                onChange={(e) => setTri(e.target.value as TriSlideshow)}
+              >
+                {(["recent", "label", "elo", "posts"] as const).map((k) => (
+                  <option key={k} value={k}>
+                    {t(`slideshows.tri.${k}`)}
+                  </option>
+                ))}
+              </select>
+            </label>
           </div>
 
           {contenus.isPending && (
             <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
           )}
-          {!contenus.isPending && (contenus.data?.length ?? 0) === 0 && (
+          {!contenus.isPending && contenusTries.length === 0 && (
             <EmptyState title={t("slideshows.empty")} />
           )}
 
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-            {(contenus.data ?? []).map((c) => {
+            {contenusTries.map((c) => {
               const img = vignette(c);
+              const labels = (c.labels ?? [])
+                .slice()
+                .sort((a, b) =>
+                  a.nom.localeCompare(b.nom, undefined, { sensitivity: "base" }),
+                );
               return (
                 <button
                   key={c.id}
@@ -1359,6 +1429,27 @@ export function AdminSlideshowsPage() {
                       {c.titre || t("contenus.sansTitre")}
                     </p>
                     <div className="flex flex-wrap gap-1">
+                      {labels.length === 0 ? (
+                        <span className="text-[10px] text-muted-foreground">
+                          {t("slideshows.sansLabel")}
+                        </span>
+                      ) : (
+                        labels.slice(0, 3).map((l) => (
+                          <span
+                            key={l.id}
+                            className="rounded border px-1 py-0.5 text-[10px]"
+                            style={
+                              l.couleur
+                                ? { borderColor: l.couleur, color: l.couleur }
+                                : undefined
+                            }
+                          >
+                            {l.nom}
+                          </span>
+                        ))
+                      )}
+                    </div>
+                    <div className="flex flex-wrap gap-1">
                       {(c.scores ?? [])
                         .slice()
                         .sort((a, b) => b.score - a.score)
@@ -1372,7 +1463,7 @@ export function AdminSlideshowsPage() {
                           </span>
                         ))}
                     </div>
-                    <div className="flex flex-wrap gap-1">
+                    <div className="flex flex-wrap items-center gap-1">
                       <Badge
                         variant={
                           c.statut === "valide"
@@ -1391,6 +1482,9 @@ export function AdminSlideshowsPage() {
                           {t("slideshows.ugcBadge")}
                         </Badge>
                       )}
+                      <span className="text-[10px] tabular-nums text-muted-foreground">
+                        {t("slideshows.nbPosts", { count: c.nb_posts ?? 0 })}
+                      </span>
                     </div>
                   </div>
                 </button>

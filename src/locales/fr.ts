@@ -874,6 +874,16 @@ export const fr = {
       ugcVisageNon: "Non",
       ugcVisageInconnu: "?",
       ugcVisageAide: "Corrigeable à la main — stocké en base.",
+      triLabel: "Trier par",
+      tri: {
+        recent: "Plus récents",
+        label: "Label",
+        elo: "ELO (max)",
+        posts: "Nb de posts",
+      },
+      nbPosts_one: "{{count}} post",
+      nbPosts_other: "{{count}} posts",
+      sansLabel: "Sans label",
     },
     paiement: {
       title: "Paiement créateurs",

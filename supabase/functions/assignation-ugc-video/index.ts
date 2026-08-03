@@ -43,7 +43,8 @@ Deno.serve(async (request) => {
   const jour = (body?.date as string | undefined) ?? aujourdhuiParis();
   const compteId = (body?.compteId as string | null | undefined) ?? null;
   const test = Boolean(body?.test);
-  const forcer = Boolean(body?.forcer);
+  // En test Admin : forcer 1 slot par défaut (sinon « quota atteint » bloque les relances).
+  const forcer = body?.forcer === undefined ? test : Boolean(body?.forcer);
   const manuel = Boolean(body?.manuel);
   const jusquA =
     body?.jusquA === "face_ref" ? ("face_ref" as const) : ("complet" as const);

@@ -269,7 +269,7 @@ export const en = {
       annulerEnCours: "Cancelling…",
       annulerConfirm:
         "Delete this creator’s test videos for this date (storage + DB)?",
-      aide: "0 = reaction (+ utilisation). 1 = classic text-removal on the 10th frame. 2 = Nano Banana (cleaned frame + persona). Stops once the face-ref photo is ready.",
+      aide: "0 = reaction (+ utilisation). 1 = classic text-removal on the 10th frame. 2 = Nano Banana (cleaned frame + persona). Re-runnable even if a test already exists. Cancel to rollback.",
       logs: "Exact logs",
       logsAttente: "Connecting to stream…",
       ok: "{{crees}} test face-ref(s) created.",

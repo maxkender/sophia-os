@@ -383,6 +383,8 @@ export async function finaliserUgcReaction(
     firstFrameUrl: string;
     videoText?: string;
     dureeMs?: number;
+    /** Label UGC AI VIDEO requis. */
+    labelId: string;
   },
   onProgress?: (detail: string) => void,
 ): Promise<UgcReaction> {
@@ -427,6 +429,8 @@ export async function enregistrerUgcUtilisation(input: {
   videoUrl: string;
   nomFichier?: string;
   dureeMs?: number;
+  /** Label UGC AI VIDEO requis. */
+  labelId: string;
 }): Promise<UgcUtilisation> {
   const r = await invokeReactions<{ ok: boolean; utilisation: UgcUtilisation }>({
     action: "register_utilisation",
@@ -439,7 +443,8 @@ export async function enregistrerUgcUtilisation(input: {
 /** Upload admin d’une utilisation (fichier local → storage + DB). */
 export async function importerUtilisationFichier(
   file: File,
-  titre?: string,
+  titre: string | undefined,
+  labelId: string,
 ): Promise<UgcUtilisation> {
   const id = crypto.randomUUID();
   const ext =
@@ -452,5 +457,6 @@ export async function importerUtilisationFichier(
     videoPath: up.path,
     videoUrl: up.url,
     nomFichier: file.name,
+    labelId,
   });
 }

@@ -26,6 +26,7 @@ import {
   demarrerWarmup,
   skipWarmup,
   labelsDesComptes,
+  labelsDuHmUgcVideo,
   listerComptes,
   listerLabels,
   listerLanguesReference,
@@ -36,13 +37,20 @@ import {
   majPoster,
   majUpwork,
   setLabelsCompte,
+  setLabelsHmUgcVideo,
   supprimerPoster,
 } from "@/features/moteur/api";
+import { LabelPicker } from "@/features/moteur/LabelPicker";
 import { listerUgcPersonas } from "@/features/ugc/api";
 import { nomLangue } from "@/features/moteur/langues";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
 import { phaseCreateur, type PhaseCreateur } from "@/features/moteur/warmup";
 import type { CompteAvecDetails, Label as LabelType, PosterProfil } from "@/features/moteur/types";
+
+const filtreLabelUgcVideoThematique = (lab: {
+  slug: string;
+  ugc_ai_video: boolean;
+}) => Boolean(lab.ugc_ai_video) && lab.slug !== "ugc-ai-video";
 
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
@@ -339,6 +347,44 @@ function LabelsCompteSelect({
   );
 }
 
+/** Labels thématiques UGC AI VIDEO d’un HM (propagés aux futurs créateurs). */
+function HmUgcVideoLabelsEditeur({ profileId }: { profileId: string }) {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const q = useQuery({
+    queryKey: ["hm-ugc-video-labels", profileId],
+    queryFn: () => labelsDuHmUgcVideo(profileId),
+  });
+  const [local, setLocal] = React.useState<string[] | null>(null);
+  const ids = local ?? q.data ?? [];
+
+  const maj = useMutation({
+    mutationFn: (next: string[]) => setLabelsHmUgcVideo(profileId, next),
+    onSuccess: () => {
+      setLocal(null);
+      void queryClient.invalidateQueries({ queryKey: ["hm-ugc-video-labels", profileId] });
+    },
+  });
+
+  return (
+    <div className="space-y-1.5 border-t border-dashed pt-2">
+      <Label className="text-[10px] uppercase tracking-wide text-muted-foreground">
+        {t("posters.hmUgcAiVideoLabels")}
+      </Label>
+      <LabelPicker
+        selected={ids}
+        disabled={maj.isPending || q.isPending}
+        filter={filtreLabelUgcVideoThematique}
+        onChange={(next) => {
+          setLocal(next);
+          maj.mutate(next);
+        }}
+      />
+      <p className="text-[11px] text-muted-foreground">{t("posters.hmUgcAiVideoLabelsAide")}</p>
+    </div>
+  );
+}
+
 export function AdminPostersPage() {
   const { t } = useTranslation();
   const { user } = useAuth();
@@ -429,6 +475,7 @@ export function AdminPostersPage() {
   const [recNom, setRecNom] = React.useState("");
   const [recLangues, setRecLangues] = React.useState<string[]>([]);
   const [recUgcAiVideo, setRecUgcAiVideo] = React.useState(false);
+  const [recUgcLabels, setRecUgcLabels] = React.useState<string[]>([]);
   const [recCree, setRecCree] = React.useState<{ email: string } | null>(null);
   const basculerRecLangue = (l: string) =>
     setRecLangues((prev) => (prev.includes(l) ? prev.filter((x) => x !== l) : [...prev, l]));
@@ -439,6 +486,7 @@ export function AdminPostersPage() {
         nom: recNom,
         langues: recLangues,
         ugc_ai_video: recUgcAiVideo,
+        ugc_ai_video_label_ids: recUgcAiVideo ? recUgcLabels : undefined,
       }),
     onSuccess: (r) => {
       setRecCree({ email: r.email });
@@ -446,6 +494,7 @@ export function AdminPostersPage() {
       setRecNom("");
       setRecLangues([]);
       setRecUgcAiVideo(false);
+      setRecUgcLabels([]);
       rafraichir();
     },
   });
@@ -651,7 +700,10 @@ export function AdminPostersPage() {
                   type="checkbox"
                   className="mt-1"
                   checked={recUgcAiVideo}
-                  onChange={(e) => setRecUgcAiVideo(e.target.checked)}
+                  onChange={(e) => {
+                    setRecUgcAiVideo(e.target.checked);
+                    if (!e.target.checked) setRecUgcLabels([]);
+                  }}
                 />
                 <span>
                   <span className="font-medium">{t("posters.hmUgcAiVideo")}</span>
@@ -660,11 +712,29 @@ export function AdminPostersPage() {
                   </span>
                 </span>
               </label>
+              {recUgcAiVideo && (
+                <div className="space-y-1.5 rounded-md border border-dashed p-3">
+                  <Label>{t("posters.hmUgcAiVideoLabels")}</Label>
+                  <LabelPicker
+                    selected={recUgcLabels}
+                    onChange={setRecUgcLabels}
+                    filter={filtreLabelUgcVideoThematique}
+                  />
+                  <p className="text-xs text-muted-foreground">
+                    {t("posters.hmUgcAiVideoLabelsAide")}
+                  </p>
+                </div>
+              )}
             </div>
             <div className="sm:col-span-3">
               <Button
                 type="submit"
-                disabled={creerRec.isPending || !recPrenom.trim() || recLangues.length === 0}
+                disabled={
+                  creerRec.isPending ||
+                  !recPrenom.trim() ||
+                  recLangues.length === 0 ||
+                  (recUgcAiVideo && recUgcLabels.length === 0)
+                }
               >
                 {creerRec.isPending ? t("common.saving") : t("posters.creerRecruteur")}
               </Button>
@@ -926,17 +996,14 @@ export function AdminPostersPage() {
                 </div>
 
                 {poster.role === "hiring_manager" && <LangueRecruteur recruteur={poster} />}
+                {poster.role === "hiring_manager" && poster.hm_ugc_ai_video && (
+                  <HmUgcVideoLabelsEditeur profileId={poster.id} />
+                )}
 
                 {estPoster && compte && (
                   <div className="grid gap-2 border-t border-dashed pt-2 sm:grid-cols-2">
                     <LangueCompteSelect compte={compte} />
-                    {compte.ugc_ai_video ? (
-                      <p className="text-xs text-muted-foreground sm:col-span-1">
-                        {t("posters.ugcAiVideoSansLabels")}
-                      </p>
-                    ) : (
-                      <LabelsCompteSelect compteId={compte.id} actifs={labs} />
-                    )}
+                    <LabelsCompteSelect compteId={compte.id} actifs={labs} />
                     <div className="sm:col-span-2">
                       <PostsParJourCompte compte={compte} />
                     </div>

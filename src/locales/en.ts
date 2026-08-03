@@ -165,6 +165,10 @@ export const en = {
         importer: "Import",
         importEnCours: "Apify import running…",
         titreChamp: "Title",
+        labelChamp: "UGC AI VIDEO label",
+        labelChoisir: "Pick a label…",
+        labelAide: "Required to save — UGC AI VIDEO pool labels (Pilotage).",
+        labelRequis: "Pick a UGC AI VIDEO label.",
         cropAide:
           "Cut start and end. The full video is temporary only — purged on confirm.",
         resetCrop: "Full duration",
@@ -655,7 +659,7 @@ export const en = {
       ugcAiVideo: "UGC AI VIDEO",
       ugcAiVideoBadge: "UGC AI VIDEO",
       ugcAiVideoAide:
-        "UGC AI VIDEO mark only — no labels. Unique persona (shared pool with UGC AI slideshows).",
+        "UGC AI VIDEO mark + HM labels. Unique persona (shared pool with UGC AI slideshows).",
       ugcPersona: "UGC persona",
       ugcPersonaChoisir: "Pick a persona…",
       ugcPersonaRequis: "A persona is required when UGC AI is on.",
@@ -694,11 +698,14 @@ export const en = {
       ugcPersona: "UGC persona: {{nom}}",
       ugcSansPersona: "UGC AI — no persona assigned",
       ugcAiVideoBadge: "UGC AI VIDEO",
-      ugcAiVideoSansLabels: "UGC AI VIDEO mark — no labels.",
+      ugcAiVideoSansLabels: "UGC AI VIDEO mark — no thematic labels.",
       hmUgcAiVideo: "UGC AI VIDEO hiring manager",
       hmUgcAiVideoBadge: "HM UGC AI VIDEO",
       hmUgcAiVideoAide:
-        "Their creators are born with the UGC AI VIDEO mark only (no labels) and a unique persona (unavailable if already used by a slideshow or video account).",
+        "Their creators are born with the UGC AI VIDEO mark + the labels chosen here, and a unique persona (unavailable if already used by a slideshow or video account).",
+      hmUgcAiVideoLabels: "Recruiter UGC AI VIDEO labels",
+      hmUgcAiVideoLabelsAide:
+        "Each creator gets these labels + the « UGC AI VIDEO » mark. Create UGC AI VIDEO labels in Pilotage.",
       eloCompte: "ELO {{score}}",
       eloCompteAide: "Account form (recency-weighted average of last measured posts)",
       createursDuRecruteur: "Assigned creators",
@@ -742,7 +749,7 @@ export const en = {
       subtitle:
         "Enter the first name, last name and this creator’s language. You can hire across several languages. The rest (reference account + TikTok identity) is generated automatically.",
       subtitleUgcAiVideo:
-        "UGC AI VIDEO mode: each creator gets the UGC AI VIDEO mark only (no labels) and a unique persona.",
+        "UGC AI VIDEO mode: each creator gets the UGC AI VIDEO mark, your UGC VIDEO labels, and a unique persona.",
       langue: "Poster's language",
       langueAide:
         "Pick THIS creator’s language. You can create others in other languages (among those you manage).",
@@ -848,6 +855,10 @@ export const en = {
       nom: "Name",
       couleur: "Color",
       creer: "Create",
+      ugcAiVideo: "UGC AI VIDEO",
+      ugcAiVideoBadge: "UGC VIDEO",
+      ugcAiVideoAide:
+        "Check to create a UGC AI VIDEO pool label (assignable to video HMs; required for reactions / utilisations).",
       aucun: "No labels yet — create some in Pilotage.",
       aucunIci: "No labels yet — create one above.",
       erreurChargement: "Could not load labels",

@@ -12,14 +12,18 @@ export function LabelPicker({
   selected,
   onChange,
   disabled,
+  /** Filtre optionnel (ex. pool UGC AI VIDEO). */
+  filter,
 }: {
   selected: string[];
   onChange: (ids: string[]) => void;
   disabled?: boolean;
+  filter?: (lab: { id: string; slug: string; ugc_ai_video: boolean }) => boolean;
 }) {
   const { t } = useTranslation();
   const labels = useQuery({ queryKey: ["labels"], queryFn: listerLabels });
   const set = new Set(selected);
+  const liste = (labels.data ?? []).filter((lab) => (filter ? filter(lab) : true));
 
   if (labels.isPending) {
     return <p className="text-xs text-muted-foreground">{t("common.loading")}</p>;
@@ -33,13 +37,13 @@ export function LabelPicker({
     );
   }
 
-  if (!labels.data?.length) {
+  if (!liste.length) {
     return <p className="text-xs text-muted-foreground">{t("labels.aucun")}</p>;
   }
 
   return (
     <div className="flex flex-wrap gap-1.5">
-      {labels.data.map((lab) => {
+      {liste.map((lab) => {
         const on = set.has(lab.id);
         return (
           <button

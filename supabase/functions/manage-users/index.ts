@@ -39,7 +39,7 @@ interface PersonaUgcLibre {
  * sans métadonnées ; label forcé parmi ceux qui ont des slideshows ugc_compatible.
  * File vide → label classique le moins utilisé pour la LANGUE.
  * HM `hm_ugc_ai_video` → comptes ugc_ai_video, persona unique (pool partagé),
- * AUCUN label (marque UGC AI VIDEO seule).
+ * labels = labels HM (`hm_ugc_video_labels`) + marque système `ugc-ai-video`.
  */
 Deno.serve(async (request) => {
   // Préflight CORS : doit répondre 2xx AVANT tout parse JSON, sinon le
@@ -250,6 +250,10 @@ async function gererRequete(request: Request): Promise<Response> {
           patchHm.langues = ensemble;
         }
         await supabase.from("profiles").update(patchHm).eq("id", data.user.id);
+        if (hmVideo) {
+          const labelIds = normaliserIds(body.ugc_ai_video_label_ids);
+          await remplacerHmUgcVideoLabels(supabase, data.user.id, labelIds);
+        }
       } else if (acces.role === "hiring_manager" && acces.userId !== "cron") {
         await supabase
           .from("profiles")
@@ -313,7 +317,7 @@ async function gererRequete(request: Request): Promise<Response> {
       return json({ ok: true, deja: true, compteId: deja.id });
     }
 
-    // Créateur sous HM UGC AI VIDEO (ou flag forcé admin) → pas de labels.
+    // Créateur sous HM UGC AI VIDEO → marque + labels HM (pas de file admin).
     let modeUgcAiVideo = false;
     if (acces.role === "hiring_manager" && acces.userId !== "cron") {
       modeUgcAiVideo = await estHmUgcAiVideo(supabase, acces);
@@ -483,7 +487,7 @@ async function popLabelFile(
   return { ok: true, item: { label_id: labelId, ugc: false }, fromQueue: false };
 }
 
-/** Hiring manager marqué UGC AI VIDEO (ses créateurs = marque vidéo, 0 label). */
+/** Hiring manager marqué UGC AI VIDEO (ses créateurs = marque vidéo + labels HM). */
 async function estHmUgcAiVideo(
   supabase: Supabase,
   acces: { role: string; userId: string },
@@ -495,6 +499,71 @@ async function estHmUgcAiVideo(
     .eq("id", acces.userId)
     .maybeSingle();
   return Boolean(data?.hm_ugc_ai_video);
+}
+
+function normaliserIds(raw: unknown): string[] {
+  if (!Array.isArray(raw)) return [];
+  return [
+    ...new Set(
+      raw.map((x) => String(x ?? "").trim()).filter((id) => id.length > 0),
+    ),
+  ];
+}
+
+/** Remplace les labels thématiques UGC AI VIDEO d’un HM. */
+async function remplacerHmUgcVideoLabels(
+  supabase: Supabase,
+  profileId: string,
+  labelIds: string[],
+): Promise<void> {
+  await supabase.from("hm_ugc_video_labels").delete().eq("profile_id", profileId);
+  if (labelIds.length === 0) return;
+  // Ne garder que les labels du pool UGC AI VIDEO, hors marque système.
+  const { data: ok } = await supabase
+    .from("labels")
+    .select("id")
+    .in("id", labelIds)
+    .eq("ugc_ai_video", true)
+    .neq("slug", "ugc-ai-video");
+  const valides = (ok ?? []).map((r) => r.id as string);
+  if (valides.length === 0) return;
+  await supabase.from("hm_ugc_video_labels").insert(
+    valides.map((label_id) => ({ profile_id: profileId, label_id })),
+  );
+}
+
+/** Marque système + labels thématiques du HM du créateur. */
+async function labelsPourCreateurUgcVideo(
+  supabase: Supabase,
+  posterId: string,
+): Promise<string[]> {
+  const ids = new Set<string>();
+
+  const { data: marque } = await supabase
+    .from("labels")
+    .select("id")
+    .eq("slug", "ugc-ai-video")
+    .eq("ugc_ai_video", true)
+    .maybeSingle();
+  if (marque?.id) ids.add(marque.id as string);
+
+  const { data: profil } = await supabase
+    .from("profiles")
+    .select("manager_id")
+    .eq("id", posterId)
+    .maybeSingle();
+  const managerId = (profil?.manager_id as string | null) ?? null;
+  if (managerId) {
+    const { data: hmLabs } = await supabase
+      .from("hm_ugc_video_labels")
+      .select("label_id")
+      .eq("profile_id", managerId);
+    for (const r of hmLabs ?? []) {
+      if (r.label_id) ids.add(r.label_id as string);
+    }
+  }
+
+  return [...ids];
 }
 
 /**
@@ -683,7 +752,7 @@ async function avatarDepuisFacePersona(
  * Compte créé avec warmup NON démarré (started/ends null).
  * Label posé tout de suite ; identité instantanée.
  * UGC slideshow : ugc_ai + persona + nom persona + avatar face stripée.
- * UGC AI VIDEO : ugc_ai_video + persona, AUCUN label (marque seule).
+ * UGC AI VIDEO : ugc_ai_video + persona + labels HM + marque `ugc-ai-video`.
  */
 /** Quota d'assignation journalier : 1–3, défaut 2 à la création. */
 function normaliserPostsParJour(n: unknown): number {
@@ -715,7 +784,12 @@ async function preparerCompte(
   // Slideshow UGC et vidéo sont exclusifs.
   const ugc = !ugcAiVideo && Boolean(fileItem?.ugc && personaUgc);
   const avecPersona = Boolean((ugc || ugcAiVideo) && personaUgc);
-  const labelId = ugcAiVideo ? null : (fileItem?.label_id ?? null);
+  const labelIdsVideo = ugcAiVideo
+    ? await labelsPourCreateurUgcVideo(supabase, posterId)
+    : [];
+  const labelId = ugcAiVideo
+    ? (labelIdsVideo[0] ?? null)
+    : (fileItem?.label_id ?? null);
   const aRestaurer = ugcAiVideo ? null : (fileItemQueue ?? fileItem);
 
   const { data: compte, error } = await supabase
@@ -748,7 +822,19 @@ async function preparerCompte(
   }
 
   let labelNom: string | null = null;
-  if (labelId) {
+  if (ugcAiVideo) {
+    if (labelIdsVideo.length > 0) {
+      await supabase.from("compte_labels").insert(
+        labelIdsVideo.map((lid) => ({ compte_id: compte.id, label_id: lid })),
+      );
+      const { data: lab } = await supabase
+        .from("labels")
+        .select("nom, slug")
+        .eq("id", labelIdsVideo[0]!)
+        .maybeSingle();
+      labelNom = (lab?.nom as string | undefined) ?? (lab?.slug as string | undefined) ?? null;
+    }
+  } else if (labelId) {
     await supabase.from("compte_labels").insert({ compte_id: compte.id, label_id: labelId });
     const { data: lab } = await supabase
       .from("labels")

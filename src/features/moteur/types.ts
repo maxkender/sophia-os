@@ -307,6 +307,8 @@ export interface Label {
   slug: string;
   couleur: string | null;
   created_at: string;
+  /** Pool UGC AI VIDEO (HM vidéo + reactions/utilisations). */
+  ugc_ai_video: boolean;
 }
 
 /** Slide language-agnostique d'un contenu (visuel partagé). */

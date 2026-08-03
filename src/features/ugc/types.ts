@@ -49,6 +49,8 @@ export interface UgcReaction {
   duree_ms: number | null;
   largeur: number | null;
   hauteur: number | null;
+  /** Label UGC AI VIDEO (requis à la finalisation). */
+  label_id: string | null;
   statut: "brouillon" | "pret" | "archive";
   created_at: string;
   updated_at: string;
@@ -61,6 +63,8 @@ export interface UgcUtilisation {
   video_url: string;
   nom_fichier: string | null;
   duree_ms: number | null;
+  /** Label UGC AI VIDEO (requis à l’import). */
+  label_id: string | null;
   created_at: string;
   updated_at: string;
 }

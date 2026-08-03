@@ -81,6 +81,24 @@ function normaliserLienTikTok(raw: string): string {
   return u.split("?")[0] ?? u;
 }
 
+/** Label du pool UGC AI VIDEO requis pour reactions / utilisations. */
+async function assertLabelUgcAiVideo(
+  supabase: Supabase,
+  raw: unknown,
+): Promise<string | Response> {
+  const labelId = String(raw ?? "").trim();
+  if (!labelId) return json({ error: "LABEL_UGC_AI_VIDEO_REQUIS" }, 400);
+  const { data } = await supabase
+    .from("labels")
+    .select("id, ugc_ai_video")
+    .eq("id", labelId)
+    .maybeSingle();
+  if (!data?.id || !data.ugc_ai_video) {
+    return json({ error: "LABEL_UGC_AI_VIDEO_INVALIDE" }, 400);
+  }
+  return data.id as string;
+}
+
 Deno.serve(async (request) => {
   if (request.method === "OPTIONS") {
     return new Response(null, { status: 204, headers: corsHeaders });
@@ -136,6 +154,8 @@ Deno.serve(async (request) => {
       if (!videoPath || !videoUrl) {
         return json({ error: "videoPath / videoUrl requis" }, 400);
       }
+      const labelId = await assertLabelUgcAiVideo(supabase, body.labelId ?? body.label_id);
+      if (labelId instanceof Response) return labelId;
       const titre =
         String(body.titre ?? "").trim() ||
         String(body.nomFichier ?? "").trim() ||
@@ -146,6 +166,7 @@ Deno.serve(async (request) => {
           titre,
           video_path: videoPath,
           video_url: videoUrl,
+          label_id: labelId,
           nom_fichier: body.nomFichier ? String(body.nomFichier) : null,
           duree_ms:
             typeof body.dureeMs === "number" && Number.isFinite(body.dureeMs)
@@ -342,6 +363,8 @@ Deno.serve(async (request) => {
       if (!firstFramePath || !firstFrameUrl) {
         return json({ error: "first_frame_reference requise" }, 400);
       }
+      const labelId = await assertLabelUgcAiVideo(supabase, body.labelId ?? body.label_id);
+      if (labelId instanceof Response) return labelId;
 
       const { data: actuel, error: errActuel } = await supabase
         .from("ugc_reactions")
@@ -403,6 +426,7 @@ Deno.serve(async (request) => {
           first_frame_reference_url: firstFrameUrl,
           video_text: videoText,
           crop: body.crop ?? null,
+          label_id: labelId,
           statut: "pret",
           updated_at: new Date().toISOString(),
         };

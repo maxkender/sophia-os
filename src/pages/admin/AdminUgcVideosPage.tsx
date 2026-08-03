@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { listerLabelsUgcAiVideo } from "@/features/moteur/api";
 import {
   finaliserUgcReaction,
   importerReactionTikTok,
@@ -27,6 +28,9 @@ import {
   type VideoTrim,
 } from "@/features/ugc/videoCrop";
 
+const selectClass =
+  "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
+
 function fmtSec(s: number) {
   const m = Math.floor(s / 60);
   const sec = s - m * 60;
@@ -45,10 +49,20 @@ export function AdminUgcVideosPage() {
     queryKey: ["ugc-utilisations"],
     queryFn: async () => (await listerUgcUtilisations()).utilisations,
   });
+  const labelsUgc = useQuery({
+    queryKey: ["labels-ugc-ai-video"],
+    queryFn: () => listerLabelsUgcAiVideo({ inclureMarque: true }),
+  });
+  const labelNom = React.useMemo(() => {
+    const m = new Map<string, string>();
+    for (const l of labelsUgc.data ?? []) m.set(l.id, l.nom);
+    return m;
+  }, [labelsUgc.data]);
 
   const [lien, setLien] = React.useState("");
   const [draft, setDraft] = React.useState<UgcReaction | null>(null);
   const [titre, setTitre] = React.useState("");
+  const [labelReaction, setLabelReaction] = React.useState("");
   const [dureeSec, setDureeSec] = React.useState(1);
   const [trim, setTrim] = React.useState<VideoTrim>(trimPlein(1));
   const [progress, setProgress] = React.useState<string | null>(null);
@@ -57,6 +71,7 @@ export function AdminUgcVideosPage() {
   const [videoTextPreview, setVideoTextPreview] = React.useState<string | null>(null);
 
   const [titreUtil, setTitreUtil] = React.useState("");
+  const [labelUtil, setLabelUtil] = React.useState("");
   const [fichierUtil, setFichierUtil] = React.useState<File | null>(null);
   const fileRef = React.useRef<HTMLInputElement>(null);
 
@@ -67,6 +82,7 @@ export function AdminUgcVideosPage() {
     const d = duree ?? (r.duree_ms ? r.duree_ms / 1000 : 1);
     setDraft(r);
     setTitre(r.titre);
+    setLabelReaction(r.label_id ?? "");
     setDureeSec(d);
     setTrim(trimPlein(d));
     setPreviewFrame(null);
@@ -101,6 +117,7 @@ export function AdminUgcVideosPage() {
       if (!draft || draft.statut !== "brouillon") {
         throw new Error(t("ugc.videos.dejaFinalisee"));
       }
+      if (!labelReaction) throw new Error(t("ugc.videos.labelRequis"));
       const tNorm = normaliserTrim(trim, dureeSec);
       setProgress(t("ugc.videos.cropEnCours"));
       const cropped = await trimmerVideo(draft.video_source_url, tNorm, setProgress);
@@ -136,6 +153,7 @@ export function AdminUgcVideosPage() {
           firstFramePath: frameUp.path,
           firstFrameUrl: frameUp.url,
           dureeMs: Math.round((tNorm.endSec - tNorm.startSec) * 1000),
+          labelId: labelReaction,
         },
         setProgress,
       );
@@ -170,7 +188,8 @@ export function AdminUgcVideosPage() {
   const importUtil = useMutation({
     mutationFn: () => {
       if (!fichierUtil) throw new Error(t("ugc.videos.utilFichierRequis"));
-      return importerUtilisationFichier(fichierUtil, titreUtil);
+      if (!labelUtil) throw new Error(t("ugc.videos.labelRequis"));
+      return importerUtilisationFichier(fichierUtil, titreUtil, labelUtil);
     },
     onMutate: () => {
       setErreur(null);
@@ -180,6 +199,7 @@ export function AdminUgcVideosPage() {
       setProgress(null);
       setFichierUtil(null);
       setTitreUtil("");
+      setLabelUtil("");
       if (fileRef.current) fileRef.current.value = "";
       void queryClient.invalidateQueries({ queryKey: ["ugc-utilisations"] });
     },
@@ -262,6 +282,26 @@ export function AdminUgcVideosPage() {
                 />
               </div>
 
+              <div className="space-y-2">
+                <Label htmlFor="labelReaction">{t("ugc.videos.labelChamp")}</Label>
+                <select
+                  id="labelReaction"
+                  className={selectClass}
+                  value={labelReaction}
+                  disabled={busy || labelsUgc.isPending}
+                  onChange={(e) => setLabelReaction(e.target.value)}
+                  required
+                >
+                  <option value="">{t("ugc.videos.labelChoisir")}</option>
+                  {(labelsUgc.data ?? []).map((l) => (
+                    <option key={l.id} value={l.id}>
+                      {l.nom}
+                    </option>
+                  ))}
+                </select>
+                <p className="text-xs text-muted-foreground">{t("ugc.videos.labelAide")}</p>
+              </div>
+
               <TrimEditor
                 videoUrl={draft.video_source_url}
                 dureeSec={dureeSec}
@@ -280,7 +320,7 @@ export function AdminUgcVideosPage() {
               <div className="flex flex-wrap gap-2">
                 <Button
                   type="button"
-                  disabled={busy}
+                  disabled={busy || !labelReaction}
                   onClick={() => finaliser.mutate()}
                 >
                   {finaliser.isPending ? (
@@ -363,6 +403,24 @@ export function AdminUgcVideosPage() {
               />
             </div>
             <div className="space-y-2">
+              <Label htmlFor="labelUtil">{t("ugc.videos.labelChamp")}</Label>
+              <select
+                id="labelUtil"
+                className={selectClass}
+                value={labelUtil}
+                disabled={busy || labelsUgc.isPending}
+                onChange={(e) => setLabelUtil(e.target.value)}
+                required
+              >
+                <option value="">{t("ugc.videos.labelChoisir")}</option>
+                {(labelsUgc.data ?? []).map((l) => (
+                  <option key={l.id} value={l.id}>
+                    {l.nom}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="space-y-2 sm:col-span-2">
               <Label htmlFor="fichierUtil">{t("ugc.videos.utilFichier")}</Label>
               <Input
                 id="fichierUtil"
@@ -376,7 +434,7 @@ export function AdminUgcVideosPage() {
           </div>
           <Button
             type="button"
-            disabled={busy || !fichierUtil}
+            disabled={busy || !fichierUtil || !labelUtil}
             onClick={() => importUtil.mutate()}
           >
             {importUtil.isPending ? <Loader2 className="animate-spin" /> : <Upload />}
@@ -407,7 +465,14 @@ export function AdminUgcVideosPage() {
                       <Trash2 className="size-4" />
                     </Button>
                   </CardTitle>
-                  <Badge variant="outline">utilisation</Badge>
+                  <div className="flex flex-wrap gap-1">
+                    <Badge variant="outline">utilisation</Badge>
+                    {u.label_id && (
+                      <Badge variant="secondary">
+                        {labelNom.get(u.label_id) ?? u.label_id.slice(0, 8)}
+                      </Badge>
+                    )}
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <video
@@ -464,6 +529,11 @@ export function AdminUgcVideosPage() {
                     {r.statut}
                   </Badge>
                   <Badge variant="outline">reactions</Badge>
+                  {r.label_id && (
+                    <Badge variant="secondary">
+                      {labelNom.get(r.label_id) ?? r.label_id.slice(0, 8)}
+                    </Badge>
+                  )}
                 </div>
               </CardHeader>
               <CardContent className="space-y-2">

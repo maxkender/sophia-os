@@ -550,6 +550,7 @@ export function AdminUgcPersonasPage() {
           {(liste.data ?? []).map((p) => {
             const lies = comptesParPersona.get(p.id) ?? [];
             const profilBusy = listeProfilBusy === p.id;
+            const aProfil = Boolean(p.image_profile_url);
             return (
             <Card key={p.id}>
               <CardHeader className="pb-3">
@@ -611,11 +612,17 @@ export function AdminUgcPersonasPage() {
               <CardContent className="space-y-3">
                 <div className="grid grid-cols-5 gap-2">
                   <figure className="space-y-1">
-                    <img
-                      src={p.image_profile_url || p.image_face_url}
-                      alt=""
-                      className="aspect-square w-full rounded object-cover"
-                    />
+                    {aProfil ? (
+                      <img
+                        src={p.image_profile_url!}
+                        alt=""
+                        className="aspect-square w-full rounded object-cover"
+                      />
+                    ) : (
+                      <div className="flex aspect-square items-center justify-center rounded border border-dashed text-[10px] text-muted-foreground">
+                        —
+                      </div>
+                    )}
                     <figcaption className="text-center text-[10px] text-muted-foreground">
                       {t("ugc.personas.profile")}
                     </figcaption>
@@ -669,17 +676,21 @@ export function AdminUgcPersonasPage() {
                 <Button
                   type="button"
                   size="sm"
-                  variant="outline"
+                  variant={aProfil ? "outline" : "default"}
                   className="w-full text-xs"
                   disabled={Boolean(listeAngleBusy) || Boolean(listeProfilBusy)}
                   onClick={() => void regenererProfilPersona(p)}
                 >
                   {profilBusy ? (
                     <Loader2 className="size-3 animate-spin" />
-                  ) : (
+                  ) : aProfil ? (
                     <RefreshCw className="size-3" />
+                  ) : (
+                    <Sparkles className="size-3" />
                   )}
-                  {t("ugc.personas.regenererProfil")}
+                  {aProfil
+                    ? t("ugc.personas.regenererProfil")
+                    : t("ugc.personas.genererProfil")}
                 </Button>
               </CardContent>
             </Card>

@@ -1,3 +1,4 @@
+import { retirerContentCredentialsBytes } from "../_shared/c2pa.ts";
 import { editerNanoBananaPro, genererNanoBananaPro } from "../_shared/fal_nano_banana.ts";
 import { reponseNdjson, veutStream } from "../_shared/nettoyage_etapes.ts";
 import { mapPool } from "../_shared/parallel.ts";
@@ -462,11 +463,25 @@ Deno.serve(async (request) => {
             },
             { aspectRatio: "1:1" },
           );
+          // PDP = avatar créateur → strip C2PA / métadonnées avant stockage.
+          emit?.({
+            etape: "profile",
+            statut: "en_cours",
+            detail: "Strip métadonnées (C2PA)…",
+          });
+          const strip = await retirerContentCredentialsBytes(img.bytes);
+          const mime =
+            strip.mime === "application/octet-stream" ? img.mime : strip.mime;
+          const ext = mime.includes("jpeg") || mime.includes("jpg")
+            ? "jpg"
+            : mime.includes("webp")
+              ? "webp"
+              : "png";
           const path = personaId
-            ? `ugc/personas/${personaId}/profile.png`
-            : `ugc/personas/draft/${draftId}/profile.png`;
+            ? `ugc/personas/${personaId}/profile.${ext}`
+            : `ugc/personas/draft/${draftId}/profile.${ext}`;
           emit?.({ etape: "upload", statut: "en_cours", detail: "Upload profil…" });
-          const imageUrl = await uploader(supabase, path, img.bytes, img.mime);
+          const imageUrl = await uploader(supabase, path, strip.bytes, mime);
 
           let persona = null;
           if (personaId) {

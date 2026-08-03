@@ -14,6 +14,7 @@ import { retirerContentCredentialsBytes } from "./c2pa.ts";
 import { editerNanoBananaPro } from "./fal_nano_banana.ts";
 import { klingMotionControl } from "./fal_kling_motion.ts";
 import { mergerVideosFal } from "./fal_merge_videos.ts";
+import { falRehebergerUrl } from "./fal_queue.ts";
 import { cleanImage, TEXT_MODELS } from "./gemini.ts";
 import { mapPool } from "./parallel.ts";
 import { chargerPrompt, serviceClient } from "./supabase.ts";
@@ -342,12 +343,20 @@ export async function assignerUgcVideoSlot(
     log(
       `Étape 1/${etapeTotal} Nettoyage frame10 (text-removal classique Fal/Replicate)`,
     );
-    const cleaned = await cleanImage(
+    // Fal/Replicate échouent parfois à télécharger Supabase (file_download_error) :
+    // on rehéberge d'abord sur le CDN Fal.
+    const framePourNettoyage = await falRehebergerUrl(
       reaction.first_frame_reference_url,
-      async (e) => {
-        if (e.detail) log(`  ${e.detail}`);
+      {
+        fileName: `ugc-frame10-${postId.slice(0, 8)}.jpg`,
+        onProgress: (p) => {
+          if (p.detail) log(`  ${p.detail}`);
+        },
       },
     );
+    const cleaned = await cleanImage(framePourNettoyage, async (e) => {
+      if (e.detail) log(`  ${e.detail}`);
+    });
     const cleanBytes = Uint8Array.from(atob(cleaned.base64), (c) =>
       c.charCodeAt(0),
     );

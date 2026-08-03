@@ -13,6 +13,7 @@
  */
 
 import { downloadMedia, scrapeVideoPost } from "../_shared/apify.ts";
+import { normaliserVideoMp4PourKling } from "../_shared/fal_normaliser_video.ts";
 import { ocrFrame } from "../_shared/gemini.ts";
 import { reponseNdjson, veutStream } from "../_shared/nettoyage_etapes.ts";
 import {
@@ -395,13 +396,50 @@ Deno.serve(async (request) => {
           videoText = await ocrFrame(firstFrameUrl);
         }
 
+        // WebM MediaRecorder → MP4 H.264 (Kling refuse le webm navigateur).
+        let finalVideoPath = videoPath;
+        let finalVideoUrl = videoUrl;
+        const estWebm = /\.webm(\?|$)/i.test(videoPath) || /\.webm(\?|$)/i.test(videoUrl);
+        if (estWebm) {
+          emit?.({
+            etape: "transcode",
+            statut: "en_cours",
+            detail: "WebM → MP4 H.264 (Fal) pour Kling…",
+          });
+          const mp4 = await normaliserVideoMp4PourKling(videoUrl, (p) => {
+            if (p.detail) {
+              emit?.({
+                etape: "transcode",
+                statut: "en_cours",
+                detail: p.detail,
+              });
+            }
+          });
+          finalVideoPath = `ugc/reactions/${id}/video.mp4`;
+          finalVideoUrl = await uploader(
+            supabase,
+            finalVideoPath,
+            mp4.bytes,
+            "video/mp4",
+          );
+          // Supprime l'ancien webm si chemin différent.
+          if (videoPath !== finalVideoPath) {
+            await supprimerStorage(supabase, videoPath);
+          }
+          emit?.({
+            etape: "transcode",
+            statut: "ok",
+            detail: `MP4 OK · ${mp4.bytes.length} octets`,
+          });
+        }
+
         emit?.({
           etape: "cleanup",
           statut: "en_cours",
           detail: "Purge : on ne garde que crop + 10ᵉ frame…",
         });
         // Storage final = exactement 2 fichiers (+ video_text en DB).
-        await purgerDossierReaction(supabase, id, [videoPath, firstFramePath]);
+        await purgerDossierReaction(supabase, id, [finalVideoPath, firstFramePath]);
 
         let dureeMs: number | null = null;
         if (typeof body.dureeMs === "number" && Number.isFinite(body.dureeMs)) {
@@ -418,8 +456,8 @@ Deno.serve(async (request) => {
 
         const patch: Record<string, unknown> = {
           // video_source_* = la vidéo CROPPÉE (seule vidéo persistée)
-          video_source_path: videoPath,
-          video_source_url: videoUrl,
+          video_source_path: finalVideoPath,
+          video_source_url: finalVideoUrl,
           video_path: null,
           video_url: null,
           first_frame_reference_path: firstFramePath,

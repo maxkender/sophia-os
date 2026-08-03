@@ -3,6 +3,9 @@
  *   fal-ai/kling-video/v2.6/standard/motion-control
  *
  * image_url + video_url → vidéo où le perso de l'image reprend le motion.
+ *
+ * Les WebM MediaRecorder (reactions admin) sont refusés (« Video format is
+ * invalid ») : on normalise toujours en MP4 H.264 avant l'appel.
  */
 
 import {
@@ -11,6 +14,10 @@ import {
   falQueueSubmit,
   type FalQueueProgress,
 } from "./fal_queue.ts";
+import {
+  normaliserVideoMp4PourKling,
+  urlSansCacheBuster,
+} from "./fal_normaliser_video.ts";
 
 const MODEL = "fal-ai/kling-video/v2.6/standard/motion-control";
 
@@ -24,12 +31,27 @@ export async function klingMotionControl(input: {
   negativePrompt?: string;
   characterOrientation?: "image" | "video";
   keepOriginalSound?: boolean;
+  /** Si false : ne re-encode pas (déjà MP4 Fal). Défaut true. */
+  normaliserVideo?: boolean;
   onProgress?: FalQueueProgress;
 }): Promise<{ url: string; bytes: Uint8Array; mime: string }> {
-  const image_url = String(input.imageUrl ?? "").trim();
-  const video_url = String(input.videoUrl ?? "").trim();
+  const image_url = urlSansCacheBuster(input.imageUrl);
+  let video_url = urlSansCacheBuster(input.videoUrl);
   if (!image_url || !video_url) {
     throw new Error("Kling motion-control: image_url et video_url requis");
+  }
+
+  if (input.normaliserVideo !== false) {
+    await input.onProgress?.({
+      phase: "submit",
+      detail: "pré-normalisation vidéo → MP4 H.264 (Kling)",
+    });
+    const norm = await normaliserVideoMp4PourKling(video_url, input.onProgress);
+    video_url = norm.url;
+    await input.onProgress?.({
+      phase: "submit",
+      detail: `vidéo normalisée OK · ${video_url.slice(-56)}`,
+    });
   }
 
   const body: Record<string, unknown> = {

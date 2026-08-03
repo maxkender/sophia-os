@@ -366,7 +366,11 @@ export async function assignerUgcVideoSlot(
     log(`  Photo ref uploadée · ${imagePath}`);
 
     // ── 2) Kling motion-control ─────────────────────────────────────
-    log(`Étape 2/4 Kling motion-control · image=ref · video=reaction · 9:16`);
+    // Reactions admin = souvent WebM MediaRecorder → Kling 422 « Video format
+    // is invalid ». klingMotionControl re-encode en MP4 H.264 avant l'appel.
+    log(
+      `Étape 2/4 Kling motion-control · image=ref · video=reaction (${reaction.video_source_url.includes(".webm") ? "webm→mp4" : "mp4"})`,
+    );
     const neg =
       (await chargerPrompt(supabase, "ugc_video_kling_negative"))?.trim() ||
       NEGATIVE_DEFAUT;

@@ -1,3 +1,4 @@
+import { retirerContentCredentialsBytes } from "../_shared/c2pa.ts";
 import { appliquerIdentiteInstantanee } from "../_shared/persona.ts";
 import {
   assertRole,
@@ -9,6 +10,18 @@ import {
 
 type Supabase = ReturnType<typeof serviceClient>;
 const DOMAINE = "sophia.com";
+const BUCKET = "medias";
+
+interface FileLabelItem {
+  label_id: string;
+  ugc: boolean;
+}
+
+interface PersonaUgcLibre {
+  id: string;
+  nom: string;
+  image_face_url: string;
+}
 
 /**
  * Gestion des posters / recruteurs.
@@ -18,9 +31,10 @@ const DOMAINE = "sophia.com";
  *   { action: "delete", userId }
  *
  * Création poster : compte créé immédiatement (warmup non démarré).
- * Label : file FIFO `file_labels_comptes`, sinon label le moins utilisé
- * pour la LANGUE du créateur. Identité (@ / PDP) selon label + langue.
- * Référence source = best-effort (plus bloquant).
+ * File FIFO `file_labels_comptes` : { items: [{ label_id, ugc }] }.
+ * UGC → persona libre, nom + avatar face sans métadonnées ; label forcé
+ * parmi ceux qui ont des slideshows ugc_compatible.
+ * File vide → label classique le moins utilisé pour la LANGUE.
  */
 Deno.serve(async (request) => {
   // Préflight CORS : doit répondre 2xx AVANT tout parse JSON, sinon le
@@ -134,12 +148,33 @@ async function gererRequete(request: Request): Promise<Response> {
       }
     }
 
-    // Label obligatoire pour un poster : file FIFO, sinon moins utilisé dans
-    // la langue du créateur.
-    let labelId: string | null = null;
+    // Label (+ mode UGC) : file FIFO, sinon moins utilisé (classique) dans
+    // la langue du créateur. Persona UGC tirée AVANT createUser.
+    let fileItem: FileLabelItem | null = null;
+    let personaUgc: PersonaUgcLibre | null = null;
     if (roleVoulu === "poster") {
-      labelId = await popLabelFile(supabase, langue);
-      if (!labelId) return json({ error: "NO_LABELS" }, 409);
+      const popped = await popLabelFile(supabase, langue);
+      if (!popped.ok) return json({ error: popped.error }, 409);
+      fileItem = popped.item;
+
+      if (fileItem.ugc) {
+        const labelOk = await labelADesContenusUgc(supabase, fileItem.label_id);
+        if (!labelOk) {
+          const fallback = await labelMoinsUtiliseParLangue(supabase, langue, {
+            ugcOnly: true,
+          });
+          if (!fallback) {
+            await unshiftLabelFile(supabase, fileItem);
+            return json({ error: "NO_UGC_LABEL" }, 409);
+          }
+          fileItem = { label_id: fallback, ugc: true };
+        }
+        personaUgc = await personaUgcLibre(supabase);
+        if (!personaUgc) {
+          await unshiftLabelFile(supabase, fileItem);
+          return json({ error: "NO_UGC_PERSONA" }, 409);
+        }
+      }
     }
 
     // Référence source : best-effort (plus bloquant).
@@ -158,8 +193,7 @@ async function gererRequete(request: Request): Promise<Response> {
     });
 
     if (error) {
-      // Remettre le label en tête de file si la création auth échoue.
-      if (labelId) await unshiftLabelFile(supabase, labelId);
+      if (fileItem) await unshiftLabelFile(supabase, fileItem);
       const detail = [error.message, error.code, error.status].filter(Boolean).join(" · ");
       return json({ error: detail || `Création refusée pour ${email}` }, 400);
     }
@@ -195,6 +229,7 @@ async function gererRequete(request: Request): Promise<Response> {
       reference: string | null;
       persona: boolean;
       labelId: string | null;
+      ugc: boolean;
     } | null = null;
     if (data.user && roleVoulu === "poster" && langue) {
       const postsParJour = normaliserPostsParJour(body.posts_par_jour);
@@ -203,8 +238,9 @@ async function gererRequete(request: Request): Promise<Response> {
         data.user.id,
         langue,
         referenceId,
-        labelId,
+        fileItem,
         postsParJour,
+        personaUgc,
       );
     }
 
@@ -273,50 +309,79 @@ async function lireWarmupHeures(supabase: Supabase): Promise<number> {
   return Number.isFinite(h) && h > 0 ? Math.min(168, h) : 24;
 }
 
+function normaliserFileItems(valeur: unknown): FileLabelItem[] {
+  const v = (valeur ?? {}) as {
+    items?: Array<{ label_id?: string; ugc?: boolean }>;
+    label_ids?: string[];
+  };
+  if (Array.isArray(v.items) && v.items.length > 0) {
+    return v.items
+      .map((it) => ({
+        label_id: String(it?.label_id ?? "").trim(),
+        ugc: Boolean(it?.ugc),
+      }))
+      .filter((it) => it.label_id);
+  }
+  return (v.label_ids ?? [])
+    .map((id) => String(id ?? "").trim())
+    .filter(Boolean)
+    .map((label_id) => ({ label_id, ugc: false }));
+}
+
 /**
- * Tire le premier label de la file (FIFO) et persiste le reste.
- * File vide → label le moins utilisé par les comptes actifs de cette langue
- * (ex æquo : tirage parmi les minima). Ne consomme pas la file.
+ * Tire la première entrée de la file (FIFO) et persiste le reste.
+ * File vide → label classique le moins utilisé (ne consomme pas la file).
  */
-async function popLabelFile(supabase: Supabase, langue: string): Promise<string | null> {
+async function popLabelFile(
+  supabase: Supabase,
+  langue: string,
+): Promise<{ ok: true; item: FileLabelItem } | { ok: false; error: string }> {
   const { data } = await supabase
     .from("reglages")
     .select("valeur")
     .eq("cle", "file_labels_comptes")
     .maybeSingle();
-  const ids = ((data?.valeur as { label_ids?: string[] } | null)?.label_ids ?? []).filter(
-    Boolean,
-  );
-  if (ids.length > 0) {
-    const [first, ...rest] = ids;
+  const items = normaliserFileItems(data?.valeur);
+  if (items.length > 0) {
+    const [first, ...rest] = items;
     await supabase.from("reglages").upsert(
       {
         cle: "file_labels_comptes",
-        valeur: { label_ids: rest },
+        valeur: { items: rest },
         updated_at: new Date().toISOString(),
       },
       { onConflict: "cle" },
     );
-    return first ?? null;
+    if (!first) return { ok: false, error: "NO_LABELS" };
+    return { ok: true, item: first };
   }
 
-  return labelMoinsUtiliseParLangue(supabase, langue);
+  const labelId = await labelMoinsUtiliseParLangue(supabase, langue, { ugcOnly: false });
+  if (!labelId) return { ok: false, error: "NO_LABELS" };
+  return { ok: true, item: { label_id: labelId, ugc: false } };
 }
 
 /** Label avec le moins de comptes actifs dans la langue (ou global si langue vide). */
 async function labelMoinsUtiliseParLangue(
   supabase: Supabase,
   langue: string,
+  opts: { ugcOnly: boolean },
 ): Promise<string | null> {
-  const { data: tous } = await supabase.from("labels").select("id");
-  const pool = (tous ?? []).map((l) => l.id as string).filter(Boolean);
+  let pool: string[] = [];
+  if (opts.ugcOnly) {
+    pool = await labelIdsAvecContenusUgc(supabase);
+  } else {
+    const { data: tous } = await supabase.from("labels").select("id");
+    pool = (tous ?? []).map((l) => l.id as string).filter(Boolean);
+  }
   if (pool.length === 0) return null;
 
   const counts = new Map<string, number>(pool.map((id) => [id, 0]));
   let q = supabase
     .from("compte_labels")
     .select("label_id, comptes!inner(langue, is_active)")
-    .eq("comptes.is_active", true);
+    .eq("comptes.is_active", true)
+    .in("label_id", pool);
   if (langue) q = q.eq("comptes.langue", langue);
   const { data: usages } = await q;
   for (const u of usages ?? []) {
@@ -340,28 +405,103 @@ async function labelMoinsUtiliseParLangue(
   return candidats[Math.floor(Math.random() * candidats.length)] ?? null;
 }
 
-async function unshiftLabelFile(supabase: Supabase, labelId: string): Promise<void> {
+async function labelIdsAvecContenusUgc(supabase: Supabase): Promise<string[]> {
+  const { data } = await supabase
+    .from("contenu_labels")
+    .select("label_id, contenus!inner(ugc_compatible)")
+    .eq("contenus.ugc_compatible", true);
+  return [...new Set((data ?? []).map((r) => r.label_id as string).filter(Boolean))];
+}
+
+async function labelADesContenusUgc(supabase: Supabase, labelId: string): Promise<boolean> {
+  const { data } = await supabase
+    .from("contenu_labels")
+    .select("contenu_id, contenus!inner(ugc_compatible)")
+    .eq("label_id", labelId)
+    .eq("contenus.ugc_compatible", true)
+    .limit(1);
+  return (data?.length ?? 0) > 0;
+}
+
+async function unshiftLabelFile(supabase: Supabase, item: FileLabelItem): Promise<void> {
   const { data } = await supabase
     .from("reglages")
     .select("valeur")
     .eq("cle", "file_labels_comptes")
     .maybeSingle();
-  const ids = ((data?.valeur as { label_ids?: string[] } | null)?.label_ids ?? []).filter(
-    Boolean,
-  );
+  const items = normaliserFileItems(data?.valeur);
   await supabase.from("reglages").upsert(
     {
       cle: "file_labels_comptes",
-      valeur: { label_ids: [labelId, ...ids] },
+      valeur: { items: [item, ...items] },
       updated_at: new Date().toISOString(),
     },
     { onConflict: "cle" },
   );
 }
 
+async function personaUgcLibre(supabase: Supabase): Promise<PersonaUgcLibre | null> {
+  const { data: personas } = await supabase
+    .from("ugc_personas")
+    .select("id, nom, image_face_url");
+  if (!personas?.length) return null;
+
+  const { data: pris } = await supabase
+    .from("comptes")
+    .select("ugc_persona_id")
+    .not("ugc_persona_id", "is", null);
+  const used = new Set((pris ?? []).map((c) => c.ugc_persona_id as string).filter(Boolean));
+
+  const libres = personas.filter(
+    (p) =>
+      !used.has(p.id as string) &&
+      typeof p.image_face_url === "string" &&
+      p.image_face_url.length > 0 &&
+      typeof p.nom === "string" &&
+      p.nom.trim().length > 0,
+  ) as PersonaUgcLibre[];
+  if (libres.length === 0) return null;
+  return libres[Math.floor(Math.random() * libres.length)] ?? null;
+}
+
+/** Télécharge la face persona, strip C2PA, upload avatar compte. */
+async function avatarDepuisFacePersona(
+  supabase: Supabase,
+  compteId: string,
+  faceUrl: string,
+): Promise<string | null> {
+  try {
+    const res = await fetch(faceUrl);
+    if (!res.ok) return null;
+    const raw = new Uint8Array(await res.arrayBuffer());
+    const strip = await retirerContentCredentialsBytes(raw);
+    const mime =
+      strip.mime === "application/octet-stream"
+        ? (res.headers.get("content-type") || "image/png")
+        : strip.mime;
+    const ext = mime.includes("jpeg") || mime.includes("jpg")
+      ? "jpg"
+      : mime.includes("webp")
+        ? "webp"
+        : "png";
+    const path = `avatars/ugc/${compteId}-${Date.now()}.${ext}`;
+    const { error } = await supabase.storage.from(BUCKET).upload(path, strip.bytes, {
+      contentType: mime || "image/png",
+      upsert: true,
+      cacheControl: "3600",
+    });
+    if (error) return null;
+    const pub = supabase.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
+    return `${pub}?v=${Date.now()}`;
+  } catch {
+    return null;
+  }
+}
+
 /**
  * Compte créé avec warmup NON démarré (started/ends null).
  * Label posé tout de suite ; identité instantanée.
+ * UGC : ugc_ai + persona + nom persona + avatar face stripée.
  */
 /** Quota d'assignation journalier : 1–3, défaut 2 à la création. */
 function normaliserPostsParJour(n: unknown): number {
@@ -375,9 +515,19 @@ async function preparerCompte(
   posterId: string,
   langue: string,
   referenceId: string | null,
-  labelId: string | null,
+  fileItem: FileLabelItem | null,
   postsParJour: number,
-): Promise<{ id: string; reference: string | null; persona: boolean; labelId: string | null }> {
+  personaUgc: PersonaUgcLibre | null,
+): Promise<{
+  id: string;
+  reference: string | null;
+  persona: boolean;
+  labelId: string | null;
+  ugc: boolean;
+}> {
+  const ugc = Boolean(fileItem?.ugc && personaUgc);
+  const labelId = fileItem?.label_id ?? null;
+
   const { data: compte, error } = await supabase
     .from("comptes")
     .insert({
@@ -388,12 +538,15 @@ async function preparerCompte(
       warmup_started_at: null,
       warmup_ends_at: null,
       is_active: true,
+      ugc_ai: ugc,
+      ugc_persona_id: ugc ? personaUgc!.id : null,
+      persona_nom: ugc ? personaUgc!.nom.trim() : null,
     })
     .select("id")
     .single();
   if (error || !compte) {
-    if (labelId) await unshiftLabelFile(supabase, labelId);
-    return { id: "", reference: referenceId, persona: false, labelId };
+    if (fileItem) await unshiftLabelFile(supabase, fileItem);
+    return { id: "", reference: referenceId, persona: false, labelId, ugc };
   }
 
   let labelNom: string | null = null;
@@ -407,11 +560,38 @@ async function preparerCompte(
     labelNom = (lab?.nom as string | undefined) ?? (lab?.slug as string | undefined) ?? null;
   }
 
+  if (ugc && personaUgc) {
+    const avatarUrl = await avatarDepuisFacePersona(
+      supabase,
+      compte.id,
+      personaUgc.image_face_url,
+    );
+    if (avatarUrl) {
+      await supabase
+        .from("comptes")
+        .update({
+          avatar_url: avatarUrl,
+          avatar_source: "ugc_persona",
+          persona_nom: personaUgc.nom.trim(),
+        })
+        .eq("id", compte.id);
+    }
+  }
+
   const { applique } = await appliquerIdentiteInstantanee(supabase, compte.id, {
     labelId,
     labelNom,
   });
-  return { id: compte.id, reference: referenceId, persona: applique, labelId };
+
+  // Sécurité : le nom UGC ne doit pas être écrasé si déjà posé (?? côté persona).
+  if (ugc && personaUgc) {
+    await supabase
+      .from("comptes")
+      .update({ persona_nom: personaUgc.nom.trim(), ugc_ai: true, ugc_persona_id: personaUgc.id })
+      .eq("id", compte.id);
+  }
+
+  return { id: compte.id, reference: referenceId, persona: applique, labelId, ugc };
 }
 
 async function referenceLibre(

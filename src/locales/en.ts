@@ -1354,21 +1354,28 @@ export const en = {
     warmup: {
       settingsTitre: "Warmup & label queue",
       settingsDesc:
-        "When a poster is created, a label is taken from the front of the queue. The account only enters the process (assignment, rankings, stats) after warmup.",
+        "When a poster is created, a queue entry (label + UGC or not) is taken from the front. The account only enters the process (assignment, rankings, stats) after warmup.",
       heures: "Warmup duration (hours)",
       heuresAide:
         "Timer starts when the creator clicks “Start warmup” in their calendar (default 24 h).",
-      fileTitre: "Label queue (next accounts)",
+      fileTitre: "Next accounts queue (label + UGC)",
       fileDesc:
-        "FIFO order: the first label is assigned to the next account created, then removed from the queue. Empty queue → least-used label among active accounts in the same language.",
+        "FIFO order: the first entry sets the label and whether the account is UGC. UGC → unused persona, name + face photo without metadata. Empty queue → classic least-used label in the language.",
       fileVideListe:
-        "Empty queue — the next account will get the least-used label in its language.",
+        "Empty queue — the next account will get the least-used (non-UGC) label in its language.",
       fileVide:
         "The label queue is empty: we assign the least-used label for the creator’s language.",
       aucunLabel:
         "No labels in the database — create at least one (Library / Labels) before creating a poster.",
+      aucunLabelUgc:
+        "No label with UGC slideshows — mark at least one slideshow as UGC before adding a UGC queue entry.",
       ajouterLabel: "Add a label",
+      ajouterUgc: "UGC account",
       ajouter: "Add",
+      plusDePersonaUgc:
+        "No free UGC persona left — create one or free an association before creating a UGC account.",
+      labelUgcIntrouvable:
+        "No label with UGC posts available for this UGC account.",
       attente: "Warmup not started",
       start: "Start warmup",
       demarrage: "Starting…",

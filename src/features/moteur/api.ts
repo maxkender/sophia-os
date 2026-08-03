@@ -2181,6 +2181,26 @@ export async function sujetsDisponibles(): Promise<Array<{ id: string; titre: st
 
 // --- Réglages et prompts ----------------------------------------------------
 
+/** Lit `{ items }` ou legacy `{ label_ids }` → file normalisée. */
+export function normaliserFileLabels(raw: unknown): Reglages["file_labels_comptes"] {
+  const v = (raw ?? {}) as {
+    items?: Array<{ label_id?: string; ugc?: boolean }>;
+    label_ids?: string[];
+  };
+  if (Array.isArray(v.items) && v.items.length > 0) {
+    return {
+      items: v.items
+        .map((it) => ({
+          label_id: String(it?.label_id ?? "").trim(),
+          ugc: Boolean(it?.ugc),
+        }))
+        .filter((it) => it.label_id),
+    };
+  }
+  const ids = (v.label_ids ?? []).map((id) => String(id ?? "").trim()).filter(Boolean);
+  return { items: ids.map((label_id) => ({ label_id, ugc: false })) };
+}
+
 export async function lireReglages(): Promise<Reglages> {
   const { data, error } = await supabase.from("reglages").select("cle, valeur");
   if (error) throw error;
@@ -2229,11 +2249,7 @@ export async function lireReglages(): Promise<Reglages> {
       provider_principal: "fal",
       ...((map.get("nettoyage") as Partial<Reglages["nettoyage"]> | undefined) ?? {}),
     },
-    file_labels_comptes: {
-      label_ids: [],
-      ...((map.get("file_labels_comptes") as Partial<Reglages["file_labels_comptes"]> | undefined) ??
-        {}),
-    },
+    file_labels_comptes: normaliserFileLabels(map.get("file_labels_comptes")),
     warmup: {
       heures: 24,
       ...((map.get("warmup") as Partial<Reglages["warmup"]> | undefined) ?? {}),
@@ -3383,6 +3399,16 @@ export async function listerLabels(): Promise<Label[]> {
   const { data, error } = await supabase.from("labels").select("*").order("nom");
   if (error) throw error;
   return data as Label[];
+}
+
+/** Labels qui ont au moins un slideshow `ugc_compatible` (file UGC admin). */
+export async function listerLabelIdsAvecUgc(): Promise<string[]> {
+  const { data, error } = await supabase
+    .from("contenu_labels")
+    .select("label_id, contenus!inner(ugc_compatible)")
+    .eq("contenus.ugc_compatible", true);
+  if (error) throw error;
+  return [...new Set((data ?? []).map((r) => r.label_id as string).filter(Boolean))];
 }
 
 export async function creerLabel(nom: string, couleur?: string | null): Promise<Label> {

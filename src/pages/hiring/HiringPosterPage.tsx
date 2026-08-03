@@ -318,7 +318,11 @@ export function HiringPosterPage() {
                     ? t("posters.plusDeReference")
                     : (creer.error as Error).message === "NO_LABELS"
                       ? t("warmup.aucunLabel")
-                      : (creer.error as Error).message}
+                      : (creer.error as Error).message === "NO_UGC_PERSONA"
+                        ? t("warmup.plusDePersonaUgc")
+                        : (creer.error as Error).message === "NO_UGC_LABEL"
+                          ? t("warmup.labelUgcIntrouvable")
+                          : (creer.error as Error).message}
                 </p>
               )}
             </div>

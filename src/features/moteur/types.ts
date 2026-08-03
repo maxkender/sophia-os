@@ -215,9 +215,16 @@ export interface ReglagesNettoyage {
   provider_principal: "fal" | "replicate";
 }
 
+/** Entrée de la file des prochains comptes (label + mode UGC). */
+export interface FileLabelCompteItem {
+  label_id: string;
+  /** Si true : compte UGC AI (persona libre, nom + avatar persona). */
+  ugc: boolean;
+}
+
 /** File FIFO des labels assignés aux prochains comptes créés. */
 export interface ReglagesFileLabels {
-  label_ids: string[];
+  items: FileLabelCompteItem[];
 }
 
 export interface ReglagesWarmup {

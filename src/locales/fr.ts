@@ -1351,21 +1351,28 @@ export const fr = {
     warmup: {
       settingsTitre: "Warmup & file de labels",
       settingsDesc:
-        "À la création d’un poster, un label est pris en tête de file. Le compte n’entre dans le process (assignation, classements, stats) qu’après le warmup.",
+        "À la création d’un poster, une entrée (label + UGC ou non) est prise en tête de file. Le compte n’entre dans le process (assignation, classements, stats) qu’après le warmup.",
       heures: "Durée du warmup (heures)",
       heuresAide:
         "Timer lancé quand le créateur clique « Commencer le warmup » dans son calendrier (défaut 24 h).",
-      fileTitre: "File des labels (prochains comptes)",
+      fileTitre: "File des prochains comptes (label + UGC)",
       fileDesc:
-        "Ordre FIFO : le premier label de la liste est assigné au prochain compte créé, puis retiré de la file. File vide → label le moins utilisé parmi les comptes actifs de la même langue.",
+        "Ordre FIFO : la première entrée décide le label et si le compte est UGC. UGC → persona libre, nom + photo de face sans métadonnées. File vide → label classique le moins utilisé dans la langue.",
       fileVideListe:
-        "File vide — le prochain compte recevra le label le moins utilisé dans sa langue.",
+        "File vide — le prochain compte recevra le label (non-UGC) le moins utilisé dans sa langue.",
       fileVide:
         "La file de labels est vide : on assigne le label le moins utilisé pour la langue du créateur.",
       aucunLabel:
         "Aucun label en base — crée-en au moins un (Bibliothèque / Labels) avant de créer un poster.",
+      aucunLabelUgc:
+        "Aucun label avec slideshows UGC — coche UGC sur au moins un slideshow avant d’ajouter une entrée UGC.",
       ajouterLabel: "Ajouter un label",
+      ajouterUgc: "Compte UGC",
       ajouter: "Ajouter",
+      plusDePersonaUgc:
+        "Plus de persona UGC libre — crée-en une ou libère une association avant de créer un compte UGC.",
+      labelUgcIntrouvable:
+        "Aucun label avec posts UGC disponible pour ce compte UGC.",
       attente: "Warmup pas démarré",
       start: "Commencer le warmup",
       demarrage: "Démarrage…",

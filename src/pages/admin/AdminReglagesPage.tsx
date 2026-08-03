@@ -7,7 +7,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ecrireReglage, lireReglages, listerLabels } from "@/features/moteur/api";
+import {
+  ecrireReglage,
+  lireReglages,
+  listerLabelIdsAvecUgc,
+  listerLabels,
+} from "@/features/moteur/api";
 import {
   SCHEMA_ASSIGNATION,
   SCHEMA_UPDATE_ELO,
@@ -15,7 +20,7 @@ import {
   type PipelineAction,
   type PipelineStep,
 } from "@/features/moteur/pipelinesSchema";
-import type { Reglages } from "@/features/moteur/types";
+import type { FileLabelCompteItem, Reglages } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
 
 function ChampNombre({
@@ -187,10 +192,16 @@ export function AdminReglagesPage() {
   const queryClient = useQueryClient();
   const { data, isPending } = useQuery({ queryKey: ["reglages"], queryFn: lireReglages });
   const labels = useQuery({ queryKey: ["labels"], queryFn: listerLabels });
+  const labelsUgc = useQuery({
+    queryKey: ["labels-avec-ugc"],
+    queryFn: listerLabelIdsAvecUgc,
+    staleTime: 30_000,
+  });
 
   const [brouillon, setBrouillon] = React.useState<Reglages | null>(null);
   const reglages = brouillon ?? data ?? null;
   const [labelAjout, setLabelAjout] = React.useState("");
+  const [ugcAjout, setUgcAjout] = React.useState(false);
 
   const enregistrer = useMutation({
     mutationFn: async (r: Reglages) => {
@@ -490,19 +501,26 @@ export function AdminReglagesPage() {
             <h3 className="text-sm font-medium">{t("warmup.fileTitre")}</h3>
             <p className="text-xs text-muted-foreground">{t("warmup.fileDesc")}</p>
             <ol className="space-y-1.5">
-              {reglages.file_labels_comptes.label_ids.length === 0 && (
+              {reglages.file_labels_comptes.items.length === 0 && (
                 <li className="text-sm text-muted-foreground">{t("warmup.fileVideListe")}</li>
               )}
-              {reglages.file_labels_comptes.label_ids.map((id, i) => {
-                const lab = (labels.data ?? []).find((l) => l.id === id);
+              {reglages.file_labels_comptes.items.map((item, i) => {
+                const lab = (labels.data ?? []).find((l) => l.id === item.label_id);
+                const majItems = (items: FileLabelCompteItem[]) =>
+                  maj({ file_labels_comptes: { items } });
                 return (
                   <li
-                    key={`${id}-${i}`}
+                    key={`${item.label_id}-${item.ugc}-${i}`}
                     className="flex flex-wrap items-center justify-between gap-2 rounded-md border px-2.5 py-2 text-sm"
                   >
-                    <span className="truncate">
-                      <span className="mr-2 text-muted-foreground">{i + 1}.</span>
-                      {lab?.nom ?? id.slice(0, 8)}
+                    <span className="flex min-w-0 items-center gap-2 truncate">
+                      <span className="text-muted-foreground">{i + 1}.</span>
+                      <span className="truncate">{lab?.nom ?? item.label_id.slice(0, 8)}</span>
+                      {item.ugc && (
+                        <Badge variant="secondary" className="shrink-0 text-[10px]">
+                          UGC
+                        </Badge>
+                      )}
                     </span>
                     <div className="flex items-center gap-1">
                       <Button
@@ -511,9 +529,9 @@ export function AdminReglagesPage() {
                         variant="ghost"
                         disabled={i === 0}
                         onClick={() => {
-                          const ids = [...reglages.file_labels_comptes.label_ids];
-                          [ids[i - 1], ids[i]] = [ids[i]!, ids[i - 1]!];
-                          maj({ file_labels_comptes: { label_ids: ids } });
+                          const items = [...reglages.file_labels_comptes.items];
+                          [items[i - 1], items[i]] = [items[i]!, items[i - 1]!];
+                          majItems(items);
                         }}
                       >
                         ↑
@@ -522,11 +540,11 @@ export function AdminReglagesPage() {
                         type="button"
                         size="sm"
                         variant="ghost"
-                        disabled={i >= reglages.file_labels_comptes.label_ids.length - 1}
+                        disabled={i >= reglages.file_labels_comptes.items.length - 1}
                         onClick={() => {
-                          const ids = [...reglages.file_labels_comptes.label_ids];
-                          [ids[i], ids[i + 1]] = [ids[i + 1]!, ids[i]!];
-                          maj({ file_labels_comptes: { label_ids: ids } });
+                          const items = [...reglages.file_labels_comptes.items];
+                          [items[i], items[i + 1]] = [items[i + 1]!, items[i]!];
+                          majItems(items);
                         }}
                       >
                         ↓
@@ -537,10 +555,9 @@ export function AdminReglagesPage() {
                         variant="ghost"
                         className="text-destructive"
                         onClick={() => {
-                          const ids = reglages.file_labels_comptes.label_ids.filter(
-                            (_, j) => j !== i,
+                          majItems(
+                            reglages.file_labels_comptes.items.filter((_, j) => j !== i),
                           );
-                          maj({ file_labels_comptes: { label_ids: ids } });
                         }}
                       >
                         ×
@@ -560,29 +577,59 @@ export function AdminReglagesPage() {
                   onChange={(e) => setLabelAjout(e.target.value)}
                 >
                   <option value="">{t("common.none")}</option>
-                  {(labels.data ?? []).map((l) => (
-                    <option key={l.id} value={l.id}>
-                      {l.nom}
-                    </option>
-                  ))}
+                  {(labels.data ?? [])
+                    .filter((l) => !ugcAjout || (labelsUgc.data ?? []).includes(l.id))
+                    .map((l) => (
+                      <option key={l.id} value={l.id}>
+                        {l.nom}
+                      </option>
+                    ))}
                 </select>
               </div>
+              <label className="flex h-9 items-center gap-2 text-sm">
+                <input
+                  type="checkbox"
+                  checked={ugcAjout}
+                  onChange={(e) => {
+                    const on = e.target.checked;
+                    setUgcAjout(on);
+                    if (
+                      on &&
+                      labelAjout &&
+                      !(labelsUgc.data ?? []).includes(labelAjout)
+                    ) {
+                      setLabelAjout("");
+                    }
+                  }}
+                />
+                {t("warmup.ajouterUgc")}
+              </label>
               <Button
                 type="button"
                 size="sm"
-                disabled={!labelAjout}
+                disabled={
+                  !labelAjout ||
+                  (ugcAjout && !(labelsUgc.data ?? []).includes(labelAjout))
+                }
                 onClick={() => {
                   maj({
                     file_labels_comptes: {
-                      label_ids: [...reglages.file_labels_comptes.label_ids, labelAjout],
+                      items: [
+                        ...reglages.file_labels_comptes.items,
+                        { label_id: labelAjout, ugc: ugcAjout },
+                      ],
                     },
                   });
                   setLabelAjout("");
+                  setUgcAjout(false);
                 }}
               >
                 {t("warmup.ajouter")}
               </Button>
             </div>
+            {ugcAjout && (labelsUgc.data ?? []).length === 0 && (
+              <p className="text-xs text-destructive">{t("warmup.aucunLabelUgc")}</p>
+            )}
           </section>
         </CardContent>
       </Card>

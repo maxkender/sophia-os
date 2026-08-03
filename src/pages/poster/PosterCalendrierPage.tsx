@@ -16,7 +16,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, EmptyState } from "@/components/ui/card";
 import { supabase } from "@/lib/supabase/client";
-import { aujourdhui, majMonHandle, monCompte } from "@/features/moteur/api";
+import { aujourdhui, demarrerWarmup, majMonHandle, monCompte } from "@/features/moteur/api";
+import { WarmupBadge } from "@/features/moteur/WarmupBadge";
+import { statutWarmup } from "@/features/moteur/warmup";
 import { useAuth } from "@/features/auth/AuthContext";
 import { cn } from "@/lib/utils";
 
@@ -207,10 +209,22 @@ function IdentiteTikTok() {
 export function PosterCalendrierPage() {
   const { t, i18n } = useTranslation();
   const { user } = useAuth();
+  const queryClient = useQueryClient();
   const { data: posts, isPending } = useQuery({
     queryKey: ["mes-posts", user?.id],
     queryFn: mesPosts,
     enabled: Boolean(user?.id),
+  });
+  const { data: compte } = useQuery({
+    queryKey: ["mon-compte"],
+    queryFn: monCompte,
+    enabled: Boolean(user?.id),
+  });
+  const startWarmup = useMutation({
+    mutationFn: () => demarrerWarmup(compte!.id),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: ["mon-compte"] });
+    },
   });
 
   const jour = aujourdhui();
@@ -254,12 +268,56 @@ export function PosterCalendrierPage() {
     new Date(2024, 0, index + 1).toLocaleDateString(i18n.language, { weekday: "short" }),
   );
 
+  const warmupStatut = compte
+    ? statutWarmup({
+        warmup_started_at: compte.warmup_started_at,
+        warmup_ends_at: compte.warmup_ends_at,
+      })
+    : null;
+
   return (
     <div className="space-y-8">
-      {/* Rappel de warm-up : un compte neuf qui poste d'emblée, ou inactif, se
-          fait repérer par TikTok comme un bot. */}
-      <div className="rounded-lg border border-destructive/40 bg-destructive/10 p-3 text-sm font-medium text-destructive">
-        {t("calendrier.warmupRappel")}
+      {/* Warmup : le créateur démarre le timer ici (plus côté HM). */}
+      <div
+        className={cn(
+          "flex flex-col gap-3 rounded-lg border p-3 sm:flex-row sm:items-center sm:justify-between",
+          warmupStatut === "attente"
+            ? "border-warning/50 bg-warning/10"
+            : "border-destructive/40 bg-destructive/10",
+        )}
+      >
+        <div className="space-y-1">
+          <p
+            className={cn(
+              "text-sm font-medium",
+              warmupStatut === "attente" ? "text-warning" : "text-destructive",
+            )}
+          >
+            {warmupStatut === "attente"
+              ? t("calendrier.warmupADemarrer")
+              : t("calendrier.warmupRappel")}
+          </p>
+          {warmupStatut === "attente" && (
+            <p className="text-xs text-muted-foreground">{t("calendrier.warmupADemarrerAide")}</p>
+          )}
+        </div>
+        {compte && (
+          <div className="flex flex-wrap items-center gap-2">
+            <WarmupBadge
+              compteId={compte.id}
+              startedAt={compte.warmup_started_at}
+              endsAt={compte.warmup_ends_at}
+              showStart={warmupStatut === "attente"}
+              startPending={startWarmup.isPending}
+              onStart={() => startWarmup.mutate()}
+            />
+            {startWarmup.isError && (
+              <span className="text-xs text-destructive">
+                {(startWarmup.error as Error).message}
+              </span>
+            )}
+          </div>
+        )}
       </div>
 
       <IdentiteTikTok />

@@ -8,7 +8,7 @@ const DOMAINE = "sophia.com";
  * Gestion des posters / recruteurs.
  *
  *   { action: "create", prenom, nom, password, langue?, langues?, role? }
- *   { action: "start_warmup", compteId }
+ *   { action: "start_warmup", compteId }  — créateur (son compte) ou admin
  *   { action: "delete", userId }
  *
  * Création poster : compte créé immédiatement (warmup non démarré).
@@ -16,9 +16,6 @@ const DOMAINE = "sophia.com";
  * Référence source = best-effort (plus bloquant).
  */
 Deno.serve(async (request) => {
-  const acces = await assertRole(request, ["admin", "hiring_manager"]);
-  if (acces instanceof Response) return acces;
-
   const supabase = serviceClient();
 
   // deno-lint-ignore no-explicit-any
@@ -29,7 +26,11 @@ Deno.serve(async (request) => {
     return json({ error: "corps JSON attendu" }, 400);
   }
 
+  // Start warmup : le créateur lui-même (ou admin). Plus le HM.
   if (body.action === "start_warmup") {
+    const acces = await assertRole(request, ["admin", "poster"]);
+    if (acces instanceof Response) return acces;
+
     const compteId = String(body.compteId ?? "").trim();
     if (!compteId) return json({ error: "compteId requis" }, 400);
 
@@ -41,13 +42,8 @@ Deno.serve(async (request) => {
     if (error) return json({ error: error.message }, 400);
     if (!compte) return json({ error: "compte introuvable" }, 404);
 
-    if (acces.role === "hiring_manager" && acces.userId !== "cron") {
-      const { data: pr } = await supabase
-        .from("profiles")
-        .select("manager_id")
-        .eq("id", compte.poster_id)
-        .maybeSingle();
-      if (!pr || pr.manager_id !== acces.userId) {
+    if (acces.role === "poster" && acces.userId !== "cron") {
+      if (compte.poster_id !== acces.userId) {
         return json({ error: "forbidden" }, 403);
       }
     }
@@ -80,6 +76,9 @@ Deno.serve(async (request) => {
       heures,
     });
   }
+
+  const acces = await assertRole(request, ["admin", "hiring_manager"]);
+  if (acces instanceof Response) return acces;
 
   if (body.action === "create") {
     const prenom = String(body.prenom ?? "").trim();

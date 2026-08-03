@@ -19,7 +19,6 @@ import {
 import { useAuth } from "@/features/auth/AuthContext";
 import {
   creerPoster,
-  demarrerWarmup,
   listerLanguesReference,
   listerPosters,
   majCompte,
@@ -64,10 +63,6 @@ function LignePoster({ poster: p }: { poster: PosterProfil }) {
     mutationFn: () => supprimerPoster(p.id),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["posters"] }),
   });
-  const startWarmup = useMutation({
-    mutationFn: () => demarrerWarmup(p.compte_id!),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["posters"] }),
-  });
 
   return (
     <div className="flex items-start gap-3 rounded-lg border p-3">
@@ -86,15 +81,7 @@ function LignePoster({ poster: p }: { poster: PosterProfil }) {
             compteId={p.compte_id}
             startedAt={p.warmup_started_at}
             endsAt={p.warmup_ends_at}
-            showStart={Boolean(p.compte_id)}
-            startPending={startWarmup.isPending}
-            onStart={p.compte_id ? () => startWarmup.mutate() : undefined}
           />
-          {startWarmup.isError && (
-            <span className="text-xs text-destructive">
-              {(startWarmup.error as Error).message}
-            </span>
-          )}
           {!edite && (
             <span className="ml-auto flex items-center gap-3">
               {p.compte_id && (

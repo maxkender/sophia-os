@@ -1218,6 +1218,9 @@ export const en = {
       title: "My calendar",
       warmupRappel:
         "⚠️ Don't forget to warm up the account before you start posting (and every week, scroll for 5-6 minutes so TikTok doesn't take you for a robot)!",
+      warmupADemarrer: "Warmup not started yet",
+      warmupADemarrerAide:
+        "When your TikTok account is ready, click “Start warmup”. The timer starts; when it ends, you enter the process (assigned posts).",
       aujourdhui: "Today",
       filtreLangue: "Filter by language",
       toutesLangues: "All languages",
@@ -1238,7 +1241,8 @@ export const en = {
       settingsDesc:
         "When a poster is created, a label is taken from the front of the queue. The account only enters the process (assignment, rankings, stats) after warmup.",
       heures: "Warmup duration (hours)",
-      heuresAide: "Timer starts when the recruiter clicks “Start warmup” (default 24 h).",
+      heuresAide:
+        "Timer starts when the creator clicks “Start warmup” in their calendar (default 24 h).",
       fileTitre: "Label queue (next accounts)",
       fileDesc:
         "FIFO order: the first label is assigned to the next account created, then removed from the queue. Empty queue → random label among all labels.",
@@ -1255,7 +1259,7 @@ export const en = {
       demarrage: "Starting…",
       enCours: "Warmup · {{temps}}",
       apresCreation:
-        "Next: click “Start warmup” to start the timer. The account enters the process when it ends.",
+        "Next: the creator clicks “Start warmup” in their calendar to start the timer. When it ends, the account enters the process.",
       phasePasCree: "Account not created",
       phaseWarmupAttente: "Warmup — not started",
       phaseWarmup: "Warmup · {{temps}}",

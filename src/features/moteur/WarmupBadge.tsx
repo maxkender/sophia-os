@@ -12,7 +12,7 @@ import {
 
 /**
  * Badge des 3 phases créateur : compte pas créé → warmup → actif.
- * Toujours visible (admin / HM).
+ * Le bouton Start est côté créateur (calendrier) ; admin peut aussi le montrer.
  */
 export function WarmupBadge({
   compteId,
@@ -28,7 +28,7 @@ export function WarmupBadge({
   endsAt: string | null;
   onStart?: () => void;
   startPending?: boolean;
-  /** Affiche le bouton Start warmup (HM / admin). */
+  /** Affiche le bouton « Commencer le warmup » (créateur / admin). */
   showStart?: boolean;
 }) {
   const { t } = useTranslation();

@@ -1215,6 +1215,9 @@ export const fr = {
       title: "Mon calendrier",
       warmupRappel:
         "⚠️ N'oublie pas de warm up le compte avant de commencer à poster (et chaque semaine, scrolle 5-6 minutes pour que TikTok ne te prenne pas pour un robot) !",
+      warmupADemarrer: "Warmup pas encore démarré",
+      warmupADemarrerAide:
+        "Quand ton compte TikTok est prêt, clique sur « Commencer le warmup ». Le timer part ; à la fin, tu entres dans le process (posts assignés).",
       aujourdhui: "Aujourd'hui",
       filtreLangue: "Filtrer par langue",
       toutesLangues: "Toutes les langues",
@@ -1235,7 +1238,8 @@ export const fr = {
       settingsDesc:
         "À la création d’un poster, un label est pris en tête de file. Le compte n’entre dans le process (assignation, classements, stats) qu’après le warmup.",
       heures: "Durée du warmup (heures)",
-      heuresAide: "Timer lancé au clic « Start warmup » du recruteur (défaut 24 h).",
+      heuresAide:
+        "Timer lancé quand le créateur clique « Commencer le warmup » dans son calendrier (défaut 24 h).",
       fileTitre: "File des labels (prochains comptes)",
       fileDesc:
         "Ordre FIFO : le premier label de la liste est assigné au prochain compte créé, puis retiré de la file. File vide → label tiré au hasard parmi tous les labels.",
@@ -1248,11 +1252,11 @@ export const fr = {
       ajouterLabel: "Ajouter un label",
       ajouter: "Ajouter",
       attente: "Warmup pas démarré",
-      start: "Start warmup",
+      start: "Commencer le warmup",
       demarrage: "Démarrage…",
       enCours: "Warmup · {{temps}}",
       apresCreation:
-        "Ensuite : clique sur « Start warmup » pour lancer le timer. Le compte entre dans le process à la fin.",
+        "Ensuite : le créateur clique « Commencer le warmup » dans son calendrier pour lancer le timer. À la fin, le compte entre dans le process.",
       phasePasCree: "Compte pas créé",
       phaseWarmupAttente: "Warmup — à démarrer",
       phaseWarmup: "Warmup · {{temps}}",

@@ -451,11 +451,14 @@ export async function majCoutMensuel(userId: string, montant: number | null): Pr
 }
 
 export interface MonCompte {
+  id: string;
   persona_nom: string | null;
   persona_bio: string | null;
   handle_tiktok: string | null;
   avatar_url: string | null;
   langue: string;
+  warmup_started_at: string | null;
+  warmup_ends_at: string | null;
 }
 
 /** Le compte de publication du poster connecté : son identité TikTok (pseudo,
@@ -464,7 +467,9 @@ export interface MonCompte {
 export async function monCompte(): Promise<MonCompte | null> {
   const { data, error } = await supabase
     .from("comptes")
-    .select("persona_nom, persona_bio, handle_tiktok, avatar_url, langue")
+    .select(
+      "id, persona_nom, persona_bio, handle_tiktok, avatar_url, langue, warmup_started_at, warmup_ends_at",
+    )
     .order("created_at", { ascending: true })
     .limit(1)
     .maybeSingle();
@@ -539,7 +544,7 @@ export function creerPoster(input: {
   });
 }
 
-/** Démarre le warmup 24h d'un compte (HM / admin). */
+/** Démarre le warmup d'un compte (créateur sur son compte, ou admin). */
 export function demarrerWarmup(compteId: string) {
   return invoke<{
     ok: boolean;

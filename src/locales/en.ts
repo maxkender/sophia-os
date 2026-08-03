@@ -652,6 +652,10 @@ export const en = {
       ugcAi: "UGC AI",
       ugcAiAide:
         "Only gets slideshows with the UGC checkmark. Face slides are regenerated with the persona (Nano Banana).",
+      ugcAiVideo: "UGC AI VIDEO",
+      ugcAiVideoBadge: "UGC AI VIDEO",
+      ugcAiVideoAide:
+        "UGC AI VIDEO mark only — no labels. Unique persona (shared pool with UGC AI slideshows).",
       ugcPersona: "UGC persona",
       ugcPersonaChoisir: "Pick a persona…",
       ugcPersonaRequis: "A persona is required when UGC AI is on.",
@@ -689,6 +693,12 @@ export const en = {
       sansLabels: "No labels",
       ugcPersona: "UGC persona: {{nom}}",
       ugcSansPersona: "UGC AI — no persona assigned",
+      ugcAiVideoBadge: "UGC AI VIDEO",
+      ugcAiVideoSansLabels: "UGC AI VIDEO mark — no labels.",
+      hmUgcAiVideo: "UGC AI VIDEO hiring manager",
+      hmUgcAiVideoBadge: "HM UGC AI VIDEO",
+      hmUgcAiVideoAide:
+        "Their creators are born with the UGC AI VIDEO mark only (no labels) and a unique persona (unavailable if already used by a slideshow or video account).",
       eloCompte: "ELO {{score}}",
       eloCompteAide: "Account form (recency-weighted average of last measured posts)",
       createursDuRecruteur: "Assigned creators",
@@ -731,6 +741,8 @@ export const en = {
       title: "Create a poster",
       subtitle:
         "Enter the first name, last name and this creator’s language. You can hire across several languages. The rest (reference account + TikTok identity) is generated automatically.",
+      subtitleUgcAiVideo:
+        "UGC AI VIDEO mode: each creator gets the UGC AI VIDEO mark only (no labels) and a unique persona.",
       langue: "Poster's language",
       langueAide:
         "Pick THIS creator’s language. You can create others in other languages (among those you manage).",

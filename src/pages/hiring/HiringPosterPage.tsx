@@ -207,6 +207,7 @@ export function HiringPosterPage() {
   // Langues gérées par le recruteur : un créateur = une langue, choisie à
   // chaque embauche. Plusieurs langues gérées → créateurs de langues différentes.
   // Aucune langue posée (ex. admin) → toutes les langues cibles.
+  const modeUgcAiVideo = Boolean(profil?.hm_ugc_ai_video);
   const mesLangues = (profil?.langues ?? []).filter((l) => langues.data?.includes(l));
   const languesChoix = mesLangues.length > 0 ? mesLangues : (langues.data ?? []);
 
@@ -242,7 +243,9 @@ export function HiringPosterPage() {
             <UserPlus className="size-4" />
             {t("hiring.title")}
           </CardTitle>
-          <CardDescription>{t("hiring.subtitle")}</CardDescription>
+          <CardDescription>
+            {modeUgcAiVideo ? t("hiring.subtitleUgcAiVideo") : t("hiring.subtitle")}
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <form

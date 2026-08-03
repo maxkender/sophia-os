@@ -54,6 +54,8 @@ export interface Compte {
   warmup_ends_at: string | null;
   /** Créateur UGC AI — slideshows ugc_compatible + swap visage persona. */
   ugc_ai: boolean;
+  /** Créateur UGC AI VIDEO — marque seule, aucun label ; persona unique partagé. */
+  ugc_ai_video: boolean;
   /** Persona UGC (4 angles) associé à ce créateur. */
   ugc_persona_id: string | null;
 }
@@ -175,6 +177,8 @@ export interface PosterProfil {
   is_active: boolean;
   must_change_password: boolean;
   role: "admin" | "poster" | "hiring_manager" | null;
+  /** Recruteur UGC AI VIDEO : créateurs = marque vidéo + persona, sans labels. */
+  hm_ugc_ai_video: boolean;
 }
 
 export interface ReglagesScoring {

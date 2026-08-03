@@ -35,9 +35,11 @@ interface PersonaUgcLibre {
  *
  * Création poster : compte créé immédiatement (warmup non démarré).
  * File FIFO `file_labels_comptes` : { items: [{ label_id, ugc }] }.
- * UGC → persona libre, nom + avatar (profil 1:1 si dispo, sinon face)
+ * UGC slideshow → persona libre, nom + avatar (profil 1:1 si dispo, sinon face)
  * sans métadonnées ; label forcé parmi ceux qui ont des slideshows ugc_compatible.
  * File vide → label classique le moins utilisé pour la LANGUE.
+ * HM `hm_ugc_ai_video` → comptes ugc_ai_video, persona unique (pool partagé),
+ * AUCUN label (marque UGC AI VIDEO seule).
  */
 Deno.serve(async (request) => {
   // Préflight CORS : doit répondre 2xx AVANT tout parse JSON, sinon le
@@ -184,17 +186,28 @@ async function gererRequete(request: Request): Promise<Response> {
       }
     }
 
-    // File admin (label + UGC) : uniquement si on VA créer un compte (= langue).
+    // HM UGC AI VIDEO : ses créateurs naissent sans file labels / sans labels.
+    const hmUgcAiVideo = await estHmUgcAiVideo(supabase, acces);
+
+    // File admin (label + UGC) : uniquement si on VA créer un compte (= langue)
+    // et que ce n'est PAS un créateur UGC AI VIDEO.
     // Sinon on ne consomme pas la file (prévaut toujours sur l'auto least-used).
     let fileItem: FileLabelItem | null = null;
     let fileItemQueue: FileLabelItem | null = null;
     let personaUgc: PersonaUgcLibre | null = null;
+    let modeUgcAiVideo = false;
     if (roleVoulu === "poster" && langue) {
-      const prep = await preparerFileEtPersona(supabase, langue);
-      if (!prep.ok) return json({ error: prep.error }, 409);
-      fileItem = prep.fileItem;
-      fileItemQueue = prep.fileItemQueue;
-      personaUgc = prep.personaUgc;
+      if (hmUgcAiVideo) {
+        modeUgcAiVideo = true;
+        personaUgc = await personaUgcLibre(supabase);
+        if (!personaUgc) return json({ error: "NO_UGC_PERSONA" }, 409);
+      } else {
+        const prep = await preparerFileEtPersona(supabase, langue);
+        if (!prep.ok) return json({ error: prep.error }, 409);
+        fileItem = prep.fileItem;
+        fileItemQueue = prep.fileItemQueue;
+        personaUgc = prep.personaUgc;
+      }
     }
 
     // Référence source : best-effort (plus bloquant).
@@ -230,12 +243,13 @@ async function gererRequete(request: Request): Promise<Response> {
         const ensemble = [
           ...new Set(languesRecues.length > 0 ? languesRecues : (langue ? [langue] : [])),
         ];
+        const hmVideo = Boolean(body.ugc_ai_video) && acces.role === "admin";
+        const patchHm: Record<string, unknown> = { hm_ugc_ai_video: hmVideo };
         if (ensemble.length > 0) {
-          await supabase
-            .from("profiles")
-            .update({ nationalite: ensemble[0], langues: ensemble })
-            .eq("id", data.user.id);
+          patchHm.nationalite = ensemble[0];
+          patchHm.langues = ensemble;
         }
+        await supabase.from("profiles").update(patchHm).eq("id", data.user.id);
       } else if (acces.role === "hiring_manager" && acces.userId !== "cron") {
         await supabase
           .from("profiles")
@@ -250,6 +264,7 @@ async function gererRequete(request: Request): Promise<Response> {
       persona: boolean;
       labelId: string | null;
       ugc: boolean;
+      ugc_ai_video: boolean;
     } | null = null;
     if (data.user && roleVoulu === "poster" && langue) {
       const postsParJour = normaliserPostsParJour(body.posts_par_jour);
@@ -262,6 +277,7 @@ async function gererRequete(request: Request): Promise<Response> {
         postsParJour,
         personaUgc,
         fileItemQueue,
+        { ugcAiVideo: modeUgcAiVideo },
       );
     } else if (fileItemQueue) {
       await unshiftLabelFile(supabase, fileItemQueue);
@@ -297,8 +313,40 @@ async function gererRequete(request: Request): Promise<Response> {
       return json({ ok: true, deja: true, compteId: deja.id });
     }
 
-    const prep = await preparerFileEtPersona(supabase, langue);
-    if (!prep.ok) return json({ error: prep.error }, 409);
+    // Créateur sous HM UGC AI VIDEO (ou flag forcé admin) → pas de labels.
+    let modeUgcAiVideo = false;
+    if (acces.role === "hiring_manager" && acces.userId !== "cron") {
+      modeUgcAiVideo = await estHmUgcAiVideo(supabase, acces);
+    } else if (acces.role === "admin") {
+      const { data: cible } = await supabase
+        .from("profiles")
+        .select("manager_id")
+        .eq("id", userId)
+        .maybeSingle();
+      if (cible?.manager_id) {
+        const { data: hm } = await supabase
+          .from("profiles")
+          .select("hm_ugc_ai_video")
+          .eq("id", cible.manager_id)
+          .maybeSingle();
+        modeUgcAiVideo = Boolean(hm?.hm_ugc_ai_video);
+      }
+    }
+
+    let fileItem: FileLabelItem | null = null;
+    let fileItemQueue: FileLabelItem | null = null;
+    let personaUgc: PersonaUgcLibre | null = null;
+
+    if (modeUgcAiVideo) {
+      personaUgc = await personaUgcLibre(supabase);
+      if (!personaUgc) return json({ error: "NO_UGC_PERSONA" }, 409);
+    } else {
+      const prep = await preparerFileEtPersona(supabase, langue);
+      if (!prep.ok) return json({ error: prep.error }, 409);
+      fileItem = prep.fileItem;
+      fileItemQueue = prep.fileItemQueue;
+      personaUgc = prep.personaUgc;
+    }
 
     const referenceId = await referenceLibre(supabase, langue);
     const postsParJour = normaliserPostsParJour(body.posts_par_jour);
@@ -307,10 +355,11 @@ async function gererRequete(request: Request): Promise<Response> {
       userId,
       langue,
       referenceId,
-      prep.fileItem,
+      fileItem,
       postsParJour,
-      prep.personaUgc,
-      prep.fileItemQueue,
+      personaUgc,
+      fileItemQueue,
+      { ugcAiVideo: modeUgcAiVideo },
     );
     if (!compte.id) return json({ error: "CREATION_COMPTE_ECHOUEE" }, 500);
     return json({ ok: true, compte });
@@ -432,6 +481,20 @@ async function popLabelFile(
   const labelId = await labelMoinsUtiliseParLangue(supabase, langue, { ugcOnly: false });
   if (!labelId) return { ok: false, error: "NO_LABELS" };
   return { ok: true, item: { label_id: labelId, ugc: false }, fromQueue: false };
+}
+
+/** Hiring manager marqué UGC AI VIDEO (ses créateurs = marque vidéo, 0 label). */
+async function estHmUgcAiVideo(
+  supabase: Supabase,
+  acces: { role: string; userId: string },
+): Promise<boolean> {
+  if (acces.role !== "hiring_manager" || acces.userId === "cron") return false;
+  const { data } = await supabase
+    .from("profiles")
+    .select("hm_ugc_ai_video")
+    .eq("id", acces.userId)
+    .maybeSingle();
+  return Boolean(data?.hm_ugc_ai_video);
 }
 
 /**
@@ -619,7 +682,8 @@ async function avatarDepuisFacePersona(
 /**
  * Compte créé avec warmup NON démarré (started/ends null).
  * Label posé tout de suite ; identité instantanée.
- * UGC : ugc_ai + persona + nom persona + avatar face stripée.
+ * UGC slideshow : ugc_ai + persona + nom persona + avatar face stripée.
+ * UGC AI VIDEO : ugc_ai_video + persona, AUCUN label (marque seule).
  */
 /** Quota d'assignation journalier : 1–3, défaut 2 à la création. */
 function normaliserPostsParJour(n: unknown): number {
@@ -638,16 +702,21 @@ async function preparerCompte(
   personaUgc: PersonaUgcLibre | null,
   /** Entrée admin à restaurer si l'insert échoue (pas le fallback label). */
   fileItemQueue: FileLabelItem | null = null,
+  opts: { ugcAiVideo?: boolean } = {},
 ): Promise<{
   id: string;
   reference: string | null;
   persona: boolean;
   labelId: string | null;
   ugc: boolean;
+  ugc_ai_video: boolean;
 }> {
-  const ugc = Boolean(fileItem?.ugc && personaUgc);
-  const labelId = fileItem?.label_id ?? null;
-  const aRestaurer = fileItemQueue ?? fileItem;
+  const ugcAiVideo = Boolean(opts.ugcAiVideo && personaUgc);
+  // Slideshow UGC et vidéo sont exclusifs.
+  const ugc = !ugcAiVideo && Boolean(fileItem?.ugc && personaUgc);
+  const avecPersona = Boolean((ugc || ugcAiVideo) && personaUgc);
+  const labelId = ugcAiVideo ? null : (fileItem?.label_id ?? null);
+  const aRestaurer = ugcAiVideo ? null : (fileItemQueue ?? fileItem);
 
   const { data: compte, error } = await supabase
     .from("comptes")
@@ -660,14 +729,22 @@ async function preparerCompte(
       warmup_ends_at: null,
       is_active: true,
       ugc_ai: ugc,
-      ugc_persona_id: ugc ? personaUgc!.id : null,
-      persona_nom: ugc ? personaUgc!.nom.trim() : null,
+      ugc_ai_video: ugcAiVideo,
+      ugc_persona_id: avecPersona ? personaUgc!.id : null,
+      persona_nom: avecPersona ? personaUgc!.nom.trim() : null,
     })
     .select("id")
     .single();
   if (error || !compte) {
     if (aRestaurer) await unshiftLabelFile(supabase, aRestaurer);
-    return { id: "", reference: referenceId, persona: false, labelId, ugc };
+    return {
+      id: "",
+      reference: referenceId,
+      persona: false,
+      labelId,
+      ugc,
+      ugc_ai_video: ugcAiVideo,
+    };
   }
 
   let labelNom: string | null = null;
@@ -681,7 +758,7 @@ async function preparerCompte(
     labelNom = (lab?.nom as string | undefined) ?? (lab?.slug as string | undefined) ?? null;
   }
 
-  if (ugc && personaUgc) {
+  if (avecPersona && personaUgc) {
     const sourceAvatar =
       (typeof personaUgc.image_profile_url === "string" &&
         personaUgc.image_profile_url.length > 0
@@ -710,14 +787,26 @@ async function preparerCompte(
   });
 
   // Sécurité : le nom UGC ne doit pas être écrasé si déjà posé (?? côté persona).
-  if (ugc && personaUgc) {
+  if (avecPersona && personaUgc) {
     await supabase
       .from("comptes")
-      .update({ persona_nom: personaUgc.nom.trim(), ugc_ai: true, ugc_persona_id: personaUgc.id })
+      .update({
+        persona_nom: personaUgc.nom.trim(),
+        ugc_ai: ugc,
+        ugc_ai_video: ugcAiVideo,
+        ugc_persona_id: personaUgc.id,
+      })
       .eq("id", compte.id);
   }
 
-  return { id: compte.id, reference: referenceId, persona: applique, labelId, ugc };
+  return {
+    id: compte.id,
+    reference: referenceId,
+    persona: applique,
+    labelId,
+    ugc,
+    ugc_ai_video: ugcAiVideo,
+  };
 }
 
 async function referenceLibre(

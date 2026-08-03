@@ -176,12 +176,22 @@ export async function assignerCompteJour(
   const brut = Number(compte.posts_par_jour ?? reglages.postsParJour ?? 1);
   const quota = Math.min(3, Math.max(1, Number.isFinite(brut) ? brut : 1));
   const langue: string = compte.langue ?? "fr";
-  const ugcAi = Boolean(compte.ugc_ai);
+  const ugcAiVideo = Boolean(compte.ugc_ai_video);
+  const ugcAi = Boolean(compte.ugc_ai) && !ugcAiVideo;
   const ugcPersonaId = (compte.ugc_persona_id as string | null) ?? null;
   const nomCompte =
     (compte.persona_nom as string | null) ??
     (compte.handle_tiktok as string | null) ??
     String(compte.id).slice(0, 8);
+
+  // UGC AI VIDEO : hors assignation slideshow minuit (pipeline vidéos à part).
+  if (ugcAiVideo) {
+    log(`Compte ${nomCompte} · UGC AI VIDEO — skip assignation slideshow`);
+    return {
+      ids: [],
+      raison: "Compte UGC AI VIDEO — hors assignation slideshow.",
+    };
+  }
 
   log(`Compte ${nomCompte} · langue=${langue} · quota=${quota}${ugcAi ? " · UGC" : ""}${estTest ? " · test" : ""}`);
 
@@ -729,8 +739,11 @@ export async function assignerTousComptes(
 
   // Warmup : uniquement les comptes dont warmup_ends_at est passé (en process).
   // Mode test : on peut cibler un compte hors process (ignorerWarmup).
+  // UGC AI VIDEO : hors pipeline slideshow (même en test ciblé on laisse
+  // assignerCompteJour renvoyer la raison — sauf filtre batch minuit).
   const maintenant = Date.now();
   const comptes = (comptesBruts ?? []).filter((c) => {
+    if (Boolean(c.ugc_ai_video) && !compteId) return false;
     if (o.ignorerWarmup) return true;
     const ends = c.warmup_ends_at as string | null | undefined;
     if (!ends) return false; // pas démarré → hors process

@@ -652,6 +652,10 @@ export const fr = {
       ugcAi: "UGC AI",
       ugcAiAide:
         "Reçoit uniquement des slideshows avec checkmark UGC. Les slides à visage sont régénérées avec le persona (Nano Banana).",
+      ugcAiVideo: "UGC AI VIDEO",
+      ugcAiVideoBadge: "UGC AI VIDEO",
+      ugcAiVideoAide:
+        "Marque UGC AI VIDEO seule — aucun label. Persona unique (partagé avec les slideshows UGC AI).",
       ugcPersona: "Persona UGC",
       ugcPersonaChoisir: "Choisir un persona…",
       ugcPersonaRequis: "Un persona est requis si UGC AI est activé.",
@@ -689,6 +693,12 @@ export const fr = {
       sansLabels: "Sans labels",
       ugcPersona: "Persona UGC : {{nom}}",
       ugcSansPersona: "UGC AI — aucun persona assigné",
+      ugcAiVideoBadge: "UGC AI VIDEO",
+      ugcAiVideoSansLabels: "Marque UGC AI VIDEO — aucun label.",
+      hmUgcAiVideo: "Hiring manager UGC AI VIDEO",
+      hmUgcAiVideoBadge: "HM UGC AI VIDEO",
+      hmUgcAiVideoAide:
+        "Ses créateurs naissent avec la marque UGC AI VIDEO uniquement (pas de labels) et un persona unique (indisponible s’il est déjà pris par un slideshow ou une vidéo).",
       eloCompte: "ELO {{score}}",
       eloCompteAide: "Forme du compte (moyenne pondérée des derniers posts mesurés)",
       createursDuRecruteur: "Créateurs rattachés",
@@ -732,6 +742,8 @@ export const fr = {
       title: "Créer un poster",
       subtitle:
         "Saisis le prénom, le nom et la langue de ce créateur. Tu peux en créer dans plusieurs langues. Le reste (compte de référence + identité TikTok) est généré automatiquement.",
+      subtitleUgcAiVideo:
+        "Mode UGC AI VIDEO : chaque créateur reçoit la marque UGC AI VIDEO (aucun label) et un persona unique.",
       langue: "Langue du poster",
       langueAide:
         "Choisis la langue de CE créateur. Tu peux en créer d’autres dans d’autres langues (parmi celles que tu gères).",

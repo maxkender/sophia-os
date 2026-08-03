@@ -160,7 +160,7 @@ function GenerationPersona({ compte }: { compte: CompteAvecDetails }) {
   );
 }
 
-/** Checkmark UGC AI + persona unique associé. */
+/** Checkmark UGC AI (slideshow) ou UGC AI VIDEO + persona unique associé. */
 function UgcAiCompte({ compte }: { compte: CompteAvecDetails }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
@@ -171,62 +171,103 @@ function UgcAiCompte({ compte }: { compte: CompteAvecDetails }) {
   });
 
   const maj = useMutation({
-    mutationFn: (patch: { ugc_ai?: boolean; ugc_persona_id?: string | null }) =>
-      majCompte(compte.id, patch),
+    mutationFn: (patch: {
+      ugc_ai?: boolean;
+      ugc_ai_video?: boolean;
+      ugc_persona_id?: string | null;
+    }) => majCompte(compte.id, patch),
     onSuccess: () => rafraichirComptes(queryClient),
   });
 
-  const ugc = Boolean(compte.ugc_ai);
+  const ugcVideo = Boolean(compte.ugc_ai_video);
+  const ugc = Boolean(compte.ugc_ai) && !ugcVideo;
   const personaId = compte.ugc_persona_id ?? "";
 
   return (
     <div className="space-y-2 rounded-lg border p-3">
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <div>
-          <p className="text-sm font-medium">{t("comptes.ugcAi")}</p>
-          <p className="text-xs text-muted-foreground">{t("comptes.ugcAiAide")}</p>
-        </div>
-        <button
-          type="button"
-          disabled={maj.isPending}
-          onClick={() =>
-            maj.mutate({
-              ugc_ai: !ugc,
-              ugc_persona_id: !ugc ? compte.ugc_persona_id : null,
-            })
-          }
-          className={
-            ugc
-              ? "rounded-md bg-primary px-3 py-1 text-xs font-medium text-primary-foreground"
-              : "rounded-md border px-3 py-1 text-xs"
-          }
-        >
-          {ugc ? "UGC ✓" : "UGC"}
-        </button>
-      </div>
-      {ugc && (
-        <div className="space-y-1.5">
-          <Label htmlFor={`persona-${compte.id}`}>{t("comptes.ugcPersona")}</Label>
-          <select
-            id={`persona-${compte.id}`}
-            className={selectClass}
-            value={personaId}
-            disabled={maj.isPending || personas.isPending}
-            onChange={(e) =>
-              maj.mutate({ ugc_persona_id: e.target.value || null })
-            }
-          >
-            <option value="">{t("comptes.ugcPersonaChoisir")}</option>
-            {(personas.data ?? []).map((p) => (
-              <option key={p.id} value={p.id}>
-                {p.nom}
-              </option>
-            ))}
-          </select>
-          {!personaId && (
-            <p className="text-xs text-destructive">{t("comptes.ugcPersonaRequis")}</p>
+      {ugcVideo ? (
+        <>
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <p className="text-sm font-medium">{t("comptes.ugcAiVideo")}</p>
+              <p className="text-xs text-muted-foreground">{t("comptes.ugcAiVideoAide")}</p>
+            </div>
+            <Badge>{t("comptes.ugcAiVideoBadge")}</Badge>
+          </div>
+          <div className="space-y-1.5">
+            <Label htmlFor={`persona-${compte.id}`}>{t("comptes.ugcPersona")}</Label>
+            <select
+              id={`persona-${compte.id}`}
+              className={selectClass}
+              value={personaId}
+              disabled={maj.isPending || personas.isPending}
+              onChange={(e) =>
+                maj.mutate({ ugc_persona_id: e.target.value || null })
+              }
+            >
+              <option value="">{t("comptes.ugcPersonaChoisir")}</option>
+              {(personas.data ?? []).map((p) => (
+                <option key={p.id} value={p.id}>
+                  {p.nom}
+                </option>
+              ))}
+            </select>
+            {!personaId && (
+              <p className="text-xs text-destructive">{t("comptes.ugcPersonaRequis")}</p>
+            )}
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <p className="text-sm font-medium">{t("comptes.ugcAi")}</p>
+              <p className="text-xs text-muted-foreground">{t("comptes.ugcAiAide")}</p>
+            </div>
+            <button
+              type="button"
+              disabled={maj.isPending}
+              onClick={() =>
+                maj.mutate({
+                  ugc_ai: !ugc,
+                  ugc_ai_video: false,
+                  ugc_persona_id: !ugc ? compte.ugc_persona_id : null,
+                })
+              }
+              className={
+                ugc
+                  ? "rounded-md bg-primary px-3 py-1 text-xs font-medium text-primary-foreground"
+                  : "rounded-md border px-3 py-1 text-xs"
+              }
+            >
+              {ugc ? "UGC ✓" : "UGC"}
+            </button>
+          </div>
+          {ugc && (
+            <div className="space-y-1.5">
+              <Label htmlFor={`persona-${compte.id}`}>{t("comptes.ugcPersona")}</Label>
+              <select
+                id={`persona-${compte.id}`}
+                className={selectClass}
+                value={personaId}
+                disabled={maj.isPending || personas.isPending}
+                onChange={(e) =>
+                  maj.mutate({ ugc_persona_id: e.target.value || null })
+                }
+              >
+                <option value="">{t("comptes.ugcPersonaChoisir")}</option>
+                {(personas.data ?? []).map((p) => (
+                  <option key={p.id} value={p.id}>
+                    {p.nom}
+                  </option>
+                ))}
+              </select>
+              {!personaId && (
+                <p className="text-xs text-destructive">{t("comptes.ugcPersonaRequis")}</p>
+              )}
+            </div>
           )}
-        </div>
+        </>
       )}
     </div>
   );

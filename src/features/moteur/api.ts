@@ -327,7 +327,7 @@ export async function listerPosters(): Promise<PosterProfil[]> {
   const { data: profils, error } = await supabase
     .from("profiles")
     .select(
-      "id, prenom, nom, email, langues, nationalite, upwork_url, manager_id, is_active, must_change_password, cout_mensuel",
+      "id, prenom, nom, email, langues, nationalite, upwork_url, manager_id, is_active, must_change_password, cout_mensuel, hm_ugc_ai_video",
     )
     .order("created_at", { ascending: false });
   if (error) throw error;
@@ -370,6 +370,9 @@ export async function listerPosters(): Promise<PosterProfil[]> {
     const compte = compteParPoster.get(p.id);
     return {
       ...p,
+      hm_ugc_ai_video: Boolean(
+        (p as { hm_ugc_ai_video?: boolean }).hm_ugc_ai_video,
+      ),
       role: (parUtilisateur.get(p.id) ?? null) as PosterProfil["role"],
       compte_id: compte?.id ?? null,
       handle_tiktok: compte?.handle_tiktok ?? null,
@@ -447,6 +450,8 @@ export function creerRecruteur(input: {
   /** @deprecated préfère `langues` */
   langue?: string;
   langues?: string[];
+  /** HM UGC AI VIDEO : créateurs = marque vidéo + persona, sans labels. */
+  ugc_ai_video?: boolean;
 }) {
   const langues =
     input.langues?.filter(Boolean) ??
@@ -459,6 +464,7 @@ export function creerRecruteur(input: {
     password: "12345678",
     langue: langues[0],
     langues,
+    ...(input.ugc_ai_video ? { ugc_ai_video: true } : {}),
   });
 }
 

@@ -3362,6 +3362,8 @@ export async function lancerAssignationUgcVideoTest(
       compteId,
       manuel: true,
       test: true,
+      // Un test Admin doit pouvoir relancer même si un slot test existe déjà.
+      forcer: true,
       stream: true,
       ignorerWarmup: true,
       jusquA: opts.jusquA === "face_ref" ? "face_ref" : "complet",

@@ -2,7 +2,7 @@ import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
-import { ImageUp, RefreshCw, Sparkles, Trash2, X } from "lucide-react";
+import { Check, ImageUp, RefreshCw, Sparkles, Trash2, X } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -19,16 +19,26 @@ import { NettoyageEtapes } from "@/components/moteur/NettoyageEtapes";
 import { UpscaleMediaControl } from "@/components/moteur/UpscaleMediaControl";
 import { LabelEditor } from "@/features/moteur/LabelPicker";
 import {
+  collecterMediaIdsContenus,
+  idsContenusParCompte,
+  idsContenusParLabel,
   labelsDuContenu,
   lireReglages,
   lireSlideshow,
   listerContenus,
+  listerLabels,
   jobsReimportDepuisSlides,
   listerJobsReimportPhotosValides,
   listerMediasPourContenu,
   majMediaSlideContenu,
+  majVisagePremierPlan,
+  marquerUgcParCompte,
+  marquerUgcParLabel,
+  mediaIdsDepuisSlides,
   renettoyerSlideContenu,
   renseignerLienPublie,
+  scannerVisageUgcMedia,
+  setContenuUgcCompatible,
   setLabelsContenu,
   supprimerContenu,
   type ContenuListe,
@@ -43,7 +53,11 @@ import {
 } from "@/features/moteur/nettoyageEtapes";
 import { nomLangue } from "@/features/moteur/langues";
 import type { ContenuLangue, ContenuSlide, Media } from "@/features/moteur/types";
-import { AGENTS_REIMPORT_PHOTOS, executerEnLot } from "@/lib/lot";
+import {
+  AGENTS_REIMPORT_PHOTOS,
+  AGENTS_VISION_UGC,
+  executerEnLot,
+} from "@/lib/lot";
 import { cn } from "@/lib/utils";
 
 function PassageLien({
@@ -303,6 +317,41 @@ async function executerReimportPhotos(
   return { ok, echecs };
 }
 
+async function executerScanVisagesUgc(
+  mediaIds: string[],
+  opts: {
+    onProgres: (fait: number, total: number) => void;
+    onLog: (ligne: string) => void;
+  },
+): Promise<{ ok: number; echecs: number }> {
+  let ok = 0;
+  let echecs = 0;
+  await executerEnLot(
+    mediaIds,
+    async (mediaId) => {
+      try {
+        const r = await scannerVisageUgcMedia(mediaId);
+        ok += 1;
+        opts.onLog(
+          `✓ ${mediaId.slice(0, 8)} → ${r.visage_premier_plan ? "visage" : "non"}`,
+        );
+      } catch (e) {
+        echecs += 1;
+        opts.onLog(
+          `✗ ${mediaId.slice(0, 8)} — ${
+            e instanceof Error ? e.message : String(e)
+          }`,
+        );
+      }
+    },
+    {
+      largeur: AGENTS_VISION_UGC,
+      onProgres: opts.onProgres,
+    },
+  );
+  return { ok, echecs };
+}
+
 function VisuelsContenu({ contenu }: { contenu: SlideshowDetail }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
@@ -311,6 +360,13 @@ function VisuelsContenu({ contenu }: { contenu: SlideshowDetail }) {
   const [etapesParPos, setEtapesParPos] = React.useState<Record<number, EvenementEtape[]>>({});
   const [enCours, setEnCours] = React.useState<Set<number>>(() => new Set());
   const [erreurs, setErreurs] = React.useState<Record<number, string>>({});
+  const [visagesLocaux, setVisagesLocaux] = React.useState<Record<string, boolean | null>>(
+    () => contenu.mediaVisages ?? {},
+  );
+
+  React.useEffect(() => {
+    setVisagesLocaux(contenu.mediaVisages ?? {});
+  }, [contenu.id, contenu.mediaVisages]);
 
   const { data: reglages } = useQuery({
     queryKey: ["reglages"],
@@ -380,6 +436,19 @@ function VisuelsContenu({ contenu }: { contenu: SlideshowDetail }) {
     },
   });
 
+  const majVisage = useMutation({
+    mutationFn: (input: { mediaId: string; valeur: boolean | null }) =>
+      majVisagePremierPlan(input.mediaId, input.valeur),
+    onMutate: (input) => {
+      setVisagesLocaux((prev) => ({ ...prev, [input.mediaId]: input.valeur }));
+    },
+    onError: (_e, input) => {
+      setVisagesLocaux(contenu.mediaVisages ?? {});
+      void input;
+    },
+    onSuccess: () => rafraichir(),
+  });
+
   if (structure.length === 0) return null;
 
   return (
@@ -388,12 +457,19 @@ function VisuelsContenu({ contenu }: { contenu: SlideshowDetail }) {
         {t("slideshows.visuelsEdit")}
       </h3>
       <p className="text-[11px] text-muted-foreground">{t("slideshows.visuelsEditAide")}</p>
+      {contenu.ugc_compatible && (
+        <p className="text-[11px] text-muted-foreground">{t("slideshows.ugcVisageAide")}</p>
+      )}
       <div className="space-y-3">
         {structure.map((s) => {
           const img = urlPropre(contenu, s) ?? s.raw_url ?? s.reference_url;
           const etapes = etapesParPos[s.position];
           const slideEnCours = enCours.has(s.position);
           const erreur = erreurs[s.position];
+          const visage =
+            s.media_id != null
+              ? (visagesLocaux[s.media_id] ?? contenu.mediaVisages?.[s.media_id] ?? null)
+              : null;
           return (
             <div key={s.position} className="rounded border p-2">
               <div className="flex gap-2">
@@ -446,6 +522,41 @@ function VisuelsContenu({ contenu }: { contenu: SlideshowDetail }) {
                       />
                     )}
                   </div>
+                  {contenu.ugc_compatible && s.media_id && (
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      <span className="text-[11px] text-muted-foreground">
+                        {t("slideshows.ugcVisage")}
+                      </span>
+                      {(
+                        [
+                          [true, t("slideshows.ugcVisageOui")],
+                          [false, t("slideshows.ugcVisageNon")],
+                          [null, t("slideshows.ugcVisageInconnu")],
+                        ] as const
+                      ).map(([val, label]) => (
+                        <button
+                          key={String(val)}
+                          type="button"
+                          disabled={majVisage.isPending}
+                          onClick={() =>
+                            majVisage.mutate({ mediaId: s.media_id!, valeur: val })
+                          }
+                          className={cn(
+                            "rounded border px-1.5 py-0.5 text-[10px] font-medium",
+                            visage === val
+                              ? val === true
+                                ? "border-emerald-600 bg-emerald-600 text-white"
+                                : val === false
+                                  ? "border-slate-700 bg-slate-700 text-white"
+                                  : "border-primary bg-primary text-primary-foreground"
+                              : "bg-background text-muted-foreground hover:bg-muted",
+                          )}
+                        >
+                          {label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                   {etapes && (slideEnCours || erreur) ? (
                     <NettoyageEtapes
                       etapes={etapes}
@@ -512,6 +623,96 @@ function DetailSlideshow({
     total: number;
   } | null>(null);
   const [reimportDetailLogs, setReimportDetailLogs] = React.useState<string[]>([]);
+  const [ugcScan, setUgcScan] = React.useState<{
+    fait: number;
+    total: number;
+  } | null>(null);
+  const [ugcLogs, setUgcLogs] = React.useState<string[]>([]);
+  const [labelUgcId, setLabelUgcId] = React.useState("");
+
+  const labelsTous = useQuery({
+    queryKey: ["labels"],
+    queryFn: listerLabels,
+    staleTime: 60_000,
+  });
+
+  async function scannerMediasUgc(mediaIds: string[]) {
+    if (mediaIds.length === 0) {
+      setUgcLogs([t("slideshows.ugcAucunMedia")]);
+      return;
+    }
+    setUgcScan({ fait: 0, total: mediaIds.length });
+    setUgcLogs([
+      t("slideshows.ugcScanDebut", {
+        count: mediaIds.length,
+        pool: AGENTS_VISION_UGC,
+      }),
+    ]);
+    const { ok, echecs } = await executerScanVisagesUgc(mediaIds, {
+      onProgres: (fait, total) => setUgcScan({ fait, total }),
+      onLog: (ligne) => setUgcLogs((prev) => [...prev.slice(-80), ligne]),
+    });
+    setUgcLogs((prev) => [
+      ...prev,
+      t("slideshows.ugcScanFin", { ok, echecs }),
+    ]);
+    setUgcScan(null);
+    void queryClient.invalidateQueries({ queryKey: ["slideshow", id] });
+    void queryClient.invalidateQueries({ queryKey: ["slideshows"] });
+  }
+
+  async function activerUgcCeSlideshow() {
+    if (!d || ugcScan) return;
+    await setContenuUgcCompatible(d.id, true);
+    void queryClient.invalidateQueries({ queryKey: ["slideshow", id] });
+    void queryClient.invalidateQueries({ queryKey: ["slideshows"] });
+    await scannerMediasUgc(mediaIdsDepuisSlides(d.structure_slides));
+  }
+
+  async function desactiverUgcCeSlideshow() {
+    if (!d || ugcScan) return;
+    await setContenuUgcCompatible(d.id, false);
+    void queryClient.invalidateQueries({ queryKey: ["slideshow", id] });
+    void queryClient.invalidateQueries({ queryKey: ["slideshows"] });
+  }
+
+  async function lancerUgcCompte() {
+    if (!d?.compte_reference_id || ugcScan) return;
+    const handle = d.source?.handle_tiktok ?? "compte";
+    const existants = await idsContenusParCompte(d.compte_reference_id);
+    if (
+      !window.confirm(
+        t("slideshows.ugcCompteConfirm", {
+          count: existants.length,
+          handle,
+        }),
+      )
+    ) {
+      return;
+    }
+    const ids = await marquerUgcParCompte(d.compte_reference_id, true);
+    const mediaIds = await collecterMediaIdsContenus(ids);
+    await scannerMediasUgc(mediaIds);
+  }
+
+  async function lancerUgcLabel(labelId: string) {
+    if (!labelId || ugcScan) return;
+    const nom =
+      labelsTous.data?.find((l) => l.id === labelId)?.nom ??
+      d?.labels?.find((l) => l.id === labelId)?.nom ??
+      labelId.slice(0, 8);
+    const existants = await idsContenusParLabel(labelId);
+    if (
+      !window.confirm(
+        t("slideshows.ugcLabelConfirm", { count: existants.length, nom }),
+      )
+    ) {
+      return;
+    }
+    const ids = await marquerUgcParLabel(labelId, true);
+    const mediaIds = await collecterMediaIdsContenus(ids);
+    await scannerMediasUgc(mediaIds);
+  }
 
   async function reimporterCeSlideshow() {
     if (!d || reimportDetail) return;
@@ -617,6 +818,12 @@ function DetailSlideshow({
               </Badge>
               <Badge variant="outline">{d.import_statut}</Badge>
               {d.import_etape && <Badge variant="outline">{d.import_etape}</Badge>}
+              {d.ugc_compatible && (
+                <Badge variant="success" className="gap-1">
+                  <Check className="size-3" />
+                  {t("slideshows.ugcBadge")}
+                </Badge>
+              )}
               <Button
                 size="sm"
                 variant="outline"
@@ -639,6 +846,115 @@ function DetailSlideshow({
                   : t("slideshows.reimportUn")}
               </Button>
             </div>
+
+            <section className="space-y-2 rounded border p-3">
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                {t("slideshows.ugcSection")}
+              </h3>
+              <p className="text-[11px] text-muted-foreground">{t("slideshows.ugcAide")}</p>
+              <div className="flex flex-wrap gap-1.5">
+                {!d.ugc_compatible ? (
+                  <Button
+                    size="sm"
+                    className="h-7 text-xs"
+                    disabled={ugcScan !== null}
+                    onClick={() => void activerUgcCeSlideshow()}
+                  >
+                    <Check className="size-3" />
+                    {ugcScan
+                      ? t("slideshows.ugcScanLot", {
+                          fait: ugcScan.fait,
+                          total: ugcScan.total,
+                        })
+                      : t("slideshows.ugcActiver")}
+                  </Button>
+                ) : (
+                  <>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="h-7 text-xs"
+                      disabled={ugcScan !== null}
+                      onClick={() => void desactiverUgcCeSlideshow()}
+                    >
+                      {t("slideshows.ugcDesactiver")}
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="h-7 text-xs"
+                      disabled={ugcScan !== null}
+                      onClick={() =>
+                        void scannerMediasUgc(
+                          mediaIdsDepuisSlides(d.structure_slides),
+                        )
+                      }
+                    >
+                      <RefreshCw
+                        className={cn("size-3", ugcScan && "animate-spin")}
+                      />
+                      {ugcScan
+                        ? t("slideshows.ugcScanLot", {
+                            fait: ugcScan.fait,
+                            total: ugcScan.total,
+                          })
+                        : t("slideshows.ugcRescan")}
+                    </Button>
+                  </>
+                )}
+                {d.compte_reference_id && (
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="h-7 text-xs"
+                    disabled={ugcScan !== null}
+                    onClick={() => void lancerUgcCompte()}
+                  >
+                    {t("slideshows.ugcCompte")}
+                  </Button>
+                )}
+              </div>
+              <div className="flex flex-wrap items-center gap-1.5">
+                <select
+                  className="h-7 min-w-[10rem] flex-1 rounded-md border bg-background px-2 text-xs"
+                  value={labelUgcId}
+                  onChange={(e) => setLabelUgcId(e.target.value)}
+                  disabled={ugcScan !== null}
+                >
+                  <option value="">{t("slideshows.ugcChoisirLabel")}</option>
+                  {(d.labels ?? []).map((l) => (
+                    <option key={`d-${l.id}`} value={l.id}>
+                      {l.nom}
+                    </option>
+                  ))}
+                  {(labelsTous.data ?? [])
+                    .filter((l) => !(d.labels ?? []).some((x) => x.id === l.id))
+                    .map((l) => (
+                      <option key={l.id} value={l.id}>
+                        {l.nom}
+                      </option>
+                    ))}
+                </select>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="h-7 text-xs"
+                  disabled={!labelUgcId || ugcScan !== null}
+                  onClick={() => void lancerUgcLabel(labelUgcId)}
+                >
+                  {t("slideshows.ugcLabel")}
+                </Button>
+              </div>
+              {ugcLogs.length > 0 && (
+                <div className="max-h-32 space-y-0.5 overflow-y-auto rounded border bg-muted/30 px-2 py-1.5 font-mono text-[10px] leading-relaxed text-muted-foreground">
+                  {ugcLogs.map((l, i) => (
+                    <div key={`ugc-${i}-${l.slice(0, 16)}`} className="break-words">
+                      {l}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </section>
             {reimportDetailLogs.length > 0 && (
               <div className="max-h-32 space-y-0.5 overflow-y-auto rounded border bg-muted/30 px-2 py-1.5 font-mono text-[10px] leading-relaxed text-muted-foreground">
                 {reimportDetailLogs.map((l, i) => (
@@ -1056,18 +1372,26 @@ export function AdminSlideshowsPage() {
                           </span>
                         ))}
                     </div>
-                    <Badge
-                      variant={
-                        c.statut === "valide"
-                          ? "success"
-                          : c.statut === "rejete"
-                            ? "destructive"
-                            : "secondary"
-                      }
-                      className="text-[10px]"
-                    >
-                      {c.statut}
-                    </Badge>
+                    <div className="flex flex-wrap gap-1">
+                      <Badge
+                        variant={
+                          c.statut === "valide"
+                            ? "success"
+                            : c.statut === "rejete"
+                              ? "destructive"
+                              : "secondary"
+                        }
+                        className="text-[10px]"
+                      >
+                        {c.statut}
+                      </Badge>
+                      {c.ugc_compatible && (
+                        <Badge variant="success" className="gap-0.5 text-[10px]">
+                          <Check className="size-2.5" />
+                          {t("slideshows.ugcBadge")}
+                        </Badge>
+                      )}
+                    </div>
                   </div>
                 </button>
               );

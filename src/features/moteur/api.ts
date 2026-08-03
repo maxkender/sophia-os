@@ -3529,11 +3529,16 @@ export interface ContenuListe extends Contenu {
   scores?: Array<{ langue: string; score: number; nb_passages: number }>;
   /** URL des visuels nettoyés indexés par media_id. */
   mediaUrls?: Record<string, string>;
+  /** visage_premier_plan par media_id (scan UGC). */
+  mediaVisages?: Record<string, boolean | null>;
 }
 
-async function urlsMediasPropres(
+async function metasMediasPropres(
   contenus: Contenu[],
-): Promise<Record<string, string>> {
+): Promise<{
+  urls: Record<string, string>;
+  visages: Record<string, boolean | null>;
+}> {
   const mediaIds = [
     ...new Set(
       contenus.flatMap((c) =>
@@ -3543,21 +3548,24 @@ async function urlsMediasPropres(
       ),
     ),
   ];
-  if (mediaIds.length === 0) return {};
+  if (mediaIds.length === 0) return { urls: {}, visages: {} };
   // Uniquement storage propre/ — jamais le brut TikTok (même si texte_restant
   // est flagué : c'est encore le JPEG Fal, pas le raw).
   const { data } = await supabase
     .from("media_library")
-    .select("id, url, storage_path")
+    .select("id, url, storage_path, visage_premier_plan")
     .in("id", mediaIds);
-  const map: Record<string, string> = {};
+  const urls: Record<string, string> = {};
+  const visages: Record<string, boolean | null> = {};
   for (const m of data ?? []) {
     const path = (m.storage_path as string) ?? "";
+    const id = m.id as string;
     if (path.startsWith("propre/")) {
-      map[m.id as string] = m.url as string;
+      urls[id] = m.url as string;
     }
+    visages[id] = (m.visage_premier_plan as boolean | null) ?? null;
   }
-  return map;
+  return { urls, visages };
 }
 
 export async function listerContenus(opts?: {
@@ -3576,13 +3584,13 @@ export async function listerContenus(opts?: {
   if (contenus.length === 0) return [];
 
   const ids = contenus.map((c) => c.id);
-  const [{ data: liens }, { data: scores }, mediaUrls] = await Promise.all([
+  const [{ data: liens }, { data: scores }, metas] = await Promise.all([
     supabase.from("contenu_labels").select("contenu_id, label_id, labels(*)").in("contenu_id", ids),
     supabase
       .from("contenu_langues")
       .select("contenu_id, langue, score, nb_passages")
       .in("contenu_id", ids),
-    urlsMediasPropres(contenus),
+    metasMediasPropres(contenus),
   ]);
 
   const labelsPar = new Map<string, Label[]>();
@@ -3607,14 +3615,18 @@ export async function listerContenus(opts?: {
         .filter((id): id is string => Boolean(id)),
     );
     const urls: Record<string, string> = {};
+    const visages: Record<string, boolean | null> = {};
     for (const mid of idsContenu) {
-      if (mediaUrls[mid]) urls[mid] = mediaUrls[mid];
+      if (metas.urls[mid]) urls[mid] = metas.urls[mid];
+      if (mid in metas.visages) visages[mid] = metas.visages[mid];
     }
     return {
       ...c,
+      ugc_compatible: Boolean((c as Contenu).ugc_compatible),
       labels: labelsPar.get(c.id) ?? [],
       scores: scoresPar.get(c.id) ?? [],
       mediaUrls: urls,
+      mediaVisages: visages,
     };
   });
 }
@@ -3699,7 +3711,7 @@ export async function lireSlideshow(id: string): Promise<SlideshowDetail | null>
   if (error) throw error;
   if (!contenu) return null;
 
-  const [{ data: langues }, { data: passages }, { data: liens }, mediaUrls] = await Promise.all([
+  const [{ data: langues }, { data: passages }, { data: liens }, metas] = await Promise.all([
     supabase
       .from("contenu_langues")
       .select("*")
@@ -3711,7 +3723,7 @@ export async function lireSlideshow(id: string): Promise<SlideshowDetail | null>
       .eq("contenu_id", id)
       .order("date_publication_prevue", { ascending: false }),
     supabase.from("contenu_labels").select("label_id, labels(*)").eq("contenu_id", id),
-    urlsMediasPropres([contenu as Contenu]),
+    metasMediasPropres([contenu as Contenu]),
   ]);
 
   let source: { handle_tiktok: string } | null = null;
@@ -3730,10 +3742,13 @@ export async function lireSlideshow(id: string): Promise<SlideshowDetail | null>
     if (row.labels) labels.push(row.labels);
   }
 
+  const c = contenu as Contenu;
   return {
-    ...(contenu as Contenu),
+    ...c,
+    ugc_compatible: Boolean(c.ugc_compatible),
     labels,
-    mediaUrls,
+    mediaUrls: metas.urls,
+    mediaVisages: metas.visages,
     scores: (langues ?? []).map((l) => ({
       langue: l.langue,
       score: l.score,
@@ -3743,6 +3758,132 @@ export async function lireSlideshow(id: string): Promise<SlideshowDetail | null>
     passages: (passages ?? []) as SlideshowDetail["passages"],
     source,
   };
+}
+
+/** IDs médias (propre) d'un slideshow via structure_slides. */
+export function mediaIdsDepuisSlides(
+  structure: Contenu["structure_slides"] | null | undefined,
+): string[] {
+  return [
+    ...new Set(
+      ((structure ?? []) as ContenuSlide[])
+        .map((s) => s.media_id)
+        .filter((id): id is string => Boolean(id)),
+    ),
+  ];
+}
+
+export async function setContenuUgcCompatible(
+  contenuId: string,
+  ugc: boolean,
+): Promise<void> {
+  const { error } = await supabase
+    .from("contenus")
+    .update({ ugc_compatible: ugc })
+    .eq("id", contenuId);
+  if (error) throw error;
+}
+
+/** Ids des slideshows d'un compte référence. */
+export async function idsContenusParCompte(
+  compteReferenceId: string,
+): Promise<string[]> {
+  const { data, error } = await supabase
+    .from("contenus")
+    .select("id")
+    .eq("compte_reference_id", compteReferenceId);
+  if (error) throw error;
+  return (data ?? []).map((r) => r.id as string);
+}
+
+/** Ids des slideshows portant un label. */
+export async function idsContenusParLabel(labelId: string): Promise<string[]> {
+  const { data: liens, error: errL } = await supabase
+    .from("contenu_labels")
+    .select("contenu_id")
+    .eq("label_id", labelId);
+  if (errL) throw errL;
+  return [...new Set((liens ?? []).map((l) => l.contenu_id as string))];
+}
+
+/** Marque UGC tous les slideshows d'un compte référence. Renvoie les ids. */
+export async function marquerUgcParCompte(
+  compteReferenceId: string,
+  ugc = true,
+): Promise<string[]> {
+  const { data, error } = await supabase
+    .from("contenus")
+    .update({ ugc_compatible: ugc })
+    .eq("compte_reference_id", compteReferenceId)
+    .select("id");
+  if (error) throw error;
+  return (data ?? []).map((r) => r.id as string);
+}
+
+/** Marque UGC tous les slideshows portant un label. Renvoie les ids. */
+export async function marquerUgcParLabel(
+  labelId: string,
+  ugc = true,
+): Promise<string[]> {
+  const ids = await idsContenusParLabel(labelId);
+  if (ids.length === 0) return [];
+  const { data, error } = await supabase
+    .from("contenus")
+    .update({ ugc_compatible: ugc })
+    .in("id", ids)
+    .select("id");
+  if (error) throw error;
+  return (data ?? []).map((r) => r.id as string);
+}
+
+/** Collecte les media_id uniques des slideshows donnés. */
+export async function collecterMediaIdsContenus(
+  contenuIds: string[],
+): Promise<string[]> {
+  if (contenuIds.length === 0) return [];
+  const { data, error } = await supabase
+    .from("contenus")
+    .select("structure_slides")
+    .in("id", contenuIds);
+  if (error) throw error;
+  const set = new Set<string>();
+  for (const row of data ?? []) {
+    for (const id of mediaIdsDepuisSlides(
+      row.structure_slides as Contenu["structure_slides"],
+    )) {
+      set.add(id);
+    }
+  }
+  return [...set];
+}
+
+/** Scan vision UGC d'un média (Edge fal openrouter/router/vision). */
+export async function scannerVisageUgcMedia(
+  mediaId: string,
+): Promise<{ visage_premier_plan: boolean; model?: string }> {
+  const r = await invoke<{
+    ok?: boolean;
+    visage_premier_plan?: boolean;
+    model?: string;
+    error?: string;
+  }>("scan-visage-ugc", { action: "scan_media", media_id: mediaId });
+  if (r?.error) throw new Error(r.error);
+  if (typeof r.visage_premier_plan !== "boolean") {
+    throw new Error("Réponse scan-visage-ugc invalide");
+  }
+  return { visage_premier_plan: r.visage_premier_plan, model: r.model };
+}
+
+/** Correction manuelle du flag visage premier plan. */
+export async function majVisagePremierPlan(
+  mediaId: string,
+  valeur: boolean | null,
+): Promise<void> {
+  const { error } = await supabase
+    .from("media_library")
+    .update({ visage_premier_plan: valeur })
+    .eq("id", mediaId);
+  if (error) throw error;
 }
 
 /** Coût mensuel = base + posts_par_jour × unitaire. */

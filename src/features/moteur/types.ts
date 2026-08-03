@@ -96,6 +96,8 @@ export interface Media {
   tags: string[];
   langue: string | null;
   visage_identifiable: boolean | null;
+  /** Visage humain au premier plan (scan UGC vision). Null = non scanné. */
+  visage_premier_plan: boolean | null;
   /** L'audit a vu du texte sur une image pourtant rangée en propre. */
   texte_restant: boolean;
   /** Date du dernier upscale Real-ESRGAN (null = jamais). */
@@ -358,6 +360,8 @@ export interface Contenu {
   profondeur: number;
   /** Langue qui a déclenché la variation (null si contenu original). */
   variation_langue: string | null;
+  /** Marqué UGC — scan visage premier plan sur les images. */
+  ugc_compatible: boolean;
   created_at: string;
 }
 

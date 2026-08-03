@@ -1024,6 +1024,20 @@ export const fr = {
       importLienDesc:
         "Colle le lien d'un post photo TikTok : on le récupère et on en fait un sujet, prêt à composer. Rattache-le au compte de référence pour que ses visuels rejoignent la bonne bibliothèque.",
       rappelLien: "⚠️ N'oublie pas de copier le lien de TON TikTok que tu as posté quand tu as fini !",
+      rechargerTitre: "Charger un nouveau post entièrement",
+      rechargerAide:
+        "À utiliser UNIQUEMENT si le slideshow est buggé : texte décalé, mal placé, illisible, ou images incohérentes. Ce n’est pas pour changer de sujet ou « tester autre chose » — tu as seulement 2 essais.",
+      rechargerRestants_one: "Il te reste {{count}} essai.",
+      rechargerRestants_other: "Il te reste {{count}} essais.",
+      rechargerEpuise: "Tu as déjà utiliséchargé ce post 2 fois. Contacte ton recruteur si le problème continue.",
+      rechargerConfirm:
+        "Charger un NOUVEAU post entièrement pour ce créneau ? À faire seulement si le slideshow est vraiment buggé (texte décalé, etc.). Il te restera {{restantes}} essai(s) après.",
+      rechargerEnCours: "Recherche d’un nouveau post…",
+      rechargerOk: "Nouveau post prêt.",
+      rechargerAucun:
+        "Aucun autre slideshow disponible pour l’instant — réessaie plus tard, ou contacte ton recruteur.",
+      rechargerLimite: "Limite atteinte : 2 recharges maximum pour ce post.",
+      rechargerPublie: "Ce post est déjà publié — impossible de le recharger.",
       lienTikTok: "Lien du post TikTok",
       rattacherA: "Rattacher au compte de référence",
       importer: "Importer",

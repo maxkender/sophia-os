@@ -3251,9 +3251,19 @@ export const avancerUnPost = (postId: string) =>
   invoke<{ ok: boolean; etape?: string }>("composition", { postId });
 
 /** Révoque un post inutilisable (rejette son sujet) et en refait un autre pour le
- *  même créateur + date. Renvoie l'id du nouveau post (à faire avancer ensuite). */
+ *  même créateur + date. Renvoie l'id du nouveau post (à faire avancer ensuite).
+ *  Côté créateur : max 2 recharges, fabrication avancée jusqu'à done. */
 export const revoquerPost = (postId: string) =>
-  invoke<{ ok: boolean; newPostId: string | null }>("revoquer-post", { postId });
+  invoke<{
+    ok: boolean;
+    newPostId: string | null;
+    recharges_createur?: number;
+    restantes?: number;
+    error?: string;
+  }>("revoquer-post", { postId });
+
+/** Alias créateur : même Edge, contrôles ownership + quota côté serveur. */
+export const rechargerPostCreateur = revoquerPost;
 
 /** Les posts d'une date donnée avec leur avancement, pour suivre en direct la
  *  simulation de minuit. */

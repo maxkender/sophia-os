@@ -1023,6 +1023,20 @@ export const en = {
       importLienDesc:
         "Paste a TikTok photo post link: we fetch it and turn it into a topic, ready to compose. Attach it to the reference account so its visuals join the right library.",
       rappelLien: "⚠️ Don't forget to copy the link of YOUR TikTok that you posted when you're done!",
+      rechargerTitre: "Load an entirely new post",
+      rechargerAide:
+        "Use this ONLY if the slideshow is broken: misaligned text, wrong placement, unreadable, or incoherent images. Not for changing topic or “trying something else” — you only get 2 attempts.",
+      rechargerRestants_one: "You have {{count}} attempt left.",
+      rechargerRestants_other: "You have {{count}} attempts left.",
+      rechargerEpuise: "You’ve already reloaded this post twice. Contact your recruiter if the issue continues.",
+      rechargerConfirm:
+        "Load an entirely NEW post for this slot? Only do this if the slideshow is truly broken (misaligned text, etc.). You’ll have {{restantes}} attempt(s) left after.",
+      rechargerEnCours: "Finding a new post…",
+      rechargerOk: "New post ready.",
+      rechargerAucun:
+        "No other slideshow available right now — try again later, or contact your recruiter.",
+      rechargerLimite: "Limit reached: 2 reloads maximum for this post.",
+      rechargerPublie: "This post is already published — it can’t be reloaded.",
       lienTikTok: "TikTok post link",
       rattacherA: "Attach to reference account",
       importer: "Import",

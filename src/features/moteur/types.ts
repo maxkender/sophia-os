@@ -121,6 +121,8 @@ export interface Post {
   pipeline_etape: string | null;
   pipeline_erreur: string | null;
   est_test: boolean;
+  /** Recharges complètes demandées par le créateur (0–2). */
+  recharges_createur?: number;
   created_at: string;
 }
 

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import {
@@ -11,6 +11,7 @@ import {
   ImageUp,
   Music,
   QrCode,
+  RefreshCw,
   Share,
   Sparkles,
   X,
@@ -34,6 +35,7 @@ import {
   listerSlides,
   majMediaSlide,
   majPost,
+  rechargerPostCreateur,
   renettoyerSlide,
   reordonnerSlides,
 } from "@/features/moteur/api";
@@ -330,16 +332,20 @@ function ControlesAdminSlide({
   );
 }
 
+const MAX_RECHARGES_CREATEUR = 2;
+
 export function PosterPostPage() {
   const { t, i18n } = useTranslation();
   const { role } = useAuth();
   const estAdmin = role === "admin";
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const queryClient = useQueryClient();
   const [lienPublie, setLienPublie] = React.useState("");
   const [loupe, setLoupe] = React.useState<string | null>(null);
   const [erreurPartage, setErreurPartage] = React.useState<string | null>(null);
   const [enCours, setEnCours] = React.useState(false);
+  const [rechargeMsg, setRechargeMsg] = React.useState<string | null>(null);
 
   const post = useQuery({
     queryKey: ["post", id],
@@ -414,6 +420,36 @@ export function PosterPostPage() {
     onSuccess: rafraichir,
   });
 
+  /** Slideshow buggé : rejette le contenu et en refabrique un autre (max 2). */
+  async function rechargerEntierement() {
+    if (!id) return;
+    const utilisees = Math.min(
+      MAX_RECHARGES_CREATEUR,
+      Math.max(0, Number(post.data?.recharges_createur) || 0),
+    );
+    const restantesApres = Math.max(0, MAX_RECHARGES_CREATEUR - utilisees - 1);
+    if (!window.confirm(t("posts.rechargerConfirm", { restantes: restantesApres }))) return;
+    setRechargeMsg(t("posts.rechargerEnCours"));
+    try {
+      const r = await rechargerPostCreateur(id);
+      if (!r.newPostId) {
+        setRechargeMsg(null);
+        window.alert(t("posts.rechargerAucun"));
+        return;
+      }
+      queryClient.invalidateQueries({ queryKey: ["mes-posts"] });
+      setRechargeMsg(t("posts.rechargerOk"));
+      navigate(`/posts/${r.newPostId}`, { replace: true });
+    } catch (e) {
+      setRechargeMsg(null);
+      const msg = (e as Error).message;
+      if (msg.includes("RECHARGE_LIMITE")) window.alert(t("posts.rechargerLimite"));
+      else if (msg.includes("RECHARGE_PUBLIE")) window.alert(t("posts.rechargerPublie"));
+      else if (msg.includes("RECHARGE_AUCUN")) window.alert(t("posts.rechargerAucun"));
+      else window.alert(msg);
+    }
+  }
+
   /** Tout d'un coup : feuille de partage sur mobile, ZIP sur ordinateur. */
   async function toutEnregistrer(donnees: Post) {
     setErreurPartage(null);
@@ -465,6 +501,12 @@ export function PosterPostPage() {
   const donnees = post.data;
   const publie = Boolean(donnees.publie_at);
   const tousLesTextes = texteComplet(donnees, liste);
+  const rechargesUtilisees = Math.min(
+    MAX_RECHARGES_CREATEUR,
+    Math.max(0, Number(donnees.recharges_createur) || 0),
+  );
+  const rechargesRestantes = Math.max(0, MAX_RECHARGES_CREATEUR - rechargesUtilisees);
+  const peutRecharger = !estAdmin && !publie && !donnees.est_test;
 
   const nbPhotos = (fichiers.data ?? []).length;
   // Slides dont la photo n'est pas nettoyée : absente OU gardée avec son texte.
@@ -690,7 +732,37 @@ export function PosterPostPage() {
         ))}
       </div>
 
-      {/* 5 — Validation et publication, en dernier. */}
+      {/* 5 — Recharge complète si slideshow buggé (créateur, max 2). */}
+      {peutRecharger && (
+        <Card>
+          <CardContent className="space-y-3 pt-5">
+            <p className="text-sm font-medium">{t("posts.rechargerTitre")}</p>
+            <p className="text-sm text-muted-foreground">{t("posts.rechargerAide")}</p>
+            {rechargesRestantes > 0 ? (
+              <>
+                <p className="text-xs text-muted-foreground">
+                  {t("posts.rechargerRestants", { count: rechargesRestantes })}
+                </p>
+                <Button
+                  variant="outline"
+                  className="w-full"
+                  disabled={Boolean(rechargeMsg)}
+                  onClick={() => void rechargerEntierement()}
+                >
+                  <RefreshCw className={rechargeMsg ? "animate-spin" : undefined} />
+                  {rechargeMsg ?? t("posts.rechargerTitre")}
+                </Button>
+              </>
+            ) : (
+              <p className="rounded-md bg-muted px-3 py-2 text-xs text-muted-foreground">
+                {t("posts.rechargerEpuise")}
+              </p>
+            )}
+          </CardContent>
+        </Card>
+      )}
+
+      {/* 6 — Validation et publication, en dernier. */}
       <Card>
         <CardContent className="space-y-3 pt-5">
           {publie ? (

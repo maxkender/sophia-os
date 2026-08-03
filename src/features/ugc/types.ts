@@ -20,3 +20,5 @@ export interface UgcPersonaDefaults {
   promptRight: string;
   promptDown: string;
 }
+
+export type UgcAngle = "left" | "right" | "down";

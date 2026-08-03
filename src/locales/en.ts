@@ -137,6 +137,9 @@ export const en = {
         listeTitre: "Saved personas",
         listeVide: "No persona yet.",
         confirmSuppr: "Delete persona “{{nom}}”?",
+        regenererAngle: "Redo",
+        enCoursAngle: "Regenerating {{angle}}…",
+        angleRefait: "{{angle}} updated.",
       },
       slideshows: {
         title: "AI Slideshow",

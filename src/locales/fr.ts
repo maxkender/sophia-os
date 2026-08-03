@@ -137,6 +137,9 @@ export const fr = {
         listeTitre: "Personas enregistrés",
         listeVide: "Aucun persona pour l’instant.",
         confirmSuppr: "Supprimer le persona « {{nom}} » ?",
+        regenererAngle: "Refaire",
+        enCoursAngle: "Régénération {{angle}}…",
+        angleRefait: "{{angle}} mis à jour.",
       },
       slideshows: {
         title: "Slideshow AI",

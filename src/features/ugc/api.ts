@@ -1,5 +1,7 @@
 import { supabase } from "@/lib/supabase/client";
-import type { UgcPersona, UgcPersonaDefaults } from "./types";
+import type { UgcAngle, UgcPersona, UgcPersonaDefaults } from "./types";
+
+export type { UgcAngle };
 
 async function invokeUgc<T>(body: Record<string, unknown>): Promise<T> {
   const { data, error } = await supabase.functions.invoke("ugc-persona", { body });
@@ -141,6 +143,31 @@ export async function genererUgcAngles(
     promptLeft: String(r.promptLeft ?? input.promptLeft),
     promptRight: String(r.promptRight ?? input.promptRight),
     promptDown: String(r.promptDown ?? input.promptDown),
+  };
+}
+
+/** Régénère un seul angle (draft de création ou persona enregistré). */
+export async function genererUgcAngle(
+  input: {
+    angle: UgcAngle;
+    faceUrl?: string;
+    draftId?: string;
+    prompt?: string;
+    personaId?: string;
+  },
+  onProgress?: (detail: string) => void,
+): Promise<{
+  angle: UgcAngle;
+  imageUrl: string;
+  prompt: string;
+  persona: UgcPersona | null;
+}> {
+  const r = await invokeUgcStream({ action: "generate_angle", ...input }, onProgress);
+  return {
+    angle: (String(r.angle ?? input.angle) as UgcAngle),
+    imageUrl: String(r.imageUrl ?? ""),
+    prompt: String(r.prompt ?? input.prompt ?? ""),
+    persona: (r.persona as UgcPersona | null) ?? null,
   };
 }
 

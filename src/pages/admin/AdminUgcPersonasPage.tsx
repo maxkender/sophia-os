@@ -9,15 +9,20 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
+  genererUgcAngle,
   genererUgcAngles,
   genererUgcFace,
   listerUgcPersonas,
   sauverUgcPersona,
   supprimerUgcPersona,
   ugcPersonaDefaults,
+  type UgcAngle,
 } from "@/features/ugc/api";
+import type { UgcPersona } from "@/features/ugc/types";
 
 type Etape = "prompt" | "face" | "angles" | "save";
+
+const ANGLES: UgcAngle[] = ["left", "right", "down"];
 
 export function AdminUgcPersonasPage() {
   const { t } = useTranslation();
@@ -46,6 +51,8 @@ export function AdminUgcPersonasPage() {
   const [nom, setNom] = React.useState("");
   const [progress, setProgress] = React.useState<string | null>(null);
   const [erreur, setErreur] = React.useState<string | null>(null);
+  const [angleEnCours, setAngleEnCours] = React.useState<UgcAngle | null>(null);
+  const [listeAngleBusy, setListeAngleBusy] = React.useState<string | null>(null);
 
   React.useEffect(() => {
     if (!defaults.data) return;
@@ -54,6 +61,22 @@ export function AdminUgcPersonasPage() {
     setPromptRight((p) => p || defaults.data.promptRight);
     setPromptDown((p) => p || defaults.data.promptDown);
   }, [defaults.data]);
+
+  function promptPourAngle(angle: UgcAngle): string {
+    if (angle === "left") return promptLeft;
+    if (angle === "right") return promptRight;
+    return promptDown;
+  }
+
+  function setUrlPourAngle(angle: UgcAngle, url: string) {
+    if (angle === "left") setLeftUrl(url);
+    else if (angle === "right") setRightUrl(url);
+    else setDownUrl(url);
+  }
+
+  function labelAngle(angle: UgcAngle): string {
+    return t(`ugc.personas.${angle}`);
+  }
 
   function resetCreation() {
     setEtape("prompt");
@@ -65,6 +88,7 @@ export function AdminUgcPersonasPage() {
     setNom("");
     setProgress(null);
     setErreur(null);
+    setAngleEnCours(null);
     if (defaults.data) {
       setPromptFace(defaults.data.promptFace);
       setPromptLeft(defaults.data.promptLeft);
@@ -125,6 +149,38 @@ export function AdminUgcPersonasPage() {
     },
   });
 
+  const regenererAngleDraft = useMutation({
+    mutationFn: (angle: UgcAngle) => {
+      if (!faceUrl || !draftId) throw new Error("Face manquante");
+      return genererUgcAngle(
+        {
+          angle,
+          faceUrl,
+          draftId,
+          prompt: promptPourAngle(angle),
+        },
+        setProgress,
+      );
+    },
+    onMutate: (angle) => {
+      setErreur(null);
+      setAngleEnCours(angle);
+      setProgress(
+        t("ugc.personas.enCoursAngle", { angle: labelAngle(angle) }),
+      );
+    },
+    onSuccess: (r) => {
+      setUrlPourAngle(r.angle, r.imageUrl);
+      setAngleEnCours(null);
+      setProgress(null);
+    },
+    onError: (e) => {
+      setAngleEnCours(null);
+      setProgress(null);
+      setErreur((e as Error).message);
+    },
+  });
+
   const sauver = useMutation({
     mutationFn: () => {
       if (!faceUrl || !leftUrl || !rightUrl || !downUrl) {
@@ -155,7 +211,48 @@ export function AdminUgcPersonasPage() {
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["ugc-personas"] }),
   });
 
-  const busy = genererFace.isPending || genererAngles.isPending || sauver.isPending;
+  async function regenererAnglePersona(persona: UgcPersona, angle: UgcAngle) {
+    const key = `${persona.id}:${angle}`;
+    if (listeAngleBusy) return;
+    setListeAngleBusy(key);
+    setErreur(null);
+    try {
+      const prompt =
+        angle === "left"
+          ? persona.prompt_left
+          : angle === "right"
+            ? persona.prompt_right
+            : persona.prompt_down;
+      await genererUgcAngle(
+        {
+          angle,
+          personaId: persona.id,
+          faceUrl: persona.image_face_url,
+          prompt: prompt ?? undefined,
+        },
+        (detail) => setProgress(detail),
+      );
+      void queryClient.invalidateQueries({ queryKey: ["ugc-personas"] });
+      setProgress(t("ugc.personas.angleRefait", { angle: labelAngle(angle) }));
+    } catch (e) {
+      setErreur(e instanceof Error ? e.message : String(e));
+      setProgress(null);
+    } finally {
+      setListeAngleBusy(null);
+    }
+  }
+
+  const busy =
+    genererFace.isPending ||
+    genererAngles.isPending ||
+    regenererAngleDraft.isPending ||
+    sauver.isPending;
+
+  const urlParAngle = {
+    left: leftUrl,
+    right: rightUrl,
+    down: downUrl,
+  } as const;
 
   return (
     <div className="space-y-8">
@@ -212,14 +309,37 @@ export function AdminUgcPersonasPage() {
           {faceUrl && (
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               <Visuel label={t("ugc.personas.face")} url={faceUrl} />
-              <Visuel label={t("ugc.personas.left")} url={leftUrl} />
-              <Visuel label={t("ugc.personas.right")} url={rightUrl} />
-              <Visuel label={t("ugc.personas.down")} url={downUrl} />
+              {ANGLES.map((angle) => (
+                <Visuel
+                  key={angle}
+                  label={labelAngle(angle)}
+                  url={urlParAngle[angle]}
+                  action={
+                    urlParAngle[angle] ? (
+                      <Button
+                        type="button"
+                        size="sm"
+                        variant="outline"
+                        className="h-7 w-full text-xs"
+                        disabled={busy}
+                        onClick={() => regenererAngleDraft.mutate(angle)}
+                      >
+                        {angleEnCours === angle ? (
+                          <Loader2 className="size-3 animate-spin" />
+                        ) : (
+                          <RefreshCw className="size-3" />
+                        )}
+                        {t("ugc.personas.regenererAngle")}
+                      </Button>
+                    ) : null
+                  }
+                />
+              ))}
             </div>
           )}
 
-          {/* Prompts d'angles — éditables avant validation */}
-          {faceUrl && etape === "face" && (
+          {/* Prompts d'angles — éditables avant validation et pour refaire un angle */}
+          {faceUrl && (etape === "face" || etape === "save") && (
             <div className="grid gap-4 lg:grid-cols-3">
               <ChampPrompt
                 id="pLeft"
@@ -304,7 +424,7 @@ export function AdminUgcPersonasPage() {
                     type="button"
                     size="icon"
                     variant="ghost"
-                    disabled={supprimer.isPending}
+                    disabled={supprimer.isPending || Boolean(listeAngleBusy)}
                     onClick={() => {
                       if (window.confirm(t("ugc.personas.confirmSuppr", { nom: p.nom }))) {
                         supprimer.mutate(p.id);
@@ -316,10 +436,51 @@ export function AdminUgcPersonasPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="grid grid-cols-4 gap-2">
-                <img src={p.image_face_url} alt="" className="aspect-[9/16] w-full rounded object-cover" />
-                <img src={p.image_left_url} alt="" className="aspect-[9/16] w-full rounded object-cover" />
-                <img src={p.image_right_url} alt="" className="aspect-[9/16] w-full rounded object-cover" />
-                <img src={p.image_down_url} alt="" className="aspect-[9/16] w-full rounded object-cover" />
+                <figure className="space-y-1">
+                  <img
+                    src={p.image_face_url}
+                    alt=""
+                    className="aspect-[9/16] w-full rounded object-cover"
+                  />
+                  <figcaption className="text-center text-[10px] text-muted-foreground">
+                    {t("ugc.personas.face")}
+                  </figcaption>
+                </figure>
+                {ANGLES.map((angle) => {
+                  const url =
+                    angle === "left"
+                      ? p.image_left_url
+                      : angle === "right"
+                        ? p.image_right_url
+                        : p.image_down_url;
+                  const busyKey = `${p.id}:${angle}`;
+                  const enCours = listeAngleBusy === busyKey;
+                  return (
+                    <figure key={angle} className="space-y-1">
+                      <img
+                        src={url}
+                        alt=""
+                        className="aspect-[9/16] w-full rounded object-cover"
+                      />
+                      <Button
+                        type="button"
+                        size="sm"
+                        variant="outline"
+                        className="h-7 w-full px-1 text-[10px]"
+                        disabled={Boolean(listeAngleBusy)}
+                        onClick={() => void regenererAnglePersona(p, angle)}
+                        title={t("ugc.personas.regenererAngle")}
+                      >
+                        {enCours ? (
+                          <Loader2 className="size-3 animate-spin" />
+                        ) : (
+                          <RefreshCw className="size-3" />
+                        )}
+                        {labelAngle(angle)}
+                      </Button>
+                    </figure>
+                  );
+                })}
               </CardContent>
             </Card>
           ))}
@@ -329,7 +490,15 @@ export function AdminUgcPersonasPage() {
   );
 }
 
-function Visuel({ label, url }: { label: string; url: string | null }) {
+function Visuel({
+  label,
+  url,
+  action,
+}: {
+  label: string;
+  url: string | null;
+  action?: React.ReactNode;
+}) {
   return (
     <figure className="space-y-1.5">
       <figcaption className="text-xs font-medium text-muted-foreground">{label}</figcaption>
@@ -340,6 +509,7 @@ function Visuel({ label, url }: { label: string; url: string | null }) {
           —
         </div>
       )}
+      {action}
     </figure>
   );
 }

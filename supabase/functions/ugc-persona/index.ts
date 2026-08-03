@@ -68,12 +68,48 @@ async function uploader(
   return `${pub}?v=${Date.now()}`;
 }
 
+type AngleCle = "left" | "right" | "down";
+
+const ANGLE_META: Record<
+  AngleCle,
+  { file: string; promptCle: string; defaut: string; colUrl: string; colPrompt: string }
+> = {
+  left: {
+    file: "left.png",
+    promptCle: "ugc_persona_edit_left",
+    defaut: PROMPT_LEFT_DEFAUT,
+    colUrl: "image_left_url",
+    colPrompt: "prompt_left",
+  },
+  right: {
+    file: "right.png",
+    promptCle: "ugc_persona_edit_right",
+    defaut: PROMPT_RIGHT_DEFAUT,
+    colUrl: "image_right_url",
+    colPrompt: "prompt_right",
+  },
+  down: {
+    file: "down.png",
+    promptCle: "ugc_persona_edit_down",
+    defaut: PROMPT_DOWN_DEFAUT,
+    colUrl: "image_down_url",
+    colPrompt: "prompt_down",
+  },
+};
+
+function parseAngle(raw: unknown): AngleCle | null {
+  const a = String(raw ?? "").trim().toLowerCase();
+  if (a === "left" || a === "right" || a === "down") return a;
+  return null;
+}
+
 /**
  * Personas UGC AI (Nano Banana Pro).
  *
  *   { action: "defaults" }
  *   { action: "generate_face", prompt?, stream? }
  *   { action: "generate_angles", faceUrl, promptLeft?, promptRight?, promptDown?, stream? }
+ *   { action: "generate_angle", angle, faceUrl?, prompt?, draftId?, personaId?, stream? }
  *   { action: "save", nom, promptBase, faceUrl, leftUrl, rightUrl, downUrl,
  *                     promptLeft?, promptRight?, promptDown? }
  *   { action: "list" }
@@ -191,7 +227,7 @@ Deno.serve(async (request) => {
         (await chargerPrompt(supabase, "ugc_persona_edit_down")) ||
         PROMPT_DOWN_DEFAUT;
 
-      const angles: Array<{ cle: "left" | "right" | "down"; prompt: string; file: string }> = [
+      const angles: Array<{ cle: AngleCle; prompt: string; file: string }> = [
         { cle: "left", prompt: promptLeft, file: "left.png" },
         { cle: "right", prompt: promptRight, file: "right.png" },
         { cle: "down", prompt: promptDown, file: "down.png" },
@@ -237,6 +273,105 @@ Deno.serve(async (request) => {
           promptLeft: map.left!.prompt,
           promptRight: map.right!.prompt,
           promptDown: map.down!.prompt,
+        };
+        emit?.({ etape: "ready", statut: "ok", ...payload });
+        return payload;
+      };
+
+      if (stream) {
+        return reponseNdjson(async (emit) => {
+          await run(emit);
+        });
+      }
+      return json(await run());
+    }
+
+    /** Régénère un seul angle (création ou persona déjà enregistré). */
+    if (action === "generate_angle") {
+      const angle = parseAngle(body.angle);
+      if (!angle) return json({ error: "angle requis (left|right|down)" }, 400);
+      const meta = ANGLE_META[angle];
+      const personaId = body.personaId ? String(body.personaId).trim() : "";
+
+      let faceUrl = String(body.faceUrl ?? "").trim();
+      let draftId = String(body.draftId ?? "").trim();
+      let prompt = String(body.prompt ?? "").trim();
+
+      if (personaId) {
+        const { data: persona, error } = await supabase
+          .from("ugc_personas")
+          .select("*")
+          .eq("id", personaId)
+          .maybeSingle();
+        if (error) return json({ error: error.message }, 400);
+        if (!persona) return json({ error: "persona introuvable" }, 404);
+        faceUrl = faceUrl || String(persona.image_face_url ?? "");
+        if (!prompt) {
+          const col = meta.colPrompt as "prompt_left" | "prompt_right" | "prompt_down";
+          prompt = String(persona[col] ?? "").trim();
+        }
+        if (!draftId) {
+          draftId =
+            String(persona.storage_prefix ?? "")
+              .replace(/^ugc\/personas\/draft\//, "")
+              .split("/")[0] || personaId;
+        }
+      }
+
+      if (!faceUrl) return json({ error: "faceUrl requis" }, 400);
+      if (!draftId) draftId = crypto.randomUUID();
+      if (!prompt) {
+        prompt =
+          (await chargerPrompt(supabase, meta.promptCle)) || meta.defaut;
+      }
+
+      const run = async (emit?: (e: Record<string, unknown>) => void) => {
+        emit?.({
+          etape: "angle",
+          statut: "en_cours",
+          detail: `Édit ${angle}…`,
+          angle,
+        });
+        const img = await editerNanoBananaPro(faceUrl, prompt, (p) => {
+          emit?.({
+            etape: "angle",
+            statut: "en_cours",
+            detail: `${angle}: ${p.detail ?? p.statut ?? p.phase}`,
+            angle,
+            polls: p.polls,
+          });
+        });
+        const path = personaId
+          ? `ugc/personas/${personaId}/${meta.file}`
+          : `ugc/personas/draft/${draftId}/${meta.file}`;
+        emit?.({ etape: "upload", statut: "en_cours", detail: `Upload ${angle}…`, angle });
+        const imageUrl = await uploader(supabase, path, img.bytes, img.mime);
+
+        let persona = null;
+        if (personaId) {
+          const patch: Record<string, unknown> = {
+            [meta.colUrl]: imageUrl,
+            [meta.colPrompt]: prompt,
+            updated_at: new Date().toISOString(),
+          };
+          const { data, error: errUp } = await supabase
+            .from("ugc_personas")
+            .update(patch)
+            .eq("id", personaId)
+            .select("*")
+            .single();
+          if (errUp) throw new Error(errUp.message);
+          persona = data;
+        }
+
+        const payload = {
+          ok: true as const,
+          angle,
+          imageUrl,
+          prompt,
+          draftId,
+          personaId: personaId || null,
+          persona,
         };
         emit?.({ etape: "ready", statut: "ok", ...payload });
         return payload;

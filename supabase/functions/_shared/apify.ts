@@ -11,6 +11,22 @@ export interface ScrapedPost {
   stats: { vues: number; likes: number; commentaires: number; partages: number };
 }
 
+/** Post vidéo TikTok (download Apify activé → mediaUrls KV). */
+export interface ScrapedVideo {
+  postId: string;
+  webVideoUrl: string;
+  text: string;
+  videoUrl: string;
+  coverUrl: string | null;
+  musicUrl: string | null;
+  musicTitle: string | null;
+  createTime: number | null;
+  dureeMs: number | null;
+  largeur: number | null;
+  hauteur: number | null;
+  stats: { vues: number; likes: number; commentaires: number; partages: number };
+}
+
 interface MusicMeta {
   playUrl?: string;
   musicId?: string;
@@ -27,6 +43,16 @@ interface ApifyItem {
   createTime?: number;
   imageUrlList?: string[];
   slideshowImageLinks?: Array<string | { downloadLink?: string; url?: string }>;
+  /** Rempli quand shouldDownloadVideos / covers — URLs KV Apify. */
+  mediaUrls?: string[];
+  videoMeta?: {
+    downloadAddr?: string;
+    coverUrl?: string;
+    duration?: number;
+    width?: number;
+    height?: number;
+  };
+  covers?: string[];
   musicMeta?: MusicMeta;
   playCount?: number;
   diggCount?: number;
@@ -79,21 +105,43 @@ function mergeImageUrls(item: ApifyItem): string[] {
 }
 
 /**
- * Les visuels rapatriés par le scraper vivent dans le key-value store d'Apify,
+ * Les médias rapatriés par le scraper vivent dans le key-value store d'Apify,
  * qui répond 403 sans token et purge ses données après quelques jours. On les
  * télécharge donc pour les stocker chez nous.
  */
-export async function downloadImage(url: string): Promise<Uint8Array> {
+export async function downloadMedia(url: string): Promise<Uint8Array> {
   const token = Deno.env.get("APIFY_TOKEN");
   const isApifyStore = url.startsWith("https://api.apify.com/");
   const target = isApifyStore && token ? `${url}?token=${token}` : url;
 
   const response = await fetch(target);
   if (!response.ok) {
-    throw new Error(`Téléchargement image ${response.status} (${url.slice(0, 80)})`);
+    throw new Error(`Téléchargement média ${response.status} (${url.slice(0, 80)})`);
   }
 
   return new Uint8Array(await response.arrayBuffer());
+}
+
+/** Alias historique — images slideshow. */
+export async function downloadImage(url: string): Promise<Uint8Array> {
+  return downloadMedia(url);
+}
+
+function pickVideoUrl(item: ApifyItem): string | null {
+  const media = item.mediaUrls ?? [];
+  const mp4 = media.find((u) => /\.mp4(\?|$)/i.test(u));
+  if (mp4) return mp4;
+  const anyMedia = media.find((u) => typeof u === "string" && u.length > 0);
+  if (anyMedia) return anyMedia;
+  return item.videoMeta?.downloadAddr?.trim() || null;
+}
+
+function pickCoverUrl(item: ApifyItem): string | null {
+  if (item.videoMeta?.coverUrl) return item.videoMeta.coverUrl;
+  const fromCovers = (item.covers ?? []).find((u) => typeof u === "string" && u.length > 0);
+  if (fromCovers) return fromCovers;
+  const fromMedia = (item.mediaUrls ?? []).find((u) => /\.(jpe?g|png|webp)(\?|$)/i.test(u));
+  return fromMedia ?? null;
 }
 
 async function runActor(
@@ -228,4 +276,65 @@ export function scrapeStats(handle: string, resultsPerPage: number) {
 /** Scrape un seul post par son URL, pour tester le pipeline sur un TikTok précis. */
 export function scrapePost(url: string) {
   return runActor({ postURLs: [url], resultsPerPage: 1 });
+}
+
+/**
+ * Scrape une vidéo TikTok et télécharge le fichier (add-on Apify).
+ * Renvoie l’URL KV / CDN du MP4 — à rapatrier via `downloadMedia` avant expiration.
+ */
+export async function scrapeVideoPost(url: string): Promise<ScrapedVideo> {
+  const token = Deno.env.get("APIFY_TOKEN");
+  if (!token) throw new Error("APIFY_TOKEN manquant");
+
+  const response = await fetch(
+    `https://api.apify.com/v2/acts/${ACTOR}/run-sync-get-dataset-items?token=${token}`,
+    {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        postURLs: [url],
+        resultsPerPage: 1,
+        shouldDownloadVideos: true,
+        shouldDownloadSlideshowImages: false,
+        shouldDownloadCovers: true,
+        proxyCountryCode: "None",
+      }),
+    },
+  );
+  if (!response.ok) {
+    throw new Error(`Apify video ${response.status}: ${(await response.text()).slice(0, 300)}`);
+  }
+
+  const items = (await response.json()) as ApifyItem[];
+  const item = items[0];
+  if (!item?.id) throw new Error("Apify: aucune vidéo renvoyée pour ce lien");
+
+  const videoUrl = pickVideoUrl(item);
+  if (!videoUrl) {
+    throw new Error(
+      "Apify: pas de fichier vidéo (mediaUrls vide). Vérifie que le lien est une vidéo TikTok.",
+    );
+  }
+
+  const musique = lienMusique(item.musicMeta);
+  const dureeSec = item.videoMeta?.duration;
+  return {
+    postId: item.id,
+    webVideoUrl: item.webVideoUrl ?? url,
+    text: item.text ?? "",
+    videoUrl,
+    coverUrl: pickCoverUrl(item),
+    musicUrl: musique.url,
+    musicTitle: musique.titre,
+    createTime: item.createTime ?? null,
+    dureeMs: typeof dureeSec === "number" ? Math.round(dureeSec * 1000) : null,
+    largeur: item.videoMeta?.width ?? null,
+    hauteur: item.videoMeta?.height ?? null,
+    stats: {
+      vues: item.playCount ?? 0,
+      likes: item.diggCount ?? 0,
+      commentaires: item.commentCount ?? 0,
+      partages: item.shareCount ?? 0,
+    },
+  };
 }

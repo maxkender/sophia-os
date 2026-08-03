@@ -25,3 +25,27 @@ export interface UgcPersonaDefaults {
 }
 
 export type UgcAngle = "left" | "right" | "down";
+
+export interface UgcReaction {
+  id: string;
+  titre: string;
+  source_url: string;
+  tiktok_post_id: string | null;
+  caption_source: string | null;
+  video_source_path: string;
+  video_source_url: string;
+  video_path: string | null;
+  video_url: string | null;
+  crop: { x: number; y: number; w: number; h: number } | null;
+  first_frame_reference_path: string | null;
+  first_frame_reference_url: string | null;
+  video_text: string | null;
+  musique_url: string | null;
+  musique_titre: string | null;
+  duree_ms: number | null;
+  largeur: number | null;
+  hauteur: number | null;
+  statut: "brouillon" | "pret" | "archive";
+  created_at: string;
+  updated_at: string;
+}

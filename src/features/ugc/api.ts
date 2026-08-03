@@ -1,7 +1,13 @@
 import { supabase } from "@/lib/supabase/client";
-import type { UgcAngle, UgcPersona, UgcPersonaDefaults } from "./types";
+import type {
+  UgcAngle,
+  UgcPersona,
+  UgcPersonaDefaults,
+  UgcReaction,
+} from "./types";
+import type { CropRect } from "./videoCrop";
 
-export type { UgcAngle };
+export type { UgcAngle, UgcReaction };
 
 async function invokeUgc<T>(body: Record<string, unknown>): Promise<T> {
   const { data, error } = await supabase.functions.invoke("ugc-persona", { body });
@@ -247,4 +253,158 @@ export function sauverUgcPersona(input: {
 
 export function supprimerUgcPersona(id: string) {
   return invokeUgc<{ ok: boolean }>({ action: "delete", id });
+}
+
+/* ─── Vidéos AI / reactions ─────────────────────────────────────────── */
+
+async function invokeReactions<T>(body: Record<string, unknown>): Promise<T> {
+  const { data, error } = await supabase.functions.invoke("ugc-reactions", { body });
+  if (error) {
+    let message = error.message;
+    try {
+      const ctx = (error as { context?: Response }).context;
+      if (ctx && typeof ctx.json === "function") {
+        const corps = (await ctx.json()) as { error?: string };
+        if (corps?.error) message = corps.error;
+      }
+    } catch {
+      // ignore
+    }
+    throw new Error(message);
+  }
+  const result = data as { error?: string };
+  if (result?.error) throw new Error(result.error);
+  return data as T;
+}
+
+async function invokeReactionsStream(
+  body: Record<string, unknown>,
+  onProgress?: (detail: string) => void,
+): Promise<Record<string, unknown>> {
+  const url = import.meta.env.VITE_SUPABASE_URL;
+  const anon = import.meta.env.VITE_SUPABASE_ANON_KEY;
+  if (!url || !anon) throw new Error("Supabase non configuré");
+
+  const { data: sessionData } = await supabase.auth.getSession();
+  const token = sessionData.session?.access_token;
+  if (!token) throw new Error("Session expirée — reconnecte-toi.");
+
+  const res = await fetch(`${url}/functions/v1/ugc-reactions`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      apikey: anon,
+      "Content-Type": "application/json",
+      Accept: "application/x-ndjson",
+    },
+    body: JSON.stringify({ ...body, stream: true }),
+  });
+
+  if (!res.ok || !res.body) {
+    let message = `Edge ugc-reactions ${res.status}`;
+    try {
+      const j = (await res.json()) as { error?: string };
+      if (j?.error) message = j.error;
+    } catch {
+      // ignore
+    }
+    throw new Error(message);
+  }
+
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+  let dernier: Record<string, unknown> | null = null;
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+    const lignes = buffer.split("\n");
+    buffer = lignes.pop() ?? "";
+    for (const ligne of lignes) {
+      const trim = ligne.trim();
+      if (!trim) continue;
+      try {
+        const ev = JSON.parse(trim) as Record<string, unknown>;
+        dernier = ev;
+        if (typeof ev.detail === "string") onProgress?.(ev.detail);
+        if (ev.statut === "echec" && typeof ev.detail === "string") {
+          throw new Error(ev.detail);
+        }
+      } catch (e) {
+        if (e instanceof Error && e.message !== "Unexpected end of JSON input") {
+          if (e.message.startsWith("Edge") || !e.message.includes("JSON")) throw e;
+        }
+      }
+    }
+  }
+
+  if (!dernier || dernier.statut === "echec") {
+    throw new Error(
+      typeof dernier?.detail === "string" ? dernier.detail : "Reaction UGC échouée",
+    );
+  }
+  return dernier;
+}
+
+export function listerUgcReactions() {
+  return invokeReactions<{ ok: boolean; reactions: UgcReaction[] }>({
+    action: "list",
+  });
+}
+
+export function supprimerUgcReaction(id: string) {
+  return invokeReactions<{ ok: boolean }>({ action: "delete", id });
+}
+
+export async function importerReactionTikTok(
+  url: string,
+  onProgress?: (detail: string) => void,
+): Promise<UgcReaction> {
+  const r = await invokeReactionsStream(
+    { action: "import_tiktok", url },
+    onProgress,
+  );
+  const reaction = r.reaction as UgcReaction | undefined;
+  if (!reaction?.id) throw new Error("Import sans reaction");
+  return reaction;
+}
+
+export async function finaliserUgcReaction(
+  input: {
+    id: string;
+    titre?: string;
+    crop: CropRect;
+    videoPath: string;
+    videoUrl: string;
+    firstFramePath: string;
+    firstFrameUrl: string;
+    videoText?: string;
+  },
+  onProgress?: (detail: string) => void,
+): Promise<UgcReaction> {
+  const r = await invokeReactionsStream(
+    { action: "finalize", ...input },
+    onProgress,
+  );
+  const reaction = r.reaction as UgcReaction | undefined;
+  if (!reaction?.id) throw new Error("Finalize sans reaction");
+  return reaction;
+}
+
+/** Upload fichier dans medias/ (admin). */
+export async function uploadUgcReactionFichier(
+  path: string,
+  blob: Blob,
+  contentType: string,
+): Promise<{ path: string; url: string }> {
+  const { error } = await supabase.storage.from("medias").upload(path, blob, {
+    contentType,
+    upsert: true,
+    cacheControl: "3600",
+  });
+  if (error) throw new Error(error.message);
+  const pub = supabase.storage.from("medias").getPublicUrl(path).data.publicUrl;
+  return { path, url: `${pub}?v=${Date.now()}` };
 }

@@ -106,7 +106,7 @@ export const en = {
       embauche: "Create posters, the AI does the rest",
       ugcPersonas: "AI personas — face + 3 angles (Nano Banana)",
       ugcSlideshows: "UGC AI slideshows (coming soon)",
-      ugcVideos: "UGC AI videos (coming soon)",
+      ugcVideos: "UGC AI videos — reactions",
     },
     ugc: {
       personas: {
@@ -155,7 +155,29 @@ export const en = {
       },
       videos: {
         title: "AI Videos",
+        subtitle:
+          "Reactions: TikTok import → manual crop → 10th frame + OCR → save.",
         bientot: "Coming soon — UGC AI video generation.",
+        importTitre: "Import a reaction",
+        importDesc:
+          "Paste a TikTok link. Apify scrapes and downloads the video, then you crop by hand.",
+        lien: "TikTok link",
+        importer: "Import",
+        importEnCours: "Apify import running…",
+        titreChamp: "Title",
+        cropAide:
+          "Adjust the frame (drag + corners) to keep only the useful area. Only the cropped version is saved.",
+        resetCrop: "Reset crop",
+        validerEnregistrer: "Confirm crop + save",
+        cropEnCours: "Encoding crop…",
+        frameEnCours: "Extracting 10th frame (first_frame_reference)…",
+        uploadEnCours: "Uploading crop + frame…",
+        ocrEnCours: "OCR → video_text…",
+        videoCroppee: "Cropped video",
+        listeTitre: "Saved reactions",
+        listeVide: "No reaction yet.",
+        confirmSuppr: "Delete “{{titre}}”?",
+        rouvrir: "Reopen / re-crop",
       },
     },
     simMinuit: {

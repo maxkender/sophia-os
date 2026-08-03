@@ -915,7 +915,7 @@ export const fr = {
         "Rattrapage ELO (actif) : scrape → deltas langue → ELO compte. Le runtime minuit « scores » est en pause.",
       actionAssignation: "Assignation",
       actionAssignationDesc:
-        "Minuit v-next : stats → pool labels ∩ score → softmax top-K → deck Gemini → passages.",
+        "Minuit v-next : stats → pool labels ∩ score → softmax top-K → deck Gemini → passages → upscale SeedVR (Fal) des photos non upscalées + strip C2PA en fin.",
       schemaTitre: "Schéma",
       schemaApi: "API",
       schemaEnv: "Env",

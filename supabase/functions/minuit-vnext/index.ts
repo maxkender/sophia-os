@@ -2,6 +2,10 @@ import { assignerTousComptes } from "../_shared/assignation_contenu.ts";
 import { scrapeStats } from "../_shared/apify.ts";
 import { rattrapageElo, snapshotVuesGlobales } from "../_shared/rattrapage_elo.ts";
 import { majScoresDepuisPassages } from "../_shared/scoring.ts";
+import {
+  kickUpscaleAssignes,
+  listerMediasAssignesNonUpscales,
+} from "../_shared/upscale_media_core.ts";
 import { avancerVariations } from "../_shared/variations.ts";
 import {
   assertAuthorised,
@@ -32,9 +36,11 @@ const POSTS_RELEVES = 30;
  *   - deck : traduction + Sophia à la demande (assurerDeckPourLangue)
  *   - crée passages statut=assigne (musique + hashtags)
  *
- *   {}  → stats + assignation (scores en pause) si moteur_vnext.actif
- *   { etapes?: ['stats'|'scores'|'assignation'|'variations'|'rattrapage'], compteId?, date?, forcer? }
+ *   {}  → stats + assignation + kick upscale (scores en pause) si moteur_vnext.actif
+ *   { etapes?: ['stats'|'scores'|'assignation'|'upscale'|'variations'|'rattrapage'], compteId?, date?, forcer? }
  *   etape `rattrapage` : stats 4j + ELO langue (deltas) + ELO compte (contourne la pause)
+ *   etape `upscale` : SeedVR Fal sur photos assignées du jour sans upscale_le
+ *                     (strip C2PA en fin dans le drain — pas de double strip)
  */
 Deno.serve(async (request) => {
   const denied = await assertAuthorised(request);
@@ -78,9 +84,10 @@ Deno.serve(async (request) => {
     }
 
     // scores retiré du défaut tant que PAUSE_ELO_RUNTIME est true.
+    // upscale : kick drain SeedVR après assignation (file traitée en arrière-plan).
     const etapes: string[] = Array.isArray(body?.etapes)
       ? body.etapes
-      : ["stats", "assignation"];
+      : ["stats", "assignation", "upscale"];
     const jour = body?.date ?? aujourdhuiParis();
     const compteId: string | null = body?.compteId ?? null;
 
@@ -115,6 +122,24 @@ Deno.serve(async (request) => {
         compteId,
         Boolean(body?.forcerAssignation),
       );
+    }
+    if (etapes.includes("upscale")) {
+      // Ne bloque pas minuit : kick le drain SeedVR (1 à la fois + auto-chaîne).
+      // Strip C2PA uniquement en fin d’upscale (dans upscale_media_core).
+      const pending = await listerMediasAssignesNonUpscales(supabase, jour);
+      if (pending.length > 0) {
+        kickUpscaleAssignes(request, { date: jour });
+      }
+      out.upscale = {
+        ok: true,
+        kick: pending.length > 0,
+        pending: pending.length,
+        modele: "seedvr",
+        detail:
+          pending.length > 0
+            ? `drain SeedVR démarré (${pending.length} photo(s)) — C2PA en fin`
+            : "aucune photo assignée à upscaler",
+      };
     }
     if (etapes.includes("variations")) {
       // Un candidat par passage minuit ; le drain `variations` en fait plus souvent.

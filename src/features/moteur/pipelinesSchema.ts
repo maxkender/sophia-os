@@ -278,10 +278,26 @@ export const SCHEMA_ASSIGNATION: PipelineAction = {
       detail: "musique + hashtags · quota = comptes.posts_par_jour ?? frequence",
       reglage: "frequence.posts_par_jour",
     },
+    {
+      id: "upscale",
+      rang: "⑦",
+      label: "Upscale SeedVR (Fal) des photos assignées",
+      kind: "api",
+      api: "upscale-assignes drain (SeedVR ×1 + auto-chaîne)",
+      env: "FAL_KEY",
+      detail:
+        "Médias du jour avec upscale_le NULL → SeedVR ×2 JPEG → strip C2PA en fin uniquement",
+      onFail: "Média sauté ; le drain reprend les suivants",
+    },
   ],
   constants: [
     { cle: "Cron minuit", valeur: "0 22 * * * UTC", detail: "≈ minuit Paris (été)" },
     { cle: "quota défaut", valeur: "1–3", detail: "par compte, sinon reglages.frequence" },
     { cle: "repartition / semaine1", valeur: "legacy ignoré", detail: "cutover v-next" },
+    {
+      cle: "upscale drain",
+      valeur: "SeedVR ×1 + cron * * * * *",
+      detail: "kick post-assignation + file de secours",
+    },
   ],
 };

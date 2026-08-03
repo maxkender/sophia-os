@@ -914,7 +914,7 @@ export const en = {
         "Active ELO catch-up: scrape → language deltas → account ELO. Midnight « scores » runtime is paused.",
       actionAssignation: "Assignment",
       actionAssignationDesc:
-        "Midnight v-next: stats → labels ∩ score pool → softmax top-K → Gemini deck → passages.",
+        "Midnight v-next: stats → labels ∩ score pool → softmax top-K → Gemini deck → passages → SeedVR (Fal) upscale of non-upscaled photos + C2PA strip at the end.",
       schemaTitre: "Schema",
       schemaApi: "API",
       schemaEnv: "Env",

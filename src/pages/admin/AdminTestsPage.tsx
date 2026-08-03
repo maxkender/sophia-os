@@ -14,6 +14,7 @@ import { assignerTikTok, listerComptes, listerPostsTest, testerTraduction } from
 import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import { SimulerMinuitCard } from "@/features/moteur/SimulerMinuitCard";
 import { SimulerMinuitCompteCard } from "@/features/moteur/SimulerMinuitCompteCard";
+import { SimulerUgcVideoAssignationCard } from "@/features/moteur/SimulerUgcVideoAssignationCard";
 import { TestCompletCard } from "@/features/moteur/TestCompletCard";
 import { TestScrapeCard } from "@/features/moteur/TestScrapeCard";
 
@@ -279,6 +280,12 @@ const TESTS = [
     titreKey: "simMinuitCompte.title",
     descKey: "simMinuitCompte.subtitle",
     render: () => <SimulerMinuitCompteCard />,
+  },
+  {
+    value: "ugc-video",
+    titreKey: "simUgcVideo.title",
+    descKey: "simUgcVideo.subtitle",
+    render: () => <SimulerUgcVideoAssignationCard />,
   },
   { value: "tiktok", titreKey: "tests.tiktokTitre", descKey: "tests.tiktokDesc", render: () => <TesterUnTikTok /> },
   { value: "traduction", titreKey: "tests.tradTitre", descKey: "tests.tradDesc", render: () => <TestTraduction /> },

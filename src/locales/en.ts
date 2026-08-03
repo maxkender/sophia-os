@@ -238,6 +238,25 @@ export const en = {
       aucun: "No passage created — check labels / pool / UGC persona.",
       annuleOk: "Rollback OK — {{posts}} post(s), {{passages}} passage(s) deleted.",
     },
+    simUgcVideo: {
+      title: "Test UGC AI VIDEO assignment",
+      subtitle:
+        "Full pipeline for ONE UGC AI VIDEO creator: reaction → Nano Banana → Kling → concat utilisation → caption. Exact streamed logs.",
+      date: "Assignment date",
+      compte: "UGC AI VIDEO creator",
+      lancer: "Run test",
+      enCours: "UGC VIDEO pipeline…",
+      annuler: "Cancel test",
+      annulerEnCours: "Cancelling…",
+      annulerConfirm:
+        "Delete this creator’s test videos for this date (storage + DB)?",
+      aide: "No ELO. Same label on reaction/account/utilisation. No reaction reuse unless fallback. NDJSON stream (avoids 150s timeout).",
+      logs: "Exact logs",
+      logsAttente: "Connecting to stream…",
+      ok: "{{crees}} test video(s) created.",
+      aucun: "No video — check labels / pret reactions / utilisations / persona.",
+      annuleOk: "Rollback OK — {{posts}} test video(s) deleted.",
+    },
     tests: {
       title: "Tests",
       subtitle:
@@ -1131,6 +1150,16 @@ export const en = {
       ugcFaceSwapTitle: "Prompt — UGC face swap (Nano Banana)",
       ugcFaceSwapDesc:
         "On UGC AI assignment: Figure 1 = slideshow slide, Figures 2+ = persona’s 4 angles. Edited via fal-ai/nano-banana-pro/edit — output matches the reference slide’s aspect ratio.",
+      ugcVideoFaceTitle: "Prompt — UGC AI VIDEO face ref (Nano Banana)",
+      ugcVideoFaceDesc:
+        "Figure 1 = reaction frame 10, Figures 2+ = persona images. Output forced to 9:16.",
+      ugcVideoKlingPromptTitle: "Prompt — Kling motion-control (positive)",
+      ugcVideoKlingPromptDesc: "Optional prompt sent to Kling v2.6 standard motion-control.",
+      ugcVideoKlingNegTitle: "Prompt — Kling negative_prompt",
+      ugcVideoKlingNegDesc: "Kling negative prompt (identity, morphing, studio look…).",
+      ugcVideoCaptionTitle: "Prompt — UGC AI VIDEO caption",
+      ugcVideoCaptionDesc:
+        "TikTok caption in the creator’s language — never “Sophia”, steer toward the app (utilisation part).",
       traductionsLanguesTitre: "Translations by language",
       traductionsLanguesDesc:
         "The tone specific to each target language. Without a prompt here, that language is translated with neutral rules — write one to refine it (register, phrasings to avoid).",

@@ -300,6 +300,17 @@ export const SCHEMA_ASSIGNATION: PipelineAction = {
         "Médias du jour avec upscale_le NULL (hors ugc_face_regen) → SeedVR ×2 JPEG → strip C2PA en fin",
       onFail: "Média sauté ; le drain reprend les suivants",
     },
+    {
+      id: "ugc_ai_video",
+      rang: "⑨",
+      label: "UGC AI VIDEO — assignation (EN DERNIER)",
+      kind: "api",
+      api: "assignation-ugc-video (kick drain streamé)",
+      env: "FAL_KEY · GEMINI_API_KEY",
+      detail:
+        "Comptes ugc_ai_video : reaction (même label, no reuse sauf fallback) → Nano Banana face ref → Kling motion-control → concat utilisation → caption traduite",
+      onFail: "Post statut=echec ; les autres comptes continuent",
+    },
   ],
   constants: [
     { cle: "Cron minuit", valeur: "0 22 * * * UTC", detail: "≈ minuit Paris (été)" },
@@ -309,6 +320,11 @@ export const SCHEMA_ASSIGNATION: PipelineAction = {
       cle: "upscale drain",
       valeur: "SeedVR ×1 + cron * * * * *",
       detail: "kick post-assignation + file de secours",
+    },
+    {
+      cle: "ugc_ai_video",
+      valeur: "après upscale",
+      detail: "Kling + merge via Fal ; logs NDJSON",
     },
   ],
 };

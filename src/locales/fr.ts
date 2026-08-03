@@ -238,6 +238,25 @@ export const fr = {
       aucun: "Aucun passage créé — labels / pool / persona UGC à vérifier.",
       annuleOk: "Rollback OK — {{posts}} post(s), {{passages}} passage(s) supprimé(s).",
     },
+    simUgcVideo: {
+      title: "Test assignation UGC AI VIDEO",
+      subtitle:
+        "Pipeline complet pour UN créateur UGC AI VIDEO : reaction → Nano Banana → Kling → concat utilisation → caption. Logs exacts en stream.",
+      date: "Date d'assignation",
+      compte: "Créateur UGC AI VIDEO",
+      lancer: "Lancer le test",
+      enCours: "Pipeline UGC VIDEO…",
+      annuler: "Annuler le test",
+      annulerEnCours: "Annulation…",
+      annulerConfirm:
+        "Supprimer les vidéos test de ce créateur pour cette date (storage + DB) ?",
+      aide: "Pas d’ELO. Même label reaction/compte/utilisation. Pas de re-use reaction sauf fallback. Stream NDJSON (évite timeout 150s).",
+      logs: "Logs exacts",
+      logsAttente: "Connexion au stream…",
+      ok: "{{crees}} vidéo(s) test créée(s).",
+      aucun: "Aucune vidéo — labels / reactions pret / utilisations / persona à vérifier.",
+      annuleOk: "Rollback OK — {{posts}} vidéo(s) test supprimée(s).",
+    },
     tests: {
       title: "Tests",
       subtitle:
@@ -1132,6 +1151,16 @@ export const fr = {
       ugcFaceSwapTitle: "Prompt — Swap visage UGC (Nano Banana)",
       ugcFaceSwapDesc:
         "À l’assignation UGC AI : Figure 1 = slide slideshow, Figures 2+ = 4 angles du persona. Édité via fal-ai/nano-banana-pro/edit — sortie au même ratio que la slide de référence.",
+      ugcVideoFaceTitle: "Prompt — Photo ref UGC AI VIDEO (Nano Banana)",
+      ugcVideoFaceDesc:
+        "Figure 1 = frame 10 de la reaction, Figures 2+ = images du persona. Sortie forcée 9:16.",
+      ugcVideoKlingPromptTitle: "Prompt — Kling motion-control (positif)",
+      ugcVideoKlingPromptDesc: "Prompt optionnel envoyé à Kling v2.6 standard motion-control.",
+      ugcVideoKlingNegTitle: "Prompt — Kling negative_prompt",
+      ugcVideoKlingNegDesc: "Negative prompt Kling (identité, morphing, studio look…).",
+      ugcVideoCaptionTitle: "Prompt — Caption UGC AI VIDEO",
+      ugcVideoCaptionDesc:
+        "Légende TikTok traduite dans la langue du créateur — jamais « Sophia », oriente vers l’appli (partie utilisation).",
       traductionsLanguesTitre: "Traductions par langue",
       traductionsLanguesDesc:
         "Le ton propre à chaque langue cible. Sans prompt ici, cette langue est traduite avec des règles neutres — écris-en un pour la soigner (tutoiement, tournures à éviter, registre).",

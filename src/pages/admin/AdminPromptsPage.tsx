@@ -14,6 +14,18 @@ const PROMPTS = [
   { cle: "placement_sophia", titre: "prompts.placementTitle", desc: "prompts.placementDesc" },
   { cle: "traduction", titre: "prompts.traductionTitle", desc: "prompts.traductionDesc" },
   { cle: "ugc_face_swap", titre: "prompts.ugcFaceSwapTitle", desc: "prompts.ugcFaceSwapDesc" },
+  { cle: "ugc_video_face_ref", titre: "prompts.ugcVideoFaceTitle", desc: "prompts.ugcVideoFaceDesc" },
+  {
+    cle: "ugc_video_kling_prompt",
+    titre: "prompts.ugcVideoKlingPromptTitle",
+    desc: "prompts.ugcVideoKlingPromptDesc",
+  },
+  {
+    cle: "ugc_video_kling_negative",
+    titre: "prompts.ugcVideoKlingNegTitle",
+    desc: "prompts.ugcVideoKlingNegDesc",
+  },
+  { cle: "ugc_video_caption", titre: "prompts.ugcVideoCaptionTitle", desc: "prompts.ugcVideoCaptionDesc" },
   { cle: "composition_recycle", titre: "prompts.recycleTitle", desc: "prompts.recycleDesc" },
   { cle: "composition_nouveau", titre: "prompts.nouveauTitle", desc: "prompts.nouveauDesc" },
   { cle: "composition_remanie", titre: "prompts.remanieTitle", desc: "prompts.remanieDesc" },

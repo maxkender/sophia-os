@@ -3311,6 +3311,152 @@ export const annulerAssignationTestCompte = (date: string, compteId: string) =>
     compteId,
   });
 
+export interface UgcVideoPostTest {
+  id: string;
+  statut: string;
+  caption: string | null;
+  video_finale_url: string | null;
+  image_ref_url: string | null;
+  pipeline_erreur: string | null;
+  reaction_id: string;
+  utilisation_id: string;
+}
+
+/** Assignation UGC AI VIDEO test (1 créateur) — stream NDJSON + logs exacts. */
+export async function lancerAssignationUgcVideoTest(
+  date: string,
+  compteId: string,
+  onLog?: (ligne: AssignationTestLog) => void,
+): Promise<{
+  ok: boolean;
+  jour: string;
+  crees: number;
+  resultats: Array<{
+    compteId: string;
+    crees: number;
+    postIds?: string[];
+    erreur?: string;
+    raison?: string;
+  }>;
+}> {
+  const url = import.meta.env.VITE_SUPABASE_URL;
+  const anon = import.meta.env.VITE_SUPABASE_ANON_KEY;
+  if (!url || !anon) throw new Error("Supabase non configuré");
+
+  const { data: sessionData } = await supabase.auth.getSession();
+  const token = sessionData.session?.access_token;
+  if (!token) throw new Error("Session expirée — reconnecte-toi.");
+
+  const res = await fetch(`${url}/functions/v1/assignation-ugc-video`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      apikey: anon,
+      "Content-Type": "application/json",
+      Accept: "application/x-ndjson",
+    },
+    body: JSON.stringify({
+      date,
+      compteId,
+      manuel: true,
+      test: true,
+      stream: true,
+      ignorerWarmup: true,
+    }),
+  });
+
+  if (!res.ok || !res.body) {
+    let message = `Edge assignation-ugc-video ${res.status}`;
+    try {
+      const j = (await res.json()) as { error?: string };
+      if (j?.error) message = j.error;
+    } catch {
+      // ignore
+    }
+    throw new Error(message);
+  }
+
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+  let dernier: Record<string, unknown> | null = null;
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+    const lignes = buffer.split("\n");
+    buffer = lignes.pop() ?? "";
+    for (const ligne of lignes) {
+      const trim = ligne.trim();
+      if (!trim) continue;
+      try {
+        const ev = JSON.parse(trim) as Record<string, unknown>;
+        dernier = ev;
+        const detail = typeof ev.detail === "string" ? ev.detail : "";
+        if (detail) {
+          onLog?.({
+            at: typeof ev.at === "string" ? ev.at : new Date().toISOString(),
+            detail,
+            statut: typeof ev.statut === "string" ? ev.statut : undefined,
+          });
+        }
+      } catch {
+        // ignore
+      }
+    }
+  }
+
+  if (!dernier) throw new Error("Assignation UGC VIDEO : aucune réponse stream");
+  if (dernier.ok === false) {
+    throw new Error(
+      typeof dernier.error === "string"
+        ? dernier.error
+        : typeof dernier.detail === "string"
+          ? dernier.detail
+          : "Assignation UGC VIDEO échouée",
+    );
+  }
+
+  return {
+    ok: true,
+    jour: String(dernier.jour ?? date),
+    crees: Number(dernier.crees ?? 0),
+    resultats: Array.isArray(dernier.resultats)
+      ? (dernier.resultats as Array<{
+          compteId: string;
+          crees: number;
+          postIds?: string[];
+          erreur?: string;
+          raison?: string;
+        }>)
+      : [],
+  };
+}
+
+export const annulerAssignationUgcVideoTest = (date: string, compteId: string) =>
+  invoke<{ ok: boolean; jour: string; compteId: string; posts: number }>(
+    "assignation-ugc-video",
+    { action: "annuler_test", date, compteId },
+  );
+
+export async function listerUgcVideoPostsTest(
+  compteId: string,
+  date: string,
+): Promise<UgcVideoPostTest[]> {
+  const { data, error } = await supabase
+    .from("ugc_video_posts")
+    .select(
+      "id, statut, caption, video_finale_url, image_ref_url, pipeline_erreur, reaction_id, utilisation_id",
+    )
+    .eq("compte_id", compteId)
+    .eq("date_publication_prevue", date)
+    .eq("est_test", true)
+    .order("created_at", { ascending: false });
+  if (error) throw error;
+  return (data ?? []) as UgcVideoPostTest[];
+}
+
 export type AssignationJourResultat = Awaited<ReturnType<typeof lancerAssignationJour>>;
 
 /**

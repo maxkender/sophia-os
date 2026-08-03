@@ -1,4 +1,5 @@
 import { assignerTousComptes } from "../_shared/assignation_contenu.ts";
+import { kickAssignationUgcVideo } from "../_shared/assignation_ugc_video.ts";
 import { scrapeStats } from "../_shared/apify.ts";
 import { rattrapageElo, snapshotVuesGlobales } from "../_shared/rattrapage_elo.ts";
 import { majScoresDepuisPassages } from "../_shared/scoring.ts";
@@ -37,10 +38,11 @@ const POSTS_RELEVES = 30;
  *   - crée passages statut=assigne (musique + hashtags)
  *
  *   {}  → stats + assignation + kick upscale (scores en pause) si moteur_vnext.actif
- *   { etapes?: ['stats'|'scores'|'assignation'|'upscale'|'variations'|'rattrapage'], compteId?, date?, forcer? }
+ *   { etapes?: ['stats'|'scores'|'assignation'|'upscale'|'variations'|'rattrapage'|'ugc_ai_video'], compteId?, date?, forcer? }
  *   etape `rattrapage` : stats 4j + ELO langue (deltas) + ELO compte (contourne la pause)
  *   etape `upscale` : SeedVR Fal sur photos assignées du jour sans upscale_le
  *                     (strip C2PA en fin dans le drain — pas de double strip)
+ *   etape `ugc_ai_video` : EN DERNIER — kick drain assignation-ugc-video (NB→Kling→concat)
  */
 Deno.serve(async (request) => {
   const denied = await assertAuthorised(request);
@@ -85,9 +87,10 @@ Deno.serve(async (request) => {
 
     // scores retiré du défaut tant que PAUSE_ELO_RUNTIME est true.
     // upscale : kick drain SeedVR après assignation (file traitée en arrière-plan).
+    // ugc_ai_video : TOUJOURS en dernier (après slideshow + upscale).
     const etapes: string[] = Array.isArray(body?.etapes)
       ? body.etapes
-      : ["stats", "assignation", "upscale"];
+      : ["stats", "assignation", "upscale", "ugc_ai_video"];
     const jour = body?.date ?? aujourdhuiParis();
     const compteId: string | null = body?.compteId ?? null;
 
@@ -144,6 +147,20 @@ Deno.serve(async (request) => {
     if (etapes.includes("variations")) {
       // Un candidat par passage minuit ; le drain `variations` en fait plus souvent.
       out.variations = await avancerVariations(supabase);
+    }
+    // Dernière étape : UGC AI VIDEO (Kling long → kick drain streamé).
+    if (etapes.includes("ugc_ai_video")) {
+      kickAssignationUgcVideo(request, {
+        date: jour,
+        ...(compteId ? { compteId } : {}),
+        manuel: Boolean(body?.manuel || body?.forcer),
+      });
+      out.ugc_ai_video = {
+        ok: true,
+        kick: true,
+        detail:
+          "drain assignation-ugc-video démarré (Nano Banana → Kling → concat utilisation)",
+      };
     }
 
     return json(out);

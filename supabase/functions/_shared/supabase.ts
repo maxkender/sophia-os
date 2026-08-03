@@ -173,7 +173,8 @@ export function messageErreur(erreur: unknown): string {
 // avant même d'atteindre la fonction. En curl ça passait, d'où le piège.
 export const corsHeaders: Record<string, string> = {
   "access-control-allow-origin": "*",
-  "access-control-allow-headers": "authorization, x-client-info, apikey, content-type, x-cron-secret",
+  "access-control-allow-headers":
+    "authorization, x-client-info, apikey, content-type, accept, x-cron-secret",
   "access-control-allow-methods": "POST, OPTIONS",
 };
 

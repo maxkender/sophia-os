@@ -14,7 +14,7 @@ import { retirerContentCredentialsBytes } from "./c2pa.ts";
 import { editerNanoBananaPro } from "./fal_nano_banana.ts";
 import { klingMotionControl } from "./fal_kling_motion.ts";
 import { mergerVideosFal } from "./fal_merge_videos.ts";
-import { falRehebergerUrl } from "./fal_queue.ts";
+import { falHebergerOctets } from "./fal_queue.ts";
 import { cleanImage, TEXT_MODELS } from "./gemini.ts";
 import { mapPool } from "./parallel.ts";
 import { chargerPrompt, serviceClient } from "./supabase.ts";
@@ -145,19 +145,50 @@ async function reactionsUtilisees(
   return new Set((data ?? []).map((r) => r.reaction_id as string).filter(Boolean));
 }
 
+/** Download storage service-role (évite les 400 public URL / manquants). */
+async function telechargerStorage(
+  supabase: Supabase,
+  path: string | null | undefined,
+): Promise<{ bytes: Uint8Array; mime: string } | null> {
+  const p = String(path ?? "").trim();
+  if (!p) return null;
+  const { data, error } = await supabase.storage.from(BUCKET).download(p);
+  if (error || !data) return null;
+  const bytes = new Uint8Array(await data.arrayBuffer());
+  if (bytes.length < 32) return null;
+  const mime =
+    (typeof data.type === "string" && data.type) ||
+    (p.endsWith(".png")
+      ? "image/png"
+      : p.endsWith(".webp")
+        ? "image/webp"
+        : p.endsWith(".mp4")
+          ? "video/mp4"
+          : p.endsWith(".webm")
+            ? "video/webm"
+            : "image/jpeg");
+  return { bytes, mime };
+}
+
+type ReactionChoisie = {
+  id: string;
+  label_id: string;
+  video_source_url: string;
+  video_source_path: string | null;
+  first_frame_reference_url: string;
+  first_frame_reference_path: string;
+  video_text: string | null;
+  titre: string;
+  frameBytes: Uint8Array;
+  frameMime: string;
+};
+
 async function choisirReaction(
   supabase: Supabase,
   compteId: string,
   labelIds: string[],
   log: AssignationUgcVideoLog,
-): Promise<{
-  id: string;
-  label_id: string;
-  video_source_url: string;
-  first_frame_reference_url: string;
-  video_text: string | null;
-  titre: string;
-} | null> {
+): Promise<ReactionChoisie | null> {
   if (labelIds.length === 0) {
     log("Aucun label sur le compte — impossible de matcher une reaction");
     return null;
@@ -165,7 +196,7 @@ async function choisirReaction(
   const { data, error } = await supabase
     .from("ugc_reactions")
     .select(
-      "id, label_id, video_source_url, first_frame_reference_url, video_text, titre, statut",
+      "id, label_id, video_source_url, video_source_path, first_frame_reference_url, first_frame_reference_path, video_text, titre, statut",
     )
     .eq("statut", "pret")
     .in("label_id", labelIds)
@@ -177,12 +208,15 @@ async function choisirReaction(
     (r) =>
       r.label_id &&
       r.video_source_url &&
-      r.first_frame_reference_url,
+      r.first_frame_reference_url &&
+      r.first_frame_reference_path,
   ) as Array<{
     id: string;
     label_id: string;
     video_source_url: string;
+    video_source_path: string | null;
     first_frame_reference_url: string;
+    first_frame_reference_path: string;
     video_text: string | null;
     titre: string;
   }>;
@@ -193,7 +227,12 @@ async function choisirReaction(
 
   const used = await reactionsUtilisees(supabase, compteId);
   const freshes = pool.filter((r) => !used.has(r.id));
-  const candidats = freshes.length > 0 ? freshes : pool;
+  const candidats = [...(freshes.length > 0 ? freshes : pool)];
+  // Mélange léger pour ne pas toujours prendre la même.
+  for (let i = candidats.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [candidats[i], candidats[j]] = [candidats[j]!, candidats[i]!];
+  }
   if (freshes.length === 0) {
     log(
       `Fallback : toutes les reactions déjà utilisées (${used.size}) — on réutilise`,
@@ -201,7 +240,33 @@ async function choisirReaction(
   } else {
     log(`${freshes.length} reaction(s) neuve(s) / ${pool.length} total`);
   }
-  return candidats[Math.floor(Math.random() * candidats.length)] ?? null;
+
+  for (const r of candidats) {
+    const frame = await telechargerStorage(
+      supabase,
+      r.first_frame_reference_path,
+    );
+    if (!frame) {
+      log(
+        `Reaction ${r.id.slice(0, 8)} : frame absente en storage — archivée`,
+      );
+      await supabase
+        .from("ugc_reactions")
+        .update({
+          statut: "archive",
+          updated_at: new Date().toISOString(),
+        })
+        .eq("id", r.id);
+      continue;
+    }
+    return {
+      ...r,
+      frameBytes: frame.bytes,
+      frameMime: frame.mime,
+    };
+  }
+  log("Aucune reaction avec frame10 encore présente en storage");
+  return null;
 }
 
 async function choisirUtilisation(
@@ -343,17 +408,17 @@ export async function assignerUgcVideoSlot(
     log(
       `Étape 1/${etapeTotal} Nettoyage frame10 (text-removal classique Fal/Replicate)`,
     );
-    // Fal/Replicate échouent parfois à télécharger Supabase (file_download_error) :
-    // on rehéberge d'abord sur le CDN Fal.
-    const framePourNettoyage = await falRehebergerUrl(
-      reaction.first_frame_reference_url,
-      {
-        fileName: `ugc-frame10-${postId.slice(0, 8)}.jpg`,
-        onProgress: (p) => {
-          if (p.detail) log(`  ${p.detail}`);
-        },
-      },
+    // Rehost CDN Fal : les runners Fal/Replicate échouent parfois sur
+    // les URLs Supabase (file_download_error). Octets déjà lus via storage.
+    log(
+      `  Rehost Fal · ${reaction.frameBytes.length} octets (${reaction.frameMime})`,
     );
+    const framePourNettoyage = await falHebergerOctets(
+      reaction.frameBytes,
+      reaction.frameMime,
+      `ugc-frame10-${postId.slice(0, 8)}.jpg`,
+    );
+    log(`  Rehost OK · ${framePourNettoyage.slice(-56)}`);
     const cleaned = await cleanImage(framePourNettoyage, async (e) => {
       if (e.detail) log(`  ${e.detail}`);
     });

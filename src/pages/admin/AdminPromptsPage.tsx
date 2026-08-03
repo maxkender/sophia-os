@@ -13,6 +13,7 @@ const PROMPTS = [
   { cle: "pertinence", titre: "prompts.pertinenceTitle", desc: "prompts.pertinenceDesc" },
   { cle: "placement_sophia", titre: "prompts.placementTitle", desc: "prompts.placementDesc" },
   { cle: "traduction", titre: "prompts.traductionTitle", desc: "prompts.traductionDesc" },
+  { cle: "ugc_face_swap", titre: "prompts.ugcFaceSwapTitle", desc: "prompts.ugcFaceSwapDesc" },
   { cle: "composition_recycle", titre: "prompts.recycleTitle", desc: "prompts.recycleDesc" },
   { cle: "composition_nouveau", titre: "prompts.nouveauTitle", desc: "prompts.nouveauDesc" },
   { cle: "composition_remanie", titre: "prompts.remanieTitle", desc: "prompts.remanieDesc" },

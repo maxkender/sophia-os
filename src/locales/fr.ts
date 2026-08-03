@@ -584,6 +584,12 @@ export const fr = {
       activerSurcharge: "Personnaliser pour ce compte",
       retirerSurcharge: "Revenir aux réglages globaux",
       postsParJourHint: "Nombre de posts assignés chaque jour à ce créateur (1 à 3).",
+      ugcAi: "UGC AI",
+      ugcAiAide:
+        "Reçoit uniquement des slideshows avec checkmark UGC. Les slides à visage sont régénérées avec le persona (Nano Banana).",
+      ugcPersona: "Persona UGC",
+      ugcPersonaChoisir: "Choisir un persona…",
+      ugcPersonaRequis: "Un persona est requis si UGC AI est activé.",
     },
     posters: {
       title: "Posters",
@@ -915,7 +921,7 @@ export const fr = {
         "Rattrapage ELO (actif) : scrape → deltas langue → ELO compte. Le runtime minuit « scores » est en pause.",
       actionAssignation: "Assignation",
       actionAssignationDesc:
-        "Minuit v-next : stats → pool labels ∩ score → softmax top-K → deck Gemini → passages → upscale SeedVR (Fal) des photos non upscalées + strip C2PA en fin.",
+        "Minuit v-next : stats → pool labels ∩ score → softmax → deck → passages → (UGC AI : swap Nano Banana sur visages) → upscale SeedVR des photos non upscalées (hors regen UGC) + strip C2PA en fin.",
       schemaTitre: "Schéma",
       schemaApi: "API",
       schemaEnv: "Env",
@@ -1019,6 +1025,9 @@ export const fr = {
       placementDesc: "Comment l'appli Sophia s'intègre dans une slide existante.",
       traductionTitle: "Prompt — Traduction (Français)",
       traductionDesc: "Le ton des textes traduits en français, lisibles sur TikTok.",
+      ugcFaceSwapTitle: "Prompt — Swap visage UGC (Nano Banana)",
+      ugcFaceSwapDesc:
+        "À l’assignation UGC AI : Figure 1 = slide slideshow, Figures 2+ = 4 angles du persona. Édité via fal-ai/nano-banana-pro/edit.",
       traductionsLanguesTitre: "Traductions par langue",
       traductionsLanguesDesc:
         "Le ton propre à chaque langue cible. Sans prompt ici, cette langue est traduite avec des règles neutres — écris-en un pour la soigner (tutoiement, tournures à éviter, registre).",

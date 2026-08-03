@@ -142,24 +142,34 @@ export async function genererNanoBananaPro(
   return attendreResultat(key, QUEUE_GEN, queued, onProgress);
 }
 
-/** Edit : même personne, orientation différente (image_urls + prompt). */
+/** Edit Nano Banana Pro — 1..N images de référence (`image_urls`). */
 export async function editerNanoBananaPro(
-  imageUrl: string,
+  imageUrlOrUrls: string | string[],
   prompt: string,
   onProgress?: FalNanoProgress,
+  opts?: { aspectRatio?: string },
 ): Promise<{ url: string; bytes: Uint8Array; mime: string }> {
   const key = falKey();
   if (!key) throw new Error("FAL_KEY manquant");
 
-  await onProgress?.({ phase: "submit", detail: `modèle=${MODEL_EDIT}` });
+  const image_urls = (Array.isArray(imageUrlOrUrls) ? imageUrlOrUrls : [imageUrlOrUrls])
+    .map((u) => String(u ?? "").trim())
+    .filter(Boolean);
+  if (image_urls.length === 0) throw new Error("Fal nano-banana edit: image_urls vide");
+
+  const aspect_ratio = opts?.aspectRatio ?? "9:16";
+  await onProgress?.({
+    phase: "submit",
+    detail: `modèle=${MODEL_EDIT} refs=${image_urls.length}`,
+  });
   const submit = await fetch(QUEUE_EDIT, {
     method: "POST",
     headers: authHeaders(key),
     body: JSON.stringify({
       prompt,
-      image_urls: [imageUrl],
+      image_urls,
       num_images: 1,
-      aspect_ratio: "9:16",
+      aspect_ratio,
       output_format: "png",
       resolution: "1K",
       safety_tolerance: "6",

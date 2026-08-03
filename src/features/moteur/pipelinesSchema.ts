@@ -279,14 +279,25 @@ export const SCHEMA_ASSIGNATION: PipelineAction = {
       reglage: "frequence.posts_par_jour",
     },
     {
-      id: "upscale",
+      id: "ugc_swap",
       rang: "⑦",
+      label: "UGC AI — swap visage Nano Banana",
+      kind: "api",
+      api: "fal-ai/nano-banana-pro/edit (scène + 4 angles persona)",
+      env: "FAL_KEY",
+      detail:
+        "Si compte.ugc_ai : pool ugc_compatible · slides visage_premier_plan → regen · ugc_face_regen (pas d’upscale)",
+      onFail: "Slide d’origine conservée",
+    },
+    {
+      id: "upscale",
+      rang: "⑧",
       label: "Upscale SeedVR (Fal) des photos assignées",
       kind: "api",
       api: "upscale-assignes drain (SeedVR ×1 + auto-chaîne)",
       env: "FAL_KEY",
       detail:
-        "Médias du jour avec upscale_le NULL → SeedVR ×2 JPEG → strip C2PA en fin uniquement",
+        "Médias du jour avec upscale_le NULL (hors ugc_face_regen) → SeedVR ×2 JPEG → strip C2PA en fin",
       onFail: "Média sauté ; le drain reprend les suivants",
     },
   ],

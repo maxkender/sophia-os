@@ -1,6 +1,10 @@
 import { assurerDeckPourLangue } from "./import_contenu.ts";
 import { mapPool } from "./parallel.ts";
 import { serviceClient } from "./supabase.ts";
+import {
+  appliquerFaceSwapUgcPost,
+  chargerPersonaUgc,
+} from "./ugc_face_swap.ts";
 
 /** Comptes traités en parallèle. Gemini (trad + Sophia) est dans assurerDeck —
  *  trop large → 429 ; trop petit → assignation lente. */
@@ -147,6 +151,16 @@ export async function assignerCompteJour(
   const brut = Number(compte.posts_par_jour ?? reglages.postsParJour ?? 1);
   const quota = Math.min(3, Math.max(1, Number.isFinite(brut) ? brut : 1));
   const langue: string = compte.langue ?? "fr";
+  const ugcAi = Boolean(compte.ugc_ai);
+  const ugcPersonaId = (compte.ugc_persona_id as string | null) ?? null;
+
+  if (ugcAi && !ugcPersonaId) {
+    return {
+      ids: [],
+      raison:
+        "Compte UGC AI sans persona — assigne un persona UGC (4 angles) sur le créateur.",
+    };
+  }
 
   // Purge les coquilles legacy recycle/remanie/nouveau du jour (non publiées,
   // sans passage) — sinon « Assigner » empile du Recyclé à côté du v-next.
@@ -211,6 +225,18 @@ export async function assignerCompteJour(
   /** Contenu IDs déjà pris / exclus cette session (choisirContenu filtre dessus). */
   const contenusSession: string[] = [];
   const maxTentatives = manquants + 8;
+
+  let persona = null;
+  if (ugcAi && ugcPersonaId) {
+    persona = await chargerPersonaUgc(supabase, ugcPersonaId);
+    if (!persona) {
+      return {
+        ids: [],
+        raison: "Persona UGC introuvable — recrée / réassigne le persona du créateur.",
+      };
+    }
+  }
+
   for (let t = 0; t < maxTentatives && crees.length < manquants; t += 1) {
     const choisi = await choisirContenu(
       supabase,
@@ -220,6 +246,7 @@ export async function assignerCompteJour(
       jour,
       reglages,
       contenusSession,
+      ugcAi,
     );
     if (!choisi) break;
     contenusSession.push(choisi.contenuId);
@@ -255,8 +282,9 @@ export async function assignerCompteJour(
     // Pont poster : le calendrier / détail créateur lit encore `posts` +
     // `post_slides`. On matérialise un post déjà cuit (pipeline done) et on
     // le lie via passages.post_id — plus de type recycle/remanie/nouveau.
+    let postId: string;
     try {
-      await materialiserPostDepuisPassage(supabase, {
+      postId = await materialiserPostDepuisPassage(supabase, {
         passageId: passage.id,
         compteId: compte.id as string,
         contenuId: choisi.contenuId,
@@ -274,11 +302,31 @@ export async function assignerCompteJour(
       continue;
     }
 
+    // UGC AI : swap Nano Banana sur slides à visage (hors upscale ensuite).
+    if (persona) {
+      try {
+        await appliquerFaceSwapUgcPost(supabase, {
+          postId,
+          compteId: compte.id as string,
+          contenuId: choisi.contenuId,
+          persona,
+        });
+      } catch {
+        // Post déjà utilisable avec médias d'origine — on ne rollback pas.
+      }
+    }
+
     crees.push(passage.id);
   }
 
   if (crees.length < manquants) {
-    const diag = await diagnostiquerPoolVide(supabase, labelIds, labelNoms, langue);
+    const diag = await diagnostiquerPoolVide(
+      supabase,
+      labelIds,
+      labelNoms,
+      langue,
+      ugcAi,
+    );
     if (crees.length === 0) return { ids: [], raison: diag };
     return {
       ids: crees,
@@ -294,6 +342,7 @@ async function diagnostiquerPoolVide(
   labelIds: string[],
   labelNoms: string[],
   langue: string,
+  ugcAi = false,
 ): Promise<string> {
   const labelsTxt = labelNoms.length > 0 ? labelNoms.join(", ") : `${labelIds.length} label(s)`;
 
@@ -311,10 +360,15 @@ async function diagnostiquerPoolVide(
     .select("id")
     .eq("statut", "valide")
     .eq("import_statut", "done")
+    .eq("ugc_compatible", ugcAi)
     .in("id", idsLabel);
   const idsPrets = (prets ?? []).map((c) => c.id as string);
   if (idsPrets.length === 0) {
-    return `${idsLabel.length} slideshow(s) « ${labelsTxt} » mais aucun valide + import terminé.`;
+    return (
+      `${idsLabel.length} slideshow(s) « ${labelsTxt} » mais aucun valide + import terminé` +
+      (ugcAi ? " + checkmark UGC" : " (non-UGC)") +
+      "."
+    );
   }
 
   const { count } = await supabase
@@ -371,7 +425,7 @@ async function materialiserPostDepuisPassage(
     musique_plateforme: string | null;
     hashtags: string;
   },
-): Promise<void> {
+): Promise<string> {
   const { data: contenu, error: errC } = await supabase
     .from("contenus")
     .select("id, sujet_id, structure_slides, titre")
@@ -451,6 +505,7 @@ async function materialiserPostDepuisPassage(
     await supabase.from("posts").delete().eq("id", post.id);
     throw errL;
   }
+  return post.id as string;
 }
 
 async function choisirContenu(
@@ -461,6 +516,7 @@ async function choisirContenu(
   jour: string,
   reglages: AssignationReglages,
   dejaCreesCetteSession: string[],
+  ugcAi = false,
 ): Promise<Candidat | null> {
   // Contenu IDs portant au moins un label du compte
   const { data: liens } = await supabase
@@ -470,11 +526,13 @@ async function choisirContenu(
   const contenusLabel = [...new Set((liens ?? []).map((l) => l.contenu_id as string))];
   if (contenusLabel.length === 0) return null;
 
+  // UGC AI ↔ slideshows ugc_compatible ; créateurs classiques ↔ non-UGC.
   const { data: contenus } = await supabase
     .from("contenus")
-    .select("id, musique_url, musique_titre, musique_plateforme")
+    .select("id, musique_url, musique_titre, musique_plateforme, ugc_compatible")
     .eq("statut", "valide")
     .eq("import_statut", "done")
+    .eq("ugc_compatible", ugcAi)
     .in("id", contenusLabel);
   if (!contenus || contenus.length === 0) return null;
 

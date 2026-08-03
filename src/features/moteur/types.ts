@@ -52,6 +52,10 @@ export interface Compte {
   warmup_started_at: string | null;
   /** Fin warmup (started + N h). En process si now >= ends. */
   warmup_ends_at: string | null;
+  /** Créateur UGC AI — slideshows ugc_compatible + swap visage persona. */
+  ugc_ai: boolean;
+  /** Persona UGC (4 angles) associé à ce créateur. */
+  ugc_persona_id: string | null;
 }
 
 export interface CompteAvecDetails extends Compte {
@@ -98,6 +102,8 @@ export interface Media {
   visage_identifiable: boolean | null;
   /** Visage humain au premier plan (scan UGC vision). Null = non scanné. */
   visage_premier_plan: boolean | null;
+  /** Regen Nano Banana (swap visage) — pas d'upscale SeedVR. */
+  ugc_face_regen: boolean;
   /** L'audit a vu du texte sur une image pourtant rangée en propre. */
   texte_restant: boolean;
   /** Date du dernier upscale Real-ESRGAN (null = jamais). */

@@ -584,6 +584,12 @@ export const en = {
       activerSurcharge: "Customize for this account",
       retirerSurcharge: "Revert to global settings",
       postsParJourHint: "How many posts this creator gets assigned each day (1 to 3).",
+      ugcAi: "UGC AI",
+      ugcAiAide:
+        "Only gets slideshows with the UGC checkmark. Face slides are regenerated with the persona (Nano Banana).",
+      ugcPersona: "UGC persona",
+      ugcPersonaChoisir: "Pick a persona…",
+      ugcPersonaRequis: "A persona is required when UGC AI is on.",
     },
     posters: {
       title: "Posters",
@@ -914,7 +920,7 @@ export const en = {
         "Active ELO catch-up: scrape → language deltas → account ELO. Midnight « scores » runtime is paused.",
       actionAssignation: "Assignment",
       actionAssignationDesc:
-        "Midnight v-next: stats → labels ∩ score pool → softmax top-K → Gemini deck → passages → SeedVR (Fal) upscale of non-upscaled photos + C2PA strip at the end.",
+        "Midnight v-next: stats → labels ∩ score → softmax → deck → passages → (UGC AI: Nano Banana face swap) → SeedVR upscale of non-upscaled photos (excl. UGC regens) + C2PA strip at the end.",
       schemaTitre: "Schema",
       schemaApi: "API",
       schemaEnv: "Env",
@@ -1018,6 +1024,9 @@ export const en = {
       placementDesc: "How the Sophia app fits into an existing slide.",
       traductionTitle: "Prompt — Translation (French)",
       traductionDesc: "The tone of texts translated to French, readable on TikTok.",
+      ugcFaceSwapTitle: "Prompt — UGC face swap (Nano Banana)",
+      ugcFaceSwapDesc:
+        "On UGC AI assignment: Figure 1 = slideshow slide, Figures 2+ = persona’s 4 angles. Edited via fal-ai/nano-banana-pro/edit.",
       traductionsLanguesTitre: "Translations by language",
       traductionsLanguesDesc:
         "The tone specific to each target language. Without a prompt here, that language is translated with neutral rules — write one to refine it (register, phrasings to avoid).",

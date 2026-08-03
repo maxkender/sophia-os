@@ -1,0 +1,168 @@
+/**
+ * Swap visage UGC à l'assignation :
+ *   Figure 1 = slide slideshow (scène)
+ *   Figures 2+ = 4 angles du persona
+ *   → fal-ai/nano-banana-pro/edit → strip C2PA → nouveau media (ugc_face_regen)
+ *   → met à jour uniquement les post_slides de CE post (pas la biblio partagée).
+ */
+
+import { retirerContentCredentialsBytes } from "./c2pa.ts";
+import { editerNanoBananaPro } from "./fal_nano_banana.ts";
+import { mapPool } from "./parallel.ts";
+import { chargerPrompt, serviceClient } from "./supabase.ts";
+
+type Supabase = ReturnType<typeof serviceClient>;
+
+const BUCKET = "medias";
+const LARGEUR_SWAP = 2;
+
+const PROMPT_DEFAUT = `Keep this scene identical (Figure 1): pose, hands, framing, background
+and lighting. Render the subject as the character shown in the reference
+images (Figures 2+), keeping the character visually consistent with them.
+Photorealistic, casual phone-photo style.`;
+
+export interface UgcPersonaAngles {
+  id: string;
+  image_face_url: string;
+  image_left_url: string;
+  image_right_url: string;
+  image_down_url: string;
+}
+
+async function uploader(
+  supabase: Supabase,
+  path: string,
+  bytes: Uint8Array,
+  mime: string,
+): Promise<string> {
+  const { error } = await supabase.storage.from(BUCKET).upload(path, bytes, {
+    contentType: mime || "image/png",
+    upsert: true,
+    cacheControl: "3600",
+  });
+  if (error) throw new Error(`Upload UGC swap: ${error.message}`);
+  const pub = supabase.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
+  return `${pub}?v=${Date.now()}`;
+}
+
+/**
+ * Pour un post UGC AI : remplace les slides à visage_premier_plan par une
+ * regen Nano Banana (scène + persona). Les autres slides restent inchangées.
+ */
+export async function appliquerFaceSwapUgcPost(
+  supabase: Supabase,
+  args: {
+    postId: string;
+    compteId: string;
+    contenuId: string;
+    persona: UgcPersonaAngles;
+  },
+): Promise<{ swaps: number; echecs: number }> {
+  const { data: slides, error } = await supabase
+    .from("post_slides")
+    .select("id, position, media_id")
+    .eq("post_id", args.postId)
+    .not("media_id", "is", null)
+    .order("position");
+  if (error) throw error;
+  if (!slides?.length) return { swaps: 0, echecs: 0 };
+
+  const mediaIds = [
+    ...new Set(
+      slides
+        .map((s) => s.media_id as string | null)
+        .filter((id): id is string => Boolean(id)),
+    ),
+  ];
+  const { data: medias } = await supabase
+    .from("media_library")
+    .select("id, url, visage_premier_plan, ugc_face_regen")
+    .in("id", mediaIds);
+
+  const parId = new Map((medias ?? []).map((m) => [m.id as string, m]));
+  const aSwapper = slides.filter((s) => {
+    const m = parId.get(s.media_id as string);
+    if (!m?.url) return false;
+    if (m.ugc_face_regen) return false;
+    return m.visage_premier_plan === true;
+  });
+
+  if (aSwapper.length === 0) return { swaps: 0, echecs: 0 };
+
+  const prompt =
+    (await chargerPrompt(supabase, "ugc_face_swap"))?.trim() || PROMPT_DEFAUT;
+  const personaUrls = [
+    args.persona.image_face_url,
+    args.persona.image_left_url,
+    args.persona.image_right_url,
+    args.persona.image_down_url,
+  ].filter(Boolean);
+
+  let swaps = 0;
+  let echecs = 0;
+
+  await mapPool(aSwapper, LARGEUR_SWAP, async (slide) => {
+    const src = parId.get(slide.media_id as string)!;
+    try {
+      const imageUrls = [src.url as string, ...personaUrls];
+      const edit = await editerNanoBananaPro(imageUrls, prompt, undefined, {
+        aspectRatio: "auto",
+      });
+      const strip = await retirerContentCredentialsBytes(edit.bytes);
+      const mime =
+        strip.mime === "application/octet-stream" ? edit.mime : strip.mime;
+      const ext = mime.includes("jpeg") || mime.includes("jpg")
+        ? "jpg"
+        : mime.includes("webp")
+          ? "webp"
+          : "png";
+      const path =
+        `ugc/swaps/${args.postId}/${Number(slide.position)}-${Date.now()}.${ext}`;
+      const url = await uploader(supabase, path, strip.bytes, mime);
+
+      const { data: nouveau, error: errM } = await supabase
+        .from("media_library")
+        .insert({
+          compte_id: args.compteId,
+          contenu_id: args.contenuId,
+          storage_path: path,
+          url,
+          source: "genere_ia",
+          tags: ["ugc_face_swap"],
+          visage_premier_plan: true,
+          ugc_face_regen: true,
+          texte_restant: false,
+        })
+        .select("id")
+        .single();
+      if (errM || !nouveau) throw errM ?? new Error("insert media UGC échoué");
+
+      const { error: errS } = await supabase
+        .from("post_slides")
+        .update({ media_id: nouveau.id })
+        .eq("id", slide.id);
+      if (errS) throw errS;
+      swaps += 1;
+    } catch {
+      echecs += 1;
+    }
+  });
+
+  return { swaps, echecs };
+}
+
+export async function chargerPersonaUgc(
+  supabase: Supabase,
+  personaId: string,
+): Promise<UgcPersonaAngles | null> {
+  const { data, error } = await supabase
+    .from("ugc_personas")
+    .select(
+      "id, image_face_url, image_left_url, image_right_url, image_down_url",
+    )
+    .eq("id", personaId)
+    .maybeSingle();
+  if (error) throw error;
+  if (!data?.image_face_url) return null;
+  return data as UgcPersonaAngles;
+}

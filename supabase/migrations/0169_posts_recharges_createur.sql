@@ -48,3 +48,12 @@ create view public.posts_poster as
     and (c.poster_id = auth.uid() or public.is_admin());
 
 grant select on public.posts_poster to authenticated;
+
+-- FAQ créateur (FR + EN) : expliquer la recharge uniquement si slideshow buggé.
+update public.documents
+set
+  contenu = contenu || E'\n<h2>8. Mon slideshow est buggé (texte décalé, mal placé…) — que faire ?</h2>\n<p><strong>Uniquement</strong> si le slideshow est vraiment buggé (texte décalé, illisible, images incohérentes), ouvre le post et utilise « Charger un nouveau post entièrement ». Tu as <strong>2 essais maximum</strong> par créneau. Ce n''est pas pour changer de sujet ou « tester autre chose ». Si le problème continue après 2 essais, contacte ton recruteur.</p>\n',
+  contenu_en = contenu_en || E'\n<h2>8. My slideshow is broken (misaligned text, wrong placement…) — what do I do?</h2>\n<p><strong>Only</strong> if the slideshow is truly broken (misaligned/unreadable text, incoherent images), open the post and use “Load an entirely new post”. You get <strong>2 attempts maximum</strong> per slot. This is not for changing topic or “trying something else”. If the issue continues after 2 attempts, contact your recruiter.</p>\n',
+  updated_at = now()
+where cle = 'faq_poster'
+  and contenu not like '%Charger un nouveau post entièrement%';

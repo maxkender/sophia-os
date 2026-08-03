@@ -7,7 +7,7 @@ const DOMAINE = "sophia.com";
 /**
  * Gestion des posters / recruteurs.
  *
- *   { action: "create", prenom, nom, password, langue?, langues?, role? }
+ *   { action: "create", prenom, nom, password, langue?, langues?, role?, posts_par_jour? }
  *   { action: "start_warmup", compteId }  — créateur (son compte) ou admin
  *   { action: "delete", userId }
  *
@@ -177,7 +177,15 @@ Deno.serve(async (request) => {
       labelId: string | null;
     } | null = null;
     if (data.user && roleVoulu === "poster" && langue) {
-      compte = await preparerCompte(supabase, data.user.id, langue, referenceId, labelId);
+      const postsParJour = normaliserPostsParJour(body.posts_par_jour);
+      compte = await preparerCompte(
+        supabase,
+        data.user.id,
+        langue,
+        referenceId,
+        labelId,
+        postsParJour,
+      );
     }
 
     return json({ ok: true, userId: data.user?.id, email, compte, role: roleVoulu });
@@ -299,12 +307,20 @@ async function unshiftLabelFile(supabase: Supabase, labelId: string): Promise<vo
  * Compte créé avec warmup NON démarré (started/ends null).
  * Label posé tout de suite ; identité instantanée.
  */
+/** Quota d'assignation journalier : 1–3, défaut 2 à la création. */
+function normaliserPostsParJour(n: unknown): number {
+  const v = Number(n);
+  if (!Number.isFinite(v)) return 2;
+  return Math.min(3, Math.max(1, Math.round(v)));
+}
+
 async function preparerCompte(
   supabase: Supabase,
   posterId: string,
   langue: string,
   referenceId: string | null,
   labelId: string | null,
+  postsParJour: number,
 ): Promise<{ id: string; reference: string | null; persona: boolean; labelId: string | null }> {
   const { data: compte, error } = await supabase
     .from("comptes")
@@ -312,6 +328,7 @@ async function preparerCompte(
       poster_id: posterId,
       compte_reference_id: referenceId,
       langue,
+      posts_par_jour: postsParJour,
       warmup_started_at: null,
       warmup_ends_at: null,
       is_active: true,

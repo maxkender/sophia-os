@@ -271,9 +271,9 @@ export async function creerCompte(input: {
   if (error) throw error;
 }
 
-/** Clamp le quota poster à 1–3 avant écriture. */
+/** Clamp le quota poster à 1–3 avant écriture. Défaut 2 si invalide. */
 function normaliserPostsParJour(n: number): number {
-  if (!Number.isFinite(n)) return 1;
+  if (!Number.isFinite(n)) return 2;
   return Math.min(3, Math.max(1, Math.round(n)));
 }
 
@@ -528,6 +528,8 @@ export function creerPoster(input: {
   nom: string;
   password: string;
   langue?: string;
+  /** Quota d'assignation journalier (1–3). Défaut 2 côté Edge. */
+  posts_par_jour?: number;
 }) {
   return invoke<{
     userId: string;
@@ -541,6 +543,9 @@ export function creerPoster(input: {
   }>("manage-users", {
     action: "create",
     ...input,
+    ...(input.posts_par_jour != null
+      ? { posts_par_jour: normaliserPostsParJour(Number(input.posts_par_jour)) }
+      : {}),
   });
 }
 

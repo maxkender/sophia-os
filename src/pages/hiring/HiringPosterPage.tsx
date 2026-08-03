@@ -201,6 +201,7 @@ export function HiringPosterPage() {
   const [prenom, setPrenom] = React.useState("");
   const [nom, setNom] = React.useState("");
   const [langue, setLangue] = React.useState("");
+  const [postsParJour, setPostsParJour] = React.useState<1 | 2 | 3>(2);
   const [cree, setCree] = React.useState<{ email: string; persona: boolean } | null>(null);
 
   // Langues gérées par le recruteur : un créateur = une langue, choisie à
@@ -216,11 +217,19 @@ export function HiringPosterPage() {
   }, [languesChoix, langue]);
 
   const creer = useMutation({
-    mutationFn: () => creerPoster({ prenom, nom, password: MOT_DE_PASSE, langue }),
+    mutationFn: () =>
+      creerPoster({
+        prenom,
+        nom,
+        password: MOT_DE_PASSE,
+        langue,
+        posts_par_jour: postsParJour,
+      }),
     onSuccess: (r) => {
       setCree({ email: r.email, persona: Boolean(r.compte?.persona) });
       setPrenom("");
       setNom("");
+      setPostsParJour(2);
       queryClient.invalidateQueries({ queryKey: ["posters"] });
     },
   });
@@ -271,6 +280,26 @@ export function HiringPosterPage() {
                 ))}
               </select>
               <p className="text-xs text-muted-foreground">{t("hiring.langueAide")}</p>
+            </div>
+            <div className="space-y-2 sm:col-span-2">
+              <Label>{t("hiring.postsParJour")}</Label>
+              <div className="inline-flex rounded-md border p-0.5">
+                {([1, 2, 3] as const).map((n) => (
+                  <button
+                    key={n}
+                    type="button"
+                    onClick={() => setPostsParJour(n)}
+                    className={
+                      postsParJour === n
+                        ? "rounded px-3 py-1.5 text-sm font-medium bg-primary text-primary-foreground"
+                        : "rounded px-3 py-1.5 text-sm text-muted-foreground hover:bg-muted"
+                    }
+                  >
+                    {n}
+                  </button>
+                ))}
+              </div>
+              <p className="text-xs text-muted-foreground">{t("hiring.postsParJourAide")}</p>
             </div>
             <div className="sm:col-span-2 space-y-3">
               <Button type="submit" disabled={creer.isPending || !langue}>

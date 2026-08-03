@@ -615,6 +615,8 @@ export const fr = {
         "Choisis la langue de CE créateur. Tu peux en créer d’autres dans d’autres langues (parmi celles que tu gères).",
       langueVerrouillee: "Tu recrutes dans ta langue — elle est fixée par ton profil.",
       aucuneLangue: "Aucune langue disponible",
+      postsParJour: "Posts par jour",
+      postsParJourAide: "Nombre de posts assignés chaque jour à ce créateur (1 à 3). Défaut : 2.",
       create: "Créer le poster",
       enCours: "Création…",
       progressIdentite: "Génération de l'identité (pseudo, bio, avatar)…",

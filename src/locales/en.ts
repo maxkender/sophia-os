@@ -614,6 +614,8 @@ export const en = {
         "Pick THIS creator’s language. You can create others in other languages (among those you manage).",
       langueVerrouillee: "You recruit in your language — it's set by your profile.",
       aucuneLangue: "No language available",
+      postsParJour: "Posts per day",
+      postsParJourAide: "How many posts this creator gets assigned each day (1 to 3). Default: 2.",
       create: "Create poster",
       enCours: "Creating…",
       progressIdentite: "Generating the identity (handle, bio, avatar)…",

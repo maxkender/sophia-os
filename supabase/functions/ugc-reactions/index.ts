@@ -1,12 +1,16 @@
 /**
- * Vidéos AI — reactions :
+ * Vidéos AI — reactions + utilisations :
  *   { action: "import_tiktok", url, stream? }
- *   { action: "ocr_frame", imageUrl, stream? }
  *   { action: "finalize", id, titre?, crop?: { startSec, endSec },
- *                         videoPath, videoUrl, firstFramePath, firstFrameUrl, videoText? }
- *   crop = trim durée (pas spatial)
+ *                         videoPath, videoUrl, firstFramePath, firstFrameUrl,
+ *                         videoText?, dureeMs? }
+ *     → la vidéo trimée remplace la source ; l’original est supprimé
+ *   { action: "ocr_frame", imageUrl, stream? }
  *   { action: "list" }
  *   { action: "delete", id }
+ *   { action: "list_utilisations" }
+ *   { action: "register_utilisation", titre?, videoPath, videoUrl, nomFichier?, dureeMs? }
+ *   { action: "delete_utilisation", id }
  */
 
 import { downloadMedia, scrapeVideoPost } from "../_shared/apify.ts";
@@ -38,6 +42,16 @@ async function uploader(
   if (error) throw new Error(`Upload storage: ${error.message}`);
   const pub = supabase.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
   return `${pub}?v=${Date.now()}`;
+}
+
+async function supprimerStorage(supabase: Supabase, path: string | null | undefined) {
+  const p = String(path ?? "").trim();
+  if (!p) return;
+  try {
+    await supabase.storage.from(BUCKET).remove([p]);
+  } catch {
+    // best-effort
+  }
 }
 
 function normaliserLienTikTok(raw: string): string {
@@ -83,7 +97,68 @@ Deno.serve(async (request) => {
     if (action === "delete") {
       const id = String(body.id ?? "").trim();
       if (!id) return json({ error: "id requis" }, 400);
+      const { data: row } = await supabase
+        .from("ugc_reactions")
+        .select("video_source_path, video_path, first_frame_reference_path")
+        .eq("id", id)
+        .maybeSingle();
+      if (row) {
+        await supprimerStorage(supabase, row.video_source_path as string);
+        await supprimerStorage(supabase, row.video_path as string);
+        await supprimerStorage(supabase, row.first_frame_reference_path as string);
+      }
       const { error } = await supabase.from("ugc_reactions").delete().eq("id", id);
+      if (error) return json({ error: error.message }, 400);
+      return json({ ok: true });
+    }
+
+    if (action === "list_utilisations") {
+      const { data, error } = await supabase
+        .from("ugc_utilisations")
+        .select("*")
+        .order("created_at", { ascending: false });
+      if (error) return json({ error: error.message }, 400);
+      return json({ ok: true, utilisations: data ?? [] });
+    }
+
+    if (action === "register_utilisation") {
+      const videoPath = String(body.videoPath ?? "").trim();
+      const videoUrl = String(body.videoUrl ?? "").trim();
+      if (!videoPath || !videoUrl) {
+        return json({ error: "videoPath / videoUrl requis" }, 400);
+      }
+      const titre =
+        String(body.titre ?? "").trim() ||
+        String(body.nomFichier ?? "").trim() ||
+        "Utilisation";
+      const { data, error } = await supabase
+        .from("ugc_utilisations")
+        .insert({
+          titre,
+          video_path: videoPath,
+          video_url: videoUrl,
+          nom_fichier: body.nomFichier ? String(body.nomFichier) : null,
+          duree_ms:
+            typeof body.dureeMs === "number" && Number.isFinite(body.dureeMs)
+              ? Math.round(body.dureeMs)
+              : null,
+        })
+        .select("*")
+        .single();
+      if (error) return json({ error: error.message }, 400);
+      return json({ ok: true, utilisation: data });
+    }
+
+    if (action === "delete_utilisation") {
+      const id = String(body.id ?? "").trim();
+      if (!id) return json({ error: "id requis" }, 400);
+      const { data: row } = await supabase
+        .from("ugc_utilisations")
+        .select("video_path")
+        .eq("id", id)
+        .maybeSingle();
+      if (row) await supprimerStorage(supabase, row.video_path as string);
+      const { error } = await supabase.from("ugc_utilisations").delete().eq("id", id);
       if (error) return json({ error: error.message }, 400);
       return json({ ok: true });
     }
@@ -96,7 +171,12 @@ Deno.serve(async (request) => {
         emit?.({ etape: "ocr", statut: "en_cours", detail: "OCR Gemini…" });
         const videoText = await ocrFrame(imageUrl);
         const payload = { ok: true as const, videoText };
-        emit?.({ etape: "ready", statut: "ok", ...payload, detail: videoText || "(aucun texte)" });
+        emit?.({
+          etape: "ready",
+          statut: "ok",
+          ...payload,
+          detail: videoText || "(aucun texte)",
+        });
         return payload;
       };
 
@@ -130,9 +210,16 @@ Deno.serve(async (request) => {
 
           const { data: existant } = await supabase
             .from("ugc_reactions")
-            .select("id")
+            .select("id, video_source_path, video_path, first_frame_reference_path, statut")
             .eq("source_url", sourceUrl)
             .maybeSingle();
+
+          if (existant?.statut === "pret") {
+            throw new Error(
+              "Cette reaction est déjà finalisée (trim effectué). Supprime-la pour réimporter.",
+            );
+          }
+
           const id = (existant?.id as string | undefined) ?? crypto.randomUUID();
 
           emit?.({
@@ -141,7 +228,7 @@ Deno.serve(async (request) => {
             detail: "Téléchargement fichier vidéo…",
           });
           const bytes = await downloadMedia(scraped.videoUrl);
-          const path = `ugc/reactions/${id}/source.mp4`;
+          const path = `ugc/reactions/${id}/video.mp4`;
           emit?.({ etape: "upload", statut: "en_cours", detail: "Upload storage…" });
           const videoSourceUrl = await uploader(
             supabase,
@@ -160,6 +247,7 @@ Deno.serve(async (request) => {
             caption_source: scraped.text || null,
             video_source_path: path,
             video_source_url: videoSourceUrl,
+            // Pas de copie séparée — un seul fichier jusqu’au trim
             video_path: null as string | null,
             video_url: null as string | null,
             crop: null,
@@ -177,6 +265,18 @@ Deno.serve(async (request) => {
 
           let reaction;
           if (existant?.id) {
+            // Anciens chemins éventuels
+            if (
+              existant.video_source_path &&
+              existant.video_source_path !== path
+            ) {
+              await supprimerStorage(supabase, existant.video_source_path as string);
+            }
+            await supprimerStorage(supabase, existant.video_path as string);
+            await supprimerStorage(
+              supabase,
+              existant.first_frame_reference_path as string,
+            );
             const { data, error } = await supabase
               .from("ugc_reactions")
               .update(champs)
@@ -224,10 +324,24 @@ Deno.serve(async (request) => {
       const firstFramePath = String(body.firstFramePath ?? "").trim();
       const firstFrameUrl = String(body.firstFrameUrl ?? "").trim();
       if (!videoPath || !videoUrl) {
-        return json({ error: "vidéo cropée requise (videoPath / videoUrl)" }, 400);
+        return json({ error: "vidéo trimée requise (videoPath / videoUrl)" }, 400);
       }
       if (!firstFramePath || !firstFrameUrl) {
         return json({ error: "first_frame_reference requise" }, 400);
+      }
+
+      const { data: actuel, error: errActuel } = await supabase
+        .from("ugc_reactions")
+        .select("*")
+        .eq("id", id)
+        .maybeSingle();
+      if (errActuel) return json({ error: errActuel.message }, 400);
+      if (!actuel) return json({ error: "reaction introuvable" }, 404);
+      if (actuel.statut === "pret") {
+        return json(
+          { error: "Déjà finalisée — pas de re-trim. Supprime pour recommencer." },
+          400,
+        );
       }
 
       let videoText =
@@ -245,9 +359,40 @@ Deno.serve(async (request) => {
           videoText = await ocrFrame(firstFrameUrl);
         }
 
+        // La trimée remplace l’original — on ne garde plus deux fichiers.
+        const ancienneSource = String(actuel.video_source_path ?? "");
+        if (ancienneSource && ancienneSource !== videoPath) {
+          emit?.({
+            etape: "cleanup",
+            statut: "en_cours",
+            detail: "Suppression de la vidéo entière…",
+          });
+          await supprimerStorage(supabase, ancienneSource);
+        }
+        const ancienCrop = String(actuel.video_path ?? "");
+        if (ancienCrop && ancienCrop !== videoPath && ancienCrop !== ancienneSource) {
+          await supprimerStorage(supabase, ancienCrop);
+        }
+
+        let dureeMs: number | null = null;
+        if (typeof body.dureeMs === "number" && Number.isFinite(body.dureeMs)) {
+          dureeMs = Math.round(body.dureeMs);
+        } else if (
+          body.crop &&
+          typeof body.crop.startSec === "number" &&
+          typeof body.crop.endSec === "number"
+        ) {
+          dureeMs = Math.round(
+            Math.max(0, body.crop.endSec - body.crop.startSec) * 1000,
+          );
+        }
+
         const patch: Record<string, unknown> = {
-          video_path: videoPath,
-          video_url: videoUrl,
+          // Un seul fichier : la version trimée
+          video_source_path: videoPath,
+          video_source_url: videoUrl,
+          video_path: null,
+          video_url: null,
           first_frame_reference_path: firstFramePath,
           first_frame_reference_url: firstFrameUrl,
           video_text: videoText,
@@ -255,6 +400,7 @@ Deno.serve(async (request) => {
           statut: "pret",
           updated_at: new Date().toISOString(),
         };
+        if (dureeMs != null) patch.duree_ms = dureeMs;
         if (body.titre !== undefined) {
           const t = String(body.titre ?? "").trim();
           if (t) patch.titre = t;
@@ -274,7 +420,7 @@ Deno.serve(async (request) => {
           ok: true,
           reaction: data,
           videoText,
-          detail: "Reaction enregistrée",
+          detail: "Reaction enregistrée (trim = seule vidéo gardée)",
         });
         return { ok: true as const, reaction: data, videoText };
       };

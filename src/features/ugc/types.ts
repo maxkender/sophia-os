@@ -32,11 +32,12 @@ export interface UgcReaction {
   source_url: string;
   tiktok_post_id: string | null;
   caption_source: string | null;
+  /** Seule vidéo gardée (après trim = version trimée). */
   video_source_path: string;
   video_source_url: string;
   video_path: string | null;
   video_url: string | null;
-  /** Trim durée : `{ startSec, endSec }` (pas un crop spatial). */
+  /** Trim durée appliqué : `{ startSec, endSec }` — info, pas re-éditable. */
   crop: { startSec: number; endSec: number } | null;
   first_frame_reference_path: string | null;
   first_frame_reference_url: string | null;
@@ -47,6 +48,17 @@ export interface UgcReaction {
   largeur: number | null;
   hauteur: number | null;
   statut: "brouillon" | "pret" | "archive";
+  created_at: string;
+  updated_at: string;
+}
+
+export interface UgcUtilisation {
+  id: string;
+  titre: string;
+  video_path: string;
+  video_url: string;
+  nom_fichier: string | null;
+  duree_ms: number | null;
   created_at: string;
   updated_at: string;
 }

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Loader2, Save, Scissors, Trash2, Video } from "lucide-react";
+import { Loader2, Save, Scissors, Trash2, Upload, Video } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -11,15 +11,17 @@ import { Label } from "@/components/ui/label";
 import {
   finaliserUgcReaction,
   importerReactionTikTok,
+  importerUtilisationFichier,
   listerUgcReactions,
+  listerUgcUtilisations,
   supprimerUgcReaction,
+  supprimerUgcUtilisation,
   uploadUgcReactionFichier,
   type UgcReaction,
 } from "@/features/ugc/api";
 import {
   extraireFrameTrim,
   normaliserTrim,
-  trimDepuisCrop,
   trimmerVideo,
   trimPlein,
   type VideoTrim,
@@ -39,6 +41,10 @@ export function AdminUgcVideosPage() {
     queryKey: ["ugc-reactions"],
     queryFn: async () => (await listerUgcReactions()).reactions,
   });
+  const utilisations = useQuery({
+    queryKey: ["ugc-utilisations"],
+    queryFn: async () => (await listerUgcUtilisations()).utilisations,
+  });
 
   const [lien, setLien] = React.useState("");
   const [draft, setDraft] = React.useState<UgcReaction | null>(null);
@@ -50,15 +56,23 @@ export function AdminUgcVideosPage() {
   const [previewFrame, setPreviewFrame] = React.useState<string | null>(null);
   const [videoTextPreview, setVideoTextPreview] = React.useState<string | null>(null);
 
-  function appliquerDraft(r: UgcReaction, duree?: number) {
+  const [titreUtil, setTitreUtil] = React.useState("");
+  const [fichierUtil, setFichierUtil] = React.useState<File | null>(null);
+  const fileRef = React.useRef<HTMLInputElement>(null);
+
+  const peutTrim = draft?.statut === "brouillon";
+
+  function ouvrirBrouillon(r: UgcReaction, duree?: number) {
+    if (r.statut !== "brouillon") return;
     const d = duree ?? (r.duree_ms ? r.duree_ms / 1000 : 1);
     setDraft(r);
     setTitre(r.titre);
     setDureeSec(d);
-    setTrim(trimDepuisCrop(r.crop, d));
-    setPreviewFrame(r.first_frame_reference_url);
-    setVideoTextPreview(r.video_text);
+    setTrim(trimPlein(d));
+    setPreviewFrame(null);
+    setVideoTextPreview(null);
     setLien(r.source_url);
+    setErreur(null);
   }
 
   const importer = useMutation({
@@ -72,7 +86,7 @@ export function AdminUgcVideosPage() {
     },
     onSuccess: (r) => {
       const d = r.duree_ms ? r.duree_ms / 1000 : 1;
-      appliquerDraft(r, d);
+      ouvrirBrouillon(r, d);
       setProgress(null);
       void queryClient.invalidateQueries({ queryKey: ["ugc-reactions"] });
     },
@@ -84,7 +98,9 @@ export function AdminUgcVideosPage() {
 
   const finaliser = useMutation({
     mutationFn: async () => {
-      if (!draft) throw new Error("Draft manquant");
+      if (!draft || draft.statut !== "brouillon") {
+        throw new Error(t("ugc.videos.dejaFinalisee"));
+      }
       const tNorm = normaliserTrim(trim, dureeSec);
       setProgress(t("ugc.videos.cropEnCours"));
       const cropped = await trimmerVideo(draft.video_source_url, tNorm, setProgress);
@@ -92,7 +108,8 @@ export function AdminUgcVideosPage() {
       setProgress(t("ugc.videos.frameEnCours"));
       const frameBlob = await extraireFrameTrim(draft.video_source_url, tNorm, 10);
 
-      const videoPath = `ugc/reactions/${draft.id}/crop.${cropped.ext}`;
+      // Remplace l’original : un seul fichier `video.{ext}`
+      const videoPath = `ugc/reactions/${draft.id}/video.${cropped.ext}`;
       const framePath = `ugc/reactions/${draft.id}/first_frame_reference.jpg`;
 
       setProgress(t("ugc.videos.uploadEnCours"));
@@ -118,6 +135,7 @@ export function AdminUgcVideosPage() {
           videoUrl: videoUp.url,
           firstFramePath: frameUp.path,
           firstFrameUrl: frameUp.url,
+          dureeMs: Math.round((tNorm.endSec - tNorm.startSec) * 1000),
         },
         setProgress,
       );
@@ -125,8 +143,10 @@ export function AdminUgcVideosPage() {
       return reaction;
     },
     onSuccess: (r) => {
-      setDraft(r);
+      setDraft(null);
       setProgress(null);
+      setPreviewFrame(r.first_frame_reference_url);
+      setVideoTextPreview(r.video_text);
       void queryClient.invalidateQueries({ queryKey: ["ugc-reactions"] });
     },
     onError: (e) => {
@@ -147,7 +167,41 @@ export function AdminUgcVideosPage() {
     },
   });
 
-  const busy = importer.isPending || finaliser.isPending;
+  const importUtil = useMutation({
+    mutationFn: () => {
+      if (!fichierUtil) throw new Error(t("ugc.videos.utilFichierRequis"));
+      return importerUtilisationFichier(fichierUtil, titreUtil);
+    },
+    onMutate: () => {
+      setErreur(null);
+      setProgress(t("ugc.videos.utilUploadEnCours"));
+    },
+    onSuccess: () => {
+      setProgress(null);
+      setFichierUtil(null);
+      setTitreUtil("");
+      if (fileRef.current) fileRef.current.value = "";
+      void queryClient.invalidateQueries({ queryKey: ["ugc-utilisations"] });
+    },
+    onError: (e) => {
+      setProgress(null);
+      setErreur((e as Error).message);
+    },
+  });
+
+  const supprUtil = useMutation({
+    mutationFn: (id: string) => supprimerUgcUtilisation(id),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: ["ugc-utilisations"] });
+    },
+  });
+
+  const busy =
+    importer.isPending ||
+    finaliser.isPending ||
+    importUtil.isPending ||
+    supprimer.isPending ||
+    supprUtil.isPending;
 
   return (
     <div className="space-y-8">
@@ -156,6 +210,7 @@ export function AdminUgcVideosPage() {
         <p className="text-sm text-muted-foreground">{t("ugc.videos.subtitle")}</p>
       </div>
 
+      {/* ── Reactions ── */}
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-base">
@@ -186,7 +241,7 @@ export function AdminUgcVideosPage() {
             </Button>
           </div>
 
-          {draft && (
+          {draft && peutTrim && (
             <div className="space-y-4 rounded-lg border bg-muted/20 p-4">
               <div className="flex flex-wrap items-center gap-2">
                 <Badge variant="outline">{draft.statut}</Badge>
@@ -245,38 +300,32 @@ export function AdminUgcVideosPage() {
                   {t("ugc.videos.resetCrop")}
                 </Button>
               </div>
+              <p className="text-[11px] text-muted-foreground">
+                {t("ugc.videos.trimRemplaceAide")}
+              </p>
+            </div>
+          )}
 
-              {(previewFrame || draft.first_frame_reference_url) && (
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <figure className="space-y-1">
-                    <figcaption className="text-xs font-medium text-muted-foreground">
-                      first_frame_reference
-                    </figcaption>
-                    <img
-                      src={previewFrame || draft.first_frame_reference_url!}
-                      alt=""
-                      className="max-h-64 w-auto rounded border object-contain"
-                    />
-                  </figure>
-                  <div className="space-y-1">
-                    <p className="text-xs font-medium text-muted-foreground">video_text</p>
-                    <pre className="max-h-64 overflow-auto whitespace-pre-wrap rounded border bg-background p-2 text-xs">
-                      {videoTextPreview ?? draft.video_text ?? "—"}
-                    </pre>
-                  </div>
-                </div>
-              )}
-
-              {draft.video_url && (
-                <div className="space-y-1">
-                  <p className="text-xs font-medium text-muted-foreground">
-                    {t("ugc.videos.videoCroppee")}
-                  </p>
-                  <video
-                    src={draft.video_url}
-                    controls
-                    className="max-h-80 w-full rounded border bg-black"
+          {(previewFrame || videoTextPreview) && !peutTrim && (
+            <div className="grid gap-4 sm:grid-cols-2 rounded-lg border p-4">
+              {previewFrame && (
+                <figure className="space-y-1">
+                  <figcaption className="text-xs font-medium text-muted-foreground">
+                    first_frame_reference
+                  </figcaption>
+                  <img
+                    src={previewFrame}
+                    alt=""
+                    className="max-h-64 w-auto rounded border object-contain"
                   />
+                </figure>
+              )}
+              {videoTextPreview != null && (
+                <div className="space-y-1">
+                  <p className="text-xs font-medium text-muted-foreground">video_text</p>
+                  <pre className="max-h-64 overflow-auto whitespace-pre-wrap rounded border bg-background p-2 text-xs">
+                    {videoTextPreview || "—"}
+                  </pre>
                 </div>
               )}
             </div>
@@ -292,6 +341,96 @@ export function AdminUgcVideosPage() {
         </CardContent>
       </Card>
 
+      {/* ── Utilisations ── */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-base">
+            <Upload className="size-4" />
+            {t("ugc.videos.utilTitre")}
+          </CardTitle>
+          <CardDescription>{t("ugc.videos.utilDesc")}</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div className="space-y-2">
+              <Label htmlFor="titreUtil">{t("ugc.videos.titreChamp")}</Label>
+              <Input
+                id="titreUtil"
+                value={titreUtil}
+                onChange={(e) => setTitreUtil(e.target.value)}
+                placeholder={t("ugc.videos.utilTitrePlaceholder")}
+                disabled={busy}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="fichierUtil">{t("ugc.videos.utilFichier")}</Label>
+              <Input
+                id="fichierUtil"
+                ref={fileRef}
+                type="file"
+                accept="video/*"
+                disabled={busy}
+                onChange={(e) => setFichierUtil(e.target.files?.[0] ?? null)}
+              />
+            </div>
+          </div>
+          <Button
+            type="button"
+            disabled={busy || !fichierUtil}
+            onClick={() => importUtil.mutate()}
+          >
+            {importUtil.isPending ? <Loader2 className="animate-spin" /> : <Upload />}
+            {t("ugc.videos.utilImporter")}
+          </Button>
+
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            {(utilisations.data ?? []).map((u) => (
+              <Card key={u.id}>
+                <CardHeader className="pb-2">
+                  <CardTitle className="flex items-center justify-between gap-2 text-sm">
+                    <span className="truncate">{u.titre}</span>
+                    <Button
+                      type="button"
+                      size="icon"
+                      variant="ghost"
+                      disabled={busy}
+                      onClick={() => {
+                        if (
+                          window.confirm(
+                            t("ugc.videos.confirmSuppr", { titre: u.titre }),
+                          )
+                        ) {
+                          supprUtil.mutate(u.id);
+                        }
+                      }}
+                    >
+                      <Trash2 className="size-4" />
+                    </Button>
+                  </CardTitle>
+                  <Badge variant="outline">utilisation</Badge>
+                </CardHeader>
+                <CardContent>
+                  <video
+                    src={u.video_url}
+                    controls
+                    className="aspect-[9/16] max-h-48 w-full rounded object-cover"
+                  />
+                  {u.nom_fichier && (
+                    <p className="mt-1 truncate text-[10px] text-muted-foreground">
+                      {u.nom_fichier}
+                    </p>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          {utilisations.data?.length === 0 && (
+            <p className="text-sm text-muted-foreground">{t("ugc.videos.utilListeVide")}</p>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* ── Liste reactions ── */}
       <section className="space-y-3">
         <h2 className="text-base font-medium">{t("ugc.videos.listeTitre")}</h2>
         {liste.isPending && (
@@ -310,7 +449,7 @@ export function AdminUgcVideosPage() {
                     type="button"
                     size="icon"
                     variant="ghost"
-                    disabled={supprimer.isPending || busy}
+                    disabled={busy}
                     onClick={() => {
                       if (window.confirm(t("ugc.videos.confirmSuppr", { titre: r.titre }))) {
                         supprimer.mutate(r.id);
@@ -328,34 +467,44 @@ export function AdminUgcVideosPage() {
                 </div>
               </CardHeader>
               <CardContent className="space-y-2">
-                {(r.first_frame_reference_url || r.video_url || r.video_source_url) && (
-                  r.first_frame_reference_url ? (
-                    <img
-                      src={r.first_frame_reference_url}
-                      alt=""
-                      className="aspect-[9/16] max-h-48 w-full rounded object-cover"
-                    />
-                  ) : (
-                    <video
-                      src={r.video_url || r.video_source_url}
-                      className="aspect-[9/16] max-h-48 w-full rounded object-cover"
-                      muted
-                    />
-                  )
+                {r.statut === "pret" ? (
+                  <video
+                    src={r.video_source_url}
+                    controls
+                    className="aspect-[9/16] max-h-56 w-full rounded object-cover bg-black"
+                  />
+                ) : r.first_frame_reference_url ? (
+                  <img
+                    src={r.first_frame_reference_url}
+                    alt=""
+                    className="aspect-[9/16] max-h-48 w-full rounded object-cover"
+                  />
+                ) : (
+                  <video
+                    src={r.video_source_url}
+                    className="aspect-[9/16] max-h-48 w-full rounded object-cover"
+                    muted
+                  />
                 )}
                 {r.video_text && (
                   <p className="line-clamp-3 text-xs text-muted-foreground">{r.video_text}</p>
                 )}
-                <Button
-                  type="button"
-                  size="sm"
-                  variant="outline"
-                  className="w-full text-xs"
-                  disabled={busy}
-                  onClick={() => appliquerDraft(r)}
-                >
-                  {t("ugc.videos.rouvrir")}
-                </Button>
+                {r.statut === "brouillon" ? (
+                  <Button
+                    type="button"
+                    size="sm"
+                    variant="outline"
+                    className="w-full text-xs"
+                    disabled={busy}
+                    onClick={() => ouvrirBrouillon(r)}
+                  >
+                    {t("ugc.videos.continuerTrim")}
+                  </Button>
+                ) : (
+                  <p className="text-center text-[10px] text-muted-foreground">
+                    {t("ugc.videos.trimFige")}
+                  </p>
+                )}
               </CardContent>
             </Card>
           ))}
@@ -478,7 +627,6 @@ function TrimEditor({
           }}
         />
 
-        {/* Timeline visuelle */}
         <div className="relative h-3 overflow-hidden rounded-full bg-muted">
           <div
             className="absolute inset-y-0 bg-primary/80"

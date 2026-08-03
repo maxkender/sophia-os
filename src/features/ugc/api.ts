@@ -4,10 +4,11 @@ import type {
   UgcPersona,
   UgcPersonaDefaults,
   UgcReaction,
+  UgcUtilisation,
 } from "./types";
 import type { VideoTrim } from "./videoCrop";
 
-export type { UgcAngle, UgcReaction };
+export type { UgcAngle, UgcReaction, UgcUtilisation };
 
 async function invokeUgc<T>(body: Record<string, unknown>): Promise<T> {
   const { data, error } = await supabase.functions.invoke("ugc-persona", { body });
@@ -381,6 +382,7 @@ export async function finaliserUgcReaction(
     firstFramePath: string;
     firstFrameUrl: string;
     videoText?: string;
+    dureeMs?: number;
   },
   onProgress?: (detail: string) => void,
 ): Promise<UgcReaction> {
@@ -407,4 +409,48 @@ export async function uploadUgcReactionFichier(
   if (error) throw new Error(error.message);
   const pub = supabase.storage.from("medias").getPublicUrl(path).data.publicUrl;
   return { path, url: `${pub}?v=${Date.now()}` };
+}
+
+export function listerUgcUtilisations() {
+  return invokeReactions<{ ok: boolean; utilisations: UgcUtilisation[] }>({
+    action: "list_utilisations",
+  });
+}
+
+export function supprimerUgcUtilisation(id: string) {
+  return invokeReactions<{ ok: boolean }>({ action: "delete_utilisation", id });
+}
+
+export async function enregistrerUgcUtilisation(input: {
+  titre?: string;
+  videoPath: string;
+  videoUrl: string;
+  nomFichier?: string;
+  dureeMs?: number;
+}): Promise<UgcUtilisation> {
+  const r = await invokeReactions<{ ok: boolean; utilisation: UgcUtilisation }>({
+    action: "register_utilisation",
+    ...input,
+  });
+  if (!r.utilisation?.id) throw new Error("Enregistrement utilisation échoué");
+  return r.utilisation;
+}
+
+/** Upload admin d’une utilisation (fichier local → storage + DB). */
+export async function importerUtilisationFichier(
+  file: File,
+  titre?: string,
+): Promise<UgcUtilisation> {
+  const id = crypto.randomUUID();
+  const ext =
+    file.name.split(".").pop()?.toLowerCase().replace(/[^a-z0-9]/g, "") || "mp4";
+  const path = `ugc/utilisations/${id}/video.${ext}`;
+  const mime = file.type || "video/mp4";
+  const up = await uploadUgcReactionFichier(path, file, mime);
+  return enregistrerUgcUtilisation({
+    titre: titre?.trim() || file.name.replace(/\.[^.]+$/, ""),
+    videoPath: up.path,
+    videoUrl: up.url,
+    nomFichier: file.name,
+  });
 }

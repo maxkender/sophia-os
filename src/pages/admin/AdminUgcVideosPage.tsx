@@ -108,7 +108,7 @@ export function AdminUgcVideosPage() {
       setProgress(t("ugc.videos.frameEnCours"));
       const frameBlob = await extraireFrameTrim(draft.video_source_url, tNorm, 10);
 
-      // Remplace l’original : un seul fichier `video.{ext}`
+      // Persisté : video croppée + first_frame uniquement (_tmp_full purgé côté edge).
       const videoPath = `ugc/reactions/${draft.id}/video.${cropped.ext}`;
       const framePath = `ugc/reactions/${draft.id}/first_frame_reference.jpg`;
 

@@ -1,16 +1,15 @@
 /**
  * Vidéos AI — reactions + utilisations :
  *   { action: "import_tiktok", url, stream? }
- *   { action: "finalize", id, titre?, crop?: { startSec, endSec },
- *                         videoPath, videoUrl, firstFramePath, firstFrameUrl,
- *                         videoText?, dureeMs? }
- *     → la vidéo trimée remplace la source ; l’original est supprimé
+ *     → vidéo entière en TEMP `_tmp_full.mp4` (pour le trim UI seulement)
+ *   { action: "finalize", … }
+ *     → storage final = UNIQUEMENT :
+ *         1) vidéo croppée (trim)
+ *         2) first_frame_reference (10ᵉ frame)
+ *         + video_text (OCR) en DB
+ *       Tout le reste du dossier (dont `_tmp_full`) est purgé.
  *   { action: "ocr_frame", imageUrl, stream? }
- *   { action: "list" }
- *   { action: "delete", id }
- *   { action: "list_utilisations" }
- *   { action: "register_utilisation", titre?, videoPath, videoUrl, nomFichier?, dureeMs? }
- *   { action: "delete_utilisation", id }
+ *   { action: "list" | "delete" | "list_utilisations" | "register_utilisation" | "delete_utilisation" }
  */
 
 import { downloadMedia, scrapeVideoPost } from "../_shared/apify.ts";
@@ -52,6 +51,25 @@ async function supprimerStorage(supabase: Supabase, path: string | null | undefi
   } catch {
     // best-effort
   }
+}
+
+/** Garde uniquement les chemins listés dans le dossier reaction. */
+async function purgerDossierReaction(
+  supabase: Supabase,
+  reactionId: string,
+  garder: string[],
+): Promise<void> {
+  const prefix = `ugc/reactions/${reactionId}`;
+  const keep = new Set(garder.map((p) => p.trim()).filter(Boolean));
+  const { data: files, error } = await supabase.storage.from(BUCKET).list(prefix, {
+    limit: 100,
+  });
+  if (error || !files?.length) return;
+  const aSupprimer = files
+    .map((f) => `${prefix}/${f.name}`)
+    .filter((p) => !keep.has(p));
+  if (aSupprimer.length === 0) return;
+  await supabase.storage.from(BUCKET).remove(aSupprimer);
 }
 
 function normaliserLienTikTok(raw: string): string {
@@ -97,16 +115,7 @@ Deno.serve(async (request) => {
     if (action === "delete") {
       const id = String(body.id ?? "").trim();
       if (!id) return json({ error: "id requis" }, 400);
-      const { data: row } = await supabase
-        .from("ugc_reactions")
-        .select("video_source_path, video_path, first_frame_reference_path")
-        .eq("id", id)
-        .maybeSingle();
-      if (row) {
-        await supprimerStorage(supabase, row.video_source_path as string);
-        await supprimerStorage(supabase, row.video_path as string);
-        await supprimerStorage(supabase, row.first_frame_reference_path as string);
-      }
+      await purgerDossierReaction(supabase, id, []);
       const { error } = await supabase.from("ugc_reactions").delete().eq("id", id);
       if (error) return json({ error: error.message }, 400);
       return json({ ok: true });
@@ -228,8 +237,13 @@ Deno.serve(async (request) => {
             detail: "Téléchargement fichier vidéo…",
           });
           const bytes = await downloadMedia(scraped.videoUrl);
-          const path = `ugc/reactions/${id}/video.mp4`;
-          emit?.({ etape: "upload", statut: "en_cours", detail: "Upload storage…" });
+          // TEMP — purgé au finalize ; seuls crop + frame + video_text restent.
+          const path = `ugc/reactions/${id}/_tmp_full.mp4`;
+          emit?.({
+            etape: "upload",
+            statut: "en_cours",
+            detail: "Upload temporaire (sera purgé après trim)…",
+          });
           const videoSourceUrl = await uploader(
             supabase,
             path,
@@ -247,7 +261,6 @@ Deno.serve(async (request) => {
             caption_source: scraped.text || null,
             video_source_path: path,
             video_source_url: videoSourceUrl,
-            // Pas de copie séparée — un seul fichier jusqu’au trim
             video_path: null as string | null,
             video_url: null as string | null,
             crop: null,
@@ -354,25 +367,18 @@ Deno.serve(async (request) => {
           emit?.({
             etape: "ocr",
             statut: "en_cours",
-            detail: "OCR first_frame_reference…",
+            detail: "OCR first_frame_reference → video_text…",
           });
           videoText = await ocrFrame(firstFrameUrl);
         }
 
-        // La trimée remplace l’original — on ne garde plus deux fichiers.
-        const ancienneSource = String(actuel.video_source_path ?? "");
-        if (ancienneSource && ancienneSource !== videoPath) {
-          emit?.({
-            etape: "cleanup",
-            statut: "en_cours",
-            detail: "Suppression de la vidéo entière…",
-          });
-          await supprimerStorage(supabase, ancienneSource);
-        }
-        const ancienCrop = String(actuel.video_path ?? "");
-        if (ancienCrop && ancienCrop !== videoPath && ancienCrop !== ancienneSource) {
-          await supprimerStorage(supabase, ancienCrop);
-        }
+        emit?.({
+          etape: "cleanup",
+          statut: "en_cours",
+          detail: "Purge : on ne garde que crop + 10ᵉ frame…",
+        });
+        // Storage final = exactement 2 fichiers (+ video_text en DB).
+        await purgerDossierReaction(supabase, id, [videoPath, firstFramePath]);
 
         let dureeMs: number | null = null;
         if (typeof body.dureeMs === "number" && Number.isFinite(body.dureeMs)) {
@@ -388,7 +394,7 @@ Deno.serve(async (request) => {
         }
 
         const patch: Record<string, unknown> = {
-          // Un seul fichier : la version trimée
+          // video_source_* = la vidéo CROPPÉE (seule vidéo persistée)
           video_source_path: videoPath,
           video_source_url: videoUrl,
           video_path: null,
@@ -420,7 +426,7 @@ Deno.serve(async (request) => {
           ok: true,
           reaction: data,
           videoText,
-          detail: "Reaction enregistrée (trim = seule vidéo gardée)",
+          detail: "Enregistré : vidéo croppée + 10ᵉ frame + video_text",
         });
         return { ok: true as const, reaction: data, videoText };
       };

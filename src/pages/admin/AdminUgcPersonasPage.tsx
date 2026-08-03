@@ -12,10 +12,12 @@ import {
   genererUgcAngle,
   genererUgcAngles,
   genererUgcFace,
+  listerAffectationsPersonasUgc,
   listerUgcPersonas,
   sauverUgcPersona,
   supprimerUgcPersona,
   ugcPersonaDefaults,
+  type AffectationPersonaUgc,
   type UgcAngle,
 } from "@/features/ugc/api";
 import type { UgcPersona } from "@/features/ugc/types";
@@ -37,6 +39,20 @@ export function AdminUgcPersonasPage() {
     queryKey: ["ugc-personas"],
     queryFn: async () => (await listerUgcPersonas()).personas,
   });
+  const affectations = useQuery({
+    queryKey: ["ugc-persona-comptes"],
+    queryFn: listerAffectationsPersonasUgc,
+    staleTime: 30_000,
+  });
+  const comptesParPersona = React.useMemo(() => {
+    const m = new Map<string, AffectationPersonaUgc[]>();
+    for (const a of affectations.data ?? []) {
+      const list = m.get(a.personaId) ?? [];
+      list.push(a);
+      m.set(a.personaId, list);
+    }
+    return m;
+  }, [affectations.data]);
 
   const [etape, setEtape] = React.useState<Etape>("prompt");
   const [promptFace, setPromptFace] = React.useState("");
@@ -412,7 +428,9 @@ export function AdminUgcPersonasPage() {
           <p className="text-sm text-muted-foreground">{t("ugc.personas.listeVide")}</p>
         )}
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-          {(liste.data ?? []).map((p) => (
+          {(liste.data ?? []).map((p) => {
+            const lies = comptesParPersona.get(p.id) ?? [];
+            return (
             <Card key={p.id}>
               <CardHeader className="pb-3">
                 <CardTitle className="flex items-center justify-between gap-2 text-base">
@@ -434,6 +452,37 @@ export function AdminUgcPersonasPage() {
                     <Trash2 className="size-4" />
                   </Button>
                 </CardTitle>
+                <div className="mt-1.5 space-y-1">
+                  {lies.length === 0 ? (
+                    <p className="text-xs text-muted-foreground">
+                      {t("ugc.personas.compteLibre")}
+                    </p>
+                  ) : (
+                    lies.map((a) => {
+                      const createur = [a.posterPrenom, a.posterNom]
+                        .filter(Boolean)
+                        .join(" ");
+                      const label =
+                        a.handle
+                          ? `@${a.handle}`
+                          : a.personaNom || createur || a.compteId.slice(0, 8);
+                      return (
+                        <Badge
+                          key={a.compteId}
+                          variant="secondary"
+                          className="max-w-full truncate font-normal"
+                          title={
+                            createur
+                              ? `${createur}${a.handle ? ` · @${a.handle}` : ""}`
+                              : label
+                          }
+                        >
+                          {t("ugc.personas.compteLie", { nom: label })}
+                        </Badge>
+                      );
+                    })
+                  )}
+                </div>
               </CardHeader>
               <CardContent className="grid grid-cols-4 gap-2">
                 <figure className="space-y-1">
@@ -483,7 +532,8 @@ export function AdminUgcPersonasPage() {
                 })}
               </CardContent>
             </Card>
-          ))}
+            );
+          })}
         </div>
       </section>
     </div>

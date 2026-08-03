@@ -136,6 +136,8 @@ export const fr = {
         imagesManquantes: "Les 4 images sont requises.",
         listeTitre: "Personas enregistrés",
         listeVide: "Aucun persona pour l’instant.",
+        compteLibre: "Aucun créateur associé",
+        compteLie: "Créateur : {{nom}}",
         confirmSuppr: "Supprimer le persona « {{nom}} » ?",
         regenererAngle: "Refaire",
         enCoursAngle: "Régénération {{angle}}…",
@@ -1046,7 +1048,7 @@ export const fr = {
       traductionDesc: "Le ton des textes traduits en français, lisibles sur TikTok.",
       ugcFaceSwapTitle: "Prompt — Swap visage UGC (Nano Banana)",
       ugcFaceSwapDesc:
-        "À l’assignation UGC AI : Figure 1 = slide slideshow, Figures 2+ = 4 angles du persona. Édité via fal-ai/nano-banana-pro/edit.",
+        "À l’assignation UGC AI : Figure 1 = slide slideshow, Figures 2+ = 4 angles du persona. Édité via fal-ai/nano-banana-pro/edit — sortie au même ratio que la slide de référence.",
       traductionsLanguesTitre: "Traductions par langue",
       traductionsLanguesDesc:
         "Le ton propre à chaque langue cible. Sans prompt ici, cette langue est traduite avec des règles neutres — écris-en un pour la soigner (tutoiement, tournures à éviter, registre).",

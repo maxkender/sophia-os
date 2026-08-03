@@ -106,6 +106,36 @@ export function listerUgcPersonas() {
   return invokeUgc<{ ok: boolean; personas: UgcPersona[] }>({ action: "list" });
 }
 
+/** Comptes liés à un persona UGC (pour la liste admin). */
+export interface AffectationPersonaUgc {
+  compteId: string;
+  personaId: string;
+  personaNom: string | null;
+  handle: string | null;
+  posterPrenom: string | null;
+  posterNom: string | null;
+}
+
+export async function listerAffectationsPersonasUgc(): Promise<AffectationPersonaUgc[]> {
+  const { data, error } = await supabase
+    .from("comptes")
+    .select(
+      "id, ugc_persona_id, persona_nom, handle_tiktok, profiles(prenom, nom)",
+    )
+    .not("ugc_persona_id", "is", null)
+    .eq("is_active", true);
+  if (error) throw error;
+  // deno-lint-ignore no-explicit-any
+  return (data ?? []).map((c: any) => ({
+    compteId: c.id as string,
+    personaId: c.ugc_persona_id as string,
+    personaNom: (c.persona_nom as string | null) ?? null,
+    handle: (c.handle_tiktok as string | null) ?? null,
+    posterPrenom: (c.profiles?.prenom as string | null) ?? null,
+    posterNom: (c.profiles?.nom as string | null) ?? null,
+  }));
+}
+
 export async function genererUgcFace(
   prompt: string,
   onProgress?: (detail: string) => void,

@@ -136,6 +136,8 @@ export const en = {
         imagesManquantes: "All 4 images are required.",
         listeTitre: "Saved personas",
         listeVide: "No persona yet.",
+        compteLibre: "No creator linked",
+        compteLie: "Creator: {{nom}}",
         confirmSuppr: "Delete persona “{{nom}}”?",
         regenererAngle: "Redo",
         enCoursAngle: "Regenerating {{angle}}…",
@@ -1045,7 +1047,7 @@ export const en = {
       traductionDesc: "The tone of texts translated to French, readable on TikTok.",
       ugcFaceSwapTitle: "Prompt — UGC face swap (Nano Banana)",
       ugcFaceSwapDesc:
-        "On UGC AI assignment: Figure 1 = slideshow slide, Figures 2+ = persona’s 4 angles. Edited via fal-ai/nano-banana-pro/edit.",
+        "On UGC AI assignment: Figure 1 = slideshow slide, Figures 2+ = persona’s 4 angles. Edited via fal-ai/nano-banana-pro/edit — output matches the reference slide’s aspect ratio.",
       traductionsLanguesTitre: "Translations by language",
       traductionsLanguesDesc:
         "The tone specific to each target language. Without a prompt here, that language is translated with neutral rules — write one to refine it (register, phrasings to avoid).",

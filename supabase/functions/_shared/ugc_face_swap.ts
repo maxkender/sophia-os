@@ -7,7 +7,8 @@
  */
 
 import { retirerContentCredentialsBytes } from "./c2pa.ts";
-import { editerNanoBananaPro } from "./fal_nano_banana.ts";
+import { aspectRatioProche, editerNanoBananaPro } from "./fal_nano_banana.ts";
+import { dimensionsImage } from "./inpaint.ts";
 import { mapPool } from "./parallel.ts";
 import { chargerPrompt, serviceClient } from "./supabase.ts";
 
@@ -104,9 +105,11 @@ export async function appliquerFaceSwapUgcPost(
   await mapPool(aSwapper, LARGEUR_SWAP, async (slide) => {
     const src = parId.get(slide.media_id as string)!;
     try {
+      // Ratio = slide de référence (Figure 1), pas le 9:16 des personas.
+      const aspectRatio = await aspectDepuisUrl(src.url as string);
       const imageUrls = [src.url as string, ...personaUrls];
       const edit = await editerNanoBananaPro(imageUrls, prompt, undefined, {
-        aspectRatio: "auto",
+        aspectRatio,
       });
       const strip = await retirerContentCredentialsBytes(edit.bytes);
       const mime =
@@ -165,4 +168,18 @@ export async function chargerPersonaUgc(
   if (error) throw error;
   if (!data?.image_face_url) return null;
   return data as UgcPersonaAngles;
+}
+
+/** Ratio Fal calqué sur la slide scène ; `auto` en repli. */
+async function aspectDepuisUrl(url: string): Promise<string> {
+  try {
+    const res = await fetch(url);
+    if (!res.ok) return "auto";
+    const bytes = new Uint8Array(await res.arrayBuffer());
+    const dims = dimensionsImage(bytes);
+    if (!dims) return "auto";
+    return aspectRatioProche(dims.w, dims.h);
+  } catch {
+    return "auto";
+  }
 }

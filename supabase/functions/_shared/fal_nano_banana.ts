@@ -142,7 +142,53 @@ export async function genererNanoBananaPro(
   return attendreResultat(key, QUEUE_GEN, queued, onProgress);
 }
 
-/** Edit Nano Banana Pro — 1..N images de référence (`image_urls`). */
+/** Ratios Fal supportés (edit) — `auto` = dimensions de l’image d’entrée. */
+export const FAL_ASPECT_RATIOS = [
+  "auto",
+  "21:9",
+  "16:9",
+  "3:2",
+  "4:3",
+  "5:4",
+  "1:1",
+  "4:5",
+  "3:4",
+  "2:3",
+  "9:16",
+] as const;
+
+export type FalAspectRatio = (typeof FAL_ASPECT_RATIOS)[number];
+
+/** Mappe w×h vers le ratio Fal le plus proche (hors `auto`). */
+export function aspectRatioProche(w: number, h: number): Exclude<FalAspectRatio, "auto"> {
+  if (!(w > 0 && h > 0)) return "9:16";
+  const r = w / h;
+  const options: Array<[Exclude<FalAspectRatio, "auto">, number]> = [
+    ["21:9", 21 / 9],
+    ["16:9", 16 / 9],
+    ["3:2", 3 / 2],
+    ["4:3", 4 / 3],
+    ["5:4", 5 / 4],
+    ["1:1", 1],
+    ["4:5", 4 / 5],
+    ["3:4", 3 / 4],
+    ["2:3", 2 / 3],
+    ["9:16", 9 / 16],
+  ];
+  let best: Exclude<FalAspectRatio, "auto"> = "9:16";
+  let bestDiff = Infinity;
+  for (const [name, val] of options) {
+    const d = Math.abs(r - val);
+    if (d < bestDiff) {
+      bestDiff = d;
+      best = name;
+    }
+  }
+  return best;
+}
+
+/** Edit Nano Banana Pro — 1..N images de référence (`image_urls`).
+ *  Défaut `auto` : même ratio que l’image d’entrée (Figure 1). */
 export async function editerNanoBananaPro(
   imageUrlOrUrls: string | string[],
   prompt: string,
@@ -157,10 +203,11 @@ export async function editerNanoBananaPro(
     .filter(Boolean);
   if (image_urls.length === 0) throw new Error("Fal nano-banana edit: image_urls vide");
 
-  const aspect_ratio = opts?.aspectRatio ?? "9:16";
+  // Défaut auto (= taille de la ref), plus de 9:16 forcé.
+  const aspect_ratio = opts?.aspectRatio ?? "auto";
   await onProgress?.({
     phase: "submit",
-    detail: `modèle=${MODEL_EDIT} refs=${image_urls.length}`,
+    detail: `modèle=${MODEL_EDIT} refs=${image_urls.length} aspect=${aspect_ratio}`,
   });
   const submit = await fetch(QUEUE_EDIT, {
     method: "POST",

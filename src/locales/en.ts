@@ -241,7 +241,7 @@ export const en = {
     simUgcVideo: {
       title: "Test UGC AI VIDEO assignment",
       subtitle:
-        "Full pipeline for ONE UGC AI VIDEO creator: reaction → clean frame10 → Nano Banana → Kling → concat utilisation → caption. Exact streamed logs.",
+        "Full pipeline: reaction → clean frame10 → Nano Banana → Kling (duration = reaction) → concat utilisation ON TOP → caption.",
       date: "Assignment date",
       compte: "UGC AI VIDEO creator",
       lancer: "Run test",

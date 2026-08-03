@@ -736,12 +736,19 @@ function DetailSlideshow({
     void queryClient.invalidateQueries({ queryKey: ["slideshows"] });
   }
 
-  async function activerUgcCeSlideshow() {
+  async function activerUgcCeSlideshow(avecScan: boolean) {
     if (!d || ugcScan) return;
     await setContenuUgcCompatible(d.id, true);
     void queryClient.invalidateQueries({ queryKey: ["slideshow", id] });
     void queryClient.invalidateQueries({ queryKey: ["slideshows"] });
-    await scannerMediasUgc(mediaIdsDepuisSlides(d.structure_slides));
+    setUgcLogs([
+      avecScan
+        ? t("slideshows.ugcMarquePuisScan")
+        : t("slideshows.ugcMarqueManuel"),
+    ]);
+    if (avecScan) {
+      await scannerMediasUgc(mediaIdsDepuisSlides(d.structure_slides));
+    }
   }
 
   async function desactiverUgcCeSlideshow() {
@@ -751,26 +758,38 @@ function DetailSlideshow({
     void queryClient.invalidateQueries({ queryKey: ["slideshows"] });
   }
 
-  async function lancerUgcCompte() {
+  async function lancerUgcCompte(avecScan: boolean) {
     if (!d?.compte_reference_id || ugcScan) return;
     const handle = d.source?.handle_tiktok ?? "compte";
     const existants = await idsContenusParCompte(d.compte_reference_id);
     if (
       !window.confirm(
-        t("slideshows.ugcCompteConfirm", {
-          count: existants.length,
-          handle,
-        }),
+        t(
+          avecScan
+            ? "slideshows.ugcCompteConfirmScan"
+            : "slideshows.ugcCompteConfirm",
+          {
+            count: existants.length,
+            handle,
+          },
+        ),
       )
     ) {
       return;
     }
     const ids = await marquerUgcParCompte(d.compte_reference_id, true);
-    const mediaIds = await collecterMediaIdsContenus(ids);
-    await scannerMediasUgc(mediaIds);
+    setUgcLogs([
+      t("slideshows.ugcBulkMarque", { count: ids.length }),
+    ]);
+    void queryClient.invalidateQueries({ queryKey: ["slideshow", id] });
+    void queryClient.invalidateQueries({ queryKey: ["slideshows"] });
+    if (avecScan) {
+      const mediaIds = await collecterMediaIdsContenus(ids);
+      await scannerMediasUgc(mediaIds);
+    }
   }
 
-  async function lancerUgcLabel(labelId: string) {
+  async function lancerUgcLabel(labelId: string, avecScan: boolean) {
     if (!labelId || ugcScan) return;
     const nom =
       labelsTous.data?.find((l) => l.id === labelId)?.nom ??
@@ -779,14 +798,26 @@ function DetailSlideshow({
     const existants = await idsContenusParLabel(labelId);
     if (
       !window.confirm(
-        t("slideshows.ugcLabelConfirm", { count: existants.length, nom }),
+        t(
+          avecScan
+            ? "slideshows.ugcLabelConfirmScan"
+            : "slideshows.ugcLabelConfirm",
+          { count: existants.length, nom },
+        ),
       )
     ) {
       return;
     }
     const ids = await marquerUgcParLabel(labelId, true);
-    const mediaIds = await collecterMediaIdsContenus(ids);
-    await scannerMediasUgc(mediaIds);
+    setUgcLogs([
+      t("slideshows.ugcBulkMarque", { count: ids.length }),
+    ]);
+    void queryClient.invalidateQueries({ queryKey: ["slideshow", id] });
+    void queryClient.invalidateQueries({ queryKey: ["slideshows"] });
+    if (avecScan) {
+      const mediaIds = await collecterMediaIdsContenus(ids);
+      await scannerMediasUgc(mediaIds);
+    }
   }
 
   async function reimporterCeSlideshow() {
@@ -929,20 +960,34 @@ function DetailSlideshow({
               <p className="text-[11px] text-muted-foreground">{t("slideshows.ugcAide")}</p>
               <div className="flex flex-wrap gap-1.5">
                 {!d.ugc_compatible ? (
-                  <Button
-                    size="sm"
-                    className="h-7 text-xs"
-                    disabled={ugcScan !== null}
-                    onClick={() => void activerUgcCeSlideshow()}
-                  >
-                    <Check className="size-3" />
-                    {ugcScan
-                      ? t("slideshows.ugcScanLot", {
-                          fait: ugcScan.fait,
-                          total: ugcScan.total,
-                        })
-                      : t("slideshows.ugcActiver")}
-                  </Button>
+                  <>
+                    <Button
+                      size="sm"
+                      className="h-7 text-xs"
+                      disabled={ugcScan !== null}
+                      onClick={() => void activerUgcCeSlideshow(false)}
+                    >
+                      <Check className="size-3" />
+                      {t("slideshows.ugcActiver")}
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="h-7 text-xs"
+                      disabled={ugcScan !== null}
+                      onClick={() => void activerUgcCeSlideshow(true)}
+                    >
+                      <RefreshCw
+                        className={cn("size-3", ugcScan && "animate-spin")}
+                      />
+                      {ugcScan
+                        ? t("slideshows.ugcScanLot", {
+                            fait: ugcScan.fait,
+                            total: ugcScan.total,
+                          })
+                        : t("slideshows.ugcActiverEtScanner")}
+                    </Button>
+                  </>
                 ) : (
                   <>
                     <Button
@@ -978,15 +1023,27 @@ function DetailSlideshow({
                   </>
                 )}
                 {d.compte_reference_id && (
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="h-7 text-xs"
-                    disabled={ugcScan !== null}
-                    onClick={() => void lancerUgcCompte()}
-                  >
-                    {t("slideshows.ugcCompte")}
-                  </Button>
+                  <>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="h-7 text-xs"
+                      disabled={ugcScan !== null}
+                      onClick={() => void lancerUgcCompte(false)}
+                    >
+                      {t("slideshows.ugcCompte")}
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      className="h-7 text-xs"
+                      disabled={ugcScan !== null}
+                      onClick={() => void lancerUgcCompte(true)}
+                      title={t("slideshows.ugcCompteScanAide")}
+                    >
+                      {t("slideshows.ugcCompteScan")}
+                    </Button>
+                  </>
                 )}
               </div>
               <div className="flex flex-wrap items-center gap-1.5">
@@ -1015,9 +1072,19 @@ function DetailSlideshow({
                   variant="outline"
                   className="h-7 text-xs"
                   disabled={!labelUgcId || ugcScan !== null}
-                  onClick={() => void lancerUgcLabel(labelUgcId)}
+                  onClick={() => void lancerUgcLabel(labelUgcId, false)}
                 >
                   {t("slideshows.ugcLabel")}
+                </Button>
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  className="h-7 text-xs"
+                  disabled={!labelUgcId || ugcScan !== null}
+                  onClick={() => void lancerUgcLabel(labelUgcId, true)}
+                  title={t("slideshows.ugcLabelScanAide")}
+                >
+                  {t("slideshows.ugcLabelScan")}
                 </Button>
               </div>
               {ugcLogs.length > 0 && (

@@ -891,16 +891,29 @@ export const en = {
       ugcBadge: "UGC",
       ugcSection: "UGC checkmark",
       ugcAide:
-        "Mark this slideshow as UGC and scan each image (vision): human face in the foreground? Results are stored and editable.",
-      ugcActiver: "Mark UGC + scan",
+        "Mark this slideshow as UGC. Then: set Yes/No face per slide by hand, or run an optional AI vision scan.",
+      ugcActiver: "Mark UGC",
+      ugcActiverEtScanner: "Mark UGC + scan (AI)",
+      ugcMarqueManuel:
+        "UGC marked — set Yes/No face on slides, or run an AI scan.",
+      ugcMarquePuisScan: "UGC marked — starting vision scan…",
+      ugcBulkMarque: "{{count}} slideshow(s) marked UGC.",
       ugcDesactiver: "Remove UGC checkmark",
-      ugcRescan: "Rescan faces",
+      ugcRescan: "Scan faces (AI)",
       ugcCompte: "UGC entire account",
+      ugcCompteScan: "+ AI scan",
+      ugcCompteScanAide: "Mark UGC on the whole account then scan faces (AI)",
       ugcCompteConfirm:
-        "Mark UGC on {{count}} slideshow(s) from @{{handle}} and scan all their images?",
+        "Mark UGC on {{count}} slideshow(s) from @{{handle}}? (no AI scan — mark faces by hand)",
+      ugcCompteConfirmScan:
+        "Mark UGC on {{count}} slideshow(s) from @{{handle}} and scan all their images (AI)?",
       ugcLabel: "UGC entire label",
+      ugcLabelScan: "+ AI scan",
+      ugcLabelScanAide: "Mark UGC on the whole label then scan faces (AI)",
       ugcLabelConfirm:
-        "Mark UGC on all slideshows with label “{{nom}}” and scan their images?",
+        "Mark UGC on all slideshows with label “{{nom}}”? (no AI scan)",
+      ugcLabelConfirmScan:
+        "Mark UGC on all slideshows with label “{{nom}}” and scan their images (AI)?",
       ugcChoisirLabel: "Pick a label…",
       ugcScanDebut: "Vision scan {{count}} image(s) ({{pool}} in parallel)…",
       ugcScanLot: "UGC scan… {{fait}}/{{total}}",
@@ -910,7 +923,8 @@ export const en = {
       ugcVisageOui: "Yes",
       ugcVisageNon: "No",
       ugcVisageInconnu: "?",
-      ugcVisageAide: "Manually editable — stored in the database.",
+      ugcVisageAide:
+        "Yes = slide regenerated with the persona on assignment. Manually editable — no AI scan required.",
       filtreLabel: "Label",
       filtreLabelsTous: "All labels",
       filtreUgc: "UGC",

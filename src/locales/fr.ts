@@ -892,16 +892,29 @@ export const fr = {
       ugcBadge: "UGC",
       ugcSection: "Checkmark UGC",
       ugcAide:
-        "Marque ce slideshow UGC et scanne chaque image (vision) : visage humain au premier plan ? Résultats stockés et modifiables.",
-      ugcActiver: "Marquer UGC + scanner",
+        "Marque ce slideshow UGC. Ensuite : Oui/Non visage à la main sur chaque slide, ou scan vision IA optionnel.",
+      ugcActiver: "Marquer UGC",
+      ugcActiverEtScanner: "Marquer UGC + scanner (IA)",
+      ugcMarqueManuel:
+        "UGC marqué — indique Oui/Non visage sur les slides, ou lance un scan IA.",
+      ugcMarquePuisScan: "UGC marqué — lancement du scan vision…",
+      ugcBulkMarque: "{{count}} slideshow(s) marqué(s) UGC.",
       ugcDesactiver: "Retirer le checkmark UGC",
-      ugcRescan: "Rescanner les visages",
+      ugcRescan: "Scanner les visages (IA)",
       ugcCompte: "UGC tout le compte",
+      ugcCompteScan: "+ scan IA",
+      ugcCompteScanAide: "Marquer UGC tout le compte puis scanner les visages (IA)",
       ugcCompteConfirm:
-        "Marquer UGC les {{count}} slideshow(s) de @{{handle}} et scanner toutes leurs images ?",
+        "Marquer UGC les {{count}} slideshow(s) de @{{handle}} ? (sans scan IA — tu marques les visages à la main)",
+      ugcCompteConfirmScan:
+        "Marquer UGC les {{count}} slideshow(s) de @{{handle}} et scanner toutes leurs images (IA) ?",
       ugcLabel: "UGC tout le label",
+      ugcLabelScan: "+ scan IA",
+      ugcLabelScanAide: "Marquer UGC tout le label puis scanner les visages (IA)",
       ugcLabelConfirm:
-        "Marquer UGC tous les slideshows du label « {{nom}} » et scanner leurs images ?",
+        "Marquer UGC tous les slideshows du label « {{nom}} » ? (sans scan IA)",
+      ugcLabelConfirmScan:
+        "Marquer UGC tous les slideshows du label « {{nom}} » et scanner leurs images (IA) ?",
       ugcChoisirLabel: "Choisir un label…",
       ugcScanDebut: "Scan vision {{count}} image(s) ({{pool}} en parallèle)…",
       ugcScanLot: "Scan UGC… {{fait}}/{{total}}",
@@ -911,7 +924,8 @@ export const fr = {
       ugcVisageOui: "Oui",
       ugcVisageNon: "Non",
       ugcVisageInconnu: "?",
-      ugcVisageAide: "Corrigeable à la main — stocké en base.",
+      ugcVisageAide:
+        "Oui = slide régénérée avec le persona à l’assignation. Modifiable à la main — pas besoin de scan IA.",
       filtreLabel: "Label",
       filtreLabelsTous: "Tous les labels",
       filtreUgc: "UGC",

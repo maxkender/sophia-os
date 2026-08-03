@@ -241,7 +241,7 @@ export const en = {
     simUgcVideo: {
       title: "Test UGC AI VIDEO assignment",
       subtitle:
-        "Full pipeline for ONE UGC AI VIDEO creator: reaction → Nano Banana → Kling → concat utilisation → caption. Exact streamed logs.",
+        "Full pipeline for ONE UGC AI VIDEO creator: reaction → clean frame10 → Nano Banana → Kling → concat utilisation → caption. Exact streamed logs.",
       date: "Assignment date",
       compte: "UGC AI VIDEO creator",
       lancer: "Run test",
@@ -258,18 +258,18 @@ export const en = {
       annuleOk: "Rollback OK — {{posts}} test video(s) deleted.",
     },
     simUgcVideoFace: {
-      title: "UGC VIDEO test — steps 0–1 (face-ref)",
+      title: "UGC VIDEO test — through face-ref (0–2)",
       subtitle:
-        "Reaction + Nano Banana face-ref only. No Kling, concat, or caption.",
+        "Reaction → clean frame10 (classic text-removal) → Nano Banana face-ref. No Kling, concat, or caption.",
       date: "Assignment date",
       compte: "UGC AI VIDEO creator",
-      lancer: "Run steps 0–1",
-      enCours: "Nano Banana face-ref…",
+      lancer: "Run through face-ref",
+      enCours: "Clean + Nano Banana…",
       annuler: "Cancel test",
       annulerEnCours: "Cancelling…",
       annulerConfirm:
         "Delete this creator’s test videos for this date (storage + DB)?",
-      aide: "Step 0 = pick reaction (+ utilisation for the row). Step 1 = Nano Banana (frame 10 + persona). Stops once the face-ref photo is ready.",
+      aide: "0 = reaction (+ utilisation). 1 = classic text-removal on the 10th frame. 2 = Nano Banana (cleaned frame + persona). Stops once the face-ref photo is ready.",
       logs: "Exact logs",
       logsAttente: "Connecting to stream…",
       ok: "{{crees}} test face-ref(s) created.",

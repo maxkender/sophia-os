@@ -2,7 +2,7 @@
  * Assignation UGC AI VIDEO (reaction → NB → Kling → concat → caption).
  *
  *   {} | { date, compteId?, manuel?, test?, stream?, forcer?, jusquA? }
- *   jusquA: "face_ref" | "complet" (défaut) — "face_ref" = étapes 0–1 seulement
+ *   jusquA: "face_ref" | "complet" (défaut) — "face_ref" = jusqu'à Nano Banana (0–2)
  *   { action: "annuler_test", compteId, date }
  *
  * Stream NDJSON recommandé (Kling / merge > 150s idle).
@@ -95,14 +95,14 @@ Deno.serve(async (request) => {
           });
         const hbMsg =
           jusquA === "face_ref"
-            ? "… encore en cours (Nano Banana)"
+            ? "… encore en cours (nettoyage / Nano Banana)"
             : "… encore en cours (Kling / merge)";
         const hb = setInterval(() => log(hbMsg), 25_000);
         try {
           log(
             test
               ? `Assignation UGC AI VIDEO TEST · ${jour} · compte ${String(compteId).slice(0, 8)}${
-                  jusquA === "face_ref" ? " · jusqu'à face_ref (0–1)" : ""
+                  jusquA === "face_ref" ? " · jusqu'à face_ref (0–2)" : ""
                 }`
               : `Assignation UGC AI VIDEO · ${jour}${compteId ? ` · ${String(compteId).slice(0, 8)}` : " · tous"}`,
           );

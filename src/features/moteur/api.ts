@@ -3317,6 +3317,7 @@ export interface UgcVideoPostTest {
   caption: string | null;
   video_finale_url: string | null;
   image_ref_url: string | null;
+  frame_clean_url: string | null;
   pipeline_erreur: string | null;
   reaction_id: string;
   utilisation_id: string;
@@ -3449,7 +3450,7 @@ export async function listerUgcVideoPostsTest(
   const { data, error } = await supabase
     .from("ugc_video_posts")
     .select(
-      "id, statut, caption, video_finale_url, image_ref_url, pipeline_erreur, reaction_id, utilisation_id",
+      "id, statut, caption, video_finale_url, image_ref_url, frame_clean_url, pipeline_erreur, reaction_id, utilisation_id",
     )
     .eq("compte_id", compteId)
     .eq("date_publication_prevue", date)

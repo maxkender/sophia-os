@@ -1,19 +1,20 @@
 /**
  * Assignation UGC AI VIDEO (1 créateur / 1 slot) :
  *   0) Choisir reaction (même label, pas de re-use sauf fallback) + utilisation
- *   1) Nano Banana edit : frame10 + images persona → photo ref
- *   2) Kling motion-control : photo ref + vidéo reaction
- *   3) Concat Kling + utilisation (même label)
- *   4) Caption traduite (langue créateur) — pas de « Sophia »
+ *   1) Nettoyage frame10 (process classique Fal/Replicate text-removal + C2PA)
+ *   2) Nano Banana edit : frame10 nettoyée + images persona → photo ref
+ *   3) Kling motion-control : photo ref + vidéo reaction
+ *   4) Concat Kling + utilisation (même label)
+ *   5) Caption traduite (langue créateur) — pas de « Sophia »
  *
- * Option `jusquA: "face_ref"` : s'arrête après l'étape 1 (test Admin).
+ * Option `jusquA: "face_ref"` : s'arrête après Nano Banana (test Admin).
  */
 
 import { retirerContentCredentialsBytes } from "./c2pa.ts";
 import { editerNanoBananaPro } from "./fal_nano_banana.ts";
 import { klingMotionControl } from "./fal_kling_motion.ts";
 import { mergerVideosFal } from "./fal_merge_videos.ts";
-import { TEXT_MODELS } from "./gemini.ts";
+import { cleanImage, TEXT_MODELS } from "./gemini.ts";
 import { mapPool } from "./parallel.ts";
 import { chargerPrompt, serviceClient } from "./supabase.ts";
 
@@ -268,7 +269,7 @@ export async function assignerUgcVideoSlot(
   jour: string,
   opts: {
     test?: boolean;
-    /** Stop après Nano Banana (étapes 0–1). Défaut = pipeline complet. */
+    /** Stop après Nano Banana (étapes 0–2). Défaut = pipeline complet. */
     jusquA?: AssignationUgcVideoJusqua;
     onLog?: AssignationUgcVideoLog;
   } = {},
@@ -286,7 +287,7 @@ export async function assignerUgcVideoSlot(
     compte.persona_nom ?? compte.handle_tiktok ?? compte.id.slice(0, 8);
   log(
     `── Slot UGC AI VIDEO · ${nom} · jour=${jour}${opts.test ? " · TEST" : ""}${
-      jusquA === "face_ref" ? " · jusqu'à face_ref (0–1)" : ""
+      jusquA === "face_ref" ? " · jusqu'à face_ref (0–2)" : ""
     }`,
   );
 
@@ -335,19 +336,58 @@ export async function assignerUgcVideoSlot(
   log(`Post créé · ${postId.slice(0, 8)} · statut=running`);
 
   try {
-    // ── 1) Nano Banana ──────────────────────────────────────────────
+    const etapeTotal = jusquA === "face_ref" ? 2 : 5;
+
+    // ── 1) Nettoyage frame10 (process classique) ────────────────────
+    log(
+      `Étape 1/${etapeTotal} Nettoyage frame10 (text-removal classique Fal/Replicate)`,
+    );
+    const cleaned = await cleanImage(
+      reaction.first_frame_reference_url,
+      async (e) => {
+        if (e.detail) log(`  ${e.detail}`);
+      },
+    );
+    const cleanBytes = Uint8Array.from(atob(cleaned.base64), (c) =>
+      c.charCodeAt(0),
+    );
+    const cleanMime = cleaned.mime || "image/png";
+    const cleanExt = cleanMime.includes("jpeg") || cleanMime.includes("jpg")
+      ? "jpg"
+      : cleanMime.includes("webp")
+        ? "webp"
+        : "png";
+    const cleanPath = `ugc/video-posts/${postId}/frame10_clean.${cleanExt}`;
+    const frameCleanUrl = await uploader(
+      supabase,
+      cleanPath,
+      cleanBytes,
+      cleanMime,
+    );
+    await supabase
+      .from("ugc_video_posts")
+      .update({
+        frame_clean_path: cleanPath,
+        frame_clean_url: frameCleanUrl,
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", postId);
+    log(
+      `  Frame10 nettoyée · moteur=${cleaned.moteur} · ${cleanBytes.length} octets → ${cleanPath}`,
+    );
+
+    // ── 2) Nano Banana ──────────────────────────────────────────────
     const personaUrls = await chargerPersonaUrls(supabase, compte.ugc_persona_id);
     if (personaUrls.length === 0) {
       throw new Error("Persona sans images");
     }
-    const etapeTotal = jusquA === "face_ref" ? 1 : 4;
     log(
-      `Étape 1/${etapeTotal} Nano Banana · Figure1=frame10 · Figures2+=${personaUrls.length} persona`,
+      `Étape 2/${etapeTotal} Nano Banana · Figure1=frame10 nettoyée · Figures2+=${personaUrls.length} persona`,
     );
     const promptFace =
       (await chargerPrompt(supabase, "ugc_video_face_ref"))?.trim() ||
       PROMPT_FACE_DEFAUT;
-    const imageUrls = [reaction.first_frame_reference_url, ...personaUrls];
+    const imageUrls = [frameCleanUrl, ...personaUrls];
     const edit = await editerNanoBananaPro(
       imageUrls,
       promptFace,
@@ -391,16 +431,16 @@ export async function assignerUgcVideoSlot(
         })
         .eq("id", postId);
       log(
-        `── Terminé (étapes 0–1) · post ${postId.slice(0, 8)} statut=pret · face_ref seule`,
+        `── Terminé (étapes 0–2) · post ${postId.slice(0, 8)} statut=pret · face_ref seule`,
       );
       return { postId };
     }
 
-    // ── 2) Kling motion-control ─────────────────────────────────────
+    // ── 3) Kling motion-control ─────────────────────────────────────
     // Reactions admin = souvent WebM MediaRecorder → Kling 422 « Video format
     // is invalid ». klingMotionControl re-encode en MP4 H.264 avant l'appel.
     log(
-      `Étape 2/4 Kling motion-control · image=ref · video=reaction (${reaction.video_source_url.includes(".webm") ? "webm→mp4" : "mp4"})`,
+      `Étape 3/${etapeTotal} Kling motion-control · image=ref · video=reaction (${reaction.video_source_url.includes(".webm") ? "webm→mp4" : "mp4"})`,
     );
     const neg =
       (await chargerPrompt(supabase, "ugc_video_kling_negative"))?.trim() ||
@@ -440,8 +480,8 @@ export async function assignerUgcVideoSlot(
       .eq("id", postId);
     log(`  Kling OK · ${kling.bytes.length} octets → ${klingPath}`);
 
-    // ── 3) Concat utilisation ───────────────────────────────────────
-    log(`Étape 3/4 Concat Kling + utilisation (fal merge-videos)`);
+    // ── 4) Concat utilisation ───────────────────────────────────────
+    log(`Étape 4/${etapeTotal} Concat Kling + utilisation (fal merge-videos)`);
     const merged = await mergerVideosFal({
       videoUrls: [klingUrl, utilisation.video_url],
       onProgress: (p) => {
@@ -469,9 +509,9 @@ export async function assignerUgcVideoSlot(
       .eq("id", postId);
     log(`  Concat OK · ${merged.bytes.length} octets → ${finalePath}`);
 
-    // ── 4) Caption ──────────────────────────────────────────────────
+    // ── 5) Caption ──────────────────────────────────────────────────
     const langue = (compte.langue ?? "en").toLowerCase();
-    log(`Étape 4/4 Caption Gemini · langue=${langue}`);
+    log(`Étape 5/${etapeTotal} Caption Gemini · langue=${langue}`);
     const instrCaption =
       (await chargerPrompt(supabase, "ugc_video_caption"))?.trim() ||
       PROMPT_CAPTION_DEFAUT;
@@ -639,13 +679,20 @@ export async function annulerAssignationUgcVideoTest(
 ): Promise<{ posts: number }> {
   const { data } = await supabase
     .from("ugc_video_posts")
-    .select("id, image_ref_path, video_kling_path, video_finale_path")
+    .select(
+      "id, frame_clean_path, image_ref_path, video_kling_path, video_finale_path",
+    )
     .eq("compte_id", compteId)
     .eq("date_publication_prevue", jour)
     .eq("est_test", true);
 
   for (const p of data ?? []) {
-    const paths = [p.image_ref_path, p.video_kling_path, p.video_finale_path]
+    const paths = [
+      p.frame_clean_path,
+      p.image_ref_path,
+      p.video_kling_path,
+      p.video_finale_path,
+    ]
       .map((x) => String(x ?? "").trim())
       .filter(Boolean);
     if (paths.length) {

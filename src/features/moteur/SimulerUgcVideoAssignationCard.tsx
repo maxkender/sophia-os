@@ -200,13 +200,28 @@ export function SimulerUgcVideoAssignationCard({ mode = "complet" }: Props) {
                   <span className="font-medium">{p.statut}</span>
                   <span className="text-muted-foreground">{p.id.slice(0, 8)}</span>
                 </div>
-                {p.image_ref_url && (
-                  <img
-                    src={p.image_ref_url}
-                    alt=""
-                    className="max-h-40 rounded border object-contain"
-                  />
-                )}
+                <div className="flex flex-wrap gap-2">
+                  {p.frame_clean_url && (
+                    <div className="space-y-1">
+                      <p className="text-[10px] text-muted-foreground">frame10 clean</p>
+                      <img
+                        src={p.frame_clean_url}
+                        alt=""
+                        className="max-h-40 rounded border object-contain"
+                      />
+                    </div>
+                  )}
+                  {p.image_ref_url && (
+                    <div className="space-y-1">
+                      <p className="text-[10px] text-muted-foreground">face-ref</p>
+                      <img
+                        src={p.image_ref_url}
+                        alt=""
+                        className="max-h-40 rounded border object-contain"
+                      />
+                    </div>
+                  )}
+                </div>
                 {mode === "complet" && p.video_finale_url && (
                   <video
                     src={p.video_finale_url}

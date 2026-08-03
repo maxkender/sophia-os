@@ -17,13 +17,19 @@ import {
   type UgcReaction,
 } from "@/features/ugc/api";
 import {
-  CROP_PLEIN,
-  cropperVideo,
-  extraireFrameCroppee,
-  normaliserCrop,
-  type CropRect,
+  extraireFrameTrim,
+  normaliserTrim,
+  trimDepuisCrop,
+  trimmerVideo,
+  trimPlein,
+  type VideoTrim,
 } from "@/features/ugc/videoCrop";
-import { cn } from "@/lib/utils";
+
+function fmtSec(s: number) {
+  const m = Math.floor(s / 60);
+  const sec = s - m * 60;
+  return m > 0 ? `${m}:${sec.toFixed(1).padStart(4, "0")}` : `${sec.toFixed(1)}s`;
+}
 
 export function AdminUgcVideosPage() {
   const { t } = useTranslation();
@@ -37,11 +43,23 @@ export function AdminUgcVideosPage() {
   const [lien, setLien] = React.useState("");
   const [draft, setDraft] = React.useState<UgcReaction | null>(null);
   const [titre, setTitre] = React.useState("");
-  const [crop, setCrop] = React.useState<CropRect>(CROP_PLEIN);
+  const [dureeSec, setDureeSec] = React.useState(1);
+  const [trim, setTrim] = React.useState<VideoTrim>(trimPlein(1));
   const [progress, setProgress] = React.useState<string | null>(null);
   const [erreur, setErreur] = React.useState<string | null>(null);
   const [previewFrame, setPreviewFrame] = React.useState<string | null>(null);
   const [videoTextPreview, setVideoTextPreview] = React.useState<string | null>(null);
+
+  function appliquerDraft(r: UgcReaction, duree?: number) {
+    const d = duree ?? (r.duree_ms ? r.duree_ms / 1000 : 1);
+    setDraft(r);
+    setTitre(r.titre);
+    setDureeSec(d);
+    setTrim(trimDepuisCrop(r.crop, d));
+    setPreviewFrame(r.first_frame_reference_url);
+    setVideoTextPreview(r.video_text);
+    setLien(r.source_url);
+  }
 
   const importer = useMutation({
     mutationFn: () => importerReactionTikTok(lien.trim(), setProgress),
@@ -53,9 +71,8 @@ export function AdminUgcVideosPage() {
       setVideoTextPreview(null);
     },
     onSuccess: (r) => {
-      setDraft(r);
-      setTitre(r.titre);
-      setCrop(CROP_PLEIN);
+      const d = r.duree_ms ? r.duree_ms / 1000 : 1;
+      appliquerDraft(r, d);
       setProgress(null);
       void queryClient.invalidateQueries({ queryKey: ["ugc-reactions"] });
     },
@@ -68,12 +85,12 @@ export function AdminUgcVideosPage() {
   const finaliser = useMutation({
     mutationFn: async () => {
       if (!draft) throw new Error("Draft manquant");
-      const c = normaliserCrop(crop);
+      const tNorm = normaliserTrim(trim, dureeSec);
       setProgress(t("ugc.videos.cropEnCours"));
-      const cropped = await cropperVideo(draft.video_source_url, c, setProgress);
+      const cropped = await trimmerVideo(draft.video_source_url, tNorm, setProgress);
 
       setProgress(t("ugc.videos.frameEnCours"));
-      const frameBlob = await extraireFrameCroppee(draft.video_source_url, c, 10);
+      const frameBlob = await extraireFrameTrim(draft.video_source_url, tNorm, 10);
 
       const videoPath = `ugc/reactions/${draft.id}/crop.${cropped.ext}`;
       const framePath = `ugc/reactions/${draft.id}/first_frame_reference.jpg`;
@@ -96,7 +113,7 @@ export function AdminUgcVideosPage() {
         {
           id: draft.id,
           titre: titre.trim() || draft.titre,
-          crop: c,
+          crop: tNorm,
           videoPath: videoUp.path,
           videoUrl: videoUp.url,
           firstFramePath: frameUp.path,
@@ -190,10 +207,18 @@ export function AdminUgcVideosPage() {
                 />
               </div>
 
-              <CropEditor
+              <TrimEditor
                 videoUrl={draft.video_source_url}
-                crop={crop}
-                onChange={setCrop}
+                dureeSec={dureeSec}
+                trim={trim}
+                onDuree={(d) => {
+                  setDureeSec((prev) => {
+                    if (Math.abs(prev - d) < 0.05) return prev;
+                    setTrim((tr) => normaliserTrim(tr, d));
+                    return d;
+                  });
+                }}
+                onChange={setTrim}
                 disabled={busy}
               />
 
@@ -214,7 +239,7 @@ export function AdminUgcVideosPage() {
                   type="button"
                   variant="outline"
                   disabled={busy}
-                  onClick={() => setCrop(CROP_PLEIN)}
+                  onClick={() => setTrim(trimPlein(dureeSec))}
                 >
                   <Scissors />
                   {t("ugc.videos.resetCrop")}
@@ -327,14 +352,7 @@ export function AdminUgcVideosPage() {
                   variant="outline"
                   className="w-full text-xs"
                   disabled={busy}
-                  onClick={() => {
-                    setDraft(r);
-                    setTitre(r.titre);
-                    setCrop(r.crop ?? CROP_PLEIN);
-                    setPreviewFrame(r.first_frame_reference_url);
-                    setVideoTextPreview(r.video_text);
-                    setLien(r.source_url);
-                  }}
+                  onClick={() => appliquerDraft(r)}
                 >
                   {t("ugc.videos.rouvrir")}
                 </Button>
@@ -347,176 +365,141 @@ export function AdminUgcVideosPage() {
   );
 }
 
-function CropEditor({
+function TrimEditor({
   videoUrl,
-  crop,
+  dureeSec,
+  trim,
+  onDuree,
   onChange,
   disabled,
 }: {
   videoUrl: string;
-  crop: CropRect;
-  onChange: (c: CropRect) => void;
+  dureeSec: number;
+  trim: VideoTrim;
+  onDuree: (d: number) => void;
+  onChange: (t: VideoTrim) => void;
   disabled?: boolean;
 }) {
   const { t } = useTranslation();
-  const wrapRef = React.useRef<HTMLDivElement>(null);
   const videoRef = React.useRef<HTMLVideoElement>(null);
-  const drag = React.useRef<{
-    mode: "move" | "nw" | "ne" | "sw" | "se";
-    startX: number;
-    startY: number;
-    origin: CropRect;
-  } | null>(null);
+  const tNorm = normaliserTrim(trim, dureeSec);
+  const span = Math.max(0.05, tNorm.endSec - tNorm.startSec);
 
-  const c = normaliserCrop(crop);
-
-  function onPointerDown(
-    e: React.PointerEvent,
-    mode: "move" | "nw" | "ne" | "sw" | "se",
-  ) {
-    if (disabled) return;
-    e.preventDefault();
-    e.stopPropagation();
-    (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
-    drag.current = {
-      mode,
-      startX: e.clientX,
-      startY: e.clientY,
-      origin: { ...c },
+  React.useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    const onMeta = () => {
+      if (Number.isFinite(v.duration) && v.duration > 0) onDuree(v.duration);
     };
-  }
+    v.addEventListener("loadedmetadata", onMeta);
+    if (v.readyState >= 1) onMeta();
+    return () => v.removeEventListener("loadedmetadata", onMeta);
+  }, [videoUrl, onDuree]);
 
-  function onPointerMove(e: React.PointerEvent) {
-    if (!drag.current || disabled) return;
-    const el = wrapRef.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const dx = (e.clientX - drag.current.startX) / rect.width;
-    const dy = (e.clientY - drag.current.startY) / rect.height;
-    const o = drag.current.origin;
-
-    if (drag.current.mode === "move") {
-      onChange(
-        normaliserCrop({
-          x: o.x + dx,
-          y: o.y + dy,
-          w: o.w,
-          h: o.h,
-        }),
-      );
-      return;
-    }
-
-    let { x, y, w, h } = o;
-    if (drag.current.mode.includes("w")) {
-      const nx = clamp(o.x + dx);
-      w = o.w + (o.x - nx);
-      x = nx;
-    }
-    if (drag.current.mode.includes("e")) {
-      w = o.w + dx;
-    }
-    if (drag.current.mode.includes("n")) {
-      const ny = clamp(o.y + dy);
-      h = o.h + (o.y - ny);
-      y = ny;
-    }
-    if (drag.current.mode.includes("s")) {
-      h = o.h + dy;
-    }
-    onChange(normaliserCrop({ x, y, w, h }));
-  }
-
-  function onPointerUp() {
-    drag.current = null;
+  function previewSegment() {
+    const v = videoRef.current;
+    if (!v) return;
+    v.currentTime = tNorm.startSec;
+    void v.play();
+    const stopAt = tNorm.endSec;
+    const onTime = () => {
+      if (v.currentTime >= stopAt) {
+        v.pause();
+        v.removeEventListener("timeupdate", onTime);
+      }
+    };
+    v.addEventListener("timeupdate", onTime);
   }
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-3">
       <p className="text-xs text-muted-foreground">{t("ugc.videos.cropAide")}</p>
-      <div
-        ref={wrapRef}
-        className="relative mx-auto aspect-[9/16] max-h-[420px] w-full max-w-[240px] overflow-hidden rounded-lg border bg-black select-none"
-        onPointerMove={onPointerMove}
-        onPointerUp={onPointerUp}
-        onPointerLeave={onPointerUp}
-      >
-        <video
-          ref={videoRef}
-          src={videoUrl}
-          className="h-full w-full object-contain"
-          controls
-          playsInline
-          crossOrigin="anonymous"
-        />
-        {/* Overlay assombri hors crop */}
-        <div className="pointer-events-none absolute inset-0">
-          <div
-            className="absolute bg-black/50"
-            style={{ left: 0, top: 0, right: 0, height: `${c.y * 100}%` }}
-          />
-          <div
-            className="absolute bg-black/50"
-            style={{
-              left: 0,
-              top: `${(c.y + c.h) * 100}%`,
-              right: 0,
-              bottom: 0,
-            }}
-          />
-          <div
-            className="absolute bg-black/50"
-            style={{
-              left: 0,
-              top: `${c.y * 100}%`,
-              width: `${c.x * 100}%`,
-              height: `${c.h * 100}%`,
-            }}
-          />
-          <div
-            className="absolute bg-black/50"
-            style={{
-              left: `${(c.x + c.w) * 100}%`,
-              top: `${c.y * 100}%`,
-              right: 0,
-              height: `${c.h * 100}%`,
-            }}
-          />
+      <video
+        ref={videoRef}
+        src={videoUrl}
+        className="mx-auto max-h-[360px] w-full max-w-[240px] rounded-lg border bg-black object-contain"
+        controls
+        playsInline
+        crossOrigin="anonymous"
+      />
+
+      <div className="space-y-2">
+        <div className="flex items-center justify-between text-xs text-muted-foreground">
+          <span>
+            {t("ugc.videos.trimDebut")} · {fmtSec(tNorm.startSec)}
+          </span>
+          <span className="font-medium text-foreground">
+            {t("ugc.videos.trimDuree", { sec: span.toFixed(1) })}
+          </span>
+          <span>
+            {t("ugc.videos.trimFin")} · {fmtSec(tNorm.endSec)}
+          </span>
         </div>
-        <div
-          className={cn(
-            "absolute border-2 border-primary",
-            disabled ? "pointer-events-none" : "cursor-move",
-          )}
-          style={{
-            left: `${c.x * 100}%`,
-            top: `${c.y * 100}%`,
-            width: `${c.w * 100}%`,
-            height: `${c.h * 100}%`,
+
+        <Label className="text-xs">{t("ugc.videos.trimDebut")}</Label>
+        <input
+          type="range"
+          min={0}
+          max={Math.max(0.05, dureeSec - 0.05)}
+          step={0.05}
+          value={tNorm.startSec}
+          disabled={disabled}
+          className="w-full"
+          onChange={(e) => {
+            const startSec = Number(e.target.value);
+            onChange(
+              normaliserTrim(
+                { startSec, endSec: Math.max(startSec + 0.05, tNorm.endSec) },
+                dureeSec,
+              ),
+            );
+            if (videoRef.current) videoRef.current.currentTime = startSec;
           }}
-          onPointerDown={(e) => onPointerDown(e, "move")}
-        >
-          {(["nw", "ne", "sw", "se"] as const).map((corner) => (
-            <span
-              key={corner}
-              onPointerDown={(e) => onPointerDown(e, corner)}
-              className={cn(
-                "absolute size-3 rounded-sm bg-primary",
-                corner[0] === "n" ? "-top-1.5" : "-bottom-1.5",
-                corner[1] === "w" ? "-left-1.5" : "-right-1.5",
-                corner === "nw" || corner === "se" ? "cursor-nwse-resize" : "cursor-nesw-resize",
-              )}
-            />
-          ))}
+        />
+
+        <Label className="text-xs">{t("ugc.videos.trimFin")}</Label>
+        <input
+          type="range"
+          min={0.05}
+          max={dureeSec || 0.05}
+          step={0.05}
+          value={tNorm.endSec}
+          disabled={disabled}
+          className="w-full"
+          onChange={(e) => {
+            const endSec = Number(e.target.value);
+            onChange(
+              normaliserTrim(
+                { startSec: Math.min(tNorm.startSec, endSec - 0.05), endSec },
+                dureeSec,
+              ),
+            );
+            if (videoRef.current) videoRef.current.currentTime = endSec;
+          }}
+        />
+
+        {/* Timeline visuelle */}
+        <div className="relative h-3 overflow-hidden rounded-full bg-muted">
+          <div
+            className="absolute inset-y-0 bg-primary/80"
+            style={{
+              left: `${(tNorm.startSec / dureeSec) * 100}%`,
+              width: `${(span / dureeSec) * 100}%`,
+            }}
+          />
         </div>
+
+        <Button
+          type="button"
+          size="sm"
+          variant="outline"
+          className="h-7 text-xs"
+          disabled={disabled}
+          onClick={previewSegment}
+        >
+          {t("ugc.videos.trimPreview")}
+        </Button>
       </div>
-      <p className="text-center font-mono text-[10px] text-muted-foreground">
-        x={c.x.toFixed(2)} y={c.y.toFixed(2)} w={c.w.toFixed(2)} h={c.h.toFixed(2)}
-      </p>
     </div>
   );
-}
-
-function clamp(n: number) {
-  return Math.min(1, Math.max(0, n));
 }

@@ -36,7 +36,8 @@ export interface UgcReaction {
   video_source_url: string;
   video_path: string | null;
   video_url: string | null;
-  crop: { x: number; y: number; w: number; h: number } | null;
+  /** Trim durée : `{ startSec, endSec }` (pas un crop spatial). */
+  crop: { startSec: number; endSec: number } | null;
   first_frame_reference_path: string | null;
   first_frame_reference_url: string | null;
   video_text: string | null;

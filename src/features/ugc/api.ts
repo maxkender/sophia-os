@@ -5,7 +5,7 @@ import type {
   UgcPersonaDefaults,
   UgcReaction,
 } from "./types";
-import type { CropRect } from "./videoCrop";
+import type { VideoTrim } from "./videoCrop";
 
 export type { UgcAngle, UgcReaction };
 
@@ -375,7 +375,7 @@ export async function finaliserUgcReaction(
   input: {
     id: string;
     titre?: string;
-    crop: CropRect;
+    crop: VideoTrim;
     videoPath: string;
     videoUrl: string;
     firstFramePath: string;

@@ -2,8 +2,9 @@
  * Vidéos AI — reactions :
  *   { action: "import_tiktok", url, stream? }
  *   { action: "ocr_frame", imageUrl, stream? }
- *   { action: "finalize", id, titre?, crop?, videoPath, videoUrl,
- *                         firstFramePath, firstFrameUrl, videoText? }
+ *   { action: "finalize", id, titre?, crop?: { startSec, endSec },
+ *                         videoPath, videoUrl, firstFramePath, firstFrameUrl, videoText? }
+ *   crop = trim durée (pas spatial)
  *   { action: "list" }
  *   { action: "delete", id }
  */

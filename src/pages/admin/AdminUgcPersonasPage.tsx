@@ -216,7 +216,8 @@ export function AdminUgcPersonasPage() {
       });
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["ugc-personas"] });
+      void queryClient.invalidateQueries({ queryKey: ["ugc-personas"] });
+      void queryClient.invalidateQueries({ queryKey: ["ugc-persona-comptes"] });
       resetCreation();
     },
     onError: (e) => setErreur((e as Error).message),
@@ -224,7 +225,10 @@ export function AdminUgcPersonasPage() {
 
   const supprimer = useMutation({
     mutationFn: (id: string) => supprimerUgcPersona(id),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["ugc-personas"] }),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: ["ugc-personas"] });
+      void queryClient.invalidateQueries({ queryKey: ["ugc-persona-comptes"] });
+    },
   });
 
   async function regenererAnglePersona(persona: UgcPersona, angle: UgcAngle) {

@@ -5,6 +5,8 @@
  *   2) Kling motion-control : photo ref + vidéo reaction
  *   3) Concat Kling + utilisation (même label)
  *   4) Caption traduite (langue créateur) — pas de « Sophia »
+ *
+ * Option `jusquA: "face_ref"` : s'arrête après l'étape 1 (test Admin).
  */
 
 import { retirerContentCredentialsBytes } from "./c2pa.ts";

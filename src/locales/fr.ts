@@ -705,7 +705,7 @@ export const fr = {
     posters: {
       title: "Posters",
       subtitle:
-        "Crée les accès de tes freelances. Le poster devra choisir son propre mot de passe à sa première connexion.",
+        "Crée les accès de tes freelances. Identifiants : email généré + mot de passe affiché à la création. Filtre Phase → « Tous » pour voir les nouveaux (warmup pas encore démarré).",
       prenom: "Prénom",
       nom: "Nom",
       emailGenere: "Email généré",

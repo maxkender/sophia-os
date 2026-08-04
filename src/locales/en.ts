@@ -705,7 +705,7 @@ export const en = {
     posters: {
       title: "Posters",
       subtitle:
-        "Create access for your freelancers. The poster will choose their own password on first login.",
+        "Create access for your freelancers. Credentials: generated email + password shown at creation. Phase filter → “All” to see new ones (warmup not started yet).",
       prenom: "First name",
       nom: "Last name",
       emailGenere: "Generated email",

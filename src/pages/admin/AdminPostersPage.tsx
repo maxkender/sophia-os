@@ -400,7 +400,9 @@ export function AdminPostersPage() {
   });
 
   /** Défaut = actifs seulement (warmup / pas créé via le filtre Phase). */
-  const [filtrePhase, setFiltrePhase] = React.useState<"tous" | PhaseCreateur>("actif");
+  // Défaut « tous » : sinon les créateurs fraîchement créés (warmup pas
+  // démarré → phase warmup) disparaissent de la liste admin.
+  const [filtrePhase, setFiltrePhase] = React.useState<"tous" | PhaseCreateur>("tous");
   const [filtreLangue, setFiltreLangue] = React.useState("");
   const [filtreLabel, setFiltreLabel] = React.useState("");
 

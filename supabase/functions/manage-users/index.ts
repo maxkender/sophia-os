@@ -232,10 +232,17 @@ async function gererRequete(request: Request): Promise<Response> {
     }
 
     if (data.user) {
-      await supabase
+      const { error: errProfil } = await supabase
         .from("profiles")
         .update({ prenom, nom: nom || null, is_active: true, must_change_password: false })
         .eq("id", data.user.id);
+      if (errProfil) {
+        if (fileItemQueue) await unshiftLabelFile(supabase, fileItemQueue);
+        return json(
+          { error: `Profil non activé: ${errProfil.message}` },
+          500,
+        );
+      }
 
       if (roleVoulu === "hiring_manager") {
         await supabase.from("user_roles").delete().eq("user_id", data.user.id);
@@ -249,16 +256,29 @@ async function gererRequete(request: Request): Promise<Response> {
           patchHm.nationalite = ensemble[0];
           patchHm.langues = ensemble;
         }
-        await supabase.from("profiles").update(patchHm).eq("id", data.user.id);
+        const { error: errHm } = await supabase
+          .from("profiles")
+          .update(patchHm)
+          .eq("id", data.user.id);
+        if (errHm) {
+          return json({ error: `Profil HM: ${errHm.message}` }, 500);
+        }
         if (hmVideo) {
           const labelIds = normaliserIds(body.ugc_ai_video_label_ids);
           await remplacerHmUgcVideoLabels(supabase, data.user.id, labelIds);
         }
       } else if (acces.role === "hiring_manager" && acces.userId !== "cron") {
-        await supabase
+        const { error: errMgr } = await supabase
           .from("profiles")
           .update({ manager_id: acces.userId })
           .eq("id", data.user.id);
+        if (errMgr) {
+          if (fileItemQueue) await unshiftLabelFile(supabase, fileItemQueue);
+          return json(
+            { error: `Rattachement recruteur: ${errMgr.message}` },
+            500,
+          );
+        }
       }
     }
 
@@ -811,14 +831,9 @@ async function preparerCompte(
     .single();
   if (error || !compte) {
     if (aRestaurer) await unshiftLabelFile(supabase, aRestaurer);
-    return {
-      id: "",
-      reference: referenceId,
-      persona: false,
-      labelId,
-      ugc,
-      ugc_ai_video: ugcAiVideo,
-    };
+    throw new Error(
+      `Création compte publication: ${error?.message ?? "insert vide"}`,
+    );
   }
 
   let labelNom: string | null = null;

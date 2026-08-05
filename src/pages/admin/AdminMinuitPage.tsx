@@ -22,6 +22,7 @@ import {
   lancerAssignationJour,
   lancerAssignationJourLive,
   lancerRattrapageEloLive,
+  lireMinuitDernierRun,
   lireReglages,
   suiviAssignation,
   type RattrapageEloBrief,
@@ -349,6 +350,10 @@ export function AdminMinuitPage() {
   });
 
   const reglages = useQuery({ queryKey: ["reglages"], queryFn: lireReglages });
+  const dernierRun = useQuery({
+    queryKey: ["minuit-dernier-run"],
+    queryFn: lireMinuitDernierRun,
+  });
   const autoEnPause = reglages.data?.assignation_auto.actif === false;
   const vnextInactif = reglages.data?.moteur_vnext.actif === false;
   const [detailIncompletsOuvert, setDetailIncompletsOuvert] = React.useState(false);
@@ -456,6 +461,7 @@ export function AdminMinuitPage() {
       setPhaseRelance("idle");
       setEloLive((prev) => ({ ...prev, progress: null }));
       void queryClient.invalidateQueries({ queryKey: ["suivi-minuit", date] });
+      void queryClient.invalidateQueries({ queryKey: ["minuit-dernier-run"] });
       invaliderApresElo();
     },
     onError: (err) => {
@@ -625,20 +631,43 @@ export function AdminMinuitPage() {
 
           {relancer.isSuccess && (() => {
             const crees = relancer.data.resultats.reduce((n, r) => n + r.crees, 0);
+            const detailQuotas =
+              relancer.data.avertissement ??
+              (relancer.data.quotasBaisses?.length
+                ? relancer.data.quotasBaisses
+                    .map((q) => `${q.nom} ${q.avant}→${q.apres}`)
+                    .join(" · ")
+                : null);
             return (
-              <div
-                className={
-                  crees === 0
-                    ? "rounded-md bg-warning/10 p-3 text-sm text-warning"
-                    : "rounded-md bg-success/10 p-3 text-sm text-success"
-                }
-              >
-                {crees === 0
-                  ? t("minuit.lanceZero")
-                  : t("minuit.lance", { crees })}
+              <div className="space-y-2">
+                <div
+                  className={
+                    crees === 0
+                      ? "rounded-md bg-warning/10 p-3 text-sm text-warning"
+                      : "rounded-md bg-success/10 p-3 text-sm text-success"
+                  }
+                >
+                  {crees === 0
+                    ? t("minuit.lanceZero")
+                    : t("minuit.lance", { crees })}
+                </div>
+                {detailQuotas && (
+                  <div className="rounded-md bg-warning/10 p-3 text-sm text-warning">
+                    {t("minuit.quotasBaisses", { detail: detailQuotas })}
+                  </div>
+                )}
               </div>
             );
           })()}
+          {!relancer.isSuccess &&
+            dernierRun.data?.avertissement &&
+            dernierRun.data.jour === date && (
+              <div className="rounded-md bg-warning/10 p-3 text-sm text-warning">
+                {t("minuit.quotasBaissesDernier", {
+                  detail: dernierRun.data.avertissement,
+                })}
+              </div>
+            )}
           {relancer.isError && (
             <div className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">
               {(relancer.error as Error).message}

@@ -1,6 +1,7 @@
 import {
   annulerAssignationTest,
   assignerTousComptes,
+  type AssignationCompteResultat,
 } from "../_shared/assignation_contenu.ts";
 import { reponseNdjson, veutStream } from "../_shared/nettoyage_etapes.ts";
 import {
@@ -118,10 +119,22 @@ Deno.serve(async (request) => {
             onLog: log,
           });
           const crees = resultats.reduce((n, r) => n + (r.crees ?? 0), 0);
+          const quotasBaisses = synthetiserQuotasBaisses(resultats);
+          const avertissement =
+            quotasBaisses.length > 0
+              ? `Lowered quota (${quotasBaisses.length}) — pool trop mince : ` +
+                quotasBaisses
+                  .map((q) => `${q.nom} ${q.avant}→${q.apres}`)
+                  .join(" · ")
+              : undefined;
+          if (!test && quotasBaisses.length > 0) {
+            await persisterQuotasBaisses(supabase, jour, resultats, quotasBaisses, avertissement);
+          }
           const detail =
-            crees > 0
+            avertissement ??
+            (crees > 0
               ? `Terminé — ${crees} passage(s)`
-              : resultats[0]?.erreur ?? resultats[0]?.raison ?? "Aucun passage créé";
+              : resultats[0]?.erreur ?? resultats[0]?.raison ?? "Aucun passage créé");
           emit({
             etape: "ready",
             statut: resultats.some((r) => r.erreur) && crees === 0 ? "echec" : "ok",
@@ -130,6 +143,8 @@ Deno.serve(async (request) => {
             resultats,
             test,
             detail,
+            quotasBaisses,
+            avertissement,
           });
         } finally {
           clearInterval(hb);
@@ -138,8 +153,66 @@ Deno.serve(async (request) => {
     }
 
     const resultats = await assignerTousComptes(supabase, jour, compteId, opts);
-    return json({ ok: true, jour, resultats, test });
+    const quotasBaisses = synthetiserQuotasBaisses(resultats);
+    const avertissement =
+      quotasBaisses.length > 0
+        ? `Lowered quota (${quotasBaisses.length}) — pool trop mince : ` +
+          quotasBaisses.map((q) => `${q.nom} ${q.avant}→${q.apres}`).join(" · ")
+        : undefined;
+    if (!test && quotasBaisses.length > 0) {
+      await persisterQuotasBaisses(supabase, jour, resultats, quotasBaisses, avertissement);
+    }
+    return json({
+      ok: true,
+      jour,
+      resultats,
+      test,
+      quotasBaisses,
+      avertissement,
+    });
   } catch (error) {
     return json({ ok: false, error: messageErreur(error) }, 500);
   }
 });
+
+function synthetiserQuotasBaisses(
+  resultats: AssignationCompteResultat[],
+): Array<{ compteId: string; nom: string; avant: number; apres: number; raison: string }> {
+  return resultats
+    .filter((r) => r.quotaBaisse)
+    .map((r) => ({
+      compteId: r.compteId,
+      nom: r.quotaBaisse!.nom ?? r.compteId.slice(0, 8),
+      avant: r.quotaBaisse!.avant,
+      apres: r.quotaBaisse!.apres,
+      raison: r.quotaBaisse!.raison,
+    }));
+}
+
+async function persisterQuotasBaisses(
+  supabase: ReturnType<typeof serviceClient>,
+  jour: string,
+  resultats: AssignationCompteResultat[],
+  quotasBaisses: Array<{
+    compteId: string;
+    nom: string;
+    avant: number;
+    apres: number;
+    raison: string;
+  }>,
+  avertissement: string | undefined,
+): Promise<void> {
+  await supabase.from("reglages").upsert(
+    {
+      cle: "minuit_dernier_run",
+      valeur: {
+        jour,
+        at: new Date().toISOString(),
+        avertissement: avertissement ?? null,
+        quotasBaisses,
+        crees: resultats.reduce((n, r) => n + (r.crees ?? 0), 0),
+      },
+    },
+    { onConflict: "cle" },
+  );
+}

@@ -376,6 +376,10 @@ export const en = {
       lance: "ELO then assignment: {{crees}} passage(s) created. Decks already translated + Sophia — the tracker refreshes on its own.",
       lanceZero:
         "No passage created — empty pool (labels / slideshows / language ELO). See detail below.",
+      quotasBaisses:
+        "Lowered quota — thin pool: {{detail}}",
+      quotasBaissesDernier:
+        "Last midnight run: lowered quota — {{detail}}",
       erreursAssignation: "Accounts not assigned:",
       prets: "Passages ready",
       enCoursLabel: "In progress",
@@ -1103,6 +1107,8 @@ export const en = {
       totalInvalide: "The total must be 100 %.",
       frequence: "Frequency",
       postsParJour: "Posts per day (global default)",
+      postsParJourZero:
+        "0 — auto-lowered by midnight (thin pool). Set back to 1–3 to resume.",
       semaine1: "Launch week",
       semaine1Actif: "Enable the rule",
       semaine1Jours: "Duration (days)",

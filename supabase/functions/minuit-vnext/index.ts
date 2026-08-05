@@ -1,4 +1,7 @@
-import { assignerTousComptes } from "../_shared/assignation_contenu.ts";
+import {
+  assignerTousComptes,
+  type AssignationCompteResultat,
+} from "../_shared/assignation_contenu.ts";
 import { kickAssignationUgcVideo } from "../_shared/assignation_ugc_video.ts";
 import { scrapeStats } from "../_shared/apify.ts";
 import { rattrapageElo, snapshotVuesGlobales } from "../_shared/rattrapage_elo.ts";
@@ -119,11 +122,35 @@ Deno.serve(async (request) => {
       });
     }
     if (etapes.includes("assignation")) {
-      out.assignation = await assignerTousComptes(
+      const resultats = await assignerTousComptes(
         supabase,
         jour,
         compteId,
         Boolean(body?.forcerAssignation),
+      );
+      out.assignation = resultats;
+      const quotasBaisses = synthetiserQuotasBaisses(resultats);
+      if (quotasBaisses.length > 0) {
+        out.quotasBaisses = quotasBaisses;
+        out.avertissement =
+          `Lowered quota (${quotasBaisses.length}) — pool trop mince : ` +
+          quotasBaisses
+            .map((q) => `${q.nom} ${q.avant}→${q.apres}`)
+            .join(" · ");
+      }
+      // Persisté pour l'UI Minuit (cron sans observateur).
+      await supabase.from("reglages").upsert(
+        {
+          cle: "minuit_dernier_run",
+          valeur: {
+            jour,
+            at: new Date().toISOString(),
+            avertissement: (out.avertissement as string | undefined) ?? null,
+            quotasBaisses,
+            crees: resultats.reduce((n, r) => n + (r.crees ?? 0), 0),
+          },
+        },
+        { onConflict: "cle" },
       );
     }
     if (etapes.includes("upscale")) {
@@ -168,6 +195,20 @@ Deno.serve(async (request) => {
     return json({ ok: false, error: messageErreur(error) }, 500);
   }
 });
+
+function synthetiserQuotasBaisses(
+  resultats: AssignationCompteResultat[],
+): Array<{ compteId: string; nom: string; avant: number; apres: number; raison: string }> {
+  return resultats
+    .filter((r) => r.quotaBaisse)
+    .map((r) => ({
+      compteId: r.compteId,
+      nom: r.quotaBaisse!.nom ?? r.compteId.slice(0, 8),
+      avant: r.quotaBaisse!.avant,
+      apres: r.quotaBaisse!.apres,
+      raison: r.quotaBaisse!.raison,
+    }));
+}
 
 async function releverPassages(
   supabase: Supabase,

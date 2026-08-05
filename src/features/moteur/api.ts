@@ -2319,6 +2319,29 @@ export async function ecrireReglage(cle: string, valeur: unknown): Promise<void>
   if (error) throw error;
 }
 
+/** Dernier run minuit / Relancer — avertissements quotas baissés. */
+export async function lireMinuitDernierRun(): Promise<{
+  jour?: string;
+  at?: string;
+  avertissement?: string | null;
+  quotasBaisses?: QuotaBaisseResultat[];
+  crees?: number;
+} | null> {
+  const { data, error } = await supabase
+    .from("reglages")
+    .select("valeur")
+    .eq("cle", "minuit_dernier_run")
+    .maybeSingle();
+  if (error) throw error;
+  return (data?.valeur as {
+    jour?: string;
+    at?: string;
+    avertissement?: string | null;
+    quotasBaisses?: QuotaBaisseResultat[];
+    crees?: number;
+  } | null) ?? null;
+}
+
 export async function lirePrompt(cle: string): Promise<string> {
   const { data } = await supabase
     .from("prompts")
@@ -3146,21 +3169,39 @@ export const lancerAssignation = (
 /** Assignation du jour (v-next) : labels ∩ + score → passages (+ pont posts).
  *  Contourne la pause auto via `manuel`. Appelle `assignation` (cutover côté Edge
  *  — plus de recycle). Quota = posts_par_jour du compte (1–3). */
-export const lancerAssignationJour = (date: string, compteId?: string) =>
-  invoke<{
-    ok?: boolean;
-    jour: string;
-    resultats: Array<{
-      compteId: string;
-      crees: number;
-      passageIds?: string[];
-      types?: string[];
-      erreur?: string;
-      raison?: string;
-    }>;
-    saute?: boolean;
+export type QuotaBaisseResultat = {
+  compteId: string;
+  nom: string;
+  avant: number;
+  apres: number;
+  raison: string;
+};
+
+export type AssignationJourResultat = {
+  ok?: boolean;
+  jour: string;
+  resultats: Array<{
+    compteId: string;
+    crees: number;
+    passageIds?: string[];
+    types?: string[];
+    erreur?: string;
     raison?: string;
-  }>("assignation", {
+    quotaBaisse?: {
+      avant: number;
+      apres: number;
+      raison: string;
+      nom?: string;
+    };
+  }>;
+  quotasBaisses?: QuotaBaisseResultat[];
+  avertissement?: string;
+  saute?: boolean;
+  raison?: string;
+};
+
+export const lancerAssignationJour = (date: string, compteId?: string) =>
+  invoke<AssignationJourResultat>("assignation", {
     date,
     manuel: true,
     compteId: compteId ?? null,
@@ -3460,8 +3501,6 @@ export async function listerUgcVideoPostsTest(
   return (data ?? []) as UgcVideoPostTest[];
 }
 
-export type AssignationJourResultat = Awaited<ReturnType<typeof lancerAssignationJour>>;
-
 /**
  * Assignation compte-par-compte (évite timeout Edge 150s sur Relancer).
  * Continue même si un compte échoue / timeout.
@@ -3517,7 +3556,22 @@ export async function lancerAssignationJourLive(
     }
   }
 
-  return { ok: true, jour: date, resultats };
+  const quotasBaisses: QuotaBaisseResultat[] = resultats
+    .filter((r) => r.quotaBaisse)
+    .map((r) => ({
+      compteId: r.compteId,
+      nom: r.quotaBaisse!.nom ?? r.compteId.slice(0, 8),
+      avant: r.quotaBaisse!.avant,
+      apres: r.quotaBaisse!.apres,
+      raison: r.quotaBaisse!.raison,
+    }));
+  const avertissement =
+    quotasBaisses.length > 0
+      ? `Lowered quota (${quotasBaisses.length}) — pool trop mince : ` +
+        quotasBaisses.map((q) => `${q.nom} ${q.avant}→${q.apres}`).join(" · ")
+      : undefined;
+
+  return { ok: true, jour: date, resultats, quotasBaisses, avertissement };
 }
 
 /** Une ligne de suivi « minuit » : un compte actif, son quota du jour, et les
@@ -3692,8 +3746,8 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
 
   return (
     `Pool « ${labelsTxt} » × ${langue.toUpperCase()} trop mince ou déjà tout assigné ` +
-    `(${nLangue} candidat(s) ELO) — importe / labellise d'autres slideshows, ` +
-    `ou baisse le quota du créateur.`
+    `(${nLangue} candidat(s) ELO) — importe / labellise d'autres slideshows ` +
+    `(sinon minuit baisse automatiquement le quota du créateur).`
   );
 }
 

@@ -376,6 +376,10 @@ export const fr = {
       lance: "ELO puis assignation : {{crees}} passage(s) créé(s). Decks déjà traduits + Sophia — le suivi se met à jour tout seul.",
       lanceZero:
         "Aucun passage créé — pool vide (labels / slideshows / langue ELO). Voir le détail ci-dessous.",
+      quotasBaisses:
+        "Lowered quota — pool trop mince : {{detail}}",
+      quotasBaissesDernier:
+        "Dernier run minuit : lowered quota — {{detail}}",
       erreursAssignation: "Comptes non assignés :",
       prets: "Passages prêts",
       enCoursLabel: "En cours",
@@ -1104,6 +1108,8 @@ export const fr = {
       totalInvalide: "Le total doit faire 100 %.",
       frequence: "Fréquence",
       postsParJour: "Posts par jour (défaut global)",
+      postsParJourZero:
+        "0 — baissé auto par minuit (pool trop mince). Remonte à 1–3 pour réactiver.",
       semaine1: "Semaine de lancement",
       semaine1Actif: "Activer la règle",
       semaine1Jours: "Durée (jours)",

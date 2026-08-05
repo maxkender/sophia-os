@@ -86,10 +86,19 @@ export function echantillonnerTopK(
   return slice[slice.length - 1];
 }
 
+export interface QuotaBaisse {
+  avant: number;
+  apres: number;
+  /** Diagnostic pool qui a déclenché la baisse. */
+  raison: string;
+}
+
 export interface AssignationCompteDetail {
   ids: string[];
   /** Motif si rien (ou pas assez) n'a pu être créé — pour l'UI admin. */
   raison?: string;
+  /** Quota posts_par_jour baissé pour coller au pool disponible. */
+  quotaBaisse?: QuotaBaisse;
 }
 
 /** Options d'assignation (test admin = posts invisibles + rollback). */
@@ -174,7 +183,12 @@ export async function assignerCompteJour(
   };
 
   const brut = Number(compte.posts_par_jour ?? reglages.postsParJour ?? 1);
-  const quota = Math.min(3, Math.max(1, Number.isFinite(brut) ? brut : 1));
+  // 0 autorisé (fallback pool mince) → skip ; sinon clamp 1–3 (défaut 1).
+  const quota = !Number.isFinite(brut)
+    ? 1
+    : brut <= 0
+      ? 0
+      : Math.min(3, Math.max(1, brut));
   const langue: string = compte.langue ?? "fr";
   const ugcAiVideo = Boolean(compte.ugc_ai_video);
   const ugcAi = Boolean(compte.ugc_ai) && !ugcAiVideo;
@@ -190,6 +204,15 @@ export async function assignerCompteJour(
     return {
       ids: [],
       raison: "Compte UGC AI VIDEO — hors assignation slideshow.",
+    };
+  }
+
+  if (quota <= 0) {
+    log(`Compte ${nomCompte} · quota=0 — skip`);
+    return {
+      ids: [],
+      raison:
+        "Quota 0 — pas d'assignation (pool trop mince précédemment ; remonte posts/jour).",
     };
   }
 
@@ -260,12 +283,27 @@ export async function assignerCompteJour(
   const labelNoms = (labelsCompte ?? [])
     .map((l: any) => l.labels?.nom as string | undefined)
     .filter(Boolean) as string[];
-  // Sans labels : impossible d'intersecter → compte vide ce jour.
+  // Sans labels : impossible d'intersecter → baisse le quota à ce qui est déjà là.
   if (labelIds.length === 0) {
     log("Échec : aucun label sur le compte");
+    const diag =
+      "Aucun label sur ce compte — ajoute un label (Bibliothèque / Compte) pour piocher.";
+    const quotaBaisse = await baisserQuotaSiBesoin(
+      supabase,
+      compte.id as string,
+      quota,
+      dejaLa,
+      diag,
+      estTest,
+      forcer,
+      log,
+    );
     return {
       ids: [],
-      raison: "Aucun label sur ce compte — ajoute un label (Bibliothèque / Compte) pour piocher.",
+      raison: quotaBaisse
+        ? `Lowered quota ${quotaBaisse.avant}→${quotaBaisse.apres} — ${diag}`
+        : diag,
+      quotaBaisse,
     };
   }
   log(`Labels : ${labelNoms.length ? labelNoms.join(", ") : `${labelIds.length} id(s)`}`);
@@ -400,14 +438,81 @@ export async function assignerCompteJour(
       ignorerElo,
     );
     log(diag);
-    if (crees.length === 0) return { ids: [], raison: diag };
+
+    // Fallback : baisser posts_par_jour au nombre réellement assigné aujourd'hui
+    // (0–quota) pour que le jour ne reste pas « incomplet » faute de pool.
+    const totalAssignes = dejaLa + crees.length;
+    const quotaBaisse = estRaisonPoolPourBaisseQuota(diag)
+      ? await baisserQuotaSiBesoin(
+        supabase,
+        compte.id as string,
+        quota,
+        totalAssignes,
+        diag,
+        estTest,
+        forcer,
+        log,
+      )
+      : undefined;
+
+    const quotaEffectif = quotaBaisse?.apres ?? quota;
+    if (totalAssignes >= quotaEffectif) {
+      return {
+        ids: crees,
+        quotaBaisse,
+        raison: quotaBaisse
+          ? `Lowered quota ${quotaBaisse.avant}→${quotaBaisse.apres} — pool trop mince / déjà assigné.`
+          : undefined,
+      };
+    }
+    if (crees.length === 0) {
+      return { ids: [], raison: diag, quotaBaisse };
+    }
     return {
       ids: crees,
-      raison: `${crees}/${manquants} créé(s). ${diag}`,
+      raison: `${crees.length}/${manquants} créé(s). ${diag}`,
+      quotaBaisse,
     };
   }
   log(`Terminé : ${crees.length} passage(s)`);
   return { ids: crees };
+}
+
+/** Pool labels×langue trop mince / épuisé → candidat au fallback baisse de quota. */
+function estRaisonPoolPourBaisseQuota(diag: string): boolean {
+  return (
+    /trop mince|épuisé|déjà tout assigné|importe \/ labellise/i.test(diag) ||
+    /aucun éligible|pas de ligne ELO|pas de score ELO/i.test(diag) ||
+    /aucun valide \+ import/i.test(diag) ||
+    /Aucun slideshow tagué/i.test(diag) ||
+    /Aucun label sur ce compte/i.test(diag)
+  );
+}
+
+/** Aligne posts_par_jour sur le nombre de posts réellement assignés ce jour. */
+async function baisserQuotaSiBesoin(
+  supabase: Supabase,
+  compteId: string,
+  quota: number,
+  totalAssignes: number,
+  diag: string,
+  estTest: boolean,
+  forcer: boolean,
+  log: (detail: string) => void,
+): Promise<QuotaBaisse | undefined> {
+  if (estTest || forcer || totalAssignes >= quota) return undefined;
+  const apres = Math.min(3, Math.max(0, totalAssignes));
+  if (apres >= quota) return undefined;
+  const { error: errQ } = await supabase
+    .from("comptes")
+    .update({ posts_par_jour: apres })
+    .eq("id", compteId);
+  if (errQ) {
+    log(`Quota non baissé : ${errQ.message}`);
+    return undefined;
+  }
+  log(`Quota baissé ${quota}→${apres} (pool trop mince)`);
+  return { avant: quota, apres, raison: diag };
 }
 
 /** Explique pourquoi le pool labels ∩ langue est vide / trop petit. */
@@ -467,8 +572,9 @@ async function diagnostiquerPoolVide(
   }
 
   return (
-    `Pool « ${labelsTxt} » × ${langue.toUpperCase()} épuisé ou déjà tout assigné ` +
-    `(${nLangue} candidat(s) ELO) — importe / labellise d'autres slideshows.`
+    `Pool « ${labelsTxt} » × ${langue.toUpperCase()} trop mince ou déjà tout assigné ` +
+    `(${nLangue} candidat(s) ELO) — importe / labellise d'autres slideshows ` +
+    `(sinon minuit baisse le quota du créateur).`
   );
 }
 
@@ -716,20 +822,21 @@ async function choisirContenu(
 }
 
 /** Assigne tous les comptes actifs pour un jour. */
+export type AssignationCompteResultat = {
+  compteId: string;
+  crees: number;
+  passageIds?: string[];
+  erreur?: string;
+  raison?: string;
+  quotaBaisse?: QuotaBaisse & { nom?: string };
+};
+
 export async function assignerTousComptes(
   supabase: Supabase,
   jour: string,
   compteId: string | null = null,
   opts: AssignationOpts | boolean = {},
-): Promise<
-  Array<{
-    compteId: string;
-    crees: number;
-    passageIds?: string[];
-    erreur?: string;
-    raison?: string;
-  }>
-> {
+): Promise<AssignationCompteResultat[]> {
   const o: AssignationOpts = typeof opts === "boolean" ? { forcer: opts } : (opts ?? {});
   const reglages = await chargerAssignationReglages(supabase);
   let query = supabase.from("comptes").select("*").eq("is_active", true);
@@ -751,6 +858,10 @@ export async function assignerTousComptes(
   });
 
   return await mapPool(comptes, LARGEUR_ASSIGNATION, async (compte) => {
+    const nom =
+      (compte.persona_nom as string | null) ??
+      (compte.handle_tiktok as string | null) ??
+      String(compte.id).slice(0, 8);
     try {
       const detail = await assignerCompteJour(supabase, compte, jour, reglages, o);
       return {
@@ -758,6 +869,9 @@ export async function assignerTousComptes(
         crees: detail.ids.length,
         passageIds: detail.ids,
         raison: detail.raison,
+        quotaBaisse: detail.quotaBaisse
+          ? { ...detail.quotaBaisse, nom }
+          : undefined,
       };
     } catch (e) {
       return {

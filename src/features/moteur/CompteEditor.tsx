@@ -270,11 +270,12 @@ function UgcAiCompte({ compte }: { compte: CompteAvecDetails }) {
   );
 }
 
-/** Quota d'assignation du jour (1–3). Enregistré dès le clic. */
+/** Quota d'assignation du jour (1–3). 0 = auto-baissé par minuit (pool mince). */
 export function PostsParJourCompte({ compte }: { compte: CompteAvecDetails }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
-  const valeur = Math.min(3, Math.max(1, Number(compte.posts_par_jour) || 1));
+  const brut = Number(compte.posts_par_jour);
+  const valeur = Number.isFinite(brut) ? Math.min(3, Math.max(0, brut)) : 1;
 
   const maj = useMutation({
     mutationFn: (n: number) => majCompte(compte.id, { posts_par_jour: n }),
@@ -301,6 +302,11 @@ export function PostsParJourCompte({ compte }: { compte: CompteAvecDetails }) {
           </button>
         ))}
       </div>
+      {valeur === 0 && (
+        <span className="text-xs text-warning">
+          {t("reglages.postsParJourZero")}
+        </span>
+      )}
     </div>
   );
 }

@@ -38,7 +38,30 @@ const NOM_LANGUE: Record<string, string> = {
   tr: "Turc",
 };
 
+/** Drapeau emoji d'une langue cible (aligné Documents : en → 🇬🇧). */
+const DRAPEAU_LANGUE: Record<string, string> = {
+  fr: "🇫🇷",
+  en: "🇬🇧",
+  de: "🇩🇪",
+  it: "🇮🇹",
+  es: "🇪🇸",
+  pt: "🇵🇹",
+  cs: "🇨🇿",
+  nl: "🇳🇱",
+  el: "🇬🇷",
+  hu: "🇭🇺",
+  pl: "🇵🇱",
+  ro: "🇷🇴",
+  sv: "🇸🇪",
+  tr: "🇹🇷",
+};
+
 /** Nom lisible d'une langue (« Allemand » plutôt que « DE »). */
 export function nomLangue(code: string): string {
   return NOM_LANGUE[code] ?? code.toUpperCase();
+}
+
+/** Drapeau emoji d'une langue (« 🇩🇪 »), ou le code en majuscules si inconnu. */
+export function drapeauLangue(code: string): string {
+  return DRAPEAU_LANGUE[code] ?? code.toUpperCase();
 }

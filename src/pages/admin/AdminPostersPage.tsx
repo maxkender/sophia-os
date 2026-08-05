@@ -40,7 +40,7 @@ import {
   supprimerPoster,
 } from "@/features/moteur/api";
 import { LabelPicker } from "@/features/moteur/LabelPicker";
-import { nomLangue } from "@/features/moteur/langues";
+import { drapeauLangue, nomLangue } from "@/features/moteur/langues";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
 import { phaseCreateur, type PhaseCreateur } from "@/features/moteur/warmup";
 import type { CompteAvecDetails, Label as LabelType, PosterProfil } from "@/features/moteur/types";
@@ -57,6 +57,24 @@ const MOT_DE_PASSE_INITIAL = "12345678";
 
 function nomAffiche(p: PosterProfil): string {
   return [p.prenom, p.nom].filter(Boolean).join(" ") || p.email || "—";
+}
+
+/** Petits drapeaux en haut à droite des cartes grille (aperçu rapide des langues). */
+function DrapeauxLangues({ codes }: { codes: string[] }) {
+  const uniques = [...new Set(codes.filter(Boolean))];
+  if (uniques.length === 0) return null;
+  return (
+    <span
+      className="flex shrink-0 flex-wrap items-center justify-end gap-0.5 text-[15px] leading-none"
+      aria-label={uniques.map(nomLangue).join(", ")}
+    >
+      {uniques.map((code) => (
+        <span key={code} title={nomLangue(code)} className="select-none">
+          {drapeauLangue(code)}
+        </span>
+      ))}
+    </span>
+  );
 }
 
 function AidePosters() {
@@ -914,28 +932,39 @@ export function AdminPostersPage() {
     return scores.reduce((s, n) => s + n, 0) / scores.length;
   };
 
-  const carteRecruteur = (poster: PosterProfil) => (
-    <article
-      key={poster.id}
-      role="button"
-      tabIndex={0}
-      onClick={() => ouvrirFiche(poster.id)}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          ouvrirFiche(poster.id);
-        }
-      }}
-      className="flex h-full cursor-pointer flex-col gap-3 rounded-lg border bg-card p-4 text-left transition-colors hover:border-primary/40 hover:bg-muted/30"
-    >
-      <div className="flex flex-wrap items-center gap-2">
-        <span className="text-sm font-semibold tracking-tight">{nomAffiche(poster)}</span>
-        {poster.hm_ugc_ai_video && <BadgeUgc label={t("posters.ugcAiVideoBadge")} />}
-        {!poster.is_active && <Badge variant="secondary">{t("posters.disabled")}</Badge>}
-      </div>
-      <LangueRecruteurDropdown recruteur={poster} />
-    </article>
-  );
+  const carteRecruteur = (poster: PosterProfil) => {
+    const langues =
+      poster.langues?.length > 0
+        ? poster.langues
+        : poster.nationalite
+          ? [poster.nationalite]
+          : [];
+    return (
+      <article
+        key={poster.id}
+        role="button"
+        tabIndex={0}
+        onClick={() => ouvrirFiche(poster.id)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            ouvrirFiche(poster.id);
+          }
+        }}
+        className="flex h-full cursor-pointer flex-col gap-3 rounded-lg border bg-card p-4 text-left transition-colors hover:border-primary/40 hover:bg-muted/30"
+      >
+        <div className="flex items-start justify-between gap-2">
+          <div className="flex min-w-0 flex-wrap items-center gap-2">
+            <span className="text-sm font-semibold tracking-tight">{nomAffiche(poster)}</span>
+            {poster.hm_ugc_ai_video && <BadgeUgc label={t("posters.ugcAiVideoBadge")} />}
+            {!poster.is_active && <Badge variant="secondary">{t("posters.disabled")}</Badge>}
+          </div>
+          <DrapeauxLangues codes={langues} />
+        </div>
+        <LangueRecruteurDropdown recruteur={poster} />
+      </article>
+    );
+  };
 
   const carteCreateur = (poster: PosterProfil) => {
     const compte = compteDe.get(poster.id);
@@ -956,11 +985,14 @@ export function AdminPostersPage() {
         }}
         className="flex h-full cursor-pointer flex-col gap-2.5 rounded-lg border bg-card p-4 text-left transition-colors hover:border-primary/40 hover:bg-muted/30"
       >
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="text-sm font-semibold tracking-tight">{nomAffiche(poster)}</span>
-          {compte?.ugc_ai_video && <BadgeUgc label={t("posters.ugcAiVideoBadge")} />}
-          {compte?.ugc_ai && !compte.ugc_ai_video && <BadgeUgc label="UGC" />}
-          {!poster.is_active && <Badge variant="secondary">{t("posters.disabled")}</Badge>}
+        <div className="flex items-start justify-between gap-2">
+          <div className="flex min-w-0 flex-wrap items-center gap-2">
+            <span className="text-sm font-semibold tracking-tight">{nomAffiche(poster)}</span>
+            {compte?.ugc_ai_video && <BadgeUgc label={t("posters.ugcAiVideoBadge")} />}
+            {compte?.ugc_ai && !compte.ugc_ai_video && <BadgeUgc label="UGC" />}
+            {!poster.is_active && <Badge variant="secondary">{t("posters.disabled")}</Badge>}
+          </div>
+          <DrapeauxLangues codes={compte?.langue ? [compte.langue] : []} />
         </div>
         <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
           {poster.score != null && (

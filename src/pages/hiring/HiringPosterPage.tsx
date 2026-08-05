@@ -166,11 +166,6 @@ function LignePoster({ poster: p }: { poster: PosterProfil }) {
                   @{p.handle_tiktok.replace(/^@/, "")}
                 </a>
                 {p.persona_nom && <span className="text-muted-foreground">{p.persona_nom}</span>}
-                {p.reference_handle && (
-                  <span className="text-muted-foreground">
-                    {t("hiring.source")} @{p.reference_handle.replace(/^@/, "")}
-                  </span>
-                )}
               </div>
               {p.persona_bio && (
                 <p className="whitespace-pre-wrap text-xs text-muted-foreground">{p.persona_bio}</p>
@@ -187,7 +182,7 @@ function LignePoster({ poster: p }: { poster: PosterProfil }) {
 
 /**
  * Écran unique du hiring manager : créer un poster. Il saisit prénom, nom et
- * choisit la LANGUE ; le compte de référence et la persona (pseudo, bio, avatar)
+ * choisit la LANGUE ; la persona (pseudo, bio, avatar)
  * sont générés automatiquement par l'IA côté serveur.
  */
 export function HiringPosterPage() {
@@ -318,7 +313,7 @@ export function HiringPosterPage() {
               {creer.isError && (
                 <p className="mt-2 text-sm text-destructive">
                   {(creer.error as Error).message === "NO_FREE_REFERENCE"
-                    ? t("posters.plusDeReference")
+                    ? t("posters.creationRefusee")
                     : (creer.error as Error).message === "NO_LABELS"
                       ? t("warmup.aucunLabel")
                       : (creer.error as Error).message === "NO_UGC_PERSONA"

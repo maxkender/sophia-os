@@ -19,8 +19,6 @@ import { Label } from "@/components/ui/label";
 import {
   chargerPilotageDashboard,
   creerLabel,
-  ecrireReglage,
-  lireReglages,
   listerLabels,
   majLabel,
   supprimerLabel,
@@ -165,80 +163,6 @@ function LabelsPilotageCard() {
             </div>
           ))}
         </div>
-      </CardContent>
-    </Card>
-  );
-}
-
-function PaiementPilotageCard() {
-  const { t } = useTranslation();
-  const qc = useQueryClient();
-  const reglages = useQuery({ queryKey: ["reglages"], queryFn: lireReglages });
-  const [base, setBase] = React.useState<number | null>(null);
-  const [unitaire, setUnitaire] = React.useState<number | null>(null);
-
-  React.useEffect(() => {
-    if (reglages.data) {
-      setBase(reglages.data.paiement.tarif_base_mensuel);
-      setUnitaire(reglages.data.paiement.tarif_par_post_jour);
-    }
-  }, [reglages.data]);
-
-  const save = useMutation({
-    mutationFn: async () => {
-      await ecrireReglage("paiement", {
-        tarif_base_mensuel: base ?? 0,
-        tarif_par_post_jour: unitaire ?? 0,
-      });
-    },
-    onSuccess: () => qc.invalidateQueries({ queryKey: ["reglages"] }),
-  });
-
-  if (base === null || unitaire === null) {
-    return (
-      <Card>
-        <CardContent className="pt-5 text-sm text-muted-foreground">{t("common.loading")}</CardContent>
-      </Card>
-    );
-  }
-
-  const exemple = (base ?? 0) + 2 * (unitaire ?? 0);
-
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle>{t("paiement.title")}</CardTitle>
-        <CardDescription>{t("paiement.subtitle")}</CardDescription>
-      </CardHeader>
-      <CardContent className="space-y-3">
-        <div className="grid gap-3 sm:grid-cols-2">
-          <div className="space-y-1">
-            <Label htmlFor="tarifBase">{t("paiement.base")}</Label>
-            <Input
-              id="tarifBase"
-              type="number"
-              min={0}
-              value={base}
-              onChange={(e) => setBase(Number(e.target.value))}
-            />
-          </div>
-          <div className="space-y-1">
-            <Label htmlFor="tarifUnit">{t("paiement.unitaire")}</Label>
-            <Input
-              id="tarifUnit"
-              type="number"
-              min={0}
-              value={unitaire}
-              onChange={(e) => setUnitaire(Number(e.target.value))}
-            />
-          </div>
-        </div>
-        <p className="text-xs text-muted-foreground">
-          {t("paiement.formule", { exemple })}
-        </p>
-        <Button size="sm" disabled={save.isPending} onClick={() => save.mutate()}>
-          {save.isPending ? t("common.saving") : t("common.save")}
-        </Button>
       </CardContent>
     </Card>
   );
@@ -513,7 +437,6 @@ export function AdminPilotagePage() {
       )}
 
       <LabelsPilotageCard />
-      <PaiementPilotageCard />
     </div>
   );
 }

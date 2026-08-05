@@ -31,7 +31,6 @@ import {
   listerLanguesReference,
   listerPosters,
   majCompte,
-  majCoutMensuel,
   majLanguesRecruteur,
   majPoster,
   majUpwork,
@@ -194,59 +193,6 @@ function CreateurUpwork({
         </span>
       )}
     </div>
-  );
-}
-
-function CoutMensuel({ poster }: { poster: PosterProfil }) {
-  const { t } = useTranslation();
-  const queryClient = useQueryClient();
-  const [edit, setEdit] = React.useState(false);
-  const [val, setVal] = React.useState(poster.cout_mensuel != null ? String(poster.cout_mensuel) : "");
-
-  const save = useMutation({
-    mutationFn: () => majCoutMensuel(poster.id, val.trim() === "" ? null : Number(val)),
-    onSuccess: () => {
-      setEdit(false);
-      queryClient.invalidateQueries({ queryKey: ["posters"] });
-    },
-  });
-
-  if (edit) {
-    return (
-      <span className="inline-flex items-center gap-1 text-sm">
-        <span className="text-muted-foreground">{t("posters.coutMensuel")}</span>
-        <Input
-          type="number"
-          min={0}
-          value={val}
-          onChange={(e) => setVal(e.target.value)}
-          placeholder="0"
-          className="h-7 w-24 text-xs"
-        />
-        <span>€</span>
-        <Button size="sm" className="h-7" disabled={save.isPending} onClick={() => save.mutate()}>
-          {t("common.save")}
-        </Button>
-        <Button size="sm" variant="ghost" className="h-7" onClick={() => setEdit(false)}>
-          {t("common.cancel")}
-        </Button>
-      </span>
-    );
-  }
-
-  return (
-    <button
-      type="button"
-      onClick={() => {
-        setVal(poster.cout_mensuel != null ? String(poster.cout_mensuel) : "");
-        setEdit(true);
-      }}
-      className="text-sm underline underline-offset-2"
-    >
-      {poster.cout_mensuel != null
-        ? `${poster.cout_mensuel} €/mois`
-        : t("posters.coutAjouter")}
-    </button>
   );
 }
 
@@ -667,7 +613,7 @@ export function AdminPostersPage() {
                     : (creer.error as Error).message === "NO_UGC_LABEL"
                       ? t("warmup.labelUgcIntrouvable")
                       : (creer.error as Error).message === "NO_FREE_REFERENCE"
-                        ? t("posters.plusDeReference")
+                        ? t("posters.creationRefusee")
                         : (creer.error as Error).message}
               </p>
             )}
@@ -1144,8 +1090,6 @@ export function AdminPostersPage() {
               </div>
 
               {fiche.hm_ugc_ai_video && <HmUgcVideoLabelsEditeur profileId={fiche.id} />}
-
-              <CoutMensuel poster={fiche} />
 
               <div className="space-y-1.5">
                 <Label className="text-[10px] uppercase tracking-wide text-muted-foreground">

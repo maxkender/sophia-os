@@ -16,8 +16,6 @@ import { SimulerMinuitCard } from "@/features/moteur/SimulerMinuitCard";
 import { SimulerMinuitCompteCard } from "@/features/moteur/SimulerMinuitCompteCard";
 import { SimulerUgcVideoAssignationCard } from "@/features/moteur/SimulerUgcVideoAssignationCard";
 import { TestCompletCard } from "@/features/moteur/TestCompletCard";
-import { TestScrapeCard } from "@/features/moteur/TestScrapeCard";
-
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
 
@@ -296,7 +294,6 @@ const TESTS = [
   { value: "tiktok", titreKey: "tests.tiktokTitre", descKey: "tests.tiktokDesc", render: () => <TesterUnTikTok /> },
   { value: "traduction", titreKey: "tests.tradTitre", descKey: "tests.tradDesc", render: () => <TestTraduction /> },
   { value: "complet", titreKey: "tests.completTitre", descKey: "tests.completDesc", render: () => <TestCompletCard /> },
-  { value: "scrape", titreKey: "tests.scrapeTitre", descKey: "tests.scrapeDesc", render: () => <TestScrapeCard /> },
   { value: "nettoyage", titreKey: "tests.nettoyageTitre", descKey: "tests.nettoyageDesc", render: () => <TestNettoyageCard /> },
 ] as const;
 

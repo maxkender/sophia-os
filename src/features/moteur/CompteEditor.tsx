@@ -7,12 +7,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
-  coutMensuelCalcule,
   genererPersona,
-  lireReglages,
   listerLanguesReference,
   listerMedias,
-  listerSources,
   majCompte,
   majUpwork,
   supprimerCompte,
@@ -304,7 +301,6 @@ export function PostsParJourCompte({ compte }: { compte: CompteAvecDetails }) {
           </button>
         ))}
       </div>
-      <CoutEstime postsParJour={valeur} />
     </div>
   );
 }
@@ -378,37 +374,22 @@ function ReglagesCompte({ compte }: { compte: CompteAvecDetails }) {
   );
 }
 
-function CoutEstime({ postsParJour }: { postsParJour: number }) {
-  const { t } = useTranslation();
-  const reglages = useQuery({ queryKey: ["reglages"], queryFn: lireReglages });
-  if (!reglages.data) return null;
-  const cout = coutMensuelCalcule(postsParJour, reglages.data.paiement);
-  return (
-    <p className="text-xs text-muted-foreground">
-      {t("paiement.coutEstime", { cout, posts: postsParJour })}
-    </p>
-  );
-}
-
-/** Infos du compte : nom affiché, @ TikTok, langue, lien Upwork, compte source. */
+/** Infos du compte : nom affiché, @ TikTok, langue, lien Upwork. */
 function InfosCompte({ compte }: { compte: CompteAvecDetails }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const langues = useQuery({ queryKey: ["langues-reference"], queryFn: listerLanguesReference });
-  const sources = useQuery({ queryKey: ["sources"], queryFn: listerSources });
 
   const [nom, setNom] = React.useState(compte.persona_nom ?? "");
   const [handle, setHandle] = React.useState(compte.handle_tiktok ?? "");
   const [langue, setLangue] = React.useState(compte.langue);
   const [upwork, setUpwork] = React.useState(compte.profiles?.upwork_url ?? "");
-  const [source, setSource] = React.useState(compte.compte_reference_id ?? "");
 
   const upworkInitial = compte.profiles?.upwork_url ?? "";
   const modifie =
     nom !== (compte.persona_nom ?? "") ||
     handle !== (compte.handle_tiktok ?? "") ||
     langue !== compte.langue ||
-    source !== (compte.compte_reference_id ?? "") ||
     upwork !== upworkInitial;
 
   const enregistrer = useMutation({
@@ -417,7 +398,6 @@ function InfosCompte({ compte }: { compte: CompteAvecDetails }) {
         persona_nom: nom.trim() || null,
         handle_tiktok: handle.trim().replace(/^@/, "") || null,
         langue,
-        compte_reference_id: source || null,
       });
       if (upwork !== upworkInitial) await majUpwork(compte.poster_id, upwork);
     },
@@ -457,25 +437,6 @@ function InfosCompte({ compte }: { compte: CompteAvecDetails }) {
           ))}
         </select>
       </div>
-      <div className="space-y-1.5">
-        <Label htmlFor={`source-${compte.id}`}>{t("comptes.source")}</Label>
-        <select
-          id={`source-${compte.id}`}
-          className={selectClass}
-          value={source}
-          onChange={(e) => setSource(e.target.value)}
-        >
-          <option value="">{t("common.none")}</option>
-          {/* Seuls les comptes PRINCIPAUX sont assignables (pas les conjoints). */}
-          {sources.data
-            ?.filter((s) => !s.parent_id)
-            .map((s) => (
-              <option key={s.id} value={s.id}>
-                @{s.handle_tiktok}
-              </option>
-            ))}
-        </select>
-      </div>
       <div className="space-y-1.5 sm:col-span-2">
         <Label htmlFor={`upwork-${compte.id}`}>{t("comptes.upwork")}</Label>
         <Input
@@ -496,11 +457,7 @@ function InfosCompte({ compte }: { compte: CompteAvecDetails }) {
   );
 }
 
-/**
- * Éditeur complet d'un compte de publication (le TikTok que tient un poster) :
- * identité, avatar, génération d'identité, réglages. La voix/ton de traduction
- * n'est PAS ici — elle se règle sur le compte source (page Sources).
- */
+/** Éditeur complet d'un compte de publication (identité, avatar, réglages). */
 export function CompteEditor({ compte }: { compte: CompteAvecDetails }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
@@ -511,15 +468,7 @@ export function CompteEditor({ compte }: { compte: CompteAvecDetails }) {
 
   return (
     <div className="space-y-3">
-      <div className="flex items-center justify-between gap-2">
-        {compte.comptes_reference ? (
-          // L'admin doit savoir d'où vient la matière ; le poster ne le voit jamais.
-          <Badge variant="outline">
-            {t("posters.reference")} @{compte.comptes_reference.handle_tiktok}
-          </Badge>
-        ) : (
-          <span className="text-xs text-muted-foreground">{t("comptes.sansSource")}</span>
-        )}
+      <div className="flex items-center justify-end gap-2">
         <Button
           size="sm"
           variant="ghost"

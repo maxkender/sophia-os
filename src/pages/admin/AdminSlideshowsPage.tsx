@@ -20,7 +20,6 @@ import { UpscaleMediaControl } from "@/components/moteur/UpscaleMediaControl";
 import { LabelEditor } from "@/features/moteur/LabelPicker";
 import {
   collecterMediaIdsContenus,
-  idsContenusParCompte,
   idsContenusParLabel,
   labelsDuContenu,
   lireReglages,
@@ -32,7 +31,6 @@ import {
   listerMediasPourContenu,
   majMediaSlideContenu,
   majVisagePremierPlan,
-  marquerUgcParCompte,
   marquerUgcParLabel,
   mediaIdsDepuisSlides,
   renettoyerSlideContenu,
@@ -758,37 +756,6 @@ function DetailSlideshow({
     void queryClient.invalidateQueries({ queryKey: ["slideshows"] });
   }
 
-  async function lancerUgcCompte(avecScan: boolean) {
-    if (!d?.compte_reference_id || ugcScan) return;
-    const handle = d.source?.handle_tiktok ?? "compte";
-    const existants = await idsContenusParCompte(d.compte_reference_id);
-    if (
-      !window.confirm(
-        t(
-          avecScan
-            ? "slideshows.ugcCompteConfirmScan"
-            : "slideshows.ugcCompteConfirm",
-          {
-            count: existants.length,
-            handle,
-          },
-        ),
-      )
-    ) {
-      return;
-    }
-    const ids = await marquerUgcParCompte(d.compte_reference_id, true);
-    setUgcLogs([
-      t("slideshows.ugcBulkMarque", { count: ids.length }),
-    ]);
-    void queryClient.invalidateQueries({ queryKey: ["slideshow", id] });
-    void queryClient.invalidateQueries({ queryKey: ["slideshows"] });
-    if (avecScan) {
-      const mediaIds = await collecterMediaIdsContenus(ids);
-      await scannerMediasUgc(mediaIds);
-    }
-  }
-
   async function lancerUgcLabel(labelId: string, avecScan: boolean) {
     if (!labelId || ugcScan) return;
     const nom =
@@ -893,8 +860,6 @@ function DetailSlideshow({
             <div>
               <p className="text-base font-medium">{d.titre || t("contenus.sansTitre")}</p>
               <p className="text-xs text-muted-foreground">
-                {d.source?.handle_tiktok ? `@${d.source.handle_tiktok}` : "—"}
-                {" · "}
                 {t("slideshows.langueSource")}: {d.langue_source.toUpperCase()}
                 {d.parent_id ? ` · ${t("contenus.variation")}` : ""}
               </p>
@@ -1019,29 +984,6 @@ function DetailSlideshow({
                             total: ugcScan.total,
                           })
                         : t("slideshows.ugcRescan")}
-                    </Button>
-                  </>
-                )}
-                {d.compte_reference_id && (
-                  <>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="h-7 text-xs"
-                      disabled={ugcScan !== null}
-                      onClick={() => void lancerUgcCompte(false)}
-                    >
-                      {t("slideshows.ugcCompte")}
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="ghost"
-                      className="h-7 text-xs"
-                      disabled={ugcScan !== null}
-                      onClick={() => void lancerUgcCompte(true)}
-                      title={t("slideshows.ugcCompteScanAide")}
-                    >
-                      {t("slideshows.ugcCompteScan")}
                     </Button>
                   </>
                 )}

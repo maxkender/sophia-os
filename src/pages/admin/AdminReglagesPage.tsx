@@ -210,7 +210,6 @@ export function AdminReglagesPage() {
       await ecrireReglage("frequence", r.frequence);
       await ecrireReglage("semaine1", r.semaine1);
       await ecrireReglage("scoring", r.scoring);
-      await ecrireReglage("paiement", r.paiement);
       await ecrireReglage("moteur_vnext", r.moteur_vnext);
       await ecrireReglage("assignation_auto", r.assignation_auto);
       await ecrireReglage("nettoyage", r.nettoyage);
@@ -662,34 +661,6 @@ export function AdminReglagesPage() {
               </p>
             )}
           </section>
-        </CardContent>
-      </Card>
-
-      {/* ── Paiement ── */}
-      <Card>
-        <CardHeader>
-          <CardTitle>{t("paiement.title")}</CardTitle>
-          <CardDescription>{t("paiement.subtitle")}</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <ChampNombre
-              id="pbase"
-              label={t("paiement.base")}
-              valeur={reglages.paiement.tarif_base_mensuel}
-              onChange={(n) =>
-                maj({ paiement: { ...reglages.paiement, tarif_base_mensuel: n } })
-              }
-            />
-            <ChampNombre
-              id="punit"
-              label={t("paiement.unitaire")}
-              valeur={reglages.paiement.tarif_par_post_jour}
-              onChange={(n) =>
-                maj({ paiement: { ...reglages.paiement, tarif_par_post_jour: n } })
-              }
-            />
-          </div>
         </CardContent>
       </Card>
 

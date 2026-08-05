@@ -13,7 +13,6 @@ import { HiringPosterPage } from "@/pages/hiring/HiringPosterPage";
 import { AdminDocumentsPage } from "@/pages/admin/AdminDocumentsPage";
 import { DocumentView } from "@/features/documents/DocumentView";
 import { AdminPilotagePage } from "@/pages/admin/AdminPilotagePage";
-import { AdminSourcesPage } from "@/pages/admin/AdminSourcesPage";
 import { AdminPostersPage } from "@/pages/admin/AdminPostersPage";
 import { AdminBibliothequePage } from "@/pages/admin/AdminBibliothequePage";
 import { AdminReglagesPage } from "@/pages/admin/AdminReglagesPage";
@@ -61,10 +60,10 @@ export function AppRouter() {
             <Route path="/admin/posts/:id" element={<AdminPostDetailPage />} />
             <Route path="/admin/posts" element={<Navigate to="/admin/calendrier" replace />} />
             <Route path="/admin/analytics" element={<AdminAnalyticsPage />} />
-            <Route path="/admin/sources" element={<AdminSourcesPage />} />
+            <Route path="/admin/sources" element={<Navigate to="/admin" replace />} />
             <Route path="/admin/contenus" element={<Navigate to="/admin/slideshows" replace />} />
             <Route path="/admin/slideshows" element={<AdminSlideshowsPage />} />
-            <Route path="/admin/assignation-sources" element={<Navigate to="/admin/sources" replace />} />
+            <Route path="/admin/assignation-sources" element={<Navigate to="/admin" replace />} />
             <Route path="/admin/reproduisibles" element={<Navigate to="/admin/slideshows" replace />} />
             <Route path="/admin/posters" element={<AdminPostersPage />} />
             <Route path="/admin/reviews" element={<AdminReviewsPage />} />

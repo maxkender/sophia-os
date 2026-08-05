@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
-  AtSign,
   BarChart3,
   BookOpen,
   CalendarDays,
@@ -47,7 +46,6 @@ export function AdminLayout() {
               icon: MoonStar,
               description: t("navDesc.minuit"),
             },
-            { to: "/admin/sources", label: t("nav.sources"), icon: AtSign, description: t("navDesc.sources") },
             {
               to: "/admin/slideshows",
               label: t("nav.slideshows"),

@@ -239,7 +239,7 @@ export function AdminAnalyticsPage() {
                   <span className="text-sm font-medium">
                     {c.persona_nom ?? c.handle_tiktok ?? "—"}
                   </span>
-                  {!c.is_active && <Badge variant="secondary">{t("sources.inactive")}</Badge>}
+                  {!c.is_active && <Badge variant="secondary">{t("posters.disabled")}</Badge>}
                   <Badge variant="outline">{c.langue.toUpperCase()}</Badge>
                   {/* Un « 0 vue » avec des publiés sans lien n'est pas un bug :
                       le relevé matche par le lien TikTok, qui manque ici. */}

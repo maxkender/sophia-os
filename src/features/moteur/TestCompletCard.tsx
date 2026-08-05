@@ -154,12 +154,10 @@ export function TestCompletCard() {
           >
             <option value="">{t("common.none")}</option>
             {comptes.data?.map((c) => {
-              // deno-lint-ignore no-explicit-any
-              const ref = (c as any).comptes_reference?.handle_tiktok as string | undefined;
               const nom = c.persona_nom ?? c.handle_tiktok ?? c.id.slice(0, 8);
               return (
                 <option key={c.id} value={c.id}>
-                  {ref ? `${nom} — scrape @${ref}` : nom}
+                  {nom}
                 </option>
               );
             })}

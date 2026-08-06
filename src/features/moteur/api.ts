@@ -4553,35 +4553,55 @@ export async function initialiserVisagesUgcNon(
 ): Promise<void> {
   const ids = [...new Set(mediaIds.filter(Boolean))];
   if (ids.length === 0) return;
-  const { error } = await supabase
-    .from("media_library")
-    .update({ visage_premier_plan: false })
-    .in("id", ids);
-  if (error) throw error;
+  // Chunk pour éviter les payloads `.in()` trop gros (bulk label).
+  const CHUNK = 80;
+  for (let i = 0; i < ids.length; i += CHUNK) {
+    const slice = ids.slice(i, i + CHUNK);
+    const { error } = await supabase
+      .from("media_library")
+      .update({ visage_premier_plan: false })
+      .in("id", slice);
+    if (error) throw error;
+  }
 }
 
+/**
+ * Active / désactive le checkmark UGC.
+ * `mediaIds` optionnel à l'activation : évite un SELECT structure_slides
+ * (le client a déjà les ids) — contenus + faces partent en parallèle.
+ */
 export async function setContenuUgcCompatible(
   contenuId: string,
   ugc: boolean,
+  opts?: { mediaIds?: string[] },
 ): Promise<void> {
-  const { error } = await supabase
-    .from("contenus")
-    .update({ ugc_compatible: ugc })
-    .eq("id", contenuId);
-  if (error) throw error;
-  if (ugc) {
+  const majContenu = (async () => {
+    const { error } = await supabase
+      .from("contenus")
+      .update({ ugc_compatible: ugc })
+      .eq("id", contenuId);
+    if (error) throw error;
+  })();
+
+  if (!ugc) {
+    await majContenu;
+    return;
+  }
+
+  let mediaIds = opts?.mediaIds;
+  if (mediaIds == null) {
     const { data, error: errS } = await supabase
       .from("contenus")
       .select("structure_slides")
       .eq("id", contenuId)
       .maybeSingle();
     if (errS) throw errS;
-    await initialiserVisagesUgcNon(
-      mediaIdsDepuisSlides(
-        data?.structure_slides as Contenu["structure_slides"],
-      ),
+    mediaIds = mediaIdsDepuisSlides(
+      data?.structure_slides as Contenu["structure_slides"],
     );
   }
+
+  await Promise.all([majContenu, initialiserVisagesUgcNon(mediaIds)]);
 }
 
 /** Ids des slideshows d'un compte référence. */
@@ -4615,13 +4635,22 @@ export async function marquerUgcParCompte(
     .from("contenus")
     .update({ ugc_compatible: ugc })
     .eq("compte_reference_id", compteReferenceId)
-    .select("id");
+    .select("id, structure_slides");
   if (error) throw error;
-  const ids = (data ?? []).map((r) => r.id as string);
-  if (ugc && ids.length > 0) {
-    await initialiserVisagesUgcNon(await collecterMediaIdsContenus(ids));
+  const rows = data ?? [];
+  if (ugc && rows.length > 0) {
+    const mediaIds = [
+      ...new Set(
+        rows.flatMap((r) =>
+          mediaIdsDepuisSlides(
+            r.structure_slides as Contenu["structure_slides"],
+          ),
+        ),
+      ),
+    ];
+    await initialiserVisagesUgcNon(mediaIds);
   }
-  return ids;
+  return rows.map((r) => r.id as string);
 }
 
 /** Marque UGC tous les slideshows portant un label. Renvoie les ids. */
@@ -4635,13 +4664,22 @@ export async function marquerUgcParLabel(
     .from("contenus")
     .update({ ugc_compatible: ugc })
     .in("id", ids)
-    .select("id");
+    .select("id, structure_slides");
   if (error) throw error;
-  const marked = (data ?? []).map((r) => r.id as string);
-  if (ugc && marked.length > 0) {
-    await initialiserVisagesUgcNon(await collecterMediaIdsContenus(marked));
+  const rows = data ?? [];
+  if (ugc && rows.length > 0) {
+    const mediaIds = [
+      ...new Set(
+        rows.flatMap((r) =>
+          mediaIdsDepuisSlides(
+            r.structure_slides as Contenu["structure_slides"],
+          ),
+        ),
+      ),
+    ];
+    await initialiserVisagesUgcNon(mediaIds);
   }
-  return marked;
+  return rows.map((r) => r.id as string);
 }
 
 /** Collecte les media_id uniques des slideshows donnés. */

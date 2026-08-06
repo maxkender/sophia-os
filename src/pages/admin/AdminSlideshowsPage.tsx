@@ -513,13 +513,40 @@ function VisuelsContenu({ contenu }: { contenu: SlideshowDetail }) {
     mutationFn: (input: { mediaId: string; valeur: boolean | null }) =>
       majVisagePremierPlan(input.mediaId, input.valeur),
     onMutate: (input) => {
+      const avant = visagesLocaux[input.mediaId] ?? null;
       setVisagesLocaux((prev) => ({ ...prev, [input.mediaId]: input.valeur }));
+      queryClient.setQueryData<SlideshowDetail>(
+        ["slideshow", contenu.id],
+        (prev) =>
+          prev
+            ? {
+                ...prev,
+                mediaVisages: {
+                  ...(prev.mediaVisages ?? {}),
+                  [input.mediaId]: input.valeur,
+                },
+              }
+            : prev,
+      );
+      return { avant };
     },
-    onError: (_e, input) => {
-      setVisagesLocaux(contenu.mediaVisages ?? {});
-      void input;
+    onError: (_e, input, ctx) => {
+      const rollback = ctx?.avant ?? null;
+      setVisagesLocaux((prev) => ({ ...prev, [input.mediaId]: rollback }));
+      queryClient.setQueryData<SlideshowDetail>(
+        ["slideshow", contenu.id],
+        (prev) =>
+          prev
+            ? {
+                ...prev,
+                mediaVisages: {
+                  ...(prev.mediaVisages ?? {}),
+                  [input.mediaId]: rollback,
+                },
+              }
+            : prev,
+      );
     },
-    onSuccess: () => rafraichir(),
   });
 
   if (structure.length === 0) return null;
@@ -700,6 +727,7 @@ function DetailSlideshow({
     fait: number;
     total: number;
   } | null>(null);
+  const [ugcBusy, setUgcBusy] = React.useState(false);
   const [ugcLogs, setUgcLogs] = React.useState<string[]>([]);
   const [labelUgcId, setLabelUgcId] = React.useState("");
 
@@ -708,6 +736,32 @@ function DetailSlideshow({
     queryFn: listerLabels,
     staleTime: 60_000,
   });
+
+  /** Patch cache détail + listes — pas de refetch lourd. */
+  function patchUgcCache(opts: {
+    ugc: boolean;
+    mediaVisages?: Record<string, boolean | null>;
+  }) {
+    queryClient.setQueryData<SlideshowDetail>(["slideshow", id], (prev) => {
+      if (!prev) return prev;
+      return {
+        ...prev,
+        ugc_compatible: opts.ugc,
+        mediaVisages: opts.mediaVisages
+          ? { ...(prev.mediaVisages ?? {}), ...opts.mediaVisages }
+          : prev.mediaVisages,
+      };
+    });
+    queryClient.setQueriesData<ContenuListe[]>(
+      { queryKey: ["slideshows"] },
+      (prev) => {
+        if (!prev) return prev;
+        return prev.map((c) =>
+          c.id === id ? { ...c, ugc_compatible: opts.ugc } : c,
+        );
+      },
+    );
+  }
 
   async function scannerMediasUgc(mediaIds: string[]) {
     if (mediaIds.length === 0) {
@@ -730,34 +784,68 @@ function DetailSlideshow({
       t("slideshows.ugcScanFin", { ok, echecs }),
     ]);
     setUgcScan(null);
+    // Refresh pour récupérer les YES/NO scannés (uniquement après scan IA).
     void queryClient.invalidateQueries({ queryKey: ["slideshow", id] });
     void queryClient.invalidateQueries({ queryKey: ["slideshows"] });
   }
 
   async function activerUgcCeSlideshow(avecScan: boolean) {
-    if (!d || ugcScan) return;
-    await setContenuUgcCompatible(d.id, true);
-    void queryClient.invalidateQueries({ queryKey: ["slideshow", id] });
-    void queryClient.invalidateQueries({ queryKey: ["slideshows"] });
+    if (!d || ugcScan || ugcBusy) return;
+    const mediaIds = mediaIdsDepuisSlides(d.structure_slides);
+    const mediaVisages: Record<string, boolean | null> = {};
+    for (const mid of mediaIds) mediaVisages[mid] = false;
+
+    const snapshot = {
+      ugc: d.ugc_compatible,
+      mediaVisages: { ...(d.mediaVisages ?? {}) },
+    };
+
+    setUgcBusy(true);
+    // UI immédiate — l'utilisateur peut déjà cliquer Oui/Non sur les slides.
+    patchUgcCache({ ugc: true, mediaVisages });
     setUgcLogs([
       avecScan
         ? t("slideshows.ugcMarquePuisScan")
         : t("slideshows.ugcMarqueManuel"),
     ]);
+    try {
+      await setContenuUgcCompatible(d.id, true, { mediaIds });
+    } catch (e) {
+      patchUgcCache({
+        ugc: snapshot.ugc,
+        mediaVisages: snapshot.mediaVisages,
+      });
+      setUgcLogs([
+        `✗ ${e instanceof Error ? e.message : String(e)}`,
+      ]);
+      setUgcBusy(false);
+      return;
+    }
+    setUgcBusy(false);
     if (avecScan) {
-      await scannerMediasUgc(mediaIdsDepuisSlides(d.structure_slides));
+      await scannerMediasUgc(mediaIds);
     }
   }
 
   async function desactiverUgcCeSlideshow() {
-    if (!d || ugcScan) return;
-    await setContenuUgcCompatible(d.id, false);
-    void queryClient.invalidateQueries({ queryKey: ["slideshow", id] });
-    void queryClient.invalidateQueries({ queryKey: ["slideshows"] });
+    if (!d || ugcScan || ugcBusy) return;
+    const snapshot = d.ugc_compatible;
+    setUgcBusy(true);
+    patchUgcCache({ ugc: false });
+    try {
+      await setContenuUgcCompatible(d.id, false);
+    } catch (e) {
+      patchUgcCache({ ugc: snapshot });
+      setUgcLogs([
+        `✗ ${e instanceof Error ? e.message : String(e)}`,
+      ]);
+    } finally {
+      setUgcBusy(false);
+    }
   }
 
   async function lancerUgcLabel(labelId: string, avecScan: boolean) {
-    if (!labelId || ugcScan) return;
+    if (!labelId || ugcScan || ugcBusy) return;
     const nom =
       labelsTous.data?.find((l) => l.id === labelId)?.nom ??
       d?.labels?.find((l) => l.id === labelId)?.nom ??
@@ -775,15 +863,41 @@ function DetailSlideshow({
     ) {
       return;
     }
-    const ids = await marquerUgcParLabel(labelId, true);
-    setUgcLogs([
-      t("slideshows.ugcBulkMarque", { count: ids.length }),
-    ]);
-    void queryClient.invalidateQueries({ queryKey: ["slideshow", id] });
-    void queryClient.invalidateQueries({ queryKey: ["slideshows"] });
-    if (avecScan) {
-      const mediaIds = await collecterMediaIdsContenus(ids);
-      await scannerMediasUgc(mediaIds);
+    setUgcBusy(true);
+    setUgcLogs([t("slideshows.ugcBulkMarque", { count: existants.length })]);
+    try {
+      const ids = await marquerUgcParLabel(labelId, true);
+      if (ids.includes(id)) {
+        const mediaIds = mediaIdsDepuisSlides(d?.structure_slides);
+        const mediaVisages: Record<string, boolean | null> = {};
+        for (const mid of mediaIds) mediaVisages[mid] = false;
+        patchUgcCache({ ugc: true, mediaVisages });
+      }
+      queryClient.setQueriesData<ContenuListe[]>(
+        { queryKey: ["slideshows"] },
+        (prev) => {
+          if (!prev) return prev;
+          const set = new Set(ids);
+          return prev.map((c) =>
+            set.has(c.id) ? { ...c, ugc_compatible: true } : c,
+          );
+        },
+      );
+      setUgcLogs([t("slideshows.ugcBulkMarque", { count: ids.length })]);
+      if (avecScan) {
+        const mediaIds = await collecterMediaIdsContenus(ids);
+        setUgcBusy(false);
+        await scannerMediasUgc(mediaIds);
+        return;
+      }
+    } catch (e) {
+      setUgcLogs([
+        `✗ ${e instanceof Error ? e.message : String(e)}`,
+      ]);
+      void queryClient.invalidateQueries({ queryKey: ["slideshow", id] });
+      void queryClient.invalidateQueries({ queryKey: ["slideshows"] });
+    } finally {
+      setUgcBusy(false);
     }
   }
 
@@ -929,7 +1043,7 @@ function DetailSlideshow({
                     <Button
                       size="sm"
                       className="h-7 text-xs"
-                      disabled={ugcScan !== null}
+                      disabled={ugcScan !== null || ugcBusy}
                       onClick={() => void activerUgcCeSlideshow(false)}
                     >
                       <Check className="size-3" />
@@ -939,11 +1053,14 @@ function DetailSlideshow({
                       size="sm"
                       variant="outline"
                       className="h-7 text-xs"
-                      disabled={ugcScan !== null}
+                      disabled={ugcScan !== null || ugcBusy}
                       onClick={() => void activerUgcCeSlideshow(true)}
                     >
                       <RefreshCw
-                        className={cn("size-3", ugcScan && "animate-spin")}
+                        className={cn(
+                          "size-3",
+                          (ugcScan || ugcBusy) && "animate-spin",
+                        )}
                       />
                       {ugcScan
                         ? t("slideshows.ugcScanLot", {
@@ -959,7 +1076,7 @@ function DetailSlideshow({
                       size="sm"
                       variant="outline"
                       className="h-7 text-xs"
-                      disabled={ugcScan !== null}
+                      disabled={ugcScan !== null || ugcBusy}
                       onClick={() => void desactiverUgcCeSlideshow()}
                     >
                       {t("slideshows.ugcDesactiver")}
@@ -968,7 +1085,7 @@ function DetailSlideshow({
                       size="sm"
                       variant="outline"
                       className="h-7 text-xs"
-                      disabled={ugcScan !== null}
+                      disabled={ugcScan !== null || ugcBusy}
                       onClick={() =>
                         void scannerMediasUgc(
                           mediaIdsDepuisSlides(d.structure_slides),
@@ -993,7 +1110,7 @@ function DetailSlideshow({
                   className="h-7 min-w-[10rem] flex-1 rounded-md border bg-background px-2 text-xs"
                   value={labelUgcId}
                   onChange={(e) => setLabelUgcId(e.target.value)}
-                  disabled={ugcScan !== null}
+                  disabled={ugcScan !== null || ugcBusy}
                 >
                   <option value="">{t("slideshows.ugcChoisirLabel")}</option>
                   {(d.labels ?? []).map((l) => (
@@ -1013,7 +1130,7 @@ function DetailSlideshow({
                   size="sm"
                   variant="outline"
                   className="h-7 text-xs"
-                  disabled={!labelUgcId || ugcScan !== null}
+                  disabled={!labelUgcId || ugcScan !== null || ugcBusy}
                   onClick={() => void lancerUgcLabel(labelUgcId, false)}
                 >
                   {t("slideshows.ugcLabel")}
@@ -1022,7 +1139,7 @@ function DetailSlideshow({
                   size="sm"
                   variant="ghost"
                   className="h-7 text-xs"
-                  disabled={!labelUgcId || ugcScan !== null}
+                  disabled={!labelUgcId || ugcScan !== null || ugcBusy}
                   onClick={() => void lancerUgcLabel(labelUgcId, true)}
                   title={t("slideshows.ugcLabelScanAide")}
                 >

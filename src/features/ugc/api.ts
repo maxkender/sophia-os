@@ -210,7 +210,7 @@ export async function genererUgcAngle(
 }
 
 /** Photo de profil 1:1 — Nano Banana Edit (4 angles en refs).
- *  `refUrl` optionnel : pose de référence (Figure 1), visage persona en Figures 2+. */
+ *  `refUrl` optionnel : pose (Figure 1), identité persona corps entier en Figures 2+. */
 export async function genererUgcProfile(
   input: {
     faceUrl?: string;

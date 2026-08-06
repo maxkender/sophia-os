@@ -23,13 +23,23 @@ type Supabase = ReturnType<typeof serviceClient>;
 const BUCKET = "medias";
 const LARGEUR = 1; // Kling lourd — 1 compte à la fois en batch
 
-const PROMPT_FACE_DEFAUT = `Figure 1 is the base photo. Figures 2+ are reference photos of one same person.
-Keep EVERYTHING in Figure 1 identical: exact body pose, hands, framing, camera
-angle, background, lighting and color grade.
-Replace ONLY the head and face with the person shown in the reference photos —
-same facial features, same hairstyle, same skin tone as the references.
-Blend the new head naturally onto the existing body and match the scene lighting.
-Photorealistic, keep the amateur phone-photo look.`;
+const PROMPT_FACE_DEFAUT = `Figure 1 is the base photo (scene + pose). Figures 2+ are reference photos of ONE same person — the persona.
+
+Transfer the FULL identity of the persona onto Figure 1 — this is NOT a head swap / face paste:
+- Face, facial features, hairstyle, hair color, eye color
+- Skin tone and skin texture on ALL visible skin: face, neck, décolleté, arms, hands, shoulders, legs — zero mismatch between head and body
+- Body type / build consistent with the persona references
+
+KEEP from Figure 1 exactly:
+- Body pose, hand positions, gesture
+- Facial expression and gaze direction
+- Clothing and accessories worn in the scene
+- Framing, camera angle, background
+- Lighting, color grade, image grain / phone-photo noise and overall quality
+
+Do NOT leave the original person's skin tone on neck, arms, hands or chest.
+Do NOT only replace the head. The whole visible person must look like the persona.
+Photorealistic, casual amateur phone-photo look.`;
 
 const NEGATIVE_DEFAUT =
   "identity change, different face, face morphing, warping, distortion, extra fingers, deformed hands, model look, glamour, studio lighting, soft flattering light, airbrushed skin, dewy, glossy, creamy bokeh, watermark, text, logo, cartoon, 3D render";

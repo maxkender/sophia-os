@@ -59,14 +59,25 @@ const PROMPT_PROFILE_DEFAUT = `Same exact person as the reference images (Figure
 
 Photorealistic casual iPhone mirror selfie, square 1:1 crop. She is standing in front of a bathroom or bedroom mirror, holding a white iPhone up to take the photo. Natural soft daylight, candid Gen-Z vibe, slightly imperfect real-phone look. Looking toward the phone screen / her reflection. Soft natural skin texture with visible pores, no heavy retouching. Authentic bathroom/bedroom mirror selfie aesthetic, head-and-shoulders filling the square frame. Sharp focus, high resolution.`;
 
-/** PDP depuis une photo de référence : garder la pose, remplacer uniquement le visage. */
-const PROMPT_PROFILE_FROM_REF_DEFAUT = `Figure 1 is the base photo. Figures 2+ are reference photos of one same person.
-Keep EVERYTHING in Figure 1 identical: exact body pose, hands, framing, camera
-angle, background, lighting, color grade and clothing.
-Replace ONLY the head and face with the person shown in the reference photos —
-same facial features, same hairstyle, same skin tone as the references.
-Blend the new head naturally onto the existing body and match the scene lighting.
-Photorealistic, keep the amateur phone-photo look. Square 1:1 crop.`;
+/** PDP depuis une photo de référence : garde la pose, identité persona corps entier. */
+const PROMPT_PROFILE_FROM_REF_DEFAUT = `Figure 1 is the base photo (scene + pose). Figures 2+ are reference photos of ONE same person — the persona.
+
+Transfer the FULL identity of the persona onto Figure 1 — this is NOT a head swap / face paste:
+- Face, facial features, hairstyle, hair color, eye color
+- Skin tone and skin texture on ALL visible skin: face, neck, décolleté, arms, hands, shoulders, legs — zero mismatch between head and body
+- Body type / build consistent with the persona references
+
+KEEP from Figure 1 exactly:
+- Body pose, hand positions, gesture
+- Facial expression and gaze direction
+- Clothing and accessories worn in the scene
+- Framing, camera angle, background
+- Lighting, color grade, image grain / phone-photo noise and overall quality
+- Square 1:1 crop
+
+Do NOT leave the original person's skin tone on neck, arms, hands or chest.
+Do NOT only replace the head. The whole visible person must look like the persona.
+Photorealistic, casual amateur phone-photo look.`;
 
 type Supabase = ReturnType<typeof serviceClient>;
 
@@ -538,7 +549,7 @@ Deno.serve(async (request) => {
     }
 
     /** Photo de profil 1:1 — Nano Banana Edit avec les 4 angles en refs.
-     *  Option `refUrl` : Figure 1 = pose de référence, Figures 2+ = visage persona. */
+     *  Option `refUrl` : Figure 1 = pose, Figures 2+ = identité persona (corps entier). */
     if (action === "generate_profile") {
       const personaId = body.personaId ? String(body.personaId).trim() : "";
       let faceUrl = String(body.faceUrl ?? "").trim();

@@ -281,7 +281,7 @@ export const SCHEMA_ASSIGNATION: PipelineAction = {
     {
       id: "ugc_swap",
       rang: "⑦",
-      label: "UGC AI — swap visage Nano Banana",
+      label: "UGC AI — identité persona Nano Banana",
       kind: "api",
       api: "fal-ai/nano-banana-pro/edit (scène + 4 angles persona)",
       env: "FAL_KEY",

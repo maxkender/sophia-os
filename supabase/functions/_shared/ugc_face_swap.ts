@@ -1,6 +1,6 @@
 /**
- * Swap visage UGC à l'assignation :
- *   Figure 1 = slide slideshow (scène)
+ * Transfert d'identité UGC à l'assignation (corps entier, pas un head-swap) :
+ *   Figure 1 = slide slideshow (scène + pose)
  *   Figures 2+ = 4 angles du persona
  *   → fal-ai/nano-banana-pro/edit → strip C2PA → nouveau media (ugc_face_regen)
  *   → met à jour uniquement les post_slides de CE post (pas la biblio partagée).
@@ -17,10 +17,23 @@ type Supabase = ReturnType<typeof serviceClient>;
 const BUCKET = "medias";
 const LARGEUR_SWAP = 2;
 
-const PROMPT_DEFAUT = `Keep this scene identical (Figure 1): pose, hands, framing, background
-and lighting. Render the subject as the character shown in the reference
-images (Figures 2+), keeping the character visually consistent with them.
-Photorealistic, casual phone-photo style.`;
+const PROMPT_DEFAUT = `Figure 1 is the base photo (scene + pose). Figures 2+ are reference photos of ONE same person — the persona.
+
+Transfer the FULL identity of the persona onto Figure 1 — this is NOT a head swap / face paste:
+- Face, facial features, hairstyle, hair color, eye color
+- Skin tone and skin texture on ALL visible skin: face, neck, décolleté, arms, hands, shoulders, legs — zero mismatch between head and body
+- Body type / build consistent with the persona references
+
+KEEP from Figure 1 exactly:
+- Body pose, hand positions, gesture
+- Facial expression and gaze direction
+- Clothing and accessories worn in the scene
+- Framing, camera angle, background
+- Lighting, color grade, image grain / phone-photo noise and overall quality
+
+Do NOT leave the original person's skin tone on neck, arms, hands or chest.
+Do NOT only replace the head. The whole visible person must look like the persona.
+Photorealistic, casual amateur phone-photo look.`;
 
 export interface UgcPersonaAngles {
   id: string;

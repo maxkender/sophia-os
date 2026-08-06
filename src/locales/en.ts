@@ -150,7 +150,7 @@ export const en = {
         profilRefait: "Profile photo updated.",
         refsTitre: "Reference profile photos",
         refsDesc:
-          "Import a pose (file or TikTok account). Pick it later to generate the persona profile: keep the pose only, swap in the persona’s face.",
+          "Import a pose (file or TikTok account). Pick it later to generate the profile: keep the pose, transfer the persona’s full identity (body + skin + face) — not just the head.",
         refsVide: "No references yet.",
         refsUpload: "Upload an image",
         refsTiktok: "Import from TikTok",
@@ -160,7 +160,7 @@ export const en = {
         refsSupprConfirm: "Delete this reference?",
         refsChoisir: "Reference for profile photo",
         refsAucune: "None (classic mirror selfie)",
-        refsSelectionnee: "Reference selected — pose only",
+        refsSelectionnee: "Reference selected — pose + persona identity",
         refsSourceUpload: "File",
         refsSourceTiktok: "TikTok",
       },
@@ -1207,12 +1207,12 @@ export const en = {
       placementDesc: "How the Sophia app fits into an existing slide.",
       traductionTitle: "Prompt — Translation (French)",
       traductionDesc: "The tone of texts translated to French, readable on TikTok.",
-      ugcFaceSwapTitle: "Prompt — UGC face swap (Nano Banana)",
+      ugcFaceSwapTitle: "Prompt — UGC full-identity transfer (Nano Banana)",
       ugcFaceSwapDesc:
-        "On UGC AI assignment: Figure 1 = slideshow slide, Figures 2+ = persona’s 4 angles. Edited via fal-ai/nano-banana-pro/edit — output matches the reference slide’s aspect ratio.",
+        "On UGC AI assignment: Figure 1 = slide (pose/scene), Figures 2+ = persona. FULL-body identity transfer (skin, face, hair) — not a head paste. Keep pose, expression, grain and clothing from the slide.",
       ugcVideoFaceTitle: "Prompt — UGC AI VIDEO face ref (Nano Banana)",
       ugcVideoFaceDesc:
-        "Figure 1 = reaction frame 10, Figures 2+ = persona images. Output forced to 9:16.",
+        "Figure 1 = reaction frame 10 (pose), Figures 2+ = persona. Full-body identity (not a head-swap). Output forced to 9:16.",
       ugcVideoKlingPromptTitle: "Prompt — Kling motion-control (positive)",
       ugcVideoKlingPromptDesc: "Optional prompt sent to Kling v2.6 standard motion-control.",
       ugcVideoKlingNegTitle: "Prompt — Kling negative_prompt",

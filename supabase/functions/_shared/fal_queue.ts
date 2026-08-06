@@ -125,3 +125,117 @@ export async function falDownloadBytes(
   const bytes = new Uint8Array(await res.arrayBuffer());
   return { url, bytes, mime };
 }
+
+/** URL sans `?v=` / query (Fal sniffe parfois mal les cache-busters). */
+export function falUrlSansQuery(url: string): string {
+  const u = String(url ?? "").trim();
+  const i = u.indexOf("?");
+  return i >= 0 ? u.slice(0, i) : u;
+}
+
+/**
+ * Upload octets vers le CDN Fal (v3) — pour que les runners Fal/Replicate
+ * n'aient pas à télécharger depuis Supabase (file_download_error intermittent).
+ */
+export async function falHebergerOctets(
+  bytes: Uint8Array,
+  contentType: string,
+  fileName: string,
+): Promise<string> {
+  const key = falKey();
+  if (!key) throw new Error("FAL_KEY manquant");
+  const mime = (contentType || "application/octet-stream").split(";")[0]!.trim();
+  const name = fileName.trim() || `file-${Date.now()}`;
+
+  const init = await fetch(
+    "https://rest.alpha.fal.ai/storage/upload/initiate?storage_type=fal-cdn-v3",
+    {
+      method: "POST",
+      headers: falAuthHeaders(key),
+      body: JSON.stringify({ content_type: mime, file_name: name }),
+    },
+  );
+  if (!init.ok) {
+    throw new Error(
+      `Fal storage initiate ${init.status}: ${(await init.text()).slice(0, 250)}`,
+    );
+  }
+  const issued = (await init.json()) as {
+    upload_url?: string;
+    file_url?: string;
+  };
+  if (!issued.upload_url || !issued.file_url) {
+    throw new Error(
+      `Fal storage initiate: réponse invalide ${JSON.stringify(issued).slice(0, 200)}`,
+    );
+  }
+
+  const put = await fetch(issued.upload_url, {
+    method: "PUT",
+    headers: { "Content-Type": mime },
+    body: bytes,
+  });
+  if (!put.ok) {
+    throw new Error(
+      `Fal storage PUT ${put.status}: ${(await put.text()).slice(0, 200)}`,
+    );
+  }
+  return issued.file_url;
+}
+
+/**
+ * Télécharge une URL (Supabase, etc.) puis la rehéberge sur le CDN Fal.
+ * Retombe sur l'URL sans query si l'upload Fal échoue.
+ */
+export async function falRehebergerUrl(
+  sourceUrl: string,
+  opts?: { fileName?: string; onProgress?: FalQueueProgress },
+): Promise<string> {
+  const clean = falUrlSansQuery(sourceUrl);
+  if (!clean) throw new Error("falRehebergerUrl: url vide");
+
+  await opts?.onProgress?.({
+    phase: "download",
+    detail: `rehost Fal · fetch ${clean.slice(-48)}`,
+  });
+  const res = await fetch(clean);
+  if (!res.ok) {
+    throw new Error(`falRehebergerUrl: fetch source ${res.status}`);
+  }
+  const mime =
+    (res.headers.get("content-type") ?? "application/octet-stream")
+      .split(";")[0]!
+      .trim();
+  const bytes = new Uint8Array(await res.arrayBuffer());
+  if (bytes.length < 32) {
+    throw new Error(`falRehebergerUrl: fichier trop petit (${bytes.length} o)`);
+  }
+
+  const ext = mime.includes("png")
+    ? "png"
+    : mime.includes("webp")
+      ? "webp"
+      : mime.includes("jpeg") || mime.includes("jpg")
+        ? "jpg"
+        : mime.includes("mp4")
+          ? "mp4"
+          : mime.includes("webm")
+            ? "webm"
+            : "bin";
+  const fileName = opts?.fileName?.trim() || `rehost-${Date.now()}.${ext}`;
+
+  try {
+    const falUrl = await falHebergerOctets(bytes, mime, fileName);
+    await opts?.onProgress?.({
+      phase: "submit",
+      detail: `rehost Fal OK · ${falUrl.slice(-56)}`,
+    });
+    return falUrl;
+  } catch (e) {
+    await opts?.onProgress?.({
+      phase: "submit",
+      detail: `rehost Fal échec (${e instanceof Error ? e.message : String(e)}) — URL sans query`,
+    });
+    return clean;
+  }
+}

@@ -241,7 +241,7 @@ export const fr = {
     simUgcVideo: {
       title: "Test assignation UGC AI VIDEO",
       subtitle:
-        "Pipeline complet pour UN créateur UGC AI VIDEO : reaction → nettoyage frame10 → Nano Banana → Kling → concat utilisation → caption. Logs exacts en stream.",
+        "Pipeline complet : reaction → nettoyage frame10 → Nano Banana → Kling (durée = reaction) → concat utilisation EN PLUS → caption.",
       date: "Date d'assignation",
       compte: "Créateur UGC AI VIDEO",
       lancer: "Lancer le test",
@@ -269,7 +269,7 @@ export const fr = {
       annulerEnCours: "Annulation…",
       annulerConfirm:
         "Supprimer les vidéos test de ce créateur pour cette date (storage + DB) ?",
-      aide: "0 = reaction (+ utilisation). 1 = text-removal classique sur la 10ᵉ frame. 2 = Nano Banana (frame nettoyée + persona). S’arrête dès que la photo ref est prête.",
+      aide: "0 = reaction (+ utilisation). 1 = text-removal classique sur la 10ᵉ frame. 2 = Nano Banana (frame nettoyée + persona). Relançable même si un test existe déjà. Annuler pour rollback.",
       logs: "Logs exacts",
       logsAttente: "Connexion au stream…",
       ok: "{{crees}} face-ref test créée(s).",

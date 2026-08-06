@@ -618,7 +618,7 @@ Deno.serve(async (request) => {
             etape: "profile",
             statut: "en_cours",
             detail: avecRef
-              ? "Nano Banana Edit — PDP depuis référence (pose only)…"
+              ? "Nano Banana Edit — PDP depuis référence (identité complète)…"
               : "Nano Banana Edit — photo de profil 1:1…",
           });
           const img = await editerNanoBananaPro(

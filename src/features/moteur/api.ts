@@ -4547,6 +4547,19 @@ export function mediaIdsDepuisSlides(
   ];
 }
 
+/** Par défaut à l'activation UGC : tous les Foreground face → Non. */
+export async function initialiserVisagesUgcNon(
+  mediaIds: string[],
+): Promise<void> {
+  const ids = [...new Set(mediaIds.filter(Boolean))];
+  if (ids.length === 0) return;
+  const { error } = await supabase
+    .from("media_library")
+    .update({ visage_premier_plan: false })
+    .in("id", ids);
+  if (error) throw error;
+}
+
 export async function setContenuUgcCompatible(
   contenuId: string,
   ugc: boolean,
@@ -4556,6 +4569,19 @@ export async function setContenuUgcCompatible(
     .update({ ugc_compatible: ugc })
     .eq("id", contenuId);
   if (error) throw error;
+  if (ugc) {
+    const { data, error: errS } = await supabase
+      .from("contenus")
+      .select("structure_slides")
+      .eq("id", contenuId)
+      .maybeSingle();
+    if (errS) throw errS;
+    await initialiserVisagesUgcNon(
+      mediaIdsDepuisSlides(
+        data?.structure_slides as Contenu["structure_slides"],
+      ),
+    );
+  }
 }
 
 /** Ids des slideshows d'un compte référence. */
@@ -4591,7 +4617,11 @@ export async function marquerUgcParCompte(
     .eq("compte_reference_id", compteReferenceId)
     .select("id");
   if (error) throw error;
-  return (data ?? []).map((r) => r.id as string);
+  const ids = (data ?? []).map((r) => r.id as string);
+  if (ugc && ids.length > 0) {
+    await initialiserVisagesUgcNon(await collecterMediaIdsContenus(ids));
+  }
+  return ids;
 }
 
 /** Marque UGC tous les slideshows portant un label. Renvoie les ids. */
@@ -4607,7 +4637,11 @@ export async function marquerUgcParLabel(
     .in("id", ids)
     .select("id");
   if (error) throw error;
-  return (data ?? []).map((r) => r.id as string);
+  const marked = (data ?? []).map((r) => r.id as string);
+  if (ugc && marked.length > 0) {
+    await initialiserVisagesUgcNon(await collecterMediaIdsContenus(marked));
+  }
+  return marked;
 }
 
 /** Collecte les media_id uniques des slideshows donnés. */

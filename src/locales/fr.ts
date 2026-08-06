@@ -1030,11 +1030,11 @@ export const fr = {
       ugcBadge: "UGC",
       ugcSection: "Checkmark UGC",
       ugcAide:
-        "Marque ce slideshow UGC. Ensuite : Oui/Non visage à la main sur chaque slide, ou scan vision IA optionnel.",
+        "Marque ce slideshow UGC. Les visages 1er plan passent à Non par défaut — passe en Oui à la main, ou lance un scan IA.",
       ugcActiver: "Marquer UGC",
       ugcActiverEtScanner: "Marquer UGC + scanner (IA)",
       ugcMarqueManuel:
-        "UGC marqué — indique Oui/Non visage sur les slides, ou lance un scan IA.",
+        "UGC marqué — visages 1er plan à Non. Passe en Oui si besoin, ou lance un scan IA.",
       ugcMarquePuisScan: "UGC marqué — lancement du scan vision…",
       ugcBulkMarque: "{{count}} slideshow(s) marqué(s) UGC.",
       ugcDesactiver: "Retirer le checkmark UGC",

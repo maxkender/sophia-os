@@ -1029,11 +1029,11 @@ export const en = {
       ugcBadge: "UGC",
       ugcSection: "UGC checkmark",
       ugcAide:
-        "Mark this slideshow as UGC. Then: set Yes/No face per slide by hand, or run an optional AI vision scan.",
+        "Mark this slideshow as UGC. Foreground faces default to No — switch to Yes by hand, or run an AI scan.",
       ugcActiver: "Mark UGC",
       ugcActiverEtScanner: "Mark UGC + scan (AI)",
       ugcMarqueManuel:
-        "UGC marked — set Yes/No face on slides, or run an AI scan.",
+        "UGC marked — foreground faces set to No. Switch to Yes if needed, or run an AI scan.",
       ugcMarquePuisScan: "UGC marked — starting vision scan…",
       ugcBulkMarque: "{{count}} slideshow(s) marked UGC.",
       ugcDesactiver: "Remove UGC checkmark",

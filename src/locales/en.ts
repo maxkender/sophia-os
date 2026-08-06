@@ -388,6 +388,12 @@ export const en = {
       comptesIncompletsAide:
         "Creators missing their daily quota: missing posts, or at least one failed post. Click to see who, language, and the cause.",
       comptesIncompletsDetail: "Who is incomplete — where and why",
+      reassignerIncomplets: "Re-assign incomplete ({{count}}) · parallel",
+      reassignerIncompletsAide:
+        "Re-runs assignment only for under-quota accounts, 6 in parallel — much faster than Re-run.",
+      reassignerIncompletsEnCours: "Parallel re-assignment…",
+      reassignerIncompletsOk:
+        "Parallel re-assignment: {{crees}} passage(s) created.",
       causeManquantTitre: "Missing posts",
       causePourquoiTitre: "Why midnight didn’t fill the quota",
       causePourquoiChargement: "Diagnosing the pool…",

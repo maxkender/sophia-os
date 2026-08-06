@@ -1,6 +1,9 @@
 import {
   annulerAssignationTest,
+  assignerDrainLot,
   assignerTousComptes,
+  DRAIN_MAX_CHAIN,
+  kickAssignationDrain,
   type AssignationCompteResultat,
 } from "../_shared/assignation_contenu.ts";
 import { reponseNdjson, veutStream } from "../_shared/nettoyage_etapes.ts";
@@ -15,21 +18,14 @@ import {
 /**
  * Assignation quotidienne — CUTOVER v-next.
  *
- * Ancien chemin recycle/remanie/nouveau abandonné. Cette Edge Function
- * (encore appelée par le front prod / anciens crons) délègue à
- * `assignerTousComptes` : labels ∩ + score → passages + posts pont
- * (`type=contenu`, déjà traduits + Sophia).
- *
  *   {}               → tous les comptes (respecte pause assignation_auto)
  *   { compteId }     → ce seul compte
  *   { date }         → jour Paris cible
  *   { manuel: true } → contourne la pause (lancement admin Minuit)
+ *   { drain: true }  → lot de comptes sous-quota + auto-chaîne (évite timeout)
  *   { forcer: true } → crée 1 passage même si quota atteint
  *   { test: true, compteId, date, manuel: true, stream? }
- *     → assignation test (est_test, sans filtre ELO, ignore warmup)
- *     → NDJSON si stream / Accept ndjson (évite idle Edge 150s)
  *   { action: "annuler_test", compteId, date }
- *     → rollback des posts test de ce compte/jour
  */
 Deno.serve(async (request) => {
   const denied = await assertAuthorised(request);
@@ -44,6 +40,8 @@ Deno.serve(async (request) => {
   let forcer = false;
   let manuel = false;
   let test = false;
+  let drain = false;
+  let drainGen = 0;
   let action: string | null = null;
   try {
     body = await request.json();
@@ -52,6 +50,8 @@ Deno.serve(async (request) => {
     forcer = Boolean(body?.forcer);
     manuel = Boolean(body?.manuel);
     test = Boolean(body?.test);
+    drain = Boolean(body?.drain);
+    drainGen = typeof body?.drainGen === "number" ? body.drainGen : 0;
     action = typeof body?.action === "string" ? body.action : null;
   } catch {
     // Corps vide : tous les comptes, aujourd'hui.
@@ -96,6 +96,48 @@ Deno.serve(async (request) => {
       ignorerWarmup: test,
     };
 
+    // Drain : petits lots + auto-chaîne (chemin minuit / gros backlog).
+    if (drain && !compteId && !test) {
+      const lot = await assignerDrainLot(supabase, jour, opts);
+      const quotasBaisses = synthetiserQuotasBaisses(lot.resultats);
+      const crees = lot.resultats.reduce((n, r) => n + (r.crees ?? 0), 0);
+      await fusionnerDernierRun(supabase, jour, lot.resultats, quotasBaisses, {
+        drainGen,
+        traites: lot.traites,
+        restants: lot.restants,
+      });
+
+      if (lot.restants > 0 && drainGen < DRAIN_MAX_CHAIN) {
+        kickAssignationDrain(request, {
+          date: jour,
+          drain: true,
+          drainGen: drainGen + 1,
+          // Contourne la pause : le run a déjà été autorisé (cron / admin).
+          manuel: true,
+        });
+      }
+
+      const avertissement =
+        quotasBaisses.length > 0
+          ? `Lowered quota (${quotasBaisses.length}) — pool trop mince : ` +
+            quotasBaisses.map((q) => `${q.nom} ${q.avant}→${q.apres}`).join(" · ")
+          : undefined;
+
+      return json({
+        ok: true,
+        jour,
+        drain: true,
+        drainGen,
+        traites: lot.traites,
+        restants: lot.restants,
+        resultats: lot.resultats,
+        quotasBaisses,
+        avertissement,
+        crees,
+        kick: lot.restants > 0 && drainGen < DRAIN_MAX_CHAIN,
+      });
+    }
+
     if (stream) {
       return reponseNdjson(async (emit) => {
         const log = (detail: string) =>
@@ -127,8 +169,8 @@ Deno.serve(async (request) => {
                   .map((q) => `${q.nom} ${q.avant}→${q.apres}`)
                   .join(" · ")
               : undefined;
-          if (!test && quotasBaisses.length > 0) {
-            await persisterQuotasBaisses(supabase, jour, resultats, quotasBaisses, avertissement);
+          if (!test) {
+            await fusionnerDernierRun(supabase, jour, resultats, quotasBaisses, {});
           }
           const detail =
             avertissement ??
@@ -159,8 +201,8 @@ Deno.serve(async (request) => {
         ? `Lowered quota (${quotasBaisses.length}) — pool trop mince : ` +
           quotasBaisses.map((q) => `${q.nom} ${q.avant}→${q.apres}`).join(" · ")
         : undefined;
-    if (!test && quotasBaisses.length > 0) {
-      await persisterQuotasBaisses(supabase, jour, resultats, quotasBaisses, avertissement);
+    if (!test) {
+      await fusionnerDernierRun(supabase, jour, resultats, quotasBaisses, {});
     }
     return json({
       ok: true,
@@ -189,7 +231,8 @@ function synthetiserQuotasBaisses(
     }));
 }
 
-async function persisterQuotasBaisses(
+/** Merge cumulatif (drain multi-lots) dans reglages.minuit_dernier_run. */
+async function fusionnerDernierRun(
   supabase: ReturnType<typeof serviceClient>,
   jour: string,
   resultats: AssignationCompteResultat[],
@@ -200,17 +243,49 @@ async function persisterQuotasBaisses(
     apres: number;
     raison: string;
   }>,
-  avertissement: string | undefined,
+  meta: Record<string, unknown>,
 ): Promise<void> {
+  const creesLot = resultats.reduce((n, r) => n + (r.crees ?? 0), 0);
+  const { data: prev } = await supabase
+    .from("reglages")
+    .select("valeur")
+    .eq("cle", "minuit_dernier_run")
+    .maybeSingle();
+  const ancien = (prev?.valeur ?? {}) as {
+    jour?: string;
+    crees?: number;
+    quotasBaisses?: Array<{
+      compteId: string;
+      nom: string;
+      avant: number;
+      apres: number;
+      raison: string;
+    }>;
+  };
+  const memeJour = ancien.jour === jour;
+  const quotas = [
+    ...(memeJour ? (ancien.quotasBaisses ?? []) : []),
+    ...quotasBaisses,
+  ];
+  // Dédup par compteId (garde le dernier).
+  const parId = new Map(quotas.map((q) => [q.compteId, q]));
+  const quotasMerged = [...parId.values()];
+  const avertissement =
+    quotasMerged.length > 0
+      ? `Lowered quota (${quotasMerged.length}) — pool trop mince : ` +
+        quotasMerged.map((q) => `${q.nom} ${q.avant}→${q.apres}`).join(" · ")
+      : null;
+
   await supabase.from("reglages").upsert(
     {
       cle: "minuit_dernier_run",
       valeur: {
         jour,
         at: new Date().toISOString(),
-        avertissement: avertissement ?? null,
-        quotasBaisses,
-        crees: resultats.reduce((n, r) => n + (r.crees ?? 0), 0),
+        avertissement,
+        quotasBaisses: quotasMerged,
+        crees: (memeJour ? (ancien.crees ?? 0) : 0) + creesLot,
+        ...meta,
       },
     },
     { onConflict: "cle" },

@@ -1,5 +1,6 @@
 import {
   assignerTousComptes,
+  kickAssignationDrain,
   type AssignationCompteResultat,
 } from "../_shared/assignation_contenu.ts";
 import { kickAssignationUgcVideo } from "../_shared/assignation_ugc_video.ts";
@@ -122,36 +123,53 @@ Deno.serve(async (request) => {
       });
     }
     if (etapes.includes("assignation")) {
-      const resultats = await assignerTousComptes(
-        supabase,
-        jour,
-        compteId,
-        Boolean(body?.forcerAssignation),
-      );
-      out.assignation = resultats;
-      const quotasBaisses = synthetiserQuotasBaisses(resultats);
-      if (quotasBaisses.length > 0) {
-        out.quotasBaisses = quotasBaisses;
-        out.avertissement =
-          `Lowered quota (${quotasBaisses.length}) — pool trop mince : ` +
-          quotasBaisses
-            .map((q) => `${q.nom} ${q.avant}→${q.apres}`)
-            .join(" · ");
-      }
-      // Persisté pour l'UI Minuit (cron sans observateur).
-      await supabase.from("reglages").upsert(
-        {
-          cle: "minuit_dernier_run",
-          valeur: {
-            jour,
-            at: new Date().toISOString(),
-            avertissement: (out.avertissement as string | undefined) ?? null,
-            quotasBaisses,
-            crees: resultats.reduce((n, r) => n + (r.crees ?? 0), 0),
+      // Un seul compte : await synchrone. Tous les comptes : drain auto-chaîné
+      // (évite timeout cron 280s qui laissait 50+ comptes sans post).
+      if (compteId) {
+        const resultats = await assignerTousComptes(
+          supabase,
+          jour,
+          compteId,
+          Boolean(body?.forcerAssignation),
+        );
+        out.assignation = resultats;
+        const quotasBaisses = synthetiserQuotasBaisses(resultats);
+        if (quotasBaisses.length > 0) {
+          out.quotasBaisses = quotasBaisses;
+          out.avertissement =
+            `Lowered quota (${quotasBaisses.length}) — pool trop mince : ` +
+            quotasBaisses
+              .map((q) => `${q.nom} ${q.avant}→${q.apres}`)
+              .join(" · ");
+        }
+        await supabase.from("reglages").upsert(
+          {
+            cle: "minuit_dernier_run",
+            valeur: {
+              jour,
+              at: new Date().toISOString(),
+              avertissement: (out.avertissement as string | undefined) ?? null,
+              quotasBaisses,
+              crees: resultats.reduce((n, r) => n + (r.crees ?? 0), 0),
+            },
           },
-        },
-        { onConflict: "cle" },
-      );
+          { onConflict: "cle" },
+        );
+      } else {
+        kickAssignationDrain(request, {
+          date: jour,
+          drain: true,
+          drainGen: 0,
+          manuel: Boolean(body?.manuel || body?.forcer),
+        });
+        out.assignation = {
+          ok: true,
+          kick: true,
+          drain: true,
+          detail:
+            "drain assignation démarré (lots de 8 comptes, auto-chaîne jusqu'à quota rempli)",
+        };
+      }
     }
     if (etapes.includes("upscale")) {
       // Ne bloque pas minuit : kick le drain SeedVR (1 à la fois + auto-chaîne).

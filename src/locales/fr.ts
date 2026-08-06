@@ -388,6 +388,12 @@ export const fr = {
       comptesIncompletsAide:
         "Créateurs sans leur quota du jour : posts manquants, ou au moins un post en échec. Clique pour voir qui, la langue, et la cause.",
       comptesIncompletsDetail: "Qui est incomplet — où et pourquoi",
+      reassignerIncomplets: "Réassigner incomplets ({{count}}) · parallèle",
+      reassignerIncompletsAide:
+        "Relance l’assignation uniquement pour les comptes sous quota, 6 en parallèle — beaucoup plus rapide que Relancer.",
+      reassignerIncompletsEnCours: "Réassignation parallèle…",
+      reassignerIncompletsOk:
+        "Réassignation parallèle : {{crees}} passage(s) créé(s).",
       causeManquantTitre: "Posts manquants",
       causePourquoiTitre: "Pourquoi minuit n’a pas complété",
       causePourquoiChargement: "Diagnostic du pool…",

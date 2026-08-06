@@ -19,18 +19,59 @@ import {
   aujourdhuiParis,
   diagnostiquerQuotaCompte,
   ecrireReglage,
+  lancerAssignationIncompletsParallele,
   lancerAssignationJour,
   lancerAssignationJourLive,
   lancerRattrapageEloLive,
   lireMinuitDernierRun,
   lireReglages,
   suiviAssignation,
+  type AssignationJourResultat,
   type RattrapageEloBrief,
   type RattrapageEloLog,
   type SuiviMinuit,
 } from "@/features/moteur/api";
 import { nomLangue } from "@/features/moteur/langues";
 import { cn } from "@/lib/utils";
+
+function BanniereAssignation({
+  data,
+  t,
+  incomplets = false,
+}: {
+  data: AssignationJourResultat;
+  t: (key: string, opts?: Record<string, unknown>) => string;
+  incomplets?: boolean;
+}) {
+  const crees = (data.resultats ?? []).reduce((n, r) => n + r.crees, 0);
+  const detailQuotas =
+    data.avertissement ??
+    (data.quotasBaisses?.length
+      ? data.quotasBaisses.map((q) => `${q.nom} ${q.avant}→${q.apres}`).join(" · ")
+      : null);
+  return (
+    <div className="space-y-2">
+      <div
+        className={
+          crees === 0
+            ? "rounded-md bg-warning/10 p-3 text-sm text-warning"
+            : "rounded-md bg-success/10 p-3 text-sm text-success"
+        }
+      >
+        {crees === 0
+          ? t("minuit.lanceZero")
+          : incomplets
+            ? t("minuit.reassignerIncompletsOk", { crees })
+            : t("minuit.lance", { crees })}
+      </div>
+      {detailQuotas && (
+        <div className="rounded-md bg-warning/10 p-3 text-sm text-warning">
+          {t("minuit.quotasBaisses", { detail: detailQuotas })}
+        </div>
+      )}
+    </div>
+  );
+}
 
 function fmtScore(n: number): string {
   return (Math.round(n * 10) / 10).toFixed(1);
@@ -379,6 +420,28 @@ export function AdminMinuitPage() {
   const phaseRelanceRef = React.useRef(phaseRelance);
   phaseRelanceRef.current = phaseRelance;
 
+  const [progressIncomplets, setProgressIncomplets] = React.useState<string | null>(
+    null,
+  );
+
+  const reassignerIncomplets = useMutation({
+    mutationFn: () =>
+      lancerAssignationIncompletsParallele(date, {
+        concurrence: 6,
+        onProgress: (p) => {
+          setProgressIncomplets(
+            t("minuit.assignProgress", { i: p.index, n: p.total, nom: p.nom }),
+          );
+        },
+      }),
+    onSuccess: () => {
+      setProgressIncomplets(null);
+      void queryClient.invalidateQueries({ queryKey: ["suivi-minuit", date] });
+      void queryClient.invalidateQueries({ queryKey: ["minuit-dernier-run"] });
+    },
+    onError: () => setProgressIncomplets(null),
+  });
+
   const assignerUn = useMutation({
     mutationFn: (compteId: string) => lancerAssignationJour(date, compteId),
     onSuccess: () => {
@@ -596,7 +659,11 @@ export function AdminMinuitPage() {
             </Button>
             <Button
               onClick={() => relancer.mutate()}
-              disabled={relancer.isPending || rattrapageElo.isPending}
+              disabled={
+                relancer.isPending ||
+                rattrapageElo.isPending ||
+                reassignerIncomplets.isPending
+              }
               title={t("minuit.relancerAide")}
             >
               {relancer.isPending
@@ -608,58 +675,60 @@ export function AdminMinuitPage() {
             <Button
               variant="secondary"
               onClick={() => rattrapageElo.mutate()}
-              disabled={rattrapageElo.isPending || relancer.isPending}
+              disabled={rattrapageElo.isPending || relancer.isPending || reassignerIncomplets.isPending}
               title={t("minuit.rattrapageEloAide")}
             >
               {rattrapageElo.isPending ? t("minuit.rattrapageEloEnCours") : t("minuit.rattrapageElo")}
             </Button>
+            <Button
+              variant="default"
+              onClick={() => reassignerIncomplets.mutate()}
+              disabled={
+                reassignerIncomplets.isPending ||
+                relancer.isPending ||
+                rattrapageElo.isPending ||
+                comptesEnEchec === 0
+              }
+              title={t("minuit.reassignerIncompletsAide")}
+            >
+              {reassignerIncomplets.isPending
+                ? t("minuit.reassignerIncompletsEnCours")
+                : t("minuit.reassignerIncomplets", { count: comptesEnEchec })}
+            </Button>
           </div>
 
           <BarreChargement
-            actif={relancer.isPending || rattrapageElo.isPending}
+            actif={
+              relancer.isPending ||
+              rattrapageElo.isPending ||
+              reassignerIncomplets.isPending
+            }
             dureeMs={
-              rattrapageElo.isPending || phaseRelance === "elo" ? 60_000 : 9_000
+              rattrapageElo.isPending || phaseRelance === "elo"
+                ? 60_000
+                : reassignerIncomplets.isPending
+                  ? 45_000
+                  : 9_000
             }
             label={
-              phaseRelance === "elo" || rattrapageElo.isPending
-                ? (eloLive.progress ?? t("minuit.rattrapageEloEnCours"))
-                : phaseRelance === "assignation"
-                  ? t("minuit.enCours")
-                  : t("minuit.enCours")
+              reassignerIncomplets.isPending
+                ? (progressIncomplets ?? t("minuit.reassignerIncompletsEnCours"))
+                : phaseRelance === "elo" || rattrapageElo.isPending
+                  ? (eloLive.progress ?? t("minuit.rattrapageEloEnCours"))
+                  : phaseRelance === "assignation"
+                    ? t("minuit.enCours")
+                    : t("minuit.enCours")
             }
           />
 
-          {relancer.isSuccess && (() => {
-            const crees = relancer.data.resultats.reduce((n, r) => n + r.crees, 0);
-            const detailQuotas =
-              relancer.data.avertissement ??
-              (relancer.data.quotasBaisses?.length
-                ? relancer.data.quotasBaisses
-                    .map((q) => `${q.nom} ${q.avant}→${q.apres}`)
-                    .join(" · ")
-                : null);
-            return (
-              <div className="space-y-2">
-                <div
-                  className={
-                    crees === 0
-                      ? "rounded-md bg-warning/10 p-3 text-sm text-warning"
-                      : "rounded-md bg-success/10 p-3 text-sm text-success"
-                  }
-                >
-                  {crees === 0
-                    ? t("minuit.lanceZero")
-                    : t("minuit.lance", { crees })}
-                </div>
-                {detailQuotas && (
-                  <div className="rounded-md bg-warning/10 p-3 text-sm text-warning">
-                    {t("minuit.quotasBaisses", { detail: detailQuotas })}
-                  </div>
-                )}
-              </div>
-            );
-          })()}
+          {relancer.isSuccess && (
+            <BanniereAssignation data={relancer.data} t={t} />
+          )}
+          {reassignerIncomplets.isSuccess && (
+            <BanniereAssignation data={reassignerIncomplets.data} t={t} incomplets />
+          )}
           {!relancer.isSuccess &&
+            !reassignerIncomplets.isSuccess &&
             dernierRun.data?.avertissement &&
             dernierRun.data.jour === date && (
               <div className="rounded-md bg-warning/10 p-3 text-sm text-warning">
@@ -671,6 +740,11 @@ export function AdminMinuitPage() {
           {relancer.isError && (
             <div className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">
               {(relancer.error as Error).message}
+            </div>
+          )}
+          {reassignerIncomplets.isError && (
+            <div className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">
+              {(reassignerIncomplets.error as Error).message}
             </div>
           )}
           {(rattrapageElo.isPending || eloLive.done || eloLive.logs.length > 0) && (

@@ -8,7 +8,11 @@ import {
 
 /** Comptes traités en parallèle. Gemini (trad + Sophia) est dans assurerDeck —
  *  trop large → 429 ; trop petit → assignation lente. */
-const LARGEUR_ASSIGNATION = 4;
+const LARGEUR_ASSIGNATION = 6;
+
+/** Par invocation drain : assez petit pour finir avant timeout Edge / cron. */
+const DRAIN_BATCH = 8;
+const DRAIN_MAX_CHAIN = 40;
 
 export type Supabase = ReturnType<typeof serviceClient>;
 
@@ -480,6 +484,10 @@ export async function assignerCompteJour(
 
 /** Pool labels×langue trop mince / épuisé → candidat au fallback baisse de quota. */
 function estRaisonPoolPourBaisseQuota(diag: string): boolean {
+  // Ne pas baisser le quota si le pool est OK (timeout batch) — on doit réessayer.
+  if (/Pool « .+ » × .+ OK \(/i.test(diag) || /n'a probablement pas atteint/i.test(diag)) {
+    return false;
+  }
   return (
     /trop mince|épuisé|déjà tout assigné|importe \/ labellise/i.test(diag) ||
     /aucun éligible|pas de ligne ELO|pas de score ELO/i.test(diag) ||
@@ -568,6 +576,16 @@ async function diagnostiquerPoolVide(
     return (
       `${idsPrets.length} slideshow(s) « ${labelsTxt} » prêts, mais aucun éligible en ` +
       `${langue.toUpperCase()} (pas de ligne ELO pour cette langue à l'import).`
+    );
+  }
+
+  // Beaucoup de candidats ELO : le pool n'est PAS vide — minuit a souvent
+  // timeout avant d'atteindre ce compte (batch trop long).
+  if (nLangue >= 15) {
+    return (
+      `Pool « ${labelsTxt} » × ${langue.toUpperCase()} OK (${nLangue} candidat(s) ELO) — ` +
+      `minuit n'a probablement pas atteint ce compte (timeout batch). ` +
+      `Réassigne les incomplets (bouton parallèle) ; sinon baisse auto du quota.`
     );
   }
 
@@ -831,6 +849,134 @@ export type AssignationCompteResultat = {
   quotaBaisse?: QuotaBaisse & { nom?: string };
 };
 
+/** Comptes en process (warmup OK, pas UGC video) encore sous leur quota du jour. */
+export async function listerComptesSousQuota(
+  supabase: Supabase,
+  jour: string,
+  opts: { ignorerWarmup?: boolean } = {},
+  // deno-lint-ignore no-explicit-any
+): Promise<any[]> {
+  const { data: comptesBruts, error } = await supabase
+    .from("comptes")
+    .select("*")
+    .eq("is_active", true);
+  if (error) throw error;
+
+  const maintenant = Date.now();
+  const comptes = (comptesBruts ?? []).filter((c) => {
+    if (Boolean(c.ugc_ai_video)) return false;
+    const q = Number(c.posts_par_jour ?? 1);
+    if (!Number.isFinite(q) || q <= 0) return false;
+    if (opts.ignorerWarmup) return true;
+    const ends = c.warmup_ends_at as string | null | undefined;
+    if (!ends) return false;
+    return new Date(ends).getTime() <= maintenant;
+  });
+  if (comptes.length === 0) return [];
+
+  const ids = comptes.map((c) => c.id as string);
+  const faits = new Map<string, number>();
+  // Chunks pour éviter les .in() trop longs.
+  for (let i = 0; i < ids.length; i += 80) {
+    const chunk = ids.slice(i, i + 80);
+    const { data: posts } = await supabase
+      .from("posts")
+      .select("compte_id")
+      .in("compte_id", chunk)
+      .eq("date_publication_prevue", jour)
+      .eq("est_test", false);
+    for (const p of posts ?? []) {
+      const cid = p.compte_id as string;
+      faits.set(cid, (faits.get(cid) ?? 0) + 1);
+    }
+  }
+
+  return comptes.filter((c) => {
+    const q = Math.min(3, Math.max(0, Number(c.posts_par_jour ?? 1)));
+    return (faits.get(c.id as string) ?? 0) < q;
+  });
+}
+
+/**
+ * Drain : un lot de comptes sous-quota, puis auto-chaîne tant qu'il en reste.
+ * Évite le timeout cron (280s) qui laissait 50+ comptes sans post.
+ */
+export async function assignerDrainLot(
+  supabase: Supabase,
+  jour: string,
+  opts: AssignationOpts = {},
+): Promise<{
+  resultats: AssignationCompteResultat[];
+  restants: number;
+  traites: number;
+}> {
+  const sousQuota = await listerComptesSousQuota(supabase, jour, {
+    ignorerWarmup: Boolean(opts.ignorerWarmup),
+  });
+  const lot = sousQuota.slice(0, DRAIN_BATCH);
+  if (lot.length === 0) {
+    return { resultats: [], restants: 0, traites: 0 };
+  }
+  const reglages = await chargerAssignationReglages(supabase);
+  const resultats = await mapPool(lot, LARGEUR_ASSIGNATION, async (compte) => {
+    const nom =
+      (compte.persona_nom as string | null) ??
+      (compte.handle_tiktok as string | null) ??
+      String(compte.id).slice(0, 8);
+    try {
+      const detail = await assignerCompteJour(supabase, compte, jour, reglages, opts);
+      return {
+        compteId: compte.id as string,
+        crees: detail.ids.length,
+        passageIds: detail.ids,
+        raison: detail.raison,
+        quotaBaisse: detail.quotaBaisse
+          ? { ...detail.quotaBaisse, nom }
+          : undefined,
+      };
+    } catch (e) {
+      return {
+        compteId: compte.id as string,
+        crees: 0,
+        erreur: e instanceof Error ? e.message : String(e),
+      };
+    }
+  });
+  return {
+    resultats,
+    restants: Math.max(0, sousQuota.length - lot.length),
+    traites: lot.length,
+  };
+}
+
+/** Kick fire-and-forget du drain assignation (auto-chaîne côté Edge). */
+export function kickAssignationDrain(
+  request: Request,
+  body: Record<string, unknown>,
+): void {
+  const url = Deno.env.get("SUPABASE_URL");
+  if (!url) return;
+  const secret = Deno.env.get("CRON_SECRET");
+  const auth = request.headers.get("Authorization");
+  const headers: Record<string, string> = {
+    "content-type": "application/json",
+  };
+  if (secret) headers["x-cron-secret"] = secret;
+  else if (auth) headers.Authorization = auth;
+
+  const target = `${url}/functions/v1/assignation`;
+  const edge = (globalThis as {
+    EdgeRuntime?: { waitUntil: (p: Promise<unknown>) => void };
+  }).EdgeRuntime;
+
+  const p = fetch(target, {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ ...body, drain: true }),
+  }).catch(() => null);
+  if (edge?.waitUntil) edge.waitUntil(p);
+}
+
 export async function assignerTousComptes(
   supabase: Supabase,
   jour: string,
@@ -882,6 +1028,8 @@ export async function assignerTousComptes(
     }
   });
 }
+
+export { DRAIN_MAX_CHAIN };
 
 /**
  * Annule une assignation test : supprime posts `est_test` + passages liés

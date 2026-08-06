@@ -3501,61 +3501,42 @@ export async function listerUgcVideoPostsTest(
   return (data ?? []) as UgcVideoPostTest[];
 }
 
-/**
- * Assignation compte-par-compte (évite timeout Edge 150s sur Relancer).
- * Continue même si un compte échoue / timeout.
- * Skip les comptes déjà au quota ; retry les « Failed to send… » (réseau).
- */
-export async function lancerAssignationJourLive(
+const LARGEUR_ASSIGN_FRONT = 6;
+
+async function assignerCompteAvecRetry(
   date: string,
-  opts?: {
-    onProgress?: (p: {
-      index: number;
-      total: number;
-      compteId: string;
-      nom: string;
-    }) => void;
-  },
-): Promise<AssignationJourResultat> {
-  const lignes = await suiviAssignation(date);
-  const aFaire = lignes.filter((l) => l.posts.length < l.quota);
-  const resultats: AssignationJourResultat["resultats"] = [];
-
-  for (let i = 0; i < aFaire.length; i++) {
-    const l = aFaire[i]!;
-    opts?.onProgress?.({
-      index: i + 1,
-      total: aFaire.length,
-      compteId: l.compteId,
-      nom: l.nom,
-    });
-
-    let dernierErr: unknown = null;
-    let ok = false;
-    for (let essai = 0; essai < 3 && !ok; essai++) {
-      try {
-        if (essai > 0) await sleepMs(1500 * essai);
-        const r = await lancerAssignationJour(date, l.compteId);
-        resultats.push(...(r.resultats ?? []));
-        ok = true;
-      } catch (e) {
-        dernierErr = e;
-        // Retry seulement les échecs réseau / gateway ; le reste saute.
-        if (!estFetchEdgeEchoue(e) && !estTimeoutEdge(e)) break;
-      }
-    }
-    if (!ok) {
-      const erreur = dernierErr instanceof Error ? dernierErr.message : String(dernierErr);
-      resultats.push({
-        compteId: l.compteId,
-        crees: 0,
-        erreur: estTimeoutEdge(dernierErr) || estFetchEdgeEchoue(dernierErr)
-          ? `${erreur} — compte sauté après retry`
-          : erreur,
-      });
+  compteId: string,
+): Promise<AssignationJourResultat["resultats"][number]> {
+  let dernierErr: unknown = null;
+  for (let essai = 0; essai < 3; essai++) {
+    try {
+      if (essai > 0) await sleepMs(1500 * essai);
+      const r = await lancerAssignationJour(date, compteId);
+      return (
+        r.resultats?.[0] ?? {
+          compteId,
+          crees: 0,
+          raison: r.raison ?? "Aucun résultat",
+        }
+      );
+    } catch (e) {
+      dernierErr = e;
+      if (!estFetchEdgeEchoue(e) && !estTimeoutEdge(e)) break;
     }
   }
+  const erreur = dernierErr instanceof Error ? dernierErr.message : String(dernierErr);
+  return {
+    compteId,
+    crees: 0,
+    erreur: estTimeoutEdge(dernierErr) || estFetchEdgeEchoue(dernierErr)
+      ? `${erreur} — compte sauté après retry`
+      : erreur,
+  };
+}
 
+function synthetiserQuotasDepuisResultats(
+  resultats: AssignationJourResultat["resultats"],
+): Pick<AssignationJourResultat, "quotasBaisses" | "avertissement"> {
   const quotasBaisses: QuotaBaisseResultat[] = resultats
     .filter((r) => r.quotaBaisse)
     .map((r) => ({
@@ -3570,8 +3551,91 @@ export async function lancerAssignationJourLive(
       ? `Lowered quota (${quotasBaisses.length}) — pool trop mince : ` +
         quotasBaisses.map((q) => `${q.nom} ${q.avant}→${q.apres}`).join(" · ")
       : undefined;
+  return { quotasBaisses, avertissement };
+}
 
-  return { ok: true, jour: date, resultats, quotasBaisses, avertissement };
+/**
+ * Assignation compte-par-compte (évite timeout Edge 150s sur Relancer).
+ * Continue même si un compte échoue / timeout.
+ * Skip les comptes déjà au quota ; retry les « Failed to send… » (réseau).
+ */
+export async function lancerAssignationJourLive(
+  date: string,
+  opts?: {
+    onProgress?: (p: {
+      index: number;
+      total: number;
+      compteId: string;
+      nom: string;
+    }) => void;
+    /** Parallélisme (défaut 1 = séquentiel historique Relancer). */
+    concurrence?: number;
+  },
+): Promise<AssignationJourResultat> {
+  const lignes = await suiviAssignation(date);
+  const aFaire = lignes.filter((l) => l.posts.length < l.quota);
+  const concurrence = Math.max(1, opts?.concurrence ?? 1);
+  const resultats: AssignationJourResultat["resultats"] = [];
+  let done = 0;
+
+  let next = 0;
+  async function worker() {
+    while (true) {
+      const i = next;
+      next += 1;
+      if (i >= aFaire.length) return;
+      const l = aFaire[i]!;
+      opts?.onProgress?.({
+        index: Math.min(done + 1, aFaire.length),
+        total: aFaire.length,
+        compteId: l.compteId,
+        nom: l.nom,
+      });
+      const r = await assignerCompteAvecRetry(date, l.compteId);
+      resultats.push(r);
+      done += 1;
+      opts?.onProgress?.({
+        index: done,
+        total: aFaire.length,
+        compteId: l.compteId,
+        nom: l.nom,
+      });
+    }
+  }
+
+  await Promise.all(
+    Array.from({ length: Math.min(concurrence, Math.max(1, aFaire.length)) }, () =>
+      worker(),
+    ),
+  );
+
+  return {
+    ok: true,
+    jour: date,
+    resultats,
+    ...synthetiserQuotasDepuisResultats(resultats),
+  };
+}
+
+/**
+ * Ré-assigne uniquement les comptes incomplets du jour, en parallèle (rapide).
+ */
+export async function lancerAssignationIncompletsParallele(
+  date: string,
+  opts?: {
+    onProgress?: (p: {
+      index: number;
+      total: number;
+      compteId: string;
+      nom: string;
+    }) => void;
+    concurrence?: number;
+  },
+): Promise<AssignationJourResultat> {
+  return lancerAssignationJourLive(date, {
+    onProgress: opts?.onProgress,
+    concurrence: opts?.concurrence ?? LARGEUR_ASSIGN_FRONT,
+  });
 }
 
 /** Une ligne de suivi « minuit » : un compte actif, son quota du jour, et les
@@ -3741,6 +3805,14 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
     return (
       `${idsPrets.length} slideshow(s) « ${labelsTxt} » prêts, mais aucun éligible en ` +
       `${langue.toUpperCase()} (pas de score ELO langue à l'import pour cette langue).`
+    );
+  }
+
+  if (nLangue >= 15) {
+    return (
+      `Pool « ${labelsTxt} » × ${langue.toUpperCase()} OK (${nLangue} candidat(s) ELO) — ` +
+      `minuit n'a probablement pas atteint ce compte (timeout batch). ` +
+      `Utilise « Réassigner incomplets » (parallèle) ; sinon baisse auto du quota.`
     );
   }
 

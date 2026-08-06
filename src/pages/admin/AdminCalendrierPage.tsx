@@ -50,6 +50,8 @@ export function AdminCalendrierPage() {
   const queryClient = useQueryClient();
   const [date, setDate] = React.useState(aujourdhui);
   const [filtreLangue, setFiltreLangue] = React.useState("");
+  /** "" = tous · "ugc" = posters UGC slideshow uniquement. */
+  const [filtreType, setFiltreType] = React.useState<"" | "ugc">("");
   const [modeleUpscale, setModeleUpscale] = React.useState<ModeleUpscale>("realesrgan");
   const [upscaleLot, setUpscaleLot] = React.useState<{ fait: number; total: number } | null>(
     null,
@@ -67,9 +69,11 @@ export function AdminCalendrierPage() {
   );
 
   const duJour = React.useMemo(() => {
-    const list = (posts ?? []).filter((p) => p.date_publication_prevue === date);
-    return filtreLangue ? list.filter((p) => p.langue === filtreLangue) : list;
-  }, [posts, date, filtreLangue]);
+    let list = (posts ?? []).filter((p) => p.date_publication_prevue === date);
+    if (filtreLangue) list = list.filter((p) => p.langue === filtreLangue);
+    if (filtreType === "ugc") list = list.filter((p) => p.ugc_ai && !p.ugc_ai_video);
+    return list;
+  }, [posts, date, filtreLangue, filtreType]);
 
   const parCreateur = React.useMemo(() => {
     const map = new Map<string, PostCalendrierAdmin[]>();
@@ -87,6 +91,7 @@ export function AdminCalendrierPage() {
         avatar: postsCompte[0]?.avatar_url ?? null,
         langue: postsCompte[0]?.langue ?? null,
         score: postsCompte[0]?.score ?? null,
+        ugc: Boolean(postsCompte[0]?.ugc_ai) && !postsCompte[0]?.ugc_ai_video,
         postes: postsCompte.filter(estPoste).length,
         vides: postsCompte.filter((p) => p.slideshow_vide && !estPoste(p)).length,
       }))
@@ -110,7 +115,7 @@ export function AdminCalendrierPage() {
 
     const postIdsFiltre = new Set(duJour.map((p) => p.id));
     const tous = await mediasPostsPrevusJour(date);
-    // Respecte le filtre langue affiché (posts du jour visibles).
+    // Respecte les filtres affichés (posts du jour visibles).
     const medias = tous.filter((m) => postIdsFiltre.has(m.postId));
     const aFaire = medias.filter((m) => !m.upscale_le);
     const deja = medias.length - aFaire.length;
@@ -285,6 +290,20 @@ export function AdminCalendrierPage() {
                 <ChevronRight />
               </Button>
             </div>
+            <div className="space-y-1">
+              <label className="text-xs font-medium text-muted-foreground">
+                {t("adminCal.filtreType")}
+              </label>
+              <select
+                aria-label={t("adminCal.filtreType")}
+                value={filtreType}
+                onChange={(e) => setFiltreType(e.target.value === "ugc" ? "ugc" : "")}
+                className="flex h-9 w-44 rounded-md border border-input bg-background px-2 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+              >
+                <option value="">{t("adminCal.filtreTypeTous")}</option>
+                <option value="ugc">{t("adminCal.filtreTypeUgc")}</option>
+              </select>
+            </div>
             {langues.length > 1 && (
               <div className="space-y-1">
                 <label className="text-xs font-medium text-muted-foreground">
@@ -398,6 +417,9 @@ export function AdminCalendrierPage() {
                 <Badge variant={complet ? "success" : "warning"}>
                   {t("adminCal.faitSur", { faits: groupe.postes, total: groupe.posts.length })}
                 </Badge>
+                {groupe.ugc && (
+                  <Badge variant="secondary">{t("adminCal.badgeUgc")}</Badge>
+                )}
                 {groupe.vides > 0 && (
                   <Badge variant="destructive" title={t("adminCal.slideshowVideAide")}>
                     {t("adminCal.slideshowVide")}

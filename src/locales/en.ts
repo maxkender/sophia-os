@@ -1381,6 +1381,10 @@ export const en = {
       jour: "Day",
       jourPrecedent: "Previous day",
       jourSuivant: "Next day",
+      filtreType: "Type",
+      filtreTypeTous: "All",
+      filtreTypeUgc: "UGC",
+      badgeUgc: "UGC",
       statsPrevus: "Planned",
       statsPostes: "Posted",
       statsRestants: "Remaining",
@@ -1401,7 +1405,7 @@ export const en = {
       confirmSupprimerJour: "Delete all {{count}} posts for this day? This action is permanent.",
       upscaleTout: "Upscale day's images",
       upscaleAide:
-        "Upscale every slide photo of posts planned that day (language filter applied). Pick a model. Parallel Real-ESRGAN ×4 / SeedVR ×1.",
+        "Upscale every slide photo of posts planned that day (type / language filters applied). Pick a model. Parallel Real-ESRGAN ×4 / SeedVR ×1.",
       upscaleConfirm:
         "Upscale {{count}} photo(s) with {{modele}}? ({{deja}} already upscaled skipped)",
       upscaleDebut:

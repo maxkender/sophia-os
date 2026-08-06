@@ -1513,6 +1513,10 @@ export interface PostCalendrierAdmin {
   poster_nom: string | null;
   sujet_titre: string | null;
   langue: string | null;
+  /** Compte UGC AI slideshow (hors UGC AI VIDEO). */
+  ugc_ai: boolean;
+  /** Compte UGC AI VIDEO (pipeline vidéos). */
+  ugc_ai_video: boolean;
   /** Nombre de slides (0 = slideshow vide / matérialisation ratée). */
   nb_slides: number;
   /** Slides avec un media_id non null. */
@@ -1569,7 +1573,7 @@ export async function postsCalendrierAdmin(): Promise<PostCalendrierAdmin[]> {
     .from("posts")
     .select(
       "id, compte_id, date_publication_prevue, type, statut, pipeline_statut, publie_at, publie_url, " +
-        "sujets(titre), comptes(persona_nom, handle_tiktok, avatar_url, score, langue, profiles(prenom, nom))",
+        "sujets(titre), comptes(persona_nom, handle_tiktok, avatar_url, score, langue, ugc_ai, ugc_ai_video, profiles(prenom, nom))",
     )
     .eq("est_test", false)
     .order("date_publication_prevue", { ascending: false, nullsFirst: false })
@@ -1601,6 +1605,7 @@ export async function postsCalendrierAdmin(): Promise<PostCalendrierAdmin[]> {
   return rows.map((p) => {
     const counts = slidesParPost.get(p.id as string) ?? { nb: 0, media: 0 };
     const slideshow_vide = counts.nb === 0 || counts.media === 0;
+    const ugcVideo = Boolean(p.comptes?.ugc_ai_video);
     return {
       id: p.id as string,
       compte_id: p.compte_id as string,
@@ -1618,6 +1623,8 @@ export async function postsCalendrierAdmin(): Promise<PostCalendrierAdmin[]> {
       poster_nom: (p.comptes?.profiles?.nom as string | null) ?? null,
       sujet_titre: (p.sujets?.titre as string | null) ?? null,
       langue: (p.comptes?.langue as string | null) ?? null,
+      ugc_ai: Boolean(p.comptes?.ugc_ai) && !ugcVideo,
+      ugc_ai_video: ugcVideo,
       nb_slides: counts.nb,
       nb_media: counts.media,
       slideshow_vide,

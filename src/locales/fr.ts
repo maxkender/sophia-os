@@ -1382,6 +1382,10 @@ export const fr = {
       jour: "Journée",
       jourPrecedent: "Jour précédent",
       jourSuivant: "Jour suivant",
+      filtreType: "Type",
+      filtreTypeTous: "Tous",
+      filtreTypeUgc: "UGC",
+      badgeUgc: "UGC",
       statsPrevus: "Prévus",
       statsPostes: "Postés",
       statsRestants: "Restants",
@@ -1398,7 +1402,7 @@ export const fr = {
       confirmSuppr: "Supprimer le post de {{nom}} ? Cette action est définitive.",
       upscaleTout: "Upscale images du jour",
       upscaleAide:
-        "Upscale chaque photo des slides des posts prévus ce jour (filtre langue respecté). Choisis le modèle. Parallèle Real-ESRGAN ×4 / SeedVR ×1.",
+        "Upscale chaque photo des slides des posts prévus ce jour (filtres type / langue respectés). Choisis le modèle. Parallèle Real-ESRGAN ×4 / SeedVR ×1.",
       upscaleConfirm:
         "Upscale {{count}} photo(s) avec {{modele}} ? ({{deja}} déjà upscalée(s) sautée(s))",
       upscaleDebut:

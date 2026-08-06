@@ -22,6 +22,19 @@ export interface UgcPersonaDefaults {
   promptRight: string;
   promptDown: string;
   promptProfile: string;
+  /** Prompt PDP quand une photo de référence (pose) est choisie. */
+  promptProfileFromRef?: string;
+}
+
+/** Photo de profil de référence (pose / cadrage) pour générer une PDP persona. */
+export interface UgcProfileRef {
+  id: string;
+  source: "upload" | "tiktok";
+  label: string | null;
+  tiktok_handle: string | null;
+  image_url: string;
+  storage_path: string | null;
+  created_at: string;
 }
 
 export type UgcAngle = "left" | "right" | "down";

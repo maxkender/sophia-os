@@ -9,19 +9,24 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
+  fichierEnBase64,
   genererUgcAngle,
   genererUgcAngles,
   genererUgcFace,
   genererUgcProfile,
+  importerUgcProfileRefFichier,
+  importerUgcProfileRefTiktok,
   listerAffectationsPersonasUgc,
   listerUgcPersonas,
+  listerUgcProfileRefs,
   sauverUgcPersona,
   supprimerUgcPersona,
+  supprimerUgcProfileRef,
   ugcPersonaDefaults,
   type AffectationPersonaUgc,
   type UgcAngle,
 } from "@/features/ugc/api";
-import type { UgcPersona } from "@/features/ugc/types";
+import type { UgcPersona, UgcProfileRef } from "@/features/ugc/types";
 
 type Etape = "prompt" | "face" | "angles" | "profile" | "save";
 
@@ -45,6 +50,10 @@ export function AdminUgcPersonasPage() {
     queryFn: listerAffectationsPersonasUgc,
     staleTime: 30_000,
   });
+  const refsQuery = useQuery({
+    queryKey: ["ugc-profile-refs"],
+    queryFn: async () => (await listerUgcProfileRefs()).refs,
+  });
   const comptesParPersona = React.useMemo(() => {
     const m = new Map<string, AffectationPersonaUgc[]>();
     for (const a of affectations.data ?? []) {
@@ -61,6 +70,7 @@ export function AdminUgcPersonasPage() {
   const [promptRight, setPromptRight] = React.useState("");
   const [promptDown, setPromptDown] = React.useState("");
   const [promptProfile, setPromptProfile] = React.useState("");
+  const [promptProfileFromRef, setPromptProfileFromRef] = React.useState("");
   const [faceUrl, setFaceUrl] = React.useState<string | null>(null);
   const [draftId, setDraftId] = React.useState<string | null>(null);
   const [leftUrl, setLeftUrl] = React.useState<string | null>(null);
@@ -73,6 +83,14 @@ export function AdminUgcPersonasPage() {
   const [angleEnCours, setAngleEnCours] = React.useState<UgcAngle | null>(null);
   const [listeAngleBusy, setListeAngleBusy] = React.useState<string | null>(null);
   const [listeProfilBusy, setListeProfilBusy] = React.useState<string | null>(null);
+  const [selectedRefId, setSelectedRefId] = React.useState<string | null>(null);
+  const [tiktokInput, setTiktokInput] = React.useState("");
+  const fileInputRef = React.useRef<HTMLInputElement>(null);
+
+  const selectedRef: UgcProfileRef | null = React.useMemo(
+    () => (refsQuery.data ?? []).find((r) => r.id === selectedRefId) ?? null,
+    [refsQuery.data, selectedRefId],
+  );
 
   React.useEffect(() => {
     if (!defaults.data) return;
@@ -81,6 +99,9 @@ export function AdminUgcPersonasPage() {
     setPromptRight((p) => p || defaults.data.promptRight);
     setPromptDown((p) => p || defaults.data.promptDown);
     setPromptProfile((p) => p || defaults.data.promptProfile);
+    setPromptProfileFromRef(
+      (p) => p || defaults.data.promptProfileFromRef || defaults.data.promptProfile,
+    );
   }, [defaults.data]);
 
   function promptPourAngle(angle: UgcAngle): string {
@@ -117,7 +138,16 @@ export function AdminUgcPersonasPage() {
       setPromptRight(defaults.data.promptRight);
       setPromptDown(defaults.data.promptDown);
       setPromptProfile(defaults.data.promptProfile);
+      setPromptProfileFromRef(
+        defaults.data.promptProfileFromRef || defaults.data.promptProfile,
+      );
     }
+  }
+
+  function promptProfilActif(): string {
+    return selectedRef
+      ? promptProfileFromRef || promptProfile
+      : promptProfile;
   }
 
   const genererFace = useMutation({
@@ -220,7 +250,8 @@ export function AdminUgcPersonasPage() {
           rightUrl,
           downUrl,
           draftId,
-          prompt: promptProfile,
+          prompt: promptProfilActif(),
+          refUrl: selectedRef?.image_url,
         },
         setProgress,
       );
@@ -231,7 +262,10 @@ export function AdminUgcPersonasPage() {
     },
     onSuccess: (r) => {
       setProfileUrl(r.imageUrl);
-      if (r.prompt) setPromptProfile(r.prompt);
+      if (r.prompt) {
+        if (selectedRef) setPromptProfileFromRef(r.prompt);
+        else setPromptProfile(r.prompt);
+      }
       setEtape("save");
       setProgress(null);
     },
@@ -239,6 +273,44 @@ export function AdminUgcPersonasPage() {
       setProgress(null);
       setErreur((e as Error).message);
     },
+  });
+
+  const importerFichier = useMutation({
+    mutationFn: async (file: File) => {
+      const { bytesBase64, mime } = await fichierEnBase64(file);
+      return importerUgcProfileRefFichier({
+        bytesBase64,
+        mime,
+        label: file.name.replace(/\.[^.]+$/, "") || undefined,
+      });
+    },
+    onSuccess: (r) => {
+      void queryClient.invalidateQueries({ queryKey: ["ugc-profile-refs"] });
+      if (r.ref?.id) setSelectedRefId(r.ref.id);
+      setErreur(null);
+    },
+    onError: (e) => setErreur((e as Error).message),
+  });
+
+  const importerTiktok = useMutation({
+    mutationFn: () =>
+      importerUgcProfileRefTiktok({ handleOrUrl: tiktokInput.trim() }),
+    onSuccess: (r) => {
+      void queryClient.invalidateQueries({ queryKey: ["ugc-profile-refs"] });
+      if (r.ref?.id) setSelectedRefId(r.ref.id);
+      setTiktokInput("");
+      setErreur(null);
+    },
+    onError: (e) => setErreur((e as Error).message),
+  });
+
+  const supprimerRef = useMutation({
+    mutationFn: (id: string) => supprimerUgcProfileRef(id),
+    onSuccess: (_r, id) => {
+      void queryClient.invalidateQueries({ queryKey: ["ugc-profile-refs"] });
+      if (selectedRefId === id) setSelectedRefId(null);
+    },
+    onError: (e) => setErreur((e as Error).message),
   });
 
   const sauver = useMutation({
@@ -316,7 +388,10 @@ export function AdminUgcPersonasPage() {
       await genererUgcProfile(
         {
           personaId: persona.id,
-          prompt: persona.prompt_profile ?? defaults.data?.promptProfile,
+          prompt: selectedRef
+            ? promptProfilActif()
+            : (persona.prompt_profile ?? defaults.data?.promptProfile),
+          refUrl: selectedRef?.image_url,
         },
         (detail) => setProgress(detail),
       );
@@ -335,7 +410,9 @@ export function AdminUgcPersonasPage() {
     genererAngles.isPending ||
     regenererAngleDraft.isPending ||
     genererProfil.isPending ||
-    sauver.isPending;
+    sauver.isPending ||
+    importerFichier.isPending ||
+    importerTiktok.isPending;
 
   const urlParAngle = {
     left: leftUrl,
@@ -353,6 +430,120 @@ export function AdminUgcPersonasPage() {
         <h1 className="text-xl font-semibold tracking-tight">{t("ugc.personas.title")}</h1>
         <p className="text-sm text-muted-foreground">{t("ugc.personas.subtitle")}</p>
       </div>
+
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-base">{t("ugc.personas.refsTitre")}</CardTitle>
+          <CardDescription>{t("ugc.personas.refsDesc")}</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="flex flex-wrap items-end gap-3">
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              className="hidden"
+              onChange={(e) => {
+                const f = e.target.files?.[0];
+                e.target.value = "";
+                if (f) importerFichier.mutate(f);
+              }}
+            />
+            <Button
+              type="button"
+              variant="outline"
+              disabled={busy}
+              onClick={() => fileInputRef.current?.click()}
+            >
+              {importerFichier.isPending ? (
+                <Loader2 className="animate-spin" />
+              ) : null}
+              {t("ugc.personas.refsUpload")}
+            </Button>
+            <div className="min-w-[220px] flex-1 space-y-1">
+              <Label htmlFor="tiktokRef">{t("ugc.personas.refsTiktok")}</Label>
+              <Input
+                id="tiktokRef"
+                value={tiktokInput}
+                onChange={(e) => setTiktokInput(e.target.value)}
+                placeholder={t("ugc.personas.refsTiktokPlaceholder")}
+                disabled={busy}
+              />
+            </div>
+            <Button
+              type="button"
+              disabled={busy || !tiktokInput.trim()}
+              onClick={() => importerTiktok.mutate()}
+            >
+              {importerTiktok.isPending ? (
+                <Loader2 className="animate-spin" />
+              ) : null}
+              {importerTiktok.isPending
+                ? t("ugc.personas.refsImportEnCours")
+                : t("ugc.personas.refsImporter")}
+            </Button>
+          </div>
+
+          {refsQuery.isPending && (
+            <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
+          )}
+          {!refsQuery.isPending && (refsQuery.data?.length ?? 0) === 0 && (
+            <p className="text-sm text-muted-foreground">{t("ugc.personas.refsVide")}</p>
+          )}
+          <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-6">
+            {(refsQuery.data ?? []).map((ref) => {
+              const sel = selectedRefId === ref.id;
+              return (
+                <div key={ref.id} className="space-y-1">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedRefId(sel ? null : ref.id)}
+                    className={
+                      sel
+                        ? "block w-full overflow-hidden rounded-md border-2 border-primary ring-2 ring-primary/30"
+                        : "block w-full overflow-hidden rounded-md border border-border hover:border-foreground/30"
+                    }
+                  >
+                    <img
+                      src={ref.image_url}
+                      alt=""
+                      className="aspect-square w-full object-cover"
+                    />
+                  </button>
+                  <div className="flex items-center justify-between gap-1">
+                    <p className="truncate text-[10px] text-muted-foreground">
+                      {ref.label ||
+                        (ref.source === "tiktok"
+                          ? t("ugc.personas.refsSourceTiktok")
+                          : t("ugc.personas.refsSourceUpload"))}
+                    </p>
+                    <Button
+                      type="button"
+                      size="icon"
+                      variant="ghost"
+                      className="size-6 shrink-0"
+                      disabled={supprimerRef.isPending}
+                      onClick={() => {
+                        if (window.confirm(t("ugc.personas.refsSupprConfirm"))) {
+                          supprimerRef.mutate(ref.id);
+                        }
+                      }}
+                    >
+                      <Trash2 className="size-3" />
+                    </Button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          {selectedRef && (
+            <p className="text-xs text-muted-foreground">
+              {t("ugc.personas.refsSelectionnee")}
+              {selectedRef.label ? ` · ${selectedRef.label}` : ""}
+            </p>
+          )}
+        </CardContent>
+      </Card>
 
       <Card>
         <CardHeader>
@@ -465,11 +656,51 @@ export function AdminUgcPersonasPage() {
                 <Label htmlFor="promptProfile">{t("ugc.personas.promptProfile")}</Label>
                 <Badge variant="outline">4 · profil 1:1</Badge>
               </div>
+
+              <div className="space-y-2">
+                <Label>{t("ugc.personas.refsChoisir")}</Label>
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedRefId(null)}
+                    className={
+                      !selectedRefId
+                        ? "rounded-md border-2 border-primary px-2 py-1 text-xs"
+                        : "rounded-md border px-2 py-1 text-xs text-muted-foreground"
+                    }
+                  >
+                    {t("ugc.personas.refsAucune")}
+                  </button>
+                  {(refsQuery.data ?? []).map((ref) => (
+                    <button
+                      key={ref.id}
+                      type="button"
+                      onClick={() => setSelectedRefId(ref.id)}
+                      className={
+                        selectedRefId === ref.id
+                          ? "overflow-hidden rounded-md border-2 border-primary"
+                          : "overflow-hidden rounded-md border opacity-80 hover:opacity-100"
+                      }
+                      title={ref.label ?? ref.id.slice(0, 8)}
+                    >
+                      <img
+                        src={ref.image_url}
+                        alt=""
+                        className="size-12 object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+              </div>
+
               <textarea
                 id="promptProfile"
                 className="min-h-[140px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-                value={promptProfile}
-                onChange={(e) => setPromptProfile(e.target.value)}
+                value={selectedRef ? promptProfileFromRef : promptProfile}
+                onChange={(e) => {
+                  if (selectedRef) setPromptProfileFromRef(e.target.value);
+                  else setPromptProfile(e.target.value);
+                }}
                 disabled={busy}
               />
               <div className="flex flex-wrap items-start gap-4">
@@ -483,7 +714,7 @@ export function AdminUgcPersonasPage() {
                 <div className="flex flex-wrap gap-2 pt-5">
                   <Button
                     type="button"
-                    disabled={busy || !promptProfile.trim()}
+                    disabled={busy || !promptProfilActif().trim()}
                     onClick={() => genererProfil.mutate()}
                   >
                     {genererProfil.isPending ? (

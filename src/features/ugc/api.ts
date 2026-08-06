@@ -3,12 +3,13 @@ import type {
   UgcAngle,
   UgcPersona,
   UgcPersonaDefaults,
+  UgcProfileRef,
   UgcReaction,
   UgcUtilisation,
 } from "./types";
 import type { VideoTrim } from "./videoCrop";
 
-export type { UgcAngle, UgcReaction, UgcUtilisation };
+export type { UgcAngle, UgcProfileRef, UgcReaction, UgcUtilisation };
 
 async function invokeUgc<T>(body: Record<string, unknown>): Promise<T> {
   const { data, error } = await supabase.functions.invoke("ugc-persona", { body });
@@ -208,7 +209,8 @@ export async function genererUgcAngle(
   };
 }
 
-/** Photo de profil 1:1 — Nano Banana Edit (4 angles en refs). */
+/** Photo de profil 1:1 — Nano Banana Edit (4 angles en refs).
+ *  `refUrl` optionnel : pose de référence (Figure 1), visage persona en Figures 2+. */
 export async function genererUgcProfile(
   input: {
     faceUrl?: string;
@@ -218,6 +220,7 @@ export async function genererUgcProfile(
     draftId?: string;
     prompt?: string;
     personaId?: string;
+    refUrl?: string;
   },
   onProgress?: (detail: string) => void,
 ): Promise<{
@@ -233,6 +236,52 @@ export async function genererUgcProfile(
     draftId: String(r.draftId ?? input.draftId ?? ""),
     persona: (r.persona as UgcPersona | null) ?? null,
   };
+}
+
+export function listerUgcProfileRefs() {
+  return invokeUgc<{ ok: boolean; refs: UgcProfileRef[] }>({
+    action: "list_profile_refs",
+  });
+}
+
+export function importerUgcProfileRefFichier(input: {
+  bytesBase64: string;
+  mime?: string;
+  label?: string;
+}) {
+  return invokeUgc<{ ok: boolean; ref: UgcProfileRef }>({
+    action: "import_profile_ref",
+    mode: "upload",
+    ...input,
+  });
+}
+
+export function importerUgcProfileRefTiktok(input: {
+  handleOrUrl: string;
+  label?: string;
+}) {
+  return invokeUgc<{ ok: boolean; ref: UgcProfileRef }>({
+    action: "import_profile_ref",
+    mode: "tiktok",
+    ...input,
+  });
+}
+
+export function supprimerUgcProfileRef(id: string) {
+  return invokeUgc<{ ok: boolean }>({ action: "delete_profile_ref", id });
+}
+
+/** Lit un File en data-URL base64. */
+export function fichierEnBase64(file: File): Promise<{ bytesBase64: string; mime: string }> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = () => reject(new Error("Lecture fichier impossible"));
+    reader.onload = () => {
+      const dataUrl = String(reader.result ?? "");
+      resolve({ bytesBase64: dataUrl, mime: file.type || "image/jpeg" });
+    };
+    reader.readAsDataURL(file);
+  });
 }
 
 export function sauverUgcPersona(input: {

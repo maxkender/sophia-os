@@ -112,7 +112,7 @@ export const fr = {
       personas: {
         title: "Personas UGC",
         subtitle:
-          "Visage 9:16 → 3 angles → photo de profil 1:1 (selfie miroir), puis enregistrement.",
+          "Visage 9:16 → 3 angles → photo de profil 1:1 (selfie miroir ou depuis une référence), puis enregistrement.",
         creerTitre: "Créer un persona",
         creerDesc:
           "Nano Banana Pro (face) → Edit (3 angles) → Edit 1:1 (profil / avatar TikTok).",
@@ -148,6 +148,21 @@ export const fr = {
         enCoursAngle: "Régénération {{angle}}…",
         angleRefait: "{{angle}} mis à jour.",
         profilRefait: "Photo de profil mise à jour.",
+        refsTitre: "Photos de profil de référence",
+        refsDesc:
+          "Importe une pose (fichier ou compte TikTok). Choisis-la ensuite pour générer la PDP du persona : on garde uniquement la pose, on met le visage du persona.",
+        refsVide: "Aucune référence pour l’instant.",
+        refsUpload: "Importer une image",
+        refsTiktok: "Importer depuis TikTok",
+        refsTiktokPlaceholder: "@handle ou lien profil TikTok",
+        refsImporter: "Importer",
+        refsImportEnCours: "Import…",
+        refsSupprConfirm: "Supprimer cette référence ?",
+        refsChoisir: "Référence pour la PDP",
+        refsAucune: "Aucune (selfie miroir classique)",
+        refsSelectionnee: "Référence sélectionnée — pose only",
+        refsSourceUpload: "Fichier",
+        refsSourceTiktok: "TikTok",
       },
       slideshows: {
         title: "Slideshow AI",

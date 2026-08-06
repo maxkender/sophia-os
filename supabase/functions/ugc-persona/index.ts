@@ -1,3 +1,7 @@
+import {
+  normaliserHandleTiktok,
+  scrapeProfileAvatar,
+} from "../_shared/apify.ts";
 import { retirerContentCredentialsBytes } from "../_shared/c2pa.ts";
 import { editerNanoBananaPro, genererNanoBananaPro } from "../_shared/fal_nano_banana.ts";
 import { reponseNdjson, veutStream } from "../_shared/nettoyage_etapes.ts";
@@ -18,8 +22,8 @@ const PROMPT_FACE_DEFAUT = `Photorealistic head-and-shoulders portrait of a 20-y
 fair skin, slim build, dark blonde shoulder-length slightly wavy hair
 with a side part, black eyes, oval face with defined cheekbones and
 a soft jawline, a small beauty mark above the right side of her lip and
-faint freckles across her cheeks, wearing a heather-grey oversized
-sweatshirt with thin hoop earrings.
+faint freckles across her cheeks, wearing a plain white tank top
+with thin hoop earrings.
 
 Soft even studio lighting, plain light-grey seamless background,
 looking straight into the camera, neutral relaxed expression.
@@ -55,7 +59,41 @@ const PROMPT_PROFILE_DEFAUT = `Same exact person as the reference images (Figure
 
 Photorealistic casual iPhone mirror selfie, square 1:1 crop. She is standing in front of a bathroom or bedroom mirror, holding a white iPhone up to take the photo. Natural soft daylight, candid Gen-Z vibe, slightly imperfect real-phone look. Looking toward the phone screen / her reflection. Soft natural skin texture with visible pores, no heavy retouching. Authentic bathroom/bedroom mirror selfie aesthetic, head-and-shoulders filling the square frame. Sharp focus, high resolution.`;
 
+/** PDP depuis une photo de référence : garder la pose, remplacer uniquement le visage. */
+const PROMPT_PROFILE_FROM_REF_DEFAUT = `Figure 1 is the base photo. Figures 2+ are reference photos of one same person.
+Keep EVERYTHING in Figure 1 identical: exact body pose, hands, framing, camera
+angle, background, lighting, color grade and clothing.
+Replace ONLY the head and face with the person shown in the reference photos —
+same facial features, same hairstyle, same skin tone as the references.
+Blend the new head naturally onto the existing body and match the scene lighting.
+Photorealistic, keep the amateur phone-photo look. Square 1:1 crop.`;
+
 type Supabase = ReturnType<typeof serviceClient>;
+
+function decodeBase64(dataUrlOrB64: string): { bytes: Uint8Array; mime: string } {
+  const raw = dataUrlOrB64.trim();
+  const m = raw.match(/^data:([^;]+);base64,(.+)$/i);
+  const mime = m?.[1] || "image/jpeg";
+  const b64 = m?.[2] || raw.replace(/\s/g, "");
+  const bin = atob(b64);
+  const bytes = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i += 1) bytes[i] = bin.charCodeAt(i);
+  return { bytes, mime };
+}
+
+async function telechargerImage(url: string): Promise<{ bytes: Uint8Array; mime: string }> {
+  const res = await fetch(url, {
+    headers: {
+      "user-agent":
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0 Safari/537.36",
+    },
+  });
+  if (!res.ok) throw new Error(`Téléchargement image ${res.status}`);
+  const mime = res.headers.get("content-type")?.split(";")[0]?.trim() || "image/jpeg";
+  const buf = new Uint8Array(await res.arrayBuffer());
+  if (buf.length < 100) throw new Error("Image trop petite / vide");
+  return { bytes: buf, mime };
+}
 
 async function uploader(
   supabase: Supabase,
@@ -116,7 +154,11 @@ function parseAngle(raw: unknown): AngleCle | null {
  *   { action: "generate_angles", faceUrl, promptLeft?, promptRight?, promptDown?, stream? }
  *   { action: "generate_angle", angle, faceUrl?, prompt?, draftId?, personaId?, stream? }
  *   { action: "generate_profile", faceUrl, leftUrl, rightUrl, downUrl, prompt?,
- *                                draftId?, personaId?, stream? }
+ *                                draftId?, personaId?, refUrl?, stream? }
+ *   { action: "list_profile_refs" }
+ *   { action: "import_profile_ref", mode: "upload"|"tiktok",
+ *                                  bytesBase64?, mime?, handleOrUrl?, label? }
+ *   { action: "delete_profile_ref", id }
  *   { action: "save", nom, promptBase, faceUrl, leftUrl, rightUrl, downUrl,
  *                     profileUrl, promptLeft?, promptRight?, promptDown?, promptProfile? }
  *   { action: "list" }
@@ -145,12 +187,13 @@ Deno.serve(async (request) => {
 
   try {
     if (action === "defaults") {
-      const [face, left, right, down, profile] = await Promise.all([
+      const [face, left, right, down, profile, profileFromRef] = await Promise.all([
         chargerPrompt(supabase, "ugc_persona_face"),
         chargerPrompt(supabase, "ugc_persona_edit_left"),
         chargerPrompt(supabase, "ugc_persona_edit_right"),
         chargerPrompt(supabase, "ugc_persona_edit_down"),
         chargerPrompt(supabase, "ugc_persona_profile"),
+        chargerPrompt(supabase, "ugc_persona_profile_from_ref"),
       ]);
       return json({
         ok: true,
@@ -159,6 +202,7 @@ Deno.serve(async (request) => {
         promptRight: right ?? PROMPT_RIGHT_DEFAUT,
         promptDown: down ?? PROMPT_DOWN_DEFAUT,
         promptProfile: profile ?? PROMPT_PROFILE_DEFAUT,
+        promptProfileFromRef: profileFromRef ?? PROMPT_PROFILE_FROM_REF_DEFAUT,
       });
     }
 
@@ -169,6 +213,105 @@ Deno.serve(async (request) => {
         .order("created_at", { ascending: false });
       if (error) return json({ error: error.message }, 400);
       return json({ ok: true, personas: data ?? [] });
+    }
+
+    if (action === "list_profile_refs") {
+      const { data, error } = await supabase
+        .from("ugc_profile_refs")
+        .select("*")
+        .order("created_at", { ascending: false });
+      if (error) return json({ error: error.message }, 400);
+      return json({ ok: true, refs: data ?? [] });
+    }
+
+    if (action === "delete_profile_ref") {
+      const id = String(body.id ?? "").trim();
+      if (!id) return json({ error: "id requis" }, 400);
+      const { data: row } = await supabase
+        .from("ugc_profile_refs")
+        .select("storage_path")
+        .eq("id", id)
+        .maybeSingle();
+      const path = row?.storage_path as string | null | undefined;
+      if (path) {
+        await supabase.storage.from(BUCKET).remove([path]).catch(() => null);
+      }
+      const { error } = await supabase.from("ugc_profile_refs").delete().eq("id", id);
+      if (error) return json({ error: error.message }, 400);
+      return json({ ok: true });
+    }
+
+    if (action === "import_profile_ref") {
+      const mode = String(body.mode ?? "").trim();
+      const label = body.label != null ? String(body.label).trim() || null : null;
+      const id = crypto.randomUUID();
+
+      if (mode === "upload") {
+        const b64 = String(body.bytesBase64 ?? "").trim();
+        if (!b64) return json({ error: "bytesBase64 requis" }, 400);
+        const { bytes, mime } = decodeBase64(b64);
+        const strip = await retirerContentCredentialsBytes(bytes);
+        const outMime =
+          strip.mime === "application/octet-stream"
+            ? (String(body.mime ?? "").trim() || mime)
+            : strip.mime;
+        const ext = outMime.includes("png")
+          ? "png"
+          : outMime.includes("webp")
+            ? "webp"
+            : "jpg";
+        const path = `ugc/profile-refs/${id}.${ext}`;
+        const imageUrl = await uploader(supabase, path, strip.bytes, outMime);
+        const { data, error } = await supabase
+          .from("ugc_profile_refs")
+          .insert({
+            id,
+            source: "upload",
+            label,
+            image_url: imageUrl,
+            storage_path: path,
+          })
+          .select("*")
+          .single();
+        if (error) return json({ error: error.message }, 400);
+        return json({ ok: true, ref: data });
+      }
+
+      if (mode === "tiktok") {
+        const handle = normaliserHandleTiktok(String(body.handleOrUrl ?? ""));
+        if (!handle) return json({ error: "handle / lien TikTok invalide" }, 400);
+        const avatarUrl = await scrapeProfileAvatar(handle);
+        if (!avatarUrl) {
+          return json({ error: `Avatar introuvable pour @${handle}` }, 404);
+        }
+        const dl = await telechargerImage(avatarUrl);
+        const strip = await retirerContentCredentialsBytes(dl.bytes);
+        const outMime =
+          strip.mime === "application/octet-stream" ? dl.mime : strip.mime;
+        const ext = outMime.includes("png")
+          ? "png"
+          : outMime.includes("webp")
+            ? "webp"
+            : "jpg";
+        const path = `ugc/profile-refs/${id}.${ext}`;
+        const imageUrl = await uploader(supabase, path, strip.bytes, outMime);
+        const { data, error } = await supabase
+          .from("ugc_profile_refs")
+          .insert({
+            id,
+            source: "tiktok",
+            label: label ?? `@${handle}`,
+            tiktok_handle: handle,
+            image_url: imageUrl,
+            storage_path: path,
+          })
+          .select("*")
+          .single();
+        if (error) return json({ error: error.message }, 400);
+        return json({ ok: true, ref: data });
+      }
+
+      return json({ error: "mode upload|tiktok requis" }, 400);
     }
 
     if (action === "delete") {
@@ -394,7 +537,8 @@ Deno.serve(async (request) => {
       return json(await run());
     }
 
-    /** Photo de profil 1:1 — Nano Banana Edit avec les 4 angles en refs. */
+    /** Photo de profil 1:1 — Nano Banana Edit avec les 4 angles en refs.
+     *  Option `refUrl` : Figure 1 = pose de référence, Figures 2+ = visage persona. */
     if (action === "generate_profile") {
       const personaId = body.personaId ? String(body.personaId).trim() : "";
       let faceUrl = String(body.faceUrl ?? "").trim();
@@ -403,6 +547,7 @@ Deno.serve(async (request) => {
       let downUrl = String(body.downUrl ?? "").trim();
       let draftId = String(body.draftId ?? "").trim();
       let prompt = String(body.prompt ?? "").trim();
+      const refUrl = String(body.refUrl ?? "").trim();
 
       if (personaId) {
         const { data: persona, error } = await supabase
@@ -416,7 +561,9 @@ Deno.serve(async (request) => {
         leftUrl = leftUrl || String(persona.image_left_url ?? "");
         rightUrl = rightUrl || String(persona.image_right_url ?? "");
         downUrl = downUrl || String(persona.image_down_url ?? "");
-        if (!prompt) prompt = String(persona.prompt_profile ?? "").trim();
+        if (!prompt && !refUrl) {
+          prompt = String(persona.prompt_profile ?? "").trim();
+        }
         if (!draftId) {
           draftId =
             String(persona.storage_prefix ?? "")
@@ -429,12 +576,23 @@ Deno.serve(async (request) => {
         return json({ error: "les 4 images (face + angles) sont requises" }, 400);
       }
       if (!draftId) draftId = crypto.randomUUID();
+
+      const avecRef = Boolean(refUrl);
       if (!prompt) {
-        prompt =
-          (await chargerPrompt(supabase, "ugc_persona_profile")) || PROMPT_PROFILE_DEFAUT;
+        if (avecRef) {
+          prompt =
+            (await chargerPrompt(supabase, "ugc_persona_profile_from_ref")) ||
+            PROMPT_PROFILE_FROM_REF_DEFAUT;
+        } else {
+          prompt =
+            (await chargerPrompt(supabase, "ugc_persona_profile")) ||
+            PROMPT_PROFILE_DEFAUT;
+        }
       }
 
-      const refs = [faceUrl, leftUrl, rightUrl, downUrl];
+      const refs = avecRef
+        ? [refUrl, faceUrl, leftUrl, rightUrl, downUrl]
+        : [faceUrl, leftUrl, rightUrl, downUrl];
 
       const run = async (emit?: (e: Record<string, unknown>) => void) => {
         const hb = setInterval(() => {
@@ -448,7 +606,9 @@ Deno.serve(async (request) => {
           emit?.({
             etape: "profile",
             statut: "en_cours",
-            detail: "Nano Banana Edit — photo de profil 1:1…",
+            detail: avecRef
+              ? "Nano Banana Edit — PDP depuis référence (pose only)…"
+              : "Nano Banana Edit — photo de profil 1:1…",
           });
           const img = await editerNanoBananaPro(
             refs,

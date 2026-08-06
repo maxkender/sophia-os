@@ -38,7 +38,16 @@ interface ApifyItem {
   id?: string;
   webVideoUrl?: string;
   text?: string;
-  authorMeta?: { signature?: string; nickName?: string; name?: string };
+  authorMeta?: {
+    signature?: string;
+    nickName?: string;
+    name?: string;
+    avatar?: string;
+    avatarLarger?: string;
+    avatarMedium?: string;
+    avatarThumb?: string;
+    originalAvatarUrl?: string;
+  };
   createTimeISO?: string;
   createTime?: number;
   imageUrlList?: string[];
@@ -239,6 +248,103 @@ export async function scrapeProfileBio(
   } catch {
     return null;
   }
+}
+
+/** Normalise handle TikTok depuis `@user` ou URL profil. */
+export function normaliserHandleTiktok(brut: string): string | null {
+  const s = brut.trim();
+  if (!s) return null;
+  try {
+    if (/^https?:\/\//i.test(s)) {
+      const u = new URL(s);
+      const m = u.pathname.match(/\/@([^/?#]+)/);
+      if (m?.[1]) return m[1].replace(/^@/, "").trim();
+    }
+  } catch {
+    // ignore
+  }
+  return s.replace(/^@/, "").split(/[/?#]/)[0]?.trim() || null;
+}
+
+function pickAvatarFromMeta(
+  meta: ApifyItem["authorMeta"] | undefined,
+): string | null {
+  if (!meta) return null;
+  const url =
+    meta.avatarLarger ||
+    meta.originalAvatarUrl ||
+    meta.avatarMedium ||
+    meta.avatar ||
+    meta.avatarThumb ||
+    null;
+  return typeof url === "string" && /^https?:\/\//i.test(url) ? url : null;
+}
+
+/** Avatar depuis la page publique TikTok (filet si Apify n’expose pas le champ). */
+async function avatarDepuisPageTiktok(handle: string): Promise<string | null> {
+  try {
+    const response = await fetch(`https://www.tiktok.com/@${handle}`, {
+      headers: {
+        "user-agent":
+          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0 Safari/537.36",
+        "accept-language": "fr-FR,fr;q=0.9,en;q=0.8",
+      },
+    });
+    if (!response.ok) return null;
+    const html = await response.text();
+    const motifs = [
+      /"avatarLarger"\s*:\s*"(https:[^"]+)"/,
+      /"avatarMedium"\s*:\s*"(https:[^"]+)"/,
+      /"avatarThumb"\s*:\s*"(https:[^"]+)"/,
+      /property="og:image"\s+content="(https:[^"]+)"/,
+      /content="(https:[^"]+)"\s+property="og:image"/,
+    ];
+    for (const re of motifs) {
+      const m = html.match(re);
+      if (m?.[1]) {
+        return m[1].replace(/\\u002F/g, "/").replace(/\\\//g, "/");
+      }
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * URL de la photo de profil TikTok d’un handle.
+ * Apify d’abord, puis scrape HTML de la page publique.
+ */
+export async function scrapeProfileAvatar(handleBrut: string): Promise<string | null> {
+  const handle = normaliserHandleTiktok(handleBrut);
+  if (!handle) return null;
+
+  const token = Deno.env.get("APIFY_TOKEN");
+  if (token) {
+    try {
+      const response = await fetch(
+        `https://api.apify.com/v2/acts/${ACTOR}/run-sync-get-dataset-items?token=${token}`,
+        {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({
+            profiles: [handle],
+            resultsPerPage: 1,
+            shouldDownloadVideos: false,
+          }),
+        },
+      );
+      if (response.ok) {
+        const items = (await response.json()) as ApifyItem[];
+        const fromMeta = pickAvatarFromMeta(items.find((i) => i.authorMeta)?.authorMeta);
+        if (fromMeta) return fromMeta;
+      }
+    } catch {
+      // fallback HTML
+    }
+  }
+
+  return await avatarDepuisPageTiktok(handle);
 }
 
 /**

@@ -112,7 +112,7 @@ export const en = {
       personas: {
         title: "UGC Personas",
         subtitle:
-          "9:16 face → 3 angles → 1:1 profile photo (mirror selfie), then save.",
+          "9:16 face → 3 angles → 1:1 profile photo (mirror selfie or from a reference), then save.",
         creerTitre: "Create a persona",
         creerDesc:
           "Nano Banana Pro (face) → Edit (3 angles) → Edit 1:1 (profile / TikTok avatar).",
@@ -148,6 +148,21 @@ export const en = {
         enCoursAngle: "Regenerating {{angle}}…",
         angleRefait: "{{angle}} updated.",
         profilRefait: "Profile photo updated.",
+        refsTitre: "Reference profile photos",
+        refsDesc:
+          "Import a pose (file or TikTok account). Pick it later to generate the persona profile: keep the pose only, swap in the persona’s face.",
+        refsVide: "No references yet.",
+        refsUpload: "Upload an image",
+        refsTiktok: "Import from TikTok",
+        refsTiktokPlaceholder: "@handle or TikTok profile link",
+        refsImporter: "Import",
+        refsImportEnCours: "Importing…",
+        refsSupprConfirm: "Delete this reference?",
+        refsChoisir: "Reference for profile photo",
+        refsAucune: "None (classic mirror selfie)",
+        refsSelectionnee: "Reference selected — pose only",
+        refsSourceUpload: "File",
+        refsSourceTiktok: "TikTok",
       },
       slideshows: {
         title: "AI Slideshow",

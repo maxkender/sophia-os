@@ -1161,12 +1161,13 @@ async function nettoyerSlide(
   const labelEtape: Record<string, string> = {
     text_removal: "① Fal",
     replicate_text_removal: "② FALLBACK Replicate",
-    c2pa: "③ Enlève clés C2PA",
-    ready: "④ Ready",
+    upscale: "③ Upscale SeedVR",
+    c2pa: "④ Enlève clés C2PA",
+    ready: "⑤ Ready",
   };
   const lignes: string[] = [
     `slide #${slide.position} · url=${(slide.raw_url ?? "").slice(0, 72)}…`,
-    `pipeline: ① Fal → ② Replicate → ③ C2PA → ④ stockage (verifyClean PAUSE)`,
+    `pipeline: ① Fal → ② Replicate → ③ Upscale SeedVR → ④ C2PA → ⑤ stockage`,
   ];
   const rapport: NettoyageSlideRapport = {
     position: slide.position,
@@ -1189,28 +1190,35 @@ async function nettoyerSlide(
   let propreBase64: string | null = null;
   let moteur: string | undefined;
   let mimeDeclare = "image/jpeg";
+  let upscaleFait = false;
   try {
-    const propre = await cleanImage(slide.raw_url, (e) => {
-      const nom = labelEtape[e.etape] ?? e.etape;
-      const line = `${nom} · ${e.statut}${e.detail ? ` — ${e.detail}` : ""}`;
-      if (
-        e.etape === "text_removal" &&
-        e.statut === "encours" &&
-        e.detail?.includes("poll #") &&
-        lignes.length > 0 &&
-        lignes[lignes.length - 1]?.includes("poll #")
-      ) {
-        lignes[lignes.length - 1] = line;
-      } else {
-        lignes.push(line);
-      }
-      console.log(
-        `[import nettoyage] contenu=${contenu.id} slide=${slide.position} ${line}`,
-      );
-    });
+    const propre = await cleanImage(
+      slide.raw_url,
+      (e) => {
+        const nom = labelEtape[e.etape] ?? e.etape;
+        const line = `${nom} · ${e.statut}${e.detail ? ` — ${e.detail}` : ""}`;
+        if (
+          (e.etape === "text_removal" || e.etape === "upscale") &&
+          e.statut === "encours" &&
+          e.detail?.includes("poll #") &&
+          lignes.length > 0 &&
+          lignes[lignes.length - 1]?.includes("poll #")
+        ) {
+          lignes[lignes.length - 1] = line;
+        } else {
+          lignes.push(line);
+        }
+        console.log(
+          `[import nettoyage] contenu=${contenu.id} slide=${slide.position} ${line}`,
+        );
+      },
+      // Import TikTok slideshow : upscale Fal avant strip métadonnées.
+      { upscaleAvantStrip: true },
+    );
     propreBase64 = propre?.base64 ?? null;
     moteur = propre?.moteur;
     mimeDeclare = propre?.mime ?? "image/jpeg";
+    upscaleFait = Boolean(propre?.upscale);
     rapport.moteur = moteur;
   } catch (error) {
     const msg = messageErreur(error);
@@ -1261,6 +1269,8 @@ async function nettoyerSlide(
         visage_identifiable: null,
         verifie_le: new Date().toISOString(),
         texte_restant: false,
+        // Évite un 2ᵉ SeedVR au minuit si l'upscale import a réussi.
+        ...(upscaleFait ? { upscale_le: new Date().toISOString() } : {}),
       },
       { onConflict: "storage_path" },
     )
@@ -1278,6 +1288,7 @@ async function nettoyerSlide(
     const labels = await attacherLabelsAuMedia(supabase, media.id, contenu.id);
     lignes.push(
       `upload OK → media_id=${media.id} · moteur=${moteur ?? "?"}` +
+        (upscaleFait ? " · upscale=SeedVR" : "") +
         (labels.length ? ` · labels=${labels.length}` : ""),
     );
   } catch (e) {

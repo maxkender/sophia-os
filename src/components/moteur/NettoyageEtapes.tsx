@@ -7,6 +7,7 @@ import type { EvenementEtape, EtapeNettoyageId } from "@/features/moteur/nettoya
 const LABEL_KEY: Record<EtapeNettoyageId, string> = {
   text_removal: "nettoyageEtapes.textRemoval",
   replicate_text_removal: "nettoyageEtapes.replicateTextRemoval",
+  upscale: "nettoyageEtapes.upscale",
   c2pa: "nettoyageEtapes.c2pa",
   ready: "nettoyageEtapes.ready",
 };

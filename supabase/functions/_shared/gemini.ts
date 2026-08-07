@@ -3,6 +3,8 @@ import { messageErreur } from "./supabase.ts";
 import { dimensionsImage, effacerTexte, type Zone } from "./inpaint.ts";
 import { nettoyerViaFalTextRemoval } from "./fal_text_removal.ts";
 import { nettoyerViaReplicateTextRemoval } from "./replicate_text_removal.ts";
+import { upscaleViaSeedVr } from "./fal_seedvr_upscale.ts";
+import { falHebergerOctets } from "./fal_queue.ts";
 import { serviceClient } from "./supabase.ts";
 import { retirerContentCredentials } from "./c2pa.ts";
 
@@ -603,6 +605,7 @@ export type ProviderNettoyage = "fal" | "replicate";
 export type EtapeNettoyageId =
   | "text_removal"
   | "replicate_text_removal"
+  | "upscale"
   | "c2pa"
   | "ready";
 
@@ -617,9 +620,21 @@ export interface ImageNettoyee {
   moteur: MoteurNettoyage;
   mime: string;
   etapes: EvenementEtape[];
+  /** SeedVR passé avec succès (import slideshow). */
+  upscale?: boolean;
 }
 
 export type OnEtapeNettoyage = (e: EvenementEtape) => void | Promise<void>;
+
+export interface CleanImageOpts {
+  /**
+   * Import slideshow TikTok : SeedVR (Fal) après text-removal,
+   * avant strip C2PA. Défaut false (renettoyer / biblio inchangés).
+   */
+  upscaleAvantStrip?: boolean;
+  /** Facteur SeedVR (défaut ×2). */
+  upscaleFactor?: number;
+}
 
 async function lireProviderPrincipal(): Promise<ProviderNettoyage> {
   try {
@@ -638,13 +653,14 @@ async function lireProviderPrincipal(): Promise<ProviderNettoyage> {
 
 /**
  * Nettoyage : Fal + Replicate (ordre configurable via réglage `nettoyage`),
- * puis retrait Content Credentials (C2PA).
+ * optionnellement SeedVR (import), puis retrait Content Credentials (C2PA).
  *
  * `onEtape` permet au front de tracer le déroulé en direct (stream NDJSON).
  */
 export async function cleanImage(
   imageUrl: string,
   onEtape?: OnEtapeNettoyage,
+  opts?: CleanImageOpts,
 ): Promise<ImageNettoyee | null> {
   const etapes: EvenementEtape[] = [];
   const emit = async (e: EvenementEtape) => {
@@ -658,6 +674,7 @@ export async function cleanImage(
 
   let base64: string | null = null;
   let moteur: MoteurNettoyage | null = null;
+  let upscaleOk = false;
 
   for (let i = 0; i < chaine.length; i += 1) {
     const provider = chaine[i]!;
@@ -793,10 +810,83 @@ export async function cleanImage(
     );
   }
 
+  // Import slideshow : upscale Fal SeedVR AVANT le strip métadonnées
+  // (Fal peut réinjecter des credentials — le C2PA doit rester en dernier).
+  if (opts?.upscaleAvantStrip) {
+    const factor =
+      typeof opts.upscaleFactor === "number" &&
+        opts.upscaleFactor >= 1 &&
+        opts.upscaleFactor <= 4
+        ? opts.upscaleFactor
+        : 2;
+    await emit({
+      etape: "upscale",
+      statut: "encours",
+      detail: `③ Upscale Fal SeedVR ×${factor} (avant strip métadonnées)`,
+    });
+    try {
+      const { mime: mimeIn } = mimeDepuisBase64(base64, "image/png");
+      const bytesIn = Uint8Array.from(atob(base64), (c) => c.charCodeAt(0));
+      const ext =
+        mimeIn.includes("png")
+          ? "png"
+          : mimeIn.includes("webp")
+            ? "webp"
+            : "jpg";
+      const falUrl = await falHebergerOctets(
+        bytesIn,
+        mimeIn,
+        `import-clean-${Date.now()}.${ext}`,
+      );
+      const up = await upscaleViaSeedVr(falUrl, async (p) => {
+        if (p.phase === "poll") {
+          await emit({
+            etape: "upscale",
+            statut: "encours",
+            detail: `③ SeedVR: ${p.detail ?? `poll #${p.polls ?? 0}`}`,
+          });
+        } else if (p.detail) {
+          await emit({
+            etape: "upscale",
+            statut: "encours",
+            detail: `③ SeedVR: ${p.detail}`,
+          });
+        }
+      }, factor);
+      if (!up) {
+        await emit({
+          etape: "upscale",
+          statut: "saute",
+          detail: "③ SeedVR SAUTÉ — FAL_KEY absente (image non upscalée)",
+        });
+      } else {
+        let binaire = "";
+        const CHUNK = 0x8000;
+        for (let i = 0; i < up.bytes.length; i += CHUNK) {
+          binaire += String.fromCharCode(...up.bytes.subarray(i, i + CHUNK));
+        }
+        base64 = btoa(binaire);
+        upscaleOk = true;
+        await emit({
+          etape: "upscale",
+          statut: "ok",
+          detail: `③ SeedVR OK · ${up.bytes.length} octets · ${up.mime}`,
+        });
+      }
+    } catch (error) {
+      await emit({
+        etape: "upscale",
+        statut: "echec",
+        detail: `③ SeedVR ÉCHEC: ${redactSecrets(messageErreur(error))} — on continue sans upscale`,
+      });
+    }
+  }
+
+  const rangC2pa = opts?.upscaleAvantStrip ? "④" : "③";
   await emit({
     etape: "c2pa",
     statut: "encours",
-    detail: "③ Strip C2PA lossless (pas de ré-encode JPEG)",
+    detail: `${rangC2pa} Strip C2PA lossless (pas de ré-encode JPEG)`,
   });
   try {
     const stripped = await retirerContentCredentials(base64);
@@ -805,15 +895,21 @@ export async function cleanImage(
       etape: "c2pa",
       statut: "ok",
       detail: stripped.retire
-        ? "③ C2PA retiré (bitstream lossless, pixels inchangés)"
-        : "③ Pas de C2PA — octets inchangés",
+        ? `${rangC2pa} C2PA retiré (bitstream lossless, pixels inchangés)`
+        : `${rangC2pa} Pas de C2PA — octets inchangés`,
     });
-    return { base64, moteur, mime: stripped.mime, etapes };
+    return {
+      base64,
+      moteur,
+      mime: stripped.mime,
+      etapes,
+      upscale: upscaleOk,
+    };
   } catch (error) {
     await emit({
       etape: "c2pa",
       statut: "echec",
-      detail: `③ Strip C2PA ÉCHEC: ${redactSecrets(messageErreur(error))} — image livrée quand même`,
+      detail: `${rangC2pa} Strip C2PA ÉCHEC: ${redactSecrets(messageErreur(error))} — image livrée quand même`,
     });
     // fallback mime : détecter PNG/JPEG depuis les octets (pas forcer jpeg).
     const { mime } = mimeDepuisBase64(base64, "image/png");
@@ -822,6 +918,7 @@ export async function cleanImage(
       moteur,
       mime,
       etapes,
+      upscale: upscaleOk,
     };
   }
 }

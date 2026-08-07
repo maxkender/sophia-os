@@ -56,7 +56,7 @@ export function schemaCleaning(
     cle: "nettoyage",
     edge: "cleanImage → nettoyer-media / import / renettoyer",
     description:
-      "Retrait de texte sur les slides, puis strip C2PA. Ordre Fal↔Replicate configurable.",
+      "Retrait de texte, puis (import TikTok) upscale Fal SeedVR, puis strip C2PA. Ordre Fal↔Replicate configurable.",
     steps: [
       {
         id: "principal",
@@ -80,20 +80,30 @@ export function schemaCleaning(
         detail: "Sauté si ① OK",
       },
       {
-        id: "c2pa",
+        id: "upscale",
         rang: "③",
+        label: "Upscale Fal SeedVR ×2 (import slideshow)",
+        kind: "api",
+        api: "fal-ai/seedvr/upscale/image",
+        env: "FAL_KEY",
+        onFail: "Continue sans upscale (import seulement)",
+        detail: "Avant strip métadonnées — uniquement import compte/lien TikTok",
+      },
+      {
+        id: "c2pa",
+        rang: "④",
         label: "Strip C2PA (Content Credentials)",
         kind: "logic",
         api: "_shared/c2pa.ts",
         onFail: "Image livrée quand même (mime depuis bytes)",
-        detail: "Lossless — après text-removal réussi",
+        detail: "Lossless — après text-removal (+ upscale import si OK)",
       },
       {
         id: "ready",
-        rang: "④",
+        rang: "⑤",
         label: "ready / stockage",
         kind: "persist",
-        detail: "PNG propre → storage + media.nettoyage",
+        detail: "Image propre → storage + media.nettoyage (+ upscale_le si SeedVR)",
       },
     ],
     constants: [

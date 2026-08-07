@@ -1387,6 +1387,7 @@ export const en = {
     nettoyageEtapes: {
       textRemoval: "Fal text-removal",
       replicateTextRemoval: "Replicate text-removal (fallback)",
+      upscale: "Fal SeedVR upscale",
       c2pa: "Content Credentials",
       ready: "Ready",
     },

@@ -2,6 +2,7 @@
 export type EtapeNettoyageId =
   | "text_removal"
   | "replicate_text_removal"
+  | "upscale"
   | "c2pa"
   | "ready";
 
@@ -27,12 +28,16 @@ export interface EvenementEtape {
 
 export function ordreEtapesNettoyage(
   premier: ProviderNettoyage = "fal",
+  avecUpscale = false,
 ): EtapeNettoyageId[] {
   const a: EtapeNettoyageId =
     premier === "fal" ? "text_removal" : "replicate_text_removal";
   const b: EtapeNettoyageId =
     premier === "fal" ? "replicate_text_removal" : "text_removal";
-  return [a, b, "c2pa", "ready"];
+  // `upscale` seulement à l'import TikTok (SeedVR avant C2PA).
+  return avecUpscale
+    ? [a, b, "upscale", "c2pa", "ready"]
+    : [a, b, "c2pa", "ready"];
 }
 
 /** @deprecated préférer ordreEtapesNettoyage(premier) */
@@ -53,6 +58,7 @@ function normaliserEtape(etape: string): EtapeNettoyageId | null {
   if (
     etape === "text_removal" ||
     etape === "replicate_text_removal" ||
+    etape === "upscale" ||
     etape === "c2pa" ||
     etape === "ready"
   ) {
@@ -70,7 +76,9 @@ export function appliquerEvenement(
 ): EvenementEtape[] {
   const etape = normaliserEtape(ev.etape);
   if (!etape) return prev;
-  const ordre = ordreEtapesNettoyage(premier);
+  const avecUpscale =
+    etape === "upscale" || prev.some((e) => e.etape === "upscale");
+  const ordre = ordreEtapesNettoyage(premier, avecUpscale);
   const map = new Map(prev.map((e) => [e.etape, e]));
   map.set(etape, { ...map.get(etape), ...ev, etape });
   return ordre.map((id) => map.get(id) ?? { etape: id, statut: "attente" });

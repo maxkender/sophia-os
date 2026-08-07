@@ -3,8 +3,9 @@
  *   0) Choisir reaction (même label, pas de re-use sauf fallback) + utilisation
  *   1) Nettoyage frame10 (process classique Fal/Replicate text-removal + C2PA)
  *   2) Nano Banana edit : frame10 nettoyée + images persona → photo ref
- *   3) Kling motion-control : photo ref + vidéo reaction
- *   4) Concat Kling + utilisation (même label)
+ *   3) Kling motion-control (= clip transformé) :
+ *        durée sortie = durée reaction (character_orientation=video, ≤30s)
+ *   4) Concat : utilisation EN PLUS (durée totale = kling + utilisation)
  *   5) Caption traduite (langue créateur) — pas de « Sophia »
  *
  * Option `jusquA: "face_ref"` : s'arrête après Nano Banana (test Admin).
@@ -14,6 +15,8 @@ import { retirerContentCredentialsBytes } from "./c2pa.ts";
 import { editerNanoBananaPro } from "./fal_nano_banana.ts";
 import { klingMotionControl } from "./fal_kling_motion.ts";
 import { mergerVideosFal } from "./fal_merge_videos.ts";
+import { sonderDureeSec } from "./fal_normaliser_video.ts";
+import { falHebergerOctets } from "./fal_queue.ts";
 import { cleanImage, TEXT_MODELS } from "./gemini.ts";
 import { mapPool } from "./parallel.ts";
 import { chargerPrompt, serviceClient } from "./supabase.ts";
@@ -40,9 +43,6 @@ KEEP from Figure 1 exactly:
 Do NOT leave the original person's skin tone on neck, arms, hands or chest.
 Do NOT only replace the head. The whole visible person must look like the persona.
 Photorealistic, casual amateur phone-photo look.`;
-
-const NEGATIVE_DEFAUT =
-  "identity change, different face, face morphing, warping, distortion, extra fingers, deformed hands, model look, glamour, studio lighting, soft flattering light, airbrushed skin, dewy, glossy, creamy bokeh, watermark, text, logo, cartoon, 3D render";
 
 const PROMPT_KLING_DEFAUT =
   "Same person as in the reference image, natural reaction, amateur vertical phone video, casual lighting.";
@@ -154,6 +154,31 @@ async function reactionsUtilisees(
   return new Set((data ?? []).map((r) => r.reaction_id as string).filter(Boolean));
 }
 
+/** Download storage service-role (évite les 400 public URL / manquants). */
+async function telechargerStorage(
+  supabase: Supabase,
+  path: string | null | undefined,
+): Promise<{ bytes: Uint8Array; mime: string } | null> {
+  const p = String(path ?? "").trim();
+  if (!p) return null;
+  const { data, error } = await supabase.storage.from(BUCKET).download(p);
+  if (error || !data) return null;
+  const bytes = new Uint8Array(await data.arrayBuffer());
+  if (bytes.length < 32) return null;
+  const mime =
+    (typeof data.type === "string" && data.type) ||
+    (p.endsWith(".png")
+      ? "image/png"
+      : p.endsWith(".webp")
+        ? "image/webp"
+        : p.endsWith(".mp4")
+          ? "video/mp4"
+          : p.endsWith(".webm")
+            ? "video/webm"
+            : "application/octet-stream");
+  return { bytes, mime };
+}
+
 async function choisirReaction(
   supabase: Supabase,
   compteId: string,
@@ -163,6 +188,7 @@ async function choisirReaction(
   id: string;
   label_id: string;
   video_source_url: string;
+  video_source_path: string | null;
   first_frame_reference_url: string;
   video_text: string | null;
   titre: string;
@@ -174,7 +200,7 @@ async function choisirReaction(
   const { data, error } = await supabase
     .from("ugc_reactions")
     .select(
-      "id, label_id, video_source_url, first_frame_reference_url, video_text, titre, statut",
+      "id, label_id, video_source_url, video_source_path, first_frame_reference_url, video_text, titre, statut",
     )
     .eq("statut", "pret")
     .in("label_id", labelIds)
@@ -191,6 +217,7 @@ async function choisirReaction(
     id: string;
     label_id: string;
     video_source_url: string;
+    video_source_path: string | null;
     first_frame_reference_url: string;
     video_text: string | null;
     titre: string;
@@ -446,33 +473,102 @@ export async function assignerUgcVideoSlot(
       return { postId };
     }
 
-    // ── 3) Kling motion-control ─────────────────────────────────────
-    // Reactions admin = souvent WebM MediaRecorder → Kling 422 « Video format
-    // is invalid ». klingMotionControl re-encode en MP4 H.264 avant l'appel.
+    // ── 3) Kling motion-control (= clip transformé) ─────────────────
+    // Durée attendue = durée reaction (orientation=video, max 30s).
+    // L'utilisation n'entre PAS ici — concaténée après, EN PLUS.
+    const reactionBytes =
+      (await telechargerStorage(supabase, reaction.video_source_path)) ?? null;
+    let reactionVideoUrl = reaction.video_source_url.split("?")[0] ||
+      reaction.video_source_url;
+    if (reactionBytes) {
+      reactionVideoUrl = await falHebergerOctets(
+        reactionBytes.bytes,
+        reactionBytes.mime,
+        `ugc-reaction-${postId.slice(0, 8)}.${
+          reactionBytes.mime.includes("webm") ? "webm" : "mp4"
+        }`,
+      );
+      log(
+        `  Reaction rehost Fal · ${reactionBytes.bytes.length} octets → ${reactionVideoUrl.slice(-48)}`,
+      );
+    }
+    const dureeReactionSec = await sonderDureeSec(reactionVideoUrl, (p) => {
+      if (p.detail) log(`  ${p.detail}`);
+    });
     log(
-      `Étape 3/${etapeTotal} Kling motion-control · image=ref · video=reaction (${reaction.video_source_url.includes(".webm") ? "webm→mp4" : "mp4"})`,
+      `Étape 3/${etapeTotal} Kling (= clip transformé) · durée reaction=${
+        dureeReactionSec != null ? `${dureeReactionSec.toFixed(2)}s` : "?"
+      } · orientation=video (utilisation NON comptée ici)`,
     );
-    const neg =
-      (await chargerPrompt(supabase, "ugc_video_kling_negative"))?.trim() ||
-      NEGATIVE_DEFAUT;
+    if (dureeReactionSec != null && dureeReactionSec < 3) {
+      throw new Error(
+        `Reaction trop courte pour Kling (${dureeReactionSec.toFixed(2)}s < 3s)`,
+      );
+    }
+    if (dureeReactionSec != null && dureeReactionSec > 30.05) {
+      throw new Error(
+        `Reaction trop longue pour Kling (${dureeReactionSec.toFixed(2)}s > 30s) — raccourcir le crop`,
+      );
+    }
     const klingPrompt =
       (await chargerPrompt(supabase, "ugc_video_kling_prompt"))?.trim() ||
       PROMPT_KLING_DEFAUT;
-    const kling = await klingMotionControl({
-      imageUrl,
-      videoUrl: reaction.video_source_url,
-      prompt: klingPrompt,
-      negativePrompt: neg,
-      characterOrientation: "video",
-      keepOriginalSound: true,
-      onProgress: (p) => {
-        if (p.phase === "poll") {
-          log(`  Kling Fal ${p.statut ?? "…"} (#${p.polls ?? 0})`);
-        } else if (p.detail) {
-          log(`  Kling ${p.detail}`);
-        }
-      },
-    });
+    const sourceWebm =
+      /\.webm(\?|$)/i.test(reaction.video_source_path ?? "") ||
+      /\.webm(\?|$)/i.test(reaction.video_source_url) ||
+      (reactionBytes?.mime.includes("webm") ?? false);
+
+    const lancerKling = (qualite: "standard" | "pro") =>
+      klingMotionControl({
+        imageUrl,
+        videoUrl: reactionVideoUrl,
+        prompt: klingPrompt,
+        // "video" : durée sortie = durée référence (jusqu'à 30s).
+        characterOrientation: "video",
+        keepOriginalSound: true,
+        // WebM → re-encode ; MP4 déjà propre → ne PAS re-scaler
+        // (scale-video peut faire tronquer l'extraction de motion à ~3s).
+        normaliserVideo: sourceWebm,
+        qualite,
+        onProgress: (p) => {
+          if (p.phase === "poll") {
+            log(`  Kling Fal ${p.statut ?? "…"} (#${p.polls ?? 0})`);
+          } else if (p.detail) {
+            log(`  Kling ${p.detail}`);
+          }
+        },
+      });
+
+    let kling = await lancerKling("standard");
+    let klingUrlTmp = kling.url;
+    // Upload temporaire pour sonder la durée (URL Fal du résultat suffit).
+    let dureeKlingSec = await sonderDureeSec(klingUrlTmp);
+    const ratioOk = (dK: number | null, dR: number | null) =>
+      dK != null && dR != null && dK >= dR * 0.85;
+
+    if (
+      dureeReactionSec != null &&
+      dureeKlingSec != null &&
+      !ratioOk(dureeKlingSec, dureeReactionSec)
+    ) {
+      log(
+        `  ⚠ durée Kling ${dureeKlingSec.toFixed(2)}s ≪ reaction ${dureeReactionSec.toFixed(2)}s — retry Pro`,
+      );
+      kling = await lancerKling("pro");
+      klingUrlTmp = kling.url;
+      dureeKlingSec = await sonderDureeSec(klingUrlTmp);
+    }
+
+    if (
+      dureeReactionSec != null &&
+      dureeKlingSec != null &&
+      !ratioOk(dureeKlingSec, dureeReactionSec)
+    ) {
+      throw new Error(
+        `Kling a tronqué la reaction : ${dureeKlingSec.toFixed(2)}s au lieu de ${dureeReactionSec.toFixed(2)}s (même après Pro). Relancer ou raccourcir/simplifier la reaction.`,
+      );
+    }
+
     const klingPath = `ugc/video-posts/${postId}/kling.mp4`;
     const klingUrl = await uploader(
       supabase,
@@ -488,12 +584,50 @@ export async function assignerUgcVideoSlot(
         updated_at: new Date().toISOString(),
       })
       .eq("id", postId);
-    log(`  Kling OK · ${kling.bytes.length} octets → ${klingPath}`);
+    log(
+      `  Kling OK · durée=${
+        dureeKlingSec != null ? `${dureeKlingSec.toFixed(2)}s` : "?"
+      } (= reaction) · ${kling.bytes.length} octets → ${klingPath}`,
+    );
 
-    // ── 4) Concat utilisation ───────────────────────────────────────
-    log(`Étape 4/${etapeTotal} Concat Kling + utilisation (fal merge-videos)`);
+    // ── 4) Concat utilisation (EN PLUS, durée non rognée) ───────────
+    log(
+      `Étape 4/${etapeTotal} Concat · clip transformé + utilisation EN PLUS (sans rogner)`,
+    );
+    let utilisationUrl =
+      utilisation.video_url.split("?")[0] || utilisation.video_url;
+    try {
+      const utilRes = await fetch(utilisation.video_url);
+      if (!utilRes.ok) throw new Error(`fetch utilisation ${utilRes.status}`);
+      const utilMime =
+        (utilRes.headers.get("content-type") ?? "video/mp4").split(";")[0]! ||
+        "video/mp4";
+      const utilBytes = new Uint8Array(await utilRes.arrayBuffer());
+      utilisationUrl = await falHebergerOctets(
+        utilBytes,
+        utilMime,
+        `ugc-util-${postId.slice(0, 8)}.mp4`,
+      );
+      log(`  Utilisation rehost Fal · ${utilisationUrl.slice(-48)}`);
+    } catch (e) {
+      log(
+        `  Utilisation rehost skip (${e instanceof Error ? e.message : String(e)}) — URL DB`,
+      );
+    }
+    const dureeUtilSec = await sonderDureeSec(utilisationUrl);
+    log(
+      `  Durées · kling=${
+        dureeKlingSec != null ? `${dureeKlingSec.toFixed(2)}s` : "?"
+      } + util=${
+        dureeUtilSec != null ? `${dureeUtilSec.toFixed(2)}s` : "?"
+      } → totale attendue=${
+        dureeKlingSec != null && dureeUtilSec != null
+          ? `${(dureeKlingSec + dureeUtilSec).toFixed(2)}s`
+          : "?"
+      }`,
+    );
     const merged = await mergerVideosFal({
-      videoUrls: [klingUrl, utilisation.video_url],
+      videoUrls: [klingUrl, utilisationUrl],
       onProgress: (p) => {
         if (p.phase === "poll") {
           log(`  Merge Fal ${p.statut ?? "…"} (#${p.polls ?? 0})`);
@@ -517,7 +651,12 @@ export async function assignerUgcVideoSlot(
         updated_at: new Date().toISOString(),
       })
       .eq("id", postId);
-    log(`  Concat OK · ${merged.bytes.length} octets → ${finalePath}`);
+    const dureeFinaleSec = await sonderDureeSec(finaleUrl);
+    log(
+      `  Concat OK · durée finale=${
+        dureeFinaleSec != null ? `${dureeFinaleSec.toFixed(2)}s` : "?"
+      } · ${merged.bytes.length} octets → ${finalePath}`,
+    );
 
     // ── 5) Caption ──────────────────────────────────────────────────
     const langue = (compte.langue ?? "en").toLowerCase();

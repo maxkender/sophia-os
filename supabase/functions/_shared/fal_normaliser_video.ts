@@ -23,6 +23,35 @@ export function urlSansCacheBuster(url: string): string {
   return i >= 0 ? u.slice(0, i) : u;
 }
 
+/** Durée en secondes via fal-ai/ffmpeg-api/metadata (null si indisponible). */
+export async function sonderDureeSec(
+  mediaUrl: string,
+  onProgress?: FalQueueProgress,
+): Promise<number | null> {
+  const clean = urlSansCacheBuster(mediaUrl);
+  if (!clean) return null;
+  try {
+    const queuedMeta = await falQueueSubmit(
+      MODEL_META,
+      { media_url: clean, extract_frames: false },
+      onProgress,
+    );
+    const meta = await falQueueAwaitJson(
+      MODEL_META,
+      queuedMeta,
+      onProgress,
+      120_000,
+    );
+    const payload = (meta?.data ?? meta) as {
+      media?: { duration?: number };
+    };
+    const d = Number(payload.media?.duration ?? 0);
+    return Number.isFinite(d) && d > 0 ? d : null;
+  } catch {
+    return null;
+  }
+}
+
 function pairPair(n: number): number {
   const v = Math.max(2, Math.round(n));
   return v % 2 === 0 ? v : v + 1;

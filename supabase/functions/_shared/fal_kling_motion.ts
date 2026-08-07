@@ -1,11 +1,15 @@
 /**
- * Fal — Kling Video v2.6 Standard Motion Control
- *   fal-ai/kling-video/v2.6/standard/motion-control
+ * Fal — Kling Video Motion Control
+ *   fal-ai/kling-video/v2.6/standard/motion-control (défaut)
+ *   fal-ai/kling-video/v2.6/pro/motion-control (retry qualité / durée)
  *
  * image_url + video_url → vidéo où le perso de l'image reprend le motion.
+ * Pas de param `duration` : la sortie doit suivre la durée de la vidéo
+ * référence (max 30s en character_orientation=video).
  *
  * Les WebM MediaRecorder (reactions admin) sont refusés (« Video format is
- * invalid ») : on normalise toujours en MP4 H.264 avant l'appel.
+ * invalid ») : on normalise alors en MP4 H.264. Les MP4 propres ne sont
+ * PAS re-encodés (le scale-video peut dégrader l'extraction de motion).
  */
 
 import {
@@ -19,20 +23,19 @@ import {
   urlSansCacheBuster,
 } from "./fal_normaliser_video.ts";
 
-const MODEL = "fal-ai/kling-video/v2.6/standard/motion-control";
-
-const NEGATIVE_DEFAUT =
-  "identity change, different face, face morphing, warping, distortion, extra fingers, deformed hands, model look, glamour, studio lighting, soft flattering light, airbrushed skin, dewy, glossy, creamy bokeh, watermark, text, logo, cartoon, 3D render";
+const MODEL_STANDARD = "fal-ai/kling-video/v2.6/standard/motion-control";
+const MODEL_PRO = "fal-ai/kling-video/v2.6/pro/motion-control";
 
 export async function klingMotionControl(input: {
   imageUrl: string;
   videoUrl: string;
   prompt?: string;
-  negativePrompt?: string;
   characterOrientation?: "image" | "video";
   keepOriginalSound?: boolean;
-  /** Si false : ne re-encode pas (déjà MP4 Fal). Défaut true. */
+  /** Si true : re-encode MP4. Défaut false — n'activer que pour WebM. */
   normaliserVideo?: boolean;
+  /** standard (défaut) ou pro (meilleure tenue de durée / qualité). */
+  qualite?: "standard" | "pro";
   onProgress?: FalQueueProgress;
 }): Promise<{ url: string; bytes: Uint8Array; mime: string }> {
   const image_url = urlSansCacheBuster(input.imageUrl);
@@ -41,7 +44,7 @@ export async function klingMotionControl(input: {
     throw new Error("Kling motion-control: image_url et video_url requis");
   }
 
-  if (input.normaliserVideo !== false) {
+  if (input.normaliserVideo) {
     await input.onProgress?.({
       phase: "submit",
       detail: "pré-normalisation vidéo → MP4 H.264 (Kling)",
@@ -54,18 +57,20 @@ export async function klingMotionControl(input: {
     });
   }
 
+  // Schema motion-control : pas de negative_prompt ni duration.
+  // character_orientation=video → durée sortie = durée référence (≤30s).
   const body: Record<string, unknown> = {
     image_url,
     video_url,
     character_orientation: input.characterOrientation ?? "video",
     keep_original_sound: input.keepOriginalSound !== false,
-    negative_prompt: (input.negativePrompt ?? NEGATIVE_DEFAUT).trim(),
   };
   const prompt = String(input.prompt ?? "").trim();
   if (prompt) body.prompt = prompt;
 
-  const queued = await falQueueSubmit(MODEL, body, input.onProgress);
-  const data = await falQueueAwaitJson(MODEL, queued, input.onProgress, 600_000);
+  const model = input.qualite === "pro" ? MODEL_PRO : MODEL_STANDARD;
+  const queued = await falQueueSubmit(model, body, input.onProgress);
+  const data = await falQueueAwaitJson(model, queued, input.onProgress, 600_000);
   const payload = (data?.data ?? data) as {
     video?: { url?: string; content_type?: string };
   };

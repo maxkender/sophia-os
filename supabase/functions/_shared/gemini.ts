@@ -949,6 +949,79 @@ async function inpaintFallback(image: Part, imageUrl: string): Promise<string | 
   return await effacerTexte(imageUrl, bytes, mime, zones);
 }
 
+/** Zone de texte incrusté détectée sur le brut (fractions 0..1). */
+export interface ZoneTexteIncruste {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  /** Texte lu dans ce bloc (source). */
+  texte: string;
+  /** Couleur dominante du texte #RRGGBB. */
+  couleur: string;
+  /** true si ombre / stroke visible. */
+  ombre: boolean;
+}
+
+/**
+ * Analyse le brut : boxes + couleur + texte de chaque bloc incrusté.
+ * Sert au burn-in test (repose le texte traduit au plus près du style source).
+ */
+export async function analyserTexteIncrusteBrut(
+  imageUrl: string,
+): Promise<ZoneTexteIncruste[]> {
+  const image = await fetchImageAsInline(imageUrl);
+  const prompt = `Tu analyses une photo TikTok slideshow qui contient du TEXTE INCRUSTÉ.
+
+Pour CHAQUE bloc de texte distinct (regroupe les lignes d'un même paragraphe),
+renvoie :
+- x,y,w,h en FRACTIONS 0..1 (origine coin haut-gauche), rectangle SERRÉ autour du texte (marge ~2%)
+- texte : le texte EXACT lu dans ce bloc
+- couleur : couleur dominante des lettres en #RRGGBB (pas le fond)
+- ombre : true s'il y a un contour/ombre autour des lettres, sinon false
+
+Ignore watermarks TikTok (@username, logo) et UI (boutons like).
+Réponds UNIQUEMENT par un tableau JSON, rien avant ni après :
+[{"x":0.1,"y":0.2,"w":0.8,"h":0.15,"texte":"Hello","couleur":"#FFFFFF","ombre":true}]
+Réponds [] si aucun texte incrusté.`;
+
+  for (let essai = 0; essai < 2; essai += 1) {
+    const parts = await callWithFallback(TEXT_MODELS, [image, { text: prompt }]);
+    const zones = parserZonesTexteIncruste(textOf(parts));
+    if (zones.length > 0) return zones;
+  }
+  return [];
+}
+
+function parserZonesTexteIncruste(texte: string): ZoneTexteIncruste[] {
+  const trouve = texte.match(/\[[\s\S]*\]/);
+  if (!trouve) return [];
+  let data: unknown;
+  try {
+    data = JSON.parse(trouve[0]);
+  } catch {
+    return [];
+  }
+  if (!Array.isArray(data)) return [];
+  const out: ZoneTexteIncruste[] = [];
+  for (const item of data) {
+    if (!item || typeof item !== "object") continue;
+    const z = normaliserZone(item);
+    if (!z) continue;
+    const raw = item as Record<string, unknown>;
+    const t = String(raw.texte ?? raw.text ?? "").trim();
+    if (!t) continue;
+    let couleur = String(raw.couleur ?? raw.color ?? "#FFFFFF").trim();
+    if (!/^#[0-9A-Fa-f]{6}$/.test(couleur)) couleur = "#FFFFFF";
+    const ombre = Boolean(raw.ombre ?? raw.shadow ?? true);
+    // Boxes plus serrées que detecterZonesTexte (pas de marge 3 % inpaint).
+    out.push({ ...z, texte: t, couleur, ombre });
+  }
+  // Haut → bas pour mapper les lignes traduites.
+  out.sort((a, b) => a.y - b.y || a.x - b.x);
+  return out;
+}
+
 /**
  * Renvoie les rectangles (fractions 0..1) des textes/stickers/watermarks
  * incrustés. Tâche de détection pure, donc non soumise au refus d'édition.

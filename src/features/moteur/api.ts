@@ -2036,6 +2036,102 @@ export async function nettoyerTest(
   };
 }
 
+/** Événements NDJSON du test burn-in texte (bruler-texte-test). */
+export type BurnTexteEvent = {
+  etape: string;
+  statut?: "encours" | "ok" | "echec" | "saute";
+  detail?: string;
+  position?: number;
+  propreUrl?: string;
+  brutUrl?: string;
+  texteTraduit?: string;
+  zones?: Array<{
+    x: number;
+    y: number;
+    w: number;
+    h: number;
+    couleur?: string;
+    ombre?: boolean;
+    texte?: string;
+    texteSource?: string;
+  }>;
+  slides?: number;
+  sautes?: number;
+  echecs?: number;
+};
+
+/** Test admin : analyse brut + payload burn (Canvas front). Aucune sauvegarde. */
+export async function brulerTexteTestStream(
+  input: { contenuId: string; langue: string },
+  onEtape: (e: BurnTexteEvent) => void | Promise<void>,
+): Promise<BurnTexteEvent> {
+  const url = import.meta.env.VITE_SUPABASE_URL;
+  const anon = import.meta.env.VITE_SUPABASE_ANON_KEY;
+  if (!url || !anon) throw new Error("Supabase non configuré");
+
+  const { data: sessionData } = await supabase.auth.getSession();
+  const token = sessionData.session?.access_token;
+  if (!token) throw new Error("Session expirée — reconnecte-toi.");
+
+  const res = await fetch(`${url}/functions/v1/bruler-texte-test`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      apikey: anon,
+      "Content-Type": "application/json",
+      Accept: "application/x-ndjson",
+    },
+    body: JSON.stringify({ ...input, stream: true }),
+  });
+
+  if (!res.ok || !res.body) {
+    let message = `Edge bruler-texte-test ${res.status}`;
+    try {
+      const j = await res.json();
+      if (j?.error || j?.erreur) message = j.error ?? j.erreur;
+    } catch {
+      // ignore
+    }
+    throw new Error(message);
+  }
+
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+  let dernier: BurnTexteEvent | null = null;
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+    const lignes = buffer.split("\n");
+    buffer = lignes.pop() ?? "";
+    for (const ligne of lignes) {
+      const trim = ligne.trim();
+      if (!trim) continue;
+      try {
+        const ev = JSON.parse(trim) as BurnTexteEvent;
+        dernier = ev;
+        await onEtape(ev);
+      } catch {
+        // ligne partielle
+      }
+    }
+  }
+  if (buffer.trim()) {
+    try {
+      const ev = JSON.parse(buffer.trim()) as BurnTexteEvent;
+      dernier = ev;
+      await onEtape(ev);
+    } catch {
+      // ignore
+    }
+  }
+
+  if (!dernier) throw new Error("Aucune étape reçue du burn-in");
+  return dernier;
+}
+
 /** Visuels bruts (à texte) regroupés par compte de référence, pour l'écran de test. */
 export interface MediaTest {
   id: string;

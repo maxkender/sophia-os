@@ -15,6 +15,7 @@ import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import { SimulerMinuitCard } from "@/features/moteur/SimulerMinuitCard";
 import { SimulerMinuitCompteCard } from "@/features/moteur/SimulerMinuitCompteCard";
 import { SimulerUgcVideoAssignationCard } from "@/features/moteur/SimulerUgcVideoAssignationCard";
+import { TestBrulerTexteCard } from "@/features/moteur/TestBrulerTexteCard";
 import { TestCompletCard } from "@/features/moteur/TestCompletCard";
 
 const selectClass =
@@ -273,6 +274,12 @@ const TESTS = [
   },
   { value: "tiktok", titreKey: "tests.tiktokTitre", descKey: "tests.tiktokDesc", render: () => <TesterUnTikTok /> },
   { value: "traduction", titreKey: "tests.tradTitre", descKey: "tests.tradDesc", render: () => <TestTraduction /> },
+  {
+    value: "bruler-texte",
+    titreKey: "tests.brulerTitre",
+    descKey: "tests.brulerDesc",
+    render: () => <TestBrulerTexteCard />,
+  },
   { value: "complet", titreKey: "tests.completTitre", descKey: "tests.completDesc", render: () => <TestCompletCard /> },
 ] as const;
 

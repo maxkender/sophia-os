@@ -1,6 +1,8 @@
 import {
   downloadImage,
   estPostDiaporama,
+  APIFY_ACTOR_PROFIL,
+  listerDepuisEmbed,
   listerDiaporamasDetail,
   listerPostsProfil,
   scrapePost,
@@ -630,7 +632,7 @@ export async function listerUrlsCompteReference(
   urls: string[];
   total: number;
   connus: number;
-  source: "page" | "apify" | "mixte";
+  source: "page" | "apify" | "embed" | "mixte";
   diagnostic: string;
 }> {
   const t0 = Date.now();
@@ -662,37 +664,14 @@ export async function listerUrlsCompteReference(
   );
 
   const vues = new Map<string, number>();
-  let source: "page" | "apify" | "mixte" = "page";
+  const origines = new Set<"page" | "apify" | "embed">();
   const urlsSet = new Set<string>();
 
-  // 1) Page publique TikTok (gratuit, rapide) — IDs photo uniquement.
-  log(`Page publique TikTok @${handle}…`);
-  try {
-    const page = await listerDiaporamasDetail(handle);
-    for (const u of page.urls) urlsSet.add(u);
-    log(
-      `Page TikTok HTTP ${page.status} · ${page.htmlOctets} octets · ${page.urls.length} photo IDs · ${page.ms}ms` +
-        (page.murLogin ? " · MUR LOGIN/captcha (0 post dans le HTML)" : ""),
-    );
-    if (page.murLogin) {
-      log(
-        `ATTENTION: page publique TikTok sans aucun /photo/ ni /video/ — listing = Apify uniquement`,
-      );
-    } else if (page.htmlOctets < 8_000 && page.urls.length === 0) {
-      log(
-        `ATTENTION: HTML trop court (${page.htmlOctets} o) — page vide / challenge TikTok probable`,
-      );
-    }
-  } catch (e) {
-    log(`Page TikTok ÉCHEC: ${e instanceof Error ? e.message : String(e)}`);
-  }
+  const noterSource = (depuis: "page" | "apify" | "embed", n: number) => {
+    if (n > 0) origines.add(depuis);
+  };
 
-  // 2) Apify profil sans télécharger les images — complète / ordonne par vues.
-  //    Chaque slideshow sera re-scrapé individuellement ensuite (1 agent / post).
-  log(`Apify listing @${handle} (max ${SCRAPE_TOUS}, run-sync bloquant)…`);
-  const tApify = Date.now();
-  try {
-    const posts = await listerPostsProfil(handle, SCRAPE_TOUS, log);
+  const ajouterPostsApify = (posts: ScrapedPost[], label: string, ms: number) => {
     const photos = posts.filter((p) =>
       estPostDiaporama({
         webVideoUrl: p.webVideoUrl,
@@ -700,9 +679,7 @@ export async function listerUrlsCompteReference(
         isSlideshow: p.isSlideshow,
       }),
     );
-    log(
-      `Apify: ${posts.length} posts (${photos.length} diaporamas) en ${Date.now() - tApify}ms`,
-    );
+    log(`${label}: ${posts.length} posts (${photos.length} diaporamas) en ${ms}ms`);
     if (posts.length > 0 && photos.length === 0) {
       const echantillon = posts
         .slice(0, 5)
@@ -713,18 +690,78 @@ export async function listerUrlsCompteReference(
       );
     }
     const aPrendre = photos.length > 0 ? photos : posts;
-    if (aPrendre.length > 0) {
-      source = urlsSet.size > 0 ? "mixte" : "apify";
-      for (const p of aPrendre) {
-        if (!p.webVideoUrl) continue;
-        urlsSet.add(p.webVideoUrl);
-        vues.set(idDe(p.webVideoUrl), p.stats?.vues ?? 0);
-      }
+    if (aPrendre.length === 0) return;
+    noterSource("apify", aPrendre.length);
+    for (const p of aPrendre) {
+      if (!p.webVideoUrl) continue;
+      urlsSet.add(p.webVideoUrl);
+      vues.set(idDe(p.webVideoUrl), p.stats?.vues ?? 0);
     }
+  };
+
+  // 1) Page publique TikTok (gratuit, rapide).
+  log(`Page publique TikTok @${handle}…`);
+  try {
+    const page = await listerDiaporamasDetail(handle);
+    for (const u of page.urls) urlsSet.add(u);
+    noterSource("page", page.urls.length);
+    log(
+      `Page TikTok HTTP ${page.status} · ${page.htmlOctets} octets · ${page.urls.length} posts · profil=${page.videoCount ?? "?"} · ${page.ms}ms` +
+        (page.murLogin ? " · MUR LOGIN/captcha (0 post dans le HTML)" : ""),
+    );
+    if (page.murLogin) {
+      log(
+        `ATTENTION: page publique TikTok sans aucun /photo/ ni /video/ — embed + Apify`,
+      );
+    } else if (page.htmlOctets < 8_000 && page.urls.length === 0) {
+      log(
+        `ATTENTION: HTML trop court (${page.htmlOctets} o) — page vide / challenge TikTok probable`,
+      );
+    }
+  } catch (e) {
+    log(`Page TikTok ÉCHEC: ${e instanceof Error ? e.message : String(e)}`);
+  }
+
+  // 2) Embed public — passe souvent le mur login (grille /video/).
+  log(`Embed TikTok @${handle}…`);
+  try {
+    const embed = await listerDepuisEmbed(handle);
+    const avant = urlsSet.size;
+    for (const u of embed.urls) urlsSet.add(u);
+    noterSource("embed", embed.urls.length);
+    log(
+      `Embed HTTP ${embed.status} · ${embed.htmlOctets} octets · ${embed.urls.length} posts · +${urlsSet.size - avant} nouveaux · ${embed.ms}ms`,
+    );
+  } catch (e) {
+    log(`Embed TikTok ÉCHEC: ${e instanceof Error ? e.message : String(e)}`);
+  }
+
+  // 3) Apify profil — complète / ordonne par vues (1 agent scrapePost ensuite).
+  log(`Apify listing @${handle} (max ${SCRAPE_TOUS})…`);
+  const tApify = Date.now();
+  try {
+    const posts = await listerPostsProfil(handle, SCRAPE_TOUS, log);
+    ajouterPostsApify(posts, "Apify", Date.now() - tApify);
   } catch (e) {
     log(
       `Apify ÉCHEC après ${Date.now() - tApify}ms: ${e instanceof Error ? e.message : String(e)}`,
     );
+  }
+
+  if (urlsSet.size === 0) {
+    log(`Toujours 0 URL — retry Apify profile-scraper + proxy US`);
+    const tRetry = Date.now();
+    try {
+      const posts = await listerPostsProfil(handle, SCRAPE_TOUS, log, {
+        actor: APIFY_ACTOR_PROFIL,
+        proxyCountryCode: "US",
+      });
+      ajouterPostsApify(posts, "Apify profile-scraper", Date.now() - tRetry);
+    } catch (e) {
+      log(
+        `Apify retry ÉCHEC après ${Date.now() - tRetry}ms: ${e instanceof Error ? e.message : String(e)}`,
+      );
+    }
   }
 
   // Tous les slideshows (inédits + déjà connus) : les connus seront réouverts
@@ -732,6 +769,12 @@ export async function listerUrlsCompteReference(
   const toutes = [...urlsSet].sort(
     (a, b) => (vues.get(idDe(b)) ?? 0) - (vues.get(idDe(a)) ?? 0),
   );
+  const source: "page" | "apify" | "embed" | "mixte" =
+    origines.size === 0
+      ? "page"
+      : origines.size === 1
+        ? [...origines][0]
+        : "mixte";
   log(`Fusion: ${toutes.length} URLs (source=${urlsSet.size === 0 ? "aucune" : source})`);
 
   const deja = await urlsDejaEnBase(supabase, compteReferenceId, toutes, journal);
@@ -756,7 +799,7 @@ export async function listerUrlsCompteReference(
     total: toutes.length,
     connus,
     source,
-    diagnostic: traces.slice(-8).join(" | "),
+    diagnostic: traces.slice(-12).join(" | "),
   };
 }
 

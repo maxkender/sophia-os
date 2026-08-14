@@ -2724,7 +2724,7 @@ export const listerSlideshowsCompte = (compteReferenceId: string) =>
     urls: string[];
     total: number;
     connus: number;
-    source: "page" | "apify" | "mixte";
+    source: "page" | "apify" | "embed" | "mixte";
   }>("import-contenu", {
     compteReferenceId,
     lister: true,
@@ -2941,10 +2941,12 @@ export async function listerHistoriqueImports(
       "id, post_url, statut, erreur, batch_id, created_at, contenu_id, contenus:contenu_id(id, titre, statut, import_statut, import_etape, import_erreur, vues_source, pertinence_score, import_elo_rapport, import_elo_force_seuil)",
     )
     .order("created_at", { ascending: false })
-    .limit(limit + 1);
+    .limit(limit + 10);
   if (error) throw error;
-  const rows = data ?? [];
-  const hasMore = rows.length > limit;
+  const rows = (data ?? []).filter(
+    (r) => !String(r.post_url ?? "").startsWith("listing://"),
+  );
+  const hasMore = (data ?? []).length > limit;
   const lignes = rows.slice(0, limit).map((r) => {
     const c = Array.isArray(r.contenus) ? r.contenus[0] : r.contenus;
     const contenu = c as

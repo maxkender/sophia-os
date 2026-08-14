@@ -1,4 +1,13 @@
+import {
+  echantillonClesItems,
+  extraireErrorCodesApify,
+  extraireMetaProfilHtml,
+  extraireUrlsEmbedHtml,
+  extraireUrlsPostsHtml,
+} from "./tiktok_listing.ts";
+
 const ACTOR = "clockworks~tiktok-scraper";
+const ACTOR_PROFIL = "clockworks~tiktok-profile-scraper";
 
 export interface ScrapedPost {
   postId: string;
@@ -52,6 +61,8 @@ interface MusicMeta {
 
 interface ApifyItem {
   id?: string;
+  errorCode?: string;
+  error?: string;
   webVideoUrl?: string;
   text?: string;
   authorMeta?: {
@@ -191,9 +202,14 @@ function postsDepuisItems(
         item.videoMeta?.coverUrl ?? "",
         ...(item.covers ?? []),
       ].filter(Boolean);
+      const webVideoUrl = item.webVideoUrl ?? "";
+      const postId =
+        item.id
+        || webVideoUrl.match(/\/(?:photo|video)\/(\d+)/)?.[1]
+        || "";
       return {
-        postId: item.id ?? "",
-        webVideoUrl: item.webVideoUrl ?? "",
+        postId,
+        webVideoUrl,
         text: item.text ?? "",
         imageUrls,
         musicUrl: lienMusique(item.musicMeta).url,
@@ -213,7 +229,21 @@ function postsDepuisItems(
         },
       };
     })
-    .filter((post) => post.postId && (!photosSeulement || post.isSlideshow));
+    .filter((post) => (post.postId || post.webVideoUrl) && (!photosSeulement || post.isSlideshow));
+}
+
+function postsEtErreurs(items: unknown[], photosSeulement: boolean): {
+  posts: ScrapedPost[];
+  brut: number;
+  errorCodes: string[];
+  echantillon: string;
+} {
+  return {
+    posts: postsDepuisItems(items as ApifyItem[], photosSeulement),
+    brut: items.length,
+    errorCodes: extraireErrorCodesApify(items),
+    echantillon: echantillonClesItems(items),
+  };
 }
 
 async function runActor(
@@ -262,18 +292,40 @@ async function runActor(
   return postsDepuisItems(parsed as ApifyItem[], photosSeulement);
 }
 
+async function lireDatasetItems(
+  token: string,
+  datasetId: string,
+): Promise<unknown[]> {
+  const itemsRes = await fetch(
+    `https://api.apify.com/v2/datasets/${datasetId}/items?token=${token}`,
+  );
+  if (!itemsRes.ok) {
+    throw new Error(
+      `Apify dataset ${itemsRes.status}: ${(await itemsRes.text()).slice(0, 300)}`,
+    );
+  }
+  const parsed = (await itemsRes.json()) as unknown;
+  if (!Array.isArray(parsed)) {
+    throw new Error(
+      `Apify dataset inattendu: ${JSON.stringify(parsed).slice(0, 200)}`,
+    );
+  }
+  return parsed;
+}
+
 /** Start + poll : le listing worker a 8 min de lease, run-sync cale à 90s. */
 async function runActorAsync(
   input: Record<string, unknown>,
   photosSeulement: boolean,
   timeoutMs: number,
   journal?: (msg: string) => void,
+  actor = ACTOR,
 ): Promise<ScrapedPost[]> {
   const token = Deno.env.get("APIFY_TOKEN");
   if (!token) throw new Error("APIFY_TOKEN manquant");
 
   const start = await fetch(
-    `https://api.apify.com/v2/acts/${ACTOR}/runs?token=${token}`,
+    `https://api.apify.com/v2/acts/${actor}/runs?token=${token}`,
     {
       method: "POST",
       headers: { "content-type": "application/json" },
@@ -291,7 +343,9 @@ async function runActorAsync(
   if (!runId || !datasetId) {
     throw new Error(`Apify start sans run/dataset: ${JSON.stringify(started).slice(0, 200)}`);
   }
-  journal?.(`Apify run ${runId.slice(0, 8)}… status=${started.data?.status ?? "?"}`);
+  journal?.(
+    `Apify ${actor.split("~")[1] ?? actor} run ${runId.slice(0, 8)}… status=${started.data?.status ?? "?"}`,
+  );
 
   const t0 = Date.now();
   let status = started.data?.status ?? "RUNNING";
@@ -315,21 +369,18 @@ async function runActorAsync(
     throw new Error(`Apify run ${status} après ${timeoutMs}ms`);
   }
 
-  const itemsRes = await fetch(
-    `https://api.apify.com/v2/datasets/${datasetId}/items?token=${token}`,
+  let parsed = await lireDatasetItems(token, datasetId);
+  // SUCCEEDED peut précéder l'écriture du dataset de quelques secondes.
+  if (parsed.length === 0) {
+    await new Promise((r) => setTimeout(r, 2500));
+    parsed = await lireDatasetItems(token, datasetId);
+  }
+  const lu = postsEtErreurs(parsed, photosSeulement);
+  journal?.(
+    `Apify dataset: ${lu.brut} brut · ${lu.posts.length} posts · clés=${lu.echantillon}`
+      + (lu.errorCodes.length ? ` · erreur=${lu.errorCodes.join(",")}` : ""),
   );
-  if (!itemsRes.ok) {
-    throw new Error(
-      `Apify dataset ${itemsRes.status}: ${(await itemsRes.text()).slice(0, 300)}`,
-    );
-  }
-  const parsed = (await itemsRes.json()) as unknown;
-  if (!Array.isArray(parsed)) {
-    throw new Error(
-      `Apify dataset inattendu: ${JSON.stringify(parsed).slice(0, 200)}`,
-    );
-  }
-  return postsDepuisItems(parsed as ApifyItem[], photosSeulement);
+  return lu.posts;
 }
 
 export function scrapeProfile(handle: string, resultsPerPage: number) {
@@ -345,10 +396,14 @@ export async function listerPostsProfil(
   handle: string,
   resultsPerPage: number,
   journal?: (msg: string) => void,
+  opts?: { actor?: string; proxyCountryCode?: string },
 ): Promise<ScrapedPost[]> {
   const h = handle.replace(/^@/, "");
   const t0 = Date.now();
-  journal?.(`Apify async profil="${h}" (max ${resultsPerPage}, timeout 4 min)…`);
+  const actor = opts?.actor ?? ACTOR;
+  journal?.(
+    `Apify async profil="${h}" actor=${actor.split("~")[1] ?? actor} (max ${resultsPerPage}, timeout 4 min)…`,
+  );
   const posts = await runActorAsync(
     {
       profiles: [h],
@@ -356,16 +411,20 @@ export async function listerPostsProfil(
       shouldDownloadSlideshowImages: false,
       profileSorting: "latest",
       profileScrapeSections: ["videos"],
+      ...(opts?.proxyCountryCode ? { proxyCountryCode: opts.proxyCountryCode } : {}),
     },
     false,
     240_000,
     journal,
+    actor,
   );
   journal?.(
     `Apify profil="${h}": ${posts.length} items · ${posts.filter((p) => p.isSlideshow).length} diaporamas · ${Date.now() - t0}ms`,
   );
   return posts;
 }
+
+export { ACTOR_PROFIL as APIFY_ACTOR_PROFIL };
 
 /** La bio (signature) et le nom affiché d'un profil TikTok, via Apify. Sert
  *  d'inspiration pour générer l'identité d'un poster. Renvoie null en cas d'échec. */
@@ -504,6 +563,7 @@ export type DiaporamasPage = {
   htmlOctets: number;
   ms: number;
   murLogin: boolean;
+  videoCount?: number | null;
 };
 
 export async function listerDiaporamasDetail(handle: string): Promise<DiaporamasPage> {
@@ -524,22 +584,48 @@ export async function listerDiaporamasDetail(handle: string): Promise<Diaporamas
     );
   }
 
-  const decoded = html.replace(/\\u002[fF]/g, "/");
-  const motif = new RegExp(`/@${handle}/photo/(\\d+)`, "gi");
-  const ids = new Set<string>();
-  for (const trouve of decoded.matchAll(motif)) ids.add(trouve[1]);
-  const aUnPost = /@[\w.]+\/(?:photo|video)\/\d+/.test(decoded);
+  const urls = extraireUrlsPostsHtml(html, handle);
+  const meta = extraireMetaProfilHtml(html);
+  const aUnPost = urls.length > 0 || /@[\w.]+\/(?:photo|video)\/\d+/.test(html);
   const murLogin =
-    ids.size === 0 &&
+    urls.length === 0 &&
     !aUnPost &&
     /captcha|__UNIVERSAL_DATA_FOR_REHYDRATION__/i.test(html);
 
   return {
-    urls: [...ids].map((id) => `https://www.tiktok.com/@${handle}/photo/${id}`),
+    urls,
     status: response.status,
     htmlOctets: html.length,
     ms,
     murLogin,
+    videoCount: meta.videoCount,
+  };
+}
+
+const UA_MOBILE =
+  "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1";
+
+/** Grille embed : passe souvent le mur login de la page profil. */
+export async function listerDepuisEmbed(handle: string): Promise<{
+  urls: string[];
+  status: number;
+  htmlOctets: number;
+  ms: number;
+}> {
+  const h = handle.replace(/^@/, "");
+  const t0 = Date.now();
+  const response = await fetch(`https://www.tiktok.com/embed/@${h}`, {
+    headers: {
+      "user-agent": UA_MOBILE,
+      "accept-language": "fr-FR,fr;q=0.9,en;q=0.8",
+    },
+  });
+  const html = await response.text();
+  return {
+    urls: extraireUrlsEmbedHtml(html, h),
+    status: response.status,
+    htmlOctets: html.length,
+    ms: Date.now() - t0,
   };
 }
 

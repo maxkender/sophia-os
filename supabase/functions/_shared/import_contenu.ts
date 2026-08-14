@@ -46,6 +46,21 @@ const SLIDES_NETTOYAGE_PAR_PASSAGE = 1;
 const MAX_TENTATIVES_NETTOYAGE = 4;
 /** Apify listing — assez pour un profil, assez court pour un run-sync < 90s. */
 const SCRAPE_TOUS = 40;
+const LISTING_PREFIX = "listing://";
+
+export function urlListingCompte(compteId: string, batchId: string): string {
+  return `${LISTING_PREFIX}${compteId}/${batchId}`;
+}
+
+export function parseListingUrl(
+  url: string,
+): { compteId: string; batchId: string } | null {
+  if (!url.startsWith(LISTING_PREFIX)) return null;
+  const rest = url.slice(LISTING_PREFIX.length);
+  const [compteId, batchId] = rest.split("/");
+  if (!compteId || !batchId) return null;
+  return { compteId, batchId };
+}
 
 export interface SlideBrut {
   position: number;
@@ -1621,6 +1636,31 @@ export async function enqueueImportUrls(
   return { batchId, enqueued, skipped };
 }
 
+/** Tâche listing (page + Apify) : un worker la prend, pas l'HTTP du navigateur. */
+export async function enqueueListingCompte(
+  supabase: Supabase,
+  opts: {
+    compteReferenceId: string;
+    labelIds?: string[] | null;
+    batchId?: string | null;
+    langue?: string | null;
+  },
+): Promise<{ batchId: string; enqueued: number; skipped: number }> {
+  const batchId = opts.batchId ?? crypto.randomUUID();
+  const { error } = await supabase.from("import_file").insert({
+    post_url: urlListingCompte(opts.compteReferenceId, batchId),
+    compte_reference_id: opts.compteReferenceId,
+    label_ids: opts.labelIds ?? [],
+    batch_id: batchId,
+    langue: normaliserLangue(opts.langue ?? null),
+    statut: "pending",
+  });
+  if (error) {
+    return { batchId, enqueued: 0, skipped: 1 };
+  }
+  return { batchId, enqueued: 1, skipped: 0 };
+}
+
 /** Claim d'une ligne import_file libre. */
 export async function claimImportFile(
   supabase: Supabase,
@@ -1655,11 +1695,73 @@ export async function claimImportFile(
   return null;
 }
 
+async function traiterListingCompte(
+  supabase: Supabase,
+  row: ImportFileRow,
+  compteId: string,
+): Promise<{ ok: boolean; contenuId?: string; erreur?: string }> {
+  const batchId = row.batch_id ?? crypto.randomUUID();
+  try {
+    const listed = await listerUrlsCompteReference(supabase, compteId, (msg) => {
+      console.log(`[import-compte] ${msg}`);
+    });
+    const r = await enqueueImportUrls(supabase, {
+      urls: listed.urls,
+      compteReferenceId: compteId,
+      labelIds: row.label_ids,
+      batchId,
+      langue: row.langue,
+    });
+    if (listed.urls.length === 0) {
+      const msg =
+        "Aucun slideshow listé (page TikTok = mur login, Apify vide ou timeout 90s)";
+      await supabase
+        .from("import_file")
+        .update({
+          statut: "failed",
+          erreur: msg,
+          tentatives: 5,
+          lease_until: null,
+          updated_at: new Date().toISOString(),
+        })
+        .eq("id", row.id);
+      return { ok: false, erreur: msg };
+    }
+    await supabase
+      .from("import_file")
+      .update({
+        statut: "skipped",
+        erreur: `listing ok · ${r.enqueued} enqueued · source=${listed.source}`,
+        lease_until: null,
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", row.id);
+    return { ok: true };
+  } catch (error) {
+    const msg = messageErreur(error);
+    await supabase
+      .from("import_file")
+      .update({
+        statut: "failed",
+        erreur: msg,
+        tentatives: (row.tentatives ?? 0) + 1,
+        lease_until: null,
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", row.id);
+    return { ok: false, erreur: msg };
+  }
+}
+
 /** Scrape une URL en file → crée/réouvre le contenu (pipeline ensuite via claimContenu). */
 export async function traiterImportFile(
   supabase: Supabase,
   row: ImportFileRow,
 ): Promise<{ ok: boolean; contenuId?: string; erreur?: string }> {
+  const listing = parseListingUrl(row.post_url);
+  if (listing) {
+    return traiterListingCompte(supabase, row, listing.compteId);
+  }
   try {
     const cree = await importerLien(
       supabase,

@@ -66,6 +66,7 @@ describe("extraireResultatImportCompte", () => {
       enqueued: 9,
       skipped: 0,
       langue: "fr",
+      listing: false,
     });
   });
 

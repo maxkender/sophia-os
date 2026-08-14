@@ -10,6 +10,7 @@ export type ImportCompteResultat = {
   enqueued: number;
   skipped: number;
   langue?: string | null;
+  listing?: boolean;
 };
 
 export type ImportCompteLogLevel = "info" | "ok" | "warn" | "error";
@@ -40,6 +41,7 @@ export function extraireResultatImportCompte(
     enqueued: Number(ev.enqueued ?? 0),
     skipped: Number(ev.skipped ?? 0),
     langue: typeof ev.langue === "string" ? ev.langue : null,
+    listing: ev.listing === true,
   };
 }
 

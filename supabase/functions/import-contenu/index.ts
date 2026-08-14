@@ -3,6 +3,7 @@ import {
   claimContenu,
   claimImportFile,
   enqueueImportUrls,
+  enqueueListingCompte,
   forcerImportElo,
   importerCompteReference,
   importerLien,
@@ -55,9 +56,9 @@ Deno.serve(async (request) => {
     }
 
     // Enfile toutes les URLs d'un compte.
-    // Stream NDJSON + heartbeat si le client le demande (évite idle 150s).
-    // JSON : réponse immédiate + listing en waitUntil — l'UI prod (invoke)
-    // poll la file au lieu d'attendre Apify 2+ min.
+    // Stream NDJSON + heartbeat si le client le demande.
+    // JSON (UI prod / invoke) : on pose une tâche listing:// en file —
+    // un worker cron/kick fait Apify. Plus de waitUntil mort-né, plus de 0/0 infini.
     if (body?.enqueueCompte && body?.compteReferenceId) {
       const compteId = String(body.compteReferenceId);
       if (veutStream(request, body)) {
@@ -95,7 +96,6 @@ Deno.serve(async (request) => {
         });
       }
 
-      const batchId = body.batchId ? String(body.batchId) : crypto.randomUUID();
       const { data: ref } = await supabase
         .from("comptes_reference")
         .select("handle_tiktok, langue")
@@ -106,31 +106,24 @@ Deno.serve(async (request) => {
         typeof body.langue === "string"
           ? body.langue
           : ((ref?.langue as string | null) ?? null);
-
-      const suite = executerEnqueueCompte(supabase, request, compteId, {
-        ...body,
-        batchId,
+      const r = await enqueueListingCompte(supabase, {
+        compteReferenceId: compteId,
+        labelIds: Array.isArray(body.labelIds) ? body.labelIds : [],
+        batchId: body.batchId ? String(body.batchId) : null,
         langue,
-      }).catch((error) => {
-        console.error("[import-compte] waitUntil", messageErreur(error));
       });
-      const edge = (globalThis as {
-        EdgeRuntime?: { waitUntil: (p: Promise<unknown>) => void };
-      }).EdgeRuntime;
-      if (edge?.waitUntil) edge.waitUntil(suite);
-      else void suite;
-
+      kickWorkers(request, 4);
       return json({
         ok: true,
         handle,
         total: 1,
         connus: 0,
         source: "apify",
-        batchId,
-        enqueued: 0,
-        skipped: 0,
+        batchId: r.batchId,
+        enqueued: r.enqueued,
+        skipped: r.skipped,
         langue,
-        async: true,
+        listing: true,
       });
     }
 

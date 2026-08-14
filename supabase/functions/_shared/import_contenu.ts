@@ -1,5 +1,6 @@
 import {
   downloadImage,
+  estPostDiaporama,
   listerDiaporamasDetail,
   listerPostsProfil,
   scrapePost,
@@ -650,9 +651,14 @@ export async function listerUrlsCompteReference(
     const page = await listerDiaporamasDetail(handle);
     for (const u of page.urls) urlsSet.add(u);
     log(
-      `Page TikTok HTTP ${page.status} · ${page.htmlOctets} octets · ${page.urls.length} photo IDs · ${page.ms}ms`,
+      `Page TikTok HTTP ${page.status} · ${page.htmlOctets} octets · ${page.urls.length} photo IDs · ${page.ms}ms` +
+        (page.murLogin ? " · MUR LOGIN/captcha (0 post dans le HTML)" : ""),
     );
-    if (page.htmlOctets < 8_000 && page.urls.length === 0) {
+    if (page.murLogin) {
+      log(
+        `ATTENTION: page publique TikTok sans aucun /photo/ ni /video/ — listing = Apify uniquement`,
+      );
+    } else if (page.htmlOctets < 8_000 && page.urls.length === 0) {
       log(
         `ATTENTION: HTML trop court (${page.htmlOctets} o) — page vide / challenge TikTok probable`,
       );
@@ -666,25 +672,30 @@ export async function listerUrlsCompteReference(
   log(`Apify listing @${handle} (max ${SCRAPE_TOUS}, run-sync bloquant)…`);
   const tApify = Date.now();
   try {
-    const posts = await listerPostsProfil(handle, SCRAPE_TOUS);
-    const photos = posts.filter(
-      (p) =>
-        p.imageUrls.length > 0 ||
-        /\/photo\//.test(p.webVideoUrl) ||
-        urlsSet.has(p.webVideoUrl),
-    ).length;
-    log(
-      `Apify: ${posts.length} posts (${photos} photo) en ${Date.now() - tApify}ms`,
+    const posts = await listerPostsProfil(handle, SCRAPE_TOUS, log);
+    const photos = posts.filter((p) =>
+      estPostDiaporama({
+        webVideoUrl: p.webVideoUrl,
+        imageUrls: p.imageUrls,
+        isSlideshow: p.isSlideshow,
+      }),
     );
-    if (posts.length > 0) {
+    log(
+      `Apify: ${posts.length} posts (${photos.length} diaporamas) en ${Date.now() - tApify}ms`,
+    );
+    if (posts.length > 0 && photos.length === 0) {
+      const echantillon = posts
+        .slice(0, 5)
+        .map((p) => p.webVideoUrl || p.postId)
+        .join(" · ");
+      log(
+        `ATTENTION: 0 diaporama détecté (isSlideshow/photo/photomode) — échantillon: ${echantillon}`,
+      );
+    }
+    if (photos.length > 0) {
       source = urlsSet.size > 0 ? "mixte" : "apify";
-      for (const p of posts) {
+      for (const p of photos) {
         if (!p.webVideoUrl) continue;
-        const estPhoto =
-          p.imageUrls.length > 0 ||
-          /\/photo\//.test(p.webVideoUrl) ||
-          urlsSet.has(p.webVideoUrl);
-        if (!estPhoto) continue;
         urlsSet.add(p.webVideoUrl);
         vues.set(idDe(p.webVideoUrl), p.stats?.vues ?? 0);
       }

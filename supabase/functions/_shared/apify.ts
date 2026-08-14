@@ -8,7 +8,23 @@ export interface ScrapedPost {
   musicUrl: string | null;
   musicTitle: string | null;
   createTime: number | null;
+  /** Flag acteur Clockworks — les slideshows sont souvent en /video/. */
+  isSlideshow: boolean;
   stats: { vues: number; likes: number; commentaires: number; partages: number };
+}
+
+/** Diaporama = photos, pas une vraie vidéo. */
+export function estPostDiaporama(p: {
+  webVideoUrl?: string | null;
+  imageUrls?: string[] | null;
+  isSlideshow?: boolean | null;
+  coverUrls?: string[] | null;
+}): boolean {
+  if (p.isSlideshow) return true;
+  if ((p.imageUrls?.length ?? 0) > 0) return true;
+  if (/\/photo\//.test(p.webVideoUrl ?? "")) return true;
+  if ((p.coverUrls ?? []).some((u) => /photomode/i.test(u))) return true;
+  return false;
 }
 
 /** Post vidéo TikTok (download Apify activé → mediaUrls KV). */
@@ -62,6 +78,7 @@ interface ApifyItem {
     height?: number;
   };
   covers?: string[];
+  isSlideshow?: boolean;
   musicMeta?: MusicMeta;
   playCount?: number;
   diggCount?: number;
@@ -181,25 +198,44 @@ async function runActor(
     throw new Error(`Apify ${response.status}: ${(await response.text()).slice(0, 300)}`);
   }
 
-  const items = (await response.json()) as ApifyItem[];
+  const parsed = (await response.json()) as unknown;
+  const items = Array.isArray(parsed) ? (parsed as ApifyItem[]) : [];
+  if (!Array.isArray(parsed)) {
+    throw new Error(
+      `Apify réponse inattendue: ${JSON.stringify(parsed).slice(0, 200)}`,
+    );
+  }
 
   return items
-    .map((item) => ({
-      postId: item.id ?? "",
-      webVideoUrl: item.webVideoUrl ?? "",
-      text: item.text ?? "",
-      imageUrls: mergeImageUrls(item),
-      musicUrl: lienMusique(item.musicMeta).url,
-      musicTitle: lienMusique(item.musicMeta).titre,
-      createTime: item.createTime ?? null,
-      stats: {
-        vues: item.playCount ?? 0,
-        likes: item.diggCount ?? 0,
-        commentaires: item.commentCount ?? 0,
-        partages: item.shareCount ?? 0,
-      },
-    }))
-    .filter((post) => post.postId && (!photosSeulement || post.imageUrls.length > 0));
+    .map((item) => {
+      const imageUrls = mergeImageUrls(item);
+      const coverUrls = [
+        item.videoMeta?.coverUrl ?? "",
+        ...(item.covers ?? []),
+      ].filter(Boolean);
+      return {
+        postId: item.id ?? "",
+        webVideoUrl: item.webVideoUrl ?? "",
+        text: item.text ?? "",
+        imageUrls,
+        musicUrl: lienMusique(item.musicMeta).url,
+        musicTitle: lienMusique(item.musicMeta).titre,
+        createTime: item.createTime ?? null,
+        isSlideshow: estPostDiaporama({
+          webVideoUrl: item.webVideoUrl,
+          imageUrls,
+          isSlideshow: item.isSlideshow,
+          coverUrls,
+        }),
+        stats: {
+          vues: item.playCount ?? 0,
+          likes: item.diggCount ?? 0,
+          commentaires: item.commentCount ?? 0,
+          partages: item.shareCount ?? 0,
+        },
+      };
+    })
+    .filter((post) => post.postId && (!photosSeulement || post.isSlideshow));
 }
 
 export function scrapeProfile(handle: string, resultsPerPage: number) {
@@ -211,17 +247,42 @@ export function scrapeProfile(handle: string, resultsPerPage: number) {
  * Sert à découvrir les URLs ; chaque diaporama est ensuite scrapé via scrapePost
  * (1 agent Apify / slideshow).
  */
-export function listerPostsProfil(handle: string, resultsPerPage: number) {
-  return runActor(
-    {
-      profiles: [handle],
-      resultsPerPage,
-      shouldDownloadSlideshowImages: false,
-    },
-    // Sans download, imageUrls peut être vide même pour un photo-post :
-    // on garde tout et on filtre /photo/ côté appelant.
-    false,
-  );
+export async function listerPostsProfil(
+  handle: string,
+  resultsPerPage: number,
+  journal?: (msg: string) => void,
+): Promise<ScrapedPost[]> {
+  const h = handle.replace(/^@/, "");
+  const candidats = [h, `@${h}`, `https://www.tiktok.com/@${h}`];
+  let dernierErreur: string | null = null;
+  for (const profil of candidats) {
+    const t0 = Date.now();
+    try {
+      journal?.(`Apify profil="${profil}" (max ${resultsPerPage})…`);
+      const posts = await runActor(
+        {
+          profiles: [profil],
+          resultsPerPage,
+          shouldDownloadSlideshowImages: false,
+          profileSorting: "latest",
+          profileScrapeSections: ["videos"],
+        },
+        // Sans download, imageUrls peut être vide : on garde tout.
+        false,
+      );
+      journal?.(
+        `Apify profil="${profil}": ${posts.length} items · ${posts.filter((p) => p.isSlideshow).length} diaporamas · ${Date.now() - t0}ms`,
+      );
+      if (posts.length > 0) return posts;
+    } catch (e) {
+      dernierErreur = e instanceof Error ? e.message : String(e);
+      journal?.(
+        `Apify profil="${profil}" ÉCHEC (${Date.now() - t0}ms): ${dernierErreur}`,
+      );
+    }
+  }
+  if (dernierErreur) throw new Error(dernierErreur);
+  return [];
 }
 
 /** La bio (signature) et le nom affiché d'un profil TikTok, via Apify. Sert
@@ -360,6 +421,7 @@ export type DiaporamasPage = {
   status: number;
   htmlOctets: number;
   ms: number;
+  murLogin: boolean;
 };
 
 export async function listerDiaporamasDetail(handle: string): Promise<DiaporamasPage> {
@@ -380,15 +442,22 @@ export async function listerDiaporamasDetail(handle: string): Promise<Diaporamas
     );
   }
 
-  const motif = new RegExp(`/@${handle}/photo/(\\d+)`, "g");
+  const decoded = html.replace(/\\u002[fF]/g, "/");
+  const motif = new RegExp(`/@${handle}/photo/(\\d+)`, "gi");
   const ids = new Set<string>();
-  for (const trouve of html.matchAll(motif)) ids.add(trouve[1]);
+  for (const trouve of decoded.matchAll(motif)) ids.add(trouve[1]);
+  const aUnPost = /@[\w.]+\/(?:photo|video)\/\d+/.test(decoded);
+  const murLogin =
+    ids.size === 0 &&
+    !aUnPost &&
+    /captcha|__UNIVERSAL_DATA_FOR_REHYDRATION__/i.test(html);
 
   return {
     urls: [...ids].map((id) => `https://www.tiktok.com/@${handle}/photo/${id}`),
     status: response.status,
     htmlOctets: html.length,
     ms,
+    murLogin,
   };
 }
 

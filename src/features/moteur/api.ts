@@ -3675,6 +3675,109 @@ export async function listerUgcVideoPostsTest(
   return (data ?? []) as UgcVideoPostTest[];
 }
 
+export type TestFaceSwapVideoResultat = {
+  ok: boolean;
+  runId: string;
+  videoUrl: string;
+  personaId: string;
+  reactionId: string;
+  personaNom: string | null;
+  reactionTitre: string | null;
+};
+
+/** Test isolé : persona + vidéo référence → Kling. Aucun post prod. */
+export async function lancerTestFaceSwapVideo(
+  personaId: string,
+  reactionId: string,
+  onLog?: (ligne: AssignationTestLog) => void,
+): Promise<TestFaceSwapVideoResultat> {
+  const url = import.meta.env.VITE_SUPABASE_URL;
+  const anon = import.meta.env.VITE_SUPABASE_ANON_KEY;
+  if (!url || !anon) throw new Error("Supabase non configuré");
+
+  const { data: sessionData } = await supabase.auth.getSession();
+  const token = sessionData.session?.access_token;
+  if (!token) throw new Error("Session expirée — reconnecte-toi.");
+
+  const res = await fetch(`${url}/functions/v1/test-ugc-face-swap`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      apikey: anon,
+      "Content-Type": "application/json",
+      Accept: "application/x-ndjson",
+    },
+    body: JSON.stringify({ personaId, reactionId, stream: true }),
+  });
+
+  if (!res.ok || !res.body) {
+    let message = `Edge test-ugc-face-swap ${res.status}`;
+    try {
+      const j = (await res.json()) as { error?: string };
+      if (j?.error) message = j.error;
+    } catch {
+      // ignore
+    }
+    throw new Error(message);
+  }
+
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+  let dernier: Record<string, unknown> | null = null;
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+    const lignes = buffer.split("\n");
+    buffer = lignes.pop() ?? "";
+    for (const ligne of lignes) {
+      const trim = ligne.trim();
+      if (!trim) continue;
+      try {
+        const ev = JSON.parse(trim) as Record<string, unknown>;
+        dernier = ev;
+        const detail = typeof ev.detail === "string" ? ev.detail : "";
+        if (detail) {
+          onLog?.({
+            at: typeof ev.at === "string" ? ev.at : new Date().toISOString(),
+            detail,
+            statut: typeof ev.statut === "string" ? ev.statut : undefined,
+          });
+        }
+      } catch {
+        // ignore
+      }
+    }
+  }
+
+  if (!dernier) throw new Error("Test face swap : aucune réponse stream");
+  if (dernier.ok === false) {
+    throw new Error(
+      typeof dernier.error === "string"
+        ? dernier.error
+        : typeof dernier.detail === "string"
+          ? dernier.detail
+          : "Test face swap échoué",
+    );
+  }
+  const videoUrl = String(dernier.videoUrl ?? "").trim();
+  if (!videoUrl) throw new Error("Test face swap : pas de vidéo");
+
+  return {
+    ok: true,
+    runId: String(dernier.runId ?? ""),
+    videoUrl,
+    personaId: String(dernier.personaId ?? personaId),
+    reactionId: String(dernier.reactionId ?? reactionId),
+    personaNom:
+      typeof dernier.personaNom === "string" ? dernier.personaNom : null,
+    reactionTitre:
+      typeof dernier.reactionTitre === "string" ? dernier.reactionTitre : null,
+  };
+}
+
 const LARGEUR_ASSIGN_FRONT = 6;
 
 async function assignerCompteAvecRetry(

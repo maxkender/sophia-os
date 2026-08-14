@@ -291,6 +291,19 @@ export const fr = {
       aucun: "Rien créé — labels / reactions pret / utilisations / persona à vérifier.",
       annuleOk: "Rollback OK — {{posts}} vidéo(s) test supprimée(s).",
     },
+    simFaceSwapVideo: {
+      title: "Test face swap vidéo (pur)",
+      subtitle:
+        "Choisis un persona et une vidéo référence : Kling pose le visage du persona sur la vidéo. Rien d’autre — pas de compte, label, caption, concat, ni post production.",
+      persona: "Persona UGC",
+      video: "Vidéo référence",
+      lancer: "Lancer le face swap",
+      enCours: "Face swap Kling…",
+      aide: "Test isolé. Écrit uniquement un fichier dans ugc/test-runs/. Ne touche pas l’assignation ni les calendriers.",
+      logs: "Logs",
+      logsAttente: "Connexion au stream…",
+      ok: "Face swap prêt — lecture ci-dessous.",
+    },
     tests: {
       title: "Tests",
       subtitle:

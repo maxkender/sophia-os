@@ -1,4 +1,27 @@
-/** IDs de posts TikTok dans le HTML (page profil ou embed). */
+/** Listing profil Clockworks : tout le compte, pas une grille embed. */
+export const APIFY_LISTING_ACTOR = "clockworks~tiktok-profile-scraper";
+export const APIFY_LISTING_FALLBACK_ACTOR = "clockworks~tiktok-scraper";
+export const APIFY_LISTING_MAX = 200;
+
+/** Input Clockworks pour un profil entier. Pas de filtre date (sinon FILTER_NO_PASS). */
+export function inputListingProfil(
+  handle: string,
+  resultsPerPage = APIFY_LISTING_MAX,
+): Record<string, unknown> {
+  return {
+    profiles: [handle.replace(/^@/, "")],
+    resultsPerPage,
+    profileSorting: "latest",
+    profileScrapeSections: ["videos"],
+    excludePinnedPosts: false,
+    shouldDownloadSlideshowImages: false,
+    shouldDownloadVideos: false,
+    shouldDownloadCovers: false,
+    shouldDownloadAvatars: false,
+  };
+}
+
+/** IDs de posts TikTok dans le HTML (page profil). */
 
 const ID_RE = "(\\d{10,})";
 

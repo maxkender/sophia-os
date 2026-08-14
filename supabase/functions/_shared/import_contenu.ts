@@ -1,13 +1,13 @@
 import {
   downloadImage,
   estPostDiaporama,
-  APIFY_ACTOR_PROFIL,
-  listerDepuisEmbed,
+  APIFY_LISTING_FALLBACK_ACTOR,
   listerDiaporamasDetail,
   listerPostsProfil,
   scrapePost,
   type ScrapedPost,
 } from "./apify.ts";
+import { APIFY_LISTING_MAX } from "./tiktok_listing.ts";
 import {
   cleanImage,
   integrateSophia,
@@ -46,8 +46,8 @@ const SLIDES_PAR_PASSAGE = 2;
 /** 1 slide / passage nettoyage : Fal≤90s + store doit tenir sous le mur Edge ~150s. */
 const SLIDES_NETTOYAGE_PAR_PASSAGE = 1;
 const MAX_TENTATIVES_NETTOYAGE = 4;
-/** Apify listing async (worker, lease 8 min) — haut du profil. */
-const SCRAPE_TOUS = 80;
+/** Apify listing — tout le profil (worker, lease 8 min). */
+const SCRAPE_TOUS = APIFY_LISTING_MAX;
 const LISTING_PREFIX = "listing://";
 
 export function urlListingCompte(compteId: string, batchId: string): string {
@@ -632,7 +632,7 @@ export async function listerUrlsCompteReference(
   urls: string[];
   total: number;
   connus: number;
-  source: "page" | "apify" | "embed" | "mixte";
+  source: "page" | "apify" | "mixte";
   diagnostic: string;
 }> {
   const t0 = Date.now();
@@ -664,10 +664,10 @@ export async function listerUrlsCompteReference(
   );
 
   const vues = new Map<string, number>();
-  const origines = new Set<"page" | "apify" | "embed">();
+  const origines = new Set<"page" | "apify">();
   const urlsSet = new Set<string>();
 
-  const noterSource = (depuis: "page" | "apify" | "embed", n: number) => {
+  const noterSource = (depuis: "page" | "apify", n: number) => {
     if (n > 0) origines.add(depuis);
   };
 
@@ -711,7 +711,7 @@ export async function listerUrlsCompteReference(
     );
     if (page.murLogin) {
       log(
-        `ATTENTION: page publique TikTok sans aucun /photo/ ni /video/ — embed + Apify`,
+        `ATTENTION: page publique TikTok sans posts (mur login) — listing = Apify profil`,
       );
     } else if (page.htmlOctets < 8_000 && page.urls.length === 0) {
       log(
@@ -722,26 +722,12 @@ export async function listerUrlsCompteReference(
     log(`Page TikTok ÉCHEC: ${e instanceof Error ? e.message : String(e)}`);
   }
 
-  // 2) Embed public — passe souvent le mur login (grille /video/).
-  log(`Embed TikTok @${handle}…`);
-  try {
-    const embed = await listerDepuisEmbed(handle);
-    const avant = urlsSet.size;
-    for (const u of embed.urls) urlsSet.add(u);
-    noterSource("embed", embed.urls.length);
-    log(
-      `Embed HTTP ${embed.status} · ${embed.htmlOctets} octets · ${embed.urls.length} posts · +${urlsSet.size - avant} nouveaux · ${embed.ms}ms`,
-    );
-  } catch (e) {
-    log(`Embed TikTok ÉCHEC: ${e instanceof Error ? e.message : String(e)}`);
-  }
-
-  // 3) Apify profil — complète / ordonne par vues (1 agent scrapePost ensuite).
-  log(`Apify listing @${handle} (max ${SCRAPE_TOUS})…`);
+  // 2) Apify profile-scraper — tout le profil (pas une grille embed).
+  log(`Apify listing @${handle} (max ${SCRAPE_TOUS}, profile-scraper)…`);
   const tApify = Date.now();
   try {
     const posts = await listerPostsProfil(handle, SCRAPE_TOUS, log);
-    ajouterPostsApify(posts, "Apify", Date.now() - tApify);
+    ajouterPostsApify(posts, "Apify profile-scraper", Date.now() - tApify);
   } catch (e) {
     log(
       `Apify ÉCHEC après ${Date.now() - tApify}ms: ${e instanceof Error ? e.message : String(e)}`,
@@ -749,17 +735,17 @@ export async function listerUrlsCompteReference(
   }
 
   if (urlsSet.size === 0) {
-    log(`Toujours 0 URL — retry Apify profile-scraper + proxy US`);
+    log(`0 URL — fallback tiktok-scraper + proxy US`);
     const tRetry = Date.now();
     try {
       const posts = await listerPostsProfil(handle, SCRAPE_TOUS, log, {
-        actor: APIFY_ACTOR_PROFIL,
+        actor: APIFY_LISTING_FALLBACK_ACTOR,
         proxyCountryCode: "US",
       });
-      ajouterPostsApify(posts, "Apify profile-scraper", Date.now() - tRetry);
+      ajouterPostsApify(posts, "Apify tiktok-scraper", Date.now() - tRetry);
     } catch (e) {
       log(
-        `Apify retry ÉCHEC après ${Date.now() - tRetry}ms: ${e instanceof Error ? e.message : String(e)}`,
+        `Apify fallback ÉCHEC après ${Date.now() - tRetry}ms: ${e instanceof Error ? e.message : String(e)}`,
       );
     }
   }
@@ -769,7 +755,7 @@ export async function listerUrlsCompteReference(
   const toutes = [...urlsSet].sort(
     (a, b) => (vues.get(idDe(b)) ?? 0) - (vues.get(idDe(a)) ?? 0),
   );
-  const source: "page" | "apify" | "embed" | "mixte" =
+  const source: "page" | "apify" | "mixte" =
     origines.size === 0
       ? "page"
       : origines.size === 1
@@ -1591,7 +1577,7 @@ export async function prochainContenu(
 }
 
 /** Fal peut prendre ~2 min/slide × 2 slides — lease court → double worker écrase le résultat. */
-const LEASE_MS = 8 * 60_000;
+const LEASE_MS = 12 * 60_000;
 
 /** Claim atomique d'un contenu libre (lease) pour workers parallèles. */
 export async function claimContenu(

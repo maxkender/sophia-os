@@ -1,11 +1,27 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  APIFY_LISTING_ACTOR,
+  APIFY_LISTING_MAX,
   echantillonClesItems,
   extraireErrorCodesApify,
   extraireUrlsEmbedHtml,
   extraireUrlsPostsHtml,
+  inputListingProfil,
 } from "../../../supabase/functions/_shared/tiktok_listing";
+
+describe("inputListingProfil", () => {
+  it("demande tout le profil sans filtre date ni proxy None", () => {
+    const input = inputListingProfil("@infinitydream7");
+    expect(input.profiles).toEqual(["infinitydream7"]);
+    expect(input.resultsPerPage).toBe(APIFY_LISTING_MAX);
+    expect(input.shouldDownloadSlideshowImages).toBe(false);
+    expect(input.oldestPostDateUnified).toBeUndefined();
+    expect(input.newestPostDate).toBeUndefined();
+    expect(input.proxyCountryCode).toBeUndefined();
+    expect(APIFY_LISTING_ACTOR).toBe("clockworks~tiktok-profile-scraper");
+  });
+});
 
 describe("extraireUrlsPostsHtml", () => {
   it("prend /photo/ et /video/", () => {

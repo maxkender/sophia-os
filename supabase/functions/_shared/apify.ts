@@ -1,13 +1,14 @@
 import {
+  APIFY_LISTING_ACTOR,
+  APIFY_LISTING_FALLBACK_ACTOR,
   echantillonClesItems,
   extraireErrorCodesApify,
   extraireMetaProfilHtml,
-  extraireUrlsEmbedHtml,
   extraireUrlsPostsHtml,
+  inputListingProfil,
 } from "./tiktok_listing.ts";
 
 const ACTOR = "clockworks~tiktok-scraper";
-const ACTOR_PROFIL = "clockworks~tiktok-profile-scraper";
 
 export interface ScrapedPost {
   postId: string;
@@ -182,11 +183,12 @@ function pickCoverUrl(item: ApifyItem): string | null {
 }
 
 function corpsActeur(input: Record<string, unknown>): string {
+  // Ne pas forcer proxyCountryCode: "None" — ça coupe le proxy résidentiel
+  // Clockworks et renvoie PROFILE_EMPTY (mur login) sur les profils.
   return JSON.stringify({
     shouldDownloadSlideshowImages: true,
     shouldDownloadVideos: false,
     shouldDownloadCovers: false,
-    proxyCountryCode: "None",
     ...input,
   });
 }
@@ -400,31 +402,22 @@ export async function listerPostsProfil(
 ): Promise<ScrapedPost[]> {
   const h = handle.replace(/^@/, "");
   const t0 = Date.now();
-  const actor = opts?.actor ?? ACTOR;
+  const actor = opts?.actor ?? APIFY_LISTING_ACTOR;
+  const input = {
+    ...inputListingProfil(h, resultsPerPage),
+    ...(opts?.proxyCountryCode ? { proxyCountryCode: opts.proxyCountryCode } : {}),
+  };
   journal?.(
-    `Apify async profil="${h}" actor=${actor.split("~")[1] ?? actor} (max ${resultsPerPage}, timeout 4 min)…`,
+    `Apify listing profil="${h}" actor=${actor.split("~")[1] ?? actor} (max ${resultsPerPage})…`,
   );
-  const posts = await runActorAsync(
-    {
-      profiles: [h],
-      resultsPerPage,
-      shouldDownloadSlideshowImages: false,
-      profileSorting: "latest",
-      profileScrapeSections: ["videos"],
-      ...(opts?.proxyCountryCode ? { proxyCountryCode: opts.proxyCountryCode } : {}),
-    },
-    false,
-    240_000,
-    journal,
-    actor,
-  );
+  const posts = await runActorAsync(input, false, 360_000, journal, actor);
   journal?.(
     `Apify profil="${h}": ${posts.length} items · ${posts.filter((p) => p.isSlideshow).length} diaporamas · ${Date.now() - t0}ms`,
   );
   return posts;
 }
 
-export { ACTOR_PROFIL as APIFY_ACTOR_PROFIL };
+export { APIFY_LISTING_ACTOR, APIFY_LISTING_FALLBACK_ACTOR };
 
 /** La bio (signature) et le nom affiché d'un profil TikTok, via Apify. Sert
  *  d'inspiration pour générer l'identité d'un poster. Renvoie null en cas d'échec. */
@@ -602,33 +595,6 @@ export async function listerDiaporamasDetail(handle: string): Promise<Diaporamas
   };
 }
 
-const UA_MOBILE =
-  "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1";
-
-/** Grille embed : passe souvent le mur login de la page profil. */
-export async function listerDepuisEmbed(handle: string): Promise<{
-  urls: string[];
-  status: number;
-  htmlOctets: number;
-  ms: number;
-}> {
-  const h = handle.replace(/^@/, "");
-  const t0 = Date.now();
-  const response = await fetch(`https://www.tiktok.com/embed/@${h}`, {
-    headers: {
-      "user-agent": UA_MOBILE,
-      "accept-language": "fr-FR,fr;q=0.9,en;q=0.8",
-    },
-  });
-  const html = await response.text();
-  return {
-    urls: extraireUrlsEmbedHtml(html, h),
-    status: response.status,
-    htmlOctets: html.length,
-    ms: Date.now() - t0,
-  };
-}
-
 export async function listerDiaporamas(handle: string): Promise<string[]> {
   return (await listerDiaporamasDetail(handle)).urls;
 }
@@ -675,7 +641,6 @@ export async function scrapeVideoPost(url: string): Promise<ScrapedVideo> {
         shouldDownloadVideos: true,
         shouldDownloadSlideshowImages: false,
         shouldDownloadCovers: true,
-        proxyCountryCode: "None",
       }),
     },
   );

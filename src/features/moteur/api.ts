@@ -2724,7 +2724,7 @@ export const listerSlideshowsCompte = (compteReferenceId: string) =>
     urls: string[];
     total: number;
     connus: number;
-    source: "page" | "apify" | "embed" | "mixte";
+    source: "page" | "apify" | "mixte";
   }>("import-contenu", {
     compteReferenceId,
     lister: true,

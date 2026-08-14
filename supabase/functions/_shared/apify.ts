@@ -175,24 +175,39 @@ async function runActor(
   // Le pipeline ne veut que des posts photo ; la collecte de métriques, elle,
   // doit voir tout ce que le compte a publié.
   photosSeulement = true,
+  timeoutMs = 90_000,
 ): Promise<ScrapedPost[]> {
   const token = Deno.env.get("APIFY_TOKEN");
   if (!token) throw new Error("APIFY_TOKEN manquant");
 
-  const response = await fetch(
-    `https://api.apify.com/v2/acts/${ACTOR}/run-sync-get-dataset-items?token=${token}`,
-    {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({
-        shouldDownloadSlideshowImages: true,
-        shouldDownloadVideos: false,
-        shouldDownloadCovers: false,
-        proxyCountryCode: "None",
-        ...input,
-      }),
-    },
-  );
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+  let response: Response;
+  try {
+    response = await fetch(
+      `https://api.apify.com/v2/acts/${ACTOR}/run-sync-get-dataset-items?token=${token}`,
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        signal: ctrl.signal,
+        body: JSON.stringify({
+          shouldDownloadSlideshowImages: true,
+          shouldDownloadVideos: false,
+          shouldDownloadCovers: false,
+          proxyCountryCode: "None",
+          ...input,
+        }),
+      },
+    );
+  } catch (e) {
+    const nom = e instanceof Error ? e.name : "";
+    if (nom === "AbortError") {
+      throw new Error(`Apify timeout ${timeoutMs}ms (run-sync)`);
+    }
+    throw e;
+  } finally {
+    clearTimeout(timer);
+  }
 
   if (!response.ok) {
     throw new Error(`Apify ${response.status}: ${(await response.text()).slice(0, 300)}`);
@@ -253,36 +268,25 @@ export async function listerPostsProfil(
   journal?: (msg: string) => void,
 ): Promise<ScrapedPost[]> {
   const h = handle.replace(/^@/, "");
-  const candidats = [h, `@${h}`, `https://www.tiktok.com/@${h}`];
-  let dernierErreur: string | null = null;
-  for (const profil of candidats) {
-    const t0 = Date.now();
-    try {
-      journal?.(`Apify profil="${profil}" (max ${resultsPerPage})…`);
-      const posts = await runActor(
-        {
-          profiles: [profil],
-          resultsPerPage,
-          shouldDownloadSlideshowImages: false,
-          profileSorting: "latest",
-          profileScrapeSections: ["videos"],
-        },
-        // Sans download, imageUrls peut être vide : on garde tout.
-        false,
-      );
-      journal?.(
-        `Apify profil="${profil}": ${posts.length} items · ${posts.filter((p) => p.isSlideshow).length} diaporamas · ${Date.now() - t0}ms`,
-      );
-      if (posts.length > 0) return posts;
-    } catch (e) {
-      dernierErreur = e instanceof Error ? e.message : String(e);
-      journal?.(
-        `Apify profil="${profil}" ÉCHEC (${Date.now() - t0}ms): ${dernierErreur}`,
-      );
-    }
-  }
-  if (dernierErreur) throw new Error(dernierErreur);
-  return [];
+  // Un seul essai : 3 run-sync de 100 posts dépassent l'idle Edge 150s
+  // (l'UI prod attend encore une réponse JSON unique).
+  const t0 = Date.now();
+  journal?.(`Apify profil="${h}" (max ${resultsPerPage}, timeout 90s)…`);
+  const posts = await runActor(
+    {
+      profiles: [h],
+      resultsPerPage,
+      shouldDownloadSlideshowImages: false,
+      profileSorting: "latest",
+      profileScrapeSections: ["videos"],
+    },
+    false,
+    90_000,
+  );
+  journal?.(
+    `Apify profil="${h}": ${posts.length} items · ${posts.filter((p) => p.isSlideshow).length} diaporamas · ${Date.now() - t0}ms`,
+  );
+  return posts;
 }
 
 /** La bio (signature) et le nom affiché d'un profil TikTok, via Apify. Sert

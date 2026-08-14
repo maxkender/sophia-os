@@ -56,7 +56,8 @@ Deno.serve(async (request) => {
 
     // Enfile toutes les URLs d'un compte.
     // Stream NDJSON + heartbeat si le client le demande (évite idle 150s).
-    // JSON compact sinon — l'UI prod actuelle parse encore invoke().
+    // JSON : réponse immédiate + listing en waitUntil — l'UI prod (invoke)
+    // poll la file au lieu d'attendre Apify 2+ min.
     if (body?.enqueueCompte && body?.compteReferenceId) {
       const compteId = String(body.compteReferenceId);
       if (veutStream(request, body)) {
@@ -94,8 +95,43 @@ Deno.serve(async (request) => {
         });
       }
 
-      const r = await executerEnqueueCompte(supabase, request, compteId, body);
-      return json({ ok: true, ...r });
+      const batchId = body.batchId ? String(body.batchId) : crypto.randomUUID();
+      const { data: ref } = await supabase
+        .from("comptes_reference")
+        .select("handle_tiktok, langue")
+        .eq("id", compteId)
+        .maybeSingle();
+      const handle = String(ref?.handle_tiktok ?? "").replace(/^@/, "");
+      const langue =
+        typeof body.langue === "string"
+          ? body.langue
+          : ((ref?.langue as string | null) ?? null);
+
+      const suite = executerEnqueueCompte(supabase, request, compteId, {
+        ...body,
+        batchId,
+        langue,
+      }).catch((error) => {
+        console.error("[import-compte] waitUntil", messageErreur(error));
+      });
+      const edge = (globalThis as {
+        EdgeRuntime?: { waitUntil: (p: Promise<unknown>) => void };
+      }).EdgeRuntime;
+      if (edge?.waitUntil) edge.waitUntil(suite);
+      else void suite;
+
+      return json({
+        ok: true,
+        handle,
+        total: 1,
+        connus: 0,
+        source: "apify",
+        batchId,
+        enqueued: 0,
+        skipped: 0,
+        langue,
+        async: true,
+      });
     }
 
     if (body?.enqueueUrls && Array.isArray(body.urls)) {

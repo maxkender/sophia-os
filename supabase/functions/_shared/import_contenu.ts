@@ -44,8 +44,8 @@ const SLIDES_PAR_PASSAGE = 2;
 /** 1 slide / passage nettoyage : Fal≤90s + store doit tenir sous le mur Edge ~150s. */
 const SLIDES_NETTOYAGE_PAR_PASSAGE = 1;
 const MAX_TENTATIVES_NETTOYAGE = 4;
-/** Apify `resultsPerPage` — on vise tout le profil (plafond acteur). */
-const SCRAPE_TOUS = 100;
+/** Apify listing — assez pour un profil, assez court pour un run-sync < 90s. */
+const SCRAPE_TOUS = 40;
 
 export interface SlideBrut {
   position: number;

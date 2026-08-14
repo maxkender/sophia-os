@@ -1,3 +1,13 @@
+import {
+  APIFY_LISTING_ACTOR,
+  APIFY_LISTING_FALLBACK_ACTOR,
+  echantillonClesItems,
+  extraireErrorCodesApify,
+  extraireMetaProfilHtml,
+  extraireUrlsPostsHtml,
+  inputListingProfil,
+} from "./tiktok_listing.ts";
+
 const ACTOR = "clockworks~tiktok-scraper";
 
 export interface ScrapedPost {
@@ -8,7 +18,23 @@ export interface ScrapedPost {
   musicUrl: string | null;
   musicTitle: string | null;
   createTime: number | null;
+  /** Flag acteur Clockworks — les slideshows sont souvent en /video/. */
+  isSlideshow: boolean;
   stats: { vues: number; likes: number; commentaires: number; partages: number };
+}
+
+/** Diaporama = photos, pas une vraie vidéo. */
+export function estPostDiaporama(p: {
+  webVideoUrl?: string | null;
+  imageUrls?: string[] | null;
+  isSlideshow?: boolean | null;
+  coverUrls?: string[] | null;
+}): boolean {
+  if (p.isSlideshow) return true;
+  if ((p.imageUrls?.length ?? 0) > 0) return true;
+  if (/\/photo\//.test(p.webVideoUrl ?? "")) return true;
+  if ((p.coverUrls ?? []).some((u) => /photomode/i.test(u))) return true;
+  return false;
 }
 
 /** Post vidéo TikTok (download Apify activé → mediaUrls KV). */
@@ -36,6 +62,8 @@ interface MusicMeta {
 
 interface ApifyItem {
   id?: string;
+  errorCode?: string;
+  error?: string;
   webVideoUrl?: string;
   text?: string;
   authorMeta?: {
@@ -62,6 +90,7 @@ interface ApifyItem {
     height?: number;
   };
   covers?: string[];
+  isSlideshow?: boolean;
   musicMeta?: MusicMeta;
   playCount?: number;
   diggCount?: number;
@@ -153,53 +182,207 @@ function pickCoverUrl(item: ApifyItem): string | null {
   return fromMedia ?? null;
 }
 
+function corpsActeur(input: Record<string, unknown>): string {
+  // Ne pas forcer proxyCountryCode: "None" — ça coupe le proxy résidentiel
+  // Clockworks et renvoie PROFILE_EMPTY (mur login) sur les profils.
+  return JSON.stringify({
+    shouldDownloadSlideshowImages: true,
+    shouldDownloadVideos: false,
+    shouldDownloadCovers: false,
+    ...input,
+  });
+}
+
+function postsDepuisItems(
+  items: ApifyItem[],
+  photosSeulement: boolean,
+): ScrapedPost[] {
+  return items
+    .map((item) => {
+      const imageUrls = mergeImageUrls(item);
+      const coverUrls = [
+        item.videoMeta?.coverUrl ?? "",
+        ...(item.covers ?? []),
+      ].filter(Boolean);
+      const webVideoUrl = item.webVideoUrl ?? "";
+      const postId =
+        item.id
+        || webVideoUrl.match(/\/(?:photo|video)\/(\d+)/)?.[1]
+        || "";
+      return {
+        postId,
+        webVideoUrl,
+        text: item.text ?? "",
+        imageUrls,
+        musicUrl: lienMusique(item.musicMeta).url,
+        musicTitle: lienMusique(item.musicMeta).titre,
+        createTime: item.createTime ?? null,
+        isSlideshow: estPostDiaporama({
+          webVideoUrl: item.webVideoUrl,
+          imageUrls,
+          isSlideshow: item.isSlideshow,
+          coverUrls,
+        }),
+        stats: {
+          vues: item.playCount ?? 0,
+          likes: item.diggCount ?? 0,
+          commentaires: item.commentCount ?? 0,
+          partages: item.shareCount ?? 0,
+        },
+      };
+    })
+    .filter((post) => (post.postId || post.webVideoUrl) && (!photosSeulement || post.isSlideshow));
+}
+
+function postsEtErreurs(items: unknown[], photosSeulement: boolean): {
+  posts: ScrapedPost[];
+  brut: number;
+  errorCodes: string[];
+  echantillon: string;
+} {
+  return {
+    posts: postsDepuisItems(items as ApifyItem[], photosSeulement),
+    brut: items.length,
+    errorCodes: extraireErrorCodesApify(items),
+    echantillon: echantillonClesItems(items),
+  };
+}
+
 async function runActor(
   input: Record<string, unknown>,
   // Le pipeline ne veut que des posts photo ; la collecte de métriques, elle,
   // doit voir tout ce que le compte a publié.
   photosSeulement = true,
+  timeoutMs = 90_000,
 ): Promise<ScrapedPost[]> {
   const token = Deno.env.get("APIFY_TOKEN");
   if (!token) throw new Error("APIFY_TOKEN manquant");
 
-  const response = await fetch(
-    `https://api.apify.com/v2/acts/${ACTOR}/run-sync-get-dataset-items?token=${token}`,
-    {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({
-        shouldDownloadSlideshowImages: true,
-        shouldDownloadVideos: false,
-        shouldDownloadCovers: false,
-        proxyCountryCode: "None",
-        ...input,
-      }),
-    },
-  );
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+  let response: Response;
+  try {
+    response = await fetch(
+      `https://api.apify.com/v2/acts/${ACTOR}/run-sync-get-dataset-items?token=${token}`,
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        signal: ctrl.signal,
+        body: corpsActeur(input),
+      },
+    );
+  } catch (e) {
+    const nom = e instanceof Error ? e.name : "";
+    if (nom === "AbortError") {
+      throw new Error(`Apify timeout ${timeoutMs}ms (run-sync)`);
+    }
+    throw e;
+  } finally {
+    clearTimeout(timer);
+  }
 
   if (!response.ok) {
     throw new Error(`Apify ${response.status}: ${(await response.text()).slice(0, 300)}`);
   }
 
-  const items = (await response.json()) as ApifyItem[];
+  const parsed = (await response.json()) as unknown;
+  if (!Array.isArray(parsed)) {
+    throw new Error(
+      `Apify réponse inattendue: ${JSON.stringify(parsed).slice(0, 200)}`,
+    );
+  }
+  return postsDepuisItems(parsed as ApifyItem[], photosSeulement);
+}
 
-  return items
-    .map((item) => ({
-      postId: item.id ?? "",
-      webVideoUrl: item.webVideoUrl ?? "",
-      text: item.text ?? "",
-      imageUrls: mergeImageUrls(item),
-      musicUrl: lienMusique(item.musicMeta).url,
-      musicTitle: lienMusique(item.musicMeta).titre,
-      createTime: item.createTime ?? null,
-      stats: {
-        vues: item.playCount ?? 0,
-        likes: item.diggCount ?? 0,
-        commentaires: item.commentCount ?? 0,
-        partages: item.shareCount ?? 0,
-      },
-    }))
-    .filter((post) => post.postId && (!photosSeulement || post.imageUrls.length > 0));
+async function lireDatasetItems(
+  token: string,
+  datasetId: string,
+): Promise<unknown[]> {
+  const itemsRes = await fetch(
+    `https://api.apify.com/v2/datasets/${datasetId}/items?token=${token}`,
+  );
+  if (!itemsRes.ok) {
+    throw new Error(
+      `Apify dataset ${itemsRes.status}: ${(await itemsRes.text()).slice(0, 300)}`,
+    );
+  }
+  const parsed = (await itemsRes.json()) as unknown;
+  if (!Array.isArray(parsed)) {
+    throw new Error(
+      `Apify dataset inattendu: ${JSON.stringify(parsed).slice(0, 200)}`,
+    );
+  }
+  return parsed;
+}
+
+/** Start + poll : le listing worker a 8 min de lease, run-sync cale à 90s. */
+async function runActorAsync(
+  input: Record<string, unknown>,
+  photosSeulement: boolean,
+  timeoutMs: number,
+  journal?: (msg: string) => void,
+  actor = ACTOR,
+): Promise<ScrapedPost[]> {
+  const token = Deno.env.get("APIFY_TOKEN");
+  if (!token) throw new Error("APIFY_TOKEN manquant");
+
+  const start = await fetch(
+    `https://api.apify.com/v2/acts/${actor}/runs?token=${token}`,
+    {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: corpsActeur(input),
+    },
+  );
+  if (!start.ok) {
+    throw new Error(`Apify start ${start.status}: ${(await start.text()).slice(0, 300)}`);
+  }
+  const started = (await start.json()) as {
+    data?: { id?: string; defaultDatasetId?: string; status?: string };
+  };
+  const runId = started.data?.id;
+  const datasetId = started.data?.defaultDatasetId;
+  if (!runId || !datasetId) {
+    throw new Error(`Apify start sans run/dataset: ${JSON.stringify(started).slice(0, 200)}`);
+  }
+  journal?.(
+    `Apify ${actor.split("~")[1] ?? actor} run ${runId.slice(0, 8)}… status=${started.data?.status ?? "?"}`,
+  );
+
+  const t0 = Date.now();
+  let status = started.data?.status ?? "RUNNING";
+  while (Date.now() - t0 < timeoutMs) {
+    if (status === "SUCCEEDED") break;
+    if (status === "FAILED" || status === "ABORTED" || status === "TIMED-OUT") {
+      throw new Error(`Apify run ${status} (${Date.now() - t0}ms)`);
+    }
+    await new Promise((r) => setTimeout(r, 4000));
+    const st = await fetch(
+      `https://api.apify.com/v2/actor-runs/${runId}?token=${token}`,
+    );
+    if (!st.ok) {
+      throw new Error(`Apify poll ${st.status}: ${(await st.text()).slice(0, 200)}`);
+    }
+    const body = (await st.json()) as { data?: { status?: string } };
+    status = body.data?.status ?? status;
+    journal?.(`Apify run ${status} (+${Date.now() - t0}ms)`);
+  }
+  if (status !== "SUCCEEDED") {
+    throw new Error(`Apify run ${status} après ${timeoutMs}ms`);
+  }
+
+  let parsed = await lireDatasetItems(token, datasetId);
+  // SUCCEEDED peut précéder l'écriture du dataset de quelques secondes.
+  if (parsed.length === 0) {
+    await new Promise((r) => setTimeout(r, 2500));
+    parsed = await lireDatasetItems(token, datasetId);
+  }
+  const lu = postsEtErreurs(parsed, photosSeulement);
+  journal?.(
+    `Apify dataset: ${lu.brut} brut · ${lu.posts.length} posts · clés=${lu.echantillon}`
+      + (lu.errorCodes.length ? ` · erreur=${lu.errorCodes.join(",")}` : ""),
+  );
+  return lu.posts;
 }
 
 export function scrapeProfile(handle: string, resultsPerPage: number) {
@@ -211,18 +394,30 @@ export function scrapeProfile(handle: string, resultsPerPage: number) {
  * Sert à découvrir les URLs ; chaque diaporama est ensuite scrapé via scrapePost
  * (1 agent Apify / slideshow).
  */
-export function listerPostsProfil(handle: string, resultsPerPage: number) {
-  return runActor(
-    {
-      profiles: [handle],
-      resultsPerPage,
-      shouldDownloadSlideshowImages: false,
-    },
-    // Sans download, imageUrls peut être vide même pour un photo-post :
-    // on garde tout et on filtre /photo/ côté appelant.
-    false,
+export async function listerPostsProfil(
+  handle: string,
+  resultsPerPage: number,
+  journal?: (msg: string) => void,
+  opts?: { actor?: string; proxyCountryCode?: string },
+): Promise<ScrapedPost[]> {
+  const h = handle.replace(/^@/, "");
+  const t0 = Date.now();
+  const actor = opts?.actor ?? APIFY_LISTING_ACTOR;
+  const input = {
+    ...inputListingProfil(h, resultsPerPage),
+    ...(opts?.proxyCountryCode ? { proxyCountryCode: opts.proxyCountryCode } : {}),
+  };
+  journal?.(
+    `Apify listing profil="${h}" actor=${actor.split("~")[1] ?? actor} (max ${resultsPerPage})…`,
   );
+  const posts = await runActorAsync(input, false, 360_000, journal, actor);
+  journal?.(
+    `Apify profil="${h}": ${posts.length} items · ${posts.filter((p) => p.isSlideshow).length} diaporamas · ${Date.now() - t0}ms`,
+  );
+  return posts;
 }
+
+export { APIFY_LISTING_ACTOR, APIFY_LISTING_FALLBACK_ACTOR };
 
 /** La bio (signature) et le nom affiché d'un profil TikTok, via Apify. Sert
  *  d'inspiration pour générer l'identité d'un poster. Renvoie null en cas d'échec. */
@@ -355,7 +550,17 @@ export async function scrapeProfileAvatar(handleBrut: string): Promise<string | 
  * seize diaporamas. On récupère juste les identifiants ici, puis chaque post
  * est scrapé un par un — un post isolé passe là où le compte entier échoue.
  */
-export async function listerDiaporamas(handle: string): Promise<string[]> {
+export type DiaporamasPage = {
+  urls: string[];
+  status: number;
+  htmlOctets: number;
+  ms: number;
+  murLogin: boolean;
+  videoCount?: number | null;
+};
+
+export async function listerDiaporamasDetail(handle: string): Promise<DiaporamasPage> {
+  const t0 = Date.now();
   const response = await fetch(`https://www.tiktok.com/@${handle}`, {
     headers: {
       // Sans en-tête de navigateur, TikTok sert une page vide aux robots.
@@ -364,14 +569,34 @@ export async function listerDiaporamas(handle: string): Promise<string[]> {
       "accept-language": "fr-FR,fr;q=0.9,en;q=0.8",
     },
   });
-  if (!response.ok) throw new Error(`Page TikTok ${response.status} pour @${handle}`);
-
   const html = await response.text();
-  const motif = new RegExp(`/@${handle}/photo/(\\d+)`, "g");
-  const ids = new Set<string>();
-  for (const trouve of html.matchAll(motif)) ids.add(trouve[1]);
+  const ms = Date.now() - t0;
+  if (!response.ok) {
+    throw new Error(
+      `Page TikTok ${response.status} pour @${handle} (${html.length} octets, ${ms}ms)`,
+    );
+  }
 
-  return [...ids].map((id) => `https://www.tiktok.com/@${handle}/photo/${id}`);
+  const urls = extraireUrlsPostsHtml(html, handle);
+  const meta = extraireMetaProfilHtml(html);
+  const aUnPost = urls.length > 0 || /@[\w.]+\/(?:photo|video)\/\d+/.test(html);
+  const murLogin =
+    urls.length === 0 &&
+    !aUnPost &&
+    /captcha|__UNIVERSAL_DATA_FOR_REHYDRATION__/i.test(html);
+
+  return {
+    urls,
+    status: response.status,
+    htmlOctets: html.length,
+    ms,
+    murLogin,
+    videoCount: meta.videoCount,
+  };
+}
+
+export async function listerDiaporamas(handle: string): Promise<string[]> {
+  return (await listerDiaporamasDetail(handle)).urls;
 }
 
 /**
@@ -416,7 +641,6 @@ export async function scrapeVideoPost(url: string): Promise<ScrapedVideo> {
         shouldDownloadVideos: true,
         shouldDownloadSlideshowImages: false,
         shouldDownloadCovers: true,
-        proxyCountryCode: "None",
       }),
     },
   );

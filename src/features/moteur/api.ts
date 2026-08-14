@@ -24,6 +24,16 @@ import type {
 } from "./types";
 import { compteEnProcessus } from "./warmup";
 import { ugcVisages } from "./ugcVisages";
+import {
+  extraireResultatImportCompte,
+  messageErreurImportCompte,
+  type ImportCompteResultat,
+} from "@/features/moteur/importCompteStream";
+import {
+  estErreurHandleUnique,
+  normaliserHandleTiktok,
+} from "@/features/moteur/sourceHandle";
+import { compteIdDepuisListingUrl } from "@/features/moteur/stockSource";
 
 export type { EloImportRapport };
 
@@ -175,6 +185,8 @@ export async function listerSources(): Promise<CompteReference[]> {
   return data as CompteReference[];
 }
 
+export type SourceCreee = CompteReference & { dejaPresent: boolean };
+
 export async function creerSource(input: {
   handle: string;
   niche: string;
@@ -183,11 +195,30 @@ export async function creerSource(input: {
   parent_id?: string | null;
   /** Genre hérité du principal (les conjoints partagent le même genre). */
   genre?: "homme" | "femme";
-}): Promise<CompteReference> {
+}): Promise<SourceCreee> {
+  const handle = normaliserHandleTiktok(input.handle);
+  if (!handle) throw new Error("Handle TikTok vide");
+
+  const existant = await trouverSourceParHandle(handle);
+  if (existant) {
+    const patch: Partial<CompteReference> = {};
+    if (input.langue && input.langue !== existant.langue) patch.langue = input.langue;
+    const niche = input.niche.trim() || null;
+    if (niche && niche !== existant.niche) patch.niche = niche;
+    if (Object.keys(patch).length > 0) {
+      const { error: errMaj } = await supabase
+        .from("comptes_reference")
+        .update(patch)
+        .eq("id", existant.id);
+      if (errMaj) throw errMaj;
+    }
+    return { ...existant, ...patch, dejaPresent: true };
+  }
+
   const { data, error } = await supabase
     .from("comptes_reference")
     .insert({
-      handle_tiktok: input.handle.trim().replace(/^@/, ""),
+      handle_tiktok: handle,
       niche: input.niche.trim() || null,
       langue: input.langue,
       parent_id: input.parent_id ?? null,
@@ -195,25 +226,118 @@ export async function creerSource(input: {
     })
     .select()
     .single();
-  if (error) throw error;
-  return data as CompteReference;
+  if (error) {
+    if (estErreurHandleUnique(error)) {
+      const relance = await trouverSourceParHandle(handle);
+      if (relance) return { ...relance, dejaPresent: true };
+    }
+    throw error;
+  }
+  return { ...(data as CompteReference), dejaPresent: false };
 }
 
-/** Stock de slideshows reproductibles PAR source (compte de référence). Le front
- *  agrège par groupe (principal + conjoints) pour flaguer un groupe épuisé. */
-export async function stockParSource(): Promise<Record<string, number>> {
-  const { data, error } = await supabase
-    .from("sujets")
-    .select("compte_reference_id")
-    .eq("preparation_statut", "done")
-    .in("statut", ["retenu", "utilise"]);
-  if (error) throw error;
-  const m: Record<string, number> = {};
-  for (const s of data ?? []) {
-    const k = s.compte_reference_id as string | null;
-    if (k) m[k] = (m[k] ?? 0) + 1;
+async function trouverSourceParHandle(
+  handle: string,
+): Promise<CompteReference | null> {
+  const { data: exact } = await supabase
+    .from("comptes_reference")
+    .select("*")
+    .eq("handle_tiktok", handle)
+    .maybeSingle();
+  if (exact) return exact as CompteReference;
+
+  const { data: approx } = await supabase
+    .from("comptes_reference")
+    .select("*")
+    .ilike("handle_tiktok", handle)
+    .limit(1)
+    .maybeSingle();
+  return (approx as CompteReference | null) ?? null;
+}
+
+export type InfosStockSources = {
+  /** Slideshows prêts à reproduire (sujets legacy + contenus v-next). */
+  stock: Record<string, number>;
+  /** Listing ou scrape encore en file pour ce compte. */
+  importEnCours: string[];
+  /** Au moins un sujet ou contenu a déjà existé (même rejeté). */
+  avecMatiere: string[];
+};
+
+function incrementer(map: Record<string, number>, id: string | null | undefined) {
+  if (!id) return;
+  map[id] = (map[id] ?? 0) + 1;
+}
+
+/** Stock + activité d'import PAR source. Le front agrège par groupe
+ *  (principal + conjoints) — 0 n'est « épuisé » que s'il y a déjà eu de la matière. */
+export async function stockParSource(): Promise<InfosStockSources> {
+  const [
+    sujetsStock,
+    contenusStock,
+    sujetsTous,
+    contenusTous,
+    fileActive,
+    contenusActifs,
+  ] = await Promise.all([
+    supabase
+      .from("sujets")
+      .select("compte_reference_id")
+      .eq("preparation_statut", "done")
+      .in("statut", ["retenu", "utilise"]),
+    supabase
+      .from("contenus")
+      .select("compte_reference_id")
+      .eq("statut", "valide")
+      .not("compte_reference_id", "is", null),
+    supabase.from("sujets").select("compte_reference_id").not("compte_reference_id", "is", null),
+    supabase.from("contenus").select("compte_reference_id").not("compte_reference_id", "is", null),
+    supabase
+      .from("import_file")
+      .select("compte_reference_id, post_url")
+      .in("statut", ["pending", "running"]),
+    supabase
+      .from("contenus")
+      .select("compte_reference_id")
+      .in("import_statut", ["pending", "running"])
+      .not("compte_reference_id", "is", null),
+  ]);
+
+  for (const r of [sujetsStock, contenusStock, sujetsTous, contenusTous, fileActive, contenusActifs]) {
+    if (r.error) throw r.error;
   }
-  return m;
+
+  const stock: Record<string, number> = {};
+  for (const s of sujetsStock.data ?? []) {
+    incrementer(stock, s.compte_reference_id as string | null);
+  }
+  for (const c of contenusStock.data ?? []) {
+    incrementer(stock, c.compte_reference_id as string | null);
+  }
+
+  const matiere = new Set<string>();
+  for (const s of sujetsTous.data ?? []) {
+    if (s.compte_reference_id) matiere.add(s.compte_reference_id as string);
+  }
+  for (const c of contenusTous.data ?? []) {
+    if (c.compte_reference_id) matiere.add(c.compte_reference_id as string);
+  }
+
+  const enCours = new Set<string>();
+  for (const row of fileActive.data ?? []) {
+    if (row.compte_reference_id) enCours.add(row.compte_reference_id as string);
+    const depuisListing = compteIdDepuisListingUrl(String(row.post_url ?? ""));
+    if (depuisListing) enCours.add(depuisListing);
+  }
+  for (const c of contenusActifs.data ?? []) {
+    if (c.compte_reference_id) enCours.add(c.compte_reference_id as string);
+  }
+
+  return {
+    stock,
+    importEnCours: [...enCours],
+    avecMatiere: [...matiere],
+  };
 }
 
 export async function majSource(id: string, patch: Partial<CompteReference>): Promise<void> {
@@ -2606,28 +2730,105 @@ export const listerSlideshowsCompte = (compteReferenceId: string) =>
     lister: true,
   });
 
-/** Enfile toutes les URLs d'un compte + kick workers serveur. */
-export const enqueueImportCompte = (
+/** Enfile toutes les URLs d'un compte + kick workers serveur (NDJSON + logs). */
+export async function enqueueImportCompte(
   compteReferenceId: string,
   labelIds?: string[],
   langue?: string | null,
-) =>
-  invoke<{
-    ok: boolean;
-    handle: string;
-    total: number;
-    connus: number;
-    source: string;
-    batchId: string;
-    enqueued: number;
-    skipped: number;
-    langue?: string | null;
-  }>("import-contenu", {
-    enqueueCompte: true,
-    compteReferenceId,
-    labelIds: labelIds ?? [],
-    langue: langue ?? null,
+  onLog?: (message: string) => void,
+): Promise<ImportCompteResultat> {
+  const url = import.meta.env.VITE_SUPABASE_URL;
+  const anon = import.meta.env.VITE_SUPABASE_ANON_KEY;
+  if (!url || !anon) throw new Error("Supabase non configuré");
+
+  const { data: sessionData } = await supabase.auth.getSession();
+  const token = sessionData.session?.access_token;
+  if (!token) throw new Error("Session expirée — reconnecte-toi.");
+
+  onLog?.("Connexion stream NDJSON import-contenu…");
+
+  const res = await fetch(`${url}/functions/v1/import-contenu`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      apikey: anon,
+      "Content-Type": "application/json",
+      Accept: "application/x-ndjson",
+    },
+    body: JSON.stringify({
+      enqueueCompte: true,
+      compteReferenceId,
+      labelIds: labelIds ?? [],
+      langue: langue ?? null,
+      stream: true,
+    }),
   });
+
+  if (!res.ok || !res.body) {
+    let message = `Edge import-contenu ${res.status}`;
+    try {
+      const j = (await res.json()) as { error?: string };
+      if (j?.error) message = j.error;
+    } catch {
+      // ignore
+    }
+    throw new Error(messageErreurImportCompte(message));
+  }
+
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+  const state: {
+    dernier: Record<string, unknown> | null;
+    resultat: ImportCompteResultat | null;
+  } = { dernier: null, resultat: null };
+
+  const consommer = (ligne: string) => {
+    const trim = ligne.trim();
+    if (!trim) return;
+    try {
+      const ev = JSON.parse(trim) as Record<string, unknown>;
+      state.dernier = ev;
+      const detail = typeof ev.detail === "string" ? ev.detail : "";
+      if (detail) onLog?.(detail);
+      const ready = extraireResultatImportCompte(ev);
+      if (ready) state.resultat = ready;
+    } catch {
+      // ligne partielle
+    }
+  };
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+    const lignes = buffer.split("\n");
+    buffer = lignes.pop() ?? "";
+    for (const ligne of lignes) consommer(ligne);
+  }
+  if (buffer.trim()) consommer(buffer);
+
+  if (state.resultat) return state.resultat;
+
+  const ev = state.dernier;
+  if (ev && (ev.statut === "echec" || ev.ok === false)) {
+    throw new Error(
+      messageErreurImportCompte(
+        typeof ev.detail === "string"
+          ? ev.detail
+          : typeof ev.error === "string"
+            ? ev.error
+            : "Import compte échoué",
+      ),
+    );
+  }
+
+  throw new Error(
+    messageErreurImportCompte(
+      "Import compte : aucune réponse stream (listing coupé ?)",
+    ),
+  );
+}
 
 /** Enfile une liste d'URLs pour scrape+pipeline serveur. */
 export const enqueueImportUrls = (opts: {
@@ -2739,11 +2940,15 @@ export async function listerHistoriqueImports(
     .select(
       "id, post_url, statut, erreur, batch_id, created_at, contenu_id, contenus:contenu_id(id, titre, statut, import_statut, import_etape, import_erreur, vues_source, pertinence_score, import_elo_rapport, import_elo_force_seuil)",
     )
+    .not("post_url", "like", "listing://%")
+    .not("post_url", "like", "%sophia_listing=%")
     .order("created_at", { ascending: false })
-    .limit(limit + 1);
+    .limit(limit + 10);
   if (error) throw error;
-  const rows = data ?? [];
-  const hasMore = rows.length > limit;
+  const rows = (data ?? []).filter((r) =>
+    /\/@[^/]+\/(photo|video)\//.test(String(r.post_url ?? "")),
+  );
+  const hasMore = (data ?? []).length > limit;
   const lignes = rows.slice(0, limit).map((r) => {
     const c = Array.isArray(r.contenus) ? r.contenus[0] : r.contenus;
     const contenu = c as

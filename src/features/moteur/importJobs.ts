@@ -97,6 +97,20 @@ function startPolling(jobId: string, batchId: string) {
   const eloVus = new Set<string>();
   const tick = async () => {
     try {
+      const job = jobs.find((j) => j.id === jobId);
+      if (job && Date.now() - job.startedAt > 8 * 60_000) {
+        const s0 = await statsImportBatch(batchId);
+        if (s0.done === 0 && s0.failed === 0 && s0.pending + s0.running <= 1) {
+          log(
+            jobId,
+            "error",
+            "Listing trop long (8 min) — Apify n’a rien enfilé",
+            `batch=${batchId}`,
+          );
+          fin(jobId, "echec");
+          return;
+        }
+      }
       const s = await statsImportBatch(batchId);
       const key = `${s.pending}-${s.running}-${s.done}-${s.failed}-${s.contenusPending}-${s.contenusDone}`;
       if (key !== lastKey) {
@@ -138,7 +152,13 @@ function startPolling(jobId: string, batchId: string) {
         const fail = (rows ?? []).filter((r) => r.statut === "failed").length;
         for (const r of rows ?? []) {
           if (r.statut === "failed") {
-            log(jobId, "warn", `scrape échoué`, `${r.post_url}\n${r.erreur ?? ""}`);
+            const listing = String(r.post_url ?? "").startsWith("listing://");
+            log(
+              jobId,
+              listing ? "error" : "warn",
+              listing ? "Listing Apify échoué" : "scrape échoué",
+              listing ? (r.erreur ?? "") : `${r.post_url}\n${r.erreur ?? ""}`,
+            );
           }
         }
         const sousElo = eloRows.filter((r) => r.importEtape === "elo_insuffisant").length;
@@ -219,22 +239,32 @@ export function demarrerImportCompte(opts: {
       log(
         jobId,
         "info",
-        `Listing + enqueue (langue=${opts.langue}) — fermeture OK…`,
+        `Listing + enqueue (langue=${opts.langue}) — logs live, fermeture OK…`,
         `@${opts.handle.replace(/^@/, "")}`,
       );
       const r = await enqueueImportCompte(
         opts.compteReferenceId,
         undefined,
         opts.langue,
+        (msg) => {
+          const level = /échec|ÉCHEC|erreur|ATTENTION/i.test(msg)
+            ? "warn"
+            : /File créée/i.test(msg)
+              ? "ok"
+              : "info";
+          log(jobId, level, msg);
+        },
       );
       const cur = jobs.find((j) => j.id === jobId);
       if (cur) upsertJob({ ...cur, batchId: r.batchId });
       log(
         jobId,
         "ok",
-        `File créée — ${r.enqueued} URLs enqueued` +
-          (r.skipped ? ` (${r.skipped} déjà en file)` : "") +
-          (r.connus ? ` · ${r.connus} déjà connus (re-pipeline)` : ""),
+        r.listing
+          ? `Listing Apify enfilé (worker) — suivi de la file…`
+          : `File créée — ${r.enqueued} URLs enqueued` +
+              (r.skipped ? ` (${r.skipped} déjà en file)` : "") +
+              (r.connus ? ` · ${r.connus} déjà connus (re-pipeline)` : ""),
         `batch=${r.batchId} · total profil=${r.total} · source=${r.source} · langue=${opts.langue}`,
       );
       if (r.enqueued === 0 && r.skipped === 0 && r.total === 0) {
@@ -244,7 +274,8 @@ export function demarrerImportCompte(opts: {
       }
       startPolling(jobId, r.batchId);
     } catch (e) {
-      log(jobId, "error", "Échec import compte", (e as Error).message);
+      const raw = (e as Error).message;
+      log(jobId, "error", "Échec import compte", raw);
       fin(jobId, "echec");
     }
   })();

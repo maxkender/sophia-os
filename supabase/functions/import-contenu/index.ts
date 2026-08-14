@@ -3,6 +3,7 @@ import {
   claimContenu,
   claimImportFile,
   enqueueImportUrls,
+  enqueueListingCompte,
   forcerImportElo,
   importerCompteReference,
   importerLien,
@@ -11,6 +12,7 @@ import {
   statsImportBatch,
   traiterImportFile,
 } from "../_shared/import_contenu.ts";
+import { reponseNdjson, veutStream } from "../_shared/nettoyage_etapes.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 /**
@@ -53,40 +55,75 @@ Deno.serve(async (request) => {
       return json({ ok: true, contenuId: String(body.contenuId), elo: r.elo, langues: r.langues });
     }
 
-    // Enfile toutes les URLs d'un compte (listing rapide, pas de scrape lourd).
+    // Enfile toutes les URLs d'un compte.
+    // Stream NDJSON + heartbeat si le client le demande.
+    // JSON (UI prod / invoke) : on pose une tâche listing:// en file —
+    // un worker cron/kick fait Apify. Plus de waitUntil mort-né, plus de 0/0 infini.
     if (body?.enqueueCompte && body?.compteReferenceId) {
       const compteId = String(body.compteReferenceId);
-      const listed = await listerUrlsCompteReference(supabase, compteId);
-      // Langue explicite, sinon celle du compte source.
-      let langue: string | null =
-        typeof body.langue === "string" ? body.langue : null;
-      if (!langue) {
-        const { data: ref } = await supabase
-          .from("comptes_reference")
-          .select("langue")
-          .eq("id", compteId)
-          .maybeSingle();
-        langue = (ref?.langue as string | null) ?? null;
+      if (veutStream(request, body)) {
+        return reponseNdjson(async (emit) => {
+          const r = await executerEnqueueCompte(
+            supabase,
+            request,
+            compteId,
+            body,
+            (detail) => {
+              emit({
+                etape: "import-compte",
+                statut: "en_cours",
+                detail,
+                at: new Date().toISOString(),
+              });
+            },
+            (etape, detail) => {
+              emit({
+                etape,
+                statut: "en_cours",
+                detail,
+                at: new Date().toISOString(),
+              });
+            },
+          );
+          emit({
+            etape: "ready",
+            statut: "ok",
+            ok: true,
+            ...r,
+            detail: r.detail,
+            at: new Date().toISOString(),
+          });
+        });
       }
-      const r = await enqueueImportUrls(supabase, {
-        urls: listed.urls,
+
+      const { data: ref } = await supabase
+        .from("comptes_reference")
+        .select("handle_tiktok, langue")
+        .eq("id", compteId)
+        .maybeSingle();
+      const handle = String(ref?.handle_tiktok ?? "").replace(/^@/, "");
+      const langue =
+        typeof body.langue === "string"
+          ? body.langue
+          : ((ref?.langue as string | null) ?? null);
+      const r = await enqueueListingCompte(supabase, {
         compteReferenceId: compteId,
         labelIds: Array.isArray(body.labelIds) ? body.labelIds : [],
         batchId: body.batchId ? String(body.batchId) : null,
         langue,
       });
-      // Kick immédiat de workers (ne dépend pas du cron pour démarrer).
-      kickWorkers(request, 10);
+      kickWorkers(request, 4);
       return json({
         ok: true,
-        handle: listed.handle,
-        total: listed.total,
-        connus: listed.connus,
-        source: listed.source,
+        handle,
+        total: 1,
+        connus: 0,
+        source: "apify",
         batchId: r.batchId,
         enqueued: r.enqueued,
         skipped: r.skipped,
         langue,
+        listing: true,
       });
     }
 
@@ -193,6 +230,94 @@ Deno.serve(async (request) => {
     return json({ ok: false, error: messageErreur(error) }, 500);
   }
 });
+
+async function executerEnqueueCompte(
+  supabase: ReturnType<typeof serviceClient>,
+  request: Request,
+  compteId: string,
+  // deno-lint-ignore no-explicit-any
+  body: any,
+  journal?: (detail: string) => void,
+  onEtape?: (etape: string, detail: string) => void,
+): Promise<{
+  handle: string;
+  total: number;
+  connus: number;
+  source: string;
+  batchId: string;
+  enqueued: number;
+  skipped: number;
+  langue: string | null;
+  detail: string;
+}> {
+  const t0 = Date.now();
+  let etape = "init";
+  const log = (detail: string) => {
+    const ligne = `[+${Date.now() - t0}ms] ${detail}`;
+    journal?.(ligne);
+  };
+  const hb = journal
+    ? setInterval(() => {
+        onEtape?.(
+          "heartbeat",
+          `[+${Date.now() - t0}ms] toujours en vie · étape=${etape}`,
+        );
+      }, 10_000)
+    : null;
+
+  try {
+    const region = Deno.env.get("SB_REGION") ?? Deno.env.get("DENO_REGION") ?? "?";
+    etape = "listing";
+    log(`Début import-compte ${compteId.slice(0, 8)}… · région=${region}`);
+    const listed = await listerUrlsCompteReference(supabase, compteId, log);
+
+    etape = "langue";
+    let langue: string | null = typeof body.langue === "string" ? body.langue : null;
+    if (!langue) {
+      const { data: ref } = await supabase
+        .from("comptes_reference")
+        .select("langue")
+        .eq("id", compteId)
+        .maybeSingle();
+      langue = (ref?.langue as string | null) ?? null;
+    }
+    log(`Langue=${langue ?? "null"} · ${listed.total} URLs à enfiler`);
+
+    etape = "enqueue";
+    const r = await enqueueImportUrls(
+      supabase,
+      {
+        urls: listed.urls,
+        compteReferenceId: compteId,
+        labelIds: Array.isArray(body.labelIds) ? body.labelIds : [],
+        batchId: body.batchId ? String(body.batchId) : null,
+        langue,
+      },
+      log,
+    );
+
+    etape = "kick";
+    kickWorkers(request, 10);
+    log(`Workers kickés (10) · batch ${r.batchId.slice(0, 8)}…`);
+
+    const detail =
+      `[+${Date.now() - t0}ms] File créée — ${r.enqueued} enqueued · ${r.skipped} skip · ` +
+      `${listed.connus} connus · source=${listed.source}`;
+    return {
+      handle: listed.handle,
+      total: listed.total,
+      connus: listed.connus,
+      source: listed.source,
+      batchId: r.batchId,
+      enqueued: r.enqueued,
+      skipped: r.skipped,
+      langue,
+      detail,
+    };
+  } finally {
+    if (hb) clearInterval(hb);
+  }
+}
 
 async function runWorker(
   supabase: ReturnType<typeof serviceClient>,

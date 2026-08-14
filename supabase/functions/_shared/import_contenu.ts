@@ -1,10 +1,18 @@
 import {
   downloadImage,
-  listerDiaporamas,
+  estPostDiaporama,
+  APIFY_LISTING_FALLBACK_ACTOR,
+  listerDiaporamasDetail,
   listerPostsProfil,
   scrapePost,
   type ScrapedPost,
 } from "./apify.ts";
+import {
+  APIFY_LISTING_MAX,
+  estUrlListing,
+  parseListingRef,
+  urlListingProfil,
+} from "./tiktok_listing.ts";
 import {
   cleanImage,
   integrateSophia,
@@ -43,8 +51,20 @@ const SLIDES_PAR_PASSAGE = 2;
 /** 1 slide / passage nettoyage : Fal≤90s + store doit tenir sous le mur Edge ~150s. */
 const SLIDES_NETTOYAGE_PAR_PASSAGE = 1;
 const MAX_TENTATIVES_NETTOYAGE = 4;
-/** Apify `resultsPerPage` — on vise tout le profil (plafond acteur). */
-const SCRAPE_TOUS = 100;
+/** Apify listing — tout le profil (worker, lease 8 min). */
+const SCRAPE_TOUS = APIFY_LISTING_MAX;
+export function urlListingCompte(handle: string, batchId: string): string {
+  return urlListingProfil(handle, batchId);
+}
+
+export function parseListingUrl(
+  url: string,
+): { compteId: string; batchId: string } | null {
+  const r = parseListingRef(url);
+  if (!r?.batchId) return null;
+  if (r.compteId) return { compteId: r.compteId, batchId: r.batchId };
+  return null;
+}
 
 export interface SlideBrut {
   position: number;
@@ -527,6 +547,80 @@ export async function importerLien(
   return creerContenuDepuisPost(supabase, post, compteReferenceId, labelIds, langue);
 }
 
+export type JournalImport = (message: string) => void;
+
+function journalImport(journal: JournalImport | undefined, message: string): void {
+  console.log(`[import-compte] ${message}`);
+  journal?.(message);
+}
+
+/**
+ * URLs déjà en base pour ce compte (+ match exact des URLs listées).
+ * On ne charge plus TOUTES les source_url de `contenus` (scan non borné —
+ * PostgREST plafonne à 1000 et ça rallonge jusqu'au timeout idle 150s).
+ */
+async function urlsDejaEnBase(
+  supabase: Supabase,
+  compteReferenceId: string,
+  listed: string[],
+  journal?: JournalImport,
+): Promise<Set<string>> {
+  const deja = new Set<string>();
+  const t0 = Date.now();
+  const { data: duCompte, error } = await supabase
+    .from("contenus")
+    .select("source_url")
+    .eq("compte_reference_id", compteReferenceId);
+  if (error) {
+    journalImport(journal, `Lecture contenus du compte: ${error.message}`);
+  }
+  for (const s of duCompte ?? []) {
+    if (s.source_url) deja.add(idDe(s.source_url));
+  }
+  journalImport(
+    journal,
+    `Contenus de ce compte: ${duCompte?.length ?? 0} lignes (${Date.now() - t0}ms)`,
+  );
+  if ((duCompte?.length ?? 0) >= 1000) {
+    journalImport(
+      journal,
+      `ATTENTION: PostgREST a plafonné à ${duCompte?.length} lignes — « connus » peut être sous-estimé`,
+    );
+  }
+
+  const manquants = listed.filter((u) => !deja.has(idDe(u)));
+  if (manquants.length === 0) return deja;
+
+  const t1 = Date.now();
+  const CHUNK = 80;
+  let extra = 0;
+  for (let i = 0; i < manquants.length; i += CHUNK) {
+    const chunk = manquants.slice(i, i + CHUNK);
+    const { data, error: errIn } = await supabase
+      .from("contenus")
+      .select("source_url")
+      .in("source_url", chunk);
+    if (errIn) {
+      journalImport(
+        journal,
+        `Match URLs [${i}-${i + chunk.length}]: ${errIn.message}`,
+      );
+      continue;
+    }
+    for (const s of data ?? []) {
+      if (s.source_url) {
+        deja.add(idDe(s.source_url));
+        extra += 1;
+      }
+    }
+  }
+  journalImport(
+    journal,
+    `Match URLs hors compte: +${extra} connus (${Date.now() - t1}ms)`,
+  );
+  return deja;
+}
+
 /**
  * Liste les URLs de diaporamas à importer pour un compte (sans scraper les
  * visuels). Le client lance ensuite 1 agent scrapePost par URL en parallèle.
@@ -534,57 +628,128 @@ export async function importerLien(
 export async function listerUrlsCompteReference(
   supabase: Supabase,
   compteReferenceId: string,
+  journal?: JournalImport,
 ): Promise<{
   handle: string;
   urls: string[];
   total: number;
   connus: number;
   source: "page" | "apify" | "mixte";
+  diagnostic: string;
 }> {
-  const { data: ref } = await supabase
+  const t0 = Date.now();
+  const traces: string[] = [];
+  const log = (msg: string) => {
+    traces.push(msg);
+    journalImport(journal, msg);
+  };
+
+  const { data: ref, error: errRef } = await supabase
     .from("comptes_reference")
     .select("id, handle_tiktok")
     .eq("id", compteReferenceId)
     .single();
+  if (errRef) log(`Lecture compte: ${errRef.message}`);
   if (!ref) throw new Error("Compte de référence introuvable");
 
   const handle = String(ref.handle_tiktok).replace(/^@/, "");
-  const { data: connusContenu } = await supabase
+  log(`Compte ${compteReferenceId.slice(0, 8)}… → @${handle}`);
+
+  const tCount = Date.now();
+  const { count: nbContenus, error: errCount } = await supabase
     .from("contenus")
-    .select("source_url")
+    .select("id", { count: "exact", head: true })
     .not("source_url", "is", null);
-  const deja = new Set((connusContenu ?? []).map((s) => idDe(s.source_url ?? "")));
+  log(
+    `Table contenus: ${nbContenus ?? "?"} URLs non nulles (count ${Date.now() - tCount}ms)` +
+      (errCount ? ` err=${errCount.message}` : ""),
+  );
 
   const vues = new Map<string, number>();
-  let source: "page" | "apify" | "mixte" = "page";
+  const origines = new Set<"page" | "apify">();
   const urlsSet = new Set<string>();
 
-  // 1) Page publique TikTok (gratuit, rapide) — IDs photo uniquement.
+  const noterSource = (depuis: "page" | "apify", n: number) => {
+    if (n > 0) origines.add(depuis);
+  };
+
+  const ajouterPostsApify = (posts: ScrapedPost[], label: string, ms: number) => {
+    const photos = posts.filter((p) =>
+      estPostDiaporama({
+        webVideoUrl: p.webVideoUrl,
+        imageUrls: p.imageUrls,
+        isSlideshow: p.isSlideshow,
+      }),
+    );
+    log(`${label}: ${posts.length} posts (${photos.length} diaporamas) en ${ms}ms`);
+    if (posts.length > 0 && photos.length === 0) {
+      const echantillon = posts
+        .slice(0, 5)
+        .map((p) => p.webVideoUrl || p.postId)
+        .join(" · ");
+      log(
+        `ATTENTION: 0 flag diaporama — on enfile les ${posts.length} posts, scrapePost triera. Échantillon: ${echantillon}`,
+      );
+    }
+    const aPrendre = photos.length > 0 ? photos : posts;
+    if (aPrendre.length === 0) return;
+    noterSource("apify", aPrendre.length);
+    for (const p of aPrendre) {
+      if (!p.webVideoUrl) continue;
+      urlsSet.add(p.webVideoUrl);
+      vues.set(idDe(p.webVideoUrl), p.stats?.vues ?? 0);
+    }
+  };
+
+  // 1) Page publique TikTok (gratuit, rapide).
+  log(`Page publique TikTok @${handle}…`);
   try {
-    for (const u of await listerDiaporamas(handle)) urlsSet.add(u);
-  } catch {
-    // on retombe sur Apify ci-dessous
+    const page = await listerDiaporamasDetail(handle);
+    for (const u of page.urls) urlsSet.add(u);
+    noterSource("page", page.urls.length);
+    log(
+      `Page TikTok HTTP ${page.status} · ${page.htmlOctets} octets · ${page.urls.length} posts · profil=${page.videoCount ?? "?"} · ${page.ms}ms` +
+        (page.murLogin ? " · MUR LOGIN/captcha (0 post dans le HTML)" : ""),
+    );
+    if (page.murLogin) {
+      log(
+        `ATTENTION: page publique TikTok sans posts (mur login) — listing = Apify profil`,
+      );
+    } else if (page.htmlOctets < 8_000 && page.urls.length === 0) {
+      log(
+        `ATTENTION: HTML trop court (${page.htmlOctets} o) — page vide / challenge TikTok probable`,
+      );
+    }
+  } catch (e) {
+    log(`Page TikTok ÉCHEC: ${e instanceof Error ? e.message : String(e)}`);
   }
 
-  // 2) Apify profil sans télécharger les images — complète / ordonne par vues.
-  //    Chaque slideshow sera re-scrapé individuellement ensuite (1 agent / post).
+  // 2) Apify profile-scraper — tout le profil (pas une grille embed).
+  log(`Apify listing @${handle} (max ${SCRAPE_TOUS}, profile-scraper)…`);
+  const tApify = Date.now();
   try {
-    const posts = await listerPostsProfil(handle, SCRAPE_TOUS);
-    if (posts.length > 0) {
-      source = urlsSet.size > 0 ? "mixte" : "apify";
-      for (const p of posts) {
-        if (!p.webVideoUrl) continue;
-        const estPhoto =
-          p.imageUrls.length > 0 ||
-          /\/photo\//.test(p.webVideoUrl) ||
-          urlsSet.has(p.webVideoUrl);
-        if (!estPhoto) continue;
-        urlsSet.add(p.webVideoUrl);
-        vues.set(idDe(p.webVideoUrl), p.stats?.vues ?? 0);
-      }
+    const posts = await listerPostsProfil(handle, SCRAPE_TOUS, log);
+    ajouterPostsApify(posts, "Apify profile-scraper", Date.now() - tApify);
+  } catch (e) {
+    log(
+      `Apify ÉCHEC après ${Date.now() - tApify}ms: ${e instanceof Error ? e.message : String(e)}`,
+    );
+  }
+
+  if (urlsSet.size === 0) {
+    log(`0 URL — fallback tiktok-scraper + proxy US`);
+    const tRetry = Date.now();
+    try {
+      const posts = await listerPostsProfil(handle, SCRAPE_TOUS, log, {
+        actor: APIFY_LISTING_FALLBACK_ACTOR,
+        proxyCountryCode: "US",
+      });
+      ajouterPostsApify(posts, "Apify tiktok-scraper", Date.now() - tRetry);
+    } catch (e) {
+      log(
+        `Apify fallback ÉCHEC après ${Date.now() - tRetry}ms: ${e instanceof Error ? e.message : String(e)}`,
+      );
     }
-  } catch {
-    // Si Apify cale, on garde la liste page seule.
   }
 
   // Tous les slideshows (inédits + déjà connus) : les connus seront réouverts
@@ -592,12 +757,29 @@ export async function listerUrlsCompteReference(
   const toutes = [...urlsSet].sort(
     (a, b) => (vues.get(idDe(b)) ?? 0) - (vues.get(idDe(a)) ?? 0),
   );
+  const source: "page" | "apify" | "mixte" =
+    origines.size === 0
+      ? "page"
+      : origines.size === 1
+        ? [...origines][0]
+        : "mixte";
+  log(`Fusion: ${toutes.length} URLs (source=${urlsSet.size === 0 ? "aucune" : source})`);
+
+  const deja = await urlsDejaEnBase(supabase, compteReferenceId, toutes, journal);
   const connus = toutes.filter((u) => deja.has(idDe(u))).length;
 
-  await supabase
-    .from("comptes_reference")
-    .update({ dernier_scrape_at: new Date().toISOString() })
-    .eq("id", compteReferenceId);
+  // 0 URL = listing raté (mur login / Apify vide). Ne pas dater un « extrait »
+  // sinon le badge source croit que le compte est à sec et pousse un conjoint.
+  if (toutes.length > 0) {
+    await supabase
+      .from("comptes_reference")
+      .update({ dernier_scrape_at: new Date().toISOString() })
+      .eq("id", compteReferenceId);
+  }
+
+  log(
+    `Listing terminé @${handle}: ${toutes.length} URLs · ${connus} déjà connus · source=${source} · ${Date.now() - t0}ms`,
+  );
 
   return {
     handle,
@@ -605,6 +787,7 @@ export async function listerUrlsCompteReference(
     total: toutes.length,
     connus,
     source,
+    diagnostic: traces.slice(-12).join(" | "),
   };
 }
 
@@ -1396,7 +1579,7 @@ export async function prochainContenu(
 }
 
 /** Fal peut prendre ~2 min/slide × 2 slides — lease court → double worker écrase le résultat. */
-const LEASE_MS = 8 * 60_000;
+const LEASE_MS = 12 * 60_000;
 
 /** Claim atomique d'un contenu libre (lease) pour workers parallèles. */
 export async function claimContenu(
@@ -1457,12 +1640,20 @@ export async function enqueueImportUrls(
     /** Langue d'origine — stockée sur chaque ligne import_file. */
     langue?: string | null;
   },
+  journal?: JournalImport,
 ): Promise<{ batchId: string; enqueued: number; skipped: number }> {
   const batchId = opts.batchId ?? crypto.randomUUID();
   const langue = normaliserLangue(opts.langue ?? null);
   let enqueued = 0;
   let skipped = 0;
-  for (const url of opts.urls) {
+  const t0 = Date.now();
+  if (opts.urls.length > 0) {
+    journalImport(
+      journal,
+      `Enqueue ${opts.urls.length} URLs (insert 1 à 1, batch ${batchId.slice(0, 8)}…)`,
+    );
+  }
+  for (const [i, url] of opts.urls.entries()) {
     const { error } = await supabase.from("import_file").insert({
       post_url: url,
       compte_reference_id: opts.compteReferenceId,
@@ -1474,11 +1665,51 @@ export async function enqueueImportUrls(
     if (error) {
       // Unique pending/running sur post_url → déjà en file
       skipped += 1;
-      continue;
+    } else {
+      enqueued += 1;
     }
-    enqueued += 1;
+    if ((i + 1) % 10 === 0 || i === opts.urls.length - 1) {
+      journalImport(
+        journal,
+        `Enqueue ${i + 1}/${opts.urls.length} · +${enqueued} · skip ${skipped} · ${Date.now() - t0}ms`,
+      );
+    }
   }
   return { batchId, enqueued, skipped };
+}
+
+/** Tâche listing (page + Apify) : un worker la prend, pas l'HTTP du navigateur. */
+export async function enqueueListingCompte(
+  supabase: Supabase,
+  opts: {
+    compteReferenceId: string;
+    labelIds?: string[] | null;
+    batchId?: string | null;
+    langue?: string | null;
+  },
+): Promise<{ batchId: string; enqueued: number; skipped: number }> {
+  const batchId = opts.batchId ?? crypto.randomUUID();
+  const { data: ref } = await supabase
+    .from("comptes_reference")
+    .select("handle_tiktok")
+    .eq("id", opts.compteReferenceId)
+    .maybeSingle();
+  const handle = String(ref?.handle_tiktok ?? "").replace(/^@/, "");
+  const postUrl = handle
+    ? urlListingProfil(handle, batchId)
+    : `listing://${opts.compteReferenceId}/${batchId}`;
+  const { error } = await supabase.from("import_file").insert({
+    post_url: postUrl,
+    compte_reference_id: opts.compteReferenceId,
+    label_ids: opts.labelIds ?? [],
+    batch_id: batchId,
+    langue: normaliserLangue(opts.langue ?? null),
+    statut: "pending",
+  });
+  if (error) {
+    return { batchId, enqueued: 0, skipped: 1 };
+  }
+  return { batchId, enqueued: 1, skipped: 0 };
 }
 
 /** Claim d'une ligne import_file libre. */
@@ -1515,11 +1746,62 @@ export async function claimImportFile(
   return null;
 }
 
+async function traiterListingCompte(
+  supabase: Supabase,
+  row: ImportFileRow,
+  compteId: string,
+): Promise<{ ok: boolean; contenuId?: string; erreur?: string }> {
+  const batchId = row.batch_id ?? crypto.randomUUID();
+  try {
+    const listed = await listerUrlsCompteReference(supabase, compteId, (msg) => {
+      console.log(`[import-compte] ${msg}`);
+    });
+    const r = await enqueueImportUrls(supabase, {
+      urls: listed.urls,
+      compteReferenceId: compteId,
+      labelIds: row.label_ids,
+      batchId,
+      langue: row.langue,
+    });
+    if (listed.urls.length === 0) {
+      const msg =
+        `Aucun slideshow listé. ${listed.diagnostic || "page mur + Apify vide"}`;
+      await supabase.from("import_file").delete().eq("id", row.id);
+      return { ok: false, erreur: msg };
+    }
+    // La tâche listing n'est pas un TikTok — on la retire pour ne laisser
+    // que les vrais /photo/ et /video/ dans l'historique.
+    await supabase.from("import_file").delete().eq("id", row.id);
+    return { ok: true };
+  } catch (error) {
+    const msg = messageErreur(error);
+    await supabase
+      .from("import_file")
+      .update({
+        statut: "failed",
+        erreur: msg,
+        tentatives: (row.tentatives ?? 0) + 1,
+        lease_until: null,
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", row.id);
+    return { ok: false, erreur: msg };
+  }
+}
+
 /** Scrape une URL en file → crée/réouvre le contenu (pipeline ensuite via claimContenu). */
 export async function traiterImportFile(
   supabase: Supabase,
   row: ImportFileRow,
 ): Promise<{ ok: boolean; contenuId?: string; erreur?: string }> {
+  const listing = parseListingRef(row.post_url);
+  if (listing || estUrlListing(row.post_url)) {
+    const compteId = listing?.compteId ?? row.compte_reference_id;
+    if (!compteId) {
+      return { ok: false, erreur: "Tâche listing sans compte de référence" };
+    }
+    return traiterListingCompte(supabase, row, compteId);
+  }
   try {
     const cree = await importerLien(
       supabase,

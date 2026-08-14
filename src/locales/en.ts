@@ -584,6 +584,8 @@ export const en = {
       compteAjoute: "Account @{handle} added.",
       compteAjouteJob:
         "Account @{handle} added — scrape + scores + cleaning started in the background (see logs below).",
+      compteDejaPresentJob:
+        "@{{handle}} was already a source (the row is created before scrape — a failed import does not delete it). Re-running the slideshow import.",
       importJobLance:
         "Import started in the background — the page stays usable. Follow the logs below.",
       jobsTitre: "Imports in progress",
@@ -658,8 +660,13 @@ export const en = {
       conjoint: "Linked",
       ajouterConjoint: "Add a linked account",
       stock: "{{count}} slideshow(s) in stock",
-      stockFaible: "Low stock — add a linked account to widen the material.",
-      epuise: "Out of stock — add a linked account (similar source) to keep going.",
+      stockImportEnCours:
+        "Import running — stock fills when Extract finishes. No linked account needed.",
+      stockJamaisExtrait:
+        "No slideshows imported yet. Click Extract — a linked account will not help.",
+      stockFaible: "Low stock — click Extract again, or add a similar account to widen the material.",
+      epuise:
+        "Stock empty. Click Extract again. Add a similar account only if this one has no more posts.",
       confirmDelete:
         "Delete this TikTok source account? Already imported slideshows and images are kept (nothing is erased).",
     },

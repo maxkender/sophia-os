@@ -1,3 +1,47 @@
+const LISTING_PREFIX = "listing://";
+
+/** Tâche interne : lister un profil. L'historique ne doit montrer que des /photo|/video/. */
+export function urlListingProfil(handle: string, batchId: string): string {
+  return `https://www.tiktok.com/@${handle.replace(/^@/, "")}?sophia_listing=${batchId}`;
+}
+
+export function parseListingRef(url: string): {
+  compteId: string | null;
+  batchId: string | null;
+  handle: string | null;
+} | null {
+  if (url.startsWith(LISTING_PREFIX)) {
+    const [compteId, batchId] = url.slice(LISTING_PREFIX.length).split("/");
+    if (!compteId || !batchId) return null;
+    return { compteId, batchId, handle: null };
+  }
+  try {
+    const u = new URL(url);
+    if (!/(^|\.)tiktok\.com$/i.test(u.hostname)) return null;
+    const batchId = u.searchParams.get("sophia_listing");
+    if (!batchId) return null;
+    const handle = u.pathname.match(/^\/@([^/]+)\/?$/)?.[1] ?? null;
+    return { compteId: null, batchId, handle };
+  } catch {
+    return null;
+  }
+}
+
+export function estUrlListing(url: string): boolean {
+  return parseListingRef(url) !== null;
+}
+
+/** Vrai post TikTok (pas une tâche listing, pas un profil). */
+export function estUrlPostTiktok(url: string): boolean {
+  try {
+    const u = new URL(url);
+    if (!/(^|\.)tiktok\.com$/i.test(u.hostname)) return false;
+    return /\/@[^/]+\/(photo|video)\/\d+/.test(u.pathname);
+  } catch {
+    return false;
+  }
+}
+
 /** Listing profil Clockworks : tout le compte, pas une grille embed. */
 export const APIFY_LISTING_ACTOR = "clockworks~tiktok-profile-scraper";
 export const APIFY_LISTING_FALLBACK_ACTOR = "clockworks~tiktok-scraper";

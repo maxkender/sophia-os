@@ -89,7 +89,7 @@ function LigneHistorique({
             </span>
           </div>
           <p className="truncate text-sm font-medium">
-            {ligne.titre || ligne.postUrl}
+            {ligne.titre || ligne.postUrl.replace(/\?sophia_listing=.*$/, "")}
           </p>
           <p className="text-[11px] text-muted-foreground">
             {ligne.vues != null ? `${ligne.vues.toLocaleString()} vues` : "—"}
@@ -103,12 +103,14 @@ function LigneHistorique({
           </p>
         </button>
         <div className="flex shrink-0 flex-wrap items-center gap-1.5">
-          <Button size="sm" variant="outline" className="h-7 px-2 text-xs" asChild>
-            <a href={ligne.postUrl} target="_blank" rel="noreferrer">
-              <ExternalLink className="size-3" />
-              TikTok
-            </a>
-          </Button>
+          {/\/@[^/]+\/(photo|video)\//.test(ligne.postUrl) && (
+            <Button size="sm" variant="outline" className="h-7 px-2 text-xs" asChild>
+              <a href={ligne.postUrl} target="_blank" rel="noreferrer">
+                <ExternalLink className="size-3" />
+                TikTok
+              </a>
+            </Button>
+          )}
           {peutForcer && (
             <Button
               size="sm"

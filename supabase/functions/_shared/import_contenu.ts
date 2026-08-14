@@ -7,7 +7,12 @@ import {
   scrapePost,
   type ScrapedPost,
 } from "./apify.ts";
-import { APIFY_LISTING_MAX } from "./tiktok_listing.ts";
+import {
+  APIFY_LISTING_MAX,
+  estUrlListing,
+  parseListingRef,
+  urlListingProfil,
+} from "./tiktok_listing.ts";
 import {
   cleanImage,
   integrateSophia,
@@ -48,20 +53,17 @@ const SLIDES_NETTOYAGE_PAR_PASSAGE = 1;
 const MAX_TENTATIVES_NETTOYAGE = 4;
 /** Apify listing — tout le profil (worker, lease 8 min). */
 const SCRAPE_TOUS = APIFY_LISTING_MAX;
-const LISTING_PREFIX = "listing://";
-
-export function urlListingCompte(compteId: string, batchId: string): string {
-  return `${LISTING_PREFIX}${compteId}/${batchId}`;
+export function urlListingCompte(handle: string, batchId: string): string {
+  return urlListingProfil(handle, batchId);
 }
 
 export function parseListingUrl(
   url: string,
 ): { compteId: string; batchId: string } | null {
-  if (!url.startsWith(LISTING_PREFIX)) return null;
-  const rest = url.slice(LISTING_PREFIX.length);
-  const [compteId, batchId] = rest.split("/");
-  if (!compteId || !batchId) return null;
-  return { compteId, batchId };
+  const r = parseListingRef(url);
+  if (!r?.batchId) return null;
+  if (r.compteId) return { compteId: r.compteId, batchId: r.batchId };
+  return null;
 }
 
 export interface SlideBrut {
@@ -1687,8 +1689,17 @@ export async function enqueueListingCompte(
   },
 ): Promise<{ batchId: string; enqueued: number; skipped: number }> {
   const batchId = opts.batchId ?? crypto.randomUUID();
+  const { data: ref } = await supabase
+    .from("comptes_reference")
+    .select("handle_tiktok")
+    .eq("id", opts.compteReferenceId)
+    .maybeSingle();
+  const handle = String(ref?.handle_tiktok ?? "").replace(/^@/, "");
+  const postUrl = handle
+    ? urlListingProfil(handle, batchId)
+    : `listing://${opts.compteReferenceId}/${batchId}`;
   const { error } = await supabase.from("import_file").insert({
-    post_url: urlListingCompte(opts.compteReferenceId, batchId),
+    post_url: postUrl,
     compte_reference_id: opts.compteReferenceId,
     label_ids: opts.labelIds ?? [],
     batch_id: batchId,
@@ -1755,27 +1766,12 @@ async function traiterListingCompte(
     if (listed.urls.length === 0) {
       const msg =
         `Aucun slideshow listé. ${listed.diagnostic || "page mur + Apify vide"}`;
-      await supabase
-        .from("import_file")
-        .update({
-          statut: "failed",
-          erreur: msg,
-          tentatives: 5,
-          lease_until: null,
-          updated_at: new Date().toISOString(),
-        })
-        .eq("id", row.id);
+      await supabase.from("import_file").delete().eq("id", row.id);
       return { ok: false, erreur: msg };
     }
-    await supabase
-      .from("import_file")
-      .update({
-        statut: "skipped",
-        erreur: `listing ok · ${r.enqueued} enqueued · source=${listed.source}`,
-        lease_until: null,
-        updated_at: new Date().toISOString(),
-      })
-      .eq("id", row.id);
+    // La tâche listing n'est pas un TikTok — on la retire pour ne laisser
+    // que les vrais /photo/ et /video/ dans l'historique.
+    await supabase.from("import_file").delete().eq("id", row.id);
     return { ok: true };
   } catch (error) {
     const msg = messageErreur(error);
@@ -1798,9 +1794,13 @@ export async function traiterImportFile(
   supabase: Supabase,
   row: ImportFileRow,
 ): Promise<{ ok: boolean; contenuId?: string; erreur?: string }> {
-  const listing = parseListingUrl(row.post_url);
-  if (listing) {
-    return traiterListingCompte(supabase, row, listing.compteId);
+  const listing = parseListingRef(row.post_url);
+  if (listing || estUrlListing(row.post_url)) {
+    const compteId = listing?.compteId ?? row.compte_reference_id;
+    if (!compteId) {
+      return { ok: false, erreur: "Tâche listing sans compte de référence" };
+    }
+    return traiterListingCompte(supabase, row, compteId);
   }
   try {
     const cree = await importerLien(

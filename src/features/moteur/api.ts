@@ -2940,11 +2940,13 @@ export async function listerHistoriqueImports(
     .select(
       "id, post_url, statut, erreur, batch_id, created_at, contenu_id, contenus:contenu_id(id, titre, statut, import_statut, import_etape, import_erreur, vues_source, pertinence_score, import_elo_rapport, import_elo_force_seuil)",
     )
+    .not("post_url", "like", "listing://%")
+    .not("post_url", "like", "%sophia_listing=%")
     .order("created_at", { ascending: false })
     .limit(limit + 10);
   if (error) throw error;
-  const rows = (data ?? []).filter(
-    (r) => !String(r.post_url ?? "").startsWith("listing://"),
+  const rows = (data ?? []).filter((r) =>
+    /\/@[^/]+\/(photo|video)\//.test(String(r.post_url ?? "")),
   );
   const hasMore = (data ?? []).length > limit;
   const lignes = rows.slice(0, limit).map((r) => {

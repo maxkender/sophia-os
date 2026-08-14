@@ -4,10 +4,14 @@ import {
   APIFY_LISTING_ACTOR,
   APIFY_LISTING_MAX,
   echantillonClesItems,
+  estUrlListing,
+  estUrlPostTiktok,
   extraireErrorCodesApify,
   extraireUrlsEmbedHtml,
   extraireUrlsPostsHtml,
   inputListingProfil,
+  parseListingRef,
+  urlListingProfil,
 } from "../../../supabase/functions/_shared/tiktok_listing";
 
 describe("inputListingProfil", () => {
@@ -20,6 +24,31 @@ describe("inputListingProfil", () => {
     expect(input.newestPostDate).toBeUndefined();
     expect(input.proxyCountryCode).toBeUndefined();
     expect(APIFY_LISTING_ACTOR).toBe("clockworks~tiktok-profile-scraper");
+  });
+});
+
+describe("url listing interne", () => {
+  it("pose l'URL du profil TikTok, pas listing://", () => {
+    const url = urlListingProfil("infinitydream7", "50faa26e-5e82-40dd-90d9-0ef113e21499");
+    expect(url.startsWith("https://www.tiktok.com/@infinitydream7")).toBe(true);
+    expect(estUrlListing(url)).toBe(true);
+    expect(estUrlPostTiktok(url)).toBe(false);
+  });
+
+  it("reconnaît encore listing:// (tâches déjà en file)", () => {
+    const url =
+      "listing://412cb1d1-951c-4167-9460-b6f5e3c91efd/847fbf8a-daf8-46ec-87e8-f46e07325a45";
+    expect(estUrlListing(url)).toBe(true);
+    expect(parseListingRef(url)?.compteId).toBe(
+      "412cb1d1-951c-4167-9460-b6f5e3c91efd",
+    );
+    expect(estUrlPostTiktok(url)).toBe(false);
+  });
+
+  it("un /video/ est un vrai post, pas une tâche listing", () => {
+    const url = "https://www.tiktok.com/@infinitydream7/video/7594071018667265302";
+    expect(estUrlListing(url)).toBe(false);
+    expect(estUrlPostTiktok(url)).toBe(true);
   });
 });
 

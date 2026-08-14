@@ -44,8 +44,8 @@ const SLIDES_PAR_PASSAGE = 2;
 /** 1 slide / passage nettoyage : Fal≤90s + store doit tenir sous le mur Edge ~150s. */
 const SLIDES_NETTOYAGE_PAR_PASSAGE = 1;
 const MAX_TENTATIVES_NETTOYAGE = 4;
-/** Apify listing — assez pour un profil, assez court pour un run-sync < 90s. */
-const SCRAPE_TOUS = 40;
+/** Apify listing async (worker, lease 8 min) — haut du profil. */
+const SCRAPE_TOUS = 80;
 const LISTING_PREFIX = "listing://";
 
 export function urlListingCompte(compteId: string, batchId: string): string {
@@ -631,9 +631,14 @@ export async function listerUrlsCompteReference(
   total: number;
   connus: number;
   source: "page" | "apify" | "mixte";
+  diagnostic: string;
 }> {
   const t0 = Date.now();
-  const log = (msg: string) => journalImport(journal, msg);
+  const traces: string[] = [];
+  const log = (msg: string) => {
+    traces.push(msg);
+    journalImport(journal, msg);
+  };
 
   const { data: ref, error: errRef } = await supabase
     .from("comptes_reference")
@@ -704,12 +709,13 @@ export async function listerUrlsCompteReference(
         .map((p) => p.webVideoUrl || p.postId)
         .join(" · ");
       log(
-        `ATTENTION: 0 diaporama détecté (isSlideshow/photo/photomode) — échantillon: ${echantillon}`,
+        `ATTENTION: 0 flag diaporama — on enfile les ${posts.length} posts, scrapePost triera. Échantillon: ${echantillon}`,
       );
     }
-    if (photos.length > 0) {
+    const aPrendre = photos.length > 0 ? photos : posts;
+    if (aPrendre.length > 0) {
       source = urlsSet.size > 0 ? "mixte" : "apify";
-      for (const p of photos) {
+      for (const p of aPrendre) {
         if (!p.webVideoUrl) continue;
         urlsSet.add(p.webVideoUrl);
         vues.set(idDe(p.webVideoUrl), p.stats?.vues ?? 0);
@@ -746,6 +752,7 @@ export async function listerUrlsCompteReference(
     total: toutes.length,
     connus,
     source,
+    diagnostic: traces.slice(-8).join(" | "),
   };
 }
 
@@ -1714,7 +1721,7 @@ async function traiterListingCompte(
     });
     if (listed.urls.length === 0) {
       const msg =
-        "Aucun slideshow listé (page TikTok = mur login, Apify vide ou timeout 90s)";
+        `Aucun slideshow listé. ${listed.diagnostic || "page mur + Apify vide"}`;
       await supabase
         .from("import_file")
         .update({

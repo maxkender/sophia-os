@@ -170,57 +170,20 @@ function pickCoverUrl(item: ApifyItem): string | null {
   return fromMedia ?? null;
 }
 
-async function runActor(
-  input: Record<string, unknown>,
-  // Le pipeline ne veut que des posts photo ; la collecte de métriques, elle,
-  // doit voir tout ce que le compte a publié.
-  photosSeulement = true,
-  timeoutMs = 90_000,
-): Promise<ScrapedPost[]> {
-  const token = Deno.env.get("APIFY_TOKEN");
-  if (!token) throw new Error("APIFY_TOKEN manquant");
+function corpsActeur(input: Record<string, unknown>): string {
+  return JSON.stringify({
+    shouldDownloadSlideshowImages: true,
+    shouldDownloadVideos: false,
+    shouldDownloadCovers: false,
+    proxyCountryCode: "None",
+    ...input,
+  });
+}
 
-  const ctrl = new AbortController();
-  const timer = setTimeout(() => ctrl.abort(), timeoutMs);
-  let response: Response;
-  try {
-    response = await fetch(
-      `https://api.apify.com/v2/acts/${ACTOR}/run-sync-get-dataset-items?token=${token}`,
-      {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        signal: ctrl.signal,
-        body: JSON.stringify({
-          shouldDownloadSlideshowImages: true,
-          shouldDownloadVideos: false,
-          shouldDownloadCovers: false,
-          proxyCountryCode: "None",
-          ...input,
-        }),
-      },
-    );
-  } catch (e) {
-    const nom = e instanceof Error ? e.name : "";
-    if (nom === "AbortError") {
-      throw new Error(`Apify timeout ${timeoutMs}ms (run-sync)`);
-    }
-    throw e;
-  } finally {
-    clearTimeout(timer);
-  }
-
-  if (!response.ok) {
-    throw new Error(`Apify ${response.status}: ${(await response.text()).slice(0, 300)}`);
-  }
-
-  const parsed = (await response.json()) as unknown;
-  const items = Array.isArray(parsed) ? (parsed as ApifyItem[]) : [];
-  if (!Array.isArray(parsed)) {
-    throw new Error(
-      `Apify réponse inattendue: ${JSON.stringify(parsed).slice(0, 200)}`,
-    );
-  }
-
+function postsDepuisItems(
+  items: ApifyItem[],
+  photosSeulement: boolean,
+): ScrapedPost[] {
   return items
     .map((item) => {
       const imageUrls = mergeImageUrls(item);
@@ -253,6 +216,122 @@ async function runActor(
     .filter((post) => post.postId && (!photosSeulement || post.isSlideshow));
 }
 
+async function runActor(
+  input: Record<string, unknown>,
+  // Le pipeline ne veut que des posts photo ; la collecte de métriques, elle,
+  // doit voir tout ce que le compte a publié.
+  photosSeulement = true,
+  timeoutMs = 90_000,
+): Promise<ScrapedPost[]> {
+  const token = Deno.env.get("APIFY_TOKEN");
+  if (!token) throw new Error("APIFY_TOKEN manquant");
+
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+  let response: Response;
+  try {
+    response = await fetch(
+      `https://api.apify.com/v2/acts/${ACTOR}/run-sync-get-dataset-items?token=${token}`,
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        signal: ctrl.signal,
+        body: corpsActeur(input),
+      },
+    );
+  } catch (e) {
+    const nom = e instanceof Error ? e.name : "";
+    if (nom === "AbortError") {
+      throw new Error(`Apify timeout ${timeoutMs}ms (run-sync)`);
+    }
+    throw e;
+  } finally {
+    clearTimeout(timer);
+  }
+
+  if (!response.ok) {
+    throw new Error(`Apify ${response.status}: ${(await response.text()).slice(0, 300)}`);
+  }
+
+  const parsed = (await response.json()) as unknown;
+  if (!Array.isArray(parsed)) {
+    throw new Error(
+      `Apify réponse inattendue: ${JSON.stringify(parsed).slice(0, 200)}`,
+    );
+  }
+  return postsDepuisItems(parsed as ApifyItem[], photosSeulement);
+}
+
+/** Start + poll : le listing worker a 8 min de lease, run-sync cale à 90s. */
+async function runActorAsync(
+  input: Record<string, unknown>,
+  photosSeulement: boolean,
+  timeoutMs: number,
+  journal?: (msg: string) => void,
+): Promise<ScrapedPost[]> {
+  const token = Deno.env.get("APIFY_TOKEN");
+  if (!token) throw new Error("APIFY_TOKEN manquant");
+
+  const start = await fetch(
+    `https://api.apify.com/v2/acts/${ACTOR}/runs?token=${token}`,
+    {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: corpsActeur(input),
+    },
+  );
+  if (!start.ok) {
+    throw new Error(`Apify start ${start.status}: ${(await start.text()).slice(0, 300)}`);
+  }
+  const started = (await start.json()) as {
+    data?: { id?: string; defaultDatasetId?: string; status?: string };
+  };
+  const runId = started.data?.id;
+  const datasetId = started.data?.defaultDatasetId;
+  if (!runId || !datasetId) {
+    throw new Error(`Apify start sans run/dataset: ${JSON.stringify(started).slice(0, 200)}`);
+  }
+  journal?.(`Apify run ${runId.slice(0, 8)}… status=${started.data?.status ?? "?"}`);
+
+  const t0 = Date.now();
+  let status = started.data?.status ?? "RUNNING";
+  while (Date.now() - t0 < timeoutMs) {
+    if (status === "SUCCEEDED") break;
+    if (status === "FAILED" || status === "ABORTED" || status === "TIMED-OUT") {
+      throw new Error(`Apify run ${status} (${Date.now() - t0}ms)`);
+    }
+    await new Promise((r) => setTimeout(r, 4000));
+    const st = await fetch(
+      `https://api.apify.com/v2/actor-runs/${runId}?token=${token}`,
+    );
+    if (!st.ok) {
+      throw new Error(`Apify poll ${st.status}: ${(await st.text()).slice(0, 200)}`);
+    }
+    const body = (await st.json()) as { data?: { status?: string } };
+    status = body.data?.status ?? status;
+    journal?.(`Apify run ${status} (+${Date.now() - t0}ms)`);
+  }
+  if (status !== "SUCCEEDED") {
+    throw new Error(`Apify run ${status} après ${timeoutMs}ms`);
+  }
+
+  const itemsRes = await fetch(
+    `https://api.apify.com/v2/datasets/${datasetId}/items?token=${token}`,
+  );
+  if (!itemsRes.ok) {
+    throw new Error(
+      `Apify dataset ${itemsRes.status}: ${(await itemsRes.text()).slice(0, 300)}`,
+    );
+  }
+  const parsed = (await itemsRes.json()) as unknown;
+  if (!Array.isArray(parsed)) {
+    throw new Error(
+      `Apify dataset inattendu: ${JSON.stringify(parsed).slice(0, 200)}`,
+    );
+  }
+  return postsDepuisItems(parsed as ApifyItem[], photosSeulement);
+}
+
 export function scrapeProfile(handle: string, resultsPerPage: number) {
   return runActor({ profiles: [handle], resultsPerPage });
 }
@@ -268,11 +347,9 @@ export async function listerPostsProfil(
   journal?: (msg: string) => void,
 ): Promise<ScrapedPost[]> {
   const h = handle.replace(/^@/, "");
-  // Un seul essai : 3 run-sync de 100 posts dépassent l'idle Edge 150s
-  // (l'UI prod attend encore une réponse JSON unique).
   const t0 = Date.now();
-  journal?.(`Apify profil="${h}" (max ${resultsPerPage}, timeout 90s)…`);
-  const posts = await runActor(
+  journal?.(`Apify async profil="${h}" (max ${resultsPerPage}, timeout 4 min)…`);
+  const posts = await runActorAsync(
     {
       profiles: [h],
       resultsPerPage,
@@ -281,7 +358,8 @@ export async function listerPostsProfil(
       profileScrapeSections: ["videos"],
     },
     false,
-    90_000,
+    240_000,
+    journal,
   );
   journal?.(
     `Apify profil="${h}": ${posts.length} items · ${posts.filter((p) => p.isSlideshow).length} diaporamas · ${Date.now() - t0}ms`,

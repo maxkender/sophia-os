@@ -1,6 +1,6 @@
 import {
   downloadImage,
-  listerDiaporamas,
+  listerDiaporamasDetail,
   listerPostsProfil,
   scrapePost,
   type ScrapedPost,
@@ -527,6 +527,80 @@ export async function importerLien(
   return creerContenuDepuisPost(supabase, post, compteReferenceId, labelIds, langue);
 }
 
+export type JournalImport = (message: string) => void;
+
+function journalImport(journal: JournalImport | undefined, message: string): void {
+  console.log(`[import-compte] ${message}`);
+  journal?.(message);
+}
+
+/**
+ * URLs déjà en base pour ce compte (+ match exact des URLs listées).
+ * On ne charge plus TOUTES les source_url de `contenus` (scan non borné —
+ * PostgREST plafonne à 1000 et ça rallonge jusqu'au timeout idle 150s).
+ */
+async function urlsDejaEnBase(
+  supabase: Supabase,
+  compteReferenceId: string,
+  listed: string[],
+  journal?: JournalImport,
+): Promise<Set<string>> {
+  const deja = new Set<string>();
+  const t0 = Date.now();
+  const { data: duCompte, error } = await supabase
+    .from("contenus")
+    .select("source_url")
+    .eq("compte_reference_id", compteReferenceId);
+  if (error) {
+    journalImport(journal, `Lecture contenus du compte: ${error.message}`);
+  }
+  for (const s of duCompte ?? []) {
+    if (s.source_url) deja.add(idDe(s.source_url));
+  }
+  journalImport(
+    journal,
+    `Contenus de ce compte: ${duCompte?.length ?? 0} lignes (${Date.now() - t0}ms)`,
+  );
+  if ((duCompte?.length ?? 0) >= 1000) {
+    journalImport(
+      journal,
+      `ATTENTION: PostgREST a plafonné à ${duCompte?.length} lignes — « connus » peut être sous-estimé`,
+    );
+  }
+
+  const manquants = listed.filter((u) => !deja.has(idDe(u)));
+  if (manquants.length === 0) return deja;
+
+  const t1 = Date.now();
+  const CHUNK = 80;
+  let extra = 0;
+  for (let i = 0; i < manquants.length; i += CHUNK) {
+    const chunk = manquants.slice(i, i + CHUNK);
+    const { data, error: errIn } = await supabase
+      .from("contenus")
+      .select("source_url")
+      .in("source_url", chunk);
+    if (errIn) {
+      journalImport(
+        journal,
+        `Match URLs [${i}-${i + chunk.length}]: ${errIn.message}`,
+      );
+      continue;
+    }
+    for (const s of data ?? []) {
+      if (s.source_url) {
+        deja.add(idDe(s.source_url));
+        extra += 1;
+      }
+    }
+  }
+  journalImport(
+    journal,
+    `Match URLs hors compte: +${extra} connus (${Date.now() - t1}ms)`,
+  );
+  return deja;
+}
+
 /**
  * Liste les URLs de diaporamas à importer pour un compte (sans scraper les
  * visuels). Le client lance ensuite 1 agent scrapePost par URL en parallèle.
@@ -534,6 +608,7 @@ export async function importerLien(
 export async function listerUrlsCompteReference(
   supabase: Supabase,
   compteReferenceId: string,
+  journal?: JournalImport,
 ): Promise<{
   handle: string;
   urls: string[];
@@ -541,35 +616,66 @@ export async function listerUrlsCompteReference(
   connus: number;
   source: "page" | "apify" | "mixte";
 }> {
-  const { data: ref } = await supabase
+  const t0 = Date.now();
+  const log = (msg: string) => journalImport(journal, msg);
+
+  const { data: ref, error: errRef } = await supabase
     .from("comptes_reference")
     .select("id, handle_tiktok")
     .eq("id", compteReferenceId)
     .single();
+  if (errRef) log(`Lecture compte: ${errRef.message}`);
   if (!ref) throw new Error("Compte de référence introuvable");
 
   const handle = String(ref.handle_tiktok).replace(/^@/, "");
-  const { data: connusContenu } = await supabase
+  log(`Compte ${compteReferenceId.slice(0, 8)}… → @${handle}`);
+
+  const tCount = Date.now();
+  const { count: nbContenus, error: errCount } = await supabase
     .from("contenus")
-    .select("source_url")
+    .select("id", { count: "exact", head: true })
     .not("source_url", "is", null);
-  const deja = new Set((connusContenu ?? []).map((s) => idDe(s.source_url ?? "")));
+  log(
+    `Table contenus: ${nbContenus ?? "?"} URLs non nulles (count ${Date.now() - tCount}ms)` +
+      (errCount ? ` err=${errCount.message}` : ""),
+  );
 
   const vues = new Map<string, number>();
   let source: "page" | "apify" | "mixte" = "page";
   const urlsSet = new Set<string>();
 
   // 1) Page publique TikTok (gratuit, rapide) — IDs photo uniquement.
+  log(`Page publique TikTok @${handle}…`);
   try {
-    for (const u of await listerDiaporamas(handle)) urlsSet.add(u);
-  } catch {
-    // on retombe sur Apify ci-dessous
+    const page = await listerDiaporamasDetail(handle);
+    for (const u of page.urls) urlsSet.add(u);
+    log(
+      `Page TikTok HTTP ${page.status} · ${page.htmlOctets} octets · ${page.urls.length} photo IDs · ${page.ms}ms`,
+    );
+    if (page.htmlOctets < 8_000 && page.urls.length === 0) {
+      log(
+        `ATTENTION: HTML trop court (${page.htmlOctets} o) — page vide / challenge TikTok probable`,
+      );
+    }
+  } catch (e) {
+    log(`Page TikTok ÉCHEC: ${e instanceof Error ? e.message : String(e)}`);
   }
 
   // 2) Apify profil sans télécharger les images — complète / ordonne par vues.
   //    Chaque slideshow sera re-scrapé individuellement ensuite (1 agent / post).
+  log(`Apify listing @${handle} (max ${SCRAPE_TOUS}, run-sync bloquant)…`);
+  const tApify = Date.now();
   try {
     const posts = await listerPostsProfil(handle, SCRAPE_TOUS);
+    const photos = posts.filter(
+      (p) =>
+        p.imageUrls.length > 0 ||
+        /\/photo\//.test(p.webVideoUrl) ||
+        urlsSet.has(p.webVideoUrl),
+    ).length;
+    log(
+      `Apify: ${posts.length} posts (${photos} photo) en ${Date.now() - tApify}ms`,
+    );
     if (posts.length > 0) {
       source = urlsSet.size > 0 ? "mixte" : "apify";
       for (const p of posts) {
@@ -583,8 +689,10 @@ export async function listerUrlsCompteReference(
         vues.set(idDe(p.webVideoUrl), p.stats?.vues ?? 0);
       }
     }
-  } catch {
-    // Si Apify cale, on garde la liste page seule.
+  } catch (e) {
+    log(
+      `Apify ÉCHEC après ${Date.now() - tApify}ms: ${e instanceof Error ? e.message : String(e)}`,
+    );
   }
 
   // Tous les slideshows (inédits + déjà connus) : les connus seront réouverts
@@ -592,12 +700,19 @@ export async function listerUrlsCompteReference(
   const toutes = [...urlsSet].sort(
     (a, b) => (vues.get(idDe(b)) ?? 0) - (vues.get(idDe(a)) ?? 0),
   );
+  log(`Fusion: ${toutes.length} URLs (source=${urlsSet.size === 0 ? "aucune" : source})`);
+
+  const deja = await urlsDejaEnBase(supabase, compteReferenceId, toutes, journal);
   const connus = toutes.filter((u) => deja.has(idDe(u))).length;
 
   await supabase
     .from("comptes_reference")
     .update({ dernier_scrape_at: new Date().toISOString() })
     .eq("id", compteReferenceId);
+
+  log(
+    `Listing terminé @${handle}: ${toutes.length} URLs · ${connus} déjà connus · source=${source} · ${Date.now() - t0}ms`,
+  );
 
   return {
     handle,
@@ -1457,12 +1572,20 @@ export async function enqueueImportUrls(
     /** Langue d'origine — stockée sur chaque ligne import_file. */
     langue?: string | null;
   },
+  journal?: JournalImport,
 ): Promise<{ batchId: string; enqueued: number; skipped: number }> {
   const batchId = opts.batchId ?? crypto.randomUUID();
   const langue = normaliserLangue(opts.langue ?? null);
   let enqueued = 0;
   let skipped = 0;
-  for (const url of opts.urls) {
+  const t0 = Date.now();
+  if (opts.urls.length > 0) {
+    journalImport(
+      journal,
+      `Enqueue ${opts.urls.length} URLs (insert 1 à 1, batch ${batchId.slice(0, 8)}…)`,
+    );
+  }
+  for (const [i, url] of opts.urls.entries()) {
     const { error } = await supabase.from("import_file").insert({
       post_url: url,
       compte_reference_id: opts.compteReferenceId,
@@ -1474,9 +1597,15 @@ export async function enqueueImportUrls(
     if (error) {
       // Unique pending/running sur post_url → déjà en file
       skipped += 1;
-      continue;
+    } else {
+      enqueued += 1;
     }
-    enqueued += 1;
+    if ((i + 1) % 10 === 0 || i === opts.urls.length - 1) {
+      journalImport(
+        journal,
+        `Enqueue ${i + 1}/${opts.urls.length} · +${enqueued} · skip ${skipped} · ${Date.now() - t0}ms`,
+      );
+    }
   }
   return { batchId, enqueued, skipped };
 }

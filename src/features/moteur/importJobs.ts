@@ -219,13 +219,21 @@ export function demarrerImportCompte(opts: {
       log(
         jobId,
         "info",
-        `Listing + enqueue (langue=${opts.langue}) — fermeture OK…`,
+        `Listing + enqueue (langue=${opts.langue}) — logs live, fermeture OK…`,
         `@${opts.handle.replace(/^@/, "")}`,
       );
       const r = await enqueueImportCompte(
         opts.compteReferenceId,
         undefined,
         opts.langue,
+        (msg) => {
+          const level = /échec|ÉCHEC|erreur|ATTENTION/i.test(msg)
+            ? "warn"
+            : /File créée/i.test(msg)
+              ? "ok"
+              : "info";
+          log(jobId, level, msg);
+        },
       );
       const cur = jobs.find((j) => j.id === jobId);
       if (cur) upsertJob({ ...cur, batchId: r.batchId });
@@ -244,7 +252,8 @@ export function demarrerImportCompte(opts: {
       }
       startPolling(jobId, r.batchId);
     } catch (e) {
-      log(jobId, "error", "Échec import compte", (e as Error).message);
+      const raw = (e as Error).message;
+      log(jobId, "error", "Échec import compte", raw);
       fin(jobId, "echec");
     }
   })();

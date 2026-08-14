@@ -24,6 +24,11 @@ import type {
 } from "./types";
 import { compteEnProcessus } from "./warmup";
 import { ugcVisages } from "./ugcVisages";
+import {
+  extraireResultatImportCompte,
+  messageErreurImportCompte,
+  type ImportCompteResultat,
+} from "@/features/moteur/importCompteStream";
 
 export type { EloImportRapport };
 
@@ -2606,28 +2611,105 @@ export const listerSlideshowsCompte = (compteReferenceId: string) =>
     lister: true,
   });
 
-/** Enfile toutes les URLs d'un compte + kick workers serveur. */
-export const enqueueImportCompte = (
+/** Enfile toutes les URLs d'un compte + kick workers serveur (NDJSON + logs). */
+export async function enqueueImportCompte(
   compteReferenceId: string,
   labelIds?: string[],
   langue?: string | null,
-) =>
-  invoke<{
-    ok: boolean;
-    handle: string;
-    total: number;
-    connus: number;
-    source: string;
-    batchId: string;
-    enqueued: number;
-    skipped: number;
-    langue?: string | null;
-  }>("import-contenu", {
-    enqueueCompte: true,
-    compteReferenceId,
-    labelIds: labelIds ?? [],
-    langue: langue ?? null,
+  onLog?: (message: string) => void,
+): Promise<ImportCompteResultat> {
+  const url = import.meta.env.VITE_SUPABASE_URL;
+  const anon = import.meta.env.VITE_SUPABASE_ANON_KEY;
+  if (!url || !anon) throw new Error("Supabase non configuré");
+
+  const { data: sessionData } = await supabase.auth.getSession();
+  const token = sessionData.session?.access_token;
+  if (!token) throw new Error("Session expirée — reconnecte-toi.");
+
+  onLog?.("Connexion stream NDJSON import-contenu…");
+
+  const res = await fetch(`${url}/functions/v1/import-contenu`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      apikey: anon,
+      "Content-Type": "application/json",
+      Accept: "application/x-ndjson",
+    },
+    body: JSON.stringify({
+      enqueueCompte: true,
+      compteReferenceId,
+      labelIds: labelIds ?? [],
+      langue: langue ?? null,
+      stream: true,
+    }),
   });
+
+  if (!res.ok || !res.body) {
+    let message = `Edge import-contenu ${res.status}`;
+    try {
+      const j = (await res.json()) as { error?: string };
+      if (j?.error) message = j.error;
+    } catch {
+      // ignore
+    }
+    throw new Error(messageErreurImportCompte(message));
+  }
+
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+  const state: {
+    dernier: Record<string, unknown> | null;
+    resultat: ImportCompteResultat | null;
+  } = { dernier: null, resultat: null };
+
+  const consommer = (ligne: string) => {
+    const trim = ligne.trim();
+    if (!trim) return;
+    try {
+      const ev = JSON.parse(trim) as Record<string, unknown>;
+      state.dernier = ev;
+      const detail = typeof ev.detail === "string" ? ev.detail : "";
+      if (detail) onLog?.(detail);
+      const ready = extraireResultatImportCompte(ev);
+      if (ready) state.resultat = ready;
+    } catch {
+      // ligne partielle
+    }
+  };
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+    const lignes = buffer.split("\n");
+    buffer = lignes.pop() ?? "";
+    for (const ligne of lignes) consommer(ligne);
+  }
+  if (buffer.trim()) consommer(buffer);
+
+  if (state.resultat) return state.resultat;
+
+  const ev = state.dernier;
+  if (ev && (ev.statut === "echec" || ev.ok === false)) {
+    throw new Error(
+      messageErreurImportCompte(
+        typeof ev.detail === "string"
+          ? ev.detail
+          : typeof ev.error === "string"
+            ? ev.error
+            : "Import compte échoué",
+      ),
+    );
+  }
+
+  throw new Error(
+    messageErreurImportCompte(
+      "Import compte : aucune réponse stream (listing coupé ?)",
+    ),
+  );
+}
 
 /** Enfile une liste d'URLs pour scrape+pipeline serveur. */
 export const enqueueImportUrls = (opts: {

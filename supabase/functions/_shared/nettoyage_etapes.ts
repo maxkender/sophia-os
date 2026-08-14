@@ -4,9 +4,10 @@
  */
 
 import { corsHeaders } from "./supabase.ts";
-import type { EvenementEtape } from "./gemini.ts";
 
-export type EmetteurEtape = (e: EvenementEtape & Record<string, unknown>) => void;
+export type EmetteurEtape = (
+  e: { etape: string; statut: string; detail?: string } & Record<string, unknown>,
+) => void;
 
 /** Réponse NDJSON (une ligne JSON par événement). */
 export function reponseNdjson(

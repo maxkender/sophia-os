@@ -355,7 +355,15 @@ export async function scrapeProfileAvatar(handleBrut: string): Promise<string | 
  * seize diaporamas. On récupère juste les identifiants ici, puis chaque post
  * est scrapé un par un — un post isolé passe là où le compte entier échoue.
  */
-export async function listerDiaporamas(handle: string): Promise<string[]> {
+export type DiaporamasPage = {
+  urls: string[];
+  status: number;
+  htmlOctets: number;
+  ms: number;
+};
+
+export async function listerDiaporamasDetail(handle: string): Promise<DiaporamasPage> {
+  const t0 = Date.now();
   const response = await fetch(`https://www.tiktok.com/@${handle}`, {
     headers: {
       // Sans en-tête de navigateur, TikTok sert une page vide aux robots.
@@ -364,14 +372,28 @@ export async function listerDiaporamas(handle: string): Promise<string[]> {
       "accept-language": "fr-FR,fr;q=0.9,en;q=0.8",
     },
   });
-  if (!response.ok) throw new Error(`Page TikTok ${response.status} pour @${handle}`);
-
   const html = await response.text();
+  const ms = Date.now() - t0;
+  if (!response.ok) {
+    throw new Error(
+      `Page TikTok ${response.status} pour @${handle} (${html.length} octets, ${ms}ms)`,
+    );
+  }
+
   const motif = new RegExp(`/@${handle}/photo/(\\d+)`, "g");
   const ids = new Set<string>();
   for (const trouve of html.matchAll(motif)) ids.add(trouve[1]);
 
-  return [...ids].map((id) => `https://www.tiktok.com/@${handle}/photo/${id}`);
+  return {
+    urls: [...ids].map((id) => `https://www.tiktok.com/@${handle}/photo/${id}`),
+    status: response.status,
+    htmlOctets: html.length,
+    ms,
+  };
+}
+
+export async function listerDiaporamas(handle: string): Promise<string[]> {
+  return (await listerDiaporamasDetail(handle)).urls;
 }
 
 /**

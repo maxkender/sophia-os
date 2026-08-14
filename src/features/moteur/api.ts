@@ -33,6 +33,7 @@ import {
   estErreurHandleUnique,
   normaliserHandleTiktok,
 } from "@/features/moteur/sourceHandle";
+import { compteIdDepuisListingUrl } from "@/features/moteur/stockSource";
 
 export type { EloImportRapport };
 
@@ -254,21 +255,89 @@ async function trouverSourceParHandle(
   return (approx as CompteReference | null) ?? null;
 }
 
-/** Stock de slideshows reproductibles PAR source (compte de référence). Le front
- *  agrège par groupe (principal + conjoints) pour flaguer un groupe épuisé. */
-export async function stockParSource(): Promise<Record<string, number>> {
-  const { data, error } = await supabase
-    .from("sujets")
-    .select("compte_reference_id")
-    .eq("preparation_statut", "done")
-    .in("statut", ["retenu", "utilise"]);
-  if (error) throw error;
-  const m: Record<string, number> = {};
-  for (const s of data ?? []) {
-    const k = s.compte_reference_id as string | null;
-    if (k) m[k] = (m[k] ?? 0) + 1;
+export type InfosStockSources = {
+  /** Slideshows prêts à reproduire (sujets legacy + contenus v-next). */
+  stock: Record<string, number>;
+  /** Listing ou scrape encore en file pour ce compte. */
+  importEnCours: string[];
+  /** Au moins un sujet ou contenu a déjà existé (même rejeté). */
+  avecMatiere: string[];
+};
+
+function incrementer(map: Record<string, number>, id: string | null | undefined) {
+  if (!id) return;
+  map[id] = (map[id] ?? 0) + 1;
+}
+
+/** Stock + activité d'import PAR source. Le front agrège par groupe
+ *  (principal + conjoints) — 0 n'est « épuisé » que s'il y a déjà eu de la matière. */
+export async function stockParSource(): Promise<InfosStockSources> {
+  const [
+    sujetsStock,
+    contenusStock,
+    sujetsTous,
+    contenusTous,
+    fileActive,
+    contenusActifs,
+  ] = await Promise.all([
+    supabase
+      .from("sujets")
+      .select("compte_reference_id")
+      .eq("preparation_statut", "done")
+      .in("statut", ["retenu", "utilise"]),
+    supabase
+      .from("contenus")
+      .select("compte_reference_id")
+      .eq("statut", "valide")
+      .not("compte_reference_id", "is", null),
+    supabase.from("sujets").select("compte_reference_id").not("compte_reference_id", "is", null),
+    supabase.from("contenus").select("compte_reference_id").not("compte_reference_id", "is", null),
+    supabase
+      .from("import_file")
+      .select("compte_reference_id, post_url")
+      .in("statut", ["pending", "running"]),
+    supabase
+      .from("contenus")
+      .select("compte_reference_id")
+      .in("import_statut", ["pending", "running"])
+      .not("compte_reference_id", "is", null),
+  ]);
+
+  for (const r of [sujetsStock, contenusStock, sujetsTous, contenusTous, fileActive, contenusActifs]) {
+    if (r.error) throw r.error;
   }
-  return m;
+
+  const stock: Record<string, number> = {};
+  for (const s of sujetsStock.data ?? []) {
+    incrementer(stock, s.compte_reference_id as string | null);
+  }
+  for (const c of contenusStock.data ?? []) {
+    incrementer(stock, c.compte_reference_id as string | null);
+  }
+
+  const matiere = new Set<string>();
+  for (const s of sujetsTous.data ?? []) {
+    if (s.compte_reference_id) matiere.add(s.compte_reference_id as string);
+  }
+  for (const c of contenusTous.data ?? []) {
+    if (c.compte_reference_id) matiere.add(c.compte_reference_id as string);
+  }
+
+  const enCours = new Set<string>();
+  for (const row of fileActive.data ?? []) {
+    if (row.compte_reference_id) enCours.add(row.compte_reference_id as string);
+    const depuisListing = compteIdDepuisListingUrl(String(row.post_url ?? ""));
+    if (depuisListing) enCours.add(depuisListing);
+  }
+  for (const c of contenusActifs.data ?? []) {
+    if (c.compte_reference_id) enCours.add(c.compte_reference_id as string);
+  }
+
+  return {
+    stock,
+    importEnCours: [...enCours],
+    avecMatiere: [...matiere],
+  };
 }
 
 export async function majSource(id: string, patch: Partial<CompteReference>): Promise<void> {

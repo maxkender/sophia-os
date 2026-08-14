@@ -737,10 +737,14 @@ export async function listerUrlsCompteReference(
   const deja = await urlsDejaEnBase(supabase, compteReferenceId, toutes, journal);
   const connus = toutes.filter((u) => deja.has(idDe(u))).length;
 
-  await supabase
-    .from("comptes_reference")
-    .update({ dernier_scrape_at: new Date().toISOString() })
-    .eq("id", compteReferenceId);
+  // 0 URL = listing raté (mur login / Apify vide). Ne pas dater un « extrait »
+  // sinon le badge source croit que le compte est à sec et pousse un conjoint.
+  if (toutes.length > 0) {
+    await supabase
+      .from("comptes_reference")
+      .update({ dernier_scrape_at: new Date().toISOString() })
+      .eq("id", compteReferenceId);
+  }
 
   log(
     `Listing terminé @${handle}: ${toutes.length} URLs · ${connus} déjà connus · source=${source} · ${Date.now() - t0}ms`,

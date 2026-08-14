@@ -31,6 +31,11 @@ import { demarrerImportCompte, demarrerImportLien } from "@/features/moteur/impo
 import { ImportHistoriquePanel } from "@/features/moteur/ImportHistoriquePanel";
 import { ImportJobsPanel } from "@/features/moteur/ImportJobsPanel";
 import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
+import {
+  SEUIL_STOCK_SOURCE,
+  cleI18nEtatStock,
+  etatStockSource,
+} from "@/features/moteur/stockSource";
 import type { CompteReference, Label as NicheLabel } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
 
@@ -417,17 +422,19 @@ function LigneSource({
   );
 }
 
-const SEUIL_STOCK = 10;
-
 function GroupeSource({
   primary,
   conjoints,
   stock,
+  importEnCours,
+  aDejaDeLaMatiere,
   niches,
 }: {
   primary: CompteReference;
   conjoints: CompteReference[];
   stock: number;
+  importEnCours: boolean;
+  aDejaDeLaMatiere: boolean;
   niches: NicheLabel[];
 }) {
   const { t } = useTranslation();
@@ -460,20 +467,31 @@ function GroupeSource({
     },
   });
 
-  const epuise = stock === 0;
-  const faible = stock < SEUIL_STOCK;
+  const etat = etatStockSource({
+    stock,
+    importEnCours,
+    aDejaDeLaMatiere,
+    seuil: SEUIL_STOCK_SOURCE,
+  });
+  const warning = cleI18nEtatStock(etat);
+  const badgeVariant =
+    etat === "epuise"
+      ? "destructive"
+      : etat === "ok"
+        ? "success"
+        : "warning";
+  const warningClass =
+    etat === "epuise" ? "text-xs text-destructive" : "text-xs text-warning";
 
   return (
     <div className="space-y-3 rounded-lg border p-3">
       <div className="flex flex-wrap items-center gap-2">
-        <Badge variant={epuise ? "destructive" : faible ? "warning" : "success"}>
-          {t("sources.stock", { count: stock })}
+        <Badge variant={badgeVariant}>
+          {etat === "import_en_cours"
+            ? t("sources.extraction")
+            : t("sources.stock", { count: stock })}
         </Badge>
-        {faible && (
-          <span className={epuise ? "text-xs text-destructive" : "text-xs text-warning"}>
-            {epuise ? t("sources.epuise") : t("sources.stockFaible")}
-          </span>
-        )}
+        {warning && <span className={warningClass}>{t(warning)}</span>}
       </div>
 
       <LigneSource source={primary} />
@@ -732,15 +750,27 @@ function FormAjoutSource({ niches }: { niches: NicheLabel[] }) {
 export function AdminSourcesPage() {
   const { t } = useTranslation();
   const sources = useQuery({ queryKey: ["sources"], queryFn: listerSources });
-  const stock = useQuery({ queryKey: ["stock-sources"], queryFn: stockParSource });
+  const stock = useQuery({
+    queryKey: ["stock-sources"],
+    queryFn: stockParSource,
+    refetchInterval: (q) =>
+      (q.state.data?.importEnCours.length ?? 0) > 0 ? 10_000 : false,
+  });
   const niches = useQuery({ queryKey: ["labels"], queryFn: listerLabels });
 
   const toutes = sources.data ?? [];
   const principaux = toutes.filter((s) => !s.parent_id);
   const conjointsDe = (id: string) => toutes.filter((s) => s.parent_id === id);
-  const stockGroupe = (p: CompteReference) => {
-    const st = stock.data ?? {};
-    return (st[p.id] ?? 0) + conjointsDe(p.id).reduce((n, c) => n + (st[c.id] ?? 0), 0);
+  const infosGroupe = (p: CompteReference) => {
+    const ids = [p.id, ...conjointsDe(p.id).map((c) => c.id)];
+    const st = stock.data?.stock ?? {};
+    const enCours = new Set(stock.data?.importEnCours ?? []);
+    const matiere = new Set(stock.data?.avecMatiere ?? []);
+    return {
+      stock: ids.reduce((n, id) => n + (st[id] ?? 0), 0),
+      importEnCours: ids.some((id) => enCours.has(id)),
+      aDejaDeLaMatiere: ids.some((id) => matiere.has(id)),
+    };
   };
 
   return (
@@ -762,15 +792,20 @@ export function AdminSourcesPage() {
             <EmptyState title={t("sources.empty")} />
           )}
 
-          {principaux.map((p) => (
-            <GroupeSource
-              key={p.id}
-              primary={p}
-              conjoints={conjointsDe(p.id)}
-              stock={stockGroupe(p)}
-              niches={niches.data ?? []}
-            />
-          ))}
+          {principaux.map((p) => {
+            const infos = infosGroupe(p);
+            return (
+              <GroupeSource
+                key={p.id}
+                primary={p}
+                conjoints={conjointsDe(p.id)}
+                stock={infos.stock}
+                importEnCours={infos.importEnCours}
+                aDejaDeLaMatiere={infos.aDejaDeLaMatiere}
+                niches={niches.data ?? []}
+              />
+            );
+          })}
         </div>
       </CardContent>
     </Card>

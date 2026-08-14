@@ -660,8 +660,14 @@ export const fr = {
       conjoint: "Conjoint",
       ajouterConjoint: "Ajouter un compte conjoint",
       stock: "{{count}} slideshow(s) en stock",
-      stockFaible: "Stock faible — ajoute un compte conjoint pour élargir la matière.",
-      epuise: "Épuisé — ajoute un compte conjoint (source similaire) pour continuer.",
+      stockImportEnCours:
+        "Import en cours — le stock se remplira après Extraire. Pas besoin d'un compte conjoint.",
+      stockJamaisExtrait:
+        "Aucun slideshow importé. Clique Extraire — un compte conjoint ne changera rien.",
+      stockFaible:
+        "Stock faible — relance Extraire, ou ajoute un compte similaire pour élargir la matière.",
+      epuise:
+        "Stock vide. Relance Extraire. Un compte similaire seulement si celui-ci n'a plus de posts.",
       confirmDelete:
         "Supprimer ce compte source TikTok ? Les slideshows et images déjà importés sont conservés (rien n'est effacé).",
     },

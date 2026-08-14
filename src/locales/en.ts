@@ -584,6 +584,8 @@ export const en = {
       compteAjoute: "Account @{handle} added.",
       compteAjouteJob:
         "Account @{handle} added — scrape + scores + cleaning started in the background (see logs below).",
+      compteDejaPresentJob:
+        "@{{handle}} was already a source (the row is created before scrape — a failed import does not delete it). Re-running the slideshow import.",
       importJobLance:
         "Import started in the background — the page stays usable. Follow the logs below.",
       jobsTitre: "Imports in progress",

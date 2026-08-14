@@ -584,6 +584,8 @@ export const fr = {
       compteAjoute: "Compte @{handle} ajouté.",
       compteAjouteJob:
         "Compte @{handle} ajouté — scrape + scores + nettoyage lancés en arrière-plan (voir logs ci-dessous).",
+      compteDejaPresentJob:
+        "@{{handle}} était déjà en sources (la fiche est créée avant le scrape — un import planté ne l’efface pas). On relance l’import des slideshows.",
       importJobLance:
         "Import lancé côté serveur — tu peux changer de page ou quitter le site, ça continue.",
       jobsTitre: "Imports en cours",

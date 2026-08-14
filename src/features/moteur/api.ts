@@ -29,6 +29,10 @@ import {
   messageErreurImportCompte,
   type ImportCompteResultat,
 } from "@/features/moteur/importCompteStream";
+import {
+  estErreurHandleUnique,
+  normaliserHandleTiktok,
+} from "@/features/moteur/sourceHandle";
 
 export type { EloImportRapport };
 
@@ -180,6 +184,8 @@ export async function listerSources(): Promise<CompteReference[]> {
   return data as CompteReference[];
 }
 
+export type SourceCreee = CompteReference & { dejaPresent: boolean };
+
 export async function creerSource(input: {
   handle: string;
   niche: string;
@@ -188,11 +194,30 @@ export async function creerSource(input: {
   parent_id?: string | null;
   /** Genre hérité du principal (les conjoints partagent le même genre). */
   genre?: "homme" | "femme";
-}): Promise<CompteReference> {
+}): Promise<SourceCreee> {
+  const handle = normaliserHandleTiktok(input.handle);
+  if (!handle) throw new Error("Handle TikTok vide");
+
+  const existant = await trouverSourceParHandle(handle);
+  if (existant) {
+    const patch: Partial<CompteReference> = {};
+    if (input.langue && input.langue !== existant.langue) patch.langue = input.langue;
+    const niche = input.niche.trim() || null;
+    if (niche && niche !== existant.niche) patch.niche = niche;
+    if (Object.keys(patch).length > 0) {
+      const { error: errMaj } = await supabase
+        .from("comptes_reference")
+        .update(patch)
+        .eq("id", existant.id);
+      if (errMaj) throw errMaj;
+    }
+    return { ...existant, ...patch, dejaPresent: true };
+  }
+
   const { data, error } = await supabase
     .from("comptes_reference")
     .insert({
-      handle_tiktok: input.handle.trim().replace(/^@/, ""),
+      handle_tiktok: handle,
       niche: input.niche.trim() || null,
       langue: input.langue,
       parent_id: input.parent_id ?? null,
@@ -200,8 +225,33 @@ export async function creerSource(input: {
     })
     .select()
     .single();
-  if (error) throw error;
-  return data as CompteReference;
+  if (error) {
+    if (estErreurHandleUnique(error)) {
+      const relance = await trouverSourceParHandle(handle);
+      if (relance) return { ...relance, dejaPresent: true };
+    }
+    throw error;
+  }
+  return { ...(data as CompteReference), dejaPresent: false };
+}
+
+async function trouverSourceParHandle(
+  handle: string,
+): Promise<CompteReference | null> {
+  const { data: exact } = await supabase
+    .from("comptes_reference")
+    .select("*")
+    .eq("handle_tiktok", handle)
+    .maybeSingle();
+  if (exact) return exact as CompteReference;
+
+  const { data: approx } = await supabase
+    .from("comptes_reference")
+    .select("*")
+    .ilike("handle_tiktok", handle)
+    .limit(1)
+    .maybeSingle();
+  return (approx as CompteReference | null) ?? null;
 }
 
 /** Stock de slideshows reproductibles PAR source (compte de référence). Le front

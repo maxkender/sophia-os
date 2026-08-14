@@ -553,12 +553,17 @@ function FormAjoutSource({ niches }: { niches: NicheLabel[] }) {
         });
         await setLabelsSource(cree.id, [nicheId]);
         // Scrape + pipeline en arrière-plan — la page reste utilisable.
+        // Si la fiche existait déjà (import précédent planté), on relance.
         demarrerImportCompte({
           compteReferenceId: cree.id,
           handle: cree.handle_tiktok,
           langue,
         });
-        return { kind: "compte" as const, handle: cree.handle_tiktok };
+        return {
+          kind: "compte" as const,
+          handle: cree.handle_tiktok,
+          dejaPresent: cree.dejaPresent,
+        };
       }
 
       const lien = url.trim();
@@ -574,7 +579,14 @@ function FormAjoutSource({ niches }: { niches: NicheLabel[] }) {
     },
     onSuccess: (r) => {
       if (r.kind === "compte") {
-        setMessage(t("sources.compteAjouteJob", { handle: r.handle }));
+        setMessage(
+          t(
+            r.dejaPresent
+              ? "sources.compteDejaPresentJob"
+              : "sources.compteAjouteJob",
+            { handle: r.handle },
+          ),
+        );
         setHandle("");
       } else {
         setMessage(t("sources.importJobLance"));
@@ -584,7 +596,14 @@ function FormAjoutSource({ niches }: { niches: NicheLabel[] }) {
       queryClient.invalidateQueries({ queryKey: ["slideshows"] });
       queryClient.invalidateQueries({ queryKey: ["contenus"] });
     },
-    onError: (e) => setMessage((e as Error).message),
+    onError: (e) => {
+      const raw = (e as Error).message;
+      setMessage(
+        /comptes_reference_handle_tiktok_key|duplicate key/i.test(raw)
+          ? t("sources.compteDejaPresentJob", { handle: handle.trim().replace(/^@/, "") })
+          : raw,
+      );
+    },
   });
 
   return (

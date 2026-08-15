@@ -1,6 +1,6 @@
 import type { VideoTrim } from "./videoCrop";
 
-/** Corps `finalize` — crop + vidéo source (`_tmp_full`) pour l’edge (Fal trim). */
+/** Corps `finalize` — crop + `_tmp_full` : l’edge coupe via Fal (jamais un recode client). */
 export function champsFinalizeReaction(input: {
   id: string;
   titre?: string;

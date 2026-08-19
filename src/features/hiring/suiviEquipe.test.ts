@@ -8,8 +8,10 @@ import {
   equipesParDm,
   hmsDuDm,
   hmsSansDm,
+  listerManagers,
   lienTikTok,
   nomProfil,
+  postersParManager,
   resumeCreateur,
   resumeHm,
 } from "./suiviEquipe";
@@ -133,5 +135,19 @@ describe("équipes DM → HM → créateurs", () => {
     expect(equipes[0]?.hms).toHaveLength(1);
     expect(equipes[0]?.compteurs.total).toBe(1);
     expect(hmsSansDm(tous).map((h) => h.hm.id)).toEqual(["hm2"]);
+  });
+
+  it("liste les managers avec les DM d'abord", () => {
+    expect(listerManagers(tous).map((p) => p.id)).toEqual(["dm1", "hm1", "hm2"]);
+  });
+
+  it("regroupe les posters sous leur hiring manager", () => {
+    const orphelin = profil({ id: "p2", role: "poster", prenom: "Ora", nom: "O" });
+    const groupes = postersParManager([c1, orphelin], tous);
+    expect(groupes).toHaveLength(2);
+    expect(groupes[0]?.manager?.id).toBe("hm1");
+    expect(groupes[0]?.posters.map((p) => p.id)).toEqual(["p1"]);
+    expect(groupes[1]?.manager).toBeNull();
+    expect(groupes[1]?.posters.map((p) => p.id)).toEqual(["p2"]);
   });
 });

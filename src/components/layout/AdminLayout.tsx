@@ -15,6 +15,7 @@ import {
   MessageSquareQuote,
   MoonStar,
   Settings,
+  UserCog,
   UserRound,
   Users,
   Video,
@@ -105,6 +106,12 @@ export function AdminLayout() {
               label: t("nav.analytics"),
               icon: BarChart3,
               description: t("navDesc.analytics"),
+            },
+            {
+              to: "/admin/managers",
+              label: t("nav.managers"),
+              icon: UserCog,
+              description: t("navDesc.managers"),
             },
             { to: "/admin/posters", label: t("nav.posters"), icon: Users, description: t("navDesc.posters") },
             {

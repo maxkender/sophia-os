@@ -17,7 +17,13 @@ import {
 } from "@/components/ui/card";
 import { badgeManager, estRoleManager, useAuth } from "@/features/auth/AuthContext";
 import { CompteursPhases, ListeCreateursSuivi } from "@/features/hiring/SuiviCreateurs";
-import { equipesParDm, hmsDuDm, hmsSansDm, nomProfil, resumeHm } from "@/features/hiring/suiviEquipe";
+import {
+  hmsDuDm,
+  listerManagers,
+  nomProfil,
+  postersParManager,
+  resumeHm,
+} from "@/features/hiring/suiviEquipe";
 import { CompteEditor, PostsParJourCompte } from "@/features/moteur/CompteEditor";
 import {
   assurerComptePoster,
@@ -420,6 +426,14 @@ function BadgeUgc({ label }: { label: string }) {
 }
 
 export function AdminPostersPage() {
+  return <AdminEquipePage vue="posters" />;
+}
+
+export function AdminManagersPage() {
+  return <AdminEquipePage vue="managers" />;
+}
+
+function AdminEquipePage({ vue }: { vue: "posters" | "managers" }) {
   const { t, i18n } = useTranslation();
   const { user } = useAuth();
   const queryClient = useQueryClient();
@@ -461,7 +475,7 @@ export function AdminPostersPage() {
     },
   });
 
-  const [ajout, setAjout] = React.useState<"ferme" | "poster" | "recruteur">("ferme");
+  const [ajout, setAjout] = React.useState(false);
 
   const [prenom, setPrenom] = React.useState("");
   const [nom, setNom] = React.useState("");
@@ -880,13 +894,7 @@ export function AdminPostersPage() {
 
   const tous = posters.data ?? [];
   const creators = trierCreateurs(tous.filter((p) => p.role === "poster").filter(matchCreateur));
-  const admins = tous.filter((p) => p.role === "admin");
   const tousCreateurs = tous.filter((p) => p.role === "poster");
-  const parManager = new Map<string, PosterProfil[]>();
-  for (const c of creators) {
-    const k = c.manager_id ?? "__none__";
-    parManager.set(k, [...(parManager.get(k) ?? []), c]);
-  }
 
   const eloMoyenRecruteur = (recId: string): number | null => {
     const scores = tousCreateurs
@@ -928,9 +936,15 @@ export function AdminPostersPage() {
           </div>
           <DrapeauxLangues codes={langues} />
         </div>
-        {poster.role === "hiring_manager" && poster.manager_nom && (
-          <p className="text-[11px] text-violet-700">{t("posters.dmDe", { nom: poster.manager_nom })}</p>
+        {poster.role === "directing_manager" && (
+          <p className="text-[11px] text-muted-foreground">{t("posters.estDm")}</p>
         )}
+        {poster.role === "hiring_manager" &&
+          (poster.manager_nom ? (
+            <p className="text-[11px] text-violet-700">{t("posters.dmDe", { nom: poster.manager_nom })}</p>
+          ) : (
+            <p className="text-[11px] text-muted-foreground">{t("posters.hmSansDm")}</p>
+          ))}
         <LangueRecruteurDropdown recruteur={poster} />
       </article>
     );
@@ -1025,7 +1039,16 @@ export function AdminPostersPage() {
     if (posters.isPending) {
       return <p className="text-sm text-muted-foreground">{t("common.loading")}</p>;
     }
-    if (tous.length === 0) return <EmptyState title={t("posters.empty")} />;
+
+    if (vue === "managers") {
+      const managers = listerManagers(tous);
+      if (managers.length === 0) return <EmptyState title={t("posters.emptyManagers")} />;
+      return grille(managers, "recruteur");
+    }
+
+    if (tousCreateurs.length === 0 && !filtresActifs) {
+      return <EmptyState title={t("posters.empty")} />;
+    }
 
     if (filtresActifs) {
       return (
@@ -1039,63 +1062,24 @@ export function AdminPostersPage() {
       );
     }
 
-    const equipes = equipesParDm(tous);
-    const orphelins = hmsSansDm(tous);
+    const groupes = postersParManager(creators, tous);
+    if (groupes.length === 0) return <EmptyState title={t("posters.empty")} />;
 
     return (
       <div className="space-y-8">
-        {equipes.map((eq) => {
-          const membresEquipe = [eq.dm, ...eq.hms.map((h) => h.hm)];
-          return (
-            <div key={eq.dm.id} className="space-y-6">
-              {section(nomAffiche(eq.dm), eq.hms.length, membresEquipe, "recruteur", {
-                cle: `dm-${eq.dm.id}`,
-                badge: t("hiring.badgeDm"),
-                sousTitre: t("posters.equipeDmResume", {
-                  hms: eq.hms.length,
-                  total: eq.compteurs.total,
-                  pasCree: eq.compteurs.pasCree,
-                  warmup: eq.compteurs.warmup,
-                  actif: eq.compteurs.actif,
-                }),
-              })}
-              {eq.hms.map((h) => {
-                const membres = parManager.get(h.hm.id) ?? [];
-                if (membres.length === 0) return null;
-                return section(nomAffiche(h.hm), membres.length, membres, "createur", {
-                  cle: `hm-creators-${h.hm.id}`,
-                  sousTitre: t("posters.createursDuRecruteur"),
-                });
-              })}
-            </div>
-          );
-        })}
-        {orphelins.length > 0 &&
+        {groupes.map((g) =>
           section(
-            t("posters.hmSansDm"),
-            orphelins.length,
-            orphelins.map((h) => h.hm),
-            "recruteur",
-            { cle: "hm-sans-dm", badge: t("hiring.badgeHm") },
-          )}
-        {orphelins.map((h) => {
-          const membres = parManager.get(h.hm.id) ?? [];
-          if (membres.length === 0) return null;
-          return section(nomAffiche(h.hm), membres.length, membres, "createur", {
-            cle: `orphan-creators-${h.hm.id}`,
-            sousTitre: t("posters.createursDuRecruteur"),
-          });
-        })}
-        {(parManager.get("__none__") ?? []).length > 0 &&
-          section(
-            t("posters.sansRecruteur"),
-            (parManager.get("__none__") ?? []).length,
-            parManager.get("__none__") ?? [],
+            g.manager ? nomAffiche(g.manager) : t("posters.sansRecruteur"),
+            g.posters.length,
+            g.posters,
             "createur",
-          )}
-        {filtrePhase === "tous" &&
-          admins.length > 0 &&
-          section(t("nav.admin"), admins.length, admins, "createur")}
+            {
+              cle: g.manager?.id ?? "sans-recruteur",
+              badge: g.manager ? (badgeManager(g.manager.role) ?? undefined) : undefined,
+              sousTitre: g.manager ? t("posters.createursDuRecruteur") : undefined,
+            },
+          ),
+        )}
       </div>
     );
   })();
@@ -1121,43 +1105,43 @@ export function AdminPostersPage() {
     <div className="space-y-6">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="flex items-center gap-2">
-          <h1 className="text-lg font-semibold">{t("posters.title")}</h1>
-          <AidePosters />
+          <h1 className="text-lg font-semibold">
+            {vue === "managers" ? t("posters.managersTitle") : t("posters.title")}
+          </h1>
+          {vue === "posters" && <AidePosters />}
         </div>
-        {ajout === "ferme" ? (
-          <div className="flex gap-2">
-            <Button
-              onClick={() => {
-                setCree(null);
-                setAjout("poster");
-              }}
-            >
-              <Plus className="size-4" />
-              {t("posters.ajouterPoster")}
-            </Button>
-            <Button
-              variant="outline"
-              onClick={() => {
-                setRecCree(null);
-                setAjout("recruteur");
-              }}
-            >
-              <Plus className="size-4" />
-              {t("posters.ajouterRecruteur")}
-            </Button>
-          </div>
-        ) : (
-          <Button variant="ghost" onClick={() => setAjout("ferme")}>
+        {ajout ? (
+          <Button variant="ghost" onClick={() => setAjout(false)}>
             <X className="size-4" />
             {t("common.close")}
+          </Button>
+        ) : vue === "managers" ? (
+          <Button
+            onClick={() => {
+              setRecCree(null);
+              setAjout(true);
+            }}
+          >
+            <Plus className="size-4" />
+            {t("posters.ajouterRecruteur")}
+          </Button>
+        ) : (
+          <Button
+            onClick={() => {
+              setCree(null);
+              setAjout(true);
+            }}
+          >
+            <Plus className="size-4" />
+            {t("posters.ajouterPoster")}
           </Button>
         )}
       </div>
 
-      {ajout === "poster" && formulairePoster}
-      {ajout === "recruteur" && formulaireRecruteur}
+      {ajout && vue === "posters" && formulairePoster}
+      {ajout && vue === "managers" && formulaireRecruteur}
 
-      {barreFiltres}
+      {vue === "posters" && barreFiltres}
       {liste}
 
       {fiche && (

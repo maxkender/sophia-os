@@ -4,6 +4,8 @@
 // re-traduit vers chacune de ces langues (images nettoyées réutilisées, seul le
 // texte change + insertion Sophia). Ajouter une langue ici suffit à l'exposer
 // partout (création poster/recruteur, édition de compte).
+import i18n from "@/locales";
+
 export const LANGUES_CIBLES = [
   "fr",
   "en",
@@ -21,7 +23,7 @@ export const LANGUES_CIBLES = [
   "tr",
 ] as const;
 
-const NOM_LANGUE: Record<string, string> = {
+const NOM_LANGUE_FR: Record<string, string> = {
   fr: "Français",
   en: "Anglais",
   de: "Allemand",
@@ -36,6 +38,23 @@ const NOM_LANGUE: Record<string, string> = {
   ro: "Roumain",
   sv: "Suédois",
   tr: "Turc",
+};
+
+const NOM_LANGUE_EN: Record<string, string> = {
+  fr: "French",
+  en: "English",
+  de: "German",
+  it: "Italian",
+  es: "Spanish",
+  pt: "Portuguese",
+  cs: "Czech",
+  nl: "Dutch",
+  el: "Greek",
+  hu: "Hungarian",
+  pl: "Polish",
+  ro: "Romanian",
+  sv: "Swedish",
+  tr: "Turkish",
 };
 
 /** Drapeau emoji d'une langue cible (aligné Documents : en → 🇬🇧). */
@@ -56,9 +75,19 @@ const DRAPEAU_LANGUE: Record<string, string> = {
   tr: "🇹🇷",
 };
 
-/** Nom lisible d'une langue (« Allemand » plutôt que « DE »). */
-export function nomLangue(code: string): string {
-  return NOM_LANGUE[code] ?? code.toUpperCase();
+function codeLocale(locale?: string): string {
+  return (locale ?? i18n.resolvedLanguage ?? i18n.language ?? "fr")
+    .slice(0, 2)
+    .toLowerCase();
+}
+
+function tableNoms(locale?: string): Record<string, string> {
+  return codeLocale(locale) === "en" ? NOM_LANGUE_EN : NOM_LANGUE_FR;
+}
+
+/** Nom lisible d'une langue (« Allemand » / « German » plutôt que « DE »). */
+export function nomLangue(code: string, locale?: string): string {
+  return tableNoms(locale)[code] ?? code.toUpperCase();
 }
 
 /** Drapeau emoji d'une langue (« 🇩🇪 »), ou le code en majuscules si inconnu. */

@@ -47,7 +47,7 @@ function nomAffiche(p: PosterProfil): string {
 }
 
 function LanguesHm({ recruteur }: { recruteur: PosterProfil }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const queryClient = useQueryClient();
   const langues = useQuery({ queryKey: ["langues-reference"], queryFn: listerLanguesReference });
   const maj = useMutation({
@@ -55,7 +55,8 @@ function LanguesHm({ recruteur }: { recruteur: PosterProfil }) {
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["posters"] }),
   });
   const actives = recruteur.langues ?? [];
-  const resume = actives.length > 0 ? actives.map(nomLangue).join(", ") : t("posters.aucuneLangue");
+  const libelle = (l: string) => nomLangue(l, i18n.language);
+  const resume = actives.length > 0 ? actives.map(libelle).join(", ") : t("posters.aucuneLangue");
 
   return (
     <select
@@ -75,7 +76,7 @@ function LanguesHm({ recruteur }: { recruteur: PosterProfil }) {
       <option value="">{resume}</option>
       {(langues.data ?? []).map((l) => (
         <option key={l} value={l}>
-          {actives.includes(l) ? `✓ ${nomLangue(l)}` : nomLangue(l)}
+          {actives.includes(l) ? `✓ ${libelle(l)}` : libelle(l)}
         </option>
       ))}
     </select>
@@ -84,7 +85,7 @@ function LanguesHm({ recruteur }: { recruteur: PosterProfil }) {
 
 /** Directing manager : créer et paramétrer des hiring managers. */
 export function HiringRecruteursPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { role, user } = useAuth();
   const queryClient = useQueryClient();
 
@@ -176,7 +177,7 @@ export function HiringRecruteursPage() {
                         : "rounded-full border px-2.5 py-1 text-xs hover:bg-muted"
                     }
                   >
-                    {nomLangue(l)}
+                    {nomLangue(l, i18n.language)}
                   </button>
                 ))}
               </div>

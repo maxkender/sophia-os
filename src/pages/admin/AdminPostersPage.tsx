@@ -234,7 +234,7 @@ function CreateurUpwork({
 
 /** Dropdown langues gérées (multi : choisir une langue la bascule). */
 function LangueRecruteurDropdown({ recruteur }: { recruteur: PosterProfil }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const queryClient = useQueryClient();
   const langues = useQuery({ queryKey: ["langues-reference"], queryFn: listerLanguesReference });
   const maj = useMutation({
@@ -243,7 +243,8 @@ function LangueRecruteurDropdown({ recruteur }: { recruteur: PosterProfil }) {
   });
 
   const actives = recruteur.langues ?? [];
-  const resume = actives.length > 0 ? actives.map(nomLangue).join(", ") : t("posters.aucuneLangue");
+  const libelle = (l: string) => nomLangue(l, i18n.language);
+  const resume = actives.length > 0 ? actives.map(libelle).join(", ") : t("posters.aucuneLangue");
 
   return (
     <div className="space-y-1" onClick={(e) => e.stopPropagation()}>
@@ -264,7 +265,7 @@ function LangueRecruteurDropdown({ recruteur }: { recruteur: PosterProfil }) {
         <option value="">{resume}</option>
         {(langues.data ?? []).map((l) => (
           <option key={l} value={l}>
-            {actives.includes(l) ? `✓ ${nomLangue(l)}` : nomLangue(l)}
+            {actives.includes(l) ? `✓ ${libelle(l)}` : libelle(l)}
           </option>
         ))}
       </select>
@@ -419,7 +420,7 @@ function BadgeUgc({ label }: { label: string }) {
 }
 
 export function AdminPostersPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { user } = useAuth();
   const queryClient = useQueryClient();
   const posters = useQuery({ queryKey: ["posters"], queryFn: listerPosters });
@@ -720,7 +721,7 @@ export function AdminPostersPage() {
                       : "rounded-full border px-2.5 py-1 text-xs hover:bg-muted"
                   }
                 >
-                  {nomLangue(l)}
+                  {nomLangue(l, i18n.language)}
                 </button>
               ))}
             </div>

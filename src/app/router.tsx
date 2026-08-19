@@ -17,7 +17,7 @@ import { AdminChatbotPage } from "@/pages/admin/AdminChatbotPage";
 import { DocumentView } from "@/features/documents/DocumentView";
 import { AdminPilotagePage } from "@/pages/admin/AdminPilotagePage";
 import { AdminSourcesPage } from "@/pages/admin/AdminSourcesPage";
-import { AdminPostersPage } from "@/pages/admin/AdminPostersPage";
+import { AdminManagersPage, AdminPostersPage } from "@/pages/admin/AdminPostersPage";
 import { AdminBibliothequePage } from "@/pages/admin/AdminBibliothequePage";
 import { AdminReglagesPage } from "@/pages/admin/AdminReglagesPage";
 import { AdminPromptsPage } from "@/pages/admin/AdminPromptsPage";
@@ -70,6 +70,7 @@ export function AppRouter() {
             <Route path="/admin/slideshows" element={<AdminSlideshowsPage />} />
             <Route path="/admin/assignation-sources" element={<Navigate to="/admin/sources" replace />} />
             <Route path="/admin/reproduisibles" element={<Navigate to="/admin/slideshows" replace />} />
+            <Route path="/admin/managers" element={<AdminManagersPage />} />
             <Route path="/admin/posters" element={<AdminPostersPage />} />
             <Route path="/admin/reviews" element={<AdminReviewsPage />} />
             <Route path="/admin/parrainages" element={<AdminReferralsPage />} />

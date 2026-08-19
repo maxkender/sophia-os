@@ -20,30 +20,49 @@ export function CompteursPhases({ compteurs }: { compteurs: CompteursPhase }) {
 
 export function LigneCreateurProfil({ poster }: { poster: PosterProfil }) {
   const { t } = useTranslation();
-  const lien = lienTikTok(poster.handle_tiktok);
+  const comptes = poster.comptes?.length
+    ? poster.comptes
+    : poster.compte_id
+      ? [
+          {
+            id: poster.compte_id,
+            handle_tiktok: poster.handle_tiktok,
+            warmup_started_at: poster.warmup_started_at,
+            warmup_ends_at: poster.warmup_ends_at,
+          },
+        ]
+      : [];
   return (
     <li className="flex flex-wrap items-center gap-2 rounded-md border bg-background/60 px-2.5 py-1.5">
       <span className="text-sm font-medium">{nomProfil(poster)}</span>
       {!poster.is_active && <Badge variant="secondary">{t("posters.disabled")}</Badge>}
-      {lien ? (
-        <a
-          href={lien.url}
-          target="_blank"
-          rel="noreferrer"
-          className="text-xs font-medium text-primary underline underline-offset-2"
-        >
-          {lien.at}
-        </a>
-      ) : (
+      {comptes.length === 0 && (
         <span className="text-xs text-muted-foreground">{t("hiring.pasDeTiktok")}</span>
       )}
-      <span className="ml-auto">
-        <WarmupBadge
-          compteId={poster.compte_id}
-          startedAt={poster.warmup_started_at}
-          endsAt={poster.warmup_ends_at}
-        />
-      </span>
+      {comptes.map((c) => {
+        const lien = lienTikTok(c.handle_tiktok);
+        return (
+          <span key={c.id} className="inline-flex items-center gap-1.5">
+            {lien ? (
+              <a
+                href={lien.url}
+                target="_blank"
+                rel="noreferrer"
+                className="text-xs font-medium text-primary underline underline-offset-2"
+              >
+                {lien.at}
+              </a>
+            ) : (
+              <span className="text-xs text-muted-foreground">{t("hiring.pasDeTiktok")}</span>
+            )}
+            <WarmupBadge
+              compteId={c.id}
+              startedAt={c.warmup_started_at}
+              endsAt={c.warmup_ends_at}
+            />
+          </span>
+        );
+      })}
     </li>
   );
 }

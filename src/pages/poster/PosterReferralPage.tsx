@@ -172,24 +172,25 @@ export function PosterReferralPage() {
             </div>
 
             <div className="space-y-1.5">
-              <Label htmlFor="ref-upwork">{t("referral.upwork")}</Label>
+              <Label htmlFor="ref-email">{t("referral.email")}</Label>
               <Input
-                id="ref-upwork"
-                value={form.contact_upwork ?? ""}
-                onChange={(e) => setChamp("contact_upwork", e.target.value)}
-                placeholder="https://www.upwork.com/freelancers/…"
-                inputMode="url"
+                id="ref-email"
+                type="email"
+                required
+                value={form.contact_email ?? ""}
+                onChange={(e) => setChamp("contact_email", e.target.value)}
+                autoComplete="email"
               />
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-1.5">
-                <Label htmlFor="ref-email">{t("referral.email")}</Label>
+                <Label htmlFor="ref-upwork">{t("referral.upwork")}</Label>
                 <Input
-                  id="ref-email"
-                  type="email"
-                  value={form.contact_email ?? ""}
-                  onChange={(e) => setChamp("contact_email", e.target.value)}
-                  autoComplete="email"
+                  id="ref-upwork"
+                  value={form.contact_upwork ?? ""}
+                  onChange={(e) => setChamp("contact_upwork", e.target.value)}
+                  placeholder="https://www.upwork.com/freelancers/…"
+                  inputMode="url"
                 />
               </div>
               <div className="space-y-1.5">

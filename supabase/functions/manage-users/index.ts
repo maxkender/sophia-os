@@ -41,7 +41,8 @@ interface PersonaUgcLibre {
  * Gestion des posters / recruteurs.
  *
  *   { action: "create", prenom, nom, password, langue?, langues?, role?, posts_par_jour? }
- *   { action: "ensure_compte", userId, langue, posts_par_jour? } — file admin → compte
+ *   { action: "ensure_compte", userId, langue, posts_par_jour? } — 1er compte si absent
+ *   { action: "ajouter_compte", userId, langue, posts_par_jour? } — 2e compte TikTok
  *   { action: "start_warmup", compteId }  — créateur (son compte) ou admin
  *   { action: "skip_warmup", compteId }   — admin : compte actif immédiat
  *   { action: "delete", userId }
@@ -315,14 +316,29 @@ async function gererRequete(request: Request): Promise<Response> {
     return json({ ok: true, userId: data.user?.id, email, compte, role: roleVoulu });
   }
 
-  // Poster existant sans compte : consomme la file admin (label + UGC) comme à la création.
-  if (body.action === "ensure_compte") {
+  // Poster existant : 1er compte (ensure) ou 2e compte TikTok (ajouter).
+  if (body.action === "ensure_compte" || body.action === "ajouter_compte") {
     const userId = String(body.userId ?? "").trim();
     const langue = String(body.langue ?? "").trim().toLowerCase();
+    const ajouter = body.action === "ajouter_compte";
     if (!userId || !langue) {
       return json({ error: "userId et langue requis" }, 400);
     }
     if (estRoleManager(acces.role) && acces.userId !== "cron") {
+      const { data: hm } = await supabase
+        .from("profiles")
+        .select("langues")
+        .eq("id", acces.userId)
+        .maybeSingle();
+      const gerees = ((hm?.langues as string[] | null) ?? [])
+        .map((l) => l.toLowerCase())
+        .filter(Boolean);
+      if (gerees.length > 0 && !gerees.includes(langue)) {
+        return json(
+          { error: `Langue « ${langue} » hors des langues gérées (${gerees.join(", ")})` },
+          400,
+        );
+      }
       const { data: cible } = await supabase
         .from("profiles")
         .select("manager_id")
@@ -333,64 +349,29 @@ async function gererRequete(request: Request): Promise<Response> {
       }
     }
 
-    const { data: deja } = await supabase
+    const { data: existants } = await supabase
       .from("comptes")
       .select("id")
-      .eq("poster_id", userId)
-      .maybeSingle();
-    if (deja?.id) {
-      return json({ ok: true, deja: true, compteId: deja.id });
+      .eq("poster_id", userId);
+    const nb = existants?.length ?? 0;
+    if (!ajouter && nb >= 1) {
+      return json({ ok: true, deja: true, compteId: existants![0]!.id });
+    }
+    if (ajouter && nb === 0) {
+      return json({ error: "AUCUN_COMPTE" }, 409);
+    }
+    if (nb >= 2) {
+      return json({ error: "MAX_COMPTES" }, 409);
     }
 
-    // Créateur sous HM UGC AI VIDEO → marque + labels HM (pas de file admin).
-    let modeUgcAiVideo = false;
-    if (estRoleManager(acces.role) && acces.userId !== "cron") {
-      modeUgcAiVideo = await estHmUgcAiVideo(supabase, acces);
-    } else if (acces.role === "admin") {
-      const { data: cible } = await supabase
-        .from("profiles")
-        .select("manager_id")
-        .eq("id", userId)
-        .maybeSingle();
-      if (cible?.manager_id) {
-        const { data: hm } = await supabase
-          .from("profiles")
-          .select("hm_ugc_ai_video")
-          .eq("id", cible.manager_id)
-          .maybeSingle();
-        modeUgcAiVideo = Boolean(hm?.hm_ugc_ai_video);
-      }
-    }
-
-    let fileItem: FileLabelItem | null = null;
-    let fileItemQueue: FileLabelQueued | null = null;
-    let personaUgc: PersonaUgcLibre | null = null;
-
-    if (modeUgcAiVideo) {
-      personaUgc = await personaUgcLibre(supabase);
-      if (!personaUgc) return json({ error: "NO_UGC_PERSONA" }, 409);
-    } else {
-      const prep = await preparerFileEtPersona(supabase, langue);
-      if (!prep.ok) return json({ error: prep.error }, 409);
-      fileItem = prep.fileItem;
-      fileItemQueue = prep.fileItemQueue;
-      personaUgc = prep.personaUgc;
-    }
-
-    const referenceId = await referenceLibre(supabase, langue);
-    const postsParJour = normaliserPostsParJour(body.posts_par_jour);
-    const compte = await preparerCompte(
+    const compte = await creerComptePosterExistant(
       supabase,
+      acces,
       userId,
       langue,
-      referenceId,
-      fileItem,
-      postsParJour,
-      personaUgc,
-      fileItemQueue,
-      { ugcAiVideo: modeUgcAiVideo },
+      body.posts_par_jour,
     );
-    if (!compte.id) return json({ error: "CREATION_COMPTE_ECHOUEE" }, 500);
+    if (compte instanceof Response) return compte;
     return json({ ok: true, compte });
   }
 
@@ -562,6 +543,74 @@ async function popLabelFile(
   const labelId = await labelMoinsUtiliseParLangue(supabase, langue, { ugcOnly: false });
   if (!labelId) return { ok: false, error: "NO_LABELS" };
   return { ok: true, item: { label_id: labelId, ugc: false }, fromQueue: false };
+}
+
+/** Nouveau compte pour un poster déjà créé (1er via ensure, 2e via ajouter). */
+async function creerComptePosterExistant(
+  supabase: Supabase,
+  acces: { role: string; userId: string },
+  userId: string,
+  langue: string,
+  postsParJourBrut: unknown,
+): Promise<
+  | Response
+  | {
+      id: string;
+      reference: string | null;
+      persona: boolean;
+      labelId: string | null;
+      ugc: boolean;
+      ugc_ai_video: boolean;
+    }
+> {
+  let modeUgcAiVideo = false;
+  if (estRoleManager(acces.role) && acces.userId !== "cron") {
+    modeUgcAiVideo = await estHmUgcAiVideo(supabase, acces);
+  } else if (acces.role === "admin") {
+    const { data: cible } = await supabase
+      .from("profiles")
+      .select("manager_id")
+      .eq("id", userId)
+      .maybeSingle();
+    if (cible?.manager_id) {
+      const { data: hm } = await supabase
+        .from("profiles")
+        .select("hm_ugc_ai_video")
+        .eq("id", cible.manager_id)
+        .maybeSingle();
+      modeUgcAiVideo = Boolean(hm?.hm_ugc_ai_video);
+    }
+  }
+
+  let fileItem: FileLabelItem | null = null;
+  let fileItemQueue: FileLabelQueued | null = null;
+  let personaUgc: PersonaUgcLibre | null = null;
+
+  if (modeUgcAiVideo) {
+    personaUgc = await personaUgcLibre(supabase);
+    if (!personaUgc) return json({ error: "NO_UGC_PERSONA" }, 409);
+  } else {
+    const prep = await preparerFileEtPersona(supabase, langue);
+    if (!prep.ok) return json({ error: prep.error }, 409);
+    fileItem = prep.fileItem;
+    fileItemQueue = prep.fileItemQueue;
+    personaUgc = prep.personaUgc;
+  }
+
+  const referenceId = await referenceLibre(supabase, langue);
+  const compte = await preparerCompte(
+    supabase,
+    userId,
+    langue,
+    referenceId,
+    fileItem,
+    normaliserPostsParJour(postsParJourBrut),
+    personaUgc,
+    fileItemQueue,
+    { ugcAiVideo: modeUgcAiVideo },
+  );
+  if (!compte.id) return json({ error: "CREATION_COMPTE_ECHOUEE" }, 500);
+  return compte;
 }
 
 /** Hiring manager marqué UGC AI VIDEO (ses créateurs = marque vidéo + labels HM). */

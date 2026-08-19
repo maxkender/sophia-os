@@ -152,6 +152,20 @@ export interface PostSlide {
   } | null;
 }
 
+/** Compte TikTok rattaché à un poster (un créateur peut en avoir 2). */
+export interface CompteResumePoster {
+  id: string;
+  handle_tiktok: string | null;
+  persona_nom: string | null;
+  persona_bio: string | null;
+  avatar_url: string | null;
+  langue: string | null;
+  score: number | null;
+  posts_par_jour: number;
+  warmup_started_at: string | null;
+  warmup_ends_at: string | null;
+}
+
 export interface PosterProfil {
   id: string;
   prenom: string | null;
@@ -167,6 +181,8 @@ export interface PosterProfil {
   persona_nom: string | null;
   persona_bio: string | null;
   avatar_url: string | null;
+  /** Tous les comptes TikTok actifs (max 2), du plus ancien au plus récent. */
+  comptes: CompteResumePoster[];
   /** ELO / forme du compte TikTok (`comptes.score`), null si pas de compte. */
   score: number | null;
   score_maj_at: string | null;

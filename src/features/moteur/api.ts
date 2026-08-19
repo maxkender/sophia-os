@@ -431,6 +431,31 @@ export function assurerComptePoster(input: {
   });
 }
 
+/** 2e compte TikTok d'un poster existant (identité + quota indépendants). */
+export function ajouterComptePoster(input: {
+  userId: string;
+  langue: string;
+  posts_par_jour?: number;
+}) {
+  return invoke<{
+    ok: boolean;
+    compte?: {
+      id: string;
+      reference: string | null;
+      persona: boolean;
+      labelId: string | null;
+      ugc: boolean;
+    };
+  }>("manage-users", {
+    action: "ajouter_compte",
+    userId: input.userId,
+    langue: input.langue,
+    ...(input.posts_par_jour != null
+      ? { posts_par_jour: normaliserPostsParJour(Number(input.posts_par_jour)) }
+      : {}),
+  });
+}
+
 /** Clamp le quota poster à 1–3 avant écriture. Défaut 2 si invalide. */
 function normaliserPostsParJour(n: number): number {
   if (!Number.isFinite(n)) return 2;
@@ -472,17 +497,16 @@ export async function listerPosters(): Promise<PosterProfil[]> {
   const { data: comptes } = await supabase
     .from("comptes")
     .select(
-      "id, poster_id, handle_tiktok, persona_nom, persona_bio, avatar_url, score, score_maj_at, warmup_started_at, warmup_ends_at, comptes_reference(handle_tiktok)",
+      "id, poster_id, handle_tiktok, persona_nom, persona_bio, avatar_url, langue, score, posts_par_jour, score_maj_at, warmup_started_at, warmup_ends_at, created_at, comptes_reference(handle_tiktok)",
     )
     .eq("is_active", true)
-    .order("created_at", { ascending: false });
-  // Un poster ne doit avoir qu'UN compte actif ; si par accident il y en a
-  // plusieurs, on garde le premier (le plus récent) — le MÊME que celui affiché
-  // par l'éditeur, pour que le @ du lien et celui du champ coïncident toujours.
-  const compteParPoster = new Map<string, NonNullable<typeof comptes>[number]>();
+    .order("created_at", { ascending: true });
+  const comptesParPoster = new Map<string, NonNullable<typeof comptes>[number][]>();
   const referenceParPoster = new Map<string, string>();
   for (const c of comptes ?? []) {
-    if (!compteParPoster.has(c.poster_id)) compteParPoster.set(c.poster_id, c);
+    const liste = comptesParPoster.get(c.poster_id) ?? [];
+    liste.push(c);
+    comptesParPoster.set(c.poster_id, liste);
     const ref = (c as { comptes_reference?: { handle_tiktok?: string } }).comptes_reference;
     if (ref?.handle_tiktok && !referenceParPoster.has(c.poster_id)) {
       referenceParPoster.set(c.poster_id, ref.handle_tiktok);
@@ -497,13 +521,26 @@ export async function listerPosters(): Promise<PosterProfil[]> {
   );
 
   return (profils ?? []).map((p) => {
-    const compte = compteParPoster.get(p.id);
+    const liste = comptesParPoster.get(p.id) ?? [];
+    const compte = liste[0];
     return {
       ...p,
       hm_ugc_ai_video: Boolean(
         (p as { hm_ugc_ai_video?: boolean }).hm_ugc_ai_video,
       ),
       role: (parUtilisateur.get(p.id) ?? null) as PosterProfil["role"],
+      comptes: liste.map((c) => ({
+        id: c.id as string,
+        handle_tiktok: (c.handle_tiktok as string | null) ?? null,
+        persona_nom: (c.persona_nom as string | null) ?? null,
+        persona_bio: (c.persona_bio as string | null) ?? null,
+        avatar_url: (c.avatar_url as string | null) ?? null,
+        langue: (c.langue as string | null) ?? null,
+        score: (c.score as number | null) ?? null,
+        posts_par_jour: Number(c.posts_par_jour ?? 1),
+        warmup_started_at: (c.warmup_started_at as string | null) ?? null,
+        warmup_ends_at: (c.warmup_ends_at as string | null) ?? null,
+      })),
       compte_id: compte?.id ?? null,
       handle_tiktok: compte?.handle_tiktok ?? null,
       reference_handle: referenceParPoster.get(p.id) ?? null,
@@ -638,20 +675,33 @@ export interface MonCompte {
  *  bio, avatar), générée automatiquement à la création. La RLS ne renvoie que
  *  sa propre ligne. */
 export async function monCompte(): Promise<MonCompte | null> {
+  const liste = await mesComptes();
+  return liste[0] ?? null;
+}
+
+/** Tous les comptes TikTok du poster connecté (max 2), du plus ancien au plus récent. */
+export async function mesComptes(): Promise<MonCompte[]> {
   const { data, error } = await supabase
     .from("comptes")
     .select(
       "id, persona_nom, persona_bio, handle_tiktok, avatar_url, langue, warmup_started_at, warmup_ends_at",
     )
-    .order("created_at", { ascending: true })
-    .limit(1)
-    .maybeSingle();
+    .eq("is_active", true)
+    .order("created_at", { ascending: true });
   if (error) throw error;
-  return (data as MonCompte) ?? null;
+  return (data as MonCompte[]) ?? [];
 }
 
-/** Le poster met à jour son pseudo TikTok (après avoir créé son compte). */
-export async function majMonHandle(handle: string): Promise<void> {
+/** Le poster met à jour le @ d'un de ses comptes TikTok. */
+export async function majMonHandle(handle: string, compteId?: string): Promise<void> {
+  if (compteId) {
+    const { error } = await supabase.rpc("maj_mon_handle_compte", {
+      p_compte_id: compteId,
+      nouveau: handle,
+    });
+    if (error) throw error;
+    return;
+  }
   const { error } = await supabase.rpc("maj_mon_handle", { nouveau: handle });
   if (error) throw error;
 }

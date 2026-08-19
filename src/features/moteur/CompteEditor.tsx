@@ -271,7 +271,11 @@ function UgcAiCompte({ compte }: { compte: CompteAvecDetails }) {
 }
 
 /** Quota d'assignation du jour (1–3). Plancher 1 — jamais 0. */
-export function PostsParJourCompte({ compte }: { compte: CompteAvecDetails }) {
+export function PostsParJourCompte({
+  compte,
+}: {
+  compte: Pick<CompteAvecDetails, "id" | "posts_par_jour">;
+}) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const brut = Number(compte.posts_par_jour);

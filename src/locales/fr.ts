@@ -940,7 +940,13 @@ export const fr = {
       langueVerrouillee: "Tu recrutes dans ta langue — elle est fixée par ton profil.",
       aucuneLangue: "Aucune langue disponible",
       postsParJour: "Posts par jour",
-      postsParJourAide: "Nombre de posts assignés chaque jour à ce créateur (1 à 3). Défaut : 2.",
+      postsParJourAide:
+        "Quota de CE compte (1 à 3), indépendant d’un éventuel 2e compte. Défaut : 2.",
+      ajouterCompte: "Ajouter un 2e compte TikTok",
+      ajouterCompteAide:
+        "Même créateur, nouvelle identité TikTok et quota quotidien indépendant (1 à 3).",
+      compteN: "Compte {{n}}",
+      maxComptes: "Ce créateur a déjà 2 comptes TikTok.",
       create: "Créer le poster",
       enCours: "Création…",
       progressIdentite: "Génération de l'identité (pseudo, bio, avatar)…",

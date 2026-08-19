@@ -40,6 +40,7 @@ function profil(over: Partial<PosterProfil> & { id: string; role: PosterProfil["
     is_active: true,
     must_change_password: false,
     hm_ugc_ai_video: false,
+    comptes: [],
     ...over,
   };
 }

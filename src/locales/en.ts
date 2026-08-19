@@ -938,7 +938,13 @@ export const en = {
       langueVerrouillee: "You recruit in your language — it's set by your profile.",
       aucuneLangue: "No language available",
       postsParJour: "Posts per day",
-      postsParJourAide: "How many posts this creator gets assigned each day (1 to 3). Default: 2.",
+      postsParJourAide:
+        "Quota for THIS account (1 to 3), independent of a possible 2nd account. Default: 2.",
+      ajouterCompte: "Add a 2nd TikTok account",
+      ajouterCompteAide:
+        "Same creator, a new TikTok identity and an independent daily quota (1 to 3).",
+      compteN: "Account {{n}}",
+      maxComptes: "This creator already has 2 TikTok accounts.",
       create: "Create poster",
       enCours: "Creating…",
       progressIdentite: "Generating the identity (handle, bio, avatar)…",

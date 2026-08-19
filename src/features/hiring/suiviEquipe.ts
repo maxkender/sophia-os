@@ -40,7 +40,9 @@ export type EquipeDm = {
 };
 
 export function resumeCreateur(p: PosterProfil): ResumeCreateur {
-  const lien = lienTikTok(p.handle_tiktok);
+  const handle =
+    p.comptes?.find((c) => c.handle_tiktok)?.handle_tiktok ?? p.handle_tiktok;
+  const lien = lienTikTok(handle);
   return {
     id: p.id,
     nom: nomProfil(p),

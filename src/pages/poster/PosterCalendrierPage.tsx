@@ -17,7 +17,13 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, EmptyState } from "@/components/ui/card";
 import { supabase } from "@/lib/supabase/client";
-import { aujourdhui, demarrerWarmup, majMonHandle, monCompte } from "@/features/moteur/api";
+import {
+  aujourdhui,
+  demarrerWarmup,
+  majMonHandle,
+  mesComptes,
+  type MonCompte,
+} from "@/features/moteur/api";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
 import { statutWarmup } from "@/features/moteur/warmup";
 import { useAuth } from "@/features/auth/AuthContext";
@@ -105,25 +111,19 @@ function CartePost({ post, creneau }: { post: PostCalendrier; creneau?: number }
  * automatiquement à la création du compte, que le poster recopie pour monter son
  * vrai compte TikTok. Rien à créer ici — juste à afficher ce qui existe déjà.
  */
-function IdentiteTikTok() {
+function IdentiteTikTok({ compte, index }: { compte: MonCompte; index: number }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
-  const { data: compte } = useQuery({ queryKey: ["mon-compte"], queryFn: monCompte });
-
   const [editHandle, setEditHandle] = React.useState(false);
   const [handle, setHandle] = React.useState("");
 
   const majHandle = useMutation({
-    mutationFn: () => majMonHandle(handle),
+    mutationFn: () => majMonHandle(handle, compte.id),
     onSuccess: () => {
       setEditHandle(false);
-      queryClient.invalidateQueries({ queryKey: ["mon-compte"] });
+      queryClient.invalidateQueries({ queryKey: ["mes-comptes"] });
     },
   });
-
-
-  // Le poster n'a pas encore de compte de publication : rien à afficher.
-  if (!compte) return null;
 
   const copier = (texte: string) => navigator.clipboard?.writeText(texte);
 
@@ -140,7 +140,7 @@ function IdentiteTikTok() {
           )}
           <div className="min-w-0 flex-1 space-y-1.5">
             <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-              {t("identite.titre")}
+              {t("identite.titre")} · {t("hiring.compteN", { n: index + 1 })}
             </p>
             {compte.persona_nom && <p className="text-sm font-semibold">{compte.persona_nom}</p>}
 
@@ -216,15 +216,15 @@ export function PosterCalendrierPage() {
     queryFn: mesPosts,
     enabled: Boolean(user?.id),
   });
-  const { data: compte } = useQuery({
-    queryKey: ["mon-compte"],
-    queryFn: monCompte,
+  const { data: comptes } = useQuery({
+    queryKey: ["mes-comptes"],
+    queryFn: mesComptes,
     enabled: Boolean(user?.id),
   });
   const startWarmup = useMutation({
-    mutationFn: () => demarrerWarmup(compte!.id),
+    mutationFn: (compteId: string) => demarrerWarmup(compteId),
     onSuccess: () => {
-      void queryClient.invalidateQueries({ queryKey: ["mon-compte"] });
+      void queryClient.invalidateQueries({ queryKey: ["mes-comptes"] });
     },
   });
 
@@ -269,59 +269,77 @@ export function PosterCalendrierPage() {
     new Date(2024, 0, index + 1).toLocaleDateString(i18n.language, { weekday: "short" }),
   );
 
-  const warmupStatut = compte
-    ? statutWarmup({
-        warmup_started_at: compte.warmup_started_at,
-        warmup_ends_at: compte.warmup_ends_at,
-      })
-    : null;
+  const comptesListe = comptes ?? [];
+  const aDemarrer = comptesListe.filter(
+    (c) =>
+      statutWarmup({
+        warmup_started_at: c.warmup_started_at,
+        warmup_ends_at: c.warmup_ends_at,
+      }) === "attente",
+  );
+  const warmupStatut = aDemarrer.length > 0 ? "attente" : comptesListe.length > 0 ? "termine" : null;
 
   return (
     <div className="space-y-8">
-      {/* Warmup : le créateur démarre le timer ici (plus côté HM). */}
-      <div
-        className={cn(
-          "flex flex-col gap-3 rounded-lg border p-3 sm:flex-row sm:items-center sm:justify-between",
-          warmupStatut === "attente"
-            ? "border-warning/50 bg-warning/10"
-            : "border-destructive/40 bg-destructive/10",
-        )}
-      >
-        <div className="space-y-1">
-          <p
-            className={cn(
-              "text-sm font-medium",
-              warmupStatut === "attente" ? "text-warning" : "text-destructive",
-            )}
-          >
-            {warmupStatut === "attente"
-              ? t("calendrier.warmupADemarrer")
-              : t("calendrier.warmupRappel")}
-          </p>
-          {warmupStatut === "attente" && (
-            <p className="text-xs text-muted-foreground">{t("calendrier.warmupADemarrerAide")}</p>
+      {comptesListe.length > 0 && (
+        <div
+          className={cn(
+            "flex flex-col gap-3 rounded-lg border p-3 sm:flex-row sm:items-center sm:justify-between",
+            warmupStatut === "attente"
+              ? "border-warning/50 bg-warning/10"
+              : "border-destructive/40 bg-destructive/10",
           )}
-        </div>
-        {compte && (
+        >
+          <div className="space-y-1">
+            <p
+              className={cn(
+                "text-sm font-medium",
+                warmupStatut === "attente" ? "text-warning" : "text-destructive",
+              )}
+            >
+              {warmupStatut === "attente"
+                ? t("calendrier.warmupADemarrer")
+                : t("calendrier.warmupRappel")}
+            </p>
+            {warmupStatut === "attente" && (
+              <p className="text-xs text-muted-foreground">{t("calendrier.warmupADemarrerAide")}</p>
+            )}
+          </div>
           <div className="flex flex-wrap items-center gap-2">
-            <WarmupBadge
-              compteId={compte.id}
-              startedAt={compte.warmup_started_at}
-              endsAt={compte.warmup_ends_at}
-              showStart={warmupStatut === "attente"}
-              startPending={startWarmup.isPending}
-              onStart={() => startWarmup.mutate()}
-            />
+            {comptesListe.map((c, i) => (
+              <span key={c.id} className="inline-flex items-center gap-1.5">
+                {comptesListe.length > 1 && (
+                  <span className="text-[10px] text-muted-foreground">
+                    {t("hiring.compteN", { n: i + 1 })}
+                  </span>
+                )}
+                <WarmupBadge
+                  compteId={c.id}
+                  startedAt={c.warmup_started_at}
+                  endsAt={c.warmup_ends_at}
+                  showStart={
+                    statutWarmup({
+                      warmup_started_at: c.warmup_started_at,
+                      warmup_ends_at: c.warmup_ends_at,
+                    }) === "attente"
+                  }
+                  startPending={startWarmup.isPending}
+                  onStart={() => startWarmup.mutate(c.id)}
+                />
+              </span>
+            ))}
             {startWarmup.isError && (
               <span className="text-xs text-destructive">
                 {(startWarmup.error as Error).message}
               </span>
             )}
           </div>
-        )}
-      </div>
+        </div>
+      )}
 
-      <IdentiteTikTok />
+      {comptesListe.map((c, i) => (
+        <IdentiteTikTok key={c.id} compte={c} index={i} />
+      ))}
 
       <Link
         to="/createur/parrainage"

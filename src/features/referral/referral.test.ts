@@ -18,7 +18,7 @@ function payloadValide(over: Partial<ReferralPayload> = {}): ReferralPayload {
     nom: "Martin",
     pays: "fr",
     contact_upwork: "https://www.upwork.com/freelancers/~alex",
-    contact_email: "",
+    contact_email: "alex@example.com",
     contact_telephone: "",
     confirme_present: true,
     confirme_fiable: true,
@@ -58,15 +58,16 @@ describe("bonusPotentielUsd", () => {
 });
 
 describe("validerReferral", () => {
-  it("accepte un formulaire complet avec Upwork", () => {
+  it("accepte un formulaire complet avec email (Upwork optionnel)", () => {
     expect(validerReferral(payloadValide())).toBeNull();
   });
 
-  it("accepte email ou téléphone à la place d’Upwork", () => {
+  it("accepte un email seul, Upwork et téléphone optionnels", () => {
     expect(
       validerReferral(
         payloadValide({
           contact_upwork: "",
+          contact_telephone: "",
           contact_email: "alex@example.com",
         }),
       ),
@@ -74,15 +75,35 @@ describe("validerReferral", () => {
     expect(
       validerReferral(
         payloadValide({
-          contact_upwork: "  ",
-          contact_email: "",
+          contact_upwork: "",
           contact_telephone: "+33 6 12 34 56 78",
         }),
       ),
     ).toBeNull();
   });
 
-  it("exige prénom, pays OS, un contact et les 3 confirmations", () => {
+  it("refuse Upwork ou téléphone sans email fonctionnel", () => {
+    expect(
+      validerReferral(
+        payloadValide({
+          contact_upwork: "https://www.upwork.com/freelancers/~alex",
+          contact_email: "",
+          contact_telephone: "",
+        }),
+      ),
+    ).toBe("referral.err.contact");
+    expect(
+      validerReferral(
+        payloadValide({
+          contact_upwork: "",
+          contact_email: "",
+          contact_telephone: "+33 6 12 34 56 78",
+        }),
+      ),
+    ).toBe("referral.err.contact");
+  });
+
+  it("exige prénom, pays OS, un email et les 3 confirmations", () => {
     expect(validerReferral(payloadValide({ prenom: "  " }))).toBe("referral.err.prenom");
     expect(validerReferral(payloadValide({ pays: "xx" }))).toBe("referral.err.pays");
     expect(

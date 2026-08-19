@@ -50,10 +50,10 @@ export function validerReferral(payload: ReferralPayload): string | null {
   const upwork = texteOuNull(payload.contact_upwork);
   const email = texteOuNull(payload.contact_email);
   const telephone = texteOuNull(payload.contact_telephone);
-  if (!upwork && !email && !telephone) return "referral.err.contact";
+  if (!email) return "referral.err.contact";
+  if (!EMAIL_RE.test(email)) return "referral.err.email";
 
   if (upwork && !contactUpworkValide(upwork)) return "referral.err.upwork";
-  if (email && !EMAIL_RE.test(email)) return "referral.err.email";
   if (telephone && digitsTelephone(telephone).length < 8) return "referral.err.telephone";
 
   if (!payload.confirme_present) return "referral.err.present";

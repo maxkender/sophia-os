@@ -80,7 +80,7 @@ function DrapeauxLangues({ codes }: { codes: string[] }) {
   return (
     <span
       className="flex shrink-0 flex-wrap items-center justify-end gap-0.5 text-[15px] leading-none"
-      aria-label={uniques.map(nomLangue).join(", ")}
+      aria-label={uniques.map((code) => nomLangue(code)).join(", ")}
     >
       {uniques.map((code) => (
         <span key={code} title={nomLangue(code)} className="select-none">

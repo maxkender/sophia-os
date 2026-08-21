@@ -21,11 +21,8 @@ import {
   type UgcReaction,
 } from "@/features/ugc/api";
 import {
-  cheminVideoCroppee,
-  estTrimPlein,
   extraireFrameTrim,
   normaliserTrim,
-  trimmerVideoLossless,
   trimPlein,
   type VideoTrim,
 } from "@/features/ugc/videoCrop";
@@ -135,31 +132,13 @@ export function AdminUgcVideosPage() {
       setPreviewFrame(frameUp.url);
 
       setProgress(t("ugc.videos.cropEnCours"));
-      let videoPath = draft.video_source_path;
-      let videoUrl = draft.video_source_url;
-      if (!estTrimPlein(tNorm.startSec, tNorm.endSec, dureeSec)) {
-        const cropped = await trimmerVideoLossless(
-          draft.video_source_url,
-          tNorm,
-          dureeSec,
-          setProgress,
-        );
-        const dest = cheminVideoCroppee(draft.id, cropped.ext);
-        const videoUp = await uploadUgcReactionFichier(
-          dest,
-          cropped.blob,
-          cropped.mime,
-        );
-        videoPath = videoUp.path;
-        videoUrl = videoUp.url;
-      }
       const reaction = await finaliserUgcReaction(
         {
           id: draft.id,
           titre: titre.trim() || draft.titre,
           crop: tNorm,
-          videoSourcePath: videoPath,
-          videoSourceUrl: videoUrl,
+          videoSourcePath: draft.video_source_path,
+          videoSourceUrl: draft.video_source_url,
           firstFramePath: frameUp.path,
           firstFrameUrl: frameUp.url,
           dureeMs: Math.round((tNorm.endSec - tNorm.startSec) * 1000),

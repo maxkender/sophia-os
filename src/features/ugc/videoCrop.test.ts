@@ -56,6 +56,8 @@ describe("argsFfmpegTrimH264", () => {
     expect(args).toContain("-t");
     expect(args).toContain("5.300");
     expect(args).toContain("aac");
+    expect(args).toContain("-r");
+    expect(args).toContain("30");
   });
 
   it("peut couper sans audio", () => {

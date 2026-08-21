@@ -5,7 +5,7 @@
  *   { action: "finalize", … }
  *     → trim Fal lossless du `_tmp_full` (crop start/end) + first_frame
  *       (+ video_text OCR). Tout le reste du dossier (dont `_tmp_full`) est purgé.
- *     Fallback : vidéo déjà trimée uploadée par le client (ancien MediaRecorder).
+ *     Fallback (sans `_tmp_full`) : vidéo déjà trimée uploadée par un ancien client.
  *   { action: "ocr_frame", imageUrl, stream? }
  *   { action: "list" | "delete" | "list_utilisations" | "register_utilisation" | "delete_utilisation" }
  */
@@ -17,6 +17,7 @@ import {
   sonderVideoMeta,
 } from "../_shared/fal_normaliser_video.ts";
 import { trimmerVideoFal } from "../_shared/fal_trim_video.ts";
+import { planTrimReaction } from "../_shared/plan_trim_reaction.ts";
 import { ocrFrame } from "../_shared/gemini.ts";
 import { reponseNdjson, veutStream } from "../_shared/nettoyage_etapes.ts";
 import {
@@ -482,53 +483,63 @@ Deno.serve(async (request) => {
           videoText = await ocrFrame(firstFrameUrl);
         }
 
-        // Trim Fal de l'original `_tmp_full` (conserve FPS/bitrate).
-        // Fallback : vidéo déjà recodée par le client (ancien MediaRecorder).
+        // Toujours Fal/copy depuis `_tmp_full` si crop + source.
+        // Ne jamais préférer un recode navigateur (ffmpeg.wasm ~15 fps).
         let finalVideoPath = `ugc/reactions/${id}/video.mp4`;
         let finalVideoUrl = "";
-        const clientDejaCroppe =
-          Boolean(videoPathClient && videoUrlClient) &&
-          !/_tmp_full\.mp4$/i.test(videoPathClient);
+        const plan = planTrimReaction({
+          crop,
+          sourceUrl,
+          videoPathClient,
+          videoUrlClient,
+        });
 
-        if (clientDejaCroppe) {
-          // Front a déjà coupé (H.264 ou fallback webm).
-          finalVideoPath = videoPathClient;
-          finalVideoUrl = videoUrlClient;
+        const metaTrim = async (base: string) => {
+          if (!finalVideoUrl) return base;
+          try {
+            return `${base} · ${formaterVideoMeta(await sonderVideoMeta(finalVideoUrl))}`;
+          } catch {
+            return base;
+          }
+        };
+
+        const transcodeClientWebmSiBesoin = async () => {
           const estWebm =
             /\.webm(\?|$)/i.test(videoPathClient) ||
             /\.webm(\?|$)/i.test(videoUrlClient);
-          if (estWebm) {
-            emit?.({
-              etape: "transcode",
-              statut: "en_cours",
-              detail: "WebM → MP4 H.264 (Fal) pour Kling…",
-            });
-            const mp4 = await normaliserVideoMp4PourKling(videoUrlClient, (p) => {
-              if (p.detail) {
-                emit?.({
-                  etape: "transcode",
-                  statut: "en_cours",
-                  detail: p.detail,
-                });
-              }
-            });
-            finalVideoPath = `ugc/reactions/${id}/video.mp4`;
-            finalVideoUrl = await uploader(
-              supabase,
-              finalVideoPath,
-              mp4.bytes,
-              "video/mp4",
-            );
-            if (videoPathClient !== finalVideoPath) {
-              await supprimerStorage(supabase, videoPathClient);
+          if (!estWebm) return;
+          emit?.({
+            etape: "transcode",
+            statut: "en_cours",
+            detail: "WebM → MP4 H.264 (Fal) pour Kling…",
+          });
+          const mp4 = await normaliserVideoMp4PourKling(videoUrlClient, (p) => {
+            if (p.detail) {
+              emit?.({
+                etape: "transcode",
+                statut: "en_cours",
+                detail: p.detail,
+              });
             }
-            emit?.({
-              etape: "transcode",
-              statut: "ok",
-              detail: `MP4 OK · ${mp4.bytes.length} octets`,
-            });
+          });
+          finalVideoPath = `ugc/reactions/${id}/video.mp4`;
+          finalVideoUrl = await uploader(
+            supabase,
+            finalVideoPath,
+            mp4.bytes,
+            "video/mp4",
+          );
+          if (videoPathClient !== finalVideoPath) {
+            await supprimerStorage(supabase, videoPathClient);
           }
-        } else if (crop && sourceUrl) {
+          emit?.({
+            etape: "transcode",
+            statut: "ok",
+            detail: await metaTrim(`MP4 OK · ${mp4.bytes.length} octets`),
+          });
+        };
+
+        if (plan === "fal_source" && crop && sourceUrl) {
           const { startSec, endSec } = crop;
           if (estTrimPlein(startSec, endSec, dureeSourceSec) && sourcePath) {
             emit?.({
@@ -551,7 +562,7 @@ Deno.serve(async (request) => {
             emit?.({
               etape: "trim",
               statut: "ok",
-              detail: "MP4 source copié tel quel",
+              detail: await metaTrim("MP4 source copié tel quel"),
             });
           } else {
             emit?.({
@@ -582,47 +593,13 @@ Deno.serve(async (request) => {
             emit?.({
               etape: "trim",
               statut: "ok",
-              detail: `MP4 trimé · ${trimmed.bytes.length} octets`,
+              detail: await metaTrim(`MP4 trimé · ${trimmed.bytes.length} octets`),
             });
           }
-        } else {
-          // Ancien flux : le client a déjà uploadé un trim (souvent WebM).
+        } else if (plan === "client_legacy") {
           finalVideoPath = videoPathClient;
           finalVideoUrl = videoUrlClient;
-          const estWebm =
-            /\.webm(\?|$)/i.test(videoPathClient) ||
-            /\.webm(\?|$)/i.test(videoUrlClient);
-          if (estWebm) {
-            emit?.({
-              etape: "transcode",
-              statut: "en_cours",
-              detail: "WebM → MP4 H.264 (Fal) pour Kling…",
-            });
-            const mp4 = await normaliserVideoMp4PourKling(videoUrlClient, (p) => {
-              if (p.detail) {
-                emit?.({
-                  etape: "transcode",
-                  statut: "en_cours",
-                  detail: p.detail,
-                });
-              }
-            });
-            finalVideoPath = `ugc/reactions/${id}/video.mp4`;
-            finalVideoUrl = await uploader(
-              supabase,
-              finalVideoPath,
-              mp4.bytes,
-              "video/mp4",
-            );
-            if (videoPathClient !== finalVideoPath) {
-              await supprimerStorage(supabase, videoPathClient);
-            }
-            emit?.({
-              etape: "transcode",
-              statut: "ok",
-              detail: `MP4 OK · ${mp4.bytes.length} octets`,
-            });
-          }
+          await transcodeClientWebmSiBesoin();
         }
 
         if (!finalVideoUrl) {

@@ -839,6 +839,8 @@ async function ecrireFileLabels(
  *   1) file de la langue (surpasse la générale)
  *   2) sinon file générale
  *   3) sinon label classique le moins utilisé (ne consomme pas les files)
+ * Les labels UGC AI VIDEO (et marques système) sont retirés : un HM/DM
+ * sans checkmark vidéo ne doit pas en poser sur un créateur slideshow.
  */
 async function popLabelFile(
   supabase: Supabase,
@@ -855,31 +857,65 @@ async function popLabelFile(
     .maybeSingle();
   const file = normaliserFileLabelsValeur(data?.valeur);
   const lang = String(langue ?? "").trim().toLowerCase();
+  const reserves = await idsLabelsHorsFileSlideshow(supabase);
 
-  const fileLangue = lang ? (file.par_langue[lang] ?? []) : [];
+  const fileLangueBrute = lang ? (file.par_langue[lang] ?? []) : [];
+  const fileLangue = fileLangueBrute.filter((i) => !reserves.has(i.label_id));
+  const fileGenerale = file.items.filter((i) => !reserves.has(i.label_id));
+  const fileNettoyee =
+    fileLangue.length !== fileLangueBrute.length ||
+    fileGenerale.length !== file.items.length;
+
   if (fileLangue.length > 0) {
     const [first, ...rest] = fileLangue;
     if (!first) return { ok: false, error: "NO_LABELS" };
     await ecrireFileLabels(supabase, {
-      items: file.items,
+      items: fileGenerale,
       par_langue: { ...file.par_langue, [lang]: rest },
     });
     return { ok: true, item: first, fromQueue: true, queueKey: lang };
   }
 
-  if (file.items.length > 0) {
-    const [first, ...rest] = file.items;
+  if (fileGenerale.length > 0) {
+    const [first, ...rest] = fileGenerale;
     if (!first) return { ok: false, error: "NO_LABELS" };
     await ecrireFileLabels(supabase, {
       items: rest,
-      par_langue: file.par_langue,
+      par_langue: lang
+        ? { ...file.par_langue, [lang]: fileLangue }
+        : file.par_langue,
     });
     return { ok: true, item: first, fromQueue: true, queueKey: "general" };
+  }
+
+  if (fileNettoyee) {
+    await ecrireFileLabels(supabase, {
+      items: fileGenerale,
+      par_langue: lang
+        ? { ...file.par_langue, [lang]: fileLangue }
+        : file.par_langue,
+    });
   }
 
   const labelId = await labelMoinsUtiliseParLangue(supabase, langue, { ugcOnly: false });
   if (!labelId) return { ok: false, error: "NO_LABELS" };
   return { ok: true, item: { label_id: labelId, ugc: false }, fromQueue: false };
+}
+
+/** Labels UGC AI VIDEO + marques système : hors file slideshow / least-used classique. */
+async function idsLabelsHorsFileSlideshow(supabase: Supabase): Promise<Set<string>> {
+  const { data } = await supabase
+    .from("labels")
+    .select("id, slug, ugc_ai_video");
+  return new Set(
+    (data ?? [])
+      .filter((l) => {
+        const slug = String(l.slug ?? "");
+        return Boolean(l.ugc_ai_video) || slug === "ugc-ai-video" || slug === "hook";
+      })
+      .map((l) => l.id as string)
+      .filter(Boolean),
+  );
 }
 
 /** Hiring manager marqué UGC AI VIDEO (ses créateurs = marque vidéo + labels HM). */
@@ -1006,6 +1042,7 @@ async function labelMoinsUtiliseParLangue(
   langue: string,
   opts: { ugcOnly: boolean },
 ): Promise<string | null> {
+  const horsFile = await idsLabelsHorsFileSlideshow(supabase);
   let pool: string[] = [];
   if (opts.ugcOnly) {
     pool = await labelIdsAvecContenusUgc(supabase);
@@ -1013,6 +1050,7 @@ async function labelMoinsUtiliseParLangue(
     const { data: tous } = await supabase.from("labels").select("id");
     pool = (tous ?? []).map((l) => l.id as string).filter(Boolean);
   }
+  pool = pool.filter((id) => !horsFile.has(id));
   if (pool.length === 0) return null;
 
   const counts = new Map<string, number>(pool.map((id) => [id, 0]));

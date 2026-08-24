@@ -4,6 +4,7 @@ import {
   captionEstVide,
   extraireCaptionFal,
   estLabelHook,
+  estLabelPoolUgcAiVideo,
   estLabelSysteme,
   idsPremiereSlide,
   mediaEstPremiereSlide,
@@ -20,6 +21,12 @@ describe("estLabelSysteme / hook", () => {
     expect(estLabelSysteme({ slug: "alpha-male" })).toBe(false);
     expect(estLabelHook({ slug: "Hook" })).toBe(false);
     expect(estLabelHook({ slug: "hook" })).toBe(true);
+  });
+
+  it("isole le pool UGC AI VIDEO des labels slideshow", () => {
+    expect(estLabelPoolUgcAiVideo({ slug: "ugc-ai-video" })).toBe(true);
+    expect(estLabelPoolUgcAiVideo({ slug: "dating-tips", ugc_ai_video: true })).toBe(true);
+    expect(estLabelPoolUgcAiVideo({ slug: "alpha-male", ugc_ai_video: false })).toBe(false);
   });
 });
 

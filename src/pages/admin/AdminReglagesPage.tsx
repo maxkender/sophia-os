@@ -15,6 +15,7 @@ import {
   listerLabels,
 } from "@/features/moteur/api";
 import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
+import { estLabelPoolUgcAiVideo } from "@/features/moteur/mediaCaption";
 import { VOIX_PAPIER, type DureeClipReglage } from "@/features/moteur/papierReglages";
 import {
   SCHEMA_ASSIGNATION,
@@ -798,6 +799,7 @@ export function AdminReglagesPage() {
                 >
                   <option value="">{t("common.none")}</option>
                   {(labels.data ?? [])
+                    .filter((l) => !estLabelPoolUgcAiVideo(l))
                     .filter((l) => !ugcAjout || (labelsUgc.data ?? []).includes(l.id))
                     .map((l) => (
                       <option key={l.id} value={l.id}>

@@ -11,6 +11,14 @@ export function estLabelSysteme(lab: { slug?: string | null }): boolean {
   return slug === "ugc-ai-video" || slug === SLUG_HOOK;
 }
 
+/** Pool UGC AI VIDEO (marque ou label thématique) — réservé aux HM/DM vidéo. */
+export function estLabelPoolUgcAiVideo(lab: {
+  slug?: string | null;
+  ugc_ai_video?: boolean | null;
+}): boolean {
+  return Boolean(lab.ugc_ai_video) || lab.slug === "ugc-ai-video";
+}
+
 export function estLabelHook(lab: { slug?: string | null }): boolean {
   return (lab.slug ?? "") === SLUG_HOOK;
 }

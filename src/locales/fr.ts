@@ -1022,6 +1022,7 @@ export const fr = {
       eloMoyen: "ELO moyen {{score}}",
       eloMoyenAide: "Moyenne ELO des créateurs rattachés à ce recruteur",
       createursDuRecruteur: "Créateurs rattachés",
+      createursDuDm: "Créateurs du DM",
       filtrePhase: "Phase",
       filtreLangue: "Langue",
       filtreLabel: "Label",

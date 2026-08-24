@@ -36,6 +36,8 @@ export type ResumeHm = {
 export type EquipeDm = {
   dm: PosterProfil;
   hms: ResumeHm[];
+  /** Posters créés directement par le DM (manager_id = DM), pas via un HM. */
+  createursDirects: ResumeCreateur[];
   compteurs: CompteursPhase;
 };
 
@@ -95,10 +97,15 @@ export function equipesParDm(tous: PosterProfil[]): EquipeDm[] {
   return dms
     .map((dm) => {
       const hms = hmsDuDm(tous, dm.id).map((hm) => resumeHm(hm, tous));
+      const createursDirects = createursDuManager(tous, dm.id).map(resumeCreateur);
       return {
         dm,
         hms,
-        compteurs: additionnerCompteurs(hms.map((h) => h.compteurs)),
+        createursDirects,
+        compteurs: additionnerCompteurs([
+          compteursDepuis(createursDirects),
+          ...hms.map((h) => h.compteurs),
+        ]),
       };
     })
     .sort((a, b) => nomProfil(a.dm).localeCompare(nomProfil(b.dm), "fr"));

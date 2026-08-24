@@ -116,10 +116,22 @@ describe("équipes DM → HM → créateurs", () => {
     warmup_started_at: "2020-01-01T00:00:00Z",
     warmup_ends_at: "2020-01-02T00:00:00Z",
   });
-  const tous = [dm, hm, hmOrphelin, c1];
+  const cDm = profil({
+    id: "p-dm",
+    role: "poster",
+    prenom: "Dana",
+    nom: "P",
+    manager_id: "dm1",
+    handle_tiktok: "dana.tt",
+    compte_id: "acc-dm",
+    warmup_started_at: "2020-01-01T00:00:00Z",
+    warmup_ends_at: "2020-01-02T00:00:00Z",
+  });
+  const tous = [dm, hm, hmOrphelin, c1, cDm];
 
   it("rattache les créateurs au HM et les HM au DM", () => {
     expect(createursDuManager(tous, "hm1").map((p) => p.id)).toEqual(["p1"]);
+    expect(createursDuManager(tous, "dm1").map((p) => p.id)).toEqual(["p-dm"]);
     expect(hmsDuDm(tous, "dm1").map((p) => p.id)).toEqual(["hm1"]);
     const r = resumeHm(hm, tous);
     expect(r.compteurs.actif).toBe(1);
@@ -132,7 +144,17 @@ describe("équipes DM → HM → créateurs", () => {
     expect(equipes).toHaveLength(1);
     expect(equipes[0]?.dm.id).toBe("dm1");
     expect(equipes[0]?.hms).toHaveLength(1);
-    expect(equipes[0]?.compteurs.total).toBe(1);
+    expect(equipes[0]?.createursDirects.map((c) => c.id)).toEqual(["p-dm"]);
+    expect(equipes[0]?.compteurs.total).toBe(2);
     expect(hmsSansDm(tous).map((h) => h.hm.id)).toEqual(["hm2"]);
+  });
+
+  it("compte les posters créés par le DM même sans HM", () => {
+    const solo = profil({ id: "dm2", role: "directing_manager", prenom: "Mia", nom: "M" });
+    const poster = profil({ id: "p2", role: "poster", prenom: "Léa", nom: "L", manager_id: "dm2" });
+    const equipes = equipesParDm([solo, poster]);
+    expect(equipes[0]?.hms).toHaveLength(0);
+    expect(equipes[0]?.createursDirects.map((c) => c.id)).toEqual(["p2"]);
+    expect(equipes[0]?.compteurs.total).toBe(1);
   });
 });

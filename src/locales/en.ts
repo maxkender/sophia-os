@@ -1020,6 +1020,7 @@ export const en = {
       eloMoyen: "Avg ELO {{score}}",
       eloMoyenAide: "Average ELO of creators assigned to this recruiter",
       createursDuRecruteur: "Assigned creators",
+      createursDuDm: "Creators hired by the DM",
       filtrePhase: "Phase",
       filtreLangue: "Language",
       filtreLabel: "Label",

@@ -308,10 +308,15 @@
     --bsurf: var(--background);
   }
   [data-slot="button"][data-variant="outline"]:not(:disabled)::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
     background: var(--bink);
     transform: translateX(-101%);
     transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     box-shadow: none;
+    pointer-events: none;
   }
   [data-slot="button"][data-variant="outline"]:not(:disabled):hover::before {
     transform: translateX(0);
@@ -329,10 +334,15 @@
     --bsurf: var(--background);
   }
   [data-slot="button"][data-variant="secondary"]:not(:disabled)::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
     background: var(--bink);
     transform: scaleX(0);
     transform-origin: center;
     transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
   }
   [data-slot="button"][data-variant="secondary"]:not(:disabled):hover::before {
     transform: scaleX(1);

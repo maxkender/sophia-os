@@ -99,14 +99,16 @@ export function LoginPage() {
 
           <Card>
             <CardHeader className="pb-0">
-              <button
+              <Button
                 type="button"
+                variant="ghost"
+                size="xs"
                 onClick={() => setChoisi(null)}
-                className="mb-2 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
+                className="mb-2 -ml-1.5 text-muted-foreground"
               >
-                <ArrowLeft className="size-3.5" />
+                <ArrowLeft />
                 {t("auth.changeAccess")}
-              </button>
+              </Button>
               <div className="flex items-center gap-3">
                 <span className="flex size-9 items-center justify-center rounded-lg bg-accent text-accent-foreground">
                   <choisi.icon className="size-4" />

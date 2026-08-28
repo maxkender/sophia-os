@@ -19,6 +19,7 @@ import {
   listerLabelIdsAvecUgc,
   listerLabels,
 } from "@/features/moteur/api";
+import { estLabelFileSlideshow } from "@/features/moteur/fileLabelsSlideshow";
 import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import { VOIX_PAPIER, type DureeClipReglage } from "@/features/moteur/papierReglages";
 import {
@@ -745,6 +746,7 @@ export function AdminReglagesPage() {
               )}
               {fileActive.map((item, i) => {
                 const lab = (labels.data ?? []).find((l) => l.id === item.label_id);
+                const horsSlideshow = lab ? !estLabelFileSlideshow(lab) : false;
                 return (
                   <li
                     key={`${fileQueueKey}-${item.label_id}-${item.ugc}-${i}`}
@@ -756,6 +758,11 @@ export function AdminReglagesPage() {
                       {item.ugc && (
                         <Badge variant="secondary" className="shrink-0 text-[10px]">
                           UGC
+                        </Badge>
+                      )}
+                      {horsSlideshow && (
+                        <Badge variant="outline" className="shrink-0 text-[10px]">
+                          {t("warmup.fileIgnoreUgcVideo")}
                         </Badge>
                       )}
                     </span>
@@ -814,6 +821,7 @@ export function AdminReglagesPage() {
                 >
                   <option value="">{t("common.none")}</option>
                   {(labels.data ?? [])
+                    .filter((l) => estLabelFileSlideshow(l))
                     .filter((l) => !ugcAjout || (labelsUgc.data ?? []).includes(l.id))
                     .map((l) => (
                       <option key={l.id} value={l.id}>

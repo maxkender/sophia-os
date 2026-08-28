@@ -48,6 +48,10 @@ import {
 import { LabelPicker } from "@/features/moteur/LabelPicker";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { posterMatcheApplication, SLUG_SOPHIA } from "@/features/moteur/applications";
+import {
+  estLabelFileSlideshow,
+  estLabelUgcAiVideo,
+} from "@/features/moteur/fileLabelsSlideshow";
 import { SelectApplication } from "@/features/moteur/SelectApplication";
 import { drapeauLangue, langueInitiale, nomLangue } from "@/features/moteur/langues";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
@@ -298,10 +302,12 @@ function LabelsCompteSelect({
   compteId,
   actifs,
   applicationId,
+  ugcAiVideo,
 }: {
   compteId: string;
   actifs: LabelType[];
   applicationId?: string | null;
+  ugcAiVideo?: boolean;
 }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
@@ -318,7 +324,9 @@ function LabelsCompteSelect({
     },
   });
 
-  const disponibles = (labels.data ?? []).filter((l) => !ids.includes(l.id));
+  const disponibles = (labels.data ?? [])
+    .filter((l) => (ugcAiVideo ? estLabelUgcAiVideo(l) : estLabelFileSlideshow(l)))
+    .filter((l) => !ids.includes(l.id));
 
   return (
     <div className="space-y-1">
@@ -1577,6 +1585,7 @@ export function AdminPostersPage() {
                                     compteId={c.id}
                                     actifs={labs}
                                     applicationId={c.application_id}
+                                    ugcAiVideo={Boolean(c.ugc_ai_video)}
                                   />
                                   <div className="sm:col-span-2">
                                     <PostsParJourCompte compte={c} />

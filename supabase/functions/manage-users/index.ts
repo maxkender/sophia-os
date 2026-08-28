@@ -3,6 +3,10 @@ import {
   SLUG_MICABO,
   type ApplicationRow,
 } from "../_shared/applications.ts";
+import {
+  consommerFileSlideshow,
+  estLabelFileSlideshow,
+} from "../_shared/labels_file.ts";
 import { retirerContentCredentialsBytes } from "../_shared/c2pa.ts";
 import { appliquerIdentiteInstantanee } from "../_shared/persona.ts";
 import { estRoleManager } from "../_shared/roles.ts";
@@ -78,6 +82,8 @@ function resoudrePremierCompte(
  * File FIFO `file_labels_comptes` :
  *   { items: [...], par_langue: { fr: [...], de: [...] } }
  * Priorité : file de la langue du poster → file générale (`items`) → least-used.
+ * Labels UGC AI VIDEO (ex. `test`) exclus de la file et du fallback — réservés
+ * aux créateurs nés d'un HM `hm_ugc_ai_video`.
  * UGC slideshow → persona libre, nom + avatar (profil 1:1 si dispo, sinon face)
  * sans métadonnées ; label forcé parmi ceux qui ont des slideshows ugc_compatible.
  * HM `hm_ugc_ai_video` → comptes ugc_ai_video, persona unique (pool partagé),
@@ -889,11 +895,27 @@ async function ecrireFileLabels(
   );
 }
 
+async function idsLabelsFileSlideshow(
+  supabase: Supabase,
+  applicationId?: string | null,
+): Promise<Set<string>> {
+  let q = supabase.from("labels").select("id, slug, ugc_ai_video");
+  if (applicationId) q = q.eq("application_id", applicationId);
+  const { data } = await q;
+  return new Set(
+    (data ?? [])
+      .filter((l) => estLabelFileSlideshow(l))
+      .map((l) => l.id as string)
+      .filter(Boolean),
+  );
+}
+
 /**
- * Tire la première entrée (FIFO) :
+ * Tire la première entrée slideshow (FIFO) :
  *   1) file de la langue (surpasse la générale)
  *   2) sinon file générale
  *   3) sinon label classique le moins utilisé (ne consomme pas les files)
+ * Les labels UGC AI VIDEO / système en tête sont sautés (retirés, pas assignés).
  */
 async function popLabelFile(
   supabase: Supabase,
@@ -913,29 +935,35 @@ async function popLabelFile(
   const slug = application?.slug ?? "sophia";
   const slice = sliceFileLabels(file, slug);
   const lang = String(langue ?? "").trim().toLowerCase();
+  const eligible = await idsLabelsFileSlideshow(supabase, application?.id ?? null);
 
-  const fileLangue = lang ? (slice.par_langue[lang] ?? []) : [];
-  if (fileLangue.length > 0) {
-    const [first, ...rest] = fileLangue;
-    if (!first) return { ok: false, error: "NO_LABELS" };
+  let parLangueActuel = { ...slice.par_langue };
+  const fileLangue = lang ? (parLangueActuel[lang] ?? []) : [];
+  const languePop = consommerFileSlideshow(fileLangue, eligible);
+  if (languePop.skipped.length > 0 || languePop.item) {
+    parLangueActuel = { ...parLangueActuel, [lang]: languePop.rest };
+    if (languePop.rest.length === 0) delete parLangueActuel[lang];
+    await ecrireFileLabels(
+      supabase,
+      avecSliceApplication(file, slug, { items: slice.items, par_langue: parLangueActuel }),
+    );
+  }
+  if (languePop.item) {
+    return { ok: true, item: languePop.item, fromQueue: true, queueKey: lang };
+  }
+
+  const generalPop = consommerFileSlideshow(slice.items, eligible);
+  if (generalPop.skipped.length > 0 || generalPop.item) {
     await ecrireFileLabels(
       supabase,
       avecSliceApplication(file, slug, {
-        items: slice.items,
-        par_langue: { ...slice.par_langue, [lang]: rest },
+        items: generalPop.rest,
+        par_langue: parLangueActuel,
       }),
     );
-    return { ok: true, item: first, fromQueue: true, queueKey: lang };
   }
-
-  if (slice.items.length > 0) {
-    const [first, ...rest] = slice.items;
-    if (!first) return { ok: false, error: "NO_LABELS" };
-    await ecrireFileLabels(
-      supabase,
-      avecSliceApplication(file, slug, { items: rest, par_langue: slice.par_langue }),
-    );
-    return { ok: true, item: first, fromQueue: true, queueKey: "general" };
+  if (generalPop.item) {
+    return { ok: true, item: generalPop.item, fromQueue: true, queueKey: "general" };
   }
 
   const labelId = await labelMoinsUtiliseParLangue(supabase, langue, {
@@ -1078,12 +1106,11 @@ async function labelMoinsUtiliseParLangue(
 ): Promise<string | null> {
   let pool: string[] = [];
   if (opts.ugcOnly) {
-    pool = await labelIdsAvecContenusUgc(supabase, opts.applicationId);
+    const ugc = await labelIdsAvecContenusUgc(supabase, opts.applicationId);
+    const slideshow = await idsLabelsFileSlideshow(supabase, opts.applicationId);
+    pool = ugc.filter((id) => slideshow.has(id));
   } else {
-    let q = supabase.from("labels").select("id");
-    if (opts.applicationId) q = q.eq("application_id", opts.applicationId);
-    const { data: tous } = await q;
-    pool = (tous ?? []).map((l) => l.id as string).filter(Boolean);
+    pool = [...await idsLabelsFileSlideshow(supabase, opts.applicationId)];
   }
   if (pool.length === 0) return null;
 

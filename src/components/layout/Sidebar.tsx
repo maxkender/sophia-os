@@ -1,6 +1,7 @@
 import * as React from "react";
 import { NavLink } from "react-router-dom";
 
+import { SophiaLogo } from "@/components/brand/SophiaLogo";
 import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -75,9 +76,7 @@ function NavList({ groups, onNavigate }: { groups: NavGroup[]; onNavigate?: () =
 function Brand({ title }: { title: string }) {
   return (
     <div className="flex items-center gap-3 px-4 py-5" aria-label={title}>
-      <span className="brand-mark shrink-0" aria-hidden>
-        S
-      </span>
+      <SophiaLogo />
       <div className="min-w-0">
         <p className="font-heading truncate text-base font-semibold tracking-tight text-sidebar-accent-foreground">
           Sophia

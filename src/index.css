@@ -197,14 +197,6 @@
     @apply bg-background;
   }
 
-  .brand-mark {
-    @apply inline-flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground;
-    font-family: var(--font-heading);
-    font-weight: 650;
-    font-size: 1.05rem;
-    letter-spacing: -0.04em;
-  }
-
   .scrollbar-slim::-webkit-scrollbar {
     height: 5px;
     width: 5px;

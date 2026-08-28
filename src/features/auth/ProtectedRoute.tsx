@@ -1,6 +1,7 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
+import { SophiaLogo } from "@/components/brand/SophiaLogo";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { FullPageLoader } from "@/components/layout/FullPageLoader";
@@ -13,9 +14,7 @@ function EnAttente() {
   const { t } = useTranslation();
   return (
     <div className="flex min-h-svh flex-col items-center justify-center gap-5 bg-background px-6 text-center">
-      <span className="brand-mark" aria-hidden>
-        S
-      </span>
+      <SophiaLogo />
       <Alert className="max-w-sm text-left">
         <AlertTitle>{t("auth.pendingTitle")}</AlertTitle>
         <AlertDescription>{t("auth.pendingBody")}</AlertDescription>

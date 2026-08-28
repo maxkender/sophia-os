@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/card";
 import { Field, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
 import { signInWithPassword } from "./api";
 
 type AccessKey = "admin" | "manager" | "creator";
@@ -77,10 +76,7 @@ export function LoginPage() {
                   setError(null);
                   setChoisi(card);
                 }}
-                className={cn(
-                  "group flex flex-col items-center gap-2 rounded-2xl border bg-card px-4 py-5 text-center shadow-xs/5 transition-colors",
-                  "hover:bg-accent/60",
-                )}
+                className="colorion-fill-up group flex flex-col items-center gap-2 rounded-2xl border bg-card px-4 py-5 text-center shadow-xs/5"
               >
                 <card.icon className="size-5 text-foreground transition-transform group-hover:scale-105" />
                 <span className="text-sm font-semibold tracking-tight">{t(card.labelKey)}</span>
@@ -103,14 +99,16 @@ export function LoginPage() {
 
           <Card>
             <CardHeader className="pb-0">
-              <button
+              <Button
                 type="button"
+                variant="ghost"
+                size="xs"
                 onClick={() => setChoisi(null)}
-                className="mb-2 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
+                className="mb-2 -ml-1.5 text-muted-foreground"
               >
-                <ArrowLeft className="size-3.5" />
+                <ArrowLeft />
                 {t("auth.changeAccess")}
-              </button>
+              </Button>
               <div className="flex items-center gap-3">
                 <span className="flex size-9 items-center justify-center rounded-lg bg-accent text-accent-foreground">
                   <choisi.icon className="size-4" />

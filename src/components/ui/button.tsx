@@ -84,7 +84,7 @@ export function Button({
   const defaultProps = {
     children: (
       <>
-        {resolvedChildren}
+        <span className="btn-label">{resolvedChildren}</span>
         {loading && (
           <Spinner
             className="pointer-events-none absolute"
@@ -97,6 +97,8 @@ export function Button({
     "aria-disabled": loading || undefined,
     "data-loading": loading ? "" : undefined,
     "data-slot": "button",
+    "data-variant": variant ?? "default",
+    "data-size": size ?? "default",
     disabled: isDisabled,
     type: typeValue,
   };

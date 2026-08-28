@@ -243,6 +243,227 @@
   .list-enter > *:nth-child(n + 9) {
     animation-delay: 0.28s;
   }
+
+  /**
+   * Colorion animated buttons — https://animatedbuttons.colorion.co/
+   * Effets purs CSS (--bink / --bsurf), prefers-reduced-motion.
+   */
+  [data-slot="button"] {
+    --bink: var(--foreground);
+    --bsurf: var(--background);
+    isolation: isolate;
+    transition:
+      transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 0.35s ease,
+      border-color 0.35s ease,
+      color 0.35s ease,
+      opacity 0.35s ease;
+  }
+
+  [data-slot="button"] .btn-label {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: inherit;
+    transition: color 0.35s ease, transform 0.35s ease;
+  }
+
+  /* 29 Shine Sweep + 13 Shadow Grow + 09 Lift — CTA primaire */
+  [data-slot="button"][data-variant="default"]:not(:disabled) {
+    overflow: hidden;
+  }
+  [data-slot="button"][data-variant="default"]:not(:disabled)::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    width: 40%;
+    left: -60%;
+    transform: skewX(-20deg);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, var(--primary-foreground) 28%, transparent),
+      transparent
+    );
+    pointer-events: none;
+    transition: left 0.6s ease;
+  }
+  [data-slot="button"][data-variant="default"]:not(:disabled):hover::after {
+    left: 120%;
+  }
+  [data-slot="button"][data-variant="default"]:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -8px color-mix(in srgb, var(--primary) 45%, transparent);
+  }
+
+  /* 04 Fill Right — outline */
+  [data-slot="button"][data-variant="outline"]:not(:disabled) {
+    overflow: hidden;
+    --bink: var(--foreground);
+    --bsurf: var(--background);
+  }
+  [data-slot="button"][data-variant="outline"]:not(:disabled)::before {
+    background: var(--bink);
+    transform: translateX(-101%);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: none;
+  }
+  [data-slot="button"][data-variant="outline"]:not(:disabled):hover::before {
+    transform: translateX(0);
+  }
+  [data-slot="button"][data-variant="outline"]:not(:disabled):hover {
+    color: var(--bsurf);
+    border-color: var(--bink);
+    background-color: transparent;
+  }
+
+  /* 05 Fill X — secondaire */
+  [data-slot="button"][data-variant="secondary"]:not(:disabled) {
+    overflow: hidden;
+    --bink: var(--foreground);
+    --bsurf: var(--background);
+  }
+  [data-slot="button"][data-variant="secondary"]:not(:disabled)::before {
+    background: var(--bink);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  [data-slot="button"][data-variant="secondary"]:not(:disabled):hover::before {
+    transform: scaleX(1);
+  }
+  [data-slot="button"][data-variant="secondary"]:not(:disabled):hover {
+    color: var(--bsurf);
+  }
+
+  /* 18 Under Center — ghost (hors icônes) */
+  [data-slot="button"][data-variant="ghost"]:not([data-size^="icon"]):not(:disabled)::after {
+    content: "";
+    position: absolute;
+    left: 14%;
+    right: 14%;
+    bottom: 3px;
+    height: 1.5px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.35s ease;
+    pointer-events: none;
+  }
+  [data-slot="button"][data-variant="ghost"]:not([data-size^="icon"]):not(:disabled):hover::after {
+    transform: scaleX(1);
+  }
+
+  /* 17 Underline — link */
+  [data-slot="button"][data-variant="link"]:not(:disabled)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1px;
+    height: 1.5px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+    pointer-events: none;
+  }
+  [data-slot="button"][data-variant="link"]:not(:disabled):hover::after {
+    transform: scaleX(1);
+  }
+
+  /* 29 Shine Sweep — destructif */
+  [data-slot="button"][data-variant="destructive"]:not(:disabled),
+  [data-slot="button"][data-variant="destructive-outline"]:not(:disabled) {
+    overflow: hidden;
+  }
+  [data-slot="button"][data-variant="destructive"]:not(:disabled)::after,
+  [data-slot="button"][data-variant="destructive-outline"]:not(:disabled)::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    width: 40%;
+    left: -60%;
+    transform: skewX(-20deg);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, white 30%, transparent),
+      transparent
+    );
+    pointer-events: none;
+    transition: left 0.6s ease;
+  }
+  [data-slot="button"][data-variant="destructive"]:not(:disabled):hover::after,
+  [data-slot="button"][data-variant="destructive-outline"]:not(:disabled):hover::after {
+    left: 120%;
+  }
+
+  /* 35 Icon Push */
+  [data-slot="button"]:not(:disabled):hover svg:last-of-type {
+    transform: translateX(2px);
+    transition: transform 0.3s ease;
+  }
+  [data-slot="button"][data-size^="icon"]:not(:disabled):hover svg:last-of-type {
+    transform: none;
+  }
+
+  /* Login — 01 Fill Up */
+  .colorion-fill-up {
+    --bink: var(--foreground);
+    --bsurf: var(--background);
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    transition:
+      color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .colorion-fill-up::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: var(--bink);
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .colorion-fill-up:hover::before {
+    transform: translateY(0);
+  }
+  .colorion-fill-up:hover {
+    color: var(--bsurf);
+    border-color: var(--bink);
+  }
+  .colorion-fill-up:hover .text-muted-foreground,
+  .colorion-fill-up:hover .text-foreground {
+    color: inherit;
+  }
+  .colorion-fill-up > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-slot="button"],
+  [data-slot="button"]::before,
+  [data-slot="button"]::after,
+  [data-slot="button"] .btn-label,
+  [data-slot="button"] svg,
+  .colorion-fill-up,
+  .colorion-fill-up::before {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
 }
 
 @keyframes rise-in {

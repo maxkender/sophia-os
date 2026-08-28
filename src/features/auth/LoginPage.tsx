@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/card";
 import { Field, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
 import { signInWithPassword } from "./api";
 
 type AccessKey = "admin" | "manager" | "creator";
@@ -77,10 +76,7 @@ export function LoginPage() {
                   setError(null);
                   setChoisi(card);
                 }}
-                className={cn(
-                  "group flex flex-col items-center gap-2 rounded-2xl border bg-card px-4 py-5 text-center shadow-xs/5 transition-colors",
-                  "hover:bg-accent/60",
-                )}
+                className="colorion-fill-up group flex flex-col items-center gap-2 rounded-2xl border bg-card px-4 py-5 text-center shadow-xs/5"
               >
                 <card.icon className="size-5 text-foreground transition-transform group-hover:scale-105" />
                 <span className="text-sm font-semibold tracking-tight">{t(card.labelKey)}</span>

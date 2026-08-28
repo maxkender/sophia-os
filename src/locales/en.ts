@@ -2000,7 +2000,7 @@ export const en = {
       fileTitre: "Next accounts queue (label + UGC)",
       fileApp: "{{nom}} queue — a {{nom}} creator gets a {{nom}} label at creation.",
       fileDesc:
-        "On poster creation: that language’s queue first (priority), else the general queue, else the classic least-used label in the language. FIFO: the first entry sets the label and whether the account is UGC.",
+        "On poster creation: that language’s queue first (priority), else the general queue, else the classic least-used label in the language. FIFO: the first entry sets the label and whether the account is UGC. UGC AI VIDEO labels (e.g. test) stay out of this queue — they only go to creators of a video HM.",
       fileChoisir: "Queue to edit",
       fileGenerale: "General queue",
       fileGeneraleAide:
@@ -2021,6 +2021,7 @@ export const en = {
         "No labels in the database — create at least one (Library / Labels) before creating a poster.",
       aucunLabelUgc:
         "No label with UGC slideshows — mark at least one slideshow as UGC before adding a UGC queue entry.",
+      fileIgnoreUgcVideo: "UGC video — skipped at creation",
       ajouterLabel: "Add a label",
       ajouterUgc: "UGC account",
       ajouter: "Add",

@@ -1999,7 +1999,7 @@ export const fr = {
       fileTitre: "File des prochains comptes (label + UGC)",
       fileApp: "File {{nom}} — un créateur {{nom}} prend un label {{nom}} à la création.",
       fileDesc:
-        "À la création d’un poster : file de SA langue d’abord (prioritaire), sinon file générale, sinon label classique le moins utilisé dans la langue. FIFO : la 1ʳᵉ entrée décide le label et si le compte est UGC.",
+        "À la création d’un poster : file de SA langue d’abord (prioritaire), sinon file générale, sinon label classique le moins utilisé dans la langue. FIFO : la 1ʳᵉ entrée décide le label et si le compte est UGC. Les labels UGC AI VIDEO (ex. test) n’entrent pas dans cette file : ils vont uniquement aux créateurs d’un HM vidéo.",
       fileChoisir: "File à éditer",
       fileGenerale: "File générale",
       fileGeneraleAide:
@@ -2020,6 +2020,7 @@ export const fr = {
         "Aucun label en base — crée-en au moins un (Bibliothèque / Labels) avant de créer un poster.",
       aucunLabelUgc:
         "Aucun label avec slideshows UGC — coche UGC sur au moins un slideshow avant d’ajouter une entrée UGC.",
+      fileIgnoreUgcVideo: "UGC vidéo — ignoré à la création",
       ajouterLabel: "Ajouter un label",
       ajouterUgc: "Compte UGC",
       ajouter: "Ajouter",

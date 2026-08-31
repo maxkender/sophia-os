@@ -30,6 +30,7 @@ describe("caption / hashtags", () => {
       "Wow\n\nTélécharge Sophia",
     );
     expect(captionDepuisLangue({ hook: "  ", cta: "Go" })).toBe("Go");
+    expect(captionDepuisLangue({ hook: "Hook", cta: "Ouvre Sofia" })).toBe("Hook\n\nOuvre Sophia");
   });
 
   it("normalise les hashtags", () => {

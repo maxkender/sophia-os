@@ -18,7 +18,7 @@ Idiomatique, oral, tutoiement / registre familier de la langue cible.
 Pas de traduction mot à mot. Pas d'anglais résiduel sauf noms propres.
 
 ${rules?.trim() ? `Règles supplémentaires :\n${rules.trim()}\n` : ""}
-RÈGLE SOPHIA : le mot « Sophia » (nom de l'appli, ne pas traduire) apparaît EXACTEMENT UNE FOIS, uniquement dans le CTA. Ailleurs dis l'équivalent local de « l'appli ».
+RÈGLE SOPHIA : le mot « Sophia » (nom de l'appli, NE PAS traduire, JAMAIS « Sofia ») apparaît EXACTEMENT UNE FOIS, uniquement dans le CTA. Ailleurs dis l'équivalent local de « l'appli ».
 Le champ overlay fait 3 à 6 mots, percutant.
 hashtags : exactement 3 tags natifs TikTok, préfixe #.
 

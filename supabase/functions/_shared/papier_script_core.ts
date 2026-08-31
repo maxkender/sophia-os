@@ -2,8 +2,10 @@
 /** Copie Deno de src/features/moteur/papierScript.ts — garder synchro. */
 /** Helpers purs du master papier (script, durée, CTA, prompts visuels). */
 
-export const SOPHIA_OUTRO =
-  "Ce fait vient de l'application Sophia : des cours simples et gratuits pour booster ta culture générale. Télécharge l'appli, c'est gratuit.";
+export const SOPHIA_OUTRO = "Retrouve ça sur Sophia, c'est gratuit.";
+
+const SOPHIA_ALIAS =
+  /\b(Sof[iíìï]a|Sofie|Zsof[ií]a|Σοφία|София|Sofya)\b/gi;
 
 export const MOTS_PAR_SECONDE = 2.6;
 
@@ -31,8 +33,9 @@ export type PapierScript = {
   palette?: string;
 };
 
-const SQUARE_FRAME =
-  "Framing: the whole scene is composed inside a perfect centered square (1:1) with softly rounded corners, touching the left and right edges; above and below that square the frame is pure solid black, completely empty, like a rounded square clip letterboxed in a vertical canvas. Nothing of the scene spills into the black bands or past the rounded corners.";
+/** Zone utile : le cadre 1:1 ondulé est incrusté après coup, il ne doit PAS être dessiné. */
+const SQUARE_SAFE =
+  "SAFE AREA: compose the entire subject in the CENTER 1:1 of the 9:16 canvas (middle square, edge to edge horizontally). Top and bottom bands will be covered by a FIXED wavy paper frame in edit — never put faces, hands or key objects there. Do NOT draw black bars, letterboxing, rounded squares, borders or frames. Fill the whole canvas with papercraft. The visible format never moves.";
 
 export const PAPERCRAFT_VISUAL =
   "handmade layered paper cut-out diorama photographed head-on, flat frontal composition, stacked planes of matte construction paper with torn deckled edges and visible paper grain, simple bold silhouettes with no fine detail, characters and objects built from flat cut shapes with slight relief, soft diffused studio light casting gentle drop shadows between paper layers, a cohesive limited palette of 4 to 5 flat matte paper colors chosen to fit the mood of this specific scene, no gradients, no realistic textures, no 3D render look, stop-motion paper animation aesthetic, calm and graphic, quiet minimal background of layered paper shapes";
@@ -41,7 +44,7 @@ export const PAPERCRAFT_QUALITY =
   "shot straight on like a real photograph of a physical paper set, shallow relief depth, crisp paper edges, no digital illustration look, no cartoon outlines, no glossy plastic, no clay";
 
 export const PAPERCRAFT_MOTION =
-  "Stop-motion paper animation: the paper cut-outs move in small discrete steps, slight handmade jitter, layers sliding over each other, static or very slow push-in camera.";
+  "Stop-motion paper animation: LOCKED camera, no push-in, no pan, no zoom, no reframing. Only the paper cut-outs move in small discrete steps, slight handmade jitter, layers sliding over each other. Transitions between shots happen in edit and must never change the frame.";
 
 export function compterMots(texte: string): number {
   return texte.trim().split(/\s+/).filter(Boolean).length;
@@ -83,12 +86,17 @@ export function retirerScenesCtaQueue(scenes: PapierSceneScript[]): PapierSceneS
   return out;
 }
 
+/** Le nom de l'appli s'écrit Sophia — jamais Sofia / Sophie / etc. */
+export function protegerNomSophia(texte: string): string {
+  return texte.replace(SOPHIA_ALIAS, "Sophia");
+}
+
 export function remplacerSophiaParAppli(texte: string): string {
-  return texte.replace(/\bSophia\b/gi, "l'appli");
+  return protegerNomSophia(texte).replace(/\bSophia\b/gi, "l'appli");
 }
 
 export function normaliserCtaSophiaUnique(cta: string): string {
-  const base = (cta.trim() || SOPHIA_OUTRO).replace(/\s{2,}/g, " ").trim();
+  const base = protegerNomSophia((cta.trim() || SOPHIA_OUTRO).replace(/\s{2,}/g, " ").trim());
   let seen = false;
   return base
     .replace(/\bSophia\b/gi, (m) => {
@@ -104,7 +112,7 @@ export function sceneCta(cta: string, index: number): PapierSceneScript {
   return {
     index,
     narration: cta,
-    overlay: "Télécharge Sophia",
+    overlay: "Sophia",
     imagePrompt:
       "a hand holding a simple smartphone showing a clean study app screen, small floating book and lightbulb shapes around it, calm background",
     videoPrompt:
@@ -154,7 +162,7 @@ export function budgetScript(targetSeconds: number, sceneCountMin = 5): {
   sceneCount: number;
   wordsPerScene: number;
 } {
-  const narrationSeconds = Math.max(8, targetSeconds - 6);
+  const narrationSeconds = Math.max(8, targetSeconds - 3);
   const totalWords = Math.round(narrationSeconds * MOTS_PAR_SECONDE);
   const sceneCount = Math.min(16, Math.max(sceneCountMin, Math.ceil(totalWords / 18)));
   const wordsPerScene = Math.min(22, Math.max(8, Math.round(totalWords / sceneCount)));
@@ -204,14 +212,14 @@ export function coverPromptPapier(
   imagePrompt: string,
   opts?: { bible?: string; story?: string },
 ): string {
-  return `Vertical 9:16 key frame. ${PAPERCRAFT_VISUAL}. ${PAPERCRAFT_QUALITY}.${bibleLine(opts?.bible)}${storyLine(opts?.story)} ${SQUARE_FRAME} Absolutely no text, no letters, no watermark, no logo. Scene: ${imagePrompt}`;
+  return `Vertical 9:16 key frame. ${PAPERCRAFT_VISUAL}. ${PAPERCRAFT_QUALITY}.${bibleLine(opts?.bible)}${storyLine(opts?.story)} ${SQUARE_SAFE} Absolutely no text, no letters, no watermark, no logo. Scene: ${imagePrompt}`;
 }
 
 export function motionPromptPapier(
   videoPrompt: string,
   opts?: { bible?: string; story?: string },
 ): string {
-  return `${videoPrompt}. Vertical short-form video. ${PAPERCRAFT_VISUAL}. ${PAPERCRAFT_QUALITY}.${bibleLine(opts?.bible)}${storyLine(opts?.story)} ${SQUARE_FRAME} The black bands stay perfectly static. ${PAPERCRAFT_MOTION} Consistent art direction, same characters and same colors as the reference image, no on-screen text, no subtitles, no watermark.`;
+  return `${videoPrompt}. Vertical short-form video. ${PAPERCRAFT_VISUAL}. ${PAPERCRAFT_QUALITY}.${bibleLine(opts?.bible)}${storyLine(opts?.story)} ${SQUARE_SAFE} ${PAPERCRAFT_MOTION} Consistent art direction, same characters and same colors as the reference image, no on-screen text, no subtitles, no watermark.`;
 }
 
 export function compterSophia(texte: string): number {

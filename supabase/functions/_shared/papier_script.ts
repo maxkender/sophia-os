@@ -8,17 +8,20 @@ import {
   type PapierNarrationStyle,
   type PapierScript,
 } from "./papier_script_core.ts";
+import { normaliserCategorie, type PapierCategorie } from "./papier_sujets.ts";
 
 const TARGET_SECONDS = 48;
 
 export async function proposerTopicPapier(opts: {
   style?: PapierNarrationStyle;
   recents?: string[];
+  categorie?: PapierCategorie | string;
 }): Promise<string> {
   const style = opts.style ?? "revelation";
+  const categorie = normaliserCategorie(opts.categorie);
   const seed = Math.random().toString(36).slice(2, 10);
   const texte = await generateTextCreative(
-    `${topicSystemPrompt(style, opts.recents ?? [], seed)}\n\nPropose un sujet.`,
+    `${topicSystemPrompt(style, opts.recents ?? [], seed, categorie)}\n\nPropose un sujet.`,
     1.1,
   );
   const parsed = extraireJson<{ topic?: string }>(texte);

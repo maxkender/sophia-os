@@ -1,6 +1,8 @@
 /** Copie Deno de src/features/moteur/papierLocales.ts — garder synchro. */
 /** Helpers purs du fan-out papier (langues, timings, CTA traduit). */
 
+import { protegerNomSophia } from "./papier_script_core.ts";
+
 export const LANGUES_PAPIER = [
   "fr",
   "en",
@@ -132,13 +134,13 @@ export function finaliserTraductionPapier(
     .slice(0, sceneCount)
     .map((s, i) => ({
       index: i,
-      narration: String(s?.narration ?? "").trim(),
-      overlay: String(s?.overlay ?? "").trim(),
+      narration: protegerNomSophia(String(s?.narration ?? "").trim()),
+      overlay: protegerNomSophia(String(s?.overlay ?? "").trim()),
     }));
   while (scenes.length < sceneCount) {
     scenes.push({ index: scenes.length, narration: "", overlay: "" });
   }
-  const ctaBrut = String(brut.cta ?? "").trim();
+  const ctaBrut = protegerNomSophia(String(brut.cta ?? "").trim());
   let seen = false;
   const cta = ctaBrut
     .replace(/\bSophia\b/gi, (m) => {
@@ -161,8 +163,8 @@ export function finaliserTraductionPapier(
         .split(/\s+/)
         .filter(Boolean);
   return {
-    title: String(brut.title ?? "").trim(),
-    hook: String(brut.hook ?? scenesSansSophia[0]?.narration ?? "").trim(),
+    title: protegerNomSophia(String(brut.title ?? "").trim()),
+    hook: protegerNomSophia(String(brut.hook ?? scenesSansSophia[0]?.narration ?? "").trim()),
     cta: cta || scenesSansSophia[scenesSansSophia.length - 1]?.narration || "",
     hashtags: tags
       .map((t) => (t.startsWith("#") ? t : `#${t}`))

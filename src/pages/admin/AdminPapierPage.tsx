@@ -3,6 +3,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
+  Check,
   ChevronDown,
   Library,
   Loader2,
@@ -12,6 +13,8 @@ import {
   Scissors,
   Settings2,
   Sparkles,
+  Square,
+  Star,
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -21,13 +24,16 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { aujourdhuiParis, ecrireReglage, lireReglages } from "@/features/moteur/api";
 import {
+  arreterPapier,
   assignerPapierCm,
   changerVoixPapier,
   lancerPapierJour,
   listerPapierMasters,
+  proposerTopicPapier,
   regenererPapier,
   relancerPapier,
   relancerPapierLangue,
+  validerEtapePapier,
   type PapierLangue,
   type PapierLangueStatut,
   type PapierMaster,
@@ -35,7 +41,25 @@ import {
 } from "@/features/moteur/api";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { drapeauLangue, nomLangue } from "@/features/moteur/langues";
-import { REGLAGES_PAPIER_DEFAUT, VOIX_PAPIER } from "@/features/moteur/papierReglages";
+import { PapierCadre } from "@/features/moteur/PapierCadre";
+import {
+  etapeActivePipeline,
+  etatEtapePipeline,
+  PAPIER_PIPELINE_ETAPES,
+  type PapierPipelineMode,
+} from "@/features/moteur/papierPipeline";
+import {
+  labelVoixPapier,
+  REGLAGES_PAPIER_DEFAUT,
+  voixOrdonnees,
+} from "@/features/moteur/papierReglages";
+import { budgetScript } from "@/features/moteur/papierScript";
+import {
+  PAPIER_CATEGORIES,
+  PAPIER_STYLES_NARRATION,
+  type PapierCategorie,
+  type PapierStyleChoix,
+} from "@/features/moteur/papierSujets";
 import { TesterAssignationPapierCard } from "@/features/moteur/TesterAssignationPapierCard";
 import { cn } from "@/lib/utils";
 
@@ -46,10 +70,11 @@ const STATUT_VARIANT: Record<PapierStatut, "default" | "secondary" | "destructiv
   clips: "secondary",
   ready: "default",
   failed: "destructive",
+  stopped: "outline",
 };
 
 function masterEnCours(m: PapierMaster): boolean {
-  return !["ready", "failed"].includes(m.statut);
+  return !["ready", "failed", "stopped"].includes(m.statut);
 }
 
 function videoFrDe(master: PapierMaster): string | null {
@@ -81,6 +106,10 @@ export function AdminPapierPage() {
   const [topic, setTopic] = React.useState("");
   const [voix, setVoix] = React.useState("");
   const [selectionId, setSelectionId] = React.useState<string | null>(null);
+  const [duree, setDuree] = React.useState(48);
+  const [categorie, setCategorie] = React.useState<PapierCategorie>("aleatoire");
+  const [style, setStyle] = React.useState<PapierStyleChoix>("revelation");
+  const [mode, setMode] = React.useState<PapierPipelineMode>("auto");
 
   const liste = useQuery({
     queryKey: ["papier-masters", applicationId],
@@ -90,7 +119,9 @@ export function AdminPapierPage() {
       const rows = q.state.data ?? [];
       const busy = rows.some(
         (m) =>
-          ["queued", "scripting", "images", "clips"].includes(m.statut) ||
+          (["queued", "scripting", "images", "clips"].includes(m.statut) &&
+            !m.pipeline_hold &&
+            !m.annule) ||
           (m.papier_langues ?? []).some((l) =>
             ["queued", "translating", "voice", "mix", "render", "karaoke"].includes(l.statut),
           ),
@@ -103,7 +134,7 @@ export function AdminPapierPage() {
   const rows = liste.data ?? [];
   const enCours = rows.find(masterEnCours) ?? null;
   const biblio = rows.filter((m) => m.statut === "ready" && Boolean(m.video_url || videoFrDe(m)));
-  const failed = rows.filter((m) => m.statut === "failed");
+  const failed = rows.filter((m) => m.statut === "failed" || m.statut === "stopped");
   const papier = reglages.data?.papier;
   const falUsage =
     reglages.data?.papier_fal_usage.date === jour ? reglages.data.papier_fal_usage.appels : 0;
@@ -117,6 +148,31 @@ export function AdminPapierPage() {
     else if (papier?.voix && !voix) setVoix(papier.voix);
   }, [enCours?.voice, papier?.voix, voix]);
 
+  React.useEffect(() => {
+    if (!papier) return;
+    if (!enCours) {
+      setDuree(papier.duree_cible_sec);
+      setCategorie(papier.topic_categorie);
+      setStyle(papier.narration_style);
+      setMode(papier.pipeline_mode);
+    }
+  }, [papier, enCours]);
+
+  React.useEffect(() => {
+    if (enCours?.duree_cible_sec) setDuree(enCours.duree_cible_sec);
+    if (enCours?.topic_categorie) setCategorie(enCours.topic_categorie as PapierCategorie);
+    if (
+      enCours?.narration_style === "question" ||
+      enCours?.narration_style === "revelation" ||
+      enCours?.narration_style === "storytelling"
+    ) {
+      setStyle(enCours.narration_style);
+    }
+    if (enCours?.pipeline_mode === "auto" || enCours?.pipeline_mode === "manuel") {
+      setMode(enCours.pipeline_mode);
+    }
+  }, [enCours]);
+
   function invalider() {
     void queryClient.invalidateQueries({ queryKey: ["papier-masters"] });
     void queryClient.invalidateQueries({ queryKey: ["reglages"] });
@@ -129,7 +185,36 @@ export function AdminPapierPage() {
         topic: topic.trim() || undefined,
         voice: voix || undefined,
         application_id: applicationId,
+        topic_categorie: categorie,
+        narration_style: style,
+        pipeline_mode: mode,
+        duree_cible_sec: duree,
       }),
+    onSuccess: invalider,
+  });
+  const proposer = useMutation({
+    mutationFn: () => proposerTopicPapier({ topic_categorie: categorie, narration_style: style }),
+    onSuccess: (r) => {
+      if (r.topic) setTopic(r.topic);
+    },
+  });
+  const valider = useMutation({
+    mutationFn: (id: string) => validerEtapePapier(id, topic.trim() || undefined),
+    onSuccess: invalider,
+  });
+  const arreter = useMutation({
+    mutationFn: (id: string) => arreterPapier(id),
+    onSuccess: invalider,
+  });
+  const favoriVoix = useMutation({
+    mutationFn: (voice: string) => {
+      const cur = papier ?? REGLAGES_PAPIER_DEFAUT;
+      const has = cur.voix_favoris.includes(voice);
+      const voix_favoris = has
+        ? cur.voix_favoris.filter((v) => v !== voice)
+        : [...cur.voix_favoris, voice];
+      return ecrireReglage("papier", { ...REGLAGES_PAPIER_DEFAUT, ...cur, voix_favoris });
+    },
     onSuccess: invalider,
   });
   const changerVoix = useMutation({
@@ -164,9 +249,20 @@ export function AdminPapierPage() {
     regenerer.isPending ||
     relancerLangue.isPending ||
     assigner.isPending ||
-    changerVoix.isPending;
+    changerVoix.isPending ||
+    proposer.isPending ||
+    valider.isPending ||
+    arreter.isPending;
 
-  const erreur = lancer.error ?? relancer.error ?? regenerer.error ?? assigner.error ?? changerVoix.error;
+  const erreur =
+    lancer.error ??
+    relancer.error ??
+    regenerer.error ??
+    assigner.error ??
+    changerVoix.error ??
+    proposer.error ??
+    valider.error ??
+    arreter.error;
 
   return (
     <div className="space-y-6">
@@ -254,6 +350,7 @@ export function AdminPapierPage() {
             <Badge variant={STATUT_VARIANT[enCours.statut]}>{t(`papier.statut.${enCours.statut}`)}</Badge>
           }
         >
+          <PipelineVisuelle master={enCours} />
           <ResumeMaster master={enCours} />
           <FormulairePipeline
             topic={topic}
@@ -263,11 +360,29 @@ export function AdminPapierPage() {
               setVoix(v);
               changerVoix.mutate({ id: enCours.id, voice: v });
             }}
+            favoris={papier?.voix_favoris ?? []}
+            onFavori={(v) => favoriVoix.mutate(v)}
+            duree={duree}
+            onDuree={setDuree}
+            categorie={categorie}
+            onCategorie={setCategorie}
+            style={style}
+            onStyle={setStyle}
+            mode={mode}
+            onMode={setMode}
+            hold={enCours.pipeline_hold ?? null}
             onAvancer={() => lancer.mutate()}
-            onRelancer={enCours.statut === "failed" ? () => relancer.mutate(enCours.id) : undefined}
+            onProposer={() => proposer.mutate()}
+            onValider={() => valider.mutate(enCours.id)}
+            onArreter={() => arreter.mutate(enCours.id)}
+            onRelancer={enCours.statut === "failed" || enCours.statut === "stopped" ? () => relancer.mutate(enCours.id) : undefined}
             onRegenerer={() => regenerer.mutate(enCours.id)}
             busy={busy}
             lancerPending={lancer.isPending}
+            proposerPending={proposer.isPending}
+            validerPending={valider.isPending}
+            arreterPending={arreter.isPending}
+            script={enCours.script}
           />
           <SousBloc titre={t("papier.voirPlans")} compte={enCours.papier_scenes?.length ?? 0}>
             <CartesScenes master={enCours} />
@@ -294,9 +409,21 @@ export function AdminPapierPage() {
             onTopic={setTopic}
             voix={voix || papier?.voix || "George"}
             onVoix={setVoix}
+            favoris={papier?.voix_favoris ?? []}
+            onFavori={(v) => favoriVoix.mutate(v)}
+            duree={duree}
+            onDuree={setDuree}
+            categorie={categorie}
+            onCategorie={setCategorie}
+            style={style}
+            onStyle={setStyle}
+            mode={mode}
+            onMode={setMode}
             onAvancer={() => lancer.mutate()}
+            onProposer={() => proposer.mutate()}
             busy={busy}
             lancerPending={lancer.isPending}
+            proposerPending={proposer.isPending}
           />
         </BlocRetractable>
       )}
@@ -316,7 +443,7 @@ export function AdminPapierPage() {
                     {" — "}
                     {m.topic || t("papier.sansTopic")}
                   </span>
-                  <Badge variant="destructive">{t("papier.statut.failed")}</Badge>
+                  <Badge variant={STATUT_VARIANT[m.statut]}>{t(`papier.statut.${m.statut}`)}</Badge>
                 </div>
                 {m.erreur ? <p className="text-xs text-destructive">{m.erreur}</p> : null}
                 <div className="flex flex-wrap gap-2">
@@ -438,30 +565,51 @@ function SelectVoix({
   id,
   value,
   onChange,
+  favoris,
+  onFavori,
   disabled,
 }: {
   id: string;
   value: string;
   onChange: (v: string) => void;
+  favoris: string[];
+  onFavori?: (v: string) => void;
   disabled?: boolean;
 }) {
   const { t } = useTranslation();
+  const liste = voixOrdonnees(favoris);
   return (
-    <div className="space-y-2 sm:max-w-xs">
+    <div className="space-y-2 sm:max-w-md">
       <Label htmlFor={id}>{t("papier.voix")}</Label>
-      <select
-        id={id}
-        className="flex h-9 w-full rounded-md border border-input bg-background px-3 text-sm"
-        value={value}
-        disabled={disabled}
-        onChange={(e) => onChange(e.target.value)}
-      >
-        {VOIX_PAPIER.map((v) => (
-          <option key={v} value={v}>
-            {v}
-          </option>
-        ))}
-      </select>
+      <div className="flex items-center gap-2">
+        <select
+          id={id}
+          className="flex h-9 w-full rounded-md border border-input bg-background px-3 text-sm"
+          value={value}
+          disabled={disabled}
+          onChange={(e) => onChange(e.target.value)}
+        >
+          {liste.map((v) => (
+            <option key={v} value={v}>
+              {favoris.includes(v) ? "★ " : ""}
+              {labelVoixPapier(v)}
+            </option>
+          ))}
+        </select>
+        {onFavori ? (
+          <Button
+            type="button"
+            size="icon"
+            variant="ghost"
+            className="shrink-0"
+            disabled={disabled}
+            title={t("papier.voixFavori")}
+            onClick={() => onFavori(value)}
+          >
+            <Star className={cn("h-4 w-4", favoris.includes(value) && "fill-amber-400 text-amber-400")} />
+          </Button>
+        ) : null}
+      </div>
       <p className="text-xs text-muted-foreground">{t("papier.voixAide")}</p>
     </div>
   );
@@ -472,25 +620,142 @@ function FormulairePipeline({
   onTopic,
   voix,
   onVoix,
+  favoris,
+  onFavori,
+  duree,
+  onDuree,
+  categorie,
+  onCategorie,
+  style,
+  onStyle,
+  mode,
+  onMode,
+  hold,
   onAvancer,
+  onProposer,
+  onValider,
+  onArreter,
   onRelancer,
   onRegenerer,
   busy,
   lancerPending,
+  proposerPending,
+  validerPending,
+  arreterPending,
+  script,
 }: {
   topic: string;
   onTopic: (v: string) => void;
   voix: string;
   onVoix: (v: string) => void;
+  favoris: string[];
+  onFavori?: (v: string) => void;
+  duree: number;
+  onDuree: (n: number) => void;
+  categorie: PapierCategorie;
+  onCategorie: (v: PapierCategorie) => void;
+  style: PapierStyleChoix;
+  onStyle: (v: PapierStyleChoix) => void;
+  mode: PapierPipelineMode;
+  onMode: (v: PapierPipelineMode) => void;
+  hold?: "topic" | "script" | null;
   onAvancer: () => void;
+  onProposer?: () => void;
+  onValider?: () => void;
+  onArreter?: () => void;
   onRelancer?: () => void;
   onRegenerer?: () => void;
   busy: boolean;
   lancerPending: boolean;
+  proposerPending?: boolean;
+  validerPending?: boolean;
+  arreterPending?: boolean;
+  script?: PapierMaster["script"];
 }) {
   const { t } = useTranslation();
+  const plans = budgetScript(duree).sceneCount;
   return (
-    <div className="space-y-3">
+    <div className="space-y-4">
+      <div className="grid gap-3 sm:grid-cols-2">
+        <div className="space-y-2">
+          <Label htmlFor="papier-categorie">{t("papier.categorie")}</Label>
+          <select
+            id="papier-categorie"
+            className="flex h-9 w-full rounded-md border border-input bg-background px-3 text-sm"
+            value={categorie}
+            disabled={busy}
+            onChange={(e) => onCategorie(e.target.value as PapierCategorie)}
+          >
+            {PAPIER_CATEGORIES.map((c) => (
+              <option key={c} value={c}>
+                {t(`papier.cat.${c}`)}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="papier-style">{t("papier.styleNarration")}</Label>
+          <select
+            id="papier-style"
+            className="flex h-9 w-full rounded-md border border-input bg-background px-3 text-sm"
+            value={style}
+            disabled={busy}
+            onChange={(e) => onStyle(e.target.value as PapierStyleChoix)}
+          >
+            {PAPIER_STYLES_NARRATION.map((s) => (
+              <option key={s} value={s}>
+                {t(`papier.style.${s}`)} — {t(`papier.styleAide.${s}`)}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="papier-duree">{t("papier.duree")}</Label>
+        <div className="flex flex-wrap items-center gap-3">
+          <input
+            id="papier-duree"
+            type="range"
+            min={20}
+            max={90}
+            step={2}
+            value={duree}
+            disabled={busy}
+            onChange={(e) => onDuree(Number(e.target.value))}
+            className="h-9 w-full max-w-xs"
+          />
+          <span className="text-sm font-medium">{duree}s</span>
+          <span className="text-xs text-muted-foreground">{t("papier.plansEstimes", { count: plans })}</span>
+        </div>
+        <p className="text-xs text-muted-foreground">{t("papier.dureeAide")}</p>
+      </div>
+
+      <div className="space-y-2">
+        <Label>{t("papier.mode")}</Label>
+        <div className="flex flex-wrap gap-2">
+          <Button
+            type="button"
+            size="sm"
+            variant={mode === "auto" ? "default" : "outline"}
+            disabled={busy}
+            onClick={() => onMode("auto")}
+          >
+            {t("papier.modeAuto")}
+          </Button>
+          <Button
+            type="button"
+            size="sm"
+            variant={mode === "manuel" ? "default" : "outline"}
+            disabled={busy}
+            onClick={() => onMode("manuel")}
+          >
+            {t("papier.modeManuel")}
+          </Button>
+        </div>
+        <p className="text-xs text-muted-foreground">{t("papier.modeAide")}</p>
+      </div>
+
       <div className="space-y-2">
         <Label htmlFor="papier-topic">{t("papier.topic")}</Label>
         <Textarea
@@ -500,13 +765,66 @@ function FormulairePipeline({
           placeholder={t("papier.topicPh")}
           rows={2}
         />
+        {hold === "topic" ? <p className="text-xs text-primary">{t("papier.holdTopic")}</p> : null}
       </div>
-      <SelectVoix id="papier-voix" value={voix} onChange={onVoix} disabled={busy} />
+
+      {script?.hook || hold === "script" ? (
+        <div className="space-y-2 rounded-md border bg-muted/30 p-3">
+          {hold === "script" ? <p className="text-xs text-primary">{t("papier.holdScript")}</p> : null}
+          {script?.hook ? (
+            <p className="text-sm">
+              <span className="font-medium">{t("papier.scriptHook")} — </span>
+              {script.hook}
+            </p>
+          ) : null}
+          {script?.scenes?.length ? (
+            <ol className="list-decimal space-y-1 pl-5 text-sm">
+              {script.scenes.map((s) => (
+                <li key={s.index}>{s.narration}</li>
+              ))}
+            </ol>
+          ) : null}
+          {script?.cta ? (
+            <p className="text-sm text-muted-foreground">
+              <span className="font-medium text-foreground">{t("papier.scriptCta")} — </span>
+              {script.cta}
+            </p>
+          ) : null}
+        </div>
+      ) : null}
+
+      <SelectVoix
+        id="papier-voix"
+        value={voix}
+        onChange={onVoix}
+        favoris={favoris}
+        onFavori={onFavori}
+        disabled={busy}
+      />
       <div className="flex flex-wrap gap-2">
-        <Button onClick={onAvancer} disabled={busy}>
-          {lancerPending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Sparkles className="h-4 w-4" />}
-          {t("papier.avancer")}
-        </Button>
+        {hold && onValider ? (
+          <Button onClick={onValider} disabled={busy}>
+            {validerPending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Check className="h-4 w-4" />}
+            {hold === "topic" ? t("papier.validerSujet") : t("papier.validerScript")}
+          </Button>
+        ) : (
+          <Button onClick={onAvancer} disabled={busy}>
+            {lancerPending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Sparkles className="h-4 w-4" />}
+            {t("papier.avancer")}
+          </Button>
+        )}
+        {onProposer ? (
+          <Button variant="outline" onClick={onProposer} disabled={busy}>
+            {proposerPending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Sparkles className="h-4 w-4" />}
+            {t("papier.proposerSujet")}
+          </Button>
+        ) : null}
+        {onArreter ? (
+          <Button variant="outline" onClick={onArreter} disabled={busy && !arreterPending}>
+            {arreterPending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Square className="h-4 w-4" />}
+            {t("papier.arreter")}
+          </Button>
+        ) : null}
         {onRelancer ? (
           <Button variant="outline" onClick={onRelancer} disabled={busy}>
             <RefreshCw className="h-4 w-4" />
@@ -520,6 +838,48 @@ function FormulairePipeline({
           </Button>
         ) : null}
       </div>
+    </div>
+  );
+}
+
+function PipelineVisuelle({ master }: { master: PapierMaster }) {
+  const { t } = useTranslation();
+  const fr = master.papier_langues?.find((l) => l.langue === "fr");
+  const active = etapeActivePipeline({
+    statut: master.statut,
+    etape: master.etape,
+    hold: master.pipeline_hold ?? null,
+    videoUrl: master.video_url,
+    langueStatut: fr?.statut,
+  });
+  return (
+    <div className="space-y-2">
+      <p className="text-xs font-medium text-muted-foreground">{t("papier.pipeline")}</p>
+      <ol className="flex flex-wrap gap-1.5">
+        {PAPIER_PIPELINE_ETAPES.map((etape) => {
+          const etat = etatEtapePipeline(etape, {
+            active,
+            statut: master.statut,
+            hold: master.pipeline_hold ?? null,
+          });
+          return (
+            <li
+              key={etape}
+              className={cn(
+                "rounded-full border px-2.5 py-0.5 text-xs",
+                etat === "done" && "border-primary/40 bg-primary/10 text-primary",
+                etat === "active" && "border-primary bg-primary text-primary-foreground",
+                etat === "hold" && "border-amber-400 bg-amber-50 text-amber-900 dark:bg-amber-950/40 dark:text-amber-100",
+                etat === "failed" && "border-destructive bg-destructive/10 text-destructive",
+                etat === "stopped" && "border-muted-foreground text-muted-foreground",
+                etat === "pending" && "text-muted-foreground",
+              )}
+            >
+              {t(`papier.etape.${etape}`)}
+            </li>
+          );
+        })}
+      </ol>
     </div>
   );
 }
@@ -582,11 +942,13 @@ function CarteBiblio({
       </button>
       {ouvert ? (
         <div className="space-y-3 border-t p-3">
+          <PipelineVisuelle master={master} />
           <ResumeMaster master={master} />
           <SelectVoix
             id={`papier-voix-${master.id}`}
             value={master.voice || "George"}
             onChange={onVoix}
+            favoris={[]}
             disabled={busy}
           />
           <SousBloc titre={t("papier.voirPlans")} compte={master.papier_scenes?.length ?? 0}>
@@ -624,7 +986,9 @@ function ResumeMaster({ master }: { master: PapierMaster }) {
       {videoFr ? (
         <div className="space-y-1">
           <p className="text-xs text-muted-foreground">{t("papier.videoFr")}</p>
-          <video src={videoFr} className="max-h-80 w-full rounded-md bg-muted" controls playsInline />
+          <PapierCadre className="mx-auto max-h-80 w-auto max-w-[220px]">
+            <video src={videoFr} className="h-full w-full object-cover" controls playsInline />
+          </PapierCadre>
         </div>
       ) : null}
       {master.erreur ? <p className="text-sm text-destructive">{master.erreur}</p> : null}
@@ -679,7 +1043,7 @@ function CarteLangue({
   const video = langue.video_url || langue.video_mix_url;
   return (
     <div className="overflow-hidden rounded-md border">
-      <div className="aspect-[9/16] bg-muted">
+      <PapierCadre>
         {video ? (
           <video src={video} className="h-full w-full object-cover" controls playsInline />
         ) : (
@@ -687,7 +1051,7 @@ function CarteLangue({
             {t(`papier.statutLangue.${langue.statut}`)}
           </div>
         )}
-      </div>
+      </PapierCadre>
       <div className="space-y-2 p-3">
         <div className="flex items-center justify-between gap-2">
           <span className="text-sm font-medium">
@@ -717,7 +1081,7 @@ function CartesScenes({ master }: { master: PapierMaster }) {
     <div className="grid gap-3 sm:grid-cols-2">
       {scenes.map((s) => (
         <div key={s.id} className="overflow-hidden rounded-md border">
-          <div className="aspect-[9/16] bg-muted">
+          <PapierCadre>
             {s.clip_url ? (
               <video src={s.clip_url} className="h-full w-full object-cover" controls muted playsInline />
             ) : s.image_url ? (
@@ -727,7 +1091,7 @@ function CartesScenes({ master }: { master: PapierMaster }) {
                 {t("papier.planAttente")}
               </div>
             )}
-          </div>
+          </PapierCadre>
           <div className="space-y-1 p-3">
             <div className="flex items-center justify-between gap-2 text-xs text-muted-foreground">
               <span>{t("papier.plan", { n: s.index + 1 })}</span>

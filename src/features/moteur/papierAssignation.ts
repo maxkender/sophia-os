@@ -1,5 +1,7 @@
 /** Helpers purs — assignation de la vidéo papier aux comptes CM. */
 
+import { protegerNomSophia } from "./papierScript";
+
 export type CompteCmCible = {
   id: string;
   langue: string;
@@ -95,7 +97,7 @@ export function captionDepuisLangue(row: {
   cta?: string | null;
 }): string {
   return [row.hook, row.cta]
-    .map((s) => String(s ?? "").trim())
+    .map((s) => protegerNomSophia(String(s ?? "").trim()))
     .filter(Boolean)
     .join("\n\n");
 }

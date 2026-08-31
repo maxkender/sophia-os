@@ -17,6 +17,7 @@ import {
 } from "./papier_reglages.ts";
 import { mergerAudioVideoFal } from "./fal_merge_audio.ts";
 import { mergerVideosFal } from "./fal_merge_videos.ts";
+import { assurerCadrePapierUrl, incrusterCadrePapier } from "./fal_cadre_papier.ts";
 import { statutDepuisLocaleAssets, type PapierScriptTraduit } from "./papier_locales_core.ts";
 import { traduireScriptPapier } from "./papier_traduction.ts";
 import type { PapierScript } from "./papier_script_core.ts";
@@ -412,16 +413,18 @@ async function etapeRender(
   if (urls.length === 0) throw new Error("Aucun mix à assembler");
   let bytes: Uint8Array;
   let mime = "video/mp4";
-  if (urls.length === 1) {
-    const res = await fetch(urls[0]!);
-    if (!res.ok) throw new Error(`Téléchargement mix ${res.status}`);
-    bytes = new Uint8Array(await res.arrayBuffer());
-  } else {
+  let sourceUrl = urls[0]!;
+  if (urls.length > 1) {
     await reserverFalPapier(supabase);
     const merged = await mergerVideosFal({ videoUrls: urls });
-    bytes = merged.bytes;
-    mime = merged.mime;
+    const rawPath = `papiers/${row.master_id}/${row.langue}/mix-raw.mp4`;
+    sourceUrl = await uploader(supabase, rawPath, merged.bytes, merged.mime);
   }
+  await reserverFalPapier(supabase);
+  const cadreUrl = await assurerCadrePapierUrl(supabase);
+  const framed = await incrusterCadrePapier({ videoUrl: sourceUrl, cadreUrl });
+  bytes = framed.bytes;
+  mime = framed.mime;
   const path = `papiers/${row.master_id}/${row.langue}/mix.mp4`;
   const url = await uploader(supabase, path, bytes, mime);
   await patchLangue(
@@ -508,6 +511,25 @@ export async function avancerLangue(
   }
 
   try {
+    const { data: masterEtat } = await supabase
+      .from("papier_masters")
+      .select("annule, statut")
+      .eq("id", row.master_id)
+      .maybeSingle();
+    if ((masterEtat as { annule?: boolean; statut?: string } | null)?.annule ||
+      (masterEtat as { statut?: string } | null)?.statut === "stopped") {
+      return {
+        ok: true,
+        idle: true,
+        done: true,
+        kick: false,
+        langueId,
+        masterId: row.master_id,
+        langue: row.langue,
+        statut: row.statut,
+        detail: "pipeline arrêtée",
+      };
+    }
     const masterScript = await chargerScriptMaster(supabase, row.master_id);
     if (!masterScript) {
       return {

@@ -3,7 +3,7 @@
 export const SOPHIA_OUTRO = "Retrouve ça sur Sophia, c'est gratuit.";
 
 const SOPHIA_ALIAS =
-  /\b(Sof[iíìï]a|Sofie|Sophie|Zsof[ií]a|Σοφία|София|Sofya)\b/gi;
+  /\b(Sof[iíìï]a|Sofie|Zsof[ií]a|Σοφία|София|Sofya)\b/gi;
 
 export const MOTS_PAR_SECONDE = 2.6;
 

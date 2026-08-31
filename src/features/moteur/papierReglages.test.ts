@@ -31,7 +31,24 @@ describe("normaliserReglagesPapier", () => {
     expect(r.duree_clip).toBe(6);
     expect(r.voix).toBe("Alice");
     expect(r.voix_par_langue).toEqual({ de: "Lily" });
+    expect(r.voix_favoris).toEqual([]);
+    expect(r.topic_categorie).toBe("aleatoire");
+    expect(r.narration_style).toBe("revelation");
+    expect(r.pipeline_mode).toBe("auto");
     expect(r.fal_quota_jour).toBe(0);
+  });
+
+  it("garde les favoris et le mode manuel", () => {
+    const r = normaliserReglagesPapier({
+      voix_favoris: ["Alice", "inconnu", "George"],
+      pipeline_mode: "manuel",
+      topic_categorie: "espace",
+      narration_style: "question",
+    });
+    expect(r.voix_favoris).toEqual(["Alice", "George"]);
+    expect(r.pipeline_mode).toBe("manuel");
+    expect(r.topic_categorie).toBe("espace");
+    expect(r.narration_style).toBe("question");
   });
 });
 

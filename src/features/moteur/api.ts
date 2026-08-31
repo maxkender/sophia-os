@@ -3361,7 +3361,14 @@ export const scraperSourceVersContenus = (compteReferenceId: string) =>
 export const lancerMinuitVnext = (body: Record<string, unknown> = {}) =>
   invoke<{ ok: boolean; saute?: boolean; jour?: string }>("minuit-vnext", body);
 
-export type PapierStatut = "queued" | "scripting" | "images" | "clips" | "ready" | "failed";
+export type PapierStatut =
+  | "queued"
+  | "scripting"
+  | "images"
+  | "clips"
+  | "ready"
+  | "failed"
+  | "stopped";
 
 export type PapierJournal = { at: string; etape: string; detail: string };
 
@@ -3411,9 +3418,15 @@ export type PapierMaster = {
   id: string;
   date_publication: string;
   topic: string | null;
+  topic_categorie?: string | null;
   kind: string;
   narration_style: string;
-  script: { title?: string; hook?: string; cta?: string } | null;
+  script: {
+    title?: string;
+    hook?: string;
+    cta?: string;
+    scenes?: Array<{ index: number; narration: string; overlay?: string }>;
+  } | null;
   statut: PapierStatut;
   etape: string | null;
   progression: number;
@@ -3424,6 +3437,10 @@ export type PapierMaster = {
   video_url?: string | null;
   video_path?: string | null;
   voice?: string | null;
+  pipeline_mode?: "auto" | "manuel" | string | null;
+  pipeline_hold?: "topic" | "script" | null;
+  duree_cible_sec?: number | null;
+  annule?: boolean | null;
   papier_scenes?: PapierScene[];
   papier_langues?: PapierLangue[];
   papier_posts?: Array<{ id: string; compte_id: string; langue: string; est_test?: boolean }>;
@@ -3507,9 +3524,40 @@ export async function listerPapierMasters(
   });
 }
 
-export const lancerPapierJour = (
-  body: { date?: string; topic?: string; voice?: string; application_id?: string | null } = {},
-) => invoke<PapierTickResultat>("papier-cm", { action: "assurer", manuel: true, ...body });
+export type PapierLancerOpts = {
+  date?: string;
+  topic?: string;
+  voice?: string;
+  application_id?: string | null;
+  topic_categorie?: string;
+  narration_style?: string;
+  pipeline_mode?: "auto" | "manuel";
+  duree_cible_sec?: number;
+};
+
+export const lancerPapierJour = (body: PapierLancerOpts = {}) =>
+  invoke<PapierTickResultat>("papier-cm", { action: "assurer", manuel: true, ...body });
+
+export const proposerTopicPapier = (body: {
+  topic_categorie?: string;
+  narration_style?: string;
+} = {}) =>
+  invoke<{ ok: boolean; topic?: string; error?: string }>("papier-cm", {
+    action: "proposer_topic",
+    manuel: true,
+    ...body,
+  });
+
+export const validerEtapePapier = (id: string, topic?: string) =>
+  invoke<PapierTickResultat>("papier-cm", {
+    action: "valider",
+    manuel: true,
+    id,
+    topic,
+  });
+
+export const arreterPapier = (id: string) =>
+  invoke<PapierTickResultat>("papier-cm", { action: "arreter", manuel: true, id });
 
 export const changerVoixPapier = (id: string, voice: string) =>
   invoke<PapierTickResultat & { voix?: string; rebuildFr?: boolean }>("papier-cm", {

@@ -11,6 +11,7 @@ import {
   finaliserScript,
   motionPromptPapier,
   normaliserCtaSophiaUnique,
+  protegerNomSophia,
   remplacerSophiaParAppli,
   SOPHIA_OUTRO,
 } from "./papierScript";
@@ -29,10 +30,10 @@ describe("durée de clip", () => {
 });
 
 describe("budget script", () => {
-  it("réserve ~6 s de CTA et calcule scènes / mots", () => {
+  it("réserve ~3 s de CTA et calcule scènes / mots", () => {
     const b = budgetScript(48);
-    expect(b.narrationSeconds).toBe(42);
-    expect(b.totalWords).toBe(Math.round(42 * 2.6));
+    expect(b.narrationSeconds).toBe(45);
+    expect(b.totalWords).toBe(Math.round(45 * 2.6));
     expect(b.sceneCount).toBeGreaterThanOrEqual(5);
     expect(b.sceneCount).toBeLessThanOrEqual(16);
     expect(b.wordsPerScene).toBeGreaterThanOrEqual(8);
@@ -80,7 +81,12 @@ describe("CTA Sophia unique", () => {
     expect(script.scenes[2]?.narration).toContain("Sophia");
     expect(compterSophia(script.scenes.slice(0, -1).map((s) => s.narration).join(" "))).toBe(0);
     expect(compterSophia(script.cta)).toBe(1);
-    expect(script.scenes[2]?.overlay).toBe("Télécharge Sophia");
+    expect(script.scenes[2]?.overlay).toBe("Sophia");
+  });
+
+  it("corrige Sofia en Sophia dans le CTA", () => {
+    expect(protegerNomSophia("Télécharge Sofia maintenant")).toBe("Télécharge Sophia maintenant");
+    expect(compterSophia(normaliserCtaSophiaUnique("Ouvre Sofia puis lis Sofia"))).toBe(1);
   });
 
   it("l'outro par défaut ne dit Sophia qu'une fois", () => {
@@ -105,11 +111,12 @@ describe("CTA Sophia unique", () => {
 describe("prompts papercraft", () => {
   it("cadre carré letterbox + pas de texte", () => {
     const cover = coverPromptPapier("a red paper boat");
-    expect(cover).toContain("perfect centered square");
+    expect(cover).toContain("SAFE AREA");
+    expect(cover).toContain("Do NOT draw black bars");
     expect(cover).toContain("no text");
     expect(cover).toContain("a red paper boat");
     const motion = motionPromptPapier("the boat drifts");
-    expect(motion).toContain("Stop-motion paper animation");
-    expect(motion).toContain("black bands stay perfectly static");
+    expect(motion).toContain("LOCKED camera");
+    expect(motion).toContain("never change the frame");
   });
 });

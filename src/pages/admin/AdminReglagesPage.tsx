@@ -21,7 +21,12 @@ import {
 } from "@/features/moteur/api";
 import { estLabelFileSlideshow } from "@/features/moteur/fileLabelsSlideshow";
 import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
-import { VOIX_PAPIER, type DureeClipReglage } from "@/features/moteur/papierReglages";
+import {
+  labelVoixPapier,
+  voixOrdonnees,
+  type DureeClipReglage,
+} from "@/features/moteur/papierReglages";
+import { PAPIER_CATEGORIES, PAPIER_STYLES_NARRATION } from "@/features/moteur/papierSujets";
 import {
   SCHEMA_ASSIGNATION,
   SCHEMA_UPDATE_ELO,
@@ -601,9 +606,10 @@ export function AdminReglagesPage() {
                 value={reglages.papier.voix}
                 onChange={(e) => maj({ papier: { ...reglages.papier, voix: e.target.value } })}
               >
-                {VOIX_PAPIER.map((v) => (
+                {voixOrdonnees(reglages.papier.voix_favoris).map((v) => (
                   <option key={v} value={v}>
-                    {v}
+                    {reglages.papier.voix_favoris.includes(v) ? "★ " : ""}
+                    {labelVoixPapier(v)}
                   </option>
                 ))}
               </select>
@@ -626,14 +632,74 @@ export function AdminReglagesPage() {
                     }}
                   >
                     <option value="">{t("reglages.papierVoixSuivre")}</option>
-                    {VOIX_PAPIER.map((v) => (
+                    {voixOrdonnees(reglages.papier.voix_favoris).map((v) => (
                       <option key={v} value={v}>
-                        {v}
+                        {reglages.papier.voix_favoris.includes(v) ? "★ " : ""}
+                        {labelVoixPapier(v)}
                       </option>
                     ))}
                   </select>
                 </div>
               ))}
+            </div>
+            <p className="text-xs text-muted-foreground">{t("reglages.papierVoixFavoris")}</p>
+          </section>
+
+          <section className="grid gap-4 sm:grid-cols-3">
+            <div className="space-y-2">
+              <Label htmlFor="papierCat">{t("reglages.papierCategorie")}</Label>
+              <select
+                id="papierCat"
+                className="flex h-9 w-full rounded-md border border-input bg-background px-3 text-sm"
+                value={reglages.papier.topic_categorie}
+                onChange={(e) =>
+                  maj({ papier: { ...reglages.papier, topic_categorie: e.target.value as (typeof PAPIER_CATEGORIES)[number] } })
+                }
+              >
+                {PAPIER_CATEGORIES.map((c) => (
+                  <option key={c} value={c}>
+                    {t(`papier.cat.${c}`)}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="papierStyle">{t("reglages.papierStyle")}</Label>
+              <select
+                id="papierStyle"
+                className="flex h-9 w-full rounded-md border border-input bg-background px-3 text-sm"
+                value={reglages.papier.narration_style}
+                onChange={(e) =>
+                  maj({
+                    papier: {
+                      ...reglages.papier,
+                      narration_style: e.target.value as (typeof PAPIER_STYLES_NARRATION)[number],
+                    },
+                  })
+                }
+              >
+                {PAPIER_STYLES_NARRATION.map((s) => (
+                  <option key={s} value={s}>
+                    {t(`papier.style.${s}`)}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="papierMode">{t("reglages.papierMode")}</Label>
+              <select
+                id="papierMode"
+                className="flex h-9 w-full rounded-md border border-input bg-background px-3 text-sm"
+                value={reglages.papier.pipeline_mode}
+                onChange={(e) =>
+                  maj({
+                    papier: { ...reglages.papier, pipeline_mode: e.target.value === "manuel" ? "manuel" : "auto" },
+                  })
+                }
+              >
+                <option value="auto">{t("papier.modeAuto")}</option>
+                <option value="manuel">{t("papier.modeManuel")}</option>
+              </select>
             </div>
           </section>
 

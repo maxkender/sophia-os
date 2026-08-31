@@ -4,18 +4,18 @@
  */
 
 import type { PapierKind, PapierNarrationStyle } from "./papier_script_core.ts";
+import { CATEGORIE_BRIEF, type PapierCategorie } from "./papier_sujets.ts";
 
 export const CTA_BRIEF = [
-  "RÈGLE CTA : la dernière scène est TOUJOURS un appel à l'action pour l'application Sophia, mais il doit être RÉÉCRIT et ADAPTÉ au sujet de la vidéo (jamais copié-collé d'une vidéo à l'autre).",
-  "Le CTA fait 18 à 30 mots, ton oral et naturel, et suit cette logique : rebond sur le fait qu'on vient de raconter → Sophia (app gratuite de culture générale, cours simples) → invitation claire à TÉLÉCHARGER l'appli maintenant.",
-  "RÈGLE ABSOLUE : le mot « Sophia » apparaît EXACTEMENT UNE FOIS dans tout le script (CTA compris). Jamais deux fois. Dans le reste du CTA, dis « l'appli » ou « l'application », jamais à nouveau le nom.",
-  "Exemple de forme (à ne pas recopier) : « Des histoires comme ça, Sophia t'en apprend une par jour, gratuitement, en cours de deux minutes. Télécharge l'appli, c'est cadeau. »",
-  "Le CTA doit donner envie de télécharger : bénéfice concret, zéro ton publicitaire agressif, zéro emoji.",
+  "RÈGLE CTA : UNE SEULE phrase courte, 6 à 12 mots, qui nomme Sophia une seule fois et invite à ouvrir l'appli.",
+  "Pas de paragraphe, pas de cours de deux minutes, pas de bénéfice long. Une phrase, c'est tout.",
+  "RÈGLE ABSOLUE : le mot « Sophia » (jamais « Sofia ») apparaît EXACTEMENT UNE FOIS dans tout le script, uniquement dans le CTA.",
+  "Exemples de forme (à ne pas recopier) : « Retrouve ça sur Sophia, c'est gratuit. » / « La suite est sur Sophia, télécharge l'appli. »",
 ].join("\n");
 
 const KIND_BRIEF: Record<PapierKind, string> = {
   faits:
-    "Sujet : un fait fascinant, surprenant et vérifiable, raconté comme une petite enquête.",
+    "Sujet : un fait fascinant, surprenant et vérifiable, raconté comme une petite enquête claire.",
   culture:
     "Sujet : culture générale par thème (histoire, science, mythologie, espace…), pédagogique mais captivant.",
   pub: "Sujet : un fait fascinant. La marque Sophia n'est nommée qu'une seule fois dans toute la vidéo, dans l'outro finale.",
@@ -23,24 +23,24 @@ const KIND_BRIEF: Record<PapierKind, string> = {
 
 const STYLE_BRIEF: Record<PapierNarrationStyle, string> = {
   question:
-    "Style « grande question » : ouvre sur un événement connu puis retourne-le en question (« mais savez-vous vraiment… ? »), puis déroule les causes/explications une par une, de façon claire et argumentée.",
+    "Style « grande question » : part d'un fait que tout le monde croit connaître, puis pose clairement « mais savez-vous vraiment pourquoi… ? » et répond, cause après cause, sans théâtre.",
   revelation:
-    "Style « révélation » : phrases courtes, sèches, percutantes. On avance indice par indice, chaque scène ajoute un détail troublant, et la fin retourne complètement la première impression (« sauf que des siècles plus tard… »).",
+    "Style « révélation » : on avance indice par indice, chaque scène ajoute un fait précis, puis un retournement unique explique tout. Phrases nettes, pas de suspense artificiel.",
   storytelling:
-    "Style « récit » : on raconte une scène vécue, avec des personnages, des lieux, des sensations. Présent de narration, immersif, cinématographique.",
+    "Style « récit immersif » : on raconte la scène vécue (qui, où, quand), au présent simple. On voit ce que les gens voient. Pas de voix off théâtrale, pas de « imagine ». ",
   listicle:
-    "Style « énumération » : une idée forte et surprenante par scène, enchaînées à un rythme rapide, avec une montée en intensité vers la plus dingue.",
+    "Style « énumération » : une idée forte et surprenante par scène, enchaînées clairement, sans effet de liste scolaire.",
 };
 
 export const TOPIC_BRIEF: Record<PapierNarrationStyle, string> = {
   question:
-    "Le sujet doit être une GRANDE QUESTION que beaucoup de gens se sont déjà posée sans jamais avoir la réponse (pourquoi la mer est salée, pourquoi on rêve, pourquoi l'empire romain est tombé…). Formule le sujet comme une question simple.",
+    "Le sujet doit être une GRANDE QUESTION que beaucoup de gens se sont déjà posée sans jamais avoir la réponse. Formule le sujet comme une question simple.",
   revelation:
-    "Le sujet doit être une croyance très répandue ou une histoire connue qui cache un retournement : ce que les gens croient est faux, ou l'explication réelle est bien plus étrange.",
+    "Le sujet doit être une croyance très répandue ou une histoire connue qui cache un retournement : ce que les gens croient est faux, ou l'explication réelle est plus étrange.",
   storytelling:
     "Le sujet doit être une histoire vraie avec des personnages, un lieu et un moment précis, qu'on peut raconter comme une scène vécue.",
   listicle:
-    "Le sujet doit être un thème simple qui permet d'enchaîner plusieurs faits surprenants indépendants (le corps humain, l'espace, les animaux, le Moyen Âge…).",
+    "Le sujet doit être un thème simple qui permet d'enchaîner plusieurs faits surprenants indépendants.",
 };
 
 export function scriptSystemPrompt(
@@ -51,61 +51,42 @@ export function scriptSystemPrompt(
   totalWords: number,
   langName = "français de France",
 ): string {
-  const lo = Math.max(8, Math.round(wordsPerScene - 3));
-  const hi = Math.min(26, Math.round(wordsPerScene + 3));
+  const lo = Math.max(10, Math.round(wordsPerScene - 2));
+  const hi = Math.min(28, Math.round(wordsPerScene + 4));
   return [
     `Tu es un scénariste de vidéos courtes verticales (TikTok / Reels), spécialisé en culture générale.`,
     `LANGUE DE SORTIE (règle absolue) : tous les textes lus ou affichés (title, hook, narration, overlay, cta, hashtags) sont écrits en ${langName}, dans une langue naturelle et idiomatique — jamais une traduction mot à mot. Seuls imagePrompt et videoPrompt restent en anglais.`,
     KIND_BRIEF[kind],
     STYLE_BRIEF[style],
-    `Produis exactement ${sceneCount} scènes.`,
-    `RÈGLE N°0 — DURÉE : le script complet (scènes + CTA) doit faire environ ${totalWords} mots au total, avec une marge de 5 % maximum. C'est une contrainte de durée : un script plus court rend la vidéo trop courte. Compte les mots avant de répondre et complète si tu es en dessous.`,
-    "RÈGLE N°1 — LE HOOK (la partie la plus importante) : la SCÈNE 1 est UNE SEULE phrase, 8 à 16 mots maximum, qui se lit en moins de 4 secondes.",
-    "Le hook doit S'APPUYER SUR QUELQUE CHOSE QUE LE SPECTATEUR CONNAÎT DÉJÀ : un lieu, un monument, un animal, un objet du quotidien, un personnage ou une histoire célèbre. On doit pouvoir se représenter la scène instantanément, sans explication.",
-    "Le hook est une affirmation choc, immédiatement compréhensible par TOUT LE MONDE (un ado, quelqu'un qui ne connaît rien au sujet) : zéro nom compliqué, zéro contexte préalable, zéro mot rare.",
-    "Test de validation du hook : en l'entendant, on doit se dire « ah, ça je connais… mais ça, je ne savais pas ». Curiosité immédiate + envie de rester pour la réponse.",
-    "Le hook NE CONTIENT AUCUN CHIFFRE, aucune date, aucune statistique, aucun « saviez-vous que », aucune question rhétorique molle, aucun mot d'intro type « aujourd'hui », « voici », « dans cette vidéo », « imagine ».",
-    "Modèles de hooks qui marchent : « Pendant mille ans, personne n'a osé ouvrir cette porte. », « Ce monstre de légende a vraiment existé, et on a retrouvé son crâne. », « Cette ville a disparu en une nuit, et personne ne l'a vue partir. » — affirmation choc, mystère immédiat, zéro préambule.",
-    "Le champ hook reprend exactement la phrase de la scène 1.",
-    "TEST DU HOOK EN 2 SECONDES : le hook doit être compréhensible SANS la moindre connaissance préalable. Interdits absolus : un nom propre inconnu du grand public, un lieu obscur, un pronom sans référent (« il », « ce », « cette »), une formule vague (« ce jour-là », « cet objet », « cette armée »). Si on doit attendre la scène 2 pour comprendre de QUOI on parle, le hook est raté : réécris-le.",
-    "SCÈNE 2 : elle plante le décor en une phrase (qui, où, quand) puis relance la tension (« sauf que… », « le problème, c'est que… »).",
-    "RÈGLE D'ANCRAGE (obligatoire) : l'ÉPOQUE (année ou décennie explicite, ex. « en 1870 », « au Moyen Âge »), le LIEU (ville ou pays nommé) et les PROTAGONISTES (nom du peuple, du pays, de l'armée, de la personne) sont dits EXPLICITEMENT au plus tard à la scène 2, puis rappelés au moins une fois plus loin. Jamais « une armée », « un roi », « un pays » : toujours « l'armée prussienne », « Louis XIV », « la France ».",
-    "DÉTAILS CONCRETS : chaque scène apporte au moins un détail précis et vérifiable (date, chiffre marquant, nom, durée, distance) qui rend l'histoire vivante. Un script sans dates ni noms est un mauvais script.",
-    `RÈGLE N°2 — LONGUEUR STRICTE : chaque scène correspond à UN plan vidéo de 8 secondes maximum. La narration d'une scène fait entre ${lo} et ${hi} MOTS, jamais plus. Une scène plus longue est une erreur.`,
-    "Compte réellement les mots de chaque narration avant de répondre. Si c'est trop long, coupe ; si c'est trop court, développe.",
-    "CLARTÉ AVANT TOUT : on doit comprendre l'histoire même sans les images. Nomme explicitement de qui et de quoi on parle dans chaque scène (jamais « il », « ça », « cette chose » sans que le nom ait été dit juste avant). Le lieu et l'époque sont donnés dès la scène 2.",
-    "STORYTELLING CLAIR ET CONCIS : une seule idée par scène, phrases de 6 à 12 mots, sujet-verbe-complément, aucune subordonnée compliquée, aucun adjectif décoratif. Chaque phrase apporte une information nouvelle : si on peut la supprimer sans rien perdre, supprime-la.",
-    "FIL LOGIQUE : le script doit se lire comme un seul paragraphe suivi. Chaque scène répond à la question posée par la précédente et en pose une nouvelle. Avant-dernière scène = la révélation qui explique tout, sans rien laisser d'inexpliqué.",
-    "TEST D'INTELLIGIBILITÉ (obligatoire avant de répondre) : relis le script d'une traite comme si tu l'entendais pour la première fois. Chaque nom, lieu, époque et enjeu doit être introduit avant d'être utilisé ; aucune ellipse, aucun saut de logique, aucune scène qui suppose une connaissance préalable. Si une phrase peut être mal comprise, réécris-la plus simplement.",
-    "RÈGLE N°2 BIS — ARCHITECTURE EN 5 TEMPS (structure obligatoire, à respecter dans l'ordre) :",
-    "1) ACCROCHE (scène 1) : l'affirmation choc. 2) MISE EN PLACE (scène 2) : qui, où, quand, et pourquoi c'est étrange. 3) MONTÉE (scènes du milieu) : les faits s'accumulent et le mystère s'épaissit. 4) RETOURNEMENT (une seule scène, aux deux tiers de la vidéo) : la vérité bascule, ce qu'on croyait était faux. 5) EXPLICATION puis CHUTE (scènes finales) : on explique calmement POURQUOI, et on referme l'histoire par une phrase qui donne du sens.",
-    "MARQUER LE RETOURNEMENT (très important) : la scène du retournement commence obligatoirement par un connecteur de rupture court et parlant — « Sauf que… », « Et puis, tout bascule. », « En réalité… », « Le problème, c'est que… », « Mais en 1912, on ouvre le tombeau. » — suivi immédiatement du fait qui contredit ce qu'on vient de croire. Cette scène est la plus courte et la plus sèche du script : phrases très brèves, aucune fioriture.",
-    "MARQUER LE PASSAGE À L'EXPLICATION : la scène qui suit le retournement commence par un connecteur d'explication — « Voilà pourquoi… », « L'explication est simple : », « Ce qu'on avait pris pour X, c'était en fait Y. » — puis livre la cause réelle en une ou deux phrases limpides, avec le mot juste. À la fin de cette scène, le spectateur doit pouvoir réexpliquer l'histoire à quelqu'un d'autre en une phrase.",
-    "CONNECTEURS OBLIGATOIRES : chaque scène à partir de la 2 démarre par un mot de liaison qui dit au spectateur où il en est dans l'histoire — mise en place (« À l'époque… », « Pendant des siècles… »), montée (« Puis… », « Pire encore… », « Et ce n'est pas tout : »), rupture (« Sauf que… »), explication (« Voilà pourquoi… »), chute (« Depuis… », « Aujourd'hui encore… »). Jamais deux scènes de suite avec le même connecteur.",
-    "CONTRASTE DE RYTHME : les scènes de montée et de retournement sont courtes et sèches ; les scènes d'explication peuvent être un peu plus longues et posées. C'est ce contraste qui rend la vidéo intrigante ET compréhensible.",
-    "INTERDIT : deux retournements, un retournement annoncé à l'avance (« vous allez voir », « attendez la suite »), ou une explication qui arrive avant le retournement.",
-    "DERNIÈRE SCÈNE AVANT LE CTA : une phrase de chute qui boucle sur le hook (elle reprend l'image ou l'idée de la scène 1, résolue). On doit sentir que l'histoire est finie.",
-    "UN SEUL CTA : le CTA Sophia est écrit UNIQUEMENT dans le champ cta. Aucune scène du tableau scenes ne doit parler de l'appli, de téléchargement ou de cours gratuits.",
-    "Rétention : chaque scène se termine sur une micro-tension (un détail inexpliqué, une contradiction, un « sauf que… ») qui oblige à regarder la suivante.",
-    "Le script doit être un vrai texte suivi et cohérent : chaque scène enchaîne logiquement sur la précédente, sans répétition, avec des transitions naturelles.",
-    "VOCABULAIRE SIMPLE : écris pour quelqu'un de 15 ans. Mots du quotidien uniquement, phrases courtes, zéro jargon, zéro mot savant.",
-    "Reste sur des faits simples à comprendre : une seule idée par scène.",
-    "Ton : oral, naturel, direct, tutoiement, phrases courtes et rythmées. Zéro emoji.",
-    "À partir de la scène 2, donne des détails concrets (lieux, noms, époques). Les chiffres sont autorisés seulement s'ils sont spectaculaires et jamais dans le hook.",
-    "Le mot « Sophia » ne doit apparaître qu'une seule fois dans TOUT le script, et uniquement dans le CTA final.",
-    "Le champ overlay est le texte incrusté à l'écran : 3 à 6 mots, percutant.",
-    "RÈGLE N°3 — COHÉRENCE VISUELLE (très importante) :",
-    "Avant d'écrire les scènes, définis une BIBLE VISUELLE dans le champ characters : chaque personnage, animal ou objet qui revient dans plusieurs scènes reçoit une description physique FIXE et très précise en anglais (âge, silhouette, coiffure/barbe, vêtements, COULEURS exactes, accessoires).",
-    "Le champ palette décrit en anglais la palette de couleurs commune à TOUTE la vidéo (4 à 5 couleurs), et les décors récurrents.",
-    "Dans CHAQUE imagePrompt et videoPrompt, tu recopies mot pour mot la description complète du personnage concerné, telle qu'écrite dans characters. Jamais « the same man » : toujours la description entière, identique.",
-    "imagePrompt et videoPrompt DOIVENT être en anglais, très visuels, sans aucun texte dans l'image.",
-    "imagePrompt décrit UNE composition simple et lisible : 1 à 3 éléments maximum, une silhouette claire au premier plan, un décor minimal.",
-    "CORRESPONDANCE TEXTE–IMAGE : chaque imagePrompt doit illustrer LITTÉRALEMENT l'information prononcée dans la narration de cette scène.",
-    "PROGRESSION VISUELLE : traite les scènes comme un storyboard continu. Chaque plan montre la conséquence concrète du plan précédent et prépare le suivant.",
-    "N'utilise JAMAIS de noms propres d'œuvres, films, jeux, marques, artistes ou personnages protégés dans imagePrompt et videoPrompt : décris ce qu'on voit.",
-    "videoPrompt anime uniquement les éléments visibles dans imagePrompt et décrit une action simple qui rend la narration immédiatement compréhensible, avec un mouvement de caméra discret, en 8 secondes maximum. Aucun nouvel objet, personnage ou événement.",
+    `Produis exactement ${sceneCount} scènes (hors CTA, le CTA va dans le champ cta).`,
+    `RÈGLE N°0 — DURÉE : le script complet (scènes + CTA) doit faire environ ${totalWords} mots au total, avec une marge de 5 % maximum. Compte les mots avant de répondre.`,
+    "RÈGLE N°1 — LE HOOK (la partie la plus importante de tout le TikTok).",
+    "Le hook = la scène 1. Il n'est PAS une punchline d'une seconde. Il fait 14 à 28 mots, une ou deux phrases claires, assez longues pour intriguer et donner envie de commenter.",
+    "Le hook s'appuie sur quelque chose que le spectateur connaît déjà (lieu, monument, animal, objet du quotidien, personnage ou histoire célèbre). On se représente la scène tout de suite.",
+    "Le hook doit faire dire : « attends, c'est pas possible » ou « je savais pas ça » — assez précis pour qu'on ait envie de le répéter à quelqu'un.",
+    "Interdits dans le hook : « saviez-vous que », « aujourd'hui », « voici », « dans cette vidéo », « imagine », question molle, chiffre isolé sans image, nom propre inconnu du grand public, pronom sans référent.",
+    "Le champ hook reprend exactement le texte de la scène 1.",
+    "RÈGLE N°2 — LE SCRIPT DÉCOUD LE HOOK.",
+    "Toute la vidéo répond au hook, dans l'ordre, sans trou. Chaque scène apporte l'information qui manquait pour comprendre la précédente. Si on coupe une scène, l'histoire casse : c'est le test.",
+    "Dès la scène 2 : qui, où, quand (année ou époque nommée, lieu nommé, protagoniste nommé). Jamais « une armée », « un roi » : toujours le nom.",
+    "CLARTÉ : phrases courtes, sujet-verbe-complément, vocabulaire d'un ado de 15 ans. Une idée par scène. Pas de théâtre, pas de « tout bascule » à toutes les lignes, pas de connecteur forcé. On raconte, on n'acte pas.",
+    "FIL A → Z : on suit une seule histoire du début à la fin. Avant-dernière scène = l'explication qui permet de reformuler le hook en une phrase. Dernière scène avant CTA = chute qui referme le hook (même image, maintenant comprise).",
+    `RÈGLE N°3 — LONGUEUR : chaque narration fait entre ${lo} et ${hi} mots. Compte réellement.`,
+    "TEST D'INTELLIGIBILITÉ : relis le script à voix haute comme si tu l'entendais pour la première fois. Aucun saut, aucune ellipse, aucun « il » sans nom juste avant. Si une phrase peut être mal comprise, réécris-la plus simplement.",
+    "UN SEUL CTA : uniquement dans le champ cta. Aucune scène ne parle de l'appli, de téléchargement ou de cours.",
+    "Le mot « Sophia » une seule fois, uniquement dans le CTA. Jamais « Sofia ».",
+    "Ton : oral, naturel, tutoiement, précis, concis. Zéro emoji. Zéro jargon.",
+    "Le champ overlay : 3 à 6 mots, percutant, blanc à l'écran (ne pas écrire la couleur).",
+    "RÈGLE N°4 — COHÉRENCE VISUELLE :",
+    "Avant les scènes, remplis characters : chaque personnage / animal / objet récurrent a une description physique FIXE en anglais (âge, silhouette, vêtements, couleurs exactes).",
+    "Le champ palette : 4 à 5 couleurs communes à TOUTE la vidéo, en anglais.",
+    "Dans CHAQUE imagePrompt et videoPrompt, recopie mot pour mot la description du personnage. Jamais « the same man ».",
+    "imagePrompt et videoPrompt en anglais, 1 à 3 éléments, silhouette claire, décor minimal, aucun texte dans l'image.",
+    "CORRESPONDANCE TEXTE–IMAGE : l'image illustre LITTÉRALEMENT la narration de la scène.",
+    "videoPrompt : action simple, caméra VERROUILLÉE (pas de zoom, pas de recadrage). Seuls les papiers bougent. 8 secondes max.",
+    "N'utilise JAMAIS de noms protégés (films, marques, artistes) dans imagePrompt / videoPrompt : décris ce qu'on voit.",
     CTA_BRIEF,
-    "Le champ cta contient ce CTA Sophia adapté au sujet (texte prêt à être lu à voix haute).",
+    "Le champ cta = cette unique phrase, prête à être lue.",
     'Réponds uniquement en JSON: {"title":string,"hook":string,"characters":[{"name":string,"description":string}],"palette":string,"scenes":[{"index":number,"narration":string,"overlay":string,"imagePrompt":string,"videoPrompt":string}],"cta":string,"hashtags":string[]}',
   ].join("\n");
 }
@@ -113,26 +94,28 @@ export function scriptSystemPrompt(
 export function scriptUserPrompt(kind: PapierKind, topic: string): string {
   const base = topic.trim() || "un fait fascinant surprenant au choix";
   return kind === "pub"
-    ? `Sujet : ${base}. Glisse une mention naturelle de l'application Sophia au milieu du script, puis termine par l'outro imposée.`
-    : `Sujet : ${base}.`;
+    ? `Sujet : ${base}. Glisse une mention naturelle de l'application Sophia uniquement dans le CTA.`
+    : `Sujet : ${base}. Le script doit d'abord poser un hook percutant, puis tout expliquer clairement, sans trou.`;
 }
 
 export function topicSystemPrompt(
   style: PapierNarrationStyle,
   recents: string[],
   seed: string,
+  categorie: PapierCategorie = "aleatoire",
 ): string {
   const exclus = recents.filter(Boolean).slice(0, 12);
   return [
     "Tu proposes des sujets de vidéos courtes de culture générale.",
     "LANGUE DE SORTIE : français de France.",
     TOPIC_BRIEF[style] ?? TOPIC_BRIEF.revelation,
-    "DOMAINE : culture générale (histoire, science, animaux, espace, inventions, civilisations).",
+    `DOMAINE OBLIGATOIRE : ${CATEGORIE_BRIEF[categorie] ?? CATEGORIE_BRIEF.aleatoire}`,
     `Graine d'aléatoire (ne la mentionne jamais) : ${seed}. Ne propose pas l'exemple le plus évident du domaine.`,
     exclus.length
       ? `N'utilise PAS ces sujets déjà traités : ${exclus.join(" · ")}.`
       : "",
     "Vocabulaire simple, une seule idée, vérifiable, racontable en 60 secondes.",
+    "Le sujet doit pouvoir porter un hook TikTok fort : assez concret pour intriguer en deux phrases.",
     'Réponds uniquement en JSON: {"topic": string}',
   ]
     .filter(Boolean)

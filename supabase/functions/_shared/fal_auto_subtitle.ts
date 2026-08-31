@@ -29,7 +29,7 @@ export async function incrusterKaraokeFal(input: {
       font_size: 64,
       font_weight: "black",
       font_color: "white",
-      highlight_color: "yellow",
+      highlight_color: "white",
       stroke_width: 3,
       stroke_color: "black",
       background_color: "none",

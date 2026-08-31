@@ -3,6 +3,7 @@
  * Auth : JWT admin ou x-cron-secret.
  *
  *   tick | assurer | relancer | regenerer | voix
+ *   proposer_topic | valider | arreter
  *   tick_locales (FR, ou une langue demandée) | relancer_langue
  *   assigner | annuler_test
  */
@@ -21,12 +22,17 @@ import {
 } from "../_shared/papier_locales.ts";
 import {
   avancerMaster,
+  arreterMaster,
   kickPapierCm,
   masterEnCoursOuNouveau,
   regenererMaster,
   relancerMaster,
   tickPapierJour,
+  validerEtapeMaster,
 } from "../_shared/papier_master.ts";
+import { proposerTopicPapier } from "../_shared/papier_script.ts";
+import { chargerReglagesPapier } from "../_shared/papier_reglages.ts";
+import { normaliserCategorie } from "../_shared/papier_sujets.ts";
 import { resoudreApplication } from "../_shared/applications.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
@@ -141,6 +147,42 @@ Deno.serve(async (request) => {
       return json(out);
     }
 
+    if (action === "proposer_topic") {
+      const reglages = await chargerReglagesPapier(supabase);
+      const { data: recents } = await supabase
+        .from("papier_masters")
+        .select("topic")
+        .not("topic", "is", null)
+        .order("date_publication", { ascending: false })
+        .limit(14);
+      const topic = await proposerTopicPapier({
+        style:
+          typeof body?.narration_style === "string" ? body.narration_style : reglages.narration_style,
+        categorie: normaliserCategorie(body?.topic_categorie ?? reglages.topic_categorie),
+        recents: (recents ?? [])
+          .map((r) => String((r as { topic?: string }).topic ?? "").trim())
+          .filter(Boolean),
+      });
+      return json({ ok: true, topic });
+    }
+
+    if (action === "arreter") {
+      const id = String(body?.id ?? body?.masterId ?? "");
+      if (!id) return json({ ok: false, error: "id requis" }, 400);
+      const master = await arreterMaster(supabase, id);
+      return json({ ok: true, done: true, kick: false, masterId: id, statut: master.statut });
+    }
+
+    if (action === "valider") {
+      const id = String(body?.id ?? body?.masterId ?? "");
+      if (!id) return json({ ok: false, error: "id requis" }, 400);
+      const master = await validerEtapeMaster(supabase, id, {
+        topic: typeof body?.topic === "string" ? body.topic : undefined,
+      });
+      const tick = await avancerMaster(supabase, master.id);
+      return json({ ok: true, masterId: master.id, ...enchainer(request, tick, master.id) });
+    }
+
     if (action === "assurer") {
       const app = await resoudreApplication(supabase, body ?? {});
       const master = await masterEnCoursOuNouveau(supabase, {
@@ -148,6 +190,10 @@ Deno.serve(async (request) => {
         topic: typeof body?.topic === "string" ? body.topic : undefined,
         voice: typeof body?.voice === "string" ? body.voice : undefined,
         applicationId: app.id,
+        topicCategorie: typeof body?.topic_categorie === "string" ? body.topic_categorie : undefined,
+        narrationStyle: typeof body?.narration_style === "string" ? body.narration_style : undefined,
+        pipelineMode: typeof body?.pipeline_mode === "string" ? body.pipeline_mode : undefined,
+        dureeCibleSec: typeof body?.duree_cible_sec === "number" ? body.duree_cible_sec : undefined,
       });
       const tick = await avancerMaster(supabase, master.id);
       return json({ ok: true, masterId: master.id, ...enchainer(request, tick, master.id) });
@@ -181,6 +227,10 @@ Deno.serve(async (request) => {
       topic: typeof body?.topic === "string" ? body.topic : undefined,
       masterId: typeof body?.masterId === "string" ? body.masterId : undefined,
       voice: typeof body?.voice === "string" ? body.voice : undefined,
+      topicCategorie: typeof body?.topic_categorie === "string" ? body.topic_categorie : undefined,
+      narrationStyle: typeof body?.narration_style === "string" ? body.narration_style : undefined,
+      pipelineMode: typeof body?.pipeline_mode === "string" ? body.pipeline_mode : undefined,
+      dureeCibleSec: typeof body?.duree_cible_sec === "number" ? body.duree_cible_sec : undefined,
     });
     return json(enchainer(request, tick, tick.masterId));
   } catch (error) {

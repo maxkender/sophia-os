@@ -1,43 +1,12 @@
-/**
- * Prompts master papier — doctrine éditable (admin) + contraintes techniques.
- */
+/** Assemblage des prompts Papier (copie miroir de supabase/functions/_shared/papier_prompts.ts). */
 
 import {
-  CLE_PROMPT_CTA,
-  CLE_PROMPT_IMAGE,
   CLE_PROMPT_SCRIPT,
-  CLE_PROMPT_VOIX,
   LABEL_NARRATION_STYLE,
   PROMPTS_PAPIER_DEFAUT,
-  promptPapierOuDefaut,
-} from "./papier_prompt_defauts.ts";
-import type { PapierKind, PapierNarrationStyle } from "./papier_script_core.ts";
-import { CATEGORIE_BRIEF, type PapierCategorie } from "./papier_sujets.ts";
-import { chargerPrompt, serviceClient } from "./supabase.ts";
-
-type Supabase = ReturnType<typeof serviceClient>;
-
-export type PapierPromptsAdmin = {
-  script_generation: string;
-  voice_delivery: string;
-  cta_sophia: string;
-  image_style: string;
-};
-
-export async function chargerPromptsPapier(supabase: Supabase): Promise<PapierPromptsAdmin> {
-  const [script, voice, cta, image] = await Promise.all([
-    chargerPrompt(supabase, CLE_PROMPT_SCRIPT),
-    chargerPrompt(supabase, CLE_PROMPT_VOIX),
-    chargerPrompt(supabase, CLE_PROMPT_CTA),
-    chargerPrompt(supabase, CLE_PROMPT_IMAGE),
-  ]);
-  return {
-    script_generation: promptPapierOuDefaut(CLE_PROMPT_SCRIPT, script),
-    voice_delivery: promptPapierOuDefaut(CLE_PROMPT_VOIX, voice),
-    cta_sophia: promptPapierOuDefaut(CLE_PROMPT_CTA, cta),
-    image_style: promptPapierOuDefaut(CLE_PROMPT_IMAGE, image),
-  };
-}
+} from "./papierPromptDefauts";
+import type { PapierKind, PapierNarrationStyle } from "./papierScript";
+import { CATEGORIE_BRIEF, type PapierCategorie } from "./papierSujets";
 
 export function libelleNarrationStyle(style: PapierNarrationStyle): string {
   return LABEL_NARRATION_STYLE[style] ?? LABEL_NARRATION_STYLE.revelation;
@@ -91,13 +60,6 @@ export function scriptSystemPrompt(
     extras.imageStyle.trim(),
     'Réponds uniquement en JSON: {"title":string,"hook":string,"characters":[{"name":string,"description":string}],"palette":string,"scenes":[{"index":number,"narration":string,"overlay":string,"imagePrompt":string,"videoPrompt":string}],"cta":string,"hashtags":string[]}',
   ].join("\n");
-}
-
-export function scriptUserPrompt(kind: PapierKind, topic: string): string {
-  const base = topic.trim() || "un fait fascinant surprenant au choix";
-  return kind === "pub"
-    ? `Sujet : ${base}. Glisse une mention naturelle de l'application Sophia uniquement dans le CTA.`
-    : `Sujet : ${base}. Applique NARRATION_STYLE. Chaque plan doit avancer la preuve ou le retournement.`;
 }
 
 export function topicSystemPrompt(

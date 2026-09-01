@@ -7,6 +7,7 @@
 
 import { incrusterKaraokeFal } from "./fal_auto_subtitle.ts";
 import { synthetiserVoixFal } from "./fal_elevenlabs_tts.ts";
+import { chargerPromptsPapier } from "./papier_prompts.ts";
 import { assurerMasterPretSiClips, publierVideoFrMaster } from "./papier_master.ts";
 import {
   chargerReglagesPapier,
@@ -337,6 +338,7 @@ async function etapeVoix(
   scenes: PapierLangueSceneRow[],
   t0: number,
 ): Promise<boolean> {
+  const delivery = (await chargerPromptsPapier(supabase)).voice_delivery;
   for (const scene of scenes) {
     if (outOfTime(t0)) return false;
     if (scene.audio_url) continue;
@@ -345,6 +347,7 @@ async function etapeVoix(
       text: scene.narration,
       langue: row.langue,
       voice: row.voice,
+      delivery,
     });
     const path = `papiers/${row.master_id}/${row.langue}/voice-${scene.index}.mp3`;
     const url = await uploader(supabase, path, tts.bytes, tts.mime);

@@ -208,16 +208,18 @@ function storyLine(story?: string) {
 
 export function coverPromptPapier(
   imagePrompt: string,
-  opts?: { bible?: string; story?: string },
+  opts?: { bible?: string; story?: string; styleVisuel?: string },
 ): string {
-  return `Vertical 9:16 key frame. ${PAPERCRAFT_VISUAL}. ${PAPERCRAFT_QUALITY}.${bibleLine(opts?.bible)}${storyLine(opts?.story)} ${SQUARE_SAFE} Absolutely no text, no letters, no watermark, no logo. Scene: ${imagePrompt}`;
+  const style = opts?.styleVisuel?.trim() || PAPERCRAFT_VISUAL;
+  return `Vertical 9:16 key frame. ${style}. ${PAPERCRAFT_QUALITY}.${bibleLine(opts?.bible)}${storyLine(opts?.story)} ${SQUARE_SAFE} Absolutely no text, no letters, no watermark, no logo. Scene: ${imagePrompt}`;
 }
 
 export function motionPromptPapier(
   videoPrompt: string,
-  opts?: { bible?: string; story?: string },
+  opts?: { bible?: string; story?: string; styleVisuel?: string },
 ): string {
-  return `${videoPrompt}. Vertical short-form video. ${PAPERCRAFT_VISUAL}. ${PAPERCRAFT_QUALITY}.${bibleLine(opts?.bible)}${storyLine(opts?.story)} ${SQUARE_SAFE} ${PAPERCRAFT_MOTION} Consistent art direction, same characters and same colors as the reference image, no on-screen text, no subtitles, no watermark.`;
+  const style = opts?.styleVisuel?.trim() || PAPERCRAFT_VISUAL;
+  return `${videoPrompt}. Vertical short-form video. ${style}. ${PAPERCRAFT_QUALITY}.${bibleLine(opts?.bible)}${storyLine(opts?.story)} ${SQUARE_SAFE} ${PAPERCRAFT_MOTION} Consistent art direction, same characters and same colors as the reference image, no on-screen text, no subtitles, no watermark.`;
 }
 
 export function compterSophia(texte: string): number {

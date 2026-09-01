@@ -5,6 +5,7 @@
 
 import { editerNanoBananaPro, genererNanoBananaPro } from "./fal_nano_banana.ts";
 import { attendreSeedanceI2V, soumettreSeedanceI2V, type SeedanceQueued } from "./fal_seedance.ts";
+import { chargerPromptsPapier } from "./papier_prompts.ts";
 import { ecrireScriptPapier, proposerTopicPapier } from "./papier_script.ts";
 import {
   chargerReglagesPapier,
@@ -481,6 +482,7 @@ async function etapeTopic(supabase: Supabase, master: PapierMasterRow): Promise<
       style: master.narration_style,
       categorie: master.topic_categorie ?? undefined,
       recents: recents.filter((t) => t !== master.topic),
+      supabase,
     });
     master.topic = topic;
     const hold = mode === "manuel" ? "topic" : null;
@@ -568,6 +570,8 @@ async function etapeScript(supabase: Supabase, master: PapierMasterRow): Promise
     kind: master.kind,
     style: master.narration_style,
     targetSeconds,
+    categorie: master.topic_categorie ?? undefined,
+    supabase,
   });
   const rows = script.scenes.map((s) => ({
     master_id: master.id,
@@ -605,6 +609,7 @@ async function etapeImages(
   t0: number,
 ): Promise<boolean> {
   const bible = bibleVisuelle(master.script);
+  const styleVisuel = (await chargerPromptsPapier(supabase)).image_style;
   for (let i = 0; i < scenes.length; i++) {
     if (outOfTime(t0)) return false;
     const scene = scenes[i]!;
@@ -619,6 +624,7 @@ async function etapeImages(
     const base = coverPromptPapier(scene.image_prompt || scene.narration, {
       bible,
       story: storyContext(scenes, i),
+      styleVisuel,
     });
     const prompt = refs.length
       ? `${base}\n\nThe attached image${refs.length > 1 ? "s are" : " is"} a STYLE AND CHARACTER REFERENCE: keep EXACTLY the same characters (same faces, same hair, same clothing shapes and colours), the same materials, palette and lighting, so the video reads as one single illustrated story. Do not copy the composition — render the new scene described above as the next shot of that same story.`
@@ -676,6 +682,7 @@ async function etapeClips(
   t0: number,
 ): Promise<boolean> {
   const bible = bibleVisuelle(master.script);
+  const styleVisuel = (await chargerPromptsPapier(supabase)).image_style;
   for (let i = 0; i < scenes.length; i++) {
     if (outOfTime(t0)) return false;
     const scene = scenes[i]!;
@@ -689,6 +696,7 @@ async function etapeClips(
         prompt: motionPromptPapier(scene.video_prompt || scene.narration, {
           bible,
           story: storyContext(scenes, i),
+          styleVisuel,
         }),
         imageUrl: scene.image_url,
         duree: scene.duree_cible,

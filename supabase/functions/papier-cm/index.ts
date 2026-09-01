@@ -163,6 +163,7 @@ Deno.serve(async (request) => {
         recents: (recents ?? [])
           .map((r) => String((r as { topic?: string }).topic ?? "").trim())
           .filter(Boolean),
+        supabase,
       });
       return json({ ok: true, topic });
     }

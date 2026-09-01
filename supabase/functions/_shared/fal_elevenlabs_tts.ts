@@ -14,6 +14,10 @@ import {
   normaliserTimestampsFal,
   type PapierWordTiming,
 } from "./papier_locales_core.ts";
+import {
+  stabiliteVoixDepuisPrompt,
+  vitesseVoixDepuisPrompt,
+} from "./papier_prompt_defauts.ts";
 import { estimerSecondesParole } from "./papier_script_core.ts";
 
 export const ELEVEN_TTS = "fal-ai/elevenlabs/tts/multilingual-v2";
@@ -23,6 +27,7 @@ export async function synthetiserVoixFal(input: {
   text: string;
   langue: string;
   voice?: string;
+  delivery?: string;
   onProgress?: FalQueueProgress;
 }): Promise<{
   url: string;
@@ -33,6 +38,9 @@ export async function synthetiserVoixFal(input: {
 }> {
   const text = input.text.trim();
   if (!text) throw new Error("TTS: texte vide");
+  const delivery = input.delivery?.trim() ?? "";
+  const speed = vitesseVoixDepuisPrompt(delivery);
+  const stability = stabiliteVoixDepuisPrompt(delivery) ?? 0.55;
   const queued = await falQueueSubmit(
     ELEVEN_TTS,
     {
@@ -40,7 +48,8 @@ export async function synthetiserVoixFal(input: {
       voice: input.voice?.trim() || VOIX_PAPIER_DEFAUT,
       language_code: input.langue,
       timestamps: true,
-      stability: 0.55,
+      stability,
+      ...(speed != null ? { speed } : {}),
     },
     input.onProgress,
   );

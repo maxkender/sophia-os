@@ -8,9 +8,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ecrirePrompt, lirePrompt } from "@/features/moteur/api";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
+import { PROMPTS_PAPIER_DEFAUT } from "@/features/moteur/papierPromptDefauts";
 
 /** Les prompts qui pilotent le moteur, modifiables sans redéploiement. */
 const PROMPTS = [
+  { cle: "script_generation", titre: "prompts.scriptGenerationTitle", desc: "prompts.scriptGenerationDesc" },
+  { cle: "voice_delivery", titre: "prompts.voiceDeliveryTitle", desc: "prompts.voiceDeliveryDesc" },
+  { cle: "cta_sophia", titre: "prompts.ctaSophiaTitle", desc: "prompts.ctaSophiaDesc" },
+  { cle: "image_style", titre: "prompts.imageStyleTitle", desc: "prompts.imageStyleDesc" },
   { cle: "pertinence", titre: "prompts.pertinenceTitle", desc: "prompts.pertinenceDesc" },
   { cle: "pertinence_micabo", titre: "prompts.pertinenceMicaboTitle", desc: "prompts.pertinenceMicaboDesc" },
   { cle: "placement_sophia", titre: "prompts.placementTitle", desc: "prompts.placementDesc" },
@@ -44,12 +49,15 @@ function EditeurPrompt({ cle, titre, desc }: { cle: string; titre: string; desc:
   const queryClient = useQueryClient();
   const { data, isPending } = useQuery({
     queryKey: ["prompt", cle],
-    queryFn: () => lirePrompt(cle),
+    queryFn: async () => {
+      const v = await lirePrompt(cle);
+      return v.trim() ? v : (PROMPTS_PAPIER_DEFAUT[cle] ?? "");
+    },
   });
 
   const [brouillon, setBrouillon] = React.useState<string | null>(null);
-  const valeur = brouillon ?? data ?? "";
-  const modifie = brouillon !== null && brouillon !== (data ?? "");
+  const valeur = brouillon ?? data ?? PROMPTS_PAPIER_DEFAUT[cle] ?? "";
+  const modifie = brouillon !== null && brouillon !== (data ?? PROMPTS_PAPIER_DEFAUT[cle] ?? "");
 
   const enregistrer = useMutation({
     mutationFn: () => ecrirePrompt(cle, valeur),

@@ -46,6 +46,24 @@ vi.mock("@/features/moteur/api", async (importOriginal) => {
     regenererPapier: vi.fn(),
     relancerPapierLangue: vi.fn(),
     assignerPapierCm: vi.fn(),
+    listerVoixPapier: vi.fn(async () => ({
+      hasKey: true,
+      langue: "fr",
+      voix: [
+        {
+          id: "abcCM123",
+          name: "locuteur-cm",
+          languages: ["fr"],
+          previewUrl: "https://example.com/cm.mp3",
+          category: "cloned",
+          gender: null,
+          accent: null,
+          source: "library",
+          custom: true,
+        },
+      ],
+    })),
+    previewVoixPapier: vi.fn(),
   };
 });
 

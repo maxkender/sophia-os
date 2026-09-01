@@ -20,12 +20,9 @@ import {
   listerLabels,
 } from "@/features/moteur/api";
 import { estLabelFileSlideshow } from "@/features/moteur/fileLabelsSlideshow";
-import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
-import {
-  labelVoixPapier,
-  voixOrdonnees,
-  type DureeClipReglage,
-} from "@/features/moteur/papierReglages";
+import { drapeauLangue, LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
+import { type DureeClipReglage } from "@/features/moteur/papierReglages";
+import { SelectVoixEleven } from "@/features/moteur/SelectVoixEleven";
 import { PAPIER_CATEGORIES, PAPIER_STYLES_NARRATION } from "@/features/moteur/papierSujets";
 import {
   SCHEMA_ASSIGNATION,
@@ -598,47 +595,34 @@ export function AdminReglagesPage() {
 
           <section className="space-y-3">
             <h3 className="text-sm font-medium">{t("reglages.papierVoix")}</h3>
-            <div className="space-y-2 sm:max-w-xs">
-              <Label htmlFor="papierVoix">{t("reglages.papierVoixDefaut")}</Label>
-              <select
-                id="papierVoix"
-                className="flex h-9 w-full rounded-md border border-input bg-background px-3 text-sm"
-                value={reglages.papier.voix}
-                onChange={(e) => maj({ papier: { ...reglages.papier, voix: e.target.value } })}
-              >
-                {voixOrdonnees(reglages.papier.voix_favoris).map((v) => (
-                  <option key={v} value={v}>
-                    {reglages.papier.voix_favoris.includes(v) ? "★ " : ""}
-                    {labelVoixPapier(v)}
-                  </option>
-                ))}
-              </select>
-            </div>
+            <SelectVoixEleven
+              id="papierVoix"
+              value={reglages.papier.voix}
+              onChange={(voix) => maj({ papier: { ...reglages.papier, voix } })}
+              favoris={reglages.papier.voix_favoris}
+              autoDefaut
+            />
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {LANGUES_CIBLES.map((code) => (
                 <div key={code} className="space-y-1">
                   <Label htmlFor={`papier-voix-${code}`} className="text-xs">
-                    {nomLangue(code)}
+                    {drapeauLangue(code)} {nomLangue(code)}
                   </Label>
-                  <select
+                  <SelectVoixEleven
                     id={`papier-voix-${code}`}
-                    className="flex h-9 w-full rounded-md border border-input bg-background px-3 text-sm"
                     value={reglages.papier.voix_par_langue[code] ?? ""}
-                    onChange={(e) => {
+                    langueFixe={code}
+                    allowEmpty
+                    compact
+                    emptyLabel={t("reglages.papierVoixSuivre")}
+                    favoris={reglages.papier.voix_favoris}
+                    onChange={(v) => {
                       const voix_par_langue = { ...reglages.papier.voix_par_langue };
-                      if (e.target.value) voix_par_langue[code] = e.target.value;
+                      if (v) voix_par_langue[code] = v;
                       else delete voix_par_langue[code];
                       maj({ papier: { ...reglages.papier, voix_par_langue } });
                     }}
-                  >
-                    <option value="">{t("reglages.papierVoixSuivre")}</option>
-                    {voixOrdonnees(reglages.papier.voix_favoris).map((v) => (
-                      <option key={v} value={v}>
-                        {reglages.papier.voix_favoris.includes(v) ? "★ " : ""}
-                        {labelVoixPapier(v)}
-                      </option>
-                    ))}
-                  </select>
+                  />
                 </div>
               ))}
             </div>

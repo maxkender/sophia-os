@@ -40,12 +40,12 @@ describe("normaliserReglagesPapier", () => {
 
   it("garde les favoris et le mode manuel", () => {
     const r = normaliserReglagesPapier({
-      voix_favoris: ["Alice", "inconnu", "George"],
+      voix_favoris: ["Alice", "", "x", "locuteur-cm", "inconnu", "George"],
       pipeline_mode: "manuel",
       topic_categorie: "espace",
       narration_style: "question",
     });
-    expect(r.voix_favoris).toEqual(["Alice", "George"]);
+    expect(r.voix_favoris).toEqual(["Alice", "locuteur-cm", "inconnu", "George"]);
     expect(r.pipeline_mode).toBe("manuel");
     expect(r.topic_categorie).toBe("espace");
     expect(r.narration_style).toBe("question");

@@ -1,5 +1,6 @@
 /** Helpers purs — réglages papier (durée, voix, pause, quota Fal). */
 
+import { estIdentifiantVoix } from "./papierVoix";
 import { dureeCibleClip, type DureeCibleClip } from "./papierScript";
 import {
   normaliserCategorie,
@@ -9,7 +10,7 @@ import {
 } from "./papierSujets";
 import { normaliserPipelineMode, type PapierPipelineMode } from "./papierPipeline";
 
-export const VOIX_PAPIER_DEFAUT = "George";
+export const VOIX_PAPIER_DEFAUT = "locuteur-cm";
 
 /** Catalogue ElevenLabs multilingual v2 — id = nom Fal. */
 export const VOIX_PAPIER_CATALOGUE = [
@@ -116,9 +117,7 @@ export const REGLAGES_PAPIER_DEFAUT: ReglagesPapier = {
 export const QUOTA_FAL_PAPIER = "QUOTA_FAL_PAPIER";
 
 export function estVoixPapier(nom: string): boolean {
-  const n = nom.trim();
-  if (!n) return false;
-  return (VOIX_PAPIER as readonly string[]).includes(n);
+  return estIdentifiantVoix(nom);
 }
 
 export function labelVoixPapier(nom: string): string {
@@ -151,7 +150,7 @@ export function normaliserReglagesPapier(brut: unknown): ReglagesPapier {
     }
   }
   const favoris = Array.isArray(o.voix_favoris)
-    ? o.voix_favoris.map((v) => String(v ?? "").trim()).filter((v) => estVoixPapier(v))
+    ? o.voix_favoris.map((v) => String(v ?? "").trim()).filter((v) => estIdentifiantVoix(v))
     : [];
   return {
     actif: o.actif !== false,

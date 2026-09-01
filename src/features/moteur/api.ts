@@ -3568,6 +3568,26 @@ export const changerVoixPapier = (id: string, voice: string) =>
     voice,
   });
 
+export type PapierVoixListe = {
+  voix: import("./papierVoix").VoixEleven[];
+  hasKey: boolean;
+  langue: string;
+  erreur?: string;
+};
+
+export const listerVoixPapier = (langue?: string) =>
+  invoke<PapierVoixListe>("papier-cm", {
+    action: "lister_voix",
+    manuel: true,
+    ...(langue ? { langue } : {}),
+  });
+
+export const previewVoixPapier = (opts: { voiceId: string; langue?: string }) =>
+  invoke<{ previewUrl?: string; audioBase64?: string; mime?: string; voiceId: string }>(
+    "papier-cm",
+    { action: "preview_voix", manuel: true, voiceId: opts.voiceId, langue: opts.langue ?? "fr" },
+  );
+
 export const relancerPapier = (id: string) =>
   invoke<PapierTickResultat>("papier-cm", { action: "relancer", manuel: true, id });
 

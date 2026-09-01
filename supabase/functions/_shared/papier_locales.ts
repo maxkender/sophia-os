@@ -342,7 +342,6 @@ async function etapeVoix(
   for (const scene of scenes) {
     if (outOfTime(t0)) return false;
     if (scene.audio_url) continue;
-    await reserverFalPapier(supabase);
     const tts = await synthetiserVoixFal({
       text: scene.narration,
       langue: row.langue,

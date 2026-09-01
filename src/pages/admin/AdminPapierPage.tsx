@@ -14,7 +14,6 @@ import {
   Settings2,
   Sparkles,
   Square,
-  Star,
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -49,11 +48,8 @@ import {
   PAPIER_PIPELINE_ETAPES,
   type PapierPipelineMode,
 } from "@/features/moteur/papierPipeline";
-import {
-  labelVoixPapier,
-  REGLAGES_PAPIER_DEFAUT,
-  voixOrdonnees,
-} from "@/features/moteur/papierReglages";
+import { REGLAGES_PAPIER_DEFAUT } from "@/features/moteur/papierReglages";
+import { SelectVoixEleven } from "@/features/moteur/SelectVoixEleven";
 import { budgetScript } from "@/features/moteur/papierScript";
 import {
   PAPIER_CATEGORIES,
@@ -417,7 +413,7 @@ export function AdminPapierPage() {
           <FormulairePipeline
             topic={topic}
             onTopic={setTopic}
-            voix={voix || papier?.voix || "George"}
+            voix={voix || papier?.voix || "locuteur-cm"}
             onVoix={setVoix}
             favoris={papier?.voix_favoris ?? []}
             onFavori={(v) => favoriVoix.mutate(v)}
@@ -588,41 +584,16 @@ function SelectVoix({
   onFavori?: (v: string) => void;
   disabled?: boolean;
 }) {
-  const { t } = useTranslation();
-  const liste = voixOrdonnees(favoris);
   return (
-    <div className="space-y-2 sm:max-w-md">
-      <Label htmlFor={id}>{t("papier.voix")}</Label>
-      <div className="flex items-center gap-2">
-        <select
-          id={id}
-          className="flex h-9 w-full rounded-md border border-input bg-background px-3 text-sm"
-          value={value}
-          disabled={disabled}
-          onChange={(e) => onChange(e.target.value)}
-        >
-          {liste.map((v) => (
-            <option key={v} value={v}>
-              {favoris.includes(v) ? "★ " : ""}
-              {labelVoixPapier(v)}
-            </option>
-          ))}
-        </select>
-        {onFavori ? (
-          <Button
-            type="button"
-            size="icon"
-            variant="ghost"
-            className="shrink-0"
-            disabled={disabled}
-            title={t("papier.voixFavori")}
-            onClick={() => onFavori(value)}
-          >
-            <Star className={cn("h-4 w-4", favoris.includes(value) && "fill-amber-400 text-amber-400")} />
-          </Button>
-        ) : null}
-      </div>
-      <p className="text-xs text-muted-foreground">{t("papier.voixAide")}</p>
+    <div className="sm:max-w-xl">
+      <SelectVoixEleven
+        id={id}
+        value={value}
+        onChange={onChange}
+        favoris={favoris}
+        onFavori={onFavori}
+        disabled={disabled}
+      />
     </div>
   );
 }
@@ -986,7 +957,7 @@ function CarteBiblio({
           <ResumeMaster master={master} />
           <SelectVoix
             id={`papier-voix-${master.id}`}
-            value={master.voice || "George"}
+            value={master.voice || "locuteur-cm"}
             onChange={onVoix}
             favoris={[]}
             disabled={busy}

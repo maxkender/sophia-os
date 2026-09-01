@@ -4,6 +4,7 @@
  *
  *   tick | assurer | relancer | regenerer | voix
  *   proposer_topic | valider | arreter | regenerer_partie
+ *   lister_voix | preview_voix
  *   tick_locales (FR, ou une langue demandée) | relancer_langue
  *   assigner | annuler_test
  */
@@ -33,6 +34,9 @@ import {
 } from "../_shared/papier_master.ts";
 import { proposerTopicPapier } from "../_shared/papier_script.ts";
 import { chargerReglagesPapier } from "../_shared/papier_reglages.ts";
+import { VOIX_PAPIER_CATALOGUE } from "../_shared/papier_reglages_core.ts";
+import { catalogueVersVoixEleven, estIdentifiantVoix, filtrerVoixParLangue } from "../_shared/papier_voix.ts";
+import { cleElevenLabs, extrairePreviewVoix, listerVoixElevenLabs } from "../_shared/elevenlabs.ts";
 import { normaliserCategorie } from "../_shared/papier_sujets.ts";
 import { resoudreApplication } from "../_shared/applications.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
@@ -134,6 +138,45 @@ Deno.serve(async (request) => {
       }
       const tick = await avancerLangue(supabase, id);
       return json(enchainer(request, tick, row.master_id));
+    }
+
+    if (action === "lister_voix") {
+      const langue = typeof body.langue === "string" && body.langue.trim() ? body.langue.trim() : undefined;
+      try {
+        const out = await listerVoixElevenLabs({ langue });
+        const fallback = langue
+          ? filtrerVoixParLangue(catalogueVersVoixEleven(VOIX_PAPIER_CATALOGUE), langue)
+          : catalogueVersVoixEleven(VOIX_PAPIER_CATALOGUE);
+        return json({
+          voix: out.voix.length ? out.voix : fallback,
+          hasKey: out.hasKey,
+          langue: langue ?? "",
+        });
+      } catch (err) {
+        console.error("[papier-cm] lister_voix:", err);
+        const fallback = langue
+          ? filtrerVoixParLangue(catalogueVersVoixEleven(VOIX_PAPIER_CATALOGUE), langue)
+          : catalogueVersVoixEleven(VOIX_PAPIER_CATALOGUE);
+        return json({
+          voix: fallback,
+          hasKey: Boolean(cleElevenLabs()),
+          langue: langue ?? "",
+          erreur: String((err as Error).message || err),
+        });
+      }
+    }
+
+    if (action === "preview_voix") {
+      const voiceId = String(body.voiceId ?? body.voice ?? "").trim();
+      const langue = typeof body.langue === "string" ? body.langue : "fr";
+      if (!estIdentifiantVoix(voiceId)) {
+        return json({ error: "Identifiant voix invalide." }, 400);
+      }
+      if (!cleElevenLabs()) {
+        return json({ error: "ELEVENLABS_API_KEY manquante." }, 400);
+      }
+      const preview = await extrairePreviewVoix({ voiceId, langue });
+      return json(preview);
     }
 
     if (action === "voix") {

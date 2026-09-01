@@ -31,9 +31,9 @@ export type PapierScript = {
   palette?: string;
 };
 
-/** Zone utile : le cadre 1:1 ondulé est incrusté après coup, il ne doit PAS être dessiné. */
+/** Zone utile : letterbox noir + fenêtre 1:1 arrondie en edit, à ne PAS dessiner. */
 const SQUARE_SAFE =
-  "SAFE AREA: compose the entire subject in the CENTER 1:1 of the 9:16 canvas (middle square, edge to edge horizontally). Top and bottom bands will be covered by a FIXED wavy paper frame in edit — never put faces, hands or key objects there. Do NOT draw black bars, letterboxing, rounded squares, borders or frames. Fill the whole canvas with papercraft. The visible format never moves.";
+  "SAFE AREA: compose the entire subject in the CENTER 1:1 of the 9:16 canvas (middle square, edge to edge horizontally). Top and bottom bands become a solid black letterbox in edit — never put faces, hands or key objects there. Do NOT draw black bars, letterboxing, rounded squares, borders or frames. Fill the whole canvas with papercraft. The visible format never moves.";
 
 export const PAPERCRAFT_VISUAL =
   "handmade layered paper cut-out diorama photographed head-on, flat frontal composition, stacked planes of matte construction paper with torn deckled edges and visible paper grain, simple bold silhouettes with no fine detail, characters and objects built from flat cut shapes with slight relief, soft diffused studio light casting gentle drop shadows between paper layers, a cohesive limited palette of 4 to 5 flat matte paper colors chosen to fit the mood of this specific scene, no gradients, no realistic textures, no 3D render look, stop-motion paper animation aesthetic, calm and graphic, quiet minimal background of layered paper shapes";
@@ -208,16 +208,18 @@ function storyLine(story?: string) {
 
 export function coverPromptPapier(
   imagePrompt: string,
-  opts?: { bible?: string; story?: string },
+  opts?: { bible?: string; story?: string; styleVisuel?: string },
 ): string {
-  return `Vertical 9:16 key frame. ${PAPERCRAFT_VISUAL}. ${PAPERCRAFT_QUALITY}.${bibleLine(opts?.bible)}${storyLine(opts?.story)} ${SQUARE_SAFE} Absolutely no text, no letters, no watermark, no logo. Scene: ${imagePrompt}`;
+  const style = opts?.styleVisuel?.trim() || PAPERCRAFT_VISUAL;
+  return `Vertical 9:16 key frame. ${style}. ${PAPERCRAFT_QUALITY}.${bibleLine(opts?.bible)}${storyLine(opts?.story)} ${SQUARE_SAFE} Absolutely no text, no letters, no watermark, no logo. Scene: ${imagePrompt}`;
 }
 
 export function motionPromptPapier(
   videoPrompt: string,
-  opts?: { bible?: string; story?: string },
+  opts?: { bible?: string; story?: string; styleVisuel?: string },
 ): string {
-  return `${videoPrompt}. Vertical short-form video. ${PAPERCRAFT_VISUAL}. ${PAPERCRAFT_QUALITY}.${bibleLine(opts?.bible)}${storyLine(opts?.story)} ${SQUARE_SAFE} ${PAPERCRAFT_MOTION} Consistent art direction, same characters and same colors as the reference image, no on-screen text, no subtitles, no watermark.`;
+  const style = opts?.styleVisuel?.trim() || PAPERCRAFT_VISUAL;
+  return `${videoPrompt}. Vertical short-form video. ${style}. ${PAPERCRAFT_QUALITY}.${bibleLine(opts?.bible)}${storyLine(opts?.story)} ${SQUARE_SAFE} ${PAPERCRAFT_MOTION} Consistent art direction, same characters and same colors as the reference image, no on-screen text, no subtitles, no watermark.`;
 }
 
 export function compterSophia(texte: string): number {

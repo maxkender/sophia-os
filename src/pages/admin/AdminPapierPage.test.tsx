@@ -27,6 +27,7 @@ const proposerTopicPapier = vi.fn(async () => ({
   ok: true,
   topic: "Pourquoi la mer est-elle salée ?",
 }));
+const lancerPapierJourMock = vi.fn();
 
 vi.mock("@/features/moteur/api", async (importOriginal) => {
   const actual = await importOriginal<typeof import("@/features/moteur/api")>();
@@ -36,7 +37,7 @@ vi.mock("@/features/moteur/api", async (importOriginal) => {
     lireReglages: () => lireReglages(),
     ecrireReglage: vi.fn(),
     listerPapierMasters: () => listerPapierMasters(),
-    lancerPapierJour: vi.fn(),
+    lancerPapierJour: (...args: unknown[]) => lancerPapierJourMock(...args),
     proposerTopicPapier: () => proposerTopicPapier(),
     validerEtapePapier: vi.fn(),
     arreterPapier: vi.fn(),
@@ -45,6 +46,24 @@ vi.mock("@/features/moteur/api", async (importOriginal) => {
     regenererPapier: vi.fn(),
     relancerPapierLangue: vi.fn(),
     assignerPapierCm: vi.fn(),
+    listerVoixPapier: vi.fn(async () => ({
+      hasKey: true,
+      langue: "fr",
+      voix: [
+        {
+          id: "abcCM123",
+          name: "locuteur-cm",
+          languages: ["fr"],
+          previewUrl: "https://example.com/cm.mp3",
+          category: "cloned",
+          gender: null,
+          accent: null,
+          source: "library",
+          custom: true,
+        },
+      ],
+    })),
+    previewVoixPapier: vi.fn(),
   };
 });
 
@@ -81,5 +100,6 @@ describe("AdminPapierPage", () => {
     await waitFor(() => {
       expect(screen.getByDisplayValue("Pourquoi la mer est-elle salée ?")).toBeInTheDocument();
     });
+    expect(lancerPapierJourMock).not.toHaveBeenCalled();
   });
 });

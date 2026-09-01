@@ -12,15 +12,22 @@ export const PAPIER_PIPELINE_ETAPES = [
 
 export type PapierPipelineEtape = (typeof PAPIER_PIPELINE_ETAPES)[number];
 export type PapierPipelineMode = "auto" | "manuel";
-export type PapierPipelineHold = "topic" | "script" | null;
+/** Étapes créatives : l'admin valide chacune en mode manuel. */
+export type PapierPipelineHold = "topic" | "script" | "images" | null;
 export type PapierPipelineEtat = "pending" | "active" | "hold" | "done" | "failed" | "stopped";
+export type PapierPartieRegen = "topic" | "script" | "images";
 
 export function normaliserPipelineMode(v: unknown): PapierPipelineMode {
   return v === "manuel" ? "manuel" : "auto";
 }
 
 export function normaliserPipelineHold(v: unknown): PapierPipelineHold {
-  return v === "topic" || v === "script" ? v : null;
+  return v === "topic" || v === "script" || v === "images" ? v : null;
+}
+
+export function normaliserPartieRegen(v: unknown): PapierPartieRegen {
+  if (v === "script" || v === "images" || v === "topic") return v;
+  return "script";
 }
 
 export function etapeActivePipeline(opts: {
@@ -33,6 +40,7 @@ export function etapeActivePipeline(opts: {
   if (opts.videoUrl) return "karaoke";
   if (opts.hold === "topic") return "topic";
   if (opts.hold === "script") return "script";
+  if (opts.hold === "images") return "images";
   const langue = opts.langueStatut ?? "";
   if (langue === "karaoke") return "karaoke";
   if (langue === "render" || langue === "mix") return "render";
@@ -83,4 +91,15 @@ export function doitAttendreValidation(opts: {
   hold: PapierPipelineHold;
 }): boolean {
   return opts.mode === "manuel" && opts.hold != null;
+}
+
+/** Après validation d'un hold, l'étape suivante à produire. */
+export function etapeApresValidation(hold: PapierPipelineHold): {
+  statut: string;
+  etape: string;
+} {
+  if (hold === "topic") return { statut: "scripting", etape: "script" };
+  if (hold === "script") return { statut: "images", etape: "images" };
+  if (hold === "images") return { statut: "clips", etape: "clips" };
+  return { statut: "queued", etape: "topic" };
 }

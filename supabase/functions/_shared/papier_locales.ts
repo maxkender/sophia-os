@@ -7,6 +7,7 @@
 
 import { incrusterKaraokeFal } from "./fal_auto_subtitle.ts";
 import { synthetiserVoixFal } from "./fal_elevenlabs_tts.ts";
+import { chargerPromptsPapier } from "./papier_prompts.ts";
 import { assurerMasterPretSiClips, publierVideoFrMaster } from "./papier_master.ts";
 import {
   chargerReglagesPapier,
@@ -17,7 +18,7 @@ import {
 } from "./papier_reglages.ts";
 import { mergerAudioVideoFal } from "./fal_merge_audio.ts";
 import { mergerVideosFal } from "./fal_merge_videos.ts";
-import { assurerCadrePapierUrl, incrusterCadrePapier } from "./fal_cadre_papier.ts";
+import { composerFinalePapier } from "./fal_cadre_papier.ts";
 import { statutDepuisLocaleAssets, type PapierScriptTraduit } from "./papier_locales_core.ts";
 import { traduireScriptPapier } from "./papier_traduction.ts";
 import type { PapierScript } from "./papier_script_core.ts";
@@ -337,14 +338,15 @@ async function etapeVoix(
   scenes: PapierLangueSceneRow[],
   t0: number,
 ): Promise<boolean> {
+  const delivery = (await chargerPromptsPapier(supabase)).voice_delivery;
   for (const scene of scenes) {
     if (outOfTime(t0)) return false;
     if (scene.audio_url) continue;
-    await reserverFalPapier(supabase);
     const tts = await synthetiserVoixFal({
       text: scene.narration,
       langue: row.langue,
       voice: row.voice,
+      delivery,
     });
     const path = `papiers/${row.master_id}/${row.langue}/voice-${scene.index}.mp3`;
     const url = await uploader(supabase, path, tts.bytes, tts.mime);
@@ -421,8 +423,7 @@ async function etapeRender(
     sourceUrl = await uploader(supabase, rawPath, merged.bytes, merged.mime);
   }
   await reserverFalPapier(supabase);
-  const cadreUrl = await assurerCadrePapierUrl(supabase);
-  const framed = await incrusterCadrePapier({ videoUrl: sourceUrl, cadreUrl });
+  const framed = await composerFinalePapier({ videoUrl: sourceUrl, supabase });
   bytes = framed.bytes;
   mime = framed.mime;
   const path = `papiers/${row.master_id}/${row.langue}/mix.mp4`;

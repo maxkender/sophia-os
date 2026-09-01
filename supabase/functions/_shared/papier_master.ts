@@ -5,6 +5,7 @@
 
 import { editerNanoBananaPro, genererNanoBananaPro } from "./fal_nano_banana.ts";
 import { attendreSeedanceI2V, soumettreSeedanceI2V, type SeedanceQueued } from "./fal_seedance.ts";
+import { chargerPromptsPapier } from "./papier_prompts.ts";
 import { ecrireScriptPapier, proposerTopicPapier } from "./papier_script.ts";
 import {
   chargerReglagesPapier,
@@ -16,6 +17,8 @@ import {
 import { normaliserCategorie, type PapierCategorie } from "./papier_sujets.ts";
 import {
   doitAttendreValidation,
+  etapeApresValidation,
+  normaliserPartieRegen,
   normaliserPipelineHold,
   normaliserPipelineMode,
   type PapierPipelineHold,
@@ -87,6 +90,8 @@ export type PapierMasterOpts = {
   narrationStyle?: PapierNarrationStyle | string;
   pipelineMode?: PapierPipelineMode | string;
   dureeCibleSec?: number;
+  /** Manuel : le sujet est déjà validé — enchaîner sur le script. */
+  validerTopic?: boolean;
 };
 
 export type PapierSceneRow = {
@@ -158,15 +163,22 @@ async function patchMaster(
   id: string,
   patch: Record<string, unknown>,
   journal?: { etape: string; detail: string },
-): Promise<void> {
+  opts?: { forcer?: boolean },
+): Promise<boolean> {
   const next: Record<string, unknown> = { ...patch, updated_at: new Date().toISOString() };
   if (journal) {
     const row = await chargerMaster(supabase, id);
     const prev = row?.journal ?? [];
     next.journal = [...prev, { at: new Date().toISOString(), ...journal }].slice(-40);
   }
-  const { error } = await supabase.from("papier_masters").update(next).eq("id", id);
+  let q = supabase.from("papier_masters").update(next).eq("id", id);
+  const forceStop = Boolean(opts?.forcer || patch.annule === true || patch.statut === "stopped");
+  if (!forceStop) {
+    q = q.eq("annule", false).neq("statut", "stopped");
+  }
+  const { data, error } = await q.select("id").maybeSingle();
   if (error) throw error;
+  return Boolean(data);
 }
 
 async function patchScene(
@@ -257,6 +269,7 @@ export async function creerMasterBibliotheque(
   const categorie = normaliserCategorie(opts?.topicCategorie ?? reglages.topic_categorie);
   const style = styleDepuis(opts?.narrationStyle ?? reglages.narration_style, "revelation");
   const duree = Number(opts?.dureeCibleSec ?? reglages.duree_cible_sec);
+  const holdTopic = mode === "manuel" && Boolean(topic) && !opts?.validerTopic;
   const { data, error } = await supabase
     .from("papier_masters")
     .insert({
@@ -267,12 +280,12 @@ export async function creerMasterBibliotheque(
       narration_style: style,
       voice,
       pipeline_mode: mode,
-      pipeline_hold: null,
+      pipeline_hold: holdTopic ? "topic" : null,
       duree_cible_sec: Number.isFinite(duree) ? Math.min(90, Math.max(20, Math.round(duree))) : 48,
       annule: false,
-      statut: "queued",
-      etape: "topic",
-      progression: 0,
+      statut: holdTopic ? "scripting" : "queued",
+      etape: holdTopic ? "topic" : topic && opts?.validerTopic ? "script" : "topic",
+      progression: holdTopic ? 0.08 : 0,
       ...(opts?.applicationId ? { application_id: opts.applicationId } : {}),
     })
     .select("*")
@@ -331,6 +344,7 @@ export async function relancerMaster(supabase: Supabase, id: string): Promise<Pa
       annule: false,
     },
     { etape: "relancer", detail: `reprise → ${statut}` },
+    { forcer: true },
   );
   const next = await chargerMaster(supabase, id);
   if (!next) throw new Error("Master papier introuvable après relance");
@@ -357,54 +371,152 @@ export async function regenererMaster(
   }
   await supabase.from("papier_langues").delete().eq("master_id", id);
   await supabase.from("papier_scenes").delete().eq("master_id", id);
+  const nextTopic = topic?.trim() || null;
+  const mode = normaliserPipelineMode(master.pipeline_mode);
+  const holdTopic = mode === "manuel" && Boolean(nextTopic);
   await patchMaster(
     supabase,
     id,
     {
-      topic: topic?.trim() || null,
+      topic: nextTopic,
       script: null,
-      statut: "queued",
+      statut: holdTopic ? "scripting" : "queued",
       etape: "topic",
-      progression: 0,
+      progression: holdTopic ? 0.08 : 0,
       erreur: null,
       busy: false,
       video_url: null,
       video_path: null,
-      pipeline_hold: null,
+      pipeline_hold: holdTopic ? "topic" : null,
       annule: false,
     },
-    { etape: "regenerer", detail: topic?.trim() || "reset" },
+    { etape: "regenerer", detail: nextTopic || "reset" },
+    { forcer: true },
   );
   const next = await chargerMaster(supabase, id);
   if (!next) throw new Error("Master papier introuvable après reset");
   return next;
 }
 
+export async function regenererPartieMaster(
+  supabase: Supabase,
+  id: string,
+  partie: unknown,
+): Promise<PapierMasterRow> {
+  const kind = normaliserPartieRegen(partie);
+  if (kind === "topic") return regenererMaster(supabase, id);
+  const master = await chargerMaster(supabase, id);
+  if (!master) throw new Error("Master papier introuvable");
+  const scenes = await chargerScenes(supabase, id);
+  const paths = scenes
+    .flatMap((s) => [s.image_path, s.clip_path])
+    .filter((p): p is string => Boolean(p));
+  if (paths.length) {
+    try {
+      await supabase.storage.from(BUCKET).remove(paths);
+    } catch {
+      // best-effort
+    }
+  }
+  await supabase.from("papier_langues").delete().eq("master_id", id);
+
+  if (kind === "script") {
+    await supabase.from("papier_scenes").delete().eq("master_id", id);
+    await patchMaster(
+      supabase,
+      id,
+      {
+        script: null,
+        statut: "scripting",
+        etape: "script",
+        progression: 0.1,
+        erreur: null,
+        busy: false,
+        video_url: null,
+        video_path: null,
+        pipeline_hold: null,
+        annule: false,
+      },
+      { etape: "regen_script", detail: "script à réécrire" },
+      { forcer: true },
+    );
+  } else {
+    for (const scene of scenes) {
+      await patchScene(supabase, scene.id, {
+        image_path: null,
+        image_url: null,
+        clip_path: null,
+        clip_url: null,
+        clip_fal: null,
+      });
+    }
+    await patchMaster(
+      supabase,
+      id,
+      {
+        statut: "images",
+        etape: "images",
+        progression: 0.15,
+        erreur: null,
+        busy: false,
+        video_url: null,
+        video_path: null,
+        pipeline_hold: null,
+        annule: false,
+      },
+      { etape: "regen_images", detail: "photos à refaire" },
+      { forcer: true },
+    );
+  }
+  const next = await chargerMaster(supabase, id);
+  if (!next) throw new Error("Master papier introuvable après regen partielle");
+  return next;
+}
+
 async function etapeTopic(supabase: Supabase, master: PapierMasterRow): Promise<void> {
-  if (master.topic?.trim()) return;
-  await patchMaster(supabase, master.id, { statut: "scripting", etape: "topic", progression: 0.04 });
-  const recents = await sujetsRecents(supabase);
-  const topic = await proposerTopicPapier({
-    style: master.narration_style,
-    categorie: master.topic_categorie ?? undefined,
-    recents: recents.filter((t) => t !== master.topic),
-  });
-  master.topic = topic;
   const mode = normaliserPipelineMode(master.pipeline_mode);
-  const hold = mode === "manuel" ? "topic" : null;
-  await patchMaster(
-    supabase,
-    master.id,
-    {
-      topic,
-      statut: "scripting",
-      etape: hold ? "topic" : "script",
-      pipeline_hold: hold,
-      progression: 0.08,
-    },
-    { etape: "topic", detail: topic },
-  );
-  master.pipeline_hold = hold;
+  if (!master.topic?.trim()) {
+    await patchMaster(supabase, master.id, { statut: "scripting", etape: "topic", progression: 0.04 });
+    const recents = await sujetsRecents(supabase);
+    const topic = await proposerTopicPapier({
+      style: master.narration_style,
+      categorie: master.topic_categorie ?? undefined,
+      recents: recents.filter((t) => t !== master.topic),
+      supabase,
+    });
+    master.topic = topic;
+    const hold = mode === "manuel" ? "topic" : null;
+    await patchMaster(
+      supabase,
+      master.id,
+      {
+        topic,
+        statut: "scripting",
+        etape: hold ? "topic" : "script",
+        pipeline_hold: hold,
+        progression: 0.08,
+      },
+      { etape: "topic", detail: topic },
+    );
+    master.pipeline_hold = hold;
+    master.etape = hold ? "topic" : "script";
+    return;
+  }
+  if (mode === "manuel" && !master.script && (master.etape === "topic" || master.etape === "queued")) {
+    await patchMaster(
+      supabase,
+      master.id,
+      {
+        statut: "scripting",
+        etape: "topic",
+        pipeline_hold: "topic",
+        progression: 0.08,
+      },
+      { etape: "topic", detail: master.topic },
+    );
+    master.pipeline_hold = "topic";
+    master.etape = "topic";
+  }
 }
 
 async function claimMaster(supabase: Supabase, id: string): Promise<boolean> {
@@ -414,6 +526,8 @@ async function claimMaster(supabase: Supabase, id: string): Promise<boolean> {
     .update({ busy: true, updated_at: now })
     .eq("id", id)
     .eq("busy", false)
+    .eq("annule", false)
+    .neq("statut", "stopped")
     .select("id")
     .maybeSingle();
   if (error) throw error;
@@ -421,11 +535,14 @@ async function claimMaster(supabase: Supabase, id: string): Promise<boolean> {
   const row = await chargerMaster(supabase, id);
   if (!row) return false;
   const stale = Date.parse(row.updated_at ?? "") || 0;
+  if (row.annule || row.statut === "stopped") return false;
   if (row.busy && Date.now() - stale > 180_000) {
     const { data: steal } = await supabase
       .from("papier_masters")
       .update({ busy: true, updated_at: now })
       .eq("id", id)
+      .eq("annule", false)
+      .neq("statut", "stopped")
       .select("id")
       .maybeSingle();
     return Boolean(steal);
@@ -453,6 +570,8 @@ async function etapeScript(supabase: Supabase, master: PapierMasterRow): Promise
     kind: master.kind,
     style: master.narration_style,
     targetSeconds,
+    categorie: master.topic_categorie ?? undefined,
+    supabase,
   });
   const rows = script.scenes.map((s) => ({
     master_id: master.id,
@@ -490,6 +609,7 @@ async function etapeImages(
   t0: number,
 ): Promise<boolean> {
   const bible = bibleVisuelle(master.script);
+  const styleVisuel = (await chargerPromptsPapier(supabase)).image_style;
   for (let i = 0; i < scenes.length; i++) {
     if (outOfTime(t0)) return false;
     const scene = scenes[i]!;
@@ -504,6 +624,7 @@ async function etapeImages(
     const base = coverPromptPapier(scene.image_prompt || scene.narration, {
       bible,
       story: storyContext(scenes, i),
+      styleVisuel,
     });
     const prompt = refs.length
       ? `${base}\n\nThe attached image${refs.length > 1 ? "s are" : " is"} a STYLE AND CHARACTER REFERENCE: keep EXACTLY the same characters (same faces, same hair, same clothing shapes and colours), the same materials, palette and lighting, so the video reads as one single illustrated story. Do not copy the composition — render the new scene described above as the next shot of that same story.`
@@ -528,6 +649,23 @@ async function etapeImages(
     // Une image par tick : Nano Banana peut manger le budget.
     return false;
   }
+  const mode = normaliserPipelineMode(master.pipeline_mode);
+  const dejaValideClips = master.etape === "clips" || master.statut === "clips";
+  if (mode === "manuel" && !dejaValideClips) {
+    await patchMaster(
+      supabase,
+      master.id,
+      {
+        statut: "images",
+        etape: "images",
+        pipeline_hold: "images",
+        progression: 0.5,
+      },
+      { etape: "images", detail: `${scenes.length} images — à valider` },
+    );
+    master.pipeline_hold = "images";
+    return true;
+  }
   await patchMaster(
     supabase,
     master.id,
@@ -544,6 +682,7 @@ async function etapeClips(
   t0: number,
 ): Promise<boolean> {
   const bible = bibleVisuelle(master.script);
+  const styleVisuel = (await chargerPromptsPapier(supabase)).image_style;
   for (let i = 0; i < scenes.length; i++) {
     if (outOfTime(t0)) return false;
     const scene = scenes[i]!;
@@ -557,6 +696,7 @@ async function etapeClips(
         prompt: motionPromptPapier(scene.video_prompt || scene.narration, {
           bible,
           story: storyContext(scenes, i),
+          styleVisuel,
         }),
         imageUrl: scene.image_url,
         duree: scene.duree_cible,
@@ -652,7 +792,12 @@ export async function avancerMaster(
       masterId,
       date: master.date_publication,
       statut: master.statut,
-      detail: master.pipeline_hold === "topic" ? "en attente du sujet" : "en attente du script",
+      detail:
+        master.pipeline_hold === "topic"
+          ? "en attente du sujet"
+          : master.pipeline_hold === "images"
+            ? "en attente des images"
+            : "en attente du script",
     };
   }
 
@@ -697,8 +842,14 @@ export async function avancerMaster(
 
     let scenes = await chargerScenes(supabase, masterId);
     const imagesOk = await etapeImages(supabase, master, scenes, t0);
+    master = (await chargerMaster(supabase, masterId))!;
+    if (master.annule || master.statut === "stopped") {
+      return resumer(master, true, "pipeline arrêtée");
+    }
+    if (normaliserPipelineHold(master.pipeline_hold) === "images") {
+      return { ...resumer(master, false, "images à valider"), idle: true, kick: false };
+    }
     if (!imagesOk) {
-      master = (await chargerMaster(supabase, masterId))!;
       scenes = await chargerScenes(supabase, masterId);
       return resumer(master, false, "images en cours", scenes);
     }
@@ -780,9 +931,22 @@ export async function arreterMaster(supabase: Supabase, id: string): Promise<Pap
   await patchMaster(
     supabase,
     id,
-    { statut: "stopped", etape: "stopped", annule: true, busy: false, erreur: null },
+    {
+      statut: "stopped",
+      etape: "stopped",
+      annule: true,
+      busy: false,
+      pipeline_hold: null,
+      erreur: null,
+    },
     { etape: "stop", detail: "arrêté par l'admin" },
+    { forcer: true },
   );
+  await supabase
+    .from("papier_langues")
+    .update({ busy: false, updated_at: new Date().toISOString() })
+    .eq("master_id", id)
+    .neq("statut", "ready");
   const next = await chargerMaster(supabase, id);
   if (!next) throw new Error("Master papier introuvable après arrêt");
   return next;
@@ -796,26 +960,30 @@ export async function validerEtapeMaster(
   const master = await chargerMaster(supabase, id);
   if (!master) throw new Error("Master papier introuvable");
   const hold = normaliserPipelineHold(master.pipeline_hold);
+  if (!hold) throw new Error("Rien à valider");
+  const suite = etapeApresValidation(hold);
   const patch: Record<string, unknown> = {
     pipeline_hold: null,
     annule: false,
     erreur: null,
+    busy: false,
+    statut: suite.statut,
+    etape: suite.etape,
   };
   if (hold === "topic") {
     const topic = opts?.topic?.trim() || master.topic;
     if (!topic) throw new Error("Sujet manquant");
     patch.topic = topic;
-    patch.statut = "scripting";
-    patch.etape = "script";
   } else if (hold === "script") {
     if (!master.script) throw new Error("Script manquant");
-    patch.statut = "images";
-    patch.etape = "images";
   }
-  await patchMaster(supabase, id, patch, {
-    etape: "valider",
-    detail: hold ?? "ok",
-  });
+  await patchMaster(
+    supabase,
+    id,
+    patch,
+    { etape: "valider", detail: hold },
+    { forcer: true },
+  );
   const next = await chargerMaster(supabase, id);
   if (!next) throw new Error("Master papier introuvable après validation");
   return next;

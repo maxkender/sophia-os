@@ -3,7 +3,8 @@
  * Auth : JWT admin ou x-cron-secret.
  *
  *   tick | assurer | relancer | regenerer | voix
- *   proposer_topic | valider | arreter
+ *   proposer_topic | valider | arreter | regenerer_partie
+ *   lister_voix | preview_voix
  *   tick_locales (FR, ou une langue demandée) | relancer_langue
  *   assigner | annuler_test
  */
@@ -26,12 +27,16 @@ import {
   kickPapierCm,
   masterEnCoursOuNouveau,
   regenererMaster,
+  regenererPartieMaster,
   relancerMaster,
   tickPapierJour,
   validerEtapeMaster,
 } from "../_shared/papier_master.ts";
 import { proposerTopicPapier } from "../_shared/papier_script.ts";
 import { chargerReglagesPapier } from "../_shared/papier_reglages.ts";
+import { VOIX_PAPIER_CATALOGUE } from "../_shared/papier_reglages_core.ts";
+import { catalogueVersVoixEleven, estIdentifiantVoix, filtrerVoixParLangue } from "../_shared/papier_voix.ts";
+import { cleElevenLabs, extrairePreviewVoix, listerVoixElevenLabs } from "../_shared/elevenlabs.ts";
 import { normaliserCategorie } from "../_shared/papier_sujets.ts";
 import { resoudreApplication } from "../_shared/applications.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
@@ -135,6 +140,45 @@ Deno.serve(async (request) => {
       return json(enchainer(request, tick, row.master_id));
     }
 
+    if (action === "lister_voix") {
+      const langue = typeof body.langue === "string" && body.langue.trim() ? body.langue.trim() : undefined;
+      try {
+        const out = await listerVoixElevenLabs({ langue });
+        const fallback = langue
+          ? filtrerVoixParLangue(catalogueVersVoixEleven(VOIX_PAPIER_CATALOGUE), langue)
+          : catalogueVersVoixEleven(VOIX_PAPIER_CATALOGUE);
+        return json({
+          voix: out.voix.length ? out.voix : fallback,
+          hasKey: out.hasKey,
+          langue: langue ?? "",
+        });
+      } catch (err) {
+        console.error("[papier-cm] lister_voix:", err);
+        const fallback = langue
+          ? filtrerVoixParLangue(catalogueVersVoixEleven(VOIX_PAPIER_CATALOGUE), langue)
+          : catalogueVersVoixEleven(VOIX_PAPIER_CATALOGUE);
+        return json({
+          voix: fallback,
+          hasKey: Boolean(cleElevenLabs()),
+          langue: langue ?? "",
+          erreur: String((err as Error).message || err),
+        });
+      }
+    }
+
+    if (action === "preview_voix") {
+      const voiceId = String(body.voiceId ?? body.voice ?? "").trim();
+      const langue = typeof body.langue === "string" ? body.langue : "fr";
+      if (!estIdentifiantVoix(voiceId)) {
+        return json({ error: "Identifiant voix invalide." }, 400);
+      }
+      if (!cleElevenLabs()) {
+        return json({ error: "ELEVENLABS_API_KEY manquante." }, 400);
+      }
+      const preview = await extrairePreviewVoix({ voiceId, langue });
+      return json(preview);
+    }
+
     if (action === "voix") {
       const id = String(body?.id ?? "");
       const voice = String(body?.voice ?? "");
@@ -162,6 +206,7 @@ Deno.serve(async (request) => {
         recents: (recents ?? [])
           .map((r) => String((r as { topic?: string }).topic ?? "").trim())
           .filter(Boolean),
+        supabase,
       });
       return json({ ok: true, topic });
     }
@@ -194,6 +239,7 @@ Deno.serve(async (request) => {
         narrationStyle: typeof body?.narration_style === "string" ? body.narration_style : undefined,
         pipelineMode: typeof body?.pipeline_mode === "string" ? body.pipeline_mode : undefined,
         dureeCibleSec: typeof body?.duree_cible_sec === "number" ? body.duree_cible_sec : undefined,
+        validerTopic: Boolean(body?.valider_topic),
       });
       const tick = await avancerMaster(supabase, master.id);
       return json({ ok: true, masterId: master.id, ...enchainer(request, tick, master.id) });
@@ -218,6 +264,14 @@ Deno.serve(async (request) => {
         id,
         typeof body?.topic === "string" ? body.topic : undefined,
       );
+      const tick = await avancerMaster(supabase, master.id);
+      return json({ ok: true, ...enchainer(request, tick, master.id) });
+    }
+
+    if (action === "regenerer_partie") {
+      const id = String(body?.id ?? body?.masterId ?? "");
+      if (!id) return json({ ok: false, error: "id requis" }, 400);
+      const master = await regenererPartieMaster(supabase, id, body?.partie);
       const tick = await avancerMaster(supabase, master.id);
       return json({ ok: true, ...enchainer(request, tick, master.id) });
     }

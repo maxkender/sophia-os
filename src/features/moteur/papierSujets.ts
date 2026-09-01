@@ -22,18 +22,21 @@ export type PapierStyleChoix = (typeof PAPIER_STYLES_NARRATION)[number];
 
 export const CATEGORIE_BRIEF: Record<PapierCategorie, string> = {
   aleatoire:
-    "Choisis librement un domaine de culture générale (histoire, science, mythes, espace, animaux, géographie, pop culture, origines, personnages ou mystères).",
-  histoire: "Grande question d'histoire : un événement, une civilisation ou une décision dont on connaît le nom mais pas vraiment le pourquoi.",
-  faits_divers: "Faits divers vrais et surprenants, ancrés dans un lieu et une date, racontables comme une petite enquête.",
-  mythes: "Mythes et légendes : une créature, un rite ou une histoire que tout le monde croit connaître, avec un fond réel ou une explication claire.",
-  science: "Science du quotidien : un phénomène banal (sommeil, sel, feu, couleurs) dont la cause réelle est contre-intuitive.",
-  espace: "Espace et univers : un fait astronomique concret, visualisable, sans jargon.",
-  animaux: "Animaux et nature : un comportement ou une adaptation précise, vérifiable, qui retourne une idée reçue.",
-  geographie: "Géographie : un lieu, une frontière, un climat ou une carte dont l'explication est inattendue.",
-  pop_culture: "Films et pop culture : une origine, une anecdote de tournage ou un détail d'œuvre célèbre, sans citer de marque protégée dans les visuels.",
-  origines: "Origines des choses : d'où vient un objet, un geste ou un mot du quotidien.",
-  personnages: "Personnages célèbres : un épisode précis de leur vie, peu connu, qui éclaire qui ils étaient.",
-  mysteres: "Mystères non résolus : une affaire ou une énigme réelle, avec les faits établis et ce qui reste ouvert — sans invention.",
+    "Choisis un domaine (histoire, faits divers, mythes, science, espace, animaux, géographie, pop culture, origines, personnages ou mystères). La preuve matérielle (date, nom, chiffre, lieu) reste obligatoire.",
+  histoire:
+    "Big history question : un événement daté qui a basculé sur un détail concret — preuve matérielle obligatoire.",
+  faits_divers:
+    "True crime / odd news : une affaire résolue par un objet ou une analyse précise.",
+  mythes: "Myths & legends : l'origine physique et vérifiable du mythe.",
+  science: "Everyday science : un objet banal dont le fonctionnement réel surprend.",
+  espace: "Space & universe : une mesure ou une observation datée, jamais de spéculation.",
+  animaux: "Animals & nature : une capacité mesurée en labo, avec les chiffres.",
+  geographie: "Geography : un lieu dont la forme s'explique par un événement identifié.",
+  pop_culture:
+    "Films & pop culture : une scène connue confrontée au calcul ou au fait réel. Pas de marque protégée dans les visuels.",
+  origines: "Origins of things : l'accident ou l'erreur à l'origine d'un objet courant.",
+  personnages: "Famous figures : un fait documenté qui contredit l'image du personnage.",
+  mysteres: "Unsolved mysteries : ce que les preuves établissent VRAIMENT, et où ça s'arrête.",
 };
 
 export const STYLE_NARRATION_AIDE: Record<PapierStyleChoix, string> = {

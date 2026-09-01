@@ -3,7 +3,7 @@
  * Auth : JWT admin ou x-cron-secret.
  *
  *   tick | assurer | relancer | regenerer | voix
- *   proposer_topic | valider | arreter
+ *   proposer_topic | valider | arreter | regenerer_partie
  *   tick_locales (FR, ou une langue demandée) | relancer_langue
  *   assigner | annuler_test
  */
@@ -26,6 +26,7 @@ import {
   kickPapierCm,
   masterEnCoursOuNouveau,
   regenererMaster,
+  regenererPartieMaster,
   relancerMaster,
   tickPapierJour,
   validerEtapeMaster,
@@ -194,6 +195,7 @@ Deno.serve(async (request) => {
         narrationStyle: typeof body?.narration_style === "string" ? body.narration_style : undefined,
         pipelineMode: typeof body?.pipeline_mode === "string" ? body.pipeline_mode : undefined,
         dureeCibleSec: typeof body?.duree_cible_sec === "number" ? body.duree_cible_sec : undefined,
+        validerTopic: Boolean(body?.valider_topic),
       });
       const tick = await avancerMaster(supabase, master.id);
       return json({ ok: true, masterId: master.id, ...enchainer(request, tick, master.id) });
@@ -218,6 +220,14 @@ Deno.serve(async (request) => {
         id,
         typeof body?.topic === "string" ? body.topic : undefined,
       );
+      const tick = await avancerMaster(supabase, master.id);
+      return json({ ok: true, ...enchainer(request, tick, master.id) });
+    }
+
+    if (action === "regenerer_partie") {
+      const id = String(body?.id ?? body?.masterId ?? "");
+      if (!id) return json({ ok: false, error: "id requis" }, 400);
+      const master = await regenererPartieMaster(supabase, id, body?.partie);
       const tick = await avancerMaster(supabase, master.id);
       return json({ ok: true, ...enchainer(request, tick, master.id) });
     }

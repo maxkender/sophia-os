@@ -31,6 +31,7 @@ import {
   listerPapierMasters,
   proposerTopicPapier,
   regenererPapier,
+  regenererPartiePapier,
   relancerPapier,
   relancerPapierLangue,
   validerEtapePapier,
@@ -148,14 +149,14 @@ export function AdminPapierPage() {
     else if (papier?.voix && !voix) setVoix(papier.voix);
   }, [enCours?.voice, papier?.voix, voix]);
 
+  const reglagesAppliques = React.useRef(false);
   React.useEffect(() => {
-    if (!papier) return;
-    if (!enCours) {
-      setDuree(papier.duree_cible_sec);
-      setCategorie(papier.topic_categorie);
-      setStyle(papier.narration_style);
-      setMode(papier.pipeline_mode);
-    }
+    if (!papier || enCours || reglagesAppliques.current) return;
+    reglagesAppliques.current = true;
+    setDuree(papier.duree_cible_sec);
+    setCategorie(papier.topic_categorie);
+    setStyle(papier.narration_style);
+    setMode(papier.pipeline_mode);
   }, [papier, enCours]);
 
   React.useEffect(() => {
@@ -179,7 +180,7 @@ export function AdminPapierPage() {
   }
 
   const lancer = useMutation({
-    mutationFn: () =>
+    mutationFn: (opts?: { valider_topic?: boolean }) =>
       lancerPapierJour({
         date: jour,
         topic: topic.trim() || undefined,
@@ -189,6 +190,7 @@ export function AdminPapierPage() {
         narration_style: style,
         pipeline_mode: mode,
         duree_cible_sec: duree,
+        valider_topic: opts?.valider_topic,
       }),
     onSuccess: invalider,
   });
@@ -229,6 +231,11 @@ export function AdminPapierPage() {
     mutationFn: (id: string) => regenererPapier(id, topic.trim() || undefined),
     onSuccess: invalider,
   });
+  const regenererPartie = useMutation({
+    mutationFn: ({ id, partie }: { id: string; partie: "script" | "images" }) =>
+      regenererPartiePapier(id, partie),
+    onSuccess: invalider,
+  });
   const relancerLangue = useMutation({
     mutationFn: (id: string) => relancerPapierLangue(id),
     onSuccess: invalider,
@@ -247,6 +254,7 @@ export function AdminPapierPage() {
     lancer.isPending ||
     relancer.isPending ||
     regenerer.isPending ||
+    regenererPartie.isPending ||
     relancerLangue.isPending ||
     assigner.isPending ||
     changerVoix.isPending ||
@@ -371,12 +379,14 @@ export function AdminPapierPage() {
             mode={mode}
             onMode={setMode}
             hold={enCours.pipeline_hold ?? null}
-            onAvancer={() => lancer.mutate()}
+            onAvancer={mode === "auto" ? () => lancer.mutate({}) : undefined}
             onProposer={() => proposer.mutate()}
-            onValider={() => valider.mutate(enCours.id)}
+            onValider={enCours.pipeline_hold ? () => valider.mutate(enCours.id) : undefined}
             onArreter={() => arreter.mutate(enCours.id)}
             onRelancer={enCours.statut === "failed" || enCours.statut === "stopped" ? () => relancer.mutate(enCours.id) : undefined}
             onRegenerer={() => regenerer.mutate(enCours.id)}
+            onRegenScript={enCours.script ? () => regenererPartie.mutate({ id: enCours.id, partie: "script" }) : undefined}
+            onRegenImages={enCours.papier_scenes?.some((s) => s.image_url) ? () => regenererPartie.mutate({ id: enCours.id, partie: "images" }) : undefined}
             busy={busy}
             lancerPending={lancer.isPending}
             proposerPending={proposer.isPending}
@@ -419,11 +429,13 @@ export function AdminPapierPage() {
             onStyle={setStyle}
             mode={mode}
             onMode={setMode}
-            onAvancer={() => lancer.mutate()}
+            onAvancer={mode === "auto" ? () => lancer.mutate({}) : undefined}
             onProposer={() => proposer.mutate()}
+            onValider={mode === "manuel" ? () => lancer.mutate({ valider_topic: true }) : undefined}
             busy={busy}
             lancerPending={lancer.isPending}
             proposerPending={proposer.isPending}
+            validerPending={lancer.isPending}
           />
         </BlocRetractable>
       )}
@@ -637,6 +649,8 @@ function FormulairePipeline({
   onArreter,
   onRelancer,
   onRegenerer,
+  onRegenScript,
+  onRegenImages,
   busy,
   lancerPending,
   proposerPending,
@@ -658,13 +672,15 @@ function FormulairePipeline({
   onStyle: (v: PapierStyleChoix) => void;
   mode: PapierPipelineMode;
   onMode: (v: PapierPipelineMode) => void;
-  hold?: "topic" | "script" | null;
-  onAvancer: () => void;
+  hold?: "topic" | "script" | "images" | null;
+  onAvancer?: () => void;
   onProposer?: () => void;
   onValider?: () => void;
   onArreter?: () => void;
   onRelancer?: () => void;
   onRegenerer?: () => void;
+  onRegenScript?: () => void;
+  onRegenImages?: () => void;
   busy: boolean;
   lancerPending: boolean;
   proposerPending?: boolean;
@@ -748,6 +764,7 @@ function FormulairePipeline({
             size="sm"
             variant={mode === "manuel" ? "default" : "outline"}
             disabled={busy}
+            data-testid="papier-mode-manuel"
             onClick={() => onMode("manuel")}
           >
             {t("papier.modeManuel")}
@@ -766,11 +783,13 @@ function FormulairePipeline({
           rows={2}
         />
         {hold === "topic" ? <p className="text-xs text-primary">{t("papier.holdTopic")}</p> : null}
+        {onProposer ? <p className="text-xs text-muted-foreground">{t("papier.proposerSujetAide")}</p> : null}
       </div>
 
-      {script?.hook || hold === "script" ? (
+      {script?.hook || hold === "script" || hold === "images" ? (
         <div className="space-y-2 rounded-md border bg-muted/30 p-3">
           {hold === "script" ? <p className="text-xs text-primary">{t("papier.holdScript")}</p> : null}
+          {hold === "images" ? <p className="text-xs text-primary">{t("papier.holdImages")}</p> : null}
           {script?.hook ? (
             <p className="text-sm">
               <span className="font-medium">{t("papier.scriptHook")} — </span>
@@ -805,14 +824,23 @@ function FormulairePipeline({
         {hold && onValider ? (
           <Button onClick={onValider} disabled={busy}>
             {validerPending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Check className="h-4 w-4" />}
-            {hold === "topic" ? t("papier.validerSujet") : t("papier.validerScript")}
+            {hold === "topic"
+              ? t("papier.validerSujet")
+              : hold === "images"
+                ? t("papier.validerImages")
+                : t("papier.validerScript")}
           </Button>
-        ) : (
+        ) : !hold && mode === "manuel" && onValider ? (
+          <Button onClick={onValider} disabled={busy} data-testid="papier-valider-sujet">
+            {validerPending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Check className="h-4 w-4" />}
+            {t("papier.validerSujet")}
+          </Button>
+        ) : onAvancer ? (
           <Button onClick={onAvancer} disabled={busy}>
             {lancerPending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Sparkles className="h-4 w-4" />}
             {t("papier.avancer")}
           </Button>
-        )}
+        ) : null}
         {onProposer ? (
           <Button variant="outline" onClick={onProposer} disabled={busy}>
             {proposerPending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Sparkles className="h-4 w-4" />}
@@ -820,9 +848,21 @@ function FormulairePipeline({
           </Button>
         ) : null}
         {onArreter ? (
-          <Button variant="outline" onClick={onArreter} disabled={busy && !arreterPending}>
+          <Button variant="outline" onClick={onArreter} disabled={Boolean(arreterPending)}>
             {arreterPending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Square className="h-4 w-4" />}
             {t("papier.arreter")}
+          </Button>
+        ) : null}
+        {onRegenScript ? (
+          <Button variant="outline" onClick={onRegenScript} disabled={busy}>
+            <RotateCcw className="h-4 w-4" />
+            {t("papier.regenererScript")}
+          </Button>
+        ) : null}
+        {onRegenImages ? (
+          <Button variant="outline" onClick={onRegenImages} disabled={busy}>
+            <RotateCcw className="h-4 w-4" />
+            {t("papier.regenererImages")}
           </Button>
         ) : null}
         {onRelancer ? (

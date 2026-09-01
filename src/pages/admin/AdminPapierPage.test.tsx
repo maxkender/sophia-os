@@ -27,6 +27,7 @@ const proposerTopicPapier = vi.fn(async () => ({
   ok: true,
   topic: "Pourquoi la mer est-elle salée ?",
 }));
+const lancerPapierJourMock = vi.fn();
 
 vi.mock("@/features/moteur/api", async (importOriginal) => {
   const actual = await importOriginal<typeof import("@/features/moteur/api")>();
@@ -36,7 +37,7 @@ vi.mock("@/features/moteur/api", async (importOriginal) => {
     lireReglages: () => lireReglages(),
     ecrireReglage: vi.fn(),
     listerPapierMasters: () => listerPapierMasters(),
-    lancerPapierJour: vi.fn(),
+    lancerPapierJour: (...args: unknown[]) => lancerPapierJourMock(...args),
     proposerTopicPapier: () => proposerTopicPapier(),
     validerEtapePapier: vi.fn(),
     arreterPapier: vi.fn(),
@@ -81,5 +82,6 @@ describe("AdminPapierPage", () => {
     await waitFor(() => {
       expect(screen.getByDisplayValue("Pourquoi la mer est-elle salée ?")).toBeInTheDocument();
     });
+    expect(lancerPapierJourMock).not.toHaveBeenCalled();
   });
 });

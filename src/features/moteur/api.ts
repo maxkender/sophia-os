@@ -3438,7 +3438,7 @@ export type PapierMaster = {
   video_path?: string | null;
   voice?: string | null;
   pipeline_mode?: "auto" | "manuel" | string | null;
-  pipeline_hold?: "topic" | "script" | null;
+  pipeline_hold?: "topic" | "script" | "images" | null;
   duree_cible_sec?: number | null;
   annule?: boolean | null;
   papier_scenes?: PapierScene[];
@@ -3533,6 +3533,7 @@ export type PapierLancerOpts = {
   narration_style?: string;
   pipeline_mode?: "auto" | "manuel";
   duree_cible_sec?: number;
+  valider_topic?: boolean;
 };
 
 export const lancerPapierJour = (body: PapierLancerOpts = {}) =>
@@ -3572,6 +3573,14 @@ export const relancerPapier = (id: string) =>
 
 export const regenererPapier = (id: string, topic?: string) =>
   invoke<PapierTickResultat>("papier-cm", { action: "regenerer", manuel: true, id, topic });
+
+export const regenererPartiePapier = (id: string, partie: "topic" | "script" | "images") =>
+  invoke<PapierTickResultat>("papier-cm", {
+    action: "regenerer_partie",
+    manuel: true,
+    id,
+    partie,
+  });
 
 export const lancerPapierLocales = (masterId: string) =>
   invoke<PapierTickResultat>("papier-cm", { action: "tick_locales", manuel: true, masterId });

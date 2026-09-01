@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import {
   doitAttendreValidation,
   etapeActivePipeline,
+  etapeApresValidation,
   etatEtapePipeline,
 } from "./papierPipeline";
 import { PAPIER_CATEGORIES, normaliserCategorie } from "./papierSujets";
@@ -14,6 +15,7 @@ describe("pipeline papier", () => {
     expect(doitAttendreValidation({ mode: "auto", hold: "topic" })).toBe(false);
     expect(doitAttendreValidation({ mode: "manuel", hold: null })).toBe(false);
     expect(doitAttendreValidation({ mode: "manuel", hold: "script" })).toBe(true);
+    expect(doitAttendreValidation({ mode: "manuel", hold: "images" })).toBe(true);
   });
 
   it("marque hold sur le sujet puis le script", () => {
@@ -26,6 +28,18 @@ describe("pipeline papier", () => {
     expect(
       etatEtapePipeline("script", { active: "topic", statut: "scripting", hold: "topic" }),
     ).toBe("pending");
+  });
+
+  it("hold images après les photos, avant les clips", () => {
+    expect(
+      etapeActivePipeline({ statut: "images", hold: "images" }),
+    ).toBe("images");
+    expect(
+      etatEtapePipeline("images", { active: "images", statut: "images", hold: "images" }),
+    ).toBe("hold");
+    expect(etapeApresValidation("topic")).toEqual({ statut: "scripting", etape: "script" });
+    expect(etapeApresValidation("script")).toEqual({ statut: "images", etape: "images" });
+    expect(etapeApresValidation("images")).toEqual({ statut: "clips", etape: "clips" });
   });
 
   it("une vidéo prête complète toute la pipeline", () => {

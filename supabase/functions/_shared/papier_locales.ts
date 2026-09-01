@@ -17,7 +17,7 @@ import {
 } from "./papier_reglages.ts";
 import { mergerAudioVideoFal } from "./fal_merge_audio.ts";
 import { mergerVideosFal } from "./fal_merge_videos.ts";
-import { assurerCadrePapierUrl, incrusterCadrePapier } from "./fal_cadre_papier.ts";
+import { composerFinalePapier } from "./fal_cadre_papier.ts";
 import { statutDepuisLocaleAssets, type PapierScriptTraduit } from "./papier_locales_core.ts";
 import { traduireScriptPapier } from "./papier_traduction.ts";
 import type { PapierScript } from "./papier_script_core.ts";
@@ -421,8 +421,7 @@ async function etapeRender(
     sourceUrl = await uploader(supabase, rawPath, merged.bytes, merged.mime);
   }
   await reserverFalPapier(supabase);
-  const cadreUrl = await assurerCadrePapierUrl(supabase);
-  const framed = await incrusterCadrePapier({ videoUrl: sourceUrl, cadreUrl });
+  const framed = await composerFinalePapier({ videoUrl: sourceUrl, supabase });
   bytes = framed.bytes;
   mime = framed.mime;
   const path = `papiers/${row.master_id}/${row.langue}/mix.mp4`;

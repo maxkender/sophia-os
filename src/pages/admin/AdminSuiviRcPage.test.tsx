@@ -7,9 +7,11 @@ import "@/locales";
 import type { ReponseSuiviRc } from "@/features/revenuecat/types";
 
 const chargerSuiviRc = vi.fn();
+const listerComptes = vi.fn();
 
 vi.mock("@/features/moteur/api", () => ({
   chargerSuiviRc: () => chargerSuiviRc(),
+  listerComptes: () => listerComptes(),
 }));
 
 import { AdminSuiviRcPage } from "./AdminSuiviRcPage";
@@ -86,6 +88,8 @@ describe("AdminSuiviRcPage", () => {
   beforeEach(() => {
     void i18n.changeLanguage("fr");
     chargerSuiviRc.mockReset();
+    listerComptes.mockReset();
+    listerComptes.mockResolvedValue([]);
   });
 
   it("affiche l'état secret manquant", async () => {
@@ -109,5 +113,17 @@ describe("AdminSuiviRcPage", () => {
     expect(screen.getByText("Free trials par jour")).toBeInTheDocument();
     expect(screen.getAllByText("Türkiye").length).toBeGreaterThan(0);
     expect(screen.getByText("France")).toBeInTheDocument();
+  });
+
+  it("affiche le ratio trials / créateurs par langue", async () => {
+    chargerSuiviRc.mockResolvedValue(snapshotOk);
+    listerComptes.mockResolvedValue([
+      { id: "c1", poster_id: "p1", langue: "tr", application_slug: "sophia", is_active: true },
+    ]);
+    renderPage();
+    expect(await screen.findByText("Performance des créateurs")).toBeInTheDocument();
+    expect(screen.getByText("Turc")).toBeInTheDocument();
+    expect(screen.getByText("41,0")).toBeInTheDocument();
+    expect(screen.getByText("41,00")).toBeInTheDocument();
   });
 });

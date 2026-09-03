@@ -11,7 +11,8 @@ import {
   CardTitle,
   EmptyState,
 } from "@/components/ui/card";
-import { chargerSuiviRc } from "@/features/moteur/api";
+import { chargerSuiviRc, listerComptes } from "@/features/moteur/api";
+import { nomLangue } from "@/features/moteur/langues";
 import {
   formaterValeur,
   mesurePrincipale,
@@ -19,6 +20,11 @@ import {
   point,
   segmentsPays,
 } from "@/features/revenuecat/normaliser";
+import {
+  formaterMoyenneTrials,
+  formaterRatio,
+  lignesPerformanceCreateurs,
+} from "@/features/revenuecat/performanceCreateurs";
 import type { ChartNormalise, ChartRcBrut, MesureRc } from "@/features/revenuecat/types";
 import { cn } from "@/lib/utils";
 
@@ -196,11 +202,73 @@ function CarteChart({
   );
 }
 
+function CartePerformanceCreateurs({
+  chart,
+  comptes,
+  chargement,
+}: {
+  chart: ChartNormalise;
+  comptes: Parameters<typeof lignesPerformanceCreateurs>[1];
+  chargement: boolean;
+}) {
+  const { t } = useTranslation();
+  const lignes = lignesPerformanceCreateurs(chart, comptes);
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>{t("suiviRc.perfTitre")}</CardTitle>
+        <CardDescription>{t("suiviRc.perfDesc")}</CardDescription>
+      </CardHeader>
+      <CardContent>
+        {chargement && lignes.length === 0 ? (
+          <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
+        ) : lignes.length === 0 ? (
+          <EmptyState title={t("suiviRc.perfVide")} />
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[28rem] border-collapse text-xs">
+              <thead>
+                <tr className="border-b text-left text-muted-foreground">
+                  <th className="py-2 pr-3 font-medium">{t("suiviRc.perfLangue")}</th>
+                  <th className="px-2 py-2 text-right font-medium">{t("suiviRc.perfTrialsJour")}</th>
+                  <th className="px-2 py-2 text-right font-medium">{t("suiviRc.perfCreateurs")}</th>
+                  <th className="px-2 py-2 text-right font-medium">{t("suiviRc.perfRatio")}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {lignes.map((ligne) => (
+                  <tr key={ligne.langue} className="border-b last:border-0">
+                    <th className="py-1.5 pr-3 text-left font-medium">{nomLangue(ligne.langue)}</th>
+                    <td className="px-2 py-1.5 text-right tabular-nums">
+                      {formaterMoyenneTrials(ligne.trialsJour)}
+                    </td>
+                    <td className="px-2 py-1.5 text-right tabular-nums">{ligne.createurs}</td>
+                    <td className="px-2 py-1.5 text-right font-medium tabular-nums">
+                      {formaterRatio(ligne.ratio)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  );
+}
+
 export function AdminSuiviRcPage() {
   const { t, i18n } = useTranslation();
   const suivi = useQuery({
     queryKey: ["suivi-rc"],
     queryFn: chargerSuiviRc,
+    staleTime: 60_000,
+    refetchOnWindowFocus: false,
+  });
+  const comptes = useQuery({
+    queryKey: ["comptes"],
+    queryFn: listerComptes,
     staleTime: 60_000,
     refetchOnWindowFocus: false,
   });
@@ -280,6 +348,11 @@ export function AdminSuiviRcPage() {
             incompleteLabel={t("suiviRc.incomplet")}
             vide={t("suiviRc.videChart")}
             paysLabel={t("suiviRc.pays")}
+          />
+          <CartePerformanceCreateurs
+            chart={normaliserChart(snap.charts.trials_new)}
+            comptes={comptes.data ?? []}
+            chargement={comptes.isPending}
           />
           <p className="text-xs text-muted-foreground">{t("suiviRc.noteIncomplet")}</p>
         </div>

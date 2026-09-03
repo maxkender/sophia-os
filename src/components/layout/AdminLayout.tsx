@@ -30,21 +30,25 @@ import { AppShell } from "./AppShell";
 
 export function AdminLayout() {
   const { t } = useTranslation();
-  const { applications, slug, setSlug, application } = useApplication();
+  const { applications, slug, setSlug, application, isPending } = useApplication();
   return (
     <AppShell
       navLabel={t("nav.admin")}
       sidebarExtra={
-        applications.length > 0 ? (
+        isPending || applications.length > 0 ? (
           <div className="space-y-1.5">
             <p className="px-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-sidebar-foreground/70">
               {t("applications.switcher")}
             </p>
-            <SelectApplication
-              applications={applications}
-              value={slug}
-              onChange={setSlug}
-            />
+            {applications.length > 0 ? (
+              <SelectApplication
+                applications={applications}
+                value={slug}
+                onChange={setSlug}
+              />
+            ) : (
+              <p className="px-1 text-[10px] text-sidebar-foreground/70">…</p>
+            )}
             {application && (
               <p className="px-1 text-[10px] text-sidebar-foreground">
                 {t("applications.contexte", { nom: nomApplication(application) })}

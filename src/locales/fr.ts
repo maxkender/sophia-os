@@ -50,6 +50,7 @@ export const fr = {
       poster: "Poster",
       pilotage: "Pilotage",
       analytics: "Analytics",
+      suiviRc: "Suivi metrics RC",
       posts: "Posts",
       sources: "Sources",
       reproduisibles: "Posts reproduisibles",
@@ -109,6 +110,7 @@ export const fr = {
       creation: "Slideshow semi-manuel : hook, texte IA, images du label",
       papier: "Bibliothèque de masters FR : durée, voix, pause et quota Fal",
       analytics: "Performances par compte et par post",
+      suiviRc: "Conversion paywall, trials et pays (RevenueCat)",
       posts: "Tous les posts générés",
       sources: "Comptes TikTok de référence à reprendre",
       reproduisibles: "Le stock de posts prêts à reproduire, par source",
@@ -1855,6 +1857,30 @@ export const fr = {
       aucuneMesureAide:
         "Les chiffres arrivent une fois qu'un post est publié avec son lien TikTok renseigné.",
       voirTikTok: "Voir sur TikTok",
+    },
+    suiviRc: {
+      title: "Suivi metrics RC",
+      subtitle:
+        "Données RevenueCat (Sophia), par pays. Rafraîchissement automatique toutes les 4 heures.",
+      majLe: "Dernière collecte : {{quand}}",
+      prochaine: "Prochaine : {{quand}}",
+      cache: "Cache 4 h",
+      secretTitre: "Clé RevenueCat absente",
+      secretDesc:
+        "Ajoute le secret Supabase REVENUECAT_SECRET_API_KEY (clé secrète API v2, permission charts_metrics:charts:read). Optionnel : REVENUECAT_PROJECT_ID (défaut Sophia).",
+      erreurFetch: "Collecte RevenueCat en échec : {{msg}}",
+      paywallTitre: "Conversion paywall (proxy)",
+      paywallDesc:
+        "Part des nouveaux clients qui démarrent un trial ou paient sous 7 jours (first country). Ce n’est pas le chart impressions paywall du dashboard — l’API ne l’expose pas.",
+      trialTitre: "Conversion trial → payant",
+      trialDesc:
+        "Parmi les trials démarrés dans la période, part passée payante, par pays. Les périodes récentes sont incomplètes (trials encore en cours).",
+      trialsJourTitre: "Free trials par jour",
+      trialsJourDesc: "Nouveaux trials, par jour et par pays (top 20 + Other).",
+      incomplet: "Période encore incomplète",
+      noteIncomplet: "* période incomplète — le jour ou la semaine en cours n’est pas clos.",
+      videChart: "Pas encore de points pour ce chart.",
+      pays: "Pays",
     },
     testNet: {
       title: "Test du nettoyage",

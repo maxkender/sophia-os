@@ -8,6 +8,7 @@ import {
   Clapperboard,
   FlaskConical,
   Gauge,
+  LineChart,
   Gift,
   Images,
   ListOrdered,
@@ -142,6 +143,12 @@ export function AdminLayout() {
               label: t("nav.analytics"),
               icon: BarChart3,
               description: t("navDesc.analytics"),
+            },
+            {
+              to: "/admin/suivi-rc",
+              label: t("nav.suiviRc"),
+              icon: LineChart,
+              description: t("navDesc.suiviRc"),
             },
             { to: "/admin/posters", label: t("nav.posters"), icon: Users, description: t("navDesc.posters") },
             {

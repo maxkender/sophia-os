@@ -44,8 +44,10 @@ depuis l'interface via son JWT (le rôle est revérifié côté serveur).
 ## Secrets
 
 Côté Supabase (jamais dans le dépôt ni le bundle) : `APIFY_TOKEN`,
-`GEMINI_API_KEY`, `CRON_SECRET`. Côté client, uniquement l'URL du projet et la
-clé anon.
+`GEMINI_API_KEY`, `CRON_SECRET`, `REVENUECAT_SECRET_API_KEY` (API v2, permission
+`charts_metrics:charts:read` — page admin « Suivi metrics RC »). Optionnel :
+`REVENUECAT_PROJECT_ID` (défaut projet Sophia). Côté client, uniquement l'URL
+du projet et la clé anon.
 
 ## Points ouverts
 

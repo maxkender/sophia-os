@@ -49,6 +49,7 @@ import {
 } from "./creationManuelle";
 import { normaliserReglagesPapier } from "./papierReglages";
 import type { CompteIdentifiants, CompteResumePoster, TypeCompte } from "./types";
+import type { ReponseSuiviRc } from "@/features/revenuecat/types";
 
 export type { EloImportRapport };
 export type { ApplicationOs };
@@ -4996,6 +4997,8 @@ export const lancerMetriques = (compteId?: string) =>
   invoke<{ resultats: Array<{ compteId: string; releves: number }> }>("metriques", {
     compteId: compteId ?? null,
   });
+
+export const chargerSuiviRc = () => invoke<ReponseSuiviRc>("suivi-rc", {});
 
 /** Répare les liens musique périmés (re-scrape des sons pour un lien stable). */
 export const reparerMusique = () =>

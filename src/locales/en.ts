@@ -50,6 +50,7 @@ export const en = {
       poster: "Poster",
       pilotage: "Dashboard",
       analytics: "Analytics",
+      suiviRc: "RC metrics",
       posts: "Posts",
       sources: "Sources",
       reproduisibles: "Reproducible posts",
@@ -109,6 +110,7 @@ export const en = {
       creation: "Semi-manual slideshow: hook, AI copy, label library images",
       papier: "FR master library: duration, voice, pause and Fal quota",
       analytics: "Performance by account and post",
+      suiviRc: "Paywall conversion, trials and countries (RevenueCat)",
       posts: "All generated posts",
       sources: "Reference TikTok accounts to draw from",
       reproduisibles: "The stock of posts ready to reproduce, per source",
@@ -1852,6 +1854,30 @@ export const en = {
       aucuneMesureAide:
         "Numbers arrive once a post is published with its TikTok link filled in.",
       voirTikTok: "View on TikTok",
+    },
+    suiviRc: {
+      title: "RC metrics",
+      subtitle:
+        "RevenueCat data (Sophia), by country. Automatic refresh every 4 hours.",
+      majLe: "Last fetch: {{quand}}",
+      prochaine: "Next: {{quand}}",
+      cache: "4 h cache",
+      secretTitre: "RevenueCat key missing",
+      secretDesc:
+        "Add the Supabase secret REVENUECAT_SECRET_API_KEY (v2 secret API key, charts_metrics:charts:read). Optional: REVENUECAT_PROJECT_ID (defaults to Sophia).",
+      erreurFetch: "RevenueCat fetch failed: {{msg}}",
+      paywallTitre: "Paywall conversion (proxy)",
+      paywallDesc:
+        "Share of new customers who start a trial or pay within 7 days (first country). This is not the dashboard paywall-impression chart — the API does not expose it.",
+      trialTitre: "Trial → paid conversion",
+      trialDesc:
+        "Of trials started in the period, share that converted to paid, by country. Recent periods are incomplete (trials still pending).",
+      trialsJourTitre: "Free trials per day",
+      trialsJourDesc: "New trials, by day and country (top 20 + Other).",
+      incomplet: "Period still incomplete",
+      noteIncomplet: "* incomplete period — the current day or week is not closed yet.",
+      videChart: "No points for this chart yet.",
+      pays: "Country",
     },
     testNet: {
       title: "Cleaning test",

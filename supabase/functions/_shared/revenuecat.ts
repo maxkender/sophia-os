@@ -13,12 +13,25 @@ export const TTL_MS = 4 * 60 * 60 * 1000;
 const RC_API = "https://api.revenuecat.com/v2";
 
 export function cleRevenueCat(): string | null {
-  const cle = Deno.env.get("REVENUECAT_SECRET_API_KEY")?.trim();
-  return cle || null;
+  const noms = [
+    "REVENUECAT_SECRET_API_KEY",
+    "REVENUECAT_API_KEY",
+    "REVENUE_CAT_SECRET_API_KEY",
+    "RC_SECRET_API_KEY",
+  ];
+  for (const nom of noms) {
+    const cle = Deno.env.get(nom)?.trim();
+    if (cle) return cle;
+  }
+  return null;
 }
 
 export function projectIdRevenueCat(): string {
-  return Deno.env.get("REVENUECAT_PROJECT_ID")?.trim() || RC_PROJECT_SOPHIA;
+  return (
+    Deno.env.get("REVENUECAT_PROJECT_ID")?.trim() ||
+    Deno.env.get("REVENUE_CAT_PROJECT_ID")?.trim() ||
+    RC_PROJECT_SOPHIA
+  );
 }
 
 export function isoUtc(d: Date): string {

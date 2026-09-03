@@ -1878,6 +1878,14 @@ export const en = {
       noteIncomplet: "* incomplete period — the current day or week is not closed yet.",
       videChart: "No points for this chart yet.",
       pays: "Country",
+      perfTitre: "Creator performance",
+      perfDesc:
+        "Average new trials per day ÷ active Sophia creators on that language. Incomplete days and the Other segment are excluded.",
+      perfLangue: "Language",
+      perfTrialsJour: "Trials / day",
+      perfCreateurs: "Active creators",
+      perfRatio: "Performance",
+      perfVide: "No ratio yet — need trials and active creators.",
     },
     testNet: {
       title: "Cleaning test",

@@ -1881,6 +1881,14 @@ export const fr = {
       noteIncomplet: "* période incomplète — le jour ou la semaine en cours n’est pas clos.",
       videChart: "Pas encore de points pour ce chart.",
       pays: "Pays",
+      perfTitre: "Performance des créateurs",
+      perfDesc:
+        "Moyenne des nouveaux trials par jour ÷ créateurs Sophia actifs de cette langue. Jours incomplets et segment Other exclus.",
+      perfLangue: "Langue",
+      perfTrialsJour: "Trials / jour",
+      perfCreateurs: "Créateurs actifs",
+      perfRatio: "Performance",
+      perfVide: "Pas encore de ratio — il faut des trials et des créateurs actifs.",
     },
     testNet: {
       title: "Test du nettoyage",

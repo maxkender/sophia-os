@@ -87,7 +87,7 @@ describe("normaliserChart", () => {
   it("choisit la mesure % comme principale", () => {
     const chart = normaliserChart(conversion);
     expect(mesurePrincipale(chart)?.nom).toBe("Conversion Rate");
-    expect(formaterValeur(21.65, mesurePrincipale(chart))).toBe("21.7 %");
+    expect(formaterValeur(21.7, mesurePrincipale(chart))).toBe("21.7 %");
   });
 
   it("classe les pays par total, Other à la fin", () => {

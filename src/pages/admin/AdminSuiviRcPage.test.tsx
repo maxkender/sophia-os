@@ -101,10 +101,10 @@ describe("AdminSuiviRcPage", () => {
   });
 
   it("affiche les trois blocs et un pays du snapshot", async () => {
-    chargerSuiviRc.mockResolvedValueOnce(snapshotOk);
+    chargerSuiviRc.mockResolvedValue(snapshotOk);
     renderPage();
-    expect(await screen.findByText("Suivi metrics RC")).toBeInTheDocument();
-    expect(screen.getByText("Conversion paywall (proxy)")).toBeInTheDocument();
+    expect(await screen.findByText("Conversion paywall (proxy)")).toBeInTheDocument();
+    expect(screen.getByText("Suivi metrics RC")).toBeInTheDocument();
     expect(screen.getByText("Conversion trial → payant")).toBeInTheDocument();
     expect(screen.getByText("Free trials par jour")).toBeInTheDocument();
     expect(screen.getAllByText("Türkiye").length).toBeGreaterThan(0);

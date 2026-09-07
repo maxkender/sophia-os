@@ -7,8 +7,18 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { majStatutSuggestion } from "./api";
-import { estActionHumaine, kindEstMessage } from "./phases";
-import type { RecrutementHm, RecrutementSuggestion, StatutSuggestion } from "./types";
+import {
+  cleDestinataireMessage,
+  estActionHumaine,
+  grouperMessagesParDestinataire,
+  kindEstMessage,
+} from "./phases";
+import type {
+  RecrutementCreateur,
+  RecrutementHm,
+  RecrutementSuggestion,
+  StatutSuggestion,
+} from "./types";
 
 export type VarianteInbox = "toutes" | "messages" | "actions" | "actions_humain";
 
@@ -18,32 +28,56 @@ function nomHm(sug: RecrutementSuggestion, hms: RecrutementHm[]): string {
   return hm?.nom_affiche ?? sug.hm_id.slice(0, 8);
 }
 
+function nomDestinataire(
+  sug: RecrutementSuggestion,
+  hms: RecrutementHm[],
+  createurs: RecrutementCreateur[],
+): string {
+  if (sug.createur_id) {
+    const c = createurs.find((x) => x.id === sug.createur_id);
+    return c?.nom_affiche ?? sug.createur_id.slice(0, 8);
+  }
+  return nomHm(sug, hms);
+}
+
 function LigneSuggestion({
   s,
   hms,
+  createurs,
   compact,
   humaine,
   pending,
+  dansGroupe,
   onStatut,
 }: {
   s: RecrutementSuggestion;
   hms: RecrutementHm[];
+  createurs: RecrutementCreateur[];
   compact: boolean;
   humaine: boolean;
   pending: boolean;
+  dansGroupe: boolean;
   onStatut: (id: string, statut: StatutSuggestion, opts?: { manuel?: boolean }) => void;
 }) {
   const { t } = useTranslation();
   const peutValider = !humaine && s.statut !== "validee" && s.statut !== "executee";
   const peutMarquerFaite = s.statut !== "executee";
+  const dest = nomDestinataire(s, hms, createurs);
+  const hmNom = nomHm(s, hms);
   return (
-    <li className={cn(compact ? "space-y-2" : "space-y-3 rounded-xl border bg-background/80 p-4")}>
+    <li className={cn(compact || dansGroupe ? "space-y-2" : "space-y-3 rounded-xl border bg-background/80 p-4")}>
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0 space-y-0.5">
           <p className="text-sm font-medium leading-snug">{s.titre}</p>
-          {!compact && (
+          {!compact && !dansGroupe && (
             <p className="text-xs text-muted-foreground">
-              {nomHm(s, hms)}
+              {dest}
+              {s.createur_id && dest !== hmNom ? (
+                <>
+                  <span className="mx-1.5 text-border">·</span>
+                  {hmNom}
+                </>
+              ) : null}
               <span className="mx-1.5 text-border">·</span>
               {s.canal}
             </p>
@@ -115,6 +149,7 @@ export function suggestionsVisibles(
 function BlocInbox({
   suggestions,
   hms,
+  createurs,
   compact,
   variante,
   alwaysShow,
@@ -124,6 +159,7 @@ function BlocInbox({
 }: {
   suggestions: RecrutementSuggestion[];
   hms: RecrutementHm[];
+  createurs: RecrutementCreateur[];
   compact: boolean;
   variante: Exclude<VarianteInbox, "toutes">;
   alwaysShow: boolean;
@@ -148,25 +184,65 @@ function BlocInbox({
         ? t("recrutements.videActionsHumaines")
         : t("recrutements.videActions");
 
-  const liste = (
+  const groupes =
+    variante === "messages" ? grouperMessagesParDestinataire(visibles) : visibles.map((s) => [s]);
+
+  const liste =
     visibles.length === 0 ? (
       <p className={cn(compact ? "text-xs" : "text-sm", "leading-snug text-muted-foreground")}>{vide}</p>
     ) : (
       <ul className="space-y-3">
-        {visibles.map((s) => (
-          <LigneSuggestion
-            key={s.id}
-            s={s}
-            hms={hms}
-            compact={compact}
-            humaine={variante === "actions_humain"}
-            pending={pending}
-            onStatut={onStatut}
-          />
-        ))}
+        {groupes.map((groupe) => {
+          const tete = groupe[0]!;
+          const fusion = variante === "messages" && groupe.length > 1;
+          if (!fusion) {
+            return (
+              <LigneSuggestion
+                key={tete.id}
+                s={tete}
+                hms={hms}
+                createurs={createurs}
+                compact={compact}
+                humaine={variante === "actions_humain"}
+                pending={pending}
+                dansGroupe={false}
+                onStatut={onStatut}
+              />
+            );
+          }
+          return (
+            <li
+              key={cleDestinataireMessage(tete)}
+              className={cn(
+                "space-y-3 rounded-xl border p-3",
+                compact
+                  ? "border-violet-200/80 bg-white/70"
+                  : "border-violet-200/80 bg-background/90",
+              )}
+            >
+              <p className="text-xs leading-snug text-violet-900/80">
+                {t("recrutements.fusionMessages", { count: groupe.length })}
+              </p>
+              <ul className="space-y-3">
+                {groupe.map((s) => (
+                  <LigneSuggestion
+                    key={s.id}
+                    s={s}
+                    hms={hms}
+                    createurs={createurs}
+                    compact={compact}
+                    humaine={false}
+                    pending={pending}
+                    dansGroupe
+                    onStatut={onStatut}
+                  />
+                ))}
+              </ul>
+            </li>
+          );
+        })}
       </ul>
-    )
-  );
+    );
 
   if (compact) {
     return (
@@ -208,6 +284,7 @@ function BlocInbox({
 export function InboxSuggestions({
   suggestions,
   hms,
+  createurs = [],
   paysFiltre,
   compact = false,
   variante = "toutes",
@@ -215,6 +292,7 @@ export function InboxSuggestions({
 }: {
   suggestions: RecrutementSuggestion[];
   hms: RecrutementHm[];
+  createurs?: RecrutementCreateur[];
   paysFiltre?: string;
   compact?: boolean;
   variante?: VarianteInbox;
@@ -247,6 +325,7 @@ export function InboxSuggestions({
       <BlocInbox
         suggestions={filtrees}
         hms={hms}
+        createurs={createurs}
         compact={compact}
         variante={variante}
         alwaysShow={alwaysShow}
@@ -268,6 +347,7 @@ export function InboxSuggestions({
       <BlocInbox
         suggestions={filtrees}
         hms={hms}
+        createurs={createurs}
         compact={compact}
         variante="messages"
         alwaysShow
@@ -278,6 +358,7 @@ export function InboxSuggestions({
       <BlocInbox
         suggestions={filtrees}
         hms={hms}
+        createurs={createurs}
         compact={compact}
         variante="actions"
         alwaysShow
@@ -288,6 +369,7 @@ export function InboxSuggestions({
       <BlocInbox
         suggestions={filtrees}
         hms={hms}
+        createurs={createurs}
         compact={compact}
         variante="actions_humain"
         alwaysShow

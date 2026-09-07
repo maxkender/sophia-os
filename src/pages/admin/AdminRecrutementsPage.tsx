@@ -59,7 +59,7 @@ export function AdminRecrutementsPage() {
         </Alert>
       )}
 
-      <InboxSuggestions suggestions={suggestions} hms={hms} />
+      <InboxSuggestions suggestions={suggestions} hms={hms} createurs={createurs} />
 
       {isPending ? (
         <p className="flex items-center gap-2 text-sm text-muted-foreground">

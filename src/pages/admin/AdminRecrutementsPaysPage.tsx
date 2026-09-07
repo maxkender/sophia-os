@@ -100,7 +100,12 @@ export function AdminRecrutementsPaysPage() {
         </Alert>
       )}
 
-      <InboxSuggestions suggestions={suggestions} hms={hms} paysFiltre={pays} />
+      <InboxSuggestions
+        suggestions={suggestions}
+        hms={hms}
+        createurs={createurs}
+        paysFiltre={pays}
+      />
 
       {isPending ? (
         <p className="flex items-center gap-2 text-sm text-muted-foreground">

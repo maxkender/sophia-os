@@ -2213,6 +2213,8 @@ export const fr = {
       messagesProposes: "Messages à envoyer",
       actionsProposees: "Actions à effectuer",
       actionsHumaines: "À faire toi-même",
+      fusionMessages:
+        "L’autom n’enverra qu’un seul message, réécrit pour couvrir ces {{count}} points — pas l’un sous l’autre.",
       videMessages: "Aucun message à envoyer pour l’instant.",
       videActions: "Aucune action pour l’instant.",
       videActionsHumaines: "Rien que tu doives faire à la main.",
@@ -2260,10 +2262,10 @@ export const fr = {
       pression: "Pression",
       relanceTitre: "Relance — {{nom}}",
       relanceCorps:
-        "Petit check-in : on est en dessous du rythme prévu. Tu peux relancer {{nom}} gentiment ?",
+        "Petit check-in : on est un peu en dessous du rythme prévu. Tu peux poster un peu plus souvent ?",
       pressionTitre: "Coup de pression — {{nom}}",
       pressionCorps:
-        "{{nom}} est clairement sous le quota. Merci de lui dire clairement qu’il faut poster.",
+        "On est clairement sous le quota. Il faut poster, c’est important pour la suite.",
       moyenneHm: "Moyenne HM · posts {{posts}} · vues {{vues}} · $/1000 {{cpm}}",
       ligneStats: "{{postes}} / {{prevus}} posts · moy. {{vues}} vues · {{cpm}} / 1000",
       etape0: {

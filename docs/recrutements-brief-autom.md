@@ -18,6 +18,7 @@ Remplace le Google Sheet / Forms du guide HM.
 - HM : **8 $/h** hourly Upwork. Créateurs : essai **15 $** puis **60 $/mois**. Ne jamais mélanger les deux.
 - Cible : **10 créateurs / HM / pays** (réglable 0–30 par l’admin). Plusieurs HM par pays. Phase **locale** au pays (un job NL ne sort pas le HM de phase 0 en PL). Cartes 1 et 2 dupliquées, créateurs non dupliqués (1er post → phase 2 seulement).
 - Max **1 suggestion nouvelle / HM / passage**. Valider une par une. FR si le thread est FR, sinon EN.
+- **Fusion messages :** plusieurs messages `validee` vers le **même destinataire** dans le **même run** → **un seul** envoi, texte **réécrit au LLM** (pas collés l’un sous l’autre). Jamais deux créateurs dans le même message.
 - Alertes : Max ou Adrien.
 
 ## Base
@@ -75,7 +76,8 @@ Playbook talks HM = document OS **SOPHIA HMs — Onboarding** (`guide_manager`).
 - Vues = moyenne des **10 derniers posts** + somme des vues 10 j.
 - `$ / 1000` = payé 10 j / (vues_10j / 1000). Payé = 15 $ si encore warmup, sinon `(cout_mensuel ?? 60) * 10 / 30`.
 - **Stats HM = moyenne**, jamais la somme.
-- Ton : 0 vue malgré des posts → warmup / shadowban, pas « flemme ». Sous-quota mais grosses vues → relance douce. Boutons UI Relance / Pression = suggestions `kind` `relance` | `pression`, `statut = validee` → tu les exécutes.
+- Ton : 0 vue malgré des posts → warmup / shadowban, pas « flemme ». Sous-quota mais grosses vues → relance douce.
+- Boutons UI Relance / Pression = suggestions `kind` `relance` | `pression`, `statut = validee`, `createur_id` = ce créateur, thread **du créateur**. Si Relance **et** Pression pour le même créateur dans le même run → **fusion LLM** (voir ci-dessous).
 
 ## Un passage (ordre)
 
@@ -89,17 +91,24 @@ Playbook talks HM = document OS **SOPHIA HMs — Onboarding** (`guide_manager`).
    - Threads créateurs (pays du job / langue) → upsert `recrutement_createurs`.
 3. Slack MCP : membership workspace Sophia → `rejoint_slack_at`. Pas de salon obligatoire.
 4. OS (SQL / pages) : compte créé → `rejoint_os_at`, `email_os`, `profile_id`. Premier `publie_at` → `premier_post_at`. Warmup → `warmup_at`.
-5. Exécuter les suggestions `statut = validee` (dans l’ordre, une par une) **sauf** `canal = interne` (tu ne peux pas : équipe Upwork, alerte Max/Adrien, etc.) :
-   - `kind = reponse` : poster le `corps` dans le thread Upwork.
+5. Exécuter les suggestions `statut = validee` **sauf** `canal = interne` (tu ne peux pas : équipe Upwork, alerte Max/Adrien, etc.) et **sauf** `execution_log = manuel` / déjà `executee`.
+
+   **Messages** (`kind` = `reponse` | `relance` | `pression`, `canal` ≠ `interne`) — **fusion par destinataire** :
+   - Clé = `canal` + (`createur_id` s’il est renseigné, sinon `hm_id`). Helper OS : `cleDestinataireMessage` / `grouperMessagesParDestinataire`.
+   - **Plusieurs** messages la même clé dans **ce run** → **un seul** envoi (Upwork ou Slack).
+   - Tu **réécris** le texte au LLM : un message naturel, même langue que le thread (FR si FR, sinon EN), qui couvre **tous** les points (ex. relance douce **et** coup de pression, ou réponse + relance). **Interdit** : coller les `corps` l’un sous l’autre, « aussi / par ailleurs », lister les brouillons, dire que tu fusionnes. Un seul fil, un seul ton, comme si tu n’avais qu’une chose à dire.
+   - **Jamais** fusionner deux créateurs différents, même s’ils ont le même HM (deux envois séparés).
+   - Thread : `createur_id` → conversation Upwork **de ce créateur** ; sinon conversation **du HM**. `prompt_autom.destinataire` = `createur` | `hm` le confirme.
+   - Après envoi : **toutes** les lignes du groupe → `executee` + `execution_log` du type `fusion:{id1},{id2}` (ids des suggestions). Un seul message dans le groupe → envoie (tu peux ajuster le `corps` au ton du thread) puis `executee`.
+   - Échec → log sur **chaque** ligne du groupe, **ne pas** repasser en `en_attente` tout seul.
+
+   **Actions** (`kind = action`, `canal ≠ interne`) : **une par une**, jamais fusionnées avec des messages.
    - `action` `canal = os` créer compte OS : `manage-users` create `hiring_manager` (langues du HM), puis **un** message Upwork avec URL + email + `12345678` + invite Slack + demande email perso. Marquer `codes_envoyes_at`, `slack_invite_envoyee_at`, `email_perso_demandee_at`.
-   - `relance` / `pression` : envoyer `corps` (Upwork, au HM).
-   - Succès → `executee` + `execution_log`. Échec → log, **ne pas** repasser en `en_attente` tout seul.
-   - Si `execution_log = manuel` ou déjà `executee` : skip.
 6. Suggestions nouvelles :
    - Skip si `empreinte` déjà en base (surtout `ignoree`).
    - Max 1 **nouvelle** `en_attente` par HM.
    - Réponse seulement si le dernier message n’est pas le nôtre.
-   - Phase 2 : si ratio < 75 %, proposer relance (ton doux / vues) ou pression (volume clair).
+   - Phase 2 : si ratio < 75 %, proposer relance (ton doux / vues) ou pression (volume clair). Si les deux s’appliquent au **même** créateur : **une** suggestion déjà réécrite (LLM), `kind` = le plus fort (`pression` si les deux), `prompt_autom.fusion = ["relance","pression"]`.
    - Ce que tu ne peux pas faire (ajouter à l’équipe Upwork, besoin Max/Adrien) → `kind = action`, `canal = interne`. Jamais `validee` de ton côté : l’admin coche **Fait manuellement**.
 7. `a_reproposer` : réécrire `corps` (même `empreinte`), `statut = en_attente`.
 8. Update `recrutement_runs` : `finished_at`, `resume` (ex. « 3 HMs maj, 1 suggestion, 2 exécutées »).
@@ -116,6 +125,6 @@ Exemples :
 
 ## UX à respecter
 
-L’admin valide **dans l’OS**. Toi tu n’envoies que du `validee`. Tu ne recrées pas une ignoree. Tu ne touches pas aux DMs. Tu n’utilises pas un login Upwork perso hors Vik Studios.
+L’admin valide **dans l’OS**. Toi tu n’envoies que du `validee`. Tu ne recrées pas une ignoree. Tu ne touches pas aux DMs. Tu n’utilises pas un login Upwork perso hors Vik Studios. L’inbox groupe visuellement les messages du même destinataire (l’admin valide encore ligne par ligne) — la fusion du texte se fait **chez toi** au LLM, pas dans l’OS.
 
 Constantes code : `src/features/recrutements/constantes.ts`.

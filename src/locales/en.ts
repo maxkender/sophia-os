@@ -2214,6 +2214,8 @@ export const en = {
       messagesProposes: "Messages to send",
       actionsProposees: "Actions to take",
       actionsHumaines: "Do it yourself",
+      fusionMessages:
+        "Autom will send a single rewritten message covering these {{count}} points — not stacked.",
       videMessages: "No message to send yet.",
       videActions: "No action yet.",
       videActionsHumaines: "Nothing you need to do by hand.",
@@ -2261,10 +2263,10 @@ export const en = {
       pression: "Pressure",
       relanceTitre: "Nudge — {{nom}}",
       relanceCorps:
-        "Quick check-in: we're below the planned posting pace. Can you nudge {{nom}} kindly?",
+        "Quick check-in: we're a bit below the planned posting pace. Could you post a little more often?",
       pressionTitre: "Pressure — {{nom}}",
       pressionCorps:
-        "{{nom}} is clearly under quota. Please tell them clearly they need to post.",
+        "We're clearly under quota. Posting matters — please get some posts up.",
       moyenneHm: "HM average · posts {{posts}} · views {{vues}} · $/1000 {{cpm}}",
       ligneStats: "{{postes}} / {{prevus}} posts · avg {{vues}} views · {{cpm}} / 1000",
       etape0: {

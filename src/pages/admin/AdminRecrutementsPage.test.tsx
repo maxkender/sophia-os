@@ -154,6 +154,52 @@ describe("AdminRecrutementsPage", () => {
     expect(screen.getAllByText("Fait manuellement").length).toBeGreaterThan(0);
   });
 
+  it("groupe Relance et Pression du même créateur avec un hint de fusion LLM", () => {
+    useRecrutements.mockReturnValue({
+      hms: [hm()],
+      createurs: [],
+      suggestions: [
+        suggestion({
+          id: "rel",
+          kind: "relance",
+          createur_id: "c1",
+          titre: "Relance — Khalil",
+          corps: "Petit check-in.",
+          statut: "validee",
+          empreinte: "relance:c1:2026-09-07",
+        }),
+        suggestion({
+          id: "pre",
+          kind: "pression",
+          createur_id: "c1",
+          titre: "Coup de pression — Khalil",
+          corps: "Sous le quota.",
+          statut: "validee",
+          empreinte: "pression:c1:2026-09-07",
+        }),
+        suggestion({
+          id: "aut",
+          kind: "relance",
+          createur_id: "c2",
+          titre: "Relance — Laura",
+          corps: "Autre créatrice.",
+          empreinte: "relance:c2:2026-09-07",
+        }),
+      ],
+      run: null,
+      stats: new Map(),
+      fiches: new Map(),
+      statsPending: false,
+      isPending: false,
+      error: null,
+    });
+    renderHub();
+    expect(screen.getAllByText(/un seul message, réécrit/i)).toHaveLength(1);
+    expect(screen.getByText("Relance — Khalil")).toBeInTheDocument();
+    expect(screen.getByText("Coup de pression — Khalil")).toBeInTheDocument();
+    expect(screen.getByText("Relance — Laura")).toBeInTheDocument();
+  });
+
   it("ouvre la page pays en phase 0", () => {
     renderPays("fr");
     expect(screen.getByText("France")).toBeInTheDocument();

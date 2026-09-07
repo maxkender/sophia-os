@@ -274,15 +274,18 @@ function DernierMessage({
 function SuggestionsCarte({
   suggestions,
   hms,
+  createurs = [],
 }: {
   suggestions: RecrutementSuggestion[];
   hms: RecrutementHm[];
+  createurs?: RecrutementCreateur[];
 }) {
   return (
     <>
       <InboxSuggestions
         suggestions={suggestions}
         hms={hms}
+        createurs={createurs}
         compact
         alwaysShow
         variante="messages"
@@ -290,6 +293,7 @@ function SuggestionsCarte({
       <InboxSuggestions
         suggestions={suggestions}
         hms={hms}
+        createurs={createurs}
         compact
         alwaysShow
         variante="actions"
@@ -297,6 +301,7 @@ function SuggestionsCarte({
       <InboxSuggestions
         suggestions={suggestions}
         hms={hms}
+        createurs={createurs}
         compact
         alwaysShow
         variante="actions_humain"
@@ -504,7 +509,7 @@ export function CarteHmPhase1({
               at={hm.dernier_message_at}
               auteur={hm.dernier_message_auteur}
             />
-            <SuggestionsCarte suggestions={sugHm} hms={[hm]} />
+            <SuggestionsCarte suggestions={sugHm} hms={[hm]} createurs={createurs} />
           </div>
         ) : null}
       </CardContent>
@@ -561,7 +566,8 @@ export function CarteHmPhase2({
         titre,
         corps,
         prompt_autom: {
-          action: input.kind === "pression" ? "message_hm" : "relance_createur",
+          action: input.createur ? "message_createur" : "message_hm",
+          destinataire: input.createur ? "createur" : "hm",
           canal: "upwork",
           hm_id: hm.id,
           createur_id: input.createur?.id ?? null,
@@ -663,7 +669,7 @@ export function CarteHmPhase2({
               at={hm.dernier_message_at}
               auteur={hm.dernier_message_auteur}
             />
-            <SuggestionsCarte suggestions={sugHm} hms={[hm]} />
+            <SuggestionsCarte suggestions={sugHm} hms={[hm]} createurs={createurs} />
           </div>
         ) : null}
       </CardContent>

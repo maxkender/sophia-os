@@ -11,6 +11,8 @@ import {
   jobPostConcernePays,
   kindEstMessage,
   estActionHumaine,
+  cleDestinataireMessage,
+  grouperMessagesParDestinataire,
   phasesHmPourPays,
 } from "./phases";
 import type { RecrutementCreateur, RecrutementHm } from "./types";
@@ -187,5 +189,64 @@ describe("timeline créateur", () => {
     expect(estActionHumaine({ kind: "action", canal: "interne" })).toBe(true);
     expect(estActionHumaine({ kind: "action", canal: "os" })).toBe(false);
     expect(estActionHumaine({ kind: "reponse", canal: "interne" })).toBe(false);
+  });
+
+  it("fusionne les messages du même créateur, pas deux créateurs ni deux canaux", () => {
+    const relance = {
+      id: "a",
+      canal: "upwork" as const,
+      createur_id: "c1",
+      hm_id: "h1",
+    };
+    const pression = {
+      id: "b",
+      canal: "upwork" as const,
+      createur_id: "c1",
+      hm_id: "h1",
+    };
+    const autreCreateur = {
+      id: "c",
+      canal: "upwork" as const,
+      createur_id: "c2",
+      hm_id: "h1",
+    };
+    const slack = {
+      id: "d",
+      canal: "slack" as const,
+      createur_id: "c1",
+      hm_id: "h1",
+    };
+    const hmSeul = {
+      id: "e",
+      canal: "upwork" as const,
+      createur_id: null,
+      hm_id: "h1",
+    };
+    const hmSeul2 = {
+      id: "f",
+      canal: "upwork" as const,
+      createur_id: null,
+      hm_id: "h1",
+    };
+
+    expect(cleDestinataireMessage(relance)).toBe(cleDestinataireMessage(pression));
+    expect(cleDestinataireMessage(relance)).not.toBe(cleDestinataireMessage(autreCreateur));
+    expect(cleDestinataireMessage(relance)).not.toBe(cleDestinataireMessage(slack));
+    expect(cleDestinataireMessage(relance)).not.toBe(cleDestinataireMessage(hmSeul));
+
+    const groupes = grouperMessagesParDestinataire([
+      relance,
+      autreCreateur,
+      pression,
+      slack,
+      hmSeul,
+      hmSeul2,
+    ]);
+    expect(groupes.map((g) => g.map((m) => m.id))).toEqual([
+      ["a", "b"],
+      ["c"],
+      ["d"],
+      ["e", "f"],
+    ]);
   });
 });

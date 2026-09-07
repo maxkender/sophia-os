@@ -189,6 +189,41 @@ export function estActionHumaine(s: { kind: KindSuggestion; canal: string }): bo
   return s.kind === "action" && s.canal === "interne";
 }
 
+/** Destinataire Upwork/Slack d’un message : le créateur s’il est ciblé, sinon le HM. */
+export function cleDestinataireMessage(s: {
+  canal: string;
+  createur_id: string | null;
+  hm_id: string | null;
+}): string {
+  const dest = s.createur_id
+    ? `createur:${s.createur_id}`
+    : `hm:${s.hm_id ?? "?"}`;
+  return `${s.canal}:${dest}`;
+}
+
+/**
+ * Groupe les messages d’un même run qui doivent fusionner (même canal + même
+ * créateur, ou même HM si pas de créateur). Ordre d’apparition conservé.
+ * Ne fusionne jamais deux créateurs différents.
+ */
+export function grouperMessagesParDestinataire<
+  T extends { canal: string; createur_id: string | null; hm_id: string | null },
+>(messages: T[]): T[][] {
+  const groupes = new Map<string, T[]>();
+  const ordre: string[] = [];
+  for (const m of messages) {
+    const cle = cleDestinataireMessage(m);
+    const existant = groupes.get(cle);
+    if (existant) {
+      existant.push(m);
+    } else {
+      groupes.set(cle, [m]);
+      ordre.push(cle);
+    }
+  }
+  return ordre.map((cle) => groupes.get(cle)!);
+}
+
 /** Mots du titre de job Upwork → pays OS (phase locale). */
 const MOTS_JOB_PAYS: Record<string, string[]> = {
   fr: ["france", "french", "français", "francais"],

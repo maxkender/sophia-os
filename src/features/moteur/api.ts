@@ -3558,8 +3558,41 @@ export const validerEtapePapier = (id: string, topic?: string) =>
     topic,
   });
 
-export const arreterPapier = (id: string) =>
-  invoke<PapierTickResultat>("papier-cm", { action: "arreter", manuel: true, id });
+/**
+ * Stop immédiat côté base (sans attendre l'Edge saturée par les ticks) :
+ * pause auto + tous les masters en cours → stopped. L'Edge est un filet.
+ */
+export async function arreterPapier(id: string): Promise<PapierTickResultat> {
+  const now = new Date().toISOString();
+  const { data: regle } = await supabase.from("reglages").select("valeur").eq("cle", "papier").maybeSingle();
+  const papier = normaliserReglagesPapier(regle?.valeur);
+  await ecrireReglage("papier", { ...papier, actif: false });
+
+  const stopPatch = {
+    statut: "stopped",
+    etape: "stopped",
+    annule: true,
+    busy: false,
+    pipeline_hold: null,
+    erreur: null,
+    updated_at: now,
+  };
+  const { error: errUn } = await supabase
+    .from("papier_masters")
+    .update(stopPatch)
+    .eq("id", id)
+    .neq("statut", "ready");
+  if (errUn) throw errUn;
+  await supabase.from("papier_masters").update(stopPatch).not("statut", "in", "(ready,failed,stopped)");
+  await supabase
+    .from("papier_langues")
+    .update({ busy: false, updated_at: now })
+    .eq("master_id", id)
+    .neq("statut", "ready");
+
+  void invoke<PapierTickResultat>("papier-cm", { action: "arreter", manuel: true, id }).catch(() => null);
+  return { ok: true, done: true, kick: false, masterId: id, statut: "stopped" };
+}
 
 export const changerVoixPapier = (id: string, voice: string) =>
   invoke<PapierTickResultat & { voix?: string; rebuildFr?: boolean }>("papier-cm", {

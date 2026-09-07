@@ -11,6 +11,7 @@ import {
   chargerReglagesPapier,
   dureeCibleClipReglee,
   estErreurQuotaFal,
+  pauserPapier,
   reserverFalPapier,
   voixPourLangue,
 } from "./papier_reglages.ts";
@@ -980,6 +981,25 @@ async function masterEstAnnule(supabase: Supabase, id: string): Promise<boolean>
 }
 
 export async function arreterMaster(supabase: Supabase, id: string): Promise<PapierMasterRow> {
+  await pauserPapier(supabase);
+  const { data: enCours, error: errC } = await supabase
+    .from("papier_masters")
+    .select("id")
+    .not("statut", "in", "(ready,failed,stopped)");
+  if (errC) throw errC;
+  const ids = new Set((enCours ?? []).map((r) => String((r as { id: string }).id)));
+  ids.add(id);
+  let last: PapierMasterRow | null = null;
+  for (const mid of ids) {
+    last = await arreterUnMaster(supabase, mid);
+  }
+  if (last) return last;
+  const master = await chargerMaster(supabase, id);
+  if (!master) throw new Error("Master papier introuvable");
+  return master;
+}
+
+async function arreterUnMaster(supabase: Supabase, id: string): Promise<PapierMasterRow> {
   const master = await chargerMaster(supabase, id);
   if (!master) throw new Error("Master papier introuvable");
   if (master.statut === "ready") return master;

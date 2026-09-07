@@ -38,6 +38,21 @@ export async function papierEstActif(supabase: Supabase): Promise<boolean> {
   return r.actif;
 }
 
+/** Coupe cron + auto-chaîne. L'admin peut encore forcer (manuel). */
+export async function pauserPapier(supabase: Supabase): Promise<void> {
+  const cur = await chargerReglagesPapier(supabase);
+  if (!cur.actif) return;
+  const { error } = await supabase.from("reglages").upsert(
+    {
+      cle: "papier",
+      valeur: { ...cur, actif: false },
+      updated_at: new Date().toISOString(),
+    },
+    { onConflict: "cle" },
+  );
+  if (error) throw error;
+}
+
 export async function reserverFalPapier(supabase: Supabase, n = 1): Promise<number> {
   const jour = aujourdhuiParis();
   const reglages = await chargerReglagesPapier(supabase);

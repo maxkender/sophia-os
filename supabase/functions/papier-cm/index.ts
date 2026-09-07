@@ -216,7 +216,14 @@ Deno.serve(async (request) => {
       const id = String(body?.id ?? body?.masterId ?? "");
       if (!id) return json({ ok: false, error: "id requis" }, 400);
       const master = await arreterMaster(supabase, id);
-      return json({ ok: true, done: true, kick: false, masterId: id, statut: master.statut });
+      return json({
+        ok: true,
+        done: true,
+        kick: false,
+        masterId: id,
+        statut: master.statut,
+        pause: true,
+      });
     }
 
     if (action === "valider") {

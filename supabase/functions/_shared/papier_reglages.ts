@@ -38,14 +38,14 @@ export async function papierEstActif(supabase: Supabase): Promise<boolean> {
   return r.actif;
 }
 
-/** Coupe cron + auto-chaîne. L'admin peut encore forcer (manuel). */
+/** Coupe cron + auto-chaîne et force le mode manuel. */
 export async function pauserPapier(supabase: Supabase): Promise<void> {
   const cur = await chargerReglagesPapier(supabase);
-  if (!cur.actif) return;
+  if (!cur.actif && cur.pipeline_mode === "manuel") return;
   const { error } = await supabase.from("reglages").upsert(
     {
       cle: "papier",
-      valeur: { ...cur, actif: false },
+      valeur: { ...cur, actif: false, pipeline_mode: "manuel" },
       updated_at: new Date().toISOString(),
     },
     { onConflict: "cle" },

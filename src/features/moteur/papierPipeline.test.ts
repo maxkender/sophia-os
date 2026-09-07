@@ -6,6 +6,7 @@ import {
   etapeActivePipeline,
   etapeApresValidation,
   etatEtapePipeline,
+  holdPourCouperAuto,
   pipelineEstArretee,
   tickPapierDoitEnchainer,
 } from "./papierPipeline";
@@ -99,5 +100,13 @@ describe("arrêt pipeline", () => {
     expect(tickPapierDoitEnchainer({ idle: true, done: false, statut: "scripting" })).toBe(false);
     expect(tickPapierDoitEnchainer({ done: false, statut: "images" })).toBe(true);
     expect(tickPapierDoitEnchainer({ done: true, statut: "clips" })).toBe(false);
+  });
+
+  it("coupe l'auto en posant un hold manuel", () => {
+    expect(holdPourCouperAuto({ statut: "queued" })).toBe("topic");
+    expect(holdPourCouperAuto({ statut: "scripting", etape: "script" })).toBe("script");
+    expect(holdPourCouperAuto({ statut: "images" })).toBe("images");
+    expect(holdPourCouperAuto({ statut: "clips" })).toBe("images");
+    expect(holdPourCouperAuto({ statut: "scripting", hold: "topic" })).toBe("topic");
   });
 });

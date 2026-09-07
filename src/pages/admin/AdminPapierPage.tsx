@@ -25,6 +25,7 @@ import { aujourdhuiParis, ecrireReglage, lireReglages } from "@/features/moteur/
 import {
   arreterPapier,
   assignerPapierCm,
+  changerModePapier,
   changerVoixPapier,
   lancerPapierJour,
   listerPapierMasters,
@@ -45,6 +46,7 @@ import { PapierCadre } from "@/features/moteur/PapierCadre";
 import {
   etapeActivePipeline,
   etatEtapePipeline,
+  holdPourCouperAuto,
   PAPIER_PIPELINE_ETAPES,
   type PapierPipelineMode,
 } from "@/features/moteur/papierPipeline";
@@ -155,20 +157,24 @@ export function AdminPapierPage() {
     setMode(papier.pipeline_mode);
   }, [papier, enCours]);
 
+  const enCoursId = enCours?.id;
   React.useEffect(() => {
-    if (enCours?.duree_cible_sec) setDuree(enCours.duree_cible_sec);
-    if (enCours?.topic_categorie) setCategorie(enCours.topic_categorie as PapierCategorie);
+    if (!enCours) return;
+    if (enCours.duree_cible_sec) setDuree(enCours.duree_cible_sec);
+    if (enCours.topic_categorie) setCategorie(enCours.topic_categorie as PapierCategorie);
     if (
-      enCours?.narration_style === "question" ||
-      enCours?.narration_style === "revelation" ||
-      enCours?.narration_style === "storytelling"
+      enCours.narration_style === "question" ||
+      enCours.narration_style === "revelation" ||
+      enCours.narration_style === "storytelling"
     ) {
       setStyle(enCours.narration_style);
     }
-    if (enCours?.pipeline_mode === "auto" || enCours?.pipeline_mode === "manuel") {
+    if (enCours.pipeline_mode === "auto" || enCours.pipeline_mode === "manuel") {
       setMode(enCours.pipeline_mode);
     }
-  }, [enCours]);
+    // Uniquement à l'arrivée d'un master : un refetch ne doit pas écraser Manuel → Auto.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [enCoursId]);
 
   function invalider() {
     void queryClient.invalidateQueries({ queryKey: ["papier-masters"] });
@@ -202,6 +208,22 @@ export function AdminPapierPage() {
   });
   const arreter = useMutation({
     mutationFn: (id: string) => arreterPapier(id),
+    onMutate: () => setMode("manuel"),
+    onSuccess: invalider,
+  });
+  const changerMode = useMutation({
+    mutationFn: (suivant: PapierPipelineMode) => {
+      setMode(suivant);
+      const hold =
+        suivant === "manuel" && enCours
+          ? holdPourCouperAuto({
+              statut: enCours.statut,
+              etape: enCours.etape,
+              hold: enCours.pipeline_hold ?? null,
+            })
+          : undefined;
+      return changerModePapier(suivant, { masterId: enCours?.id, hold });
+    },
     onSuccess: invalider,
   });
   const favoriVoix = useMutation({
@@ -242,7 +264,15 @@ export function AdminPapierPage() {
   });
   const pause = useMutation({
     mutationFn: (actif: boolean) =>
-      ecrireReglage("papier", { ...REGLAGES_PAPIER_DEFAUT, ...papier, actif }),
+      ecrireReglage("papier", {
+        ...REGLAGES_PAPIER_DEFAUT,
+        ...papier,
+        actif,
+        pipeline_mode: actif ? (papier?.pipeline_mode ?? mode) : "manuel",
+      }),
+    onMutate: (actif: boolean) => {
+      if (!actif) setMode("manuel");
+    },
     onSuccess: invalider,
   });
 
@@ -373,7 +403,7 @@ export function AdminPapierPage() {
             style={style}
             onStyle={setStyle}
             mode={mode}
-            onMode={setMode}
+            onMode={(m) => changerMode.mutate(m)}
             hold={enCours.pipeline_hold ?? null}
             onAvancer={mode === "auto" ? () => lancer.mutate({}) : undefined}
             onProposer={() => proposer.mutate()}
@@ -424,7 +454,7 @@ export function AdminPapierPage() {
             style={style}
             onStyle={setStyle}
             mode={mode}
-            onMode={setMode}
+            onMode={(m) => changerMode.mutate(m)}
             onAvancer={mode === "auto" ? () => lancer.mutate({}) : undefined}
             onProposer={() => proposer.mutate()}
             onValider={mode === "manuel" ? () => lancer.mutate({ valider_topic: true }) : undefined}

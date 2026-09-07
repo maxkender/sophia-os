@@ -2,9 +2,11 @@ import { describe, expect, it } from "vitest";
 
 import { baseEmailOs, estCompteTestRecrutement, messageAccesOs } from "./constantes";
 import {
+  aggregerPassagesCompte,
   assemblerStatsCreateur,
   derniersJoursParis,
   flagVolume,
+  formaterPosts10j,
   moyenneHm,
   paye10jUsd,
   usdPour1000,
@@ -75,6 +77,82 @@ describe("stats 10 j", () => {
     const m = moyenneHm([a, b]);
     expect(m.ratio).toBeCloseTo(0.75);
     expect(m.vuesMoy10).toBe(2000);
+    expect(m.postes).toBe(7.5);
+    expect(m.prevus).toBe(10);
+    expect(formaterPosts10j(m.postes, m.prevus)).toBe("8 / 10");
+  });
+
+  it("agrège passages OS : prévus, postés, vues 10 j, moyenne des 10 derniers", () => {
+    const fenetre = { debut: "2026-08-29", fin: "2026-09-07", apresWarmup: true };
+    const agg = aggregerPassagesCompte(
+      [
+        {
+          id: "p1",
+          compte_id: "c",
+          statut: "publie",
+          date_publication_prevue: "2026-08-29",
+          publie_at: "2026-08-28T22:30:00.000Z",
+          vues: 100,
+        },
+        {
+          id: "p2",
+          compte_id: "c",
+          statut: "planifie",
+          date_publication_prevue: "2026-09-07",
+          publie_at: null,
+          vues: null,
+        },
+        {
+          id: "brouillon",
+          compte_id: "c",
+          statut: "brouillon",
+          date_publication_prevue: "2026-09-01",
+          publie_at: null,
+          vues: null,
+        },
+        {
+          id: "hors",
+          compte_id: "c",
+          statut: "publie",
+          date_publication_prevue: "2026-08-20",
+          publie_at: "2026-08-20T10:00:00.000Z",
+          vues: 50_000,
+        },
+        {
+          id: "p3",
+          compte_id: "c",
+          statut: "publie",
+          date_publication_prevue: "2026-09-01",
+          publie_at: "2026-09-01T12:00:00.000Z",
+          vues: null,
+        },
+      ],
+      fenetre,
+    );
+    expect(agg.prevus).toBe(3);
+    expect(agg.postes).toBe(2);
+    expect(agg.vues10j).toBe(100);
+    expect(agg.vuesMoy10).toBe((100 + 50_000) / 2);
+  });
+
+  it("warmup : pas de prévus, posts et vues quand même", () => {
+    const agg = aggregerPassagesCompte(
+      [
+        {
+          id: "p1",
+          compte_id: "c",
+          statut: "publie",
+          date_publication_prevue: "2026-09-01",
+          publie_at: "2026-09-01T12:00:00.000Z",
+          vues: 800,
+        },
+      ],
+      { debut: "2026-08-29", fin: "2026-09-07", apresWarmup: false },
+    );
+    expect(agg.prevus).toBe(0);
+    expect(agg.postes).toBe(1);
+    expect(agg.vues10j).toBe(800);
+    expect(agg.vuesMoy10).toBe(800);
   });
 
   it("10 jours calendaires Paris ancrés", () => {

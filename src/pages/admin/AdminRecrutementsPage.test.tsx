@@ -5,7 +5,12 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import i18n from "i18next";
 
 import "@/locales";
-import type { RecrutementHm, RecrutementSuggestion } from "@/features/recrutements/types";
+import type {
+  RecrutementCreateur,
+  RecrutementHm,
+  RecrutementSuggestion,
+  StatsCreateur10j,
+} from "@/features/recrutements/types";
 
 const useRecrutements = vi.fn();
 
@@ -128,6 +133,7 @@ describe("AdminRecrutementsPage", () => {
       run: { id: "r1", started_at: "2026-09-07T08:00:00Z", finished_at: "2026-09-07T08:05:00Z", resume: "ok" },
       stats: new Map(),
       fiches: new Map(),
+      statsPending: false,
       isPending: false,
       error: null,
     });
@@ -174,6 +180,7 @@ describe("AdminRecrutementsPage", () => {
       run: null,
       stats: new Map(),
       fiches: new Map(),
+      statsPending: false,
       isPending: false,
       error: null,
     });
@@ -186,5 +193,70 @@ describe("AdminRecrutementsPage", () => {
     expect(screen.getByText("Actions proposées")).toBeInTheDocument();
     expect(screen.getAllByText("Répondre à Ada").length).toBeGreaterThan(1);
     expect(screen.getAllByText("Créer le compte OS").length).toBeGreaterThan(1);
+  });
+
+  it("affiche les stats OS phase 2 (posts / vues / $ / 1k)", () => {
+    const stats = new Map<string, StatsCreateur10j>([
+      [
+        "c1",
+        {
+          posterId: "p1",
+          prevus: 20,
+          postes: 19,
+          ratio: 19 / 20,
+          flagVolume: false,
+          vuesMoy10: 1601,
+          vues10j: 30537,
+          payeUsd: 20,
+          usdPour1000: 0.655,
+          ton: "ok",
+        },
+      ],
+    ]);
+    const createur: RecrutementCreateur = {
+      id: "c1",
+      hm_id: "h1",
+      profile_id: "p1",
+      pays: "fr",
+      upwork_freelancer_id: null,
+      upwork_profile_url: null,
+      avatar_url: null,
+      prenom: "Samsudeen",
+      nom: "Wasiu",
+      nom_affiche: "Samsudeen Wasiu",
+      email_os: null,
+      email_perso: null,
+      slack_user_id: null,
+      talks_at: null,
+      contrat_envoye_at: null,
+      contrat_signe_at: null,
+      codes_envoyes_at: null,
+      slack_invite_envoyee_at: null,
+      rejoint_os_at: null,
+      rejoint_slack_at: null,
+      warmup_at: null,
+      premier_post_at: "2026-08-20T10:00:00Z",
+      dernier_message: null,
+      dernier_message_at: null,
+      dernier_message_auteur: null,
+      created_at: "2026-08-01T10:00:00Z",
+      updated_at: "2026-08-01T10:00:00Z",
+    };
+    useRecrutements.mockReturnValue({
+      hms: [hm()],
+      createurs: [createur],
+      suggestions: [],
+      run: null,
+      stats,
+      fiches: new Map(),
+      statsPending: false,
+      isPending: false,
+      error: null,
+    });
+    renderPays("fr");
+    expect(screen.getByText("Samsudeen Wasiu")).toBeInTheDocument();
+    expect(screen.getAllByText("19 / 20").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("1,601").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("0.66 $").length).toBeGreaterThan(0);
   });
 });

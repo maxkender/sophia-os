@@ -7,6 +7,15 @@ import {
 } from "./constantes";
 import type { StatsCreateur10j } from "./types";
 
+export type PassageStatsRow = {
+  id: string;
+  compte_id: string;
+  statut: string | null;
+  date_publication_prevue: string | null;
+  publie_at: string | null;
+  vues: number | null;
+};
+
 /** YYYY-MM-DD du calendrier Paris. */
 export function jourParis(date = new Date()): string {
   return date.toLocaleDateString("en-CA", { timeZone: TZ_STATS });
@@ -113,15 +122,24 @@ export function assemblerStatsCreateur(input: {
   };
 }
 
-/** Moyenne HM : ignore les créateurs sans mesure (ratio/vues null). */
+/** Moyenne HM : ignore les créateurs sans mesure (ratio/vues null). Jamais la somme. */
 export function moyenneHm(stats: StatsCreateur10j[]): {
   ratio: number | null;
   vuesMoy10: number | null;
   usdPour1000: number | null;
+  postes: number | null;
+  prevus: number | null;
   n: number;
 } {
   if (stats.length === 0) {
-    return { ratio: null, vuesMoy10: null, usdPour1000: null, n: 0 };
+    return {
+      ratio: null,
+      vuesMoy10: null,
+      usdPour1000: null,
+      postes: null,
+      prevus: null,
+      n: 0,
+    };
   }
   const ratios = stats.map((s) => s.ratio).filter((x): x is number => x != null);
   const vues = stats.map((s) => s.vuesMoy10).filter((x): x is number => x != null);
@@ -132,6 +150,63 @@ export function moyenneHm(stats: StatsCreateur10j[]): {
     ratio: avg(ratios),
     vuesMoy10: avg(vues),
     usdPour1000: avg(cpm),
+    postes: avg(stats.map((s) => s.postes)),
+    prevus: avg(stats.map((s) => s.prevus)),
     n: stats.length,
   };
+}
+
+export function formaterPosts10j(postes: number | null, prevus: number | null): string {
+  if (postes == null || prevus == null) return "—";
+  return `${Math.round(postes)} / ${Math.round(prevus)}`;
+}
+
+/**
+ * Agrège les passages d'un compte sur 10 jours Paris.
+ * Prévus : date prévue dans la fenêtre, hors brouillon, seulement après warmup.
+ * Postés / vues 10 j : publie_at dans la fenêtre (warmup inclus).
+ * Vues moy. : moyenne des 10 derniers publie_at qui ont déjà des vues.
+ */
+export function aggregerPassagesCompte(
+  passages: PassageStatsRow[],
+  opts: { debut: string; fin: string; apresWarmup: boolean },
+): { prevus: number; postes: number; vuesMoy10: number | null; vues10j: number } {
+  const uniques = new Map<string, PassageStatsRow>();
+  for (const p of passages) uniques.set(p.id, p);
+
+  let prevus = 0;
+  const publies: { at: string; jour: string; vues: number | null }[] = [];
+
+  for (const p of uniques.values()) {
+    const jourPrevue = p.date_publication_prevue;
+    if (
+      opts.apresWarmup &&
+      jourPrevue &&
+      jourPrevue >= opts.debut &&
+      jourPrevue <= opts.fin &&
+      p.statut !== "brouillon"
+    ) {
+      prevus += 1;
+    }
+    if (p.publie_at) {
+      publies.push({
+        at: p.publie_at,
+        jour: jourParisIso(p.publie_at),
+        vues: p.vues,
+      });
+    }
+  }
+
+  const dansFenetre = publies.filter((x) => x.jour >= opts.debut && x.jour <= opts.fin);
+  const postes = dansFenetre.length;
+  const vues10j = dansFenetre.reduce((s, x) => s + (x.vues ?? 0), 0);
+
+  publies.sort((a, b) => (a.at < b.at ? 1 : -1));
+  const derniersAvecVues = publies.filter((x) => x.vues != null).slice(0, 10);
+  const vuesMoy10 =
+    derniersAvecVues.length === 0
+      ? null
+      : derniersAvecVues.reduce((s, x) => s + (x.vues ?? 0), 0) / derniersAvecVues.length;
+
+  return { prevus, postes, vuesMoy10, vues10j };
 }

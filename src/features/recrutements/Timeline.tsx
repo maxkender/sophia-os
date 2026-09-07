@@ -110,7 +110,7 @@ function Rail({
                   aria-current={ici ? "step" : undefined}
                   aria-label={labels[id]}
                   className={cn(
-                    "relative z-10 size-2.5 shrink-0 cursor-default rounded-full border-0 p-0",
+                    "relative z-10 inline-block size-2.5 min-h-2.5 min-w-2.5 shrink-0 appearance-none rounded-full border-0 p-0",
                     ok && "bg-emerald-500",
                     !ok && ici && "bg-background ring-2 ring-violet-400",
                     !ok && !ici && "bg-muted-foreground/20",

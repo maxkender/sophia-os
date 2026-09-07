@@ -1,15 +1,13 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Users } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import { Spinner } from "@/components/ui/spinner";
 import { InboxSuggestions } from "@/features/recrutements/InboxSuggestions";
-import { PASTEL_PAYS } from "@/features/recrutements/constantes";
+import { CIBLE_CREATEURS_PAYS, PASTEL_PAYS } from "@/features/recrutements/constantes";
 import { hmConcernePays, phasesHmPourPays } from "@/features/recrutements/phases";
 import { useRecrutements } from "@/features/recrutements/useRecrutements";
 import { drapeauLangue, nomPays, PAYS_OS } from "@/features/moteur/langues";
@@ -31,62 +29,91 @@ export function AdminRecrutementsPage() {
       if (phases.includes(1)) phase1 += 1;
       if (phases.includes(2)) phase2 += 1;
     }
-    return { pays, phase0, phase1, phase2, total: hmsPays.length };
+    const nCreateurs = createurs.filter((c) => c.pays === pays).length;
+    return { pays, phase0, phase1, phase2, nCreateurs };
   });
 
   return (
-    <div className="space-y-6">
-      <Card className="border-violet-100 bg-gradient-to-br from-violet-50/80 via-rose-50/50 to-sky-50/70">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-xl">
-            <Users className="size-5" />
-            {t("recrutements.title")}
-          </CardTitle>
-          <CardDescription>{t("recrutements.subtitle")}</CardDescription>
-          {run?.finished_at && (
-            <p className="text-xs text-muted-foreground">
-              {t("recrutements.dernierRun", {
-                date: new Date(run.finished_at).toLocaleString(i18n.language, {
-                  dateStyle: "short",
-                  timeStyle: "short",
-                  timeZone: "Europe/Paris",
-                }),
-              })}
-            </p>
-          )}
-        </CardHeader>
-      </Card>
+    <div className="space-y-8">
+      <div className="flex flex-wrap items-end justify-between gap-3">
+        <div className="space-y-1">
+          <h1 className="text-lg font-semibold tracking-tight">{t("recrutements.title")}</h1>
+          <p className="max-w-xl text-sm text-muted-foreground">{t("recrutements.subtitle")}</p>
+        </div>
+        {run?.finished_at && (
+          <p className="text-xs tabular-nums text-muted-foreground">
+            {t("recrutements.dernierRun", {
+              date: new Date(run.finished_at).toLocaleString(i18n.language, {
+                dateStyle: "short",
+                timeStyle: "short",
+                timeZone: "Europe/Paris",
+              }),
+            })}
+          </p>
+        )}
+      </div>
 
       {error && (
-        <p className="text-sm text-destructive">
-          {t("recrutements.erreurCharge")} {(error as Error).message}
-        </p>
+        <Alert variant="error">
+          <AlertTitle>{t("recrutements.erreurCharge")}</AlertTitle>
+          <AlertDescription>{(error as Error).message}</AlertDescription>
+        </Alert>
       )}
 
       <InboxSuggestions suggestions={suggestions} hms={hms} />
 
       {isPending ? (
-        <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
+        <p className="flex items-center gap-2 text-sm text-muted-foreground">
+          <Spinner className="size-4" />
+          {t("common.loading")}
+        </p>
       ) : (
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {cartes.map((c) => (
             <Link
               key={c.pays}
               to={`/admin/recrutements/${c.pays}`}
               className={cn(
-                "rounded-2xl border border-black/5 p-4 shadow-xs transition-colors",
+                "group flex flex-col gap-4 rounded-2xl border border-black/5 p-4 shadow-xs/5 transition-[transform,box-shadow,background-color] hover:-translate-y-0.5 hover:shadow-sm",
                 PASTEL_PAYS[c.pays] ?? "bg-muted/40",
               )}
             >
-              <p className="text-4xl leading-none">{drapeauLangue(c.pays)}</p>
-              <p className="mt-3 font-medium">{nomPays(c.pays)}</p>
-              <p className="mt-1 text-xs text-muted-foreground">
-                {t("recrutements.compteursPays", {
-                  p0: c.phase0,
-                  p1: c.phase1,
-                  p2: c.phase2,
-                })}
-              </p>
+              <div className="flex items-start justify-between gap-2">
+                <div className="flex items-center gap-2.5">
+                  <span className="text-2xl leading-none">{drapeauLangue(c.pays)}</span>
+                  <p className="font-medium leading-tight">{nomPays(c.pays)}</p>
+                </div>
+                <ChevronRight className="size-4 shrink-0 text-muted-foreground/50 transition-transform group-hover:translate-x-0.5 group-hover:text-muted-foreground" />
+              </div>
+              <div className="space-y-1.5">
+                <div className="flex items-baseline justify-between gap-2 text-xs text-muted-foreground">
+                  <span>{t("recrutements.createursCibleLabel")}</span>
+                  <span className="tabular-nums">
+                    {t("recrutements.createursCible", {
+                      n: c.nCreateurs,
+                      cible: CIBLE_CREATEURS_PAYS,
+                    })}
+                  </span>
+                </div>
+                <Progress
+                  value={(c.nCreateurs / CIBLE_CREATEURS_PAYS) * 100}
+                  className="h-1.5 bg-white/70"
+                />
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                <Badge variant="outline" className="gap-1 bg-white/60 font-normal">
+                  {t("recrutements.pill0")}
+                  <span className="tabular-nums font-medium">{c.phase0}</span>
+                </Badge>
+                <Badge variant="outline" className="gap-1 bg-white/60 font-normal">
+                  {t("recrutements.pill1")}
+                  <span className="tabular-nums font-medium">{c.phase1}</span>
+                </Badge>
+                <Badge variant="outline" className="gap-1 bg-white/60 font-normal">
+                  {t("recrutements.pill2")}
+                  <span className="tabular-nums font-medium">{c.phase2}</span>
+                </Badge>
+              </div>
             </Link>
           ))}
         </div>

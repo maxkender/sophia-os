@@ -6,6 +6,11 @@ import { Copy, ExternalLink, Megaphone, RotateCcw } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
 import { InboxSuggestions } from "./InboxSuggestions";
 import { TimelineCreateur, TimelinePhase0 } from "./Timeline";
 import {
@@ -14,13 +19,13 @@ import {
   marquerAjoutUpwork,
 } from "./api";
 import { nomAfficheHm } from "./phases";
+import { moyenneHm } from "./stats";
 import type {
   RecrutementCreateur,
   RecrutementHm,
   RecrutementSuggestion,
   StatsCreateur10j,
 } from "./types";
-import { moyenneHm } from "./stats";
 
 function initiales(nom: string): string {
   const parts = nom.trim().split(/\s+/).filter(Boolean);
@@ -48,6 +53,47 @@ function Copier({ valeur }: { valeur: string }) {
   );
 }
 
+function EnteteHm({
+  hm,
+  sous,
+}: {
+  hm: RecrutementHm;
+  sous?: React.ReactNode;
+}) {
+  const nom = nomAfficheHm(hm);
+  return (
+    <header className="flex items-start gap-3">
+      <Avatar className="size-11">
+        {hm.avatar_url ? <AvatarImage src={hm.avatar_url} alt="" /> : null}
+        <AvatarFallback>{initiales(nom)}</AvatarFallback>
+      </Avatar>
+      <div className="min-w-0 flex-1">
+        <p className="truncate font-medium leading-tight">{nom}</p>
+        {sous}
+      </div>
+    </header>
+  );
+}
+
+function formatRatio(r: number | null): string {
+  if (r == null) return "—";
+  return `${Math.round(r * 100)} %`;
+}
+
+function formatCpm(n: number | null): string {
+  if (n == null) return "—";
+  return `${n.toFixed(2)} $`;
+}
+
+function MiniStat({ label, valeur }: { label: string; valeur: string }) {
+  return (
+    <div className="min-w-0">
+      <p className="text-[10px] uppercase tracking-wide text-muted-foreground">{label}</p>
+      <p className="truncate text-sm font-medium tabular-nums">{valeur}</p>
+    </div>
+  );
+}
+
 export function CarteHmPhase0({
   hm,
   suggestions,
@@ -66,69 +112,70 @@ export function CarteHmPhase0({
     mutationFn: () => enregistrerEmailPerso(hm.id, email),
     onSuccess: () => qc.invalidateQueries({ queryKey: ["recrutements"] }),
   });
-  const nom = nomAfficheHm(hm);
   const sugHm = suggestions.filter((s) => s.hm_id === hm.id);
 
   return (
-    <article className="flex flex-col gap-3 rounded-2xl border border-rose-100/80 bg-white/80 p-4 shadow-xs">
-      <header className="flex items-start gap-3">
-        <Avatar className="size-12">
-          {hm.avatar_url ? <AvatarImage src={hm.avatar_url} alt="" /> : null}
-          <AvatarFallback>{initiales(nom)}</AvatarFallback>
-        </Avatar>
-        <div className="min-w-0 flex-1">
-          <p className="truncate font-medium">{nom}</p>
-          <p className="truncate text-xs text-muted-foreground">{hm.email_os ?? "—"}</p>
-          {hm.upwork_profile_url && (
-            <a
-              href={hm.upwork_profile_url}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-0.5 inline-flex items-center gap-1 text-xs text-sky-700 hover:underline"
-            >
-              Upwork <ExternalLink className="size-3" />
-            </a>
-          )}
-        </div>
-      </header>
-      <TimelinePhase0 hm={hm} />
-      <div className="space-y-1.5">
-        <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
-          {t("recrutements.emailPerso")}
-        </p>
-        <div className="flex flex-wrap items-center gap-2">
-          <input
-            className="h-8 min-w-[10rem] flex-1 rounded-md border border-input bg-white px-2 text-sm"
-            value={email}
-            placeholder="email@…"
-            onChange={(e) => setEmail(e.target.value)}
-            onBlur={() => {
-              if (email !== (hm.email_perso ?? "")) perso.mutate();
-            }}
-          />
-          {hm.email_perso && <Copier valeur={hm.email_perso} />}
-        </div>
-        <p className="text-[11px] text-muted-foreground">{t("recrutements.emailPersoAide")}</p>
-      </div>
-      <label className="flex items-start gap-2 text-sm">
-        <input
-          type="checkbox"
-          className="mt-1"
-          checked={Boolean(hm.ajoute_upwork_at)}
-          disabled={ajout.isPending}
-          onChange={(e) => ajout.mutate(e.target.checked)}
+    <Card className="border-rose-100/90">
+      <CardContent className="flex flex-col gap-4 p-5">
+        <EnteteHm
+          hm={hm}
+          sous={
+            <div className="mt-0.5 space-y-0.5">
+              <p className="truncate text-xs text-muted-foreground">{hm.email_os ?? "—"}</p>
+              {hm.upwork_profile_url && (
+                <a
+                  href={hm.upwork_profile_url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
+                >
+                  Upwork <ExternalLink className="size-3" />
+                </a>
+              )}
+            </div>
+          }
         />
-        <span>
-          {t("recrutements.ajouteUpwork")}
-          {hm.email_perso ? (
-            <span className="mt-0.5 block text-[11px] text-muted-foreground">
-              {hm.email_perso}
+        <TimelinePhase0 hm={hm} />
+        <Separator />
+        <div className="space-y-2">
+          <Label htmlFor={`email-perso-${hm.id}`} className="text-xs text-muted-foreground">
+            {t("recrutements.emailPerso")}
+          </Label>
+          <div className="flex items-center gap-2">
+            <Input
+              id={`email-perso-${hm.id}`}
+              size="sm"
+              value={email}
+              placeholder="email@…"
+              onChange={(e) => setEmail(e.target.value)}
+              onBlur={() => {
+                if (email !== (hm.email_perso ?? "")) perso.mutate();
+              }}
+            />
+            {hm.email_perso ? <Copier valeur={hm.email_perso} /> : null}
+          </div>
+          <p className="text-[11px] leading-snug text-muted-foreground">{t("recrutements.emailPersoAide")}</p>
+        </div>
+          <div className="flex items-start gap-2.5">
+          <Checkbox
+            id={`upwork-${hm.id}`}
+            checked={Boolean(hm.ajoute_upwork_at)}
+            disabled={ajout.isPending}
+            onCheckedChange={(v) => ajout.mutate(v === true)}
+            className="mt-0.5"
+          />
+          <Label htmlFor={`upwork-${hm.id}`} className="font-normal">
+            <span className="text-sm leading-snug">
+              {t("recrutements.ajouteUpwork")}
+              {hm.email_perso ? (
+                <span className="mt-0.5 block text-[11px] text-muted-foreground">{hm.email_perso}</span>
+              ) : null}
             </span>
-          ) : null}
-        </span>
-      </label>
-      <InboxSuggestions suggestions={sugHm} hms={[hm]} compact />
-    </article>
+          </Label>
+        </div>
+        <InboxSuggestions suggestions={sugHm} hms={[hm]} compact />
+      </CardContent>
+    </Card>
   );
 }
 
@@ -142,53 +189,42 @@ export function CarteHmPhase1({
   suggestions: RecrutementSuggestion[];
 }) {
   const { t } = useTranslation();
-  const nom = nomAfficheHm(hm);
   const sugHm = suggestions.filter((s) => s.hm_id === hm.id);
   return (
-    <article className="flex flex-col gap-3 rounded-2xl border border-sky-100/80 bg-white/80 p-4 shadow-xs">
-      <header className="flex items-start gap-3">
-        <Avatar className="size-11">
-          {hm.avatar_url ? <AvatarImage src={hm.avatar_url} alt="" /> : null}
-          <AvatarFallback>{initiales(nom)}</AvatarFallback>
-        </Avatar>
-        <div className="min-w-0">
-          <p className="truncate font-medium">{nom}</p>
-          <p className="text-xs text-muted-foreground">
-            {t("recrutements.nCreateurs", { count: createurs.length })}
+    <Card className="border-sky-100/90">
+      <CardContent className="flex flex-col gap-4 p-5">
+        <EnteteHm
+          hm={hm}
+          sous={
+            <p className="mt-0.5 text-xs text-muted-foreground">
+              {t("recrutements.nCreateurs", { count: createurs.length })}
+            </p>
+          }
+        />
+        {createurs.length === 0 ? (
+          <p className="rounded-xl border border-dashed px-3 py-4 text-center text-xs text-muted-foreground">
+            {t("recrutements.aucunCreateurPipeline")}
           </p>
-        </div>
-      </header>
-      {createurs.length === 0 ? (
-        <p className="text-xs text-muted-foreground">{t("recrutements.aucunCreateurPipeline")}</p>
-      ) : (
-        <ul className="space-y-2">
-          {createurs.map((c) => (
-            <li key={c.id} className="rounded-xl bg-sky-50/60 p-2.5">
-              <div className="mb-1.5 flex items-center gap-2">
-                <Avatar className="size-7">
-                  {c.avatar_url ? <AvatarImage src={c.avatar_url} alt="" /> : null}
-                  <AvatarFallback className="text-[10px]">{initiales(c.nom_affiche)}</AvatarFallback>
-                </Avatar>
-                <span className="truncate text-sm">{c.nom_affiche}</span>
-              </div>
-              <TimelineCreateur createur={c} />
-            </li>
-          ))}
-        </ul>
-      )}
-      <InboxSuggestions suggestions={sugHm} hms={[hm]} compact />
-    </article>
+        ) : (
+          <ul className="space-y-2">
+            {createurs.map((c) => (
+              <li key={c.id} className="rounded-xl bg-sky-50/70 px-3 py-2.5">
+                <div className="mb-2 flex items-center gap-2">
+                  <Avatar className="size-7">
+                    {c.avatar_url ? <AvatarImage src={c.avatar_url} alt="" /> : null}
+                    <AvatarFallback className="text-[10px]">{initiales(c.nom_affiche)}</AvatarFallback>
+                  </Avatar>
+                  <span className="truncate text-sm font-medium">{c.nom_affiche}</span>
+                </div>
+                <TimelineCreateur createur={c} />
+              </li>
+            ))}
+          </ul>
+        )}
+        <InboxSuggestions suggestions={sugHm} hms={[hm]} compact />
+      </CardContent>
+    </Card>
   );
-}
-
-function formatRatio(r: number | null): string {
-  if (r == null) return "—";
-  return `${Math.round(r * 100)} %`;
-}
-
-function formatCpm(n: number | null): string {
-  if (n == null) return "—";
-  return `${n.toFixed(2)} $`;
 }
 
 export function CarteHmPhase2({
@@ -243,42 +279,48 @@ export function CarteHmPhase2({
   });
 
   return (
-    <article className="flex flex-col gap-3 rounded-2xl border border-emerald-100/80 bg-white/80 p-4 shadow-xs">
-      <header className="flex items-start justify-between gap-2">
-        <div className="flex items-start gap-3">
-          <Avatar className="size-11">
-            {hm.avatar_url ? <AvatarImage src={hm.avatar_url} alt="" /> : null}
-            <AvatarFallback>{initiales(nom)}</AvatarFallback>
-          </Avatar>
-          <div>
-            <p className="font-medium">{nom}</p>
-            <p className="text-xs text-muted-foreground">
-              {t("recrutements.moyenneHm", {
-                posts: formatRatio(moy.ratio),
-                vues: moy.vuesMoy10 == null ? "—" : Math.round(moy.vuesMoy10).toLocaleString(),
-                cpm: formatCpm(moy.usdPour1000),
-              })}
-            </p>
+    <Card className="border-emerald-100/90">
+      <CardContent className="flex flex-col gap-4 p-5">
+        <div className="space-y-3">
+          <EnteteHm hm={hm} />
+          <div className="grid grid-cols-3 gap-3 rounded-xl bg-emerald-50/60 px-3 py-2.5">
+            <MiniStat label={t("recrutements.colPosts")} valeur={formatRatio(moy.ratio)} />
+            <MiniStat
+              label={t("recrutements.colVues")}
+              valeur={moy.vuesMoy10 == null ? "—" : Math.round(moy.vuesMoy10).toLocaleString()}
+            />
+            <MiniStat label={t("recrutements.colCpm")} valeur={formatCpm(moy.usdPour1000)} />
           </div>
         </div>
-      </header>
-      <ul className="space-y-2">
-        {lignes.map(({ c, s }) => (
-          <li key={c.id} className="rounded-xl bg-emerald-50/50 p-2.5">
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <div className="flex items-center gap-2">
-                <Avatar className="size-7">
-                  {c.avatar_url ? <AvatarImage src={c.avatar_url} alt="" /> : null}
-                  <AvatarFallback className="text-[10px]">{initiales(c.nom_affiche)}</AvatarFallback>
-                </Avatar>
-                <span className="text-sm">{c.nom_affiche}</span>
+        <ul className="space-y-2">
+          {lignes.map(({ c, s }) => (
+            <li key={c.id} className="space-y-2.5 rounded-xl border border-emerald-100/80 bg-card px-3 py-2.5">
+              <div className="flex items-center justify-between gap-2">
+                <div className="flex min-w-0 items-center gap-2">
+                  <Avatar className="size-7">
+                    {c.avatar_url ? <AvatarImage src={c.avatar_url} alt="" /> : null}
+                    <AvatarFallback className="text-[10px]">{initiales(c.nom_affiche)}</AvatarFallback>
+                  </Avatar>
+                  <span className="truncate text-sm font-medium">{c.nom_affiche}</span>
+                </div>
                 {s?.flagVolume && (
                   <Badge variant={s.ton === "doux" ? "warning" : "destructive"}>
                     {t(`recrutements.ton.${s.ton}`)}
                   </Badge>
                 )}
               </div>
-              <div className="flex gap-1">
+              <div className="grid grid-cols-3 gap-2">
+                <MiniStat
+                  label={t("recrutements.colPosts")}
+                  valeur={`${s?.postes ?? 0} / ${s?.prevus ?? 0}`}
+                />
+                <MiniStat
+                  label={t("recrutements.colVues")}
+                  valeur={s?.vuesMoy10 == null ? "—" : Math.round(s.vuesMoy10).toLocaleString()}
+                />
+                <MiniStat label={t("recrutements.colCpm")} valeur={formatCpm(s?.usdPour1000 ?? null)} />
+              </div>
+              <div className="flex justify-end gap-1.5">
                 <Button
                   size="xs"
                   variant="outline"
@@ -298,19 +340,15 @@ export function CarteHmPhase2({
                   {t("recrutements.pression")}
                 </Button>
               </div>
-            </div>
-            <p className="mt-1 text-[11px] text-muted-foreground">
-              {t("recrutements.ligneStats", {
-                postes: s?.postes ?? 0,
-                prevus: s?.prevus ?? 0,
-                vues: s?.vuesMoy10 == null ? "—" : Math.round(s.vuesMoy10).toLocaleString(),
-                cpm: formatCpm(s?.usdPour1000 ?? null),
-              })}
-            </p>
-          </li>
-        ))}
-      </ul>
-      <InboxSuggestions suggestions={suggestions.filter((s) => s.hm_id === hm.id)} hms={[hm]} compact />
-    </article>
+            </li>
+          ))}
+        </ul>
+        <InboxSuggestions
+          suggestions={suggestions.filter((s) => s.hm_id === hm.id)}
+          hms={[hm]}
+          compact
+        />
+      </CardContent>
+    </Card>
   );
 }

@@ -2,18 +2,86 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { Check, RotateCcw, X } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 import { majStatutSuggestion } from "./api";
 import type { RecrutementHm, RecrutementSuggestion } from "./types";
 
-function nomHm(
-  sug: RecrutementSuggestion,
-  hms: RecrutementHm[],
-): string {
+function nomHm(sug: RecrutementSuggestion, hms: RecrutementHm[]): string {
   if (!sug.hm_id) return "—";
   const hm = hms.find((h) => h.id === sug.hm_id);
   return hm?.nom_affiche ?? sug.hm_id.slice(0, 8);
+}
+
+function LigneSuggestion({
+  s,
+  hms,
+  compact,
+  pending,
+  onStatut,
+}: {
+  s: RecrutementSuggestion;
+  hms: RecrutementHm[];
+  compact: boolean;
+  pending: boolean;
+  onStatut: (id: string, statut: "validee" | "ignoree" | "a_reproposer") => void;
+}) {
+  const { t } = useTranslation();
+  return (
+    <li className={cn(compact ? "space-y-2" : "space-y-3 rounded-xl border bg-background/80 p-4")}>
+      <div className="flex items-start justify-between gap-3">
+        <div className="min-w-0 space-y-0.5">
+          <p className="truncate text-sm font-medium">{s.titre}</p>
+          {!compact && (
+            <p className="text-xs text-muted-foreground">
+              {nomHm(s, hms)}
+              <span className="mx-1.5 text-border">·</span>
+              {s.canal}
+            </p>
+          )}
+        </div>
+        <div className="flex shrink-0 items-center gap-1.5">
+          <Badge variant="outline" className="tabular-nums">
+            {t("recrutements.phaseCourt", { n: s.phase })}
+          </Badge>
+          <Badge variant={s.statut === "validee" ? "success" : "secondary"}>
+            {t(`recrutements.statut.${s.statut}`)}
+          </Badge>
+        </div>
+      </div>
+      <p
+        className={cn(
+          "whitespace-pre-wrap text-sm leading-relaxed text-muted-foreground",
+          compact && "line-clamp-3",
+        )}
+      >
+        {s.corps}
+      </p>
+      <div className="flex flex-wrap gap-1.5">
+        {s.statut !== "validee" && s.statut !== "executee" && (
+          <Button size="xs" disabled={pending} onClick={() => onStatut(s.id, "validee")}>
+            <Check className="size-3" />
+            {t("recrutements.valider")}
+          </Button>
+        )}
+        <Button
+          size="xs"
+          variant="outline"
+          disabled={pending}
+          onClick={() => onStatut(s.id, "a_reproposer")}
+        >
+          <RotateCcw className="size-3" />
+          {t("recrutements.reproposer")}
+        </Button>
+        <Button size="xs" variant="ghost" disabled={pending} onClick={() => onStatut(s.id, "ignoree")}>
+          <X className="size-3" />
+          {t("recrutements.ignorer")}
+        </Button>
+      </div>
+    </li>
+  );
 }
 
 export function InboxSuggestions({
@@ -43,70 +111,54 @@ export function InboxSuggestions({
 
   if (visibles.length === 0) return null;
 
-  return (
-    <section
-      className={
-        compact
-          ? "rounded-xl border border-violet-100/80 bg-violet-50/50 p-3"
-          : "rounded-2xl border border-violet-100 bg-violet-50/70 p-4"
-      }
-    >
-      <div className="mb-3 flex items-baseline justify-between gap-2">
-        <h2 className="text-sm font-semibold text-violet-950">
-          {compact ? t("recrutements.inboxCarte") : t("recrutements.inboxTitre")}
-        </h2>
-        <span className="text-xs text-violet-700">{visibles.length}</span>
+  const onStatut = (id: string, statut: "validee" | "ignoree" | "a_reproposer") =>
+    mut.mutate({ id, statut });
+
+  if (compact) {
+    return (
+      <div className="space-y-3 rounded-xl border border-violet-200/70 bg-violet-50/40 px-3 py-2.5">
+        <p className="text-[11px] font-medium uppercase tracking-wide text-violet-800/80">
+          {t("recrutements.inboxCarte")}
+          <span className="ms-1.5 tabular-nums text-violet-700/70">{visibles.length}</span>
+        </p>
+        <ul className="space-y-3">
+          {visibles.map((s) => (
+            <LigneSuggestion
+              key={s.id}
+              s={s}
+              hms={hms}
+              compact
+              pending={mut.isPending}
+              onStatut={onStatut}
+            />
+          ))}
+        </ul>
       </div>
-      <ul className="space-y-3">
-        {visibles.map((s) => (
-          <li key={s.id} className="rounded-xl border border-white/80 bg-white/80 p-3 shadow-xs">
-            <div className="flex flex-wrap items-start justify-between gap-2">
-              <div className="min-w-0">
-                <p className="text-sm font-medium">{s.titre}</p>
-                <p className="text-xs text-muted-foreground">
-                  {nomHm(s, hms)} · {t(`recrutements.phase${s.phase}`)} · {s.canal}
-                </p>
-              </div>
-              <Badge variant={s.statut === "validee" ? "success" : "outline"}>
-                {t(`recrutements.statut.${s.statut}`)}
-              </Badge>
-            </div>
-            <p className="mt-2 whitespace-pre-wrap text-sm leading-relaxed text-foreground/90">
-              {s.corps}
-            </p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {s.statut !== "validee" && s.statut !== "executee" && (
-                <Button
-                  size="sm"
-                  disabled={mut.isPending}
-                  onClick={() => mut.mutate({ id: s.id, statut: "validee" })}
-                >
-                  <Check className="size-3.5" />
-                  {t("recrutements.valider")}
-                </Button>
-              )}
-              <Button
-                size="sm"
-                variant="outline"
-                disabled={mut.isPending}
-                onClick={() => mut.mutate({ id: s.id, statut: "a_reproposer" })}
-              >
-                <RotateCcw className="size-3.5" />
-                {t("recrutements.reproposer")}
-              </Button>
-              <Button
-                size="sm"
-                variant="ghost"
-                disabled={mut.isPending}
-                onClick={() => mut.mutate({ id: s.id, statut: "ignoree" })}
-              >
-                <X className="size-3.5" />
-                {t("recrutements.ignorer")}
-              </Button>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </section>
+    );
+  }
+
+  return (
+    <Card className="border-violet-200/60 bg-violet-50/30">
+      <CardHeader className="pb-3">
+        <CardTitle className="flex items-baseline justify-between text-base">
+          <span>{t("recrutements.inboxTitre")}</span>
+          <span className="text-sm font-normal tabular-nums text-muted-foreground">{visibles.length}</span>
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <ul className="space-y-3">
+          {visibles.map((s) => (
+            <LigneSuggestion
+              key={s.id}
+              s={s}
+              hms={hms}
+              compact={false}
+              pending={mut.isPending}
+              onStatut={onStatut}
+            />
+          ))}
+        </ul>
+      </CardContent>
+    </Card>
   );
 }

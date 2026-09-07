@@ -6,6 +6,7 @@ import {
   etapeCourantePhase0,
   etapeFaitePhase0,
   hmConcernePays,
+  kindEstMessage,
   phasesHmPourPays,
 } from "./phases";
 import type { RecrutementCreateur, RecrutementHm } from "./types";
@@ -37,6 +38,9 @@ function hm(p: Partial<RecrutementHm> = {}): RecrutementHm {
     job_post_id: null,
     job_post_titre: null,
     notes: null,
+    dernier_message: null,
+    dernier_message_at: null,
+    dernier_message_auteur: null,
     created_at: "2026-09-01T10:00:00Z",
     updated_at: "2026-09-01T10:00:00Z",
     ...p,
@@ -67,6 +71,9 @@ function cre(p: Partial<RecrutementCreateur> = {}): RecrutementCreateur {
     rejoint_slack_at: null,
     warmup_at: null,
     premier_post_at: null,
+    dernier_message: null,
+    dernier_message_at: null,
+    dernier_message_auteur: null,
     created_at: "2026-09-02T10:00:00Z",
     updated_at: "2026-09-02T10:00:00Z",
     ...p,
@@ -76,7 +83,8 @@ function cre(p: Partial<RecrutementCreateur> = {}): RecrutementCreateur {
 describe("phases HM", () => {
   it("reste en phase 0 sans job ni créateur", () => {
     expect(phasesHmPourPays(hm(), [])).toEqual([0]);
-    expect(etapeCourantePhase0(hm())).toBe("talks");
+    expect(etapeCourantePhase0(hm({ talks_at: null }))).toBe("talks");
+    expect(etapeCourantePhase0(hm())).toBe("contrat_envoye");
   });
 
   it("passe en phase 1 dès un job post", () => {
@@ -111,24 +119,53 @@ describe("phases HM", () => {
 
   it("checklist seulement si Slack + OS + Upwork admin", () => {
     const partiel = hm({
+      talks_at: "x",
+      contrat_envoye_at: "x",
+      contrat_signe_at: "x",
       codes_envoyes_at: "x",
       rejoint_os_at: "x",
       rejoint_slack_at: "x",
     });
     expect(etapeFaitePhase0(partiel, "checklist")).toBe(false);
-    expect(etapeCourantePhase0(partiel)).toBe("acces");
+    expect(etapeCourantePhase0(partiel)).toBe("checklist");
     const complet = hm({
       ...partiel,
       ajoute_upwork_at: "x",
     });
     expect(etapeFaitePhase0(complet, "checklist")).toBe(true);
-    expect(etapeCourantePhase0(complet)).toBe("checklist");
+    expect(etapeCourantePhase0(complet)).toBe("job_post");
+  });
+
+  it("pointe la première étape manquante même si une étape plus loin est cochée", () => {
+    expect(
+      etapeCourantePhase0(
+        hm({ talks_at: "x", codes_envoyes_at: "x", rejoint_os_at: "x" }),
+      ),
+    ).toBe("contrat_envoye");
   });
 });
 
 describe("timeline créateur", () => {
-  it("avance talks → premier post", () => {
-    expect(etapeCouranteCreateur(cre())).toBe("talks");
-    expect(etapeCouranteCreateur(cre({ premier_post_at: "x" }))).toBe("premier_post");
+  it("pointe la première étape manquante", () => {
+    expect(etapeCouranteCreateur(cre())).toBe("contrat");
+    expect(
+      etapeCouranteCreateur(
+        cre({
+          contrat_envoye_at: "x",
+          codes_envoyes_at: "x",
+          rejoint_os_at: "x",
+          rejoint_slack_at: "x",
+          warmup_at: "x",
+          premier_post_at: "x",
+        }),
+      ),
+    ).toBe("premier_post");
+  });
+
+  it("sépare messages et actions", () => {
+    expect(kindEstMessage("reponse")).toBe(true);
+    expect(kindEstMessage("relance")).toBe(true);
+    expect(kindEstMessage("pression")).toBe(true);
+    expect(kindEstMessage("action")).toBe(false);
   });
 });

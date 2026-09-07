@@ -27,6 +27,31 @@ export type KindSuggestion = "reponse" | "action" | "relance" | "pression";
 
 export type CanalSuggestion = "upwork" | "slack" | "os" | "interne";
 
+export type AuteurMessage = "nous" | "eux";
+
+export type ChampHorodatageHm =
+  | "talks_at"
+  | "contrat_envoye_at"
+  | "contrat_signe_at"
+  | "codes_envoyes_at"
+  | "slack_invite_envoyee_at"
+  | "email_perso_demandee_at"
+  | "rejoint_slack_at"
+  | "rejoint_os_at"
+  | "ajoute_upwork_at"
+  | "job_post_at";
+
+export type ChampHorodatageCreateur =
+  | "talks_at"
+  | "contrat_envoye_at"
+  | "contrat_signe_at"
+  | "codes_envoyes_at"
+  | "slack_invite_envoyee_at"
+  | "rejoint_os_at"
+  | "rejoint_slack_at"
+  | "warmup_at"
+  | "premier_post_at";
+
 export interface RecrutementHm {
   id: string;
   profile_id: string | null;
@@ -53,6 +78,9 @@ export interface RecrutementHm {
   job_post_id: string | null;
   job_post_titre: string | null;
   notes: string | null;
+  dernier_message: string | null;
+  dernier_message_at: string | null;
+  dernier_message_auteur: AuteurMessage | null;
   created_at: string;
   updated_at: string;
 }
@@ -80,6 +108,9 @@ export interface RecrutementCreateur {
   rejoint_slack_at: string | null;
   warmup_at: string | null;
   premier_post_at: string | null;
+  dernier_message: string | null;
+  dernier_message_at: string | null;
+  dernier_message_auteur: AuteurMessage | null;
   created_at: string;
   updated_at: string;
 }

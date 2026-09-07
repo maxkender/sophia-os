@@ -34,7 +34,21 @@ Tables (RLS admin) :
 | `recrutement_suggestions` | File Valider / Reproposer / Ignorer |
 | `recrutement_runs` | Journal de chaque passage |
 
+Colonnes **dernier message Upwork** (HM et créateur), à remplir à chaque passage :
+
+| Colonne | Valeurs |
+|---|---|
+| `dernier_message` | Texte du dernier message du thread |
+| `dernier_message_at` | Horodatage |
+| `dernier_message_auteur` | `nous` ou `eux` |
+
+Si tu n’as pas encore le thread : laisse `null` — l’OS affiche « — ».
+
 `empreinte` est **unique**. Si `statut = ignoree`, **ne jamais recréer** la même empreinte. Pour `a_reproposer`, régénère le `corps` sur la **même ligne**.
+
+**Timeline :** l’admin peut cocher / décocher chaque date (`talks_at`, `contrat_*`, `codes_envoyes_at`, etc.) à la main. Toi tu **coche** quand tu observes l’événement. Tu ne **décoche** une date admin que si tu as la preuve contraire. Last-write-wins.
+
+**Suggestions UI :** sur la carte dépliée, `kind = action` va dans **Actions proposées** ; `reponse` / `relance` / `pression` vont dans **Messages proposés**. Les deux blocs restent visibles même vides.
 
 Playbook talks HM = document OS **SOPHIA HMs — Onboarding** (`guide_manager`). Pas de doc `reponses_upwork`.
 
@@ -65,6 +79,7 @@ Playbook talks HM = document OS **SOPHIA HMs — Onboarding** (`guide_manager`).
 2. Upwork MCP, **uniquement** org Vik Studios.
    - Invitations / propositions / messages → upsert `recrutement_hms` (phase 0 si pas de job ni créateur).
    - Photo → `avatar_url` (URL suffit).
+   - **Dernier message du thread** → `dernier_message`, `dernier_message_at`, `dernier_message_auteur` (`nous` | `eux`) sur le HM **et** sur chaque créateur concerné.
    - Contrat hourly 8 $ : `contrat_envoye_at` / `contrat_signe_at`.
    - Jobs postés par ce freelancer → `job_post_at`, `job_post_id`, `job_post_titre`.
    - Threads créateurs (pays du job / langue) → upsert `recrutement_createurs`.

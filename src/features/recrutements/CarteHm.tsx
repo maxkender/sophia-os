@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Copy, ExternalLink, Megaphone, RotateCcw } from "lucide-react";
+import { ChevronDown, Copy, ExternalLink, Megaphone, RotateCcw } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -11,8 +11,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
-import { InboxSuggestions } from "./InboxSuggestions";
-import { TimelineCreateur, TimelinePhase0 } from "./Timeline";
+import { InboxSuggestions, suggestionsVisibles } from "./InboxSuggestions";
+import { CasesEtapesCreateur, CasesEtapesHm, TimelineCreateur, TimelinePhase0 } from "./Timeline";
 import {
   creerSuggestionManuelle,
   enregistrerEmailPerso,
@@ -21,6 +21,7 @@ import {
 import { nomAfficheHm } from "./phases";
 import { moyenneHm } from "./stats";
 import type {
+  AuteurMessage,
   RecrutementCreateur,
   RecrutementHm,
   RecrutementSuggestion,
@@ -94,6 +95,106 @@ function MiniStat({ label, valeur }: { label: string; valeur: string }) {
   );
 }
 
+function formatQuand(iso: string | null, lang: string): string | null {
+  if (!iso) return null;
+  return new Date(iso).toLocaleString(lang, {
+    dateStyle: "medium",
+    timeStyle: "short",
+    timeZone: "Europe/Paris",
+  });
+}
+
+function DernierMessage({
+  texte,
+  at,
+  auteur,
+}: {
+  texte: string | null;
+  at: string | null;
+  auteur: AuteurMessage | null;
+}) {
+  const { t, i18n } = useTranslation();
+  const quand = formatQuand(at, i18n.language);
+  return (
+    <div className="space-y-1">
+      <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
+        {t("recrutements.dernierMessage")}
+      </p>
+      {texte ? (
+        <>
+          <p className="text-[11px] text-muted-foreground">
+            {auteur ? t(`recrutements.auteur.${auteur}`) : null}
+            {auteur && quand ? <span className="mx-1.5 text-border">·</span> : null}
+            {quand}
+          </p>
+          <p className="whitespace-pre-wrap text-sm leading-relaxed">{texte}</p>
+        </>
+      ) : (
+        <p className="text-sm text-muted-foreground">—</p>
+      )}
+    </div>
+  );
+}
+
+function SuggestionsCarte({
+  suggestions,
+  hms,
+}: {
+  suggestions: RecrutementSuggestion[];
+  hms: RecrutementHm[];
+}) {
+  return (
+    <>
+      <InboxSuggestions
+        suggestions={suggestions}
+        hms={hms}
+        compact
+        alwaysShow
+        variante="messages"
+      />
+      <InboxSuggestions
+        suggestions={suggestions}
+        hms={hms}
+        compact
+        alwaysShow
+        variante="actions"
+      />
+    </>
+  );
+}
+
+function BoutonDetails({
+  ouvert,
+  nSug,
+  onToggle,
+}: {
+  ouvert: boolean;
+  nSug: number;
+  onToggle: () => void;
+}) {
+  const { t } = useTranslation();
+  return (
+    <Button
+      type="button"
+      variant="ghost"
+      size="sm"
+      className="w-full justify-between px-1 text-muted-foreground"
+      onClick={onToggle}
+      aria-expanded={ouvert}
+    >
+      <span className="flex items-center gap-2">
+        {ouvert ? t("recrutements.replier") : t("recrutements.ouvrirDetails")}
+        {nSug > 0 ? (
+          <Badge variant="secondary" className="tabular-nums font-normal">
+            {t("recrutements.nAValider", { count: nSug })}
+          </Badge>
+        ) : null}
+      </span>
+      <ChevronDown className={`size-4 transition-transform ${ouvert ? "rotate-180" : ""}`} />
+    </Button>
+  );
+}
+
 export function CarteHmPhase0({
   hm,
   suggestions,
@@ -103,6 +204,7 @@ export function CarteHmPhase0({
 }) {
   const { t } = useTranslation();
   const qc = useQueryClient();
+  const [ouvert, setOuvert] = React.useState(false);
   const [email, setEmail] = React.useState(hm.email_perso ?? "");
   const ajout = useMutation({
     mutationFn: (fait: boolean) => marquerAjoutUpwork(hm.id, fait),
@@ -113,6 +215,7 @@ export function CarteHmPhase0({
     onSuccess: () => qc.invalidateQueries({ queryKey: ["recrutements"] }),
   });
   const sugHm = suggestions.filter((s) => s.hm_id === hm.id);
+  const nSug = suggestionsVisibles(sugHm).length;
 
   return (
     <Card className="border-rose-100/90">
@@ -156,7 +259,7 @@ export function CarteHmPhase0({
           </div>
           <p className="text-[11px] leading-snug text-muted-foreground">{t("recrutements.emailPersoAide")}</p>
         </div>
-          <div className="flex items-start gap-2.5">
+        <div className="flex items-start gap-2.5">
           <Checkbox
             id={`upwork-${hm.id}`}
             checked={Boolean(hm.ajoute_upwork_at)}
@@ -173,7 +276,18 @@ export function CarteHmPhase0({
             </span>
           </Label>
         </div>
-        <InboxSuggestions suggestions={sugHm} hms={[hm]} compact />
+        <BoutonDetails ouvert={ouvert} nSug={nSug} onToggle={() => setOuvert((v) => !v)} />
+        {ouvert ? (
+          <div className="space-y-4">
+            <DernierMessage
+              texte={hm.dernier_message}
+              at={hm.dernier_message_at}
+              auteur={hm.dernier_message_auteur}
+            />
+            <CasesEtapesHm hm={hm} />
+            <SuggestionsCarte suggestions={sugHm} hms={[hm]} />
+          </div>
+        ) : null}
       </CardContent>
     </Card>
   );
@@ -189,7 +303,9 @@ export function CarteHmPhase1({
   suggestions: RecrutementSuggestion[];
 }) {
   const { t } = useTranslation();
+  const [ouvert, setOuvert] = React.useState(false);
   const sugHm = suggestions.filter((s) => s.hm_id === hm.id);
+  const nSug = suggestionsVisibles(sugHm).length;
   return (
     <Card className="border-sky-100/90">
       <CardContent className="flex flex-col gap-4 p-5">
@@ -208,7 +324,7 @@ export function CarteHmPhase1({
         ) : (
           <ul className="space-y-2">
             {createurs.map((c) => (
-              <li key={c.id} className="rounded-xl bg-sky-50/70 px-3 py-2.5">
+              <li key={c.id} className="space-y-3 rounded-xl bg-sky-50/70 px-3 py-2.5">
                 <div className="mb-2 flex items-center gap-2">
                   <Avatar className="size-7">
                     {c.avatar_url ? <AvatarImage src={c.avatar_url} alt="" /> : null}
@@ -217,11 +333,31 @@ export function CarteHmPhase1({
                   <span className="truncate text-sm font-medium">{c.nom_affiche}</span>
                 </div>
                 <TimelineCreateur createur={c} />
+                {ouvert ? (
+                  <div className="space-y-3 border-t border-sky-100/80 pt-3">
+                    <DernierMessage
+                      texte={c.dernier_message}
+                      at={c.dernier_message_at}
+                      auteur={c.dernier_message_auteur}
+                    />
+                    <CasesEtapesCreateur createur={c} />
+                  </div>
+                ) : null}
               </li>
             ))}
           </ul>
         )}
-        <InboxSuggestions suggestions={sugHm} hms={[hm]} compact />
+        <BoutonDetails ouvert={ouvert} nSug={nSug} onToggle={() => setOuvert((v) => !v)} />
+        {ouvert ? (
+          <div className="space-y-4">
+            <DernierMessage
+              texte={hm.dernier_message}
+              at={hm.dernier_message_at}
+              auteur={hm.dernier_message_auteur}
+            />
+            <SuggestionsCarte suggestions={sugHm} hms={[hm]} />
+          </div>
+        ) : null}
       </CardContent>
     </Card>
   );
@@ -242,11 +378,14 @@ export function CarteHmPhase2({
 }) {
   const { t } = useTranslation();
   const qc = useQueryClient();
+  const [ouvert, setOuvert] = React.useState(false);
   const nom = nomAfficheHm(hm);
   const lignes = createurs
     .filter((c) => c.profile_id)
     .map((c) => ({ c, s: stats.get(c.id) }));
   const moy = moyenneHm(lignes.map((l) => l.s).filter(Boolean) as StatsCreateur10j[]);
+  const sugHm = suggestions.filter((s) => s.hm_id === hm.id);
+  const nSug = suggestionsVisibles(sugHm).length;
   const action = useMutation({
     mutationFn: (input: { kind: "relance" | "pression"; createur?: RecrutementCreateur }) => {
       const cible = input.createur?.nom_affiche ?? nom;
@@ -343,11 +482,17 @@ export function CarteHmPhase2({
             </li>
           ))}
         </ul>
-        <InboxSuggestions
-          suggestions={suggestions.filter((s) => s.hm_id === hm.id)}
-          hms={[hm]}
-          compact
-        />
+        <BoutonDetails ouvert={ouvert} nSug={nSug} onToggle={() => setOuvert((v) => !v)} />
+        {ouvert ? (
+          <div className="space-y-4">
+            <DernierMessage
+              texte={hm.dernier_message}
+              at={hm.dernier_message_at}
+              auteur={hm.dernier_message_auteur}
+            />
+            <SuggestionsCarte suggestions={sugHm} hms={[hm]} />
+          </div>
+        ) : null}
       </CardContent>
     </Card>
   );

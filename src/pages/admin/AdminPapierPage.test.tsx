@@ -1,7 +1,7 @@
 import * as React from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import "@/locales";
 import { REGLAGES_PAPIER_DEFAUT } from "@/features/moteur/papierReglages";
@@ -28,6 +28,7 @@ const proposerTopicPapier = vi.fn(async () => ({
   topic: "Pourquoi la mer est-elle salée ?",
 }));
 const lancerPapierJourMock = vi.fn();
+const arreterPapier = vi.fn(async () => ({ ok: true, done: true, statut: "stopped" }));
 
 vi.mock("@/features/moteur/api", async (importOriginal) => {
   const actual = await importOriginal<typeof import("@/features/moteur/api")>();
@@ -40,7 +41,7 @@ vi.mock("@/features/moteur/api", async (importOriginal) => {
     lancerPapierJour: (...args: unknown[]) => lancerPapierJourMock(...args),
     proposerTopicPapier: () => proposerTopicPapier(),
     validerEtapePapier: vi.fn(),
-    arreterPapier: vi.fn(),
+    arreterPapier: (...args: unknown[]) => arreterPapier(...args),
     changerVoixPapier: vi.fn(),
     relancerPapier: vi.fn(),
     regenererPapier: vi.fn(),
@@ -79,6 +80,14 @@ function renderPage() {
 }
 
 describe("AdminPapierPage", () => {
+  beforeEach(() => {
+    listerPapierMasters.mockReset();
+    listerPapierMasters.mockResolvedValue([]);
+    arreterPapier.mockClear();
+    proposerTopicPapier.mockClear();
+    lancerPapierJourMock.mockClear();
+  });
+
   it("affiche durée, catégories, styles, mode manuel et propose un sujet", async () => {
     renderPage();
 
@@ -101,5 +110,39 @@ describe("AdminPapierPage", () => {
       expect(screen.getByDisplayValue("Pourquoi la mer est-elle salée ?")).toBeInTheDocument();
     });
     expect(lancerPapierJourMock).not.toHaveBeenCalled();
+  });
+
+  it("arrête la pipeline en cours", async () => {
+    listerPapierMasters.mockResolvedValue([
+      {
+        id: "master-1",
+        date_publication: "2026-08-31",
+        topic: "Pourquoi la mer est-elle salée ?",
+        kind: "culture",
+        narration_style: "revelation",
+        script: null,
+        statut: "scripting",
+        etape: "script",
+        progression: 0.1,
+        erreur: null,
+        journal: [],
+        created_at: "2026-08-31T00:00:00Z",
+        updated_at: "2026-08-31T00:00:00Z",
+        pipeline_mode: "auto",
+        pipeline_hold: null,
+        annule: false,
+        papier_scenes: [],
+        papier_langues: [],
+        papier_posts: [],
+      },
+    ]);
+    renderPage();
+
+    const stop = await screen.findByRole("button", { name: /stop pipeline|arrêter la pipeline/i });
+    fireEvent.click(stop);
+
+    await waitFor(() => {
+      expect(arreterPapier).toHaveBeenCalledWith("master-1");
+    });
   });
 });

@@ -34,6 +34,7 @@ import {
 } from "../_shared/papier_master.ts";
 import { proposerTopicPapier } from "../_shared/papier_script.ts";
 import { chargerReglagesPapier } from "../_shared/papier_reglages.ts";
+import { tickPapierDoitEnchainer } from "../_shared/papier_pipeline.ts";
 import { VOIX_PAPIER_CATALOGUE } from "../_shared/papier_reglages_core.ts";
 import { catalogueVersVoixEleven, estIdentifiantVoix, filtrerVoixParLangue } from "../_shared/papier_voix.ts";
 import { cleElevenLabs, extrairePreviewVoix, listerVoixElevenLabs } from "../_shared/elevenlabs.ts";
@@ -99,7 +100,7 @@ Deno.serve(async (request) => {
         kickPapierCm(request, { action: "tick_locales", manuel: true, langueId });
       }
       if (out.besoinOriginal) {
-        kickPapierCm(request, { action: "assurer", manuel: Boolean(opts.test) || manuel });
+        kickPapierCm(request, { action: "assurer", manuel: Boolean(opts.test) });
       }
       return json(out);
     }
@@ -229,6 +230,9 @@ Deno.serve(async (request) => {
     }
 
     if (action === "assurer") {
+      if (!manuel && !(await papierEstActif(supabase))) {
+        return json({ ok: true, saute: true, idle: true, raison: "papier en pause" });
+      }
       const app = await resoudreApplication(supabase, body ?? {});
       const master = await masterEnCoursOuNouveau(supabase, {
         date: typeof body?.date === "string" ? body.date : undefined,
@@ -240,6 +244,7 @@ Deno.serve(async (request) => {
         pipelineMode: typeof body?.pipeline_mode === "string" ? body.pipeline_mode : undefined,
         dureeCibleSec: typeof body?.duree_cible_sec === "number" ? body.duree_cible_sec : undefined,
         validerTopic: Boolean(body?.valider_topic),
+        manuel,
       });
       const tick = await avancerMaster(supabase, master.id);
       return json({ ok: true, masterId: master.id, ...enchainer(request, tick, master.id) });
@@ -294,25 +299,24 @@ Deno.serve(async (request) => {
 
 function enchainer(request: Request, tick: Tick, masterId?: string) {
   const id = masterId ?? tick.masterId;
-  if (!id || tick.idle || tick.kick === false) return tick;
+  if (!id) return tick;
+  if (tick.statut === "stopped" || tick.statut === "failed") return tick;
 
-  if (tick.langueId) {
-    if (!tick.done && tick.statut !== "failed") {
+  if (tickPapierDoitEnchainer(tick)) {
+    if (tick.langueId) {
       kickPapierCm(request, { action: "tick_locales", masterId: id, langueId: tick.langueId });
-      return { ...tick, kick: true };
+    } else {
+      kickPapierCm(request, { masterId: id });
     }
-    if (tick.done && tick.statut === "ready" && tick.langue && tick.langue !== "fr") {
-      kickPapierCm(request, { action: "assigner" });
-      return { ...tick, kick: true };
-    }
-    return tick;
-  }
-
-  if (!tick.done && tick.statut !== "failed") {
-    kickPapierCm(request, { masterId: id });
     return { ...tick, kick: true };
   }
-  if (tick.done && tick.statut === "clips") {
+
+  if (tick.idle || tick.kick === false) return tick;
+  if (tick.langueId && tick.done && tick.statut === "ready" && tick.langue && tick.langue !== "fr") {
+    kickPapierCm(request, { action: "assigner" });
+    return { ...tick, kick: true };
+  }
+  if (!tick.langueId && tick.done && tick.statut === "clips") {
     kickPapierCm(request, { action: "tick_locales", masterId: id });
     return { ...tick, kick: true };
   }

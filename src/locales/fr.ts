@@ -2219,6 +2219,8 @@ export const fr = {
         "Tu peux cocher ou décocher même si l’autom remplira ces dates plus tard.",
       etapeFaiteLe: "Fait le {{date}}",
       etapePasEncore: "Pas encore",
+      etapeFaite: "Fait",
+      etapeEnCours: "En cours",
       auteur: {
         nous: "Nous",
         eux: "Eux",

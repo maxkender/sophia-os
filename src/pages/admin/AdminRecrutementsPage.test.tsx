@@ -156,6 +156,8 @@ describe("AdminRecrutementsPage", () => {
     expect(screen.getAllByText(/Phase 0/).length).toBeGreaterThan(0);
     expect(screen.getAllByText("Ada Lovelace").length).toBeGreaterThan(0);
     expect(screen.getByText("Ajouté à l’équipe Upwork (manuel)")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Talks" })).toBeInTheDocument();
+    expect(screen.getByText("Accès OS + Slack · En cours")).toBeInTheDocument();
   });
 
   it("redirige un pays inconnu", () => {

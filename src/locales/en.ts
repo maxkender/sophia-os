@@ -2220,6 +2220,8 @@ export const en = {
         "You can tick or untick even if autom will fill these dates later.",
       etapeFaiteLe: "Done {{date}}",
       etapePasEncore: "Not yet",
+      etapeFaite: "Done",
+      etapeEnCours: "In progress",
       auteur: {
         nous: "Us",
         eux: "Them",

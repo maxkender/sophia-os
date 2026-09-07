@@ -17,10 +17,12 @@ import {
 import { normaliserCategorie, type PapierCategorie } from "./papier_sujets.ts";
 import {
   doitAttendreValidation,
+  doitCreerMasterPapier,
   etapeApresValidation,
   normaliserPartieRegen,
   normaliserPipelineHold,
   normaliserPipelineMode,
+  pipelineEstArretee,
   type PapierPipelineHold,
   type PapierPipelineMode,
 } from "./papier_pipeline.ts";
@@ -92,6 +94,8 @@ export type PapierMasterOpts = {
   dureeCibleSec?: number;
   /** Manuel : le sujet est déjà validé — enchaîner sur le script. */
   validerTopic?: boolean;
+  /** true = bouton admin (peut créer un original même après un stop). */
+  manuel?: boolean;
 };
 
 export type PapierSceneRow = {
@@ -299,25 +303,51 @@ export async function masterEnCoursOuNouveau(
   supabase: Supabase,
   opts?: PapierMasterOpts,
 ): Promise<PapierMasterRow> {
+  const enCours = await chercherMasterEnCours(supabase, opts?.applicationId);
+  if (enCours) {
+    const topic = opts?.topic?.trim();
+    if (topic && !enCours.topic) {
+      await patchMaster(supabase, enCours.id, { topic }, { etape: "topic", detail: topic });
+      enCours.topic = topic;
+    }
+    return enCours;
+  }
+  const dernier = opts?.manuel ? null : await chercherDernierMaster(supabase, opts?.applicationId);
+  if (!doitCreerMasterPapier({ enCours: false, manuel: opts?.manuel, dernier }) && dernier) {
+    return dernier;
+  }
+  return creerMasterBibliotheque(supabase, opts);
+}
+
+async function chercherMasterEnCours(
+  supabase: Supabase,
+  applicationId?: string | null,
+): Promise<PapierMasterRow | null> {
   let q = supabase
     .from("papier_masters")
     .select("*")
     .not("statut", "in", "(ready,failed,stopped)")
     .order("created_at", { ascending: true })
     .limit(1);
-  if (opts?.applicationId) q = q.eq("application_id", opts.applicationId);
-  const { data: enCours, error } = await q.maybeSingle();
+  if (applicationId) q = q.eq("application_id", applicationId);
+  const { data, error } = await q.maybeSingle();
   if (error) throw error;
-  if (enCours) {
-    const row = enCours as PapierMasterRow;
-    const topic = opts?.topic?.trim();
-    if (topic && !row.topic) {
-      await patchMaster(supabase, row.id, { topic }, { etape: "topic", detail: topic });
-      row.topic = topic;
-    }
-    return row;
-  }
-  return creerMasterBibliotheque(supabase, opts);
+  return (data as PapierMasterRow | null) ?? null;
+}
+
+async function chercherDernierMaster(
+  supabase: Supabase,
+  applicationId?: string | null,
+): Promise<PapierMasterRow | null> {
+  let q = supabase
+    .from("papier_masters")
+    .select("*")
+    .order("created_at", { ascending: false })
+    .limit(1);
+  if (applicationId) q = q.eq("application_id", applicationId);
+  const { data, error } = await q.maybeSingle();
+  if (error) throw error;
+  return (data as PapierMasterRow | null) ?? null;
 }
 
 /** @deprecated préfère masterEnCoursOuNouveau — plus un master unique par jour. */
@@ -476,6 +506,7 @@ export async function regenererPartieMaster(
 async function etapeTopic(supabase: Supabase, master: PapierMasterRow): Promise<void> {
   const mode = normaliserPipelineMode(master.pipeline_mode);
   if (!master.topic?.trim()) {
+    if (await masterEstAnnule(supabase, master.id)) return;
     await patchMaster(supabase, master.id, { statut: "scripting", etape: "topic", progression: 0.04 });
     const recents = await sujetsRecents(supabase);
     const topic = await proposerTopicPapier({
@@ -484,9 +515,10 @@ async function etapeTopic(supabase: Supabase, master: PapierMasterRow): Promise<
       recents: recents.filter((t) => t !== master.topic),
       supabase,
     });
+    if (await masterEstAnnule(supabase, master.id)) return;
     master.topic = topic;
     const hold = mode === "manuel" ? "topic" : null;
-    await patchMaster(
+    const ok = await patchMaster(
       supabase,
       master.id,
       {
@@ -498,11 +530,13 @@ async function etapeTopic(supabase: Supabase, master: PapierMasterRow): Promise<
       },
       { etape: "topic", detail: topic },
     );
+    if (!ok) return;
     master.pipeline_hold = hold;
     master.etape = hold ? "topic" : "script";
     return;
   }
   if (mode === "manuel" && !master.script && (master.etape === "topic" || master.etape === "queued")) {
+    if (await masterEstAnnule(supabase, master.id)) return;
     await patchMaster(
       supabase,
       master.id,
@@ -535,7 +569,7 @@ async function claimMaster(supabase: Supabase, id: string): Promise<boolean> {
   const row = await chargerMaster(supabase, id);
   if (!row) return false;
   const stale = Date.parse(row.updated_at ?? "") || 0;
-  if (row.annule || row.statut === "stopped") return false;
+  if (pipelineEstArretee(row)) return false;
   if (row.busy && Date.now() - stale > 180_000) {
     const { data: steal } = await supabase
       .from("papier_masters")
@@ -562,7 +596,13 @@ async function etapeScript(supabase: Supabase, master: PapierMasterRow): Promise
   if (exist.length) return;
   const topic = master.topic?.trim();
   if (!topic) throw new Error("Sujet manquant");
-  await patchMaster(supabase, master.id, { statut: "scripting", etape: "script", progression: 0.1 });
+  if (await masterEstAnnule(supabase, master.id)) return;
+  const startedOk = await patchMaster(supabase, master.id, {
+    statut: "scripting",
+    etape: "script",
+    progression: 0.1,
+  });
+  if (!startedOk) return;
   const reglages = await chargerReglagesPapier(supabase);
   const targetSeconds = Number(master.duree_cible_sec) || reglages.duree_cible_sec;
   const script = await ecrireScriptPapier({
@@ -573,6 +613,7 @@ async function etapeScript(supabase: Supabase, master: PapierMasterRow): Promise
     categorie: master.topic_categorie ?? undefined,
     supabase,
   });
+  if (await masterEstAnnule(supabase, master.id)) return;
   const rows = script.scenes.map((s) => ({
     master_id: master.id,
     index: s.index,
@@ -587,7 +628,7 @@ async function etapeScript(supabase: Supabase, master: PapierMasterRow): Promise
   master.script = script;
   const mode = normaliserPipelineMode(master.pipeline_mode);
   const hold = mode === "manuel" ? "script" : null;
-  await patchMaster(
+  const ok = await patchMaster(
     supabase,
     master.id,
     {
@@ -599,6 +640,7 @@ async function etapeScript(supabase: Supabase, master: PapierMasterRow): Promise
     },
     { etape: "script", detail: `${script.scenes.length} plans — ${script.title}` },
   );
+  if (!ok) return;
   master.pipeline_hold = hold;
 }
 
@@ -634,6 +676,8 @@ async function etapeImages(
     const img = refs.length
       ? await editerNanoBananaPro(refs, prompt, undefined, { aspectRatio: "9:16" })
       : await genererNanoBananaPro(prompt);
+
+    if (await masterEstAnnule(supabase, master.id)) return false;
 
     const path = `papiers/${master.id}/img-${i}.png`;
     const url = await uploader(supabase, path, img.bytes, img.mime.includes("png") ? img.mime : "image/png");
@@ -707,6 +751,7 @@ async function etapeClips(
 
     const poll = await attendreSeedanceI2V(scene.clip_fal!, undefined, remaining(t0));
     if (!poll.done) return false;
+    if (await masterEstAnnule(supabase, master.id)) return false;
 
     const path = `papiers/${master.id}/clip-${i}.mp4`;
     const url = await uploader(supabase, path, poll.bytes, poll.mime);
@@ -766,7 +811,7 @@ export async function avancerMaster(
       detail: "en échec — relancer",
     };
   }
-  if (master.statut === "stopped" || master.annule) {
+  if (pipelineEstArretee(master)) {
     return {
       ok: true,
       idle: true,
@@ -818,7 +863,7 @@ export async function avancerMaster(
   try {
     await etapeTopic(supabase, master);
     master = (await chargerMaster(supabase, masterId))!;
-    if (master.annule || master.statut === "stopped") {
+    if (pipelineEstArretee(master)) {
       return resumer(master, true, "pipeline arrêtée");
     }
     if (normaliserPipelineHold(master.pipeline_hold) === "topic") {
@@ -830,7 +875,7 @@ export async function avancerMaster(
 
     await etapeScript(supabase, master);
     master = (await chargerMaster(supabase, masterId))!;
-    if (master.annule || master.statut === "stopped") {
+    if (pipelineEstArretee(master)) {
       return resumer(master, true, "pipeline arrêtée");
     }
     if (normaliserPipelineHold(master.pipeline_hold) === "script") {
@@ -843,7 +888,7 @@ export async function avancerMaster(
     let scenes = await chargerScenes(supabase, masterId);
     const imagesOk = await etapeImages(supabase, master, scenes, t0);
     master = (await chargerMaster(supabase, masterId))!;
-    if (master.annule || master.statut === "stopped") {
+    if (pipelineEstArretee(master)) {
       return resumer(master, true, "pipeline arrêtée");
     }
     if (normaliserPipelineHold(master.pipeline_hold) === "images") {
@@ -858,10 +903,17 @@ export async function avancerMaster(
     const clipsOk = await etapeClips(supabase, master, scenes, t0);
     master = (await chargerMaster(supabase, masterId))!;
     scenes = await chargerScenes(supabase, masterId);
+    if (pipelineEstArretee(master)) {
+      return resumer(master, true, "pipeline arrêtée", scenes);
+    }
     if (!clipsOk) return resumer(master, false, "clips en cours", scenes);
     if (master.video_url) return resumer(master, true, "déjà en bibliothèque", scenes);
     return resumer(master, true, "clips ok — FR à assembler", scenes);
   } catch (error) {
+    const cur = await chargerMaster(supabase, masterId);
+    if (cur && pipelineEstArretee(cur)) {
+      return resumer(cur, true, "pipeline arrêtée");
+    }
     if (estErreurQuotaFal(error)) {
       const msg = messageErreur(error);
       return {
@@ -902,15 +954,18 @@ function resumer(
   detail: string,
   scenes: PapierSceneRow[] = [],
 ): PapierTickResultat {
+  const arrete = pipelineEstArretee(master);
   const statut =
     master.statut === "failed"
       ? "failed"
-      : master.statut === "stopped" || master.annule
+      : arrete
         ? "stopped"
         : statutDepuisAssets(master, scenes);
+  const terminal = statut === "ready" || statut === "stopped" || statut === "failed";
   return {
     ok: true,
-    done: done || statut === "ready",
+    done: done || terminal,
+    kick: arrete || statut === "failed" ? false : undefined,
     masterId: master.id,
     date: master.date_publication,
     statut,
@@ -921,7 +976,7 @@ function resumer(
 
 async function masterEstAnnule(supabase: Supabase, id: string): Promise<boolean> {
   const row = await chargerMaster(supabase, id);
-  return Boolean(row?.annule || row?.statut === "stopped");
+  return pipelineEstArretee(row ?? {});
 }
 
 export async function arreterMaster(supabase: Supabase, id: string): Promise<PapierMasterRow> {
@@ -995,13 +1050,21 @@ export async function tickPapierJour(
 ): Promise<PapierTickResultat> {
   const master = opts?.masterId
     ? await chargerMaster(supabase, opts.masterId)
-    : await masterEnCoursOuNouveau(supabase, {
-        date: opts?.date,
-        topic: opts?.topic,
-        voice: opts?.voice,
-      });
+    : await chercherMasterEnCours(supabase, opts?.applicationId);
   if (!master) {
-    return { ok: true, idle: true, done: true, detail: "aucun master" };
+    return { ok: true, idle: true, done: true, kick: false, detail: "aucun master" };
+  }
+  if (pipelineEstArretee(master)) {
+    return {
+      ok: true,
+      idle: true,
+      done: true,
+      kick: false,
+      masterId: master.id,
+      date: master.date_publication,
+      statut: "stopped",
+      detail: "pipeline arrêtée",
+    };
   }
   if (opts?.topic?.trim() && !master.topic) {
     await patchMaster(supabase, master.id, { topic: opts.topic.trim() });

@@ -103,3 +103,37 @@ export function etapeApresValidation(hold: PapierPipelineHold): {
   if (hold === "images") return { statut: "clips", etape: "clips" };
   return { statut: "queued", etape: "topic" };
 }
+
+export function pipelineEstArretee(row: {
+  statut?: string | null;
+  annule?: boolean | null;
+}): boolean {
+  return Boolean(row.annule) || row.statut === "stopped";
+}
+
+/**
+ * Auto (cron / assignation) : ne pas remplacer un master arrêté par un nouvel original.
+ * Manuel (bouton admin) : on peut en créer un nouveau.
+ */
+export function doitCreerMasterPapier(opts: {
+  enCours: boolean;
+  manuel?: boolean;
+  dernier?: { statut?: string | null; annule?: boolean | null } | null;
+}): boolean {
+  if (opts.enCours) return false;
+  if (opts.manuel) return true;
+  if (pipelineEstArretee(opts.dernier ?? {})) return false;
+  return true;
+}
+
+/** Un tick arrêté / failed ne doit plus s'auto-enchaîner. */
+export function tickPapierDoitEnchainer(tick: {
+  idle?: boolean;
+  kick?: boolean;
+  done?: boolean;
+  statut?: string;
+}): boolean {
+  if (tick.idle || tick.kick === false) return false;
+  if (tick.statut === "stopped" || tick.statut === "failed") return false;
+  return !tick.done;
+}

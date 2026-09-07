@@ -2,9 +2,12 @@ import { describe, expect, it } from "vitest";
 
 import {
   doitAttendreValidation,
+  doitCreerMasterPapier,
   etapeActivePipeline,
   etapeApresValidation,
   etatEtapePipeline,
+  pipelineEstArretee,
+  tickPapierDoitEnchainer,
 } from "./papierPipeline";
 import { PAPIER_CATEGORIES, normaliserCategorie } from "./papierSujets";
 import { budgetScript } from "./papierScript";
@@ -63,5 +66,38 @@ describe("sujets / durée / voix", () => {
     expect(VOIX_PAPIER.length).toBeGreaterThan(20);
     expect(voixOrdonnees(["Alice", "Rachel"])[0]).toBe("Alice");
     expect(labelVoixPapier("Alice")).toContain("FR");
+  });
+});
+
+describe("arrêt pipeline", () => {
+  it("détecte un master arrêté", () => {
+    expect(pipelineEstArretee({ statut: "stopped" })).toBe(true);
+    expect(pipelineEstArretee({ annule: true, statut: "scripting" })).toBe(true);
+    expect(pipelineEstArretee({ statut: "images" })).toBe(false);
+  });
+
+  it("ne recrée pas un original auto après un stop", () => {
+    expect(
+      doitCreerMasterPapier({ enCours: false, manuel: false, dernier: { statut: "stopped" } }),
+    ).toBe(false);
+    expect(
+      doitCreerMasterPapier({ enCours: false, manuel: false, dernier: { annule: true } }),
+    ).toBe(false);
+    expect(
+      doitCreerMasterPapier({ enCours: false, manuel: true, dernier: { statut: "stopped" } }),
+    ).toBe(true);
+    expect(doitCreerMasterPapier({ enCours: false, manuel: false, dernier: null })).toBe(true);
+    expect(
+      doitCreerMasterPapier({ enCours: false, manuel: false, dernier: { statut: "ready" } }),
+    ).toBe(true);
+    expect(doitCreerMasterPapier({ enCours: true, manuel: false })).toBe(false);
+  });
+
+  it("n'enchaîne plus un tick arrêté", () => {
+    expect(tickPapierDoitEnchainer({ done: false, statut: "stopped" })).toBe(false);
+    expect(tickPapierDoitEnchainer({ done: false, kick: false, statut: "images" })).toBe(false);
+    expect(tickPapierDoitEnchainer({ idle: true, done: false, statut: "scripting" })).toBe(false);
+    expect(tickPapierDoitEnchainer({ done: false, statut: "images" })).toBe(true);
+    expect(tickPapierDoitEnchainer({ done: true, statut: "clips" })).toBe(false);
   });
 });

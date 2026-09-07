@@ -48,7 +48,11 @@ Si tu n’as pas encore le thread : laisse `null` — l’OS affiche « — ».
 
 **Timeline :** l’admin peut cocher / décocher chaque date (`talks_at`, `contrat_*`, `codes_envoyes_at`, etc.) à la main. Toi tu **coche** quand tu observes l’événement. Tu ne **décoche** une date admin que si tu as la preuve contraire. Last-write-wins.
 
-**Suggestions UI :** sur la carte dépliée, `kind = action` va dans **Actions proposées** ; `reponse` / `relance` / `pression` vont dans **Messages proposés**. Les deux blocs restent visibles même vides.
+**Suggestions UI :** inbox hub, page pays, et carte dépliée : **Messages à envoyer** (`reponse` / `relance` / `pression`) ; **Actions à effectuer** (`kind = action`, `canal ≠ interne`) ; **À faire toi-même** (rouge pastel) = `kind = action` **et** `canal = interne` (ex. ajouter le HM à l’équipe Upwork). Les trois blocs restent visibles même vides.
+
+- **Valider** = `statut = validee` → tu l’exécutes au prochain passage. Pas de Valider sur `canal = interne` (tu ne peux pas le faire).
+- **Fait manuellement** = l’admin l’a déjà fait → `statut = executee`, `execution_log = manuel`. Tu **ne l’exécutes pas**.
+- **Ignorer** / **Reproposer** inchangés.
 
 Playbook talks HM = document OS **SOPHIA HMs — Onboarding** (`guide_manager`). Pas de doc `reponses_upwork`.
 
@@ -85,16 +89,18 @@ Playbook talks HM = document OS **SOPHIA HMs — Onboarding** (`guide_manager`).
    - Threads créateurs (pays du job / langue) → upsert `recrutement_createurs`.
 3. Slack MCP : membership workspace Sophia → `rejoint_slack_at`. Pas de salon obligatoire.
 4. OS (SQL / pages) : compte créé → `rejoint_os_at`, `email_os`, `profile_id`. Premier `publie_at` → `premier_post_at`. Warmup → `warmup_at`.
-5. Exécuter les suggestions `statut = validee` (dans l’ordre, une par une) :
+5. Exécuter les suggestions `statut = validee` (dans l’ordre, une par une) **sauf** `canal = interne` (tu ne peux pas : équipe Upwork, alerte Max/Adrien, etc.) :
    - `kind = reponse` : poster le `corps` dans le thread Upwork.
-   - `action` créer compte OS : `manage-users` create `hiring_manager` (langues du HM), puis **un** message Upwork avec URL + email + `12345678` + invite Slack + demande email perso. Marquer `codes_envoyes_at`, `slack_invite_envoyee_at`, `email_perso_demandee_at`.
+   - `action` `canal = os` créer compte OS : `manage-users` create `hiring_manager` (langues du HM), puis **un** message Upwork avec URL + email + `12345678` + invite Slack + demande email perso. Marquer `codes_envoyes_at`, `slack_invite_envoyee_at`, `email_perso_demandee_at`.
    - `relance` / `pression` : envoyer `corps` (Upwork, au HM).
    - Succès → `executee` + `execution_log`. Échec → log, **ne pas** repasser en `en_attente` tout seul.
+   - Si `execution_log = manuel` ou déjà `executee` : skip.
 6. Suggestions nouvelles :
    - Skip si `empreinte` déjà en base (surtout `ignoree`).
    - Max 1 **nouvelle** `en_attente` par HM.
    - Réponse seulement si le dernier message n’est pas le nôtre.
-   - Phase 2 : si ratio < 75 %, proposer relance (ton doux / vues) ou pression (volume clair). Adresse Max ou Adrien dans le titre si besoin d’un humain.
+   - Phase 2 : si ratio < 75 %, proposer relance (ton doux / vues) ou pression (volume clair).
+   - Ce que tu ne peux pas faire (ajouter à l’équipe Upwork, besoin Max/Adrien) → `kind = action`, `canal = interne`. Jamais `validee` de ton côté : l’admin coche **Fait manuellement**.
 7. `a_reproposer` : réécrire `corps` (même `empreinte`), `statut = en_attente`.
 8. Update `recrutement_runs` : `finished_at`, `resume` (ex. « 3 HMs maj, 1 suggestion, 2 exécutées »).
 
@@ -104,6 +110,7 @@ Exemples :
 
 - `reponse:{upwork_room_id}:{id_dernier_message_eux}`
 - `acces_os:{hm_id}`
+- `upwork_team:{hm_id}` (`canal = interne`)
 - `relance:{createur_id}:{yyyy-mm-dd}` (jour Paris, pour ne pas spammer)
 - `pression:{createur_id}:{yyyy-mm-dd}`
 

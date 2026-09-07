@@ -184,6 +184,11 @@ export function kindEstMessage(kind: KindSuggestion): boolean {
   return kind !== "action";
 }
 
+/** Action que l’autom ne peut pas exécuter (équipe Upwork, alerte Max/Adrien, etc.). */
+export function estActionHumaine(s: { kind: KindSuggestion; canal: string }): boolean {
+  return s.kind === "action" && s.canal === "interne";
+}
+
 /** Mots du titre de job Upwork → pays OS (phase locale). */
 const MOTS_JOB_PAYS: Record<string, string[]> = {
   fr: ["france", "french", "français", "francais"],

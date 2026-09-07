@@ -294,6 +294,13 @@ function SuggestionsCarte({
         alwaysShow
         variante="actions"
       />
+      <InboxSuggestions
+        suggestions={suggestions}
+        hms={hms}
+        compact
+        alwaysShow
+        variante="actions_humain"
+      />
     </>
   );
 }

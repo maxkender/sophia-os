@@ -10,6 +10,7 @@ import {
   hmConcernePays,
   jobPostConcernePays,
   kindEstMessage,
+  estActionHumaine,
   phasesHmPourPays,
 } from "./phases";
 import type { RecrutementCreateur, RecrutementHm } from "./types";
@@ -178,10 +179,13 @@ describe("timeline créateur", () => {
     ).toBe("premier_post");
   });
 
-  it("sépare messages et actions", () => {
+  it("sépare messages, actions autom, et actions humaines (canal interne)", () => {
     expect(kindEstMessage("reponse")).toBe(true);
     expect(kindEstMessage("relance")).toBe(true);
     expect(kindEstMessage("pression")).toBe(true);
     expect(kindEstMessage("action")).toBe(false);
+    expect(estActionHumaine({ kind: "action", canal: "interne" })).toBe(true);
+    expect(estActionHumaine({ kind: "action", canal: "os" })).toBe(false);
+    expect(estActionHumaine({ kind: "reponse", canal: "interne" })).toBe(false);
   });
 });

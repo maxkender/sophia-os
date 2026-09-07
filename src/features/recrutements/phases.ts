@@ -184,24 +184,79 @@ export function kindEstMessage(kind: KindSuggestion): boolean {
   return kind !== "action";
 }
 
+/** Mots du titre de job Upwork → pays OS (phase locale). */
+const MOTS_JOB_PAYS: Record<string, string[]> = {
+  fr: ["france", "french", "français", "francais"],
+  en: ["united kingdom", "uk-based", "britain", "british", "english", "based in uk"],
+  de: ["germany", "german", "deutschland", "allemagne", "allemand"],
+  it: ["italy", "italian", "italie", "italiano"],
+  es: ["spain", "spanish", "españa", "espana", "espagne", "español", "espanol"],
+  pt: ["portugal", "portuguese", "portugais", "brazil", "brésil", "bresil"],
+  cs: ["czech", "czechia", "tchèque", "tcheque", "tchéquie", "tchequie"],
+  nl: ["netherlands", "nederland", "dutch", "holland", "néerlandais", "neerlandais"],
+  el: ["greece", "greek", "grèce", "grece", "hellas"],
+  hu: ["hungary", "hungarian", "hongrie", "hongrois"],
+  pl: ["poland", "polish", "polska", "pologne", "polonais"],
+  ro: ["romania", "romanian", "roumanie", "roumain"],
+  sv: ["sweden", "swedish", "suède", "suede", "sverige", "suédois", "suedois"],
+  tr: ["turkey", "turkish", "turquie", "turc"],
+};
+
+function titreMentionnePays(titre: string, pays: string): boolean {
+  const t = titre.toLowerCase();
+  const code = pays.toLowerCase();
+  if (t.includes(`(${code})`) || t.includes(` ${code} `) || t.endsWith(` ${code}`)) return true;
+  return (MOTS_JOB_PAYS[code] ?? []).some((m) => t.includes(m));
+}
+
+/** Job post global du HM : ne compte que pour CE pays. */
+export function jobPostConcernePays(hm: RecrutementHm, pays: string): boolean {
+  if (!hm.job_post_at) return false;
+  const p = pays.toLowerCase();
+  const titre = (hm.job_post_titre ?? "").trim();
+  if (titre) {
+    if (titreMentionnePays(titre, p)) return true;
+    const autres = (hm.pays ?? []).map((x) => x.toLowerCase()).filter((x) => x !== p);
+    if (autres.some((autre) => titreMentionnePays(titre, autre))) return false;
+  }
+  const paysHm = (hm.pays ?? []).map((x) => x.toLowerCase());
+  return paysHm.length === 1 && paysHm[0] === p;
+}
+
 /**
- * Un HM est en phase 0 tant qu'iel n'a pas de job post ni de créateur.
- * Phase 1 dès qu'un job (ou un créateur) existe.
+ * Phase **locale** à ce pays.
+ * Un HM est en phase 0 tant qu'iel n'a pas de job (pour CE pays) ni de créateur ici.
+ * Phase 1 dès un job de ce pays ou un créateur ici.
  * Phase 2 dès qu'un créateur de CE pays a un premier post.
- * 1 et 2 peuvent coexister.
+ * 1 et 2 peuvent coexister (cartes dupliquées, créateurs non dupliqués).
  */
 export function phasesHmPourPays(
   hm: RecrutementHm,
   createursDuPays: RecrutementCreateur[],
+  pays: string,
 ): PhaseRecrutement[] {
   const aCreateurs = createursDuPays.length > 0;
-  const aJob = Boolean(hm.job_post_at) || aCreateurs;
+  const aJob = jobPostConcernePays(hm, pays) || aCreateurs;
   const aPremierPost = createursDuPays.some((c) => Boolean(c.premier_post_at));
   const phases: PhaseRecrutement[] = [];
   if (!aJob) phases.push(0);
   if (aJob) phases.push(1);
   if (aPremierPost) phases.push(2);
   return phases;
+}
+
+/** Phase 1 : encore en recrutement (pas de 1er post). */
+export function createursSansPremierPost(
+  createurs: RecrutementCreateur[],
+): RecrutementCreateur[] {
+  return createurs.filter((c) => !c.premier_post_at);
+}
+
+/** Phase 2 : déjà un 1er post — ne pas les relister en phase 1. */
+export function createursAvecPremierPost(
+  createurs: RecrutementCreateur[],
+): RecrutementCreateur[] {
+  return createurs.filter((c) => Boolean(c.premier_post_at));
 }
 
 export function hmConcernePays(hm: RecrutementHm, pays: string): boolean {

@@ -4,10 +4,9 @@ import { ChevronRight } from "lucide-react";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
 import { Spinner } from "@/components/ui/spinner";
 import { InboxSuggestions } from "@/features/recrutements/InboxSuggestions";
-import { CIBLE_CREATEURS_PAYS, PASTEL_PAYS } from "@/features/recrutements/constantes";
+import { PASTEL_PAYS } from "@/features/recrutements/constantes";
 import { hmConcernePays, phasesHmPourPays } from "@/features/recrutements/phases";
 import { useRecrutements } from "@/features/recrutements/useRecrutements";
 import { drapeauLangue, nomPays, PAYS_OS } from "@/features/moteur/langues";
@@ -24,13 +23,13 @@ export function AdminRecrutementsPage() {
     let phase2 = 0;
     for (const hm of hmsPays) {
       const cre = createurs.filter((c) => c.hm_id === hm.id && c.pays === pays);
-      const phases = phasesHmPourPays(hm, cre);
+      const phases = phasesHmPourPays(hm, cre, pays);
       if (phases.includes(0)) phase0 += 1;
       if (phases.includes(1)) phase1 += 1;
       if (phases.includes(2)) phase2 += 1;
     }
     const nCreateurs = createurs.filter((c) => c.pays === pays).length;
-    return { pays, phase0, phase1, phase2, nCreateurs };
+    return { pays, nHms: hmsPays.length, phase0, phase1, phase2, nCreateurs };
   });
 
   return (
@@ -85,21 +84,9 @@ export function AdminRecrutementsPage() {
                 </div>
                 <ChevronRight className="size-4 shrink-0 text-muted-foreground/50 transition-transform group-hover:translate-x-0.5 group-hover:text-muted-foreground" />
               </div>
-              <div className="space-y-1.5">
-                <div className="flex items-baseline justify-between gap-2 text-xs text-muted-foreground">
-                  <span>{t("recrutements.createursCibleLabel")}</span>
-                  <span className="tabular-nums">
-                    {t("recrutements.createursCible", {
-                      n: c.nCreateurs,
-                      cible: CIBLE_CREATEURS_PAYS,
-                    })}
-                  </span>
-                </div>
-                <Progress
-                  value={(c.nCreateurs / CIBLE_CREATEURS_PAYS) * 100}
-                  className="h-1.5 bg-white/70"
-                />
-              </div>
+              <p className="text-xs tabular-nums text-muted-foreground">
+                {t("recrutements.resumePays", { hms: c.nHms, createurs: c.nCreateurs })}
+              </p>
               <div className="flex flex-wrap gap-1.5">
                 <Badge variant="outline" className="gap-1 bg-white/60 font-normal">
                   {t("recrutements.pill0")}

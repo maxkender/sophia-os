@@ -77,6 +77,7 @@ export interface RecrutementHm {
   job_post_at: string | null;
   job_post_id: string | null;
   job_post_titre: string | null;
+  cible_createurs: number;
   notes: string | null;
   dernier_message: string | null;
   dernier_message_at: string | null;
@@ -161,4 +162,12 @@ export interface CompteursPays {
   phase0: number;
   phase1: number;
   phase2: number;
+}
+
+export interface FicheCreateurOs {
+  email: string | null;
+  handle: string | null;
+  urlTiktok: string | null;
+  compteId: string | null;
+  labels: string[];
 }

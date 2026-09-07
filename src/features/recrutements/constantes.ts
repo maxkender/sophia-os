@@ -15,7 +15,15 @@ export const TARIF_CREATEUR_MOIS_USD = 60;
 
 export const TARIF_CREATEUR_ESSAI_USD = 15;
 
-export const CIBLE_CREATEURS_PAYS = 10;
+/** Objectif créateurs d’un HM dans un pays. L’admin peut le régler 0–30. */
+export const CIBLE_CREATEURS_HM_DEFAUT = 10;
+export const CIBLE_CREATEURS_HM_MIN = 0;
+export const CIBLE_CREATEURS_HM_MAX = 30;
+
+export function bornerCibleCreateurs(n: number): number {
+  if (!Number.isFinite(n)) return CIBLE_CREATEURS_HM_DEFAUT;
+  return Math.min(CIBLE_CREATEURS_HM_MAX, Math.max(CIBLE_CREATEURS_HM_MIN, Math.round(n)));
+}
 
 /** Flag volume si posts publiés / passages prévus < ce seuil. */
 export const SEUIL_RATIO_POSTS = 0.75;

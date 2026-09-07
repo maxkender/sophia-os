@@ -18,6 +18,8 @@ export interface NavItem {
   icon: React.ComponentType<{ className?: string }>;
   /** Explication courte, montrée en infobulle au survol (garde la nav compacte). */
   description?: string;
+  /** Exact path match (default). Set false so nested routes stay highlighted. */
+  end?: boolean;
 }
 
 /** Un bloc de navigation, avec un intitulé de section optionnel. */
@@ -36,11 +38,11 @@ function NavList({ groups, onNavigate }: { groups: NavGroup[]; onNavigate?: () =
               {groupe.title}
             </p>
           )}
-          {groupe.items.map(({ to, label, icon: Icon, description }) => (
+          {groupe.items.map(({ to, label, icon: Icon, description, end = true }) => (
             <NavLink
               key={to}
               to={to}
-              end
+              end={end}
               onClick={onNavigate}
               title={description}
               className={({ isActive }) =>

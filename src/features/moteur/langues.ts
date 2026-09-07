@@ -73,6 +73,28 @@ export function drapeauLangue(code: string): string {
   return DRAPEAU_LANGUE[code] ?? code.toUpperCase();
 }
 
+/** Nom du pays OS aligné sur la langue cible (en → Royaume-Uni). */
+const NOM_PAYS: Record<string, string> = {
+  fr: "France",
+  en: "Royaume-Uni",
+  de: "Allemagne",
+  it: "Italie",
+  es: "Espagne",
+  pt: "Portugal",
+  cs: "Tchéquie",
+  nl: "Pays-Bas",
+  el: "Grèce",
+  hu: "Hongrie",
+  pl: "Pologne",
+  ro: "Roumanie",
+  sv: "Suède",
+  tr: "Turquie",
+};
+
+export function nomPays(code: string): string {
+  return NOM_PAYS[code] ?? nomLangue(code);
+}
+
 /** Pays physiques de l'OS = un pays par langue cible (en → Royaume-Uni). */
 export const PAYS_OS = LANGUES_CIBLES;
 

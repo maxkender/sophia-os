@@ -38,7 +38,8 @@ export function useRecrutements() {
     run: run.data ?? null,
     stats: stats.data ?? new Map(),
     fiches: fiches.data ?? new Map(),
+    statsPending: (createurs.data?.length ?? 0) > 0 && stats.isPending,
     isPending: hms.isPending || createurs.isPending,
-    error: hms.error ?? createurs.error ?? suggestions.error,
+    error: hms.error ?? createurs.error ?? suggestions.error ?? stats.error,
   };
 }

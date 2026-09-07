@@ -52,7 +52,8 @@ export function AdminRecrutementsPaysPage() {
   const { pays: brut } = useParams();
   const pays = (brut ?? "").toLowerCase();
   const { t } = useTranslation();
-  const { hms, createurs, suggestions, stats, fiches, isPending, error } = useRecrutements();
+  const { hms, createurs, suggestions, stats, fiches, statsPending, isPending, error } =
+    useRecrutements();
 
   if (!estPaysOs(pays)) return <Navigate to="/admin/recrutements" replace />;
 
@@ -161,6 +162,7 @@ export function AdminRecrutementsPaysPage() {
                       nTotal={tous.length}
                       fiches={fiches}
                       stats={stats}
+                      statsPending={statsPending}
                       suggestions={sugDuHm(hm)}
                     />
                   );

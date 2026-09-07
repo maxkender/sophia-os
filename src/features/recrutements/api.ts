@@ -1,9 +1,14 @@
 import { supabase } from "@/lib/supabase/client";
-import { SLUG_SOPHIA } from "@/features/moteur/applications";
+import { estSlugSophia } from "@/features/moteur/applications";
 import { compteEnProcessus } from "@/features/moteur/warmup";
 import { estCompteTestRecrutement } from "./constantes";
 import { labelsDesComptes } from "@/features/moteur/api";
-import { assemblerStatsCreateur, derniersJoursParis, jourParisIso } from "./stats";
+import {
+  aggregerPassagesCompte,
+  assemblerStatsCreateur,
+  derniersJoursParis,
+  type PassageStatsRow,
+} from "./stats";
 import { bornerCibleCreateurs } from "./constantes";
 import type {
   ChampHorodatageCreateur,
@@ -25,6 +30,59 @@ const CRE_SELECT =
 
 const SUG_SELECT =
   "id, hm_id, createur_id, pays, phase, kind, canal, titre, corps, prompt_autom, empreinte, statut, validee_at, ignoree_at, executee_at, execution_log, created_at, updated_at";
+
+const IN_CHUNK = 80;
+const PAGE_PASSAGES = 1000;
+
+async function slugParApplication(): Promise<Map<string, string>> {
+  const { data, error } = await supabase.from("applications").select("id, slug");
+  if (error) throw error;
+  return new Map((data ?? []).map((a) => [a.id as string, a.slug as string]));
+}
+
+function estCompteSophia(applicationId: string | null | undefined, slugs: Map<string, string>): boolean {
+  if (!applicationId) return true;
+  return estSlugSophia(slugs.get(applicationId) ?? null);
+}
+
+async function listerPassagesStats(
+  compteIds: string[],
+  debut: string,
+  fin: string,
+): Promise<PassageStatsRow[]> {
+  const parId = new Map<string, PassageStatsRow>();
+  const ranger = async (
+    chunk: string[],
+    kind: "prevus" | "publies",
+  ): Promise<void> => {
+    let from = 0;
+    for (;;) {
+      const base = supabase
+        .from("passages")
+        .select("id, compte_id, statut, date_publication_prevue, publie_at, vues")
+        .in("compte_id", chunk);
+      const q =
+        kind === "prevus"
+          ? base
+              .gte("date_publication_prevue", debut)
+              .lte("date_publication_prevue", fin)
+              .neq("statut", "brouillon")
+          : base.not("publie_at", "is", null);
+      const { data, error } = await q.range(from, from + PAGE_PASSAGES - 1);
+      if (error) throw error;
+      const rows = (data ?? []) as PassageStatsRow[];
+      for (const r of rows) parId.set(r.id, r);
+      if (rows.length < PAGE_PASSAGES) break;
+      from += PAGE_PASSAGES;
+    }
+  };
+  for (let i = 0; i < compteIds.length; i += IN_CHUNK) {
+    const chunk = compteIds.slice(i, i + IN_CHUNK);
+    await ranger(chunk, "prevus");
+    await ranger(chunk, "publies");
+  }
+  return [...parId.values()];
+}
 
 export async function listerHmsRecrutement(): Promise<RecrutementHm[]> {
   const { data, error } = await supabase
@@ -107,9 +165,10 @@ export async function chargerFichesCreateurs(
   const posterIds = [...new Set(createurs.map((c) => c.profile_id).filter(Boolean))] as string[];
   if (posterIds.length === 0) return out;
 
+  const slugs = await slugParApplication();
   const { data: comptes, error } = await supabase
     .from("comptes")
-    .select("id, poster_id, langue, handle_tiktok, is_active, applications(slug)")
+    .select("id, poster_id, langue, handle_tiktok, is_active, application_id")
     .in("poster_id", posterIds)
     .eq("is_active", true);
   if (error) throw error;
@@ -119,12 +178,11 @@ export async function chargerFichesCreateurs(
     poster_id: string;
     langue: string | null;
     handle_tiktok: string | null;
-    applications?: { slug?: string } | null;
+    application_id: string | null;
   };
-  const sophia = ((comptes ?? []) as CompteRow[]).filter((c) => {
-    const slug = c.applications?.slug;
-    return (slug ?? SLUG_SOPHIA) === SLUG_SOPHIA;
-  });
+  const sophia = ((comptes ?? []) as CompteRow[]).filter((c) =>
+    estCompteSophia(c.application_id, slugs),
+  );
 
   const compteParCreateur = new Map<string, CompteRow>();
   for (const cre of createurs) {
@@ -282,17 +340,11 @@ export async function chargerStatsCreateurs(
   const jours = derniersJoursParis();
   const debut = jours[0]!;
   const fin = jours[jours.length - 1]!;
-  const dansFenetre = (iso: string | null) => {
-    if (!iso) return false;
-    const j = jourParisIso(iso);
-    return j >= debut && j <= fin;
-  };
 
+  const slugs = await slugParApplication();
   const { data: comptes, error: eComptes } = await supabase
     .from("comptes")
-    .select(
-      "id, poster_id, langue, application_id, warmup_started_at, warmup_ends_at, applications(slug)",
-    )
+    .select("id, poster_id, langue, application_id, warmup_started_at, warmup_ends_at")
     .in("poster_id", posterIds)
     .eq("is_active", true);
   if (eComptes) throw eComptes;
@@ -301,129 +353,72 @@ export async function chargerStatsCreateurs(
     id: string;
     poster_id: string;
     langue: string | null;
+    application_id: string | null;
     warmup_started_at: string | null;
     warmup_ends_at: string | null;
-    applications?: { slug?: string } | null;
   };
-  const comptesSophia = ((comptes ?? []) as CompteRow[]).filter((c) => {
-    const slug = c.applications?.slug;
-    return (slug ?? SLUG_SOPHIA) === SLUG_SOPHIA;
-  });
+  const comptesSophia = ((comptes ?? []) as CompteRow[]).filter((c) =>
+    estCompteSophia(c.application_id, slugs),
+  );
 
   const comptesPour = (posterId: string, pays: string) =>
     comptesSophia.filter(
       (c) => c.poster_id === posterId && (c.langue ?? "").toLowerCase() === pays.toLowerCase(),
     );
 
-  const compteIdsActifs = new Set(
-    comptesSophia
-      .filter((c) =>
-        compteEnProcessus({
-          warmup_started_at: c.warmup_started_at,
-          warmup_ends_at: c.warmup_ends_at,
-        }),
-      )
-      .map((c) => c.id),
-  );
-  const compteIds = [...compteIdsActifs];
-
-  const prevus = new Map<string, number>();
-  const postes = new Map<string, number>();
-  const vues10 = new Map<string, number>();
-  const derniersVues: Map<string, number[]> = new Map();
-
+  const compteIds = [...new Set(comptesSophia.map((c) => c.id))];
+  const parCompte = new Map<string, PassageStatsRow[]>();
   if (compteIds.length > 0) {
-    const { data: passages, error: ePas } = await supabase
-      .from("passages")
-      .select("compte_id, statut, date_publication_prevue")
-      .in("compte_id", compteIds)
-      .gte("date_publication_prevue", debut)
-      .lte("date_publication_prevue", fin)
-      .neq("statut", "brouillon");
-    if (ePas) throw ePas;
-    for (const p of passages ?? []) {
-      const id = p.compte_id as string;
-      prevus.set(id, (prevus.get(id) ?? 0) + 1);
-    }
-
-    const { data: posts, error: ePosts } = await supabase
-      .from("posts")
-      .select("id, compte_id, publie_at")
-      .in("compte_id", compteIds)
-      .eq("est_test", false)
-      .not("publie_at", "is", null)
-      .order("publie_at", { ascending: false })
-      .limit(2000);
-    if (ePosts) throw ePosts;
-    const idsPublies = (posts ?? []).map((p) => p.id as string);
-    for (const p of posts ?? []) {
-      if (!dansFenetre(p.publie_at as string | null)) continue;
-      const id = p.compte_id as string;
-      postes.set(id, (postes.get(id) ?? 0) + 1);
-    }
-
-    if (idsPublies.length > 0) {
-      const { data: recents, error: eRec } = await supabase
-        .from("stats_posts")
-        .select("id, compte_id, vues, publie_at")
-        .in("id", idsPublies.slice(0, 800));
-      if (eRec) throw eRec;
-      const parCompte = new Map<string, Array<{ publie_at: string; vues: number }>>();
-      for (const r of recents ?? []) {
-        const publie = r.publie_at as string | null;
-        if (!publie) continue;
-        const id = r.compte_id as string;
-        const liste = parCompte.get(id) ?? [];
-        liste.push({ publie_at: publie, vues: Number(r.vues ?? 0) });
-        parCompte.set(id, liste);
-      }
-      for (const [compteId, liste] of parCompte) {
-        liste.sort((a, b) => (a.publie_at < b.publie_at ? 1 : -1));
-        derniersVues.set(
-          compteId,
-          liste.slice(0, 10).map((x) => x.vues),
-        );
-        vues10.set(
-          compteId,
-          liste.filter((x) => dansFenetre(x.publie_at)).reduce((s, x) => s + x.vues, 0),
-        );
-      }
+    const passages = await listerPassagesStats(compteIds, debut, fin);
+    for (const p of passages) {
+      const liste = parCompte.get(p.compte_id) ?? [];
+      liste.push(p);
+      parCompte.set(p.compte_id, liste);
     }
   }
 
-  const somme = (ids: string[], src: Map<string, number>) =>
-    ids.reduce((s, id) => s + (src.get(id) ?? 0), 0);
-
   for (const cre of avecProfil) {
     const comptesPays = comptesPour(cre.profile_id!, cre.pays);
-    const ids = comptesPays
-      .filter((c) =>
-        compteEnProcessus({
-          warmup_started_at: c.warmup_started_at,
-          warmup_ends_at: c.warmup_ends_at,
-        }),
-      )
-      .map((c) => c.id);
-    const essai = comptesPays.some(
-      (c) =>
-        !compteEnProcessus({
-          warmup_started_at: c.warmup_started_at,
-          warmup_ends_at: c.warmup_ends_at,
-        }),
-    ) && ids.length === 0;
-    const vuesListe = ids.flatMap((id) => derniersVues.get(id) ?? []).slice(0, 10);
-    const vuesMoy10 =
-      vuesListe.length === 0
-        ? null
-        : vuesListe.reduce((a, b) => a + b, 0) / vuesListe.length;
+    const idsProcess = comptesPays.filter((c) =>
+      compteEnProcessus({
+        warmup_started_at: c.warmup_started_at,
+        warmup_ends_at: c.warmup_ends_at,
+      }),
+    );
+    const essai = comptesPays.length > 0 && idsProcess.length === 0;
+    let prevus = 0;
+    let postes = 0;
+    let vues10j = 0;
+    const passagesPays: PassageStatsRow[] = [];
+    for (const compte of comptesPays) {
+      const apresWarmup = compteEnProcessus({
+        warmup_started_at: compte.warmup_started_at,
+        warmup_ends_at: compte.warmup_ends_at,
+      });
+      const rows = parCompte.get(compte.id) ?? [];
+      passagesPays.push(...rows);
+      const agg = aggregerPassagesCompte(rows, {
+        debut,
+        fin,
+        apresWarmup,
+      });
+      prevus += agg.prevus;
+      postes += agg.postes;
+      vues10j += agg.vues10j;
+    }
+    const vuesMoy10 = aggregerPassagesCompte(passagesPays, {
+      debut,
+      fin,
+      apresWarmup: true,
+    }).vuesMoy10;
     out.set(
       cre.id,
       assemblerStatsCreateur({
         posterId: cre.profile_id!,
-        prevus: somme(ids, prevus),
-        postes: somme(ids, postes),
+        prevus,
+        postes,
         vuesMoy10,
-        vues10j: somme(ids, vues10),
+        vues10j,
         coutMensuel: coutParPoster.get(cre.profile_id!) ?? null,
         essai,
       }),

@@ -35,7 +35,7 @@ import {
   bornerCibleCreateurs,
 } from "./constantes";
 import { nomAfficheHm } from "./phases";
-import { moyenneHm } from "./stats";
+import { moyenneHm, formaterPosts10j } from "./stats";
 import type {
   AuteurMessage,
   FicheCreateurOs,
@@ -211,14 +211,14 @@ function FicheCreateurPopup({
   );
 }
 
-function formatRatio(r: number | null): string {
-  if (r == null) return "—";
-  return `${Math.round(r * 100)} %`;
-}
-
 function formatCpm(n: number | null): string {
   if (n == null) return "—";
   return `${n.toFixed(2)} $`;
+}
+
+function formatVuesMoy(n: number | null): string {
+  if (n == null) return "—";
+  return Math.round(n).toLocaleString();
 }
 
 function MiniStat({ label, valeur }: { label: string; valeur: string }) {
@@ -511,6 +511,7 @@ export function CarteHmPhase2({
   nTotal,
   fiches,
   stats,
+  statsPending,
   suggestions,
   pays,
 }: {
@@ -519,6 +520,7 @@ export function CarteHmPhase2({
   nTotal: number;
   fiches: Map<string, FicheCreateurOs>;
   stats: Map<string, StatsCreateur10j>;
+  statsPending: boolean;
   suggestions: RecrutementSuggestion[];
   pays: string;
 }) {
@@ -576,12 +578,18 @@ export function CarteHmPhase2({
             }
           />
           <div className="grid grid-cols-3 gap-3 rounded-xl bg-emerald-50/60 px-3 py-2.5">
-            <MiniStat label={t("recrutements.colPosts")} valeur={formatRatio(moy.ratio)} />
+            <MiniStat
+              label={t("recrutements.colPosts")}
+              valeur={statsPending ? "…" : formaterPosts10j(moy.postes, moy.prevus)}
+            />
             <MiniStat
               label={t("recrutements.colVues")}
-              valeur={moy.vuesMoy10 == null ? "—" : Math.round(moy.vuesMoy10).toLocaleString()}
+              valeur={statsPending ? "…" : formatVuesMoy(moy.vuesMoy10)}
             />
-            <MiniStat label={t("recrutements.colCpm")} valeur={formatCpm(moy.usdPour1000)} />
+            <MiniStat
+              label={t("recrutements.colCpm")}
+              valeur={statsPending ? "…" : formatCpm(moy.usdPour1000)}
+            />
           </div>
         </div>
         <ul className="space-y-2">
@@ -604,13 +612,18 @@ export function CarteHmPhase2({
               <div className="grid grid-cols-3 gap-2">
                 <MiniStat
                   label={t("recrutements.colPosts")}
-                  valeur={`${s?.postes ?? 0} / ${s?.prevus ?? 0}`}
+                  valeur={
+                    statsPending ? "…" : formaterPosts10j(s?.postes ?? null, s?.prevus ?? null)
+                  }
                 />
                 <MiniStat
                   label={t("recrutements.colVues")}
-                  valeur={s?.vuesMoy10 == null ? "—" : Math.round(s.vuesMoy10).toLocaleString()}
+                  valeur={statsPending ? "…" : formatVuesMoy(s?.vuesMoy10 ?? null)}
                 />
-                <MiniStat label={t("recrutements.colCpm")} valeur={formatCpm(s?.usdPour1000 ?? null)} />
+                <MiniStat
+                  label={t("recrutements.colCpm")}
+                  valeur={statsPending ? "…" : formatCpm(s?.usdPour1000 ?? null)}
+                />
               </div>
               <div className="flex justify-end gap-1.5">
                 <Button

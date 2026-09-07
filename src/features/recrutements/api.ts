@@ -2,10 +2,13 @@ import { supabase } from "@/lib/supabase/client";
 import { SLUG_SOPHIA } from "@/features/moteur/applications";
 import { compteEnProcessus } from "@/features/moteur/warmup";
 import { estCompteTestRecrutement } from "./constantes";
+import { labelsDesComptes } from "@/features/moteur/api";
 import { assemblerStatsCreateur, derniersJoursParis, jourParisIso } from "./stats";
+import { bornerCibleCreateurs } from "./constantes";
 import type {
   ChampHorodatageCreateur,
   ChampHorodatageHm,
+  FicheCreateurOs,
   RecrutementCreateur,
   RecrutementHm,
   RecrutementRun,
@@ -15,7 +18,7 @@ import type {
 } from "./types";
 
 const HM_SELECT =
-  "id, profile_id, upwork_freelancer_id, upwork_profile_url, avatar_url, prenom, nom, nom_affiche, pays, email_os, email_perso, slack_user_id, talks_at, contrat_envoye_at, contrat_signe_at, codes_envoyes_at, slack_invite_envoyee_at, email_perso_demandee_at, rejoint_slack_at, rejoint_os_at, ajoute_upwork_at, job_post_at, job_post_id, job_post_titre, notes, dernier_message, dernier_message_at, dernier_message_auteur, created_at, updated_at";
+  "id, profile_id, upwork_freelancer_id, upwork_profile_url, avatar_url, prenom, nom, nom_affiche, pays, email_os, email_perso, slack_user_id, talks_at, contrat_envoye_at, contrat_signe_at, codes_envoyes_at, slack_invite_envoyee_at, email_perso_demandee_at, rejoint_slack_at, rejoint_os_at, ajoute_upwork_at, job_post_at, job_post_id, job_post_titre, cible_createurs, notes, dernier_message, dernier_message_at, dernier_message_auteur, created_at, updated_at";
 
 const CRE_SELECT =
   "id, hm_id, profile_id, pays, upwork_freelancer_id, upwork_profile_url, avatar_url, prenom, nom, nom_affiche, email_os, email_perso, slack_user_id, talks_at, contrat_envoye_at, contrat_signe_at, codes_envoyes_at, slack_invite_envoyee_at, rejoint_os_at, rejoint_slack_at, warmup_at, premier_post_at, dernier_message, dernier_message_at, dernier_message_auteur, created_at, updated_at";
@@ -75,6 +78,79 @@ export async function marquerAjoutUpwork(hmId: string, fait: boolean): Promise<v
     })
     .eq("id", hmId);
   if (error) throw error;
+}
+
+export async function majCibleCreateurs(hmId: string, cible: number): Promise<void> {
+  const { error } = await supabase
+    .from("recrutement_hms")
+    .update({
+      cible_createurs: bornerCibleCreateurs(cible),
+      updated_at: new Date().toISOString(),
+    })
+    .eq("id", hmId);
+  if (error) throw error;
+}
+
+export async function chargerFichesCreateurs(
+  createurs: RecrutementCreateur[],
+): Promise<Map<string, FicheCreateurOs>> {
+  const out = new Map<string, FicheCreateurOs>();
+  for (const c of createurs) {
+    out.set(c.id, {
+      email: (c.email_perso || c.email_os || "").trim() || null,
+      handle: null,
+      urlTiktok: null,
+      compteId: null,
+      labels: [],
+    });
+  }
+  const posterIds = [...new Set(createurs.map((c) => c.profile_id).filter(Boolean))] as string[];
+  if (posterIds.length === 0) return out;
+
+  const { data: comptes, error } = await supabase
+    .from("comptes")
+    .select("id, poster_id, langue, handle_tiktok, is_active, applications(slug)")
+    .in("poster_id", posterIds)
+    .eq("is_active", true);
+  if (error) throw error;
+
+  type CompteRow = {
+    id: string;
+    poster_id: string;
+    langue: string | null;
+    handle_tiktok: string | null;
+    applications?: { slug?: string } | null;
+  };
+  const sophia = ((comptes ?? []) as CompteRow[]).filter((c) => {
+    const slug = c.applications?.slug;
+    return (slug ?? SLUG_SOPHIA) === SLUG_SOPHIA;
+  });
+
+  const compteParCreateur = new Map<string, CompteRow>();
+  for (const cre of createurs) {
+    if (!cre.profile_id) continue;
+    const match = sophia.find(
+      (c) =>
+        c.poster_id === cre.profile_id &&
+        (c.langue ?? "").toLowerCase() === cre.pays.toLowerCase(),
+    );
+    if (match) compteParCreateur.set(cre.id, match);
+  }
+
+  const labelsParCompte = await labelsDesComptes([...new Set([...compteParCreateur.values()].map((c) => c.id))]);
+
+  for (const [creId, compte] of compteParCreateur) {
+    const handle = (compte.handle_tiktok ?? "").replace(/^@/, "").trim() || null;
+    const actuelle = out.get(creId)!;
+    out.set(creId, {
+      ...actuelle,
+      handle,
+      urlTiktok: handle ? `https://www.tiktok.com/@${handle}` : null,
+      compteId: compte.id,
+      labels: (labelsParCompte.get(compte.id) ?? []).map((l) => l.nom).filter(Boolean),
+    });
+  }
+  return out;
 }
 
 export async function enregistrerEmailPerso(hmId: string, email: string): Promise<void> {

@@ -5,12 +5,16 @@ import { ArrowLeft } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
 import { Spinner } from "@/components/ui/spinner";
 import { CarteHmPhase0, CarteHmPhase1, CarteHmPhase2 } from "@/features/recrutements/CarteHm";
 import { InboxSuggestions } from "@/features/recrutements/InboxSuggestions";
-import { CIBLE_CREATEURS_PAYS } from "@/features/recrutements/constantes";
-import { createursDuHmPays, hmConcernePays, phasesHmPourPays } from "@/features/recrutements/phases";
+import {
+  createursAvecPremierPost,
+  createursDuHmPays,
+  createursSansPremierPost,
+  hmConcernePays,
+  phasesHmPourPays,
+} from "@/features/recrutements/phases";
 import { useRecrutements } from "@/features/recrutements/useRecrutements";
 import { drapeauLangue, estPaysOs, nomPays } from "@/features/moteur/langues";
 import { cn } from "@/lib/utils";
@@ -48,19 +52,19 @@ export function AdminRecrutementsPaysPage() {
   const { pays: brut } = useParams();
   const pays = (brut ?? "").toLowerCase();
   const { t } = useTranslation();
-  const { hms, createurs, suggestions, stats, isPending, error } = useRecrutements();
+  const { hms, createurs, suggestions, stats, fiches, isPending, error } = useRecrutements();
 
   if (!estPaysOs(pays)) return <Navigate to="/admin/recrutements" replace />;
 
   const hmsPays = hms.filter((h) => hmConcernePays(h, pays));
   const phase0 = hmsPays.filter((h) =>
-    phasesHmPourPays(h, createursDuHmPays(createurs, h.id, pays)).includes(0),
+    phasesHmPourPays(h, createursDuHmPays(createurs, h.id, pays), pays).includes(0),
   );
   const phase1 = hmsPays.filter((h) =>
-    phasesHmPourPays(h, createursDuHmPays(createurs, h.id, pays)).includes(1),
+    phasesHmPourPays(h, createursDuHmPays(createurs, h.id, pays), pays).includes(1),
   );
   const phase2 = hmsPays.filter((h) =>
-    phasesHmPourPays(h, createursDuHmPays(createurs, h.id, pays)).includes(2),
+    phasesHmPourPays(h, createursDuHmPays(createurs, h.id, pays), pays).includes(2),
   );
   const nCreateurs = createurs.filter((c) => c.pays === pays).length;
 
@@ -80,14 +84,10 @@ export function AdminRecrutementsPaysPage() {
             <span className="text-4xl leading-none">{drapeauLangue(pays)}</span>
             <div>
               <h1 className="text-lg font-semibold tracking-tight">{nomPays(pays)}</h1>
-              <p className="text-sm text-muted-foreground">{t("recrutements.ciblePays", { n: CIBLE_CREATEURS_PAYS })}</p>
+              <p className="text-sm tabular-nums text-muted-foreground">
+                {t("recrutements.resumePays", { hms: hmsPays.length, createurs: nCreateurs })}
+              </p>
             </div>
-          </div>
-          <div className="w-44 space-y-1.5">
-            <p className="text-right text-xs tabular-nums text-muted-foreground">
-              {t("recrutements.createursCible", { n: nCreateurs, cible: CIBLE_CREATEURS_PAYS })}
-            </p>
-            <Progress value={(nCreateurs / CIBLE_CREATEURS_PAYS) * 100} className="h-1.5" />
           </div>
         </div>
       </div>
@@ -127,14 +127,19 @@ export function AdminRecrutementsPaysPage() {
               <VidePhase texte={t("recrutements.videPhase")} />
             ) : (
               <div className="grid gap-4 lg:grid-cols-2">
-                {phase1.map((hm) => (
-                  <CarteHmPhase1
-                    key={hm.id}
-                    hm={hm}
-                    createurs={createursDuHmPays(createurs, hm.id, pays)}
-                    suggestions={sugDuHm(hm)}
-                  />
-                ))}
+                {phase1.map((hm) => {
+                  const tous = createursDuHmPays(createurs, hm.id, pays);
+                  return (
+                    <CarteHmPhase1
+                      key={hm.id}
+                      hm={hm}
+                      createurs={createursSansPremierPost(tous)}
+                      nTotal={tous.length}
+                      fiches={fiches}
+                      suggestions={sugDuHm(hm)}
+                    />
+                  );
+                })}
               </div>
             )}
           </section>
@@ -145,16 +150,21 @@ export function AdminRecrutementsPaysPage() {
               <VidePhase texte={t("recrutements.videPhase")} />
             ) : (
               <div className="grid gap-4 lg:grid-cols-2">
-                {phase2.map((hm) => (
-                  <CarteHmPhase2
-                    key={hm.id}
-                    hm={hm}
-                    pays={pays}
-                    createurs={createursDuHmPays(createurs, hm.id, pays)}
-                    stats={stats}
-                    suggestions={sugDuHm(hm)}
-                  />
-                ))}
+                {phase2.map((hm) => {
+                  const tous = createursDuHmPays(createurs, hm.id, pays);
+                  return (
+                    <CarteHmPhase2
+                      key={hm.id}
+                      hm={hm}
+                      pays={pays}
+                      createurs={createursAvecPremierPost(tous)}
+                      nTotal={tous.length}
+                      fiches={fiches}
+                      stats={stats}
+                      suggestions={sugDuHm(hm)}
+                    />
+                  );
+                })}
               </div>
             )}
           </section>

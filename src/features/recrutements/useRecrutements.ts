@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
 import {
+  chargerFichesCreateurs,
   chargerStatsCreateurs,
   dernierRunRecrutement,
   listerCreateursRecrutement,
@@ -24,6 +25,11 @@ export function useRecrutements() {
     queryFn: () => chargerStatsCreateurs(createurs.data ?? []),
     enabled: (createurs.data?.length ?? 0) > 0,
   });
+  const fiches = useQuery({
+    queryKey: ["recrutements", "fiches", (createurs.data ?? []).map((c) => c.id).join("|")],
+    queryFn: () => chargerFichesCreateurs(createurs.data ?? []),
+    enabled: (createurs.data?.length ?? 0) > 0,
+  });
 
   return {
     hms: hms.data ?? [],
@@ -31,6 +37,7 @@ export function useRecrutements() {
     suggestions: suggestions.data ?? [],
     run: run.data ?? null,
     stats: stats.data ?? new Map(),
+    fiches: fiches.data ?? new Map(),
     isPending: hms.isPending || createurs.isPending,
     error: hms.error ?? createurs.error ?? suggestions.error,
   };

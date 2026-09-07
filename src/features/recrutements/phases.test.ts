@@ -1,11 +1,14 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  createursAvecPremierPost,
   createursDuHmPays,
+  createursSansPremierPost,
   etapeCouranteCreateur,
   etapeCourantePhase0,
   etapeFaitePhase0,
   hmConcernePays,
+  jobPostConcernePays,
   kindEstMessage,
   phasesHmPourPays,
 } from "./phases";
@@ -37,6 +40,7 @@ function hm(p: Partial<RecrutementHm> = {}): RecrutementHm {
     job_post_at: null,
     job_post_id: null,
     job_post_titre: null,
+    cible_createurs: 10,
     notes: null,
     dernier_message: null,
     dernier_message_at: null,
@@ -81,32 +85,44 @@ function cre(p: Partial<RecrutementCreateur> = {}): RecrutementCreateur {
 }
 
 describe("phases HM", () => {
-  it("reste en phase 0 sans job ni créateur", () => {
-    expect(phasesHmPourPays(hm(), [])).toEqual([0]);
+  it("reste en phase 0 sans job ni créateur dans ce pays", () => {
+    expect(phasesHmPourPays(hm(), [], "fr")).toEqual([0]);
     expect(etapeCourantePhase0(hm({ talks_at: null }))).toBe("talks");
     expect(etapeCourantePhase0(hm())).toBe("contrat_envoye");
   });
 
-  it("passe en phase 1 dès un job post", () => {
-    expect(phasesHmPourPays(hm({ job_post_at: "2026-09-03T00:00:00Z" }), [])).toEqual([1]);
+  it("passe en phase 1 dès un job post de CE pays (HM mono-pays)", () => {
+    expect(
+      phasesHmPourPays(hm({ pays: ["fr"], job_post_at: "2026-09-03T00:00:00Z" }), [], "fr"),
+    ).toEqual([1]);
+  });
+
+  it("un job NL ne sort pas le HM de phase 0 en PL", () => {
+    const fiche = hm({
+      pays: ["nl", "pl"],
+      job_post_at: "2026-09-06T00:00:00Z",
+      job_post_titre: "Plaatsen van TikTok-diashows (gebaseerd in Nederland)",
+    });
+    expect(jobPostConcernePays(fiche, "nl")).toBe(true);
+    expect(jobPostConcernePays(fiche, "pl")).toBe(false);
+    expect(phasesHmPourPays(fiche, [], "nl")).toEqual([1]);
+    expect(phasesHmPourPays(fiche, [], "pl")).toEqual([0]);
   });
 
   it("passe en phase 1 dès un créateur, même sans job_post_at", () => {
-    expect(phasesHmPourPays(hm(), [cre()])).toEqual([1]);
+    expect(phasesHmPourPays(hm(), [cre()], "fr")).toEqual([1]);
   });
 
-  it("peut être en phase 1 et 2", () => {
-    expect(
-      phasesHmPourPays(hm({ job_post_at: "2026-09-03T00:00:00Z" }), [
-        cre({ premier_post_at: "2026-09-05T00:00:00Z" }),
-      ]),
-    ).toEqual([1, 2]);
+  it("peut être en phase 1 et 2, créateurs non dupliqués", () => {
+    const pipeline = cre();
+    const poste = cre({ id: "c2", premier_post_at: "2026-09-05T00:00:00Z" });
+    expect(phasesHmPourPays(hm(), [pipeline, poste], "fr")).toEqual([1, 2]);
+    expect(createursSansPremierPost([pipeline, poste]).map((c) => c.id)).toEqual(["c1"]);
+    expect(createursAvecPremierPost([pipeline, poste]).map((c) => c.id)).toEqual(["c2"]);
   });
 
   it("filtre les créateurs de l'autre langue : pas de phase 2 sur ce pays", () => {
-    expect(
-      phasesHmPourPays(hm({ job_post_at: "2026-09-03T00:00:00Z" }), []),
-    ).toEqual([1]);
+    expect(phasesHmPourPays(hm({ pays: ["fr", "de"] }), [], "de")).toEqual([0]);
   });
 
   it("duplique le HM sur chaque pays géré", () => {

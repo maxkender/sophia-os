@@ -18,8 +18,9 @@ vi.mock("@/features/recrutements/api", () => ({
   marquerAjoutUpwork: vi.fn(async () => undefined),
   enregistrerEmailPerso: vi.fn(async () => undefined),
   creerSuggestionManuelle: vi.fn(async () => undefined),
-  majChampHm: vi.fn(async () => undefined),
+    majChampHm: vi.fn(async () => undefined),
   majChampCreateur: vi.fn(async () => undefined),
+  majCibleCreateurs: vi.fn(async () => undefined),
 }));
 
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -52,6 +53,7 @@ function hm(p: Partial<RecrutementHm> = {}): RecrutementHm {
     job_post_at: null,
     job_post_id: null,
     job_post_titre: null,
+    cible_createurs: 10,
     notes: null,
     dernier_message: null,
     dernier_message_at: null,
@@ -125,6 +127,7 @@ describe("AdminRecrutementsPage", () => {
       suggestions: [suggestion()],
       run: { id: "r1", started_at: "2026-09-07T08:00:00Z", finished_at: "2026-09-07T08:05:00Z", resume: "ok" },
       stats: new Map(),
+      fiches: new Map(),
       isPending: false,
       error: null,
     });
@@ -137,6 +140,7 @@ describe("AdminRecrutementsPage", () => {
     expect(screen.getByText("Royaume-Uni")).toBeInTheDocument();
     expect(screen.getByText("Inbox suggestions")).toBeInTheDocument();
     expect(screen.getByText("Répondre à Ada")).toBeInTheDocument();
+    expect(screen.queryByText(/\/ 10/)).not.toBeInTheDocument();
     expect(screen.getByText("Valider")).toBeInTheDocument();
   });
 
@@ -169,6 +173,7 @@ describe("AdminRecrutementsPage", () => {
       ],
       run: null,
       stats: new Map(),
+      fiches: new Map(),
       isPending: false,
       error: null,
     });

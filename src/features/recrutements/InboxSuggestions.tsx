@@ -34,7 +34,7 @@ function LigneSuggestion({
     <li className={cn(compact ? "space-y-2" : "space-y-3 rounded-xl border bg-background/80 p-4")}>
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0 space-y-0.5">
-          <p className="truncate text-sm font-medium">{s.titre}</p>
+          <p className="text-sm font-medium leading-snug">{s.titre}</p>
           {!compact && (
             <p className="text-xs text-muted-foreground">
               {nomHm(s, hms)}
@@ -52,12 +52,7 @@ function LigneSuggestion({
           </Badge>
         </div>
       </div>
-      <p
-        className={cn(
-          "whitespace-pre-wrap text-sm leading-relaxed text-muted-foreground",
-          compact && "line-clamp-4",
-        )}
-      >
+      <p className="whitespace-pre-wrap break-words text-sm leading-relaxed text-muted-foreground">
         {s.corps}
       </p>
       <div className="flex flex-wrap gap-1.5">

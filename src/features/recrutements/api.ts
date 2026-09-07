@@ -4,6 +4,8 @@ import { compteEnProcessus } from "@/features/moteur/warmup";
 import { estCompteTestRecrutement } from "./constantes";
 import { assemblerStatsCreateur, derniersJoursParis, jourParisIso } from "./stats";
 import type {
+  ChampHorodatageCreateur,
+  ChampHorodatageHm,
   RecrutementCreateur,
   RecrutementHm,
   RecrutementRun,
@@ -13,10 +15,10 @@ import type {
 } from "./types";
 
 const HM_SELECT =
-  "id, profile_id, upwork_freelancer_id, upwork_profile_url, avatar_url, prenom, nom, nom_affiche, pays, email_os, email_perso, slack_user_id, talks_at, contrat_envoye_at, contrat_signe_at, codes_envoyes_at, slack_invite_envoyee_at, email_perso_demandee_at, rejoint_slack_at, rejoint_os_at, ajoute_upwork_at, job_post_at, job_post_id, job_post_titre, notes, created_at, updated_at";
+  "id, profile_id, upwork_freelancer_id, upwork_profile_url, avatar_url, prenom, nom, nom_affiche, pays, email_os, email_perso, slack_user_id, talks_at, contrat_envoye_at, contrat_signe_at, codes_envoyes_at, slack_invite_envoyee_at, email_perso_demandee_at, rejoint_slack_at, rejoint_os_at, ajoute_upwork_at, job_post_at, job_post_id, job_post_titre, notes, dernier_message, dernier_message_at, dernier_message_auteur, created_at, updated_at";
 
 const CRE_SELECT =
-  "id, hm_id, profile_id, pays, upwork_freelancer_id, upwork_profile_url, avatar_url, prenom, nom, nom_affiche, email_os, email_perso, slack_user_id, talks_at, contrat_envoye_at, contrat_signe_at, codes_envoyes_at, slack_invite_envoyee_at, rejoint_os_at, rejoint_slack_at, warmup_at, premier_post_at, created_at, updated_at";
+  "id, hm_id, profile_id, pays, upwork_freelancer_id, upwork_profile_url, avatar_url, prenom, nom, nom_affiche, email_os, email_perso, slack_user_id, talks_at, contrat_envoye_at, contrat_signe_at, codes_envoyes_at, slack_invite_envoyee_at, rejoint_os_at, rejoint_slack_at, warmup_at, premier_post_at, dernier_message, dernier_message_at, dernier_message_auteur, created_at, updated_at";
 
 const SUG_SELECT =
   "id, hm_id, createur_id, pays, phase, kind, canal, titre, corps, prompt_autom, empreinte, statut, validee_at, ignoree_at, executee_at, execution_log, created_at, updated_at";
@@ -83,6 +85,63 @@ export async function enregistrerEmailPerso(hmId: string, email: string): Promis
       updated_at: new Date().toISOString(),
     })
     .eq("id", hmId);
+  if (error) throw error;
+}
+
+const CHAMPS_HM = new Set<ChampHorodatageHm>([
+  "talks_at",
+  "contrat_envoye_at",
+  "contrat_signe_at",
+  "codes_envoyes_at",
+  "slack_invite_envoyee_at",
+  "email_perso_demandee_at",
+  "rejoint_slack_at",
+  "rejoint_os_at",
+  "ajoute_upwork_at",
+  "job_post_at",
+]);
+
+const CHAMPS_CRE = new Set<ChampHorodatageCreateur>([
+  "talks_at",
+  "contrat_envoye_at",
+  "contrat_signe_at",
+  "codes_envoyes_at",
+  "slack_invite_envoyee_at",
+  "rejoint_os_at",
+  "rejoint_slack_at",
+  "warmup_at",
+  "premier_post_at",
+]);
+
+export async function majChampHm(
+  hmId: string,
+  champ: ChampHorodatageHm,
+  fait: boolean,
+): Promise<void> {
+  if (!CHAMPS_HM.has(champ)) throw new Error("champ HM invalide");
+  const { error } = await supabase
+    .from("recrutement_hms")
+    .update({
+      [champ]: fait ? new Date().toISOString() : null,
+      updated_at: new Date().toISOString(),
+    })
+    .eq("id", hmId);
+  if (error) throw error;
+}
+
+export async function majChampCreateur(
+  createurId: string,
+  champ: ChampHorodatageCreateur,
+  fait: boolean,
+): Promise<void> {
+  if (!CHAMPS_CRE.has(champ)) throw new Error("champ créateur invalide");
+  const { error } = await supabase
+    .from("recrutement_createurs")
+    .update({
+      [champ]: fait ? new Date().toISOString() : null,
+      updated_at: new Date().toISOString(),
+    })
+    .eq("id", createurId);
   if (error) throw error;
 }
 

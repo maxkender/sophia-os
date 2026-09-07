@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import { beforeEach, describe, expect, it, vi } from "vitest";
@@ -18,8 +18,11 @@ vi.mock("@/features/recrutements/api", () => ({
   marquerAjoutUpwork: vi.fn(async () => undefined),
   enregistrerEmailPerso: vi.fn(async () => undefined),
   creerSuggestionManuelle: vi.fn(async () => undefined),
+  majChampHm: vi.fn(async () => undefined),
+  majChampCreateur: vi.fn(async () => undefined),
 }));
 
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { AdminRecrutementsPage } from "./AdminRecrutementsPage";
 import { AdminRecrutementsPaysPage } from "./AdminRecrutementsPaysPage";
 
@@ -50,6 +53,9 @@ function hm(p: Partial<RecrutementHm> = {}): RecrutementHm {
     job_post_id: null,
     job_post_titre: null,
     notes: null,
+    dernier_message: null,
+    dernier_message_at: null,
+    dernier_message_auteur: null,
     created_at: "2026-09-01T10:00:00Z",
     updated_at: "2026-09-01T10:00:00Z",
     ...p,
@@ -84,9 +90,11 @@ function renderHub() {
   const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
   return render(
     <QueryClientProvider client={client}>
-      <MemoryRouter initialEntries={["/admin/recrutements"]}>
-        <AdminRecrutementsPage />
-      </MemoryRouter>
+      <TooltipProvider>
+        <MemoryRouter initialEntries={["/admin/recrutements"]}>
+          <AdminRecrutementsPage />
+        </MemoryRouter>
+      </TooltipProvider>
     </QueryClientProvider>,
   );
 }
@@ -95,12 +103,14 @@ function renderPays(pays = "fr") {
   const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
   return render(
     <QueryClientProvider client={client}>
-      <MemoryRouter initialEntries={[`/admin/recrutements/${pays}`]}>
-        <Routes>
-          <Route path="/admin/recrutements/:pays" element={<AdminRecrutementsPaysPage />} />
-          <Route path="/admin/recrutements" element={<div>hub</div>} />
-        </Routes>
-      </MemoryRouter>
+      <TooltipProvider>
+        <MemoryRouter initialEntries={[`/admin/recrutements/${pays}`]}>
+          <Routes>
+            <Route path="/admin/recrutements/:pays" element={<AdminRecrutementsPaysPage />} />
+            <Route path="/admin/recrutements" element={<div>hub</div>} />
+          </Routes>
+        </MemoryRouter>
+      </TooltipProvider>
     </QueryClientProvider>,
   );
 }
@@ -141,5 +151,35 @@ describe("AdminRecrutementsPage", () => {
   it("redirige un pays inconnu", () => {
     renderPays("xx");
     expect(screen.getByText("hub")).toBeInTheDocument();
+  });
+
+  it("déplie la carte : dernier message, étapes manuelles, messages et actions", () => {
+    useRecrutements.mockReturnValue({
+      hms: [hm()],
+      createurs: [],
+      suggestions: [
+        suggestion(),
+        suggestion({
+          id: "s2",
+          kind: "action",
+          titre: "Créer le compte OS",
+          corps: "Créer adal@sophia.com et envoyer les codes.",
+          empreinte: "acces_os:h1",
+        }),
+      ],
+      run: null,
+      stats: new Map(),
+      isPending: false,
+      error: null,
+    });
+    renderPays("fr");
+    expect(screen.queryByText("Dernier message Upwork")).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /détails/i }));
+    expect(screen.getByText("Dernier message Upwork")).toBeInTheDocument();
+    expect(screen.getByText("Étapes (coche à la main)")).toBeInTheDocument();
+    expect(screen.getByText("Messages proposés")).toBeInTheDocument();
+    expect(screen.getByText("Actions proposées")).toBeInTheDocument();
+    expect(screen.getAllByText("Répondre à Ada").length).toBeGreaterThan(1);
+    expect(screen.getAllByText("Créer le compte OS").length).toBeGreaterThan(1);
   });
 });

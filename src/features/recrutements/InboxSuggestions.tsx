@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { majStatutSuggestion } from "./api";
+import { kindEstMessage } from "./phases";
 import type { RecrutementHm, RecrutementSuggestion } from "./types";
 
 function nomHm(sug: RecrutementSuggestion, hms: RecrutementHm[]): string {
@@ -54,7 +55,7 @@ function LigneSuggestion({
       <p
         className={cn(
           "whitespace-pre-wrap text-sm leading-relaxed text-muted-foreground",
-          compact && "line-clamp-3",
+          compact && "line-clamp-4",
         )}
       >
         {s.corps}
@@ -84,24 +85,37 @@ function LigneSuggestion({
   );
 }
 
+export function suggestionsVisibles(
+  suggestions: RecrutementSuggestion[],
+  opts: { paysFiltre?: string; variante?: "toutes" | "messages" | "actions" } = {},
+): RecrutementSuggestion[] {
+  return suggestions.filter((s) => {
+    if (s.statut === "executee" || s.statut === "ignoree") return false;
+    if (opts.paysFiltre && s.pays && s.pays !== opts.paysFiltre) return false;
+    if (opts.variante === "messages") return kindEstMessage(s.kind);
+    if (opts.variante === "actions") return s.kind === "action";
+    return true;
+  });
+}
+
 export function InboxSuggestions({
   suggestions,
   hms,
   paysFiltre,
   compact = false,
+  variante = "toutes",
+  alwaysShow = false,
 }: {
   suggestions: RecrutementSuggestion[];
   hms: RecrutementHm[];
   paysFiltre?: string;
   compact?: boolean;
+  variante?: "toutes" | "messages" | "actions";
+  alwaysShow?: boolean;
 }) {
   const { t } = useTranslation();
   const qc = useQueryClient();
-  const visibles = suggestions.filter((s) => {
-    if (s.statut === "executee" || s.statut === "ignoree") return false;
-    if (paysFiltre && s.pays && s.pays !== paysFiltre) return false;
-    return true;
-  });
+  const visibles = suggestionsVisibles(suggestions, { paysFiltre, variante });
 
   const mut = useMutation({
     mutationFn: ({ id, statut }: { id: string; statut: "validee" | "ignoree" | "a_reproposer" }) =>
@@ -109,30 +123,45 @@ export function InboxSuggestions({
     onSuccess: () => qc.invalidateQueries({ queryKey: ["recrutements"] }),
   });
 
-  if (visibles.length === 0) return null;
+  if (visibles.length === 0 && !alwaysShow) return null;
 
   const onStatut = (id: string, statut: "validee" | "ignoree" | "a_reproposer") =>
     mut.mutate({ id, statut });
+
+  const titre =
+    variante === "messages"
+      ? t("recrutements.messagesProposes")
+      : variante === "actions"
+        ? t("recrutements.actionsProposees")
+        : compact
+          ? t("recrutements.inboxCarte")
+          : t("recrutements.inboxTitre");
+  const vide =
+    variante === "actions" ? t("recrutements.videActions") : t("recrutements.videMessages");
 
   if (compact) {
     return (
       <div className="space-y-3 rounded-xl border border-violet-200/70 bg-violet-50/40 px-3 py-2.5">
         <p className="text-[11px] font-medium uppercase tracking-wide text-violet-800/80">
-          {t("recrutements.inboxCarte")}
+          {titre}
           <span className="ms-1.5 tabular-nums text-violet-700/70">{visibles.length}</span>
         </p>
-        <ul className="space-y-3">
-          {visibles.map((s) => (
-            <LigneSuggestion
-              key={s.id}
-              s={s}
-              hms={hms}
-              compact
-              pending={mut.isPending}
-              onStatut={onStatut}
-            />
-          ))}
-        </ul>
+        {visibles.length === 0 ? (
+          <p className="text-xs leading-snug text-muted-foreground">{vide}</p>
+        ) : (
+          <ul className="space-y-3">
+            {visibles.map((s) => (
+              <LigneSuggestion
+                key={s.id}
+                s={s}
+                hms={hms}
+                compact
+                pending={mut.isPending}
+                onStatut={onStatut}
+              />
+            ))}
+          </ul>
+        )}
       </div>
     );
   }
@@ -141,23 +170,27 @@ export function InboxSuggestions({
     <Card className="border-violet-200/60 bg-violet-50/30">
       <CardHeader className="pb-3">
         <CardTitle className="flex items-baseline justify-between text-base">
-          <span>{t("recrutements.inboxTitre")}</span>
+          <span>{titre}</span>
           <span className="text-sm font-normal tabular-nums text-muted-foreground">{visibles.length}</span>
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <ul className="space-y-3">
-          {visibles.map((s) => (
-            <LigneSuggestion
-              key={s.id}
-              s={s}
-              hms={hms}
-              compact={false}
-              pending={mut.isPending}
-              onStatut={onStatut}
-            />
-          ))}
-        </ul>
+        {visibles.length === 0 ? (
+          <p className="text-sm text-muted-foreground">{vide}</p>
+        ) : (
+          <ul className="space-y-3">
+            {visibles.map((s) => (
+              <LigneSuggestion
+                key={s.id}
+                s={s}
+                hms={hms}
+                compact={false}
+                pending={mut.isPending}
+                onStatut={onStatut}
+              />
+            ))}
+          </ul>
+        )}
       </CardContent>
     </Card>
   );

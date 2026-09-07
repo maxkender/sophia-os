@@ -1,0 +1,37 @@
+import { useQuery } from "@tanstack/react-query";
+
+import {
+  chargerStatsCreateurs,
+  dernierRunRecrutement,
+  listerCreateursRecrutement,
+  listerHmsRecrutement,
+  listerSuggestionsRecrutement,
+} from "./api";
+
+export function useRecrutements() {
+  const hms = useQuery({ queryKey: ["recrutements", "hms"], queryFn: listerHmsRecrutement });
+  const createurs = useQuery({
+    queryKey: ["recrutements", "createurs"],
+    queryFn: listerCreateursRecrutement,
+  });
+  const suggestions = useQuery({
+    queryKey: ["recrutements", "suggestions"],
+    queryFn: () => listerSuggestionsRecrutement(),
+  });
+  const run = useQuery({ queryKey: ["recrutements", "run"], queryFn: dernierRunRecrutement });
+  const stats = useQuery({
+    queryKey: ["recrutements", "stats", (createurs.data ?? []).map((c) => c.id).join("|")],
+    queryFn: () => chargerStatsCreateurs(createurs.data ?? []),
+    enabled: (createurs.data?.length ?? 0) > 0,
+  });
+
+  return {
+    hms: hms.data ?? [],
+    createurs: createurs.data ?? [],
+    suggestions: suggestions.data ?? [],
+    run: run.data ?? null,
+    stats: stats.data ?? new Map(),
+    isPending: hms.isPending || createurs.isPending,
+    error: hms.error ?? createurs.error ?? suggestions.error,
+  };
+}

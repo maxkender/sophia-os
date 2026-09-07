@@ -20,11 +20,12 @@ import {
   Settings,
   UserRound,
   Users,
+  UserPlus,
   Video,
 } from "lucide-react";
 
 import { useApplication } from "@/features/moteur/ApplicationContext";
-import { nomApplication } from "@/features/moteur/applications";
+import { nomApplication, estSlugSophia } from "@/features/moteur/applications";
 import { SelectApplication } from "@/features/moteur/SelectApplication";
 import { AppShell } from "./AppShell";
 
@@ -151,6 +152,17 @@ export function AdminLayout() {
               description: t("navDesc.suiviRc"),
             },
             { to: "/admin/posters", label: t("nav.posters"), icon: Users, description: t("navDesc.posters") },
+            ...(estSlugSophia(slug)
+              ? [
+                  {
+                    to: "/admin/recrutements",
+                    label: t("nav.recrutements"),
+                    icon: UserPlus,
+                    description: t("navDesc.recrutements"),
+                    end: false,
+                  },
+                ]
+              : []),
             {
               to: "/admin/reviews",
               label: t("nav.reviews"),

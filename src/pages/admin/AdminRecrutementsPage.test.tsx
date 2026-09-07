@@ -145,9 +145,13 @@ describe("AdminRecrutementsPage", () => {
     expect(screen.getByText("France")).toBeInTheDocument();
     expect(screen.getByText("Royaume-Uni")).toBeInTheDocument();
     expect(screen.getByText("Inbox suggestions")).toBeInTheDocument();
+    expect(screen.getAllByText("Messages à envoyer").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Actions à effectuer").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("À faire toi-même").length).toBeGreaterThan(0);
     expect(screen.getByText("Répondre à Ada")).toBeInTheDocument();
     expect(screen.queryByText(/\/ 10/)).not.toBeInTheDocument();
     expect(screen.getByText("Valider")).toBeInTheDocument();
+    expect(screen.getAllByText("Fait manuellement").length).toBeGreaterThan(0);
   });
 
   it("ouvre la page pays en phase 0", () => {
@@ -156,6 +160,8 @@ describe("AdminRecrutementsPage", () => {
     expect(screen.getAllByText(/Phase 0/).length).toBeGreaterThan(0);
     expect(screen.getAllByText("Ada Lovelace").length).toBeGreaterThan(0);
     expect(screen.getByText("Ajouté à l’équipe Upwork (manuel)")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Talks" })).toBeInTheDocument();
+    expect(screen.getByText("Accès OS + Slack · En cours")).toBeInTheDocument();
   });
 
   it("redirige un pays inconnu", () => {
@@ -176,6 +182,14 @@ describe("AdminRecrutementsPage", () => {
           corps: "Créer adal@sophia.com et envoyer les codes.",
           empreinte: "acces_os:h1",
         }),
+        suggestion({
+          id: "s3",
+          kind: "action",
+          canal: "interne",
+          titre: "Ajouter Ada à l’équipe Upwork",
+          corps: "À faire dans le dashboard Upwork (l’autom ne peut pas).",
+          empreinte: "upwork_team:h1",
+        }),
       ],
       run: null,
       stats: new Map(),
@@ -189,10 +203,13 @@ describe("AdminRecrutementsPage", () => {
     fireEvent.click(screen.getByRole("button", { name: /détails/i }));
     expect(screen.getByText("Dernier message Upwork")).toBeInTheDocument();
     expect(screen.getByText("Étapes (coche à la main)")).toBeInTheDocument();
-    expect(screen.getByText("Messages proposés")).toBeInTheDocument();
-    expect(screen.getByText("Actions proposées")).toBeInTheDocument();
+    expect(screen.getAllByText("Messages à envoyer").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Actions à effectuer").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("À faire toi-même").length).toBeGreaterThan(0);
     expect(screen.getAllByText("Répondre à Ada").length).toBeGreaterThan(1);
     expect(screen.getAllByText("Créer le compte OS").length).toBeGreaterThan(1);
+    expect(screen.getAllByText("Ajouter Ada à l’équipe Upwork").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Fait manuellement").length).toBeGreaterThan(0);
   });
 
   it("affiche les stats OS phase 2 (posts / vues / $ / 1k)", () => {

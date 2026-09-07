@@ -1,14 +1,8 @@
 import { supabase } from "@/lib/supabase/client";
 import { estSlugSophia } from "@/features/moteur/applications";
-import { compteEnProcessus } from "@/features/moteur/warmup";
 import { estCompteTestRecrutement } from "./constantes";
 import { labelsDesComptes } from "@/features/moteur/api";
-import {
-  aggregerPassagesCompte,
-  assemblerStatsCreateur,
-  derniersJoursParis,
-  type PassageStatsRow,
-} from "./stats";
+import { assemblerStatsCreateur } from "./stats";
 import { bornerCibleCreateurs } from "./constantes";
 import type {
   ChampHorodatageCreateur,
@@ -31,9 +25,6 @@ const CRE_SELECT =
 const SUG_SELECT =
   "id, hm_id, createur_id, pays, phase, kind, canal, titre, corps, prompt_autom, empreinte, statut, validee_at, ignoree_at, executee_at, execution_log, created_at, updated_at";
 
-const IN_CHUNK = 80;
-const PAGE_PASSAGES = 1000;
-
 async function slugParApplication(): Promise<Map<string, string>> {
   const { data, error } = await supabase.from("applications").select("id, slug");
   if (error) throw error;
@@ -43,45 +34,6 @@ async function slugParApplication(): Promise<Map<string, string>> {
 function estCompteSophia(applicationId: string | null | undefined, slugs: Map<string, string>): boolean {
   if (!applicationId) return true;
   return estSlugSophia(slugs.get(applicationId) ?? null);
-}
-
-async function listerPassagesStats(
-  compteIds: string[],
-  debut: string,
-  fin: string,
-): Promise<PassageStatsRow[]> {
-  const parId = new Map<string, PassageStatsRow>();
-  const ranger = async (
-    chunk: string[],
-    kind: "prevus" | "publies",
-  ): Promise<void> => {
-    let from = 0;
-    for (;;) {
-      const base = supabase
-        .from("passages")
-        .select("id, compte_id, statut, date_publication_prevue, publie_at, vues")
-        .in("compte_id", chunk);
-      const q =
-        kind === "prevus"
-          ? base
-              .gte("date_publication_prevue", debut)
-              .lte("date_publication_prevue", fin)
-              .neq("statut", "brouillon")
-          : base.not("publie_at", "is", null);
-      const { data, error } = await q.range(from, from + PAGE_PASSAGES - 1);
-      if (error) throw error;
-      const rows = (data ?? []) as PassageStatsRow[];
-      for (const r of rows) parId.set(r.id, r);
-      if (rows.length < PAGE_PASSAGES) break;
-      from += PAGE_PASSAGES;
-    }
-  };
-  for (let i = 0; i < compteIds.length; i += IN_CHUNK) {
-    const chunk = compteIds.slice(i, i + IN_CHUNK);
-    await ranger(chunk, "prevus");
-    await ranger(chunk, "publies");
-  }
-  return [...parId.values()];
 }
 
 export async function listerHmsRecrutement(): Promise<RecrutementHm[]> {
@@ -282,12 +234,16 @@ export async function majChampCreateur(
 export async function majStatutSuggestion(
   id: string,
   statut: StatutSuggestion,
+  opts?: { manuel?: boolean },
 ): Promise<void> {
   const now = new Date().toISOString();
   const patch: Record<string, unknown> = { statut, updated_at: now };
   if (statut === "validee") patch.validee_at = now;
   if (statut === "ignoree") patch.ignoree_at = now;
-  if (statut === "executee") patch.executee_at = now;
+  if (statut === "executee") {
+    patch.executee_at = now;
+    if (opts?.manuel) patch.execution_log = "manuel";
+  }
   const { error } = await supabase.from("recrutement_suggestions").update(patch).eq("id", id);
   if (error) throw error;
 }
@@ -327,102 +283,35 @@ export async function chargerStatsCreateurs(
   const avecProfil = createurs.filter((c) => Boolean(c.profile_id));
   if (avecProfil.length === 0) return out;
 
-  const posterIds = [...new Set(avecProfil.map((c) => c.profile_id!))];
+  const { data, error } = await supabase.rpc("stats_recrutement_10j");
+  if (error) throw error;
 
-  const { data: profilsCout } = await supabase
-    .from("profiles")
-    .select("id, cout_mensuel")
-    .in("id", posterIds);
-  const coutParPoster = new Map(
-    (profilsCout ?? []).map((p) => [p.id as string, (p.cout_mensuel as number | null) ?? null]),
-  );
-
-  const jours = derniersJoursParis();
-  const debut = jours[0]!;
-  const fin = jours[jours.length - 1]!;
-
-  const slugs = await slugParApplication();
-  const { data: comptes, error: eComptes } = await supabase
-    .from("comptes")
-    .select("id, poster_id, langue, application_id, warmup_started_at, warmup_ends_at")
-    .in("poster_id", posterIds)
-    .eq("is_active", true);
-  if (eComptes) throw eComptes;
-
-  type CompteRow = {
-    id: string;
-    poster_id: string;
-    langue: string | null;
-    application_id: string | null;
-    warmup_started_at: string | null;
-    warmup_ends_at: string | null;
+  type Row = {
+    createur_id: string;
+    prevus: number;
+    postes: number;
+    vues_moy_10: number | null;
+    vues_10j: number;
+    cout_mensuel: number | null;
+    essai: boolean;
   };
-  const comptesSophia = ((comptes ?? []) as CompteRow[]).filter((c) =>
-    estCompteSophia(c.application_id, slugs),
-  );
-
-  const comptesPour = (posterId: string, pays: string) =>
-    comptesSophia.filter(
-      (c) => c.poster_id === posterId && (c.langue ?? "").toLowerCase() === pays.toLowerCase(),
-    );
-
-  const compteIds = [...new Set(comptesSophia.map((c) => c.id))];
-  const parCompte = new Map<string, PassageStatsRow[]>();
-  if (compteIds.length > 0) {
-    const passages = await listerPassagesStats(compteIds, debut, fin);
-    for (const p of passages) {
-      const liste = parCompte.get(p.compte_id) ?? [];
-      liste.push(p);
-      parCompte.set(p.compte_id, liste);
-    }
-  }
+  const parId = new Map(((data ?? []) as Row[]).map((r) => [r.createur_id, r]));
 
   for (const cre of avecProfil) {
-    const comptesPays = comptesPour(cre.profile_id!, cre.pays);
-    const idsProcess = comptesPays.filter((c) =>
-      compteEnProcessus({
-        warmup_started_at: c.warmup_started_at,
-        warmup_ends_at: c.warmup_ends_at,
-      }),
-    );
-    const essai = comptesPays.length > 0 && idsProcess.length === 0;
-    let prevus = 0;
-    let postes = 0;
-    let vues10j = 0;
-    const passagesPays: PassageStatsRow[] = [];
-    for (const compte of comptesPays) {
-      const apresWarmup = compteEnProcessus({
-        warmup_started_at: compte.warmup_started_at,
-        warmup_ends_at: compte.warmup_ends_at,
-      });
-      const rows = parCompte.get(compte.id) ?? [];
-      passagesPays.push(...rows);
-      const agg = aggregerPassagesCompte(rows, {
-        debut,
-        fin,
-        apresWarmup,
-      });
-      prevus += agg.prevus;
-      postes += agg.postes;
-      vues10j += agg.vues10j;
-    }
-    const vuesMoy10 = aggregerPassagesCompte(passagesPays, {
-      debut,
-      fin,
-      apresWarmup: true,
-    }).vuesMoy10;
+    const row = parId.get(cre.id);
     out.set(
       cre.id,
       assemblerStatsCreateur({
         posterId: cre.profile_id!,
-        prevus,
-        postes,
-        vuesMoy10,
-        vues10j,
-        coutMensuel: coutParPoster.get(cre.profile_id!) ?? null,
-        essai,
+        prevus: row?.prevus ?? 0,
+        postes: row?.postes ?? 0,
+        vuesMoy10: row?.vues_moy_10 ?? null,
+        vues10j: Number(row?.vues_10j ?? 0),
+        coutMensuel: row?.cout_mensuel != null ? Number(row.cout_mensuel) : null,
+        essai: Boolean(row?.essai),
       }),
     );
   }
   return out;
 }
+

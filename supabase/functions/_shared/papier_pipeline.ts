@@ -135,3 +135,20 @@ export function tickPapierDoitEnchainer(tick: {
   if (tick.statut === "stopped" || tick.statut === "failed") return false;
   return !tick.done;
 }
+
+/** Hold à poser pour couper l'auto-chaîne (mode manuel). */
+export function holdPourCouperAuto(opts: {
+  statut: string;
+  etape?: string | null;
+  hold?: PapierPipelineHold;
+}): PapierPipelineHold {
+  if (opts.hold) return opts.hold;
+  const active = etapeActivePipeline({
+    statut: opts.statut,
+    etape: opts.etape,
+    hold: opts.hold,
+  });
+  if (active === "topic") return "topic";
+  if (active === "script") return "script";
+  return "images";
+}

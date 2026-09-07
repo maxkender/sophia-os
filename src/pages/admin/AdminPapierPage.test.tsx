@@ -42,6 +42,7 @@ vi.mock("@/features/moteur/api", async (importOriginal) => {
     proposerTopicPapier: () => proposerTopicPapier(),
     validerEtapePapier: vi.fn(),
     arreterPapier: (...args: unknown[]) => arreterPapier(...args),
+    changerModePapier: vi.fn(),
     changerVoixPapier: vi.fn(),
     relancerPapier: vi.fn(),
     regenererPapier: vi.fn(),

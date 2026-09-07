@@ -1011,6 +1011,7 @@ async function arreterUnMaster(supabase: Supabase, id: string): Promise<PapierMa
       etape: "stopped",
       annule: true,
       busy: false,
+      pipeline_mode: "manuel",
       pipeline_hold: null,
       erreur: null,
     },

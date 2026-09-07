@@ -3566,13 +3566,14 @@ export async function arreterPapier(id: string): Promise<PapierTickResultat> {
   const now = new Date().toISOString();
   const { data: regle } = await supabase.from("reglages").select("valeur").eq("cle", "papier").maybeSingle();
   const papier = normaliserReglagesPapier(regle?.valeur);
-  await ecrireReglage("papier", { ...papier, actif: false });
+  await ecrireReglage("papier", { ...papier, actif: false, pipeline_mode: "manuel" });
 
   const stopPatch = {
     statut: "stopped",
     etape: "stopped",
     annule: true,
     busy: false,
+    pipeline_mode: "manuel",
     pipeline_hold: null,
     erreur: null,
     updated_at: now,
@@ -3592,6 +3593,29 @@ export async function arreterPapier(id: string): Promise<PapierTickResultat> {
 
   void invoke<PapierTickResultat>("papier-cm", { action: "arreter", manuel: true, id }).catch(() => null);
   return { ok: true, done: true, kick: false, masterId: id, statut: "stopped" };
+}
+
+export async function changerModePapier(
+  mode: "auto" | "manuel",
+  opts?: { masterId?: string; hold?: "topic" | "script" | "images" | null },
+): Promise<void> {
+  const { data: regle } = await supabase.from("reglages").select("valeur").eq("cle", "papier").maybeSingle();
+  const papier = normaliserReglagesPapier(regle?.valeur);
+  await ecrireReglage("papier", { ...papier, pipeline_mode: mode });
+  if (!opts?.masterId) return;
+  const patch: Record<string, unknown> = {
+    pipeline_mode: mode,
+    updated_at: new Date().toISOString(),
+  };
+  if (mode === "manuel") {
+    patch.pipeline_hold = opts.hold ?? "topic";
+  }
+  const { error } = await supabase
+    .from("papier_masters")
+    .update(patch)
+    .eq("id", opts.masterId)
+    .neq("statut", "ready");
+  if (error) throw error;
 }
 
 export const changerVoixPapier = (id: string, voice: string) =>

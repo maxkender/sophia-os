@@ -68,6 +68,9 @@ Playbook talks HM = document OS **SOPHIA HMs — Onboarding** (`guide_manager`).
 - Passage **0 → 1** : job post **de ce pays** **ou** déjà des créateurs **ici**.
 - Job post = job posté par ce freelancer sur l’org Vik Studios, **attribué au pays du titre**. Un HM multi-pays reste en 0 sur un pays sans job ni créateur.
 - HM OS existants : seed déjà fait (`hiring_manager` **et** `directing_manager`). Ceux sans créateur ni job post restent en 0.
+- **Posters OS sans `manager_id`** : les rattacher au HM du pays (compte Sophia `langue` = pays). Ne pas les laisser hors Recrutements. Dummy `aa@sophia.com` ignoré.
+- **Upwork Vik Studios** = source des `upwork_freelancer_id` et des jobs. Un contrat ACTIVE sans compte OS → quand même une ligne `recrutement_createurs` (phase 1, pas encore `rejoint_os`). Pays du créateur = langue du **compte OS** s’il existe, sinon pays du **titre de job**.
+- France : HM = remi (`remim@sophia.com`). Job FR rempli côté client (pas de contrat hourly HM). Créateurs FR = posters OS + contrats France / Sophia encore hors OS.
 
 ## Stats phase 2 (ne pas inventer)
 

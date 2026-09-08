@@ -136,6 +136,14 @@ describe("phases HM", () => {
     expect(createursDuHmPays([cre(), cre({ id: "c2", pays: "de" })], "h1", "fr")).toHaveLength(1);
   });
 
+  it("compte le HM sur un pays via ses créateurs même si pays[] est incomplet", () => {
+    const fiche = hm({ pays: ["es"] });
+    const fr = cre({ pays: "fr" });
+    expect(hmConcernePays(fiche, "fr")).toBe(false);
+    expect(hmConcernePays(fiche, "fr", [fr])).toBe(true);
+    expect(hmConcernePays(fiche, "es", [fr])).toBe(true);
+  });
+
   it("checklist seulement si Slack + OS + Upwork admin", () => {
     const partiel = hm({
       talks_at: "x",

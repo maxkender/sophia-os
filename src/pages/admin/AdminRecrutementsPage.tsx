@@ -17,7 +17,7 @@ export function AdminRecrutementsPage() {
   const { hms, createurs, suggestions, run, isPending, error } = useRecrutements();
 
   const cartes = PAYS_OS.map((pays) => {
-    const hmsPays = hms.filter((h) => hmConcernePays(h, pays));
+    const hmsPays = hms.filter((h) => hmConcernePays(h, pays, createurs));
     let phase0 = 0;
     let phase1 = 0;
     let phase2 = 0;

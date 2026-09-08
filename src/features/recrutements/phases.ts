@@ -299,8 +299,14 @@ export function createursAvecPremierPost(
   return createurs.filter((c) => Boolean(c.premier_post_at));
 }
 
-export function hmConcernePays(hm: RecrutementHm, pays: string): boolean {
-  return (hm.pays ?? []).map((p) => p.toLowerCase()).includes(pays.toLowerCase());
+export function hmConcernePays(
+  hm: RecrutementHm,
+  pays: string,
+  createurs: RecrutementCreateur[] = [],
+): boolean {
+  const p = pays.toLowerCase();
+  if ((hm.pays ?? []).map((x) => x.toLowerCase()).includes(p)) return true;
+  return createurs.some((c) => c.hm_id === hm.id && c.pays.toLowerCase() === p);
 }
 
 export function createursDuHmPays(

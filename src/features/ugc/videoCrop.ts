@@ -36,7 +36,7 @@ export function cheminVideoCroppee(reactionId: string, ext = "mp4"): string {
   return `ugc/reactions/${reactionId}/video.${ext}`;
 }
 
-/** Args ffmpeg.wasm : recode H.264 (jamais `-c copy` — sinon écran noir hors keyframe). */
+/** Args ffmpeg.wasm fallback : recode H.264 @ 30 fps (jamais `-c copy` — sinon écran noir hors keyframe). */
 export function argsFfmpegTrimH264(
   startSec: number,
   endSec: number,
@@ -58,6 +58,8 @@ export function argsFfmpegTrimH264(
     "18",
     "-pix_fmt",
     "yuv420p",
+    "-r",
+    "30",
     ...(withAudio ? (["-c:a", "aac", "-ac", "2", "-b:a", "128k"] as const) : (["-an"] as const)),
     "-movflags",
     "+faststart",
@@ -365,8 +367,8 @@ function octetsVersBlob(data: Uint8Array | string, mime: string): Blob {
 }
 
 /**
- * Coupe le MP4 en recodant H.264 (écran noir avec `-c copy` hors keyframe).
- * Fallback : captureStream de la lecture.
+ * Fallback navigateur (plus utilisé par l’admin) : recode H.264 @ 30 fps.
+ * Le trim production passe par Fal lossless (`ugc-reactions`) pour garder le FPS source.
  */
 export async function trimmerVideoLossless(
   videoUrl: string,

@@ -14,7 +14,8 @@ Remplace le Google Sheet / Forms du guide HM.
 - OS : `https://sophia-marketing-orga.vercel.app`
 - Login OS : `{prenom}{1re lettre du nom}@sophia.com` (sans accents), mot de passe `12345678`.
   L’email perso se stocke à part (`recrutement_hms.email_perso`) — Slack + copie admin pour Upwork team.
-- **testt** ignoré. DMs (Amanda, Regina) hors scope.
+- **testt** ignoré.
+- **Directing managers** (Amanda HU/TR, Regina DE) : **dans Recrutements**, ce sont des HMs avec un vrai pipeline. Ne pas les recruter en phase 0 (elles sont déjà internes). Leurs threads Upwork ne sont pas des candidatures HM à traiter comme Vanessa/Andrii. Tu peux leur écrire pour le **suivi créateurs** de leur pays.
 - HM : **8 $/h** hourly Upwork. Créateurs : essai **15 $** puis **60 $/mois**. Ne jamais mélanger les deux.
 - Cible : **10 créateurs / HM / pays** (réglable 0–30 par l’admin). Plusieurs HM par pays. Phase **locale** au pays (un job NL ne sort pas le HM de phase 0 en PL). Cartes 1 et 2 dupliquées, créateurs non dupliqués (1er post → phase 2 seulement).
 - Max **1 suggestion nouvelle / HM / passage**. Valider une par une. FR si le thread est FR, sinon EN.
@@ -66,7 +67,7 @@ Playbook talks HM = document OS **SOPHIA HMs — Onboarding** (`guide_manager`).
 - **2 — Suivi.** Dès **un** créateur de ce HM dans ce pays a un premier post. HM peut être en **1 et 2 en même temps**.
 - Passage **0 → 1** : job post **de ce pays** **ou** déjà des créateurs **ici**.
 - Job post = job posté par ce freelancer sur l’org Vik Studios, **attribué au pays du titre**. Un HM multi-pays reste en 0 sur un pays sans job ni créateur.
-- HM OS existants : seed déjà fait. Ceux sans créateur ni job post restent en 0.
+- HM OS existants : seed déjà fait (`hiring_manager` **et** `directing_manager`). Ceux sans créateur ni job post restent en 0.
 
 ## Stats phase 2 (ne pas inventer)
 

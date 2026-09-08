@@ -5113,8 +5113,10 @@ function slugify(nom: string): string {
 }
 
 /** Marque système (checkmark compte/HM) — jamais un label thématique sélectionnable. */
-export function estMarqueUgcAiVideo(lab: { slug?: string | null }): boolean {
-  return lab.slug === "ugc-ai-video";
+export function estMarqueUgcAiVideo(lab: { slug?: string | null; nom?: string | null }): boolean {
+  const slug = (lab.slug ?? "").trim().toLowerCase();
+  const nom = (lab.nom ?? "").trim().toLowerCase().replace(/\s+/g, " ");
+  return slug === "ugc-ai-video" || nom === "ugc ai video";
 }
 
 /** Labels thématiques (hors marques système `ugc-ai-video` / `hook`). */
@@ -5417,10 +5419,10 @@ export { ELO_MANUEL_DEFAUT, SLIDES_MANUEL_MAX, SLIDES_MANUEL_MIN };
 export async function supprimerLabel(id: string): Promise<void> {
   const { data: lab } = await supabase
     .from("labels")
-    .select("slug")
+    .select("slug, nom")
     .eq("id", id)
     .maybeSingle();
-  if (lab?.slug === "ugc-ai-video" || lab?.slug === SLUG_HOOK) {
+  if (lab && estLabelSysteme(lab)) {
     throw new Error("LABEL_MARQUE_PROTEGE");
   }
   const { error } = await supabase.from("labels").delete().eq("id", id);
@@ -5458,8 +5460,18 @@ export async function setLabelsHmUgcVideo(
   if (delErr) throw delErr;
   const uniques = [...new Set(labelIds.filter(Boolean))];
   if (uniques.length === 0) return;
+  const { data: labs, error: labErr } = await supabase
+    .from("labels")
+    .select("id, slug, nom, ugc_ai_video")
+    .in("id", uniques)
+    .eq("ugc_ai_video", true);
+  if (labErr) throw labErr;
+  const valides = (labs ?? [])
+    .filter((l) => !estLabelSysteme(l))
+    .map((l) => l.id as string);
+  if (valides.length === 0) return;
   const { error } = await supabase.from("hm_ugc_video_labels").insert(
-    uniques.map((label_id) => ({ profile_id: profileId, label_id })),
+    valides.map((label_id) => ({ profile_id: profileId, label_id })),
   );
   if (error) throw error;
 }
@@ -5526,8 +5538,22 @@ async function syncLabels(
   if (error) throw error;
 }
 
-export const setLabelsCompte = (compteId: string, labelIds: string[]) =>
-  syncLabels("compte_labels", "compte_id", compteId, labelIds);
+export async function setLabelsCompte(compteId: string, labelIds: string[]): Promise<void> {
+  const uniques = [...new Set(labelIds.filter(Boolean))];
+  if (uniques.length === 0) {
+    await syncLabels("compte_labels", "compte_id", compteId, []);
+    return;
+  }
+  const { data, error } = await supabase
+    .from("labels")
+    .select("id, slug, nom, ugc_ai_video")
+    .in("id", uniques);
+  if (error) throw error;
+  const ok = (data ?? [])
+    .filter((l) => !estLabelSysteme(l))
+    .map((l) => l.id as string);
+  await syncLabels("compte_labels", "compte_id", compteId, ok);
+}
 
 /** Écrit les labels de la source puis les propage à tous ses slideshows + images. */
 export async function setLabelsSource(

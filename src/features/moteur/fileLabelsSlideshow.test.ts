@@ -3,21 +3,28 @@ import { describe, expect, it } from "vitest";
 import {
   consommerFileSlideshow,
   estLabelFileSlideshow,
+  estLabelInterditCompte,
   estLabelUgcAiVideo,
 } from "./fileLabelsSlideshow";
 
 describe("estLabelFileSlideshow", () => {
   it("accepte un label thématique slideshow", () => {
     expect(estLabelFileSlideshow({ slug: "alpha-male", ugc_ai_video: false })).toBe(true);
-    expect(estLabelFileSlideshow({ slug: "test" })).toBe(true);
+    expect(estLabelFileSlideshow({ slug: "classic-study" })).toBe(true);
   });
 
   it("refuse Hook, la marque système, et les labels UGC AI VIDEO", () => {
     expect(estLabelFileSlideshow({ slug: "hook" })).toBe(false);
+    expect(estLabelFileSlideshow({ slug: "HOOK" })).toBe(false);
+    expect(estLabelFileSlideshow({ nom: "Hook" })).toBe(false);
     expect(estLabelFileSlideshow({ slug: "ugc-ai-video" })).toBe(false);
+    expect(estLabelFileSlideshow({ nom: "UGC AI VIDEO" })).toBe(false);
     expect(estLabelFileSlideshow({ slug: "test", ugc_ai_video: true })).toBe(false);
     expect(estLabelUgcAiVideo({ slug: "test", ugc_ai_video: true })).toBe(true);
     expect(estLabelUgcAiVideo({ slug: "ugc-ai-video" })).toBe(true);
+    expect(estLabelInterditCompte({ slug: "hook" })).toBe(true);
+    expect(estLabelInterditCompte({ nom: "UGC AI VIDEO" })).toBe(true);
+    expect(estLabelInterditCompte({ slug: "classic-study" })).toBe(false);
   });
 });
 

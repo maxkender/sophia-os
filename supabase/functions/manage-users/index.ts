@@ -6,6 +6,8 @@ import {
 import {
   consommerFileSlideshow,
   estLabelFileSlideshow,
+  estLabelInterditCompte,
+  estLabelSysteme,
 } from "../_shared/labels_file.ts";
 import { retirerContentCredentialsBytes } from "../_shared/c2pa.ts";
 import { appliquerIdentiteInstantanee } from "../_shared/persona.ts";
@@ -84,6 +86,7 @@ function resoudrePremierCompte(
  * Priorité : file de la langue du poster → file générale (`items`) → least-used.
  * Labels UGC AI VIDEO (ex. `test`) exclus de la file et du fallback — réservés
  * aux créateurs nés d'un HM `hm_ugc_ai_video`.
+ * Hook et la marque `ugc-ai-video` ne sont JAMAIS posés sur un créateur.
  * UGC slideshow → persona libre, nom + avatar (profil 1:1 si dispo, sinon face)
  * sans métadonnées ; label forcé parmi ceux qui ont des slideshows ugc_compatible.
  * HM `hm_ugc_ai_video` → comptes ugc_ai_video, persona unique (pool partagé),
@@ -899,7 +902,7 @@ async function idsLabelsFileSlideshow(
   supabase: Supabase,
   applicationId?: string | null,
 ): Promise<Set<string>> {
-  let q = supabase.from("labels").select("id, slug, ugc_ai_video");
+  let q = supabase.from("labels").select("id, slug, nom, ugc_ai_video");
   if (applicationId) q = q.eq("application_id", applicationId);
   const { data } = await q;
   return new Set(
@@ -908,6 +911,29 @@ async function idsLabelsFileSlideshow(
       .map((l) => l.id as string)
       .filter(Boolean),
   );
+}
+
+/** Rejette Hook / marque UGC AI VIDEO (et, hors compte vidéo, tout label ugc_ai_video). */
+async function filtrerLabelsCompte(
+  supabase: Supabase,
+  labelIds: string[],
+  opts: { ugcAiVideo?: boolean } = {},
+): Promise<string[]> {
+  const ids = [...new Set(labelIds.filter(Boolean))];
+  if (ids.length === 0) return [];
+  const { data } = await supabase
+    .from("labels")
+    .select("id, slug, nom, ugc_ai_video")
+    .in("id", ids);
+  const byId = new Map((data ?? []).map((l) => [l.id as string, l]));
+  const out: string[] = [];
+  for (const id of ids) {
+    const lab = byId.get(id);
+    if (!lab || estLabelInterditCompte(lab)) continue;
+    if (!opts.ugcAiVideo && !estLabelFileSlideshow(lab)) continue;
+    out.push(id);
+  }
+  return out;
 }
 
 /**
@@ -949,7 +975,10 @@ async function popLabelFile(
     );
   }
   if (languePop.item) {
-    return { ok: true, item: languePop.item, fromQueue: true, queueKey: lang };
+    const ok = await filtrerLabelsCompte(supabase, [languePop.item.label_id]);
+    if (ok[0]) {
+      return { ok: true, item: languePop.item, fromQueue: true, queueKey: lang };
+    }
   }
 
   const generalPop = consommerFileSlideshow(slice.items, eligible);
@@ -963,7 +992,10 @@ async function popLabelFile(
     );
   }
   if (generalPop.item) {
-    return { ok: true, item: generalPop.item, fromQueue: true, queueKey: "general" };
+    const ok = await filtrerLabelsCompte(supabase, [generalPop.item.label_id]);
+    if (ok[0]) {
+      return { ok: true, item: generalPop.item, fromQueue: true, queueKey: "general" };
+    }
   }
 
   const labelId = await labelMoinsUtiliseParLangue(supabase, langue, {
@@ -971,7 +1003,9 @@ async function popLabelFile(
     applicationId: application?.id ?? null,
   });
   if (!labelId) return { ok: false, error: "NO_LABELS" };
-  return { ok: true, item: { label_id: labelId, ugc: false }, fromQueue: false };
+  const ok = await filtrerLabelsCompte(supabase, [labelId]);
+  if (!ok[0]) return { ok: false, error: "NO_LABELS" };
+  return { ok: true, item: { label_id: ok[0], ugc: false }, fromQueue: false };
 }
 
 /** Hiring manager marqué UGC AI VIDEO (ses créateurs = marque vidéo + labels HM). */
@@ -1005,14 +1039,15 @@ async function remplacerHmUgcVideoLabels(
 ): Promise<void> {
   await supabase.from("hm_ugc_video_labels").delete().eq("profile_id", profileId);
   if (labelIds.length === 0) return;
-  // Ne garder que les labels du pool UGC AI VIDEO, hors marque système.
+  // Ne garder que les labels du pool UGC AI VIDEO, hors Hook / marque système.
   const { data: ok } = await supabase
     .from("labels")
-    .select("id")
+    .select("id, slug, nom, ugc_ai_video")
     .in("id", labelIds)
-    .eq("ugc_ai_video", true)
-    .neq("slug", "ugc-ai-video");
-  const valides = (ok ?? []).map((r) => r.id as string);
+    .eq("ugc_ai_video", true);
+  const valides = (ok ?? [])
+    .filter((r) => !estLabelSysteme(r))
+    .map((r) => r.id as string);
   if (valides.length === 0) return;
   await supabase.from("hm_ugc_video_labels").insert(
     valides.map((label_id) => ({ profile_id: profileId, label_id })),
@@ -1042,7 +1077,7 @@ async function labelsPourCreateurUgcVideo(
     }
   }
 
-  return [...ids];
+  return filtrerLabelsCompte(supabase, [...ids], { ugcAiVideo: true });
 }
 
 /**
@@ -1073,6 +1108,11 @@ async function preparerFileEtPersona(
       applicationSlug: application?.slug,
     }
     : null;
+  const autorises = await filtrerLabelsCompte(supabase, [fileItem.label_id]);
+  if (!autorises[0]) {
+    return { ok: false, error: "NO_LABELS" };
+  }
+  fileItem = { ...fileItem, label_id: autorises[0] };
   let personaUgc: PersonaUgcLibre | null = null;
 
   if (fileItem.ugc) {
@@ -1086,7 +1126,12 @@ async function preparerFileEtPersona(
         if (fileItemQueue) await unshiftLabelFile(supabase, fileItemQueue);
         return { ok: false, error: "NO_UGC_LABEL" };
       }
-      fileItem = { label_id: fallback, ugc: true };
+      const okFallback = await filtrerLabelsCompte(supabase, [fallback]);
+      if (!okFallback[0]) {
+        if (fileItemQueue) await unshiftLabelFile(supabase, fileItemQueue);
+        return { ok: false, error: "NO_UGC_LABEL" };
+      }
+      fileItem = { label_id: okFallback[0], ugc: true };
     }
     personaUgc = await personaUgcLibre(supabase, application?.id ?? null);
     if (!personaUgc) {
@@ -1290,9 +1335,12 @@ async function preparerCompte(
   const labelIdsVideo = ugcAiVideo
     ? await labelsPourCreateurUgcVideo(supabase, posterId)
     : [];
+  const labelIdSlideshow = !ugcAiVideo && fileItem?.label_id
+    ? (await filtrerLabelsCompte(supabase, [fileItem.label_id]))[0] ?? null
+    : null;
   const labelId = ugcAiVideo
     ? (labelIdsVideo[0] ?? null)
-    : (fileItem?.label_id ?? null);
+    : labelIdSlideshow;
   const aRestaurer = ugcAiVideo ? null : fileItemQueue;
 
   const { data: compte, error } = await supabase

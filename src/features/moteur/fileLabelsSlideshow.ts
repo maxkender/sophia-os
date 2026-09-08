@@ -1,13 +1,17 @@
 import { estLabelSysteme } from "./mediaCaption";
 
 export type LabelFileSlideshow = {
+  id?: string;
   slug?: string | null;
+  nom?: string | null;
   ugc_ai_video?: boolean | null;
 };
 
 /** Label UGC AI VIDEO (thématique ou marque système). */
 export function estLabelUgcAiVideo(lab: LabelFileSlideshow): boolean {
-  return Boolean(lab.ugc_ai_video) || lab.slug === "ugc-ai-video";
+  const slug = (lab.slug ?? "").trim().toLowerCase();
+  const nom = (lab.nom ?? "").trim().toLowerCase().replace(/\s+/g, " ");
+  return Boolean(lab.ugc_ai_video) || slug === "ugc-ai-video" || nom === "ugc ai video";
 }
 
 /**
@@ -17,6 +21,11 @@ export function estLabelUgcAiVideo(lab: LabelFileSlideshow): boolean {
  */
 export function estLabelFileSlideshow(lab: LabelFileSlideshow): boolean {
   return !estLabelSysteme(lab) && !estLabelUgcAiVideo(lab);
+}
+
+/** Hook / marque système : jamais sur un compte, même UGC AI VIDEO. */
+export function estLabelInterditCompte(lab: LabelFileSlideshow): boolean {
+  return estLabelSysteme(lab);
 }
 
 /**

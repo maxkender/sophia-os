@@ -1,18 +1,37 @@
 /** Slug du label système « Hook » (1ʳᵉ slide d'un slideshow). */
 export const SLUG_HOOK = "hook";
+export const SLUG_UGC_AI_VIDEO = "ugc-ai-video";
 
 export const CAPTION_MAX = 180;
 
 export type CaptionStatut = "ok" | "aucune";
 export type CaptionModele = "florence" | "moondream" | "none";
 
-export function estLabelSysteme(lab: { slug?: string | null }): boolean {
-  const slug = lab.slug ?? "";
-  return slug === "ugc-ai-video" || slug === SLUG_HOOK;
+function slugLabel(lab: { slug?: string | null }): string {
+  return (lab.slug ?? "").trim().toLowerCase();
 }
 
-export function estLabelHook(lab: { slug?: string | null }): boolean {
-  return (lab.slug ?? "") === SLUG_HOOK;
+function nomLabel(lab: { nom?: string | null }): string {
+  return (lab.nom ?? "").trim().toLowerCase().replace(/\s+/g, " ");
+}
+
+/** Hook (1ʳᵉ slide) et marque « UGC AI VIDEO » — jamais un label de créateur. */
+export function estLabelSysteme(lab: {
+  slug?: string | null;
+  nom?: string | null;
+}): boolean {
+  const slug = slugLabel(lab);
+  const nom = nomLabel(lab);
+  return (
+    slug === SLUG_UGC_AI_VIDEO ||
+    slug === SLUG_HOOK ||
+    nom === "hook" ||
+    nom === "ugc ai video"
+  );
+}
+
+export function estLabelHook(lab: { slug?: string | null; nom?: string | null }): boolean {
+  return slugLabel(lab) === SLUG_HOOK || nomLabel(lab) === "hook";
 }
 
 /** Réponses vision vides / placeholder → échec, on enchaîne le fallback. */

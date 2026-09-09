@@ -470,6 +470,7 @@ export const en = {
       poste: "Creator's TikTok",
       sansOriginal: "No original TikTok for this slideshow.",
       sansLien: "The creator hasn't pasted the post link.",
+      apercuChargement: "Loading preview…",
       remarques: "Generic remarks",
       placeholder: "Your feedback (FR or EN) — it will be sent in English.",
       ameliorer: "Improve",

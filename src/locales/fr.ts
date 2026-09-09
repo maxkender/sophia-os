@@ -470,6 +470,7 @@ export const fr = {
       poste: "TikTok du créateur",
       sansOriginal: "Pas de TikTok d’origine pour ce slideshow.",
       sansLien: "Le créateur n’a pas collé le lien du post.",
+      apercuChargement: "Chargement de l’aperçu…",
       remarques: "Remarques génériques",
       placeholder: "Ton retour (FR ou EN) — il partira en anglais.",
       ameliorer: "Améliorer",

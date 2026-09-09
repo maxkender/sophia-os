@@ -910,6 +910,13 @@ export function ameliorerReview(texte: string) {
   return invoke<{ texte: string }>("ameliorer-review", { texte });
 }
 
+/** Lien TikTok court → URL canonique + id + miniature (aperçu admin). */
+export function resoudreTiktok(url: string) {
+  return invoke<{ url: string; id: string | null; thumbnail: string | null }>("resoudre-tiktok", {
+    url,
+  });
+}
+
 /** Crée un recruteur (hiring manager) avec une ou plusieurs langues gérées
  *  (admin). Il pourra créer des créateurs dans chacune de ces langues. */
 export function creerRecruteur(input: {

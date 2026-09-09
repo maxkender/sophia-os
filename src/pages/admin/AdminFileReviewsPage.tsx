@@ -31,6 +31,7 @@ import {
   envoyerReview,
   listerFileReviewsJour,
   listerReviewRemarques,
+  listerSlides,
   majReviewRemarque,
   passerPostReview,
   supprimerReviewRemarque,
@@ -188,6 +189,15 @@ export function AdminFileReviewsPage() {
 
   const courant = (file.data ?? [])[0] ?? null;
 
+  const slides = useQuery({
+    queryKey: ["slides", courant?.id],
+    queryFn: () => listerSlides(courant!.id),
+    enabled: Boolean(courant?.id),
+  });
+  const imagesCreateur = (slides.data ?? [])
+    .map((s) => s.media_library?.url)
+    .filter((u): u is string => Boolean(u));
+
   React.useEffect(() => {
     setTexte("");
   }, [courant?.id]);
@@ -289,11 +299,14 @@ export function AdminFileReviewsPage() {
               url={courant.source_url}
               titre={t("fileReviews.original")}
               videLabel={t("fileReviews.sansOriginal")}
+              chargementLabel={t("fileReviews.apercuChargement")}
             />
             <TikTokEmbed
               url={courant.publie_url}
               titre={t("fileReviews.poste")}
               videLabel={t("fileReviews.sansLien")}
+              chargementLabel={t("fileReviews.apercuChargement")}
+              repliImages={imagesCreateur}
             />
           </div>
 

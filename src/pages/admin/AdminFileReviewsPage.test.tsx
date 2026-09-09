@@ -15,6 +15,8 @@ vi.mock("@/features/moteur/api", () => ({
   aujourdhuiParis: () => "2026-09-09",
   listerFileReviewsJour: () => listerFileReviewsJour(),
   listerReviewRemarques: () => listerReviewRemarques(),
+  listerSlides: vi.fn(async () => []),
+  resoudreTiktok: vi.fn(),
   envoyerReview: vi.fn(),
   passerPostReview: vi.fn(),
   ameliorerReview: vi.fn(),

@@ -1,5 +1,6 @@
 import { supabase } from "@/lib/supabase/client";
 import { LANGUES_CIBLES } from "@/features/moteur/langues";
+import { estCompteSlideshowAssigne, isoBornesJourParis } from "@/features/reviews/fileJour";
 import type { Role } from "@/features/auth/AuthContext";
 import type { EvenementEtape } from "@/features/moteur/nettoyageEtapes";
 import type {
@@ -641,15 +642,45 @@ export interface Review {
   note: number | null;
   created_at: string;
   seen_at: string | null;
+  post_id: string | null;
+  publie_url: string | null;
+  source_url: string | null;
+  handle_tiktok: string | null;
+  compte_label: string | null;
+  date_publication: string | null;
 }
 
+export type ReviewCible = {
+  post_id?: string | null;
+  publie_url?: string | null;
+  source_url?: string | null;
+  handle_tiktok?: string | null;
+  compte_label?: string | null;
+  date_publication?: string | null;
+};
+
+const REVIEW_COLONNES =
+  "id, poster_id, body, note, created_at, seen_at, post_id, publie_url, source_url, handle_tiktok, compte_label, date_publication";
+
 /** L'admin envoie une review (retour) à un poster : elle s'affichera en pop-up
- *  à sa prochaine connexion. */
-export async function envoyerReview(posterId: string, body: string): Promise<void> {
+ *  à sa prochaine connexion. Optionnellement liée à un post (file du jour). */
+export async function envoyerReview(
+  posterId: string,
+  body: string,
+  cible?: ReviewCible,
+): Promise<void> {
   const { data: auth } = await supabase.auth.getUser();
-  const { error } = await supabase
-    .from("reviews")
-    .insert({ poster_id: posterId, body: body.trim(), admin_id: auth.user?.id ?? null });
+  const { error } = await supabase.from("reviews").insert({
+    poster_id: posterId,
+    body: body.trim(),
+    admin_id: auth.user?.id ?? null,
+    post_id: cible?.post_id ?? null,
+    publie_url: cible?.publie_url ?? null,
+    source_url: cible?.source_url ?? null,
+    handle_tiktok: cible?.handle_tiktok ?? null,
+    compte_label: cible?.compte_label ?? null,
+    date_publication: cible?.date_publication ?? null,
+  });
   if (error) throw error;
 }
 
@@ -657,7 +688,7 @@ export async function envoyerReview(posterId: string, body: string): Promise<voi
 export async function listerReviews(): Promise<Review[]> {
   const { data, error } = await supabase
     .from("reviews")
-    .select("id, poster_id, body, note, created_at, seen_at")
+    .select(REVIEW_COLONNES)
     .order("created_at", { ascending: false })
     .limit(300);
   if (error) throw error;
@@ -668,7 +699,7 @@ export async function listerReviews(): Promise<Review[]> {
 export async function mesReviewsNonVues(): Promise<Review[]> {
   const { data, error } = await supabase
     .from("reviews")
-    .select("id, poster_id, body, note, created_at, seen_at")
+    .select(REVIEW_COLONNES)
     .is("seen_at", null)
     .order("created_at", { ascending: true });
   if (error) throw error;
@@ -682,6 +713,201 @@ export async function marquerReviewVue(id: string): Promise<void> {
     .update({ seen_at: new Date().toISOString() })
     .eq("id", id);
   if (error) throw error;
+}
+
+export interface PostFileReview {
+  id: string;
+  poster_id: string;
+  compte_id: string;
+  date_publication_prevue: string | null;
+  publie_at: string | null;
+  publie_url: string | null;
+  source_url: string | null;
+  persona_nom: string | null;
+  handle_tiktok: string | null;
+  avatar_url: string | null;
+  poster_prenom: string | null;
+  poster_nom: string | null;
+  langue: string | null;
+}
+
+function sourceUrlDepuisSujet(row: {
+  sujets?: { source_url?: string | null } | { source_url?: string | null }[] | null;
+}): string | null {
+  const sujet = Array.isArray(row.sujets) ? row.sujets[0] : row.sujets;
+  return sujet?.source_url?.trim() || null;
+}
+
+function sourceUrlDepuisContenu(row: {
+  contenus?: { source_url?: string | null } | { source_url?: string | null }[] | null;
+}): string | null {
+  const contenu = Array.isArray(row.contenus) ? row.contenus[0] : row.contenus;
+  return contenu?.source_url?.trim() || null;
+}
+
+type PostFileRow = {
+  id: string;
+  compte_id: string;
+  date_publication_prevue: string | null;
+  publie_at: string | null;
+  publie_url: string | null;
+  sujets?: { source_url?: string | null } | { source_url?: string | null }[] | null;
+  comptes?: {
+    poster_id: string;
+    persona_nom: string | null;
+    handle_tiktok: string | null;
+    avatar_url: string | null;
+    langue: string | null;
+    type_compte: string | null;
+    ugc_ai_video: boolean | null;
+    profiles?:
+      | { prenom: string | null; nom: string | null }
+      | { prenom: string | null; nom: string | null }[]
+      | null;
+  } | null;
+};
+
+/** Slideshows assignés marqués publiés ce jour Paris, hors déjà reviewés / passés. */
+export async function listerFileReviewsJour(opts?: {
+  jour?: string;
+  applicationId?: string | null;
+}): Promise<PostFileReview[]> {
+  const jour = opts?.jour ?? aujourdhuiParis();
+  const { debut, fin } = isoBornesJourParis(jour);
+  let q = supabase
+    .from("posts")
+    .select(
+      "id, compte_id, date_publication_prevue, publie_at, publie_url, est_test, " +
+        "sujets(source_url), " +
+        "comptes!inner(poster_id, persona_nom, handle_tiktok, avatar_url, langue, type_compte, ugc_ai_video, application_id, profiles(prenom, nom))",
+    )
+    .eq("est_test", false)
+    .gte("publie_at", debut)
+    .lt("publie_at", fin)
+    .order("publie_at", { ascending: true });
+  if (opts?.applicationId) q = q.eq("comptes.application_id", opts.applicationId);
+
+  const { data, error } = await q;
+  if (error) throw error;
+  const rows = (data ?? []) as unknown as PostFileRow[];
+  const ids = rows.map((p) => p.id);
+  const vus = new Set<string>();
+  const sourceParPost = new Map<string, string>();
+  const chunk = 80;
+  for (let i = 0; i < ids.length; i += chunk) {
+    const slice = ids.slice(i, i + chunk);
+    const [{ data: deja }, { data: passes }, { data: passages }] = await Promise.all([
+      supabase.from("reviews").select("post_id").in("post_id", slice),
+      supabase.from("review_passes").select("post_id").in("post_id", slice),
+      supabase.from("passages").select("post_id, contenus(source_url)").in("post_id", slice),
+    ]);
+    for (const r of deja ?? []) if (r.post_id) vus.add(r.post_id as string);
+    for (const r of passes ?? []) vus.add(r.post_id as string);
+    for (const p of passages ?? []) {
+      const pid = p.post_id as string | null;
+      const url = sourceUrlDepuisContenu(
+        p as { contenus?: { source_url?: string | null } | { source_url?: string | null }[] | null },
+      );
+      if (pid && url) sourceParPost.set(pid, url);
+    }
+  }
+
+  return rows
+    .filter((p) => {
+      if (vus.has(p.id)) return false;
+      return estCompteSlideshowAssigne({
+        type_compte: p.comptes?.type_compte ?? null,
+        ugc_ai_video: Boolean(p.comptes?.ugc_ai_video),
+      });
+    })
+    .map((p) => {
+      const profil = Array.isArray(p.comptes?.profiles)
+        ? p.comptes.profiles[0]
+        : p.comptes?.profiles;
+      return {
+        id: p.id,
+        poster_id: p.comptes?.poster_id ?? "",
+        compte_id: p.compte_id,
+        date_publication_prevue: p.date_publication_prevue ?? null,
+        publie_at: p.publie_at ?? null,
+        publie_url: p.publie_url ?? null,
+        source_url: sourceParPost.get(p.id) ?? sourceUrlDepuisSujet(p),
+        persona_nom: p.comptes?.persona_nom ?? null,
+        handle_tiktok: p.comptes?.handle_tiktok ?? null,
+        avatar_url: p.comptes?.avatar_url ?? null,
+        poster_prenom: profil?.prenom ?? null,
+        poster_nom: profil?.nom ?? null,
+        langue: p.comptes?.langue ?? null,
+      };
+    });
+}
+
+/** Skip « rien à dire » : le post sort de la file. */
+export async function passerPostReview(postId: string): Promise<void> {
+  const { data: auth } = await supabase.auth.getUser();
+  const { error } = await supabase.from("review_passes").insert({
+    post_id: postId,
+    admin_id: auth.user?.id ?? null,
+  });
+  if (error) throw error;
+}
+
+export interface ReviewRemarque {
+  id: string;
+  titre: string;
+  corps: string;
+  ordre: number;
+}
+
+export async function listerReviewRemarques(): Promise<ReviewRemarque[]> {
+  const { data, error } = await supabase
+    .from("review_remarques")
+    .select("id, titre, corps, ordre")
+    .order("ordre", { ascending: true })
+    .order("created_at", { ascending: true });
+  if (error) throw error;
+  return (data ?? []) as ReviewRemarque[];
+}
+
+export async function creerReviewRemarque(input: {
+  titre: string;
+  corps: string;
+}): Promise<ReviewRemarque> {
+  const { data: max } = await supabase
+    .from("review_remarques")
+    .select("ordre")
+    .order("ordre", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+  const { data, error } = await supabase
+    .from("review_remarques")
+    .insert({
+      titre: input.titre.trim(),
+      corps: input.corps.trim(),
+      ordre: (max?.ordre ?? 0) + 10,
+    })
+    .select("id, titre, corps, ordre")
+    .single();
+  if (error) throw error;
+  return data as ReviewRemarque;
+}
+
+export async function majReviewRemarque(
+  id: string,
+  patch: { titre?: string; corps?: string; ordre?: number },
+): Promise<void> {
+  const { error } = await supabase.from("review_remarques").update(patch).eq("id", id);
+  if (error) throw error;
+}
+
+export async function supprimerReviewRemarque(id: string): Promise<void> {
+  const { error } = await supabase.from("review_remarques").delete().eq("id", id);
+  if (error) throw error;
+}
+
+/** Mise en forme + fautes + phrases + traduction anglaise (texte → texte). */
+export function ameliorerReview(texte: string) {
+  return invoke<{ texte: string }>("ameliorer-review", { texte });
 }
 
 /** Crée un recruteur (hiring manager) avec une ou plusieurs langues gérées

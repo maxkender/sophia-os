@@ -1,26 +1,51 @@
+import { useQuery } from "@tanstack/react-query";
 import { ExternalLink } from "lucide-react";
 
-import { urlEmbedTiktok } from "./tiktokEmbed";
+import { resoudreTiktok } from "@/features/moteur/api";
+import {
+  besoinResoudreTiktok,
+  idTiktokDepuisUrl,
+  urlEmbedTiktok,
+  urlEmbedTiktokDepuisId,
+} from "./tiktokEmbed";
 
-/** Lecteur TikTok officiel (iframe embed v2), avec lien de repli. */
+/** Lecteur TikTok officiel. Résout les liens courts (vm/vt/t) pour embarquer. */
 export function TikTokEmbed({
   url,
   titre,
   videLabel,
+  chargementLabel,
+  repliImages,
 }: {
   url: string | null;
   titre: string;
   videLabel: string;
+  chargementLabel: string;
+  /** Aperçu local (slides du post) si l'embed TikTok n'est pas dispo. */
+  repliImages?: string[];
 }) {
-  const embed = urlEmbedTiktok(url);
+  const aResoudre = besoinResoudreTiktok(url);
+  const apercu = useQuery({
+    queryKey: ["tiktok-apercu", url],
+    queryFn: () => resoudreTiktok(url!),
+    enabled: aResoudre,
+    staleTime: 10 * 60_000,
+  });
+
+  const canon = apercu.data?.url ?? url;
+  const id = idTiktokDepuisUrl(url) ?? apercu.data?.id ?? idTiktokDepuisUrl(canon);
+  const embed = urlEmbedTiktokDepuisId(id) ?? urlEmbedTiktok(canon);
+  const thumbnail = apercu.data?.thumbnail ?? null;
+  const images = (repliImages ?? []).filter(Boolean);
+  const lien = canon || url;
 
   return (
     <div className="flex min-w-0 flex-col gap-2">
       <div className="flex items-center justify-between gap-2">
         <p className="text-sm font-medium">{titre}</p>
-        {url ? (
+        {lien ? (
           <a
-            href={url}
+            href={lien}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-1 text-xs text-muted-foreground underline-offset-2 hover:underline"
@@ -30,7 +55,11 @@ export function TikTokEmbed({
           </a>
         ) : null}
       </div>
-      {embed ? (
+      {aResoudre && apercu.isPending ? (
+        <div className="flex h-[280px] items-center justify-center rounded-xl border border-dashed bg-muted/40 px-4 text-center text-sm text-muted-foreground">
+          {chargementLabel}
+        </div>
+      ) : embed ? (
         <iframe
           title={titre}
           src={embed}
@@ -38,11 +67,25 @@ export function TikTokEmbed({
           allow="encrypted-media; fullscreen; picture-in-picture"
           allowFullScreen
         />
+      ) : thumbnail ? (
+        <a href={lien ?? undefined} target="_blank" rel="noreferrer" className="mx-auto block w-full max-w-[325px]">
+          <img
+            src={thumbnail}
+            alt={titre}
+            className="h-[580px] w-full rounded-xl border object-cover object-top"
+          />
+        </a>
+      ) : images.length > 0 ? (
+        <div className="mx-auto h-[680px] w-full max-w-[325px] overflow-y-auto rounded-xl border bg-black">
+          {images.map((src) => (
+            <img key={src} src={src} alt="" className="w-full object-cover" />
+          ))}
+        </div>
       ) : (
         <div className="flex h-[280px] items-center justify-center rounded-xl border border-dashed bg-muted/40 px-4 text-center text-sm text-muted-foreground">
-          {url ? (
-            <a href={url} target="_blank" rel="noreferrer" className="underline underline-offset-2">
-              {url}
+          {lien ? (
+            <a href={lien} target="_blank" rel="noreferrer" className="underline underline-offset-2">
+              {lien}
             </a>
           ) : (
             videLabel

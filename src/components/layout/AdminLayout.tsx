@@ -6,6 +6,7 @@ import {
   BookOpen,
   CalendarDays,
   Clapperboard,
+  Columns2,
   FlaskConical,
   Gauge,
   LineChart,
@@ -168,6 +169,12 @@ export function AdminLayout() {
               label: t("nav.reviews"),
               icon: MessageSquareQuote,
               description: t("navDesc.reviews"),
+            },
+            {
+              to: "/admin/file-reviews",
+              label: t("nav.fileReviews"),
+              icon: Columns2,
+              description: t("navDesc.fileReviews"),
             },
             {
               to: "/admin/parrainages",

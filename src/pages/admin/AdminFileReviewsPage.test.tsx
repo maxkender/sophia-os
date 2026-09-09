@@ -10,11 +10,12 @@ vi.mock("@/features/moteur/ApplicationContext", () => ({
 
 const listerFileReviewsJour = vi.fn();
 const listerReviewRemarques = vi.fn();
-
 vi.mock("@/features/moteur/api", () => ({
   aujourdhuiParis: () => "2026-09-09",
   listerFileReviewsJour: () => listerFileReviewsJour(),
   listerReviewRemarques: () => listerReviewRemarques(),
+  listerSlides: vi.fn(async () => []),
+  resoudreTiktok: vi.fn(),
   envoyerReview: vi.fn(),
   passerPostReview: vi.fn(),
   ameliorerReview: vi.fn(),
@@ -73,5 +74,14 @@ describe("AdminFileReviewsPage", () => {
     expect(screen.getByPlaceholderText(/Ton retour|Your feedback/)).toHaveValue(
       "The hook is too slow.",
     );
+  });
+
+  it("affiche le formulaire d'ajout dans les réglages des remarques", async () => {
+    listerFileReviewsJour.mockResolvedValue([]);
+    listerReviewRemarques.mockResolvedValue([]);
+    renderPage();
+    fireEvent.click(await screen.findByRole("button", { name: /Remarques|Remarks/ }));
+    expect(await screen.findByPlaceholderText(/Titre \(bouton\)|Title \(button\)/)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Ajouter|Add/ })).toBeInTheDocument();
   });
 });

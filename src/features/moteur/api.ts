@@ -873,17 +873,21 @@ export async function creerReviewRemarque(input: {
   titre: string;
   corps: string;
 }): Promise<ReviewRemarque> {
-  const { data: max } = await supabase
+  const titre = input.titre.trim();
+  const corps = input.corps.trim();
+  if (!titre || !corps) throw new Error("titre et corps requis");
+  const { data: max, error: maxErr } = await supabase
     .from("review_remarques")
     .select("ordre")
     .order("ordre", { ascending: false })
     .limit(1)
     .maybeSingle();
+  if (maxErr) throw maxErr;
   const { data, error } = await supabase
     .from("review_remarques")
     .insert({
-      titre: input.titre.trim(),
-      corps: input.corps.trim(),
+      titre,
+      corps,
       ordre: (max?.ordre ?? 0) + 10,
     })
     .select("id, titre, corps, ordre")
@@ -908,6 +912,13 @@ export async function supprimerReviewRemarque(id: string): Promise<void> {
 /** Mise en forme + fautes + phrases + traduction anglaise (texte → texte). */
 export function ameliorerReview(texte: string) {
   return invoke<{ texte: string }>("ameliorer-review", { texte });
+}
+
+/** Lien TikTok court → URL canonique + id + miniature (aperçu admin). */
+export function resoudreTiktok(url: string) {
+  return invoke<{ url: string; id: string | null; thumbnail: string | null }>("resoudre-tiktok", {
+    url,
+  });
 }
 
 /** Crée un recruteur (hiring manager) avec une ou plusieurs langues gérées

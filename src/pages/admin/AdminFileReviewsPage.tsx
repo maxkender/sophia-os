@@ -31,6 +31,7 @@ import {
   envoyerReview,
   listerFileReviewsJour,
   listerReviewRemarques,
+  listerSlides,
   majReviewRemarque,
   passerPostReview,
   supprimerReviewRemarque,
@@ -71,7 +72,7 @@ function ReglagesRemarques({
   const rafraichir = () => queryClient.invalidateQueries({ queryKey: ["review-remarques"] });
 
   const creer = useMutation({
-    mutationFn: () => creerReviewRemarque({ titre, corps }),
+    mutationFn: (input: { titre: string; corps: string }) => creerReviewRemarque(input),
     onSuccess: () => {
       setTitre("");
       setCorps("");
@@ -84,14 +85,57 @@ function ReglagesRemarques({
     onSuccess: rafraichir,
   });
 
+  const ajouter = () => {
+    const nextTitre = titre.trim();
+    const nextCorps = corps.trim();
+    if (!nextTitre || !nextCorps || creer.isPending) return;
+    creer.mutate({ titre: nextTitre, corps: nextCorps });
+  };
+
   return (
-    <Dialog open={ouvert} onOpenChange={(o) => !o && onFermer()}>
+    <Dialog open={ouvert} onOpenChange={(o) => !o && onFermer()} disablePointerDismissal>
       <DialogPopup className="max-w-lg" showCloseButton>
         <DialogHeader>
           <DialogTitle>{t("fileReviews.reglagesTitre")}</DialogTitle>
           <DialogDescription>{t("fileReviews.reglagesSous")}</DialogDescription>
         </DialogHeader>
-        <DialogPanel className="space-y-4">
+        <form
+          className="space-y-2 border-b px-6 py-3"
+          onSubmit={(e) => {
+            e.preventDefault();
+            ajouter();
+          }}
+        >
+          <p className="text-xs font-medium text-muted-foreground">{t("fileReviews.nouvelle")}</p>
+          <input
+            value={titre}
+            onChange={(e) => setTitre(e.target.value)}
+            placeholder={t("fileReviews.titrePlaceholder")}
+            className="h-8 w-full rounded-lg border border-input bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          />
+          <textarea
+            value={corps}
+            onChange={(e) => setCorps(e.target.value)}
+            placeholder={t("fileReviews.corpsPlaceholder")}
+            rows={3}
+            className="min-h-20 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          />
+          {(creer.isError || remarques.isError) && (
+            <p className="text-sm text-destructive">
+              {(creer.error as Error | undefined)?.message ||
+                (remarques.error as Error | undefined)?.message}
+            </p>
+          )}
+          <Button
+            type="button"
+            size="sm"
+            disabled={creer.isPending || !titre.trim() || !corps.trim()}
+            onClick={ajouter}
+          >
+            {t("fileReviews.ajouter")}
+          </Button>
+        </form>
+        <DialogPanel className="space-y-4" scrollFade={false}>
           <ul className="space-y-3">
             {(remarques.data ?? []).map((r) => (
               <LigneRemarque
@@ -102,30 +146,9 @@ function ReglagesRemarques({
               />
             ))}
           </ul>
-          <div className="space-y-2 rounded-xl border bg-muted/30 p-3">
-            <p className="text-xs font-medium text-muted-foreground">{t("fileReviews.nouvelle")}</p>
-            <Input
-              value={titre}
-              onChange={(e) => setTitre(e.target.value)}
-              placeholder={t("fileReviews.titrePlaceholder")}
-            />
-            <Textarea
-              value={corps}
-              onChange={(e) => setCorps(e.target.value)}
-              placeholder={t("fileReviews.corpsPlaceholder")}
-              rows={3}
-            />
-            <Button
-              size="sm"
-              disabled={creer.isPending || !titre.trim() || !corps.trim()}
-              onClick={() => creer.mutate()}
-            >
-              {t("fileReviews.ajouter")}
-            </Button>
-          </div>
         </DialogPanel>
         <DialogFooter>
-          <Button variant="outline" onClick={onFermer}>
+          <Button type="button" variant="outline" onClick={onFermer}>
             {t("common.close")}
           </Button>
         </DialogFooter>
@@ -187,6 +210,15 @@ export function AdminFileReviewsPage() {
   });
 
   const courant = (file.data ?? [])[0] ?? null;
+
+  const slides = useQuery({
+    queryKey: ["slides", courant?.id],
+    queryFn: () => listerSlides(courant!.id),
+    enabled: Boolean(courant?.id),
+  });
+  const imagesCreateur = (slides.data ?? [])
+    .map((s) => s.media_library?.url)
+    .filter((u): u is string => Boolean(u));
 
   React.useEffect(() => {
     setTexte("");
@@ -289,11 +321,14 @@ export function AdminFileReviewsPage() {
               url={courant.source_url}
               titre={t("fileReviews.original")}
               videLabel={t("fileReviews.sansOriginal")}
+              chargementLabel={t("fileReviews.apercuChargement")}
             />
             <TikTokEmbed
               url={courant.publie_url}
               titre={t("fileReviews.poste")}
               videLabel={t("fileReviews.sansLien")}
+              chargementLabel={t("fileReviews.apercuChargement")}
+              repliImages={imagesCreateur}
             />
           </div>
 

@@ -31,7 +31,6 @@ import {
   envoyerReview,
   listerFileReviewsJour,
   listerReviewRemarques,
-  listerSlides,
   majReviewRemarque,
   passerPostReview,
   supprimerReviewRemarque,
@@ -211,15 +210,6 @@ export function AdminFileReviewsPage() {
 
   const courant = (file.data ?? [])[0] ?? null;
 
-  const slides = useQuery({
-    queryKey: ["slides", courant?.id],
-    queryFn: () => listerSlides(courant!.id),
-    enabled: Boolean(courant?.id),
-  });
-  const imagesCreateur = (slides.data ?? [])
-    .map((s) => s.media_library?.url)
-    .filter((u): u is string => Boolean(u));
-
   React.useEffect(() => {
     setTexte("");
   }, [courant?.id]);
@@ -328,7 +318,6 @@ export function AdminFileReviewsPage() {
               titre={t("fileReviews.poste")}
               videLabel={t("fileReviews.sansLien")}
               chargementLabel={t("fileReviews.apercuChargement")}
-              repliImages={imagesCreateur}
             />
           </div>
 

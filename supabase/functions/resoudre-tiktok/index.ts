@@ -13,6 +13,7 @@ function idPost(url: string): string | null {
   return (
     url.match(/\/(?:photo|video|embed\/v2)\/(\d+)/)?.[1] ??
     url.match(/\/v\/(\d+)/)?.[1] ??
+    url.match(/[?&]item_id=(\d+)/)?.[1] ??
     null
   );
 }
@@ -36,6 +37,22 @@ function idDepuisHtml(html: string | undefined): string | null {
   return html?.match(/data-video-id="(\d+)"/)?.[1] ?? null;
 }
 
+async function oembed(url: string): Promise<{ id: string | null; thumbnail: string | null }> {
+  try {
+    const oe = await fetch(`https://www.tiktok.com/oembed?url=${encodeURIComponent(url)}`, {
+      headers: { "user-agent": UA },
+    });
+    if (!oe.ok) return { id: null, thumbnail: null };
+    const data = (await oe.json()) as { thumbnail_url?: string; html?: string };
+    return {
+      thumbnail: data.thumbnail_url?.trim() || null,
+      id: idDepuisHtml(data.html),
+    };
+  } catch {
+    return { id: null, thumbnail: null };
+  }
+}
+
 Deno.serve(async (request) => {
   const acces = await assertRole(request, ["admin"]);
   if (acces instanceof Response) return acces;
@@ -45,25 +62,20 @@ Deno.serve(async (request) => {
     const brut = (body?.url ?? "").toString().trim();
     if (!brut) return json({ error: "URL vide" }, 400);
 
+    // oEmbed accepte souvent le lien court : on l'essaie avant la redirection,
+    // pour récupérer la miniature du post publié (pas nos slides nettoyées).
+    let oe = await oembed(brut);
     const canon = await resoudre(brut);
-    let id = idPost(canon);
-    let thumbnail: string | null = null;
-
-    try {
-      const oe = await fetch(
-        `https://www.tiktok.com/oembed?url=${encodeURIComponent(canon)}`,
-        { headers: { "user-agent": UA } },
-      );
-      if (oe.ok) {
-        const data = (await oe.json()) as { thumbnail_url?: string; html?: string };
-        thumbnail = data.thumbnail_url?.trim() || null;
-        if (!id) id = idDepuisHtml(data.html);
-      }
-    } catch {
-      // miniature optionnelle
+    if ((!oe.id || !oe.thumbnail) && canon !== brut) {
+      const oeCanon = await oembed(canon);
+      oe = {
+        id: oe.id ?? oeCanon.id,
+        thumbnail: oe.thumbnail ?? oeCanon.thumbnail,
+      };
     }
 
-    return json({ ok: true, url: canon, id, thumbnail });
+    const id = idPost(brut) ?? idPost(canon) ?? oe.id;
+    return json({ ok: true, url: canon, id, thumbnail: oe.thumbnail });
   } catch (error) {
     return json({ ok: false, error: messageErreur(error) }, 500);
   }

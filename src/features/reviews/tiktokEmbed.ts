@@ -4,6 +4,7 @@ export function idTiktokDepuisUrl(url: string | null | undefined): string | null
   return (
     u.match(/\/(?:photo|video|embed\/v2)\/(\d+)/)?.[1] ??
     u.match(/\/v\/(\d+)/)?.[1] ??
+    u.match(/[?&]item_id=(\d+)/)?.[1] ??
     null
   );
 }
@@ -14,8 +15,10 @@ export function estLienCourtTiktok(url: string | null | undefined): boolean {
   return /\/\/(?:vm|vt)\.tiktok\.com\//i.test(u) || /tiktok\.com\/t\//i.test(u);
 }
 
+/** Appeler oEmbed / redirection dès qu'on n'a pas encore l'id du post. */
 export function besoinResoudreTiktok(url: string | null | undefined): boolean {
-  return Boolean(url) && estLienCourtTiktok(url) && !idTiktokDepuisUrl(url);
+  const u = (url ?? "").trim();
+  return Boolean(u) && (!idTiktokDepuisUrl(u) || estLienCourtTiktok(u));
 }
 
 /** URL d'iframe embed officiel. Null si le lien n'est pas un post. */

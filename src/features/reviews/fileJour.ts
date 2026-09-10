@@ -57,3 +57,41 @@ export function insererRemarqueDansBrouillon(actuel: string, corps: string): str
   const base = actuel.trim();
   return base ? `${base}\n\n${ajout}` : ajout;
 }
+
+/** Vidéo d'explication jointe à une review (copie figée à l'envoi). */
+export type ReviewVideo = { url: string; titre: string };
+
+/** Ajoute une vidéo à la liste envoyée au créateur (ordre d'insertion, sans doublon). */
+export function ajouterVideoReview(
+  actuelles: ReviewVideo[],
+  video: { url: string | null | undefined; titre: string },
+): ReviewVideo[] {
+  const url = video.url?.trim() ?? "";
+  if (!url) return actuelles;
+  if (actuelles.some((v) => v.url === url)) return actuelles;
+  return [...actuelles, { url, titre: video.titre.trim() }];
+}
+
+export function retirerVideoReview(actuelles: ReviewVideo[], url: string): ReviewVideo[] {
+  return actuelles.filter((v) => v.url !== url);
+}
+
+/** Lit le jsonb `reviews.videos` (ou une valeur inattendue) en liste propre. */
+export function normaliserVideosReview(raw: unknown): ReviewVideo[] {
+  if (!Array.isArray(raw)) return [];
+  const out: ReviewVideo[] = [];
+  for (const item of raw) {
+    if (!item || typeof item !== "object") continue;
+    const url =
+      typeof (item as { url?: unknown }).url === "string"
+        ? (item as { url: string }).url.trim()
+        : "";
+    if (!url || out.some((v) => v.url === url)) continue;
+    const titre =
+      typeof (item as { titre?: unknown }).titre === "string"
+        ? (item as { titre: string }).titre.trim()
+        : "";
+    out.push({ url, titre });
+  }
+  return out;
+}

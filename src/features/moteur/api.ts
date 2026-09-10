@@ -1,6 +1,12 @@
 import { supabase } from "@/lib/supabase/client";
 import { LANGUES_CIBLES } from "@/features/moteur/langues";
-import { estCompteSlideshowAssigne, isoBornesJourParis } from "@/features/reviews/fileJour";
+import {
+  estCompteSlideshowAssigne,
+  isoBornesJourParis,
+  normaliserVideosReview,
+  type ReviewVideo,
+} from "@/features/reviews/fileJour";
+import { extensionVideo } from "@/features/reviews/videoRemarque";
 import type { Role } from "@/features/auth/AuthContext";
 import type { EvenementEtape } from "@/features/moteur/nettoyageEtapes";
 import type {
@@ -648,6 +654,7 @@ export interface Review {
   handle_tiktok: string | null;
   compte_label: string | null;
   date_publication: string | null;
+  videos: ReviewVideo[];
 }
 
 export type ReviewCible = {
@@ -657,10 +664,15 @@ export type ReviewCible = {
   handle_tiktok?: string | null;
   compte_label?: string | null;
   date_publication?: string | null;
+  videos?: ReviewVideo[];
 };
 
 const REVIEW_COLONNES =
-  "id, poster_id, body, note, created_at, seen_at, post_id, publie_url, source_url, handle_tiktok, compte_label, date_publication";
+  "id, poster_id, body, note, created_at, seen_at, post_id, publie_url, source_url, handle_tiktok, compte_label, date_publication, videos";
+
+function mapperReview(row: Omit<Review, "videos"> & { videos?: unknown }): Review {
+  return { ...row, videos: normaliserVideosReview(row.videos) };
+}
 
 /** L'admin envoie une review (retour) à un poster : elle s'affichera en pop-up
  *  à sa prochaine connexion. Optionnellement liée à un post (file du jour). */
@@ -680,6 +692,7 @@ export async function envoyerReview(
     handle_tiktok: cible?.handle_tiktok ?? null,
     compte_label: cible?.compte_label ?? null,
     date_publication: cible?.date_publication ?? null,
+    videos: normaliserVideosReview(cible?.videos),
   });
   if (error) throw error;
 }
@@ -692,7 +705,7 @@ export async function listerReviews(): Promise<Review[]> {
     .order("created_at", { ascending: false })
     .limit(300);
   if (error) throw error;
-  return (data ?? []) as Review[];
+  return (data ?? []).map((r) => mapperReview(r as Review));
 }
 
 /** Reviews non encore vues du poster connecté (RLS ne renvoie que les siennes). */
@@ -703,7 +716,7 @@ export async function mesReviewsNonVues(): Promise<Review[]> {
     .is("seen_at", null)
     .order("created_at", { ascending: true });
   if (error) throw error;
-  return (data ?? []) as Review[];
+  return (data ?? []).map((r) => mapperReview(r as Review));
 }
 
 /** Le poster marque une review comme vue (referme le pop-up). */
@@ -857,16 +870,28 @@ export interface ReviewRemarque {
   titre: string;
   corps: string;
   ordre: number;
+  video_url: string | null;
+  video_path: string | null;
+}
+
+const REMARQUE_COLONNES = "id, titre, corps, ordre, video_url, video_path";
+
+function mapperRemarque(row: ReviewRemarque): ReviewRemarque {
+  return {
+    ...row,
+    video_url: row.video_url?.trim() || null,
+    video_path: row.video_path?.trim() || null,
+  };
 }
 
 export async function listerReviewRemarques(): Promise<ReviewRemarque[]> {
   const { data, error } = await supabase
     .from("review_remarques")
-    .select("id, titre, corps, ordre")
+    .select(REMARQUE_COLONNES)
     .order("ordre", { ascending: true })
     .order("created_at", { ascending: true });
   if (error) throw error;
-  return (data ?? []) as ReviewRemarque[];
+  return (data ?? []).map((r) => mapperRemarque(r as ReviewRemarque));
 }
 
 export async function creerReviewRemarque(input: {
@@ -890,10 +915,10 @@ export async function creerReviewRemarque(input: {
       corps,
       ordre: (max?.ordre ?? 0) + 10,
     })
-    .select("id, titre, corps, ordre")
+    .select(REMARQUE_COLONNES)
     .single();
   if (error) throw error;
-  return data as ReviewRemarque;
+  return mapperRemarque(data as ReviewRemarque);
 }
 
 export async function majReviewRemarque(
@@ -904,9 +929,66 @@ export async function majReviewRemarque(
   if (error) throw error;
 }
 
+export async function uploaderVideoRemarque(
+  remarqueId: string,
+  file: File,
+): Promise<ReviewRemarque> {
+  const path = `reviews/remarques/${remarqueId}/${crypto.randomUUID()}.${extensionVideo(file)}`;
+  const { data: ancienne, error: lectureErr } = await supabase
+    .from("review_remarques")
+    .select("video_path")
+    .eq("id", remarqueId)
+    .single();
+  if (lectureErr) throw lectureErr;
+  const { error: upErr } = await supabase.storage.from("medias").upload(path, file, {
+    contentType: file.type || "video/mp4",
+    upsert: false,
+    cacheControl: "3600",
+  });
+  if (upErr) throw upErr;
+  const url = supabase.storage.from("medias").getPublicUrl(path).data.publicUrl;
+  const { data, error } = await supabase
+    .from("review_remarques")
+    .update({ video_url: url, video_path: path })
+    .eq("id", remarqueId)
+    .select(REMARQUE_COLONNES)
+    .single();
+  if (error) throw error;
+  const vieux = ancienne?.video_path?.trim();
+  if (vieux && vieux !== path) {
+    await supabase.storage.from("medias").remove([vieux]).catch(() => null);
+  }
+  return mapperRemarque(data as ReviewRemarque);
+}
+
+export async function retirerVideoRemarque(remarqueId: string): Promise<void> {
+  const { data, error: lectureErr } = await supabase
+    .from("review_remarques")
+    .select("video_path")
+    .eq("id", remarqueId)
+    .single();
+  if (lectureErr) throw lectureErr;
+  const { error } = await supabase
+    .from("review_remarques")
+    .update({ video_url: null, video_path: null })
+    .eq("id", remarqueId);
+  if (error) throw error;
+  if (data?.video_path) {
+    await supabase.storage.from("medias").remove([data.video_path]).catch(() => null);
+  }
+}
+
 export async function supprimerReviewRemarque(id: string): Promise<void> {
+  const { data } = await supabase
+    .from("review_remarques")
+    .select("video_path")
+    .eq("id", id)
+    .maybeSingle();
   const { error } = await supabase.from("review_remarques").delete().eq("id", id);
   if (error) throw error;
+  if (data?.video_path) {
+    await supabase.storage.from("medias").remove([data.video_path]).catch(() => null);
+  }
 }
 
 /** Mise en forme + fautes + phrases + traduction anglaise (texte → texte). */

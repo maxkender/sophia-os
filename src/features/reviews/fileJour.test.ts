@@ -2,10 +2,13 @@ import { describe, expect, it } from "vitest";
 
 import {
   ajouterJourCalendaire,
+  ajouterVideoReview,
   estCompteSlideshowAssigne,
   insererRemarqueDansBrouillon,
   isoBornesJourParis,
   jourParisDepuisIso,
+  normaliserVideosReview,
+  retirerVideoReview,
 } from "./fileJour";
 
 describe("fileJour", () => {
@@ -43,5 +46,30 @@ describe("fileJour", () => {
       "Bien.\n\nRaccourcis le texte.",
     );
     expect(insererRemarqueDansBrouillon("ok", "  ")).toBe("ok");
+  });
+
+  it("empile les vidéos de remarques sans doublon, dans l'ordre", () => {
+    const a = ajouterVideoReview([], { url: "https://cdn/a.mp4", titre: "Hook" });
+    const b = ajouterVideoReview(a, { url: "https://cdn/b.mp4", titre: "Timing" });
+    const encore = ajouterVideoReview(b, { url: "https://cdn/a.mp4", titre: "Hook" });
+    expect(encore).toEqual([
+      { url: "https://cdn/a.mp4", titre: "Hook" },
+      { url: "https://cdn/b.mp4", titre: "Timing" },
+    ]);
+    expect(ajouterVideoReview([], { url: null, titre: "x" })).toEqual([]);
+    expect(retirerVideoReview(encore, "https://cdn/a.mp4")).toEqual([
+      { url: "https://cdn/b.mp4", titre: "Timing" },
+    ]);
+  });
+
+  it("normalise le jsonb videos d'une review", () => {
+    expect(normaliserVideosReview(null)).toEqual([]);
+    expect(
+      normaliserVideosReview([
+        { url: " https://cdn/a.mp4 ", titre: " Hook " },
+        { url: "", titre: "vide" },
+        { url: "https://cdn/a.mp4", titre: "dup" },
+      ]),
+    ).toEqual([{ url: "https://cdn/a.mp4", titre: "Hook" }]);
   });
 });

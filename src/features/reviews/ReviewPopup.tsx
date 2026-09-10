@@ -13,6 +13,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { marquerReviewVue, mesReviewsNonVues } from "@/features/moteur/api";
+import { LecteurVideosReview } from "./LecteurVideosReview";
 
 /**
  * Pop-up de review pour le poster : à sa connexion, s'il a une (ou plusieurs)
@@ -31,10 +32,11 @@ export function ReviewPopup() {
 
   const courante = (data ?? [])[0];
   if (!courante) return null;
+  const videos = courante.videos ?? [];
 
   return (
     <Dialog open disablePointerDismissal>
-      <DialogPopup showCloseButton={false} className="max-w-md">
+      <DialogPopup showCloseButton={false} className={videos.length > 0 ? "max-w-xl" : "max-w-md"}>
         <DialogHeader>
           <div className="flex items-center gap-3">
             <span className="flex size-10 items-center justify-center rounded-xl bg-accent text-accent-foreground">
@@ -68,6 +70,13 @@ export function ReviewPopup() {
                 </a>
               ) : null}
             </div>
+          )}
+          {videos.length > 0 && (
+            <LecteurVideosReview
+              cle={courante.id}
+              videos={videos}
+              progressLabel={(current, total) => t("reviews.videoProgress", { current, total })}
+            />
           )}
           <p className="whitespace-pre-wrap rounded-lg bg-muted/50 p-4 text-sm leading-relaxed">
             {courante.body}

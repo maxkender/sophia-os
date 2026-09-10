@@ -15,6 +15,8 @@ vi.mock("@/features/moteur/api", () => ({
   listerFileReviewsJour: () => listerFileReviewsJour(),
   listerReviewRemarques: () => listerReviewRemarques(),
   resoudreTiktok: vi.fn(),
+  uploaderVideoRemarque: vi.fn(),
+  retirerVideoRemarque: vi.fn(),
   envoyerReview: vi.fn(),
   passerPostReview: vi.fn(),
   ameliorerReview: vi.fn(),
@@ -65,7 +67,14 @@ describe("AdminFileReviewsPage", () => {
       },
     ]);
     listerReviewRemarques.mockResolvedValue([
-      { id: "r1", titre: "Hook trop lent", corps: "The hook is too slow.", ordre: 10 },
+      {
+        id: "r1",
+        titre: "Hook trop lent",
+        corps: "The hook is too slow.",
+        ordre: 10,
+        video_url: "https://cdn.example/hook.mp4",
+        video_path: "reviews/remarques/r1/a.mp4",
+      },
     ]);
     renderPage();
     expect(await screen.findByRole("button", { name: "Hook trop lent" })).toBeInTheDocument();
@@ -74,6 +83,7 @@ describe("AdminFileReviewsPage", () => {
     expect(screen.getByPlaceholderText(/Ton retour|Your feedback/)).toHaveValue(
       "The hook is too slow.",
     );
+    expect(screen.getByText(/Vidéos jouées à la suite|Videos that will play in sequence/)).toBeInTheDocument();
   });
 
   it("affiche le formulaire d'ajout dans les réglages des remarques", async () => {

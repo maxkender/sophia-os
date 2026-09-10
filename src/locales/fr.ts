@@ -1203,6 +1203,15 @@ export const fr = {
       personaOk: "Compte et identité TikTok générés. Le poster les verra sur son espace.",
       personaPlusTard: "Compte créé ; l'identité TikTok sera générée sous peu.",
       identiteEnCours: "Identité TikTok en cours de génération…",
+      deplacerCompte: "Déplacer vers un autre créateur",
+      deplacerCompteAide:
+        "Le compte TikTok reste le même (handle, persona, warmup, posts). Seul le créateur change — y compris s’il a déjà un ou plusieurs comptes.",
+      deplacerCompteCible: "Créateur destination",
+      deplacerCompteAction: "Déplacer",
+      deplacerCompteAucun: "Ajoute un autre créateur pour y rattacher ce compte.",
+      deplacerCompteConfirm:
+        "Déplacer {{compte}} de {{depuis}} vers {{vers}} ? Handle, persona, warmup et posts restent : on change seulement le créateur.",
+      deplacerCompteDestPasCreateur: "Tu ne peux déplacer un compte que vers l’un de tes créateurs.",
       calendrierNav: "Calendrier",
       calendrierTitre: "Calendrier de mes créateurs",
       calendrierSous: "Les posts de tes créateurs, jour par jour (lecture seule). Les comptes CM reçoivent la vidéo papier.",

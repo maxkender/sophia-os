@@ -67,6 +67,30 @@ export function languesPourNouveauCompte(
   return type === "cm" ? languesDisponiblesPourCm(proposees, prisesCm) : proposees;
 }
 
+/**
+ * Créateurs vers lesquels un HM peut rattacher un compte existant.
+ * On ne recrée rien : le compte (2e, 3e, …) reste le même, seul le login change.
+ * CM : 1 actif par langue — on écarte les dest qui en ont déjà un.
+ */
+export function destinationsDeplacementCompte<
+  T extends {
+    id: string;
+    role?: string | null;
+    comptes?: Array<{ type_compte?: string | null; langue: string }>;
+  },
+>(
+  compte: { type_compte?: string | null; langue: string },
+  sourcePosterId: string,
+  posters: T[],
+): T[] {
+  return posters.filter((p) => {
+    if (p.id === sourcePosterId) return false;
+    if ((p.role ?? "poster") !== "poster") return false;
+    if (!estCompteCm(compte)) return true;
+    return !(p.comptes ?? []).some((c) => estCompteCm(c) && c.langue === compte.langue);
+  });
+}
+
 export function cleCompteActif(userId: string): string {
   return `compte-actif-${userId}`;
 }

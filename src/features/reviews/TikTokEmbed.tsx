@@ -9,20 +9,17 @@ import {
   urlEmbedTiktokDepuisId,
 } from "./tiktokEmbed";
 
-/** Lecteur TikTok officiel. Résout les liens courts (vm/vt/t) pour embarquer. */
+/** Lecteur TikTok officiel. Résout les liens courts (vm/vt/t) pour embarquer le post publié. */
 export function TikTokEmbed({
   url,
   titre,
   videLabel,
   chargementLabel,
-  repliImages,
 }: {
   url: string | null;
   titre: string;
   videLabel: string;
   chargementLabel: string;
-  /** Aperçu local (slides du post) si l'embed TikTok n'est pas dispo. */
-  repliImages?: string[];
 }) {
   const aResoudre = besoinResoudreTiktok(url);
   const apercu = useQuery({
@@ -36,8 +33,8 @@ export function TikTokEmbed({
   const id = idTiktokDepuisUrl(url) ?? apercu.data?.id ?? idTiktokDepuisUrl(canon);
   const embed = urlEmbedTiktokDepuisId(id) ?? urlEmbedTiktok(canon);
   const thumbnail = apercu.data?.thumbnail ?? null;
-  const images = (repliImages ?? []).filter(Boolean);
   const lien = canon || url;
+  const attendApercu = aResoudre && apercu.isPending && !embed;
 
   return (
     <div className="flex min-w-0 flex-col gap-2">
@@ -55,7 +52,7 @@ export function TikTokEmbed({
           </a>
         ) : null}
       </div>
-      {aResoudre && apercu.isPending ? (
+      {attendApercu ? (
         <div className="flex h-[280px] items-center justify-center rounded-xl border border-dashed bg-muted/40 px-4 text-center text-sm text-muted-foreground">
           {chargementLabel}
         </div>
@@ -75,12 +72,6 @@ export function TikTokEmbed({
             className="h-[580px] w-full rounded-xl border object-cover object-top"
           />
         </a>
-      ) : images.length > 0 ? (
-        <div className="mx-auto h-[680px] w-full max-w-[325px] overflow-y-auto rounded-xl border bg-black">
-          {images.map((src) => (
-            <img key={src} src={src} alt="" className="w-full object-cover" />
-          ))}
-        </div>
       ) : (
         <div className="flex h-[280px] items-center justify-center rounded-xl border border-dashed bg-muted/40 px-4 text-center text-sm text-muted-foreground">
           {lien ? (

@@ -14,7 +14,6 @@ vi.mock("@/features/moteur/api", () => ({
   aujourdhuiParis: () => "2026-09-09",
   listerFileReviewsJour: () => listerFileReviewsJour(),
   listerReviewRemarques: () => listerReviewRemarques(),
-  listerSlides: vi.fn(async () => []),
   resoudreTiktok: vi.fn(),
   envoyerReview: vi.fn(),
   passerPostReview: vi.fn(),
@@ -70,6 +69,7 @@ describe("AdminFileReviewsPage", () => {
     ]);
     renderPage();
     expect(await screen.findByRole("button", { name: "Hook trop lent" })).toBeInTheDocument();
+    expect(screen.getByText(/TikTok du créateur|Creator's TikTok/)).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Hook trop lent" }));
     expect(screen.getByPlaceholderText(/Ton retour|Your feedback/)).toHaveValue(
       "The hook is too slow.",

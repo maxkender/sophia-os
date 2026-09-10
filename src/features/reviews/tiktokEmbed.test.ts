@@ -8,6 +8,8 @@ describe("tiktokEmbed", () => {
     expect(idTiktokDepuisUrl("https://www.tiktok.com/@src/video/7990000000000000000?x=1")).toBe(
       "7990000000000000000",
     );
+    expect(idTiktokDepuisUrl("https://m.tiktok.com/v/7123456789.html")).toBe("7123456789");
+    expect(idTiktokDepuisUrl("https://www.tiktok.com/share?item_id=7123456789")).toBe("7123456789");
   });
 
   it("refuse un profil (sans id)", () => {
@@ -23,6 +25,7 @@ describe("tiktokEmbed", () => {
     expect(estLienCourtTiktok("https://www.tiktok.com/@src/photo/7123")).toBe(false);
     expect(besoinResoudreTiktok("https://vm.tiktok.com/ZMabcdef")).toBe(true);
     expect(besoinResoudreTiktok("https://www.tiktok.com/@src/photo/7123")).toBe(false);
+    expect(besoinResoudreTiktok("https://www.tiktok.com/@src")).toBe(true);
   });
 
   it("construit l'URL d'embed v2", () => {

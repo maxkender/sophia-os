@@ -1053,18 +1053,20 @@ export function ajouterCompte(input: {
 }
 
 /** Rattache un compte TikTok existant à un autre créateur (même id, rien n'est recréé). */
-export function deplacerCompte(input: { compteId: string; destPosterId: string }) {
-  return invoke<{
-    ok: boolean;
-    deja?: boolean;
-    compteId: string;
-    poster_id: string;
-    depuis?: string;
-  }>("manage-users", {
-    action: "deplacer_compte",
-    compteId: input.compteId,
-    destPosterId: input.destPosterId,
+export async function deplacerCompte(input: {
+  compteId: string;
+  destPosterId: string;
+}): Promise<{ ok: boolean; compteId: string; poster_id: string; depuis?: string }> {
+  const { data, error } = await supabase.rpc("deplacer_compte", {
+    p_compte_id: input.compteId,
+    p_dest_poster_id: input.destPosterId,
   });
+  if (error) throw new Error(error.message);
+  return {
+    ok: true,
+    compteId: (data as string) || input.compteId,
+    poster_id: input.destPosterId,
+  };
 }
 
 export function ajouterCompteCm(input: {

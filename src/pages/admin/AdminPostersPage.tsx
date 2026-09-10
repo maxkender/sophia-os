@@ -21,6 +21,7 @@ import { equipesParDm, hmsDuDm, hmsSansDm, nomProfil, resumeHm } from "@/feature
 import { CompteEditor, PostsParJourCompte } from "@/features/moteur/CompteEditor";
 import { estCompteCm, languesCmPrises } from "@/features/moteur/comptesCm";
 import { ChampsPremierCompte, type PremierCompte } from "@/features/moteur/ChampsPremierCompte";
+import { DeplacerCompte } from "@/features/moteur/DeplacerCompte";
 import { FormulaireAjouterCompte } from "@/features/moteur/FormulaireCompteCm";
 import { EnteteCompte } from "@/features/moteur/VignetteCompte";
 import {
@@ -1593,6 +1594,12 @@ export function AdminPostersPage() {
                                 </div>
                               )}
                               <CompteEditor compte={c} />
+                              <DeplacerCompte
+                                compte={c}
+                                source={fiche}
+                                createurs={tousCreateurs}
+                                queryKeys={[["posters"], ["comptes"]]}
+                              />
                             </div>
                           )}
                         </li>

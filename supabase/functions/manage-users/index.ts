@@ -76,6 +76,7 @@ function resoudrePremierCompte(
  *   { action: "ajouter_compte", userId, type_compte, langue, … } — compte supplémentaire perso ou CM
  *   { action: "ajouter_compte_cm", userId, langue, tiktok_email, tiktok_password, … }
  *   { action: "maj_identifiants_cm", compteId, tiktok_email, tiktok_password, … }
+ *   { action: "deplacer_compte", compteId, destPosterId } — rattache le compte à un autre créateur (même id)
  *   { action: "start_warmup", compteId }  — créateur (son compte perso) ou admin
  *   { action: "skip_warmup", compteId }   — admin : compte actif immédiat
  *   { action: "delete", userId }
@@ -531,6 +532,81 @@ async function gererRequete(request: Request): Promise<Response> {
     );
     if (error) return json({ error: error.message }, 400);
     return json({ ok: true });
+  }
+
+  if (body.action === "deplacer_compte") {
+    const compteId = String(body.compteId ?? "").trim();
+    const destPosterId = String(body.destPosterId ?? "").trim();
+    if (!compteId || !destPosterId) {
+      return json({ error: "compteId et destPosterId requis" }, 400);
+    }
+
+    const { data: compte } = await supabase
+      .from("comptes")
+      .select("id, poster_id, type_compte, langue")
+      .eq("id", compteId)
+      .maybeSingle();
+    if (!compte) return json({ error: "compte introuvable" }, 404);
+
+    if (compte.poster_id === destPosterId) {
+      return json({ ok: true, deja: true, compteId: compte.id, poster_id: destPosterId });
+    }
+
+    const interditSource = await refuserSiHorsEquipe(supabase, acces, compte.poster_id);
+    if (interditSource) return interditSource;
+    const interditDest = await refuserSiHorsEquipe(supabase, acces, destPosterId);
+    if (interditDest) return interditDest;
+
+    const { data: roleDest } = await supabase
+      .from("user_roles")
+      .select("role")
+      .eq("user_id", destPosterId)
+      .maybeSingle();
+    if (roleDest?.role !== "poster") {
+      return json({ error: "DEST_PAS_CREATEUR" }, 403);
+    }
+
+    if (compte.type_compte === "cm") {
+      const { data: conflit } = await supabase
+        .from("comptes")
+        .select("id")
+        .eq("poster_id", destPosterId)
+        .eq("type_compte", "cm")
+        .eq("langue", compte.langue)
+        .eq("is_active", true)
+        .maybeSingle();
+      if (conflit?.id) return json({ error: "CM_LANGUE_PRISE" }, 409);
+    }
+
+    // UPDATE du rattachement seulement — on ne recrée pas le compte.
+    const { error: updErr } = await supabase
+      .from("comptes")
+      .update({ poster_id: destPosterId })
+      .eq("id", compteId);
+    if (updErr) {
+      if (/comptes_cm_un_par_langue/.test(updErr.message)) {
+        return json({ error: "CM_LANGUE_PRISE" }, 409);
+      }
+      return json({ error: updErr.message }, 400);
+    }
+
+    const { data: postsCompte } = await supabase
+      .from("posts")
+      .select("id")
+      .eq("compte_id", compteId);
+    const postIds = (postsCompte ?? []).map((p) => p.id as string).filter(Boolean);
+    if (postIds.length > 0) {
+      await supabase.from("reviews").update({ poster_id: destPosterId }).in("post_id", postIds);
+    }
+
+    if (compte.langue) await ajouterLangueProfil(supabase, destPosterId, compte.langue);
+
+    return json({
+      ok: true,
+      compteId: compte.id,
+      poster_id: destPosterId,
+      depuis: compte.poster_id,
+    });
   }
 
   if (body.action === "delete") {

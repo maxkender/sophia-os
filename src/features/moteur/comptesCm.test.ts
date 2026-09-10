@@ -4,6 +4,7 @@ import {
   comptePerso,
   comptePrincipal,
   comptesCm,
+  destinationsDeplacementCompte,
   estCompteCm,
   languesCmPrises,
   languesDisponiblesPourCm,
@@ -63,5 +64,48 @@ describe("langues CM", () => {
   it("à l'ajout, un perso reste libre dans une langue déjà CM", () => {
     expect(languesPourNouveauCompte("perso", ["fr", "de"], ["de"])).toEqual(["fr", "de"]);
     expect(languesPourNouveauCompte("cm", ["fr", "de"], ["de"])).toEqual(["fr"]);
+  });
+});
+
+describe("déplacement de compte", () => {
+  const alice = {
+    id: "alice",
+    role: "poster" as const,
+    comptes: [{ type_compte: "perso" as const, langue: "fr" }],
+  };
+  const bob = {
+    id: "bob",
+    role: "poster" as const,
+    comptes: [
+      { type_compte: "perso" as const, langue: "fr" },
+      { type_compte: "cm" as const, langue: "de" },
+    ],
+  };
+  const charlie = {
+    id: "charlie",
+    role: "poster" as const,
+    comptes: [{ type_compte: "perso" as const, langue: "es" }],
+  };
+  const hm = { id: "hm", role: "hiring_manager" as const, comptes: [] };
+
+  it("propose les autres créateurs, y compris ceux qui ont déjà un perso", () => {
+    const dest = destinationsDeplacementCompte(persoFr, "alice", [alice, bob, charlie, hm]);
+    expect(dest.map((p) => p.id)).toEqual(["bob", "charlie"]);
+  });
+
+  it("refuse un CM vers un créateur qui a déjà un CM dans la même langue", () => {
+    const dest = destinationsDeplacementCompte(cmDe, "charlie", [alice, bob, charlie]);
+    expect(dest.map((p) => p.id)).toEqual(["alice"]);
+  });
+
+  it("autorise un CM vers un créateur qui a déjà un perso (2e compte)", () => {
+    const dest = destinationsDeplacementCompte(cmEs, "bob", [alice, bob, charlie]);
+    expect(dest.map((p) => p.id)).toEqual(["alice", "charlie"]);
+  });
+
+  it("autorise un perso vers un créateur sans aucun compte", () => {
+    const vide = { id: "dana", role: "poster" as const, comptes: [] };
+    const dest = destinationsDeplacementCompte(persoFr, "alice", [alice, vide]);
+    expect(dest.map((p) => p.id)).toEqual(["dana"]);
   });
 });

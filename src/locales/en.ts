@@ -1200,6 +1200,15 @@ export const en = {
       personaOk: "TikTok account and identity generated. The poster will see them in their workspace.",
       personaPlusTard: "Account created; the TikTok identity will be generated shortly.",
       identiteEnCours: "TikTok identity being generated…",
+      deplacerCompte: "Move to another creator",
+      deplacerCompteAide:
+        "The TikTok account stays the same (handle, persona, warmup, posts). Only the creator changes — including if they already have one or more accounts.",
+      deplacerCompteCible: "Destination creator",
+      deplacerCompteAction: "Move",
+      deplacerCompteAucun: "Add another creator to attach this account to.",
+      deplacerCompteConfirm:
+        "Move {{compte}} from {{depuis}} to {{vers}}? Handle, persona, warmup and posts stay: only the creator changes.",
+      deplacerCompteDestPasCreateur: "You can only move an account to one of your own creators.",
       calendrierNav: "Calendar",
       calendrierTitre: "My creators' calendar",
       calendrierSous: "Your creators' posts, day by day (read-only). CM accounts get the paper video.",

@@ -1052,6 +1052,21 @@ export function ajouterCompte(input: {
   });
 }
 
+/** Rattache un compte TikTok existant à un autre créateur (même id, rien n'est recréé). */
+export function deplacerCompte(input: { compteId: string; destPosterId: string }) {
+  return invoke<{
+    ok: boolean;
+    deja?: boolean;
+    compteId: string;
+    poster_id: string;
+    depuis?: string;
+  }>("manage-users", {
+    action: "deplacer_compte",
+    compteId: input.compteId,
+    destPosterId: input.destPosterId,
+  });
+}
+
 export function ajouterCompteCm(input: {
   posterId: string;
   langue: string;

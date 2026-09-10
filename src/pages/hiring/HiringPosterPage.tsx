@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { ArrowRightLeft, Check, Pencil, Trash2, UserPlus, X } from "lucide-react";
+import { Check, Pencil, Trash2, UserPlus, X } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -17,10 +17,8 @@ import {
   EmptyState,
 } from "@/components/ui/card";
 import { useAuth } from "@/features/auth/AuthContext";
-import { nomProfil } from "@/features/hiring/suiviEquipe";
 import {
   creerPoster,
-  deplacerCompte,
   listerApplications,
   listerLanguesReference,
   listerPosters,
@@ -31,150 +29,15 @@ import { useApplication } from "@/features/moteur/ApplicationContext";
 import { SLUG_SOPHIA } from "@/features/moteur/applications";
 import { ChampsPremierCompte, type PremierCompte } from "@/features/moteur/ChampsPremierCompte";
 import { langueInitiale } from "@/features/moteur/langues";
-import {
-  comptePrincipal,
-  destinationsDeplacementCompte,
-  estCompteCm,
-  languesCmPrises,
-} from "@/features/moteur/comptesCm";
+import { comptePrincipal, estCompteCm, languesCmPrises } from "@/features/moteur/comptesCm";
+import { DeplacerCompte } from "@/features/moteur/DeplacerCompte";
 import { FormulaireAjouterCompte } from "@/features/moteur/FormulaireCompteCm";
 import { EnteteCompte } from "@/features/moteur/VignetteCompte";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
-import type { CompteResumePoster, PosterProfil } from "@/features/moteur/types";
-
-const selectClass =
-  "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
+import type { PosterProfil } from "@/features/moteur/types";
 
 /** Mot de passe commun à tous les posters (dicté de vive voix). */
 const MOT_DE_PASSE = "12345678";
-
-function libelleCompte(c: CompteResumePoster): string {
-  const handle = c.handle_tiktok?.replace(/^@+/, "");
-  if (handle) return `@${handle}`;
-  return c.persona_nom?.trim() || c.id.slice(0, 8);
-}
-
-function DeplacerCompte({
-  compte,
-  source,
-  createurs,
-}: {
-  compte: CompteResumePoster;
-  source: PosterProfil;
-  createurs: PosterProfil[];
-}) {
-  const { t } = useTranslation();
-  const queryClient = useQueryClient();
-  const dests = React.useMemo(
-    () => destinationsDeplacementCompte(compte, source.id, createurs),
-    [compte, source.id, createurs],
-  );
-  const destIds = dests.map((d) => d.id).join(",");
-  const [ouvert, setOuvert] = React.useState(false);
-  const [destId, setDestId] = React.useState(dests[0]?.id ?? "");
-
-  React.useEffect(() => {
-    const ids = destIds ? destIds.split(",") : [];
-    setDestId((actuel) => (actuel && ids.includes(actuel) ? actuel : (ids[0] ?? "")));
-  }, [destIds]);
-
-  const deplacer = useMutation({
-    mutationFn: () => deplacerCompte({ compteId: compte.id, destPosterId: destId }),
-    onSuccess: () => {
-      setOuvert(false);
-      void queryClient.invalidateQueries({ queryKey: ["posters"] });
-    },
-  });
-
-  if (dests.length === 0) {
-    const autresCreateurs = createurs.some(
-      (c) => c.id !== source.id && (c.role ?? "poster") === "poster",
-    );
-    return (
-      <p className="text-xs text-muted-foreground">
-        {estCompteCm(compte) && autresCreateurs
-          ? t("cm.languePrise")
-          : t("hiring.deplacerCompteAucun")}
-      </p>
-    );
-  }
-
-  if (!ouvert) {
-    return (
-      <button
-        type="button"
-        onClick={() => setOuvert(true)}
-        className="inline-flex items-center gap-1 text-xs font-medium text-primary"
-      >
-        <ArrowRightLeft className="size-3" />
-        {t("hiring.deplacerCompte")}
-      </button>
-    );
-  }
-
-  const dest = dests.find((d) => d.id === destId);
-  const erreur = deplacer.error as Error | undefined;
-  const messageErreur =
-    erreur?.message === "DEST_PAS_CREATEUR" || erreur?.message === "forbidden"
-      ? t("hiring.deplacerCompteDestPasCreateur")
-      : erreur?.message === "CM_LANGUE_PRISE"
-        ? t("cm.languePrise")
-        : erreur?.message;
-
-  return (
-    <form
-      className="space-y-2 rounded-md border p-2.5"
-      onSubmit={(e) => {
-        e.preventDefault();
-        if (!dest) return;
-        if (
-          !window.confirm(
-            t("hiring.deplacerCompteConfirm", {
-              compte: libelleCompte(compte),
-              depuis: nomProfil(source),
-              vers: nomProfil(dest),
-            }),
-          )
-        ) {
-          return;
-        }
-        deplacer.mutate();
-      }}
-    >
-      <p className="text-xs font-medium">{t("hiring.deplacerCompte")}</p>
-      <p className="text-[11px] text-muted-foreground">{t("hiring.deplacerCompteAide")}</p>
-      <div className="space-y-1">
-        <Label htmlFor={`deplacer-${compte.id}`} className="text-xs">
-          {t("hiring.deplacerCompteCible")}
-        </Label>
-        <select
-          id={`deplacer-${compte.id}`}
-          className={selectClass}
-          value={destId}
-          onChange={(e) => setDestId(e.target.value)}
-          required
-        >
-          {dests.map((d) => (
-            <option key={d.id} value={d.id}>
-              {nomProfil(d)}
-              {d.email && d.email !== nomProfil(d) ? ` · ${d.email}` : ""}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className="flex flex-wrap gap-2">
-        <Button type="submit" size="sm" disabled={deplacer.isPending || !destId}>
-          <ArrowRightLeft className="size-4" />
-          {deplacer.isPending ? t("common.saving") : t("hiring.deplacerCompteAction")}
-        </Button>
-        <Button type="button" size="sm" variant="ghost" onClick={() => setOuvert(false)}>
-          {t("common.cancel")}
-        </Button>
-      </div>
-      {deplacer.isError && <p className="text-xs text-destructive">{messageErreur}</p>}
-    </form>
-  );
-}
 
 /**
  * Une ligne créateur côté HM : identité TikTok (avatar, @, nom, source, bio),

@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import { useAuth } from "@/features/auth/AuthContext";
+
 import { listerApplications } from "./api";
 import { SLUG_SOPHIA, type ApplicationOs } from "./applications";
 
@@ -11,6 +13,19 @@ function lireSlugSauve(): string {
   } catch {
     return SLUG_SOPHIA;
   }
+}
+
+function retenirSlug(liste: ApplicationOs[], actuel: string): string {
+  if (liste.length > 0 && !liste.some((a) => a.slug === actuel)) {
+    const fallback = liste[0]!.slug;
+    try {
+      localStorage.setItem(STORAGE_KEY, fallback);
+    } catch {
+      /* private mode */
+    }
+    return fallback;
+  }
+  return actuel;
 }
 
 interface ApplicationContextValue {
@@ -25,28 +40,31 @@ interface ApplicationContextValue {
 const ApplicationContext = React.createContext<ApplicationContextValue | null>(null);
 
 export function ApplicationProvider({ children }: { children: React.ReactNode }) {
+  const { session, loading: authLoading } = useAuth();
+  const userId = session?.user?.id ?? null;
   const [applications, setApplications] = React.useState<ApplicationOs[]>([]);
   const [slug, setSlugState] = React.useState(lireSlugSauve);
   const [isPending, setIsPending] = React.useState(true);
 
   React.useEffect(() => {
+    if (authLoading) return;
+
+    // RLS `applications_read` est TO authenticated : sans JWT la table
+    // répond 200 + []. Si on charge sur /login puis on se connecte, il
+    // faut relancer, sinon le switcher et tout le reste restent vides.
+    if (!userId) {
+      setApplications([]);
+      setIsPending(false);
+      return;
+    }
+
     let alive = true;
+    setIsPending(true);
     void listerApplications()
       .then((liste) => {
         if (!alive) return;
         setApplications(liste);
-        setSlugState((actuel) => {
-          if (liste.length > 0 && !liste.some((a) => a.slug === actuel)) {
-            const fallback = liste[0]!.slug;
-            try {
-              localStorage.setItem(STORAGE_KEY, fallback);
-            } catch {
-              /* private mode */
-            }
-            return fallback;
-          }
-          return actuel;
-        });
+        setSlugState((actuel) => retenirSlug(liste, actuel));
       })
       .catch(() => {
         if (!alive) return;
@@ -58,7 +76,7 @@ export function ApplicationProvider({ children }: { children: React.ReactNode })
     return () => {
       alive = false;
     };
-  }, []);
+  }, [authLoading, userId]);
 
   const setSlug = React.useCallback((suivant: string) => {
     setSlugState(suivant);

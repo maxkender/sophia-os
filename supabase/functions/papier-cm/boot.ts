@@ -6,7 +6,7 @@
  */
 import { createClient } from "jsr:@supabase/supabase-js@2";
 
-const SHA = "7bc09778eb872c988a95f9df43661e0b6bea23ae";
+const SHA = "d99e302dd78c33879ddd93a7bdc6d6399257afad";
 const PATH = "supabase/functions/papier-cm/bundle.gz";
 const SIZE = 29567;
 const URLS = [

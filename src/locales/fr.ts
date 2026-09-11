@@ -1008,6 +1008,7 @@ export const fr = {
       generer: "Avancer le pipeline",
       avancer: "Avancer le pipeline",
       relancer: "Relancer (garder les assets)",
+      continuerCaptions: "Continuer — captions",
       regenerer: "Recommencer depuis zéro",
       historique: "Bibliothèque",
       biblioAide: "{{n}} master(s) FR prêt(s). Minuit en tire un au hasard par langue, s’il n’a pas encore été servi.",
@@ -1016,6 +1017,7 @@ export const fr = {
       enBiblio: "En bibliothèque",
       languesDemande: "Langues créées à l’assignation",
       videoFr: "Vidéo FR",
+      apercuSansCaptions: "Aperçu — captions pas encore incrustées",
       consommees: "Déjà servi",
       aucuneConso: "Encore libre",
       libre: "Libre",
@@ -1048,6 +1050,7 @@ export const fr = {
       langues: "Langues déjà assemblées",
       languesAide: "Une langue naît quand un CM de cette langue tire ce master. Pas de fan-out à l’avance.",
       relancerLangue: "Relancer",
+      exporter: "Exporter",
       assigner: "Lancer l’assignation maintenant",
       assignerAide:
         "Chaque CM actif tire un master libre au hasard dans sa langue. Si la voix manque, elle se génère. Si plus rien : un original démarre.",

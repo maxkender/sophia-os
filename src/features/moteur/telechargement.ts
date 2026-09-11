@@ -51,3 +51,12 @@ export function telechargerFichier(fichier: File | Blob, nom: string): void {
   lien.remove();
   URL.revokeObjectURL(href);
 }
+
+export async function telechargerUrl(url: string, nom: string): Promise<void> {
+  try {
+    const fichier = await recupererFichier(url, nom);
+    telechargerFichier(fichier, nom);
+  } catch {
+    window.open(url, "_blank", "noopener,noreferrer");
+  }
+}

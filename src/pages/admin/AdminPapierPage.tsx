@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import {
   Check,
   ChevronDown,
+  Download,
   Library,
   Loader2,
   Moon,
@@ -55,6 +56,8 @@ import {
 import { REGLAGES_PAPIER_DEFAUT, VOIX_PAPIER_DEFAUT } from "@/features/moteur/papierReglages";
 import { SelectVoixEleven } from "@/features/moteur/SelectVoixEleven";
 import { budgetScript } from "@/features/moteur/papierScript";
+import { urlVideoExportable, langueFrAContinuer } from "@/features/moteur/papierLocales";
+import { telechargerUrl } from "@/features/moteur/telechargement";
 import {
   PAPIER_CATEGORIES,
   PAPIER_STYLES_NARRATION,
@@ -79,9 +82,24 @@ function masterEnCours(m: PapierMaster): boolean {
 }
 
 function videoFrDe(master: PapierMaster): string | null {
+  const fr = master.papier_langues?.find((l) => l.langue === "fr");
   return (
+    urlVideoExportable({
+      video_url: master.video_url || fr?.video_url,
+      video_mix_url: fr?.video_mix_url,
+      video_mix_path: fr?.video_mix_path,
+      etape: fr?.etape,
+    }) ||
     master.video_url ||
-    master.papier_langues?.find((l) => l.langue === "fr" && l.video_url)?.video_url ||
+    fr?.video_url ||
+    null
+  );
+}
+
+function apercuFrDe(master: PapierMaster): string | null {
+  return (
+    videoFrDe(master) ||
+    master.papier_langues?.find((l) => l.langue === "fr")?.video_mix_url ||
     null
   );
 }
@@ -305,6 +323,23 @@ export function AdminPapierPage() {
     valider.isPending ||
     abandonner.isPending;
 
+  const relanceAuto = React.useRef<Record<string, number>>({});
+  React.useEffect(() => {
+    const now = Date.now();
+    for (const m of rows) {
+      for (const l of m.papier_langues ?? []) {
+        if (l.statut === "ready" || l.statut === "failed") continue;
+        if (!["voice", "mix", "render", "karaoke"].includes(l.statut)) continue;
+        const updated = Date.parse(l.updated_at ?? "") || 0;
+        if (!updated || now - updated < 90_000) continue;
+        const last = relanceAuto.current[l.id] ?? 0;
+        if (now - last < 90_000) continue;
+        relanceAuto.current[l.id] = now;
+        relancerLangue.mutate(l.id);
+      }
+    }
+  }, [rows, relancerLangue]);
+
   const erreur =
     lancer.error ??
     relancer.error ??
@@ -425,6 +460,10 @@ export function AdminPapierPage() {
             onMode={(m) => changerMode.mutate(m)}
             hold={enCours.pipeline_hold ?? null}
             onAvancer={mode === "auto" ? () => lancer.mutate({}) : undefined}
+            onContinuer={(() => {
+              const fr = langueFrAContinuer(enCours.papier_langues);
+              return fr ? () => relancerLangue.mutate(fr.id) : undefined;
+            })()}
             onProposer={() => proposer.mutate()}
             onValider={enCours.pipeline_hold ? () => valider.mutate(enCours.id) : undefined}
             onArreter={() => arreter.mutate(enCours.id)}
@@ -677,6 +716,7 @@ function FormulairePipeline({
   onMode,
   hold,
   onAvancer,
+  onContinuer,
   onProposer,
   onValider,
   onArreter,
@@ -709,6 +749,7 @@ function FormulairePipeline({
   onMode: (v: PapierPipelineMode) => void;
   hold?: "topic" | "script" | "images" | null;
   onAvancer?: () => void;
+  onContinuer?: () => void;
   onProposer?: () => void;
   onValider?: () => void;
   onArreter?: () => void;
@@ -871,6 +912,11 @@ function FormulairePipeline({
           <Button onClick={onValider} disabled={busy} data-testid="papier-valider-sujet">
             {validerPending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Check className="h-4 w-4" />}
             {t("papier.validerSujet")}
+          </Button>
+        ) : onContinuer ? (
+          <Button onClick={onContinuer} disabled={busy} data-testid="papier-continuer">
+            {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Sparkles className="h-4 w-4" />}
+            {t("papier.continuerCaptions")}
           </Button>
         ) : onAvancer ? (
           <Button onClick={onAvancer} disabled={busy}>
@@ -1060,6 +1106,7 @@ function ResumeMaster({ master }: { master: PapierMaster }) {
   const pct = Math.round((master.progression ?? 0) * 100);
   const scenes = master.papier_scenes ?? [];
   const videoFr = videoFrDe(master);
+  const apercuFr = apercuFrDe(master);
   return (
     <div className="space-y-2">
       <div className="flex flex-wrap items-center gap-2">
@@ -1075,12 +1122,28 @@ function ResumeMaster({ master }: { master: PapierMaster }) {
         </div>
       ) : null}
       {master.script?.title ? <p className="text-sm font-medium">{master.script.title}</p> : null}
-      {videoFr ? (
-        <div className="space-y-1">
-          <p className="text-xs text-muted-foreground">{t("papier.videoFr")}</p>
+      {apercuFr ? (
+        <div className="space-y-2">
+          <p className="text-xs text-muted-foreground">
+            {videoFr ? t("papier.videoFr") : t("papier.apercuSansCaptions")}
+          </p>
           <PapierCadre className="mx-auto max-h-80 w-auto max-w-[220px]">
-            <video src={videoFr} className="h-full w-full object-cover" controls playsInline />
+            <video src={apercuFr} className="h-full w-full object-cover" controls playsInline />
           </PapierCadre>
+          {videoFr ? (
+            <Button
+              size="sm"
+              variant="outline"
+              className="w-full"
+              onClick={() => {
+                const nom = `${(master.script?.title || master.topic || "papier-fr").slice(0, 60)}.mp4`;
+                void telechargerUrl(videoFr, nom);
+              }}
+            >
+              <Download className="h-4 w-4" />
+              {t("papier.exporter")}
+            </Button>
+          ) : null}
         </div>
       ) : null}
       {master.erreur ? <p className="text-sm text-destructive">{master.erreur}</p> : null}
@@ -1132,7 +1195,13 @@ function CarteLangue({
   busy: boolean;
 }) {
   const { t } = useTranslation();
-  const video = langue.video_url || langue.video_mix_url;
+  const exportable = urlVideoExportable({
+      video_url: langue.video_url,
+      video_mix_url: langue.video_mix_url,
+      video_mix_path: langue.video_mix_path,
+      etape: langue.etape,
+    });
+  const video = exportable || langue.video_url || langue.video_mix_url;
   return (
     <div className="overflow-hidden rounded-md border">
       <PapierCadre>
@@ -1155,11 +1224,26 @@ function CarteLangue({
         </div>
         {langue.title ? <p className="text-xs text-muted-foreground">{langue.title}</p> : null}
         {langue.erreur ? <p className="text-xs text-destructive">{langue.erreur}</p> : null}
-        {langue.statut === "failed" ? (
-          <Button size="sm" variant="outline" disabled={busy} onClick={() => onRelancer(langue.id)}>
-            {t("papier.relancerLangue")}
-          </Button>
-        ) : null}
+        <div className="flex flex-wrap gap-2">
+          {exportable ? (
+            <Button
+              size="sm"
+              variant="outline"
+              onClick={() => {
+                const nom = `${(langue.title || langue.langue).slice(0, 60)}.mp4`;
+                void telechargerUrl(exportable, nom);
+              }}
+            >
+              <Download className="h-4 w-4" />
+              {t("papier.exporter")}
+            </Button>
+          ) : null}
+          {langue.statut !== "ready" ? (
+            <Button size="sm" disabled={busy} onClick={() => onRelancer(langue.id)}>
+              {t("papier.continuerCaptions")}
+            </Button>
+          ) : null}
+        </div>
       </div>
     </div>
   );

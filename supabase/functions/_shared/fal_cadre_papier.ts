@@ -105,6 +105,7 @@ export async function composerFinalePapier(input: {
   supabase: Supabase;
   dureeSec?: number;
   onProgress?: FalQueueProgress;
+  timeoutMs?: number;
 }): Promise<{ url: string; bytes: Uint8Array; mime: string }> {
   const video_url = urlSansCacheBuster(input.videoUrl);
   if (!video_url) throw new Error("compose papier: video_url vide");
@@ -134,7 +135,7 @@ export async function composerFinalePapier(input: {
     },
     input.onProgress,
   );
-  const data = await falQueueAwaitJson(COMPOSE, queued, input.onProgress, 300_000);
+  const data = await falQueueAwaitJson(COMPOSE, queued, input.onProgress, input.timeoutMs ?? 300_000);
   const payload = (data?.data ?? data) as {
     video_url?: string;
     video?: { url?: string; content_type?: string };

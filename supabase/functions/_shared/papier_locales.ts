@@ -20,7 +20,12 @@ import { mergerAudioVideoFal } from "./fal_merge_audio.ts";
 import { trimmerVideoFal } from "./fal_trim_video.ts";
 import { mergerVideosFal } from "./fal_merge_videos.ts";
 import { composerFinalePapier } from "./fal_cadre_papier.ts";
-import { prochaineLangueATiquer, statutDepuisLocaleAssets, type PapierScriptTraduit } from "./papier_locales_core.ts";
+import {
+  etapeAssemblage,
+  prochaineLangueATiquer,
+  statutDepuisLocaleAssets,
+  type PapierScriptTraduit,
+} from "./papier_locales_core.ts";
 import { traduireScriptPapier } from "./papier_traduction.ts";
 import { finTrimClipPourVoix, type PapierScript } from "./papier_script_core.ts";
 import { chargerPrompt, messageErreur, serviceClient } from "./supabase.ts";
@@ -29,6 +34,10 @@ type Supabase = ReturnType<typeof serviceClient>;
 
 const BUCKET = "medias";
 const TICK_BUDGET_MS = 42_000;
+const CLAIM_STALE_MS = 90_000;
+/** Un lot Fal (concat ou cadre) doit tenir dans le wall clock de l'edge. */
+const FAL_ASSEMBLAGE_MS = 130_000;
+const CONCAT_LOT = 4;
 const started = () => Date.now();
 const outOfTime = (t0: number) => Date.now() - t0 > TICK_BUDGET_MS - 4_000;
 
@@ -196,7 +205,7 @@ async function claimLangue(supabase: Supabase, id: string): Promise<boolean> {
   const row = await chargerLangue(supabase, id);
   if (!row) return false;
   const stale = Date.parse(row.updated_at ?? "") || 0;
-  if (row.busy && Date.now() - stale > 180_000) {
+  if (row.busy && Date.now() - stale > CLAIM_STALE_MS) {
     const { data: steal } = await supabase
       .from("papier_langues")
       .update({ busy: true, updated_at: now })
@@ -424,35 +433,79 @@ async function etapeRender(
   row: PapierLangueRow,
   scenes: PapierLangueSceneRow[],
 ): Promise<void> {
-  if (row.video_mix_url) return;
+  const ass = etapeAssemblage(row);
+  if (ass === "ready" || ass === "karaoke") return;
   const urls = scenes.map((s) => s.mix_url).filter((u): u is string => Boolean(u));
   if (urls.length === 0) throw new Error("Aucun mix à assembler");
-  let bytes: Uint8Array;
-  let mime = "video/mp4";
-  let sourceUrl = urls[0]!;
-  if (urls.length > 1) {
-    await reserverFalPapier(supabase);
-    const merged = await mergerVideosFal({ videoUrls: urls });
-    const rawPath = `papiers/${row.master_id}/${row.langue}/mix-raw.mp4`;
-    sourceUrl = await uploader(supabase, rawPath, merged.bytes, merged.mime);
+  const partPath = `papiers/${row.master_id}/${row.langue}/mix-part.mp4`;
+  const rawPath = `papiers/${row.master_id}/${row.langue}/mix-raw.mp4`;
+  const framedPath = `papiers/${row.master_id}/${row.langue}/mix.mp4`;
+
+  if (ass === "merge") {
+    const hasPart = (row.video_mix_path ?? "").includes("mix-part") && Boolean(row.video_mix_url);
+    if (!hasPart && urls.length > CONCAT_LOT) {
+      await reserverFalPapier(supabase);
+      const merged = await mergerVideosFal({
+        videoUrls: urls.slice(0, CONCAT_LOT),
+        timeoutMs: FAL_ASSEMBLAGE_MS,
+      });
+      const url = await uploader(supabase, partPath, merged.bytes, merged.mime);
+      await patchLangue(
+        supabase,
+        row.id,
+        {
+          video_mix_path: partPath,
+          video_mix_url: url,
+          statut: "render",
+          etape: "render",
+          progression: 0.76,
+        },
+        { etape: "render", detail: `concat ${CONCAT_LOT}/${urls.length}` },
+      );
+      return;
+    }
+    const queue = hasPart ? [row.video_mix_url!, ...urls.slice(CONCAT_LOT)] : urls;
+    let sourceUrl = queue[0]!;
+    if (queue.length > 1) {
+      await reserverFalPapier(supabase);
+      const merged = await mergerVideosFal({ videoUrls: queue, timeoutMs: FAL_ASSEMBLAGE_MS });
+      sourceUrl = await uploader(supabase, rawPath, merged.bytes, merged.mime);
+    }
+    await patchLangue(
+      supabase,
+      row.id,
+      {
+        video_mix_path: rawPath,
+        video_mix_url: sourceUrl,
+        statut: "render",
+        etape: "cadre",
+        progression: 0.8,
+      },
+      { etape: "render", detail: `${urls.length} plans concaténés` },
+    );
+    return;
   }
+
+  const source = row.video_mix_url;
+  if (!source) throw new Error("Concat absente avant le cadre");
   await reserverFalPapier(supabase);
-  const framed = await composerFinalePapier({ videoUrl: sourceUrl, supabase });
-  bytes = framed.bytes;
-  mime = framed.mime;
-  const path = `papiers/${row.master_id}/${row.langue}/mix.mp4`;
-  const url = await uploader(supabase, path, bytes, mime);
+  const framed = await composerFinalePapier({
+    videoUrl: source,
+    supabase,
+    timeoutMs: FAL_ASSEMBLAGE_MS,
+  });
+  const url = await uploader(supabase, framedPath, framed.bytes, framed.mime);
   await patchLangue(
     supabase,
     row.id,
     {
-      video_mix_path: path,
+      video_mix_path: framedPath,
       video_mix_url: url,
       statut: "karaoke",
       etape: "karaoke",
       progression: 0.85,
     },
-    { etape: "render", detail: `${urls.length} plans assemblés` },
+    { etape: "render", detail: "cadre 9:16" },
   );
 }
 
@@ -577,9 +630,15 @@ export async function avancerLangue(
 
     scenes = await chargerScenesLangue(supabase, langueId);
     row = (await chargerLangue(supabase, langueId))!;
-    await etapeRender(supabase, row, scenes);
-    row = (await chargerLangue(supabase, langueId))!;
-    if (outOfTime(t0)) return resumerLangue(row, false, "assemblage ok");
+    const ass = etapeAssemblage(row);
+    if (ass === "merge" || ass === "cadre") {
+      if (ass === "merge" && Date.now() - t0 > 6_000) {
+        return resumerLangue(row, false, "mix ok — assemblage");
+      }
+      await etapeRender(supabase, row, scenes);
+      row = (await chargerLangue(supabase, langueId))!;
+      return resumerLangue(row, false, ass === "cadre" ? "cadre ok" : "concat ok");
+    }
 
     await etapeKaraoke(supabase, row);
     row = (await chargerLangue(supabase, langueId))!;
@@ -673,6 +732,17 @@ export async function tickLocalesMaster(
   return avancerLangue(supabase, nextId);
 }
 
+export async function destickerLanguesMaster(
+  supabase: Supabase,
+  masterId: string,
+): Promise<void> {
+  await supabase
+    .from("papier_langues")
+    .update({ busy: false, updated_at: new Date().toISOString() })
+    .eq("master_id", masterId)
+    .eq("busy", true);
+}
+
 export async function relancerLangue(
   supabase: Supabase,
   id: string,
@@ -684,13 +754,22 @@ export async function relancerLangue(
     script: row.script,
     scenes,
     video_mix_url: row.video_mix_url,
+    video_mix_path: row.video_mix_path,
     video_url: row.video_url,
+    etape: row.etape,
   });
+  const cadre =
+    row.etape === "cadre" || (row.video_mix_path ?? "").includes("mix-raw");
   await patchLangue(
     supabase,
     id,
-    { statut: statut === "ready" ? "ready" : statut, erreur: null, busy: false, etape: statut },
-    { etape: "relancer", detail: `reprise → ${statut}` },
+    {
+      statut: statut === "ready" ? "ready" : statut,
+      erreur: null,
+      busy: false,
+      etape: cadre && statut !== "ready" ? "cadre" : statut,
+    },
+    { etape: "relancer", detail: `reprise → ${cadre ? "cadre" : statut}` },
   );
   const next = await chargerLangue(supabase, id);
   if (!next) throw new Error("Langue introuvable après relance");

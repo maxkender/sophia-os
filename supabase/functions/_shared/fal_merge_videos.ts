@@ -25,6 +25,7 @@ export const MERGE_UGC_FPS = 30;
 export async function mergerVideosFal(input: {
   videoUrls: string[];
   onProgress?: FalQueueProgress;
+  timeoutMs?: number;
 }): Promise<{ url: string; bytes: Uint8Array; mime: string }> {
   const video_urls = (input.videoUrls ?? [])
     .map((u) => String(u ?? "").trim())
@@ -42,7 +43,7 @@ export async function mergerVideosFal(input: {
     },
     input.onProgress,
   );
-  const data = await falQueueAwaitJson(MODEL, queued, input.onProgress, 300_000);
+  const data = await falQueueAwaitJson(MODEL, queued, input.onProgress, input.timeoutMs ?? 300_000);
   const payload = (data?.data ?? data) as {
     video?: { url?: string; content_type?: string };
   };

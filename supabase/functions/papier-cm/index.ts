@@ -16,10 +16,11 @@ import {
 } from "../_shared/papier_assignation.ts";
 import { papierEstActif } from "../_shared/papier_reglages.ts";
 import {
-  assurerLangueMaster,
   avancerLangue,
   changerVoixMaster,
+  destickerLanguesMaster,
   relancerLangue,
+  tickLocalesMaster,
 } from "../_shared/papier_locales.ts";
 import {
   abandonnerMaster,
@@ -123,8 +124,7 @@ Deno.serve(async (request) => {
       }
       const masterId = String(body?.masterId ?? "");
       if (!masterId) return json({ ok: false, error: "masterId requis" }, 400);
-      const fr = await assurerLangueMaster(supabase, masterId, "fr");
-      const tick = await avancerLangue(supabase, fr.id);
+      const tick = await tickLocalesMaster(supabase, masterId);
       return json(enchainer(request, tick, masterId));
     }
 
@@ -269,8 +269,14 @@ Deno.serve(async (request) => {
       const id = String(body?.id ?? "");
       if (!id) return json({ ok: false, error: "id requis" }, 400);
       const master = await relancerMaster(supabase, id);
+      await destickerLanguesMaster(supabase, id);
       if (master.statut === "ready") {
         return json({ ok: true, done: true, statut: "ready", masterId: id });
+      }
+      const scenes = master.statut === "clips" || master.etape === "fr";
+      if (scenes) {
+        const tick = await tickLocalesMaster(supabase, id);
+        return json({ ok: true, ...enchainer(request, tick, id) });
       }
       const tick = await avancerMaster(supabase, id);
       return json({ ok: true, ...enchainer(request, tick, id) });

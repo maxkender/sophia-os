@@ -1007,6 +1007,7 @@ export const en = {
       generer: "Advance pipeline",
       avancer: "Advance pipeline",
       relancer: "Retry (keep assets)",
+      continuerCaptions: "Continue — captions",
       regenerer: "Start over from scratch",
       historique: "Library",
       biblioAide: "{{n}} ready FR master(s). Midnight draws one at random per language, if it has not been used yet.",
@@ -1015,6 +1016,7 @@ export const en = {
       enBiblio: "In library",
       languesDemande: "Languages created at assignment",
       videoFr: "FR video",
+      apercuSansCaptions: "Preview — captions not burned in yet",
       consommees: "Already used",
       aucuneConso: "Still free",
       libre: "Free",
@@ -1046,6 +1048,7 @@ export const en = {
       langues: "Languages already assembled",
       languesAide: "A language is born when a CM in that language draws this master. No upfront fan-out.",
       relancerLangue: "Retry",
+      exporter: "Export",
       assigner: "Run assignment now",
       assignerAide:
         "Each active CM draws a random free master in their language. Missing voice is generated then. If none left: an original starts.",

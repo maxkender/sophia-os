@@ -3846,8 +3846,11 @@ export type PapierLangue = {
   etape: string | null;
   progression: number;
   erreur: string | null;
+  busy?: boolean;
+  updated_at?: string;
   video_url: string | null;
   video_mix_url: string | null;
+  video_mix_path?: string | null;
   voice?: string | null;
 };
 

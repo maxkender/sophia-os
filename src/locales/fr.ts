@@ -460,7 +460,7 @@ export const fr = {
       reglages: "Remarques",
       reglagesTitre: "Remarques génériques",
       reglagesSous:
-        "Le titre s’affiche comme bouton. Le corps s’insère dans la review. Glisse un screen recording de 5–15 s sur une remarque — le créateur verra les vidéos à la suite.",
+        "Le titre s’affiche comme bouton. Le corps s’insère dans la review. Tu peux y joindre une courte vidéo.",
       nouvelle: "Nouvelle remarque",
       titrePlaceholder: "Titre (bouton)",
       corpsPlaceholder: "Corps inséré dans la review…",

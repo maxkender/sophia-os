@@ -254,8 +254,6 @@ async function gererRequete(request: Request): Promise<Response> {
       }
     }
 
-    }
-
     // HM UGC AI VIDEO : ses créateurs naissent sans file labels / sans labels.
     const hmUgcAiVideo = await estHmUgcAiVideo(supabase, acces);
     const application = await resoudreApplication(supabase, body);

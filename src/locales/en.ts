@@ -460,7 +460,7 @@ export const en = {
       reglages: "Remarks",
       reglagesTitre: "Generic remarks",
       reglagesSous:
-        "The title shows as a button. The body is inserted into the review. Drag a 5–15s screen recording onto a remark — the creator will see the videos in sequence.",
+        "The title shows as a button. The body is inserted into the review. You can attach a short video.",
       nouvelle: "New remark",
       titrePlaceholder: "Title (button)",
       corpsPlaceholder: "Body inserted into the review…",

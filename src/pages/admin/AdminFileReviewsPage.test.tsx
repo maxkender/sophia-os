@@ -86,11 +86,14 @@ describe("AdminFileReviewsPage", () => {
     expect(screen.getByText(/Vidéos jouées à la suite|Videos that will play in sequence/)).toBeInTheDocument();
   });
 
-  it("affiche le formulaire d'ajout dans les réglages des remarques", async () => {
+  it("affiche le formulaire d'ajout une fois déplié", async () => {
     listerFileReviewsJour.mockResolvedValue([]);
     listerReviewRemarques.mockResolvedValue([]);
     renderPage();
     fireEvent.click(await screen.findByRole("button", { name: /Remarques|Remarks/ }));
+    expect(await screen.findByRole("button", { name: /Nouvelle remarque|New remark/ })).toBeInTheDocument();
+    expect(screen.queryByPlaceholderText(/Titre \(bouton\)|Title \(button\)/)).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /Nouvelle remarque|New remark/ }));
     expect(await screen.findByPlaceholderText(/Titre \(bouton\)|Title \(button\)/)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Ajouter|Add/ })).toBeInTheDocument();
   });
@@ -119,6 +122,7 @@ describe("AdminFileReviewsPage", () => {
     fireEvent.click(await screen.findByRole("button", { name: /Remarques|Remarks/ }));
     expect(await screen.findByDisplayValue("Hook trop lent")).toBeInTheDocument();
     expect(screen.getByDisplayValue("Timing")).toBeInTheDocument();
+    expect(screen.queryByPlaceholderText(/Titre \(bouton\)|Title \(button\)/)).not.toBeInTheDocument();
     expect(screen.getByTestId("liste-remarques")).toHaveClass("overflow-y-auto");
   });
 });

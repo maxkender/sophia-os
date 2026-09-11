@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Film, Send, Settings2, SkipForward, Sparkles, Trash2, X } from "lucide-react";
+import { ChevronUp, Film, Plus, Send, Settings2, SkipForward, Sparkles, Trash2, X } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -87,6 +87,7 @@ function ReglagesRemarques({
   const [corps, setCorps] = React.useState("");
   const [videoNouvelle, setVideoNouvelle] = React.useState<File | null>(null);
   const [errVideoNouvelle, setErrVideoNouvelle] = React.useState<string | null>(null);
+  const [ajoutOuvert, setAjoutOuvert] = React.useState(false);
   const apercuNouvelle = React.useMemo(
     () => (videoNouvelle ? URL.createObjectURL(videoNouvelle) : null),
     [videoNouvelle],
@@ -96,6 +97,10 @@ function ReglagesRemarques({
       if (apercuNouvelle) URL.revokeObjectURL(apercuNouvelle);
     };
   }, [apercuNouvelle]);
+
+  React.useEffect(() => {
+    if (!ouvert) setAjoutOuvert(false);
+  }, [ouvert]);
 
   const rafraichir = () => queryClient.invalidateQueries({ queryKey: ["review-remarques"] });
   const msgVideo = (cle: "type" | "taille" | "duree") => t(`fileReviews.videoErr.${cle}`);
@@ -110,6 +115,7 @@ function ReglagesRemarques({
       setCorps("");
       setVideoNouvelle(null);
       setErrVideoNouvelle(null);
+      setAjoutOuvert(false);
       rafraichir();
     },
   });
@@ -142,6 +148,23 @@ function ReglagesRemarques({
           <DialogTitle>{t("fileReviews.reglagesTitre")}</DialogTitle>
           <DialogDescription>{t("fileReviews.reglagesSous")}</DialogDescription>
         </DialogHeader>
+        <div className="shrink-0 border-b px-6 py-2">
+          <Button
+            type="button"
+            size="sm"
+            variant={ajoutOuvert ? "secondary" : "outline"}
+            className="w-full justify-between"
+            aria-expanded={ajoutOuvert}
+            onClick={() => setAjoutOuvert((v) => !v)}
+          >
+            <span className="inline-flex items-center gap-2">
+              <Plus className="size-4" />
+              {t("fileReviews.nouvelle")}
+            </span>
+            <ChevronUp className={cn("size-4 transition-transform", !ajoutOuvert && "rotate-180")} />
+          </Button>
+        </div>
+        {ajoutOuvert && (
         <form
           className="shrink-0 space-y-2 border-b px-6 py-3"
           onSubmit={(e) => {
@@ -149,7 +172,6 @@ function ReglagesRemarques({
             ajouter();
           }}
         >
-          <p className="text-xs font-medium text-muted-foreground">{t("fileReviews.nouvelle")}</p>
           <input
             value={titre}
             onChange={(e) => setTitre(e.target.value)}
@@ -185,13 +207,8 @@ function ReglagesRemarques({
           {videoNouvelle && !errVideoNouvelle && (
             <p className="text-xs text-muted-foreground">{videoNouvelle.name}</p>
           )}
-          {(creer.isError || remarques.isError || videoLigne.isError || retirerVideo.isError) && (
-            <p className="text-sm text-destructive">
-              {(creer.error as Error | undefined)?.message ||
-                (videoLigne.error as Error | undefined)?.message ||
-                (retirerVideo.error as Error | undefined)?.message ||
-                (remarques.error as Error | undefined)?.message}
-            </p>
+          {creer.isError && (
+            <p className="text-sm text-destructive">{(creer.error as Error).message}</p>
           )}
           <Button
             type="button"
@@ -202,10 +219,19 @@ function ReglagesRemarques({
             {t("fileReviews.ajouter")}
           </Button>
         </form>
+        )}
         <div
           data-testid="liste-remarques"
           className="min-h-0 flex-1 overflow-y-auto px-6 py-3"
         >
+          {(creer.isError || remarques.isError || videoLigne.isError || retirerVideo.isError) && (
+            <p className="mb-3 text-sm text-destructive">
+              {(creer.error as Error | undefined)?.message ||
+                (videoLigne.error as Error | undefined)?.message ||
+                (retirerVideo.error as Error | undefined)?.message ||
+                (remarques.error as Error | undefined)?.message}
+            </p>
+          )}
           <ul className="space-y-3">
             {(remarques.data ?? []).map((r) => (
               <LigneRemarque

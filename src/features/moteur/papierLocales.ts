@@ -183,14 +183,50 @@ export function finaliserTraductionPapier(
   };
 }
 
+/** Concat brute / lot partiel — pas encore le cadre 9:16, donc pas exportable. */
+export function mixEstIntermediaire(path?: string | null, etape?: string | null): boolean {
+  const p = path ?? "";
+  return etape === "cadre" || p.includes("mix-raw") || p.includes("mix-part");
+}
+
+export function etapeAssemblage(row: {
+  video_url?: string | null;
+  video_mix_url?: string | null;
+  video_mix_path?: string | null;
+  etape?: string | null;
+}): "merge" | "cadre" | "karaoke" | "ready" {
+  if (row.video_url) return "ready";
+  const p = row.video_mix_path ?? "";
+  if (p.includes("mix-part")) return "merge";
+  if (row.etape === "cadre" || p.includes("mix-raw")) return "cadre";
+  if (row.video_mix_url) return "karaoke";
+  return "merge";
+}
+
+/** Vidéo à télécharger : finale (captions) sinon mix cadré. Pas le concat brut. */
+export function urlVideoExportable(row: {
+  video_url?: string | null;
+  video_mix_url?: string | null;
+  video_mix_path?: string | null;
+  etape?: string | null;
+}): string | null {
+  if (row.video_url) return row.video_url;
+  if (row.video_mix_url && !mixEstIntermediaire(row.video_mix_path, row.etape)) {
+    return row.video_mix_url;
+  }
+  return null;
+}
+
 export function statutDepuisLocaleAssets(row: {
   script?: unknown;
   scenes?: Array<{ audio_url?: string | null; mix_url?: string | null }>;
   video_mix_url?: string | null;
+  video_mix_path?: string | null;
   video_url?: string | null;
+  etape?: string | null;
 }): "queued" | "translating" | "voice" | "mix" | "render" | "karaoke" | "ready" {
   if (row.video_url) return "ready";
-  if (row.video_mix_url) return "karaoke";
+  if (row.video_mix_url && !mixEstIntermediaire(row.video_mix_path, row.etape)) return "karaoke";
   const scenes = row.scenes ?? [];
   if (!row.script || scenes.length === 0) return "translating";
   if (scenes.some((s) => !s.audio_url)) return "voice";

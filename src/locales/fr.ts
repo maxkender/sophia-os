@@ -1048,6 +1048,7 @@ export const fr = {
       langues: "Langues déjà assemblées",
       languesAide: "Une langue naît quand un CM de cette langue tire ce master. Pas de fan-out à l’avance.",
       relancerLangue: "Relancer",
+      exporter: "Exporter",
       assigner: "Lancer l’assignation maintenant",
       assignerAide:
         "Chaque CM actif tire un master libre au hasard dans sa langue. Si la voix manque, elle se génère. Si plus rien : un original démarre.",

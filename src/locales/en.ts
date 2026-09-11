@@ -1046,6 +1046,7 @@ export const en = {
       langues: "Languages already assembled",
       languesAide: "A language is born when a CM in that language draws this master. No upfront fan-out.",
       relancerLangue: "Retry",
+      exporter: "Export",
       assigner: "Run assignment now",
       assignerAide:
         "Each active CM draws a random free master in their language. Missing voice is generated then. If none left: an original starts.",

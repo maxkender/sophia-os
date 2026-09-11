@@ -3,12 +3,14 @@ import { describe, expect, it } from "vitest";
 import {
   dureeDepuisTimings,
   estLanguePapier,
+  etapeAssemblage,
   finaliserTraductionPapier,
   LANGUES_PAPIER,
   nomLangueModele,
   normaliserTimestampsFal,
   prochaineLangueATiquer,
   statutDepuisLocaleAssets,
+  urlVideoExportable,
   wordTimingsEstimes,
 } from "./papierLocales";
 
@@ -129,8 +131,45 @@ describe("statut locale", () => {
         script: {},
         scenes: [{ audio_url: "a", mix_url: "m" }],
         video_mix_url: "v",
+        video_mix_path: "papiers/x/fr/mix-raw.mp4",
+      }),
+    ).toBe("render");
+    expect(
+      statutDepuisLocaleAssets({
+        script: {},
+        scenes: [{ audio_url: "a", mix_url: "m" }],
+        video_mix_url: "v",
       }),
     ).toBe("karaoke");
     expect(statutDepuisLocaleAssets({ video_url: "ok" })).toBe("ready");
+  });
+});
+
+describe("assemblage", () => {
+  it("découpe concat → cadre → karaoke, sans exporter le brut", () => {
+    expect(etapeAssemblage({})).toBe("merge");
+    expect(
+      etapeAssemblage({
+        video_mix_url: "part",
+        video_mix_path: "papiers/x/fr/mix-part.mp4",
+      }),
+    ).toBe("merge");
+    expect(
+      etapeAssemblage({
+        video_mix_url: "raw",
+        video_mix_path: "papiers/x/fr/mix-raw.mp4",
+        etape: "cadre",
+      }),
+    ).toBe("cadre");
+    expect(
+      etapeAssemblage({
+        video_mix_url: "mix",
+        video_mix_path: "papiers/x/fr/mix.mp4",
+      }),
+    ).toBe("karaoke");
+    expect(etapeAssemblage({ video_url: "final" })).toBe("ready");
+    expect(urlVideoExportable({ video_mix_url: "raw", video_mix_path: "x/mix-raw.mp4" })).toBeNull();
+    expect(urlVideoExportable({ video_mix_url: "mix", video_mix_path: "x/mix.mp4" })).toBe("mix");
+    expect(urlVideoExportable({ video_url: "final", video_mix_url: "mix" })).toBe("final");
   });
 });

@@ -16,10 +16,10 @@ import {
 } from "../_shared/papier_assignation.ts";
 import { papierEstActif } from "../_shared/papier_reglages.ts";
 import {
-  assurerLangueMaster,
   avancerLangue,
   changerVoixMaster,
   relancerLangue,
+  tickLocalesMaster,
 } from "../_shared/papier_locales.ts";
 import {
   abandonnerMaster,
@@ -123,8 +123,7 @@ Deno.serve(async (request) => {
       }
       const masterId = String(body?.masterId ?? "");
       if (!masterId) return json({ ok: false, error: "masterId requis" }, 400);
-      const fr = await assurerLangueMaster(supabase, masterId, "fr");
-      const tick = await avancerLangue(supabase, fr.id);
+      const tick = await tickLocalesMaster(supabase, masterId);
       return json(enchainer(request, tick, masterId));
     }
 

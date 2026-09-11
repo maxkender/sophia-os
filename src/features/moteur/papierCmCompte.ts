@@ -1,6 +1,6 @@
 /** Handles Gmail + Instagram Paper CM (Schedule A du contrat). */
 
-export const CONTRAT_PAPIER_VERSION = "vik-sm-2026-09-11";
+export const CONTRAT_PAPIER_VERSION = "vik-sm-2026-09-11-auto";
 
 export type ComptePapierCible = {
   langue: string;
@@ -38,6 +38,22 @@ export function cibleComptePapier(langue: string): ComptePapierCible {
     paysEn: row.paysEn,
     email: `sophia.knowledge.${row.slug}@gmail.com`,
     instagram: `sophia.app.${row.iso}`,
+  };
+}
+
+/** Handle Instagram + Gmail du contrat — le HM ne les tape plus. */
+export function identifiantsCmDepuisLangue(
+  langue: string,
+  saisie: { handle?: string; email?: string; password?: string } = {},
+) {
+  const cible = cibleComptePapier(langue);
+  const handle = String(saisie.handle ?? "").trim().replace(/^@+/, "");
+  const email = String(saisie.email ?? "").trim();
+  const password = String(saisie.password ?? "");
+  return {
+    handle_tiktok: handle || cible.instagram,
+    tiktok_email: email || cible.email,
+    tiktok_password: password || motDePasseComptePapier(),
   };
 }
 

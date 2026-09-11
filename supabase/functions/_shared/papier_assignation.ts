@@ -104,13 +104,19 @@ export async function assignerPapierComptes(
 
   let qComptes = supabase
     .from("comptes")
-    .select("id, langue, type_compte, is_active, application_id")
+    .select("id, langue, type_compte, is_active, application_id, warmup_started_at, warmup_ends_at")
     .eq("type_compte", "cm");
   if (opts.compteId) qComptes = qComptes.eq("id", opts.compteId);
   else if (!test) qComptes = qComptes.eq("is_active", true);
   const { data: comptesBruts, error: errC } = await qComptes;
   if (errC) throw errC;
-  const comptes = (comptesBruts ?? []).filter((c) => test || c.is_active !== false);
+  const maintenant = Date.now();
+  const comptes = (comptesBruts ?? []).filter((c) => {
+    if (!test && c.is_active === false) return false;
+    if (test) return true;
+    if (!c.warmup_started_at || !c.warmup_ends_at) return false;
+    return new Date(String(c.warmup_ends_at)).getTime() <= maintenant;
+  });
 
   const rows: Array<Record<string, unknown>> = [];
   const kicksLangue: string[] = [];

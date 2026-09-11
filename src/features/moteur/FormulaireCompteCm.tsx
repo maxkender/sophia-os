@@ -11,7 +11,9 @@ import {
   lireIdentifiantsCm,
   majIdentifiantsCm,
 } from "@/features/moteur/api";
+import { ApercuIdentitePapier } from "@/features/moteur/ApercuIdentitePapier";
 import { languesDisponiblesPourCm, languesPourNouveauCompte } from "@/features/moteur/comptesCm";
+import { identifiantsCmDepuisLangue } from "@/features/moteur/papierCmCompte";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { nomApplication, type ApplicationOs } from "@/features/moteur/applications";
 import { nomLangue } from "@/features/moteur/langues";
@@ -67,15 +69,16 @@ export function FormulaireAjouterCompte({
 
   const creer = useMutation({
     mutationFn: async () => {
+      const cm = typeCompte === "cm" ? identifiantsCmDepuisLangue(langue) : null;
       const r = await ajouterCompte({
         posterId,
         type_compte: typeCompte,
         langue,
         application_slug: applicationSlug,
         posts_par_jour: typeCompte === "perso" ? postsParJour : 1,
-        handle_tiktok: handle,
-        tiktok_email: email,
-        tiktok_password: password,
+        handle_tiktok: cm?.handle_tiktok ?? handle,
+        tiktok_email: cm?.tiktok_email ?? email,
+        tiktok_password: cm?.tiktok_password ?? password,
         tiktok_2fa_note: deuxFa,
       });
       if (typeCompte === "cm") {
@@ -183,16 +186,18 @@ export function FormulaireAjouterCompte({
               ))}
             </select>
           </div>
-          <div className="space-y-1">
-            <Label htmlFor={`compte-handle-${posterId}`}>{t("comptes.pseudo")}</Label>
-            <Input
-              id={`compte-handle-${posterId}`}
-              value={handle}
-              placeholder={t("comptes.pseudoPlaceholder")}
-              onChange={(e) => setHandle(e.target.value)}
-            />
-            <p className="text-xs text-muted-foreground">{t("comptes.pseudoFacultatif")}</p>
-          </div>
+          {typeCompte === "perso" && (
+            <div className="space-y-1">
+              <Label htmlFor={`compte-handle-${posterId}`}>{t("comptes.pseudo")}</Label>
+              <Input
+                id={`compte-handle-${posterId}`}
+                value={handle}
+                placeholder={t("comptes.pseudoPlaceholder")}
+                onChange={(e) => setHandle(e.target.value)}
+              />
+              <p className="text-xs text-muted-foreground">{t("comptes.pseudoFacultatif")}</p>
+            </div>
+          )}
           {typeCompte === "perso" && (
             <div className="space-y-1 sm:col-span-2">
               <Label>{t("hiring.postsParJour")}</Label>
@@ -214,40 +219,7 @@ export function FormulaireAjouterCompte({
               </div>
             </div>
           )}
-          {typeCompte === "cm" && (
-            <>
-              <div className="space-y-1">
-                <Label htmlFor={`cm-email-${posterId}`}>{t("cm.email")}</Label>
-                <Input
-                  id={`cm-email-${posterId}`}
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-              <div className="space-y-1">
-                <Label htmlFor={`cm-pass-${posterId}`}>{t("cm.password")}</Label>
-                <Input
-                  id={`cm-pass-${posterId}`}
-                  type="text"
-                  required
-                  autoComplete="off"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
-              <div className="space-y-1 sm:col-span-2">
-                <Label htmlFor={`cm-2fa-${posterId}`}>{t("cm.deuxFa")}</Label>
-                <Input
-                  id={`cm-2fa-${posterId}`}
-                  value={deuxFa}
-                  placeholder={t("cm.deuxFaPh")}
-                  onChange={(e) => setDeuxFa(e.target.value)}
-                />
-              </div>
-            </>
-          )}
+          {typeCompte === "cm" && <ApercuIdentitePapier langue={langue} />}
         </div>
       )}
       <div className="flex flex-wrap gap-2">
@@ -370,7 +342,7 @@ export function IdentifiantsCm({
     <div className="space-y-1.5 rounded-md border bg-muted/20 p-3">
       <div className="flex items-center justify-between gap-2">
         <p className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
-          {t("cm.identifiants")}
+          {t("papierContrat.gmail")}
         </p>
         {editable && (
           <button
@@ -387,9 +359,9 @@ export function IdentifiantsCm({
           </button>
         )}
       </div>
-      <LigneSecret label={t("cm.email")} valeur={d.tiktok_email} onCopy={() => copier(d.tiktok_email)} />
+      <LigneSecret label={t("papierContrat.gmail")} valeur={d.tiktok_email} onCopy={() => copier(d.tiktok_email)} />
       <LigneSecret
-        label={t("cm.password")}
+        label={t("papierContrat.gmailMdp")}
         valeur={d.tiktok_password}
         onCopy={() => copier(d.tiktok_password)}
       />

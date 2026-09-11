@@ -482,12 +482,12 @@ export function PosterCalendrierPage() {
         />
       )}
 
-      {/* Warmup : le créateur démarre le timer ici (plus côté HM). Pas pour les CM. */}
-      {compte && !estCm && (
+      {/* Warmup : le créateur démarre le timer ici (TikTok perso ou Instagram CM). */}
+      {compte && !(estCm && warmupStatut === "termine") && (
       <div
         className={cn(
           "flex flex-col gap-3 rounded-lg border p-3 sm:flex-row sm:items-center sm:justify-between",
-          warmupStatut === "attente"
+          warmupStatut === "attente" || estCm
             ? "border-warning/50 bg-warning/10"
             : "border-destructive/40 bg-destructive/10",
         )}
@@ -496,15 +496,17 @@ export function PosterCalendrierPage() {
           <p
             className={cn(
               "text-sm font-medium",
-              warmupStatut === "attente" ? "text-warning" : "text-destructive",
+              warmupStatut === "attente" || estCm ? "text-warning" : "text-destructive",
             )}
           >
-            {warmupStatut === "attente"
+            {warmupStatut === "attente" || estCm
               ? t("calendrier.warmupADemarrer")
               : t("calendrier.warmupRappel")}
           </p>
           {warmupStatut === "attente" && (
-            <p className="text-xs text-muted-foreground">{t("calendrier.warmupADemarrerAide")}</p>
+            <p className="text-xs text-muted-foreground">
+              {estCm ? t("calendrier.warmupADemarrerAideCm") : t("calendrier.warmupADemarrerAide")}
+            </p>
           )}
         </div>
         {compte && (

@@ -29,7 +29,7 @@ import {
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { SLUG_SOPHIA } from "@/features/moteur/applications";
 import { ChampsPremierCompte, type PremierCompte } from "@/features/moteur/ChampsPremierCompte";
-import { langueInitiale } from "@/features/moteur/langues";
+import { identifiantsCmDepuisLangue } from "@/features/moteur/papierCmCompte";
 import { comptePrincipal, estCompteCm, languesCmPrises } from "@/features/moteur/comptesCm";
 import { DeplacerCompte } from "@/features/moteur/DeplacerCompte";
 import { FormulaireAjouterCompte } from "@/features/moteur/FormulaireCompteCm";
@@ -291,8 +291,9 @@ export function HiringPosterPage() {
   }, [languesChoix]);
 
   const creer = useMutation({
-    mutationFn: () =>
-      creerPoster({
+    mutationFn: () => {
+      const cm = premierCompte === "cm" ? identifiantsCmDepuisLangue(langue) : null;
+      return creerPoster({
         prenom,
         nom,
         password: MOT_DE_PASSE,
@@ -300,11 +301,12 @@ export function HiringPosterPage() {
         application_slug: applicationSlug,
         type_compte: premierCompte,
         posts_par_jour: premierCompte === "perso" ? postsParJour : undefined,
-        handle_tiktok: handleTiktok,
-        tiktok_email: cmEmail,
-        tiktok_password: cmPassword,
+        handle_tiktok: cm?.handle_tiktok ?? handleTiktok,
+        tiktok_email: cm?.tiktok_email ?? cmEmail,
+        tiktok_password: cm?.tiktok_password ?? cmPassword,
         tiktok_2fa_note: cmDeuxFa,
-      }),
+      });
+    },
     onSuccess: (r) => {
       setCree({
         email: r.email,

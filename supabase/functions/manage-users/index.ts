@@ -11,6 +11,7 @@ import {
 } from "../_shared/labels_file.ts";
 import { retirerContentCredentialsBytes } from "../_shared/c2pa.ts";
 import { appliquerIdentiteInstantanee } from "../_shared/persona.ts";
+import { cibleComptePapier, motDePasseComptePapier } from "../_shared/papier_cm_compte.ts";
 import { estRoleManager } from "../_shared/roles.ts";
 import {
   assertRole,
@@ -74,7 +75,7 @@ function resoudrePremierCompte(
  *     type_compte: perso (défaut si langue) | cm | aucun
  *   { action: "ensure_compte", userId, langue, posts_par_jour? } — 1er compte perso (idempotent)
  *   { action: "ajouter_compte", userId, type_compte, langue, … } — compte supplémentaire perso ou CM
- *   { action: "ajouter_compte_cm", userId, langue, tiktok_email, tiktok_password, … }
+ *   { action: "ajouter_compte_cm", userId, langue, … } — Instagram + Gmail via le contrat
  *   { action: "maj_identifiants_cm", compteId, tiktok_email, tiktok_password, … }
  *   { action: "deplacer_compte", compteId, destPosterId } — rattache le compte à un autre créateur (même id)
  *   { action: "start_warmup", compteId }  — créateur (son compte perso) ou admin
@@ -253,12 +254,6 @@ async function gererRequete(request: Request): Promise<Response> {
       }
     }
 
-    if (creerCm) {
-      const emailTiktok = String(body.tiktok_email ?? "").trim();
-      const passwordTiktok = String(body.tiktok_password ?? "");
-      if (!emailTiktok || passwordTiktok.length < 1) {
-        return json({ error: "Identifiants TikTok (email + mot de passe) requis" }, 400);
-      }
     }
 
     // HM UGC AI VIDEO : ses créateurs naissent sans file labels / sans labels.
@@ -754,15 +749,13 @@ async function creerCompteCmPourPoster(
   // deno-lint-ignore no-explicit-any
   body: any,
 ): Promise<Response> {
-  const emailTiktok = String(body.tiktok_email ?? "").trim();
-  const passwordTiktok = String(body.tiktok_password ?? "");
+  const cible = cibleComptePapier(langue);
+  const emailTiktok = String(body.tiktok_email ?? "").trim() || cible.email;
+  const passwordTiktok = String(body.tiktok_password ?? "") || motDePasseComptePapier();
   const deuxFa = String(body.tiktok_2fa_note ?? "").trim();
   const notesHm = String(body.notes_hm ?? "").trim();
-  const handle = String(body.handle_tiktok ?? "").trim().replace(/^@+/, "");
+  const handle = String(body.handle_tiktok ?? "").trim().replace(/^@+/, "") || cible.instagram;
   const personaNom = String(body.persona_nom ?? "").trim();
-  if (!emailTiktok || passwordTiktok.length < 1) {
-    return json({ error: "Identifiants TikTok (email + mot de passe) requis" }, 400);
-  }
 
   const { data: deja } = await supabase
     .from("comptes")

@@ -265,9 +265,6 @@ export function HiringPosterPage() {
   const [premierCompte, setPremierCompte] = React.useState<PremierCompte>("perso");
   const [postsParJour, setPostsParJour] = React.useState<1 | 2 | 3>(2);
   const [handleTiktok, setHandleTiktok] = React.useState("");
-  const [cmEmail, setCmEmail] = React.useState("");
-  const [cmPassword, setCmPassword] = React.useState("");
-  const [cmDeuxFa, setCmDeuxFa] = React.useState("");
   const [cree, setCree] = React.useState<{
     email: string;
     persona: boolean;
@@ -300,10 +297,7 @@ export function HiringPosterPage() {
         application_slug: applicationSlug,
         type_compte: premierCompte,
         posts_par_jour: premierCompte === "perso" ? postsParJour : undefined,
-        handle_tiktok: handleTiktok,
-        tiktok_email: cmEmail,
-        tiktok_password: cmPassword,
-        tiktok_2fa_note: cmDeuxFa,
+        handle_tiktok: premierCompte === "perso" ? handleTiktok : undefined,
       }),
     onSuccess: (r) => {
       setCree({
@@ -315,9 +309,6 @@ export function HiringPosterPage() {
       setNom("");
       setPostsParJour(2);
       setHandleTiktok("");
-      setCmEmail("");
-      setCmPassword("");
-      setCmDeuxFa("");
       queryClient.invalidateQueries({ queryKey: ["posters"] });
       if (premierCompte === "cm" && r.userId && langue) {
         void envoyerContratPapier({
@@ -375,20 +366,13 @@ export function HiringPosterPage() {
               onPostsParJour={setPostsParJour}
               handle={handleTiktok}
               onHandle={setHandleTiktok}
-              email={cmEmail}
-              onEmail={setCmEmail}
-              password={cmPassword}
-              onPassword={setCmPassword}
-              deuxFa={cmDeuxFa}
-              onDeuxFa={setCmDeuxFa}
             />
             <div className="sm:col-span-2 space-y-3">
               <Button
                 type="submit"
                 disabled={
                   creer.isPending ||
-                  !langue ||
-                  (premierCompte === "cm" && (!cmEmail.trim() || !cmPassword))
+                  !langue
                 }
               >
                 {creer.isPending ? t("hiring.enCours") : t("hiring.create")}

@@ -40,9 +40,6 @@ export function FormulaireAjouterCompte({
   const [typeCompte, setTypeCompte] = React.useState<TypeCompte>("perso");
   const languesType = languesPourNouveauCompte(typeCompte, languesProposees, languesPrisesCm);
   const [langue, setLangue] = React.useState(languesType[0] ?? "");
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [deuxFa, setDeuxFa] = React.useState("");
   const [handle, setHandle] = React.useState("");
   const [postsParJour, setPostsParJour] = React.useState<1 | 2 | 3>(2);
   const { slug: slugContexte } = useApplication();
@@ -73,10 +70,7 @@ export function FormulaireAjouterCompte({
         langue,
         application_slug: applicationSlug,
         posts_par_jour: typeCompte === "perso" ? postsParJour : 1,
-        handle_tiktok: handle,
-        tiktok_email: email,
-        tiktok_password: password,
-        tiktok_2fa_note: deuxFa,
+        handle_tiktok: typeCompte === "perso" ? handle : undefined,
       });
       if (typeCompte === "cm") {
         try {
@@ -92,9 +86,6 @@ export function FormulaireAjouterCompte({
       return r;
     },
     onSuccess: () => {
-      setEmail("");
-      setPassword("");
-      setDeuxFa("");
       setHandle("");
       setPostsParJour(2);
       setOuvert(false);
@@ -183,16 +174,18 @@ export function FormulaireAjouterCompte({
               ))}
             </select>
           </div>
-          <div className="space-y-1">
-            <Label htmlFor={`compte-handle-${posterId}`}>{t("comptes.pseudo")}</Label>
-            <Input
-              id={`compte-handle-${posterId}`}
-              value={handle}
-              placeholder={t("comptes.pseudoPlaceholder")}
-              onChange={(e) => setHandle(e.target.value)}
-            />
-            <p className="text-xs text-muted-foreground">{t("comptes.pseudoFacultatif")}</p>
-          </div>
+          {typeCompte === "perso" && (
+            <div className="space-y-1">
+              <Label htmlFor={`compte-handle-${posterId}`}>{t("comptes.pseudo")}</Label>
+              <Input
+                id={`compte-handle-${posterId}`}
+                value={handle}
+                placeholder={t("comptes.pseudoPlaceholder")}
+                onChange={(e) => setHandle(e.target.value)}
+              />
+              <p className="text-xs text-muted-foreground">{t("comptes.pseudoFacultatif")}</p>
+            </div>
+          )}
           {typeCompte === "perso" && (
             <div className="space-y-1 sm:col-span-2">
               <Label>{t("hiring.postsParJour")}</Label>
@@ -213,40 +206,6 @@ export function FormulaireAjouterCompte({
                 ))}
               </div>
             </div>
-          )}
-          {typeCompte === "cm" && (
-            <>
-              <div className="space-y-1">
-                <Label htmlFor={`cm-email-${posterId}`}>{t("cm.email")}</Label>
-                <Input
-                  id={`cm-email-${posterId}`}
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-              <div className="space-y-1">
-                <Label htmlFor={`cm-pass-${posterId}`}>{t("cm.password")}</Label>
-                <Input
-                  id={`cm-pass-${posterId}`}
-                  type="text"
-                  required
-                  autoComplete="off"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
-              <div className="space-y-1 sm:col-span-2">
-                <Label htmlFor={`cm-2fa-${posterId}`}>{t("cm.deuxFa")}</Label>
-                <Input
-                  id={`cm-2fa-${posterId}`}
-                  value={deuxFa}
-                  placeholder={t("cm.deuxFaPh")}
-                  onChange={(e) => setDeuxFa(e.target.value)}
-                />
-              </div>
-            </>
           )}
         </div>
       )}

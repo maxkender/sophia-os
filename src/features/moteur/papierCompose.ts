@@ -1,12 +1,15 @@
-/** Géométrie du master 9:16 — canvas noir + fenêtre 1:1 arrondie. */
+/** Géométrie du master 9:16 — canvas noir + fenêtre 1:1 arrondie (format TikTok). */
 
 export const PAPIER_CANVAS_W = 1080;
 export const PAPIER_CANVAS_H = 1920;
 export const PAPIER_CANVAS_BG = "#000000";
-export const PAPIER_SQUARE = 1040;
-export const PAPIER_SQUARE_X = 20;
-export const PAPIER_SQUARE_Y = 440;
-export const PAPIER_SQUARE_R = 48;
+/** Seedance remplit encore le 1:1 presque bord à bord (1040). Le cadre scale à 80 %. */
+export const PAPIER_SQUARE_SRC = 1040;
+export const PAPIER_SCALE = 0.8;
+export const PAPIER_SQUARE = 832;
+export const PAPIER_SQUARE_X = 124;
+export const PAPIER_SQUARE_Y = 544;
+export const PAPIER_SQUARE_R = 56;
 
 export function pointDansFenetre1x1(x: number, y: number): boolean {
   const { PAPIER_SQUARE_X: rx, PAPIER_SQUARE_Y: ry, PAPIER_SQUARE: s, PAPIER_SQUARE_R: r } = {

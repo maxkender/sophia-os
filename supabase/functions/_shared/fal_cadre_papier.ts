@@ -1,6 +1,7 @@
 /**
- * Composition finale Papier : canvas 1080×1920 noir, fenêtre 1:1 1040×1040
- * centrée (x=20, y=440), clipping coins arrondis 48px. Pas de cadre décoratif.
+ * Composition finale Papier : canvas 1080×1920 noir, fenêtre 1:1 832×832
+ * centrée (x=124, y=544), clipping coins arrondis 56px. Le mix 9:16 est
+ * d'abord réduit à 80 % sur fond noir (sinon le trou du masque recadre).
  */
 
 import {
@@ -13,12 +14,17 @@ import { sonderVideoMeta, urlSansCacheBuster } from "./fal_normaliser_video.ts";
 import {
   PAPIER_CANVAS_H,
   PAPIER_CANVAS_W,
+  PAPIER_SCALE,
   alphaMasquePapier,
 } from "./papier_compose.ts";
 import { serviceClient } from "./supabase.ts";
 
 const COMPOSE = "fal-ai/ffmpeg-api/compose";
-const MASQUE_PATH = "papiers/_assets/masque-1x1-r48.png";
+const OVERLAY = "fal-ai/workflow-utilities/overlay-video";
+const MASQUE_PATH = "papiers/_assets/masque-1x1-s832-r56.png";
+const NOIR_PNG_PATH = "papiers/_assets/noir-1080x1920.png";
+const NOIR_VIDEO_PATH = "papiers/_assets/noir-1080x1920-90s.mp4";
+const NOIR_VIDEO_MS = 90_000;
 
 type Supabase = ReturnType<typeof serviceClient>;
 
@@ -50,8 +56,7 @@ async function deflateRaw(data: Uint8Array): Promise<Uint8Array> {
   return new Uint8Array(await new Response(cs.readable).arrayBuffer());
 }
 
-/** PNG 1080×1920 : noir opaque hors fenêtre, transparent dans le carré arrondi. */
-export async function pngMasquePapier(): Promise<Uint8Array> {
+async function pngRgba(alphaAt: (x: number, y: number) => number): Promise<Uint8Array> {
   const w = PAPIER_CANVAS_W;
   const h = PAPIER_CANVAS_H;
   const raw = new Uint8Array((w * 4 + 1) * h);
@@ -63,7 +68,7 @@ export async function pngMasquePapier(): Promise<Uint8Array> {
       raw[i] = 0;
       raw[i + 1] = 0;
       raw[i + 2] = 0;
-      raw[i + 3] = alphaMasquePapier(x + 0.5, y + 0.5);
+      raw[i + 3] = alphaAt(x + 0.5, y + 0.5);
     }
   }
   const zipped = await deflateRaw(raw);
@@ -86,18 +91,139 @@ export async function pngMasquePapier(): Promise<Uint8Array> {
   return out;
 }
 
-export async function assurerMasquePapierUrl(supabase: Supabase): Promise<string> {
-  const pub = supabase.storage.from("medias").getPublicUrl(MASQUE_PATH).data.publicUrl;
-  const probe = await fetch(pub, { method: "HEAD" });
-  if (probe.ok) return pub;
-  const bytes = await pngMasquePapier();
-  const { error } = await supabase.storage.from("medias").upload(MASQUE_PATH, bytes, {
+/** PNG 1080×1920 : noir opaque hors fenêtre, transparent dans le carré arrondi. */
+export async function pngMasquePapier(): Promise<Uint8Array> {
+  return pngRgba((x, y) => alphaMasquePapier(x, y));
+}
+
+/** PNG 1080×1920 noir opaque — canvas TikTok sous le mix réduit. */
+export async function pngNoirPapier(): Promise<Uint8Array> {
+  return pngRgba(() => 255);
+}
+
+async function uploaderPng(
+  supabase: Supabase,
+  path: string,
+  bytes: Uint8Array,
+): Promise<string> {
+  const { error } = await supabase.storage.from("medias").upload(path, bytes, {
     contentType: "image/png",
     upsert: true,
     cacheControl: "31536000",
   });
-  if (error) throw new Error(`Upload masque papier: ${error.message}`);
-  return supabase.storage.from("medias").getPublicUrl(MASQUE_PATH).data.publicUrl;
+  if (error) throw new Error(`Upload ${path}: ${error.message}`);
+  return supabase.storage.from("medias").getPublicUrl(path).data.publicUrl;
+}
+
+async function urlPubliqueSiPresente(supabase: Supabase, path: string): Promise<string | null> {
+  const pub = supabase.storage.from("medias").getPublicUrl(path).data.publicUrl;
+  const probe = await fetch(pub, { method: "HEAD" });
+  return probe.ok ? pub : null;
+}
+
+export async function assurerMasquePapierUrl(supabase: Supabase): Promise<string> {
+  const deja = await urlPubliqueSiPresente(supabase, MASQUE_PATH);
+  if (deja) return deja;
+  return uploaderPng(supabase, MASQUE_PATH, await pngMasquePapier());
+}
+
+export async function assurerNoirPngUrl(supabase: Supabase): Promise<string> {
+  const deja = await urlPubliqueSiPresente(supabase, NOIR_PNG_PATH);
+  if (deja) return deja;
+  return uploaderPng(supabase, NOIR_PNG_PATH, await pngNoirPapier());
+}
+
+/** Vidéo noire 9:16 d'au moins 90 s, générée une fois et mise en cache storage. */
+export async function assurerNoirVideoUrl(
+  supabase: Supabase,
+  onProgress?: FalQueueProgress,
+  timeoutMs?: number,
+): Promise<{ url: string; cree: boolean }> {
+  const deja = await urlPubliqueSiPresente(supabase, NOIR_VIDEO_PATH);
+  if (deja) return { url: deja, cree: false };
+  const pngUrl = await assurerNoirPngUrl(supabase);
+  const queued = await falQueueSubmit(
+    COMPOSE,
+    {
+      tracks: [
+        {
+          id: "noir",
+          type: "image",
+          keyframes: [{ url: urlSansCacheBuster(pngUrl), timestamp: 0, duration: NOIR_VIDEO_MS }],
+        },
+      ],
+    },
+    onProgress,
+  );
+  const data = await falQueueAwaitJson(COMPOSE, queued, onProgress, timeoutMs ?? 300_000);
+  const url = videoUrlDepuisFal(data);
+  if (!url) {
+    throw new Error(`noir papier: pas de video.url — ${JSON.stringify(data).slice(0, 280)}`);
+  }
+  const dl = await falDownloadBytes(url, onProgress);
+  const { error } = await supabase.storage.from("medias").upload(NOIR_VIDEO_PATH, dl.bytes, {
+    contentType: "video/mp4",
+    upsert: true,
+    cacheControl: "31536000",
+  });
+  if (error) throw new Error(`Upload noir papier: ${error.message}`);
+  return {
+    url: supabase.storage.from("medias").getPublicUrl(NOIR_VIDEO_PATH).data.publicUrl,
+    cree: true,
+  };
+}
+
+function videoUrlDepuisFal(data: Record<string, unknown> | null | undefined): string | undefined {
+  const root = (data ?? {}) as Record<string, unknown>;
+  const inner = (root.data ?? root) as {
+    video_url?: string;
+    video?: { url?: string; content_type?: string };
+  };
+  return inner.video_url || inner.video?.url;
+}
+
+function mimeVideoFal(data: Record<string, unknown> | null | undefined): string {
+  const root = (data ?? {}) as Record<string, unknown>;
+  const inner = (root.data ?? root) as { video?: { content_type?: string } };
+  return inner.video?.content_type?.includes("video") ? inner.video.content_type : "video/mp4";
+}
+
+/** Place le mix 9:16 à 80 % au centre d'un canvas noir (marges TikTok, sans recadrer). */
+export async function reduireVideoPapierTikTok(input: {
+  videoUrl: string;
+  supabase: Supabase;
+  noirUrl?: string;
+  onProgress?: FalQueueProgress;
+  timeoutMs?: number;
+}): Promise<{ url: string; bytes: Uint8Array; mime: string }> {
+  const video_url = urlSansCacheBuster(input.videoUrl);
+  if (!video_url) throw new Error("pad papier: video_url vide");
+  const noirUrl = urlSansCacheBuster(
+    input.noirUrl ??
+      (await assurerNoirVideoUrl(input.supabase, input.onProgress, input.timeoutMs)).url,
+  );
+  const queued = await falQueueSubmit(
+    OVERLAY,
+    {
+      main_video_url: noirUrl,
+      overlay_video_url: video_url,
+      x_percent: 50,
+      y_percent: 50,
+      scale_percent: Math.round(PAPIER_SCALE * 100),
+      opacity: 1,
+      blend_mode: "normal",
+      shortest: true,
+      audio_source: "overlay",
+    },
+    input.onProgress,
+  );
+  const data = await falQueueAwaitJson(OVERLAY, queued, input.onProgress, input.timeoutMs ?? 300_000);
+  const url = videoUrlDepuisFal(data);
+  if (!url) {
+    throw new Error(`pad papier: pas de video.url — ${JSON.stringify(data).slice(0, 280)}`);
+  }
+  const dl = await falDownloadBytes(url, input.onProgress);
+  return { url: dl.url, bytes: dl.bytes, mime: mimeVideoFal(data) };
 }
 
 export async function composerFinalePapier(input: {
@@ -136,18 +262,10 @@ export async function composerFinalePapier(input: {
     input.onProgress,
   );
   const data = await falQueueAwaitJson(COMPOSE, queued, input.onProgress, input.timeoutMs ?? 300_000);
-  const payload = (data?.data ?? data) as {
-    video_url?: string;
-    video?: { url?: string; content_type?: string };
-  };
-  const url = payload.video_url || payload.video?.url;
+  const url = videoUrlDepuisFal(data);
   if (!url) {
     throw new Error(`compose papier: pas de video.url — ${JSON.stringify(data).slice(0, 280)}`);
   }
   const dl = await falDownloadBytes(url, input.onProgress);
-  return {
-    url: dl.url,
-    bytes: dl.bytes,
-    mime: payload.video?.content_type?.includes("video") ? payload.video.content_type : "video/mp4",
-  };
+  return { url: dl.url, bytes: dl.bytes, mime: mimeVideoFal(data) };
 }

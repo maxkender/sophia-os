@@ -56,7 +56,13 @@ import {
 import { REGLAGES_PAPIER_DEFAUT, VOIX_PAPIER_DEFAUT } from "@/features/moteur/papierReglages";
 import { SelectVoixEleven } from "@/features/moteur/SelectVoixEleven";
 import { budgetScript } from "@/features/moteur/papierScript";
-import { urlVideoExportable, langueFrAContinuer } from "@/features/moteur/papierLocales";
+import {
+  urlVideoExportable,
+  langueFrAContinuer,
+  langueDoitRelancerAuto,
+  mixEstSurCanvasTikTok,
+  RELANCE_AUTO_MS,
+} from "@/features/moteur/papierLocales";
 import { telechargerUrl } from "@/features/moteur/telechargement";
 import {
   PAPIER_CATEGORIES,
@@ -328,12 +334,9 @@ export function AdminPapierPage() {
     const now = Date.now();
     for (const m of rows) {
       for (const l of m.papier_langues ?? []) {
-        if (l.statut === "ready" || l.statut === "failed") continue;
-        if (!["voice", "mix", "render", "karaoke"].includes(l.statut)) continue;
-        const updated = Date.parse(l.updated_at ?? "") || 0;
-        if (!updated || now - updated < 90_000) continue;
+        if (!langueDoitRelancerAuto(l, now)) continue;
         const last = relanceAuto.current[l.id] ?? 0;
-        if (now - last < 90_000) continue;
+        if (now - last < RELANCE_AUTO_MS) continue;
         relanceAuto.current[l.id] = now;
         relancerLangue.mutate(l.id);
       }
@@ -1127,7 +1130,12 @@ function ResumeMaster({ master }: { master: PapierMaster }) {
           <p className="text-xs text-muted-foreground">
             {videoFr ? t("papier.videoFr") : t("papier.apercuSansCaptions")}
           </p>
-          <PapierCadre className="mx-auto max-h-80 w-auto max-w-[220px]">
+          <PapierCadre
+            className="mx-auto max-h-80 w-auto max-w-[220px]"
+            dejaCadre={Boolean(videoFr) || mixEstSurCanvasTikTok(
+              master.papier_langues?.find((l) => l.langue === "fr")?.video_mix_path,
+            )}
+          >
             <video src={apercuFr} className="h-full w-full object-cover" controls playsInline />
           </PapierCadre>
           {videoFr ? (
@@ -1204,7 +1212,7 @@ function CarteLangue({
   const video = exportable || langue.video_url || langue.video_mix_url;
   return (
     <div className="overflow-hidden rounded-md border">
-      <PapierCadre>
+      <PapierCadre dejaCadre={Boolean(langue.video_url) || mixEstSurCanvasTikTok(langue.video_mix_path)}>
         {video ? (
           <video src={video} className="h-full w-full object-cover" controls playsInline />
         ) : (

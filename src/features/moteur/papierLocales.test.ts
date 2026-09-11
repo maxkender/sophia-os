@@ -7,12 +7,17 @@ import {
   finaliserTraductionPapier,
   LANGUES_PAPIER,
   langueFrAContinuer,
+  mixEstIntermediaire,
+  mixEstSurCanvasTikTok,
   nomLangueModele,
   normaliserTimestampsFal,
   prochaineLangueATiquer,
   statutDepuisLocaleAssets,
   urlVideoExportable,
   wordTimingsEstimes,
+  grouperMotsEnCartons,
+  sousTitresDepuisScenes,
+  langueDoitRelancerAuto,
 } from "./papierLocales";
 
 describe("langues papier", () => {
@@ -77,6 +82,40 @@ describe("timings", () => {
         0.5,
       ),
     ).toBeCloseTo(1.35, 5);
+  });
+
+  it("aligne les cartons karaoke sur le concat des plans", () => {
+    const cartons = sousTitresDepuisScenes([
+      {
+        index: 0,
+        narration: "un deux",
+        words: [
+          { word: "un", start: 0.1, end: 0.4 },
+          { word: "deux", start: 0.4, end: 0.9 },
+        ],
+        duree_sec: 1,
+      },
+      {
+        index: 1,
+        narration: "trois",
+        words: [{ word: "trois", start: 0.05, end: 0.5 }],
+        duree_sec: 0.8,
+      },
+    ]);
+    expect(cartons).toEqual([
+      { start: 0.1, end: 0.4, text: "un" },
+      { start: 0.4, end: 0.9, text: "deux" },
+      { start: 1.05, end: 1.5, text: "trois" },
+    ]);
+    expect(
+      grouperMotsEnCartons(
+        [
+          { word: "un", start: 0.1, end: 0.4 },
+          { word: "deux", start: 0.4, end: 0.9 },
+        ],
+        2,
+      ),
+    ).toEqual([{ start: 0.1, end: 0.9, text: "un deux" }]);
   });
 });
 
@@ -147,7 +186,7 @@ describe("statut locale", () => {
 });
 
 describe("assemblage", () => {
-  it("découpe concat → cadre → karaoke, sans exporter le brut", () => {
+  it("découpe concat → pad → cadre → karaoke, sans exporter le brut", () => {
     expect(etapeAssemblage({})).toBe("merge");
     expect(
       etapeAssemblage({
@@ -161,6 +200,13 @@ describe("assemblage", () => {
         video_mix_path: "papiers/x/fr/mix-raw.mp4",
         etape: "cadre",
       }),
+    ).toBe("pad");
+    expect(
+      etapeAssemblage({
+        video_mix_url: "pad",
+        video_mix_path: "papiers/x/fr/mix-pad.mp4",
+        etape: "cadre",
+      }),
     ).toBe("cadre");
     expect(
       etapeAssemblage({
@@ -170,8 +216,35 @@ describe("assemblage", () => {
     ).toBe("karaoke");
     expect(etapeAssemblage({ video_url: "final" })).toBe("ready");
     expect(urlVideoExportable({ video_mix_url: "raw", video_mix_path: "x/mix-raw.mp4" })).toBeNull();
+    expect(urlVideoExportable({ video_mix_url: "pad", video_mix_path: "x/mix-pad.mp4", etape: "cadre" })).toBeNull();
     expect(urlVideoExportable({ video_mix_url: "mix", video_mix_path: "x/mix.mp4" })).toBe("mix");
     expect(urlVideoExportable({ video_url: "final", video_mix_url: "mix" })).toBe("final");
+    expect(mixEstIntermediaire("x/mix-pad.mp4", "cadre")).toBe(true);
+    expect(mixEstSurCanvasTikTok("papiers/x/fr/mix-pad.mp4")).toBe(true);
+    expect(mixEstSurCanvasTikTok("papiers/x/fr/mix.mp4")).toBe(true);
+    expect(mixEstSurCanvasTikTok("papiers/x/fr/mix-raw.mp4")).toBe(false);
+  });
+
+  it("n'auto-relance pas une langue busy ni un Fal encore chaud", () => {
+    const now = Date.parse("2026-09-11T21:00:00Z");
+    expect(
+      langueDoitRelancerAuto(
+        { statut: "karaoke", busy: true, updated_at: "2026-09-11T20:50:00Z" },
+        now,
+      ),
+    ).toBe(false);
+    expect(
+      langueDoitRelancerAuto(
+        { statut: "render", busy: false, updated_at: "2026-09-11T20:58:00Z" },
+        now,
+      ),
+    ).toBe(false);
+    expect(
+      langueDoitRelancerAuto(
+        { statut: "karaoke", busy: false, updated_at: "2026-09-11T20:55:00Z" },
+        now,
+      ),
+    ).toBe(true);
   });
 
   it("détecte un FR à continuer jusqu'aux captions", () => {

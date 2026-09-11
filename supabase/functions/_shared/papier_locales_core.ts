@@ -137,6 +137,66 @@ export function dureeDepuisTimings(words: PapierWordTiming[], fallback: number):
   return Math.max(fallback, last.end + 0.15);
 }
 
+export type PapierSousTitre = { start: number; end: number; text: string };
+
+const SOUS_TITRES_MAX = 500;
+
+export function grouperMotsEnCartons(
+  words: PapierWordTiming[],
+  motsParCarton = 1,
+): PapierSousTitre[] {
+  const n = Math.max(1, Math.floor(motsParCarton));
+  const out: PapierSousTitre[] = [];
+  for (let i = 0; i < words.length; i += n) {
+    const chunk = words.slice(i, i + n);
+    const first = chunk[0]!;
+    const last = chunk[chunk.length - 1]!;
+    const text = chunk.map((w) => w.word).join(" ").trim();
+    if (!text) continue;
+    out.push({
+      start: Math.max(0, first.start),
+      end: Math.max(last.end, first.start + 0.08),
+      text,
+    });
+  }
+  return out;
+}
+
+/** Cartons karaoke alignés sur le concat (offset = somme des durées voix). */
+export function sousTitresDepuisScenes(
+  scenes: Array<{
+    index: number;
+    narration?: string | null;
+    words?: unknown;
+    duree_sec?: number | null;
+  }>,
+  motsParCarton = 1,
+): PapierSousTitre[] {
+  const ordered = [...scenes].sort((a, b) => a.index - b.index);
+  let mots = Math.max(1, Math.floor(motsParCarton));
+  for (let tour = 0; tour < 8; tour++) {
+    const out: PapierSousTitre[] = [];
+    let offset = 0;
+    for (const scene of ordered) {
+      const duree = Number(scene.duree_sec ?? 0);
+      const fallback = duree > 0.3 ? duree : 2;
+      const words = normaliserTimestampsFal(scene.words, scene.narration ?? "", fallback);
+      for (const carton of grouperMotsEnCartons(words, mots)) {
+        out.push({
+          start: Math.round((offset + carton.start) * 1000) / 1000,
+          end: Math.round((offset + carton.end) * 1000) / 1000,
+          text: carton.text,
+        });
+      }
+      const span = duree > 0.3 ? duree : words.at(-1)?.end ?? 0;
+      offset += span;
+    }
+    if (out.length <= SOUS_TITRES_MAX) return out;
+    mots += 1;
+  }
+  return [];
+}
+
 export function finaliserTraductionPapier(
   brut: Partial<PapierScriptTraduit>,
   sceneCount: number,
@@ -184,10 +244,22 @@ export function finaliserTraductionPapier(
   };
 }
 
-/** Concat brute / lot partiel — pas encore le cadre 9:16, donc pas exportable. */
+/** Concat brute / lot partiel / pad — pas encore le cadre 9:16, donc pas exportable. */
 export function mixEstIntermediaire(path?: string | null, etape?: string | null): boolean {
   const p = path ?? "";
-  return etape === "cadre" || p.includes("mix-raw") || p.includes("mix-part");
+  return (
+    etape === "cadre" ||
+    etape === "pad" ||
+    p.includes("mix-raw") ||
+    p.includes("mix-part") ||
+    p.includes("mix-pad")
+  );
+}
+
+/** Mix déjà posé sur le canvas 9:16 noir (pad ou cadre final). */
+export function mixEstSurCanvasTikTok(path?: string | null): boolean {
+  const p = path ?? "";
+  return p.includes("mix-pad") || p.endsWith("/mix.mp4") || p.includes("/final.mp4");
 }
 
 export function etapeAssemblage(row: {
@@ -195,11 +267,12 @@ export function etapeAssemblage(row: {
   video_mix_url?: string | null;
   video_mix_path?: string | null;
   etape?: string | null;
-}): "merge" | "cadre" | "karaoke" | "ready" {
+}): "merge" | "pad" | "cadre" | "karaoke" | "ready" {
   if (row.video_url) return "ready";
   const p = row.video_mix_path ?? "";
   if (p.includes("mix-part")) return "merge";
-  if (row.etape === "cadre" || p.includes("mix-raw")) return "cadre";
+  if (p.includes("mix-pad")) return "cadre";
+  if (row.etape === "cadre" || row.etape === "pad" || p.includes("mix-raw")) return "pad";
   if (row.video_mix_url) return "karaoke";
   return "merge";
 }

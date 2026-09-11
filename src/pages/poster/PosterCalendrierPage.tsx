@@ -34,7 +34,6 @@ import {
   estCompteCm,
   lireCompteActif,
 } from "@/features/moteur/comptesCm";
-import { IdentifiantsCm } from "@/features/moteur/FormulaireCompteCm";
 import { drapeauLangue, nomLangue } from "@/features/moteur/langues";
 import { contratPapierEnAttente } from "@/features/moteur/papierCmCompte";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
@@ -273,6 +272,21 @@ function IdentiteTikTok({ compte }: { compte: MonCompte }) {
             </p>
             {compte.persona_nom && <p className="text-sm font-semibold">{compte.persona_nom}</p>}
 
+            {cm ? (
+              <>
+                {compte.handle_tiktok ? (
+                  <p className="text-sm text-muted-foreground">@{compte.handle_tiktok}</p>
+                ) : null}
+                <Link
+                  to="/createur/contrat-papier"
+                  className="inline-flex text-xs font-medium text-primary underline underline-offset-2"
+                >
+                  {t("papierContrat.bannerCta")}
+                </Link>
+                <p className="pt-1 text-xs text-muted-foreground">{t("cm.aideCreateur")}</p>
+              </>
+            ) : (
+              <>
             {/* Le @ TikTok : éditable par le poster une fois son compte créé. */}
             {editHandle ? (
               <div className="flex items-center gap-1">
@@ -308,6 +322,8 @@ function IdentiteTikTok({ compte }: { compte: MonCompte }) {
               </div>
             )}
             <p className="text-[11px] text-muted-foreground">{t("identite.handleAide")}</p>
+              </>
+            )}
 
             {compte.persona_bio && (
               <p className="whitespace-pre-wrap pt-1 text-sm">{compte.persona_bio}</p>
@@ -328,13 +344,8 @@ function IdentiteTikTok({ compte }: { compte: MonCompte }) {
                 </Button>
               )}
             </div>
-            <p className="pt-1 text-xs text-muted-foreground">
-              {cm ? t("cm.aideCreateur") : t("identite.aide")}
-            </p>
-            {cm && (
-              <div className="pt-2">
-                <IdentifiantsCm compteId={compte.id} editable={false} />
-              </div>
+            {!cm && (
+              <p className="pt-1 text-xs text-muted-foreground">{t("identite.aide")}</p>
             )}
           </div>
         </div>

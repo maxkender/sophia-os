@@ -1124,7 +1124,7 @@ export const fr = {
       ajouterPersoAide:
         "Compte TikTok du créateur — labels, warmup et assignation slideshow, comme le premier compte.",
       ajouterAide:
-        "Compte TikTok de la boîte, une langue. Les identifiants doivent déjà exister — tu les donnes au créateur.",
+        "Compte Paper CM, une langue. Instagram et Gmail sont générés dans le contrat — le créateur les reçoit après signature. Pas de handle TikTok ni de 2FA à saisir.",
       creer: "Créer le compte CM",
       creerCompte: "Créer le compte",
       langue: "Langue du compte CM",
@@ -1139,7 +1139,7 @@ export const fr = {
       toutesLanguesPrises: "Un compte CM existe déjà pour chaque langue disponible.",
       copier: "Copier",
       aideCreateur:
-        "Connecte-toi à ce TikTok avec les identifiants fournis. Tu ne crées pas le compte — il existe déjà.",
+        "Instagram et Gmail sont dans ton contrat. Tu crées ces comptes après signature — pas de TikTok à ouvrir ici.",
       selecteur: "Compte",
       perso: "Perso",
       videoPlusTard: "Les vidéos papier de ce compte CM arriveront ici.",
@@ -1185,7 +1185,7 @@ export const fr = {
       premierCompteAucun: "Aucun pour l’instant",
       premierCompteAucunAide:
         "Crée seulement le login créateur. Tu pourras ajouter un perso ou un CM plus tard.",
-      creeCm: "Créateur créé avec un compte CM. Les identifiants TikTok sont enregistrés.",
+      creeCm: "Créateur créé avec un compte CM. Le contrat Instagram + Gmail est prêt à signer.",
       creeAucun: "Login créateur créé, sans compte TikTok. Ajoute un perso ou un CM depuis la fiche.",
       nbComptes: "{{n}} compte(s)",
       aucunCompte: "Aucun compte TikTok",

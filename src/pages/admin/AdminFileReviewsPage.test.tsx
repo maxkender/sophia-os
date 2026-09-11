@@ -94,4 +94,31 @@ describe("AdminFileReviewsPage", () => {
     expect(await screen.findByPlaceholderText(/Titre \(bouton\)|Title \(button\)/)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Ajouter|Add/ })).toBeInTheDocument();
   });
+
+  it("laisse défiler la liste des remarques sous le formulaire d'ajout", async () => {
+    listerFileReviewsJour.mockResolvedValue([]);
+    listerReviewRemarques.mockResolvedValue([
+      {
+        id: "r1",
+        titre: "Hook trop lent",
+        corps: "The hook is too slow.",
+        ordre: 10,
+        video_url: null,
+        video_path: null,
+      },
+      {
+        id: "r2",
+        titre: "Timing",
+        corps: "Publish on time.",
+        ordre: 20,
+        video_url: null,
+        video_path: null,
+      },
+    ]);
+    renderPage();
+    fireEvent.click(await screen.findByRole("button", { name: /Remarques|Remarks/ }));
+    expect(await screen.findByDisplayValue("Hook trop lent")).toBeInTheDocument();
+    expect(screen.getByDisplayValue("Timing")).toBeInTheDocument();
+    expect(screen.getByTestId("liste-remarques")).toHaveClass("overflow-y-auto");
+  });
 });

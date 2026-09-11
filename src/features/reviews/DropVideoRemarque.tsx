@@ -9,6 +9,7 @@ import { premierFichierVideo } from "./videoRemarque";
 export function DropVideoRemarque({
   videoUrl,
   disabled,
+  compact,
   labelVide,
   labelRemplacer,
   onFichier,
@@ -16,6 +17,8 @@ export function DropVideoRemarque({
 }: {
   videoUrl: string | null;
   disabled?: boolean;
+  /** Une ligne, pour le formulaire d'ajout qui ne doit pas manger le dialogue. */
+  compact?: boolean;
   labelVide: string;
   labelRemplacer: string;
   onFichier: (file: File) => void;
@@ -32,7 +35,8 @@ export function DropVideoRemarque({
   return (
     <div
       className={cn(
-        "space-y-2 rounded-lg border border-dashed p-2",
+        "rounded-lg border border-dashed p-2",
+        compact ? "space-y-1" : "space-y-2",
         survol && "border-ring bg-muted/50",
         disabled && "opacity-64",
       )}
@@ -49,7 +53,12 @@ export function DropVideoRemarque({
     >
       {videoUrl ? (
         <>
-          <video src={videoUrl} className="max-h-36 w-full rounded-md bg-black" controls playsInline />
+          <video
+            src={videoUrl}
+            className={cn("w-full rounded-md bg-black", compact ? "max-h-20" : "max-h-36")}
+            controls
+            playsInline
+          />
           <div className="flex justify-end gap-1">
             <Button
               type="button"
@@ -80,7 +89,10 @@ export function DropVideoRemarque({
           type="button"
           disabled={disabled}
           onClick={() => inputRef.current?.click()}
-          className="flex w-full flex-col items-center gap-1 rounded-md px-2 py-4 text-center text-xs text-muted-foreground hover:bg-muted/40"
+          className={cn(
+            "flex w-full items-center justify-center gap-1 rounded-md px-2 text-center text-xs text-muted-foreground hover:bg-muted/40",
+            compact ? "flex-row py-2" : "flex-col py-4",
+          )}
         >
           <Upload className="size-4" />
           {labelVide}

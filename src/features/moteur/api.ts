@@ -47,6 +47,11 @@ import {
   type ApplicationOs,
 } from "./applications";
 import { comptePrincipal, normaliserTypeCompte, resoudrePremierCompte } from "./comptesCm";
+import {
+  cibleComptePapier,
+  CONTRAT_PAPIER_VERSION,
+  motDePasseComptePapier,
+} from "./papierCmCompte";
 import { estLabelSysteme, SLUG_HOOK } from "./mediaCaption";
 import {
   ELO_MANUEL_DEFAUT,
@@ -1179,6 +1184,101 @@ export function majIdentifiantsCm(input: {
     tiktok_2fa_note: input.tiktok_2fa_note ?? "",
     notes_hm: input.notes_hm ?? "",
   });
+}
+
+export type PapierCmContrat = {
+  id: string;
+  profile_id: string;
+  compte_id: string | null;
+  langue: string;
+  statut: "envoye" | "signe" | "annule";
+  contrat_version: string;
+  gmail_adresse: string;
+  gmail_password: string;
+  instagram_handle: string;
+  instagram_password: string;
+  nom_legal: string | null;
+  pays_residence: string | null;
+  signature_texte: string | null;
+  signe_at: string | null;
+  signature_ip: string | null;
+  signature_user_agent: string | null;
+  envoye_at: string;
+};
+
+export async function listerContratsPapier(posterId?: string): Promise<PapierCmContrat[]> {
+  const { data: sess } = await supabase.auth.getUser();
+  const uid = posterId ?? sess.user?.id;
+  if (!uid) return [];
+  const { data, error } = await supabase.rpc("lister_papier_cm_contrats", {
+    p_profile_id: uid,
+  });
+  if (error) throw error;
+  return (data ?? []) as PapierCmContrat[];
+}
+
+export async function envoyerContratPapier(input: {
+  posterId: string;
+  langue: string;
+  compteId?: string | null;
+}): Promise<PapierCmContrat> {
+  const cible = cibleComptePapier(input.langue);
+  const { data: sess } = await supabase.auth.getUser();
+  const { data, error } = await supabase
+    .from("papier_cm_contrats")
+    .insert({
+      profile_id: input.posterId,
+      compte_id: input.compteId ?? null,
+      langue: cible.langue,
+      statut: "envoye",
+      contrat_version: CONTRAT_PAPIER_VERSION,
+      gmail_adresse: cible.email,
+      gmail_password: motDePasseComptePapier(),
+      instagram_handle: cible.instagram,
+      instagram_password: motDePasseComptePapier(),
+      envoye_par: sess.user?.id ?? null,
+    })
+    .select(
+      "id, profile_id, compte_id, langue, statut, contrat_version, gmail_adresse, gmail_password, instagram_handle, instagram_password, nom_legal, pays_residence, signature_texte, signe_at, signature_ip, signature_user_agent, envoye_at",
+    )
+    .single();
+  if (error) {
+    if (/papier_cm_contrats_actif_idx/i.test(error.message)) {
+      throw new Error("CONTRAT_DEJA_ENVOYE");
+    }
+    if (/papier_cm_contrats_gmail_idx|papier_cm_contrats_ig_idx/i.test(error.message)) {
+      throw new Error("CONTRAT_HANDLE_PRIS");
+    }
+    if (/duplicate key/i.test(error.message)) {
+      throw new Error("CONTRAT_DEJA_ENVOYE");
+    }
+    throw error;
+  }
+  return data as PapierCmContrat;
+}
+
+export async function signerContratPapier(input: {
+  id: string;
+  nomLegal: string;
+  pays: string;
+  signature: string;
+}): Promise<PapierCmContrat> {
+  const { data, error } = await supabase.rpc("signer_papier_cm_contrat", {
+    p_id: input.id,
+    p_nom_legal: input.nomLegal,
+    p_pays: input.pays,
+    p_signature: input.signature,
+    p_user_agent: typeof navigator === "undefined" ? null : navigator.userAgent,
+  });
+  if (error) {
+    const msg = error.message;
+    if (msg === "SIGNATURE_INVALIDE") throw new Error("papierContrat.errSignature");
+    if (msg === "PAYS_INVALIDE") throw new Error("papierContrat.errPays");
+    if (msg === "CONTRAT_INTROUVABLE") throw new Error("papierContrat.errIntrouvable");
+    if (msg === "NON_AUTHENTIFIE") throw new Error("papierContrat.errAuth");
+    throw new Error(msg);
+  }
+  return data as PapierCmContrat;
 }
 
 export async function lireIdentifiantsCm(

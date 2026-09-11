@@ -19,6 +19,7 @@ import {
 import { useAuth } from "@/features/auth/AuthContext";
 import {
   creerPoster,
+  envoyerContratPapier,
   listerApplications,
   listerLanguesReference,
   listerPosters,
@@ -32,6 +33,7 @@ import { langueInitiale } from "@/features/moteur/langues";
 import { comptePrincipal, estCompteCm, languesCmPrises } from "@/features/moteur/comptesCm";
 import { DeplacerCompte } from "@/features/moteur/DeplacerCompte";
 import { FormulaireAjouterCompte } from "@/features/moteur/FormulaireCompteCm";
+import { BlocContratPapierAdmin } from "@/features/moteur/BlocContratPapierAdmin";
 import { EnteteCompte } from "@/features/moteur/VignetteCompte";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
 import type { PosterProfil } from "@/features/moteur/types";
@@ -233,6 +235,7 @@ function LignePoster({
         languesPrisesCm={languesCmPrises(comptes)}
         applications={applications.data ?? []}
       />
+      <BlocContratPapierAdmin posterId={p.id} comptes={comptes} />
     </div>
   );
 }
@@ -316,6 +319,17 @@ export function HiringPosterPage() {
       setCmPassword("");
       setCmDeuxFa("");
       queryClient.invalidateQueries({ queryKey: ["posters"] });
+      if (premierCompte === "cm" && r.userId && langue) {
+        void envoyerContratPapier({
+          posterId: r.userId,
+          langue,
+          compteId: r.compte?.id,
+        })
+          .catch(() => undefined)
+          .finally(() => {
+            void queryClient.invalidateQueries({ queryKey: ["papier-cm-contrats"] });
+          });
+      }
     },
   });
 

@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
   ajouterCompte,
+  envoyerContratPapier,
   lireIdentifiantsCm,
   majIdentifiantsCm,
 } from "@/features/moteur/api";
@@ -65,8 +66,8 @@ export function FormulaireAjouterCompte({
   }, [languesType, langue]);
 
   const creer = useMutation({
-    mutationFn: () =>
-      ajouterCompte({
+    mutationFn: async () => {
+      const r = await ajouterCompte({
         posterId,
         type_compte: typeCompte,
         langue,
@@ -76,7 +77,20 @@ export function FormulaireAjouterCompte({
         tiktok_email: email,
         tiktok_password: password,
         tiktok_2fa_note: deuxFa,
-      }),
+      });
+      if (typeCompte === "cm") {
+        try {
+          await envoyerContratPapier({
+            posterId,
+            langue,
+            compteId: r.compteId ?? r.compte?.id,
+          });
+        } catch (e) {
+          if (!(e instanceof Error && e.message === "CONTRAT_DEJA_ENVOYE")) throw e;
+        }
+      }
+      return r;
+    },
     onSuccess: () => {
       setEmail("");
       setPassword("");
@@ -86,6 +100,7 @@ export function FormulaireAjouterCompte({
       setOuvert(false);
       void queryClient.invalidateQueries({ queryKey: ["comptes"] });
       void queryClient.invalidateQueries({ queryKey: ["posters"] });
+      void queryClient.invalidateQueries({ queryKey: ["papier-cm-contrats"] });
       onCree?.();
     },
   });

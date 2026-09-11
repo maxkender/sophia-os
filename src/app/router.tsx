@@ -41,6 +41,7 @@ import { AdminPapierPage } from "@/pages/admin/AdminPapierPage";
 import { AdminCreationPage } from "@/pages/admin/AdminCreationPage";
 import { PosterCalendrierPage } from "@/pages/poster/PosterCalendrierPage";
 import { PosterReferralPage } from "@/pages/poster/PosterReferralPage";
+import { PosterContratPapierPage } from "@/pages/poster/PosterContratPapierPage";
 import { PosterPostPage } from "@/pages/poster/PosterPostPage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 
@@ -102,6 +103,7 @@ export function AppRouter() {
           <Route element={<PosterLayout />}>
             <Route path="/calendrier" element={<PosterCalendrierPage />} />
             <Route path="/createur/parrainage" element={<PosterReferralPage />} />
+            <Route path="/createur/contrat-papier" element={<PosterContratPapierPage />} />
             <Route path="/createur/guide" element={<DocumentView cle="guide_poster" />} />
             <Route path="/createur/faq" element={<DocumentView cle="faq_poster" />} />
           </Route>

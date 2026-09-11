@@ -35,7 +35,7 @@ import {
 } from "../_shared/papier_master.ts";
 import { proposerTopicPapier } from "../_shared/papier_script.ts";
 import { chargerReglagesPapier } from "../_shared/papier_reglages.ts";
-import { tickPapierDoitEnchainer } from "../_shared/papier_pipeline.ts";
+import { corpsKickSuitePapier, tickPapierDoitEnchainer } from "../_shared/papier_pipeline.ts";
 import { VOIX_PAPIER_CATALOGUE } from "../_shared/papier_reglages_core.ts";
 import { catalogueVersVoixEleven, estIdentifiantVoix, filtrerVoixParLangue } from "../_shared/papier_voix.ts";
 import { cleElevenLabs, extrairePreviewVoix, listerVoixElevenLabs } from "../_shared/elevenlabs.ts";
@@ -321,9 +321,9 @@ function enchainer(request: Request, tick: Tick, masterId?: string) {
 
   if (tickPapierDoitEnchainer(tick)) {
     if (tick.langueId) {
-      kickPapierCm(request, { action: "tick_locales", masterId: id, langueId: tick.langueId });
+      kickPapierCm(request, corpsKickSuitePapier({ masterId: id, langueId: tick.langueId }));
     } else {
-      kickPapierCm(request, { masterId: id });
+      kickPapierCm(request, corpsKickSuitePapier({ masterId: id }));
     }
     return { ...tick, kick: true };
   }
@@ -334,7 +334,7 @@ function enchainer(request: Request, tick: Tick, masterId?: string) {
     return { ...tick, kick: true };
   }
   if (!tick.langueId && tick.done && tick.statut === "clips") {
-    kickPapierCm(request, { action: "tick_locales", masterId: id });
+    kickPapierCm(request, corpsKickSuitePapier({ masterId: id, action: "tick_locales" }));
     return { ...tick, kick: true };
   }
   return tick;

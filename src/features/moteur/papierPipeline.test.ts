@@ -7,6 +7,7 @@ import {
   etapeApresValidation,
   etatEtapePipeline,
   holdPourCouperAuto,
+  modeHoldPourMasterEnCours,
   pipelineEstArretee,
   tickPapierDoitEnchainer,
 } from "./papierPipeline";
@@ -108,5 +109,72 @@ describe("arrêt pipeline", () => {
     expect(holdPourCouperAuto({ statut: "images" })).toBe("images");
     expect(holdPourCouperAuto({ statut: "clips" })).toBe("images");
     expect(holdPourCouperAuto({ statut: "scripting", hold: "topic" })).toBe("topic");
+  });
+});
+
+describe("mode demandé sur un master en cours", () => {
+  it("n'interrompt pas images/clips : pose le mode, pas de hold prématuré", () => {
+    expect(
+      modeHoldPourMasterEnCours({
+        actuelMode: "auto",
+        demandeMode: "manuel",
+        statut: "images",
+        aTopic: true,
+        aScript: true,
+      }),
+    ).toEqual({ pipeline_mode: "manuel", pipeline_hold: null });
+    expect(
+      modeHoldPourMasterEnCours({
+        actuelMode: "auto",
+        demandeMode: "manuel",
+        statut: "clips",
+        aTopic: true,
+        aScript: true,
+      }),
+    ).toEqual({ pipeline_mode: "manuel", pipeline_hold: null });
+  });
+
+  it("hold sujet si le topic est là, hold script si le script est là", () => {
+    expect(
+      modeHoldPourMasterEnCours({
+        actuelMode: "auto",
+        demandeMode: "manuel",
+        statut: "scripting",
+        aTopic: true,
+        aScript: false,
+      }),
+    ).toEqual({ pipeline_mode: "manuel", pipeline_hold: "topic" });
+    expect(
+      modeHoldPourMasterEnCours({
+        actuelMode: "auto",
+        demandeMode: "manuel",
+        statut: "scripting",
+        aTopic: true,
+        aScript: true,
+      }),
+    ).toEqual({ pipeline_mode: "manuel", pipeline_hold: "script" });
+  });
+
+  it("repasse en auto sans hold", () => {
+    expect(
+      modeHoldPourMasterEnCours({
+        actuelMode: "manuel",
+        demandeMode: "auto",
+        statut: "scripting",
+        hold: "script",
+        aTopic: true,
+        aScript: true,
+      }),
+    ).toEqual({ pipeline_mode: "auto", pipeline_hold: null });
+  });
+
+  it("ne touche à rien si le mode demandé est déjà en place", () => {
+    expect(
+      modeHoldPourMasterEnCours({
+        actuelMode: "auto",
+        demandeMode: "auto",
+        statut: "images",
+      }),
+    ).toBeNull();
   });
 });

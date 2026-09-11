@@ -20,6 +20,7 @@ import {
   doitAttendreValidation,
   doitCreerMasterPapier,
   etapeApresValidation,
+  modeHoldPourMasterEnCours,
   normaliserPartieRegen,
   normaliserPipelineHold,
   normaliserPipelineMode,
@@ -310,6 +311,27 @@ export async function masterEnCoursOuNouveau(
     if (topic && !enCours.topic) {
       await patchMaster(supabase, enCours.id, { topic }, { etape: "topic", detail: topic });
       enCours.topic = topic;
+    }
+    const modePatch = modeHoldPourMasterEnCours({
+      actuelMode: normaliserPipelineMode(enCours.pipeline_mode),
+      demandeMode: opts?.pipelineMode,
+      statut: enCours.statut,
+      hold: normaliserPipelineHold(enCours.pipeline_hold),
+      aTopic: Boolean(enCours.topic?.trim()),
+      aScript: Boolean(enCours.script),
+    });
+    if (modePatch) {
+      await patchMaster(
+        supabase,
+        enCours.id,
+        {
+          pipeline_mode: modePatch.pipeline_mode,
+          pipeline_hold: modePatch.pipeline_hold,
+        },
+        { etape: "mode", detail: modePatch.pipeline_mode },
+      );
+      enCours.pipeline_mode = modePatch.pipeline_mode;
+      enCours.pipeline_hold = modePatch.pipeline_hold;
     }
     return enCours;
   }

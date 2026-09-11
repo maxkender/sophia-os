@@ -969,7 +969,7 @@ export const en = {
       modeAuto: "Automatic",
       modeManuel: "Manual",
       modeAide:
-        "Automatic: everything runs. Manual: you approve each creative step (topic, script, photos).",
+        "Automatic: everything runs. Manual: you approve the topic, then the script before photos, then the photos before video. Voice and captions run after that.",
       proposerSujet: "Propose a topic",
       proposerSujetAide: "Fills the topic field. Does not start the pipeline.",
       validerSujet: "Approve topic",

@@ -1,18 +1,8 @@
-/** Défauts des 4 prompts Papier éditables sur /admin/prompts. */
+-- Prompts Papier CM : scripts type documentaire, CTA plus calme, voix locuteur-cm.
+-- image_style inchangé.
 
-export const CLE_PROMPT_SCRIPT = "script_generation";
-export const CLE_PROMPT_VOIX = "voice_delivery";
-export const CLE_PROMPT_CTA = "cta_sophia";
-export const CLE_PROMPT_IMAGE = "image_style";
-
-export const LABEL_NARRATION_STYLE = {
-  revelation: "Reveal — Clues, then a final twist",
-  question: "Big question — But do you really know why…?",
-  storytelling: "Immersive story — the scene as it was lived",
-  listicle: "Reveal — Clues, then a final twist",
-} as const;
-
-export const SCRIPT_GENERATION_DEFAUT = `Tu es scénariste pour une chaîne TikTok de vidéos courtes animées en papier découpé. Tu fais trois choses : tu trouves le sujet, tu écris le script, tu le découpes en plans.
+update public.prompts
+set contenu = $papier_script$Tu es scénariste pour une chaîne TikTok de vidéos courtes animées en papier découpé. Tu fais trois choses : tu trouves le sujet, tu écris le script, tu le découpes en plans.
 
 Il n'y a PAS de template à remplir. Chaque script est inventé. NARRATION_STYLE colore le ton, ce n'est pas une grille de cases.
 
@@ -98,9 +88,11 @@ FAIRE :
 
 DÉCOUPAGE EN PLANS : une scène = un battement visuel (une image papier).
 Découpe selon les idées, pas selon un quota de mots. Un plan peut être une phrase
-ou un petit paragraphe. Les plans n'ont PAS tous la même longueur.`;
+ou un petit paragraphe. Les plans n'ont PAS tous la même longueur.$papier_script$
+where cle = 'script_generation';
 
-export const VOICE_DELIVERY_DEFAUT = `VOIX & DÉBIT — voix off TikTok, papercraft, culture générale.
+update public.prompts
+set contenu = $papier_voix$VOIX & DÉBIT — voix off TikTok, papercraft, culture générale.
 
 vitesse: 0.92
 stabilite: 0.58
@@ -113,9 +105,11 @@ RESPIRATION : courte entre les phrases. Pas de soupir. Pas d'emphase artificiell
 
 NOMBRES : lus naturellement. Les dates (1871, 1994) comme des années. Les petites quantités déjà écrites en toutes lettres dans le script.
 
-INTERDIT : rire, chuchotement forcé, suspense dans la voix, « saviez-vous que » chanté.`;
+INTERDIT : rire, chuchotement forcé, suspense dans la voix, « saviez-vous que » chanté.$papier_voix$
+where cle = 'voice_delivery';
 
-export const CTA_SOPHIA_DEFAUT = `RÈGLE CTA : UNE SEULE phrase courte, 6 à 14 mots, qui nomme Sophia une seule fois.
+update public.prompts
+set contenu = $papier_cta$RÈGLE CTA : UNE SEULE phrase courte, 6 à 14 mots, qui nomme Sophia une seule fois.
 
 Ce n'est pas une pub « télécharge l'appli ». C'est la chute calme : il y en a d'autres comme ça, et c'est là.
 
@@ -128,33 +122,5 @@ Exemples de forme (à ne pas recopier) :
   « Chaque jour un truc comme ça, sur Sophia. »
   « La suite de ce genre de faits, c'est sur Sophia. »
 
-Le champ cta = cette unique phrase, prête à être lue. Aucune scène ne parle de l'appli.`;
-
-export const IMAGE_STYLE_DEFAUT = `handmade layered paper cut-out diorama photographed head-on, flat frontal composition, stacked planes of matte construction paper with torn deckled edges and visible paper grain, simple bold silhouettes with no fine detail, characters and objects built from flat cut shapes with slight relief, soft diffused studio light casting gentle drop shadows between paper layers, a cohesive limited palette of 4 to 5 flat matte paper colors chosen to fit the mood of this specific scene, no gradients, no realistic textures, no 3D render look, stop-motion paper animation aesthetic, calm and graphic, quiet minimal background of layered paper shapes. Shot straight on like a real photograph of a physical paper set, shallow relief depth, crisp paper edges, no digital illustration look, no cartoon outlines, no glossy plastic, no clay.`;
-
-export const PROMPTS_PAPIER_DEFAUT: Record<string, string> = {
-  [CLE_PROMPT_SCRIPT]: SCRIPT_GENERATION_DEFAUT,
-  [CLE_PROMPT_VOIX]: VOICE_DELIVERY_DEFAUT,
-  [CLE_PROMPT_CTA]: CTA_SOPHIA_DEFAUT,
-  [CLE_PROMPT_IMAGE]: IMAGE_STYLE_DEFAUT,
-};
-
-export function promptPapierOuDefaut(cle: string, contenu?: string | null): string {
-  const brut = contenu?.trim();
-  if (brut) return brut;
-  return PROMPTS_PAPIER_DEFAUT[cle] ?? "";
-}
-
-export function vitesseVoixDepuisPrompt(prompt: string): number | undefined {
-  const m = prompt.match(/vitesse\s*[:=]\s*([0-9.]+)/i) ?? prompt.match(/speed\s*[:=]\s*([0-9.]+)/i);
-  if (!m) return undefined;
-  const n = Number(m[1]);
-  return n >= 0.5 && n <= 2 ? n : undefined;
-}
-
-export function stabiliteVoixDepuisPrompt(prompt: string): number | undefined {
-  const m = prompt.match(/stabilit[eé]\s*[:=]\s*([0-9.]+)/i) ?? prompt.match(/stability\s*[:=]\s*([0-9.]+)/i);
-  if (!m) return undefined;
-  const n = Number(m[1]);
-  return n >= 0 && n <= 1 ? n : undefined;
-}
+Le champ cta = cette unique phrase, prête à être lue. Aucune scène ne parle de l'appli.$papier_cta$
+where cle = 'cta_sophia';

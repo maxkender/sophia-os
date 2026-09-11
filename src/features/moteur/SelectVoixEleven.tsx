@@ -218,9 +218,14 @@ export function SelectVoixEleven({
         </div>
       </div>
       {q.isLoading && !compact ? <p className="text-xs text-muted-foreground">{t("papier.voixChargement")}</p> : null}
+      {q.isError && !compact ? (
+        <p className="text-xs text-destructive">
+          {q.error instanceof Error ? q.error.message : t("papier.voixPreviewErreur")}
+        </p>
+      ) : null}
       {q.data?.erreur && !compact ? <p className="text-xs text-destructive">{q.data.erreur}</p> : null}
       {previewErr ? <p className="text-xs text-destructive">{previewErr}</p> : null}
-      {compact ? null : !q.isLoading && !hasKey ? (
+      {compact ? null : q.isError || q.isLoading ? null : !hasKey ? (
         <p className="text-xs text-amber-700 dark:text-amber-300">{t("papier.voixSansCle")}</p>
       ) : (
         <p className="text-xs text-muted-foreground">{t("papier.voixAide")}</p>

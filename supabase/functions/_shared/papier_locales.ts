@@ -17,11 +17,12 @@ import {
   voixEffectiveMaster,
 } from "./papier_reglages.ts";
 import { mergerAudioVideoFal } from "./fal_merge_audio.ts";
+import { trimmerVideoFal } from "./fal_trim_video.ts";
 import { mergerVideosFal } from "./fal_merge_videos.ts";
 import { composerFinalePapier } from "./fal_cadre_papier.ts";
 import { statutDepuisLocaleAssets, type PapierScriptTraduit } from "./papier_locales_core.ts";
 import { traduireScriptPapier } from "./papier_traduction.ts";
-import type { PapierScript } from "./papier_script_core.ts";
+import { finTrimClipPourVoix, type PapierScript } from "./papier_script_core.ts";
 import { chargerPrompt, messageErreur, serviceClient } from "./supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
@@ -387,8 +388,23 @@ async function etapeMix(
     if (!scene.audio_url) throw new Error(`Plan ${scene.index + 1} sans voix`);
     const clip = clips.find((c) => c.index === scene.index)?.clip_url;
     if (!clip) throw new Error(`Plan ${scene.index + 1} sans clip master`);
+    let videoUrl = clip;
+    const finVoix = finTrimClipPourVoix(scene.duree_sec ?? 0);
+    if (finVoix) {
+      try {
+        await reserverFalPapier(supabase);
+        const trimmed = await trimmerVideoFal({
+          videoUrl: clip,
+          startSec: 0,
+          endSec: finVoix,
+        });
+        videoUrl = trimmed.url;
+      } catch {
+        videoUrl = clip;
+      }
+    }
     await reserverFalPapier(supabase);
-    const mix = await mergerAudioVideoFal({ videoUrl: clip, audioUrl: scene.audio_url });
+    const mix = await mergerAudioVideoFal({ videoUrl, audioUrl: scene.audio_url });
     const path = `papiers/${row.master_id}/${row.langue}/mix-${scene.index}.mp4`;
     const url = await uploader(supabase, path, mix.bytes, mix.mime);
     scene.mix_url = url;

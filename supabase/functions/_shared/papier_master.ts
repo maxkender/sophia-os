@@ -113,7 +113,7 @@ export type PapierSceneRow = {
   clip_path: string | null;
   clip_url: string | null;
   clip_fal: SeedanceQueued | null;
-  duree_cible: 4 | 6 | 8;
+  duree_cible: number;
 };
 
 export type PapierTickResultat = {

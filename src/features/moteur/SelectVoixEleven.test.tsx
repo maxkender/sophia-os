@@ -17,6 +17,7 @@ vi.mock("@/features/moteur/api", async (importOriginal) => {
 });
 
 import { SelectVoixEleven } from "./SelectVoixEleven";
+import { VOIX_NARRATION_PAPIER } from "./papierReglages";
 
 function renderSelect(value = "", onChange = vi.fn()) {
   const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
@@ -31,7 +32,7 @@ function renderSelect(value = "", onChange = vi.fn()) {
 }
 
 describe("SelectVoixEleven", () => {
-  it("charge les voix FR et place locuteur-cm en tête, avec un bouton d’écoute", async () => {
+  it("charge les voix FR et place le catalogue papier en tête, avec un bouton d’écoute", async () => {
     listerVoixPapier.mockResolvedValue({
       hasKey: true,
       langue: "fr",
@@ -81,12 +82,12 @@ describe("SelectVoixEleven", () => {
     expect(screen.getByLabelText(/langue|language/i)).toBeInTheDocument();
     const locuteur = screen.getByLabelText(/locuteur|speaker/i) as HTMLSelectElement;
     await waitFor(() => {
-      expect([...locuteur.options].map((o) => o.textContent).join(" ")).toMatch(/locuteur-cm/);
+      expect([...locuteur.options].map((o) => o.textContent).join(" ")).toMatch(/Voix Narration Papier/);
     });
-    expect(locuteur.options[0]?.textContent).toMatch(/locuteur-cm/);
+    expect(locuteur.options[0]?.textContent).toMatch(/Voix Narration Papier/);
     expect(screen.getByRole("button", { name: /écouter|play a sample/i })).toBeInTheDocument();
     await waitFor(() => {
-      expect(onChange).toHaveBeenCalledWith("abcCM123");
+      expect(onChange).toHaveBeenCalledWith(VOIX_NARRATION_PAPIER);
     });
   });
 

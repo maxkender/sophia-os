@@ -12,6 +12,7 @@ import {
   voixDefautDepuisListe,
   type VoixEleven,
 } from "./papier_voix.ts";
+import { idsVoixCataloguePourLangue } from "./papier_reglages_core.ts";
 
 const API = "https://api.elevenlabs.io";
 
@@ -161,14 +162,17 @@ export async function assurerVoixCollection(voix: VoixEleven): Promise<string> {
 
 export async function resoudreVoiceId(ref: string, langue?: string): Promise<{ id: string; voix?: VoixEleven }> {
   const wanted = ref.trim();
-  const { voix } = await listerVoixElevenLabs({ langue });
-  const found = resoudreVoix(wanted, voix) ?? resoudreVoix(voixDefautDepuisListe(voix, langue ?? "fr"), voix);
+  const code = langue ?? "fr";
+  const { voix } = await listerVoixElevenLabs({ langue: code });
+  const found = wanted
+    ? resoudreVoix(wanted, voix)
+    : resoudreVoix(voixDefautDepuisListe(voix, code, idsVoixCataloguePourLangue(code)), voix);
   if (found) {
     const id = await assurerVoixCollection(found);
     return { id, voix: { ...found, id } };
   }
   if (wanted) return { id: wanted };
-  throw new Error("Aucune voix ElevenLabs (ajoute locuteur-cm ou une voix FR dans la bibliothèque)");
+  throw new Error("Aucune voix ElevenLabs (ajoute une voix papier dans la bibliothèque)");
 }
 
 export async function synthetiserVoixElevenLabs(input: {

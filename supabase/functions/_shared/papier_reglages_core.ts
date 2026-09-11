@@ -2,7 +2,7 @@
 /** Helpers purs — réglages papier (durée, voix, pause, quota Fal). */
 
 import { estIdentifiantVoix } from "./papier_voix.ts";
-import { dureeCibleClip, type DureeCibleClip } from "./papier_script_core.ts";
+import { bornerDureeClip, dureeCibleClip, DUREE_CLIP_MAX, DUREE_CLIP_MIN, type DureeCibleClip } from "./papier_script_core.ts";
 import {
   normaliserCategorie,
   normaliserStyleChoix,
@@ -11,81 +11,42 @@ import {
 } from "./papier_sujets.ts";
 import { normaliserPipelineMode, type PapierPipelineMode } from "./papier_pipeline.ts";
 
-export const VOIX_PAPIER_DEFAUT = "locuteur-cm";
+export const VOIX_NARRATION_PAPIER = "5hg8RfXWJPAYypnW7dXa";
+export const VOIX_NOVA = "BVBq6HVJVdnwOMJOqvy9";
+export const VOIX_PETER = "ZthjuvLPty3kTMaNKVKb";
+export const VOIX_BRADY = "kmjgtnoB3DMXA9wZpudu";
+export const VOIX_ES_PAPIER = "o0SveC0zgHFuCsEO3vHR";
+export const VOIX_DE_PAPIER = "NBqeXKdZHweef6y0B67V";
 
-/** Voix posée, factuelle — proche de locuteur-cm — si aucune surcharge langue. */
+export const VOIX_PAPIER_DEFAUT = VOIX_NARRATION_PAPIER;
+
+/** Voix papier par langue (FR = narration papier ; autres = IDs fournis). */
 export const VOIX_SIMILAIRE_CM: Record<string, string> = {
-  fr: "locuteur-cm",
-  en: "George",
-  de: "Daniel",
-  es: "Daniel",
-  it: "Giovanni",
-  pt: "Daniel",
-  pl: "Daniel",
-  nl: "George",
-  sv: "George",
-  tr: "George",
-  cs: "Daniel",
-  ro: "Daniel",
-  hu: "Daniel",
-  el: "George",
+  fr: VOIX_NARRATION_PAPIER,
+  en: VOIX_PETER,
+  de: VOIX_DE_PAPIER,
+  es: VOIX_ES_PAPIER,
+  it: VOIX_NARRATION_PAPIER,
+  pt: VOIX_NARRATION_PAPIER,
+  pl: VOIX_NARRATION_PAPIER,
+  nl: VOIX_NARRATION_PAPIER,
+  sv: VOIX_NARRATION_PAPIER,
+  tr: VOIX_NARRATION_PAPIER,
+  cs: VOIX_NARRATION_PAPIER,
+  ro: VOIX_NARRATION_PAPIER,
+  hu: VOIX_NARRATION_PAPIER,
+  el: VOIX_NARRATION_PAPIER,
 };
 
-/** Catalogue ElevenLabs multilingual v2 — id = nom Fal. */
+/** Choix ElevenLabs papier — Nova et Marishnou partagent le même ID. */
 export const VOIX_PAPIER_CATALOGUE = [
-  { id: "locuteur-cm", label: "locuteur-cm", hint: "FR" },
-  { id: "Alice", label: "Alice", hint: "FR" },
-  { id: "Charlotte", label: "Charlotte", hint: "FR" },
-  { id: "Daniel", label: "Daniel", hint: "FR" },
-  { id: "George", label: "George", hint: "EN" },
-  { id: "Liam", label: "Liam", hint: "EN" },
-  { id: "Will", label: "Will", hint: "EN" },
-  { id: "Chris", label: "Chris", hint: "EN" },
-  { id: "Brian", label: "Brian", hint: "EN" },
-  { id: "Bill", label: "Bill", hint: "EN" },
-  { id: "Roger", label: "Roger", hint: "EN" },
-  { id: "Adam", label: "Adam", hint: "EN" },
-  { id: "Antoni", label: "Antoni", hint: "EN" },
-  { id: "Arnold", label: "Arnold", hint: "EN" },
-  { id: "Callum", label: "Callum", hint: "EN" },
-  { id: "Charlie", label: "Charlie", hint: "EN" },
-  { id: "Clyde", label: "Clyde", hint: "EN" },
-  { id: "Dave", label: "Dave", hint: "EN" },
-  { id: "Drew", label: "Drew", hint: "EN" },
-  { id: "Eric", label: "Eric", hint: "EN" },
-  { id: "Ethan", label: "Ethan", hint: "EN" },
-  { id: "Fin", label: "Fin", hint: "EN" },
-  { id: "Harry", label: "Harry", hint: "EN" },
-  { id: "James", label: "James", hint: "EN" },
-  { id: "Jeremy", label: "Jeremy", hint: "EN" },
-  { id: "Joseph", label: "Joseph", hint: "EN" },
-  { id: "Josh", label: "Josh", hint: "EN" },
-  { id: "Michael", label: "Michael", hint: "EN" },
-  { id: "Patrick", label: "Patrick", hint: "EN" },
-  { id: "River", label: "River", hint: "EN" },
-  { id: "Sam", label: "Sam", hint: "EN" },
-  { id: "Thomas", label: "Thomas", hint: "EN" },
-  { id: "Giovanni", label: "Giovanni", hint: "IT" },
-  { id: "Lily", label: "Lily", hint: "EN" },
-  { id: "Matilda", label: "Matilda", hint: "EN" },
-  { id: "Jessica", label: "Jessica", hint: "EN" },
-  { id: "Sarah", label: "Sarah", hint: "EN" },
-  { id: "Laura", label: "Laura", hint: "EN" },
-  { id: "Aria", label: "Aria", hint: "EN" },
-  { id: "Bella", label: "Bella", hint: "EN" },
-  { id: "Domi", label: "Domi", hint: "EN" },
-  { id: "Dorothy", label: "Dorothy", hint: "EN" },
-  { id: "Elli", label: "Elli", hint: "EN" },
-  { id: "Emily", label: "Emily", hint: "EN" },
-  { id: "Freya", label: "Freya", hint: "EN" },
-  { id: "Gigi", label: "Gigi", hint: "EN" },
-  { id: "Glinda", label: "Glinda", hint: "EN" },
-  { id: "Grace", label: "Grace", hint: "EN" },
-  { id: "Jessie", label: "Jessie", hint: "EN" },
-  { id: "Mimi", label: "Mimi", hint: "EN" },
-  { id: "Nicole", label: "Nicole", hint: "EN" },
-  { id: "Rachel", label: "Rachel", hint: "EN" },
-  { id: "Serena", label: "Serena", hint: "EN" },
+  { id: VOIX_NARRATION_PAPIER, label: "Voix Narration Papier", hint: "FR" },
+  { id: VOIX_NOVA, label: "Nova", hint: "FR" },
+  { id: VOIX_NOVA, label: "Marishnou", hint: "FR" },
+  { id: VOIX_PETER, label: "Peter", hint: "EN" },
+  { id: VOIX_BRADY, label: "Brady", hint: "EN" },
+  { id: VOIX_ES_PAPIER, label: "Voix papier", hint: "ES" },
+  { id: VOIX_DE_PAPIER, label: "Voix papier", hint: "DE" },
 ] as const;
 
 export const VOIX_PAPIER = VOIX_PAPIER_CATALOGUE.map((v) => v.id);
@@ -151,9 +112,20 @@ export function voixOrdonnees(favoris: string[], toutes: readonly string[] = VOI
   return [...new Set([...fav, ...rest])];
 }
 
+export function idsVoixCataloguePourLangue(langue: string): string[] {
+  const code = String(langue ?? "").trim().toLowerCase();
+  const ids: string[] = [];
+  for (const v of VOIX_PAPIER_CATALOGUE) {
+    if (v.hint.toLowerCase() !== code) continue;
+    if (!ids.includes(v.id)) ids.push(v.id);
+  }
+  return ids;
+}
+
 export function normaliserDureeClip(valeur: unknown): DureeClipReglage {
-  if (valeur === 4 || valeur === 6 || valeur === 8 || valeur === "auto") return valeur;
-  if (valeur === "4" || valeur === "6" || valeur === "8") return Number(valeur) as DureeCibleClip;
+  if (valeur === "auto") return "auto";
+  const n = typeof valeur === "number" ? valeur : Number(valeur);
+  if (Number.isInteger(n) && n >= DUREE_CLIP_MIN && n <= DUREE_CLIP_MAX) return n;
   return "auto";
 }
 
@@ -199,7 +171,7 @@ export function voixPourLangue(reglages: ReglagesPapier, langue: string): string
   return voixSimilaireCm(code);
 }
 
-/** FR = voix du master. Autres langues : surcharge réglages, sinon voix similaire à locuteur-cm. */
+/** FR = voix du master. Autres langues : surcharge réglages, sinon voix papier de la langue. */
 export function voixEffectiveMaster(
   masterVoice: string | null | undefined,
   reglages: ReglagesPapier,
@@ -212,7 +184,7 @@ export function voixEffectiveMaster(
 }
 
 export function dureeCibleClipReglee(texte: string, clip: DureeClipReglage): DureeCibleClip {
-  if (clip === 4 || clip === 6 || clip === 8) return clip;
+  if (typeof clip === "number") return bornerDureeClip(clip);
   return dureeCibleClip(texte);
 }
 

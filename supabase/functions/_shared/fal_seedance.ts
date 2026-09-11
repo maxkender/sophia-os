@@ -11,7 +11,7 @@ import {
   type FalQueueProgress,
 } from "./fal_queue.ts";
 import { urlSansCacheBuster } from "./fal_normaliser_video.ts";
-import type { DureeCibleClip } from "./papier_script_core.ts";
+import { bornerDureeClip, type DureeCibleClip } from "./papier_script_core.ts";
 
 export const SEEDANCE_I2V = "bytedance/seedance-2.0/fast/image-to-video";
 
@@ -43,7 +43,7 @@ export async function soumettreSeedanceI2V(input: {
     {
       prompt: input.prompt,
       image_url,
-      duration: String(input.duree),
+      duration: String(bornerDureeClip(input.duree)),
       aspect_ratio: "9:16",
       resolution: "720p",
       generate_audio: false,

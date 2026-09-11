@@ -1,11 +1,12 @@
 import { describe, expect, it } from "vitest";
 
+import { VOIX_NARRATION_PAPIER, VOIX_NOVA, VOIX_PAPIER_CATALOGUE } from "./papierReglages";
 import {
-  catalogueVersVoixEleven,
   estIdentifiantVoix,
   estLocuteurCm,
   estVoixLegacyDefaut,
   filtrerVoixParLangue,
+  fusionnerCatalogueVoix,
   motsDepuisAlignement,
   NOM_LOCUTEUR_CM,
   resoudreVoix,
@@ -51,20 +52,24 @@ const george: VoixEleven = {
 };
 
 describe("voix ElevenLabs", () => {
-  it("reconnaît locuteur-cm et le place en tête du FR", () => {
+  it("reconnaît locuteur-cm et le filtre encore en FR", () => {
     expect(estLocuteurCm(cm)).toBe(true);
     expect(NOM_LOCUTEUR_CM).toBe("locuteur-cm");
     const fr = filtrerVoixParLangue([george, alice, cm], "fr");
-    expect(fr[0]?.name).toBe("locuteur-cm");
+    expect(fr.some((v) => v.name === "locuteur-cm")).toBe(true);
     expect(fr.some((v) => v.name === "Alice")).toBe(true);
     expect(fr.some((v) => v.name === "George")).toBe(false);
   });
 
-  it("résout par nom ou id et préfère locuteur-cm comme défaut", () => {
+  it("résout par nom ou id et préfère le pin papier comme défaut", () => {
     const liste = [george, alice, cm];
     expect(resoudreVoix("locuteur-cm", liste)?.id).toBe("abcCM123");
     expect(resoudreVoix("abcCM123", liste)?.name).toBe("locuteur-cm");
     expect(voixDefautDepuisListe(liste, "fr")).toBe("abcCM123");
+    const fusion = fusionnerCatalogueVoix(liste, VOIX_PAPIER_CATALOGUE, "fr");
+    expect(voixDefautDepuisListe(fusion, "fr", [VOIX_NARRATION_PAPIER, VOIX_NOVA])).toBe(
+      VOIX_NARRATION_PAPIER,
+    );
   });
 
   it("accepte un voice_id libre (plus le catalogue Fal figé)", () => {
@@ -73,16 +78,16 @@ describe("voix ElevenLabs", () => {
     expect(estIdentifiantVoix("")).toBe(false);
   });
 
-  it("garde locuteur-cm et les ids inconnus dans les favoris / l’ordre", () => {
+  it("traite locuteur-cm / George comme anciens défauts et pinne Nova + narration", () => {
     expect(estVoixLegacyDefaut("George")).toBe(true);
-    expect(estVoixLegacyDefaut("locuteur-cm")).toBe(false);
-    const cat = catalogueVersVoixEleven([
-      { id: "Alice", label: "Alice", hint: "FR" },
-      { id: "George", label: "George", hint: "EN" },
-    ]);
-    expect(cat[0]?.languages).toEqual(["fr"]);
-    const ord = voixOrdonneesEleven(["alice1"], [george, alice, cm]);
-    expect(ord[0]?.name).toBe("Alice");
+    expect(estVoixLegacyDefaut("locuteur-cm")).toBe(true);
+    expect(estVoixLegacyDefaut(VOIX_NARRATION_PAPIER)).toBe(false);
+    const fusion = fusionnerCatalogueVoix([alice, cm], VOIX_PAPIER_CATALOGUE, "fr");
+    expect(fusion[0]?.name).toBe("Voix Narration Papier");
+    expect(fusion[1]?.name).toBe("Nova");
+    expect(fusion[2]?.name).toBe("Marishnou");
+    const ord = voixOrdonneesEleven(["alice1"], fusion, [VOIX_NARRATION_PAPIER, VOIX_NOVA]);
+    expect(ord[0]?.id).toBe(VOIX_NARRATION_PAPIER);
     expect(ord.some((v) => v.name === "locuteur-cm")).toBe(true);
   });
 

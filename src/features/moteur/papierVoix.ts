@@ -1,4 +1,4 @@
-/** Voix ElevenLabs : filtre langue, bibliothèque, locuteur-cm. */
+/** Voix ElevenLabs : filtre langue, bibliothèque, choix papier. */
 
 export const NOM_LOCUTEUR_CM = "locuteur-cm";
 
@@ -80,8 +80,12 @@ export function resoudreVoix(ref: string, voix: VoixEleven[]): VoixEleven | unde
   return voix.find((v) => v.name.toLowerCase() === low || v.name.toLowerCase().replace(/\s+/g, "-") === low);
 }
 
-export function voixDefautDepuisListe(voix: VoixEleven[], langue = "fr"): string {
+export function voixDefautDepuisListe(voix: VoixEleven[], langue = "fr", pinIds: string[] = []): string {
   const liste = filtrerVoixParLangue(voix, langue);
+  for (const id of pinIds) {
+    const hit = liste.find((v) => v.id === id || v.name === id);
+    if (hit) return hit.id;
+  }
   const cm = liste.find(estLocuteurCm);
   if (cm) return cm.id;
   const lib = liste.find((v) => v.custom || v.source === "library");
@@ -102,10 +106,25 @@ export function estIdentifiantVoix(nom: string): boolean {
   return n.length >= 2 && n.length <= 80;
 }
 
-/** Ancien défaut Fal figé dans l’UI. */
+/** Anciens défauts Fal / locuteur-cm — l’UI bascule vers le catalogue papier. */
+const VOIX_LEGACY_DEFAUT = new Set(["", "george", "locuteur-cm", "daniel", "alice", "giovanni"]);
+
 export function estVoixLegacyDefaut(ref: string): boolean {
-  const n = ref.trim().toLowerCase();
-  return !n || n === "george";
+  return VOIX_LEGACY_DEFAUT.has(ref.trim().toLowerCase());
+}
+
+export function fusionnerCatalogueVoix(
+  voix: VoixEleven[],
+  catalogue: readonly { id: string; label: string; hint: string }[],
+  langue: string,
+): VoixEleven[] {
+  const pins = catalogueVersVoixEleven(catalogue).filter((v) => voixParleLangue(v, langue));
+  const seenId = new Set(pins.map((v) => v.id));
+  const extra = filtrerVoixParLangue(
+    voix.filter((v) => !seenId.has(v.id)),
+    langue,
+  );
+  return [...pins, ...extra];
 }
 
 export function catalogueVersVoixEleven(
@@ -124,12 +143,21 @@ export function catalogueVersVoixEleven(
   }));
 }
 
-export function voixOrdonneesEleven(favoris: string[], voix: VoixEleven[]): VoixEleven[] {
+export function voixOrdonneesEleven(favoris: string[], voix: VoixEleven[], pinIds: string[] = []): VoixEleven[] {
   const fav = new Set(favoris.map((v) => v.trim().toLowerCase()).filter(Boolean));
+  const pins = pinIds.map((id) => id.trim()).filter(Boolean);
+  const pinRank = (v: VoixEleven) => {
+    const i = pins.findIndex((id) => id === v.id || id.toLowerCase() === v.name.toLowerCase());
+    return i >= 0 ? i : 1000;
+  };
   return [...voix].sort((a, b) => {
+    const ap = pinRank(a);
+    const bp = pinRank(b);
+    if (ap !== bp) return ap - bp;
     const af = fav.has(a.id.toLowerCase()) || fav.has(a.name.toLowerCase()) ? 0 : 1;
     const bf = fav.has(b.id.toLowerCase()) || fav.has(b.name.toLowerCase()) ? 0 : 1;
     if (af !== bf) return af - bf;
+    if (ap < 1000) return 0;
     const ac = estLocuteurCm(a) ? 0 : a.custom ? 1 : a.source === "library" ? 2 : 3;
     const bc = estLocuteurCm(b) ? 0 : b.custom ? 1 : b.source === "library" ? 2 : 3;
     if (ac !== bc) return ac - bc;

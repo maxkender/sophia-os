@@ -9,6 +9,7 @@ import {
   estimerSecondesParole,
   extraireJson,
   finaliserScript,
+  finTrimClipPourVoix,
   motionPromptPapier,
   normaliserCtaSophiaUnique,
   protegerNomSophia,
@@ -22,10 +23,17 @@ describe("durée de clip", () => {
     expect(estimerSecondesParole("un deux trois quatre")).toBeCloseTo(4 / 2.6, 5);
   });
 
-  it("arrondit la durée Seedance à 4, 6 ou 8 s", () => {
+  it("arrondit la durée Seedance au-dessus du temps de parole (4–15 s)", () => {
     expect(dureeCibleClip("un deux trois quatre cinq six sept huit")).toBe(4);
-    expect(dureeCibleClip("mot ".repeat(14))).toBe(6);
-    expect(dureeCibleClip("mot ".repeat(22))).toBe(8);
+    expect(dureeCibleClip("mot ".repeat(14))).toBe(7);
+    expect(dureeCibleClip("mot ".repeat(22))).toBe(10);
+    expect(dureeCibleClip("mot ".repeat(50))).toBe(15);
+  });
+
+  it("donne la fin de coupe Fal égale à la voix", () => {
+    expect(finTrimClipPourVoix(7.321)).toBe(7.321);
+    expect(finTrimClipPourVoix(0)).toBeNull();
+    expect(finTrimClipPourVoix(Number.NaN)).toBeNull();
   });
 });
 

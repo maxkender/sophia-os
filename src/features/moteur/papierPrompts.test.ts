@@ -21,23 +21,27 @@ describe("défauts prompts papier", () => {
     expect(promptPapierOuDefaut(CLE_PROMPT_SCRIPT).length).toBeGreaterThan(400);
     expect(promptPapierOuDefaut(CLE_PROMPT_VOIX).length).toBeGreaterThan(80);
     expect(promptPapierOuDefaut(CLE_PROMPT_CTA)).toContain("Sophia");
-    expect(CTA_SOPHIA_DEFAUT).toContain("centaines");
+    expect(CTA_SOPHIA_DEFAUT).toContain("histoires");
     expect(promptPapierOuDefaut(CLE_PROMPT_IMAGE)).toContain("paper");
     expect(promptPapierOuDefaut(CLE_PROMPT_SCRIPT, "  ")).toBe(SCRIPT_GENERATION_DEFAUT);
     expect(promptPapierOuDefaut(CLE_PROMPT_VOIX, "lent")).toBe("lent");
   });
 
-  it("exige une collision preuve + objet culturel", () => {
-    expect(SCRIPT_GENERATION_DEFAUT).toContain("collision");
-    expect(SCRIPT_GENERATION_DEFAUT).toContain("preuve matérielle");
-    expect(SCRIPT_GENERATION_DEFAUT).toMatch(/Titanic|pyramides/);
-    expect(SCRIPT_GENERATION_DEFAUT).toMatch(/pas de template/i);
-    expect(SCRIPT_GENERATION_DEFAUT).toContain("Reveal");
-    expect(SCRIPT_GENERATION_DEFAUT).toContain("Big question");
-    expect(SCRIPT_GENERATION_DEFAUT).toContain("Immersive story");
+  it("cible un viewer TikTok, fluide comme les 7 scripts de référence", () => {
+    expect(SCRIPT_GENERATION_DEFAUT).toContain("PAS de template");
+    expect(SCRIPT_GENERATION_DEFAUT).toContain("LES 7");
+    expect(SCRIPT_GENERATION_DEFAUT).toMatch(/vigies/);
+    expect(SCRIPT_GENERATION_DEFAUT).toMatch(/Cyclope|Spider-Man/);
+    expect(SCRIPT_GENERATION_DEFAUT).toMatch(/lycéen/);
+    expect(SCRIPT_GENERATION_DEFAUT).not.toMatch(/DIRIAIT collé/);
+    expect(SCRIPT_GENERATION_DEFAUT).toMatch(/tu penses que/);
+    expect(SCRIPT_GENERATION_DEFAUT).toMatch(/Titanic/);
     expect(SCRIPT_GENERATION_DEFAUT).toContain("toutes lettres");
-    expect(SCRIPT_GENERATION_DEFAUT).not.toMatch(/ouvre par « Sauf que »/);
     expect(SCRIPT_GENERATION_DEFAUT).toMatch(/de plus|pire encore/);
+    expect(CTA_SOPHIA_DEFAUT).toMatch(/histoires/);
+    expect(CTA_SOPHIA_DEFAUT).toContain("Plus d'histoires");
+    expect(CTA_SOPHIA_DEFAUT).not.toMatch(/cette anecdote vient/);
+    expect(CTA_SOPHIA_DEFAUT).not.toMatch(/télécharge-la pour/);
   });
 
   it("lit vitesse et stabilité depuis le prompt voix", () => {
@@ -51,7 +55,7 @@ describe("assemblage pipeline", () => {
     const p = topicSystemPrompt("question", ["Troie"], "seed1", "mythes");
     expect(p).toContain("ÉTAPE ACTIVE : 1");
     expect(p).toContain("Big question — But do you really know why");
-    expect(p).toContain("origine physique");
+    expect(p).toContain("vampires");
     expect(p).toContain("Troie");
     expect(p).not.toContain("ÉTAPE ACTIVE : 2 et 3");
   });
@@ -65,7 +69,7 @@ describe("assemblage pipeline", () => {
       categorie: "espace",
     });
     expect(p).toContain("Reveal — Clues, then a final twist");
-    expect(p).toContain("mesure ou une observation datée");
+    expect(p).toContain("Lune");
     expect(p).toContain(CTA_SOPHIA_DEFAUT.slice(0, 40));
     expect(p).toContain("vitesse: 0.92");
     expect(p).toContain("paper cut-out");

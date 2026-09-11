@@ -54,8 +54,9 @@ describe("pipeline papier", () => {
 });
 
 describe("sujets / durée / voix", () => {
-  it("connaît les 12 catégories demandées", () => {
-    expect(PAPIER_CATEGORIES).toHaveLength(12);
+  it("connaît les catégories TikTok demandées", () => {
+    expect(PAPIER_CATEGORIES).toHaveLength(22);
+    expect(normaliserCategorie("psychologie")).toBe("psychologie");
     expect(normaliserCategorie("mysteres")).toBe("mysteres");
     expect(normaliserCategorie("xx")).toBe("aleatoire");
   });

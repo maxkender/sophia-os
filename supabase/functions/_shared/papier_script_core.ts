@@ -2,7 +2,7 @@
 /** Copie Deno de src/features/moteur/papierScript.ts — garder synchro. */
 /** Helpers purs du master papier (script, durée, CTA, prompts visuels). */
 
-export const SOPHIA_OUTRO = "Tu en as des centaines comme ça sur Sophia.";
+export const SOPHIA_OUTRO = "Plus d'histoires t'attendent sur l'application Sophia.";
 
 const SOPHIA_ALIAS =
   /\b(Sof[iíìï]a|Sofie|Zsof[ií]a|Σοφία|София|Sofya)\b/gi;
@@ -109,10 +109,15 @@ export function remplacerSophiaParAppli(texte: string): string {
   return protegerNomSophia(texte).replace(/\bSophia\b/gi, "l'appli");
 }
 
+/** CTA collé au sujet ou pub « télécharge » → outro générique Sophia. */
+const CTA_TROP_LIE =
+  /\b(cette anecdote|cette histoire|ce contenu|ce fait|inspir[ée]e?\s+de|t[ée]l[ée]charge(?:-la)?|en apprendre plus|r[ée]cits?|captivants?|retrouve d'autres)\b/i;
+
 export function normaliserCtaSophiaUnique(cta: string): string {
   const base = protegerNomSophia((cta.trim() || SOPHIA_OUTRO).replace(/\s{2,}/g, " ").trim());
+  if (!base || CTA_TROP_LIE.test(base) || !/\bhistoires?\b/i.test(base)) return SOPHIA_OUTRO;
   let seen = false;
-  return base
+  const unique = base
     .replace(/\bSophia\b/gi, (m) => {
       if (seen) return "l'appli";
       seen = true;
@@ -120,6 +125,8 @@ export function normaliserCtaSophiaUnique(cta: string): string {
     })
     .replace(/\s{2,}/g, " ")
     .trim();
+  if (compterSophia(unique) !== 1) return SOPHIA_OUTRO;
+  return unique;
 }
 
 export function sceneCta(cta: string, index: number): PapierSceneScript {

@@ -116,4 +116,13 @@ describe("SelectVoixEleven", () => {
     fireEvent.change(screen.getByLabelText(/langue|language/i), { target: { value: "en" } });
     await waitFor(() => expect(listerVoixPapier).toHaveBeenCalledWith("en"));
   });
+
+  it("n'affiche pas « clé manquante » si l'Edge plante", async () => {
+    listerVoixPapier.mockRejectedValue(new Error("papier-cm 500"));
+    renderSelect("");
+    await waitFor(() => {
+      expect(screen.getByText(/papier-cm 500/i)).toBeInTheDocument();
+    });
+    expect(screen.queryByText(/ELEVENLABS_API_KEY/i)).not.toBeInTheDocument();
+  });
 });

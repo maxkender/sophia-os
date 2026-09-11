@@ -68,8 +68,21 @@ describe("CTA Sophia unique", () => {
   });
 
   it("ne garde Sophia qu'une fois dans le CTA", () => {
-    const cta = normaliserCtaSophiaUnique("Sophia t'aide. Télécharge Sophia maintenant.");
+    const cta = normaliserCtaSophiaUnique("Des histoires sur Sophia et encore Sophia.");
     expect(compterSophia(cta)).toBe(1);
+    expect(cta).toContain("l'appli");
+  });
+
+  it("remplace un CTA collé au sujet par l'outro générique", () => {
+    expect(normaliserCtaSophiaUnique("Cette anecdote vient de Sophia. Télécharge-la vite.")).toBe(
+      SOPHIA_OUTRO,
+    );
+    expect(normaliserCtaSophiaUnique("Retrouve d'autres récits captivants sur l'application Sophia.")).toBe(
+      SOPHIA_OUTRO,
+    );
+    expect(normaliserCtaSophiaUnique("Des centaines d'histoires, sur Sophia.")).toBe(
+      "Des centaines d'histoires, sur Sophia.",
+    );
   });
 
   it("finalise le script : strip pub, CTA collé, Sophia hors scènes", () => {

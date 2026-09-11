@@ -46,7 +46,7 @@ export function libelleNarrationStyle(style: PapierNarrationStyle): string {
 const KIND_BRIEF: Record<PapierKind, string> = {
   faits: "Sujet : un fait fascinant, surprenant et vérifiable.",
   culture: "Sujet : culture générale, pédagogique mais captivant.",
-  pub: "Sujet : un fait fascinant. Sophia n'est nommée qu'une fois, dans le CTA.",
+  pub: "Sujet : un fait fascinant. Sophia n'est nommée qu'une fois, dans le CTA, sans lien avec le sujet.",
 };
 
 export function scriptSystemPrompt(
@@ -96,7 +96,7 @@ export function scriptSystemPrompt(
 export function scriptUserPrompt(kind: PapierKind, topic: string): string {
   const base = topic.trim() || "un fait fascinant surprenant au choix";
   return kind === "pub"
-    ? `Sujet : ${base}. Glisse une mention naturelle de l'application Sophia uniquement dans le CTA.`
+    ? `Sujet : ${base}. CTA générique : plus d'histoires sur l'application Sophia, sans parler de ce sujet.`
     : `Sujet : ${base}. NARRATION_STYLE colore le ton, ce n'est pas un template. Chaque plan avance l'idée. Découpe selon les battements visuels.`;
 }
 
@@ -115,7 +115,7 @@ export function topicSystemPrompt(
     `NARRATION_STYLE = "${libelleNarrationStyle(style)}"`,
     `DOMAINE OBLIGATOIRE : ${CATEGORIE_BRIEF[categorie] ?? CATEGORIE_BRIEF.aleatoire}`,
     "LANGUE DE SORTIE : français de France.",
-    `Graine d'aléatoire (ne la mentionne jamais) : ${seed}. Ne propose pas l'exemple le plus évident du domaine.`,
+    `Graine d'aléatoire (ne la mentionne jamais) : ${seed}. Prends un truc FAMEUX du quotidien, pas un angle original d'historien.`,
     exclus.length ? `N'utilise PAS ces sujets déjà traités : ${exclus.join(" · ")}.` : "",
     'Réponds uniquement en JSON: {"topic": string}',
   ]

@@ -4088,13 +4088,88 @@ export const relancerPapier = (id: string) =>
 export const regenererPapier = (id: string, topic?: string) =>
   invoke<PapierTickResultat>("papier-cm", { action: "regenerer", manuel: true, id, topic });
 
-export const regenererPartiePapier = (id: string, partie: "topic" | "script" | "images") =>
+export const regenererPartiePapier = (
+  id: string,
+  partie: "topic" | "script" | "images",
+  topic?: string,
+) =>
   invoke<PapierTickResultat>("papier-cm", {
     action: "regenerer_partie",
     manuel: true,
     id,
     partie,
+    topic,
   });
+
+export async function sauverTopicPapier(id: string, topic: string): Promise<void> {
+  const { error } = await supabase
+    .from("papier_masters")
+    .update({ topic: topic.trim(), updated_at: new Date().toISOString() })
+    .eq("id", id)
+    .neq("statut", "ready");
+  if (error) throw error;
+}
+
+/** Efface le master en cours (fichiers + ligne) et revient à un formulaire vide. */
+export async function abandonnerPapier(id: string): Promise<PapierTickResultat> {
+  const { data: master, error } = await supabase
+    .from("papier_masters")
+    .select("id, statut, video_path")
+    .eq("id", id)
+    .maybeSingle();
+  if (error) throw error;
+  if (!master) return { ok: true, done: true, kick: false, masterId: id };
+  if (master.statut === "ready") {
+    throw new Error("Un master en bibliothèque ne se supprime pas ici");
+  }
+
+  const { data: scenes } = await supabase
+    .from("papier_scenes")
+    .select("image_path, clip_path")
+    .eq("master_id", id);
+  const { data: langues } = await supabase
+    .from("papier_langues")
+    .select("id, video_path, video_mix_path")
+    .eq("master_id", id);
+  const langueIds = (langues ?? [])
+    .map((l) => String((l as { id?: string }).id ?? ""))
+    .filter(Boolean);
+  let langueScenes: Array<{ audio_path?: string | null; mix_path?: string | null }> = [];
+  if (langueIds.length) {
+    const { data } = await supabase
+      .from("papier_langue_scenes")
+      .select("audio_path, mix_path")
+      .in("langue_id", langueIds);
+    langueScenes = (data ?? []) as Array<{ audio_path?: string | null; mix_path?: string | null }>;
+  }
+  const paths = [
+    (master as { video_path?: string | null }).video_path,
+    ...(scenes ?? []).flatMap((s) => [
+      (s as { image_path?: string | null }).image_path,
+      (s as { clip_path?: string | null }).clip_path,
+    ]),
+    ...(langues ?? []).flatMap((l) => [
+      (l as { video_path?: string | null }).video_path,
+      (l as { video_mix_path?: string | null }).video_mix_path,
+    ]),
+    ...langueScenes.flatMap((s) => [s.audio_path, s.mix_path]),
+  ].filter((p): p is string => Boolean(p));
+  if (paths.length) {
+    await supabase.storage.from("medias").remove(paths).catch(() => null);
+  }
+
+  const { error: delErr } = await supabase
+    .from("papier_masters")
+    .delete()
+    .eq("id", id)
+    .neq("statut", "ready");
+  if (delErr) throw delErr;
+
+  void invoke<PapierTickResultat>("papier-cm", { action: "abandonner", manuel: true, id }).catch(
+    () => null,
+  );
+  return { ok: true, done: true, kick: false, masterId: id };
+}
 
 export const lancerPapierLocales = (masterId: string) =>
   invoke<PapierTickResultat>("papier-cm", { action: "tick_locales", manuel: true, masterId });

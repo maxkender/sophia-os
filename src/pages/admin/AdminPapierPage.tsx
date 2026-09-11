@@ -29,10 +29,12 @@ import {
   changerVoixPapier,
   lancerPapierJour,
   listerPapierMasters,
+  abandonnerPapier,
   proposerTopicPapier,
   regenererPapier,
   regenererPartiePapier,
   relancerPapier,
+  sauverTopicPapier,
   relancerPapierLangue,
   validerEtapePapier,
   type PapierLangue,
@@ -138,9 +140,13 @@ export function AdminPapierPage() {
   const falUsage =
     reglages.data?.papier_fal_usage.date === jour ? reglages.data.papier_fal_usage.appels : 0;
 
+  const enCoursId = enCours?.id;
   React.useEffect(() => {
-    if (enCours?.topic && !topic) setTopic(enCours.topic);
-  }, [enCours?.topic, topic]);
+    if (enCours?.topic) setTopic(enCours.topic);
+    else setTopic("");
+    // Hydrate seulement à l'arrivée / disparition d'un master — pas à chaque frappe.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [enCoursId]);
 
   React.useEffect(() => {
     if (enCours?.voice) setVoix(enCours.voice);
@@ -157,7 +163,6 @@ export function AdminPapierPage() {
     setMode(papier.pipeline_mode);
   }, [papier, enCours]);
 
-  const enCoursId = enCours?.id;
   React.useEffect(() => {
     if (!enCours) return;
     if (enCours.duree_cible_sec) setDuree(enCours.duree_cible_sec);
@@ -197,9 +202,14 @@ export function AdminPapierPage() {
     onSuccess: invalider,
   });
   const proposer = useMutation({
-    mutationFn: () => proposerTopicPapier({ topic_categorie: categorie, narration_style: style }),
+    mutationFn: async () => {
+      const r = await proposerTopicPapier({ topic_categorie: categorie, narration_style: style });
+      if (r.topic && enCours?.id) await sauverTopicPapier(enCours.id, r.topic);
+      return r;
+    },
     onSuccess: (r) => {
       if (r.topic) setTopic(r.topic);
+      invalider();
     },
   });
   const valider = useMutation({
@@ -249,9 +259,17 @@ export function AdminPapierPage() {
     mutationFn: (id: string) => regenererPapier(id, topic.trim() || undefined),
     onSuccess: invalider,
   });
+  const abandonner = useMutation({
+    mutationFn: (id: string) => abandonnerPapier(id),
+    onSuccess: () => {
+      setTopic("");
+      setSelectionId(null);
+      invalider();
+    },
+  });
   const regenererPartie = useMutation({
     mutationFn: ({ id, partie }: { id: string; partie: "script" | "images" }) =>
-      regenererPartiePapier(id, partie),
+      regenererPartiePapier(id, partie, topic.trim() || undefined),
     onSuccess: invalider,
   });
   const relancerLangue = useMutation({
@@ -284,19 +302,20 @@ export function AdminPapierPage() {
     relancerLangue.isPending ||
     assigner.isPending ||
     changerVoix.isPending ||
-    proposer.isPending ||
     valider.isPending ||
-    arreter.isPending;
+    abandonner.isPending;
 
   const erreur =
     lancer.error ??
     relancer.error ??
     regenerer.error ??
+    regenererPartie.error ??
     assigner.error ??
     changerVoix.error ??
     proposer.error ??
     valider.error ??
-    arreter.error;
+    arreter.error ??
+    abandonner.error;
 
   return (
     <div className="space-y-6">
@@ -410,7 +429,7 @@ export function AdminPapierPage() {
             onValider={enCours.pipeline_hold ? () => valider.mutate(enCours.id) : undefined}
             onArreter={() => arreter.mutate(enCours.id)}
             onRelancer={enCours.statut === "failed" || enCours.statut === "stopped" ? () => relancer.mutate(enCours.id) : undefined}
-            onRegenerer={() => regenerer.mutate(enCours.id)}
+            onRegenerer={() => abandonner.mutate(enCours.id)}
             onRegenScript={enCours.script ? () => regenererPartie.mutate({ id: enCours.id, partie: "script" }) : undefined}
             onRegenImages={enCours.papier_scenes?.some((s) => s.image_url) ? () => regenererPartie.mutate({ id: enCours.id, partie: "images" }) : undefined}
             busy={busy}
@@ -418,6 +437,8 @@ export function AdminPapierPage() {
             proposerPending={proposer.isPending}
             validerPending={valider.isPending}
             arreterPending={arreter.isPending}
+            regenererPending={abandonner.isPending}
+            regenPartiePending={regenererPartie.isPending}
             script={enCours.script}
           />
           <SousBloc titre={t("papier.voirPlans")} compte={enCours.papier_scenes?.length ?? 0}>
@@ -661,6 +682,8 @@ function FormulairePipeline({
   proposerPending,
   validerPending,
   arreterPending,
+  regenererPending,
+  regenPartiePending,
   script,
 }: {
   topic: string;
@@ -691,6 +714,8 @@ function FormulairePipeline({
   proposerPending?: boolean;
   validerPending?: boolean;
   arreterPending?: boolean;
+  regenererPending?: boolean;
+  regenPartiePending?: boolean;
   script?: PapierMaster["script"];
 }) {
   const { t } = useTranslation();
@@ -847,7 +872,12 @@ function FormulairePipeline({
           </Button>
         ) : null}
         {onProposer ? (
-          <Button variant="outline" onClick={onProposer} disabled={busy}>
+          <Button
+            variant="outline"
+            onClick={onProposer}
+            disabled={Boolean(proposerPending)}
+            data-testid="papier-proposer"
+          >
             {proposerPending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Sparkles className="h-4 w-4" />}
             {t("papier.proposerSujet")}
           </Button>
@@ -859,14 +889,19 @@ function FormulairePipeline({
           </Button>
         ) : null}
         {onRegenScript ? (
-          <Button variant="outline" onClick={onRegenScript} disabled={busy}>
-            <RotateCcw className="h-4 w-4" />
+          <Button
+            variant="outline"
+            onClick={onRegenScript}
+            disabled={Boolean(regenPartiePending)}
+            data-testid="papier-regen-script"
+          >
+            {regenPartiePending ? <Loader2 className="h-4 w-4 animate-spin" /> : <RotateCcw className="h-4 w-4" />}
             {t("papier.regenererScript")}
           </Button>
         ) : null}
         {onRegenImages ? (
-          <Button variant="outline" onClick={onRegenImages} disabled={busy}>
-            <RotateCcw className="h-4 w-4" />
+          <Button variant="outline" onClick={onRegenImages} disabled={Boolean(regenPartiePending)}>
+            {regenPartiePending ? <Loader2 className="h-4 w-4 animate-spin" /> : <RotateCcw className="h-4 w-4" />}
             {t("papier.regenererImages")}
           </Button>
         ) : null}
@@ -877,8 +912,13 @@ function FormulairePipeline({
           </Button>
         ) : null}
         {onRegenerer ? (
-          <Button variant="outline" onClick={onRegenerer} disabled={busy}>
-            <RotateCcw className="h-4 w-4" />
+          <Button
+            variant="outline"
+            onClick={onRegenerer}
+            disabled={Boolean(regenererPending)}
+            data-testid="papier-start-over"
+          >
+            {regenererPending ? <Loader2 className="h-4 w-4 animate-spin" /> : <RotateCcw className="h-4 w-4" />}
             {t("papier.regenerer")}
           </Button>
         ) : null}

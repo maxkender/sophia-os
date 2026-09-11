@@ -18,6 +18,7 @@ import { papierEstActif } from "../_shared/papier_reglages.ts";
 import {
   avancerLangue,
   changerVoixMaster,
+  destickerLanguesMaster,
   relancerLangue,
   tickLocalesMaster,
 } from "../_shared/papier_locales.ts";
@@ -268,8 +269,14 @@ Deno.serve(async (request) => {
       const id = String(body?.id ?? "");
       if (!id) return json({ ok: false, error: "id requis" }, 400);
       const master = await relancerMaster(supabase, id);
+      await destickerLanguesMaster(supabase, id);
       if (master.statut === "ready") {
         return json({ ok: true, done: true, statut: "ready", masterId: id });
+      }
+      const scenes = master.statut === "clips" || master.etape === "fr";
+      if (scenes) {
+        const tick = await tickLocalesMaster(supabase, id);
+        return json({ ok: true, ...enchainer(request, tick, id) });
       }
       const tick = await avancerMaster(supabase, id);
       return json({ ok: true, ...enchainer(request, tick, id) });

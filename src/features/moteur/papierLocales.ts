@@ -204,6 +204,13 @@ export function etapeAssemblage(row: {
 }
 
 /** Vidéo à télécharger : finale (captions) sinon mix cadré. Pas le concat brut. */
+export function langueFrAContinuer(
+  langues: Array<{ langue: string; statut: string; id: string }> | null | undefined,
+): { id: string; statut: string } | null {
+  const fr = (langues ?? []).find((l) => l.langue === "fr" && l.statut !== "ready");
+  return fr ? { id: fr.id, statut: fr.statut } : null;
+}
+
 export function urlVideoExportable(row: {
   video_url?: string | null;
   video_mix_url?: string | null;

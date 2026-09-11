@@ -732,6 +732,17 @@ export async function tickLocalesMaster(
   return avancerLangue(supabase, nextId);
 }
 
+export async function destickerLanguesMaster(
+  supabase: Supabase,
+  masterId: string,
+): Promise<void> {
+  await supabase
+    .from("papier_langues")
+    .update({ busy: false, updated_at: new Date().toISOString() })
+    .eq("master_id", masterId)
+    .eq("busy", true);
+}
+
 export async function relancerLangue(
   supabase: Supabase,
   id: string,
@@ -747,11 +758,18 @@ export async function relancerLangue(
     video_url: row.video_url,
     etape: row.etape,
   });
+  const cadre =
+    row.etape === "cadre" || (row.video_mix_path ?? "").includes("mix-raw");
   await patchLangue(
     supabase,
     id,
-    { statut: statut === "ready" ? "ready" : statut, erreur: null, busy: false, etape: statut },
-    { etape: "relancer", detail: `reprise → ${statut}` },
+    {
+      statut: statut === "ready" ? "ready" : statut,
+      erreur: null,
+      busy: false,
+      etape: cadre && statut !== "ready" ? "cadre" : statut,
+    },
+    { etape: "relancer", detail: `reprise → ${cadre ? "cadre" : statut}` },
   );
   const next = await chargerLangue(supabase, id);
   if (!next) throw new Error("Langue introuvable après relance");

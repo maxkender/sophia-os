@@ -6,6 +6,7 @@ import {
   etapeAssemblage,
   finaliserTraductionPapier,
   LANGUES_PAPIER,
+  langueFrAContinuer,
   nomLangueModele,
   normaliserTimestampsFal,
   prochaineLangueATiquer,
@@ -171,5 +172,13 @@ describe("assemblage", () => {
     expect(urlVideoExportable({ video_mix_url: "raw", video_mix_path: "x/mix-raw.mp4" })).toBeNull();
     expect(urlVideoExportable({ video_mix_url: "mix", video_mix_path: "x/mix.mp4" })).toBe("mix");
     expect(urlVideoExportable({ video_url: "final", video_mix_url: "mix" })).toBe("final");
+  });
+
+  it("détecte un FR à continuer jusqu'aux captions", () => {
+    expect(langueFrAContinuer([{ id: "fr", langue: "fr", statut: "ready" }])).toBeNull();
+    expect(langueFrAContinuer([{ id: "fr", langue: "fr", statut: "karaoke" }])).toEqual({
+      id: "fr",
+      statut: "karaoke",
+    });
   });
 });

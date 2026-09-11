@@ -1,18 +1,37 @@
-/** Copie Deno de src/features/moteur/papierPromptDefauts.ts — garder synchro. */
+-- Sujets Paper CM : viewer TikTok lambda, catégories élargies, CTA téléchargement Sophia.
 
-export const CLE_PROMPT_SCRIPT = "script_generation";
-export const CLE_PROMPT_VOIX = "voice_delivery";
-export const CLE_PROMPT_CTA = "cta_sophia";
-export const CLE_PROMPT_IMAGE = "image_style";
+alter table public.papier_masters
+  drop constraint if exists papier_masters_categorie_check;
 
-export const LABEL_NARRATION_STYLE = {
-  revelation: "Reveal — Clues, then a final twist",
-  question: "Big question — But do you really know why…?",
-  storytelling: "Immersive story — the scene as it was lived",
-  listicle: "Reveal — Clues, then a final twist",
-} as const;
+alter table public.papier_masters
+  add constraint papier_masters_categorie_check
+    check (topic_categorie in (
+      'aleatoire',
+      'psychologie',
+      'corps',
+      'sommeil',
+      'nourriture',
+      'argent',
+      'tech',
+      'societe',
+      'relations',
+      'sport',
+      'langage',
+      'histoire',
+      'faits_divers',
+      'mythes',
+      'science',
+      'espace',
+      'animaux',
+      'geographie',
+      'pop_culture',
+      'origines',
+      'personnages',
+      'mysteres'
+    ));
 
-export const SCRIPT_GENERATION_DEFAUT = `Tu écris des voice-over TikTok pour des vidéos papier découpé. Public : un mec lambda de 16-30 ans qui scrolle. Pas un documentaire. Pas un cours d'histoire. Un script qu'on DIRIAIT collé sous une vidéo virale.
+insert into public.prompts (cle, contenu)
+values ('script_generation', $papier_script$Tu écris des voice-over TikTok pour des vidéos papier découpé. Public : un mec lambda de 16-30 ans qui scrolle. Pas un documentaire. Pas un cours d'histoire. Un script qu'on DIRIAIT collé sous une vidéo virale.
 
 ════════════════════════════════
 ÉTAPE 1 — SUJET (test du pote dans l'ascenseur)
@@ -81,24 +100,11 @@ FAIRE :
   - un seul nombre marquant, écrit en toutes lettres si la voix peut le rater (sauf les années)
   - « on ne sait pas » si on ne sait pas. Pas de bullshit
 
-DÉCOUPAGE : une scène = un cut visuel. 1 phrase, parfois 2. Les plans n'ont PAS tous la même longueur. Pas un paragraphe d'historien par plan.`;
+DÉCOUPAGE : une scène = un cut visuel. 1 phrase, parfois 2. Les plans n'ont PAS tous la même longueur. Pas un paragraphe d'historien par plan.$papier_script$)
+on conflict (cle) do update set contenu = excluded.contenu, updated_at = now();
 
-export const VOICE_DELIVERY_DEFAUT = `VOIX & DÉBIT — voix off TikTok, papercraft, culture générale.
-
-vitesse: 0.92
-stabilite: 0.58
-
-DÉBIT : posé, un peu plus lent qu'une conversation. Environ 2,5 mots par seconde. Une micro-pause après chaque point. Jamais précipité, jamais théâtral.
-
-TON : quelqu'un qui raconte un fait précis. Pas un présentateur, pas un youtubeur surexcité. Tutoiement. Calme, clair, crédible. Le fait porte l'effet, pas la voix.
-
-RESPIRATION : courte entre les phrases. Pas de soupir. Pas d'emphase artificielle. Le fait porte le ton.
-
-NOMBRES : lus naturellement. Les dates (1871, 1994) comme des années. Les petites quantités déjà écrites en toutes lettres dans le script.
-
-INTERDIT : rire, chuchotement forcé, suspense dans la voix, « saviez-vous que » chanté.`;
-
-export const CTA_SOPHIA_DEFAUT = `RÈGLE CTA : 1 ou 2 phrases courtes, lues à voix haute. Le mot « Sophia » (jamais « Sofia », jamais « Sophie ») apparaît EXACTEMENT UNE FOIS dans tout le script, uniquement ici.
+insert into public.prompts (cle, contenu)
+values ('cta_sophia', $papier_cta$RÈGLE CTA : 1 ou 2 phrases courtes, lues à voix haute. Le mot « Sophia » (jamais « Sofia », jamais « Sophie ») apparaît EXACTEMENT UNE FOIS dans tout le script, uniquement ici.
 
 Le CTA dit clairement que ce contenu vient de l'application Sophia, et d'aller la télécharger pour en apprendre plus. C'est une invitation, pas une blague, pas une chute poétique.
 
@@ -107,33 +113,5 @@ Varie la formulation, garde l'idée. Exemples de forme (à ne pas recopier) :
   « Inspiré de l'appli Sophia — télécharge-la si tu veux la suite. »
   « Ça vient de l'application Sophia. Télécharge-la pour en apprendre plus. »
 
-Pas de paragraphe. Aucune scène hors CTA ne parle de l'appli. Le champ cta = le texte prêt à être lu.`;
-
-export const IMAGE_STYLE_DEFAUT = `handmade layered paper cut-out diorama photographed head-on, flat frontal composition, stacked planes of matte construction paper with torn deckled edges and visible paper grain, simple bold silhouettes with no fine detail, characters and objects built from flat cut shapes with slight relief, soft diffused studio light casting gentle drop shadows between paper layers, a cohesive limited palette of 4 to 5 flat matte paper colors chosen to fit the mood of this specific scene, no gradients, no realistic textures, no 3D render look, stop-motion paper animation aesthetic, calm and graphic, quiet minimal background of layered paper shapes. Shot straight on like a real photograph of a physical paper set, shallow relief depth, crisp paper edges, no digital illustration look, no cartoon outlines, no glossy plastic, no clay.`;
-
-export const PROMPTS_PAPIER_DEFAUT: Record<string, string> = {
-  [CLE_PROMPT_SCRIPT]: SCRIPT_GENERATION_DEFAUT,
-  [CLE_PROMPT_VOIX]: VOICE_DELIVERY_DEFAUT,
-  [CLE_PROMPT_CTA]: CTA_SOPHIA_DEFAUT,
-  [CLE_PROMPT_IMAGE]: IMAGE_STYLE_DEFAUT,
-};
-
-export function promptPapierOuDefaut(cle: string, contenu?: string | null): string {
-  const brut = contenu?.trim();
-  if (brut) return brut;
-  return PROMPTS_PAPIER_DEFAUT[cle] ?? "";
-}
-
-export function vitesseVoixDepuisPrompt(prompt: string): number | undefined {
-  const m = prompt.match(/vitesse\s*[:=]\s*([0-9.]+)/i) ?? prompt.match(/speed\s*[:=]\s*([0-9.]+)/i);
-  if (!m) return undefined;
-  const n = Number(m[1]);
-  return n >= 0.5 && n <= 2 ? n : undefined;
-}
-
-export function stabiliteVoixDepuisPrompt(prompt: string): number | undefined {
-  const m = prompt.match(/stabilit[eé]\s*[:=]\s*([0-9.]+)/i) ?? prompt.match(/stability\s*[:=]\s*([0-9.]+)/i);
-  if (!m) return undefined;
-  const n = Number(m[1]);
-  return n >= 0 && n <= 1 ? n : undefined;
-}
+Pas de paragraphe. Aucune scène hors CTA ne parle de l'appli. Le champ cta = le texte prêt à être lu.$papier_cta$)
+on conflict (cle) do update set contenu = excluded.contenu, updated_at = now();

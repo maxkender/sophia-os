@@ -2,6 +2,16 @@
 
 export const PAPIER_CATEGORIES = [
   "aleatoire",
+  "psychologie",
+  "corps",
+  "sommeil",
+  "nourriture",
+  "argent",
+  "tech",
+  "societe",
+  "relations",
+  "sport",
+  "langage",
   "histoire",
   "faits_divers",
   "mythes",
@@ -22,21 +32,49 @@ export type PapierStyleChoix = (typeof PAPIER_STYLES_NARRATION)[number];
 
 export const CATEGORIE_BRIEF: Record<PapierCategorie, string> = {
   aleatoire:
-    "Choisis un domaine (histoire, faits divers, mythes, science, espace, animaux, géographie, pop culture, origines, personnages ou mystères). La preuve matérielle (date, nom, chiffre, lieu) reste obligatoire.",
+    "Choisis le domaine le plus scrollable pour un mec de 16-30 ans sur TikTok (psychologie, corps, sommeil, bouffe, argent, tel, société, relations, sport, langage, ou un mythe/film/people que TOUT LE MONDE connaît). Sujet du quotidien, pas une thèse.",
+  psychologie:
+    "Psycho du quotidien : biais, habitudes, pourquoi tu procrastines, l'effet spectateur, pourquoi le temps file. Un truc que le viewer a VÉCU ce matin.",
+  corps:
+    "Corps humain : frissons, voix dans les stories, mal de crâne à la glace, tu ne peux pas te chatouiller. Sensation banale + vraie cause simple.",
+  sommeil:
+    "Sommeil et rêves : réveil 2 min avant l'alarme, paralysie, pourquoi on rêve qu'on tombe. Tout le monde le connaît.",
+  nourriture:
+    "Bouffe : piment, café, sucre, pourquoi tu as encore faim. Un aliment que le viewer a dans la cuisine.",
+  argent:
+    "Argent du quotidien : 9,99 €, pourboire, pourquoi tu cliques trop vite. Pas de Bourse, pas de macro-économie.",
+  tech:
+    "Téléphone, notifs, batterie, Wi-Fi, caméra frontale. Un geste que tu fais 50 fois par jour.",
+  societe:
+    "Normes sociales : tel dans l'ascenseur, on se serre la main, file d'attente. Le viewer doit se reconnaître.",
+  relations:
+    "Potes, crush, ghost, pourquoi tu relis tes messages. PG, pas de sexe explicite, pas de thérapie de couple.",
+  sport:
+    "Sport que tout le monde a fait au collège : point de côté, adrénaline, crampe, balle trop rapide. Pas un sport obscur.",
+  langage:
+    "Mots, expressions, pourquoi ta voix te dégoûte enregistrée, pourquoi on dit « à tes souhaits ». Français de tous les jours.",
   histoire:
-    "Big history question : un événement daté qui a basculé sur un détail concret — preuve matérielle obligatoire.",
+    "Un événement que le viewer connaît DÉJÀ de nom (Titanic, Napoléon, mur de Berlin, 11 septembre). Un détail WTF, pas un volcan dont personne n'a entendu parler.",
   faits_divers:
-    "True crime / odd news : une affaire résolue par un objet ou une analyse précise.",
-  mythes: "Myths & legends : l'origine physique et vérifiable du mythe.",
-  science: "Everyday science : un objet banal dont le fonctionnement réel surprend.",
-  espace: "Space & universe : une mesure ou une observation datée, jamais de spéculation.",
-  animaux: "Animals & nature : une capacité mesurée en labo, avec les chiffres.",
-  geographie: "Geography : un lieu dont la forme s'explique par un événement identifié.",
+    "Une affaire ou un fait bizarre que les gens ont déjà vu passer (pas un cold case de 1847). Punch simple.",
+  mythes:
+    "UNIQUEMENT les mythes de film / collège : vampires, sirènes, Zeus, loup-garou, Atlantide. INTERDIT : folklore local, yokai, légende que 0,1 % des gens connaissent.",
+  science:
+    "Science du quotidien : micro-ondes, aimant, savon, froid qui « brûle ». L'objet est sur le bureau ou dans la salle de bain.",
+  espace:
+    "Espace grand public : Lune, trou noir, Mars, ISS. Pas une mission ou une étoile dont le nom ne dit rien.",
+  animaux:
+    "Chiens, chats, requins, abeilles, dauphins. Pas un invertébré obscur.",
+  geographie:
+    "Un lieu que tout le monde saurait placer : Sahara, Everest, Amazonie, Japon, NYC. Pas un village ou un détroit inconnu.",
   pop_culture:
-    "Films & pop culture : une scène connue confrontée au calcul ou au fait réel. Pas de marque protégée dans les visuels.",
-  origines: "Origins of things : l'accident ou l'erreur à l'origine d'un objet courant.",
-  personnages: "Famous figures : un fait documenté qui contredit l'image du personnage.",
-  mysteres: "Unsolved mysteries : ce que les preuves établissent VRAIMENT, et où ça s'arrête.",
+    "Film, série, jeu ou meme que le viewer a déjà vu. Une scène célèbre vs le vrai truc. Pas de marque dans les visuels.",
+  origines:
+    "D'où vient un objet du quotidien : Post-it, micro-ondes, fermeture éclair, frigo. L'objet, pas l'inventeur oublié.",
+  personnages:
+    "Quelqu'un dont le visage ou le nom est connu (Einstein, Ronaldo, Marilyn, Napoléon). Un fait simple, pas une anecdote d'historien.",
+  mysteres:
+    "Mystères CÉLÈBRES : pyramides, Bermuda, disparition d'un avion dont tout le monde a entendu parler. Ce qu'on sait vraiment, en simple.",
 };
 
 export const STYLE_NARRATION_AIDE: Record<PapierStyleChoix, string> = {

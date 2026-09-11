@@ -2,7 +2,8 @@
 /** Copie Deno de src/features/moteur/papierScript.ts — garder synchro. */
 /** Helpers purs du master papier (script, durée, CTA, prompts visuels). */
 
-export const SOPHIA_OUTRO = "Tu en as des centaines comme ça sur Sophia.";
+export const SOPHIA_OUTRO =
+  "Ce contenu est inspiré de l'application Sophia. Télécharge-la pour en apprendre plus.";
 
 const SOPHIA_ALIAS =
   /\b(Sof[iíìï]a|Sofie|Zsof[ií]a|Σοφία|София|Sofya)\b/gi;

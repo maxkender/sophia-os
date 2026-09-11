@@ -84,7 +84,7 @@ export function topicSystemPrompt(
     `NARRATION_STYLE = "${libelleNarrationStyle(style)}"`,
     `DOMAINE OBLIGATOIRE : ${CATEGORIE_BRIEF[categorie] ?? CATEGORIE_BRIEF.aleatoire}`,
     "LANGUE DE SORTIE : français de France.",
-    `Graine d'aléatoire (ne la mentionne jamais) : ${seed}. Ne propose pas l'exemple le plus évident du domaine.`,
+    `Graine d'aléatoire (ne la mentionne jamais) : ${seed}. Prends un truc FAMEUX du quotidien, pas un angle original d'historien.`,
     exclus.length ? `N'utilise PAS ces sujets déjà traités : ${exclus.join(" · ")}.` : "",
     'Réponds uniquement en JSON: {"topic": string}',
   ]

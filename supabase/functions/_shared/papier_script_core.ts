@@ -111,11 +111,11 @@ export function remplacerSophiaParAppli(texte: string): string {
 
 /** CTA collé au sujet ou pub « télécharge » → outro générique Sophia. */
 const CTA_TROP_LIE =
-  /\b(cette anecdote|cette histoire|ce contenu|ce fait|inspir[ée]e?\s+de|t[ée]l[ée]charge(?:-la)?|en apprendre plus)\b/i;
+  /\b(cette anecdote|cette histoire|ce contenu|ce fait|inspir[ée]e?\s+de|t[ée]l[ée]charge(?:-la)?|en apprendre plus|r[ée]cits?|captivants?|retrouve d'autres)\b/i;
 
 export function normaliserCtaSophiaUnique(cta: string): string {
   const base = protegerNomSophia((cta.trim() || SOPHIA_OUTRO).replace(/\s{2,}/g, " ").trim());
-  if (!base || CTA_TROP_LIE.test(base)) return SOPHIA_OUTRO;
+  if (!base || CTA_TROP_LIE.test(base) || !/\bhistoires?\b/i.test(base)) return SOPHIA_OUTRO;
   let seen = false;
   const unique = base
     .replace(/\bSophia\b/gi, (m) => {

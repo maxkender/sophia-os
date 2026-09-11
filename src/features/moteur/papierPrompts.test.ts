@@ -27,15 +27,15 @@ describe("défauts prompts papier", () => {
     expect(promptPapierOuDefaut(CLE_PROMPT_VOIX, "lent")).toBe("lent");
   });
 
-  it("cible un viewer TikTok, pas un documentaire niche", () => {
-    expect(SCRIPT_GENERATION_DEFAUT).toContain("scénariste");
-    expect(SCRIPT_GENERATION_DEFAUT).toContain("voix off documentaire");
+  it("cible un viewer TikTok, fluide comme les 7 scripts de référence", () => {
+    expect(SCRIPT_GENERATION_DEFAUT).toContain("PAS de template");
+    expect(SCRIPT_GENERATION_DEFAUT).toContain("LES 7");
+    expect(SCRIPT_GENERATION_DEFAUT).toMatch(/vigies/);
+    expect(SCRIPT_GENERATION_DEFAUT).toMatch(/Cyclope|Spider-Man/);
+    expect(SCRIPT_GENERATION_DEFAUT).toMatch(/lycéen/);
     expect(SCRIPT_GENERATION_DEFAUT).not.toMatch(/DIRIAIT collé/);
     expect(SCRIPT_GENERATION_DEFAUT).toMatch(/tu penses que/);
-    expect(SCRIPT_GENERATION_DEFAUT).toMatch(/Titanic|pyramides/);
-    expect(SCRIPT_GENERATION_DEFAUT).toContain("Reveal");
-    expect(SCRIPT_GENERATION_DEFAUT).toContain("Big question");
-    expect(SCRIPT_GENERATION_DEFAUT).toContain("Immersive story");
+    expect(SCRIPT_GENERATION_DEFAUT).toMatch(/Titanic/);
     expect(SCRIPT_GENERATION_DEFAUT).toContain("toutes lettres");
     expect(SCRIPT_GENERATION_DEFAUT).toMatch(/de plus|pire encore/);
     expect(CTA_SOPHIA_DEFAUT).toMatch(/histoires/);

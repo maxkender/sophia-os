@@ -77,7 +77,9 @@ describe("CTA Sophia unique", () => {
     expect(normaliserCtaSophiaUnique("Cette anecdote vient de Sophia. Télécharge-la vite.")).toBe(
       SOPHIA_OUTRO,
     );
-    expect(normaliserCtaSophiaUnique("Ce contenu est inspiré de Sophia.")).toBe(SOPHIA_OUTRO);
+    expect(normaliserCtaSophiaUnique("Retrouve d'autres récits captivants sur l'application Sophia.")).toBe(
+      SOPHIA_OUTRO,
+    );
     expect(normaliserCtaSophiaUnique("Des centaines d'histoires, sur Sophia.")).toBe(
       "Des centaines d'histoires, sur Sophia.",
     );

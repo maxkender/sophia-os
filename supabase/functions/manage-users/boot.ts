@@ -1,14 +1,14 @@
 /**
- * Boot loader live de papier-cm.
+ * Boot loader live de manage-users.
  * Le vrai code est `bundle.gz` (SHA GitHub). esbuild minify le binding
  * `createClient` sous un nom court qui CHANGE à chaque build — on le relit
  * dans l'import ESM, on ne suppose plus `Zt`.
  */
 import { createClient } from "jsr:@supabase/supabase-js@2";
 
-const SHA = "c6718e99050a733ce592d9679a9af6363eb8bb0a";
-const PATH = "supabase/functions/papier-cm/bundle.gz";
-const SIZE = 32594;
+const SHA = "2f7e5ac45a0d477401fcc9f48efd9d076ee5551c";
+const PATH = "supabase/functions/manage-users/bundle.gz";
+const SIZE = 16426;
 const URLS = [
   `https://cdn.jsdelivr.net/gh/maxkender/sophia-os@${SHA}/${PATH}`,
   `https://raw.githubusercontent.com/maxkender/sophia-os/${SHA}/${PATH}`,
@@ -40,10 +40,10 @@ for (const url of URLS) {
   }
 }
 if (!bytes) {
-  throw lastErr instanceof Error ? lastErr : new Error("[papier-cm] bundle fetch failed");
+  throw lastErr instanceof Error ? lastErr : new Error("[manage-users] bundle fetch failed");
 }
 if (bytes.byteLength !== SIZE) {
-  throw new Error(`[papier-cm] bundle size ${bytes.byteLength}`);
+  throw new Error(`[manage-users] bundle size ${bytes.byteLength}`);
 }
 
 const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"));
@@ -56,18 +56,18 @@ try {
   await import(`data:application/javascript;charset=utf-8,${encodeURIComponent(wrapped)}`);
   loaded = true;
 } catch (e) {
-  console.error("[papier-cm] data-url import failed", e);
+  console.error("[manage-users] data-url import failed", e);
 }
 if (!loaded) {
   try {
     await Deno.writeTextFile(
-      "/tmp/papier-cm-rt.js",
+      "/tmp/manage-users-rt.js",
       `import { createClient as ${name} } from "jsr:@supabase/supabase-js@2";\n${code}`,
     );
-    await import("file:///tmp/papier-cm-rt.js");
+    await import("file:///tmp/manage-users-rt.js");
     loaded = true;
   } catch (e) {
-    console.error("[papier-cm] file import failed", e);
+    console.error("[manage-users] file import failed", e);
   }
 }
 if (!loaded) {

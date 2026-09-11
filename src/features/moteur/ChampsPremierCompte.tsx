@@ -22,12 +22,6 @@ export function ChampsPremierCompte({
   onPostsParJour,
   handle,
   onHandle,
-  email,
-  onEmail,
-  password,
-  onPassword,
-  deuxFa,
-  onDeuxFa,
   applications,
   applicationSlug,
   onApplication,
@@ -40,14 +34,8 @@ export function ChampsPremierCompte({
   onLangue: (langue: string) => void;
   postsParJour?: 1 | 2 | 3;
   onPostsParJour?: (n: 1 | 2 | 3) => void;
-  handle: string;
-  onHandle: (v: string) => void;
-  email: string;
-  onEmail: (v: string) => void;
-  password: string;
-  onPassword: (v: string) => void;
-  deuxFa: string;
-  onDeuxFa: (v: string) => void;
+  handle?: string;
+  onHandle?: (v: string) => void;
   applications?: ApplicationOs[];
   applicationSlug?: string;
   onApplication?: (slug: string) => void;
@@ -125,16 +113,18 @@ export function ChampsPremierCompte({
               ))}
             </select>
           </div>
-          <div className="space-y-1">
-            <Label htmlFor="premier-handle">{t("comptes.pseudo")}</Label>
-            <Input
-              id="premier-handle"
-              value={handle}
-              placeholder={t("comptes.pseudoPlaceholder")}
-              onChange={(e) => onHandle(e.target.value)}
-            />
-            <p className="text-xs text-muted-foreground">{t("comptes.pseudoFacultatif")}</p>
-          </div>
+          {typeCompte === "perso" && onHandle && (
+            <div className="space-y-1">
+              <Label htmlFor="premier-handle">{t("comptes.pseudo")}</Label>
+              <Input
+                id="premier-handle"
+                value={handle ?? ""}
+                placeholder={t("comptes.pseudoPlaceholder")}
+                onChange={(e) => onHandle(e.target.value)}
+              />
+              <p className="text-xs text-muted-foreground">{t("comptes.pseudoFacultatif")}</p>
+            </div>
+          )}
           {typeCompte === "perso" && onPostsParJour && postsParJour != null && (
             <div className="space-y-1 sm:col-span-2">
               <Label>{t("hiring.postsParJour")}</Label>
@@ -155,40 +145,6 @@ export function ChampsPremierCompte({
                 ))}
               </div>
             </div>
-          )}
-          {typeCompte === "cm" && (
-            <>
-              <div className="space-y-1">
-                <Label htmlFor="premier-email">{t("cm.email")}</Label>
-                <Input
-                  id="premier-email"
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => onEmail(e.target.value)}
-                />
-              </div>
-              <div className="space-y-1">
-                <Label htmlFor="premier-pass">{t("cm.password")}</Label>
-                <Input
-                  id="premier-pass"
-                  type="text"
-                  required
-                  autoComplete="off"
-                  value={password}
-                  onChange={(e) => onPassword(e.target.value)}
-                />
-              </div>
-              <div className="space-y-1 sm:col-span-2">
-                <Label htmlFor="premier-2fa">{t("cm.deuxFa")}</Label>
-                <Input
-                  id="premier-2fa"
-                  value={deuxFa}
-                  placeholder={t("cm.deuxFaPh")}
-                  onChange={(e) => onDeuxFa(e.target.value)}
-                />
-              </div>
-            </>
           )}
         </div>
       )}

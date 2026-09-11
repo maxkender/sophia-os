@@ -500,9 +500,6 @@ export function AdminPostersPage() {
   const [premierCompte, setPremierCompte] = React.useState<PremierCompte>("perso");
   const [postsParJour, setPostsParJour] = React.useState<1 | 2 | 3>(2);
   const [handleTiktok, setHandleTiktok] = React.useState("");
-  const [cmEmail, setCmEmail] = React.useState("");
-  const [cmPassword, setCmPassword] = React.useState("");
-  const [cmDeuxFa, setCmDeuxFa] = React.useState("");
   const [password, setPassword] = React.useState(MOT_DE_PASSE_INITIAL);
   const [cree, setCree] = React.useState<{
     email: string;
@@ -522,19 +519,13 @@ export function AdminPostersPage() {
         application_slug: applicationSlug,
         type_compte: premierCompte,
         posts_par_jour: premierCompte === "perso" ? postsParJour : undefined,
-        handle_tiktok: handleTiktok,
-        tiktok_email: cmEmail,
-        tiktok_password: cmPassword,
-        tiktok_2fa_note: cmDeuxFa,
+        handle_tiktok: premierCompte === "perso" ? handleTiktok : undefined,
       }),
     onSuccess: (r) => {
       setCree({ email: r.email, password, type: premierCompte });
       setPrenom("");
       setNom("");
       setHandleTiktok("");
-      setCmEmail("");
-      setCmPassword("");
-      setCmDeuxFa("");
       setPostsParJour(2);
       setPassword(MOT_DE_PASSE_INITIAL);
       rafraichir();
@@ -688,12 +679,6 @@ export function AdminPostersPage() {
             onPostsParJour={setPostsParJour}
             handle={handleTiktok}
             onHandle={setHandleTiktok}
-            email={cmEmail}
-            onEmail={setCmEmail}
-            password={cmPassword}
-            onPassword={setCmPassword}
-            deuxFa={cmDeuxFa}
-            onDeuxFa={setCmDeuxFa}
           />
           <div className="space-y-2 sm:col-span-2">
             <Label htmlFor="mdp">{t("posters.password")}</Label>
@@ -719,8 +704,7 @@ export function AdminPostersPage() {
               type="submit"
               disabled={
                 creer.isPending ||
-                (premierCompte !== "aucun" && !langue) ||
-                (premierCompte === "cm" && (!cmEmail.trim() || !cmPassword))
+                (premierCompte !== "aucun" && !langue)
               }
             >
               {creer.isPending ? t("common.saving") : t("posters.create")}

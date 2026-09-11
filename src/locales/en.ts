@@ -1008,6 +1008,9 @@ export const en = {
       avancer: "Advance pipeline",
       relancer: "Retry (keep assets)",
       continuerCaptions: "Continue — captions",
+      captionsEnCours: "Captions in progress…",
+      captionsExportAide:
+        "This preview has no captions yet. Click Continue once: TikTok frame, then white captions. Export appears on the final video.",
       regenerer: "Start over from scratch",
       historique: "Library",
       biblioAide: "{{n}} ready FR master(s). Midnight draws one at random per language, if it has not been used yet.",
@@ -1122,7 +1125,7 @@ export const en = {
       ajouterPersoAide:
         "Creator TikTok account — labels, warmup and slideshow assignment, same as the first account.",
       ajouterAide:
-        "Company TikTok account, one language. Credentials must already exist — you hand them to the creator.",
+        "Paper CM account, one language. Instagram and Gmail are generated in the contract — the creator gets them after signing. No TikTok handle or 2FA to enter.",
       creer: "Create CM account",
       creerCompte: "Create account",
       langue: "CM account language",
@@ -1137,7 +1140,7 @@ export const en = {
       toutesLanguesPrises: "A CM account already exists for every available language.",
       copier: "Copy",
       aideCreateur:
-        "Log into this TikTok with the credentials provided. You don’t create the account — it already exists.",
+        "Instagram and Gmail are in your contract. You create those accounts after signing — no TikTok to open here.",
       selecteur: "Account",
       perso: "Personal",
       videoPlusTard: "Paper videos for this CM account will show up here.",
@@ -1183,7 +1186,7 @@ export const en = {
       premierCompteAucun: "None for now",
       premierCompteAucunAide:
         "Creates the creator login only. You can add a personal or CM account later.",
-      creeCm: "Creator created with a CM account. TikTok credentials are saved.",
+      creeCm: "Creator created with a CM account. The Instagram + Gmail contract is ready to sign.",
       creeAucun: "Creator login created, no TikTok account yet. Add a personal or CM account from the profile.",
       nbComptes: "{{n}} account(s)",
       aucunCompte: "No TikTok account",

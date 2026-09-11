@@ -132,6 +132,19 @@ Deno.serve(async (request) => {
       const id = String(body?.id ?? "");
       if (!id) return json({ ok: false, error: "id requis" }, 400);
       const row = await relancerLangue(supabase, id);
+      if (row.busy) {
+        return json({
+          ok: true,
+          idle: true,
+          kick: false,
+          done: false,
+          langueId: id,
+          masterId: row.master_id,
+          langue: row.langue,
+          statut: row.statut,
+          detail: "tick déjà en cours",
+        });
+      }
       if (row.statut === "ready") {
         if (row.langue !== "fr") {
           kickPapierCm(request, { action: "assigner" });

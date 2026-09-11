@@ -19,11 +19,12 @@ import {
 import { mergerAudioVideoFal } from "./fal_merge_audio.ts";
 import { trimmerVideoFal } from "./fal_trim_video.ts";
 import { mergerVideosFal } from "./fal_merge_videos.ts";
-import { composerFinalePapier } from "./fal_cadre_papier.ts";
+import { composerFinalePapier, reduireVideoPapierTikTok, assurerNoirVideoUrl } from "./fal_cadre_papier.ts";
 import {
   etapeAssemblage,
   prochaineLangueATiquer,
   statutDepuisLocaleAssets,
+  sousTitresDepuisScenes,
   type PapierScriptTraduit,
 } from "./papier_locales_core.ts";
 import { traduireScriptPapier } from "./papier_traduction.ts";
@@ -34,7 +35,8 @@ type Supabase = ReturnType<typeof serviceClient>;
 
 const BUCKET = "medias";
 const TICK_BUDGET_MS = 42_000;
-const CLAIM_STALE_MS = 90_000;
+/** Fal pad/cadre/karaoke dépasse 90 s : un steal trop tôt lance un 2ᵉ job payant. */
+const CLAIM_STALE_MS = 240_000;
 /** Un lot Fal (concat ou cadre) doit tenir dans le wall clock de l'edge. */
 const FAL_ASSEMBLAGE_MS = 130_000;
 const CONCAT_LOT = 4;
@@ -177,6 +179,16 @@ async function patchLangue(
   }
   const { error } = await supabase.from("papier_langues").update(next).eq("id", id);
   if (error) throw error;
+}
+
+async function heartbeatLangue(supabase: Supabase, id: string): Promise<void> {
+  await patchLangue(supabase, id, {});
+}
+
+function langueBusyRecente(row: { busy: boolean; updated_at?: string }): boolean {
+  if (!row.busy) return false;
+  const stale = Date.parse(row.updated_at ?? "") || 0;
+  return Boolean(stale) && Date.now() - stale < CLAIM_STALE_MS;
 }
 
 async function patchSceneLangue(
@@ -348,6 +360,17 @@ async function etapeVoix(
   scenes: PapierLangueSceneRow[],
   t0: number,
 ): Promise<boolean> {
+  if (scenes.length > 0 && scenes.every((s) => Boolean(s.audio_url))) {
+    if (row.statut === "queued" || row.statut === "translating" || row.statut === "voice") {
+      await patchLangue(
+        supabase,
+        row.id,
+        { statut: "mix", etape: "mix", progression: 0.45 },
+        { etape: "voix", detail: `${scenes.length} voix` },
+      );
+    }
+    return true;
+  }
   const delivery = (await chargerPromptsPapier(supabase)).voice_delivery;
   for (const scene of scenes) {
     if (outOfTime(t0)) return false;
@@ -390,6 +413,12 @@ async function etapeMix(
   clips: Array<{ index: number; clip_url: string | null }>,
   t0: number,
 ): Promise<boolean> {
+  if (scenes.length > 0 && scenes.every((s) => Boolean(s.mix_url))) {
+    if (row.statut === "voice" || row.statut === "mix" || row.statut === "queued" || row.statut === "translating") {
+      await patchLangue(supabase, row.id, { statut: "render", etape: "render", progression: 0.72 });
+    }
+    return true;
+  }
   for (const scene of scenes) {
     if (outOfTime(t0)) return false;
     if (scene.mix_url) continue;
@@ -424,7 +453,9 @@ async function etapeMix(
       progression: 0.45 + 0.25 * (done / scenes.length),
     });
   }
-  await patchLangue(supabase, row.id, { statut: "render", etape: "render", progression: 0.72 });
+  if (row.statut === "voice" || row.statut === "mix" || row.statut === "queued" || row.statut === "translating") {
+    await patchLangue(supabase, row.id, { statut: "render", etape: "render", progression: 0.72 });
+  }
   return true;
 }
 
@@ -439,12 +470,14 @@ async function etapeRender(
   if (urls.length === 0) throw new Error("Aucun mix à assembler");
   const partPath = `papiers/${row.master_id}/${row.langue}/mix-part.mp4`;
   const rawPath = `papiers/${row.master_id}/${row.langue}/mix-raw.mp4`;
+  const padPath = `papiers/${row.master_id}/${row.langue}/mix-pad.mp4`;
   const framedPath = `papiers/${row.master_id}/${row.langue}/mix.mp4`;
 
   if (ass === "merge") {
     const hasPart = (row.video_mix_path ?? "").includes("mix-part") && Boolean(row.video_mix_url);
     if (!hasPart && urls.length > CONCAT_LOT) {
       await reserverFalPapier(supabase);
+      await heartbeatLangue(supabase, row.id);
       const merged = await mergerVideosFal({
         videoUrls: urls.slice(0, CONCAT_LOT),
         timeoutMs: FAL_ASSEMBLAGE_MS,
@@ -468,6 +501,7 @@ async function etapeRender(
     let sourceUrl = queue[0]!;
     if (queue.length > 1) {
       await reserverFalPapier(supabase);
+      await heartbeatLangue(supabase, row.id);
       const merged = await mergerVideosFal({ videoUrls: queue, timeoutMs: FAL_ASSEMBLAGE_MS });
       sourceUrl = await uploader(supabase, rawPath, merged.bytes, merged.mime);
     }
@@ -486,9 +520,38 @@ async function etapeRender(
     return;
   }
 
+  if (ass === "pad") {
+    const source = row.video_mix_url;
+    if (!source) throw new Error("Concat absente avant le pad TikTok");
+    await reserverFalPapier(supabase);
+    await heartbeatLangue(supabase, row.id);
+    const noir = await assurerNoirVideoUrl(supabase, undefined, FAL_ASSEMBLAGE_MS);
+    const padded = await reduireVideoPapierTikTok({
+      videoUrl: source,
+      supabase,
+      noirUrl: noir.url,
+      timeoutMs: FAL_ASSEMBLAGE_MS,
+    });
+    const url = await uploader(supabase, padPath, padded.bytes, padded.mime);
+    await patchLangue(
+      supabase,
+      row.id,
+      {
+        video_mix_path: padPath,
+        video_mix_url: url,
+        statut: "render",
+        etape: "cadre",
+        progression: 0.82,
+      },
+      { etape: "render", detail: "pad 80% TikTok" },
+    );
+    return;
+  }
+
   const source = row.video_mix_url;
   if (!source) throw new Error("Concat absente avant le cadre");
   await reserverFalPapier(supabase);
+  await heartbeatLangue(supabase, row.id);
   const framed = await composerFinalePapier({
     videoUrl: source,
     supabase,
@@ -513,8 +576,16 @@ async function etapeKaraoke(supabase: Supabase, row: PapierLangueRow): Promise<v
   if (row.video_url) return;
   const source = row.video_mix_url;
   if (!source) throw new Error("Vidéo mixte absente");
+  const scenes = await chargerScenesLangue(supabase, row.id);
+  const subtitles = sousTitresDepuisScenes(scenes);
   await reserverFalPapier(supabase);
-  const kar = await incrusterKaraokeFal({ videoUrl: source, langue: row.langue });
+  await heartbeatLangue(supabase, row.id);
+  const kar = await incrusterKaraokeFal({
+    videoUrl: source,
+    langue: row.langue,
+    subtitles,
+    timeoutMs: FAL_ASSEMBLAGE_MS,
+  });
   const path = `papiers/${row.master_id}/${row.langue}/final.mp4`;
   const url = await uploader(supabase, path, kar.bytes, kar.mime);
   await patchLangue(
@@ -528,7 +599,7 @@ async function etapeKaraoke(supabase: Supabase, row: PapierLangueRow): Promise<v
       progression: 1,
       erreur: null,
     },
-    { etape: "karaoke", detail: "captions incrustées" },
+    { etape: "karaoke", detail: subtitles.length ? `captions TTS ${subtitles.length}` : "captions STT" },
   );
 }
 
@@ -631,13 +702,15 @@ export async function avancerLangue(
     scenes = await chargerScenesLangue(supabase, langueId);
     row = (await chargerLangue(supabase, langueId))!;
     const ass = etapeAssemblage(row);
-    if (ass === "merge" || ass === "cadre") {
+    if (ass === "merge" || ass === "pad" || ass === "cadre") {
       if (ass === "merge" && Date.now() - t0 > 6_000) {
         return resumerLangue(row, false, "mix ok — assemblage");
       }
       await etapeRender(supabase, row, scenes);
       row = (await chargerLangue(supabase, langueId))!;
-      return resumerLangue(row, false, ass === "cadre" ? "cadre ok" : "concat ok");
+      const detail =
+        ass === "cadre" ? "cadre ok" : ass === "pad" ? "pad ok" : "concat ok";
+      return resumerLangue(row, false, detail);
     }
 
     await etapeKaraoke(supabase, row);
@@ -749,6 +822,7 @@ export async function relancerLangue(
 ): Promise<PapierLangueRow> {
   const row = await chargerLangue(supabase, id);
   if (!row) throw new Error("Langue papier introuvable");
+  if (langueBusyRecente(row)) return row;
   const scenes = await chargerScenesLangue(supabase, id);
   const statut = statutDepuisLocaleAssets({
     script: row.script,
@@ -759,7 +833,10 @@ export async function relancerLangue(
     etape: row.etape,
   });
   const cadre =
-    row.etape === "cadre" || (row.video_mix_path ?? "").includes("mix-raw");
+    row.etape === "cadre" ||
+    row.etape === "pad" ||
+    (row.video_mix_path ?? "").includes("mix-raw") ||
+    (row.video_mix_path ?? "").includes("mix-pad");
   await patchLangue(
     supabase,
     id,

@@ -16,7 +16,7 @@ import {
 } from "@/features/moteur/api";
 import { listerUgcPersonas } from "@/features/ugc/api";
 import { estCompteCm } from "@/features/moteur/comptesCm";
-import { IdentifiantsCm } from "@/features/moteur/FormulaireCompteCm";
+import { BlocContratPapierAdmin } from "@/features/moteur/BlocContratPapierAdmin";
 import { nomLangue } from "@/features/moteur/langues";
 import type { CompteAvecDetails } from "@/features/moteur/types";
 
@@ -497,7 +497,10 @@ export function CompteEditor({ compte }: { compte: CompteAvecDetails }) {
             {t("comptes.supprimerCompte")}
           </Button>
         </div>
-        <IdentifiantsCm compteId={compte.id} editable />
+        <BlocContratPapierAdmin
+          posterId={compte.poster_id}
+          comptes={[{ id: compte.id, langue: compte.langue, type_compte: compte.type_compte }]}
+        />
         <InfosCompte compte={compte} />
       </div>
     );

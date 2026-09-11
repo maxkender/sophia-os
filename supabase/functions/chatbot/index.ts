@@ -1,4 +1,5 @@
 import { generateTextFast } from "../_shared/gemini.ts";
+import { garderDocumentsPoster, posterGuideCle } from "../_shared/poster_guide.ts";
 import { estRoleManager } from "../_shared/roles.ts";
 import {
   assertRole,
@@ -48,6 +49,7 @@ const NOM_LANGUE: Record<string, string> = {
 };
 
 interface DocumentLigne {
+  cle?: string;
   titre: string;
   titre_en: string | null;
   contenu: string;
@@ -305,10 +307,10 @@ async function snapshotPoster(
   userId: string,
   auj: string,
   demain: string,
-): Promise<{ texte: string; langues: string[] }> {
-  const { data: profil } = await db
+): Promise<{ texte: string; langues: string[]; compteLangue: string | null }> {
+    const { data: profil } = await db
     .from("profiles")
-    .select("prenom, nom, email, langues")
+    .select("prenom, nom, email, langues, nationalite, created_at")
     .eq("id", userId)
     .maybeSingle();
 
@@ -354,7 +356,11 @@ async function snapshotPoster(
     .filter(Boolean)
     .join("\n");
 
-  return { texte, langues: compte?.langue ? [compte.langue, ...languesProfil] : languesProfil };
+  return {
+    texte,
+    langues: compte?.langue ? [compte.langue, ...languesProfil] : languesProfil,
+    compteLangue: compte?.langue ? String(compte.langue) : null,
+  };
 }
 
 function construirePrompt(input: {
@@ -439,11 +445,12 @@ Deno.serve(async (request) => {
     const demain = jourParis(1);
 
     const { data: profil } = acces.userId !== "cron"
-      ? await db.from("profiles").select("langues").eq("id", acces.userId).maybeSingle()
+      ? await db.from("profiles").select("langues, nationalite, created_at").eq("id", acces.userId).maybeSingle()
       : { data: null };
 
     let live = "";
     let langues = (profil?.langues ?? []) as string[];
+    let compteLangue: string | null = null;
 
     if (role === "admin") {
       live = await snapshotAdmin(db, auj, hier);
@@ -453,18 +460,31 @@ Deno.serve(async (request) => {
       const snap = await snapshotPoster(db, acces.userId, auj, demain);
       live = snap.texte;
       langues = snap.langues.length ? snap.langues : langues;
+      compteLangue = snap.compteLangue;
     }
 
     const locale = langueDepuisProfil(langues, repliUi);
 
     const [{ data: snippets }, { data: docs }] = await Promise.all([
       db.from("chatbot_contexte").select("titre, contenu, audience").order("updated_at", { ascending: false }),
-      db.from("documents").select("titre, titre_en, contenu, contenu_en, audience"),
+      db.from("documents").select("cle, titre, titre_en, contenu, contenu_en, audience"),
     ]);
+
+    const docsRole = role === "poster"
+      ? garderDocumentsPoster(
+        (docs ?? []) as DocumentLigne[],
+        posterGuideCle({
+          profileCreatedAt: (profil as { created_at?: string | null } | null)?.created_at ?? null,
+          nationalite: (profil as { nationalite?: string | null } | null)?.nationalite ?? null,
+          langues: (profil?.langues ?? []) as string[],
+          compteLangues: compteLangue ? [compteLangue] : [],
+        }),
+      )
+      : (docs ?? []) as DocumentLigne[];
 
     const docsTexte = assemblerDocs(
       (snippets ?? []) as Snippet[],
-      (docs ?? []) as DocumentLigne[],
+      docsRole,
       role,
       locale,
       Math.max(4_000, CONTEXTE_MAX - live.length - 800),

@@ -38,6 +38,10 @@ describe("défauts prompts papier", () => {
     expect(SCRIPT_GENERATION_DEFAUT).toMatch(/Titanic/);
     expect(SCRIPT_GENERATION_DEFAUT).toContain("toutes lettres");
     expect(SCRIPT_GENERATION_DEFAUT).toMatch(/de plus|pire encore/);
+    expect(SCRIPT_GENERATION_DEFAUT).toContain("HISTOIRE FINIE");
+    expect(SCRIPT_GENERATION_DEFAUT).toMatch(/2 à 4 phrases/);
+    expect(IMAGE_STYLE_DEFAUT).toMatch(/ACCENT/);
+    expect(IMAGE_STYLE_DEFAUT).toMatch(/mid-dark/);
     expect(CTA_SOPHIA_DEFAUT).toMatch(/histoires/);
     expect(CTA_SOPHIA_DEFAUT).toContain("Plus d'histoires");
     expect(CTA_SOPHIA_DEFAUT).not.toMatch(/cette anecdote vient/);
@@ -45,7 +49,7 @@ describe("défauts prompts papier", () => {
   });
 
   it("lit vitesse et stabilité depuis le prompt voix", () => {
-    expect(vitesseVoixDepuisPrompt(VOICE_DELIVERY_DEFAUT)).toBeCloseTo(0.92);
+    expect(vitesseVoixDepuisPrompt(VOICE_DELIVERY_DEFAUT)).toBeCloseTo(1.0);
     expect(stabiliteVoixDepuisPrompt(VOICE_DELIVERY_DEFAUT)).toBeCloseTo(0.58);
   });
 });
@@ -71,9 +75,11 @@ describe("assemblage pipeline", () => {
     expect(p).toContain("Reveal — Clues, then a final twist");
     expect(p).toContain("Lune");
     expect(p).toContain(CTA_SOPHIA_DEFAUT.slice(0, 40));
-    expect(p).toContain("vitesse: 0.92");
+    expect(p).toContain("vitesse: 1.0");
     expect(p).toContain("paper cut-out");
     expect(p).toContain("Découpe en");
+    expect(p).toContain("HISTOIRE FINIE");
+    expect(p).toMatch(/≈ 16 mots|≈ 16/);
     expect(p).not.toContain("Produis exactement");
   });
 
@@ -82,5 +88,6 @@ describe("assemblage pipeline", () => {
     expect(cover).toContain("neon paper only");
     expect(cover).toContain("SAFE AREA");
     expect(cover).toContain("a red boat");
+    expect(IMAGE_STYLE_DEFAUT).toMatch(/ACCENT/);
   });
 });

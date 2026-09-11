@@ -18,15 +18,15 @@ import {
 } from "./papierScript";
 
 describe("durée de clip", () => {
-  it("compte les mots et estime ~2,6 mots/s", () => {
+  it("compte les mots et estime ~2,8 mots/s", () => {
     expect(compterMots("  un deux   trois ")).toBe(3);
-    expect(estimerSecondesParole("un deux trois quatre")).toBeCloseTo(4 / 2.6, 5);
+    expect(estimerSecondesParole("un deux trois quatre")).toBeCloseTo(4 / 2.8, 5);
   });
 
   it("arrondit la durée Seedance au-dessus du temps de parole (4–15 s)", () => {
     expect(dureeCibleClip("un deux trois quatre cinq six sept huit")).toBe(4);
-    expect(dureeCibleClip("mot ".repeat(14))).toBe(7);
-    expect(dureeCibleClip("mot ".repeat(22))).toBe(10);
+    expect(dureeCibleClip("mot ".repeat(14))).toBe(6);
+    expect(dureeCibleClip("mot ".repeat(22))).toBe(9);
     expect(dureeCibleClip("mot ".repeat(50))).toBe(15);
   });
 
@@ -41,12 +41,13 @@ describe("budget script", () => {
   it("réserve ~3 s de CTA et calcule scènes / mots", () => {
     const b = budgetScript(48);
     expect(b.narrationSeconds).toBe(45);
-    expect(b.totalWords).toBe(Math.round(45 * 2.6));
+    expect(b.totalWords).toBe(Math.round(45 * 2.8));
     expect(b.sceneCountMin).toBeGreaterThanOrEqual(3);
     expect(b.sceneCountMax).toBeGreaterThanOrEqual(b.sceneCountMin);
-    expect(b.sceneCount).toBe(b.sceneCountMax);
-    expect(b.sceneCount).toBeLessThanOrEqual(12);
-    expect(b.wordsPerScene).toBeGreaterThanOrEqual(8);
+    expect(b.sceneCount).toBeLessThanOrEqual(b.sceneCountMax);
+    expect(b.sceneCount).toBeLessThanOrEqual(8);
+    expect(b.wordsPerScene).toBeGreaterThanOrEqual(16);
+    expect(b.wordsPerScene).toBeGreaterThanOrEqual(20);
   });
 });
 
@@ -138,6 +139,7 @@ describe("prompts papercraft", () => {
     expect(cover).toContain("Do NOT draw black bars");
     expect(cover).toContain("no text");
     expect(cover).toContain("a red paper boat");
+    expect(cover).toMatch(/mid-dark|ACCENT/i);
     const motion = motionPromptPapier("the boat drifts");
     expect(motion).toContain("LOCKED camera");
     expect(motion).toContain("never change the frame");

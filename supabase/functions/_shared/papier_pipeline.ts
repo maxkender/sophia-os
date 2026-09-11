@@ -136,6 +136,24 @@ export function tickPapierDoitEnchainer(tick: {
   return !tick.done;
 }
 
+/**
+ * Reprise d'un master déjà lancé. `manuel: true` passe le garde
+ * « papier en pause » — sinon le kick après la 1ʳᵉ image est un no-op.
+ */
+export function corpsKickSuitePapier(opts: {
+  masterId: string;
+  langueId?: string;
+  action?: string;
+}): { action: string; masterId: string; langueId?: string; manuel: true } {
+  const action = opts.action ?? (opts.langueId ? "tick_locales" : "tick");
+  return {
+    action,
+    masterId: opts.masterId,
+    ...(opts.langueId ? { langueId: opts.langueId } : {}),
+    manuel: true,
+  };
+}
+
 /** Hold à poser pour couper l'auto-chaîne (mode manuel). */
 export function holdPourCouperAuto(opts: {
   statut: string;

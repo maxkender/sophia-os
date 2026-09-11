@@ -7,6 +7,7 @@ import {
   LANGUES_PAPIER,
   nomLangueModele,
   normaliserTimestampsFal,
+  prochaineLangueATiquer,
   statutDepuisLocaleAssets,
   wordTimingsEstimes,
 } from "./papierLocales";
@@ -17,6 +18,27 @@ describe("langues papier", () => {
     expect(estLanguePapier("fr")).toBe(true);
     expect(estLanguePapier("xx")).toBe(false);
     expect(nomLangueModele("de")).toContain("allemand");
+  });
+
+  it("pique le FR d'abord, puis les autres langues en cours", () => {
+    expect(
+      prochaineLangueATiquer([
+        { id: "en", langue: "en", statut: "voice" },
+        { id: "fr", langue: "fr", statut: "queued" },
+      ]),
+    ).toBe("fr");
+    expect(
+      prochaineLangueATiquer([
+        { id: "fr", langue: "fr", statut: "ready" },
+        { id: "es", langue: "es", statut: "translating" },
+      ]),
+    ).toBe("es");
+    expect(
+      prochaineLangueATiquer([
+        { id: "fr", langue: "fr", statut: "ready" },
+        { id: "es", langue: "es", statut: "ready" },
+      ]),
+    ).toBeNull();
   });
 });
 

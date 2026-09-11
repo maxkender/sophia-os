@@ -758,8 +758,7 @@ async function etapeImages(
       etape: "images",
       progression: 0.15 + 0.35 * (done / scenes.length),
     });
-    // Une image par tick : Nano Banana peut manger le budget.
-    return false;
+    // Enchaîner tant qu'il reste du budget tick. Le kick (manuel) reprend le reste.
   }
   const mode = normaliserPipelineMode(master.pipeline_mode);
   const dejaValideClips = master.etape === "clips" || master.statut === "clips";
@@ -832,14 +831,11 @@ async function etapeClips(
       clip_fal: null,
     });
     const done = scenes.filter((s) => s.clip_url).length;
-    if (done < scenes.length) {
-      await patchMaster(supabase, master.id, {
-        statut: "clips",
-        etape: "clips",
-        progression: 0.5 + 0.5 * (done / scenes.length),
-      });
-      return false;
-    }
+    await patchMaster(supabase, master.id, {
+      statut: "clips",
+      etape: "clips",
+      progression: 0.5 + 0.5 * (done / scenes.length),
+    });
   }
   await patchMaster(
     supabase,

@@ -59,6 +59,17 @@ export function estLanguePapier(code: string): code is CodeLanguePapier {
   return (LANGUES_PAPIER as readonly string[]).includes(code);
 }
 
+/** FR d'abord, puis la prochaine langue pas encore ready/failed. */
+export function prochaineLangueATiquer(
+  rows: Array<{ id: string; langue: string; statut: string }>,
+): string | null {
+  const pending = (s: string) => s !== "ready" && s !== "failed";
+  const fr = rows.find((r) => r.langue === "fr");
+  if (fr && pending(fr.statut)) return fr.id;
+  const other = rows.find((r) => r.langue !== "fr" && pending(r.statut));
+  return other?.id ?? null;
+}
+
 export function nomLangueModele(code: string): string {
   return estLanguePapier(code) ? NOM_LANGUE_MODELE[code] : code;
 }

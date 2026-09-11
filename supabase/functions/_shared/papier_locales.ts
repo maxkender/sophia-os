@@ -20,7 +20,7 @@ import { mergerAudioVideoFal } from "./fal_merge_audio.ts";
 import { trimmerVideoFal } from "./fal_trim_video.ts";
 import { mergerVideosFal } from "./fal_merge_videos.ts";
 import { composerFinalePapier } from "./fal_cadre_papier.ts";
-import { statutDepuisLocaleAssets, type PapierScriptTraduit } from "./papier_locales_core.ts";
+import { prochaineLangueATiquer, statutDepuisLocaleAssets, type PapierScriptTraduit } from "./papier_locales_core.ts";
 import { traduireScriptPapier } from "./papier_traduction.ts";
 import { finTrimClipPourVoix, type PapierScript } from "./papier_script_core.ts";
 import { chargerPrompt, messageErreur, serviceClient } from "./supabase.ts";
@@ -364,7 +364,6 @@ async function etapeVoix(
       etape: "voix",
       progression: 0.15 + 0.3 * (done / scenes.length),
     });
-    return false;
   }
   await patchLangue(
     supabase,
@@ -415,7 +414,6 @@ async function etapeMix(
       etape: "mix",
       progression: 0.45 + 0.25 * (done / scenes.length),
     });
-    return false;
   }
   await patchLangue(supabase, row.id, { statut: "render", etape: "render", progression: 0.72 });
   return true;
@@ -652,21 +650,27 @@ export async function tickLocalesMaster(
 ): Promise<PapierLocaleTick> {
   const script = await chargerScriptMaster(supabase, masterId);
   if (!script) {
-    return { ok: true, idle: true, done: true, masterId, detail: "master pas prêt" };
+    return { ok: true, idle: true, done: true, kick: false, masterId, detail: "master pas prêt" };
   }
-  const fr = await assurerLangueMaster(supabase, masterId, "fr");
-  if (fr.statut === "ready") {
+  await assurerLangueMaster(supabase, masterId, "fr");
+  const { data: rows, error } = await supabase
+    .from("papier_langues")
+    .select("id, langue, statut")
+    .eq("master_id", masterId);
+  if (error) throw error;
+  const nextId = prochaineLangueATiquer((rows ?? []) as Array<{ id: string; langue: string; statut: string }>);
+  if (!nextId) {
     return {
       ok: true,
+      idle: true,
       done: true,
+      kick: false,
       masterId,
-      langueId: fr.id,
-      langue: "fr",
       statut: "ready",
-      detail: "FR déjà en bibliothèque",
+      detail: "toutes les langues prêtes",
     };
   }
-  return avancerLangue(supabase, fr.id);
+  return avancerLangue(supabase, nextId);
 }
 
 export async function relancerLangue(

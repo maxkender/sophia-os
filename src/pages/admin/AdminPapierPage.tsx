@@ -428,7 +428,14 @@ export function AdminPapierPage() {
             onProposer={() => proposer.mutate()}
             onValider={enCours.pipeline_hold ? () => valider.mutate(enCours.id) : undefined}
             onArreter={() => arreter.mutate(enCours.id)}
-            onRelancer={enCours.statut === "failed" || enCours.statut === "stopped" ? () => relancer.mutate(enCours.id) : undefined}
+            onRelancer={
+              enCours.statut === "failed" ||
+              enCours.statut === "stopped" ||
+              (["queued", "scripting", "images", "clips"].includes(enCours.statut) &&
+                !enCours.pipeline_hold)
+                ? () => relancer.mutate(enCours.id)
+                : undefined
+            }
             onRegenerer={() => abandonner.mutate(enCours.id)}
             onRegenScript={enCours.script ? () => regenererPartie.mutate({ id: enCours.id, partie: "script" }) : undefined}
             onRegenImages={enCours.papier_scenes?.some((s) => s.image_url) ? () => regenererPartie.mutate({ id: enCours.id, partie: "images" }) : undefined}

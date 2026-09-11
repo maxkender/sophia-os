@@ -10,6 +10,7 @@ import {
   modeHoldPourMasterEnCours,
   pipelineEstArretee,
   tickPapierDoitEnchainer,
+  corpsKickSuitePapier,
 } from "./papierPipeline";
 import { PAPIER_CATEGORIES, normaliserCategorie } from "./papierSujets";
 import { budgetScript } from "./papierScript";
@@ -102,6 +103,25 @@ describe("arrêt pipeline", () => {
     expect(tickPapierDoitEnchainer({ idle: true, done: false, statut: "scripting" })).toBe(false);
     expect(tickPapierDoitEnchainer({ done: false, statut: "images" })).toBe(true);
     expect(tickPapierDoitEnchainer({ done: true, statut: "clips" })).toBe(false);
+  });
+
+  it("reprend un master en pause avec manuel=true", () => {
+    expect(corpsKickSuitePapier({ masterId: "m1" })).toEqual({
+      action: "tick",
+      masterId: "m1",
+      manuel: true,
+    });
+    expect(corpsKickSuitePapier({ masterId: "m1", langueId: "l1" })).toEqual({
+      action: "tick_locales",
+      masterId: "m1",
+      langueId: "l1",
+      manuel: true,
+    });
+    expect(corpsKickSuitePapier({ masterId: "m1", action: "tick_locales" })).toEqual({
+      action: "tick_locales",
+      masterId: "m1",
+      manuel: true,
+    });
   });
 
   it("coupe l'auto en posant un hold manuel", () => {

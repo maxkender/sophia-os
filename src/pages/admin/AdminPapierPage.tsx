@@ -50,7 +50,7 @@ import {
   PAPIER_PIPELINE_ETAPES,
   type PapierPipelineMode,
 } from "@/features/moteur/papierPipeline";
-import { REGLAGES_PAPIER_DEFAUT } from "@/features/moteur/papierReglages";
+import { REGLAGES_PAPIER_DEFAUT, VOIX_PAPIER_DEFAUT } from "@/features/moteur/papierReglages";
 import { SelectVoixEleven } from "@/features/moteur/SelectVoixEleven";
 import { budgetScript } from "@/features/moteur/papierScript";
 import {
@@ -443,7 +443,7 @@ export function AdminPapierPage() {
           <FormulairePipeline
             topic={topic}
             onTopic={setTopic}
-            voix={voix || papier?.voix || "locuteur-cm"}
+            voix={voix || papier?.voix || VOIX_PAPIER_DEFAUT}
             onVoix={setVoix}
             favoris={papier?.voix_favoris ?? []}
             onFavori={(v) => favoriVoix.mutate(v)}
@@ -991,7 +991,7 @@ function CarteBiblio({
           <ResumeMaster master={master} />
           <SelectVoix
             id={`papier-voix-${master.id}`}
-            value={master.voice || "locuteur-cm"}
+            value={master.voice || VOIX_PAPIER_DEFAUT}
             onChange={onVoix}
             favoris={[]}
             disabled={busy}

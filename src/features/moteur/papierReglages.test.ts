@@ -8,6 +8,10 @@ import {
   peutReserverFal,
   REGLAGES_PAPIER_DEFAUT,
   usageFalDuJour,
+  VOIX_DE_PAPIER,
+  VOIX_ES_PAPIER,
+  VOIX_NARRATION_PAPIER,
+  VOIX_PETER,
   voixEffectiveMaster,
   voixPourLangue,
 } from "./papierReglages";
@@ -40,12 +44,12 @@ describe("normaliserReglagesPapier", () => {
 
   it("garde les favoris et le mode manuel", () => {
     const r = normaliserReglagesPapier({
-      voix_favoris: ["Alice", "", "x", "locuteur-cm", "inconnu", "George"],
+      voix_favoris: ["Alice", "", "x", "locuteur-cm", "inconnu", VOIX_PETER],
       pipeline_mode: "manuel",
       topic_categorie: "espace",
       narration_style: "question",
     });
-    expect(r.voix_favoris).toEqual(["Alice", "locuteur-cm", "inconnu", "George"]);
+    expect(r.voix_favoris).toEqual(["Alice", "locuteur-cm", "inconnu", VOIX_PETER]);
     expect(r.pipeline_mode).toBe("manuel");
     expect(r.topic_categorie).toBe("espace");
     expect(r.narration_style).toBe("question");
@@ -55,36 +59,37 @@ describe("normaliserReglagesPapier", () => {
 describe("voix / durée clip", () => {
   it("prend la voix de la langue puis le défaut", () => {
     const r = normaliserReglagesPapier({
-      voix: "George",
-      voix_par_langue: { de: "Lily" },
+      voix: VOIX_PETER,
+      voix_par_langue: { de: VOIX_DE_PAPIER },
     });
-    expect(voixPourLangue(r, "de")).toBe("Lily");
-    expect(voixPourLangue(r, "fr")).toBe("George");
+    expect(voixPourLangue(r, "de")).toBe(VOIX_DE_PAPIER);
+    expect(voixPourLangue(r, "fr")).toBe(VOIX_PETER);
   });
 
-  it("hors FR, propose une voix proche de locuteur-cm si pas de surcharge", () => {
-    const r = normaliserReglagesPapier({ voix: "locuteur-cm" });
-    expect(voixPourLangue(r, "en")).toBe("George");
-    expect(voixPourLangue(r, "it")).toBe("Giovanni");
-    expect(voixPourLangue(r, "de")).toBe("Daniel");
-    expect(voixPourLangue(r, "fr")).toBe("locuteur-cm");
+  it("hors FR, pose la voix papier de la langue si pas de surcharge", () => {
+    const r = normaliserReglagesPapier({ voix: VOIX_NARRATION_PAPIER });
+    expect(voixPourLangue(r, "en")).toBe(VOIX_PETER);
+    expect(voixPourLangue(r, "es")).toBe(VOIX_ES_PAPIER);
+    expect(voixPourLangue(r, "de")).toBe(VOIX_DE_PAPIER);
+    expect(voixPourLangue(r, "fr")).toBe(VOIX_NARRATION_PAPIER);
   });
 
   it("le master impose la voix FR ; DE garde sa surcharge", () => {
     const r = normaliserReglagesPapier({
-      voix: "George",
-      voix_par_langue: { de: "Lily" },
+      voix: VOIX_PETER,
+      voix_par_langue: { de: VOIX_DE_PAPIER },
     });
     expect(voixEffectiveMaster("Alice", r, "fr")).toBe("Alice");
-    expect(voixEffectiveMaster("Alice", r, "de")).toBe("Lily");
-    expect(voixEffectiveMaster("Alice", r, "en")).toBe("George");
-    expect(voixEffectiveMaster(null, r, "fr")).toBe("George");
+    expect(voixEffectiveMaster("Alice", r, "de")).toBe(VOIX_DE_PAPIER);
+    expect(voixEffectiveMaster("Alice", r, "en")).toBe(VOIX_PETER);
+    expect(voixEffectiveMaster(null, r, "fr")).toBe(VOIX_PETER);
   });
 
-  it("force 4/6/8 ou reste en auto", () => {
+  it("force 4/6/8 ou calcule auto 4–15", () => {
     expect(dureeCibleClipReglee("mot ".repeat(22), 4)).toBe(4);
     expect(dureeCibleClipReglee("un deux", 8)).toBe(8);
     expect(dureeCibleClipReglee("un deux trois quatre cinq six sept huit", "auto")).toBe(4);
+    expect(dureeCibleClipReglee("mot ".repeat(22), "auto")).toBe(10);
   });
 });
 

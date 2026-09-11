@@ -8,10 +8,15 @@ const SOPHIA_ALIAS =
   /\b(Sof[iíìï]a|Sofie|Zsof[ií]a|Σοφία|София|Sofya)\b/gi;
 
 export const MOTS_PAR_SECONDE = 2.6;
+export const DUREE_CLIP_MIN = 4;
+export const DUREE_CLIP_MAX = 15;
+/** Marge pour un TTS un peu plus lent que l’estimé (et les traductions). */
+export const MARGE_CLIP_SEC = 0.75;
 
 export type PapierKind = "faits" | "culture" | "pub";
 export type PapierNarrationStyle = "question" | "revelation" | "storytelling" | "listicle";
-export type DureeCibleClip = 4 | 6 | 8;
+/** Secondes Seedance, entier 4–15. */
+export type DureeCibleClip = number;
 
 export type PapierSceneScript = {
   index: number;
@@ -54,11 +59,20 @@ export function estimerSecondesParole(texte: string): number {
   return compterMots(texte) / MOTS_PAR_SECONDE;
 }
 
+export function bornerDureeClip(sec: number): DureeCibleClip {
+  if (!Number.isFinite(sec) || sec <= 0) return 6;
+  return Math.min(DUREE_CLIP_MAX, Math.max(DUREE_CLIP_MIN, Math.ceil(sec)));
+}
+
+/** Durée Seedance : arrondi au-dessus du temps de parole, 4–15 s. */
 export function dureeCibleClip(texte: string): DureeCibleClip {
-  const sec = estimerSecondesParole(texte);
-  if (sec <= 4) return 4;
-  if (sec <= 6) return 6;
-  return 8;
+  return bornerDureeClip(estimerSecondesParole(texte) + MARGE_CLIP_SEC);
+}
+
+/** Fin de coupe Fal pour coller le clip muet à la voix (null = ne pas couper). */
+export function finTrimClipPourVoix(dureeVoixSec: number): number | null {
+  if (!Number.isFinite(dureeVoixSec) || dureeVoixSec < 0.25) return null;
+  return Math.round(dureeVoixSec * 1000) / 1000;
 }
 
 export function extraireJson<T>(texte: string): T {

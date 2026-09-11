@@ -15,6 +15,7 @@ import {
   type PapierWordTiming,
 } from "./papier_locales_core.ts";
 import { estLocuteurCm } from "./papier_voix.ts";
+import { VOIX_PAPIER_DEFAUT } from "./papier_reglages_core.ts";
 import {
   cleElevenLabs,
   resoudreVoiceId,
@@ -27,7 +28,6 @@ import {
 import { estimerSecondesParole } from "./papier_script_core.ts";
 
 export const ELEVEN_TTS = "fal-ai/elevenlabs/tts/multilingual-v2";
-export const VOIX_PAPIER_DEFAUT = "locuteur-cm";
 
 export async function synthetiserVoixFal(input: {
   text: string;

@@ -7,22 +7,16 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { listerVoixPapier, previewVoixPapier } from "@/features/moteur/api";
 import { LANGUES_CIBLES, drapeauLangue, nomLangue } from "@/features/moteur/langues";
-import { VOIX_PAPIER_CATALOGUE } from "@/features/moteur/papierReglages";
+import { idsVoixCataloguePourLangue, VOIX_PAPIER_CATALOGUE } from "@/features/moteur/papierReglages";
 import {
   assurerVoixSelectionnee,
-  catalogueVersVoixEleven,
+  fusionnerCatalogueVoix,
   estVoixLegacyDefaut,
-  filtrerVoixParLangue,
   labelVoixEleven,
   voixDefautDepuisListe,
   voixOrdonneesEleven,
-  type VoixEleven,
 } from "@/features/moteur/papierVoix";
 import { cn } from "@/lib/utils";
-
-function fallbackVoix(langue: string): VoixEleven[] {
-  return filtrerVoixParLangue(catalogueVersVoixEleven(VOIX_PAPIER_CATALOGUE), langue);
-}
 
 function audioDepuisBase64(b64: string, mime = "audio/mpeg"): string {
   const bin = atob(b64);
@@ -82,21 +76,21 @@ export function SelectVoixEleven({
   });
 
   const liste = React.useMemo(() => {
-    const raw = q.data?.voix?.length ? q.data.voix : fallbackVoix(langue);
-    const filtrees = filtrerVoixParLangue(raw, langue);
-    return voixOrdonneesEleven(favoris, assurerVoixSelectionnee(filtrees, value));
+    const fusion = fusionnerCatalogueVoix(q.data?.voix ?? [], VOIX_PAPIER_CATALOGUE, langue);
+    const pins = idsVoixCataloguePourLangue(langue);
+    return voixOrdonneesEleven(favoris, assurerVoixSelectionnee(fusion, value), pins);
   }, [q.data?.voix, langue, favoris, value]);
 
   React.useEffect(() => {
-    if (!autoDefaut || allowEmpty || !q.data?.voix?.length) return;
+    if (!autoDefaut || allowEmpty || !liste.length) return;
     if (value && !estVoixLegacyDefaut(value)) return;
-    const defaut = voixDefautDepuisListe(q.data.voix, langue);
+    const defaut = voixDefautDepuisListe(liste, langue, idsVoixCataloguePourLangue(langue));
     if (!defaut || defaut === value) return;
     const cle = `${langue}:${defaut}`;
     if (autoRef.current === cle) return;
     autoRef.current = cle;
     onChange(defaut);
-  }, [autoDefaut, allowEmpty, q.data?.voix, value, langue, onChange]);
+  }, [autoDefaut, allowEmpty, liste, value, langue, onChange]);
 
   function stop() {
     audioRef.current?.pause();
@@ -184,7 +178,7 @@ export function SelectVoixEleven({
             >
               {allowEmpty ? <option value="">{emptyLabel ?? t("reglages.papierVoixSuivre")}</option> : null}
               {liste.map((v) => (
-                <option key={v.id} value={v.id}>
+                <option key={`${v.id}-${v.name}`} value={v.id}>
                   {favoris.includes(v.id) || favoris.includes(v.name) ? "★ " : ""}
                   {labelVoixEleven(v)}
                 </option>

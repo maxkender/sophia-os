@@ -56,6 +56,7 @@ import {
   estLabelUgcAiVideo,
 } from "@/features/moteur/fileLabelsSlideshow";
 import { SelectApplication } from "@/features/moteur/SelectApplication";
+import { identifiantsCmDepuisLangue } from "@/features/moteur/papierCmCompte";
 import { drapeauLangue, langueInitiale, nomLangue } from "@/features/moteur/langues";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
 import { phaseCreateur, type PhaseCreateur } from "@/features/moteur/warmup";
@@ -513,8 +514,9 @@ export function AdminPostersPage() {
   const rafraichir = () => queryClient.invalidateQueries({ queryKey: ["posters"] });
 
   const creer = useMutation({
-    mutationFn: () =>
-      creerPoster({
+    mutationFn: () => {
+      const cm = premierCompte === "cm" ? identifiantsCmDepuisLangue(langue) : null;
+      return creerPoster({
         prenom,
         nom,
         password,
@@ -522,11 +524,12 @@ export function AdminPostersPage() {
         application_slug: applicationSlug,
         type_compte: premierCompte,
         posts_par_jour: premierCompte === "perso" ? postsParJour : undefined,
-        handle_tiktok: handleTiktok,
-        tiktok_email: cmEmail,
-        tiktok_password: cmPassword,
+        handle_tiktok: cm?.handle_tiktok ?? handleTiktok,
+        tiktok_email: cm?.tiktok_email ?? cmEmail,
+        tiktok_password: cm?.tiktok_password ?? cmPassword,
         tiktok_2fa_note: cmDeuxFa,
-      }),
+      });
+    },
     onSuccess: (r) => {
       setCree({ email: r.email, password, type: premierCompte });
       setPrenom("");

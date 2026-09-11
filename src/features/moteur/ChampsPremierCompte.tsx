@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { ApercuIdentitePapier } from "@/features/moteur/ApercuIdentitePapier";
 import { nomApplication, type ApplicationOs } from "@/features/moteur/applications";
 import { nomLangue } from "@/features/moteur/langues";
 import type { TypeCompte } from "@/features/moteur/types";
@@ -22,12 +23,12 @@ export function ChampsPremierCompte({
   onPostsParJour,
   handle,
   onHandle,
-  email,
-  onEmail,
-  password,
-  onPassword,
-  deuxFa,
-  onDeuxFa,
+  email: _email,
+  onEmail: _onEmail,
+  password: _password,
+  onPassword: _onPassword,
+  deuxFa: _deuxFa,
+  onDeuxFa: _onDeuxFa,
   applications,
   applicationSlug,
   onApplication,
@@ -125,16 +126,18 @@ export function ChampsPremierCompte({
               ))}
             </select>
           </div>
-          <div className="space-y-1">
-            <Label htmlFor="premier-handle">{t("comptes.pseudo")}</Label>
-            <Input
-              id="premier-handle"
-              value={handle}
-              placeholder={t("comptes.pseudoPlaceholder")}
-              onChange={(e) => onHandle(e.target.value)}
-            />
-            <p className="text-xs text-muted-foreground">{t("comptes.pseudoFacultatif")}</p>
-          </div>
+          {typeCompte === "perso" && (
+            <div className="space-y-1">
+              <Label htmlFor="premier-handle">{t("comptes.pseudo")}</Label>
+              <Input
+                id="premier-handle"
+                value={handle}
+                placeholder={t("comptes.pseudoPlaceholder")}
+                onChange={(e) => onHandle(e.target.value)}
+              />
+              <p className="text-xs text-muted-foreground">{t("comptes.pseudoFacultatif")}</p>
+            </div>
+          )}
           {typeCompte === "perso" && onPostsParJour && postsParJour != null && (
             <div className="space-y-1 sm:col-span-2">
               <Label>{t("hiring.postsParJour")}</Label>
@@ -156,40 +159,7 @@ export function ChampsPremierCompte({
               </div>
             </div>
           )}
-          {typeCompte === "cm" && (
-            <>
-              <div className="space-y-1">
-                <Label htmlFor="premier-email">{t("cm.email")}</Label>
-                <Input
-                  id="premier-email"
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => onEmail(e.target.value)}
-                />
-              </div>
-              <div className="space-y-1">
-                <Label htmlFor="premier-pass">{t("cm.password")}</Label>
-                <Input
-                  id="premier-pass"
-                  type="text"
-                  required
-                  autoComplete="off"
-                  value={password}
-                  onChange={(e) => onPassword(e.target.value)}
-                />
-              </div>
-              <div className="space-y-1 sm:col-span-2">
-                <Label htmlFor="premier-2fa">{t("cm.deuxFa")}</Label>
-                <Input
-                  id="premier-2fa"
-                  value={deuxFa}
-                  placeholder={t("cm.deuxFaPh")}
-                  onChange={(e) => onDeuxFa(e.target.value)}
-                />
-              </div>
-            </>
-          )}
+          {typeCompte === "cm" && <ApercuIdentitePapier langue={langue} />}
         </div>
       )}
     </div>

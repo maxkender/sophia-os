@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   cibleComptePapier,
+  identifiantsCmDepuisLangue,
   signaturesCorrespondent,
   validerSignatureContrat,
 } from "./papierCmCompte";
@@ -14,6 +15,14 @@ describe("compte Paper Instagram", () => {
     expect(es.instagram).toBe("sophia.app.es");
     expect(cibleComptePapier("fr").instagram).toBe("sophia.app.fr");
     expect(cibleComptePapier("en").instagram).toBe("sophia.app.us");
+  });
+
+  it("génère handle et Gmail si le HM laisse vide", () => {
+    const auto = identifiantsCmDepuisLangue("es");
+    expect(auto.handle_tiktok).toBe("sophia.app.es");
+    expect(auto.tiktok_email).toBe("sophia.knowledge.spain@gmail.com");
+    expect(auto.tiktok_password.length).toBeGreaterThanOrEqual(12);
+    expect(identifiantsCmDepuisLangue("es", { handle: "@custom" }).handle_tiktok).toBe("custom");
   });
 
   it("exige une signature identique au nom légal", () => {
@@ -50,5 +59,6 @@ describe("compte Paper Instagram", () => {
     expect(md).toContain("sophia.app.es");
     expect(md).toContain("sophia.knowledge.spain@gmail.com");
     expect(md).toContain("Spain");
+    expect(md).toContain("automatically generated names");
   });
 });

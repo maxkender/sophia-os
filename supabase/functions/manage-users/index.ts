@@ -10,6 +10,7 @@ import {
   estLabelSysteme,
 } from "../_shared/labels_file.ts";
 import { retirerContentCredentialsBytes } from "../_shared/c2pa.ts";
+import { identifiantsCmDepuisLangue } from "../_shared/papier_cm_compte.ts";
 import { appliquerIdentiteInstantanee } from "../_shared/persona.ts";
 import { estRoleManager } from "../_shared/roles.ts";
 import {
@@ -132,9 +133,6 @@ async function gererRequete(request: Request): Promise<Response> {
       .maybeSingle();
     if (error) return json({ error: error.message }, 400);
     if (!compte) return json({ error: "compte introuvable" }, 404);
-    if (compte.type_compte === "cm") {
-      return json({ error: "Un compte CM n'a pas de warmup" }, 400);
-    }
 
     if (acces.role === "poster" && acces.userId !== "cron") {
       if (compte.poster_id !== acces.userId) {
@@ -186,9 +184,6 @@ async function gererRequete(request: Request): Promise<Response> {
       .maybeSingle();
     if (error) return json({ error: error.message }, 400);
     if (!compte) return json({ error: "compte introuvable" }, 404);
-    if (compte.type_compte === "cm") {
-      return json({ error: "Un compte CM n'a pas de warmup" }, 400);
-    }
 
     const now = new Date().toISOString();
     const { error: updErr } = await supabase
@@ -254,11 +249,14 @@ async function gererRequete(request: Request): Promise<Response> {
     }
 
     if (creerCm) {
-      const emailTiktok = String(body.tiktok_email ?? "").trim();
-      const passwordTiktok = String(body.tiktok_password ?? "");
-      if (!emailTiktok || passwordTiktok.length < 1) {
-        return json({ error: "Identifiants TikTok (email + mot de passe) requis" }, 400);
-      }
+      const auto = identifiantsCmDepuisLangue(langue, {
+        email: String(body.tiktok_email ?? ""),
+        password: String(body.tiktok_password ?? ""),
+        handle: String(body.handle_tiktok ?? ""),
+      });
+      body.tiktok_email = auto.tiktok_email;
+      body.tiktok_password = auto.tiktok_password;
+      body.handle_tiktok = auto.handle_tiktok;
     }
 
     // HM UGC AI VIDEO : ses créateurs naissent sans file labels / sans labels.
@@ -754,15 +752,17 @@ async function creerCompteCmPourPoster(
   // deno-lint-ignore no-explicit-any
   body: any,
 ): Promise<Response> {
-  const emailTiktok = String(body.tiktok_email ?? "").trim();
-  const passwordTiktok = String(body.tiktok_password ?? "");
+  const auto = identifiantsCmDepuisLangue(langue, {
+    email: String(body.tiktok_email ?? ""),
+    password: String(body.tiktok_password ?? ""),
+    handle: String(body.handle_tiktok ?? ""),
+  });
+  const emailTiktok = auto.tiktok_email;
+  const passwordTiktok = auto.tiktok_password;
   const deuxFa = String(body.tiktok_2fa_note ?? "").trim();
   const notesHm = String(body.notes_hm ?? "").trim();
-  const handle = String(body.handle_tiktok ?? "").trim().replace(/^@+/, "");
+  const handle = auto.handle_tiktok;
   const personaNom = String(body.persona_nom ?? "").trim();
-  if (!emailTiktok || passwordTiktok.length < 1) {
-    return json({ error: "Identifiants TikTok (email + mot de passe) requis" }, 400);
-  }
 
   const { data: deja } = await supabase
     .from("comptes")

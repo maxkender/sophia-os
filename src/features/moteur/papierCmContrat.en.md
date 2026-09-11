@@ -62,9 +62,9 @@ The Company and the Contractor are referred to individually as a "**Party**" and
 
 **3.2 Custodian only.** The Contractor holds the Accounts, the Linked Email Addresses and the Credentials solely as custodian, for the account of the Company, and acknowledges that it has no lien, retention right, set-off right or other security interest over any of them, including in the event of any dispute over payment or performance.
 
-**3.3 Naming and registration details.** The Contractor shall create each Account and Linked Email Address using exactly the handle, display name, email address, recovery details and profile information specified in writing by the Company. The Contractor shall not register any Account or email address under or in connection with the Personas other than those instructed by the Company.
+**3.3 Naming and registration details.** The Company generates and pre-assigns the handle and Linked Email Address automatically according to the naming rule in **Schedule A**, and records them in the Signature and Evidence Record. The Contractor shall create each Account and Linked Email Address using exactly those assigned details. The Contractor shall not invent, substitute or register any other handle or email address under or in connection with the Personas.
 
-**3.4 Delivery of Credentials.** The Contractor shall transmit the complete Credentials for each Account and each Linked Email Address to the Company **within twenty-four (24) hours of creation**, by the secure channel designated by the Company, and shall keep them accurate and up to date at all times thereafter.
+**3.4 Delivery of Credentials.** Upon electronic signature, the Company discloses the assigned passwords in the Signature and Evidence Record. The Contractor shall create the Accounts with those credentials, store the complete Credentials (including two-factor authentication seeds and backup codes) in the Company's Bitwarden vault, and confirm completion **within twenty-four (24) hours of creation**. The Contractor shall keep them accurate and up to date at all times thereafter.
 
 **3.5 No unilateral change.** The Contractor shall not change, disable, remove or add any password, email address, recovery email address, recovery phone number, two-factor authentication method, backup code, linked account, connected application or administrator without the Company's prior written consent. Any such change made without consent shall constitute a material breach of this Agreement.
 
@@ -234,7 +234,7 @@ The Account and the Linked Email Address covered by this Agreement are those ass
 | Linked email address | `sophia.knowledge.<country>@gmail.com` | `sophia.knowledge.spain@gmail.com` |
 | Instagram username | `sophia.app.<two-letter country code>` | `sophia.app.es` |
 
-The Contractor shall use these names exactly as assigned. If an assigned name is unavailable, the Contractor shall inform the Company and await new instructions, and shall not register a variation of its own choosing.
+The Contractor shall use these names exactly as assigned. The Company generates them automatically from the Contractor's language; the Contractor does not choose the handle or email address. If an assigned name is unavailable, the Contractor shall inform the Company and await new instructions, and shall not register a variation of its own choosing.
 
 | # | Country | Platform | Username | Linked email address | Created on |
 |---|---------|----------|----------|----------------------|-----------|
@@ -249,7 +249,7 @@ The Contractor shall use these names exactly as assigned. If an assigned name is
 
 The Contractor shall:
 
-- **1.** create the Linked Email Address and the Instagram Account assigned under Schedule A, using the exact names and the password supplied by the Company, and transmit the Credentials to the Company within twenty-four (24) hours;
+- **1.** create the Linked Email Address and the Instagram Account assigned under Schedule A, using the automatically generated names and the passwords disclosed by the Company upon electronic signature, store the complete Credentials (including 2FA) in the Company's Bitwarden vault, and confirm completion within twenty-four (24) hours;
 - **2.** produce and publish **one (1) video per day** on the assigned Instagram Account, in the language of the Contractor's country, in accordance with the Company's brand guidelines and editorial calendar. The Company may increase this to two (2) videos per day on reasonable written notice, the fees being adjusted accordingly by agreement between the Parties; the Company may also assign a TikTok Account under the same terms;
 - **3.** adapt content supplied by the Company to the local language, cultural context and platform format, and propose local topics likely to perform in the Contractor's market;
 - **4.** respond to comments and direct messages in accordance with the Company's response guidelines;

@@ -1254,7 +1254,22 @@ export async function envoyerContratPapier(input: {
     }
     throw error;
   }
-  return data as PapierCmContrat;
+  const row = data as PapierCmContrat;
+  if (input.compteId) {
+    await supabase
+      .from("comptes")
+      .update({ handle_tiktok: row.instagram_handle })
+      .eq("id", input.compteId);
+    await supabase.from("compte_identifiants").upsert(
+      {
+        compte_id: input.compteId,
+        tiktok_email: row.gmail_adresse,
+        tiktok_password: row.gmail_password,
+      },
+      { onConflict: "compte_id" },
+    );
+  }
+  return row;
 }
 
 export async function signerContratPapier(input: {

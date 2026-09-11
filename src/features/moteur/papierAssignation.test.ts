@@ -39,13 +39,18 @@ describe("caption / hashtags", () => {
   });
 });
 
+const WARMED = {
+  warmup_started_at: "2000-01-01T00:00:00.000Z",
+  warmup_ends_at: "2000-01-02T00:00:00.000Z",
+};
+
 describe("pairesAssignationPapier", () => {
   it("assigne chaque CM actif à sa langue prête", () => {
     const paires = pairesAssignationPapier(
       [
-        { id: "cm-fr", langue: "fr", type_compte: "cm", is_active: true },
-        { id: "cm-de", langue: "de", type_compte: "cm", is_active: true },
-        { id: "cm-fr-2", langue: "fr", type_compte: "cm", is_active: true },
+        { id: "cm-fr", langue: "fr", type_compte: "cm", is_active: true, ...WARMED },
+        { id: "cm-de", langue: "de", type_compte: "cm", is_active: true, ...WARMED },
+        { id: "cm-fr-2", langue: "fr", type_compte: "cm", is_active: true, ...WARMED },
       ],
       [fr, de],
     );
@@ -65,13 +70,21 @@ describe("pairesAssignationPapier", () => {
     expect(paires).toEqual([{ compteId: "off", langueId: "lang-de", langue: "de" }]);
   });
 
-  it("ignore perso, inactifs, et langues pas prêtes", () => {
+  it("ignore perso, inactifs, warmup pas fini, et langues pas prêtes", () => {
     const paires = pairesAssignationPapier(
       [
-        { id: "perso", langue: "fr", type_compte: "perso", is_active: true },
-        { id: "off", langue: "de", type_compte: "cm", is_active: false },
-        { id: "cm-en", langue: "en", type_compte: "cm", is_active: true },
-        { id: "cm-fr", langue: "fr", type_compte: "cm", is_active: true },
+        { id: "perso", langue: "fr", type_compte: "perso", is_active: true, ...WARMED },
+        { id: "off", langue: "de", type_compte: "cm", is_active: false, ...WARMED },
+        { id: "cm-en", langue: "en", type_compte: "cm", is_active: true, ...WARMED },
+        { id: "cm-fr", langue: "fr", type_compte: "cm", is_active: true, ...WARMED },
+        {
+          id: "cm-froid",
+          langue: "fr",
+          type_compte: "cm",
+          is_active: true,
+          warmup_started_at: "2099-01-01T00:00:00.000Z",
+          warmup_ends_at: "2099-01-08T00:00:00.000Z",
+        },
       ],
       [fr, de, enQueued],
     );

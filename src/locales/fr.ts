@@ -1098,12 +1098,14 @@ export const fr = {
       banner: "Signe le contrat Paper pour recevoir Gmail + Instagram.",
       bannerCta: "Ouvrir le contrat",
       adminTitre: "Contrat Instagram Paper",
-      adminAide: "Envoie le contrat au créateur. Après signature, il voit Gmail, @ Instagram et les mots de passe.",
+      adminAide:
+        "Envoie le contrat. Handle et Gmail sont générés d’après la langue. Après signature, le créateur voit les mots de passe et crée les comptes.",
       envoyer: "Envoyer le contrat",
       deja: "Un contrat est déjà en cours pour cette langue.",
       badgeSigne: "Signé",
       badgeAttente: "À signer",
-      handlesAvant: "Les mots de passe s’affichent ici dès que tu as signé.",
+      handlesAvant:
+        "La société génère le Gmail et le @ Instagram d’après ta langue. Les mots de passe s’affichent ici dès que tu as signé.",
       dejaHandle: "Ce Gmail ou ce @ Instagram est déjà assigné à un autre contrat.",
       errNom: "Indique ton nom légal complet.",
       errPays: "Indique ton pays.",
@@ -1117,26 +1119,28 @@ export const fr = {
       ajouter: "Ajouter un compte CM",
       ajouterCompte: "Ajouter un compte",
       ajouterCompteAide:
-        "Un créateur = un login. Tu peux lui rattacher plusieurs comptes TikTok : perso (publication) ou CM (boîte).",
+        "Un créateur = un login. TikTok perso pour les slideshows, ou Instagram CM pour les vidéos Paper.",
       ajouterPersoAide:
         "Compte TikTok du créateur — labels, warmup et assignation slideshow, comme le premier compte.",
       ajouterAide:
-        "Compte TikTok de la boîte, une langue. Les identifiants doivent déjà exister — tu les donnes au créateur.",
+        "Instagram de la boîte, une langue. Le handle et le Gmail sont générés automatiquement. Le créateur signe le contrat, crée ces comptes, puis chauffe Instagram. Quand le cron Paper est on, il reçoit une vidéo par jour dans cette langue.",
       creer: "Créer le compte CM",
       creerCompte: "Créer le compte",
       langue: "Langue du compte CM",
       langueCompte: "Langue du compte",
-      email: "Email TikTok",
-      password: "Mot de passe TikTok",
+      email: "Gmail",
+      password: "Mot de passe Gmail",
       deuxFa: "2FA / codes de secours",
       deuxFaPh: "Optionnel — secret TOTP ou codes",
-      identifiants: "Identifiants TikTok",
+      identifiants: "Identifiants Gmail",
       identifiantsAbsents: "Aucun identifiant enregistré pour ce compte CM.",
+      identiteAutoAide:
+        "Générés d’après la langue, même règle que le contrat. Les mots de passe s’affichent après la signature.",
       languePrise: "Ce créateur a déjà un compte CM dans cette langue.",
       toutesLanguesPrises: "Un compte CM existe déjà pour chaque langue disponible.",
       copier: "Copier",
       aideCreateur:
-        "Connecte-toi à ce TikTok avec les identifiants fournis. Tu ne crées pas le compte — il existe déjà.",
+        "Signe le contrat Paper, crée le Gmail et l’Instagram avec les noms assignés, puis lance le warmup Instagram. Quand le warmup est fini et que le cron Paper est on, tu reçois une vidéo par jour dans cette langue.",
       selecteur: "Compte",
       perso: "Perso",
       videoPlusTard: "Les vidéos papier de ce compte CM arriveront ici.",
@@ -2198,6 +2202,8 @@ export const fr = {
       warmupADemarrer: "Warmup pas encore démarré",
       warmupADemarrerAide:
         "Quand ton compte TikTok est prêt, clique sur « Commencer le warmup ». Le timer part ; à la fin, tu entres dans le process (posts assignés).",
+      warmupADemarrerAideCm:
+        "Quand le Gmail et l’Instagram sont créés, clique sur « Commencer le warmup ». À la fin, si le cron Paper est on, tu reçois une vidéo par jour dans cette langue.",
       aujourdhui: "Aujourd'hui",
       filtreLangue: "Filtrer par langue",
       toutesLangues: "Toutes les langues",

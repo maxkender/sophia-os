@@ -7,6 +7,8 @@ export type CompteCmCible = {
   langue: string;
   type_compte?: string | null;
   is_active?: boolean | null;
+  warmup_started_at?: string | null;
+  warmup_ends_at?: string | null;
 };
 
 export type LanguePapierPrete = {
@@ -120,8 +122,16 @@ export type PairesAssignationOpts = {
 
 /**
  * Un CM actif reçoit la langue prête qui correspond.
- * Perso / inactifs / sans vidéo ready : ignorés (sauf test).
+ * Perso / inactifs / warmup pas fini / sans vidéo ready : ignorés (sauf test).
  */
+export function warmupPapierTermine(compte: {
+  warmup_started_at?: string | null;
+  warmup_ends_at?: string | null;
+}): boolean {
+  if (!compte.warmup_started_at || !compte.warmup_ends_at) return false;
+  return new Date(compte.warmup_ends_at).getTime() <= Date.now();
+}
+
 export function pairesAssignationPapier(
   comptes: CompteCmCible[],
   langues: LanguePapierPrete[],
@@ -137,6 +147,7 @@ export function pairesAssignationPapier(
   for (const compte of comptes) {
     if (compte.type_compte != null && compte.type_compte !== "cm") continue;
     if (compte.is_active === false && !opts.inclureInactifs) continue;
+    if (!opts.inclureInactifs && !warmupPapierTermine(compte)) continue;
     const langue = parLangue.get(compte.langue);
     if (!langue) continue;
     out.push({ compteId: compte.id, langueId: langue.id, langue: compte.langue });

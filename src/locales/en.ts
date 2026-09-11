@@ -1096,12 +1096,14 @@ export const en = {
       banner: "Sign the Paper contract to get Gmail + Instagram.",
       bannerCta: "Open the contract",
       adminTitre: "Paper Instagram contract",
-      adminAide: "Send the contract to the creator. After they sign, they see Gmail, the Instagram @ and the passwords.",
+      adminAide:
+        "Send the contract. Handle and Gmail are generated from the language. After they sign, they see the passwords and create the accounts.",
       envoyer: "Send contract",
       deja: "A contract is already open for this language.",
       badgeSigne: "Signed",
       badgeAttente: "To sign",
-      handlesAvant: "Passwords show up here as soon as you sign.",
+      handlesAvant:
+        "The Company generates the Gmail and Instagram @ from your language. Passwords show up here as soon as you sign.",
       dejaHandle: "This Gmail or Instagram @ is already assigned to another contract.",
       errNom: "Enter your full legal name.",
       errPays: "Enter your country.",
@@ -1115,26 +1117,28 @@ export const en = {
       ajouter: "Add a CM account",
       ajouterCompte: "Add an account",
       ajouterCompteAide:
-        "One creator = one login. You can attach several TikTok accounts: personal (publishing) or CM (company).",
+        "One creator = one login. Personal TikTok for slideshows, or CM Instagram for Paper videos.",
       ajouterPersoAide:
         "Creator TikTok account — labels, warmup and slideshow assignment, same as the first account.",
       ajouterAide:
-        "Company TikTok account, one language. Credentials must already exist — you hand them to the creator.",
+        "Company Instagram, one language. Handle and Gmail are generated automatically. The creator signs the contract, creates those accounts, then warms up Instagram. When the Paper cron is on, they get one video a day in that language.",
       creer: "Create CM account",
       creerCompte: "Create account",
       langue: "CM account language",
       langueCompte: "Account language",
-      email: "TikTok email",
-      password: "TikTok password",
+      email: "Gmail",
+      password: "Gmail password",
       deuxFa: "2FA / backup codes",
       deuxFaPh: "Optional — TOTP secret or codes",
-      identifiants: "TikTok credentials",
+      identifiants: "Gmail credentials",
       identifiantsAbsents: "No credentials stored for this CM account.",
+      identiteAutoAide:
+        "Generated from the language, same rule as the contract. Passwords appear after the creator signs.",
       languePrise: "This creator already has a CM account in this language.",
       toutesLanguesPrises: "A CM account already exists for every available language.",
       copier: "Copy",
       aideCreateur:
-        "Log into this TikTok with the credentials provided. You don’t create the account — it already exists.",
+        "Sign the Paper contract, create the Gmail and Instagram with the assigned names, then start the Instagram warmup. When warmup ends and the Paper cron is on, you get one video a day in this language.",
       selecteur: "Account",
       perso: "Personal",
       videoPlusTard: "Paper videos for this CM account will show up here.",
@@ -2199,6 +2203,8 @@ export const en = {
       warmupADemarrer: "Warmup not started yet",
       warmupADemarrerAide:
         "When your TikTok account is ready, click “Start warmup”. The timer starts; when it ends, you enter the process (assigned posts).",
+      warmupADemarrerAideCm:
+        "When the Gmail and Instagram are created, click “Start warmup”. When it ends and the Paper cron is on, you get one video a day in this language.",
       aujourdhui: "Today",
       filtreLangue: "Filter by language",
       toutesLangues: "All languages",

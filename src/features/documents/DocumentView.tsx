@@ -3,7 +3,9 @@ import { useTranslation } from "react-i18next";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { richTextClass } from "@/components/ui/RichTextEditor";
+import { posterGuideCle } from "@/features/documents/posterGuide";
 import { lireDocument } from "@/features/moteur/api";
+import { supabase } from "@/lib/supabase/client";
 
 /** Le contenu vient d'un éditeur riche interne (admin), il peut donc contenir du
  *  HTML de mise en forme ; sinon (ancien texte simple) on préserve les sauts. */
@@ -18,7 +20,30 @@ function estHtml(contenu: string): boolean {
  */
 export function DocumentView({ cle }: { cle: string }) {
   const { t, i18n } = useTranslation();
-  const doc = useQuery({ queryKey: ["document", cle], queryFn: () => lireDocument(cle) });
+  const doc = useQuery({
+    queryKey: ["document", cle],
+    queryFn: async () => {
+      if (cle !== "guide_poster") return lireDocument(cle);
+      const { data: auth } = await supabase.auth.getUser();
+      const userId = auth.user?.id;
+      if (!userId) return lireDocument("guide_poster");
+      const [{ data: profile }, { data: comptes }] = await Promise.all([
+        supabase
+          .from("profiles")
+          .select("created_at, nationalite, langues")
+          .eq("id", userId)
+          .maybeSingle(),
+        supabase.from("comptes").select("langue").eq("poster_id", userId),
+      ]);
+      const resolved = posterGuideCle({
+        profileCreatedAt: profile?.created_at ?? null,
+        nationalite: profile?.nationalite,
+        langues: (profile?.langues as string[] | null) ?? null,
+        compteLangues: (comptes ?? []).map((c) => c.langue as string | null),
+      });
+      return lireDocument(resolved);
+    },
+  });
 
   if (doc.isPending) {
     return <p className="text-sm text-muted-foreground">{t("common.loading")}</p>;

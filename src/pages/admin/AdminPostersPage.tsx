@@ -23,11 +23,13 @@ import { estCompteCm, languesCmPrises } from "@/features/moteur/comptesCm";
 import { ChampsPremierCompte, type PremierCompte } from "@/features/moteur/ChampsPremierCompte";
 import { DeplacerCompte } from "@/features/moteur/DeplacerCompte";
 import { FormulaireAjouterCompte } from "@/features/moteur/FormulaireCompteCm";
+import { BlocContratPapierAdmin } from "@/features/moteur/BlocContratPapierAdmin";
 import { EnteteCompte } from "@/features/moteur/VignetteCompte";
 import {
   assurerComptePoster,
   creerPoster,
   creerRecruteur,
+  envoyerContratPapier,
   listerApplications,
   definirRole,
   demarrerWarmup,
@@ -539,6 +541,17 @@ export function AdminPostersPage() {
       void queryClient.invalidateQueries({ queryKey: ["comptes"] });
       void queryClient.invalidateQueries({ queryKey: ["reglages"] });
       void queryClient.invalidateQueries({ queryKey: ["compte-labels-all"] });
+      if (premierCompte === "cm" && r.userId && langue) {
+        void envoyerContratPapier({
+          posterId: r.userId,
+          langue,
+          compteId: r.compte?.id,
+        })
+          .catch(() => undefined)
+          .finally(() => {
+            void queryClient.invalidateQueries({ queryKey: ["papier-cm-contrats"] });
+          });
+      }
     },
   });
 
@@ -1614,6 +1627,7 @@ export function AdminPostersPage() {
                   languesPrisesCm={languesCmPrises(ficheComptes)}
                   applications={applications.data ?? []}
                 />
+                <BlocContratPapierAdmin posterId={fiche.id} comptes={ficheComptes} />
               </div>
 
               {promoId === fiche.id && (

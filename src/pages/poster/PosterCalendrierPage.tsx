@@ -11,6 +11,7 @@ import {
   Copy,
   Download,
   Gift,
+  FileSignature,
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -20,6 +21,7 @@ import { supabase } from "@/lib/supabase/client";
 import {
   aujourdhui,
   demarrerWarmup,
+  listerContratsPapier,
   majMonHandle,
   mesComptes,
   mesPapierPosts,
@@ -34,6 +36,7 @@ import {
 } from "@/features/moteur/comptesCm";
 import { IdentifiantsCm } from "@/features/moteur/FormulaireCompteCm";
 import { drapeauLangue, nomLangue } from "@/features/moteur/langues";
+import { contratPapierEnAttente } from "@/features/moteur/papierCmCompte";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
 import { statutWarmup } from "@/features/moteur/warmup";
 import { useAuth } from "@/features/auth/AuthContext";
@@ -363,6 +366,12 @@ export function PosterCalendrierPage() {
     queryFn: () => mesPapierPosts(compte!.id),
     enabled: Boolean(user?.id && compte?.id && estCm),
   });
+  const { data: contratsPapier } = useQuery({
+    queryKey: ["papier-cm-contrats"],
+    queryFn: () => listerContratsPapier(),
+    enabled: Boolean(user?.id),
+  });
+  const contratASigner = (contratsPapier ?? []).find((c) => contratPapierEnAttente(c.statut));
 
   React.useEffect(() => {
     if (!user?.id || !comptes?.length) return;
@@ -452,6 +461,19 @@ export function PosterCalendrierPage() {
 
   return (
     <div className="space-y-8">
+      {contratASigner ? (
+        <Link
+          to="/createur/contrat-papier"
+          className="flex items-start gap-3 rounded-lg border border-primary/30 bg-primary/5 p-4 hover:bg-primary/10"
+        >
+          <FileSignature className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+          <div className="min-w-0">
+            <p className="text-sm font-semibold">{t("papierContrat.banner")}</p>
+            <p className="text-xs font-medium text-primary">{t("papierContrat.bannerCta")}</p>
+          </div>
+        </Link>
+      ) : null}
+
       {comptes && comptes.length > 0 && (
         <SelecteurCompte
           comptes={comptes}

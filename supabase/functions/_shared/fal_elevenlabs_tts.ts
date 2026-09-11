@@ -14,6 +14,7 @@ import {
   normaliserTimestampsFal,
   type PapierWordTiming,
 } from "./papier_locales_core.ts";
+import { estLocuteurCm } from "./papier_voix.ts";
 import {
   cleElevenLabs,
   resoudreVoiceId,
@@ -47,6 +48,10 @@ export async function synthetiserVoixFal(input: {
   const speed = vitesseVoixDepuisPrompt(delivery);
   const stability = stabiliteVoixDepuisPrompt(delivery) ?? 0.55;
   const voiceRef = input.voice?.trim() || VOIX_PAPIER_DEFAUT;
+
+  if (!cleElevenLabs() && estLocuteurCm({ id: voiceRef, name: voiceRef })) {
+    throw new Error("ELEVENLABS_API_KEY manquant (secret Supabase) — locuteur-cm ne marche pas sans ElevenLabs");
+  }
 
   if (cleElevenLabs()) {
     const resolved = await resoudreVoiceId(voiceRef, input.langue);

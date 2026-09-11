@@ -1,6 +1,6 @@
 /** Helpers purs du master papier (script, durée, CTA, prompts visuels). */
 
-export const SOPHIA_OUTRO = "Retrouve ça sur Sophia, c'est gratuit.";
+export const SOPHIA_OUTRO = "Tu en as des centaines comme ça sur Sophia.";
 
 const SOPHIA_ALIAS =
   /\b(Sof[iíìï]a|Sofie|Zsof[ií]a|Σοφία|София|Sofya)\b/gi;
@@ -154,17 +154,28 @@ export function finaliserScript(brut: Partial<PapierScript>, sceneCount: number)
   };
 }
 
-export function budgetScript(targetSeconds: number, sceneCountMin = 5): {
+export function budgetScript(targetSeconds: number, sceneCountMin = 4): {
   narrationSeconds: number;
   totalWords: number;
   sceneCount: number;
+  sceneCountMin: number;
+  sceneCountMax: number;
   wordsPerScene: number;
 } {
   const narrationSeconds = Math.max(8, targetSeconds - 3);
   const totalWords = Math.round(narrationSeconds * MOTS_PAR_SECONDE);
-  const sceneCount = Math.min(16, Math.max(sceneCountMin, Math.ceil(totalWords / 18)));
-  const wordsPerScene = Math.min(22, Math.max(8, Math.round(totalWords / sceneCount)));
-  return { narrationSeconds, totalWords, sceneCount, wordsPerScene };
+  const sceneCountMax = Math.min(12, Math.max(5, Math.ceil(totalWords / 20)));
+  const min = Math.min(sceneCountMax, Math.max(sceneCountMin, Math.round(totalWords / 45)));
+  const sceneCount = sceneCountMax;
+  const wordsPerScene = Math.min(40, Math.max(8, Math.round(totalWords / sceneCount)));
+  return {
+    narrationSeconds,
+    totalWords,
+    sceneCount,
+    sceneCountMin: min,
+    sceneCountMax,
+    wordsPerScene,
+  };
 }
 
 export function bibleVisuelle(script: Pick<PapierScript, "characters" | "palette"> | null): string {

@@ -21,6 +21,7 @@ describe("défauts prompts papier", () => {
     expect(promptPapierOuDefaut(CLE_PROMPT_SCRIPT).length).toBeGreaterThan(400);
     expect(promptPapierOuDefaut(CLE_PROMPT_VOIX).length).toBeGreaterThan(80);
     expect(promptPapierOuDefaut(CLE_PROMPT_CTA)).toContain("Sophia");
+    expect(CTA_SOPHIA_DEFAUT).toContain("centaines");
     expect(promptPapierOuDefaut(CLE_PROMPT_IMAGE)).toContain("paper");
     expect(promptPapierOuDefaut(CLE_PROMPT_SCRIPT, "  ")).toBe(SCRIPT_GENERATION_DEFAUT);
     expect(promptPapierOuDefaut(CLE_PROMPT_VOIX, "lent")).toBe("lent");
@@ -30,10 +31,13 @@ describe("défauts prompts papier", () => {
     expect(SCRIPT_GENERATION_DEFAUT).toContain("collision");
     expect(SCRIPT_GENERATION_DEFAUT).toContain("preuve matérielle");
     expect(SCRIPT_GENERATION_DEFAUT).toMatch(/Titanic|pyramides/);
-    expect(SCRIPT_GENERATION_DEFAUT).toContain("Reveal — Clues, then a final twist");
-    expect(SCRIPT_GENERATION_DEFAUT).toContain("Big question — But do you really know why");
-    expect(SCRIPT_GENERATION_DEFAUT).toContain("Immersive story — the scene as it was lived");
+    expect(SCRIPT_GENERATION_DEFAUT).toMatch(/pas de template/i);
+    expect(SCRIPT_GENERATION_DEFAUT).toContain("Reveal");
+    expect(SCRIPT_GENERATION_DEFAUT).toContain("Big question");
+    expect(SCRIPT_GENERATION_DEFAUT).toContain("Immersive story");
     expect(SCRIPT_GENERATION_DEFAUT).toContain("toutes lettres");
+    expect(SCRIPT_GENERATION_DEFAUT).not.toMatch(/ouvre par « Sauf que »/);
+    expect(SCRIPT_GENERATION_DEFAUT).toMatch(/de plus|pire encore/);
   });
 
   it("lit vitesse et stabilité depuis le prompt voix", () => {
@@ -65,7 +69,8 @@ describe("assemblage pipeline", () => {
     expect(p).toContain(CTA_SOPHIA_DEFAUT.slice(0, 40));
     expect(p).toContain("vitesse: 0.92");
     expect(p).toContain("paper cut-out");
-    expect(p).toContain("Produis exactement 6 scènes");
+    expect(p).toContain("Découpe en");
+    expect(p).not.toContain("Produis exactement");
   });
 
   it("le cover utilise le style admin", () => {

@@ -34,8 +34,10 @@ describe("budget script", () => {
     const b = budgetScript(48);
     expect(b.narrationSeconds).toBe(45);
     expect(b.totalWords).toBe(Math.round(45 * 2.6));
-    expect(b.sceneCount).toBeGreaterThanOrEqual(5);
-    expect(b.sceneCount).toBeLessThanOrEqual(16);
+    expect(b.sceneCountMin).toBeGreaterThanOrEqual(3);
+    expect(b.sceneCountMax).toBeGreaterThanOrEqual(b.sceneCountMin);
+    expect(b.sceneCount).toBe(b.sceneCountMax);
+    expect(b.sceneCount).toBeLessThanOrEqual(12);
     expect(b.wordsPerScene).toBeGreaterThanOrEqual(8);
   });
 });

@@ -457,7 +457,11 @@ export function AdminPapierPage() {
             onMode={(m) => changerMode.mutate(m)}
             onAvancer={mode === "auto" ? () => lancer.mutate({}) : undefined}
             onProposer={() => proposer.mutate()}
-            onValider={mode === "manuel" ? () => lancer.mutate({ valider_topic: true }) : undefined}
+            onValider={
+              mode === "manuel"
+                ? () => lancer.mutate({ valider_topic: Boolean(topic.trim()) })
+                : undefined
+            }
             busy={busy}
             lancerPending={lancer.isPending}
             proposerPending={proposer.isPending}

@@ -152,3 +152,36 @@ export function holdPourCouperAuto(opts: {
   if (active === "script") return "script";
   return "images";
 }
+
+/**
+ * Appliquer un mode demandé sur un master déjà en cours.
+ * Ne pose un hold que si l'artefact (sujet / script) est déjà là —
+ * on n'interrompt pas une génération images/clips en vol.
+ */
+export function modeHoldPourMasterEnCours(opts: {
+  actuelMode: PapierPipelineMode;
+  demandeMode?: unknown;
+  statut: string;
+  hold?: PapierPipelineHold;
+  aTopic?: boolean;
+  aScript?: boolean;
+}): { pipeline_mode: PapierPipelineMode; pipeline_hold: PapierPipelineHold } | null {
+  if (opts.demandeMode == null || opts.demandeMode === "") return null;
+  const demande = normaliserPipelineMode(opts.demandeMode);
+  let hold: PapierPipelineHold = opts.hold ?? null;
+  if (demande === "auto") {
+    hold = null;
+  } else if (!hold) {
+    if (opts.aScript && (opts.statut === "scripting" || opts.statut === "queued")) {
+      hold = "script";
+    } else if (
+      opts.aTopic &&
+      !opts.aScript &&
+      (opts.statut === "queued" || opts.statut === "scripting")
+    ) {
+      hold = "topic";
+    }
+  }
+  if (demande === opts.actuelMode && hold === (opts.hold ?? null)) return null;
+  return { pipeline_mode: demande, pipeline_hold: hold };
+}

@@ -13,8 +13,27 @@ import { normaliserPipelineMode, type PapierPipelineMode } from "./papier_pipeli
 
 export const VOIX_PAPIER_DEFAUT = "locuteur-cm";
 
+/** Voix posée, factuelle — proche de locuteur-cm — si aucune surcharge langue. */
+export const VOIX_SIMILAIRE_CM: Record<string, string> = {
+  fr: "locuteur-cm",
+  en: "George",
+  de: "Daniel",
+  es: "Daniel",
+  it: "Giovanni",
+  pt: "Daniel",
+  pl: "Daniel",
+  nl: "George",
+  sv: "George",
+  tr: "George",
+  cs: "Daniel",
+  ro: "Daniel",
+  hu: "Daniel",
+  el: "George",
+};
+
 /** Catalogue ElevenLabs multilingual v2 — id = nom Fal. */
 export const VOIX_PAPIER_CATALOGUE = [
+  { id: "locuteur-cm", label: "locuteur-cm", hint: "FR" },
   { id: "Alice", label: "Alice", hint: "FR" },
   { id: "Charlotte", label: "Charlotte", hint: "FR" },
   { id: "Daniel", label: "Daniel", hint: "FR" },
@@ -167,19 +186,29 @@ export function normaliserReglagesPapier(brut: unknown): ReglagesPapier {
   };
 }
 
-export function voixPourLangue(reglages: ReglagesPapier, langue: string): string {
-  return reglages.voix_par_langue[langue]?.trim() || reglages.voix || VOIX_PAPIER_DEFAUT;
+export function voixSimilaireCm(langue: string): string {
+  const code = String(langue ?? "").trim().toLowerCase();
+  return VOIX_SIMILAIRE_CM[code] || VOIX_PAPIER_DEFAUT;
 }
 
-/** FR = voix du master. Autres langues : surcharge réglages, sinon voix du master. */
+export function voixPourLangue(reglages: ReglagesPapier, langue: string): string {
+  const code = String(langue ?? "").trim().toLowerCase();
+  const surcharge = reglages.voix_par_langue[code]?.trim();
+  if (surcharge) return surcharge;
+  if (code === "fr") return reglages.voix || VOIX_PAPIER_DEFAUT;
+  return voixSimilaireCm(code);
+}
+
+/** FR = voix du master. Autres langues : surcharge réglages, sinon voix similaire à locuteur-cm. */
 export function voixEffectiveMaster(
   masterVoice: string | null | undefined,
   reglages: ReglagesPapier,
   langue: string,
 ): string {
   const duMaster = String(masterVoice ?? "").trim();
-  if (langue === "fr") return duMaster || reglages.voix || VOIX_PAPIER_DEFAUT;
-  return reglages.voix_par_langue[langue]?.trim() || duMaster || reglages.voix || VOIX_PAPIER_DEFAUT;
+  const code = String(langue ?? "").trim().toLowerCase();
+  if (code === "fr") return duMaster || reglages.voix || VOIX_PAPIER_DEFAUT;
+  return reglages.voix_par_langue[code]?.trim() || voixSimilaireCm(code) || duMaster || reglages.voix || VOIX_PAPIER_DEFAUT;
 }
 
 export function dureeCibleClipReglee(texte: string, clip: DureeClipReglage): DureeCibleClip {

@@ -53,7 +53,7 @@ export function scriptSystemPrompt(
   kind: PapierKind,
   sceneCount: number,
   style: PapierNarrationStyle,
-  wordsPerScene: number,
+  _wordsPerScene: number,
   totalWords: number,
   extras: {
     doctrine: string;
@@ -64,10 +64,10 @@ export function scriptSystemPrompt(
     langName?: string;
   },
 ): string {
-  const lo = Math.max(10, Math.round(wordsPerScene - 2));
-  const hi = Math.min(28, Math.round(wordsPerScene + 4));
   const langName = extras.langName ?? "français de France";
   const categorie = extras.categorie ?? "aleatoire";
+  const min = Math.max(3, Math.round(sceneCount * 0.6));
+  const max = Math.min(12, Math.max(sceneCount, min + 1));
   return [
     extras.doctrine.trim() || PROMPTS_PAPIER_DEFAUT[CLE_PROMPT_SCRIPT],
     "",
@@ -76,8 +76,8 @@ export function scriptSystemPrompt(
     KIND_BRIEF[kind],
     `LANGUE DE SORTIE : tous les textes lus ou affichés (title, hook, narration, overlay, cta, hashtags) sont en ${langName}. Seuls imagePrompt et videoPrompt restent en anglais.`,
     `ÉTAPE ACTIVE : 2 et 3 — SCRIPT + DÉCOUPAGE EN PLANS.`,
-    `Produis exactement ${sceneCount} scènes (hors CTA, le CTA va dans le champ cta).`,
-    `DURÉE : le script complet (scènes + CTA) fait environ ${totalWords} mots (± 5 %). Chaque narration : ${lo} à ${hi} mots.`,
+    `Découpe en ${min} à ${max} scènes (hors CTA, le CTA va dans le champ cta). Le nombre suit les idées, pas un quota. Chaque plan = un battement visuel.`,
+    `DURÉE : le script complet (scènes + CTA) fait environ ${totalWords} mots (± 15 %). Une narration peut faire 8 à 40 mots — les plans n'ont pas tous la même longueur.`,
     "Le champ hook reprend exactement le texte de la scène 1.",
     "Le champ overlay : 3 à 6 mots, percutant (ne pas écrire la couleur).",
     extras.voix.trim(),
@@ -97,7 +97,7 @@ export function scriptUserPrompt(kind: PapierKind, topic: string): string {
   const base = topic.trim() || "un fait fascinant surprenant au choix";
   return kind === "pub"
     ? `Sujet : ${base}. Glisse une mention naturelle de l'application Sophia uniquement dans le CTA.`
-    : `Sujet : ${base}. Applique NARRATION_STYLE. Chaque plan doit avancer la preuve ou le retournement.`;
+    : `Sujet : ${base}. NARRATION_STYLE colore le ton, ce n'est pas un template. Chaque plan avance l'idée. Découpe selon les battements visuels.`;
 }
 
 export function topicSystemPrompt(

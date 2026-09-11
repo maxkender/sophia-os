@@ -970,7 +970,7 @@ export const fr = {
       modeAuto: "Automatique",
       modeManuel: "Manuel",
       modeAide:
-        "Automatique : tout s’enchaîne. Manuel : tu valides chaque étape créative (sujet, script, photos).",
+        "Automatique : tout s’enchaîne. Manuel : tu valides le sujet, puis le script avant les photos, puis les photos avant la vidéo. La voix et les captions s’enchaînent ensuite.",
       proposerSujet: "Proposer un sujet",
       proposerSujetAide: "Remplit le champ sujet. Ne lance pas la pipeline.",
       validerSujet: "Valider le sujet",

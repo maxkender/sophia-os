@@ -62,6 +62,14 @@ describe("voix / durée clip", () => {
     expect(voixPourLangue(r, "fr")).toBe("George");
   });
 
+  it("hors FR, propose une voix proche de locuteur-cm si pas de surcharge", () => {
+    const r = normaliserReglagesPapier({ voix: "locuteur-cm" });
+    expect(voixPourLangue(r, "en")).toBe("George");
+    expect(voixPourLangue(r, "it")).toBe("Giovanni");
+    expect(voixPourLangue(r, "de")).toBe("Daniel");
+    expect(voixPourLangue(r, "fr")).toBe("locuteur-cm");
+  });
+
   it("le master impose la voix FR ; DE garde sa surcharge", () => {
     const r = normaliserReglagesPapier({
       voix: "George",
@@ -69,7 +77,7 @@ describe("voix / durée clip", () => {
     });
     expect(voixEffectiveMaster("Alice", r, "fr")).toBe("Alice");
     expect(voixEffectiveMaster("Alice", r, "de")).toBe("Lily");
-    expect(voixEffectiveMaster("Alice", r, "en")).toBe("Alice");
+    expect(voixEffectiveMaster("Alice", r, "en")).toBe("George");
     expect(voixEffectiveMaster(null, r, "fr")).toBe("George");
   });
 

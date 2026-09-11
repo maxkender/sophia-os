@@ -20,6 +20,7 @@ import { mergerAudioVideoFal } from "./fal_merge_audio.ts";
 import { trimmerVideoFal } from "./fal_trim_video.ts";
 import { mergerVideosFal } from "./fal_merge_videos.ts";
 import { composerFinalePapier, reduireVideoPapierTikTok, assurerNoirVideoUrl } from "./fal_cadre_papier.ts";
+import type { FalQueueProgress } from "./fal_queue.ts";
 import {
   etapeAssemblage,
   prochaineLangueATiquer,
@@ -35,8 +36,8 @@ type Supabase = ReturnType<typeof serviceClient>;
 
 const BUCKET = "medias";
 const TICK_BUDGET_MS = 42_000;
-/** Fal pad/cadre/karaoke dépasse 90 s : un steal trop tôt lance un 2ᵉ job payant. */
-const CLAIM_STALE_MS = 240_000;
+/** Overlay/karaoke dépasse souvent 4 min : un steal trop tôt double la facture Fal. */
+const CLAIM_STALE_MS = 900_000;
 /** Un lot Fal (concat ou cadre) doit tenir dans le wall clock de l'edge. */
 const FAL_ASSEMBLAGE_MS = 130_000;
 const CONCAT_LOT = 4;
@@ -525,11 +526,15 @@ async function etapeRender(
     if (!source) throw new Error("Concat absente avant le pad TikTok");
     await reserverFalPapier(supabase);
     await heartbeatLangue(supabase, row.id);
-    const noir = await assurerNoirVideoUrl(supabase, undefined, FAL_ASSEMBLAGE_MS);
+    const beat: FalQueueProgress = async () => {
+      await heartbeatLangue(supabase, row.id);
+    };
+    const noir = await assurerNoirVideoUrl(supabase);
     const padded = await reduireVideoPapierTikTok({
       videoUrl: source,
       supabase,
       noirUrl: noir.url,
+      onProgress: beat,
       timeoutMs: FAL_ASSEMBLAGE_MS,
     });
     const url = await uploader(supabase, padPath, padded.bytes, padded.mime);
@@ -552,9 +557,13 @@ async function etapeRender(
   if (!source) throw new Error("Concat absente avant le cadre");
   await reserverFalPapier(supabase);
   await heartbeatLangue(supabase, row.id);
+  const beat: FalQueueProgress = async () => {
+    await heartbeatLangue(supabase, row.id);
+  };
   const framed = await composerFinalePapier({
     videoUrl: source,
     supabase,
+    onProgress: beat,
     timeoutMs: FAL_ASSEMBLAGE_MS,
   });
   const url = await uploader(supabase, framedPath, framed.bytes, framed.mime);
@@ -580,10 +589,14 @@ async function etapeKaraoke(supabase: Supabase, row: PapierLangueRow): Promise<v
   const subtitles = sousTitresDepuisScenes(scenes);
   await reserverFalPapier(supabase);
   await heartbeatLangue(supabase, row.id);
+  const beat: FalQueueProgress = async () => {
+    await heartbeatLangue(supabase, row.id);
+  };
   const kar = await incrusterKaraokeFal({
     videoUrl: source,
     langue: row.langue,
     subtitles,
+    onProgress: beat,
     timeoutMs: FAL_ASSEMBLAGE_MS,
   });
   const path = `papiers/${row.master_id}/${row.langue}/final.mp4`;

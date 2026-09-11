@@ -226,7 +226,7 @@ describe("assemblage", () => {
     expect(mixEstSurCanvasTikTok("papiers/x/fr/mix-raw.mp4")).toBe(false);
   });
 
-  it("n'auto-relance pas une langue busy ni un Fal encore chaud", () => {
+  it("n'auto-relance jamais une langue (évite la boucle Fal)", () => {
     const now = Date.parse("2026-09-11T21:00:00Z");
     expect(
       langueDoitRelancerAuto(
@@ -245,7 +245,7 @@ describe("assemblage", () => {
         { statut: "karaoke", busy: false, updated_at: "2026-09-11T20:55:00Z" },
         now,
       ),
-    ).toBe(true);
+    ).toBe(false);
   });
 
   it("détecte un FR à continuer jusqu'aux captions", () => {

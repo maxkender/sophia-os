@@ -60,9 +60,7 @@ import {
   urlVideoExportable,
   langueFrAContinuer,
   langueCaptionsEnCours,
-  langueDoitRelancerAuto,
   mixEstSurCanvasTikTok,
-  RELANCE_AUTO_MS,
 } from "@/features/moteur/papierLocales";
 import { telechargerUrl } from "@/features/moteur/telechargement";
 import {
@@ -333,20 +331,6 @@ export function AdminPapierPage() {
     valider.isPending ||
     abandonner.isPending ||
     captionsBusy;
-
-  const relanceAuto = React.useRef<Record<string, number>>({});
-  React.useEffect(() => {
-    const now = Date.now();
-    for (const m of rows) {
-      for (const l of m.papier_langues ?? []) {
-        if (!langueDoitRelancerAuto(l, now)) continue;
-        const last = relanceAuto.current[l.id] ?? 0;
-        if (now - last < RELANCE_AUTO_MS) continue;
-        relanceAuto.current[l.id] = now;
-        relancerLangue.mutate(l.id);
-      }
-    }
-  }, [rows, relancerLangue]);
 
   const erreur =
     lancer.error ??

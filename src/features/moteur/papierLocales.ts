@@ -187,7 +187,8 @@ export function sousTitresDepuisScenes(
           text: carton.text,
         });
       }
-      const span = duree > 0.3 ? duree : words.at(-1)?.end ?? 0;
+      const dernier = words.length ? words[words.length - 1] : undefined;
+      const span = duree > 0.3 ? duree : dernier?.end ?? 0;
       offset += span;
     }
     if (out.length <= SOUS_TITRES_MAX) return out;
@@ -276,19 +277,14 @@ export function etapeAssemblage(row: {
   return "merge";
 }
 
-/** Fal cadre/karaoke dépasse souvent 90 s : ne pas relancer tant que busy, ni avant 4 min. */
+/** Plus d'auto-kick Fal depuis l'onglet admin (c'était la boucle à 90 s / 4 min). */
 export const RELANCE_AUTO_MS = 240_000;
 
 export function langueDoitRelancerAuto(
-  l: { statut: string; busy?: boolean; updated_at?: string | null },
-  now = Date.now(),
+  _l?: { statut: string; busy?: boolean; updated_at?: string | null },
+  _now = Date.now(),
 ): boolean {
-  if (l.busy) return false;
-  if (l.statut === "ready" || l.statut === "failed") return false;
-  if (!["voice", "mix", "render", "karaoke"].includes(l.statut)) return false;
-  const updated = Date.parse(l.updated_at ?? "") || 0;
-  if (!updated) return false;
-  return now - updated >= RELANCE_AUTO_MS;
+  return false;
 }
 
 export function langueFrAContinuer(

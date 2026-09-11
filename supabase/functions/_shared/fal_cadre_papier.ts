@@ -17,6 +17,7 @@ import {
   PAPIER_SCALE,
   alphaMasquePapier,
 } from "./papier_compose.ts";
+import { bytesNoirPapierMp4 } from "./papier_noir_mp4.ts";
 import { serviceClient } from "./supabase.ts";
 
 const COMPOSE = "fal-ai/ffmpeg-api/compose";
@@ -25,7 +26,6 @@ const MASQUE_PATH = "papiers/_assets/masque-1x1-s832-r56.png";
 const NOIR_PNG_PATH = "papiers/_assets/noir-1080x1920.png";
 /** 2 s suffisent : overlay `shortest: false` fige la dernière frame noire. */
 const NOIR_VIDEO_PATH = "papiers/_assets/noir-1080x1920-2s.mp4";
-const NOIR_VIDEO_MS = 2_000;
 
 type Supabase = ReturnType<typeof serviceClient>;
 
@@ -142,35 +142,16 @@ export async function assurerNoirPngUrl(supabase: Supabase): Promise<string> {
   return uploaderPng(supabase, NOIR_PNG_PATH, await pngNoirPapier());
 }
 
-/** Vidéo noire 9:16 courte, générée une fois et mise en cache storage. */
+/** Vidéo noire 9:16 courte, bytes du repo — jamais un compose Fal. */
 export async function assurerNoirVideoUrl(
   supabase: Supabase,
-  onProgress?: FalQueueProgress,
-  timeoutMs?: number,
+  _onProgress?: FalQueueProgress,
+  _timeoutMs?: number,
 ): Promise<{ url: string; cree: boolean }> {
   const deja = await urlPubliqueSiPresente(supabase, NOIR_VIDEO_PATH);
   if (deja) return { url: deja, cree: false };
-  const pngUrl = await assurerNoirPngUrl(supabase);
-  const queued = await falQueueSubmit(
-    COMPOSE,
-    {
-      tracks: [
-        {
-          id: "noir",
-          type: "image",
-          keyframes: [{ url: urlSansCacheBuster(pngUrl), timestamp: 0, duration: NOIR_VIDEO_MS }],
-        },
-      ],
-    },
-    onProgress,
-  );
-  const data = await falQueueAwaitJson(COMPOSE, queued, onProgress, timeoutMs ?? 300_000);
-  const url = videoUrlDepuisFal(data);
-  if (!url) {
-    throw new Error(`noir papier: pas de video.url — ${JSON.stringify(data).slice(0, 280)}`);
-  }
-  const dl = await falDownloadBytes(url, onProgress);
-  const { error } = await supabase.storage.from("medias").upload(NOIR_VIDEO_PATH, dl.bytes, {
+  const bytes = bytesNoirPapierMp4();
+  const { error } = await supabase.storage.from("medias").upload(NOIR_VIDEO_PATH, bytes, {
     contentType: "video/mp4",
     upsert: true,
     cacheControl: "31536000",

@@ -188,7 +188,8 @@ export function sousTitresDepuisScenes(
           text: carton.text,
         });
       }
-      const span = duree > 0.3 ? duree : words.at(-1)?.end ?? 0;
+      const dernier = words.length ? words[words.length - 1] : undefined;
+      const span = duree > 0.3 ? duree : dernier?.end ?? 0;
       offset += span;
     }
     if (out.length <= SOUS_TITRES_MAX) return out;

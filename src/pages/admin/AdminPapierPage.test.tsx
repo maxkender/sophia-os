@@ -34,6 +34,8 @@ const sauverTopicPapier = vi.fn(async () => undefined);
 const regenererPartiePapier = vi.fn(async () => ({ ok: true }));
 const regenererPapier = vi.fn(async () => ({ ok: true }));
 const validerEtapePapier = vi.fn(async () => ({ ok: true }));
+const relancerPapierLangue = vi.fn();
+const assignerPapierCm = vi.fn();
 
 vi.mock("@/features/moteur/api", async (importOriginal) => {
   const actual = await importOriginal<typeof import("@/features/moteur/api")>();
@@ -54,8 +56,8 @@ vi.mock("@/features/moteur/api", async (importOriginal) => {
     relancerPapier: vi.fn(),
     regenererPapier: (...args: unknown[]) => regenererPapier(...args),
     regenererPartiePapier: (...args: unknown[]) => regenererPartiePapier(...args),
-    relancerPapierLangue: vi.fn(),
-    assignerPapierCm: vi.fn(),
+    relancerPapierLangue: (...args: unknown[]) => relancerPapierLangue(...args),
+    assignerPapierCm: (...args: unknown[]) => assignerPapierCm(...args),
     listerVoixPapier: vi.fn(async () => ({
       hasKey: true,
       langue: "fr",
@@ -131,6 +133,7 @@ describe("AdminPapierPage", () => {
     regenererPartiePapier.mockClear();
     regenererPapier.mockClear();
     validerEtapePapier.mockClear();
+    relancerPapierLangue.mockClear();
     abandonnerPapier.mockResolvedValue({ ok: true, done: true });
   });
 
@@ -230,5 +233,78 @@ describe("AdminPapierPage", () => {
     await waitFor(() => {
       expect(validerEtapePapier).toHaveBeenCalledWith("master-1", "Pourquoi la mer est-elle salée ?");
     });
+  });
+
+  it("montre l'aperçu mix-raw sans Exporter, et grise Continue si captions busy", async () => {
+    listerPapierMasters.mockResolvedValue([
+      masterScripting({
+        statut: "clips",
+        etape: "fr",
+        pipeline_hold: null,
+        papier_langues: [
+          {
+            id: "fr-1",
+            master_id: "master-1",
+            langue: "fr",
+            title: "Chocolat",
+            hook: null,
+            cta: null,
+            hashtags: null,
+            statut: "render",
+            etape: "cadre",
+            progression: 0.72,
+            erreur: null,
+            busy: true,
+            video_url: null,
+            video_mix_url: "https://example.com/mix-raw.mp4",
+            video_mix_path: "papiers/m/fr/mix-raw.mp4",
+          },
+        ],
+      }),
+    ]);
+    renderPage();
+
+    expect(await screen.findByTestId("papier-continuer")).toBeDisabled();
+    expect(screen.getByText(/captions in progress|captions en cours/i)).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /export/i })).not.toBeInTheDocument();
+    expect(
+      screen.getAllByText(/captions not burned|captions pas encore|preview has no captions|l’aperçu n’a pas/i)
+        .length,
+    ).toBeGreaterThan(0);
+    expect(relancerPapierLangue).not.toHaveBeenCalled();
+  });
+
+  it("affiche Exporter seulement quand la vidéo finale captions est prête", async () => {
+    listerPapierMasters.mockResolvedValue([
+      masterScripting({
+        statut: "clips",
+        etape: "fr",
+        pipeline_hold: null,
+        video_url: "https://example.com/final.mp4",
+        papier_langues: [
+          {
+            id: "fr-1",
+            master_id: "master-1",
+            langue: "fr",
+            title: "Chocolat",
+            hook: null,
+            cta: null,
+            hashtags: null,
+            statut: "ready",
+            etape: "ready",
+            progression: 1,
+            erreur: null,
+            busy: false,
+            video_url: "https://example.com/final.mp4",
+            video_mix_url: "https://example.com/mix.mp4",
+            video_mix_path: "papiers/m/fr/mix.mp4",
+          },
+        ],
+      }),
+    ]);
+    renderPage();
+
+    expect((await screen.findAllByRole("button", { name: /export/i })).length).toBeGreaterThan(0);
+    expect(screen.queryByTestId("papier-continuer")).not.toBeInTheDocument();
   });
 });

@@ -59,6 +59,7 @@ import { budgetScript } from "@/features/moteur/papierScript";
 import {
   urlVideoExportable,
   langueFrAContinuer,
+  langueCaptionsEnCours,
   langueDoitRelancerAuto,
   mixEstSurCanvasTikTok,
   RELANCE_AUTO_MS,
@@ -147,8 +148,10 @@ export function AdminPapierPage() {
           (["queued", "scripting", "images", "clips"].includes(m.statut) &&
             !m.pipeline_hold &&
             !m.annule) ||
-          (m.papier_langues ?? []).some((l) =>
-            ["queued", "translating", "voice", "mix", "render", "karaoke"].includes(l.statut),
+          (m.papier_langues ?? []).some(
+            (l) =>
+              l.busy ||
+              ["queued", "translating", "voice", "mix", "render", "karaoke"].includes(l.statut),
           ),
       );
       return busy ? 4000 : false;
@@ -318,6 +321,7 @@ export function AdminPapierPage() {
     onSuccess: invalider,
   });
 
+  const captionsBusy = langueCaptionsEnCours(enCours?.papier_langues?.find((l) => l.langue === "fr"));
   const busy =
     lancer.isPending ||
     relancer.isPending ||
@@ -327,7 +331,8 @@ export function AdminPapierPage() {
     assigner.isPending ||
     changerVoix.isPending ||
     valider.isPending ||
-    abandonner.isPending;
+    abandonner.isPending ||
+    captionsBusy;
 
   const relanceAuto = React.useRef<Record<string, number>>({});
   React.useEffect(() => {
@@ -482,6 +487,7 @@ export function AdminPapierPage() {
             onRegenScript={enCours.script ? () => regenererPartie.mutate({ id: enCours.id, partie: "script" }) : undefined}
             onRegenImages={enCours.papier_scenes?.some((s) => s.image_url) ? () => regenererPartie.mutate({ id: enCours.id, partie: "images" }) : undefined}
             busy={busy}
+            captionsBusy={captionsBusy}
             lancerPending={lancer.isPending}
             proposerPending={proposer.isPending}
             validerPending={valider.isPending}
@@ -728,6 +734,7 @@ function FormulairePipeline({
   onRegenScript,
   onRegenImages,
   busy,
+  captionsBusy,
   lancerPending,
   proposerPending,
   validerPending,
@@ -761,6 +768,7 @@ function FormulairePipeline({
   onRegenScript?: () => void;
   onRegenImages?: () => void;
   busy: boolean;
+  captionsBusy?: boolean;
   lancerPending: boolean;
   proposerPending?: boolean;
   validerPending?: boolean;
@@ -919,7 +927,7 @@ function FormulairePipeline({
         ) : onContinuer ? (
           <Button onClick={onContinuer} disabled={busy} data-testid="papier-continuer">
             {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Sparkles className="h-4 w-4" />}
-            {t("papier.continuerCaptions")}
+            {captionsBusy ? t("papier.captionsEnCours") : t("papier.continuerCaptions")}
           </Button>
         ) : onAvancer ? (
           <Button onClick={onAvancer} disabled={busy}>
@@ -979,6 +987,9 @@ function FormulairePipeline({
           </Button>
         ) : null}
       </div>
+      {onContinuer ? (
+        <p className="text-xs text-muted-foreground">{t("papier.captionsExportAide")}</p>
+      ) : null}
     </div>
   );
 }
@@ -1130,6 +1141,9 @@ function ResumeMaster({ master }: { master: PapierMaster }) {
           <p className="text-xs text-muted-foreground">
             {videoFr ? t("papier.videoFr") : t("papier.apercuSansCaptions")}
           </p>
+          {videoFr ? null : (
+            <p className="text-xs text-muted-foreground">{t("papier.captionsExportAide")}</p>
+          )}
           <PapierCadre
             className="mx-auto max-h-80 w-auto max-w-[220px]"
             dejaCadre={Boolean(videoFr) || mixEstSurCanvasTikTok(
@@ -1247,8 +1261,17 @@ function CarteLangue({
             </Button>
           ) : null}
           {langue.statut !== "ready" ? (
-            <Button size="sm" disabled={busy} onClick={() => onRelancer(langue.id)}>
-              {t("papier.continuerCaptions")}
+            <Button
+              size="sm"
+              disabled={busy || langueCaptionsEnCours(langue)}
+              onClick={() => onRelancer(langue.id)}
+            >
+              {langueCaptionsEnCours(langue) ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : null}
+              {langueCaptionsEnCours(langue)
+                ? t("papier.captionsEnCours")
+                : t("papier.continuerCaptions")}
             </Button>
           ) : null}
         </div>

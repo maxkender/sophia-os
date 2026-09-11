@@ -298,6 +298,15 @@ export function langueFrAContinuer(
   return fr ? { id: fr.id, statut: fr.statut } : null;
 }
 
+/** Tick Fal encore en cours : Continue doit rester grisé, pas relancer. */
+export function langueCaptionsEnCours(
+  l?: { busy?: boolean; statut?: string } | null,
+): boolean {
+  if (!l) return false;
+  if (l.statut === "ready" || l.statut === "failed") return false;
+  return Boolean(l.busy);
+}
+
 export function urlVideoExportable(row: {
   video_url?: string | null;
   video_mix_url?: string | null;

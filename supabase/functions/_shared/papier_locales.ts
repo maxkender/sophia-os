@@ -413,6 +413,12 @@ async function etapeMix(
   clips: Array<{ index: number; clip_url: string | null }>,
   t0: number,
 ): Promise<boolean> {
+  if (scenes.length > 0 && scenes.every((s) => Boolean(s.mix_url))) {
+    if (row.statut === "voice" || row.statut === "mix" || row.statut === "queued" || row.statut === "translating") {
+      await patchLangue(supabase, row.id, { statut: "render", etape: "render", progression: 0.72 });
+    }
+    return true;
+  }
   for (const scene of scenes) {
     if (outOfTime(t0)) return false;
     if (scene.mix_url) continue;
@@ -447,7 +453,9 @@ async function etapeMix(
       progression: 0.45 + 0.25 * (done / scenes.length),
     });
   }
-  await patchLangue(supabase, row.id, { statut: "render", etape: "render", progression: 0.72 });
+  if (row.statut === "voice" || row.statut === "mix" || row.statut === "queued" || row.statut === "translating") {
+    await patchLangue(supabase, row.id, { statut: "render", etape: "render", progression: 0.72 });
+  }
   return true;
 }
 
@@ -518,19 +526,6 @@ async function etapeRender(
     await reserverFalPapier(supabase);
     await heartbeatLangue(supabase, row.id);
     const noir = await assurerNoirVideoUrl(supabase, undefined, FAL_ASSEMBLAGE_MS);
-    if (noir.cree) {
-      await patchLangue(
-        supabase,
-        row.id,
-        {
-          statut: "render",
-          etape: "cadre",
-          progression: 0.81,
-        },
-        { etape: "render", detail: "canvas noir TikTok" },
-      );
-      return;
-    }
     const padded = await reduireVideoPapierTikTok({
       videoUrl: source,
       supabase,

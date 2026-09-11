@@ -1009,6 +1009,9 @@ export const fr = {
       avancer: "Avancer le pipeline",
       relancer: "Relancer (garder les assets)",
       continuerCaptions: "Continuer — captions",
+      captionsEnCours: "Captions en cours…",
+      captionsExportAide:
+        "L’aperçu n’a pas les captions. Continuer une fois : cadre TikTok puis captions blanches. Le bouton Exporter apparaît ensuite, sur la vidéo finale.",
       regenerer: "Recommencer depuis zéro",
       historique: "Bibliothèque",
       biblioAide: "{{n}} master(s) FR prêt(s). Minuit en tire un au hasard par langue, s’il n’a pas encore été servi.",

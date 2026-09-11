@@ -1008,6 +1008,9 @@ export const en = {
       avancer: "Advance pipeline",
       relancer: "Retry (keep assets)",
       continuerCaptions: "Continue — captions",
+      captionsEnCours: "Captions in progress…",
+      captionsExportAide:
+        "This preview has no captions yet. Click Continue once: TikTok frame, then white captions. Export appears on the final video.",
       regenerer: "Start over from scratch",
       historique: "Library",
       biblioAide: "{{n}} ready FR master(s). Midnight draws one at random per language, if it has not been used yet.",

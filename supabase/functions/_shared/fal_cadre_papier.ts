@@ -23,8 +23,9 @@ const COMPOSE = "fal-ai/ffmpeg-api/compose";
 const OVERLAY = "fal-ai/workflow-utilities/overlay-video";
 const MASQUE_PATH = "papiers/_assets/masque-1x1-s832-r56.png";
 const NOIR_PNG_PATH = "papiers/_assets/noir-1080x1920.png";
-const NOIR_VIDEO_PATH = "papiers/_assets/noir-1080x1920-90s.mp4";
-const NOIR_VIDEO_MS = 90_000;
+/** 2 s suffisent : overlay `shortest: false` fige la dernière frame noire. */
+const NOIR_VIDEO_PATH = "papiers/_assets/noir-1080x1920-2s.mp4";
+const NOIR_VIDEO_MS = 2_000;
 
 type Supabase = ReturnType<typeof serviceClient>;
 
@@ -116,9 +117,17 @@ async function uploaderPng(
 }
 
 async function urlPubliqueSiPresente(supabase: Supabase, path: string): Promise<string | null> {
-  const pub = supabase.storage.from("medias").getPublicUrl(path).data.publicUrl;
-  const probe = await fetch(pub, { method: "HEAD" });
-  return probe.ok ? pub : null;
+  const parts = path.split("/");
+  const name = parts.pop();
+  const dir = parts.join("/");
+  if (!name || !dir) return null;
+  const { data, error } = await supabase.storage.from("medias").list(dir, {
+    search: name,
+    limit: 50,
+  });
+  const hit = (data ?? []).some((f) => f.name === name && Number(f.metadata?.size ?? 1) > 0);
+  if (error || !hit) return null;
+  return supabase.storage.from("medias").getPublicUrl(path).data.publicUrl;
 }
 
 export async function assurerMasquePapierUrl(supabase: Supabase): Promise<string> {
@@ -133,7 +142,7 @@ export async function assurerNoirPngUrl(supabase: Supabase): Promise<string> {
   return uploaderPng(supabase, NOIR_PNG_PATH, await pngNoirPapier());
 }
 
-/** Vidéo noire 9:16 d'au moins 90 s, générée une fois et mise en cache storage. */
+/** Vidéo noire 9:16 courte, générée une fois et mise en cache storage. */
 export async function assurerNoirVideoUrl(
   supabase: Supabase,
   onProgress?: FalQueueProgress,
@@ -212,7 +221,7 @@ export async function reduireVideoPapierTikTok(input: {
       scale_percent: Math.round(PAPIER_SCALE * 100),
       opacity: 1,
       blend_mode: "normal",
-      shortest: true,
+      shortest: false,
       audio_source: "overlay",
     },
     input.onProgress,

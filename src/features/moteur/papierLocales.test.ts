@@ -18,6 +18,7 @@ import {
   grouperMotsEnCartons,
   sousTitresDepuisScenes,
   langueDoitRelancerAuto,
+  langueCaptionsEnCours,
 } from "./papierLocales";
 
 describe("langues papier", () => {
@@ -253,5 +254,11 @@ describe("assemblage", () => {
       id: "fr",
       statut: "karaoke",
     });
+  });
+
+  it("bloque Continue tant que le tick captions est busy", () => {
+    expect(langueCaptionsEnCours({ statut: "render", busy: true })).toBe(true);
+    expect(langueCaptionsEnCours({ statut: "karaoke", busy: false })).toBe(false);
+    expect(langueCaptionsEnCours({ statut: "ready", busy: true })).toBe(false);
   });
 });

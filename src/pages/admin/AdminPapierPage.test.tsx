@@ -29,6 +29,11 @@ const proposerTopicPapier = vi.fn(async () => ({
 }));
 const lancerPapierJourMock = vi.fn();
 const arreterPapier = vi.fn(async () => ({ ok: true, done: true, statut: "stopped" }));
+const abandonnerPapier = vi.fn(async () => ({ ok: true, done: true }));
+const sauverTopicPapier = vi.fn(async () => undefined);
+const regenererPartiePapier = vi.fn(async () => ({ ok: true }));
+const regenererPapier = vi.fn(async () => ({ ok: true }));
+const validerEtapePapier = vi.fn(async () => ({ ok: true }));
 
 vi.mock("@/features/moteur/api", async (importOriginal) => {
   const actual = await importOriginal<typeof import("@/features/moteur/api")>();
@@ -40,12 +45,15 @@ vi.mock("@/features/moteur/api", async (importOriginal) => {
     listerPapierMasters: () => listerPapierMasters(),
     lancerPapierJour: (...args: unknown[]) => lancerPapierJourMock(...args),
     proposerTopicPapier: () => proposerTopicPapier(),
-    validerEtapePapier: vi.fn(),
+    validerEtapePapier: (...args: unknown[]) => validerEtapePapier(...args),
     arreterPapier: (...args: unknown[]) => arreterPapier(...args),
+    abandonnerPapier: (...args: unknown[]) => abandonnerPapier(...args),
+    sauverTopicPapier: (...args: unknown[]) => sauverTopicPapier(...args),
     changerModePapier: vi.fn(),
     changerVoixPapier: vi.fn(),
     relancerPapier: vi.fn(),
-    regenererPapier: vi.fn(),
+    regenererPapier: (...args: unknown[]) => regenererPapier(...args),
+    regenererPartiePapier: (...args: unknown[]) => regenererPartiePapier(...args),
     relancerPapierLangue: vi.fn(),
     assignerPapierCm: vi.fn(),
     listerVoixPapier: vi.fn(async () => ({
@@ -80,6 +88,37 @@ function renderPage() {
   );
 }
 
+function masterScripting(overrides: Record<string, unknown> = {}) {
+  return {
+    id: "master-1",
+    date_publication: "2026-08-31",
+    topic: "Pourquoi la mer est-elle salée ?",
+    kind: "culture",
+    narration_style: "revelation",
+    script: {
+      title: "Mer",
+      hook: "La mer est salée.",
+      cta: "Plus d'histoires t'attendent sur l'application Sophia.",
+      scenes: [{ index: 1, narration: "La mer est salée.", overlay: "Sel", imagePrompt: "a", videoPrompt: "b" }],
+      hashtags: [],
+    },
+    statut: "scripting",
+    etape: "script",
+    progression: 0.1,
+    erreur: null,
+    journal: [],
+    created_at: "2026-08-31T00:00:00Z",
+    updated_at: "2026-08-31T00:00:00Z",
+    pipeline_mode: "manuel",
+    pipeline_hold: "script",
+    annule: false,
+    papier_scenes: [],
+    papier_langues: [],
+    papier_posts: [],
+    ...overrides,
+  };
+}
+
 describe("AdminPapierPage", () => {
   beforeEach(() => {
     listerPapierMasters.mockReset();
@@ -87,6 +126,12 @@ describe("AdminPapierPage", () => {
     arreterPapier.mockClear();
     proposerTopicPapier.mockClear();
     lancerPapierJourMock.mockClear();
+    abandonnerPapier.mockClear();
+    sauverTopicPapier.mockClear();
+    regenererPartiePapier.mockClear();
+    regenererPapier.mockClear();
+    validerEtapePapier.mockClear();
+    abandonnerPapier.mockResolvedValue({ ok: true, done: true });
   });
 
   it("affiche durée, catégories, styles, mode manuel et propose un sujet", async () => {
@@ -114,29 +159,7 @@ describe("AdminPapierPage", () => {
   });
 
   it("arrête la pipeline en cours", async () => {
-    listerPapierMasters.mockResolvedValue([
-      {
-        id: "master-1",
-        date_publication: "2026-08-31",
-        topic: "Pourquoi la mer est-elle salée ?",
-        kind: "culture",
-        narration_style: "revelation",
-        script: null,
-        statut: "scripting",
-        etape: "script",
-        progression: 0.1,
-        erreur: null,
-        journal: [],
-        created_at: "2026-08-31T00:00:00Z",
-        updated_at: "2026-08-31T00:00:00Z",
-        pipeline_mode: "auto",
-        pipeline_hold: null,
-        annule: false,
-        papier_scenes: [],
-        papier_langues: [],
-        papier_posts: [],
-      },
-    ]);
+    listerPapierMasters.mockResolvedValue([masterScripting()]);
     renderPage();
 
     const stop = await screen.findByRole("button", { name: /stop pipeline|arrêter la pipeline/i });
@@ -144,6 +167,68 @@ describe("AdminPapierPage", () => {
 
     await waitFor(() => {
       expect(arreterPapier).toHaveBeenCalledWith("master-1");
+    });
+  });
+
+  it("propose un sujet et l'écrit sur le master en cours", async () => {
+    listerPapierMasters.mockResolvedValue([masterScripting({ topic: "Napoléon à Waterloo" })]);
+    renderPage();
+
+    expect(await screen.findByDisplayValue("Napoléon à Waterloo")).toBeInTheDocument();
+    fireEvent.click(screen.getByTestId("papier-proposer"));
+
+    await waitFor(() => {
+      expect(proposerTopicPapier).toHaveBeenCalled();
+      expect(sauverTopicPapier).toHaveBeenCalledWith("master-1", "Pourquoi la mer est-elle salée ?");
+    });
+    await waitFor(() => {
+      expect(screen.getByDisplayValue("Pourquoi la mer est-elle salée ?")).toBeInTheDocument();
+    });
+  });
+
+  it("regénère le script avec le sujet du formulaire", async () => {
+    listerPapierMasters.mockResolvedValue([masterScripting()]);
+    renderPage();
+
+    fireEvent.click(await screen.findByTestId("papier-regen-script"));
+
+    await waitFor(() => {
+      expect(regenererPartiePapier).toHaveBeenCalledWith(
+        "master-1",
+        "script",
+        "Pourquoi la mer est-elle salée ?",
+      );
+    });
+  });
+
+  it("efface le master en cours et revient à un formulaire vide", async () => {
+    listerPapierMasters.mockResolvedValue([masterScripting({ topic: "Napoléon à Waterloo" })]);
+    abandonnerPapier.mockImplementation(async () => {
+      listerPapierMasters.mockResolvedValue([]);
+      return { ok: true, done: true };
+    });
+    renderPage();
+
+    expect(await screen.findByDisplayValue("Napoléon à Waterloo")).toBeInTheDocument();
+    fireEvent.click(screen.getByTestId("papier-start-over"));
+
+    await waitFor(() => {
+      expect(abandonnerPapier).toHaveBeenCalledWith("master-1");
+    });
+    await waitFor(() => {
+      expect(screen.queryByDisplayValue("Napoléon à Waterloo")).not.toBeInTheDocument();
+    });
+    expect(regenererPapier).not.toHaveBeenCalled();
+  });
+
+  it("valide le script du master en cours", async () => {
+    listerPapierMasters.mockResolvedValue([masterScripting()]);
+    renderPage();
+
+    fireEvent.click(await screen.findByRole("button", { name: /approve script|valider le script/i }));
+
+    await waitFor(() => {
+      expect(validerEtapePapier).toHaveBeenCalledWith("master-1", "Pourquoi la mer est-elle salée ?");
     });
   });
 });

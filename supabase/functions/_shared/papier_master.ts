@@ -164,6 +164,42 @@ async function chargerScenes(supabase: Supabase, masterId: string): Promise<Papi
   return (data ?? []) as PapierSceneRow[];
 }
 
+async function purgerFichiersMaster(supabase: Supabase, id: string): Promise<void> {
+  const master = await chargerMaster(supabase, id);
+  const scenes = await chargerScenes(supabase, id);
+  const { data: langues } = await supabase
+    .from("papier_langues")
+    .select("id, video_path, video_mix_path")
+    .eq("master_id", id);
+  const langueIds = (langues ?? []).map((l) => String((l as { id: string }).id));
+  let langueScenePaths: Array<string | null> = [];
+  if (langueIds.length) {
+    const { data: ls } = await supabase
+      .from("papier_langue_scenes")
+      .select("audio_path, mix_path")
+      .in("langue_id", langueIds);
+    langueScenePaths = (ls ?? []).flatMap((s) => [
+      (s as { audio_path?: string | null }).audio_path ?? null,
+      (s as { mix_path?: string | null }).mix_path ?? null,
+    ]);
+  }
+  const paths = [
+    master?.video_path,
+    ...scenes.flatMap((s) => [s.image_path, s.clip_path]),
+    ...(langues ?? []).flatMap((l) => [
+      (l as { video_path?: string | null }).video_path ?? null,
+      (l as { video_mix_path?: string | null }).video_mix_path ?? null,
+    ]),
+    ...langueScenePaths,
+  ].filter((p): p is string => Boolean(p));
+  if (!paths.length) return;
+  try {
+    await supabase.storage.from(BUCKET).remove(paths);
+  } catch {
+    // best-effort
+  }
+}
+
 async function patchMaster(
   supabase: Supabase,
   id: string,
@@ -411,17 +447,7 @@ export async function regenererMaster(
 ): Promise<PapierMasterRow> {
   const master = await chargerMaster(supabase, id);
   if (!master) throw new Error("Master papier introuvable");
-  const scenes = await chargerScenes(supabase, id);
-  const paths = scenes
-    .flatMap((s) => [s.image_path, s.clip_path])
-    .filter((p): p is string => Boolean(p));
-  if (paths.length) {
-    try {
-      await supabase.storage.from(BUCKET).remove(paths);
-    } catch {
-      // best-effort
-    }
-  }
+  await purgerFichiersMaster(supabase, id);
   await supabase.from("papier_langues").delete().eq("master_id", id);
   await supabase.from("papier_scenes").delete().eq("master_id", id);
   const nextTopic = topic?.trim() || null;
@@ -455,9 +481,10 @@ export async function regenererPartieMaster(
   supabase: Supabase,
   id: string,
   partie: unknown,
+  opts?: { topic?: string },
 ): Promise<PapierMasterRow> {
   const kind = normaliserPartieRegen(partie);
-  if (kind === "topic") return regenererMaster(supabase, id);
+  if (kind === "topic") return regenererMaster(supabase, id, opts?.topic);
   const master = await chargerMaster(supabase, id);
   if (!master) throw new Error("Master papier introuvable");
   const scenes = await chargerScenes(supabase, id);
@@ -474,11 +501,13 @@ export async function regenererPartieMaster(
   await supabase.from("papier_langues").delete().eq("master_id", id);
 
   if (kind === "script") {
+    const nextTopic = opts?.topic?.trim();
     await supabase.from("papier_scenes").delete().eq("master_id", id);
     await patchMaster(
       supabase,
       id,
       {
+        ...(nextTopic ? { topic: nextTopic } : {}),
         script: null,
         statut: "scripting",
         etape: "script",
@@ -524,6 +553,22 @@ export async function regenererPartieMaster(
   const next = await chargerMaster(supabase, id);
   if (!next) throw new Error("Master papier introuvable après regen partielle");
   return next;
+}
+
+/** Efface le master en cours (fichiers + ligne) — pas un master déjà en bibliothèque. */
+export async function abandonnerMaster(
+  supabase: Supabase,
+  id: string,
+): Promise<{ ok: true; masterId: string }> {
+  const master = await chargerMaster(supabase, id);
+  if (!master) return { ok: true, masterId: id };
+  if (master.statut === "ready") {
+    throw new Error("Un master en bibliothèque ne se supprime pas ici");
+  }
+  await purgerFichiersMaster(supabase, id);
+  const { error } = await supabase.from("papier_masters").delete().eq("id", id).neq("statut", "ready");
+  if (error) throw error;
+  return { ok: true, masterId: id };
 }
 
 async function etapeTopic(supabase: Supabase, master: PapierMasterRow): Promise<void> {

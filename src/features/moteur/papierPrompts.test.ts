@@ -21,23 +21,27 @@ describe("défauts prompts papier", () => {
     expect(promptPapierOuDefaut(CLE_PROMPT_SCRIPT).length).toBeGreaterThan(400);
     expect(promptPapierOuDefaut(CLE_PROMPT_VOIX).length).toBeGreaterThan(80);
     expect(promptPapierOuDefaut(CLE_PROMPT_CTA)).toContain("Sophia");
-    expect(CTA_SOPHIA_DEFAUT).toContain("Télécharge");
+    expect(CTA_SOPHIA_DEFAUT).toContain("histoires");
     expect(promptPapierOuDefaut(CLE_PROMPT_IMAGE)).toContain("paper");
     expect(promptPapierOuDefaut(CLE_PROMPT_SCRIPT, "  ")).toBe(SCRIPT_GENERATION_DEFAUT);
     expect(promptPapierOuDefaut(CLE_PROMPT_VOIX, "lent")).toBe("lent");
   });
 
   it("cible un viewer TikTok, pas un documentaire niche", () => {
-    expect(SCRIPT_GENERATION_DEFAUT).toContain("mec lambda");
-    expect(SCRIPT_GENERATION_DEFAUT).toContain("voice-over");
-    expect(SCRIPT_GENERATION_DEFAUT).toMatch(/Waterloo/);
+    expect(SCRIPT_GENERATION_DEFAUT).toContain("scénariste");
+    expect(SCRIPT_GENERATION_DEFAUT).toContain("voix off documentaire");
+    expect(SCRIPT_GENERATION_DEFAUT).not.toMatch(/DIRIAIT collé/);
+    expect(SCRIPT_GENERATION_DEFAUT).toMatch(/tu penses que/);
     expect(SCRIPT_GENERATION_DEFAUT).toMatch(/Titanic|pyramides/);
     expect(SCRIPT_GENERATION_DEFAUT).toContain("Reveal");
     expect(SCRIPT_GENERATION_DEFAUT).toContain("Big question");
     expect(SCRIPT_GENERATION_DEFAUT).toContain("Immersive story");
     expect(SCRIPT_GENERATION_DEFAUT).toContain("toutes lettres");
     expect(SCRIPT_GENERATION_DEFAUT).toMatch(/de plus|pire encore/);
-    expect(CTA_SOPHIA_DEFAUT).toMatch(/télécharger|Télécharge/);
+    expect(CTA_SOPHIA_DEFAUT).toMatch(/histoires/);
+    expect(CTA_SOPHIA_DEFAUT).toContain("Plus d'histoires");
+    expect(CTA_SOPHIA_DEFAUT).not.toMatch(/cette anecdote vient/);
+    expect(CTA_SOPHIA_DEFAUT).not.toMatch(/télécharge-la pour/);
   });
 
   it("lit vitesse et stabilité depuis le prompt voix", () => {

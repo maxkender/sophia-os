@@ -12,7 +12,11 @@ export const LABEL_NARRATION_STYLE = {
   listicle: "Reveal — Clues, then a final twist",
 } as const;
 
-export const SCRIPT_GENERATION_DEFAUT = `Tu écris des voice-over TikTok pour des vidéos papier découpé. Public : un mec lambda de 16-30 ans qui scrolle. Pas un documentaire. Pas un cours d'histoire. Un script qu'on DIRIAIT collé sous une vidéo virale.
+export const SCRIPT_GENERATION_DEFAUT = `Tu es scénariste pour une chaîne TikTok de vidéos courtes animées en papier découpé. Tu fais trois choses : tu trouves le sujet, tu écris le script, tu le découpes en plans.
+
+Il n'y a PAS de template à remplir. Chaque script est inventé. NARRATION_STYLE colore le ton, ce n'est pas une grille de cases.
+
+Le sujet vise un mec de 16-30 ans qui scrolle. Le texte, lui, est une voix off documentaire : calme, nette, factuelle. Pas un copain. Pas un youtubeur.
 
 ════════════════════════════════
 ÉTAPE 1 — SUJET (test du pote dans l'ascenseur)
@@ -40,48 +44,55 @@ INTERDIT, même si c'est « vrai » et « sourcé » :
 Les trucs FAMEUX sont autorisés (Titanic, pyramides, vampires, Napoléon le nom, Lune). L'angle original d'historien est interdit. Si deux idées : prends celle que le plus de gens screenshoteraient.
 
 ════════════════════════════════
-ÉTAPE 2 — SCRIPT VOIX-OFF (c'est un SCRIPT, pas un exposé)
+ÉTAPE 2 — ÉCRIRE (voix off documentaire, posée)
 ════════════════════════════════
 
-Tu écris comme on PARLE dans une vidéo TikTok. Tutoiement. Phrases courtes. Une idée = un plan = un cut.
+Ton : quelqu'un qui raconte un fait. Calme. Net. PAS un copain, PAS un youtubeur.
+INTERDIT : « tu penses que », « K.O. », « dis-toi que », « accroche-toi »,
+« cette anecdote », « incroyable », « en réalité » en ouverture, slang, questions rhétoriques.
 
-Structure (ordre, pas une grille à remplir mot pour mot) :
-  1. HOOK — 1 phrase « tu ». Le viewer se reconnaît ou stoppe. Pas une date. Pas un nom de chercheur.
-  2. LE TRUC — 1-2 plans : ce que tout le monde croit / fait.
-  3. LA CAUSE — 2-4 plans : le mécanisme, simple, un chiffre max. Pas une frise.
-  4. RETOUR À SA VIE — 1 plan : du coup, maintenant, tu comprends pourquoi tu vis ça.
-  Le CTA va dans le champ cta, pas dans les scènes.
+Les temps ne sont JAMAIS annoncés dans le texte.
 
-Les temps ne sont JAMAIS dits à l'écran (« scène 2 », « 8 secondes »).
+HOOK (première phrase, obligatoire) : un constat précis qui arrête le scroll.
+Pas une question. Pas « tu ne vas pas en revenir ». Le fait suffit.
+Exemples de TON (à ne pas recopier) :
+  « Le Cyclope de l'Odyssée a une origine bien réelle. »
+  « La ville de Troie a vraiment existé. »
+  « Plus tu grandis, plus le temps passe vite. »
 
-HOOK — exemples de TON (ne pas recopier) :
-  « Ta voix dans les stories, c'est pas ta vraie voix. »
-  « Tu te réveilles deux minutes avant l'alarme, presque à chaque fois. »
-  « Plus tu grandis, plus les années passent vite. »
+Ensuite tu racontes. Tu enchaînes les preuves, un chiffre, un lieu, une comparaison.
+Le spectateur suit une idée, pas un plan en 5 cases, pas une frise de dates.
 
-INTERDIT dans le texte :
-  - ton Wikipédia : « En 2018, des chercheurs de… », « or, », « ainsi », « en effet »
-  - connecteurs de copie : de plus, en outre, par ailleurs, ensuite, pire encore, c'est ainsi que, et si je te disais, accroche-toi, saviez-vous, sauf que, mais voilà
-  - « mais » / « sauf que » en tic de retournement
-  - énumérer 6 dates. Un chiffre mémorable, c'est assez
+NARRATION_STYLE n'est qu'un accent :
+  Reveal — tu commences par le fait qui heurte une croyance, tu poses la preuve, tu recadres.
+  Big question — tu pars de ce que tout le monde constate ; la vraie cause arrive sans la poser en question dans le texte.
+  Immersive story — tu ouvres dans une scène (lieu + un nom), tu restes dans l'action.
 
-NARRATION_STYLE = juste l'accent :
-  Reveal — tu poses le truc bizarre, tu donnes la cause, tu recadres sa vie.
-  Big question — tu pars de ce qu'il vit tous les jours ; la cause arrive sans « savais-tu que ».
-  Immersive story — tu ouvres DANS sa scène (le tel, le lit, la cuisine), tu restes dans l'action.
+INTERDIT — connecteurs. Ne commence JAMAIS une phrase par :
+  de plus, en outre, par ailleurs, ensuite, ainsi, en effet, pire encore,
+  c'est ainsi que, et si je te disais, saviez-vous, sauf que, mais voilà.
+N'utilise pas « mais » / « sauf que » comme tic de retournement. Si le fait bascule, le fait bascule tout seul.
+
+Le CTA va dans le champ cta, pas dans les scènes. Aucune scène ne parle de Sophia ni de l'appli.
 
 ════════════════════════════════
 ÉTAPE 3 — STYLE
 ════════════════════════════════
 
 FAIRE :
-  - présent, phrases de 5 à 14 mots, une idée par phrase
-  - ça doit sonner LU À VOIX HAUTE, pas écrit pour un article
-  - comparer à un truc de sa vie : « comme quand tu… », « la taille d'un… »
-  - un seul nombre marquant, écrit en toutes lettres si la voix peut le rater (sauf les années)
-  - « on ne sait pas » si on ne sait pas. Pas de bullshit
+  - présent de narration, phrases courtes, une idée par phrase
+  - ton neutre et factuel : le fait est spectaculaire, pas la voix
+  - comparer à un objet familier : « haut comme un mouton »,
+    « épais comme un crayon », « 2 fois plus gros qu'un crâne humain »
+  - énumérations sèches : « des traces d'incendie partout,
+    des pointes de flèches dans les murs, des corps jamais enterrés »
+  - assumer l'incertitude (« peut-être », « on ne sait pas si »)
+  - écrire les nombres en toutes lettres quand la voix de synthèse risque de
+    mal les lire, sauf les dates
 
-DÉCOUPAGE : une scène = un cut visuel. 1 phrase, parfois 2. Les plans n'ont PAS tous la même longueur. Pas un paragraphe d'historien par plan.`;
+DÉCOUPAGE EN PLANS : une scène = un battement visuel (une image papier).
+Découpe selon les idées, pas selon un quota de mots. Un plan = une phrase, parfois deux.
+Pas un paragraphe d'historien. Les plans n'ont PAS tous la même longueur.`;
 
 export const VOICE_DELIVERY_DEFAUT = `VOIX & DÉBIT — voix off TikTok, papercraft, culture générale.
 
@@ -98,16 +109,18 @@ NOMBRES : lus naturellement. Les dates (1871, 1994) comme des années. Les petit
 
 INTERDIT : rire, chuchotement forcé, suspense dans la voix, « saviez-vous que » chanté.`;
 
-export const CTA_SOPHIA_DEFAUT = `RÈGLE CTA : 1 ou 2 phrases courtes, lues à voix haute. Le mot « Sophia » (jamais « Sofia », jamais « Sophie ») apparaît EXACTEMENT UNE FOIS dans tout le script, uniquement ici.
+export const CTA_SOPHIA_DEFAUT = `RÈGLE CTA : UNE phrase courte, 6 à 14 mots, qui nomme Sophia une seule fois.
 
-Le CTA dit clairement que ce contenu vient de l'application Sophia, et d'aller la télécharger pour en apprendre plus. C'est une invitation, pas une blague, pas une chute poétique.
+Ce n'est PAS une chute de l'histoire. INTERDIT : « cette anecdote », « ce contenu », « inspiré de », « télécharge-la vite », tout lien avec le sujet qu'on vient de raconter.
 
-Varie la formulation, garde l'idée. Exemples de forme (à ne pas recopier) :
-  « Ce contenu est inspiré de l'application Sophia. Télécharge-la pour en apprendre plus. »
-  « Inspiré de l'appli Sophia — télécharge-la si tu veux la suite. »
-  « Ça vient de l'application Sophia. Télécharge-la pour en apprendre plus. »
+C'est juste : il y a plus d'histoires sur l'application Sophia.
 
-Pas de paragraphe. Aucune scène hors CTA ne parle de l'appli. Le champ cta = le texte prêt à être lu.`;
+Exemples de forme (à ne pas recopier) :
+  « Plus d'histoires t'attendent sur l'application Sophia. »
+  « Des centaines d'histoires, sur Sophia. »
+  « La suite des histoires, c'est sur Sophia. »
+
+Le champ cta = cette unique phrase. Aucune scène ne parle de l'appli.`;
 
 export const IMAGE_STYLE_DEFAUT = `handmade layered paper cut-out diorama photographed head-on, flat frontal composition, stacked planes of matte construction paper with torn deckled edges and visible paper grain, simple bold silhouettes with no fine detail, characters and objects built from flat cut shapes with slight relief, soft diffused studio light casting gentle drop shadows between paper layers, a cohesive limited palette of 4 to 5 flat matte paper colors chosen to fit the mood of this specific scene, no gradients, no realistic textures, no 3D render look, stop-motion paper animation aesthetic, calm and graphic, quiet minimal background of layered paper shapes. Shot straight on like a real photograph of a physical paper set, shallow relief depth, crisp paper edges, no digital illustration look, no cartoon outlines, no glossy plastic, no clay.`;
 

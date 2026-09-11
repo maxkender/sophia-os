@@ -3,7 +3,7 @@
  * Auth : JWT admin ou x-cron-secret.
  *
  *   tick | assurer | relancer | regenerer | voix
- *   proposer_topic | valider | arreter | regenerer_partie
+ *   proposer_topic | valider | arreter | abandonner | regenerer_partie
  *   lister_voix | preview_voix
  *   tick_locales (FR, ou une langue demandée) | relancer_langue
  *   assigner | annuler_test
@@ -22,6 +22,7 @@ import {
   relancerLangue,
 } from "../_shared/papier_locales.ts";
 import {
+  abandonnerMaster,
   avancerMaster,
   arreterMaster,
   kickPapierCm,
@@ -226,6 +227,13 @@ Deno.serve(async (request) => {
       });
     }
 
+    if (action === "abandonner") {
+      const id = String(body?.id ?? body?.masterId ?? "");
+      if (!id) return json({ ok: false, error: "id requis" }, 400);
+      const out = await abandonnerMaster(supabase, id);
+      return json({ ok: true, done: true, kick: false, masterId: out.masterId, statut: "gone" });
+    }
+
     if (action === "valider") {
       const id = String(body?.id ?? body?.masterId ?? "");
       if (!id) return json({ ok: false, error: "id requis" }, 400);
@@ -283,7 +291,9 @@ Deno.serve(async (request) => {
     if (action === "regenerer_partie") {
       const id = String(body?.id ?? body?.masterId ?? "");
       if (!id) return json({ ok: false, error: "id requis" }, 400);
-      const master = await regenererPartieMaster(supabase, id, body?.partie);
+      const master = await regenererPartieMaster(supabase, id, body?.partie, {
+        topic: typeof body?.topic === "string" ? body.topic : undefined,
+      });
       const tick = await avancerMaster(supabase, master.id);
       return json({ ok: true, ...enchainer(request, tick, master.id) });
     }

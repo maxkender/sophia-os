@@ -17,7 +17,6 @@ import {
   DialogDescription,
   DialogFooter,
   DialogHeader,
-  DialogPanel,
   DialogPopup,
   DialogTitle,
 } from "@/components/ui/dialog";
@@ -138,13 +137,13 @@ function ReglagesRemarques({
 
   return (
     <Dialog open={ouvert} onOpenChange={(o) => !o && onFermer()} disablePointerDismissal>
-      <DialogPopup className="max-w-lg" showCloseButton>
-        <DialogHeader>
+      <DialogPopup className="max-h-[calc(100dvh-2rem)] max-w-lg overflow-hidden" showCloseButton>
+        <DialogHeader className="shrink-0">
           <DialogTitle>{t("fileReviews.reglagesTitre")}</DialogTitle>
           <DialogDescription>{t("fileReviews.reglagesSous")}</DialogDescription>
         </DialogHeader>
         <form
-          className="space-y-2 border-b px-6 py-3"
+          className="shrink-0 space-y-2 border-b px-6 py-3"
           onSubmit={(e) => {
             e.preventDefault();
             ajouter();
@@ -161,10 +160,11 @@ function ReglagesRemarques({
             value={corps}
             onChange={(e) => setCorps(e.target.value)}
             placeholder={t("fileReviews.corpsPlaceholder")}
-            rows={3}
-            className="min-h-20 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            rows={2}
+            className="min-h-16 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
           />
           <DropVideoRemarque
+            compact
             videoUrl={apercuNouvelle}
             disabled={creer.isPending}
             labelVide={t("fileReviews.videoVide")}
@@ -202,7 +202,10 @@ function ReglagesRemarques({
             {t("fileReviews.ajouter")}
           </Button>
         </form>
-        <DialogPanel className="space-y-4" scrollFade={false}>
+        <div
+          data-testid="liste-remarques"
+          className="min-h-0 flex-1 overflow-y-auto px-6 py-3"
+        >
           <ul className="space-y-3">
             {(remarques.data ?? []).map((r) => (
               <LigneRemarque
@@ -219,8 +222,8 @@ function ReglagesRemarques({
               />
             ))}
           </ul>
-        </DialogPanel>
-        <DialogFooter>
+        </div>
+        <DialogFooter className="shrink-0">
           <Button type="button" variant="outline" onClick={onFermer}>
             {t("common.close")}
           </Button>

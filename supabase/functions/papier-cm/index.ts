@@ -329,8 +329,11 @@ function enchainer(request: Request, tick: Tick, masterId?: string) {
   }
 
   if (tick.idle || tick.kick === false) return tick;
-  if (tick.langueId && tick.done && tick.statut === "ready" && tick.langue && tick.langue !== "fr") {
-    kickPapierCm(request, { action: "assigner" });
+  if (tick.langueId && tick.done && tick.statut === "ready") {
+    kickPapierCm(request, corpsKickSuitePapier({ masterId: id, action: "tick_locales" }));
+    if (tick.langue && tick.langue !== "fr") {
+      kickPapierCm(request, { action: "assigner" });
+    }
     return { ...tick, kick: true };
   }
   if (!tick.langueId && tick.done && tick.statut === "clips") {

@@ -22,7 +22,7 @@ export function scriptSystemPrompt(
   kind: PapierKind,
   sceneCount: number,
   style: PapierNarrationStyle,
-  _wordsPerScene: number,
+  wordsPerScene: number,
   totalWords: number,
   extras: {
     doctrine: string;
@@ -35,8 +35,8 @@ export function scriptSystemPrompt(
 ): string {
   const langName = extras.langName ?? "français de France";
   const categorie = extras.categorie ?? "aleatoire";
-  const min = Math.max(3, Math.round(sceneCount * 0.6));
-  const max = Math.min(12, Math.max(sceneCount, min + 1));
+  const min = Math.max(4, sceneCount - 1);
+  const max = Math.min(8, sceneCount + 1);
   return [
     extras.doctrine.trim() || PROMPTS_PAPIER_DEFAUT[CLE_PROMPT_SCRIPT],
     "",
@@ -45,13 +45,14 @@ export function scriptSystemPrompt(
     KIND_BRIEF[kind],
     `LANGUE DE SORTIE : tous les textes lus ou affichés (title, hook, narration, overlay, cta, hashtags) sont en ${langName}. Seuls imagePrompt et videoPrompt restent en anglais.`,
     `ÉTAPE ACTIVE : 2 et 3 — SCRIPT + DÉCOUPAGE EN PLANS.`,
-    `Découpe en ${min} à ${max} scènes (hors CTA, le CTA va dans le champ cta). Le nombre suit les idées, pas un quota. Chaque plan = un battement visuel.`,
-    `DURÉE : le script complet (scènes + CTA) fait environ ${totalWords} mots (± 15 %). Une narration peut faire 8 à 40 mots — les plans n'ont pas tous la même longueur.`,
+    `Découpe en ${min} à ${max} scènes hors CTA (vise ${sceneCount}). Chaque plan ≈ ${wordsPerScene} mots, 2 à 4 phrases. Moins de plans vides, plus d'histoire dans chacun.`,
+    `DURÉE : le script complet (scènes + CTA) fait environ ${totalWords} mots (± 15 %).`,
+    "HISTOIRE FINIE : le dernier plan hors CTA pose la chute. Interdit de s'arrêter au milieu.",
     "Le champ hook reprend exactement le texte de la scène 1.",
     "Le champ overlay : 3 à 6 mots, percutant (ne pas écrire la couleur).",
     extras.voix.trim(),
     extras.cta.trim(),
-    "COHÉRENCE VISUELLE : remplis characters (description physique FIXE en anglais) et palette (4 à 5 couleurs).",
+    "COHÉRENCE VISUELLE : characters (description physique FIXE en anglais) et palette = 3 fonds SOMBRES + 1 accent saturé RÉCURRENT, nommé, recopié dans CHAQUE imagePrompt. Sujet coloré au centre. Pas de grands aplats blancs, crème ou menthe.",
     "Dans CHAQUE imagePrompt et videoPrompt, recopie mot pour mot la description du personnage. Jamais « the same man ».",
     "CORRESPONDANCE TEXTE–IMAGE : l'image illustre LITTÉRALEMENT la narration. 1 à 3 éléments, silhouette claire, aucun texte dans l'image.",
     "videoPrompt : action simple, caméra VERROUILLÉE. Seuls les papiers bougent. 8 secondes max.",
@@ -66,7 +67,7 @@ export function scriptUserPrompt(kind: PapierKind, topic: string): string {
   const base = topic.trim() || "un fait fascinant surprenant au choix";
   return kind === "pub"
     ? `Sujet : ${base}. CTA générique : plus d'histoires sur l'application Sophia, sans parler de ce sujet.`
-    : `Sujet : ${base}. NARRATION_STYLE colore le ton, ce n'est pas un template. Chaque plan avance l'idée. Découpe selon les battements visuels.`;
+    : `Sujet : ${base}. NARRATION_STYLE colore le ton, ce n'est pas un template. Histoire FINIE avant le CTA. Découpe en plans denses.`;
 }
 
 export function topicSystemPrompt(

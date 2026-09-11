@@ -76,15 +76,25 @@ Comparer à un objet familier : haut comme un mouton, épais comme un crayon.
 Un seul nombre marquant, en toutes lettres si la voix peut le rater (sauf les dates).
 « on ne sait pas si » quand on ne sait pas.
 
-DÉCOUPAGE : une scène = un battement visuel. Une phrase, parfois deux. Pas un paragraphe d'historien.
-Les plans n'ont PAS tous la même longueur.`
+DÉCOUPAGE : 2 à 4 phrases par plan, un vrai morceau d'histoire — pas une légende de photo.
+Moins de plans, plus de texte dans chacun. Les plans n'ont PAS tous la même longueur.
+
+════════════════════════════════
+ÉTAPE 4 — HISTOIRE FINIE
+════════════════════════════════
+
+Le spectateur a la CHUTE avant le CTA. Interdit de s'arrêter au milieu :
+  vol de la Joconde → l'arrestation, et POURQUOI ça l'a rendue célèbre.
+  guerre → comment ça finit.
+  énigme → la réponse.
+Le CTA n'est PAS la chute.`
 
 export const VOICE_DELIVERY_DEFAUT = `VOIX & DÉBIT — voix off TikTok, papercraft, culture générale.
 
-vitesse: 0.92
+vitesse: 1.0
 stabilite: 0.58
 
-DÉBIT : posé, un peu plus lent qu'une conversation. Environ 2,5 mots par seconde. Une micro-pause après chaque point. Jamais précipité, jamais théâtral.
+DÉBIT : posé, un cran plus vif qu'avant. Environ 2,8 mots par seconde. Une micro-pause après chaque point. Jamais précipité, jamais traînant, jamais théâtral.
 
 TON : quelqu'un qui raconte un fait précis. Pas un présentateur, pas un youtubeur surexcité. Tutoiement. Calme, clair, crédible. Le fait porte l'effet, pas la voix.
 
@@ -107,7 +117,7 @@ Exemples de forme (à ne pas recopier) :
 
 Le champ cta = cette unique phrase. Aucune scène ne parle de l'appli.`;
 
-export const IMAGE_STYLE_DEFAUT = `handmade layered paper cut-out diorama photographed head-on, flat frontal composition, stacked planes of matte construction paper with torn deckled edges and visible paper grain, simple bold silhouettes with no fine detail, characters and objects built from flat cut shapes with slight relief, soft diffused studio light casting gentle drop shadows between paper layers, a cohesive limited palette of 4 to 5 flat matte paper colors chosen to fit the mood of this specific scene, no gradients, no realistic textures, no 3D render look, stop-motion paper animation aesthetic, calm and graphic, quiet minimal background of layered paper shapes. Shot straight on like a real photograph of a physical paper set, shallow relief depth, crisp paper edges, no digital illustration look, no cartoon outlines, no glossy plastic, no clay.`;
+export const IMAGE_STYLE_DEFAUT = `handmade layered paper cut-out diorama photographed head-on, flat frontal composition, stacked planes of matte construction paper with torn deckled edges and visible paper grain, simple bold silhouettes with no fine detail, characters and objects built from flat cut shapes with slight relief, soft diffused studio light casting gentle drop shadows between paper layers. LIGHTING: dim studio, not a white tabletop and not a black void — mid-dark papers (charcoal, ink navy, deep olive, warm umber) so a phone thumb stops scrolling. One saturated ACCENT color from the series palette sits on the MAIN SUBJECT, centered in the 1:1 safe square, and that same accent RETURNS in every shot of the video. Background quieter and darker than the subject; no pale mint walls, cream skies, or large white paper fields. Cohesive 4 to 5 flat matte paper colors, no gradients, no realistic textures, no 3D render look, stop-motion paper animation aesthetic. Shot straight on like a real photograph of a physical paper set, shallow relief depth, crisp paper edges, no digital illustration look, no cartoon outlines, no glossy plastic, no clay.`;
 
 export const PROMPTS_PAPIER_DEFAUT: Record<string, string> = {
   [CLE_PROMPT_SCRIPT]: SCRIPT_GENERATION_DEFAUT,

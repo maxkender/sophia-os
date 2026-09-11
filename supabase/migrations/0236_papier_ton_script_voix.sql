@@ -1,18 +1,8 @@
-/** Copie Deno de src/features/moteur/papierPromptDefauts.ts — garder synchro. */
+-- Ton visuel plus sombre + scripts finis + débit voix.
 
-export const CLE_PROMPT_SCRIPT = "script_generation";
-export const CLE_PROMPT_VOIX = "voice_delivery";
-export const CLE_PROMPT_CTA = "cta_sophia";
-export const CLE_PROMPT_IMAGE = "image_style";
-
-export const LABEL_NARRATION_STYLE = {
-  revelation: "Reveal — Clues, then a final twist",
-  question: "Big question — But do you really know why…?",
-  storytelling: "Immersive story — the scene as it was lived",
-  listicle: "Reveal — Clues, then a final twist",
-} as const;
-
-export const SCRIPT_GENERATION_DEFAUT = `Tu écris la voix off de vidéos papier découpé. Public : un mec de 16-30 ans qui scrolle. Calme, fluide, des mots qu'il connaît. Pas un copain. Pas un prof. Pas un article.
+insert into public.prompts (cle, contenu)
+values
+  ('script_generation', $papier_script$Tu écris la voix off de vidéos papier découpé. Public : un mec de 16-30 ans qui scrolle. Calme, fluide, des mots qu'il connaît. Pas un copain. Pas un prof. Pas un article.
 
 Il n'y a PAS de template. Chaque sujet invente sa forme. Les 7 textes ci-dessous sont le TON à viser — énergie, rythme, clarté. Ne les recopie pas. N'en fais pas une grille.
 
@@ -87,9 +77,8 @@ Le spectateur a la CHUTE avant le CTA. Interdit de s'arrêter au milieu :
   vol de la Joconde → l'arrestation, et POURQUOI ça l'a rendue célèbre.
   guerre → comment ça finit.
   énigme → la réponse.
-Le CTA n'est PAS la chute.`
-
-export const VOICE_DELIVERY_DEFAUT = `VOIX & DÉBIT — voix off TikTok, papercraft, culture générale.
+Le CTA n'est PAS la chute.$papier_script$),
+  ('voice_delivery', $papier_voix$VOIX & DÉBIT — voix off TikTok, papercraft, culture générale.
 
 vitesse: 1.0
 stabilite: 0.58
@@ -102,46 +91,7 @@ RESPIRATION : courte entre les phrases. Pas de soupir. Pas d'emphase artificiell
 
 NOMBRES : lus naturellement. Les dates (1871, 1994) comme des années. Les petites quantités déjà écrites en toutes lettres dans le script.
 
-INTERDIT : rire, chuchotement forcé, suspense dans la voix, « saviez-vous que » chanté.`;
-
-export const CTA_SOPHIA_DEFAUT = `RÈGLE CTA : UNE phrase courte, 6 à 14 mots, qui nomme Sophia une seule fois.
-
-Ce n'est PAS une chute de l'histoire. INTERDIT : « cette anecdote », « ce contenu », « inspiré de », « télécharge-la vite », tout lien avec le sujet qu'on vient de raconter.
-
-C'est juste : il y a plus d'histoires sur l'application Sophia.
-
-Exemples de forme (à ne pas recopier) :
-  « Plus d'histoires t'attendent sur l'application Sophia. »
-  « Des centaines d'histoires, sur Sophia. »
-  « La suite des histoires, c'est sur Sophia. »
-
-Le champ cta = cette unique phrase. Aucune scène ne parle de l'appli.`;
-
-export const IMAGE_STYLE_DEFAUT = `handmade layered paper cut-out diorama photographed head-on, flat frontal composition, stacked planes of matte construction paper with torn deckled edges and visible paper grain, simple bold silhouettes with no fine detail, characters and objects built from flat cut shapes with slight relief, soft diffused studio light casting gentle drop shadows between paper layers. LIGHTING: dim studio, not a white tabletop and not a black void — mid-dark papers (charcoal, ink navy, deep olive, warm umber) so a phone thumb stops scrolling. One saturated ACCENT color from the series palette sits on the MAIN SUBJECT, centered in the 1:1 safe square, and that same accent RETURNS in every shot of the video. Background quieter and darker than the subject; no pale mint walls, cream skies, or large white paper fields. Cohesive 4 to 5 flat matte paper colors, no gradients, no realistic textures, no 3D render look, stop-motion paper animation aesthetic. Shot straight on like a real photograph of a physical paper set, shallow relief depth, crisp paper edges, no digital illustration look, no cartoon outlines, no glossy plastic, no clay.`;
-
-export const PROMPTS_PAPIER_DEFAUT: Record<string, string> = {
-  [CLE_PROMPT_SCRIPT]: SCRIPT_GENERATION_DEFAUT,
-  [CLE_PROMPT_VOIX]: VOICE_DELIVERY_DEFAUT,
-  [CLE_PROMPT_CTA]: CTA_SOPHIA_DEFAUT,
-  [CLE_PROMPT_IMAGE]: IMAGE_STYLE_DEFAUT,
-};
-
-export function promptPapierOuDefaut(cle: string, contenu?: string | null): string {
-  const brut = contenu?.trim();
-  if (brut) return brut;
-  return PROMPTS_PAPIER_DEFAUT[cle] ?? "";
-}
-
-export function vitesseVoixDepuisPrompt(prompt: string): number | undefined {
-  const m = prompt.match(/vitesse\s*[:=]\s*([0-9.]+)/i) ?? prompt.match(/speed\s*[:=]\s*([0-9.]+)/i);
-  if (!m) return undefined;
-  const n = Number(m[1]);
-  return n >= 0.5 && n <= 2 ? n : undefined;
-}
-
-export function stabiliteVoixDepuisPrompt(prompt: string): number | undefined {
-  const m = prompt.match(/stabilit[eé]\s*[:=]\s*([0-9.]+)/i) ?? prompt.match(/stability\s*[:=]\s*([0-9.]+)/i);
-  if (!m) return undefined;
-  const n = Number(m[1]);
-  return n >= 0 && n <= 1 ? n : undefined;
-}
+INTERDIT : rire, chuchotement forcé, suspense dans la voix, « saviez-vous que » chanté.$papier_voix$),
+  ('image_style', $papier_image$handmade layered paper cut-out diorama photographed head-on, flat frontal composition, stacked planes of matte construction paper with torn deckled edges and visible paper grain, simple bold silhouettes with no fine detail, characters and objects built from flat cut shapes with slight relief, soft diffused studio light casting gentle drop shadows between paper layers. LIGHTING: dim studio, not a white tabletop and not a black void — mid-dark papers (charcoal, ink navy, deep olive, warm umber) so a phone thumb stops scrolling. One saturated ACCENT color from the series palette sits on the MAIN SUBJECT, centered in the 1:1 safe square, and that same accent RETURNS in every shot of the video. Background quieter and darker than the subject; no pale mint walls, cream skies, or large white paper fields. Cohesive 4 to 5 flat matte paper colors, no gradients, no realistic textures, no 3D render look, stop-motion paper animation aesthetic. Shot straight on like a real photograph of a physical paper set, shallow relief depth, crisp paper edges, no digital illustration look, no cartoon outlines, no glossy plastic, no clay.$papier_image$)
+on conflict (cle) do update
+  set contenu = excluded.contenu, updated_at = now();

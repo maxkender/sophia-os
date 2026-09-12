@@ -1215,6 +1215,7 @@ export const fr = {
       hmUgcAiVideoLabels: "Labels UGC AI VIDEO du recruteur",
       hmUgcAiVideoLabelsAide:
         "Chaque créateur reçoit ces labels + la marque « UGC AI VIDEO ». Crée des labels UGC AI VIDEO dans Pilotage.",
+      reessayer: "Réessayer",
       erreurChargement:
         "Chargement impossible : {{msg}}. Les comptes affichés peuvent être incomplets — recharge la page.",
       partBien: "{{pct}} % en BIEN+",

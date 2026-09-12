@@ -15,6 +15,7 @@ import {
   CardTitle,
   EmptyState,
 } from "@/components/ui/card";
+import { messageErreur } from "@/lib/utils";
 import { badgeManager, estRoleManager, useAuth } from "@/features/auth/AuthContext";
 import { CompteursPhases, ListeCreateursSuivi } from "@/features/hiring/SuiviCreateurs";
 import { equipesParDm, hmsDuDm, hmsSansDm, nomProfil, resumeHm } from "@/features/hiring/suiviEquipe";
@@ -1249,14 +1250,22 @@ export function AdminPostersPage() {
   return (
     <div className="space-y-6">
       {erreurChargement && (
-        <p className="rounded-md border border-destructive/40 bg-destructive/10 p-3 text-sm text-destructive">
-          {t("posters.erreurChargement", {
-            msg:
-              erreurChargement instanceof Error
-                ? erreurChargement.message
-                : String(erreurChargement),
-          })}
-        </p>
+        <div className="flex flex-wrap items-center justify-between gap-3 rounded-md border border-destructive/40 bg-destructive/10 p-3 text-sm text-destructive">
+          <span>{t("posters.erreurChargement", { msg: messageErreur(erreurChargement) })}</span>
+          {/* `refetchOnWindowFocus` est désactivé pour toute l'app : sans ce
+              bouton, une requête tombée en erreur y reste jusqu'à un
+              rechargement complet du navigateur, même en changeant de page. */}
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={() => {
+              void comptes.refetch();
+              void posters.refetch();
+            }}
+          >
+            {t("posters.reessayer")}
+          </Button>
+        </div>
       )}
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="flex items-center gap-2">

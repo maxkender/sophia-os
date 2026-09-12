@@ -587,20 +587,28 @@ export async function listerPosters(): Promise<PosterProfil[]> {
     .order("created_at", { ascending: false });
   if (error) throw error;
 
-  const { data: roles } = await supabase.from("user_roles").select("user_id, role");
+  const { data: roles, error: errRoles } = await supabase
+    .from("user_roles")
+    .select("user_id, role");
+  if (errRoles) throw errRoles;
   const parUtilisateur = new Map((roles ?? []).map((r) => [r.user_id, r.role]));
 
   // Le pseudo TikTok du poster vit sur son compte de publication ; on rapatrie
   // aussi son compte de RÉFÉRENCE (la source), visible côté admin seulement.
   // Comptes ACTIFS seulement : un doublon désactivé ne doit pas détourner le lien
   // TikTok du header (bug où la liste montrait un @ ≠ de celui de l'éditeur).
-  const { data: comptes } = await supabase
+  // Erreur remontée, jamais avalée : un select qui échoue (colonne inconnue
+  // après une migration, bundle périmé en cache navigateur…) doit afficher une
+  // erreur, pas « 0 compte » sur chaque créateur — ce mensonge ressemble à une
+  // perte de données.
+  const { data: comptes, error: errComptes } = await supabase
     .from("comptes")
     .select(
       "id, poster_id, type_compte, langue, application_id, handle_tiktok, persona_nom, persona_bio, avatar_url, classement, classement_maj_at, warmup_started_at, warmup_ends_at, comptes_reference(handle_tiktok), applications(slug)",
     )
     .eq("is_active", true)
     .order("created_at", { ascending: false });
+  if (errComptes) throw errComptes;
   const comptesParPoster = new Map<string, CompteResumePoster[]>();
   for (const c of comptes ?? []) {
     const ref = (c as { comptes_reference?: { handle_tiktok?: string } }).comptes_reference;

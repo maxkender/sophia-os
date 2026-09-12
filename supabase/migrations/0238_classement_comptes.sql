@@ -35,7 +35,11 @@ alter table public.comptes
   -- Liste « ne pas renouveler » + checklist de la demande au HM.
   add column if not exists non_renouveler boolean not null default false,
   add column if not exists non_renouveler_at timestamptz,
-  add column if not exists non_renouveler_par uuid references public.profiles (id) on delete set null,
+  -- SANS clé étrangère vers `profiles`, volontairement : `comptes.poster_id`
+  -- y pointe déjà, et un second chemin rend les embeds PostgREST
+  -- `comptes → profiles(...)` ambigus — 300 Multiple Choices sur toutes les
+  -- requêtes du produit qui les utilisent (voir 0240).
+  add column if not exists non_renouveler_par uuid,
   add column if not exists non_renouveler_hm_demande boolean not null default false,
   add column if not exists non_renouveler_hm_demande_at timestamptz;
 

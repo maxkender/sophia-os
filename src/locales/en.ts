@@ -1213,6 +1213,8 @@ export const en = {
       hmUgcAiVideoLabels: "Recruiter UGC AI VIDEO labels",
       hmUgcAiVideoLabelsAide:
         "Each creator gets these labels + the « UGC AI VIDEO » mark. Create UGC AI VIDEO labels in Pilotage.",
+      erreurChargement:
+        "Loading failed: {{msg}}. The accounts shown may be incomplete — reload the page.",
       partBien: "{{pct}}% GOOD+",
       partBienAide: "Share of this recruiter's creators rated GOOD or STAR",
       createursDuRecruteur: "Assigned creators",

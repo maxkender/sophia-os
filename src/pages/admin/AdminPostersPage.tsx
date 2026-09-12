@@ -1241,8 +1241,23 @@ export function AdminPostersPage() {
     fiche && estRoleManager(fiche.role) ? partBienRecruteur(fiche.id) : null;
   const soiMeme = fiche?.id === user?.id;
 
+  // Une requête en erreur ne doit pas se lire comme « ce créateur n'a aucun
+  // compte » : sans ce bandeau, un 300/400 sur `comptes` affichait 0 compte
+  // partout et ressemblait à une perte de données.
+  const erreurChargement = comptes.error ?? posters.error;
+
   return (
     <div className="space-y-6">
+      {erreurChargement && (
+        <p className="rounded-md border border-destructive/40 bg-destructive/10 p-3 text-sm text-destructive">
+          {t("posters.erreurChargement", {
+            msg:
+              erreurChargement instanceof Error
+                ? erreurChargement.message
+                : String(erreurChargement),
+          })}
+        </p>
+      )}
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="flex items-center gap-2">
           <h1 className="text-lg font-semibold">{t("posters.title")}</h1>

@@ -10,6 +10,7 @@ import {
   extraireJson,
   finaliserScript,
   finTrimClipPourVoix,
+  vitesseTtsPourPlan,
   motionPromptPapier,
   normaliserCtaSophiaUnique,
   protegerNomSophia,
@@ -34,6 +35,12 @@ describe("durée de clip", () => {
     expect(finTrimClipPourVoix(7.321)).toBe(7.321);
     expect(finTrimClipPourVoix(0)).toBeNull();
     expect(finTrimClipPourVoix(Number.NaN)).toBeNull();
+  });
+
+  it("adapte la vitesse TTS à la durée du plan (clamp 0,7–1,2)", () => {
+    expect(vitesseTtsPourPlan("mot ".repeat(20).trim(), 5)).toBe(1.2);
+    expect(vitesseTtsPourPlan("un deux trois", 8)).toBe(0.7);
+    expect(vitesseTtsPourPlan("un deux trois quatre cinq six", 6 / 2.8, 1)).toBe(1);
   });
 });
 

@@ -1,7 +1,7 @@
 /**
  * Fal — karaoke Papier.
  *   fal-ai/workflow-utilities/add-subtitles-to-video  (timings TTS déjà connus)
- *   fallback fal-ai/workflow-utilities/auto-subtitle  (retranscription, lent)
+ *   Pas de auto-subtitle STT (coût + désync).
  */
 
 import {
@@ -14,18 +14,17 @@ import { urlSansCacheBuster } from "./fal_normaliser_video.ts";
 import type { PapierSousTitre } from "./papier_locales_core.ts";
 
 const BURN = "fal-ai/workflow-utilities/add-subtitles-to-video";
-const AUTO = "fal-ai/workflow-utilities/auto-subtitle";
 
 const STYLE = {
   font_name: "Anton",
-  font_size: 64,
+  font_size: 56,
   font_weight: "black" as const,
   font_color: "white" as const,
   stroke_width: 3,
   stroke_color: "black" as const,
   background_color: "none" as const,
-  position: "center" as const,
-  y_offset: 0,
+  position: "bottom" as const,
+  y_offset: 48,
 };
 
 function videoUrlDepuisFal(data: Record<string, unknown> | null | undefined): string | undefined {
@@ -56,36 +55,25 @@ export async function incrusterKaraokeFal(input: {
   const segments = (input.subtitles ?? []).filter(
     (s) => s.text.trim() && s.end > s.start && s.start >= 0,
   );
+  if (!segments.length) {
+    throw new Error("karaoke papier: timings TTS absents — pas de re-STT (coût)");
+  }
 
-  const queued = segments.length
-    ? await falQueueSubmit(
-        BURN,
-        {
-          video_url,
-          subtitles: segments.map((s) => ({
-            text: s.text,
-            start: s.start,
-            end: s.end,
-          })),
-          ...STYLE,
-        },
-        input.onProgress,
-      )
-    : await falQueueSubmit(
-        AUTO,
-        {
-          video_url,
-          language: input.langue,
-          ...STYLE,
-          highlight_color: "white",
-          words_per_subtitle: 1,
-          enable_animation: false,
-        },
-        input.onProgress,
-      );
+  const queued = await falQueueSubmit(
+    BURN,
+    {
+      video_url,
+      subtitles: segments.map((s) => ({
+        text: s.text,
+        start: s.start,
+        end: s.end,
+      })),
+      ...STYLE,
+    },
+    input.onProgress,
+  );
 
-  const model = segments.length ? BURN : AUTO;
-  const data = await falQueueAwaitJson(model, queued, input.onProgress, timeoutMs);
+  const data = await falQueueAwaitJson(BURN, queued, input.onProgress, timeoutMs);
   const url = videoUrlDepuisFal(data);
   if (!url) {
     throw new Error(`karaoke papier: pas de video.url — ${JSON.stringify(data).slice(0, 280)}`);

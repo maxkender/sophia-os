@@ -25,7 +25,7 @@ import {
   stabiliteVoixDepuisPrompt,
   vitesseVoixDepuisPrompt,
 } from "./papier_prompt_defauts.ts";
-import { estimerSecondesParole } from "./papier_script_core.ts";
+import { estimerSecondesParole, vitesseTtsPourPlan } from "./papier_script_core.ts";
 
 export const ELEVEN_TTS = "fal-ai/elevenlabs/tts/multilingual-v2";
 
@@ -34,6 +34,7 @@ export async function synthetiserVoixFal(input: {
   langue: string;
   voice?: string;
   delivery?: string;
+  dureeCibleSec?: number;
   onProgress?: FalQueueProgress;
 }): Promise<{
   url: string;
@@ -45,7 +46,11 @@ export async function synthetiserVoixFal(input: {
   const text = input.text.trim();
   if (!text) throw new Error("TTS: texte vide");
   const delivery = input.delivery?.trim() ?? "";
-  const speed = vitesseVoixDepuisPrompt(delivery);
+  const base = vitesseVoixDepuisPrompt(delivery);
+  const speed =
+    input.dureeCibleSec != null
+      ? vitesseTtsPourPlan(text, input.dureeCibleSec, base)
+      : (base ?? 1);
   const stability = stabiliteVoixDepuisPrompt(delivery) ?? 0.55;
   const voiceRef = input.voice?.trim() || VOIX_PAPIER_DEFAUT;
 

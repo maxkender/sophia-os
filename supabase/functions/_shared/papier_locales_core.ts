@@ -162,13 +162,14 @@ export function grouperMotsEnCartons(
   return out;
 }
 
-/** Cartons karaoke alignés sur le concat (offset = somme des durées voix). */
+/** Cartons karaoke alignés sur le concat (offset = durée du plan, sinon voix). */
 export function sousTitresDepuisScenes(
   scenes: Array<{
     index: number;
     narration?: string | null;
     words?: unknown;
     duree_sec?: number | null;
+    duree_plan?: number | null;
   }>,
   motsParCarton = 1,
 ): PapierSousTitre[] {
@@ -178,8 +179,9 @@ export function sousTitresDepuisScenes(
     const out: PapierSousTitre[] = [];
     let offset = 0;
     for (const scene of ordered) {
-      const duree = Number(scene.duree_sec ?? 0);
-      const fallback = duree > 0.3 ? duree : 2;
+      const dureeVoix = Number(scene.duree_sec ?? 0);
+      const dureePlan = Number(scene.duree_plan ?? 0);
+      const fallback = dureeVoix > 0.3 ? dureeVoix : dureePlan > 0.3 ? dureePlan : 2;
       const words = normaliserTimestampsFal(scene.words, scene.narration ?? "", fallback);
       for (const carton of grouperMotsEnCartons(words, mots)) {
         out.push({
@@ -189,7 +191,8 @@ export function sousTitresDepuisScenes(
         });
       }
       const dernier = words.length ? words[words.length - 1] : undefined;
-      const span = duree > 0.3 ? duree : dernier?.end ?? 0;
+      const span =
+        dureePlan > 0.3 ? dureePlan : dureeVoix > 0.3 ? dureeVoix : dernier?.end ?? 0;
       offset += span;
     }
     if (out.length <= SOUS_TITRES_MAX) return out;
@@ -257,10 +260,10 @@ export function mixEstIntermediaire(path?: string | null, etape?: string | null)
   );
 }
 
-/** Mix déjà posé sur le canvas 9:16 noir (pad ou cadre final). */
+/** Mix déjà cadré 9:16 (masque 832). mix-pad 1 fps n'est pas un cadre. */
 export function mixEstSurCanvasTikTok(path?: string | null): boolean {
   const p = path ?? "";
-  return p.includes("mix-pad") || p.endsWith("/mix.mp4") || p.includes("/final.mp4");
+  return p.endsWith("/mix.mp4") || p.includes("/final.mp4");
 }
 
 export function etapeAssemblage(row: {
@@ -272,8 +275,9 @@ export function etapeAssemblage(row: {
   if (row.video_url) return "ready";
   const p = row.video_mix_path ?? "";
   if (p.includes("mix-part")) return "merge";
-  if (p.includes("mix-pad")) return "cadre";
-  if (row.etape === "cadre" || row.etape === "pad" || p.includes("mix-raw")) return "pad";
+  if (p.includes("mix-pad") || p.includes("mix-raw") || row.etape === "cadre" || row.etape === "pad") {
+    return "cadre";
+  }
   if (row.video_mix_url) return "karaoke";
   return "merge";
 }

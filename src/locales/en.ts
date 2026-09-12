@@ -1010,7 +1010,7 @@ export const en = {
       continuerCaptions: "Continue — captions",
       captionsEnCours: "Captions in progress…",
       captionsExportAide:
-        "This preview has no captions yet. Click Continue once: TikTok frame, then white captions. Export appears on the final video.",
+        "This preview has no captions yet. Continue: 832 square at 30 fps, then captions synced to the voice. Export = final.mp4.",
       regenerer: "Start over from scratch",
       historique: "Library",
       biblioAide: "{{n}} ready FR master(s). Midnight draws one at random per language, if it has not been used yet.",

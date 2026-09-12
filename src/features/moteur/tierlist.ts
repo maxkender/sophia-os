@@ -35,6 +35,55 @@ export function passagesPourTier(tier: Tier): number {
   return PASSAGES_PAR_TIER[tier];
 }
 
+// ---------------------------------------------------------------------------
+// Priorité au tirage du jour
+// ---------------------------------------------------------------------------
+
+/**
+ * Rang plancher de la bande servie en priorité au tirage du jour.
+ *
+ * Un post sous ce plancher — un C, ou un D encore porteur d'un passage repêché
+ * — n'est tiré que si le pool du compte n'a plus **aucun** post en B ou
+ * au-dessus. Le bas de tierlist ne sert qu'à combler les créneaux restants.
+ */
+export const TIER_MIN_PRIORITAIRE: Tier = "B";
+
+/** Position dans l'échelle D < C < B < A < S < S+. */
+export function rangTier(tier: Tier): number {
+  return TIERS.indexOf(tier);
+}
+
+/** Le post est-il dans la bande servie en premier (≥ `TIER_MIN_PRIORITAIRE`) ? */
+export function estTierPrioritaire(tier: Tier): boolean {
+  return rangTier(tier) >= rangTier(TIER_MIN_PRIORITAIRE);
+}
+
+export interface CandidatTirage {
+  tier: Tier;
+  /** Ce compte a déjà posté ce contenu. */
+  dejaPoste?: boolean;
+}
+
+/**
+ * Découpe le pool du jour en bandes, dans l'ordre où elles doivent être servies :
+ *
+ *   1. B+ jamais posté par ce compte
+ *   2. B+ déjà posté
+ *   3. C (ou D repêché) jamais posté
+ *   4. C (ou D repêché) déjà posté
+ *
+ * Le rang passe donc avant la fraîcheur : un B déjà vu par le compte est servi
+ * avant un C neuf. Le tirage reste uniforme **à l'intérieur** d'une bande.
+ */
+export function bandesDeTirage<T extends CandidatTirage>(pool: T[]): T[][] {
+  const bandes: T[][] = [[], [], [], []];
+  for (const c of pool) {
+    const bande = (estTierPrioritaire(c.tier) ? 0 : 2) + (c.dejaPoste ? 1 : 0);
+    bandes[bande].push(c);
+  }
+  return bandes;
+}
+
 /**
  * Premier placement depuis la note /100 de la langue source
  * (30 % pertinence + 70 % vues — ex-« ELO »).

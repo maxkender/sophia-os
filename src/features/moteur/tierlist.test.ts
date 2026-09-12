@@ -3,6 +3,10 @@ import { describe, expect, it } from "vitest";
 import {
   PASSAGES_PAR_TIER,
   TIERS,
+  TIER_MIN_PRIORITAIRE,
+  bandesDeTirage,
+  estTierPrioritaire,
+  rangTier,
   requalifier,
   tierDepuisEloExistant,
   tierImport,
@@ -200,5 +204,62 @@ describe("cohérence des cycles", () => {
         expect(TIERS).toContain(requalifier({ tier, moyenne: m, maxVues: m, nb150k: 0 }).tier);
       }
     }
+  });
+});
+
+describe("priorité au tirage du jour", () => {
+  const pool = (...entrees: Array<[Tier, boolean]>) =>
+    entrees.map(([tier, dejaPoste], i) => ({ id: `${tier}-${i}`, tier, dejaPoste }));
+  const ids = (bandes: Array<Array<{ id: string }>>) => bandes.map((b) => b.map((c) => c.id));
+
+  it("sert B et au-dessus, garde C et D pour combler", () => {
+    expect(TIER_MIN_PRIORITAIRE).toBe("B");
+    expect(estTierPrioritaire("B")).toBe(true);
+    expect(estTierPrioritaire("A")).toBe(true);
+    expect(estTierPrioritaire("S")).toBe(true);
+    expect(estTierPrioritaire("S+")).toBe(true);
+    expect(estTierPrioritaire("C")).toBe(false);
+    expect(estTierPrioritaire("D")).toBe(false);
+  });
+
+  it("ordonne l'échelle D < C < B < A < S < S+", () => {
+    const rangs = TIERS.map(rangTier);
+    expect(rangs).toEqual([...rangs].sort((a, b) => a - b));
+    expect(new Set(rangs).size).toBe(TIERS.length);
+  });
+
+  it("range le pool en quatre bandes : B+ neuf, B+ déjà vu, puis le bas", () => {
+    const bandes = bandesDeTirage(
+      pool(["C", false], ["A", true], ["S+", false], ["D", true], ["C", true], ["B", false]),
+    );
+    expect(ids(bandes)).toEqual([
+      ["S+-2", "B-5"],
+      ["A-1"],
+      ["C-0"],
+      ["D-3", "C-4"],
+    ]);
+  });
+
+  it("ne tire un C que si le pool n'a plus rien en B+", () => {
+    const avecB = bandesDeTirage(pool(["C", false], ["C", false], ["B", true]));
+    // Première bande non vide : le B déjà posté passe devant les C neufs.
+    expect(avecB.find((b) => b.length > 0)?.map((c) => c.tier)).toEqual(["B"]);
+
+    const sansB = bandesDeTirage(pool(["C", false], ["C", true]));
+    expect(sansB.find((b) => b.length > 0)?.map((c) => c.tier)).toEqual(["C"]);
+  });
+
+  it("un pool sans B+ reste servi (jamais de créneau perdu)", () => {
+    for (const tier of TIERS) {
+      const bandes = bandesDeTirage(pool([tier, false]));
+      expect(bandes.flat()).toHaveLength(1);
+    }
+    expect(bandesDeTirage([]).flat()).toHaveLength(0);
+  });
+
+  it("aucune bande servie avant une bande B+ non vide", () => {
+    const bandes = bandesDeTirage(pool(["C", false], ["D", false], ["S", true]));
+    const premiere = bandes.findIndex((b) => b.length > 0);
+    expect(bandes[premiere].every((c) => estTierPrioritaire(c.tier))).toBe(true);
   });
 });

@@ -7,6 +7,7 @@ import { LOT_IDS, lireParLots } from "./lots.ts";
 import { mapPool } from "./parallel.ts";
 import { serviceClient } from "./supabase.ts";
 import {
+  bandesDeTirage,
   estTier,
   programmerRappels,
   type RappelsResultat,
@@ -109,11 +110,12 @@ interface PassageHisto {
 }
 
 /**
- * Tirage au hasard dans le pool.
+ * Tirage au hasard dans une bande du pool.
  *
  * Plus de softmax sur un score : c'est le nombre de passages du rang tierlist
  * qui décide de la fréquence d'un contenu (D 0 · C 1 · B 2 · A 4 · S 8 · S+ 16).
- * À l'intérieur du pool du jour, tout le monde a la même chance.
+ * À l'intérieur d'une bande de tirage, tout le monde a la même chance — c'est
+ * `bandesDeTirage` qui ordonne les bandes (B+ avant le bas de tierlist).
  */
 export function tirerAuHasard<T>(candidats: T[]): T | null {
   if (candidats.length === 0) return null;
@@ -911,22 +913,24 @@ async function choisirContenu(
   // Pool du jour : les contenus qui ont encore des passages à effectuer.
   // Un passage assigné mais jamais publié n'est pas consommé — la vue le
   // compte « en vol » une semaine, puis il retourne au pool.
-  const frais: Candidat[] = [];
-  const deja: Candidat[] = [];
+  const pool: Candidat[] = [];
   for (const cid of contenuIds) {
     if (dejaCreesCetteSession.includes(cid)) continue;
     const e = etatParContenu.get(cid);
     if (!ignorerTierlist && (e?.restants ?? 0) <= 0) continue;
     const candidat = construire(cid, e, false);
     if (!candidat) continue;
-    // Un contenu peut repasser sur le même compte : on préfère seulement
-    // du neuf quand il y en a.
-    if (candidat.dejaPoste) deja.push(candidat);
-    else frais.push(candidat);
+    pool.push(candidat);
   }
 
-  const pick = tirerAuHasard(frais) ?? tirerAuHasard(deja);
-  if (pick) return pick;
+  // Bandes servies dans l'ordre : B+ d'abord, et seulement si le pool n'a plus
+  // rien en B ou au-dessus, le bas de tierlist (C, D repêché dont le passage
+  // est encore en vol). Un contenu peut repasser sur le même compte : à rang
+  // équivalent, le tirage préfère du neuf quand il y en a.
+  for (const bande of bandesDeTirage(pool)) {
+    const pick = tirerAuHasard(bande);
+    if (pick) return pick;
+  }
 
   // Pool épuisé pour ce compte : on repêche un contenu en D et on lui redonne
   // un passage. Le repêchage est par compte — inutile de réveiller un D que

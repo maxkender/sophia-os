@@ -17,4 +17,18 @@ if (!isSupabaseConfigured) {
 export const supabase = createClient(
   supabaseUrl || "https://placeholder.supabase.co",
   supabaseAnonKey || "placeholder-anon-key",
+  {
+    global: {
+      // PostgREST n'envoie pas de `Cache-Control` sur ses réponses, et certains
+      // codes d'erreur sont cacheables d'office (un 300 « Multiple Choices »
+      // l'est par défaut, RFC 7231 §6.4.1). Résultat observé en prod : après
+      // correction d'un embed ambigu côté base, des navigateurs continuaient
+      // de resservir l'ancienne erreur depuis leur cache disque — sans jamais
+      // rappeler l'API — alors que la même requête en navigation privée
+      // passait. On refuse donc toute réutilisation de réponse en cache.
+      // Le surcoût est nul : ces requêtes déclenchent déjà un préflight CORS
+      // (apikey + Authorization), aucune n'était « simple ».
+      headers: { "Cache-Control": "no-store" },
+    },
+  },
 );

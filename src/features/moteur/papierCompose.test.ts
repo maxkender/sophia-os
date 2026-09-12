@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import {
   PAPIER_CANVAS_H,
   PAPIER_CANVAS_W,
+  PAPIER_FPS,
   PAPIER_SCALE,
   PAPIER_SQUARE,
   PAPIER_SQUARE_R,
@@ -27,6 +28,7 @@ describe("composition papier 9:16", () => {
     expect(PAPIER_SQUARE_X * 2 + PAPIER_SQUARE).toBe(PAPIER_CANVAS_W);
     expect(PAPIER_SQUARE_Y).toBe((PAPIER_CANVAS_H - PAPIER_SQUARE) / 2);
     expect(PAPIER_SQUARE_R).toBe(56);
+    expect(PAPIER_FPS).toBe(30);
   });
 
   it("le masque est noir hors de la fenêtre, transparent dedans", () => {

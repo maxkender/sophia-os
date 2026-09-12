@@ -1,7 +1,7 @@
 /**
- * Composition finale Papier : canvas 1080×1920 noir, fenêtre 1:1 832×832
- * centrée (x=124, y=544), clipping coins arrondis 56px. Le mix 9:16 est
- * d'abord réduit à 80 % sur fond noir (sinon le trou du masque recadre).
+ * Composition finale Papier : canvas 1080×1920 noir 30 fps, fenêtre 1:1
+ * 832×832 centrée (x=124, y=544), clipping coins arrondis 56px.
+ * Overlay 80 % sur le canvas 30 fps (pas le mp4 1 fps), puis masque.
  */
 
 import {
@@ -24,8 +24,8 @@ const COMPOSE = "fal-ai/ffmpeg-api/compose";
 const OVERLAY = "fal-ai/workflow-utilities/overlay-video";
 const MASQUE_PATH = "papiers/_assets/masque-1x1-s832-r56.png";
 const NOIR_PNG_PATH = "papiers/_assets/noir-1080x1920.png";
-/** 2 s suffisent : overlay `shortest: false` fige la dernière frame noire. */
-const NOIR_VIDEO_PATH = "papiers/_assets/noir-1080x1920-2s.mp4";
+/** 2 s à 30 fps : overlay `shortest: false` fige la dernière frame, timebase 1/30. */
+const NOIR_VIDEO_PATH = "papiers/_assets/noir-1080x1920-30fps-2s.mp4";
 
 type Supabase = ReturnType<typeof serviceClient>;
 
@@ -225,9 +225,18 @@ export async function composerFinalePapier(input: {
 }): Promise<{ url: string; bytes: Uint8Array; mime: string }> {
   const video_url = urlSansCacheBuster(input.videoUrl);
   if (!video_url) throw new Error("compose papier: video_url vide");
+  const noir = await assurerNoirVideoUrl(input.supabase, input.onProgress, input.timeoutMs);
+  const padded = await reduireVideoPapierTikTok({
+    videoUrl: video_url,
+    supabase: input.supabase,
+    noirUrl: noir.url,
+    onProgress: input.onProgress,
+    timeoutMs: input.timeoutMs,
+  });
+  const scaledUrl = urlSansCacheBuster(padded.url);
   let duree = input.dureeSec ?? 0;
   if (!(duree > 0.3)) {
-    const meta = await sonderVideoMeta(video_url, input.onProgress);
+    const meta = await sonderVideoMeta(scaledUrl, input.onProgress);
     duree = meta.durationSec ?? 0;
   }
   if (!(duree > 0.3)) duree = 8;
@@ -240,7 +249,7 @@ export async function composerFinalePapier(input: {
         {
           id: "video",
           type: "video",
-          keyframes: [{ url: video_url, timestamp: 0, duration: durMs }],
+          keyframes: [{ url: scaledUrl, timestamp: 0, duration: durMs }],
         },
         {
           id: "masque",

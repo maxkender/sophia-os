@@ -73,6 +73,19 @@ export function finTrimClipPourVoix(dureeVoixSec: number): number | null {
   return Math.round(dureeVoixSec * 1000) / 1000;
 }
 
+/** Voix des traductions calée sur la durée du plan master (une seule animation). */
+export function vitesseTtsPourPlan(
+  texte: string,
+  dureeCibleSec: number,
+  base?: number,
+): number {
+  const fond = base != null && base >= 0.7 && base <= 1.2 ? base : 1;
+  const estime = estimerSecondesParole(texte);
+  if (!(dureeCibleSec > 0.4) || !(estime > 0.4)) return fond;
+  const ratio = estime / dureeCibleSec;
+  return Math.min(1.2, Math.max(0.7, Math.round(fond * ratio * 100) / 100));
+}
+
 export function extraireJson<T>(texte: string): T {
   const fenced = texte.match(/```(?:json)?\s*([\s\S]*?)```/i);
   const raw = (fenced?.[1] ?? texte).trim();

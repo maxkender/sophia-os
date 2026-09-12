@@ -118,6 +118,29 @@ describe("timings", () => {
       ),
     ).toEqual([{ start: 0.1, end: 0.9, text: "un deux" }]);
   });
+
+  it("cale l'offset karaoke sur la durée du plan master si fournie", () => {
+    const cartons = sousTitresDepuisScenes([
+      {
+        index: 0,
+        narration: "un",
+        words: [{ word: "un", start: 0.1, end: 0.4 }],
+        duree_sec: 1,
+        duree_plan: 2,
+      },
+      {
+        index: 1,
+        narration: "deux",
+        words: [{ word: "deux", start: 0.05, end: 0.4 }],
+        duree_sec: 0.8,
+        duree_plan: 2,
+      },
+    ]);
+    expect(cartons).toEqual([
+      { start: 0.1, end: 0.4, text: "un" },
+      { start: 2.05, end: 2.4, text: "deux" },
+    ]);
+  });
 });
 
 describe("traduction CTA", () => {
@@ -187,7 +210,7 @@ describe("statut locale", () => {
 });
 
 describe("assemblage", () => {
-  it("découpe concat → pad → cadre → karaoke, sans exporter le brut", () => {
+  it("découpe concat → cadre → karaoke, sans exporter le brut ni le pad 1 fps", () => {
     expect(etapeAssemblage({})).toBe("merge");
     expect(
       etapeAssemblage({
@@ -201,7 +224,7 @@ describe("assemblage", () => {
         video_mix_path: "papiers/x/fr/mix-raw.mp4",
         etape: "cadre",
       }),
-    ).toBe("pad");
+    ).toBe("cadre");
     expect(
       etapeAssemblage({
         video_mix_url: "pad",
@@ -221,7 +244,7 @@ describe("assemblage", () => {
     expect(urlVideoExportable({ video_mix_url: "mix", video_mix_path: "x/mix.mp4" })).toBe("mix");
     expect(urlVideoExportable({ video_url: "final", video_mix_url: "mix" })).toBe("final");
     expect(mixEstIntermediaire("x/mix-pad.mp4", "cadre")).toBe(true);
-    expect(mixEstSurCanvasTikTok("papiers/x/fr/mix-pad.mp4")).toBe(true);
+    expect(mixEstSurCanvasTikTok("papiers/x/fr/mix-pad.mp4")).toBe(false);
     expect(mixEstSurCanvasTikTok("papiers/x/fr/mix.mp4")).toBe(true);
     expect(mixEstSurCanvasTikTok("papiers/x/fr/mix-raw.mp4")).toBe(false);
   });

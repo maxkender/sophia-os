@@ -17,9 +17,8 @@ import {
   voixEffectiveMaster,
 } from "./papier_reglages.ts";
 import { mergerAudioVideoFal } from "./fal_merge_audio.ts";
-import { trimmerVideoFal } from "./fal_trim_video.ts";
 import { mergerVideosFal } from "./fal_merge_videos.ts";
-import { composerFinalePapier, reduireVideoPapierTikTok, assurerNoirVideoUrl } from "./fal_cadre_papier.ts";
+import { composerFinalePapier } from "./fal_cadre_papier.ts";
 import type { FalQueueProgress } from "./fal_queue.ts";
 import {
   etapeAssemblage,
@@ -29,7 +28,7 @@ import {
   type PapierScriptTraduit,
 } from "./papier_locales_core.ts";
 import { traduireScriptPapier } from "./papier_traduction.ts";
-import { finTrimClipPourVoix, type PapierScript } from "./papier_script_core.ts";
+import { type PapierScript } from "./papier_script_core.ts";
 import { chargerPrompt, messageErreur, serviceClient } from "./supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
@@ -143,14 +142,14 @@ async function chargerScenesLangue(
 async function chargerClipsMaster(
   supabase: Supabase,
   masterId: string,
-): Promise<Array<{ index: number; clip_url: string | null }>> {
+): Promise<Array<{ index: number; clip_url: string | null; duree_cible?: number }>> {
   const { data, error } = await supabase
     .from("papier_scenes")
-    .select("index, clip_url")
+    .select("index, clip_url, duree_cible")
     .eq("master_id", masterId)
     .order("index", { ascending: true });
   if (error) throw error;
-  return (data ?? []) as Array<{ index: number; clip_url: string | null }>;
+  return (data ?? []) as Array<{ index: number; clip_url: string | null; duree_cible?: number }>;
 }
 
 async function chargerScriptMaster(
@@ -359,6 +358,7 @@ async function etapeVoix(
   supabase: Supabase,
   row: PapierLangueRow,
   scenes: PapierLangueSceneRow[],
+  clips: Array<{ index: number; duree_cible?: number }>,
   t0: number,
 ): Promise<boolean> {
   if (scenes.length > 0 && scenes.every((s) => Boolean(s.audio_url))) {
@@ -376,11 +376,13 @@ async function etapeVoix(
   for (const scene of scenes) {
     if (outOfTime(t0)) return false;
     if (scene.audio_url) continue;
+    const dureePlan = clips.find((c) => c.index === scene.index)?.duree_cible;
     const tts = await synthetiserVoixFal({
       text: scene.narration,
       langue: row.langue,
       voice: row.voice,
       delivery,
+      dureeCibleSec: dureePlan,
     });
     const path = `papiers/${row.master_id}/${row.langue}/voice-${scene.index}.mp3`;
     const url = await uploader(supabase, path, tts.bytes, tts.mime);
@@ -426,23 +428,8 @@ async function etapeMix(
     if (!scene.audio_url) throw new Error(`Plan ${scene.index + 1} sans voix`);
     const clip = clips.find((c) => c.index === scene.index)?.clip_url;
     if (!clip) throw new Error(`Plan ${scene.index + 1} sans clip master`);
-    let videoUrl = clip;
-    const finVoix = finTrimClipPourVoix(scene.duree_sec ?? 0);
-    if (finVoix) {
-      try {
-        await reserverFalPapier(supabase);
-        const trimmed = await trimmerVideoFal({
-          videoUrl: clip,
-          startSec: 0,
-          endSec: finVoix,
-        });
-        videoUrl = trimmed.url;
-      } catch {
-        videoUrl = clip;
-      }
-    }
     await reserverFalPapier(supabase);
-    const mix = await mergerAudioVideoFal({ videoUrl, audioUrl: scene.audio_url });
+    const mix = await mergerAudioVideoFal({ videoUrl: clip, audioUrl: scene.audio_url });
     const path = `papiers/${row.master_id}/${row.langue}/mix-${scene.index}.mp4`;
     const url = await uploader(supabase, path, mix.bytes, mix.mime);
     scene.mix_url = url;
@@ -471,7 +458,6 @@ async function etapeRender(
   if (urls.length === 0) throw new Error("Aucun mix à assembler");
   const partPath = `papiers/${row.master_id}/${row.langue}/mix-part.mp4`;
   const rawPath = `papiers/${row.master_id}/${row.langue}/mix-raw.mp4`;
-  const padPath = `papiers/${row.master_id}/${row.langue}/mix-pad.mp4`;
   const framedPath = `papiers/${row.master_id}/${row.langue}/mix.mp4`;
 
   if (ass === "merge") {
@@ -521,48 +507,35 @@ async function etapeRender(
     return;
   }
 
-  if (ass === "pad") {
-    const source = row.video_mix_url;
-    if (!source) throw new Error("Concat absente avant le pad TikTok");
-    await reserverFalPapier(supabase);
-    await heartbeatLangue(supabase, row.id);
-    const beat: FalQueueProgress = async () => {
-      await heartbeatLangue(supabase, row.id);
-    };
-    const noir = await assurerNoirVideoUrl(supabase);
-    const padded = await reduireVideoPapierTikTok({
-      videoUrl: source,
-      supabase,
-      noirUrl: noir.url,
-      onProgress: beat,
-      timeoutMs: FAL_ASSEMBLAGE_MS,
-    });
-    const url = await uploader(supabase, padPath, padded.bytes, padded.mime);
+  const rawUrl = supabase.storage.from(BUCKET).getPublicUrl(rawPath).data.publicUrl;
+  const source = (row.video_mix_path ?? "").includes("mix-pad")
+    ? rawUrl
+    : row.video_mix_url || rawUrl;
+  if (!source) throw new Error("Concat absente avant le cadre");
+  if ((row.video_mix_path ?? "").includes("mix-pad")) {
     await patchLangue(
       supabase,
       row.id,
       {
-        video_mix_path: padPath,
-        video_mix_url: url,
+        video_mix_path: rawPath,
+        video_mix_url: rawUrl,
         statut: "render",
         etape: "cadre",
-        progression: 0.82,
+        progression: 0.8,
       },
-      { etape: "render", detail: "pad 80% TikTok" },
+      { etape: "render", detail: "abandon pad 1 fps → mix-raw" },
     );
-    return;
   }
-
-  const source = row.video_mix_url;
-  if (!source) throw new Error("Concat absente avant le cadre");
   await reserverFalPapier(supabase);
   await heartbeatLangue(supabase, row.id);
   const beat: FalQueueProgress = async () => {
     await heartbeatLangue(supabase, row.id);
   };
+  const dureeSec = scenes.reduce((n, s) => n + Number(s.duree_sec ?? 0), 0);
   const framed = await composerFinalePapier({
     videoUrl: source,
     supabase,
+    dureeSec: dureeSec > 0.3 ? dureeSec : undefined,
     onProgress: beat,
     timeoutMs: FAL_ASSEMBLAGE_MS,
   });
@@ -586,7 +559,21 @@ async function etapeKaraoke(supabase: Supabase, row: PapierLangueRow): Promise<v
   const source = row.video_mix_url;
   if (!source) throw new Error("Vidéo mixte absente");
   const scenes = await chargerScenesLangue(supabase, row.id);
-  const subtitles = sousTitresDepuisScenes(scenes);
+  const clips = await chargerClipsMaster(supabase, row.master_id);
+  const sommeVoix = scenes.reduce((n, s) => n + Number(s.duree_sec ?? 0), 0);
+  const sommePlan = scenes.reduce((n, s) => {
+    const d = clips.find((c) => c.index === s.index)?.duree_cible;
+    return n + Number(d ?? 0);
+  }, 0);
+  const calerSurPlan = sommePlan > 0.3 && Math.abs(sommePlan - sommeVoix) <= 2;
+  const subtitles = sousTitresDepuisScenes(
+    scenes.map((s) => ({
+      ...s,
+      duree_plan: calerSurPlan
+        ? clips.find((c) => c.index === s.index)?.duree_cible
+        : undefined,
+    })),
+  );
   await reserverFalPapier(supabase);
   await heartbeatLangue(supabase, row.id);
   const beat: FalQueueProgress = async () => {
@@ -612,7 +599,7 @@ async function etapeKaraoke(supabase: Supabase, row: PapierLangueRow): Promise<v
       progression: 1,
       erreur: null,
     },
-    { etape: "karaoke", detail: subtitles.length ? `captions TTS ${subtitles.length}` : "captions STT" },
+    { etape: "karaoke", detail: `captions TTS ${subtitles.length}` },
   );
 }
 
@@ -698,14 +685,14 @@ export async function avancerLangue(
     if (outOfTime(t0)) return resumerLangue(row, false, "traduction ok");
 
     let scenes = await chargerScenesLangue(supabase, langueId);
-    const voixOk = await etapeVoix(supabase, row, scenes, t0);
+    const clips = await chargerClipsMaster(supabase, row.master_id);
+    const voixOk = await etapeVoix(supabase, row, scenes, clips, t0);
     if (!voixOk) {
       row = (await chargerLangue(supabase, langueId))!;
       return resumerLangue(row, false, "voix en cours");
     }
 
     scenes = await chargerScenesLangue(supabase, langueId);
-    const clips = await chargerClipsMaster(supabase, row.master_id);
     const mixOk = await etapeMix(supabase, row, scenes, clips, t0);
     if (!mixOk) {
       row = (await chargerLangue(supabase, langueId))!;
@@ -721,8 +708,7 @@ export async function avancerLangue(
       }
       await etapeRender(supabase, row, scenes);
       row = (await chargerLangue(supabase, langueId))!;
-      const detail =
-        ass === "cadre" ? "cadre ok" : ass === "pad" ? "pad ok" : "concat ok";
+      const detail = ass === "cadre" ? "cadre ok" : "concat ok";
       return resumerLangue(row, false, detail);
     }
 

@@ -89,7 +89,7 @@ describe("voix / durée clip", () => {
     expect(dureeCibleClipReglee("mot ".repeat(22), 4)).toBe(4);
     expect(dureeCibleClipReglee("un deux", 8)).toBe(8);
     expect(dureeCibleClipReglee("un deux trois quatre cinq six sept huit", "auto")).toBe(4);
-    expect(dureeCibleClipReglee("mot ".repeat(22), "auto")).toBe(10);
+    expect(dureeCibleClipReglee("mot ".repeat(22), "auto")).toBe(9);
   });
 });
 

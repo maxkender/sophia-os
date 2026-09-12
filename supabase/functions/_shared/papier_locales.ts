@@ -18,9 +18,10 @@ import {
 } from "./papier_reglages.ts";
 import { mergerAudioVideoFal } from "./fal_merge_audio.ts";
 import { mergerVideosFal } from "./fal_merge_videos.ts";
-import { composerFinalePapier } from "./fal_cadre_papier.ts";
+import { composerFinalePapier, reduireVideoPapierTikTok } from "./fal_cadre_papier.ts";
 import type { FalQueueProgress } from "./fal_queue.ts";
 import {
+  assemblageAProgresse,
   etapeAssemblage,
   prochaineLangueATiquer,
   statutDepuisLocaleAssets,
@@ -458,6 +459,7 @@ async function etapeRender(
   if (urls.length === 0) throw new Error("Aucun mix à assembler");
   const partPath = `papiers/${row.master_id}/${row.langue}/mix-part.mp4`;
   const rawPath = `papiers/${row.master_id}/${row.langue}/mix-raw.mp4`;
+  const scalePath = `papiers/${row.master_id}/${row.langue}/mix-scale.mp4`;
   const framedPath = `papiers/${row.master_id}/${row.langue}/mix.mp4`;
 
   if (ass === "merge") {
@@ -499,7 +501,7 @@ async function etapeRender(
         video_mix_path: rawPath,
         video_mix_url: sourceUrl,
         statut: "render",
-        etape: "cadre",
+        etape: "scale",
         progression: 0.8,
       },
       { etape: "render", detail: `${urls.length} plans concaténés` },
@@ -508,29 +510,56 @@ async function etapeRender(
   }
 
   const rawUrl = supabase.storage.from(BUCKET).getPublicUrl(rawPath).data.publicUrl;
-  const source = (row.video_mix_path ?? "").includes("mix-pad")
-    ? rawUrl
-    : row.video_mix_url || rawUrl;
-  if (!source) throw new Error("Concat absente avant le cadre");
-  if ((row.video_mix_path ?? "").includes("mix-pad")) {
+  const beat: FalQueueProgress = async () => {
+    await heartbeatLangue(supabase, row.id);
+  };
+
+  if (ass === "scale") {
+    const isPad = (row.video_mix_path ?? "").includes("mix-pad");
+    const source = isPad ? rawUrl : row.video_mix_url || rawUrl;
+    if (!source) throw new Error("Concat absente avant le scale");
+    if (isPad) {
+      await patchLangue(
+        supabase,
+        row.id,
+        {
+          video_mix_path: rawPath,
+          video_mix_url: rawUrl,
+          statut: "render",
+          etape: "scale",
+          progression: 0.8,
+        },
+        { etape: "render", detail: "abandon pad 1 fps → mix-raw" },
+      );
+    }
+    await reserverFalPapier(supabase);
+    await heartbeatLangue(supabase, row.id);
+    const padded = await reduireVideoPapierTikTok({
+      videoUrl: source,
+      supabase,
+      onProgress: beat,
+      timeoutMs: FAL_ASSEMBLAGE_MS,
+    });
+    const url = await uploader(supabase, scalePath, padded.bytes, padded.mime);
     await patchLangue(
       supabase,
       row.id,
       {
-        video_mix_path: rawPath,
-        video_mix_url: rawUrl,
+        video_mix_path: scalePath,
+        video_mix_url: url,
         statut: "render",
         etape: "cadre",
-        progression: 0.8,
+        progression: 0.82,
       },
-      { etape: "render", detail: "abandon pad 1 fps → mix-raw" },
+      { etape: "render", detail: "scale 80% 30 fps" },
     );
+    return;
   }
+
+  const source = row.video_mix_url;
+  if (!source) throw new Error("Scale absent avant le cadre");
   await reserverFalPapier(supabase);
   await heartbeatLangue(supabase, row.id);
-  const beat: FalQueueProgress = async () => {
-    await heartbeatLangue(supabase, row.id);
-  };
   const dureeSec = scenes.reduce((n, s) => n + Number(s.duree_sec ?? 0), 0);
   const framed = await composerFinalePapier({
     videoUrl: source,
@@ -701,14 +730,24 @@ export async function avancerLangue(
 
     scenes = await chargerScenesLangue(supabase, langueId);
     row = (await chargerLangue(supabase, langueId))!;
+    const pathAvant = row.video_mix_path ?? "";
+    const finaleAvant = row.video_url ?? "";
     const ass = etapeAssemblage(row);
-    if (ass === "merge" || ass === "pad" || ass === "cadre") {
+    if (ass === "merge" || ass === "scale" || ass === "cadre") {
       if (ass === "merge" && Date.now() - t0 > 6_000) {
         return resumerLangue(row, false, "mix ok — assemblage");
       }
       await etapeRender(supabase, row, scenes);
       row = (await chargerLangue(supabase, langueId))!;
-      const detail = ass === "cadre" ? "cadre ok" : "concat ok";
+      if (
+        !assemblageAProgresse(
+          { video_mix_path: pathAvant, video_url: finaleAvant },
+          { video_mix_path: row.video_mix_path, video_url: row.video_url },
+        )
+      ) {
+        return resumerLangue(row, false, "assemblage bloqué", { kick: false });
+      }
+      const detail = ass === "cadre" ? "cadre ok" : ass === "scale" ? "scale ok" : "concat ok";
       return resumerLangue(row, false, detail);
     }
 
@@ -762,10 +801,12 @@ function resumerLangue(
   row: PapierLangueRow,
   done: boolean,
   detail: string,
+  extra?: { kick?: boolean },
 ): PapierLocaleTick {
   return {
     ok: true,
     done: done || row.statut === "ready",
+    ...(extra?.kick === false ? { kick: false } : {}),
     langueId: row.id,
     masterId: row.master_id,
     langue: row.langue,
@@ -834,8 +875,10 @@ export async function relancerLangue(
   const cadre =
     row.etape === "cadre" ||
     row.etape === "pad" ||
+    row.etape === "scale" ||
     (row.video_mix_path ?? "").includes("mix-raw") ||
-    (row.video_mix_path ?? "").includes("mix-pad");
+    (row.video_mix_path ?? "").includes("mix-pad") ||
+    (row.video_mix_path ?? "").includes("mix-scale");
   await patchLangue(
     supabase,
     id,

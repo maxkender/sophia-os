@@ -5,12 +5,14 @@ import {
   estLanguePapier,
   etapeAssemblage,
   finaliserTraductionPapier,
+  assemblageAProgresse,
   LANGUES_PAPIER,
   langueFrAContinuer,
   mixEstIntermediaire,
   mixEstSurCanvasTikTok,
   nomLangueModele,
   normaliserTimestampsFal,
+  papierListeDoitPoller,
   prochaineLangueATiquer,
   statutDepuisLocaleAssets,
   urlVideoExportable,
@@ -210,7 +212,7 @@ describe("statut locale", () => {
 });
 
 describe("assemblage", () => {
-  it("découpe concat → cadre → karaoke, sans exporter le brut ni le pad 1 fps", () => {
+  it("découpe concat → scale 30 fps → masque → karaoke, sans exporter le brut ni le pad 1 fps", () => {
     expect(etapeAssemblage({})).toBe("merge");
     expect(
       etapeAssemblage({
@@ -224,11 +226,18 @@ describe("assemblage", () => {
         video_mix_path: "papiers/x/fr/mix-raw.mp4",
         etape: "cadre",
       }),
-    ).toBe("cadre");
+    ).toBe("scale");
     expect(
       etapeAssemblage({
         video_mix_url: "pad",
         video_mix_path: "papiers/x/fr/mix-pad.mp4",
+        etape: "cadre",
+      }),
+    ).toBe("scale");
+    expect(
+      etapeAssemblage({
+        video_mix_url: "scale",
+        video_mix_path: "papiers/x/fr/mix-scale.mp4",
         etape: "cadre",
       }),
     ).toBe("cadre");
@@ -241,12 +250,28 @@ describe("assemblage", () => {
     expect(etapeAssemblage({ video_url: "final" })).toBe("ready");
     expect(urlVideoExportable({ video_mix_url: "raw", video_mix_path: "x/mix-raw.mp4" })).toBeNull();
     expect(urlVideoExportable({ video_mix_url: "pad", video_mix_path: "x/mix-pad.mp4", etape: "cadre" })).toBeNull();
+    expect(urlVideoExportable({ video_mix_url: "scale", video_mix_path: "x/mix-scale.mp4" })).toBeNull();
     expect(urlVideoExportable({ video_mix_url: "mix", video_mix_path: "x/mix.mp4" })).toBe("mix");
     expect(urlVideoExportable({ video_url: "final", video_mix_url: "mix" })).toBe("final");
     expect(mixEstIntermediaire("x/mix-pad.mp4", "cadre")).toBe(true);
+    expect(mixEstIntermediaire("x/mix-scale.mp4", "cadre")).toBe(true);
+    expect(mixEstIntermediaire("x/mix.mp4", "cadre")).toBe(false);
     expect(mixEstSurCanvasTikTok("papiers/x/fr/mix-pad.mp4")).toBe(false);
+    expect(mixEstSurCanvasTikTok("papiers/x/fr/mix-scale.mp4")).toBe(true);
     expect(mixEstSurCanvasTikTok("papiers/x/fr/mix.mp4")).toBe(true);
     expect(mixEstSurCanvasTikTok("papiers/x/fr/mix-raw.mp4")).toBe(false);
+    expect(
+      assemblageAProgresse(
+        { video_mix_path: "papiers/x/fr/mix-raw.mp4" },
+        { video_mix_path: "papiers/x/fr/mix-raw.mp4" },
+      ),
+    ).toBe(false);
+    expect(
+      assemblageAProgresse(
+        { video_mix_path: "papiers/x/fr/mix-raw.mp4" },
+        { video_mix_path: "papiers/x/fr/mix-scale.mp4" },
+      ),
+    ).toBe(true);
   });
 
   it("n'auto-relance jamais une langue (évite la boucle Fal)", () => {
@@ -283,5 +308,73 @@ describe("assemblage", () => {
     expect(langueCaptionsEnCours({ statut: "render", busy: true })).toBe(true);
     expect(langueCaptionsEnCours({ statut: "karaoke", busy: false })).toBe(false);
     expect(langueCaptionsEnCours({ statut: "ready", busy: true })).toBe(false);
+  });
+
+  it("ne poll pas un render idle (évite le buffering infini de l'aperçu)", () => {
+    const now = Date.parse("2026-09-12T10:00:00Z");
+    expect(
+      papierListeDoitPoller(
+        [
+          {
+            statut: "clips",
+            etape: "fr",
+            pipeline_hold: null,
+            annule: false,
+            papier_langues: [
+              {
+                busy: false,
+                statut: "render",
+                updated_at: "2026-09-12T08:00:00Z",
+              },
+            ],
+          },
+        ],
+        now,
+      ),
+    ).toBe(false);
+    expect(
+      papierListeDoitPoller(
+        [
+          {
+            statut: "clips",
+            etape: "fr",
+            papier_langues: [{ busy: true, statut: "render", updated_at: "2026-09-12T08:00:00Z" }],
+          },
+        ],
+        now,
+      ),
+    ).toBe(true);
+    expect(
+      papierListeDoitPoller(
+        [
+          {
+            statut: "clips",
+            etape: "fr",
+            papier_langues: [
+              { busy: false, statut: "render", updated_at: "2026-09-12T09:59:50Z" },
+            ],
+          },
+        ],
+        now,
+      ),
+    ).toBe(true);
+    expect(
+      papierListeDoitPoller(
+        [{ statut: "clips", etape: "clips", pipeline_hold: null, annule: false, papier_langues: [] }],
+        now,
+      ),
+    ).toBe(true);
+    expect(
+      papierListeDoitPoller(
+        [{ statut: "scripting", pipeline_hold: null, annule: false, papier_langues: [] }],
+        now,
+      ),
+    ).toBe(true);
+    expect(
+      papierListeDoitPoller(
+        [{ statut: "scripting", pipeline_hold: "script", annule: false, papier_langues: [] }],
+        now,
+      ),
+    ).toBe(false);
   });
 });

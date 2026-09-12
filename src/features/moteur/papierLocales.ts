@@ -247,38 +247,53 @@ export function finaliserTraductionPapier(
   };
 }
 
-/** Concat brute / lot partiel / pad — pas encore le cadre 9:16, donc pas exportable. */
+/** Concat brute / lot partiel / pad / scale — pas encore le cadre 9:16, donc pas exportable. */
 export function mixEstIntermediaire(path?: string | null, etape?: string | null): boolean {
   const p = path ?? "";
+  if (p.endsWith("/mix.mp4") || p.includes("/final.mp4")) return false;
   return (
     etape === "cadre" ||
     etape === "pad" ||
+    etape === "scale" ||
     p.includes("mix-raw") ||
     p.includes("mix-part") ||
-    p.includes("mix-pad")
+    p.includes("mix-pad") ||
+    p.includes("mix-scale")
   );
 }
 
-/** Mix déjà cadré 9:16 (masque 832). mix-pad 1 fps n'est pas un cadre. */
+/** Mix déjà posé sur le canvas 9:16 (scale 80 % ou masque 832). mix-pad 1 fps n'en est pas un. */
 export function mixEstSurCanvasTikTok(path?: string | null): boolean {
   const p = path ?? "";
-  return p.endsWith("/mix.mp4") || p.includes("/final.mp4");
+  return p.endsWith("/mix.mp4") || p.includes("/final.mp4") || p.includes("mix-scale");
 }
+
+export type EtapeAssemblagePapier = "merge" | "scale" | "cadre" | "karaoke" | "ready";
 
 export function etapeAssemblage(row: {
   video_url?: string | null;
   video_mix_url?: string | null;
   video_mix_path?: string | null;
   etape?: string | null;
-}): "merge" | "pad" | "cadre" | "karaoke" | "ready" {
+}): EtapeAssemblagePapier {
   if (row.video_url) return "ready";
   const p = row.video_mix_path ?? "";
   if (p.includes("mix-part")) return "merge";
-  if (p.includes("mix-pad") || p.includes("mix-raw") || row.etape === "cadre" || row.etape === "pad") {
-    return "cadre";
-  }
+  if (p.includes("mix-scale")) return "cadre";
+  if (p.includes("mix-pad") || p.includes("mix-raw")) return "scale";
   if (row.video_mix_url) return "karaoke";
   return "merge";
+}
+
+/** Un tick Fal n'a avancé que si le mix ou la finale a changé — sinon pas d'auto-kick. */
+export function assemblageAProgresse(
+  avant: { video_mix_path?: string | null; video_url?: string | null },
+  apres: { video_mix_path?: string | null; video_url?: string | null },
+): boolean {
+  return (
+    (apres.video_mix_path ?? "") !== (avant.video_mix_path ?? "") ||
+    Boolean(apres.video_url && apres.video_url !== (avant.video_url ?? ""))
+  );
 }
 
 /** Plus d'auto-kick Fal depuis l'onglet admin (c'était la boucle à 90 s / 4 min). */
@@ -305,6 +320,56 @@ export function langueCaptionsEnCours(
   if (!l) return false;
   if (l.statut === "ready" || l.statut === "failed") return false;
   return Boolean(l.busy);
+}
+
+/** Fenêtre pour rattraper le kick auto entre deux ticks (busy retombe un instant). */
+export const PAPIER_POLL_APRES_TICK_MS = 25_000;
+
+const STATUTS_LANGUE_EN_COURS = [
+  "queued",
+  "translating",
+  "voice",
+  "mix",
+  "render",
+  "karaoke",
+] as const;
+
+export function languePapierDoitPoller(
+  l: { busy?: boolean | null; statut?: string | null; updated_at?: string | null },
+  now = Date.now(),
+): boolean {
+  if (l.busy) return true;
+  if (!STATUTS_LANGUE_EN_COURS.includes(l.statut as (typeof STATUTS_LANGUE_EN_COURS)[number])) {
+    return false;
+  }
+  const t = Date.parse(l.updated_at ?? "");
+  return Number.isFinite(t) && now - t < PAPIER_POLL_APRES_TICK_MS;
+}
+
+/** Poll admin seulement si un Fal tourne, ou juste après un tick (kick). Pas sur render idle. */
+export function papierListeDoitPoller(
+  rows: Array<{
+    statut?: string | null;
+    etape?: string | null;
+    pipeline_hold?: string | null;
+    annule?: boolean | null;
+    papier_langues?: Array<{
+      busy?: boolean | null;
+      statut?: string | null;
+      updated_at?: string | null;
+    }> | null;
+  }>,
+  now = Date.now(),
+): boolean {
+  return rows.some((m) => {
+    if (m.annule || m.pipeline_hold) {
+      return (m.papier_langues ?? []).some((l) => languePapierDoitPoller(l, now));
+    }
+    const statut = m.statut ?? "";
+    if (["queued", "scripting", "images"].includes(statut)) return true;
+    if (statut === "clips" && m.etape !== "fr") return true;
+    return (m.papier_langues ?? []).some((l) => languePapierDoitPoller(l, now));
+  });
 }
 
 export function urlVideoExportable(row: {

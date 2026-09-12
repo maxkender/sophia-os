@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { ExternalLink } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
+import { BadgeClassement } from "@/features/moteur/BadgeClassement";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -568,11 +569,11 @@ export function AdminPilotagePage() {
 
           <div className="grid gap-4 lg:grid-cols-2">
             <RangList
-              title={t("pilotage.eloBasTitre")}
-              desc={t("pilotage.eloBasDesc")}
-              empty={d.eloBas.length === 0}
+              title={t("pilotage.classementBasTitre")}
+              desc={t("pilotage.classementBasDesc")}
+              empty={d.classementBas.length === 0}
             >
-              {d.eloBas.map((c, i) => (
+              {d.classementBas.map((c, i) => (
                 <Link
                   key={c.compte_id}
                   to={`/admin/createurs/${c.compte_id}`}
@@ -585,17 +586,17 @@ export function AdminPilotagePage() {
                       <span className="ml-1.5 text-xs text-muted-foreground">@{c.handle}</span>
                     ) : null}
                   </span>
-                  <Badge variant="secondary">ELO {c.score.toFixed(1)}</Badge>
+                  <BadgeClassement classement={c.classement} />
                 </Link>
               ))}
             </RangList>
 
             <RangList
-              title={t("pilotage.eloTopTitre")}
-              desc={t("pilotage.eloTopDesc")}
-              empty={d.eloTop.length === 0}
+              title={t("pilotage.classementTopTitre")}
+              desc={t("pilotage.classementTopDesc")}
+              empty={d.classementTop.length === 0}
             >
-              {d.eloTop.map((c, i) => (
+              {d.classementTop.map((c, i) => (
                 <Link
                   key={c.compte_id}
                   to={`/admin/createurs/${c.compte_id}`}
@@ -608,7 +609,7 @@ export function AdminPilotagePage() {
                       <span className="ml-1.5 text-xs text-muted-foreground">@{c.handle}</span>
                     ) : null}
                   </span>
-                  <Badge variant="secondary">ELO {c.score.toFixed(1)}</Badge>
+                  <BadgeClassement classement={c.classement} />
                 </Link>
               ))}
             </RangList>
@@ -630,7 +631,9 @@ export function AdminPilotagePage() {
                       {t("pilotage.nbCreateurs", { n: r.nbCreateurs })}
                     </span>
                   </span>
-                  <Badge variant="secondary">ELO {r.eloMoyen.toFixed(1)}</Badge>
+                  <Badge variant="secondary" title={t("pilotage.partBienAide")}>
+                    {t("pilotage.partBien", { pct: Math.round(r.partBien * 100) })}
+                  </Badge>
                 </div>
               ))}
             </RangList>

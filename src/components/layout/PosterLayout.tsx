@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { BookOpen, CalendarDays, FileSignature, Gift, HelpCircle } from "lucide-react";
 
+import { NudgePopup } from "@/features/moteur/NudgePopup";
 import { ReviewPopup } from "@/features/reviews/ReviewPopup";
 import { OnboardingPopup } from "@/features/onboarding/OnboardingPopup";
 import { listerContratsPapier } from "@/features/moteur/api";
@@ -38,6 +39,7 @@ export function PosterLayout() {
     >
       <OnboardingPopup />
       <ReviewPopup />
+      <NudgePopup />
       <Outlet />
     </AppShell>
   );

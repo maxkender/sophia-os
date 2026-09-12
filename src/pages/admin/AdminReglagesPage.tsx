@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import {
@@ -31,7 +32,12 @@ import {
   type PipelineAction,
   type PipelineStep,
 } from "@/features/moteur/pipelinesSchema";
-import type { FileLabelCompteItem, Reglages, ReglagesFileLabels } from "@/features/moteur/types";
+import type {
+  FileLabelCompteItem,
+  ModeleNudge,
+  Reglages,
+  ReglagesFileLabels,
+} from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
 
 /** `"general"` ou code langue. */
@@ -252,6 +258,9 @@ export function AdminReglagesPage() {
       await ecrireReglage("moteur_vnext", r.moteur_vnext);
       await ecrireReglage("assignation_auto", r.assignation_auto);
       await ecrireReglage("nettoyage", r.nettoyage);
+      await ecrireReglage("tierlist", r.tierlist);
+      await ecrireReglage("classement_comptes", r.classement_comptes);
+      await ecrireReglage("nudges", r.nudges);
       // File déjà autosauvegardée à chaque edit — on resync quand même.
       await ecrireReglage("file_labels_comptes", r.file_labels_comptes);
       await ecrireReglage("warmup", r.warmup);
@@ -291,6 +300,9 @@ export function AdminReglagesPage() {
     maj({ scoring: { ...reglages.scoring, ...patch } });
   const majTierlist = (patch: Partial<Reglages["tierlist"]>) =>
     maj({ tierlist: { ...reglages.tierlist, ...patch } });
+  const majClassement = (patch: Partial<Reglages["classement_comptes"]>) =>
+    maj({ classement_comptes: { ...reglages.classement_comptes, ...patch } });
+  const majModeles = (modeles: ModeleNudge[]) => maj({ nudges: { modeles } });
   const total =
     reglages.repartition.recycle + reglages.repartition.remanie + reglages.repartition.nouveau;
   const totalValide = total === 100;
@@ -526,6 +538,166 @@ export function AdminReglagesPage() {
               />
             </div>
             <p className="text-xs text-muted-foreground">{t("reglages.tierlistParamsAide")}</p>
+          </section>
+
+          <section className="space-y-3">
+            <h3 className="text-sm font-medium">{t("reglages.classementParams")}</h3>
+            <div className="grid gap-4 sm:grid-cols-3">
+              <ChampNombre
+                id="clFenetre"
+                label={t("reglages.clFenetre")}
+                min={1}
+                valeur={reglages.classement_comptes.fenetre}
+                onChange={(n) => majClassement({ fenetre: n })}
+              />
+              <ChampNombre
+                id="clMinEch"
+                label={t("reglages.clMinEchantillon")}
+                min={0}
+                valeur={reglages.classement_comptes.min_echantillon}
+                onChange={(n) => majClassement({ min_echantillon: n })}
+              />
+              <ChampNombre
+                id="clSkip"
+                label={t("reglages.clSkipJours")}
+                min={0}
+                valeur={reglages.classement_comptes.skip_jours}
+                onChange={(n) => majClassement({ skip_jours: n })}
+              />
+              <ChampNombre
+                id="clRatioInactif"
+                label={t("reglages.clRatioInactif")}
+                min={0}
+                valeur={reglages.classement_comptes.ratio_inactif}
+                onChange={(n) => majClassement({ ratio_inactif: n })}
+              />
+              <ChampNombre
+                id="clRatioBien"
+                label={t("reglages.clRatioBien")}
+                min={0}
+                valeur={reglages.classement_comptes.ratio_bien}
+                onChange={(n) => majClassement({ ratio_bien: n })}
+              />
+              <ChampNombre
+                id="clRatioStar"
+                label={t("reglages.clRatioStar")}
+                min={0}
+                valeur={reglages.classement_comptes.ratio_star}
+                onChange={(n) => majClassement({ ratio_star: n })}
+              />
+              <ChampNombre
+                id="clVuesMauvaises"
+                label={t("reglages.clVuesMauvaises")}
+                min={0}
+                step={100}
+                valeur={reglages.classement_comptes.vues_mauvaises}
+                onChange={(n) => majClassement({ vues_mauvaises: n })}
+              />
+              <ChampNombre
+                id="clVuesBien"
+                label={t("reglages.clVuesBien")}
+                min={0}
+                step={100}
+                valeur={reglages.classement_comptes.vues_bien}
+                onChange={(n) => majClassement({ vues_bien: n })}
+              />
+              <ChampNombre
+                id="clVuesStar"
+                label={t("reglages.clVuesStar")}
+                min={0}
+                step={1000}
+                valeur={reglages.classement_comptes.vues_star}
+                onChange={(n) => majClassement({ vues_star: n })}
+              />
+              <ChampNombre
+                id="clTrial"
+                label={t("reglages.clTrialHeures")}
+                min={1}
+                valeur={reglages.classement_comptes.trial_heures}
+                onChange={(n) => majClassement({ trial_heures: n })}
+              />
+              <ChampNombre
+                id="clTrialAlerte"
+                label={t("reglages.clTrialAlerte")}
+                min={0}
+                valeur={reglages.classement_comptes.trial_alerte_heures}
+                onChange={(n) => majClassement({ trial_alerte_heures: n })}
+              />
+            </div>
+            <p className="text-xs text-muted-foreground">
+              {t("reglages.classementParamsAide")}
+            </p>
+            <p className="text-xs text-muted-foreground">
+              {t("reglages.clMinEchantillonAide")}
+            </p>
+          </section>
+
+          <section className="space-y-3">
+            <h3 className="text-sm font-medium">{t("reglages.nudgesTitre")}</h3>
+            <p className="text-xs text-muted-foreground">{t("reglages.nudgesAide")}</p>
+            {reglages.nudges.modeles.length === 0 && (
+              <p className="text-xs text-muted-foreground">{t("reglages.nudgeVide")}</p>
+            )}
+            <div className="space-y-3">
+              {reglages.nudges.modeles.map((m, i) => (
+                <div key={m.id} className="space-y-2 rounded-lg border p-3">
+                  <div className="flex items-end gap-2">
+                    <div className="flex-1 space-y-1">
+                      <Label htmlFor={`nudgeTitre${i}`} className="text-xs">
+                        {t("reglages.nudgeTitreChamp")}
+                      </Label>
+                      <Input
+                        id={`nudgeTitre${i}`}
+                        value={m.titre}
+                        onChange={(e) => {
+                          const liste = [...reglages.nudges.modeles];
+                          liste[i] = { ...m, titre: e.target.value };
+                          majModeles(liste);
+                        }}
+                      />
+                    </div>
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant="ghost"
+                      onClick={() =>
+                        majModeles(reglages.nudges.modeles.filter((_, j) => j !== i))
+                      }
+                    >
+                      {t("reglages.nudgeSupprimer")}
+                    </Button>
+                  </div>
+                  <div className="space-y-1">
+                    <Label htmlFor={`nudgeCorps${i}`} className="text-xs">
+                      {t("reglages.nudgeCorpsChamp")}
+                    </Label>
+                    <Textarea
+                      id={`nudgeCorps${i}`}
+                      rows={3}
+                      value={m.corps}
+                      onChange={(e) => {
+                        const liste = [...reglages.nudges.modeles];
+                        liste[i] = { ...m, corps: e.target.value };
+                        majModeles(liste);
+                      }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+            <Button
+              type="button"
+              size="sm"
+              variant="outline"
+              onClick={() =>
+                majModeles([
+                  ...reglages.nudges.modeles,
+                  { id: `modele_${Date.now()}`, titre: "", corps: "" },
+                ])
+              }
+            >
+              {t("reglages.nudgeAjouter")}
+            </Button>
           </section>
 
           <section className="space-y-3">

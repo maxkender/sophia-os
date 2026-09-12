@@ -16,8 +16,9 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
  * Rattrapage ELO (admin / cron minuit / cron minute) — fenêtre Paris (défaut 4 jours) :
  *   1) stats TikTok des passages publiés (publie_url)
  *   2) ELO langue en deltas ↑/↓ (vues seules), idempotent
- *   3) ELO compte = moyenne pondérée ≤10 posts mesurés
- *   4) snapshot vues_globales_jour (fin de drain + tous les 10 comptes)
+ *   3) snapshot vues_globales_jour (fin de drain + tous les 10 comptes)
+ *   4) fin de file : requalification du classement des comptes (INACTIF → STAR),
+ *      sur les vues qui viennent d'être relevées
  *
  * Contourne PAUSE_ELO_RUNTIME.
  *
@@ -154,6 +155,14 @@ Deno.serve(async (request) => {
         comptesLot: lot.comptes,
         erreurs: lot.erreurs,
         snapshot: lot.snapshot ?? null,
+        classement: lot.classement
+          ? {
+            examines: lot.classement.examines,
+            changes: lot.classement.changes,
+            verrous: lot.classement.verrous,
+            parCase: lot.classement.parCase,
+          }
+          : null,
         jours,
         source,
         kick: Boolean(prev?.kick),
@@ -186,6 +195,7 @@ Deno.serve(async (request) => {
         comptes: lot.comptes,
         erreurs: lot.erreurs,
         snapshot: lot.snapshot,
+        classement: lot.classement,
         kick: lot.restants > 0 && drainGen < DRAIN_MAX_CHAIN_ELO,
         done,
       });

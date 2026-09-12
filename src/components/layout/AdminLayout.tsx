@@ -19,6 +19,7 @@ import {
   PenLine,
   Scissors,
   Settings,
+  ShieldAlert,
   UserRound,
   Users,
   UserPlus,
@@ -153,6 +154,12 @@ export function AdminLayout() {
               description: t("navDesc.suiviRc"),
             },
             { to: "/admin/posters", label: t("nav.posters"), icon: Users, description: t("navDesc.posters") },
+            {
+              to: "/admin/surveillance",
+              label: t("nav.surveillance"),
+              icon: ShieldAlert,
+              description: t("navDesc.surveillance"),
+            },
             ...(estSlugSophia(slug)
               ? [
                   {

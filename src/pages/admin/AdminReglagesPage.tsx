@@ -289,6 +289,8 @@ export function AdminReglagesPage() {
   };
   const majScoring = (patch: Partial<Reglages["scoring"]>) =>
     maj({ scoring: { ...reglages.scoring, ...patch } });
+  const majTierlist = (patch: Partial<Reglages["tierlist"]>) =>
+    maj({ tierlist: { ...reglages.tierlist, ...patch } });
   const total =
     reglages.repartition.recycle + reglages.repartition.remanie + reglages.repartition.nouveau;
   const totalValide = total === 100;
@@ -473,34 +475,57 @@ export function AdminReglagesPage() {
                 onChange={(n) => maj({ frequence: { posts_par_jour: n } })}
               />
               <ChampNombre
-                id="topk"
-                label={t("reglages.topK")}
+                id="repechage"
+                label={t("reglages.repechagePassages")}
                 min={1}
-                valeur={reglages.scoring.top_k}
-                onChange={(n) => majScoring({ top_k: n })}
-              />
-              <ChampNombre
-                id="temp"
-                label={t("reglages.temperature")}
-                step={0.1}
-                valeur={reglages.scoring.temperature}
-                onChange={(n) => majScoring({ temperature: n })}
-              />
-              <ChampNombre
-                id="satj"
-                label={t("reglages.saturationJours")}
-                min={1}
-                valeur={reglages.scoring.saturation_jours}
-                onChange={(n) => majScoring({ saturation_jours: n })}
-              />
-              <ChampNombre
-                id="satp"
-                label={t("reglages.saturationPenalite")}
-                step={0.05}
-                valeur={reglages.scoring.saturation_penalite}
-                onChange={(n) => majScoring({ saturation_penalite: n })}
+                valeur={reglages.tierlist.repechage_passages}
+                onChange={(n) => majTierlist({ repechage_passages: n })}
               />
             </div>
+            <p className="text-xs text-muted-foreground">{t("reglages.assignationParamsAide")}</p>
+          </section>
+
+          <section className="space-y-3">
+            <h3 className="text-sm font-medium">{t("reglages.tierlistParams")}</h3>
+            <div className="grid gap-4 sm:grid-cols-3">
+              <ChampNombre
+                id="recul"
+                label={t("reglages.reculJours")}
+                min={0}
+                valeur={reglages.tierlist.recul_jours}
+                onChange={(n) => majTierlist({ recul_jours: n })}
+              />
+              <ChampNombre
+                id="rappelVues"
+                label={t("reglages.rappelVues")}
+                min={1000}
+                step={1000}
+                valeur={reglages.tierlist.rappel_vues}
+                onChange={(n) => majTierlist({ rappel_vues: n })}
+              />
+              <ChampNombre
+                id="rappelJours"
+                label={t("reglages.rappelJours")}
+                min={1}
+                valeur={reglages.tierlist.rappel_jours}
+                onChange={(n) => majTierlist({ rappel_jours: n })}
+              />
+              <ChampNombre
+                id="rappelMax"
+                label={t("reglages.rappelMax")}
+                min={0}
+                valeur={reglages.tierlist.rappel_max}
+                onChange={(n) => majTierlist({ rappel_max: n })}
+              />
+              <ChampNombre
+                id="remixRequalif"
+                label={t("reglages.remixParRequalif")}
+                min={0}
+                valeur={reglages.tierlist.remix_par_requalif}
+                onChange={(n) => majTierlist({ remix_par_requalif: n })}
+              />
+            </div>
+            <p className="text-xs text-muted-foreground">{t("reglages.tierlistParamsAide")}</p>
           </section>
 
           <section className="space-y-3">

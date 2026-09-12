@@ -92,7 +92,7 @@ Deno.serve(async (request) => {
     const opts = {
       forcer,
       test,
-      ignorerElo: test,
+      ignorerTierlist: test,
       ignorerWarmup: test,
     };
 

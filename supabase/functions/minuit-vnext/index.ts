@@ -1,6 +1,7 @@
 import {
   assignerTousComptes,
   kickAssignationDrain,
+  programmerRappelsJ7,
   type AssignationCompteResultat,
 } from "../_shared/assignation_contenu.ts";
 import { kickAssignationUgcVideo } from "../_shared/assignation_ugc_video.ts";
@@ -13,6 +14,7 @@ import {
   snapshotVuesGlobales,
 } from "../_shared/rattrapage_elo.ts";
 import { majScoresDepuisPassages } from "../_shared/scoring.ts";
+import { requalifierContenus } from "../_shared/tierlist.ts";
 import {
   kickUpscaleAssignes,
   listerMediasAssignesNonUpscales,
@@ -33,22 +35,25 @@ const POSTS_RELEVES = 30;
 /**
  * Minuit v-next (manuel ou cron — l'heure importe peu) :
  *   1) FETCH stats des passages publiés (via publie_url) — optionnel
- *   2) MAJ ELO langue depuis stats — PAUSE (PAUSE_ELO_RUNTIME)
- *   3) ASSIGNATION labels ∩ + score langue (import) + top-K + softmax
+ *   2) REQUALIFICATION tierlist des contenus dont le cycle est terminé
+ *   3) ASSIGNATION labels ∩ + budget de passages du rang + tirage au hasard
  *
  * Règles d'assignation (par compte actif, jour Paris) :
  *   - quota = posts_par_jour du compte (1–3, défaut 1 ; sinon réglage global)
  *   - non-écrasement : complète jusqu'au quota sans toucher aux passages déjà là
  *   - labels compte ∩ labels contenu requis
- *   - pool = contenus valide + import done + ligne contenu_langues[langue du compte]
- *   - ranking = score langue − pénalité saturation (comptes distincts récents)
- *   - préfère jamais posté sur ce compte ; sinon le moins récent
- *   - tirage softmax top-K (température)
+ *   - pool = contenus valide + import done + passages tierlist restants > 0
+ *   - tirage au hasard dans le pool (le rang décide de la fréquence, pas d'un score)
+ *   - préfère du jamais posté sur ce compte, mais un repassage est autorisé
+ *   - pool épuisé → repêchage d'un contenu en D (+1 passage), par compte
  *   - deck : traduction + Sophia à la demande (assurerDeckPourLangue)
- *   - crée passages statut=assigne (musique + hashtags)
+ *   - crée passages statut=assigne (musique + hashtags) estampillés du cycle
  *
- *   {}  → kick rattrapage-elo (async) + assignation + upscale + ugc
- *   { etapes?: ['stats'|'scores'|'assignation'|'upscale'|'variations'|'rattrapage'|'ugc_ai_video'|'papier_cm'|'papier_assign'], compteId?, date?, forcer? }
+ *   {}  → kick rattrapage (async) + tierlist + assignation + upscale + ugc
+ *   { etapes?: ['stats'|'scores'|'tierlist'|'assignation'|'upscale'|'variations'|'rattrapage'|'ugc_ai_video'|'papier_cm'|'papier_assign'], compteId?, date?, forcer? }
+ *   etape `tierlist` : requalification des contenus au bout de leurs passages
+ *                      (m = moyenne des vues du cycle) + rappels J+7 des
+ *                      passages au-delà de 50k vues
  *   etape `rattrapage` : stats 4j + ELO langue/compte + snapshot vues (contourne PAUSE_ELO_RUNTIME)
  *                        — kick async si tous comptes (évite timeout cron)
  *   etape `upscale` : SeedVR Fal sur photos assignées du jour sans upscale_le
@@ -104,7 +109,15 @@ Deno.serve(async (request) => {
     // ugc_ai_video : TOUJOURS en dernier (après slideshow + upscale).
     const etapes: string[] = Array.isArray(body?.etapes)
       ? body.etapes
-      : ["rattrapage", "assignation", "upscale", "ugc_ai_video", "papier_cm", "papier_assign"];
+      : [
+        "rattrapage",
+        "tierlist",
+        "assignation",
+        "upscale",
+        "ugc_ai_video",
+        "papier_cm",
+        "papier_assign",
+      ];
     const jour = body?.date ?? aujourdhuiParis();
     const compteId: string | null = body?.compteId ?? null;
 
@@ -173,6 +186,20 @@ Deno.serve(async (request) => {
     if (etapes.includes("scores")) {
       // No-op si PAUSE_ELO_RUNTIME (voir _shared/scoring.ts).
       out.scores = await majScoresDepuisPassages(supabase, { compteId });
+    }
+    if (etapes.includes("tierlist")) {
+      // Requalification : les contenus qui ont fini leurs passages changent de
+      // rang sur la moyenne des vues du cycle, et repartent avec le compteur
+      // du nouveau rang. Un S+ débloque 3 remix (file `remix_debloques`).
+      // Puis rappels J+7 des passages qui ont percé (> 50k vues).
+      // Avant l'assignation : les nouveaux compteurs alimentent le pool du jour.
+      out.tierlist = await requalifierContenus(supabase, {
+        contenuId: body?.contenuId ?? null,
+        dryRun: Boolean(body?.dryRun),
+      });
+      out.rappels = await programmerRappelsJ7(supabase, {
+        dryRun: Boolean(body?.dryRun),
+      });
     }
     if (etapes.includes("assignation")) {
       // Un seul compte : await synchrone. Tous les comptes : drain auto-chaîné

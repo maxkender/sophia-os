@@ -175,11 +175,11 @@ export const SCHEMA_UPDATE_ELO: PipelineAction = {
     {
       id: "elo_langue",
       rang: "④",
-      label: "ELO langue — deltas ↑/↓ (vues seules)",
-      kind: "logic",
+      label: "ELO langue — remplacé par la tierlist",
+      kind: "gate",
       api: "rattrapage_elo.appliquerEloLangue",
-      detail: "Idempotent via passages.elo_maj_at",
-      reglage: "scoring (performanceNormalisee / plafond vues)",
+      detail:
+        "ELO_LANGUE_REMPLACE_PAR_TIERLIST = true → no-op. Le rang d'un contenu bouge à la requalification (étape tierlist de minuit).",
     },
     {
       id: "elo_compte",
@@ -252,10 +252,12 @@ export const SCHEMA_ASSIGNATION: PipelineAction = {
     {
       id: "scores",
       rang: "—",
-      label: "MAJ ELO runtime (scores)",
-      kind: "gate",
-      detail: "PAUSE_ELO_RUNTIME = true → no-op (le rattrapage ① fait l’ELO)",
-      api: "majScoresDepuisPassages",
+      label: "Requalification tierlist",
+      kind: "logic",
+      detail:
+        "cycle terminé (tous les passages publiés + recul) → m = moyenne des vues · un passage ≥ 30k monte en S, ≥ 150k en S+ · S+ débloque 3 remix en A",
+      api: "requalifierContenus",
+      reglage: "tierlist.recul_jours · remix_par_requalif",
     },
     {
       id: "pool",
@@ -263,23 +265,24 @@ export const SCHEMA_ASSIGNATION: PipelineAction = {
       label: "Pool candidats",
       kind: "logic",
       detail:
-        "labels compte ∩ contenu · valide · import done · contenu_langues[langue]",
+        "labels compte ∩ contenu · valide · import done · passages tierlist restants > 0",
     },
     {
       id: "rank",
       rang: "③",
-      label: "Score = ELO langue − pénalité saturation",
+      label: "Budget de passages du rang",
       kind: "logic",
-      reglage: "scoring.saturation_jours · saturation_penalite",
-      detail: "pénalité × (#comptes récents) × 10",
+      detail:
+        "D 0 · C 1 · B 2 · A 4 · S 8 · S+ 16 — un passage assigné non publié n'est pas consommé (réservé 7 j)",
     },
     {
       id: "pick",
       rang: "④",
-      label: "Tirage softmax top-K",
+      label: "Tirage au hasard + repêchage D",
       kind: "logic",
-      reglage: "scoring.top_k · temperature",
-      detail: "Préfère jamais posté sur ce compte ; sinon plus ancien",
+      reglage: "tierlist.repechage_passages",
+      detail:
+        "Préfère du jamais posté sur ce compte ; repassage autorisé · pool épuisé → un contenu en D est repêché",
       onFail: "Aucun candidat → trou (pas de filler)",
     },
     {

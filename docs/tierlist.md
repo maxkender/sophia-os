@@ -14,9 +14,10 @@ L'ELO ne sert plus qu'au tout premier placement, à l'import.
 | S    | 8                    |
 | S+   | 16                   |
 
-Le rang décide de la **fréquence** d'un post : à l'intérieur du pool du jour, le
-tirage est uniforme. Il n'y a plus de score, de top-K, de softmax ni de pénalité
-de saturation.
+Le rang décide de la **fréquence** d'un post (nombre de passages) et sa **priorité**
+au tirage : le bas de tierlist ne passe que quand le haut est épuisé (voir
+« Répartition quotidienne »). À l'intérieur d'une bande, le tirage est uniforme.
+Il n'y a plus de score, de top-K, de softmax ni de pénalité de saturation.
 
 ## Premier placement (import)
 
@@ -91,13 +92,34 @@ Chaque compte tire dans les posts qui partagent au moins un de ses labels (et sa
 même application / compatibilité UGC), parmi ceux dont il reste des passages à
 effectuer.
 
-- **Plus de passages à faire que de créneaux** → tirage au hasard.
-- **Plus de créneaux que de passages à faire** → un post en D est repêché et
-  reçoit `tierlist.repechage_passages` passage (1 par défaut). Le repêchage est
-  **par compte** : inutile de réveiller un D que ce compte ne peut pas poster.
+Le pool du jour est servi **bande par bande**, dans cet ordre :
 
-Un post peut repasser sur un compte qui l'a déjà posté ; le tirage préfère
-simplement du neuf quand il y en a.
+| Bande | Contenu                                    |
+| ----- | ------------------------------------------ |
+| 1     | B et au-dessus, jamais posté par ce compte |
+| 2     | B et au-dessus, déjà posté par ce compte   |
+| 3     | C (ou D repêché), jamais posté             |
+| 4     | C (ou D repêché), déjà posté               |
+
+On ne descend d'une bande que quand la précédente est vide, et le tirage est
+uniforme à l'intérieur d'une bande. Donc **un C n'est donné que s'il n'y a plus
+aucun post en B+ dans le pool du compte** — même un B déjà vu par ce compte
+passe devant un C neuf : le rang prime sur la fraîcheur.
+
+Un post peut repasser sur un compte qui l'a déjà posté ; à rang équivalent, le
+tirage préfère simplement du neuf quand il y en a. Le plancher de priorité est
+`TIER_MIN_PRIORITAIRE` (`B`) dans `tierlist.ts`.
+
+- **Plus de passages à faire que de créneaux** → tirage au hasard dans la
+  première bande non vide.
+- **Plus de créneaux que de passages à faire** (les quatre bandes vides) → un
+  post en D est repêché et reçoit `tierlist.repechage_passages` passage
+  (1 par défaut). Le repêchage est **par compte** : inutile de réveiller un D
+  que ce compte ne peut pas poster.
+
+Un D repêché dont le passage est assigné mais pas encore publié peut revenir
+dans le pool (fenêtre « en vol » de 7 jours) : il est alors servi dans les
+bandes basses, avec les C.
 
 ## Rappel J+7 (> 50 000 vues)
 
@@ -160,7 +182,8 @@ Les posts repartent au cycle 1 avec le compteur plein : les passages historiques
 
 ## Où c'est dans le code
 
-- `src/features/moteur/tierlist.ts` — barèmes + table de requalification (testé)
+- `src/features/moteur/tierlist.ts` — barèmes, table de requalification et
+  bandes de tirage (testé)
 - `supabase/functions/_shared/tierlist.ts` — copie Deno + run de requalification
   et programmation des rappels
 - `supabase/functions/_shared/import_contenu.ts` — `assurerTierImport`

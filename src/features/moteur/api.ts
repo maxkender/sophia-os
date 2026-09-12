@@ -26,9 +26,12 @@ import type {
   Contenu,
   ContenuLangue,
   ContenuSlide,
+  ContenuTierEtat,
   EloImportRapport,
   Passage,
+  Tier,
 } from "./types";
+import { PASSAGES_PAR_TIER } from "./types";
 import type { LigneJournalOubli } from "./oubliSource";
 import { type MajSourcesRun } from "./majSequentielle";
 import { compteEnProcessus } from "./warmup";
@@ -3296,10 +3299,6 @@ export async function lireReglages(): Promise<Reglages> {
       ewma_alpha: 0.3,
       regularisation_k: 5,
       transfert_inter_langue: 0.15,
-      top_k: 5,
-      temperature: 0.7,
-      saturation_jours: 7,
-      saturation_penalite: 0.2,
       variation_seuil_score: 80,
       variation_min_passages: 3,
       variation_age_jours: 5,
@@ -3307,10 +3306,19 @@ export async function lireReglages(): Promise<Reglages> {
       score_prior: 50,
       pertinence_seuil: 50,
       elo_seuil_import: 55,
-      elo_poids_vues: 0.9,
+      elo_poids_vues: 0.7,
       elo_vues_plafond: 80_000,
       elo_regularisation_k: 1,
       ...((map.get("scoring") as Partial<Reglages["scoring"]> | undefined) ?? {}),
+    },
+    tierlist: {
+      recul_jours: 1,
+      rappel_vues: 50_000,
+      rappel_jours: 7,
+      rappel_max: 3,
+      remix_par_requalif: 3,
+      repechage_passages: 1,
+      ...((map.get("tierlist") as Partial<Reglages["tierlist"]> | undefined) ?? {}),
     },
     paiement: (map.get("paiement") as Reglages["paiement"] | undefined) ?? {
       tarif_base_mensuel: 0,
@@ -6131,6 +6139,8 @@ export async function propagerLabelsSource(compteReferenceId: string): Promise<n
 export interface ContenuListe extends Contenu {
   labels?: Label[];
   scores?: Array<{ langue: string; score: number; nb_passages: number }>;
+  /** Avancement du cycle tierlist (vue `contenu_tier_etat`). */
+  tierEtat?: ContenuTierEtat | null;
   /** Nombre de passages / posts assignés sur ce slideshow. */
   nb_posts?: number;
   /** URL des visuels nettoyés indexés par media_id. */
@@ -6320,7 +6330,7 @@ async function enrichirContenusListe(contenus: Contenu[]): Promise<ContenuListe[
   if (contenus.length === 0) return [];
 
   const ids = contenus.map((c) => c.id);
-  const [{ data: liens }, { data: scores }, { data: passages }, metas] =
+  const [{ data: liens }, { data: scores }, { data: passages }, { data: tierEtats }, metas] =
     await Promise.all([
       supabase
         .from("contenu_labels")
@@ -6331,6 +6341,12 @@ async function enrichirContenusListe(contenus: Contenu[]): Promise<ContenuListe[
         .select("contenu_id, langue, score, nb_passages")
         .in("contenu_id", ids),
       supabase.from("passages").select("contenu_id").in("contenu_id", ids),
+      supabase
+        .from("contenu_tier_etat")
+        .select(
+          "contenu_id, tier, passages_prevus, tier_cycle, tier_maj_at, publies, en_vol, restants, moyenne_vues, max_vues, nb_150k, dernier_publie_at",
+        )
+        .in("contenu_id", ids),
       metasMediasPropres(contenus),
     ]);
 
@@ -6353,6 +6369,9 @@ async function enrichirContenusListe(contenus: Contenu[]): Promise<ContenuListe[
     const cid = p.contenu_id as string;
     postsPar.set(cid, (postsPar.get(cid) ?? 0) + 1);
   }
+  const tierPar = new Map<string, ContenuTierEtat>(
+    (tierEtats ?? []).map((e) => [e.contenu_id as string, e as ContenuTierEtat]),
+  );
 
   return contenus.map((c) => {
     const idsContenu = new Set(
@@ -6373,6 +6392,7 @@ async function enrichirContenusListe(contenus: Contenu[]): Promise<ContenuListe[
       ugc_compatible: Boolean((c as Contenu).ugc_compatible),
       labels: labelsPar.get(c.id) ?? [],
       scores: scoresPar.get(c.id) ?? [],
+      tierEtat: tierPar.get(c.id) ?? null,
       nb_posts: postsPar.get(c.id) ?? 0,
       mediaUrls: urls,
       mediaVisages: visages,
@@ -6389,6 +6409,42 @@ export interface SlideshowDetail extends ContenuListe {
     }
   >;
   source?: { handle_tiktok: string } | null;
+}
+
+/**
+ * Change à la main le rang tierlist d'un slideshow.
+ *
+ * Le compteur de passages repart plein sur un cycle neuf — sinon les passages
+ * déjà publiés du cycle en cours compteraient dans le `m` du nouveau rang.
+ * Pas d'override permanent : la prochaine requalification reprend la main.
+ */
+export async function majTierContenu(id: string, tier: Tier): Promise<void> {
+  const { data: courant, error: errLire } = await supabase
+    .from("contenus")
+    .select("tier, tier_cycle")
+    .eq("id", id)
+    .maybeSingle();
+  if (errLire) throw errLire;
+  if (!courant) throw new Error("Slideshow introuvable");
+
+  const { error } = await supabase
+    .from("contenus")
+    .update({
+      tier,
+      passages_prevus: PASSAGES_PAR_TIER[tier],
+      tier_cycle: Number(courant.tier_cycle ?? 0) + 1,
+      tier_maj_at: new Date().toISOString(),
+      tier_rapport: {
+        origine: "manuel",
+        avant: courant.tier as Tier,
+        apres: tier,
+        regle: "changement manuel admin",
+        passages: PASSAGES_PAR_TIER[tier],
+        cycle: Number(courant.tier_cycle ?? 0) + 1,
+      },
+    })
+    .eq("id", id);
+  if (error) throw error;
 }
 
 /**

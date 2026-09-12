@@ -7,6 +7,12 @@ import { LOT_IDS, lireParLots } from "./lots.ts";
 import { mapPool } from "./parallel.ts";
 import { serviceClient } from "./supabase.ts";
 import {
+  estTier,
+  programmerRappels,
+  type RappelsResultat,
+  type Tier,
+} from "./tierlist.ts";
+import {
   appliquerFaceSwapUgcPost,
   chargerPersonaUgc,
 } from "./ugc_face_swap.ts";
@@ -25,10 +31,8 @@ export type Supabase = ReturnType<typeof serviceClient>;
 
 export interface AssignationReglages {
   postsParJour: number;
-  top_k: number;
-  temperature: number;
-  saturation_jours: number;
-  saturation_penalite: number;
+  /** Passages offerts à un contenu en D repêché quand le pool ne suffit pas. */
+  repechagePassages: number;
 }
 
 export async function chargerAssignationReglages(
@@ -39,13 +43,10 @@ export async function chargerAssignationReglages(
   const frequence = (map.get("frequence") ?? { posts_par_jour: 1 }) as {
     posts_par_jour?: number;
   };
-  const scoring = (map.get("scoring") ?? {}) as Record<string, number>;
+  const tierlist = (map.get("tierlist") ?? {}) as Record<string, number>;
   return {
     postsParJour: Math.min(3, Math.max(1, frequence.posts_par_jour ?? 1)),
-    top_k: scoring.top_k ?? 5,
-    temperature: scoring.temperature ?? 0.7,
-    saturation_jours: scoring.saturation_jours ?? 7,
-    saturation_penalite: scoring.saturation_penalite ?? 0.2,
+    repechagePassages: Math.max(1, tierlist.repechage_passages ?? 1),
   };
 }
 
@@ -69,7 +70,13 @@ function hashtagsPour(langue: string, seed: string): string {
 
 interface Candidat {
   contenuId: string;
-  score: number;
+  tier: Tier;
+  /** Cycle de requalification en cours — estampillé sur le passage créé. */
+  tierCycle: number;
+  /** Passages encore à effectuer sur ce cycle. */
+  restants: number;
+  /** Repêché depuis la D-tier pour combler le pool du jour. */
+  repeche: boolean;
   slides: unknown;
   musique_url: string | null;
   musique_titre: string | null;
@@ -101,30 +108,16 @@ interface PassageHisto {
   posts?: PostLie;
 }
 
-interface PassageRecent {
-  contenu_id: string;
-  compte_id: string;
-  posts?: PostLie;
-}
-
-/** Tirage top-K pondéré (softmax). */
-export function echantillonnerTopK(
-  candidats: Candidat[],
-  topK: number,
-  temperature: number,
-): Candidat | null {
+/**
+ * Tirage au hasard dans le pool.
+ *
+ * Plus de softmax sur un score : c'est le nombre de passages du rang tierlist
+ * qui décide de la fréquence d'un contenu (D 0 · C 1 · B 2 · A 4 · S 8 · S+ 16).
+ * À l'intérieur du pool du jour, tout le monde a la même chance.
+ */
+export function tirerAuHasard<T>(candidats: T[]): T | null {
   if (candidats.length === 0) return null;
-  const slice = candidats.slice(0, Math.max(1, topK));
-  const t = Math.max(temperature, 0.05);
-  const maxS = Math.max(...slice.map((c) => c.score));
-  const poids = slice.map((c) => Math.exp((c.score - maxS) / t));
-  const total = poids.reduce((a, b) => a + b, 0);
-  let r = Math.random() * total;
-  for (let i = 0; i < slice.length; i += 1) {
-    r -= poids[i];
-    if (r <= 0) return slice[i];
-  }
-  return slice[slice.length - 1];
+  return candidats[Math.floor(Math.random() * candidats.length)];
 }
 
 export interface QuotaBaisse {
@@ -147,8 +140,8 @@ export interface AssignationOpts {
   forcer?: boolean;
   /** Posts `est_test` — hors calendriers créateurs. */
   test?: boolean;
-  /** Ignore le filtre `contenu_langues` (seuil ELO à l'import). */
-  ignorerElo?: boolean;
+  /** Ignore le budget de passages tierlist (mode test admin). */
+  ignorerTierlist?: boolean;
   /** Ignore `warmup_ends_at` (compte hors process OK). */
   ignorerWarmup?: boolean;
   /** Logs progression (stream NDJSON / UI test). */
@@ -214,7 +207,7 @@ export async function assignerCompteJour(
   const o: AssignationOpts = typeof opts === "boolean" ? { forcer: opts } : (opts ?? {});
   const forcer = Boolean(o.forcer);
   const estTest = Boolean(o.test);
-  const ignorerElo = Boolean(o.ignorerElo ?? estTest);
+  const ignorerTierlist = Boolean(o.ignorerTierlist ?? estTest);
   const log = (detail: string) => {
     try {
       o.onLog?.(detail);
@@ -384,14 +377,18 @@ export async function assignerCompteJour(
       reglages,
       contenusSession,
       ugcAi,
-      { ignorerElo, exclureTestsHisto: true },
+      { ignorerTierlist, exclureTestsHisto: true },
     );
     if (!choisi) {
       log("Plus de candidat dans le pool");
       break;
     }
     contenusSession.push(choisi.contenuId);
-    log(`Contenu ${choisi.contenuId.slice(0, 8)} (score≈${Math.round(choisi.score)}) — deck ${langue}…`);
+    log(
+      `Contenu ${choisi.contenuId.slice(0, 8)} · ${choisi.tier}-tier` +
+        `${choisi.repeche ? " (repêché de D)" : ` · ${choisi.restants} passage(s) restant(s)`}` +
+        ` — deck ${langue}…`,
+    );
 
     // Traduction + Sophia à la demande (hors langue source) — pas à l'import.
     let slides: SlideLangue[];
@@ -425,6 +422,8 @@ export async function assignerCompteJour(
         musique_titre: choisi.musique_titre,
         musique_plateforme: choisi.musique_plateforme,
         hashtags,
+        // Fenêtre de mesure : ce passage comptera dans le `m` de ce cycle.
+        tier_cycle: choisi.tierCycle,
       })
       .select("id")
       .single();
@@ -485,7 +484,7 @@ export async function assignerCompteJour(
       labelNoms,
       langue,
       ugcAi,
-      ignorerElo,
+      ignorerTierlist,
     );
     log(diag);
 
@@ -585,7 +584,7 @@ async function diagnostiquerPoolVide(
   labelNoms: string[],
   langue: string,
   ugcAi = false,
-  ignorerElo = false,
+  ignorerTierlist = false,
 ): Promise<string> {
   const labelsTxt = labelNoms.length > 0 ? labelNoms.join(", ") : `${labelIds.length} label(s)`;
 
@@ -620,45 +619,53 @@ async function diagnostiquerPoolVide(
     );
   }
 
-  if (ignorerElo) {
+  if (ignorerTierlist) {
     return (
-      `Pool « ${labelsTxt} » × ${langue.toUpperCase()} épuisé (mode test sans filtre ELO) — ` +
+      `Pool « ${labelsTxt} » × ${langue.toUpperCase()} épuisé (mode test sans tierlist) — ` +
       `${idsPrets.length} slideshow(s) prêt(s), déjà tout assigné ou deck impossible.`
     );
   }
 
-  const eligibles = await lireParLots<{ contenu_id: string }>(
+  const etats = await lireParLots<{ contenu_id: string; restants: number; passages_prevus: number }>(
     idsPrets,
-    "Diagnostic — lignes ELO",
+    "Diagnostic — état tierlist",
     (lot) =>
       supabase
-        .from("contenu_langues")
-        .select("contenu_id")
-        .eq("langue", langue)
+        .from("contenu_tier_etat")
+        .select("contenu_id, restants, passages_prevus")
         .in("contenu_id", lot),
   );
-  const nLangue = eligibles.length;
-  if (nLangue === 0) {
+  const avecPassages = etats.filter((e) => (e.restants ?? 0) > 0).length;
+  const dormants = etats.filter((e) => (e.passages_prevus ?? 0) <= 0).length;
+
+  if (avecPassages === 0 && dormants === 0) {
     return (
-      `${idsPrets.length} slideshow(s) « ${labelsTxt} » prêts, mais aucun éligible en ` +
-      `${langue.toUpperCase()} (pas de ligne ELO pour cette langue à l'import).`
+      `${idsPrets.length} slideshow(s) « ${labelsTxt} » prêts, mais tous ont épuisé ` +
+      `leurs passages et attendent leur requalification (minuit).`
+    );
+  }
+  if (avecPassages === 0) {
+    return (
+      `Pool « ${labelsTxt} » épuisé : plus aucun passage à effectuer, ` +
+      `${dormants} slideshow(s) en D disponibles au repêchage — ` +
+      `le repêchage a échoué (concurrence) ou le deck ${langue.toUpperCase()} n'a pas pu être produit.`
     );
   }
 
-  // Beaucoup de candidats ELO : le pool n'est PAS vide — minuit a souvent
+  // Beaucoup de candidats : le pool n'est PAS vide — minuit a souvent
   // timeout avant d'atteindre ce compte (batch trop long).
-  if (nLangue >= 15) {
+  if (avecPassages >= 15) {
     return (
-      `Pool « ${labelsTxt} » × ${langue.toUpperCase()} OK (${nLangue} candidat(s) ELO) — ` +
+      `Pool « ${labelsTxt} » × ${langue.toUpperCase()} OK (${avecPassages} slideshow(s) avec passages à faire) — ` +
       `minuit n'a probablement pas atteint ce compte (timeout batch). ` +
       `Réassigne les incomplets (bouton parallèle) ; sinon baisse auto du quota.`
     );
   }
 
   return (
-    `Pool « ${labelsTxt} » × ${langue.toUpperCase()} trop mince ou déjà tout assigné ` +
-    `(${nLangue} candidat(s) ELO) — importe / labellise d'autres slideshows ` +
-    `(sinon minuit baisse le quota du créateur).`
+    `Pool « ${labelsTxt} » × ${langue.toUpperCase()} trop mince ` +
+    `(${avecPassages} slideshow(s) avec passages à faire, ${dormants} en D) — ` +
+    `importe / labellise d'autres slideshows (sinon minuit baisse le quota du créateur).`
   );
 }
 
@@ -815,9 +822,9 @@ async function choisirContenu(
   reglages: AssignationReglages,
   dejaCreesCetteSession: string[],
   ugcAi = false,
-  opts: { ignorerElo?: boolean; exclureTestsHisto?: boolean } = {},
+  opts: { ignorerTierlist?: boolean; exclureTestsHisto?: boolean } = {},
 ): Promise<Candidat | null> {
-  const ignorerElo = Boolean(opts.ignorerElo);
+  const ignorerTierlist = Boolean(opts.ignorerTierlist);
   const { data: compteApp } = await supabase
     .from("comptes")
     .select("application_id")
@@ -854,19 +861,17 @@ async function choisirContenu(
   const contenuIds = contenus.map((c) => c.id);
   const meta = new Map(contenus.map((c) => [c.id, c]));
 
-  const langues = await lireParLots<{ contenu_id: string; score: number | null }>(
+  // État tierlist : passages publiés / en vol / restants sur le cycle courant.
+  const etats = await lireParLots<TierEtatLigne>(
     contenuIds,
-    "Lignes ELO",
+    "État tierlist",
     (lot) =>
       supabase
-        .from("contenu_langues")
-        .select("contenu_id, score, slides")
-        .eq("langue", langue)
+        .from("contenu_tier_etat")
+        .select("contenu_id, tier, tier_cycle, passages_prevus, restants")
         .in("contenu_id", lot),
   );
-  const scoreParContenu = new Map(
-    langues.map((cl) => [cl.contenu_id, Number(cl.score ?? 50)]),
-  );
+  const etatParContenu = new Map(etats.map((e) => [e.contenu_id, e]));
 
   // Historique passages de CE compte (hors posts test si demandé).
   const hist = await lireParLots<PassageHisto>(contenuIds, "Historique des passages", (lot) =>
@@ -884,50 +889,16 @@ async function choisirContenu(
     if (!prev || d > prev) derniere.set(h.contenu_id, d);
   }
 
-  // Saturation réseau : nb de comptes distincts (hors tests) ayant posté récemment
-  const depuis = new Date(`${jour}T00:00:00Z`);
-  depuis.setUTCDate(depuis.getUTCDate() - reglages.saturation_jours);
-  const seuil = depuis.toISOString().slice(0, 10);
-  const recents = await lireParLots<PassageRecent>(
-    contenuIds,
-    "Passages récents (saturation)",
-    (lot) =>
-      supabase
-        .from("passages")
-        .select("contenu_id, compte_id, posts(est_test)")
-        .in("contenu_id", lot)
-        .gte("date_publication_prevue", seuil)
-        .in("statut", ["assigne", "valide_par_poster", "publie"]),
-  );
-  const saturation = new Map<string, Set<string>>();
-  for (const r of recents) {
-    if (estPassageDeTest(r.posts)) continue;
-    let set = saturation.get(r.contenu_id);
-    if (!set) {
-      set = new Set();
-      saturation.set(r.contenu_id, set);
-    }
-    set.add(r.compte_id);
-  }
-
-  const frais: Candidat[] = [];
-  const deja: Candidat[] = [];
-
-  const idsCandidats = ignorerElo ? contenuIds : langues.map((cl) => cl.contenu_id);
-
-  for (const cid of idsCandidats) {
-    if (dejaCreesCetteSession.includes(cid)) continue;
-    // Sans ignorerElo : ligne `contenu_langues` = ELO ≥ seuil à l'import.
-    // Mode test : on pioche aussi les contenus sans ligne ELO (score 50).
-
+  const construire = (cid: string, e: TierEtatLigne | undefined, repeche: boolean): Candidat | null => {
     const m = meta.get(cid);
-    if (!m) continue;
-    const sat = saturation.get(cid)?.size ?? 0;
-    const base = scoreParContenu.get(cid) ?? 50;
-    const score = base - reglages.saturation_penalite * sat * 10;
-    const candidat: Candidat = {
+    if (!m) return null;
+    const tier = estTier(e?.tier) ? e!.tier : "D";
+    return {
       contenuId: cid,
-      score,
+      tier,
+      tierCycle: e?.tier_cycle ?? 0,
+      restants: e?.restants ?? 0,
+      repeche,
       slides: null,
       musique_url: m.musique_url,
       musique_titre: m.musique_titre,
@@ -935,19 +906,97 @@ async function choisirContenu(
       dejaPoste: derniere.has(cid),
       derniereDate: derniere.get(cid) ?? null,
     };
+  };
+
+  // Pool du jour : les contenus qui ont encore des passages à effectuer.
+  // Un passage assigné mais jamais publié n'est pas consommé — la vue le
+  // compte « en vol » une semaine, puis il retourne au pool.
+  const frais: Candidat[] = [];
+  const deja: Candidat[] = [];
+  for (const cid of contenuIds) {
+    if (dejaCreesCetteSession.includes(cid)) continue;
+    const e = etatParContenu.get(cid);
+    if (!ignorerTierlist && (e?.restants ?? 0) <= 0) continue;
+    const candidat = construire(cid, e, false);
+    if (!candidat) continue;
+    // Un contenu peut repasser sur le même compte : on préfère seulement
+    // du neuf quand il y en a.
     if (candidat.dejaPoste) deja.push(candidat);
     else frais.push(candidat);
   }
 
-  frais.sort((a, b) => b.score - a.score);
-  const pickFrais = echantillonnerTopK(frais, reglages.top_k, reglages.temperature);
-  if (pickFrais) return pickFrais;
+  const pick = tirerAuHasard(frais) ?? tirerAuHasard(deja);
+  if (pick) return pick;
 
-  // Fallback 1 : déjà posté, le moins récemment
-  deja.sort((a, b) => (a.derniereDate ?? "").localeCompare(b.derniereDate ?? ""));
-  if (deja.length > 0) return deja[0];
+  // Pool épuisé pour ce compte : on repêche un contenu en D et on lui redonne
+  // un passage. Le repêchage est par compte — inutile de réveiller un D que
+  // personne ne peut poster (labels / application / UGC).
+  if (ignorerTierlist) return null;
+  return await repecherContenuD(
+    supabase,
+    contenuIds,
+    etatParContenu,
+    dejaCreesCetteSession,
+    reglages.repechagePassages,
+    construire,
+  );
+}
 
-  // Fallback final : laisse vide (pas de bouche-trou)
+interface TierEtatLigne {
+  contenu_id: string;
+  tier: Tier;
+  tier_cycle: number;
+  passages_prevus: number;
+  restants: number;
+}
+
+/**
+ * Repêche un contenu en D (0 passage prévu) et lui rend un passage, pour
+ * combler le pool quand il y a plus de créneaux que de passages à effectuer.
+ *
+ * Le `eq("passages_prevus", 0)` rend l'opération atomique : deux comptes
+ * assignés en parallèle ne peuvent pas repêcher le même contenu.
+ */
+async function repecherContenuD(
+  supabase: Supabase,
+  contenuIds: string[],
+  etatParContenu: Map<string, TierEtatLigne>,
+  dejaCreesCetteSession: string[],
+  passages: number,
+  construire: (cid: string, e: TierEtatLigne | undefined, repeche: boolean) => Candidat | null,
+): Promise<Candidat | null> {
+  const dormants = contenuIds.filter((cid) => {
+    if (dejaCreesCetteSession.includes(cid)) return false;
+    const e = etatParContenu.get(cid);
+    return e !== undefined && e.passages_prevus <= 0;
+  });
+  if (dormants.length === 0) return null;
+
+  // Ordre aléatoire : le repêchage ne doit pas toujours réveiller les mêmes.
+  for (let i = dormants.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [dormants[i], dormants[j]] = [dormants[j], dormants[i]];
+  }
+
+  for (const cid of dormants.slice(0, 10)) {
+    const { data, error } = await supabase
+      .from("contenus")
+      .update({ passages_prevus: passages })
+      .eq("id", cid)
+      .eq("passages_prevus", 0)
+      .select("id, tier, tier_cycle")
+      .maybeSingle();
+    if (error || !data) continue;
+    const etat: TierEtatLigne = {
+      contenu_id: cid,
+      tier: estTier(data.tier) ? (data.tier as Tier) : "D",
+      tier_cycle: Number(data.tier_cycle ?? 0),
+      passages_prevus: passages,
+      restants: passages,
+    };
+    etatParContenu.set(cid, etat);
+    return construire(cid, etat, true);
+  }
   return null;
 }
 
@@ -1207,4 +1256,71 @@ export async function annulerAssignationTest(
     passages: passageIds.length,
     medias: mediasUgc.length,
   };
+}
+
+// ---------------------------------------------------------------------------
+// Rappel J+7 — un passage qui perce repart sur le même compte
+// ---------------------------------------------------------------------------
+
+/**
+ * Programme les rappels J+7 des passages au-delà du seuil de vues (50k).
+ *
+ * Le rappel rejoue l'EXACT même post sur le MÊME compte, hors de toute
+ * assignation classique : il ne consomme pas de passage du budget tierlist, ne
+ * compte pas dans le `m` de la requalification, et s'ajoute au quota du jour.
+ */
+export async function programmerRappelsJ7(
+  supabase: Supabase,
+  opts: { dryRun?: boolean } = {},
+): Promise<RappelsResultat> {
+  return await programmerRappels(
+    supabase,
+    async ({ passageSource, jour }) => {
+      const slides = (passageSource.slides ?? []) as SlideLangue[];
+      if (!Array.isArray(slides) || slides.length === 0) {
+        throw new Error("Deck du passage source vide — rappel impossible");
+      }
+      const hashtags = passageSource.hashtags ?? "";
+
+      const { data: passage, error } = await supabase
+        .from("passages")
+        .insert({
+          contenu_id: passageSource.contenu_id,
+          compte_id: passageSource.compte_id,
+          langue: passageSource.langue,
+          date_publication_prevue: jour,
+          statut: "assigne",
+          slides,
+          musique_url: passageSource.musique_url,
+          musique_titre: passageSource.musique_titre,
+          musique_plateforme: passageSource.musique_plateforme,
+          hashtags,
+          est_rappel: true,
+          rappel_rang: passageSource.rappel_rang + 1,
+          rappel_source_id: passageSource.id,
+          tier_cycle: passageSource.tier_cycle,
+        })
+        .select("id")
+        .single();
+      if (error || !passage) throw error ?? new Error("Création passage rappel échouée");
+
+      try {
+        await materialiserPostDepuisPassage(supabase, {
+          passageId: passage.id,
+          compteId: passageSource.compte_id,
+          contenuId: passageSource.contenu_id,
+          jour,
+          slides,
+          musique_url: passageSource.musique_url,
+          musique_titre: passageSource.musique_titre,
+          musique_plateforme: passageSource.musique_plateforme,
+          hashtags,
+        });
+      } catch (e) {
+        await supabase.from("passages").delete().eq("id", passage.id);
+        throw e;
+      }
+    },
+    opts,
+  );
 }

@@ -50,6 +50,11 @@ import {
   resoudreApplicationImport,
 } from "./applications.ts";
 import { lireParLots } from "./lots.ts";
+import {
+  passagesPourTier,
+  tierImport,
+  type Tier,
+} from "./tierlist.ts";
 import { chargerPrompt, messageErreur, serviceClient } from "./supabase.ts";
 
 export type Supabase = ReturnType<typeof serviceClient>;
@@ -118,8 +123,8 @@ async function lireScoring(supabase: Supabase) {
     pertinence: v.pertinence_seuil ?? 50,
     /** Seuil ELO : en-dessous → langue non cuite ; si aucune langue → pas d'import. */
     eloSeuil: v.elo_seuil_import ?? 55,
-    /** Poids des vues dans la base ELO (reste = pertinence). Défaut 90 %. */
-    poidsVues: v.elo_poids_vues ?? 0.9,
+    /** Poids des vues dans la note d'import (reste = pertinence). Défaut 70 %. */
+    poidsVues: v.elo_poids_vues ?? 0.7,
     /**
      * Plafond des vues → score 100.
      * 80k : meilleure résolution dans la zone 1k–20k.
@@ -158,6 +163,10 @@ export interface EloLigneDetail {
 
 export interface EloRapport {
   vues: number;
+  /** Note /100 de la langue source — sert au seul premier placement. */
+  elo: number;
+  /** Tier d'entrée déduit de la note (null = sous le seuil, pas importé). */
+  tier: Tier | null;
   pertinence: number;
   vuesScore: number;
   poidsVues: number;
@@ -202,7 +211,7 @@ export function decomposerElo(opts: {
   vuesPlafond?: number;
   seuil?: number;
 }): EloLigneDetail & { poidsVues: number; vuesPlafond: number; vues: number } {
-  const poidsVues = Math.min(1, Math.max(0, opts.poidsVues ?? 0.9));
+  const poidsVues = Math.min(1, Math.max(0, opts.poidsVues ?? 0.7));
   const vuesPlafond = opts.vuesPlafond ?? 80_000;
   const vues = opts.vues ?? 0;
   const vuesScore = scoreDepuisVues(vues, vuesPlafond);
@@ -229,7 +238,13 @@ export function decomposerElo(opts: {
   };
 }
 
-/** Rapport ELO pour toutes les langues cibles — texte prêt pour les logs. */
+/**
+ * Note d'import — une seule note /100, sur la langue source.
+ *
+ * Plus de note par langue : le placement d'un contenu se joue ensuite sur son
+ * rang de tierlist, langue-agnostique. Cette note ne sert qu'au premier
+ * placement (sous le seuil → pas d'import ; sinon C / B / A).
+ */
 export function rapportEloComplet(opts: {
   pertinence: number;
   vues: number | null | undefined;
@@ -240,30 +255,29 @@ export function rapportEloComplet(opts: {
   vuesPlafond: number;
   seuil: number;
 }): EloRapport {
-  const lignes = LANGUES_CIBLES.map((langue) =>
-    decomposerElo({ ...opts, langue, seuil: opts.seuil }),
-  );
-  const head = lignes[0]!;
+  const head = decomposerElo({
+    ...opts,
+    langue: opts.langueSource,
+    seuil: opts.seuil,
+  });
+  const tier = tierImport(head.elo, opts.seuil);
   const pctVues = Math.round(opts.poidsVues * 100);
   const pctPert = 100 - pctVues;
   const texte = [
     `vues=${head.vues} → scoreVues=${head.vuesScore.toFixed(2)} (log^1.3, plafond ${opts.vuesPlafond})`,
     `pertinence=${head.pertinence}`,
-    `base = ${pctPert}%×pert + ${pctVues}%×vues = ${((1 - opts.poidsVues) * head.pertinence + opts.poidsVues * head.vuesScore).toFixed(2)}`,
-    `régularisation ELO: prior=${opts.prior} k=${opts.k} · seuil=${opts.seuil} · source=${opts.langueSource}`,
-    `kk = k/2 si langue source, sinon 2k · ELO = (kk×prior + base) / (kk+1)`,
-    ...lignes.map((l) => {
-      const flag = l.retenue ? "✓ retenue" : "✗ sous seuil";
-      const src = l.estSource ? " · SOURCE" : "";
-      return (
-        `  ${l.langue}: base=${l.base.toFixed(2)} kk=${l.kk}` +
-        ` → ELO=${l.elo.toFixed(2)} ${flag}${src}`
-      );
-    }),
+    `base = ${pctPert}%×pert + ${pctVues}%×vues = ${head.base.toFixed(2)}`,
+    `régularisation: prior=${opts.prior} k=${opts.k} · seuil=${opts.seuil} · langue source=${opts.langueSource}`,
+    `note = (kk×prior + base) / (kk+1) avec kk=${head.kk} → ${head.elo.toFixed(2)}`,
+    tier
+      ? `→ premier placement : ${tier} (${passagesPourTier(tier)} passage(s) à effectuer)`
+      : `→ sous le seuil (${opts.seuil}) : TikTok non importé`,
   ].join("\n");
 
   return {
     vues: head.vues,
+    elo: head.elo,
+    tier,
     pertinence: head.pertinence,
     vuesScore: head.vuesScore,
     poidsVues: opts.poidsVues,
@@ -272,7 +286,9 @@ export function rapportEloComplet(opts: {
     k: opts.k,
     seuil: opts.seuil,
     langueSource: opts.langueSource,
-    lignes: lignes.map(({ poidsVues: _p, vuesPlafond: _v, vues: _u, ...l }) => l),
+    lignes: [
+      (({ poidsVues: _p, vuesPlafond: _v, vues: _u, ...l }) => l)(head),
+    ],
     texte,
   };
 }
@@ -506,61 +522,83 @@ export async function creerContenuDepuisPost(
 }
 
 /**
- * Crée les `contenu_langues` pour les langues ELO ≥ seuil (+ toujours la
- * langue source, deck de base pour traduire plus tard à l'assignation).
- * Renvoie les langues ≥ seuil (vide = TikTok non importé / rejeté).
- * Ne touche pas aux lignes déjà présentes (stocks existants).
+ * Premier placement en tierlist depuis la note /100 de la langue source.
+ *
+ * Sous le seuil → `null` (TikTok non importé). Sinon le contenu entre en C / B / A
+ * avec le nombre de passages du rang, et la ligne `contenu_langues` de la langue
+ * source est créée (deck de base pour les traductions ultérieures).
+ *
+ * Plus de gate par langue : toutes les langues sont postables, leur deck naît à
+ * la demande à l'assignation (`assurerDeckPourLangue`).
  */
-export async function assurerLanguesAuDessusSeuilElo(
+export async function assurerTierImport(
   supabase: Supabase,
   contenuId: string,
   langueSource: string,
   vuesSource: number | null,
   pertinence: number,
-): Promise<string[]> {
+): Promise<Tier | null> {
   const scoring = await lireScoring(supabase);
-  const { data: existantes } = await supabase
+  const elo = eloParLangue({
+    pertinence,
+    vues: vuesSource,
+    langue: langueSource,
+    langueSource,
+    prior: scoring.prior,
+    k: scoring.k,
+    poidsVues: scoring.poidsVues,
+    vuesPlafond: scoring.vuesPlafond,
+  });
+  const tier = tierImport(elo, scoring.eloSeuil);
+  if (!tier) return null;
+
+  // Ligne langue source : deck OCR + base de traduction. `score` reste renseigné
+  // pour l'historique, il ne pilote plus le placement.
+  const { data: existante } = await supabase
     .from("contenu_langues")
-    .select("langue, score")
-    .eq("contenu_id", contenuId);
-  if ((existantes ?? []).length > 0) {
-    // Stock déjà en place : on ne reconstruit pas.
-    return (existantes ?? [])
-      .filter((r) => Number(r.score) >= scoring.eloSeuil)
-      .map((r) => r.langue as string);
+    .select("id")
+    .eq("contenu_id", contenuId)
+    .eq("langue", langueSource)
+    .maybeSingle();
+  if (!existante) {
+    const { error } = await supabase.from("contenu_langues").insert({
+      contenu_id: contenuId,
+      langue: langueSource,
+      slides: [] as SlideLangue[],
+      score: elo,
+      nb_passages: 0,
+      score_maj_at: new Date().toISOString(),
+    });
+    if (error) throw error;
   }
 
-  const calculees = LANGUES_CIBLES.map((langue) => ({
-    contenu_id: contenuId,
-    langue,
-    slides: [] as SlideLangue[],
-    score: eloParLangue({
-      pertinence,
-      vues: vuesSource,
-      langue,
-      langueSource,
-      prior: scoring.prior,
-      k: scoring.k,
-      poidsVues: scoring.poidsVues,
-      vuesPlafond: scoring.vuesPlafond,
-    }),
-    nb_passages: 0,
-    score_maj_at: new Date().toISOString(),
-  }));
+  // Ne pas réécraser le rang d'un contenu déjà requalifié (réimport / reprise).
+  const { data: courant } = await supabase
+    .from("contenus")
+    .select("tier_maj_at")
+    .eq("id", contenuId)
+    .maybeSingle();
+  if (!courant?.tier_maj_at) {
+    const { error: errT } = await supabase
+      .from("contenus")
+      .update({
+        tier,
+        passages_prevus: passagesPourTier(tier),
+        tier_cycle: 0,
+        tier_maj_at: new Date().toISOString(),
+        tier_rapport: {
+          origine: "import",
+          elo: Math.round(elo * 100) / 100,
+          seuil: scoring.eloSeuil,
+          tier,
+          passages: passagesPourTier(tier),
+        },
+      })
+      .eq("id", contenuId);
+    if (errT) throw errT;
+  }
 
-  const retenues = calculees.filter((r) => r.score >= scoring.eloSeuil);
-  if (retenues.length === 0) return [];
-
-  // Langue source toujours présente (deck OCR / base de traduction), même si
-  // son ELO est sous le seuil — les autres langues ≥ seuil restent vides jusqu'à
-  // l'assignation minuit.
-  const parLangue = new Map(retenues.map((r) => [r.langue, r]));
-  const source = calculees.find((r) => r.langue === langueSource);
-  if (source && !parLangue.has(langueSource)) parLangue.set(langueSource, source);
-
-  const { error } = await supabase.from("contenu_langues").insert([...parLangue.values()]);
-  if (error) throw error;
-  return retenues.map((r) => r.langue);
+  return tier;
 }
 
 /** Normalise un code langue (fr, en, …) ou null si invalide. */
@@ -978,7 +1016,7 @@ async function executerPasImport(
       return { etape: "ocr", progres: true };
     }
 
-    // 4 — ELO par langue → ne garde que les langues ≥ seuil
+    // 4 — Note /100 de la langue source → premier placement en tierlist
     {
       const scoring = await lireScoring(supabase);
       const elo = rapportEloComplet({
@@ -994,19 +1032,20 @@ async function executerPasImport(
       // Toujours persister le détail (historique + logs UI).
       await marquer(supabase, contenu.id, { import_elo_rapport: elo });
 
-      const retenues = await assurerLanguesAuDessusSeuilElo(
+      const tier = await assurerTierImport(
         supabase,
         contenu.id,
         langueSource,
         contenu.vues_source ?? null,
         Number(contenu.pertinence_score ?? 0),
       );
-      if (retenues.length === 0) {
+      if (!tier) {
         await marquer(supabase, contenu.id, {
           statut: "rejete",
           import_statut: "done",
           import_etape: "elo_insuffisant",
-          import_erreur: "Aucune langue avec ELO au-dessus du seuil — TikTok non importé",
+          import_erreur:
+            `Note ${elo.elo.toFixed(1)} sous le seuil ${elo.seuil} — TikTok non importé`,
           import_elo_rapport: elo,
         });
         return { etape: "elo_insuffisant", elo, progres: true };
@@ -1172,21 +1211,24 @@ async function executerPasImport(
       }
     }
 
-    // 7 — Recalcule ELO cold-start puis valide.
+    // 7 — Rafraîchit la note d'import (langue source) puis valide.
+    // Cette note est un historique : le placement se joue sur `contenus.tier`.
     // Texte stocké = OCR source uniquement (pas de pub Sophia, pas de trad).
     // Sophia + traduction hors-source → `assurerDeckPourLangue` à l'assignation.
-    const { data: langues } = await supabase
+    const { data: langueSourceRow } = await supabase
       .from("contenu_langues")
-      .select("id, langue, slides, score")
-      .eq("contenu_id", contenu.id);
+      .select("id")
+      .eq("contenu_id", contenu.id)
+      .eq("langue", langueSource)
+      .maybeSingle();
 
     const scoring = await lireScoring(supabase);
     const forcerSeuil = Boolean(contenu.import_elo_force_seuil);
-    for (const l of langues ?? []) {
+    if (langueSourceRow) {
       let score = eloParLangue({
         pertinence: Number(contenu.pertinence_score ?? 0),
         vues: contenu.vues_source,
-        langue: l.langue,
+        langue: langueSource,
         langueSource,
         prior: scoring.prior,
         k: scoring.k,
@@ -1200,7 +1242,7 @@ async function executerPasImport(
           score,
           score_maj_at: new Date().toISOString(),
         })
-        .eq("id", l.id);
+        .eq("id", langueSourceRow.id);
     }
 
     // Strip texte_original des slides partagées (reste language-agnostique)
@@ -1305,13 +1347,33 @@ export async function assurerDeckPourLangue(
     .single();
   if (!contenu) throw new Error("Contenu introuvable");
 
-  const { data: cl } = await supabase
+  let { data: cl } = await supabase
     .from("contenu_langues")
     .select("id, langue, slides, hashtags")
     .eq("contenu_id", contenuId)
     .eq("langue", langue)
     .maybeSingle();
-  if (!cl) throw new Error(`Langue ${langue} non éligible (pas de ligne ELO)`);
+  if (!cl) {
+    // Plus de gate par langue : toutes les langues sont postables, leur deck
+    // naît ici, à la première assignation d'un compte de cette langue.
+    if (!(LANGUES_CIBLES as readonly string[]).includes(langue)) {
+      throw new Error(`Langue ${langue} hors langues cibles`);
+    }
+    const { data: creee, error: errCl } = await supabase
+      .from("contenu_langues")
+      .insert({
+        contenu_id: contenuId,
+        langue,
+        slides: [] as SlideLangue[],
+        nb_passages: 0,
+      })
+      .select("id, langue, slides, hashtags")
+      .single();
+    if (errCl || !creee) {
+      throw errCl ?? new Error(`Création ligne langue ${langue} échouée`);
+    }
+    cl = creee;
+  }
 
   let deck = [...((cl.slides ?? []) as SlideLangue[])];
   let hashtags = ((cl as { hashtags?: string | null }).hashtags ?? "").trim();
@@ -1978,8 +2040,9 @@ export async function traiterImportFile(
 }
 
 /**
- * Relance un import rejeté pour ELO insuffisant : planche chaque score au seuil,
- * crée les `contenu_langues`, remet le pipeline en file (nettoyage → valide).
+ * Relance un import rejeté pour note insuffisante : planche la note au seuil,
+ * fait entrer le contenu au rang minimum (C, 1 passage), et remet le pipeline
+ * en file (nettoyage → valide).
  */
 export async function forcerImportElo(
   supabase: Supabase,
@@ -2020,37 +2083,55 @@ export async function forcerImportElo(
     seuil: scoring.eloSeuil,
   });
 
-  const lignesForcees = eloBase.lignes.map((l) => {
-    const elo = Math.max(l.elo, scoring.eloSeuil);
-    return { ...l, elo, retenue: true };
-  });
+  const noteForcee = Math.max(eloBase.elo, scoring.eloSeuil);
+  const tierForce = tierImport(noteForcee, scoring.eloSeuil) ?? "C";
+  const lignesForcees = eloBase.lignes.map((l) => ({
+    ...l,
+    elo: Math.max(l.elo, scoring.eloSeuil),
+    retenue: true,
+  }));
   const elo: EloRapport = {
     ...eloBase,
+    elo: noteForcee,
+    tier: tierForce,
     lignes: lignesForcees,
     texte: [
-      `FORCÉ manuellement → ELO plancher = seuil (${scoring.eloSeuil})`,
+      `FORCÉ manuellement → note plancher = seuil (${scoring.eloSeuil})`,
       eloBase.texte,
-      ...lignesForcees.map((l) => {
-        const natif = eloBase.lignes.find((x) => x.langue === l.langue);
-        const avant = natif?.elo.toFixed(2) ?? "?";
-        return `  ${l.langue}: ${avant} → ${l.elo.toFixed(2)} (forcé ≥ seuil)`;
-      }),
+      `note ${eloBase.elo.toFixed(2)} → ${noteForcee.toFixed(2)} (forcée ≥ seuil)`,
+      `→ premier placement : ${tierForce} (${passagesPourTier(tierForce)} passage(s))`,
     ].join("\n"),
   };
 
-  // Remplace les lignes langues éventuelles (souvent absentes si rejet ELO).
+  // Remplace les lignes langues éventuelles (souvent absentes si rejet).
   await supabase.from("contenu_langues").delete().eq("contenu_id", contenuId);
 
-  const rows = lignesForcees.map((l) => ({
+  const { error: insErr } = await supabase.from("contenu_langues").insert({
     contenu_id: contenuId,
-    langue: l.langue,
+    langue: langueSource,
     slides: [] as SlideLangue[],
-    score: l.elo,
+    score: noteForcee,
     nb_passages: 0,
     score_maj_at: new Date().toISOString(),
-  }));
-  const { error: insErr } = await supabase.from("contenu_langues").insert(rows);
+  });
   if (insErr) return { ok: false, erreur: insErr.message };
+
+  const { error: tierErr } = await supabase
+    .from("contenus")
+    .update({
+      tier: tierForce,
+      passages_prevus: passagesPourTier(tierForce),
+      tier_maj_at: new Date().toISOString(),
+      tier_rapport: {
+        origine: "import_force",
+        elo: Math.round(noteForcee * 100) / 100,
+        seuil: scoring.eloSeuil,
+        tier: tierForce,
+        passages: passagesPourTier(tierForce),
+      },
+    })
+    .eq("id", contenuId);
+  if (tierErr) return { ok: false, erreur: tierErr.message };
 
   // Deck OCR → langue source (comme après un passage ELO OK).
   const { data: cl } = await supabase
@@ -2079,7 +2160,7 @@ export async function forcerImportElo(
     import_elo_force_seuil: true,
   });
 
-  return { ok: true, elo, langues: lignesForcees.map((l) => l.langue) };
+  return { ok: true, elo, langues: [langueSource] };
 }
 
 /** Stats d'un batch pour le panneau UI. */

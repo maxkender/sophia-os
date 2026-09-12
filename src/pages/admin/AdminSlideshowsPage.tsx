@@ -42,6 +42,7 @@ import {
   mediaIdsDepuisSlides,
   renettoyerSlideContenu,
   renseignerLienPublie,
+  majTierContenu,
   scannerVisageUgcMedia,
   setContenuUgcCompatible,
   setLabelsContenu,
@@ -58,7 +59,8 @@ import {
 } from "@/features/moteur/nettoyageEtapes";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { nomLangue } from "@/features/moteur/langues";
-import type { ContenuLangue, ContenuSlide, Media } from "@/features/moteur/types";
+import type { ContenuLangue, ContenuSlide, Media, Tier } from "@/features/moteur/types";
+import { PASSAGES_PAR_TIER, TIERS } from "@/features/moteur/types";
 import { ugcVisages } from "@/features/moteur/ugcVisages";
 import {
   AGENTS_REIMPORT_PHOTOS,
@@ -66,6 +68,30 @@ import {
   executerEnLot,
 } from "@/lib/lot";
 import { cn } from "@/lib/utils";
+
+/** Couleur par rang — un S+ doit sauter aux yeux dans la grille. */
+const CLASSE_TIER: Record<Tier, string> = {
+  D: "border-muted-foreground/30 bg-muted text-muted-foreground",
+  C: "border-slate-300 bg-slate-100 text-slate-700",
+  B: "border-sky-300 bg-sky-100 text-sky-800",
+  A: "border-emerald-300 bg-emerald-100 text-emerald-800",
+  S: "border-amber-300 bg-amber-100 text-amber-900",
+  "S+": "border-fuchsia-300 bg-fuchsia-100 text-fuchsia-900",
+};
+
+function BadgeTier({ tier, className }: { tier: Tier; className?: string }) {
+  return (
+    <span
+      className={cn(
+        "rounded border px-1.5 py-0.5 text-[10px] font-bold tracking-wide",
+        CLASSE_TIER[tier] ?? CLASSE_TIER.D,
+        className,
+      )}
+    >
+      {tier}
+    </span>
+  );
+}
 
 function slideshowDepuisListe(c: ContenuListe): SlideshowDetail {
   return ugcVisages.appliquerOptimistic({
@@ -187,17 +213,17 @@ function vignette(c: ContenuListe): string | null {
   return first?.raw_url ?? first?.reference_url ?? null;
 }
 
-type TriSlideshow = "recent" | "elo" | "posts" | "compte";
+type TriSlideshow = "recent" | "tier" | "posts" | "compte";
 /** null = tous ; "__none__" = sans label ; sinon id label */
 type FiltreLabel = string | null;
 /** null = tous ; "__none__" = source oubliée ; sinon id compte_reference */
 type FiltreCompte = string | null;
 type FiltreUgc = "tous" | "oui" | "non";
 
-function eloMax(c: ContenuListe): number {
-  const scores = c.scores ?? [];
-  if (scores.length === 0) return -1;
-  return Math.max(...scores.map((s) => s.score));
+/** Rang d'un contenu en valeur triable (D = 0 … S+ = 5). */
+function rangTier(c: ContenuListe): number {
+  const idx = TIERS.indexOf(c.tier);
+  return idx < 0 ? -1 : idx;
 }
 
 function filtreSlideshows(
@@ -234,10 +260,14 @@ function trierSlideshows(
   const parDate = (a: ContenuListe, b: ContenuListe) =>
     b.created_at.localeCompare(a.created_at);
   switch (tri) {
-    case "elo":
+    case "tier":
       return arr.sort((a, b) => {
-        const diff = eloMax(b) - eloMax(a);
-        return diff !== 0 ? diff : parDate(a, b);
+        const diff = rangTier(b) - rangTier(a);
+        if (diff !== 0) return diff;
+        // À rang égal, celui qui a le plus de passages à faire d'abord.
+        const restants =
+          (b.tierEtat?.restants ?? 0) - (a.tierEtat?.restants ?? 0);
+        return restants !== 0 ? restants : parDate(a, b);
       });
     case "posts":
       return arr.sort((a, b) => {
@@ -1078,6 +1108,14 @@ function DetailSlideshow({
     void queryClient.invalidateQueries({ queryKey: ["medias-biblio"] });
   }
 
+  const changerTier = useMutation({
+    mutationFn: (tier: Tier) => majTierContenu(id, tier),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: ["slideshow", id] });
+      void queryClient.invalidateQueries({ queryKey: ["slideshows"] });
+    },
+  });
+
   React.useEffect(() => {
     if (!d) return;
     const langs = d.langues ?? [];
@@ -1347,7 +1385,66 @@ function DetailSlideshow({
 
             <section className="space-y-2">
               <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                {t("slideshows.elo")}
+                {t("slideshows.tierlist")}
+              </h3>
+              <div className="flex flex-wrap gap-1.5">
+                {TIERS.map((tier) => (
+                  <button
+                    key={tier}
+                    type="button"
+                    disabled={changerTier.isPending}
+                    onClick={() => changerTier.mutate(tier)}
+                    className={cn(
+                      "rounded-md border px-2.5 py-1 text-xs font-bold disabled:opacity-50",
+                      d.tier === tier
+                        ? CLASSE_TIER[tier]
+                        : "bg-background text-muted-foreground hover:bg-muted",
+                    )}
+                    title={t("slideshows.tierPassages", {
+                      count: PASSAGES_PAR_TIER[tier],
+                    })}
+                  >
+                    {tier}
+                  </button>
+                ))}
+              </div>
+              <dl className="grid grid-cols-2 gap-x-3 gap-y-1 text-xs">
+                <dt className="text-muted-foreground">{t("slideshows.passages")}</dt>
+                <dd className="tabular-nums">
+                  {t("slideshows.passagesDetail", {
+                    publies: d.tierEtat?.publies ?? 0,
+                    prevus: d.tierEtat?.passages_prevus ?? d.passages_prevus,
+                    envol: d.tierEtat?.en_vol ?? 0,
+                  })}
+                </dd>
+                <dt className="text-muted-foreground">{t("slideshows.moyenneVues")}</dt>
+                <dd className="tabular-nums">
+                  {d.tierEtat?.moyenne_vues != null
+                    ? Math.round(d.tierEtat.moyenne_vues).toLocaleString()
+                    : "—"}
+                </dd>
+                <dt className="text-muted-foreground">{t("slideshows.meilleurPassage")}</dt>
+                <dd className="tabular-nums">
+                  {d.tierEtat?.max_vues != null
+                    ? d.tierEtat.max_vues.toLocaleString()
+                    : "—"}
+                </dd>
+              </dl>
+              {d.tier_rapport?.regle ? (
+                <p className="text-xs text-muted-foreground">
+                  {t("slideshows.derniereRequalif", {
+                    avant: d.tier_rapport.avant ?? "—",
+                    apres: d.tier_rapport.apres ?? d.tier,
+                    regle: d.tier_rapport.regle,
+                  })}
+                </p>
+              ) : null}
+              <p className="text-xs text-muted-foreground">{t("slideshows.tierlistAide")}</p>
+            </section>
+
+            <section className="space-y-2">
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                {t("slideshows.noteImport")}
               </h3>
               {langues.length === 0 ? (
                 <p className="text-xs text-muted-foreground">
@@ -1919,7 +2016,7 @@ export function AdminSlideshowsPage() {
                   {t("slideshows.triLabel")}
                 </p>
                 <div className="flex flex-wrap gap-1.5">
-                  {(["recent", "elo", "posts", "compte"] as const).map((k) => (
+                  {(["recent", "tier", "posts", "compte"] as const).map((k) => (
                     <Chip key={k} actif={tri === k} onClick={() => setTri(k)}>
                       {t(`slideshows.tri.${k}`)}
                     </Chip>
@@ -2062,19 +2159,14 @@ export function AdminSlideshowsPage() {
                         ))
                       )}
                     </div>
-                    <div className="flex flex-wrap gap-1">
-                      {(c.scores ?? [])
-                        .slice()
-                        .sort((a, b) => b.score - a.score)
-                        .slice(0, 4)
-                        .map((s) => (
-                          <span
-                            key={s.langue}
-                            className="rounded border px-1 py-0.5 text-[10px] tabular-nums"
-                          >
-                            {s.langue.toUpperCase()} {s.score.toFixed(0)}
-                          </span>
-                        ))}
+                    <div className="flex flex-wrap items-center gap-1">
+                      <BadgeTier tier={c.tier} />
+                      <span className="text-[10px] tabular-nums text-muted-foreground">
+                        {t("slideshows.passagesRestants", {
+                          restants: c.tierEtat?.restants ?? 0,
+                          prevus: c.tierEtat?.passages_prevus ?? c.passages_prevus,
+                        })}
+                      </span>
                     </div>
                     <div className="flex flex-wrap items-center gap-1">
                       <Badge

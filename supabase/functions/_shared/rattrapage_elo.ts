@@ -33,6 +33,14 @@ const BRIEF_TOP = 12;
 /** Pénalité ELO compte par jour actif sans publication (jours passés de la fenêtre). */
 const ELO_PENALITE_NOPOST = 5;
 
+/**
+ * L'ELO par langue d'un contenu ne bouge plus : le placement d'un post se joue
+ * sur son rang de tierlist (voir `_shared/tierlist.ts`), requalifié au minuit.
+ * `contenu_langues.score` reste écrit à l'import, à titre d'historique.
+ * L'ELO de COMPTE (`comptes.score`), lui, continue de vivre ici.
+ */
+export const ELO_LANGUE_REMPLACE_PAR_TIERLIST = true;
+
 export type LogLevel = "info" | "ok" | "warn" | "error";
 
 export interface RattrapageLog {
@@ -471,6 +479,14 @@ async function appliquerEloLangue(
   handles: Map<string, string | null>,
   journal: Journal,
 ): Promise<RattrapageResultat["eloLangue"]> {
+  if (ELO_LANGUE_REMPLACE_PAR_TIERLIST) {
+    journal.push(
+      "info",
+      "ELO langue remplacé par la tierlist",
+      "le rang d'un contenu bouge à la requalification (étape `tierlist` de minuit), plus ici",
+    );
+    return { appliques: 0, ignores: passages.length, deltas: 0, hausses: 0, baisses: 0, details: [] };
+  }
   const scoring = await chargerScoring(supabase);
   const out: RattrapageResultat["eloLangue"] = {
     appliques: 0,

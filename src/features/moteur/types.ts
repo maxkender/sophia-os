@@ -1,4 +1,9 @@
 import type { PapierFalUsage, ReglagesPapier } from "./papierReglages";
+import type { Tier } from "./tierlist";
+
+// Barèmes et table de requalification : voir `./tierlist`.
+export { PASSAGES_PAR_TIER, TIERS } from "./tierlist";
+export type { Tier } from "./tierlist";
 
 export type PipelineStatut = "pending" | "running" | "done" | "failed";
 export type SujetStatut = "propose" | "retenu" | "rejete" | "utilise";
@@ -229,23 +234,71 @@ export interface PosterProfil {
   comptes: CompteResumePoster[];
 }
 
+/** Avancement du cycle tierlist d'un contenu (vue `contenu_tier_etat`). */
+export interface ContenuTierEtat {
+  contenu_id: string;
+  tier: Tier;
+  passages_prevus: number;
+  tier_cycle: number;
+  tier_maj_at: string | null;
+  /** Passages publiés sur le cycle courant (hors rappels J+7). */
+  publies: number;
+  /** Passages assignés, pas encore publiés (réservés 7 jours). */
+  en_vol: number;
+  /** Passages encore à distribuer. */
+  restants: number;
+  /** `m` — moyenne des vues des passages publiés du cycle. */
+  moyenne_vues: number | null;
+  max_vues: number | null;
+  nb_150k: number;
+  dernier_publie_at: string | null;
+}
+
+/** Trace de la dernière requalification (colonne `contenus.tier_rapport`). */
+export interface TierRapport {
+  origine?: "import" | "import_force";
+  avant?: Tier;
+  apres?: Tier;
+  regle?: string;
+  m?: number;
+  max_vues?: number;
+  nb_150k?: number;
+  passages_mesures?: number;
+  cycle?: number;
+  elo?: number;
+  seuil?: number;
+  tier?: Tier;
+  passages?: number;
+}
+
+export interface ReglagesTierlist {
+  /** Jours de recul sur le dernier passage publié avant de requalifier. */
+  recul_jours: number;
+  /** Vues d'un passage qui déclenchent le rappel J+7 sur le même compte. */
+  rappel_vues: number;
+  /** Décalage du rappel après la publication du passage source. */
+  rappel_jours: number;
+  /** Rappels enchaînés maximum. */
+  rappel_max: number;
+  /** Remix débloqués à chaque requalification en S+. */
+  remix_par_requalif: number;
+  /** Passages offerts à un contenu en D repêché pour combler le pool. */
+  repechage_passages: number;
+}
+
 export interface ReglagesScoring {
   ewma_alpha: number;
   regularisation_k: number;
   transfert_inter_langue: number;
-  top_k: number;
-  temperature: number;
-  saturation_jours: number;
-  saturation_penalite: number;
   variation_seuil_score: number;
   variation_min_passages: number;
   variation_age_jours: number;
   variation_profondeur_max: number;
   score_prior: number;
   pertinence_seuil: number;
-  /** Seuil ELO à l'import : langues en-dessous non cuites ; 0 langue → non importé. */
+  /** Seuil de la note d'import : en-dessous, le TikTok n'est pas importé. */
   elo_seuil_import: number;
-  /** Poids des vues dans la base ELO (0..1). Défaut 0.9. */
+  /** Poids des vues dans la note d'import (0..1). Défaut 0.7. */
   elo_poids_vues: number;
   /** Vues qui valent score 100 (échelle log^1.3). Défaut 80000. */
   elo_vues_plafond: number;
@@ -309,6 +362,8 @@ export interface Reglages {
   };
   /** Réglages moteur v-next (présents dès la migration 0141). */
   scoring: ReglagesScoring;
+  /** Réglages tierlist (requalification, rappels J+7, repêchage). */
+  tierlist: ReglagesTierlist;
   paiement: ReglagesPaiement;
   moteur_vnext: { actif: boolean };
   /** false = cron minuit + rattrapage en pause (manuel OK). */
@@ -405,10 +460,14 @@ export interface ContenuLangueSlide {
   position_sophia: boolean;
 }
 
-/** Détail ELO d'un import (formule + par langue). */
+/** Détail de la note d'import (formule + premier placement). */
 export interface EloImportRapport {
   texte: string;
   vues: number;
+  /** Note /100 de la langue source. */
+  elo?: number;
+  /** Rang d'entrée déduit de la note (null = sous le seuil, pas importé). */
+  tier?: Tier | null;
   pertinence: number;
   vuesScore: number;
   poidsVues: number;
@@ -451,7 +510,16 @@ export interface Contenu {
   import_etape: string | null;
   import_erreur: string | null;
   import_tentatives: number;
-  /** Rapport ELO détaillé (persistant pour historique / logs). */
+  /** Rang tierlist — unique, langue-agnostique. */
+  tier: Tier;
+  /** Passages à effectuer sur le cycle courant avant requalification. */
+  passages_prevus: number;
+  /** Cycle de requalification courant (fenêtre de mesure de `m`). */
+  tier_cycle: number;
+  tier_maj_at: string | null;
+  /** Trace de la dernière requalification / du placement d'import. */
+  tier_rapport?: TierRapport | null;
+  /** Rapport de la note d'import (persistant pour historique / logs). */
   import_elo_rapport?: EloImportRapport | null;
   /** Scores plancherés au seuil (relance manuelle admin). */
   import_elo_force_seuil?: boolean;
@@ -491,6 +559,12 @@ export interface Passage {
   musique_titre: string | null;
   musique_plateforme: string | null;
   hashtags: string | null;
+  /** Cycle tierlist du contenu au moment de l'assignation. */
+  tier_cycle?: number;
+  /** Rappel automatique J+7 (passage source > 50k vues) — hors quota, hors `m`. */
+  est_rappel?: boolean;
+  rappel_rang?: number;
+  rappel_source_id?: string | null;
   publie_at: string | null;
   publie_url: string | null;
   vues: number | null;

@@ -1,0 +1,119 @@
+name: Déployer les fonctions Edge
+
+# Une fonction Edge embarque tout `_shared/` qu'elle importe, figé au moment du
+# déploiement. Sans ce workflow, un merge laissait les fonctions sur leur ancien
+# bundle : le code était sur `main`, le comportement en prod restait l'ancien,
+# et rien ne le signalait. On redéploie donc les fonctions dont la fermeture
+# d'imports a bougé.
+#
+# CE WORKFLOW NE TOUCHE PAS À LA BASE. `supabase db push` est un piège ici :
+# l'historique distant est tenu en timestamps + noms libres
+# (`20260912093250 / 0237_tierlist`), pas en noms de fichiers du repo, donc la
+# CLI considère les 239 migrations locales comme absentes et tente de TOUT
+# rejouer. Les migrations se passent une par une (SQL Editor ou MCP), voir
+# docs/classement-comptes.md.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "supabase/functions/**"
+      - "supabase/config.toml"
+  workflow_dispatch:
+    inputs:
+      fonctions:
+        description: "Fonctions à déployer, séparées par des espaces (vide = toutes)"
+        required: false
+        default: ""
+
+concurrency:
+  group: deploy-edge-functions
+  cancel-in-progress: false
+
+jobs:
+  deployer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Historique complet : le diff remonte au tip précédent de main, qui
+          # peut être loin quand un merge apporte plusieurs commits.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Choisir les fonctions
+        id: choix
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            demande="${{ github.event.inputs.fonctions }}"
+            if [ -n "$demande" ]; then
+              liste="$demande"
+            else
+              liste="$(node scripts/fonctions-touchees.mjs)"
+            fi
+          else
+            avant="${{ github.event.before }}"
+            # Premier push / force-push : pas de base de comparaison fiable.
+            if [ -z "$avant" ] || [ "$avant" = "0000000000000000000000000000000000000000" ] \
+               || ! git cat-file -e "$avant^{commit}" 2>/dev/null; then
+              echo "::notice::pas de base de diff ($avant) — relance ce workflow à la main"
+              liste=""
+            else
+              changes="$(git diff --name-only "$avant" "${{ github.sha }}" \
+                -- supabase/functions supabase/config.toml)"
+              if echo "$changes" | grep -q "^supabase/config.toml$"; then
+                # verify_jwt vaut pour toutes les fonctions : republier les 38 d'un
+                # coup a un rayon d'action trop large pour de l'automatique.
+                echo "::notice::supabase/config.toml a changé — relance ce workflow à la main pour republier les fonctions voulues"
+              fi
+              fonctions_changees="$(echo "$changes" | grep "^supabase/functions/" || true)"
+              if [ -z "$fonctions_changees" ]; then
+                liste=""
+              else
+                liste="$(DETAIL=1 node scripts/fonctions-touchees.mjs $fonctions_changees)"
+              fi
+            fi
+          fi
+          echo "Fonctions : ${liste:-aucune}"
+          echo "liste=$liste" >> "$GITHUB_OUTPUT"
+
+      - name: Déployer
+        if: steps.choix.outputs.liste != ''
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF }}
+        run: |
+          set -euo pipefail
+          # --use-api : bundle côté serveur, pas de Docker sur le runner.
+          # verify_jwt vient de supabase/config.toml, jamais d'un flag.
+          supabase functions deploy ${{ steps.choix.outputs.liste }} \
+            --project-ref "$PROJECT_REF" --use-api
+
+      - name: Vérifier que les fonctions démarrent
+        if: steps.choix.outputs.liste != ''
+        env:
+          PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF }}
+        run: |
+          set -euo pipefail
+          # Sans secret, une fonction saine répond son propre 401
+          # (`{"error":"unauthorized"}` d'assertAuthorised, ou 403 d'assertRole).
+          # Une fonction qui ne démarre pas répond 500 / BOOT_ERROR : on échoue.
+          for f in ${{ steps.choix.outputs.liste }}; do
+            code=$(curl -s -o /tmp/out -w '%{http_code}' -X POST \
+              "https://$PROJECT_REF.supabase.co/functions/v1/$f" \
+              -H 'content-type: application/json' -d '{}' || true)
+            corps=$(head -c 200 /tmp/out)
+            echo "$f → HTTP $code · $corps"
+            case "$code" in
+              401|403) ;;
+              *) echo "::error::$f ne démarre pas correctement (HTTP $code)"; exit 1 ;;
+            esac
+          done

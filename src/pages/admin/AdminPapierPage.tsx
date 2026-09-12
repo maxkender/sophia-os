@@ -84,7 +84,12 @@ const STATUT_VARIANT: Record<PapierStatut, "default" | "secondary" | "destructiv
 };
 
 function masterEnCours(m: PapierMaster): boolean {
-  return !["ready", "failed", "stopped"].includes(m.statut);
+  if (m.statut === "ready" || m.statut === "failed") return false;
+  if (m.statut === "stopped") {
+    const fr = m.papier_langues?.find((l) => l.langue === "fr");
+    return Boolean(fr && fr.statut !== "ready" && fr.statut !== "failed");
+  }
+  return true;
 }
 
 function videoFrDe(master: PapierMaster): string | null {
@@ -148,7 +153,9 @@ export function AdminPapierPage() {
   const rows = liste.data ?? [];
   const enCours = rows.find(masterEnCours) ?? null;
   const biblio = rows.filter((m) => m.statut === "ready" && Boolean(m.video_url || videoFrDe(m)));
-  const failed = rows.filter((m) => m.statut === "failed" || m.statut === "stopped");
+  const failed = rows.filter(
+    (m) => (m.statut === "failed" || m.statut === "stopped") && m.id !== enCours?.id,
+  );
   const papier = reglages.data?.papier;
   const falUsage =
     reglages.data?.papier_fal_usage.date === jour ? reglages.data.papier_fal_usage.appels : 0;

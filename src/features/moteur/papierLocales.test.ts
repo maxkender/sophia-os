@@ -6,6 +6,7 @@ import {
   etapeAssemblage,
   finaliserTraductionPapier,
   assemblageAProgresse,
+  captionsAutoriseesSiMasterArrete,
   LANGUES_PAPIER,
   langueFrAContinuer,
   mixEstIntermediaire,
@@ -272,6 +273,14 @@ describe("assemblage", () => {
         { video_mix_path: "papiers/x/fr/mix-scale.mp4" },
       ),
     ).toBe(true);
+    expect(
+      captionsAutoriseesSiMasterArrete({
+        video_mix_url: "raw",
+        video_mix_path: "papiers/x/fr/mix-raw.mp4",
+        etape: "cadre",
+      }),
+    ).toBe(true);
+    expect(captionsAutoriseesSiMasterArrete({})).toBe(false);
   });
 
   it("n'auto-relance jamais une langue (évite la boucle Fal)", () => {

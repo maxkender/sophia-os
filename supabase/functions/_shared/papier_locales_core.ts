@@ -286,7 +286,16 @@ export function etapeAssemblage(row: {
   return "merge";
 }
 
-/** Un tick Fal n'a avancé que si le mix ou la finale a changé — sinon pas d'auto-kick. */
+/** Mix-raw déjà là : Continue captions même si le master est stopped (pas de nouveau Seedance). */
+export function captionsAutoriseesSiMasterArrete(row: {
+  video_url?: string | null;
+  video_mix_url?: string | null;
+  video_mix_path?: string | null;
+  etape?: string | null;
+}): boolean {
+  const ass = etapeAssemblage(row);
+  return ass === "scale" || ass === "cadre" || ass === "karaoke";
+}
 export function assemblageAProgresse(
   avant: { video_mix_path?: string | null; video_url?: string | null },
   apres: { video_mix_path?: string | null; video_url?: string | null },

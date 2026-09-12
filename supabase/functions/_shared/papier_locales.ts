@@ -22,6 +22,7 @@ import { composerFinalePapier, reduireVideoPapierTikTok } from "./fal_cadre_papi
 import type { FalQueueProgress } from "./fal_queue.ts";
 import {
   assemblageAProgresse,
+  captionsAutoriseesSiMasterArrete,
   etapeAssemblage,
   prochaineLangueATiquer,
   statutDepuisLocaleAssets,
@@ -686,17 +687,19 @@ export async function avancerLangue(
       .maybeSingle();
     if ((masterEtat as { annule?: boolean; statut?: string } | null)?.annule ||
       (masterEtat as { statut?: string } | null)?.statut === "stopped") {
-      return {
-        ok: true,
-        idle: true,
-        done: true,
-        kick: false,
-        langueId,
-        masterId: row.master_id,
-        langue: row.langue,
-        statut: row.statut,
-        detail: "pipeline arrêtée",
-      };
+      if (!captionsAutoriseesSiMasterArrete(row)) {
+        return {
+          ok: true,
+          idle: true,
+          done: true,
+          kick: false,
+          langueId,
+          masterId: row.master_id,
+          langue: row.langue,
+          statut: row.statut,
+          detail: "pipeline arrêtée",
+        };
+      }
     }
     const masterScript = await chargerScriptMaster(supabase, row.master_id);
     if (!masterScript) {

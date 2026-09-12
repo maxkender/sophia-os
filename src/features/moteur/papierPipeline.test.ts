@@ -103,6 +103,7 @@ describe("arrêt pipeline", () => {
     expect(tickPapierDoitEnchainer({ idle: true, done: false, statut: "scripting" })).toBe(false);
     expect(tickPapierDoitEnchainer({ done: false, statut: "images" })).toBe(true);
     expect(tickPapierDoitEnchainer({ done: true, statut: "clips" })).toBe(false);
+    expect(tickPapierDoitEnchainer({ done: false, kick: false, statut: "render" })).toBe(false);
   });
 
   it("reprend un master en pause avec manuel=true", () => {

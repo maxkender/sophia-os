@@ -274,6 +274,75 @@ describe("AdminPapierPage", () => {
     expect(relancerPapierLangue).not.toHaveBeenCalled();
   });
 
+  it("laisse Continue cliquable sur un render idle (pas de chargement infini)", async () => {
+    listerPapierMasters.mockResolvedValue([
+      masterScripting({
+        statut: "clips",
+        etape: "fr",
+        pipeline_hold: null,
+        papier_langues: [
+          {
+            id: "fr-1",
+            master_id: "master-1",
+            langue: "fr",
+            title: "Chocolat",
+            hook: null,
+            cta: null,
+            hashtags: null,
+            statut: "render",
+            etape: "cadre",
+            progression: 0.8,
+            erreur: null,
+            busy: false,
+            video_url: null,
+            video_mix_url: "https://example.com/mix-raw.mp4",
+            video_mix_path: "papiers/m/fr/mix-raw.mp4",
+          },
+        ],
+      }),
+    ]);
+    renderPage();
+
+    const btn = await screen.findByTestId("papier-continuer");
+    expect(btn).toBeEnabled();
+    expect(screen.queryByText(/captions in progress|captions en cours/i)).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /export/i })).not.toBeInTheDocument();
+  });
+
+  it("montre Continue captions si le master est stopped avec un mix-raw FR", async () => {
+    listerPapierMasters.mockResolvedValue([
+      masterScripting({
+        statut: "stopped",
+        etape: "stopped",
+        pipeline_hold: null,
+        papier_langues: [
+          {
+            id: "fr-1",
+            master_id: "master-1",
+            langue: "fr",
+            title: "Chocolat",
+            hook: null,
+            cta: null,
+            hashtags: null,
+            statut: "render",
+            etape: "cadre",
+            progression: 0.8,
+            erreur: null,
+            busy: false,
+            video_url: null,
+            video_mix_url: "https://example.com/mix-raw.mp4",
+            video_mix_path: "papiers/m/fr/mix-raw.mp4",
+          },
+        ],
+      }),
+    ]);
+    renderPage();
+
+    const btn = await screen.findByTestId("papier-continuer");
+    expect(btn).toBeEnabled();
+    expect(screen.queryByText(/captions in progress|captions en cours/i)).not.toBeInTheDocument();
+  });
+
   it("affiche Exporter seulement quand la vidéo finale captions est prête", async () => {
     listerPapierMasters.mockResolvedValue([
       masterScripting({

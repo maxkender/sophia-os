@@ -1,7 +1,8 @@
 /**
- * Composition finale Papier : canvas 1080×1920 noir 30 fps, fenêtre 1:1
- * 832×832 centrée (x=124, y=544), clipping coins arrondis 56px.
- * Overlay 80 % sur le canvas 30 fps (pas le mp4 1 fps), puis masque.
+ * Composition finale Papier, un job Fal à la fois :
+ * 1) overlay 80 % sur canvas noir 30 fps (`reduireVideoPapierTikTok`)
+ * 2) masque coins arrondis 56 px (`composerFinalePapier`) — entrée déjà scaled.
+ * Jamais les deux dans le même tick (wall clock edge).
  */
 
 import {
@@ -216,6 +217,7 @@ export async function reduireVideoPapierTikTok(input: {
   return { url: dl.url, bytes: dl.bytes, mime: mimeVideoFal(data) };
 }
 
+/** Masque 832 arrondi sur une vidéo déjà scaled 1080×1920 — un job Fal, pas d'overlay. */
 export async function composerFinalePapier(input: {
   videoUrl: string;
   supabase: Supabase;
@@ -225,18 +227,9 @@ export async function composerFinalePapier(input: {
 }): Promise<{ url: string; bytes: Uint8Array; mime: string }> {
   const video_url = urlSansCacheBuster(input.videoUrl);
   if (!video_url) throw new Error("compose papier: video_url vide");
-  const noir = await assurerNoirVideoUrl(input.supabase, input.onProgress, input.timeoutMs);
-  const padded = await reduireVideoPapierTikTok({
-    videoUrl: video_url,
-    supabase: input.supabase,
-    noirUrl: noir.url,
-    onProgress: input.onProgress,
-    timeoutMs: input.timeoutMs,
-  });
-  const scaledUrl = urlSansCacheBuster(padded.url);
   let duree = input.dureeSec ?? 0;
   if (!(duree > 0.3)) {
-    const meta = await sonderVideoMeta(scaledUrl, input.onProgress);
+    const meta = await sonderVideoMeta(video_url, input.onProgress);
     duree = meta.durationSec ?? 0;
   }
   if (!(duree > 0.3)) duree = 8;
@@ -249,7 +242,7 @@ export async function composerFinalePapier(input: {
         {
           id: "video",
           type: "video",
-          keyframes: [{ url: scaledUrl, timestamp: 0, duration: durMs }],
+          keyframes: [{ url: video_url, timestamp: 0, duration: durMs }],
         },
         {
           id: "masque",

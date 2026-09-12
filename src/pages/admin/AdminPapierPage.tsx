@@ -61,6 +61,7 @@ import {
   langueFrAContinuer,
   langueCaptionsEnCours,
   mixEstSurCanvasTikTok,
+  papierListeDoitPoller,
 } from "@/features/moteur/papierLocales";
 import { telechargerUrl } from "@/features/moteur/telechargement";
 import {
@@ -83,7 +84,12 @@ const STATUT_VARIANT: Record<PapierStatut, "default" | "secondary" | "destructiv
 };
 
 function masterEnCours(m: PapierMaster): boolean {
-  return !["ready", "failed", "stopped"].includes(m.statut);
+  if (m.statut === "ready" || m.statut === "failed") return false;
+  if (m.statut === "stopped") {
+    const fr = m.papier_langues?.find((l) => l.langue === "fr");
+    return Boolean(fr && fr.statut !== "ready" && fr.statut !== "failed");
+  }
+  return true;
 }
 
 function videoFrDe(master: PapierMaster): string | null {
@@ -139,28 +145,17 @@ export function AdminPapierPage() {
     queryKey: ["papier-masters", applicationId],
     queryFn: () => listerPapierMasters(60, applicationId),
     enabled: Boolean(applicationId),
-    refetchInterval: (q) => {
-      const rows = q.state.data ?? [];
-      const busy = rows.some(
-        (m) =>
-          (["queued", "scripting", "images", "clips"].includes(m.statut) &&
-            !m.pipeline_hold &&
-            !m.annule) ||
-          (m.papier_langues ?? []).some(
-            (l) =>
-              l.busy ||
-              ["queued", "translating", "voice", "mix", "render", "karaoke"].includes(l.statut),
-          ),
-      );
-      return busy ? 4000 : false;
-    },
+    placeholderData: (prev) => prev,
+    refetchInterval: (q) => (papierListeDoitPoller(q.state.data ?? []) ? 4000 : false),
   });
 
   const reglages = useQuery({ queryKey: ["reglages"], queryFn: lireReglages });
   const rows = liste.data ?? [];
   const enCours = rows.find(masterEnCours) ?? null;
   const biblio = rows.filter((m) => m.statut === "ready" && Boolean(m.video_url || videoFrDe(m)));
-  const failed = rows.filter((m) => m.statut === "failed" || m.statut === "stopped");
+  const failed = rows.filter(
+    (m) => (m.statut === "failed" || m.statut === "stopped") && m.id !== enCours?.id,
+  );
   const papier = reglages.data?.papier;
   const falUsage =
     reglages.data?.papier_fal_usage.date === jour ? reglages.data.papier_fal_usage.appels : 0;
@@ -1134,7 +1129,14 @@ function ResumeMaster({ master }: { master: PapierMaster }) {
               master.papier_langues?.find((l) => l.langue === "fr")?.video_mix_path,
             )}
           >
-            <video src={apercuFr} className="h-full w-full object-cover" controls playsInline />
+            <video
+              key={apercuFr}
+              src={apercuFr}
+              className="h-full w-full object-cover"
+              controls
+              playsInline
+              preload="metadata"
+            />
           </PapierCadre>
           {videoFr ? (
             <Button
@@ -1212,7 +1214,14 @@ function CarteLangue({
     <div className="overflow-hidden rounded-md border">
       <PapierCadre dejaCadre={Boolean(langue.video_url) || mixEstSurCanvasTikTok(langue.video_mix_path)}>
         {video ? (
-          <video src={video} className="h-full w-full object-cover" controls playsInline />
+          <video
+            key={video}
+            src={video}
+            className="h-full w-full object-cover"
+            controls
+            playsInline
+            preload="metadata"
+          />
         ) : (
           <div className="flex h-full items-center justify-center px-3 text-center text-xs text-muted-foreground">
             {t(`papier.statutLangue.${langue.statut}`)}

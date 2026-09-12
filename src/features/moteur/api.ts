@@ -27,11 +27,23 @@ import type {
   ContenuLangue,
   ContenuSlide,
   ContenuTierEtat,
+  ClassementRapport,
   EloImportRapport,
+  ModeleNudge,
   Passage,
   Tier,
 } from "./types";
 import { PASSAGES_PAR_TIER } from "./types";
+import {
+  CLASSEMENT_REGLAGES_DEFAUT,
+  estClassement,
+  finDuSkip,
+  lireClassementReglages,
+  lireModelesNudge,
+  rangClassement,
+  type Classement,
+  type ClassementReglages,
+} from "./classementComptes";
 import type { LigneJournalOubli } from "./oubliSource";
 import { type MajSourcesRun } from "./majSequentielle";
 import { compteEnProcessus } from "./warmup";
@@ -585,7 +597,7 @@ export async function listerPosters(): Promise<PosterProfil[]> {
   const { data: comptes } = await supabase
     .from("comptes")
     .select(
-      "id, poster_id, type_compte, langue, application_id, handle_tiktok, persona_nom, persona_bio, avatar_url, score, score_maj_at, warmup_started_at, warmup_ends_at, comptes_reference(handle_tiktok), applications(slug)",
+      "id, poster_id, type_compte, langue, application_id, handle_tiktok, persona_nom, persona_bio, avatar_url, classement, classement_maj_at, warmup_started_at, warmup_ends_at, comptes_reference(handle_tiktok), applications(slug)",
     )
     .eq("is_active", true)
     .order("created_at", { ascending: false });
@@ -603,8 +615,8 @@ export async function listerPosters(): Promise<PosterProfil[]> {
       persona_nom: c.persona_nom,
       persona_bio: c.persona_bio,
       avatar_url: c.avatar_url,
-      score: c.score ?? null,
-      score_maj_at: c.score_maj_at ?? null,
+      classement: estClassement(c.classement) ? c.classement : "passable",
+      classement_maj_at: (c.classement_maj_at as string | null) ?? null,
       warmup_started_at: (c.warmup_started_at as string | null) ?? null,
       warmup_ends_at: (c.warmup_ends_at as string | null) ?? null,
       reference_handle: ref?.handle_tiktok ?? null,
@@ -637,9 +649,9 @@ export async function listerPosters(): Promise<PosterProfil[]> {
       persona_nom: compte?.persona_nom ?? null,
       persona_bio: compte?.persona_bio ?? null,
       avatar_url: compte?.avatar_url ?? null,
-      /** ELO / forme du compte TikTok (moyenne pondérée des perfs). */
-      score: compte?.score ?? null,
-      score_maj_at: compte?.score_maj_at ?? null,
+      /** Case du compte TikTok principal (INACTIF → STAR). */
+      classement: compte?.classement ?? null,
+      classement_maj_at: compte?.classement_maj_at ?? null,
       warmup_started_at: compte?.warmup_started_at ?? null,
       warmup_ends_at: compte?.warmup_ends_at ?? null,
       manager_nom: p.manager_id ? (nomParId.get(p.manager_id) ?? null) : null,
@@ -2022,7 +2034,8 @@ export type PilotageDashboard = {
   recruteurs: Array<{
     id: string;
     nom: string;
-    eloMoyen: number;
+    /** Part de comptes en BIEN ou STAR (0–1). */
+    partBien: number;
     nbCreateurs: number;
   }>;
   postsVeille: Array<{
@@ -2033,17 +2046,19 @@ export type PilotageDashboard = {
     publie_url: string | null;
     compte_id: string;
   }>;
-  eloTop: Array<{
+  /** Les meilleures cases (STAR puis BIEN). */
+  classementTop: Array<{
     compte_id: string;
     nom: string;
     handle: string | null;
-    score: number;
+    classement: Classement;
   }>;
-  eloBas: Array<{
+  /** Les cases à problème (INACTIF puis MAUVAISES VUES). */
+  classementBas: Array<{
     compte_id: string;
     nom: string;
     handle: string | null;
-    score: number;
+    classement: Classement;
   }>;
   alertes: {
     niveau1: Array<{
@@ -2081,7 +2096,7 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
     supabase
       .from("comptes")
       .select(
-        "id, poster_id, persona_nom, handle_tiktok, score, is_active, warmup_started_at, warmup_ends_at",
+        "id, poster_id, persona_nom, handle_tiktok, classement, is_active, warmup_started_at, warmup_ends_at",
       )
       .eq("is_active", true),
     supabase.from("user_roles").select("user_id, role"),
@@ -2115,7 +2130,7 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
   };
 
   // Hors warmup uniquement (pas encore démarré / en cours → exclus classements + alertes).
-  const eloListe = (comptes ?? [])
+  const casesListe = (comptes ?? [])
     .filter((c) =>
       compteEnProcessus({
         warmup_started_at: c.warmup_started_at as string | null,
@@ -2126,12 +2141,13 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
       compte_id: c.id as string,
       nom: nomCompte(c as never),
       handle: (c.handle_tiktok as string | null) ?? null,
-      score: Number(c.score ?? 50),
+      classement: estClassement(c.classement) ? c.classement : ("passable" as Classement),
       poster_id: c.poster_id as string,
     }))
-    .sort((a, b) => b.score - a.score);
+    .sort((a, b) => rangClassement(b.classement) - rangClassement(a.classement));
 
-  // Recruteurs = hiring_manager ; moyenne ELO des créateurs rattachés (manager_id).
+  // Recruteurs = hiring_manager ; part de comptes en BIEN/STAR chez les créateurs
+  // rattachés (manager_id) — l'ELO de compte n'existe plus.
   const recruteursIds = [...roleParUser.entries()]
     .filter(([, role]) => role === "hiring_manager" || role === "directing_manager")
     .map(([id]) => id);
@@ -2139,7 +2155,7 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
   const recruteurs = recruteursIds
     .map((rid) => {
       const p = profilParId.get(rid);
-      const createurs = eloListe.filter((c) => {
+      const createurs = casesListe.filter((c) => {
         const pr = profilParId.get(c.poster_id);
         return pr?.manager_id === rid;
       });
@@ -2147,20 +2163,22 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
         return {
           id: rid,
           nom: [p?.prenom, p?.nom].filter(Boolean).join(" ") || "—",
-          eloMoyen: 0,
+          partBien: 0,
           nbCreateurs: 0,
         };
       }
-      const eloMoyen = createurs.reduce((s, c) => s + c.score, 0) / createurs.length;
+      const bien = createurs.filter(
+        (c) => c.classement === "bien" || c.classement === "star",
+      ).length;
       return {
         id: rid,
         nom: [p?.prenom, p?.nom].filter(Boolean).join(" ") || "—",
-        eloMoyen,
+        partBien: bien / createurs.length,
         nbCreateurs: createurs.length,
       };
     })
     .filter((r) => r.nbCreateurs > 0)
-    .sort((a, b) => b.eloMoyen - a.eloMoyen);
+    .sort((a, b) => b.partBien - a.partBien);
 
   /**
    * Alertes = récence du DERNIER post réel (jour Paris de publie_at,
@@ -2170,7 +2188,7 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
    *   → concrètement : dernier post = hier est OK ; si posté aujourd'hui → aucune alerte
    *     (évite les faux positifs « posté il y a 5 h » dans L1).
    */
-  const compteIds = eloListe.map((c) => c.compte_id);
+  const compteIds = casesListe.map((c) => c.compte_id);
   /** Dernier jour de publication (YYYY-MM-DD Paris) par compte. */
   const dernierPostParCompte = new Map<string, string>();
   if (compteIds.length > 0) {
@@ -2201,7 +2219,7 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
   const niveau1: PilotageDashboard["alertes"]["niveau1"] = [];
   const niveau2: PilotageDashboard["alertes"]["niveau2"] = [];
 
-  for (const c of eloListe) {
+  for (const c of casesListe) {
     const dernier = dernierPostParCompte.get(c.compte_id) ?? null;
 
     let joursSans = 99;
@@ -2254,20 +2272,24 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
     })),
     recruteurs,
     postsVeille: postsVeilleMapped,
-    eloTop: eloListe.slice(0, 10).map(({ compte_id, nom, handle, score }) => ({
-      compte_id,
-      nom,
-      handle,
-      score,
-    })),
-    eloBas: [...eloListe]
-      .sort((a, b) => a.score - b.score)
+    classementTop: casesListe
+      .filter((c) => c.classement === "star" || c.classement === "bien")
       .slice(0, 10)
-      .map(({ compte_id, nom, handle, score }) => ({
+      .map(({ compte_id, nom, handle, classement }) => ({
         compte_id,
         nom,
         handle,
-        score,
+        classement,
+      })),
+    classementBas: [...casesListe]
+      .sort((a, b) => rangClassement(a.classement) - rangClassement(b.classement))
+      .filter((c) => c.classement === "inactif" || c.classement === "mauvaises_vues")
+      .slice(0, 10)
+      .map(({ compte_id, nom, handle, classement }) => ({
+        compte_id,
+        nom,
+        handle,
+        classement,
       })),
     alertes: { niveau1, niveau2 },
   };
@@ -2307,7 +2329,7 @@ export interface PostCalendrierAdmin {
   persona_nom: string | null;
   handle_tiktok: string | null;
   avatar_url: string | null;
-  score: number | null;
+  classement: Classement | null;
   poster_prenom: string | null;
   poster_nom: string | null;
   sujet_titre: string | null;
@@ -2372,7 +2394,7 @@ export async function postsCalendrierAdmin(): Promise<PostCalendrierAdmin[]> {
     .from("posts")
     .select(
       "id, compte_id, date_publication_prevue, type, statut, pipeline_statut, publie_at, publie_url, " +
-        "sujets(titre), comptes(persona_nom, handle_tiktok, avatar_url, score, langue, ugc_ai, ugc_ai_video, profiles(prenom, nom))",
+        "sujets(titre), comptes(persona_nom, handle_tiktok, avatar_url, classement, langue, ugc_ai, ugc_ai_video, profiles(prenom, nom))",
     )
     .eq("est_test", false)
     .order("date_publication_prevue", { ascending: false, nullsFirst: false })
@@ -2417,7 +2439,7 @@ export async function postsCalendrierAdmin(): Promise<PostCalendrierAdmin[]> {
       persona_nom: (p.comptes?.persona_nom as string | null) ?? null,
       handle_tiktok: (p.comptes?.handle_tiktok as string | null) ?? null,
       avatar_url: (p.comptes?.avatar_url as string | null) ?? null,
-      score: (p.comptes?.score as number | null) ?? null,
+      classement: estClassement(p.comptes?.classement) ? p.comptes.classement : null,
       poster_prenom: (p.comptes?.profiles?.prenom as string | null) ?? null,
       poster_nom: (p.comptes?.profiles?.nom as string | null) ?? null,
       sujet_titre: (p.sujets?.titre as string | null) ?? null,
@@ -2438,8 +2460,11 @@ export interface CompteCreateurDetail {
   handle_tiktok: string | null;
   avatar_url: string | null;
   langue: string;
-  score: number;
-  score_maj_at: string | null;
+  classement: Classement;
+  classement_calcule: Classement | null;
+  classement_verrou: boolean;
+  classement_maj_at: string | null;
+  classement_rapport: ClassementRapport | null;
   is_active: boolean;
   poster_prenom: string | null;
   poster_nom: string | null;
@@ -2447,12 +2472,12 @@ export interface CompteCreateurDetail {
   stats: StatsCompte | null;
 }
 
-/** Fiche créateur admin : identité + ELO + stats globales. */
+/** Fiche créateur admin : identité + case de classement + stats globales. */
 export async function lireCompteCreateur(compteId: string): Promise<CompteCreateurDetail | null> {
   const { data, error } = await supabase
     .from("comptes")
     .select(
-      "id, poster_id, persona_nom, handle_tiktok, avatar_url, langue, score, score_maj_at, is_active, profiles(prenom, nom, email)",
+      "id, poster_id, persona_nom, handle_tiktok, avatar_url, langue, classement, classement_calcule, classement_verrou, classement_maj_at, classement_rapport, is_active, profiles(prenom, nom, email)",
     )
     .eq("id", compteId)
     .maybeSingle();
@@ -2479,8 +2504,11 @@ export async function lireCompteCreateur(compteId: string): Promise<CompteCreate
     handle_tiktok: (data.handle_tiktok as string | null) ?? null,
     avatar_url: (data.avatar_url as string | null) ?? null,
     langue: (data.langue as string) ?? "fr",
-    score: Number(data.score ?? 50),
-    score_maj_at: (data.score_maj_at as string | null) ?? null,
+    classement: estClassement(data.classement) ? data.classement : "passable",
+    classement_calcule: estClassement(data.classement_calcule) ? data.classement_calcule : null,
+    classement_verrou: Boolean(data.classement_verrou),
+    classement_maj_at: (data.classement_maj_at as string | null) ?? null,
+    classement_rapport: (data.classement_rapport as ClassementRapport | null) ?? null,
     is_active: Boolean(data.is_active),
     poster_prenom: profiles?.prenom ?? null,
     poster_nom: profiles?.nom ?? null,
@@ -3320,6 +3348,8 @@ export async function lireReglages(): Promise<Reglages> {
       repechage_passages: 1,
       ...((map.get("tierlist") as Partial<Reglages["tierlist"]> | undefined) ?? {}),
     },
+    classement_comptes: lireClassementReglages(map.get("classement_comptes")),
+    nudges: { modeles: lireModelesNudge(map.get("nudges")) },
     paiement: (map.get("paiement") as Reglages["paiement"] | undefined) ?? {
       tarif_base_mensuel: 0,
       tarif_par_post_jour: 0,
@@ -3395,6 +3425,13 @@ export async function lireEloDernierRun(): Promise<{
   detail?: string;
   comptesLot?: string[];
   erreurs?: Array<{ compteId: string; handle: string; erreur: string }>;
+  /** Requalification des comptes, écrite en fin de drain. */
+  classement?: {
+    examines: number;
+    changes: number;
+    verrous: number;
+    parCase: Record<Classement, number>;
+  } | null;
 } | null> {
   const { data, error } = await supabase
     .from("reglages")
@@ -3418,6 +3455,12 @@ export async function lireEloDernierRun(): Promise<{
     detail?: string;
     comptesLot?: string[];
     erreurs?: Array<{ compteId: string; handle: string; erreur: string }>;
+    classement?: {
+      examines: number;
+      changes: number;
+      verrous: number;
+      parCase: Record<Classement, number>;
+    } | null;
   } | null) ?? null;
 }
 
@@ -4309,19 +4352,9 @@ export type RattrapageEloBrief = {
       delta: number;
     }>;
   };
-  eloCompte: {
-    maj: number;
-    top: Array<{
-      compteId: string;
-      handle: string | null;
-      avant: number;
-      apres: number;
-      posts: number;
-    }>;
-  };
 };
 
-/** Rattrapage ELO (4 jours Paris) : stats → deltas langue (vues) → ELO compte ≤10 posts. */
+/** Rattrapage (4 jours Paris) : stats des posts publiés → deltas ELO langue (vues). */
 export const lancerRattrapageElo = (opts?: {
   compteId?: string;
   jours?: number;
@@ -4348,7 +4381,6 @@ export const lancerRattrapageElo = (opts?: {
       hausses: number;
       baisses: number;
     };
-    eloCompte: { maj: number };
     brief: RattrapageEloBrief;
     logs: RattrapageEloLog[];
     dryRun: boolean;
@@ -4444,7 +4476,6 @@ function fusionnerBriefs(
       baisses: 0,
       top: [],
     },
-    eloCompte: { maj: 0, top: [] },
   };
   const agg = parts.reduce((a, b) => {
     a.passages += b.passages;
@@ -4459,24 +4490,17 @@ function fusionnerBriefs(
     a.eloLangue.hausses += b.eloLangue.hausses;
     a.eloLangue.baisses += b.eloLangue.baisses;
     a.eloLangue.top.push(...b.eloLangue.top);
-    a.eloCompte.maj += b.eloCompte.maj;
-    a.eloCompte.top.push(...b.eloCompte.top);
     return a;
   }, empty);
 
   agg.eloLangue.top = [...agg.eloLangue.top]
     .sort((x, y) => Math.abs(y.delta) - Math.abs(x.delta))
     .slice(0, 12);
-  agg.eloCompte.top = [...agg.eloCompte.top]
-    .sort((x, y) => Math.abs(y.apres - y.avant) - Math.abs(x.apres - x.avant))
-    .slice(0, 12);
-
   const delta = Math.round(agg.eloLangue.deltaNet * 10) / 10;
   const deltaStr = delta > 0 ? `+${delta.toFixed(1)}` : delta.toFixed(1);
   agg.resume =
     `${agg.fenetre} · ${agg.stats.releves} stats · ` +
-    `${agg.eloLangue.appliques} ELO langue (${agg.eloLangue.hausses}↑ ${agg.eloLangue.baisses}↓, Δ ${deltaStr}) · ` +
-    `${agg.eloCompte.maj} ELO compte` +
+    `${agg.eloLangue.appliques} ELO langue (${agg.eloLangue.hausses}↑ ${agg.eloLangue.baisses}↓, Δ ${deltaStr})` +
     (agg.stats.sansMatch ? ` · ${agg.stats.sansMatch} sans match` : "") +
     (erreurs ? ` · ${erreurs} erreur(s)` : "");
   agg.stats.erreurs = erreurs;
@@ -4520,7 +4544,7 @@ async function lancerRattrapageEloCompteRobuste(opts: {
 }
 
 /**
- * Rattrapage ELO compte-par-compte (évite le timeout Edge 150s) avec
+ * Rattrapage compte-par-compte (évite le timeout Edge 150s) avec
  * progression + logs live via `onProgress`.
  * Ne throw jamais pour un timeout partiel — continue les autres comptes.
  */
@@ -4534,7 +4558,6 @@ export async function lancerRattrapageEloLive(opts?: {
   logs: RattrapageEloLog[];
   stats: RattrapageEloResultat["stats"];
   eloLangue: RattrapageEloResultat["eloLangue"];
-  eloCompte: { maj: number };
   fenetre: { debut: string; fin: string; jours: number };
 }> {
   const jours = opts?.jours ?? 4;
@@ -4557,8 +4580,6 @@ export async function lancerRattrapageEloLive(opts?: {
     hausses: 0,
     baisses: 0,
   };
-  let eloCompteMaj = 0;
-
   const pushLog = (level: RattrapageEloLog["level"], message: string, detail?: string) => {
     logs.push({ at: new Date().toISOString(), level, message, detail });
   };
@@ -4594,7 +4615,6 @@ export async function lancerRattrapageEloLive(opts?: {
         erreurs: [],
       },
       eloLangue,
-      eloCompte: { maj: 0 },
       fenetre,
     };
   }
@@ -4631,11 +4651,10 @@ export async function lancerRattrapageEloLive(opts?: {
       eloLangue.deltas += r.eloLangue.deltas;
       eloLangue.hausses += r.eloLangue.hausses ?? 0;
       eloLangue.baisses += r.eloLangue.baisses ?? 0;
-      eloCompteMaj += r.eloCompte.maj;
       pushLog(
         "ok",
         `[${i + 1}/${comptes.length}] @${c.handle ?? "?"} — OK`,
-        `${r.stats.releves} stats · ${r.eloLangue.appliques} langue · ${r.eloCompte.maj} compte`,
+        `${r.stats.releves} stats · ${r.eloLangue.appliques} ELO langue`,
       );
       onProgress?.({
         index: i + 1,
@@ -4702,7 +4721,6 @@ export async function lancerRattrapageEloLive(opts?: {
       erreurs,
     },
     eloLangue,
-    eloCompte: { maj: eloCompteMaj },
     fenetre,
   };
 }
@@ -6777,4 +6795,317 @@ export function coutMensuelCalcule(
   paiement: { tarif_base_mensuel: number; tarif_par_post_jour: number },
 ): number {
   return paiement.tarif_base_mensuel + postsParJour * paiement.tarif_par_post_jour;
+}
+
+// --- Surveillance des comptes -----------------------------------------------
+
+/** Une ligne de la page Surveillance des comptes. */
+export interface LigneSurveillance {
+  compte_id: string;
+  poster_id: string;
+  poster_nom: string | null;
+  poster_email: string | null;
+  handle_tiktok: string | null;
+  persona_nom: string | null;
+  avatar_url: string | null;
+  langue: string;
+  created_at: string;
+  classement: Classement;
+  /** Ce que la requalification a calculé — diffère sous verrou manuel. */
+  classement_calcule: Classement | null;
+  classement_verrou: boolean;
+  classement_maj_at: string | null;
+  classement_rapport: ClassementRapport | null;
+  surveillance_skip_jusqu: string | null;
+  non_renouveler: boolean;
+  non_renouveler_at: string | null;
+  non_renouveler_hm_demande: boolean;
+  non_renouveler_hm_demande_at: string | null;
+  /** Dernier nudge envoyé à ce compte. */
+  dernier_nudge_at: string | null;
+  nudges: number;
+}
+
+/**
+ * Comptes de la surveillance : tous les comptes suivis (hors CM / UGC AI VIDEO),
+ * avec leur case et l'état de la file. Le tri des lignes entre « file » et
+ * « ne pas renouveler » se fait côté page avec `estSousSurveillance`.
+ */
+export async function listerSurveillanceComptes(): Promise<LigneSurveillance[]> {
+  const { data, error } = await supabase
+    .from("comptes")
+    .select(
+      "id, poster_id, handle_tiktok, persona_nom, avatar_url, langue, created_at, classement, classement_calcule, classement_verrou, classement_maj_at, classement_rapport, surveillance_skip_jusqu, non_renouveler, non_renouveler_at, non_renouveler_hm_demande, non_renouveler_hm_demande_at, profiles(prenom, nom, email)",
+    )
+    .eq("is_active", true)
+    .neq("type_compte", "cm")
+    .eq("ugc_ai_video", false)
+    .order("created_at", { ascending: true });
+  if (error) throw error;
+
+  const ids = (data ?? []).map((c) => c.id as string);
+  const nudges = new Map<string, { n: number; dernier: string | null }>();
+  if (ids.length > 0) {
+    const { data: rows } = await supabase
+      .from("compte_nudges")
+      .select("compte_id, created_at")
+      .in("compte_id", ids)
+      .order("created_at", { ascending: false });
+    for (const r of rows ?? []) {
+      const cid = r.compte_id as string;
+      const prev = nudges.get(cid);
+      nudges.set(cid, {
+        n: (prev?.n ?? 0) + 1,
+        dernier: prev?.dernier ?? (r.created_at as string),
+      });
+    }
+  }
+
+  return (data ?? []).map((c) => {
+    const raw = c.profiles as
+      | { prenom: string | null; nom: string | null; email: string | null }
+      | Array<{ prenom: string | null; nom: string | null; email: string | null }>
+      | null;
+    const profil = Array.isArray(raw) ? (raw[0] ?? null) : raw;
+    const n = nudges.get(c.id as string);
+    return {
+      compte_id: c.id as string,
+      poster_id: c.poster_id as string,
+      poster_nom:
+        [profil?.prenom, profil?.nom].filter(Boolean).join(" ") || profil?.email || null,
+      poster_email: profil?.email ?? null,
+      handle_tiktok: (c.handle_tiktok as string | null) ?? null,
+      persona_nom: (c.persona_nom as string | null) ?? null,
+      avatar_url: (c.avatar_url as string | null) ?? null,
+      langue: (c.langue as string) ?? "fr",
+      created_at: c.created_at as string,
+      classement: estClassement(c.classement) ? c.classement : "passable",
+      classement_calcule: estClassement(c.classement_calcule) ? c.classement_calcule : null,
+      classement_verrou: Boolean(c.classement_verrou),
+      classement_maj_at: (c.classement_maj_at as string | null) ?? null,
+      classement_rapport: (c.classement_rapport as ClassementRapport | null) ?? null,
+      surveillance_skip_jusqu: (c.surveillance_skip_jusqu as string | null) ?? null,
+      non_renouveler: Boolean(c.non_renouveler),
+      non_renouveler_at: (c.non_renouveler_at as string | null) ?? null,
+      non_renouveler_hm_demande: Boolean(c.non_renouveler_hm_demande),
+      non_renouveler_hm_demande_at: (c.non_renouveler_hm_demande_at as string | null) ?? null,
+      dernier_nudge_at: n?.dernier ?? null,
+      nudges: n?.n ?? 0,
+    };
+  });
+}
+
+/** Seuils du classement, pour les helpers de file côté page. */
+export async function lireReglagesClassement(): Promise<ClassementReglages> {
+  const { data, error } = await supabase
+    .from("reglages")
+    .select("valeur")
+    .eq("cle", "classement_comptes")
+    .maybeSingle();
+  if (error) throw error;
+  return lireClassementReglages(data?.valeur);
+}
+
+/** Skip : la ligne sort de la file pour `skip_jours` (7 par défaut). */
+export async function skipSurveillance(compteId: string): Promise<void> {
+  const reglages = await lireReglagesClassement().catch(() => CLASSEMENT_REGLAGES_DEFAUT);
+  const { error } = await supabase
+    .from("comptes")
+    .update({ surveillance_skip_jusqu: finDuSkip(reglages) })
+    .eq("id", compteId);
+  if (error) throw error;
+}
+
+/** Annule un skip — la ligne revient tout de suite si le compte est flagué. */
+export async function annulerSkipSurveillance(compteId: string): Promise<void> {
+  const { error } = await supabase
+    .from("comptes")
+    .update({ surveillance_skip_jusqu: null })
+    .eq("id", compteId);
+  if (error) throw error;
+}
+
+/**
+ * Case posée à la main. Le verrou empêche la requalification de la nuit de la
+ * réécrire ; `classement_calcule` continue d'être mis à jour pour comparaison.
+ */
+export async function definirClassementManuel(
+  compteId: string,
+  classement: Classement,
+): Promise<void> {
+  const { data: avantRow } = await supabase
+    .from("comptes")
+    .select("classement")
+    .eq("id", compteId)
+    .maybeSingle();
+  const { data: auth } = await supabase.auth.getUser();
+  const { error } = await supabase
+    .from("comptes")
+    .update({
+      classement,
+      classement_verrou: true,
+      classement_maj_at: new Date().toISOString(),
+    })
+    .eq("id", compteId);
+  if (error) throw error;
+
+  const avant = estClassement(avantRow?.classement) ? avantRow.classement : null;
+  if (avant === classement) return;
+  await supabase.from("compte_classement_historique").insert({
+    compte_id: compteId,
+    avant,
+    apres: classement,
+    source: "manuel",
+    regle: "posé à la main depuis la surveillance",
+    par: auth.user?.id ?? null,
+  });
+}
+
+/** Rend le compte à la requalification auto (reprend la case calculée). */
+export async function deverrouillerClassement(compteId: string): Promise<void> {
+  const { data: row } = await supabase
+    .from("comptes")
+    .select("classement, classement_calcule")
+    .eq("id", compteId)
+    .maybeSingle();
+  const { data: auth } = await supabase.auth.getUser();
+  const avant = estClassement(row?.classement) ? row.classement : null;
+  const calcule = estClassement(row?.classement_calcule) ? row.classement_calcule : null;
+
+  const patch: Record<string, unknown> = { classement_verrou: false };
+  if (calcule) {
+    patch.classement = calcule;
+    patch.classement_maj_at = new Date().toISOString();
+  }
+  const { error } = await supabase.from("comptes").update(patch).eq("id", compteId);
+  if (error) throw error;
+
+  if (!calcule || calcule === avant) return;
+  await supabase.from("compte_classement_historique").insert({
+    compte_id: compteId,
+    avant,
+    apres: calcule,
+    source: "deverrouillage",
+    regle: "retour à la case calculée",
+    par: auth.user?.id ?? null,
+  });
+}
+
+/**
+ * Nudge : message interne déposé sur le compte. Le créateur le voit dans son
+ * espace (bandeau calendrier) et peut l'acquitter.
+ */
+export async function envoyerNudge(
+  compteId: string,
+  modele: ModeleNudge,
+  classement?: Classement,
+): Promise<void> {
+  const { data: auth } = await supabase.auth.getUser();
+  const { error } = await supabase.from("compte_nudges").insert({
+    compte_id: compteId,
+    modele_id: modele.id,
+    titre: modele.titre || modele.corps.slice(0, 60),
+    corps: modele.corps,
+    classement: classement ?? null,
+    envoye_par: auth.user?.id ?? null,
+  });
+  if (error) throw error;
+}
+
+/** Liste « ne pas renouveler » — pas d'effet sur les assignations. */
+export async function basculerNonRenouveler(
+  compteId: string,
+  valeur: boolean,
+): Promise<void> {
+  const { data: auth } = await supabase.auth.getUser();
+  const { error } = await supabase
+    .from("comptes")
+    .update(
+      valeur
+        ? {
+          non_renouveler: true,
+          non_renouveler_at: new Date().toISOString(),
+          non_renouveler_par: auth.user?.id ?? null,
+        }
+        : {
+          non_renouveler: false,
+          non_renouveler_at: null,
+          non_renouveler_par: null,
+          non_renouveler_hm_demande: false,
+          non_renouveler_hm_demande_at: null,
+        },
+    )
+    .eq("id", compteId);
+  if (error) throw error;
+}
+
+/** Checklist : « j'ai demandé au HM de ne pas renouveler ce compte ». */
+export async function basculerHmDemande(compteId: string, valeur: boolean): Promise<void> {
+  const { error } = await supabase
+    .from("comptes")
+    .update({
+      non_renouveler_hm_demande: valeur,
+      non_renouveler_hm_demande_at: valeur ? new Date().toISOString() : null,
+    })
+    .eq("id", compteId);
+  if (error) throw error;
+}
+
+/** Historique des changements de case d'un compte. */
+export async function listerHistoriqueClassement(compteId: string): Promise<
+  Array<{
+    id: string;
+    avant: Classement | null;
+    apres: Classement;
+    source: "auto" | "manuel" | "deverrouillage";
+    regle: string | null;
+    created_at: string;
+  }>
+> {
+  const { data, error } = await supabase
+    .from("compte_classement_historique")
+    .select("id, avant, apres, source, regle, created_at")
+    .eq("compte_id", compteId)
+    .order("created_at", { ascending: false })
+    .limit(30);
+  if (error) throw error;
+  return (data ?? []).map((h) => ({
+    id: h.id as string,
+    avant: estClassement(h.avant) ? h.avant : null,
+    apres: estClassement(h.apres) ? h.apres : "passable",
+    source: (h.source as "auto" | "manuel" | "deverrouillage") ?? "auto",
+    regle: (h.regle as string | null) ?? null,
+    created_at: h.created_at as string,
+  }));
+}
+
+// --- Nudges côté créateur ----------------------------------------------------
+
+export interface NudgeRecu {
+  id: string;
+  compte_id: string;
+  titre: string;
+  corps: string;
+  created_at: string;
+  lu_at: string | null;
+}
+
+/** Messages internes reçus par le créateur connecté (RLS : ses comptes). */
+export async function mesNudges(): Promise<NudgeRecu[]> {
+  const { data, error } = await supabase
+    .from("compte_nudges")
+    .select("id, compte_id, titre, corps, created_at, lu_at")
+    .is("lu_at", null)
+    .order("created_at", { ascending: false })
+    .limit(20);
+  if (error) throw error;
+  return (data ?? []) as NudgeRecu[];
+}
+
+export async function marquerNudgeLu(id: string): Promise<void> {
+  const { error } = await supabase
+    .from("compte_nudges")
+    .update({ lu_at: new Date().toISOString() })
+    .eq("id", id);
+  if (error) throw error;
 }

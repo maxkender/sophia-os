@@ -23,6 +23,7 @@ import { estCompteCm, languesCmPrises } from "@/features/moteur/comptesCm";
 import { ChampsPremierCompte, type PremierCompte } from "@/features/moteur/ChampsPremierCompte";
 import { DeplacerCompte } from "@/features/moteur/DeplacerCompte";
 import { FormulaireAjouterCompte } from "@/features/moteur/FormulaireCompteCm";
+import { BadgeClassement } from "@/features/moteur/BadgeClassement";
 import { BlocContratPapierAdmin } from "@/features/moteur/BlocContratPapierAdmin";
 import { EnteteCompte } from "@/features/moteur/VignetteCompte";
 import {
@@ -59,7 +60,12 @@ import { SelectApplication } from "@/features/moteur/SelectApplication";
 import { drapeauLangue, langueInitiale, nomLangue } from "@/features/moteur/langues";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
 import { phaseCreateur, type PhaseCreateur } from "@/features/moteur/warmup";
-import type { CompteAvecDetails, Label as LabelType, PosterProfil } from "@/features/moteur/types";
+import type {
+  Classement,
+  CompteAvecDetails,
+  Label as LabelType,
+  PosterProfil,
+} from "@/features/moteur/types";
 
 const filtreLabelUgcVideoThematique = (lab: {
   slug: string;
@@ -984,12 +990,14 @@ export function AdminPostersPage() {
     parManager.set(k, [...(parManager.get(k) ?? []), c]);
   }
 
-  const eloMoyenRecruteur = (recId: string): number | null => {
-    const scores = tousCreateurs
-      .filter((c) => c.manager_id === recId && c.score != null)
-      .map((c) => Number(c.score));
-    if (scores.length === 0) return null;
-    return scores.reduce((s, n) => s + n, 0) / scores.length;
+  /** Part des créateurs du recruteur en BIEN ou STAR (null s'il n'en a aucun). */
+  const partBienRecruteur = (recId: string): number | null => {
+    const cases = tousCreateurs
+      .filter((c) => c.manager_id === recId && c.classement != null)
+      .map((c) => c.classement as Classement);
+    if (cases.length === 0) return null;
+    const bien = cases.filter((c) => c === "bien" || c === "star").length;
+    return bien / cases.length;
   };
 
   const carteRecruteur = (poster: PosterProfil) => {
@@ -1082,9 +1090,7 @@ export function AdminPostersPage() {
                     <div className="mt-1 flex flex-wrap items-center gap-2 text-[11px] text-muted-foreground">
                       {c.ugc_ai_video && <BadgeUgc label={t("posters.ugcAiVideoBadge")} />}
                       {c.ugc_ai && !c.ugc_ai_video && <BadgeUgc label="UGC" />}
-                      {c.score != null && (
-                        <span>{t("posters.eloCompte", { score: Number(c.score).toFixed(1) })}</span>
-                      )}
+                      <BadgeClassement classement={c.classement} size="sm" />
                       {!estCompteCm(c) && (
                         <WarmupBadge
                           compteId={c.id}
@@ -1231,8 +1237,8 @@ export function AdminPostersPage() {
     fiche?.role === "hiring_manager" && fiche.manager_id
       ? tous.find((p) => p.id === fiche.manager_id && p.role === "directing_manager")
       : undefined;
-  const ficheEloMoyen =
-    fiche && estRoleManager(fiche.role) ? eloMoyenRecruteur(fiche.id) : null;
+  const fichePartBien =
+    fiche && estRoleManager(fiche.role) ? partBienRecruteur(fiche.id) : null;
   const soiMeme = fiche?.id === user?.id;
 
   return (
@@ -1294,9 +1300,9 @@ export function AdminPostersPage() {
                 )}
                 {fiche.hm_ugc_ai_video && <BadgeUgc label={t("posters.ugcAiVideoBadge")} />}
                 {!fiche.is_active && <Badge variant="secondary">{t("posters.disabled")}</Badge>}
-                {ficheEloMoyen != null && (
-                  <Badge variant="secondary" title={t("posters.eloMoyenAide")}>
-                    {t("posters.eloMoyen", { score: ficheEloMoyen.toFixed(1) })}
+                {fichePartBien != null && (
+                  <Badge variant="secondary" title={t("posters.partBienAide")}>
+                    {t("posters.partBien", { pct: Math.round(fichePartBien * 100) })}
                   </Badge>
                 )}
               </div>
@@ -1382,10 +1388,8 @@ export function AdminPostersPage() {
                             >
                               {nomAffiche(c)}
                             </button>
-                            {c.score != null && (
-                              <span className="text-xs text-muted-foreground">
-                                {t("posters.eloCompte", { score: Number(c.score).toFixed(1) })}
-                              </span>
+                            {c.classement && (
+                              <BadgeClassement classement={c.classement} size="sm" />
                             )}
                           </li>
                         ))}
@@ -1413,10 +1417,8 @@ export function AdminPostersPage() {
                           >
                             {nomAffiche(c)}
                           </button>
-                          {c.score != null && (
-                            <span className="text-xs text-muted-foreground">
-                              {t("posters.eloCompte", { score: Number(c.score).toFixed(1) })}
-                            </span>
+                          {c.classement && (
+                            <BadgeClassement classement={c.classement} size="sm" />
                           )}
                         </li>
                       ))}
@@ -1548,13 +1550,7 @@ export function AdminPostersPage() {
                                 <div className="mt-1.5 flex flex-wrap items-center gap-2">
                                   {c.ugc_ai_video && <BadgeUgc label={t("posters.ugcAiVideoBadge")} />}
                                   {c.ugc_ai && !c.ugc_ai_video && <BadgeUgc label="UGC" />}
-                                  {c.score != null && (
-                                    <Badge variant="secondary">
-                                      {t("posters.eloCompte", {
-                                        score: Number(c.score).toFixed(1),
-                                      })}
-                                    </Badge>
-                                  )}
+                                  <BadgeClassement classement={c.classement} />
                                   {!estCompteCm(c) && (
                                     <span onClick={(e) => e.stopPropagation()}>
                                       <WarmupBadge

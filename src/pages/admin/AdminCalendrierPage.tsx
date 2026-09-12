@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
+import { BadgeClassement } from "@/features/moteur/BadgeClassement";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -90,7 +91,7 @@ export function AdminCalendrierPage() {
         handle: postsCompte[0]?.handle_tiktok ?? null,
         avatar: postsCompte[0]?.avatar_url ?? null,
         langue: postsCompte[0]?.langue ?? null,
-        score: postsCompte[0]?.score ?? null,
+        classement: postsCompte[0]?.classement ?? null,
         ugc: Boolean(postsCompte[0]?.ugc_ai) && !postsCompte[0]?.ugc_ai_video,
         postes: postsCompte.filter(estPoste).length,
         vides: postsCompte.filter((p) => p.slideshow_vide && !estPoste(p)).length,
@@ -426,10 +427,8 @@ export function AdminCalendrierPage() {
                     {groupe.vides > 1 ? ` ×${groupe.vides}` : ""}
                   </Badge>
                 )}
-                {groupe.score != null && (
-                  <Badge variant="secondary">
-                    {t("adminCal.eloCourt", { score: Number(groupe.score).toFixed(0) })}
-                  </Badge>
+                {groupe.classement && (
+                  <BadgeClassement classement={groupe.classement} size="sm" />
                 )}
                 {groupe.langue && (
                   <Badge variant="outline">{groupe.langue.toUpperCase()}</Badge>

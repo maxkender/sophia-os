@@ -14,6 +14,7 @@ import {
   snapshotVuesGlobales,
 } from "../_shared/rattrapage_elo.ts";
 import { majScoresDepuisPassages } from "../_shared/scoring.ts";
+import { requalifierClassementComptes } from "../_shared/classement_comptes.ts";
 import { requalifierContenus } from "../_shared/tierlist.ts";
 import {
   kickUpscaleAssignes,
@@ -50,12 +51,16 @@ const POSTS_RELEVES = 30;
  *   - crée passages statut=assigne (musique + hashtags) estampillés du cycle
  *
  *   {}  → kick rattrapage (async) + tierlist + assignation + upscale + ugc
- *   { etapes?: ['stats'|'scores'|'tierlist'|'assignation'|'upscale'|'variations'|'rattrapage'|'ugc_ai_video'|'papier_cm'|'papier_assign'], compteId?, date?, forcer? }
+ *   { etapes?: ['stats'|'scores'|'tierlist'|'assignation'|'upscale'|'variations'|'rattrapage'|'classement'|'ugc_ai_video'|'papier_cm'|'papier_assign'], compteId?, date?, forcer? }
  *   etape `tierlist` : requalification des contenus au bout de leurs passages
  *                      (m = moyenne des vues du cycle) + rappels J+7 des
  *                      passages au-delà de 50k vues
- *   etape `rattrapage` : stats 4j + ELO langue/compte + snapshot vues (contourne PAUSE_ELO_RUNTIME)
- *                        — kick async si tous comptes (évite timeout cron)
+ *   etape `rattrapage` : stats 4j + ELO langue + snapshot vues (contourne PAUSE_ELO_RUNTIME)
+ *                        — kick async si tous comptes (évite timeout cron). La
+ *                        requalification du classement des comptes tourne en fin
+ *                        de son drain, sur les vues fraîches.
+ *   etape `classement` : requalification des comptes à la main (INACTIF → STAR),
+ *                        sans attendre la fin du drain — outil de test admin
  *   etape `upscale` : SeedVR Fal sur photos assignées du jour sans upscale_le
  *                     (strip C2PA en fin dans le drain — pas de double strip)
  *   etape `ugc_ai_video` : kick drain assignation-ugc-video (NB→Kling→concat)
@@ -103,7 +108,7 @@ Deno.serve(async (request) => {
       }
     }
 
-    // Défaut : rattrapage ELO (vues + scores) en kick async — plus de scrape
+    // Défaut : rattrapage (vues + ELO langue) en kick async — plus de scrape
     // synchrone « stats » qui faisait timeout Edge avant snapshot/assign.
     // scores runtime reste en pause (PAUSE_ELO_RUNTIME) ; le rattrapage contourne.
     // ugc_ai_video : TOUJOURS en dernier (après slideshow + upscale).
@@ -124,7 +129,7 @@ Deno.serve(async (request) => {
     const out: Record<string, unknown> = { ok: true, jour };
 
     if (etapes.includes("rattrapage")) {
-      // Contourne PAUSE_ELO_RUNTIME — vues + ELO langue/compte + snapshot Pilotage.
+      // Contourne PAUSE_ELO_RUNTIME — vues + ELO langue + snapshot Pilotage.
       if (compteId) {
         // Compte isolé (manuel) : synchrone, résultat dans la réponse.
         out.rattrapage = await rattrapageElo(supabase, {
@@ -182,6 +187,12 @@ Deno.serve(async (request) => {
       if (!compteId) {
         out.snapshotVues = await snapshotVuesGlobales(supabase);
       }
+    }
+    if (etapes.includes("classement")) {
+      // Manuel : la voie normale est la fin du drain rattrapage (vues fraîches).
+      out.classement = await requalifierClassementComptes(supabase, {
+        dryRun: Boolean(body?.dryRun),
+      });
     }
     if (etapes.includes("scores")) {
       // No-op si PAUSE_ELO_RUNTIME (voir _shared/scoring.ts).

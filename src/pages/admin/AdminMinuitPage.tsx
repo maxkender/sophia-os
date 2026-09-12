@@ -32,6 +32,7 @@ import {
   type RattrapageEloLog,
   type SuiviMinuit,
 } from "@/features/moteur/api";
+import { CLASSEMENTS } from "@/features/moteur/classementComptes";
 import { nomLangue } from "@/features/moteur/langues";
 import { cn } from "@/lib/utils";
 
@@ -153,12 +154,6 @@ function BriefRattrapageElo({
             {t("minuit.rattrapageEloIgnore", { n: brief.eloLangue.ignores })}
           </p>
         </div>
-        <div className="rounded-md border bg-background/60 p-2.5">
-          <p className="text-xs font-medium text-muted-foreground">{t("minuit.rattrapageEloComptes")}</p>
-          <p className="mt-1 text-sm">
-            {t("minuit.rattrapageEloMajComptes", { n: brief.eloCompte.maj })}
-          </p>
-        </div>
       </div>
 
       {brief.eloLangue.top.length > 0 && (
@@ -182,32 +177,6 @@ function BriefRattrapageElo({
                 </span>
               </li>
             ))}
-          </ul>
-        </div>
-      )}
-
-      {brief.eloCompte.top.length > 0 && (
-        <div className="space-y-1">
-          <p className="text-xs font-medium text-muted-foreground">
-            {t("minuit.rattrapageEloTopComptes")}
-          </p>
-          <ul className="space-y-0.5 text-xs">
-            {brief.eloCompte.top.map((c) => {
-              const delta = c.apres - c.avant;
-              return (
-                <li key={c.compteId} className="flex flex-wrap items-baseline gap-x-2">
-                  <span className="font-medium">
-                    {c.handle ? `@${c.handle}` : c.compteId.slice(0, 8)}
-                  </span>
-                  <span className={delta >= 0 ? "text-success" : "text-warning"}>
-                    {fmtDelta(delta)} → {fmtScore(c.apres)}
-                  </span>
-                  <span className="text-muted-foreground">
-                    {t("minuit.rattrapageEloPosts", { n: c.posts })}
-                  </span>
-                </li>
-              );
-            })}
           </ul>
         </div>
       )}
@@ -460,7 +429,7 @@ export function AdminMinuitPage() {
   function invaliderApresElo() {
     void queryClient.invalidateQueries({ queryKey: ["posters"] });
     void queryClient.invalidateQueries({ queryKey: ["comptes"] });
-    // Analytics + Pilotage se nourrissent du même scrape / ELO compte.
+    // Analytics + Pilotage se nourrissent du même scrape.
     void queryClient.invalidateQueries({ queryKey: ["stats-comptes"] });
     void queryClient.invalidateQueries({ queryKey: ["stats-posts"] });
     void queryClient.invalidateQueries({ queryKey: ["stats-posts-viraux"] });
@@ -671,6 +640,28 @@ export function AdminMinuitPage() {
                   {t("minuit.eloDernierRunStale", { min: 30 })}
                 </p>
               )}
+            {eloRun.data?.classement && (
+              <p>
+                <span className="font-medium text-foreground">
+                  {t("minuit.rattrapageClassement")}
+                </span>{" "}
+                {t("minuit.rattrapageClassementRun", {
+                  examines: eloRun.data.classement.examines,
+                  changes: eloRun.data.classement.changes,
+                  verrous: eloRun.data.classement.verrous
+                    ? t("minuit.rattrapageClassementVerrous", {
+                        n: eloRun.data.classement.verrous,
+                      })
+                    : "",
+                })}
+                {" · "}
+                {CLASSEMENTS.map((cle) => (
+                  <span key={cle} className="mr-1.5 whitespace-nowrap">
+                    {t(`classement.${cle}`)} {eloRun.data!.classement!.parCase[cle] ?? 0}
+                  </span>
+                ))}
+              </p>
+            )}
             {!eloRun.data?.at && !eloRun.isLoading && (
               <p className="text-warning">{t("minuit.eloDernierRunAucun")}</p>
             )}
@@ -829,7 +820,6 @@ export function AdminMinuitPage() {
                       baisses: 0,
                       top: [],
                     },
-                    eloCompte: { maj: 0, top: [] },
                   }}
                   logs={eloLive.logs}
                   erreurs={[]}

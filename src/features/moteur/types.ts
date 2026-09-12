@@ -1,9 +1,30 @@
+import type { Classement, ClassementReglages, ModeleNudge } from "./classementComptes";
 import type { PapierFalUsage, ReglagesPapier } from "./papierReglages";
 import type { Tier } from "./tierlist";
 
 // Barèmes et table de requalification : voir `./tierlist`.
 export { PASSAGES_PAR_TIER, TIERS } from "./tierlist";
 export type { Tier } from "./tierlist";
+
+// Cases du classement des comptes : voir `./classementComptes`.
+export { CLASSEMENTS } from "./classementComptes";
+export type { Classement, ClassementReglages, ModeleNudge } from "./classementComptes";
+
+/** Trace de la dernière requalification (colonne `comptes.classement_rapport`). */
+export interface ClassementRapport {
+  /** Créneaux échus retenus (les 10 derniers). */
+  prevus?: number;
+  /** Parmi eux, réellement publiés. */
+  postes?: number;
+  /** Moyenne des vues des 10 derniers posts publiés et mesurés. */
+  moyenne_vues?: number | null;
+  /** Combien de ces posts portent une mesure de vues. */
+  mesures?: number;
+  regle?: string;
+  /** Case calculée — diffère de `classement` quand un verrou manuel est posé. */
+  calcule?: Classement;
+  at?: string;
+}
 
 export type PipelineStatut = "pending" | "running" | "done" | "failed";
 export type SujetStatut = "propose" | "retenu" | "rejete" | "utilise";
@@ -59,8 +80,8 @@ export interface CompteResumePoster {
   persona_nom: string | null;
   persona_bio: string | null;
   avatar_url: string | null;
-  score: number | null;
-  score_maj_at: string | null;
+  classement: Classement;
+  classement_maj_at: string | null;
   warmup_started_at: string | null;
   warmup_ends_at: string | null;
   reference_handle: string | null;
@@ -87,9 +108,22 @@ export interface Compte {
   repartition: { recycle: number; remanie: number; nouveau: number } | null;
   /** Quota d'assignation minuit : 1 à 3 (défaut 1). */
   posts_par_jour: number;
-  /** Forme du compte (EWMA), défaut 50. */
-  score: number;
-  score_maj_at: string | null;
+  /** Case du compte : inactif < mauvaises_vues < passable < bien < star. */
+  classement: Classement;
+  /** Dernière valeur calculée par la requalification (même sous verrou manuel). */
+  classement_calcule: Classement | null;
+  /** Case posée à la main : la requalification de la nuit ne l'écrase pas. */
+  classement_verrou: boolean;
+  classement_maj_at: string | null;
+  classement_rapport: ClassementRapport | null;
+  /** Skip admin dans la file de surveillance. */
+  surveillance_skip_jusqu: string | null;
+  /** Proposé au non-renouvellement (aucun effet sur les assignations). */
+  non_renouveler: boolean;
+  non_renouveler_at: string | null;
+  /** Checklist admin : « j'ai demandé au HM de ne pas renouveler ce compte ». */
+  non_renouveler_hm_demande: boolean;
+  non_renouveler_hm_demande_at: string | null;
   /** Clic « Start warmup » — null = créé, warmup pas lancé. */
   warmup_started_at: string | null;
   /** Fin warmup (started + N h). En process si now >= ends. */
@@ -218,9 +252,9 @@ export interface PosterProfil {
   persona_nom: string | null;
   persona_bio: string | null;
   avatar_url: string | null;
-  /** ELO / forme du compte TikTok (`comptes.score`), null si pas de compte. */
-  score: number | null;
-  score_maj_at: string | null;
+  /** Case du compte TikTok, null si pas de compte. */
+  classement: Classement | null;
+  classement_maj_at: string | null;
   warmup_started_at: string | null;
   warmup_ends_at: string | null;
   manager_id: string | null;
@@ -364,6 +398,10 @@ export interface Reglages {
   scoring: ReglagesScoring;
   /** Réglages tierlist (requalification, rappels J+7, repêchage). */
   tierlist: ReglagesTierlist;
+  /** Seuils du classement des comptes (INACTIF → STAR) + trial. */
+  classement_comptes: ClassementReglages;
+  /** Messages prédéfinis envoyables à un créateur depuis la surveillance. */
+  nudges: { modeles: ModeleNudge[] };
   paiement: ReglagesPaiement;
   moteur_vnext: { actif: boolean };
   /** false = cron minuit + rattrapage en pause (manuel OK). */
@@ -381,8 +419,9 @@ export interface StatsCompte {
   handle_tiktok: string | null;
   langue: string;
   is_active: boolean;
-  /** ELO / forme du compte (`comptes.score`). */
-  elo: number | null;
+  /** Case du compte (vue `stats_comptes`). */
+  classement: Classement | null;
+  classement_maj_at: string | null;
   poster_prenom: string | null;
   poster_nom: string | null;
   posts_total: number;

@@ -16,6 +16,8 @@ import {
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { lancerMetriques, statsComptes, statsPosts } from "@/features/moteur/api";
+import { BadgeClassement } from "@/features/moteur/BadgeClassement";
+import { rangClassement } from "@/features/moteur/classementComptes";
 import type { StatsPost } from "@/features/moteur/types";
 
 /** Un post « viral » : ≥ 7 jours après publication (N+7) ET plus de 30 000 vues.
@@ -48,7 +50,7 @@ function Total({ label, valeur }: { label: string; valeur: string }) {
   );
 }
 
-type TriCreateur = "vues" | "elo" | "likes";
+type TriCreateur = "vues" | "classement" | "likes";
 
 export function AdminAnalyticsPage() {
   const { t, i18n } = useTranslation();
@@ -91,7 +93,12 @@ export function AdminAnalyticsPage() {
   const comptesTries = React.useMemo(() => {
     const liste = [...(comptes.data ?? [])];
     liste.sort((a, b) => {
-      if (tri === "elo") return Number(b.elo ?? 0) - Number(a.elo ?? 0);
+      if (tri === "classement") {
+        const ra = a.classement ? rangClassement(a.classement) : -1;
+        const rb = b.classement ? rangClassement(b.classement) : -1;
+        if (ra !== rb) return rb - ra;
+        return Number(b.vues_totales) - Number(a.vues_totales);
+      }
       if (tri === "likes") return Number(b.likes_totaux) - Number(a.likes_totaux);
       return Number(b.vues_totales) - Number(a.vues_totales);
     });
@@ -200,7 +207,7 @@ export function AdminAnalyticsPage() {
               {(
                 [
                   ["vues", t("analytics.vues")],
-                  ["elo", t("analytics.elo")],
+                  ["classement", t("analytics.classement")],
                   ["likes", t("analytics.likes")],
                 ] as const
               ).map(([cle, label]) => (
@@ -262,11 +269,12 @@ export function AdminAnalyticsPage() {
                 >
                   👁 {abrege(Number(c.vues_totales))}
                 </span>
-                <span
-                  title={t("analytics.elo")}
-                  className={tri === "elo" ? "font-semibold" : undefined}
-                >
-                  ELO {c.elo != null ? Number(c.elo).toFixed(1) : "—"}
+                <span className={tri === "classement" ? "font-semibold" : undefined}>
+                  {c.classement ? (
+                    <BadgeClassement classement={c.classement} size="sm" />
+                  ) : (
+                    "—"
+                  )}
                 </span>
                 <span
                   title={t("analytics.likes")}

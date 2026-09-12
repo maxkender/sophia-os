@@ -14,7 +14,8 @@ export type Supabase = ReturnType<typeof serviceClient>;
  * et repart avec le compteur de son nouveau rang.
  *
  * L'ELO ne sert plus qu'au tout premier placement, à l'import (voir
- * `tierImport` ci-dessous). L'ELO de compte (`comptes.score`) est indépendant.
+ * `tierImport` ci-dessous). Les comptes, eux, portent une case de classement
+ * (INACTIF → STAR) — voir `_shared/classement_comptes.ts`.
  */
 export const TIERS = ["D", "C", "B", "A", "S", "S+"] as const;
 export type Tier = (typeof TIERS)[number];

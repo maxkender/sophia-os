@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
+import { BadgeClassement } from "@/features/moteur/BadgeClassement";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -157,17 +158,23 @@ export function AdminCreateurPage() {
               <h1 className="text-xl font-semibold tracking-tight">{nom}</h1>
               {!c.is_active && <Badge variant="secondary">{t("posters.disabled")}</Badge>}
               <Badge variant="outline">{nomLangue(c.langue)}</Badge>
-              <Badge variant="secondary" title={t("adminCreateur.eloAide")}>
-                {t("adminCreateur.elo", { score: c.score.toFixed(1) })}
-              </Badge>
+              <BadgeClassement
+                classement={c.classement}
+                titre={c.classement_rapport?.regle ?? null}
+              />
+              {c.classement_verrou && (
+                <Badge variant="outline" title={t("surveillance.changerCaseAide")}>
+                  {t("classement.verrou")}
+                </Badge>
+              )}
             </div>
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
               {c.handle_tiktok && <span>@{c.handle_tiktok.replace(/^@/, "")}</span>}
               {c.poster_email && <span>{c.poster_email}</span>}
-              {c.score_maj_at && (
+              {c.classement_maj_at && (
                 <span className="text-xs">
-                  {t("adminCreateur.eloMaj", {
-                    date: new Date(c.score_maj_at).toLocaleString(i18n.language),
+                  {t("classement.maj", {
+                    date: new Date(c.classement_maj_at).toLocaleString(i18n.language),
                   })}
                 </span>
               )}

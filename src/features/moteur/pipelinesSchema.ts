@@ -182,14 +182,14 @@ export const SCHEMA_UPDATE_ELO: PipelineAction = {
         "ELO_LANGUE_REMPLACE_PAR_TIERLIST = true → no-op. Le rang d'un contenu bouge à la requalification (étape tierlist de minuit).",
     },
     {
-      id: "elo_compte",
+      id: "classement_comptes",
       rang: "⑤",
-      label: "ELO compte — moyenne pondérée ≤10 derniers posts",
+      label: "Classement des comptes (INACTIF → STAR)",
       kind: "logic",
-      api: "rattrapage_elo.appliquerEloComptes",
+      api: "classement_comptes.requalifierClassementComptes (fin de drain)",
       detail:
-        "perf = log^1.3(vues)/plafond · k=elo_regularisation_k (défaut 1) · decay 0.85 · −5 / jour actif sans post (jours passés) · skip warmup",
-      reglage: "scoring.elo_vues_plafond · elo_regularisation_k",
+        "10 derniers créneaux échus (hors rappels) + moyenne des 10 derniers posts mesurés. INACTIF ≤6/10 · MAUVAISES VUES <600 · BIEN ≥1000 et ≥8/10 · STAR >10 000 et ≥9/10. Verrou manuel respecté ; hors CM et UGC AI VIDEO.",
+      reglage: "classement_comptes.*",
     },
     {
       id: "snapshot",

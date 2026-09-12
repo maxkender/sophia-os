@@ -77,11 +77,15 @@ Quatre actions par ligne :
 | **Skip**                | masque la ligne 7 jours (`surveillance_skip_jusqu`) ; elle revient si le compte est toujours flagué |
 | **Changer la case**     | pose la case à la main **et verrouille** : la requalif de la nuit ne l'écrase plus (« Rendre à l'auto » déverrouille) |
 | **Nudge**               | dépose un message interne (choisi parmi `reglages.nudges.modeles`) que le créateur voit à sa connexion |
-| **Ne pas renouveler**   | ajoute le compte à la seconde liste                                   |
+| **Ne pas renouveler**   | sort le compte de la file et l'ajoute à la seconde liste — la décision est prise, elle n'a plus à être reprise chaque jour |
 
 **Ne pas renouveler** — liste de suivi, **sans effet technique** : le compte
 continue à recevoir ses posts jusqu'à désactivation manuelle. Chaque ligne porte
 la checklist « j'ai demandé au HM de ne pas renouveler ce compte ».
+
+Un compte de cette liste ne réapparaît pas dans la file de surveillance, même
+s'il reste INACTIF ou en fin d'essai : la file ne garde que les décisions à
+prendre. « Retirer de la liste » l'y ramène s'il est toujours flagué.
 
 ## TRIAL
 

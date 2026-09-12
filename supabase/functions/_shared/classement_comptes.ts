@@ -301,6 +301,8 @@ export interface CompteSurveillance {
   created_at?: string | null;
   /** Skip posé par un admin — la ligne est masquée jusque-là. */
   surveillance_skip_jusqu?: string | null;
+  /** Déjà proposé au non-renouvellement — la décision est prise. */
+  non_renouveler?: boolean | null;
 }
 
 /**
@@ -331,12 +333,20 @@ export function estSkippe(
   return Number.isFinite(t) && t > maintenant;
 }
 
-/** Le compte doit-il apparaître dans la file de surveillance ? */
+/**
+ * Le compte doit-il apparaître dans la file de surveillance ?
+ *
+ * La file est une liste de décisions à prendre. Un compte déjà proposé au
+ * non-renouvellement en sort : la décision est prise, il vit dans la liste
+ * « ne pas renouveler » avec sa checklist. Le retirer de cette liste le
+ * ramène dans la file s'il est toujours flagué.
+ */
 export function estSousSurveillance(
   compte: CompteSurveillance,
   reglages: ClassementReglages = CLASSEMENT_REGLAGES_DEFAUT,
   maintenant: number = Date.now(),
 ): boolean {
+  if (compte.non_renouveler) return false;
   if (estSkippe(compte.surveillance_skip_jusqu, maintenant)) return false;
   return motifsSurveillance(compte, reglages, maintenant).length > 0;
 }

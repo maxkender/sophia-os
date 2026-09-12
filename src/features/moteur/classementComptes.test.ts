@@ -263,6 +263,23 @@ describe("file de surveillance", () => {
     expect(estSousSurveillance(expire, undefined, t0)).toBe(true);
   });
 
+  it("sort de la file dès qu'il est proposé au non-renouvellement", () => {
+    const flague = { classement: "inactif" as const };
+    expect(estSousSurveillance(flague, undefined, t0)).toBe(true);
+    // La décision est prise : il vit désormais dans la liste « ne pas renouveler ».
+    expect(estSousSurveillance({ ...flague, non_renouveler: true }, undefined, t0)).toBe(false);
+    // Même en pleine alerte de fin d'essai.
+    expect(
+      estSousSurveillance(
+        { classement: "star", created_at: cree(55), non_renouveler: true },
+        undefined,
+        t0,
+      ),
+    ).toBe(false);
+    // Retiré de la liste, il revient s'il est toujours flagué.
+    expect(estSousSurveillance({ ...flague, non_renouveler: false }, undefined, t0)).toBe(true);
+  });
+
   it("pose un skip de 7 jours", () => {
     expect(finDuSkip(CLASSEMENT_REGLAGES_DEFAUT, t0)).toBe(
       new Date(t0 + 7 * 86_400_000).toISOString(),

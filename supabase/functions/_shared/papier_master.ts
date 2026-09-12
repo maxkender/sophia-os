@@ -263,10 +263,12 @@ export async function publierVideoFrMaster(
       etape: "ready",
       progression: 1,
       erreur: null,
+      annule: false,
       video_url: video.video_url,
       video_path: video.video_path ?? null,
     },
     { etape: "fr", detail: "vidéo FR en bibliothèque" },
+    { forcer: true },
   );
 }
 

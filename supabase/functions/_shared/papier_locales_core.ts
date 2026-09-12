@@ -296,6 +296,18 @@ export function captionsAutoriseesSiMasterArrete(row: {
   const ass = etapeAssemblage(row);
   return ass === "scale" || ass === "cadre" || ass === "karaoke";
 }
+
+/** Clips Seedance déjà là : toutes les langues (traduire → TTS → mix → cadre) sans relancer l'animation. */
+export function localePeutContinuerMasterArrete(opts: {
+  clipsComplets: boolean;
+  video_url?: string | null;
+  video_mix_url?: string | null;
+  video_mix_path?: string | null;
+  etape?: string | null;
+}): boolean {
+  if (opts.clipsComplets) return true;
+  return captionsAutoriseesSiMasterArrete(opts);
+}
 export function assemblageAProgresse(
   avant: { video_mix_path?: string | null; video_url?: string | null },
   apres: { video_mix_path?: string | null; video_url?: string | null },

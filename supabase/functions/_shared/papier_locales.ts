@@ -23,6 +23,7 @@ import type { FalQueueProgress } from "./fal_queue.ts";
 import {
   assemblageAProgresse,
   captionsAutoriseesSiMasterArrete,
+  localePeutContinuerMasterArrete,
   etapeAssemblage,
   prochaineLangueATiquer,
   statutDepuisLocaleAssets,
@@ -687,7 +688,16 @@ export async function avancerLangue(
       .maybeSingle();
     if ((masterEtat as { annule?: boolean; statut?: string } | null)?.annule ||
       (masterEtat as { statut?: string } | null)?.statut === "stopped") {
-      if (!captionsAutoriseesSiMasterArrete(row)) {
+      const clipsOk = await assurerMasterPretSiClips(supabase, row.master_id);
+      if (
+        !localePeutContinuerMasterArrete({
+          clipsComplets: clipsOk,
+          video_url: row.video_url,
+          video_mix_url: row.video_mix_url,
+          video_mix_path: row.video_mix_path,
+          etape: row.etape,
+        })
+      ) {
         return {
           ok: true,
           idle: true,

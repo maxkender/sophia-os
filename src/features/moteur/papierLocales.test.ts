@@ -7,6 +7,7 @@ import {
   finaliserTraductionPapier,
   assemblageAProgresse,
   captionsAutoriseesSiMasterArrete,
+  localePeutContinuerMasterArrete,
   LANGUES_PAPIER,
   langueFrAContinuer,
   mixEstIntermediaire,
@@ -281,6 +282,19 @@ describe("assemblage", () => {
       }),
     ).toBe(true);
     expect(captionsAutoriseesSiMasterArrete({})).toBe(false);
+    expect(
+      localePeutContinuerMasterArrete({
+        clipsComplets: true,
+        video_mix_path: null,
+      }),
+    ).toBe(true);
+    expect(
+      localePeutContinuerMasterArrete({
+        clipsComplets: false,
+        video_mix_path: "papiers/x/de/mix-raw.mp4",
+      }),
+    ).toBe(true);
+    expect(localePeutContinuerMasterArrete({ clipsComplets: false })).toBe(false);
   });
 
   it("n'auto-relance jamais une langue (évite la boucle Fal)", () => {

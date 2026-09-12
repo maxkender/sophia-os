@@ -89,9 +89,16 @@ jobs:
         if: steps.choix.outputs.liste != ''
         env:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
-          PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF }}
+          # Le ref de projet n'est pas un secret : c'est le sous-domaine public
+          # de l'API (déjà dans le bundle du front). En dur par défaut pour que
+          # le workflow ne dépende que d'UN secret — le token.
+          PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF || vars.SUPABASE_PROJECT_REF || 'mbikecieskoobeizixig' }}
         run: |
           set -euo pipefail
+          if [ -z "${SUPABASE_ACCESS_TOKEN:-}" ]; then
+            echo "::error::secret SUPABASE_ACCESS_TOKEN absent — Settings → Secrets and variables → Actions"
+            exit 1
+          fi
           # --use-api : bundle côté serveur, pas de Docker sur le runner.
           # verify_jwt vient de supabase/config.toml, jamais d'un flag.
           supabase functions deploy ${{ steps.choix.outputs.liste }} \
@@ -100,7 +107,7 @@ jobs:
       - name: Vérifier que les fonctions démarrent
         if: steps.choix.outputs.liste != ''
         env:
-          PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF }}
+          PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF || vars.SUPABASE_PROJECT_REF || 'mbikecieskoobeizixig' }}
         run: |
           set -euo pipefail
           # Sans secret, une fonction saine répond son propre 401

@@ -476,7 +476,7 @@ export async function listerSujets(): Promise<Sujet[]> {
 export async function listerComptes(): Promise<CompteAvecDetails[]> {
   const { data, error } = await supabase
     .from("comptes")
-    .select("*, profiles(prenom, nom, upwork_url), comptes_reference(handle_tiktok), applications(slug)")
+    .select("*, comptes_reference(handle_tiktok), applications(slug), profiles(prenom, nom, upwork_url)")
     // Comptes ACTIFS uniquement : un compte désactivé (doublon retiré, ancienne
     // identité…) ne doit plus apparaître ni dans l'éditeur ni dans les tests.
     .eq("is_active", true)
@@ -499,7 +499,7 @@ export async function listerComptes(): Promise<CompteAvecDetails[]> {
 export async function listerTousComptesPourTest(): Promise<CompteAvecDetails[]> {
   const { data, error } = await supabase
     .from("comptes")
-    .select("*, profiles(prenom, nom, upwork_url), comptes_reference(handle_tiktok)")
+    .select("*, comptes_reference(handle_tiktok), profiles(prenom, nom, upwork_url)")
     .order("created_at", { ascending: false });
   if (error) throw error;
   return data as CompteAvecDetails[];
@@ -2402,7 +2402,7 @@ export async function postsCalendrierAdmin(): Promise<PostCalendrierAdmin[]> {
     .from("posts")
     .select(
       "id, compte_id, date_publication_prevue, type, statut, pipeline_statut, publie_at, publie_url, " +
-        "sujets(titre), comptes(persona_nom, handle_tiktok, avatar_url, classement, langue, ugc_ai, ugc_ai_video, profiles(prenom, nom))",
+        "sujets(titre), comptes(handle_tiktok, persona_nom, avatar_url, langue, classement, ugc_ai, ugc_ai_video, profiles(prenom, nom))",
     )
     .eq("est_test", false)
     .order("date_publication_prevue", { ascending: false, nullsFirst: false })
@@ -2485,7 +2485,7 @@ export async function lireCompteCreateur(compteId: string): Promise<CompteCreate
   const { data, error } = await supabase
     .from("comptes")
     .select(
-      "id, poster_id, persona_nom, handle_tiktok, avatar_url, langue, classement, classement_calcule, classement_verrou, classement_maj_at, classement_rapport, is_active, profiles(prenom, nom, email)",
+      "id, poster_id, persona_nom, handle_tiktok, avatar_url, langue, is_active, classement, classement_calcule, classement_verrou, classement_maj_at, classement_rapport, profiles(prenom, nom, email)",
     )
     .eq("id", compteId)
     .maybeSingle();
@@ -4285,7 +4285,7 @@ export async function mesPapierPosts(compteId: string): Promise<PapierPost[]> {
 export async function papierPostsCalendrier(): Promise<PapierPostCalendrier[]> {
   const { data, error } = await supabase
     .from("papier_posts")
-    .select("*, comptes(persona_nom, handle_tiktok, profiles(prenom, nom))")
+    .select("*, comptes(handle_tiktok, persona_nom, profiles(prenom, nom))")
     .eq("est_test", false)
     .order("date_publication_prevue", { ascending: false, nullsFirst: false })
     .limit(400);
@@ -6843,7 +6843,7 @@ export async function listerSurveillanceComptes(): Promise<LigneSurveillance[]> 
   const { data, error } = await supabase
     .from("comptes")
     .select(
-      "id, poster_id, handle_tiktok, persona_nom, avatar_url, langue, created_at, classement, classement_calcule, classement_verrou, classement_maj_at, classement_rapport, surveillance_skip_jusqu, non_renouveler, non_renouveler_at, non_renouveler_hm_demande, non_renouveler_hm_demande_at, profiles(prenom, nom, email)",
+      "id, poster_id, handle_tiktok, persona_nom, avatar_url, langue, created_at, surveillance_skip_jusqu, classement, classement_calcule, classement_verrou, classement_maj_at, classement_rapport, non_renouveler, non_renouveler_at, non_renouveler_hm_demande, non_renouveler_hm_demande_at, profiles(prenom, nom, email)",
     )
     .eq("is_active", true)
     .neq("type_compte", "cm")

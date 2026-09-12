@@ -26,3 +26,129 @@ enable_signup = true
 enable_signup = true
 double_confirm_changes = true
 enable_confirmations = false
+
+# ---------------------------------------------------------------------------
+# Fonctions Edge : `verify_jwt` doit être posé ICI et pas en flag de ligne de
+# commande. Chaque fonction s'authentifie elle-même (`assertAuthorised` /
+# `assertRole` : x-cron-secret, sinon JWT + rôle). Les jobs pg_cron appellent
+# avec le seul header `x-cron-secret` : si la passerelle exigeait un JWT, le
+# minuit prendrait 401 et ne tournerait plus. Un `functions deploy` sans ces
+# entrées remettrait la vérification à `true` (défaut CLI) et casserait les crons.
+#
+# Relevé de l'état réel du projet le 2026-09-12 : tout est à false, sauf
+# `bruler-texte-test` (appelée depuis l'admin avec un JWT).
+# ---------------------------------------------------------------------------
+
+[functions.ameliorer-review]
+verify_jwt = false
+
+[functions.assignation]
+verify_jwt = false
+
+[functions.assignation-contenu]
+verify_jwt = false
+
+[functions.assignation-ugc-video]
+verify_jwt = false
+
+[functions.backfill-musique]
+verify_jwt = false
+
+[functions.bruler-texte-test]
+verify_jwt = true
+
+[functions.caption-media]
+verify_jwt = false
+
+[functions.chatbot]
+verify_jwt = false
+
+[functions.composition]
+verify_jwt = false
+
+[functions.creation-manuelle]
+verify_jwt = false
+
+[functions.extraction]
+verify_jwt = false
+
+[functions.import-contenu]
+verify_jwt = false
+
+[functions.maintenance]
+verify_jwt = false
+
+[functions.manage-users]
+verify_jwt = false
+
+[functions.metriques]
+verify_jwt = false
+
+[functions.minuit-vnext]
+verify_jwt = false
+
+[functions.nettoyer-media]
+verify_jwt = false
+
+[functions.nettoyer-test]
+verify_jwt = false
+
+[functions.oublier-source]
+verify_jwt = false
+
+[functions.papier-cm]
+verify_jwt = false
+
+[functions.persona]
+verify_jwt = false
+
+[functions.preparation]
+verify_jwt = false
+
+[functions.rattrapage-elo]
+verify_jwt = false
+
+[functions.renettoyer]
+verify_jwt = false
+
+[functions.renettoyer-contenu]
+verify_jwt = false
+
+[functions.resoudre-tiktok]
+verify_jwt = false
+
+[functions.revoquer-post]
+verify_jwt = false
+
+[functions.scan-visage-ugc]
+verify_jwt = false
+
+[functions.scoring]
+verify_jwt = false
+
+[functions.strip-c2pa]
+verify_jwt = false
+
+[functions.suivi-rc]
+verify_jwt = false
+
+[functions.traduire-doc]
+verify_jwt = false
+
+[functions.traduire-test]
+verify_jwt = false
+
+[functions.ugc-persona]
+verify_jwt = false
+
+[functions.ugc-reactions]
+verify_jwt = false
+
+[functions.upscale-assignes]
+verify_jwt = false
+
+[functions.upscale-media]
+verify_jwt = false
+
+[functions.variations]
+verify_jwt = false

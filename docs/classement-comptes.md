@@ -21,6 +21,11 @@ Deux fenêtres différentes, toutes deux sur les `passages` (hors rappels J+7) :
 Le jour en cours ne compte pas : le créateur a encore le temps de poster. Un post
 publié mais pas encore relevé (vues nulles) ne pèse pas sur la moyenne.
 
+D'où viennent ces chiffres : `postes` compte les créneaux que le créateur a
+cochés « publié », et les vues viennent du post TikTok rattaché à ce créneau —
+voir [resolution-publication.md](resolution-publication.md), qui va chercher ce
+post au lieu de faire confiance au seul lien collé à la main.
+
 ## Les cases
 
 | Case               | Condition                                                       |

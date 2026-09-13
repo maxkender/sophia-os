@@ -2335,7 +2335,7 @@ export const fr = {
       fileTitre: "File des prochains comptes (label + UGC)",
       fileApp: "File {{nom}} — un créateur {{nom}} prend un label {{nom}} à la création.",
       fileDesc:
-        "À la création d’un poster : file de SA langue d’abord (prioritaire), sinon file générale, sinon label classique le moins utilisé dans la langue. FIFO : la 1ʳᵉ entrée décide le label et si le compte est UGC. Les labels UGC AI VIDEO (ex. test) n’entrent pas dans cette file : ils vont uniquement aux créateurs d’un HM vidéo.",
+        "À la création d’un poster : file de SA langue d’abord (prioritaire), sinon file générale, sinon label classique le moins utilisé dans la langue. FIFO : la 1ʳᵉ entrée décide le label et si le compte est UGC. Les labels UGC AI VIDEO n’entrent pas dans cette file : ils vont uniquement aux créateurs d’un HM vidéo.",
       fileChoisir: "File à éditer",
       fileGenerale: "File générale",
       fileGeneraleAide:

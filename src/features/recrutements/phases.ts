@@ -241,6 +241,7 @@ const MOTS_JOB_PAYS: Record<string, string[]> = {
   sv: ["sweden", "swedish", "suède", "suede", "sverige", "suédois", "suedois"],
   tr: ["turkey", "turkish", "turquie", "turc"],
   da: ["denmark", "danish", "danemark", "danmark", "danois"],
+  no: ["norway", "norwegian", "norvège", "norvege", "norge", "norvégien", "norvegien"],
   ru: ["russia", "russian", "russie", "russe", "россия"],
   hr: ["croatia", "croatian", "croatie", "croate", "hrvatska"],
   sl: ["slovenia", "slovenian", "slovenie", "slovénie", "slovene", "slovène"],
@@ -252,10 +253,19 @@ const MOTS_JOB_PAYS: Record<string, string[]> = {
   et: ["estonia", "estonian", "estonie", "estonien"],
 };
 
+/** Codes pays OS qui sont aussi des mots courants des titres : « no experience »
+ *  n'est pas un job norvégien, « TikTok et carrousels » pas un job estonien.
+ *  Sur ceux-là le code nu ne prouve rien — il faut la forme explicite `(no)`
+ *  ou un mot de `MOTS_JOB_PAYS`. */
+const CODES_PAYS_AMBIGUS = new Set(["no", "et", "he"]);
+
 function titreMentionnePays(titre: string, pays: string): boolean {
   const t = titre.toLowerCase();
   const code = pays.toLowerCase();
-  if (t.includes(`(${code})`) || t.includes(` ${code} `) || t.endsWith(` ${code}`)) return true;
+  if (t.includes(`(${code})`)) return true;
+  if (!CODES_PAYS_AMBIGUS.has(code) && (t.includes(` ${code} `) || t.endsWith(` ${code}`))) {
+    return true;
+  }
   return (MOTS_JOB_PAYS[code] ?? []).some((m) => t.includes(m));
 }
 

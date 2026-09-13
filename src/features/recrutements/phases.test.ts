@@ -112,6 +112,32 @@ describe("phases HM", () => {
     expect(phasesHmPourPays(fiche, [], "pl")).toEqual([0]);
   });
 
+  it("reconnaît un job norvégien par son titre", () => {
+    const fiche = hm({
+      pays: ["no", "da"],
+      job_post_at: "2026-09-13T00:00:00Z",
+      job_post_titre: "TikTok slideshow poster (Norway, norsk)",
+    });
+    expect(jobPostConcernePays(fiche, "no")).toBe(true);
+    expect(jobPostConcernePays(fiche, "da")).toBe(false);
+  });
+
+  it("« no experience » ne fait pas passer le job pour norvégien", () => {
+    const fiche = hm({
+      pays: ["no", "da"],
+      job_post_at: "2026-09-13T00:00:00Z",
+      job_post_titre: "TikTok slideshow poster, no experience needed",
+    });
+    // Titre muet sur le pays : il ne doit ni être capté par « no », ni pour
+    // autant exclure le Danemark.
+    expect(jobPostConcernePays(fiche, "no")).toBe(false);
+    expect(jobPostConcernePays(fiche, "da")).toBe(false);
+    // La forme explicite reste reconnue.
+    expect(
+      jobPostConcernePays({ ...fiche, job_post_titre: "TikTok poster (no)" }, "no"),
+    ).toBe(true);
+  });
+
   it("passe en phase 1 dès un créateur, même sans job_post_at", () => {
     expect(phasesHmPourPays(hm(), [cre()], "fr")).toEqual([1]);
   });

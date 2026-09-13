@@ -65,6 +65,50 @@ export const PRENOMS_PAR_LANGUE: Record<string, JeuPrenoms> = {
     prenomsH: ["emir", "yusuf", "ege", "ali", "can", "burak", "kerem", "mert"],
     prenomsF: ["zeynep", "ela", "defne", "azra", "asya", "eylul", "selin", "ece"],
   },
+  da: {
+    prenomsH: ["william", "noah", "oscar", "carl", "malthe", "alfred", "emil", "oliver"],
+    prenomsF: ["alma", "freja", "agnes", "ella", "clara", "anna", "sofia", "ida"],
+  },
+  no: {
+    prenomsH: ["noah", "william", "lucas", "oliver", "isak", "emil", "filip", "jakob"],
+    prenomsF: ["nora", "emma", "olivia", "ella", "sofia", "mila", "lea", "ada"],
+  },
+  ru: {
+    prenomsH: ["ivan", "dmitry", "alexei", "nikita", "maxim", "andrei", "kirill", "artem"],
+    prenomsF: ["anna", "maria", "daria", "alina", "sofia", "polina", "ekaterina", "viktoria"],
+  },
+  hr: {
+    prenomsH: ["luka", "ivan", "marko", "petar", "josip", "matej", "filip", "ante"],
+    prenomsF: ["ana", "mia", "ema", "nika", "lana", "petra", "lea", "sara"],
+  },
+  sl: {
+    prenomsH: ["luka", "jan", "nik", "tim", "zan", "anze", "nejc", "gal"],
+    prenomsF: ["eva", "nika", "zala", "lara", "tina", "sara", "maja", "lana"],
+  },
+  sk: {
+    prenomsH: ["jakub", "adam", "samuel", "tobias", "matej", "simon", "filip", "oliver"],
+    prenomsF: ["emma", "nina", "sofia", "ema", "nela", "viktoria", "lucia", "natalia"],
+  },
+  sr: {
+    prenomsH: ["luka", "lazar", "vuk", "stefan", "nikola", "marko", "nemanja", "aleksa"],
+    prenomsF: ["ana", "milica", "jovana", "milena", "teodora", "nina", "lena", "sara"],
+  },
+  ar: {
+    prenomsH: ["youssef", "omar", "karim", "hassan", "amr", "ahmed", "ziad", "mostafa"],
+    prenomsF: ["sara", "nour", "layla", "malak", "yasmin", "farah", "salma", "jana"],
+  },
+  he: {
+    prenomsH: ["noam", "itai", "yoni", "omri", "dani", "idan", "ori", "alon"],
+    prenomsF: ["noa", "yael", "tamar", "maya", "shira", "talia", "noga", "hila"],
+  },
+  fi: {
+    prenomsH: ["eetu", "onni", "oliver", "elias", "leo", "leevi", "veeti", "niilo"],
+    prenomsF: ["aino", "eevi", "aada", "helmi", "venla", "sofia", "emma", "elli"],
+  },
+  et: {
+    prenomsH: ["robin", "martin", "markus", "kaspar", "rasmus", "oliver", "karl", "mattias"],
+    prenomsF: ["sofia", "maria", "emma", "mia", "laura", "liisa", "anna", "kadri"],
+  },
 };
 
 /** Mots « études / travail » dans la langue du compte. */
@@ -83,6 +127,17 @@ export const MOTS_ETUDES: Record<string, string[]> = {
   ro: ["studiu", "munca", "notite", "examen", "flashcards", "curs", "recapitulare"],
   sv: ["studier", "arbete", "anteckningar", "prov", "flashcards", "kurs", "repetera"],
   tr: ["calisma", "is", "notlar", "sinav", "flashcards", "ders", "tekrar"],
+  da: ["studier", "arbejde", "noter", "eksamen", "flashcards", "kursus", "laere", "lektier"],
+  no: ["studier", "arbeid", "notater", "eksamen", "flashcards", "kurs", "laere", "lekser"],
+  ru: ["ucheba", "rabota", "zametki", "ekzamen", "flashcards", "kurs", "povtor", "uroki"],
+  hr: ["ucenje", "rad", "biljeske", "ispit", "flashcards", "tecaj", "ponavljanje", "skola"],
+  sl: ["ucenje", "delo", "zapiski", "izpit", "flashcards", "tecaj", "ponavljanje", "sola"],
+  sk: ["studium", "praca", "poznamky", "skuska", "flashcards", "kurz", "opakovanie", "karty"],
+  sr: ["ucenje", "rad", "beleske", "ispit", "flashcards", "kurs", "ponavljanje", "skola"],
+  ar: ["dirasa", "amal", "mulahazat", "imtihan", "flashcards", "dawra", "murajaa"],
+  he: ["limudim", "avoda", "reshimot", "bechina", "flashcards", "kurs", "hazara"],
+  fi: ["opiskelu", "tyo", "muistiinpanot", "koe", "flashcards", "kurssi", "kertaus"],
+  et: ["ope", "too", "markmed", "eksam", "flashcards", "kursus", "kordamine"],
 };
 
 /** Bio simple = « study tips » dans la langue du posteur. */
@@ -101,6 +156,17 @@ export const BIO_ETUDES: Record<string, string> = {
   ro: "sfaturi de studiu",
   sv: "studietips",
   tr: "çalışma ipuçları",
+  da: "studietips",
+  no: "studietips",
+  ru: "советы для учёбы",
+  hr: "savjeti za učenje",
+  sl: "nasveti za učenje",
+  sk: "tipy na štúdium",
+  sr: "saveti za ucenje",
+  ar: "نصائح للدراسة",
+  he: "טיפים ללימודים",
+  fi: "opiskeluvinkkejä",
+  et: "õppenõuanded",
 };
 
 export function sansAccentsIdentite(s: string): string {

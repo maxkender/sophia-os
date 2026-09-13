@@ -178,3 +178,83 @@ export function requalifier(e: RequalifEntree): RequalifSortie {
       return { tier: "S", regle: "moins de deux passages ≥ 150 000" };
   }
 }
+
+// ---------------------------------------------------------------------------
+// Étalement des rappels J+7
+// ---------------------------------------------------------------------------
+
+/** Jour ISO (`YYYY-MM-DD`) suivant — arithmétique en UTC, sans fuseau. */
+export function jourSuivant(jour: string): string {
+  return new Date(Date.parse(`${jour}T00:00:00Z`) + 86_400_000)
+    .toISOString()
+    .slice(0, 10);
+}
+
+export interface CandidatRappel {
+  /** Passage source — sert d'ancre stable au tri à date égale. */
+  id: string;
+  compteId: string;
+  /** Jour de publication de la source, ISO. */
+  publieLe: string;
+  /** Jour visé avant arbitrage : `publieLe` + `rappel_jours`. */
+  jourCible: string;
+}
+
+export interface PlacementRappel extends CandidatRappel {
+  /** Jour retenu : ≥ `jourCible`, ≥ `premierJour`, et sous le quota du compte. */
+  jour: string;
+}
+
+export interface EtalementRappels {
+  /** Premier jour ouvrable — en pratique demain, le jour même étant figé. */
+  premierJour: string;
+  /** Places d'un compte pour une journée (`comptes.posts_par_jour`). */
+  quota: (compteId: string) => number;
+  /** Passages déjà posés ce jour-là sur ce compte, rappels compris. */
+  occupation?: (compteId: string, jour: string) => number;
+}
+
+/**
+ * Répartit les rappels sur les jours à venir sans jamais dépasser le quota
+ * quotidien d'un compte.
+ *
+ * Un rappel **prend la place** d'un post classique : un créateur à 2 posts/jour
+ * qui a deux rappels le même jour ne reçoit aucun contenu neuf ce jour-là — et
+ * jamais un troisième post. Le surplus glisse au premier jour qui a de la place.
+ *
+ * Sans cet étalement, une reprise d'historique (le scan remonte 30 jours) fait
+ * tomber tous les J+7 échus sur le même lendemain : c'est ce qui a donné 9 posts
+ * en un jour à un compte qui en prévoit 2.
+ *
+ * Les plus anciens passent en premier — un rappel en retard ne double pas les
+ * suivants.
+ */
+export function etalerRappels(
+  candidats: CandidatRappel[],
+  opts: EtalementRappels,
+): PlacementRappel[] {
+  const pris = new Map<string, number>();
+  const cle = (compteId: string, jour: string) => `${compteId}@${jour}`;
+  const occupe = (compteId: string, jour: string): number => {
+    const k = cle(compteId, jour);
+    if (!pris.has(k)) pris.set(k, opts.occupation?.(compteId, jour) ?? 0);
+    return pris.get(k)!;
+  };
+
+  const ordonnes = [...candidats].sort((a, b) =>
+    a.publieLe === b.publieLe
+      ? a.id.localeCompare(b.id)
+      : a.publieLe.localeCompare(b.publieLe)
+  );
+
+  const places: PlacementRappel[] = [];
+  for (const c of ordonnes) {
+    // Plancher 1 : un quota à 0 boucherait la boucle sans jamais poser le rappel.
+    const quota = Math.max(1, Math.round(opts.quota(c.compteId) || 0));
+    let jour = c.jourCible < opts.premierJour ? opts.premierJour : c.jourCible;
+    while (occupe(c.compteId, jour) >= quota) jour = jourSuivant(jour);
+    pris.set(cle(c.compteId, jour), occupe(c.compteId, jour) + 1);
+    places.push({ ...c, jour });
+  }
+  return places;
+}

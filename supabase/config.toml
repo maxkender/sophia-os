@@ -114,6 +114,9 @@ verify_jwt = false
 [functions.renettoyer-contenu]
 verify_jwt = false
 
+[functions.resolution-publication]
+verify_jwt = false
+
 [functions.resoudre-tiktok]
 verify_jwt = false
 

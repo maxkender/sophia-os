@@ -448,6 +448,17 @@ const HASHTAGS: Record<string, string[]> = {
   it: ["#imparare", "#crescitapersonale", "#booktok", "#perte", "#cultura", "#conoscenza", "#sapere", "#motivazione", "#curiosità", "#studytok", "#fyp", "#impararesutiktok"],
   es: ["#aprender", "#desarrollopersonal", "#booktok", "#parati", "#cultura", "#conocimiento", "#superacionpersonal", "#motivacion", "#datoscuriosos", "#aprendeentiktok", "#fyp", "#sabiduria"],
   pt: ["#aprender", "#desenvolvimentopessoal", "#booktok", "#paravoce", "#cultura", "#conhecimento", "#crescimento", "#motivacao", "#curiosidades", "#aprendanotiktok", "#fyp", "#sabedoria"],
+  da: ["#laering", "#personligudvikling", "#booktok", "#foryou", "#viden", "#laerpaatiktok", "#motivation", "#fakta", "#kultur", "#fyp", "#videnontiktok", "#smart"],
+  no: ["#laere", "#personligutvikling", "#booktok", "#foryou", "#kunnskap", "#laerpatiktok", "#motivasjon", "#fakta", "#kultur", "#fyp", "#laerontiktok", "#smart"],
+  ru: ["#обучение", "#саморазвитие", "#букток", "#рек", "#знания", "#учисьвтикток", "#мотивация", "#факты", "#культура", "#fyp", "#полезное", "#умное"],
+  hr: ["#ucenje", "#osobnirazvoj", "#booktok", "#zatijeb", "#znanje", "#ucinaTikToku", "#motivacija", "#cinjenice", "#kultura", "#fyp", "#savjeti", "#pametno"],
+  sl: ["#ucenje", "#osebnirazvoj", "#booktok", "#zate", "#znanje", "#ucisenatiktoku", "#motivacija", "#dejstva", "#kultura", "#fyp", "#nasveti", "#pametno"],
+  sk: ["#ucenie", "#osobnyrozvoj", "#booktok", "#preteba", "#vedomosti", "#ucsanatiktoku", "#motivacia", "#fakty", "#kultura", "#fyp", "#tipy", "#inteligentne"],
+  sr: ["#ucenje", "#licnirazvoj", "#booktok", "#zatijeb", "#znanje", "#ucinaTikToku", "#motivacija", "#cinjenice", "#kultura", "#fyp", "#saveti", "#pametno"],
+  ar: ["#تعلم", "#تطوير_ذاتي", "#booktok", "#fyp", "#معرفة", "#تعلم_على_تيك_توك", "#تحفيز", "#حقائق", "#ثقافة", "#معلومات", "#نصيحة", "#ذكاء"],
+  he: ["#למידה", "#פיתוח_אישי", "#booktok", "#fyp", "#ידע", "#ללמוד_בטיקטוק", "#מוטיבציה", "#עובדות", "#תרבות", "#טיפ", "#חכם", "#foryou"],
+  fi: ["#oppiminen", "#itsensakehittaminen", "#booktok", "#sinulle", "#tieto", "#opiTikTokissa", "#motivaatio", "#faktat", "#kulttuuri", "#fyp", "#vinkit", "#alykas"],
+  et: ["#oppimine", "#eneseareng", "#booktok", "#sinule", "#teadmised", "#opitiktokis", "#motivatsioon", "#faktid", "#kultuur", "#fyp", "#nipid", "#nutikas"],
 };
 
 /** MAX 3 hashtags de la langue du compte, variés par post (offset déterministe

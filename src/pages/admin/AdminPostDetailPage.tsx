@@ -36,6 +36,7 @@ import {
 } from "@/features/moteur/nettoyageEtapes";
 import { supabase } from "@/lib/supabase/client";
 import type { Media, PostSlide } from "@/features/moteur/types";
+import { classeDirectionTexte, directionTexte } from "@/features/moteur/langues";
 
 function estPropre(slide: PostSlide): boolean {
   return Boolean(slide.media_library?.storage_path?.startsWith("propre/"));
@@ -299,7 +300,8 @@ function SlideAdmin({
             value={texte}
             onChange={(e) => setTexte(e.target.value)}
             rows={3}
-            className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+            dir={directionTexte(undefined, texte)}
+            className={`w-full rounded-md border border-input bg-background px-3 py-2 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring ${classeDirectionTexte(undefined, texte)}`}
           />
           {texteModifie && (
             <div className="flex gap-2">

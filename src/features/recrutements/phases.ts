@@ -240,6 +240,16 @@ const MOTS_JOB_PAYS: Record<string, string[]> = {
   ro: ["romania", "romanian", "roumanie", "roumain"],
   sv: ["sweden", "swedish", "suède", "suede", "sverige", "suédois", "suedois"],
   tr: ["turkey", "turkish", "turquie", "turc"],
+  da: ["denmark", "danish", "danemark", "danmark", "danois"],
+  ru: ["russia", "russian", "russie", "russe", "россия"],
+  hr: ["croatia", "croatian", "croatie", "croate", "hrvatska"],
+  sl: ["slovenia", "slovenian", "slovenie", "slovénie", "slovene", "slovène"],
+  sk: ["slovakia", "slovak", "slovaquie", "slovaque"],
+  sr: ["serbia", "serbian", "serbie", "serbe"],
+  ar: ["egypt", "egyptian", "egypte", "égypte", "arabic", "arabe", "saudi", "uae", "emirates"],
+  he: ["israel", "israeli", "israël", "israelien", "hebrew", "hebreu", "hébreu"],
+  fi: ["finland", "finnish", "finlande", "finnois", "suomi"],
+  et: ["estonia", "estonian", "estonie", "estonien"],
 };
 
 function titreMentionnePays(titre: string, pays: string): boolean {

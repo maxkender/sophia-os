@@ -271,12 +271,11 @@ export function HiringPosterPage() {
     type: PremierCompte;
   } | null>(null);
 
-  // Langues gérées par le recruteur : un créateur = une langue, choisie à
-  // chaque embauche. Plusieurs langues gérées → créateurs de langues différentes.
-  // Aucune langue posée (ex. admin) → toutes les langues cibles.
+  // Langues cibles : un créateur = une langue, choisie à l'embauche.
+  // Toutes les langues OS sont proposées ; une langue nouvelle s'ajoute
+  // automatiquement aux langues gérées du recruteur (côté API).
   const modeUgcAiVideo = Boolean(profil?.hm_ugc_ai_video);
-  const mesLangues = (profil?.langues ?? []).filter((l) => langues.data?.includes(l));
-  const languesChoix = mesLangues.length > 0 ? mesLangues : (langues.data ?? []);
+  const languesChoix = langues.data ?? [];
 
   React.useEffect(() => {
     if (slugContexte) setApplicationSlug(slugContexte);

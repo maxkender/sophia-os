@@ -58,7 +58,7 @@ import {
   type ProviderNettoyage,
 } from "@/features/moteur/nettoyageEtapes";
 import { useApplication } from "@/features/moteur/ApplicationContext";
-import { nomLangue } from "@/features/moteur/langues";
+import { classeDirectionTexte, directionTexte, nomLangue } from "@/features/moteur/langues";
 import type { ContenuLangue, ContenuSlide, Media, Tier } from "@/features/moteur/types";
 import { PASSAGES_PAR_TIER, TIERS } from "@/features/moteur/types";
 import { ugcVisages } from "@/features/moteur/ugcVisages";
@@ -389,7 +389,12 @@ const DeckLangue = React.memo(function DeckLangue({
                   )}
                 </div>
                 {texte ? (
-                  <p className="text-xs leading-snug">{texte}</p>
+                  <p
+                    dir={directionTexte(langue.langue, texte)}
+                    className={`text-xs leading-snug ${classeDirectionTexte(langue.langue, texte)}`}
+                  >
+                    {texte}
+                  </p>
                 ) : (
                   <p className="text-[11px] text-muted-foreground">
                     {t("slideshows.sansTexte")}

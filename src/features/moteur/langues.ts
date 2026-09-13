@@ -19,7 +19,20 @@ export const LANGUES_CIBLES = [
   "ro",
   "sv",
   "tr",
+  "da",
+  "no",
+  "ru",
+  "hr",
+  "sl",
+  "sk",
+  "sr",
+  "ar",
+  "he",
+  "fi",
+  "et",
 ] as const;
+
+export const LANGUES_RTL = ["ar", "he"] as const;
 
 const NOM_LANGUE: Record<string, string> = {
   fr: "Français",
@@ -36,6 +49,17 @@ const NOM_LANGUE: Record<string, string> = {
   ro: "Roumain",
   sv: "Suédois",
   tr: "Turc",
+  da: "Danois",
+  no: "Norvégien",
+  ru: "Russe",
+  hr: "Croate",
+  sl: "Slovène",
+  sk: "Slovaque",
+  sr: "Serbe",
+  ar: "Arabe",
+  he: "Hébreu",
+  fi: "Finnois",
+  et: "Estonien",
 };
 
 /** Drapeau emoji d'une langue cible (aligné Documents : en → 🇬🇧). */
@@ -54,6 +78,17 @@ const DRAPEAU_LANGUE: Record<string, string> = {
   ro: "🇷🇴",
   sv: "🇸🇪",
   tr: "🇹🇷",
+  da: "🇩🇰",
+  no: "🇳🇴",
+  ru: "🇷🇺",
+  hr: "🇭🇷",
+  sl: "🇸🇮",
+  sk: "🇸🇰",
+  sr: "🇷🇸",
+  ar: "🇪🇬",
+  he: "🇮🇱",
+  fi: "🇫🇮",
+  et: "🇪🇪",
 };
 
 /** Nom lisible d'une langue (« Allemand » plutôt que « DE »). */
@@ -89,6 +124,17 @@ const NOM_PAYS: Record<string, string> = {
   ro: "Roumanie",
   sv: "Suède",
   tr: "Turquie",
+  da: "Danemark",
+  no: "Norvège",
+  ru: "Russie",
+  hr: "Croatie",
+  sl: "Slovénie",
+  sk: "Slovaquie",
+  sr: "Serbie",
+  ar: "Égypte",
+  he: "Israël",
+  fi: "Finlande",
+  et: "Estonie",
 };
 
 export function nomPays(code: string): string {
@@ -102,4 +148,29 @@ export type CodePaysOs = (typeof PAYS_OS)[number];
 
 export function estPaysOs(code: string): code is CodePaysOs {
   return (PAYS_OS as readonly string[]).includes(code);
+}
+
+export function estLangueRtl(code: string | null | undefined): boolean {
+  return (LANGUES_RTL as readonly string[]).includes((code ?? "").toLowerCase());
+}
+
+const RE_LETTRES_RTL = /[\u0590-\u05FF\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]/;
+
+export function contientLettresRtl(texte?: string | null): boolean {
+  return Boolean(texte && RE_LETTRES_RTL.test(texte));
+}
+
+/** Direction d'un bloc de contenu (slides, captions) — jamais l'UI OS.
+ *  Le texte gagne : des lettres arabes/hébraïques → RTL ; du latin → LTR.
+ *  La langue ne tranche que si le texte est vide (textarea, placeholder). */
+export function directionTexte(langue?: string | null, texte?: string | null): "rtl" | "ltr" {
+  if (contientLettresRtl(texte)) return "rtl";
+  if (texte && texte.trim()) return "ltr";
+  if (estLangueRtl(langue)) return "rtl";
+  return "ltr";
+}
+
+/** Classes Tailwind pour un bloc de contenu RTL (aligné à droite). */
+export function classeDirectionTexte(langue?: string | null, texte?: string | null): string {
+  return directionTexte(langue, texte) === "rtl" ? "text-right" : "text-left";
 }

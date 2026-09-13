@@ -1,5 +1,7 @@
 /** Burn-in texte style TikTok + emojis Apple/iOS (PNG), preview test. */
 
+import { contientLettresRtl } from "./langues";
+
 export interface ZoneBurn {
   x: number;
   y: number;
@@ -46,7 +48,10 @@ const PALETTE = [
 let fontReady: Promise<void> | null = null;
 const emojiCache = new Map<string, HTMLImageElement | null>();
 
-/** Charge TikTok Sans (Google Fonts) — fallback Arial Black / Impact. */
+const FONT_STACK =
+  '"TikTok Sans", "Noto Sans Arabic", "Noto Sans Hebrew", "Arial Black", Impact, sans-serif';
+
+/** Charge TikTok Sans + Noto arabe/hébreu (Google Fonts) — fallback Arial Black / Impact. */
 export function assurerPoliceTikTok(): Promise<void> {
   if (fontReady) return fontReady;
   fontReady = (async () => {
@@ -57,11 +62,13 @@ export function assurerPoliceTikTok(): Promise<void> {
       link.id = id;
       link.rel = "stylesheet";
       link.href =
-        "https://fonts.googleapis.com/css2?family=TikTok+Sans:wght@600;700&display=swap";
+        "https://fonts.googleapis.com/css2?family=TikTok+Sans:wght@600;700&family=Noto+Sans+Arabic:wght@600;700&family=Noto+Sans+Hebrew:wght@600;700&display=swap";
       document.head.appendChild(link);
     }
     try {
       await document.fonts.load('700 48px "TikTok Sans"');
+      await document.fonts.load('700 48px "Noto Sans Arabic"');
+      await document.fonts.load('700 48px "Noto Sans Hebrew"');
       await document.fonts.ready;
     } catch {
       // fallback système
@@ -458,6 +465,8 @@ function wrapATaille(
   tailleCible: number,
   nbLignesHint?: number,
 ): { size: number; lines: string[] } {
+  const prevDir = ctx.direction;
+  ctx.direction = contientLettresRtl(texte) ? "rtl" : "ltr";
   const cible = Math.max(12, Math.round(tailleCible));
   const plancher = Math.max(12, Math.round(cible * 0.92));
   let size = cible;
@@ -476,6 +485,7 @@ function wrapATaille(
     const totalH = lines.length * lineH;
     const maxLineW = Math.max(...lines.map((l) => mesurerLigne(ctx, l, size)), 0);
     if (totalH <= maxH * 1.08 && maxLineW <= maxW * 1.03) {
+      ctx.direction = prevDir;
       return { size, lines };
     }
     size -= 1;
@@ -483,7 +493,9 @@ function wrapATaille(
 
   // Dernier recours : garder le plancher même si ça déborde un peu
   ctx.font = `700 ${plancher}px ${family}`;
-  return { size: plancher, lines: wrapLines(ctx, texte, maxW, plancher) };
+  const fallback = { size: plancher, lines: wrapLines(ctx, texte, maxW, plancher) };
+  ctx.direction = prevDir;
+  return fallback;
 }
 
 function median(nums: number[]): number {
@@ -539,6 +551,11 @@ export async function calculerTaillesSlideshow(
   };
 }
 
+function largeurRun(ctx: CanvasRenderingContext2D, run: Run, size: number): number {
+  if (run.kind === "emoji") return largeurEmoji(size) + size * 0.06;
+  return ctx.measureText(run.value).width;
+}
+
 function dessinerLigne(
   ctx: CanvasRenderingContext2D,
   line: string,
@@ -549,9 +566,11 @@ function dessinerLigne(
   stroke: string,
   avecContour: boolean,
 ): void {
+  const rtl = contientLettresRtl(line);
+  ctx.direction = rtl ? "rtl" : "ltr";
   const runs = tokenizerRuns(line);
   const totalW = mesurerLigne(ctx, line, size);
-  let x = cx - totalW / 2;
+  let x = rtl ? cx + totalW / 2 : cx - totalW / 2;
   const emojiH = size * 1.08;
   const strokeW = Math.max(3, size * 0.18);
 
@@ -561,6 +580,8 @@ function dessinerLigne(
   ctx.miterLimit = 2;
 
   for (const run of runs) {
+    const w = largeurRun(ctx, run, size);
+    if (rtl) x -= w;
     if (run.kind === "emoji") {
       const unified = emojiToUnified(run.value);
       const img = emojiCache.get(unified) ?? null;
@@ -572,29 +593,28 @@ function dessinerLigne(
         ctx.fillStyle = fill;
         ctx.fillText(run.value, x, cy);
       }
-      x += ew + size * 0.06;
-      continue;
-    }
-
-    ctx.shadowColor = "transparent";
-    ctx.shadowBlur = 0;
-
-    if (avecContour) {
-      ctx.lineWidth = strokeW;
-      ctx.strokeStyle = stroke;
-      ctx.shadowColor = "rgba(0,0,0,0.35)";
-      ctx.shadowBlur = size * 0.08;
-      ctx.shadowOffsetX = 0;
-      ctx.shadowOffsetY = Math.max(1, size * 0.025);
-      ctx.strokeText(run.value, x, cy);
+    } else {
       ctx.shadowColor = "transparent";
       ctx.shadowBlur = 0;
-    }
 
-    ctx.fillStyle = fill;
-    ctx.fillText(run.value, x, cy);
-    x += ctx.measureText(run.value).width;
+      if (avecContour) {
+        ctx.lineWidth = strokeW;
+        ctx.strokeStyle = stroke;
+        ctx.shadowColor = "rgba(0,0,0,0.35)";
+        ctx.shadowBlur = size * 0.08;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = Math.max(1, size * 0.025);
+        ctx.strokeText(run.value, x, cy);
+        ctx.shadowColor = "transparent";
+        ctx.shadowBlur = 0;
+      }
+
+      ctx.fillStyle = fill;
+      ctx.fillText(run.value, x, cy);
+    }
+    if (!rtl) x += w;
   }
+  ctx.direction = "ltr";
 }
 
 export type OptionsBurn = {
@@ -628,7 +648,7 @@ export async function brulerTexteSurImage(
 
   ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-  const family = '"TikTok Sans", "Arial Black", Impact, sans-serif';
+  const family = FONT_STACK;
   const corpsPx =
     options.corpsFrac != null
       ? Math.round(options.corpsFrac * canvas.height)

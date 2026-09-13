@@ -237,23 +237,6 @@ async function gererRequete(request: Request): Promise<Response> {
       return json({ error: "Prénom requis et mot de passe d'au moins 8 caractères" }, 400);
     }
 
-    if (roleVoulu === "poster" && estRoleManager(acces.role) && acces.userId !== "cron") {
-      const { data: hm } = await supabase
-        .from("profiles")
-        .select("langues")
-        .eq("id", acces.userId)
-        .maybeSingle();
-      const gerees = ((hm?.langues as string[] | null) ?? [])
-        .map((l) => l.toLowerCase())
-        .filter(Boolean);
-      if (gerees.length > 0 && langue && !gerees.includes(langue)) {
-        return json(
-          { error: `Langue « ${langue} » hors des langues gérées (${gerees.join(", ")})` },
-          400,
-        );
-      }
-    }
-
     // HM UGC AI VIDEO : ses créateurs naissent sans file labels / sans labels.
     const hmUgcAiVideo = await estHmUgcAiVideo(supabase, acces);
     const application = await resoudreApplication(supabase, body);
@@ -394,6 +377,10 @@ async function gererRequete(request: Request): Promise<Response> {
       await unshiftLabelFile(supabase, fileItemQueue);
     }
 
+    if (roleVoulu === "poster" && langue) {
+      await etendreLanguesManager(supabase, acces, langue);
+    }
+
     return json({
       ok: true,
       userId: data.user?.id,
@@ -434,6 +421,7 @@ async function gererRequete(request: Request): Promise<Response> {
     }
 
     const application = await resoudreApplication(supabase, body);
+    await etendreLanguesManager(supabase, acces, langue);
     return await creerComptePersoPourPoster(
       supabase,
       acces,
@@ -455,8 +443,7 @@ async function gererRequete(request: Request): Promise<Response> {
 
     const interdit = await refuserSiHorsEquipe(supabase, acces, userId);
     if (interdit) return interdit;
-    const langueInterdite = await restreindreLangueGeree(supabase, acces, langue);
-    if (langueInterdite) return langueInterdite;
+    await etendreLanguesManager(supabase, acces, langue);
 
     if (typeCompte === "cm") {
       return await creerCompteCmPourPoster(supabase, acces, userId, langue, body);
@@ -481,8 +468,7 @@ async function gererRequete(request: Request): Promise<Response> {
 
     const interdit = await refuserSiHorsEquipe(supabase, acces, userId);
     if (interdit) return interdit;
-    const langueInterdite = await restreindreLangueGeree(supabase, acces, langue);
-    if (langueInterdite) return langueInterdite;
+    await etendreLanguesManager(supabase, acces, langue);
 
     return await creerCompteCmPourPoster(supabase, acces, userId, langue, body);
   }
@@ -626,27 +612,42 @@ async function gererRequete(request: Request): Promise<Response> {
 }
 
 
-async function restreindreLangueGeree(
+/** Recruteur qui embauche dans une langue nouvelle : on l'ajoute à ses
+ *  langues gérées + à la fiche Recrutements (carte pays). */
+async function etendreLanguesManager(
   supabase: Supabase,
   acces: { userId: string; role: string },
   langue: string,
-): Promise<Response | null> {
-  if (!estRoleManager(acces.role) || acces.userId === "cron") return null;
+): Promise<void> {
+  if (!estRoleManager(acces.role) || acces.userId === "cron") return;
+  const code = langue.trim().toLowerCase();
+  if (!code) return;
+
   const { data: hm } = await supabase
     .from("profiles")
     .select("langues")
     .eq("id", acces.userId)
     .maybeSingle();
-  const gerees = ((hm?.langues as string[] | null) ?? [])
-    .map((l) => l.toLowerCase())
-    .filter(Boolean);
-  if (gerees.length > 0 && !gerees.includes(langue)) {
-    return json(
-      { error: `Langue « ${langue} » hors des langues gérées (${gerees.join(", ")})` },
-      400,
-    );
+  const actuelles = ((hm?.langues as string[] | null) ?? []).map((l) => l.toLowerCase());
+  if (!actuelles.includes(code)) {
+    await supabase
+      .from("profiles")
+      .update({ langues: [...actuelles, code] })
+      .eq("id", acces.userId);
   }
-  return null;
+
+  const { data: fiche } = await supabase
+    .from("recrutement_hms")
+    .select("id, pays")
+    .eq("profile_id", acces.userId)
+    .maybeSingle();
+  if (!fiche) return;
+  const pays = ((fiche.pays as string[] | null) ?? []).map((p) => p.toLowerCase());
+  if (pays.includes(code)) return;
+  await supabase
+    .from("recrutement_hms")
+    .update({ pays: [...pays, code] })
+    .eq("id", fiche.id);
 }
 
 async function ajouterLangueProfil(

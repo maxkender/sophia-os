@@ -59,6 +59,17 @@ const HASHTAGS: Record<string, string[]> = {
   it: ["#imparare", "#crescitapersonale", "#booktok", "#perte", "#cultura", "#fyp"],
   es: ["#aprender", "#desarrollopersonal", "#booktok", "#parati", "#cultura", "#fyp"],
   pt: ["#aprender", "#desenvolvimentopessoal", "#booktok", "#paravoce", "#cultura", "#fyp"],
+  da: ["#laering", "#personligudvikling", "#booktok", "#foryou", "#viden", "#fyp"],
+  no: ["#laere", "#personligutvikling", "#booktok", "#foryou", "#kunnskap", "#fyp"],
+  ru: ["#обучение", "#саморазвитие", "#букток", "#рек", "#знания", "#fyp"],
+  hr: ["#ucenje", "#osobnirazvoj", "#booktok", "#zatijeb", "#znanje", "#fyp"],
+  sl: ["#ucenje", "#osebnirazvoj", "#booktok", "#zate", "#znanje", "#fyp"],
+  sk: ["#ucenie", "#osobnyrozvoj", "#booktok", "#preteba", "#vedomosti", "#fyp"],
+  sr: ["#ucenje", "#licnirazvoj", "#booktok", "#zatijeb", "#znanje", "#fyp"],
+  ar: ["#تعلم", "#تطوير_ذاتي", "#booktok", "#fyp", "#معرفة", "#تعلم_على_تيك_توك"],
+  he: ["#למידה", "#פיתוח_אישי", "#booktok", "#fyp", "#ידע", "#ללמוד_בטיקטוק"],
+  fi: ["#oppiminen", "#itsensakehittaminen", "#booktok", "#sinulle", "#tieto", "#fyp"],
+  et: ["#oppimine", "#eneseareng", "#booktok", "#sinule", "#teadmised", "#fyp"],
 };
 
 function hashtagsPour(langue: string, seed: string): string {

@@ -53,6 +53,7 @@ import {
   telechargerFichier,
 } from "@/features/moteur/telechargement";
 import type { Media, Post, PostSlide } from "@/features/moteur/types";
+import { classeDirectionTexte, directionTexte } from "@/features/moteur/langues";
 
 function nomFichier(postId: string, position: number) {
   return `${postId.slice(0, 8)}-${String(position).padStart(2, "0")}.jpg`;
@@ -69,9 +70,16 @@ function estPropre(slide: PostSlide): boolean {
 
 /** Zone de texte entièrement tapable : sur mobile, viser un petit bouton est
  * pénible, et la sélection manuelle d'un texte multiligne encore plus. */
-function TexteCopiable({ texte, label }: { texte: string; label?: string }) {
+function TexteCopiable({
+  texte,
+  label,
+}: {
+  texte: string;
+  label?: string;
+}) {
   const { t } = useTranslation();
   const [copie, setCopie] = React.useState(false);
+  const dir = directionTexte(undefined, texte);
 
   async function copier() {
     try {
@@ -87,7 +95,8 @@ function TexteCopiable({ texte, label }: { texte: string; label?: string }) {
     <button
       type="button"
       onClick={copier}
-      className="w-full rounded-lg border bg-muted/60 p-4 text-left transition active:scale-[0.99]"
+      dir={dir}
+      className={`w-full rounded-lg border bg-muted/60 p-4 transition active:scale-[0.99] ${classeDirectionTexte(undefined, texte)}`}
     >
       {label && (
         <span className="mb-1 block text-xs font-medium uppercase tracking-wide text-muted-foreground">
@@ -655,7 +664,10 @@ export function PosterPostPage() {
                 {t("posts.copier")}
               </Button>
             </div>
-            <p className="rounded-lg bg-muted/50 p-3 text-sm leading-relaxed text-primary">
+            <p
+              dir={directionTexte(undefined, donnees.hashtags)}
+              className={`rounded-lg bg-muted/50 p-3 text-sm leading-relaxed text-primary ${classeDirectionTexte(undefined, donnees.hashtags)}`}
+            >
               {donnees.hashtags}
             </p>
           </CardContent>

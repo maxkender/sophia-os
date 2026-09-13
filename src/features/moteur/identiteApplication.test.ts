@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 
-import { langueInitiale } from "./langues";
+import { LANGUES_CIBLES, langueInitiale } from "./langues";
 import {
   bioEtudes,
   capitaliserPrenom,
@@ -47,7 +49,26 @@ describe("identite micabo", () => {
   it("traduit la bio selon la langue", () => {
     expect(bioEtudes("en")).toBe("study tips");
     expect(bioEtudes("de")).toBe("lerntipps");
+    expect(bioEtudes("hr")).toBe("savjeti za učenje");
     expect(bioEtudes("xx")).toBe("study tips");
+  });
+
+  it("a des prénoms et un @ ASCII pour chaque langue cible", () => {
+    for (const code of LANGUES_CIBLES) {
+      expect(prenomsPour(code, "homme").length).toBeGreaterThan(5);
+      expect(prenomsPour(code, "femme").length).toBeGreaterThan(5);
+      expect(motsEtudes(code).length).toBeGreaterThan(3);
+      if (code !== "en") {
+        expect(motsEtudes(code), code).not.toEqual(motsEtudes("en"));
+      }
+      for (const genre of ["homme", "femme"] as const) {
+        const id = genererIdentiteMicabo({ langue: code, genre, rng: () => 0.42 });
+        expect(id.handle, code).toMatch(/^[a-z]+\.[a-z]+\d{3}$/);
+      }
+    }
+    const hr = genererIdentiteMicabo({ langue: "hr", genre: "femme", rng: () => 0.2 });
+    expect(prenomsPour("hr", "femme")).toContain(sansAccentsIdentite(hr.nom));
+    expect(hr.handle).not.toMatch(/emily|curious|olivia/);
   });
 
   it("évite un @ déjà pris (racine sans chiffres)", () => {
@@ -60,6 +81,23 @@ describe("identite micabo", () => {
       rng: () => 0.2,
     });
     expect(id.handle).toMatch(/^[a-z]+\.[a-z]+\d{3}$/);
+  });
+
+  it("aligne persona.ts (Sophia) sur les mêmes langues cibles", () => {
+    const src = readFileSync(
+      resolve(process.cwd(), "supabase/functions/_shared/persona.ts"),
+      "utf8",
+    );
+    const themes = ["alpha_male", "smart_girl", "clean_girl", "cinema", "anciens", "default"];
+    for (const code of LANGUES_CIBLES) {
+      expect(src, `prénoms ${code}`).toMatch(new RegExp(`\\n  ${code}: \\{\\n    prenomsH:`));
+      for (const theme of themes) {
+        const start = src.indexOf(`  ${theme}: {`);
+        expect(start, theme).toBeGreaterThan(-1);
+        const bloc = src.slice(start, start + 8000);
+        expect(bloc, `${theme}.${code}`).toMatch(new RegExp(`\\n    ${code}: \\[`));
+      }
+    }
   });
 });
 

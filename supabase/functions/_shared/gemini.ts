@@ -256,6 +256,17 @@ const LANGUES: Record<string, string> = {
   ro: "roumain",
   sv: "suédois",
   tr: "turc",
+  da: "danois",
+  no: "norvégien bokmål",
+  ru: "russe",
+  hr: "croate",
+  sl: "slovène",
+  sk: "slovaque",
+  sr: "serbe (latin)",
+  ar: "arabe (arabe standard moderne)",
+  he: "hébreu",
+  fi: "finnois",
+  et: "estonien",
 };
 
 export type TraductionSlideshow = {

@@ -124,12 +124,20 @@ bandes basses, avec les C.
 ## Rappel J+7 (> 50 000 vues)
 
 Dès qu'un passage publié dépasse `tierlist.rappel_vues` (50k), le **même post**
-est reprogrammé sur le **même compte** à J+7. Hors système :
+est reprogrammé sur le **même compte** à J+7. Hors tierlist :
 
 - ne consomme pas de passage du budget tierlist ;
 - ne compte pas dans `m` ;
-- s'ajoute au quota du compte ce jour-là ;
 - se réenchaîne si le rappel perce aussi, jusqu'à `tierlist.rappel_max` (3).
+
+Il **prend la place** d'un post classique : un compte à 2 posts/jour qui a deux
+rappels ce jour-là ne reçoit aucun contenu neuf, et jamais un troisième post.
+
+**Étalement.** Le scan remonte 30 jours — un post peut franchir les 50k bien
+après sa publication, et la première mise en service voit tout l'historique d'un
+coup. Les J+7 déjà échus sont donc reportés au premier jour qui a de la place,
+les plus anciens d'abord, sans plafond de report : le surplus glisse de jour en
+jour jusqu'à écoulement au lieu de s'entasser sur un seul lendemain.
 
 Marqué `passages.est_rappel = true`, avec `rappel_source_id` et `rappel_rang`.
 

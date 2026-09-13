@@ -6,10 +6,13 @@ import {
   TIER_MIN_PRIORITAIRE,
   bandesDeTirage,
   estTierPrioritaire,
+  etalerRappels,
+  jourSuivant,
   rangTier,
   requalifier,
   tierDepuisEloExistant,
   tierImport,
+  type CandidatRappel,
   type Tier,
 } from "./tierlist";
 
@@ -261,5 +264,119 @@ describe("priorité au tirage du jour", () => {
     const bandes = bandesDeTirage(pool(["C", false], ["D", false], ["S", true]));
     const premiere = bandes.findIndex((b) => b.length > 0);
     expect(bandes[premiere].every((c) => estTierPrioritaire(c.tier))).toBe(true);
+  });
+});
+
+describe("étalement des rappels J+7", () => {
+  /** `c(id, publié le, jour visé)` — le jour visé vaut publié + 7 par défaut. */
+  function c(id: string, publieLe: string, jourCible = ""): CandidatRappel {
+    return {
+      id,
+      compteId: "A",
+      publieLe,
+      jourCible: jourCible ||
+        new Date(Date.parse(`${publieLe}T00:00:00Z`) + 7 * 86_400_000)
+          .toISOString()
+          .slice(0, 10),
+    };
+  }
+
+  const quota = (n: number) => () => n;
+
+  it("laisse un rappel à sa date quand elle est libre et à venir", () => {
+    const [place] = etalerRappels([c("x", "2026-09-07")], {
+      premierJour: "2026-09-13",
+      quota: quota(2),
+    });
+    expect(place.jour).toBe("2026-09-14");
+  });
+
+  it("remonte au premier jour ouvrable un J+7 déjà passé", () => {
+    const [place] = etalerRappels([c("x", "2026-08-16")], {
+      premierJour: "2026-09-13",
+      quota: quota(2),
+    });
+    expect(place.jour).toBe("2026-09-13");
+  });
+
+  it("ne dépasse jamais le quota du compte — le surplus glisse", () => {
+    // Le cas de prod : 9 rappels échus, un compte à 2 posts/jour.
+    const candidats = [
+      c("1", "2026-08-16"),
+      c("2", "2026-08-19"),
+      c("3", "2026-08-22"),
+      c("4", "2026-08-23"),
+      c("5", "2026-08-28"),
+      c("6", "2026-08-29"),
+      c("7", "2026-09-01"),
+      c("8", "2026-09-04"),
+      c("9", "2026-09-04"),
+    ];
+    const places = etalerRappels(candidats, {
+      premierJour: "2026-09-13",
+      quota: quota(2),
+    });
+    const parJour = new Map<string, number>();
+    for (const p of places) parJour.set(p.jour, (parJour.get(p.jour) ?? 0) + 1);
+    expect([...parJour.entries()].sort()).toEqual([
+      ["2026-09-13", 2],
+      ["2026-09-14", 2],
+      ["2026-09-15", 2],
+      ["2026-09-16", 2],
+      ["2026-09-17", 1],
+    ]);
+    expect(places).toHaveLength(9);
+  });
+
+  it("sert les plus anciens en premier", () => {
+    const places = etalerRappels(
+      [c("recent", "2026-09-02"), c("vieux", "2026-08-16"), c("milieu", "2026-08-28")],
+      { premierJour: "2026-09-13", quota: quota(1) },
+    );
+    expect(places.map((p) => [p.id, p.jour])).toEqual([
+      ["vieux", "2026-09-13"],
+      ["milieu", "2026-09-14"],
+      ["recent", "2026-09-15"],
+    ]);
+  });
+
+  it("compte les passages déjà posés sur le jour visé", () => {
+    const places = etalerRappels([c("x", "2026-08-16"), c("y", "2026-08-17")], {
+      premierJour: "2026-09-13",
+      quota: quota(2),
+      // Le compte a déjà un passage le 13 : il ne reste qu'une place.
+      occupation: (_, jour) => (jour === "2026-09-13" ? 1 : 0),
+    });
+    expect(places.map((p) => p.jour)).toEqual(["2026-09-13", "2026-09-14"]);
+  });
+
+  it("isole les comptes les uns des autres", () => {
+    const places = etalerRappels(
+      [
+        { id: "a1", compteId: "A", publieLe: "2026-08-16", jourCible: "2026-08-23" },
+        { id: "b1", compteId: "B", publieLe: "2026-08-17", jourCible: "2026-08-24" },
+        { id: "a2", compteId: "A", publieLe: "2026-08-18", jourCible: "2026-08-25" },
+      ],
+      { premierJour: "2026-09-13", quota: quota(1) },
+    );
+    expect(places.map((p) => [p.id, p.jour])).toEqual([
+      ["a1", "2026-09-13"],
+      ["b1", "2026-09-13"],
+      ["a2", "2026-09-14"],
+    ]);
+  });
+
+  it("pose quand même le rappel d'un compte à quota 0", () => {
+    const places = etalerRappels([c("x", "2026-08-16"), c("y", "2026-08-17")], {
+      premierJour: "2026-09-13",
+      quota: quota(0),
+    });
+    expect(places.map((p) => p.jour)).toEqual(["2026-09-13", "2026-09-14"]);
+  });
+
+  it("passe les fins de mois", () => {
+    expect(jourSuivant("2026-09-30")).toBe("2026-10-01");
+    expect(jourSuivant("2026-12-31")).toBe("2027-01-01");
+    expect(jourSuivant("2028-02-28")).toBe("2028-02-29");
   });
 });

@@ -412,6 +412,86 @@ export async function requalifierContenus(
 }
 
 // ---------------------------------------------------------------------------
+// Étalement des rappels J+7
+// ---------------------------------------------------------------------------
+
+/** Jour ISO (`YYYY-MM-DD`) suivant — arithmétique en UTC, sans fuseau. */
+export function jourSuivant(jour: string): string {
+  return new Date(Date.parse(`${jour}T00:00:00Z`) + 86_400_000)
+    .toISOString()
+    .slice(0, 10);
+}
+
+export interface CandidatRappel {
+  /** Passage source — sert d'ancre stable au tri à date égale. */
+  id: string;
+  compteId: string;
+  /** Jour de publication de la source, ISO. */
+  publieLe: string;
+  /** Jour visé avant arbitrage : `publieLe` + `rappel_jours`. */
+  jourCible: string;
+}
+
+export interface PlacementRappel extends CandidatRappel {
+  /** Jour retenu : ≥ `jourCible`, ≥ `premierJour`, et sous le quota du compte. */
+  jour: string;
+}
+
+export interface EtalementRappels {
+  /** Premier jour ouvrable — en pratique demain, le jour même étant figé. */
+  premierJour: string;
+  /** Places d'un compte pour une journée (`comptes.posts_par_jour`). */
+  quota: (compteId: string) => number;
+  /** Passages déjà posés ce jour-là sur ce compte, rappels compris. */
+  occupation?: (compteId: string, jour: string) => number;
+}
+
+/**
+ * Répartit les rappels sur les jours à venir sans jamais dépasser le quota
+ * quotidien d'un compte.
+ *
+ * Un rappel **prend la place** d'un post classique : un créateur à 2 posts/jour
+ * qui a deux rappels le même jour ne reçoit aucun contenu neuf ce jour-là — et
+ * jamais un troisième post. Le surplus glisse au premier jour qui a de la place.
+ *
+ * Sans cet étalement, une reprise d'historique (le scan remonte 30 jours) fait
+ * tomber tous les J+7 échus sur le même lendemain : c'est ce qui a donné 9 posts
+ * en un jour à un compte qui en prévoit 2.
+ *
+ * Les plus anciens passent en premier — un rappel en retard ne double pas les
+ * suivants.
+ */
+export function etalerRappels(
+  candidats: CandidatRappel[],
+  opts: EtalementRappels,
+): PlacementRappel[] {
+  const pris = new Map<string, number>();
+  const cle = (compteId: string, jour: string) => `${compteId}@${jour}`;
+  const occupe = (compteId: string, jour: string): number => {
+    const k = cle(compteId, jour);
+    if (!pris.has(k)) pris.set(k, opts.occupation?.(compteId, jour) ?? 0);
+    return pris.get(k)!;
+  };
+
+  const ordonnes = [...candidats].sort((a, b) =>
+    a.publieLe === b.publieLe
+      ? a.id.localeCompare(b.id)
+      : a.publieLe.localeCompare(b.publieLe)
+  );
+
+  const places: PlacementRappel[] = [];
+  for (const c of ordonnes) {
+    // Plancher 1 : un quota à 0 boucherait la boucle sans jamais poser le rappel.
+    const quota = Math.max(1, Math.round(opts.quota(c.compteId) || 0));
+    let jour = c.jourCible < opts.premierJour ? opts.premierJour : c.jourCible;
+    while (occupe(c.compteId, jour) >= quota) jour = jourSuivant(jour);
+    pris.set(cle(c.compteId, jour), occupe(c.compteId, jour) + 1);
+    places.push({ ...c, jour });
+  }
+  return places;
+}
+
+// ---------------------------------------------------------------------------
 // Rappel J+7 des passages qui percent (> 50k vues)
 // ---------------------------------------------------------------------------
 
@@ -435,9 +515,11 @@ export interface RappelsResultat {
  * Repère les passages publiés au-delà de `rappelVues` et reprogramme le MÊME
  * contenu sur le MÊME compte à J+7.
  *
- * Ce rappel est hors système : il ne consomme pas de passage prévu, ne compte
- * pas dans `m`, et s'ajoute au quota du compte ce jour-là. Un rappel qui perce
- * à son tour en redéclenche un, jusqu'à `rappelMax` d'affilée.
+ * Le rappel est hors tierlist — il ne consomme pas de passage prévu et ne compte
+ * pas dans `m` — mais il **prend la place** d'un post classique dans la journée
+ * du compte : le quota quotidien n'est jamais dépassé, et le surplus glisse aux
+ * jours suivants (voir `etalerRappels`). Un rappel qui perce à son tour en
+ * redéclenche un, jusqu'à `rappelMax` d'affilée.
  *
  * `creerRappel` fait le pont avec l'assignation (création passage + post) —
  * injecté pour éviter une dépendance circulaire avec `assignation_contenu.ts`.
@@ -496,20 +578,65 @@ export async function programmerRappels(
 
   const candidats = perces.filter((p) => !dejaRappeles.has(p.id as string));
   out.candidats = candidats.length;
+  if (candidats.length === 0) return out;
 
+  // Le jour même est figé (posts déjà distribués) : on part de demain.
+  const premierJour = new Date(Date.now() + 86_400_000).toISOString().slice(0, 10);
+  const parId = new Map(candidats.map((p) => [p.id as string, p]));
+  const aPlacer: CandidatRappel[] = [];
   for (const p of candidats) {
-    const base = (p.publie_at as string | null) ??
-      ((p.date_publication_prevue as string | null)
-        ? `${p.date_publication_prevue}T00:00:00Z`
-        : null);
-    if (!base) continue;
-    const cible = new Date(Date.parse(base) + reglages.rappelJours * 86_400_000);
-    const demain = new Date(Date.now() + 86_400_000);
-    // Fenêtre déjà passée (stats relevées tard) : on rattrape dès demain.
-    const jour = (cible.getTime() < demain.getTime() ? demain : cible)
-      .toISOString()
-      .slice(0, 10);
+    // Jour de publication de la source : `publie_at` fait foi, la date prévue
+    // sert de repli pour un passage publié sans horodatage.
+    const publieLe = ((p.publie_at as string | null) ??
+      (p.date_publication_prevue as string | null) ?? "").slice(0, 10);
+    if (!publieLe) continue;
+    aPlacer.push({
+      id: p.id as string,
+      compteId: p.compte_id as string,
+      publieLe,
+      jourCible: new Date(
+        Date.parse(`${publieLe}T00:00:00Z`) + reglages.rappelJours * 86_400_000,
+      )
+        .toISOString()
+        .slice(0, 10),
+    });
+  }
 
+  // Quota quotidien des comptes concernés — un rappel prend la place d'un post
+  // classique, il ne s'y ajoute pas.
+  const compteIds = [...new Set(aPlacer.map((c) => c.compteId))];
+  const { data: comptes } = await supabase
+    .from("comptes")
+    .select("id, posts_par_jour")
+    .in("id", compteIds);
+  const quotas = new Map(
+    (comptes ?? []).map((
+      c,
+    ) => [c.id as string, Math.min(3, Math.max(1, Number(c.posts_par_jour ?? 1)))]),
+  );
+
+  // Ce qui occupe déjà les jours à venir (rappels d'un run précédent compris).
+  const { data: futurs } = await supabase
+    .from("passages")
+    .select("compte_id, date_publication_prevue, posts!inner(est_test)")
+    .in("compte_id", compteIds)
+    .gte("date_publication_prevue", premierJour)
+    .eq("posts.est_test", false);
+  const occupes = new Map<string, number>();
+  for (const f of futurs ?? []) {
+    const k = `${f.compte_id}@${f.date_publication_prevue}`;
+    occupes.set(k, (occupes.get(k) ?? 0) + 1);
+  }
+
+  const places = etalerRappels(aPlacer, {
+    premierJour,
+    quota: (id) => quotas.get(id) ?? 1,
+    occupation: (id, jour) => occupes.get(`${id}@${jour}`) ?? 0,
+  });
+
+  for (const place of places) {
+    const p = parId.get(place.id)!;
+    const jour = place.jour;
     if (opts.dryRun) {
       out.programmes += 1;
       out.details.push({

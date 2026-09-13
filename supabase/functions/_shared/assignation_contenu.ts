@@ -1270,8 +1270,9 @@ export async function annulerAssignationTest(
  * Programme les rappels J+7 des passages au-delà du seuil de vues (50k).
  *
  * Le rappel rejoue l'EXACT même post sur le MÊME compte, hors de toute
- * assignation classique : il ne consomme pas de passage du budget tierlist, ne
- * compte pas dans le `m` de la requalification, et s'ajoute au quota du jour.
+ * assignation classique : il ne consomme pas de passage du budget tierlist et ne
+ * compte pas dans le `m` de la requalification. Il occupe en revanche un créneau
+ * du quota du jour — posé avant l'assignation, il lui prend sa place.
  */
 export async function programmerRappelsJ7(
   supabase: Supabase,

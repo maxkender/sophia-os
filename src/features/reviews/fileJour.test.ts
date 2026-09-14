@@ -2,12 +2,15 @@ import { describe, expect, it } from "vitest";
 
 import {
   ajouterJourCalendaire,
+  ajouterRemarqueUtilisee,
   ajouterVideoReview,
   estCompteSlideshowAssigne,
   insererRemarqueDansBrouillon,
   isoBornesJourParis,
   jourParisDepuisIso,
+  normaliserRemarquesReview,
   normaliserVideosReview,
+  retirerRemarqueUtilisee,
   retirerVideoReview,
 } from "./fileJour";
 
@@ -60,6 +63,29 @@ describe("fileJour", () => {
     expect(retirerVideoReview(encore, "https://cdn/a.mp4")).toEqual([
       { url: "https://cdn/b.mp4", titre: "Timing" },
     ]);
+  });
+
+  it("ne compte une remarque qu'une fois par review", () => {
+    const a = ajouterRemarqueUtilisee([], { id: "r1", titre: " Hook trop lent " });
+    const b = ajouterRemarqueUtilisee(a, { id: "r2", titre: "Timing" });
+    const encore = ajouterRemarqueUtilisee(b, { id: "r1", titre: "Hook trop lent" });
+    expect(encore).toEqual([
+      { id: "r1", titre: "Hook trop lent" },
+      { id: "r2", titre: "Timing" },
+    ]);
+    expect(ajouterRemarqueUtilisee([], { id: " ", titre: "x" })).toEqual([]);
+    expect(retirerRemarqueUtilisee(encore, "r1")).toEqual([{ id: "r2", titre: "Timing" }]);
+  });
+
+  it("normalise le jsonb remarques d'une review", () => {
+    expect(normaliserRemarquesReview(null)).toEqual([]);
+    expect(
+      normaliserRemarquesReview([
+        { id: " r1 ", titre: " Texte illisible " },
+        { id: "", titre: "sans id" },
+        { id: "r1", titre: "doublon" },
+      ]),
+    ).toEqual([{ id: "r1", titre: "Texte illisible" }]);
   });
 
   it("normalise le jsonb videos d'une review", () => {

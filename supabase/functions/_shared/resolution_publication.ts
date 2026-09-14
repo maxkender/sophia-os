@@ -144,6 +144,9 @@ export function hashtagsDe(texte: string | null | undefined): Set<string> {
   return out;
 }
 
+/** Ce qu'un créneau offre pour se reconnaître — déclaré ou non. */
+export type SignauxCreneau = Pick<PassageAResoudre, "hashtags" | "nbSlides" | "musiqueTitre">;
+
 /**
  * Le post peut-il être celui de ce créneau ?
  *
@@ -154,7 +157,7 @@ export function hashtagsDe(texte: string | null | undefined): Set<string> {
  * légende et change parfois le son, un désaccord ne prouve donc rien. Sans
  * aucun signal exploitable, la fenêtre temporelle et l'unicité du post suffisent.
  */
-export function corroborer(passage: PassageAResoudre, post: PostEnLigne): Corroboration {
+export function corroborer(passage: SignauxCreneau, post: PostEnLigne): Corroboration {
   const confirme: SignalAppariement[] = [];
 
   if (passage.nbSlides && post.nbImages) {
@@ -242,6 +245,69 @@ export function apparierPublications(
       if (refuse) continue;
       pris.add(post.id);
       out.push({ passageId: passage.id, post, signaux: confirme });
+      break;
+    }
+  }
+  return out;
+}
+
+// ---------------------------------------------------------------------------
+// Créneaux publiés sans jamais avoir été déclarés
+// ---------------------------------------------------------------------------
+
+/** Jour calendaire Paris d'un instant, en YYYY-MM-DD. */
+function jourParisDeMs(ms: number): string {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(new Date(ms));
+}
+
+/** Créneau échu que le créateur n'a jamais coché « publié ». */
+export interface CreneauNonDeclare extends SignauxCreneau {
+  id: string;
+  /** Jour prévu, calendaire Paris (YYYY-MM-DD). */
+  jourPrevu: string;
+}
+
+/**
+ * Apparie des créneaux JAMAIS déclarés aux posts réellement en ligne.
+ *
+ * Symétrique de `apparierPublications`, à ceci près qu'il n'y a pas de clic sur
+ * quoi s'ancrer : l'ancrage est le jour prévu. Un post publié le jour J remplit
+ * le créneau prévu le jour J, même jour calendaire Paris, strictement — un post
+ * de la veille appartient au créneau de la veille.
+ *
+ * Sans ça, un créateur qui publie sans jamais cocher est compté 0 posté et
+ * tombe en INACTIF alors que son profil tourne : c'est le cas qui a motivé ce
+ * code (13 800 vues relevées sur le profil, 0 post déclaré, classé INACTIF).
+ *
+ * Mêmes garde-fous que l'appariement déclaré, moins la fenêtre temporelle
+ * (remplacée par l'égalité des jours) : unicité du post — un post déjà attaché
+ * à un créneau n'est jamais réattribué —, veto sur le nombre d'images, et ordre
+ * chronologique des deux côtés.
+ */
+export function apparierCreneauxNonDeclares(
+  creneaux: CreneauNonDeclare[],
+  posts: PostEnLigne[],
+  opts: { pris?: Iterable<string> } = {},
+): Appariement[] {
+  const pris = new Set(opts.pris ?? []);
+  const candidats = posts
+    .filter((p) => p.id && p.createTimeMs != null && !pris.has(p.id))
+    .sort((a, b) => a.createTimeMs! - b.createTimeMs!);
+
+  const aTraiter = creneaux
+    .filter((c) => /^\d{4}-\d{2}-\d{2}$/.test(c.jourPrevu))
+    .slice()
+    .sort((a, b) => a.jourPrevu.localeCompare(b.jourPrevu));
+
+  const out: Appariement[] = [];
+  for (const creneau of aTraiter) {
+    for (const post of candidats) {
+      if (pris.has(post.id)) continue;
+      if (jourParisDeMs(post.createTimeMs!) !== creneau.jourPrevu) continue;
+      const { refuse, confirme } = corroborer(creneau, post);
+      if (refuse) continue;
+      pris.add(post.id);
+      out.push({ passageId: creneau.id, post, signaux: confirme });
       break;
     }
   }
@@ -552,5 +618,179 @@ export async function resoudrePublicationsLot(
   }
 
   out.comptes = traites.length;
+  return out;
+}
+
+// ---------------------------------------------------------------------------
+// Rattrapage : ce qui est en ligne mais n'a jamais été déclaré
+// ---------------------------------------------------------------------------
+
+/** Post tel que le scrape de profil le rend (forme de `scrapeStats`). */
+export interface PostScrape {
+  postId: string;
+  webVideoUrl: string;
+  text: string;
+  imageUrls: string[];
+  musicTitle: string | null;
+  createTime: number | null;
+  stats: { vues: number; likes: number; commentaires: number; partages: number };
+}
+
+/**
+ * Profondeur du rattrapage, en jours. Au-delà, le post est trop loin dans le
+ * profil pour que le scrape le voie encore, et un créneau vieux d'une semaine
+ * est déjà sorti de la fenêtre de classement.
+ */
+export const RATTRAPAGE_JOURS_DEFAUT = 7;
+
+export interface RattrapageResultat {
+  /** Créneaux échus, jamais déclarés, examinés. */
+  candidats: number;
+  /** Créneaux rattachés à un post réellement en ligne. */
+  rattrapes: number;
+  details: Array<{ passageId: string; url: string; signaux: string[] }>;
+}
+
+/** Jour calendaire Paris d'aujourd'hui, en YYYY-MM-DD. */
+function aujourdhuiParis(): string {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(new Date());
+}
+
+function jourMoins(jour: string, n: number): string {
+  const d = new Date(`${jour}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() - n);
+  return d.toISOString().slice(0, 10);
+}
+
+/**
+ * Rattache aux créneaux les posts vus sur le profil que le créateur n'a jamais
+ * déclarés.
+ *
+ * La déclaration est la seule chose que le produit écoutait : un créateur qui
+ * publie sans cocher était compté 0 posté et tombait en INACTIF, profil plein
+ * de vues à l'appui. On lit donc le profil comme source de vérité — et comme le
+ * relevé de vues du soir scrape déjà ce profil, `enLigne` est passé tel quel :
+ * le rattrapage ne coûte aucun appel Apify de plus.
+ *
+ * Le créneau rattrapé est marqué `publication_non_declaree` : il compte comme
+ * publié partout (classement, stats, file de review), et l'admin garde de quoi
+ * dire au créateur de cocher.
+ */
+export async function rattraperCreneauxNonDeclares(
+  supabase: Supabase,
+  compteId: string,
+  enLigne: PostScrape[],
+  opts: { jours?: number; dryRun?: boolean } = {},
+): Promise<RattrapageResultat> {
+  const out: RattrapageResultat = { candidats: 0, rattrapes: 0, details: [] };
+  const jours = Math.max(1, Math.round(opts.jours ?? RATTRAPAGE_JOURS_DEFAUT));
+  const depuis = jourMoins(aujourdhuiParis(), jours);
+
+  const { data, error } = await supabase
+    .from("passages")
+    .select(
+      "id, post_id, date_publication_prevue, publie_at, publie_url, hashtags, slides, musique_titre",
+    )
+    .eq("compte_id", compteId)
+    .eq("est_rappel", false)
+    .neq("statut", "brouillon")
+    .gte("date_publication_prevue", depuis);
+  if (error) throw error;
+  const lignes = (data ?? []) as Array<{
+    id: string;
+    post_id: string | null;
+    date_publication_prevue: string | null;
+    publie_at: string | null;
+    publie_url: string | null;
+    hashtags: string | null;
+    slides: unknown;
+    musique_titre: string | null;
+  }>;
+
+  // Un post déjà attaché à un créneau n'est jamais réattribué — même règle que
+  // la résolution déclarée, et le seul garde-fou contre le double comptage.
+  const pris = new Set<string>();
+  for (const l of lignes) {
+    const lu = analyserLienTiktok(l.publie_url);
+    if (lu) pris.add(lu.id);
+  }
+
+  const creneaux = lignes
+    .filter((l) => !l.publie_at && l.date_publication_prevue)
+    .map((l) => ({
+      id: l.id,
+      jourPrevu: l.date_publication_prevue!,
+      hashtags: l.hashtags,
+      nbSlides: Array.isArray(l.slides) ? l.slides.length : null,
+      musiqueTitre: l.musique_titre,
+    }));
+  out.candidats = creneaux.length;
+  if (creneaux.length === 0) return out;
+
+  const appariements = apparierCreneauxNonDeclares(
+    creneaux,
+    enLigne.map((p) => ({
+      id: p.postId,
+      url: p.webVideoUrl,
+      createTimeMs: p.createTime == null ? null : p.createTime * 1000,
+      texte: p.text,
+      nbImages: p.imageUrls.length || null,
+      musiqueTitre: p.musicTitle,
+    })),
+    { pris },
+  );
+
+  const parPostId = new Map(enLigne.map((p) => [p.postId, p]));
+  const parPassage = new Map(lignes.map((l) => [l.id, l]));
+  const maintenant = new Date().toISOString();
+
+  for (const a of appariements) {
+    const scrape = parPostId.get(a.post.id);
+    const ligne = parPassage.get(a.passageId);
+    if (!scrape || !ligne || a.post.createTimeMs == null) continue;
+    const url = nettoyerUrlTiktok(a.post.url);
+    const detail = a.signaux.length > 0
+      ? `publié sans être déclaré — retrouvé sur le profil (${a.signaux.join(", ")})`
+      : "publié sans être déclaré — retrouvé sur le profil (jour de publication)";
+
+    out.rattrapes += 1;
+    out.details.push({ passageId: a.passageId, url, signaux: a.signaux });
+    if (opts.dryRun) continue;
+
+    // `publie_at` = l'heure TikTok réelle, pas l'heure du rattrapage : c'est
+    // elle qui fait foi partout (fenêtre de classement, file de review du jour).
+    await supabase
+      .from("passages")
+      .update({
+        statut: "publie",
+        publie_at: new Date(a.post.createTimeMs).toISOString(),
+        publie_url: url,
+        publication_non_declaree: true,
+        resolution_statut: "resolu",
+        resolution_at: maintenant,
+        resolution_prochaine_at: null,
+        resolution_detail: detail,
+        vues: scrape.stats.vues,
+        likes: scrape.stats.likes,
+        commentaires: scrape.stats.commentaires,
+        partages: scrape.stats.partages,
+        stats_maj_at: maintenant,
+      })
+      .eq("id", a.passageId);
+
+    // Le post pont porte les mêmes valeurs : le calendrier du créateur et les
+    // stats par compte (vue `stats_comptes`) lisent encore `posts`.
+    if (ligne.post_id) {
+      await supabase
+        .from("posts")
+        .update({
+          statut: "publie",
+          publie_at: new Date(a.post.createTimeMs).toISOString(),
+          publie_url: url,
+        })
+        .eq("id", ligne.post_id);
+    }
+  }
+
   return out;
 }

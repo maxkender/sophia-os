@@ -1,4 +1,8 @@
 import { scrapeStats } from "../_shared/apify.ts";
+import {
+  rattraperCreneauxNonDeclares,
+  RATTRAPAGE_JOURS_DEFAUT,
+} from "../_shared/resolution_publication.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
@@ -14,8 +18,13 @@ const POSTS_RELEVES = 30;
  * après publication, donc la seule correspondance fiable entre un de nos posts
  * et un post réellement en ligne.
  *
+ * Le profil scrapé sert aussi de source de vérité pour les créneaux que le
+ * créateur n'a jamais déclarés (voir `rattraperCreneauxNonDeclares`) : sans ça,
+ * un compte qui publie sans cocher est compté 0 posté et tombe en INACTIF.
+ *
  *   {}             → tous les comptes actifs ayant un pseudo TikTok
  *   { compteId }   → ce seul compte
+ *   { jours }      → profondeur du rattrapage des non-déclarés (défaut 7)
  */
 Deno.serve(async (request) => {
   const denied = await assertAuthorised(request);
@@ -24,9 +33,11 @@ Deno.serve(async (request) => {
   const supabase = serviceClient();
 
   let compteId: string | null = null;
+  let jours = RATTRAPAGE_JOURS_DEFAUT;
   try {
     const body = await request.json();
     compteId = body?.compteId ?? null;
+    if (Number.isFinite(Number(body?.jours))) jours = Number(body.jours);
   } catch {
     // Corps vide : tous les comptes.
   }
@@ -42,16 +53,22 @@ Deno.serve(async (request) => {
     const { data: comptes, error } = await query;
     if (error) throw error;
 
-    const resultats: Array<{ compteId: string; releves: number; erreur?: string }> = [];
+    const resultats: Array<{
+      compteId: string;
+      releves: number;
+      rattrapes: number;
+      erreur?: string;
+    }> = [];
 
     for (const compte of comptes ?? []) {
       try {
-        const releves = await releverCompte(supabase, compte.id, compte.handle_tiktok!);
-        resultats.push({ compteId: compte.id, releves });
+        const r = await releverCompte(supabase, compte.id, compte.handle_tiktok!, jours);
+        resultats.push({ compteId: compte.id, ...r });
       } catch (error) {
         resultats.push({
           compteId: compte.id,
           releves: 0,
+          rattrapes: 0,
           erreur: messageErreur(error),
         });
       }
@@ -67,7 +84,8 @@ async function releverCompte(
   supabase: Supabase,
   compteId: string,
   handle: string,
-): Promise<number> {
+  jours: number,
+): Promise<{ releves: number; rattrapes: number }> {
   // On scrape TOUJOURS le profil du compte (tous ses posts), indépendamment des
   // liens collés : c'est la seule façon d'avoir des vues pour un compte qui a
   // publié sans donner de lien.
@@ -86,6 +104,11 @@ async function releverCompte(
     nb_posts: enLigne.length,
   });
 
+  // Ce que le créateur n'a jamais déclaré : le profil fait foi. À faire AVANT le
+  // relevé par lien — un créneau rattrapé repart avec son `publie_url`, donc ses
+  // vues sont relevées dans la foulée.
+  const rattrapage = await rattraperCreneauxNonDeclares(supabase, compteId, enLigne, { jours });
+
   // Relevé PAR POST pour ceux dont on a le lien (garde le détail par post :
   // viraux, meilleurs posts…).
   const { data: posts } = await supabase
@@ -95,7 +118,7 @@ async function releverCompte(
     .eq("statut", "publie")
     .not("publie_url", "is", null);
 
-  if (!posts || posts.length === 0) return 0;
+  if (!posts || posts.length === 0) return { releves: 0, rattrapes: rattrapage.rattrapes };
 
   // TikTok sert la même URL sous plusieurs formes (paramètres, redirections) :
   // on compare sur l'identifiant numérique du post, stable.
@@ -146,7 +169,7 @@ async function releverCompte(
     releves += 1;
   }
 
-  return releves;
+  return { releves, rattrapes: rattrapage.rattrapes };
 }
 
 /**

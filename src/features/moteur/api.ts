@@ -1922,8 +1922,22 @@ export async function majPassage(
   if (patch.statut === "publie" && !String(patch.publie_url ?? "").trim()) {
     throw new Error("Lien TikTok obligatoire pour marquer comme publié");
   }
-  const { error } = await supabase.from("passages").update(patch).eq("id", id);
+  const { data, error } = await supabase
+    .from("passages")
+    .update(patch)
+    .eq("id", id)
+    .select("post_id")
+    .maybeSingle();
   if (error) throw error;
+
+  // Miroir legacy, symétrique de `majPost` : les stats par compte et le
+  // calendrier du créateur lisent encore `posts`. Sans ce retour, un créneau
+  // publié côté v-next laissait son post pont à « assigné » — le compte
+  // s'affichait 0 publié alors qu'il avait posté.
+  const postId = (data as { post_id?: string | null } | null)?.post_id;
+  if (postId) {
+    await supabase.from("posts").update(patch).eq("id", postId);
+  }
 }
 
 /** Un TikTok déjà publié par un créateur (passage v-next et/ou post legacy). */
@@ -5643,10 +5657,16 @@ export const genererPersona = (compteId: string, appliquer = false) =>
     { compteId, appliquer },
   );
 
-export const lancerMetriques = (compteId?: string) =>
-  invoke<{ resultats: Array<{ compteId: string; releves: number }> }>("metriques", {
-    compteId: compteId ?? null,
-  });
+/**
+ * Relevé des vues + rattrapage des publications non déclarées (le scrape de
+ * profil sert aux deux). `jours` ouvre la fenêtre du rattrapage — utile pour
+ * une passe de rattrapage large sur l'historique.
+ */
+export const lancerMetriques = (compteId?: string, jours?: number) =>
+  invoke<{ resultats: Array<{ compteId: string; releves: number; rattrapes: number }> }>(
+    "metriques",
+    { compteId: compteId ?? null, ...(jours ? { jours } : {}) },
+  );
 
 export const chargerSuiviRc = () => invoke<ReponseSuiviRc>("suivi-rc", {});
 

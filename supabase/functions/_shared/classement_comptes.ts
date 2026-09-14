@@ -152,6 +152,14 @@ export interface ClassementEntree {
   moyenneVues: number | null;
   /** Combien de ces posts publiés portent une mesure de vues. */
   mesures: number;
+  /**
+   * Créneaux déclarés publiés que TikTok a démentis (`introuvable`). Ils ne
+   * comptent NI dans `prevus` tenus NI dans `postes` : ils n'apparaissent que
+   * dans la règle, pour que l'admin sache qu'on a coché sans publier.
+   */
+  infirmes?: number;
+  /** Parmi `postes`, ceux retrouvés en ligne sans avoir été déclarés. */
+  nonDeclares?: number;
 }
 
 export interface ClassementSortie {
@@ -201,6 +209,15 @@ export function classer(
   const mesures = Math.max(0, Math.round(e.mesures));
   const moyenne = e.moyenneVues;
 
+  // Ce qui explique le ratio : publié sans être coché d'un côté, coché sans
+  // être publié de l'autre. Les deux se lisent dans la file de surveillance.
+  const precisions: string[] = [];
+  const nonDeclares = Math.max(0, Math.round(e.nonDeclares ?? 0));
+  const infirmes = Math.max(0, Math.round(e.infirmes ?? 0));
+  if (nonDeclares > 0) precisions.push(`${nonDeclares} non déclaré(s)`);
+  if (infirmes > 0) precisions.push(`${infirmes} coché(s) sans publication`);
+  const detail = precisions.length > 0 ? ` — ${precisions.join(", ")}` : "";
+
   const assezDePrevus = prevus >= r.min_echantillon;
   const assezDeMesures = mesures >= r.min_echantillon && moyenne != null;
 
@@ -208,7 +225,7 @@ export function classer(
   if (assezDePrevus && postes <= seuilPostes(r.ratio_inactif, prevus, fenetre, "bas")) {
     return {
       classement: "inactif",
-      regle: `${postes}/${prevus} posts publiés`,
+      regle: `${postes}/${prevus} posts publiés${detail}`,
     };
   }
 
@@ -234,7 +251,7 @@ export function classer(
   ) {
     return {
       classement: "star",
-      regle: `${formaterVues(moyenne!)} vues de moyenne · ${postes}/${prevus} posts`,
+      regle: `${formaterVues(moyenne!)} vues de moyenne · ${postes}/${prevus} posts${detail}`,
     };
   }
   if (
@@ -243,13 +260,13 @@ export function classer(
   ) {
     return {
       classement: "bien",
-      regle: `${formaterVues(moyenne!)} vues de moyenne · ${postes}/${prevus} posts`,
+      regle: `${formaterVues(moyenne!)} vues de moyenne · ${postes}/${prevus} posts${detail}`,
     };
   }
 
   return {
     classement: "passable",
-    regle: `${formaterVues(moyenne!)} vues de moyenne · ${postes}/${prevus} posts`,
+    regle: `${formaterVues(moyenne!)} vues de moyenne · ${postes}/${prevus} posts${detail}`,
   };
 }
 
@@ -369,6 +386,10 @@ interface EtatLigne {
   postes: number;
   moyenne_vues: number | null;
   mesures: number;
+  /** Déclarés publiés, démentis par TikTok — plus comptés comme postés. */
+  infirmes?: number | null;
+  /** Retrouvés en ligne sans avoir été déclarés (rattrapage du profil). */
+  non_declares?: number | null;
 }
 
 interface CompteLigne {
@@ -477,6 +498,8 @@ export async function requalifierClassementComptes(
         postes: l.postes,
         moyenneVues: l.moyenne_vues,
         mesures: l.mesures,
+        infirmes: l.infirmes ?? 0,
+        nonDeclares: l.non_declares ?? 0,
       },
       reglages,
     );
@@ -493,6 +516,8 @@ export async function requalifierClassementComptes(
       postes: l.postes,
       moyenne_vues: l.moyenne_vues,
       mesures: l.mesures,
+      infirmes: l.infirmes ?? 0,
+      non_declares: l.non_declares ?? 0,
       regle: sortie.regle,
       calcule: sortie.classement,
       at: maj,

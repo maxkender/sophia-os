@@ -315,3 +315,40 @@ describe("modèles de nudge", () => {
     ]);
   });
 });
+
+describe("ce qui explique le ratio", () => {
+  // Le cas de prod : le compte publie, ne coche jamais. Une fois les créneaux
+  // rattrapés sur le profil, il compte comme posté — et la règle dit pourquoi.
+  it("dit ce qui a été publié sans être déclaré", () => {
+    const r = classer({
+      prevus: 10,
+      postes: 9,
+      moyenneVues: 1_400,
+      mesures: 9,
+      nonDeclares: 9,
+    });
+    expect(r.classement).toBe("bien");
+    expect(r.regle).toContain("9/10");
+    expect(r.regle).toContain("9 non déclaré(s)");
+  });
+
+  it("dit ce qui a été coché sans publication", () => {
+    const r = classer({
+      prevus: 10,
+      postes: 4,
+      moyenneVues: 5_000,
+      mesures: 4,
+      infirmes: 5,
+    });
+    expect(r.classement).toBe("inactif");
+    expect(r.regle).toContain("4/10 posts publiés");
+    expect(r.regle).toContain("5 coché(s) sans publication");
+  });
+
+  it("n'ajoute rien quand les deux compteurs sont à zéro", () => {
+    const r = classer({ prevus: 10, postes: 10, moyenneVues: 1_400, mesures: 10 });
+    expect(r.regle).not.toContain("—");
+    expect(classer({ prevus: 10, postes: 10, moyenneVues: 1_400, mesures: 10, infirmes: 0 }).regle)
+      .toBe(r.regle);
+  });
+});

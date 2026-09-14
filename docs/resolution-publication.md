@@ -91,15 +91,39 @@ plusieurs secondes, au-delà le run frôle le plafond Edge. À la minute, ça fa
 Index partiel `passages_file_resolution_idx` sur `resolution_prochaine_at`, pour
 la lecture de file.
 
-## Où c'est dans le code
+## L'autre moitié : publier sans le déclarer
 
-- `src/features/moteur/resolutionPublication.ts` — logique pure : cadence,
-  lecture des liens, corroboration, appariement (testé dans
-  `resolutionPublication.test.ts`)
-- `supabase/functions/_shared/resolution_publication.ts` — copie Deno + le run
-- `supabase/functions/resolution-publication/index.ts` — le drain
-- `supabase/migrations/0242_resolution_publication.sql` — colonnes, trigger,
-  amorçage 48 h, cron
+Tout ce qui précède part du clic du créateur. Un créateur qui publie **sans
+jamais cocher** n'entrait donc dans aucune file : rien à résoudre, rien à
+relever. Vu en prod sur `sofia.intelepciune718` — 13 800 vues et 1 100 likes
+relevés sur le profil, **0/8 publiés** affiché, donc INACTIF et proposé au
+non-renouvellement.
+
+Le relevé de vues du soir (`metriques`, cron `metriques-soir`) scrape déjà le
+profil de chaque compte, dates de publication comprises, et n'en gardait que les
+sommes. Il apparie maintenant aussi les créneaux jamais déclarés
+(`rattraperCreneauxNonDeclares`) : **aucun appel Apify de plus**.
+
+L'ancrage n'est plus le clic — il n'y en a pas — mais le **jour prévu** : un post
+publié le jour J remplit le créneau prévu le jour J, même jour calendaire Paris.
+Les garde-fous ne bougent pas : unicité du post, veto sur le nombre d'images,
+ordre chronologique des deux côtés.
+
+Le créneau rattrapé est marqué `publication_non_declaree`. Il compte comme publié
+partout — classement, stats, file de review — et la file de surveillance affiche
+« 4 publié(s) sans être déclaré(s) », de quoi rappeler au créateur de cocher.
+
+## Ce que le classement compte
+
+`classement_comptes_etat` comptait `publie_at is not null` : une case cochée.
+Elle compte maintenant les publications que TikTok n'a **pas démenties** —
+`resolution_statut = 'introuvable'` sort du numérateur. Les deux erreurs
+symétriques disparaissent :
+
+| Cas | Avant | Après |
+| --- | --- | --- |
+| publie sans cocher | 0/8 → INACTIF | 4/8, « 4 non déclaré(s) » |
+| coche sans publier | 7/7 → BIEN | 2/7, « 5 coché(s) sans publication » |
 
 ## Ce qui reste
 
@@ -107,8 +131,24 @@ la lecture de file.
   (`https://www.tiktok.com/oembed?url=…`, déjà utilisé par `resoudre-tiktok`)
   dit gratuitement si une URL est un vrai post. Refuser un lien de profil sur
   place éviterait d'avoir à le rattraper.
-- **Rattraper l'historique** : les 325 posts déjà publiés sans mesure. Même
-  appariement, mais il faut scraper profond dans le profil, et TikTok ne garde
-  que ce qui est encore en ligne.
-- **Remonter les `introuvable`** dans l'admin — aujourd'hui l'information est en
-  base, personne ne la voit.
+- **Rattraper l'historique profond** : le rattrapage remonte à 7 jours par
+  défaut (`{ jours }` sur `metriques` pour ouvrir la fenêtre), et le scrape ne
+  voit que les 30 derniers posts encore en ligne.
+- **Remonter les `introuvable`** dans l'admin — l'information est en base, et la
+  règle du classement la cite, mais il n'y a pas d'écran pour les lister.
+
+## Où c'est dans le code
+
+- `src/features/moteur/resolutionPublication.ts` — logique pure : cadence,
+  lecture des liens, corroboration, appariement (testé dans
+  `resolutionPublication.test.ts`)
+- `supabase/functions/_shared/resolution_publication.ts` — copie Deno + le run,
+  et `rattraperCreneauxNonDeclares` (le profil comme source de vérité)
+- `supabase/functions/resolution-publication/index.ts` — le drain
+- `supabase/functions/metriques/index.ts` — relevé du soir, qui appelle le
+  rattrapage avec le profil qu'il vient de scraper
+- `supabase/migrations/0242_resolution_publication.sql` — colonnes, trigger,
+  amorçage 48 h, cron
+- `supabase/migrations/0245_publications_non_declarees.sql` —
+  `publication_non_declaree`, garde-fou du trigger, et le classement qui cesse
+  de compter les créneaux démentis

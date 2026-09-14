@@ -138,6 +138,9 @@ export function hashtagsDe(texte: string | null | undefined): Set<string> {
   return out;
 }
 
+/** Ce qu'un créneau offre pour se reconnaître — déclaré ou non. */
+export type SignauxCreneau = Pick<PassageAResoudre, "hashtags" | "nbSlides" | "musiqueTitre">;
+
 /**
  * Le post peut-il être celui de ce créneau ?
  *
@@ -148,7 +151,7 @@ export function hashtagsDe(texte: string | null | undefined): Set<string> {
  * légende et change parfois le son, un désaccord ne prouve donc rien. Sans
  * aucun signal exploitable, la fenêtre temporelle et l'unicité du post suffisent.
  */
-export function corroborer(passage: PassageAResoudre, post: PostEnLigne): Corroboration {
+export function corroborer(passage: SignauxCreneau, post: PostEnLigne): Corroboration {
   const confirme: SignalAppariement[] = [];
 
   if (passage.nbSlides && post.nbImages) {
@@ -236,6 +239,69 @@ export function apparierPublications(
       if (refuse) continue;
       pris.add(post.id);
       out.push({ passageId: passage.id, post, signaux: confirme });
+      break;
+    }
+  }
+  return out;
+}
+
+// ---------------------------------------------------------------------------
+// Créneaux publiés sans jamais avoir été déclarés
+// ---------------------------------------------------------------------------
+
+/** Jour calendaire Paris d'un instant, en YYYY-MM-DD. */
+function jourParisDeMs(ms: number): string {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(new Date(ms));
+}
+
+/** Créneau échu que le créateur n'a jamais coché « publié ». */
+export interface CreneauNonDeclare extends SignauxCreneau {
+  id: string;
+  /** Jour prévu, calendaire Paris (YYYY-MM-DD). */
+  jourPrevu: string;
+}
+
+/**
+ * Apparie des créneaux JAMAIS déclarés aux posts réellement en ligne.
+ *
+ * Symétrique de `apparierPublications`, à ceci près qu'il n'y a pas de clic sur
+ * quoi s'ancrer : l'ancrage est le jour prévu. Un post publié le jour J remplit
+ * le créneau prévu le jour J, même jour calendaire Paris, strictement — un post
+ * de la veille appartient au créneau de la veille.
+ *
+ * Sans ça, un créateur qui publie sans jamais cocher est compté 0 posté et
+ * tombe en INACTIF alors que son profil tourne : c'est le cas qui a motivé ce
+ * code (13 800 vues relevées sur le profil, 0 post déclaré, classé INACTIF).
+ *
+ * Mêmes garde-fous que l'appariement déclaré, moins la fenêtre temporelle
+ * (remplacée par l'égalité des jours) : unicité du post — un post déjà attaché
+ * à un créneau n'est jamais réattribué —, veto sur le nombre d'images, et ordre
+ * chronologique des deux côtés.
+ */
+export function apparierCreneauxNonDeclares(
+  creneaux: CreneauNonDeclare[],
+  posts: PostEnLigne[],
+  opts: { pris?: Iterable<string> } = {},
+): Appariement[] {
+  const pris = new Set(opts.pris ?? []);
+  const candidats = posts
+    .filter((p) => p.id && p.createTimeMs != null && !pris.has(p.id))
+    .sort((a, b) => a.createTimeMs! - b.createTimeMs!);
+
+  const aTraiter = creneaux
+    .filter((c) => /^\d{4}-\d{2}-\d{2}$/.test(c.jourPrevu))
+    .slice()
+    .sort((a, b) => a.jourPrevu.localeCompare(b.jourPrevu));
+
+  const out: Appariement[] = [];
+  for (const creneau of aTraiter) {
+    for (const post of candidats) {
+      if (pris.has(post.id)) continue;
+      if (jourParisDeMs(post.createTimeMs!) !== creneau.jourPrevu) continue;
+      const { refuse, confirme } = corroborer(creneau, post);
+      if (refuse) continue;
+      pris.add(post.id);
+      out.push({ passageId: creneau.id, post, signaux: confirme });
       break;
     }
   }

@@ -2034,6 +2034,8 @@ export const en = {
       calcule: "Computed: {{case}}",
       rapportPosts: "{{postes}}/{{prevus}} posts published",
       rapportVues: "{{vues}} views on average",
+      nonDeclares: "{{n}} published without being declared",
+      infirmes: "{{n}} ticked, never found on TikTok",
     },
     surveillance: {
       title: "Account watch",

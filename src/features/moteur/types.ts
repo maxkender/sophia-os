@@ -20,6 +20,10 @@ export interface ClassementRapport {
   moyenne_vues?: number | null;
   /** Combien de ces posts portent une mesure de vues. */
   mesures?: number;
+  /** Créneaux cochés « publié » que TikTok a démentis — plus comptés postés. */
+  infirmes?: number;
+  /** Créneaux retrouvés en ligne sans avoir été déclarés par le créateur. */
+  non_declares?: number;
   regle?: string;
   /** Case calculée — diffère de `classement` quand un verrou manuel est posé. */
   calcule?: Classement;

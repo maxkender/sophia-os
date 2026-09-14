@@ -4,6 +4,7 @@ import {
   APPARIEMENT_DEFAUT,
   DELAIS_RESOLUTION_MIN,
   analyserLienTiktok,
+  apparierCreneauxNonDeclares,
   apparierPublications,
   corroborer,
   estLienCourtTiktok,
@@ -196,5 +197,90 @@ describe("appariement chronologique", () => {
     expect(apparierPublications([passage("p1", T0)], [])).toEqual([]);
     // Horodatage illisible : le créneau est sauté, pas d'appariement au hasard.
     expect(apparierPublications([{ id: "p1", publieAt: "jamais" }], [post("a", T0)])).toEqual([]);
+  });
+});
+
+describe("créneaux publiés sans déclaration", () => {
+  /** Post publié à `heure` (Paris) le jour dit. */
+  const postDuJour = (
+    id: string,
+    jour: string,
+    heure = "12:00",
+    extra: Partial<PostEnLigne> = {},
+  ): PostEnLigne => ({
+    id,
+    url: `https://www.tiktok.com/@crea/photo/${id}`,
+    // +02:00 = Paris en été : l'heure locale est celle qui décide du jour.
+    createTimeMs: Date.parse(`${jour}T${heure}:00+02:00`),
+    ...extra,
+  });
+
+  const creneau = (id: string, jourPrevu: string, extra = {}) => ({ id, jourPrevu, ...extra });
+
+  it("rattrape le compte qui publie sans jamais cocher", () => {
+    // Le cas réel : 4 posts en ligne, 0 déclaré, 8 créneaux échus.
+    const creneaux = [
+      creneau("c1", "2026-09-08"),
+      creneau("c2", "2026-09-09"),
+      creneau("c3", "2026-09-10"),
+      creneau("c4", "2026-09-11"),
+    ];
+    const posts = [
+      postDuJour("p1", "2026-09-08"),
+      postDuJour("p2", "2026-09-09"),
+      postDuJour("p4", "2026-09-11"),
+    ];
+    const r = apparierCreneauxNonDeclares(creneaux, posts);
+    expect(r.map((x) => [x.passageId, x.post.id])).toEqual([
+      ["c1", "p1"],
+      ["c2", "p2"],
+      ["c4", "p4"],
+    ]);
+    // Le créneau sans post en face reste non publié — pas d'appariement au hasard.
+    expect(r.some((x) => x.passageId === "c3")).toBe(false);
+  });
+
+  it("s'ancre sur le jour Paris, pas sur l'UTC", () => {
+    // 23 h 30 UTC le 9 = 1 h 30 le 10 à Paris : c'est le créneau du 10.
+    const post: PostEnLigne = {
+      id: "p1",
+      url: "u",
+      createTimeMs: Date.parse("2026-09-09T23:30:00Z"),
+    };
+    expect(apparierCreneauxNonDeclares([creneau("c9", "2026-09-09")], [post])).toEqual([]);
+    expect(apparierCreneauxNonDeclares([creneau("c10", "2026-09-10")], [post])).toHaveLength(1);
+  });
+
+  it("ne réattribue jamais un post déjà attaché à un créneau", () => {
+    const posts = [postDuJour("deja", "2026-09-08"), postDuJour("libre", "2026-09-08", "20:00")];
+    const r = apparierCreneauxNonDeclares([creneau("c1", "2026-09-08")], posts, {
+      pris: ["deja"],
+    });
+    expect(r.map((x) => x.post.id)).toEqual(["libre"]);
+  });
+
+  it("garde le veto sur le nombre d'images", () => {
+    const r = apparierCreneauxNonDeclares(
+      [creneau("c1", "2026-09-08", { nbSlides: 6 })],
+      [
+        postDuJour("perso", "2026-09-08", "09:00", { nbImages: 1 }),
+        postDuJour("notre", "2026-09-08", "18:00", { nbImages: 6 }),
+      ],
+    );
+    expect(r.map((x) => x.post.id)).toEqual(["notre"]);
+    expect(r[0].signaux).toContain("slides");
+  });
+
+  it("n'invente rien sans post, sans créneau, ou sur un jour illisible", () => {
+    expect(apparierCreneauxNonDeclares([], [postDuJour("p1", "2026-09-08")])).toEqual([]);
+    expect(apparierCreneauxNonDeclares([creneau("c1", "2026-09-08")], [])).toEqual([]);
+    expect(
+      apparierCreneauxNonDeclares([creneau("c1", "jamais")], [postDuJour("p1", "2026-09-08")]),
+    ).toEqual([]);
+    expect(
+      apparierCreneauxNonDeclares([creneau("c1", "2026-09-08")], [
+        { id: "p1", url: "u", createTimeMs: null },
+      ]),
+    ).toEqual([]);
   });
 });

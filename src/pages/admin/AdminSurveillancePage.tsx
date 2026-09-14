@@ -70,6 +70,10 @@ function Rapport({ ligne }: { ligne: LigneSurveillance }) {
   }
   const morceaux = [
     t("classement.rapportPosts", { postes: r.postes ?? 0, prevus: r.prevus }),
+    // Ce qui explique le ratio, et ce sur quoi l'admin peut agir : rappeler au
+    // créateur de cocher, ou lui demander pourquoi il coche sans publier.
+    r.non_declares ? t("classement.nonDeclares", { n: r.non_declares }) : null,
+    r.infirmes ? t("classement.infirmes", { n: r.infirmes }) : null,
     r.moyenne_vues != null
       ? t("classement.rapportVues", {
         vues: Math.round(r.moyenne_vues).toLocaleString(i18n.language),

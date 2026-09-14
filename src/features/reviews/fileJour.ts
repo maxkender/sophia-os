@@ -76,6 +76,48 @@ export function retirerVideoReview(actuelles: ReviewVideo[], url: string): Revie
   return actuelles.filter((v) => v.url !== url);
 }
 
+/** Remarque générique utilisée pour une review (copie figée à l'envoi). */
+export type ReviewRemarqueUtilisee = { id: string; titre: string };
+
+/** Marque une remarque comme utilisée pour la review en cours (sans doublon :
+ *  une même remarque ne compte qu'une fois par review). */
+export function ajouterRemarqueUtilisee(
+  actuelles: ReviewRemarqueUtilisee[],
+  remarque: { id: string; titre: string },
+): ReviewRemarqueUtilisee[] {
+  const id = remarque.id.trim();
+  if (!id || actuelles.some((r) => r.id === id)) return actuelles;
+  return [...actuelles, { id, titre: remarque.titre.trim() }];
+}
+
+export function retirerRemarqueUtilisee(
+  actuelles: ReviewRemarqueUtilisee[],
+  id: string,
+): ReviewRemarqueUtilisee[] {
+  return actuelles.filter((r) => r.id !== id);
+}
+
+/** Lit le jsonb `reviews.remarques` (ou une valeur inattendue) en liste propre. */
+export function normaliserRemarquesReview(raw: unknown): ReviewRemarqueUtilisee[] {
+  if (!Array.isArray(raw)) return [];
+  const out: ReviewRemarqueUtilisee[] = [];
+  for (const item of raw) {
+    if (!item || typeof item !== "object") continue;
+    const id =
+      typeof (item as { id?: unknown }).id === "string" ? (item as { id: string }).id.trim() : "";
+    if (!id || out.some((r) => r.id === id)) continue;
+    const titre =
+      typeof (item as { titre?: unknown }).titre === "string"
+        ? (item as { titre: string }).titre.trim()
+        : "";
+    out.push({ id, titre });
+  }
+  return out;
+}
+
+/** « 3× Texte illisible » : une remarque et le nombre de reviews qui la portent. */
+export type CompteRemarque = { id: string; titre: string; n: number };
+
 /** Lit le jsonb `reviews.videos` (ou une valeur inattendue) en liste propre. */
 export function normaliserVideosReview(raw: unknown): ReviewVideo[] {
   if (!Array.isArray(raw)) return [];

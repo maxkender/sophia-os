@@ -26,6 +26,7 @@ import { useApplication } from "@/features/moteur/ApplicationContext";
 import {
   ameliorerReview,
   aujourdhuiParis,
+  compterRemarquesParCreateur,
   creerReviewRemarque,
   envoyerReview,
   listerFileReviewsJour,
@@ -40,10 +41,14 @@ import {
 } from "@/features/moteur/api";
 import { DropVideoRemarque } from "@/features/reviews/DropVideoRemarque";
 import {
+  ajouterRemarqueUtilisee,
   ajouterVideoReview,
   insererRemarqueDansBrouillon,
   jourParisDepuisIso,
+  retirerRemarqueUtilisee,
   retirerVideoReview,
+  type CompteRemarque,
+  type ReviewRemarqueUtilisee,
   type ReviewVideo,
 } from "@/features/reviews/fileJour";
 import { TikTokEmbed } from "@/features/reviews/TikTokEmbed";
@@ -325,6 +330,7 @@ export function AdminFileReviewsPage() {
   const { applicationId } = useApplication();
   const [texte, setTexte] = React.useState("");
   const [videos, setVideos] = React.useState<ReviewVideo[]>([]);
+  const [remarquesUtilisees, setRemarquesUtilisees] = React.useState<ReviewRemarqueUtilisee[]>([]);
   const [errVideoFile, setErrVideoFile] = React.useState<string | null>(null);
   const [reglages, setReglages] = React.useState(false);
   const jour = aujourdhuiParis();
@@ -338,11 +344,24 @@ export function AdminFileReviewsPage() {
     queryFn: listerReviewRemarques,
   });
 
+  // Historique par créateur (poster), tous ses comptes confondus : chargé pour
+  // toute la file d'un coup, pour ne pas requêter à chaque post traité.
+  const posterIds = React.useMemo(
+    () => [...new Set((file.data ?? []).map((p) => p.poster_id).filter(Boolean))].sort(),
+    [file.data],
+  );
+  const historique = useQuery({
+    queryKey: ["review-remarques-createurs", posterIds],
+    queryFn: () => compterRemarquesParCreateur(posterIds),
+    enabled: posterIds.length > 0,
+  });
+
   const courant = (file.data ?? [])[0] ?? null;
 
   React.useEffect(() => {
     setTexte("");
     setVideos([]);
+    setRemarquesUtilisees([]);
     setErrVideoFile(null);
   }, [courant?.id]);
 
@@ -365,14 +384,17 @@ export function AdminFileReviewsPage() {
         compte_label: labelCompte(courant),
         date_publication: jourParisOuPrevue(courant),
         videos,
+        remarques: remarquesUtilisees,
       });
       return courant.id;
     },
     onSuccess: (id) => {
       setTexte("");
       setVideos([]);
+      setRemarquesUtilisees([]);
       retirer(id);
       queryClient.invalidateQueries({ queryKey: ["reviews"] });
+      queryClient.invalidateQueries({ queryKey: ["review-remarques-createurs"] });
     },
   });
 
@@ -399,7 +421,12 @@ export function AdminFileReviewsPage() {
   const utiliserRemarque = (r: ReviewRemarque) => {
     setTexte((prev) => insererRemarqueDansBrouillon(prev, r.corps));
     setVideos((prev) => ajouterVideoReview(prev, { url: r.video_url, titre: r.titre }));
+    setRemarquesUtilisees((prev) => ajouterRemarqueUtilisee(prev, r));
   };
+
+  /** Titre courant de la remarque si elle existe encore, sinon celui figé à l'envoi. */
+  const titreRemarque = (c: CompteRemarque) =>
+    (remarques.data ?? []).find((r) => r.id === c.id)?.titre || c.titre;
 
   const labelJour = new Date(`${jour}T12:00:00`).toLocaleDateString(i18n.language, {
     weekday: "long",
@@ -440,17 +467,24 @@ export function AdminFileReviewsPage() {
 
       {courant && (
         <div className="space-y-5">
-          <div className="flex flex-wrap items-center gap-3">
-            <AvatarCompte url={courant.avatar_url} />
-            <div className="min-w-0">
-              <p className="text-sm font-medium">{nomCreateur(courant)}</p>
-              <p className="text-xs text-muted-foreground">
-                {labelCompte(courant)}
-                {courant.publie_at
-                  ? ` · ${new Date(courant.publie_at).toLocaleTimeString(i18n.language, { hour: "2-digit", minute: "2-digit" })}`
-                  : ""}
-              </p>
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center gap-3">
+              <AvatarCompte url={courant.avatar_url} />
+              <div className="min-w-0">
+                <p className="text-sm font-medium">{nomCreateur(courant)}</p>
+                <p className="text-xs text-muted-foreground">
+                  {labelCompte(courant)}
+                  {courant.publie_at
+                    ? ` · ${new Date(courant.publie_at).toLocaleTimeString(i18n.language, { hour: "2-digit", minute: "2-digit" })}`
+                    : ""}
+                </p>
+              </div>
             </div>
+            <HistoriqueRemarques
+              comptes={historique.data?.[courant.poster_id] ?? []}
+              chargement={historique.isPending && posterIds.length > 0}
+              titreRemarque={titreRemarque}
+            />
           </div>
 
           <div className="grid gap-6 lg:grid-cols-2">
@@ -492,6 +526,33 @@ export function AdminFileReviewsPage() {
                   />
                 ))}
               </div>
+            </div>
+          )}
+
+          {remarquesUtilisees.length > 0 && (
+            <div className="space-y-1">
+              <p className="text-xs font-medium text-muted-foreground">
+                {t("fileReviews.remarquesComptees")}
+              </p>
+              <ul className="flex flex-wrap gap-2">
+                {remarquesUtilisees.map((r) => (
+                  <li key={r.id}>
+                    <Badge variant="secondary" className="gap-1 pr-1">
+                      <span className="max-w-40 truncate">{r.titre}</span>
+                      <button
+                        type="button"
+                        className="rounded-sm p-0.5 hover:bg-background/80"
+                        aria-label={t("common.delete")}
+                        onClick={() =>
+                          setRemarquesUtilisees((prev) => retirerRemarqueUtilisee(prev, r.id))
+                        }
+                      >
+                        <X className="size-3" />
+                      </button>
+                    </Badge>
+                  </li>
+                ))}
+              </ul>
             </div>
           )}
 
@@ -569,6 +630,38 @@ export function AdminFileReviewsPage() {
 
 function jourParisOuPrevue(post: PostFileReview): string | null {
   return jourParisDepuisIso(post.publie_at) ?? post.date_publication_prevue;
+}
+
+/** « 3× Texte illisible » : ce qu'on a déjà reproché à ce créateur, tous ses comptes confondus. */
+function HistoriqueRemarques({
+  comptes,
+  chargement,
+  titreRemarque,
+}: {
+  comptes: CompteRemarque[];
+  chargement: boolean;
+  titreRemarque: (c: CompteRemarque) => string;
+}) {
+  const { t } = useTranslation();
+  if (chargement) return null;
+  return (
+    <div className="space-y-1">
+      <p className="text-xs font-medium text-muted-foreground">{t("fileReviews.historique")}</p>
+      {comptes.length === 0 ? (
+        <p className="text-xs text-muted-foreground">{t("fileReviews.historiqueVide")}</p>
+      ) : (
+        <ul className="flex flex-wrap gap-1.5">
+          {comptes.map((c) => (
+            <li key={c.id}>
+              <Badge variant="secondary" className="tabular-nums">
+                {t("fileReviews.historiqueFois", { n: c.n, titre: titreRemarque(c) })}
+              </Badge>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
 }
 
 function BoutonRemarque({

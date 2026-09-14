@@ -3,7 +3,10 @@ import { LANGUES_CIBLES } from "@/features/moteur/langues";
 import {
   estCompteSlideshowAssigne,
   isoBornesJourParis,
+  normaliserRemarquesReview,
   normaliserVideosReview,
+  type CompteRemarque,
+  type ReviewRemarqueUtilisee,
   type ReviewVideo,
 } from "@/features/reviews/fileJour";
 import { extensionVideo } from "@/features/reviews/videoRemarque";
@@ -683,6 +686,8 @@ export interface Review {
   compte_label: string | null;
   date_publication: string | null;
   videos: ReviewVideo[];
+  /** Remarques génériques utilisées — sert au comptage par créateur. */
+  remarques: ReviewRemarqueUtilisee[];
 }
 
 export type ReviewCible = {
@@ -693,13 +698,20 @@ export type ReviewCible = {
   compte_label?: string | null;
   date_publication?: string | null;
   videos?: ReviewVideo[];
+  remarques?: ReviewRemarqueUtilisee[];
 };
 
 const REVIEW_COLONNES =
-  "id, poster_id, body, note, created_at, seen_at, post_id, publie_url, source_url, handle_tiktok, compte_label, date_publication, videos";
+  "id, poster_id, body, note, created_at, seen_at, post_id, publie_url, source_url, handle_tiktok, compte_label, date_publication, videos, remarques";
 
-function mapperReview(row: Omit<Review, "videos"> & { videos?: unknown }): Review {
-  return { ...row, videos: normaliserVideosReview(row.videos) };
+function mapperReview(
+  row: Omit<Review, "videos" | "remarques"> & { videos?: unknown; remarques?: unknown },
+): Review {
+  return {
+    ...row,
+    videos: normaliserVideosReview(row.videos),
+    remarques: normaliserRemarquesReview(row.remarques),
+  };
 }
 
 /** L'admin envoie une review (retour) à un poster : elle s'affichera en pop-up
@@ -721,6 +733,7 @@ export async function envoyerReview(
     compte_label: cible?.compte_label ?? null,
     date_publication: cible?.date_publication ?? null,
     videos: normaliserVideosReview(cible?.videos),
+    remarques: normaliserRemarquesReview(cible?.remarques),
   });
   if (error) throw error;
 }
@@ -891,6 +904,38 @@ export async function passerPostReview(postId: string): Promise<void> {
     admin_id: auth.user?.id ?? null,
   });
   if (error) throw error;
+}
+
+type LigneRemarqueCreateur = {
+  poster_id: string | null;
+  remarque_id: string | null;
+  titre: string | null;
+  n: number | string | null;
+};
+
+/**
+ * Remarques génériques déjà envoyées à chaque CRÉATEUR (poster), tous ses
+ * comptes TikTok confondus : `{ poster_id → [{ id, titre, n }] }`, la plus
+ * fréquente d'abord. Sert à afficher « 3× Texte illisible » dans la file du
+ * jour, pour repérer ce qu'on répète à un créateur. Le comptage se fait en SQL
+ * (RPC) : la file lit tout l'historique de ses créateurs d'un coup.
+ */
+export async function compterRemarquesParCreateur(
+  posterIds: string[],
+): Promise<Record<string, CompteRemarque[]>> {
+  const ids = [...new Set(posterIds.filter(Boolean))];
+  if (ids.length === 0) return {};
+  const { data, error } = await supabase.rpc("compter_remarques_createurs", { p_posters: ids });
+  if (error) throw error;
+  const out: Record<string, CompteRemarque[]> = {};
+  for (const ligne of (data ?? []) as LigneRemarqueCreateur[]) {
+    const poster = ligne.poster_id;
+    const id = ligne.remarque_id;
+    if (!poster || !id) continue;
+    const liste = out[poster] ?? (out[poster] = []);
+    liste.push({ id, titre: ligne.titre ?? "", n: Number(ligne.n) || 0 });
+  }
+  return out;
 }
 
 export interface ReviewRemarque {

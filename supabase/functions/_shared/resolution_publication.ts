@@ -335,6 +335,36 @@ const JOURS_POSTS_CONNUS = 60;
 const UA =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0 Safari/537.36";
 
+/**
+ * Comptes de l'OS par pseudo TikTok — plusieurs peuvent partager un profil.
+ *
+ * Rien n'impose l'unicité de `comptes.handle_tiktok` : deux créateurs peuvent
+ * se retrouver sur le même profil. L'appariement doit alors traiter leurs
+ * créneaux comme concurrents sur le même stock de posts, sinon un post déjà
+ * attribué à l'un est réattribué à l'autre — et un compte qui n'a rien publié
+ * hérite des publications du voisin.
+ */
+async function comptesDuMemeHandle(
+  supabase: Supabase,
+  handles: string[],
+): Promise<Map<string, string[]>> {
+  const utiles = handles.filter((h) => h.trim().length > 0);
+  const out = new Map<string, string[]>();
+  if (utiles.length === 0) return out;
+  const { data } = await supabase
+    .from("comptes")
+    .select("id, handle_tiktok")
+    .in("handle_tiktok", utiles);
+  for (const c of data ?? []) {
+    const h = (c.handle_tiktok as string | null) ?? "";
+    if (!h) continue;
+    const liste = out.get(h);
+    if (liste) liste.push(c.id as string);
+    else out.set(h, [c.id as string]);
+  }
+  return out;
+}
+
 /** Suit la redirection d'un lien court. Gratuit — aucun appel Apify. */
 async function suivreLienCourt(url: string): Promise<string | null> {
   try {
@@ -448,6 +478,10 @@ export async function resoudrePublicationsLot(
   const handles = new Map(
     (comptes ?? []).map((c) => [c.id as string, (c.handle_tiktok as string | null) ?? ""]),
   );
+  // Un profil TikTok peut être porté par PLUSIEURS comptes de l'OS (vu en prod :
+  // deux créateurs sur `@sofia.intelepciune718`). L'unicité d'un post doit donc
+  // se juger sur le profil, sinon le même post est attribué à chacun d'eux.
+  const freres = await comptesDuMemeHandle(supabase, [...new Set(handles.values())]);
 
   for (const compteId of traites) {
     const attente = parCompte.get(compteId) ?? [];
@@ -462,7 +496,7 @@ export async function resoudrePublicationsLot(
       const { data: connus } = await supabase
         .from("passages")
         .select("id, publie_url")
-        .eq("compte_id", compteId)
+        .in("compte_id", freres.get(handle) ?? [compteId])
         .not("publie_url", "is", null)
         .gte("date_publication_prevue", depuis);
       const enAttente = new Set(attente.map((l) => l.id));
@@ -679,6 +713,7 @@ function jourMoins(jour: string, n: number): string {
 export async function rattraperCreneauxNonDeclares(
   supabase: Supabase,
   compteId: string,
+  handle: string,
   enLigne: PostScrape[],
   opts: { jours?: number; dryRun?: boolean } = {},
 ): Promise<RattrapageResultat> {
@@ -709,9 +744,21 @@ export async function rattraperCreneauxNonDeclares(
 
   // Un post déjà attaché à un créneau n'est jamais réattribué — même règle que
   // la résolution déclarée, et le seul garde-fou contre le double comptage.
+  //
+  // L'unicité se juge sur le PROFIL, pas sur le compte : deux comptes de l'OS
+  // peuvent porter le même pseudo TikTok (vu en prod). Sans ça, les 4 posts
+  // réels d'un profil seraient recopiés sur les créneaux vides du compte
+  // jumeau, qui passerait d'INACTIF à parfaitement régulier sans avoir rien
+  // publié — le faux positif exact que ce rattrapage doit éviter.
+  const freres = (await comptesDuMemeHandle(supabase, [handle])).get(handle) ?? [compteId];
+  const { data: attaches } = await supabase
+    .from("passages")
+    .select("publie_url")
+    .in("compte_id", freres)
+    .not("publie_url", "is", null);
   const pris = new Set<string>();
-  for (const l of lignes) {
-    const lu = analyserLienTiktok(l.publie_url);
+  for (const l of attaches ?? []) {
+    const lu = analyserLienTiktok(l.publie_url as string | null);
     if (lu) pris.add(lu.id);
   }
 

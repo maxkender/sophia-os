@@ -2053,6 +2053,10 @@ export const en = {
       motifInactif: "Inactive",
       motifMauvaisesVues: "Poor views",
       motifTrial: "Trial ending",
+      profilPartage: "Shared TikTok profile",
+      profilPartageAide:
+        "Another account carries the same @handle. Views shown here are the profile's, "
+        + "so they say nothing about this account — deactivate the duplicate.",
       trial: "TRIAL",
       trialRestant: "Trial ends in {{h}} h",
       lienTiktok: "Open the TikTok profile",

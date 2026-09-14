@@ -107,7 +107,9 @@ async function releverCompte(
   // Ce que le créateur n'a jamais déclaré : le profil fait foi. À faire AVANT le
   // relevé par lien — un créneau rattrapé repart avec son `publie_url`, donc ses
   // vues sont relevées dans la foulée.
-  const rattrapage = await rattraperCreneauxNonDeclares(supabase, compteId, enLigne, { jours });
+  const rattrapage = await rattraperCreneauxNonDeclares(supabase, compteId, handle, enLigne, {
+    jours,
+  });
 
   // Relevé PAR POST pour ceux dont on a le lien (garde le détail par post :
   // viraux, meilleurs posts…).

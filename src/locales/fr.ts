@@ -2056,6 +2056,10 @@ export const fr = {
       motifInactif: "Inactif",
       motifMauvaisesVues: "Mauvaises vues",
       motifTrial: "Fin d'essai",
+      profilPartage: "Profil TikTok partagé",
+      profilPartageAide:
+        "Un autre compte porte le même @pseudo. Les vues affichées ici sont celles du "
+        + "profil, elles ne disent donc rien de ce compte — désactive le doublon.",
       trial: "TRIAL",
       trialRestant: "Fin d'essai dans {{h}} h",
       lienTiktok: "Ouvrir le profil TikTok",

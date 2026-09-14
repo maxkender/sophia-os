@@ -35,7 +35,9 @@ import {
   estSkippe,
   estSousSurveillance,
   etatTrial,
+  handlesEnDoublon,
   motifsSurveillance,
+  partageSonProfil,
   rangClassement,
   type Classement,
   type ClassementReglages,
@@ -92,14 +94,17 @@ function EnteteLigne({
   ligne,
   motifs,
   reglages,
+  doublons,
 }: {
   ligne: LigneSurveillance;
   motifs: MotifSurveillance[];
   reglages: ClassementReglages;
+  doublons: Set<string>;
 }) {
   const { t } = useTranslation();
   const trial = etatTrial(ligne.created_at, reglages);
   const tiktok = lienTikTok(ligne.handle_tiktok);
+  const profilPartage = partageSonProfil(ligne.handle_tiktok, doublons);
   return (
     <div className="space-y-1.5">
       <div className="flex flex-wrap items-center gap-2">
@@ -147,6 +152,14 @@ function EnteteLigne({
             {libelleMotif(m, t)}
           </Badge>
         ))}
+        {/* Profil partagé : les vues affichées sont celles du voisin, et les
+            créneaux des deux comptes se disputent les mêmes posts. */}
+        {profilPartage && (
+          <Badge variant="destructive" title={t("surveillance.profilPartageAide")}>
+            <AlertTriangle className="size-3" />
+            {t("surveillance.profilPartage")}
+          </Badge>
+        )}
       </div>
       <Rapport ligne={ligne} />
     </div>
@@ -158,12 +171,14 @@ function LigneFile({
   reglages,
   modeles,
   pending,
+  doublons,
   actions,
 }: {
   ligne: LigneSurveillance;
   reglages: ClassementReglages;
   modeles: ModeleNudge[];
   pending: boolean;
+  doublons: Set<string>;
   actions: {
     skip: () => void;
     annulerSkip: () => void;
@@ -180,7 +195,7 @@ function LigneFile({
 
   return (
     <div className="space-y-3 rounded-xl border bg-card p-4">
-      <EnteteLigne ligne={ligne} motifs={motifs} reglages={reglages} />
+      <EnteteLigne ligne={ligne} motifs={motifs} reglages={reglages} doublons={doublons} />
 
       {skippe && ligne.surveillance_skip_jusqu && (
         <p className="text-xs text-muted-foreground">
@@ -298,19 +313,21 @@ function LigneNonRenouveler({
   ligne,
   reglages,
   pending,
+  doublons,
   onHmDemande,
   onRetirer,
 }: {
   ligne: LigneSurveillance;
   reglages: ClassementReglages;
   pending: boolean;
+  doublons: Set<string>;
   onHmDemande: (valeur: boolean) => void;
   onRetirer: () => void;
 }) {
   const { t, i18n } = useTranslation();
   return (
     <div className="space-y-3 rounded-xl border bg-card p-4">
-      <EnteteLigne ligne={ligne} motifs={[]} reglages={reglages} />
+      <EnteteLigne ligne={ligne} motifs={[]} reglages={reglages} doublons={doublons} />
       {ligne.non_renouveler_at && (
         <p className="text-xs text-muted-foreground">
           {t("surveillance.ajouteLe", {
@@ -386,6 +403,12 @@ export function AdminSurveillancePage() {
     });
   }, [comptes.data, reglages]);
 
+  // Calculé sur la liste déjà chargée — aucun appel de plus.
+  const doublons = React.useMemo(
+    () => handlesEnDoublon(comptes.data ?? []),
+    [comptes.data],
+  );
+
   const nonRenouveler = React.useMemo(
     () => (comptes.data ?? []).filter((r) => r.non_renouveler),
     [comptes.data],
@@ -430,6 +453,7 @@ export function AdminSurveillancePage() {
                 reglages={reglages}
                 modeles={modeles}
                 pending={action.isPending}
+                doublons={doublons}
                 actions={{
                   skip: () => lancer(() => skipSurveillance(ligne.compte_id)),
                   annulerSkip: () => lancer(() => annulerSkipSurveillance(ligne.compte_id)),
@@ -470,6 +494,7 @@ export function AdminSurveillancePage() {
                 ligne={ligne}
                 reglages={reglages}
                 pending={action.isPending}
+                doublons={doublons}
                 onHmDemande={(valeur) =>
                   lancer(() => basculerHmDemande(ligne.compte_id, valeur))
                 }

@@ -9,8 +9,10 @@ import {
   etatTrial,
   finDuSkip,
   lireClassementReglages,
+  handlesEnDoublon,
   lireModelesNudge,
   motifsSurveillance,
+  partageSonProfil,
   pireClassement,
   rangClassement,
   seuilPostes,
@@ -350,5 +352,29 @@ describe("ce qui explique le ratio", () => {
     expect(r.regle).not.toContain("—");
     expect(classer({ prevus: 10, postes: 10, moyenneVues: 1_400, mesures: 10, infirmes: 0 }).regle)
       .toBe(r.regle);
+  });
+});
+
+describe("profil TikTok partagé", () => {
+  // Vu en prod : deux créateurs sur @sofia.intelepciune718. Le second n'avait
+  // rien publié mais affichait les 13 800 vues du premier.
+  const comptes = [
+    { handle_tiktok: "sofia.intelepciune718" },
+    { handle_tiktok: "@Sofia.Intelepciune718" },
+    { handle_tiktok: "ava.mindset178" },
+    { handle_tiktok: null },
+    { handle_tiktok: "  " },
+  ];
+
+  it("repère un pseudo porté par plusieurs comptes, arobase et casse mises de côté", () => {
+    expect(handlesEnDoublon(comptes)).toEqual(new Set(["sofia.intelepciune718"]));
+  });
+
+  it("ne signale ni les comptes seuls ni les pseudos vides", () => {
+    const doublons = handlesEnDoublon(comptes);
+    expect(partageSonProfil("@sofia.intelepciune718", doublons)).toBe(true);
+    expect(partageSonProfil("ava.mindset178", doublons)).toBe(false);
+    expect(partageSonProfil(null, doublons)).toBe(false);
+    expect(handlesEnDoublon([{ handle_tiktok: null }, { handle_tiktok: "" }])).toEqual(new Set());
   });
 });

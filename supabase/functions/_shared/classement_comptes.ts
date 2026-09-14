@@ -368,6 +368,37 @@ export function estSousSurveillance(
   return motifsSurveillance(compte, reglages, maintenant).length > 0;
 }
 
+/**
+ * Pseudos TikTok portés par plusieurs comptes.
+ *
+ * Rien n'impose l'unicité de `comptes.handle_tiktok` en base, et un profil
+ * partagé empoisonne tout ce qui s'appuie dessus : le relevé du soir recopie
+ * les vues du profil sur chaque compte, si bien qu'un compte qui n'a rien
+ * publié affiche les vues du voisin et se retrouve INACTIF avec 13 800 vues au
+ * compteur. Le signaler dans la file de surveillance évite de conclure à un
+ * problème de suivi.
+ */
+export function handlesEnDoublon(
+  comptes: Array<{ handle_tiktok?: string | null }>,
+): Set<string> {
+  const vus = new Map<string, number>();
+  for (const c of comptes) {
+    const h = (c.handle_tiktok ?? "").trim().replace(/^@/, "").toLowerCase();
+    if (!h) continue;
+    vus.set(h, (vus.get(h) ?? 0) + 1);
+  }
+  return new Set([...vus].filter(([, n]) => n > 1).map(([h]) => h));
+}
+
+/** Ce compte partage-t-il son profil TikTok avec un autre ? */
+export function partageSonProfil(
+  handle: string | null | undefined,
+  doublons: Set<string>,
+): boolean {
+  const h = (handle ?? "").trim().replace(/^@/, "").toLowerCase();
+  return h.length > 0 && doublons.has(h);
+}
+
 /** Fin d'un skip posé maintenant. */
 export function finDuSkip(
   reglages: ClassementReglages = CLASSEMENT_REGLAGES_DEFAUT,

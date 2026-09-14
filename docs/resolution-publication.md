@@ -95,9 +95,7 @@ la lecture de file.
 
 Tout ce qui précède part du clic du créateur. Un créateur qui publie **sans
 jamais cocher** n'entrait donc dans aucune file : rien à résoudre, rien à
-relever. Vu en prod sur `sofia.intelepciune718` — 13 800 vues et 1 100 likes
-relevés sur le profil, **0/8 publiés** affiché, donc INACTIF et proposé au
-non-renouvellement.
+relever — ses créneaux restaient à 0 publié quoi qu'il fasse sur TikTok.
 
 Le relevé de vues du soir (`metriques`, cron `metriques-soir`) scrape déjà le
 profil de chaque compte, dates de publication comprises, et n'en gardait que les
@@ -124,6 +122,33 @@ symétriques disparaissent :
 | --- | --- | --- |
 | publie sans cocher | 0/8 → INACTIF | 4/8, « 4 non déclaré(s) » |
 | coche sans publier | 7/7 → BIEN | 2/7, « 5 coché(s) sans publication » |
+
+## Un profil, un compte
+
+`comptes.handle_tiktok` n'a jamais porté de contrainte d'unicité, contrairement
+à `comptes_reference.handle_tiktok`. Vu en prod : **deux comptes actifs, deux
+créateurs différents** (`poster_id` distincts, personas « Sofia Ionescu » et
+« Sofia Marin »), le même `@sofia.intelepciune718`. Le compte qui ne publiait
+pas affichait **13 800 vues et 1 100 likes** — ceux du profil du voisin — pour
+**0 post publié**, ce qui ressemble à s'y méprendre à un bug de suivi. C'en
+était un, mais dans les données, pas dans le tracking : son classement INACTIF
+était juste, ses vues ne l'étaient pas.
+
+Trois conséquences, corrigées :
+
+- **l'appariement** mettait les créneaux des deux comptes en concurrence sur les
+  mêmes posts sans le savoir : `pris` se calculait par compte. Il se calcule
+  maintenant par **profil** (`comptesDuMemeHandle`), sinon le rattrapage des
+  non-déclarés aurait recopié les 4 posts réels du profil sur les 8 créneaux
+  vides du jumeau — le faux positif exact qu'il doit éviter ;
+- **l'analytics** compte deux fois le même profil (`compte_metrics` est écrit
+  pour chaque compte) ;
+- **l'index d'unicité** (`0246`) empêche la situation de se reproduire. Il ne
+  peut pas être posé tant qu'un doublon existe : la migration le tente, et
+  sinon nomme les profils à nettoyer sans toucher aux données.
+
+La file de surveillance affiche un badge **« Profil TikTok partagé »** sur les
+comptes concernés, calculé sur la liste déjà chargée — aucune requête de plus.
 
 ## Ce qui reste
 
@@ -152,3 +177,5 @@ symétriques disparaissent :
 - `supabase/migrations/0245_publications_non_declarees.sql` —
   `publication_non_declaree`, garde-fou du trigger, et le classement qui cesse
   de compter les créneaux démentis
+- `supabase/migrations/0246_handle_tiktok_unique.sql` — unicité du pseudo TikTok
+  sur les comptes actifs (posée seulement si aucun doublon ne subsiste)

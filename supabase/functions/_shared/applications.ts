@@ -72,6 +72,17 @@ export function placementParDefaut(langue: string, slug = SLUG_SOPHIA): string {
     ro: "Vrei să înveți ceva nou în fiecare zi? Aplicația Sophia te învață cultură generală tare în câteva minute. Încearc-o 👀",
     sv: "Vill du lära dig något nytt varje dag? Sophia-appen lär dig galen allmänbildning på några minuter. Testa den 👀",
     tr: "Her gün yeni bir şey öğrenmek ister misin? Sophia uygulaması dakikalar içinde efsane genel kültür öğretir. Dene 👀",
+    da: "Vil du lære noget nyt hver dag? Sophia-appen giver dig vild almen viden på et par minutter. Prøv den 👀",
+    no: "Vil du lære noe nytt hver dag? Sophia-appen lærer deg vanvittig allmennkunnskap på noen minutter. Prøv den 👀",
+    ru: "Хочешь узнавать что-то новое каждый день? Приложение Sophia даёт бешеную эрудицию за пару минут. Попробуй 👀",
+    hr: "Želiš učiti nešto novo svaki dan? Aplikacija Sophia te nauči ludu opću kulturu u par minuta. Isprobaj 👀",
+    sl: "Želiš vsak dan izvedeti kaj novega? Aplikacija Sophia te v nekaj minutah nauči noro splošno izobrazbo. Preizkusi 👀",
+    sk: "Chceš sa každý deň naučiť niečo nové? Aplikácia Sophia ťa naučí skvelé všeobecné znalosti za pár minút. Vyskúšaj 👀",
+    sr: "Želiš da učiš nešto novo svaki dan? Aplikacija Sophia te nauči luda opšta znanja za par minuta. Isprobaj 👀",
+    ar: "هل تريد أن تتعلم شيئا جديدا كل يوم؟ تطبيق Sophia يعلمك ثقافة عامة رائعة في دقائق. جربه 👀",
+    he: "רוצה ללמוד משהו חדש כל יום? האפליקציה Sophia מלמדת אותך ידע כללי מטורף תוך דקות. נסה אותה 👀",
+    fi: "Haluatko oppia jotain uutta joka päivä? Sophia-sovellus opettaa villin yleissivistyksen muutamassa minuutissa. Kokeile 👀",
+    et: "Tahad iga päev midagi uut õppida? Sophia äpp õpetab meeletut üldharidust paari minutiga. Proovi 👀",
   };
   return par[langue] ?? par.en;
 }

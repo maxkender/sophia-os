@@ -43,19 +43,19 @@ describe("posterGuideCle — posters déjà créés", () => {
 
 describe("posterGuideCle — nouveaux posters, codes OS", () => {
   it("Zone A via langue du compte", () => {
-    for (const l of ["fr", "nl", "de", "en", "sv"]) {
+    for (const l of ["fr", "nl", "de", "en", "sv", "da", "no", "fi"]) {
       expect(cle({ compteLangues: [l] })).toBe("guide_poster_zone_a");
     }
   });
 
   it("Zone B via langue du compte", () => {
-    for (const l of ["es", "it", "pt", "el", "cs", "hu", "pl"]) {
+    for (const l of ["es", "it", "pt", "el", "cs", "hu", "pl", "hr", "sk", "sl", "et", "he"]) {
       expect(cle({ compteLangues: [l] })).toBe("guide_poster_zone_b");
     }
   });
 
   it("Zone C via langue du compte", () => {
-    for (const l of ["ro", "tr", "bg"]) {
+    for (const l of ["ro", "tr", "bg", "sr", "ar", "ru"]) {
       expect(cle({ compteLangues: [l] })).toBe("guide_poster_zone_c");
     }
   });
@@ -172,8 +172,22 @@ describe("cas limites", () => {
     expect(resoudreZonePoster("ua")).toBe("c");
     expect(resoudreZonePoster("ar")).toBe("c");
     expect(resoudreZonePoster("Argentina")).toBe("c");
+    expect(resoudreZonePoster("Egypt")).toBe("c");
     expect(resoudreZonePoster("arabic")).toBe("b");
     expect(resoudreZonePoster("UAE")).toBe("b");
+  });
+
+  it("codes OS des 11 langues cibles tombent dans une zone", () => {
+    expect(cle({ compteLangues: ["da"] })).toBe("guide_poster_zone_a");
+    expect(cle({ compteLangues: ["no"] })).toBe("guide_poster_zone_a");
+    expect(cle({ compteLangues: ["fi"] })).toBe("guide_poster_zone_a");
+    expect(cle({ compteLangues: ["he"] })).toBe("guide_poster_zone_b");
+    expect(cle({ compteLangues: ["sl"] })).toBe("guide_poster_zone_b");
+    expect(cle({ compteLangues: ["et"] })).toBe("guide_poster_zone_b");
+    expect(cle({ compteLangues: ["sr"] })).toBe("guide_poster_zone_c");
+    expect(cle({ compteLangues: ["ru"] })).toBe("guide_poster_zone_c");
+    expect(resoudreZonePoster("Russia")).toBe("c");
+    expect(resoudreZonePoster("Israel")).toBe("b");
   });
 
   it("langues du profil en dernier, la dernière ajoutée d’abord", () => {

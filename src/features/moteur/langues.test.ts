@@ -1,4 +1,6 @@
 import { describe, expect, it } from "vitest";
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 
 import {
   LANGUES_CIBLES,
@@ -22,6 +24,20 @@ describe("LANGUES_CIBLES", () => {
     expect(nomPays("he")).toBe("Israël");
     expect(nomPays("sr")).toBe("Serbie");
     expect(nomPays("da")).toBe("Danemark");
+  });
+
+  it("a un CTA Sophia natif pour chaque LANGUES_CIBLES", () => {
+    const src = readFileSync(
+      resolve(process.cwd(), "supabase/functions/_shared/applications.ts"),
+      "utf8",
+    );
+    const sophia = src.split("slug === SLUG_MICABO")[1] ?? src;
+    const bloc = sophia.match(/const par: Record<string, string> = \{([\s\S]*?)\n  \};/);
+    expect(bloc).toBeTruthy();
+    const cles = [...(bloc![1].matchAll(/^\s{4}([a-z]{2}):/gm))].map((m) => m[1]);
+    for (const code of LANGUES_CIBLES) {
+      expect(cles, `CTA Sophia manquant pour ${code}`).toContain(code);
+    }
   });
 });
 

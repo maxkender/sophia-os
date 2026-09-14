@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { AlertTriangle, BellRing, EyeOff, Lock, Unlock } from "lucide-react";
+import { AlertTriangle, BellRing, ExternalLink, EyeOff, Lock, Unlock } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -15,6 +15,7 @@ import {
   EmptyState,
 } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
+import { lienTikTok } from "@/features/hiring/suiviEquipe";
 import {
   annulerSkipSurveillance,
   basculerHmDemande,
@@ -94,6 +95,7 @@ function EnteteLigne({
 }) {
   const { t } = useTranslation();
   const trial = etatTrial(ligne.created_at, reglages);
+  const tiktok = lienTikTok(ligne.handle_tiktok);
   return (
     <div className="space-y-1.5">
       <div className="flex flex-wrap items-center gap-2">
@@ -103,10 +105,17 @@ function EnteteLigne({
         >
           {nomCompte(ligne)}
         </Link>
-        {ligne.handle_tiktok && (
-          <span className="text-xs text-muted-foreground">
-            @{ligne.handle_tiktok.replace(/^@/, "")}
-          </span>
+        {tiktok && (
+          <a
+            href={tiktok.url}
+            target="_blank"
+            rel="noreferrer"
+            title={t("surveillance.lienTiktok")}
+            className="inline-flex items-center gap-1 text-xs font-medium text-primary underline underline-offset-2"
+          >
+            {tiktok.at}
+            <ExternalLink className="size-3" />
+          </a>
         )}
         <span title={ligne.langue}>{drapeauLangue(ligne.langue)}</span>
         <BadgeClassement

@@ -2049,6 +2049,7 @@ export const en = {
       motifTrial: "Trial ending",
       trial: "TRIAL",
       trialRestant: "Trial ends in {{h}} h",
+      lienTiktok: "Open the TikTok profile",
       skip: "Skip",
       skipAide: "Hides the row for {{n}} days — it comes back if the account is still flagged.",
       skipJusqu: "Skipped until {{date}}",

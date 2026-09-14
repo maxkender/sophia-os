@@ -2052,6 +2052,7 @@ export const fr = {
       motifTrial: "Fin d'essai",
       trial: "TRIAL",
       trialRestant: "Fin d'essai dans {{h}} h",
+      lienTiktok: "Ouvrir le profil TikTok",
       skip: "Skip",
       skipAide: "Masque la ligne pendant {{n}} jours — elle revient si le compte est toujours flagué.",
       skipJusqu: "Skippé jusqu'au {{date}}",

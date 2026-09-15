@@ -11,11 +11,15 @@ const MAX_RECHARGES_CREATEUR = 2;
  *   Poster : { postId } → { ok, newPostId, recharges_createur, restantes }
  *            — max 2 recharges, uniquement si non publié.
  *
- * v-next (`type=contenu`) : rejette le contenu, supprime le passage lié + le
- * post, puis relance l'assignation forcée (labels ∩ score). Le pont post est
- * déjà `pipeline_statut=done` (pas de boucle composition).
+ * v-next (`type=contenu`) : supprime le passage lié + le post, puis relance
+ * l'assignation forcée (labels ∩ score). Le pont post est déjà
+ * `pipeline_statut=done` (pas de boucle composition).
  *
- * Legacy (sujet) : rejette le sujet puis même flux.
+ * Le contenu n'est rejeté globalement QUE sur révocation admin. Une recharge
+ * créateur l'écarte seulement de ce tirage-là : le slideshow reste disponible
+ * pour les autres créateurs et les autres langues.
+ *
+ * Legacy (sujet) : idem — rejet du sujet sur révocation admin seulement.
  *
  * Gère aussi les coquilles « slideshow vide » : post sans slides / passage
  * orphelin (matérialisation ratée) qui bloquaient le quota.
@@ -97,23 +101,30 @@ Deno.serve(async (request) => {
       }
     }
 
-    const raisonRejet =
-      acces.role === "poster"
-        ? "Rechargé par le créateur : slideshow buggé (texte décalé / incohérent)"
-        : "Révoqué à la main : incohérent / non intégrable pour Sophia";
+    // Une recharge créateur n'est PAS un verdict sur le slideshow : le créateur
+    // dit « pas celui-là, pas maintenant ». Le rejeter globalement le retirait
+    // de toute la flotte, toutes langues, définitivement — c'est ce qui vidait
+    // les pools (243 slideshows perdus ainsi). Seule une révocation admin
+    // condamne le contenu.
+    const estRechargeCreateur = acces.role === "poster";
+    const raisonRejet = estRechargeCreateur
+      ? "Rechargé par le créateur : slideshow buggé (texte décalé / incohérent)"
+      : "Révoqué à la main : incohérent / non intégrable pour Sophia";
 
     if (contenuRejete) {
-      await supabase
-        .from("contenus")
-        .update({
-          statut: "rejete",
-          pertinence_raison: raisonRejet,
-        })
-        .eq("id", contenuRejete);
+      if (!estRechargeCreateur) {
+        await supabase
+          .from("contenus")
+          .update({
+            statut: "rejete",
+            pertinence_raison: raisonRejet,
+          })
+          .eq("id", contenuRejete);
+      }
       if (passage) {
         await supabase.from("passages").delete().eq("id", passage.id);
       }
-    } else if (post.sujet_id) {
+    } else if (post.sujet_id && !estRechargeCreateur) {
       await supabase
         .from("sujets")
         .update({
@@ -142,6 +153,9 @@ Deno.serve(async (request) => {
     const resultats = await assignerTousComptes(supabase, jour, compteId, {
       forcer: true,
       ignorerWarmup: true,
+      // Écarte le slideshow refusé de CE tirage seulement — sans le condamner
+      // pour les autres créateurs.
+      exclureContenus: contenuRejete ? [contenuRejete] : [],
     });
     const assign = resultats[0];
     if (assign?.erreur) {

@@ -44,7 +44,7 @@ Elle tourne à minuit (`minuit-vnext`, étape `tierlist`), **avant** l'assignati
 sur les posts dont le cycle est terminé :
 
 - tous les passages prévus sont **publiés** — un passage assigné jamais publié
-  n'est pas consommé, il retourne au pool après 7 jours ;
+  n'est pas consommé, il retourne au pool après 2 jours ;
 - le dernier publié a pris `tierlist.recul_jours` jour(s), le temps que les vues
   remontent ;
 - au moins une vue a été relevée (sinon on attend — jamais de dégradation sur une
@@ -118,7 +118,7 @@ tirage préfère simplement du neuf quand il y en a. Le plancher de priorité es
   que ce compte ne peut pas poster.
 
 Un D repêché dont le passage est assigné mais pas encore publié peut revenir
-dans le pool (fenêtre « en vol » de 7 jours) : il est alors servi dans les
+dans le pool (fenêtre « en vol » de 2 jours) : il est alors servi dans les
 bandes basses, avec les C.
 
 ## Rappel J+7 (> 50 000 vues)

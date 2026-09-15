@@ -159,6 +159,12 @@ export interface AssignationOpts {
   ignorerWarmup?: boolean;
   /** Logs progression (stream NDJSON / UI test). */
   onLog?: (detail: string) => void;
+  /**
+   * Contenus à écarter de ce tirage (recharge créateur). Le slideshow reste
+   * valide pour le reste de la flotte — on ne le ressert juste pas tout de
+   * suite au créateur qui vient de le refuser.
+   */
+  exclureContenus?: string[];
 }
 
 /**
@@ -362,7 +368,7 @@ export async function assignerCompteJour(
 
   const crees: string[] = [];
   /** Contenu IDs déjà pris / exclus cette session (choisirContenu filtre dessus). */
-  const contenusSession: string[] = [];
+  const contenusSession: string[] = [...(o.exclureContenus ?? [])];
   const maxTentatives = manquants + 8;
 
   let persona = null;

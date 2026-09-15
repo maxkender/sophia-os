@@ -4,6 +4,7 @@ import {
   placementParDefaut,
 } from "./applications.ts";
 import { integrateSophia, translateSlideshow } from "./gemini.ts";
+import { avecMentionPublicite } from "./mention_publicite.ts";
 import { chargerPrompt, messageErreur, serviceClient } from "./supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
@@ -356,7 +357,11 @@ export async function avancerPost(supabase: Supabase, post: any): Promise<string
             : null,
         statut: "assigne",
         // Description = hashtags traduits avec le deck ; repli = jeu localisé.
-        hashtags: post.hashtags ?? hashtagsPour(compte.langue, post.id),
+        // Puis la mention publicitaire locale (turc : #Tanıtım).
+        hashtags: avecMentionPublicite(
+          post.hashtags ?? hashtagsPour(compte.langue, post.id),
+          compte.langue,
+        ),
       })
       .eq("id", post.id);
 
@@ -455,6 +460,7 @@ const HASHTAGS: Record<string, string[]> = {
   sl: ["#ucenje", "#osebnirazvoj", "#booktok", "#zate", "#znanje", "#ucisenatiktoku", "#motivacija", "#dejstva", "#kultura", "#fyp", "#nasveti", "#pametno"],
   sk: ["#ucenie", "#osobnyrozvoj", "#booktok", "#preteba", "#vedomosti", "#ucsanatiktoku", "#motivacia", "#fakty", "#kultura", "#fyp", "#tipy", "#inteligentne"],
   sr: ["#ucenje", "#licnirazvoj", "#booktok", "#zatijeb", "#znanje", "#ucinaTikToku", "#motivacija", "#cinjenice", "#kultura", "#fyp", "#saveti", "#pametno"],
+  tr: ["#öğrenme", "#kişiselgelişim", "#booktok", "#keşfet", "#bilgi", "#tiktokteöğren", "#motivasyon", "#bilgiler", "#kültür", "#fyp", "#ipuçları", "#zeka"],
   ar: ["#تعلم", "#تطوير_ذاتي", "#booktok", "#fyp", "#معرفة", "#تعلم_على_تيك_توك", "#تحفيز", "#حقائق", "#ثقافة", "#معلومات", "#نصيحة", "#ذكاء"],
   he: ["#למידה", "#פיתוח_אישי", "#booktok", "#fyp", "#ידע", "#ללמוד_בטיקטוק", "#מוטיבציה", "#עובדות", "#תרבות", "#טיפ", "#חכם", "#foryou"],
   fi: ["#oppiminen", "#itsensakehittaminen", "#booktok", "#sinulle", "#tieto", "#opiTikTokissa", "#motivaatio", "#faktat", "#kulttuuri", "#fyp", "#vinkit", "#alykas"],

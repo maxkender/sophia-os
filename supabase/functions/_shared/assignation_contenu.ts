@@ -4,6 +4,7 @@ import {
 } from "./creation_manuelle.ts";
 import { assurerDeckPourLangue } from "./import_contenu.ts";
 import { LOT_IDS, lireParLots } from "./lots.ts";
+import { avecMentionPublicite } from "./mention_publicite.ts";
 import { mapPool } from "./parallel.ts";
 import { serviceClient } from "./supabase.ts";
 import {
@@ -66,6 +67,7 @@ const HASHTAGS: Record<string, string[]> = {
   sl: ["#ucenje", "#osebnirazvoj", "#booktok", "#zate", "#znanje", "#fyp"],
   sk: ["#ucenie", "#osobnyrozvoj", "#booktok", "#preteba", "#vedomosti", "#fyp"],
   sr: ["#ucenje", "#licnirazvoj", "#booktok", "#zatijeb", "#znanje", "#fyp"],
+  tr: ["#öğrenme", "#kişiselgelişim", "#booktok", "#keşfet", "#bilgi", "#fyp"],
   ar: ["#تعلم", "#تطوير_ذاتي", "#booktok", "#fyp", "#معرفة", "#تعلم_على_تيك_توك"],
   he: ["#למידה", "#פיתוח_אישי", "#booktok", "#fyp", "#ידע", "#ללמוד_בטיקטוק"],
   fi: ["#oppiminen", "#itsensakehittaminen", "#booktok", "#sinulle", "#tieto", "#fyp"],
@@ -426,7 +428,12 @@ export async function assignerCompteJour(
     }
     log(`Deck prêt (${slides.length} slides) — matérialisation…`);
     // Hashtags issus de la traduction si dispo, sinon jeu localisé de repli.
-    const hashtags = hashtagsDeck || hashtagsPour(langue, `${compte.id}-${jour}-${crees.length}`);
+    // La mention publicitaire locale (turc : #Tanıtım) est posée ici, donc sur
+    // le créneau ET sur le post pont matérialisé juste après.
+    const hashtags = avecMentionPublicite(
+      hashtagsDeck || hashtagsPour(langue, `${compte.id}-${jour}-${crees.length}`),
+      langue,
+    );
 
     const { data: passage, error } = await supabase
       .from("passages")
@@ -1302,7 +1309,8 @@ export async function programmerRappelsJ7(
       if (!Array.isArray(slides) || slides.length === 0) {
         throw new Error("Deck du passage source vide — rappel impossible");
       }
-      const hashtags = passageSource.hashtags ?? "";
+      // Le passage source peut dater d'avant la mention : on la repose ici.
+      const hashtags = avecMentionPublicite(passageSource.hashtags ?? "", passageSource.langue);
 
       const { data: passage, error } = await supabase
         .from("passages")

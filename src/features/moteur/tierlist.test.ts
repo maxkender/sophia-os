@@ -5,6 +5,8 @@ import {
   TIERS,
   TIER_MIN_PRIORITAIRE,
   bandesDeTirage,
+  deciderRequalif,
+  decisionDepuisEtat,
   estTierPrioritaire,
   etalerRappels,
   jourSuivant,
@@ -13,6 +15,7 @@ import {
   tierDepuisEloExistant,
   tierImport,
   type CandidatRappel,
+  type DecisionRequalifEntree,
   type Tier,
 } from "./tierlist";
 
@@ -207,6 +210,155 @@ describe("cohérence des cycles", () => {
         expect(TIERS).toContain(requalifier({ tier, moyenne: m, maxVues: m, nb150k: 0 }).tier);
       }
     }
+  });
+});
+
+describe("décision de requalification", () => {
+  const JOUR = 86_400_000;
+  const MAINTENANT = Date.parse("2026-09-16T12:00:00Z");
+
+  /** Cycle de 2 passages, publiés il y a 3 jours, tous mesurés. */
+  const base = (over: Partial<DecisionRequalifEntree> = {}): DecisionRequalifEntree => ({
+    publies: 2,
+    passagesPrevus: 2,
+    mesures: 2,
+    introuvables: 0,
+    enAttenteMesure: 0,
+    moyenne: 3_000,
+    dernierPublieMs: MAINTENANT - 3 * JOUR,
+    maintenantMs: MAINTENANT,
+    reculJours: 1,
+    requalifMaxJours: 3,
+    ...over,
+  });
+
+  it("attend tant que les passages ne sont pas tous publiés", () => {
+    expect(deciderRequalif(base({ publies: 1 }))).toEqual({
+      requalifier: false,
+      motif: "passages",
+    });
+  });
+
+  it("ne requalifie pas un D dormant", () => {
+    expect(deciderRequalif(base({ publies: 0, passagesPrevus: 0, mesures: 0 }))).toEqual({
+      requalifier: false,
+      motif: "passages",
+    });
+  });
+
+  it("attend le recul sur le dernier passage", () => {
+    const frais = base({ dernierPublieMs: MAINTENANT - 3_600_000 });
+    expect(deciderRequalif(frais)).toEqual({ requalifier: false, motif: "recul" });
+  });
+
+  it("requalifie sur m dès qu'un passage est mesuré", () => {
+    expect(deciderRequalif(base())).toEqual({ requalifier: true, surMesure: true });
+    // Un seul mesuré sur deux suffit — c'est la règle en place.
+    const partiel = base({ mesures: 1, introuvables: 1 });
+    expect(deciderRequalif(partiel)).toEqual({ requalifier: true, surMesure: true });
+  });
+
+  it("relance sans attendre quand plus aucune mesure ne peut tomber", () => {
+    const perdu = base({ mesures: 0, moyenne: null, introuvables: 2 });
+    expect(deciderRequalif(perdu)).toEqual({
+      requalifier: true,
+      surMesure: false,
+      motif: "introuvable",
+    });
+  });
+
+  it("patiente tant qu'une mesure peut encore tomber, sous le plafond", () => {
+    const enCours = base({
+      mesures: 0,
+      moyenne: null,
+      enAttenteMesure: 2,
+      dernierPublieMs: MAINTENANT - 2 * JOUR,
+    });
+    expect(deciderRequalif(enCours)).toEqual({ requalifier: false, motif: "mesure" });
+  });
+
+  it("relance au plafond, même si la résolution traîne encore", () => {
+    const echu = base({
+      mesures: 0,
+      moyenne: null,
+      enAttenteMesure: 2,
+      dernierPublieMs: MAINTENANT - 3 * JOUR,
+    });
+    expect(deciderRequalif(echu)).toEqual({
+      requalifier: true,
+      surMesure: false,
+      motif: "delai",
+    });
+  });
+
+  it("ne gèle pas un cycle dont la date de publication manque", () => {
+    const sansDate = base({
+      mesures: 0,
+      moyenne: null,
+      enAttenteMesure: 2,
+      dernierPublieMs: Number.NaN,
+    });
+    expect(deciderRequalif(sansDate)).toEqual({
+      requalifier: true,
+      surMesure: false,
+      motif: "delai",
+    });
+  });
+
+  it("un cycle terminé finit toujours par repartir", () => {
+    // Le point de la bascule : quelle que soit la répartition des mesures,
+    // aucun cycle fini ne reste bloqué au-delà du plafond.
+    for (const mesures of [0, 1, 2]) {
+      for (const introuvables of [0, 1, 2]) {
+        for (const enAttenteMesure of [0, 1, 2]) {
+          if (mesures + introuvables + enAttenteMesure !== 2) continue;
+          const d = deciderRequalif(
+            base({
+              mesures,
+              introuvables,
+              enAttenteMesure,
+              moyenne: mesures > 0 ? 3_000 : null,
+              dernierPublieMs: MAINTENANT - 10 * JOUR,
+            }),
+          );
+          expect(d.requalifier).toBe(true);
+        }
+      }
+    }
+  });
+
+  it("lit directement une ligne de contenu_tier_etat", () => {
+    const d = decisionDepuisEtat(
+      {
+        passages_prevus: 2,
+        publies: 2,
+        mesures: 0,
+        introuvables: 2,
+        en_attente_mesure: 0,
+        moyenne_vues: null,
+        dernier_publie_at: "2026-09-13T08:00:00Z",
+      },
+      { recul_jours: 1, requalif_max_jours: 3 },
+      new Date(MAINTENANT),
+    );
+    expect(d).toEqual({ requalifier: true, surMesure: false, motif: "introuvable" });
+  });
+
+  it("traite une date illisible comme absente", () => {
+    const d = decisionDepuisEtat(
+      {
+        passages_prevus: 1,
+        publies: 1,
+        mesures: 0,
+        introuvables: 0,
+        en_attente_mesure: 1,
+        moyenne_vues: null,
+        dernier_publie_at: "pas une date",
+      },
+      { recul_jours: 1, requalif_max_jours: 3 },
+      new Date(MAINTENANT),
+    );
+    expect(d).toEqual({ requalifier: true, surMesure: false, motif: "delai" });
   });
 });
 

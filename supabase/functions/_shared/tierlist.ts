@@ -197,6 +197,136 @@ export function requalifier(e: RequalifEntree): RequalifSortie {
 }
 
 // ---------------------------------------------------------------------------
+// Quand requalifier — et quoi faire faute de mesure
+// ---------------------------------------------------------------------------
+
+/** Ce qui retient une requalification qui ne part pas. */
+export type MotifAttente =
+  /** Le cycle n'a pas fini ses passages (ou le contenu dort en D). */
+  | "passages"
+  /** Dernier passage trop frais — les vues n'ont pas fini de monter. */
+  | "recul"
+  /** Cycle fini, une mesure peut encore tomber, délai plafond pas atteint. */
+  | "mesure";
+
+/** Pourquoi un cycle repart sans note de performance. */
+export type MotifSansMesure =
+  /** Plus aucune mesure n'arrivera — les posts sont introuvables. */
+  | "introuvable"
+  /** Le délai plafond est passé, on ne l'attend plus. */
+  | "delai";
+
+export type DecisionRequalif =
+  | { requalifier: false; motif: MotifAttente }
+  | { requalifier: true; surMesure: true }
+  | { requalifier: true; surMesure: false; motif: MotifSansMesure };
+
+export interface DecisionRequalifEntree {
+  /** Passages publiés du cycle courant (hors rappels J+7). */
+  publies: number;
+  passagesPrevus: number;
+  /** Publiés portant une mesure de vues — informatif, `moyenne` décide. */
+  mesures: number;
+  /** Publiés dont le post ne sera jamais retrouvé (`introuvable`). */
+  introuvables: number;
+  /** Publiés dont la mesure peut encore tomber. */
+  enAttenteMesure: number;
+  /** `m` — null tant qu'aucun passage n'est mesuré. */
+  moyenne: number | null;
+  /** Dernier passage publié du cycle, ms epoch ; `NaN` si la date manque. */
+  dernierPublieMs: number;
+  maintenantMs: number;
+  /** Recul minimum sur le dernier passage avant de juger. */
+  reculJours: number;
+  /** Plafond d'attente d'une mesure avant relance au même rang. */
+  requalifMaxJours: number;
+}
+
+const JOUR_MS = 86_400_000;
+
+/**
+ * Décide si un cycle se requalifie maintenant, et sur quelle base.
+ *
+ * L'invariant : **un cycle terminé finit toujours par repartir**. Avant, un
+ * slideshow qui avait fait tous ses passages sans qu'aucune vue soit relevée
+ * restait bloqué pour de bon — `restants = 0` le sortait du pool, l'absence de
+ * `m` empêchait la requalification de le relancer. Personne ne le voyait.
+ *
+ * Deux portes de sortie sans mesure, dans cet ordre :
+ *
+ *   1. **plus rien à attendre** — tous les passages publiés sont `introuvable`
+ *      (la résolution a rendu les armes, cf. docs/resolution-publication.md) :
+ *      aucune mesure ne viendra, inutile de patienter ;
+ *   2. **délai plafond** — `requalifMaxJours` depuis le dernier passage : filet
+ *      pour une résolution coincée ou un relevé de vues en panne.
+ *
+ * Dans les deux cas le cycle repart au **même rang** : pas de dégradation sur
+ * une mesure absente, pas de promotion non méritée.
+ */
+export function deciderRequalif(e: DecisionRequalifEntree): DecisionRequalif {
+  // Un contenu en D (0 passage) dort : il n'est pas dans un cycle.
+  if (e.passagesPrevus <= 0) return { requalifier: false, motif: "passages" };
+  if (e.publies < e.passagesPrevus) return { requalifier: false, motif: "passages" };
+
+  // Vues encore trop fraîches — on requalifiera au prochain minuit.
+  const age = e.maintenantMs - e.dernierPublieMs;
+  const date = Number.isFinite(e.dernierPublieMs);
+  if (date && age < e.reculJours * JOUR_MS) return { requalifier: false, motif: "recul" };
+
+  // Au moins une mesure : le barème s'applique, sur ce qui est mesuré. `m` non
+  // nul vaut `mesures > 0` par construction de la vue — on s'aligne sur `m`,
+  // c'est lui que le barème consomme.
+  if (e.moyenne !== null) return { requalifier: true, surMesure: true };
+
+  if (e.enAttenteMesure <= 0 && e.introuvables > 0) {
+    return { requalifier: true, surMesure: false, motif: "introuvable" };
+  }
+
+  // Une date de publication absente ne doit pas geler le cycle : échue d'office.
+  if (!date || age >= e.requalifMaxJours * JOUR_MS) {
+    return { requalifier: true, surMesure: false, motif: "delai" };
+  }
+
+  return { requalifier: false, motif: "mesure" };
+}
+
+/** Colonnes de `contenu_tier_etat` dont dépend la décision. */
+export interface EtatCycle {
+  passages_prevus: number;
+  publies: number;
+  mesures: number;
+  introuvables: number;
+  en_attente_mesure: number;
+  moyenne_vues: number | null;
+  dernier_publie_at: string | null;
+}
+
+/**
+ * Même décision, depuis une ligne de `contenu_tier_etat` — l'admin affiche
+ * ainsi exactement ce que minuit fera, sans le faire tourner.
+ */
+export function decisionDepuisEtat(
+  etat: EtatCycle,
+  reglages: { recul_jours: number; requalif_max_jours: number },
+  maintenant: Date = new Date(),
+): DecisionRequalif {
+  return deciderRequalif({
+    publies: etat.publies ?? 0,
+    passagesPrevus: etat.passages_prevus ?? 0,
+    mesures: etat.mesures ?? 0,
+    introuvables: etat.introuvables ?? 0,
+    enAttenteMesure: etat.en_attente_mesure ?? 0,
+    moyenne: etat.moyenne_vues ?? null,
+    dernierPublieMs: etat.dernier_publie_at
+      ? Date.parse(etat.dernier_publie_at)
+      : Number.NaN,
+    maintenantMs: maintenant.getTime(),
+    reculJours: reglages.recul_jours,
+    requalifMaxJours: reglages.requalif_max_jours,
+  });
+}
+
+// ---------------------------------------------------------------------------
 // Réglages
 // ---------------------------------------------------------------------------
 
@@ -213,6 +343,8 @@ export interface TierlistReglages {
   remixParRequalif: number;
   /** Passages offerts à un contenu en D repêché pour combler le pool. */
   repechagePassages: number;
+  /** Jours d'attente d'une mesure avant de relancer le cycle au même rang. */
+  requalifMaxJours: number;
 }
 
 export async function chargerTierlistReglages(
@@ -231,6 +363,7 @@ export async function chargerTierlistReglages(
     rappelMax: v.rappel_max ?? 3,
     remixParRequalif: v.remix_par_requalif ?? 3,
     repechagePassages: v.repechage_passages ?? 1,
+    requalifMaxJours: v.requalif_max_jours ?? 3,
   };
 }
 
@@ -249,6 +382,12 @@ export interface TierEtat {
   moyenne_vues: number | null;
   max_vues: number | null;
   nb_150k: number;
+  /** Publiés portant une mesure de vues. */
+  mesures: number;
+  /** Publiés dont le post ne sera jamais retrouvé. */
+  introuvables: number;
+  /** Publiés dont la mesure peut encore tomber. */
+  en_attente_mesure: number;
   dernier_publie_at: string | null;
 }
 
@@ -262,14 +401,34 @@ export interface RequalifDetail {
   passages: number;
   regle: string;
   remix: number;
+  /** Relancé faute de mesure — `avant` et `apres` sont alors identiques. */
+  sansMesure?: MotifSansMesure;
+}
+
+/** Cycle terminé qui attend encore une mesure — remonté pour l'admin. */
+export interface AttenteMesureDetail {
+  contenuId: string;
+  titre: string;
+  tier: Tier;
+  publies: number;
+  introuvables: number;
+  enAttenteMesure: number;
+  dernierPublieAt: string | null;
 }
 
 export interface RequalificationResultat {
   examines: number;
   requalifies: number;
   enAttente: number;
+  /** Parmi les requalifiés : ceux relancés au même rang, sans mesure. */
+  sansMesure: number;
   remixDebloques: number;
   details: RequalifDetail[];
+  /**
+   * Cycles finis encore en attente d'une mesure, sous le délai plafond. Le
+   * comptage `enAttente` mélange tout ; ceux-là sont les seuls à risque.
+   */
+  attentesMesure: AttenteMesureDetail[];
 }
 
 /**
@@ -279,6 +438,10 @@ export interface RequalificationResultat {
  * passage assigné mais jamais publié n'est pas consommé — il revient au pool)
  * et que le dernier publié a pris `reculJours` jour(s), le temps que les vues
  * remontent.
+ *
+ * Faute de mesure, le cycle repart quand même au même rang — dès que plus
+ * aucune vue ne peut tomber, ou au bout de `requalifMaxJours`. Voir
+ * `deciderRequalif` : un cycle terminé ne doit jamais rester bloqué.
  */
 export async function requalifierContenus(
   supabase: Supabase,
@@ -290,7 +453,7 @@ export async function requalifierContenus(
   let q = supabase
     .from("contenu_tier_etat")
     .select(
-      "contenu_id, tier, passages_prevus, tier_cycle, publies, en_vol, restants, moyenne_vues, max_vues, nb_150k, dernier_publie_at",
+      "contenu_id, tier, passages_prevus, tier_cycle, publies, en_vol, restants, moyenne_vues, max_vues, nb_150k, mesures, introuvables, en_attente_mesure, dernier_publie_at",
     )
     .gt("passages_prevus", 0);
   if (opts.contenuId) q = q.eq("contenu_id", opts.contenuId);
@@ -303,34 +466,44 @@ export async function requalifierContenus(
     examines: etats.length,
     requalifies: 0,
     enAttente: 0,
+    sansMesure: 0,
     remixDebloques: 0,
     details: [],
+    attentesMesure: [],
   };
 
-  const mursOk: TierEtat[] = [];
-  const reculMs = reglages.reculJours * 86_400_000;
+  type Mur = { etat: TierEtat; decision: Extract<DecisionRequalif, { requalifier: true }> };
+  const mursOk: Mur[] = [];
+  const attentes: TierEtat[] = [];
+  const maintenantMs = Date.now();
   for (const e of etats) {
-    if (e.publies < e.passages_prevus) {
+    const decision = deciderRequalif({
+      publies: e.publies,
+      passagesPrevus: e.passages_prevus,
+      mesures: e.mesures ?? 0,
+      introuvables: e.introuvables ?? 0,
+      enAttenteMesure: e.en_attente_mesure ?? 0,
+      moyenne: e.moyenne_vues ?? null,
+      dernierPublieMs: e.dernier_publie_at ? Date.parse(e.dernier_publie_at) : Number.NaN,
+      maintenantMs,
+      reculJours: reglages.reculJours,
+      requalifMaxJours: reglages.requalifMaxJours,
+    });
+    if (!decision.requalifier) {
       out.enAttente += 1;
+      // Cycle fini qui attend une mesure : le seul cas qui peut traîner, donc
+      // le seul qu'on remonte nommément.
+      if (decision.motif === "mesure") attentes.push(e);
       continue;
     }
-    const dernier = e.dernier_publie_at ? Date.parse(e.dernier_publie_at) : NaN;
-    if (Number.isFinite(dernier) && Date.now() - dernier < reculMs) {
-      // Vues encore trop fraîches — on requalifiera au prochain minuit.
-      out.enAttente += 1;
-      continue;
-    }
-    if (e.moyenne_vues === null || e.moyenne_vues === undefined) {
-      // Aucune vue relevée (scrape en échec) — surtout ne pas dégrader en D
-      // sur une mesure absente.
-      out.enAttente += 1;
-      continue;
-    }
-    mursOk.push(e);
+    mursOk.push({ etat: e, decision });
   }
-  if (mursOk.length === 0) return out;
+  if (mursOk.length === 0 && attentes.length === 0) return out;
 
-  const ids = mursOk.map((e) => e.contenu_id);
+  const ids = [
+    ...mursOk.map((m) => m.etat.contenu_id),
+    ...attentes.map((e) => e.contenu_id),
+  ];
   const { data: titres } = await supabase
     .from("contenus")
     .select("id, titre")
@@ -339,20 +512,39 @@ export async function requalifierContenus(
     (titres ?? []).map((c) => [c.id as string, (c.titre as string) ?? ""]),
   );
 
-  for (const e of mursOk) {
+  for (const e of attentes) {
+    out.attentesMesure.push({
+      contenuId: e.contenu_id,
+      titre: titreParId.get(e.contenu_id) ?? "",
+      tier: e.tier,
+      publies: e.publies,
+      introuvables: e.introuvables ?? 0,
+      enAttenteMesure: e.en_attente_mesure ?? 0,
+      dernierPublieAt: e.dernier_publie_at,
+    });
+  }
+
+  for (const { etat: e, decision } of mursOk) {
     if (!estTier(e.tier)) continue;
     const moyenne = Number(e.moyenne_vues ?? 0);
     const maxVues = Number(e.max_vues ?? 0);
-    const verdict = requalifier({
-      tier: e.tier,
-      moyenne,
-      maxVues,
-      nb150k: e.nb_150k ?? 0,
-    });
+    // Sans mesure, on relance au même rang : le barème n'a rien à mordre, et
+    // dégrader sur une absence de données punirait un relevé en panne.
+    const verdict = decision.surMesure
+      ? requalifier({ tier: e.tier, moyenne, maxVues, nb150k: e.nb_150k ?? 0 })
+      : {
+        tier: e.tier,
+        regle: decision.motif === "introuvable"
+          ? `aucune mesure possible (${e.introuvables ?? 0} post(s) introuvable(s)) — cycle relancé au même rang`
+          : `aucune vue relevée après ${reglages.requalifMaxJours} j — cycle relancé au même rang`,
+      };
     const passages = passagesPourTier(verdict.tier);
     const cycle = e.tier_cycle + 1;
-    // Rester / arriver en S+ redébloque 3 remix, envoyés en A-tier.
-    const remix = verdict.tier === "S+" ? reglages.remixParRequalif : 0;
+    // Rester / arriver en S+ redébloque 3 remix, envoyés en A-tier — sur une
+    // vraie mesure seulement : une relance à l'aveugle n'a rien prouvé.
+    const remix = decision.surMesure && verdict.tier === "S+"
+      ? reglages.remixParRequalif
+      : 0;
 
     const detail: RequalifDetail = {
       contenuId: e.contenu_id,
@@ -364,7 +556,25 @@ export async function requalifierContenus(
       passages,
       regle: verdict.regle,
       remix,
+      ...(decision.surMesure ? {} : { sansMesure: decision.motif }),
     };
+
+    // `m` / `max_vues` restent absents d'une relance sans mesure : écrire 0
+    // laisserait croire à un cycle mesuré à zéro vue.
+    const rapport: Record<string, unknown> = {
+      avant: e.tier,
+      apres: verdict.tier,
+      regle: verdict.regle,
+      nb_150k: e.nb_150k ?? 0,
+      passages_mesures: e.publies,
+      cycle,
+    };
+    if (decision.surMesure) {
+      rapport.m = Math.round(moyenne);
+      rapport.max_vues = maxVues;
+    } else {
+      rapport.sans_mesure = decision.motif;
+    }
 
     if (!dryRun) {
       const { error: errU } = await supabase
@@ -374,16 +584,7 @@ export async function requalifierContenus(
           passages_prevus: passages,
           tier_cycle: cycle,
           tier_maj_at: new Date().toISOString(),
-          tier_rapport: {
-            avant: e.tier,
-            apres: verdict.tier,
-            regle: verdict.regle,
-            m: Math.round(moyenne),
-            max_vues: maxVues,
-            nb_150k: e.nb_150k ?? 0,
-            passages_mesures: e.publies,
-            cycle,
-          },
+          tier_rapport: rapport,
         })
         .eq("id", e.contenu_id)
         // Garde-fou concurrence : personne d'autre n'a fait tourner le cycle.
@@ -404,6 +605,7 @@ export async function requalifierContenus(
     }
 
     out.requalifies += 1;
+    if (!decision.surMesure) out.sansMesure += 1;
     out.remixDebloques += remix;
     out.details.push(detail);
   }

@@ -1545,6 +1545,22 @@ export const fr = {
       tierPassages_other: "{{count}} passages à effectuer",
       passagesDetail: "{{publies}}/{{prevus}} publiés · {{envol}} en vol",
       passagesRestants: "{{restants}}/{{prevus}} passage(s) à faire",
+      passagesPublies: "{{publies}}/{{prevus}} publié(s)",
+      requalifBloquee: "requalif en attente",
+      requalifMaintenant: "Requalifier maintenant",
+      requalifEcheance: "Relance d'office le {{date}}.",
+      requalif: {
+        recul:
+          "Cycle terminé — on laisse les vues monter avant de requalifier (au prochain minuit).",
+        prete:
+          "Cycle terminé, {{mesures}} passage(s) mesuré(s) : requalification au prochain minuit.",
+        mesure:
+          "Cycle terminé mais aucune vue relevée ({{introuvables}} post(s) introuvable(s), {{attente}} en cours de résolution). Sans mesure d'ici {{jours}} j, le cycle repart au même rang.",
+        sansMesure_introuvable:
+          "Cycle terminé, aucun post retrouvé : plus aucune vue n'arrivera. Le cycle repart au même rang au prochain minuit.",
+        sansMesure_delai:
+          "Cycle terminé, aucune vue relevée après {{jours}} j : le cycle repart au même rang au prochain minuit.",
+      },
       moyenneVues: "m (moyenne du cycle)",
       meilleurPassage: "Meilleur passage",
       derniereRequalif: "Dernière requalif : {{avant}} → {{apres}} ({{regle}})",
@@ -1789,12 +1805,13 @@ export const fr = {
         "Le rang tierlist décide de la fréquence d'un post (D 0 · C 1 · B 2 · A 4 · S 8 · S+ 16). Dans le pool du jour, le tirage est au hasard. Pool épuisé → un post en D est repêché avec ce nombre de passages.",
       tierlistParams: "Tierlist & requalification",
       tierlistParamsAide:
-        "Un post est requalifié quand tous ses passages sont publiés et ont pris le recul indiqué : m = moyenne des vues du cycle. Un passage au-delà du seuil de rappel repart sur le même compte à J+7, hors quota et hors calcul de m.",
+        "Un post est requalifié quand tous ses passages sont publiés et ont pris le recul indiqué : m = moyenne des vues du cycle. Faute de mesure, le cycle repart au même rang — dès que plus aucune vue ne peut tomber, ou au bout de l'attente max. Un passage au-delà du seuil de rappel repart sur le même compte à J+7, hors quota et hors calcul de m.",
       reculJours: "Recul avant requalif (jours)",
       rappelVues: "Vues déclenchant le rappel",
       rappelJours: "Décalage du rappel (jours)",
       rappelMax: "Rappels enchaînés max",
       remixParRequalif: "Remix débloqués par S+",
+      requalifMaxJours: "Attente max d'une mesure (jours)",
       varSeuil: "Variation — seuil score",
       varPassages: "Variation — min. passages",
       varAge: "Variation — âge (jours)",

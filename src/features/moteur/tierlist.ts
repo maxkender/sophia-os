@@ -180,6 +180,136 @@ export function requalifier(e: RequalifEntree): RequalifSortie {
 }
 
 // ---------------------------------------------------------------------------
+// Quand requalifier — et quoi faire faute de mesure
+// ---------------------------------------------------------------------------
+
+/** Ce qui retient une requalification qui ne part pas. */
+export type MotifAttente =
+  /** Le cycle n'a pas fini ses passages (ou le contenu dort en D). */
+  | "passages"
+  /** Dernier passage trop frais — les vues n'ont pas fini de monter. */
+  | "recul"
+  /** Cycle fini, une mesure peut encore tomber, délai plafond pas atteint. */
+  | "mesure";
+
+/** Pourquoi un cycle repart sans note de performance. */
+export type MotifSansMesure =
+  /** Plus aucune mesure n'arrivera — les posts sont introuvables. */
+  | "introuvable"
+  /** Le délai plafond est passé, on ne l'attend plus. */
+  | "delai";
+
+export type DecisionRequalif =
+  | { requalifier: false; motif: MotifAttente }
+  | { requalifier: true; surMesure: true }
+  | { requalifier: true; surMesure: false; motif: MotifSansMesure };
+
+export interface DecisionRequalifEntree {
+  /** Passages publiés du cycle courant (hors rappels J+7). */
+  publies: number;
+  passagesPrevus: number;
+  /** Publiés portant une mesure de vues — informatif, `moyenne` décide. */
+  mesures: number;
+  /** Publiés dont le post ne sera jamais retrouvé (`introuvable`). */
+  introuvables: number;
+  /** Publiés dont la mesure peut encore tomber. */
+  enAttenteMesure: number;
+  /** `m` — null tant qu'aucun passage n'est mesuré. */
+  moyenne: number | null;
+  /** Dernier passage publié du cycle, ms epoch ; `NaN` si la date manque. */
+  dernierPublieMs: number;
+  maintenantMs: number;
+  /** Recul minimum sur le dernier passage avant de juger. */
+  reculJours: number;
+  /** Plafond d'attente d'une mesure avant relance au même rang. */
+  requalifMaxJours: number;
+}
+
+const JOUR_MS = 86_400_000;
+
+/**
+ * Décide si un cycle se requalifie maintenant, et sur quelle base.
+ *
+ * L'invariant : **un cycle terminé finit toujours par repartir**. Avant, un
+ * slideshow qui avait fait tous ses passages sans qu'aucune vue soit relevée
+ * restait bloqué pour de bon — `restants = 0` le sortait du pool, l'absence de
+ * `m` empêchait la requalification de le relancer. Personne ne le voyait.
+ *
+ * Deux portes de sortie sans mesure, dans cet ordre :
+ *
+ *   1. **plus rien à attendre** — tous les passages publiés sont `introuvable`
+ *      (la résolution a rendu les armes, cf. docs/resolution-publication.md) :
+ *      aucune mesure ne viendra, inutile de patienter ;
+ *   2. **délai plafond** — `requalifMaxJours` depuis le dernier passage : filet
+ *      pour une résolution coincée ou un relevé de vues en panne.
+ *
+ * Dans les deux cas le cycle repart au **même rang** : pas de dégradation sur
+ * une mesure absente, pas de promotion non méritée.
+ */
+export function deciderRequalif(e: DecisionRequalifEntree): DecisionRequalif {
+  // Un contenu en D (0 passage) dort : il n'est pas dans un cycle.
+  if (e.passagesPrevus <= 0) return { requalifier: false, motif: "passages" };
+  if (e.publies < e.passagesPrevus) return { requalifier: false, motif: "passages" };
+
+  // Vues encore trop fraîches — on requalifiera au prochain minuit.
+  const age = e.maintenantMs - e.dernierPublieMs;
+  const date = Number.isFinite(e.dernierPublieMs);
+  if (date && age < e.reculJours * JOUR_MS) return { requalifier: false, motif: "recul" };
+
+  // Au moins une mesure : le barème s'applique, sur ce qui est mesuré. `m` non
+  // nul vaut `mesures > 0` par construction de la vue — on s'aligne sur `m`,
+  // c'est lui que le barème consomme.
+  if (e.moyenne !== null) return { requalifier: true, surMesure: true };
+
+  if (e.enAttenteMesure <= 0 && e.introuvables > 0) {
+    return { requalifier: true, surMesure: false, motif: "introuvable" };
+  }
+
+  // Une date de publication absente ne doit pas geler le cycle : échue d'office.
+  if (!date || age >= e.requalifMaxJours * JOUR_MS) {
+    return { requalifier: true, surMesure: false, motif: "delai" };
+  }
+
+  return { requalifier: false, motif: "mesure" };
+}
+
+/** Colonnes de `contenu_tier_etat` dont dépend la décision. */
+export interface EtatCycle {
+  passages_prevus: number;
+  publies: number;
+  mesures: number;
+  introuvables: number;
+  en_attente_mesure: number;
+  moyenne_vues: number | null;
+  dernier_publie_at: string | null;
+}
+
+/**
+ * Même décision, depuis une ligne de `contenu_tier_etat` — l'admin affiche
+ * ainsi exactement ce que minuit fera, sans le faire tourner.
+ */
+export function decisionDepuisEtat(
+  etat: EtatCycle,
+  reglages: { recul_jours: number; requalif_max_jours: number },
+  maintenant: Date = new Date(),
+): DecisionRequalif {
+  return deciderRequalif({
+    publies: etat.publies ?? 0,
+    passagesPrevus: etat.passages_prevus ?? 0,
+    mesures: etat.mesures ?? 0,
+    introuvables: etat.introuvables ?? 0,
+    enAttenteMesure: etat.en_attente_mesure ?? 0,
+    moyenne: etat.moyenne_vues ?? null,
+    dernierPublieMs: etat.dernier_publie_at
+      ? Date.parse(etat.dernier_publie_at)
+      : Number.NaN,
+    maintenantMs: maintenant.getTime(),
+    reculJours: reglages.recul_jours,
+    requalifMaxJours: reglages.requalif_max_jours,
+  });
+}
+
+// ---------------------------------------------------------------------------
 // Étalement des rappels J+7
 // ---------------------------------------------------------------------------
 

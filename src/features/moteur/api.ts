@@ -3399,6 +3399,7 @@ export async function lireReglages(): Promise<Reglages> {
       rappel_max: 3,
       remix_par_requalif: 3,
       repechage_passages: 1,
+      requalif_max_jours: 3,
       ...((map.get("tierlist") as Partial<Reglages["tierlist"]> | undefined) ?? {}),
     },
     classement_comptes: lireClassementReglages(map.get("classement_comptes")),
@@ -3901,6 +3902,24 @@ export const scraperSourceVersContenus = (compteReferenceId: string) =>
 /** Pipeline minuit v-next : stats → (scores PAUSE) → assignation contenus. */
 export const lancerMinuitVnext = (body: Record<string, unknown> = {}) =>
   invoke<{ ok: boolean; saute?: boolean; jour?: string }>("minuit-vnext", body);
+
+/** Résultat de l'étape `tierlist` pour un seul contenu. */
+export interface RelanceRequalif {
+  requalifies: number;
+  enAttente: number;
+  sansMesure: number;
+  details?: Array<{ avant: Tier; apres: Tier; regle: string }>;
+}
+
+/**
+ * Requalifie un slideshow sans attendre minuit — `forcer` court-circuite le
+ * flag moteur et la pause d'assignation, c'est une action admin explicite.
+ */
+export const relancerRequalifContenu = (contenuId: string) =>
+  invoke<{ ok: boolean; saute?: boolean; raison?: string; tierlist?: RelanceRequalif }>(
+    "minuit-vnext",
+    { etapes: ["tierlist"], contenuId, forcer: true },
+  );
 
 export type PapierStatut =
   | "queued"
@@ -6415,7 +6434,7 @@ async function enrichirContenusListe(contenus: Contenu[]): Promise<ContenuListe[
       supabase
         .from("contenu_tier_etat")
         .select(
-          "contenu_id, tier, passages_prevus, tier_cycle, tier_maj_at, publies, en_vol, restants, moyenne_vues, max_vues, nb_150k, dernier_publie_at",
+          "contenu_id, tier, passages_prevus, tier_cycle, tier_maj_at, publies, en_vol, restants, moyenne_vues, max_vues, nb_150k, mesures, introuvables, en_attente_mesure, dernier_publie_at",
         )
         .in("contenu_id", ids),
       metasMediasPropres(contenus),
@@ -6589,7 +6608,7 @@ export async function lireSlideshow(id: string): Promise<SlideshowDetail | null>
   if (!contenu) return null;
 
   const refId = contenu.compte_reference_id as string | null;
-  const [{ data: langues }, { data: passages }, { data: liens }, metas, ref] =
+  const [{ data: langues }, { data: passages }, { data: liens }, metas, ref, { data: tierEtat }] =
     await Promise.all([
       supabase
         .from("contenu_langues")
@@ -6612,6 +6631,15 @@ export async function lireSlideshow(id: string): Promise<SlideshowDetail | null>
             .eq("id", refId)
             .maybeSingle()
         : Promise.resolve({ data: null }),
+      // Avancement du cycle : la liste l'enrichit, le détail l'oubliait — d'où
+      // des passages à 0/N et un `m` à « — » sur la fiche, quoi qu'il arrive.
+      supabase
+        .from("contenu_tier_etat")
+        .select(
+          "contenu_id, tier, passages_prevus, tier_cycle, tier_maj_at, publies, en_vol, restants, moyenne_vues, max_vues, nb_150k, mesures, introuvables, en_attente_mesure, dernier_publie_at",
+        )
+        .eq("contenu_id", id)
+        .maybeSingle(),
     ]);
 
   const source: { handle_tiktok: string } | null = ref.data ?? null;
@@ -6637,6 +6665,7 @@ export async function lireSlideshow(id: string): Promise<SlideshowDetail | null>
     })),
     langues: (langues ?? []) as ContenuLangue[],
     passages: (passages ?? []) as unknown as SlideshowDetail["passages"],
+    tierEtat: (tierEtat as ContenuTierEtat | null) ?? null,
     source,
   };
 }

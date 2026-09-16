@@ -208,9 +208,13 @@ Deno.serve(async (request) => {
         contenuId: body?.contenuId ?? null,
         dryRun: Boolean(body?.dryRun),
       });
-      out.rappels = await programmerRappelsJ7(supabase, {
-        dryRun: Boolean(body?.dryRun),
-      });
+      // Un contenu isolé (bouton « requalifier » de l'admin) ne déclenche pas
+      // le scan global des rappels : 30 jours de passages pour un seul clic.
+      if (!body?.contenuId) {
+        out.rappels = await programmerRappelsJ7(supabase, {
+          dryRun: Boolean(body?.dryRun),
+        });
+      }
     }
     if (etapes.includes("assignation")) {
       // Un seul compte : await synchrone. Tous les comptes : drain auto-chaîné

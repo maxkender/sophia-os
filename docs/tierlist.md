@@ -47,8 +47,8 @@ sur les posts dont le cycle est terminé :
   n'est pas consommé, il retourne au pool après 2 jours ;
 - le dernier publié a pris `tierlist.recul_jours` jour(s), le temps que les vues
   remontent ;
-- au moins une vue a été relevée (sinon on attend — jamais de dégradation sur une
-  mesure absente).
+- au moins une vue a été relevée — sinon le cycle repart **au même rang** (voir
+  ci-dessous), jamais de dégradation sur une mesure absente.
 
 `m` = moyenne des vues des passages publiés **du cycle** (les rappels J+7 sont
 exclus). Les règles « un passage à plus de 30k / 150k » sont **prioritaires** sur
@@ -85,6 +85,39 @@ cycle (`contenus.tier_cycle`) est incrémenté — les passages du cycle précé
 sortent de la fenêtre de mesure.
 
 Un post qui tombe en D a 0 passage : il dort jusqu'à un repêchage.
+
+### Un cycle terminé repart toujours
+
+Un post qui a fait tous ses passages sort du pool (`restants = 0`). S'il fallait
+une mesure pour le requalifier, un cycle jamais mesuré le condamnait : hors du
+pool, jamais relancé, et rien ne le signalait. En prod, 11 % des posts publiés ne
+portent aucune mesure (voir `docs/resolution-publication.md`).
+
+La vue distingue donc trois états parmi les passages publiés du cycle :
+
+| Colonne | Ce que ça veut dire |
+| --- | --- |
+| `mesures` | une mesure de vues est tombée |
+| `introuvables` | la résolution a rendu les armes (`resolution_statut = 'introuvable'`) — **aucune mesure ne viendra jamais** |
+| `en_attente_mesure` | résolution ou relevé encore en cours |
+
+`deciderRequalif` s'en sert pour garantir qu'un cycle terminé finit toujours par
+repartir :
+
+1. au moins un passage mesuré → barème normal, sur `m` ;
+2. `en_attente_mesure = 0` et que des introuvables → plus rien à attendre, le
+   cycle repart **au même rang**, tout de suite ;
+3. `tierlist.requalif_max_jours` (3 par défaut) depuis le dernier passage → filet
+   pour une résolution coincée ou un relevé en panne : même relance au même rang ;
+4. sinon on patiente encore.
+
+Une relance sans mesure ne débloque pas de remix (rien n'a été prouvé) et écrit
+`tier_rapport.sans_mesure` = `introuvable` | `delai`. Un `dernier_publie_at`
+absent — créneau coché sans horodatage — tombe en repli sur la date prévue, et à
+défaut compte comme échu : rien ne doit geler un cycle.
+
+L'admin voit l'état sur la fiche du slideshow (même fonction, donc même verdict
+que minuit) et peut forcer la requalification sans attendre le cron.
 
 ## Répartition quotidienne
 
@@ -159,7 +192,8 @@ créer les remix, les rattacher au même label, et passer la ligne à `consomme`
 `contenus` : `tier`, `passages_prevus`, `tier_cycle`, `tier_maj_at`, `tier_rapport`
 `passages` : `tier_cycle`, `est_rappel`, `rappel_rang`, `rappel_source_id`
 `remix_debloques` : file des remix débloqués par un S+
-`contenu_tier_etat` (vue) : publiés / en vol / restants / `m` / max / nb ≥ 150k
+`contenu_tier_etat` (vue) : publiés / en vol / restants / `m` / max / nb ≥ 150k /
+mesurés / introuvables / en attente de mesure
 
 ## Migration des posts existants
 
@@ -187,11 +221,12 @@ Les posts repartent au cycle 1 avec le compteur plein : les passages historiques
 | `rappel_max`         | 3      | rappels enchaînés maximum                        |
 | `remix_par_requalif` | 3      | remix débloqués par une requalification en S+    |
 | `repechage_passages` | 1      | passages rendus à un D repêché                   |
+| `requalif_max_jours` | 3      | attente max d'une mesure avant relance au même rang |
 
 ## Où c'est dans le code
 
-- `src/features/moteur/tierlist.ts` — barèmes, table de requalification et
-  bandes de tirage (testé)
+- `src/features/moteur/tierlist.ts` — barèmes, table de requalification,
+  `deciderRequalif` et bandes de tirage (testé)
 - `supabase/functions/_shared/tierlist.ts` — copie Deno + run de requalification
   et programmation des rappels
 - `supabase/functions/_shared/import_contenu.ts` — `assurerTierImport`

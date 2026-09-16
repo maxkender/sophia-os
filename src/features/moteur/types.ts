@@ -1,10 +1,10 @@
 import type { Classement, ClassementReglages, ModeleNudge } from "./classementComptes";
 import type { PapierFalUsage, ReglagesPapier } from "./papierReglages";
-import type { Tier } from "./tierlist";
+import type { MotifSansMesure, Tier } from "./tierlist";
 
 // Barèmes et table de requalification : voir `./tierlist`.
 export { PASSAGES_PAR_TIER, TIERS } from "./tierlist";
-export type { Tier } from "./tierlist";
+export type { MotifSansMesure, Tier } from "./tierlist";
 
 // Cases du classement des comptes : voir `./classementComptes`.
 export { CLASSEMENTS } from "./classementComptes";
@@ -285,6 +285,13 @@ export interface ContenuTierEtat {
   moyenne_vues: number | null;
   max_vues: number | null;
   nb_150k: number;
+  /** Publiés portant une mesure de vues. */
+  mesures: number;
+  /** Publiés dont le post ne sera jamais retrouvé (`introuvable`). */
+  introuvables: number;
+  /** Publiés dont la mesure peut encore tomber. */
+  en_attente_mesure: number;
+  /** Dernier passage publié — repli sur la date prévue faute d'horodatage. */
   dernier_publie_at: string | null;
 }
 
@@ -299,6 +306,8 @@ export interface TierRapport {
   nb_150k?: number;
   passages_mesures?: number;
   cycle?: number;
+  /** Cycle relancé au même rang faute de mesure (voir `deciderRequalif`). */
+  sans_mesure?: MotifSansMesure;
   elo?: number;
   seuil?: number;
   tier?: Tier;
@@ -318,6 +327,8 @@ export interface ReglagesTierlist {
   remix_par_requalif: number;
   /** Passages offerts à un contenu en D repêché pour combler le pool. */
   repechage_passages: number;
+  /** Jours d'attente d'une mesure avant de relancer le cycle au même rang. */
+  requalif_max_jours: number;
 }
 
 export interface ReglagesScoring {

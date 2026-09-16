@@ -43,6 +43,7 @@ import {
   renettoyerSlideContenu,
   renseignerLienPublie,
   majTierContenu,
+  relancerRequalifContenu,
   scannerVisageUgcMedia,
   setContenuUgcCompatible,
   setLabelsContenu,
@@ -59,8 +60,16 @@ import {
 } from "@/features/moteur/nettoyageEtapes";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { classeDirectionTexte, directionTexte, nomLangue } from "@/features/moteur/langues";
-import type { ContenuLangue, ContenuSlide, Media, Tier } from "@/features/moteur/types";
+import type {
+  ContenuLangue,
+  ContenuSlide,
+  ContenuTierEtat,
+  Media,
+  ReglagesTierlist,
+  Tier,
+} from "@/features/moteur/types";
 import { PASSAGES_PAR_TIER, TIERS } from "@/features/moteur/types";
+import { decisionDepuisEtat } from "@/features/moteur/tierlist";
 import { ugcVisages } from "@/features/moteur/ugcVisages";
 import {
   AGENTS_REIMPORT_PHOTOS,
@@ -68,6 +77,38 @@ import {
   executerEnLot,
 } from "@/lib/lot";
 import { cn } from "@/lib/utils";
+
+/**
+ * Où en est la requalification d'un cycle, en clair.
+ *
+ * Même décision que minuit (`decisionDepuisEtat`), pour que l'admin lise
+ * l'état réel au lieu d'un slideshow qui disparaît du pool sans un mot.
+ * `null` tant que le cycle n'a pas fini ses passages : rien à signaler.
+ */
+function etatRequalif(
+  etat: ContenuTierEtat | null | undefined,
+  tierlist: ReglagesTierlist | undefined,
+): { cle: string; alerte: boolean; echeance: string | null } | null {
+  if (!etat || !tierlist) return null;
+  const d = decisionDepuisEtat(etat, tierlist);
+  if (!d.requalifier && d.motif === "passages") return null;
+  if (!d.requalifier && d.motif === "recul") {
+    return { cle: "recul", alerte: false, echeance: null };
+  }
+  if (!d.requalifier) {
+    // En attente d'une mesure : dire quand la relance tombera d'office.
+    const dernier = etat.dernier_publie_at ? Date.parse(etat.dernier_publie_at) : Number.NaN;
+    const echeance = Number.isFinite(dernier)
+      ? new Date(dernier + tierlist.requalif_max_jours * 86_400_000).toISOString().slice(0, 10)
+      : null;
+    return { cle: "mesure", alerte: true, echeance };
+  }
+  return {
+    cle: d.surMesure ? "prete" : `sansMesure_${d.motif}`,
+    alerte: !d.surMesure,
+    echeance: null,
+  };
+}
 
 /** Couleur par rang — un S+ doit sauter aux yeux dans la grille. */
 const CLASSE_TIER: Record<Tier, string> = {
@@ -1121,6 +1162,19 @@ function DetailSlideshow({
     },
   });
 
+  const { data: reglagesDetail } = useQuery({
+    queryKey: ["reglages"],
+    queryFn: lireReglages,
+  });
+
+  const relancerRequalif = useMutation({
+    mutationFn: () => relancerRequalifContenu(id),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: ["slideshow", id] });
+      void queryClient.invalidateQueries({ queryKey: ["slideshows"] });
+    },
+  });
+
   React.useEffect(() => {
     if (!d) return;
     const langs = d.langues ?? [];
@@ -1435,6 +1489,47 @@ function DetailSlideshow({
                     : "—"}
                 </dd>
               </dl>
+              {(() => {
+                const etat = etatRequalif(d.tierEtat, reglagesDetail?.tierlist);
+                if (!etat) return null;
+                return (
+                  <div
+                    className={cn(
+                      "space-y-1.5 rounded border p-2",
+                      etat.alerte && "border-amber-500/40 bg-amber-500/5",
+                    )}
+                  >
+                    <p className="text-xs">
+                      {t(`slideshows.requalif.${etat.cle}`, {
+                        mesures: d.tierEtat?.mesures ?? 0,
+                        publies: d.tierEtat?.publies ?? 0,
+                        introuvables: d.tierEtat?.introuvables ?? 0,
+                        attente: d.tierEtat?.en_attente_mesure ?? 0,
+                        jours: reglagesDetail?.tierlist.requalif_max_jours ?? 3,
+                      })}
+                      {etat.echeance
+                        ? ` ${t("slideshows.requalifEcheance", { date: etat.echeance })}`
+                        : null}
+                    </p>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="h-7 text-xs"
+                      disabled={relancerRequalif.isPending}
+                      onClick={() => relancerRequalif.mutate()}
+                    >
+                      {relancerRequalif.isPending
+                        ? t("common.loading")
+                        : t("slideshows.requalifMaintenant")}
+                    </Button>
+                    {relancerRequalif.isError ? (
+                      <p className="text-xs text-destructive">
+                        {(relancerRequalif.error as Error).message}
+                      </p>
+                    ) : null}
+                  </div>
+                );
+              })()}
               {d.tier_rapport?.regle ? (
                 <p className="text-xs text-muted-foreground">
                   {t("slideshows.derniereRequalif", {
@@ -1697,6 +1792,10 @@ export function AdminSlideshowsPage() {
     enabled: Boolean(applicationId),
   });
 
+  const reglages = useQuery({
+    queryKey: ["reglages"],
+    queryFn: lireReglages,
+  });
   const statsComptes = useQuery({
     queryKey: ["slideshows", "stats-comptes"],
     queryFn: statsSlideshowsParSource,
@@ -2166,12 +2265,23 @@ export function AdminSlideshowsPage() {
                     </div>
                     <div className="flex flex-wrap items-center gap-1">
                       <BadgeTier tier={c.tier} />
-                      <span className="text-[10px] tabular-nums text-muted-foreground">
-                        {t("slideshows.passagesRestants", {
+                      <span
+                        className="text-[10px] tabular-nums text-muted-foreground"
+                        title={t("slideshows.passagesRestants", {
                           restants: c.tierEtat?.restants ?? 0,
                           prevus: c.tierEtat?.passages_prevus ?? c.passages_prevus,
                         })}
+                      >
+                        {t("slideshows.passagesPublies", {
+                          publies: c.tierEtat?.publies ?? 0,
+                          prevus: c.tierEtat?.passages_prevus ?? c.passages_prevus,
+                        })}
                       </span>
+                      {etatRequalif(c.tierEtat, reglages.data?.tierlist)?.alerte ? (
+                        <Badge variant="outline" className="text-[10px] text-amber-600">
+                          {t("slideshows.requalifBloquee")}
+                        </Badge>
+                      ) : null}
                     </div>
                     <div className="flex flex-wrap items-center gap-1">
                       <Badge

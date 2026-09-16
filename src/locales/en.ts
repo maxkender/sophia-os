@@ -1542,6 +1542,22 @@ export const en = {
       tierPassages_other: "{{count}} passes to run",
       passagesDetail: "{{publies}}/{{prevus}} published · {{envol}} in flight",
       passagesRestants: "{{restants}}/{{prevus}} pass(es) left",
+      passagesPublies: "{{publies}}/{{prevus}} published",
+      requalifBloquee: "requalif pending",
+      requalifMaintenant: "Requalify now",
+      requalifEcheance: "Restarts anyway on {{date}}.",
+      requalif: {
+        recul:
+          "Cycle complete — letting views settle before requalifying (next midnight).",
+        prete:
+          "Cycle complete, {{mesures}} pass(es) measured: requalification at next midnight.",
+        mesure:
+          "Cycle complete but no views recorded ({{introuvables}} post(s) not found, {{attente}} still resolving). With no measurement within {{jours}} days, the cycle restarts at the same tier.",
+        sansMesure_introuvable:
+          "Cycle complete, no post found: no views will ever arrive. The cycle restarts at the same tier at next midnight.",
+        sansMesure_delai:
+          "Cycle complete, no views recorded after {{jours}} days: the cycle restarts at the same tier at next midnight.",
+      },
       moyenneVues: "m (cycle mean)",
       meilleurPassage: "Best pass",
       derniereRequalif: "Last requalif: {{avant}} → {{apres}} ({{regle}})",
@@ -1786,12 +1802,13 @@ export const en = {
         "A post's tier sets how often it goes out (D 0 · C 1 · B 2 · A 4 · S 8 · S+ 16). Within the day's pool the draw is uniform. Pool exhausted → a D-tier post is revived with this many passes.",
       tierlistParams: "Tierlist & requalification",
       tierlistParamsAide:
-        "A post is requalified once all its passes are published and have aged the set number of days: m = mean views over the cycle. A pass above the recall threshold runs again on the same account at D+7, outside the quota and outside the m calculation.",
+        "A post is requalified once all its passes are published and have aged the set number of days: m = mean views over the cycle. With no measurement the cycle restarts at the same tier — as soon as no views can arrive, or once the max wait is up. A pass above the recall threshold runs again on the same account at D+7, outside the quota and outside the m calculation.",
       reculJours: "Delay before requalif (days)",
       rappelVues: "Views triggering a recall",
       rappelJours: "Recall offset (days)",
       rappelMax: "Max chained recalls",
       remixParRequalif: "Remixes unlocked by S+",
+      requalifMaxJours: "Max wait for a measurement (days)",
       varSeuil: "Variation — score threshold",
       varPassages: "Variation — min. passages",
       varAge: "Variation — age (days)",

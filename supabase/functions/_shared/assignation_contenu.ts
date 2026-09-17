@@ -3,6 +3,7 @@ import {
   type SlideStructureManuel,
 } from "./creation_manuelle.ts";
 import { assurerDeckPourLangue } from "./import_contenu.ts";
+import { hashtagsPour } from "./hashtags_langue.ts";
 import { LOT_IDS, lireParLots } from "./lots.ts";
 import { avecMentionPublicite } from "./mention_publicite.ts";
 import { mapPool } from "./parallel.ts";
@@ -50,36 +51,6 @@ export async function chargerAssignationReglages(
     postsParJour: Math.min(3, Math.max(1, frequence.posts_par_jour ?? 1)),
     repechagePassages: Math.max(1, tierlist.repechage_passages ?? 1),
   };
-}
-
-// Repli si la traduction n'a pas renvoyé de hashtags. Jeu localisé — aucun appel IA.
-const HASHTAGS: Record<string, string[]> = {
-  fr: ["#apprendre", "#culturegenerale", "#developpementpersonnel", "#booktok", "#pourtoi", "#savoir", "#fyp"],
-  en: ["#learning", "#selfimprovement", "#booktok", "#foryou", "#knowledge", "#fyp"],
-  de: ["#lernen", "#selbstverbesserung", "#booktok", "#fürdich", "#wissen", "#fyp"],
-  it: ["#imparare", "#crescitapersonale", "#booktok", "#perte", "#cultura", "#fyp"],
-  es: ["#aprender", "#desarrollopersonal", "#booktok", "#parati", "#cultura", "#fyp"],
-  pt: ["#aprender", "#desenvolvimentopessoal", "#booktok", "#paravoce", "#cultura", "#fyp"],
-  da: ["#laering", "#personligudvikling", "#booktok", "#foryou", "#viden", "#fyp"],
-  no: ["#laere", "#personligutvikling", "#booktok", "#foryou", "#kunnskap", "#fyp"],
-  ru: ["#обучение", "#саморазвитие", "#букток", "#рек", "#знания", "#fyp"],
-  hr: ["#ucenje", "#osobnirazvoj", "#booktok", "#zatijeb", "#znanje", "#fyp"],
-  sl: ["#ucenje", "#osebnirazvoj", "#booktok", "#zate", "#znanje", "#fyp"],
-  sk: ["#ucenie", "#osobnyrozvoj", "#booktok", "#preteba", "#vedomosti", "#fyp"],
-  sr: ["#ucenje", "#licnirazvoj", "#booktok", "#zatijeb", "#znanje", "#fyp"],
-  tr: ["#öğrenme", "#kişiselgelişim", "#booktok", "#keşfet", "#bilgi", "#fyp"],
-  ar: ["#تعلم", "#تطوير_ذاتي", "#booktok", "#fyp", "#معرفة", "#تعلم_على_تيك_توك"],
-  he: ["#למידה", "#פיתוח_אישי", "#booktok", "#fyp", "#ידע", "#ללמוד_בטיקטוק"],
-  fi: ["#oppiminen", "#itsensakehittaminen", "#booktok", "#sinulle", "#tieto", "#fyp"],
-  et: ["#oppimine", "#eneseareng", "#booktok", "#sinule", "#teadmised", "#fyp"],
-};
-
-function hashtagsPour(langue: string, seed: string): string {
-  const pool = HASHTAGS[langue] ?? HASHTAGS.fr;
-  let h = 0;
-  for (const c of seed) h = (h * 31 + c.charCodeAt(0)) >>> 0;
-  const debut = h % pool.length;
-  return [0, 1, 2].map((i) => pool[(debut + i) % pool.length]).join(" ");
 }
 
 interface Candidat {

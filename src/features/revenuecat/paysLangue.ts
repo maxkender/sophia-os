@@ -1,34 +1,100 @@
 /**
- * RevenueCat segmente par nom de pays ; les créateurs de l'OS ont une langue.
+ * RevenueCat segmente par pays ; les créateurs de l'OS ont une langue.
  * On rattache chaque pays au code langue cible (fr, en, de…).
+ *
+ * ⚠️ PIÈGE CORRIGÉ : un segment à deux lettres est un code PAYS ISO-3166, pas
+ * un code langue. L'ancienne version testait d'abord « est-ce une de nos
+ * langues ? », si bien que :
+ *   AR (Argentine)     → arabe      au lieu d'espagnol
+ *   SV (Salvador)      → suédois    au lieu d'espagnol
+ *   ET (Éthiopie)      → estonien   au lieu de rien
+ *   SL (Sierra Leone)  → slovène    au lieu de rien
+ *   SR (Suriname)      → serbe      au lieu de rien
+ * et symétriquement les VRAIS codes CZ, GR, DK, SE, RS, SI, EE, IL ne
+ * résolvaient rien — les revenus tchèques, grecs, danois, suédois, serbes,
+ * slovènes, estoniens et israéliens étaient perdus.
+ *
+ * L'ordre est donc : code pays ISO, puis nom de pays, puis — en tout dernier —
+ * les rares codes langue qui ne sont PAS des codes pays et ne peuvent donc
+ * entrer en collision (en, cs, el, da, he).
  */
 
 import { LANGUES_CIBLES } from "@/features/moteur/langues";
 
-const PAYS_VERS_LANGUE: Record<string, string> = {
+/**
+ * Code pays ISO-3166 alpha-2 → langue OS.
+ *
+ * Pays multilingues : on prend la langue MAJORITAIRE, faute de découpage
+ * disponible côté RevenueCat. C'est un choix assumé, pas un oubli — il sous-
+ * estime le français (Belgique wallonne, Suisse romande, Québec) au profit du
+ * néerlandais, de l'allemand et de l'anglais.
+ */
+const CODES_ISO_PAYS: Record<string, string> = {
   fr: "fr",
+  gb: "en",
+  us: "en",
+  ca: "en", // majoritaire — le Québec francophone est compté ici
+  au: "en",
+  ie: "en",
+  nz: "en",
+  de: "de",
+  at: "de",
+  ch: "de", // majoritaire — la Suisse romande et italienne sont comptées ici
+  it: "it",
+  es: "es",
+  mx: "es",
+  ar: "es", // Argentine, PAS l'arabe
+  co: "es",
+  cl: "es",
+  pe: "es",
+  sv: "es", // Salvador, PAS la Suède (SE)
+  pt: "pt",
+  br: "pt",
+  cz: "cs",
+  nl: "nl",
+  be: "nl", // majoritaire — la Belgique francophone est comptée ici
+  gr: "el",
+  hu: "hu",
+  pl: "pl",
+  ro: "ro",
+  se: "sv",
+  tr: "tr",
+  dk: "da",
+  no: "no",
+  ru: "ru",
+  hr: "hr",
+  si: "sl", // Slovénie ; SL = Sierra Leone, hors marché
+  sk: "sk",
+  rs: "sr", // Serbie ; SR = Suriname, hors marché
+  eg: "ar",
+  sa: "ar",
+  ae: "ar",
+  il: "he",
+  fi: "fi",
+  ee: "et", // Estonie ; ET = Éthiopie, hors marché
+};
+
+/** Nom de pays (normalisé) → langue OS. Inclut les abréviations non-ISO. */
+const NOMS_PAYS: Record<string, string> = {
   france: "fr",
-  en: "en",
   "united kingdom": "en",
   uk: "en",
-  gb: "en",
   "great britain": "en",
+  britain: "en",
+  england: "en",
   "united states": "en",
   "united states of america": "en",
   usa: "en",
-  us: "en",
   australia: "en",
   ireland: "en",
   canada: "en",
-  de: "de",
+  "new zealand": "en",
   germany: "de",
   deutschland: "de",
   austria: "de",
   switzerland: "de",
-  it: "it",
   italy: "it",
   italia: "it",
-  es: "es",
   spain: "es",
   espana: "es",
   mexico: "es",
@@ -36,59 +102,54 @@ const PAYS_VERS_LANGUE: Record<string, string> = {
   colombia: "es",
   chile: "es",
   peru: "es",
-  pt: "pt",
+  "el salvador": "es",
   portugal: "pt",
   brazil: "pt",
   brasil: "pt",
-  cs: "cs",
   czechia: "cs",
   "czech republic": "cs",
-  nl: "nl",
   netherlands: "nl",
   holland: "nl",
   belgium: "nl",
-  el: "el",
   greece: "el",
-  hu: "hu",
   hungary: "hu",
-  pl: "pl",
   poland: "pl",
-  ro: "ro",
   romania: "ro",
-  sv: "sv",
   sweden: "sv",
-  tr: "tr",
+  sverige: "sv",
   turkey: "tr",
   turkiye: "tr",
-  da: "da",
   denmark: "da",
   danmark: "da",
-  no: "no",
   norway: "no",
   norge: "no",
-  ru: "ru",
   russia: "ru",
-  hr: "hr",
   croatia: "hr",
-  sl: "sl",
   slovenia: "sl",
-  sk: "sk",
   slovakia: "sk",
-  sr: "sr",
   serbia: "sr",
-  ar: "ar",
   egypt: "ar",
   "saudi arabia": "ar",
   "united arab emirates": "ar",
   uae: "ar",
   emirates: "ar",
-  he: "he",
   israel: "he",
-  fi: "fi",
   finland: "fi",
   suomi: "fi",
-  et: "et",
   estonia: "et",
+};
+
+/**
+ * Codes langue acceptés tels quels : uniquement ceux qui ne sont PAS des codes
+ * pays ISO-3166, donc sans collision possible. Tous les autres codes à deux
+ * lettres sont résolus comme des pays.
+ */
+const CODES_LANGUE_SANS_COLLISION: Record<string, string> = {
+  en: "en",
+  cs: "cs",
+  el: "el",
+  da: "da",
+  he: "he",
 };
 
 const LANGUES = new Set<string>(LANGUES_CIBLES);
@@ -98,15 +159,30 @@ export function normaliserNomPays(nom: string): string {
     .trim()
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[̀-ͯ]/g, "")
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
 }
 
-/** Pays RC (« France », « Türkiye ») → langue OS (`fr`, `tr`). */
+/** Pays RC (« France », « TR », « Türkiye ») → langue OS (`fr`, `tr`). */
 export function langueDepuisPays(nomPays: string): string | null {
   const cle = normaliserNomPays(nomPays);
   if (!cle) return null;
-  if (LANGUES.has(cle)) return cle;
-  return PAYS_VERS_LANGUE[cle] ?? null;
+  return (
+    CODES_ISO_PAYS[cle] ??
+    NOMS_PAYS[cle] ??
+    CODES_LANGUE_SANS_COLLISION[cle] ??
+    null
+  );
+}
+
+/** Langues référencées par les tables — toutes doivent être des langues cibles. */
+export function languesReferencees(): string[] {
+  return [
+    ...new Set([
+      ...Object.values(CODES_ISO_PAYS),
+      ...Object.values(NOMS_PAYS),
+      ...Object.values(CODES_LANGUE_SANS_COLLISION),
+    ]),
+  ].filter((l) => !LANGUES.has(l));
 }

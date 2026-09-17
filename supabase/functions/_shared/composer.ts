@@ -4,6 +4,7 @@ import {
   placementParDefaut,
 } from "./applications.ts";
 import { integrateSophia, translateSlideshow } from "./gemini.ts";
+import { hashtagsPour } from "./hashtags_langue.ts";
 import { avecMentionPublicite } from "./mention_publicite.ts";
 import { chargerPrompt, messageErreur, serviceClient } from "./supabase.ts";
 
@@ -444,41 +445,6 @@ async function garantirVisuelsPropres(supabase: Supabase, compte: any, postId: s
  * intacts. Les slides sans numéro (accroche) sont ignorées. Déterministe : ça
  * corrige tout décalage laissé par la traduction ou le placement Sophia.
  */
-// Repli si la traduction n'a pas renvoyé de hashtags (parse JSON raté, etc.).
-// Jeu localisé culture générale / booktok / pour toi — aucun appel IA.
-const HASHTAGS: Record<string, string[]> = {
-  fr: ["#apprendre", "#culturegenerale", "#developpementpersonnel", "#booktok", "#pourtoi", "#savoir", "#apprendresurtiktok", "#culture", "#motivation", "#connaissances", "#fyp", "#anecdotes"],
-  en: ["#learning", "#selfimprovement", "#booktok", "#foryou", "#knowledge", "#learnontiktok", "#growthmindset", "#facts", "#motivation", "#studytok", "#fyp", "#smart"],
-  de: ["#lernen", "#selbstverbesserung", "#booktok", "#fürdich", "#wissen", "#bildung", "#persönlichkeitsentwicklung", "#motivation", "#fakten", "#allgemeinwissen", "#fyp", "#lernenmittiktok"],
-  it: ["#imparare", "#crescitapersonale", "#booktok", "#perte", "#cultura", "#conoscenza", "#sapere", "#motivazione", "#curiosità", "#studytok", "#fyp", "#impararesutiktok"],
-  es: ["#aprender", "#desarrollopersonal", "#booktok", "#parati", "#cultura", "#conocimiento", "#superacionpersonal", "#motivacion", "#datoscuriosos", "#aprendeentiktok", "#fyp", "#sabiduria"],
-  pt: ["#aprender", "#desenvolvimentopessoal", "#booktok", "#paravoce", "#cultura", "#conhecimento", "#crescimento", "#motivacao", "#curiosidades", "#aprendanotiktok", "#fyp", "#sabedoria"],
-  da: ["#laering", "#personligudvikling", "#booktok", "#foryou", "#viden", "#laerpaatiktok", "#motivation", "#fakta", "#kultur", "#fyp", "#videnontiktok", "#smart"],
-  no: ["#laere", "#personligutvikling", "#booktok", "#foryou", "#kunnskap", "#laerpatiktok", "#motivasjon", "#fakta", "#kultur", "#fyp", "#laerontiktok", "#smart"],
-  ru: ["#обучение", "#саморазвитие", "#букток", "#рек", "#знания", "#учисьвтикток", "#мотивация", "#факты", "#культура", "#fyp", "#полезное", "#умное"],
-  hr: ["#ucenje", "#osobnirazvoj", "#booktok", "#zatijeb", "#znanje", "#ucinaTikToku", "#motivacija", "#cinjenice", "#kultura", "#fyp", "#savjeti", "#pametno"],
-  sl: ["#ucenje", "#osebnirazvoj", "#booktok", "#zate", "#znanje", "#ucisenatiktoku", "#motivacija", "#dejstva", "#kultura", "#fyp", "#nasveti", "#pametno"],
-  sk: ["#ucenie", "#osobnyrozvoj", "#booktok", "#preteba", "#vedomosti", "#ucsanatiktoku", "#motivacia", "#fakty", "#kultura", "#fyp", "#tipy", "#inteligentne"],
-  sr: ["#ucenje", "#licnirazvoj", "#booktok", "#zatijeb", "#znanje", "#ucinaTikToku", "#motivacija", "#cinjenice", "#kultura", "#fyp", "#saveti", "#pametno"],
-  tr: ["#öğrenme", "#kişiselgelişim", "#booktok", "#keşfet", "#bilgi", "#tiktokteöğren", "#motivasyon", "#bilgiler", "#kültür", "#fyp", "#ipuçları", "#zeka"],
-  ar: ["#تعلم", "#تطوير_ذاتي", "#booktok", "#fyp", "#معرفة", "#تعلم_على_تيك_توك", "#تحفيز", "#حقائق", "#ثقافة", "#معلومات", "#نصيحة", "#ذكاء"],
-  he: ["#למידה", "#פיתוח_אישי", "#booktok", "#fyp", "#ידע", "#ללמוד_בטיקטוק", "#מוטיבציה", "#עובדות", "#תרבות", "#טיפ", "#חכם", "#foryou"],
-  fi: ["#oppiminen", "#itsensakehittaminen", "#booktok", "#sinulle", "#tieto", "#opiTikTokissa", "#motivaatio", "#faktat", "#kulttuuri", "#fyp", "#vinkit", "#alykas"],
-  et: ["#oppimine", "#eneseareng", "#booktok", "#sinule", "#teadmised", "#opitiktokis", "#motivatsioon", "#faktid", "#kultuur", "#fyp", "#nipid", "#nutikas"],
-};
-
-/** MAX 3 hashtags de la langue du compte, variés par post (offset déterministe
- *  tiré de l'id du post) — pas deux posts avec exactement la même description. */
-function hashtagsPour(langue: string, postId: string): string {
-  const pool = HASHTAGS[langue] ?? HASHTAGS.fr;
-  let h = 0;
-  for (const c of postId) h = (h * 31 + c.charCodeAt(0)) >>> 0;
-  const debut = h % pool.length;
-  const choix: string[] = [];
-  for (let i = 0; i < 3 && i < pool.length; i += 1) choix.push(pool[(debut + i) % pool.length]);
-  return choix.join(" ");
-}
-
 async function renumeroterSlides(supabase: Supabase, postId: string) {
   const { data: slides } = await supabase
     .from("post_slides")

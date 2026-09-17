@@ -1,4 +1,5 @@
 import { downloadImage } from "./apify.ts";
+import { variantesSansFrancaisResiduel } from "./deck_langue.ts";
 import { messageErreur } from "./supabase.ts";
 import { dimensionsImage, effacerTexte, type Zone } from "./inpaint.ts";
 import { nettoyerViaFalTextRemoval } from "./fal_text_removal.ts";
@@ -362,6 +363,54 @@ Réponds uniquement en JSON, sans bloc de code :
 }
 
 /**
+ * Légende TikTok (3 hashtags) pour un deck DÉJÀ texté, sans le retraduire.
+ *
+ * Deux trous que ça bouche : le deck d'un compte qui publie dans la langue
+ * SOURCE ne passait jamais par la traduction, donc n'avait jamais de hashtags
+ * (0 sur 2 609 lignes) ; et les decks cuits avant que la colonne existe n'en
+ * ont pas non plus. Dans les deux cas on retombait sur le jeu statique.
+ *
+ * Ne jette JAMAIS : un échec rend "" et l'appelant garde son repli. Cette
+ * fonction ne doit pas pouvoir faire tomber une assignation.
+ */
+export async function genererHashtagsSlideshow(input: {
+  slides: Array<{ position: number; texte: string }>;
+  sourceTitle?: string | null;
+  langue?: string;
+}): Promise<string> {
+  const code = input.langue ?? "fr";
+  const langue = LANGUES[code] ?? code;
+  const deck = input.slides
+    .filter((s) => s.texte.trim())
+    .map((s) => `Slide ${s.position} : "${s.texte}"`)
+    .join("\n");
+  if (!deck) return "";
+
+  const prompt = `LANGUE DE SORTIE : ${langue.toUpperCase()}.
+
+Voici les slides d'un slideshow TikTok :
+${deck}
+
+Titre / légende de la vidéo source : ${input.sourceTitle || "(aucun)"}
+
+Produis EXACTEMENT 3 hashtags en ${langue} pour la légende TikTok de ce
+slideshow. Ils doivent coller à SON sujet, pas être une liste générique.
+Style TikTok natif : un seul mot par tag, préfixe #, pas d'emoji, pas de phrase.
+
+Réponds uniquement en JSON, sans bloc de code :
+{"hashtags":"#tag1 #tag2 #tag3"}`;
+
+  try {
+    const parts = await callWithFallback(TEXT_MODELS, [{ text: prompt }]);
+    const raw = textOf(parts).replace(/^```(?:json)?|```$/g, "").trim();
+    const parsed = JSON.parse(raw);
+    return normaliserHashtags(String(parsed.hashtags ?? ""));
+  } catch {
+    return "";
+  }
+}
+
+/**
  * Note la pertinence d'un slideshow pour une pub Sophia (app de culture
  * générale). Évite de payer nettoyage et traduction sur un contenu inutilisable.
  */
@@ -503,12 +552,17 @@ UNIQUEMENT : ${autoriseesTxt}. Écris 3 variantes qui remplacent son texte.
 Chaque variante DOIT :
 ${input.marque === "micabo"
     ? `- MENTION DE micabo (toujours en minuscules) selon le TON des slides, sans formule publicitaire.`
-    : `- MENTION DE SOPHIA selon le TON des slides : si elles TUTOIENT (2e personne du
-  singulier, « tu / ton / tes / tes... »), la mention doit être INDIRECTE — n'écris
-  JAMAIS « utilise l'appli Sophia » ni « télécharge Sophia » ; écris plutôt une
-  formule du type « utilise une appli de micro-apprentissage comme Sophia ». Si les
-  slides sont à la 1re personne (« je / j'ai / mon »), une mention directe de Sophia
-  est parfaitement acceptable (« j'utilise l'appli Sophia… »).`}
+    : `- MENTION DE SOPHIA selon le TON des slides. Si elles s'adressent au lecteur à
+  la 2e personne du singulier, la mention doit être INDIRECTE : pas d'impératif
+  publicitaire du type « utilise / télécharge Sophia », mais une formule du type
+  « une appli de micro-apprentissage comme Sophia », rendue en ${langue}. Si les
+  slides sont à la 1re personne, une mention directe de Sophia est parfaitement
+  acceptable (« j'utilise l'appli Sophia… », rendue en ${langue}).
+- Le mot « Sophia » ne se traduit pas, mais TOUT ce qui l'entoure, si : le mot
+  pour « appli » doit être celui de la langue de sortie (anglais « the Sophia
+  app », allemand « die Sophia-App », italien « l'app Sophia », turc « Sophia
+  uygulaması », espagnol « la app Sophia »…). N'écris JAMAIS la forme française
+  « l'appli » dans une slide qui n'est pas en français.`}
 - reprendre EXACTEMENT le préfixe de la slide remplacée : si son texte commence
   par un numéro ("5.", "3)"), une puce ou un emoji, la variante commence par le
   MÊME. Ne change jamais le numéro, ne saute pas de numéro.
@@ -544,9 +598,14 @@ Réponds UNIQUEMENT en JSON, sans bloc de code ni commentaire :
 
       const parsed = JSON.parse(raw);
       const chosenPosition = Number(parsed.chosen_position);
-      const variants = (parsed.variants ?? [])
+      const brutes = (parsed.variants ?? [])
         .map((v: unknown) => String(v ?? "").trim())
         .filter(Boolean);
+      // Garde-fou déterministe : le prompt interdit la forme française
+      // « l'appli » hors français, mais un prompt n'est qu'une consigne. Une
+      // variante qui la contient est écartée ; s'il n'en reste aucune, on
+      // relance le modèle plutôt que de publier une pub moitié française.
+      const variants = variantesSansFrancaisResiduel(brutes, input.langue);
 
       // La position choisie DOIT être dans les 2-3 dernières slides. Si le modèle
       // sort une position hors zone, on la ramène sur la dernière slide autorisée

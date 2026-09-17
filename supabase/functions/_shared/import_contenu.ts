@@ -7,7 +7,14 @@ import {
   type ScrapedPost,
 } from "./apify.ts";
 import {
+  baseDeTraduction,
+  estDeckPret,
+  fusionnerDeckTraduit,
+  peutSauverBase,
+} from "./deck_langue.ts";
+import {
   cleanImage,
+  genererHashtagsSlideshow,
   integrateSophia,
   mimeDepuisBase64,
   ocrFrame,
@@ -1338,13 +1345,68 @@ async function placerSophiaSurDeck(
   return "retry";
 }
 
+type LigneLangue = {
+  id: string;
+  slides?: SlideLangue[] | null;
+  slides_base?: SlideLangue[] | null;
+};
+
+/**
+ * Met la version BRUTE du deck source à l'abri dans `slides_base`.
+ *
+ * Sans ça, le placement Sophia d'un compte qui publie dans la langue SOURCE
+ * écrasait le texte d'une slide DANS la ligne qui sert de base de traduction à
+ * toutes les autres langues : 517 lignes sources sur 2 609 portaient déjà une
+ * pub, et 2 063 decks traduits en ont hérité. On sauvegarde donc avant de
+ * cuire. Une ligne déjà polluée n'est pas récupérable (le texte d'origine de la
+ * slide est perdu) : on la laisse telle quelle plutôt que de figer la pub
+ * comme si c'était la base.
+ */
+async function assurerSlidesBase(
+  supabase: Supabase,
+  ligneSource: LigneLangue | null | undefined,
+): Promise<void> {
+  if (!peutSauverBase(ligneSource)) return;
+  const slides = (ligneSource.slides ?? []) as SlideLangue[];
+  await supabase
+    .from("contenu_langues")
+    .update({ slides_base: slides })
+    .eq("id", ligneSource.id);
+  ligneSource.slides_base = slides;
+}
+
+/**
+ * Complète une légende manquante sans retraduire le deck. Ne jette jamais :
+ * un échec laisse "" et l'appelant retombe sur le jeu statique de la langue.
+ */
+async function completerHashtags(
+  supabase: Supabase,
+  ligneId: string,
+  deck: SlideLangue[],
+  titre: string | null,
+  langue: string,
+): Promise<string> {
+  try {
+    const tags = await genererHashtagsSlideshow({
+      slides: deck.map((s) => ({ position: s.position, texte: s.texte_overlay ?? "" })),
+      sourceTitle: titre,
+      langue,
+    });
+    if (!tags) return "";
+    await supabase.from("contenu_langues").update({ hashtags: tags }).eq("id", ligneId);
+    return tags;
+  } catch {
+    return "";
+  }
+}
+
 /**
  * Garantit un deck prêt (texte + Sophia) pour une langue à l'assignation minuit.
  * - Import ne stocke que l'OCR source (sans Sophia).
- * - Ici : si langue ≠ source → traduit depuis OCR source ; puis place Sophia.
+ * - Ici : si langue ≠ source → traduit depuis la base source ; puis place Sophia.
  * - Une fois cuit, le deck langue est persisté (réutilisé aux passages suivants).
- * - Hashtags : produits dans la même passe de traduction, stockés sur la ligne
- *   contenu_langues pour les passages suivants.
+ * - Hashtags : produits avec la traduction, sinon complétés à part — y compris
+ *   pour un compte qui publie dans la langue source, qui n'en avait jamais.
  */
 export async function assurerDeckPourLangue(
   supabase: Supabase,
@@ -1360,7 +1422,7 @@ export async function assurerDeckPourLangue(
 
   let { data: cl } = await supabase
     .from("contenu_langues")
-    .select("id, langue, slides, hashtags")
+    .select("id, langue, slides, slides_base, hashtags")
     .eq("contenu_id", contenuId)
     .eq("langue", langue)
     .maybeSingle();
@@ -1378,7 +1440,7 @@ export async function assurerDeckPourLangue(
         slides: [] as SlideLangue[],
         nb_passages: 0,
       })
-      .select("id, langue, slides, hashtags")
+      .select("id, langue, slides, slides_base, hashtags")
       .single();
     if (errCl || !creee) {
       throw errCl ?? new Error(`Création ligne langue ${langue} échouée`);
@@ -1388,28 +1450,33 @@ export async function assurerDeckPourLangue(
 
   let deck = [...((cl.slides ?? []) as SlideLangue[])];
   let hashtags = ((cl as { hashtags?: string | null }).hashtags ?? "").trim();
-  const pret =
-    deck.length > 0 &&
-    deck.some((s) => s.texte_overlay) &&
-    deck.some((s) => s.position_sophia);
-  if (pret) return { slides: deck, hashtags };
+  if (estDeckPret(deck)) {
+    if (!hashtags) {
+      hashtags = await completerHashtags(supabase, cl.id, deck, contenu.titre, langue);
+    }
+    return { slides: deck, hashtags };
+  }
 
   const langueSource = contenu.langue_source ?? "fr";
 
-  // Besoin du deck source comme base de traduction
+  // Base de traduction : la ligne source, dans sa version NON polluée si on l'a.
   const { data: clSource } = await supabase
     .from("contenu_langues")
-    .select("id, slides")
+    .select("id, slides, slides_base")
     .eq("contenu_id", contenuId)
     .eq("langue", langueSource)
     .maybeSingle();
-  const deckSource = [...((clSource?.slides ?? []) as SlideLangue[])];
+  const ligneSource = (clSource ?? null) as LigneLangue | null;
+  const deckSource = baseDeTraduction(ligneSource) as SlideLangue[];
   if (deckSource.length === 0 || !deckSource.some((s) => s.texte_overlay)) {
     throw new Error("Deck langue source vide — impossible de traduire");
   }
 
   if (langue === langueSource) {
-    deck = deckSource;
+    // Le compte publie dans la langue de la source : on va cuire cette ligne
+    // même. On met donc la version brute à l'abri AVANT d'y poser Sophia.
+    await assurerSlidesBase(supabase, ligneSource);
+    deck = deckSource.map((s) => ({ ...s }));
   } else if (deck.length === 0 || deck.every((s) => !s.texte_overlay)) {
     const voix = await voixSource(supabase, contenu.compte_reference_id);
     const dedie = await chargerPrompt(supabase, `traduction_${langue}`);
@@ -1429,12 +1496,14 @@ export async function assurerDeckPourLangue(
       langue,
       variation: false,
     });
-    const parPos = new Map(traductions.slides.map((t) => [t.position, t.translated]));
-    deck = deckSource.map((s) => ({
-      position: s.position,
-      texte_overlay: parPos.get(s.position) ?? "",
-      position_sophia: false,
-    }));
+    // Traduction totalement vide (JSON modèle illisible) : on ARRÊTE. Persister
+    // ce deck le figeait sans texte pour toujours (il passait « prêt » grâce à
+    // la seule slide pub). L'appelant piochera un autre contenu.
+    const fusion = fusionnerDeckTraduit(deckSource, traductions.slides);
+    if (fusion.traduits === 0) {
+      throw new Error(`Traduction ${langue} vide — deck non persisté`);
+    }
+    deck = fusion.slides as SlideLangue[];
     if (traductions.hashtags) hashtags = traductions.hashtags;
     await supabase
       .from("contenu_langues")
@@ -1455,6 +1524,10 @@ export async function assurerDeckPourLangue(
         await supabase.from("contenu_langues").update({ slides: deck }).eq("id", cl.id);
       }
     }
+  }
+
+  if (!hashtags) {
+    hashtags = await completerHashtags(supabase, cl.id, deck, contenu.titre, langue);
   }
 
   const { data: frais } = await supabase

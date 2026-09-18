@@ -67,6 +67,7 @@ if (!loaded) {
     await import("file:///tmp/manage-users-rt.js");
     loaded = true;
   } catch (e) {
+    lastErr = e;
     console.error("[manage-users] file import failed", e);
   }
 }

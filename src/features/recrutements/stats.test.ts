@@ -169,6 +169,7 @@ describe("stats 10 j", () => {
     expect(estCompteTestRecrutement({ email: "remim@sophia.com", prenom: "remi" })).toBe(
       false,
     );
+    expect(estCompteTestRecrutement({ email: "aa@sophia.com", prenom: "A" })).toBe(true);
   });
 
   it("login OS = prenom + 1re lettre du nom", () => {

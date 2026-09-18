@@ -90,7 +90,7 @@ export function estCompteTestRecrutement(input: {
 }): boolean {
   const email = (input.email ?? "").trim().toLowerCase();
   const prenom = (input.prenom ?? "").trim().toLowerCase();
-  return email.startsWith("testt") || prenom === "testt";
+  return email.startsWith("testt") || prenom === "testt" || email === "aa@sophia.com";
 }
 
 export const PASTEL_PAYS: Record<string, string> = {

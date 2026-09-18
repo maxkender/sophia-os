@@ -156,6 +156,11 @@ const NOMS_PAR_LANGUE: Record<string, JeuDeNoms> = {
     prenomsF: ["sofia", "maria", "emma", "mia", "laura", "liisa", "kristiina", "anna", "sandra", "liis", "kadri", "triin", "kadi", "helena"],
     noms: ["tamm", "saar", "sepp", "kask", "ilves", "mae", "rebane", "koppel", "kivi", "paju"],
   },
+  bg: {
+    prenomsH: ["georgi", "ivan", "dimitar", "martin", "nikolay", "kristiyan", "aleksandar", "viktor", "petar", "todor", "stefan", "kaloyan", "boris", "daniel"],
+    prenomsF: ["maria", "elena", "viktoria", "gabriela", "nikol", "teodora", "elitsa", "yoana", "raya", "kalina", "mila", "dariya", "lora", "sofia"],
+    noms: ["ivanov", "georgiev", "dimitrov", "petrov", "nikolov", "stoyanov", "todorov", "hristov", "angelov", "marinov"],
+  },
 };
 
 /** Mots du @ par thème × langue (sans accents, minuscules). */
@@ -186,6 +191,7 @@ const CULTURE_PAR_THEME: Record<ThemeLabel, Record<string, string[]>> = {
     he: ["mishmaat", "fokus", "sheifa", "koach", "ratzon", "rama", "tsmicha", "manhig", "azma", "kidma"],
     fi: ["kuri", "fokus", "kunnianhimo", "voima", "tahto", "taso", "kasvu", "johtaja", "sisu", "edistys"],
     et: ["distsipliin", "fookus", "ambitsioon", "joud", "tahe", "tase", "kasv", "liider", "tahejoud", "edasiminek"],
+    bg: ["distsiplina", "fokus", "ambitsiya", "sila", "volya", "nivo", "rastezh", "lider", "stremezh", "napredak"],
   },
   smart_girl: {
     fr: ["cultive", "savoir", "lit", "apprend", "inspire", "curiosite", "eclaire", "pense", "ideas", "livres"],
@@ -213,6 +219,7 @@ const CULTURE_PAR_THEME: Record<ThemeLabel, Record<string, string[]>> = {
     he: ["sakranit", "koret", "lomedet", "chachama", "sfarim", "raayonot", "choshevet", "yeda", "limud", "chochma"],
     fi: ["utelias", "lukee", "oppii", "alykas", "kirjat", "ideat", "ajattelee", "tieto", "opiskelu", "viisaus"],
     et: ["uudishimulik", "loeb", "opib", "tark", "raamatud", "ideed", "motleb", "teadmine", "ope", "tarkus"],
+    bg: ["lyuboznatelna", "chete", "uchi", "umna", "knigi", "idei", "misli", "znanie", "ucheba", "mudrost"],
   },
   clean_girl: {
     fr: ["douce", "naturel", "glow", "simple", "calme", "soft", "pure", "zen", "fresh", "light"],
@@ -240,6 +247,7 @@ const CULTURE_PAR_THEME: Record<ThemeLabel, Record<string, string[]>> = {
     he: ["adinah", "tivit", "glow", "pshuta", "shketah", "triya", "tehorah", "kala", "soft", "clean"],
     fi: ["pehmea", "luonnollinen", "glow", "yksinkertainen", "rauhallinen", "raikas", "puhdas", "kevyt", "soft", "clean"],
     et: ["pehme", "loomulik", "glow", "lihtne", "rahulik", "varske", "puhas", "kerge", "soft", "clean"],
+    bg: ["nezhna", "estestvena", "glow", "prosta", "spokoyna", "svezha", "chista", "leka", "soft", "clean"],
   },
   cinema: {
     fr: ["cinema", "scene", "film", "plan", "ecran", "cadre", "story", "take", "reel", "cut"],
@@ -267,6 +275,7 @@ const CULTURE_PAR_THEME: Record<ThemeLabel, Record<string, string[]>> = {
     he: ["kolnoa", "shetach", "seret", "misgeret", "masach", "sipur", "take", "edit", "shot", "reel"],
     fi: ["elokuva", "kohtaus", "filmi", "kuva", "kangas", "tarina", "take", "leikkaus", "shot", "reel"],
     et: ["kino", "stseen", "film", "kaader", "ekraan", "lugu", "take", "loige", "shot", "reel"],
+    bg: ["kino", "stsena", "film", "kadar", "ekran", "istoriya", "take", "montazh", "shot", "reel"],
   },
   anciens: {
     fr: ["histoire", "antique", "mythe", "legende", "savoir", "epoque", "relique", "ancien", "memoire", "heritage"],
@@ -294,6 +303,7 @@ const CULTURE_PAR_THEME: Record<ThemeLabel, Record<string, string[]>> = {
     he: ["historia", "atika", "mitos", "agada", "shayar", "tkufa", "moreshet", "zikaron", "klasika", "avar"],
     fi: ["historia", "antiikki", "myytti", "legenda", "reliikki", "kausi", "perinto", "muisto", "klassikko", "menneisyys"],
     et: ["ajalugu", "antiik", "muut", "legend", "reliikvia", "ajastu", "parand", "malu", "klassika", "minevik"],
+    bg: ["istoriya", "antichnost", "mit", "legenda", "relikva", "epoha", "nasledstvo", "pamet", "klasika", "minalo"],
   },
   default: {
     fr: ["cultive", "savoir", "culture", "evolue", "grandit", "apprend", "progresse", "developpe", "inspire", "eclaire"],
@@ -321,6 +331,7 @@ const CULTURE_PAR_THEME: Record<ThemeLabel, Record<string, string[]>> = {
     he: ["tarbut", "tsmicha", "yeda", "mitpatah", "lomed", "chashiva", "hitpathut", "meham", "meshaper", "chochma"],
     fi: ["kulttuuri", "kasvu", "tieto", "kehittyy", "oppii", "ajattelu", "kehitys", "innostaa", "parantaa", "viisaus"],
     et: ["kultuur", "kasv", "teadmine", "areneb", "opib", "moistmine", "areng", "inspireerib", "parandab", "tarkus"],
+    bg: ["kultura", "rastezh", "znanie", "razviva", "uchi", "mislene", "razvitie", "vdahnovyava", "podobryava", "mudrost"],
   },
 };
 
@@ -423,6 +434,7 @@ const MOTS_ETUDES: Record<string, string[]> = {
   he: ["limudim", "avoda", "reshimot", "bechina", "flashcards", "kurs", "hazara"],
   fi: ["opiskelu", "tyo", "muistiinpanot", "koe", "flashcards", "kurssi", "kertaus"],
   et: ["ope", "too", "markmed", "eksam", "flashcards", "kursus", "kordamine"],
+  bg: ["ucheba", "rabota", "belezhki", "izpit", "flashcards", "kurs", "povtorenie", "uchene"],
 };
 
 const BIO_ETUDES: Record<string, string> = {
@@ -451,6 +463,7 @@ const BIO_ETUDES: Record<string, string> = {
   he: "טיפים ללימודים",
   fi: "opiskeluvinkkejä",
   et: "õppenõuanded",
+  bg: "съвети за учене",
 };
 
 /** Identité TikTok micabo : prenom.motetudes + 3 chiffres, nom = prénom, bio = study tips. */

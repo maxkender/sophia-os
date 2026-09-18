@@ -251,13 +251,15 @@ const MOTS_JOB_PAYS: Record<string, string[]> = {
   he: ["israel", "israeli", "israël", "israelien", "hebrew", "hebreu", "hébreu"],
   fi: ["finland", "finnish", "finlande", "finnois", "suomi"],
   et: ["estonia", "estonian", "estonie", "estonien"],
+  bg: ["bulgaria", "bulgarian", "bulgarie", "bulgare", "българия"],
 };
 
 /** Codes pays OS qui sont aussi des mots courants des titres : « no experience »
- *  n'est pas un job norvégien, « TikTok et carrousels » pas un job estonien.
+ *  n'est pas un job norvégien, « TikTok et carrousels » pas un job estonien,
+ *  « remove bg » pas un job bulgare.
  *  Sur ceux-là le code nu ne prouve rien — il faut la forme explicite `(no)`
  *  ou un mot de `MOTS_JOB_PAYS`. */
-const CODES_PAYS_AMBIGUS = new Set(["no", "et", "he"]);
+const CODES_PAYS_AMBIGUS = new Set(["no", "et", "he", "bg"]);
 
 function titreMentionnePays(titre: string, pays: string): boolean {
   const t = titre.toLowerCase();

@@ -109,6 +109,10 @@ export const PRENOMS_PAR_LANGUE: Record<string, JeuPrenoms> = {
     prenomsH: ["robin", "martin", "markus", "kaspar", "rasmus", "oliver", "karl", "mattias"],
     prenomsF: ["sofia", "maria", "emma", "mia", "laura", "liisa", "anna", "kadri"],
   },
+  bg: {
+    prenomsH: ["georgi", "ivan", "dimitar", "martin", "nikolay", "kristiyan", "aleksandar", "viktor"],
+    prenomsF: ["maria", "elena", "viktoria", "gabriela", "nikol", "teodora", "elitsa", "yoana"],
+  },
 };
 
 /** Mots « études / travail » dans la langue du compte. */
@@ -138,6 +142,7 @@ export const MOTS_ETUDES: Record<string, string[]> = {
   he: ["limudim", "avoda", "reshimot", "bechina", "flashcards", "kurs", "hazara"],
   fi: ["opiskelu", "tyo", "muistiinpanot", "koe", "flashcards", "kurssi", "kertaus"],
   et: ["ope", "too", "markmed", "eksam", "flashcards", "kursus", "kordamine"],
+  bg: ["ucheba", "rabota", "belezhki", "izpit", "flashcards", "kurs", "povtorenie", "uchene"],
 };
 
 /** Bio simple = « study tips » dans la langue du posteur. */
@@ -167,6 +172,7 @@ export const BIO_ETUDES: Record<string, string> = {
   he: "טיפים ללימודים",
   fi: "opiskeluvinkkejä",
   et: "õppenõuanded",
+  bg: "съвети за учене",
 };
 
 export function sansAccentsIdentite(s: string): string {

@@ -82,6 +82,7 @@ export function placementParDefaut(langue: string, slug = SLUG_SOPHIA): string {
       he: "הפוך את הסיכומים שלך לכרטיסיות וחזור עליהן 10 דקות ביום. micabo מעולה לזה, הוא יוצר אותן מהרשומות שלך.",
       fi: "muuta muistiinpanosi korteiksi ja kertaa 10 minuuttia päivässä. micabo on siihen mahtava, se luo ne muistiinpanoistasi.",
       et: "muuda oma märkmed kaartideks ja korda 10 minutit päevas. micabo sobib selleks suurepäraselt, ta loob need sinu märkmetest.",
+      bg: "превърни бележките си във флашкарти и преговаряй по 10 минути на ден. micabo е супер за това, създава ги от бележките ти.",
     };
     return par[langue] ?? par.en;
   }
@@ -111,6 +112,7 @@ export function placementParDefaut(langue: string, slug = SLUG_SOPHIA): string {
     he: "רוצה ללמוד משהו חדש כל יום? האפליקציה Sophia מלמדת אותך ידע כללי מטורף תוך כמה דקות. תנסה אותה 👀",
     fi: "Haluatko oppia jotain uutta joka päivä? Sophia-sovellus opettaa sinulle huikeaa yleissivistystä muutamassa minuutissa. Kokeile 👀",
     et: "Tahad iga päev midagi uut õppida? Sophia äpp annab sulle mõne minutiga vägevaid üldteadmisi. Proovi järele 👀",
+    bg: "Искаш да научаваш нещо ново всеки ден? Приложението Sophia ти дава страхотна обща култура за няколко минути. Пробвай го 👀",
   };
   return par[langue] ?? par.en;
 }

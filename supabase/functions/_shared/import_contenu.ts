@@ -93,6 +93,7 @@ export const LANGUES_CIBLES = [
   "he",
   "fi",
   "et",
+  "bg",
 ] as const;
 const SLIDES_PAR_PASSAGE = 2;
 /** Captions Florence/Moondream : plus légères que le nettoyage Fal. */

@@ -100,6 +100,11 @@ describe("noms de pays", () => {
     expect(langueDepuisPays("England")).toBe("en");
   });
 
+  it("résout la Bulgarie, dont le code pays et le code langue coïncident", () => {
+    expect(langueDepuisPays("BG")).toBe("bg");
+    expect(langueDepuisPays("Bulgaria")).toBe("bg");
+  });
+
   it("garde la règle majoritaire assumée sur les pays multilingues", () => {
     // Choix produit, pas un oubli : RC ne découpe pas par langue.
     expect(langueDepuisPays("Belgium")).toBe("nl");

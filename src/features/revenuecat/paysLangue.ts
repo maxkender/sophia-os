@@ -72,6 +72,7 @@ const CODES_ISO_PAYS: Record<string, string> = {
   il: "he",
   fi: "fi",
   ee: "et", // Estonie ; ET = Éthiopie, hors marché
+  bg: "bg", // Bulgarie ; BG est à la fois le pays et la langue, aucune collision
 };
 
 /** Nom de pays (normalisé) → langue OS. Inclut les abréviations non-ISO. */
@@ -137,6 +138,8 @@ const NOMS_PAYS: Record<string, string> = {
   finland: "fi",
   suomi: "fi",
   estonia: "et",
+  bulgaria: "bg",
+  balgariya: "bg",
 };
 
 /**

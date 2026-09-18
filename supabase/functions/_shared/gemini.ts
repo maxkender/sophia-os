@@ -268,6 +268,7 @@ const LANGUES: Record<string, string> = {
   he: "hébreu",
   fi: "finnois",
   et: "estonien",
+  bg: "bulgare",
 };
 
 export type TraductionSlideshow = {

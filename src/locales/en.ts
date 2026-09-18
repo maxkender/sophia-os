@@ -2622,6 +2622,7 @@ export const en = {
         he: "Israel",
         fi: "Finland",
         et: "Estonia",
+        bg: "Bulgaria",
       },
       err: {
         prenom: "First name is required.",

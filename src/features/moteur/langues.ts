@@ -30,6 +30,7 @@ export const LANGUES_CIBLES = [
   "he",
   "fi",
   "et",
+  "bg",
 ] as const;
 
 export const LANGUES_RTL = ["ar", "he"] as const;
@@ -60,6 +61,7 @@ const NOM_LANGUE: Record<string, string> = {
   he: "Hébreu",
   fi: "Finnois",
   et: "Estonien",
+  bg: "Bulgare",
 };
 
 /** Drapeau emoji d'une langue cible (aligné Documents : en → 🇬🇧). */
@@ -89,6 +91,7 @@ const DRAPEAU_LANGUE: Record<string, string> = {
   he: "🇮🇱",
   fi: "🇫🇮",
   et: "🇪🇪",
+  bg: "🇧🇬",
 };
 
 /** Nom lisible d'une langue (« Allemand » plutôt que « DE »). */
@@ -135,6 +138,7 @@ const NOM_PAYS: Record<string, string> = {
   he: "Israël",
   fi: "Finlande",
   et: "Estonie",
+  bg: "Bulgarie",
 };
 
 export function nomPays(code: string): string {

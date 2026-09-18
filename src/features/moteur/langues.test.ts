@@ -17,11 +17,16 @@ describe("LANGUES_CIBLES", () => {
     }
   });
 
+  it("inclut le bulgare", () => {
+    expect(LANGUES_CIBLES).toContain("bg");
+  });
+
   it("a un pays OS pour chaque code", () => {
     expect(nomPays("ar")).toBe("Égypte");
     expect(nomPays("he")).toBe("Israël");
     expect(nomPays("sr")).toBe("Serbie");
     expect(nomPays("da")).toBe("Danemark");
+    expect(nomPays("bg")).toBe("Bulgarie");
   });
 });
 

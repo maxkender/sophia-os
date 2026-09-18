@@ -29,8 +29,11 @@ describe("placementParDefaut — couverture", () => {
     expect(placementParDefaut("he", SLUG_MICABO)).toMatch(/[֐-׿]/);
   });
 
-  it("le russe est en cyrillique, le serbe en latin", () => {
+  it("le russe et le bulgare sont en cyrillique, le serbe en latin", () => {
     expect(placementParDefaut("ru")).toMatch(/[Ѐ-ӿ]/);
+    // Doctrine `traduction_bg` : cyrillique, la shlyokavitsa latine est bannie.
+    expect(placementParDefaut("bg")).toMatch(/[Ѐ-ӿ]/);
+    expect(placementParDefaut("bg", SLUG_MICABO)).toMatch(/[Ѐ-ӿ]/);
     // Doctrine `traduction_sr` : latinica obligatoire, cyrillique bannie.
     expect(placementParDefaut("sr")).not.toMatch(/[Ѐ-ӿ]/);
     expect(placementParDefaut("sr", SLUG_MICABO)).not.toMatch(/[Ѐ-ӿ]/);

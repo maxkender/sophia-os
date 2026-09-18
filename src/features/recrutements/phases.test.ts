@@ -138,6 +138,27 @@ describe("phases HM", () => {
     ).toBe(true);
   });
 
+  it("reconnaît un job bulgare par son titre, sans confondre « bg » et « background »", () => {
+    const bulgare = hm({
+      pays: ["bg", "ro"],
+      job_post_at: "2026-09-18T00:00:00Z",
+      job_post_titre: "TikTok slideshow poster (Bulgaria, български)",
+    });
+    expect(jobPostConcernePays(bulgare, "bg")).toBe(true);
+    expect(jobPostConcernePays(bulgare, "ro")).toBe(false);
+
+    // « bg » est l'abréviation courante de « background » sur Upwork.
+    const fond = hm({
+      pays: ["bg", "ro"],
+      job_post_at: "2026-09-18T00:00:00Z",
+      job_post_titre: "Remove bg from product photos",
+    });
+    expect(jobPostConcernePays(fond, "bg")).toBe(false);
+    expect(
+      jobPostConcernePays({ ...fond, job_post_titre: "TikTok poster (bg)" }, "bg"),
+    ).toBe(true);
+  });
+
   it("passe en phase 1 dès un créateur, même sans job_post_at", () => {
     expect(phasesHmPourPays(hm(), [cre()], "fr")).toEqual([1]);
   });

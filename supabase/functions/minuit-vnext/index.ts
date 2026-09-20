@@ -4,9 +4,6 @@ import {
   programmerRappelsJ7,
   type AssignationCompteResultat,
 } from "../_shared/assignation_contenu.ts";
-import { kickAssignationUgcVideo } from "../_shared/assignation_ugc_video.ts";
-import { kickPapierCm } from "../_shared/papier_master.ts";
-import { papierEstActif } from "../_shared/papier_reglages.ts";
 import { scrapeStats } from "../_shared/apify.ts";
 import {
   kickRattrapageElo,
@@ -50,8 +47,8 @@ const POSTS_RELEVES = 30;
  *   - deck : traduction + Sophia à la demande (assurerDeckPourLangue)
  *   - crée passages statut=assigne (musique + hashtags) estampillés du cycle
  *
- *   {}  → kick rattrapage (async) + tierlist + assignation + upscale + ugc
- *   { etapes?: ['stats'|'scores'|'tierlist'|'assignation'|'upscale'|'variations'|'rattrapage'|'classement'|'ugc_ai_video'|'papier_cm'|'papier_assign'], compteId?, date?, forcer? }
+ *   {}  → kick rattrapage (async) + tierlist + assignation + upscale
+ *   { etapes?: ['stats'|'scores'|'tierlist'|'assignation'|'upscale'|'variations'|'rattrapage'|'classement'], compteId?, date?, forcer? }
  *   etape `tierlist` : requalification des contenus au bout de leurs passages
  *                      (m = moyenne des vues du cycle) + rappels J+7 des
  *                      passages au-delà de 50k vues
@@ -63,9 +60,6 @@ const POSTS_RELEVES = 30;
  *                        sans attendre la fin du drain — outil de test admin
  *   etape `upscale` : SeedVR Fal sur photos assignées du jour sans upscale_le
  *                     (strip C2PA en fin dans le drain — pas de double strip)
- *   etape `ugc_ai_video` : kick drain assignation-ugc-video (NB→Kling→concat)
- *   etape `papier_cm` : plus de master du jour — original seulement si la bibliothèque est vide
-   *   etape `papier_assign` : chaque CM tire au hasard un master FR inutilisé dans sa langue
  */
 Deno.serve(async (request) => {
   const denied = await assertAuthorised(request);
@@ -111,18 +105,9 @@ Deno.serve(async (request) => {
     // Défaut : rattrapage (vues + ELO langue) en kick async — plus de scrape
     // synchrone « stats » qui faisait timeout Edge avant snapshot/assign.
     // scores runtime reste en pause (PAUSE_ELO_RUNTIME) ; le rattrapage contourne.
-    // ugc_ai_video : TOUJOURS en dernier (après slideshow + upscale).
     const etapes: string[] = Array.isArray(body?.etapes)
       ? body.etapes
-      : [
-        "rattrapage",
-        "tierlist",
-        "assignation",
-        "upscale",
-        "ugc_ai_video",
-        "papier_cm",
-        "papier_assign",
-      ];
+      : ["rattrapage", "tierlist", "assignation", "upscale"];
     const jour = body?.date ?? aujourdhuiParis();
     const compteId: string | null = body?.compteId ?? null;
 
@@ -287,40 +272,6 @@ Deno.serve(async (request) => {
       // Un candidat par passage minuit ; le drain `variations` en fait plus souvent.
       out.variations = await avancerVariations(supabase);
     }
-    // Dernière étape : UGC AI VIDEO (Kling long → kick drain streamé).
-    if (etapes.includes("ugc_ai_video")) {
-      kickAssignationUgcVideo(request, {
-        date: jour,
-        ...(compteId ? { compteId } : {}),
-        manuel: Boolean(body?.manuel || body?.forcer),
-      });
-      out.ugc_ai_video = {
-        ok: true,
-        kick: true,
-        detail:
-          "drain assignation-ugc-video démarré (Nano Banana → Kling → concat utilisation)",
-      };
-    }
-    if (etapes.includes("papier_cm")) {
-      out.papier_cm = {
-        ok: true,
-        saute: true,
-        raison: "bibliothèque — un original naît seulement si plus aucun master libre",
-      };
-    }
-    if (etapes.includes("papier_assign")) {
-      if (!(await papierEstActif(supabase))) {
-        out.papier_assign = { ok: true, saute: true, raison: "papier en pause" };
-      } else {
-        kickPapierCm(request, { action: "assigner", date: jour });
-        out.papier_assign = {
-          ok: true,
-          kick: true,
-          detail: "chaque CM tire au hasard un master FR inutilisé dans sa langue",
-        };
-      }
-    }
-
     return json(out);
   } catch (error) {
     return json({ ok: false, error: messageErreur(error) }, 500);

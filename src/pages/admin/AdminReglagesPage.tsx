@@ -14,17 +14,13 @@ import {
   fileLabelsDeLApplication,
 } from "@/features/moteur/applications";
 import {
-  aujourdhuiParis,
   ecrireReglage,
   lireReglages,
   listerLabelIdsAvecUgc,
   listerLabels,
 } from "@/features/moteur/api";
 import { estLabelFileSlideshow } from "@/features/moteur/fileLabelsSlideshow";
-import { drapeauLangue, LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
-import { type DureeClipReglage } from "@/features/moteur/papierReglages";
-import { SelectVoixEleven } from "@/features/moteur/SelectVoixEleven";
-import { PAPIER_CATEGORIES, PAPIER_STYLES_NARRATION } from "@/features/moteur/papierSujets";
+import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import {
   SCHEMA_ASSIGNATION,
   SCHEMA_UPDATE_ELO,
@@ -264,7 +260,6 @@ export function AdminReglagesPage() {
       // File déjà autosauvegardée à chaque edit — on resync quand même.
       await ecrireReglage("file_labels_comptes", r.file_labels_comptes);
       await ecrireReglage("warmup", r.warmup);
-      await ecrireReglage("papier", r.papier);
     },
     onSuccess: () => {
       setBrouillon(null);
@@ -738,185 +733,6 @@ export function AdminReglagesPage() {
                 onChange={(n) => majScoring({ variation_profondeur_max: n })}
               />
             </div>
-          </section>
-        </CardContent>
-      </Card>
-
-      {/* ── Papier CM ── */}
-      <Card id="papier">
-        <CardHeader>
-          <CardTitle>{t("reglages.actionPapier")}</CardTitle>
-          <CardDescription>{t("reglages.actionPapierDesc")}</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-5">
-          <section className="space-y-3">
-            <label className="flex items-center gap-2 text-sm">
-              <input
-                type="checkbox"
-                checked={!reglages.papier.actif}
-                onChange={(e) =>
-                  maj({ papier: { ...reglages.papier, actif: !e.target.checked } })
-                }
-              />
-              {t("reglages.papierPause")}
-            </label>
-            <p className="text-xs text-muted-foreground">{t("reglages.papierPauseAide")}</p>
-          </section>
-
-          <section className="space-y-3">
-            <h3 className="text-sm font-medium">{t("reglages.papierDuree")}</h3>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <ChampNombre
-                id="papierDuree"
-                label={t("reglages.papierDureeSec")}
-                min={20}
-                max={90}
-                valeur={reglages.papier.duree_cible_sec}
-                onChange={(n) => maj({ papier: { ...reglages.papier, duree_cible_sec: n } })}
-              />
-              <div className="space-y-2">
-                <Label htmlFor="papierClip">{t("reglages.papierDureeClip")}</Label>
-                <select
-                  id="papierClip"
-                  className="flex h-9 w-full rounded-md border border-input bg-background px-3 text-sm"
-                  value={String(reglages.papier.duree_clip)}
-                  onChange={(e) => {
-                    const v = e.target.value;
-                    const duree_clip: DureeClipReglage =
-                      v === "4" || v === "6" || v === "8" ? (Number(v) as 4 | 6 | 8) : "auto";
-                    maj({ papier: { ...reglages.papier, duree_clip } });
-                  }}
-                >
-                  <option value="auto">{t("reglages.papierClipAuto")}</option>
-                  <option value="4">4 s</option>
-                  <option value="6">6 s</option>
-                  <option value="8">8 s</option>
-                </select>
-                <p className="text-xs text-muted-foreground">{t("reglages.papierDureeAide")}</p>
-              </div>
-            </div>
-          </section>
-
-          <section className="space-y-3">
-            <h3 className="text-sm font-medium">{t("reglages.papierVoix")}</h3>
-            <SelectVoixEleven
-              id="papierVoix"
-              value={reglages.papier.voix}
-              onChange={(voix) => maj({ papier: { ...reglages.papier, voix } })}
-              favoris={reglages.papier.voix_favoris}
-              autoDefaut
-            />
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {LANGUES_CIBLES.map((code) => (
-                <div key={code} className="space-y-1">
-                  <Label htmlFor={`papier-voix-${code}`} className="text-xs">
-                    {drapeauLangue(code)} {nomLangue(code)}
-                  </Label>
-                  <SelectVoixEleven
-                    id={`papier-voix-${code}`}
-                    value={reglages.papier.voix_par_langue[code] ?? ""}
-                    langueFixe={code}
-                    allowEmpty
-                    compact
-                    emptyLabel={t("reglages.papierVoixSuivre")}
-                    favoris={reglages.papier.voix_favoris}
-                    onChange={(v) => {
-                      const voix_par_langue = { ...reglages.papier.voix_par_langue };
-                      if (v) voix_par_langue[code] = v;
-                      else delete voix_par_langue[code];
-                      maj({ papier: { ...reglages.papier, voix_par_langue } });
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
-            <p className="text-xs text-muted-foreground">{t("reglages.papierVoixFavoris")}</p>
-          </section>
-
-          <section className="grid gap-4 sm:grid-cols-3">
-            <div className="space-y-2">
-              <Label htmlFor="papierCat">{t("reglages.papierCategorie")}</Label>
-              <select
-                id="papierCat"
-                className="flex h-9 w-full rounded-md border border-input bg-background px-3 text-sm"
-                value={reglages.papier.topic_categorie}
-                onChange={(e) =>
-                  maj({ papier: { ...reglages.papier, topic_categorie: e.target.value as (typeof PAPIER_CATEGORIES)[number] } })
-                }
-              >
-                {PAPIER_CATEGORIES.map((c) => (
-                  <option key={c} value={c}>
-                    {t(`papier.cat.${c}`)}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="papierStyle">{t("reglages.papierStyle")}</Label>
-              <select
-                id="papierStyle"
-                className="flex h-9 w-full rounded-md border border-input bg-background px-3 text-sm"
-                value={reglages.papier.narration_style}
-                onChange={(e) =>
-                  maj({
-                    papier: {
-                      ...reglages.papier,
-                      narration_style: e.target.value as (typeof PAPIER_STYLES_NARRATION)[number],
-                    },
-                  })
-                }
-              >
-                {PAPIER_STYLES_NARRATION.map((s) => (
-                  <option key={s} value={s}>
-                    {t(`papier.style.${s}`)}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="papierMode">{t("reglages.papierMode")}</Label>
-              <select
-                id="papierMode"
-                className="flex h-9 w-full rounded-md border border-input bg-background px-3 text-sm"
-                value={reglages.papier.pipeline_mode}
-                onChange={(e) =>
-                  maj({
-                    papier: { ...reglages.papier, pipeline_mode: e.target.value === "manuel" ? "manuel" : "auto" },
-                  })
-                }
-              >
-                <option value="auto">{t("papier.modeAuto")}</option>
-                <option value="manuel">{t("papier.modeManuel")}</option>
-              </select>
-            </div>
-          </section>
-
-          <section className="space-y-3 sm:max-w-xs">
-            <ChampNombre
-              id="papierQuota"
-              label={t("reglages.papierQuota")}
-              min={0}
-              valeur={reglages.papier.fal_quota_jour}
-              onChange={(n) => maj({ papier: { ...reglages.papier, fal_quota_jour: n } })}
-            />
-            <p className="text-xs text-muted-foreground">
-              {t("reglages.papierQuotaAide")}
-              {" · "}
-              {reglages.papier.fal_quota_jour <= 0
-                ? t("reglages.papierQuotaIllimite", {
-                    n:
-                      reglages.papier_fal_usage.date === aujourdhuiParis()
-                        ? reglages.papier_fal_usage.appels
-                        : 0,
-                  })
-                : t("reglages.papierQuotaUsage", {
-                    n:
-                      reglages.papier_fal_usage.date === aujourdhuiParis()
-                        ? reglages.papier_fal_usage.appels
-                        : 0,
-                    max: reglages.papier.fal_quota_jour,
-                  })}
-            </p>
           </section>
         </CardContent>
       </Card>

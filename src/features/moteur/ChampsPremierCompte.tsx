@@ -41,7 +41,7 @@ export function ChampsPremierCompte({
   onApplication?: (slug: string) => void;
 }) {
   const { t } = useTranslation();
-  const types: PremierCompte[] = allowAucun ? ["perso", "cm", "aucun"] : ["perso", "cm"];
+  const types: PremierCompte[] = allowAucun ? ["perso", "aucun"] : ["perso"];
 
   return (
     <div className="space-y-3 sm:col-span-2">
@@ -59,20 +59,14 @@ export function ChampsPremierCompte({
                   : "rounded px-3 py-1.5 text-sm text-muted-foreground hover:bg-muted"
               }
             >
-              {type === "cm"
-                ? t("cm.badge")
-                : type === "aucun"
-                  ? t("posters.premierCompteAucun")
-                  : t("cm.perso")}
+              {type === "aucun" ? t("posters.premierCompteAucun") : t("cm.perso")}
             </button>
           ))}
         </div>
         <p className="text-xs text-muted-foreground">
-          {typeCompte === "cm"
-            ? t("cm.ajouterAide")
-            : typeCompte === "aucun"
-              ? t("posters.premierCompteAucunAide")
-              : t("cm.ajouterPersoAide")}
+          {typeCompte === "aucun"
+            ? t("posters.premierCompteAucunAide")
+            : t("cm.ajouterPersoAide")}
         </p>
       </div>
 

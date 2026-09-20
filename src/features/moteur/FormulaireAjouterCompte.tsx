@@ -7,15 +7,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
   ajouterCompte,
-  envoyerContratPapier,
   lireIdentifiantsCm,
   majIdentifiantsCm,
 } from "@/features/moteur/api";
-import { languesDisponiblesPourCm, languesPourNouveauCompte } from "@/features/moteur/comptesCm";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { nomApplication, type ApplicationOs } from "@/features/moteur/applications";
 import { nomLangue } from "@/features/moteur/langues";
-import type { TypeCompte } from "@/features/moteur/types";
 
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
@@ -23,22 +20,18 @@ const selectClass =
 export function FormulaireAjouterCompte({
   posterId,
   languesProposees,
-  languesPrisesCm,
   applications,
   onCree,
 }: {
   posterId: string;
   languesProposees: string[];
-  languesPrisesCm: string[];
   applications?: ApplicationOs[];
   onCree?: () => void;
 }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
-  const libresCm = languesDisponiblesPourCm(languesProposees, languesPrisesCm);
   const [ouvert, setOuvert] = React.useState(false);
-  const [typeCompte, setTypeCompte] = React.useState<TypeCompte>("perso");
-  const languesType = languesPourNouveauCompte(typeCompte, languesProposees, languesPrisesCm);
+  const languesType = languesProposees;
   const [langue, setLangue] = React.useState(languesType[0] ?? "");
   const [handle, setHandle] = React.useState("");
   const [postsParJour, setPostsParJour] = React.useState<1 | 2 | 3>(2);
@@ -63,35 +56,21 @@ export function FormulaireAjouterCompte({
   }, [languesType, langue]);
 
   const creer = useMutation({
-    mutationFn: async () => {
-      const r = await ajouterCompte({
+    mutationFn: () =>
+      ajouterCompte({
         posterId,
-        type_compte: typeCompte,
+        type_compte: "perso",
         langue,
         application_slug: applicationSlug,
-        posts_par_jour: typeCompte === "perso" ? postsParJour : 1,
-        handle_tiktok: typeCompte === "perso" ? handle : undefined,
-      });
-      if (typeCompte === "cm") {
-        try {
-          await envoyerContratPapier({
-            posterId,
-            langue,
-            compteId: r.compteId ?? r.compte?.id,
-          });
-        } catch (e) {
-          if (!(e instanceof Error && e.message === "CONTRAT_DEJA_ENVOYE")) throw e;
-        }
-      }
-      return r;
-    },
+        posts_par_jour: postsParJour,
+        handle_tiktok: handle,
+      }),
     onSuccess: () => {
       setHandle("");
       setPostsParJour(2);
       setOuvert(false);
       void queryClient.invalidateQueries({ queryKey: ["comptes"] });
       void queryClient.invalidateQueries({ queryKey: ["posters"] });
-      void queryClient.invalidateQueries({ queryKey: ["papier-cm-contrats"] });
       onCree?.();
     },
   });
@@ -104,113 +83,84 @@ export function FormulaireAjouterCompte({
     );
   }
 
-  const cmBloque = typeCompte === "cm" && libresCm.length === 0;
-
   return (
     <form
       className="space-y-3 rounded-md border p-3"
       onSubmit={(e) => {
         e.preventDefault();
-        if (cmBloque) return;
         creer.mutate();
       }}
     >
       <p className="text-sm font-medium">{t("cm.ajouterCompte")}</p>
       <p className="text-xs text-muted-foreground">{t("cm.ajouterCompteAide")}</p>
-      <div className="inline-flex rounded-md border p-0.5">
-        {(["perso", "cm"] as const).map((type) => (
-          <button
-            key={type}
-            type="button"
-            onClick={() => setTypeCompte(type)}
-            className={
-              typeCompte === type
-                ? "rounded px-3 py-1.5 text-sm font-medium bg-primary text-primary-foreground"
-                : "rounded px-3 py-1.5 text-sm text-muted-foreground hover:bg-muted"
-            }
-          >
-            {type === "cm" ? t("cm.badge") : t("cm.perso")}
-          </button>
-        ))}
-      </div>
-      <p className="text-xs text-muted-foreground">
-        {typeCompte === "cm" ? t("cm.ajouterAide") : t("cm.ajouterPersoAide")}
-      </p>
-      {cmBloque ? (
-        <p className="text-xs text-muted-foreground">{t("cm.toutesLanguesPrises")}</p>
-      ) : (
-        <div className="grid gap-3 sm:grid-cols-2">
-          {(applications ?? []).length > 0 && (
-            <div className="space-y-1">
-              <Label htmlFor={`compte-app-${posterId}`}>{t("applications.compte")}</Label>
-              <select
-                id={`compte-app-${posterId}`}
-                className={selectClass}
-                value={applicationSlug}
-                onChange={(e) => setApplicationSlug(e.target.value)}
-                required
-              >
-                {(applications ?? []).map((app) => (
-                  <option key={app.id} value={app.slug}>
-                    {nomApplication(app)}
-                  </option>
-                ))}
-              </select>
-            </div>
-          )}
+      <p className="text-xs text-muted-foreground">{t("cm.ajouterPersoAide")}</p>
+      <div className="grid gap-3 sm:grid-cols-2">
+        {(applications ?? []).length > 0 && (
           <div className="space-y-1">
-            <Label htmlFor={`compte-langue-${posterId}`}>{t("cm.langueCompte")}</Label>
+            <Label htmlFor={`compte-app-${posterId}`}>{t("applications.compte")}</Label>
             <select
-              id={`compte-langue-${posterId}`}
+              id={`compte-app-${posterId}`}
               className={selectClass}
-              value={langue}
-              onChange={(e) => setLangue(e.target.value)}
+              value={applicationSlug}
+              onChange={(e) => setApplicationSlug(e.target.value)}
               required
             >
-              {languesType.map((l) => (
-                <option key={l} value={l}>
-                  {nomLangue(l)}
+              {(applications ?? []).map((app) => (
+                <option key={app.id} value={app.slug}>
+                  {nomApplication(app)}
                 </option>
               ))}
             </select>
           </div>
-          {typeCompte === "perso" && (
-            <div className="space-y-1">
-              <Label htmlFor={`compte-handle-${posterId}`}>{t("comptes.pseudo")}</Label>
-              <Input
-                id={`compte-handle-${posterId}`}
-                value={handle}
-                placeholder={t("comptes.pseudoPlaceholder")}
-                onChange={(e) => setHandle(e.target.value)}
-              />
-              <p className="text-xs text-muted-foreground">{t("comptes.pseudoFacultatif")}</p>
-            </div>
-          )}
-          {typeCompte === "perso" && (
-            <div className="space-y-1 sm:col-span-2">
-              <Label>{t("hiring.postsParJour")}</Label>
-              <div className="inline-flex rounded-md border p-0.5">
-                {([1, 2, 3] as const).map((n) => (
-                  <button
-                    key={n}
-                    type="button"
-                    onClick={() => setPostsParJour(n)}
-                    className={
-                      postsParJour === n
-                        ? "rounded px-3 py-1.5 text-sm font-medium bg-primary text-primary-foreground"
-                        : "rounded px-3 py-1.5 text-sm text-muted-foreground hover:bg-muted"
-                    }
-                  >
-                    {n}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
+        )}
+        <div className="space-y-1">
+          <Label htmlFor={`compte-langue-${posterId}`}>{t("cm.langueCompte")}</Label>
+          <select
+            id={`compte-langue-${posterId}`}
+            className={selectClass}
+            value={langue}
+            onChange={(e) => setLangue(e.target.value)}
+            required
+          >
+            {languesType.map((l) => (
+              <option key={l} value={l}>
+                {nomLangue(l)}
+              </option>
+            ))}
+          </select>
         </div>
-      )}
+        <div className="space-y-1">
+          <Label htmlFor={`compte-handle-${posterId}`}>{t("comptes.pseudo")}</Label>
+          <Input
+            id={`compte-handle-${posterId}`}
+            value={handle}
+            placeholder={t("comptes.pseudoPlaceholder")}
+            onChange={(e) => setHandle(e.target.value)}
+          />
+          <p className="text-xs text-muted-foreground">{t("comptes.pseudoFacultatif")}</p>
+        </div>
+        <div className="space-y-1 sm:col-span-2">
+          <Label>{t("hiring.postsParJour")}</Label>
+          <div className="inline-flex rounded-md border p-0.5">
+            {([1, 2, 3] as const).map((n) => (
+              <button
+                key={n}
+                type="button"
+                onClick={() => setPostsParJour(n)}
+                className={
+                  postsParJour === n
+                    ? "rounded px-3 py-1.5 text-sm font-medium bg-primary text-primary-foreground"
+                    : "rounded px-3 py-1.5 text-sm text-muted-foreground hover:bg-muted"
+                }
+              >
+                {n}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
       <div className="flex flex-wrap gap-2">
-        <Button type="submit" size="sm" disabled={creer.isPending || !langue || cmBloque}>
+        <Button type="submit" size="sm" disabled={creer.isPending || !langue}>
           {creer.isPending ? t("common.saving") : t("cm.creerCompte")}
         </Button>
         <Button type="button" size="sm" variant="ghost" onClick={() => setOuvert(false)}>
@@ -225,23 +175,6 @@ export function FormulaireAjouterCompte({
         </p>
       )}
     </form>
-  );
-}
-
-/** @deprecated préfère FormulaireAjouterCompte */
-export function FormulaireCompteCm(props: {
-  posterId: string;
-  languesProposees: string[];
-  languesPrises: string[];
-  onCree?: () => void;
-}) {
-  return (
-    <FormulaireAjouterCompte
-      posterId={props.posterId}
-      languesProposees={props.languesProposees}
-      languesPrisesCm={props.languesPrises}
-      onCree={props.onCree}
-    />
   );
 }
 

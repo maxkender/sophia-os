@@ -8,32 +8,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ecrirePrompt, lirePrompt } from "@/features/moteur/api";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
-import { PROMPTS_PAPIER_DEFAUT } from "@/features/moteur/papierPromptDefauts";
 
 /** Les prompts qui pilotent le moteur, modifiables sans redéploiement. */
 const PROMPTS = [
-  { cle: "script_generation", titre: "prompts.scriptGenerationTitle", desc: "prompts.scriptGenerationDesc" },
-  { cle: "voice_delivery", titre: "prompts.voiceDeliveryTitle", desc: "prompts.voiceDeliveryDesc" },
-  { cle: "cta_sophia", titre: "prompts.ctaSophiaTitle", desc: "prompts.ctaSophiaDesc" },
-  { cle: "image_style", titre: "prompts.imageStyleTitle", desc: "prompts.imageStyleDesc" },
   { cle: "pertinence", titre: "prompts.pertinenceTitle", desc: "prompts.pertinenceDesc" },
   { cle: "pertinence_micabo", titre: "prompts.pertinenceMicaboTitle", desc: "prompts.pertinenceMicaboDesc" },
   { cle: "placement_sophia", titre: "prompts.placementTitle", desc: "prompts.placementDesc" },
   { cle: "placement_micabo", titre: "prompts.placementMicaboTitle", desc: "prompts.placementMicaboDesc" },
   { cle: "traduction", titre: "prompts.traductionTitle", desc: "prompts.traductionDesc" },
   { cle: "ugc_face_swap", titre: "prompts.ugcFaceSwapTitle", desc: "prompts.ugcFaceSwapDesc" },
-  { cle: "ugc_video_face_ref", titre: "prompts.ugcVideoFaceTitle", desc: "prompts.ugcVideoFaceDesc" },
-  {
-    cle: "ugc_video_kling_prompt",
-    titre: "prompts.ugcVideoKlingPromptTitle",
-    desc: "prompts.ugcVideoKlingPromptDesc",
-  },
-  {
-    cle: "ugc_video_kling_negative",
-    titre: "prompts.ugcVideoKlingNegTitle",
-    desc: "prompts.ugcVideoKlingNegDesc",
-  },
-  { cle: "ugc_video_caption", titre: "prompts.ugcVideoCaptionTitle", desc: "prompts.ugcVideoCaptionDesc" },
   { cle: "composition_recycle", titre: "prompts.recycleTitle", desc: "prompts.recycleDesc" },
   { cle: "composition_nouveau", titre: "prompts.nouveauTitle", desc: "prompts.nouveauDesc" },
   { cle: "composition_remanie", titre: "prompts.remanieTitle", desc: "prompts.remanieDesc" },
@@ -49,15 +32,12 @@ function EditeurPrompt({ cle, titre, desc }: { cle: string; titre: string; desc:
   const queryClient = useQueryClient();
   const { data, isPending } = useQuery({
     queryKey: ["prompt", cle],
-    queryFn: async () => {
-      const v = await lirePrompt(cle);
-      return v.trim() ? v : (PROMPTS_PAPIER_DEFAUT[cle] ?? "");
-    },
+    queryFn: () => lirePrompt(cle),
   });
 
   const [brouillon, setBrouillon] = React.useState<string | null>(null);
-  const valeur = brouillon ?? data ?? PROMPTS_PAPIER_DEFAUT[cle] ?? "";
-  const modifie = brouillon !== null && brouillon !== (data ?? PROMPTS_PAPIER_DEFAUT[cle] ?? "");
+  const valeur = brouillon ?? data ?? "";
+  const modifie = brouillon !== null && brouillon !== (data ?? "");
 
   const enregistrer = useMutation({
     mutationFn: () => ecrirePrompt(cle, valeur),

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Check, HelpCircle, Plus, UserPlus, X } from "lucide-react";
+import { HelpCircle, Plus, UserPlus, X } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -20,24 +20,21 @@ import { badgeManager, estRoleManager, useAuth } from "@/features/auth/AuthConte
 import { CompteursPhases, ListeCreateursSuivi } from "@/features/hiring/SuiviCreateurs";
 import { equipesParDm, hmsDuDm, hmsSansDm, nomProfil, resumeHm } from "@/features/hiring/suiviEquipe";
 import { CompteEditor, PostsParJourCompte } from "@/features/moteur/CompteEditor";
-import { estCompteCm, languesCmPrises } from "@/features/moteur/comptesCm";
+import { estCompteCm } from "@/features/moteur/comptesCm";
 import { ChampsPremierCompte, type PremierCompte } from "@/features/moteur/ChampsPremierCompte";
 import { DeplacerCompte } from "@/features/moteur/DeplacerCompte";
-import { FormulaireAjouterCompte } from "@/features/moteur/FormulaireCompteCm";
+import { FormulaireAjouterCompte } from "@/features/moteur/FormulaireAjouterCompte";
 import { BadgeClassement } from "@/features/moteur/BadgeClassement";
-import { BlocContratPapierAdmin } from "@/features/moteur/BlocContratPapierAdmin";
 import { EnteteCompte } from "@/features/moteur/VignetteCompte";
 import {
   assurerComptePoster,
   creerPoster,
   creerRecruteur,
-  envoyerContratPapier,
   listerApplications,
   definirRole,
   demarrerWarmup,
   skipWarmup,
   labelsDesComptes,
-  labelsDuHmUgcVideo,
   listerComptes,
   listerLabels,
   listerLanguesReference,
@@ -47,16 +44,11 @@ import {
   majPoster,
   majUpwork,
   setLabelsCompte,
-  setLabelsHmUgcVideo,
   supprimerPoster,
 } from "@/features/moteur/api";
-import { LabelPicker } from "@/features/moteur/LabelPicker";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { posterMatcheApplication, SLUG_SOPHIA } from "@/features/moteur/applications";
-import {
-  estLabelFileSlideshow,
-  estLabelUgcAiVideo,
-} from "@/features/moteur/fileLabelsSlideshow";
+import { estLabelFileSlideshow } from "@/features/moteur/fileLabelsSlideshow";
 import { SelectApplication } from "@/features/moteur/SelectApplication";
 import { drapeauLangue, langueInitiale, nomLangue } from "@/features/moteur/langues";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
@@ -67,11 +59,6 @@ import type {
   Label as LabelType,
   PosterProfil,
 } from "@/features/moteur/types";
-
-const filtreLabelUgcVideoThematique = (lab: {
-  slug: string;
-  ugc_ai_video: boolean;
-}) => Boolean(lab.ugc_ai_video) && lab.slug !== "ugc-ai-video";
 
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
@@ -312,12 +299,10 @@ function LabelsCompteSelect({
   compteId,
   actifs,
   applicationId,
-  ugcAiVideo,
 }: {
   compteId: string;
   actifs: LabelType[];
   applicationId?: string | null;
-  ugcAiVideo?: boolean;
 }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
@@ -335,7 +320,7 @@ function LabelsCompteSelect({
   });
 
   const disponibles = (labels.data ?? [])
-    .filter((l) => (ugcAiVideo ? estLabelUgcAiVideo(l) : estLabelFileSlideshow(l)))
+    .filter((l) => estLabelFileSlideshow(l))
     .filter((l) => !ids.includes(l.id));
 
   return (
@@ -382,53 +367,6 @@ function LabelsCompteSelect({
   );
 }
 
-function HmUgcVideoLabelsEditeur({ profileId }: { profileId: string }) {
-  const { t } = useTranslation();
-  const queryClient = useQueryClient();
-  const q = useQuery({
-    queryKey: ["hm-ugc-video-labels", profileId],
-    queryFn: () => labelsDuHmUgcVideo(profileId),
-  });
-  const [local, setLocal] = React.useState<string[] | null>(null);
-  const ids = local ?? q.data ?? [];
-
-  const maj = useMutation({
-    mutationFn: (next: string[]) => setLabelsHmUgcVideo(profileId, next),
-    onSuccess: () => {
-      setLocal(null);
-      void queryClient.invalidateQueries({ queryKey: ["hm-ugc-video-labels", profileId] });
-    },
-  });
-
-  return (
-    <div className="space-y-1.5">
-      <Label className="text-[10px] uppercase tracking-wide text-muted-foreground">
-        {t("posters.hmUgcAiVideoLabels")}
-      </Label>
-      <LabelPicker
-        selected={ids}
-        disabled={maj.isPending || q.isPending}
-        filter={filtreLabelUgcVideoThematique}
-        onChange={(next) => {
-          setLocal(next);
-          maj.mutate(next);
-        }}
-      />
-    </div>
-  );
-}
-
-function BadgeUgc({ label }: { label: string }) {
-  return (
-    <span
-      className="inline-flex items-center gap-0.5 text-[11px] font-medium text-primary"
-      title={label}
-    >
-      <Check className="size-3.5" strokeWidth={2.5} />
-      {label}
-    </span>
-  );
-}
 
 export function AdminPostersPage() {
   const { t } = useTranslation();
@@ -539,25 +477,12 @@ export function AdminPostersPage() {
       void queryClient.invalidateQueries({ queryKey: ["comptes"] });
       void queryClient.invalidateQueries({ queryKey: ["reglages"] });
       void queryClient.invalidateQueries({ queryKey: ["compte-labels-all"] });
-      if (premierCompte === "cm" && r.userId && langue) {
-        void envoyerContratPapier({
-          posterId: r.userId,
-          langue,
-          compteId: r.compte?.id,
-        })
-          .catch(() => undefined)
-          .finally(() => {
-            void queryClient.invalidateQueries({ queryKey: ["papier-cm-contrats"] });
-          });
-      }
     },
   });
 
   const [recPrenom, setRecPrenom] = React.useState("");
   const [recNom, setRecNom] = React.useState("");
   const [recLangues, setRecLangues] = React.useState<string[]>([]);
-  const [recUgcAiVideo, setRecUgcAiVideo] = React.useState(false);
-  const [recUgcLabels, setRecUgcLabels] = React.useState<string[]>([]);
   const [recCree, setRecCree] = React.useState<{ email: string } | null>(null);
   const basculerRecLangue = (l: string) =>
     setRecLangues((prev) => (prev.includes(l) ? prev.filter((x) => x !== l) : [...prev, l]));
@@ -567,16 +492,12 @@ export function AdminPostersPage() {
         prenom: recPrenom,
         nom: recNom,
         langues: recLangues,
-        ugc_ai_video: recUgcAiVideo,
-        ugc_ai_video_label_ids: recUgcAiVideo ? recUgcLabels : undefined,
       }),
     onSuccess: (r) => {
       setRecCree({ email: r.email });
       setRecPrenom("");
       setRecNom("");
       setRecLangues([]);
-      setRecUgcAiVideo(false);
-      setRecUgcLabels([]);
       rafraichir();
     },
   });
@@ -808,45 +729,10 @@ export function AdminPostersPage() {
             </div>
             <p className="text-xs text-muted-foreground">{t("posters.languesRecruteurAide")}</p>
           </div>
-          <div className="space-y-1.5 sm:col-span-3">
-            <label className="flex items-start gap-2 text-sm">
-              <input
-                type="checkbox"
-                className="mt-1"
-                checked={recUgcAiVideo}
-                onChange={(e) => {
-                  setRecUgcAiVideo(e.target.checked);
-                  if (!e.target.checked) setRecUgcLabels([]);
-                }}
-              />
-              <span>
-                <span className="font-medium">{t("posters.hmUgcAiVideo")}</span>
-                <span className="mt-0.5 block text-xs text-muted-foreground">
-                  {t("posters.hmUgcAiVideoAide")}
-                </span>
-              </span>
-            </label>
-            {recUgcAiVideo && (
-              <div className="space-y-1.5 rounded-md border border-dashed p-3">
-                <Label>{t("posters.hmUgcAiVideoLabels")}</Label>
-                <LabelPicker
-                  selected={recUgcLabels}
-                  onChange={setRecUgcLabels}
-                  filter={filtreLabelUgcVideoThematique}
-                />
-                <p className="text-xs text-muted-foreground">{t("posters.hmUgcAiVideoLabelsAide")}</p>
-              </div>
-            )}
-          </div>
           <div className="sm:col-span-3">
             <Button
               type="submit"
-              disabled={
-                creerRec.isPending ||
-                !recPrenom.trim() ||
-                recLangues.length === 0 ||
-                (recUgcAiVideo && recUgcLabels.length === 0)
-              }
+              disabled={creerRec.isPending || !recPrenom.trim() || recLangues.length === 0}
             >
               {creerRec.isPending ? t("common.saving") : t("posters.creerRecruteur")}
             </Button>
@@ -1028,7 +914,6 @@ export function AdminPostersPage() {
             {badgeManager(poster.role) && (
               <Badge variant="outline">{badgeManager(poster.role)}</Badge>
             )}
-            {poster.hm_ugc_ai_video && <BadgeUgc label={t("posters.ugcAiVideoBadge")} />}
             {!poster.is_active && <Badge variant="secondary">{t("posters.disabled")}</Badge>}
           </div>
           <DrapeauxLangues codes={langues} />
@@ -1089,8 +974,6 @@ export function AdminPostersPage() {
                   compte={c}
                   extra={
                     <div className="mt-1 flex flex-wrap items-center gap-2 text-[11px] text-muted-foreground">
-                      {c.ugc_ai_video && <BadgeUgc label={t("posters.ugcAiVideoBadge")} />}
-                      {c.ugc_ai && !c.ugc_ai_video && <BadgeUgc label="UGC" />}
                       <BadgeClassement classement={c.classement} size="sm" />
                       {!estCompteCm(c) && (
                         <WarmupBadge
@@ -1322,7 +1205,6 @@ export function AdminPostersPage() {
                 {badgeManager(fiche.role) && (
                   <Badge variant="outline">{badgeManager(fiche.role)}</Badge>
                 )}
-                {fiche.hm_ugc_ai_video && <BadgeUgc label={t("posters.ugcAiVideoBadge")} />}
                 {!fiche.is_active && <Badge variant="secondary">{t("posters.disabled")}</Badge>}
                 {fichePartBien != null && (
                   <Badge variant="secondary" title={t("posters.partBienAide")}>
@@ -1337,8 +1219,6 @@ export function AdminPostersPage() {
                 </Label>
                 <LangueRecruteurDropdown recruteur={fiche} />
               </div>
-
-              {fiche.hm_ugc_ai_video && <HmUgcVideoLabelsEditeur profileId={fiche.id} />}
 
               {fiche.role === "hiring_manager" && (
                 <p className="text-sm">
@@ -1572,8 +1452,6 @@ export function AdminPostersPage() {
                               compte={c}
                               extra={
                                 <div className="mt-1.5 flex flex-wrap items-center gap-2">
-                                  {c.ugc_ai_video && <BadgeUgc label={t("posters.ugcAiVideoBadge")} />}
-                                  {c.ugc_ai && !c.ugc_ai_video && <BadgeUgc label="UGC" />}
                                   <BadgeClassement classement={c.classement} />
                                   {!estCompteCm(c) && (
                                     <span onClick={(e) => e.stopPropagation()}>
@@ -1603,7 +1481,6 @@ export function AdminPostersPage() {
                                     compteId={c.id}
                                     actifs={labs}
                                     applicationId={c.application_id}
-                                    ugcAiVideo={Boolean(c.ugc_ai_video)}
                                   />
                                   <div className="sm:col-span-2">
                                     <PostsParJourCompte compte={c} />
@@ -1628,10 +1505,8 @@ export function AdminPostersPage() {
                 <FormulaireAjouterCompte
                   posterId={fiche.id}
                   languesProposees={langues.data ?? []}
-                  languesPrisesCm={languesCmPrises(ficheComptes)}
                   applications={applications.data ?? []}
                 />
-                <BlocContratPapierAdmin posterId={fiche.id} comptes={ficheComptes} />
               </div>
 
               {promoId === fiche.id && (

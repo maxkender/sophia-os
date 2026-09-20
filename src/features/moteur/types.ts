@@ -1,5 +1,4 @@
 import type { Classement, ClassementReglages, ModeleNudge } from "./classementComptes";
-import type { PapierFalUsage, ReglagesPapier } from "./papierReglages";
 import type { MotifSansMesure, Tier } from "./tierlist";
 
 // Barèmes et table de requalification : voir `./tierlist`.
@@ -420,8 +419,6 @@ export interface Reglages {
   nettoyage: ReglagesNettoyage;
   file_labels_comptes: ReglagesFileLabels;
   warmup: ReglagesWarmup;
-  papier: ReglagesPapier;
-  papier_fal_usage: PapierFalUsage;
 }
 
 export interface StatsCompte {

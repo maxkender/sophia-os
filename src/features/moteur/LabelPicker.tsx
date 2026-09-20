@@ -13,13 +13,10 @@ export function LabelPicker({
   selected,
   onChange,
   disabled,
-  /** Filtre optionnel (ex. pool UGC AI VIDEO). */
-  filter,
 }: {
   selected: string[];
   onChange: (ids: string[]) => void;
   disabled?: boolean;
-  filter?: (lab: { id: string; slug: string; ugc_ai_video: boolean }) => boolean;
 }) {
   const { t } = useTranslation();
   const { applicationId } = useApplication();
@@ -28,7 +25,7 @@ export function LabelPicker({
     queryFn: () => listerLabels(applicationId),
   });
   const set = new Set(selected);
-  const liste = (labels.data ?? []).filter((lab) => (filter ? filter(lab) : true));
+  const liste = labels.data ?? [];
 
   if (labels.isPending) {
     return <p className="text-xs text-muted-foreground">{t("common.loading")}</p>;

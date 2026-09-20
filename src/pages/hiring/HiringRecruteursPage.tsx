@@ -24,7 +24,6 @@ import {
   hmsDuDm,
   resumeHm,
 } from "@/features/hiring/suiviEquipe";
-import { LabelPicker } from "@/features/moteur/LabelPicker";
 import { nomLangue } from "@/features/moteur/langues";
 import {
   creerRecruteur,
@@ -33,11 +32,6 @@ import {
   majLanguesRecruteur,
 } from "@/features/moteur/api";
 import type { PosterProfil } from "@/features/moteur/types";
-
-const filtreLabelUgcVideoThematique = (lab: {
-  slug: string;
-  ugc_ai_video: boolean;
-}) => Boolean(lab.ugc_ai_video) && lab.slug !== "ugc-ai-video";
 
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
@@ -94,8 +88,6 @@ export function HiringRecruteursPage() {
   const [prenom, setPrenom] = React.useState("");
   const [nom, setNom] = React.useState("");
   const [recLangues, setRecLangues] = React.useState<string[]>([]);
-  const [ugcAiVideo, setUgcAiVideo] = React.useState(false);
-  const [ugcLabels, setUgcLabels] = React.useState<string[]>([]);
   const [cree, setCree] = React.useState<{ email: string } | null>(null);
 
   const basculerLangue = (l: string) =>
@@ -107,16 +99,12 @@ export function HiringRecruteursPage() {
         prenom,
         nom,
         langues: recLangues,
-        ugc_ai_video: ugcAiVideo,
-        ugc_ai_video_label_ids: ugcAiVideo ? ugcLabels : undefined,
       }),
     onSuccess: (r) => {
       setCree({ email: r.email });
       setPrenom("");
       setNom("");
       setRecLangues([]);
-      setUgcAiVideo(false);
-      setUgcLabels([]);
       void queryClient.invalidateQueries({ queryKey: ["posters"] });
     },
   });
@@ -182,44 +170,10 @@ export function HiringRecruteursPage() {
               </div>
               <p className="text-xs text-muted-foreground">{t("posters.languesRecruteurAide")}</p>
             </div>
-            <div className="space-y-1.5 sm:col-span-2">
-              <label className="flex items-start gap-2 text-sm">
-                <input
-                  type="checkbox"
-                  className="mt-1"
-                  checked={ugcAiVideo}
-                  onChange={(e) => {
-                    setUgcAiVideo(e.target.checked);
-                    if (!e.target.checked) setUgcLabels([]);
-                  }}
-                />
-                <span>
-                  <span className="font-medium">{t("posters.hmUgcAiVideo")}</span>
-                  <span className="mt-0.5 block text-xs text-muted-foreground">
-                    {t("posters.hmUgcAiVideoAide")}
-                  </span>
-                </span>
-              </label>
-              {ugcAiVideo && (
-                <div className="space-y-1.5 rounded-md border border-dashed p-3">
-                  <Label>{t("posters.hmUgcAiVideoLabels")}</Label>
-                  <LabelPicker
-                    selected={ugcLabels}
-                    onChange={setUgcLabels}
-                    filter={filtreLabelUgcVideoThematique}
-                  />
-                </div>
-              )}
-            </div>
             <div className="sm:col-span-2">
               <Button
                 type="submit"
-                disabled={
-                  creer.isPending ||
-                  !prenom.trim() ||
-                  recLangues.length === 0 ||
-                  (ugcAiVideo && ugcLabels.length === 0)
-                }
+                disabled={creer.isPending || !prenom.trim() || recLangues.length === 0}
               >
                 {creer.isPending ? t("common.saving") : t("hiring.creerHm")}
               </Button>
@@ -255,7 +209,6 @@ export function HiringRecruteursPage() {
               <div className="flex flex-wrap items-center gap-2">
                 <span className="text-sm font-semibold">{nomAffiche(hm)}</span>
                 <Badge variant="outline">HM</Badge>
-                {hm.hm_ugc_ai_video && <Badge variant="secondary">{t("posters.hmUgcAiVideoBadge")}</Badge>}
                 <span className="text-xs text-muted-foreground">{hm.email}</span>
               </div>
               <LanguesHm recruteur={hm} />

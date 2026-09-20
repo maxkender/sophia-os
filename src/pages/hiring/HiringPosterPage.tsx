@@ -16,10 +16,8 @@ import {
   CardTitle,
   EmptyState,
 } from "@/components/ui/card";
-import { useAuth } from "@/features/auth/AuthContext";
 import {
   creerPoster,
-  envoyerContratPapier,
   listerApplications,
   listerLanguesReference,
   listerPosters,
@@ -30,10 +28,9 @@ import { useApplication } from "@/features/moteur/ApplicationContext";
 import { SLUG_SOPHIA } from "@/features/moteur/applications";
 import { ChampsPremierCompte, type PremierCompte } from "@/features/moteur/ChampsPremierCompte";
 import { langueInitiale } from "@/features/moteur/langues";
-import { comptePrincipal, estCompteCm, languesCmPrises } from "@/features/moteur/comptesCm";
+import { comptePrincipal, estCompteCm } from "@/features/moteur/comptesCm";
 import { DeplacerCompte } from "@/features/moteur/DeplacerCompte";
-import { FormulaireAjouterCompte } from "@/features/moteur/FormulaireCompteCm";
-import { BlocContratPapierAdmin } from "@/features/moteur/BlocContratPapierAdmin";
+import { FormulaireAjouterCompte } from "@/features/moteur/FormulaireAjouterCompte";
 import { EnteteCompte } from "@/features/moteur/VignetteCompte";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
 import type { PosterProfil } from "@/features/moteur/types";
@@ -232,10 +229,8 @@ function LignePoster({
       <FormulaireAjouterCompte
         posterId={p.id}
         languesProposees={langues.data ?? []}
-        languesPrisesCm={languesCmPrises(comptes)}
         applications={applications.data ?? []}
       />
-      <BlocContratPapierAdmin posterId={p.id} comptes={comptes} />
     </div>
   );
 }
@@ -246,7 +241,6 @@ function LignePoster({
  */
 export function HiringPosterPage() {
   const { t } = useTranslation();
-  const { profil } = useAuth();
   const queryClient = useQueryClient();
 
   const langues = useQuery({ queryKey: ["langues-reference"], queryFn: listerLanguesReference });
@@ -274,7 +268,6 @@ export function HiringPosterPage() {
   // Langues cibles : un créateur = une langue, choisie à l'embauche.
   // Toutes les langues OS sont proposées ; une langue nouvelle s'ajoute
   // automatiquement aux langues gérées du recruteur (côté API).
-  const modeUgcAiVideo = Boolean(profil?.hm_ugc_ai_video);
   const languesChoix = langues.data ?? [];
 
   React.useEffect(() => {
@@ -309,17 +302,6 @@ export function HiringPosterPage() {
       setPostsParJour(2);
       setHandleTiktok("");
       queryClient.invalidateQueries({ queryKey: ["posters"] });
-      if (premierCompte === "cm" && r.userId && langue) {
-        void envoyerContratPapier({
-          posterId: r.userId,
-          langue,
-          compteId: r.compte?.id,
-        })
-          .catch(() => undefined)
-          .finally(() => {
-            void queryClient.invalidateQueries({ queryKey: ["papier-cm-contrats"] });
-          });
-      }
     },
   });
 
@@ -332,7 +314,7 @@ export function HiringPosterPage() {
             {t("hiring.title")}
           </CardTitle>
           <CardDescription>
-            {modeUgcAiVideo ? t("hiring.subtitleUgcAiVideo") : t("hiring.subtitle")}
+            {t("hiring.subtitle")}
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">

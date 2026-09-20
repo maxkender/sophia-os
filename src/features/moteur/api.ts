@@ -51,7 +51,6 @@ import type { LigneJournalOubli } from "./oubliSource";
 import { type MajSourcesRun } from "./majSequentielle";
 import { compteEnProcessus } from "./warmup";
 import { ugcVisages } from "./ugcVisages";
-import { corpsAssignationUgcVideoTest } from "./corpsAssignationUgcVideoTest";
 import { decouperEnLots, handleTiktokDepuisSaisie } from "./oubliSource";
 import {
   aggregerStatsSlideshowsParCompte,
@@ -65,11 +64,6 @@ import {
   type ApplicationOs,
 } from "./applications";
 import { comptePrincipal, normaliserTypeCompte, resoudrePremierCompte } from "./comptesCm";
-import {
-  cibleComptePapier,
-  CONTRAT_PAPIER_VERSION,
-  motDePasseComptePapier,
-} from "./papierCmCompte";
 import { estLabelSysteme, SLUG_HOOK } from "./mediaCaption";
 import {
   ELO_MANUEL_DEFAUT,
@@ -77,7 +71,6 @@ import {
   SLIDES_MANUEL_MAX,
   SLIDES_MANUEL_MIN,
 } from "./creationManuelle";
-import { normaliserReglagesPapier } from "./papierReglages";
 import type { CompteIdentifiants, CompteResumePoster, TypeCompte } from "./types";
 import type { ReponseSuiviRc } from "@/features/revenuecat/types";
 
@@ -493,19 +486,6 @@ export async function listerComptes(): Promise<CompteAvecDetails[]> {
       application_slug: app?.slug ?? null,
     };
   });
-}
-
-/**
- * Tous les comptes (actifs ou non, UGC VIDEO ou non) — uniquement pour le
- * test admin « UGC VIDEO libre ». Ne pas réutiliser dans l’éditeur / calendriers.
- */
-export async function listerTousComptesPourTest(): Promise<CompteAvecDetails[]> {
-  const { data, error } = await supabase
-    .from("comptes")
-    .select("*, comptes_reference(handle_tiktok), profiles(prenom, nom, upwork_url)")
-    .order("created_at", { ascending: false });
-  if (error) throw error;
-  return data as CompteAvecDetails[];
 }
 
 export async function creerCompte(input: {
@@ -1084,10 +1064,6 @@ export function creerRecruteur(input: {
   /** @deprecated préfère `langues` */
   langue?: string;
   langues?: string[];
-  /** HM UGC AI VIDEO : créateurs = marque + labels HM + persona. */
-  ugc_ai_video?: boolean;
-  /** Labels thématiques UGC AI VIDEO assignés au HM. */
-  ugc_ai_video_label_ids?: string[];
 }) {
   const langues =
     input.langues?.filter(Boolean) ??
@@ -1100,12 +1076,6 @@ export function creerRecruteur(input: {
     password: "12345678",
     langue: langues[0],
     langues,
-    ...(input.ugc_ai_video
-      ? {
-          ugc_ai_video: true,
-          ugc_ai_video_label_ids: input.ugc_ai_video_label_ids ?? [],
-        }
-      : {}),
   });
 }
 
@@ -1252,101 +1222,6 @@ export function majIdentifiantsCm(input: {
     tiktok_2fa_note: input.tiktok_2fa_note ?? "",
     notes_hm: input.notes_hm ?? "",
   });
-}
-
-export type PapierCmContrat = {
-  id: string;
-  profile_id: string;
-  compte_id: string | null;
-  langue: string;
-  statut: "envoye" | "signe" | "annule";
-  contrat_version: string;
-  gmail_adresse: string;
-  gmail_password: string;
-  instagram_handle: string;
-  instagram_password: string;
-  nom_legal: string | null;
-  pays_residence: string | null;
-  signature_texte: string | null;
-  signe_at: string | null;
-  signature_ip: string | null;
-  signature_user_agent: string | null;
-  envoye_at: string;
-};
-
-export async function listerContratsPapier(posterId?: string): Promise<PapierCmContrat[]> {
-  const { data: sess } = await supabase.auth.getUser();
-  const uid = posterId ?? sess.user?.id;
-  if (!uid) return [];
-  const { data, error } = await supabase.rpc("lister_papier_cm_contrats", {
-    p_profile_id: uid,
-  });
-  if (error) throw error;
-  return (data ?? []) as PapierCmContrat[];
-}
-
-export async function envoyerContratPapier(input: {
-  posterId: string;
-  langue: string;
-  compteId?: string | null;
-}): Promise<PapierCmContrat> {
-  const cible = cibleComptePapier(input.langue);
-  const { data: sess } = await supabase.auth.getUser();
-  const { data, error } = await supabase
-    .from("papier_cm_contrats")
-    .insert({
-      profile_id: input.posterId,
-      compte_id: input.compteId ?? null,
-      langue: cible.langue,
-      statut: "envoye",
-      contrat_version: CONTRAT_PAPIER_VERSION,
-      gmail_adresse: cible.email,
-      gmail_password: motDePasseComptePapier(),
-      instagram_handle: cible.instagram,
-      instagram_password: motDePasseComptePapier(),
-      envoye_par: sess.user?.id ?? null,
-    })
-    .select(
-      "id, profile_id, compte_id, langue, statut, contrat_version, gmail_adresse, gmail_password, instagram_handle, instagram_password, nom_legal, pays_residence, signature_texte, signe_at, signature_ip, signature_user_agent, envoye_at",
-    )
-    .single();
-  if (error) {
-    if (/papier_cm_contrats_actif_idx/i.test(error.message)) {
-      throw new Error("CONTRAT_DEJA_ENVOYE");
-    }
-    if (/papier_cm_contrats_gmail_idx|papier_cm_contrats_ig_idx/i.test(error.message)) {
-      throw new Error("CONTRAT_HANDLE_PRIS");
-    }
-    if (/duplicate key/i.test(error.message)) {
-      throw new Error("CONTRAT_DEJA_ENVOYE");
-    }
-    throw error;
-  }
-  return data as PapierCmContrat;
-}
-
-export async function signerContratPapier(input: {
-  id: string;
-  nomLegal: string;
-  pays: string;
-  signature: string;
-}): Promise<PapierCmContrat> {
-  const { data, error } = await supabase.rpc("signer_papier_cm_contrat", {
-    p_id: input.id,
-    p_nom_legal: input.nomLegal,
-    p_pays: input.pays,
-    p_signature: input.signature,
-    p_user_agent: typeof navigator === "undefined" ? null : navigator.userAgent,
-  });
-  if (error) {
-    const msg = error.message;
-    if (msg === "SIGNATURE_INVALIDE") throw new Error("papierContrat.errSignature");
-    if (msg === "PAYS_INVALIDE") throw new Error("papierContrat.errPays");
-    if (msg === "CONTRAT_INTROUVABLE") throw new Error("papierContrat.errIntrouvable");
-    if (msg === "NON_AUTHENTIFIE") throw new Error("papierContrat.errAuth");
-    throw new Error(msg);
-  }
-  return data as PapierCmContrat;
 }
 
 export async function lireIdentifiantsCm(
@@ -2605,6 +2480,61 @@ export async function supprimerPost(id: string): Promise<void> {
   if (error) throw error;
 }
 
+/** Un post d'un compte, tel que listé pour la suppression (surveillance). */
+export interface PostCompte {
+  id: string;
+  date_publication_prevue: string | null;
+  type: string;
+  statut: string;
+  pipeline_statut: string;
+  publie_at: string | null;
+  publie_url: string | null;
+  sujet_titre: string | null;
+}
+
+/**
+ * Posts (hors tests) d'un compte, le plus récent d'abord. Sert la suppression
+ * post par post depuis la surveillance, sans charger tout le calendrier.
+ */
+export async function listerPostsCompte(
+  compteId: string,
+  limite = 40,
+): Promise<PostCompte[]> {
+  const { data, error } = await supabase
+    .from("posts")
+    .select(
+      "id, date_publication_prevue, type, statut, pipeline_statut, publie_at, publie_url, sujets(titre)",
+    )
+    .eq("compte_id", compteId)
+    .eq("est_test", false)
+    .order("date_publication_prevue", { ascending: false, nullsFirst: false })
+    .limit(limite);
+  if (error) throw error;
+
+  // Embed `sujets` : typage PostgREST parfois trop strict.
+  type Ligne = {
+    id: string;
+    date_publication_prevue: string | null;
+    type: string | null;
+    statut: string | null;
+    pipeline_statut: string | null;
+    publie_at: string | null;
+    publie_url: string | null;
+    sujets?: { titre?: string | null } | null;
+  };
+  const rows = (data ?? []) as unknown as Ligne[];
+  return rows.map((p) => ({
+    id: p.id,
+    date_publication_prevue: p.date_publication_prevue ?? null,
+    type: p.type ?? "",
+    statut: p.statut ?? "",
+    pipeline_statut: p.pipeline_statut ?? "",
+    publie_at: p.publie_at ?? null,
+    publie_url: p.publie_url ?? null,
+    sujet_titre: p.sujets?.titre ?? null,
+  }));
+}
+
 /** Modifie le texte d'une slide. Édition manuelle admin, aucun appel IA. */
 export async function majTexteSlide(slideId: string, texte: string): Promise<void> {
   const { error } = await supabase
@@ -3423,12 +3353,6 @@ export async function lireReglages(): Promise<Reglages> {
       heures: 24,
       ...((map.get("warmup") as Partial<Reglages["warmup"]> | undefined) ?? {}),
     },
-    papier: normaliserReglagesPapier(map.get("papier")),
-    papier_fal_usage: {
-      date: null,
-      appels: 0,
-      ...((map.get("papier_fal_usage") as Partial<Reglages["papier_fal_usage"]> | undefined) ?? {}),
-    },
   };
 }
 
@@ -3920,466 +3844,6 @@ export const relancerRequalifContenu = (contenuId: string) =>
     "minuit-vnext",
     { etapes: ["tierlist"], contenuId, forcer: true },
   );
-
-export type PapierStatut =
-  | "queued"
-  | "scripting"
-  | "images"
-  | "clips"
-  | "ready"
-  | "failed"
-  | "stopped";
-
-export type PapierJournal = { at: string; etape: string; detail: string };
-
-export type PapierScene = {
-  id: string;
-  master_id: string;
-  index: number;
-  narration: string;
-  overlay: string;
-  image_prompt: string;
-  video_prompt: string;
-  image_path: string | null;
-  image_url: string | null;
-  clip_path: string | null;
-  clip_url: string | null;
-  duree_cible: number;
-};
-
-export type PapierLangueStatut =
-  | "queued"
-  | "translating"
-  | "voice"
-  | "mix"
-  | "render"
-  | "karaoke"
-  | "ready"
-  | "failed";
-
-export type PapierLangue = {
-  id: string;
-  master_id: string;
-  langue: string;
-  title: string | null;
-  hook: string | null;
-  cta: string | null;
-  hashtags: string | null;
-  statut: PapierLangueStatut;
-  etape: string | null;
-  progression: number;
-  erreur: string | null;
-  busy?: boolean;
-  updated_at?: string;
-  video_url: string | null;
-  video_mix_url: string | null;
-  video_mix_path?: string | null;
-  voice?: string | null;
-};
-
-export type PapierMaster = {
-  id: string;
-  date_publication: string;
-  topic: string | null;
-  topic_categorie?: string | null;
-  kind: string;
-  narration_style: string;
-  script: {
-    title?: string;
-    hook?: string;
-    cta?: string;
-    scenes?: Array<{ index: number; narration: string; overlay?: string }>;
-  } | null;
-  statut: PapierStatut;
-  etape: string | null;
-  progression: number;
-  erreur: string | null;
-  journal: PapierJournal[];
-  created_at: string;
-  updated_at: string;
-  video_url?: string | null;
-  video_path?: string | null;
-  voice?: string | null;
-  pipeline_mode?: "auto" | "manuel" | string | null;
-  pipeline_hold?: "topic" | "script" | "images" | null;
-  duree_cible_sec?: number | null;
-  annule?: boolean | null;
-  papier_scenes?: PapierScene[];
-  papier_langues?: PapierLangue[];
-  papier_posts?: Array<{ id: string; compte_id: string; langue: string; est_test?: boolean }>;
-};
-
-export type PapierPost = {
-  id: string;
-  compte_id: string;
-  date_publication_prevue: string;
-  master_id: string;
-  langue_id: string;
-  langue: string;
-  title: string | null;
-  caption: string | null;
-  hashtags: string | null;
-  video_url: string;
-  video_path: string | null;
-  statut: "assigne" | "publie";
-  est_test?: boolean;
-  publie_at: string | null;
-  created_at: string;
-};
-
-export type PapierPostCalendrier = PapierPost & {
-  persona_nom: string | null;
-  handle_tiktok: string | null;
-  poster_prenom: string | null;
-  poster_nom: string | null;
-};
-
-export type PapierAssignResultat = {
-  ok: boolean;
-  assigns?: number;
-  comptes?: number;
-  langues?: number;
-  dates?: string[];
-  detail?: string;
-  test?: boolean;
-  posts?: PapierPost[];
-  besoinOriginal?: boolean;
-  kicksLangue?: string[];
-  error?: string;
-};
-
-export type PapierTickResultat = {
-  ok: boolean;
-  done?: boolean;
-  kick?: boolean;
-  masterId?: string;
-  date?: string;
-  statut?: PapierStatut;
-  progression?: number;
-  detail?: string;
-  error?: string;
-};
-
-export async function listerPapierMasters(
-  limite = 60,
-  applicationId?: string | null,
-): Promise<PapierMaster[]> {
-  let q = supabase
-    .from("papier_masters")
-    .select("*, papier_scenes(*), papier_langues(*), papier_posts(id, compte_id, langue, est_test)")
-    .order("created_at", { ascending: false })
-    .limit(limite);
-  if (applicationId) q = q.eq("application_id", applicationId);
-  const { data, error } = await q;
-  if (error) throw error;
-  return (data ?? []).map((row) => {
-    const r = row as PapierMaster;
-    const scenes = [...(r.papier_scenes ?? [])].sort((a, b) => a.index - b.index);
-    const langues = [...(r.papier_langues ?? [])].sort((a, b) => a.langue.localeCompare(b.langue));
-    const posts = (r.papier_posts ?? []).filter((p) => !p.est_test);
-    return {
-      ...r,
-      journal: Array.isArray(r.journal) ? r.journal : [],
-      papier_scenes: scenes,
-      papier_langues: langues,
-      papier_posts: posts,
-    };
-  });
-}
-
-export type PapierLancerOpts = {
-  date?: string;
-  topic?: string;
-  voice?: string;
-  application_id?: string | null;
-  topic_categorie?: string;
-  narration_style?: string;
-  pipeline_mode?: "auto" | "manuel";
-  duree_cible_sec?: number;
-  valider_topic?: boolean;
-};
-
-export const lancerPapierJour = (body: PapierLancerOpts = {}) =>
-  invoke<PapierTickResultat>("papier-cm", { action: "assurer", manuel: true, ...body });
-
-export const proposerTopicPapier = (body: {
-  topic_categorie?: string;
-  narration_style?: string;
-} = {}) =>
-  invoke<{ ok: boolean; topic?: string; error?: string }>("papier-cm", {
-    action: "proposer_topic",
-    manuel: true,
-    ...body,
-  });
-
-export const validerEtapePapier = (id: string, topic?: string) =>
-  invoke<PapierTickResultat>("papier-cm", {
-    action: "valider",
-    manuel: true,
-    id,
-    topic,
-  });
-
-/**
- * Stop immédiat côté base (sans attendre l'Edge saturée par les ticks) :
- * pause auto + tous les masters en cours → stopped. L'Edge est un filet.
- */
-export async function arreterPapier(id: string): Promise<PapierTickResultat> {
-  const now = new Date().toISOString();
-  const { data: regle } = await supabase.from("reglages").select("valeur").eq("cle", "papier").maybeSingle();
-  const papier = normaliserReglagesPapier(regle?.valeur);
-  await ecrireReglage("papier", { ...papier, actif: false, pipeline_mode: "manuel" });
-
-  const stopPatch = {
-    statut: "stopped",
-    etape: "stopped",
-    annule: true,
-    busy: false,
-    pipeline_mode: "manuel",
-    pipeline_hold: null,
-    erreur: null,
-    updated_at: now,
-  };
-  const { error: errUn } = await supabase
-    .from("papier_masters")
-    .update(stopPatch)
-    .eq("id", id)
-    .neq("statut", "ready");
-  if (errUn) throw errUn;
-  await supabase.from("papier_masters").update(stopPatch).not("statut", "in", "(ready,failed,stopped)");
-  await supabase
-    .from("papier_langues")
-    .update({ busy: false, updated_at: now })
-    .eq("master_id", id)
-    .neq("statut", "ready");
-
-  void invoke<PapierTickResultat>("papier-cm", { action: "arreter", manuel: true, id }).catch(() => null);
-  return { ok: true, done: true, kick: false, masterId: id, statut: "stopped" };
-}
-
-export async function changerModePapier(
-  mode: "auto" | "manuel",
-  opts?: { masterId?: string; hold?: "topic" | "script" | "images" | null },
-): Promise<void> {
-  const { data: regle } = await supabase.from("reglages").select("valeur").eq("cle", "papier").maybeSingle();
-  const papier = normaliserReglagesPapier(regle?.valeur);
-  await ecrireReglage("papier", { ...papier, pipeline_mode: mode });
-  if (!opts?.masterId) return;
-  const patch: Record<string, unknown> = {
-    pipeline_mode: mode,
-    updated_at: new Date().toISOString(),
-  };
-  if (mode === "manuel") {
-    patch.pipeline_hold = opts.hold ?? "topic";
-  }
-  const { error } = await supabase
-    .from("papier_masters")
-    .update(patch)
-    .eq("id", opts.masterId)
-    .neq("statut", "ready");
-  if (error) throw error;
-}
-
-export const changerVoixPapier = (id: string, voice: string) =>
-  invoke<PapierTickResultat & { voix?: string; rebuildFr?: boolean }>("papier-cm", {
-    action: "voix",
-    manuel: true,
-    id,
-    voice,
-  });
-
-export type PapierVoixListe = {
-  voix: import("./papierVoix").VoixEleven[];
-  hasKey: boolean;
-  langue: string;
-  erreur?: string;
-};
-
-export const listerVoixPapier = (langue?: string) =>
-  invoke<PapierVoixListe>("papier-cm", {
-    action: "lister_voix",
-    manuel: true,
-    ...(langue ? { langue } : {}),
-  });
-
-export const previewVoixPapier = (opts: { voiceId: string; langue?: string }) =>
-  invoke<{ previewUrl?: string; audioBase64?: string; mime?: string; voiceId: string }>(
-    "papier-cm",
-    { action: "preview_voix", manuel: true, voiceId: opts.voiceId, langue: opts.langue ?? "fr" },
-  );
-
-export const relancerPapier = (id: string) =>
-  invoke<PapierTickResultat>("papier-cm", { action: "relancer", manuel: true, id });
-
-export const regenererPapier = (id: string, topic?: string) =>
-  invoke<PapierTickResultat>("papier-cm", { action: "regenerer", manuel: true, id, topic });
-
-export const regenererPartiePapier = (
-  id: string,
-  partie: "topic" | "script" | "images",
-  topic?: string,
-) =>
-  invoke<PapierTickResultat>("papier-cm", {
-    action: "regenerer_partie",
-    manuel: true,
-    id,
-    partie,
-    topic,
-  });
-
-export async function sauverTopicPapier(id: string, topic: string): Promise<void> {
-  const { error } = await supabase
-    .from("papier_masters")
-    .update({ topic: topic.trim(), updated_at: new Date().toISOString() })
-    .eq("id", id)
-    .neq("statut", "ready");
-  if (error) throw error;
-}
-
-/** Efface le master en cours (fichiers + ligne) et revient à un formulaire vide. */
-export async function abandonnerPapier(id: string): Promise<PapierTickResultat> {
-  const { data: master, error } = await supabase
-    .from("papier_masters")
-    .select("id, statut, video_path")
-    .eq("id", id)
-    .maybeSingle();
-  if (error) throw error;
-  if (!master) return { ok: true, done: true, kick: false, masterId: id };
-  if (master.statut === "ready") {
-    throw new Error("Un master en bibliothèque ne se supprime pas ici");
-  }
-
-  const { data: scenes } = await supabase
-    .from("papier_scenes")
-    .select("image_path, clip_path")
-    .eq("master_id", id);
-  const { data: langues } = await supabase
-    .from("papier_langues")
-    .select("id, video_path, video_mix_path")
-    .eq("master_id", id);
-  const langueIds = (langues ?? [])
-    .map((l) => String((l as { id?: string }).id ?? ""))
-    .filter(Boolean);
-  let langueScenes: Array<{ audio_path?: string | null; mix_path?: string | null }> = [];
-  if (langueIds.length) {
-    const { data } = await supabase
-      .from("papier_langue_scenes")
-      .select("audio_path, mix_path")
-      .in("langue_id", langueIds);
-    langueScenes = (data ?? []) as Array<{ audio_path?: string | null; mix_path?: string | null }>;
-  }
-  const paths = [
-    (master as { video_path?: string | null }).video_path,
-    ...(scenes ?? []).flatMap((s) => [
-      (s as { image_path?: string | null }).image_path,
-      (s as { clip_path?: string | null }).clip_path,
-    ]),
-    ...(langues ?? []).flatMap((l) => [
-      (l as { video_path?: string | null }).video_path,
-      (l as { video_mix_path?: string | null }).video_mix_path,
-    ]),
-    ...langueScenes.flatMap((s) => [s.audio_path, s.mix_path]),
-  ].filter((p): p is string => Boolean(p));
-  if (paths.length) {
-    await supabase.storage.from("medias").remove(paths).catch(() => null);
-  }
-
-  const { error: delErr } = await supabase
-    .from("papier_masters")
-    .delete()
-    .eq("id", id)
-    .neq("statut", "ready");
-  if (delErr) throw delErr;
-
-  void invoke<PapierTickResultat>("papier-cm", { action: "abandonner", manuel: true, id }).catch(
-    () => null,
-  );
-  return { ok: true, done: true, kick: false, masterId: id };
-}
-
-export const lancerPapierLocales = (masterId: string) =>
-  invoke<PapierTickResultat>("papier-cm", { action: "tick_locales", manuel: true, masterId });
-
-export const relancerPapierLangue = (id: string) =>
-  invoke<PapierTickResultat>("papier-cm", { action: "relancer_langue", manuel: true, id });
-
-export const assignerPapierCm = (
-  body: {
-    date?: string;
-    masterId?: string;
-    langueId?: string;
-    fenetreJours?: number;
-    compteId?: string;
-    test?: boolean;
-  } = {},
-) => invoke<PapierAssignResultat>("papier-cm", { action: "assigner", manuel: true, ...body });
-
-export const testerAssignationPapier = (body: {
-  compteId: string;
-  date?: string;
-  masterId?: string;
-}) =>
-  invoke<PapierAssignResultat>("papier-cm", {
-    action: "assigner",
-    manuel: true,
-    test: true,
-    ...body,
-  });
-
-export const annulerAssignationPapierTest = (compteId: string, date?: string) =>
-  invoke<{ ok: boolean; supprimes?: number; error?: string }>("papier-cm", {
-    action: "annuler_test",
-    manuel: true,
-    compteId,
-    date,
-  });
-
-export async function mesPapierPosts(compteId: string): Promise<PapierPost[]> {
-  const { data, error } = await supabase
-    .from("papier_posts")
-    .select("*")
-    .eq("compte_id", compteId)
-    .eq("est_test", false)
-    .order("date_publication_prevue", { ascending: false })
-    .limit(200);
-  if (error) throw error;
-  return (data ?? []) as PapierPost[];
-}
-
-export async function papierPostsCalendrier(): Promise<PapierPostCalendrier[]> {
-  const { data, error } = await supabase
-    .from("papier_posts")
-    .select("*, comptes(handle_tiktok, persona_nom, profiles(prenom, nom))")
-    .eq("est_test", false)
-    .order("date_publication_prevue", { ascending: false, nullsFirst: false })
-    .limit(400);
-  if (error) throw error;
-  // deno-lint-ignore no-explicit-any
-  return ((data ?? []) as any[]).map((row) => ({
-    ...row,
-    persona_nom: row.comptes?.persona_nom ?? null,
-    handle_tiktok: row.comptes?.handle_tiktok ?? null,
-    poster_prenom: row.comptes?.profiles?.prenom ?? null,
-    poster_nom: row.comptes?.profiles?.nom ?? null,
-  })) as PapierPostCalendrier[];
-}
-
-export async function listerPapierPostsTest(
-  compteId: string,
-  date?: string,
-): Promise<PapierPost[]> {
-  let q = supabase
-    .from("papier_posts")
-    .select("*")
-    .eq("compte_id", compteId)
-    .eq("est_test", true)
-    .order("date_publication_prevue", { ascending: false })
-    .limit(20);
-  if (date) q = q.eq("date_publication_prevue", date);
-  const { data, error } = await q;
-  if (error) throw error;
-  return (data ?? []) as PapierPost[];
-}
 
 export const lancerScoringVnext = (compteId?: string) =>
   invoke<{ ok: boolean; contenus: number; comptes: number }>("scoring", {
@@ -5075,156 +4539,6 @@ export const annulerAssignationTestCompte = (date: string, compteId: string) =>
     compteId,
   });
 
-export interface UgcVideoPostTest {
-  id: string;
-  statut: string;
-  caption: string | null;
-  video_finale_url: string | null;
-  video_kling_url: string | null;
-  image_ref_url: string | null;
-  frame_clean_url: string | null;
-  pipeline_erreur: string | null;
-  reaction_id: string;
-  utilisation_id: string;
-}
-
-/** Assignation UGC AI VIDEO test (1 créateur) — stream NDJSON + logs exacts. */
-export async function lancerAssignationUgcVideoTest(
-  date: string,
-  compteId: string,
-  onLog?: (ligne: AssignationTestLog) => void,
-  opts: { jusquA?: "face_ref" | "complet"; reactionId?: string; libre?: boolean } = {},
-): Promise<{
-  ok: boolean;
-  jour: string;
-  crees: number;
-  resultats: Array<{
-    compteId: string;
-    crees: number;
-    postIds?: string[];
-    erreur?: string;
-    raison?: string;
-  }>;
-}> {
-  const url = import.meta.env.VITE_SUPABASE_URL;
-  const anon = import.meta.env.VITE_SUPABASE_ANON_KEY;
-  if (!url || !anon) throw new Error("Supabase non configuré");
-
-  const { data: sessionData } = await supabase.auth.getSession();
-  const token = sessionData.session?.access_token;
-  if (!token) throw new Error("Session expirée — reconnecte-toi.");
-
-  const res = await fetch(`${url}/functions/v1/assignation-ugc-video`, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${token}`,
-      apikey: anon,
-      "Content-Type": "application/json",
-      Accept: "application/x-ndjson",
-    },
-    body: JSON.stringify(
-      corpsAssignationUgcVideoTest({
-        date,
-        compteId,
-        jusquA: opts.jusquA,
-        reactionId: opts.reactionId,
-        libre: opts.libre,
-      }),
-    ),
-  });
-
-  if (!res.ok || !res.body) {
-    let message = `Edge assignation-ugc-video ${res.status}`;
-    try {
-      const j = (await res.json()) as { error?: string };
-      if (j?.error) message = j.error;
-    } catch {
-      // ignore
-    }
-    throw new Error(message);
-  }
-
-  const reader = res.body.getReader();
-  const decoder = new TextDecoder();
-  let buffer = "";
-  let dernier: Record<string, unknown> | null = null;
-
-  while (true) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    buffer += decoder.decode(value, { stream: true });
-    const lignes = buffer.split("\n");
-    buffer = lignes.pop() ?? "";
-    for (const ligne of lignes) {
-      const trim = ligne.trim();
-      if (!trim) continue;
-      try {
-        const ev = JSON.parse(trim) as Record<string, unknown>;
-        dernier = ev;
-        const detail = typeof ev.detail === "string" ? ev.detail : "";
-        if (detail) {
-          onLog?.({
-            at: typeof ev.at === "string" ? ev.at : new Date().toISOString(),
-            detail,
-            statut: typeof ev.statut === "string" ? ev.statut : undefined,
-          });
-        }
-      } catch {
-        // ignore
-      }
-    }
-  }
-
-  if (!dernier) throw new Error("Assignation UGC VIDEO : aucune réponse stream");
-  if (dernier.ok === false) {
-    throw new Error(
-      typeof dernier.error === "string"
-        ? dernier.error
-        : typeof dernier.detail === "string"
-          ? dernier.detail
-          : "Assignation UGC VIDEO échouée",
-    );
-  }
-
-  return {
-    ok: true,
-    jour: String(dernier.jour ?? date),
-    crees: Number(dernier.crees ?? 0),
-    resultats: Array.isArray(dernier.resultats)
-      ? (dernier.resultats as Array<{
-          compteId: string;
-          crees: number;
-          postIds?: string[];
-          erreur?: string;
-          raison?: string;
-        }>)
-      : [],
-  };
-}
-
-export const annulerAssignationUgcVideoTest = (date: string, compteId: string) =>
-  invoke<{ ok: boolean; jour: string; compteId: string; posts: number }>(
-    "assignation-ugc-video",
-    { action: "annuler_test", date, compteId },
-  );
-
-export async function listerUgcVideoPostsTest(
-  compteId: string,
-  date: string,
-): Promise<UgcVideoPostTest[]> {
-  const { data, error } = await supabase
-    .from("ugc_video_posts")
-    .select(
-      "id, statut, caption, video_finale_url, video_kling_url, image_ref_url, frame_clean_url, pipeline_erreur, reaction_id, utilisation_id",
-    )
-    .eq("compte_id", compteId)
-    .eq("date_publication_prevue", date)
-    .eq("est_test", true)
-    .order("created_at", { ascending: false });
-  if (error) throw error;
-  return (data ?? []) as UgcVideoPostTest[];
-}
-
 const LARGEUR_ASSIGN_FRONT = 6;
 
 async function assignerCompteAvecRetry(
@@ -5764,7 +5078,7 @@ export async function listerLabelIdsAvecUgc(applicationId?: string | null): Prom
 export async function creerLabel(
   nom: string,
   couleur?: string | null,
-  opts?: { ugc_ai_video?: boolean; genre?: "homme" | "femme"; application_id?: string | null },
+  opts?: { genre?: "homme" | "femme"; application_id?: string | null },
 ): Promise<Label> {
   const base = slugify(nom);
   if (base === "ugc-ai-video" || base === SLUG_HOOK) {
@@ -5779,7 +5093,6 @@ export async function creerLabel(
         nom: nom.trim(),
         slug,
         couleur: couleur ?? null,
-        ugc_ai_video: Boolean(opts?.ugc_ai_video),
         genre,
         ...(opts?.application_id ? { application_id: opts.application_id } : {}),
       })
@@ -6038,53 +5351,6 @@ export async function supprimerLabel(id: string): Promise<void> {
     throw new Error("LABEL_MARQUE_PROTEGE");
   }
   const { error } = await supabase.from("labels").delete().eq("id", id);
-  if (error) throw error;
-}
-
-/** Labels thématiques du pool UGC AI VIDEO (jamais la marque système). */
-export async function listerLabelsUgcAiVideo(opts?: {
-  /** @deprecated la marque n’est plus listée */
-  inclureMarque?: boolean;
-  applicationId?: string | null;
-}): Promise<Label[]> {
-  const tous = await listerLabels(opts?.applicationId);
-  return tous.filter((l) => l.ugc_ai_video);
-}
-
-export async function labelsDuHmUgcVideo(profileId: string): Promise<string[]> {
-  const { data, error } = await supabase
-    .from("hm_ugc_video_labels")
-    .select("label_id")
-    .eq("profile_id", profileId);
-  if (error) throw error;
-  return (data ?? []).map((r) => r.label_id as string);
-}
-
-/** Remplace les labels thématiques UGC AI VIDEO d’un HM. */
-export async function setLabelsHmUgcVideo(
-  profileId: string,
-  labelIds: string[],
-): Promise<void> {
-  const { error: delErr } = await supabase
-    .from("hm_ugc_video_labels")
-    .delete()
-    .eq("profile_id", profileId);
-  if (delErr) throw delErr;
-  const uniques = [...new Set(labelIds.filter(Boolean))];
-  if (uniques.length === 0) return;
-  const { data: labs, error: labErr } = await supabase
-    .from("labels")
-    .select("id, slug, nom, ugc_ai_video")
-    .in("id", uniques)
-    .eq("ugc_ai_video", true);
-  if (labErr) throw labErr;
-  const valides = (labs ?? [])
-    .filter((l) => !estLabelSysteme(l))
-    .map((l) => l.id as string);
-  if (valides.length === 0) return;
-  const { error } = await supabase.from("hm_ugc_video_labels").insert(
-    valides.map((label_id) => ({ profile_id: profileId, label_id })),
-  );
   if (error) throw error;
 }
 

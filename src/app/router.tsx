@@ -35,14 +35,9 @@ import { AdminMinuitPage } from "@/pages/admin/AdminMinuitPage";
 import { AdminSlideshowsPage } from "@/pages/admin/AdminSlideshowsPage";
 import { AdminPostDetailPage } from "@/pages/admin/AdminPostDetailPage";
 import { AdminTestsPage } from "@/pages/admin/AdminTestsPage";
-import { AdminUgcPersonasPage } from "@/pages/admin/AdminUgcPersonasPage";
-import { AdminUgcSlideshowsPage } from "@/pages/admin/AdminUgcSlideshowsPage";
-import { AdminUgcVideosPage } from "@/pages/admin/AdminUgcVideosPage";
-import { AdminPapierPage } from "@/pages/admin/AdminPapierPage";
 import { AdminCreationPage } from "@/pages/admin/AdminCreationPage";
 import { PosterCalendrierPage } from "@/pages/poster/PosterCalendrierPage";
 import { PosterReferralPage } from "@/pages/poster/PosterReferralPage";
-import { PosterContratPapierPage } from "@/pages/poster/PosterContratPapierPage";
 import { PosterPostPage } from "@/pages/poster/PosterPostPage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 
@@ -78,7 +73,6 @@ export function AppRouter() {
             <Route path="/admin/contenus" element={<Navigate to="/admin/slideshows" replace />} />
             <Route path="/admin/slideshows" element={<AdminSlideshowsPage />} />
             <Route path="/admin/creation" element={<AdminCreationPage />} />
-            <Route path="/admin/papier" element={<AdminPapierPage />} />
             <Route path="/admin/assignation-sources" element={<Navigate to="/admin/sources" replace />} />
             <Route path="/admin/reproduisibles" element={<Navigate to="/admin/slideshows" replace />} />
             <Route path="/admin/posters" element={<AdminPostersPage />} />
@@ -95,9 +89,9 @@ export function AppRouter() {
             <Route path="/admin/prompts" element={<AdminPromptsPage />} />
             <Route path="/admin/documents" element={<AdminDocumentsPage />} />
             <Route path="/admin/assistant" element={<AdminChatbotPage />} />
-            <Route path="/admin/ugc/personas" element={<AdminUgcPersonasPage />} />
-            <Route path="/admin/ugc/slideshows" element={<AdminUgcSlideshowsPage />} />
-            <Route path="/admin/ugc/videos" element={<AdminUgcVideosPage />} />
+            {/* Papier CM et UGC AI retirés — les anciens liens retombent sur le pilotage. */}
+            <Route path="/admin/papier" element={<Navigate to="/admin" replace />} />
+            <Route path="/admin/ugc/*" element={<Navigate to="/admin" replace />} />
           </Route>
         </Route>
 
@@ -105,7 +99,7 @@ export function AppRouter() {
           <Route element={<PosterLayout />}>
             <Route path="/calendrier" element={<PosterCalendrierPage />} />
             <Route path="/createur/parrainage" element={<PosterReferralPage />} />
-            <Route path="/createur/contrat-papier" element={<PosterContratPapierPage />} />
+            <Route path="/createur/contrat-papier" element={<Navigate to="/calendrier" replace />} />
             <Route path="/createur/guide" element={<DocumentView cle="guide_poster" />} />
             <Route path="/createur/faq" element={<DocumentView cle="faq_poster" />} />
           </Route>

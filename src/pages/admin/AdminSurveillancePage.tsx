@@ -2,7 +2,15 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { AlertTriangle, BellRing, ExternalLink, EyeOff, Lock, Unlock } from "lucide-react";
+import {
+  AlertTriangle,
+  BellRing,
+  ExternalLink,
+  EyeOff,
+  Lock,
+  Trash2,
+  Unlock,
+} from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -24,9 +32,12 @@ import {
   deverrouillerClassement,
   envoyerNudge,
   lireReglages,
+  listerPostsCompte,
   listerSurveillanceComptes,
   skipSurveillance,
+  supprimerPost,
   type LigneSurveillance,
+  type PostCompte,
 } from "@/features/moteur/api";
 import { BadgeClassement } from "@/features/moteur/BadgeClassement";
 import {
@@ -149,6 +160,113 @@ function EnteteLigne({
   );
 }
 
+/** Un post est « posté » dès qu'il porte un lien ou une date de publication. */
+function estPoste(post: PostCompte): boolean {
+  return post.statut === "publie" || Boolean(post.publie_at) || Boolean(post.publie_url);
+}
+
+/**
+ * Posts du compte, avec suppression unitaire. Ouvert à la demande depuis la
+ * ligne de surveillance : inutile de charger le calendrier entier pour retirer
+ * le post d'un compte qui ne poste plus.
+ */
+function PostsCompte({ compteId, nom }: { compteId: string; nom: string }) {
+  const { t, i18n } = useTranslation();
+  const queryClient = useQueryClient();
+  const posts = useQuery({
+    queryKey: ["posts-compte", compteId],
+    queryFn: () => listerPostsCompte(compteId),
+  });
+
+  const supprimer = useMutation({
+    mutationFn: supprimerPost,
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: ["posts-compte", compteId] });
+      void queryClient.invalidateQueries({ queryKey: ["posts-calendrier-admin"] });
+      void queryClient.invalidateQueries({ queryKey: ["publications-compte", compteId] });
+    },
+  });
+
+  return (
+    <div className="space-y-2 rounded-lg border bg-muted/30 p-3">
+      <p className="text-xs font-medium">{t("surveillance.postsTitre")}</p>
+      {posts.isPending && (
+        <p className="text-xs text-muted-foreground">{t("common.loading")}</p>
+      )}
+      {posts.isError && (
+        <p className="text-xs text-destructive">
+          {posts.error instanceof Error ? posts.error.message : String(posts.error)}
+        </p>
+      )}
+      {supprimer.isError && (
+        <p className="text-xs text-destructive">
+          {t("surveillance.erreur", {
+            msg:
+              supprimer.error instanceof Error
+                ? supprimer.error.message
+                : String(supprimer.error),
+          })}
+        </p>
+      )}
+      {posts.data && posts.data.length === 0 && (
+        <p className="text-xs text-muted-foreground">{t("surveillance.postsVide")}</p>
+      )}
+      {(posts.data ?? []).map((post) => {
+        const poste = estPoste(post);
+        return (
+          <div
+            key={post.id}
+            className="flex flex-wrap items-center justify-between gap-2 rounded-md border bg-card px-2.5 py-2"
+          >
+            <div className="flex min-w-0 flex-wrap items-center gap-1.5">
+              <Badge variant={poste ? "success" : "outline"}>
+                {poste ? t("adminCal.poste") : t("adminCal.prevu")}
+              </Badge>
+              <span className="text-xs text-muted-foreground">
+                {post.date_publication_prevue
+                  ? new Date(post.date_publication_prevue).toLocaleDateString(i18n.language)
+                  : post.publie_at
+                    ? new Date(post.publie_at).toLocaleDateString(i18n.language)
+                    : "—"}
+              </span>
+              <span className="truncate text-xs">
+                {post.sujet_titre?.trim() || t("posts.title")}
+              </span>
+            </div>
+            <div className="flex flex-wrap items-center gap-1.5">
+              {post.publie_url && (
+                <a
+                  href={post.publie_url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1 text-xs font-medium text-primary underline underline-offset-2"
+                >
+                  {t("adminCal.voirTiktok")}
+                  <ExternalLink className="size-3" />
+                </a>
+              )}
+              <Button
+                size="sm"
+                variant="ghost"
+                className="text-destructive"
+                disabled={supprimer.isPending}
+                onClick={() => {
+                  if (window.confirm(t("adminCal.confirmSuppr", { nom }))) {
+                    supprimer.mutate(post.id);
+                  }
+                }}
+              >
+                <Trash2 className="size-3.5" />
+                {t("surveillance.supprimerPost")}
+              </Button>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 function LigneFile({
   ligne,
   reglages,
@@ -171,6 +289,7 @@ function LigneFile({
 }) {
   const { t, i18n } = useTranslation();
   const [modeleId, setModeleId] = React.useState(modeles[0]?.id ?? "");
+  const [postsOuverts, setPostsOuverts] = React.useState(false);
   const motifs = motifsSurveillance(ligne, reglages);
   const skippe = estSkippe(ligne.surveillance_skip_jusqu);
 
@@ -276,6 +395,19 @@ function LigneFile({
 
         <Button
           size="sm"
+          variant="outline"
+          title={t("surveillance.supprimerPostAide")}
+          aria-expanded={postsOuverts}
+          onClick={() => setPostsOuverts((v) => !v)}
+        >
+          <Trash2 className="size-3.5" />
+          {postsOuverts
+            ? t("surveillance.supprimerPostFermer")
+            : t("surveillance.supprimerPost")}
+        </Button>
+
+        <Button
+          size="sm"
           variant="ghost"
           className="text-destructive"
           disabled={pending}
@@ -286,6 +418,8 @@ function LigneFile({
           {t("surveillance.nePasRenouveler")}
         </Button>
       </div>
+
+      {postsOuverts && <PostsCompte compteId={ligne.compte_id} nom={nomCompte(ligne)} />}
     </div>
   );
 }

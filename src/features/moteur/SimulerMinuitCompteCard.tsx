@@ -107,7 +107,6 @@ export function SimulerMinuitCompteCard() {
                 <option key={c.id} value={c.id}>
                   {c.persona_nom ?? c.handle_tiktok ?? c.id.slice(0, 8)}
                   {c.langue ? ` · ${c.langue}` : ""}
-                  {c.ugc_ai ? " · UGC" : ""}
                 </option>
               ))}
             </select>

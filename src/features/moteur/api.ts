@@ -2605,6 +2605,61 @@ export async function supprimerPost(id: string): Promise<void> {
   if (error) throw error;
 }
 
+/** Un post d'un compte, tel que listé pour la suppression (surveillance). */
+export interface PostCompte {
+  id: string;
+  date_publication_prevue: string | null;
+  type: string;
+  statut: string;
+  pipeline_statut: string;
+  publie_at: string | null;
+  publie_url: string | null;
+  sujet_titre: string | null;
+}
+
+/**
+ * Posts (hors tests) d'un compte, le plus récent d'abord. Sert la suppression
+ * post par post depuis la surveillance, sans charger tout le calendrier.
+ */
+export async function listerPostsCompte(
+  compteId: string,
+  limite = 40,
+): Promise<PostCompte[]> {
+  const { data, error } = await supabase
+    .from("posts")
+    .select(
+      "id, date_publication_prevue, type, statut, pipeline_statut, publie_at, publie_url, sujets(titre)",
+    )
+    .eq("compte_id", compteId)
+    .eq("est_test", false)
+    .order("date_publication_prevue", { ascending: false, nullsFirst: false })
+    .limit(limite);
+  if (error) throw error;
+
+  // Embed `sujets` : typage PostgREST parfois trop strict.
+  type Ligne = {
+    id: string;
+    date_publication_prevue: string | null;
+    type: string | null;
+    statut: string | null;
+    pipeline_statut: string | null;
+    publie_at: string | null;
+    publie_url: string | null;
+    sujets?: { titre?: string | null } | null;
+  };
+  const rows = (data ?? []) as unknown as Ligne[];
+  return rows.map((p) => ({
+    id: p.id,
+    date_publication_prevue: p.date_publication_prevue ?? null,
+    type: p.type ?? "",
+    statut: p.statut ?? "",
+    pipeline_statut: p.pipeline_statut ?? "",
+    publie_at: p.publie_at ?? null,
+    publie_url: p.publie_url ?? null,
+    sujet_titre: p.sujets?.titre ?? null,
+  }));
+}
+
 /** Modifie le texte d'une slide. Édition manuelle admin, aucun appel IA. */
 export async function majTexteSlide(slideId: string, texte: string): Promise<void> {
   const { error } = await supabase

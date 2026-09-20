@@ -2092,6 +2092,12 @@ export const en = {
       hmDemandeFait: "HM asked on {{date}}",
       ajouteLe: "Added on {{date}}",
       voirFiche: "Open profile",
+      supprimerPost: "Delete post",
+      supprimerPostFermer: "Hide posts",
+      supprimerPostAide:
+        "Opens this account's posts so you can delete one (its slides go with it).",
+      postsTitre: "Posts for this account",
+      postsVide: "No post for this account.",
       erreur: "Action failed: {{msg}}",
       sansCompte: "—",
     },

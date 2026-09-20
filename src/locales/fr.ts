@@ -2095,6 +2095,12 @@ export const fr = {
       hmDemandeFait: "Demande au HM faite le {{date}}",
       ajouteLe: "Ajouté le {{date}}",
       voirFiche: "Ouvrir la fiche",
+      supprimerPost: "Supprimer un post",
+      supprimerPostFermer: "Masquer les posts",
+      supprimerPostAide:
+        "Ouvre les posts de ce compte pour en supprimer un (les slides partent avec).",
+      postsTitre: "Posts de ce compte",
+      postsVide: "Aucun post pour ce compte.",
       erreur: "Action impossible : {{msg}}",
       sansCompte: "—",
     },

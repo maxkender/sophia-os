@@ -26,6 +26,7 @@ import type {
   Sujet,
   SujetSlide,
   Label,
+  LabelReserve,
   Contenu,
   ContenuLangue,
   ContenuSlide,
@@ -5052,6 +5053,41 @@ export async function listerLabels(applicationId?: string | null): Promise<Label
   const { data, error } = await q;
   if (error) throw error;
   return ((data ?? []) as Label[]).filter((l) => !estLabelSysteme(l));
+}
+
+/**
+ * Réserve de passages par label — combien de jours avant la panne sèche.
+ *
+ * Tout le calcul est dans la vue `label_reserve` (migration 0254), et c'est
+ * délibéré : le croiser ici demanderait de lire `contenu_labels` (3 369 lignes)
+ * et `contenu_tier_etat` (3 375), donc de se faire tronquer en silence au
+ * plafond `max-rows` de PostgREST. Le front n'a pas le garde-fou de complétude
+ * de `serviceClient` : un chiffre faux sortirait sans un mot. Ici on lit une
+ * ligne par label — une dizaine en tout.
+ */
+export async function listerReserveLabels(
+  applicationId?: string | null,
+): Promise<LabelReserve[]> {
+  let q = supabase
+    .from("label_reserve")
+    .select(
+      "label_id, nom, slug, application_id, contenus_prets, passages_restants, comptes, demande_jour, reserve_jours",
+    )
+    .order("nom");
+  if (applicationId) q = q.eq("application_id", applicationId);
+  const { data, error } = await q;
+  if (error) throw error;
+  return ((data ?? []) as LabelReserve[]).map((r) => ({
+    ...r,
+    // PostgREST rend `numeric` en chaîne (sum / round) : sans ça, la
+    // comparaison au seuil se ferait sur du texte et « 10,6 » passerait pour
+    // plus petit que « 5,4 ».
+    passages_restants: Number(r.passages_restants ?? 0),
+    demande_jour: Number(r.demande_jour ?? 0),
+    reserve_jours: r.reserve_jours === null || r.reserve_jours === undefined
+      ? null
+      : Number(r.reserve_jours),
+  }));
 }
 
 /** Labels affichés en bibliothèque (inclut Hook, exclut la marque UGC). */

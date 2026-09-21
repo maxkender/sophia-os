@@ -23,6 +23,7 @@ import {
   creerApplication,
   creerLabel,
   listerLabels,
+  listerReserveLabels,
   majLabel,
   supprimerLabel,
 } from "@/features/moteur/api";
@@ -32,7 +33,16 @@ import {
   exemplesFeedDepuisTexte,
   exemplesFeedVersTexte,
 } from "@/features/moteur/creationManuelle";
-import type { Label as LabelMoteur, LabelGenre } from "@/features/moteur/types";
+import {
+  classeReserve,
+  formaterReserve,
+  niveauReserve,
+} from "@/features/moteur/labelReserve";
+import type {
+  Label as LabelMoteur,
+  LabelGenre,
+  LabelReserve,
+} from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
 
 const selectClass =
@@ -44,6 +54,46 @@ function abrege(n: number): string {
   return String(Math.round(n));
 }
 
+/**
+ * Réserve du label, en jours, à même hauteur que son nom.
+ *
+ * C'est un PLANCHER : le stock se recharge à chaque requalification et à chaque
+ * import, donc « 5 j » ne veut pas dire « mort dans 5 jours », mais « plus rien
+ * en réserve si personne ne source ». Le titre au survol le dit, parce qu'un
+ * chiffre nu dans un badge rouge se lit comme une prédiction.
+ *
+ * Silencieux quand la vue ne rend rien pour ce label : pas de badge plutôt
+ * qu'un « ? » qui ferait douter de tous les autres.
+ */
+function BadgeReserve({ reserve }: { reserve?: LabelReserve }) {
+  const { t, i18n } = useTranslation();
+  if (!reserve) return null;
+  const niveau = niveauReserve(reserve.reserve_jours);
+  if (niveau === "inconnu") {
+    return (
+      <span
+        className="rounded border border-border bg-muted px-1 text-[10px] text-muted-foreground"
+        title={t("labels.reserveSansCompte")}
+      >
+        {t("labels.reserveAucunCompte")}
+      </span>
+    );
+  }
+  const jours = formaterReserve(reserve.reserve_jours, i18n.language);
+  return (
+    <span
+      className={`rounded border px-1 text-[10px] font-medium ${classeReserve(niveau)}`}
+      title={t("labels.reserveAide", {
+        restants: reserve.passages_restants,
+        demande: reserve.demande_jour,
+        comptes: reserve.comptes,
+      })}
+    >
+      {t("labels.reserveJours", { jours })}
+    </span>
+  );
+}
+
 function LabelsPilotageCard() {
   const { t } = useTranslation();
   const qc = useQueryClient();
@@ -53,6 +103,18 @@ function LabelsPilotageCard() {
     queryFn: () => listerLabels(applicationId),
     enabled: Boolean(applicationId),
   });
+  // Requête à part, et pas un enrichissement de `listerLabels` : la gestion des
+  // labels doit rester utilisable même si la vue `label_reserve` n'est pas
+  // encore appliquée en base. Un badge manquant n'empêche pas de créer un label.
+  const reserves = useQuery({
+    queryKey: ["label-reserve", applicationId],
+    queryFn: () => listerReserveLabels(applicationId),
+    enabled: Boolean(applicationId),
+  });
+  const reserveParLabel = React.useMemo(
+    () => new Map((reserves.data ?? []).map((r) => [r.label_id, r])),
+    [reserves.data],
+  );
   const [nouveauSlug, setNouveauSlug] = React.useState("");
   const [nouveauNom, setNouveauNom] = React.useState("");
   const [nom, setNom] = React.useState("");
@@ -189,6 +251,7 @@ function LabelsPilotageCard() {
                 style={{ backgroundColor: lab.couleur ?? "#888" }}
               />
               <span className="font-medium">{lab.nom}</span>
+              <BadgeReserve reserve={reserveParLabel.get(lab.id)} />
               <select
                 className="h-7 rounded border border-input bg-background px-1 text-[11px]"
                 value={lab.genre === "homme" ? "homme" : "femme"}

@@ -9,6 +9,7 @@ import {
   upscaleViaRealEsrgan,
   type UpscaleProgress,
 } from "./replicate_realesrgan_upscale.ts";
+import { lireTout } from "./lots.ts";
 import { serviceClient } from "./supabase.ts";
 
 const BUCKET = "medias";
@@ -182,14 +183,30 @@ export async function listerMediasAssignesNonUpscales(
   const chunk = 80;
   for (let i = 0; i < postIds.length; i += chunk) {
     const ids = postIds.slice(i, i + chunk);
-    const { data: slides, error: e2 } = await supabase
-      .from("post_slides")
-      .select("media_id, media_library(upscale_le, ugc_face_regen)")
-      .in("post_id", ids)
-      .not("media_id", "is", null);
-    if (e2) throw e2;
-    for (const s of slides ?? []) {
-      const mediaId = s.media_id as string | null;
+    // Le paquet de 80 posts borne l'URL, pas la réponse : un post porte
+    // plusieurs slides, et à 13 slides par post on franchit le plafond
+    // PostgREST dès le premier paquet. Tronquée, la liste oubliait des médias
+    // assignés du JOUR : ils n'étaient jamais upscalés, rien ne le signalait,
+    // et le poster publiait de la basse définition. On pagine donc sur `id`,
+    // clé primaire de `post_slides` — `post_id` ne conviendrait pas, il y a
+    // une ligne par position.
+    const slides = await lireTout<
+      { id: string; media_id: string | null; media_library: unknown }
+    >(
+      `Slides des posts assignés (${ids.length} posts)`,
+      (curseur, taille) => {
+        let q = supabase
+          .from("post_slides")
+          .select("id, media_id, media_library(upscale_le, ugc_face_regen)")
+          .in("post_id", ids)
+          .not("media_id", "is", null);
+        if (curseur) q = q.gt("id", curseur.id);
+        return q.order("id", { ascending: true }).limit(taille);
+      },
+      { ancre: (l) => l.id },
+    );
+    for (const s of slides) {
+      const mediaId = s.media_id;
       if (!mediaId) continue;
       // deno-lint-ignore no-explicit-any
       const lib = (s as any).media_library as {

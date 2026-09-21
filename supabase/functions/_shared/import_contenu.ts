@@ -56,7 +56,7 @@ import {
   placementParDefaut,
   resoudreApplicationImport,
 } from "./applications.ts";
-import { lireParLots } from "./lots.ts";
+import { lireParLots, lireTout } from "./lots.ts";
 import {
   passagesPourTier,
   tierImport,
@@ -108,9 +108,6 @@ const SLIDES_NETTOYAGE_PAR_PASSAGE = 1;
  */
 const SCRAPE_TOUS = Number(Deno.env.get("IMPORT_LISTING_MAX") ?? "") || 600;
 
-/** PostgREST s'arrête à ~1000 lignes sans `range` — il faut paginer explicitement. */
-const PAGE_POSTGREST = 1000;
-
 export interface SlideBrut {
   position: number;
   raw_url: string;
@@ -126,11 +123,20 @@ export interface SlideLangue {
   position_sophia: boolean;
 }
 
-
 const idDe = (url: string) => idPostTiktok(url);
 
 async function lireScoring(supabase: Supabase) {
-  const { data } = await supabase.from("reglages").select("valeur").eq("cle", "scoring").maybeSingle();
+  // Jumeau de `chargerVariationReglages` : `error` non relu, `data = null` sur
+  // échec, et les défauts codés prenaient silencieusement la place des réglages
+  // de l'admin. Ici le coût est direct — `seuil` décide « langue non cuite »,
+  // et si aucune langue ne passe, le slideshow n'est PAS importé. Un timeout
+  // sur `reglages` ne doit pas pouvoir refuser un import à la place de l'admin.
+  const { data, error } = await supabase
+    .from("reglages")
+    .select("valeur")
+    .eq("cle", "scoring")
+    .maybeSingle();
+  if (error) throw new Error(`Réglages de scoring : ${messageErreur(error)}`);
   const v = (data?.valeur ?? {}) as Record<string, number>;
   return {
     prior: v.score_prior ?? 50,
@@ -321,10 +327,18 @@ export async function attacherLabels(
 ): Promise<void> {
   const ids = new Set<string>(labelIds ?? []);
   if (compteReferenceId) {
-    const { data } = await supabase
+    // Labels D'UNE source : quelques unités, bornée par nature. L'erreur se
+    // relit quand même — lue comme « aucun label », elle importe un slideshow
+    // sans label, donc invisible pour tous les pools d'assignation.
+    const { data, error } = await supabase
       .from("compte_reference_labels")
       .select("label_id")
       .eq("compte_reference_id", compteReferenceId);
+    if (error) {
+      throw new Error(
+        `Labels de la source ${compteReferenceId} : ${messageErreur(error)}`,
+      );
+    }
     for (const row of data ?? []) ids.add(row.label_id);
   }
   if (ids.size === 0) return;
@@ -674,32 +688,56 @@ export async function importerLien(
  * visuels). Le client lance ensuite 1 agent scrapePost par URL en parallèle.
  */
 /**
- * Ids TikTok déjà en stock. Paginé : sans `range`, PostgREST s'arrête à ~1000
- * lignes et on ré-enfile alors des slideshows déjà importés.
+ * Ids TikTok déjà en stock.
+ *
+ * Pagination KEYSET sur la clé primaire, et non plus `.range(from, from + 999)`.
+ * Trois défauts dans l'ancienne forme, tous du même incident :
+ *
+ * 1. aucun `.order()`. PostgREST ne promet alors AUCUN ordre, donc aucune
+ *    disjonction entre deux pages : sous MVCC une ligne réécrite pendant la
+ *    lecture part en fin de tas et se retrouve sautée (ou lue deux fois).
+ *    Un id TikTok sauté ici est un slideshow déjà importé qu'on ré-enfile —
+ *    exactement ce que la fonction existe pour empêcher.
+ * 2. la page valait 1000, c'est-à-dire `max-rows` PILE. Si le plafond serveur
+ *    baissait, `lot.length < PAGE` serait vrai dès la première page et la
+ *    boucle s'arrêterait en silence après 1000 lignes, en se croyant complète.
+ *    `lireTout` dérive sa page de `PLAFOND_LIGNES` au lieu de la recopier :
+ *    elle reste STRICTEMENT sous le plafond, donc le serveur n'a jamais rien à
+ *    rogner et une page courte ne peut venir que d'une table épuisée.
+ * 3. `offset` présent dans l'URL, donc le garde-fou de complétude tenait la
+ *    lecture pour bornée et restait muet sur la troncature.
+ *
+ * L'ancre est `contenus.id` (uuid, clé primaire, jamais réécrite) : elle est
+ * unique sur l'ENSEMBLE du résultat, pas seulement dans sa page.
  */
 async function idsTiktokConnus(
   supabase: Supabase,
   compteReferenceId: string,
 ): Promise<{ tous: Set<string>; deCetteSource: string[] }> {
   const applicationId = await applicationIdDeSource(supabase, compteReferenceId);
+
+  const lignes = await lireTout<
+    { id: string; source_url: string | null; compte_reference_id: string | null }
+  >(
+    "Ids TikTok déjà en stock",
+    (curseur, taille) => {
+      let q = supabase
+        .from("contenus")
+        .select("id, source_url, compte_reference_id")
+        .not("source_url", "is", null);
+      if (applicationId) q = q.eq("application_id", applicationId);
+      if (curseur) q = q.gt("id", curseur.id);
+      return q.order("id", { ascending: true }).limit(taille);
+    },
+    { ancre: (l) => l.id },
+  );
+
   const tous = new Set<string>();
   const deCetteSource: string[] = [];
-  for (let from = 0; ; from += PAGE_POSTGREST) {
-    let q = supabase
-      .from("contenus")
-      .select("source_url, compte_reference_id")
-      .not("source_url", "is", null)
-      .range(from, from + PAGE_POSTGREST - 1);
-    if (applicationId) q = q.eq("application_id", applicationId);
-    const { data, error } = await q;
-    if (error) throw error;
-    const lot = data ?? [];
-    for (const row of lot) {
-      const id = idDe(row.source_url ?? "");
-      tous.add(id);
-      if (row.compte_reference_id === compteReferenceId) deCetteSource.push(id);
-    }
-    if (lot.length < PAGE_POSTGREST) break;
+  for (const row of lignes) {
+    const id = idDe(row.source_url ?? "");
+    tous.add(id);
+    if (row.compte_reference_id === compteReferenceId) deCetteSource.push(id);
   }
   return { tous, deCetteSource };
 }
@@ -2261,11 +2299,23 @@ export async function statsImportBatch(
   contenusPending: number;
   contenusDone: number;
 }> {
-  const { data: rows } = await supabase
-    .from("import_file")
-    .select("statut, contenu_id")
-    .eq("batch_id", batchId);
-  const list = rows ?? [];
+  // Un batch de rattrapage enfile jusqu'à `SCRAPE_TOUS` URLs PAR compte source,
+  // et un rattrapage multi-comptes les partage : ce lot dépasse le plafond
+  // PostgREST bien avant qu'on le remarque. Tronqué, il rendait des stats
+  // fausses — et c'est sur ces stats que l'UI déclare un import « terminé ».
+  // Ancre : `import_file.id` (uuid, clé primaire).
+  const list = await lireTout<{ id: string; statut: string; contenu_id: string | null }>(
+    `Stats du batch ${batchId}`,
+    (curseur, taille) => {
+      let q = supabase
+        .from("import_file")
+        .select("id, statut, contenu_id")
+        .eq("batch_id", batchId);
+      if (curseur) q = q.gt("id", curseur.id);
+      return q.order("id", { ascending: true }).limit(taille);
+    },
+    { ancre: (r) => r.id },
+  );
   const contenuIds = list.map((r) => r.contenu_id).filter(Boolean) as string[];
   let contenusPending = 0;
   let contenusDone = 0;

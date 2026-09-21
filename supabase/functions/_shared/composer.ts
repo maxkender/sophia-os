@@ -5,6 +5,7 @@ import {
 } from "./applications.ts";
 import { integrateSophia, translateSlideshow } from "./gemini.ts";
 import { hashtagsPour } from "./hashtags_langue.ts";
+import { lireTout } from "./lots.ts";
 import { avecMentionPublicite } from "./mention_publicite.ts";
 import { chargerPrompt, messageErreur, serviceClient } from "./supabase.ts";
 
@@ -551,11 +552,22 @@ async function visuelsAlternatifs(
   compte: any,
   slides: Slide[],
 ): Promise<Map<number, string | null>> {
-  const { data: dejaVus } = await supabase
-    .from("media_usages")
-    .select("media_id")
-    .eq("compte_id", compte.id);
-  const utilises = new Set((dejaVus ?? []).map((u) => u.media_id));
+  // `media_usages` est en upsert sur (media_id, compte_id) : une ligne par
+  // visuel distinct déjà servi à ce compte, et donc une table qui grossit sans
+  // plafond tant que le compte publie. Tronquée, cette lecture rend un
+  // `utilises` incomplet — et la seule chose qu'on en fait, c'est reproposer
+  // des images « jamais vues » : une troncature ici REPUBLIE sur le compte des
+  // visuels qu'il a déjà postés. Ancre `id`, clé primaire de la table.
+  const dejaVus = await lireTout<{ id: string; media_id: string }>(
+    "Visuels déjà servis au compte",
+    (curseur, taille) => {
+      let q = supabase.from("media_usages").select("id, media_id").eq("compte_id", compte.id);
+      if (curseur) q = q.gt("id", curseur.id);
+      return q.order("id", { ascending: true }).limit(taille);
+    },
+    { ancre: (u) => u.id },
+  );
+  const utilises = new Set(dejaVus.map((u) => u.media_id));
 
   let query = supabase
     .from("media_library")

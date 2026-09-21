@@ -7,11 +7,27 @@ import {
   integrateSophia,
   translateSlideshow,
 } from "./gemini.ts";
+import { contenuIdsDesLabels } from "./assignation_contenu.ts";
 import { LANGUES_CIBLES, type SlideLangue } from "./import_contenu.ts";
 import { lireParLots } from "./lots.ts";
-import { chargerPrompt, serviceClient } from "./supabase.ts";
+import { chargerPrompt, messageErreur, serviceClient } from "./supabase.ts";
 
 export type Supabase = ReturnType<typeof serviceClient>;
+
+/**
+ * Remonte une lecture/écriture ratée au lieu de la confondre avec un résultat
+ * vide.
+ *
+ * Aucun `error` n'était relu dans ce fichier : une requête en échec rendait
+ * `data = null`, que le code lisait comme « rien trouvé ». C'est exactement la
+ * confusion du 20/08 — un pool plein pris pour un pool vide — appliquée ici aux
+ * visuels frères, aux réglages de scoring et au test « une variation existe
+ * déjà ». Ce dernier est le plus coûteux : lu comme « pas d'enfant », il fait
+ * recréer une variation à chaque run, indéfiniment.
+ */
+function assertLu(quoi: string, error: unknown): void {
+  if (error) throw new Error(`${quoi} : ${messageErreur(error)}`);
+}
 
 export interface VariationReglages {
   seuil_score: number;
@@ -24,7 +40,16 @@ export interface VariationReglages {
 export async function chargerVariationReglages(
   supabase: Supabase,
 ): Promise<VariationReglages> {
-  const { data } = await supabase.from("reglages").select("valeur").eq("cle", "scoring").maybeSingle();
+  // Une lecture ratée rendait ici les réglages PAR DÉFAUT, sans un mot : on
+  // fabriquait alors des variations sur des seuils qui ne sont pas ceux de
+  // l'admin (seuil de score, profondeur max). Mieux vaut ne pas varier du tout
+  // que varier selon des règles inventées.
+  const { data, error } = await supabase
+    .from("reglages")
+    .select("valeur")
+    .eq("cle", "scoring")
+    .maybeSingle();
+  assertLu("Variations — réglages de scoring", error);
   const v = (data?.valeur ?? {}) as Record<string, number>;
   return {
     seuil_score: v.variation_seuil_score ?? 80,
@@ -84,7 +109,7 @@ export async function trouverCandidatVariation(
   if (error) throw error;
 
   for (const cl of langues ?? []) {
-    const { data: contenu } = await supabase
+    const { data: contenu, error: errContenu } = await supabase
       .from("contenus")
       .select(
         "id, titre, profondeur, compte_reference_id, application_id, structure_slides, musique_url, musique_titre, musique_plateforme, created_at, statut, import_statut, parent_id",
@@ -93,6 +118,7 @@ export async function trouverCandidatVariation(
       .eq("statut", "valide")
       .eq("import_statut", "done")
       .maybeSingle();
+    assertLu(`Variations — slideshow parent ${cl.contenu_id}`, errContenu);
 
     if (!contenu) continue;
     if ((contenu.profondeur ?? 0) >= reglages.profondeur_max) continue;
@@ -101,13 +127,18 @@ export async function trouverCandidatVariation(
     const slides = (cl.slides ?? []) as SlideLangue[];
     if (slides.length === 0 || !slides.some((s) => s.texte_overlay)) continue;
 
-    // Déjà une variation pour cette langue ?
-    const { data: enfant } = await supabase
+    // Déjà une variation pour cette langue ? Lecture dont l'échec coûte le
+    // plus cher du fichier : `data = null` non relu se lit « pas d'enfant », et
+    // on refabrique alors la même variation à chaque run — traduction Gemini
+    // comprise — sans que rien ne l'empêche, la table n'ayant pas de contrainte
+    // d'unicité (parent_id, variation_langue).
+    const { data: enfant, error: errEnfant } = await supabase
       .from("contenus")
       .select("id")
       .eq("parent_id", contenu.id)
       .eq("variation_langue", cl.langue)
       .maybeSingle();
+    assertLu(`Variations — variation déjà créée pour ${contenu.id}/${cl.langue}`, errEnfant);
     if (enfant) continue;
 
     return {
@@ -148,12 +179,25 @@ async function visuelsAlternatifsLabel(
 
   let poolIds: string[] = [];
   if (labelIds.length > 0) {
-    const { data: liens } = await supabase
-      .from("contenu_labels")
-      .select("contenu_id")
-      .in("label_id", labelIds);
-    const autresContenus = [...new Set((liens ?? []).map((l) => l.contenu_id as string))]
-      .filter((id) => id !== parentId);
+    // Requête JUMELLE de celle que l'assignation vient de corriger. Un
+    // `in("label_id", …)` sur `contenu_labels` traverse une relation
+    // many-to-many : deux labels populaires du parent (alpha_male, 965 liens ;
+    // smart_girl, 951) matchent 1916 lignes, PostgREST en rend 1000 et répond
+    // 200. Le pool de visuels frères était donc amputé de moitié en silence, et
+    // la variation repiochait dans la même poignée d'images.
+    //
+    // Le garde-fou de complétude lève désormais sur cette forme — et
+    // `visuelsAlternatifsLabel` n'a aucun try/catch, ni ses appelants jusqu'à
+    // minuit-vnext. On ne se contente donc pas de rendre la troncature bruyante,
+    // on l'élimine : `contenuIdsDesLabels` boucle label par label et pagine en
+    // keyset avec `contenu_id` pour ancre — ancre qui n'est unique qu'À
+    // L'INTÉRIEUR d'un label, d'où la boucle plutôt qu'un `in(...)` paginé.
+    const contenusDuLabel = await contenuIdsDesLabels(
+      supabase,
+      labelIds,
+      "Variations — slideshows frères du label",
+    );
+    const autresContenus = contenusDuLabel.filter((id) => id !== parentId);
 
     if (autresContenus.length > 0) {
       const medias = await lireParLots<{ id: string }>(
@@ -178,22 +222,29 @@ async function visuelsAlternatifsLabel(
 
   // Repli : toute la biblio propre hors parent
   if (poolIds.length < parentSlides.length) {
-    const { data: medias } = await supabase
+    const { data: medias, error: errRepli } = await supabase
       .from("media_library")
       .select("id")
       .eq("texte_restant", false)
       .like("storage_path", "propre/%")
       .order("used_count")
       .limit(100);
+    assertLu("Variations — repli bibliothèque propre", errRepli);
     for (const m of medias ?? []) {
       const id = m.id as string;
       if (!exclus.has(id) && !poolIds.includes(id)) poolIds.push(id);
     }
   }
 
-  const { data: details } = poolIds.length > 0
+  // `poolIds` plafonne à 180 (80 frères + 100 de repli) : sous le seuil du
+  // garde-fou `in(...)`, et le filtre porte sur la clé primaire, donc la
+  // réponse ne peut pas dépasser la longueur du filtre. Rien à paginer — mais
+  // l'erreur, elle, se relit : sans URL, chaque slide retombe sur le visuel du
+  // parent et la « variation » sort identique à son parent.
+  const { data: details, error: errDetails } = poolIds.length > 0
     ? await supabase.from("media_library").select("id, url").in("id", poolIds)
-    : { data: [] };
+    : { data: [] as Array<{ id: string; url: string }>, error: null };
+  assertLu("Variations — URLs des visuels retenus", errDetails);
   const urlParId = new Map((details ?? []).map((m) => [m.id as string, m.url as string]));
 
   const libres = [...poolIds];
@@ -218,10 +269,16 @@ export async function creerVariation(
   candidat: Candidat,
   reglages: VariationReglages,
 ): Promise<string> {
-  const { data: labels } = await supabase
+  // Lecture inverse de la précédente : les labels D'UN slideshow, donc bornée
+  // par le nombre de labels du dépôt (quelques dizaines) et non par la
+  // popularité d'un label. Pas de pagination à prévoir ici ; l'erreur, si. Lue
+  // comme « aucun label », elle prive la variation de ses labels — elle sort
+  // alors invisible pour le pool d'assignation, et donc jamais assignée.
+  const { data: labels, error: errLabels } = await supabase
     .from("contenu_labels")
     .select("label_id")
     .eq("contenu_id", candidat.contenuId);
+  assertLu(`Variations — labels du parent ${candidat.contenuId}`, errLabels);
   const labelIds = (labels ?? []).map((l) => l.label_id as string);
 
   const structure = await visuelsAlternatifsLabel(
@@ -232,15 +289,16 @@ export async function creerVariation(
   );
 
   // Reformulation (flag variation) dans la langue déclencheuse
-  const voix = candidat.compte_reference_id
-    ? (
-      await supabase
-        .from("comptes_reference")
-        .select("style_profile")
-        .eq("id", candidat.compte_reference_id)
-        .maybeSingle()
-    ).data?.style_profile
-    : null;
+  let voix: string | null = null;
+  if (candidat.compte_reference_id) {
+    const { data: source, error: errVoix } = await supabase
+      .from("comptes_reference")
+      .select("style_profile")
+      .eq("id", candidat.compte_reference_id)
+      .maybeSingle();
+    assertLu(`Variations — voix de la source ${candidat.compte_reference_id}`, errVoix);
+    voix = (source?.style_profile as string | null) ?? null;
+  }
 
   const dedie = await chargerPrompt(supabase, `traduction_${candidat.langue}`);
   const base = dedie ??
@@ -269,11 +327,12 @@ export async function creerVariation(
   const hashtagsTraduits = traductions.hashtags;
 
   // Sophia sur le deck reformulé
-  const { data: corrections } = await supabase
+  const { data: corrections, error: errCorrections } = await supabase
     .from("corrections")
     .select("texte_origine, texte_corrige")
     .order("created_at", { ascending: false })
     .limit(40);
+  assertLu("Variations — corrections Sophia", errCorrections);
 
   const appVar = await applicationParId(supabase, candidat.application_id);
   const slugApp = appVar?.slug ?? "sophia";
@@ -333,20 +392,32 @@ export async function creerVariation(
   if (error || !nouveau) throw error ?? new Error("Création variation échouée");
 
   if (labelIds.length > 0) {
-    await supabase.from("contenu_labels").upsert(
+    // Écriture FONCTIONNELLE, pas décorative : sans ses labels la variation
+    // n'entre dans aucun pool d'assignation. Un upsert raté et ignoré
+    // fabriquait un slideshow que personne ne posterait jamais.
+    const { error: errUpsert } = await supabase.from("contenu_labels").upsert(
       labelIds.map((label_id) => ({ contenu_id: nouveau.id, label_id })),
       { onConflict: "contenu_id,label_id" },
     );
+    assertLu(`Variations — labels de la variation ${nouveau.id}`, errUpsert);
   }
 
-  // Lier médias
+  // Lier médias. Ici on TRACE au lieu de lever : le slideshow porte déjà le
+  // `media_id` dans `structure_slides`, il s'affiche donc correctement même si
+  // le rattachement échoue. Lever après l'insert laisserait un contenu orphelin
+  // à moitié construit, pire que le défaut qu'on signale.
   for (const s of structure) {
     if (!s.media_id) continue;
-    await supabase
+    const { error: errLien } = await supabase
       .from("media_library")
       .update({ contenu_id: nouveau.id })
       .eq("id", s.media_id)
       .is("contenu_id", null);
+    if (errLien) {
+      console.warn(
+        `[variations] rattachement média ${s.media_id} → ${nouveau.id} : ${messageErreur(errLien)}`,
+      );
+    }
   }
 
   // Contenu_langues : langue déclencheuse complète ; autres → vides (backfill)
@@ -364,19 +435,29 @@ export async function creerVariation(
   const { error: errLang } = await supabase.from("contenu_langues").insert(rows);
   if (errLang) throw errLang;
 
-  // Incrémente used_count des médias choisis
+  // Incrémente used_count des médias choisis. Compteur d'usage servant au tri
+  // `order("used_count")` du pool : le fausser dégrade la rotation des visuels,
+  // il ne casse rien. Même arbitrage que ci-dessus — on trace, on ne lève pas,
+  // la variation étant déjà créée et complète à ce stade.
   for (const s of structure) {
     if (!s.media_id) continue;
-    const { data: m } = await supabase
+    const { data: m, error: errLu } = await supabase
       .from("media_library")
       .select("used_count")
       .eq("id", s.media_id)
       .maybeSingle();
+    if (errLu) {
+      console.warn(`[variations] used_count ${s.media_id} (lecture) : ${messageErreur(errLu)}`);
+      continue;
+    }
     if (m) {
-      await supabase
+      const { error: errMaj } = await supabase
         .from("media_library")
         .update({ used_count: (m.used_count ?? 0) + 1 })
         .eq("id", s.media_id);
+      if (errMaj) {
+        console.warn(`[variations] used_count ${s.media_id} (écriture) : ${messageErreur(errMaj)}`);
+      }
     }
   }
 

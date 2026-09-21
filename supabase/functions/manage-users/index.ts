@@ -10,6 +10,7 @@ import {
   estLabelSysteme,
 } from "../_shared/labels_file.ts";
 import { retirerContentCredentialsBytes } from "../_shared/c2pa.ts";
+import { lireTout } from "../_shared/lots.ts";
 import { appliquerIdentiteInstantanee } from "../_shared/persona.ts";
 import { cibleComptePapier, motDePasseComptePapier } from "../_shared/papier_cm_compte.ts";
 import { estRoleManager } from "../_shared/roles.ts";
@@ -1256,17 +1257,53 @@ async function labelMoinsUtiliseParLangue(
   return candidats[Math.floor(Math.random() * candidats.length)] ?? null;
 }
 
+/**
+ * Labels qui ont au moins un slideshow UGC.
+ *
+ * On ne lit plus toute la table de liaison pour n'en garder qu'un ensemble de
+ * `label_id`. `contenu_labels` compte 3369 liens et la part UGC peut franchir
+ * le plafond PostgREST : tronquée, la lecture aurait fait DISPARAÎTRE de la
+ * file d'assignation UGC un label peu fourni, dominé dans les 1000 premières
+ * lignes par alpha_male et smart_girl. Un label absent ne produit pas d'erreur,
+ * il produit des créateurs qui ne reçoivent plus rien — une absence, donc
+ * invisible.
+ *
+ * La sortie n'est pas une pagination mais une reformulation : la question
+ * posée est « ce label a-t-il au moins un contenu UGC ? », et elle se répond
+ * label par label avec un `.limit(1)`, sans jamais rapatrier l'inventaire.
+ * Les labels sont une poignée. Même forme que `labelADesContenusUgc` juste
+ * en dessous, qui la posait déjà correctement.
+ *
+ * L'erreur est désormais RELUE : elle était ignorée, et une requête ratée
+ * rendait « aucun label UGC », c'est-à-dire le pool vide du 20/08.
+ */
 async function labelIdsAvecContenusUgc(
   supabase: Supabase,
   applicationId?: string | null,
 ): Promise<string[]> {
-  let q = supabase
-    .from("contenu_labels")
-    .select("label_id, contenus!inner(ugc_compatible, application_id)")
-    .eq("contenus.ugc_compatible", true);
-  if (applicationId) q = q.eq("contenus.application_id", applicationId);
-  const { data } = await q;
-  return [...new Set((data ?? []).map((r) => r.label_id as string).filter(Boolean))];
+  const labels = await lireTout<{ id: string }>(
+    "Labels",
+    (curseur, taille) => {
+      let q = supabase.from("labels").select("id");
+      if (curseur) q = q.gt("id", curseur.id);
+      return q.order("id", { ascending: true }).limit(taille);
+    },
+    { ancre: (l) => l.id },
+  );
+
+  const out: string[] = [];
+  for (const label of labels) {
+    let q = supabase
+      .from("contenu_labels")
+      .select("contenu_id, contenus!inner(ugc_compatible, application_id)")
+      .eq("label_id", label.id)
+      .eq("contenus.ugc_compatible", true);
+    if (applicationId) q = q.eq("contenus.application_id", applicationId);
+    const { data, error } = await q.limit(1);
+    if (error) throw new Error(`Labels avec contenus UGC (${label.id}) : ${error.message}`);
+    if ((data?.length ?? 0) > 0) out.push(label.id);
+  }
+  return out;
 }
 
 async function labelADesContenusUgc(supabase: Supabase, labelId: string): Promise<boolean> {

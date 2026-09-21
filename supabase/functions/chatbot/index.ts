@@ -1,4 +1,5 @@
 import { generateTextFast } from "../_shared/gemini.ts";
+import { LOT_IDS, type ReponseLot, decouperEnLots, lireParLots, lireTout } from "../_shared/lots.ts";
 import { garderDocumentsPoster, posterGuideCle } from "../_shared/poster_guide.ts";
 import { estRoleManager } from "../_shared/roles.ts";
 import {
@@ -8,6 +9,37 @@ import {
   messageErreur,
   serviceClient,
 } from "../_shared/supabase.ts";
+
+/**
+ * Lecture COMPLÈTE, ancrée sur la clé primaire.
+ *
+ * Toutes les lectures de ce fichier étaient non bornées. Elles alimentent le
+ * « SNAPSHOT LIVE », c'est-à-dire les SEULS chiffres que le prompt autorise
+ * l'assistant à citer — le prompt lui interdit même d'en inventer d'autres. Une
+ * réponse tronquée à `max-rows` ne se voit donc pas : l'assistant annonce avec
+ * aplomb « 1000 posts prévus hier » et personne ne sait que c'était le plafond
+ * de PostgREST et non la réalité. C'est la forme exacte de l'incident qu'on
+ * répare ailleurs, transposée à un chiffre qu'un humain va répéter en réunion.
+ *
+ * Toutes les tables lues ici (`posts`, `passages`, `user_roles`, `comptes`,
+ * `profiles`, `documents`, `chatbot_contexte`) ont un `id` uuid en clé
+ * primaire : c'est une ancre unique sur l'ensemble du résultat et jamais
+ * réécrite, donc la pagination keyset ne peut ni sauter ni répéter une ligne,
+ * même si le pipeline écrit dans `posts` pendant qu'on lit.
+ */
+function lireParId<T extends { id: string }>(
+  quoi: string,
+  page: (apres: string | null, taille: number) => PromiseLike<ReponseLot<T>>,
+): Promise<T[]> {
+  return lireTout<T>(quoi, (curseur, taille) => page(curseur?.id ?? null, taille), {
+    ancre: (ligne) => ligne.id,
+  });
+}
+
+interface LignePost {
+  id: string;
+  publie_at?: string | null;
+}
 
 const QUESTION_MAX = 1_500;
 const CONTEXTE_MAX = 24_000;
@@ -180,54 +212,105 @@ async function snapshotAdmin(
   auj: string,
   hier: string,
 ): Promise<string> {
-  const [
-    postsHier,
-    postsAuj,
-    passagesHier,
-    passagesAuj,
-    roles,
-    comptes,
-  ] = await Promise.all([
-    db.from("posts").select("id, publie_at, comptes(langue)").eq("date_publication_prevue", hier).eq("est_test", false),
-    db.from("posts").select("id, publie_at").eq("date_publication_prevue", auj).eq("est_test", false),
-    db.from("passages").select("id, publie_at").eq("date_publication_prevue", hier),
-    db.from("passages").select("id, publie_at").eq("date_publication_prevue", auj),
-    db.from("user_roles").select("user_id, role"),
-    db.from("comptes").select("id, is_active"),
+  type PostAvecLangue = LignePost & {
+    comptes?: { langue?: string } | { langue?: string }[] | null;
+  };
+
+  const [postsHier, postsAuj, roles, comptes] = await Promise.all([
+    lireParId<PostAvecLangue>("Snapshot admin — posts d'hier", (apres, taille) => {
+      let q = db
+        .from("posts")
+        .select("id, publie_at, comptes(langue)")
+        .eq("date_publication_prevue", hier)
+        .eq("est_test", false);
+      if (apres) q = q.gt("id", apres);
+      return q.order("id", { ascending: true }).limit(taille);
+    }),
+    lireParId<LignePost>("Snapshot admin — posts du jour", (apres, taille) => {
+      let q = db
+        .from("posts")
+        .select("id, publie_at")
+        .eq("date_publication_prevue", auj)
+        .eq("est_test", false);
+      if (apres) q = q.gt("id", apres);
+      return q.order("id", { ascending: true }).limit(taille);
+    }),
+    lireParId<{ id: string; user_id: string; role: string }>(
+      "Snapshot admin — rôles",
+      (apres, taille) => {
+        let q = db.from("user_roles").select("id, user_id, role");
+        if (apres) q = q.gt("id", apres);
+        return q.order("id", { ascending: true }).limit(taille);
+      },
+    ),
+    lireParId<{ id: string; is_active: boolean }>(
+      "Snapshot admin — comptes de publication",
+      (apres, taille) => {
+        let q = db.from("comptes").select("id, is_active");
+        if (apres) q = q.gt("id", apres);
+        return q.order("id", { ascending: true }).limit(taille);
+      },
+    ),
   ]);
 
+  // Les passages v-next restent TOLÉRÉS en échec, contrairement aux posts :
+  // c'est le comportement d'origine (`!passagesHier.error ? … : null`) et il a
+  // une raison — ces deux lignes du snapshot sont un bonus d'observabilité, et
+  // la table peut ne pas exister dans un environnement donné. On absorbe donc
+  // l'échec ICI, précisément, plutôt que de laisser `lireTout` le propager :
+  // l'assistant se tait alors sur les passages au lieu de refuser de répondre.
+  // La tolérance est BORNÉE à ces deux lectures, elle ne couvre rien d'autre.
+  const passagesDuJour = async (jour: string): Promise<CompteJour | null> => {
+    try {
+      const lignes = await lireParId<LignePost>(
+        `Snapshot admin — passages du ${jour}`,
+        (apres, taille) => {
+          let q = db.from("passages").select("id, publie_at").eq("date_publication_prevue", jour);
+          if (apres) q = q.gt("id", apres);
+          return q.order("id", { ascending: true }).limit(taille);
+        },
+      );
+      return compterJour(lignes, jour);
+    } catch (erreur) {
+      console.warn(`[chatbot] passages ${jour} indisponibles : ${messageErreur(erreur)}`);
+      return null;
+    }
+  };
+  const [ph, pa] = await Promise.all([passagesDuJour(hier), passagesDuJour(auj)]);
+
   const parLangue: Record<string, number> = {};
-  for (const p of postsHier.data ?? []) {
-    const langue = (p as { comptes?: { langue?: string } | { langue?: string }[] }).comptes;
+  for (const p of postsHier) {
+    const langue = p.comptes;
     const code = Array.isArray(langue) ? langue[0]?.langue : langue?.langue;
     if (!code) continue;
     parLangue[code] = (parLangue[code] ?? 0) + 1;
   }
 
-  const posterIds = new Set(
-    (roles.data ?? []).filter((r) => r.role === "poster").map((r) => r.user_id),
-  );
-  const hm = (roles.data ?? []).filter((r) => estRoleManager(r.role)).length;
-  const { data: profils } = posterIds.size
-    ? await db.from("profiles").select("id, is_active").in("id", [...posterIds])
-    : { data: [] as Array<{ id: string; is_active: boolean }> };
+  const posterIds = new Set(roles.filter((r) => r.role === "poster").map((r) => r.user_id));
+  const hm = roles.filter((r) => estRoleManager(r.role)).length;
+  // Un `in(...)` nu casserait en 400 dès 650 créateurs (incident du 20/08) et
+  // le garde-fou lève dès 400 : la liste grandit d'un recrutement à l'autre,
+  // donc elle se découpe. Le filtre porte sur la clé primaire, la réponse ne
+  // peut donc pas être plus longue que le lot qui l'a demandée.
+  const profils = posterIds.size
+    ? await lireParLots<{ id: string; is_active: boolean }>(
+      [...posterIds],
+      "Snapshot admin — créateurs actifs",
+      (lot) => db.from("profiles").select("id, is_active").in("id", lot),
+    )
+    : [];
 
   const postersTotal = posterIds.size;
-  const postersActifs = (profils ?? []).filter((p) => p.is_active).length;
-  const comptesActifs = (comptes.data ?? []).filter((c) => c.is_active).length;
+  const postersActifs = profils.filter((p) => p.is_active).length;
+  const comptesActifs = comptes.filter((c) => c.is_active).length;
 
   const langues = Object.entries(parLangue)
     .sort((a, b) => b[1] - a[1])
     .map(([l, n]) => `${l} ${n}`)
     .join(", ");
 
-  if (postsHier.error) throw postsHier.error;
-  if (postsAuj.error) throw postsAuj.error;
-
-  const h = compterJour(postsHier.data ?? [], hier);
-  const a = compterJour(postsAuj.data ?? [], auj);
-  const ph = !passagesHier.error && passagesHier.data ? compterJour(passagesHier.data, hier) : null;
-  const pa = !passagesAuj.error && passagesAuj.data ? compterJour(passagesAuj.data, auj) : null;
+  const h = compterJour(postsHier, hier);
+  const a = compterJour(postsAuj, auj);
 
   return [
     `Fuseau métier: Europe/Paris. Aujourd'hui ${auj}, hier ${hier}.`,
@@ -249,12 +332,22 @@ async function snapshotHm(
   auj: string,
   hier: string,
 ): Promise<string> {
-  const { data: createurs } = await db
-    .from("profiles")
-    .select("id, prenom, nom, email, langues, is_active")
-    .eq("manager_id", userId);
+  const gens = await lireParId<{
+    id: string;
+    prenom: string | null;
+    nom: string | null;
+    email: string | null;
+    langues: string[] | null;
+    is_active: boolean;
+  }>("Snapshot manager — tes créateurs", (apres, taille) => {
+    let q = db
+      .from("profiles")
+      .select("id, prenom, nom, email, langues, is_active")
+      .eq("manager_id", userId);
+    if (apres) q = q.gt("id", apres);
+    return q.order("id", { ascending: true }).limit(taille);
+  });
 
-  const gens = createurs ?? [];
   if (gens.length === 0) {
     return [
       `Fuseau métier: Europe/Paris. Aujourd'hui ${auj}, hier ${hier}.`,
@@ -263,21 +356,55 @@ async function snapshotHm(
     ].join("\n");
   }
 
+  // `in(...)` découpé des deux côtés : un DM peut porter plus de 400 créateurs,
+  // et un créateur plusieurs comptes. Le filtre ne porte pas sur la clé primaire
+  // de `comptes`, mais un poster n'a qu'une poignée de comptes : un lot de 100
+  // posters ne peut pas approcher le plafond de 1000 lignes.
   const ids = gens.map((c) => c.id);
-  const { data: comptes } = await db
-    .from("comptes")
-    .select("id, poster_id, handle_tiktok, langue, is_active")
-    .in("poster_id", ids);
+  const comptes = await lireParLots<{
+    id: string;
+    poster_id: string;
+    handle_tiktok: string | null;
+    langue: string | null;
+    is_active: boolean;
+  }>(ids, "Snapshot manager — comptes de tes créateurs", (lot) =>
+    db
+      .from("comptes")
+      .select("id, poster_id, handle_tiktok, langue, is_active")
+      .in("poster_id", lot));
 
-  const parPoster = new Map((comptes ?? []).map((c) => [c.poster_id, c]));
-  const compteIds = (comptes ?? []).map((c) => c.id);
+  const parPoster = new Map(comptes.map((c) => [c.poster_id, c]));
+  const compteIds = comptes.map((c) => c.id);
+
+  // Les deux bornes à la fois, comme partout ailleurs dans le dépôt : le lot
+  // borne l'URL (`compte_id` peut dépasser 400 chez un DM), la pagination borne
+  // la RÉPONSE (un compte porte plusieurs posts par jour). Ni l'une ni l'autre
+  // ne remplace la seconde — c'est exactement ce que le découpage seul laissait
+  // passer.
+  const postsDuJour = async (jour: string): Promise<LignePost[]> => {
+    const out: LignePost[] = [];
+    for (const lot of decouperEnLots(compteIds, LOT_IDS)) {
+      const lignes = await lireParId<LignePost>(
+        `Snapshot manager — posts du ${jour}`,
+        (apres, taille) => {
+          let q = db
+            .from("posts")
+            .select("id, publie_at")
+            .eq("date_publication_prevue", jour)
+            .eq("est_test", false)
+            .in("compte_id", lot);
+          if (apres) q = q.gt("id", apres);
+          return q.order("id", { ascending: true }).limit(taille);
+        },
+      );
+      out.push(...lignes);
+    }
+    return out;
+  };
 
   const [postsHier, postsAuj] = compteIds.length
-    ? await Promise.all([
-      db.from("posts").select("id, publie_at").eq("date_publication_prevue", hier).eq("est_test", false).in("compte_id", compteIds),
-      db.from("posts").select("id, publie_at").eq("date_publication_prevue", auj).eq("est_test", false).in("compte_id", compteIds),
-    ])
-    : [{ data: [] }, { data: [] }];
+    ? await Promise.all([postsDuJour(hier), postsDuJour(auj)])
+    : [[] as LignePost[], [] as LignePost[]];
 
   const liste = gens
     .map((c) => {
@@ -289,8 +416,8 @@ async function snapshotHm(
     })
     .join("\n");
 
-  const h = compterJour(postsHier.data ?? [], hier);
-  const a = compterJour(postsAuj.data ?? [], auj);
+  const h = compterJour(postsHier, hier);
+  const a = compterJour(postsAuj, auj);
 
   return [
     `Fuseau métier: Europe/Paris. Aujourd'hui ${auj}, hier ${hier}.`,
@@ -331,15 +458,29 @@ async function snapshotPoster(
     else warmup = "termine";
   }
 
-  const [postsAuj, postsDemain] = compte
-    ? await Promise.all([
-      db.from("posts").select("id, publie_at").eq("compte_id", compte.id).eq("date_publication_prevue", auj).eq("est_test", false),
-      db.from("posts").select("id, publie_at").eq("compte_id", compte.id).eq("date_publication_prevue", demain).eq("est_test", false),
-    ])
-    : [{ data: [] }, { data: [] }];
+  // UN compte, UN jour : quelques lignes, le plafond est hors d'atteinte. On
+  // pagine quand même, parce que la seule chose qui distingue cette lecture des
+  // autres est une hypothèse sur les données, et que c'est exactement ce genre
+  // d'hypothèse qui a fini par coûter ~1500 contenus à la requalification. Deux
+  // allers-retours de plus devant un appel Gemini de plusieurs secondes.
+  const postsDuJour = (jour: string) =>
+    lireParId<LignePost>(`Snapshot créateur — posts du ${jour}`, (apres, taille) => {
+      let q = db
+        .from("posts")
+        .select("id, publie_at")
+        .eq("compte_id", compte!.id)
+        .eq("date_publication_prevue", jour)
+        .eq("est_test", false);
+      if (apres) q = q.gt("id", apres);
+      return q.order("id", { ascending: true }).limit(taille);
+    });
 
-  const a = compterJour(postsAuj.data ?? [], auj);
-  const d = compterJour(postsDemain.data ?? [], demain);
+  const [postsAuj, postsDemain] = compte
+    ? await Promise.all([postsDuJour(auj), postsDuJour(demain)])
+    : [[] as LignePost[], [] as LignePost[]];
+
+  const a = compterJour(postsAuj, auj);
+  const d = compterJour(postsDemain, demain);
   const handle = compte?.handle_tiktok ? `@${String(compte.handle_tiktok).replace(/^@/, "")}` : "pas encore renseigné";
 
   const texte = [
@@ -465,14 +606,43 @@ Deno.serve(async (request) => {
 
     const locale = langueDepuisProfil(langues, repliUi);
 
-    const [{ data: snippets }, { data: docs }] = await Promise.all([
-      db.from("chatbot_contexte").select("titre, contenu, audience").order("updated_at", { ascending: false }),
-      db.from("documents").select("cle, titre, titre_en, contenu, contenu_en, audience"),
+    // Tables éditées à la main par l'admin : petites aujourd'hui, non bornées
+    // dans le code. Elles constituent la section DOCS du prompt, et le prompt
+    // ordonne de répondre UNIQUEMENT à partir d'elles — un document manquant
+    // devient donc un « ce n'est pas documenté » affirmé à un créateur.
+    //
+    // La pagination se fait sur `id` (clé primaire, ancre unique et immuable),
+    // pas sur `updated_at` qui n'est ni unique ni stable : c'est justement la
+    // colonne que l'admin réécrit en éditant un snippet, et une ligne réécrite
+    // pendant la lecture changerait de place. Le tri métier « le plus récent
+    // d'abord » — qui décide qui survit au plafond de `CONTEXTE_MAX` — est donc
+    // rétabli en mémoire, une fois TOUT lu.
+    const [snippetsBruts, docs] = await Promise.all([
+      lireParId<Snippet & { id: string; updated_at: string | null }>(
+        "Chatbot — snippets de contexte",
+        (apres, taille) => {
+          let q = db
+            .from("chatbot_contexte")
+            .select("id, titre, contenu, audience, updated_at");
+          if (apres) q = q.gt("id", apres);
+          return q.order("id", { ascending: true }).limit(taille);
+        },
+      ),
+      lireParId<DocumentLigne & { id: string }>("Chatbot — documents", (apres, taille) => {
+        let q = db
+          .from("documents")
+          .select("id, cle, titre, titre_en, contenu, contenu_en, audience");
+        if (apres) q = q.gt("id", apres);
+        return q.order("id", { ascending: true }).limit(taille);
+      }),
     ]);
+    const snippets = [...snippetsBruts].sort((x, y) =>
+      String(y.updated_at ?? "").localeCompare(String(x.updated_at ?? ""))
+    );
 
     const docsRole = role === "poster"
       ? garderDocumentsPoster(
-        (docs ?? []) as DocumentLigne[],
+        docs as DocumentLigne[],
         posterGuideCle({
           profileCreatedAt: (profil as { created_at?: string | null } | null)?.created_at ?? null,
           nationalite: (profil as { nationalite?: string | null } | null)?.nationalite ?? null,
@@ -480,10 +650,10 @@ Deno.serve(async (request) => {
           compteLangues: compteLangue ? [compteLangue] : [],
         }),
       )
-      : (docs ?? []) as DocumentLigne[];
+      : docs as DocumentLigne[];
 
     const docsTexte = assemblerDocs(
-      (snippets ?? []) as Snippet[],
+      snippets as Snippet[],
       docsRole,
       role,
       locale,

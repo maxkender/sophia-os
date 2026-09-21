@@ -985,6 +985,12 @@ export const en = {
       genreAide:
         "Label gender sets TikTok first/last names for creators that carry this label.",
       creer: "Create",
+      reserveJours: "{{jours}} d",
+      reserveAide:
+        "Runway: {{restants}} pass(es) in stock against {{demande}}/day claimed by {{comptes}} account(s). This is a floor — stock reloads on every requalification and every import; under 7 days, source now.",
+      reserveAucunCompte: "dormant",
+      reserveSansCompte:
+        "No account carries this label: it consumes nothing, so its runway cannot be measured.",
       aucun: "No labels yet — create some in Pilotage.",
       aucunIci: "No labels yet — create one above.",
       erreurChargement: "Could not load labels",

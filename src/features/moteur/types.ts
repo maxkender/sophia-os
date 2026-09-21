@@ -488,6 +488,28 @@ export interface Label {
   exemples_feed?: string[];
 }
 
+/**
+ * Réserve d'un label (vue `label_reserve`, migration 0254) : une ligne par
+ * label, calculée en SQL parce que le croisement sous-jacent dépasse le plafond
+ * `max-rows` de PostgREST et sortirait faux depuis le navigateur.
+ */
+export interface LabelReserve {
+  label_id: string;
+  nom: string;
+  slug: string;
+  application_id: string | null;
+  /** Contenus valides et importés portant ce label. */
+  contenus_prets: number;
+  /** Passages tierlist encore à effectuer sur ces contenus. */
+  passages_restants: number;
+  /** Comptes que l'assignation sert réellement sur ce label. */
+  comptes: number;
+  /** Ce que ces comptes réclament par jour (quota réparti si multi-label). */
+  demande_jour: number;
+  /** Plancher en jours ; `null` quand aucun compte ne porte le label. */
+  reserve_jours: number | null;
+}
+
 /** Slide language-agnostique d'un contenu (visuel partagé). */
 export interface ContenuSlide {
   position: number;

@@ -987,6 +987,12 @@ export const fr = {
       genreAide:
         "Le genre du label fixe les prénoms / noms TikTok des créateurs qui portent ce label.",
       creer: "Créer",
+      reserveJours: "{{jours}} j",
+      reserveAide:
+        "Réserve : {{restants}} passage(s) en stock pour {{demande}}/jour réclamés par {{comptes}} compte(s). C'est un plancher — le stock se recharge à chaque requalification et à chaque import ; sous 7 jours, il faut sourcer maintenant.",
+      reserveAucunCompte: "dormant",
+      reserveSansCompte:
+        "Aucun compte ne porte ce label : il ne consomme rien, sa réserve n'est donc pas mesurable.",
       aucun: "Aucun label — crée-en dans Pilotage.",
       aucunIci: "Aucun label — crée-en ci-dessus.",
       erreurChargement: "Impossible de charger les labels",

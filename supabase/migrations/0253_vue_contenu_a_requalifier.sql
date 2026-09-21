@@ -96,3 +96,14 @@ comment on view public.contenu_a_requalifier is
 
 grant select on public.contenu_a_requalifier to authenticated;
 grant select on public.contenu_a_requalifier to service_role;
+
+-- `anon` est retiré EXPLICITEMENT, parce que les privilèges par défaut du schéma
+-- l'accordent sinon d'office à tout nouvel objet. Sur une vue en sémantique
+-- definer, ça ouvrirait le contenu de `contenus` (RLS admin-only) à la clé anon,
+-- qui est publique par nature — elle est dans le bundle du front. Personne ne lit
+-- cette vue avec la clé anon : minuit passe par `service_role`, l'admin par son
+-- JWT. À NOTER, et ce n'est pas réparé ici : `contenu_tier_etat` et
+-- `stats_comptes` portent la même exposition, héritée de la même façon. La
+-- corriger demande de vérifier ce que le front lit vraiment, donc son propre
+-- changement — on se contente de ne pas en ajouter une de plus.
+revoke select on public.contenu_a_requalifier from anon;

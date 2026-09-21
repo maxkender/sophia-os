@@ -1,4 +1,4 @@
-import { lireParLots } from "./lots.ts";
+import { LOT_IDS, decouperEnLots, lireTout } from "./lots.ts";
 import { serviceClient } from "./supabase.ts";
 
 export type Supabase = ReturnType<typeof serviceClient>;
@@ -75,35 +75,71 @@ export async function majScoresDepuisPassages(
     Date.now() - (opts.depuisHeures ?? 36) * 3600_000,
   ).toISOString();
 
-  // Passages fraîchement relevés → quels contenus recalculer
-  let q = supabase
-    .from("passages")
-    .select("contenu_id, compte_id")
-    .eq("statut", "publie")
-    .not("vues", "is", null)
-    .gte("stats_maj_at", depuis);
+  // Passages fraîchement relevés → quels contenus recalculer.
+  //
+  // Lecture paginée et non plafonnée : `rattrapage_elo` rafraîchit une fenêtre
+  // de 4 jours ≈ 4 × 255 créneaux, et deux runs tombent dans les 36 h — on est
+  // à ~2000 lignes pour un plafond PostgREST à 1000. Aggravant, et c'est ce qui
+  // rendait la perte invisible : ces lignes sont précisément celles qu'`ecrireStats`
+  // vient d'UPDATE, donc celles que MVCC réécrit en fin de tas. La fenêtre lue
+  // gardait le vieux et jetait le frais, et `recents.length === 0` ne se
+  // déclenchant jamais, « moins de contenus à recalculer » passait pour un fait.
+  //
+  // Ancre `id` : immuable, donc l'ordre ne bouge pas sous les UPDATE de stats,
+  // là où un `offset` sur un tas réécrit saute et répète des pages.
+  const recents = await lireTout<{ id: string; contenu_id: string; compte_id: string }>(
+    "Passages fraîchement relevés",
+    (curseur, taille) => {
+      let q = supabase
+        .from("passages")
+        .select("id, contenu_id, compte_id")
+        .eq("statut", "publie")
+        .not("vues", "is", null)
+        .gte("stats_maj_at", depuis);
+      if (opts.compteId) q = q.eq("compte_id", opts.compteId);
+      if (curseur) q = q.gt("id", curseur.id);
+      return q.order("id", { ascending: true }).limit(taille);
+    },
+    { ancre: (p) => p.id },
+  );
+  if (recents.length === 0) return { contenus: 0 };
 
-  if (opts.compteId) q = q.eq("compte_id", opts.compteId);
+  const contenuIds = [...new Set(recents.map((p) => p.contenu_id))];
 
-  const { data: recents, error } = await q;
-  if (error) throw error;
-  if (!recents || recents.length === 0) return { contenus: 0 };
-
-  const contenuIds = [...new Set(recents.map((p) => p.contenu_id as string))];
-
-  // Tous les passages mesurés de ces contenus (recalcul complet)
-  const tous = await lireParLots<{
+  // Tous les passages mesurés de ces contenus (recalcul complet).
+  //
+  // Deux découpages, parce qu'ils ne protègent pas de la même chose. Le lot de
+  // 100 `contenu_id` borne l'URL (le 400 du 20/08) ; la pagination borne la
+  // RÉPONSE. Sans elle, 100 contenus × tous leurs passages mesurés depuis
+  // toujours dépassent le plafond, et comme ce bloc RÉÉCRIT `score` et
+  // `nb_passages` dans `contenu_langues`, une lecture amputée ne se contente
+  // pas de fausser un affichage : elle persiste en base un ELO faux,
+  // indiscernable d'un ELO juste.
+  type PassageMesure = {
+    id: string;
     contenu_id: string;
     compte_id: string;
     langue: string;
     vues: number | null;
-  }>(contenuIds, "Passages mesurés", (lot) =>
-    supabase
-      .from("passages")
-      .select("contenu_id, compte_id, langue, vues")
-      .in("contenu_id", lot)
-      .eq("statut", "publie")
-      .not("vues", "is", null));
+  };
+  const tous: PassageMesure[] = [];
+  for (const lot of decouperEnLots(contenuIds, LOT_IDS)) {
+    const page = await lireTout<PassageMesure>(
+      `Passages mesurés (${lot.length} contenus)`,
+      (curseur, taille) => {
+        let q = supabase
+          .from("passages")
+          .select("id, contenu_id, compte_id, langue, vues")
+          .in("contenu_id", lot)
+          .eq("statut", "publie")
+          .not("vues", "is", null);
+        if (curseur) q = q.gt("id", curseur.id);
+        return q.order("id", { ascending: true }).limit(taille);
+      },
+      { ancre: (p) => p.id },
+    );
+    tous.push(...page);
+  }
 
   type Agg = { perfs: number[] };
   const parContenuLangue = new Map<string, Agg>();

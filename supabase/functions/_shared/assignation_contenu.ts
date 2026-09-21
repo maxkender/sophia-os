@@ -4,7 +4,7 @@ import {
 } from "./creation_manuelle.ts";
 import { assurerDeckPourLangue } from "./import_contenu.ts";
 import { hashtagsPour } from "./hashtags_langue.ts";
-import { LOT_IDS, lireParLots } from "./lots.ts";
+import { LOT_IDS, lireParLots, lireTout } from "./lots.ts";
 import { avecMentionPublicite } from "./mention_publicite.ts";
 import { mapPool } from "./parallel.ts";
 import { serviceClient } from "./supabase.ts";
@@ -574,6 +574,78 @@ async function baisserQuotaSiBesoin(
   return { avant: quota, apres, raison: diag };
 }
 
+/* -------------------------------------------------------------------------
+ * Le pool d'assignation, lu EN ENTIER.
+ *
+ * `lireParLots` découpe le FILTRE (100 `label_id` par requête), jamais le
+ * RÉSULTAT. Sur `contenu_labels` la relation est many-to-one, et c'est ce qui
+ * rend le découpage inopérant ici : les 9 labels du dépôt tiennent tous dans UN
+ * lot, donc une seule requête part — et elle ramène aujourd'hui 965 lignes pour
+ * alpha_male, 951 pour smart_girl. Un compte qui porte les deux en demande
+ * 1916 : PostgREST en rend 1000 et répond 200.
+ *
+ * Il n'y a alors rien à relire. `contenusLabel.length === 0` ne se déclenche
+ * pas, le pool amputé passe pour le pool entier, le tirage puise dans ~900
+ * contenus de moins, et en bout de chaîne `baisserQuotaSiBesoin` abaisse
+ * `posts_par_jour` parce que le pool « paraît mince ». C'est la panne du 20/08
+ * — un pool plein pris pour un pool vide, 41 créateurs à 0 post/jour — sous sa
+ * forme silencieuse : aucune erreur 400 cette fois, juste un inventaire
+ * amputé qui a l'air complet.
+ * ---------------------------------------------------------------------- */
+
+/**
+ * Contenus portant au moins un des labels, sans troncature possible.
+ *
+ * Boucle LABEL PAR LABEL, et c'est le point à ne pas rater. L'autre forme —
+ * un seul passage sur tous les labels à la fois, ancré sur `contenu_id` — a
+ * une ancre NON UNIQUE : la clé primaire de `contenu_labels` est le couple
+ * `(contenu_id, label_id)`, un contenu y a une ligne par label qu'il porte.
+ * Quand une page se termine au milieu des lignes d'un contenu, reprendre à
+ * `contenu_id > curseur` saute les autres ; reprendre à `>=` reboucle sur lui
+ * sans fin.
+ *
+ * Le piège, ici, est que ça MARCHERAIT quand même — et c'est pour ça qu'il faut
+ * l'écarter explicitement. Les lignes perdues sont d'autres liens du MÊME
+ * contenu, dont l'id est déjà dans l'ensemble : la fonction rendrait le bon
+ * résultat, mais par une propriété de son APPELANT (il déduplique) et non par
+ * une propriété de sa LECTURE. Le jour où quelqu'un ajoute `label_id` au select
+ * pour savoir quel label a matché, ou compte les liens, la lecture se remet à
+ * mentir sans qu'une ligne de code de la pagination ait bougé. C'est exactement
+ * la forme de raisonnement implicite que cet incident punit.
+ *
+ * L'ancre réellement unique serait le couple, exprimable en PostgREST par
+ * `.or("label_id.gt.X,and(label_id.eq.X,contenu_id.gt.Y)")` : correct, mais
+ * illisible pour un gain nul. Les labels sont une poignée (9 en base), et à
+ * l'intérieur d'UN label `contenu_id` est unique — l'ancre redevient vérifiable
+ * de tête. On paie un aller-retour par label.
+ *
+ * Le résultat reste dédupliqué (un contenu peut porter deux labels du compte).
+ * Son ORDRE change — labels puis `contenu_id` au lieu de l'ordre de tas — et
+ * c'est sans effet sur l'assignation : les deux appelants n'en font qu'un
+ * ensemble d'ids, le tirage (`bandesDeTirage` + `tirerAuHasard`) est aléatoire
+ * et le repêchage (`repecherContenuD`) mélange avant de choisir.
+ */
+export async function contenuIdsDesLabels(
+  supabase: Supabase,
+  labelIds: string[],
+  quoi: string,
+): Promise<string[]> {
+  const ids = new Set<string>();
+  for (const labelId of labelIds) {
+    const liens = await lireTout<{ contenu_id: string }>(
+      `${quoi} (label ${labelId})`,
+      (curseur, taille) => {
+        let q = supabase.from("contenu_labels").select("contenu_id").eq("label_id", labelId);
+        if (curseur) q = q.gt("contenu_id", curseur.contenu_id);
+        return q.order("contenu_id", { ascending: true }).limit(taille);
+      },
+      { ancre: (l) => l.contenu_id },
+    );
+    for (const l of liens) ids.add(l.contenu_id);
+  }
+  return [...ids];
+}
+
 /** Explique pourquoi le pool labels ∩ langue est vide / trop petit. */
 async function diagnostiquerPoolVide(
   supabase: Supabase,
@@ -585,12 +657,15 @@ async function diagnostiquerPoolVide(
 ): Promise<string> {
   const labelsTxt = labelNoms.length > 0 ? labelNoms.join(", ") : `${labelIds.length} label(s)`;
 
-  const liens = await lireParLots<{ contenu_id: string }>(
+  // Un diagnostic tronqué est pire qu'un diagnostic absent : il ferme
+  // l'enquête. C'est ce texte que l'admin lit pour comprendre pourquoi un
+  // créateur est tombé à 0 post/jour, et c'est lui qui sert de justification
+  // écrite à la baisse de quota — il doit porter sur le pool entier.
+  const idsLabel = await contenuIdsDesLabels(
+    supabase,
     labelIds,
     "Diagnostic — slideshows du label",
-    (lot) => supabase.from("contenu_labels").select("contenu_id").in("label_id", lot),
   );
-  const idsLabel = [...new Set(liens.map((l) => l.contenu_id))];
   if (idsLabel.length === 0) {
     return `Aucun slideshow tagué « ${labelsTxt} » dans la bibliothèque.`;
   }
@@ -829,12 +904,7 @@ async function choisirContenu(
     .maybeSingle();
   const applicationId = (compteApp?.application_id as string | undefined) ?? null;
   // Contenu IDs portant au moins un label du compte
-  const liens = await lireParLots<{ contenu_id: string }>(
-    labelIds,
-    "Slideshows du label",
-    (lot) => supabase.from("contenu_labels").select("contenu_id").in("label_id", lot),
-  );
-  const contenusLabel = [...new Set(liens.map((l) => l.contenu_id))];
+  const contenusLabel = await contenuIdsDesLabels(supabase, labelIds, "Slideshows du label");
   if (contenusLabel.length === 0) return null;
 
   // UGC AI ↔ slideshows ugc_compatible ; créateurs classiques ↔ non-UGC.

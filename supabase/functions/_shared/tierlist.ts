@@ -1,3 +1,4 @@
+import { PLAFOND_LIGNES, lireParLots, lireTout } from "./lots.ts";
 import { serviceClient } from "./supabase.ts";
 
 export type Supabase = ReturnType<typeof serviceClient>;
@@ -416,9 +417,106 @@ export interface AttenteMesureDetail {
   dernierPublieAt: string | null;
 }
 
+/* -------------------------------------------------------------------------
+ * Contrôle de complétude de la lecture.
+ *
+ * La pagination keyset de `lireTout` rend déjà la lecture complète par
+ * construction. Ce contrôle ne la remplace pas : il sert de TÉMOIN. La panne
+ * qu'on répare a vécu des semaines parce qu'une lecture amputée n'a aucune
+ * signature — pas d'erreur, pas de log, un compteur `examines` qui a l'air
+ * plein. On se donne donc un chiffre à confronter au nôtre, et on l'écrit dans
+ * le JSON de run pour qu'il soit lisible sans rejouer quoi que ce soit.
+ * ---------------------------------------------------------------------- */
+
+export interface CoherenceLecture {
+  /** Lignes réellement lues, donc réellement soumises à `deciderRequalif`. */
+  lues: number;
+  /**
+   * `count(*)` de la vue, pris AVANT la lecture. `null` quand le comptage n'a
+   * pas eu lieu (lecture ciblée) ou a échoué : on ne sait alors rien, ce qui
+   * n'est pas la même chose que de savoir que tout va bien.
+   */
+  attendues: number | null;
+  /** Faux dès qu'un écart est CONSTATÉ. Vrai aussi quand rien n'est vérifiable. */
+  ok: boolean;
+  /** Phrase pour le JSON de run et l'admin. `null` seulement si tout concorde. */
+  alerte: string | null;
+}
+
+/**
+ * Confronte le nombre de lignes lues au `count(*)` de la vue.
+ *
+ * Pure, donc testable sans réseau — c'est le seul moyen d'avoir ce garde-fou
+ * couvert par les tests, la lecture elle-même ne l'étant pas.
+ *
+ * Le cas qui compte est `lues < attendues` : c'est la signature d'une
+ * troncature. Quand en plus le nombre lu est un multiple exact du plafond
+ * `max-rows`, le diagnostic n'est plus une hypothèse — 1000, 2000, 3000 lignes
+ * pile ne sont pas des volumétries, ce sont des plafonds, et c'est très
+ * exactement ce que la prod affichait (« 1000 examinés » sur 2521).
+ *
+ * `lues > attendues` reste un écart, mais bénin et attendu : entre le comptage
+ * et la fin de la pagination, un passage a pu être publié et faire entrer un
+ * cycle de plus. On le dit sans dramatiser.
+ */
+export function verifierCoherenceLecture(
+  lues: number,
+  attendues: number | null,
+  motifNonVerifie?: string,
+): CoherenceLecture {
+  if (attendues === null) {
+    return {
+      lues,
+      attendues: null,
+      ok: true,
+      alerte: `Complétude non vérifiée (${motifNonVerifie ?? "comptage indisponible"}).`,
+    };
+  }
+  if (lues === attendues) return { lues, attendues, ok: true, alerte: null };
+
+  if (lues < attendues) {
+    const plafond = lues > 0 && lues % PLAFOND_LIGNES === 0
+      ? ` ${lues} est un multiple exact du plafond max-rows (${PLAFOND_LIGNES}) : la réponse a été rognée par PostgREST, pas par la donnée.`
+      : "";
+    return {
+      lues,
+      attendues,
+      ok: false,
+      alerte:
+        `Lecture INCOMPLÈTE de contenu_a_requalifier : ${lues} ligne(s) lue(s) pour ${attendues} annoncée(s).` +
+        plafond +
+        ` ${attendues - lues} cycle(s) terminé(s) n'ont pas été examinés ce run.`,
+    };
+  }
+
+  return {
+    lues,
+    attendues,
+    ok: false,
+    alerte:
+      `Lecture de contenu_a_requalifier plus longue que le comptage : ${lues} ligne(s) pour ` +
+      `${attendues} annoncée(s). Sans gravité — des cycles se sont terminés pendant la lecture —, ` +
+      `mais l'écart est noté plutôt que tu.`,
+  };
+}
+
 export interface RequalificationResultat {
+  /**
+   * Lignes lues dans `contenu_a_requalifier`, donc cycles TERMINÉS examinés.
+   *
+   * Changement de sémantique assumé : le compteur couvrait auparavant tous les
+   * cycles vivants (`passages_prevus > 0`), y compris ceux qui n'avaient pas
+   * fini leurs passages. Il valait donc 1000 — la taille de la fenêtre lue, pas
+   * celle de la population. Il vaut désormais ce que la requalification a
+   * vraiment eu sous les yeux, et `coherence` dit s'il est complet.
+   */
   examines: number;
   requalifies: number;
+  /**
+   * Examinés non requalifiés. Ne couvre plus les cycles non terminés, que la
+   * vue écarte en amont : un contenu qui n'a pas fini ses passages n'était de
+   * toute façon « en attente » que par abus de langage.
+   */
   enAttente: number;
   /** Parmi les requalifiés : ceux relancés au même rang, sans mesure. */
   sansMesure: number;
@@ -429,6 +527,186 @@ export interface RequalificationResultat {
    * comptage `enAttente` mélange tout ; ceux-là sont les seuls à risque.
    */
   attentesMesure: AttenteMesureDetail[];
+  /** Témoin de complétude de la lecture — voir `verifierCoherenceLecture`. */
+  coherence: CoherenceLecture;
+}
+
+/* -------------------------------------------------------------------------
+ * Trace du run dans `reglages.minuit_dernier_run`.
+ *
+ * C'est la couche qui manquait le plus. La requalification ne laissait aucune
+ * trace nulle part : `out.tierlist` ne vivait que dans la réponse HTTP de
+ * minuit-vnext — or pour le cron, c'est pg_cron/net.http_post qui la reçoit et
+ * la jette. Aucun compteur n'était persisté, donc personne ne pouvait voir que
+ * « examines » collait au plafond depuis des semaines. La panne n'a pas duré
+ * parce qu'elle était subtile, elle a duré parce qu'elle était invisible.
+ * ---------------------------------------------------------------------- */
+
+/** Bloc `tierlist` du JSON `reglages.minuit_dernier_run`. */
+export interface RunTierlist {
+  at: string;
+  /** Cycles terminés examinés (voir `RequalificationResultat.examines`). */
+  examines: number;
+  requalifies: number;
+  enAttente: number;
+  sansMesure: number;
+  /** `count(*)` de la vue au moment de la lecture. `null` = non vérifié. */
+  attendues: number | null;
+  /** Faux = écart constaté entre le comptage et la lecture. */
+  complet: boolean;
+  alerte: string | null;
+}
+
+export function blocRunTierlist(
+  res: RequalificationResultat,
+  maintenant: Date = new Date(),
+): RunTierlist {
+  return {
+    at: maintenant.toISOString(),
+    examines: res.examines,
+    requalifies: res.requalifies,
+    enAttente: res.enAttente,
+    sansMesure: res.sansMesure,
+    attendues: res.coherence.attendues,
+    complet: res.coherence.ok,
+    alerte: res.coherence.alerte,
+  };
+}
+
+/**
+ * Reporte le bloc `tierlist` d'une valeur `minuit_dernier_run` précédente.
+ *
+ * À étaler (`...`) dans TOUT littéral qui reconstruit cette valeur — et il y en
+ * a trois : les deux upserts de minuit-vnext et `fusionnerDernierRun` du drain
+ * d'assignation. Ces littéraux rebâtissent l'objet de zéro, donc toute clé non
+ * recopiée est DÉTRUITE. Comme minuit lance la tierlist puis kicke le drain, le
+ * premier lot d'assignation effacerait le bloc quelques secondes après son
+ * écriture : le compteur qu'on ajoute pour rendre l'étape visible disparaîtrait
+ * avant d'avoir été lu une seule fois.
+ *
+ * Rien à reporter d'un autre jour : `minuit_dernier_run` décrit le run du jour,
+ * et un bloc de la veille mentirait plus qu'il n'informerait.
+ */
+export function reporterBlocTierlist(
+  ancien: unknown,
+  memeJour: boolean,
+): { tierlist?: RunTierlist } {
+  if (!memeJour || !ancien || typeof ancien !== "object") return {};
+  const bloc = (ancien as { tierlist?: unknown }).tierlist;
+  if (!bloc || typeof bloc !== "object") return {};
+  return { tierlist: bloc as RunTierlist };
+}
+
+/**
+ * Colonnes dont dépend la décision.
+ *
+ * Une seule chaîne pour les deux sources : `contenu_a_requalifier` reprend les
+ * colonnes de `contenu_tier_etat` sous les mêmes noms et dans le même ordre
+ * (migration 0253), précisément pour que cette chaîne n'ait pas à se dédoubler.
+ * Si elles divergeaient un jour, ce point unique le ferait apparaître tout de
+ * suite au lieu de laisser deux `select` se désynchroniser en silence.
+ */
+const COLONNES_ETAT =
+  "contenu_id, tier, passages_prevus, tier_cycle, publies, en_vol, restants, moyenne_vues, max_vues, nb_150k, mesures, introuvables, en_attente_mesure, dernier_publie_at";
+
+interface LectureEtats {
+  etats: TierEtat[];
+  coherence: CoherenceLecture;
+}
+
+/**
+ * Compte les cycles terminés, AVANT de les lire.
+ *
+ * Avant et pas après, et c'est structurant : les UPDATE de requalification
+ * font SORTIR de la vue les contenus qu'on vient de relancer (leur nouveau
+ * cycle repart à 0 publié, donc `publies >= passages_prevus` retombe faux). Un
+ * comptage pris à la fin du run mesurerait un autre ensemble et ne prouverait
+ * rien du tout.
+ *
+ * `head: true` : on veut un nombre, pas des lignes. Un second `select` complet
+ * rejouerait exactement la lecture qu'on cherche à contrôler — et se ferait
+ * tronquer de la même façon, donc concorderait avec elle sans rien démontrer.
+ *
+ * L'échec du comptage ne lève pas. C'est un témoin, pas une dépendance : la
+ * lecture, elle, est déjà complète par construction (`lireTout`). Faire tomber
+ * la requalification parce que son thermomètre est cassé serait exactement le
+ * travers inverse de celui qu'on répare.
+ */
+async function compterCyclesTermines(supabase: Supabase): Promise<number | null> {
+  const { count, error } = await supabase
+    .from("contenu_a_requalifier")
+    .select("contenu_id", { count: "exact", head: true });
+  if (error || typeof count !== "number") return null;
+  return count;
+}
+
+/**
+ * Lecture du run complet : tous les cycles terminés, par pagination keyset.
+ *
+ * La vue `contenu_a_requalifier` fait le dégrossissage (202 lignes au lieu de
+ * 2521) et `lireTout` supprime l'hypothèse : la vue réduit le volume, elle ne
+ * garantit pas qu'il restera sous `max-rows` demain. Les deux ensemble, et pas
+ * l'un ou l'autre.
+ *
+ * Ancre `contenu_id` : unique sur la vue, qui rend une ligne par contenu. C'est
+ * la condition de la pagination keyset — sur `contenu_labels`, où `contenu_id`
+ * n'est pas unique, il faudrait le couple (voir `OptionsLireTout.ancre`).
+ *
+ * Pas de `.gt("passages_prevus", 0)` ici : le filtre est DANS la vue. Le
+ * redoubler laisserait croire que la vue ne suffit pas et inviterait, le jour
+ * où l'un des deux bougerait, à se demander lequel fait foi.
+ */
+async function lireCyclesTermines(supabase: Supabase): Promise<LectureEtats> {
+  const attendues = await compterCyclesTermines(supabase);
+
+  const etats = await lireTout<TierEtat>(
+    "Requalification — cycles terminés",
+    async (curseur, taille) => {
+      let q = supabase
+        .from("contenu_a_requalifier")
+        .select(COLONNES_ETAT)
+        .order("contenu_id", { ascending: true })
+        .limit(taille);
+      if (curseur) q = q.gt("contenu_id", curseur.contenu_id);
+      const { data, error } = await q;
+      return { data: (data ?? null) as TierEtat[] | null, error };
+    },
+    { ancre: (e) => e.contenu_id },
+  );
+
+  return { etats, coherence: verifierCoherenceLecture(etats.length, attendues) };
+}
+
+/**
+ * Lecture ciblée — bouton admin « requalifier ce contenu ».
+ *
+ * Elle vise `contenu_tier_etat` et surtout PAS la vue de dégrossissage, à
+ * dessein. Un contenu dont le cycle n'est pas terminé ne figure pas dans
+ * `contenu_a_requalifier` : lu là, il rendrait zéro ligne et l'admin lirait
+ * « 0 examiné », c'est-à-dire un contenu devenu introuvable d'un clic. Sur la
+ * source complète il est examiné normalement, `deciderRequalif` rend l'attente
+ * « passages », et l'admin retrouve le verdict que `decisionDepuisEtat` lui
+ * affiche déjà sur la page Slideshows. Un clic ne doit jamais répondre « rien »
+ * quand la bonne réponse est « pas encore ».
+ *
+ * Une ligne, donc ni pagination ni témoin de complétude : `maybeSingle()` ne
+ * peut pas être tronqué par `max-rows`.
+ */
+async function lireUnContenu(supabase: Supabase, contenuId: string): Promise<LectureEtats> {
+  const { data, error } = await supabase
+    .from("contenu_tier_etat")
+    .select(COLONNES_ETAT)
+    .eq("contenu_id", contenuId)
+    .maybeSingle();
+  if (error) throw error;
+  return {
+    etats: data ? [data as TierEtat] : [],
+    coherence: verifierCoherenceLecture(
+      data ? 1 : 0,
+      null,
+      "lecture ciblée d'un seul contenu, sans objet",
+    ),
+  };
 }
 
 /**
@@ -442,6 +720,19 @@ export interface RequalificationResultat {
  * Faute de mesure, le cycle repart quand même au même rang — dès que plus
  * aucune vue ne peut tomber, ou au bout de `requalifMaxJours`. Voir
  * `deciderRequalif` : un cycle terminé ne doit jamais rester bloqué.
+ *
+ * LECTURE : la source est la vue `contenu_a_requalifier` (migration 0253), lue
+ * page par page. Elle ne garde que les cycles terminés — les deux premières
+ * gardes de `deciderRequalif`, et rien d'autre : la décision et le barème
+ * restent ici, en TypeScript, pour que minuit et la page Slideshows de l'admin
+ * ne puissent pas trancher différemment.
+ *
+ * Avant ce changement, la requête lisait `contenu_tier_etat` d'un bloc : 2521
+ * lignes matchées, 1000 rendues par PostgREST, en 200. ~1500 contenus n'étaient
+ * jamais examinés, et `examines` affichait 1000 avec l'air d'un inventaire
+ * complet. Le mécanisme s'auto-entretenait : sous MVCC une ligne requalifiée
+ * est réécrite en fin de tas, donc les contenus actifs sortaient d'eux-mêmes de
+ * la fenêtre lue.
  */
 export async function requalifierContenus(
   supabase: Supabase,
@@ -450,17 +741,13 @@ export async function requalifierContenus(
   const reglages = await chargerTierlistReglages(supabase);
   const dryRun = Boolean(opts.dryRun);
 
-  let q = supabase
-    .from("contenu_tier_etat")
-    .select(
-      "contenu_id, tier, passages_prevus, tier_cycle, publies, en_vol, restants, moyenne_vues, max_vues, nb_150k, mesures, introuvables, en_attente_mesure, dernier_publie_at",
-    )
-    .gt("passages_prevus", 0);
-  if (opts.contenuId) q = q.eq("contenu_id", opts.contenuId);
-
-  const { data, error } = await q;
-  if (error) throw error;
-  const etats = (data ?? []) as TierEtat[];
+  // Deux sources, un seul traitement derrière. Le run complet passe par la vue
+  // de dégrossissage + pagination ; le clic admin sur UN contenu reste sur la
+  // source non filtrée, faute de quoi un cycle non terminé disparaîtrait au
+  // lieu d'afficher son attente (voir `lireUnContenu`).
+  const { etats, coherence } = opts.contenuId
+    ? await lireUnContenu(supabase, opts.contenuId)
+    : await lireCyclesTermines(supabase);
 
   const out: RequalificationResultat = {
     examines: etats.length,
@@ -470,6 +757,7 @@ export async function requalifierContenus(
     remixDebloques: 0,
     details: [],
     attentesMesure: [],
+    coherence,
   };
 
   type Mur = { etat: TierEtat; decision: Extract<DecisionRequalif, { requalifier: true }> };
@@ -504,13 +792,22 @@ export async function requalifierContenus(
     ...mursOk.map((m) => m.etat.contenu_id),
     ...attentes.map((e) => e.contenu_id),
   ];
-  const { data: titres } = await supabase
-    .from("contenus")
-    .select("id, titre")
-    .in("id", ids);
-  const titreParId = new Map(
-    (titres ?? []).map((c) => [c.id as string, (c.titre as string) ?? ""]),
+  // Découpé, et l'erreur remontée. Deux raisons, dans cet ordre.
+  // 1) `ids` n'était borné que par la troncature : la fenêtre de 1000 lignes
+  //    tenait indirectement la liste sous les 400 valeurs de `verifierTailleIn`.
+  //    En lisant enfin tout, un run normal (143 requalifiables + les attentes
+  //    « mesure ») dépasse ce seuil et l'étape tierlist entière partirait en
+  //    500. Corriger la lecture sans corriger ceci aurait troqué une famine
+  //    silencieuse contre un crash — le correctif se doit d'être solidaire.
+  // 2) L'erreur n'était pas relue du tout ici. L'impact restait modeste (des
+  //    titres vides), mais c'est le même geste qui a coûté 41 créateurs à
+  //    0 post/jour le 20/08 : une lecture ratée qui passe pour un résultat.
+  const titres = await lireParLots<{ id: string; titre: string | null }>(
+    ids,
+    "Requalification — titres des contenus",
+    (lot) => supabase.from("contenus").select("id, titre").in("id", lot),
   );
+  const titreParId = new Map(titres.map((c) => [c.id, c.titre ?? ""]));
 
   for (const e of attentes) {
     out.attentesMesure.push({

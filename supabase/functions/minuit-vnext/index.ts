@@ -12,7 +12,12 @@ import {
 } from "../_shared/rattrapage_elo.ts";
 import { majScoresDepuisPassages } from "../_shared/scoring.ts";
 import { requalifierClassementComptes } from "../_shared/classement_comptes.ts";
-import { requalifierContenus } from "../_shared/tierlist.ts";
+import {
+  blocRunTierlist,
+  reporterBlocTierlist,
+  requalifierContenus,
+  type RequalificationResultat,
+} from "../_shared/tierlist.ts";
 import {
   kickUpscaleAssignes,
   listerMediasAssignesNonUpscales,
@@ -29,6 +34,57 @@ import {
 type Supabase = ReturnType<typeof serviceClient>;
 
 const POSTS_RELEVES = 30;
+
+/** Valeur courante de `reglages.minuit_dernier_run`, ou `null`. */
+async function lireDernierRun(
+  supabase: Supabase,
+): Promise<Record<string, unknown> | null> {
+  const { data } = await supabase
+    .from("reglages")
+    .select("valeur")
+    .eq("cle", "minuit_dernier_run")
+    .maybeSingle();
+  const v = data?.valeur;
+  return v && typeof v === "object" ? (v as Record<string, unknown>) : null;
+}
+
+/**
+ * Persiste le résultat de la requalification dans `reglages.minuit_dernier_run`.
+ *
+ * POURQUOI ici et pas ailleurs : le seul upsert existant de cette clé est
+ * enfermé dans la branche `if (compteId)` de l'étape assignation. Un run cron
+ * complet — celui de minuit, celui qui compte — ne l'écrit donc JAMAIS : il se
+ * contente de kicker le drain. Les compteurs de la tierlist ne vivaient nulle
+ * part, et c'est ce silence qui a laissé la troncature tourner des semaines
+ * avec un « 1000 examinés » rassurant dans une réponse HTTP que personne ne lit.
+ *
+ * On conserve l'existant du jour au lieu de rebâtir l'objet : le bloc écrit ici
+ * arrive AVANT l'assignation, dont les écritures reconstruisent la valeur de
+ * zéro. Le sens de la relation est donc symétrique — elles reportent notre bloc
+ * (`reporterBlocTierlist`), nous préservons le leur.
+ *
+ * Un jour différent repart à neuf : `minuit_dernier_run` décrit le run du jour.
+ */
+async function enregistrerRunTierlist(
+  supabase: Supabase,
+  jour: string,
+  res: RequalificationResultat,
+): Promise<void> {
+  const ancien = await lireDernierRun(supabase);
+  const memeJour = ancien?.jour === jour;
+  await supabase.from("reglages").upsert(
+    {
+      cle: "minuit_dernier_run",
+      valeur: {
+        ...(memeJour ? ancien : {}),
+        jour,
+        at: new Date().toISOString(),
+        tierlist: blocRunTierlist(res),
+      },
+    },
+    { onConflict: "cle" },
+  );
+}
 
 /**
  * Minuit v-next (manuel ou cron — l'heure importe peu) :
@@ -189,10 +245,35 @@ Deno.serve(async (request) => {
       // du nouveau rang. Un S+ débloque 3 remix (file `remix_debloques`).
       // Puis rappels J+7 des passages qui ont percé (> 50k vues).
       // Avant l'assignation : les nouveaux compteurs alimentent le pool du jour.
-      out.tierlist = await requalifierContenus(supabase, {
+      const tierlist = await requalifierContenus(supabase, {
         contenuId: body?.contenuId ?? null,
         dryRun: Boolean(body?.dryRun),
       });
+      out.tierlist = tierlist;
+      // Trace persistée : la réponse HTTP part à pg_cron, qui la jette. Un run
+      // tronqué doit rester lisible demain matin, pas seulement pendant les
+      // 200 ms où la fonction répond.
+      //
+      // Sauf pour un dry run ou le clic admin sur UN contenu : leurs compteurs
+      // (1 examiné, 1 requalifié) écraseraient ceux du run de minuit par un
+      // chiffre exact et sans signification. Un tableau de bord faux est pire
+      // qu'un tableau de bord vide — c'est toute la leçon de cette panne. Ces
+      // deux chemins lisent leur résultat dans la réponse, qu'ils reçoivent.
+      if (!body?.contenuId && !body?.dryRun) {
+        await enregistrerRunTierlist(supabase, jour, tierlist);
+      }
+      // Un écart de complétude est SIGNALÉ, pas jeté. La lecture est complète
+      // par construction (pagination keyset) ; ce contrôle est un témoin, et
+      // lever ici ferait tomber les étapes suivantes — rappels, assignation,
+      // upscale — donc laisserait les créateurs à 0 post du jour. Ce serait
+      // reproduire la panne du 20/08 pour cause de thermomètre cassé. Le run
+      // fait le travail qu'il peut faire, et l'écrit noir sur blanc.
+      if (!tierlist.coherence.ok && tierlist.coherence.alerte) {
+        out.avertissement = [out.avertissement, tierlist.coherence.alerte]
+          .filter(Boolean)
+          .join(" · ");
+        console.error(`[minuit] tierlist — ${tierlist.coherence.alerte}`);
+      }
       // Un contenu isolé (bouton « requalifier » de l'admin) ne déclenche pas
       // le scan global des rappels : 30 jours de passages pour un seul clic.
       if (!body?.contenuId) {
@@ -215,12 +296,21 @@ Deno.serve(async (request) => {
         const quotasBaisses = synthetiserQuotasBaisses(resultats);
         if (quotasBaisses.length > 0) {
           out.quotasBaisses = quotasBaisses;
-          out.avertissement =
+          // Ajouté, pas substitué : une alerte de lecture tronquée posée par
+          // l'étape tierlist explique peut-être la baisse de quota qu'on est en
+          // train d'annoncer. L'écraser reviendrait à effacer la cause pour ne
+          // garder que le symptôme.
+          out.avertissement = [
+            out.avertissement,
             `Lowered quota (${quotasBaisses.length}) — pool trop mince : ` +
             quotasBaisses
               .map((q) => `${q.nom} ${q.avant}→${q.apres}`)
-              .join(" · ");
+              .join(" · "),
+          ]
+            .filter(Boolean)
+            .join(" · ");
         }
+        const ancienRun = await lireDernierRun(supabase);
         await supabase.from("reglages").upsert(
           {
             cle: "minuit_dernier_run",
@@ -230,6 +320,10 @@ Deno.serve(async (request) => {
               avertissement: (out.avertissement as string | undefined) ?? null,
               quotasBaisses,
               crees: resultats.reduce((n, r) => n + (r.crees ?? 0), 0),
+              // Ce littéral reconstruit la valeur de zéro : sans ce report, le
+              // bloc écrit par l'étape tierlist quelques lignes plus haut serait
+              // détruit dans la même requête HTTP.
+              ...reporterBlocTierlist(ancienRun, ancienRun?.jour === jour),
             },
           },
           { onConflict: "cle" },

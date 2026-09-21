@@ -1,6 +1,6 @@
 import { createClient } from "jsr:@supabase/supabase-js@2";
 
-import { IN_MAX_VALEURS } from "./lots.ts";
+import { IN_MAX_VALEURS, PLAFOND_LIGNES } from "./lots.ts";
 
 /**
  * Rend bruyant un `in(...)` trop long.
@@ -23,26 +23,247 @@ export function verifierTailleIn(colonne: string, valeurs: unknown): void {
   );
 }
 
-/** Enveloppe un builder PostgREST pour contrôler la taille des `in(...)`. */
-function surveillerBuilder<T extends object>(builder: T): T {
-  return new Proxy(builder, {
+/* -------------------------------------------------------------------------
+ * Garde-fou n°2 : la RÉPONSE tronquée.
+ *
+ * `verifierTailleIn` protège de la panne du 20/08 (URL trop longue → 400 →
+ * erreur ignorée → pool plein pris pour un pool vide). Il ne protège de rien
+ * du côté du résultat : PostgREST plafonne toute réponse à `max-rows` et
+ * répond 200. Il n'y a alors aucune erreur à relire, et une lecture amputée
+ * passe pour l'inventaire complet — c'est la forme que la panne a reprise sur
+ * `contenu_tier_etat` (2521 lignes réelles, 1000 lues, ~1500 contenus jamais
+ * examinés). Les deux garde-fous sont complémentaires : le plafond de 400 porte
+ * sur le nombre de VALEURS du `in(...)`, pas sur le nombre de LIGNES rendues,
+ * et sur une relation many-to-one 100 valeurs ramènent des milliers de lignes.
+ *
+ * On lève donc au `then`, c'est-à-dire au seul point de passage commun à
+ * `await`, `.then()` et `Promise.all`.
+ * ---------------------------------------------------------------------- */
+
+/** Ce que le Proxy retient d'une chaîne, entre le `from()` et le `await`. */
+export interface EtatLecture {
+  /** Nom de table, pour que le message nomme le coupable. */
+  table: string;
+  /** L'appelant a déclaré sa borne : `.limit(n < plafond)` ou `.range()`. */
+  borne: boolean;
+}
+
+/**
+ * Un `.limit()`/`.range()` posé sur une table EMBARQUÉE ne borne pas les lignes
+ * du haut : PostgREST l'écrit `tbl.limit=…`. Il ne vaut donc pas déclaration
+ * d'intention sur le résultat qu'on surveille.
+ */
+function viseTableEmbarquee(options: unknown): boolean {
+  if (!options || typeof options !== "object") return false;
+  const o = options as Record<string, unknown>;
+  return Boolean(o.foreignTable ?? o.referencedTable);
+}
+
+/**
+ * `.limit(N)` avec N >= plafond n'est PAS une borne : PostgREST plafonne quand
+ * même. Les neuf `.limit(5000)` d'oubli_source.ts sont déjà tronqués à 1000
+ * aujourd'hui tout en ayant l'air délibérés — c'est la troncature la plus dure
+ * à voir en relecture, parce que le code affirme le contraire. La règle est
+ * donc « limit STRICTEMENT sous le plafond », jamais « limit présent ».
+ */
+function limiteEstUneBorne(args: unknown[]): boolean {
+  if (viseTableEmbarquee(args[1])) return false;
+  const n = Number(args[0]);
+  return Number.isFinite(n) && n > 0 && n < PLAFOND_LIGNES;
+}
+
+function parametresUrl(cible: object): URLSearchParams | null {
+  const url = (cible as { url?: unknown }).url;
+  if (url instanceof URL) return url.searchParams;
+  if (typeof url === "string") {
+    try {
+      return new URL(url).searchParams;
+    } catch {
+      return null;
+    }
+  }
+  return null;
+}
+
+/**
+ * Deuxième lecture de la borne, sur l'URL FINALE du builder.
+ *
+ * Le drapeau porté par la chaîne suffit en théorie ; l'URL est la source de
+ * vérité en pratique, parce qu'elle survit à tout ce qui pourrait faire sortir
+ * un maillon du Proxy (un builder reconstruit ailleurs, un helper qui rend la
+ * cible brute). Un `offset` présent signe une pagination voulue : le plafond
+ * est alors une borne assumée, pas une surprise.
+ */
+function borneDansUrl(cible: object): boolean {
+  const params = parametresUrl(cible);
+  if (!params) return false;
+  if (params.has("offset")) return true;
+  const n = Number(params.get("limit"));
+  return Number.isFinite(n) && n > 0 && n < PLAFOND_LIGNES;
+}
+
+function nomTable(cible: object, etat: EtatLecture): string {
+  if (etat.table) return etat.table;
+  const url = (cible as { url?: unknown }).url;
+  const chemin = url instanceof URL
+    ? url.pathname
+    : typeof url === "string"
+    ? url.split("?")[0]
+    : "";
+  return chemin.split("/").filter(Boolean).pop() || "table inconnue";
+}
+
+function urlLisible(cible: object): string {
+  const url = (cible as { url?: unknown }).url;
+  const texte = url instanceof URL ? `${url.pathname}${url.search}` : String(url ?? "?");
+  return texte.length > 300 ? `${texte.slice(0, 300)}…` : texte;
+}
+
+/**
+ * Le message EST le produit : il sera lu à 2 h du matin dans un log de cron,
+ * par quelqu'un qui n'a pas le fichier sous les yeux. Le jet part d'ici et non
+ * du call site, donc c'est au message de rattacher l'incident au code fautif —
+ * d'où la table, la longueur reçue, le plafond, l'URL, et la sortie.
+ */
+function messageTroncature(table: string, recues: number, url: string): string {
+  return (
+    `Lecture tronquée sur "${table}" : ${recues} lignes rendues, soit le plafond ` +
+    `PostgREST (max-rows = ${PLAFOND_LIGNES}), sans que l'appelant ait borné sa requête. ` +
+    `PostgREST coupe à ce plafond et répond 200 : il n'y a aucune erreur à relire, et ` +
+    `le résultat amputé passe pour l'inventaire complet — c'est ainsi que ~1500 contenus ` +
+    `ont cessé d'être examinés par la requalification pendant que le rapport affichait ` +
+    `« 1000 examinés ». Sortie : lireTout() de _shared/lots.ts (pagination keyset, ancre ` +
+    `stable et unique) ; ou .limit(n) avec n < ${PLAFOND_LIGNES} si la coupe est voulue ` +
+    `(un .limit(5000) n'en est pas une, PostgREST plafonne quand même) ; ou .range() si ` +
+    `tu pagines déjà ; ou select(…, { count: "exact", head: true }) si seul le nombre ` +
+    `compte. Requête : ${url}`
+  );
+}
+
+/**
+ * Lève si la réponse a l'air complète sans l'être.
+ *
+ * Muet partout où la question ne se pose pas : erreur déjà remontée (la doubler
+ * brouillerait le diagnostic), `data` non tabulaire — donc `.single()`,
+ * `.maybeSingle()`, les comptages `head: true` et les écritures sans `.select()`
+ * —, longueur sous le plafond, ou borne déclarée.
+ *
+ * Un faux positif est ASSUMÉ : une lecture qui rend légitimement pile le
+ * plafond doit déclarer son intention. Mieux vaut une fonction qui refuse de
+ * démarrer qu'une fonction qui décide sur un inventaire amputé.
+ */
+export function verifierCompletude(cible: object, etat: EtatLecture, reponse: unknown): void {
+  if (!reponse || typeof reponse !== "object") return;
+  const res = reponse as { data?: unknown; error?: unknown };
+  if (res.error) return;
+  if (!Array.isArray(res.data)) return;
+  if (res.data.length < PLAFOND_LIGNES) return;
+  if (etat.borne || borneDansUrl(cible)) return;
+  throw new Error(messageTroncature(nomTable(cible, etat), res.data.length, urlLisible(cible)));
+}
+
+/**
+ * Un maillon de chaîne PostgREST se reconnaît à ceci : c'est un objet thenable
+ * qui n'est pas une Promise. On ne réenveloppe rien d'autre — surtout pas la
+ * Promise rendue par `then`, dont la traversée du trap relirait `fetch` et
+ * `processResponse` à travers le Proxy.
+ */
+function estMaillon(valeur: unknown): valeur is object {
+  return (
+    !!valeur &&
+    typeof valeur === "object" &&
+    !(valeur instanceof Promise) &&
+    typeof (valeur as { then?: unknown }).then === "function"
+  );
+}
+
+/**
+ * Enveloppe un builder PostgREST : taille des `in(...)` à l'aller, complétude
+ * de la réponse au retour.
+ *
+ * LE point délicat est le chaînage. Dans postgrest-js, TOUTES les méthodes de
+ * filtre et de modificateur (eq/gt/in/is/not/or/order/limit/range/single…) font
+ * `return this` : elles rendent la CIBLE. L'ancienne garde `suite !== cible`
+ * laissait donc échapper le Proxy dès le premier maillon, et 94 % des chaînes
+ * du dépôt étaient déjà dé-proxifiées au moment du `await` — y compris les deux
+ * requêtes de la panne. `verifierTailleIn` était inerte pour la même raison sur
+ * tout `in()` précédé d'un filtre. Quand la méthode rend la cible, on rend donc
+ * le Proxy lui-même : c'est ce qui rend les deux garde-fous atteignables.
+ *
+ * `then` reste lié à la CIBLE, et ce n'est pas un détail de style : exécuté avec
+ * `this = recepteur`, l'intérieur de `PostgrestBuilder.then` relit `this.fetch`
+ * et `this.processResponse` à travers le trap, ces fonctions ressortent en
+ * wrappers, leurs retours sont réenveloppés, et l'on mesure 4 requêtes HTTP au
+ * lieu d'1 avec `data = null`. On ne fait qu'envelopper `onfulfilled`, et on
+ * n'appelle le `then` d'origine qu'une seule fois : il n'est pas mémoïsé, chaque
+ * appel relance la requête. `onrejected` reçoit les rejets d'origine intacts :
+ * par défaut postgrest RÉSOUT avec `{ data: null, error }`, même sur 400 et même
+ * sur échec réseau, et tout le dépôt compte sur cette forme. La troncature, elle,
+ * est détectée dans `onfulfilled` et transformée en REJET de la promesse, jamais
+ * en `{ error }` : remonter au call site, c'est toute la doctrine.
+ */
+export function surveillerBuilder<T extends object>(
+  builder: T,
+  depart?: Partial<EtatLecture>,
+): T {
+  // Un état par chaîne, partagé par tous les maillons qui rendent la cible, et
+  // reparti à neuf dès qu'un nouveau builder est créé (select/insert/update…) :
+  // une borne ne doit jamais fuiter d'une requête à la suivante.
+  const etat: EtatLecture = { table: depart?.table ?? "", borne: depart?.borne ?? false };
+
+  const proxy = new Proxy(builder, {
     get(cible, prop, recepteur) {
       const valeur = Reflect.get(cible, prop, recepteur);
       if (typeof valeur !== "function") return valeur;
-      // `then` doit rester lié au builder : c'est lui qui déclenche la requête.
-      if (prop === "then" || prop === "catch" || prop === "finally") {
-        return valeur.bind(cible);
+
+      if (prop === "then") {
+        const declencher = valeur.bind(cible) as (
+          onfulfilled?: (v: unknown) => unknown,
+          onrejected?: (r: unknown) => unknown,
+        ) => unknown;
+        return (
+          onfulfilled?: (v: unknown) => unknown,
+          onrejected?: (r: unknown) => unknown,
+        ) =>
+          declencher((res: unknown) => {
+            try {
+              verifierCompletude(cible, etat, res);
+            } catch (troncature) {
+              // On route vers `onrejected` au lieu de jeter dans la promesse
+              // rendue par `then`. Le call site voit la même chose (son `await`
+              // rejette), mais `await` IGNORE la valeur de retour de `then` sur
+              // un thenable : un jet direct laisserait une promesse rejetée que
+              // personne ne tient, et Deno tuerait le processus sur un
+              // « dangling promise » au lieu de remonter l'incident.
+              if (onrejected) return onrejected(troncature);
+              throw troncature;
+            }
+            return onfulfilled ? onfulfilled(res) : res;
+          }, onrejected);
       }
+
+      // `catch`/`finally` n'existent pas sur PostgrestBuilder (branche morte,
+      // conservée parce qu'un jour ils pourraient exister) : même raison que
+      // `then`, ils déclenchent la requête et doivent voir la cible.
+      if (prop === "catch" || prop === "finally") return valeur.bind(cible);
+
       return (...args: unknown[]) => {
         if (prop === "in") verifierTailleIn(String(args[0]), args[1]);
+        if (prop === "limit" && limiteEstUneBorne(args)) etat.borne = true;
+        if (prop === "range" && !viseTableEmbarquee(args[2])) etat.borne = true;
+
         const suite = valeur.apply(cible, args);
-        // Les filtres se chaînent : on garde l'œil sur le maillon suivant.
-        return suite && typeof suite === "object" && suite !== cible
-          ? surveillerBuilder(suite as object)
-          : suite;
+        // `return this` : on rend le Proxy, pas la cible — sans quoi tout le
+        // reste de la chaîne échappe aux deux garde-fous.
+        if (suite === cible) return proxy;
+        // Nouveau builder (select/insert/update/delete) : nouvelle chaîne,
+        // nouvelle borne, mais on lui transmet le nom de table.
+        return estMaillon(suite) ? surveillerBuilder(suite, { table: etat.table }) : suite;
       };
     },
-  });
+  }) as T;
+
+  return proxy;
 }
 
 /**
@@ -61,12 +282,18 @@ export function serviceClient() {
     auth: { persistSession: false, autoRefreshToken: false },
   });
 
+  // Angles morts assumés : le trap n'intercepte que `from`. `rpc()` renvoie
+  // pourtant un builder soumis au même plafond quand la fonction est
+  // set-returning (classement_comptes.ts:441, media_caption.ts:397) ; idem
+  // `auth.admin` et `storage.from(...)`, qui ne sont pas des getters. Les
+  // couvrir demanderait d'élargir le trap — à faire quand un de ces appels
+  // s'approchera du plafond, pas avant.
   return new Proxy(client, {
     get(cible, prop, recepteur) {
       const valeur = Reflect.get(cible, prop, recepteur);
       if (prop !== "from" || typeof valeur !== "function") return valeur;
       return (...args: unknown[]) =>
-        surveillerBuilder(valeur.apply(cible, args) as object);
+        surveillerBuilder(valeur.apply(cible, args) as object, { table: String(args[0] ?? "") });
     },
   });
 }

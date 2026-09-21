@@ -14,6 +14,7 @@
  * `sujets.source_url` (unique) et `media_library.storage_path` (unique).
  */
 
+import { type ReponseLot, lireTout } from "./lots.ts";
 import {
   BUCKET_MEDIAS,
   type LigneJournalOubli,
@@ -89,6 +90,20 @@ function assertOk(error: unknown, quoi: string, log: Journal["log"]): void {
   throw new Error(msg);
 }
 
+/**
+ * Même rôle qu'`assertOk` pour une lecture qui lève elle-même : le message part
+ * au journal avant de remonter. Une lecture ratée qui ne laisse aucune trace
+ * écrite est précisément ce qui a rendu l'incident du 20/08 indéchiffrable.
+ */
+async function journaliser<T>(log: Journal["log"], lecture: () => Promise<T>): Promise<T> {
+  try {
+    return await lecture();
+  } catch (e) {
+    log("error", messageErreur(e));
+    throw e;
+  }
+}
+
 async function handleDeLaSource(
   supabase: Supabase,
   compteReferenceId: string,
@@ -100,6 +115,37 @@ async function handleDeLaSource(
     .maybeSingle();
   if (error) throw new Error(`Lecture du compte : ${messageErreur(error)}`);
   return data ? normaliserHandle(data.handle_tiktok as string) : null;
+}
+
+/* -------------------------------------------------------------------------
+ * Les `.limit(5000)` de ce fichier étaient des troncatures déguisées en bornes.
+ *
+ * PostgREST plafonne toute réponse à `max-rows` (1000) QUELLE QUE SOIT la
+ * valeur demandée : `.limit(5000)` ne rendait donc jamais plus de 1000 lignes,
+ * tout en affirmant le contraire à la relecture. C'est la forme la plus
+ * difficile à repérer, parce que le code dit explicitement qu'il a prévu le
+ * cas. Sur une source de plus de 1000 slideshows, l'oubli en laissait
+ * silencieusement derrière lui — des lignes `contenus` / `sujets` /
+ * `media_library` orphelines qui bloquent ensuite le ré-import (les colonnes
+ * `source_url` et `storage_path` sont UNIQUE) — et l'aperçu montré à l'admin
+ * AVANT une suppression définitive sous-annonçait ce qui allait être détruit.
+ * ---------------------------------------------------------------------- */
+
+/**
+ * Lecture complète d'une table filtrée, ancrée sur `id`.
+ *
+ * `id` est la clé primaire : unique sur tout le résultat et immuable, donc une
+ * pagination keyset dessus ne peut ni sauter ni répéter une ligne, même si les
+ * lignes sont réécrites pendant la lecture. L'ordre du résultat devient l'ordre
+ * des `id` — sans effet ici, tous les appelants accumulent dans un `Set`.
+ */
+async function lireToutParId<T extends { id: string }>(
+  quoi: string,
+  page: (apres: string | null, taille: number) => PromiseLike<ReponseLot<T>>,
+): Promise<T[]> {
+  return await lireTout<T>(quoi, (curseur, taille) => page(curseur?.id ?? null, taille), {
+    ancre: (ligne) => ligne.id,
+  });
 }
 
 /**
@@ -115,35 +161,41 @@ export async function idsContenusDeLaSource(
 ): Promise<string[]> {
   const ids = new Set<string>();
 
-  const { data: parLien, error: errLien } = await supabase
-    .from("contenus")
-    .select("id")
-    .eq("compte_reference_id", compteReferenceId)
-    .limit(5000);
-  if (errLien) throw new Error(`Slideshows liés : ${messageErreur(errLien)}`);
-  for (const c of parLien ?? []) ids.add(c.id as string);
+  const parLien = await lireToutParId<{ id: string }>("Slideshows liés", (apres, taille) => {
+    let q = supabase.from("contenus").select("id").eq("compte_reference_id", compteReferenceId);
+    if (apres) q = q.gt("id", apres);
+    return q.order("id", { ascending: true }).limit(taille);
+  });
+  for (const c of parLien) ids.add(c.id);
 
   if (handle) {
-    const { data: parUrl, error: errUrl } = await supabase
-      .from("contenus")
-      .select("id, source_url")
-      .ilike("source_url", `%@${handle}%`)
-      .limit(5000);
-    if (errUrl) throw new Error(`Slideshows par URL : ${messageErreur(errUrl)}`);
-    for (const c of parUrl ?? []) {
-      if (urlDuHandle(c.source_url as string | null, handle)) ids.add(c.id as string);
+    const parUrl = await lireToutParId<{ id: string; source_url: string | null }>(
+      "Slideshows par URL",
+      (apres, taille) => {
+        let q = supabase
+          .from("contenus")
+          .select("id, source_url")
+          .ilike("source_url", `%@${handle}%`);
+        if (apres) q = q.gt("id", apres);
+        return q.order("id", { ascending: true }).limit(taille);
+      },
+    );
+    for (const c of parUrl) {
+      if (urlDuHandle(c.source_url, handle)) ids.add(c.id);
     }
   }
 
   // Variations : des slideshows enfants pointent le parent sans porter la source.
   for (const lot of decouperEnLots([...ids], LOT_IDS)) {
-    const { data: enfants, error: errEnfants } = await supabase
-      .from("contenus")
-      .select("id")
-      .in("parent_id", lot)
-      .limit(5000);
-    if (errEnfants) throw new Error(`Variations : ${messageErreur(errEnfants)}`);
-    for (const c of enfants ?? []) ids.add(c.id as string);
+    // Le lot borne l'URL, la pagination borne la réponse : un parent peut
+    // porter plusieurs variations, donc 100 parents dépassent le plafond bien
+    // avant que l'URL ne pose problème.
+    const enfants = await lireToutParId<{ id: string }>("Variations", (apres, taille) => {
+      let q = supabase.from("contenus").select("id").in("parent_id", lot);
+      if (apres) q = q.gt("id", apres);
+      return q.order("id", { ascending: true }).limit(taille);
+    });
+    for (const c of enfants) ids.add(c.id);
   }
 
   return [...ids];
@@ -156,23 +208,27 @@ async function idsSujetsDeLaSource(
 ): Promise<string[]> {
   const ids = new Set<string>();
 
-  const { data: parLien, error: errLien } = await supabase
-    .from("sujets")
-    .select("id")
-    .eq("compte_reference_id", compteReferenceId)
-    .limit(5000);
-  if (errLien) throw new Error(`Sujets liés : ${messageErreur(errLien)}`);
-  for (const s of parLien ?? []) ids.add(s.id as string);
+  const parLien = await lireToutParId<{ id: string }>("Sujets liés", (apres, taille) => {
+    let q = supabase.from("sujets").select("id").eq("compte_reference_id", compteReferenceId);
+    if (apres) q = q.gt("id", apres);
+    return q.order("id", { ascending: true }).limit(taille);
+  });
+  for (const s of parLien) ids.add(s.id);
 
   if (handle) {
-    const { data: parUrl, error: errUrl } = await supabase
-      .from("sujets")
-      .select("id, source_url")
-      .ilike("source_url", `%@${handle}%`)
-      .limit(5000);
-    if (errUrl) throw new Error(`Sujets par URL : ${messageErreur(errUrl)}`);
-    for (const s of parUrl ?? []) {
-      if (urlDuHandle(s.source_url as string | null, handle)) ids.add(s.id as string);
+    const parUrl = await lireToutParId<{ id: string; source_url: string | null }>(
+      "Sujets par URL",
+      (apres, taille) => {
+        let q = supabase.from("sujets").select("id, source_url").ilike(
+          "source_url",
+          `%@${handle}%`,
+        );
+        if (apres) q = q.gt("id", apres);
+        return q.order("id", { ascending: true }).limit(taille);
+      },
+    );
+    for (const s of parUrl) {
+      if (urlDuHandle(s.source_url, handle)) ids.add(s.id);
     }
   }
 
@@ -187,23 +243,30 @@ async function idsFileImportDeLaSource(
 ): Promise<string[]> {
   const ids = new Set<string>();
 
-  const { data: parLien, error: errLien } = await supabase
-    .from("import_file")
-    .select("id")
-    .eq("compte_reference_id", compteReferenceId)
-    .limit(5000);
-  if (errLien) throw new Error(`File d'import liée : ${messageErreur(errLien)}`);
-  for (const f of parLien ?? []) ids.add(f.id as string);
+  const parLien = await lireToutParId<{ id: string }>("File d'import liée", (apres, taille) => {
+    let q = supabase.from("import_file").select("id").eq(
+      "compte_reference_id",
+      compteReferenceId,
+    );
+    if (apres) q = q.gt("id", apres);
+    return q.order("id", { ascending: true }).limit(taille);
+  });
+  for (const f of parLien) ids.add(f.id);
 
   if (handle) {
-    const { data: parUrl, error: errUrl } = await supabase
-      .from("import_file")
-      .select("id, post_url")
-      .ilike("post_url", `%@${handle}%`)
-      .limit(5000);
-    if (errUrl) throw new Error(`File d'import par URL : ${messageErreur(errUrl)}`);
-    for (const f of parUrl ?? []) {
-      if (urlDuHandle(f.post_url as string | null, handle)) ids.add(f.id as string);
+    const parUrl = await lireToutParId<{ id: string; post_url: string | null }>(
+      "File d'import par URL",
+      (apres, taille) => {
+        let q = supabase.from("import_file").select("id, post_url").ilike(
+          "post_url",
+          `%@${handle}%`,
+        );
+        if (apres) q = q.gt("id", apres);
+        return q.order("id", { ascending: true }).limit(taille);
+      },
+    );
+    for (const f of parUrl) {
+      if (urlDuHandle(f.post_url, handle)) ids.add(f.id);
     }
   }
 
@@ -241,28 +304,43 @@ export async function apercuOubli(
   const mediaIds = new Set<string>();
   const postIds = new Set<string>();
   for (const lot of decouperEnLots(contenuIds, LOT_IDS)) {
-    const { data: medias, error: errMedias } = await supabase
-      .from("media_library")
-      .select("id")
-      .in("contenu_id", lot);
-    if (errMedias) throw new Error(`Aperçu médias : ${messageErreur(errMedias)}`);
-    for (const m of medias ?? []) mediaIds.add(m.id as string);
+    // Un slideshow porte 8 à 20 images : un lot de 100 contenus ramène donc
+    // 800 à 2000 lignes `media_library`. Le découpage du filtre n'y change
+    // rien — c'est la réponse qu'il faut borner, et c'est ce compteur-là que
+    // l'admin lit avant de valider une destruction irréversible.
+    const medias = await lireToutParId<{ id: string }>("Aperçu médias", (apres, taille) => {
+      let q = supabase.from("media_library").select("id").in("contenu_id", lot);
+      if (apres) q = q.gt("id", apres);
+      return q.order("id", { ascending: true }).limit(taille);
+    });
+    for (const m of medias) mediaIds.add(m.id);
 
-    const { data: passages, error: errPassages } = await supabase
-      .from("passages")
-      .select("post_id")
-      .in("contenu_id", lot)
-      .not("post_id", "is", null);
-    if (errPassages) throw new Error(`Aperçu posts : ${messageErreur(errPassages)}`);
-    for (const p of passages ?? []) postIds.add(p.post_id as string);
+    const passages = await lireToutParId<{ id: string; post_id: string | null }>(
+      "Aperçu posts",
+      (apres, taille) => {
+        let q = supabase
+          .from("passages")
+          .select("id, post_id")
+          .in("contenu_id", lot)
+          .not("post_id", "is", null);
+        if (apres) q = q.gt("id", apres);
+        return q.order("id", { ascending: true }).limit(taille);
+      },
+    );
+    for (const p of passages) if (p.post_id) postIds.add(p.post_id);
   }
-  const { data: mediasSource, error: errSource } = await supabase
-    .from("media_library")
-    .select("id")
-    .eq("compte_reference_id", compteReferenceId)
-    .limit(5000);
-  if (errSource) throw new Error(`Aperçu médias source : ${messageErreur(errSource)}`);
-  for (const m of mediasSource ?? []) mediaIds.add(m.id as string);
+  const mediasSource = await lireToutParId<{ id: string }>(
+    "Aperçu médias source",
+    (apres, taille) => {
+      let q = supabase.from("media_library").select("id").eq(
+        "compte_reference_id",
+        compteReferenceId,
+      );
+      if (apres) q = q.gt("id", apres);
+      return q.order("id", { ascending: true }).limit(taille);
+    },
+  );
+  for (const m of mediasSource) mediaIds.add(m.id);
 
   const apercu: OubliApercu = {
     compteReferenceId,
@@ -481,20 +559,32 @@ async function supprimerMediasDeLaSource(
   compteReferenceId: string,
   log: Journal["log"],
 ): Promise<Partial<OubliCompteurs>> {
-  const { data: medias, error: errMedias } = await supabase
-    .from("media_library")
-    .select("id, storage_path")
-    .eq("compte_reference_id", compteReferenceId)
-    .limit(5000);
-  assertOk(errMedias, "Lecture des images restantes de la source", log);
-  const ids = (medias ?? []).map((m) => m.id as string);
+  // Lecture paginée : c'est une lecture qui PRÉCÈDE une suppression. Tronquée,
+  // elle laissait des images derrière elle — et `media_library.storage_path`
+  // étant UNIQUE, ces restes bloquent le ré-import qu'un oubli est censé
+  // rendre possible.
+  // `assertOk` écrivait l'échec au journal AVANT de lever : on garde ce
+  // comportement, le journal d'oubli est ce que l'admin relit après coup.
+  const medias = await journaliser(log, () =>
+    lireToutParId<{ id: string; storage_path: string | null }>(
+      "Lecture des images restantes de la source",
+      (apres, taille) => {
+        let q = supabase.from("media_library").select("id, storage_path").eq(
+          "compte_reference_id",
+          compteReferenceId,
+        );
+        if (apres) q = q.gt("id", apres);
+        return q.order("id", { ascending: true }).limit(taille);
+      },
+    ));
+  const ids = medias.map((m) => m.id);
   if (ids.length === 0) {
     log("info", "Aucune image restante rattachée à la source");
     return {};
   }
 
-  const chemins = (medias ?? [])
-    .map((m) => m.storage_path as string | null)
+  const chemins = medias
+    .map((m) => m.storage_path)
     .filter((p): p is string => Boolean(p));
   const fichiers = await retirerFichiers(supabase, chemins, log);
   for (const lot of decouperEnLots(ids, LOT_IDS)) {

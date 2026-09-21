@@ -1,4 +1,5 @@
 import { scrapeStats } from "../_shared/apify.ts";
+import { lireTout } from "../_shared/lots.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
@@ -88,14 +89,25 @@ async function releverCompte(
 
   // Relevé PAR POST pour ceux dont on a le lien (garde le détail par post :
   // viraux, meilleurs posts…).
-  const { data: posts } = await supabase
-    .from("posts")
-    .select("id, publie_url")
-    .eq("compte_id", compteId)
-    .eq("statut", "publie")
-    .not("publie_url", "is", null);
+  // Même lecture sans borne de date que pour les passages plus bas, sur la
+  // table legacy : deux implémentations du même relevé, donc deux troncatures
+  // à corriger, pas une.
+  const posts = await lireTout<{ id: string; publie_url: string | null }>(
+    "Posts publiés du compte",
+    (curseur, taille) => {
+      let q = supabase
+        .from("posts")
+        .select("id, publie_url")
+        .eq("compte_id", compteId)
+        .eq("statut", "publie")
+        .not("publie_url", "is", null);
+      if (curseur) q = q.gt("id", curseur.id);
+      return q.order("id", { ascending: true }).limit(taille);
+    },
+    { ancre: (p) => p.id },
+  );
 
-  if (!posts || posts.length === 0) return 0;
+  if (posts.length === 0) return 0;
 
   // TikTok sert la même URL sous plusieurs formes (paramètres, redirections) :
   // on compare sur l'identifiant numérique du post, stable.
@@ -122,14 +134,30 @@ async function releverCompte(
   }
 
   // Passages v-next : même rapprochement par publie_url.
-  const { data: passages } = await supabase
-    .from("passages")
-    .select("id, publie_url")
-    .eq("compte_id", compteId)
-    .eq("statut", "publie")
-    .not("publie_url", "is", null);
+  //
+  // Lecture paginée : aucune borne de date ici, l'historique publié du compte
+  // s'accumule sans fin. Et la boucle qui suit fait un UPDATE de stats sur
+  // chaque ligne lue — sous MVCC, une ligne mise à jour est réécrite en fin de
+  // tas, donc les passages RÉCENTS (les seuls que le scrape `enLigne` peut
+  // faire matcher) migraient précisément hors de la fenêtre lue. La lecture
+  // s'auto-empoisonnait : plus on relevait, moins on relevait. L'ancre `id`
+  // est immuable, elle ne bouge pas sous les UPDATE.
+  const passages = await lireTout<{ id: string; publie_url: string | null }>(
+    "Passages publiés du compte",
+    (curseur, taille) => {
+      let q = supabase
+        .from("passages")
+        .select("id, publie_url")
+        .eq("compte_id", compteId)
+        .eq("statut", "publie")
+        .not("publie_url", "is", null);
+      if (curseur) q = q.gt("id", curseur.id);
+      return q.order("id", { ascending: true }).limit(taille);
+    },
+    { ancre: (p) => p.id },
+  );
 
-  for (const passage of passages ?? []) {
+  for (const passage of passages) {
     const complet = await resoudreLien(passage.publie_url!);
     const stats = parId.get(idDuLien(complet));
     if (!stats) continue;

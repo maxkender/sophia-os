@@ -13,6 +13,7 @@
  */
 import { scrapePost, scrapeStats, type ScrapedPost } from "./apify.ts";
 import { requalifierClassementComptes } from "./classement_comptes.ts";
+import { lireTout } from "./lots.ts";
 import {
   chargerScoring,
   performancePassage,
@@ -235,25 +236,46 @@ type PassageFenetre = {
   statsFresh?: boolean;
 };
 
+/**
+ * Les passages de la fenêtre, lus EN ENTIER.
+ *
+ * Cette lecture dépasse LÉGITIMEMENT le plafond PostgREST : 4 jours × 255
+ * créneaux = 1020 lignes en régime normal, et `opts.jours` monte jusqu'à 14,
+ * soit ~3570. Tout run élargi était donc certainement tronqué — et comme rien
+ * n'est relevé sur les passages perdus, ils vieillissaient en `introuvables` /
+ * `en_attente_mesure` et bloquaient le cycle tier lu par la requalification.
+ *
+ * On pagine donc, plutôt que de plafonner par un `.limit()` : un plafond ici
+ * n'est pas une borne, c'est une fenêtre de rattrapage amputée qu'on aurait
+ * écrite nous-mêmes. Ancre `id` — immuable, donc insensible au fait que
+ * `ecrireStats` réécrit ces lignes en fin de tas pendant le run.
+ *
+ * L'ordre du résultat devient l'ordre des `id` au lieu de l'ordre de tas :
+ * l'appelant n'en fait qu'un `length` puis une boucle de scrape par passage,
+ * aucun traitement ne dépend du rang.
+ */
 async function chargerPassagesFenetre(
   supabase: Supabase,
   dates: string[],
   compteId: string | null,
 ): Promise<PassageFenetre[]> {
-  let q = supabase
-    .from("passages")
-    .select(
-      "id, contenu_id, compte_id, langue, publie_url, publie_at, date_publication_prevue, vues, likes, commentaires, partages, elo_maj_at, slides",
-    )
-    .eq("statut", "publie")
-    .in("date_publication_prevue", dates)
-    .not("publie_url", "is", null);
-
-  if (compteId) q = q.eq("compte_id", compteId);
-
-  const { data, error } = await q;
-  if (error) throw error;
-  return (data ?? []) as PassageFenetre[];
+  return await lireTout<PassageFenetre>(
+    "Passages de la fenêtre de rattrapage",
+    (curseur, taille) => {
+      let q = supabase
+        .from("passages")
+        .select(
+          "id, contenu_id, compte_id, langue, publie_url, publie_at, date_publication_prevue, vues, likes, commentaires, partages, elo_maj_at, slides",
+        )
+        .eq("statut", "publie")
+        .in("date_publication_prevue", dates)
+        .not("publie_url", "is", null);
+      if (compteId) q = q.eq("compte_id", compteId);
+      if (curseur) q = q.gt("id", curseur.id);
+      return q.order("id", { ascending: true }).limit(taille);
+    },
+    { ancre: (p) => p.id },
+  ) as PassageFenetre[];
 }
 
 async function ecrireStats(

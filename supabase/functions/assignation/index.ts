@@ -7,6 +7,7 @@ import {
   type AssignationCompteResultat,
 } from "../_shared/assignation_contenu.ts";
 import { reponseNdjson, veutStream } from "../_shared/nettoyage_etapes.ts";
+import { reporterBlocTierlist } from "../_shared/tierlist.ts";
 import {
   assertAuthorised,
   aujourdhuiParis,
@@ -285,6 +286,12 @@ async function fusionnerDernierRun(
         avertissement,
         quotasBaisses: quotasMerged,
         crees: (memeJour ? (ancien.crees ?? 0) : 0) + creesLot,
+        // Ce littéral reconstruit la valeur de zéro, donc toute clé non
+        // recopiée est détruite. Minuit lance la requalification puis kicke ce
+        // drain : sans ce report, le premier lot effacerait le bloc `tierlist`
+        // quelques secondes après son écriture, et le compteur ajouté pour
+        // rendre l'étape visible n'aurait jamais été lu une seule fois.
+        ...reporterBlocTierlist(ancien, memeJour),
         ...meta,
       },
     },

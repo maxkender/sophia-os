@@ -406,8 +406,24 @@ async function viderPrefixe(
  * Même ordre que `supprimerContenu` côté admin : posts d'abord (ils référencent
  * les médias), storage ensuite, médias, puis le slideshow (qui emporte en
  * cascade labels, decks de langue et passages).
+ *
+ * TOUTES LES LECTURES D'ABORD, LES DESTRUCTIONS ENSUITE — c'est le seul
+ * changement d'ordre par rapport à la version précédente, et il est délibéré.
+ * L'inventaire des médias se faisait APRÈS la suppression des posts, alors
+ * qu'il n'en dépend en rien (supprimer un post ne touche pas
+ * `media_library.contenu_id`). Tronqué, il laissait des médias orphelins ;
+ * depuis le garde-fou de complétude il LÈVE — et il levait au pire endroit
+ * possible, les posts étant déjà détruits. Lire d'abord ne coûte rien et rend
+ * l'échec inoffensif : on sort avant d'avoir cassé quoi que ce soit.
+ *
+ * L'ordre des DESTRUCTIONS, lui, est inchangé (posts → storage → médias →
+ * slideshows) : il est contraint par les FK, pas par nous.
+ *
+ * Exportée pour `oubli_source_test.ts` : l'invariant « aucun DELETE tant qu'une
+ * lecture n'a pas abouti » ne se teste pas depuis `oublierSource`, qui traîne
+ * derrière lui le storage, les sujets legacy et la file d'import.
  */
-async function supprimerContenus(
+export async function supprimerContenus(
   supabase: Supabase,
   compteReferenceId: string,
   contenuIds: string[],
@@ -415,29 +431,36 @@ async function supprimerContenus(
 ): Promise<Partial<OubliCompteurs>> {
   if (contenuIds.length === 0) return {};
 
+  // A — INVENTAIRE. Le paquet vaut au plus `LOT_CONTENUS_DEFAUT` slideshows
+  // (15, plafonné à 60 côté Edge Function), et le filtre porte sur la clé
+  // primaire : la réponse ne peut pas être plus longue que le filtre.
   const { data: contenus, error: errContenus } = await supabase
     .from("contenus")
     .select("id, source_url, structure_slides")
     .in("id", contenuIds);
   assertOk(errContenus, "Lecture des slideshows à supprimer", log);
 
-  // 1 — Posts matérialisés (cascade : post_slides, métriques, tokens mobiles).
+  // Posts matérialisés à détruire. Relation many-to-one : un slideshow accumule
+  // un passage par assignation, donc 60 slideshows un peu anciens dépassent le
+  // plafond PostgREST sans que le `in(...)` n'ait rien d'anormal. Tronquée,
+  // cette lecture laissait des posts derrière elle, et leurs slides pointaient
+  // vers des médias supprimés juste après.
   const postIds = new Set<string>();
-  const { data: passages, error: errPassages } = await supabase
-    .from("passages")
-    .select("post_id")
-    .in("contenu_id", contenuIds)
-    .not("post_id", "is", null);
-  assertOk(errPassages, "Lecture des posts assignés", log);
-  for (const p of passages ?? []) postIds.add(p.post_id as string);
-  for (const lot of decouperEnLots([...postIds], LOT_IDS)) {
-    const { error } = await supabase.from("posts").delete().in("id", lot);
-    assertOk(error, `Suppression de ${lot.length} post(s)`, log);
-  }
-  if (postIds.size > 0) log("ok", `${postIds.size} post(s) assigné(s) supprimé(s)`);
-  else log("info", "Aucun post assigné sur ce lot");
+  const passages = await lireToutParId<{ id: string; post_id: string | null }>(
+    "Lecture des posts assignés",
+    (apres, taille) => {
+      let q = supabase
+        .from("passages")
+        .select("id, post_id")
+        .in("contenu_id", contenuIds)
+        .not("post_id", "is", null);
+      if (apres) q = q.gt("id", apres);
+      return q.order("id", { ascending: true }).limit(taille);
+    },
+  );
+  for (const p of passages) if (p.post_id) postIds.add(p.post_id);
 
-  // 2 — Médias cités par les slides ou rattachés au slideshow. Une slide ratée
+  // Médias cités par les slides ou rattachés au slideshow. Une slide ratée
   // peut avoir été remplacée par une image EMPRUNTÉE à la bibliothèque
   // (`mediaPropreMemeLabel`), qui appartient à un autre compte : on ne garde
   // que celles de cette source, les autres sont juste déliées.
@@ -446,18 +469,27 @@ async function supprimerContenus(
     const slides = (c.structure_slides ?? []) as Array<{ media_id?: string | null }>;
     for (const s of slides) if (s.media_id) candidats.add(s.media_id);
   }
-  const { data: mediasLies, error: errLies } = await supabase
-    .from("media_library")
-    .select("id")
-    .in("contenu_id", contenuIds);
-  assertOk(errLies, "Lecture des images liées", log);
-  for (const m of mediasLies ?? []) candidats.add(m.id as string);
+  // Même raisonnement chiffré qu'à l'aperçu (voir plus haut) : « un slideshow
+  // porte 8 à 20 images », donc 60 slideshows ramènent 480 à 1200 lignes — la
+  // lecture qui manquait au découpage. C'est elle qui décide ce qu'on efface du
+  // bucket : amputée, elle laissait des fichiers orphelins qui bloquent ensuite
+  // le ré-import (`media_library.storage_path` est unique).
+  const mediasLies = await lireToutParId<{ id: string }>(
+    "Lecture des images liées",
+    (apres, taille) => {
+      let q = supabase.from("media_library").select("id").in("contenu_id", contenuIds);
+      if (apres) q = q.gt("id", apres);
+      return q.order("id", { ascending: true }).limit(taille);
+    },
+  );
+  for (const m of mediasLies) candidats.add(m.id);
 
   const aSupprimer = new Set(contenuIds);
   const mediaIds: string[] = [];
   const chemins: string[] = [];
   let empruntees = 0;
   for (const lot of decouperEnLots([...candidats], LOT_IDS)) {
+    // Filtre sur la clé primaire : au plus `LOT_IDS` lignes par lot.
     const { data: medias, error } = await supabase
       .from("media_library")
       .select("id, storage_path, contenu_id, compte_reference_id")
@@ -475,6 +507,18 @@ async function supprimerContenus(
       if (m.storage_path) chemins.push(m.storage_path as string);
     }
   }
+
+  // B — DESTRUCTION. À partir d'ici, plus rien n'est réversible.
+
+  // 1 — Posts matérialisés (cascade : post_slides, métriques, tokens mobiles).
+  for (const lot of decouperEnLots([...postIds], LOT_IDS)) {
+    const { error } = await supabase.from("posts").delete().in("id", lot);
+    assertOk(error, `Suppression de ${lot.length} post(s)`, log);
+  }
+  if (postIds.size > 0) log("ok", `${postIds.size} post(s) assigné(s) supprimé(s)`);
+  else log("info", "Aucun post assigné sur ce lot");
+
+  // 2 — Fichiers du bucket, puis les lignes `media_library` correspondantes.
   let fichiers = await retirerFichiers(supabase, chemins, log);
 
   // 3 — Balayage des dossiers : un upload sans ligne en base bloquerait le

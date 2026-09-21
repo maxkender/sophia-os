@@ -101,14 +101,19 @@ function tableJouet(n: number) {
   };
 }
 
-Deno.test("lireTout — une page courte se termine sur une page vide, pas sur une supposition", async () => {
-  // On ne sort PAS sur `lot.length < taille` : cette sortie suppose que le
-  // serveur rend tout ce qu'on lui demande, hypothèse qui casse exactement
-  // quand max-rows rogne la page — le cas qu'on répare.
+Deno.test("lireTout — une page courte conclut la lecture, sans aller-retour de confirmation", async () => {
+  // Ce test affirmait l'inverse (sortie sur page VIDE uniquement, donc un
+  // second appel pour confirmer). L'argument était : « une page courte n'est
+  // une fin que si le serveur rend tout ce qu'on lui demande ». Il ne tient pas
+  // ICI, et c'est tout l'intérêt de TAILLE_PAGE : on demande strictement moins
+  // que max-rows, donc PostgREST n'a rien à rogner par-dessus notre limite et ne
+  // peut pas rendre une page courte en ayant gardé des lignes. L'aller-retour
+  // n'achetait donc aucune garantie, et il DOUBLAIT le nombre de requêtes de
+  // tout appel tenant en une page — sur un drain qui tombe en timeout à 280 s.
   const t = tableJouet(12);
   const out = await lireTout<{ id: string }>("test", t.page, { ancre: (l) => l.id, taillePage: 50 });
   assertEquals(out.length, 12);
-  assertEquals(t.appels, [null, "c-0011"]);
+  assertEquals(t.appels, [null]);
 });
 
 Deno.test("lireTout — 2521 lignes sont toutes rendues, là où PostgREST en coupait 1000", async () => {
@@ -140,6 +145,24 @@ Deno.test("lireTout — une page pile à la taille demandée n'est pas prise pou
   assertEquals(t.appels, [null, "c-0009", "c-0019"]);
 });
 
+Deno.test("lireTout — un callback qui ignore la taille reçue lève : la page courte doit rester concluante", async () => {
+  // L'obligation n°1 du contrat, tenue plutôt que supposée. Sortir sur une page
+  // courte n'est concluant que si la page a été demandée SOUS le plafond
+  // serveur : un callback à la limite codée en dur remet la décision entre les
+  // mains de `max-rows`, c'est-à-dire dans l'ambiguïté qu'on retire du dépôt.
+  const e = await assertRejects(
+    () =>
+      lireTout<{ id: string }>("Liens de labels", () =>
+        Promise.resolve({
+          data: Array.from({ length: 50 }, (_, i) => ({ id: `c-${String(i).padStart(4, "0")}` })),
+          error: null,
+        }), { ancre: (l) => l.id, taillePage: 10 }),
+    Error,
+    "n'applique pas la taille reçue",
+  );
+  assertEquals(e.message.includes("50 lignes rendues pour une page de 10"), true);
+});
+
 Deno.test("lireTout — une erreur en cours de route lève, elle ne rend pas une liste partielle", async () => {
   // Même doctrine que lireParLots : une lecture ratée ne doit jamais ressembler
   // à un inventaire complet, sinon on décide sur une requête morte.
@@ -155,16 +178,64 @@ Deno.test("lireTout — une erreur en cours de route lève, elle ne rend pas une
 });
 
 Deno.test("lireTout — un curseur qui n'avance pas lève au lieu de boucler sans fin", async () => {
+  // La page servie est PLEINE (2 lignes pour taillePage 2), et c'est désormais
+  // la seule forme où le cas peut se produire : depuis la sortie sur page
+  // courte, une page plus petite que demandée termine la lecture et ne boucle
+  // pas. Le test servait auparavant une page d'UNE ligne sans borne de page —
+  // elle serait aujourd'hui prise pour la dernière, et le garde-fou d'avancement
+  // ne serait jamais atteint, ce qui en aurait fait un test décoratif.
   const e = await assertRejects(
     () =>
       lireTout<{ id: string }>("test", () =>
-        Promise.resolve({ data: [{ id: "toujours-le-meme" }], error: null }), {
+        Promise.resolve({ data: [{ id: "a" }, { id: "b" }], error: null }), {
         ancre: (l) => l.id,
+        taillePage: 2,
       }),
     Error,
     "le curseur n'avance pas",
   );
   assertEquals(e.message.includes("contenu_labels"), true);
+});
+
+Deno.test("lireTout — une page non triée sur l'ancre lève : un .order(...) oublié ne passe plus", async () => {
+  // Le garde-fou d'avancement ne compare que la FIN de la page n à celle de la
+  // page n-1 : il ne voit rien quand l'appelant oublie son .order(ancre). La
+  // pagination rend alors un sous-ensemble arbitraire, sans erreur — la panne du
+  // 20/08 déplacée de la troncature muette vers la pagination muette.
+  const e = await assertRejects(
+    () =>
+      lireTout<{ id: string }>("Liens de labels", () =>
+        Promise.resolve({ data: [{ id: "c-0007" }, { id: "c-0002" }], error: null }), {
+        ancre: (l) => l.id,
+        taillePage: 2,
+      }),
+    Error,
+    "n'est pas triée sur l'ancre",
+  );
+  assertEquals(e.message.includes("c-0007"), true);
+  assertEquals(e.message.includes(".order("), true);
+});
+
+Deno.test("lireTout — deux ancres ÉGALES dans une page ne sont pas un défaut de tri", async () => {
+  // Nuance volontaire du garde-fou d'ordre : il refuse la décroissance, pas
+  // l'égalité. Deux ancres égales ne disent rien du tri, elles disent que
+  // l'ancre n'est pas unique — faute qui a déjà son garde-fou (l'avancement du
+  // curseur) et son message, lequel nomme le bon coupable. Les confondre ferait
+  // accuser un .order(...) manquant là où le tri est correct.
+  const e = await assertRejects(
+    () =>
+      lireTout<{ label_id: string; contenu_id: string }>("Liens de labels", () =>
+        Promise.resolve({
+          data: [
+            { label_id: "alpha_male", contenu_id: "c-2" },
+            { label_id: "smart_girl", contenu_id: "c-2" },
+          ],
+          error: null,
+        }), { ancre: (l) => l.contenu_id, taillePage: 2 }),
+    Error,
+    "le curseur n'avance pas",
+  );
+  assertEquals(e.message.includes("n'est pas triée"), false);
 });
 
 Deno.test("lireTout — le plafond de pages lève plutôt que de rendre un résultat tronqué", async () => {

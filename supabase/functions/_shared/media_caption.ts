@@ -8,6 +8,7 @@ import {
   type CaptionResultat,
   type CaptionStatut,
 } from "./fal_caption.ts";
+import { TAILLE_PAGE } from "./lots.ts";
 import { messageErreur, serviceClient } from "./supabase.ts";
 
 export type Supabase = ReturnType<typeof serviceClient>;
@@ -202,10 +203,15 @@ export async function slidesSansCaption(
     .map((s) => s.media_id)
     .filter((id): id is string => Boolean(id));
   if (ids.length === 0) return [];
-  const { data } = await supabase
+  // `ids` = les slides D'UN slideshow (8 à 20), filtre sur la clé primaire :
+  // ni l'URL ni la réponse ne peuvent déborder. L'erreur, elle, se relit — lue
+  // comme « aucune caption faite », elle relance le modèle sur des visuels déjà
+  // captionnés, et le drain tourne en rond en brûlant du Fal.
+  const { data, error } = await supabase
     .from("media_library")
     .select("id, caption_statut")
     .in("id", ids);
+  if (error) throw new Error(`Slides déjà captionnées : ${messageErreur(error)}`);
   const faits = new Set(
     (data ?? [])
       .filter((m) => m.caption_statut != null)
@@ -217,8 +223,16 @@ export async function slidesSansCaption(
     );
 }
 
-const PAGE_RATTRAPAGE = 1000;
-/** Un clic = tout le stock propre sans caption (PostgREST pagine à 1000). */
+/**
+ * Taille d'une page du rattrapage. DÉRIVÉE du plafond PostgREST, jamais
+ * recopiée : elle valait 1000, c'est-à-dire `max-rows` PILE. Le jour où le
+ * plafond serveur baisserait, la condition de sortie « page plus courte que
+ * demandé » serait vraie dès le premier tour et la boucle s'arrêterait en
+ * silence, en se croyant complète. `TAILLE_PAGE` est strictement sous le
+ * plafond, donc une page pleine est une vraie page pleine.
+ */
+const PAGE_RATTRAPAGE = TAILLE_PAGE;
+/** Un clic = tout le stock propre sans caption. */
 export const LIMITE_RATTRAPAGE_DEFAUT = 20_000;
 
 export async function listerMediasARattraper(
@@ -229,34 +243,83 @@ export async function listerMediasARattraper(
   const out: { id: string; url: string; motif: "caption" | "hook" }[] = [];
   const vus = new Set<string>();
 
-  for (let offset = 0; out.length < limit; offset += PAGE_RATTRAPAGE) {
-    const fin = Math.min(offset + PAGE_RATTRAPAGE, limit) - 1;
-    const { data: sansCaption, error } = await supabase
+  // Pagination KEYSET, et non plus `.range(offset, fin)`.
+  //
+  // L'ancien tri `created_at` seul n'est pas un ordre TOTAL : `created_at` n'est
+  // pas unique (un import écrit des dizaines de lignes dans la même
+  // milliseconde), donc PostgREST est libre de rendre les ex aequo dans un
+  // ordre différent d'une page à l'autre. Combiné à un offset, qui suppose en
+  // plus un tas immobile alors que ce balayage tourne pendant que le drain
+  // ÉCRIT `caption_statut` sur les lignes qu'il vient de lire, des médias
+  // étaient sautés — jamais captionnés, et invisibles au rattrapage suivant
+  // puisqu'il refaisait le même saut. En prime, `offset` dans l'URL faisait
+  // passer la requête pour bornée auprès du garde-fou de complétude.
+  //
+  // L'ancre est le couple (created_at, id) : on garde l'ordre métier (les plus
+  // vieux médias d'abord, c'est ce que l'admin attend d'un rattrapage) et on le
+  // rend total en départageant les ex aequo par la clé primaire. Le filtre de
+  // reprise dit littéralement « strictement après le dernier vu ».
+  let curseur: { created_at: string; id: string } | null = null;
+  while (out.length < limit) {
+    const taille = Math.min(PAGE_RATTRAPAGE, limit - out.length);
+    let q = supabase
       .from("media_library")
-      .select("id, url")
+      .select("id, url, created_at")
       .like("storage_path", "propre/%")
-      .is("caption_statut", null)
+      .is("caption_statut", null);
+    if (curseur) {
+      q = q.or(
+        `created_at.gt.${curseur.created_at},` +
+          `and(created_at.eq.${curseur.created_at},id.gt.${curseur.id})`,
+      );
+    }
+    const { data: sansCaption, error } = await q
       .order("created_at", { ascending: true })
-      .range(offset, fin);
-    if (error) throw error;
+      .order("id", { ascending: true })
+      .limit(taille);
+    if (error) throw new Error(`Rattrapage captions — stock propre : ${messageErreur(error)}`);
     if (!sansCaption?.length) break;
     for (const m of sansCaption) {
       vus.add(m.id as string);
       out.push({ id: m.id as string, url: m.url as string, motif: "caption" });
     }
-    if (sansCaption.length < PAGE_RATTRAPAGE) break;
+    const dernier = sansCaption[sansCaption.length - 1];
+    const suivant = {
+      created_at: String(dernier.created_at),
+      id: String(dernier.id),
+    };
+    // Curseur qui ne bouge pas = on relirait la même page à l'infini. Même
+    // règle que `lireTout` : on lève plutôt que de tourner en rond.
+    if (curseur && suivant.created_at === curseur.created_at && suivant.id === curseur.id) {
+      throw new Error(
+        `Rattrapage captions : le curseur n'avance pas (${suivant.created_at}/${suivant.id}).`,
+      );
+    }
+    curseur = suivant;
+    // Deux sorties, et deux seulement : le quota de l'appelant est atteint, ou
+    // la page revient VIDE au tour suivant. Pas de sortie sur page COURTE. Une
+    // page courte ne prouve la fin que si l'on croit le serveur sur parole
+    // quant à son plafond — et c'est précisément cette croyance qui a fait
+    // s'arrêter les deux paginateurs historiques en se disant complets. Le
+    // `limit` demandé ici est pourtant strictement sous le plafond, donc le
+    // raccourci serait sans doute correct ; il coûte un aller-retour de
+    // l'admettre, et ce fichier n'est pas l'endroit où économiser une
+    // vérification sur cette famille de bugs.
   }
 
   if (out.length >= limit) return out;
 
   // Hooks manquants : 1ʳᵉ slide sans est_hook (déjà captionnée ou non).
   const restant = limit - out.length;
-  const { data: contenus } = await supabase
+  const { data: contenus, error: errContenus } = await supabase
     .from("contenus")
     .select("structure_slides")
     .eq("statut", "valide")
     .order("created_at", { ascending: false })
     .limit(300);
+  if (errContenus) {
+    throw new Error(`Rattrapage captions — slideshows récents : ${messageErreur(errContenus)}`);
+  }
   const hookIds: string[] = [];
   for (const c of contenus ?? []) {
     for (const s of (c.structure_slides ?? []) as Array<{
@@ -271,11 +334,17 @@ export async function listerMediasARattraper(
   const uniques = [...new Set(hookIds)].slice(0, restant);
   if (uniques.length === 0) return out;
 
-  const { data: hooks } = await supabase
+  // `uniques` vient des 300 slideshows ci-dessus, 1ʳᵉ slide seulement : au plus
+  // 300 ids, donc sous le seuil du garde-fou `in(...)`, et le filtre portant sur
+  // la clé primaire la réponse ne peut pas être plus longue que le filtre.
+  const { data: hooks, error: errHooks } = await supabase
     .from("media_library")
     .select("id, url, est_hook")
     .in("id", uniques)
     .eq("est_hook", false);
+  if (errHooks) {
+    throw new Error(`Rattrapage captions — hooks manquants : ${messageErreur(errHooks)}`);
+  }
   for (const m of hooks ?? []) {
     out.push({ id: m.id as string, url: m.url as string, motif: "hook" });
   }

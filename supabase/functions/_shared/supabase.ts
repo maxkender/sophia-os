@@ -44,7 +44,11 @@ export function verifierTailleIn(colonne: string, valeurs: unknown): void {
 export interface EtatLecture {
   /** Nom de table, pour que le message nomme le coupable. */
   table: string;
-  /** L'appelant a déclaré sa borne : `.limit(n < plafond)` ou `.range()`. */
+  /**
+   * L'appelant a déclaré sa borne : `.limit(n)` ou `.range(a, b)` dont
+   * l'amplitude est STRICTEMENT sous le plafond. Une borne au plafond ou
+   * au-dessus n'en est pas une — PostgREST coupe pareil.
+   */
   borne: boolean;
 }
 
@@ -68,7 +72,35 @@ function viseTableEmbarquee(options: unknown): boolean {
  */
 function limiteEstUneBorne(args: unknown[]): boolean {
   if (viseTableEmbarquee(args[1])) return false;
-  const n = Number(args[0]);
+  return amplitudeEstUneBorne(Number(args[0]));
+}
+
+/**
+ * `.range(a, b)` demande `b - a + 1` lignes : PostgREST le traduit en
+ * `offset=a&limit=b-a+1`. L'amplitude EST une limite, et il faut la juger comme
+ * telle.
+ *
+ * Sans ça le garde-fou avait deux poids deux mesures sur une seule et même
+ * troncature : `.limit(5000)` levait, tandis que `.range(0, 4999)` — qui demande
+ * exactement les mêmes 5000 lignes et revient lui aussi rogné à 1000 — passait
+ * sans un bruit, au seul motif qu'il portait un `offset`. C'était le dernier
+ * chemin par lequel une réponse amputée pouvait encore se faire passer pour
+ * l'inventaire complet, c'est-à-dire la panne elle-même.
+ *
+ * Une page franchement SOUS le plafond (`.range(0, 799)`) reste une borne : le
+ * serveur n'a alors rien à rogner par-dessus, et un paginateur légitime n'est
+ * pas inquiété.
+ */
+function rangeEstUneBorne(args: unknown[]): boolean {
+  if (viseTableEmbarquee(args[2])) return false;
+  const de = Number(args[0]);
+  const a = Number(args[1]);
+  if (!Number.isFinite(de) || !Number.isFinite(a)) return false;
+  return amplitudeEstUneBorne(a - de + 1);
+}
+
+/** Règle commune à `.limit()` et à l'amplitude d'un `.range()`. */
+function amplitudeEstUneBorne(n: number): boolean {
   return Number.isFinite(n) && n > 0 && n < PLAFOND_LIGNES;
 }
 
@@ -91,15 +123,24 @@ function parametresUrl(cible: object): URLSearchParams | null {
  * Le drapeau porté par la chaîne suffit en théorie ; l'URL est la source de
  * vérité en pratique, parce qu'elle survit à tout ce qui pourrait faire sortir
  * un maillon du Proxy (un builder reconstruit ailleurs, un helper qui rend la
- * cible brute). Un `offset` présent signe une pagination voulue : le plafond
- * est alors une borne assumée, pas une surprise.
+ * cible brute).
+ *
+ * `limit` prime sur `offset`, et c'est le correctif du trou du `.range()` :
+ * postgrest-js écrit `.range(a, b)` en `offset=a&limit=b-a+1`, donc se contenter
+ * de « un offset est présent, c'est une pagination voulue » revenait à bénir
+ * n'importe quelle amplitude — `.range(0, 4999)` compris, qui est une troncature
+ * pure. Quand l'URL porte une `limit`, c'est elle qui décide, au même seuil
+ * strict que `.limit()`. Un `offset` SANS `limit` reste tenu pour une pagination
+ * assumée : la forme n'existe pas dans postgrest-js, mais si elle arrivait d'un
+ * builder reconstruit, l'appelant a manifestement une idée de l'endroit où il
+ * lit.
  */
 function borneDansUrl(cible: object): boolean {
   const params = parametresUrl(cible);
   if (!params) return false;
-  if (params.has("offset")) return true;
-  const n = Number(params.get("limit"));
-  return Number.isFinite(n) && n > 0 && n < PLAFOND_LIGNES;
+  const limite = params.get("limit");
+  if (limite !== null) return amplitudeEstUneBorne(Number(limite));
+  return params.has("offset");
 }
 
 function nomTable(cible: object, etat: EtatLecture): string {
@@ -134,8 +175,10 @@ function messageTroncature(table: string, recues: number, url: string): string {
     `ont cessé d'être examinés par la requalification pendant que le rapport affichait ` +
     `« 1000 examinés ». Sortie : lireTout() de _shared/lots.ts (pagination keyset, ancre ` +
     `stable et unique) ; ou .limit(n) avec n < ${PLAFOND_LIGNES} si la coupe est voulue ` +
-    `(un .limit(5000) n'en est pas une, PostgREST plafonne quand même) ; ou .range() si ` +
-    `tu pagines déjà ; ou select(…, { count: "exact", head: true }) si seul le nombre ` +
+    `(un .limit(5000) n'en est pas une, PostgREST plafonne quand même) ; ou .range(a, b) ` +
+    `si tu pagines déjà, à condition que b - a + 1 soit lui aussi sous ${PLAFOND_LIGNES} ` +
+    `(.range(0, 4999) est la même troncature que .limit(5000), écrite autrement) ; ou ` +
+    `select(…, { count: "exact", head: true }) si seul le nombre ` +
     `compte. Requête : ${url}`
   );
 }
@@ -250,7 +293,7 @@ export function surveillerBuilder<T extends object>(
       return (...args: unknown[]) => {
         if (prop === "in") verifierTailleIn(String(args[0]), args[1]);
         if (prop === "limit" && limiteEstUneBorne(args)) etat.borne = true;
-        if (prop === "range" && !viseTableEmbarquee(args[2])) etat.borne = true;
+        if (prop === "range" && rangeEstUneBorne(args)) etat.borne = true;
 
         const suite = valeur.apply(cible, args);
         // `return this` : on rend le Proxy, pas la cible — sans quoi tout le

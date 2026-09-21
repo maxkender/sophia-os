@@ -1,4 +1,4 @@
-import { PLAFOND_LIGNES, lireParLots, lireTout } from "./lots.ts";
+import { LOT_IDS, PLAFOND_LIGNES, decouperEnLots, lireParLots, lireTout } from "./lots.ts";
 import { serviceClient } from "./supabase.ts";
 
 export type Supabase = ReturnType<typeof serviceClient>;
@@ -529,6 +529,14 @@ export interface RequalificationResultat {
   attentesMesure: AttenteMesureDetail[];
   /** Témoin de complétude de la lecture — voir `verifierCoherenceLecture`. */
   coherence: CoherenceLecture;
+  /**
+   * Vrai quand le run a tourné SANS la vue 0253, sur le repli
+   * `contenu_tier_etat` (voir `lireCyclesTerminesRepli`). Remonté jusqu'ici, et
+   * jusque dans le JSON de run, parce qu'un mode dégradé qu'on ne voit pas
+   * devient l'état normal : la migration s'applique à la main, donc rien ne
+   * garantit que quelqu'un se souvienne de la passer.
+   */
+  repli: boolean;
 }
 
 /* -------------------------------------------------------------------------
@@ -554,6 +562,8 @@ export interface RunTierlist {
   attendues: number | null;
   /** Faux = écart constaté entre le comptage et la lecture. */
   complet: boolean;
+  /** Vrai = run tourné sans la vue 0253, sur le repli `contenu_tier_etat`. */
+  repli: boolean;
   alerte: string | null;
 }
 
@@ -569,6 +579,7 @@ export function blocRunTierlist(
     sansMesure: res.sansMesure,
     attendues: res.coherence.attendues,
     complet: res.coherence.ok,
+    repli: res.repli,
     alerte: res.coherence.alerte,
   };
 }
@@ -612,6 +623,63 @@ const COLONNES_ETAT =
 interface LectureEtats {
   etats: TierEtat[];
   coherence: CoherenceLecture;
+  /**
+   * Vrai quand la vue 0253 était absente et qu'on a lu `contenu_tier_etat` à
+   * sa place. Un mode dégradé qui ne se voit pas est un mode dégradé qui
+   * s'installe : c'est la leçon du « 1000 examinés ».
+   */
+  repli: boolean;
+}
+
+/**
+ * Le filtre de la vue `contenu_a_requalifier`, mot pour mot, en TypeScript.
+ *
+ * Existe pour le repli : quand la vue manque, c'est ce prédicat qui refait son
+ * travail côté TS, faute de pouvoir comparer deux colonnes dans un filtre
+ * PostgREST (`publies >= passages_prevus` n'a pas d'écriture en query string).
+ * Sans lui, `examines` retomberait à « tous les cycles vivants » — exactement
+ * le compteur trompeur qu'on vient de corriger — et `enAttente` se remettrait
+ * à gonfler de cycles non terminés.
+ *
+ * `deciderRequalif` tranche de toute façon derrière : aucune décision ne change
+ * selon la source. Ce que ce prédicat préserve, ce sont les COMPTEURS, donc la
+ * comparabilité d'un run dégradé avec un run normal.
+ */
+export function estCycleTermine(e: Pick<TierEtat, "passages_prevus" | "publies">): boolean {
+  return e.passages_prevus > 0 && e.publies >= e.passages_prevus;
+}
+
+/** Forme minimale d'une erreur PostgREST — seuls le code et le message servent ici. */
+type ErreurPostgrest = { code?: string; message?: string } | null;
+
+/**
+ * « Cette relation n'existe pas » — et RIEN d'autre.
+ *
+ * Le repli ne doit se déclencher que sur l'absence de la vue, jamais sur une
+ * coupure réseau ou un 500 : retomber sur `contenu_tier_etat` parce que le
+ * réseau a hoqueté masquerait une vraie panne derrière un mode dégradé silencieux.
+ *
+ * Deux codes, deux couches distinctes du même symptôme :
+ *  - `42P01` : Postgres ne connaît pas la relation — la migration 0253 n'est pas
+ *    passée. Elle s'applique À LA MAIN (voir l'en-tête de
+ *    .github/workflows/deploy-edge-functions.yml : « CE WORKFLOW NE TOUCHE PAS
+ *    À LA BASE »), donc le déploiement des fonctions PEUT précéder la vue.
+ *  - `PGRST205` : la vue existe, mais le cache de schéma de PostgREST ne l'a pas
+ *    encore rechargée après le `create view`. Fenêtre courte, mais elle tombe
+ *    pile au moment d'une mise en production.
+ *
+ * Le repli sur le message reste borné au nom de la relation : un « does not
+ * exist » qui parlerait d'autre chose n'a rien à voir avec ce correctif.
+ */
+function relationAbsente(erreur: ErreurPostgrest): boolean {
+  if (!erreur) return false;
+  const code = String(erreur.code ?? "");
+  if (code === "42P01" || code === "PGRST205") return true;
+  const message = String(erreur.message ?? "");
+  if (!message.includes("contenu_a_requalifier")) return false;
+  return /does not exist/i.test(message) ||
+    /could not find the table/i.test(message) ||
+    /schema cache/i.test(message);
 }
 
 /**
@@ -659,12 +727,76 @@ async function compterCyclesTermines(supabase: Supabase): Promise<number | null>
 async function lireCyclesTermines(supabase: Supabase): Promise<LectureEtats> {
   const attendues = await compterCyclesTermines(supabase);
 
-  const etats = await lireTout<TierEtat>(
-    "Requalification — cycles terminés",
+  // Erreur BRUTE de la dernière page, retenue AVANT que `lireTout` ne l'emballe
+  // dans un `Error` de texte : l'emballage garde le message mais perd le `code`,
+  // or c'est lui qui sépare proprement « la vue n'existe pas encore » d'un
+  // incident réseau. On ne veut pas décider du repli sur une regex hasardeuse.
+  let derniereErreur: ErreurPostgrest = null;
+
+  try {
+    const etats = await lireTout<TierEtat>(
+      "Requalification — cycles terminés",
+      async (curseur, taille) => {
+        let q = supabase
+          .from("contenu_a_requalifier")
+          .select(COLONNES_ETAT)
+          .order("contenu_id", { ascending: true })
+          .limit(taille);
+        if (curseur) q = q.gt("contenu_id", curseur.contenu_id);
+        const { data, error } = await q;
+        derniereErreur = (error ?? null) as ErreurPostgrest;
+        return { data: (data ?? null) as TierEtat[] | null, error };
+      },
+      { ancre: (e) => e.contenu_id },
+    );
+
+    return { etats, repli: false, coherence: verifierCoherenceLecture(etats.length, attendues) };
+  } catch (erreur) {
+    // Toute autre erreur LÈVE : c'est la doctrine, une lecture douteuse ne doit
+    // pas passer pour complète.
+    if (!relationAbsente(derniereErreur)) throw erreur;
+    console.warn(
+      "[tierlist] vue contenu_a_requalifier absente (migration 0253 non appliquée, ou cache " +
+        "de schéma PostgREST pas encore rechargé) : repli sur contenu_tier_etat + filtre TS. " +
+        "Le run continue en mode dégradé — appliquer 0253 à la main pour en sortir.",
+    );
+    return await lireCyclesTerminesRepli(supabase);
+  }
+}
+
+/**
+ * Repli quand la vue 0253 n'est pas (encore) en base.
+ *
+ * POURQUOI un repli plutôt qu'un échec franc. Les deux moitiés du chantier ne
+ * partent pas ensemble : le workflow d'Edge Functions ne touche pas à la base,
+ * les migrations s'appliquent à la main. Il existe donc une fenêtre où le code
+ * qui lit la vue tourne avant que la vue n'existe. Sans repli, cette fenêtre
+ * rend un 42P01 → `requalifierContenus` lève → minuit répond 500 → l'étape
+ * assignation, qui vient APRÈS dans la même fonction, n'est jamais atteinte, et
+ * 131 comptes se réveillent à 0 post. On aurait remplacé une famine silencieuse
+ * par une famine franche, rejouée à l'identique par le cron de 4 h.
+ *
+ * La lecture de repli est la lecture d'AVANT le chantier — `contenu_tier_etat`
+ * filtré `passages_prevus > 0` — mais PAGINÉE : c'est justement cette lecture-là
+ * qui butait sur `max-rows` (2521 lignes matchées, 1000 rendues). Dégradé veut
+ * dire « sans le dégrossissage SQL », pas « avec le bug d'origine ».
+ *
+ * Le filtre des cycles terminés est refait en TS (`estCycleTermine`) pour que
+ * les compteurs du run gardent le même sens qu'en mode nominal.
+ *
+ * Pas de comptage de contrôle ici : `count(*)` ne sait pas comparer deux
+ * colonnes, et compter `passages_prevus > 0` donnerait 2521 en face de 202 lues
+ * — une alerte de troncature permanente et fausse. On déclare donc la
+ * complétude NON VÉRIFIÉE, ce qui est exactement la vérité.
+ */
+async function lireCyclesTerminesRepli(supabase: Supabase): Promise<LectureEtats> {
+  const brut = await lireTout<TierEtat>(
+    "Requalification — repli contenu_tier_etat (vue 0253 absente)",
     async (curseur, taille) => {
       let q = supabase
-        .from("contenu_a_requalifier")
+        .from("contenu_tier_etat")
         .select(COLONNES_ETAT)
+        .gt("passages_prevus", 0)
         .order("contenu_id", { ascending: true })
         .limit(taille);
       if (curseur) q = q.gt("contenu_id", curseur.contenu_id);
@@ -674,7 +806,17 @@ async function lireCyclesTermines(supabase: Supabase): Promise<LectureEtats> {
     { ancre: (e) => e.contenu_id },
   );
 
-  return { etats, coherence: verifierCoherenceLecture(etats.length, attendues) };
+  const etats = brut.filter(estCycleTermine);
+  return {
+    etats,
+    repli: true,
+    coherence: verifierCoherenceLecture(
+      etats.length,
+      null,
+      "repli sur contenu_tier_etat, vue contenu_a_requalifier absente — le nombre de cycles " +
+        "terminés n'est pas comptable sans elle",
+    ),
+  };
 }
 
 /**
@@ -701,6 +843,9 @@ async function lireUnContenu(supabase: Supabase, contenuId: string): Promise<Lec
   if (error) throw error;
   return {
     etats: data ? [data as TierEtat] : [],
+    // `contenu_tier_etat` est la source NOMINALE de ce chemin, pas un repli :
+    // le clic admin doit voir les cycles non terminés (voir ci-dessus).
+    repli: false,
     coherence: verifierCoherenceLecture(
       data ? 1 : 0,
       null,
@@ -745,7 +890,7 @@ export async function requalifierContenus(
   // de dégrossissage + pagination ; le clic admin sur UN contenu reste sur la
   // source non filtrée, faute de quoi un cycle non terminé disparaîtrait au
   // lieu d'afficher son attente (voir `lireUnContenu`).
-  const { etats, coherence } = opts.contenuId
+  const { etats, coherence, repli } = opts.contenuId
     ? await lireUnContenu(supabase, opts.contenuId)
     : await lireCyclesTermines(supabase);
 
@@ -758,6 +903,7 @@ export async function requalifierContenus(
     details: [],
     attentesMesure: [],
     coherence,
+    repli,
   };
 
   type Mur = { etat: TierEtat; decision: Extract<DecisionRequalif, { requalifier: true }> };
@@ -802,12 +948,31 @@ export async function requalifierContenus(
   // 2) L'erreur n'était pas relue du tout ici. L'impact restait modeste (des
   //    titres vides), mais c'est le même geste qui a coûté 41 créateurs à
   //    0 post/jour le 20/08 : une lecture ratée qui passe pour un résultat.
-  const titres = await lireParLots<{ id: string; titre: string | null }>(
-    ids,
-    "Requalification — titres des contenus",
-    (lot) => supabase.from("contenus").select("id, titre").in("id", lot),
-  );
-  const titreParId = new Map(titres.map((c) => [c.id, c.titre ?? ""]));
+  //
+  // NON FATALE, et c'est la seule lecture de ce fichier qui le soit. La doctrine
+  // « lever bruyamment au call site » protège les DÉCISIONS : une lecture
+  // amputée qui passe pour complète fait requalifier de travers, baisser un
+  // quota, déclarer un pool vide. Celle-ci n'alimente aucune décision — elle
+  // remplit la colonne `titre` du journal et de l'écran admin. La faire tomber
+  // ferait perdre 143 requalifications pour un libellé manquant, et comme
+  // l'étape assignation vient APRÈS la tierlist dans minuit-vnext, un 500 ici
+  // laisse en plus la flotte à 0 post. Le compromis est donc explicite : titres
+  // vides, trace dans les logs, run qui continue.
+  let titreParId = new Map<string, string>();
+  try {
+    const titres = await lireParLots<{ id: string; titre: string | null }>(
+      ids,
+      "Requalification — titres des contenus",
+      (lot) => supabase.from("contenus").select("id, titre").in("id", lot),
+    );
+    titreParId = new Map(titres.map((c) => [c.id, c.titre ?? ""]));
+  } catch (e) {
+    console.warn(
+      `[tierlist] titres des contenus illisibles (${ids.length} id) : ` +
+        `${e instanceof Error ? e.message : String(e)}. Les ${mursOk.length} requalification(s) ` +
+        `se font quand même, avec des titres vides dans le rapport.`,
+    );
+  }
 
   for (const e of attentes) {
     out.attentesMesure.push({
@@ -1011,6 +1176,149 @@ export interface RappelsResultat {
 }
 
 /**
+ * Ligne de `passages` lue par les rappels.
+ *
+ * Typée juste assez pour l'ancre de pagination (`id`), le reste des colonnes
+ * restant `unknown` comme avant : le code les lit déjà avec des `as`, et
+ * inventer ici un type complet de `passages` créerait une deuxième vérité à
+ * maintenir en face du schéma.
+ */
+interface LignePassage {
+  id: string;
+  [colonne: string]: unknown;
+}
+
+const COLONNES_PASSAGE_RAPPEL =
+  "id, contenu_id, compte_id, langue, vues, publie_at, date_publication_prevue, slides, musique_url, musique_titre, musique_plateforme, hashtags, rappel_rang, tier_cycle";
+
+/**
+ * Les passages qui ont percé sur les 30 derniers jours, lus EN ENTIER.
+ *
+ * La fenêtre porte ~7650 passages (255 créneaux/jour x 30 j) avant filtrage :
+ * la lecture était donc candidate au plafond `max-rows`, c'est-à-dire au même
+ * mode de panne que la requalification — une réponse de 1000 lignes en 200,
+ * sans erreur, et des percées jamais rappelées sans que rien ne le signale.
+ *
+ * Ancre `id` : clé primaire de `passages`, donc unique et stable, ce qu'exige
+ * la pagination keyset.
+ */
+async function lirePercesRecents(
+  supabase: Supabase,
+  reglages: TierlistReglages,
+  depuis: string,
+): Promise<LignePassage[]> {
+  return await lireTout<LignePassage>(
+    "Rappels J+7 — passages percés",
+    async (curseur, taille) => {
+      let q = supabase
+        .from("passages")
+        .select(COLONNES_PASSAGE_RAPPEL)
+        .eq("statut", "publie")
+        .gte("vues", reglages.rappelVues)
+        .lt("rappel_rang", reglages.rappelMax)
+        .gte("date_publication_prevue", depuis)
+        .order("id", { ascending: true })
+        .limit(taille);
+      if (curseur) q = q.gt("id", curseur.id);
+      const { data, error } = await q;
+      return { data: (data ?? null) as LignePassage[] | null, error };
+    },
+    { ancre: (p) => p.id },
+  );
+}
+
+/**
+ * Sources déjà rappelées — le test d'idempotence de l'étape.
+ *
+ * Découpé : `perces` n'était borné que par la troncature de la lecture
+ * ci-dessus. En la paginant, la liste d'ids peut dépasser les 400 valeurs de
+ * `verifierTailleIn`, qui lèverait alors avec un message parlant de débordement
+ * d'URL — un diagnostic qui désignerait la mauvaise cause.
+ *
+ * `lireParLots` suffit, sans pagination par-dessus : un lot de 100 sources ne
+ * peut pas rendre 1000 lignes, la table ne portant qu'un rappel par source (la
+ * raison d'être de cette lecture).
+ *
+ * L'erreur est REMONTÉE. Une liste incomplète ici ne rate pas un rappel, elle
+ * en crée un DOUBLON : chaque source manquante repasse pour jamais rappelée.
+ */
+async function lireSourcesDejaRappelees(
+  supabase: Supabase,
+  sourceIds: string[],
+): Promise<Set<string>> {
+  const lignes = await lireParLots<{ rappel_source_id: string | null }>(
+    sourceIds,
+    "Rappels J+7 — sources déjà rappelées",
+    (lot) => supabase.from("passages").select("rappel_source_id").in("rappel_source_id", lot),
+  );
+  return new Set(lignes.map((r) => r.rappel_source_id as string).filter(Boolean));
+}
+
+/** Quota quotidien des comptes concernés. Une ligne par id : le découpage suffit. */
+async function lireQuotasComptes(
+  supabase: Supabase,
+  compteIds: string[],
+): Promise<Map<string, number>> {
+  const comptes = await lireParLots<{ id: string; posts_par_jour: number | null }>(
+    compteIds,
+    "Rappels J+7 — quotas des comptes",
+    (lot) => supabase.from("comptes").select("id, posts_par_jour").in("id", lot),
+  );
+  return new Map(
+    comptes.map((c) => [c.id, Math.min(3, Math.max(1, Number(c.posts_par_jour ?? 1)))]),
+  );
+}
+
+/**
+ * Ce qui occupe déjà les jours à venir, par compte.
+ *
+ * La seule lecture du fichier qui cumule les DEUX garde-fous, et c'est la
+ * démonstration qu'ils sont bien distincts : `lireParLots` borne l'URL (jusqu'à
+ * 131 comptes actifs dans le `in`), `lireTout` borne la RÉPONSE. Un lot de
+ * 100 comptes sur plusieurs semaines de planning, à 1 à 3 passages par jour et
+ * par compte, dépasse largement les 1000 lignes — la relation est many-to-one,
+ * 100 valeurs ramènent des milliers de lignes.
+ *
+ * Sous-lire ici n'est pas neutre : chaque ligne manquante est une place qu'on
+ * croit libre, donc un rappel posé en trop sur un compte déjà plein. C'est
+ * exactement le dépassement de quota que `etalerRappels` existe pour éviter
+ * (9 posts en un jour à un compte qui en prévoit 2).
+ *
+ * `id` est ajouté au `select` uniquement pour servir d'ancre keyset.
+ */
+async function lireOccupationFuture(
+  supabase: Supabase,
+  compteIds: string[],
+  premierJour: string,
+): Promise<Map<string, number>> {
+  const occupes = new Map<string, number>();
+  for (const lot of decouperEnLots(compteIds, LOT_IDS)) {
+    const futurs = await lireTout<LignePassage>(
+      `Rappels J+7 — planning à venir (${lot.length} compte(s))`,
+      async (curseur, taille) => {
+        let q = supabase
+          .from("passages")
+          .select("id, compte_id, date_publication_prevue, posts!inner(est_test)")
+          .in("compte_id", lot)
+          .gte("date_publication_prevue", premierJour)
+          .eq("posts.est_test", false)
+          .order("id", { ascending: true })
+          .limit(taille);
+        if (curseur) q = q.gt("id", curseur.id);
+        const { data, error } = await q;
+        return { data: (data ?? null) as LignePassage[] | null, error };
+      },
+      { ancre: (p) => p.id },
+    );
+    for (const f of futurs) {
+      const k = `${f.compte_id}@${f.date_publication_prevue}`;
+      occupes.set(k, (occupes.get(k) ?? 0) + 1);
+    }
+  }
+  return occupes;
+}
+
+/**
  * Repère les passages publiés au-delà de `rappelVues` et reprogramme le MÊME
  * contenu sur le MÊME compte à J+7.
  *
@@ -1054,84 +1362,80 @@ export async function programmerRappels(
   // Borné à un mois : au-delà, reprogrammer un J+7 n'a plus de sens, et ça
   // évite de rescanner tout l'historique des passages à chaque minuit.
   const depuis = new Date(Date.now() - 30 * 86_400_000).toISOString().slice(0, 10);
-  const { data: perces, error } = await supabase
-    .from("passages")
-    .select(
-      "id, contenu_id, compte_id, langue, vues, publie_at, date_publication_prevue, slides, musique_url, musique_titre, musique_plateforme, hashtags, rappel_rang, tier_cycle",
-    )
-    .eq("statut", "publie")
-    .gte("vues", reglages.rappelVues)
-    .lt("rappel_rang", reglages.rappelMax)
-    .gte("date_publication_prevue", depuis);
-  if (error) throw error;
-  if (!perces || perces.length === 0) return out;
-
-  // Un seul rappel par passage source — idempotent si minuit rejoue.
-  const { data: existants } = await supabase
-    .from("passages")
-    .select("rappel_source_id")
-    .in("rappel_source_id", perces.map((p) => p.id as string));
-  const dejaRappeles = new Set(
-    (existants ?? []).map((r) => r.rappel_source_id as string),
-  );
-
-  const candidats = perces.filter((p) => !dejaRappeles.has(p.id as string));
-  out.candidats = candidats.length;
-  if (candidats.length === 0) return out;
-
   // Le jour même est figé (posts déjà distribués) : on part de demain.
   const premierJour = new Date(Date.now() + 86_400_000).toISOString().slice(0, 10);
-  const parId = new Map(candidats.map((p) => [p.id as string, p]));
-  const aPlacer: CandidatRappel[] = [];
-  for (const p of candidats) {
-    // Jour de publication de la source : `publie_at` fait foi, la date prévue
-    // sert de repli pour un passage publié sans horodatage.
-    const publieLe = ((p.publie_at as string | null) ??
-      (p.date_publication_prevue as string | null) ?? "").slice(0, 10);
-    if (!publieLe) continue;
-    aPlacer.push({
-      id: p.id as string,
-      compteId: p.compte_id as string,
-      publieLe,
-      jourCible: new Date(
-        Date.parse(`${publieLe}T00:00:00Z`) + reglages.rappelJours * 86_400_000,
-      )
-        .toISOString()
-        .slice(0, 10),
+
+  const parId = new Map<string, LignePassage>();
+  let places: PlacementRappel[] = [];
+
+  // PHASE DE LECTURE, contenue à l'étape.
+  //
+  // Les quatre lectures ci-dessous lèvent désormais au lieu de rendre
+  // discrètement une liste courte (URL trop longue, réponse tronquée, erreur
+  // ignorée). C'est voulu : aucune ne peut être à moitié vraie sans fabriquer
+  // des doublons ou dépasser un quota. Mais l'étape tierlist s'exécute AVANT
+  // l'étape assignation dans minuit-vnext, sous un unique try/catch qui répond
+  // 500 : laisser une de ces exceptions remonter reviendrait à priver 131
+  // comptes de leurs posts du lendemain parce qu'un rappel J+7 — un bonus —
+  // n'a pas pu être calculé. On arrête donc les rappels, on le dit fort
+  // (`erreurs` + log), et on rend la main aux étapes suivantes.
+  //
+  // Fail-closed, et c'est ce qui rend l'arrêt acceptable : on sort AVANT la
+  // moindre écriture. Zéro rappel programmé, jamais une moitié de plan posée
+  // sur des lectures incomplètes. Le prochain minuit rejouera l'étape entière.
+  try {
+    const perces = await lirePercesRecents(supabase, reglages, depuis);
+    if (perces.length === 0) return out;
+
+    // Un seul rappel par passage source — idempotent si minuit rejoue.
+    const dejaRappeles = await lireSourcesDejaRappelees(
+      supabase,
+      perces.map((p) => p.id),
+    );
+
+    const candidats = perces.filter((p) => !dejaRappeles.has(p.id));
+    out.candidats = candidats.length;
+    if (candidats.length === 0) return out;
+
+    for (const p of candidats) parId.set(p.id, p);
+
+    const aPlacer: CandidatRappel[] = [];
+    for (const p of candidats) {
+      // Jour de publication de la source : `publie_at` fait foi, la date prévue
+      // sert de repli pour un passage publié sans horodatage.
+      const publieLe = ((p.publie_at as string | null) ??
+        (p.date_publication_prevue as string | null) ?? "").slice(0, 10);
+      if (!publieLe) continue;
+      aPlacer.push({
+        id: p.id,
+        compteId: p.compte_id as string,
+        publieLe,
+        jourCible: new Date(
+          Date.parse(`${publieLe}T00:00:00Z`) + reglages.rappelJours * 86_400_000,
+        )
+          .toISOString()
+          .slice(0, 10),
+      });
+    }
+
+    // Quota quotidien des comptes concernés — un rappel prend la place d'un post
+    // classique, il ne s'y ajoute pas.
+    const compteIds = [...new Set(aPlacer.map((c) => c.compteId))];
+    const quotas = await lireQuotasComptes(supabase, compteIds);
+    // Ce qui occupe déjà les jours à venir (rappels d'un run précédent compris).
+    const occupes = await lireOccupationFuture(supabase, compteIds, premierJour);
+
+    places = etalerRappels(aPlacer, {
+      premierJour,
+      quota: (id) => quotas.get(id) ?? 1,
+      occupation: (id, jour) => occupes.get(`${id}@${jour}`) ?? 0,
     });
+  } catch (e) {
+    const message = e instanceof Error ? e.message : String(e);
+    out.erreurs.push(`lecture des rappels impossible, aucun rappel programmé : ${message}`);
+    console.error(`[tierlist] rappels J+7 — ${message}`);
+    return out;
   }
-
-  // Quota quotidien des comptes concernés — un rappel prend la place d'un post
-  // classique, il ne s'y ajoute pas.
-  const compteIds = [...new Set(aPlacer.map((c) => c.compteId))];
-  const { data: comptes } = await supabase
-    .from("comptes")
-    .select("id, posts_par_jour")
-    .in("id", compteIds);
-  const quotas = new Map(
-    (comptes ?? []).map((
-      c,
-    ) => [c.id as string, Math.min(3, Math.max(1, Number(c.posts_par_jour ?? 1)))]),
-  );
-
-  // Ce qui occupe déjà les jours à venir (rappels d'un run précédent compris).
-  const { data: futurs } = await supabase
-    .from("passages")
-    .select("compte_id, date_publication_prevue, posts!inner(est_test)")
-    .in("compte_id", compteIds)
-    .gte("date_publication_prevue", premierJour)
-    .eq("posts.est_test", false);
-  const occupes = new Map<string, number>();
-  for (const f of futurs ?? []) {
-    const k = `${f.compte_id}@${f.date_publication_prevue}`;
-    occupes.set(k, (occupes.get(k) ?? 0) + 1);
-  }
-
-  const places = etalerRappels(aPlacer, {
-    premierJour,
-    quota: (id) => quotas.get(id) ?? 1,
-    occupation: (id, jour) => occupes.get(`${id}@${jour}`) ?? 0,
-  });
 
   for (const place of places) {
     const p = parId.get(place.id)!;

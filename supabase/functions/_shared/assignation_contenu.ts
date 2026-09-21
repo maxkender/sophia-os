@@ -4,7 +4,7 @@ import {
 } from "./creation_manuelle.ts";
 import { assurerDeckPourLangue } from "./import_contenu.ts";
 import { hashtagsPour } from "./hashtags_langue.ts";
-import { LOT_IDS, lireParLots, lireTout } from "./lots.ts";
+import { LOT_IDS, decouperEnLots, lireParLots, lireTout } from "./lots.ts";
 import { avecMentionPublicite } from "./mention_publicite.ts";
 import { mapPool } from "./parallel.ts";
 import { serviceClient } from "./supabase.ts";
@@ -41,7 +41,30 @@ export interface AssignationReglages {
 export async function chargerAssignationReglages(
   supabase: Supabase,
 ): Promise<AssignationReglages> {
-  const { data } = await supabase.from("reglages").select("cle, valeur");
+  // Lecture non bornée ASSUMÉE. `reglages` est la table de configuration du
+  // dépôt : une ligne par clé (`frequence`, `tierlist`, …), une dizaine au
+  // total, et elle ne grossit que quand un humain ajoute un réglage. Elle ne
+  // peut pas approcher les 1000 lignes du plafond PostgREST, donc le garde-fou
+  // de complétude restera muet dessus. Si un jour il lève ici, c'est que
+  // `reglages` a changé de nature (log ? historique ?) : la réponse sera alors
+  // un `.eq("cle", …)` par réglage lu, pas un `.limit()` qui masquerait la
+  // troncature. À noter pour ce jour-là : cet appel est fait AVANT la boucle par
+  // compte de `assignerDrainLot` / `assignerTousComptes`, donc hors de leur
+  // try/catch par compte — un jet ici emporte le lot entier, pas un créateur.
+  // Ce n'est plus la fin de la nuit pour autant : le drain relance la génération
+  // suivante et le cron de 4 h repasse.
+  //
+  // L'ERREUR EST RELUE, et le jet est le bon comportement depuis que le drain
+  // relance la génération suivante et que les étapes de minuit sont isolées.
+  // Avant, `data` nul sur un 502 rendait une Map vide : les défauts du fichier
+  // prenaient le relais et toute la flotte passait à 1 post/jour au lieu de 2,
+  // sans une ligne de log — une nuit à moitié vide qui ressemble à une nuit
+  // normale. C'est la confusion « échec vs vide » qui a motivé ce chantier, et
+  // ici elle se paie en posts pour tout le monde.
+  const { data, error } = await supabase.from("reglages").select("cle, valeur");
+  if (error) {
+    throw new Error(`lecture des réglages d'assignation : ${error.message}`);
+  }
   const map = new Map((data ?? []).map((r) => [r.cle, r.valeur]));
   const frequence = (map.get("frequence") ?? { posts_par_jour: 1 }) as {
     posts_par_jour?: number;
@@ -70,12 +93,99 @@ interface Candidat {
   derniereDate: string | null;
 }
 
-interface ContenuCandidat {
+export interface ContenuCandidat {
   id: string;
   musique_url: string | null;
   musique_titre: string | null;
   musique_plateforme: string | null;
   ugc_compatible: boolean | null;
+}
+
+/* -------------------------------------------------------------------------
+ * Mémo de RUN : le mapping label → contenus est invariant, sa lecture ne l'est pas.
+ *
+ * La boucle de pioche de `assignerCompteJour` appelle `choisirContenu` jusqu'à
+ * `manquants + 8` fois par compte, et chaque appel repartait de zéro : lecture
+ * de `comptes` pour l'application, puis `contenuIdsDesLabels`, puis le pool des
+ * `contenus` prêts. Rien de tout cela ne bouge pendant le run — ni les liens
+ * `contenu_labels`, ni `statut` / `import_statut` / `ugc_compatible` /
+ * `application_id` des contenus —, et on le repayait pourtant à chaque
+ * tentative, sur 131 comptes.
+ *
+ * Ce coût vient d'AUGMENTER. `contenuIdsDesLabels` pagine désormais LABEL PAR
+ * LABEL pour ne plus se faire rogner à `max-rows` : là où l'ancienne version
+ * tirait une requête pour tous les labels du compte, il en faut maintenant au
+ * moins une par label. Le correctif de la troncature muette aurait donc, sans
+ * ce mémo, payé sa justesse en allers-retours — dans la fonction dont le mode
+ * de panne documenté est précisément le timeout à 280 s.
+ *
+ * DURÉE DE VIE : l'invocation d'Edge Function en cours, et rien de plus. Le
+ * mémo est un OBJET, créé par `assignerDrainLot` / `assignerTousComptes` (ou, à
+ * défaut, par `assignerCompteJour` pour son seul compte) et passé de main en
+ * main. Surtout pas un `const cache = new Map()` au niveau module : une Edge
+ * Function réutilise son isolat d'une invocation à l'autre, un cache de module
+ * survivrait donc au run et servirait un pool périmé au suivant — un contenu
+ * importé ou labellisé entre les deux resterait invisible jusqu'au prochain
+ * redémarrage de l'isolat, c'est-à-dire de façon imprévisible. On accepte en
+ * revanche de ne pas voir un import qui se termine PENDANT le run (≤ 280 s) :
+ * c'est la contrepartie assumée, et le run suivant le verra.
+ *
+ * Ce qui n'est délibérément PAS mémoïsé : `contenu_tier_etat` et l'historique
+ * `passages`. Ceux-là bougent à chaque passage créé (`restants` tombe, un
+ * contenu doit sortir du pool du jour, y compris pour les comptes traités en
+ * parallèle par `mapPool`). Les mémoïser changerait la politique d'assignation
+ * et pas seulement son coût — ce n'est pas le chantier.
+ * ---------------------------------------------------------------------- */
+
+/** Mémo porté explicitement pendant un run d'assignation. Voir le bloc ci-dessus. */
+export interface MemoAssignation {
+  /** clé labels → ids de contenus portant au moins un de ces labels. */
+  labels: Map<string, Promise<string[]>>;
+  /** clé labels+application+ugc → contenus prêts à être assignés. */
+  pool: Map<string, Promise<ContenuCandidat[]>>;
+  /** compte_id → application_id du compte. */
+  application: Map<string, Promise<string | null>>;
+}
+
+export function creerMemoAssignation(): MemoAssignation {
+  return { labels: new Map(), pool: new Map(), application: new Map() };
+}
+
+/**
+ * Clé d'un ensemble de labels : dédupliquée et TRIÉE.
+ *
+ * Deux comptes qui portent les mêmes labels dans un ordre différent doivent
+ * partager l'entrée — sinon le mémo rate justement le cas qui le rend utile,
+ * la flotte étant taguée avec une poignée de labels partagés.
+ */
+function cleLabels(labelIds: string[]): string {
+  return [...new Set(labelIds)].sort().join("|");
+}
+
+/**
+ * Mémoïse une LECTURE, pas une valeur : on range la promesse tout de suite,
+ * donc deux comptes traités en parallèle par `mapPool` partagent le même
+ * aller-retour au lieu d'en lancer deux.
+ *
+ * Un ÉCHEC n'est jamais conservé. Une erreur réseau transitoire sur un label
+ * resterait sinon collée au mémo pour tout le reste du run et ferait échouer
+ * tous les comptes qui partagent ce label : on transformerait une lecture ratée
+ * en famine de flotte, exactement ce qu'on cherche à éviter. La prochaine
+ * demande relit.
+ */
+function memoiser<T>(
+  cache: Map<string, Promise<T>>,
+  cle: string,
+  produire: () => Promise<T>,
+): Promise<T> {
+  const dejaLa = cache.get(cle);
+  if (dejaLa) return dejaLa;
+  const promesse = produire();
+  cache.set(cle, promesse);
+  promesse.catch(() => {
+    if (cache.get(cle) === promesse) cache.delete(cle);
+  });
+  return promesse;
 }
 
 /** PostgREST rend l'embed `posts(...)` en objet ou en tableau selon la relation. */
@@ -88,6 +198,8 @@ function estPassageDeTest(posts: PostLie | undefined): boolean {
 }
 
 interface PassageHisto {
+  /** Ancre de pagination : uuid unique sur toute la table (voir lireHistoriquePassages). */
+  id: string;
   contenu_id: string;
   date_publication_prevue: string | null;
   posts?: PostLie;
@@ -150,6 +262,10 @@ async function purgerAssignationIncomplete(
   compteId: string,
   jour: string,
 ): Promise<void> {
+  // Toutes les lectures de cette fonction sont bornées par la clé métier
+  // (UN compte, UN jour) : le quota est de 1 à 3 posts, les coquilles
+  // s'ajoutent à la marge. Structurellement hors d'atteinte du plafond de 1000,
+  // et ce ne sont pas des relations many-to-one — pas de pagination ici.
   const { data: orphelins } = await supabase
     .from("passages")
     .select("id")
@@ -195,6 +311,11 @@ export async function assignerCompteJour(
   jour: string,
   reglages: AssignationReglages,
   opts: AssignationOpts | boolean = {},
+  // Mémo du run, fourni par `assignerDrainLot` / `assignerTousComptes` pour que
+  // les comptes d'un même lot partagent le mapping label → contenus. Absent (appel
+  // direct), on en crée un pour ce compte : la boucle de pioche en profite quand
+  // même, ce qui est le gros du gain.
+  memo: MemoAssignation = creerMemoAssignation(),
 ): Promise<AssignationCompteDetail> {
   const o: AssignationOpts = typeof opts === "boolean" ? { forcer: opts } : (opts ?? {});
   const forcer = Boolean(o.forcer);
@@ -260,6 +381,8 @@ export async function assignerCompteJour(
 
   // Purge les coquilles legacy recycle/remanie/nouveau du jour (non publiées,
   // sans passage) — sinon « Assigner » empile du Recyclé à côté du v-next.
+  // Comme `purgerAssignationIncomplete` : UN compte, UN jour — bornée par le
+  // quota (1–3) plus les coquilles legacy. Le plafond de 1000 est hors sujet.
   if (!forcer && !estTest) {
     const { data: legacy } = await supabase
       .from("posts")
@@ -288,7 +411,7 @@ export async function assignerCompteJour(
   }
 
   // Quota prod / test séparés : les posts `est_test` n'entrent pas dans le
-  // calendrier ni le quota de minuit réel.
+  // calendrier ni le quota de minuit réel. Bornée elle aussi par (compte, jour).
   const { data: existants } = await supabase
     .from("passages")
     .select("id, posts!inner(est_test)")
@@ -305,6 +428,8 @@ export async function assignerCompteJour(
     return { ids: [], raison: `Quota déjà rempli (${dejaLa}/${quota} passage(s) ce jour).` };
   }
 
+  // Bornée par le nombre de labels du dépôt (9 en base) : un compte ne peut pas
+  // en porter plus, la table n'a qu'une ligne par couple (compte, label).
   const { data: labelsCompte } = await supabase
     .from("compte_labels")
     .select("label_id, labels(nom)")
@@ -370,6 +495,7 @@ export async function assignerCompteJour(
       contenusSession,
       ugcAi,
       { ignorerTierlist, exclureTestsHisto: true },
+      memo,
     );
     if (!choisi) {
       log("Plus de candidat dans le pool");
@@ -482,6 +608,7 @@ export async function assignerCompteJour(
       langue,
       ugcAi,
       ignorerTierlist,
+      memo,
     );
     log(diag);
 
@@ -629,6 +756,23 @@ export async function contenuIdsDesLabels(
   supabase: Supabase,
   labelIds: string[],
   quoi: string,
+  memo?: MemoAssignation,
+): Promise<string[]> {
+  if (!memo) return await lireContenuIdsDesLabels(supabase, labelIds, quoi);
+  // Copie à chaque service : le mémo rend la MÊME instance à tous les
+  // appelants, et l'un d'eux finira par trier ou filtrer en place.
+  const ids = await memoiser(
+    memo.labels,
+    cleLabels(labelIds),
+    () => lireContenuIdsDesLabels(supabase, labelIds, quoi),
+  );
+  return [...ids];
+}
+
+async function lireContenuIdsDesLabels(
+  supabase: Supabase,
+  labelIds: string[],
+  quoi: string,
 ): Promise<string[]> {
   const ids = new Set<string>();
   for (const labelId of labelIds) {
@@ -646,6 +790,132 @@ export async function contenuIdsDesLabels(
   return [...ids];
 }
 
+/**
+ * Application du compte. Une colonne d'une ligne, relue à chaque tentative de
+ * pioche alors qu'elle ne change pas pendant un run — d'où le mémo.
+ */
+async function applicationDuCompte(
+  supabase: Supabase,
+  compteId: string,
+  memo?: MemoAssignation,
+): Promise<string | null> {
+  const lire = async () => {
+    const { data } = await supabase
+      .from("comptes")
+      .select("application_id")
+      .eq("id", compteId)
+      .maybeSingle();
+    return (data?.application_id as string | undefined) ?? null;
+  };
+  if (!memo) return await lire();
+  return await memoiser(memo.application, compteId, lire);
+}
+
+/**
+ * Pool des slideshows assignables : labels du compte ∩ prêts ∩ application ∩ UGC.
+ *
+ * Mémoïsé par (labels, application, ugc) — les TROIS, et pas seulement les
+ * labels. `ugc_compatible` et `application_id` sont des filtres de cette
+ * lecture : une clé qui les oublierait servirait le pool d'un créateur UGC à un
+ * créateur classique, ce qui n'est plus une optimisation mais un changement
+ * d'ensemble de candidats. La clé porte donc exactement ce que la requête filtre.
+ *
+ * Les messages d'erreur (« Slideshows du label », « Slideshows prêts ») sont
+ * conservés au mot près : ils remontent tels quels dans les rapports de run.
+ */
+export async function poolContenusPrets(
+  supabase: Supabase,
+  labelIds: string[],
+  args: { applicationId: string | null; ugcAi: boolean },
+  memo?: MemoAssignation,
+): Promise<ContenuCandidat[]> {
+  const lire = async () => {
+    const contenusLabel = await contenuIdsDesLabels(
+      supabase,
+      labelIds,
+      "Slideshows du label",
+      memo,
+    );
+    if (contenusLabel.length === 0) return [];
+    // UGC AI ↔ slideshows ugc_compatible ; créateurs classiques ↔ non-UGC.
+    return await lireParLots<ContenuCandidat>(
+      contenusLabel,
+      "Slideshows prêts",
+      (lot) => {
+        let q = supabase
+          .from("contenus")
+          .select("id, musique_url, musique_titre, musique_plateforme, ugc_compatible")
+          .eq("statut", "valide")
+          .eq("import_statut", "done")
+          .eq("ugc_compatible", args.ugcAi)
+          .in("id", lot);
+        if (args.applicationId) q = q.eq("application_id", args.applicationId);
+        return q;
+      },
+    );
+  };
+  if (!memo) return await lire();
+  const cle = `${cleLabels(labelIds)}::${args.applicationId ?? "-"}::${args.ugcAi ? "ugc" : "std"}`;
+  // Copie du tableau, même raison que pour les ids de labels : l'appelant en
+  // dérive `contenuIds` / `meta` et ne doit pas pouvoir abîmer l'entrée du mémo.
+  return [...(await memoiser(memo.pool, cle, lire))];
+}
+
+/**
+ * Historique des passages de CE compte sur les contenus candidats.
+ *
+ * DEUX bornes à tenir, et une seule était tenue. `lireParLots` découpe le
+ * FILTRE (100 `contenu_id` par requête) : il protège du 400 sur URL trop
+ * longue, pas de la troncature à `max-rows`. Or la relation est many-to-one —
+ * un compte a plusieurs passages par contenu, et un lot de 100 contenus peut
+ * donc ramener bien plus de 100 lignes. Découper le filtre ne borne pas le
+ * résultat.
+ *
+ * Volumétrie d'aujourd'hui, faite honnêtement : un compte tourne à ~2 passages
+ * par jour (quota 1–3, plus les rappels J+7), l'historique remonte à juillet,
+ * soit ~120 passages sur 60 jours. Le résultat est de toute façon borné par le
+ * nombre TOTAL de passages du compte, et encore réparti sur ~19 lots. Les 1000
+ * lignes sont hors d'atteinte aujourd'hui : il faudrait ~500 jours de compte à
+ * quota plein, tous ses passages tombant sur les mêmes 100 contenus.
+ *
+ * On pagine quand même, parce qu'ici ça ne coûte RIEN. `lireTout` sort sur page
+ * courte : une lecture qui rend 120 lignes pour une page de 999 demandées fait
+ * exactement UN aller-retour, comme avant. On n'échange donc pas du temps
+ * contre de la sûreté, on retire une échéance — celle du jour où le compte le
+ * plus ancien de la flotte franchit le plafond, et où le garde-fou de
+ * complétude se mettrait à lever dans la boucle de pioche.
+ *
+ * L'ancre est `passages.id` (uuid, unique sur toute la table) et non
+ * `contenu_id` : avec plusieurs passages par contenu, `contenu_id` n'est pas
+ * unique et la pagination sauterait ou reboucherait — c'est le piège décrit
+ * dans `lots.ts`. L'ordre de lecture n'a aucun effet en aval : l'appelant
+ * n'agrège qu'un maximum de dates par contenu.
+ */
+export async function lireHistoriquePassages(
+  supabase: Supabase,
+  compteId: string,
+  contenuIds: string[],
+): Promise<PassageHisto[]> {
+  const hist: PassageHisto[] = [];
+  for (const lot of decouperEnLots(contenuIds, LOT_IDS)) {
+    const lignes = await lireTout<PassageHisto>(
+      `Historique des passages (${lot.length} contenu(s))`,
+      (curseur, taille) => {
+        let q = supabase
+          .from("passages")
+          .select("id, contenu_id, date_publication_prevue, posts(est_test)")
+          .eq("compte_id", compteId)
+          .in("contenu_id", lot);
+        if (curseur) q = q.gt("id", curseur.id);
+        return q.order("id", { ascending: true }).limit(taille);
+      },
+      { ancre: (h) => h.id },
+    );
+    hist.push(...lignes);
+  }
+  return hist;
+}
+
 /** Explique pourquoi le pool labels ∩ langue est vide / trop petit. */
 async function diagnostiquerPoolVide(
   supabase: Supabase,
@@ -654,6 +924,7 @@ async function diagnostiquerPoolVide(
   langue: string,
   ugcAi = false,
   ignorerTierlist = false,
+  memo?: MemoAssignation,
 ): Promise<string> {
   const labelsTxt = labelNoms.length > 0 ? labelNoms.join(", ") : `${labelIds.length} label(s)`;
 
@@ -661,10 +932,17 @@ async function diagnostiquerPoolVide(
   // l'enquête. C'est ce texte que l'admin lit pour comprendre pourquoi un
   // créateur est tombé à 0 post/jour, et c'est lui qui sert de justification
   // écrite à la baisse de quota — il doit porter sur le pool entier.
+  //
+  // Mémo partagé avec la pioche : le diagnostic tombe juste après elle, sur les
+  // mêmes labels, et relire tout le mapping pour écrire un message serait payer
+  // une seconde fois la lecture la plus chère du chemin. Le `quoi` ne diverge
+  // que dans le message d'une lecture en ÉCHEC — et un échec n'est jamais
+  // mémoïsé, donc le message reste juste.
   const idsLabel = await contenuIdsDesLabels(
     supabase,
     labelIds,
     "Diagnostic — slideshows du label",
+    memo,
   );
   if (idsLabel.length === 0) {
     return `Aucun slideshow tagué « ${labelsTxt} » dans la bibliothèque.`;
@@ -824,11 +1102,17 @@ async function materialiserPostDepuisPassage(
   ];
   const mediaOk = new Set<string>();
   if (mediaIds.length > 0) {
-    const { data: existants } = await supabase
-      .from("media_library")
-      .select("id")
-      .in("id", mediaIds);
-    for (const m of existants ?? []) mediaOk.add(m.id as string);
+    // Bornée par le nombre de slides d'UN deck (une dizaine) : un média par id,
+    // donc ni l'URL ni la réponse ne peuvent approcher leurs plafonds. On passe
+    // quand même par `lireParLots` plutôt que de le supposer — le découpage est
+    // sans coût sur un seul lot, et un deck qui exploserait un jour ne
+    // casserait pas la matérialisation du post.
+    const existants = await lireParLots<{ id: string }>(
+      mediaIds,
+      "Médias des slides du deck",
+      (lot) => supabase.from("media_library").select("id").in("id", lot),
+    );
+    for (const m of existants) mediaOk.add(m.id);
   }
 
   const { data: post, error: errP } = await supabase
@@ -895,34 +1179,13 @@ async function choisirContenu(
   dejaCreesCetteSession: string[],
   ugcAi = false,
   opts: { ignorerTierlist?: boolean; exclureTestsHisto?: boolean } = {},
+  memo?: MemoAssignation,
 ): Promise<Candidat | null> {
   const ignorerTierlist = Boolean(opts.ignorerTierlist);
-  const { data: compteApp } = await supabase
-    .from("comptes")
-    .select("application_id")
-    .eq("id", compteId)
-    .maybeSingle();
-  const applicationId = (compteApp?.application_id as string | undefined) ?? null;
-  // Contenu IDs portant au moins un label du compte
-  const contenusLabel = await contenuIdsDesLabels(supabase, labelIds, "Slideshows du label");
-  if (contenusLabel.length === 0) return null;
-
-  // UGC AI ↔ slideshows ugc_compatible ; créateurs classiques ↔ non-UGC.
-  const contenus = await lireParLots<ContenuCandidat>(
-    contenusLabel,
-    "Slideshows prêts",
-    (lot) => {
-      let q = supabase
-        .from("contenus")
-        .select("id, musique_url, musique_titre, musique_plateforme, ugc_compatible")
-        .eq("statut", "valide")
-        .eq("import_statut", "done")
-        .eq("ugc_compatible", ugcAi)
-        .in("id", lot);
-      if (applicationId) q = q.eq("application_id", applicationId);
-      return q;
-    },
-  );
+  const applicationId = await applicationDuCompte(supabase, compteId, memo);
+  // Labels du compte → contenus prêts. Invariant pendant le run : mémoïsé (voir
+  // le bloc « Mémo de RUN »), au lieu d'être relu à chaque tentative de pioche.
+  const contenus = await poolContenusPrets(supabase, labelIds, { applicationId, ugcAi }, memo);
   if (contenus.length === 0) return null;
 
   const contenuIds = contenus.map((c) => c.id);
@@ -941,13 +1204,7 @@ async function choisirContenu(
   const etatParContenu = new Map(etats.map((e) => [e.contenu_id, e]));
 
   // Historique passages de CE compte (hors posts test si demandé).
-  const hist = await lireParLots<PassageHisto>(contenuIds, "Historique des passages", (lot) =>
-    supabase
-      .from("passages")
-      .select("contenu_id, date_publication_prevue, posts(est_test)")
-      .eq("compte_id", compteId)
-      .in("contenu_id", lot),
-  );
+  const hist = await lireHistoriquePassages(supabase, compteId, contenuIds);
   const derniere = new Map<string, string>();
   for (const h of hist) {
     if (opts.exclureTestsHisto && estPassageDeTest(h.posts)) continue;
@@ -1086,6 +1343,23 @@ export async function listerComptesSousQuota(
   opts: { ignorerWarmup?: boolean } = {},
   // deno-lint-ignore no-explicit-any
 ): Promise<any[]> {
+  // Lecture non bornée, LAISSÉE TELLE QUELLE — et c'est un choix, pas un oubli.
+  //
+  // La flotte compte 131 comptes actifs, très loin des 1000 lignes du plafond
+  // PostgREST : la troncature n'est pas atteignable aujourd'hui. Et la paginer
+  // coûterait ce qu'on refuse de payer ici : `lireTout` exige un `.order(ancre)`,
+  // donc l'ordre de ce tableau passerait de l'ordre de tas à l'ordre des `id` —
+  // or c'est exactement ce tableau que `assignerDrainLot` tranche en
+  // `slice(0, DRAIN_BATCH)`. On changerait l'ordre dans lequel les créateurs
+  // sont servis, c'est-à-dire de la politique, pour corriger une troncature qui
+  // n'existe pas. Ce n'est pas le chantier.
+  //
+  // POUR LE PROCHAIN QUI PASSE, parce que l'échéance est réelle : à 1000 comptes
+  // actifs, le garde-fou de complétude lèvera ici — avant la boucle par compte,
+  // hors de son try/catch — et le drain entier s'arrêtera. La bonne sortie ce
+  // jour-là n'est pas un `.limit()` (il masquerait la troncature) mais une
+  // pagination keyset sur `id`, en vérifiant d'abord que l'ordre de service du
+  // drain peut devenir déterministe. Le repère utile : à ~500 comptes, s'y mettre.
   const { data: comptesBruts, error } = await supabase
     .from("comptes")
     .select("*")
@@ -1106,16 +1380,39 @@ export async function listerComptesSousQuota(
 
   const ids = comptes.map((c) => c.id as string);
   const faits = new Map<string, number>();
-  // Chunks pour éviter les .in() trop longs.
-  for (let i = 0; i < ids.length; i += 80) {
-    const chunk = ids.slice(i, i + 80);
-    const { data: posts } = await supabase
-      .from("posts")
-      .select("compte_id")
-      .in("compte_id", chunk)
-      .eq("date_publication_prevue", jour)
-      .eq("est_test", false);
-    for (const p of posts ?? []) {
+  // Découpage du filtre ET pagination de la réponse : ce sont deux bornes
+  // différentes et il faut les deux ici. `in(compte_id, …)` borne l'URL (la
+  // panne 400 du 20/08) ; la relation est many-to-one — plusieurs posts par
+  // compte et par jour —, donc un lot de 100 comptes peut rendre bien plus de
+  // 100 lignes et c'est la RÉPONSE qui peut être rognée à `max-rows`.
+  //
+  // Aujourd'hui : 100 comptes × (quota ≤ 3 + rappels J+7) ≈ 400 lignes, sous le
+  // plafond de 1000. On pagine quand même parce que `lireTout` sort sur page
+  // courte : une page de 400 lignes pour 999 demandées, c'est UN aller-retour,
+  // exactement comme avant. Ce qu'on retire, c'est l'échéance — le jour où le
+  // plafond serait franchi, le garde-fou lèverait ICI, c'est-à-dire AVANT la
+  // boucle par compte et hors de son try/catch : le drain entier s'arrêterait
+  // et la flotte passerait la nuit sans post. Une lecture placée sur ce
+  // chemin-là n'a pas le droit d'avoir une échéance.
+  //
+  // L'ancre est `posts.id` (uuid unique) : `compte_id` en aurait plusieurs par
+  // valeur. L'ordre de lecture est sans effet, on ne fait que compter.
+  for (const lot of decouperEnLots(ids, LOT_IDS)) {
+    const posts = await lireTout<{ id: string; compte_id: string }>(
+      `Posts du jour (${lot.length} compte(s))`,
+      (curseur, taille) => {
+        let q = supabase
+          .from("posts")
+          .select("id, compte_id")
+          .in("compte_id", lot)
+          .eq("date_publication_prevue", jour)
+          .eq("est_test", false);
+        if (curseur) q = q.gt("id", curseur.id);
+        return q.order("id", { ascending: true }).limit(taille);
+      },
+      { ancre: (p) => p.id },
+    );
+    for (const p of posts) {
       const cid = p.compte_id as string;
       faits.set(cid, (faits.get(cid) ?? 0) + 1);
     }
@@ -1136,26 +1433,50 @@ export async function assignerDrainLot(
   supabase: Supabase,
   jour: string,
   opts: AssignationOpts = {},
+  exclus: string[] = [],
 ): Promise<{
   resultats: AssignationCompteResultat[];
   restants: number;
   traites: number;
+  echecs: string[];
 }> {
   const sousQuota = await listerComptesSousQuota(supabase, jour, {
     ignorerWarmup: Boolean(opts.ignorerWarmup),
   });
-  const lot = sousQuota.slice(0, DRAIN_BATCH);
+  // BLOCAGE EN TÊTE DE FILE — le lot est toujours pris en tête d'une liste sans
+  // `order()`, donc dans l'ordre de tas de `comptes`. Un compte dont
+  // `assignerCompteJour` lève n'écrit rien : il reste sous quota, sa ligne ne
+  // bouge pas dans le tas, et il revient dans les 8 premiers à la génération
+  // suivante. Huit comptes en échec suffisaient donc à retenir les 123 autres
+  // pendant les 40 générations de la chaîne. Tant que l'échec restait rare
+  // (l'ancienne sortie gracieuse baissait le quota, donc écrivait, donc faisait
+  // avancer la file) ça ne se voyait pas ; le garde-fou de complétude, qui lève
+  // sur une lecture douteuse, en fait un mode de panne ordinaire.
+  //
+  // La chaîne transporte donc les comptes déjà tentés en échec, et ils sortent
+  // du calcul des restants : la file avance, et le drain s'arrête quand il ne
+  // reste que des comptes qu'on a déjà tentés — leurs erreurs sont dans le
+  // journal du run, pas noyées dans 40 générations identiques.
+  const ecartes = new Set(exclus);
+  const eligibles = ecartes.size > 0
+    ? sousQuota.filter((c) => !ecartes.has(c.id as string))
+    : sousQuota;
+  const lot = eligibles.slice(0, DRAIN_BATCH);
   if (lot.length === 0) {
-    return { resultats: [], restants: 0, traites: 0 };
+    return { resultats: [], restants: 0, traites: 0, echecs: [] };
   }
   const reglages = await chargerAssignationReglages(supabase);
+  // Un mémo pour TOUT le lot : les comptes d'une même application partagent
+  // largement leurs labels, donc le mapping label → contenus n'est lu qu'une
+  // fois pour les 8 comptes du lot au lieu d'une fois par tentative de pioche.
+  const memo = creerMemoAssignation();
   const resultats = await mapPool(lot, LARGEUR_ASSIGNATION, async (compte) => {
     const nom =
       (compte.persona_nom as string | null) ??
       (compte.handle_tiktok as string | null) ??
       String(compte.id).slice(0, 8);
     try {
-      const detail = await assignerCompteJour(supabase, compte, jour, reglages, opts);
+      const detail = await assignerCompteJour(supabase, compte, jour, reglages, opts, memo);
       return {
         compteId: compte.id as string,
         crees: detail.ids.length,
@@ -1175,8 +1496,9 @@ export async function assignerDrainLot(
   });
   return {
     resultats,
-    restants: Math.max(0, sousQuota.length - lot.length),
+    restants: Math.max(0, eligibles.length - lot.length),
     traites: lot.length,
+    echecs: resultats.filter((r) => r.erreur !== undefined).map((r) => r.compteId),
   };
 }
 
@@ -1216,6 +1538,9 @@ export async function assignerTousComptes(
 ): Promise<AssignationCompteResultat[]> {
   const o: AssignationOpts = typeof opts === "boolean" ? { forcer: opts } : (opts ?? {});
   const reglages = await chargerAssignationReglages(supabase);
+  // Non bornée, pour les mêmes raisons que dans `listerComptesSousQuota` (131
+  // comptes actifs, plafond à 1000, et paginer imposerait un ordre) — voir le
+  // commentaire là-bas, y compris le repère des ~500 comptes.
   let query = supabase.from("comptes").select("*").eq("is_active", true);
   if (compteId) query = query.eq("id", compteId);
   const { data: comptesBruts, error } = await query;
@@ -1235,13 +1560,15 @@ export async function assignerTousComptes(
     return new Date(ends).getTime() <= maintenant;
   });
 
+  // Même mémo pour toute la flotte de ce run : voir `assignerDrainLot`.
+  const memo = creerMemoAssignation();
   return await mapPool(comptes, LARGEUR_ASSIGNATION, async (compte) => {
     const nom =
       (compte.persona_nom as string | null) ??
       (compte.handle_tiktok as string | null) ??
       String(compte.id).slice(0, 8);
     try {
-      const detail = await assignerCompteJour(supabase, compte, jour, reglages, o);
+      const detail = await assignerCompteJour(supabase, compte, jour, reglages, o, memo);
       return {
         compteId: compte.id as string,
         crees: detail.ids.length,
@@ -1272,6 +1599,12 @@ export async function annulerAssignationTest(
   compteId: string,
   jour: string,
 ): Promise<{ posts: number; passages: number; medias: number }> {
+  // Un compte, un jour, et seulement les posts `est_test` : quelques unités.
+  // Mais RIEN ne les purge à part cette fonction — un admin qui enchaîne les
+  // essais sans annuler les accumule. La lecture reste donc non bornée ici (le
+  // garde-fou lèverait à 1000 posts de test sur un même jour, ce qui serait une
+  // information en soi) ; ce sont les lectures DÉRIVÉES ci-dessous qui doivent
+  // être découpées, parce qu'elles partent de cette liste.
   const { data: posts } = await supabase
     .from("posts")
     .select("id")
@@ -1283,41 +1616,75 @@ export async function annulerAssignationTest(
     return { posts: 0, passages: 0, medias: 0 };
   }
 
-  const { data: passages } = await supabase
-    .from("passages")
-    .select("id")
-    .in("post_id", postIds);
-  const passageIds = (passages ?? []).map((p) => p.id as string);
+  // `in(post_id, …)` sur une liste non bornée : au-delà de ~400 valeurs l'URL
+  // PostgREST déborde et `verifierTailleIn` lève. Un passage par post au plus,
+  // donc la réponse, elle, ne peut pas dépasser la taille du lot.
+  const passages = await lireParLots<{ id: string }>(
+    postIds,
+    "Annulation test — passages liés",
+    (lot) => supabase.from("passages").select("id").in("post_id", lot),
+  );
+  const passageIds = passages.map((p) => p.id);
 
-  const { data: slides } = await supabase
-    .from("post_slides")
-    .select("media_id")
-    .in("post_id", postIds)
-    .not("media_id", "is", null);
-  const mediaIds = [...new Set((slides ?? []).map((s) => s.media_id as string).filter(Boolean))];
+  // Many-to-one : une dizaine de slides par post, donc 100 posts par lot
+  // peuvent rendre un millier de lignes et se faire rogner à `max-rows`. Une
+  // troncature ici laisserait des médias UGC orphelins en base après une
+  // annulation qui se déclare complète — on pagine sur `post_slides.id`
+  // (`post_id` n'est pas unique). Page courte = un seul aller-retour dans le
+  // cas normal.
+  const slides: Array<{ id: string; media_id: string | null }> = [];
+  for (const lot of decouperEnLots(postIds, LOT_IDS)) {
+    const page = await lireTout<{ id: string; media_id: string | null }>(
+      `Annulation test — slides (${lot.length} post(s))`,
+      (curseur, taille) => {
+        let q = supabase
+          .from("post_slides")
+          .select("id, media_id")
+          .in("post_id", lot)
+          .not("media_id", "is", null);
+        if (curseur) q = q.gt("id", curseur.id);
+        return q.order("id", { ascending: true }).limit(taille);
+      },
+      { ancre: (s) => s.id },
+    );
+    slides.push(...page);
+  }
+  const mediaIds = [...new Set(slides.map((s) => s.media_id as string).filter(Boolean))];
 
   let mediasUgc: string[] = [];
+  const cheminsUgc: string[] = [];
   if (mediaIds.length > 0) {
-    const { data: medias } = await supabase
-      .from("media_library")
-      .select("id, ugc_face_regen, storage_path")
-      .in("id", mediaIds)
-      .eq("ugc_face_regen", true);
-    mediasUgc = (medias ?? []).map((m) => m.id as string);
-    const paths = (medias ?? [])
-      .map((m) => m.storage_path as string | null)
-      .filter((p): p is string => Boolean(p));
-    if (paths.length > 0) {
-      await supabase.storage.from("medias").remove(paths).catch(() => null);
+    // Un média par id : le découpage du filtre borne aussi la réponse.
+    const medias = await lireParLots<{ id: string; storage_path: string | null }>(
+      mediaIds,
+      "Annulation test — médias UGC",
+      (lot) =>
+        supabase
+          .from("media_library")
+          .select("id, ugc_face_regen, storage_path")
+          .in("id", lot)
+          .eq("ugc_face_regen", true),
+    );
+    mediasUgc = medias.map((m) => m.id);
+    for (const m of medias) {
+      if (m.storage_path) cheminsUgc.push(m.storage_path);
+    }
+    if (cheminsUgc.length > 0) {
+      await supabase.storage.from("medias").remove(cheminsUgc).catch(() => null);
     }
   }
 
-  if (passageIds.length > 0) {
-    await supabase.from("passages").delete().in("id", passageIds);
+  // Les suppressions passent par le même découpage : un `in(...)` trop long y
+  // échouerait exactement comme en lecture, mais en laissant la base à moitié
+  // nettoyée.
+  for (const lot of decouperEnLots(passageIds, LOT_IDS)) {
+    await supabase.from("passages").delete().in("id", lot);
   }
-  await supabase.from("posts").delete().in("id", postIds);
-  if (mediasUgc.length > 0) {
-    await supabase.from("media_library").delete().in("id", mediasUgc);
+  for (const lot of decouperEnLots(postIds, LOT_IDS)) {
+    await supabase.from("posts").delete().in("id", lot);
+  }
+  for (const lot of decouperEnLots(mediasUgc, LOT_IDS)) {
+    await supabase.from("media_library").delete().in("id", lot);
   }
 
   return {

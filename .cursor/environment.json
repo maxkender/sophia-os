@@ -1,0 +1,10 @@
+{
+  "name": "Sophia — Moteur de contenu",
+  "install": "npm ci",
+  "terminals": [
+    {
+      "name": "dev",
+      "command": "npm run dev -- --host"
+    }
+  ]
+}

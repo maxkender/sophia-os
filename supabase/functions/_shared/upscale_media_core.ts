@@ -42,7 +42,7 @@ export type UpscaleMediaResultat =
       octets?: number;
       detail: string;
     }
-  | { ok: false; error: string; mediaId?: string };
+  | { ok: false; error: string; mediaId?: string; collision?: true };
 
 /**
  * Upscale + strip Content Credentials en toute fin (Fal/Replicate peuvent
@@ -88,6 +88,40 @@ export async function upscalerMediaLibrary(
     };
   }
 
+  const basePath = String(media.storage_path)
+    .replace(/\.[^.]+$/, "")
+    .replace(/-upscale$/, "")
+    .replace(/-noc2pa$/, "");
+
+  // Le chemin d'upscale se DÉDUIT du chemin source (`<base>-upscale.<ext>`),
+  // et une fois upscalé un média PREND ce nom. Deux médias sur la même
+  // position (re-nettoyage, orphelin, ancienne version encore accrochée à des
+  // post_slides) visent donc le même chemin, et le second casse sur
+  // `media_library_storage_path_key`.
+  //
+  // L'écriture ratée laissait `upscale_le` à NULL : le média restait en tête
+  // de file et le drain REPAYAIT un upscale à chaque minute, sans jamais
+  // avancer — 352 upscales SeedVR jetés en une journée, file entièrement
+  // gelée derrière un seul média. On détecte donc le squat AVANT d'appeler le
+  // provider, puisque cet appel-là est payant.
+  const { data: detenteur } = await supabase
+    .from("media_library")
+    .select("id, storage_path")
+    .neq("id", mediaId)
+    .like("storage_path", `${basePath}-upscale.%`)
+    .limit(1)
+    .maybeSingle();
+  if (detenteur) {
+    return {
+      ok: false,
+      mediaId,
+      collision: true,
+      error:
+        `chemin d'upscale déjà détenu par ${detenteur.id} ` +
+        `(${detenteur.storage_path}) — média sauté, aucun appel payant`,
+    };
+  }
+
   const label = modele === "seedvr" ? "SeedVR" : "Real-ESRGAN";
   await onProgress?.({
     phase: "submit",
@@ -114,10 +148,6 @@ export async function upscalerMediaLibrary(
   const bytes = strip.bytes;
   const ext = extPourMime(mime);
 
-  const basePath = String(media.storage_path)
-    .replace(/\.[^.]+$/, "")
-    .replace(/-upscale$/, "")
-    .replace(/-noc2pa$/, "");
   const path = `${basePath}-upscale.${ext}`;
 
   await onProgress?.({

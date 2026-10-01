@@ -233,6 +233,8 @@ export interface PostSlide {
     url: string;
     storage_path: string;
     upscale_le: string | null;
+    /** Signalée encore écrite (poster ou audit) : à ne pas publier. */
+    texte_restant: boolean;
   } | null;
 }
 

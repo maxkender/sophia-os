@@ -882,6 +882,25 @@ export const en = {
       docsOnboardingDesc:
         "Edit the manager guides and the onboarding doc. This does not touch the creative side.",
     },
+    signalementsTexte: {
+      titre_one: "{{count}} photo reported as still having text",
+      titre_other: "{{count}} photos reported as still having text",
+      aide:
+        "Posters flagged these \"clean\" photos as still having text. Each one is already out of the pools and was swapped on the poster's slide. Re-clean it, put it back if there was no text, or keep it out.",
+      par: "Reported by {{poster}} · {{date}}",
+      posterInconnu: "unknown",
+      remplacee_one: "replaced on {{count}} slide · {{contenus}} slideshow(s) fixed",
+      remplacee_other: "replaced on {{count}} slides · {{contenus}} slideshow(s) fixed",
+      nonRemplacee: "no replacement was available",
+      renettoyer: "Re-clean",
+      renettoyerAide: "Re-runs text removal on this photo. It stays out of the pools until you decide.",
+      remettre: "Put back",
+      remettreAide: "No text left (or clean after re-cleaning): the photo goes back into the pools.",
+      exclure: "Keep out",
+      exclureAide: "The photo stays out of the pools.",
+      voirPost: "Open the post",
+      erreur: "Couldn't load the reported photos",
+    },
     bibliotheque: {
       title: "Media library",
       subtitle: "Cleaned visuals, grouped by label.",
@@ -1437,7 +1456,7 @@ export const en = {
       enregistrerPhotos_other: "Save the {{count}} photos",
       enregistrerPhoto: "Save this photo",
       enregistrerAide:
-        "On iPhone: choose \"Save images\", they land in your camera roll.",
+        "On iPhone: choose \"Save images\", they land in your camera roll. On Android, they download to your Downloads folder and show up in your gallery.",
       preparation: "Preparing the photos…",
       copierTout: "Copy all texts",
       taperPourCopier: "Tap to copy",
@@ -1447,6 +1466,17 @@ export const en = {
       photoManquante: "Photo not cleaned",
       photoAvecTexte: "Photo to post ⚠ text not removed",
       photoManquanteAide: "Redo it or skip it — don't post it as is.",
+      signalerTexte: "Text still on this photo?",
+      signalerConfirm:
+        "Report this photo as still having text on it? It will be swapped for another photo on the same theme.",
+      signalerEnCours: "Finding another photo…",
+      autrePhoto: "Get another photo",
+      signalerRemplacee: "Thanks! The photo was replaced — save this one again before posting.",
+      signalerSansRemplacant: "Reported, but no other photo is available right now: skip this slide.",
+      signalerPublie: "This post is already published: its photos can't be changed.",
+      signalerSansPhoto: "This slide has no photo to replace.",
+      signalerInterdit: "You can only report photos from your own posts.",
+      signalerErreur: "Couldn't report the photo. Try again in a moment.",
       slidesNonNettoyees_one: "{{count}} photo couldn't be cleaned, check it before publishing.",
       slidesNonNettoyees_other:
         "{{count}} photos couldn't be cleaned, check them before publishing.",

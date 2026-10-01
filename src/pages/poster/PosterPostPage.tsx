@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import {
+  AlertTriangle,
   ArrowDown,
   ArrowUp,
   Check,
@@ -39,6 +40,7 @@ import {
   rechargerPostCreateur,
   renettoyerSlide,
   reordonnerSlides,
+  signalerTexteSlide,
 } from "@/features/moteur/api";
 import {
   appliquerEvenement,
@@ -47,26 +49,27 @@ import {
   type ProviderNettoyage,
 } from "@/features/moteur/nettoyageEtapes";
 import {
+  estAndroid,
   partagerFichiers,
   peutPartager,
   recupererFichier,
+  telechargerChacun,
   telechargerFichier,
 } from "@/features/moteur/telechargement";
 import type { Media, Post, PostSlide } from "@/features/moteur/types";
 import { classeDirectionTexte, directionTexte } from "@/features/moteur/langues";
+import { cleErreurSignalement, slideEstPropre } from "@/features/moteur/signalementTexte";
 
 function nomFichier(postId: string, position: number) {
   return `${postId.slice(0, 8)}-${String(position).padStart(2, "0")}.jpg`;
 }
 
 /**
- * Une slide n'est publiable que si sa photo a été nettoyée : `storage_path`
- * commençant par `propre/`. Un `brut/` porte encore le texte d'origine, un
- * media absent n'a rien du tout — les deux sont à signaler, pas à enregistrer.
+ * Une slide n'est publiable que si sa photo a été nettoyée et n'a pas été
+ * signalée encore écrite. Un `brut/` porte encore le texte d'origine, un media
+ * absent n'a rien du tout — tous sont à signaler, pas à enregistrer.
  */
-function estPropre(slide: PostSlide): boolean {
-  return Boolean(slide.media_library?.storage_path?.startsWith("propre/"));
-}
+const estPropre = slideEstPropre;
 
 /** Zone de texte entièrement tapable : sur mobile, viser un petit bouton est
  * pénible, et la sélection manuelle d'un texte multiligne encore plus. */
@@ -204,6 +207,64 @@ function Visuel({
 }
 
 /**
+ * « Il reste du texte sur cette photo » : la photo sort des pools et la slide
+ * reçoit une autre image du même thème (fonction `signaler-texte`). Sur une
+ * photo déjà signalée ou jamais nettoyée, le même geste sert à en obtenir une
+ * autre au lieu de rester bloqué.
+ */
+function SignalerTexte({
+  slide,
+  postId,
+  propre,
+}: {
+  slide: PostSlide;
+  postId: string;
+  propre: boolean;
+}) {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const signaler = useMutation({
+    mutationFn: () => signalerTexteSlide(slide.id),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: ["slides", postId] });
+    },
+  });
+
+  return (
+    <div className="space-y-1">
+      <Button
+        variant="ghost"
+        size="sm"
+        className="w-full text-muted-foreground"
+        disabled={signaler.isPending}
+        onClick={() => {
+          if (!propre || window.confirm(t("posts.signalerConfirm"))) signaler.mutate();
+        }}
+      >
+        {propre ? <AlertTriangle /> : <RefreshCw />}
+        {signaler.isPending
+          ? t("posts.signalerEnCours")
+          : propre
+            ? t("posts.signalerTexte")
+            : t("posts.autrePhoto")}
+      </Button>
+      {signaler.data && (
+        <p
+          className={`text-center text-xs ${signaler.data.remplacee ? "text-success" : "text-warning"}`}
+        >
+          {signaler.data.remplacee ? t("posts.signalerRemplacee") : t("posts.signalerSansRemplacant")}
+        </p>
+      )}
+      {signaler.isError && (
+        <p className="text-center text-xs text-destructive">
+          {t(cleErreurSignalement((signaler.error as Error).message))}
+        </p>
+      )}
+    </div>
+  );
+}
+
+/**
  * Contrôles RÉSERVÉS À L'ADMIN sur une slide, ici même (utile pour les posts de
  * test qu'on ouvre dans cette vue) : renettoyer une image au texte encore
  * incrusté, ou la remplacer par une autre de la bibliothèque de la source. Un
@@ -263,7 +324,9 @@ function ControlesAdminSlide({
       rafraichir();
     },
   });
-  const propres = (medias.data ?? []).filter((m) => m.storage_path?.startsWith("propre/"));
+  const propres = (medias.data ?? []).filter(
+    (m) => m.storage_path?.startsWith("propre/") && !m.texte_restant,
+  );
 
   return (
     <div className="rounded-lg border border-dashed border-primary/40 bg-primary/[0.03] p-3">
@@ -472,18 +535,27 @@ export function PosterPostPage() {
     }
   }
 
-  /** Tout d'un coup : feuille de partage sur mobile, ZIP sur ordinateur. */
+  /** Tout d'un coup : feuille de partage sur iPhone, un fichier par image sur
+   * Android, ZIP sur ordinateur. */
   async function toutEnregistrer(donnees: Post) {
     setErreurPartage(null);
     const prets = fichiers.data ?? [];
 
     try {
       if (peutPartager(prets)) {
-        await partagerFichiers(prets, t("posts.title"));
-        return;
+        try {
+          await partagerFichiers(prets, t("posts.title"));
+          return;
+        } catch {
+          // Feuille de partage en panne : on télécharge plutôt que de bloquer.
+        }
       }
 
       setEnCours(true);
+      if (peutPartager(prets) || estAndroid()) {
+        await telechargerChacun(prets);
+        return;
+      }
       const zip = new JSZip();
       prets.forEach((f) => zip.file(f.name, f));
       zip.file("textes.txt", texteComplet(donnees, liste));
@@ -504,8 +576,12 @@ export function PosterPostPage() {
     try {
       const fichier = dejaPret ?? (await recupererFichier(slide.media_library!.url, nom));
       if (peutPartager([fichier])) {
-        await partagerFichiers([fichier], nom);
-        return;
+        try {
+          await partagerFichiers([fichier], nom);
+          return;
+        } catch {
+          // Feuille de partage en panne : on télécharge plutôt que de bloquer.
+        }
       }
       telechargerFichier(fichier, nom);
     } catch (e) {
@@ -769,6 +845,10 @@ export function PosterPostPage() {
                   <Share />
                   {t("posts.enregistrerPhoto")}
                 </Button>
+              )}
+
+              {!publie && slide.media_id && (
+                <SignalerTexte slide={slide} postId={id!} propre={estPropre(slide)} />
               )}
 
               {slide.texte_overlay && (

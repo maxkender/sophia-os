@@ -47,9 +47,11 @@ import {
   type ProviderNettoyage,
 } from "@/features/moteur/nettoyageEtapes";
 import {
+  estAndroid,
   partagerFichiers,
   peutPartager,
   recupererFichier,
+  telechargerChacun,
   telechargerFichier,
 } from "@/features/moteur/telechargement";
 import type { Media, Post, PostSlide } from "@/features/moteur/types";
@@ -472,18 +474,27 @@ export function PosterPostPage() {
     }
   }
 
-  /** Tout d'un coup : feuille de partage sur mobile, ZIP sur ordinateur. */
+  /** Tout d'un coup : feuille de partage sur iPhone, un fichier par image sur
+   * Android, ZIP sur ordinateur. */
   async function toutEnregistrer(donnees: Post) {
     setErreurPartage(null);
     const prets = fichiers.data ?? [];
 
     try {
       if (peutPartager(prets)) {
-        await partagerFichiers(prets, t("posts.title"));
-        return;
+        try {
+          await partagerFichiers(prets, t("posts.title"));
+          return;
+        } catch {
+          // Feuille de partage en panne : on télécharge plutôt que de bloquer.
+        }
       }
 
       setEnCours(true);
+      if (peutPartager(prets) || estAndroid()) {
+        await telechargerChacun(prets);
+        return;
+      }
       const zip = new JSZip();
       prets.forEach((f) => zip.file(f.name, f));
       zip.file("textes.txt", texteComplet(donnees, liste));
@@ -504,8 +515,12 @@ export function PosterPostPage() {
     try {
       const fichier = dejaPret ?? (await recupererFichier(slide.media_library!.url, nom));
       if (peutPartager([fichier])) {
-        await partagerFichiers([fichier], nom);
-        return;
+        try {
+          await partagerFichiers([fichier], nom);
+          return;
+        } catch {
+          // Feuille de partage en panne : on télécharge plutôt que de bloquer.
+        }
       }
       telechargerFichier(fichier, nom);
     } catch (e) {

@@ -1437,7 +1437,7 @@ export const en = {
       enregistrerPhotos_other: "Save the {{count}} photos",
       enregistrerPhoto: "Save this photo",
       enregistrerAide:
-        "On iPhone: choose \"Save images\", they land in your camera roll.",
+        "On iPhone: choose \"Save images\", they land in your camera roll. On Android, they download to your Downloads folder and show up in your gallery.",
       preparation: "Preparing the photos…",
       copierTout: "Copy all texts",
       taperPourCopier: "Tap to copy",

@@ -1439,7 +1439,7 @@ export const fr = {
       enregistrerPhotos_other: "Enregistrer les {{count}} photos",
       enregistrerPhoto: "Enregistrer cette photo",
       enregistrerAide:
-        "Sur iPhone : choisis « Enregistrer les images », elles arrivent dans ta pellicule.",
+        "Sur iPhone : choisis « Enregistrer les images », elles arrivent dans ta pellicule. Sur Android, elles se téléchargent dans Téléchargements et apparaissent dans ta galerie.",
       preparation: "Préparation des photos…",
       copierTout: "Copier tous les textes",
       taperPourCopier: "Taper pour copier",

@@ -37,10 +37,10 @@ import {
 import { supabase } from "@/lib/supabase/client";
 import type { Media, PostSlide } from "@/features/moteur/types";
 import { classeDirectionTexte, directionTexte } from "@/features/moteur/langues";
+import { slideEstPropre } from "@/features/moteur/signalementTexte";
 
-function estPropre(slide: PostSlide): boolean {
-  return Boolean(slide.media_library?.storage_path?.startsWith("propre/"));
-}
+/** Nettoyée et pas signalée encore écrite par un poster. */
+const estPropre = slideEstPropre;
 
 /** Grille de la bibliothèque du compte de référence, pour remplacer un visuel. */
 function SelecteurBibliotheque({
@@ -80,7 +80,7 @@ function SelecteurBibliotheque({
                 className="group relative overflow-hidden rounded-md border transition hover:ring-2 hover:ring-primary"
               >
                 <img src={m.url} alt="" className="aspect-square w-full object-cover" />
-                {!m.storage_path.startsWith("propre/") && (
+                {(!m.storage_path.startsWith("propre/") || m.texte_restant) && (
                   <span className="absolute inset-x-0 bottom-0 bg-warning/80 py-0.5 text-center text-[10px] text-warning-foreground">
                     {t("adminPost.texteRestant")}
                   </span>

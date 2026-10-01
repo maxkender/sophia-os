@@ -884,6 +884,25 @@ export const fr = {
       docsOnboardingDesc:
         "Modifie les guides manager et le document d’onboarding. Ça ne touche pas le côté créatif.",
     },
+    signalementsTexte: {
+      titre_one: "{{count}} photo signalée encore écrite",
+      titre_other: "{{count}} photos signalées encore écrites",
+      aide:
+        "Des posters ont signalé du texte sur ces photos « propres ». Chacune est déjà sortie des pools et a été remplacée sur la slide du poster. Renettoie-la, remets-la en circulation s'il n'y avait pas de texte, ou laisse-la exclue.",
+      par: "Signalée par {{poster}} · {{date}}",
+      posterInconnu: "inconnu",
+      remplacee_one: "remplacée sur {{count}} slide · {{contenus}} slideshow(s) corrigé(s)",
+      remplacee_other: "remplacée sur {{count}} slides · {{contenus}} slideshow(s) corrigé(s)",
+      nonRemplacee: "aucun remplaçant disponible",
+      renettoyer: "Renettoyer",
+      renettoyerAide: "Relance le retrait du texte sur cette photo. Elle reste hors des pools jusqu'à ta décision.",
+      remettre: "Remettre",
+      remettreAide: "Plus de texte (ou propre après renettoyage) : la photo revient dans les pools.",
+      exclure: "Exclure",
+      exclureAide: "La photo reste hors des pools.",
+      voirPost: "Ouvrir le post",
+      erreur: "Impossible de charger les photos signalées",
+    },
     bibliotheque: {
       title: "Bibliothèque de médias",
       subtitle: "Les visuels nettoyés, regroupés par label.",
@@ -1449,6 +1468,17 @@ export const fr = {
       photoManquante: "Photo non nettoyée",
       photoAvecTexte: "Photo à poster ⚠ texte non retiré",
       photoManquanteAide: "À refaire ou à sauter — ne la poste pas telle quelle.",
+      signalerTexte: "Il reste du texte sur cette photo ?",
+      signalerConfirm:
+        "Signaler qu'il reste du texte sur cette photo ? Elle sera remplacée par une autre photo du même thème.",
+      signalerEnCours: "Recherche d'une autre photo…",
+      autrePhoto: "Avoir une autre photo",
+      signalerRemplacee: "Merci ! La photo a été remplacée — réenregistre-la avant de poster.",
+      signalerSansRemplacant: "Signalée, mais aucune autre photo n'est disponible pour l'instant : saute cette slide.",
+      signalerPublie: "Ce post est déjà publié : ses photos ne peuvent plus changer.",
+      signalerSansPhoto: "Cette slide n'a pas de photo à remplacer.",
+      signalerInterdit: "Tu ne peux signaler que les photos de tes propres posts.",
+      signalerErreur: "Impossible de signaler la photo. Réessaie dans un instant.",
       slidesNonNettoyees_one: "{{count}} photo n'a pas pu être nettoyée, vérifie-la avant de publier.",
       slidesNonNettoyees_other:
         "{{count}} photos n'ont pas pu être nettoyées, vérifie-les avant de publier.",

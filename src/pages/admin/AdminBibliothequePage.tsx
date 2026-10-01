@@ -52,6 +52,7 @@ import {
   type ProviderNettoyage,
 } from "@/features/moteur/nettoyageEtapes";
 import { useApplication } from "@/features/moteur/ApplicationContext";
+import { SignalementsTexteCard } from "@/features/moteur/SignalementsTexteCard";
 import type { Media } from "@/features/moteur/types";
 
 const selectClass =
@@ -543,179 +544,283 @@ export function AdminBibliothequePage() {
   }
 
   return (
-    <Card>
-      <CardHeader>
-        <div className="flex flex-wrap items-start justify-between gap-2">
-          <div>
-            <CardTitle>{t("bibliotheque.title")}</CardTitle>
-            <CardDescription>
-              {total > 0
-                ? t("bibliotheque.paginationResume", {
-                    total,
-                    page: pageCourante,
-                    pages: totalPages,
-                    size: BIBLIO_PAGE_SIZE,
-                  })
-                : t("bibliotheque.subtitle")}
-              {aNettoyer > 0
-                ? ` · ${t("bibliotheque.compteur", { count: aNettoyer })}`
-                : ""}
-            </CardDescription>
-          </div>
-          <div className="flex flex-wrap items-center gap-2">
-            <label className="flex items-center gap-1.5 text-xs text-muted-foreground">
-              <span className="sr-only">{t("bibliotheque.upscaleModele")}</span>
-              <select
-                className="h-8 rounded-md border border-input bg-background px-2 text-xs shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-                value={modeleUpscale}
-                disabled={lotEnCours}
-                onChange={(e) =>
-                  setModeleUpscale(
-                    e.target.value === "seedvr" ? "seedvr" : "realesrgan",
-                  )
-                }
-                title={
-                  modeleUpscale === "seedvr"
-                    ? t("bibliotheque.upscaleAideSeedvr")
-                    : t("bibliotheque.upscaleAideRealesrgan")
-                }
-              >
-                <option value="realesrgan">{t("bibliotheque.upscaleRealesrgan")}</option>
-                <option value="seedvr">{t("bibliotheque.upscaleSeedvr")}</option>
-              </select>
-            </label>
-            <Button
-              size="sm"
-              variant="outline"
-              disabled={lotEnCours}
-              onClick={() => void rattraperCaptions()}
-              title={t("bibliotheque.rattraperAide")}
-            >
-              <ScanText className="size-4" />
-              {captionLot
-                ? t("bibliotheque.rattraperEnCours", {
-                    fait: captionLot.fait,
-                    total: captionLot.total,
-                  })
-                : t("bibliotheque.rattraper")}
-            </Button>
-            <Button
-              size="sm"
-              variant="outline"
-              disabled={lotEnCours || affichees.length === 0}
-              onClick={() => void stripC2paTout()}
-              title={t("bibliotheque.c2paAide")}
-            >
-              {c2pa
-                ? t("bibliotheque.c2paEnCours", { fait: c2pa.fait, total: c2pa.total })
-                : t("bibliotheque.c2paTout", { count: affichees.length })}
-            </Button>
-            {aUpscaler > 0 && (
+    <div className="space-y-4">
+      <SignalementsTexteCard />
+      <Card>
+        <CardHeader>
+          <div className="flex flex-wrap items-start justify-between gap-2">
+            <div>
+              <CardTitle>{t("bibliotheque.title")}</CardTitle>
+              <CardDescription>
+                {total > 0
+                  ? t("bibliotheque.paginationResume", {
+                      total,
+                      page: pageCourante,
+                      pages: totalPages,
+                      size: BIBLIO_PAGE_SIZE,
+                    })
+                  : t("bibliotheque.subtitle")}
+                {aNettoyer > 0
+                  ? ` · ${t("bibliotheque.compteur", { count: aNettoyer })}`
+                  : ""}
+              </CardDescription>
+            </div>
+            <div className="flex flex-wrap items-center gap-2">
+              <label className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                <span className="sr-only">{t("bibliotheque.upscaleModele")}</span>
+                <select
+                  className="h-8 rounded-md border border-input bg-background px-2 text-xs shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                  value={modeleUpscale}
+                  disabled={lotEnCours}
+                  onChange={(e) =>
+                    setModeleUpscale(
+                      e.target.value === "seedvr" ? "seedvr" : "realesrgan",
+                    )
+                  }
+                  title={
+                    modeleUpscale === "seedvr"
+                      ? t("bibliotheque.upscaleAideSeedvr")
+                      : t("bibliotheque.upscaleAideRealesrgan")
+                  }
+                >
+                  <option value="realesrgan">{t("bibliotheque.upscaleRealesrgan")}</option>
+                  <option value="seedvr">{t("bibliotheque.upscaleSeedvr")}</option>
+                </select>
+              </label>
               <Button
                 size="sm"
                 variant="outline"
                 disabled={lotEnCours}
-                onClick={() => void upscaleTout()}
-                title={
-                  modeleUpscale === "seedvr"
-                    ? t("bibliotheque.upscaleAideSeedvr")
-                    : t("bibliotheque.upscaleAideRealesrgan")
-                }
+                onClick={() => void rattraperCaptions()}
+                title={t("bibliotheque.rattraperAide")}
               >
-                <Maximize2 className="size-4" />
-                {upscaleLot
-                  ? t("bibliotheque.upscaleLot", {
-                      fait: upscaleLot.fait,
-                      total: upscaleLot.total,
+                <ScanText className="size-4" />
+                {captionLot
+                  ? t("bibliotheque.rattraperEnCours", {
+                      fait: captionLot.fait,
+                      total: captionLot.total,
                     })
-                  : t("bibliotheque.upscaleTout", { count: aUpscaler })}
+                  : t("bibliotheque.rattraper")}
               </Button>
-            )}
-            {aNettoyer > 0 && (
-              <Button size="sm" disabled={lotEnCours} onClick={nettoyerTout}>
-                <Sparkles />
-                {lot
-                  ? t("adminPost.lotEnCours", { fait: lot.fait, total: lot.total })
-                  : t("bibliotheque.nettoyerTout", { count: aNettoyer })}
+              <Button
+                size="sm"
+                variant="outline"
+                disabled={lotEnCours || affichees.length === 0}
+                onClick={() => void stripC2paTout()}
+                title={t("bibliotheque.c2paAide")}
+              >
+                {c2pa
+                  ? t("bibliotheque.c2paEnCours", { fait: c2pa.fait, total: c2pa.total })
+                  : t("bibliotheque.c2paTout", { count: affichees.length })}
               </Button>
-            )}
+              {aUpscaler > 0 && (
+                <Button
+                  size="sm"
+                  variant="outline"
+                  disabled={lotEnCours}
+                  onClick={() => void upscaleTout()}
+                  title={
+                    modeleUpscale === "seedvr"
+                      ? t("bibliotheque.upscaleAideSeedvr")
+                      : t("bibliotheque.upscaleAideRealesrgan")
+                  }
+                >
+                  <Maximize2 className="size-4" />
+                  {upscaleLot
+                    ? t("bibliotheque.upscaleLot", {
+                        fait: upscaleLot.fait,
+                        total: upscaleLot.total,
+                      })
+                    : t("bibliotheque.upscaleTout", { count: aUpscaler })}
+                </Button>
+              )}
+              {aNettoyer > 0 && (
+                <Button size="sm" disabled={lotEnCours} onClick={nettoyerTout}>
+                  <Sparkles />
+                  {lot
+                    ? t("adminPost.lotEnCours", { fait: lot.fait, total: lot.total })
+                    : t("bibliotheque.nettoyerTout", { count: aNettoyer })}
+                </Button>
+              )}
+            </div>
           </div>
-        </div>
-        {lot && (
-          <p className="pt-1 text-xs text-muted-foreground">{t("adminPost.lotAide")}</p>
-        )}
-        {c2paLogs.length > 0 && (
-          <div className="mt-2 max-h-40 space-y-0.5 overflow-y-auto rounded border bg-muted/30 px-2.5 py-2 font-mono text-[11px] leading-relaxed">
-            {c2paLogs.map((l, i) => (
-              <div key={`c2pa-${i}-${l.slice(0, 12)}`} className="break-words text-muted-foreground">
-                {l}
-              </div>
-            ))}
-          </div>
-        )}
-        {upscaleLogs.length > 0 && (
-          <div className="mt-2 max-h-40 space-y-0.5 overflow-y-auto rounded border bg-muted/30 px-2.5 py-2 font-mono text-[11px] leading-relaxed">
-            {upscaleLogs.map((l, i) => (
-              <div key={`up-${i}-${l.slice(0, 12)}`} className="break-words text-muted-foreground">
-                {l}
-              </div>
-            ))}
-          </div>
-        )}
-        {(captionRun || captionLogs.length > 0) && (
-          <div className="mt-2 max-h-52 space-y-0.5 overflow-y-auto rounded border bg-muted/30 px-2.5 py-2 font-mono text-[11px] leading-relaxed">
-            {captionRun ? (
-              <div className="text-foreground">
-                {captionRun.statut === "running"
-                  ? t("bibliotheque.rattraperServeur", {
-                      fait: captionRun.fait,
-                      total: captionRun.total,
-                    })
-                  : t("bibliotheque.rattraperFin", {
-                      ok: captionRun.ok,
-                      aucune: captionRun.aucune,
-                      hooks: captionRun.hooks,
-                      echecs: captionRun.echecs,
-                    })}
-              </div>
-            ) : null}
-            {(captionRun?.logs ?? []).map((l, i) => (
-              <div key={`cap-run-${i}-${l.slice(0, 16)}`} className="break-words text-muted-foreground">
-                {l}
-              </div>
-            ))}
-            {captionLogs.map((l, i) => (
-              <div key={`cap-${i}-${l.slice(0, 12)}`} className="break-words text-muted-foreground">
-                {l}
-              </div>
-            ))}
-          </div>
-        )}
-      </CardHeader>
-      <CardContent className="space-y-4">
-        <div className="flex flex-wrap items-center gap-2">
-          <select
-            aria-label={t("labels.title")}
-            className={selectClass}
-            value={labelId}
-            onChange={(e) => changerLabel(e.target.value)}
-          >
-            <option value="">{t("bibliotheque.tousLabels")}</option>
-            {(labels.data ?? []).map((l) => (
-              <option key={l.id} value={l.id}>
-                {l.nom}
-              </option>
-            ))}
-          </select>
+          {lot && (
+            <p className="pt-1 text-xs text-muted-foreground">{t("adminPost.lotAide")}</p>
+          )}
+          {c2paLogs.length > 0 && (
+            <div className="mt-2 max-h-40 space-y-0.5 overflow-y-auto rounded border bg-muted/30 px-2.5 py-2 font-mono text-[11px] leading-relaxed">
+              {c2paLogs.map((l, i) => (
+                <div key={`c2pa-${i}-${l.slice(0, 12)}`} className="break-words text-muted-foreground">
+                  {l}
+                </div>
+              ))}
+            </div>
+          )}
+          {upscaleLogs.length > 0 && (
+            <div className="mt-2 max-h-40 space-y-0.5 overflow-y-auto rounded border bg-muted/30 px-2.5 py-2 font-mono text-[11px] leading-relaxed">
+              {upscaleLogs.map((l, i) => (
+                <div key={`up-${i}-${l.slice(0, 12)}`} className="break-words text-muted-foreground">
+                  {l}
+                </div>
+              ))}
+            </div>
+          )}
+          {(captionRun || captionLogs.length > 0) && (
+            <div className="mt-2 max-h-52 space-y-0.5 overflow-y-auto rounded border bg-muted/30 px-2.5 py-2 font-mono text-[11px] leading-relaxed">
+              {captionRun ? (
+                <div className="text-foreground">
+                  {captionRun.statut === "running"
+                    ? t("bibliotheque.rattraperServeur", {
+                        fait: captionRun.fait,
+                        total: captionRun.total,
+                      })
+                    : t("bibliotheque.rattraperFin", {
+                        ok: captionRun.ok,
+                        aucune: captionRun.aucune,
+                        hooks: captionRun.hooks,
+                        echecs: captionRun.echecs,
+                      })}
+                </div>
+              ) : null}
+              {(captionRun?.logs ?? []).map((l, i) => (
+                <div key={`cap-run-${i}-${l.slice(0, 16)}`} className="break-words text-muted-foreground">
+                  {l}
+                </div>
+              ))}
+              {captionLogs.map((l, i) => (
+                <div key={`cap-${i}-${l.slice(0, 12)}`} className="break-words text-muted-foreground">
+                  {l}
+                </div>
+              ))}
+            </div>
+          )}
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="flex flex-wrap items-center gap-2">
+            <select
+              aria-label={t("labels.title")}
+              className={selectClass}
+              value={labelId}
+              onChange={(e) => changerLabel(e.target.value)}
+            >
+              <option value="">{t("bibliotheque.tousLabels")}</option>
+              {(labels.data ?? []).map((l) => (
+                <option key={l.id} value={l.id}>
+                  {l.nom}
+                </option>
+              ))}
+            </select>
 
-          {affichees.length > 0 && (
-            <Button size="sm" variant="outline" onClick={toutSelectionner}>
-              {t("bibliotheque.toutSelectionner", { count: affichees.length })}
-            </Button>
+            {affichees.length > 0 && (
+              <Button size="sm" variant="outline" onClick={toutSelectionner}>
+                {t("bibliotheque.toutSelectionner", { count: affichees.length })}
+              </Button>
+            )}
+
+            {totalPages > 1 && (
+              <div className="ml-auto flex flex-wrap items-center gap-2">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  disabled={pageCourante <= 1 || biblio.isFetching}
+                  onClick={() => allerPage(pageCourante - 1)}
+                >
+                  <ChevronLeft className="size-4" />
+                  {t("bibliotheque.pagePrecedente")}
+                </Button>
+                <span className="text-sm tabular-nums text-muted-foreground">
+                  {t("bibliotheque.pageSur", { page: pageCourante, pages: totalPages })}
+                </span>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  disabled={pageCourante >= totalPages || biblio.isFetching}
+                  onClick={() => allerPage(pageCourante + 1)}
+                >
+                  {t("bibliotheque.pageSuivante")}
+                  <ChevronRight className="size-4" />
+                </Button>
+              </div>
+            )}
+          </div>
+
+          {/* Barre d'actions de sélection : n'apparaît que si des visuels sont cochés. */}
+          {selection.size > 0 && (
+            <div className="flex flex-wrap items-center justify-between gap-2 rounded-lg border bg-muted/40 p-2.5">
+              <span className="text-sm font-medium">
+                {t("bibliotheque.selection", { count: selection.size })}
+              </span>
+              <div className="flex items-center gap-2">
+                <Button size="sm" variant="ghost" onClick={viderSelection} disabled={suppr !== null}>
+                  {t("bibliotheque.toutDeselectionner")}
+                </Button>
+                <Button
+                  size="sm"
+                  variant="destructive"
+                  onClick={supprimerSelection}
+                  disabled={suppr !== null}
+                >
+                  <Trash2 className="size-4" />
+                  {suppr
+                    ? t("bibliotheque.suppressionLot", { fait: suppr.fait, total: suppr.total })
+                    : t("bibliotheque.supprimerSelection", { count: selection.size })}
+                </Button>
+              </div>
+            </div>
           )}
 
+          {biblio.isPending && (
+            <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
+          )}
+          {biblio.isError && (
+            <p className="text-sm text-destructive">{(biblio.error as Error).message}</p>
+          )}
+          {!biblio.isPending && affichees.length === 0 && (
+            <EmptyState title={t("bibliotheque.empty")} />
+          )}
+
+          <div className="space-y-8">
+            {groupes.map((groupe) => {
+              const key = groupe.label?.id ?? "__sans__";
+              return (
+                <section key={key} className="space-y-3">
+                  <div className="flex flex-wrap items-center gap-2 border-b pb-2">
+                    {groupe.label ? (
+                      <h3 className="text-base font-semibold tracking-tight">
+                        {groupe.label.nom}
+                      </h3>
+                    ) : (
+                      <h3 className="text-base font-semibold tracking-tight text-muted-foreground">
+                        {t("bibliotheque.sansLabel")}
+                      </h3>
+                    )}
+                    <Badge variant="secondary">
+                      {t("bibliotheque.nbPhotos", { count: groupe.medias.length })}
+                    </Badge>
+                  </div>
+                  <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-6">
+                    {groupe.medias.map((media) => (
+                      <VignetteMedia
+                        key={`${key}-${media.id}`}
+                        media={media}
+                        onChange={rafraichir}
+                        selectionne={selection.has(media.id)}
+                        onToggle={() => basculer(media.id)}
+                        premier={premier}
+                        etapesLot={etapesLot[media.id] ?? null}
+                        modeleUpscale={modeleUpscale}
+                        captionBusy={captionUn.has(media.id) || captionLot !== null}
+                        onCaption={(forcer) => captionnerUne(media, forcer)}
+                      />
+                    ))}
+                  </div>
+                </section>
+              );
+            })}
+          </div>
+
           {totalPages > 1 && (
-            <div className="ml-auto flex flex-wrap items-center gap-2">
+            <div className="flex flex-wrap items-center justify-center gap-3 border-t pt-4">
               <Button
                 size="sm"
                 variant="outline"
@@ -739,109 +844,8 @@ export function AdminBibliothequePage() {
               </Button>
             </div>
           )}
-        </div>
-
-        {/* Barre d'actions de sélection : n'apparaît que si des visuels sont cochés. */}
-        {selection.size > 0 && (
-          <div className="flex flex-wrap items-center justify-between gap-2 rounded-lg border bg-muted/40 p-2.5">
-            <span className="text-sm font-medium">
-              {t("bibliotheque.selection", { count: selection.size })}
-            </span>
-            <div className="flex items-center gap-2">
-              <Button size="sm" variant="ghost" onClick={viderSelection} disabled={suppr !== null}>
-                {t("bibliotheque.toutDeselectionner")}
-              </Button>
-              <Button
-                size="sm"
-                variant="destructive"
-                onClick={supprimerSelection}
-                disabled={suppr !== null}
-              >
-                <Trash2 className="size-4" />
-                {suppr
-                  ? t("bibliotheque.suppressionLot", { fait: suppr.fait, total: suppr.total })
-                  : t("bibliotheque.supprimerSelection", { count: selection.size })}
-              </Button>
-            </div>
-          </div>
-        )}
-
-        {biblio.isPending && (
-          <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
-        )}
-        {biblio.isError && (
-          <p className="text-sm text-destructive">{(biblio.error as Error).message}</p>
-        )}
-        {!biblio.isPending && affichees.length === 0 && (
-          <EmptyState title={t("bibliotheque.empty")} />
-        )}
-
-        <div className="space-y-8">
-          {groupes.map((groupe) => {
-            const key = groupe.label?.id ?? "__sans__";
-            return (
-              <section key={key} className="space-y-3">
-                <div className="flex flex-wrap items-center gap-2 border-b pb-2">
-                  {groupe.label ? (
-                    <h3 className="text-base font-semibold tracking-tight">
-                      {groupe.label.nom}
-                    </h3>
-                  ) : (
-                    <h3 className="text-base font-semibold tracking-tight text-muted-foreground">
-                      {t("bibliotheque.sansLabel")}
-                    </h3>
-                  )}
-                  <Badge variant="secondary">
-                    {t("bibliotheque.nbPhotos", { count: groupe.medias.length })}
-                  </Badge>
-                </div>
-                <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-6">
-                  {groupe.medias.map((media) => (
-                    <VignetteMedia
-                      key={`${key}-${media.id}`}
-                      media={media}
-                      onChange={rafraichir}
-                      selectionne={selection.has(media.id)}
-                      onToggle={() => basculer(media.id)}
-                      premier={premier}
-                      etapesLot={etapesLot[media.id] ?? null}
-                      modeleUpscale={modeleUpscale}
-                      captionBusy={captionUn.has(media.id) || captionLot !== null}
-                      onCaption={(forcer) => captionnerUne(media, forcer)}
-                    />
-                  ))}
-                </div>
-              </section>
-            );
-          })}
-        </div>
-
-        {totalPages > 1 && (
-          <div className="flex flex-wrap items-center justify-center gap-3 border-t pt-4">
-            <Button
-              size="sm"
-              variant="outline"
-              disabled={pageCourante <= 1 || biblio.isFetching}
-              onClick={() => allerPage(pageCourante - 1)}
-            >
-              <ChevronLeft className="size-4" />
-              {t("bibliotheque.pagePrecedente")}
-            </Button>
-            <span className="text-sm tabular-nums text-muted-foreground">
-              {t("bibliotheque.pageSur", { page: pageCourante, pages: totalPages })}
-            </span>
-            <Button
-              size="sm"
-              variant="outline"
-              disabled={pageCourante >= totalPages || biblio.isFetching}
-              onClick={() => allerPage(pageCourante + 1)}
-            >
-              {t("bibliotheque.pageSuivante")}
-              <ChevronRight className="size-4" />
-            </Button>
-          </div>
-        )}
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
+    </div>
   );
 }

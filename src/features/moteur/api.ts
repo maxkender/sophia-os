@@ -1748,7 +1748,8 @@ export async function listerSlides(postId: string): Promise<PostSlide[]> {
     // storage_path distingue une photo nettoyée (`propre/…`) d'un original
     // gardé faute de nettoyage (`brut/…`), qui porte encore son texte.
     // upscale_le : badge / forcer re-upscale depuis le détail post.
-    .select("*, media_library(url, storage_path, upscale_le)")
+    // texte_restant : une photo `propre/` signalée encore écrite n'est pas propre.
+    .select("*, media_library(url, storage_path, upscale_le, texte_restant)")
     .eq("post_id", postId)
     .order("position");
   if (error) throw error;
@@ -4880,6 +4881,134 @@ export const revoquerPost = (postId: string) =>
 
 /** Alias créateur : même Edge, contrôles ownership + quota côté serveur. */
 export const rechargerPostCreateur = revoquerPost;
+
+export interface ResultatSignalementTexte {
+  ok: boolean;
+  /** La photo vient d'être exclue des pools par ce signalement. */
+  signalee: boolean;
+  remplacee: boolean;
+  mediaId: string | null;
+  url: string | null;
+  slidesPropagees: number;
+  contenusPropages: number;
+}
+
+/** « Il reste du texte sur cette photo » : la photo sort des pools et la slide
+ *  reçoit un remplaçant du même label (contrôles ownership côté serveur). */
+export const signalerTexteSlide = (postSlideId: string) =>
+  invoke<ResultatSignalementTexte>("signaler-texte", { postSlideId });
+
+export type StatutSignalementTexte = "ouvert" | "corrige" | "confirme" | "rejete";
+
+export interface SignalementTexte {
+  id: string;
+  media_id: string;
+  post_id: string | null;
+  signale_par: string | null;
+  remplace_par: string | null;
+  slides_propagees: number;
+  contenus_propages: number;
+  statut: StatutSignalementTexte;
+  created_at: string;
+  media: {
+    url: string;
+    storage_path: string;
+    texte_restant: boolean;
+    contenu_id: string | null;
+  } | null;
+  remplacant: { url: string } | null;
+  /** Prénom + nom du poster, lu à part (`signale_par` pointe sur auth.users). */
+  poster: string | null;
+}
+
+/** Signalements en attente de l'admin, les plus récents d'abord. */
+export async function listerSignalementsTexte(): Promise<SignalementTexte[]> {
+  const { data, error } = await supabase
+    .from("signalements_texte")
+    .select(
+      "id, media_id, post_id, signale_par, remplace_par, slides_propagees, contenus_propages, statut, created_at, " +
+        "media:media_library!signalements_texte_media_id_fkey(url, storage_path, texte_restant, contenu_id), " +
+        "remplacant:media_library!signalements_texte_remplace_par_fkey(url)",
+    )
+    .eq("statut", "ouvert")
+    .order("created_at", { ascending: false })
+    .limit(200);
+  if (error) throw error;
+  const lignes = (data ?? []) as unknown as Omit<SignalementTexte, "poster">[];
+
+  const posterIds = [...new Set(lignes.map((l) => l.signale_par).filter((x): x is string => Boolean(x)))];
+  const noms = new Map<string, string>();
+  if (posterIds.length > 0) {
+    const { data: profils, error: errP } = await supabase
+      .from("profiles")
+      .select("id, prenom, nom")
+      .in("id", posterIds);
+    if (errP) throw errP;
+    for (const p of profils ?? []) {
+      noms.set(p.id as string, [p.prenom, p.nom].filter(Boolean).join(" "));
+    }
+  }
+  return lignes.map((l) => ({ ...l, poster: l.signale_par ? noms.get(l.signale_par) ?? null : null }));
+}
+
+/**
+ * Renettoie une photo signalée SANS la remettre en circulation : `nettoyer-media`
+ * repasse `texte_restant` à false dès qu'il a fini, or le résultat peut encore
+ * porter du texte. On la garde exclue jusqu'au verdict de l'admin.
+ */
+export async function renettoyerPhotoSignalee(
+  mediaId: string,
+  onEtape?: (e: EvenementEtape) => void,
+) {
+  const resultat = await nettoyerMedia(mediaId, onEtape);
+  if (resultat.nettoyee) {
+    const { error } = await supabase
+      .from("media_library")
+      .update({ texte_restant: true })
+      .eq("id", mediaId);
+    if (error) throw error;
+  }
+  return resultat;
+}
+
+/**
+ * Tranche un signalement. Remettre la photo en circulation la rend aux pools :
+ * `corrige` si elle a été renettoyée (chemin `propre/manuel/{id}` posé par
+ * `nettoyer-media`), `rejete` sinon — il n'y avait pas de texte. L'exclure la
+ * laisse hors des pools (`confirme`). Les remplacements déjà faits restent en
+ * place dans tous les cas.
+ */
+export async function trancherSignalementTexte(
+  signalement: Pick<SignalementTexte, "id" | "media_id" | "media">,
+  remettre: boolean,
+): Promise<StatutSignalementTexte> {
+  const renettoyee = Boolean(
+    signalement.media?.storage_path?.startsWith(`propre/manuel/${signalement.media_id}`),
+  );
+  const statut: StatutSignalementTexte = remettre
+    ? renettoyee
+      ? "corrige"
+      : "rejete"
+    : "confirme";
+
+  const { error: errM } = await supabase
+    .from("media_library")
+    .update({ texte_restant: !remettre })
+    .eq("id", signalement.media_id);
+  if (errM) throw errM;
+
+  const { data: userData } = await supabase.auth.getUser();
+  const { error } = await supabase
+    .from("signalements_texte")
+    .update({
+      statut,
+      traite_par: userData.user?.id ?? null,
+      traite_le: new Date().toISOString(),
+    })
+    .eq("id", signalement.id);
+  if (error) throw error;
+  return statut;
+}
 
 /**
  * Dernier post done d'un compte pour un jour (hors `exclureId`).

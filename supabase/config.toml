@@ -129,6 +129,9 @@ verify_jwt = false
 [functions.scoring]
 verify_jwt = false
 
+[functions.signaler-texte]
+verify_jwt = false
+
 [functions.strip-c2pa]
 verify_jwt = false
 

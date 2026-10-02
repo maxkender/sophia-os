@@ -40,7 +40,7 @@ export const IMAGE_MODELS = [
  * formes doivent coexister, sinon on cherche une clé qui n'existe jamais dans
  * la réponse.
  */
-interface Part {
+export interface Part {
   text?: string;
   inline_data?: { mime_type: string; data: string };
   inlineData?: { mimeType: string; data: string };
@@ -86,7 +86,7 @@ async function call(model: string, parts: Part[], config?: GenConfig): Promise<P
   return (data?.candidates?.[0]?.content?.parts ?? []) as Part[];
 }
 
-function textOf(parts: Part[]): string {
+export function textOf(parts: Part[]): string {
   return parts
     .map((part) => part.text ?? "")
     .join("")
@@ -105,7 +105,7 @@ function estTransitoireGemini(message: string): boolean {
   );
 }
 
-async function callWithFallback(models: string[], parts: Part[]): Promise<Part[]> {
+export async function callWithFallback(models: string[], parts: Part[]): Promise<Part[]> {
   // On essaie chaque modèle ; si TOUS échouent pour une raison PASSAGÈRE
   // (surcharge Gemini), on réessaie après une attente croissante + jitter, au
   // lieu de remonter une erreur 500 tout de suite. C'est ce qui manquait aux
@@ -242,7 +242,7 @@ Si la slide ne contient aucun texte incrusté, réponds exactement : (aucun text
  * une bonne fois. Renvoie une traduction par position + hashtags (légende TikTok)
  * dans la langue cible.
  */
-const LANGUES: Record<string, string> = {
+export const LANGUES: Record<string, string> = {
   fr: "français",
   en: "anglais",
   es: "espagnol",
@@ -415,28 +415,6 @@ Réponds uniquement en JSON, sans bloc de code :
  * Note la pertinence d'un slideshow pour une pub Sophia (app de culture
  * générale). Évite de payer nettoyage et traduction sur un contenu inutilisable.
  */
-export const DEFAULT_RELEVANCE_PROMPT_MICABO = `micabo est une application et un site d'éducation IA pour les étudiants : tu déposes tes cours, tes notes ou un PDF, et micabo génère automatiquement les flashcards, puis te fait réviser 10 minutes par jour au bon moment.
-
-Note de 0 à 100 la pertinence de ce slideshow pour PROMOUVOIR micabo avec un CTA utilisable et convertible (pas une pub plaquée).
-
-Question décisive : « Est-ce qu'on peut glisser naturellement : transforme tes cours / notes en flashcards et révise 10 min par jour — micabo le fait pour toi » sans que ça sonne faux ?
-
-Notes hautes (75-100) — OUI, CTA convertible :
-- méthodes de révision, prise de notes, fiches, quiz, active recall, spaced repetition
-- organisation scolaire, rentrée, examens (bac, SAT, partiels), devenir 1er de la classe
-- apprendre une matière / une langue / du vocabulaire
-- motivation étudiante liée au travail scolaire (pas au lifestyle)
-
-Notes moyennes (40-74) — studytok esthétique ou motivation vague, CTA possible mais faible.
-
-Notes basses (0-39) — refuse :
-- drama, rivalités, « gloomy coquette », internat esthétique sans méthode
-- beauté, séduction, fitness, argent, productivité corporate
-- tout post où parler de flashcards / cours IA sonnerait plaqué ou hors-sujet
-- culture générale Sophia (curiosité, éloquence) SANS angle révision / notes / examens
-
-Ne note jamais comme si c'était Sophia (culture générale). micabo = progrès en cours, pas culture générale.`;
-
 export const DEFAULT_RELEVANCE_PROMPT = `Sophia est une application de culture
 générale : elle aide à apprendre, à enrichir ses connaissances et à devenir
 plus cultivé.
@@ -506,7 +484,12 @@ export async function integrateSophia(input: {
   caption: string;
   /** Langue du compte : la slide de placement doit parler comme ses voisines. */
   langue?: string;
-  /** Slug de l'application (sophia, micabo, …). */
+  /**
+   * Ignoré. Héritage de micabo (application retirée) : le texte de marque est
+   * désormais TOUJOURS celui de Sophia. Le placement des autres applications
+   * passe par `integrerApplication` (placement_application.ts), qui a ses
+   * propres règles de marque génériques. Gardé pour ne pas casser les appelants.
+   */
   marque?: string;
 }): Promise<SophiaPlacement | null> {
   // Sophia DOIT tomber dans les 2-3 dernières slides (jamais au début) : on borne
@@ -547,13 +530,11 @@ Slides du slideshow (slide 1 = couverture) :
 ${slideList}
 ${examples ? `\nCorrections passées à respecter :\n${examples}\n` : ""}
 --- SORTIE ---
-Ne remplace jamais la slide 1 (couverture). Le placement de ${input.marque === "micabo" ? "micabo" : "Sophia"} doit toujours tomber dans les
+Ne remplace jamais la slide 1 (couverture). Le placement de Sophia doit toujours tomber dans les
 2-3 DERNIÈRES slides, jamais avant : choisis UNE slide parmi ces positions
 UNIQUEMENT : ${autoriseesTxt}. Écris 3 variantes qui remplacent son texte.
 Chaque variante DOIT :
-${input.marque === "micabo"
-    ? `- MENTION DE micabo (toujours en minuscules) selon le TON des slides, sans formule publicitaire.`
-    : `- MENTION DE SOPHIA selon le TON des slides. Si elles s'adressent au lecteur à
+- MENTION DE SOPHIA selon le TON des slides. Si elles s'adressent au lecteur à
   la 2e personne du singulier, la mention doit être INDIRECTE : pas d'impératif
   publicitaire du type « utilise / télécharge Sophia », mais une formule du type
   « une appli de micro-apprentissage comme Sophia », rendue en ${langue}. Si les
@@ -563,7 +544,7 @@ ${input.marque === "micabo"
   pour « appli » doit être celui de la langue de sortie (anglais « the Sophia
   app », allemand « die Sophia-App », italien « l'app Sophia », turc « Sophia
   uygulaması », espagnol « la app Sophia »…). N'écris JAMAIS la forme française
-  « l'appli » dans une slide qui n'est pas en français.`}
+  « l'appli » dans une slide qui n'est pas en français.
 - reprendre EXACTEMENT le préfixe de la slide remplacée : si son texte commence
   par un numéro ("5.", "3)"), une puce ou un emoji, la variante commence par le
   MÊME. Ne change jamais le numéro, ne saute pas de numéro.

@@ -61,10 +61,9 @@ import {
   type StatsCompteSlideshows,
 } from "./statsSlideshowsCompte";
 import {
-  estSlugApplicationValide,
-  normaliserSlugApplication,
   type ApplicationOs,
 } from "./applications";
+import { estErreurSchemaAbsent } from "./multiapp/logique";
 import { comptePrincipal, normaliserTypeCompte, resoudrePremierCompte } from "./comptesCm";
 import { estLabelSysteme, SLUG_HOOK } from "./mediaCaption";
 import {
@@ -86,64 +85,6 @@ export async function listerApplications(): Promise<ApplicationOs[]> {
     .order("created_at");
   if (error) throw error;
   return (data ?? []) as ApplicationOs[];
-}
-
-export async function creerApplication(input: {
-  slug: string;
-  nom: string;
-}): Promise<ApplicationOs> {
-  const slug = normaliserSlugApplication(input.slug);
-  const nom = input.nom.trim() || slug;
-  if (!estSlugApplicationValide(slug)) throw new Error("SLUG_APPLICATION_INVALIDE");
-  const { data, error } = await supabase
-    .from("applications")
-    .insert({ slug, nom })
-    .select("id, slug, nom, created_at")
-    .single();
-  if (error) throw error;
-  const app = data as ApplicationOs;
-  const { data: sophia } = await supabase
-    .from("applications")
-    .select("id")
-    .eq("slug", "sophia")
-    .maybeSingle();
-  if (sophia?.id) {
-    const { data: systeme } = await supabase
-      .from("labels")
-      .select("nom, slug, couleur, genre, ugc_ai_video")
-      .eq("application_id", sophia.id)
-      .in("slug", ["hook", "ugc-ai-video"]);
-    if ((systeme ?? []).length > 0) {
-      await supabase.from("labels").insert(
-        (systeme ?? []).map((l) => ({
-          nom: l.nom,
-          slug: l.slug,
-          couleur: l.couleur,
-          genre: l.genre ?? null,
-          ugc_ai_video: Boolean(l.ugc_ai_video),
-          application_id: app.id,
-        })),
-      );
-    }
-    const { data: pertinence } = await supabase
-      .from("prompts")
-      .select("contenu")
-      .eq("cle", "pertinence")
-      .maybeSingle();
-    const { data: placement } = await supabase
-      .from("prompts")
-      .select("contenu")
-      .eq("cle", "placement_sophia")
-      .maybeSingle();
-    await supabase.from("prompts").upsert(
-      [
-        { cle: `pertinence_${slug}`, contenu: pertinence?.contenu ?? "" },
-        { cle: `placement_${slug}`, contenu: placement?.contenu ?? "" },
-      ],
-      { onConflict: "cle" },
-    );
-  }
-  return app;
 }
 
 /** Date du jour en YYYY-MM-DD, en heure locale — le poster raisonne sur sa
@@ -168,7 +109,7 @@ function jourParisDepuisIso(iso: string | null | undefined): string | null {
   return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(d);
 }
 
-async function invoke<T>(name: string, body: Record<string, unknown>): Promise<T> {
+export async function invoke<T>(name: string, body: Record<string, unknown>): Promise<T> {
   const { data, error } = await supabase.functions.invoke(name, { body });
   if (error) {
     // Sur une réponse non-2xx, supabase renvoie un message générique
@@ -285,10 +226,16 @@ async function invokeNettoyageStream(
 
 // --- Comptes de référence ---------------------------------------------------
 
-export async function listerSources(applicationId?: string | null): Promise<CompteReference[]> {
-  let q = supabase.from("comptes_reference").select("*").order("handle_tiktok");
-  if (applicationId) q = q.eq("application_id", applicationId);
-  const { data, error } = await q;
+/**
+ * Toutes les sources, quelle que soit l'application : un post importé sert
+ * toutes les applications de ses labels (multi-app), une source n'appartient
+ * donc plus à aucune. Sa colonne `application_id` reste, figée à Sophia.
+ */
+export async function listerSources(): Promise<CompteReference[]> {
+  const { data, error } = await supabase
+    .from("comptes_reference")
+    .select("*")
+    .order("handle_tiktok");
   if (error) throw error;
   return data as CompteReference[];
 }
@@ -297,15 +244,14 @@ export async function creerSource(input: {
   handle: string;
   niche: string;
   langue: string;
-  application_id?: string | null;
   /** Rattache la source à un compte principal (source « conjointe »). */
   parent_id?: string | null;
   /** Genre hérité du principal (les conjoints partagent le même genre). */
   genre?: "homme" | "femme";
 }): Promise<CompteReference> {
-  if (!input.application_id) {
-    throw new Error("Application requise pour créer une source");
-  }
+  // Plus d'application à choisir : `comptes_reference.application_id` prend
+  // son défaut (Sophia) et ne sert plus de cloison — ce sont les labels des
+  // contenus importés qui décident des applications servies.
   const { data, error } = await supabase
     .from("comptes_reference")
     .insert({
@@ -313,7 +259,6 @@ export async function creerSource(input: {
       niche: input.niche.trim() || null,
       langue: input.langue,
       parent_id: input.parent_id ?? null,
-      application_id: input.application_id,
       ...(input.genre ? { genre: input.genre } : {}),
     })
     .select()
@@ -517,7 +462,6 @@ export function assurerComptePoster(input: {
   userId: string;
   langue: string;
   posts_par_jour?: number;
-  application_slug?: string;
 }) {
   return invoke<{
     ok: boolean;
@@ -534,7 +478,6 @@ export function assurerComptePoster(input: {
     action: "ensure_compte",
     userId: input.userId,
     langue: input.langue,
-    application_slug: input.application_slug ?? "",
     ...(input.posts_par_jour != null
       ? { posts_par_jour: normaliserPostsParJour(Number(input.posts_par_jour)) }
       : {}),
@@ -806,22 +749,23 @@ type PostFileRow = {
 /** Slideshows assignés marqués publiés ce jour Paris, hors déjà reviewés / passés. */
 export async function listerFileReviewsJour(opts?: {
   jour?: string;
-  applicationId?: string | null;
 }): Promise<PostFileReview[]> {
   const jour = opts?.jour ?? aujourdhuiParis();
   const { debut, fin } = isoBornesJourParis(jour);
-  let q = supabase
+  // Tous les comptes : l'application d'un compte n'est plus un critère (ses
+  // labels peuvent servir plusieurs applications) — la review porte sur la
+  // publication, pas sur l'application promue.
+  const q = supabase
     .from("posts")
     .select(
       "id, compte_id, date_publication_prevue, publie_at, publie_url, est_test, " +
         "sujets(source_url), " +
-        "comptes!inner(poster_id, persona_nom, handle_tiktok, avatar_url, langue, type_compte, ugc_ai_video, application_id, profiles(prenom, nom))",
+        "comptes!inner(poster_id, persona_nom, handle_tiktok, avatar_url, langue, type_compte, ugc_ai_video, profiles(prenom, nom))",
     )
     .eq("est_test", false)
     .gte("publie_at", debut)
     .lt("publie_at", fin)
     .order("publie_at", { ascending: true });
-  if (opts?.applicationId) q = q.eq("comptes.application_id", opts.applicationId);
 
   const { data, error } = await q;
   if (error) throw error;
@@ -1148,7 +1092,6 @@ export function ajouterCompte(input: {
   posterId: string;
   type_compte: TypeCompte;
   langue: string;
-  application_slug?: string;
   posts_par_jour?: number;
   handle_tiktok?: string;
   tiktok_email?: string;
@@ -1166,7 +1109,6 @@ export function ajouterCompte(input: {
     userId: input.posterId,
     type_compte: input.type_compte,
     langue: input.langue,
-    application_slug: input.application_slug ?? "",
     ...(input.posts_par_jour != null
       ? { posts_par_jour: normaliserPostsParJour(Number(input.posts_par_jour)) }
       : {}),
@@ -1289,7 +1231,6 @@ export function creerPoster(input: {
   type_compte?: TypeCompte | "aucun";
   /** Quota d'assignation journalier (1–3). Défaut 2 côté Edge. */
   posts_par_jour?: number;
-  application_slug?: string;
   handle_tiktok?: string;
   tiktok_email?: string;
   tiktok_password?: string;
@@ -1315,7 +1256,6 @@ export function creerPoster(input: {
       ? ""
       : (input.langue ?? ""),
     type_compte: resoudrePremierCompte(input.type_compte, input.langue),
-    application_slug: input.application_slug ?? "",
     ...(input.posts_par_jour != null
       ? { posts_par_jour: normaliserPostsParJour(Number(input.posts_par_jour)) }
       : {}),
@@ -1662,7 +1602,6 @@ export async function listerBibliothequePage(opts?: {
   labelId?: string;
   page?: number;
   pageSize?: number;
-  applicationId?: string | null;
 }): Promise<PageBiblio> {
   const pageSize = opts?.pageSize ?? BIBLIO_PAGE_SIZE;
   const page = Math.max(1, opts?.page ?? 1);
@@ -1673,27 +1612,25 @@ export async function listerBibliothequePage(opts?: {
   let total = 0;
 
   if (opts?.labelId) {
-    let q = supabase
+    const q = supabase
       .from("media_library")
       .select("*, media_labels!inner(label_id)", { count: "exact" })
       .eq("media_labels.label_id", opts.labelId)
       .like("storage_path", "propre/%")
       .order("created_at", { ascending: false })
       .range(from, to);
-    if (opts?.applicationId) q = q.eq("application_id", opts.applicationId);
     const { data, error, count } = await q;
     if (error) throw error;
     // deno-lint-ignore no-explicit-any
     medias = ((data ?? []) as any[]).map(({ media_labels: _ml, ...m }) => m as Media);
     total = count ?? 0;
   } else {
-    let q = supabase
+    const q = supabase
       .from("media_library")
       .select("*", { count: "exact" })
       .like("storage_path", "propre/%")
       .order("created_at", { ascending: false })
       .range(from, to);
-    if (opts?.applicationId) q = q.eq("application_id", opts.applicationId);
     const { data, error, count } = await q;
     if (error) throw error;
     medias = (data ?? []) as Media[];
@@ -1710,15 +1647,11 @@ export async function listerBibliothequePage(opts?: {
  * @deprecated Préférer `listerBibliothequePage` (pagination).
  * Bibliothèque groupée par label — charge tout (lourd).
  */
-export async function listerBibliothequeParLabels(
-  labelId?: string,
-  applicationId?: string | null,
-): Promise<GroupeBiblio[]> {
+export async function listerBibliothequeParLabels(labelId?: string): Promise<GroupeBiblio[]> {
   const page = await listerBibliothequePage({
     labelId,
     page: 1,
     pageSize: 10_000,
-    applicationId,
   });
   return page.groupes;
 }
@@ -1749,7 +1682,8 @@ export async function listerSlides(postId: string): Promise<PostSlide[]> {
     // storage_path distingue une photo nettoyée (`propre/…`) d'un original
     // gardé faute de nettoyage (`brut/…`), qui porte encore son texte.
     // upscale_le : badge / forcer re-upscale depuis le détail post.
-    .select("*, media_library(url, storage_path, upscale_le)")
+    // texte_restant : une photo `propre/` signalée encore écrite n'est pas propre.
+    .select("*, media_library(url, storage_path, upscale_le, texte_restant)")
     .eq("post_id", postId)
     .order("position");
   if (error) throw error;
@@ -2278,15 +2212,33 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
   };
 }
 
-export async function statsPosts(compteId?: string): Promise<StatsPost[]> {
-  let query = supabase
-    .from("stats_posts")
-    .select("*")
-    .order("vues", { ascending: false, nullsFirst: false })
-    .limit(100);
-  if (compteId) query = query.eq("compte_id", compteId);
+/**
+ * Posts et leurs dernières métriques, filtrables par compte et par application
+ * promue (`stats_posts.application_id`, ajoutée par 0256).
+ *
+ * Tant que 0256 n'est pas passée, la colonne n'existe pas et le filtre fait
+ * échouer la requête : on la rejoue sans lui — tout l'historique est Sophia,
+ * donc le résultat est le même que filtré sur Sophia.
+ */
+export async function statsPosts(
+  compteId?: string,
+  applicationId?: string | null,
+): Promise<StatsPost[]> {
+  const lire = (filtrerApplication: boolean) => {
+    let query = supabase
+      .from("stats_posts")
+      .select("*")
+      .order("vues", { ascending: false, nullsFirst: false })
+      .limit(100);
+    if (compteId) query = query.eq("compte_id", compteId);
+    if (filtrerApplication && applicationId) query = query.eq("application_id", applicationId);
+    return query;
+  };
 
-  const { data, error } = await query;
+  let { data, error } = await lire(true);
+  if (error && applicationId && estErreurSchemaAbsent(error)) {
+    ({ data, error } = await lire(false));
+  }
   if (error) throw error;
   return data as StatsPost[];
 }
@@ -3593,7 +3545,7 @@ export const enqueueImportCompte = (
   compteReferenceId: string,
   labelIds?: string[],
   langue?: string | null,
-  opts?: { nouveauxSeulement?: boolean; application_id?: string | null },
+  opts?: { nouveauxSeulement?: boolean },
 ) =>
   invoke<{
     ok: boolean;
@@ -3618,7 +3570,6 @@ export const enqueueImportCompte = (
     labelIds: labelIds ?? [],
     langue: langue ?? null,
     nouveauxSeulement: opts?.nouveauxSeulement ?? false,
-    application_id: opts?.application_id ?? null,
   });
 
 /** Enfile une liste d'URLs pour scrape+pipeline serveur. */
@@ -3629,7 +3580,6 @@ export const enqueueImportUrls = (opts: {
   batchId?: string;
   /** Langue d'origine du TikTok (boost ELO). */
   langue?: string | null;
-  application_id?: string | null;
 }) =>
   invoke<{
     ok: boolean;
@@ -3645,7 +3595,6 @@ export const enqueueImportUrls = (opts: {
     labelIds: opts.labelIds ?? [],
     batchId: opts.batchId ?? null,
     langue: opts.langue ?? null,
-    application_id: opts.application_id ?? null,
   });
 
 export interface StatsImportBatch {
@@ -4935,6 +4884,134 @@ export const revoquerPost = (postId: string) =>
 /** Alias créateur : même Edge, contrôles ownership + quota côté serveur. */
 export const rechargerPostCreateur = revoquerPost;
 
+export interface ResultatSignalementTexte {
+  ok: boolean;
+  /** La photo vient d'être exclue des pools par ce signalement. */
+  signalee: boolean;
+  remplacee: boolean;
+  mediaId: string | null;
+  url: string | null;
+  slidesPropagees: number;
+  contenusPropages: number;
+}
+
+/** « Il reste du texte sur cette photo » : la photo sort des pools et la slide
+ *  reçoit un remplaçant du même label (contrôles ownership côté serveur). */
+export const signalerTexteSlide = (postSlideId: string) =>
+  invoke<ResultatSignalementTexte>("signaler-texte", { postSlideId });
+
+export type StatutSignalementTexte = "ouvert" | "corrige" | "confirme" | "rejete";
+
+export interface SignalementTexte {
+  id: string;
+  media_id: string;
+  post_id: string | null;
+  signale_par: string | null;
+  remplace_par: string | null;
+  slides_propagees: number;
+  contenus_propages: number;
+  statut: StatutSignalementTexte;
+  created_at: string;
+  media: {
+    url: string;
+    storage_path: string;
+    texte_restant: boolean;
+    contenu_id: string | null;
+  } | null;
+  remplacant: { url: string } | null;
+  /** Prénom + nom du poster, lu à part (`signale_par` pointe sur auth.users). */
+  poster: string | null;
+}
+
+/** Signalements en attente de l'admin, les plus récents d'abord. */
+export async function listerSignalementsTexte(): Promise<SignalementTexte[]> {
+  const { data, error } = await supabase
+    .from("signalements_texte")
+    .select(
+      "id, media_id, post_id, signale_par, remplace_par, slides_propagees, contenus_propages, statut, created_at, " +
+        "media:media_library!signalements_texte_media_id_fkey(url, storage_path, texte_restant, contenu_id), " +
+        "remplacant:media_library!signalements_texte_remplace_par_fkey(url)",
+    )
+    .eq("statut", "ouvert")
+    .order("created_at", { ascending: false })
+    .limit(200);
+  if (error) throw error;
+  const lignes = (data ?? []) as unknown as Omit<SignalementTexte, "poster">[];
+
+  const posterIds = [...new Set(lignes.map((l) => l.signale_par).filter((x): x is string => Boolean(x)))];
+  const noms = new Map<string, string>();
+  if (posterIds.length > 0) {
+    const { data: profils, error: errP } = await supabase
+      .from("profiles")
+      .select("id, prenom, nom")
+      .in("id", posterIds);
+    if (errP) throw errP;
+    for (const p of profils ?? []) {
+      noms.set(p.id as string, [p.prenom, p.nom].filter(Boolean).join(" "));
+    }
+  }
+  return lignes.map((l) => ({ ...l, poster: l.signale_par ? noms.get(l.signale_par) ?? null : null }));
+}
+
+/**
+ * Renettoie une photo signalée SANS la remettre en circulation : `nettoyer-media`
+ * repasse `texte_restant` à false dès qu'il a fini, or le résultat peut encore
+ * porter du texte. On la garde exclue jusqu'au verdict de l'admin.
+ */
+export async function renettoyerPhotoSignalee(
+  mediaId: string,
+  onEtape?: (e: EvenementEtape) => void,
+) {
+  const resultat = await nettoyerMedia(mediaId, onEtape);
+  if (resultat.nettoyee) {
+    const { error } = await supabase
+      .from("media_library")
+      .update({ texte_restant: true })
+      .eq("id", mediaId);
+    if (error) throw error;
+  }
+  return resultat;
+}
+
+/**
+ * Tranche un signalement. Remettre la photo en circulation la rend aux pools :
+ * `corrige` si elle a été renettoyée (chemin `propre/manuel/{id}` posé par
+ * `nettoyer-media`), `rejete` sinon — il n'y avait pas de texte. L'exclure la
+ * laisse hors des pools (`confirme`). Les remplacements déjà faits restent en
+ * place dans tous les cas.
+ */
+export async function trancherSignalementTexte(
+  signalement: Pick<SignalementTexte, "id" | "media_id" | "media">,
+  remettre: boolean,
+): Promise<StatutSignalementTexte> {
+  const renettoyee = Boolean(
+    signalement.media?.storage_path?.startsWith(`propre/manuel/${signalement.media_id}`),
+  );
+  const statut: StatutSignalementTexte = remettre
+    ? renettoyee
+      ? "corrige"
+      : "rejete"
+    : "confirme";
+
+  const { error: errM } = await supabase
+    .from("media_library")
+    .update({ texte_restant: !remettre })
+    .eq("id", signalement.media_id);
+  if (errM) throw errM;
+
+  const { data: userData } = await supabase.auth.getUser();
+  const { error } = await supabase
+    .from("signalements_texte")
+    .update({
+      statut,
+      traite_par: userData.user?.id ?? null,
+      traite_le: new Date().toISOString(),
+    })
+    .eq("id", signalement.id);
+  if (error) throw error;
+  return statut;
+}
+
 /**
  * Dernier post done d'un compte pour un jour (hors `exclureId`).
  * Sert de filet si la recharge Edge a timeout après avoir créé le nouveau post.
@@ -5100,11 +5177,21 @@ export function estMarqueUgcAiVideo(lab: { slug?: string | null; nom?: string | 
   return slug === "ugc-ai-video" || nom === "ugc ai video";
 }
 
-/** Labels thématiques (hors marques système `ugc-ai-video` / `hook`). */
-export async function listerLabels(applicationId?: string | null): Promise<Label[]> {
-  let q = supabase.from("labels").select("*").order("nom");
-  if (applicationId) q = q.eq("application_id", applicationId);
-  const { data, error } = await q;
+/**
+ * Labels thématiques (hors marques système `ugc-ai-video` / `hook`), TOUS :
+ * un label sert une ou plusieurs applications (`label_applications`), il n'est
+ * plus rangé sous l'une d'elles. `labels.application_id` reste en base, figé à
+ * Sophia, pour les lecteurs historiques (bundles figés, persona) — ce n'est
+ * plus un filtre.
+ */
+export function listerLabels(): Promise<Label[]>;
+/**
+ * @deprecated L'application n'est plus un filtre de labels : l'argument est
+ * ignoré. Signature gardée le temps que les derniers appelants le lâchent.
+ */
+export function listerLabels(applicationId: string | null | undefined): Promise<Label[]>;
+export async function listerLabels(): Promise<Label[]> {
+  const { data, error } = await supabase.from("labels").select("*").order("nom");
   if (error) throw error;
   return ((data ?? []) as Label[]).filter((l) => !estLabelSysteme(l));
 }
@@ -5144,31 +5231,37 @@ export async function listerReserveLabels(
   }));
 }
 
-/** Labels affichés en bibliothèque (inclut Hook, exclut la marque UGC). */
-export async function listerLabelsBiblio(applicationId?: string | null): Promise<Label[]> {
-  let q = supabase.from("labels").select("*").order("nom");
-  if (applicationId) q = q.eq("application_id", applicationId);
-  const { data, error } = await q;
+/** Labels affichés en bibliothèque (inclut Hook, exclut la marque UGC), toutes applications. */
+export async function listerLabelsBiblio(): Promise<Label[]> {
+  const { data, error } = await supabase.from("labels").select("*").order("nom");
   if (error) throw error;
   return ((data ?? []) as Label[]).filter((l) => !estMarqueUgcAiVideo(l));
 }
 
 /** Labels qui ont au moins un slideshow `ugc_compatible` (file UGC admin). */
-export async function listerLabelIdsAvecUgc(applicationId?: string | null): Promise<string[]> {
-  let q = supabase
+export async function listerLabelIdsAvecUgc(): Promise<string[]> {
+  const { data, error } = await supabase
     .from("contenu_labels")
-    .select("label_id, contenus!inner(ugc_compatible, application_id)")
+    .select("label_id, contenus!inner(ugc_compatible)")
     .eq("contenus.ugc_compatible", true);
-  if (applicationId) q = q.eq("contenus.application_id", applicationId);
-  const { data, error } = await q;
   if (error) throw error;
   return [...new Set((data ?? []).map((r) => r.label_id as string).filter(Boolean))];
 }
 
+/**
+ * Crée un label et le RENVOIE (l'appelant enchaîne sur ses applications via
+ * `definirApplicationsLabel`). Plus d'`application_id` envoyé : la colonne
+ * prend son défaut Sophia, et un label sans ligne `label_applications` sert
+ * Sophia — exactement le comportement d'avant pour un label créé sans choix.
+ */
 export async function creerLabel(
   nom: string,
   couleur?: string | null,
-  opts?: { genre?: "homme" | "femme"; application_id?: string | null },
+  opts?: {
+    genre?: "homme" | "femme";
+    /** @deprecated Ignoré : les applications d'un label vivent dans `label_applications`. */
+    application_id?: string | null;
+  },
 ): Promise<Label> {
   const base = slugify(nom);
   if (base === "ugc-ai-video" || base === SLUG_HOOK) {
@@ -5184,7 +5277,6 @@ export async function creerLabel(
         slug,
         couleur: couleur ?? null,
         genre,
-        ...(opts?.application_id ? { application_id: opts.application_id } : {}),
       })
       .select()
       .single();
@@ -5549,22 +5641,23 @@ export async function setLabelsContenu(
     .eq("contenu_id", contenuId);
   const mediaIds = (medias ?? []).map((m) => m.id as string);
   if (mediaIds.length === 0) return;
-  const { data: hook } = await supabase
+  // TOUS les labels Hook, et une lecture ratée ARRÊTE la resynchro. Avant :
+  // `maybeSingle` échouait dès qu'un second 'hook' existait (copie micabo,
+  // 0211), `hookId` tombait à undefined et la branche « tout supprimer »
+  // effaçait le Hook des images de chaque slideshow dont on touchait les labels.
+  const { data: hooks, error: errHook } = await supabase
     .from("labels")
     .select("id")
-    .eq("slug", SLUG_HOOK)
-    .maybeSingle();
-  const hookId = hook?.id as string | undefined;
-  if (hookId) {
-    await supabase
-      .from("media_labels")
-      .delete()
-      .in("media_id", mediaIds)
-      .neq("label_id", hookId);
-  } else {
-    await supabase.from("media_labels").delete().in("media_id", mediaIds);
+    .eq("slug", SLUG_HOOK);
+  if (errHook) throw errHook;
+  const hookIds = (hooks ?? []).map((h) => h.id as string);
+  let suppression = supabase.from("media_labels").delete().in("media_id", mediaIds);
+  if (hookIds.length > 0) {
+    suppression = suppression.not("label_id", "in", `(${hookIds.join(",")})`);
   }
-  const aInserer = niches.filter((id) => id !== hookId);
+  const { error: errSuppr } = await suppression;
+  if (errSuppr) throw errSuppr;
+  const aInserer = niches.filter((id) => !hookIds.includes(id));
   if (aInserer.length === 0) return;
   const rows = mediaIds.flatMap((media_id) =>
     aInserer.map((label_id) => ({ media_id, label_id })),
@@ -5696,7 +5789,6 @@ export async function listerContenus(opts?: {
   compteReferenceId?: string | null;
   /** Slideshows dont la source a déjà été oubliée (FK nulle). */
   sansCompte?: boolean;
-  applicationId?: string | null;
 }): Promise<ContenuListe[]> {
   const limit = opts?.limit ?? 80;
   let idsFiltres: string[] | null = null;
@@ -5718,7 +5810,6 @@ export async function listerContenus(opts?: {
       .limit(2000);
     if (opts.compteReferenceId) qTous = qTous.eq("compte_reference_id", opts.compteReferenceId);
     if (opts.sansCompte) qTous = qTous.is("compte_reference_id", null);
-    if (opts.applicationId) qTous = qTous.eq("application_id", opts.applicationId);
     const [{ data: tous }, { data: avecLabel }] = await Promise.all([
       qTous,
       supabase.from("contenu_labels").select("contenu_id"),
@@ -5739,7 +5830,6 @@ export async function listerContenus(opts?: {
   if (opts?.statut) q = q.eq("statut", opts.statut);
   if (opts?.compteReferenceId) q = q.eq("compte_reference_id", opts.compteReferenceId);
   if (opts?.sansCompte) q = q.is("compte_reference_id", null);
-  if (opts?.applicationId) q = q.eq("application_id", opts.applicationId);
   if (idsFiltres) {
     // Chunk .in() pour rester sous la limite URL PostgREST.
     const chunk = 80;
@@ -5754,7 +5844,6 @@ export async function listerContenus(opts?: {
       if (opts?.statut) qChunk = qChunk.eq("statut", opts.statut);
       if (opts?.compteReferenceId) qChunk = qChunk.eq("compte_reference_id", opts.compteReferenceId);
       if (opts?.sansCompte) qChunk = qChunk.is("compte_reference_id", null);
-      if (opts?.applicationId) qChunk = qChunk.eq("application_id", opts.applicationId);
       const { data, error } = await qChunk;
       if (error) throw error;
       contenus.push(...((data ?? []) as Contenu[]));

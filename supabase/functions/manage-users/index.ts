@@ -1,8 +1,4 @@
-import {
-  resoudreApplication,
-  SLUG_MICABO,
-  type ApplicationRow,
-} from "../_shared/applications.ts";
+import { applicationSophia, type ApplicationRow } from "../_shared/applications.ts";
 import {
   consommerFileSlideshow,
   estLabelFileSlideshow,
@@ -240,7 +236,12 @@ async function gererRequete(request: Request): Promise<Response> {
 
     // HM UGC AI VIDEO : ses créateurs naissent sans file labels / sans labels.
     const hmUgcAiVideo = await estHmUgcAiVideo(supabase, acces);
-    const application = await resoudreApplication(supabase, body);
+    // Tout compte naît Sophia (identité, file labels, référence), quoi que dise
+    // body.application_id / application_slug : un compte porte des LABELS, et
+    // ce sont eux qui décident des applications qu'il promeut
+    // (docs/multi-applications.md). L'ancien front pouvait encore envoyer
+    // micabo, supprimé en 0257 — on l'ignore.
+    const application = await applicationSophia(supabase);
 
     // File admin uniquement pour un premier compte perso (pas CM, pas login seul).
     let fileItem: FileLabelItem | null = null;
@@ -248,8 +249,7 @@ async function gererRequete(request: Request): Promise<Response> {
     let personaUgc: PersonaUgcLibre | null = null;
     let modeUgcAiVideo = false;
     if (creerPerso) {
-      // Micabo : jamais d'UGC AI auto — ça reste un choix explicite plus tard.
-      if (hmUgcAiVideo && application.slug !== SLUG_MICABO) {
+      if (hmUgcAiVideo) {
         modeUgcAiVideo = true;
         personaUgc = await personaUgcLibre(supabase, application.id);
         if (!personaUgc) return json({ error: "NO_UGC_PERSONA" }, 409);
@@ -421,7 +421,7 @@ async function gererRequete(request: Request): Promise<Response> {
       return json({ ok: true, deja: true, compteId: deja.id });
     }
 
-    const application = await resoudreApplication(supabase, body);
+    const application = await applicationSophia(supabase);
     await etendreLanguesManager(supabase, acces, langue);
     return await creerComptePersoPourPoster(
       supabase,
@@ -450,7 +450,7 @@ async function gererRequete(request: Request): Promise<Response> {
       return await creerCompteCmPourPoster(supabase, acces, userId, langue, body);
     }
 
-    const application = await resoudreApplication(supabase, body);
+    const application = await applicationSophia(supabase);
     return await creerComptePersoPourPoster(
       supabase,
       acces,
@@ -703,8 +703,7 @@ async function creerComptePersoPourPoster(
   handleTiktok = "",
   application?: ApplicationRow | null,
 ): Promise<Response> {
-  const modeUgcAiVideo = application?.slug !== SLUG_MICABO &&
-    await modeUgcAiVideoPourPoster(supabase, acces, userId);
+  const modeUgcAiVideo = await modeUgcAiVideoPourPoster(supabase, acces, userId);
   let fileItem: FileLabelItem | null = null;
   let fileItemQueue: FileLabelQueued | null = null;
   let personaUgc: PersonaUgcLibre | null = null;
@@ -775,7 +774,7 @@ async function creerCompteCmPourPoster(
       poster_id: userId,
       type_compte: "cm",
       langue,
-      application_id: (await resoudreApplication(supabase, body)).id,
+      application_id: (await applicationSophia(supabase)).id,
       posts_par_jour: 1,
       warmup_started_at: null,
       warmup_ends_at: null,
@@ -1455,8 +1454,7 @@ async function preparerCompte(
       type_compte: "perso",
       compte_reference_id: referenceId,
       langue,
-      application_id: opts.application?.id ??
-        (await resoudreApplication(supabase, {})).id,
+      application_id: opts.application?.id ?? (await applicationSophia(supabase)).id,
       posts_par_jour: postsParJour,
       warmup_started_at: null,
       warmup_ends_at: null,

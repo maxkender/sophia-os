@@ -20,28 +20,27 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import {
   chargerPilotageDashboard,
-  creerApplication,
   creerLabel,
   listerLabels,
-  listerReserveLabels,
   majLabel,
   supprimerLabel,
 } from "@/features/moteur/api";
+import { definirApplicationsLabel } from "@/features/moteur/apiMultiApp";
 import { useApplication } from "@/features/moteur/ApplicationContext";
-import { estSlugApplicationValide, nomApplication } from "@/features/moteur/applications";
+import { nomApplication } from "@/features/moteur/applications";
 import {
   exemplesFeedDepuisTexte,
   exemplesFeedVersTexte,
 } from "@/features/moteur/creationManuelle";
-import {
-  classeReserve,
-  formaterReserve,
-  niveauReserve,
-} from "@/features/moteur/labelReserve";
+import { ID_SOPHIA } from "@/features/moteur/multiApp";
+import { ApplicationsCard } from "@/features/moteur/multiapp/ApplicationsCard";
+import { BadgeReserve } from "@/features/moteur/multiapp/BadgeReserve";
+import { LabelApplications } from "@/features/moteur/multiapp/LabelApplications";
+import { ReplisCard } from "@/features/moteur/multiapp/ReplisCard";
+import { useLabelsApplications } from "@/features/moteur/multiapp/useLabelsApplications";
 import type {
   Label as LabelMoteur,
   LabelGenre,
-  LabelReserve,
 } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
 
@@ -55,91 +54,60 @@ function abrege(n: number): string {
 }
 
 /**
- * Réserve du label, en jours, à même hauteur que son nom.
- *
- * C'est un PLANCHER : le stock se recharge à chaque requalification et à chaque
- * import, donc « 5 j » ne veut pas dire « mort dans 5 jours », mais « plus rien
- * en réserve si personne ne source ». Le titre au survol le dit, parce qu'un
- * chiffre nu dans un badge rouge se lit comme une prédiction.
- *
- * Silencieux quand la vue ne rend rien pour ce label : pas de badge plutôt
- * qu'un « ? » qui ferait douter de tous les autres.
+ * Les labels ne sont plus cloisonnés par application : la carte les montre
+ * TOUS, chacun avec les applications qu'il sert. Le sélecteur d'application ne
+ * fait plus que mettre en avant la réserve de celle qu'on pilote.
  */
-function BadgeReserve({ reserve }: { reserve?: LabelReserve }) {
-  const { t, i18n } = useTranslation();
-  if (!reserve) return null;
-  const niveau = niveauReserve(reserve.reserve_jours);
-  if (niveau === "inconnu") {
-    return (
-      <span
-        className="rounded border border-border bg-muted px-1 text-[10px] text-muted-foreground"
-        title={t("labels.reserveSansCompte")}
-      >
-        {t("labels.reserveAucunCompte")}
-      </span>
-    );
-  }
-  const jours = formaterReserve(reserve.reserve_jours, i18n.language);
-  return (
-    <span
-      className={`rounded border px-1 text-[10px] font-medium ${classeReserve(niveau)}`}
-      title={t("labels.reserveAide", {
-        restants: reserve.passages_restants,
-        demande: reserve.demande_jour,
-        comptes: reserve.comptes,
-      })}
-    >
-      {t("labels.reserveJours", { jours })}
-    </span>
-  );
-}
+const CLE_TOUS_LABELS = ["labels", "tous"] as const;
 
 function LabelsPilotageCard() {
   const { t } = useTranslation();
   const qc = useQueryClient();
-  const { applicationId, application, applications, setSlug } = useApplication();
+  const { applicationId, applications } = useApplication();
   const labels = useQuery({
-    queryKey: ["labels", applicationId],
-    queryFn: () => listerLabels(applicationId),
-    enabled: Boolean(applicationId),
+    queryKey: CLE_TOUS_LABELS,
+    queryFn: () => listerLabels(),
   });
-  // Requête à part, et pas un enrichissement de `listerLabels` : la gestion des
-  // labels doit rester utilisable même si la vue `label_reserve` n'est pas
-  // encore appliquée en base. Un badge manquant n'empêche pas de créer un label.
-  const reserves = useQuery({
-    queryKey: ["label-reserve", applicationId],
-    queryFn: () => listerReserveLabels(applicationId),
-    enabled: Boolean(applicationId),
-  });
-  const reserveParLabel = React.useMemo(
-    () => new Map((reserves.data ?? []).map((r) => [r.label_id, r])),
-    [reserves.data],
-  );
-  const [nouveauSlug, setNouveauSlug] = React.useState("");
-  const [nouveauNom, setNouveauNom] = React.useState("");
+  // Requêtes à part, et pas un enrichissement de `listerLabels` : la gestion
+  // des labels doit rester utilisable même si 0256 (liens label × application,
+  // vue `label_application_reserve`) n'est pas encore appliquée en base. Un
+  // badge manquant n'empêche pas de créer un label.
+  const multi = useLabelsApplications(applicationId);
   const [nom, setNom] = React.useState("");
   const [couleur, setCouleur] = React.useState("#2f6f4e");
   const [genre, setGenre] = React.useState<LabelGenre>("femme");
+  // Défaut Sophia seule : c'est aussi ce que sert un label sans ligne, donc un
+  // label créé sans toucher aux cases se comporte exactement comme avant.
+  const [appsNouveau, setAppsNouveau] = React.useState<string[]>([ID_SOPHIA]);
 
   const creer = useMutation({
-    mutationFn: () =>
-      creerLabel(nom.trim(), couleur, {
-        genre,
-        application_id: applicationId,
-      }),
+    mutationFn: async () => {
+      const lab = await creerLabel(nom.trim(), couleur, { genre });
+      // Le label existe déjà si cette écriture échoue : il sert alors Sophia par
+      // héritage, et l'erreur dit quoi recocher.
+      if (multi.multiDispo) {
+        try {
+          await definirApplicationsLabel(lab.id, appsNouveau);
+        } catch (err) {
+          throw new Error(
+            t("multiApp.labels.creeSansApplications", {
+              nom: lab.nom,
+              message: err instanceof Error ? err.message : String((err as { message?: unknown })?.message ?? err),
+            }),
+          );
+        }
+      }
+      return lab;
+    },
     onSuccess: () => {
       setNom("");
       setGenre("femme");
-      qc.invalidateQueries({ queryKey: ["labels"] });
+      setAppsNouveau([ID_SOPHIA]);
     },
-  });
-  const creerApp = useMutation({
-    mutationFn: () => creerApplication({ slug: nouveauSlug, nom: nouveauNom }),
-    onSuccess: (app) => {
-      setNouveauSlug("");
-      setNouveauNom("");
-      setSlug(app.slug);
-      qc.invalidateQueries({ queryKey: ["applications"] });
+    onSettled: () => {
+      qc.invalidateQueries({ queryKey: ["labels"] });
+      qc.invalidateQueries({ queryKey: ["label-applications"] });
+      qc.invalidateQueries({ queryKey: ["label-application-reserve"] });
     },
   });
   const changerGenre = useMutation({
@@ -151,6 +119,7 @@ function LabelsPilotageCard() {
     mutationFn: (id: string) => supprimerLabel(id),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["labels"] });
+      qc.invalidateQueries({ queryKey: ["label-applications"] });
     },
   });
 
@@ -161,52 +130,21 @@ function LabelsPilotageCard() {
         <CardDescription>{t("labels.gestionDesc")}</CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        <form
-          className="flex flex-wrap items-end gap-2 rounded-md border bg-muted/20 p-3"
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (estSlugApplicationValide(nouveauSlug.trim().toLowerCase())) creerApp.mutate();
-          }}
-        >
-          <div className="space-y-1">
-            <Label htmlFor="appSlug">{t("applications.slug")}</Label>
-            <Input
-              id="appSlug"
-              value={nouveauSlug}
-              placeholder="micabo"
-              onChange={(e) => setNouveauSlug(e.target.value)}
-              required
-            />
-          </div>
-          <div className="space-y-1">
-            <Label htmlFor="appNom">{t("applications.nom")}</Label>
-            <Input
-              id="appNom"
-              value={nouveauNom}
-              placeholder="micabo"
-              onChange={(e) => setNouveauNom(e.target.value)}
-            />
-          </div>
-          <Button type="submit" size="sm" disabled={creerApp.isPending}>
-            {t("applications.creer")}
-          </Button>
-          <p className="w-full text-xs text-muted-foreground">
-            {t("applications.liste", {
-              noms: applications.map((a) => nomApplication(a)).join(", "),
-              actuelle: application ? nomApplication(application) : "—",
+        {multi.schemaAbsent && (
+          <p className="text-[11px] text-muted-foreground">{t("multiApp.labels.schemaAbsent")}</p>
+        )}
+        {multi.erreurLiens != null && (
+          <p className="text-xs text-destructive">
+            {t("multiApp.labels.erreurLiens", {
+              message: (multi.erreurLiens as { message?: string }).message ?? String(multi.erreurLiens),
             })}
           </p>
-          {creerApp.isError && (
-            <p className="w-full text-xs text-destructive">
-              {(creerApp.error as Error).message}
-            </p>
-          )}
-        </form>
+        )}
         <form
           className="flex flex-wrap items-end gap-2"
           onSubmit={(e) => {
             e.preventDefault();
-            if (nom.trim()) creer.mutate();
+            if (nom.trim() && appsNouveau.length > 0) creer.mutate();
           }}
         >
           <div className="space-y-1">
@@ -235,53 +173,97 @@ function LabelsPilotageCard() {
               <option value="homme">{t("labels.genreHomme")}</option>
             </select>
           </div>
-          <Button type="submit" disabled={creer.isPending || !nom.trim()}>
+          {multi.multiDispo && applications.length > 1 && (
+            <fieldset className="space-y-1">
+              <legend className="text-sm font-medium">{t("multiApp.labels.applicationsServies")}</legend>
+              <div className="flex h-9 flex-wrap items-center gap-3">
+                {applications.map((app) => (
+                  <label key={app.id} className="flex items-center gap-1.5 text-xs">
+                    <input
+                      type="checkbox"
+                      className="size-3.5"
+                      checked={appsNouveau.includes(app.id)}
+                      onChange={(e) =>
+                        setAppsNouveau((avant) =>
+                          e.target.checked ? [...avant, app.id] : avant.filter((id) => id !== app.id),
+                        )
+                      }
+                    />
+                    {nomApplication(app)}
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+          )}
+          <Button type="submit" disabled={creer.isPending || !nom.trim() || appsNouveau.length === 0}>
             {creer.isPending ? t("common.saving") : t("labels.creer")}
           </Button>
+          {creer.isError && (
+            <p className="w-full text-xs text-destructive">{(creer.error as Error).message}</p>
+          )}
         </form>
         <p className="text-xs text-muted-foreground">{t("labels.genreAide")}</p>
-        <div className="list-enter flex flex-wrap gap-2">
+        {multi.multiDispo && (
+          <p className="text-xs text-muted-foreground">{t("multiApp.labels.aide")}</p>
+        )}
+        {labels.isError && (
+          <p className="text-xs text-destructive">{(labels.error as Error).message}</p>
+        )}
+        <div className="list-enter grid gap-2 md:grid-cols-2">
           {(labels.data ?? []).map((lab) => (
             <div
               key={lab.id}
-              className="flex items-center gap-1.5 border border-border/80 px-2 py-1 text-xs"
+              className="space-y-1.5 border border-border/80 px-2 py-1.5 text-xs"
             >
-              <span
-                className="size-2.5 rounded-full"
-                style={{ backgroundColor: lab.couleur ?? "#888" }}
-              />
-              <span className="font-medium">{lab.nom}</span>
-              <BadgeReserve reserve={reserveParLabel.get(lab.id)} />
-              <select
-                className="h-7 rounded border border-input bg-background px-1 text-[11px]"
-                value={lab.genre === "homme" ? "homme" : "femme"}
-                disabled={changerGenre.isPending}
-                title={t("labels.genre")}
-                onChange={(e) =>
-                  changerGenre.mutate({
-                    id: lab.id,
-                    genre: e.target.value as LabelGenre,
-                  })
-                }
-              >
-                <option value="femme">{t("labels.genreFemme")}</option>
-                <option value="homme">{t("labels.genreHomme")}</option>
-              </select>
-              <Link
-                to={`/admin/creation?label=${lab.id}`}
-                className="text-[10px] text-primary underline-offset-2 hover:underline"
-              >
-                {t("labels.creerPost")}
-              </Link>
-              <button
-                type="button"
-                className="ml-1 text-muted-foreground hover:text-destructive"
-                onClick={() => {
-                  if (confirm(t("labels.confirmDelete"))) supprimer.mutate(lab.id);
-                }}
-              >
-                ×
-              </button>
+              <div className="flex flex-wrap items-center gap-1.5">
+                <span
+                  className="size-2.5 rounded-full"
+                  style={{ backgroundColor: lab.couleur ?? "#888" }}
+                />
+                <span className="font-medium">{lab.nom}</span>
+                {multi.reservesHistoriques && (
+                  <BadgeReserve reserve={multi.reservesHistoriques?.get(lab.id)} />
+                )}
+                <select
+                  className="h-7 rounded border border-input bg-background px-1 text-[11px]"
+                  value={lab.genre === "homme" ? "homme" : "femme"}
+                  disabled={changerGenre.isPending}
+                  title={t("labels.genre")}
+                  onChange={(e) =>
+                    changerGenre.mutate({
+                      id: lab.id,
+                      genre: e.target.value as LabelGenre,
+                    })
+                  }
+                >
+                  <option value="femme">{t("labels.genreFemme")}</option>
+                  <option value="homme">{t("labels.genreHomme")}</option>
+                </select>
+                <Link
+                  to={`/admin/creation?label=${lab.id}`}
+                  className="text-[10px] text-primary underline-offset-2 hover:underline"
+                >
+                  {t("labels.creerPost")}
+                </Link>
+                <button
+                  type="button"
+                  className="ml-auto text-muted-foreground hover:text-destructive"
+                  onClick={() => {
+                    if (confirm(t("labels.confirmDelete"))) supprimer.mutate(lab.id);
+                  }}
+                >
+                  ×
+                </button>
+              </div>
+              {multi.multiDispo && multi.liens && (
+                <LabelApplications
+                  labelId={lab.id}
+                  applications={applications}
+                  liens={multi.liens}
+                  reserves={multi.reservesParLabel?.get(lab.id)}
+                  applicationSelectionneeId={applicationId}
+                />
+              )}
             </div>
           ))}
         </div>
@@ -293,11 +275,9 @@ function LabelsPilotageCard() {
 function LabelStyleCard() {
   const { t } = useTranslation();
   const qc = useQueryClient();
-  const { applicationId } = useApplication();
   const labels = useQuery({
-    queryKey: ["labels", applicationId],
-    queryFn: () => listerLabels(applicationId),
-    enabled: Boolean(applicationId),
+    queryKey: CLE_TOUS_LABELS,
+    queryFn: () => listerLabels(),
   });
   const [labelId, setLabelId] = React.useState("");
   const [styleTheme, setStyleTheme] = React.useState("");
@@ -721,6 +701,8 @@ export function AdminPilotagePage() {
         </>
       )}
 
+      <ApplicationsCard />
+      <ReplisCard />
       <LabelsPilotageCard />
       <LabelStyleCard />
     </div>

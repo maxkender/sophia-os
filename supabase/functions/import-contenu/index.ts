@@ -2,10 +2,12 @@ import {
   avancerImport,
   claimContenu,
   claimImportFile,
+  eloParLangue,
   enqueueImportUrls,
   forcerImportElo,
   importerCompteReference,
   importerLien,
+  lireScoring,
   listerUrlsCompteReference,
   MAX_TENTATIVES_IMPORT,
   prochainContenu,
@@ -13,6 +15,12 @@ import {
   STATUTS_REPRENABLES,
   traiterImportFile,
 } from "../_shared/import_contenu.ts";
+import { scoreRelevance } from "../_shared/gemini.ts";
+import {
+  etatBackfillPertinence,
+  piloterBackfillPertinence,
+  tickBackfillPertinence,
+} from "../_shared/pertinence_apps.ts";
 import {
   annulerMajSources,
   demarrerMajSources,
@@ -30,11 +38,18 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
  *   { worker: true } → claim 1 file OU 1 contenu, traite, rechaîne si file non vide
  *   { majSourcesDemarrer, comptes } → séquence persistée, 1 compte, file vidée entre chaque
  *   { majSourcesAnnuler: true } / { majSourcesEtat: true } / { majSourcesTick: true }
+ *   { backfillPertinence: { applicationId, actif } } → rattrapage de pertinence
+ *     d'une application sur le stock (jamais Sophia), drainé par les workers oisifs
+ *   { etatBackfillPertinence: { applicationId } } → actif, restants, faits, erreurs
  *   { contenuId } / {} → un pas (compat)
  *   { batchId, stats: true } → progression batch
  *
  * Les workers cron (×12 / min) + auto-chaînage Edge drainent sans le navigateur.
  * La séquence « update all » vit dans reglages : fermer l'onglet ne l'arrête pas.
+ *
+ * `application_id` dans le corps : encore envoyé par l'ancien front, ignoré.
+ * L'import n'est plus rattaché à une application (ce sont les labels du
+ * contenu qui disent quelles applications il sert).
  */
 Deno.serve(async (request) => {
   const denied = await assertAuthorised(request);
@@ -86,6 +101,28 @@ Deno.serve(async (request) => {
       return json({ ok: true, deja: r.deja, etat: tick.etat ?? r.etat });
     }
 
+    // Rattrapage de pertinence d'une application (Pilotage → Applications).
+    if (body?.backfillPertinence && typeof body.backfillPertinence === "object") {
+      const actif = Boolean(body.backfillPertinence.actif);
+      const r = await piloterBackfillPertinence(
+        supabase,
+        String(body.backfillPertinence.applicationId ?? ""),
+        actif,
+      );
+      if (!r.ok) return json({ ok: false, error: r.erreur }, 400);
+      if (actif) kickWorkers(request, 1);
+      return json({ ok: true, etat: r.etat });
+    }
+
+    if (body?.etatBackfillPertinence && typeof body.etatBackfillPertinence === "object") {
+      const r = await etatBackfillPertinence(
+        supabase,
+        String(body.etatBackfillPertinence.applicationId ?? ""),
+      );
+      if (!r.ok) return json({ ok: false, error: r.erreur }, 400);
+      return json({ ok: true, etat: r.etat });
+    }
+
     // Relance manuelle : boost ELO au seuil puis file nettoyage.
     if (body?.forcerElo && body?.contenuId) {
       const r = await forcerImportElo(supabase, String(body.contenuId));
@@ -118,7 +155,6 @@ Deno.serve(async (request) => {
         labelIds: Array.isArray(body.labelIds) ? body.labelIds : [],
         batchId: body.batchId ? String(body.batchId) : null,
         langue,
-        applicationId: typeof body.application_id === "string" ? body.application_id : null,
       });
       // Kick immédiat de workers (ne dépend pas du cron pour démarrer).
       kickWorkers(request, AMORCE_WORKERS);
@@ -146,7 +182,6 @@ Deno.serve(async (request) => {
         labelIds: Array.isArray(body.labelIds) ? body.labelIds : [],
         batchId: body.batchId ? String(body.batchId) : null,
         langue: typeof body.langue === "string" ? body.langue : null,
-        applicationId: typeof body.application_id === "string" ? body.application_id : null,
       });
       kickWorkers(request, Math.min(AMORCE_WORKERS, Math.max(1, r.enqueued)));
       return json({ ok: true, ...r });
@@ -174,7 +209,6 @@ Deno.serve(async (request) => {
           body.compteReferenceId ?? null,
           Array.isArray(body.labelIds) ? body.labelIds : null,
           langue,
-          typeof body.application_id === "string" ? body.application_id : null,
         );
         const contenu = await prochainContenu(supabase, cree.id);
         if (!contenu) {
@@ -196,7 +230,6 @@ Deno.serve(async (request) => {
         compteReferenceId: body.compteReferenceId ?? null,
         labelIds: Array.isArray(body.labelIds) ? body.labelIds : [],
         langue,
-        applicationId: typeof body.application_id === "string" ? body.application_id : null,
       });
       if (r.invalides.length > 0) {
         return json(
@@ -318,6 +351,18 @@ async function runWorker(
   if (!contenu) {
     const backfill = await prochainBackfill(supabase);
     if (!backfill) {
+      // Rien d'autre à faire : rattrapage de pertinence d'une application (si
+      // une campagne est allumée), puis la mise à jour des sources. Une panne
+      // du rattrapage ne doit pas priver la séquence des sources de son tick.
+      const pertinence = await tickBackfillPertinence(supabase, {
+        scoreRelevance,
+        lireScoring: () => lireScoring(supabase),
+        noteImport: eloParLangue,
+      }).catch((error) => {
+        console.warn(`[backfill pertinence] ${messageErreur(error)}`);
+        return null;
+      });
+      if (pertinence) return { action: pertinence.action, more: pertinence.more };
       const tick = await tickMajSources(supabase);
       return { action: tick.action, more: tick.more };
     }

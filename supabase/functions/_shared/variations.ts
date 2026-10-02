@@ -360,7 +360,7 @@ export async function creerVariation(
   } else {
     const derniere = deck[deck.length - 1];
     if (derniere) {
-      derniere.texte_overlay = placementParDefaut(candidat.langue, slugApp);
+      derniere.texte_overlay = placementParDefaut(candidat.langue);
       derniere.position_sophia = true;
     }
   }

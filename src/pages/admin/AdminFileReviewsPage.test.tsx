@@ -4,10 +4,6 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import "@/locales";
 
-vi.mock("@/features/moteur/ApplicationContext", () => ({
-  useApplication: () => ({ applicationId: "app-1", slug: "sophia" }),
-}));
-
 const listerFileReviewsJour = vi.fn();
 const listerReviewRemarques = vi.fn();
 const compterRemarquesParCreateur = vi.fn();

@@ -22,7 +22,6 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useApplication } from "@/features/moteur/ApplicationContext";
 import {
   ameliorerReview,
   aujourdhuiParis,
@@ -327,7 +326,6 @@ function LigneRemarque({
 export function AdminFileReviewsPage() {
   const { t, i18n } = useTranslation();
   const queryClient = useQueryClient();
-  const { applicationId } = useApplication();
   const [texte, setTexte] = React.useState("");
   const [videos, setVideos] = React.useState<ReviewVideo[]>([]);
   const [remarquesUtilisees, setRemarquesUtilisees] = React.useState<ReviewRemarqueUtilisee[]>([]);
@@ -336,8 +334,8 @@ export function AdminFileReviewsPage() {
   const jour = aujourdhuiParis();
 
   const file = useQuery({
-    queryKey: ["file-reviews", jour, applicationId],
-    queryFn: () => listerFileReviewsJour({ jour, applicationId }),
+    queryKey: ["file-reviews", jour],
+    queryFn: () => listerFileReviewsJour({ jour }),
   });
   const remarques = useQuery({
     queryKey: ["review-remarques"],
@@ -367,7 +365,7 @@ export function AdminFileReviewsPage() {
 
   const retirer = (postId: string) => {
     queryClient.setQueryData<PostFileReview[]>(
-      ["file-reviews", jour, applicationId],
+      ["file-reviews", jour],
       (prev) => (prev ?? []).filter((p) => p.id !== postId),
     );
   };

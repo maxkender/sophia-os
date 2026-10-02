@@ -1,0 +1,251 @@
+/**
+ * Multi-applications : décisions pures du moteur (labels → applications
+ * servies, répartition d'un compte, application d'un créneau, angles).
+ *
+ * Module source : la copie Deno `supabase/functions/_shared/multi_app.ts` doit
+ * rester identique (hors en-tête) — `multiApp.test.ts` compare les deux.
+ */
+
+/** Sophia : application d'origine, identité des comptes, repli universel. */
+export const ID_SOPHIA = "00000000-0000-4000-8000-000000000001";
+export const SLUG_SOPHIA = "sophia";
+
+/**
+ * Taille de la fenêtre glissante de répartition : les N derniers posts du
+ * compte. À 2 posts/jour, 10 posts ≈ 5 jours — assez court pour qu'un 70/30 se
+ * voie dans la semaine, assez long pour ne pas osciller.
+ */
+export const FENETRE_REPARTITION_DEFAUT = 10;
+
+/**
+ * Écart minimal entre deux publications du MÊME contenu sur le MÊME compte
+ * pour deux applications différentes. Deux decks quasi identiques à quelques
+ * heures d'écart se volent leurs stats au rapprochement (rattrapage) et
+ * passent pour du doublon aux yeux de TikTok.
+ */
+export const ECART_MIN_JOURS_AUTRE_APPLICATION = 7;
+
+/** Labels système : ils ne servent aucune application, ne vont sur aucun compte. */
+export const SLUGS_LABELS_SYSTEME: readonly string[] = ["hook", "ugc-ai-video"];
+
+export interface ApplicationMoteur {
+  id: string;
+  slug: string;
+  nom: string;
+  /** Langues de compte ciblées ; `null` = toutes. */
+  langues: string[] | null;
+  actif: boolean;
+}
+
+export interface LienLabelApplication {
+  label_id: string;
+  application_id: string;
+  angle?: string | null;
+}
+
+export interface LabelRef {
+  id: string;
+  slug?: string | null;
+  nom?: string | null;
+}
+
+/** Répartition d'un compte : slug d'application → pourcentage. */
+export type PartsApplications = Record<string, number>;
+
+export interface EntreeFenetre {
+  /** Slug de l'application promue par ce post. */
+  application: string;
+  /** 1 pour un post mono-application ; 0,5 + 0,5 pour un post double (phase 2). */
+  poids: number;
+}
+
+export function estLabelSystemeSlug(slug: string | null | undefined): boolean {
+  const s = (slug ?? "").trim().toLowerCase();
+  return SLUGS_LABELS_SYSTEME.includes(s);
+}
+
+/**
+ * Applications servies par UN label.
+ *
+ * Règle d'héritage : un label sans aucune ligne `label_applications` sert
+ * Sophia. Un backfill oublié, ou un label créé par un vieux front, ne peut donc
+ * jamais vider le stock Sophia — c'est le seul sens d'erreur acceptable.
+ */
+export function applicationsDuLabel(
+  labelId: string,
+  liens: readonly LienLabelApplication[],
+): string[] {
+  const ids = new Set<string>();
+  for (const l of liens) {
+    if (l.label_id === labelId) ids.add(l.application_id);
+  }
+  return ids.size > 0 ? [...ids].sort() : [ID_SOPHIA];
+}
+
+/**
+ * Pour chaque application, les labels (parmi `labels`) qui la servent. Les
+ * labels système sont ignorés.
+ */
+export function labelsParApplication(
+  labels: readonly LabelRef[],
+  liens: readonly LienLabelApplication[],
+): Map<string, string[]> {
+  const parApp = new Map<string, string[]>();
+  for (const label of labels) {
+    if (estLabelSystemeSlug(label.slug)) continue;
+    for (const app of applicationsDuLabel(label.id, liens)) {
+      const liste = parApp.get(app) ?? [];
+      if (!liste.includes(label.id)) liste.push(label.id);
+      parApp.set(app, liste);
+    }
+  }
+  return parApp;
+}
+
+/**
+ * Applications servies par un ensemble de labels (union, triée). Sans label
+ * utile : Sophia — c'est le comportement historique d'un contenu non tagué.
+ */
+export function applicationsServies(
+  labels: readonly LabelRef[],
+  liens: readonly LienLabelApplication[],
+): string[] {
+  const apps = [...labelsParApplication(labels, liens).keys()].sort();
+  return apps.length > 0 ? apps : [ID_SOPHIA];
+}
+
+/**
+ * Applications qu'un compte peut promouvoir aujourd'hui : servies par au moins
+ * un de ses labels, actives, ciblant sa langue. Un compte UGC reste sur Sophia
+ * (Unswipe = slideshows classiques uniquement).
+ */
+export function applicationsEligiblesCompte(args: {
+  applications: readonly ApplicationMoteur[];
+  /** Ids d'applications servies par les labels du compte. */
+  servies: readonly string[];
+  langue: string;
+  ugc: boolean;
+}): ApplicationMoteur[] {
+  return args.applications.filter(
+    (a) =>
+      args.servies.includes(a.id) &&
+      a.actif &&
+      (a.langues === null || a.langues.includes(args.langue)) &&
+      (!args.ugc || a.id === ID_SOPHIA),
+  );
+}
+
+/**
+ * Lit `comptes.parts_applications`. `null`, invalide ou vide → `null`, qui
+ * signifie « 100 % Sophia » (le défaut des comptes existants).
+ */
+export function normaliserParts(brut: unknown): PartsApplications | null {
+  if (!brut || typeof brut !== "object" || Array.isArray(brut)) return null;
+  const out: PartsApplications = {};
+  for (const [slug, valeur] of Object.entries(brut as Record<string, unknown>)) {
+    const n = Math.round(Number(valeur));
+    if (!slug || !Number.isFinite(n) || n <= 0) continue;
+    out[slug] = Math.min(100, n);
+  }
+  return Object.keys(out).length > 0 ? out : null;
+}
+
+/**
+ * Parts réellement appliquées, restreintes aux applications éligibles et
+ * renormalisées à 100.
+ *
+ * - Pas de réglage : 100 % Sophia (si Sophia est éligible).
+ * - Une application inéligible (langue non ciblée, inactive, aucun label) voit
+ *   sa part reportée sur les autres.
+ * - Aucune part sur une application éligible : tout sur Sophia si elle l'est,
+ *   sinon parts égales — un compte dont les labels ne servent QUE Unswipe
+ *   publie 100 % Unswipe, quel que soit le réglage.
+ */
+export function partsEffectives(
+  parts: PartsApplications | null,
+  eligibles: readonly string[],
+): PartsApplications {
+  if (eligibles.length === 0) return {};
+  const base: PartsApplications = parts ?? { [SLUG_SOPHIA]: 100 };
+  const retenues = eligibles.filter((slug) => (base[slug] ?? 0) > 0);
+  if (retenues.length === 0) {
+    if (eligibles.includes(SLUG_SOPHIA)) return { [SLUG_SOPHIA]: 100 };
+    const egal = 100 / eligibles.length;
+    return Object.fromEntries(eligibles.map((slug) => [slug, egal]));
+  }
+  const total = retenues.reduce((s, slug) => s + base[slug], 0);
+  return Object.fromEntries(retenues.map((slug) => [slug, (base[slug] * 100) / total]));
+}
+
+/**
+ * Application du prochain créneau, par DÉFICIT sur la fenêtre glissante.
+ *
+ * `fenetre` = les derniers posts du compte, du plus ancien au plus récent (on
+ * n'en garde que les `taille − 1` derniers) : le créneau vient compléter une
+ * fenêtre de `taille` posts. Pour chaque application, déficit = `part ×
+ * (posts retenus + 1) − posts déjà faits pour elle` ; la plus en retard gagne,
+ * égalité → la plus grosse part, puis Sophia, puis l'ordre alphabétique.
+ * Déterministe : en 70/30, TOUTE suite de 10 posts consécutifs en compte 7/3.
+ *
+ * `null` quand aucune application n'a de part (aucune éligible).
+ */
+export function choisirApplicationCreneau(
+  parts: PartsApplications,
+  fenetre: readonly EntreeFenetre[],
+  taille: number = FENETRE_REPARTITION_DEFAUT,
+): string | null {
+  const apps = Object.keys(parts).filter((slug) => parts[slug] > 0);
+  if (apps.length === 0) return null;
+  if (apps.length === 1) return apps[0];
+
+  const retenue = fenetre.slice(-Math.max(0, Math.floor(taille) - 1));
+  const total = apps.reduce((s, slug) => s + parts[slug], 0);
+  const n = retenue.reduce((s, e) => s + e.poids, 0);
+  const faits = (slug: string) =>
+    retenue.reduce((s, e) => s + (e.application === slug ? e.poids : 0), 0);
+  const deficit = (slug: string) => (parts[slug] / total) * (n + 1) - faits(slug);
+
+  return [...apps].sort((a, b) => {
+    const d = deficit(b) - deficit(a);
+    if (Math.abs(d) > 1e-9) return d;
+    if (parts[b] !== parts[a]) return parts[b] - parts[a];
+    if (a === SLUG_SOPHIA) return -1;
+    if (b === SLUG_SOPHIA) return 1;
+    return a.localeCompare(b);
+  })[0];
+}
+
+/**
+ * Angles des labels d'un contenu pour une application (dédoublonnés, non
+ * vides, dans l'ordre des labels). Vide tant qu'aucun angle n'est saisi : le
+ * prompt reste alors octet pour octet celui d'aujourd'hui.
+ */
+export function anglesPourApplication(
+  labels: readonly LabelRef[],
+  liens: readonly LienLabelApplication[],
+  applicationId: string,
+): Array<{ label: string; angle: string }> {
+  const vus = new Set<string>();
+  const out: Array<{ label: string; angle: string }> = [];
+  for (const label of labels) {
+    if (estLabelSystemeSlug(label.slug)) continue;
+    for (const lien of liens) {
+      if (lien.label_id !== label.id || lien.application_id !== applicationId) continue;
+      const angle = (lien.angle ?? "").trim();
+      if (!angle || vus.has(angle)) continue;
+      vus.add(angle);
+      out.push({ label: (label.nom ?? label.slug ?? label.id).trim(), angle });
+    }
+  }
+  return out;
+}
+
+/** Bloc de prompt des angles ; chaîne vide s'il n'y en a aucun. */
+export function blocAngles(
+  angles: ReadonlyArray<{ label: string; angle: string }>,
+  nomApplication: string,
+): string {
+  if (angles.length === 0) return "";
+  const lignes = angles.map((a) => `- ${a.label} : ${a.angle}`).join("\n");
+  return `\n\nAngle à donner à ${nomApplication} pour ce slideshow (selon son label) :\n${lignes}`;
+}

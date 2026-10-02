@@ -49,13 +49,15 @@ import {
   urlsManquantes,
 } from "./import_nouveaux.ts";
 import {
-  applicationParId,
-  applicationSophia,
-  clePromptPertinence,
   clePromptPlacement,
   placementParDefaut,
-  resoudreApplicationImport,
 } from "./applications.ts";
+import { erreurSchemaAbsent, schemaMultiAppPret } from "./applications_moteur.ts";
+import {
+  majNotesPertinences,
+  noterPertinenceImport,
+  type PertinencesRapport,
+} from "./pertinence_apps.ts";
 import { lireParLots, lireTout } from "./lots.ts";
 import {
   passagesPourTier,
@@ -125,7 +127,7 @@ export interface SlideLangue {
 
 const idDe = (url: string) => idPostTiktok(url);
 
-async function lireScoring(supabase: Supabase) {
+export async function lireScoring(supabase: Supabase) {
   // Jumeau de `chargerVariationReglages` : `error` non relu, `data = null` sur
   // échec, et les défauts codés prenaient silencieusement la place des réglages
   // de l'admin. Ici le coût est direct — `seuil` décide « langue non cuite »,
@@ -367,26 +369,35 @@ async function stockerVisuelBrut(
   }
 }
 
+/**
+ * Contenu déjà importé pour ce post, toutes applications confondues : un post
+ * TikTok importé une fois sert toutes les applications de ses labels (plus de
+ * copie par application). `limit(1)` : tant que 0257 n'a pas rendu l'unicité
+ * globale, un doublon historique ferait échouer `maybeSingle` — lu comme
+ * « introuvable », il aurait créé une copie de plus.
+ */
 async function trouverContenuParUrl(
   supabase: Supabase,
   postUrl: string,
-  applicationId?: string | null,
 ): Promise<{ id: string } | null> {
-  let exactQ = supabase.from("contenus").select("id").eq("source_url", postUrl);
-  if (applicationId) exactQ = exactQ.eq("application_id", applicationId);
-  const { data: exact } = await exactQ.maybeSingle();
+  const { data: exact } = await supabase
+    .from("contenus")
+    .select("id")
+    .eq("source_url", postUrl)
+    .order("created_at", { ascending: true })
+    .limit(1)
+    .maybeSingle();
   if (exact) return exact;
 
   const pid = idDe(postUrl);
   if (!pid || pid === postUrl) return null;
   // Variantes /photo/ vs /video/ : match sur l'id TikTok.
-  let approxQ = supabase
+  const { data: approx } = await supabase
     .from("contenus")
     .select("id, source_url")
     .or(`source_url.ilike.%/photo/${pid}%,source_url.ilike.%/video/${pid}%`)
-    .limit(1);
-  if (applicationId) approxQ = approxQ.eq("application_id", applicationId);
-  const { data: approx } = await approxQ.maybeSingle();
+    .limit(1)
+    .maybeSingle();
   return approx ? { id: approx.id } : null;
 }
 
@@ -421,7 +432,6 @@ async function reouvrirContenuPourReimport(
   compteReferenceId: string | null,
   labelIds: string[] | null,
   langueSource: string,
-  applicationId: string,
 ): Promise<void> {
   const slides = await slidesBrutesDepuisPost(supabase, post);
   const { error } = await supabase
@@ -432,7 +442,6 @@ async function reouvrirContenuPourReimport(
       compte_reference_id: compteReferenceId,
       source_url: post.webVideoUrl,
       langue_source: langueSource,
-      application_id: applicationId,
       musique_url: post.musicUrl,
       musique_titre: post.musicTitle,
       vues_source: post.stats?.vues ?? null,
@@ -448,53 +457,18 @@ async function reouvrirContenuPourReimport(
   if (error) throw error;
 
   // Recalcul ELO / decks à l'import — les passages déjà créés gardent leur snapshot.
+  // Les decks des autres applications (contenu_langue_decks) partent avec, en cascade.
   await supabase.from("contenu_langues").delete().eq("contenu_id", contenuId);
+  // Pertinences par application : l'étape 2 renote tout. Une ligne restée là
+  // passerait pour « déjà notée » et figerait l'ancien score (et un ancien
+  // refus Sophia). Suppression TOUJOURS tentée, sans passer par la sonde : seule
+  // l'absence de la table (0256 pas encore passée) est ignorée.
+  const { error: errP, status: statutP } = await supabase
+    .from("contenu_pertinences")
+    .delete()
+    .eq("contenu_id", contenuId);
+  if (errP && !erreurSchemaAbsent(errP, statutP)) throw errP;
   await attacherLabels(supabase, contenuId, compteReferenceId, labelIds);
-}
-
-async function applicationIdDeSource(
-  supabase: Supabase,
-  compteReferenceId: string | null,
-): Promise<string | null> {
-  if (!compteReferenceId) return null;
-  const { data, error } = await supabase
-    .from("comptes_reference")
-    .select("application_id")
-    .eq("id", compteReferenceId)
-    .maybeSingle();
-  if (error) throw error;
-  return (data?.application_id as string | undefined) ?? null;
-}
-
-/** Source > id explicite > Sophia. Une source sans app refuse l'import. */
-async function applicationIdPourImport(
-  supabase: Supabase,
-  compteReferenceId: string | null,
-  explicit: string | null,
-): Promise<string> {
-  if (compteReferenceId) {
-    const fromSource = await applicationIdDeSource(supabase, compteReferenceId);
-    if (!fromSource) {
-      throw new Error(
-        `Source ${compteReferenceId} sans application — import refusé (évite le fallback Sophia)`,
-      );
-    }
-    return fromSource;
-  }
-  return resoudreApplicationImport({
-    explicitApplicationId: explicit,
-    fallbackId: (await applicationSophia(supabase)).id,
-  });
-}
-
-async function slugApplicationDeContenu(
-  supabase: Supabase,
-  contenu: { application_id?: string | null; compte_reference_id?: string | null },
-): Promise<string> {
-  const id = contenu.application_id
-    ?? await applicationIdDeSource(supabase, contenu.compte_reference_id ?? null);
-  const app = await applicationParId(supabase, id);
-  return app?.slug ?? "sophia";
 }
 
 /** Crée un contenu depuis un post scrapé (idempotent sur source_url). */
@@ -504,14 +478,11 @@ export async function creerContenuDepuisPost(
   compteReferenceId: string | null,
   labelIds: string[] | null = null,
   langueSource = "fr",
-  applicationIdExplicit: string | null = null,
 ): Promise<{ id: string; reused: boolean }> {
-  const applicationId = await applicationIdPourImport(
-    supabase,
-    compteReferenceId,
-    applicationIdExplicit,
-  );
-  const existant = await trouverContenuParUrl(supabase, post.webVideoUrl, applicationId);
+  // Plus d'application à l'import : `contenus.application_id` prend son défaut
+  // (Sophia) pour les lecteurs historiques, et ce sont les labels du contenu
+  // qui disent quelles applications il sert.
+  const existant = await trouverContenuParUrl(supabase, post.webVideoUrl);
   if (existant) {
     await reouvrirContenuPourReimport(
       supabase,
@@ -520,7 +491,6 @@ export async function creerContenuDepuisPost(
       compteReferenceId,
       labelIds,
       langueSource,
-      applicationId,
     );
     return { id: existant.id, reused: true };
   }
@@ -535,7 +505,6 @@ export async function creerContenuDepuisPost(
       compte_reference_id: compteReferenceId,
       source_url: post.webVideoUrl,
       langue_source: langueSource,
-      application_id: applicationId,
       musique_url: post.musicUrl,
       musique_titre: post.musicTitle,
       vues_source: post.stats?.vues ?? null,
@@ -653,7 +622,6 @@ export async function importerLien(
   compteReferenceId: string | null,
   labelIds: string[] | null,
   langueExplicit: string | null = null,
-  applicationIdExplicit: string | null = null,
 ): Promise<{ id: string; reused: boolean }> {
   const [post] = await scrapePost(postUrl);
   if (!post) throw new Error("Post introuvable ou non scrapable");
@@ -679,7 +647,6 @@ export async function importerLien(
     compteReferenceId,
     labelIds,
     langue,
-    applicationIdExplicit,
   );
 }
 
@@ -709,13 +676,15 @@ export async function importerLien(
  *
  * L'ancre est `contenus.id` (uuid, clé primaire, jamais réécrite) : elle est
  * unique sur l'ENSEMBLE du résultat, pas seulement dans sa page.
+ *
+ * Stock GLOBAL, toutes applications : un post déjà importé (par n'importe
+ * quelle source) n'est pas ré-enfilé, il sert déjà toutes les applications de
+ * ses labels.
  */
 async function idsTiktokConnus(
   supabase: Supabase,
   compteReferenceId: string,
 ): Promise<{ tous: Set<string>; deCetteSource: string[] }> {
-  const applicationId = await applicationIdDeSource(supabase, compteReferenceId);
-
   const lignes = await lireTout<
     { id: string; source_url: string | null; compte_reference_id: string | null }
   >(
@@ -725,7 +694,6 @@ async function idsTiktokConnus(
         .from("contenus")
         .select("id, source_url, compte_reference_id")
         .not("source_url", "is", null);
-      if (applicationId) q = q.eq("application_id", applicationId);
       if (curseur) q = q.gt("id", curseur.id);
       return q.order("id", { ascending: true }).limit(taille);
     },
@@ -1040,11 +1008,33 @@ async function executerPasImport(
 
     // 2 — Pertinence (métrique ELO ; pas de rejet dur ici)
     if (contenu.pertinence_score === null || contenu.pertinence_score === undefined) {
-      const slugApp = await slugApplicationDeContenu(supabase, contenu);
+      // Multi-app : une application notée par passage (Sophia d'abord), le
+      // score de la porte n'est écrit qu'au dernier — le max. Un contenu
+      // Sophia seul fait toujours UN passage, UN appel Gemini, mêmes valeurs.
+      if (await schemaMultiAppPret(supabase)) {
+        const pas = await noterPertinenceImport(
+          supabase,
+          contenu,
+          slides[0]?.texte_original ?? "",
+        );
+        if (!pas.fini) {
+          await marquer(supabase, contenu.id, { import_etape: "pertinence" });
+          return { etape: "pertinence", progres: true };
+        }
+        await marquer(supabase, contenu.id, {
+          pertinence_score: pas.score,
+          pertinence_raison: pas.raison,
+          statut: "brouillon",
+          import_etape: "pertinence",
+        });
+        return { etape: "pertinence", progres: true };
+      }
+
+      // Sans 0256 : chemin historique (prompt Sophia).
       const { score, reason } = await scoreRelevance({
         caption: contenu.titre ?? "",
         hookText: slides[0]?.texte_original ?? "",
-        instructions: await chargerPrompt(supabase, clePromptPertinence(slugApp)),
+        instructions: await chargerPrompt(supabase, "pertinence"),
       });
       await marquer(supabase, contenu.id, {
         pertinence_score: score,
@@ -1076,7 +1066,7 @@ async function executerPasImport(
     // 4 — Note /100 de la langue source → premier placement en tierlist
     {
       const scoring = await lireScoring(supabase);
-      const elo = rapportEloComplet({
+      const elo: EloRapport & { pertinences?: PertinencesRapport } = rapportEloComplet({
         pertinence: Number(contenu.pertinence_score ?? 0),
         vues: contenu.vues_source ?? null,
         langueSource,
@@ -1086,6 +1076,35 @@ async function executerPasImport(
         vuesPlafond: scoring.vuesPlafond,
         seuil: scoring.eloSeuil,
       });
+      // Multi-app : même note, calculée avec le score de CHAQUE application,
+      // décide de son éligibilité (pool de l'application). La porte et le
+      // tier ci-dessous restent sur `pertinence_score` (le max), inchangés.
+      // Une panne ici ne bloque pas l'import : les lignes sans note sont
+      // reprises au pas suivant (l'étape 4 repasse à chaque pas), et d'ici là
+      // l'éligibilité provisoire va dans le sens sûr (Sophia oui, autres non).
+      if (await schemaMultiAppPret(supabase)) {
+        const pertinences = await majNotesPertinences(supabase, contenu.id, {
+          noteDe: (score) =>
+            eloParLangue({
+              pertinence: score,
+              vues: contenu.vues_source ?? null,
+              langue: langueSource,
+              langueSource,
+              prior: scoring.prior,
+              k: scoring.k,
+              poidsVues: scoring.poidsVues,
+              vuesPlafond: scoring.vuesPlafond,
+            }),
+          seuil: scoring.eloSeuil,
+          force: Boolean(contenu.import_elo_force_seuil),
+        }).catch((e) => {
+          console.warn(`[import pertinences] contenu=${contenu.id} ${messageErreur(e)}`);
+          return null;
+        });
+        if (pertinences && Object.keys(pertinences).length > 0) {
+          elo.pertinences = pertinences;
+        }
+      }
       // Toujours persister le détail (historique + logs UI).
       await marquer(supabase, contenu.id, { import_elo_rapport: elo });
 
@@ -1302,6 +1321,22 @@ async function executerPasImport(
         .eq("id", langueSourceRow.id);
     }
 
+    // Multi-app : jamais « done » avec une pertinence dont l'éligibilité est
+    // encore provisoire (note absente) — rien ne la recalculerait plus, le
+    // contenu ne repassant plus dans le pipeline. On échoue le pas : il sera
+    // rejoué, et l'étape 4 (qui repasse à chaque pas) posera la note.
+    if (await schemaMultiAppPret(supabase)) {
+      const { count: sansNote, error: errNotes } = await supabase
+        .from("contenu_pertinences")
+        .select("contenu_id", { count: "exact", head: true })
+        .eq("contenu_id", contenu.id)
+        .is("note", null);
+      if (errNotes) throw errNotes;
+      if ((sansNote ?? 0) > 0) {
+        throw new Error(`${sansNote} pertinence(s) sans note — étape 4 à rejouer`);
+      }
+    }
+
     // Strip texte_original des slides partagées (reste language-agnostique)
     const slidesPropres = slides.map((s) => ({
       position: s.position,
@@ -1328,7 +1363,7 @@ async function executerPasImport(
   }
 }
 
-async function voixSource(
+export async function voixSource(
   supabase: Supabase,
   compteReferenceId: string | null,
 ): Promise<string | null> {
@@ -1356,9 +1391,13 @@ async function placerSophiaSurDeck(
     .order("created_at", { ascending: false })
     .limit(40);
 
-  const slugApp = await slugApplicationDeContenu(supabase, contenu);
+  // Ce chemin ne pose QUE Sophia : `contenu_langues.slides` est le deck Sophia.
+  // Il résolvait l'application « du contenu » (via sa source, faute
+  // d'`application_id` sélectionné plus haut) — un reste de micabo, et deux
+  // lectures de plus par placement. Les autres applications cuisent leur deck
+  // dans `contenu_langue_decks` (deck_application.ts).
   const placement = await integrateSophia({
-    masterPrompt: (await chargerPrompt(supabase, clePromptPlacement(slugApp))) ?? "",
+    masterPrompt: (await chargerPrompt(supabase, clePromptPlacement("sophia"))) ?? "",
     corrections: (corrections ?? []).map((c) => ({
       original_text: c.texte_origine,
       corrected_text: c.texte_corrige,
@@ -1366,7 +1405,6 @@ async function placerSophiaSurDeck(
     slides: deck.map((s) => ({ position: s.position, text: s.texte_overlay ?? "" })),
     caption: contenu.titre ?? "",
     langue,
-    marque: slugApp,
   });
 
   if (placement) {
@@ -1384,7 +1422,7 @@ async function placerSophiaSurDeck(
   return "retry";
 }
 
-type LigneLangue = {
+export type LigneLangue = {
   id: string;
   slides?: SlideLangue[] | null;
   slides_base?: SlideLangue[] | null;
@@ -1401,7 +1439,7 @@ type LigneLangue = {
  * slide est perdu) : on la laisse telle quelle plutôt que de figer la pub
  * comme si c'était la base.
  */
-async function assurerSlidesBase(
+export async function assurerSlidesBase(
   supabase: Supabase,
   ligneSource: LigneLangue | null | undefined,
 ): Promise<void> {
@@ -1418,7 +1456,7 @@ async function assurerSlidesBase(
  * Complète une légende manquante sans retraduire le deck. Ne jette jamais :
  * un échec laisse "" et l'appelant retombe sur le jeu statique de la langue.
  */
-async function completerHashtags(
+export async function completerHashtags(
   supabase: Supabase,
   ligneId: string,
   deck: SlideLangue[],
@@ -1437,6 +1475,48 @@ async function completerHashtags(
   } catch {
     return "";
   }
+}
+
+/**
+ * Traduit la base (sans pub) d'un contenu vers `langue`. N'écrit RIEN : c'est
+ * à l'appelant de décider où persister (`slides` pour Sophia, `slides_base`
+ * pour les autres applications) et quoi faire d'une traduction vide
+ * (`traduits === 0`).
+ *
+ * Partagé par le deck Sophia et par deck_application.ts : les deux doivent
+ * faire EXACTEMENT le même choix de prompt (`traduction_<langue>`, puis
+ * `traduction` pour le français seulement) et de voix de source.
+ */
+export async function traduireBaseDeck(
+  supabase: Supabase,
+  contenu: { titre?: string | null; compte_reference_id?: string | null },
+  deckSource: SlideLangue[],
+  langue: string,
+): Promise<{ slides: SlideLangue[]; traduits: number; hashtags: string }> {
+  const voix = await voixSource(supabase, contenu.compte_reference_id ?? null);
+  const dedie = await chargerPrompt(supabase, `traduction_${langue}`);
+  const base =
+    dedie ?? (langue === "fr" ? await chargerPrompt(supabase, "traduction") : undefined);
+  const regles = [base, voix ? `Voix propre à cette source :\n${voix}` : null]
+    .filter(Boolean)
+    .join("\n\n");
+
+  const traductions = await translateSlideshow({
+    slides: deckSource.map((s) => ({
+      position: s.position,
+      original: s.texte_overlay ?? "",
+    })),
+    sourceTitle: contenu.titre ?? "",
+    rules: regles || undefined,
+    langue,
+    variation: false,
+  });
+  const fusion = fusionnerDeckTraduit(deckSource, traductions.slides);
+  return {
+    slides: fusion.slides as SlideLangue[],
+    traduits: fusion.traduits,
+    hashtags: traductions.hashtags,
+  };
 }
 
 /**
@@ -1517,32 +1597,14 @@ export async function assurerDeckPourLangue(
     await assurerSlidesBase(supabase, ligneSource);
     deck = deckSource.map((s) => ({ ...s }));
   } else if (deck.length === 0 || deck.every((s) => !s.texte_overlay)) {
-    const voix = await voixSource(supabase, contenu.compte_reference_id);
-    const dedie = await chargerPrompt(supabase, `traduction_${langue}`);
-    const base =
-      dedie ?? (langue === "fr" ? await chargerPrompt(supabase, "traduction") : undefined);
-    const regles = [base, voix ? `Voix propre à cette source :\n${voix}` : null]
-      .filter(Boolean)
-      .join("\n\n");
-
-    const traductions = await translateSlideshow({
-      slides: deckSource.map((s) => ({
-        position: s.position,
-        original: s.texte_overlay ?? "",
-      })),
-      sourceTitle: contenu.titre ?? "",
-      rules: regles || undefined,
-      langue,
-      variation: false,
-    });
+    const traductions = await traduireBaseDeck(supabase, contenu, deckSource, langue);
     // Traduction totalement vide (JSON modèle illisible) : on ARRÊTE. Persister
     // ce deck le figeait sans texte pour toujours (il passait « prêt » grâce à
     // la seule slide pub). L'appelant piochera un autre contenu.
-    const fusion = fusionnerDeckTraduit(deckSource, traductions.slides);
-    if (fusion.traduits === 0) {
+    if (traductions.traduits === 0) {
       throw new Error(`Traduction ${langue} vide — deck non persisté`);
     }
-    deck = fusion.slides as SlideLangue[];
+    deck = traductions.slides;
     if (traductions.hashtags) hashtags = traductions.hashtags;
     await supabase
       .from("contenu_langues")
@@ -1555,10 +1617,9 @@ export async function assurerDeckPourLangue(
     if (r === "retry") {
       const derniere = deck[deck.length - 1];
       if (derniere) {
-        derniere.texte_overlay = placementParDefaut(
-          langue,
-          await slugApplicationDeContenu(supabase, contenu),
-        );
+        // Repli SOPHIA uniquement : aucune autre application ne reçoit jamais
+        // de texte de repli (deck_application.ts échoue franchement).
+        derniere.texte_overlay = placementParDefaut(langue);
         derniere.position_sophia = true;
         await supabase.from("contenu_langues").update({ slides: deck }).eq("id", cl.id);
       }
@@ -1733,7 +1794,6 @@ async function nettoyerSlide(
         {
           compte_reference_id: contenu.compte_reference_id,
           contenu_id: contenu.id,
-          application_id: contenu.application_id ?? undefined,
           storage_path: path,
           url,
           source: "nettoye_reference",
@@ -1832,7 +1892,6 @@ async function stockerBrut(
       {
         compte_reference_id: contenu.compte_reference_id,
         contenu_id: contenu.id,
-        application_id: contenu.application_id ?? undefined,
         storage_path: `brut/${contenu.id}/${slide.position}`,
         url: slide.raw_url,
         source: "nettoye_reference",
@@ -1990,16 +2049,10 @@ export async function enqueueImportUrls(
     batchId?: string | null;
     /** Langue d'origine — stockée sur chaque ligne import_file. */
     langue?: string | null;
-    applicationId?: string | null;
   },
 ): Promise<{ batchId: string; enqueued: number; skipped: number; invalides: string[] }> {
   const batchId = opts.batchId ?? crypto.randomUUID();
   const langue = normaliserLangue(opts.langue ?? null);
-  const applicationId = await applicationIdPourImport(
-    supabase,
-    opts.compteReferenceId,
-    opts.applicationId ?? null,
-  );
   let enqueued = 0;
   let skipped = 0;
   const invalides: string[] = [];
@@ -2018,7 +2071,8 @@ export async function enqueueImportUrls(
     label_ids: opts.labelIds ?? [],
     batch_id: batchId,
     langue,
-    application_id: applicationId,
+    // `application_id` : défaut de la colonne (Sophia). La file n'est plus
+    // partitionnée par application.
     statut: "pending",
   });
 
@@ -2114,7 +2168,6 @@ export async function traiterImportFile(
       row.compte_reference_id,
       row.label_ids?.length ? row.label_ids : null,
       row.langue ?? null,
-      row.application_id ?? null,
     );
     await supabase
       .from("import_file")
@@ -2213,7 +2266,7 @@ export async function forcerImportElo(
     elo: Math.max(l.elo, scoring.eloSeuil),
     retenue: true,
   }));
-  const elo: EloRapport = {
+  const elo: EloRapport & { pertinences?: PertinencesRapport } = {
     ...eloBase,
     elo: noteForcee,
     tier: tierForce,
@@ -2270,6 +2323,24 @@ export async function forcerImportElo(
       position_sophia: false,
     }));
     await supabase.from("contenu_langues").update({ slides: slidesSource }).eq("id", cl.id);
+  }
+
+  // Multi-app : le forçage vaut pour chaque application déjà notée. Les
+  // lignes gardent leur note (l'étape 4 ne recalcule que les lignes sans note,
+  // et `import_elo_force_seuil` couvre celles-là).
+  if (await schemaMultiAppPret(supabase)) {
+    const { error: errP } = await supabase
+      .from("contenu_pertinences")
+      .update({ eligible: true, updated_at: new Date().toISOString() })
+      .eq("contenu_id", contenuId);
+    if (errP) return { ok: false, erreur: errP.message };
+    const avant = (contenu.import_elo_rapport as { pertinences?: PertinencesRapport } | null)
+      ?.pertinences;
+    if (avant && typeof avant === "object") {
+      elo.pertinences = Object.fromEntries(
+        Object.entries(avant).map(([slug, p]) => [slug, { ...p, eligible: true }]),
+      );
+    }
   }
 
   await marquer(supabase, contenuId, {

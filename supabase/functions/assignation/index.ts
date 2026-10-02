@@ -205,6 +205,7 @@ Deno.serve(async (request) => {
         restants: lot.restants,
         resultats: lot.resultats,
         quotasBaisses,
+        replis: synthetiserReplis(lot.resultats),
         avertissement,
         crees,
         kick,
@@ -266,6 +267,7 @@ Deno.serve(async (request) => {
             test,
             detail,
             quotasBaisses,
+            replis: synthetiserReplis(resultats),
             avertissement,
           });
         } finally {
@@ -298,6 +300,7 @@ Deno.serve(async (request) => {
       resultats,
       test,
       quotasBaisses,
+      replis: synthetiserReplis(resultats),
       avertissement,
     });
   } catch (error) {
@@ -344,6 +347,19 @@ function ligneQuotasBaisses(
   return (
     `Lowered quota (${quotas.length}) — pool trop mince : ` +
     quotas.map((q) => `${q.nom} ${q.avant}→${q.apres}`).join(" · ")
+  );
+}
+
+/**
+ * Créneaux repliés sur Sophia (multi-app), à plat pour l'admin : quel compte,
+ * quelle application visée, pourquoi. Rien n'est écrit dans le journal de
+ * minuit — les passages portent déjà `application_visee_id` / `repli_motif`.
+ */
+function synthetiserReplis(
+  resultats: AssignationCompteResultat[],
+): Array<{ compteId: string; visee: string; motif: string }> {
+  return resultats.flatMap((r) =>
+    (r.replis ?? []).map((x) => ({ compteId: r.compteId, visee: x.visee, motif: x.motif }))
   );
 }
 

@@ -1,4 +1,3 @@
-import { SLUG_MICABO, applicationParId } from "./applications.ts";
 import { avatarPourCompte } from "./avatar.ts";
 import {
   genreDuLabel,
@@ -408,106 +407,14 @@ function melanger<T>(arr: T[]): T[] {
   return a;
 }
 
-const MOTS_ETUDES: Record<string, string[]> = {
-  fr: ["etudes", "revisions", "cours", "fiches", "notes", "examen", "travail", "flashcards"],
-  en: ["study", "work", "notes", "exams", "flashcards", "revise", "learn", "classes"],
-  de: ["lernen", "studium", "noten", "pruefung", "arbeit", "flashcards", "kurs", "lernen"],
-  it: ["studio", "lavoro", "appunti", "esame", "flashcards", "corso", "ripasso", "schede"],
-  es: ["estudio", "trabajo", "apuntes", "examen", "flashcards", "curso", "repaso", "fichas"],
-  pt: ["estudo", "trabalho", "notas", "exame", "flashcards", "curso", "revisao", "fichas"],
-  cs: ["studium", "prace", "poznamky", "zkouska", "flashcards", "kurz", "opakovat", "karty"],
-  nl: ["studie", "werk", "notities", "examen", "flashcards", "cursus", "herhalen", "kaarten"],
-  el: ["meleti", "douleia", "simeioseis", "eksetasi", "flashcards", "mathima", "epanalipsi"],
-  hu: ["tanulas", "munka", "jegyzetek", "vizsga", "flashcards", "kurzus", "ismetles"],
-  pl: ["nauka", "praca", "notatki", "egzamin", "flashcards", "kurs", "powtorka"],
-  ro: ["studiu", "munca", "notite", "examen", "flashcards", "curs", "recapitulare"],
-  sv: ["studier", "arbete", "anteckningar", "prov", "flashcards", "kurs", "repetera"],
-  tr: ["calisma", "is", "notlar", "sinav", "flashcards", "ders", "tekrar"],
-  da: ["studier", "arbejde", "noter", "eksamen", "flashcards", "kursus", "laere", "lektier"],
-  no: ["studier", "arbeid", "notater", "eksamen", "flashcards", "kurs", "laere", "lekser"],
-  ru: ["ucheba", "rabota", "zametki", "ekzamen", "flashcards", "kurs", "povtor", "uroki"],
-  hr: ["ucenje", "rad", "biljeske", "ispit", "flashcards", "tecaj", "ponavljanje", "skola"],
-  sl: ["ucenje", "delo", "zapiski", "izpit", "flashcards", "tecaj", "ponavljanje", "sola"],
-  sk: ["studium", "praca", "poznamky", "skuska", "flashcards", "kurz", "opakovanie", "karty"],
-  sr: ["ucenje", "rad", "beleske", "ispit", "flashcards", "kurs", "ponavljanje", "skola"],
-  ar: ["dirasa", "amal", "mulahazat", "imtihan", "flashcards", "dawra", "murajaa"],
-  he: ["limudim", "avoda", "reshimot", "bechina", "flashcards", "kurs", "hazara"],
-  fi: ["opiskelu", "tyo", "muistiinpanot", "koe", "flashcards", "kurssi", "kertaus"],
-  et: ["ope", "too", "markmed", "eksam", "flashcards", "kursus", "kordamine"],
-  bg: ["ucheba", "rabota", "belezhki", "izpit", "flashcards", "kurs", "povtorenie", "uchene"],
-};
-
-const BIO_ETUDES: Record<string, string> = {
-  fr: "conseils d'études",
-  en: "study tips",
-  de: "lerntipps",
-  it: "consigli di studio",
-  es: "consejos de estudio",
-  pt: "dicas de estudo",
-  cs: "tipy na studium",
-  nl: "studietips",
-  el: "συμβουλές μελέτης",
-  hu: "tanulási tippek",
-  pl: "porady do nauki",
-  ro: "sfaturi de studiu",
-  sv: "studietips",
-  tr: "çalışma ipuçları",
-  da: "studietips",
-  no: "studietips",
-  ru: "советы для учёбы",
-  hr: "savjeti za učenje",
-  sl: "nasveti za učenje",
-  sk: "tipy na štúdium",
-  sr: "saveti za ucenje",
-  ar: "نصائح للدراسة",
-  he: "טיפים ללימודים",
-  fi: "opiskeluvinkkejä",
-  et: "õppenõuanded",
-  bg: "съвети за учене",
-};
-
-/** Identité TikTok micabo : prenom.motetudes + 3 chiffres, nom = prénom, bio = study tips. */
-export async function genererIdentiteMicabo(
-  supabase: Supabase,
-  langue: string,
-  genre: Genre,
-): Promise<{ handle: string; nom: string; bio: string }> {
-  const jeu = NOMS_PAR_LANGUE[langue] ?? NOMS_PAR_LANGUE.en;
-  const prenoms = genre === "homme" ? jeu.prenomsH : jeu.prenomsF;
-  const mots = MOTS_ETUDES[langue] ?? MOTS_ETUDES.en;
-  const { data: pris } = await supabase.from("comptes").select("handle_tiktok");
-  const rootsPris = new Set<string>();
-  for (const c of pris ?? []) {
-    if (c.handle_tiktok) rootsPris.add(String(c.handle_tiktok).replace(/\d+$/, "").toLowerCase());
-  }
-
-  let prenom = prenoms[0] ?? "alex";
-  let root = "";
-  for (const p of melanger(prenoms)) {
-    for (const mot of melanger(mots)) {
-      const r = `${sansAccents(p)}.${sansAccents(mot)}`;
-      if (!rootsPris.has(r)) {
-        prenom = p;
-        root = r;
-        break;
-      }
-    }
-    if (root) break;
-  }
-  if (!root) {
-    prenom = melanger(prenoms)[0] ?? "alex";
-    root = `${sansAccents(prenom)}.${sansAccents(mots[0] ?? "study")}`;
-  }
-  return {
-    handle: `${root}${Math.floor(Math.random() * 900) + 100}`,
-    nom: capitaliser(prenom),
-    bio: BIO_ETUDES[langue] ?? BIO_ETUDES.en,
-  };
-}
-
 /**
  * Génère une identité pour une langue + genre + label (thème du @).
  * 100 % local, aucune IA.
+ *
+ * Seule identité qui existe : un compte reste un compte Sophia (bio, persona)
+ * quelles que soient les applications que ses labels servent
+ * (docs/multi-applications.md). L'identité « études » de micabo est partie
+ * avec l'application (migration 0257).
  */
 export async function genererIdentite(
   supabase: Supabase,
@@ -578,7 +485,7 @@ export async function appliquerIdentiteInstantanee(
 ): Promise<{ applique: boolean; handle: string | null }> {
   const { data: compte, error } = await supabase
     .from("comptes")
-    .select("*, comptes_reference(genre), applications(slug)")
+    .select("*, comptes_reference(genre)")
     .eq("id", compteId)
     .single();
   if (error || !compte) return { applique: false, handle: null };
@@ -616,13 +523,7 @@ export async function appliquerIdentiteInstantanee(
   // Genre du label (colonne) > heuristique nom > genre source.
   const genre = labelGenre ?? genreDuLabel(labelNom) ?? genreSource;
 
-  const slugApp =
-    ((compte as { applications?: { slug?: string } }).applications?.slug as string | undefined) ??
-    (await applicationParId(supabase, compte.application_id as string | undefined))?.slug ??
-    "sophia";
-  const identite = slugApp === SLUG_MICABO
-    ? await genererIdentiteMicabo(supabase, compte.langue, genre)
-    : await genererIdentite(supabase, compte.langue, genre, labelNom);
+  const identite = await genererIdentite(supabase, compte.langue, genre, labelNom);
   const avatar = await avatarPourCompte(supabase, {
     compteReferenceId: compte.compte_reference_id,
     labelId,

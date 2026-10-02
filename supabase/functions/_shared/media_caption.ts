@@ -24,21 +24,47 @@ export interface CaptionPersistee {
   lignes: string[];
 }
 
-let hookLabelIdCache: string | null | undefined;
+/**
+ * Id du label Hook, mémorisé pour la vie de l'isolate — mais SEULEMENT une fois
+ * trouvé.
+ *
+ * Deux incidents dans l'ancienne version (`.eq("slug","hook").maybeSingle()`,
+ * cache posé quoi qu'il arrive) :
+ *   - depuis 0211, le slug `hook` existait deux fois (Sophia + copie micabo) :
+ *     `maybeSingle` sur 2 lignes renvoie une ERREUR, donc `null`… et ce `null`
+ *     était mis en cache. 948 médias marqués `est_hook` depuis le 2026-08-25
+ *     n'ont jamais reçu le label (rattrapés par 0257) ;
+ *   - une erreur réseau passagère figeait aussi `null` jusqu'au recyclage de
+ *     l'isolate : plus aucun label Hook posé pendant des heures, sans un log.
+ *
+ * Désormais : choix déterministe (le plus ancien, puis l'id — même règle que
+ * 0257, qui garde ce label-là et rend le slug unique), et on ne mémorise qu'un
+ * id trouvé. Erreur ou absence → `null` pour CET appel, et l'appel suivant
+ * relit la base.
+ */
+let hookLabelIdCache: string | null = null;
+
+/** Tests uniquement : oublie l'id mémorisé. */
+export function oublierIdLabelHook(): void {
+  hookLabelIdCache = null;
+}
 
 export async function idLabelHook(supabase: Supabase): Promise<string | null> {
-  if (hookLabelIdCache !== undefined) return hookLabelIdCache;
+  if (hookLabelIdCache) return hookLabelIdCache;
   const { data, error } = await supabase
     .from("labels")
     .select("id")
     .eq("slug", SLUG_HOOK)
-    .maybeSingle();
+    .order("created_at", { ascending: true })
+    .order("id", { ascending: true })
+    .limit(1);
   if (error) {
-    hookLabelIdCache = null;
+    console.warn(`[media_caption] label Hook illisible : ${messageErreur(error)}`);
     return null;
   }
-  hookLabelIdCache = (data?.id as string | undefined) ?? null;
-  return hookLabelIdCache;
+  const id = ((data ?? [])[0]?.id as string | undefined) ?? null;
+  if (id) hookLabelIdCache = id;
+  return id;
 }
 
 export function mediaEstPremiereSlide(

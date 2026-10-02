@@ -260,7 +260,7 @@ export async function avancerPost(supabase: Supabase, post: any): Promise<string
     // texte. Aucune alternative propre → on garde le brut, qui reste signalé.
     await garantirVisuelsPropres(supabase, compte, post.id);
 
-    // 2 — placement de l'appli (Sophia / micabo / …) sur l'une des slides.
+    // 2 — placement de l'appli (Sophia / …) sur l'une des slides.
     if (!existantes.some((s) => s.position_sophia)) {
       await marquer(supabase, post.id, "placement_sophia");
       const appCompte = await applicationParId(
@@ -329,7 +329,7 @@ export async function avancerPost(supabase: Supabase, post: any): Promise<string
           await supabase
             .from("post_slides")
             .update({
-              texte_overlay: placementParDefaut(compte.langue, slugApp),
+              texte_overlay: placementParDefaut(compte.langue),
               position_sophia: true,
             })
             .eq("id", derniere.id);

@@ -5587,22 +5587,23 @@ export async function setLabelsContenu(
     .eq("contenu_id", contenuId);
   const mediaIds = (medias ?? []).map((m) => m.id as string);
   if (mediaIds.length === 0) return;
-  const { data: hook } = await supabase
+  // TOUS les labels Hook, et une lecture ratée ARRÊTE la resynchro. Avant :
+  // `maybeSingle` échouait dès qu'un second 'hook' existait (copie micabo,
+  // 0211), `hookId` tombait à undefined et la branche « tout supprimer »
+  // effaçait le Hook des images de chaque slideshow dont on touchait les labels.
+  const { data: hooks, error: errHook } = await supabase
     .from("labels")
     .select("id")
-    .eq("slug", SLUG_HOOK)
-    .maybeSingle();
-  const hookId = hook?.id as string | undefined;
-  if (hookId) {
-    await supabase
-      .from("media_labels")
-      .delete()
-      .in("media_id", mediaIds)
-      .neq("label_id", hookId);
-  } else {
-    await supabase.from("media_labels").delete().in("media_id", mediaIds);
+    .eq("slug", SLUG_HOOK);
+  if (errHook) throw errHook;
+  const hookIds = (hooks ?? []).map((h) => h.id as string);
+  let suppression = supabase.from("media_labels").delete().in("media_id", mediaIds);
+  if (hookIds.length > 0) {
+    suppression = suppression.not("label_id", "in", `(${hookIds.join(",")})`);
   }
-  const aInserer = niches.filter((id) => id !== hookId);
+  const { error: errSuppr } = await suppression;
+  if (errSuppr) throw errSuppr;
+  const aInserer = niches.filter((id) => !hookIds.includes(id));
   if (aInserer.length === 0) return;
   const rows = mediaIds.flatMap((media_id) =>
     aInserer.map((label_id) => ({ media_id, label_id })),

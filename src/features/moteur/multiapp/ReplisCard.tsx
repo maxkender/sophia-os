@@ -75,7 +75,11 @@ export function ReplisCard() {
                   className="flex flex-wrap gap-x-2 text-xs text-muted-foreground"
                 >
                   <span className="text-foreground">{nomApp(m.application_visee_id)}</span>
-                  <span className="font-mono">{m.motif ?? t("multiApp.replis.sansMotif")}</span>
+                  <span>
+                    {m.motif
+                      ? t(`multiApp.replis.motifs.${m.motif}`, { defaultValue: m.motif })
+                      : t("multiApp.replis.sansMotif")}
+                  </span>
                   <span className="tabular-nums">×{m.n}</span>
                   {m.dernier && <span>{t("multiApp.replis.dernier", { jour: fmtJour(m.dernier) })}</span>}
                 </li>

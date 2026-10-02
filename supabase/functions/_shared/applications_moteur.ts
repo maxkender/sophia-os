@@ -27,26 +27,77 @@ export const APPLICATION_SOPHIA_SECOURS: ApplicationMoteur = {
   actif: true,
 };
 
-/** Durée de vie du résultat de la sonde, par isolate. */
-const TTL_SONDE_MS = 5 * 60 * 1000;
+/**
+ * Durée de vie d'un « 0256 absente ». Un « présente » vaut pour toute la vie de
+ * l'isolate : la migration est additive et ne se défait pas.
+ */
+const TTL_SONDE_ABSENTE_MS = 5 * 60 * 1000;
 let sonde: { pret: boolean; at: number } | null = null;
 
+type ErreurSonde = { code?: string; message?: string } | null;
+
 /**
- * La migration 0256 est-elle passée ? Une seule sonde par isolate toutes les
- * 5 min. Une erreur de lecture vaut « pas prêt » : en cas de doute, on reste
- * sur le chemin Sophia historique.
+ * « Cette table / colonne n'existe pas » — et RIEN d'autre (même règle que
+ * `relationAbsente` de tierlist.ts). Un 500, un 502 ou une coupure réseau ne
+ * disent rien du schéma : les prendre pour « 0256 absente » ferait publier en
+ * Sophia des comptes 100 % Unswipe pendant 5 minutes.
+ */
+export function erreurSchemaAbsent(erreur: ErreurSonde, statut?: number): boolean {
+  if (!erreur) return statut === 404;
+  const code = String(erreur.code ?? "");
+  if (["42P01", "PGRST205", "42703", "PGRST204"].includes(code)) return true;
+  if (statut === 404) return true;
+  return /does not exist|could not find the table|schema cache/i.test(
+    String(erreur.message ?? ""),
+  );
+}
+
+async function lireSonde(
+  supabase: Supabase,
+): Promise<{ pret: boolean } | { illisible: string }> {
+  // GET borné, JAMAIS HEAD : sur une table absente PostgREST répond 404 sans
+  // corps, et postgrest-js transforme « 404 + corps vide » en succès 204
+  // (contournement de son issue #295). Mesuré sur ce projet avant 0256 : la
+  // sonde HEAD disait « prête » — et toute la nuit d'assignation serait tombée.
+  const lectures = [
+    () => supabase.from("label_applications").select("label_id").limit(1),
+    () => supabase.from("applications").select("id, langues, actif").limit(1),
+    () => supabase.from("passages").select("application_id").limit(1),
+  ];
+  for (const lecture of lectures) {
+    const { error, status } = await lecture();
+    if (!error && status !== 404) continue;
+    if (erreurSchemaAbsent(error, status)) return { pret: false };
+    return { illisible: error?.message || `HTTP ${status}` };
+  }
+  return { pret: true };
+}
+
+/**
+ * La migration 0256 est-elle passée ?
+ *
+ * - présente : vrai pour toute la vie de l'isolate ;
+ * - absente (table ou colonne inconnue) : faux, revérifié toutes les 5 min ;
+ * - illisible (réseau, 5xx) : une seconde tentative, puis on LÈVE sans rien
+ *   mémoriser. L'appelant échoue et sera rejoué (compte de la nuit, pas
+ *   d'import) plutôt que de basculer en silence sur le chemin 100 % Sophia.
  */
 export async function schemaMultiAppPret(supabase: Supabase): Promise<boolean> {
   const maintenant = Date.now();
-  if (sonde && maintenant - sonde.at < TTL_SONDE_MS) return sonde.pret;
-  const { error } = await supabase
-    .from("label_applications")
-    .select("label_id", { head: true, count: "exact" })
-    .limit(1);
-  const pret = !error;
-  if (error) console.warn(`[multi-app] schéma 0256 absent ou illisible : ${error.message}`);
-  sonde = { pret, at: maintenant };
-  return pret;
+  if (sonde?.pret) return true;
+  if (sonde && maintenant - sonde.at < TTL_SONDE_ABSENTE_MS) return false;
+
+  let r = await lireSonde(supabase);
+  if ("illisible" in r) {
+    await new Promise((ok) => setTimeout(ok, 500));
+    r = await lireSonde(supabase);
+  }
+  if ("illisible" in r) {
+    throw new Error(`[multi-app] sonde du schéma 0256 illisible : ${r.illisible}`);
+  }
+  if (!r.pret) console.warn("[multi-app] schéma 0256 absent : chemin Sophia historique");
+  sonde = { pret: r.pret, at: maintenant };
+  return r.pret;
 }
 
 /** Pour les tests : oublie la sonde. */

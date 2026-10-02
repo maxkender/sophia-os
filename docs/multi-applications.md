@@ -21,7 +21,11 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
   historiques — bundles figés manage-users / papier-cm, persona, UGC vidéo,
   recrutement. Ne PAS le supprimer.)
 - **Pertinence par contenu × application** (`contenu_pertinences`) : notée pour
-  chaque application ACTIVE servie par les labels du contenu.
+  chaque application servie par les labels du contenu et dotée d'un prompt de
+  pertinence (active ou non : un label coché pour Unswipe l'est exprès, et
+  préparer le stock avant l'activation évite de perdre des contenus). Une
+  application sans prompt n'est pas notée — jamais de repli sur le prompt
+  Sophia. Une note par passage d'import (un appel modèle), Sophia d'abord.
   - `contenus.pertinence_score` = pertinence de la PORTE d'import = **max** des
     applications servies (identique au score Sophia pour un contenu Sophia seul).
     Un contenu n'est rejeté que s'il n'est pertinent pour AUCUNE application.
@@ -46,9 +50,17 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
   (`applications.langues`, `NULL` = toutes). Un compte dont les labels ne servent
   QUE Unswipe publie 100 % Unswipe. Tenue par **fenêtre glissante** (déficit) sur
   ses 10 derniers posts : en 70/30, toute suite de 10 posts compte 7/3.
-- **Repli** : si l'application demandée ne peut pas être servie (réserve vide,
-  deck inéligible ou en échec), le créneau passe sur Sophia et le passage le dit
-  (`application_visee_id`, `repli_motif`). Pilotage les affiche.
+- **Chemin historique** : un compte dont les parts effectives sont 100 % Sophia
+  (le cas de tous les comptes tant qu'on ne règle rien) suit exactement le code
+  d'avant — pas de fenêtre lue, pas de deck d'application.
+- **Repli** : si l'application demandée ne peut pas être servie, le créneau
+  passe sur Sophia et le passage le dit (`application_visee_id`, `repli_motif`).
+  Motifs : `reserve_vide`, `deck_ineligible` (base polluée par une pub Sophia),
+  `deck_echec` (prompt manquant, placement impossible), `budget` (la nuit a
+  dépassé son budget de cuisson des decks non-Sophia : 120 s par lot du drain).
+  Pilotage les affiche. Un compte qu'aucun repli ne peut servir (labels 100 %
+  Unswipe, Unswipe inactive) ne baisse pas son quota et sort de la chaîne du
+  drain, pour ne pas bloquer les autres.
 - **Même contenu, deux applications** : autorisé, y compris sur le même compte,
   mais pas à moins de 7 jours d'écart (stats et doublons TikTok).
 - **Unswipe = slideshows classiques uniquement** : un compte UGC reste Sophia.
@@ -84,7 +96,12 @@ Les fonctions Edge se déploient au merge sur `main` ; les migrations se passent
 à la main (SQL Editor ou MCP), hors fenêtres nocturnes (21:50–23:15 UTC,
 03:55–04:15 UTC).
 
-1. **Appliquer 0256** (additive : rien ne change pour le code en place).
+1. **Appliquer 0256 AVANT le merge** (additive : rien ne change pour le code en
+   place). Filet de sécurité si l'ordre est inversé : le code sonde le schéma
+   (lecture GET de `label_applications`, `applications.langues/actif`,
+   `passages.application_id`) et reste sur le chemin 100 % Sophia tant que
+   0256 manque. Une sonde illisible (réseau, 5xx) fait échouer l'opération en
+   cours, qui sera rejouée — elle ne bascule jamais en silence.
 2. **Merger** la branche (Edge auto-déployées, front Vercel). Sophia tourne à
    l'identique : aucun compte n'a de répartition, aucun label ne sert Unswipe.
    Vérifier la nuit suivante : même volume de posts (~280/jour), pas de pic de
@@ -92,12 +109,15 @@ Les fonctions Edge se déploient au merge sur `main` ; les migrations se passent
 3. **Admin → Sources → @barevanillascent → « Oublier la source »** (supprime
    les images micabo du stockage), puis **appliquer 0257** (purge micabo, Hook
    unique, unicités globales). Rattrapage des ~950 médias Hook inclus.
-4. **Appliquer 0258** : Unswipe créée INACTIVE, sans langue.
+4. **Appliquer 0258** : Unswipe créée INACTIVE, sans langue. À ce stade,
+   Unswipe = 0 % partout : aucune application inactive n'est jamais choisie,
+   aucun label ne la sert, aucun compte n'a de part.
 5. Relire / compléter `pertinence_unswipe` et `placement_unswipe` (Réglages →
    Prompts, sélecteur sur Unswipe).
-6. Pilotage → Applications : choisir les langues d'Unswipe, cocher Unswipe sur
-   les labels voulus (+ angle), lancer le rattrapage de pertinence Unswipe du
-   stock, puis activer Unswipe.
+6. **Quand on décide de démarrer** : Pilotage → Applications, choisir les
+   langues d'Unswipe, cocher Unswipe sur les labels voulus (+ angle), lancer le
+   rattrapage de pertinence Unswipe du stock, puis activer Unswipe
+   (l'activation est refusée tant que les deux prompts sont vides).
 7. Posters : régler la répartition des comptes concernés (défaut 100 % Sophia).
 
 `manage-users` et `papier-cm` tournent sur des bundles figés : ils continuent

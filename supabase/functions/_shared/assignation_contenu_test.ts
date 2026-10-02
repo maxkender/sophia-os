@@ -1184,8 +1184,71 @@ Deno.test("multi-app — réserve Unswipe vide ET compte sans label Sophia : pas
     assertEquals(detail.ids, []);
     assertEquals(detail.quotaBaisse, undefined);
     assert(detail.raison?.includes("ne sert Sophia"), detail.raison);
+    assertEquals(detail.nonServable, true, "le drain doit l'écarter de la suite de la chaîne");
     assertEquals(journal.filter((o) => o.table === "comptes" && o.op === "update"), []);
     assertEquals(journal.filter((o) => o.table === "contenu_tier_etat" && o.filtres.some(([c]) => c === "contenu_id") && o.colonnes === "contenu_id, restants, passages_prevus"), [], "pas de diagnostic");
+  });
+});
+
+Deno.test("multi-app — budget de cuisson du lot dépassé : repli Sophia immédiat, aucun deck d'application cuit", async () => {
+  const pret = () => ({ statut: "pret" as const, slides: DECK, hashtags: "#unswipe" });
+  await avecDecks(pret, async (appels) => {
+    const base = baseEssai({
+      compte: { parts_applications: { sophia: 70, unswipe: 30 } },
+      fenetre: Array(9).fill("sophia"),
+      pertinences: [0, 1, 2].map((i) => ({
+        contenu_id: idContenu(i),
+        application_id: UNSWIPE,
+        eligible: true,
+      })),
+    });
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {
+      echeance: Date.now() - 1,
+    });
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(appels.application, [], "aucune cuisson après l'échéance");
+    assertEquals(appels.sophia.length, 1);
+    assertEquals(detail.replis, [{ visee: "unswipe", motif: "budget" }]);
+    const [passage] = insertsPassages(journal);
+    assertEquals(passage.application_id, ID_SOPHIA);
+    assertEquals(passage.repli_motif, "budget");
+  });
+});
+
+Deno.test("multi-app — échecs de deck répétés : le lot cesse d'essayer cette application × langue", async () => {
+  const echec = () => ({ statut: "echec" as const, raison: "modèle muet" });
+  await avecDecks(echec, async (appels) => {
+    const base = baseEssai({
+      compte: { parts_applications: { sophia: 70, unswipe: 30 } },
+      fenetre: Array(9).fill("sophia"),
+      pertinences: [0, 1, 2].map((i) => ({
+        contenu_id: idContenu(i),
+        application_id: UNSWIPE,
+        eligible: true,
+      })),
+    });
+    const memo = creerMemoAssignation();
+    const { client } = fauxMoteur(base);
+
+    const premier = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {}, memo);
+    assertEquals(appels.application.length, 3, "3 essais pour le premier compte");
+    assertEquals(premier.replis, [{ visee: "unswipe", motif: "deck_echec" }]);
+
+    // Même lot (même mémo), nouveau passage du même profil : la panne est
+    // connue, plus d'essai de cuisson.
+    const second = await assignerCompteJour(
+      client,
+      base.comptes[0],
+      JOUR,
+      REGLAGES,
+      { forcer: true },
+      memo,
+    );
+    assertEquals(appels.application.length, 3, "aucun nouvel essai de cuisson");
+    assertEquals(second.replis, [{ visee: "unswipe", motif: "deck_echec" }]);
   });
 });
 

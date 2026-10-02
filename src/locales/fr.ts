@@ -1477,6 +1477,12 @@ export const fr = {
         desc: "Créneaux des {{jours}} derniers jours où la répartition demandait une autre application, servis en Sophia faute de mieux.",
         total: "{{n}} repli(s)",
         sansMotif: "sans motif",
+        motifs: {
+          reserve_vide: "réserve vide",
+          deck_ineligible: "contenu inadapté (base polluée)",
+          deck_echec: "placement impossible",
+          budget: "temps de nuit dépassé",
+        },
         dernier: "dernier le {{jour}}",
         erreur: "Replis illisibles : {{message}}",
       },

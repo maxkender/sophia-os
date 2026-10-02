@@ -62,6 +62,24 @@ const DRAIN_MAX_CHAIN = 40;
 const ESSAIS_DECK_APPLICATION = 3;
 
 /**
+ * Budget d'un lot du drain pour CUIRE des decks d'autres applications
+ * (traduction + jusqu'à 4 essais de placement, ~60 s au pire par contenu).
+ * Passé ce délai, les créneaux non-Sophia du lot se replient d'office sur
+ * Sophia (motif `budget`) : une invocation tuée avant `kickAssignationDrain`
+ * arrêterait la chaîne de la nuit, comptes 100 % Sophia compris. Les decks
+ * Sophia, eux, ne sont jamais bornés — comme avant.
+ */
+export const BUDGET_DECKS_APPLICATION_MS = 120_000;
+
+/**
+ * Échecs de cuisson (`deck_echec`) d'une même application × langue dans un
+ * lot au-delà desquels on cesse d'essayer pour le reste du lot : une panne
+ * systémique (prompt cassé, modèle lent) n'est payée qu'une fois par lot, pas
+ * une fois par compte.
+ */
+const ECHECS_DECK_PAR_LOT = 3;
+
+/**
  * Cuisson des decks, derrière un objet pour que les tests de la boucle
  * d'assignation puissent la remplacer : les deux chemins appellent un modèle
  * (traduction, placement). En prod, rien ne les touche.
@@ -210,6 +228,8 @@ export interface MemoAssignation {
   pertinences: Map<string, Promise<Set<string>>>;
   /** application_id::langue → contenus dont le deck est `ineligible`. */
   decksIneligibles: Map<string, Promise<Set<string>>>;
+  /** application_id::langue → échecs de cuisson dans ce lot. */
+  echecsDeck: Map<string, number>;
 }
 
 export function creerMemoAssignation(): MemoAssignation {
@@ -221,6 +241,7 @@ export function creerMemoAssignation(): MemoAssignation {
     liens: new Map(),
     pertinences: new Map(),
     decksIneligibles: new Map(),
+    echecsDeck: new Map(),
   };
 }
 
@@ -304,7 +325,7 @@ export interface QuotaBaisse {
  * Pourquoi un créneau demandé pour une application autre que Sophia est parti
  * sur Sophia. Écrit tel quel dans `passages.repli_motif`.
  */
-export type MotifRepli = "reserve_vide" | "deck_ineligible" | "deck_echec";
+export type MotifRepli = "reserve_vide" | "deck_ineligible" | "deck_echec" | "budget";
 
 /** Un créneau replié sur Sophia : l'application visée (slug) et le motif. */
 export interface RepliCreneau {
@@ -320,6 +341,13 @@ export interface AssignationCompteDetail {
   quotaBaisse?: QuotaBaisse;
   /** Créneaux repliés sur Sophia (multi-app) ; absent s'il n'y en a aucun. */
   replis?: RepliCreneau[];
+  /**
+   * Compte qu'aucun repli ne peut servir (ses labels ne servent pas Sophia et
+   * son application est inactive, hors langue ou à sec). Le drain l'écarte de
+   * la suite de la chaîne : sinon, resté sous quota sans erreur, il reviendrait
+   * en tête de chaque lot et affamerait le reste de la flotte.
+   */
+  nonServable?: boolean;
 }
 
 /** Options d'assignation (test admin = posts invisibles + rollback). */
@@ -345,6 +373,12 @@ export interface AssignationOpts {
    * Toujours soumis à l'éligibilité du compte, et au repli sur Sophia.
    */
   applicationImposee?: string | null;
+  /**
+   * Échéance (epoch ms) au-delà de laquelle on ne CUIT plus de deck d'une autre
+   * application : ses créneaux se replient sur Sophia (motif `budget`). Posée
+   * par le drain ; absente ailleurs (pas de borne, comme avant).
+   */
+  echeance?: number;
 }
 
 /**
@@ -536,9 +570,10 @@ export async function assignerCompteJour(
   const labelNoms = (labelsCompte ?? [])
     .map((l: any) => l.labels?.nom as string | undefined)
     .filter(Boolean) as string[];
-  // deno-lint-ignore no-explicit-any
-  const labelRefs: LabelRef[] = (labelsCompte ?? []).map((l: any) => {
-    const ref = Array.isArray(l.labels) ? l.labels[0] : l.labels;
+  type LabelLu = { slug?: string | null; nom?: string | null };
+  const labelRefs: LabelRef[] = (labelsCompte ?? []).map((l) => {
+    const brut = (l as { labels?: LabelLu | LabelLu[] | null }).labels;
+    const ref = Array.isArray(brut) ? brut[0] : brut;
     return { id: l.label_id as string, slug: ref?.slug ?? null, nom: ref?.nom ?? null };
   });
   // Sans labels : impossible d'intersecter → baisse le quota à ce qui est déjà là.
@@ -631,8 +666,17 @@ export async function assignerCompteJour(
     | { motif: MotifRepli }
   > => {
     const labelsApp = repartition.parApp.get(app.id) ?? [];
+    const cleEchecs = `${app.id}::${langue}`;
     let motif: MotifRepli = "reserve_vide";
     for (let essai = 0; essai < ESSAIS_DECK_APPLICATION; essai += 1) {
+      if (o.echeance !== undefined && Date.now() > o.echeance) {
+        log(`Budget de cuisson ${app.nom} du lot épuisé — repli Sophia`);
+        return { motif: essai === 0 ? "budget" : motif };
+      }
+      if ((memo.echecsDeck.get(cleEchecs) ?? 0) >= ECHECS_DECK_PAR_LOT) {
+        log(`Decks ${app.nom} ${langue} en échec répété dans ce lot — repli Sophia`);
+        return { motif: "deck_echec" };
+      }
       const candidat = await choisirContenu(
         supabase,
         compte.id,
@@ -676,6 +720,7 @@ export async function assignerCompteJour(
         await noterDeckIneligible(memo, app, langue, candidat.contenuId);
       } else {
         motif = "deck_echec";
+        memo.echecsDeck.set(cleEchecs, (memo.echecsDeck.get(cleEchecs) ?? 0) + 1);
       }
       log(
         `Deck ${app.nom} ${deck.statut === "pret" ? "vide" : deck.statut}` +
@@ -875,6 +920,7 @@ export async function assignerCompteJour(
     return finir({
       ids: crees,
       raison: crees.length === 0 ? diag : `${crees.length}/${manquants} créé(s). ${diag}`,
+      nonServable: true,
     });
   }
 
@@ -1971,6 +2017,8 @@ export type AssignationCompteResultat = {
   quotaBaisse?: QuotaBaisse & { nom?: string };
   /** Créneaux repliés sur Sophia (multi-app) — Pilotage les affiche. */
   replis?: RepliCreneau[];
+  /** Voir AssignationCompteDetail.nonServable. */
+  nonServable?: boolean;
 };
 
 /** Comptes en process (warmup OK, pas UGC video) encore sous leur quota du jour. */
@@ -2103,6 +2151,10 @@ export async function assignerDrainLot(
     return { resultats: [], restants: 0, traites: 0, echecs: [] };
   }
   const reglages = await chargerAssignationReglages(supabase);
+  // Budget de cuisson des decks des autres applications pour CE lot (voir
+  // BUDGET_DECKS_APPLICATION_MS) : la chaîne de la nuit ne doit jamais mourir
+  // sur un modèle lent.
+  opts = { ...opts, echeance: opts.echeance ?? Date.now() + BUDGET_DECKS_APPLICATION_MS };
   // Un mémo pour TOUT le lot : les comptes d'une même application partagent
   // largement leurs labels, donc le mapping label → contenus n'est lu qu'une
   // fois pour les 8 comptes du lot au lieu d'une fois par tentative de pioche.
@@ -2123,6 +2175,7 @@ export async function assignerDrainLot(
           ? { ...detail.quotaBaisse, nom }
           : undefined,
         replis: detail.replis,
+        nonServable: detail.nonServable,
       };
     } catch (e) {
       return {
@@ -2136,7 +2189,13 @@ export async function assignerDrainLot(
     resultats,
     restants: Math.max(0, eligibles.length - lot.length),
     traites: lot.length,
-    echecs: resultats.filter((r) => r.erreur !== undefined).map((r) => r.compteId),
+    // Un compte non servable (multi-app) sort de la chaîne comme un compte en
+    // échec : il ne lève pas, ne baisse pas son quota, donc ne quitterait
+    // jamais la tête de file. Les autres comptes à 0 créé gardent leur
+    // comportement d'avant.
+    echecs: resultats
+      .filter((r) => r.erreur !== undefined || r.nonServable)
+      .map((r) => r.compteId),
   };
 }
 
@@ -2216,6 +2275,7 @@ export async function assignerTousComptes(
           ? { ...detail.quotaBaisse, nom }
           : undefined,
         replis: detail.replis,
+        nonServable: detail.nonServable,
       };
     } catch (e) {
       return {
@@ -2351,13 +2411,9 @@ export async function programmerRappelsJ7(
 ): Promise<RappelsResultat> {
   // Un rappel rejoue le même post, donc la même application. Sans 0256 : ni
   // lecture ni écriture de la colonne, le rappel est celui d'avant (Sophia par
-  // défaut). La sonde ne lève pas — un doute vaut « pas prêt ».
-  let multiApp = false;
-  try {
-    multiApp = await schemaMultiAppPret(supabase);
-  } catch {
-    multiApp = false;
-  }
+  // défaut). Une sonde illisible LÈVE : l'étape rappels échoue et repassera la
+  // nuit suivante, plutôt que de poser des rappels Unswipe étiquetés Sophia.
+  const multiApp = await schemaMultiAppPret(supabase);
   return await programmerRappels(
     supabase,
     async ({ passageSource, jour }) => {

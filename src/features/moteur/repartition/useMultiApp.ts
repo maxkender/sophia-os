@@ -8,7 +8,9 @@ import { listerApplicationsMulti, listerLiensLabels } from "../apiMultiApp";
  * 0256, `label_applications` n'existe pas — on affiche l'erreur localement tout
  * de suite plutôt que de réessayer trois fois une table absente.
  */
-export const CLE_APPLICATIONS_MULTI = ["applications-multi"] as const;
+// Sous le préfixe ["applications"] : Pilotage invalide ce préfixe après un
+// interrupteur ou un changement de langues, et ces écrans doivent le voir.
+export const CLE_APPLICATIONS_MULTI = ["applications", "multi-repartition"] as const;
 export const CLE_LIENS_LABELS = ["label-applications"] as const;
 
 export function useApplicationsMulti() {

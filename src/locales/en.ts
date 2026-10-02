@@ -1474,6 +1474,12 @@ export const en = {
         desc: "Slots from the last {{jours}} days where the split asked for another application and Sophia was served instead.",
         total: "{{n}} fallback(s)",
         sansMotif: "no reason",
+        motifs: {
+          reserve_vide: "empty reserve",
+          deck_ineligible: "unsuitable content (polluted base)",
+          deck_echec: "placement failed",
+          budget: "night time budget exceeded",
+        },
         dernier: "last on {{jour}}",
         erreur: "Fallbacks unreadable: {{message}}",
       },

@@ -52,7 +52,7 @@ import {
   clePromptPlacement,
   placementParDefaut,
 } from "./applications.ts";
-import { schemaMultiAppPret } from "./applications_moteur.ts";
+import { erreurSchemaAbsent, schemaMultiAppPret } from "./applications_moteur.ts";
 import {
   majNotesPertinences,
   noterPertinenceImport,
@@ -460,14 +460,14 @@ async function reouvrirContenuPourReimport(
   // Les decks des autres applications (contenu_langue_decks) partent avec, en cascade.
   await supabase.from("contenu_langues").delete().eq("contenu_id", contenuId);
   // Pertinences par application : l'étape 2 renote tout. Une ligne restée là
-  // passerait pour « déjà notée » et figerait l'ancien score.
-  if (await schemaMultiAppPret(supabase)) {
-    const { error: errP } = await supabase
-      .from("contenu_pertinences")
-      .delete()
-      .eq("contenu_id", contenuId);
-    if (errP) throw errP;
-  }
+  // passerait pour « déjà notée » et figerait l'ancien score (et un ancien
+  // refus Sophia). Suppression TOUJOURS tentée, sans passer par la sonde : seule
+  // l'absence de la table (0256 pas encore passée) est ignorée.
+  const { error: errP, status: statutP } = await supabase
+    .from("contenu_pertinences")
+    .delete()
+    .eq("contenu_id", contenuId);
+  if (errP && !erreurSchemaAbsent(errP, statutP)) throw errP;
   await attacherLabels(supabase, contenuId, compteReferenceId, labelIds);
 }
 
@@ -1319,6 +1319,22 @@ async function executerPasImport(
           score_maj_at: new Date().toISOString(),
         })
         .eq("id", langueSourceRow.id);
+    }
+
+    // Multi-app : jamais « done » avec une pertinence dont l'éligibilité est
+    // encore provisoire (note absente) — rien ne la recalculerait plus, le
+    // contenu ne repassant plus dans le pipeline. On échoue le pas : il sera
+    // rejoué, et l'étape 4 (qui repasse à chaque pas) posera la note.
+    if (await schemaMultiAppPret(supabase)) {
+      const { count: sansNote, error: errNotes } = await supabase
+        .from("contenu_pertinences")
+        .select("contenu_id", { count: "exact", head: true })
+        .eq("contenu_id", contenu.id)
+        .is("note", null);
+      if (errNotes) throw errNotes;
+      if ((sansNote ?? 0) > 0) {
+        throw new Error(`${sansNote} pertinence(s) sans note — étape 4 à rejouer`);
+      }
     }
 
     // Strip texte_original des slides partagées (reste language-agnostique)

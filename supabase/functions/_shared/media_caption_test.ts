@@ -17,7 +17,12 @@
 import { assert, assertEquals, assertRejects } from "jsr:@std/assert@1";
 
 import { PLAFOND_LIGNES } from "./lots.ts";
-import { listerMediasARattraper } from "./media_caption.ts";
+import {
+  assurerHookMedia,
+  idLabelHook,
+  listerMediasARattraper,
+  oublierIdLabelHook,
+} from "./media_caption.ts";
 
 interface Media {
   id: string;
@@ -258,4 +263,188 @@ Deno.test("une lecture ratée est REMONTÉE, pas confondue avec un stock vide", 
     Error,
     "statement timeout",
   );
+});
+
+// ─── Label Hook ────────────────────────────────────────────────────────────
+//
+// Depuis 0211, le slug `hook` existait DEUX fois (Sophia + copie micabo).
+// L'ancien `.eq("slug","hook").maybeSingle()` recevait une erreur PostgREST
+// (plusieurs lignes), rendait `null`… et le mettait en cache pour la vie de
+// l'isolate : 948 médias `est_hook` sans label Hook. Le faux serveur ci-dessous
+// reproduit ce refus de `maybeSingle` sur 2 lignes, pour que le test échoue si
+// quelqu'un y revient.
+
+interface Label {
+  id: string;
+  slug: string;
+  created_at: string;
+}
+
+interface Appels {
+  lecturesLabels: number;
+  ordres: string[][];
+  limites: Array<number | null>;
+  upserts: Array<{ media_id: string; label_id: string }>;
+  flags: string[];
+}
+
+function fauxClientLabels(
+  labels: Label[],
+  opts: { erreurs?: Array<string | null> } = {},
+) {
+  const erreurs = [...(opts.erreurs ?? [])];
+  const appels: Appels = { lecturesLabels: 0, ordres: [], limites: [], upserts: [], flags: [] };
+
+  const from = (table: string) => {
+    const filtres: Array<[string, unknown]> = [];
+    const ordre: string[] = [];
+    let limite: number | null = null;
+    let maj = false;
+
+    const champ = (l: Label, c: string) => String((l as unknown as Record<string, unknown>)[c]);
+
+    const resoudre = (): { data: unknown; error: { message: string } | null } => {
+      if (table === "labels") {
+        appels.lecturesLabels += 1;
+        appels.ordres.push([...ordre]);
+        appels.limites.push(limite);
+        const erreur = erreurs.shift() ?? null;
+        if (erreur) return { data: null, error: { message: erreur } };
+        let lignes = labels.filter((l) => filtres.every(([c, v]) => champ(l, c) === v));
+        // Sans ORDER BY, Postgres ne promet rien : on rend l'ordre d'insertion
+        // INVERSÉ, pour qu'un code qui oublierait le tri prenne la mauvaise.
+        if (ordre.length === 0) {
+          lignes = [...lignes].reverse();
+        } else {
+          lignes = [...lignes].sort((a, b) => {
+            for (const c of ordre) {
+              if (champ(a, c) !== champ(b, c)) return champ(a, c) < champ(b, c) ? -1 : 1;
+            }
+            return 0;
+          });
+        }
+        if (limite !== null) lignes = lignes.slice(0, limite);
+        return { data: lignes.map((l) => ({ id: l.id })), error: null };
+      }
+      if (table === "media_library" && maj) {
+        appels.flags.push(String(filtres.find(([c]) => c === "id")?.[1]));
+      }
+      return { data: null, error: null };
+    };
+
+    const maillon = {
+      // Les arguments ignorés (colonnes, options) sont simplement omis.
+      select: () => maillon,
+      eq: (c: string, v: unknown) => {
+        filtres.push([c, v]);
+        return maillon;
+      },
+      order: (c: string) => {
+        ordre.push(c);
+        return maillon;
+      },
+      limit: (n: number) => {
+        limite = n;
+        return maillon;
+      },
+      update: () => {
+        maj = true;
+        return maillon;
+      },
+      upsert: (ligne: { media_id: string; label_id: string }) => {
+        appels.upserts.push(ligne);
+        return Promise.resolve({ data: null, error: null });
+      },
+      maybeSingle: () => {
+        const r = resoudre();
+        const lignes = (r.data as unknown[] | null) ?? [];
+        if (!r.error && lignes.length > 1) {
+          return Promise.resolve({
+            data: null,
+            error: { message: "JSON object requested, multiple (or no) rows returned" },
+          });
+        }
+        return Promise.resolve({ data: lignes[0] ?? null, error: r.error });
+      },
+      then: (
+        onfulfilled?: (v: { data: unknown; error: { message: string } | null }) => unknown,
+      ) => Promise.resolve(onfulfilled?.(resoudre())),
+    };
+    return maillon;
+  };
+
+  return { supabase: { from } as unknown as Parameters<typeof idLabelHook>[0], appels };
+}
+
+const HOOK_SOPHIA: Label = { id: "lab-hook-sophia", slug: "hook", created_at: "2025-06-01T00:00:00Z" };
+const HOOK_COPIE: Label = { id: "lab-hook-copie", slug: "hook", created_at: "2026-03-10T00:00:00Z" };
+const NICHE: Label = { id: "lab-niche", slug: "clean-girl", created_at: "2025-01-01T00:00:00Z" };
+
+Deno.test("Hook en double : le plus ancien est rendu, jamais une erreur maybeSingle", async () => {
+  oublierIdLabelHook();
+  // Ordre d'insertion choisi pour que, sans tri, le faux serveur rende la copie.
+  const { supabase, appels } = fauxClientLabels([NICHE, HOOK_SOPHIA, HOOK_COPIE]);
+
+  assertEquals(await idLabelHook(supabase), HOOK_SOPHIA.id);
+  assertEquals(appels.ordres[0], ["created_at", "id"], "tri déterministe, même règle que 0257");
+  assertEquals(appels.limites[0], 1);
+});
+
+Deno.test("Hook à created_at égal : l'id départage", async () => {
+  oublierIdLabelHook();
+  const a: Label = { id: "lab-a", slug: "hook", created_at: "2025-06-01T00:00:00Z" };
+  const b: Label = { id: "lab-b", slug: "hook", created_at: "2025-06-01T00:00:00Z" };
+  const { supabase } = fauxClientLabels([a, b]);
+
+  assertEquals(await idLabelHook(supabase), "lab-a");
+});
+
+Deno.test("Hook trouvé : mémorisé, la base n'est plus relue", async () => {
+  oublierIdLabelHook();
+  const { supabase, appels } = fauxClientLabels([HOOK_SOPHIA]);
+
+  assertEquals(await idLabelHook(supabase), HOOK_SOPHIA.id);
+  assertEquals(await idLabelHook(supabase), HOOK_SOPHIA.id);
+  assertEquals(appels.lecturesLabels, 1);
+});
+
+Deno.test("lecture du Hook en erreur : null pour CET appel, l'appel suivant relit", async () => {
+  oublierIdLabelHook();
+  const { supabase, appels } = fauxClientLabels([HOOK_SOPHIA], { erreurs: ["fetch failed"] });
+
+  assertEquals(await idLabelHook(supabase), null);
+  // L'ancien cache figeait ce null jusqu'au recyclage de l'isolate.
+  assertEquals(await idLabelHook(supabase), HOOK_SOPHIA.id);
+  assertEquals(appels.lecturesLabels, 2);
+});
+
+Deno.test("Hook absent : null non mémorisé (le label peut être créé entre-temps)", async () => {
+  oublierIdLabelHook();
+  const labels: Label[] = [NICHE];
+  const { supabase, appels } = fauxClientLabels(labels);
+
+  assertEquals(await idLabelHook(supabase), null);
+  labels.push(HOOK_SOPHIA);
+  assertEquals(await idLabelHook(supabase), HOOK_SOPHIA.id);
+  assertEquals(appels.lecturesLabels, 2);
+});
+
+Deno.test("assurerHookMedia pose le flag ET le label Hook malgré un slug en double", async () => {
+  oublierIdLabelHook();
+  const { supabase, appels } = fauxClientLabels([HOOK_COPIE, HOOK_SOPHIA]);
+
+  assertEquals(await assurerHookMedia(supabase, "media-1"), true);
+  assertEquals(appels.flags, ["media-1"]);
+  assertEquals(appels.upserts, [{ media_id: "media-1", label_id: HOOK_SOPHIA.id }]);
+});
+
+Deno.test("garde-fou du faux serveur : maybeSingle échoue sur deux Hook, comme PostgREST", async () => {
+  const { supabase } = fauxClientLabels([HOOK_SOPHIA, HOOK_COPIE]);
+  const { data, error } = await supabase
+    .from("labels")
+    .select("id")
+    .eq("slug", "hook")
+    .maybeSingle();
+  assertEquals(data, null);
+  assert(error, "l'ancienne requête doit échouer sur deux lignes");
 });

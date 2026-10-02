@@ -1,5 +1,4 @@
 export const SLUG_SOPHIA = "sophia";
-export const SLUG_MICABO = "micabo";
 
 export type ApplicationRow = {
   id: string;
@@ -24,7 +23,10 @@ export function estSlugSophia(slug: string | null | undefined): boolean {
 
 /**
  * Application d'un import : la source l'emporte toujours, puis l'id explicite
- * (lien isolé), puis Sophia. Un compte Micabo ne doit jamais retomber sur Sophia.
+ * (lien isolé), puis Sophia. Ne sert plus à PARTITIONNER le stock (un contenu
+ * sert toutes les applications de ses labels, cf. docs/multi-applications.md) :
+ * `contenus.application_id` reste posé, figé à Sophia, pour les lecteurs
+ * historiques (bundles figés papier-cm / manage-users).
  */
 export function resoudreApplicationImport(opts: {
   sourceApplicationId?: string | null;
@@ -49,43 +51,18 @@ export function clePromptPlacement(slug: string | null | undefined): string {
 /**
  * Texte de repli posé sur la dernière slide quand le VRAI placement a échoué.
  *
+ * Sophia uniquement. Une autre application (Unswipe…) n'a PAS de texte de
+ * repli : son deck vit dans `contenu_langue_decks` et un placement raté y est
+ * un échec franc (`statut = 'echec'`) qui renvoie le créneau sur Sophia — on ne
+ * publie jamais un deck Unswipe avec une phrase Sophia en dernière slide.
+ * (L'ancienne table micabo est partie avec l'application, migration 0257.)
+ *
  * ⚠️ Toute langue de `LANGUES_CIBLES` doit avoir sa version. Une langue absente
  * retombait sur l'anglais : un deck arabe ou hébreu recevait une phrase latine
  * LTR au milieu d'un diaporama RTL. `placementParDefaut.test.ts` interdit
  * désormais ce trou.
  */
-export function placementParDefaut(langue: string, slug = SLUG_SOPHIA): string {
-  if (slug === SLUG_MICABO) {
-    const par: Record<string, string> = {
-      fr: "transforme tes cours en flashcards et révise 10 minutes par jour. micabo est top pour ça, il les crée à partir de tes notes.",
-      en: "turn your notes into flashcards and review 10 minutes a day. micabo is great for that, it builds them from your notes.",
-      de: "mach aus deinen notizen flashcards und wiederhole 10 minuten am tag. micabo ist super dafür, es erstellt sie aus deinen unterlagen.",
-      es: "pasa tus apuntes a flashcards y repasa 10 minutos al día. micabo va genial para eso, las crea desde tus notas.",
-      it: "trasforma i tuoi appunti in flashcards e ripassa 10 minuti al giorno. micabo è top per questo, le crea dalle tue note.",
-      pt: "transforma os teus apontamentos em flashcards e revê 10 minutos por dia. o micabo é ótimo para isso, cria-os a partir das tuas notas.",
-      cs: "proměň své poznámky v kartičky a opakuj si 10 minut denně. micabo je na to super, vytvoří je z tvých poznámek.",
-      nl: "maak van je aantekeningen flashcards en herhaal 10 minuten per dag. micabo is daar top voor, het maakt ze uit je notities.",
-      el: "μετάτρεψε τις σημειώσεις σου σε flashcards και κάνε επανάληψη 10 λεπτά τη μέρα. το micabo είναι τέλειο γι' αυτό, τις φτιάχνει από τις σημειώσεις σου.",
-      hu: "alakítsd a jegyzeteidet kártyákká és ismételj napi 10 percet. a micabo tökéletes erre, a jegyzeteidből készíti el őket.",
-      pl: "zamień notatki w fiszki i powtarzaj 10 minut dziennie. micabo jest do tego super, tworzy je z twoich notatek.",
-      ro: "transformă-ți notițele în flashcards și repetă 10 minute pe zi. micabo e super pentru asta, le creează din notițele tale.",
-      sv: "gör om dina anteckningar till flashcards och repetera 10 minuter om dagen. micabo är toppen för det, appen skapar dem från dina anteckningar.",
-      tr: "notlarını flashcard'a çevir ve günde 10 dakika tekrar et. micabo bunun için harika, kartları notlarından oluşturuyor.",
-      da: "lav dine noter om til flashcards og repetér 10 minutter om dagen. micabo er super til det, den laver dem ud fra dine noter.",
-      no: "gjør notatene dine om til flashcards og repeter 10 minutter om dagen. micabo er topp til det, den lager dem fra notatene dine.",
-      ru: "преврати свои конспекты в карточки и повторяй по 10 минут в день. micabo отлично с этим справляется, он создаёт их из твоих заметок.",
-      hr: "pretvori svoje bilješke u kartice i ponavljaj 10 minuta dnevno. micabo je super za to, izrađuje ih iz tvojih bilježaka.",
-      sl: "spremeni svoje zapiske v kartice in ponavljaj 10 minut na dan. micabo je odličen za to, ustvari jih iz tvojih zapiskov.",
-      sk: "premeň si poznámky na kartičky a opakuj si 10 minút denne. micabo je na to skvelé, vytvorí ich z tvojich poznámok.",
-      sr: "pretvori svoje beleške u kartice i ponavljaj 10 minuta dnevno. micabo je super za to, pravi ih od tvojih beleški.",
-      ar: "حوّل ملخصاتك إلى بطاقات تعليمية وراجع 10 دقائق يوميًا. تطبيق micabo ممتاز لذلك، فهو ينشئها من ملاحظاتك.",
-      he: "הפוך את הסיכומים שלך לכרטיסיות וחזור עליהן 10 דקות ביום. micabo מעולה לזה, הוא יוצר אותן מהרשומות שלך.",
-      fi: "muuta muistiinpanosi korteiksi ja kertaa 10 minuuttia päivässä. micabo on siihen mahtava, se luo ne muistiinpanoistasi.",
-      et: "muuda oma märkmed kaartideks ja korda 10 minutit päevas. micabo sobib selleks suurepäraselt, ta loob need sinu märkmetest.",
-      bg: "превърни бележките си във флашкарти и преговаряй по 10 минути на ден. micabo е супер за това, създава ги от бележките ти.",
-    };
-    return par[langue] ?? par.en;
-  }
+export function placementParDefaut(langue: string): string {
   const par: Record<string, string> = {
     fr: "Envie d'en apprendre plus chaque jour ? L'appli Sophia t'apprend une culture générale de dingue en quelques minutes. Teste-la 👀",
     en: "Want to learn something new every day? The Sophia app teaches you wild general knowledge in minutes. Give it a try 👀",
@@ -120,11 +97,10 @@ export function placementParDefaut(langue: string, slug = SLUG_SOPHIA): string {
 /** Langues cibles sans texte de repli — doit toujours être vide (test). */
 export function languesSansPlacementParDefaut(
   languesCibles: readonly string[],
-  slug = SLUG_SOPHIA,
 ): string[] {
-  const reference = placementParDefaut("en", slug);
+  const reference = placementParDefaut("en");
   return languesCibles.filter(
-    (l) => l !== "en" && placementParDefaut(l, slug) === reference,
+    (l) => l !== "en" && placementParDefaut(l) === reference,
   );
 }
 

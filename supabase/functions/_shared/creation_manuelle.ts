@@ -235,11 +235,6 @@ export function normaliserEloManuel(raw: unknown): number {
   return Math.min(100, Math.max(0, n));
 }
 
-export async function idLabelHook(supabase: Supabase): Promise<string | null> {
-  const { data } = await supabase.from("labels").select("id").eq("slug", SLUG_HOOK).maybeSingle();
-  return (data?.id as string | undefined) ?? null;
-}
-
 export async function chargerBiblioLabel(
   supabase: Supabase,
   labelId: string,

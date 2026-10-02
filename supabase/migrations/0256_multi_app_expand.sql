@@ -26,6 +26,12 @@
 -- comptes↔applications rendrait ambigu l'embed `comptes → applications(slug)`
 -- utilisé par la persona (bundle manage-users figé) et la page Posters.
 
+-- Les ALTER sur passages / posts / comptes prennent un verrou exclusif bref.
+-- S'il n'est pas obtenu en 5 s (un drain tient la table), la migration échoue
+-- proprement au lieu de faire la queue et de bloquer les lectures derrière
+-- elle : on la relance une minute plus tard.
+set lock_timeout = '5s';
+
 -- ---------------------------------------------------------------------------
 -- 1. Applications : langues ciblées + interrupteur
 -- ---------------------------------------------------------------------------
@@ -473,3 +479,5 @@ left join lateral (
 where public.is_admin() or c.poster_id = auth.uid();
 
 notify pgrst, 'reload schema';
+
+reset lock_timeout;

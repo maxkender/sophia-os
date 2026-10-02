@@ -18,10 +18,11 @@
 --      les lignes, et les fichiers restent orphelins dans le bucket.
 --   2. Le code multi-app doit être déployé (il ne connaît plus micabo).
 --
--- Idempotent, tout ou rien (une seule transaction), avec garde-fous : il refuse
--- de tourner si quoi que ce soit de vivant référence encore micabo.
-
-begin;
+-- Idempotent, avec garde-fous : il refuse de tourner si quoi que ce soit de
+-- vivant référence encore micabo. Pas de BEGIN/COMMIT explicites : appliqué
+-- d'un bloc (SQL Editor, MCP apply_migration), le fichier s'exécute dans une
+-- seule transaction ; la purge elle-même est un unique bloc DO, donc atomique
+-- dans tous les cas.
 
 do $$
 declare
@@ -236,7 +237,5 @@ begin
   if n > 0 then raise exception '% slug(s) de label en double', n; end if;
 end
 $$;
-
-commit;
 
 notify pgrst, 'reload schema';

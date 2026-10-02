@@ -1,9 +1,7 @@
 import { avatarPourCompte } from "../_shared/avatar.ts";
-import { applicationParId, SLUG_MICABO } from "../_shared/applications.ts";
 import {
   appliquerIdentiteInstantanee,
   genererIdentite,
-  genererIdentiteMicabo,
   genreDuLabel,
   labelDuCompte,
   type Genre,
@@ -73,12 +71,9 @@ Deno.serve(async (request) => {
       (compte as any).comptes_reference?.genre === "homme" ? "homme" : "femme";
     const genre = lab?.genre ?? genreDuLabel(labelNom) ?? genreSource;
 
-    const slugApp =
-      (await applicationParId(supabase, compte.application_id as string | undefined))?.slug ??
-      "sophia";
-    const identite = slugApp === SLUG_MICABO
-      ? await genererIdentiteMicabo(supabase, compte.langue, genre)
-      : await genererIdentite(supabase, compte.langue, genre, labelNom);
+    // Identité Sophia, toujours : les applications servies par les labels du
+    // compte ne changent ni le @, ni le nom, ni la bio.
+    const identite = await genererIdentite(supabase, compte.langue, genre, labelNom);
     const avatar = await avatarPourCompte(supabase, {
       compteReferenceId: compte.compte_reference_id,
       labelId,

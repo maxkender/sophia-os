@@ -1192,6 +1192,16 @@ const COLONNES_PASSAGE_RAPPEL =
   "id, contenu_id, compte_id, langue, vues, publie_at, date_publication_prevue, slides, musique_url, musique_titre, musique_plateforme, hashtags, rappel_rang, tier_cycle";
 
 /**
+ * Colonnes lues, selon que la migration 0256 est passée. `application_id`
+ * n'entre JAMAIS dans la liste statique : avant 0256, PostgREST répondrait 400
+ * sur la colonne inconnue, et les rappels de toute la flotte s'arrêteraient
+ * pour une colonne dont ils n'ont pas besoin.
+ */
+function colonnesPassageRappel(multiApp: boolean): string {
+  return multiApp ? `${COLONNES_PASSAGE_RAPPEL}, application_id` : COLONNES_PASSAGE_RAPPEL;
+}
+
+/**
  * Les passages qui ont percé sur les 30 derniers jours, lus EN ENTIER.
  *
  * La fenêtre porte ~7650 passages (255 créneaux/jour x 30 j) avant filtrage :
@@ -1206,13 +1216,14 @@ async function lirePercesRecents(
   supabase: Supabase,
   reglages: TierlistReglages,
   depuis: string,
+  colonnes: string = COLONNES_PASSAGE_RAPPEL,
 ): Promise<LignePassage[]> {
   return await lireTout<LignePassage>(
     "Rappels J+7 — passages percés",
     async (curseur, taille) => {
       let q = supabase
         .from("passages")
-        .select(COLONNES_PASSAGE_RAPPEL)
+        .select(colonnes)
         .eq("statut", "publie")
         .gte("vues", reglages.rappelVues)
         .lt("rappel_rang", reglages.rappelMax)
@@ -1346,10 +1357,18 @@ export async function programmerRappels(
       hashtags: string | null;
       rappel_rang: number;
       tier_cycle: number;
+      /**
+       * Application promue par la source (0256), à recopier sur le rappel :
+       * un rappel rejoue le MÊME post, placement compris. `null` quand la
+       * colonne n'a pas été lue (schéma 0256 absent).
+       */
+      application_id: string | null;
     };
     jour: string;
   }) => Promise<void>,
-  opts: { dryRun?: boolean } = {},
+  // `multiApp` : la migration 0256 est passée (sondé par l'appelant), on lit
+  // donc aussi `application_id` de la source.
+  opts: { dryRun?: boolean; multiApp?: boolean } = {},
 ): Promise<RappelsResultat> {
   const reglages = await chargerTierlistReglages(supabase);
   const out: RappelsResultat = {
@@ -1384,7 +1403,12 @@ export async function programmerRappels(
   // moindre écriture. Zéro rappel programmé, jamais une moitié de plan posée
   // sur des lectures incomplètes. Le prochain minuit rejouera l'étape entière.
   try {
-    const perces = await lirePercesRecents(supabase, reglages, depuis);
+    const perces = await lirePercesRecents(
+      supabase,
+      reglages,
+      depuis,
+      colonnesPassageRappel(Boolean(opts.multiApp)),
+    );
     if (perces.length === 0) return out;
 
     // Un seul rappel par passage source — idempotent si minuit rejoue.
@@ -1467,6 +1491,7 @@ export async function programmerRappels(
           hashtags: (p.hashtags as string | null) ?? null,
           rappel_rang: Number(p.rappel_rang ?? 0),
           tier_cycle: Number(p.tier_cycle ?? 0),
+          application_id: (p.application_id as string | null | undefined) ?? null,
         },
         jour,
       });

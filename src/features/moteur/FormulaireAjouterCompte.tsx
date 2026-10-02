@@ -10,8 +10,6 @@ import {
   lireIdentifiantsCm,
   majIdentifiantsCm,
 } from "@/features/moteur/api";
-import { useApplication } from "@/features/moteur/ApplicationContext";
-import { nomApplication, type ApplicationOs } from "@/features/moteur/applications";
 import { nomLangue } from "@/features/moteur/langues";
 
 const selectClass =
@@ -20,12 +18,10 @@ const selectClass =
 export function FormulaireAjouterCompte({
   posterId,
   languesProposees,
-  applications,
   onCree,
 }: {
   posterId: string;
   languesProposees: string[];
-  applications?: ApplicationOs[];
   onCree?: () => void;
 }) {
   const { t } = useTranslation();
@@ -35,21 +31,6 @@ export function FormulaireAjouterCompte({
   const [langue, setLangue] = React.useState(languesType[0] ?? "");
   const [handle, setHandle] = React.useState("");
   const [postsParJour, setPostsParJour] = React.useState<1 | 2 | 3>(2);
-  const { slug: slugContexte } = useApplication();
-  const [applicationSlug, setApplicationSlug] = React.useState(
-    slugContexte || applications?.[0]?.slug || "sophia",
-  );
-
-  React.useEffect(() => {
-    if (slugContexte && (!applications?.length || applications.some((a) => a.slug === slugContexte))) {
-      setApplicationSlug(slugContexte);
-      return;
-    }
-    if (!applications?.length) return;
-    if (applicationSlug && applications.some((a) => a.slug === applicationSlug)) return;
-    setApplicationSlug(applications[0]!.slug);
-  }, [applications, applicationSlug, slugContexte]);
-
   React.useEffect(() => {
     if (langue && languesType.includes(langue)) return;
     setLangue(languesType[0] ?? "");
@@ -61,7 +42,6 @@ export function FormulaireAjouterCompte({
         posterId,
         type_compte: "perso",
         langue,
-        application_slug: applicationSlug,
         posts_par_jour: postsParJour,
         handle_tiktok: handle,
       }),
@@ -95,24 +75,6 @@ export function FormulaireAjouterCompte({
       <p className="text-xs text-muted-foreground">{t("cm.ajouterCompteAide")}</p>
       <p className="text-xs text-muted-foreground">{t("cm.ajouterPersoAide")}</p>
       <div className="grid gap-3 sm:grid-cols-2">
-        {(applications ?? []).length > 0 && (
-          <div className="space-y-1">
-            <Label htmlFor={`compte-app-${posterId}`}>{t("applications.compte")}</Label>
-            <select
-              id={`compte-app-${posterId}`}
-              className={selectClass}
-              value={applicationSlug}
-              onChange={(e) => setApplicationSlug(e.target.value)}
-              required
-            >
-              {(applications ?? []).map((app) => (
-                <option key={app.id} value={app.slug}>
-                  {nomApplication(app)}
-                </option>
-              ))}
-            </select>
-          </div>
-        )}
         <div className="space-y-1">
           <Label htmlFor={`compte-langue-${posterId}`}>{t("cm.langueCompte")}</Label>
           <select

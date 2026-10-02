@@ -22,49 +22,6 @@ export async function attacherLabelsAuMedia(
   return labelIds;
 }
 
-/** Resync complet : médias d'un contenu = labels du contenu (Hook préservé). */
-export async function syncLabelsMediasDuContenu(
-  supabase: Supabase,
-  contenuId: string,
-  labelIds: string[],
-): Promise<void> {
-  const { data: medias } = await supabase
-    .from("media_library")
-    .select("id")
-    .eq("contenu_id", contenuId);
-  const mediaIds = (medias ?? []).map((m) => m.id as string);
-  if (mediaIds.length === 0) return;
-
-  const { data: hook } = await supabase
-    .from("labels")
-    .select("id")
-    .eq("slug", "hook")
-    .maybeSingle();
-  const hookId = hook?.id as string | undefined;
-
-  if (hookId) {
-    await supabase
-      .from("media_labels")
-      .delete()
-      .in("media_id", mediaIds)
-      .neq("label_id", hookId);
-  } else {
-    await supabase.from("media_labels").delete().in("media_id", mediaIds);
-  }
-  const niches = labelIds.filter((id) => id !== hookId);
-  if (niches.length === 0) return;
-
-  const rows = mediaIds.flatMap((media_id) =>
-    niches.map((label_id) => ({ media_id, label_id })),
-  );
-  // Lots pour éviter les payloads trop gros.
-  const TAILLE = 500;
-  for (let i = 0; i < rows.length; i += TAILLE) {
-    const { error } = await supabase.from("media_labels").insert(rows.slice(i, i + TAILLE));
-    if (error) throw error;
-  }
-}
-
 /**
  * Choisit un visuel propre (sans texte) partageant au moins un label du contenu,
  * hors médias déjà utilisés dans la structure. Prefers least-used.

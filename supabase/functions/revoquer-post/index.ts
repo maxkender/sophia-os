@@ -1,4 +1,9 @@
+import {
+  chargerApplicationsMoteur,
+  schemaMultiAppPretSinonSophia,
+} from "../_shared/applications_moteur.ts";
 import { assignerTousComptes } from "../_shared/assignation_contenu.ts";
+import { ID_SOPHIA } from "../_shared/multi_app.ts";
 import { assertRole, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 const MAX_RECHARGES_CREATEUR = 2;
@@ -20,6 +25,14 @@ const MAX_RECHARGES_CREATEUR = 2;
  * pour les autres créateurs et les autres langues.
  *
  * Legacy (sujet) : idem — rejet du sujet sur révocation admin seulement.
+ *
+ * Multi-applications (0256) : un post promeut une application. La révocation
+ * admin d'un post d'une application AUTRE que Sophia ne condamne pas le
+ * slideshow — c'est le placement de CETTE application qui est en cause, pas le
+ * contenu : il sort seulement de la réserve de l'application
+ * (`contenu_pertinences.eligible = false`) et reste servi à Sophia. La recharge
+ * refait un post de la MÊME application (répartition tenue), sous réserve
+ * d'éligibilité du compte et avec le repli Sophia habituel.
  *
  * Gère aussi les coquilles « slideshow vide » : post sans slides / passage
  * orphelin (matérialisation ratée) qui bloquaient le quota.
@@ -74,29 +87,39 @@ Deno.serve(async (request) => {
     const rechargesSuivantes =
       acces.role === "poster" ? rechargesActuelles + 1 : 0;
 
+    // `application_id` n'existe qu'avec 0256 : sans elle, le select d'avant
+    // (une colonne inconnue ferait échouer la lecture, donc la révocation).
+    // Sonde illisible : le select d'avant (la révocation passe, comme avant).
+    const multiApp = await schemaMultiAppPretSinonSophia(supabase);
+    const colonnesPassage = multiApp ? "id, contenu_id, application_id" : "id, contenu_id";
+
     // Passage v-next lié (pont post)
-    const { data: passage } = await supabase
+    const { data: passageBrut } = await supabase
       .from("passages")
-      .select("id, contenu_id")
+      .select(colonnesPassage)
       .eq("post_id", post.id)
       .maybeSingle();
+    const passage = passageBrut as unknown as PassageRevoque | null;
 
     let contenuRejete: string | null = passage?.contenu_id ?? null;
+    let applicationRevoquee: string | null = passage?.application_id ?? null;
 
     // Post vide sans lien : retrouver un passage orphelin du même créateur/jour
     // (créé juste avant l'échec de matérialisation).
     if (!passage) {
-      const { data: orphelin } = await supabase
+      const { data: orphelinBrut } = await supabase
         .from("passages")
-        .select("id, contenu_id")
+        .select(colonnesPassage)
         .eq("compte_id", compteId)
         .eq("date_publication_prevue", jour)
         .is("post_id", null)
         .order("created_at", { ascending: false })
         .limit(1)
         .maybeSingle();
+      const orphelin = orphelinBrut as unknown as PassageRevoque | null;
       if (orphelin) {
         contenuRejete = orphelin.contenu_id as string;
+        applicationRevoquee = orphelin.application_id ?? null;
         await supabase.from("passages").delete().eq("id", orphelin.id);
       }
     }
@@ -111,8 +134,25 @@ Deno.serve(async (request) => {
       ? "Rechargé par le créateur : slideshow buggé (texte décalé / incohérent)"
       : "Révoqué à la main : incohérent / non intégrable pour Sophia";
 
+    // Application du post révoqué (chemin 0256 seulement). Sophia ou inconnue :
+    // la révocation d'avant, au mot près.
+    const application = multiApp && applicationRevoquee
+      ? (await chargerApplicationsMoteur(supabase)).find((a) => a.id === applicationRevoquee) ??
+        null
+      : null;
+    const autreApplication = application !== null && application.id !== ID_SOPHIA;
+
     if (contenuRejete) {
-      if (!estRechargeCreateur) {
+      if (!estRechargeCreateur && autreApplication) {
+        // Le placement de CETTE application est en cause, pas le slideshow :
+        // il sort de sa réserve, Sophia continue de le servir.
+        await retirerDeLaReserve(
+          supabase,
+          contenuRejete,
+          application.id,
+          `Révoqué à la main : placement ${application.nom} incohérent`,
+        );
+      } else if (!estRechargeCreateur) {
         await supabase
           .from("contenus")
           .update({
@@ -156,6 +196,9 @@ Deno.serve(async (request) => {
       // Écarte le slideshow refusé de CE tirage seulement — sans le condamner
       // pour les autres créateurs.
       exclureContenus: contenuRejete ? [contenuRejete] : [],
+      // Un post Unswipe révoqué est remplacé par un post Unswipe : la
+      // répartition du compte reste tenue (repli Sophia si impossible).
+      applicationImposee: application?.slug ?? null,
     });
     const assign = resultats[0];
     if (assign?.erreur) {
@@ -243,3 +286,47 @@ Deno.serve(async (request) => {
     return json({ ok: false, error: messageErreur(error) }, 500);
   }
 });
+
+interface PassageRevoque {
+  id: string;
+  contenu_id: string | null;
+  /** Présent seulement quand 0256 est passée. */
+  application_id?: string | null;
+}
+
+/**
+ * Sort un contenu de la réserve d'une application (hors Sophia) :
+ * `contenu_pertinences.eligible = false` pour (contenu, application).
+ *
+ * Mise à jour d'abord, insertion sinon — et pas un upsert : `score` est NOT
+ * NULL sans défaut, un upsert partiel lèverait même quand la ligne existe
+ * (Postgres vérifie le tuple proposé avant le conflit), et un upsert complet
+ * écraserait la note d'import qu'on veut garder pour l'historique. La ligne
+ * existe presque toujours : la réserve d'une autre application l'exige.
+ *
+ * L'erreur est REMONTÉE : une révocation qui croit avoir sorti le contenu de
+ * la réserve et ne l'a pas fait le resservirait dès la nuit suivante.
+ */
+async function retirerDeLaReserve(
+  supabase: ReturnType<typeof serviceClient>,
+  contenuId: string,
+  applicationId: string,
+  raison: string,
+): Promise<void> {
+  const { data: majs, error } = await supabase
+    .from("contenu_pertinences")
+    .update({ eligible: false, raison, updated_at: new Date().toISOString() })
+    .eq("contenu_id", contenuId)
+    .eq("application_id", applicationId)
+    .select("contenu_id");
+  if (error) throw new Error(`retrait de la réserve : ${error.message}`);
+  if ((majs ?? []).length > 0) return;
+  const { error: errIns } = await supabase.from("contenu_pertinences").insert({
+    contenu_id: contenuId,
+    application_id: applicationId,
+    score: 0,
+    eligible: false,
+    raison,
+  });
+  if (errIns) throw new Error(`retrait de la réserve : ${errIns.message}`);
+}

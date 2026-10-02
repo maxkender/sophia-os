@@ -1328,7 +1328,7 @@ async function executerPasImport(
   }
 }
 
-async function voixSource(
+export async function voixSource(
   supabase: Supabase,
   compteReferenceId: string | null,
 ): Promise<string | null> {
@@ -1356,9 +1356,13 @@ async function placerSophiaSurDeck(
     .order("created_at", { ascending: false })
     .limit(40);
 
-  const slugApp = await slugApplicationDeContenu(supabase, contenu);
+  // Ce chemin ne pose QUE Sophia : `contenu_langues.slides` est le deck Sophia.
+  // Il résolvait l'application « du contenu » (via sa source, faute
+  // d'`application_id` sélectionné plus haut) — un reste de micabo, et deux
+  // lectures de plus par placement. Les autres applications cuisent leur deck
+  // dans `contenu_langue_decks` (deck_application.ts).
   const placement = await integrateSophia({
-    masterPrompt: (await chargerPrompt(supabase, clePromptPlacement(slugApp))) ?? "",
+    masterPrompt: (await chargerPrompt(supabase, clePromptPlacement("sophia"))) ?? "",
     corrections: (corrections ?? []).map((c) => ({
       original_text: c.texte_origine,
       corrected_text: c.texte_corrige,
@@ -1366,7 +1370,6 @@ async function placerSophiaSurDeck(
     slides: deck.map((s) => ({ position: s.position, text: s.texte_overlay ?? "" })),
     caption: contenu.titre ?? "",
     langue,
-    marque: slugApp,
   });
 
   if (placement) {
@@ -1384,7 +1387,7 @@ async function placerSophiaSurDeck(
   return "retry";
 }
 
-type LigneLangue = {
+export type LigneLangue = {
   id: string;
   slides?: SlideLangue[] | null;
   slides_base?: SlideLangue[] | null;
@@ -1401,7 +1404,7 @@ type LigneLangue = {
  * slide est perdu) : on la laisse telle quelle plutôt que de figer la pub
  * comme si c'était la base.
  */
-async function assurerSlidesBase(
+export async function assurerSlidesBase(
   supabase: Supabase,
   ligneSource: LigneLangue | null | undefined,
 ): Promise<void> {
@@ -1418,7 +1421,7 @@ async function assurerSlidesBase(
  * Complète une légende manquante sans retraduire le deck. Ne jette jamais :
  * un échec laisse "" et l'appelant retombe sur le jeu statique de la langue.
  */
-async function completerHashtags(
+export async function completerHashtags(
   supabase: Supabase,
   ligneId: string,
   deck: SlideLangue[],
@@ -1437,6 +1440,48 @@ async function completerHashtags(
   } catch {
     return "";
   }
+}
+
+/**
+ * Traduit la base (sans pub) d'un contenu vers `langue`. N'écrit RIEN : c'est
+ * à l'appelant de décider où persister (`slides` pour Sophia, `slides_base`
+ * pour les autres applications) et quoi faire d'une traduction vide
+ * (`traduits === 0`).
+ *
+ * Partagé par le deck Sophia et par deck_application.ts : les deux doivent
+ * faire EXACTEMENT le même choix de prompt (`traduction_<langue>`, puis
+ * `traduction` pour le français seulement) et de voix de source.
+ */
+export async function traduireBaseDeck(
+  supabase: Supabase,
+  contenu: { titre?: string | null; compte_reference_id?: string | null },
+  deckSource: SlideLangue[],
+  langue: string,
+): Promise<{ slides: SlideLangue[]; traduits: number; hashtags: string }> {
+  const voix = await voixSource(supabase, contenu.compte_reference_id ?? null);
+  const dedie = await chargerPrompt(supabase, `traduction_${langue}`);
+  const base =
+    dedie ?? (langue === "fr" ? await chargerPrompt(supabase, "traduction") : undefined);
+  const regles = [base, voix ? `Voix propre à cette source :\n${voix}` : null]
+    .filter(Boolean)
+    .join("\n\n");
+
+  const traductions = await translateSlideshow({
+    slides: deckSource.map((s) => ({
+      position: s.position,
+      original: s.texte_overlay ?? "",
+    })),
+    sourceTitle: contenu.titre ?? "",
+    rules: regles || undefined,
+    langue,
+    variation: false,
+  });
+  const fusion = fusionnerDeckTraduit(deckSource, traductions.slides);
+  return {
+    slides: fusion.slides as SlideLangue[],
+    traduits: fusion.traduits,
+    hashtags: traductions.hashtags,
+  };
 }
 
 /**
@@ -1517,32 +1562,14 @@ export async function assurerDeckPourLangue(
     await assurerSlidesBase(supabase, ligneSource);
     deck = deckSource.map((s) => ({ ...s }));
   } else if (deck.length === 0 || deck.every((s) => !s.texte_overlay)) {
-    const voix = await voixSource(supabase, contenu.compte_reference_id);
-    const dedie = await chargerPrompt(supabase, `traduction_${langue}`);
-    const base =
-      dedie ?? (langue === "fr" ? await chargerPrompt(supabase, "traduction") : undefined);
-    const regles = [base, voix ? `Voix propre à cette source :\n${voix}` : null]
-      .filter(Boolean)
-      .join("\n\n");
-
-    const traductions = await translateSlideshow({
-      slides: deckSource.map((s) => ({
-        position: s.position,
-        original: s.texte_overlay ?? "",
-      })),
-      sourceTitle: contenu.titre ?? "",
-      rules: regles || undefined,
-      langue,
-      variation: false,
-    });
+    const traductions = await traduireBaseDeck(supabase, contenu, deckSource, langue);
     // Traduction totalement vide (JSON modèle illisible) : on ARRÊTE. Persister
     // ce deck le figeait sans texte pour toujours (il passait « prêt » grâce à
     // la seule slide pub). L'appelant piochera un autre contenu.
-    const fusion = fusionnerDeckTraduit(deckSource, traductions.slides);
-    if (fusion.traduits === 0) {
+    if (traductions.traduits === 0) {
       throw new Error(`Traduction ${langue} vide — deck non persisté`);
     }
-    deck = fusion.slides as SlideLangue[];
+    deck = traductions.slides;
     if (traductions.hashtags) hashtags = traductions.hashtags;
     await supabase
       .from("contenu_langues")
@@ -1555,10 +1582,9 @@ export async function assurerDeckPourLangue(
     if (r === "retry") {
       const derniere = deck[deck.length - 1];
       if (derniere) {
-        derniere.texte_overlay = placementParDefaut(
-          langue,
-          await slugApplicationDeContenu(supabase, contenu),
-        );
+        // Repli SOPHIA uniquement : aucune autre application ne reçoit jamais
+        // de texte de repli (deck_application.ts échoue franchement).
+        derniere.texte_overlay = placementParDefaut(langue);
         derniere.position_sophia = true;
         await supabase.from("contenu_langues").update({ slides: deck }).eq("id", cl.id);
       }

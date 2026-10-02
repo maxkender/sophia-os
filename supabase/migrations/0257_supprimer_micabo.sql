@@ -11,8 +11,11 @@
 -- slideshow effaçait le Hook des images qu'il touchait. propager_labels_source
 -- prenait l'un des deux au hasard (`limit 1` sans ordre).
 --
+-- À APPLIQUER DEPUIS LE SQL EDITOR (pas via l'outil MCP apply_migration, qui
+-- se fige sur les NOTICE des `drop … if exists` — voir l'en-tête de 0256).
+--
 -- AVANT D'APPLIQUER :
---   1. Admin → Sources → @barevanillascent → « Oublier la source ». C'est le seul
+--   1. Admin → Sources → @barevanillascent → « Oublier ce compte ». C'est le seul
 --      chemin qui supprime aussi les ~113 Mo d'images du bucket (le SQL ne peut
 --      pas toucher au stockage). Si on l'oublie, ce script supprime quand même
 --      les lignes, et les fichiers restent orphelins dans le bucket.

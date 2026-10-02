@@ -17,6 +17,13 @@
 -- À passer HORS des fenêtres du pipeline nocturne (21:50–23:15 UTC et
 -- 03:55–04:15 UTC) : les ALTER sur passages/posts prennent un verrou bref.
 --
+-- APPLIQUÉE le 2026-10-02 en 7 morceaux via MCP (historique : 0256a…0256g).
+-- Piège rencontré : l'outil MCP `apply_migration` se fige (timeout 60 s, puis
+-- rollback complet) dès qu'une instruction émet un NOTICE — typiquement
+-- `drop … if exists` sur un objet absent. Les morceaux appliqués évitent ces
+-- instructions ; le contenu final est identique à ce fichier. Pour les
+-- migrations suivantes : SQL Editor, ou MCP sans `if [not] exists` bruyants.
+--
 -- PostgREST : `label_applications` et `contenu_pertinences` (clé composite sur
 -- deux FK) créent des relations plusieurs-à-plusieurs labels↔applications et
 -- contenus↔applications. Aucun embed ne les emprunte aujourd'hui ; tout futur

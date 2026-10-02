@@ -96,7 +96,7 @@ Les fonctions Edge se déploient au merge sur `main` ; les migrations se passent
 à la main (SQL Editor ou MCP), hors fenêtres nocturnes (21:50–23:15 UTC,
 03:55–04:15 UTC).
 
-1. **Appliquer 0256 AVANT le merge** (additive : rien ne change pour le code en
+1. ✅ (2026-10-02) **Appliquer 0256 AVANT le merge** (additive : rien ne change pour le code en
    place). Filet de sécurité si l'ordre est inversé : le code sonde le schéma
    (lecture GET de `label_applications`, `applications.langues/actif`,
    `passages.application_id`) et reste sur le chemin 100 % Sophia tant que
@@ -108,9 +108,11 @@ Les fonctions Edge se déploient au merge sur `main` ; les migrations se passent
    l'identique : aucun compte n'a de répartition, aucun label ne sert Unswipe.
    Vérifier la nuit suivante : même volume de posts (~280/jour), pas de pic de
    quotas baissés.
-3. **Admin → Sources → @barevanillascent → « Oublier la source »** (supprime
-   les images micabo du stockage), puis **appliquer 0257** (purge micabo, Hook
-   unique, unicités globales). Rattrapage des ~950 médias Hook inclus.
+3. **Admin → Sources → @barevanillascent → « Oublier ce compte » → « Tout
+   supprimer »** (supprime les images micabo du stockage ; la source est visible
+   sans filtre depuis le merge), puis **appliquer 0257 depuis le SQL Editor**
+   (purge micabo, Hook unique, unicités globales). Rattrapage des ~950 médias
+   Hook inclus.
 4. **Appliquer 0258** : Unswipe créée INACTIVE, sans langue. À ce stade,
    Unswipe = 0 % partout : aucune application inactive n'est jamais choisie,
    aucun label ne la sert, aucun compte n'a de part.

@@ -58,8 +58,11 @@ import {
   type EvenementEtape,
   type ProviderNettoyage,
 } from "@/features/moteur/nettoyageEtapes";
-import { useApplication } from "@/features/moteur/ApplicationContext";
 import { classeDirectionTexte, directionTexte, nomLangue } from "@/features/moteur/langues";
+import {
+  DecksApplications,
+  PertinencesApplications,
+} from "@/features/moteur/repartition/ApplicationsContenu";
 import type {
   ContenuLangue,
   ContenuSlide,
@@ -891,7 +894,6 @@ function DetailSlideshow({
   onFermer: () => void;
 }) {
   const { t, i18n } = useTranslation();
-  const { applicationId } = useApplication();
   const queryClient = useQueryClient();
   const detail = useQuery({
     queryKey: ["slideshow", id],
@@ -931,10 +933,9 @@ function DetailSlideshow({
   const [labelUgcId, setLabelUgcId] = React.useState("");
 
   const labelsTous = useQuery({
-    queryKey: ["labels", applicationId],
-    queryFn: () => listerLabels(applicationId),
+    queryKey: ["labels"],
+    queryFn: () => listerLabels(),
     staleTime: 60_000,
-    enabled: Boolean(applicationId),
   });
 
   /** Patch cache détail + listes — pas de refetch lourd. */
@@ -1442,6 +1443,13 @@ function DetailSlideshow({
               <p className="text-xs text-destructive">{d.import_erreur}</p>
             )}
 
+            {/* Multi-app : la note ci-dessus est la porte d'import (max des
+                applications servies). Le détail par application et les decks
+                hors Sophia vivent dans les tables de 0256 ; chaque bloc gère
+                sa propre erreur sans toucher au reste de la fiche. */}
+            <PertinencesApplications contenuId={d.id} />
+            <DecksApplications contenuId={d.id} />
+
             <section className="space-y-2">
               <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                 {t("slideshows.tierlist")}
@@ -1746,7 +1754,6 @@ function DetailSlideshow({
 
 export function AdminSlideshowsPage() {
   const { t } = useTranslation();
-  const { applicationId } = useApplication();
   const queryClient = useQueryClient();
   const [searchParams, setSearchParams] = useSearchParams();
   const [filtre, setFiltre] = React.useState<"tous" | "valide" | "rejete">("tous");
@@ -1768,8 +1775,10 @@ export function AdminSlideshowsPage() {
     if (id) setOuvert(id);
   }, [searchParams]);
 
+  // Plus de filtre par application : un contenu sert toutes les applications
+  // de ses labels (sa pertinence par application se lit dans le détail).
   const contenus = useQuery({
-    queryKey: ["slideshows", applicationId, filtre, filtreLabel, filtreCompte],
+    queryKey: ["slideshows", filtre, filtreLabel, filtreCompte],
     queryFn: () =>
       listerContenus({
         statut: filtre === "tous" ? undefined : filtre,
@@ -1780,16 +1789,13 @@ export function AdminSlideshowsPage() {
         compteReferenceId:
           filtreCompte && filtreCompte !== "__none__" ? filtreCompte : undefined,
         sansCompte: filtreCompte === "__none__",
-        applicationId,
       }),
-    enabled: Boolean(applicationId),
   });
 
   const sources = useQuery({
-    queryKey: ["sources", applicationId],
-    queryFn: () => listerSources(applicationId),
+    queryKey: ["sources"],
+    queryFn: () => listerSources(),
     staleTime: 60_000,
-    enabled: Boolean(applicationId),
   });
 
   const reglages = useQuery({
@@ -1803,10 +1809,9 @@ export function AdminSlideshowsPage() {
   });
 
   const labelsTous = useQuery({
-    queryKey: ["labels", applicationId],
-    queryFn: () => listerLabels(applicationId),
+    queryKey: ["labels"],
+    queryFn: () => listerLabels(),
     staleTime: 60_000,
-    enabled: Boolean(applicationId),
   });
 
   const labelsDisponibles = React.useMemo(() => {

@@ -284,10 +284,16 @@ async function invokeNettoyageStream(
 
 // --- Comptes de référence ---------------------------------------------------
 
-export async function listerSources(applicationId?: string | null): Promise<CompteReference[]> {
-  let q = supabase.from("comptes_reference").select("*").order("handle_tiktok");
-  if (applicationId) q = q.eq("application_id", applicationId);
-  const { data, error } = await q;
+/**
+ * Toutes les sources, quelle que soit l'application : un post importé sert
+ * toutes les applications de ses labels (multi-app), une source n'appartient
+ * donc plus à aucune. Sa colonne `application_id` reste, figée à Sophia.
+ */
+export async function listerSources(): Promise<CompteReference[]> {
+  const { data, error } = await supabase
+    .from("comptes_reference")
+    .select("*")
+    .order("handle_tiktok");
   if (error) throw error;
   return data as CompteReference[];
 }
@@ -296,15 +302,14 @@ export async function creerSource(input: {
   handle: string;
   niche: string;
   langue: string;
-  application_id?: string | null;
   /** Rattache la source à un compte principal (source « conjointe »). */
   parent_id?: string | null;
   /** Genre hérité du principal (les conjoints partagent le même genre). */
   genre?: "homme" | "femme";
 }): Promise<CompteReference> {
-  if (!input.application_id) {
-    throw new Error("Application requise pour créer une source");
-  }
+  // Plus d'application à choisir : `comptes_reference.application_id` prend
+  // son défaut (Sophia) et ne sert plus de cloison — ce sont les labels des
+  // contenus importés qui décident des applications servies.
   const { data, error } = await supabase
     .from("comptes_reference")
     .insert({
@@ -312,7 +317,6 @@ export async function creerSource(input: {
       niche: input.niche.trim() || null,
       langue: input.langue,
       parent_id: input.parent_id ?? null,
-      application_id: input.application_id,
       ...(input.genre ? { genre: input.genre } : {}),
     })
     .select()
@@ -516,7 +520,6 @@ export function assurerComptePoster(input: {
   userId: string;
   langue: string;
   posts_par_jour?: number;
-  application_slug?: string;
 }) {
   return invoke<{
     ok: boolean;
@@ -533,7 +536,6 @@ export function assurerComptePoster(input: {
     action: "ensure_compte",
     userId: input.userId,
     langue: input.langue,
-    application_slug: input.application_slug ?? "",
     ...(input.posts_par_jour != null
       ? { posts_par_jour: normaliserPostsParJour(Number(input.posts_par_jour)) }
       : {}),
@@ -805,22 +807,23 @@ type PostFileRow = {
 /** Slideshows assignés marqués publiés ce jour Paris, hors déjà reviewés / passés. */
 export async function listerFileReviewsJour(opts?: {
   jour?: string;
-  applicationId?: string | null;
 }): Promise<PostFileReview[]> {
   const jour = opts?.jour ?? aujourdhuiParis();
   const { debut, fin } = isoBornesJourParis(jour);
-  let q = supabase
+  // Tous les comptes : l'application d'un compte n'est plus un critère (ses
+  // labels peuvent servir plusieurs applications) — la review porte sur la
+  // publication, pas sur l'application promue.
+  const q = supabase
     .from("posts")
     .select(
       "id, compte_id, date_publication_prevue, publie_at, publie_url, est_test, " +
         "sujets(source_url), " +
-        "comptes!inner(poster_id, persona_nom, handle_tiktok, avatar_url, langue, type_compte, ugc_ai_video, application_id, profiles(prenom, nom))",
+        "comptes!inner(poster_id, persona_nom, handle_tiktok, avatar_url, langue, type_compte, ugc_ai_video, profiles(prenom, nom))",
     )
     .eq("est_test", false)
     .gte("publie_at", debut)
     .lt("publie_at", fin)
     .order("publie_at", { ascending: true });
-  if (opts?.applicationId) q = q.eq("comptes.application_id", opts.applicationId);
 
   const { data, error } = await q;
   if (error) throw error;
@@ -1147,7 +1150,6 @@ export function ajouterCompte(input: {
   posterId: string;
   type_compte: TypeCompte;
   langue: string;
-  application_slug?: string;
   posts_par_jour?: number;
   handle_tiktok?: string;
   tiktok_email?: string;
@@ -1165,7 +1167,6 @@ export function ajouterCompte(input: {
     userId: input.posterId,
     type_compte: input.type_compte,
     langue: input.langue,
-    application_slug: input.application_slug ?? "",
     ...(input.posts_par_jour != null
       ? { posts_par_jour: normaliserPostsParJour(Number(input.posts_par_jour)) }
       : {}),
@@ -1288,7 +1289,6 @@ export function creerPoster(input: {
   type_compte?: TypeCompte | "aucun";
   /** Quota d'assignation journalier (1–3). Défaut 2 côté Edge. */
   posts_par_jour?: number;
-  application_slug?: string;
   handle_tiktok?: string;
   tiktok_email?: string;
   tiktok_password?: string;
@@ -1314,7 +1314,6 @@ export function creerPoster(input: {
       ? ""
       : (input.langue ?? ""),
     type_compte: resoudrePremierCompte(input.type_compte, input.langue),
-    application_slug: input.application_slug ?? "",
     ...(input.posts_par_jour != null
       ? { posts_par_jour: normaliserPostsParJour(Number(input.posts_par_jour)) }
       : {}),
@@ -1661,7 +1660,6 @@ export async function listerBibliothequePage(opts?: {
   labelId?: string;
   page?: number;
   pageSize?: number;
-  applicationId?: string | null;
 }): Promise<PageBiblio> {
   const pageSize = opts?.pageSize ?? BIBLIO_PAGE_SIZE;
   const page = Math.max(1, opts?.page ?? 1);
@@ -1672,27 +1670,25 @@ export async function listerBibliothequePage(opts?: {
   let total = 0;
 
   if (opts?.labelId) {
-    let q = supabase
+    const q = supabase
       .from("media_library")
       .select("*, media_labels!inner(label_id)", { count: "exact" })
       .eq("media_labels.label_id", opts.labelId)
       .like("storage_path", "propre/%")
       .order("created_at", { ascending: false })
       .range(from, to);
-    if (opts?.applicationId) q = q.eq("application_id", opts.applicationId);
     const { data, error, count } = await q;
     if (error) throw error;
     // deno-lint-ignore no-explicit-any
     medias = ((data ?? []) as any[]).map(({ media_labels: _ml, ...m }) => m as Media);
     total = count ?? 0;
   } else {
-    let q = supabase
+    const q = supabase
       .from("media_library")
       .select("*", { count: "exact" })
       .like("storage_path", "propre/%")
       .order("created_at", { ascending: false })
       .range(from, to);
-    if (opts?.applicationId) q = q.eq("application_id", opts.applicationId);
     const { data, error, count } = await q;
     if (error) throw error;
     medias = (data ?? []) as Media[];
@@ -1709,15 +1705,11 @@ export async function listerBibliothequePage(opts?: {
  * @deprecated Préférer `listerBibliothequePage` (pagination).
  * Bibliothèque groupée par label — charge tout (lourd).
  */
-export async function listerBibliothequeParLabels(
-  labelId?: string,
-  applicationId?: string | null,
-): Promise<GroupeBiblio[]> {
+export async function listerBibliothequeParLabels(labelId?: string): Promise<GroupeBiblio[]> {
   const page = await listerBibliothequePage({
     labelId,
     page: 1,
     pageSize: 10_000,
-    applicationId,
   });
   return page.groupes;
 }
@@ -3540,7 +3532,7 @@ export const enqueueImportCompte = (
   compteReferenceId: string,
   labelIds?: string[],
   langue?: string | null,
-  opts?: { nouveauxSeulement?: boolean; application_id?: string | null },
+  opts?: { nouveauxSeulement?: boolean },
 ) =>
   invoke<{
     ok: boolean;
@@ -3565,7 +3557,6 @@ export const enqueueImportCompte = (
     labelIds: labelIds ?? [],
     langue: langue ?? null,
     nouveauxSeulement: opts?.nouveauxSeulement ?? false,
-    application_id: opts?.application_id ?? null,
   });
 
 /** Enfile une liste d'URLs pour scrape+pipeline serveur. */
@@ -3576,7 +3567,6 @@ export const enqueueImportUrls = (opts: {
   batchId?: string;
   /** Langue d'origine du TikTok (boost ELO). */
   langue?: string | null;
-  application_id?: string | null;
 }) =>
   invoke<{
     ok: boolean;
@@ -3592,7 +3582,6 @@ export const enqueueImportUrls = (opts: {
     labelIds: opts.labelIds ?? [],
     batchId: opts.batchId ?? null,
     langue: opts.langue ?? null,
-    application_id: opts.application_id ?? null,
   });
 
 export interface StatsImportBatch {
@@ -5175,11 +5164,21 @@ export function estMarqueUgcAiVideo(lab: { slug?: string | null; nom?: string | 
   return slug === "ugc-ai-video" || nom === "ugc ai video";
 }
 
-/** Labels thématiques (hors marques système `ugc-ai-video` / `hook`). */
-export async function listerLabels(applicationId?: string | null): Promise<Label[]> {
-  let q = supabase.from("labels").select("*").order("nom");
-  if (applicationId) q = q.eq("application_id", applicationId);
-  const { data, error } = await q;
+/**
+ * Labels thématiques (hors marques système `ugc-ai-video` / `hook`), TOUS :
+ * un label sert une ou plusieurs applications (`label_applications`), il n'est
+ * plus rangé sous l'une d'elles. `labels.application_id` reste en base, figé à
+ * Sophia, pour les lecteurs historiques (bundles figés, persona) — ce n'est
+ * plus un filtre.
+ */
+export function listerLabels(): Promise<Label[]>;
+/**
+ * @deprecated L'application n'est plus un filtre de labels : l'argument est
+ * ignoré. Signature gardée le temps que les derniers appelants le lâchent.
+ */
+export function listerLabels(applicationId: string | null | undefined): Promise<Label[]>;
+export async function listerLabels(): Promise<Label[]> {
+  const { data, error } = await supabase.from("labels").select("*").order("nom");
   if (error) throw error;
   return ((data ?? []) as Label[]).filter((l) => !estLabelSysteme(l));
 }
@@ -5219,31 +5218,37 @@ export async function listerReserveLabels(
   }));
 }
 
-/** Labels affichés en bibliothèque (inclut Hook, exclut la marque UGC). */
-export async function listerLabelsBiblio(applicationId?: string | null): Promise<Label[]> {
-  let q = supabase.from("labels").select("*").order("nom");
-  if (applicationId) q = q.eq("application_id", applicationId);
-  const { data, error } = await q;
+/** Labels affichés en bibliothèque (inclut Hook, exclut la marque UGC), toutes applications. */
+export async function listerLabelsBiblio(): Promise<Label[]> {
+  const { data, error } = await supabase.from("labels").select("*").order("nom");
   if (error) throw error;
   return ((data ?? []) as Label[]).filter((l) => !estMarqueUgcAiVideo(l));
 }
 
 /** Labels qui ont au moins un slideshow `ugc_compatible` (file UGC admin). */
-export async function listerLabelIdsAvecUgc(applicationId?: string | null): Promise<string[]> {
-  let q = supabase
+export async function listerLabelIdsAvecUgc(): Promise<string[]> {
+  const { data, error } = await supabase
     .from("contenu_labels")
-    .select("label_id, contenus!inner(ugc_compatible, application_id)")
+    .select("label_id, contenus!inner(ugc_compatible)")
     .eq("contenus.ugc_compatible", true);
-  if (applicationId) q = q.eq("contenus.application_id", applicationId);
-  const { data, error } = await q;
   if (error) throw error;
   return [...new Set((data ?? []).map((r) => r.label_id as string).filter(Boolean))];
 }
 
+/**
+ * Crée un label et le RENVOIE (l'appelant enchaîne sur ses applications via
+ * `definirApplicationsLabel`). Plus d'`application_id` envoyé : la colonne
+ * prend son défaut Sophia, et un label sans ligne `label_applications` sert
+ * Sophia — exactement le comportement d'avant pour un label créé sans choix.
+ */
 export async function creerLabel(
   nom: string,
   couleur?: string | null,
-  opts?: { genre?: "homme" | "femme"; application_id?: string | null },
+  opts?: {
+    genre?: "homme" | "femme";
+    /** @deprecated Ignoré : les applications d'un label vivent dans `label_applications`. */
+    application_id?: string | null;
+  },
 ): Promise<Label> {
   const base = slugify(nom);
   if (base === "ugc-ai-video" || base === SLUG_HOOK) {
@@ -5259,7 +5264,6 @@ export async function creerLabel(
         slug,
         couleur: couleur ?? null,
         genre,
-        ...(opts?.application_id ? { application_id: opts.application_id } : {}),
       })
       .select()
       .single();
@@ -5771,7 +5775,6 @@ export async function listerContenus(opts?: {
   compteReferenceId?: string | null;
   /** Slideshows dont la source a déjà été oubliée (FK nulle). */
   sansCompte?: boolean;
-  applicationId?: string | null;
 }): Promise<ContenuListe[]> {
   const limit = opts?.limit ?? 80;
   let idsFiltres: string[] | null = null;
@@ -5793,7 +5796,6 @@ export async function listerContenus(opts?: {
       .limit(2000);
     if (opts.compteReferenceId) qTous = qTous.eq("compte_reference_id", opts.compteReferenceId);
     if (opts.sansCompte) qTous = qTous.is("compte_reference_id", null);
-    if (opts.applicationId) qTous = qTous.eq("application_id", opts.applicationId);
     const [{ data: tous }, { data: avecLabel }] = await Promise.all([
       qTous,
       supabase.from("contenu_labels").select("contenu_id"),
@@ -5814,7 +5816,6 @@ export async function listerContenus(opts?: {
   if (opts?.statut) q = q.eq("statut", opts.statut);
   if (opts?.compteReferenceId) q = q.eq("compte_reference_id", opts.compteReferenceId);
   if (opts?.sansCompte) q = q.is("compte_reference_id", null);
-  if (opts?.applicationId) q = q.eq("application_id", opts.applicationId);
   if (idsFiltres) {
     // Chunk .in() pour rester sous la limite URL PostgREST.
     const chunk = 80;
@@ -5829,7 +5830,6 @@ export async function listerContenus(opts?: {
       if (opts?.statut) qChunk = qChunk.eq("statut", opts.statut);
       if (opts?.compteReferenceId) qChunk = qChunk.eq("compte_reference_id", opts.compteReferenceId);
       if (opts?.sansCompte) qChunk = qChunk.is("compte_reference_id", null);
-      if (opts?.applicationId) qChunk = qChunk.eq("application_id", opts.applicationId);
       const { data, error } = await qChunk;
       if (error) throw error;
       contenus.push(...((data ?? []) as Contenu[]));

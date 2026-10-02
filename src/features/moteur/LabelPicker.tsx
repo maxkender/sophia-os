@@ -2,7 +2,6 @@ import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 
-import { useApplication } from "@/features/moteur/ApplicationContext";
 import { listerLabels } from "@/features/moteur/api";
 
 /**
@@ -19,10 +18,11 @@ export function LabelPicker({
   disabled?: boolean;
 }) {
   const { t } = useTranslation();
-  const { applicationId } = useApplication();
+  // Tous les labels : un label sert une ou plusieurs applications, le
+  // sélecteur d'application de l'admin ne les filtre plus.
   const labels = useQuery({
-    queryKey: ["labels", applicationId],
-    queryFn: () => listerLabels(applicationId),
+    queryKey: ["labels"],
+    queryFn: () => listerLabels(),
   });
   const set = new Set(selected);
   const liste = labels.data ?? [];

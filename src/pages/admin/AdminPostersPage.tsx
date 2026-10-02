@@ -46,9 +46,11 @@ import {
   setLabelsCompte,
   supprimerPoster,
 } from "@/features/moteur/api";
-import { useApplication } from "@/features/moteur/ApplicationContext";
-import { posterMatcheApplication, SLUG_SOPHIA } from "@/features/moteur/applications";
 import { estLabelFileSlideshow } from "@/features/moteur/fileLabelsSlideshow";
+import { ApplicationsDuLabel } from "@/features/moteur/repartition/ApplicationsDuLabel";
+import { posterServiApplication } from "@/features/moteur/repartition/logique";
+import { PartsApplicationsCompte } from "@/features/moteur/repartition/PartsApplicationsCompte";
+import { useLiensLabels } from "@/features/moteur/repartition/useMultiApp";
 import { SelectApplication } from "@/features/moteur/SelectApplication";
 import { drapeauLangue, langueInitiale, nomLangue } from "@/features/moteur/langues";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
@@ -295,20 +297,23 @@ function LangueCompteSelect({ compte }: { compte: CompteAvecDetails }) {
   );
 }
 
+/**
+ * Labels d'un compte. Tous les labels sont proposés (plus de cloison par
+ * application) ; chaque pastille dit quelles applications le label sert, donc
+ * ce que le compte pourra promouvoir.
+ */
 function LabelsCompteSelect({
   compteId,
   actifs,
-  applicationId,
 }: {
   compteId: string;
   actifs: LabelType[];
-  applicationId?: string | null;
 }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const labels = useQuery({
-    queryKey: ["labels", applicationId ?? "all"],
-    queryFn: () => listerLabels(applicationId),
+    queryKey: ["labels"],
+    queryFn: () => listerLabels(),
   });
   const ids = actifs.map((l) => l.id);
   const maj = useMutation({
@@ -355,14 +360,17 @@ function LabelsCompteSelect({
               type="button"
               disabled={maj.isPending}
               onClick={() => maj.mutate(ids.filter((id) => id !== lab.id))}
-              className="rounded-md border px-1.5 py-0.5 text-[11px] hover:bg-muted"
+              className="inline-flex items-baseline gap-1 rounded-md border px-1.5 py-0.5 text-[11px] hover:bg-muted"
               title={t("common.delete")}
             >
-              {lab.nom} ×
+              <span>{lab.nom}</span>
+              <ApplicationsDuLabel labelId={lab.id} />
+              <span>×</span>
             </button>
           ))}
         </div>
       )}
+      {maj.error && <p className="text-xs text-destructive">{messageErreur(maj.error)}</p>}
     </div>
   );
 }
@@ -376,7 +384,10 @@ export function AdminPostersPage() {
   const comptes = useQuery({ queryKey: ["comptes"], queryFn: listerComptes });
   const langues = useQuery({ queryKey: ["langues-reference"], queryFn: listerLanguesReference });
   const applications = useQuery({ queryKey: ["applications"], queryFn: listerApplications });
-  const { slug: slugContexte } = useApplication();
+  // Liens label → application : pour le filtre « application » (comptes dont
+  // les labels servent l'application). En erreur (avant 0256), le filtre
+  // retombe sur la règle « label sans ligne = Sophia ».
+  const liensLabels = useLiensLabels();
   const labelsComptes = useQuery({
     queryKey: ["compte-labels-all", (comptes.data ?? []).map((c) => c.id).join(",")],
     queryFn: () => labelsDesComptes((comptes.data ?? []).map((c) => c.id)),
@@ -388,21 +399,10 @@ export function AdminPostersPage() {
   const [filtreLangue, setFiltreLangue] = React.useState("");
   const [filtreLabel, setFiltreLabel] = React.useState("");
   const [filtreApp, setFiltreApp] = React.useState("tous");
-  const [applicationSlug, setApplicationSlug] = React.useState(slugContexte || SLUG_SOPHIA);
   const labels = useQuery({
-    queryKey: ["labels", filtreApp, applications.data?.map((a) => a.id).join(",")],
-    queryFn: () => {
-      if (filtreApp && filtreApp !== "tous") {
-        const app = (applications.data ?? []).find((a) => a.slug === filtreApp);
-        return listerLabels(app?.id);
-      }
-      return listerLabels();
-    },
+    queryKey: ["labels"],
+    queryFn: () => listerLabels(),
   });
-
-  React.useEffect(() => {
-    if (slugContexte) setApplicationSlug(slugContexte);
-  }, [slugContexte]);
 
   const comptesParPoster = React.useMemo(() => {
     const m = new Map<string, CompteAvecDetails[]>();
@@ -422,7 +422,6 @@ export function AdminPostersPage() {
       assurerComptePoster({
         userId: p.id,
         langue: p.langues[0] ?? "fr",
-        application_slug: applicationSlug,
       }),
     onSuccess: () => {
       void queryClient.invalidateQueries({ queryKey: ["comptes"] });
@@ -461,7 +460,6 @@ export function AdminPostersPage() {
         nom,
         password,
         langue: premierCompte === "aucun" ? undefined : langue || undefined,
-        application_slug: applicationSlug,
         type_compte: premierCompte,
         posts_par_jour: premierCompte === "perso" ? postsParJour : undefined,
         handle_tiktok: premierCompte === "perso" ? handleTiktok : undefined,
@@ -600,9 +598,6 @@ export function AdminPostersPage() {
             langues={langues.data ?? []}
             langue={langue}
             onLangue={setLangue}
-            applications={applications.data ?? []}
-            applicationSlug={applicationSlug}
-            onApplication={setApplicationSlug}
             postsParJour={postsParJour}
             onPostsParJour={setPostsParJour}
             handle={handleTiktok}
@@ -772,17 +767,11 @@ export function AdminPostersPage() {
       const labs = liste.flatMap((c) => labelsComptes.data?.get(c.id) ?? []);
       if (!labs.some((l) => l.id === filtreLabel)) return false;
     }
-    if (
-      !posterMatcheApplication(
-        liste.map((c) => ({
-          application_id: c.application_id,
-          application_slug: c.application_slug,
-        })),
-        filtreApp,
-        applications.data ?? [],
-      )
-    ) {
-      return false;
+    if (filtreApp && filtreApp !== "tous") {
+      const app = (applications.data ?? []).find((a) => a.slug === filtreApp);
+      if (!app) return false;
+      const labsParCompte = liste.map((c) => labelsComptes.data?.get(c.id) ?? []);
+      if (!posterServiApplication(labsParCompte, liensLabels.data ?? [], app.id)) return false;
     }
     return true;
   };
@@ -855,7 +844,7 @@ export function AdminPostersPage() {
         </select>
       </div>
       <div className="space-y-1">
-        <Label htmlFor="filtreApp">{t("applications.filtre")}</Label>
+        <Label htmlFor="filtreApp">{t("multiAppPosts.filtreApp")}</Label>
         <SelectApplication
           id="filtreApp"
           applications={applications.data ?? []}
@@ -1477,14 +1466,16 @@ export function AdminPostersPage() {
                               {!estCompteCm(c) && (
                                 <div className="grid gap-3 sm:grid-cols-2">
                                   <LangueCompteSelect compte={c} />
-                                  <LabelsCompteSelect
-                                    compteId={c.id}
-                                    actifs={labs}
-                                    applicationId={c.application_id}
-                                  />
+                                  <LabelsCompteSelect compteId={c.id} actifs={labs} />
                                   <div className="sm:col-span-2">
                                     <PostsParJourCompte compte={c} />
                                   </div>
+                                  {/* Un compte UGC AI VIDEO n'a pas de label : rien à répartir. */}
+                                  {!c.ugc_ai_video && (
+                                    <div className="sm:col-span-2">
+                                      <PartsApplicationsCompte compte={c} labels={labs} />
+                                    </div>
+                                  )}
                                 </div>
                               )}
                               <CompteEditor compte={c} />
@@ -1505,7 +1496,6 @@ export function AdminPostersPage() {
                 <FormulaireAjouterCompte
                   posterId={fiche.id}
                   languesProposees={langues.data ?? []}
-                  applications={applications.data ?? []}
                 />
               </div>
 

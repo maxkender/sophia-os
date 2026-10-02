@@ -491,7 +491,6 @@ export const en = {
       niche: "Niche",
       nicheChoisir: "Pick a niche…",
       nicheRequis: "Pick a niche.",
-      applicationRequis: "Pick the application (Sophia or micabo) in the switcher first.",
       nicheAucune: "No niche yet —",
       creerNiche: "create one in Pilotage",
       modeCompte: "TikTok account",
@@ -1552,6 +1551,45 @@ export const en = {
       importDejaLa: "This post was already imported — topic reused.",
       importVide: "No photo post found at this link.",
     },
+    multiAppPosts: {
+      appPromue: "{{app}}",
+      filtreApp: "Served app (labels)",
+      repartition: {
+        titre: "Split by app",
+        aide: "Share of this account's posts per promoted app, held over its last 10 posts. Sophia takes the rest. Account identity (bio, persona) stays Sophia.",
+        effectif: "Applied: {{parts}}",
+        enregistrer: "Save split",
+        reinitialiser: "Reset (100% Sophia)",
+        erreur: "Split by app unavailable: {{message}}",
+        avertInactive: "{{app}} is switched off: its share goes back to Sophia while it stays off.",
+        avertLangue: "{{app}} does not target this account's language ({{langue}}): its share goes back to Sophia.",
+        avertUgc: "UGC account: it stays 100% Sophia (other apps only run on classic slideshows).",
+        avertSophiaNonServie: "None of this account's labels serves Sophia: the rest is split between the other apps.",
+        avertObsolete: "The saved split gives a share to {{app}}, which this account's labels no longer serve: it goes to the others. Reset it.",
+      },
+      pertinences: {
+        titre: "Relevance by app",
+        app: "App",
+        score: "Score",
+        note: "Grade",
+        eligible: "Eligible",
+        raison: "Reason",
+        oui: "Eligible",
+        non: "Not eligible",
+        angles: "Angles: {{angles}}",
+        vide: "No per-app grade for this content (without a Sophia row it stays eligible for Sophia).",
+        erreur: "Relevance by app unavailable: {{message}}",
+      },
+      decks: {
+        titre: "Other apps' decks",
+        aide: "The Sophia deck is the one shown above. Other apps' decks are built separately, from a placement-free base.",
+        vide: "No non-Sophia deck for this content.",
+        erreur: "Decks by app unavailable: {{message}}",
+        statut_pret: "Ready",
+        statut_echec: "Failed",
+        statut_ineligible: "Ineligible",
+      },
+    },
     analytics: {
       title: "Analytics",
       subtitle:
@@ -1800,9 +1838,9 @@ export const en = {
       mode_nouveau:
         "Legacy New mode — midnight assignment no longer uses it.",
       mode_contenu:
-        "Library slideshow: picked by account labels ∩ language score, cleaned images, translated text + Sophia — ready to post.",
+        "Library slideshow: picked by account labels ∩ language score, cleaned images, translated text + promoted app — ready to post.",
       revoquerAide:
-        "If this slideshow makes no sense for Sophia (theme can't be integrated), revoke it: we reject THIS slideshow (not the hook — another post can start the same way and still be good) and build a new one for this creator on this date.",
+        "If this slideshow makes no sense for the app it promotes (theme can't be integrated), revoke it: we reject THIS slideshow (not the hook — another post can start the same way and still be good) and build a new one for this creator on this date.",
       revoquerEnCours: "Revoking and building…",
       confirmRevoquer:
         "Revoke this post and build another for this creator on this date? This slideshow won't be picked again.",
@@ -1903,7 +1941,7 @@ export const en = {
       heuresAide:
         "Timer starts when the creator clicks “Start warmup” in their calendar (default 24 h).",
       fileTitre: "Next accounts queue (label + UGC)",
-      fileApp: "{{nom}} queue — a {{nom}} creator gets a {{nom}} label at creation.",
+      fileApp: "Creator queue (Sophia identity) — a new creator gets the next label at creation; what its labels serve decides which apps it promotes.",
       fileDesc:
         "On poster creation: that language’s queue first (priority), else the general queue, else the classic least-used label in the language. FIFO: the first entry sets the label and whether the account is UGC. UGC AI VIDEO labels (e.g. test) stay out of this queue — they only go to creators of a video HM.",
       fileChoisir: "Queue to edit",

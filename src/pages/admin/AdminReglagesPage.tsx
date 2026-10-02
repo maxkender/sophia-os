@@ -8,10 +8,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { useApplication } from "@/features/moteur/ApplicationContext";
 import {
   avecFileLabelsApplication,
   fileLabelsDeLApplication,
+  SLUG_SOPHIA,
 } from "@/features/moteur/applications";
 import {
   ecrireReglage,
@@ -223,18 +223,17 @@ function SchemaPipeline({ action }: { action: PipelineAction }) {
 export function AdminReglagesPage() {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
-  const { applicationId, slug } = useApplication();
   const { data, isPending } = useQuery({ queryKey: ["reglages"], queryFn: lireReglages });
+  // Tous les labels : n'importe lequel peut aller sur un créateur, ce sont les
+  // applications qu'il sert (Pilotage) qui décident de ce que le compte promeut.
   const labels = useQuery({
-    queryKey: ["labels", applicationId],
-    queryFn: () => listerLabels(applicationId),
-    enabled: Boolean(applicationId),
+    queryKey: ["labels"],
+    queryFn: () => listerLabels(),
   });
   const labelsUgc = useQuery({
-    queryKey: ["labels-avec-ugc", applicationId],
-    queryFn: () => listerLabelIdsAvecUgc(applicationId),
+    queryKey: ["labels-avec-ugc"],
+    queryFn: () => listerLabelIdsAvecUgc(),
     staleTime: 30_000,
-    enabled: Boolean(applicationId),
   });
 
   const [brouillon, setBrouillon] = React.useState<Reglages | null>(null);
@@ -284,10 +283,14 @@ export function AdminReglagesPage() {
   }
 
   const maj = (patch: Partial<Reglages>) => setBrouillon({ ...reglages, ...patch });
-  const fileApp = fileLabelsDeLApplication(reglages.file_labels_comptes, slug);
+  // File des créateurs : TOUJOURS la tranche Sophia, quel que soit le
+  // sélecteur d'application. L'identité d'un compte est Sophia (bio, persona)
+  // et manage-users (bundle figé) ne lit que cette tranche — éditer une
+  // tranche Unswipe ici écrirait une file que personne ne consomme.
+  const fileApp = fileLabelsDeLApplication(reglages.file_labels_comptes, SLUG_SOPHIA);
   const majFile = (items: FileLabelCompteItem[]) => {
     const slice = avecItemsFile(fileApp, fileQueueKey, items);
-    const file = avecFileLabelsApplication(reglages.file_labels_comptes, slug, slice);
+    const file = avecFileLabelsApplication(reglages.file_labels_comptes, SLUG_SOPHIA, slice);
     setBrouillon({ ...reglages, file_labels_comptes: file });
     persisterFile.mutate(file);
   };
@@ -759,7 +762,7 @@ export function AdminReglagesPage() {
           <section className="space-y-3">
             <h3 className="text-sm font-medium">{t("warmup.fileTitre")}</h3>
             <p className="text-xs font-medium text-foreground">
-              {t("warmup.fileApp", { nom: slug === "sophia" ? "Sophia" : slug })}
+              {t("warmup.fileApp")}
             </p>
             <p className="text-xs text-muted-foreground">{t("warmup.fileDesc")}</p>
             <p className="text-xs text-muted-foreground">

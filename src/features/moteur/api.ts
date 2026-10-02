@@ -167,7 +167,7 @@ function jourParisDepuisIso(iso: string | null | undefined): string | null {
   return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(d);
 }
 
-async function invoke<T>(name: string, body: Record<string, unknown>): Promise<T> {
+export async function invoke<T>(name: string, body: Record<string, unknown>): Promise<T> {
   const { data, error } = await supabase.functions.invoke(name, { body });
   if (error) {
     // Sur une réponse non-2xx, supabase renvoie un message générique

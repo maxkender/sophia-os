@@ -122,6 +122,31 @@ grant select, insert, update, delete on public.contenu_pertinences to authentica
 grant all on public.contenu_pertinences to service_role;
 revoke all on public.contenu_pertinences from anon;
 
+-- Contenus prêts dont un label sert une application, sans note pour elle : la
+-- file du rattrapage de pertinence (lancé à la main depuis Pilotage). Sophia y
+-- figure aussi (stock historique sans ligne) mais n'est jamais rattrapée : pas
+-- de ligne = éligible.
+create or replace view public.contenu_pertinence_manquante as
+select distinct on (c.id, la.application_id)
+  c.id as contenu_id,
+  la.application_id,
+  c.created_at
+from public.label_applications la
+join public.contenu_labels cl on cl.label_id = la.label_id
+join public.contenus c
+  on c.id = cl.contenu_id
+ and c.statut = 'valide'
+ and c.import_statut = 'done'
+left join public.contenu_pertinences cp
+  on cp.contenu_id = c.id
+ and cp.application_id = la.application_id
+where cp.contenu_id is null
+order by c.id, la.application_id;
+
+grant select on public.contenu_pertinence_manquante to authenticated;
+grant select on public.contenu_pertinence_manquante to service_role;
+revoke select on public.contenu_pertinence_manquante from anon;
+
 -- ---------------------------------------------------------------------------
 -- 4. Decks placés des applications autres que Sophia
 -- ---------------------------------------------------------------------------

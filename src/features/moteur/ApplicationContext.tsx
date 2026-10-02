@@ -1,7 +1,11 @@
 import * as React from "react";
+import { useQuery } from "@tanstack/react-query";
 
-import { listerApplications } from "./api";
-import { SLUG_SOPHIA, type ApplicationOs } from "./applications";
+import { useAuth } from "@/features/auth/AuthContext";
+import type { ApplicationMulti } from "./apiMultiApp";
+import { SLUG_SOPHIA } from "./applications";
+import { ID_SOPHIA } from "./multiApp";
+import { optionsRequeteApplications } from "./multiapp/requetesApplications";
 
 const STORAGE_KEY = "os-application-slug";
 
@@ -13,9 +17,22 @@ function lireSlugSauve(): string {
   }
 }
 
+function sauverSlug(slug: string) {
+  try {
+    localStorage.setItem(STORAGE_KEY, slug);
+  } catch {
+    /* private mode */
+  }
+}
+
+/**
+ * Application choisie dans le sélecteur de l'admin. Depuis le multi-app par
+ * labels, elle ne cloisonne plus les labels, sources, contenus ni comptes :
+ * elle choisit seulement les prompts, les stats et la réserve affichés.
+ */
 interface ApplicationContextValue {
-  applications: ApplicationOs[];
-  application: ApplicationOs | null;
+  applications: ApplicationMulti[];
+  application: ApplicationMulti | null;
   applicationId: string | null;
   slug: string;
   setSlug: (slug: string) => void;
@@ -24,52 +41,36 @@ interface ApplicationContextValue {
 
 const ApplicationContext = React.createContext<ApplicationContextValue | null>(null);
 
-export function ApplicationProvider({ children }: { children: React.ReactNode }) {
-  const [applications, setApplications] = React.useState<ApplicationOs[]>([]);
-  const [slug, setSlugState] = React.useState(lireSlugSauve);
-  const [isPending, setIsPending] = React.useState(true);
+const AUCUNE: ApplicationMulti[] = [];
 
-  React.useEffect(() => {
-    let alive = true;
-    void listerApplications()
-      .then((liste) => {
-        if (!alive) return;
-        setApplications(liste);
-        setSlugState((actuel) => {
-          if (liste.length > 0 && !liste.some((a) => a.slug === actuel)) {
-            const fallback = liste[0]!.slug;
-            try {
-              localStorage.setItem(STORAGE_KEY, fallback);
-            } catch {
-              /* private mode */
-            }
-            return fallback;
-          }
-          return actuel;
-        });
-      })
-      .catch(() => {
-        if (!alive) return;
-        setApplications([]);
-      })
-      .finally(() => {
-        if (alive) setIsPending(false);
-      });
-    return () => {
-      alive = false;
-    };
-  }, []);
+export function ApplicationProvider({ children }: { children: React.ReactNode }) {
+  const { user } = useAuth();
+  const userId = user?.id ?? null;
+  // react-query plutôt qu'un chargement unique au montage : activer Unswipe ou
+  // changer ses langues dans Pilotage invalide cette requête, et le sélecteur
+  // suit sans recharger la page.
+  const requete = useQuery(optionsRequeteApplications(userId));
+  const applications = requete.data ?? AUCUNE;
+  const [slug, setSlugState] = React.useState(lireSlugSauve);
 
   const setSlug = React.useCallback((suivant: string) => {
     setSlugState(suivant);
-    try {
-      localStorage.setItem(STORAGE_KEY, suivant);
-    } catch {
-      /* private mode */
-    }
+    sauverSlug(suivant);
   }, []);
 
-  const application = applications.find((a) => a.slug === slug) ?? applications[0] ?? null;
+  // Slug inconnu (application supprimée — micabo —, ou stockage d'un autre
+  // poste) : retour sur Sophia, l'application toujours présente.
+  const application =
+    applications.find((a) => a.slug === slug) ??
+    applications.find((a) => a.id === ID_SOPHIA) ??
+    applications[0] ??
+    null;
+
+  React.useEffect(() => {
+    if (application && application.slug !== slug) setSlug(application.slug);
+  }, [application, slug, setSlug]);
+
+  const isPending = Boolean(userId) && requete.isPending;
 
   const value = React.useMemo<ApplicationContextValue>(
     () => ({

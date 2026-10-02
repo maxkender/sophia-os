@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { lancerMetriques, statsComptes, statsPosts } from "@/features/moteur/api";
+import { useApplication } from "@/features/moteur/ApplicationContext";
 import { BadgeClassement } from "@/features/moteur/BadgeClassement";
 import { rangClassement } from "@/features/moteur/classementComptes";
 import type { StatsPost } from "@/features/moteur/types";
@@ -58,13 +59,20 @@ export function AdminAnalyticsPage() {
   const [compteId, setCompteId] = React.useState("");
   const [tri, setTri] = React.useState<TriCreateur>("vues");
 
+  // Les posts suivent l'application du sélecteur (celle que chaque post promeut) ;
+  // les totaux par compte, eux, restent tous posts confondus.
+  const { applicationId } = useApplication();
+
   const comptes = useQuery({ queryKey: ["stats-comptes"], queryFn: statsComptes });
   const posts = useQuery({
-    queryKey: ["stats-posts", compteId || "tous"],
-    queryFn: () => statsPosts(compteId || undefined),
+    queryKey: ["stats-posts", compteId || "tous", applicationId],
+    queryFn: () => statsPosts(compteId || undefined, applicationId),
   });
   // Tous les posts (sans filtre de compte) pour repérer les viraux J+7 · +30k.
-  const tousPosts = useQuery({ queryKey: ["stats-posts-viraux"], queryFn: () => statsPosts() });
+  const tousPosts = useQuery({
+    queryKey: ["stats-posts-viraux", applicationId],
+    queryFn: () => statsPosts(undefined, applicationId),
+  });
   const viraux = (tousPosts.data ?? []).filter(estViral);
 
   // Va chercher les vraies stats sur le profil TikTok de chaque compte (scrape

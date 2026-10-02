@@ -15,7 +15,7 @@ export function SelectApplication({
   className,
 }: {
   id?: string;
-  applications: ApplicationOs[];
+  applications: Array<ApplicationOs & { actif?: boolean }>;
   value: string;
   onChange: (slug: string) => void;
   allowTous?: boolean;
@@ -35,6 +35,9 @@ export function SelectApplication({
       {applications.map((app) => (
         <option key={app.id} value={app.slug}>
           {nomApplication(app)}
+          {/* Une application en préparation (inactive) reste sélectionnable :
+              on y relit ses prompts et sa réserve avant de l'activer. */}
+          {app.actif === false ? ` (${t("applications.inactive")})` : ""}
         </option>
       ))}
     </select>

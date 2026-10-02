@@ -60,10 +60,9 @@ import {
   type StatsCompteSlideshows,
 } from "./statsSlideshowsCompte";
 import {
-  estSlugApplicationValide,
-  normaliserSlugApplication,
   type ApplicationOs,
 } from "./applications";
+import { estErreurSchemaAbsent } from "./multiapp/logique";
 import { comptePrincipal, normaliserTypeCompte, resoudrePremierCompte } from "./comptesCm";
 import { estLabelSysteme, SLUG_HOOK } from "./mediaCaption";
 import {
@@ -85,64 +84,6 @@ export async function listerApplications(): Promise<ApplicationOs[]> {
     .order("created_at");
   if (error) throw error;
   return (data ?? []) as ApplicationOs[];
-}
-
-export async function creerApplication(input: {
-  slug: string;
-  nom: string;
-}): Promise<ApplicationOs> {
-  const slug = normaliserSlugApplication(input.slug);
-  const nom = input.nom.trim() || slug;
-  if (!estSlugApplicationValide(slug)) throw new Error("SLUG_APPLICATION_INVALIDE");
-  const { data, error } = await supabase
-    .from("applications")
-    .insert({ slug, nom })
-    .select("id, slug, nom, created_at")
-    .single();
-  if (error) throw error;
-  const app = data as ApplicationOs;
-  const { data: sophia } = await supabase
-    .from("applications")
-    .select("id")
-    .eq("slug", "sophia")
-    .maybeSingle();
-  if (sophia?.id) {
-    const { data: systeme } = await supabase
-      .from("labels")
-      .select("nom, slug, couleur, genre, ugc_ai_video")
-      .eq("application_id", sophia.id)
-      .in("slug", ["hook", "ugc-ai-video"]);
-    if ((systeme ?? []).length > 0) {
-      await supabase.from("labels").insert(
-        (systeme ?? []).map((l) => ({
-          nom: l.nom,
-          slug: l.slug,
-          couleur: l.couleur,
-          genre: l.genre ?? null,
-          ugc_ai_video: Boolean(l.ugc_ai_video),
-          application_id: app.id,
-        })),
-      );
-    }
-    const { data: pertinence } = await supabase
-      .from("prompts")
-      .select("contenu")
-      .eq("cle", "pertinence")
-      .maybeSingle();
-    const { data: placement } = await supabase
-      .from("prompts")
-      .select("contenu")
-      .eq("cle", "placement_sophia")
-      .maybeSingle();
-    await supabase.from("prompts").upsert(
-      [
-        { cle: `pertinence_${slug}`, contenu: pertinence?.contenu ?? "" },
-        { cle: `placement_${slug}`, contenu: placement?.contenu ?? "" },
-      ],
-      { onConflict: "cle" },
-    );
-  }
-  return app;
 }
 
 /** Date du jour en YYYY-MM-DD, en heure locale — le poster raisonne sur sa
@@ -2225,15 +2166,33 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
   };
 }
 
-export async function statsPosts(compteId?: string): Promise<StatsPost[]> {
-  let query = supabase
-    .from("stats_posts")
-    .select("*")
-    .order("vues", { ascending: false, nullsFirst: false })
-    .limit(100);
-  if (compteId) query = query.eq("compte_id", compteId);
+/**
+ * Posts et leurs dernières métriques, filtrables par compte et par application
+ * promue (`stats_posts.application_id`, ajoutée par 0256).
+ *
+ * Tant que 0256 n'est pas passée, la colonne n'existe pas et le filtre fait
+ * échouer la requête : on la rejoue sans lui — tout l'historique est Sophia,
+ * donc le résultat est le même que filtré sur Sophia.
+ */
+export async function statsPosts(
+  compteId?: string,
+  applicationId?: string | null,
+): Promise<StatsPost[]> {
+  const lire = (filtrerApplication: boolean) => {
+    let query = supabase
+      .from("stats_posts")
+      .select("*")
+      .order("vues", { ascending: false, nullsFirst: false })
+      .limit(100);
+    if (compteId) query = query.eq("compte_id", compteId);
+    if (filtrerApplication && applicationId) query = query.eq("application_id", applicationId);
+    return query;
+  };
 
-  const { data, error } = await query;
+  let { data, error } = await lire(true);
+  if (error && applicationId && estErreurSchemaAbsent(error)) {
+    ({ data, error } = await lire(false));
+  }
   if (error) throw error;
   return data as StatsPost[];
 }

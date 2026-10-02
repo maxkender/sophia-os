@@ -23,7 +23,7 @@ import {
 } from "lucide-react";
 
 import { useApplication } from "@/features/moteur/ApplicationContext";
-import { nomApplication, estSlugSophia } from "@/features/moteur/applications";
+import { nomApplication } from "@/features/moteur/applications";
 import { SelectApplication } from "@/features/moteur/SelectApplication";
 import { AppShell } from "./AppShell";
 
@@ -127,17 +127,15 @@ export function AdminLayout() {
               icon: ShieldAlert,
               description: t("navDesc.surveillance"),
             },
-            ...(estSlugSophia(slug)
-              ? [
-                  {
-                    to: "/admin/recrutements",
-                    label: t("nav.recrutements"),
-                    icon: UserPlus,
-                    description: t("navDesc.recrutements"),
-                    end: false,
-                  },
-                ]
-              : []),
+            // Toujours visible : le recrutement relève de l'identité des
+            // comptes, qui reste Sophia quelle que soit l'application choisie.
+            {
+              to: "/admin/recrutements",
+              label: t("nav.recrutements"),
+              icon: UserPlus,
+              description: t("navDesc.recrutements"),
+              end: false,
+            },
             {
               to: "/admin/reviews",
               label: t("nav.reviews"),

@@ -1992,7 +1992,7 @@ export const en = {
       fileTitre: "Next accounts queue (label + UGC)",
       fileApp: "Creator queue (Sophia identity) — a new creator gets the next label at creation; what its labels serve decides which apps it promotes.",
       fileDesc:
-        "On poster creation: that language’s queue first (priority), else the general queue, else the classic least-used label in the language. FIFO: the first entry sets the label and whether the account is UGC. UGC AI VIDEO labels (e.g. test) stay out of this queue — they only go to creators of a video HM.",
+        "On poster creation: that language’s queue first (priority), else the general queue, else the classic least-used label in the language. FIFO: the first entry sets the label and whether the account is UGC. UGC AI VIDEO labels stay out of this queue — they only go to creators of a video HM.",
       fileChoisir: "Queue to edit",
       fileGenerale: "General queue",
       fileGeneraleAide:

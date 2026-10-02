@@ -19,8 +19,8 @@ describe("estLabelFileSlideshow", () => {
     expect(estLabelFileSlideshow({ nom: "Hook" })).toBe(false);
     expect(estLabelFileSlideshow({ slug: "ugc-ai-video" })).toBe(false);
     expect(estLabelFileSlideshow({ nom: "UGC AI VIDEO" })).toBe(false);
-    expect(estLabelFileSlideshow({ slug: "test", ugc_ai_video: true })).toBe(false);
-    expect(estLabelUgcAiVideo({ slug: "test", ugc_ai_video: true })).toBe(true);
+    expect(estLabelFileSlideshow({ slug: "ugc-theme", ugc_ai_video: true })).toBe(false);
+    expect(estLabelUgcAiVideo({ slug: "ugc-theme", ugc_ai_video: true })).toBe(true);
     expect(estLabelUgcAiVideo({ slug: "ugc-ai-video" })).toBe(true);
     expect(estLabelInterditCompte({ slug: "hook" })).toBe(true);
     expect(estLabelInterditCompte({ nom: "UGC AI VIDEO" })).toBe(true);
@@ -34,20 +34,20 @@ describe("consommerFileSlideshow", () => {
   it("prend le premier éligible et saute les labels vidéo en tête", () => {
     const out = consommerFileSlideshow(
       [
-        { label_id: "test", ugc: false },
+        { label_id: "ugc-theme", ugc: false },
         { label_id: "alpha", ugc: false },
         { label_id: "clean", ugc: true },
       ],
       eligible,
     );
     expect(out.item).toEqual({ label_id: "alpha", ugc: false });
-    expect(out.skipped).toEqual([{ label_id: "test", ugc: false }]);
+    expect(out.skipped).toEqual([{ label_id: "ugc-theme", ugc: false }]);
     expect(out.rest).toEqual([{ label_id: "clean", ugc: true }]);
   });
 
   it("vide la file si tout est UGC vidéo", () => {
     const out = consommerFileSlideshow(
-      [{ label_id: "test", ugc: false }],
+      [{ label_id: "ugc-theme", ugc: false }],
       eligible,
     );
     expect(out.item).toBeNull();

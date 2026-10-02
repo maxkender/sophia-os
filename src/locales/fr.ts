@@ -488,7 +488,6 @@ export const fr = {
       niche: "Niche",
       nicheChoisir: "Choisir une niche…",
       nicheRequis: "Choisis une niche.",
-      applicationRequis: "Choisis d'abord l'application (Sophia ou micabo) dans le sélecteur.",
       nicheAucune: "Aucune niche pour l'instant —",
       creerNiche: "crée-en dans Pilotage",
       modeCompte: "Compte TikTok",
@@ -1598,6 +1597,45 @@ export const fr = {
       importDejaLa: "Ce post était déjà importé — sujet réutilisé.",
       importVide: "Aucun post photo trouvé à ce lien.",
     },
+    multiAppPosts: {
+      appPromue: "{{app}}",
+      filtreApp: "Application servie (labels)",
+      repartition: {
+        titre: "Répartition par application",
+        aide: "Part des posts de ce compte par application promue, tenue sur ses 10 derniers posts. Sophia prend le reste. Identité du compte (bio, persona) : Sophia, toujours.",
+        effectif: "Appliqué : {{parts}}",
+        enregistrer: "Enregistrer la répartition",
+        reinitialiser: "Réinitialiser (100 % Sophia)",
+        erreur: "Répartition par application indisponible : {{message}}",
+        avertInactive: "{{app}} est désactivée : sa part revient à Sophia tant qu'elle reste éteinte.",
+        avertLangue: "{{app}} ne cible pas la langue de ce compte ({{langue}}) : sa part revient à Sophia.",
+        avertUgc: "Compte UGC : il reste 100 % Sophia (les autres applications ne passent que par les slideshows classiques).",
+        avertSophiaNonServie: "Aucun label de ce compte ne sert Sophia : le reste se répartit entre les autres applications.",
+        avertObsolete: "La répartition enregistrée donne une part à {{app}}, que les labels de ce compte ne servent plus : elle revient aux autres. Réinitialise-la.",
+      },
+      pertinences: {
+        titre: "Pertinence par application",
+        app: "Application",
+        score: "Score",
+        note: "Note",
+        eligible: "Éligible",
+        raison: "Raison",
+        oui: "Éligible",
+        non: "Non éligible",
+        angles: "Angles : {{angles}}",
+        vide: "Aucune note par application pour ce contenu (sans ligne Sophia, il reste éligible Sophia).",
+        erreur: "Pertinences par application indisponibles : {{message}}",
+      },
+      decks: {
+        titre: "Decks des autres applications",
+        aide: "Le deck Sophia est celui affiché plus haut. Ceux des autres applications sont cuits à part, depuis une base sans placement.",
+        vide: "Aucun deck hors Sophia pour ce contenu.",
+        erreur: "Decks par application indisponibles : {{message}}",
+        statut_pret: "Prêt",
+        statut_echec: "Échec",
+        statut_ineligible: "Inéligible",
+      },
+    },
     analytics: {
       title: "Analytics",
       subtitle:
@@ -1842,9 +1880,9 @@ export const fr = {
       mode_nouveau:
         "Ancien mode Nouveau (legacy) — l'assignation de minuit ne l'utilise plus.",
       mode_contenu:
-        "Slideshow de la bibliothèque : choisi par labels du compte ∩ score langue, images nettoyées, texte traduit + Sophia — prêt à poster.",
+        "Slideshow de la bibliothèque : choisi par labels du compte ∩ score langue, images nettoyées, texte traduit + application promue — prêt à poster.",
       revoquerAide:
-        "Si ce slideshow n'a pas de sens pour Sophia (thème non intégrable), révoque-le : on rejette CE slideshow (pas le hook — un autre post peut commencer pareil et rester bon) et on en refait un autre pour ce créateur à cette date.",
+        "Si ce slideshow n'a pas de sens pour l'application qu'il promeut (thème non intégrable), révoque-le : on rejette CE slideshow (pas le hook — un autre post peut commencer pareil et rester bon) et on en refait un autre pour ce créateur à cette date.",
       revoquerEnCours: "Révocation et fabrication…",
       confirmRevoquer:
         "Révoquer ce post et en fabriquer un autre pour ce créateur à cette date ? Ce slideshow ne sera plus repioché.",
@@ -1945,7 +1983,7 @@ export const fr = {
       heuresAide:
         "Timer lancé quand le créateur clique « Commencer le warmup » dans son calendrier (défaut 24 h).",
       fileTitre: "File des prochains comptes (label + UGC)",
-      fileApp: "File {{nom}} — un créateur {{nom}} prend un label {{nom}} à la création.",
+      fileApp: "File des créateurs (identité Sophia) — un nouveau créateur prend le label suivant à la création ; ce que ses labels servent décide des applications qu'il promeut.",
       fileDesc:
         "À la création d’un poster : file de SA langue d’abord (prioritaire), sinon file générale, sinon label classique le moins utilisé dans la langue. FIFO : la 1ʳᵉ entrée décide le label et si le compte est UGC. Les labels UGC AI VIDEO (ex. test) n’entrent pas dans cette file : ils vont uniquement aux créateurs d’un HM vidéo.",
       fileChoisir: "File à éditer",

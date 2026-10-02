@@ -40,7 +40,10 @@ export interface CompteReference {
   handle_tiktok: string;
   niche: string | null;
   langue: string;
-  /** Application OS (sophia, micabo, …). */
+  /**
+   * Figé à Sophia (défaut de la colonne). Une source n'appartient plus à une
+   * application : ses contenus servent les applications de leurs labels.
+   */
   application_id: string;
   /** Prompt adapté (voix / ton de traduction) propre à cette source. */
   style_profile: string | null;
@@ -92,9 +95,17 @@ export interface Compte {
   compte_reference_id: string | null;
   type_compte: TypeCompte;
   langue: string;
-  /** Application associée à ce compte TikTok. */
+  /**
+   * Toujours Sophia : identité du compte (bio, persona, recrutement). Ce que
+   * le compte PROMEUT se règle par `parts_applications` et ses labels.
+   */
   application_id: string;
   application_slug?: string | null;
+  /**
+   * Répartition des posts par application (`{"sophia":70,"unswipe":30}`),
+   * `null` = 100 % Sophia. Absente avant la migration 0256.
+   */
+  parts_applications?: Record<string, number> | null;
   persona_nom: string | null;
   persona_bio: string | null;
   avatar_url: string | null;
@@ -217,6 +228,8 @@ export interface Post {
   est_test: boolean;
   /** Recharges complètes demandées par le créateur (0–2). */
   recharges_createur?: number;
+  /** Application promue par ce post (défaut Sophia ; absente avant 0256). */
+  application_id?: string | null;
   created_at: string;
 }
 

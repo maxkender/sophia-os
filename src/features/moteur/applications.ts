@@ -1,7 +1,5 @@
 /** Slug canonique de l'application historique. */
 export const SLUG_SOPHIA = "sophia";
-/** Slug canonique de l'application flashcards étudiants. */
-export const SLUG_MICABO = "micabo";
 
 export interface ApplicationOs {
   id: string;
@@ -27,32 +25,11 @@ export function estSlugSophia(slug: string | null | undefined): boolean {
   return (slug ?? SLUG_SOPHIA) === SLUG_SOPHIA;
 }
 
-export function estSlugMicabo(slug: string | null | undefined): boolean {
-  return slug === SLUG_MICABO;
-}
-
-/**
- * Application d'un import : la source l'emporte toujours, puis l'id explicite
- * (lien isolé), puis Sophia. Un compte Micabo ne doit jamais retomber sur Sophia.
- */
-export function resoudreApplicationImport(opts: {
-  sourceApplicationId?: string | null;
-  explicitApplicationId?: string | null;
-  fallbackId: string;
-}): string {
-  const source = String(opts.sourceApplicationId ?? "").trim();
-  if (source) return source;
-  const explicit = String(opts.explicitApplicationId ?? "").trim();
-  if (explicit) return explicit;
-  return opts.fallbackId;
-}
-
 export function nomApplication(app: { nom?: string | null; slug?: string | null }): string {
   const nom = String(app.nom ?? "").trim();
   if (nom) return nom;
   const slug = String(app.slug ?? "").trim();
   if (slug === SLUG_SOPHIA) return "Sophia";
-  if (slug === SLUG_MICABO) return "micabo";
   return slug || "—";
 }
 
@@ -66,22 +43,11 @@ export function clePromptPlacement(slug: string | null | undefined): string {
   return estSlugSophia(slug) ? "placement_sophia" : `placement_${normaliserSlugApplication(slug)}`;
 }
 
-export type FiltreApplicationPoster = "tous" | string;
-
-/** Un poster passe le filtre si au moins un de ses comptes matche l'app. */
-export function posterMatcheApplication(
-  comptes: Array<{ application_id?: string | null; application_slug?: string | null }>,
-  filtre: FiltreApplicationPoster,
-  applications: ApplicationOs[],
-): boolean {
-  if (!filtre || filtre === "tous") return true;
-  const cible = applications.find((a) => a.slug === filtre || a.id === filtre);
-  if (!cible) return false;
-  return comptes.some(
-    (c) => c.application_id === cible.id || c.application_slug === cible.slug,
-  );
-}
-
+/**
+ * Tranche d'une application dans la file des labels créateurs. Seule la
+ * tranche Sophia sert encore (identité d'un compte = Sophia, toujours) : c'est
+ * elle que Réglages édite, et elle que lit le bundle figé de manage-users.
+ */
 export function fileLabelsDeLApplication<T extends { items: unknown[]; par_langue: Record<string, unknown[]> }>(
   file: T & { par_application?: Record<string, { items: T["items"]; par_langue: T["par_langue"] }> },
   slug: string,
@@ -92,7 +58,11 @@ export function fileLabelsDeLApplication<T extends { items: unknown[]; par_langu
   return { items: [] as T["items"], par_langue: {} as T["par_langue"] };
 }
 
-/** Réécrit la file d'une application sans toucher aux autres. */
+/**
+ * Réécrit la file d'une application sans toucher aux autres. Pour Sophia, la
+ * file « racine » (`items` / `par_langue`, format d'avant les applications)
+ * est réécrite aussi : les lecteurs historiques la lisent encore.
+ */
 export function avecFileLabelsApplication<T extends { items: unknown[]; par_langue: Record<string, unknown[]> }>(
   file: T & { par_application?: Record<string, { items: T["items"]; par_langue: T["par_langue"] }> },
   slug: string,

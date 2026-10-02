@@ -36,6 +36,8 @@ import {
 } from "@/features/moteur/nettoyageEtapes";
 import { supabase } from "@/lib/supabase/client";
 import type { Media, PostSlide } from "@/features/moteur/types";
+import { useApplication } from "@/features/moteur/ApplicationContext";
+import { nomApplicationPromue } from "@/features/moteur/repartition/logique";
 import { classeDirectionTexte, directionTexte } from "@/features/moteur/langues";
 import { slideEstPropre } from "@/features/moteur/signalementTexte";
 
@@ -101,11 +103,14 @@ function SlideAdmin({
   compteReferenceId,
   premier,
   etapesLot,
+  nomApp,
 }: {
   slide: PostSlide;
   postId: string;
   compteReferenceId: string | null;
   premier: ProviderNettoyage;
+  /** Application promue par le post (badge de la slide pub). */
+  nomApp: string;
   /** Timeline fournie par un nettoyage en lot (sinon locale). */
   etapesLot?: EvenementEtape[] | null;
 }) {
@@ -172,7 +177,9 @@ function SlideAdmin({
       <CardContent className="space-y-4 p-4">
           <div className="flex flex-wrap items-center gap-2">
           <span className="text-sm font-medium">{t("posts.slide", { position: slide.position })}</span>
-          {slide.position_sophia && <Badge>{t("posts.sophia")}</Badge>}
+          {slide.position_sophia && (
+            <Badge>{t("multiAppPosts.appPromue", { app: nomApp })}</Badge>
+          )}
           {!propre && photoUrl && <Badge variant="warning">{t("adminPost.texteRestant")}</Badge>}
           {!photoUrl && <Badge variant="warning">{t("posts.photoManquante")}</Badge>}
           {dejaUpscale && <Badge variant="success">{t("bibliotheque.dejaUpscale")}</Badge>}
@@ -322,6 +329,7 @@ function SlideAdmin({
 
 export function AdminPostDetailPage() {
   const { t } = useTranslation();
+  const { applications } = useApplication();
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
@@ -337,7 +345,7 @@ export function AdminPostDetailPage() {
   const premier: ProviderNettoyage = reglages?.nettoyage.provider_principal ?? "fal";
 
   /**
-   * Post inutilisable (thème incohérent pour Sophia) : on rejette CE slideshow
+   * Post inutilisable (thème incohérent pour l'application promue) : on rejette CE slideshow
    * (pas le hook — un autre post peut commencer pareil et rester bon), on en
    * refabrique un autre pour le même créateur + date, puis on l'ouvre.
    */
@@ -642,6 +650,7 @@ export function AdminPostDetailPage() {
           compteReferenceId={refId.data ?? null}
           premier={premier}
           etapesLot={etapesLot[slide.id] ?? null}
+          nomApp={nomApplicationPromue(post.data?.application_id, applications)}
         />
       ))}
     </div>

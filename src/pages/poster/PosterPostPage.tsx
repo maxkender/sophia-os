@@ -57,6 +57,8 @@ import {
   telechargerFichier,
 } from "@/features/moteur/telechargement";
 import type { Media, Post, PostSlide } from "@/features/moteur/types";
+import { useApplication } from "@/features/moteur/ApplicationContext";
+import { nomApplicationPromue } from "@/features/moteur/repartition/logique";
 import { classeDirectionTexte, directionTexte } from "@/features/moteur/langues";
 import { cleErreurSignalement, slideEstPropre } from "@/features/moteur/signalementTexte";
 
@@ -409,6 +411,7 @@ const MAX_RECHARGES_CREATEUR = 2;
 
 export function PosterPostPage() {
   const { t, i18n } = useTranslation();
+  const { applications } = useApplication();
   const { role } = useAuth();
   const estAdmin = role === "admin";
   const { id } = useParams<{ id: string }>();
@@ -598,6 +601,9 @@ export function PosterPostPage() {
 
   const donnees = post.data;
   const publie = Boolean(donnees.publie_at);
+  // Slide pub : l'application que CE post promeut (Sophia par défaut, et pour
+  // tout post d'avant le multi-app).
+  const nomApp = nomApplicationPromue(donnees.application_id, applications);
   const tousLesTextes = texteComplet(donnees, liste);
   const rechargesUtilisees = Math.min(
     MAX_RECHARGES_CREATEUR,
@@ -758,7 +764,9 @@ export function PosterPostPage() {
               <div className="flex items-center justify-between gap-2">
                 <span className="flex items-center gap-2 text-sm font-medium">
                   {t("posts.slide", { position: slide.position })}
-                  {slide.position_sophia && <Badge>{t("posts.sophia")}</Badge>}
+                  {slide.position_sophia && (
+                    <Badge>{t("multiAppPosts.appPromue", { app: nomApp })}</Badge>
+                  )}
                 </span>
                 {!publie && (
                   <div className="flex gap-1">

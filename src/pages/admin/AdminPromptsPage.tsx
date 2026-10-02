@@ -7,14 +7,22 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ecrirePrompt, lirePrompt } from "@/features/moteur/api";
 import { useApplication } from "@/features/moteur/ApplicationContext";
+import {
+  clePromptPertinence,
+  clePromptPlacement,
+  estSlugSophia,
+  nomApplication,
+} from "@/features/moteur/applications";
 import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 
-/** Les prompts qui pilotent le moteur, modifiables sans redéploiement. */
-const PROMPTS = [
-  { cle: "pertinence", titre: "prompts.pertinenceTitle", desc: "prompts.pertinenceDesc" },
-  { cle: "pertinence_micabo", titre: "prompts.pertinenceMicaboTitle", desc: "prompts.pertinenceMicaboDesc" },
-  { cle: "placement_sophia", titre: "prompts.placementTitle", desc: "prompts.placementDesc" },
-  { cle: "placement_micabo", titre: "prompts.placementMicaboTitle", desc: "prompts.placementMicaboDesc" },
+/**
+ * Les prompts qui pilotent le moteur, modifiables sans redéploiement.
+ *
+ * Pertinence et placement sont PROPRES à l'application du sélecteur (clés
+ * `pertinence` / `placement_sophia` pour Sophia, `pertinence_<slug>` /
+ * `placement_<slug>` pour les autres) ; tout le reste est commun.
+ */
+const PROMPTS_COMMUNS = [
   { cle: "traduction", titre: "prompts.traductionTitle", desc: "prompts.traductionDesc" },
   { cle: "ugc_face_swap", titre: "prompts.ugcFaceSwapTitle", desc: "prompts.ugcFaceSwapDesc" },
   { cle: "composition_recycle", titre: "prompts.recycleTitle", desc: "prompts.recycleDesc" },
@@ -84,11 +92,41 @@ function EditeurPrompt({ cle, titre, desc }: { cle: string; titre: string; desc:
 
 export function AdminPromptsPage() {
   const { t } = useTranslation();
-  const { slug } = useApplication();
+  const { slug, application } = useApplication();
+  const nom = application ? nomApplication(application) : nomApplication({ slug });
+  const sophia = estSlugSophia(slug);
   return (
     <div className="space-y-6">
-      <p className="text-sm text-muted-foreground">{t("prompts.application", { slug })}</p>
-      {PROMPTS.map((p) => (
+      <div>
+        <h2 className="text-sm font-semibold">{t("prompts.sectionApplication", { nom })}</h2>
+        <p className="text-xs text-muted-foreground">{t("prompts.application", { nom })}</p>
+        {/* Hors Sophia, un prompt vide n'est jamais remplacé par celui de
+            Sophia : le moteur échoue franchement. On le rappelle ici, là où on
+            l'écrit. */}
+        {!sophia && (
+          <p className="mt-1 text-xs text-amber-700 dark:text-amber-400">
+            {t("prompts.sansRepli", { nom })}
+          </p>
+        )}
+      </div>
+      <EditeurPrompt
+        key={clePromptPertinence(slug)}
+        cle={clePromptPertinence(slug)}
+        titre={t("prompts.pertinenceTitleApp", { nom })}
+        desc={t("prompts.pertinenceDescApp", { nom })}
+      />
+      <EditeurPrompt
+        key={clePromptPlacement(slug)}
+        cle={clePromptPlacement(slug)}
+        titre={t("prompts.placementTitleApp", { nom })}
+        desc={t("prompts.placementDescApp", { nom })}
+      />
+
+      <div className="pt-2">
+        <h2 className="text-sm font-semibold">{t("prompts.communsTitre")}</h2>
+        <p className="text-xs text-muted-foreground">{t("prompts.communsDesc")}</p>
+      </div>
+      {PROMPTS_COMMUNS.map((p) => (
         <EditeurPrompt
           key={p.cle}
           cle={p.cle}

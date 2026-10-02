@@ -73,19 +73,23 @@ async function lireSonde(
   return { pret: true };
 }
 
+export type EtatSchemaMultiApp = "pret" | "absent" | "illisible";
+
 /**
- * La migration 0256 est-elle passée ?
+ * État de la migration 0256, sans jamais lever :
  *
- * - présente : vrai pour toute la vie de l'isolate ;
- * - absente (table ou colonne inconnue) : faux, revérifié toutes les 5 min ;
- * - illisible (réseau, 5xx) : une seconde tentative, puis on LÈVE sans rien
- *   mémoriser. L'appelant échoue et sera rejoué (compte de la nuit, pas
- *   d'import) plutôt que de basculer en silence sur le chemin 100 % Sophia.
+ * - `pret` : mémorisé pour toute la vie de l'isolate ;
+ * - `absent` (table ou colonne inconnue) : revérifié toutes les 5 min ;
+ * - `illisible` (réseau, 5xx — après une seconde tentative) : JAMAIS mémorisé.
+ *
+ * C'est à l'appelant de décider ce que vaut `illisible` : un compte 100 %
+ * Sophia reste sur le chemin d'avant (une panne passagère ne doit pas lui coûter
+ * sa nuit), un compte qui demande une autre application échoue et sera rejoué.
  */
-export async function schemaMultiAppPret(supabase: Supabase): Promise<boolean> {
+export async function sonderSchemaMultiApp(supabase: Supabase): Promise<EtatSchemaMultiApp> {
   const maintenant = Date.now();
-  if (sonde?.pret) return true;
-  if (sonde && maintenant - sonde.at < TTL_SONDE_ABSENTE_MS) return false;
+  if (sonde?.pret) return "pret";
+  if (sonde && maintenant - sonde.at < TTL_SONDE_ABSENTE_MS) return "absent";
 
   let r = await lireSonde(supabase);
   if ("illisible" in r) {
@@ -93,11 +97,34 @@ export async function schemaMultiAppPret(supabase: Supabase): Promise<boolean> {
     r = await lireSonde(supabase);
   }
   if ("illisible" in r) {
-    throw new Error(`[multi-app] sonde du schéma 0256 illisible : ${r.illisible}`);
+    console.warn(`[multi-app] sonde du schéma 0256 illisible : ${r.illisible}`);
+    return "illisible";
   }
   if (!r.pret) console.warn("[multi-app] schéma 0256 absent : chemin Sophia historique");
   sonde = { pret: r.pret, at: maintenant };
-  return r.pret;
+  return r.pret ? "pret" : "absent";
+}
+
+/**
+ * La migration 0256 est-elle passée ? STRICT : une sonde illisible LÈVE —
+ * pour les chemins qui écrivent des données d'application (import, decks,
+ * rattrapage) et qu'il vaut mieux rejouer que de faire à moitié.
+ */
+export async function schemaMultiAppPret(supabase: Supabase): Promise<boolean> {
+  const etat = await sonderSchemaMultiApp(supabase);
+  if (etat === "illisible") {
+    throw new Error("[multi-app] sonde du schéma 0256 illisible — opération à rejouer");
+  }
+  return etat === "pret";
+}
+
+/**
+ * Variante TOLÉRANTE : une sonde illisible vaut « pas prête », donc le chemin
+ * Sophia d'avant. Pour les chemins où ce repli est sans risque (rappels d'un
+ * passage, révocation) et où un échec coûterait plus qu'il ne protège.
+ */
+export async function schemaMultiAppPretSinonSophia(supabase: Supabase): Promise<boolean> {
+  return (await sonderSchemaMultiApp(supabase)) === "pret";
 }
 
 /** Pour les tests : oublie la sonde. */

@@ -338,7 +338,7 @@ Deno.test("base source polluée par la pub Sophia : inéligible, mis en cache, s
   const { resultat, prompts } = await avecGemini(() =>
     assurerDeckApplication(fauxClient(tables, ecritures), "c1", "de", UNSWIPE)
   );
-  assertEquals(resultat, { statut: "ineligible", raison: "base polluée par une pub Sophia" });
+  assertEquals(resultat, { statut: "ineligible", raison: "base polluée par une pub Sophia", cuit: true });
   assertEquals(prompts.length, 0);
   const cache = tables.contenu_langue_decks;
   assertEquals(cache.length, 1);
@@ -360,7 +360,7 @@ Deno.test("prompt placement_<slug> manquant : échec en cache, AUCUN appel Gemin
   const { resultat, prompts } = await avecGemini(() =>
     assurerDeckApplication(fauxClient(tables, ecritures), "c1", "de", UNSWIPE)
   );
-  assertEquals(resultat, { statut: "echec", raison: "prompt placement_unswipe manquant" });
+  assertEquals(resultat, { statut: "echec", raison: "prompt placement_unswipe manquant", cuit: true });
   assertEquals(prompts.length, 0, "ni traduction ni placement sans prompt : jamais le texte Sophia");
   assertEquals(tables.contenu_langue_decks[0].statut, "echec");
   aucuneEcritureDeSlides(ecritures);
@@ -420,7 +420,10 @@ Deno.test("cuisson en langue cible : base traduite dans slides_base, deck placé
   const second = await avecGemini(() =>
     assurerDeckApplication(fauxClient(tables, ecritures), "c1", "de", UNSWIPE)
   );
-  assertEquals(second.resultat, resultat);
+  // Même deck, mais servi par le cache : rien n'a été cuit cette fois.
+  const { cuit: cuitPremier, ...sansCuit } = resultat;
+  assertEquals(cuitPremier, true);
+  assertEquals(second.resultat, sansCuit);
   assertEquals(second.prompts.length, 0);
 });
 

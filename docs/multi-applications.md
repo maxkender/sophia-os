@@ -57,7 +57,7 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
   passe sur Sophia et le passage le dit (`application_visee_id`, `repli_motif`).
   Motifs : `reserve_vide`, `deck_ineligible` (base polluée par une pub Sophia),
   `deck_echec` (prompt manquant, placement impossible), `budget` (la nuit a
-  dépassé son budget de cuisson des decks non-Sophia : 120 s par lot du drain).
+  dépassé son budget de cuisson des decks non-Sophia : aucune nouvelle cuisson après 60 s de lot, arrêt de toute cuisson à 90 s).
   Pilotage les affiche. Un compte qu'aucun repli ne peut servir (labels 100 %
   Unswipe, Unswipe inactive) ne baisse pas son quota et sort de la chaîne du
   drain, pour ne pas bloquer les autres.
@@ -100,8 +100,10 @@ Les fonctions Edge se déploient au merge sur `main` ; les migrations se passent
    place). Filet de sécurité si l'ordre est inversé : le code sonde le schéma
    (lecture GET de `label_applications`, `applications.langues/actif`,
    `passages.application_id`) et reste sur le chemin 100 % Sophia tant que
-   0256 manque. Une sonde illisible (réseau, 5xx) fait échouer l'opération en
-   cours, qui sera rejouée — elle ne bascule jamais en silence.
+   0256 manque. Une sonde illisible (réseau, 5xx) ne pénalise jamais un compte
+   100 % Sophia (chemin d'avant) ; un compte qui demande une autre application,
+   un import ou un deck échouent alors et sont rejoués — sans bascule
+   silencieuse vers Sophia.
 2. **Merger** la branche (Edge auto-déployées, front Vercel). Sophia tourne à
    l'identique : aucun compte n'a de répartition, aucun label ne sert Unswipe.
    Vérifier la nuit suivante : même volume de posts (~280/jour), pas de pic de

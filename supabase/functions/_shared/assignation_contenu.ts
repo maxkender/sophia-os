@@ -6,9 +6,15 @@ import {
   APPLICATION_SOPHIA_SECOURS,
   chargerApplicationsMoteur,
   chargerLiensLabels,
-  schemaMultiAppPret,
+  type EtatSchemaMultiApp,
+  schemaMultiAppPretSinonSophia,
+  sonderSchemaMultiApp,
 } from "./applications_moteur.ts";
-import { assurerDeckApplication } from "./deck_application.ts";
+import {
+  assurerDeckApplication,
+  DELAI_REESSAI_ECHEC_MS,
+  RAISON_BUDGET,
+} from "./deck_application.ts";
 import { assurerDeckPourLangue } from "./import_contenu.ts";
 import { hashtagsPour } from "./hashtags_langue.ts";
 import {
@@ -69,7 +75,15 @@ const ESSAIS_DECK_APPLICATION = 3;
  * arrêterait la chaîne de la nuit, comptes 100 % Sophia compris. Les decks
  * Sophia, eux, ne sont jamais bornés — comme avant.
  */
-export const BUDGET_DECKS_APPLICATION_MS = 120_000;
+export const BUDGET_DECKS_APPLICATION_MS = 60_000;
+
+/**
+ * Au-delà de l'échéance de démarrage, une cuisson déjà lancée a encore ce délai
+ * pour finir son étape en cours ; elle s'arrête ensuite avant la suivante. Le
+ * pire cas reste ainsi bien sous le mur de 150 s d'une invocation, journal du
+ * lot et relance de la chaîne compris.
+ */
+const MARGE_CUISSON_MS = 30_000;
 
 /**
  * Échecs de cuisson (`deck_echec`) d'une même application × langue dans un
@@ -215,8 +229,8 @@ export interface MemoAssignation {
   labels: Map<string, Promise<string[]>>;
   /** clé labels+ugc → contenus prêts (hors règles d'application). */
   pool: Map<string, Promise<ContenuCandidat[]>>;
-  /** « schema » → la migration 0256 est-elle passée (une sonde par run). */
-  schema: Map<string, Promise<boolean>>;
+  /** « schema » → état de la migration 0256 (une sonde par run). */
+  schema: Map<string, Promise<EtatSchemaMultiApp>>;
   /** « applications » → applications du moteur (table minuscule). */
   applications: Map<string, Promise<ApplicationMoteur[]>>;
   /** clé labels → liens label_applications de ces labels. */
@@ -706,11 +720,13 @@ export async function assignerCompteJour(
       );
       let deck: Awaited<ReturnType<typeof assurerDeckApplication>>;
       try {
-        deck = await decksAssignation.application(supabase, candidat.contenuId, langue, app);
+        deck = await decksAssignation.application(supabase, candidat.contenuId, langue, app, {
+          echeance: o.echeance !== undefined ? o.echeance + MARGE_CUISSON_MS : undefined,
+        });
       } catch (e) {
         // Panne d'infrastructure : traitée comme un échec de deck — le créneau
         // a encore Sophia pour lui.
-        deck = { statut: "echec", raison: e instanceof Error ? e.message : String(e) };
+        deck = { statut: "echec", raison: e instanceof Error ? e.message : String(e), cuit: true };
       }
       if (deck.statut === "pret" && deck.slides.length > 0) {
         return { choisi: candidat, slides: deck.slides, hashtags: deck.hashtags ?? "" };
@@ -718,9 +734,17 @@ export async function assignerCompteJour(
       if (deck.statut === "ineligible") {
         motif = "deck_ineligible";
         await noterDeckIneligible(memo, app, langue, candidat.contenuId);
+      } else if (deck.statut === "echec" && deck.raison === RAISON_BUDGET) {
+        log(`Budget de cuisson ${app.nom} du lot épuisé en cours de deck — repli Sophia`);
+        return { motif: "budget" };
       } else {
         motif = "deck_echec";
-        memo.echecsDeck.set(cleEchecs, (memo.echecsDeck.get(cleEchecs) ?? 0) + 1);
+        // Seule une cuisson ratée compte comme panne systémique : un échec
+        // relu en cache n'a rien coûté et ne dit rien des autres contenus.
+        if (deck.cuit) {
+          memo.echecsDeck.set(cleEchecs, (memo.echecsDeck.get(cleEchecs) ?? 0) + 1);
+        }
+        await noterDeckIneligible(memo, app, langue, candidat.contenuId);
       }
       log(
         `Deck ${app.nom} ${deck.statut === "pret" ? "vide" : deck.statut}` +
@@ -1085,8 +1109,21 @@ async function preparerRepartition(
   },
   memo: MemoAssignation,
 ): Promise<Repartition> {
-  const pret = await memoiser(memo.schema, "schema", () => schemaMultiAppPret(supabase));
-  if (!pret) {
+  const etat = await memoiser(memo.schema, "schema", () => sonderSchemaMultiApp(supabase));
+  if (etat === "illisible") {
+    // Sonde illisible (réseau, 5xx). Un compte qui ne demande que Sophia garde
+    // le chemin d'avant : une panne passagère ne doit pas lui coûter sa nuit.
+    // Un compte qui demande une autre application échoue (il sera rejoué au
+    // rattrapage) plutôt que de publier Sophia à la place, en silence.
+    const parts = normaliserParts(args.partsBrutes);
+    const demandeAutre =
+      Object.keys(parts ?? {}).some((slug) => slug !== SLUG_SOPHIA) ||
+      (args.imposee !== null && args.imposee !== SLUG_SOPHIA);
+    if (demandeAutre) {
+      throw new Error("[multi-app] schéma illisible pour un compte multi-applications — à rejouer");
+    }
+  }
+  if (etat !== "pret") {
     // Avant 0256 : le code d'avant, labels compris (tous, tels que lus).
     return {
       pret: false,
@@ -1261,8 +1298,10 @@ function contenusPertinence(
 }
 
 /**
- * Contenus dont le deck de cette application, dans cette langue, est
- * `ineligible` : inutile de les tirer, `assurerDeckApplication` le redirait.
+ * Contenus dont le deck de cette application, dans cette langue, ne servira
+ * pas : `ineligible`, ou `echec` de moins de 24 h (le délai avant nouvel essai
+ * de `assurerDeckApplication`). Inutile de les tirer, le deck le redirait —
+ * et un tirage gaspillé sur eux épuiserait les essais du créneau.
  * Ancre `id` (la ligne de deck), pas `contenu_id`.
  */
 function decksIneligibles(
@@ -1272,22 +1311,32 @@ function decksIneligibles(
   memo?: MemoAssignation,
 ): Promise<Set<string>> {
   const lire = async () => {
-    const lignes = await lireTout<{ id: string; contenu_id: string }>(
-      `Decks ${app.slug} inéligibles (${langue})`,
+    const lignes = await lireTout<
+      { id: string; contenu_id: string; statut: string; updated_at: string | null }
+    >(
+      `Decks ${app.slug} à écarter (${langue})`,
       (curseur, taille) => {
         let q = supabase
           .from("contenu_langue_decks")
-          .select("id, contenu_id")
+          .select("id, contenu_id, statut, updated_at")
           .eq("application_id", app.id)
           .eq("langue", langue)
           .eq("variante", app.slug)
-          .eq("statut", "ineligible");
+          .in("statut", ["ineligible", "echec"]);
         if (curseur) q = q.gt("id", curseur.id);
         return q.order("id", { ascending: true }).limit(taille);
       },
       { ancre: (l) => l.id },
     );
-    return new Set(lignes.map((l) => l.contenu_id));
+    const maintenant = Date.now();
+    return new Set(
+      lignes
+        .filter((l) =>
+          l.statut === "ineligible" ||
+          maintenant - Date.parse(l.updated_at ?? "") < DELAI_REESSAI_ECHEC_MS
+        )
+        .map((l) => l.contenu_id),
+    );
   };
   if (!memo) return lire();
   return memoiser(memo.decksIneligibles, `${app.id}::${langue}`, lire);
@@ -2411,9 +2460,9 @@ export async function programmerRappelsJ7(
 ): Promise<RappelsResultat> {
   // Un rappel rejoue le même post, donc la même application. Sans 0256 : ni
   // lecture ni écriture de la colonne, le rappel est celui d'avant (Sophia par
-  // défaut). Une sonde illisible LÈVE : l'étape rappels échoue et repassera la
-  // nuit suivante, plutôt que de poser des rappels Unswipe étiquetés Sophia.
-  const multiApp = await schemaMultiAppPret(supabase);
+  // défaut). Sonde illisible : même repli (un rappel n'est pas une raison de
+  // perdre l'étape ; au pire un rappel Unswipe serait compté Sophia).
+  const multiApp = await schemaMultiAppPretSinonSophia(supabase);
   return await programmerRappels(
     supabase,
     async ({ passageSource, jour }) => {

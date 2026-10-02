@@ -42,6 +42,12 @@ export interface PlacementApplicationEntree {
 export interface OptionsPlacementApplication {
   /** Attente entre deux essais (injectée par les tests pour ne pas dormir). */
   attendre?: (ms: number) => Promise<void>;
+  /**
+   * Échéance (epoch ms) : passé ce moment, aucun nouvel essai ne démarre (le
+   * premier part toujours). Posée par l'assignation de nuit, pour qu'un deck
+   * ne tienne pas un lot du drain au-delà de son budget.
+   */
+  echeance?: number;
 }
 
 const NB_ESSAIS = 4;
@@ -162,6 +168,7 @@ export async function integrerApplication(
   // variantes toutes rejetées ou une surcharge passagère ne doivent pas faire
   // perdre le deck du premier coup.
   for (let essai = 0; essai < NB_ESSAIS; essai += 1) {
+    if (essai > 0 && options.echeance !== undefined && Date.now() > options.echeance) break;
     if (essai > 0) await attendre(1500 * essai + Math.random() * 1000);
 
     try {

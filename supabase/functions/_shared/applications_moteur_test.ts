@@ -4,6 +4,8 @@ import {
   erreurSchemaAbsent,
   oublierSondeMultiApp,
   schemaMultiAppPret,
+  schemaMultiAppPretSinonSophia,
+  sonderSchemaMultiApp,
 } from "./applications_moteur.ts";
 
 type Reponse = { data: unknown; error: { code?: string; message?: string } | null; status: number };
@@ -104,4 +106,16 @@ Deno.test("sonde : un 502 suivi d'une lecture saine passe", async () => {
   const panne: Reponse = { data: null, error: { message: "Bad Gateway" }, status: 502 };
   const { client } = fauxClient({ label_applications: [panne, OK] });
   assertEquals(await schemaMultiAppPret(client), true);
+});
+
+Deno.test("sonde tolérante : illisible vaut « pas prête » (chemin Sophia), sans être mémorisé", async () => {
+  oublierSondeMultiApp();
+  const panne: Reponse = { data: null, error: { message: "" }, status: 503 };
+  const { client } = fauxClient({ label_applications: [panne, panne, OK] });
+  assertEquals(await sonderSchemaMultiApp(client), "illisible");
+  oublierSondeMultiApp();
+  const { client: client2 } = fauxClient({ label_applications: [panne, panne, OK] });
+  assertEquals(await schemaMultiAppPretSinonSophia(client2), false);
+  // Non mémorisé : la lecture suivante, saine, voit la base prête.
+  assertEquals(await schemaMultiAppPretSinonSophia(client2), true);
 });

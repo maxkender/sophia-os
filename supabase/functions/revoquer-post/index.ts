@@ -1,6 +1,6 @@
 import {
   chargerApplicationsMoteur,
-  schemaMultiAppPret,
+  schemaMultiAppPretSinonSophia,
 } from "../_shared/applications_moteur.ts";
 import { assignerTousComptes } from "../_shared/assignation_contenu.ts";
 import { ID_SOPHIA } from "../_shared/multi_app.ts";
@@ -89,7 +89,8 @@ Deno.serve(async (request) => {
 
     // `application_id` n'existe qu'avec 0256 : sans elle, le select d'avant
     // (une colonne inconnue ferait échouer la lecture, donc la révocation).
-    const multiApp = await schemaMultiAppPret(supabase);
+    // Sonde illisible : le select d'avant (la révocation passe, comme avant).
+    const multiApp = await schemaMultiAppPretSinonSophia(supabase);
     const colonnesPassage = multiApp ? "id, contenu_id, application_id" : "id, contenu_id";
 
     // Passage v-next lié (pont post)

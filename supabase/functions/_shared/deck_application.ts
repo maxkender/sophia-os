@@ -44,9 +44,26 @@ import { baseDeTraduction, estDeckPret } from "./deck_langue.ts";
 import { integrerApplication, MOT_SOPHIA } from "./placement_application.ts";
 import { chargerPrompt, messageErreur } from "./supabase.ts";
 
+/**
+ * `cuit` : vrai quand ce résultat vient d'une cuisson (traduction / placement
+ * tentés), faux quand il sort du cache. L'assignation ne compte comme « panne
+ * systémique » que les échecs réellement cuits.
+ */
 export type DeckApplicationResultat =
-  | { statut: "pret"; slides: SlideLangue[]; hashtags: string | null }
-  | { statut: "ineligible" | "echec"; raison: string };
+  | { statut: "pret"; slides: SlideLangue[]; hashtags: string | null; cuit?: boolean }
+  | { statut: "ineligible" | "echec"; raison: string; cuit?: boolean };
+
+/** Raison d'un échec par manque de temps : jamais mise en cache (rien à voir avec le contenu). */
+export const RAISON_BUDGET = "budget";
+
+export interface OptionsDeckApplication {
+  /**
+   * Échéance (epoch ms) : passé ce moment, la cuisson s'arrête avant l'étape
+   * coûteuse suivante (traduction, placement) et rend `echec` « budget », sans
+   * le mettre en cache.
+   */
+  echeance?: number;
+}
 
 /**
  * Un `echec` en cache n'est retenté qu'après ce délai. Un prompt manquant ou
@@ -72,6 +89,9 @@ type Placement = {
 type Cuisson =
   | { statut: "pret"; slides: SlideLangue[]; placement: Placement; baseCible: SlideLangue[] }
   | { statut: "ineligible" | "echec"; raison: string; placement?: Partial<Placement> };
+
+const horsDelai = (opts: OptionsDeckApplication) =>
+  opts.echeance !== undefined && Date.now() > opts.echeance;
 
 /**
  * Pourquoi une base ne peut PAS porter une autre application, ou `null`.
@@ -217,6 +237,7 @@ async function cuire(
   ligne: LigneCible,
   langue: string,
   app: ApplicationMoteur,
+  opts: OptionsDeckApplication = {},
 ): Promise<Cuisson> {
   const langueSource = contenu.langue_source ?? "fr";
 
@@ -251,6 +272,7 @@ async function cuire(
   } else if ((ligne.slides_base ?? []).length > 0) {
     baseCible = [...(ligne.slides_base as SlideLangue[])];
   } else {
+    if (horsDelai(opts)) return { statut: "echec", raison: RAISON_BUDGET };
     let traduction: Awaited<ReturnType<typeof traduireBaseDeck>>;
     try {
       traduction = await traduireBaseDeck(supabase, contenu, base, langue);
@@ -283,6 +305,7 @@ async function cuire(
   const labels = await chargerLabelsDuContenu(supabase, contenu.id);
   const liens = await chargerLiensLabels(supabase, labels.map((l) => l.id));
   const angles = anglesPourApplication(labels, liens, app.id);
+  if (horsDelai(opts)) return { statut: "echec", raison: RAISON_BUDGET };
   const placement = await integrerApplication({
     masterPrompt,
     slides: baseCible.map((s) => ({ position: s.position, text: s.texte_overlay ?? "" })),
@@ -290,7 +313,7 @@ async function cuire(
     langue,
     application: { slug: app.slug, nom: app.nom },
     angles: blocAngles(angles, app.nom),
-  });
+  }, { echeance: opts.echeance });
   if (!placement) {
     return { statut: "echec", raison: "placement impossible", placement: { angles, prompt_cle: cle } };
   }
@@ -335,6 +358,7 @@ export async function assurerDeckApplication(
   contenuId: string,
   langue: string,
   app: ApplicationMoteur,
+  opts: OptionsDeckApplication = {},
 ): Promise<DeckApplicationResultat> {
   if (app.id === ID_SOPHIA || app.slug === SLUG_SOPHIA) {
     // Erreur de programmation : le deck Sophia vit dans contenu_langues.slides.
@@ -386,10 +410,14 @@ export async function assurerDeckApplication(
     }
   }
 
-  const cuisson = await cuire(supabase, contenu, ligne, langue, app);
-  await enregistrer(supabase, ligne, contenuId, langue, app, cuisson);
-  if (cuisson.statut !== "pret") return { statut: cuisson.statut, raison: cuisson.raison };
+  const cuisson = await cuire(supabase, contenu, ligne, langue, app, opts);
+  // Un arrêt « budget » ne dit rien du contenu : pas de cache, on recuira.
+  const parBudget = cuisson.statut === "echec" && cuisson.raison === RAISON_BUDGET;
+  if (!parBudget) await enregistrer(supabase, ligne, contenuId, langue, app, cuisson);
+  if (cuisson.statut !== "pret") {
+    return { statut: cuisson.statut, raison: cuisson.raison, cuit: !parBudget };
+  }
 
   const hashtags = await hashtagsDe(supabase, ligne, cuisson.baseCible, contenu.titre, langue);
-  return { statut: "pret", slides: cuisson.slides, hashtags };
+  return { statut: "pret", slides: cuisson.slides, hashtags, cuit: true };
 }

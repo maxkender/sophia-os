@@ -952,7 +952,7 @@ const DECK = [{ position: 1, texte_overlay: "texte", position_sophia: false }];
 async function avecDecks<T>(
   application: (contenuId: string, app: ApplicationMoteur) =>
     | { statut: "pret"; slides: typeof DECK; hashtags: string | null }
-    | { statut: "ineligible" | "echec"; raison: string },
+    | { statut: "ineligible" | "echec"; raison: string; cuit?: boolean },
   corps: (appels: { sophia: string[]; application: string[] }) => Promise<T>,
 ): Promise<T> {
   const avant = { ...decksAssignation };
@@ -1219,7 +1219,7 @@ Deno.test("multi-app — budget de cuisson du lot dépassé : repli Sophia immé
 });
 
 Deno.test("multi-app — échecs de deck répétés : le lot cesse d'essayer cette application × langue", async () => {
-  const echec = () => ({ statut: "echec" as const, raison: "modèle muet" });
+  const echec = () => ({ statut: "echec" as const, raison: "modèle muet", cuit: true });
   await avecDecks(echec, async (appels) => {
     const base = baseEssai({
       compte: { parts_applications: { sophia: 70, unswipe: 30 } },
@@ -1249,6 +1249,30 @@ Deno.test("multi-app — échecs de deck répétés : le lot cesse d'essayer cet
     );
     assertEquals(appels.application.length, 3, "aucun nouvel essai de cuisson");
     assertEquals(second.replis, [{ visee: "unswipe", motif: "deck_echec" }]);
+  });
+});
+
+Deno.test("multi-app — échecs relus en cache : ne bloquent pas l'application pour le lot", async () => {
+  // Échec servi par le cache (cuit absent) : aucun coût payé, le compteur de
+  // pannes du lot ne bouge pas — le compte suivant réessaie sa réserve.
+  const echecCache = () => ({ statut: "echec" as const, raison: "ancien échec" });
+  await avecDecks(echecCache, async (appels) => {
+    const base = baseEssai({
+      compte: { parts_applications: { sophia: 70, unswipe: 30 } },
+      fenetre: Array(9).fill("sophia"),
+      pertinences: [0, 1, 2].map((i) => ({
+        contenu_id: idContenu(i),
+        application_id: UNSWIPE,
+        eligible: true,
+      })),
+    });
+    const memo = creerMemoAssignation();
+    const { client } = fauxMoteur(base);
+
+    await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {}, memo);
+    const apresPremier = appels.application.length;
+    assert(apresPremier >= 1);
+    assertEquals(memo.echecsDeck.size, 0, "aucune panne comptée pour un échec en cache");
   });
 });
 

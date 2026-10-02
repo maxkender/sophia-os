@@ -20,6 +20,10 @@ import JSZip from "jszip";
 import QRCode from "qrcode";
 
 import { useAuth } from "@/features/auth/AuthContext";
+import {
+  minutesAvantPublication,
+  minutesDepuisErreurPublication,
+} from "@/features/moteur/delaiPublication";
 import { NettoyageEtapes } from "@/components/moteur/NettoyageEtapes";
 import { UpscaleMediaControl } from "@/components/moteur/UpscaleMediaControl";
 import { Badge } from "@/components/ui/badge";
@@ -29,6 +33,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   compteReferenceDuPost,
+  contrainteDelaiPublication,
   dernierPostCompteJour,
   lirePost,
   lireReglages,
@@ -374,6 +379,36 @@ export function PosterPostPage() {
     enabled: estAdmin && Boolean(id),
   });
 
+  // Délai minimum entre deux publications d'un même compte. La règle est tenue
+  // par un trigger en base ; ce qui suit ne sert qu'à prévenir le créateur
+  // AVANT qu'il ne se prenne un refus. Les admins ne sont pas concernés.
+  const compteIdDuPost = post.data?.compte_id ?? null;
+  const dejaPublie = Boolean(post.data?.publie_at);
+  const contrainte = useQuery({
+    queryKey: ["delai-publication", compteIdDuPost],
+    queryFn: () => contrainteDelaiPublication(compteIdDuPost!),
+    enabled: !estAdmin && !dejaPublie && Boolean(compteIdDuPost),
+    // Le compte à rebours doit repartir juste si le créateur laisse l'onglet
+    // ouvert entre deux posts.
+    refetchOnWindowFocus: true,
+    staleTime: 30_000,
+  });
+
+  // Horloge locale : sans elle le compte à rebours resterait figé sur la
+  // valeur calculée au chargement, et le créateur croirait l'attente plus
+  // longue qu'elle ne l'est.
+  const [maintenant, setMaintenant] = React.useState(() => new Date());
+  const minutesRestantes = minutesAvantPublication(
+    contrainte.data?.derniere,
+    contrainte.data?.delaiMin,
+    maintenant,
+  );
+  React.useEffect(() => {
+    if (minutesRestantes <= 0) return;
+    const tic = window.setInterval(() => setMaintenant(new Date()), 15_000);
+    return () => window.clearInterval(tic);
+  }, [minutesRestantes]);
+
   const liste = React.useMemo(() => slides.data ?? [], [slides.data]);
 
   // Préchargement des visuels : `navigator.share` doit être appelé dans la
@@ -399,6 +434,10 @@ export function PosterPostPage() {
     queryClient.invalidateQueries({ queryKey: ["post", id] });
     queryClient.invalidateQueries({ queryKey: ["slides", id] });
     queryClient.invalidateQueries({ queryKey: ["mes-posts"] });
+    // Une publication qui vient d'aboutir redémarre le délai : sans cette
+    // invalidation, le post suivant afficherait « publication possible » en
+    // se fiant au cache, et le serveur le refuserait sans prévenir.
+    queryClient.invalidateQueries({ queryKey: ["delai-publication"] });
   };
 
   const deplacer = useMutation({
@@ -812,18 +851,29 @@ export function PosterPostPage() {
                 <p className="text-xs text-muted-foreground">{t("posts.lienObligatoireAide")}</p>
               </div>
 
+              {minutesRestantes > 0 && (
+                <div className="rounded-lg border border-amber-500/60 bg-amber-500/10 p-3 space-y-1">
+                  <p className="text-sm font-semibold text-foreground">
+                    {t("posts.delaiAttente", { minutes: minutesRestantes })}
+                  </p>
+                  <p className="text-xs text-muted-foreground">{t("posts.delaiAide")}</p>
+                </div>
+              )}
+
               {publier.isError && (
-                <p className="text-sm text-destructive">
-                  {publier.error instanceof Error ? publier.error.message : t("posts.lienObligatoire")}
-                </p>
+                <p className="text-sm text-destructive">{messageErreurPublication(publier.error, t)}</p>
               )}
 
               <Button
                 className="w-full"
-                disabled={publier.isPending || !lienPublie.trim()}
+                disabled={publier.isPending || !lienPublie.trim() || minutesRestantes > 0}
                 onClick={() => publier.mutate()}
               >
-                {publier.isPending ? t("common.saving") : t("posts.marquerPublie")}
+                {publier.isPending
+                  ? t("common.saving")
+                  : minutesRestantes > 0
+                    ? t("posts.delaiBouton", { minutes: minutesRestantes })
+                    : t("posts.marquerPublie")}
               </Button>
             </>
           )}
@@ -831,6 +881,31 @@ export function PosterPostPage() {
       </Card>
     </div>
   );
+}
+
+/**
+ * Message lisible pour un refus de publication.
+ *
+ * Supabase rejette avec un `PostgrestError`, un objet nu qui n'est PAS une
+ * instance d'Error : l'ancien `erreur instanceof Error` tombait donc dans son
+ * repli et affichait « Lien TikTok obligatoire » pour N'IMPORTE QUEL refus
+ * serveur, y compris quand le lien était bien là. On lit le message quel que
+ * soit le porteur, et on traduit le cas du délai plutôt que de montrer le
+ * texte brut du trigger.
+ */
+function messageErreurPublication(
+  erreur: unknown,
+  t: (cle: string, options?: Record<string, unknown>) => string,
+): string {
+  const minutes = minutesDepuisErreurPublication(erreur);
+  if (minutes !== null) return t("posts.delaiRefus", { minutes });
+
+  if (erreur instanceof Error && erreur.message) return erreur.message;
+  if (erreur && typeof erreur === "object") {
+    const message = (erreur as { message?: unknown }).message;
+    if (typeof message === "string" && message) return message;
+  }
+  return t("posts.lienObligatoire");
 }
 
 function texteComplet(post: Post, slides: PostSlide[]): string {

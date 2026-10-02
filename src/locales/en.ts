@@ -1461,6 +1461,11 @@ export const en = {
       lienPublie: "Published post link",
       lienObligatoire: "Paste your TikTok post link to mark as published.",
       lienObligatoireAide: "Required: without the link we cannot measure performance.",
+      delaiAttente: "{{minutes}} min left before your next post on this account.",
+      delaiAide:
+        "Two posts published back to back compete with each other: one eats the other's views. Space them out and together they will do better.",
+      delaiBouton: "Available in {{minutes}} min",
+      delaiRefus: "Too soon: wait {{minutes}} more min before posting on this account.",
       valider: "Approve this post",
       valide: "Approved",
       monterSlide: "Move up",

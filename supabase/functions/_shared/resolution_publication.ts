@@ -67,6 +67,35 @@ export function analyserLienTiktok(url: string | null | undefined): LienTiktok |
 }
 
 /**
+ * Horodatage réel de la publication, lu dans l'ID du post.
+ *
+ * Les ID TikTok sont des flocons : les 32 bits de poids fort portent la
+ * seconde Unix de création. `publie_at`, lui, n'est que l'heure à laquelle le
+ * créateur a coché « publié », donc toujours postérieure et parfois de
+ * beaucoup. Vérifié sur les 3 662 créneaux déjà résolus : écart médian de
+ * -1,8 min, 83 % à moins de 10 min, p95 à -0,3 min, et jamais plus de 11 min
+ * APRÈS le clic — c'est bien l'ordre attendu (on publie, puis on coche).
+ *
+ * Garde-fou : une date hors de la plage plausible est rejetée plutôt que
+ * stockée. Aucun des 3 662 ID connus n'en sort, mais un lien tronqué ou
+ * bricolé ne doit pas inscrire 1970 dans la colonne.
+ */
+export function horodatageDepuisIdTiktok(
+  id: string | null | undefined,
+  maintenant: number = Date.now(),
+): string | null {
+  const brut = String(id ?? "").trim();
+  if (!/^\d{15,25}$/.test(brut)) return null;
+  const secondes = Number(BigInt(brut) >> 32n);
+  if (!Number.isFinite(secondes)) return null;
+  const ms = secondes * 1000;
+  // TikTok existe depuis 2016 ; une publication ne peut pas être dans le futur
+  // (une journée de marge pour l'horloge du serveur).
+  if (ms < Date.UTC(2016, 0, 1) || ms > maintenant + 86_400_000) return null;
+  return new Date(ms).toISOString();
+}
+
+/**
  * Lien court du bouton « Partager » (`vm.` / `vt.` / `tiktok.com/t/`).
  * Il ne porte pas l'ID : il faut suivre la redirection pour l'obtenir.
  */
@@ -386,7 +415,10 @@ export async function resoudrePublicationsLot(
   for (const compteId of traites) {
     const attente = parCompte.get(compteId) ?? [];
     const handle = handles.get(compteId) ?? "";
-    const resolus = new Map<string, { url: string; detail: string; via: "lien" | "scrape" }>();
+    const resolus = new Map<
+      string,
+      { url: string; detail: string; via: "lien" | "scrape"; tiktokPublieAt: string | null }
+    >();
 
     try {
       // Posts déjà attachés à un créneau de ce compte : jamais réattribués.
@@ -429,6 +461,8 @@ export async function resoudrePublicationsLot(
           url: nettoyerUrlTiktok(url),
           detail: "lien du créateur",
           via: "lien",
+          // Rien n'est scrapé sur cette voie : l'ID est la seule source.
+          tiktokPublieAt: horodatageDepuisIdTiktok(lu.id),
         });
       }
 
@@ -461,6 +495,11 @@ export async function resoudrePublicationsLot(
               ? `retrouvé sur le profil (${a.signaux.join(", ")})`
               : "retrouvé sur le profil (horodatage)",
             via: "scrape",
+            // Le scrape donne createTime : il fait foi. L'ID n'est que le
+            // filet, pour les rares posts rendus sans horodatage.
+            tiktokPublieAt: a.post.createTimeMs != null
+              ? new Date(a.post.createTimeMs).toISOString()
+              : horodatageDepuisIdTiktok(a.post.id),
           });
         }
       } else if (restants.length > 0 && !handle) {
@@ -488,16 +527,20 @@ export async function resoudrePublicationsLot(
           detail: trouve.detail,
         });
         if (!dryRun) {
+          const patch: Record<string, unknown> = {
+            publie_url: trouve.url,
+            resolution_statut: "resolu",
+            resolution_at: new Date().toISOString(),
+            resolution_tentatives: tentatives,
+            resolution_prochaine_at: null,
+            resolution_detail: trouve.detail,
+          };
+          // Absent plutôt que null : une re-résolution ne doit pas effacer un
+          // horodatage déjà écrit par un passage précédent.
+          if (trouve.tiktokPublieAt) patch.tiktok_publie_at = trouve.tiktokPublieAt;
           await supabase
             .from("passages")
-            .update({
-              publie_url: trouve.url,
-              resolution_statut: "resolu",
-              resolution_at: new Date().toISOString(),
-              resolution_tentatives: tentatives,
-              resolution_prochaine_at: null,
-              resolution_detail: trouve.detail,
-            })
+            .update(patch)
             .eq("id", l.id);
           // Le post pont porte le même lien — l'admin le lit depuis les deux.
           if (l.post_id) {

@@ -1463,6 +1463,12 @@ export const fr = {
       lienPublie: "Lien du post publié",
       lienObligatoire: "Colle le lien de ton post TikTok pour marquer comme publié.",
       lienObligatoireAide: "Obligatoire : sans lien, on ne peut pas mesurer les performances.",
+      delaiAttente: "Encore {{minutes}} min avant ta prochaine publication sur ce compte.",
+      delaiAide:
+        "Deux posts publiés coup sur coup se gênent : l'un prend les vues de l'autre. Espace-les, ils feront plus de vues à eux deux.",
+      delaiBouton: "Disponible dans {{minutes}} min",
+      delaiRefus:
+        "Trop tôt : attends encore {{minutes}} min avant de publier sur ce compte.",
       valider: "Valider ce post",
       valide: "Validé",
       monterSlide: "Monter",

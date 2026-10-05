@@ -3,6 +3,7 @@ import {
   clePromptPlacement,
   placementParDefaut,
 } from "./applications.ts";
+import { positionConcurrent } from "./concurrents.ts";
 import { integrateSophia, translateSlideshow } from "./gemini.ts";
 import { hashtagsPour } from "./hashtags_langue.ts";
 import { lireTout } from "./lots.ts";
@@ -288,6 +289,8 @@ export async function avancerPost(supabase: Supabase, post: any): Promise<string
         caption: sujet.titre ?? "",
         langue: compte.langue,
         marque: slugApp,
+        // La slide qui recommande une appli concurrente est celle à remplacer.
+        positionImposee: positionConcurrent(existantes),
       });
 
       const cible = placement

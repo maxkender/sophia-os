@@ -7,6 +7,7 @@ import {
   type ScrapedPost,
 } from "./apify.ts";
 import { deckLivre, estContenuLivre } from "./pods.ts";
+import { positionConcurrent, sansConcurrent } from "./concurrents.ts";
 import {
   baseDeTraduction,
   estDeckPret,
@@ -1385,6 +1386,7 @@ async function placerSophiaSurDeck(
   contenuLangueId: string,
   deck: SlideLangue[],
   langue: string,
+  positionImposee?: number,
 ): Promise<"ok" | "retry"> {
   const { data: corrections } = await supabase
     .from("corrections")
@@ -1406,6 +1408,7 @@ async function placerSophiaSurDeck(
     slides: deck.map((s) => ({ position: s.position, text: s.texte_overlay ?? "" })),
     caption: contenu.titre ?? "",
     langue,
+    positionImposee,
   });
 
   if (placement) {
@@ -1575,6 +1578,12 @@ export async function assurerDeckPourLangue(
   let deck = [...((cl.slides ?? []) as SlideLangue[])];
   let hashtags = ((cl as { hashtags?: string | null }).hashtags ?? "").trim();
   if (estDeckPret(deck)) {
+    // Deck cuit avant le garde-fou concurrents : on retire ce qui reste.
+    const propre = sansConcurrent(deck);
+    if (propre.modifie) {
+      deck = propre.slides;
+      await supabase.from("contenu_langues").update({ slides: deck }).eq("id", cl.id);
+    }
     if (!hashtags) {
       hashtags = await completerHashtags(supabase, cl.id, deck, contenu.titre, langue);
     }
@@ -1617,8 +1626,17 @@ export async function assurerDeckPourLangue(
       .eq("id", cl.id);
   }
 
+  // Slide qui recommande une appli concurrente : cible imposée du placement
+  // (lue sur la base ET sur le deck traduit), puis plus aucune mention ne part.
+  const cibleConcurrent = positionConcurrent(deck) ?? positionConcurrent(deckSource);
+  const propre = sansConcurrent(deck);
+  if (propre.modifie) {
+    deck = propre.slides;
+    await supabase.from("contenu_langues").update({ slides: deck }).eq("id", cl.id);
+  }
+
   if (!deck.some((s) => s.position_sophia)) {
-    const r = await placerSophiaSurDeck(supabase, contenu, cl.id, deck, langue);
+    const r = await placerSophiaSurDeck(supabase, contenu, cl.id, deck, langue, cibleConcurrent);
     if (r === "retry") {
       const derniere = deck[deck.length - 1];
       if (derniere) {

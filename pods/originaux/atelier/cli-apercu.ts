@@ -18,8 +18,13 @@ for (const f of fichiers) {
     .map((s) => {
       const im = r.images.find((i) => i.id === s.media_id || i.id.startsWith(s.media_id));
       if (!im) throw new Error(`${o.source_id} #${s.position} : image ${s.media_id} hors banque`);
-      return { id: im.id, url: im.url, texte: s.texte_overlay, legende: `#${s.position} ${s.texte_overlay.length} car.` };
+      const texte = s.texte_sophia ?? s.texte_overlay;
+      return { id: im.id, url: im.url, texte, legende: `#${s.position} ${s.texte_sophia ? "SOPHIA " : ""}${texte.length} car.` };
     });
-  await planche(cases, `sortie/apercus/${o.source_id}.jpg`, 6, 300);
+  // 2e rang : la slide TikTok d'inspiration de chaque position (modèle du poster).
+  const references = o.slides
+    .sort((a, b) => a.position - b.position)
+    .map((s) => ({ id: `ref-${s.reference_url.split("/brut/")[1]?.replace(/\W/g, "_")}`, url: s.reference_url, legende: `inspiration #${s.position}` }));
+  await planche([...cases, ...references], `sortie/apercus/${o.source_id}.jpg`, 6, 300);
   console.log(`sortie/apercus/${o.source_id}.jpg`);
 }

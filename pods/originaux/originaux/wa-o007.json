@@ -4,40 +4,46 @@
  "musique_titre": "Ballad to a Mexican Desert",
  "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
  "inspirations": [
-  "be8abcd5",
-  "2f705994"
+  "4c740b93-4932-4afb-b567-cfaf14073b35"
  ],
- "notes": "Inspiré du top 20 @mentoridaily (r médian chez nous). Accroche gagnante, items neufs (aucun item surexploité), slide 5 = apprentissage pour le placement Sophia.",
+ "notes": "Inspiré de nos posts publiés les plus vus de @mentoridaily (avec slide Sophia). Images et slides d'inspiration : contenu 4c740b93. Accroche gagnante, items neufs, slide 5 = Sophia (anglais) ; les autres langues reçoivent la base traduite et le placement de l'OS.",
  "slides": [
   {
    "position": 1,
-   "media_id": "bffeabbd",
-   "texte_overlay": "hobbies that will make you\ndangerously confident"
+   "media_id": "993f48d9-3d18-43fb-aa8a-a1acf24b1870",
+   "texte_overlay": "hobbies that will make you\ndangerously confident",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/1.jpg"
   },
   {
    "position": 2,
-   "media_id": "522eb5f3",
-   "texte_overlay": "calling instead of texting\n\ncall instead of texting once a day. hearing your own voice handle a real conversation is training most people quietly stopped doing."
+   "media_id": "59bec0c0-6980-4e0a-b551-84bfcb1c2e3f",
+   "texte_overlay": "calling instead of texting\n\ncall instead of texting once a day. hearing your own voice handle a real conversation is training most people quietly stopped doing.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/2.jpg"
   },
   {
    "position": 3,
-   "media_id": "86a9b06a",
-   "texte_overlay": "phoneless lines\n\nwait in every line this week without touching your phone. standing there with nothing to do, and being totally fine, is the most underrated calm there is."
+   "media_id": "cc34cf27-8567-4cc8-bdc2-ab46ce822dc5",
+   "texte_overlay": "phoneless lines\n\nwait in every line this week without touching your phone. standing there with nothing to do, and being totally fine, is the most underrated calm there is.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/3.jpg"
   },
   {
    "position": 4,
-   "media_id": "952a00cb",
-   "texte_overlay": "tuesday outfits\n\nwear your favourite outfit on a random tuesday for no reason. saving the best version of yourself for special occasions teaches you that normal days don't deserve it."
+   "media_id": "8258f5a6-3272-4441-b8e6-bb00601aa312",
+   "texte_overlay": "tuesday outfits\n\nwear your favourite outfit on a random tuesday for no reason. saving the best version of yourself for special occasions teaches you that normal days don't deserve it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/4.jpg"
   },
   {
    "position": 5,
-   "media_id": "c4641853",
-   "texte_overlay": "morning curiosity\n\nevery morning, look up one thing you've always wondered about: why the sky is blue, who built the pyramids, how memory works. curious people never run out of things to say."
+   "media_id": "0c16f9e6-915a-4eff-affe-878d3f197956",
+   "texte_overlay": "morning curiosity\n\nevery morning, look up one thing you've always wondered about: why the sky is blue, who built the pyramids, how memory works. curious people never run out of things to say.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/5.jpg",
+   "texte_sophia": "morning curiosity\n\nevery morning, spend 5 minutes on something you've always wondered about. a micro-learning app like the Sophia app has short lessons on art, history and science. curious people never run out of things to say."
   },
   {
    "position": 6,
-   "media_id": "e521173f",
-   "texte_overlay": "mistakes out loud\n\nadmit one small mistake out loud every week before anyone catches it. owning it first takes all the power out of being wrong."
+   "media_id": "fc922b58-1099-4c3c-8981-25569695e128",
+   "texte_overlay": "mistakes out loud\n\nadmit one small mistake out loud every week before anyone catches it. owning it first takes all the power out of being wrong.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/6.jpg"
   }
  ]
 }

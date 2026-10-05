@@ -17,7 +17,13 @@ for (const f of fichiers) {
   const slides = o.slides.map((s) => {
     const im = r.images.find((i) => i.id === s.media_id || i.id.startsWith(s.media_id));
     if (!im) throw new Error(`${o.source_id} #${s.position} : image ${s.media_id} hors banque`);
-    return { position: s.position, media_id: im.id, texte_overlay: s.texte_overlay };
+    return {
+      position: s.position,
+      media_id: im.id,
+      texte_overlay: s.texte_overlay,
+      texte_sophia: s.texte_sophia ?? null,
+      reference_url: s.reference_url,
+    };
   });
   if (process.argv.includes("--essai")) {
     console.log(`${o.source_id} : ${slides.length} slides, prêt`);

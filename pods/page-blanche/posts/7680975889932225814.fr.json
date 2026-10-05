@@ -1,0 +1,211 @@
+{
+ "post_id": "7680975889932225814",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "7 ways to stop doomscrolling",
+      "and reclaim your life"
+     ],
+     "fr": "7 façons d'arrêter de scroller et de reprendre ta vie en main"
+    },
+    "T2": {
+     "en": [
+      "from an",
+      "ex-chronic",
+      "scroller"
+     ],
+     "fr": "par une ex-accro au scroll"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "1. Stop taking your phone",
+      "everywhere with you"
+     ],
+     "fr": "1. Arrête d'emporter ton téléphone [[partout]] avec toi",
+     "alignement": "gauche"
+    },
+    "T2": {
+     "en": [
+      "You don't need your",
+      "phone to go",
+      "to the bathroom,",
+      "stop taking it with",
+      "you everywhere!!"
+     ],
+     "fr": "Pas besoin de ton téléphone pour aller aux toilettes, arrête de l'emporter partout !!"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. Stop pretending like"
+     ],
+     "fr": "2. Arrête de croire que"
+    },
+    "T2": {
+     "en": [
+      "scrolling Substack is better"
+     ],
+     "fr": "scroller Substack, c'est mieux"
+    },
+    "T3": {
+     "en": [
+      "It feels productive but",
+      "doomscrolling on substack",
+      "or pinterest is just as",
+      "bad as tiktok"
+     ],
+     "fr": "Ça a l'air productif, mais scroller sur substack ou pinterest, c'est aussi nocif que tiktok"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "3. Relearn how to be bored"
+     ],
+     "fr": "3. Réapprends à t'ennuyer"
+    },
+    "T2": {
+     "en": [
+      "All best ideas come",
+      "when you give them",
+      "space to grow"
+     ],
+     "fr": "Les meilleures idées viennent quand tu leur laisses de la place"
+    },
+    "T3": {
+     "en": [
+      "Stop scrolling",
+      "anytime you're free"
+     ],
+     "fr": "Arrête de scroller dès que t'es libre"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "Never scroll in bed"
+     ],
+     "fr": "Jamais de scroll au lit"
+    },
+    "T2": {
+     "en": [
+      "4."
+     ],
+     "fr": "4."
+    },
+    "T4": {
+     "en": [
+      "I read a book instead, i've been",
+      "trying ReadUp to block my",
+      "apps until I read for 30 minutes",
+      "and it's helped me so far. But",
+      "you can use anything that just",
+      "isn't your phone"
+     ],
+     "fr": "J'apprends un truc à la place : j'essaie l'appli Sophia, un truc nouveau en 5 minutes par jour, et ça m'aide. Mais tout ce qui n'est pas du scroll marche aussi"
+    }
+   },
+   "images": {
+    "I3": "sophia_appstore"
+   },
+   "zones": [
+    {
+     "elements": [
+      "T3",
+      "I1",
+      "T5",
+      "T6",
+      "T7",
+      "I2",
+      "T8"
+     ],
+     "action": "sophia_capture"
+    }
+   ]
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "Turn off notifications"
+     ],
+     "fr": "Coupe les notifications"
+    },
+    "T2": {
+     "en": [
+      "5."
+     ],
+     "fr": "5."
+    },
+    "T3": {
+     "en": [
+      "Don't have",
+      "notifications on for",
+      "every event in every",
+      "app, you don't need to",
+      "respond instantly"
+     ],
+     "fr": "Pas besoin de notifs pour chaque événement de chaque appli, tu n'as pas à répondre tout de suite"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "7": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6."
+     ],
+     "fr": "6."
+    },
+    "T2": {
+     "en": [
+      "Keep your phone in",
+      "a different room"
+     ],
+     "fr": "Laisse ton téléphone dans une autre pièce"
+    },
+    "T3": {
+     "en": [
+      "Leave it in another",
+      "room or across from",
+      "you, you'll never get",
+      "any work done with",
+      "your phone by you"
+     ],
+     "fr": "Laisse-le dans une autre pièce ou loin de toi, tu ne feras jamais rien avec ton téléphone à côté"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

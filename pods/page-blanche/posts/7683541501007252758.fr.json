@@ -1,0 +1,234 @@
+{
+ "post_id": "7683541501007252758",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "smart again"
+     ],
+     "fr": "10/10 habitudes pour redevenir intelligent"
+    },
+    "T2": {
+     "en": [
+      "(science-backed sources)"
+     ],
+     "fr": "(sources scientifiques)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "use AI to help you think,",
+      "not replace you"
+     ],
+     "fr": "utilise l'IA pour t'aider à penser, [[pas pour te remplacer]]"
+    },
+    "T2": {
+     "en": [
+      "using AI to do all your work",
+      "is seriously rotting your",
+      "brain"
+     ],
+     "fr": "faire tout ton travail avec l'IA te [[pourrit vraiment le cerveau]]"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": ""
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": ""
+    },
+    "T5": {
+     "en": [
+      "a 2025 study found that the",
+      "more people trusted the AI,",
+      "the less critical thinking they",
+      "reported doing"
+     ],
+     "fr": "selon une étude de 2025, plus les gens font confiance à l'IA, moins ils disent faire preuve d'[[esprit critique]]"
+    },
+    "T6": {
+     "en": [
+      "use AI to question your",
+      "thinking, not outsource it"
+     ],
+     "fr": "utilise l'IA pour questionner ta pensée, pas la déléguer"
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder",
+    "I3": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop going on your phone",
+      "when you eat"
+     ],
+     "fr": "arrête ton téléphone quand tu manges"
+    },
+    "T2": {
+     "en": [
+      "going on your phone every",
+      "time you eat is teaching",
+      "your brain that every quiet",
+      "moment needs stimulation"
+     ],
+     "fr": "prendre ton téléphone à chaque repas apprend à ton cerveau que chaque moment calme doit être stimulé"
+    },
+    "T3": {
+     "en": [
+      "give your brain 20 minutes",
+      "where nothing is fighting for",
+      "your attention"
+     ],
+     "fr": "offre à ton cerveau 20 minutes où rien ne se bat pour ton attention"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go on walks without",
+      "listening to anything"
+     ],
+     "fr": "marche sans rien écouter"
+    },
+    "T2": {
+     "en": [
+      "you do not need podcast",
+      "or music every time you",
+      "leave the house"
+     ],
+     "fr": "pas besoin d'un podcast ou de musique chaque fois que tu sors"
+    },
+    "T3": {
+     "en": [
+      "a Stanford study found",
+      "that walking increased",
+      "people's creative output by",
+      "an average of 60%"
+     ],
+     "fr": "une étude de Stanford a montré que marcher augmente la créativité de 60 % en moyenne"
+    },
+    "T4": {
+     "en": [
+      "sometimes the smartest",
+      "thing you can listen to is",
+      "your own thoughts"
+     ],
+     "fr": "parfois, [[le plus malin, c'est d'écouter tes propres pensées]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read CLASSIC books"
+     ],
+     "fr": "lis des CLASSIQUES"
+    },
+    "T4": {
+     "en": [
+      "one study found that just 6",
+      "minutes of reading reduced",
+      "stress levels by up to 68%"
+     ],
+     "fr": "une étude a montré que 6 minutes de lecture [[réduisent le stress jusqu'à 68 %]]"
+    },
+    "T5": {
+     "en": [
+      "if you struggle getting off your",
+      "phone and reading books, i",
+      "recommend ReadUp, it blocks",
+      "your doomscrolling apps until",
+      "you read"
+     ],
+     "fr": "si tu as du mal à lâcher ton téléphone, je te conseille l'appli Sophia : un truc nouveau chaque jour en 5 minutes"
+    },
+    "T7": {
+     "en": [
+      ""
+     ],
+     "fr": ""
+    }
+   },
+   "images": {
+    "I3": "sophia_appstore"
+   },
+   "zones": [
+    {
+     "elements": [
+      "I1",
+      "T2",
+      "T3",
+      "I2",
+      "T6",
+      "T8",
+      "T9",
+      "T10",
+      "T11",
+      "I4",
+      "T12"
+     ],
+     "action": "sophia_capture"
+    }
+   ]
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "turn off all notifications",
+      "on your phone"
+     ],
+     "fr": "coupe toutes les notifications de ton téléphone"
+    },
+    "T2": {
+     "en": [
+      "i don't have",
+      "notifications on for",
+      "every single thing in",
+      "every app,"
+     ],
+     "fr": "je n'ai pas de notifs pour chaque petite chose dans chaque appli,"
+    },
+    "T3": {
+     "en": [
+      "you don't need to",
+      "respond instantly, it's",
+      "fine"
+     ],
+     "fr": "pas besoin de répondre tout de suite, c'est ok"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

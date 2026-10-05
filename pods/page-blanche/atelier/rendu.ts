@@ -32,6 +32,9 @@ export type TexteSlide = {
 export type Transcription = {
   textes: Record<string, TexteSlide>;
   images: Record<string, ActionImage>;
+  /** Une capture d'app que la détection a éclatée en plusieurs éléments (image
+   * + bouts de texte d'interface) : un seul emplacement sur leur rectangle commun. */
+  zones?: { elements: string[]; action: "sophia_capture" | "sophia_appstore" }[];
 };
 
 export type RapportSlide = { avertissements: string[] };
@@ -51,24 +54,45 @@ export async function rendreSlide(
   ctx.fillStyle = "#ffffff";
   ctx.fillRect(0, 0, geo.largeur, geo.hauteur);
 
+  // Zones fusionnées : leurs éléments ne sont pas dessinés un par un.
+  const fusionnes = new Set((tr.zones ?? []).flatMap((z) => z.elements));
+  // Pour la mise en page du texte, une zone compte comme UNE image (son rectangle
+  // commun) : le texte voisin doit la contourner comme une vraie capture.
+  const unions: ElementGeo[] = [];
+  for (const z of tr.zones ?? []) {
+    const boites = geo.elements.filter((e) => z.elements.includes(e.id)).map((e) => e.boite);
+    if (!boites.length) {
+      avertissements.push(`zone ${z.elements.join("+")} : aucun élément trouvé`);
+      continue;
+    }
+    const x = Math.min(...boites.map((b) => b.x));
+    const y = Math.min(...boites.map((b) => b.y));
+    const union = { x, y, l: Math.max(...boites.map((b) => b.x + b.l)) - x, h: Math.max(...boites.map((b) => b.y + b.h)) - y };
+    unions.push({ id: `Z${unions.length + 1}`, type: "image", boite: union });
+    if (z.action === "sophia_capture") dessinerEmplacement(ctx, union, "CAPTURE APP SOPHIA", true);
+    else dessinerEmplacement(ctx, union, "FICHE APP STORE SOPHIA", false);
+  }
+
   // Images d'abord : le texte ne passe jamais dessous.
   for (const e of geo.elements) {
-    if (e.type !== "image") continue;
+    if (e.type !== "image" || fusionnes.has(e.id)) continue;
     const action = tr.images[e.id] ?? "garder";
     if (action === "garder") dessinerRecadrage(ctx, source, e.boite);
     else if (action === "sophia_capture") dessinerEmplacement(ctx, e.boite, "CAPTURE APP SOPHIA", true);
     else if (action === "sophia_appstore") dessinerEmplacement(ctx, e.boite, "FICHE APP STORE SOPHIA", false);
   }
 
+  const geoTexte: GeometrieSlide = { ...geo, elements: [...geo.elements.filter((e) => !fusionnes.has(e.id)), ...unions] };
   const textes = geo.elements.filter((e): e is Extract<ElementGeo, { type: "texte" }> => e.type === "texte");
   for (const e of textes) {
+    if (fusionnes.has(e.id)) continue;
     const t = tr.textes[e.id];
     if (!t) {
       avertissements.push(`${e.id} : pas de transcription, bloc laissé vide`);
       continue;
     }
     if (!t.fr.trim()) continue;
-    dessinerBloc(ctx, e, t, geo, avertissements);
+    dessinerBloc(ctx, e, t, geoTexte, avertissements);
   }
 
   return { jpeg: await canvas.encode("jpeg", 95), rapport: { avertissements } };
@@ -115,7 +139,15 @@ function calibrerTaille(ctx: SKRSContext2D, e: Extract<ElementGeo, { type: "text
   });
   mesures.sort((a, b) => b.poids - a.poids);
   if (mesures.length) return mesures[0].taille;
-  // Repli : hauteur de ligne (encre d'une ligne sans jambage ≈ 0,73 em).
+  // Texte trop court pour une mesure de largeur fiable (« 4. », « 1/10 ») :
+  // on calibre sur la HAUTEUR d'encre de la ligne, sans le soulignement.
+  const court = en.find((t) => t && t.trim());
+  if (court) {
+    // Du haut de l'encre à la ligne de base, dans l'original comme à 100 px.
+    const m = ctx.measureText(court);
+    const hauteur = e.lignes[0].base - e.lignes[0].y + 1;
+    if (m.actualBoundingBoxAscent > 0) return (100 * hauteur) / m.actualBoundingBoxAscent;
+  }
   return e.lignes[0].h / 0.95;
 }
 

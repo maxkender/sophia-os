@@ -35,3 +35,10 @@ Regarde la planche (Read) et le rapport (avertissements « déborde »). Raccour
 
 ## Problèmes de détection
 Si une boîte rouge contient du texte anglais, si deux textes distincts sont fusionnés, ou si du texte n'est pas encadré : NE BRICOLE PAS, décris-le dans `posts/<id>.notes.md` (slide, élément, problème).
+
+## Capture d'app éclatée (ajout)
+Si la capture ReadUp est découpée en plusieurs boîtes (image + bouts de texte
+d'interface), regroupe-les en UNE zone dans la slide :
+`"zones": [{ "elements": ["I3", "T5", "T6"], "action": "sophia_capture" }]`
+(idem `"sophia_appstore"` pour le bandeau). Les éléments listés ne sont plus
+rendus individuellement ; inutile de les mettre dans `textes`/`images`.

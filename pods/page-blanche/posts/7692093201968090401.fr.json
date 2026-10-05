@@ -11,7 +11,7 @@
   "2": {
    "textes": {
     "T1": { "en": ["spend more time without stimulation"], "fr": "passe plus de temps [[sans stimulation]]" },
-    "T2": { "en": ["stop filling every walk,", "meal, and spare minute", "with content and music"], "fr": "arrête de remplir chaque balade, repas, [[minute libre]] [[de vidéos]] et de [[musique]]" },
+    "T2": { "en": ["stop filling every walk,", "meal, and spare minute", "with content and music"], "fr": "arrête de remplir balades, repas et [[minutes libres]] [[de vidéos]] et de [[musique]]" },
     "T3": { "en": ["quiet gives your brain", "room to replay", "information, connect", "ideas, and form its own", "thoughts"], "fr": "le calme laisse ton cerveau rejouer les infos, relier les idées et [[former ses propres pensées]]" },
     "T4": { "en": ["constant short-form content is making your brain rot", "and ruining your attention span!!"], "fr": "les vidéos courtes en continu font [[pourrir ton cerveau]] et [[détruisent ta concentration!!]]" }
    },
@@ -48,7 +48,7 @@
   },
   "6": {
    "textes": {
-    "T1": { "en": ["explain what you learn out loud"], "fr": "explique ce que t'apprends [[à voix haute]]" },
+    "T1": { "en": ["explain what you learn out loud"], "fr": "explique tes leçons [[à voix haute]]" },
     "T2": { "en": ["close the book, article, or", "video and explain the idea", "from memory"], "fr": "ferme le livre, l'article ou la vidéo et explique l'idée [[de mémoire]]" },
     "T3": { "en": ["the moment you get vague", "or confused, you’ve found", "the gap"], "fr": "dès que tu deviens flou ou perdu, t'as trouvé la faille" },
     "T4": { "en": ["teaching exposes weak", "understanding faster than", "rereading does"], "fr": "[[enseigner révèle une compréhension fragile]] plus vite que relire" }

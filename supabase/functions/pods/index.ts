@@ -19,7 +19,9 @@
  *
  *   { action: "valider", id }   — admin
  *       Note d'import classique (30 % pertinence + 70 % vues, prompt
- *       `pertinence`), rang d'entrée C/B/A — ou écartée sous le seuil. Crée un
+ *       `pertinence`), rang d'entrée C/B/A — ou écartée sous le seuil ; un
+ *       original en images finies (sans source_url) entre au rang
+ *       TIER_ORIGINAL. Crée un
  *       contenu `livre` dans le label du pod, avec un deck par langue livrée.
  *
  *   { action: "rejeter", id, motif? }   — admin
@@ -267,7 +269,10 @@ async function valider(supabase: Supabase, id: string, userId: string | null) {
     vuesPlafond: scoring.vuesPlafond,
   });
   const note = Math.round(elo * 100) / 100;
-  const tier = tierImport(elo, scoring.eloSeuil);
+  // Original en images finies (pas de post source, donc pas de vues) : rang
+  // fixe, comme les originaux traduisibles. La note seule l'écarterait toujours.
+  const original = !l.source_url;
+  const tier = original ? TIER_ORIGINAL : tierImport(elo, scoring.eloSeuil);
   const maintenant = new Date().toISOString();
   if (!tier) {
     await supabase
@@ -311,7 +316,7 @@ async function valider(supabase: Supabase, id: string, userId: string | null) {
       passages_prevus: passagesPourTier(tier),
       tier_cycle: 0,
       tier_maj_at: maintenant,
-      tier_rapport: { origine: "pod", pod: l.pod, elo: note, seuil: scoring.eloSeuil, tier, passages: passagesPourTier(tier) },
+      tier_rapport: { origine: original ? "pod_original" : "pod", pod: l.pod, elo: note, seuil: scoring.eloSeuil, tier, passages: passagesPourTier(tier) },
       livre: true,
       pod: l.pod,
     })

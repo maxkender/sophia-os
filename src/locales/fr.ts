@@ -1048,6 +1048,7 @@ export const fr = {
       inactif: "inactif",
       original: "Original (rang B : images sans texte, texte à part ; anglais avec sa slide Sophia, autres langues traduites et placées par l'OS)",
       inspiration: "slide d'inspiration",
+      legende: "Légende proposée (l'OS génère 3 hashtags par langue à la validation)",
       appli: "slide de l'app",
       nouvellesLangues: "Nouvelles langues ({{langues}}) pour un post déjà validé",
       statut: {

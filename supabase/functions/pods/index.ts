@@ -43,7 +43,7 @@
  * diffuse le contenu validé, comme n'importe quel autre.
  */
 
-import { scoreRelevance } from "../_shared/gemini.ts";
+import { genererHashtagsSlideshow, scoreRelevance } from "../_shared/gemini.ts";
 import { eloParLangue, lireScoring } from "../_shared/import_contenu.ts";
 import {
   metadonneesJpeg,
@@ -108,6 +108,20 @@ Deno.serve(async (request) => {
 
 // deno-lint-ignore no-explicit-any
 type Supabase = any;
+
+/**
+ * Légende d'un deck : 3 hashtags dans la langue du compte, générés comme pour
+ * un contenu classique à partir du texte des slides. Repli : la légende fournie
+ * par le pod (jamais vide si on peut l'éviter : le poster la recopie telle quelle).
+ */
+async function legendeLocale(textes: string[], titre: string | null, langue: string, repli: string): Promise<string> {
+  const genere = await genererHashtagsSlideshow({
+    slides: textes.map((texte, i) => ({ position: i + 1, texte })),
+    sourceTitle: titre,
+    langue,
+  }).catch(() => "");
+  return genere || repli.trim();
+}
 
 /** Pod authentifié par son jeton, ou null. */
 async function podDuJeton(request: Request, supabase: Supabase, slug: string) {
@@ -204,6 +218,7 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
       langue_source: langueSource,
       contenu_id: existante!.contenu_id,
       decks: sortie,
+      transcription: { textes: Array.isArray(body.textes) ? body.textes.map(String) : [] },
       statut: "a_valider",
     };
     // Une livraison « langues » encore en attente pour ce post : on y fusionne.
@@ -331,6 +346,10 @@ async function valider(supabase: Supabase, id: string, userId: string | null) {
     .single();
   if (cErr || !contenu) throw new Error(`contenu : ${messageErreur(cErr)}`);
 
+  const hashtags: Record<string, string> = {};
+  for (const [langue, d] of Object.entries(decks)) {
+    hashtags[langue] = await legendeLocale(textes, l.titre, langue, d.hashtags ?? "");
+  }
   try {
     const { error: lErr } = await supabase.from("contenu_labels").insert({ contenu_id: contenu.id, label_id: pod.label_id });
     if (lErr) throw lErr;
@@ -343,7 +362,7 @@ async function valider(supabase: Supabase, id: string, userId: string | null) {
         texte_overlay: "",
         position_sophia: Boolean(s.position_sophia),
       })),
-      hashtags: d.hashtags || null,
+      hashtags: hashtags[langue] || null,
       nb_passages: 0,
       ...(langue === l.langue_source ? { score: elo, score_maj_at: maintenant } : {}),
     }));
@@ -381,6 +400,11 @@ async function rejeter(supabase: Supabase, id: string, userId: string | null, mo
 async function validerLangues(supabase: Supabase, l: any, userId: string | null) {
   if (!l.contenu_id) return json({ ok: false, error: "contenu d'origine introuvable" }, 409);
   const decks = l.decks as Record<string, { hashtags: string; slides: { position: number; media_id: string; position_sophia: boolean }[] }>;
+  const textes: string[] = l.transcription?.textes ?? [];
+  const hashtags: Record<string, string> = {};
+  for (const [langue, d] of Object.entries(decks)) {
+    hashtags[langue] = await legendeLocale(textes, l.titre, langue, d.hashtags ?? "");
+  }
   const lignes = Object.entries(decks).map(([langue, d]) => ({
     contenu_id: l.contenu_id,
     langue,
@@ -390,7 +414,7 @@ async function validerLangues(supabase: Supabase, l: any, userId: string | null)
       texte_overlay: "",
       position_sophia: Boolean(s.position_sophia),
     })),
-    hashtags: d.hashtags || null,
+    hashtags: hashtags[langue] || null,
   }));
   // Une langue déjà présente est remplacée (nouvelle version), sans toucher à
   // son compteur de passages.
@@ -616,7 +640,7 @@ async function validerOriginal(supabase: Supabase, l: any, userId: string | null
       langue: l.langue_source,
       slides: avecSophia,
       slides_base: base,
-      hashtags: legende.match(/#\S+/g)?.join(" ") || null,
+      hashtags: (await legendeLocale(base.map((b) => b.texte_overlay), legende, l.langue_source, legende.match(/#\S+/g)?.slice(0, 3).join(" ") ?? "")) || null,
       nb_passages: 0,
     });
     if (clErr) throw clErr;

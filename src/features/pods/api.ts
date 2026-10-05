@@ -32,6 +32,7 @@ export interface Livraison {
   titre: string | null;
   langue_source: string;
   musique_titre: string | null;
+  musique_url: string | null;
   decks: Record<string, { hashtags: string; slides: SlideLivraison[] }>;
   statut: StatutLivraison;
   motif: string | null;
@@ -43,7 +44,7 @@ export interface Livraison {
 }
 
 const COLONNES =
-  "id, pod, type, source_url, source_vues, titre, langue_source, musique_titre, decks, statut, motif, note_import, tier, contenu_id, created_at, decide_le";
+  "id, pod, type, source_url, source_vues, titre, langue_source, musique_titre, musique_url, decks, statut, motif, note_import, tier, contenu_id, created_at, decide_le";
 
 export interface Pod {
   slug: string;

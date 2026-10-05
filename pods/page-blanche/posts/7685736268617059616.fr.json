@@ -167,14 +167,16 @@
       "minutes, it keeps me",
       "consistent"
      ],
-     "fr": "perso, j'ai remplacé une partie de mon scroll par [[5 min par jour sur l'appli Sophia]], et je m'y tiens"
+     "fr": "perso, j'ai remplacé une partie de mon scroll par [[5 min par jour sur l'appli Sophia]], et je m'y tiens",
+     "texte": "perso, quand j'ai envie de scroller, j'ouvre l'appli Sophia à la place, [[5 min par jour]], et je m'y tiens"
     },
     "T5": {
      "en": [
       "you can also try moving your",
       "phone in a different room"
      ],
-     "fr": "sinon, laisse ton tel dans une autre pièce"
+     "fr": "sinon, laisse ton tel dans une autre pièce",
+     "texte": "et quand tu lis, laisse ton tel dans une autre pièce"
     }
    },
    "images": {

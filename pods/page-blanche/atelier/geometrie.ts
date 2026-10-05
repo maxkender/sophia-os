@@ -109,9 +109,26 @@ export async function analyserSlide(chemin: string): Promise<GeometrieSlide> {
   for (const b of boites) {
     const petit = b.h < 16 && b.l < 40; // point d'un i, accent, bout de soulignement
     const trait = b.h <= 6; // soulignement isolé
-    if (petit || trait) miettes.push(b);
-    else if (b.couleur > 0.25 || b.h > 80) images.push({ x: b.x, y: b.y, l: b.l, h: b.h });
-    else lignes.push({ x: b.x, y: b.y, l: b.l, h: b.h, base: baseLigne(b, minRGB) });
+    if (petit || trait) {
+      miettes.push(b);
+    } else if (b.couleur > 0.25) {
+      images.push({ x: b.x, y: b.y, l: b.l, h: b.h });
+    } else if (b.h > 80) {
+      // Deux lignes collées par un soulignement forment un bloc haut : on le
+      // recoupe sur ses rangées vides. Un logo ou un dessin reste d'un tenant.
+      const morceaux = decouperRangees(b, minRGB, masque);
+      if (morceaux.length >= 2 && morceaux.every((m) => m.h <= 80)) {
+        for (const m of morceaux) {
+          const c = { ...m, densite: b.densite, couleur: b.couleur };
+          if (m.h <= 6 || (m.h < 16 && m.l < 40)) miettes.push(c);
+          else lignes.push({ ...m, base: baseLigne(m, minRGB) });
+        }
+      } else {
+        images.push({ x: b.x, y: b.y, l: b.l, h: b.h });
+      }
+    } else {
+      lignes.push({ x: b.x, y: b.y, l: b.l, h: b.h, base: baseLigne(b, minRGB) });
+    }
   }
   // Les miettes rejoignent la ligne la plus proche qu'elles chevauchent.
   for (const m of miettes) {
@@ -327,4 +344,39 @@ function detecterImages(L: number, H: number, minRGB: (x: number, y: number) => 
     }
   }
   return out;
+}
+
+/** Coupe une boîte en bandes séparées par au moins une rangée sans encre. */
+function decouperRangees(
+  b: Boite,
+  minRGB: (x: number, y: number) => number,
+  masque: (x: number, y: number) => boolean,
+): Boite[] {
+  const bandes: Boite[] = [];
+  let debut = -1;
+  const encreRangee = (y: number) => {
+    let x0 = -1, x1 = -1;
+    for (let x = b.x; x < b.x + b.l; x++) {
+      if (!masque(x, y) && minRGB(x, y) < SEUIL_NON_BLANC) {
+        if (x0 < 0) x0 = x;
+        x1 = x;
+      }
+    }
+    return [x0, x1] as const;
+  };
+  let gx0 = Infinity, gx1 = -1;
+  for (let y = b.y; y <= b.y + b.h; y++) {
+    const [x0, x1] = y < b.y + b.h ? encreRangee(y) : [-1, -1];
+    if (x0 >= 0) {
+      if (debut < 0) debut = y;
+      gx0 = Math.min(gx0, x0);
+      gx1 = Math.max(gx1, x1);
+    } else if (debut >= 0) {
+      bandes.push({ x: gx0, y: debut, l: gx1 - gx0 + 1, h: y - debut });
+      debut = -1;
+      gx0 = Infinity;
+      gx1 = -1;
+    }
+  }
+  return bandes;
 }

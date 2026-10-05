@@ -35,7 +35,31 @@ export type Transcription = {
   /** Une capture d'app que la détection a éclatée en plusieurs éléments (image
    * + bouts de texte d'interface) : un seul emplacement sur leur rectangle commun. */
   zones?: { elements: string[]; action: "sophia_capture" | "sophia_appstore" }[];
+  /** Bloc détecté d'un seul tenant alors qu'il en contient deux (titre collé à
+   * son paragraphe) : { "T1": 1 } coupe T1 après sa 1re ligne en T1a et T1b. */
+  scissions?: Record<string, number>;
 };
+
+/** Applique les scissions demandées à la géométrie (nouveaux blocs a / b). */
+export function appliquerScissions(geo: GeometrieSlide, tr: Transcription): GeometrieSlide {
+  if (!tr.scissions) return geo;
+  const elements: ElementGeo[] = [];
+  for (const e of geo.elements) {
+    const n = tr.scissions[e.id];
+    if (e.type !== "texte" || !n || n >= e.lignes.length) {
+      elements.push(e);
+      continue;
+    }
+    for (const [suffixe, ls] of [["a", e.lignes.slice(0, n)], ["b", e.lignes.slice(n)]] as const) {
+      const x0 = Math.min(...ls.map((l) => l.x));
+      const y0 = Math.min(...ls.map((l) => l.y));
+      const boite = { x: x0, y: y0, l: Math.max(...ls.map((l) => l.x + l.l)) - x0, h: Math.max(...ls.map((l) => l.y + l.h)) - y0 };
+      const pas = ls.length > 1 ? ls[1].base - ls[0].base : 0;
+      elements.push({ id: `${e.id}${suffixe}`, type: "texte", boite, lignes: [...ls], pas, alignement: e.alignement });
+    }
+  }
+  return { ...geo, elements };
+}
 
 export type RapportSlide = { avertissements: string[] };
 
@@ -46,6 +70,7 @@ export async function rendreSlide(
   geo: GeometrieSlide,
   tr: Transcription,
 ): Promise<{ jpeg: Buffer; rapport: RapportSlide }> {
+  geo = appliquerScissions(geo, tr);
   const source = await loadImage(cheminSource);
   const canvas = createCanvas(geo.largeur, geo.hauteur);
   const ctx = canvas.getContext("2d");

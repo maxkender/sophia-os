@@ -42,3 +42,8 @@ d'interface), regroupe-les en UNE zone dans la slide :
 `"zones": [{ "elements": ["I3", "T5", "T6"], "action": "sophia_capture" }]`
 (idem `"sophia_appstore"` pour le bandeau). Les éléments listés ne sont plus
 rendus individuellement ; inutile de les mettre dans `textes`/`images`.
+
+## Bloc fusionné à tort (ajout)
+Si un bloc vert contient un titre ET le paragraphe qui suit (tailles différentes),
+coupe-le : `"scissions": { "T1": 1 }` (coupe T1 après sa 1re ligne). Les deux
+morceaux s'appellent alors `T1a` et `T1b` dans `textes`.

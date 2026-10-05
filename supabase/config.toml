@@ -102,6 +102,10 @@ verify_jwt = false
 [functions.persona]
 verify_jwt = false
 
+[functions.pods]
+# Dépôt par l'agent d'un pod (en-tête x-pod-jeton) ou décision d'un admin (JWT revérifié).
+verify_jwt = false
+
 [functions.preparation]
 verify_jwt = false
 

@@ -6,6 +6,7 @@ import {
   scrapePost,
   type ScrapedPost,
 } from "./apify.ts";
+import { deckLivre, estContenuLivre } from "./pods.ts";
 import {
   baseDeTraduction,
   estDeckPret,
@@ -1532,6 +1533,10 @@ export async function assurerDeckPourLangue(
   contenuId: string,
   langue: string,
 ): Promise<{ slides: SlideLangue[]; hashtags: string }> {
+  // Contenu livré par un pod : images finies par langue, rien à traduire ni à
+  // placer (voir _shared/pods.ts).
+  if (await estContenuLivre(supabase, contenuId)) return await deckLivre(supabase, contenuId, langue);
+
   const { data: contenu } = await supabase
     .from("contenus")
     .select("id, titre, langue_source, compte_reference_id, structure_slides")

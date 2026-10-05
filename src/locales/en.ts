@@ -1046,6 +1046,7 @@ export const en = {
       inactif: "inactive",
       original: "Original (tier B: clean images, separate text; English with its Sophia slide, other languages translated and placed by the OS)",
       inspiration: "inspiration slide",
+      legende: "Suggested caption (the OS generates 3 hashtags per language on approval)",
       appli: "app slide",
       nouvellesLangues: "New languages ({{langues}}) for an approved post",
       statut: {

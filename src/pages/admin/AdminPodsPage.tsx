@@ -68,7 +68,11 @@ function Deck({ livraison }: { livraison: Livraison }) {
           </div>
         ))}
       </div>
-      {deck?.hashtags && <p className="text-xs text-muted-foreground">{deck.hashtags}</p>}
+      {deck?.hashtags && (
+        <p className="text-xs text-muted-foreground">
+          <span className="font-medium text-foreground">{t("pods.legende")} :</span> {deck.hashtags}
+        </p>
+      )}
     </div>
   );
 }
@@ -98,6 +102,18 @@ function LigneLivraison({ livraison }: { livraison: Livraison }) {
               </span>
             )}
             {livraison.source_vues != null && t("pods.vues", { n: livraison.source_vues.toLocaleString() })}
+            {livraison.musique_titre && (
+              <span className="ml-2">
+                ♪{" "}
+                {livraison.musique_url ? (
+                  <a className="underline" href={livraison.musique_url} target="_blank" rel="noreferrer">
+                    {livraison.musique_titre}
+                  </a>
+                ) : (
+                  livraison.musique_titre
+                )}
+              </span>
+            )}
             {livraison.source_url && (
               <a className="ml-2 inline-flex items-center gap-1 underline" href={livraison.source_url} target="_blank" rel="noreferrer">
                 {t("pods.source")} <ExternalLink className="size-3" />

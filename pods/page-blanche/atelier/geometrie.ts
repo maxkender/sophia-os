@@ -51,7 +51,11 @@ export async function analyserSlide(chemin: string): Promise<GeometrieSlide> {
   // 1) Images : zones DENSES (photos, captures). Le texte n'atteint jamais 50 %
   // d'encre sur une cellule de 12 px ; une photo, si. On part des cellules
   // denses, puis on étend chaque rectangle tant que son bord reste non blanc.
-  const images = detecterImages(L, H, minRGB);
+  const ecartRGB = (x: number, y: number) => {
+    const i = (y * L + x) * 4;
+    return Math.max(px[i], px[i + 1], px[i + 2]) - Math.min(px[i], px[i + 1], px[i + 2]);
+  };
+  const images = detecterImages(L, H, minRGB, ecartRGB);
   const masque = (x: number, y: number) =>
     images.some((b) => x >= b.x - 2 && x < b.x + b.l + 2 && y >= b.y - 2 && y < b.y + b.h + 2);
 
@@ -285,7 +289,12 @@ function composantes(dil: Uint8Array, GL: number, GH: number) {
   return comps;
 }
 
-function detecterImages(L: number, H: number, minRGB: (x: number, y: number) => number): Boite[] {
+function detecterImages(
+  L: number,
+  H: number,
+  minRGB: (x: number, y: number) => number,
+  ecartRGB: (x: number, y: number) => number,
+): Boite[] {
   const C = 12;
   const GL = Math.floor(L / C);
   const GH = Math.floor(H / C);
@@ -325,6 +334,25 @@ function detecterImages(L: number, H: number, minRGB: (x: number, y: number) => 
     while (y1 > y0 && bandeH(y1) < 0.08) y1--;
     while (x1 > x0 && bandeV(x0) < 0.08) x0++;
     while (x1 > x0 && bandeV(x1) < 0.08) x1--;
+    // Du texte noir très gras (gros titre) peut paraître dense ; une vraie image a
+    // des demi-teintes ou de la couleur. Sous 20 % de pixels gris moyens ou
+    // colorés, ce n'est pas une image : on laisse la détection de texte la prendre.
+    let encre = 0, nuance = 0, couleur = 0;
+    for (let y = y0; y <= y1; y += 2) {
+      for (let x = x0; x <= x1; x += 2) {
+        const m = minRGB(x, y);
+        if (m < SEUIL_NON_BLANC) {
+          encre++;
+          const ecart = ecartRGB(x, y);
+          if (ecart > 22) couleur++;
+          if ((m > 70 && m < 220) || ecart > 22) nuance++;
+        }
+      }
+    }
+    if (encre > 0 && nuance / encre < 0.2) continue;
+    // Morceau de gros titre (quelques lettres, ~30 px) : pas de couleur, ses
+    // demi-teintes ne sont que le lissage des lettres.
+    if (y1 - y0 + 1 < 45 && encre > 0 && couleur / encre < 0.1) continue;
     out.push({ x: x0, y: y0, l: x1 - x0 + 1, h: y1 - y0 + 1 });
   }
   // Fusionne les rectangles qui se chevauchent (une photo coupée par une zone claire).

@@ -163,9 +163,11 @@
     },
     "T3": {
      "en": [
-      "this is because your attention"
+      "this is because your attention",
+      "span is damaged from all the",
+      "short-form content"
      ],
-     "fr": "c'est parce que ton [[attention]]"
+     "fr": "c'est parce que ta [[capacité d'attention]] est [[abîmée]] par tout ce contenu court"
     },
     "T4": {
      "en": [
@@ -185,8 +187,7 @@
     }
    },
    "images": {
-    "I1": "sophia_capture",
-    "I2": "garder"
+    "I1": "sophia_capture"
    }
   },
   "6": {
@@ -244,10 +245,13 @@
     },
     "T2": {
      "en": [
+      "Nguyen et al. (2025)",
+      "“Feeds, feelings, and focus: A systematic review and meta-analysis",
+      "examining the cognitive and mental health correlates of short-form",
       "video use”",
       "https://doi.org/10.1037/bul0000498"
      ],
-     "fr": "video use”\nhttps://doi.org/10.1037/bul0000498"
+     "fr": "Nguyen et al. (2025)\n“Feeds, feelings, and focus: A systematic review and meta-analysis examining the cognitive and mental health correlates of short-form video use”\nhttps://doi.org/10.1037/bul0000498"
     },
     "T3": {
      "en": [
@@ -273,9 +277,7 @@
      "fr": "Stothart, Mitchum & Yehnert (2015)\n“The attentional cost of receiving a cell phone notification”\nhttps://doi.org/10.1037/xhp0000100"
     }
    },
-   "images": {
-    "I1": "garder"
-   }
+   "images": {}
   }
  }
 }

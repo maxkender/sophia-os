@@ -34,6 +34,12 @@ Deno.serve(async (request) => {
     });
   }
 
+  // Sans aucune forme d'authentification : 401 d'emblée, comme les autres
+  // fonctions (le test de fumée du déploiement s'appuie dessus).
+  const authentifie = request.headers.get("x-pod-jeton") || request.headers.get("Authorization") ||
+    request.headers.get("x-cron-secret");
+  if (!authentifie) return json({ ok: false, error: "unauthorized" }, 401);
+
   // deno-lint-ignore no-explicit-any
   let body: any = {};
   try {

@@ -214,7 +214,7 @@ async function valider(supabase: Supabase, id: string, userId: string | null) {
       musique_titre: l.musique_titre,
       musique_plateforme: l.musique_url ? "tiktok" : null,
       vues_source: l.source_vues,
-      pertinence_score: pertinence.score,
+      pertinence_score: Math.round(pertinence.score),
       pertinence_raison: pertinence.reason,
       statut: "valide",
       import_statut: "done",

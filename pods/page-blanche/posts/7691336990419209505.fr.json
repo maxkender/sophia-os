@@ -47,13 +47,12 @@
   },
   "6": {
    "textes": {
-    "T1": { "en": ["comparing you"], "fr": "te comparer" },
-    "T2": { "en": ["self to others"], "fr": "aux autres" },
-    "T3": { "en": ["you’re comparing your everyday life to someone", "else’s best moments, biggest wins, and carefully", "edited highlights"], "fr": "tu compares [[ton quotidien]] aux meilleurs moments, aux plus grosses victoires et [[aux highlights bien retouchés]] des autres" },
-    "T4": { "en": ["it makes your own", "progress feel smaller", "than it actually is"], "fr": "tes propres progrès [[paraissent plus petits qu'ils ne sont]]" },
-    "T5": { "en": ["use other people as", "proof of what’s possible,", "not as a reason to feel", "behind"], "fr": "vois les autres comme [[la preuve que c'est possible]], pas pour te sentir en retard" }
+    "T1": { "en": ["comparing yourself to others"], "fr": "te comparer aux autres" },
+    "T2": { "en": ["you’re comparing your everyday life to someone", "else’s best moments, biggest wins, and carefully", "edited highlights"], "fr": "tu compares [[ton quotidien]] aux meilleurs moments, aux plus grosses victoires et [[aux highlights bien retouchés]] des autres" },
+    "T3": { "en": ["it makes your own", "progress feel smaller", "than it actually is"], "fr": "tes propres progrès [[paraissent plus petits qu'ils ne sont]]" },
+    "T4": { "en": ["use other people as", "proof of what’s possible,", "not as a reason to feel", "behind"], "fr": "vois les autres comme [[la preuve que c'est possible]], pas pour te sentir en retard" }
    },
-   "images": { "I1": "garder", "I2": "garder" }
+   "images": { "I1": "garder" }
   }
  }
 }

@@ -1,56 +1,214 @@
 {
- "post_id": "7683630825610513686",
- "slides": {
-  "1": {
-   "textes": {
-    "T1": { "en": ["The anti-rot routine that", "brought my life back >>>"], "fr": "La routine anti-décérébration qui m'a rendu ma vie >>>" },
-    "T2": { "en": ["as someone", "who had a 12", "hour screen", "time"], "fr": "de la part de quelqu'un à 12 h d'écran par jour" }
-   },
-   "images": { "I1": "garder" }
-  },
-  "2": {
-   "textes": {
-    "T1": { "en": ["NO social media for the first", "hour"], "fr": "AUCUN réseau social la première heure" },
-    "T2": { "en": ["no scrolling, no youtube,", "no tiktok for the first hour"], "fr": "pas de scroll, pas de youtube, pas de tiktok la première heure" },
-    "T3": { "en": ["short-form content gives", "your brain rapid reward", "after reward, frying your", "dopamine receptors and", "making slower tasks feel", "painfully dull"], "fr": "les vidéos courtes donnent à ton cerveau récompense sur récompense, [[grillant tes récepteurs à dopamine]] et rendant les tâches lentes atrocement ennuyeuses" },
-    "T4": { "en": ["to win your day, win your", "morning"], "fr": "[[pour gagner ta journée, gagne ta matinée]]" }
-   },
-   "images": { "I1": "garder" }
-  },
-  "3": {
-   "textes": {
-    "T1": { "en": ["stop waiting to feel motivated"], "fr": "arrête [[d'attendre d'être motivé]]" },
-    "T2": { "en": ["motivation comes", "after starting, not", "before"], "fr": "la motivation vient après avoir commencé, pas avant" },
-    "T3": { "en": ["make yourself do just 10 minutes of the thing you're", "avoiding. once you've crossed the initial resistance,", "continuing is dramatically easier than starting from", "zero."], "fr": "oblige-toi à faire [[juste 10 minutes]] de ce que tu évites. une fois la résistance de départ passée, continuer est bien plus facile que partir de zéro." }
-   },
-   "images": { "I1": "garder" }
-  },
-  "4": {
-   "textes": {
-    "T1": { "en": ["leave the house every single day"], "fr": "sors de chez toi [[chaque jour, sans faute]]" },
-    "T2": { "en": ["being indoors for 24", "hours makes rotting", "easy"], "fr": "rester enfermé 24 h rend le pourrissement facile" },
-    "T3": { "en": ["get outside for at least", "20–30 minutes, ideally", "in daylight"], "fr": "sors [[au moins 20 à 30 minutes]], idéalement à la lumière du jour" },
-    "T4": { "en": ["walking, sunlight and", "simply changing", "environments can do", "more for your energy", "than another hour", "“resting” in bed"], "fr": "marcher, le soleil et juste changer d'environnement font plus pour ton énergie qu'une heure de plus à « te reposer » au lit" }
-   },
-   "images": { "I1": "garder", "I2": "garder" }
-  },
-  "5": {
-   "textes": {
-    "T1": { "en": ["dont scroll 1 hour before sleep"], "fr": "pas de scroll [[1 h avant de dormir]]" },
-    "T2": { "en": ["no scrolling for the last 60", "minutes before sleep"], "fr": "zéro scroll pendant les 60 dernières minutes avant de dormir" },
-    "T3": { "en": ["I read a book instead, i've been"], "fr": "je lis un livre à la place, j'ai" },
-    "T4": { "en": ["you can use anything that just", "isn't your phone"], "fr": "tu peux prendre n'importe quoi tant que ce n'est pas ton tél" }
-   },
-   "images": { "I1": "sophia_capture", "I2": "garder", "I3": "sophia_appstore" }
-  },
-  "6": {
-   "textes": {
-    "T1": { "en": ["go to bed embarrassingly early"], "fr": "couche-toi [[ridiculement tôt]]" },
-    "T2": { "en": ["you need sleep"], "fr": "[[tu as besoin de dormir]]" },
-    "T3": { "en": ["adults generally need", "around 7–9 hours, and", "consistently cutting", "that short wrecks", "attention, mood and", "self-control"], "fr": "un adulte a besoin de 7 à 9 h environ, et dormir moins de façon régulière [[ruine l'attention]], l'humeur et le self-control" },
-    "T4": { "en": ["an 11pm bedtime is", "less exciting than fixing", "your life tired"], "fr": "se coucher à 23 h est moins excitant que réparer sa vie épuisé" }
-   },
-   "images": { "I1": "garder" }
+  "post_id": "7683630825610513686",
+  "slides": {
+    "1": {
+      "textes": {
+        "T1": {
+          "en": [
+            "The anti-rot routine that",
+            "brought my life back >>>"
+          ],
+          "fr": "La routine anti-décérébration qui m'a rendu ma vie >>>"
+        },
+        "T2": {
+          "en": [
+            "as someone",
+            "who had a 12",
+            "hour screen",
+            "time"
+          ],
+          "fr": "de la part de quelqu'un à 12 h d'écran par jour"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    },
+    "2": {
+      "textes": {
+        "T1": {
+          "en": [
+            "NO social media for the first",
+            "hour"
+          ],
+          "fr": "AUCUN réseau social la première heure"
+        },
+        "T2": {
+          "en": [
+            "no scrolling, no youtube,",
+            "no tiktok for the first hour"
+          ],
+          "fr": "pas de scroll, pas de youtube, pas de tiktok la première heure"
+        },
+        "T3": {
+          "en": [
+            "short-form content gives",
+            "your brain rapid reward",
+            "after reward, frying your",
+            "dopamine receptors and",
+            "making slower tasks feel",
+            "painfully dull"
+          ],
+          "fr": "les vidéos courtes donnent à ton cerveau récompense sur récompense, [[grillant tes récepteurs à dopamine]] et rendant les tâches lentes atrocement ennuyeuses"
+        },
+        "T4": {
+          "en": [
+            "to win your day, win your",
+            "morning"
+          ],
+          "fr": "[[pour gagner ta journée, gagne ta matinée]]"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    },
+    "3": {
+      "textes": {
+        "T1": {
+          "en": [
+            "stop waiting to feel motivated"
+          ],
+          "fr": "arrête [[d'attendre d'être motivé]]"
+        },
+        "T2": {
+          "en": [
+            "motivation comes",
+            "after starting, not",
+            "before"
+          ],
+          "fr": "la motivation vient après avoir commencé, pas avant"
+        },
+        "T3": {
+          "en": [
+            "make yourself do just 10 minutes of the thing you're",
+            "avoiding. once you've crossed the initial resistance,",
+            "continuing is dramatically easier than starting from",
+            "zero."
+          ],
+          "fr": "oblige-toi à faire [[juste 10 minutes]] de ce que tu évites. une fois la résistance de départ passée, continuer est bien plus facile que partir de zéro."
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    },
+    "4": {
+      "textes": {
+        "T1": {
+          "en": [
+            "leave the house every single day"
+          ],
+          "fr": "sors de chez toi [[chaque jour, sans faute]]"
+        },
+        "T2": {
+          "en": [
+            "being indoors for 24",
+            "hours makes rotting",
+            "easy"
+          ],
+          "fr": "rester enfermé 24 h rend le pourrissement facile"
+        },
+        "T3": {
+          "en": [
+            "get outside for at least",
+            "20–30 minutes, ideally",
+            "in daylight"
+          ],
+          "fr": "sors [[au moins 20 à 30 minutes]], idéalement à la lumière du jour"
+        },
+        "T4": {
+          "en": [
+            "walking, sunlight and",
+            "simply changing",
+            "environments can do",
+            "more for your energy",
+            "than another hour",
+            "“resting” in bed"
+          ],
+          "fr": "marcher, le soleil et juste changer d'environnement font plus pour ton énergie qu'une heure de plus à « te reposer » au lit"
+        },
+        "T5": {
+          "en": [
+            "doomscrolling is NOT",
+            "resting!!"
+          ],
+          "fr": "[[scroller, c'est PAS du repos !!]]"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    },
+    "5": {
+      "textes": {
+        "T1": {
+          "en": [
+            "dont scroll 1 hour before sleep"
+          ],
+          "fr": "pas de scroll [[1 h avant de dormir]]"
+        },
+        "T2": {
+          "en": [
+            "no scrolling for the last 60",
+            "minutes before sleep"
+          ],
+          "fr": "zéro scroll pendant les 60 dernières minutes avant de dormir"
+        },
+        "T3": {
+          "en": [
+            "I read a book instead, i've been",
+            "trying ReadUp to block my",
+            "apps until I read for 30 minutes",
+            "and it's helped me so far. But",
+            "you can use anything that just",
+            "isn't your phone"
+          ],
+          "fr": "je lis un livre à la place, et j'ai remplacé mon scroll par [[5 min sur l'appli Sophia pour apprendre un truc]], ça m'aide bien. Mais prends n'importe quoi tant que ce n'est pas ton tél"
+        }
+      },
+      "images": {
+        "I1": "sophia_capture",
+        "I2": "sophia_appstore"
+      }
+    },
+    "6": {
+      "textes": {
+        "T1": {
+          "en": [
+            "go to bed embarrassingly early"
+          ],
+          "fr": "couche-toi [[ridiculement tôt]]"
+        },
+        "T2": {
+          "en": [
+            "you need sleep"
+          ],
+          "fr": "[[tu as besoin de dormir]]"
+        },
+        "T3": {
+          "en": [
+            "adults generally need",
+            "around 7–9 hours, and",
+            "consistently cutting",
+            "that short wrecks",
+            "attention, mood and",
+            "self-control"
+          ],
+          "fr": "un adulte a besoin de 7 à 9 h environ, et dormir moins de façon régulière [[ruine l'attention]], l'humeur et le self-control"
+        },
+        "T4": {
+          "en": [
+            "an 11pm bedtime is",
+            "less exciting than fixing",
+            "your life tired"
+          ],
+          "fr": "se coucher à 23 h est moins excitant que réparer sa vie épuisé"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    }
   }
- }
 }

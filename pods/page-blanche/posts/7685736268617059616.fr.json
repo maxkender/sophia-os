@@ -64,19 +64,12 @@
    "textes": {
     "T1": {
      "en": [
-      "l tired even during the"
-     ],
-     "fr": "crevé [[même en pleine journée]]",
-     "alignement": "gauche"
-    },
-    "T2": {
-     "en": [
-      "you f",
+      "you feel tired even during the",
       "day"
      ],
-     "fr": "t'es"
+     "fr": "t'es crevé [[même en pleine journée]]"
     },
-    "T3": {
+    "T2": {
      "en": [
       "you can sleep 8 hours and still",
       "feel mentally exhausted if",
@@ -86,7 +79,7 @@
      ],
      "fr": "tu peux dormir 8 heures et [[rester mentalement épuisé]] si ton cerveau est bombardé de [[stimulations toute la journée]]"
     },
-    "T4": {
+    "T3": {
      "en": [
       "constant switching, scrolling",
       "and notifications create",
@@ -94,7 +87,7 @@
      ],
      "fr": "le zapping, le scroll et les notifs constantes créent une fatigue attentionnelle"
     },
-    "T5": {
+    "T4": {
      "en": [
       "so even simple tasks start",
       "feeling weirdly draining"
@@ -103,8 +96,7 @@
     }
    },
    "images": {
-    "I1": "garder",
-    "I2": "garder"
+    "I1": "garder"
    }
   },
   "4": {
@@ -112,8 +104,7 @@
     "T1": {
      "en": [
       "you want to stop scrolling but",
-      "can't",
-      ""
+      "can't"
      ],
      "fr": "tu veux arrêter de scroller [[sans y arriver]]"
     },

@@ -41,18 +41,6 @@
     },
     "T3": {
      "en": [
-      ""
-     ],
-     "fr": ""
-    },
-    "T4": {
-     "en": [
-      ""
-     ],
-     "fr": ""
-    },
-    "T5": {
-     "en": [
       "a 2025 study found that the",
       "more people trusted the AI,",
       "the less critical thinking they",
@@ -60,7 +48,7 @@
      ],
      "fr": "selon une étude de 2025, plus les gens font confiance à l'IA, moins ils disent faire preuve d'[[esprit critique]]"
     },
-    "T6": {
+    "T4": {
      "en": [
       "use AI to question your",
       "thinking, not outsource it"
@@ -169,16 +157,10 @@
       "you read"
      ],
      "fr": "si tu as du mal à lâcher ton téléphone, je te conseille l'appli Sophia : un truc nouveau chaque jour en 5 minutes"
-    },
-    "T7": {
-     "en": [
-      ""
-     ],
-     "fr": ""
     }
    },
    "images": {
-    "I3": "sophia_appstore"
+    "I2": "sophia_appstore"
    },
    "zones": [
     {
@@ -186,14 +168,13 @@
       "I1",
       "T2",
       "T3",
-      "I2",
-      "T6",
+      "T7",
       "T8",
       "T9",
       "T10",
+      "I3",
       "T11",
-      "I4",
-      "T12"
+      "T6"
      ],
      "action": "sophia_capture"
     }

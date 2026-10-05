@@ -112,7 +112,7 @@ export async function analyserSlide(chemin: string): Promise<GeometrieSlide> {
   const miettes: Comp[] = [];
   for (const b of boites) {
     const petit = b.h < 16 && b.l < 40; // point d'un i, accent, bout de soulignement
-    const trait = b.h <= 6; // soulignement isolé
+    const trait = b.h <= 9 && b.l > b.h * 8; // soulignement isolé
     if (petit || trait) {
       miettes.push(b);
     } else if (b.couleur > 0.25) {

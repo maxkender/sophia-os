@@ -47,3 +47,7 @@ rendus individuellement ; inutile de les mettre dans `textes`/`images`.
 Si un bloc vert contient un titre ET le paragraphe qui suit (tailles différentes),
 coupe-le : `"scissions": { "T1": 1 }` (coupe T1 après sa 1re ligne). Les deux
 morceaux s'appellent alors `T1a` et `T1b` dans `textes`.
+
+## Bloc vert qui n'est pas du texte (ajout)
+Barre de recherche, morceau de logo… détecté comme texte : `"garder": true`
+dans son entrée `textes` → recopié tel quel depuis la source.

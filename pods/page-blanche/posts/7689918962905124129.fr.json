@@ -3,54 +3,220 @@
  "slides": {
   "1": {
    "textes": {
-    "T1": { "en": ["10/10 habits to become smart", "again"], "fr": "10/10 habitudes pour redevenir malin" },
-    "T2": { "en": ["(neuroscience approved)"], "fr": "(validé par les neurosciences)", "alignement": "droite" }
+    "T1": {
+     "en": [
+      "10/10 habits to become smart",
+      "again"
+     ],
+     "fr": "10/10 habitudes pour redevenir malin"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(validé par les neurosciences)",
+     "alignement": "droite"
+    }
    },
-   "images": { "I1": "garder" }
+   "images": {
+    "I1": "garder"
+   }
   },
   "2": {
    "textes": {
-    "T1": { "en": ["stop always listening", "to music"], "fr": "arrête la [[musique en continu]]" },
-    "T2": { "en": ["your brain", "needs quiet", "time to connect", "ideas, replay", "information, and", "actually form its", "own thought"], "fr": "ton cerveau a besoin de calme pour relier les idées, rejouer les infos et [[former sa propre pensée]]" },
-    "T3": { "en": ["instead of constantly reacting to", "someone else’s"], "fr": "au lieu de [[toujours réagir]] à [[celle des autres]]" }
+    "T1": {
+     "en": [
+      "stop always listening",
+      "to music"
+     ],
+     "fr": "arrête la [[musique en continu]]"
+    },
+    "T2": {
+     "en": [
+      "stop filling every empty second with podcasts,",
+      "music, youtube, or scrolling"
+     ],
+     "fr": "arrête de combler [[chaque seconde libre]] de podcasts, musique, youtube ou scroll"
+    },
+    "T3": {
+     "en": [
+      "your brain",
+      "needs quiet",
+      "time to connect",
+      "ideas, replay",
+      "information, and",
+      "actually form its",
+      "own thought"
+     ],
+     "fr": "ton cerveau a besoin de calme pour relier les idées, rejouer les infos et [[former sa propre pensée]]"
+    },
+    "T4": {
+     "en": [
+      "instead of constantly reacting to",
+      "someone else’s"
+     ],
+     "fr": "au lieu de [[toujours réagir]] à [[celle des autres]]"
+    }
    },
-   "images": { "I1": "garder", "I2": "garder" }
+   "images": {
+    "I1": "garder"
+   }
   },
   "3": {
    "textes": {
-    "T1": { "en": ["think for yourself before", "using AI"], "fr": "réfléchis par toi-même [[avant]] l'IA" },
-    "T2": { "en": ["don’t outsource the first draft of every thought"], "fr": "ne sous-traite pas le premier jet de [[chaque pensée]]" },
-    "T3": { "en": ["write what you", "think first, then use", "", "AI to challenge it,", "improve it, or find", "gaps"], "fr": "écris d'abord [[ton avis]], puis que l'IA le conteste, l'améliore ou trouve les failles" },
-    "T4": { "en": ["otherwise you get better at prompting while", "your own reasoning gets less practice"], "fr": "sinon tu progresses en prompts pendant que [[ton propre raisonnement]] [[s'entraîne moins]]" }
+    "T1": {
+     "en": [
+      "think for yourself before",
+      "using AI"
+     ],
+     "fr": "réfléchis par toi-même [[avant]] l'IA"
+    },
+    "T2": {
+     "en": [
+      "don’t outsource the first draft of every thought"
+     ],
+     "fr": "ne sous-traite pas le premier jet de [[chaque pensée]]"
+    },
+    "T3": {
+     "en": [
+      "write what you",
+      "think first, then use",
+      "AI to challenge it,",
+      "improve it, or find",
+      "gaps"
+     ],
+     "fr": "écris d'abord [[ton avis]], puis que l'IA le conteste, l'améliore ou trouve les failles"
+    },
+    "T4": {
+     "en": [
+      "otherwise you get better at prompting while",
+      "your own reasoning gets less practice"
+     ],
+     "fr": "sinon tu progresses en prompts pendant que [[ton propre raisonnement]] [[s'entraîne moins]]"
+    }
    },
-   "images": { "I1": "garder", "I2": "garder" }
+   "images": {
+    "I1": "garder",
+    "I2": "garder"
+   }
   },
   "4": {
    "textes": {
-    "T1": { "en": ["read books instead of scrolling"], "fr": "apprends [[au lieu de scroller]]" },
-    "T2": { "en": ["reading makes you hold", "attention, remember", "details, and build the", "picture in your own head"], "fr": "apprendre t'oblige à [[rester attentif]], retenir les détails et [[te faire ta propre idée]]" },
-    "T3": { "en": ["if you want your brain to", "feel sharper again, swap", "some of your scrolling for", "books"], "fr": "si tu veux un [[cerveau plus vif]], remplace une partie de ton [[scroll par du savoir]]" },
-    "T4": { "en": ["i use readup to lock my", "apps until i’ve read for 20", "minutes, or just put your", "phone in another room"], "fr": "je remplace mon scroll par [[5 minutes sur l'appli Sophia]], ou pose ton tel dans une autre pièce" }
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "apprends [[au lieu de scroller]]"
+    },
+    "T2": {
+     "en": [
+      "reading makes you hold",
+      "attention, remember",
+      "details, and build the",
+      "picture in your own head"
+     ],
+     "fr": "apprendre t'oblige à [[rester attentif]], retenir les détails et [[te faire ta propre idée]]"
+    },
+    "T3": {
+     "en": [
+      "if you want your brain to",
+      "feel sharper again, swap",
+      "some of your scrolling for",
+      "books"
+     ],
+     "fr": "si tu veux un [[cerveau plus vif]], remplace une partie de ton [[scroll par du savoir]]"
+    },
+    "T4": {
+     "en": [
+      "i use readup to lock my",
+      "apps until i’ve read for 20",
+      "minutes, or just put your",
+      "phone in another room"
+     ],
+     "fr": "je remplace mon scroll par [[5 minutes sur l'appli Sophia]], ou pose ton tel dans une autre pièce"
+    }
    },
-   "images": { "I1": "sophia_capture", "I2": "sophia_appstore" }
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
   },
   "5": {
    "textes": {
-    "T1": { "en": ["have more conversations with", "smart people"], "fr": "parle plus avec des gens intelligents" },
-    "T2": { "en": ["your surroundings shape", "you"], "fr": "ton entourage te façonne" },
-    "T3": { "en": ["good conversations force", "you to explain ideas,", "defend assumptions, and", "notice where your", "thinking is weak"], "fr": "les bonnes discussions te forcent à expliquer, défendre tes idées et voir où ta pensée est faible" },
-    "T4": { "en": ["spend more time around people who know", "things you don’t instead of people who agree", "with everything you say"], "fr": "passe plus de temps avec des gens qui savent ce que tu ignores, pas avec ceux qui approuvent tout ce que tu dis" }
+    "T1": {
+     "en": [
+      "have more conversations with",
+      "smart people"
+     ],
+     "fr": "parle plus avec des gens intelligents"
+    },
+    "T2": {
+     "en": [
+      "your surroundings shape",
+      "you"
+     ],
+     "fr": "ton entourage te façonne"
+    },
+    "T3": {
+     "en": [
+      "good conversations force",
+      "you to explain ideas,",
+      "defend assumptions, and",
+      "notice where your",
+      "thinking is weak"
+     ],
+     "fr": "les bonnes discussions te forcent à expliquer, défendre tes idées et voir où ta pensée est faible"
+    },
+    "T4": {
+     "en": [
+      "spend more time around people who know",
+      "things you don’t instead of people who agree",
+      "with everything you say"
+     ],
+     "fr": "passe plus de temps avec des gens qui savent ce que tu ignores, pas avec ceux qui approuvent tout ce que tu dis"
+    }
    },
-   "images": { "I1": "garder" }
+   "images": {
+    "I1": "garder"
+   }
   },
   "6": {
    "textes": {
-    "T1": { "en": ["learn things that are difficult", "on purpose"], "fr": "apprends des trucs [[difficiles exprès]]" },
-    "T2": { "en": ["if everything you consume is", "easy, your brain has no", "reason to adapt"], "fr": "si tout ce que tu consommes est facile, ton cerveau n'a pas à s'adapter" },
-    "T3": { "en": ["read harder books, study", "unfamiliar topics, solve", "problems without", "immediately searching the", "answer"], "fr": "lis des livres plus durs, étudie l'inconnu, résous des problèmes sans chercher direct la réponse" },
-    "T4": { "en": ["cognitive effort is the point"], "fr": "l'effort mental, c'est le but" }
+    "T1": {
+     "en": [
+      "learn things that are difficult",
+      "on purpose"
+     ],
+     "fr": "apprends des trucs [[difficiles exprès]]"
+    },
+    "T2": {
+     "en": [
+      "if everything you consume is",
+      "easy, your brain has no",
+      "reason to adapt"
+     ],
+     "fr": "si tout ce que tu consommes est facile, ton cerveau n'a pas à s'adapter"
+    },
+    "T3": {
+     "en": [
+      "read harder books, study",
+      "unfamiliar topics, solve",
+      "problems without",
+      "immediately searching the",
+      "answer"
+     ],
+     "fr": "lis des livres plus durs, étudie l'inconnu, résous des problèmes sans chercher direct la réponse"
+    },
+    "T4": {
+     "en": [
+      "cognitive effort is the point"
+     ],
+     "fr": "l'effort mental, c'est le but"
+    }
    },
-   "images": { "I1": "garder" }
+   "images": {
+    "I1": "garder"
+   }
   }
  }
 }

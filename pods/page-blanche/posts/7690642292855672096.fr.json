@@ -11,37 +11,40 @@
   "2": {
    "textes": {
     "T1": { "en": ["they make decisions fast"], "fr": "ils [[décident vite]]" },
-    "T2": { "en": ["they don’t spend 3", "weeks thinking", "about a reversible", "choice"], "fr": "ils ne passent pas 3 semaines sur [[un choix réversible]]" },
-    "T3": { "en": ["if the downside is small, they decide, act, and", "adjust. speed matters most when decisions can", "be changed later"], "fr": "si le risque est faible, ils décident, agissent et ajustent. [[la vitesse compte surtout]] quand on peut changer d'avis après" }
+    "T2": { "en": ["successful people don’t procrastinate. they don’t", "ask for permission, but instead act and ask for", "forgiveness"], "fr": "ceux qui réussissent [[ne procrastinent pas]]. ils [[ne demandent pas la permission]], ils agissent et [[s'excusent après]]" },
+    "T3": { "en": ["they don’t spend 3", "weeks thinking", "about a reversible", "choice"], "fr": "ils ne passent pas 3 semaines sur [[un choix réversible]]" },
+    "T4": { "en": ["if the downside is small, they decide, act, and", "adjust. speed matters most when decisions can", "be changed later"], "fr": "si le risque est faible, ils décident, agissent et ajustent. [[la vitesse compte surtout]] quand on peut changer d'avis après" }
    },
-   "images": { "I1": "garder", "I2": "garder" }
+   "images": { "I1": "garder" }
   },
   "3": {
    "textes": {
     "T1": { "en": ["they get comfortable looking", "stupid"], "fr": "ils [[assument d'avoir l'air bêtes]]" },
     "T2": { "en": ["they ask basic questions, try things before they feel", "ready, and admit when they don’t know"], "fr": "ils posent des questions basiques, essaient avant d'être prêts et [[admettent quand ils ne savent pas]]" },
-    "T3": { "en": ["protecting your", "ego feels safe,", "but it slows"], "fr": "protéger ton ego rassure, mais ça [[ralentit]]" },
+    "T3": { "en": ["protecting your", "ego feels safe,", "but it slows", "learning down", "massively"], "fr": "protéger ton ego rassure, mais ça [[freine énormément ton apprentissage]]" },
     "T4": { "en": ["growth feels uncomfortable, but", "nothing changes if nothing changes"], "fr": "grandir, c'est inconfortable, mais [[rien ne change si rien ne change]]" }
    },
-   "images": { "I1": "garder", "I2": "garder" }
+   "images": { "I1": "garder" }
   },
   "4": {
    "textes": {
     "T1": { "en": ["they read classic books written", "by the greats"], "fr": "ils lisent les classiques [[des plus grands]]" },
-    "T2": { "en": ["they know endless tiktok scrolling rots their", "attention", "instead, they read ideas that", "survived decades or", "centuries"], "fr": "ils savent que scroller sans fin sur tiktok [[pourrit leur attention]], alors ils lisent des idées [[qui ont traversé les siècles]]" },
+    "T2a": { "en": ["they know endless tiktok scrolling rots their", "attention"], "fr": "ils savent que scroller sans fin sur tiktok [[pourrit leur attention]]" },
+    "T2b": { "en": ["instead, they read ideas that", "survived decades or", "centuries"], "fr": "alors ils lisent des idées [[vieilles de décennies ou de siècles]]" },
     "T3": { "en": ["from people who thought", "deeply about psychology,", "power, business, and human", "nature"], "fr": "de gens qui ont creusé [[la psycho]], [[le pouvoir]], [[le business]] et [[la nature humaine]]" },
     "T4": { "en": ["if you’re stuck on tiktok, you", "can try readup which blocks", "your apps until you read"], "fr": "si t'es accro à tiktok, essaie [[l'appli Sophia]] : [[5 minutes de culture par jour]]" }
    },
-   "images": { "I1": "sophia_capture", "I2": "sophia_appstore" }
+   "images": { "I1": "sophia_capture", "I2": "sophia_appstore" },
+   "scissions": {"T2": 2}
   },
   "5": {
    "textes": {
     "T1": { "en": ["they tolerate long periods with", "no reward"], "fr": "ils tolèrent [[de longues périodes]] [[sans récompense]]" },
-    "T2": { "en": ["they can keep working when"], "fr": "ils bossent quand" },
-    "T3": { "en": ["still look unimpressive"], "fr": "semblent [[toujours décevants]]" },
-    "T4": { "en": ["most people need constant", "proof that something is", "working"], "fr": "la plupart veulent sans cesse la preuve que ça marche" }
+    "T2": { "en": ["they can keep working when", "nobody is watching, nothing", "is going viral, and the results", "still look unimpressive"], "fr": "ils continuent de bosser quand [[personne ne regarde]], que rien ne buzze et que les résultats semblent [[décevants]]" },
+    "T3": { "en": ["most people need constant", "proof that something is", "working"], "fr": "la plupart veulent sans cesse la preuve que ça marche" },
+    "T4": { "en": ["successful people can stay", "consistent long enough for the", "payoff to arrive."], "fr": "ceux qui réussissent [[tiennent assez longtemps]] pour voir arriver les résultats." }
    },
-   "images": { "I1": "garder", "I2": "garder", "I3": "garder" }
+   "images": { "I1": "garder" }
   },
   "6": {
    "textes": {

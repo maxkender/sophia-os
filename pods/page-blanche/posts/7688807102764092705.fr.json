@@ -41,12 +41,11 @@
    "textes": {
     "T1": { "en": ["never stop scrolling"], "fr": "ne lâche jamais ton scroll" },
     "T2": { "en": ["maybe the next tiktok will finally", "solve your problems"], "fr": "le [[prochain tiktok]] va peut-être [[enfin]] tout régler" },
-    "T3": { "en": ["don't limit your screen time,", "don't start reading, don't give", "your brain a chance to get", "bored"], "fr": "ne limite pas ton temps d'écran, n'apprends [[rien de nouveau]], ne laisse jamais ton cerveau [[s'ennuyer]]" },
-    "T4": { "en": ["keep feeding the algorithm"], "fr": "[[nourris l'algorithme]]" },
-    "T5": { "en": ["just", "until it knows what you want", "better than you do"], "fr": "vas-y, jusqu'à ce qu'il sache ce que tu veux [[mieux que toi]]" },
-    "T6": { "en": ["keep giving them your data,", "they deserve it!"], "fr": "donne-leur [[tes données]], ils le méritent !" }
+    "T3": { "en": ["don’t limit your screen time,", "don’t start reading, don’t give", "your brain a chance to get", "bored"], "fr": "ne limite pas ton temps d'écran, n'apprends [[rien de nouveau]], ne laisse jamais ton cerveau [[s'ennuyer]]" },
+    "T4": { "en": ["just keep feeding the algorithm", "until it knows what you want", "better than you do"], "fr": "continue à [[nourrir l'algorithme]] jusqu'à ce qu'il sache ce que tu veux [[mieux que toi]]" },
+    "T5": { "en": ["keep giving them your data,", "they deserve it!"], "fr": "donne-leur [[tes données]], ils le méritent !" }
    },
-   "images": { "I1": "sophia_capture", "I2": "garder" }
+   "images": { "I1": "sophia_capture" }
   },
   "6": {
    "textes": {

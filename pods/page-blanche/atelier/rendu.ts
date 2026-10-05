@@ -27,6 +27,9 @@ export type TexteSlide = {
   /** Texte traduit, soulignés entre [[ ]]. Retours à la ligne forcés : "\n". */
   fr: string;
   alignement?: "gauche" | "droite" | "centre";
+  /** Le bloc n'est pas du texte à traduire (barre de recherche, logo pris pour du
+   * texte) : on le recopie tel quel depuis la source. */
+  garder?: boolean;
 };
 
 export type Transcription = {
@@ -114,6 +117,10 @@ export async function rendreSlide(
     const t = tr.textes[e.id];
     if (!t) {
       avertissements.push(`${e.id} : pas de transcription, bloc laissé vide`);
+      continue;
+    }
+    if (t.garder) {
+      dessinerRecadrage(ctx, source, e.boite);
       continue;
     }
     if (!t.fr.trim()) continue;
@@ -255,7 +262,10 @@ function dessinerBloc(
   avert: string[],
 ) {
   const tailleOrigine = calibrerTaille(ctx, e, t.en);
-  const ratioPas = e.lignes.length > 1 && e.pas > 0 ? e.pas / tailleOrigine : INTERLIGNE_DEFAUT;
+  // Interligne mesuré, borné : un soulignement mal attribué à une ligne fausse
+  // la ligne de base mesurée ; amaya reste toujours entre ~1,15 et ~1,4.
+  const mesure = e.lignes.length > 1 && e.pas > 0 ? e.pas / tailleOrigine : INTERLIGNE_DEFAUT;
+  const ratioPas = Math.min(1.45, Math.max(1.12, mesure));
   const alignement = t.alignement ?? e.alignement;
   const paras = segmenter(t.fr);
   const premiereBase = e.lignes[0].base;

@@ -8,13 +8,13 @@
       "10/10 hobbies to make you",
       "dangerously intelligent"
      ],
-     "fr": "10/10 hobbies qui te rendent dangereusement intelligent"
+     "fr": "10/10 hobbies pour devenir ultra intelligente"
     },
     "T2": {
      "en": [
       "(neuroscience approved)"
      ],
-     "fr": "(validé par les neurosciences)",
+     "fr": "(la science est d'accord)",
      "alignement": "droite"
     }
    },
@@ -28,14 +28,14 @@
      "en": [
       "practice rational thinking"
      ],
-     "fr": "entraîne ta [[pensée rationnelle]]"
+     "fr": "entraîne [[ta logique]]"
     },
     "T2": {
      "en": [
       "stop blindly trusting the first explanation your brain",
       "gives you"
      ],
-     "fr": "arrête de [[croire aveuglément]] la première explication de ton cerveau"
+     "fr": "arrête de [[gober direct]] la première explication de ton cerveau"
     },
     "T3": {
      "en": [
@@ -44,7 +44,7 @@
       "actively argue against",
       "your own opinion"
      ],
-     "fr": "note tes prédictions, juge tes biais, argumente [[contre ta propre opinion]]"
+     "fr": "note tes prédictions, repère tes biais, et défends exprès [[l'avis contraire au tien]]"
     },
     "T4": {
      "en": [
@@ -52,14 +52,14 @@
       "less if your reasoning is",
       "full of blind spots"
      ],
-     "fr": "l'intelligence compte peu si ton raisonnement a des angles morts"
+     "fr": "le QI compte moins si ton raisonnement est plein d'angles morts"
     },
     "T5": {
      "en": [
       "don't make decisions when you're angry,",
       "don't make promises when you're happy"
      ],
-     "fr": "ne décide rien quand tu es en colère, ne promets rien quand tu es heureux"
+     "fr": "jamais de décision sous le coup de la colère, jamais de promesse sous le coup de la joie"
     }
    },
    "images": {
@@ -73,14 +73,14 @@
       "be comfortable being",
       "uncomfortable"
      ],
-     "fr": "sois à l'aise avec [[l'inconfort]]"
+     "fr": "apprends à aimer [[l'inconfort]]"
     },
     "T2": {
      "en": [
       "do things that make your",
       "brain work:"
      ],
-     "fr": "fais ce qui fait bosser ton cerveau :"
+     "fr": "fais vraiment bosser ton cerveau :"
     },
     "T3": {
      "en": [
@@ -91,14 +91,14 @@
       "immediately searching",
       "the answer"
      ],
-     "fr": "livres difficiles, conversations dures, compétences nouvelles, problèmes résolus [[sans chercher tout de suite la réponse]]"
+     "fr": "des livres costauds, des discussions difficiles, des compétences nouvelles, des problèmes à résoudre [[sans chercher direct la réponse]]"
     },
     "T4": {
      "en": [
       "cognitive growth rarely happens while you're",
       "doing what already feels easy"
      ],
-     "fr": "ton cerveau [[grandit]] rarement quand tu fais ce qui te [[semble déjà facile]]"
+     "fr": "ton [[cerveau progresse]] rarement quand tu fais ce qui te [[paraît déjà facile]]"
     }
    },
    "images": {
@@ -111,7 +111,7 @@
      "en": [
       "stop scrolling and start reading"
      ],
-     "fr": "[[lâche le scroll]] et [[cultive-toi]]"
+     "fr": "[[lâche ton tel]] et [[ouvre un livre]]"
     },
     "T2": {
      "en": [
@@ -119,7 +119,7 @@
       "your brain chasing novelty",
       "every few seconds"
      ],
-     "fr": "le contenu court fait courir ton cerveau après la nouveauté [[sans arrêt]]"
+     "fr": "avec les vidéos courtes, ton cerveau veut du neuf [[toutes les 3 secondes]]"
     },
     "T3": {
      "en": [
@@ -128,7 +128,7 @@
       "imagination to stay",
       "switched on"
      ],
-     "fr": "[[apprendre]] garde ton [[attention]], ta [[mémoire]] et ton [[imagination]] en éveil"
+     "fr": "un livre [[t'oblige]] à garder [[attention]], [[mémoire]] et [[imagination]] allumées"
     },
     "T4": {
      "en": [
@@ -136,7 +136,7 @@
       "feel sharper again, replace",
       "your scrolling with reading"
      ],
-     "fr": "si tu veux que ton cerveau [[redevienne vif]], remplace ton scroll par un truc à apprendre"
+     "fr": "si tu veux [[retrouver un cerveau vif]], remplace ton scroll par de la lecture"
     },
     "T5": {
      "en": [
@@ -145,7 +145,7 @@
       "can move your phone to a",
       "different room"
      ],
-     "fr": "moi, je fais 5 minutes sur l'appli Sophia, ou tu peux laisser ton tel dans une autre pièce"
+     "fr": "perso je remplace mon scroll par 5 min sur l'appli Sophia, sinon mets ton tel dans une autre pièce"
     }
    },
    "images": {
@@ -158,14 +158,14 @@
      "en": [
       "play and study chess"
      ],
-     "fr": "joue et étudie les échecs"
+     "fr": "mets-toi aux échecs"
     },
     "T2": {
      "en": [
       "chess forces you to calculate ahead, recognise",
       "patterns, and constantly ask “what am I missing?”"
      ],
-     "fr": "les échecs t'obligent à calculer, repérer des schémas et te demander sans cesse « qu'est-ce que je rate ? »"
+     "fr": "aux échecs, tu dois anticiper, repérer des schémas et te demander sans arrêt « je rate quoi ? »"
     },
     "T3": {
      "en": [
@@ -173,7 +173,7 @@
       "games, analyse them",
       "afterwards"
      ],
-     "fr": "ne joue pas juste au hasard, [[analyse tes parties après]]"
+     "fr": "joue pas juste pour jouer, [[décortique tes parties]] après"
     },
     "T4": {
      "en": [
@@ -183,7 +183,7 @@
       "deliberate problem-",
       "solving practice"
      ],
-     "fr": "la science le prouve : [[même 20–30 minutes]] par jour entraînent ton cerveau à [[résoudre des problèmes]]"
+     "fr": "même [[20–30 min par jour]] entraînent ton cerveau à [[résoudre des problèmes]], c'est prouvé"
     }
    },
    "images": {
@@ -197,7 +197,7 @@
       "improve your communication",
       "skills"
      ],
-     "fr": "améliore [[ta communication]]"
+     "fr": "apprends à [[bien communiquer]]"
     },
     "T2": {
      "en": [
@@ -206,14 +206,14 @@
       "understand it deeply",
       "enough"
      ],
-     "fr": "si tu ne sais pas expliquer une idée clairement, tu [[ne la comprends]] sans doute pas assez"
+     "fr": "si t'arrives pas à expliquer une idée simplement, c'est que [[tu l'as pas vraiment comprise]]"
     },
     "T3": {
      "en": [
       "practice writing, speaking,",
       "storytelling, and teaching"
      ],
-     "fr": "entraîne-toi à écrire, parler, raconter et [[enseigner]]"
+     "fr": "exerce-toi à écrire, parler, raconter et [[expliquer]]"
     },
     "T4": {
      "en": [
@@ -222,7 +222,7 @@
       "language forces your brain",
       "to organise them properly"
      ],
-     "fr": "traduire des idées compliquées en mots simples [[force ton cerveau]] à bien les organiser"
+     "fr": "dire un truc compliqué avec des mots simples, ça [[oblige ton cerveau]] à remettre de l'ordre dedans"
     }
    },
    "images": {

@@ -1,4 +1,4 @@
-// Usage : node atelier/cli-livrer.ts <slides-source> <post_id|all> [--langues fr,de] [--essai <dossier>]
+// Usage : node atelier/cli-livrer.ts [sources] <post_id|all> [--langues fr,de] [--essai <dossier>]
 //
 // Rend un post (une version par langue dont la traduction existe :
 // posts/<id>.<langue>.json) et le DÉPOSE dans la file de validation de l'OS
@@ -40,14 +40,14 @@ const essai = opt("--essai");
 const langueSource = langues[0];
 
 const manifeste = JSON.parse(readFileSync("posts/manifeste.json", "utf8")) as Manifeste;
-const posts = manifeste.posts.filter((p) => p.statut === "rendu_fr" && (cible === "all" || p.post_id === cible));
+const posts = manifeste.posts.filter((p) => p.statut !== "exclu" && (cible === "all" || p.post_id === cible));
 if (!posts.length) throw new Error(`aucun post pour « ${cible} »`);
 
 /** Texte lisible d'une slide (blocs dans l'ordre, sans marqueurs de soulignement). */
 function texteSlide(t: Transcription): string {
   return Object.values(t.textes)
     .filter((b) => !b.garder)
-    .map((b) => b.fr.replace(/\[\[|\]\]/g, "").trim())
+    .map((b) => (b.texte ?? b.fr).replace(/\[\[|\]\]/g, "").trim())
     .filter(Boolean)
     .join(" ");
 }

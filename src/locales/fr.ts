@@ -1045,6 +1045,7 @@ export const fr = {
       ecartee: "Écartée : note d'import {{note}} sous le seuil",
       rejete: "Rejetée",
       appli: "slide de l'app",
+      nouvellesLangues: "Nouvelles langues ({{langues}}) pour un post déjà validé",
       statut: {
         a_valider: "À valider",
         validee: "Validée",

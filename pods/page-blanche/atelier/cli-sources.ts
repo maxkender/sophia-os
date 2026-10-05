@@ -10,7 +10,7 @@
 // restent valables d'une session à l'autre.
 // Apify : jeton injecté par le proxy de la session (ou APIFY_TOKEN).
 
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const ACTEUR = "https://api.apify.com/v2/acts/clockworks~tiktok-scraper/run-sync-get-dataset-items";
@@ -21,7 +21,7 @@ type PostManifeste = {
   post_id: string;
   url: string;
   publie_le?: string;
-  vues: number;
+  vues: number | null;
   likes?: number;
   partages?: number;
   enregistrements?: number;
@@ -30,6 +30,8 @@ type PostManifeste = {
   musique: { titre: string | null; auteur?: string | null; original?: boolean; id?: string | null; url_tiktok: string | null };
   statut: string;
   raison_exclusion?: string | null;
+  /** Post original : slide n → slide source réutilisée (« <post_id>_<n> »). */
+  composition?: Record<string, string>;
 };
 type Manifeste = { compte: string; scrape_le: string; posts: PostManifeste[] };
 
@@ -121,9 +123,15 @@ if (i >= 0) {
   console.log(`@${handle} : ${posts.length} slideshows, ${nouveaux} nouveau(x) ajouté(s) au manifeste`);
 } else {
   const cibles = args.length ? args : manifeste.posts.filter((p) => p.statut !== "exclu").map((p) => p.post_id);
+  const originaux = manifeste.posts.filter((p) => p.composition && cibles.includes(p.post_id));
+  // Les slides réutilisées par un post original viennent de leur post d'origine.
+  for (const o of originaux) for (const src of Object.values(o.composition!)) {
+    const id = src.replace(/_\d+$/, "");
+    if (!cibles.includes(id)) cibles.push(id);
+  }
   const manquants = cibles.filter((id) => {
     const p = manifeste.posts.find((m) => m.post_id === id);
-    return p && !existsSync(join(DOSSIER, `${id}_${p.slides}.jpg`));
+    return p && !p.composition && !existsSync(join(DOSSIER, `${id}_${p.slides}.jpg`));
   });
   if (!manquants.length) {
     console.log(`${cibles.length} post(s) : sources déjà là`);
@@ -133,5 +141,11 @@ if (i >= 0) {
     let n = 0;
     for (const p of posts) n += await telecharger(p);
     console.log(`${manquants.length} post(s) récupéré(s), ${n} slide(s) téléchargée(s)`);
+  }
+  for (const o of originaux) {
+    for (const [num, src] of Object.entries(o.composition!)) {
+      copyFileSync(join(DOSSIER, `${src}.jpg`), join(DOSSIER, `${o.post_id}_${num}.jpg`));
+    }
+    console.log(`${o.post_id} (original) : ${Object.keys(o.composition!).length} slide(s) assemblée(s)`);
   }
 }

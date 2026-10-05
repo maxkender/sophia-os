@@ -22,7 +22,7 @@ type Manifeste = {
   posts: {
     post_id: string;
     url: string;
-    vues: number;
+    vues: number | null;
     legende: string;
     statut: string;
     musique: { titre: string | null; url_tiktok: string | null };
@@ -94,9 +94,10 @@ for (const p of posts) {
   const corps = {
     action: "deposer",
     pod: POD,
-    source_url: p.url,
+    source_url: p.url || null,
     source_id: p.post_id,
-    source_vues: p.vues,
+    // Post original : pas de vues source (null, et non 0).
+    source_vues: p.vues ?? undefined,
     titre: textes[0]?.slice(0, 160) ?? null,
     langue_source: langueSource,
     musique_url: p.musique.url_tiktok,

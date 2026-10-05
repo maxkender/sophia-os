@@ -24,8 +24,10 @@ export type ActionImage = "garder" | "sophia_capture" | "sophia_appstore" | "sup
 export type TexteSlide = {
   /** Lignes d'origine telles qu'on les lit (anglais) : servent à calibrer la taille. */
   en: string[];
-  /** Texte traduit, soulignés entre [[ ]]. Retours à la ligne forcés : "\n". */
+  /** Texte à rendre (langue du fichier), soulignés entre [[ ]]. Historique : `fr`. */
   fr: string;
+  /** Même rôle que `fr`, nom neutre pour les fichiers d'autres langues. Prioritaire. */
+  texte?: string;
   alignement?: "gauche" | "droite" | "centre";
   /** Le bloc n'est pas du texte à traduire (barre de recherche, logo pris pour du
    * texte) : on le recopie tel quel depuis la source. */
@@ -151,7 +153,7 @@ export async function rendreSlide(
       dessinerRecadrage(ctx, imgSource, e.boite);
       continue;
     }
-    if (!t.fr.trim()) continue;
+    if (!(t.texte ?? t.fr).trim()) continue;
     dessinerBloc(ctx, e, t, geoTexte, avertissements);
   }
 
@@ -318,7 +320,7 @@ function dessinerBloc(
   const mesure = e.lignes.length > 1 && e.pas > 0 ? e.pas / tailleOrigine : INTERLIGNE_DEFAUT;
   const ratioPas = Math.min(1.45, Math.max(1.12, mesure));
   const alignement = t.alignement ?? e.alignement;
-  const paras = segmenter(t.fr);
+  const paras = segmenter(t.texte ?? t.fr);
   const premiereBase = e.lignes[0].base;
   const largeurOrigine = Math.max(...e.lignes.map((l) => l.l));
   const uneLigne = e.lignes.length === 1;

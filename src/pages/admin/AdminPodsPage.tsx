@@ -74,6 +74,11 @@ function LigneLivraison({ livraison }: { livraison: Livraison }) {
         <div className="min-w-0">
           <p className="truncate text-sm font-medium">{livraison.titre ?? livraison.id}</p>
           <p className="text-xs text-muted-foreground">
+            {livraison.type === "langues" && (
+              <span className="mr-1 font-medium text-foreground">
+                {t("pods.nouvellesLangues", { langues: Object.keys(livraison.decks ?? {}).join(", ") })} ·
+              </span>
+            )}
             {livraison.pod}
             {livraison.source_vues != null && ` · ${t("pods.vues", { n: livraison.source_vues.toLocaleString() })}`}
             {livraison.source_url && (

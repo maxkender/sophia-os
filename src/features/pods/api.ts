@@ -15,6 +15,8 @@ export interface SlideLivraison {
 export interface Livraison {
   id: string;
   pod: string;
+  /** nouveau : un post neuf ; langues : nouvelles langues d'un post déjà validé. */
+  type: "nouveau" | "langues";
   source_url: string | null;
   source_vues: number | null;
   titre: string | null;
@@ -31,7 +33,7 @@ export interface Livraison {
 }
 
 const COLONNES =
-  "id, pod, source_url, source_vues, titre, langue_source, musique_titre, decks, statut, motif, note_import, tier, contenu_id, created_at, decide_le";
+  "id, pod, type, source_url, source_vues, titre, langue_source, musique_titre, decks, statut, motif, note_import, tier, contenu_id, created_at, decide_le";
 
 /** File d'attente (la plus ancienne d'abord) + les 30 dernières décidées. */
 export async function listerLivraisons(): Promise<{ aValider: Livraison[]; decidees: Livraison[] }> {

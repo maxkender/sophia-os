@@ -1043,6 +1043,7 @@ export const en = {
       ecartee: "Set aside: import score {{note}} below threshold",
       rejete: "Rejected",
       appli: "app slide",
+      nouvellesLangues: "New languages ({{langues}}) for an approved post",
       statut: {
         a_valider: "To review",
         validee: "Approved",

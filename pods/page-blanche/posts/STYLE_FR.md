@@ -52,11 +52,29 @@ Plus généralement : pas de « la façon dont », « le fait de », « en terme
 d'expressions anglaises (« rot your brain », « reclaim your life », « deep work »
 → « reprendre le contrôle », « bosser à fond sans interruption »).
 
-## La slide de l'app
-Même voix que le reste, comme un vrai conseil perso, jamais une pub :
-- ✅ « perso j'ai remplacé mon scroll du soir par 5 min sur l'appli Sophia, un truc nouveau chaque jour »
-- Sophia = culture générale en 5 minutes par jour (histoire, art, sciences, philo…).
-  Elle ne bloque **aucune** appli : ne jamais l'écrire.
+## La slide de l'app (règles du prompt OS `placement_sophia`)
+Sophia est une **appli mobile** de culture générale : une leçon de 5 minutes par
+jour (histoire, art, sciences, philo…). Elle ne bloque **aucune** appli.
+
+La logique de la slide : **tant qu'à être sur ton tel, apprends un truc au lieu
+de scroller**. Sophia remplace le scroll, sur le téléphone. Donc jamais :
+- ❌ « je lis un livre à la place, et j'utilise l'appli Sophia » (faut choisir)
+- ❌ « prends n'importe quoi, tant que c'est pas ton tel » (Sophia EST sur le tel)
+- ❌ « l'appli Sophia bloque tiktok »
+- Un conseil « mets ton tel dans une autre pièce » n'est possible que pour le
+  moment de lecture, clairement séparé : « et quand tu lis, laisse ton tel dans
+  une autre pièce ».
+
+Forme :
+- Toujours « l'appli Sophia », jamais « Sophia » seul.
+- Même mode grammatical que le deck : confession (« perso, quand j'ai envie de
+  scroller, j'ouvre l'appli Sophia ») ou instructif (« l'appli Sophia est
+  parfaite pour ça », « utilise l'appli Sophia pour ça »).
+- Une idée, concrète, ~120 caractères pour la phrase Sophia.
+- Interdit : formules de pub, « X n'est pas Y, c'est Z », tiret long, point-virgule.
+- Une app concurrente (ReadUp…) est remplacée entièrement par Sophia.
+- ✅ « perso, quand j'ai envie de scroller, j'ouvre l'appli Sophia à la place, 5 min par jour, et je m'y tiens »
+- ✅ « si t'es scotchée à tiktok, utilise au moins ton tel pour apprendre. l'appli Sophia est parfaite pour ça »
 
 ## Le test final (obligatoire, slide par slide)
 Lis chaque slide à voix haute dans ta tête. Si tu tiques une seule fois

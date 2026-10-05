@@ -59,8 +59,14 @@ actuel. On ne repart jamais de zéro et on ne perd jamais une version.
    - **Anglais** : pars du texte anglais d'origine (lignes `en`), sans les
      retoucher, et ajoute les soulignés. Seule la slide de l'app est réécrite :
      « the Sophia app », culture générale en 5 minutes par jour.
-   - **Slide de l'app** : un vrai conseil perso, jamais une pub. Sophia ne
-     bloque aucune appli : ne l'écris jamais.
+   - **Slide de l'app** : applique les règles de la section « La slide de
+     l'app » de STYLE_FR.md dans toutes les langues (ce sont celles du prompt
+     OS `placement_sophia`). Sophia est une **appli mobile** : elle remplace le
+     scroll sur le téléphone. Jamais « lis un livre ET utilise Sophia », jamais
+     « n'importe quoi sauf ton tel », jamais « Sophia bloque tes applis ».
+     Toujours le nom complet traduit (« the Sophia app », « die Sophia-App »…),
+     même mode grammatical que le deck, ~120 caractères, ni tiret long ni
+     point-virgule, pas de formule de pub.
 3. Rends chaque post, regarde la planche, corrige les débordements.
 4. Commite les fichiers, puis `npm run livrer -- sources all --langues <langue>`.
    - Post encore en attente de validation : sa nouvelle langue s'y ajoute.

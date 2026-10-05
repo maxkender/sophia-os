@@ -1042,6 +1042,8 @@ export const en = {
       valide: "Approved — tier {{tier}} (score {{note}})",
       ecartee: "Set aside: import score {{note}} below threshold",
       rejete: "Rejected",
+      label: "label {{label}}",
+      inactif: "inactive",
       appli: "app slide",
       nouvellesLangues: "New languages ({{langues}}) for an approved post",
       statut: {

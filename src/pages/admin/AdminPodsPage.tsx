@@ -11,6 +11,8 @@ import { drapeauLangue } from "@/features/moteur/langues";
 import {
   languesOrdonnees,
   listerLivraisons,
+  listerPods,
+  parPod,
   rejeterLivraison,
   validerLivraison,
   type Livraison,
@@ -79,8 +81,7 @@ function LigneLivraison({ livraison }: { livraison: Livraison }) {
                 {t("pods.nouvellesLangues", { langues: Object.keys(livraison.decks ?? {}).join(", ") })} ·
               </span>
             )}
-            {livraison.pod}
-            {livraison.source_vues != null && ` · ${t("pods.vues", { n: livraison.source_vues.toLocaleString() })}`}
+            {livraison.source_vues != null && t("pods.vues", { n: livraison.source_vues.toLocaleString() })}
             {livraison.source_url && (
               <a className="ml-2 inline-flex items-center gap-1 underline" href={livraison.source_url} target="_blank" rel="noreferrer">
                 {t("pods.source")} <ExternalLink className="size-3" />
@@ -120,6 +121,13 @@ function LigneLivraison({ livraison }: { livraison: Livraison }) {
 export function AdminPodsPage() {
   const { t } = useTranslation();
   const { data, isLoading, error } = useQuery({ queryKey: ["pods", "livraisons"], queryFn: listerLivraisons });
+  const pods = useQuery({ queryKey: ["pods", "liste"], queryFn: listerPods });
+
+  const liste = pods.data ?? [];
+  const attente = parPod(liste, data?.aValider ?? []);
+  const faites = parPod(liste, data?.decidees ?? []);
+  const slugs = [...new Set([...attente.keys(), ...faites.keys()])];
+  const infos = (slug: string) => liste.find((p) => p.slug === slug);
 
   return (
     <div className="space-y-6">
@@ -128,37 +136,63 @@ export function AdminPodsPage() {
           <CardTitle>{t("pods.title")}</CardTitle>
           <CardDescription>{t("pods.subtitle")}</CardDescription>
         </CardHeader>
-      </Card>
-
-      {error && <p className="text-sm text-destructive">{(error as Error).message}</p>}
-
-      <Card>
-        <CardHeader>
-          <CardTitle>
-            {t("pods.aValider")} {data ? `(${data.aValider.length})` : ""}
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          {isLoading ? null : data?.aValider.length ? (
-            data.aValider.map((l) => <LigneLivraison key={l.id} livraison={l} />)
-          ) : (
-            <EmptyState icon={<Boxes />} title={t("pods.vide")} description={t("pods.videDesc")} />
-          )}
-        </CardContent>
-      </Card>
-
-      {!!data?.decidees.length && (
-        <Card>
-          <CardHeader>
-            <CardTitle>{t("pods.historique")}</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            {data.decidees.map((l) => (
-              <LigneLivraison key={l.id} livraison={l} />
+        {slugs.length > 1 && (
+          <CardContent className="flex flex-wrap gap-2">
+            {slugs.map((slug) => (
+              <a key={slug} href={`#pod-${slug}`}>
+                <Badge variant={attente.get(slug)?.length ? "warning" : "secondary"}>
+                  {infos(slug)?.nom ?? slug} · {t("pods.aValider")} {attente.get(slug)?.length ?? 0}
+                </Badge>
+              </a>
             ))}
           </CardContent>
-        </Card>
+        )}
+      </Card>
+
+      {(error || pods.error) && <p className="text-sm text-destructive">{((error ?? pods.error) as Error).message}</p>}
+
+      {!isLoading && !slugs.length && (
+        <EmptyState icon={<Boxes />} title={t("pods.vide")} description={t("pods.videDesc")} />
       )}
+
+      {slugs.map((slug) => {
+        const pod = infos(slug);
+        const aValider = attente.get(slug) ?? [];
+        const decidees = faites.get(slug) ?? [];
+        return (
+          <Card key={slug} id={`pod-${slug}`}>
+            <CardHeader>
+              <CardTitle className="flex flex-wrap items-center gap-2">
+                {pod?.nom ?? slug}
+                {pod?.label && <Badge variant="secondary">{t("pods.label", { label: pod.label })}</Badge>}
+                {pod && !pod.actif && <Badge variant="destructive">{t("pods.inactif")}</Badge>}
+              </CardTitle>
+              <CardDescription>
+                {t("pods.aValider")} ({aValider.length})
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              {aValider.length ? (
+                aValider.map((l) => <LigneLivraison key={l.id} livraison={l} />)
+              ) : (
+                <p className="text-sm text-muted-foreground">{t("pods.vide")}</p>
+              )}
+              {!!decidees.length && (
+                <details className="space-y-4">
+                  <summary className="cursor-pointer text-sm font-medium">
+                    {t("pods.historique")} ({decidees.length})
+                  </summary>
+                  <div className="mt-4 space-y-4">
+                    {decidees.map((l) => (
+                      <LigneLivraison key={l.id} livraison={l} />
+                    ))}
+                  </div>
+                </details>
+              )}
+            </CardContent>
+          </Card>
+        );
+      })}
     </div>
   );
 }

@@ -44,20 +44,28 @@ function Deck({ livraison }: { livraison: Livraison }) {
       )}
       <div className="flex gap-2 overflow-x-auto pb-1">
         {deck?.slides.map((s) => (
-          <a key={s.position} href={s.url} target="_blank" rel="noreferrer" className="relative shrink-0">
-            {s.texte_overlay !== undefined && (
-              <span className="absolute inset-x-2 top-1/2 -translate-y-1/2 whitespace-pre-line rounded bg-black/50 p-1 text-center text-[10px] leading-tight text-white">
-                {s.texte_overlay}
-              </span>
+          <div key={s.position} className="w-32 shrink-0 space-y-1">
+            <a href={s.url} target="_blank" rel="noreferrer" className="relative block">
+              {s.texte_overlay !== undefined && (
+                <span className="absolute inset-x-1 top-1/2 -translate-y-1/2 whitespace-pre-line rounded bg-black/50 p-1 text-center text-[9px] leading-tight text-white">
+                  {s.texte_sophia ?? s.texte_overlay}
+                </span>
+              )}
+              <img
+                src={s.url}
+                alt={`slide ${s.position}`}
+                loading="lazy"
+                className={`h-56 w-full rounded-md border object-cover ${s.position_sophia ? "ring-2 ring-primary" : ""}`}
+              />
+            </a>
+            {s.position_sophia && <p className="text-center text-xs text-primary">{t("pods.appli")}</p>}
+            {s.reference_url && (
+              <a href={s.reference_url} target="_blank" rel="noreferrer" className="block" title={t("pods.inspiration")}>
+                <img src={s.reference_url} alt="" loading="lazy" className="h-16 w-auto rounded border opacity-80" />
+                <span className="text-[10px] text-muted-foreground">{t("pods.inspiration")}</span>
+              </a>
             )}
-            <img
-              src={s.url}
-              alt={`slide ${s.position}`}
-              loading="lazy"
-              className={`h-56 w-auto rounded-md border ${s.position_sophia ? "ring-2 ring-primary" : ""}`}
-            />
-            {s.position_sophia && <p className="mt-0.5 text-center text-xs text-primary">{t("pods.appli")}</p>}
-          </a>
+          </div>
         ))}
       </div>
       {deck?.hashtags && <p className="text-xs text-muted-foreground">{deck.hashtags}</p>}

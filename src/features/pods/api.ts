@@ -12,6 +12,10 @@ export interface SlideLivraison {
   position_sophia: boolean;
   /** Original traduisible : le texte que le poster posera (image sans texte). */
   texte_overlay?: string;
+  /** Original : la version Sophia de cette slide (langue source). */
+  texte_sophia?: string | null;
+  /** Original : slide TikTok d'inspiration, modèle de mise en page du poster. */
+  reference_url?: string;
 }
 
 export interface Livraison {

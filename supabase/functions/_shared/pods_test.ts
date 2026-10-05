@@ -29,15 +29,27 @@ Deno.test("sha256Hex", async () => {
   assertEquals(await sha256Hex("abc"), "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad");
 });
 
-Deno.test("verifierOriginal : positions, images, longueurs, aucune appli", () => {
+Deno.test("verifierOriginal : positions, images, une slide Sophia, inspiration, aucune autre appli", () => {
   const id = (n: number) => `00000000-0000-4000-8000-00000000000${n}`;
-  const ok = [1, 2, 3, 4, 5, 6].map((p) => ({ position: p, media_id: id(p), texte_overlay: `slide ${p}` }));
+  const ref = (n: number) => `https://abc.supabase.co/storage/v1/object/public/medias/brut/7667/${n}.jpg`;
+  const ok = [1, 2, 3, 4, 5, 6].map((p) => ({
+    position: p,
+    media_id: id(p),
+    texte_overlay: `slide ${p}`,
+    reference_url: ref(p),
+    texte_sophia: p === 5 ? "a micro-learning app like the Sophia app" : undefined,
+  }));
+  const avec = (i: number, champ: Record<string, unknown>) => ok.map((s, k) => (k === i ? { ...s, ...champ } : s));
   assertEquals(verifierOriginal(ok), []);
   assertEquals(verifierOriginal(ok.slice(0, 3)).length > 0, true);
-  assertEquals(verifierOriginal([...ok.slice(0, 5), { ...ok[5], position: 7 }]).length > 0, true);
-  assertEquals(verifierOriginal([...ok.slice(0, 5), { ...ok[5], media_id: id(1) }]), ["même image utilisée deux fois"]);
-  assertEquals(verifierOriginal([...ok.slice(0, 5), { ...ok[5], texte_overlay: "i use the sophia app" }]).length, 1);
-  assertEquals(verifierOriginal([...ok.slice(0, 5), { ...ok[5], texte_overlay: "the vent now app helped" }]).length, 1);
-  assertEquals(verifierOriginal([{ ...ok[0], texte_overlay: "x".repeat(121) }, ...ok.slice(1)]).length, 1);
-  assertEquals(verifierOriginal([...ok.slice(0, 5), { ...ok[5], texte_overlay: " " }]), ["#6 : texte vide"]);
+  assertEquals(verifierOriginal(avec(5, { position: 7 })).length > 0, true);
+  assertEquals(verifierOriginal(avec(5, { media_id: id(1) })), ["même image utilisée deux fois"]);
+  assertEquals(verifierOriginal(avec(5, { texte_overlay: "i use the sophia app" })).length, 1);
+  assertEquals(verifierOriginal(avec(5, { texte_overlay: "the vent now app helped" })).length, 1);
+  assertEquals(verifierOriginal(avec(0, { texte_overlay: "x".repeat(121) })).length, 1);
+  assertEquals(verifierOriginal(avec(5, { texte_overlay: " " })), ["#6 : texte vide"]);
+  assertEquals(verifierOriginal(avec(4, { texte_sophia: null })), ["0 slide(s) Sophia (une seule attendue)"]);
+  assertEquals(verifierOriginal(avec(3, { texte_sophia: "the Sophia app" })).length, 1);
+  assertEquals(verifierOriginal(avec(4, { texte_sophia: "a micro-learning app" })).length, 1);
+  assertEquals(verifierOriginal(avec(2, { reference_url: "https://p16.tiktokcdn.com/x.jpg" })).length, 1);
 });

@@ -4,40 +4,46 @@
  "musique_titre": "Ballad to a Mexican Desert",
  "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
  "inspirations": [
-  "138af0c6",
-  "648e59e7"
+  "b3df0deb-11c0-49cb-a3d1-4d6b7629b3d1"
  ],
- "notes": "Inspiré du top 20 @mentoridaily (r médian chez nous). Accroche gagnante, items neufs (aucun item surexploité), slide 5 = apprentissage pour le placement Sophia.",
+ "notes": "Inspiré de nos posts publiés les plus vus de @mentoridaily (avec slide Sophia). Images et slides d'inspiration : contenu b3df0deb. Accroche gagnante, items neufs, slide 5 = Sophia (anglais) ; les autres langues reçoivent la base traduite et le placement de l'OS.",
  "slides": [
   {
    "position": 1,
-   "media_id": "47ba48ef",
-   "texte_overlay": "hobbies that will make you\ndangerously confident"
+   "media_id": "5106dbab-9f90-46a8-9480-4366f06714d1",
+   "texte_overlay": "hobbies that will make you\ndangerously confident",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664974915556101398/1.jpg"
   },
   {
    "position": 2,
-   "media_id": "13c14ee1",
-   "texte_overlay": "asking for directions\n\nask a stranger for directions once a week, even when you know the way. small, harmless asks slowly rewire the fear of needing people."
+   "media_id": "291bc28a-8413-4b80-a306-42ff87c0e7e8",
+   "texte_overlay": "asking for directions\n\nask a stranger for directions once a week, even when you know the way. small, harmless asks slowly rewire the fear of needing people.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664974915556101398/2.jpg"
   },
   {
    "position": 3,
-   "media_id": "5e3de692",
-   "texte_overlay": "the two second pause\n\nwhen someone asks your opinion, wait two full seconds before answering. people who don't rush to fill silence look like they've already thought it through."
+   "media_id": "402fcf7e-f63a-4726-90d9-e5e29e38fd93",
+   "texte_overlay": "the two second pause\n\nwhen someone asks your opinion, wait two full seconds before answering. people who don't rush to fill silence look like they've already thought it through.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664974915556101398/3.jpg"
   },
   {
    "position": 4,
-   "media_id": "71463f55",
-   "texte_overlay": "handwritten letters\n\nwrite one handwritten letter a month to someone who shaped you, and actually send it. saying the true thing on paper makes saying it out loud so much easier."
+   "media_id": "552c7767-a647-4f98-b275-279882cc4061",
+   "texte_overlay": "handwritten letters\n\nwrite one handwritten letter a month to someone who shaped you, and actually send it. saying the true thing on paper makes saying it out loud so much easier.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664974915556101398/4.jpg"
   },
   {
    "position": 5,
-   "media_id": "7913645c",
-   "texte_overlay": "a lesson a day\n\nlearn one small thing every morning before opening social media: a battle, a word in another language, a fact about space. 5 minutes a day is almost 30 hours of knowledge a year."
+   "media_id": "59ad5904-ed34-4294-8fda-c7f7265e2f93",
+   "texte_overlay": "a lesson a day\n\nlearn one small thing every morning before opening social media: a battle, a word in another language, a fact about space. 5 minutes a day is almost 30 hours of knowledge a year.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664974915556101398/5.jpg",
+   "texte_sophia": "a lesson a day\n\nlearn one small thing every morning before opening social media. a micro-learning app like the Sophia app gives you a 5 minute lesson on history, art or science. that's almost 30 hours of knowledge a year."
   },
   {
    "position": 6,
-   "media_id": "1922bd44",
-   "texte_overlay": "empty handed walking\n\nwalk somewhere with nothing in your hands. no phone, no coffee, no bag. people who don't need something to hold look like they own the space."
+   "media_id": "2bfdae1e-7867-48f4-8d5e-4ab51fb5358a",
+   "texte_overlay": "empty handed walking\n\nwalk somewhere with nothing in your hands. no phone, no coffee, no bag. people who don't need something to hold look like they own the space.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664974915556101398/6.jpg"
   }
  ]
 }

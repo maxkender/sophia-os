@@ -4,40 +4,46 @@
  "musique_titre": "Ballad to a Mexican Desert",
  "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
  "inspirations": [
-  "5b39aa5e",
-  "2270832d"
+  "2270832d-a014-4226-8bd2-d93b7d026920"
  ],
- "notes": "Inspiré du top 20 @mentoridaily (r médian chez nous). Accroche gagnante, items neufs (aucun item surexploité), slide 5 = apprentissage pour le placement Sophia.",
+ "notes": "Inspiré de nos posts publiés les plus vus de @mentoridaily (avec slide Sophia). Images et slides d'inspiration : contenu 2270832d. Accroche gagnante, items neufs, slide 5 = Sophia (anglais) ; les autres langues reçoivent la base traduite et le placement de l'OS.",
  "slides": [
   {
    "position": 1,
-   "media_id": "993f48d9",
-   "texte_overlay": "hobbies that will make you\ndisgustingly intelligent"
+   "media_id": "f7908bab-3464-4819-a1db-59bcf18f7f18",
+   "texte_overlay": "hobbies that will make you\ndisgustingly intelligent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657876880472804630/1.jpg"
   },
   {
    "position": 2,
-   "media_id": "2c2fc0f7",
-   "texte_overlay": "question diary\n\nwrite down every question that crosses your mind today, even the dumb ones. by sunday you'll see what your brain is actually curious about when nobody's grading it."
+   "media_id": "6f8214f1-093a-46ec-8419-e089fda217a4",
+   "texte_overlay": "question diary\n\nwrite down every question that crosses your mind today, even the dumb ones. by sunday you'll see what your brain is actually curious about when nobody's grading it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657876880472804630/2.jpg"
   },
   {
    "position": 3,
-   "media_id": "6615a9ff",
-   "texte_overlay": "opposite reading\n\nread one article a week from someone you completely disagree with, start to finish. if you can't explain their argument, you haven't really understood yours either."
+   "media_id": "8fc70692-d01c-4fe9-9ebe-0054a88ea83b",
+   "texte_overlay": "opposite reading\n\nread one article a week from someone you completely disagree with, start to finish. if you can't explain their argument, you haven't really understood yours either.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657876880472804630/3.jpg"
   },
   {
    "position": 4,
-   "media_id": "8258f5a6",
-   "texte_overlay": "walking explanations\n\non a walk, explain one idea out loud to an imaginary friend. the moment you get lost mid-sentence is exactly where your understanding stops."
+   "media_id": "e239827b-0e33-4f01-9b5e-62a9d7da6420",
+   "texte_overlay": "walking explanations\n\non a walk, explain one idea out loud to an imaginary friend. the moment you get lost mid-sentence is exactly where your understanding stops.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657876880472804630/4.jpg"
   },
   {
    "position": 5,
-   "media_id": "ff092336",
-   "texte_overlay": "one rabbit hole a day\n\npick one thing you saw today and spend 5 minutes finding out where it comes from: a word, a painting, a date in history. small daily curiosity adds up to a mind people want to listen to."
+   "media_id": "8172a31f-83ae-42b9-87a7-419b0cdea9ff",
+   "texte_overlay": "one rabbit hole a day\n\npick one thing you saw today and spend 5 minutes finding out where it comes from: a word, a painting, a date in history. small daily curiosity adds up to a mind people want to listen to.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657876880472804630/5.jpg",
+   "texte_sophia": "one rabbit hole a day\n\npick one thing you saw today and spend 5 minutes finding out where it comes from. a micro-learning app like the Sophia app is perfect for this, short lessons on art, history or science."
   },
   {
    "position": 6,
-   "media_id": "e33e7540",
-   "texte_overlay": "slow notes\n\nafter anything you read, close it and write three lines from memory. whatever you can't rebuild was never really yours."
+   "media_id": "71463f55-89b0-4b3a-9e35-f25123761bee",
+   "texte_overlay": "slow notes\n\nafter anything you read, close it and write three lines from memory. whatever you can't rebuild was never really yours.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657876880472804630/6.jpg"
   }
  ]
 }

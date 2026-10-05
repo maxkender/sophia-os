@@ -17,7 +17,16 @@ export async function appelPod<T = Record<string, unknown>>(corps: Record<string
   return json;
 }
 
-export type SlideOriginale = { position: number; media_id: string; texte_overlay: string };
+export type SlideOriginale = {
+  position: number;
+  media_id: string;
+  /** Texte de base, SANS appli (l'OS le traduit pour chaque langue). */
+  texte_overlay: string;
+  /** Sur une slide : la version anglaise avec l'appli Sophia (servie aux comptes anglais). */
+  texte_sophia?: string;
+  /** Slide TikTok d'inspiration (medias/brut/…) : le modèle de mise en page du poster. */
+  reference_url: string;
+};
 
 /** Un original, tel qu'écrit dans originaux/<source_id>.json. */
 export type Original = {

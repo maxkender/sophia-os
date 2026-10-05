@@ -44,7 +44,12 @@ function Deck({ livraison }: { livraison: Livraison }) {
       )}
       <div className="flex gap-2 overflow-x-auto pb-1">
         {deck?.slides.map((s) => (
-          <a key={s.position} href={s.url} target="_blank" rel="noreferrer" className="shrink-0">
+          <a key={s.position} href={s.url} target="_blank" rel="noreferrer" className="relative shrink-0">
+            {s.texte_overlay !== undefined && (
+              <span className="absolute inset-x-2 top-1/2 -translate-y-1/2 whitespace-pre-line rounded bg-black/50 p-1 text-center text-[10px] leading-tight text-white">
+                {s.texte_overlay}
+              </span>
+            )}
             <img
               src={s.url}
               alt={`slide ${s.position}`}
@@ -76,6 +81,9 @@ function LigneLivraison({ livraison }: { livraison: Livraison }) {
         <div className="min-w-0">
           <p className="truncate text-sm font-medium">{livraison.titre ?? livraison.id}</p>
           <p className="text-xs text-muted-foreground">
+            {livraison.type === "original" && (
+              <span className="mr-1 font-medium text-foreground">{t("pods.original")} · </span>
+            )}
             {livraison.type === "langues" && (
               <span className="mr-1 font-medium text-foreground">
                 {t("pods.nouvellesLangues", { langues: Object.keys(livraison.decks ?? {}).join(", ") })} ·

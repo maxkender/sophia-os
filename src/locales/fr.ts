@@ -1046,6 +1046,7 @@ export const fr = {
       rejete: "Rejetée",
       label: "label {{label}}",
       inactif: "inactif",
+      original: "Original (traduit et placé par l'OS à l'assignation, rang B)",
       appli: "slide de l'app",
       nouvellesLangues: "Nouvelles langues ({{langues}}) pour un post déjà validé",
       statut: {

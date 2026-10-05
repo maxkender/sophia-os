@@ -10,13 +10,19 @@ export interface SlideLivraison {
   media_id: string;
   url: string;
   position_sophia: boolean;
+  /** Original traduisible : le texte que le poster posera (image sans texte). */
+  texte_overlay?: string;
 }
 
 export interface Livraison {
   id: string;
   pod: string;
-  /** nouveau : un post neuf ; langues : nouvelles langues d'un post déjà validé. */
-  type: "nouveau" | "langues";
+  /**
+   * nouveau : un post neuf (images finies) ; langues : nouvelles langues d'un
+   * post déjà validé ; original : texte + images de la banque, traduit et placé
+   * par l'OS à l'assignation.
+   */
+  type: "nouveau" | "langues" | "original";
   source_url: string | null;
   source_vues: number | null;
   titre: string | null;

@@ -1,0 +1,58 @@
+{
+ "post_id": "7691336990419209505",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": { "en": ["10/10 habits to stop in your 20s"], "fr": "10/10 habitudes à arrêter à 20 ans" },
+    "T2": { "en": ["(harsh truth)"], "fr": "(dure vérité)", "alignement": "droite" }
+   },
+   "images": { "I1": "garder" }
+  },
+  "2": {
+   "textes": {
+    "T1": { "en": ["waiting until you feel ready"], "fr": "attendre de [[te sentir prêt]]" },
+    "T2": { "en": ["putting things off feels harmless in the moment,", "but it slowly becomes your default response to", "anything difficult"], "fr": "remettre à plus tard [[paraît anodin]] sur le moment, mais ça devient vite [[ton réflexe face à tout ce qui est dur]]" },
+    "T3": { "en": ["the longer you", "avoid something,", "the heavier it feels"], "fr": "plus tu évites un truc, plus il te paraît [[lourd]]" },
+    "T4": { "en": ["start before you feel ready. your 20s disappear", "quickly when everything important keeps getting", "pushed to “tomorrow”"], "fr": "commence [[avant de te sentir prêt]]. [[tes 20 ans filent vite]] quand tout ce qui compte est repoussé à “demain”" }
+   },
+   "images": { "I1": "garder" }
+  },
+  "3": {
+   "textes": {
+    "T1": { "en": ["seeking approval from everyone"], "fr": "chercher l'approbation de tous" },
+    "T2": { "en": ["if every decision has to make your friends, family,", "or strangers online happy, you’ll slowly build a life", "that doesn’t even feel like yours"], "fr": "si chaque décision doit plaire à tes amis, ta famille ou [[des inconnus en ligne]], tu te construis peu à peu une vie [[qui ne te ressemble même pas]]" },
+    "T3": { "en": ["learn to", "disappoint", "people", "sometimes"], "fr": "apprends à [[décevoir les gens parfois]]" },
+    "T4": { "en": ["your 20s are for figuring out what you actually", "want, not performing for everyone else"], "fr": "tes 20 ans servent à trouver [[ce que tu veux vraiment]], pas à jouer un rôle pour les autres" }
+   },
+   "images": { "I1": "garder" }
+  },
+  "4": {
+   "textes": {
+    "T1": { "en": ["scrolling whenever you're bored"], "fr": "scroller [[dès que tu t'ennuies]]" },
+    "T2": { "en": ["you can lose 2–3 hours a day without even noticing,", "then wonder why you have no time for the things you", "care about"], "fr": "tu peux perdre [[2–3 heures par jour sans même t'en rendre compte]], puis te demander pourquoi tu n'as [[pas le temps]] pour [[ce qui compte pour toi]]" },
+    "T3": { "en": ["be deliberate with your", "time."], "fr": "[[sois intentionnel]] avec ton temps." },
+    "T4": { "en": ["i personally use readup to", "block tiktok until i read for", "20 minutes, which keeps", "me from mindlessly scrolling"], "fr": "perso, je remplace le scroll par [[5 minutes sur l'appli Sophia]], ça m'évite de scroller sans réfléchir" },
+    "T5": { "en": ["your phone can wait until", "you have done one thing", "you meant to do."], "fr": "ton tel peut attendre que t'aies fait [[ce que tu voulais faire]]." }
+   },
+   "images": { "I1": "sophia_capture" }
+  },
+  "5": {
+   "textes": {
+    "T1": { "en": ["saying yes to everything"], "fr": "dire oui à [[tout]]" },
+    "T2": { "en": ["you agree to the plan, the", "favor, the extra work. then", "spend the week resenting it."], "fr": "tu acceptes le plan, le service, le taf en plus. puis tu passes la semaine [[à le regretter]]." },
+    "T3": { "en": ["pause before you answer. a", "simple “i can't this time”", "saves you from a promise", "you never wanted to make."], "fr": "fais une pause avant de répondre. un simple “pas cette fois” t'évite une promesse que tu ne voulais pas faire." },
+    "T4": { "en": ["every automatic yes is", "time you already gave", "away."], "fr": "chaque oui automatique, c'est [[du temps déjà donné]]." }
+   },
+   "images": { "I1": "garder" }
+  },
+  "6": {
+   "textes": {
+    "T1": { "en": ["comparing yourself to others"], "fr": "te comparer aux autres" },
+    "T2": { "en": ["you’re comparing your everyday life to someone", "else’s best moments, biggest wins, and carefully", "edited highlights"], "fr": "tu compares [[ton quotidien]] aux meilleurs moments, aux plus grosses victoires et [[aux highlights bien retouchés]] des autres" },
+    "T3": { "en": ["it makes your own", "progress feel smaller", "than it actually is"], "fr": "tes propres progrès [[paraissent plus petits qu'ils ne sont]]" },
+    "T4": { "en": ["use other people as", "proof of what’s possible,", "not as a reason to feel", "behind"], "fr": "vois les autres comme [[la preuve que c'est possible]], pas pour te sentir en retard" }
+   },
+   "images": { "I1": "garder" }
+  }
+ }
+}

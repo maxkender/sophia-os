@@ -1,0 +1,57 @@
+{
+ "post_id": "7691007701127564576",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": { "en": ["10/10 hobbies to make you", "dangerously disciplined"], "fr": "10/10 hobbies qui te rendent dangereusement discipliné" },
+    "T2": { "en": ["(neuroscience approved)"], "fr": "(validé par les neurosciences)", "alignement": "droite" }
+   },
+   "images": { "I1": "garder" }
+  },
+  "2": {
+   "textes": {
+    "T1": { "en": ["work out in the morning"], "fr": "fais du sport [[le matin]]" },
+    "T2": { "en": ["your cortisol is at it's peak in the morning, and how", "you begin your day sets the mood for the rest of it"], "fr": "ton cortisol est [[à son pic le matin]], et la façon dont tu commences ta journée [[donne le ton pour la suite]]" },
+    "T3": { "en": ["working out helps", "you practice delayed", "gratification, in a", "world that runs on", "short-form content"], "fr": "le sport t'apprend la [[gratification différée]], dans un monde qui tourne aux [[vidéos courtes]]" },
+    "T4": { "en": ["discipline gets easier when discomfort becomes part", "of the routine"], "fr": "la discipline devient plus facile quand [[l'inconfort]] fait [[partie de la routine]]" }
+   },
+   "images": { "I1": "garder" }
+  },
+  "3": {
+   "textes": {
+    "T1": { "en": ["learn a difficult instrument"], "fr": "apprends [[un instrument difficile]]" },
+    "T2": { "en": ["you can't shortcut being bad at piano, guitar,", "drums, whatever"], "fr": "[[pas de raccourci]] : au début tu es nul au piano, à la guitare, à la batterie" },
+    "T3": { "en": ["progress comes from", "repeating boring", "fundamentals until they", "finally become automatic"], "fr": "le progrès vient de la [[répétition des bases ennuyeuses]] jusqu'à ce qu'elles deviennent automatiques" },
+    "T4": { "en": ["it teaches patience, consistency, and delayed", "gratification better than most productivity advice"], "fr": "ça t'apprend [[la patience, la régularité et la gratification différée]] mieux que la plupart des conseils de productivité" }
+   },
+   "images": { "I1": "garder" }
+  },
+  "4": {
+   "textes": {
+    "T1": { "en": ["read a book everyday"], "fr": "apprends un truc [[chaque jour]]" },
+    "T2": { "en": ["you say you want to read", "more, then find yourself", "scrolling all day"], "fr": "tu dis que tu veux [[apprendre plus]], puis tu te retrouves [[à scroller toute la journée]]" },
+    "T3": { "en": ["i used to be the same until", "i found readup which", "blocks my apps until i read", "for 20 minutes"], "fr": "[[j'étais pareil]] jusqu'à ce que je trouve l'appli Sophia : [[5 minutes de culture générale par jour]]" },
+    "T4": { "en": ["it builds patience, attention,", "memory, and the ability to", "keep going without constant", "stimulation"], "fr": "ça muscle ta curiosité, ta mémoire et ta capacité à apprendre [[sans stimulation constante]]" }
+   },
+   "images": { "I1": "sophia_capture" }
+  },
+  "5": {
+   "textes": {
+    "T1": { "en": ["train a martial art"], "fr": "pratique un art martial" },
+    "T2": { "en": ["you get corrected constantly, exposed when your", "technique is bad, and forced to keep going when", "you're tired"], "fr": "tu te fais [[corriger sans arrêt]], tu es exposé quand ta technique est mauvaise, et forcé de continuer [[quand tu es fatigué]]" },
+    "T3": { "en": ["martial arts teaches", "you to stay calm under", "pressure"], "fr": "les arts martiaux t'apprennent à rester [[calme sous la pression]]" },
+    "T4": { "en": ["instead of quitting the", "second something gets", "uncomfortable"], "fr": "au lieu d'abandonner dès que ça devient inconfortable" }
+   },
+   "images": { "I1": "garder" }
+  },
+  "6": {
+   "textes": {
+    "T1": { "en": ["study longer than you want to"], "fr": "étudie [[plus longtemps que tu n'en as envie]]" },
+    "T2": { "en": ["the useful part usually starts when your brain", "wants to quit"], "fr": "la partie utile commence souvent quand ton [[cerveau veut abandonner]]" },
+    "T3": { "en": ["stay for another", "20–30 minutes", "after you feel", "bored, distracted,", "or restless"], "fr": "reste encore 20 à 30 minutes [[après]] t'être senti lassé, distrait ou agité" },
+    "T4": { "en": ["you're not just learning the subject, you're training", "yourself to keep going when motivation disappears"], "fr": "tu n'apprends pas juste la matière, tu t'entraînes [[à continuer quand la motivation disparaît]]" }
+   },
+   "images": { "I1": "garder" }
+  }
+ }
+}

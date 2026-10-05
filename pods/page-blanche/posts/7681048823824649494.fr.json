@@ -1,0 +1,187 @@
+{
+ "post_id": "7681048823824649494",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "5 things i did that fixed my",
+      "phone addiction"
+     ],
+     "fr": "5 trucs qui ont réglé mon addiction"
+    },
+    "T2": {
+     "en": [
+      "(from 14 hours",
+      "screen time to 3)"
+     ],
+     "fr": "(de 14 h d'écran par jour à 3)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "1. set my phone to greyscale"
+     ],
+     "fr": "1. écran en noir et blanc"
+    },
+    "T2": {
+     "en": [
+      "everyone says to do it",
+      "but it actually helps,",
+      "keep it grey for tiktok",
+      "and reels too."
+     ],
+     "fr": "tout le monde le dit mais ça aide vraiment, garde-le en gris pour tiktok et les reels aussi."
+    },
+    "T3": {
+     "en": [
+      "scrolling is so",
+      "boring now"
+     ],
+     "fr": "scroller est devenu trop ennuyeux"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stopped watching youtube"
+     ],
+     "fr": "2. j'ai arrêté youtube"
+    },
+    "T2": {
+     "en": [
+      "on my phone when eating"
+     ],
+     "fr": "sur mon téléphone en mangeant"
+    },
+    "T3": {
+     "en": [
+      "look i know it",
+      "feels impossible",
+      "but after trying it",
+      "for a few days",
+      "my mind feels",
+      "so much clearer"
+     ],
+     "fr": "je sais, ça paraît impossible, mais après quelques jours j'ai l'esprit tellement plus clair"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "3. i leave my phone"
+     ],
+     "fr": "3. je laisse mon téléphone"
+    },
+    "T2": {
+     "en": [
+      "on my desk with an alarm"
+     ],
+     "fr": "sur mon bureau avec un réveil"
+    },
+    "T3": {
+     "en": [
+      "i used to keep it by my",
+      "bed but would just turn",
+      "it off and scroll for",
+      "hours"
+     ],
+     "fr": "avant je le gardais près du lit, mais je coupais l'alarme et je scrollais des heures"
+    },
+    "T4": {
+     "en": [
+      "moving it to",
+      "somewhere i have to",
+      "stand up and walk to",
+      "wakes me up properly"
+     ],
+     "fr": "le mettre là où je dois me lever et marcher me réveille vraiment"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "4. started reading books instead"
+     ],
+     "fr": "4. j'apprends des trucs à la place"
+    },
+    "T2": {
+     "en": [
+      "i found an app that blocks",
+      "tiktok until I read for 30 minutes",
+      "and it's helped me finish three",
+      "books so far"
+     ],
+     "fr": "j'ai trouvé l'appli Sophia, un truc nouveau chaque jour en 5 minutes, et j'ai déjà appris plein de choses"
+    }
+   },
+   "images": {
+    "I2": "sophia_appstore"
+   },
+   "zones": [
+    {
+     "elements": [
+      "T3",
+      "I1",
+      "T4",
+      "T5",
+      "T6",
+      "T7",
+      "I3"
+     ],
+     "action": "sophia_capture"
+    }
+   ]
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "5. switched off all triggers"
+     ],
+     "fr": "5. j'ai coupé tous les déclencheurs"
+    },
+    "T2": {
+     "en": [
+      "i literally have 0",
+      "notifications on for all",
+      "my messaging",
+      "platforms"
+     ],
+     "fr": "j'ai littéralement 0 notification sur toutes mes messageries"
+    },
+    "T3": {
+     "en": [
+      "gives me no reason to",
+      "check until i want to"
+     ],
+     "fr": "rien ne me pousse à regarder avant d'en avoir envie"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

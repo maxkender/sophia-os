@@ -126,7 +126,19 @@ export function verifierDepot(decks: Record<string, DeckDepose> | null | undefin
 export interface SlideOriginale {
   position: number;
   media_id: string;
+  /** Texte de base, SANS appli : c'est lui que l'OS traduit dans chaque langue. */
   texte_overlay: string;
+  /**
+   * Sur UNE slide : la version de ce texte qui intègre l'appli Sophia, écrite
+   * par le pod dans la langue source. Servie telle quelle aux comptes de cette
+   * langue ; les autres langues reçoivent le placement de l'OS sur la base.
+   */
+  texte_sophia?: string | null;
+  /**
+   * Slide TikTok d'inspiration (texte d'origine posé dessus), stockée dans
+   * `medias/brut/` : le poster s'en sert de modèle pour placer le texte.
+   */
+  reference_url: string;
 }
 
 /** Rang d'entrée d'un original validé (pas de vues source : pas de note d'import). */
@@ -134,11 +146,12 @@ export const TIER_ORIGINAL = "B";
 
 const LONGUEUR_MAX_ACCROCHE = 120;
 const LONGUEUR_MAX_SLIDE = 320;
+const MOT_SOPHIA = /\bsophia\b/i;
+const AUTRE_APPLI = /\b(vent[\s-]?now|readup|unswipe)\b/i;
+/** Les slides d'inspiration viennent du stockage de l'OS (`medias/brut/`), jamais d'un CDN qui expire. */
+export const REFERENCE_VALIDE = /^https:\/\/[a-z0-9]+\.supabase\.co\/storage\/v1\/object\/public\/medias\/brut\//;
 
-/**
- * Contrôles d'un original AVANT tout accès base. L'app n'y figure jamais :
- * c'est l'OS qui la place, dans chaque langue, à l'assignation.
- */
+/** Contrôles d'un original AVANT tout accès base. */
 export function verifierOriginal(slides: Partial<SlideOriginale>[] | null | undefined): string[] {
   const deck = slides ?? [];
   const erreurs: string[] = [];
@@ -148,16 +161,24 @@ export function verifierOriginal(slides: Partial<SlideOriginale>[] | null | unde
   const medias = deck.map((s) => String(s.media_id ?? ""));
   if (medias.some((m) => !/^[0-9a-f-]{36}$/i.test(m))) erreurs.push("media_id manquant ou invalide");
   if (new Set(medias).size !== medias.length) erreurs.push("même image utilisée deux fois");
+  const sophia = deck.filter((s) => String(s.texte_sophia ?? "").trim());
+  if (sophia.length !== 1) erreurs.push(`${sophia.length} slide(s) Sophia (une seule attendue)`);
   for (const s of deck) {
     const t = String(s.texte_overlay ?? "").trim();
     const max = Number(s.position) === 1 ? LONGUEUR_MAX_ACCROCHE : LONGUEUR_MAX_SLIDE;
     if (!t) erreurs.push(`#${s.position} : texte vide`);
     else if (t.length > max) erreurs.push(`#${s.position} : ${t.length} caractères (max ${max})`);
-    if (/\bsophia\b/i.test(t)) erreurs.push(`#${s.position} : cite Sophia (l'OS place l'app lui-même)`);
-    if (/\b(vent[\s-]?now|readup|unswipe)\b/i.test(t) || /\b(download|télécharge)\b.*\bapp\b/i.test(t)) {
-      erreurs.push(`#${s.position} : mention d'appli interdite`);
+    if (MOT_SOPHIA.test(t)) erreurs.push(`#${s.position} : le texte de base cite Sophia (mettre la version Sophia dans texte_sophia)`);
+    if (AUTRE_APPLI.test(t)) erreurs.push(`#${s.position} : mention d'appli interdite`);
+    if (!REFERENCE_VALIDE.test(String(s.reference_url ?? ""))) erreurs.push(`#${s.position} : slide d'inspiration manquante (medias/brut/…)`);
+    const ts = String(s.texte_sophia ?? "").trim();
+    if (ts) {
+      if (Number(s.position) === 1) erreurs.push("#1 : la slide Sophia ne peut pas être la couverture");
+      if (!MOT_SOPHIA.test(ts)) erreurs.push(`#${s.position} : texte_sophia ne cite pas Sophia`);
+      if (AUTRE_APPLI.test(ts)) erreurs.push(`#${s.position} : texte_sophia cite une autre appli`);
+      if (ts.length > LONGUEUR_MAX_SLIDE) erreurs.push(`#${s.position} : texte_sophia ${ts.length} caractères (max ${LONGUEUR_MAX_SLIDE})`);
+      if (/[—;]/.test(ts)) erreurs.push(`#${s.position} : texte_sophia avec tiret long ou point-virgule`);
     }
-    if ((s as { position_sophia?: boolean }).position_sophia) erreurs.push(`#${s.position} : position_sophia interdite`);
   }
   return erreurs;
 }

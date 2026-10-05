@@ -9,13 +9,19 @@
  *
  *   { action: "deposer", type: "original", pod, source_id, titre,
  *     langue_source, musique_url?, musique_titre?, inspirations?, slides }
- *       ORIGINAL écrit par l'agent : texte dans la langue source + images de
- *       la banque du label (media_id). Validé, il devient un contenu CLASSIQUE
- *       (traduit et placé à l'assignation), au rang TIER_ORIGINAL.
+ *       ORIGINAL écrit par l'agent : texte de base dans la langue source (sans
+ *       appli), une slide avec sa version Sophia, images propres de la banque
+ *       du label (media_id) et slide TikTok d'inspiration par position
+ *       (reference_url). Validé, il devient un contenu CLASSIQUE au rang
+ *       TIER_ORIGINAL : images sans texte, texte à part, traduit et placé à
+ *       l'assignation pour les autres langues.
  *
  *   { action: "label", pod, limite? }   — agent : contenus du label avec texte
  *       source, rang et vues chez nous (de quoi voir ce qui marche).
  *   { action: "images", pod }   — agent : banque d'images propres du label.
+ *   { action: "top_posts", pod, compte?, limite? }   — agent : nos posts
+ *       publiés (avec la slide Sophia) les plus vus, avec leur texte, leurs
+ *       images et les slides TikTok d'origine du contenu (modèles de mise en page).
  *
  *   { action: "valider", id }   — admin
  *       Note d'import classique (30 % pertinence + 70 % vues, prompt
@@ -83,6 +89,7 @@ Deno.serve(async (request) => {
     if (body?.action === "etat") return await etat(request, supabase, String(body.pod ?? ""));
     if (body?.action === "label") return await contenusDuLabel(request, supabase, body);
     if (body?.action === "images") return await imagesDuLabel(request, supabase, String(body.pod ?? ""));
+    if (body?.action === "top_posts") return await topPosts(request, supabase, body);
     if (body?.action === "valider" || body?.action === "rejeter") {
       const acces = await assertRole(request, ["admin"]);
       if (acces instanceof Response) return acces;
@@ -91,7 +98,7 @@ Deno.serve(async (request) => {
         ? await valider(supabase, String(body.id ?? ""), userId)
         : await rejeter(supabase, String(body.id ?? ""), userId, body.motif ? String(body.motif) : null);
     }
-    return json({ ok: false, error: "action inconnue (deposer | etat | label | images | valider | rejeter)" }, 400);
+    return json({ ok: false, error: "action inconnue (deposer | etat | label | images | top_posts | valider | rejeter)" }, 400);
   } catch (e) {
     return json({ ok: false, error: messageErreur(e) }, 500);
   }
@@ -498,13 +505,18 @@ async function deposerOriginal(request: Request, supabase: Supabase, body: Recor
   const titre = String(body.titre ?? "").trim();
   const deck = [...slides]
     .sort((a, b) => a.position - b.position)
-    .map((s) => ({
-      position: Number(s.position),
-      media_id: s.media_id,
-      url: urls.get(s.media_id) ?? null,
-      texte_overlay: String(s.texte_overlay).trim(),
-      position_sophia: false,
-    }));
+    .map((s) => {
+      const sophia = String(s.texte_sophia ?? "").trim();
+      return {
+        position: Number(s.position),
+        media_id: s.media_id,
+        url: urls.get(s.media_id) ?? null,
+        texte_overlay: String(s.texte_overlay).trim(),
+        texte_sophia: sophia || null,
+        position_sophia: Boolean(sophia),
+        reference_url: String(s.reference_url),
+      };
+    });
   const ligne = {
     pod: pod.slug,
     type: "original",
@@ -542,8 +554,8 @@ async function deposerOriginal(request: Request, supabase: Supabase, body: Recor
 async function validerOriginal(supabase: Supabase, l: any, userId: string | null) {
   const { data: pod } = await supabase.from("pods").select("slug, label_id").eq("slug", l.pod).single();
   if (!pod?.label_id) return json({ ok: false, error: "le pod n'a pas de label" }, 409);
-  const deck = (l.decks?.[l.langue_source]?.slides ?? []) as (SlideOriginale & { position_sophia: boolean })[];
-  const erreurs = verifierOriginal(deck.map(({ position, media_id, texte_overlay }) => ({ position, media_id, texte_overlay })));
+  const deck = (l.decks?.[l.langue_source]?.slides ?? []) as SlideOriginale[];
+  const erreurs = verifierOriginal(deck);
   if (erreurs.length) return json({ ok: false, error: erreurs.join(" · ") }, 409);
 
   const tier = TIER_ORIGINAL;
@@ -566,8 +578,10 @@ async function validerOriginal(supabase: Supabase, l: any, userId: string | null
         media_id: s.media_id,
         pinned: true,
         critere: null,
+        // Pas de raw_url : rien à re-nettoyer, l'image propre est épinglée.
         raw_url: null,
-        reference_url: null,
+        // Slide TikTok d'inspiration : le modèle de mise en page du poster.
+        reference_url: s.reference_url,
       })),
       tier,
       passages_prevus: passagesPourTier(tier),
@@ -590,12 +604,19 @@ async function validerOriginal(supabase: Supabase, l: any, userId: string | null
   try {
     const { error: lErr } = await supabase.from("contenu_labels").insert({ contenu_id: contenu.id, label_id: pod.label_id });
     if (lErr) throw lErr;
-    const slides = deck.map((s) => ({ position: s.position, texte_overlay: s.texte_overlay, position_sophia: false }));
+    // Langue source : le deck Sophia écrit par le pod (servi tel quel), et la
+    // base SANS appli, d'où l'OS traduit et place Sophia pour les autres langues.
+    const base = deck.map((s) => ({ position: s.position, texte_overlay: s.texte_overlay, position_sophia: false }));
+    const avecSophia = deck.map((s) => {
+      const sophia = String(s.texte_sophia ?? "").trim();
+      return { position: s.position, texte_overlay: sophia || s.texte_overlay, position_sophia: Boolean(sophia) };
+    });
     const { error: clErr } = await supabase.from("contenu_langues").insert({
       contenu_id: contenu.id,
       langue: l.langue_source,
-      slides,
-      slides_base: slides,
+      slides: avecSophia,
+      slides_base: base,
+      hashtags: legende.match(/#\S+/g)?.join(" ") || null,
       nb_passages: 0,
     });
     if (clErr) throw clErr;
@@ -817,4 +838,92 @@ async function languesSource(supabase: Supabase, ids: string[]) {
     data.push(...(lignes ?? []));
   }
   return { data };
+}
+
+/**
+ * Nos posts PUBLIÉS les plus vus du label (tels que postés : traduits, avec la
+ * slide Sophia), éventuellement limités aux contenus d'un compte source. Pour
+ * chacun : vues, langue, texte des slides, images, et les slides TikTok
+ * d'origine du contenu (`reference_url`) qui servent de modèle au poster.
+ */
+async function topPosts(request: Request, supabase: Supabase, body: Record<string, unknown>) {
+  const pod = await podDuJeton(request, supabase, String(body.pod ?? ""));
+  if (!pod?.label_id) return json({ ok: false, error: "unauthorized" }, 401);
+  const compte = body.compte ? String(body.compte).replace(/^@/, "").toLowerCase() : null;
+  const limite = Math.min(Math.max(Number(body.limite) || 20, 1), 100);
+
+  const ids = (
+    await lireTout<{ contenu_id: string }>(
+      "contenu_labels du label",
+      (curseur, taille) => {
+        let q = supabase.from("contenu_labels").select("contenu_id").eq("label_id", pod.label_id);
+        if (curseur) q = q.gt("contenu_id", curseur.contenu_id);
+        return q.order("contenu_id").limit(taille);
+      },
+      { ancre: (l) => l.contenu_id },
+    )
+  ).map((r) => r.contenu_id);
+  // deno-lint-ignore no-explicit-any
+  const contenus = (await lireParLots(ids, "contenus du label", (lot) =>
+    supabase.from("contenus").select("id, source_url, structure_slides").in("id", lot).limit(lot.length)
+  )) as any[];
+  const retenus = new Map(
+    contenus
+      .filter((c) => !compte || (compteSource(c.source_url) ?? "").toLowerCase() === compte)
+      .map((c) => [c.id, c]),
+  );
+
+  type Passage = { id: string; post_id: string; contenu_id: string; vues: number; compte_id: string };
+  const passages: Passage[] = [];
+  const cles = [...retenus.keys()];
+  for (let i = 0; i < cles.length; i += 100) {
+    const lot = cles.slice(i, i + 100);
+    passages.push(
+      ...(await lireTout<Passage>(
+        "passages publiés",
+        (curseur, taille) => {
+          let q = supabase
+            .from("passages")
+            .select("id, post_id, contenu_id, vues, compte_id")
+            .in("contenu_id", lot)
+            .eq("statut", "publie")
+            .not("vues", "is", null)
+            .not("post_id", "is", null);
+          if (curseur) q = q.gt("id", curseur.id);
+          return q.order("id").limit(taille);
+        },
+        { ancre: (p) => p.id },
+      )),
+    );
+  }
+  passages.sort((a, b) => b.vues - a.vues);
+
+  const sortie = [];
+  for (const p of passages) {
+    if (sortie.length >= limite) break;
+    const { data: slides } = await supabase
+      .from("post_slides")
+      .select("position, texte_overlay, position_sophia, media_id")
+      .eq("post_id", p.post_id)
+      .order("position")
+      .limit(20);
+    // Seulement les posts AVEC la slide Sophia.
+    if (!(slides ?? []).some((s: { position_sophia: boolean }) => s.position_sophia)) continue;
+    const { data: compteRow } = await supabase.from("comptes").select("langue").eq("id", p.compte_id).maybeSingle();
+    const c = retenus.get(p.contenu_id);
+    sortie.push({
+      vues: p.vues,
+      langue: compteRow?.langue ?? null,
+      contenu_id: p.contenu_id,
+      compte_source: compteSource(c?.source_url ?? null),
+      slides: slides ?? [],
+      // deno-lint-ignore no-explicit-any
+      references: (c?.structure_slides ?? []).map((s: any) => ({
+        position: s.position,
+        media_id: s.media_id ?? null,
+        reference_url: s.reference_url ?? s.raw_url ?? null,
+      })),
+    });
+  }
+  return json({ ok: true, posts: sortie });
 }

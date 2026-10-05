@@ -1044,7 +1044,8 @@ export const en = {
       rejete: "Rejected",
       label: "label {{label}}",
       inactif: "inactive",
-      original: "Original (translated and placed by the OS at assignment, tier B)",
+      original: "Original (tier B: clean images, separate text; English with its Sophia slide, other languages translated and placed by the OS)",
+      inspiration: "inspiration slide",
       appli: "app slide",
       nouvellesLangues: "New languages ({{langues}}) for an approved post",
       statut: {

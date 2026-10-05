@@ -68,13 +68,41 @@ export type RapportSlide = { avertissements: string[] };
 
 type Segment = { mot: string; souligne: boolean };
 
+/** Visuels de l'app à poser à la place de ceux du concurrent. */
+export type RessourcesApp = { captures: Image[]; appstore: Image | null };
+
+const DOSSIER_ASSETS = join(ICI, "..", "assets", "sophia");
+
+/** Captures de la langue demandée (repli : anglais) + fiche App Store (anglais partout). */
+export async function chargerRessources(langue: string, dossier = DOSSIER_ASSETS): Promise<RessourcesApp> {
+  const { existsSync, readdirSync } = await import("node:fs");
+  const dossierLangue = existsSync(join(dossier, langue)) ? join(dossier, langue) : join(dossier, "en");
+  const captures: Image[] = [];
+  if (existsSync(dossierLangue)) {
+    for (const f of readdirSync(dossierLangue).filter((n) => /\.(jpe?g|png)$/i.test(n)).sort()) {
+      captures.push(await loadImage(join(dossierLangue, f)));
+    }
+  }
+  const fiche = join(dossier, "appstore.jpg");
+  return { captures, appstore: existsSync(fiche) ? await loadImage(fiche) : null };
+}
+
 export async function rendreSlide(
-  cheminSource: string,
+  source: string | Buffer,
   geo: GeometrieSlide,
   tr: Transcription,
+  options: { ressources?: RessourcesApp; variante?: number } = {},
 ): Promise<{ jpeg: Buffer; rapport: RapportSlide }> {
   geo = appliquerScissions(geo, tr);
-  const source = await loadImage(cheminSource);
+  const capture = options.ressources?.captures.length
+    ? options.ressources.captures[(options.variante ?? 0) % options.ressources.captures.length]
+    : null;
+  const appstore = options.ressources?.appstore ?? null;
+  const poserCapture = (b: Boite) =>
+    capture ? dessinerCapture(ctx, capture, b) : dessinerEmplacement(ctx, b, "CAPTURE APP SOPHIA", true);
+  const poserFiche = (b: Boite) =>
+    appstore ? dessinerFiche(ctx, appstore, b) : dessinerEmplacement(ctx, b, "FICHE APP STORE SOPHIA", false);
+  const imgSource = await loadImage(source);
   const canvas = createCanvas(geo.largeur, geo.hauteur);
   const ctx = canvas.getContext("2d");
   const avertissements: string[] = [];
@@ -97,17 +125,17 @@ export async function rendreSlide(
     const y = Math.min(...boites.map((b) => b.y));
     const union = { x, y, l: Math.max(...boites.map((b) => b.x + b.l)) - x, h: Math.max(...boites.map((b) => b.y + b.h)) - y };
     unions.push({ id: `Z${unions.length + 1}`, type: "image", boite: union });
-    if (z.action === "sophia_capture") dessinerEmplacement(ctx, union, "CAPTURE APP SOPHIA", true);
-    else dessinerEmplacement(ctx, union, "FICHE APP STORE SOPHIA", false);
+    if (z.action === "sophia_capture") poserCapture(union);
+    else poserFiche(union);
   }
 
   // Images d'abord : le texte ne passe jamais dessous.
   for (const e of geo.elements) {
     if (e.type !== "image" || fusionnes.has(e.id)) continue;
     const action = tr.images[e.id] ?? "garder";
-    if (action === "garder") dessinerRecadrage(ctx, source, e.boite);
-    else if (action === "sophia_capture") dessinerEmplacement(ctx, e.boite, "CAPTURE APP SOPHIA", true);
-    else if (action === "sophia_appstore") dessinerEmplacement(ctx, e.boite, "FICHE APP STORE SOPHIA", false);
+    if (action === "garder") dessinerRecadrage(ctx, imgSource, e.boite);
+    else if (action === "sophia_capture") poserCapture(e.boite);
+    else if (action === "sophia_appstore") poserFiche(e.boite);
   }
 
   const geoTexte: GeometrieSlide = { ...geo, elements: [...geo.elements.filter((e) => !fusionnes.has(e.id)), ...unions] };
@@ -120,7 +148,7 @@ export async function rendreSlide(
       continue;
     }
     if (t.garder) {
-      dessinerRecadrage(ctx, source, e.boite);
+      dessinerRecadrage(ctx, imgSource, e.boite);
       continue;
     }
     if (!t.fr.trim()) continue;
@@ -132,6 +160,29 @@ export async function rendreSlide(
 
 function dessinerRecadrage(ctx: SKRSContext2D, source: Image, b: Boite) {
   ctx.drawImage(source, b.x, b.y, b.l, b.h, b.x, b.y, b.l, b.h);
+}
+
+/** Capture d'écran de l'app : remplit la boîte (recadrage par le haut, comme une
+ * capture de téléphone), coins arrondis. */
+function dessinerCapture(ctx: SKRSContext2D, img: Image, b: Boite) {
+  const echelle = Math.max(b.l / img.width, b.h / img.height);
+  const sl = b.l / echelle;
+  const sh = b.h / echelle;
+  const sx = (img.width - sl) / 2;
+  ctx.save();
+  ctx.beginPath();
+  ctx.roundRect(b.x, b.y, b.l, b.h, Math.min(40, b.l * 0.07));
+  ctx.clip();
+  ctx.drawImage(img, sx, 0, sl, sh, b.x, b.y, b.l, b.h);
+  ctx.restore();
+}
+
+/** Fiche App Store : contenue dans la boîte, centrée, sur fond blanc. */
+function dessinerFiche(ctx: SKRSContext2D, img: Image, b: Boite) {
+  const echelle = Math.min(b.l / img.width, b.h / img.height);
+  const l = img.width * echelle;
+  const h = img.height * echelle;
+  ctx.drawImage(img, b.x + (b.l - l) / 2, b.y + (b.h - h) / 2, l, h);
 }
 
 function dessinerEmplacement(ctx: SKRSContext2D, b: Boite, libelle: string, arrondi: boolean) {

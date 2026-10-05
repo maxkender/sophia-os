@@ -46,6 +46,7 @@ import {
   type DeckDepose,
   type SlideOriginale,
 } from "../_shared/pods.ts";
+import { lireParLots, lireTout } from "../_shared/lots.ts";
 import { assertRole, chargerPrompt, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 import { passagesPourTier, tierImport } from "../_shared/tierlist.ts";
 
@@ -619,31 +620,35 @@ async function contenusDuLabel(request: Request, supabase: Supabase, body: Recor
   if (!pod?.label_id) return json({ ok: false, error: "unauthorized" }, 401);
   const limite = Math.min(Math.max(Number(body.limite) || 300, 1), 1000);
 
-  const ids: string[] = [];
-  for (let page = 0; ; page += 1) {
-    const { data } = await supabase
-      .from("contenu_labels")
-      .select("contenu_id")
-      .eq("label_id", pod.label_id)
-      .range(page * 1000, page * 1000 + 999);
-    ids.push(...(data ?? []).map((r: { contenu_id: string }) => r.contenu_id));
-    if (!data || data.length < 1000) break;
-  }
+  const ids = (
+    await lireTout<{ contenu_id: string }>(
+      "contenu_labels du label",
+      (curseur, taille) => {
+        let q = supabase.from("contenu_labels").select("contenu_id").eq("label_id", pod.label_id);
+        if (curseur) q = q.gt("contenu_id", curseur.contenu_id);
+        return q.order("contenu_id").limit(taille);
+      },
+      { ancre: (l) => l.contenu_id },
+    )
+  ).map((r) => r.contenu_id);
 
   const lignes = [];
-  for (let i = 0; i < ids.length; i += 200) {
-    const lot = ids.slice(i, i + 200);
+  for (let i = 0; i < ids.length; i += 100) {
+    const lot = ids.slice(i, i + 100);
     const [{ data: contenus }, { data: perfs }, { data: langues }] = await Promise.all([
       supabase
         .from("contenus")
         .select("id, titre, source_url, vues_source, langue_source, tier, statut, pod, structure_slides, musique_titre, musique_url")
         .in("id", lot)
-        .eq("statut", "valide"),
+        .eq("statut", "valide")
+        .limit(100),
       supabase
         .from("contenu_tier_etat")
         .select("contenu_id, publies, restants, moyenne_vues, max_vues")
-        .in("contenu_id", lot),
-      supabase.from("contenu_langues").select("contenu_id, langue, slides, slides_base").in("contenu_id", lot),
+        .in("contenu_id", lot)
+        .limit(100),
+      // Une ligne par langue : jusqu'à ~25 par contenu, d'où des lots de 30.
+      languesSource(supabase, lot),
     ]);
     const perf = new Map((perfs ?? []).map((p: { contenu_id: string }) => [p.contenu_id, p]));
     // deno-lint-ignore no-explicit-any
@@ -675,38 +680,136 @@ async function contenusDuLabel(request: Request, supabase: Supabase, body: Recor
       });
     }
   }
-  // Les plus vus chez nous d'abord (moyenne, puis max).
-  lignes.sort((a, b) =>
-    // deno-lint-ignore no-explicit-any
-    ((b.perf as any)?.moyenne_vues ?? -1) - ((a.perf as any)?.moyenne_vues ?? -1)
-  );
-  return json({ ok: true, total: lignes.length, contenus: lignes.slice(0, limite) });
+  // Ce qui marche, à audience égale : r = vues / médiane des vues du compte
+  // (un compte a sa propre audience). Un contenu est jugé sur la médiane de ses r.
+  const stats = await statsPassages(supabase, lignes.map((l) => l.id));
+  const lignesStats = lignes.map((l) => ({ ...l, chez_nous: stats.get(l.id) ?? null }));
+  lignesStats.sort((a, b) => (b.chez_nous?.r_median ?? -1) - (a.chez_nous?.r_median ?? -1));
+  return json({ ok: true, total: lignesStats.length, contenus: lignesStats.slice(0, limite) });
 }
 
 /** Banque d'images propres du label (sans texte), pour composer des originaux. */
 async function imagesDuLabel(request: Request, supabase: Supabase, slug: string) {
   const pod = await podDuJeton(request, supabase, slug);
   if (!pod?.label_id) return json({ ok: false, error: "unauthorized" }, 401);
-  const ids: string[] = [];
-  for (let page = 0; ; page += 1) {
-    const { data } = await supabase
-      .from("media_labels")
-      .select("media_id")
-      .eq("label_id", pod.label_id)
-      .range(page * 1000, page * 1000 + 999);
-    ids.push(...(data ?? []).map((r: { media_id: string }) => r.media_id));
-    if (!data || data.length < 1000) break;
-  }
-  const images = [];
-  for (let i = 0; i < ids.length; i += 300) {
-    const { data } = await supabase
+  const ids = (
+    await lireTout<{ media_id: string }>(
+      "media_labels du label",
+      (curseur, taille) => {
+        let q = supabase.from("media_labels").select("media_id").eq("label_id", pod.label_id);
+        if (curseur) q = q.gt("media_id", curseur.media_id);
+        return q.order("media_id").limit(taille);
+      },
+      { ancre: (l) => l.media_id },
+    )
+  ).map((r) => r.media_id);
+  const medias = await lireParLots(ids, "media_library du label", (lot) =>
+    supabase
       .from("media_library")
       .select("id, url, est_hook, used_count, contenu_id, storage_path, texte_restant")
-      .in("id", ids.slice(i, i + 300));
-    for (const m of data ?? []) {
-      if (!String(m.storage_path).startsWith("propre/") || m.texte_restant) continue;
-      images.push({ id: m.id, url: m.url, est_hook: Boolean(m.est_hook), used_count: m.used_count ?? 0, contenu_id: m.contenu_id });
-    }
+      .in("id", lot)
+      .limit(lot.length)
+  );
+  const images = [];
+  // deno-lint-ignore no-explicit-any
+  for (const m of medias as any[]) {
+    if (!String(m.storage_path).startsWith("propre/") || m.texte_restant) continue;
+    images.push({ id: m.id, url: m.url, est_hook: Boolean(m.est_hook), used_count: m.used_count ?? 0, contenu_id: m.contenu_id });
   }
   return json({ ok: true, total: images.length, images });
+}
+
+const mediane = (xs: number[]) => {
+  if (!xs.length) return 0;
+  const t = [...xs].sort((a, b) => a - b);
+  const m = Math.floor(t.length / 2);
+  return t.length % 2 ? t[m] : (t[m - 1] + t[m]) / 2;
+};
+
+/**
+ * Passages publiés (depuis plus de 3 jours, vues mesurées) de ces contenus :
+ * nombre, vues médiane / moyenne / max, et médiane des r (vues / médiane du compte).
+ */
+async function statsPassages(supabase: Supabase, contenuIds: string[]) {
+  const limite = new Date(Date.now() - 3 * 86_400_000).toISOString();
+  type Passage = { id: string; contenu_id: string; compte_id: string; vues: number };
+  const passages: Passage[] = [];
+  for (let i = 0; i < contenuIds.length; i += 100) {
+    const lot = contenuIds.slice(i, i + 100);
+    passages.push(
+      ...(await lireTout<Passage>(
+        "passages publiés des contenus",
+        (curseur, taille) => {
+          let q = supabase
+            .from("passages")
+            .select("id, contenu_id, compte_id, vues")
+            .in("contenu_id", lot)
+            .eq("statut", "publie")
+            .not("vues", "is", null)
+            .lt("date_publication_prevue", limite);
+          if (curseur) q = q.gt("id", curseur.id);
+          return q.order("id").limit(taille);
+        },
+        { ancre: (p) => p.id },
+      )),
+    );
+  }
+  const comptes = [...new Set(passages.map((p) => p.compte_id))];
+  const vuesCompte = new Map<string, number[]>();
+  for (let i = 0; i < comptes.length; i += 100) {
+    const lot = comptes.slice(i, i + 100);
+    const lignes = await lireTout<{ id: string; compte_id: string; vues: number }>(
+      "passages publiés des comptes",
+      (curseur, taille) => {
+        let q = supabase
+          .from("passages")
+          .select("id, compte_id, vues")
+          .in("compte_id", lot)
+          .eq("statut", "publie")
+          .not("vues", "is", null);
+        if (curseur) q = q.gt("id", curseur.id);
+        return q.order("id").limit(taille);
+      },
+      { ancre: (p) => p.id },
+    );
+    for (const p of lignes) vuesCompte.set(p.compte_id, [...(vuesCompte.get(p.compte_id) ?? []), Number(p.vues)]);
+  }
+  const medCompte = new Map([...vuesCompte].map(([c, v]) => [c, mediane(v)]));
+  const parContenu = new Map<string, { vues: number[]; r: number[] }>();
+  for (const p of passages) {
+    const e = parContenu.get(p.contenu_id) ?? { vues: [], r: [] };
+    e.vues.push(Number(p.vues));
+    const m = medCompte.get(p.compte_id) ?? 0;
+    if (m > 0) e.r.push(Number(p.vues) / m);
+    parContenu.set(p.contenu_id, e);
+  }
+  const sortie = new Map<string, { publies: number; vues_mediane: number; vues_moyenne: number; vues_max: number; r_median: number | null }>();
+  for (const [id, e] of parContenu) {
+    sortie.set(id, {
+      publies: e.vues.length,
+      vues_mediane: Math.round(mediane(e.vues)),
+      vues_moyenne: Math.round(e.vues.reduce((a, b) => a + b, 0) / e.vues.length),
+      vues_max: Math.max(...e.vues),
+      // Sous 3 passages, le r n'est pas significatif.
+      r_median: e.r.length >= 3 ? Math.round(mediane(e.r) * 100) / 100 : null,
+    });
+  }
+  return sortie;
+}
+
+/** Lignes de langue de contenus (toutes langues), lues par petits lots bornés. */
+async function languesSource(supabase: Supabase, ids: string[]) {
+  // deno-lint-ignore no-explicit-any
+  const data: any[] = [];
+  for (let i = 0; i < ids.length; i += 30) {
+    const lot = ids.slice(i, i + 30);
+    const { data: lignes, error } = await supabase
+      .from("contenu_langues")
+      .select("contenu_id, langue, slides, slides_base")
+      .in("contenu_id", lot)
+      .limit(999);
+    if (error) throw new Error(`contenu_langues : ${messageErreur(error)}`);
+    data.push(...(lignes ?? []));
+  }
+  return { data };
 }

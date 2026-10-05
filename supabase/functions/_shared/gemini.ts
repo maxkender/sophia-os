@@ -491,11 +491,21 @@ export async function integrateSophia(input: {
    * propres règles de marque génériques. Gardé pour ne pas casser les appelants.
    */
   marque?: string;
+  /**
+   * Slide qui recommande déjà une appli concurrente (voir concurrents.ts) :
+   * c'est ELLE que Sophia remplace, même hors des 3 dernières slides.
+   */
+  positionImposee?: number;
 }): Promise<SophiaPlacement | null> {
   // Sophia DOIT tomber dans les 2-3 dernières slides (jamais au début) : on borne
-  // les positions permises aux 3 dernières (hors couverture = slide 1).
+  // les positions permises aux 3 dernières (hors couverture = slide 1). Une slide
+  // concurrente impose sa position : la laisser publiait la pub d'un concurrent.
   const positions = input.slides.map((s) => s.position).sort((a, b) => a - b);
-  const autorisees = positions.filter((p) => p >= 2).slice(-3);
+  const imposee =
+    input.positionImposee != null && input.positionImposee >= 2 && positions.includes(input.positionImposee)
+      ? input.positionImposee
+      : undefined;
+  const autorisees = imposee != null ? [imposee] : positions.filter((p) => p >= 2).slice(-3);
   const autoriseesTxt = autorisees.join(", ");
   const examples = input.corrections
     .slice(0, 40)

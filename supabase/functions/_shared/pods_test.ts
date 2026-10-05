@@ -1,5 +1,5 @@
 import { assertEquals } from "jsr:@std/assert@1";
-import { deckLivrePret, metadonneesJpeg, sha256Hex, verifierDepot } from "./pods.ts";
+import { deckLivrePret, metadonneesJpeg, sha256Hex, verifierDepot, verifierOriginal } from "./pods.ts";
 
 Deno.test("deckLivrePret : toutes les slides doivent avoir leur image", () => {
   assertEquals(deckLivrePret([]), false);
@@ -27,4 +27,17 @@ Deno.test("verifierDepot : langue source, slide de l'app, positions uniques", ()
 
 Deno.test("sha256Hex", async () => {
   assertEquals(await sha256Hex("abc"), "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad");
+});
+
+Deno.test("verifierOriginal : positions, images, longueurs, aucune appli", () => {
+  const id = (n: number) => `00000000-0000-4000-8000-00000000000${n}`;
+  const ok = [1, 2, 3, 4, 5, 6].map((p) => ({ position: p, media_id: id(p), texte_overlay: `slide ${p}` }));
+  assertEquals(verifierOriginal(ok), []);
+  assertEquals(verifierOriginal(ok.slice(0, 3)).length > 0, true);
+  assertEquals(verifierOriginal([...ok.slice(0, 5), { ...ok[5], position: 7 }]).length > 0, true);
+  assertEquals(verifierOriginal([...ok.slice(0, 5), { ...ok[5], media_id: id(1) }]), ["même image utilisée deux fois"]);
+  assertEquals(verifierOriginal([...ok.slice(0, 5), { ...ok[5], texte_overlay: "i use the sophia app" }]).length, 1);
+  assertEquals(verifierOriginal([...ok.slice(0, 5), { ...ok[5], texte_overlay: "the vent now app helped" }]).length, 1);
+  assertEquals(verifierOriginal([{ ...ok[0], texte_overlay: "x".repeat(121) }, ...ok.slice(1)]).length, 1);
+  assertEquals(verifierOriginal([...ok.slice(0, 5), { ...ok[5], texte_overlay: " " }]), ["#6 : texte vide"]);
 });

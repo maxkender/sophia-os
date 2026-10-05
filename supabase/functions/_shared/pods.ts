@@ -112,3 +112,52 @@ export function verifierDepot(decks: Record<string, DeckDepose> | null | undefin
   }
   return erreurs;
 }
+
+// ---------------------------------------------------------------------------
+// Originaux traduisibles (pod 2 et suivants)
+// ---------------------------------------------------------------------------
+
+/**
+ * Un ORIGINAL est un slideshow écrit par l'agent d'un pod : texte dans la langue
+ * source + images de la banque du label (par identifiant). Contrairement à un
+ * contenu livré, il passe par le circuit classique à l'assignation : traduction
+ * dans la langue du compte, placement de l'app, poster qui pose le texte.
+ */
+export interface SlideOriginale {
+  position: number;
+  media_id: string;
+  texte_overlay: string;
+}
+
+/** Rang d'entrée d'un original validé (pas de vues source : pas de note d'import). */
+export const TIER_ORIGINAL = "B";
+
+const LONGUEUR_MAX_ACCROCHE = 120;
+const LONGUEUR_MAX_SLIDE = 320;
+
+/**
+ * Contrôles d'un original AVANT tout accès base. L'app n'y figure jamais :
+ * c'est l'OS qui la place, dans chaque langue, à l'assignation.
+ */
+export function verifierOriginal(slides: Partial<SlideOriginale>[] | null | undefined): string[] {
+  const deck = slides ?? [];
+  const erreurs: string[] = [];
+  if (deck.length < 4 || deck.length > 10) erreurs.push(`${deck.length} slides (4 à 10 attendues)`);
+  const positions = deck.map((s) => Number(s.position)).sort((a, b) => a - b);
+  if (positions.some((p, i) => p !== i + 1)) erreurs.push("positions attendues : 1, 2, 3… sans trou ni doublon");
+  const medias = deck.map((s) => String(s.media_id ?? ""));
+  if (medias.some((m) => !/^[0-9a-f-]{36}$/i.test(m))) erreurs.push("media_id manquant ou invalide");
+  if (new Set(medias).size !== medias.length) erreurs.push("même image utilisée deux fois");
+  for (const s of deck) {
+    const t = String(s.texte_overlay ?? "").trim();
+    const max = Number(s.position) === 1 ? LONGUEUR_MAX_ACCROCHE : LONGUEUR_MAX_SLIDE;
+    if (!t) erreurs.push(`#${s.position} : texte vide`);
+    else if (t.length > max) erreurs.push(`#${s.position} : ${t.length} caractères (max ${max})`);
+    if (/\bsophia\b/i.test(t)) erreurs.push(`#${s.position} : cite Sophia (l'OS place l'app lui-même)`);
+    if (/\b(vent[\s-]?now|readup|unswipe)\b/i.test(t) || /\b(download|télécharge)\b.*\bapp\b/i.test(t)) {
+      erreurs.push(`#${s.position} : mention d'appli interdite`);
+    }
+    if ((s as { position_sophia?: boolean }).position_sophia) erreurs.push(`#${s.position} : position_sophia interdite`);
+  }
+  return erreurs;
+}

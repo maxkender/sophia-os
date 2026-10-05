@@ -7,6 +7,16 @@
  *       Range les images finies (JPEG sans métadonnées) dans le stockage et
  *       met la livraison dans la file de validation. Ne crée AUCUN contenu.
  *
+ *   { action: "deposer", type: "original", pod, source_id, titre,
+ *     langue_source, musique_url?, musique_titre?, inspirations?, slides }
+ *       ORIGINAL écrit par l'agent : texte dans la langue source + images de
+ *       la banque du label (media_id). Validé, il devient un contenu CLASSIQUE
+ *       (traduit et placé à l'assignation), au rang TIER_ORIGINAL.
+ *
+ *   { action: "label", pod, limite? }   — agent : contenus du label avec texte
+ *       source, rang et vues chez nous (de quoi voir ce qui marche).
+ *   { action: "images", pod }   — agent : banque d'images propres du label.
+ *
  *   { action: "valider", id }   — admin
  *       Note d'import classique (30 % pertinence + 70 % vues, prompt
  *       `pertinence`), rang d'entrée C/B/A — ou écartée sous le seuil. Crée un
@@ -27,7 +37,15 @@
 
 import { scoreRelevance } from "../_shared/gemini.ts";
 import { eloParLangue, lireScoring } from "../_shared/import_contenu.ts";
-import { metadonneesJpeg, sha256Hex, verifierDepot, type DeckDepose } from "../_shared/pods.ts";
+import {
+  metadonneesJpeg,
+  sha256Hex,
+  TIER_ORIGINAL,
+  verifierDepot,
+  verifierOriginal,
+  type DeckDepose,
+  type SlideOriginale,
+} from "../_shared/pods.ts";
 import { assertRole, chargerPrompt, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 import { passagesPourTier, tierImport } from "../_shared/tierlist.ts";
 
@@ -57,8 +75,11 @@ Deno.serve(async (request) => {
 
   const supabase = serviceClient();
   try {
+    if (body?.action === "deposer" && body?.type === "original") return await deposerOriginal(request, supabase, body);
     if (body?.action === "deposer") return await deposer(request, supabase, body);
     if (body?.action === "etat") return await etat(request, supabase, String(body.pod ?? ""));
+    if (body?.action === "label") return await contenusDuLabel(request, supabase, body);
+    if (body?.action === "images") return await imagesDuLabel(request, supabase, String(body.pod ?? ""));
     if (body?.action === "valider" || body?.action === "rejeter") {
       const acces = await assertRole(request, ["admin"]);
       if (acces instanceof Response) return acces;
@@ -67,7 +88,7 @@ Deno.serve(async (request) => {
         ? await valider(supabase, String(body.id ?? ""), userId)
         : await rejeter(supabase, String(body.id ?? ""), userId, body.motif ? String(body.motif) : null);
     }
-    return json({ ok: false, error: "action inconnue (deposer | etat | valider | rejeter)" }, 400);
+    return json({ ok: false, error: "action inconnue (deposer | etat | label | images | valider | rejeter)" }, 400);
   } catch (e) {
     return json({ ok: false, error: messageErreur(e) }, 500);
   }
@@ -77,6 +98,18 @@ Deno.serve(async (request) => {
 
 // deno-lint-ignore no-explicit-any
 type Supabase = any;
+
+/** Pod authentifié par son jeton, ou null. */
+async function podDuJeton(request: Request, supabase: Supabase, slug: string) {
+  const jeton = request.headers.get("x-pod-jeton") ?? "";
+  const { data: pod } = await supabase
+    .from("pods")
+    .select("slug, label_id, actif, jeton_hash")
+    .eq("slug", slug)
+    .maybeSingle();
+  if (!pod || !jeton || !pod.jeton_hash || (await sha256Hex(jeton)) !== pod.jeton_hash) return null;
+  return pod as { slug: string; label_id: string | null; actif: boolean };
+}
 
 async function deposer(request: Request, supabase: Supabase, body: Record<string, unknown>) {
   const slug = String(body.pod ?? "");
@@ -210,6 +243,7 @@ async function valider(supabase: Supabase, id: string, userId: string | null) {
   if (!l) return json({ ok: false, error: "livraison introuvable" }, 404);
   if (l.statut !== "a_valider") return json({ ok: false, error: `déjà ${l.statut}` }, 409);
   if (l.type === "langues") return await validerLangues(supabase, l, userId);
+  if (l.type === "original") return await validerOriginal(supabase, l, userId);
   const { data: pod } = await supabase.from("pods").select("slug, label_id").eq("slug", l.pod).single();
   if (!pod?.label_id) return json({ ok: false, error: "le pod n'a pas de label" }, 409);
 
@@ -400,4 +434,279 @@ async function etat(request: Request, supabase: Supabase, slug: string) {
     livraisons: (livraisons ?? []).map((l: any) => ({ ...l, decks: undefined, langues: Object.keys(l.decks ?? {}) })),
     perfs: perfs ?? [],
   });
+}
+
+// ---------------------------------------------------------------------------
+// Originaux traduisibles
+// ---------------------------------------------------------------------------
+
+/** Les images doivent être propres (sans texte), dans la banque du label. */
+async function verifierImagesDuLabel(supabase: Supabase, labelId: string, ids: string[]): Promise<string[]> {
+  const { data: medias } = await supabase
+    .from("media_library")
+    .select("id, storage_path, texte_restant")
+    .in("id", ids);
+  const { data: liens } = await supabase
+    .from("media_labels")
+    .select("media_id")
+    .eq("label_id", labelId)
+    .in("media_id", ids);
+  const duLabel = new Set((liens ?? []).map((l: { media_id: string }) => l.media_id));
+  const parId = new Map((medias ?? []).map((m: { id: string }) => [m.id, m]));
+  const erreurs: string[] = [];
+  for (const id of ids) {
+    const m = parId.get(id) as { storage_path: string; texte_restant: boolean } | undefined;
+    if (!m) erreurs.push(`${id} : image introuvable`);
+    else if (!String(m.storage_path).startsWith("propre/") || m.texte_restant) erreurs.push(`${id} : image pas propre`);
+    else if (!duLabel.has(id)) erreurs.push(`${id} : hors de la banque du label`);
+  }
+  return erreurs;
+}
+
+async function deposerOriginal(request: Request, supabase: Supabase, body: Record<string, unknown>) {
+  const pod = await podDuJeton(request, supabase, String(body.pod ?? ""));
+  if (!pod) return json({ ok: false, error: "unauthorized" }, 401);
+  if (!pod.actif) return json({ ok: false, error: "pod en pause" }, 409);
+  if (!pod.label_id) return json({ ok: false, error: "le pod n'a pas de label" }, 409);
+
+  const sourceId = String(body.source_id ?? "");
+  if (!/^[a-z0-9][a-z0-9_-]{2,60}$/i.test(sourceId)) return json({ ok: false, error: "source_id requis (a-z0-9_-)" }, 400);
+  const slides = (Array.isArray(body.slides) ? body.slides : []) as SlideOriginale[];
+  const erreurs = verifierOriginal(slides);
+  if (!erreurs.length) erreurs.push(...(await verifierImagesDuLabel(supabase, pod.label_id, slides.map((s) => s.media_id))));
+  if (erreurs.length) return json({ ok: false, error: erreurs.join(" · ") }, 400);
+
+  const { data: existante } = await supabase
+    .from("pod_livraisons")
+    .select("id, statut")
+    .eq("pod", pod.slug)
+    .eq("source_id", sourceId)
+    .maybeSingle();
+  if (existante && existante.statut !== "a_valider") {
+    return json({ ok: false, error: `livraison déjà ${existante.statut}` }, 409);
+  }
+
+  const { data: medias } = await supabase.from("media_library").select("id, url").in("id", slides.map((s) => s.media_id));
+  const urls = new Map((medias ?? []).map((m: { id: string; url: string }) => [m.id, m.url]));
+  const langue = String(body.langue_source ?? "en");
+  const titre = String(body.titre ?? "").trim();
+  const deck = [...slides]
+    .sort((a, b) => a.position - b.position)
+    .map((s) => ({
+      position: Number(s.position),
+      media_id: s.media_id,
+      url: urls.get(s.media_id) ?? null,
+      texte_overlay: String(s.texte_overlay).trim(),
+      position_sophia: false,
+    }));
+  const ligne = {
+    pod: pod.slug,
+    type: "original",
+    source_id: sourceId,
+    source_url: null,
+    source_vues: null,
+    titre: titre.slice(0, 160) || deck[0].texte_overlay.slice(0, 160),
+    langue_source: langue,
+    musique_url: body.musique_url ? String(body.musique_url) : null,
+    musique_titre: body.musique_titre ? String(body.musique_titre) : null,
+    decks: { [langue]: { hashtags: titre, slides: deck } },
+    transcription: {
+      textes: deck.map((s) => s.texte_overlay),
+      legende: titre,
+      inspirations: Array.isArray(body.inspirations) ? body.inspirations.map(String).slice(0, 20) : [],
+    },
+    statut: "a_valider",
+  };
+  const { data: l, error } = await supabase
+    .from("pod_livraisons")
+    .upsert(ligne, { onConflict: "pod,source_id" })
+    .select("id")
+    .single();
+  if (error || !l) throw new Error(`livraison : ${messageErreur(error)}`);
+  return json({ ok: true, id: l.id, type: "original" });
+}
+
+/**
+ * Original validé → contenu CLASSIQUE : une seule langue (la source), sans app,
+ * images épinglées. Les autres langues et le placement naissent à
+ * l'assignation (assurerDeckPourLangue). Rang fixe : il n'y a pas de vues
+ * source, la note d'import classique l'écarterait toujours.
+ */
+// deno-lint-ignore no-explicit-any
+async function validerOriginal(supabase: Supabase, l: any, userId: string | null) {
+  const { data: pod } = await supabase.from("pods").select("slug, label_id").eq("slug", l.pod).single();
+  if (!pod?.label_id) return json({ ok: false, error: "le pod n'a pas de label" }, 409);
+  const deck = (l.decks?.[l.langue_source]?.slides ?? []) as (SlideOriginale & { position_sophia: boolean })[];
+  const erreurs = verifierOriginal(deck.map(({ position, media_id, texte_overlay }) => ({ position, media_id, texte_overlay })));
+  if (erreurs.length) return json({ ok: false, error: erreurs.join(" · ") }, 409);
+
+  const tier = TIER_ORIGINAL;
+  const maintenant = new Date().toISOString();
+  const legende = String(l.transcription?.legende ?? l.titre ?? "").trim();
+  const { data: contenu, error: cErr } = await supabase
+    .from("contenus")
+    .insert({
+      titre: (legende || deck[0].texte_overlay).slice(0, 500),
+      source_url: null,
+      langue_source: l.langue_source,
+      musique_url: l.musique_url,
+      musique_titre: l.musique_titre,
+      musique_plateforme: l.musique_url ? "tiktok" : null,
+      statut: "valide",
+      import_statut: "done",
+      creation_mode: "manuel",
+      structure_slides: deck.map((s) => ({
+        position: s.position,
+        media_id: s.media_id,
+        pinned: true,
+        critere: null,
+        raw_url: null,
+        reference_url: null,
+      })),
+      tier,
+      passages_prevus: passagesPourTier(tier),
+      tier_cycle: 0,
+      tier_maj_at: maintenant,
+      tier_rapport: {
+        origine: "pod_original",
+        pod: l.pod,
+        tier,
+        passages: passagesPourTier(tier),
+        inspirations: l.transcription?.inspirations ?? [],
+      },
+      livre: false,
+      pod: l.pod,
+    })
+    .select("id")
+    .single();
+  if (cErr || !contenu) throw new Error(`contenu : ${messageErreur(cErr)}`);
+
+  try {
+    const { error: lErr } = await supabase.from("contenu_labels").insert({ contenu_id: contenu.id, label_id: pod.label_id });
+    if (lErr) throw lErr;
+    const slides = deck.map((s) => ({ position: s.position, texte_overlay: s.texte_overlay, position_sophia: false }));
+    const { error: clErr } = await supabase.from("contenu_langues").insert({
+      contenu_id: contenu.id,
+      langue: l.langue_source,
+      slides,
+      slides_base: slides,
+      nb_passages: 0,
+    });
+    if (clErr) throw clErr;
+  } catch (e) {
+    await supabase.from("contenus").delete().eq("id", contenu.id);
+    throw e;
+  }
+
+  await supabase
+    .from("pod_livraisons")
+    .update({ statut: "validee", contenu_id: contenu.id, tier, decide_par: userId, decide_le: maintenant, motif: null })
+    .eq("id", l.id);
+  return json({ ok: true, statut: "validee", contenu_id: contenu.id, tier });
+}
+
+/** Handle TikTok d'une URL source (« @compte »), ou null. */
+function compteSource(url: string | null): string | null {
+  return url?.match(/tiktok\.com\/@([^/?#]+)/i)?.[1] ?? null;
+}
+
+/**
+ * Contenus du label, pour que l'agent voie ce qui marche : texte source (sans
+ * pub), rang, vues source et vues chez nous. Lecture seule.
+ */
+async function contenusDuLabel(request: Request, supabase: Supabase, body: Record<string, unknown>) {
+  const pod = await podDuJeton(request, supabase, String(body.pod ?? ""));
+  if (!pod?.label_id) return json({ ok: false, error: "unauthorized" }, 401);
+  const limite = Math.min(Math.max(Number(body.limite) || 300, 1), 1000);
+
+  const ids: string[] = [];
+  for (let page = 0; ; page += 1) {
+    const { data } = await supabase
+      .from("contenu_labels")
+      .select("contenu_id")
+      .eq("label_id", pod.label_id)
+      .range(page * 1000, page * 1000 + 999);
+    ids.push(...(data ?? []).map((r: { contenu_id: string }) => r.contenu_id));
+    if (!data || data.length < 1000) break;
+  }
+
+  const lignes = [];
+  for (let i = 0; i < ids.length; i += 200) {
+    const lot = ids.slice(i, i + 200);
+    const [{ data: contenus }, { data: perfs }, { data: langues }] = await Promise.all([
+      supabase
+        .from("contenus")
+        .select("id, titre, source_url, vues_source, langue_source, tier, statut, pod, structure_slides, musique_titre, musique_url")
+        .in("id", lot)
+        .eq("statut", "valide"),
+      supabase
+        .from("contenu_tier_etat")
+        .select("contenu_id, publies, restants, moyenne_vues, max_vues")
+        .in("contenu_id", lot),
+      supabase.from("contenu_langues").select("contenu_id, langue, slides, slides_base").in("contenu_id", lot),
+    ]);
+    const perf = new Map((perfs ?? []).map((p: { contenu_id: string }) => [p.contenu_id, p]));
+    // deno-lint-ignore no-explicit-any
+    for (const c of (contenus ?? []) as any[]) {
+      // deno-lint-ignore no-explicit-any
+      const ligne = (langues ?? []).find((x: any) => x.contenu_id === c.id && x.langue === c.langue_source);
+      const base = (ligne?.slides_base?.length ? ligne.slides_base : ligne?.slides ?? []) as {
+        position: number;
+        texte_overlay?: string;
+        position_sophia?: boolean;
+      }[];
+      lignes.push({
+        id: c.id,
+        compte_source: compteSource(c.source_url),
+        source_url: c.source_url,
+        vues_source: c.vues_source,
+        tier: c.tier,
+        pod: c.pod,
+        musique: c.musique_titre ? { titre: c.musique_titre, url: c.musique_url } : null,
+        perf: perf.get(c.id) ?? null,
+        slides: base
+          .filter((s) => !s.position_sophia)
+          .map((s) => ({
+            position: s.position,
+            texte: s.texte_overlay ?? "",
+            // deno-lint-ignore no-explicit-any
+            media_id: (c.structure_slides ?? []).find((x: any) => x.position === s.position)?.media_id ?? null,
+          })),
+      });
+    }
+  }
+  // Les plus vus chez nous d'abord (moyenne, puis max).
+  lignes.sort((a, b) =>
+    // deno-lint-ignore no-explicit-any
+    ((b.perf as any)?.moyenne_vues ?? -1) - ((a.perf as any)?.moyenne_vues ?? -1)
+  );
+  return json({ ok: true, total: lignes.length, contenus: lignes.slice(0, limite) });
+}
+
+/** Banque d'images propres du label (sans texte), pour composer des originaux. */
+async function imagesDuLabel(request: Request, supabase: Supabase, slug: string) {
+  const pod = await podDuJeton(request, supabase, slug);
+  if (!pod?.label_id) return json({ ok: false, error: "unauthorized" }, 401);
+  const ids: string[] = [];
+  for (let page = 0; ; page += 1) {
+    const { data } = await supabase
+      .from("media_labels")
+      .select("media_id")
+      .eq("label_id", pod.label_id)
+      .range(page * 1000, page * 1000 + 999);
+    ids.push(...(data ?? []).map((r: { media_id: string }) => r.media_id));
+    if (!data || data.length < 1000) break;
+  }
+  const images = [];
+  for (let i = 0; i < ids.length; i += 300) {
+    const { data } = await supabase
+      .from("media_library")
+      .select("id, url, est_hook, used_count, contenu_id, storage_path, texte_restant")
+      .in("id", ids.slice(i, i + 300));
+    for (const m of data ?? []) {
+      if (!String(m.storage_path).startsWith("propre/") || m.texte_restant) continue;
+      images.push({ id: m.id, url: m.url, est_hook: Boolean(m.est_hook), used_count: m.used_count ?? 0, contenu_id: m.contenu_id });
+    }
+  }
+  return json({ ok: true, total: images.length, images });
 }

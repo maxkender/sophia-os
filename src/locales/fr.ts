@@ -1044,6 +1044,8 @@ export const fr = {
       valide: "Validée — rang {{tier}} (note {{note}})",
       ecartee: "Écartée : note d'import {{note}} sous le seuil",
       rejete: "Rejetée",
+      label: "label {{label}}",
+      inactif: "inactif",
       appli: "slide de l'app",
       nouvellesLangues: "Nouvelles langues ({{langues}}) pour un post déjà validé",
       statut: {

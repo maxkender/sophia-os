@@ -35,6 +35,38 @@ export interface Livraison {
 const COLONNES =
   "id, pod, type, source_url, source_vues, titre, langue_source, musique_titre, decks, statut, motif, note_import, tier, contenu_id, created_at, decide_le";
 
+export interface Pod {
+  slug: string;
+  nom: string;
+  actif: boolean;
+  label: string | null;
+}
+
+/** Les pods déclarés (table `pods`) avec le nom de leur label. */
+export async function listerPods(): Promise<Pod[]> {
+  const { data, error } = await supabase.from("pods").select("slug, nom, actif, labels(nom)").order("created_at");
+  if (error) throw error;
+  return (data ?? []).map((p) => {
+    const label = p.labels as unknown as { nom: string } | { nom: string }[] | null;
+    return {
+      slug: p.slug as string,
+      nom: p.nom as string,
+      actif: p.actif as boolean,
+      label: (Array.isArray(label) ? label[0]?.nom : label?.nom) ?? null,
+    };
+  });
+}
+
+/** Regroupe des livraisons par pod, dans l'ordre des pods connus (les inconnus à la fin). */
+export function parPod(pods: Pick<Pod, "slug">[], livraisons: Livraison[]): Map<string, Livraison[]> {
+  const groupes = new Map<string, Livraison[]>(pods.map((p) => [p.slug, []]));
+  for (const l of livraisons) {
+    if (!groupes.has(l.pod)) groupes.set(l.pod, []);
+    groupes.get(l.pod)!.push(l);
+  }
+  return groupes;
+}
+
 /** File d'attente (la plus ancienne d'abord) + les 30 dernières décidées. */
 export async function listerLivraisons(): Promise<{ aValider: Livraison[]; decidees: Livraison[] }> {
   const [attente, faites] = await Promise.all([

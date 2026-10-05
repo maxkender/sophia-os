@@ -1,0 +1,59 @@
+{
+ "post_id": "7692093201968090401",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": { "en": ["10/10 habits to become", "smart again"], "fr": "10/10 habitudes pour redevenir malin" },
+    "T2": { "en": ["(in this age of", "short-form content)"], "fr": "(à l'ère des vidéos courtes)" }
+   },
+   "images": { "I1": "garder" }
+  },
+  "2": {
+   "textes": {
+    "T1": { "en": ["spend more time without stimulation"], "fr": "passe plus de temps [[sans stimulation]]" },
+    "T2": { "en": ["stop filling every walk,", "meal, and spare minute", "with content and music"], "fr": "arrête de remplir chaque balade, repas, [[minute libre]] [[de vidéos]] et de [[musique]]" },
+    "T3": { "en": ["quiet gives your brain", "room to replay", "information, connect", "ideas, and form its own", "thoughts"], "fr": "le calme laisse ton cerveau rejouer les infos, relier les idées et [[former ses propres pensées]]" },
+    "T4": { "en": ["constant short-form content is making your brain rot", "and ruining your attention span!!"], "fr": "les vidéos courtes en continu font [[pourrir ton cerveau]] et [[détruisent ta concentration!!]]" }
+   },
+   "images": { "I1": "garder" }
+  },
+  "3": {
+   "textes": {
+    "T1": { "en": ["stop outsourcing every", "thought"], "fr": "arrête de sous-traiter [[chaque pensée]]" },
+    "T2": { "en": ["don’t ask google or AI the second you get stuck"], "fr": "ne demande pas à google ni [[à l'IA dès que tu bloques]]" },
+    "T3": { "en": ["sit with the problem", "first, make a guess,", "then check yourself"], "fr": "[[reste d'abord avec le problème]], devine, puis vérifie" },
+    "T4": { "en": ["struggling for the", "answer is part of what", "makes the learning", "stick"], "fr": "[[galérer]] pour trouver, c'est ce qui fait que [[l'apprentissage]] reste" },
+    "T5": { "en": ["don't offload your", "understanding and", "thought process, it's", "what keeps you alive"], "fr": "ne délègue pas ta [[compréhension]] ni ta réflexion, c'est ce qui [[te garde vivant]]" }
+   },
+   "images": { "I1": "garder", "I2": "garder", "I3": "garder" }
+  },
+  "4": {
+   "textes": {
+    "T1": { "en": ["start reading everyday"], "fr": "apprends [[chaque jour]]" },
+    "T2": { "en": ["scrolling feeds you", "constant dopamine and", "burns your dopamine", "receptors"], "fr": "le scroll te donne [[de la dopamine en continu]] et [[grille tes récepteurs]]" },
+    "T3": { "en": ["i use readup to block my", "apps for 20 minutes until i", "read"], "fr": "je remplace mon scroll par [[5 minutes sur l'appli Sophia]]" },
+    "T4": { "en": ["reading forces you to hold", "attention, remember", "details, and follow one", "idea for longer"], "fr": "apprendre te force à [[rester attentif]], [[retenir les détails]] et suivre une idée plus longtemps" },
+    "T5": { "en": ["even a little every day is", "enough to start rebuilding", "your attention span"], "fr": "même un peu chaque jour suffit à [[reconstruire ta concentration]]" }
+   },
+   "images": { "I1": "sophia_capture" }
+  },
+  "5": {
+   "textes": {
+    "T1": { "en": ["challenge your own biases"], "fr": "défie [[tes propres biais]]" },
+    "T2": { "en": ["your brain loves evidence that proves what you", "already believe"], "fr": "ton cerveau adore les preuves de [[ce que tu crois déjà]]" },
+    "T3": { "en": ["actively look for the", "strongest argument", "against your opinion"], "fr": "cherche activement [[le meilleur argument contre]] ton avis" },
+    "T4": { "en": ["getting smarter", "means getting better", "at noticing when your", "own thinking is wrong"], "fr": "devenir plus malin, c'est mieux repérer [[quand ton raisonnement a tort]]" }
+   },
+   "images": { "I1": "garder" }
+  },
+  "6": {
+   "textes": {
+    "T1": { "en": ["explain what you learn out loud"], "fr": "explique ce que t'apprends [[à voix haute]]" },
+    "T2": { "en": ["close the book, article, or", "video and explain the idea", "from memory"], "fr": "ferme le livre, l'article ou la vidéo et explique l'idée [[de mémoire]]" },
+    "T3": { "en": ["the moment you get vague", "or confused, you’ve found", "the gap"], "fr": "dès que tu deviens flou ou perdu, t'as trouvé la faille" },
+    "T4": { "en": ["teaching exposes weak", "understanding faster than", "rereading does"], "fr": "[[enseigner révèle une compréhension fragile]] plus vite que relire" }
+   },
+   "images": { "I1": "garder" }
+  }
+ }
+}

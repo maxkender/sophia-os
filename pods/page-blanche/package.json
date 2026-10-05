@@ -1,0 +1,19 @@
+{
+  "name": "pod-page-blanche",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Pod 1 — atelier Page blanche : rendu des slides texte-en-dur.",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "geometrie": "node atelier/cli-geometrie.ts",
+    "rendu": "node atelier/cli-rendu.ts"
+  }
+}

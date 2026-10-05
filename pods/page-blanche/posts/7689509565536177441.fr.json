@@ -1,0 +1,56 @@
+{
+ "post_id": "7689509565536177441",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": { "en": ["10/10 skills to learn to be", "successful by 25"], "fr": "10/10 compétences pour réussir avant 25 ans" },
+    "T2": { "en": ["(7 figures by 25)"], "fr": "(7 chiffres à 25 ans)", "alignement": "droite" }
+   },
+   "images": { "I1": "garder" }
+  },
+  "2": {
+   "textes": {
+    "T1": { "en": ["learn to focus for hours"], "fr": "concentre-toi [[des heures]]" },
+    "T2": { "en": ["most people can barely work for 20", "minutes without checking something"], "fr": "la plupart des gens [[tiennent à peine 20 minutes]] sans checker un truc" },
+    "T3": { "en": ["train yourself to", "do 60–90 minutes", "of uninterrupted", "deep work"], "fr": "entraîne-toi à faire [[60–90 minutes]] de travail profond sans pause" },
+    "T4": { "en": ["being able to concentrate while everyone", "else is distracted is a ridiculous advantage"], "fr": "savoir te concentrer quand tout le monde est distrait, c'est un avantage énorme" }
+   },
+   "images": { "I1": "garder" }
+  },
+  "3": {
+   "textes": {
+    "T1": { "en": ["learn how money actually works"], "fr": "comprends [[comment marche l'argent]]" },
+    "T2": { "en": ["understand investing,", "cash flow, debt, and"], "fr": "maîtrise placements, cash-flow, dette et" },
+    "T3": { "en": ["serious money"], "fr": "[[du vrai argent]]" },
+    "T4": { "en": ["making more helps, but", "keeping and allocating it", "properly is what stops", "you from being broke"], "fr": "gagner plus aide, mais c'est bien le garder et le placer qui [[t'évite d'être fauché]]" },
+    "T5": { "en": ["you can't save your way to wealth,", "you have to earn your way there!"], "fr": "[[on ne devient pas riche en épargnant, il faut gagner plus !]]" }
+   },
+   "images": { "I1": "garder", "I2": "garder" }
+  },
+  "4": {
+   "textes": {
+    "T1": { "en": ["learn from history's greatest minds"], "fr": "apprends des [[grands esprits de l'histoire]]" },
+    "T2": { "en": ["read philosophy, history,", "biographies and literature"], "fr": "lis philo, histoire, biographies et littérature" },
+    "T3": { "en": ["if you can't focus", "because you get bored", "and start scrolling, use", "readup to block your", "apps until you've read for", "20 minutes"], "fr": "si tu décroches par ennui et que tu finis par scroller, remplace ton scroll par [[5 minutes par jour sur l'appli Sophia]]" }
+   },
+   "images": { "I1": "sophia_capture", "I2": "garder", "I3": "sophia_appstore" }
+  },
+  "5": {
+   "textes": {
+    "T1": { "en": ["get good at writing"], "fr": "apprends à bien écrire" },
+    "T2": { "en": ["clear writing forces clear", "thinking"], "fr": "écrire clair oblige à penser clair" },
+    "T3": { "en": ["learn how to explain", "complicated ideas", "simply, write convincing", "messages, and make", "people actually care"], "fr": "apprends à expliquer simplement des idées complexes, à convaincre par écrit et à [[captiver vraiment les gens]]" },
+    "T4": { "en": ["if you can write well, you'll be better at", "marketing, leadership, sales, and building an", "audience"], "fr": "si tu écris bien, tu seras meilleur en marketing, en leadership, en vente et pour bâtir une audience" }
+   },
+   "images": { "I1": "garder" }
+  },
+  "6": {
+   "textes": {
+    "T1": { "en": ["become dangerously good", "at communication"], "fr": "deviens [[redoutablement bon]] pour communiquer" },
+    "T2": { "en": ["learn how to speak", "clearly, ask better", "questions, negotiate,", "listen, and handle", "uncomfortable", "conversations"], "fr": "apprends à parler clairement, à mieux questionner, à négocier, à écouter et à gérer les conversations gênantes" },
+    "T3": { "en": ["a lot of “talent” gets ignored because the", "person can't explain what they know or", "get other people on board"], "fr": "plein de « talents » passent inaperçus car la personne ne sait pas expliquer ce qu'elle sait ni rallier les autres" }
+   },
+   "images": { "I1": "garder" }
+  }
+ }
+}

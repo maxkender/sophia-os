@@ -111,6 +111,8 @@ export interface Compte {
   avatar_url: string | null;
   avatar_source: string | null;
   handle_tiktok: string | null;
+  /** @ Instagram (sans '@'), comptes du pod 3. Absent avant la migration 0266. */
+  handle_instagram?: string | null;
   style_profile: string | null;
   demarre_le: string;
   is_active: boolean;
@@ -142,6 +144,8 @@ export interface Compte {
   ugc_ai: boolean;
   /** Créateur UGC AI VIDEO — marque seule, aucun label ; persona unique partagé. */
   ugc_ai_video: boolean;
+  /** Compte du pod 3 : vidéos du pod uniquement (TikTok + Instagram), jamais de slideshow. */
+  videos_uniquement?: boolean;
   /** Persona UGC (4 angles) associé à ce créateur. */
   ugc_persona_id: string | null;
 }

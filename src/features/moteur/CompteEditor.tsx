@@ -274,7 +274,7 @@ function ReglagesCompte({ compte }: { compte: CompteAvecDetails }) {
   );
 }
 
-/** Infos du compte : nom affiché, @ TikTok, langue, lien Upwork. */
+/** Infos du compte : nom affiché, @ TikTok, @ Instagram, langue, lien Upwork. */
 function InfosCompte({ compte }: { compte: CompteAvecDetails }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
@@ -282,6 +282,7 @@ function InfosCompte({ compte }: { compte: CompteAvecDetails }) {
 
   const [nom, setNom] = React.useState(compte.persona_nom ?? "");
   const [handle, setHandle] = React.useState(compte.handle_tiktok ?? "");
+  const [handleInsta, setHandleInsta] = React.useState(compte.handle_instagram ?? "");
   const [langue, setLangue] = React.useState(compte.langue);
   const [upwork, setUpwork] = React.useState(compte.profiles?.upwork_url ?? "");
 
@@ -289,6 +290,7 @@ function InfosCompte({ compte }: { compte: CompteAvecDetails }) {
   const modifie =
     nom !== (compte.persona_nom ?? "") ||
     handle !== (compte.handle_tiktok ?? "") ||
+    handleInsta !== (compte.handle_instagram ?? "") ||
     langue !== compte.langue ||
     upwork !== upworkInitial;
 
@@ -297,6 +299,7 @@ function InfosCompte({ compte }: { compte: CompteAvecDetails }) {
       await majCompte(compte.id, {
         persona_nom: nom.trim() || null,
         handle_tiktok: handle.trim().replace(/^@/, "") || null,
+        handle_instagram: handleInsta.trim().replace(/^@/, "") || null,
         langue,
       });
       if (upwork !== upworkInitial) await majUpwork(compte.poster_id, upwork);
@@ -320,6 +323,15 @@ function InfosCompte({ compte }: { compte: CompteAvecDetails }) {
           value={handle}
           placeholder="pseudo.tiktok"
           onChange={(e) => setHandle(e.target.value)}
+        />
+      </div>
+      <div className="space-y-1.5">
+        <Label htmlFor={`handle-insta-${compte.id}`}>{t("comptes.pseudoInstagram")}</Label>
+        <Input
+          id={`handle-insta-${compte.id}`}
+          value={handleInsta}
+          placeholder="pseudo.instagram"
+          onChange={(e) => setHandleInsta(e.target.value)}
         />
       </div>
       <div className="space-y-1.5">

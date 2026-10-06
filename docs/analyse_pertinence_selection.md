@@ -300,3 +300,85 @@ Trois points, dans l'ordre :
    la composition de `base` déplace sa distribution : il faut le recalibrer
    pour conserver le même volume d'imports, sinon on change silencieusement le
    débit en même temps que le tri.
+
+---
+
+# Simulation de grilles de notation
+
+Ajoutée le 6 octobre 2026. Répond à : une autre grille corrélerait-elle mieux ?
+
+## Protocole, et sa faiblesse assumée
+
+L'appel à Gemini étant indisponible, les 120 accroches ont été notées à la main
+sur la grille « pouvoir d'arrêt » (section 5.b), **en aveugle** : accroche et
+légende seules, sans performance ni score actuel, notes figées avant tout
+rapprochement.
+
+Deux accroches de l'échantillon avaient été vues en début d'analyse, avec leur
+performance. Elles sont identifiées et le calcul est refait sans elles.
+
+## Résultat
+
+Sur 119 contenus appariés :
+
+| Grille | Spearman avec la performance | IC95 |
+| --- | --- | --- |
+| Score de pertinence stocké | **-0,119** | -0,29 à +0,06 |
+| Prompt actuel rejoué | -0,101 | -0,28 à +0,08 |
+| **Pouvoir d'arrêt** | **+0,157** | -0,02 à +0,33 |
+
+Écart de **+0,275**. Test de Williams pour corrélations dépendantes :
+t = 2,23, **p = 0,026**. Bootstrap apparié sur 4000 tirages : IC95 de l'écart
+[+0,034, +0,508].
+
+Sans les deux accroches contaminées : écart +0,261, p = 0,037, IC95
+[+0,015, +0,496]. La contamination n'explique donc pas le résultat (les deux
+avaient d'ailleurs été notées 72 et 70 pour des performances de 12,8 et 9,4,
+soit plutôt sous-évaluées).
+
+Les deux grilles ne corrèlent entre elles qu'à **+0,075** : elles mesurent
+bien deux choses différentes.
+
+## Trois réserves, dont une qui peut tout changer
+
+**1. Ce n'est pas Gemini qui a noté.** C'est la réserve majeure. Le test montre
+que la grille porte du signal quand un modèle fort l'applique. Il ne dit pas que
+Gemini Flash en extraira autant. Seul un passage sur le modèle de production
+tranchera.
+
+**2. La grille n'est pas encore un bon sélecteur dans l'absolu.** Son IC95
+contient zéro de justesse. Ce qui est établi, c'est qu'elle est **meilleure que
+l'actuelle**, pas qu'elle soit bonne.
+
+**3. L'échantillon a tiré bas.** Sur cette tranche de 120, le score actuel vaut
+-0,12 alors qu'il vaut +0,079 sur les 1315. La comparaison entre grilles reste
+valide puisqu'elle est appariée sur les mêmes contenus, mais les valeurs
+absolues sont pessimistes.
+
+## Vue sélection
+
+À lire avec prudence : sur 119 contenus, un top 30 % ne fait que 36 lignes, donc
+les taux reposent sur une poignée de cas.
+
+| Règle de tri | top 20 % | top 30 % | top 50 % |
+| --- | --- | --- | --- |
+| Score de pertinence | **0,0 %** | 2,8 % | 8,3 % |
+| Pouvoir d'arrêt | 16,7 % | 13,9 % | 20,0 % |
+| Référence (tout l'échantillon) | 16,0 % | 16,0 % | 16,0 % |
+
+Le fait marquant n'est pas que la nouvelle grille soit bonne, elle est à peu
+près au niveau du hasard. C'est que **l'actuelle est anti-prédictive sur cette
+tranche** : zéro doublement parmi ses 24 meilleurs contenus.
+
+## Conclusion
+
+Classement des leviers, du plus solide au plus incertain :
+
+1. **Piste du compte source** : +40 % de doublements, p = 0,003, tenu en
+   walk-forward sur trois fenêtres. Aucun appel LLM. C'est le levier à prendre.
+2. **Grille pouvoir d'arrêt** : +0,26 de corrélation contre la grille actuelle,
+   p = 0,037, mais notée par un modèle qui n'est pas celui de production.
+   À valider sur Gemini avant de déployer.
+3. **Grille de pertinence actuelle** : à conserver comme barrière
+   d'éligibilité, à retirer du classement. Elle n'y apporte rien, et sur cet
+   échantillon elle nuit.

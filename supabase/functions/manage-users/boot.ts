@@ -6,9 +6,9 @@
  */
 import { createClient } from "jsr:@supabase/supabase-js@2";
 
-const SHA = "fe7f9895114ecd998d4326c3bc19c452709a1884";
+const SHA = "97bd4161c560c9cf391a77b736aebc9428c05f14";
 const PATH = "supabase/functions/manage-users/bundle.gz";
-const SIZE = 20557;
+const SIZE = 21364;
 const URLS = [
   `https://cdn.jsdelivr.net/gh/maxkender/sophia-os@${SHA}/${PATH}`,
   `https://raw.githubusercontent.com/maxkender/sophia-os/${SHA}/${PATH}`,

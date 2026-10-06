@@ -1,4 +1,5 @@
 import { supabase } from "@/lib/supabase/client";
+import { DELAI_PUBLICATION_MIN_DEFAUT } from "@/features/moteur/delaiPublication";
 import { LANGUES_CIBLES } from "@/features/moteur/langues";
 import {
   estCompteSlideshowAssigne,
@@ -1704,7 +1705,17 @@ export async function majPost(id: string, patch: Partial<Post>): Promise<void> {
   if (patch.statut === "publie" && !String(patch.publie_url ?? "").trim()) {
     throw new Error("Lien TikTok obligatoire pour marquer comme publié");
   }
-  const { error } = await supabase.from("posts").update(patch).eq("id", id);
+  // On relit `publie_at` : le trigger `posts_exiger_delai_entre_publications`
+  // le RÉÉCRIT à now() côté serveur pour les non-admins, sinon l'horodatage
+  // serait celui du navigateur et le délai minimum se contournerait en
+  // envoyant une date ancienne. Sans cette relecture, le miroir ci-dessous
+  // recopierait la valeur du client et les deux tables divergeraient.
+  const { data: stocke, error } = await supabase
+    .from("posts")
+    .update(patch)
+    .eq("id", id)
+    .select("publie_at")
+    .maybeSingle();
   if (error) throw error;
 
   // Miroir v-next : un passage lié doit suivre statut / lien TikTok (scoring).
@@ -1716,9 +1727,52 @@ export async function majPost(id: string, patch: Partial<Post>): Promise<void> {
     const miroir: Record<string, unknown> = {};
     if (patch.statut !== undefined) miroir.statut = patch.statut;
     if (patch.publie_url !== undefined) miroir.publie_url = patch.publie_url;
-    if (patch.publie_at !== undefined) miroir.publie_at = patch.publie_at;
+    if (patch.publie_at !== undefined) {
+      miroir.publie_at = stocke?.publie_at ?? patch.publie_at;
+    }
     await supabase.from("passages").update(miroir).eq("post_id", id);
   }
+}
+
+/**
+ * Ce qu'il faut pour afficher le compte à rebours entre deux publications.
+ *
+ * LIMITE ASSUMÉE : la policy `posts_select` ne montre au créateur que ses
+ * posts en `pipeline_statut = 'done'`. Un post précédent resté en pipeline est
+ * donc invisible ici, et le compte à rebours affichera 0 alors que le trigger
+ * refusera encore. C'est voulu : le serveur reste la seule autorité, et la
+ * page sait rattraper son refus (voir `minutesDepuisErreurPublication`).
+ * Mieux vaut un compte à rebours parfois trop optimiste qu'un blocage inventé
+ * côté navigateur.
+ */
+export async function contrainteDelaiPublication(
+  compteId: string,
+): Promise<{ derniere: string | null; delaiMin: number }> {
+  const [pub, reg] = await Promise.all([
+    supabase
+      .from("posts")
+      .select("publie_at")
+      .eq("compte_id", compteId)
+      .eq("statut", "publie")
+      .eq("est_test", false)
+      .not("publie_at", "is", null)
+      .order("publie_at", { ascending: false })
+      .limit(1)
+      .maybeSingle(),
+    supabase.from("reglages").select("valeur").eq("cle", "frequence").maybeSingle(),
+  ]);
+  if (pub.error) throw pub.error;
+
+  // Un réglage illisible ne doit pas empêcher d'afficher la page : on retombe
+  // sur le défaut, et de toute façon c'est le serveur qui tranche.
+  const brut = (reg.data?.valeur as { delai_min_entre_posts?: unknown } | null)
+    ?.delai_min_entre_posts;
+  const delaiMin =
+    typeof brut === "number" && Number.isFinite(brut) && brut >= 0
+      ? brut
+      : DELAI_PUBLICATION_MIN_DEFAUT;
+
+  return { derniere: (pub.data?.publie_at as string | null) ?? null, delaiMin };
 }
 
 export async function majPassage(

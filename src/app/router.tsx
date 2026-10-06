@@ -5,6 +5,7 @@ import { ProtectedRoute } from "@/features/auth/ProtectedRoute";
 import { PublicOnlyRoute } from "@/features/auth/PublicOnlyRoute";
 import { RoleGate } from "@/features/auth/RoleGate";
 import { estRoleManager, useAuth } from "@/features/auth/AuthContext";
+import { ACCUEIL_HO } from "@/features/auth/pagesHeadOfOps";
 import { HiringDocumentsPage } from "@/pages/hiring/HiringDocumentsPage";
 import { HiringRecruteursPage } from "@/pages/hiring/HiringRecruteursPage";
 import { AdminLayout } from "@/components/layout/AdminLayout";
@@ -45,6 +46,9 @@ import { NotFoundPage } from "@/pages/NotFoundPage";
 function Accueil() {
   const { role } = useAuth();
   if (role === "admin") return <Navigate to="/admin" replace />;
+  // Avant estRoleManager : le Head of Ops est un manager, mais il atterrit dans sa
+  // coquille admin, pas dans l'espace recrutement qu'il garde par ailleurs.
+  if (role === "head_of_ops") return <Navigate to={ACCUEIL_HO} replace />;
   if (estRoleManager(role)) return <Navigate to="/embauche" replace />;
   if (role === "poster") return <Navigate to="/calendrier" replace />;
   return <Navigate to="/login" replace />;
@@ -60,40 +64,50 @@ export function AppRouter() {
       <Route element={<ProtectedRoute />}>
         <Route path="/" element={<Accueil />} />
 
-        <Route element={<RoleGate allow={["admin"]} />}>
+        {/* Porte extérieure : l'admin ET le Head of Ops entrent dans la
+            coquille. La porte intérieure referme ensuite tout ce qui reste
+            réservé à l'admin. La liste des routes ouvertes au Head of Ops vit dans
+            `ROUTES_HO`, que la barre de navigation lit aussi — un test
+            vérifie que les deux ne peuvent pas diverger. */}
+        <Route element={<RoleGate allow={["admin", "head_of_ops"]} />}>
           <Route element={<AdminLayout />}>
-            <Route path="/admin" element={<AdminPilotagePage />} />
+            {/* L'espace du Head of Ops. */}
             <Route path="/admin/calendrier" element={<AdminCalendrierPage />} />
-            <Route path="/admin/createurs/:compteId" element={<AdminCreateurPage />} />
-            <Route path="/admin/minuit" element={<AdminMinuitPage />} />
-            <Route path="/admin/posts/:id" element={<AdminPostDetailPage />} />
-            <Route path="/admin/posts" element={<Navigate to="/admin/calendrier" replace />} />
-            <Route path="/admin/analytics" element={<AdminAnalyticsPage />} />
-            <Route path="/admin/suivi-rc" element={<AdminSuiviRcPage />} />
-            <Route path="/admin/sources" element={<AdminSourcesPage />} />
-            <Route path="/admin/contenus" element={<Navigate to="/admin/slideshows" replace />} />
-            <Route path="/admin/slideshows" element={<AdminSlideshowsPage />} />
-            <Route path="/admin/creation" element={<AdminCreationPage />} />
-            <Route path="/admin/pods" element={<AdminPodsPage />} />
-            <Route path="/admin/assignation-sources" element={<Navigate to="/admin/sources" replace />} />
-            <Route path="/admin/reproduisibles" element={<Navigate to="/admin/slideshows" replace />} />
             <Route path="/admin/posters" element={<AdminPostersPage />} />
             <Route path="/admin/surveillance" element={<AdminSurveillancePage />} />
-            <Route path="/admin/recrutements/:pays" element={<AdminRecrutementsPaysPage />} />
-            <Route path="/admin/recrutements" element={<AdminRecrutementsPage />} />
             <Route path="/admin/reviews" element={<AdminReviewsPage />} />
             <Route path="/admin/file-reviews" element={<AdminFileReviewsPage />} />
             <Route path="/admin/parrainages" element={<AdminReferralsPage />} />
-            <Route path="/admin/bibliotheque" element={<AdminBibliothequePage />} />
-            <Route path="/admin/tests" element={<AdminTestsPage />} />
-            <Route path="/admin/test-nettoyage" element={<Navigate to="/admin/tests" replace />} />
-            <Route path="/admin/reglages" element={<AdminReglagesPage />} />
-            <Route path="/admin/prompts" element={<AdminPromptsPage />} />
             <Route path="/admin/documents" element={<AdminDocumentsPage />} />
             <Route path="/admin/assistant" element={<AdminChatbotPage />} />
-            {/* Papier CM et UGC AI retirés — les anciens liens retombent sur le pilotage. */}
-            <Route path="/admin/papier" element={<Navigate to="/admin" replace />} />
-            <Route path="/admin/ugc/*" element={<Navigate to="/admin" replace />} />
+            {/* Sans ces deux-là, Schedule et Account watch sont des culs-de-sac. */}
+            <Route path="/admin/createurs/:compteId" element={<AdminCreateurPage />} />
+            <Route path="/admin/posts/:id" element={<AdminPostDetailPage />} />
+
+            <Route element={<RoleGate allow={["admin"]} />}>
+                <Route path="/admin" element={<AdminPilotagePage />} />
+              <Route path="/admin/minuit" element={<AdminMinuitPage />} />
+              <Route path="/admin/posts" element={<Navigate to="/admin/calendrier" replace />} />
+              <Route path="/admin/analytics" element={<AdminAnalyticsPage />} />
+              <Route path="/admin/suivi-rc" element={<AdminSuiviRcPage />} />
+              <Route path="/admin/sources" element={<AdminSourcesPage />} />
+              <Route path="/admin/contenus" element={<Navigate to="/admin/slideshows" replace />} />
+              <Route path="/admin/slideshows" element={<AdminSlideshowsPage />} />
+              <Route path="/admin/creation" element={<AdminCreationPage />} />
+              <Route path="/admin/pods" element={<AdminPodsPage />} />
+              <Route path="/admin/assignation-sources" element={<Navigate to="/admin/sources" replace />} />
+              <Route path="/admin/reproduisibles" element={<Navigate to="/admin/slideshows" replace />} />
+              <Route path="/admin/recrutements/:pays" element={<AdminRecrutementsPaysPage />} />
+              <Route path="/admin/recrutements" element={<AdminRecrutementsPage />} />
+              <Route path="/admin/bibliotheque" element={<AdminBibliothequePage />} />
+              <Route path="/admin/tests" element={<AdminTestsPage />} />
+              <Route path="/admin/test-nettoyage" element={<Navigate to="/admin/tests" replace />} />
+              <Route path="/admin/reglages" element={<AdminReglagesPage />} />
+              <Route path="/admin/prompts" element={<AdminPromptsPage />} />
+              {/* Papier CM et UGC AI retirés — les anciens liens retombent sur le pilotage. */}
+              <Route path="/admin/papier" element={<Navigate to="/admin" replace />} />
+              <Route path="/admin/ugc/*" element={<Navigate to="/admin" replace />} />
+            </Route>
           </Route>
         </Route>
 
@@ -107,7 +121,7 @@ export function AppRouter() {
           </Route>
         </Route>
 
-        <Route element={<RoleGate allow={["hiring_manager", "directing_manager"]} />}>
+        <Route element={<RoleGate allow={["hiring_manager", "directing_manager", "head_of_ops"]} />}>
           <Route element={<HiringLayout />}>
             <Route path="/embauche" element={<HiringPosterPage />} />
             <Route path="/manager/calendrier" element={<HiringCalendrierPage />} />

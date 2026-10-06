@@ -1,0 +1,28 @@
+-- Head of Ops : un hiring manager élargi à une partie de l'espace admin.
+--
+-- POURQUOI UN RÔLE NEUF ET PAS `directing_manager`
+-- Le DM existe déjà (0192/0193/0195) et trois personnes le portent. Elles
+-- gardent leur espace recrutement tel quel, donc on ne pouvait pas élargir le
+-- DM sans leur donner au passage un accès qu'elles ne doivent pas avoir.
+--
+-- CE QUE LE HEAD OF OPS CUMULE
+--   1. tout le hiring manager : ses créateurs, son espace recrutement ;
+--   2. les droits de DONNÉES de l'admin, parce que ses pages (Schedule,
+--      Posters, Account watch, Reviews, Today's queue, Referrals, Documents,
+--      Assistant) lisent toutes via PostgREST, donc sous RLS, et que ~75
+--      policies réparties sur 61 tables sont conditionnées à `is_admin()`.
+--      Ouvrir les routes côté React sans ça lui aurait montré des pages vides.
+--
+-- POURQUOI ÉLARGIR `is_admin()` PLUTÔT QUE RÉÉCRIRE LES POLICIES
+-- Le choix produit est « le Head of Ops voit les mêmes données que l'admin ».
+-- Réécrire 75 policies une par une, c'est 75 occasions de se tromper, et la
+-- garantie que la prochaine policy écrite oubliera le Head of Ops. Élargir la fonction
+-- aligne tout d'un coup et ne dérive pas.
+--
+-- CE QUE ÇA IMPLIQUE, EN TOUTES LETTRES
+-- La restriction à ces pages est une limite d'INTERFACE, pas de permissions.
+-- Un Head of Ops qui connaît l'API peut lire et écrire ce qu'un admin lit et écrit, y
+-- compris `reglages` et `prompts`. C'est assumé. Pour en faire une vraie
+-- frontière il faudrait des policies distinctes table par table.
+
+alter type public.app_role add value if not exists 'head_of_ops';

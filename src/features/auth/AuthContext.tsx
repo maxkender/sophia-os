@@ -37,6 +37,9 @@ async function chargerRole(userId: string): Promise<Role | null> {
   const { data } = await supabase.from("user_roles").select("role").eq("user_id", userId);
   const roles = (data ?? []).map((r) => r.role as Role);
   if (roles.includes("admin")) return "admin";
+  // Avant le DM et le HM : le Head of Ops cumule les deux espaces, c'est le rôle le
+  // plus large, il doit gagner si plusieurs lignes existent.
+  if (roles.includes("head_of_ops")) return "head_of_ops";
   if (roles.includes("directing_manager")) return "directing_manager";
   if (roles.includes("hiring_manager")) return "hiring_manager";
   if (roles.includes("poster")) return "poster";

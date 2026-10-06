@@ -16,6 +16,7 @@ import {
   kickUpscaleAssignes,
   listerMediasAssignesNonUpscales,
   upscalerMediaLibrary,
+  type UpscaleMediaResultat,
 } from "../_shared/upscale_media_core.ts";
 import { reponseNdjson, veutStream } from "../_shared/nettoyage_etapes.ts";
 import {
@@ -49,25 +50,24 @@ Deno.serve(async (request) => {
   const stream = veutStream(request, body);
 
   const run = async (emit?: (e: Record<string, unknown>) => void) => {
-    let mediaId = forceMediaId;
-    let restants = 0;
+    const file = forceMediaId
+      ? [forceMediaId]
+      : await listerMediasAssignesNonUpscales(supabase, jour);
+    const restants = forceMediaId ? 0 : file.length;
 
-    if (!mediaId) {
-      const pending = await listerMediasAssignesNonUpscales(supabase, jour);
-      restants = pending.length;
-      mediaId = pending[0] ?? null;
+    if (!forceMediaId) {
       emit?.({
         etape: "queue",
         statut: "encours",
-        detail: pending.length
-          ? `${pending.length} photo(s) à upscaler (${jour})`
+        detail: file.length
+          ? `${file.length} photo(s) à upscaler (${jour})`
           : `file vide (${jour})`,
         jour,
-        pending: pending.length,
+        pending: file.length,
       });
     }
 
-    if (!mediaId) {
+    if (file.length === 0) {
       const idle = {
         ok: true as const,
         idle: true,
@@ -79,29 +79,74 @@ Deno.serve(async (request) => {
       return idle;
     }
 
-    emit?.({
-      etape: "upscale",
-      statut: "encours",
-      detail: `SeedVR ${mediaId.slice(0, 8)}…`,
-      mediaId,
-      jour,
-    });
+    // Un média dont le chemin d'upscale est déjà détenu par un AUTRE média ne
+    // peut pas aboutir : l'écriture finale casse, `upscale_le` reste NULL, et
+    // il revient en tête de file au passage suivant. Le drain ne prenant que
+    // `file[0]`, un seul média dans ce cas gelait TOUTE la file et faisait
+    // repayer un upscale SeedVR par minute (352 en une journée, aucune autre
+    // photo upscalée pendant ce temps). On le saute donc pour prendre le
+    // suivant : `upscalerMediaLibrary` détecte le squat sans appeler le
+    // provider, sauter ne coûte aucun crédit.
+    let mediaId: string | null = null;
+    let r: UpscaleMediaResultat | null = null;
+    const collisions: Array<{ mediaId: string; detail: string }> = [];
 
-    const r = await upscalerMediaLibrary(supabase, {
-      mediaId,
-      modele: "seedvr",
-      scale: 2,
-      onProgress: async (info) => {
-        emit?.({
-          etape: info.detail?.includes("C2PA") ? "c2pa" : "upscale",
-          statut: "encours",
-          detail: info.detail ?? info.phase,
-          phase: info.phase,
-          polls: info.polls,
-          mediaId,
-        });
-      },
-    });
+    for (const candidat of file) {
+      emit?.({
+        etape: "upscale",
+        statut: "encours",
+        detail: `SeedVR ${candidat.slice(0, 8)}…`,
+        mediaId: candidat,
+        jour,
+      });
+
+      const tentative = await upscalerMediaLibrary(supabase, {
+        mediaId: candidat,
+        modele: "seedvr",
+        scale: 2,
+        onProgress: async (info) => {
+          emit?.({
+            etape: info.detail?.includes("C2PA") ? "c2pa" : "upscale",
+            statut: "encours",
+            detail: info.detail ?? info.phase,
+            phase: info.phase,
+            polls: info.polls,
+            mediaId: candidat,
+          });
+        },
+      });
+
+      if (tentative.ok || !tentative.collision) {
+        mediaId = candidat;
+        r = tentative;
+        break;
+      }
+
+      collisions.push({ mediaId: candidat, detail: tentative.error });
+      emit?.({
+        etape: "upscale",
+        statut: "echec",
+        detail: tentative.error,
+        mediaId: candidat,
+        collision: true,
+        jour,
+      });
+    }
+
+    if (!r || !mediaId) {
+      // Toute la file est en collision : rien à upscaler, et surtout rien de
+      // payé. On le REMONTE au lieu de retourner `idle`, sinon la file reste
+      // bloquée sans que personne ne le sache.
+      const bloque = {
+        ok: false as const,
+        error: `file entièrement en collision de chemin (${collisions.length})`,
+        jour,
+        collisions,
+        pending: file.length,
+      };
+      emit?.({ etape: "ready", statut: "echec", ...bloque });
+      return bloque;
+    }
 
     // Combien restent après ce coup ?
     const encore = await listerMediasAssignesNonUpscales(supabase, jour);

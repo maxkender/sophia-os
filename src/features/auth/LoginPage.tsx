@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { ArrowLeft, Briefcase, ShieldCheck, Users, type LucideIcon } from "lucide-react";
+import { ArrowLeft, Briefcase, Compass, ShieldCheck, Users, type LucideIcon } from "lucide-react";
 
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
@@ -16,7 +16,7 @@ import { Input } from "@/components/ui/input";
 import { SophiaLogo } from "@/components/brand/SophiaLogo";
 import { signInWithPassword } from "./api";
 
-type AccessKey = "admin" | "manager" | "creator";
+type AccessKey = "admin" | "headOfOps" | "manager" | "creator";
 
 interface AccessCard {
   key: AccessKey;
@@ -27,6 +27,12 @@ interface AccessCard {
 
 const CARDS: AccessCard[] = [
   { key: "admin", icon: ShieldCheck, labelKey: "auth.accessAdmin", descKey: "auth.accessAdminDesc" },
+  {
+    key: "headOfOps",
+    icon: Compass,
+    labelKey: "auth.accessHeadOfOps",
+    descKey: "auth.accessHeadOfOpsDesc",
+  },
   { key: "manager", icon: Briefcase, labelKey: "auth.accessManager", descKey: "auth.accessManagerDesc" },
   { key: "creator", icon: Users, labelKey: "auth.accessCreator", descKey: "auth.accessCreatorDesc" },
 ];

@@ -23,17 +23,53 @@ import {
   UserPlus,
 } from "lucide-react";
 
+import { useAuth } from "@/features/auth/AuthContext";
+import { hoVoitLien } from "@/features/auth/pagesHeadOfOps";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { nomApplication } from "@/features/moteur/applications";
 import { SelectApplication } from "@/features/moteur/SelectApplication";
 import { AppShell } from "./AppShell";
+import type { NavGroup } from "./Sidebar";
 
 export function AdminLayout() {
   const { t } = useTranslation();
+  const { role } = useAuth();
   const { applications, slug, setSlug, application } = useApplication();
+  const estHo = role === "head_of_ops";
+
+  /**
+   * Le Head of Ops partage la coquille de l'admin mais n'a droit qu'aux
+   * pages de `ROUTES_HO`. On filtre ici ET dans le routeur, à partir de la
+   * même liste : un menu qui cache ce que la route laisse passer n'est pas une
+   * restriction. Les groupes vidés disparaissent, sinon il verrait des titres
+   * de section sans rien dessous.
+   */
+  const filtrer = (groupes: NavGroup[]): NavGroup[] => {
+    if (!estHo) return groupes;
+    const gardes = groupes
+      .map((g) => ({ ...g, items: g.items.filter((i) => hoVoitLien(i.to)) }))
+      .filter((g) => g.items.length > 0);
+    // Le Head of Ops a deux espaces : sans ce pont, il ne peut plus revenir à son
+    // espace recrutement une fois entré ici.
+    return [
+      ...gardes,
+      {
+        title: t("headOfOps.autreEspace"),
+        items: [
+          {
+            to: "/embauche",
+            label: t("nav.embauche"),
+            icon: UserPlus,
+            description: t("navDesc.embauche"),
+          },
+        ],
+      },
+    ];
+  };
+
   return (
     <AppShell
-      navLabel={t("nav.admin")}
+      navLabel={estHo ? t("headOfOps.badge") : t("nav.admin")}
       sidebarExtra={
         applications.length > 0 ? (
           <div className="space-y-1.5">
@@ -53,7 +89,7 @@ export function AdminLayout() {
           </div>
         ) : undefined
       }
-      groups={[
+      groups={filtrer([
         {
           items: [
             { to: "/admin", label: t("nav.pilotage"), icon: Gauge, description: t("navDesc.pilotage") },
@@ -192,7 +228,7 @@ export function AdminLayout() {
             },
           ],
         },
-      ]}
+      ])}
     >
       <Outlet />
     </AppShell>

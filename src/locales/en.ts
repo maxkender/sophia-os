@@ -1569,6 +1569,7 @@ export const en = {
       signalerSansRemplacant: "Reported, but no other photo is available right now: skip this slide.",
       signalerPublie: "This post is already published: its photos can't be changed.",
       signalerSansPhoto: "This slide has no photo to replace.",
+      signalerLivree: "Finished pod image: its text is intended, it can't be replaced.",
       signalerInterdit: "You can only report photos from your own posts.",
       signalerErreur: "Couldn't report the photo. Try again in a moment.",
       slidesNonNettoyees_one: "{{count}} photo couldn't be cleaned, check it before publishing.",

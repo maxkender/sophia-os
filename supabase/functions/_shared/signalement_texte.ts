@@ -114,7 +114,7 @@ export function choisirRemplacant<T extends MediaCaptionCandidat>(
  * Orchestration
  * ---------------------------------------------------------------------- */
 
-export type CodeRefus = "SLIDE_INTROUVABLE" | "INTERDIT" | "POST_PUBLIE" | "SANS_PHOTO";
+export type CodeRefus = "SLIDE_INTROUVABLE" | "INTERDIT" | "POST_PUBLIE" | "SANS_PHOTO" | "IMAGE_LIVREE";
 
 export type ResultatSignalement =
   | {
@@ -175,6 +175,9 @@ export async function signalerTexte(
     .maybeSingle();
   if (errM) throw errM;
   if (!media) return { ok: false, code: "SANS_PHOTO" };
+  // Image finie d'un pod (texte voulu) : la remplacer par une photo de banque
+  // effacerait la slide, et la propagation l'effacerait du contenu entier.
+  if (String(media.storage_path ?? "").startsWith("pods/")) return { ok: false, code: "IMAGE_LIVREE" };
 
   // 1. Exclure la photo des pools AVANT de chercher un remplaçant : si la
   //    suite échoue, elle n'est au moins plus servie. Un brut ou une photo déjà

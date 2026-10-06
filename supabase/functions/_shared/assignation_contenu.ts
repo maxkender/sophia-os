@@ -36,6 +36,7 @@ import {
 import { LOT_IDS, decouperEnLots, lireParLots, lireTout } from "./lots.ts";
 import { avecMentionPublicite } from "./mention_publicite.ts";
 import { mapPool } from "./parallel.ts";
+import { contenusLivresHorsLangue } from "./pods.ts";
 import { serviceClient } from "./supabase.ts";
 import {
   bandesDeTirage,
@@ -1895,12 +1896,14 @@ async function choisirContenu(
   const ignorerTierlist = Boolean(opts.ignorerTierlist);
   // Labels du compte → contenus prêts. Invariant pendant le run : mémoïsé (voir
   // le bloc « Mémo de RUN »), au lieu d'être relu à chaque tentative de pioche.
-  const contenus = await poolContenusPrets(
+  // Contenus livrés par un pod sans deck dans la langue du compte : hors pool.
+  const horsLangue = await contenusLivresHorsLangue(supabase, langue);
+  const contenus = (await poolContenusPrets(
     supabase,
     labelIds,
     { ugcAi, regle: opts.regle ?? null },
     memo,
-  );
+  )).filter((c) => !horsLangue.has(c.id));
   if (contenus.length === 0) return null;
 
   const contenuIds = contenus.map((c) => c.id);

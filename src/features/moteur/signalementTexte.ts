@@ -11,13 +11,23 @@ import type { PostSlide } from "./types";
  */
 export function slideEstPropre(slide: Pick<PostSlide, "media_library">): boolean {
   const media = slide.media_library;
+  if (slideEstLivree(slide)) return true;
   return Boolean(media?.storage_path?.startsWith("propre/") && !media.texte_restant);
+}
+
+/**
+ * Image FINIE livrée par un pod (`pods/…`) : son texte est voulu. Publiable
+ * telle quelle, et jamais remplacée par « signaler » (elle perdrait son texte).
+ */
+export function slideEstLivree(slide: Pick<PostSlide, "media_library">): boolean {
+  return Boolean(slide.media_library?.storage_path?.startsWith("pods/"));
 }
 
 /** Clé i18n du message à montrer quand un signalement est refusé. */
 export function cleErreurSignalement(message: string): string {
   if (message.includes("POST_PUBLIE")) return "posts.signalerPublie";
   if (message.includes("SANS_PHOTO")) return "posts.signalerSansPhoto";
+  if (message.includes("IMAGE_LIVREE")) return "posts.signalerLivree";
   if (message.includes("INTERDIT") || message.includes("forbidden")) {
     return "posts.signalerInterdit";
   }

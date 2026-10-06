@@ -65,7 +65,7 @@ import type { Media, Post, PostSlide } from "@/features/moteur/types";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { nomApplicationPromue } from "@/features/moteur/repartition/logique";
 import { classeDirectionTexte, directionTexte } from "@/features/moteur/langues";
-import { cleErreurSignalement, slideEstPropre } from "@/features/moteur/signalementTexte";
+import { cleErreurSignalement, slideEstLivree, slideEstPropre } from "@/features/moteur/signalementTexte";
 
 function nomFichier(postId: string, position: number) {
   return `${postId.slice(0, 8)}-${String(position).padStart(2, "0")}.jpg`;
@@ -894,7 +894,7 @@ export function PosterPostPage() {
                 </Button>
               )}
 
-              {!publie && slide.media_id && (
+              {!publie && slide.media_id && !slideEstLivree(slide) && (
                 <SignalerTexte slide={slide} postId={id!} propre={estPropre(slide)} />
               )}
 

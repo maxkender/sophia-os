@@ -34,6 +34,31 @@ export async function estContenuLivre(supabase: Supabase, contenuId: string): Pr
   return Boolean((data as { livre?: boolean } | null)?.livre);
 }
 
+/**
+ * Contenus livrés qu'on ne peut PAS servir dans `langue` (pas de deck complet
+ * dans cette langue). L'assignation les retire du pool avant le tirage : sinon
+ * un compte « de » les piocherait, échouerait au deck et perdrait l'essai (et un
+ * repêchage leur rendrait des passages pour rien). Tolérant : en cas d'erreur
+ * de lecture, rien n'est retiré et l'échec franc de `deckLivre` reste le garde-fou.
+ */
+export async function contenusLivresHorsLangue(supabase: Supabase, langue: string): Promise<Set<string>> {
+  const { data: livres, error } = await supabase.from("contenus").select("id").eq("livre", true);
+  if (error || !livres?.length) return new Set();
+  const ids = (livres as { id: string }[]).map((c) => c.id);
+  const { data: decks, error: e2 } = await supabase
+    .from("contenu_langues")
+    .select("contenu_id, slides")
+    .eq("langue", langue)
+    .in("contenu_id", ids);
+  if (e2) return new Set();
+  const servables = new Set(
+    ((decks ?? []) as { contenu_id: string; slides: Partial<SlideLivree>[] | null }[])
+      .filter((d) => deckLivrePret(d.slides))
+      .map((d) => d.contenu_id),
+  );
+  return new Set(ids.filter((id) => !servables.has(id)));
+}
+
 /** Deck livré d'une langue, tel quel. Échec franc si la langue n'est pas livrée. */
 export async function deckLivre(
   supabase: Supabase,

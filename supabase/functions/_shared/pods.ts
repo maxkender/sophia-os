@@ -223,8 +223,13 @@ export interface ItemVideo {
   legende: string;
 }
 
-/** Fichiers qu'un pod peut envoyer au stockage (chemins relatifs à pods/<pod>/). */
-export const CHEMIN_POD = /^(personas\/[0-9a-f-]{36}\.(jpg|png)|reactions\/[a-z0-9_-]{3,60}\/[0-9a-f-]{36}\.mp4)$/i;
+/**
+ * Fichiers qu'un pod peut envoyer au stockage (chemins relatifs à pods/<pod>/) :
+ * le persona d'un compte, la réaction livrée d'un compte, et les entrées de
+ * l'animation (la réaction source coupée, l'image de départ de chaque compte).
+ */
+export const CHEMIN_POD =
+  /^(personas\/[0-9a-f-]{36}\.(jpg|png)|reactions\/[a-z0-9_-]{3,60}\/[0-9a-f-]{36}\.mp4|sources\/[a-z0-9_-]{3,60}\/(reaction\.mp4|[0-9a-f-]{36}\.(jpg|png)))$/i;
 
 export function verifierVideo(pod: string, items: Partial<ItemVideo>[] | null | undefined): string[] {
   const liste = items ?? [];

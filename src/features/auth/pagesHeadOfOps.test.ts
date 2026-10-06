@@ -3,7 +3,7 @@
  *
  * Le vrai risque n'est pas qu'une page manque, c'est que la liste soit
  * recopiée à deux endroits et qu'ils divergent : le menu cache une entrée, la
- * route la laisse passer, et le COS atteint par URL une page censée lui être
+ * route la laisse passer, et le Head of Ops atteint par URL une page censée lui être
  * fermée. D'où la source unique, et d'où ces tests qui lisent le routeur pour
  * vérifier qu'il s'en sert vraiment.
  *
@@ -17,7 +17,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import { badgeManager, estRoleManager } from "./roles";
-import { ACCUEIL_COS, ROUTES_COS, cosVoitLien } from "./pagesCos";
+import { ACCUEIL_HO, ROUTES_HO, hoVoitLien } from "./pagesHeadOfOps";
 
 const PAGES_DEMANDEES = [
   "/admin/calendrier", // Schedule
@@ -35,19 +35,19 @@ const routeur = fs.readFileSync(
   "utf8",
 );
 
-/** Le bloc ouvert à l'admin ET au COS, jusqu'à la porte intérieure admin-seul. */
-function blocCos(): string {
-  const debut = routeur.indexOf('allow={["admin", "chief_of_staff"]}');
+/** Le bloc ouvert à l'admin ET au Head of Ops, jusqu'à la porte intérieure admin-seul. */
+function blocHo(): string {
+  const debut = routeur.indexOf('allow={["admin", "head_of_ops"]}');
   const fin = routeur.indexOf('<RoleGate allow={["admin"]} />', debut);
   expect(debut).toBeGreaterThan(-1);
   expect(fin).toBeGreaterThan(debut);
   return routeur.slice(debut, fin);
 }
 
-describe("pages du Chief of Staff", () => {
+describe("pages du Head of Ops", () => {
   it("contient exactement les pages demandées, plus les deux pages de détail", () => {
-    for (const page of PAGES_DEMANDEES) expect(ROUTES_COS).toContain(page);
-    expect([...ROUTES_COS].sort()).toEqual(
+    for (const page of PAGES_DEMANDEES) expect(ROUTES_HO).toContain(page);
+    expect([...ROUTES_HO].sort()).toEqual(
       [...PAGES_DEMANDEES, "/admin/createurs/:compteId", "/admin/posts/:id"].sort(),
     );
   });
@@ -67,27 +67,27 @@ describe("pages du Chief of Staff", () => {
       "/admin/tests",
       "/admin/recrutements",
     ]) {
-      expect(cosVoitLien(ferme)).toBe(false);
+      expect(hoVoitLien(ferme)).toBe(false);
     }
   });
 
   it("atterrit sur une page qu'il a vraiment le droit de voir", () => {
     // Le piège : laisser l'accueil sur /admin, qui lui est fermé, et renvoyer
-    // le COS dans une boucle de redirection à la connexion.
-    expect(ROUTES_COS).toContain(ACCUEIL_COS);
+    // le Head of Ops dans une boucle de redirection à la connexion.
+    expect(ROUTES_HO).toContain(ACCUEIL_HO);
   });
 });
 
 describe("routeur et liste ne peuvent pas diverger", () => {
-  it("le bloc ouvert au COS ne contient que des routes de ROUTES_COS", () => {
-    const chemins = [...blocCos().matchAll(/path="(\/admin[^"]*)"/g)].map((m) => m[1]);
+  it("le bloc ouvert au Head of Ops ne contient que des routes de ROUTES_HO", () => {
+    const chemins = [...blocHo().matchAll(/path="(\/admin[^"]*)"/g)].map((m) => m[1]);
     expect(chemins.length).toBeGreaterThan(0);
-    for (const chemin of chemins) expect(ROUTES_COS).toContain(chemin);
+    for (const chemin of chemins) expect(ROUTES_HO).toContain(chemin);
   });
 
-  it("toute page de ROUTES_COS a bien sa route dans ce bloc", () => {
-    const bloc = blocCos();
-    for (const page of ROUTES_COS) expect(bloc).toContain(`path="${page}"`);
+  it("toute page de ROUTES_HO a bien sa route dans ce bloc", () => {
+    const bloc = blocHo();
+    for (const page of ROUTES_HO) expect(bloc).toContain(`path="${page}"`);
   });
 
   it("les pages fermées restent derrière la porte admin-seul", () => {
@@ -97,9 +97,9 @@ describe("routeur et liste ne peuvent pas diverger", () => {
     }
   });
 
-  it("le COS garde son espace recrutement, en plus", () => {
+  it("le Head of Ops garde son espace recrutement, en plus", () => {
     expect(routeur).toContain(
-      'allow={["hiring_manager", "directing_manager", "chief_of_staff"]}',
+      'allow={["hiring_manager", "directing_manager", "head_of_ops"]}',
     );
   });
 });
@@ -107,13 +107,13 @@ describe("routeur et liste ne peuvent pas diverger", () => {
 describe("le directing manager ne gagne rien", () => {
   it("n'entre pas dans la coquille admin", () => {
     expect(routeur).not.toContain('allow={["admin", "directing_manager"]}');
-    expect(blocCos()).not.toContain("directing_manager");
+    expect(blocHo()).not.toContain("directing_manager");
   });
 
   it("garde son badge et son statut de manager", () => {
     expect(badgeManager("directing_manager")).toBe("DM");
-    expect(badgeManager("chief_of_staff")).toBe("COS");
+    expect(badgeManager("head_of_ops")).toBe("HO");
     expect(estRoleManager("directing_manager")).toBe(true);
-    expect(estRoleManager("chief_of_staff")).toBe(true);
+    expect(estRoleManager("head_of_ops")).toBe(true);
   });
 });

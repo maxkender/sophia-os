@@ -23,7 +23,7 @@ import {
 } from "lucide-react";
 
 import { useAuth } from "@/features/auth/AuthContext";
-import { cosVoitLien } from "@/features/auth/pagesCos";
+import { hoVoitLien } from "@/features/auth/pagesHeadOfOps";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { nomApplication } from "@/features/moteur/applications";
 import { SelectApplication } from "@/features/moteur/SelectApplication";
@@ -34,26 +34,26 @@ export function AdminLayout() {
   const { t } = useTranslation();
   const { role } = useAuth();
   const { applications, slug, setSlug, application } = useApplication();
-  const estCos = role === "chief_of_staff";
+  const estHo = role === "head_of_ops";
 
   /**
-   * Le Chief of Staff partage la coquille de l'admin mais n'a droit qu'aux
-   * pages de `ROUTES_COS`. On filtre ici ET dans le routeur, à partir de la
+   * Le Head of Ops partage la coquille de l'admin mais n'a droit qu'aux
+   * pages de `ROUTES_HO`. On filtre ici ET dans le routeur, à partir de la
    * même liste : un menu qui cache ce que la route laisse passer n'est pas une
    * restriction. Les groupes vidés disparaissent, sinon il verrait des titres
    * de section sans rien dessous.
    */
   const filtrer = (groupes: NavGroup[]): NavGroup[] => {
-    if (!estCos) return groupes;
+    if (!estHo) return groupes;
     const gardes = groupes
-      .map((g) => ({ ...g, items: g.items.filter((i) => cosVoitLien(i.to)) }))
+      .map((g) => ({ ...g, items: g.items.filter((i) => hoVoitLien(i.to)) }))
       .filter((g) => g.items.length > 0);
-    // Le COS a deux espaces : sans ce pont, il ne peut plus revenir à son
+    // Le Head of Ops a deux espaces : sans ce pont, il ne peut plus revenir à son
     // espace recrutement une fois entré ici.
     return [
       ...gardes,
       {
-        title: t("cos.autreEspace"),
+        title: t("headOfOps.autreEspace"),
         items: [
           {
             to: "/embauche",
@@ -68,7 +68,7 @@ export function AdminLayout() {
 
   return (
     <AppShell
-      navLabel={estCos ? t("cos.badge") : t("nav.admin")}
+      navLabel={estHo ? t("headOfOps.badge") : t("nav.admin")}
       sidebarExtra={
         applications.length > 0 ? (
           <div className="space-y-1.5">

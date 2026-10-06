@@ -1,9 +1,9 @@
--- Droits du Chief of Staff. Séparé de 0260 parce qu'une nouvelle valeur d'enum
+-- Droits du Head of Ops. Séparé de 0260 parce qu'une nouvelle valeur d'enum
 -- ne peut pas être UTILISÉE dans la transaction qui l'ajoute — même découpage
 -- que 0192 / 0193 pour le directing manager.
 
 -- `is_admin_strict()` : l'admin et personne d'autre. Pour les rares gardes de
--- COMPORTEMENT, par opposition aux gardes de DONNÉES, où le COS n'a aucune
+-- COMPORTEMENT, par opposition aux gardes de DONNÉES, où le Head of Ops n'a aucune
 -- raison d'hériter du privilège.
 create or replace function public.is_admin_strict()
 returns boolean
@@ -18,19 +18,19 @@ $$;
 grant execute on function public.is_admin_strict() to authenticated, service_role;
 
 comment on function public.is_admin_strict() is
-  'Admin au sens étroit. is_admin() inclut le Chief of Staff depuis 0261 ; utiliser celle-ci quand le COS ne doit PAS hériter du privilège.';
+  'Admin au sens étroit. is_admin() inclut le Head of Ops depuis 0261 ; utiliser celle-ci quand le Head of Ops ne doit PAS hériter du privilège.';
 
-create or replace function public.is_chief_of_staff()
+create or replace function public.is_head_of_ops()
 returns boolean
 language sql
 stable
 security definer
 set search_path to 'public'
 as $$
-  select public.has_role(auth.uid(), 'chief_of_staff');
+  select public.has_role(auth.uid(), 'head_of_ops');
 $$;
 
-grant execute on function public.is_chief_of_staff() to authenticated, service_role;
+grant execute on function public.is_head_of_ops() to authenticated, service_role;
 
 -- Droits de DONNÉES de l'admin. Le directing manager n'est VOLONTAIREMENT pas
 -- ajouté ici : les trois DM existants gardent leur périmètre d'origine.
@@ -42,13 +42,13 @@ security definer
 set search_path to 'public'
 as $$
   select public.has_role(auth.uid(), 'admin')
-      or public.has_role(auth.uid(), 'chief_of_staff');
+      or public.has_role(auth.uid(), 'head_of_ops');
 $$;
 
 comment on function public.is_admin() is
-  'Admin OU Chief of Staff (0261). Pour l''admin seul, voir is_admin_strict(). Le directing manager n''en fait PAS partie.';
+  'Admin OU Head of Ops (0261). Pour l''admin seul, voir is_admin_strict(). Le directing manager n''en fait PAS partie.';
 
--- Le COS garde ses créateurs : tous les policies HM s'appliquent aussi à lui.
+-- Le Head of Ops garde ses créateurs : tous les policies HM s'appliquent aussi à lui.
 create or replace function public.is_hiring_manager()
 returns boolean
 language sql
@@ -58,11 +58,11 @@ set search_path to 'public'
 as $$
   select public.has_role(auth.uid(), 'hiring_manager')
       or public.has_role(auth.uid(), 'directing_manager')
-      or public.has_role(auth.uid(), 'chief_of_staff');
+      or public.has_role(auth.uid(), 'head_of_ops');
 $$;
 
 -- Le délai minimum entre deux publications (0259) exempte les admins pour
--- qu'ils puissent réparer un créneau. Le COS ne publie pas : il reste soumis
+-- qu'ils puissent réparer un créneau. Le Head of Ops ne publie pas : il reste soumis
 -- au délai. C'est le seul endroit où l'élargissement ci-dessus aurait changé
 -- un COMPORTEMENT et pas une visibilité, d'où la bascule vers la version
 -- stricte. Corps identique à 0259 par ailleurs.
@@ -100,11 +100,3 @@ begin
     using errcode = 'check_violation';
 end;
 $$;
-
--- Aram H, premier et seul Chief of Staff. Idempotent, et volontairement ciblé
--- par son identifiant : un filtre sur le nom promouvrait un homonyme.
-delete from public.user_roles
- where user_id = 'b2867b5e-c3d7-417c-9087-860d60086e7c';
-insert into public.user_roles (user_id, role)
-values ('b2867b5e-c3d7-417c-9087-860d60086e7c', 'chief_of_staff')
-on conflict do nothing;

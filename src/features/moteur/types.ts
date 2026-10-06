@@ -280,7 +280,7 @@ export interface PosterProfil {
     | "poster"
     | "hiring_manager"
     | "directing_manager"
-    | "chief_of_staff"
+    | "head_of_ops"
     | null;
   /** Recruteur UGC AI VIDEO : créateurs = marque vidéo + persona, sans labels. */
   hm_ugc_ai_video: boolean;

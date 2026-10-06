@@ -1,5 +1,5 @@
 /**
- * L'espace du Chief of Staff : la coquille de l'admin, restreinte à ses pages.
+ * L'espace du Head of Ops : la coquille de l'admin, restreinte à ses pages.
  *
  * SOURCE DE VÉRITÉ UNIQUE, lue à la fois par le routeur et par la barre de
  * navigation. Les deux doivent dire la même chose : un menu qui cache une page
@@ -7,7 +7,7 @@
  * d'interface, et c'est exactement ce qui arrive quand la liste est recopiée à
  * deux endroits. Un test vérifie que le routeur lit bien cette liste.
  *
- * ATTENTION, CE N'EST PAS UNE FRONTIÈRE DE SÉCURITÉ. Le COS a les mêmes droits
+ * ATTENTION, CE N'EST PAS UNE FRONTIÈRE DE SÉCURITÉ. Le Head of Ops a les mêmes droits
  * de données que l'admin en base (`is_admin()` le reconnaît, voir la migration
  * 0260) : il peut donc lire et écrire via l'API ce que ces pages ne lui
  * montrent pas. La restriction est volontairement cosmétique, c'est le choix
@@ -18,8 +18,8 @@
  * ancien, et qui n'a RIEN de tout ceci : il garde son seul espace recrutement.
  */
 
-/** Les pages de l'espace admin ouvertes au Chief of Staff. */
-export const ROUTES_COS: readonly string[] = [
+/** Les pages de l'espace admin ouvertes au Head of Ops. */
+export const ROUTES_HO: readonly string[] = [
   "/admin/calendrier", // Schedule
   "/admin/posters", // Posters
   "/admin/surveillance", // Account watch
@@ -35,10 +35,10 @@ export const ROUTES_COS: readonly string[] = [
   "/admin/posts/:id",
 ];
 
-/** Où atterrit un COS : sa première page, pas le pilotage qui lui est fermé. */
-export const ACCUEIL_COS = "/admin/calendrier";
+/** Où atterrit un Head of Ops : sa première page, pas le pilotage qui lui est fermé. */
+export const ACCUEIL_HO = "/admin/calendrier";
 
-/** Une entrée de menu est-elle visible pour un COS ? */
-export function cosVoitLien(to: string): boolean {
-  return ROUTES_COS.includes(to);
+/** Une entrée de menu est-elle visible pour un Head of Ops ? */
+export function hoVoitLien(to: string): boolean {
+  return ROUTES_HO.includes(to);
 }

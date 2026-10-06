@@ -20,6 +20,8 @@ export const fr = {
       chooseAccess: "Choisis ton type d'accès pour continuer",
       accessAdmin: "Accès Admin",
       accessAdminDesc: "Contrôle total : créateurs, contenu et publications.",
+      accessHeadOfOps: "Accès Head of Ops",
+      accessHeadOfOpsDesc: "Planning, créateurs, reviews et parrainages.",
       accessManager: "Accès Manager",
       accessManagerDesc: "Recrute et gère tes créateurs assignés.",
       accessCreator: "Accès Créateur",
@@ -820,10 +822,10 @@ export const fr = {
       lienPlaceholder: "https://www.tiktok.com/@…/photo/…",
       sansLien: "{{count}} sans lien",
     },
-    cos: {
-      badge: "Chief of Staff",
+    headOfOps: {
+      badge: "Head of Ops",
       autreEspace: "Autre espace",
-      espaceAdmin: "Espace Chief of Staff",
+      espaceAdmin: "Espace Head of Ops",
       espaceAdminDesc: "Planning, créateurs, reviews et parrainages",
     },
     hiring: {

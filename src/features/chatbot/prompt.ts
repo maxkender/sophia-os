@@ -1,12 +1,12 @@
 export const QUESTION_MAX = 1_500;
 export const CONTEXTE_MAX = 24_000;
 
-/** HM, DM et COS partagent le périmètre manager du chatbot. */
+/** HM, DM et HO partagent le périmètre manager du chatbot. */
 function estManager(role: ChatRole): boolean {
   return (
     role === "hiring_manager" ||
     role === "directing_manager" ||
-    role === "chief_of_staff"
+    role === "head_of_ops"
   );
 }
 
@@ -15,7 +15,7 @@ export type ChatRole =
   | "poster"
   | "hiring_manager"
   | "directing_manager"
-  | "chief_of_staff";
+  | "head_of_ops";
 export type ChatLocale = string;
 export type AudienceSnippet = "admin" | "hiring_manager" | "poster" | "all";
 
@@ -321,7 +321,7 @@ export function cadreRole(role: ChatRole): string {
 Interdit: totaux plateforme, autres créateurs, comptes sources, outils admin, données HM.`;
   }
   if (estManager(role)) {
-    return `Périmètre MANAGER${role === "directing_manager" ? " (DM)" : role === "chief_of_staff" ? " (COS)" : ""}: tes créateurs (ceux que tu as recrutés), leur calendrier, guides manager.
+    return `Périmètre MANAGER${role === "directing_manager" ? " (DM)" : role === "head_of_ops" ? " (HO)" : ""}: tes créateurs (ceux que tu as recrutés), leur calendrier, guides manager.
 Interdit: autres équipes, comptes sources, pilotage moteur, chiffres globaux plateforme.`;
   }
   return `Périmètre ADMIN: toute la plateforme (posts, créateurs, HM, comptes, docs).

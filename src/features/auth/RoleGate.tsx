@@ -1,14 +1,14 @@
 import { Navigate, Outlet } from "react-router-dom";
 
 import { useAuth, type Role } from "./AuthContext";
-import { ACCUEIL_COS } from "./pagesCos";
+import { ACCUEIL_HO } from "./pagesHeadOfOps";
 
 const ACCUEIL: Record<Role, string> = {
   admin: "/admin",
   poster: "/calendrier",
   hiring_manager: "/embauche",
   directing_manager: "/embauche",
-  chief_of_staff: ACCUEIL_COS,
+  head_of_ops: ACCUEIL_HO,
 };
 
 export function RoleGate({ allow }: { allow: Role[] }) {

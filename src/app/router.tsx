@@ -5,7 +5,7 @@ import { ProtectedRoute } from "@/features/auth/ProtectedRoute";
 import { PublicOnlyRoute } from "@/features/auth/PublicOnlyRoute";
 import { RoleGate } from "@/features/auth/RoleGate";
 import { estRoleManager, useAuth } from "@/features/auth/AuthContext";
-import { ACCUEIL_COS } from "@/features/auth/pagesCos";
+import { ACCUEIL_HO } from "@/features/auth/pagesHeadOfOps";
 import { HiringDocumentsPage } from "@/pages/hiring/HiringDocumentsPage";
 import { HiringRecruteursPage } from "@/pages/hiring/HiringRecruteursPage";
 import { AdminLayout } from "@/components/layout/AdminLayout";
@@ -45,9 +45,9 @@ import { NotFoundPage } from "@/pages/NotFoundPage";
 function Accueil() {
   const { role } = useAuth();
   if (role === "admin") return <Navigate to="/admin" replace />;
-  // Avant estRoleManager : le COS est un manager, mais il atterrit dans sa
+  // Avant estRoleManager : le Head of Ops est un manager, mais il atterrit dans sa
   // coquille admin, pas dans l'espace recrutement qu'il garde par ailleurs.
-  if (role === "chief_of_staff") return <Navigate to={ACCUEIL_COS} replace />;
+  if (role === "head_of_ops") return <Navigate to={ACCUEIL_HO} replace />;
   if (estRoleManager(role)) return <Navigate to="/embauche" replace />;
   if (role === "poster") return <Navigate to="/calendrier" replace />;
   return <Navigate to="/login" replace />;
@@ -63,14 +63,14 @@ export function AppRouter() {
       <Route element={<ProtectedRoute />}>
         <Route path="/" element={<Accueil />} />
 
-        {/* Porte extérieure : l'admin ET le Chief of Staff entrent dans la
+        {/* Porte extérieure : l'admin ET le Head of Ops entrent dans la
             coquille. La porte intérieure referme ensuite tout ce qui reste
-            réservé à l'admin. La liste des routes ouvertes au COS vit dans
-            `ROUTES_COS`, que la barre de navigation lit aussi — un test
+            réservé à l'admin. La liste des routes ouvertes au Head of Ops vit dans
+            `ROUTES_HO`, que la barre de navigation lit aussi — un test
             vérifie que les deux ne peuvent pas diverger. */}
-        <Route element={<RoleGate allow={["admin", "chief_of_staff"]} />}>
+        <Route element={<RoleGate allow={["admin", "head_of_ops"]} />}>
           <Route element={<AdminLayout />}>
-            {/* L'espace du Chief of Staff. */}
+            {/* L'espace du Head of Ops. */}
             <Route path="/admin/calendrier" element={<AdminCalendrierPage />} />
             <Route path="/admin/posters" element={<AdminPostersPage />} />
             <Route path="/admin/surveillance" element={<AdminSurveillancePage />} />
@@ -119,7 +119,7 @@ export function AppRouter() {
           </Route>
         </Route>
 
-        <Route element={<RoleGate allow={["hiring_manager", "directing_manager", "chief_of_staff"]} />}>
+        <Route element={<RoleGate allow={["hiring_manager", "directing_manager", "head_of_ops"]} />}>
           <Route element={<HiringLayout />}>
             <Route path="/embauche" element={<HiringPosterPage />} />
             <Route path="/manager/calendrier" element={<HiringCalendrierPage />} />

@@ -503,6 +503,16 @@ export async function assignerCompteJour(
     };
   }
 
+  // Compte du pod 3 (vidéos uniquement) : jamais de slideshow, ses vidéos
+  // arrivent par pod_videos.
+  if (compte.videos_uniquement) {
+    log(`Compte ${nomCompte} · vidéos uniquement (pod 3) — skip assignation slideshow`);
+    return {
+      ids: [],
+      raison: "Compte vidéos uniquement (pod 3) — hors assignation slideshow.",
+    };
+  }
+
   // Soigne les comptes restés à 0 après l'ancien fallback.
   if (!estTest && Number.isFinite(brut) && brut <= 0) {
     const { error: errHeal } = await supabase
@@ -2078,7 +2088,7 @@ export type AssignationCompteResultat = {
   nonServable?: boolean;
 };
 
-/** Comptes en process (warmup OK, pas UGC video) encore sous leur quota du jour. */
+/** Comptes en process (warmup OK, pas UGC video ni vidéos uniquement) encore sous leur quota du jour. */
 export async function listerComptesSousQuota(
   supabase: Supabase,
   jour: string,
@@ -2112,6 +2122,7 @@ export async function listerComptesSousQuota(
   const comptes = (comptesBruts ?? []).filter((c) => {
     if (c.type_compte === "cm") return false;
     if (Boolean(c.ugc_ai_video)) return false;
+    if (c.videos_uniquement) return false;
     // Quota 0 (legacy) = toujours à traiter (plancher 1).
     if (opts.ignorerWarmup) return true;
     const ends = c.warmup_ends_at as string | null | undefined;
@@ -2308,6 +2319,7 @@ export async function assignerTousComptes(
   const comptes = (comptesBruts ?? []).filter((c) => {
     if (c.type_compte === "cm" && !compteId) return false;
     if (Boolean(c.ugc_ai_video) && !compteId) return false;
+    if (c.videos_uniquement && !compteId) return false;
     if (o.ignorerWarmup) return true;
     const ends = c.warmup_ends_at as string | null | undefined;
     if (!ends) return false; // pas démarré → hors process

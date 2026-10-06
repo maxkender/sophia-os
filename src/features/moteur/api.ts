@@ -1050,6 +1050,9 @@ export interface MonCompte {
   persona_nom: string | null;
   persona_bio: string | null;
   handle_tiktok: string | null;
+  handle_instagram: string | null;
+  /** Compte du pod 3 : vidéos uniquement, publiées sur TikTok ET Instagram. */
+  videos_uniquement: boolean;
   avatar_url: string | null;
   langue: string;
   warmup_started_at: string | null;
@@ -1061,7 +1064,7 @@ export async function mesComptes(): Promise<MonCompte[]> {
   const { data, error } = await supabase
     .from("comptes")
     .select(
-      "id, type_compte, persona_nom, persona_bio, handle_tiktok, avatar_url, langue, warmup_started_at, warmup_ends_at",
+      "id, type_compte, persona_nom, persona_bio, handle_tiktok, handle_instagram, videos_uniquement, avatar_url, langue, warmup_started_at, warmup_ends_at",
     )
     .eq("is_active", true)
     .order("created_at", { ascending: true });
@@ -1083,6 +1086,15 @@ export async function monCompte(): Promise<MonCompte | null> {
 /** Le poster met à jour le @ d'un de ses comptes. */
 export async function majMonHandle(handle: string, compteId?: string): Promise<void> {
   const { error } = await supabase.rpc("maj_mon_handle", {
+    nouveau: handle,
+    cible: compteId ?? null,
+  });
+  if (error) throw error;
+}
+
+/** Le poster met à jour le @ Instagram d'un de ses comptes (pod 3). */
+export async function majMonHandleInstagram(handle: string, compteId?: string): Promise<void> {
+  const { error } = await supabase.rpc("maj_mon_handle_instagram", {
     nouveau: handle,
     cible: compteId ?? null,
   });

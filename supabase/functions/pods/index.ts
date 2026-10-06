@@ -46,9 +46,13 @@
 import { genererHashtagsSlideshow, scoreRelevance } from "../_shared/gemini.ts";
 import { eloParLangue, lireScoring } from "../_shared/import_contenu.ts";
 import {
+  CHEMIN_POD,
   metadonneesJpeg,
+  prochainJour,
   sha256Hex,
   TIER_ORIGINAL,
+  verifierVideo,
+  type ItemVideo,
   verifierDepot,
   verifierOriginal,
   type DeckDepose,
@@ -85,6 +89,15 @@ Deno.serve(async (request) => {
   const supabase = serviceClient();
   try {
     if (body?.action === "deposer" && body?.type === "original") return await deposerOriginal(request, supabase, body);
+    if (body?.action === "deposer" && body?.type === "video") return await deposerVideo(request, supabase, body);
+    if (body?.action === "upload_url") return await urlEnvoi(request, supabase, body);
+    if (body?.action === "persona") return await enregistrerPersona(request, supabase, body);
+    if (body?.action === "comptes") return await comptesDuPod(request, supabase, body);
+    if (body?.action === "valider_persona" || body?.action === "rejeter_persona") {
+      const acces = await assertRole(request, ["admin"]);
+      if (acces instanceof Response) return acces;
+      return await deciderPersona(supabase, String(body.id ?? ""), body.action === "valider_persona", body.motif ? String(body.motif) : null);
+    }
     if (body?.action === "deposer") return await deposer(request, supabase, body);
     if (body?.action === "etat") return await etat(request, supabase, String(body.pod ?? ""));
     if (body?.action === "label") return await contenusDuLabel(request, supabase, body);
@@ -101,7 +114,7 @@ Deno.serve(async (request) => {
         ? await valider(supabase, String(body.id ?? ""), userId, tierForce)
         : await rejeter(supabase, String(body.id ?? ""), userId, body.motif ? String(body.motif) : null);
     }
-    return json({ ok: false, error: "action inconnue (deposer | etat | label | images | top_posts | valider | rejeter)" }, 400);
+    return json({ ok: false, error: "action inconnue (deposer | etat | label | images | top_posts | upload_url | persona | comptes | valider | rejeter | valider_persona | rejeter_persona)" }, 400);
   } catch (e) {
     return json({ ok: false, error: messageErreur(e) }, 500);
   }
@@ -279,6 +292,7 @@ async function valider(
   if (l.statut !== "a_valider") return json({ ok: false, error: `déjà ${l.statut}` }, 409);
   if (l.type === "langues") return await validerLangues(supabase, l, userId);
   if (l.type === "original") return await validerOriginal(supabase, l, userId);
+  if (l.type === "video") return await validerVideo(supabase, l, userId);
   const { data: pod } = await supabase.from("pods").select("slug, label_id").eq("slug", l.pod).single();
   if (!pod?.label_id) return json({ ok: false, error: "le pod n'a pas de label" }, 409);
 
@@ -290,6 +304,16 @@ async function valider(
     instructions: await chargerPrompt(supabase, "pertinence"),
   });
   const scoring = await lireScoring(supabase);
+  // PAS de `pisteSource` ici, volontairement : une livraison de pod n'a pas de
+  // compte de référence dont on aurait la piste. Le terme reste donc inactif et
+  // la note garde exactement la forme d'avant la migration 0264.
+  //
+  // Conséquence assumée : 0265 baisse `elo_seuil_import` de 55 à 54 pour
+  // compenser le déplacement de distribution côté import classique. Les pods
+  // avec source subissent la baisse sans la compensation, donc passent un
+  // point plus facilement. Marginal et dans le sens permissif ; si ça devenait
+  // gênant, la correction est de résoudre leur compte de référence, pas de
+  // rétablir le seuil (ça casserait l'import classique).
   const elo = eloParLangue({
     pertinence: pertinence.score,
     vues: l.source_vues,
@@ -909,10 +933,10 @@ async function topPosts(request: Request, supabase: Supabase, body: Record<strin
       { ancre: (l) => l.contenu_id },
     )
   ).map((r) => r.contenu_id);
-  // deno-lint-ignore no-explicit-any
+  type ContenuSource = { id: string; source_url: string | null; structure_slides: { position: number; media_id?: string; reference_url?: string; raw_url?: string }[] | null };
   const contenus = (await lireParLots(ids, "contenus du label", (lot) =>
     supabase.from("contenus").select("id, source_url, structure_slides").in("id", lot).limit(lot.length)
-  )) as any[];
+  )) as ContenuSource[];
   const retenus = new Map(
     contenus
       .filter((c) => !compte || (compteSource(c.source_url) ?? "").toLowerCase() === compte)
@@ -972,4 +996,231 @@ async function topPosts(request: Request, supabase: Supabase, body: Record<strin
     });
   }
   return json({ ok: true, posts: sortie });
+}
+
+// ---------------------------------------------------------------------------
+// Vidéos par compte (pod 3, réactions UGC)
+// ---------------------------------------------------------------------------
+
+const urlPublique = (supabase: Supabase, chemin: string) =>
+  supabase.storage.from(BUCKET).getPublicUrl(chemin).data.publicUrl as string;
+
+/**
+ * URL d'envoi signée vers medias/pods/<pod>/<chemin> : l'agent y PUT ses
+ * fichiers (persona, réactions MP4 déjà sans métadonnées) sans jamais avoir
+ * de clé de stockage.
+ */
+async function urlEnvoi(request: Request, supabase: Supabase, body: Record<string, unknown>) {
+  const pod = await podDuJeton(request, supabase, String(body.pod ?? ""));
+  if (!pod) return json({ ok: false, error: "unauthorized" }, 401);
+  const relatif = String(body.chemin ?? "");
+  if (!CHEMIN_POD.test(relatif)) return json({ ok: false, error: "chemin : personas/<compte>.jpg|png, reactions/<source>/<compte>.mp4, sources/<source>/reaction.mp4 ou sources/<source>/<compte>.jpg|png" }, 400);
+  const chemin = `pods/${pod.slug}/${relatif}`;
+  const { data, error } = await supabase.storage.from(BUCKET).createSignedUploadUrl(chemin, { upsert: true });
+  if (error || !data) throw new Error(`url d'envoi : ${messageErreur(error)}`);
+  return json({ ok: true, chemin, upload_url: data.signedUrl, url: urlPublique(supabase, chemin) });
+}
+
+/** Comptes candidats (actifs) et persona du pod de chacun. Lecture seule. */
+async function comptesDuPod(request: Request, supabase: Supabase, body: Record<string, unknown>) {
+  const pod = await podDuJeton(request, supabase, String(body.pod ?? ""));
+  if (!pod) return json({ ok: false, error: "unauthorized" }, 401);
+  let q = supabase
+    .from("comptes")
+    .select("id, langue, persona_nom, handle_tiktok, is_active")
+    .eq("is_active", true)
+    .order("langue")
+    .limit(500);
+  if (body.langue) q = q.eq("langue", String(body.langue));
+  const { data: comptes, error } = await q;
+  if (error) throw new Error(`comptes : ${messageErreur(error)}`);
+  const { data: personas } = await supabase
+    .from("pod_personas")
+    .select("compte_id, statut, image_url, description")
+    .eq("pod", pod.slug)
+    .limit(500);
+  const parCompte = new Map((personas ?? []).map((p: { compte_id: string }) => [p.compte_id, p]));
+  return json({
+    ok: true,
+    // deno-lint-ignore no-explicit-any
+    comptes: (comptes ?? []).map((c: any) => ({ ...c, persona: parCompte.get(c.id) ?? null })),
+  });
+}
+
+/** Le persona synthétique d'un compte (image déjà envoyée), en attente de validation. */
+async function enregistrerPersona(request: Request, supabase: Supabase, body: Record<string, unknown>) {
+  const pod = await podDuJeton(request, supabase, String(body.pod ?? ""));
+  if (!pod) return json({ ok: false, error: "unauthorized" }, 401);
+  const compteId = String(body.compte_id ?? "");
+  const chemin = String(body.image_path ?? "");
+  if (!new RegExp(`^pods/${pod.slug}/personas/${compteId}\\.(jpg|png)$`).test(chemin)) {
+    return json({ ok: false, error: `image_path attendu pods/${pod.slug}/personas/<compte_id>.jpg` }, 400);
+  }
+  const { data: compte } = await supabase.from("comptes").select("id").eq("id", compteId).maybeSingle();
+  if (!compte) return json({ ok: false, error: "compte introuvable" }, 404);
+  const { data: existant } = await supabase
+    .from("pod_personas")
+    .select("statut")
+    .eq("pod", pod.slug)
+    .eq("compte_id", compteId)
+    .maybeSingle();
+  if (existant?.statut === "valide") {
+    return json({ ok: false, error: "ce compte a déjà un persona validé : 1 compte = 1 persona" }, 409);
+  }
+  const { data, error } = await supabase
+    .from("pod_personas")
+    .upsert(
+      {
+        pod: pod.slug,
+        compte_id: compteId,
+        image_path: chemin,
+        image_url: `${urlPublique(supabase, chemin)}?v=${Date.now()}`,
+        description: String(body.description ?? "").slice(0, 1000),
+        statut: "a_valider",
+        motif: null,
+        decide_le: null,
+      },
+      { onConflict: "pod,compte_id" },
+    )
+    .select("id")
+    .single();
+  if (error || !data) throw new Error(`persona : ${messageErreur(error)}`);
+  return json({ ok: true, id: data.id });
+}
+
+async function deciderPersona(supabase: Supabase, id: string, valide: boolean, motif: string | null) {
+  const { data, error } = await supabase
+    .from("pod_personas")
+    .update({ statut: valide ? "valide" : "rejete", motif, decide_le: new Date().toISOString() })
+    .eq("id", id)
+    .eq("statut", "a_valider")
+    .select("id");
+  if (error) throw error;
+  if (!data?.length) return json({ ok: false, error: "persona introuvable ou déjà décidé" }, 409);
+  return json({ ok: true, statut: valide ? "valide" : "rejete" });
+}
+
+/**
+ * Une réaction source déclinée sur N comptes : pour chacun, la réaction refaite
+ * avec SON persona (MP4 déjà envoyé), le texte à l'écran et la légende dans sa
+ * langue. Chaque compte doit avoir un persona validé.
+ */
+async function deposerVideo(request: Request, supabase: Supabase, body: Record<string, unknown>) {
+  const pod = await podDuJeton(request, supabase, String(body.pod ?? ""));
+  if (!pod) return json({ ok: false, error: "unauthorized" }, 401);
+  if (!pod.actif) return json({ ok: false, error: "pod en pause" }, 409);
+  const sourceId = String(body.source_id ?? "");
+  if (!/^[a-z0-9_-]{3,60}$/i.test(sourceId)) return json({ ok: false, error: "source_id requis (a-z0-9_-)" }, 400);
+  const items = (Array.isArray(body.items) ? body.items : []) as ItemVideo[];
+  const erreurs = verifierVideo(pod.slug, items);
+  if (erreurs.length) return json({ ok: false, error: erreurs.join(" · ") }, 400);
+
+  const ids = items.map((i) => i.compte_id);
+  const [{ data: comptes }, { data: personas }] = await Promise.all([
+    supabase.from("comptes").select("id, langue, persona_nom").in("id", ids).limit(ids.length),
+    supabase.from("pod_personas").select("compte_id, statut").eq("pod", pod.slug).in("compte_id", ids).limit(ids.length),
+  ]);
+  const langues = new Map((comptes ?? []).map((c: { id: string; langue: string }) => [c.id, c.langue]));
+  const valides = new Set(
+    (personas ?? []).filter((p: { statut: string }) => p.statut === "valide").map((p: { compte_id: string }) => p.compte_id),
+  );
+  const manquants = ids.filter((id) => !langues.has(id));
+  const sansPersona = ids.filter((id) => langues.has(id) && !valides.has(id));
+  if (manquants.length) return json({ ok: false, error: `comptes introuvables : ${manquants.join(", ")}` }, 400);
+  if (sansPersona.length) return json({ ok: false, error: `persona non validé : ${sansPersona.join(", ")}` }, 409);
+
+  const { data: existante } = await supabase
+    .from("pod_livraisons")
+    .select("id, statut")
+    .eq("pod", pod.slug)
+    .eq("source_id", sourceId)
+    .maybeSingle();
+  if (existante && existante.statut !== "a_valider") return json({ ok: false, error: `livraison déjà ${existante.statut}` }, 409);
+
+  const decks: Record<string, unknown> = {};
+  for (const i of items) {
+    decks[i.compte_id] = {
+      langue: langues.get(i.compte_id),
+      reaction_path: i.reaction_path,
+      reaction_url: `${urlPublique(supabase, i.reaction_path)}?v=${Date.now()}`,
+      texte_ecran: String(i.texte_ecran).trim(),
+      legende: String(i.legende).trim(),
+    };
+  }
+  const ligne = {
+    pod: pod.slug,
+    type: "video",
+    source_id: sourceId,
+    source_url: body.source_url ? String(body.source_url) : null,
+    source_vues: Number.isFinite(Number(body.source_vues)) ? Number(body.source_vues) : null,
+    titre: body.titre ? String(body.titre).slice(0, 160) : null,
+    langue_source: String(body.langue_source ?? "en"),
+    musique_url: body.musique_url ? String(body.musique_url) : null,
+    musique_titre: body.musique_titre ? String(body.musique_titre) : null,
+    decks,
+    transcription: { texte_source: body.texte_source ? String(body.texte_source) : null },
+    statut: "a_valider",
+  };
+  const { data: l, error } = await supabase
+    .from("pod_livraisons")
+    .upsert(ligne, { onConflict: "pod,source_id" })
+    .select("id")
+    .single();
+  if (error || !l) throw new Error(`livraison : ${messageErreur(error)}`);
+  return json({ ok: true, id: l.id, type: "video", comptes: ids.length });
+}
+
+/**
+ * Validation d'une réaction déclinée : une vidéo par compte, posée sur le
+ * premier jour libre du compte (à partir de demain), avec la démo Sophia de sa
+ * langue. Toutes les langues doivent avoir leur démo, sinon rien n'est créé.
+ */
+// deno-lint-ignore no-explicit-any
+async function validerVideo(supabase: Supabase, l: any, userId: string | null) {
+  const decks = l.decks as Record<string, { langue: string; reaction_url: string; texte_ecran: string; legende: string }>;
+  const langues = [...new Set(Object.values(decks).map((d) => d.langue))];
+  const { data: demos } = await supabase
+    .from("pod_demos")
+    .select("langue, video_url")
+    .eq("application", "sophia")
+    .in("langue", langues)
+    .limit(langues.length);
+  const demo = new Map((demos ?? []).map((d: { langue: string; video_url: string }) => [d.langue, d.video_url]));
+  const sansDemo = langues.filter((g) => !demo.has(g));
+  if (sansDemo.length) {
+    return json({ ok: false, error: `démo Sophia manquante pour : ${sansDemo.join(", ")} (Pilotage → Pods, pod Réactions UGC)` }, 409);
+  }
+
+  const comptes = Object.keys(decks);
+  const { data: derniers } = await supabase
+    .from("pod_videos")
+    .select("compte_id, date_publication_prevue")
+    .in("compte_id", comptes)
+    .neq("statut", "annule")
+    .order("date_publication_prevue", { ascending: false })
+    .limit(500);
+  const dernier = new Map<string, string>();
+  for (const v of derniers ?? []) if (!dernier.has(v.compte_id)) dernier.set(v.compte_id, v.date_publication_prevue);
+  const aujourdhui = new Date().toISOString().slice(0, 10);
+
+  const lignes = Object.entries(decks).map(([compteId, d]) => ({
+    livraison_id: l.id,
+    pod: l.pod,
+    compte_id: compteId,
+    langue: d.langue,
+    date_publication_prevue: prochainJour(dernier.get(compteId) ?? null, aujourdhui),
+    reaction_url: d.reaction_url,
+    demo_url: demo.get(d.langue),
+    texte_ecran: d.texte_ecran,
+    legende: d.legende,
+    musique_titre: l.musique_titre,
+    musique_url: l.musique_url,
+  }));
+  const { error } = await supabase.from("pod_videos").insert(lignes);
+  if (error) throw new Error(`vidéos : ${messageErreur(error)}`);
+  await supabase
+    .from("pod_livraisons")
+    .update({ statut: "validee", decide_par: userId, decide_le: new Date().toISOString(), motif: null })
+    .eq("id", l.id);
+  return json({ ok: true, statut: "validee", videos: lignes.length });
 }

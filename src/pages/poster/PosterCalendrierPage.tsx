@@ -32,6 +32,7 @@ import {
 } from "@/features/moteur/comptesCm";
 import { drapeauLangue } from "@/features/moteur/langues";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
+import { VideosAPoster } from "@/features/pods/VideosAPoster";
 import { statutWarmup } from "@/features/moteur/warmup";
 import { useAuth } from "@/features/auth/AuthContext";
 import { cn } from "@/lib/utils";
@@ -394,6 +395,8 @@ export function PosterCalendrierPage() {
       )}
 
       {compte && <IdentiteTikTok compte={compte} />}
+
+      {compte && <VideosAPoster compteId={compte.id} />}
 
       <Link
         to="/createur/parrainage"

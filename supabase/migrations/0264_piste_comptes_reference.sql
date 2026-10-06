@@ -100,9 +100,9 @@ revoke all on public.piste_comptes_reference from anon, authenticated, sophia_hm
 -- lit pas cette clé, donc la poser ne change rien. Elle peut donc être
 -- appliquée avant le déploiement sans risque.
 --
--- LE SEUIL EST DANS 0264, PAS ICI. Le baisser maintenant rendrait la prod plus
+-- LE SEUIL EST DANS 0265, PAS ICI. Le baisser maintenant rendrait la prod plus
 -- permissive sans la compensation du terme source, puisque l'ancien bundle
--- ignore `elo_poids_source` mais obéit au seuil. 0264 s'applique APRÈS le
+-- ignore `elo_poids_source` mais obéit au seuil. 0265 s'applique APRÈS le
 -- déploiement des fonctions.
 update public.reglages
    set valeur = valeur || jsonb_build_object('elo_poids_source', 0.45)

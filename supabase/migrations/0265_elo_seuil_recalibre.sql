@@ -1,9 +1,9 @@
--- Recalibrage du seuil d'import, à appliquer APRÈS 0263 ET APRÈS le
+-- Recalibrage du seuil d'import, à appliquer APRÈS 0264 ET APRÈS le
 -- redéploiement des fonctions `import-contenu` et `pods`.
 --
--- SÉPARÉE DE 0263 À CAUSE DU SÉQUENCEMENT, PAS PAR PROPRETÉ. Le bundle d'une
+-- SÉPARÉE DE 0264 À CAUSE DU SÉQUENCEMENT, PAS PAR PROPRETÉ. Le bundle d'une
 -- fonction Edge fige `_shared/` au moment du déploiement. Entre l'application
--- de 0263 et le déploiement, la production lit donc encore l'ancienne formule
+-- de 0264 et le déploiement, la production lit donc encore l'ancienne formule
 -- (sans terme source) mais obéirait déjà au nouveau seuil. Baisser le seuil
 -- dans cette fenêtre rendrait l'import plus permissif sans la compensation,
 -- c'est-à-dire exactement l'inverse de l'intention.

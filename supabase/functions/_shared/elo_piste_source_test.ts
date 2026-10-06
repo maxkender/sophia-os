@@ -1,5 +1,5 @@
 /**
- * Le terme « piste du compte source » dans la note d'import (migration 0263).
+ * Le terme « piste du compte source » dans la note d'import (migration 0264).
  *
  * La propriété qui compte le plus ici n'est pas que le nouveau terme marche,
  * c'est qu'il soit NEUTRE tant qu'on ne l'active pas : un poids à 0, ou une
@@ -22,7 +22,7 @@ const BASE = {
   seuil: 54,
 };
 
-Deno.test("sans poids source, la note est celle d'avant 0263, au bit près", () => {
+Deno.test("sans poids source, la note est celle d'avant 0264, au bit près", () => {
   const avant = decomposerElo(BASE);
   // Même appel, mais en passant une piste très haute ET un poids nul.
   const apres = decomposerElo({ ...BASE, pisteSource: 99, poidsSource: 0 });
@@ -100,7 +100,7 @@ Deno.test("le seuil recalibré garde le même débit sur un cas témoin", () => 
   // Il passait à 55 avant ; il doit encore passer à 54 après, sinon le
   // recalibrage du seuil n'a pas fait son travail.
   const avant = decomposerElo({ ...BASE, pertinence: 75, seuil: 55 });
-  assert(avant.retenue, "cas témoin : admis avant 0263");
+  assert(avant.retenue, "cas témoin : admis avant 0264");
   const apres = decomposerElo({
     ...BASE,
     pertinence: 75,
@@ -108,5 +108,5 @@ Deno.test("le seuil recalibré garde le même débit sur un cas témoin", () => 
     poidsSource: 0.45,
     seuil: 54,
   });
-  assert(apres.retenue, "cas témoin : toujours admis après 0263");
+  assert(apres.retenue, "cas témoin : toujours admis après 0264");
 });

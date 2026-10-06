@@ -164,7 +164,7 @@ export async function lireScoring(supabase: Supabase) {
      * Part de la note qui vient de la PISTE du compte source. Le reste se
      * partage entre vues et pertinence selon `poidsVues`, inchangé.
      *
-     * Défaut 0 dans le code, 0,45 en base (migration 0263) : le code seul ne
+     * Défaut 0 dans le code, 0,45 en base (migration 0264) : le code seul ne
      * change donc rien, et l'activation reste une ligne de réglage que
      * l'admin peut annuler sans déploiement.
      */
@@ -304,7 +304,7 @@ export function decomposerElo(opts: {
   const baseTexte = (1 - poidsVues) * pertinence + poidsVues * vuesScore;
 
   // Sans piste, le poids retombe à 0 et `base` vaut EXACTEMENT `baseTexte` :
-  // la note d'un contenu dont la source est inconnue est celle d'avant 0263,
+  // la note d'un contenu dont la source est inconnue est celle d'avant 0264,
   // au bit près. C'est voulu — une source neuve ne mérite ni bonus ni malus,
   // et poser 50 à sa place tirerait toutes les notes vers le milieu.
   const pisteSource =

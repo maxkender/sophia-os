@@ -374,7 +374,19 @@ async function valider(
       })),
       hashtags: hashtags[langue] || null,
       nb_passages: 0,
-      ...(langue === l.langue_source ? { score: elo, score_maj_at: maintenant } : {}),
+      // Toutes les lignes portent `score` : dans un insert groupé, une clé
+      // absente d'une ligne part en null (et non au défaut de la colonne).
+      score: eloParLangue({
+        pertinence: pertinence.score,
+        vues: l.source_vues,
+        langue,
+        langueSource: l.langue_source,
+        prior: scoring.prior,
+        k: scoring.k,
+        poidsVues: scoring.poidsVues,
+        vuesPlafond: scoring.vuesPlafond,
+      }),
+      score_maj_at: maintenant,
     }));
     const { error: clErr } = await supabase.from("contenu_langues").insert(lignes);
     if (clErr) throw clErr;

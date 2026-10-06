@@ -10,6 +10,7 @@ import { deckLivre, estContenuLivre } from "./pods.ts";
 import { positionConcurrent, sansConcurrent } from "./concurrents.ts";
 import {
   baseDeTraduction,
+  contientFrancaisResiduel,
   estDeckPret,
   fusionnerDeckTraduit,
   peutSauverBase,
@@ -1531,6 +1532,33 @@ export async function traduireBaseDeck(
  * - Hashtags : produits avec la traduction, sinon complétés à part — y compris
  *   pour un compte qui publie dans la langue source, qui n'en avait jamais.
  */
+/**
+ * Deck Sophia écrit par un pod (original validé, non livré) : la ligne source
+ * porte sa slide Sophia dans `slides`, la base sans appli dans `slides_base`.
+ * C'est ce deck-là qu'on traduit pour les autres langues, au lieu de placer.
+ */
+function deckSophiaDuPod(
+  contenu: { pod?: string | null },
+  ligneSource: LigneLangue | null,
+): SlideLangue[] | null {
+  if (!contenu.pod) return null;
+  const slides = (ligneSource?.slides ?? []) as SlideLangue[];
+  if (slides.filter((s) => s.position_sophia).length !== 1) return null;
+  if (!slides.some((s) => !s.position_sophia && s.texte_overlay)) return null;
+  return slides.map((s) => ({ ...s }));
+}
+
+/** La slide Sophia traduite nomme encore Sophia, et sans calque français. */
+function slideSophiaTraduiteValide(slides: SlideLangue[], deckPod: SlideLangue[], langue: string): boolean {
+  const position = deckPod.find((s) => s.position_sophia)?.position;
+  const traduite = slides.find((s) => s.position === position);
+  const texte = traduite?.texte_overlay ?? "";
+  const source = deckPod.find((s) => s.position === position)?.texte_overlay ?? "";
+  if (!traduite?.position_sophia || !texte.trim() || texte.trim() === source.trim()) return false;
+  if (!/sophia/i.test(texte)) return false;
+  return langue === "fr" || !contientFrancaisResiduel(texte);
+}
+
 export async function assurerDeckPourLangue(
   supabase: Supabase,
   contenuId: string,
@@ -1542,7 +1570,7 @@ export async function assurerDeckPourLangue(
 
   const { data: contenu } = await supabase
     .from("contenus")
-    .select("id, titre, langue_source, compte_reference_id, structure_slides")
+    .select("id, titre, langue_source, compte_reference_id, structure_slides, pod")
     .eq("id", contenuId)
     .single();
   if (!contenu) throw new Error("Contenu introuvable");
@@ -1611,7 +1639,19 @@ export async function assurerDeckPourLangue(
     await assurerSlidesBase(supabase, ligneSource);
     deck = deckSource.map((s) => ({ ...s }));
   } else if (deck.length === 0 || deck.every((s) => !s.texte_overlay)) {
-    const traductions = await traduireBaseDeck(supabase, contenu, deckSource, langue);
+    // Original de pod : sa slide Sophia est écrite par le pod dans la langue
+    // source. Les autres langues la TRADUISENT avec le reste du deck (le drapeau
+    // est reporté par fusionnerDeckTraduit), donc aucun placement derrière.
+    const deckPod = deckSophiaDuPod(contenu, ligneSource);
+    let traductions = deckPod
+      ? await traduireBaseDeck(supabase, contenu, deckPod, langue)
+      : await traduireBaseDeck(supabase, contenu, deckSource, langue);
+    if (deckPod && !slideSophiaTraduiteValide(traductions.slides, deckPod, langue)) {
+      // Traduction qui a perdu Sophia (ou glissé « l'appli ») : on repart de la
+      // base sans appli, et le placement classique s'en charge.
+      console.log(`[deck] contenu=${contenuId} ${langue} : slide Sophia du pod mal traduite, placement classique`);
+      traductions = await traduireBaseDeck(supabase, contenu, deckSource, langue);
+    }
     // Traduction totalement vide (JSON modèle illisible) : on ARRÊTE. Persister
     // ce deck le figeait sans texte pour toujours (il passait « prêt » grâce à
     // la seule slide pub). L'appelant piochera un autre contenu.

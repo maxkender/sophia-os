@@ -121,10 +121,14 @@ Deno.test("prochainJour : demain au plus tôt, puis le lendemain de la dernière
   assertEquals(prochainJour("2026-12-31", "2026-12-30"), "2027-01-01");
 });
 
-Deno.test("CHEMIN_POD : personas et réactions seulement", () => {
+Deno.test("CHEMIN_POD : personas, réactions et sources seulement", () => {
   const id = "00000000-0000-4000-8000-000000000001";
   assertEquals(CHEMIN_POD.test(`personas/${id}.jpg`), true);
   assertEquals(CHEMIN_POD.test(`reactions/hook-01/${id}.mp4`), true);
   assertEquals(CHEMIN_POD.test(`../propre/x.jpg`), false);
   assertEquals(CHEMIN_POD.test(`reactions/hook-01/${id}.mov`), false);
+  assertEquals(CHEMIN_POD.test(`sources/hook-01/reaction.mp4`), true);
+  assertEquals(CHEMIN_POD.test(`sources/hook-01/${id}.jpg`), true);
+  assertEquals(CHEMIN_POD.test(`sources/hook-01/autre.mp4`), false);
+  assertEquals(CHEMIN_POD.test(`sources/../x/reaction.mp4`), false);
 });

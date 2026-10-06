@@ -1004,7 +1004,7 @@ async function urlEnvoi(request: Request, supabase: Supabase, body: Record<strin
   const pod = await podDuJeton(request, supabase, String(body.pod ?? ""));
   if (!pod) return json({ ok: false, error: "unauthorized" }, 401);
   const relatif = String(body.chemin ?? "");
-  if (!CHEMIN_POD.test(relatif)) return json({ ok: false, error: "chemin : personas/<compte>.jpg|png ou reactions/<source>/<compte>.mp4" }, 400);
+  if (!CHEMIN_POD.test(relatif)) return json({ ok: false, error: "chemin : personas/<compte>.jpg|png, reactions/<source>/<compte>.mp4, sources/<source>/reaction.mp4 ou sources/<source>/<compte>.jpg|png" }, 400);
   const chemin = `pods/${pod.slug}/${relatif}`;
   const { data, error } = await supabase.storage.from(BUCKET).createSignedUploadUrl(chemin, { upsert: true });
   if (error || !data) throw new Error(`url d'envoi : ${messageErreur(error)}`);

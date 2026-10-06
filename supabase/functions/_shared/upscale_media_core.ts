@@ -227,7 +227,7 @@ export async function listerMediasAssignesNonUpscales(
       (curseur, taille) => {
         let q = supabase
           .from("post_slides")
-          .select("id, media_id, media_library(upscale_le, ugc_face_regen)")
+          .select("id, media_id, media_library(upscale_le, ugc_face_regen, storage_path)")
           .in("post_id", ids)
           .not("media_id", "is", null);
         if (curseur) q = q.gt("id", curseur.id);
@@ -242,8 +242,12 @@ export async function listerMediasAssignesNonUpscales(
       const lib = (s as any).media_library as {
         upscale_le?: string | null;
         ugc_face_regen?: boolean | null;
+        storage_path?: string | null;
       } | null;
       if (lib?.upscale_le) continue;
+      // Image finie d'un pod : texte en dur, qu'un upscale par diffusion
+      // déformerait (et l'original serait supprimé). Elle part telle quelle.
+      if (lib?.storage_path?.startsWith("pods/")) continue;
       // Swap visage UGC : pas d'upscale SeedVR (déjà « final » + C2PA stripé).
       if (lib?.ugc_face_regen) continue;
       pending.add(mediaId);

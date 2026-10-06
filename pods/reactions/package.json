@@ -1,0 +1,21 @@
+{
+  "name": "pod-reactions",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Pod 3 — réactions UGC : une réaction qui marche, refaite avec le persona de chaque compte, livrée par compte.",
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts",
+    "comptes": "NODE_USE_ENV_PROXY=1 node atelier/cli-comptes.ts",
+    "chercher": "NODE_USE_ENV_PROXY=1 node atelier/cli-chercher.ts",
+    "couper": "NODE_USE_ENV_PROXY=1 node atelier/cli-couper.ts",
+    "persona": "NODE_USE_ENV_PROXY=1 node atelier/cli-persona.ts",
+    "animer": "NODE_USE_ENV_PROXY=1 node atelier/cli-animer.ts",
+    "deposer": "NODE_USE_ENV_PROXY=1 node atelier/cli-deposer.ts"
+  }
+}

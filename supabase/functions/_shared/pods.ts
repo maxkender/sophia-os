@@ -34,6 +34,31 @@ export async function estContenuLivre(supabase: Supabase, contenuId: string): Pr
   return Boolean((data as { livre?: boolean } | null)?.livre);
 }
 
+/**
+ * Contenus livrés qu'on ne peut PAS servir dans `langue` (pas de deck complet
+ * dans cette langue). L'assignation les retire du pool avant le tirage : sinon
+ * un compte « de » les piocherait, échouerait au deck et perdrait l'essai (et un
+ * repêchage leur rendrait des passages pour rien). Tolérant : en cas d'erreur
+ * de lecture, rien n'est retiré et l'échec franc de `deckLivre` reste le garde-fou.
+ */
+export async function contenusLivresHorsLangue(supabase: Supabase, langue: string): Promise<Set<string>> {
+  const { data: livres, error } = await supabase.from("contenus").select("id").eq("livre", true);
+  if (error || !livres?.length) return new Set();
+  const ids = (livres as { id: string }[]).map((c) => c.id);
+  const { data: decks, error: e2 } = await supabase
+    .from("contenu_langues")
+    .select("contenu_id, slides")
+    .eq("langue", langue)
+    .in("contenu_id", ids);
+  if (e2) return new Set();
+  const servables = new Set(
+    ((decks ?? []) as { contenu_id: string; slides: Partial<SlideLivree>[] | null }[])
+      .filter((d) => deckLivrePret(d.slides))
+      .map((d) => d.contenu_id),
+  );
+  return new Set(ids.filter((id) => !servables.has(id)));
+}
+
 /** Deck livré d'une langue, tel quel. Échec franc si la langue n'est pas livrée. */
 export async function deckLivre(
   supabase: Supabase,
@@ -181,4 +206,65 @@ export function verifierOriginal(slides: Partial<SlideOriginale>[] | null | unde
     }
   }
   return erreurs;
+}
+
+// ---------------------------------------------------------------------------
+// Vidéos par compte (pod 3, réactions UGC)
+// ---------------------------------------------------------------------------
+
+/** Une réaction refaite pour UN compte (son persona), avec ses textes. */
+export interface ItemVideo {
+  compte_id: string;
+  /** Chemin dans le bucket medias, sous pods/<pod>/reactions/ (MP4 sans métadonnées). */
+  reaction_path: string;
+  /** Texte à poser à l'écran en texte TikTok natif, dans la langue du compte. */
+  texte_ecran: string;
+  /** Légende à coller, dans la langue du compte. */
+  legende: string;
+}
+
+/**
+ * Fichiers qu'un pod peut envoyer au stockage (chemins relatifs à pods/<pod>/) :
+ * le persona d'un compte, la réaction livrée d'un compte, et les entrées de
+ * l'animation (la réaction source coupée, l'image de départ de chaque compte).
+ */
+export const CHEMIN_POD =
+  /^(personas\/[0-9a-f-]{36}\.(jpg|png)|reactions\/[a-z0-9_-]{3,60}\/[0-9a-f-]{36}\.mp4|sources\/[a-z0-9_-]{3,60}\/(reaction\.mp4|[0-9a-f-]{36}\.(jpg|png)))$/i;
+
+export function verifierVideo(pod: string, items: Partial<ItemVideo>[] | null | undefined): string[] {
+  const liste = items ?? [];
+  const erreurs: string[] = [];
+  if (!liste.length) return ["aucun compte"];
+  if (liste.length > 30) erreurs.push(`${liste.length} comptes (30 max)`);
+  const comptes = liste.map((i) => String(i.compte_id ?? ""));
+  if (new Set(comptes).size !== comptes.length) erreurs.push("même compte deux fois");
+  for (const i of liste) {
+    const c = String(i.compte_id ?? "");
+    if (!/^[0-9a-f-]{36}$/i.test(c)) erreurs.push(`compte_id invalide : ${c}`);
+    const chemin = String(i.reaction_path ?? "");
+    if (!chemin.startsWith(`pods/${pod}/reactions/`) || !chemin.endsWith(`/${c}.mp4`)) {
+      erreurs.push(`${c} : reaction_path attendu pods/${pod}/reactions/<source>/${c}.mp4`);
+    }
+    const ecran = String(i.texte_ecran ?? "").trim();
+    if (!ecran) erreurs.push(`${c} : texte_ecran vide`);
+    if (ecran.length > 200) erreurs.push(`${c} : texte_ecran trop long`);
+    if (!String(i.legende ?? "").trim()) erreurs.push(`${c} : legende vide`);
+  }
+  return erreurs;
+}
+
+/**
+ * Jour de publication d'une nouvelle vidéo pour un compte : le lendemain de sa
+ * dernière vidéo prévue, et jamais avant demain. Une vidéo par jour et par compte.
+ */
+export function prochainJour(dernier: string | null, aujourdhui: string): string {
+  const demain = new Date(`${aujourdhui}T00:00:00Z`);
+  demain.setUTCDate(demain.getUTCDate() + 1);
+  let jour = demain;
+  if (dernier) {
+    const apres = new Date(`${dernier}T00:00:00Z`);
+    apres.setUTCDate(apres.getUTCDate() + 1);
+    if (apres > jour) jour = apres;
+  }
+  return jour.toISOString().slice(0, 10);
 }

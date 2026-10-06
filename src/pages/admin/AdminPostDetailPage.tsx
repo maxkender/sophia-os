@@ -39,7 +39,7 @@ import type { Media, PostSlide } from "@/features/moteur/types";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { nomApplicationPromue } from "@/features/moteur/repartition/logique";
 import { classeDirectionTexte, directionTexte } from "@/features/moteur/langues";
-import { slideEstPropre } from "@/features/moteur/signalementTexte";
+import { slideEstLivree, slideEstPropre } from "@/features/moteur/signalementTexte";
 
 /** Nettoyée et pas signalée encore écrite par un poster. */
 const estPropre = slideEstPropre;
@@ -170,6 +170,8 @@ function SlideAdmin({
   });
 
   const propre = estPropre(slide);
+  // Image finie d'un pod : texte voulu, ni nettoyage ni upscale (il le déformerait).
+  const livree = slideEstLivree(slide);
   const photoUrl = slide.media_library?.url ?? null;
 
   return (
@@ -217,17 +219,19 @@ function SlideAdmin({
         </div>
 
         <div className="flex flex-wrap gap-2">
-          <Button
-            size="sm"
-            variant="outline"
-            disabled={renettoyer.isPending || Boolean(etapesLot)}
-            onClick={() => renettoyer.mutate()}
-          >
-            <Sparkles />
-            {renettoyer.isPending || etapesLot
-              ? t("adminPost.nettoyageEnCours")
-              : t("adminPost.renettoyer")}
-          </Button>
+          {!livree && (
+            <Button
+              size="sm"
+              variant="outline"
+              disabled={renettoyer.isPending || Boolean(etapesLot)}
+              onClick={() => renettoyer.mutate()}
+            >
+              <Sparkles />
+              {renettoyer.isPending || etapesLot
+                ? t("adminPost.nettoyageEnCours")
+                : t("adminPost.renettoyer")}
+            </Button>
+          )}
 
           <Button
             size="sm"
@@ -239,7 +243,7 @@ function SlideAdmin({
             {remplacer.isPending ? t("common.saving") : t("adminPost.remplacerPhoto")}
           </Button>
 
-          {slide.media_id && (
+          {slide.media_id && !livree && (
             <UpscaleMediaControl
               mediaId={slide.media_id}
               dejaUpscale={dejaUpscale}

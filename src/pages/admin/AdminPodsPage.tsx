@@ -9,7 +9,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, EmptyState }
 import { Textarea } from "@/components/ui/textarea";
 import { drapeauLangue } from "@/features/moteur/langues";
 import {
+  deciderPersona,
+  enregistrerDemo,
+  itemsVideo,
   languesOrdonnees,
+  listerDemos,
+  listerPersonas,
+  nomsComptes,
+  POD_VIDEO,
   listerLivraisons,
   listerPods,
   parPod,
@@ -124,7 +131,7 @@ function LigneLivraison({ livraison }: { livraison: Livraison }) {
         <Badge variant={varianteStatut(livraison.statut)}>{t(`pods.statut.${livraison.statut}`)}</Badge>
       </div>
 
-      <Deck livraison={livraison} />
+      {livraison.type === "video" ? <DeckVideo livraison={livraison} /> : <Deck livraison={livraison} />}
 
       {livraison.statut === "a_valider" ? (
         <div className="space-y-2">
@@ -141,11 +148,174 @@ function LigneLivraison({ livraison }: { livraison: Livraison }) {
         </div>
       ) : (
         <p className="text-sm text-muted-foreground">
-          {livraison.statut === "validee" && t("pods.valide", { tier: livraison.tier, note: livraison.note_import })}
+          {livraison.statut === "validee" &&
+            (livraison.type === "video"
+              ? t("pods.videoValidee")
+              : t("pods.valide", { tier: livraison.tier, note: livraison.note_import }))}
           {livraison.statut === "ecartee_note" && t("pods.ecartee", { note: livraison.note_import })}
           {livraison.statut === "rejetee" && `${t("pods.rejete")}${livraison.motif ? ` — ${livraison.motif}` : ""}`}
         </p>
       )}
+    </div>
+  );
+}
+
+/** Livraison vidéo (pod 3) : une réaction refaite par compte, avec ses textes. */
+function DeckVideo({ livraison }: { livraison: Livraison }) {
+  const { t } = useTranslation();
+  const items = itemsVideo(livraison);
+  const noms = useQuery({
+    queryKey: ["pods", "noms", livraison.id],
+    queryFn: () => nomsComptes(items.map(([id]) => id)),
+  });
+  return (
+    <div className="flex gap-3 overflow-x-auto pb-1">
+      {items.map(([compteId, item]) => (
+        <div key={compteId} className="w-44 shrink-0 space-y-1 text-xs">
+          <video src={item.reaction_url} controls muted playsInline preload="metadata" className="h-72 w-full rounded-md border bg-black object-cover" />
+          <p className="font-medium">
+            {drapeauLangue(item.langue)} {noms.data?.get(compteId) ?? compteId.slice(0, 8)}
+          </p>
+          <p>
+            <span className="text-muted-foreground">{t("pods.texteEcran")} :</span> {item.texte_ecran}
+          </p>
+          <p className="text-muted-foreground">{item.legende}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/** Personas synthétiques du pod vidéo : 1 compte = 1 persona, validé à la main. */
+function PanneauPersonas({ pod }: { pod: string }) {
+  const { t } = useTranslation();
+  const qc = useQueryClient();
+  const { data, error } = useQuery({ queryKey: ["pods", "personas", pod], queryFn: () => listerPersonas(pod) });
+  const decider = useMutation({
+    mutationFn: ({ id, ok }: { id: string; ok: boolean }) => deciderPersona(id, ok),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["pods", "personas", pod] }),
+  });
+  const personas = data ?? [];
+  const aValider = personas.filter((p) => p.statut === "a_valider");
+  const valides = personas.filter((p) => p.statut === "valide");
+  return (
+    <details className="rounded-xl border p-4" open={aValider.length > 0}>
+      <summary className="cursor-pointer text-sm font-medium">
+        {t("pods.personas", { valides: valides.length, attente: aValider.length })}
+      </summary>
+      {error && <p className="text-sm text-destructive">{(error as Error).message}</p>}
+      <p className="mt-2 text-xs text-muted-foreground">{t("pods.personasAide")}</p>
+      <div className="mt-3 flex gap-3 overflow-x-auto pb-1">
+        {[...aValider, ...valides].map((p) => (
+          <div key={p.id} className="w-36 shrink-0 space-y-1 text-xs">
+            <img src={p.image_url} alt="" loading="lazy" className="h-48 w-full rounded-md border object-cover" />
+            <p className="font-medium">
+              {drapeauLangue(p.compte?.langue ?? "")} {p.compte?.handle_tiktok ? `@${p.compte.handle_tiktok}` : p.compte?.persona_nom}
+            </p>
+            {p.statut === "a_valider" ? (
+              <div className="flex gap-1">
+                <Button size="sm" disabled={decider.isPending} onClick={() => decider.mutate({ id: p.id, ok: true })}>
+                  {t("pods.valider")}
+                </Button>
+                <Button size="sm" variant="outline" disabled={decider.isPending} onClick={() => decider.mutate({ id: p.id, ok: false })}>
+                  {t("pods.rejeter")}
+                </Button>
+              </div>
+            ) : (
+              <Badge variant="success">{t("pods.statut.validee")}</Badge>
+            )}
+          </div>
+        ))}
+      </div>
+      {decider.error && <p className="text-sm text-destructive">{(decider.error as Error).message}</p>}
+    </details>
+  );
+}
+
+/** Démos Sophia par langue : la vidéo « utilisation » que le poster colle après la réaction. */
+function PanneauDemos() {
+  const { t } = useTranslation();
+  const qc = useQueryClient();
+  const { data, error } = useQuery({ queryKey: ["pods", "demos"], queryFn: listerDemos });
+  const [langue, setLangue] = React.useState("");
+  const [fichier, setFichier] = React.useState<File | null>(null);
+  const envoyer = useMutation({
+    mutationFn: () => enregistrerDemo(langue, fichier!),
+    onSuccess: () => {
+      setFichier(null);
+      setLangue("");
+      void qc.invalidateQueries({ queryKey: ["pods", "demos"] });
+    },
+  });
+  return (
+    <details className="rounded-xl border p-4">
+      <summary className="cursor-pointer text-sm font-medium">{t("pods.demos", { n: data?.length ?? 0 })}</summary>
+      {error && <p className="text-sm text-destructive">{(error as Error).message}</p>}
+      <p className="mt-2 text-xs text-muted-foreground">{t("pods.demosAide")}</p>
+      <div className="mt-3 flex flex-wrap gap-3">
+        {(data ?? []).map((d) => (
+          <div key={d.id} className="w-28 space-y-1 text-xs">
+            <video src={d.video_url} controls muted playsInline preload="metadata" className="h-48 w-full rounded-md border bg-black object-cover" />
+            <p className="text-center font-medium">
+              {drapeauLangue(d.langue)} {d.langue}
+            </p>
+          </div>
+        ))}
+      </div>
+      <div className="mt-3 flex flex-wrap items-center gap-2">
+        <input
+          value={langue}
+          onChange={(e) => setLangue(e.target.value)}
+          placeholder="fr"
+          maxLength={2}
+          className="h-9 w-16 rounded-md border bg-background px-2 text-sm"
+          aria-label={t("pods.demoLangue")}
+        />
+        <input type="file" accept="video/mp4,video/quicktime" onChange={(e) => setFichier(e.target.files?.[0] ?? null)} className="text-sm" />
+        <Button size="sm" disabled={!fichier || langue.length !== 2 || envoyer.isPending} onClick={() => envoyer.mutate()}>
+          {envoyer.isPending ? t("pods.demoEnvoi") : t("pods.demoEnvoyer")}
+        </Button>
+      </div>
+      {envoyer.error && <p className="text-sm text-destructive">{(envoyer.error as Error).message}</p>}
+    </details>
+  );
+}
+
+/** Valide toute la file d'un pod au rang B, une livraison après l'autre. */
+function ToutValiderEnB({ livraisons }: { livraisons: Livraison[] }) {
+  const { t } = useTranslation();
+  const qc = useQueryClient();
+  const [fait, setFait] = React.useState(0);
+  const [erreurs, setErreurs] = React.useState<string[]>([]);
+  const tout = useMutation({
+    mutationFn: async () => {
+      setFait(0);
+      setErreurs([]);
+      for (const l of livraisons) {
+        try {
+          await validerLivraison(l.id, "B");
+        } catch (e) {
+          setErreurs((x) => [...x, `${l.titre ?? l.id} : ${(e as Error).message}`]);
+        }
+        setFait((n) => n + 1);
+      }
+    },
+    onSettled: () => qc.invalidateQueries({ queryKey: ["pods", "livraisons"] }),
+  });
+  if (!livraisons.length) return null;
+  return (
+    <div className="space-y-1">
+      <Button
+        disabled={tout.isPending}
+        onClick={() => window.confirm(t("pods.toutValiderBConfirm", { n: livraisons.length })) && tout.mutate()}
+      >
+        {tout.isPending ? t("pods.toutValiderBEnCours", { fait, n: livraisons.length }) : t("pods.toutValiderB", { n: livraisons.length })}
+      </Button>
+      {erreurs.map((e) => (
+        <p key={e} className="text-sm text-destructive">
+          {e}
+        </p>
+      ))}
     </div>
   );
 }
@@ -204,6 +374,14 @@ export function AdminPodsPage() {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
+              {slug === POD_VIDEO ? (
+                <>
+                  <PanneauPersonas pod={slug} />
+                  <PanneauDemos />
+                </>
+              ) : (
+                <ToutValiderEnB livraisons={aValider} />
+              )}
               {aValider.length ? (
                 aValider.map((l) => <LigneLivraison key={l.id} livraison={l} />)
               ) : (

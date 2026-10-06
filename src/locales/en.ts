@@ -818,6 +818,12 @@ export const en = {
       lienPlaceholder: "https://www.tiktok.com/@…/photo/…",
       sansLien: "{{count}} without link",
     },
+    cos: {
+      badge: "Chief of Staff",
+      autreEspace: "Other space",
+      espaceAdmin: "Chief of Staff space",
+      espaceAdminDesc: "Schedule, creators, reviews and referrals",
+    },
     hiring: {
       title: "Create a poster",
       subtitle:

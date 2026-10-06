@@ -1,7 +1,21 @@
 export const QUESTION_MAX = 1_500;
 export const CONTEXTE_MAX = 24_000;
 
-export type ChatRole = "admin" | "poster" | "hiring_manager" | "directing_manager";
+/** HM, DM et COS partagent le périmètre manager du chatbot. */
+function estManager(role: ChatRole): boolean {
+  return (
+    role === "hiring_manager" ||
+    role === "directing_manager" ||
+    role === "chief_of_staff"
+  );
+}
+
+export type ChatRole =
+  | "admin"
+  | "poster"
+  | "hiring_manager"
+  | "directing_manager"
+  | "chief_of_staff";
 export type ChatLocale = string;
 export type AudienceSnippet = "admin" | "hiring_manager" | "poster" | "all";
 
@@ -162,14 +176,14 @@ export function attenteChat(code: string): string {
 
 export function audiencesDocuments(role: ChatRole): Array<DocumentContexte["audience"]> {
   if (role === "poster") return ["poster", "all"];
-  if (role === "hiring_manager" || role === "directing_manager") return ["manager", "all"];
+  if (estManager(role)) return ["manager", "all"];
   return ["manager", "poster", "all"];
 }
 
 /** Snippets admin : strictement le rôle + « tous ». L'admin ne voit pas les consignes poster. */
 export function audiencesSnippets(role: ChatRole): AudienceSnippet[] {
   if (role === "poster") return ["poster", "all"];
-  if (role === "hiring_manager" || role === "directing_manager") return ["hiring_manager", "all"];
+  if (estManager(role)) return ["hiring_manager", "all"];
   return ["admin", "all"];
 }
 
@@ -306,8 +320,8 @@ export function cadreRole(role: ChatRole): string {
     return `Périmètre CRÉATEUR: calendrier, posts assignés, identité TikTok, guides créateur.
 Interdit: totaux plateforme, autres créateurs, comptes sources, outils admin, données HM.`;
   }
-  if (role === "hiring_manager" || role === "directing_manager") {
-    return `Périmètre MANAGER${role === "directing_manager" ? " (DM)" : ""}: tes créateurs (ceux que tu as recrutés), leur calendrier, guides manager.
+  if (estManager(role)) {
+    return `Périmètre MANAGER${role === "directing_manager" ? " (DM)" : role === "chief_of_staff" ? " (COS)" : ""}: tes créateurs (ceux que tu as recrutés), leur calendrier, guides manager.
 Interdit: autres équipes, comptes sources, pilotage moteur, chiffres globaux plateforme.`;
   }
   return `Périmètre ADMIN: toute la plateforme (posts, créateurs, HM, comptes, docs).

@@ -1,19 +1,25 @@
 import { Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { BookOpen, CalendarDays, FilePenLine, HelpCircle, Rocket, UserPlus, Users } from "lucide-react";
+import { BookOpen, CalendarDays, FilePenLine, Gauge, HelpCircle, Rocket, UserPlus, Users } from "lucide-react";
 
 import { useAuth } from "@/features/auth/AuthContext";
 import { AppShell } from "./AppShell";
 
-/** Coquille HM / DM : créer des posters + guides. Le DM a 2 entrées en plus. */
+/**
+ * Coquille HM / DM / COS : créer des posters + guides.
+ *
+ * Le DM a 2 entrées en plus. Le COS, lui, a un second espace (la coquille
+ * admin restreinte) et n'a donc qu'un pont vers celui-ci.
+ */
 export function HiringLayout() {
   const { t } = useTranslation();
   const { role } = useAuth();
   const estDm = role === "directing_manager";
+  const estCos = role === "chief_of_staff";
 
   return (
     <AppShell
-      navLabel={estDm ? t("hiring.badgeDm") : t("hiring.badgeHm")}
+      navLabel={estCos ? t("cos.badge") : estDm ? t("hiring.badgeDm") : t("hiring.badgeHm")}
       groups={[
         {
           items: [
@@ -47,6 +53,21 @@ export function HiringLayout() {
               : []),
           ],
         },
+        ...(estCos
+          ? [
+              {
+                title: t("cos.autreEspace"),
+                items: [
+                  {
+                    to: "/admin/calendrier",
+                    label: t("cos.espaceAdmin"),
+                    icon: Gauge,
+                    description: t("cos.espaceAdminDesc"),
+                  },
+                ],
+              },
+            ]
+          : []),
         {
           title: t("documents.rubrique"),
           items: [

@@ -275,7 +275,13 @@ export interface PosterProfil {
   manager_nom: string | null;
   is_active: boolean;
   must_change_password: boolean;
-  role: "admin" | "poster" | "hiring_manager" | "directing_manager" | null;
+  role:
+    | "admin"
+    | "poster"
+    | "hiring_manager"
+    | "directing_manager"
+    | "chief_of_staff"
+    | null;
   /** Recruteur UGC AI VIDEO : créateurs = marque vidéo + persona, sans labels. */
   hm_ugc_ai_video: boolean;
   /** Tous les comptes actifs du créateur (perso + CM). */

@@ -1040,6 +1040,9 @@ export const fr = {
       subtitle:
         "Les pods produisent des contenus hors de l'OS (texte en dur, une version par langue). Rien n'est diffusé avant ta validation ; ensuite c'est la tierlist qui décide.",
       aValider: "À valider",
+      toutValiderB: "Tout valider en B ({{n}})",
+      toutValiderBEnCours: "Validation… {{fait}}/{{n}}",
+      toutValiderBConfirm: "Valider les {{n}} livraisons en attente au rang B ? Elles deviennent des contenus actifs.",
       historique: "Déjà décidées",
       vide: "Aucune livraison en attente",
       videDesc: "Les agents des pods déposent ici leurs contenus finis.",

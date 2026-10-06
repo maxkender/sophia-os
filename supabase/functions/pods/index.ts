@@ -23,7 +23,7 @@
  *       publiés (avec la slide Sophia) les plus vus, avec leur texte, leurs
  *       images et les slides TikTok d'origine du contenu (modèles de mise en page).
  *
- *   { action: "valider", id }   — admin
+ *   { action: "valider", id, tier? }   — admin (tier A/B/C : rang imposé)
  *       Note d'import classique (30 % pertinence + 70 % vues, prompt
  *       `pertinence`), rang d'entrée C/B/A — ou écartée sous le seuil ; un
  *       original en images finies (sans source_url) entre au rang
@@ -94,8 +94,11 @@ Deno.serve(async (request) => {
       const acces = await assertRole(request, ["admin"]);
       if (acces instanceof Response) return acces;
       const userId = acces.userId === "cron" ? null : acces.userId;
+      // Rang imposé par l'admin (« Tout valider en B ») : la note est calculée
+      // et gardée, mais ne décide plus du rang ni n'écarte la livraison.
+      const tierForce = TIERS_FORCABLES.find((t) => t === body.tier) ?? null;
       return body.action === "valider"
-        ? await valider(supabase, String(body.id ?? ""), userId)
+        ? await valider(supabase, String(body.id ?? ""), userId, tierForce)
         : await rejeter(supabase, String(body.id ?? ""), userId, body.motif ? String(body.motif) : null);
     }
     return json({ ok: false, error: "action inconnue (deposer | etat | label | images | top_posts | valider | rejeter)" }, 400);
@@ -263,7 +266,14 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
   return json({ ok: true, id: livraison.id, type: "nouveau", langues: Object.keys(ligne.decks) });
 }
 
-async function valider(supabase: Supabase, id: string, userId: string | null) {
+const TIERS_FORCABLES = ["A", "B", "C"] as const;
+
+async function valider(
+  supabase: Supabase,
+  id: string,
+  userId: string | null,
+  tierForce: (typeof TIERS_FORCABLES)[number] | null = null,
+) {
   const { data: l } = await supabase.from("pod_livraisons").select("*").eq("id", id).maybeSingle();
   if (!l) return json({ ok: false, error: "livraison introuvable" }, 404);
   if (l.statut !== "a_valider") return json({ ok: false, error: `déjà ${l.statut}` }, 409);
@@ -294,7 +304,7 @@ async function valider(supabase: Supabase, id: string, userId: string | null) {
   // Original en images finies (pas de post source, donc pas de vues) : rang
   // fixe, comme les originaux traduisibles. La note seule l'écarterait toujours.
   const original = !l.source_url;
-  const tier = original ? TIER_ORIGINAL : tierImport(elo, scoring.eloSeuil);
+  const tier = tierForce ?? (original ? TIER_ORIGINAL : tierImport(elo, scoring.eloSeuil));
   const maintenant = new Date().toISOString();
   if (!tier) {
     await supabase
@@ -338,7 +348,7 @@ async function valider(supabase: Supabase, id: string, userId: string | null) {
       passages_prevus: passagesPourTier(tier),
       tier_cycle: 0,
       tier_maj_at: maintenant,
-      tier_rapport: { origine: original ? "pod_original" : "pod", pod: l.pod, elo: note, seuil: scoring.eloSeuil, tier, passages: passagesPourTier(tier) },
+      tier_rapport: { origine: original ? "pod_original" : "pod", pod: l.pod, elo: note, seuil: scoring.eloSeuil, tier, force: Boolean(tierForce), passages: passagesPourTier(tier) },
       livre: true,
       pod: l.pod,
     })

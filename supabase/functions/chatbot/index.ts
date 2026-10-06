@@ -557,6 +557,9 @@ Deno.serve(async (request) => {
     "poster",
     "hiring_manager",
     "directing_manager",
+    // Oublié quand le rôle a été créé : l'assistant est l'une des pages du
+    // Head of Ops, et il répondait 403.
+    "head_of_ops",
   ]);
   if (acces instanceof Response) return acces;
 

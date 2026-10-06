@@ -382,3 +382,80 @@ Classement des leviers, du plus solide au plus incertain :
 3. **Grille de pertinence actuelle** : à conserver comme barrière
    d'éligibilité, à retirer du classement. Elle n'y apporte rien, et sur cet
    échantillon elle nuit.
+
+---
+
+# Les quatre grilles passées sur Gemini
+
+Exécuté le 6 octobre 2026 sur le modèle de production, mêmes 120 contenus,
+mêmes textes, comparaison appariée. Le banc a été neutralisé juste après.
+
+## Résultats
+
+| Grille | Spearman | IC95 | Médiane des notes | % doublent, top 30 % |
+| --- | --- | --- | --- | --- |
+| Score stocké en base | -0,121 | -0,29 / +0,06 | 75 | |
+| **A** prompt actuel rejoué | **-0,090** | -0,27 / +0,09 | 75 | **5,6 %** |
+| **B** pouvoir d'arrêt | **+0,145** | -0,04 / +0,32 | 48 | 16,7 % |
+| **C** calibré, ancrage dur | +0,077 | -0,10 / +0,25 | 23 | 22,2 % |
+| **D** calibré, échelle forcée | +0,124 | -0,06 / +0,30 | 44 | 13,9 % |
+
+Référence de l'échantillon : 15,8 % de doublements.
+
+Test de Williams contre A : **B p = 0,046**, D p = 0,066, C p = 0,18.
+
+## Ce que ça apprend
+
+**B gagne, et c'est la plus simple.** La grille sans exemples bat les deux
+versions calibrées. Prédiction fausse de ma part : j'attendais l'inverse.
+
+**Pourquoi la calibration a nuisé.** C a reçu la consigne « note 90+ seulement
+si... , sous 30 dès que... ». Gemini s'y est tenu au pied de la lettre et a
+écrasé l'échelle : médiane de 23, distribution bimodale à 22 / 23 / 91. Un
+score qui ne prend que deux valeurs ne trie plus. D corrige en forçant
+l'étalement (médiane remontée à 44, Spearman de 0,077 à 0,124), mais ne
+rattrape toujours pas B. Les exemples semblent détourner le modèle vers de
+l'appariement de surface au lieu du raisonnement sur la grille.
+
+**Les écarts entre B, C et D ne sont pas tranchables** à n = 120 : leurs IC se
+recouvrent largement. Seul B contre A tient, et de justesse.
+
+**Le proxy manuel était honnête.** Noté en aveugle à la main : +0,157. Noté par
+Gemini : +0,145. La grille transfère au modèle de production.
+
+**A est anti-prédictif comme classement.** Dans son top 30 %, 5,6 % de
+doublements contre 15,8 % de référence. Ses meilleures notes vont à ses pires
+contenus.
+
+## Les deux signaux sont complémentaires, pas redondants
+
+Sur les 112 contenus dont la source a au moins 20 contenus publiés :
+
+| | Spearman avec la perf |
+| --- | --- |
+| B, pouvoir d'arrêt | +0,181 |
+| Piste du compte source | +0,326 |
+| A, prompt actuel | -0,079 |
+| B contre la piste (redondance) | +0,137 |
+
+**Corrélation partielle de B à piste constante : +0,145.** La grille conserve
+donc presque tout son apport une fois la source prise en compte. Les deux
+leviers s'additionnent, ils ne mesurent pas la même chose.
+
+(La piste est ici en leave-one-out, donc optimiste ; le chiffre honnête en
+avant est celui de la section walk-forward. L'important est la partielle.)
+
+## Recommandation finale
+
+1. **Piste du compte source dans l'elo**, poids 0,4 à 0,5. Forward-validé,
+   +40 % de doublements, p = 0,003, aucun appel LLM. À faire en premier.
+2. **Remplacer le prompt de classement par B** (texte dans
+   `docs/prompts_pertinence/pouvoir_arret.txt`). p = 0,046 contre l'actuel, et
+   son apport survit au contrôle par la source. Ne pas y ajouter d'exemples
+   calibrés : testé, ça dégrade.
+3. **Garder le prompt de pertinence comme barrière d'éligibilité uniquement.**
+   Le retirer du classement, où il nuit.
+
+Rappel du plafond : la fiabilité d'un contenu republié est de 0,285, donc
+aucun prédicteur textuel ne dépassera ~0,53. B est à 0,145 sur un échantillon
+qui tire bas. Il y a encore de la marge, mais pas infiniment.

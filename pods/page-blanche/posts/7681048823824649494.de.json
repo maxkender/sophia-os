@@ -1,0 +1,204 @@
+{
+ "post_id": "7681048823824649494",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "5 things i did that fixed my",
+      "phone addiction"
+     ],
+     "fr": "5 trucs qui ont guéri mon addiction au tel",
+     "texte": "5 Dinge, die meine Handysucht beendet haben"
+    },
+    "T2": {
+     "en": [
+      "(from 14 hours",
+      "screen time to 3)"
+     ],
+     "fr": "(de 14 h d'écran par jour à 3)",
+     "texte": "(von 14 Stunden Screen Time auf 3)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "1. set my phone to greyscale"
+     ],
+     "fr": "1. mon tel en noir et blanc",
+     "texte": "1. Handy auf Graustufen"
+    },
+    "T2": {
+     "en": [
+      "everyone says to do it",
+      "but it actually helps,",
+      "keep it grey for tiktok",
+      "and reels too."
+     ],
+     "fr": "tout le monde le dit, mais ça marche vraiment. et laisse le gris même sur tiktok et les reels.",
+     "texte": "sagt jeder, aber es hilft echt. lass es auch bei tiktok und reels grau."
+    },
+    "T3": {
+     "en": [
+      "scrolling is so",
+      "boring now"
+     ],
+     "fr": "scroller me saoule trop",
+     "texte": "scrollen ist jetzt so öde"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stopped watching youtube"
+     ],
+     "fr": "2. j'ai arrêté youtube",
+     "texte": "2. kein youtube mehr"
+    },
+    "T2": {
+     "en": [
+      "on my phone when eating"
+     ],
+     "fr": "sur mon tel en mangeant",
+     "texte": "beim Essen auf dem Handy"
+    },
+    "T3": {
+     "en": [
+      "look i know it",
+      "feels impossible",
+      "but after trying it",
+      "for a few days",
+      "my mind feels",
+      "so much clearer"
+     ],
+     "fr": "je sais, ça paraît impossible, mais au bout de quelques jours j'avais la tête tellement plus claire",
+     "texte": "ich weiß, klingt unmöglich, aber nach ein paar Tagen war mein Kopf so viel klarer"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "3. i leave my phone"
+     ],
+     "fr": "3. je laisse mon tel",
+     "texte": "3. mein Handy-Wecker"
+    },
+    "T2": {
+     "en": [
+      "on my desk with an alarm"
+     ],
+     "fr": "sur mon bureau avec l'alarme",
+     "texte": "liegt auf dem Schreibtisch"
+    },
+    "T3": {
+     "en": [
+      "i used to keep it by my",
+      "bed but would just turn",
+      "it off and scroll for",
+      "hours"
+     ],
+     "fr": "avant il était à côté du lit : je coupais l'alarme et je scrollais des heures",
+     "texte": "früher lag es am Bett: Wecker aus und dann stundenlang scrollen"
+    },
+    "T4": {
+     "en": [
+      "moving it to",
+      "somewhere i have to",
+      "stand up and walk to",
+      "wakes me up properly"
+     ],
+     "fr": "devoir me lever et marcher jusqu'à lui, ça me réveille pour de vrai",
+     "texte": "jetzt muss ich aufstehen und hinlaufen, und davon werd ich richtig wach"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "4. started reading books instead"
+     ],
+     "fr": "4. j'apprends des trucs à la place",
+     "texte": "4. stattdessen lern ich jetzt was"
+    },
+    "T2": {
+     "en": [
+      "i found an app that blocks",
+      "tiktok until I read for 30 minutes",
+      "and it's helped me finish three",
+      "books so far"
+     ],
+     "fr": "j'ai remplacé tiktok par 5 min par jour sur l'appli Sophia, et j'ai déjà appris plein de trucs",
+     "texte": "statt tiktok zu öffnen, mach ich meine 5-Minuten-Lektion in der Sophia-App und hab schon so viel gelernt"
+    }
+   },
+   "images": {
+    "I2": "sophia_appstore"
+   },
+   "zones": [
+    {
+     "elements": [
+      "T3",
+      "I1",
+      "T4",
+      "T5",
+      "T6",
+      "T7",
+      "I3"
+     ],
+     "action": "sophia_capture"
+    }
+   ]
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "5. switched off all triggers"
+     ],
+     "fr": "5. j'ai viré les tentations",
+     "texte": "5. alle Trigger ausgeschaltet"
+    },
+    "T2": {
+     "en": [
+      "i literally have 0",
+      "notifications on for all",
+      "my messaging",
+      "platforms"
+     ],
+     "fr": "j'ai littéralement 0 notif sur toutes mes applis de messagerie",
+     "texte": "ich hab bei allen Messengern echt 0 Benachrichtigungen an"
+    },
+    "T3": {
+     "en": [
+      "gives me no reason to",
+      "check until i want to"
+     ],
+     "fr": "du coup j'ouvre seulement quand j'en ai envie",
+     "texte": "so check ich nur, wenn ich Lust drauf hab"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

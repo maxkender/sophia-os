@@ -1,0 +1,257 @@
+{
+ "post_id": "7686189452963712288",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 hobbies to make you",
+      "dangerously intelligent"
+     ],
+     "fr": "10/10 hobbies pour devenir ultra intelligente",
+     "texte": "10/10 hobbies to make you dangerously intelligent"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(neuroscience approved)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "practice rational thinking"
+     ],
+     "fr": "entraîne [[ta logique]]",
+     "texte": "practice [[rational thinking]]"
+    },
+    "T2": {
+     "en": [
+      "stop blindly trusting the first explanation your brain",
+      "gives you"
+     ],
+     "fr": "arrête de [[gober direct]] la première explication de ton cerveau",
+     "texte": "stop [[blindly trusting]] the first explanation your brain gives you"
+    },
+    "T3": {
+     "en": [
+      "write down predictions,",
+      "judge your biases,",
+      "actively argue against",
+      "your own opinion"
+     ],
+     "fr": "note tes prédictions, repère tes biais, et défends exprès [[l'avis contraire au tien]]",
+     "texte": "write down predictions, judge your biases, actively argue [[against your own opinion]]"
+    },
+    "T4": {
+     "en": [
+      "being smart matters",
+      "less if your reasoning is",
+      "full of blind spots"
+     ],
+     "fr": "le QI compte moins si ton raisonnement est plein d'angles morts",
+     "texte": "being smart matters less if your reasoning is full of blind spots"
+    },
+    "T5": {
+     "en": [
+      "don't make decisions when you're angry,",
+      "don't make promises when you're happy"
+     ],
+     "fr": "jamais de décision sous le coup de la colère, jamais de promesse sous le coup de la joie",
+     "texte": "don't make decisions when you're angry, don't make promises when you're happy"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "be comfortable being",
+      "uncomfortable"
+     ],
+     "fr": "apprends à aimer [[l'inconfort]]",
+     "texte": "be comfortable being [[uncomfortable]]"
+    },
+    "T2": {
+     "en": [
+      "do things that make your",
+      "brain work:"
+     ],
+     "fr": "fais vraiment bosser ton cerveau :",
+     "texte": "do things that make your brain work:"
+    },
+    "T3": {
+     "en": [
+      "difficult books, hard",
+      "conversations, learning",
+      "unfamiliar skills, solving",
+      "problems without",
+      "immediately searching",
+      "the answer"
+     ],
+     "fr": "des livres costauds, des discussions difficiles, des compétences nouvelles, des problèmes à résoudre [[sans chercher direct la réponse]]",
+     "texte": "difficult books, hard conversations, learning unfamiliar skills, solving problems [[without immediately searching the answer]]"
+    },
+    "T4": {
+     "en": [
+      "cognitive growth rarely happens while you're",
+      "doing what already feels easy"
+     ],
+     "fr": "ton [[cerveau progresse]] rarement quand tu fais ce qui te [[paraît déjà facile]]",
+     "texte": "[[cognitive growth]] rarely happens while you're doing what [[already feels easy]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop scrolling and start reading"
+     ],
+     "fr": "[[lâche ton tel]] et [[ouvre un livre]]",
+     "texte": "[[stop scrolling]] and [[start reading]]"
+    },
+    "T2": {
+     "en": [
+      "short-form content keeps",
+      "your brain chasing novelty",
+      "every few seconds"
+     ],
+     "fr": "avec les vidéos courtes, ton cerveau veut du neuf [[toutes les 3 secondes]]",
+     "texte": "short-form content keeps your brain chasing novelty [[every few seconds]]"
+    },
+    "T3": {
+     "en": [
+      "books force sustained",
+      "attention, memory and",
+      "imagination to stay",
+      "switched on"
+     ],
+     "fr": "un livre [[t'oblige]] à garder [[attention]], [[mémoire]] et [[imagination]] allumées",
+     "texte": "books [[force sustained attention]], [[memory]] and [[imagination]] to stay switched on"
+    },
+    "T4": {
+     "en": [
+      "if you want your brain to",
+      "feel sharper again, replace",
+      "your scrolling with reading"
+     ],
+     "fr": "si tu veux [[retrouver un cerveau vif]], remplace ton scroll par de la lecture",
+     "texte": "if you want your brain to [[feel sharper again]], replace your scrolling with reading"
+    },
+    "T5": {
+     "en": [
+      "i use readup to block my",
+      "apps until i read, or you",
+      "can move your phone to a",
+      "different room"
+     ],
+     "fr": "perso je remplace mon scroll par 5 min sur l'appli Sophia, sinon mets ton tel dans une autre pièce",
+     "texte": "when i feel like scrolling, i open the Sophia app instead and learn something new in 5 min"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "play and study chess"
+     ],
+     "fr": "mets-toi aux échecs",
+     "texte": "play and study chess"
+    },
+    "T2": {
+     "en": [
+      "chess forces you to calculate ahead, recognise",
+      "patterns, and constantly ask “what am I missing?”"
+     ],
+     "fr": "aux échecs, tu dois anticiper, repérer des schémas et te demander sans arrêt « je rate quoi ? »",
+     "texte": "chess forces you to calculate ahead, recognise patterns, and constantly ask “what am I missing?”"
+    },
+    "T3": {
+     "en": [
+      "don't just play random",
+      "games, analyse them",
+      "afterwards"
+     ],
+     "fr": "joue pas juste pour jouer, [[décortique tes parties]] après",
+     "texte": "don't just play random games, [[analyse them]] afterwards"
+    },
+    "T4": {
+     "en": [
+      "science proves that",
+      "even 20–30 minutes a",
+      "day gives your brain",
+      "deliberate problem-",
+      "solving practice"
+     ],
+     "fr": "même [[20 à 30 min par jour]] entraînent ton cerveau à [[résoudre des problèmes]], c'est prouvé",
+     "texte": "science proves that [[even 20–30 minutes]] a day gives your brain deliberate [[problem-solving practice]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "improve your communication",
+      "skills"
+     ],
+     "fr": "apprends à [[bien communiquer]]",
+     "texte": "improve your [[communication skills]]"
+    },
+    "T2": {
+     "en": [
+      "if you can't explain an idea",
+      "clearly, you probably don't",
+      "understand it deeply",
+      "enough"
+     ],
+     "fr": "si t'arrives pas à expliquer une idée simplement, c'est que [[tu l'as pas vraiment comprise]]",
+     "texte": "if you can't explain an idea clearly, you probably [[don't understand it]] deeply enough"
+    },
+    "T3": {
+     "en": [
+      "practice writing, speaking,",
+      "storytelling, and teaching"
+     ],
+     "fr": "exerce-toi à écrire, parler, raconter et [[expliquer]]",
+     "texte": "practice writing, speaking, storytelling, and [[teaching]]"
+    },
+    "T4": {
+     "en": [
+      "turning complicated",
+      "thoughts into simple",
+      "language forces your brain",
+      "to organise them properly"
+     ],
+     "fr": "dire un truc compliqué avec des mots simples, ça [[oblige ton cerveau]] à remettre de l'ordre dedans",
+     "texte": "turning complicated thoughts into simple language [[forces your brain]] to organise them properly"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

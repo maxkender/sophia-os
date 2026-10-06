@@ -1,0 +1,23 @@
+{
+  "name": "pod-originaux",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Pod 2 — originaux weird_alpha : slideshows originaux en anglais, traduits par l'OS à l'assignation.",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts",
+    "label": "NODE_USE_ENV_PROXY=1 node atelier/cli-label.ts",
+    "images": "NODE_USE_ENV_PROXY=1 node atelier/cli-images.ts",
+    "apercu": "NODE_USE_ENV_PROXY=1 node atelier/cli-apercu.ts",
+    "deposer": "NODE_USE_ENV_PROXY=1 node atelier/cli-deposer.ts",
+    "top-posts": "NODE_USE_ENV_PROXY=1 node atelier/cli-top-posts.ts"
+  }
+}

@@ -1720,6 +1720,8 @@ interface SlideLangue {
   position: number;
   texte_overlay: string | null;
   position_sophia: boolean;
+  /** Contenu livré par un pod : l'image finie de CETTE langue (texte en dur). */
+  media_id?: string | null;
 }
 
 /**
@@ -1790,7 +1792,7 @@ async function materialiserPostDepuisPassage(
 
   const mediaIds = [
     ...new Set(
-      [...mediaResolus.values(), ...structure.map((s) => s.media_id)]
+      [...mediaResolus.values(), ...structure.map((s) => s.media_id), ...args.slides.map((s) => s.media_id)]
         .filter((id): id is string => typeof id === "string" && id.length > 0),
     ),
   ];
@@ -1833,14 +1835,17 @@ async function materialiserPostDepuisPassage(
 
   const rows = args.slides.map((s) => {
     const visuel = parPos.get(Number(s.position));
-    const mid = mediaResolus.get(Number(s.position)) ?? visuel?.media_id ?? null;
+    // Deck livré (pod) : l'image de la langue prime, et le poster n'a pas de
+    // « photo d'origine » à recopier — tout est déjà sur l'image.
+    const livree = s.media_id ?? null;
+    const mid = livree ?? mediaResolus.get(Number(s.position)) ?? visuel?.media_id ?? null;
     return {
       post_id: post.id,
       position: Number(s.position),
       media_id: mid && mediaOk.has(mid) ? mid : null,
       texte_overlay: s.texte_overlay ?? "",
       position_sophia: Boolean(s.position_sophia),
-      reference_url: visuel?.reference_url ?? visuel?.raw_url ?? null,
+      reference_url: livree ? null : (visuel?.reference_url ?? visuel?.raw_url ?? null),
     };
   });
 

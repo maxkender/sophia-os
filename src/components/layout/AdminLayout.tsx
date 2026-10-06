@@ -16,6 +16,7 @@ import {
   MessageSquareQuote,
   MoonStar,
   PenLine,
+  Boxes,
   Settings,
   ShieldAlert,
   Users,
@@ -126,6 +127,12 @@ export function AdminLayout() {
               label: t("nav.creation"),
               icon: PenLine,
               description: t("navDesc.creation"),
+            },
+            {
+              to: "/admin/pods",
+              label: t("nav.pods"),
+              icon: Boxes,
+              description: t("navDesc.pods"),
             },
             {
               to: "/admin/bibliotheque",

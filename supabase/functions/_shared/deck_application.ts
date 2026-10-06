@@ -18,6 +18,7 @@
  * Refus métier → résultat (`ineligible` / `echec`, mis en cache) ; seule une
  * lecture base en panne lève.
  */
+import { sansConcurrent } from "./concurrents.ts";
 import {
   assurerSlidesBase,
   completerHashtags,
@@ -297,6 +298,8 @@ async function cuire(
       if (maj.hashtags) ligne.hashtags = traduction.hashtags;
     }
   }
+  // Mentions d'applis concurrentes : retirées avant le placement (concurrents.ts).
+  baseCible = sansConcurrent(baseCible).slides;
   const pollutionCible = motifBasePolluee(baseCible);
   if (pollutionCible) return { statut: "ineligible", raison: `base ${langue} : ${pollutionCible}` };
   if (!aDuTexte(baseCible)) return { statut: "echec", raison: `base ${langue} sans texte` };
@@ -389,7 +392,7 @@ export async function assurerDeckApplication(
 
   if (cache) {
     const slides = (cache.slides ?? []) as SlideLangue[];
-    if (cache.statut === "pret" && estDeckPret(slides)) {
+    if (cache.statut === "pret" && estDeckPret(slides) && !sansConcurrent(slides).modifie) {
       const hashtags = await hashtagsDe(
         supabase,
         ligne,

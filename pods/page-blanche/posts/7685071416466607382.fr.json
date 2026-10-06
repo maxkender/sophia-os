@@ -1,0 +1,216 @@
+{
+  "post_id": "7685071416466607382",
+  "slides": {
+    "1": {
+      "textes": {
+        "T1": {
+          "en": [
+            "10/10 things that are rapidly",
+            "destroying your ability to focus"
+          ],
+          "fr": "10/10 trucs qui flinguent ta concentration à vitesse grand V"
+        },
+        "T2": {
+          "en": [
+            ""
+          ],
+          "fr": ""
+        },
+        "T3": {
+          "en": [
+            "(neuroscience backed)"
+          ],
+          "fr": "(prouvé par la science)",
+          "alignement": "droite"
+        }
+      },
+      "images": {
+        "I1": "garder",
+        "I2": "garder"
+      }
+    },
+    "2": {
+      "textes": {
+        "T1": {
+          "en": [
+            "listening to something",
+            "constantly"
+          ],
+          "fr": "écouter un truc [[non-stop]]"
+        },
+        "T2": {
+          "en": [
+            "music, podcasts, YouTube in the background,",
+            "your brain is almost never doing just one",
+            "thing"
+          ],
+          "fr": "musique, podcasts, YouTube en fond : ton cerveau [[fait presque jamais une seule chose]]"
+        },
+        "T3": {
+          "en": [
+            "especially with",
+            "lyrics, part of",
+            "your attention is",
+            "still processing",
+            "language"
+          ],
+          "fr": "[[surtout avec des paroles]] : une partie de ton attention traite encore les mots"
+        },
+        "T4": {
+          "en": [
+            "silence feels boring because you've stopped",
+            "practicing it"
+          ],
+          "fr": "le silence te paraît chiant parce que t'en as [[perdu l'habitude]]"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    },
+    "3": {
+      "textes": {
+        "T1": {
+          "en": [
+            "consuming everything at 2x speed"
+          ],
+          "fr": "tout mettre [[en vitesse x2]]"
+        },
+        "T2": {
+          "en": [
+            "when every podcast, video",
+            "and voice note is sped up,",
+            "normal-speed information",
+            "starts feeling painfully slow"
+          ],
+          "fr": "quand tes podcasts, vidéos et vocaux sont tous accélérés, le rythme normal te paraît [[atrocement lent]]"
+        },
+        "T3": {
+          "en": [
+            "you're training yourself to",
+            "need constant density"
+          ],
+          "fr": "ton cerveau s'habitue à [[en vouloir toujours plus]]"
+        },
+        "T4": {
+          "en": [
+            "instead, actually sit with an",
+            "idea for more than 10",
+            "seconds"
+          ],
+          "fr": "à la place, pose-toi sur une idée plus de 10 secondes"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    },
+    "4": {
+      "textes": {
+        "T1": {
+          "en": [
+            "googling every random thought",
+            "you have"
+          ],
+          "fr": "googler [[la moindre pensée]] qui te vient"
+        },
+        "T2": {
+          "en": [
+            "you don't need to solve every curiosity the second it",
+            "appears"
+          ],
+          "fr": "pas besoin de régler chaque curiosité à la seconde où elle débarque"
+        },
+        "T3": {
+          "en": [
+            "one search becomes five",
+            "tabs, then Reddit, then",
+            "somehow 20 minutes",
+            "disappeared"
+          ],
+          "fr": "une recherche, puis cinq onglets, puis Reddit, et [[20 minutes se sont envolées]]"
+        },
+        "T4": {
+          "en": [
+            "write the thought down",
+            "and finish what you were",
+            "doing first"
+          ],
+          "fr": "note ton idée et [[finis d'abord ce que t'étais en train de faire]]"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    },
+    "5": {
+      "textes": {
+        "T1": {
+          "en": [
+            "doomscrolling everyday"
+          ],
+          "fr": "doomscroller [[tous les jours]]"
+        },
+        "T2": {
+          "en": [
+            "you go on tiktok without even",
+            "realising, then lose hours of",
+            "your day to it. that is frying",
+            "your attention span"
+          ],
+          "fr": "tu vas sur tiktok [[sans même t'en rendre compte]] et t'y perds des heures. ça te grille la concentration"
+        },
+        "T3": {
+          "en": [
+            "you can try using willpower to",
+            "stop, but i use a thing that",
+            "blocks tiktok until i read a",
+            "book for 20 minutes"
+          ],
+          "fr": "tu peux compter sur ta volonté pour arrêter, moi j'ai remplacé mon scroll par [[5 min par jour sur l'appli Sophia]]",
+          "texte": "tu peux compter sur ta volonté, moi j'ai remplacé tiktok par [[5 min par jour sur l'appli Sophia]]. au moins j'apprends un truc"
+        },
+        "T4": {
+          "en": [
+            "don't become illiterate!!"
+          ],
+          "fr": "deviens pas inculte !!"
+        }
+      },
+      "images": {
+        "I1": "sophia_capture",
+        "I2": "sophia_appstore"
+      }
+    },
+    "6": {
+      "textes": {
+        "T1": {
+          "en": [
+            "procrastinating all day"
+          ],
+          "fr": "procrastiner [[toute la journée]]"
+        },
+        "T2": {
+          "en": [
+            "every time you tell",
+            "yourself you'll do then",
+            "dont, you lose trust in",
+            "yourself"
+          ],
+          "fr": "chaque fois que tu te dis « je le fais » et que non, tu [[perds confiance en toi]]"
+        },
+        "T3": {
+          "en": [
+            "when you think about",
+            "doing something, do it",
+            "instantly"
+          ],
+          "fr": "quand tu penses à faire un truc, [[fais-le direct]]"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    }
+  }
+}

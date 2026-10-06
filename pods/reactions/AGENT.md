@@ -29,6 +29,7 @@ Tu ne touches pas au code de l'OS (`src/`, `supabase/`). Si l'OS doit changer, t
 4. **Budget fal** :
    - `animer` sans `--oui` affiche le coût, qui est d'environ $0,50 par compte en `pro`.
    - Annonce ce coût à l'humain et attends son accord avant `--oui`.
+   - **Exception : la routine du matin** (voir plus bas) a un budget pré-approuvé de **$3 par jour** sur fal. Dans ce budget, tu lances `--oui` sans attendre. Au-delà, tu t'arrêtes et tu demandes.
    - Le journal `donnees/depenses.json` garde le cumul.
 5. **Jeton du pod** : il vient de `POD_JETON` (ton prompt système) et ne s'écrit jamais dans un fichier, un commit ou un message.
 6. **Les concurrents ne se citent pas** : ni Vent Now, ni Readup. On dit « l'appli Sophia » ou « the Sophia app ».
@@ -46,6 +47,8 @@ Tu ne touches pas au code de l'OS (`src/`, `supabase/`). Si l'OS doit changer, t
 | `npm run etat` | État de tes livraisons. |
 
 Lance `npm install` une fois. Il faut `POD_JETON` dans l'environnement.
+
+Avec npm, les options du script passent après `--` : `npm run animer -- kiss-01 --oui` (sinon npm avale `--oui` et rien n'est lancé).
 
 ## La recette
 
@@ -116,7 +119,7 @@ Fais-en une par compte, avec le MCP Higgsfield.
 
 ### 6. Animer
 
-- Lance `animer <source_id>` pour voir le coût, puis `--oui` une fois que l'humain a donné son accord.
+- Lance `animer <source_id>` pour voir le coût, puis `animer -- <source_id> --oui` une fois que l'humain a donné son accord (ou dans le budget de la routine du matin).
 - Regarde chaque MP4, par exemple avec une planche d'images `ffmpeg` :
   - le visage reste stable ;
   - aucun texte n'apparaît ;
@@ -136,6 +139,22 @@ Fais-en une par compte, avec le MCP Higgsfield.
   - les textes à copier ;
   - le lien TikTok à saisir une fois la vidéo publiée.
 - Si une langue n'a pas de démo, la validation est refusée. Demande alors à l'humain de l'envoyer dans Pilotage → Pods.
+
+## La routine du matin
+
+Chaque matin, une session de ce pod produit **une** vidéo de réaction pour tous les comptes dont le persona est validé, puis la dépose. L'humain n'a plus qu'à valider dans Pilotage → Pods.
+
+1. `npm run comptes` : prends les comptes au persona **validé**. Le persona d'un compte ne change jamais, donc on ne régénère jamais de persona dans la routine.
+2. `npm run chercher …` avec des requêtes variées. Écarte toute vidéo déjà utilisée : son `source_url` figure dans un fichier de `livraisons/`.
+3. Choisis toi-même la meilleure réaction selon les critères de l'étape 1, sans attendre de validation. Donne-lui un `source_id` neuf (`kiss-02`, `wow-01`…).
+4. Suis la recette de l'étape 2 à l'étape 7. Les étapes 3 (créer un persona) et la validation humaine avant de couper sont sautées.
+5. Le budget du jour est de **$3 sur fal**, soit environ $0,50 × le nombre de comptes. Si `animer` annonce plus, arrête-toi et demande à l'humain.
+6. Versionne `livraisons/<source_id>.json` (PR vers main, mergée).
+7. Termine par un message court : la source et ses vues, la planche des vidéos, le coût, et ce qui reste à faire (démos manquantes…).
+
+En cas de refus d'un fournisseur ou de résultat raté deux fois, ne force pas : arrête-toi et signale-le.
+
+Les comptes de ce pod ne postent **que** des vidéos, une par jour, sur TikTok **et** Instagram (même vidéo, mêmes textes).
 
 ## Ce que l'OS fait, pas toi
 

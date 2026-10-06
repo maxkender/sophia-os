@@ -106,6 +106,10 @@ verify_jwt = false
 # Dépôt par l'agent d'un pod (en-tête x-pod-jeton) ou décision d'un admin (JWT revérifié).
 verify_jwt = false
 
+[functions.pod-labo]
+# Pod 3 : animation Kling des réactions, jeton du pod reactions_ugc (en-tête x-pod-jeton).
+verify_jwt = false
+
 [functions.preparation]
 verify_jwt = false
 

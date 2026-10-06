@@ -802,6 +802,8 @@ export const fr = {
       hmSansDm: "HM sans directing manager",
       equipeDmResume:
         "{{hms}} HM · {{total}} créateur(s) · {{pasCree}} pas créé · {{warmup}} warmup · {{actif}} actif",
+      equipeHoResume:
+        "{{total}} créateur(s) · {{pasCree}} pas créé · {{warmup}} warmup · {{actif}} actif",
       sansRecruteur: "Sans recruteur",
       langueRecruteur: "Langue",
       languesRecruteur: "Langues gérées",

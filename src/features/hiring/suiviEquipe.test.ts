@@ -6,6 +6,7 @@ import {
   compteursDepuis,
   createursDuManager,
   equipesParDm,
+  headsOfOps,
   hmsDuDm,
   hmsSansDm,
   lienTikTok,
@@ -156,5 +157,44 @@ describe("équipes DM → HM → créateurs", () => {
     expect(equipes[0]?.hms).toHaveLength(0);
     expect(equipes[0]?.createursDirects.map((c) => c.id)).toEqual(["p2"]);
     expect(equipes[0]?.compteurs.total).toBe(1);
+  });
+});
+
+describe("Head of Ops dans l'arbre d'équipe", () => {
+  // Régression : en passant Aram de hiring_manager à head_of_ops, il n'était
+  // plus dans AUCUNE des trois listes de la page Posters (équipes de DM,
+  // HM sans DM, créateurs sans recruteur). Lui ET ses 27 créateurs — rattachés
+  // par manager_id, donc jamais rangés dans « sans recruteur » — avaient
+  // disparu de l'écran alors que la base était intacte.
+  const tous = [
+    profil({ id: "ho", role: "head_of_ops", prenom: "Aram", nom: "H" }),
+    profil({ id: "dm", role: "directing_manager" }),
+    profil({ id: "hm-sous-dm", role: "hiring_manager", manager_id: "dm" }),
+    profil({ id: "hm-orphelin", role: "hiring_manager" }),
+    profil({ id: "c-ho", role: "poster", manager_id: "ho" }),
+    profil({ id: "c-hm", role: "poster", manager_id: "hm-sous-dm" }),
+  ];
+
+  it("rend le Head of Ops et ses créateurs visibles", () => {
+    const hos = headsOfOps(tous);
+    expect(hos.map((h) => h.hm.id)).toEqual(["ho"]);
+    expect(hos[0].createurs.map((c) => c.id)).toEqual(["c-ho"]);
+    expect(hos[0].compteurs.total).toBe(1);
+  });
+
+  it("ne le range ni sous un DM ni parmi les HM sans DM", () => {
+    expect(hmsSansDm(tous).map((h) => h.hm.id)).toEqual(["hm-orphelin"]);
+    expect(hmsDuDm(tous, "dm").map((p) => p.id)).toEqual(["hm-sous-dm"]);
+    expect(equipesParDm(tous).map((e) => e.dm.id)).toEqual(["dm"]);
+  });
+
+  it("place chaque manager dans exactement une liste de tête", () => {
+    const vus = [
+      ...equipesParDm(tous).flatMap((e) => [e.dm.id, ...e.hms.map((h) => h.hm.id)]),
+      ...hmsSansDm(tous).map((h) => h.hm.id),
+      ...headsOfOps(tous).map((h) => h.hm.id),
+    ];
+    const attendus = tous.filter((p) => p.role !== "poster").map((p) => p.id);
+    expect([...vus].sort()).toEqual([...attendus].sort());
   });
 });

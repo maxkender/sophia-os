@@ -111,6 +111,20 @@ export function equipesParDm(tous: PosterProfil[]): EquipeDm[] {
     .sort((a, b) => nomProfil(a.dm).localeCompare(nomProfil(b.dm), "fr"));
 }
 
+/**
+ * Head of Ops : au-dessus des DM, donc jamais rangé sous l'un d'eux, et jamais
+ * dans « HM sans DM » — ce serait inverser la hiérarchie. Il détient pourtant
+ * ses propres créateurs comme un HM, d'où le même `ResumeHm` et une section à
+ * lui. Sans cette fonction il n'apparaît dans AUCUNE liste de la page Posters,
+ * et ses créateurs disparaissent avec lui alors qu'ils sont intacts en base.
+ */
+export function headsOfOps(tous: PosterProfil[]): ResumeHm[] {
+  return tous
+    .filter((p) => p.role === "head_of_ops")
+    .map((ho) => resumeHm(ho, tous))
+    .sort((a, b) => nomProfil(a.hm).localeCompare(nomProfil(b.hm), "fr"));
+}
+
 export function hmsSansDm(tous: PosterProfil[]): ResumeHm[] {
   const idsDm = new Set(tous.filter((p) => p.role === "directing_manager").map((p) => p.id));
   return tous

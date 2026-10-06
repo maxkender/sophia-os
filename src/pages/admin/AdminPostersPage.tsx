@@ -18,7 +18,14 @@ import {
 import { messageErreur } from "@/lib/utils";
 import { badgeManager, estRoleManager, useAuth } from "@/features/auth/AuthContext";
 import { CompteursPhases, ListeCreateursSuivi } from "@/features/hiring/SuiviCreateurs";
-import { equipesParDm, hmsDuDm, hmsSansDm, nomProfil, resumeHm } from "@/features/hiring/suiviEquipe";
+import {
+  equipesParDm,
+  headsOfOps,
+  hmsDuDm,
+  hmsSansDm,
+  nomProfil,
+  resumeHm,
+} from "@/features/hiring/suiviEquipe";
 import { CompteEditor, PostsParJourCompte } from "@/features/moteur/CompteEditor";
 import { estCompteCm } from "@/features/moteur/comptesCm";
 import { ChampsPremierCompte, type PremierCompte } from "@/features/moteur/ChampsPremierCompte";
@@ -1033,9 +1040,32 @@ export function AdminPostersPage() {
 
     const equipes = equipesParDm(tous);
     const orphelins = hmsSansDm(tous);
+    const hos = headsOfOps(tous);
 
     return (
       <div className="space-y-8">
+        {hos.map((ho) => {
+          const createursHo = parManager.get(ho.hm.id) ?? [];
+          return (
+            <div key={ho.hm.id} className="space-y-6">
+              {section(nomAffiche(ho.hm), createursHo.length, [ho.hm], "recruteur", {
+                cle: `ho-${ho.hm.id}`,
+                badge: t("headOfOps.badge"),
+                sousTitre: t("posters.equipeHoResume", {
+                  total: ho.compteurs.total,
+                  pasCree: ho.compteurs.pasCree,
+                  warmup: ho.compteurs.warmup,
+                  actif: ho.compteurs.actif,
+                }),
+              })}
+              {createursHo.length > 0 &&
+                section(nomAffiche(ho.hm), createursHo.length, createursHo, "createur", {
+                  cle: `ho-creators-${ho.hm.id}`,
+                  sousTitre: t("posters.createursDuRecruteur"),
+                })}
+            </div>
+          );
+        })}
         {equipes.map((eq) => {
           const membresEquipe = [eq.dm, ...eq.hms.map((h) => h.hm)];
           const createursDm = parManager.get(eq.dm.id) ?? [];

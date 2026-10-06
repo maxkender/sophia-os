@@ -1,0 +1,259 @@
+{
+ "post_id": "7688807102764092705",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "top 5 ways to ruin your 20s"
+     ],
+     "fr": "top 5 pour foirer ta vingtaine",
+     "texte": "top 5: so versaust du deine 20er"
+    },
+    "T2": {
+     "en": [
+      "(harsh truth)"
+     ],
+     "fr": "(ça pique)",
+     "alignement": "droite",
+     "texte": "(harte Wahrheit)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never think for yourself"
+     ],
+     "fr": "ne réfléchis surtout pas",
+     "texte": "denk bloß nie selbst"
+    },
+    "T2": {
+     "en": [
+      "why struggle with an idea",
+      "when AI can give you an",
+      "answer in 3 seconds?"
+     ],
+     "fr": "pourquoi galérer sur une idée si l'IA te sort une réponse [[en 3 secondes]] ?",
+     "texte": "wieso selbst grübeln, wenn die KI dir [[in 3 Sekunden]] eine Antwort ausspuckt?"
+    },
+    "T3": {
+     "en": [
+      "ask it what to think, what to",
+      "write, what to believe, what",
+      "to do next"
+     ],
+     "fr": "demande-lui ce que tu dois [[penser]], écrire, [[croire]], faire ensuite",
+     "texte": "frag sie, was du [[denken]], schreiben, [[glauben]] und als Nächstes tun sollst"
+    },
+    "T4": {
+     "en": [
+      "eventually you can",
+      "outsource so much thinking",
+      "that your own judgment",
+      "barely gets used!"
+     ],
+     "fr": "à force, tu la laisses tellement réfléchir à ta place que [[ton jugement sert presque plus]] !",
+     "texte": "irgendwann lagerst du so viel Denken aus, dass du [[dein eigenes Urteil kaum noch brauchst]]!"
+    },
+    "T5": {
+     "en": [
+      "then you'll never have to worry about thinking",
+      "again!"
+     ],
+     "fr": "comme ça, plus jamais besoin de [[réfléchir]] !",
+     "texte": "dann musst du dir nie wieder Gedanken ums [[Denken]] machen!"
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder",
+    "I3": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never sit in silence"
+     ],
+     "fr": "jamais de silence",
+     "texte": "bloß keine Stille"
+    },
+    "T2": {
+     "en": [
+      "always have music, podcasts, youtube,",
+      "anything playing in the background"
+     ],
+     "fr": "mets [[toujours]] un truc en fond : musique, podcast, youtube, n'importe quoi",
+     "texte": "lass [[immer]] was im Hintergrund laufen: Musik, Podcasts, YouTube, egal was"
+    },
+    "T3": {
+     "en": [
+      "never let",
+      "your brain",
+      "hear itself",
+      "for too long"
+     ],
+     "fr": "ton cerveau ne doit jamais s'entendre penser",
+     "texte": "lass dein Hirn nie zu lange mit sich allein"
+    },
+    "T4": {
+     "en": [
+      "or you might start thinking about what you",
+      "actually want, what you're avoiding, or what",
+      "needs to change. that would be scary"
+     ],
+     "fr": "sinon tu risques de penser à ce que tu [[veux vraiment]], à ce que [[tu fuis]], à ce qui [[doit changer]]. et ça, ça fait peur",
+     "texte": "sonst denkst du am Ende noch drüber nach, was du [[wirklich willst]], [[wovor du wegläufst]] oder was [[sich ändern muss]]. wär ja gruselig"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never travel"
+     ],
+     "fr": "ne pars jamais",
+     "texte": "reis bloß nie"
+    },
+    "T2": {
+     "en": [
+      "there's nothing out there you need to experience",
+      "yourself"
+     ],
+     "fr": "y'a [[rien là-dehors]] qui mérite que tu le vives en vrai",
+     "texte": "es gibt [[nichts da draußen]], was du selbst erleben musst"
+    },
+    "T3": {
+     "en": [
+      "you can see mountains,",
+      "cities, cultures and people",
+      "through a 6-inch screen",
+      "anyway"
+     ],
+     "fr": "montagnes, villes, cultures, gens : tu vois tout [[sur un écran de 15 cm, de toute façon]]",
+     "texte": "du siehst Berge, Städte, Kulturen und Menschen [[eh auf einem 15-cm-Display]]"
+    },
+    "T4": {
+     "en": [
+      "stay where it's",
+      "comfortable"
+     ],
+     "fr": "reste [[dans ta zone de confort]]",
+     "texte": "bleib, wo's [[bequem]] ist"
+    },
+    "T5": {
+     "en": [
+      "why risk discovering that",
+      "the world is much bigger",
+      "than the life you've built?"
+     ],
+     "fr": "pourquoi risquer de découvrir que le monde est [[bien plus grand]] que ta petite vie ?",
+     "texte": "wozu riskieren, rauszufinden, dass die Welt [[viel größer]] ist als dein Leben?"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never stop scrolling"
+     ],
+     "fr": "scrolle non-stop",
+     "texte": "hör nie auf zu scrollen"
+    },
+    "T2": {
+     "en": [
+      "maybe the next tiktok will finally",
+      "solve your problems"
+     ],
+     "fr": "le [[prochain tiktok]] va [[enfin]] régler tes problèmes, qui sait",
+     "texte": "vielleicht löst ja das [[nächste TikTok]] [[endlich]] deine Probleme"
+    },
+    "T3": {
+     "en": [
+      "don’t limit your screen time,",
+      "don’t start reading, don’t give",
+      "your brain a chance to get",
+      "bored"
+     ],
+     "fr": "limite pas ton temps d'écran, commence surtout pas à [[lire]], laisse jamais ton cerveau [[s'ennuyer]]",
+     "texte": "begrenz nicht deine Screen Time, geh keine 5 Min in [[die Sophia-App]], lass dein Hirn [[sich nie langweilen]]"
+    },
+    "T4": {
+     "en": [
+      "just keep feeding the algorithm",
+      "until it knows what you want",
+      "better than you do"
+     ],
+     "fr": "continue de [[nourrir l'algo]] jusqu'à ce qu'il sache ce que tu veux [[mieux que toi]]",
+     "texte": "[[füttre den Algorithmus]] einfach weiter, bis er [[besser als du]] weiß, was du willst"
+    },
+    "T5": {
+     "en": [
+      "keep giving them your data,",
+      "they deserve it!"
+     ],
+     "fr": "file-leur [[tes données]], ils le méritent !",
+     "texte": "schenk ihnen [[deine Daten]], die haben's verdient!"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never take risks"
+     ],
+     "fr": "ne tente jamais rien",
+     "texte": "riskier bloß nichts"
+    },
+    "T2": {
+     "en": [
+      "what if you fail?",
+      "what if people laugh?",
+      "what if it doesn't go to plan?"
+     ],
+     "fr": "et si tu te plantes ? et si on se moque ? et si rien se passe comme prévu ?",
+     "texte": "und wenn du scheiterst?\nund wenn alle lachen?\nund wenn's schiefgeht?"
+    },
+    "T3": {
+     "en": [
+      "better stay safe in your",
+      "room, on your phone,",
+      "thinking about the life you",
+      "could've lived"
+     ],
+     "fr": "reste plutôt bien à l'abri dans ta chambre, sur ton tel, à rêver de la vie que t'aurais pu avoir",
+     "texte": "bleib lieber safe in deinem Zimmer, am Handy, und träum vom Leben, das du hättest haben können"
+    },
+    "T4": {
+     "en": [
+      "taking risks might make you fail, avoiding",
+      "them only wastes your life"
+     ],
+     "fr": "en prenant des risques, tu peux rater. en les fuyant, [[tu rates ta vie]]",
+     "texte": "mit Risiko kannst du scheitern, ohne Risiko [[verschwendest du dein Leben]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

@@ -75,13 +75,19 @@ export type RessourcesApp = { captures: Image[]; appstore: Image | null };
 
 const DOSSIER_ASSETS = join(ICI, "..", "assets", "sophia");
 
-/** Captures de la langue demandée (repli : anglais) + fiche App Store (anglais partout). */
+/**
+ * Captures de la langue demandée (repli : anglais) + fiche App Store (anglais partout).
+ * Les écrans de leçon (`lecon*.jpg`) passent avant tout autre : leur titre est
+ * ~2× plus gros que celui de l'accueil, seul lisible dans un petit emplacement.
+ */
 export async function chargerRessources(langue: string, dossier = DOSSIER_ASSETS): Promise<RessourcesApp> {
   const { existsSync, readdirSync } = await import("node:fs");
   const dossierLangue = existsSync(join(dossier, langue)) ? join(dossier, langue) : join(dossier, "en");
   const captures: Image[] = [];
   if (existsSync(dossierLangue)) {
-    for (const f of readdirSync(dossierLangue).filter((n) => /\.(jpe?g|png)$/i.test(n)).sort()) {
+    const fichiers = readdirSync(dossierLangue).filter((n) => /\.(jpe?g|png)$/i.test(n)).sort();
+    const lecons = fichiers.filter((n) => n.startsWith("lecon"));
+    for (const f of lecons.length ? lecons : fichiers) {
       captures.push(await loadImage(join(dossierLangue, f)));
     }
   }
@@ -164,18 +170,26 @@ function dessinerRecadrage(ctx: SKRSContext2D, source: Image, b: Boite) {
   ctx.drawImage(source, b.x, b.y, b.l, b.h, b.x, b.y, b.l, b.h);
 }
 
+/** Part de la capture retirée : barre d'état (haut) et marges (chaque côté). */
+const RECADRAGE_CAPTURE = { haut: 0.065, cote: 0.04 };
+
 /** Capture d'écran de l'app : remplit la boîte (recadrage par le haut, comme une
  * capture de téléphone), coins arrondis. */
 function dessinerCapture(ctx: SKRSContext2D, img: Image, b: Boite) {
-  const echelle = Math.max(b.l / img.width, b.h / img.height);
+  // Sans la barre d'état ni les marges latérales : l'écran utile, plus grand.
+  const ox = img.width * RECADRAGE_CAPTURE.cote;
+  const oy = img.height * RECADRAGE_CAPTURE.haut;
+  const utileL = img.width - 2 * ox;
+  const utileH = img.height - oy;
+  const echelle = Math.max(b.l / utileL, b.h / utileH);
   const sl = b.l / echelle;
   const sh = b.h / echelle;
-  const sx = (img.width - sl) / 2;
+  const sx = ox + (utileL - sl) / 2;
   ctx.save();
   ctx.beginPath();
   ctx.roundRect(b.x, b.y, b.l, b.h, Math.min(40, b.l * 0.07));
   ctx.clip();
-  ctx.drawImage(img, sx, 0, sl, sh, b.x, b.y, b.l, b.h);
+  ctx.drawImage(img, sx, oy, sl, sh, b.x, b.y, b.l, b.h);
   ctx.restore();
 }
 

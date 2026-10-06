@@ -1,5 +1,15 @@
 import { assertEquals } from "jsr:@std/assert@1";
-import { contenusLivresHorsLangue, deckLivrePret, metadonneesJpeg, sha256Hex, verifierDepot, verifierOriginal } from "./pods.ts";
+import {
+  CHEMIN_POD,
+  contenusLivresHorsLangue,
+  deckLivrePret,
+  metadonneesJpeg,
+  prochainJour,
+  sha256Hex,
+  verifierDepot,
+  verifierOriginal,
+  verifierVideo,
+} from "./pods.ts";
 
 Deno.test("deckLivrePret : toutes les slides doivent avoir leur image", () => {
   assertEquals(deckLivrePret([]), false);
@@ -87,4 +97,34 @@ Deno.test("contenusLivresHorsLangue : retire les livrés sans deck complet dans 
   assertEquals([...(await contenusLivresHorsLangue(sb, "en"))], ["b"]);
   assertEquals([...(await contenusLivresHorsLangue(sb, "fr"))], []);
   assertEquals([...(await contenusLivresHorsLangue(sb, "de"))].sort(), ["a", "b"]);
+});
+
+Deno.test("verifierVideo : chemins du pod, textes, comptes uniques", () => {
+  const c = (n: number) => `00000000-0000-4000-8000-00000000000${n}`;
+  const item = (n: number) => ({
+    compte_id: c(n),
+    reaction_path: `pods/reactions_ugc/reactions/hook-01/${c(n)}.mp4`,
+    texte_ecran: "je pourrais EMBRASSER la personne qui m'a montré ça",
+    legende: "#culture #apprendre #astuce",
+  });
+  assertEquals(verifierVideo("reactions_ugc", [item(1), item(2)]), []);
+  assertEquals(verifierVideo("reactions_ugc", []), ["aucun compte"]);
+  assertEquals(verifierVideo("reactions_ugc", [item(1), item(1)]), ["même compte deux fois"]);
+  assertEquals(verifierVideo("reactions_ugc", [{ ...item(1), reaction_path: "autre/x.mp4" }]).length, 1);
+  assertEquals(verifierVideo("reactions_ugc", [{ ...item(1), texte_ecran: " " }]).length, 1);
+});
+
+Deno.test("prochainJour : demain au plus tôt, puis le lendemain de la dernière vidéo", () => {
+  assertEquals(prochainJour(null, "2026-10-06"), "2026-10-07");
+  assertEquals(prochainJour("2026-10-01", "2026-10-06"), "2026-10-07");
+  assertEquals(prochainJour("2026-10-09", "2026-10-06"), "2026-10-10");
+  assertEquals(prochainJour("2026-12-31", "2026-12-30"), "2027-01-01");
+});
+
+Deno.test("CHEMIN_POD : personas et réactions seulement", () => {
+  const id = "00000000-0000-4000-8000-000000000001";
+  assertEquals(CHEMIN_POD.test(`personas/${id}.jpg`), true);
+  assertEquals(CHEMIN_POD.test(`reactions/hook-01/${id}.mp4`), true);
+  assertEquals(CHEMIN_POD.test(`../propre/x.jpg`), false);
+  assertEquals(CHEMIN_POD.test(`reactions/hook-01/${id}.mov`), false);
 });

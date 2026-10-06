@@ -1,0 +1,237 @@
+{
+ "post_id": "7685071416466607382",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 things that are rapidly",
+      "destroying your ability to focus"
+     ],
+     "fr": "10/10 trucs qui flinguent ta concentration à vitesse grand V",
+     "texte": "10/10 Dinge, die deinen Fokus in Rekordzeit killen"
+    },
+    "T2": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": ""
+    },
+    "T3": {
+     "en": [
+      "(neuroscience backed)"
+     ],
+     "fr": "(prouvé par la science)",
+     "alignement": "droite",
+     "texte": "(laut Neurowissenschaft)"
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "listening to something",
+      "constantly"
+     ],
+     "fr": "écouter un truc [[non-stop]]",
+     "texte": "[[ständig]] was auf den Ohren"
+    },
+    "T2": {
+     "en": [
+      "music, podcasts, YouTube in the background,",
+      "your brain is almost never doing just one",
+      "thing"
+     ],
+     "fr": "musique, podcasts, YouTube en fond : ton cerveau [[fait presque jamais une seule chose]]",
+     "texte": "Musik, Podcasts, YouTube im Hintergrund: dein Gehirn macht [[fast nie nur eine Sache]]"
+    },
+    "T3": {
+     "en": [
+      "especially with",
+      "lyrics, part of",
+      "your attention is",
+      "still processing",
+      "language"
+     ],
+     "fr": "[[surtout avec des paroles]] : une partie de ton attention traite encore les mots",
+     "texte": "[[vor allem mit Text]] ist ein Teil deiner Aufmerksamkeit noch mit Sprache beschäftigt"
+    },
+    "T4": {
+     "en": [
+      "silence feels boring because you've stopped",
+      "practicing it"
+     ],
+     "fr": "le silence te paraît chiant parce que t'en as [[perdu l'habitude]]",
+     "texte": "Stille ist langweilig, weil du sie [[nicht mehr gewohnt bist]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "consuming everything at 2x speed"
+     ],
+     "fr": "tout mettre [[en vitesse x2]]",
+     "texte": "alles [[auf 2x]] laufen lassen"
+    },
+    "T2": {
+     "en": [
+      "when every podcast, video",
+      "and voice note is sped up,",
+      "normal-speed information",
+      "starts feeling painfully slow"
+     ],
+     "fr": "quand tes podcasts, vidéos et vocaux sont tous accélérés, le rythme normal te paraît [[atrocement lent]]",
+     "texte": "wenn Podcasts, Videos und Sprachis alle schneller laufen, wirkt normales Tempo [[quälend langsam]]"
+    },
+    "T3": {
+     "en": [
+      "you're training yourself to",
+      "need constant density"
+     ],
+     "fr": "ton cerveau s'habitue à [[en vouloir toujours plus]]",
+     "texte": "du trainierst dir an, [[ständig mehr Input zu brauchen]]"
+    },
+    "T4": {
+     "en": [
+      "instead, actually sit with an",
+      "idea for more than 10",
+      "seconds"
+     ],
+     "fr": "à la place, pose-toi sur une idée plus de 10 secondes",
+     "texte": "bleib stattdessen mal länger als 10 Sekunden bei einem Gedanken"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "googling every random thought",
+      "you have"
+     ],
+     "fr": "googler [[la moindre pensée]] qui te vient",
+     "texte": "[[jeden random Gedanken]] googeln"
+    },
+    "T2": {
+     "en": [
+      "you don't need to solve every curiosity the second it",
+      "appears"
+     ],
+     "fr": "pas besoin de régler chaque curiosité à la seconde où elle débarque",
+     "texte": "du musst nicht jede Frage sofort klären, sobald sie aufkommt"
+    },
+    "T3": {
+     "en": [
+      "one search becomes five",
+      "tabs, then Reddit, then",
+      "somehow 20 minutes",
+      "disappeared"
+     ],
+     "fr": "une recherche, puis cinq onglets, puis Reddit, et [[20 minutes se sont envolées]]",
+     "texte": "aus einer Suche werden fünf Tabs, dann Reddit, und plötzlich sind [[20 Minuten weg]]"
+    },
+    "T4": {
+     "en": [
+      "write the thought down",
+      "and finish what you were",
+      "doing first"
+     ],
+     "fr": "note ton idée et [[finis d'abord ce que t'étais en train de faire]]",
+     "texte": "notier dir den Gedanken und [[mach erst das fertig, woran du sitzt]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "doomscrolling everyday"
+     ],
+     "fr": "doomscroller [[tous les jours]]",
+     "texte": "[[jeden Tag]] doomscrollen"
+    },
+    "T2": {
+     "en": [
+      "you go on tiktok without even",
+      "realising, then lose hours of",
+      "your day to it. that is frying",
+      "your attention span"
+     ],
+     "fr": "tu vas sur tiktok [[sans même t'en rendre compte]] et t'y perds des heures. ça te grille la concentration",
+     "texte": "du gehst auf TikTok, [[ohne es überhaupt zu merken]], und verlierst Stunden. das ruiniert deine Konzentration"
+    },
+    "T3": {
+     "en": [
+      "you can try using willpower to",
+      "stop, but i use a thing that",
+      "blocks tiktok until i read a",
+      "book for 20 minutes"
+     ],
+     "fr": "tu peux compter sur ta volonté pour arrêter, moi j'ai remplacé mon scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "du kannst es mit Willenskraft versuchen, aber ich lerne stattdessen 5 Minuten am Tag mit [[der Sophia-App]]"
+    },
+    "T4": {
+     "en": [
+      "don't become illiterate!!"
+     ],
+     "fr": "deviens pas inculte !!",
+     "texte": "werd nicht ungebildet!!"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "procrastinating all day"
+     ],
+     "fr": "procrastiner [[toute la journée]]",
+     "texte": "[[den ganzen Tag]] aufschieben"
+    },
+    "T2": {
+     "en": [
+      "every time you tell",
+      "yourself you'll do then",
+      "dont, you lose trust in",
+      "yourself"
+     ],
+     "fr": "chaque fois que tu te dis « je le fais » et que non, tu [[perds confiance en toi]]",
+     "texte": "jedes Mal, wenn du dir was vornimmst und es nicht tust, [[vertraust du dir weniger]]"
+    },
+    "T3": {
+     "en": [
+      "when you think about",
+      "doing something, do it",
+      "instantly"
+     ],
+     "fr": "quand tu penses à faire un truc, [[fais-le direct]]",
+     "texte": "wenn dir einfällt, dass du was machen musst, [[mach es sofort]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

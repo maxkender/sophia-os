@@ -1570,6 +1570,7 @@ export const fr = {
       signalerSansRemplacant: "Signalée, mais aucune autre photo n'est disponible pour l'instant : saute cette slide.",
       signalerPublie: "Ce post est déjà publié : ses photos ne peuvent plus changer.",
       signalerSansPhoto: "Cette slide n'a pas de photo à remplacer.",
+      signalerLivree: "Image finie d'un pod : son texte est voulu, elle ne se remplace pas.",
       signalerInterdit: "Tu ne peux signaler que les photos de tes propres posts.",
       signalerErreur: "Impossible de signaler la photo. Réessaie dans un instant.",
       slidesNonNettoyees_one: "{{count}} photo n'a pas pu être nettoyée, vérifie-la avant de publier.",

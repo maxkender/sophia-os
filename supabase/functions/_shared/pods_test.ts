@@ -1,5 +1,5 @@
 import { assertEquals } from "jsr:@std/assert@1";
-import { deckLivrePret, metadonneesJpeg, sha256Hex, verifierDepot, verifierOriginal } from "./pods.ts";
+import { contenusLivresHorsLangue, deckLivrePret, metadonneesJpeg, sha256Hex, verifierDepot, verifierOriginal } from "./pods.ts";
 
 Deno.test("deckLivrePret : toutes les slides doivent avoir leur image", () => {
   assertEquals(deckLivrePret([]), false);
@@ -52,4 +52,39 @@ Deno.test("verifierOriginal : positions, images, une slide Sophia, inspiration, 
   assertEquals(verifierOriginal(avec(3, { texte_sophia: "the Sophia app" })).length, 1);
   assertEquals(verifierOriginal(avec(4, { texte_sophia: "a micro-learning app" })).length, 1);
   assertEquals(verifierOriginal(avec(2, { reference_url: "https://p16.tiktokcdn.com/x.jpg" })).length, 1);
+});
+
+/** Client minimal : `from(table)` → filtres eq/in appliqués sur des lignes fixes. */
+function faux(tables: Record<string, Record<string, unknown>[]>) {
+  return {
+    from(table: string) {
+      let lignes = tables[table] ?? [];
+      const q = {
+        select: () => q,
+        eq: (c: string, v: unknown) => ((lignes = lignes.filter((l) => l[c] === v)), q),
+        in: (c: string, vs: unknown[]) => ((lignes = lignes.filter((l) => vs.includes(l[c]))), q),
+        then: (ok: (r: { data: unknown; error: null }) => unknown) => Promise.resolve(ok({ data: lignes, error: null })),
+      };
+      return q;
+    },
+  };
+}
+
+Deno.test("contenusLivresHorsLangue : retire les livrés sans deck complet dans la langue", async () => {
+  const sb = faux({
+    contenus: [
+      { id: "a", livre: true },
+      { id: "b", livre: true },
+      { id: "c", livre: false },
+    ],
+    contenu_langues: [
+      { contenu_id: "a", langue: "en", slides: [{ position: 1, media_id: "m1" }] },
+      { contenu_id: "b", langue: "en", slides: [{ position: 1, media_id: null }] },
+      { contenu_id: "a", langue: "fr", slides: [{ position: 1, media_id: "m2" }] },
+      { contenu_id: "b", langue: "fr", slides: [{ position: 1, media_id: "m3" }] },
+    ],
+  });
+  assertEquals([...(await contenusLivresHorsLangue(sb, "en"))], ["b"]);
+  assertEquals([...(await contenusLivresHorsLangue(sb, "fr"))], []);
+  assertEquals([...(await contenusLivresHorsLangue(sb, "de"))].sort(), ["a", "b"]);
 });

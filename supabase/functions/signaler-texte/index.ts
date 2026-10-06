@@ -17,6 +17,7 @@ const STATUTS: Record<CodeRefus, number> = {
   INTERDIT: 403,
   POST_PUBLIE: 409,
   SANS_PHOTO: 409,
+  IMAGE_LIVREE: 409,
 };
 
 Deno.serve(async (request) => {

@@ -11,6 +11,7 @@ import {
   type ReviewVideo,
 } from "@/features/reviews/fileJour";
 import { extensionVideo } from "@/features/reviews/videoRemarque";
+import { estRoleManager } from "@/features/auth/roles";
 import type { Role } from "@/features/auth/AuthContext";
 import type { EvenementEtape } from "@/features/moteur/nettoyageEtapes";
 import type {
@@ -1316,7 +1317,7 @@ export async function definirRole(
   const { error } = await supabase.from("user_roles").insert({ user_id: userId, role });
   if (error) throw error;
 
-  if (role === "hiring_manager" || role === "directing_manager") {
+  if (estRoleManager(role)) {
     const ensemble = [
       ...new Set(
         (langues?.filter(Boolean) ?? (nationalite ? [nationalite] : [])).map((l) =>
@@ -2063,10 +2064,11 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
     }))
     .sort((a, b) => rangClassement(b.classement) - rangClassement(a.classement));
 
-  // Recruteurs = hiring_manager ; part de comptes en BIEN/STAR chez les créateurs
-  // rattachés (manager_id) — l'ELO de compte n'existe plus.
+  // Recruteurs = tout rôle qui détient des créateurs (HM, DM, Head of Ops) ;
+  // part de comptes en BIEN/STAR chez les créateurs rattachés (manager_id)
+  // — l'ELO de compte n'existe plus.
   const recruteursIds = [...roleParUser.entries()]
-    .filter(([, role]) => role === "hiring_manager" || role === "directing_manager")
+    .filter(([, role]) => estRoleManager(role))
     .map(([id]) => id);
 
   const recruteurs = recruteursIds

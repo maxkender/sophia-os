@@ -304,6 +304,16 @@ async function valider(
     instructions: await chargerPrompt(supabase, "pertinence"),
   });
   const scoring = await lireScoring(supabase);
+  // PAS de `pisteSource` ici, volontairement : une livraison de pod n'a pas de
+  // compte de référence dont on aurait la piste. Le terme reste donc inactif et
+  // la note garde exactement la forme d'avant la migration 0264.
+  //
+  // Conséquence assumée : 0265 baisse `elo_seuil_import` de 55 à 54 pour
+  // compenser le déplacement de distribution côté import classique. Les pods
+  // avec source subissent la baisse sans la compensation, donc passent un
+  // point plus facilement. Marginal et dans le sens permissif ; si ça devenait
+  // gênant, la correction est de résoudre leur compte de référence, pas de
+  // rétablir le seuil (ça casserait l'import classique).
   const elo = eloParLangue({
     pertinence: pertinence.score,
     vues: l.source_vues,

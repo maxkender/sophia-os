@@ -160,6 +160,15 @@ export async function lireScoring(supabase: Supabase) {
      * 80k : meilleure résolution dans la zone 1k–20k.
      */
     vuesPlafond: v.elo_vues_plafond ?? 80_000,
+    /**
+     * Part de la note qui vient de la PISTE du compte source. Le reste se
+     * partage entre vues et pertinence selon `poidsVues`, inchangé.
+     *
+     * Défaut 0 dans le code, 0,45 en base (migration 0264) : le code seul ne
+     * change donc rien, et l'activation reste une ligne de réglage que
+     * l'admin peut annuler sans déploiement.
+     */
+    poidsSource: v.elo_poids_source ?? 0,
   };
 }
 
@@ -178,11 +187,52 @@ export function scoreDepuisVues(
   return Math.min(100, Math.max(0, (num / den) * 100));
 }
 
+/**
+ * Piste du compte source, 0-100, ou `null` si on n'a pas de quoi juger
+ * (source inconnue, ou moins de 10 contenus mûrs : voir la vue).
+ *
+ * `null` ne veut pas dire « mauvaise source », il veut dire « pas de preuve »,
+ * et l'appelant doit alors désactiver le terme plutôt que de poser 50 : une
+ * source neuve ne mérite ni bonus ni malus.
+ *
+ * Ne lève jamais. Jumeau inversé de `lireScoring`, et pour la raison opposée :
+ * là-bas un échec de lecture pouvait REFUSER un import à la place de l'admin,
+ * donc il fallait crier. Ici l'échec rend juste la note à sa forme d'avant,
+ * ce qui est le sens sûr — on ne va pas bloquer la chaîne d'import parce
+ * qu'une statistique de confort n'a pas répondu.
+ */
+export async function lirePisteSource(
+  supabase: Supabase,
+  compteReferenceId: string | null | undefined,
+): Promise<number | null> {
+  if (!compteReferenceId) return null;
+  try {
+    const { data, error } = await supabase
+      .from("piste_comptes_reference")
+      .select("piste")
+      .eq("compte_reference_id", compteReferenceId)
+      .maybeSingle();
+    if (error) {
+      console.warn(`[piste source] ${compteReferenceId}: ${messageErreur(error)}`);
+      return null;
+    }
+    const v = Number(data?.piste);
+    return Number.isFinite(v) ? v : null;
+  } catch (e) {
+    console.warn(`[piste source] ${compteReferenceId}: ${messageErreur(e)}`);
+    return null;
+  }
+}
+
 export interface EloLigneDetail {
   langue: string;
   estSource: boolean;
   pertinence: number;
   vuesScore: number;
+  /** Piste du compte source, ou null si le terme n'a pas été appliqué. */
+  pisteSource: number | null;
+  /** Part effectivement donnée à la piste (0 quand il n'y a pas de piste). */
+  poidsSource: number;
   base: number;
   kk: number;
   prior: number;
@@ -225,6 +275,8 @@ export function eloParLangue(opts: {
   k: number;
   poidsVues?: number;
   vuesPlafond?: number;
+  pisteSource?: number | null;
+  poidsSource?: number;
 }): number {
   return decomposerElo(opts).elo;
 }
@@ -239,6 +291,9 @@ export function decomposerElo(opts: {
   k: number;
   poidsVues?: number;
   vuesPlafond?: number;
+  /** Piste du compte source (0-100). `null`/absent = pas de preuve. */
+  pisteSource?: number | null;
+  poidsSource?: number;
   seuil?: number;
 }): EloLigneDetail & { poidsVues: number; vuesPlafond: number; vues: number } {
   const poidsVues = Math.min(1, Math.max(0, opts.poidsVues ?? 0.7));
@@ -246,7 +301,22 @@ export function decomposerElo(opts: {
   const vues = opts.vues ?? 0;
   const vuesScore = scoreDepuisVues(vues, vuesPlafond);
   const pertinence = Math.min(100, Math.max(0, opts.pertinence));
-  const base = (1 - poidsVues) * pertinence + poidsVues * vuesScore;
+  const baseTexte = (1 - poidsVues) * pertinence + poidsVues * vuesScore;
+
+  // Sans piste, le poids retombe à 0 et `base` vaut EXACTEMENT `baseTexte` :
+  // la note d'un contenu dont la source est inconnue est celle d'avant 0264,
+  // au bit près. C'est voulu — une source neuve ne mérite ni bonus ni malus,
+  // et poser 50 à sa place tirerait toutes les notes vers le milieu.
+  const pisteSource =
+    typeof opts.pisteSource === "number" && Number.isFinite(opts.pisteSource)
+      ? Math.min(100, Math.max(0, opts.pisteSource))
+      : null;
+  const poidsSource =
+    pisteSource === null ? 0 : Math.min(1, Math.max(0, opts.poidsSource ?? 0));
+  const base = poidsSource === 0
+    ? baseTexte
+    : poidsSource * pisteSource! + (1 - poidsSource) * baseTexte;
+
   const estSource = opts.langue === opts.langueSource;
   const kk = estSource ? opts.k / 2 : opts.k * 2;
   const elo = (kk * opts.prior + base) / (kk + 1);
@@ -256,6 +326,8 @@ export function decomposerElo(opts: {
     estSource,
     pertinence,
     vuesScore,
+    pisteSource,
+    poidsSource,
     base,
     kk,
     prior: opts.prior,
@@ -283,6 +355,8 @@ export function rapportEloComplet(opts: {
   k: number;
   poidsVues: number;
   vuesPlafond: number;
+  pisteSource?: number | null;
+  poidsSource?: number;
   seuil: number;
 }): EloRapport {
   const head = decomposerElo({
@@ -291,12 +365,19 @@ export function rapportEloComplet(opts: {
     seuil: opts.seuil,
   });
   const tier = tierImport(head.elo, opts.seuil);
-  const pctVues = Math.round(opts.poidsVues * 100);
-  const pctPert = 100 - pctVues;
+  // Les pourcentages affichés sont ceux RÉELLEMENT appliqués : sans piste le
+  // terme source disparaît de la ligne au lieu d'afficher un 0 % trompeur.
+  const pctSrc = Math.round(head.poidsSource * 100);
+  const reste = 1 - head.poidsSource;
+  const pctVues = Math.round(reste * opts.poidsVues * 100);
+  const pctPert = 100 - pctVues - pctSrc;
+  const ligneBase = head.poidsSource > 0
+    ? `base = ${pctSrc}%×piste(${head.pisteSource?.toFixed(1)}) + ${pctPert}%×pert + ${pctVues}%×vues = ${head.base.toFixed(2)}`
+    : `base = ${pctPert}%×pert + ${pctVues}%×vues = ${head.base.toFixed(2)} (pas de piste pour cette source)`;
   const texte = [
     `vues=${head.vues} → scoreVues=${head.vuesScore.toFixed(2)} (log^1.3, plafond ${opts.vuesPlafond})`,
     `pertinence=${head.pertinence}`,
-    `base = ${pctPert}%×pert + ${pctVues}%×vues = ${head.base.toFixed(2)}`,
+    ligneBase,
     `régularisation: prior=${opts.prior} k=${opts.k} · seuil=${opts.seuil} · langue source=${opts.langueSource}`,
     `note = (kk×prior + base) / (kk+1) avec kk=${head.kk} → ${head.elo.toFixed(2)}`,
     tier
@@ -542,6 +623,10 @@ export async function assurerTierImport(
   langueSource: string,
   vuesSource: number | null,
   pertinence: number,
+  /** Piste du compte source. Passée par l'appelant, qui l'a déjà lue pour le
+   *  rapport : deux lectures donneraient deux notes si la vue bouge entre les
+   *  deux, et c'est la MÊME note qui doit décider du tier et s'afficher. */
+  pisteSource: number | null = null,
 ): Promise<Tier | null> {
   const scoring = await lireScoring(supabase);
   const elo = eloParLangue({
@@ -553,6 +638,8 @@ export async function assurerTierImport(
     k: scoring.k,
     poidsVues: scoring.poidsVues,
     vuesPlafond: scoring.vuesPlafond,
+    pisteSource,
+    poidsSource: scoring.poidsSource,
   });
   const tier = tierImport(elo, scoring.eloSeuil);
   if (!tier) return null;
@@ -1069,6 +1156,7 @@ async function executerPasImport(
     // 4 — Note /100 de la langue source → premier placement en tierlist
     {
       const scoring = await lireScoring(supabase);
+      const pisteSource = await lirePisteSource(supabase, contenu.compte_reference_id);
       const elo: EloRapport & { pertinences?: PertinencesRapport } = rapportEloComplet({
         pertinence: Number(contenu.pertinence_score ?? 0),
         vues: contenu.vues_source ?? null,
@@ -1077,6 +1165,8 @@ async function executerPasImport(
         k: scoring.k,
         poidsVues: scoring.poidsVues,
         vuesPlafond: scoring.vuesPlafond,
+        pisteSource,
+        poidsSource: scoring.poidsSource,
         seuil: scoring.eloSeuil,
       });
       // Multi-app : même note, calculée avec le score de CHAQUE application,
@@ -1097,6 +1187,8 @@ async function executerPasImport(
               k: scoring.k,
               poidsVues: scoring.poidsVues,
               vuesPlafond: scoring.vuesPlafond,
+              pisteSource,
+              poidsSource: scoring.poidsSource,
             }),
           seuil: scoring.eloSeuil,
           force: Boolean(contenu.import_elo_force_seuil),
@@ -1117,6 +1209,7 @@ async function executerPasImport(
         langueSource,
         contenu.vues_source ?? null,
         Number(contenu.pertinence_score ?? 0),
+        pisteSource,
       );
       if (!tier) {
         await marquer(supabase, contenu.id, {
@@ -1313,6 +1406,8 @@ async function executerPasImport(
         k: scoring.k,
         poidsVues: scoring.poidsVues,
         vuesPlafond: scoring.vuesPlafond,
+        pisteSource: await lirePisteSource(supabase, contenu.compte_reference_id),
+        poidsSource: scoring.poidsSource,
       });
       if (forcerSeuil) score = Math.max(score, scoring.eloSeuil);
       await supabase
@@ -2319,6 +2414,8 @@ export async function forcerImportElo(
     k: scoring.k,
     poidsVues: scoring.poidsVues,
     vuesPlafond: scoring.vuesPlafond,
+    pisteSource: await lirePisteSource(supabase, contenu.compte_reference_id),
+    poidsSource: scoring.poidsSource,
     seuil: scoring.eloSeuil,
   });
 

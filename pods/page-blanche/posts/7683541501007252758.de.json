@@ -1,0 +1,234 @@
+{
+ "post_id": "7683541501007252758",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "10/10 Gewohnheiten gegen Brainrot"
+    },
+    "T2": {
+     "en": [
+      "(science-backed sources)"
+     ],
+     "fr": "(prouvé par la science)",
+     "alignement": "droite",
+     "texte": "(wissenschaftlich belegt)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "use AI to help you think,",
+      "not replace you"
+     ],
+     "fr": "utilise l'IA pour réfléchir, [[pas à ta place]]",
+     "texte": "nutz KI als Denkhilfe, [[nicht als Ersatz]]"
+    },
+    "T2": {
+     "en": [
+      "using AI to do all your work",
+      "is seriously rotting your",
+      "brain"
+     ],
+     "fr": "faire tout ton taf avec l'IA [[te ramollit grave le cerveau]]",
+     "texte": "lässt du die KI alles machen, [[wird dein Hirn zu Matsch]]"
+    },
+    "T3": {
+     "en": [
+      "a 2025 study found that the",
+      "more people trusted the AI,",
+      "the less critical thinking they",
+      "reported doing"
+     ],
+     "fr": "une étude de 2025 a montré que plus les gens font confiance à l'IA, [[moins ils réfléchissent par eux-mêmes]]",
+     "texte": "eine Studie von 2025 zeigt: je mehr Leute der KI vertrauen, [[desto weniger denken sie kritisch]]"
+    },
+    "T4": {
+     "en": [
+      "use AI to question your",
+      "thinking, not outsource it"
+     ],
+     "fr": "l'IA doit challenger tes idées, pas les remplacer",
+     "texte": "lass KI deine Ideen hinterfragen, nicht ersetzen"
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder",
+    "I3": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop going on your phone",
+      "when you eat"
+     ],
+     "fr": "lâche ton tel pendant les repas",
+     "texte": "leg dein Handy beim Essen weg"
+    },
+    "T2": {
+     "en": [
+      "going on your phone every",
+      "time you eat is teaching",
+      "your brain that every quiet",
+      "moment needs stimulation"
+     ],
+     "fr": "sortir ton tel à chaque repas, ça apprend à ton cerveau que le moindre moment calme doit être rempli",
+     "texte": "wenn du bei jedem Essen am Handy hängst, lernt dein Hirn, dass jede ruhige Minute gefüllt werden muss"
+    },
+    "T3": {
+     "en": [
+      "give your brain 20 minutes",
+      "where nothing is fighting for",
+      "your attention"
+     ],
+     "fr": "laisse ton cerveau tranquille 20 minutes, sans rien qui le sollicite",
+     "texte": "gönn deinem Hirn 20 Minuten Ruhe, ohne dass irgendwas an ihm zerrt"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go on walks without",
+      "listening to anything"
+     ],
+     "fr": "va marcher sans rien dans les oreilles",
+     "texte": "geh spazieren, ohne was auf den Ohren"
+    },
+    "T2": {
+     "en": [
+      "you do not need podcast",
+      "or music every time you",
+      "leave the house"
+     ],
+     "fr": "pas besoin d'un podcast ou de musique dès que tu sors",
+     "texte": "du brauchst nicht jedes Mal Podcast oder Musik, wenn du rausgehst"
+    },
+    "T3": {
+     "en": [
+      "a Stanford study found",
+      "that walking increased",
+      "people's creative output by",
+      "an average of 60%"
+     ],
+     "fr": "une étude de Stanford a montré que marcher boostait la créativité des gens de 60 % en moyenne",
+     "texte": "eine Stanford-Studie zeigt: Spazierengehen steigert die Kreativität im Schnitt um 60%"
+    },
+    "T4": {
+     "en": [
+      "sometimes the smartest",
+      "thing you can listen to is",
+      "your own thoughts"
+     ],
+     "fr": "parfois, [[le plus intelligent à écouter, c'est tes propres pensées]]",
+     "texte": "manchmal ist [[das Klügste, was du hören kannst, deine eigenen Gedanken]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read CLASSIC books"
+     ],
+     "fr": "lis des CLASSIQUES",
+     "texte": "lies KLASSIKER"
+    },
+    "T4": {
+     "en": [
+      "one study found that just 6",
+      "minutes of reading reduced",
+      "stress levels by up to 68%"
+     ],
+     "fr": "une étude a montré que 6 minutes de lecture suffisent à [[faire baisser le stress jusqu'à 68 %]]",
+     "texte": "eine Studie zeigt: schon 6 Minuten Lesen [[senken den Stress um bis zu 68%]]"
+    },
+    "T5": {
+     "en": [
+      "if you struggle getting off your",
+      "phone and reading books, i",
+      "recommend ReadUp, it blocks",
+      "your doomscrolling apps until",
+      "you read"
+     ],
+     "fr": "si t'as du mal à lâcher ton tel, perso j'ai remplacé mon scroll par 5 min sur l'appli Sophia, un truc nouveau chaque jour",
+     "texte": "wenn du nicht vom Handy loskommst, lern wenigstens was damit. ich empfehle die Sophia-App, 5 Minuten am Tag"
+    }
+   },
+   "images": {
+    "I2": "sophia_appstore"
+   },
+   "zones": [
+    {
+     "elements": [
+      "I1",
+      "T2",
+      "T3",
+      "T7",
+      "T8",
+      "T9",
+      "T10",
+      "I3",
+      "T11",
+      "T6"
+     ],
+     "action": "sophia_capture"
+    }
+   ]
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "turn off all notifications",
+      "on your phone"
+     ],
+     "fr": "désactive toutes tes notifs sur ton tel",
+     "texte": "schalt alle Benachrichtigungen aus"
+    },
+    "T2": {
+     "en": [
+      "i don't have",
+      "notifications on for",
+      "every single thing in",
+      "every app,"
+     ],
+     "fr": "j'ai pas de notifs pour le moindre truc dans chaque appli,",
+     "texte": "ich hab nicht für jede Kleinigkeit in jeder App Benachrichtigungen an,"
+    },
+    "T3": {
+     "en": [
+      "you don't need to",
+      "respond instantly, it's",
+      "fine"
+     ],
+     "fr": "t'as pas besoin de répondre direct, c'est ok",
+     "texte": "du musst nicht sofort antworten, ist okay"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

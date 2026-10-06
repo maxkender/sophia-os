@@ -102,17 +102,16 @@ Fais-en une par compte, avec le MCP Higgsfield.
     {
       "compte_id": "…",
       "depart": "sortie/kiss-01/depart/<compte>.jpg",
-      "texte_ecran": "J'embrasserais bien la personne qui m'a parlé de l'appli Sophia",
-      "legende": "… #apprendre #culturegenerale #sophia"
+      "texte_ecran": "Je pourrais EMBRASSER la personne qui m'a montré ça 😭😭",
+      "legende": "… #apprendre #culturegenerale #astuce"
     }
   ]
 }
 ```
 
-- `texte_ecran` reprend l'accroche de la source, **adaptée** dans la langue du compte (et non traduite mot à mot). Elle fait au plus 200 caractères et nomme l'appli comme le veulent les règles `placement_sophia` de l'OS :
-  - « l'appli Sophia » ;
-  - « a micro-learning app like the Sophia app ».
-- `legende` est la légende TikTok dans la langue du compte, avec 3 hashtags.
+- `texte_ecran` reprend **exactement** l'accroche de la source, traduite fidèlement dans la langue du compte (mêmes mots, mêmes majuscules, mêmes emojis). Au plus 200 caractères.
+- **Jamais de mention de Sophia** dans `texte_ecran` ni dans `legende` (ni nom, ni hashtag). Le placement Sophia se fait uniquement en vidéo, dans la deuxième partie (la démo fournie par l'humain).
+- `legende` est la légende TikTok dans la langue du compte, avec 3 hashtags neutres.
 - Pas de tiret cadratin ni de point-virgule. Le ton est oral et naturel.
 
 ### 6. Animer

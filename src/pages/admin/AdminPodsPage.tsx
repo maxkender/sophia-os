@@ -150,6 +150,45 @@ function LigneLivraison({ livraison }: { livraison: Livraison }) {
   );
 }
 
+/** Valide toute la file d'un pod au rang B, une livraison après l'autre. */
+function ToutValiderEnB({ livraisons }: { livraisons: Livraison[] }) {
+  const { t } = useTranslation();
+  const qc = useQueryClient();
+  const [fait, setFait] = React.useState(0);
+  const [erreurs, setErreurs] = React.useState<string[]>([]);
+  const tout = useMutation({
+    mutationFn: async () => {
+      setFait(0);
+      setErreurs([]);
+      for (const l of livraisons) {
+        try {
+          await validerLivraison(l.id, "B");
+        } catch (e) {
+          setErreurs((x) => [...x, `${l.titre ?? l.id} : ${(e as Error).message}`]);
+        }
+        setFait((n) => n + 1);
+      }
+    },
+    onSettled: () => qc.invalidateQueries({ queryKey: ["pods", "livraisons"] }),
+  });
+  if (!livraisons.length) return null;
+  return (
+    <div className="space-y-1">
+      <Button
+        disabled={tout.isPending}
+        onClick={() => window.confirm(t("pods.toutValiderBConfirm", { n: livraisons.length })) && tout.mutate()}
+      >
+        {tout.isPending ? t("pods.toutValiderBEnCours", { fait, n: livraisons.length }) : t("pods.toutValiderB", { n: livraisons.length })}
+      </Button>
+      {erreurs.map((e) => (
+        <p key={e} className="text-sm text-destructive">
+          {e}
+        </p>
+      ))}
+    </div>
+  );
+}
+
 export function AdminPodsPage() {
   const { t } = useTranslation();
   const { data, isLoading, error } = useQuery({ queryKey: ["pods", "livraisons"], queryFn: listerLivraisons });
@@ -204,6 +243,7 @@ export function AdminPodsPage() {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
+              <ToutValiderEnB livraisons={aValider} />
               {aValider.length ? (
                 aValider.map((l) => <LigneLivraison key={l.id} livraison={l} />)
               ) : (

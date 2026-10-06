@@ -94,8 +94,13 @@ export async function listerLivraisons(): Promise<{ aValider: Livraison[]; decid
   return { aValider: (attente.data ?? []) as Livraison[], decidees: (faites.data ?? []) as Livraison[] };
 }
 
-export function validerLivraison(id: string) {
-  return invoke<{ ok: boolean; statut: StatutLivraison; tier?: string; note?: number }>("pods", { action: "valider", id });
+/** `tier` : rang imposé (la note d'import est calculée mais ne décide plus). */
+export function validerLivraison(id: string, tier?: "A" | "B" | "C") {
+  return invoke<{ ok: boolean; statut: StatutLivraison; tier?: string; note?: number }>("pods", {
+    action: "valider",
+    id,
+    ...(tier ? { tier } : {}),
+  });
 }
 
 export function rejeterLivraison(id: string, motif: string) {

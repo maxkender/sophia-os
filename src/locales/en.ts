@@ -1038,6 +1038,9 @@ export const en = {
       subtitle:
         "Pods produce content outside the OS (burned-in text, one version per language). Nothing is distributed before you approve it; after that the tier list decides.",
       aValider: "To review",
+      toutValiderB: "Approve all as B ({{n}})",
+      toutValiderBEnCours: "Approving… {{fait}}/{{n}}",
+      toutValiderBConfirm: "Approve the {{n}} pending deliveries at tier B? They become active content.",
       historique: "Already decided",
       vide: "No delivery waiting",
       videDesc: "Pod agents drop their finished content here.",

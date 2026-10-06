@@ -9,7 +9,7 @@ import { retirerContentCredentialsBytes } from "../_shared/c2pa.ts";
 import { lireTout } from "../_shared/lots.ts";
 import { appliquerIdentiteInstantanee } from "../_shared/persona.ts";
 import { cibleComptePapier, motDePasseComptePapier } from "../_shared/papier_cm_compte.ts";
-import { estRoleManager } from "../_shared/roles.ts";
+import { estRoleManager, rattachementNouvelHm, roleACreer } from "../_shared/roles.ts";
 import {
   assertRole,
   corsHeaders,
@@ -209,6 +209,9 @@ async function gererRequete(request: Request): Promise<Response> {
     "admin",
     "hiring_manager",
     "directing_manager",
+    // Oublié quand le rôle a été créé : sans lui, le Head of Ops voyait les
+    // boutons « Créer un poster » et « Créer un recruteur » et récoltait un 403.
+    "head_of_ops",
   ]);
   if (acces instanceof Response) return acces;
 
@@ -223,10 +226,10 @@ async function gererRequete(request: Request): Promise<Response> {
         .map((l) => String(l ?? "").trim().toLowerCase())
         .filter(Boolean)
       : [];
-    const peutCreerHm =
-      acces.role === "admin" || acces.role === "directing_manager";
-    const roleVoulu =
-      body.role === "hiring_manager" && peutCreerHm ? "hiring_manager" : "poster";
+    // Un recruteur peut désormais en recruter un autre, comme l'admin. Le
+    // plafond vit dans `roleACreer` (testé) : personne ne se fabrique un admin,
+    // un DM ou un Head of Ops par ce chemin, quoi qu'il envoie.
+    const roleVoulu = roleACreer(body.role, acces.role);
     const creerCm = roleVoulu === "poster" && typePremier === "cm";
     const creerPerso = roleVoulu === "poster" && typePremier === "perso";
 
@@ -303,9 +306,12 @@ async function gererRequete(request: Request): Promise<Response> {
           patchHm.nationalite = ensemble[0];
           patchHm.langues = ensemble;
         }
-        if (acces.role === "directing_manager" && acces.userId !== "cron") {
-          patchHm.manager_id = acces.userId;
-        }
+        const rattachement = rattachementNouvelHm(
+          acces.role,
+          acces.userId,
+          await managerDe(supabase, acces),
+        );
+        if (rattachement !== undefined) patchHm.manager_id = rattachement;
         await supabase.from("profiles").update(patchHm).eq("id", data.user.id);
         if (hmVideo) {
           const labelIds = normaliserIds(body.ugc_ai_video_label_ids);
@@ -1074,6 +1080,27 @@ async function popLabelFile(
   const ok = await filtrerLabelsCompte(supabase, [labelId]);
   if (!ok[0]) return { ok: false, error: "NO_LABELS" };
   return { ok: true, item: { label_id: ok[0], ugc: false }, fromQueue: false };
+}
+
+/**
+ * Le DM du créateur, quand il en faut un pour rattacher le recruteur créé.
+ *
+ * Lecture évitée pour les rôles qui n'en ont pas l'usage : `rattachementNouvelHm`
+ * ignore cette valeur pour l'admin (aucun rattachement) et pour le DM (qui se
+ * rattache lui-même), inutile de payer une requête pour la jeter.
+ */
+async function managerDe(
+  supabase: ReturnType<typeof serviceClient>,
+  acces: { userId: string; role: string },
+): Promise<string | null> {
+  if (acces.userId === "cron") return null;
+  if (acces.role !== "hiring_manager" && acces.role !== "head_of_ops") return null;
+  const { data } = await supabase
+    .from("profiles")
+    .select("manager_id")
+    .eq("id", acces.userId)
+    .maybeSingle();
+  return (data?.manager_id as string | null) ?? null;
 }
 
 /** Hiring manager marqué UGC AI VIDEO (ses créateurs = marque vidéo + labels HM). */

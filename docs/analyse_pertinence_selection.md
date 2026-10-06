@@ -194,3 +194,109 @@ Reste à faire :
 Le point 1 de la proposition (piste du compte source dans l'elo) se teste par
 simulation sur l'historique et ne demande aucun appel LLM. C'est par là qu'il
 faut commencer.
+
+---
+
+# Simulation de la pondération proposée
+
+Ajoutée le 6 octobre 2026, après la section 7.
+
+## Protocole
+
+Trois fenêtres de test **disjointes**, chacune évaluée avec une piste de source
+apprise **uniquement sur ce qui précède la fenêtre**. Aucun regard sur le futur.
+
+| Fenêtre | Apprentissage | Test |
+| --- | --- | --- |
+| 1 | avant le 20 août | 20 août au 5 septembre |
+| 2 | avant le 5 septembre | 5 au 20 septembre |
+| 3 | avant le 20 septembre | après le 20 septembre |
+
+`pisteSource` = rang centile de la source parmi les sources (0-100), régularisé
+vers 50 par `n / (n + 20)`. Une source sans historique vaut 50, soit neutre.
+
+Règle comparée : `0,5 x pisteSource + 0,3 x vuesScore + 0,2 x pertinence`
+contre l'actuelle `0,7 x vuesScore + 0,3 x pertinence`. Sélection du top 30 %.
+
+## Résultat principal
+
+Le test qui compte n'est pas la comparaison globale (les deux règles retiennent
+72 % des mêmes contenus, ce qui dilue tout). C'est la comparaison **là où elles
+divergent**, sur deux groupes disjoints de 164 contenus chacun.
+
+| Groupe | n | Perf médiane | % qui doublent |
+| --- | --- | --- | --- |
+| Retenus par les deux | 180 | | 36,7 % |
+| **Retenus par l'ANCIENNE seule** | 164 | **1,002** | **16,5 %** |
+| **Retenus par la NOUVELLE seule** | 164 | **1,146** | **28,0 %** |
+| Écartés par les deux | 652 | | 16,3 % |
+
+Deux lectures, et la seconde est la plus parlante :
+
+1. Les choix exclusifs de la nouvelle règle doublent dans 28,0 % des cas contre
+   16,5 % pour l'ancienne. **p = 0,012.**
+2. Les choix exclusifs de l'ancienne règle (16,5 %) sont statistiquement
+   **identiques aux contenus que les deux règles rejettent** (16,3 %,
+   p = 0,95), et leur perf médiane est de 1,002, soit exactement le post moyen.
+   Ce que la règle actuelle choisit en propre ne vaut pas mieux que ce qu'elle
+   jette.
+
+Sur la sélection entière : 32,6 % contre 27,0 %. L'écart est réel mais dilué,
+et sur des ensembles qui se recouvrent, donc p = 0,11 : à ne pas présenter comme
+significatif. C'est la comparaison des choix exclusifs qui porte la preuve.
+
+## Robustesse
+
+La nouvelle règle gagne dans **les trois fenêtres**, jamais l'inverse :
+
+| Fenêtre | Ancienne | Nouvelle |
+| --- | --- | --- |
+| 1 | 26,2 % | 29,9 % |
+| 2 | 29,4 % | 35,7 % |
+| 3 | 25,2 % | 32,4 % |
+
+Balayage des poids sur la fenêtre la plus longue : `50/30/20` et `40/40/20` sont
+à égalité en tête (34,2 %), `100/0/0` (source pure) retombe à 28,4 %, l'actuelle
+est dernière à 27,9 %. L'optimum est plat entre 40 et 50 % sur la source, donc
+le réglage exact n'est pas critique. Noter que la source pure fait moins bien
+que le mélange : les vues source gardent de la valeur.
+
+## Démarrage à froid, et pourquoi ça renforce le résultat
+
+Dans la fenêtre 3, **179 contenus sur 376 (48 %) n'ont aucun historique de
+source** et retombent donc sur la valeur neutre 50. Ce n'est pas un défaut de
+protocole : six sources ont démarré fin septembre, dont `richgirlacadmy_1` qui
+apporte à elle seule 115 contenus à partir du 29 septembre.
+
+La nouvelle règle gagne cette fenêtre quand même (25,2 % contre 32,4 %), alors
+que son terme distinctif était muet pour près de la moitié des contenus. Le gain
+mesuré est donc un plancher.
+
+En production, prévoir explicitement ce cas : source inconnue vaut 50, et la
+régularisation `n / (n + 20)` fait monter la confiance progressivement.
+
+## La limite à garder en tête
+
+Ce backtest ne peut reclasser que des contenus que **l'ancienne règle a déjà
+laissé entrer**. Les contenus rejetés par l'elo actuel n'ont pas de résultat
+observable, donc la simulation ne dit rien de ce que la nouvelle règle aurait
+rattrapé parmi eux. Elle mesure un reclassement, pas une refonte du filtre.
+
+C'est pour ça que la validation finale doit être une mise en parallèle réelle
+sur deux semaines d'imports, pas ce backtest.
+
+## Implémentation
+
+Trois points, dans l'ordre :
+
+1. Une vue ou une table matérialisée `piste_comptes_reference` : par source, la
+   perf moyenne de ses contenus publiés et matures, son volume `n`, et le rang
+   centile régularisé. Rafraîchie une fois par jour, elle bouge lentement.
+2. `decomposerElo` prend un paramètre `pisteSource` et un poids `w_src` ; `base`
+   devient la somme pondérée à trois termes. Les poids rejoignent
+   `reglages.scoring` à côté de `elo_poids_vues`, pour être réglables sans
+   déploiement.
+3. Le seuil `elo_seuil_import = 55` est calibré sur l'ancienne échelle. Changer
+   la composition de `base` déplace sa distribution : il faut le recalibrer
+   pour conserver le même volume d'imports, sinon on change silencieusement le
+   débit en même temps que le tri.

@@ -1080,6 +1080,7 @@ export const en = {
       lienEnregistre: "Link saved",
       reste: "Posted on {{fait}}, {{reste}} left",
       vide: "Your videos show up here, one a day, as soon as your warmup is over.",
+      reference: "See the reference TikTok (pace, text, music)",
     },
     pods: {
       title: "Pods",

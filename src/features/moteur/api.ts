@@ -1234,17 +1234,40 @@ export async function onboardingVu(): Promise<boolean> {
   if (!uid) return true;
   const { data, error } = await supabase
     .from("profiles")
-    .select("onboarding_vu_at")
+    .select("onboarding_vu_at, onboarding_en_boucle")
     .eq("id", uid)
     .maybeSingle();
   if (error) throw error;
+  // Profil de test : vu seulement pour CETTE connexion, donc revu à la suivante.
+  if (data?.onboarding_en_boucle) return lireVuConnexion(cleVuConnexion(sess.user));
   return Boolean(data?.onboarding_vu_at);
+}
+
+/** Clé « vu pour cette connexion » : change à chaque connexion (last_sign_in_at). */
+function cleVuConnexion(user: { id: string; last_sign_in_at?: string | null } | null): string | null {
+  return user ? `onboarding-vu:${user.id}:${user.last_sign_in_at ?? ""}` : null;
+}
+
+function lireVuConnexion(cle: string | null): boolean {
+  if (!cle) return true;
+  try {
+    return window.localStorage.getItem(cle) === "1";
+  } catch {
+    return false;
+  }
 }
 
 /** Marque la vidéo d'onboarding comme vue (le pop-up ne réapparaîtra plus). */
 export async function marquerOnboardingVu(): Promise<void> {
   const { error } = await supabase.rpc("marquer_onboarding_vu");
   if (error) throw error;
+  const { data: sess } = await supabase.auth.getUser();
+  const cle = cleVuConnexion(sess.user);
+  try {
+    if (cle) window.localStorage.setItem(cle, "1");
+  } catch {
+    // Stockage indisponible : le pop-up réapparaîtra, sans gravité pour un profil de test.
+  }
 }
 
 /** Le lien Upwork du poster connecté (sur sa propre ligne profiles). */

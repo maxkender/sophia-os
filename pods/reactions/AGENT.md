@@ -97,6 +97,8 @@ Pas d'image de départ : Genjutsu prend directement le **portrait du persona val
   "titre": "I could kiss whoever told me about this app",
   "texte_source": "texte affiché dans la vidéo d'origine",
   "prompt": "young woman reacting with genuine surprise, natural phone selfie",
+  "musique_titre": "QKThr – Aphex Twin",
+  "musique_url": "https://www.tiktok.com/music/QKThr-6771810675950880769",
   "comptes": [
     {
       "compte_id": "…",
@@ -111,6 +113,7 @@ Pas d'image de départ : Genjutsu prend directement le **portrait du persona val
 - `texte_ecran` reprend **exactement** l'accroche de la source, traduite fidèlement dans la langue du compte (mêmes mots, mêmes majuscules, mêmes emojis). Au plus 200 caractères.
 - **Jamais de mention de Sophia** dans `texte_ecran` ni dans `legende` (ni nom, ni hashtag). Le placement Sophia se fait uniquement en vidéo, dans la deuxième partie (la démo fournie par l'humain).
 - `legende` est la légende TikTok dans la langue du compte, avec 3 hashtags neutres.
+- `source_url`, `musique_titre` et `musique_url` sont **obligatoires** : le créateur voit le TikTok de référence et reprend la même musique. Ils viennent de `donnees/recherche.json` (la musique est la piste de la vidéo source).
 - Pas de tiret cadratin ni de point-virgule. Le ton est oral et naturel.
 
 ### 6. Animer avec Genjutsu (Higgsfield)

@@ -120,8 +120,9 @@ Pas d'image de départ : Genjutsu prend directement le **portrait du persona val
   - la réaction, rôle `video_references`.
 - Prompt court en anglais : « the woman from the image performs exactly the motion of the video, natural phone selfie, no text, no captions ».
 - Vérifie d'abord le coût (`get_cost: true`) et le solde (`balance`). Higgsfield accepte **4 jobs en parallèle au plus** : lance par lots, puis attends avec `jobs_wait`.
-- Télécharge chaque résultat, puis retire le son et les métadonnées :
-  `ffmpeg -i brut.mp4 -an -map_metadata -1 -c:v copy -movflags +faststart sortie/<source_id>/<compte>.mp4`
+- Télécharge chaque résultat, puis retire le son et **toutes** les métadonnées, y compris celles cachées dans le flux vidéo (SEI : Kling y écrit « kling-ai ») et la signature de ffmpeg :
+  `ffmpeg -i brut.mp4 -map 0:v -an -c:v copy -bsf:v filter_units=remove_types=6 -map_metadata -1 -map_chapters -1 -fflags +bitexact -flags:v +bitexact -movflags +faststart sortie/<source_id>/<compte>.mp4`
+- Vérifie : `strings -n 5 <fichier> | grep -i -E 'c2pa|jumb|kling|higgs|lavf'` ne doit rien renvoyer d'autre qu'un hasard dans les données compressées, et `ffprobe -show_entries format_tags` ne doit montrer aucun encodeur.
 - Regarde chaque MP4, par exemple avec une planche d'images `ffmpeg` :
   - le visage est celui du persona et reste stable ;
   - **aucun texte n'apparaît** (le texte incrusté dans la source ne doit pas être recopié) ;
@@ -141,6 +142,12 @@ Pas d'image de départ : Genjutsu prend directement le **portrait du persona val
   - les textes à copier ;
   - le lien TikTok à saisir une fois la vidéo publiée.
 - Si une langue n'a pas de démo, la validation est refusée. Demande alors à l'humain de l'envoyer dans Pilotage → Pods.
+
+## Photos de profil des comptes
+
+Les images Higgsfield portent un manifeste **C2PA** (« généré par IA ») dans le fichier. Une photo de profil ou toute image publiée ne part jamais telle quelle :
+- recadre et réencode-la en recopiant **seulement les pixels** (PIL), sans EXIF, XMP, ICC ni C2PA ;
+- vérifie avec `strings -n 5 <fichier> | grep -i -E 'exif|xmp|c2pa|jumb|higgs'`, qui ne doit rien renvoyer.
 
 ## La routine du matin
 

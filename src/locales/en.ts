@@ -80,6 +80,9 @@ export const en = {
       avatar: "Download avatar",
       copierBio: "Copy bio",
       aide: "Create your TikTok account with this handle, bio and avatar. Everything is already generated for you.",
+      titreUgc: "Your TikTok + Instagram identity",
+      aideUgc:
+        "Create your TikTok AND your Instagram account with this handle, bio and photo. Same @, same photo, same bio on both. Everything is already generated for you.",
       majHandle: "Update my @",
       setHandle: "Set my @",
       handleAide:
@@ -92,6 +95,22 @@ export const en = {
       titre: "Welcome! Watch this video",
       sous: "2 min to learn how to post easily",
       compris: "Got it",
+      ugc: {
+        titre: "Welcome! Your TikTok + Instagram video account",
+        sous: "You post one video a day, the same one on TikTok and on Instagram.",
+        etape1:
+          "Create your TikTok AND your Instagram account with the @, photo and bio from the “Your identity” card (one button downloads the photo, one copies the bio).",
+        etape2: "Update your real @ on the card if the suggested one was taken.",
+        etape3:
+          "Click “Start warmup”. During the warmup, use both apps normally (scroll, like, follow a few accounts) and don't post anything.",
+        etape4:
+          "Once the warmup is over, one video a day arrives in “Videos to post”: download the reaction and the demo, and put them back to back (reaction first).",
+        etape5:
+          "Paste the on-screen text and add the music, paste the caption, post on TikTok, then post the same video as an Instagram Reel.",
+        etape6: "Paste both links (TikTok and Instagram) on the video's card: it switches to “posted”.",
+        regles:
+          "One video a day only. Don't post anything else on these accounts, don't change the name or the photo, and scroll 5 to 6 minutes on both apps every week.",
+      },
     },
     navSection: {
       production: "Production",
@@ -1060,6 +1079,7 @@ export const en = {
       enregistrerLien: "Save",
       lienEnregistre: "Link saved",
       reste: "Posted on {{fait}}, {{reste}} left",
+      vide: "Your videos show up here, one a day, as soon as your warmup is over.",
     },
     pods: {
       title: "Pods",
@@ -2052,6 +2072,8 @@ export const en = {
       warmupRappel:
         "⚠️ Don't forget to warm up the account before you start posting (and every week, scroll for 5-6 minutes so TikTok doesn't take you for a robot)!",
       warmupADemarrer: "Warmup not started yet",
+      warmupADemarrerAideUgc:
+        "When your TikTok and Instagram accounts are ready, click “Start warmup”. The timer starts; when it ends, you get one video a day to post on both.",
       warmupADemarrerAide:
         "When your TikTok account is ready, click “Start warmup”. The timer starts; when it ends, you enter the process (assigned posts).",
       aujourdhui: "Today",

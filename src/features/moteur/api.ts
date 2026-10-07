@@ -456,6 +456,32 @@ export async function creerCompte(input: {
 }
 
 /**
+ * Compte UGC vidéo (pod 3) d'un poster qui vient d'être créé sans compte :
+ * vidéos uniquement (TikTok + Instagram), jamais de slideshow, ni label ni
+ * persona tirés de la file. Le warmup n'est pas démarré : rien n'est servi au
+ * compte avant que son poster le lance et qu'il se termine.
+ */
+export async function creerCompteUgcVideo(input: {
+  posterId: string;
+  langue: string;
+  personaNom: string;
+  handleTiktok: string;
+  handleInstagram: string;
+}): Promise<void> {
+  const { error } = await supabase.from("comptes").insert({
+    poster_id: input.posterId,
+    type_compte: "perso",
+    langue: input.langue,
+    persona_nom: input.personaNom.trim() || null,
+    handle_tiktok: input.handleTiktok.trim().replace(/^@/, "") || null,
+    handle_instagram: input.handleInstagram.trim().replace(/^@/, "") || null,
+    videos_uniquement: true,
+    posts_par_jour: 1,
+  });
+  if (error) throw error;
+}
+
+/**
  * Crée le compte d'un poster existant en consommant la file admin
  * (label + UGC + persona) — même logique que la création poster.
  */

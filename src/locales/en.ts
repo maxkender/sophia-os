@@ -768,6 +768,11 @@ export const en = {
         "Creates the creator login only. You can add a personal or CM account later.",
       creeCm: "Creator created with a CM account. The Instagram + Gmail contract is ready to sign.",
       creeAucun: "Creator login created, no TikTok account yet. Add a personal or CM account from the profile.",
+      ugcVideo: "UGC AI video account (pod 3)",
+      ugcVideoAide:
+        "The account only posts pod 3 videos, one a day, on TikTok and Instagram. No slideshows. Nothing is sent to it before its warmup ends.",
+      creeUgcVideo:
+        "Creator created with their UGC video account. Add their persona through the pod 3 agent, then the creator starts their warmup.",
       nbComptes: "{{n}} account(s)",
       aucunCompte: "No TikTok account",
       compteSansHandle: "No @ yet",

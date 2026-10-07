@@ -21,12 +21,20 @@ interface VideoPod {
   musique_url: string | null;
   statut: "a_publier" | "publie" | "annule";
   tiktok_url: string | null;
+  instagram_url: string | null;
 }
+
+/** Les deux publications d'une vidéo : 'publie' une fois les DEUX liens posés. */
+const PLATEFORMES = {
+  tiktok_url: { regex: /^https:\/\/(www\.|vm\.)?tiktok\.com\//, placeholder: "https://www.tiktok.com/@…/video/…" },
+  instagram_url: { regex: /^https:\/\/(www\.)?instagram\.com\/(reel|reels|p)\//, placeholder: "https://www.instagram.com/reel/…" },
+} as const;
+type Colonne = keyof typeof PLATEFORMES;
 
 async function videosDuCompte(compteId: string): Promise<VideoPod[]> {
   const { data, error } = await supabase
     .from("pod_videos")
-    .select("id, date_publication_prevue, reaction_url, demo_url, texte_ecran, legende, musique_titre, musique_url, statut, tiktok_url")
+    .select("id, date_publication_prevue, reaction_url, demo_url, texte_ecran, legende, musique_titre, musique_url, statut, tiktok_url, instagram_url")
     .eq("compte_id", compteId)
     .neq("statut", "annule")
     .order("date_publication_prevue")
@@ -54,21 +62,95 @@ function Copier({ texte, libelle }: { texte: string; libelle: string }) {
   );
 }
 
-function CarteVideo({ video, compteId }: { video: VideoPod; compteId: string }) {
-  const { t, i18n } = useTranslation();
+/** Un lien de publication (TikTok ou Reel), enregistré seul dans sa colonne. */
+function LienPublication({
+  video,
+  compteId,
+  colonne,
+  libelle,
+  handle,
+}: {
+  video: VideoPod;
+  compteId: string;
+  colonne: Colonne;
+  libelle: string;
+  handle: string | null;
+}) {
+  const { t } = useTranslation();
   const qc = useQueryClient();
-  const [lien, setLien] = React.useState(video.tiktok_url ?? "");
-  const publier = useMutation({
+  const [lien, setLien] = React.useState(video[colonne] ?? "");
+  const enregistrer = useMutation({
     mutationFn: async () => {
-      const { error } = await supabase
+      const { data, error } = await supabase
         .from("pod_videos")
-        .update({ statut: "publie", tiktok_url: lien.trim(), publie_le: new Date().toISOString() })
-        .eq("id", video.id);
+        .update({ [colonne]: lien.trim() })
+        .eq("id", video.id)
+        .select("statut, tiktok_url, instagram_url")
+        .single();
       if (error) throw error;
+      // Le second lien posé fait passer la vidéo en publiée (relu en base, pas
+      // sur l'état de la carte : les deux liens peuvent partir coup sur coup).
+      if (data.tiktok_url && data.instagram_url && data.statut === "a_publier") {
+        const { error: e } = await supabase
+          .from("pod_videos")
+          .update({ statut: "publie", publie_le: new Date().toISOString() })
+          .eq("id", video.id);
+        if (e) throw e;
+      }
     },
     onSuccess: () => qc.invalidateQueries({ queryKey: ["pod-videos", compteId] }),
   });
+  const { regex, placeholder } = PLATEFORMES[colonne];
+  const enregistre = video[colonne];
+  return (
+    <div className="space-y-1">
+      <p className="text-xs font-medium text-muted-foreground">
+        {libelle}
+        {handle ? ` · @${handle}` : ""}
+      </p>
+      {enregistre ? (
+        <a className="flex items-center gap-1 truncate text-sm underline" href={enregistre} target="_blank" rel="noreferrer">
+          <CheckCircle2 className="size-4 shrink-0 text-primary" />
+          {t("videosPod.lienEnregistre")}
+        </a>
+      ) : (
+        <div className="flex flex-wrap gap-2">
+          <input
+            value={lien}
+            onChange={(e) => setLien(e.target.value)}
+            placeholder={placeholder}
+            className="h-9 min-w-0 flex-1 rounded-md border bg-background px-2 text-sm"
+            aria-label={libelle}
+          />
+          <Button size="sm" disabled={!regex.test(lien.trim()) || enregistrer.isPending} onClick={() => enregistrer.mutate()}>
+            {t("videosPod.enregistrerLien")}
+          </Button>
+        </div>
+      )}
+      {enregistrer.error && <p className="text-sm text-destructive">{(enregistrer.error as Error).message}</p>}
+    </div>
+  );
+}
+
+function CarteVideo({
+  video,
+  compteId,
+  handleTiktok,
+  handleInstagram,
+}: {
+  video: VideoPod;
+  compteId: string;
+  handleTiktok: string | null;
+  handleInstagram: string | null;
+}) {
+  const { t, i18n } = useTranslation();
   const publie = video.statut === "publie";
+  // Un seul des deux liens posé : on dit où il reste à publier.
+  const reste = !publie && Boolean(video.tiktok_url) !== Boolean(video.instagram_url)
+    ? video.tiktok_url
+      ? { fait: "TikTok", reste: "Instagram" }
+      : { fait: "Instagram", reste: "TikTok" }
+    : null;
   const jour = new Date(`${video.date_publication_prevue}T12:00:00`).toLocaleDateString(i18n.language, {
     weekday: "long",
     day: "numeric",
@@ -79,12 +161,19 @@ function CarteVideo({ video, compteId }: { video: VideoPod; compteId: string }) 
       <CardContent className="space-y-3 p-4">
         <div className="flex items-center justify-between gap-2">
           <p className="font-semibold capitalize">{jour}</p>
-          {publie ? <Badge variant="success">{t("videosPod.publiee")}</Badge> : <Badge variant="secondary">{t("videosPod.video")}</Badge>}
+          {publie ? (
+            <Badge variant="success">{t("videosPod.publiee")}</Badge>
+          ) : reste ? (
+            <Badge variant="secondary">{t("videosPod.reste", reste)}</Badge>
+          ) : (
+            <Badge variant="secondary">{t("videosPod.video")}</Badge>
+          )}
         </div>
         <ol className="list-decimal space-y-1 pl-5 text-sm text-muted-foreground">
           <li>{t("videosPod.etape1")}</li>
           <li>{t("videosPod.etape2")}</li>
           <li>{t("videosPod.etape3")}</li>
+          <li>{t("videosPod.etape4")}</li>
         </ol>
         <div className="flex flex-wrap gap-2">
           <Button size="sm" onClick={() => void telechargerUrl(video.reaction_url, "1-reaction.mp4")}>
@@ -118,28 +207,29 @@ function CarteVideo({ video, compteId }: { video: VideoPod; compteId: string }) 
             )}
           </p>
         )}
-        {!publie && (
-          <div className="flex flex-wrap gap-2">
-            <input
-              value={lien}
-              onChange={(e) => setLien(e.target.value)}
-              placeholder="https://www.tiktok.com/@…/video/…"
-              className="h-9 min-w-0 flex-1 rounded-md border bg-background px-2 text-sm"
-              aria-label={t("videosPod.lien")}
-            />
-            <Button size="sm" disabled={!/^https:\/\/(www\.|vm\.)?tiktok\.com\//.test(lien.trim()) || publier.isPending} onClick={() => publier.mutate()}>
-              {t("videosPod.marquerPubliee")}
-            </Button>
-          </div>
-        )}
-        {publier.error && <p className="text-sm text-destructive">{(publier.error as Error).message}</p>}
+        <LienPublication video={video} compteId={compteId} colonne="tiktok_url" libelle={t("videosPod.lien")} handle={handleTiktok} />
+        <LienPublication
+          video={video}
+          compteId={compteId}
+          colonne="instagram_url"
+          libelle={t("videosPod.lienInstagram")}
+          handle={handleInstagram}
+        />
       </CardContent>
     </Card>
   );
 }
 
 /** Vidéos du pod 3 pour le compte actif du poster (rien si le compte n'en a pas). */
-export function VideosAPoster({ compteId }: { compteId: string }) {
+export function VideosAPoster({
+  compteId,
+  handleTiktok = null,
+  handleInstagram = null,
+}: {
+  compteId: string;
+  handleTiktok?: string | null;
+  handleInstagram?: string | null;
+}) {
   const { t } = useTranslation();
   const { data } = useQuery({ queryKey: ["pod-videos", compteId], queryFn: () => videosDuCompte(compteId) });
   const videos = (data ?? []).filter((v) => v.statut === "a_publier" || v.statut === "publie").slice(0, 10);
@@ -149,7 +239,7 @@ export function VideosAPoster({ compteId }: { compteId: string }) {
       <h2 className="text-lg font-semibold tracking-tight">{t("videosPod.titre")}</h2>
       <div className="grid gap-4 sm:grid-cols-2">
         {videos.map((v) => (
-          <CarteVideo key={v.id} video={v} compteId={compteId} />
+          <CarteVideo key={v.id} video={v} compteId={compteId} handleTiktok={handleTiktok} handleInstagram={handleInstagram} />
         ))}
       </div>
     </section>

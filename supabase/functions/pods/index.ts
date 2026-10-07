@@ -1027,7 +1027,7 @@ async function comptesDuPod(request: Request, supabase: Supabase, body: Record<s
   if (!pod) return json({ ok: false, error: "unauthorized" }, 401);
   let q = supabase
     .from("comptes")
-    .select("id, langue, persona_nom, handle_tiktok, is_active")
+    .select("id, langue, persona_nom, handle_tiktok, handle_instagram, videos_uniquement, is_active")
     .eq("is_active", true)
     .order("langue")
     .limit(500);
@@ -1094,9 +1094,14 @@ async function deciderPersona(supabase: Supabase, id: string, valide: boolean, m
     .update({ statut: valide ? "valide" : "rejete", motif, decide_le: new Date().toISOString() })
     .eq("id", id)
     .eq("statut", "a_valider")
-    .select("id");
+    .select("id, compte_id");
   if (error) throw error;
   if (!data?.length) return json({ ok: false, error: "persona introuvable ou déjà décidé" }, 409);
+  // Persona validé : le compte passe en vidéos uniquement (plus de slideshows).
+  if (valide) {
+    const { error: e } = await supabase.from("comptes").update({ videos_uniquement: true }).eq("id", data[0].compte_id);
+    if (e) throw new Error(`compte : ${messageErreur(e)}`);
+  }
   return json({ ok: true, statut: valide ? "valide" : "rejete" });
 }
 

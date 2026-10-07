@@ -220,20 +220,33 @@ function CarteVideo({
   );
 }
 
-/** Vidéos du pod 3 pour le compte actif du poster (rien si le compte n'en a pas). */
+/**
+ * Vidéos du pod 3 pour le compte actif du poster. Sans vidéo : rien, sauf si
+ * `vide` est fourni (compte UGC vidéo, dont c'est l'unique contenu).
+ */
 export function VideosAPoster({
   compteId,
   handleTiktok = null,
   handleInstagram = null,
+  vide,
 }: {
   compteId: string;
   handleTiktok?: string | null;
   handleInstagram?: string | null;
+  vide?: string;
 }) {
   const { t } = useTranslation();
   const { data } = useQuery({ queryKey: ["pod-videos", compteId], queryFn: () => videosDuCompte(compteId) });
   const videos = (data ?? []).filter((v) => v.statut === "a_publier" || v.statut === "publie").slice(0, 10);
-  if (!videos.length) return null;
+  if (!videos.length) {
+    if (!vide) return null;
+    return (
+      <section className="space-y-3">
+        <h2 className="text-lg font-semibold tracking-tight">{t("videosPod.titre")}</h2>
+        <p className="rounded-lg border border-dashed p-4 text-sm text-muted-foreground">{vide}</p>
+      </section>
+    );
+  }
   return (
     <section className="space-y-3">
       <h2 className="text-lg font-semibold tracking-tight">{t("videosPod.titre")}</h2>

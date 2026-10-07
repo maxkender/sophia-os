@@ -770,31 +770,6 @@ export function PosterPostPage() {
         </Card>
       )}
 
-      {/* 3.5 — Description / hashtags à coller dans la légende TikTok. */}
-      {donnees.hashtags && (
-        <Card>
-          <CardContent className="pt-5">
-            <div className="mb-2 flex items-center justify-between gap-2">
-              <p className="text-sm font-medium">{t("posts.hashtagsTitre")}</p>
-              <Button
-                size="sm"
-                variant="outline"
-                onClick={() => navigator.clipboard?.writeText(donnees.hashtags ?? "")}
-              >
-                <Copy className="size-3.5" />
-                {t("posts.copier")}
-              </Button>
-            </div>
-            <p
-              dir={directionTexte(undefined, donnees.hashtags)}
-              className={`rounded-lg bg-muted/50 p-3 text-sm leading-relaxed text-primary ${classeDirectionTexte(undefined, donnees.hashtags)}`}
-            >
-              {donnees.hashtags}
-            </p>
-          </CardContent>
-        </Card>
-      )}
-
       {/* 4 — Les slides : photo à poster, photo d'origine, texte. */}
       <div className="space-y-4">
         {liste.map((slide, index) => (
@@ -913,6 +888,34 @@ export function PosterPostPage() {
           </Card>
         ))}
       </div>
+
+      {/* 4.5 — Description / hashtags, juste avant le lien de publication.
+          Remonté en haut de page, il obligeait à rescroller par-dessus toutes
+          les slides au moment de coller la légende : il est maintenant dans
+          l'ordre où on s'en sert. */}
+      {donnees.hashtags && (
+        <Card>
+          <CardContent className="pt-5">
+            <div className="mb-2 flex items-center justify-between gap-2">
+              <p className="text-sm font-medium">{t("posts.hashtagsTitre")}</p>
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() => navigator.clipboard?.writeText(donnees.hashtags ?? "")}
+              >
+                <Copy className="size-3.5" />
+                {t("posts.copier")}
+              </Button>
+            </div>
+            <p
+              dir={directionTexte(undefined, donnees.hashtags)}
+              className={`rounded-lg bg-muted/50 p-3 text-sm leading-relaxed text-primary ${classeDirectionTexte(undefined, donnees.hashtags)}`}
+            >
+              {donnees.hashtags}
+            </p>
+          </CardContent>
+        </Card>
+      )}
 
       {/* 5 — Publication : coller le lien TikTok une fois posté. */}
       <Card>

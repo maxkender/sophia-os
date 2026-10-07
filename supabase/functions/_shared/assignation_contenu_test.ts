@@ -18,6 +18,7 @@ import {
   decksAssignation,
   lireFenetreRepartition,
   lireHistoriquePassages,
+  listerComptesSousQuota,
   poolContenusPrets,
   programmerRappelsJ7,
 } from "./assignation_contenu.ts";
@@ -1472,6 +1473,38 @@ Deno.test("multi-app — pool Unswipe : ligne éligible requise, deck inéligibl
     regle: { application: unswipe, langue: "fr" },
   });
   assertEquals(ugc, []);
+});
+
+/* -------------------------------------------------------------------------
+ * Pod 3 : un compte « vidéos uniquement » n'a jamais de slideshow.
+ * ---------------------------------------------------------------------- */
+
+Deno.test("vidéos uniquement — assignerCompteJour : aucun passage, et le quota n'est pas touché", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = baseEssai({ compte: { videos_uniquement: true, posts_par_jour: 0 } });
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids, []);
+    assertEquals(appels.sophia, []);
+    assertEquals(journal.filter((o) => o.op !== "select"), [], "aucune écriture (ni passage, ni plancher 0→1)");
+  });
+});
+
+Deno.test("vidéos uniquement — listerComptesSousQuota : le compte sort de la file du drain", async () => {
+  const fin = new Date(Date.now() - 86_400_000).toISOString();
+  const { client } = fauxMoteur({
+    comptes: [
+      { id: "k1", is_active: true, posts_par_jour: 1, warmup_ends_at: fin },
+      { id: "k2", is_active: true, posts_par_jour: 1, warmup_ends_at: fin, videos_uniquement: true },
+    ],
+    posts: [],
+  });
+
+  const sousQuota = await listerComptesSousQuota(client, JOUR);
+
+  assertEquals(sousQuota.map((c) => c.id), ["k1"]);
 });
 
 /* -------------------------------------------------------------------------

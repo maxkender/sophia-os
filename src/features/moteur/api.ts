@@ -4790,16 +4790,55 @@ export async function suiviAssignation(date: string): Promise<SuiviMinuit[]> {
  * `diagnostiquerPoolVide`) — sans créer de post.
  */
 export async function diagnostiquerQuotaCompte(compteId: string): Promise<string> {
+  // LA RAISON ENREGISTRÉE L'EMPORTE SUR LA RECONSTITUTION.
+  //
+  // Tout ce qui suit rejoue une logique approchante sur l'état COURANT, alors
+  // que minuit a décidé cette nuit, sur l'état d'alors. Les deux divergent dès
+  // qu'on touche à un réglage dans la journée, et la reconstitution se trompe
+  // en silence. Quand minuit a écrit son verdict (0267), on le rend tel quel.
+  const { data: journal, error: errJournal } = await supabase
+    .from("assignation_journal")
+    .select("raison, erreur")
+    .eq("compte_id", compteId)
+    .eq("jour", new Date().toLocaleDateString("en-CA", { timeZone: "Europe/Paris" }))
+    .maybeSingle();
+  // Pas de ligne = normal (minuit n'est pas encore passé). Une ERREUR de
+  // lecture, elle, n'est pas normale : on retombe sur la reconstitution pour
+  // rendre quand même quelque chose, mais sans l'enterrer — c'est exactement
+  // le silence qui avait laissé « aucun valide » s'afficher pendant des jours.
+  if (errJournal) console.warn(`[diagnostic quota] journal illisible : ${errJournal.message}`);
+  if (journal?.erreur) return `Minuit a échoué sur ce compte : ${journal.erreur}`;
+  if (journal?.raison) return journal.raison as string;
+
   const { data: compte, error: errC } = await supabase
     .from("comptes")
-    .select("id, langue, ugc_ai, ugc_ai_video, ugc_persona_id, posts_par_jour")
+    .select(
+      "id, langue, type_compte, videos_uniquement, ugc_ai, ugc_ai_video, ugc_persona_id, posts_par_jour",
+    )
     .eq("id", compteId)
     .maybeSingle();
   if (errC) throw errC;
   if (!compte) return "Compte introuvable.";
 
+  // L'ORDRE SUIT CELUI DE `assignerCompteJour`, et ce n'est pas cosmétique :
+  // ce diagnostic doit rendre LA raison que minuit a réellement appliquée. Il
+  // lui manquait les deux premières sorties (compte CM, compte vidéos
+  // uniquement) ; faute de les tester, il tombait dans l'analyse de pool et
+  // inventait une explication de contenu pour un compte que minuit n'avait
+  // même pas regardé. C'est ce qui a fait chercher un manque de slideshows
+  // inexistant pendant que 4 comptes ne publiaient plus rien.
+  if (compte.type_compte === "cm") {
+    return "Compte CM — hors assignation slideshow (vidéo papier).";
+  }
   if (compte.ugc_ai_video) {
     return "Compte UGC AI VIDEO — hors assignation slideshow (pipeline vidéos à part).";
+  }
+  if (compte.videos_uniquement) {
+    return (
+      "Compte vidéos uniquement (pod 3) — hors assignation slideshow. " +
+      "Si ce compte doit publier des slideshows, décoche « vidéos uniquement » : " +
+      "le quota restera inatteignable tant qu'il est posé."
+    );
   }
   if (compte.ugc_ai && !compte.ugc_persona_id) {
     return "Compte UGC AI sans persona — assigne un persona UGC (4 angles) sur le créateur.";
@@ -4826,40 +4865,63 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
     return "Aucun label sur ce compte — ajoute un label pour que minuit puisse piocher.";
   }
 
-  const { data: liens } = await supabase
-    .from("contenu_labels")
-    .select("contenu_id")
-    .in("label_id", labelIds);
-  const idsLabel = [...new Set((liens ?? []).map((l) => l.contenu_id as string))];
-  if (idsLabel.length === 0) {
+  // COMPTER CÔTÉ SERVEUR, ne jamais rapatrier les identifiants.
+  //
+  // L'ancienne version lisait tous les `contenu_labels` puis refiltrait avec
+  // un `.in(...)` sur la liste obtenue. Deux pièges, qui se sont déclenchés
+  // ensemble sur `smart_girl` (1227 contenus) :
+  //   1. un select sans `limit` est plafonné à 1000 lignes par PostgREST, donc
+  //      « 1000 slideshow(s) » n'était pas un total mais le plafond ;
+  //   2. un `.in(...)` sur 1000 UUID fait une URL d'environ 37 ko, que le
+  //      serveur refuse — et l'erreur n'était pas lue, donc elle devenait
+  //      « 0 résultat », donc « aucun valide ».
+  // Résultat : le panneau annonçait « aucun valide » là où 822 slideshows
+  // étaient prêts, et envoyait chercher un problème de contenu inexistant.
+  //
+  // Les filtres imbriqués gardent le travail dans Postgres : l'URL ne porte
+  // plus que les quelques `labelIds`, et le nombre de contenus n'a plus
+  // d'influence sur elle.
+  const { count: nTagues, error: errTag } = await supabase
+    .from("contenus")
+    .select("id, contenu_labels!inner(label_id)", { count: "exact", head: true })
+    .in("contenu_labels.label_id", labelIds);
+  if (errTag) throw errTag;
+  if ((nTagues ?? 0) === 0) {
     return `Aucun slideshow tagué « ${labelsTxt} » dans la bibliothèque.`;
   }
 
-  const { data: prets } = await supabase
+  const { count: nPrets, error: errPrets } = await supabase
     .from("contenus")
-    .select("id")
+    .select("id, contenu_labels!inner(label_id)", { count: "exact", head: true })
     .eq("statut", "valide")
     .eq("import_statut", "done")
     .eq("ugc_compatible", ugcAi)
-    .in("id", idsLabel);
-  const idsPrets = (prets ?? []).map((c) => c.id as string);
-  if (idsPrets.length === 0) {
+    .in("contenu_labels.label_id", labelIds);
+  if (errPrets) throw errPrets;
+  if ((nPrets ?? 0) === 0) {
     return (
-      `${idsLabel.length} slideshow(s) « ${labelsTxt} » mais aucun valide + import terminé` +
+      `${nTagues} slideshow(s) « ${labelsTxt} » mais aucun valide + import terminé` +
       (ugcAi ? " + checkmark UGC" : " (non-UGC)") +
       "."
     );
   }
 
-  const { count } = await supabase
+  const { count, error: errLangue } = await supabase
     .from("contenu_langues")
-    .select("contenu_id", { count: "exact", head: true })
+    .select("contenu_id, contenus!inner(statut, import_statut, ugc_compatible, contenu_labels!inner(label_id))", {
+      count: "exact",
+      head: true,
+    })
     .eq("langue", langue)
-    .in("contenu_id", idsPrets);
+    .eq("contenus.statut", "valide")
+    .eq("contenus.import_statut", "done")
+    .eq("contenus.ugc_compatible", ugcAi)
+    .in("contenus.contenu_labels.label_id", labelIds);
+  if (errLangue) throw errLangue;
   const nLangue = count ?? 0;
   if (nLangue === 0) {
     return (
-      `${idsPrets.length} slideshow(s) « ${labelsTxt} » prêts, mais aucun éligible en ` +
+      `${nPrets} slideshow(s) « ${labelsTxt} » prêts, mais aucun éligible en ` +
       `${langue.toUpperCase()} (pas de score ELO langue à l'import pour cette langue).`
     );
   }

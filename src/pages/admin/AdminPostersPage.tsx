@@ -35,6 +35,7 @@ import { BadgeClassement } from "@/features/moteur/BadgeClassement";
 import { EnteteCompte } from "@/features/moteur/VignetteCompte";
 import {
   assurerComptePoster,
+  creerCompteUgcVideo,
   creerPoster,
   creerRecruteur,
   listerApplications,
@@ -451,18 +452,33 @@ export function AdminPostersPage() {
   const [premierCompte, setPremierCompte] = React.useState<PremierCompte>("perso");
   const [postsParJour, setPostsParJour] = React.useState<1 | 2 | 3>(2);
   const [handleTiktok, setHandleTiktok] = React.useState("");
+  // Compte UGC vidéo (pod 3) : login seul côté manage-users, puis le compte
+  // vidéos uniquement créé ici — ni label ni persona de la file.
+  const [ugcVideo, setUgcVideo] = React.useState(false);
+  const [handleInstagram, setHandleInstagram] = React.useState("");
   const [password, setPassword] = React.useState(MOT_DE_PASSE_INITIAL);
   const [cree, setCree] = React.useState<{
     email: string;
     password: string;
-    type: PremierCompte;
+    type: PremierCompte | "ugc_video";
   } | null>(null);
 
   const rafraichir = () => queryClient.invalidateQueries({ queryKey: ["posters"] });
 
   const creer = useMutation({
-    mutationFn: () =>
-      creerPoster({
+    mutationFn: async () => {
+      if (ugcVideo) {
+        const r = await creerPoster({ prenom, nom, password, type_compte: "aucun" });
+        await creerCompteUgcVideo({
+          posterId: r.userId,
+          langue,
+          personaNom: prenom,
+          handleTiktok,
+          handleInstagram,
+        });
+        return r;
+      }
+      return creerPoster({
         prenom,
         nom,
         password,
@@ -470,12 +486,14 @@ export function AdminPostersPage() {
         type_compte: premierCompte,
         posts_par_jour: premierCompte === "perso" ? postsParJour : undefined,
         handle_tiktok: premierCompte === "perso" ? handleTiktok : undefined,
-      }),
+      });
+    },
     onSuccess: (r) => {
-      setCree({ email: r.email, password, type: premierCompte });
+      setCree({ email: r.email, password, type: ugcVideo ? "ugc_video" : premierCompte });
       setPrenom("");
       setNom("");
       setHandleTiktok("");
+      setHandleInstagram("");
       setPostsParJour(2);
       setPassword(MOT_DE_PASSE_INITIAL);
       rafraichir();
@@ -595,9 +613,27 @@ export function AdminPostersPage() {
             <Label htmlFor="nom">{t("posters.nom")}</Label>
             <Input id="nom" value={nom} onChange={(e) => setNom(e.target.value)} />
           </div>
+          <label className="flex items-start gap-2 text-sm sm:col-span-2">
+            <input
+              type="checkbox"
+              className="mt-0.5 size-4"
+              checked={ugcVideo}
+              onChange={(e) => {
+                setUgcVideo(e.target.checked);
+                if (e.target.checked) {
+                  setPremierCompte("perso");
+                  setLangue(langueInitiale(langues.data ?? [], langue));
+                }
+              }}
+            />
+            <span>
+              <span className="font-medium">{t("posters.ugcVideo")}</span>
+              <span className="block text-xs text-muted-foreground">{t("posters.ugcVideoAide")}</span>
+            </span>
+          </label>
           <ChampsPremierCompte
-            allowAucun
-            typeCompte={premierCompte}
+            allowAucun={!ugcVideo}
+            typeCompte={ugcVideo ? "perso" : premierCompte}
             onType={(type) => {
               setPremierCompte(type);
               if (type !== "aucun") setLangue(langueInitiale(langues.data ?? [], langue));
@@ -605,11 +641,22 @@ export function AdminPostersPage() {
             langues={langues.data ?? []}
             langue={langue}
             onLangue={setLangue}
-            postsParJour={postsParJour}
-            onPostsParJour={setPostsParJour}
+            postsParJour={ugcVideo ? undefined : postsParJour}
+            onPostsParJour={ugcVideo ? undefined : setPostsParJour}
             handle={handleTiktok}
             onHandle={setHandleTiktok}
           />
+          {ugcVideo && (
+            <div className="space-y-1">
+              <Label htmlFor="premier-handle-instagram">{t("comptes.pseudoInstagram")}</Label>
+              <Input
+                id="premier-handle-instagram"
+                value={handleInstagram}
+                placeholder={t("comptes.pseudoPlaceholder")}
+                onChange={(e) => setHandleInstagram(e.target.value)}
+              />
+            </div>
+          )}
           <div className="space-y-2 sm:col-span-2">
             <Label htmlFor="mdp">{t("posters.password")}</Label>
             <div className="flex gap-2">
@@ -634,7 +681,7 @@ export function AdminPostersPage() {
               type="submit"
               disabled={
                 creer.isPending ||
-                (premierCompte !== "aucun" && !langue)
+                ((ugcVideo || premierCompte !== "aucun") && !langue)
               }
             >
               {creer.isPending ? t("common.saving") : t("posters.create")}
@@ -668,7 +715,9 @@ export function AdminPostersPage() {
             </p>
             <p className="pt-1 text-xs text-muted-foreground">{t("posters.transmit")}</p>
             <p className="text-xs text-muted-foreground">
-              {cree.type === "cm"
+              {cree.type === "ugc_video"
+                ? t("posters.creeUgcVideo")
+                : cree.type === "cm"
                 ? t("posters.creeCm")
                 : cree.type === "aucun"
                   ? t("posters.creeAucun")

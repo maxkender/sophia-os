@@ -231,7 +231,7 @@ function IdentiteTikTok({ compte }: { compte: MonCompte }) {
           )}
           <div className="min-w-0 flex-1 space-y-1.5">
             <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-              {t("identite.titre")}
+              {compte.videos_uniquement ? t("identite.titreUgc") : t("identite.titre")}
             </p>
             {compte.persona_nom && <p className="text-sm font-semibold">{compte.persona_nom}</p>}
 
@@ -266,7 +266,9 @@ function IdentiteTikTok({ compte }: { compte: MonCompte }) {
                 </Button>
               )}
             </div>
-            <p className="pt-1 text-xs text-muted-foreground">{t("identite.aide")}</p>
+            <p className="pt-1 text-xs text-muted-foreground">
+              {compte.videos_uniquement ? t("identite.aideUgc") : t("identite.aide")}
+            </p>
           </div>
         </div>
       </CardContent>
@@ -292,6 +294,8 @@ export function PosterCalendrierPage() {
   const compte =
     (comptes ?? []).find((c) => c.id === compteId) ?? comptePrincipal(comptes ?? []);
   const estCm = compte ? estCompteCm(compte) : false;
+  // Compte UGC vidéo (pod 3) : une vidéo par jour, aucun slideshow à afficher.
+  const ugc = Boolean(compte?.videos_uniquement);
 
   React.useEffect(() => {
     if (!user?.id || !comptes?.length) return;
@@ -394,7 +398,9 @@ export function PosterCalendrierPage() {
               : t("calendrier.warmupRappel")}
           </p>
           {warmupStatut === "attente" && (
-            <p className="text-xs text-muted-foreground">{t("calendrier.warmupADemarrerAide")}</p>
+            <p className="text-xs text-muted-foreground">
+              {ugc ? t("calendrier.warmupADemarrerAideUgc") : t("calendrier.warmupADemarrerAide")}
+            </p>
           )}
         </div>
         {compte && (
@@ -424,6 +430,7 @@ export function PosterCalendrierPage() {
           compteId={compte.id}
           handleTiktok={compte.handle_tiktok}
           handleInstagram={compte.handle_instagram}
+          vide={ugc ? t("videosPod.vide") : undefined}
         />
       )}
 
@@ -443,6 +450,7 @@ export function PosterCalendrierPage() {
         </div>
       </Link>
 
+      {!ugc && (
       <section className="space-y-4">
         <h2 className="text-lg font-semibold tracking-tight">{titreJour}</h2>
         {duJour.length === 0 ? (
@@ -458,7 +466,9 @@ export function PosterCalendrierPage() {
           </div>
         )}
       </section>
+      )}
 
+      {!ugc && (
       <section className="space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="text-lg font-semibold capitalize tracking-tight">{nomDuMois}</h2>
@@ -558,6 +568,7 @@ export function PosterCalendrierPage() {
 
         <p className="text-xs text-muted-foreground">{t("calendrier.legende")}</p>
       </section>
+      )}
     </div>
   );
 }

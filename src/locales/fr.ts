@@ -80,6 +80,9 @@ export const fr = {
       avatar: "Télécharger l'avatar",
       copierBio: "Copier la bio",
       aide: "Crée ton compte TikTok avec ce pseudo, cette bio et cet avatar. Tout est déjà généré pour toi.",
+      titreUgc: "Ton identité TikTok + Instagram",
+      aideUgc:
+        "Crée ton compte TikTok ET ton compte Instagram avec ce pseudo, cette bio et cette photo. Même @, même photo, même bio sur les deux. Tout est déjà généré pour toi.",
       majHandle: "Mettre à jour mon @",
       setHandle: "Renseigner mon @",
       handleAide:
@@ -92,6 +95,22 @@ export const fr = {
       titre: "Bienvenue ! Regarde cette vidéo",
       sous: "2 min pour savoir comment poster facilement",
       compris: "J'ai compris",
+      ugc: {
+        titre: "Bienvenue ! Ton compte vidéo TikTok + Instagram",
+        sous: "Tu publies une vidéo par jour, la même sur TikTok et sur Instagram.",
+        etape1:
+          "Crée ton compte TikTok ET ton compte Instagram avec le @, la photo et la bio de la carte « Ton identité » (bouton pour télécharger la photo, bouton pour copier la bio).",
+        etape2: "Mets ton vrai @ à jour sur la carte si celui proposé était pris.",
+        etape3:
+          "Clique sur « Commencer le warmup ». Pendant le warmup, utilise les deux applis normalement (scrolle, like, suis quelques comptes) et ne publie rien.",
+        etape4:
+          "À la fin du warmup, une vidéo par jour arrive dans « Vidéos à poster » : télécharge la réaction et la démo, et mets-les bout à bout (réaction d'abord).",
+        etape5:
+          "Colle le texte à l'écran et ajoute la musique, colle la légende, publie sur TikTok, puis publie la même vidéo en Reel sur Instagram.",
+        etape6: "Colle les deux liens (TikTok et Instagram) sur la carte de la vidéo : elle passe « publiée ».",
+        regles:
+          "Une seule vidéo par jour. Ne publie rien d'autre sur ces comptes, ne change ni le nom ni la photo, et chaque semaine scrolle 5 à 6 minutes sur les deux applis.",
+      },
     },
     navSection: {
       production: "Production",
@@ -769,6 +788,11 @@ export const fr = {
         "Crée seulement le login créateur. Tu pourras ajouter un perso ou un CM plus tard.",
       creeCm: "Créateur créé avec un compte CM. Le contrat Instagram + Gmail est prêt à signer.",
       creeAucun: "Login créateur créé, sans compte TikTok. Ajoute un perso ou un CM depuis la fiche.",
+      ugcVideo: "Compte UGC AI vidéo (pod 3)",
+      ugcVideoAide:
+        "Le compte ne publie que les vidéos du pod 3, une par jour, sur TikTok et Instagram. Aucun slideshow. Rien ne lui est envoyé avant la fin de son warmup.",
+      creeUgcVideo:
+        "Créateur créé avec son compte UGC vidéo. Ajoute son persona via l'agent du pod 3, puis le créateur lance son warmup.",
       nbComptes: "{{n}} compte(s)",
       aucunCompte: "Aucun compte TikTok",
       compteSansHandle: "Pas encore de @",
@@ -1057,6 +1081,8 @@ export const fr = {
       enregistrerLien: "Enregistrer",
       lienEnregistre: "Lien enregistré",
       reste: "Publiée sur {{fait}}, reste {{reste}}",
+      vide: "Tes vidéos arrivent ici, une par jour, dès la fin de ton warmup.",
+      reference: "Voir le TikTok de référence (rythme, texte, musique)",
     },
     pods: {
       title: "Pods",
@@ -2047,6 +2073,8 @@ export const fr = {
       warmupRappel:
         "⚠️ N'oublie pas de warm up le compte avant de commencer à poster (et chaque semaine, scrolle 5-6 minutes pour que TikTok ne te prenne pas pour un robot) !",
       warmupADemarrer: "Warmup pas encore démarré",
+      warmupADemarrerAideUgc:
+        "Quand tes comptes TikTok et Instagram sont prêts, clique sur « Commencer le warmup ». Le timer part ; à la fin, tu reçois une vidéo par jour à publier sur les deux.",
       warmupADemarrerAide:
         "Quand ton compte TikTok est prêt, clique sur « Commencer le warmup ». Le timer part ; à la fin, tu entres dans le process (posts assignés).",
       aujourdhui: "Aujourd'hui",

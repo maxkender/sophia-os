@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { CheckCircle2, Copy, Download, Music } from "lucide-react";
+import { CheckCircle2, Copy, Download, ExternalLink, Music } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -19,6 +19,7 @@ interface VideoPod {
   legende: string;
   musique_titre: string | null;
   musique_url: string | null;
+  source_url: string | null;
   statut: "a_publier" | "publie" | "annule";
   tiktok_url: string | null;
   instagram_url: string | null;
@@ -34,7 +35,7 @@ type Colonne = keyof typeof PLATEFORMES;
 async function videosDuCompte(compteId: string): Promise<VideoPod[]> {
   const { data, error } = await supabase
     .from("pod_videos")
-    .select("id, date_publication_prevue, reaction_url, demo_url, texte_ecran, legende, musique_titre, musique_url, statut, tiktok_url, instagram_url")
+    .select("id, date_publication_prevue, reaction_url, demo_url, texte_ecran, legende, musique_titre, musique_url, source_url, statut, tiktok_url, instagram_url")
     .eq("compte_id", compteId)
     .neq("statut", "annule")
     .order("date_publication_prevue")
@@ -195,6 +196,14 @@ function CarteVideo({
           <p>{video.legende}</p>
           <Copier texte={video.legende} libelle={t("videosPod.copier")} />
         </div>
+        {video.source_url && (
+          <p className="flex items-center gap-1 text-sm">
+            <ExternalLink className="size-4" />
+            <a className="underline" href={video.source_url} target="_blank" rel="noreferrer">
+              {t("videosPod.reference")}
+            </a>
+          </p>
+        )}
         {video.musique_titre && (
           <p className="flex items-center gap-1 text-sm">
             <Music className="size-4" />
@@ -220,20 +229,33 @@ function CarteVideo({
   );
 }
 
-/** Vidéos du pod 3 pour le compte actif du poster (rien si le compte n'en a pas). */
+/**
+ * Vidéos du pod 3 pour le compte actif du poster. Sans vidéo : rien, sauf si
+ * `vide` est fourni (compte UGC vidéo, dont c'est l'unique contenu).
+ */
 export function VideosAPoster({
   compteId,
   handleTiktok = null,
   handleInstagram = null,
+  vide,
 }: {
   compteId: string;
   handleTiktok?: string | null;
   handleInstagram?: string | null;
+  vide?: string;
 }) {
   const { t } = useTranslation();
   const { data } = useQuery({ queryKey: ["pod-videos", compteId], queryFn: () => videosDuCompte(compteId) });
   const videos = (data ?? []).filter((v) => v.statut === "a_publier" || v.statut === "publie").slice(0, 10);
-  if (!videos.length) return null;
+  if (!videos.length) {
+    if (!vide) return null;
+    return (
+      <section className="space-y-3">
+        <h2 className="text-lg font-semibold tracking-tight">{t("videosPod.titre")}</h2>
+        <p className="rounded-lg border border-dashed p-4 text-sm text-muted-foreground">{vide}</p>
+      </section>
+    );
+  }
   return (
     <section className="space-y-3">
       <h2 className="text-lg font-semibold tracking-tight">{t("videosPod.titre")}</h2>

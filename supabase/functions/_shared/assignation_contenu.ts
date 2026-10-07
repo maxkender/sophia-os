@@ -2328,7 +2328,7 @@ export async function assignerTousComptes(
 
   // Même mémo pour toute la flotte de ce run : voir `assignerDrainLot`.
   const memo = creerMemoAssignation();
-  return await mapPool(comptes, LARGEUR_ASSIGNATION, async (compte) => {
+  const resultats = await mapPool(comptes, LARGEUR_ASSIGNATION, async (compte) => {
     const nom =
       (compte.persona_nom as string | null) ??
       (compte.handle_tiktok as string | null) ??
@@ -2354,6 +2354,50 @@ export async function assignerTousComptes(
       };
     }
   });
+
+  await journaliser(supabase, jour, comptes, resultats);
+  return resultats;
+}
+
+/**
+ * Écrit le verdict de minuit, compte par compte.
+ *
+ * NE DOIT JAMAIS FAIRE ÉCHOUER L'ASSIGNATION. Les passages sont déjà créés
+ * quand on arrive ici : perdre la trace est regrettable, perdre les posts
+ * serait grave. Une panne d'écriture se contente donc d'un warn.
+ *
+ * `upsert` et non `insert` : une réassignation manuelle dans la journée doit
+ * remplacer le verdict de la nuit, pas en empiler un second. C'est le dernier
+ * qui explique l'état courant.
+ */
+async function journaliser(
+  supabase: Supabase,
+  jour: string,
+  // deno-lint-ignore no-explicit-any
+  comptes: any[],
+  resultats: Array<{ compteId: string; crees: number; raison?: string; erreur?: string }>,
+): Promise<void> {
+  if (resultats.length === 0) return;
+  const quotaParCompte = new Map<string, number | null>(
+    comptes.map((c) => [c.id as string, (c.posts_par_jour as number | null) ?? null]),
+  );
+  try {
+    const { error } = await supabase.from("assignation_journal").upsert(
+      resultats.map((r) => ({
+        compte_id: r.compteId,
+        jour,
+        quota: quotaParCompte.get(r.compteId) ?? null,
+        crees: r.crees,
+        raison: r.raison ?? null,
+        erreur: r.erreur ?? null,
+        maj_at: new Date().toISOString(),
+      })),
+      { onConflict: "compte_id,jour" },
+    );
+    if (error) console.warn(`[journal assignation] ${error.message}`);
+  } catch (e) {
+    console.warn(`[journal assignation] ${e instanceof Error ? e.message : String(e)}`);
+  }
 }
 
 export { DRAIN_MAX_CHAIN };

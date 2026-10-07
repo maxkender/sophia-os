@@ -1082,6 +1082,7 @@ export const fr = {
       lienEnregistre: "Lien enregistré",
       reste: "Publiée sur {{fait}}, reste {{reste}}",
       vide: "Tes vidéos arrivent ici, une par jour, dès la fin de ton warmup.",
+      reference: "Voir le TikTok de référence (rythme, texte, musique)",
     },
     pods: {
       title: "Pods",

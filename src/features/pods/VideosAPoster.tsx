@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { CheckCircle2, Copy, Download, Music } from "lucide-react";
+import { CheckCircle2, Copy, Download, ExternalLink, Music } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -19,6 +19,7 @@ interface VideoPod {
   legende: string;
   musique_titre: string | null;
   musique_url: string | null;
+  source_url: string | null;
   statut: "a_publier" | "publie" | "annule";
   tiktok_url: string | null;
   instagram_url: string | null;
@@ -34,7 +35,7 @@ type Colonne = keyof typeof PLATEFORMES;
 async function videosDuCompte(compteId: string): Promise<VideoPod[]> {
   const { data, error } = await supabase
     .from("pod_videos")
-    .select("id, date_publication_prevue, reaction_url, demo_url, texte_ecran, legende, musique_titre, musique_url, statut, tiktok_url, instagram_url")
+    .select("id, date_publication_prevue, reaction_url, demo_url, texte_ecran, legende, musique_titre, musique_url, source_url, statut, tiktok_url, instagram_url")
     .eq("compte_id", compteId)
     .neq("statut", "annule")
     .order("date_publication_prevue")
@@ -195,6 +196,14 @@ function CarteVideo({
           <p>{video.legende}</p>
           <Copier texte={video.legende} libelle={t("videosPod.copier")} />
         </div>
+        {video.source_url && (
+          <p className="flex items-center gap-1 text-sm">
+            <ExternalLink className="size-4" />
+            <a className="underline" href={video.source_url} target="_blank" rel="noreferrer">
+              {t("videosPod.reference")}
+            </a>
+          </p>
+        )}
         {video.musique_titre && (
           <p className="flex items-center gap-1 text-sm">
             <Music className="size-4" />

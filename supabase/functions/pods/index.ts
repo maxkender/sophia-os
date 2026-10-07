@@ -1231,6 +1231,7 @@ async function validerVideo(supabase: Supabase, l: any, userId: string | null) {
     legende: d.legende,
     musique_titre: l.musique_titre,
     musique_url: l.musique_url,
+    source_url: l.source_url,
   }));
   const { error } = await supabase.from("pod_videos").insert(lignes);
   if (error) throw new Error(`vidéos : ${messageErreur(error)}`);

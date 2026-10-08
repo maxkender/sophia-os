@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import { ID_SOPHIA, type ApplicationMoteur } from "../multiApp";
 import {
   curseursBornes,
+  diagnosticCompteSansSophia,
   etatPartsCompte,
   nomApplicationPromue,
   nomsApplicationsDuLabel,
@@ -84,9 +85,24 @@ describe("etatPartsCompte", () => {
   it("compte Sophia seul : rien à afficher, 100 % Sophia", () => {
     const e = etatPartsCompte({ compte, labels: [CINEMA], liens: LIENS, applications: APPS });
     expect(e.afficher).toBe(false);
+    expect(e.sophiaServie).toBe(true);
+    expect(e.bloque).toBe(false);
     expect(e.autres).toEqual([]);
     expect(e.effectives).toEqual({ sophia: 100 });
     expect(e.avertissements).toEqual([]);
+  });
+
+  it("compte Sophia seul, même avec Unswipe éteinte ou hors langue : toujours caché", () => {
+    // Aucune application autre que Sophia servie : l'état d'Unswipe ne le
+    // concerne pas, la carte reste cachée exactement comme avant.
+    for (const applications of [[SOPHIA, { ...UNSWIPE, actif: false }], [SOPHIA, { ...UNSWIPE, langues: [] }]]) {
+      const e = etatPartsCompte({ compte, labels: [CINEMA], liens: LIENS, applications });
+      expect(e.afficher).toBe(false);
+      expect(e.avertissements).toEqual([]);
+    }
+    // Sans label, ou seulement des labels système : Sophia, caché.
+    expect(etatPartsCompte({ compte, labels: [], liens: LIENS, applications: APPS }).afficher).toBe(false);
+    expect(etatPartsCompte({ compte, labels: [HOOK], liens: LIENS, applications: APPS }).afficher).toBe(false);
   });
 
   it("label partagé : un curseur Unswipe, initialisé depuis la répartition", () => {
@@ -150,8 +166,100 @@ describe("etatPartsCompte", () => {
     const liens = [{ label_id: CLEAN.id, application_id: ID_UNSWIPE }];
     const e = etatPartsCompte({ compte, labels: [CLEAN], liens, applications: APPS });
     expect(e.servies.map((a) => a.slug)).toEqual(["unswipe"]);
-    // Une seule application servie : pas de curseur à régler, rien à afficher.
-    expect(e.afficher).toBe(false);
+    // Affiché : c'est la seule carte qui dirait « Unswipe désactivée » ou
+    // « langue non ciblée » pour ce compte.
+    expect(e.afficher).toBe(true);
+    expect(e.sophiaServie).toBe(false);
+    expect(e.bloque).toBe(false);
     expect(e.effectives).toEqual({ unswipe: 100 });
+    expect(e.avertissements).toEqual([]);
+  });
+
+  describe("compte 100 % Unswipe qu'aucune application ne peut servir", () => {
+    const liens = [{ label_id: CLEAN.id, application_id: ID_UNSWIPE }];
+
+    it("Unswipe éteinte", () => {
+      const e = etatPartsCompte({
+        compte,
+        labels: [CLEAN],
+        liens,
+        applications: [SOPHIA, { ...UNSWIPE, actif: false }],
+      });
+      expect(e.afficher).toBe(true);
+      expect(e.bloque).toBe(true);
+      expect(e.effectives).toEqual({});
+      expect(e.avertissements).toEqual([{ type: "inactive", app: "Unswipe" }]);
+    });
+
+    it("langue non ciblée", () => {
+      const e = etatPartsCompte({
+        compte: { ...compte, langue: "de" },
+        labels: [CLEAN],
+        liens,
+        applications: APPS,
+      });
+      expect(e.bloque).toBe(true);
+      expect(e.avertissements).toEqual([{ type: "langue", app: "Unswipe", langue: "de" }]);
+    });
+
+    it("compte UGC", () => {
+      const e = etatPartsCompte({ compte: { ...compte, ugc_ai: true }, labels: [CLEAN], liens, applications: APPS });
+      expect(e.bloque).toBe(true);
+      expect(e.avertissements).toEqual([{ type: "ugc" }]);
+    });
+
+    it("une part Sophia enregistrée devient un reliquat à effacer", () => {
+      const e = etatPartsCompte({
+        compte: { ...compte, parts_applications: { sophia: 70, unswipe: 30 } },
+        labels: [CLEAN],
+        liens,
+        applications: APPS,
+      });
+      expect(e.bloque).toBe(false);
+      expect(e.effectives).toEqual({ unswipe: 100 });
+      expect(e.avertissements).toEqual([{ type: "obsolete", app: "Sophia" }]);
+    });
+  });
+});
+
+describe("diagnosticCompteSansSophia (panneau Minuit)", () => {
+  const SEUL_UNSWIPE = [{ label_id: CLEAN.id, application_id: ID_UNSWIPE }];
+  const base = {
+    compte: { langue: "fr", ugc: false },
+    labels: [CLEAN],
+    applications: APPS,
+    labelsTxt: "Clean Girl",
+  };
+
+  it("un label sert Sophia : null, le diagnostic historique s'applique tel quel", () => {
+    expect(diagnosticCompteSansSophia({ ...base, liens: LIENS })).toBeNull();
+    expect(diagnosticCompteSansSophia({ ...base, labels: [CINEMA], liens: [] })).toBeNull();
+    expect(diagnosticCompteSansSophia({ ...base, labels: [CLEAN, CINEMA], liens: SEUL_UNSWIPE })).toBeNull();
+    // Labels système seuls : Sophia (même règle que le moteur).
+    expect(diagnosticCompteSansSophia({ ...base, labels: [HOOK], liens: SEUL_UNSWIPE })).toBeNull();
+  });
+
+  it("Unswipe servable : réserve à vérifier, jamais « timeout batch »", () => {
+    const d = diagnosticCompteSansSophia({ ...base, liens: SEUL_UNSWIPE })!;
+    expect(d).toContain("ne sert Sophia");
+    expect(d).toContain("réserve à vérifier");
+    expect(d).not.toMatch(/timeout|baisse/);
+  });
+
+  it("dit la cause quand rien ne peut servir le compte", () => {
+    const eteinte = diagnosticCompteSansSophia({
+      ...base,
+      liens: SEUL_UNSWIPE,
+      applications: [SOPHIA, { ...UNSWIPE, actif: false }],
+    })!;
+    expect(eteinte).toContain("il ne publiera rien");
+    expect(eteinte).toContain("Unswipe est désactivée");
+
+    const langue = diagnosticCompteSansSophia({ ...base, compte: { langue: "de", ugc: false }, liens: SEUL_UNSWIPE })!;
+    expect(langue).toContain("Unswipe ne cible pas le DE");
+
+    const ugc = diagnosticCompteSansSophia({ ...base, compte: { langue: "fr", ugc: true }, liens: SEUL_UNSWIPE })!;
+    expect(ugc).toContain("compte UGC");
+    expect(ugc).toContain("il ne publiera rien");
   });
 });

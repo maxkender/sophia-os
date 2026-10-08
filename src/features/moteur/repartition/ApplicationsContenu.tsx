@@ -64,14 +64,7 @@ export function PertinencesApplications({ contenuId }: { contenuId: string }) {
                       {p.eligible ? t("multiAppPosts.pertinences.oui") : t("multiAppPosts.pertinences.non")}
                     </Badge>
                   </td>
-                  <td className="px-2 py-1.5 text-muted-foreground">
-                    {p.raison ?? "—"}
-                    {p.angles && (
-                      <p className="mt-1 text-[10px]">
-                        {t("multiAppPosts.pertinences.angles", { angles: p.angles })}
-                      </p>
-                    )}
-                  </td>
+                  <td className="px-2 py-1.5 text-muted-foreground">{p.raison ?? "—"}</td>
                 </tr>
               ))}
             </tbody>

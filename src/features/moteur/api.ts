@@ -65,6 +65,8 @@ import {
   type ApplicationOs,
 } from "./applications";
 import { estErreurSchemaAbsent } from "./multiapp/logique";
+import type { ApplicationMoteur } from "./multiApp";
+import { diagnosticCompteSansSophia } from "./repartition/logique";
 import { comptePrincipal, normaliserTypeCompte, resoudrePremierCompte } from "./comptesCm";
 import { estLabelSysteme, SLUG_HOOK } from "./mediaCaption";
 import {
@@ -4898,7 +4900,7 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
 
   const { data: labelsCompte, error: errL } = await supabase
     .from("compte_labels")
-    .select("label_id, labels(nom)")
+    .select("label_id, labels(nom, slug)")
     .eq("compte_id", compteId);
   if (errL) throw errL;
 
@@ -4912,6 +4914,60 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
 
   if (labelIds.length === 0) {
     return "Aucun label sur ce compte — ajoute un label pour que minuit puisse piocher.";
+  }
+
+  // MULTI-APPLICATIONS. Tout ce qui suit compte le pool SOPHIA (contenus
+  // tagués, prêts, notés dans la langue). Un compte dont aucun label ne sert
+  // Sophia (« 100 % Unswipe ») n'y pioche jamais : la suite lui annoncerait
+  // « pool OK… timeout batch… baisse auto du quota », à tort. On lit donc les
+  // applications de ses labels (un label sans ligne sert Sophia, comme au
+  // moteur) et, si aucun ne sert Sophia, on rend la vraie cause. Un compte
+  // dont un label sert Sophia continue exactement comme avant.
+  const { data: liensApps, error: errApps } = await supabase
+    .from("label_applications")
+    .select("label_id, application_id, applications(id, slug, nom, actif, langues)")
+    .in("label_id", labelIds);
+  if (errApps) {
+    // Avant 0256 : tous les labels servent Sophia, la suite vaut. Une autre
+    // erreur ne doit pas priver le panneau du diagnostic historique : on le
+    // rend quand même, sans enterrer l'erreur.
+    if (!estErreurSchemaAbsent(errApps)) {
+      console.warn(`[diagnostic quota] applications des labels illisibles : ${errApps.message}`);
+    }
+  } else {
+    const lignes = (liensApps ?? []) as Array<Record<string, unknown>>;
+    const applications = new Map<string, ApplicationMoteur>();
+    for (const r of lignes) {
+      const a = (Array.isArray(r.applications) ? r.applications[0] : r.applications) as
+        | { id?: string; slug?: string; nom?: string; actif?: boolean | null; langues?: string[] | null }
+        | null
+        | undefined;
+      if (!a?.id) continue;
+      applications.set(a.id, {
+        id: a.id,
+        slug: a.slug ?? "",
+        nom: a.nom ?? a.slug ?? a.id,
+        actif: a.actif !== false,
+        langues: a.langues ?? null,
+      });
+    }
+    const refsLabels = (
+      (labelsCompte ?? []) as Array<{
+        label_id: string;
+        labels?: { nom?: string | null; slug?: string | null } | null;
+      }>
+    ).map((l) => ({ id: l.label_id, slug: l.labels?.slug ?? null, nom: l.labels?.nom ?? null }));
+    const diagnostic = diagnosticCompteSansSophia({
+      compte: { langue, ugc: ugcAi },
+      labels: refsLabels,
+      liens: lignes.map((r) => ({
+        label_id: String(r.label_id),
+        application_id: String(r.application_id),
+      })),
+      applications: [...applications.values()],
+      labelsTxt,
+    });
+    if (diagnostic) return diagnostic;
   }
 
   // COMPTER CÔTÉ SERVEUR, ne jamais rapatrier les identifiants.

@@ -3,7 +3,6 @@ import { describe, expect, it } from "vitest";
 import type { RepliApplication } from "../apiMultiApp";
 import { ID_SOPHIA } from "../multiApp";
 import {
-  angleDuLien,
   avancementBackfill,
   basculerApplicationLabel,
   clesPromptsApplication,
@@ -46,13 +45,6 @@ describe("bascule d'une application sur un label", () => {
       ok: true,
       applications: [ID_SOPHIA, UNSWIPE].sort(),
     });
-  });
-
-  it("lit l'angle du lien, vide sinon", () => {
-    const liens = [{ label_id: "l1", application_id: UNSWIPE, angle: "Reprends ton temps" }];
-    expect(angleDuLien("l1", UNSWIPE, liens)).toBe("Reprends ton temps");
-    expect(angleDuLien("l1", ID_SOPHIA, liens)).toBe("");
-    expect(angleDuLien("l2", UNSWIPE, [{ label_id: "l2", application_id: UNSWIPE, angle: null }])).toBe("");
   });
 });
 

@@ -44,7 +44,6 @@ describe("ApplicationsContenu", () => {
         raison: "Parle du temps d'écran",
         note: 1234.6,
         eligible: true,
-        angles: null,
         prompt_cle: "pertinence_unswipe",
         updated_at: "",
       },

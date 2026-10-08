@@ -68,16 +68,6 @@ export function basculerApplicationLabel(
   return { ok: true, applications: [...actuelles, applicationId].sort() };
 }
 
-/** Angle saisi pour (label, application) ; chaîne vide s'il n'y en a pas. */
-export function angleDuLien(
-  labelId: string,
-  applicationId: string,
-  liens: readonly LienLabelApplication[],
-): string {
-  const lien = liens.find((l) => l.label_id === labelId && l.application_id === applicationId);
-  return lien?.angle ?? "";
-}
-
 /**
  * Langues ciblées après le clic sur une case. `null` = toutes : c'est aussi ce
  * qu'on écrit quand toutes les cases sont cochées, pour qu'une langue ajoutée

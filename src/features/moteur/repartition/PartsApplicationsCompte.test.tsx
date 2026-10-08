@@ -25,9 +25,12 @@ const APPS = [
 const CLEAN = { id: "l-clean", slug: "clean-girl", nom: "Clean Girl" } as Label;
 const CINEMA = { id: "l-cinema", slug: "cinema", nom: "Cinéma" } as Label;
 const LIENS_PARTAGES = [
-  { label_id: CLEAN.id, application_id: ID_SOPHIA, angle: null },
-  { label_id: CLEAN.id, application_id: ID_UNSWIPE, angle: null },
+  { label_id: CLEAN.id, application_id: ID_SOPHIA },
+  { label_id: CLEAN.id, application_id: ID_UNSWIPE },
 ];
+/** Detox ne sert QU'Unswipe : un compte qui n'a que lui est « 100 % Unswipe ». */
+const DETOX = { id: "l-detox", slug: "detox", nom: "Detox" } as Label;
+const LIENS_AVEC_DETOX = [...LIENS_PARTAGES, { label_id: DETOX.id, application_id: ID_UNSWIPE }];
 
 function compte(patch: Partial<CompteAvecDetails> = {}): CompteAvecDetails {
   return {
@@ -89,6 +92,9 @@ describe("PartsApplicationsCompte", () => {
     rendre(compte({ langue: "de", ugc_ai: true, parts_applications: { unswipe: 30 } }), [CLEAN]);
     expect(await screen.findByText(/Compte UGC|UGC account/)).toBeInTheDocument();
     expect(screen.getByText(/ne cible pas la langue|does not target this account's language/)).toBeInTheDocument();
+    // Sophia servie : la part exclue lui revient, et le texte le dit (inchangé).
+    expect(screen.getByText(/revient à Sophia|goes back to Sophia/)).toHaveClass("text-warning");
+    expect(screen.queryByText(/ne publiera rien|will publish nothing/)).not.toBeInTheDocument();
     expect(screen.getByLabelText("Unswipe")).not.toBeDisabled();
   });
 
@@ -98,6 +104,44 @@ describe("PartsApplicationsCompte", () => {
       await screen.findByText(/labels de ce compte ne servent plus|labels no longer serve/),
     ).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Réinitialiser|Reset/ })).toBeInTheDocument();
+  });
+
+  it("compte 100 % Unswipe servable : visible, sans curseur ni ligne Sophia", async () => {
+    listerLiensLabels.mockResolvedValue(LIENS_AVEC_DETOX);
+    rendre(compte(), [DETOX]);
+    expect(await screen.findByText(/Unswipe 100 %/)).toBeInTheDocument();
+    expect(screen.getByText(/ne sert Sophia|serves Sophia/)).toBeInTheDocument();
+    expect(screen.queryByRole("slider")).not.toBeInTheDocument();
+    expect(screen.queryByText("Sophia")).not.toBeInTheDocument();
+    expect(screen.queryByText(/prend le reste|takes the rest/)).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /Enregistrer la répartition|Save split/ })).not.toBeInTheDocument();
+    expect(screen.queryByText(/ne publiera rien|will publish nothing/)).not.toBeInTheDocument();
+  });
+
+  it("compte 100 % Unswipe, Unswipe éteinte : avertissement rouge, sans « revient à Sophia »", async () => {
+    listerLiensLabels.mockResolvedValue(LIENS_AVEC_DETOX);
+    listerApplicationsMulti.mockResolvedValue([APPS[0], { ...APPS[1], actif: false }]);
+    rendre(compte(), [DETOX]);
+    const bloque = await screen.findByText(/ne publiera rien|will publish nothing/);
+    expect(bloque).toHaveClass("text-destructive");
+    const cause = screen.getByText(/Unswipe est désactivée|Unswipe is switched off/);
+    expect(cause).toHaveClass("text-destructive");
+    expect(screen.queryByText(/revient à Sophia|goes back to Sophia/)).not.toBeInTheDocument();
+    expect(screen.queryByRole("slider")).not.toBeInTheDocument();
+  });
+
+  it("compte 100 % Unswipe hors langue ou UGC : la cause est dite", async () => {
+    listerLiensLabels.mockResolvedValue(LIENS_AVEC_DETOX);
+    const { unmount } = rendre(compte({ langue: "de" }), [DETOX]);
+    expect(await screen.findByText(/ne publiera rien|will publish nothing/)).toBeInTheDocument();
+    expect(screen.getByText(/ne cible pas la langue|does not target this account's language/)).toBeInTheDocument();
+    expect(screen.queryByText(/revient à Sophia|goes back to Sophia/)).not.toBeInTheDocument();
+    unmount();
+
+    rendre(compte({ ugc_ai: true }), [DETOX]);
+    expect(await screen.findByText(/ne publiera rien|will publish nothing/)).toBeInTheDocument();
+    expect(screen.getByText(/Compte UGC|UGC account/)).toBeInTheDocument();
+    expect(screen.queryByText(/reste 100 % Sophia|stays 100% Sophia/)).not.toBeInTheDocument();
   });
 
   it("avant 0256 : l'erreur reste dans le bloc", async () => {

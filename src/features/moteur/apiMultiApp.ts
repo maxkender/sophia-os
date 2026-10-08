@@ -18,10 +18,14 @@ export interface ApplicationMulti extends ApplicationOs {
   actif: boolean;
 }
 
+/**
+ * Lien label → application. La colonne `angle` reste en base (nullable) mais
+ * n'est plus ni lue ni écrite : pas d'angle par label, le prompt de placement
+ * de l'application suffit.
+ */
 export interface LienLabelApplicationRow {
   label_id: string;
   application_id: string;
-  angle: string | null;
 }
 
 export interface ReserveLabelApplication {
@@ -53,7 +57,6 @@ export interface PertinenceContenu {
   raison: string | null;
   note: number | null;
   eligible: boolean;
-  angles: string | null;
   prompt_cle: string | null;
   updated_at: string;
 }
@@ -113,16 +116,16 @@ export async function majApplication(
 export async function listerLiensLabels(): Promise<LienLabelApplicationRow[]> {
   const { data, error } = await supabase
     .from("label_applications")
-    .select("label_id, application_id, angle")
+    .select("label_id, application_id")
     .order("created_at");
   if (error) throw error;
   return (data ?? []) as LienLabelApplicationRow[];
 }
 
 /**
- * Remplace l'ensemble des applications servies par un label (angles des liens
- * conservés). Au moins une : un label sans lien retomberait sur Sophia en
- * silence, ce qui ne doit jamais arriver par un décochage.
+ * Remplace l'ensemble des applications servies par un label. Au moins une :
+ * un label sans lien retomberait sur Sophia en silence, ce qui ne doit jamais
+ * arriver par un décochage.
  */
 export async function definirApplicationsLabel(
   labelId: string,
@@ -143,23 +146,6 @@ export async function definirApplicationsLabel(
     .eq("label_id", labelId)
     .not("application_id", "in", `(${voulues.join(",")})`);
   if (errDel) throw errDel;
-}
-
-/** Angle d'un label pour une application (vide = pas d'angle). Le lien doit exister. */
-export async function majAngleLabel(
-  labelId: string,
-  applicationId: string,
-  angle: string,
-): Promise<void> {
-  const valeur = angle.trim() || null;
-  const { data, error } = await supabase
-    .from("label_applications")
-    .update({ angle: valeur, updated_at: new Date().toISOString() })
-    .eq("label_id", labelId)
-    .eq("application_id", applicationId)
-    .select("label_id");
-  if (error) throw error;
-  if ((data ?? []).length === 0) throw new Error("Ce label ne sert pas cette application.");
 }
 
 export async function listerReserveLabelsApplications(): Promise<ReserveLabelApplication[]> {
@@ -228,7 +214,7 @@ export async function listerReplisApplications(depuis: string): Promise<RepliApp
 export async function listerPertinencesContenu(contenuId: string): Promise<PertinenceContenu[]> {
   const { data, error } = await supabase
     .from("contenu_pertinences")
-    .select("application_id, score, raison, note, eligible, angles, prompt_cle, updated_at")
+    .select("application_id, score, raison, note, eligible, prompt_cle, updated_at")
     .eq("contenu_id", contenuId);
   if (error) throw error;
   return ((data ?? []) as PertinenceContenu[]).map((p) => ({

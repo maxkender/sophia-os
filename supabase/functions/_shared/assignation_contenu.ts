@@ -6,6 +6,7 @@ import {
   APPLICATION_SOPHIA_SECOURS,
   chargerApplicationsMoteur,
   chargerLiensLabels,
+  erreurSchemaAbsent,
   type EtatSchemaMultiApp,
   schemaMultiAppPretSinonSophia,
   sonderSchemaMultiApp,
@@ -22,8 +23,10 @@ import {
   FENETRE_REPARTITION_DEFAUT,
   ID_SOPHIA,
   SLUG_SOPHIA,
+  applicationsDuLabel,
   applicationsEligiblesCompte,
   choisirApplicationCreneau,
+  estLabelSystemeSlug,
   labelsParApplication,
   normaliserParts,
   partsEffectives,
@@ -944,13 +947,15 @@ export async function assignerCompteJour(
     // il n'y a pas de pool Sophia à diagnostiquer, et surtout pas de quota à
     // baisser sur la foi d'une réserve d'une autre application — c'est un
     // réglage (application inactive, langue non ciblée, réserve à remplir),
-    // pas un pool mince.
-    const motifs = [...appsRepliees.entries()]
-      .map(([id, motif]) => `${repartition.eligibles.find((a) => a.id === id)?.nom ?? id} : ${motif}`)
-      .join(", ");
-    const diag =
-      `Aucun label de ce compte ne sert Sophia — repli impossible` +
-      `${motifs ? ` (${motifs})` : ""}. Vérifie les applications de ses labels et leur réserve.`;
+    // pas un pool mince. La raison dit LEQUEL : c'est elle que le journal de
+    // minuit garde et que le panneau affiche.
+    const diag = raisonCompteNonServable({
+      applications: repartition.applications,
+      parApp: repartition.parApp,
+      replis: appsRepliees,
+      langue,
+      ugc: ugcAi,
+    });
     log(diag);
     return finir({
       ids: crees,
@@ -1072,7 +1077,9 @@ async function baisserQuotaSiBesoin(
  *
  * DEUX CHEMINS, et le premier est celui de toute la flotte au déploiement :
  *
- * - historique : schéma 0256 absent, OU parts effectives 100 % Sophia sans
+ * - historique : schéma 0256 absent (ou sonde illisible, une fois passé le
+ *   filet `verifierLabelsSophiaHorsSonde` : tous les labels du compte servent
+ *   Sophia), OU parts effectives 100 % Sophia sans
  *   application imposée. Aucune fenêtre lue, labels Sophia, pool Sophia, deck
  *   `assurerDeckPourLangue`, passage inséré SANS les colonnes nouvelles. Seule
  *   différence une fois 0256 passée : le pool Sophia écarte les contenus notés
@@ -1095,6 +1102,8 @@ interface Repartition {
   /** Chemin multi : fenêtre, application par créneau, colonnes nouvelles. */
   multi: boolean;
   sophia: ApplicationMoteur;
+  /** Toutes les applications du moteur (déjà chargées) : raison d'un compte non servable. */
+  applications: ApplicationMoteur[];
   /** Labels du compte qui servent Sophia — le pool et le diagnostic Sophia. */
   labelsSophia: string[];
   /** application_id → labels du compte qui la servent. */
@@ -1120,10 +1129,18 @@ async function preparerRepartition(
   },
   memo: MemoAssignation,
 ): Promise<Repartition> {
-  const etat = await memoiser(memo.schema, "schema", () => sonderSchemaMultiApp(supabase));
+  const sondeDuLot = memoiser(memo.schema, "schema", () => sonderSchemaMultiApp(supabase));
+  const etat = await sondeDuLot;
   if (etat === "illisible") {
+    // « Illisible » n'est pas un état du schéma, c'est une lecture ratée : on
+    // l'oublie du mémo, comme une promesse rejetée, pour que le compte suivant
+    // du lot resonde. Gardé, il valait pour les 8 comptes du lot : une seconde
+    // de panne en début de lot les envoyait tous sur le chemin dégradé, même
+    // la base revenue.
+    if (memo.schema.get("schema") === sondeDuLot) memo.schema.delete("schema");
     // Sonde illisible (réseau, 5xx). Un compte qui ne demande que Sophia garde
-    // le chemin d'avant : une panne passagère ne doit pas lui coûter sa nuit.
+    // le chemin d'avant, après le filet ci-dessous : une panne passagère ne
+    // doit pas lui coûter sa nuit.
     // Un compte qui demande une autre application échoue (il sera rejoué au
     // rattrapage) plutôt que de publier Sophia à la place, en silence.
     const parts = normaliserParts(args.partsBrutes);
@@ -1135,11 +1152,18 @@ async function preparerRepartition(
     }
   }
   if (etat !== "pret") {
-    // Avant 0256 : le code d'avant, labels compris (tous, tels que lus).
+    // Le chemin d'avant prend TOUS les labels du compte pour des labels Sophia.
+    // Un compte dont les labels ne servent que Unswipe n'a pas de répartition
+    // (la carte ne s'affiche pas pour lui, `parts` reste NULL) : sans ce filet,
+    // une panne de la sonde lui servait un deck Sophia.
+    await verifierLabelsSophiaHorsSonde(supabase, args.labelRefs);
+    // Avant 0256, ou tous les labels servent Sophia : le code d'avant, labels
+    // compris (tous, tels que lus).
     return {
       pret: false,
       multi: false,
       sophia: APPLICATION_SOPHIA_SECOURS,
+      applications: [APPLICATION_SOPHIA_SECOURS],
       labelsSophia: args.labelIds,
       parApp: new Map([[ID_SOPHIA, args.labelIds]]),
       eligibles: [APPLICATION_SOPHIA_SECOURS],
@@ -1189,6 +1213,7 @@ async function preparerRepartition(
     pret: true,
     multi,
     sophia,
+    applications,
     labelsSophia: parApp.get(ID_SOPHIA) ?? [],
     parApp,
     eligibles,
@@ -1196,6 +1221,70 @@ async function preparerRepartition(
     imposee,
     fenetre,
   };
+}
+
+/**
+ * Borne de la lecture du filet : une ligne par couple (label, application),
+ * donc au plus « labels du compte × applications » — quelques dizaines (9
+ * labels en base). Très loin du plafond de 1000, et déclarée pour le garde-fou
+ * de complétude.
+ */
+const LIMITE_LIENS_FILET = 500;
+
+/**
+ * FILET du chemin historique, quand la sonde n'a pas dit « prête ».
+ *
+ * Le chemin historique prend tous les labels du compte pour des labels Sophia.
+ * C'est juste pour un compte dont chaque label sert Sophia — et faux pour un
+ * compte dont un label ne sert que Unswipe : une panne de la base en début de
+ * lot (sonde illisible) lui donnait un slideshow avec la pub Sophia. On relit
+ * donc DIRECTEMENT `label_applications` pour les labels de ce compte, sans
+ * repasser par la sonde (c'est elle qui vient d'échouer) :
+ *
+ * - chaque label sert Sophia (aucune ligne, ou une ligne Sophia) → on rend la
+ *   main, chemin historique inchangé ;
+ * - un label ne sert pas Sophia → lève : le compte est rejoué, jamais servi en
+ *   Sophia à la place ;
+ * - lecture en échec : table absente (avant 0256) → chemin historique, c'est le
+ *   cas qu'il sert ; toute autre erreur → lève, à rejouer.
+ *
+ * Une seconde tentative après 500 ms, comme la sonde : un compte 100 % Sophia
+ * ne doit pas perdre sa nuit sur un hoquet. Les labels système (hook,
+ * ugc-ai-video) sont ignorés, comme sur le chemin « prêt ».
+ */
+async function verifierLabelsSophiaHorsSonde(
+  supabase: Supabase,
+  labelRefs: LabelRef[],
+): Promise<void> {
+  const ids = [...new Set(labelRefs.map((l) => l.id).filter(Boolean))];
+  if (ids.length === 0) return;
+  const lire = () =>
+    supabase
+      .from("label_applications")
+      .select("label_id, application_id")
+      .in("label_id", ids)
+      .limit(LIMITE_LIENS_FILET);
+  let reponse = await lire();
+  if (reponse.error && !erreurSchemaAbsent(reponse.error, reponse.status)) {
+    await new Promise((ok) => setTimeout(ok, 500));
+    reponse = await lire();
+  }
+  const { data, error, status } = reponse;
+  if (error || status === 404) {
+    if (erreurSchemaAbsent(error, status)) return;
+    throw new Error(
+      `[multi-app] applications des labels illisibles (${error?.message || `HTTP ${status}`}) — à rejouer`,
+    );
+  }
+  const liens = (data ?? []) as LienLabelApplication[];
+  const horsSophia = labelRefs.some(
+    (l) => !estLabelSystemeSlug(l.slug) && !applicationsDuLabel(l.id, liens).includes(ID_SOPHIA),
+  );
+  if (horsSophia) {
+    throw new Error(
+      "[multi-app] schéma illisible pour un compte dont un label ne sert pas Sophia — à rejouer",
+    );
+  }
 }
 
 /**
@@ -1258,6 +1347,72 @@ function colonnesApplicationPassage(
     colonnes.repli_motif = repli.motif;
   }
   return colonnes;
+}
+
+/** Ce que veut dire le repli d'une application éligible, en clair. */
+function phraseMotifRepli(nom: string, motif: MotifRepli | undefined): string {
+  switch (motif) {
+    case "reserve_vide":
+      return `réserve ${nom} vide pour ses labels`;
+    case "deck_ineligible":
+      return `aucun deck ${nom} utilisable (base polluée par une pub Sophia)`;
+    case "deck_echec":
+      return `decks ${nom} en échec (prompt manquant ou placement impossible)`;
+    case "budget":
+      return `budget de cuisson des decks ${nom} dépassé pour ce lot`;
+    default:
+      return `${nom} n'a pas pu servir tous les créneaux`;
+  }
+}
+
+/**
+ * Pourquoi un compte dont AUCUN label ne sert Sophia n'a rien (ou pas assez)
+ * publié, en français simple. Une cause par application servie par ses labels :
+ * ce qui la rend inéligible (désactivée, langue du compte non ciblée, compte
+ * UGC), sinon le motif de son repli (réserve vide, deck en échec, budget).
+ *
+ * Avant, la raison disait seulement « aucun label ne sert Sophia — repli
+ * impossible » : vrai, mais muet sur ce qu'il fallait régler, et c'est cette
+ * phrase que le journal de minuit garde et que le panneau affiche. Pure, sur ce
+ * que la répartition a déjà chargé : aucune requête.
+ */
+export function raisonCompteNonServable(args: {
+  applications: readonly ApplicationMoteur[];
+  /** application_id → labels du compte qui la servent. */
+  parApp: ReadonlyMap<string, readonly string[]>;
+  /** application_id → motif du repli, pour les applications tentées. */
+  replis: ReadonlyMap<string, MotifRepli>;
+  langue: string;
+  ugc: boolean;
+}): string {
+  const sansRepli = "Pas de repli Sophia : aucun label de ce compte ne sert Sophia.";
+  const servies = [...args.parApp.keys()].filter((id) => id !== ID_SOPHIA);
+  if (servies.length === 0) {
+    return `Aucun label de ce compte ne sert une application (labels système seulement). ${sansRepli}`;
+  }
+  const parId = new Map(args.applications.map((a) => [a.id, a]));
+  // Dans l'ordre des applications (Sophia, puis par date de création).
+  const ordre = [
+    ...args.applications.filter((a) => servies.includes(a.id)).map((a) => a.id),
+    ...servies.filter((id) => !parId.has(id)),
+  ];
+  const causes = ordre.map((id) => {
+    const app = parId.get(id);
+    if (!app) return `application ${id} introuvable`;
+    // Mêmes conditions, dans le même ordre, que `applicationsEligiblesCompte`.
+    const empeche: string[] = [];
+    if (!app.actif) empeche.push("est désactivée");
+    if (app.langues !== null && app.langues.length === 0) {
+      empeche.push("ne cible encore aucune langue (à cocher dans Pilotage → Applications)");
+    } else if (app.langues !== null && !app.langues.includes(args.langue)) {
+      empeche.push(`ne cible pas la langue de ce compte (${args.langue})`);
+    }
+    if (args.ugc) empeche.push("ne sert pas les comptes UGC (slideshows classiques uniquement)");
+    if (empeche.length > 0) return `${app.nom} ${empeche.join(" et ")}`;
+    return phraseMotifRepli(app.nom, args.replis.get(id));
+  });
+  const noms = ordre.map((id) => parId.get(id)?.nom ?? id).join(" + ");
+  return `Compte 100 % ${noms} : ${causes.join(" ; ")}. ${sansRepli}`;
 }
 
 /** Écart en jours entre deux dates `YYYY-MM-DD` (valeur absolue). */
@@ -2253,6 +2408,13 @@ export async function assignerDrainLot(
       };
     }
   });
+  // Le verdict de la nuit, compte par compte (0267). Minuit passe par CE drain,
+  // pas par `assignerTousComptes` : sans cette ligne, le journal restait vide
+  // la nuit et le panneau retombait sur une raison reconstituée après coup,
+  // donc fausse. `journaliser` rattrape ses erreurs : jamais d'échec du lot ni
+  // de la chaîne pour une trace. Les lignes de `lot` viennent de
+  // `listerComptesSousQuota` (`select("*")`) : `posts_par_jour` y est.
+  await journaliser(supabase, jour, lot, resultats);
   return {
     resultats,
     restants: Math.max(0, eligibles.length - lot.length),

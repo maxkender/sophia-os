@@ -48,6 +48,59 @@ Deno.test("erreurSchemaAbsent : seules l'absence de table / colonne comptent", (
   assert(!erreurSchemaAbsent({ code: "57014", message: "canceling statement due to statement timeout" }, 500));
 });
 
+/** Ce que rend PostgREST quand la base ne répond plus (mesuré : 503). */
+const PGRST002 = {
+  code: "PGRST002",
+  message: "Could not query the database for the schema cache. Retrying.",
+};
+
+Deno.test("erreurSchemaAbsent : une panne de la base (503 PGRST002) n'est JAMAIS une absence", () => {
+  // Le message parle du « schema cache » : l'ancienne règle y lisait « 0256
+  // absente » et faisait publier en Sophia des comptes 100 % Unswipe.
+  assert(!erreurSchemaAbsent(PGRST002, 503));
+  assert(!erreurSchemaAbsent(PGRST002), "le code suffit, même sans statut");
+  for (const code of ["PGRST000", "PGRST001", "PGRST003"]) {
+    assert(!erreurSchemaAbsent({ code, message: "Database client error. Retrying the connection." }, 503), code);
+  }
+  assert(!erreurSchemaAbsent({ message: "... the schema cache ..." }), "« schema cache » seul ne dit rien");
+});
+
+Deno.test("erreurSchemaAbsent : un 5xx n'est jamais une absence, quel que soit le message", () => {
+  assert(!erreurSchemaAbsent({ message: "Internal Server Error" }, 500));
+  assert(!erreurSchemaAbsent(null, 500));
+  assert(!erreurSchemaAbsent({ message: 'relation "public.label_applications" does not exist' }, 500));
+  assert(!erreurSchemaAbsent({ code: "PGRST205", message: "Could not find the table" }, 503));
+});
+
+Deno.test("erreurSchemaAbsent : les vraies absences restent reconnues (code, 404, message explicite)", () => {
+  assert(erreurSchemaAbsent({
+    code: "PGRST205",
+    message: "Could not find the table 'public.label_applications' in the schema cache",
+  }, 404));
+  assert(erreurSchemaAbsent({ code: "42703", message: "column passages.application_id does not exist" }, 400));
+  assert(erreurSchemaAbsent({
+    code: "PGRST204",
+    message: "Could not find the 'langues' column of 'applications' in the schema cache",
+  }, 400));
+  // Sans code ni statut : seul un message EXPLICITE compte.
+  assert(erreurSchemaAbsent({ message: 'relation "public.label_applications" does not exist' }));
+  assert(erreurSchemaAbsent({ message: "column applications.actif does not exist" }));
+  assert(erreurSchemaAbsent({ message: "Could not find the table 'public.applications' in the schema cache" }));
+  assert(erreurSchemaAbsent({ message: "Could not find the 'actif' column of 'applications' in the schema cache" }));
+  assert(!erreurSchemaAbsent({ message: "function public.truc() does not exist" }), "une fonction n'est pas le schéma 0256");
+});
+
+Deno.test("sonde : une panne PGRST002 (503) est « illisible », jamais « absente », et rien n'est mémorisé", async () => {
+  oublierSondeMultiApp();
+  const panne: Reponse = { data: null, error: PGRST002, status: 503 };
+  const { client, lectures } = fauxClient({ label_applications: [panne, panne, OK] });
+  assertEquals(await sonderSchemaMultiApp(client), "illisible");
+  assertEquals(lectures.length, 2, "une seconde tentative, puis illisible");
+  // Ni « absent » mémorisé 5 min, ni rien d'autre : la base revenue, la sonde
+  // relit tout de suite et la voit prête.
+  assertEquals(await sonderSchemaMultiApp(client), "pret");
+});
+
 Deno.test("sonde : 0256 absente (table inconnue en GET) → faux, et SANS HEAD", async () => {
   oublierSondeMultiApp();
   const { client, lectures } = fauxClient({

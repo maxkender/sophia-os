@@ -41,15 +41,24 @@ type ErreurSonde = { code?: string; message?: string } | null;
  * `relationAbsente` de tierlist.ts). Un 500, un 502 ou une coupure réseau ne
  * disent rien du schéma : les prendre pour « 0256 absente » ferait publier en
  * Sophia des comptes 100 % Unswipe pendant 5 minutes.
+ *
+ * Le piège mesuré : quand la base ne répond plus, PostgREST rend 503 PGRST002
+ * « Could not query the database for the schema cache. Retrying. ». Le message
+ * parle du cache de schéma, pas d'une table absente — l'ancienne règle (« schema
+ * cache » quelque part dans le message) y lisait une absence. Désormais un
+ * statut ≥ 500 ou un code PGRST000–PGRST003 (connexion, cache de schéma
+ * indisponible) n'est JAMAIS une absence, et le message ne compte que s'il dit
+ * explicitement qu'une table ou une colonne n'existe pas.
  */
 export function erreurSchemaAbsent(erreur: ErreurSonde, statut?: number): boolean {
+  if (typeof statut === "number" && statut >= 500) return false;
   if (!erreur) return statut === 404;
   const code = String(erreur.code ?? "");
+  if (/^PGRST00[0-3]$/.test(code)) return false;
   if (["42P01", "PGRST205", "42703", "PGRST204"].includes(code)) return true;
   if (statut === 404) return true;
-  return /does not exist|could not find the table|schema cache/i.test(
-    String(erreur.message ?? ""),
-  );
+  return /relation .* does not exist|column .* does not exist|could not find the table|could not find the .* column/i
+    .test(String(erreur.message ?? ""));
 }
 
 async function lireSonde(

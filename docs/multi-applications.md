@@ -8,13 +8,17 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
 
 - **Les comptes portent des LABELS, pas des applications.** Identité d'un compte
   (bio, lien, persona) : Sophia, toujours.
-- **Un label sert une ou plusieurs applications** (`label_applications`), avec
-  un **angle** par application : un texte injecté dans les prompts de pertinence
-  et de placement de cette application (« Clean Girl × Unswipe : reprends le
-  contrôle de ton temps »).
+- **Un label sert une ou plusieurs applications** (`label_applications`).
+  Pas d'« angle » par label : le prompt de placement de l'application suffit
+  (décision du 2026-10-08). Les colonnes `label_applications.angle` et
+  `contenu_pertinences.angles` restent en base, inutilisées (`angles` est
+  toujours écrite à `null`).
   - **Règle d'héritage** : un label SANS ligne sert Sophia. Un oubli de backfill
     ne peut jamais vider le stock Sophia.
   - Labels système (`hook`, `ugc-ai-video`) : aucune application.
+  - Démarrer Unswipe = créer des labels **dédiés** cochés Unswipe seul. Ne pas
+    retirer Sophia d'un label existant : tous ses comptes passeraient en 100 %
+    Unswipe.
 - **Sources et contenus ne sont plus rattachés à une application.** Un post
   TikTok importé une fois sert toutes les applications de ses labels.
   (`application_id` reste sur ces tables, figé à Sophia, pour les lecteurs
@@ -39,11 +43,36 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
   Un prompt manquant pour une application non-Sophia = échec franc (jamais de
   repli silencieux sur le texte Sophia).
 - **ELO, tierlist, classement : PARTAGÉS.** Un passage Unswipe consomme le même
-  budget `restants` du contenu qu'un passage Sophia.
+  budget `restants` du contenu qu'un passage Sophia (à séparer par
+  application : voir § 4).
 - **Deck placé** : Sophia reste dans `contenu_langues.slides` (inchangé). Les
   autres applications dans `contenu_langue_decks` (contenu × langue × variante),
   cuits à partir d'une base SANS placement (`slides_base` : OCR source, ou
   traduction propre de la langue écrite par ce chemin).
+- **Concurrents, par application** (`_shared/concurrents.ts`,
+  `motifConcurrentApplication`) :
+  - Sophia : « vent now », « readup » (inchangé).
+  - Unswipe : ceux de Sophia + les applis de temps d'écran — Unscroll, Opal
+    (hors bijou / ongles / couleur), one sec (« one sec app », « onesec »),
+    ScreenZen, AppBlock / AppBlocker, Clearspace (collés), Brick (« the
+    brick », « brick app », « brick phone blocker » ; jamais « brick by
+    brick »), Freedom (« freedom app », « Freedom blocks… »), Forest
+    (« forest app » ou une ligne de titre « 3. forest »). Pas « jomo ».
+    Mesuré sur les 77 212 slides du stock (2026-10-08) : aucun faux positif
+    relevé avec ces conditions (sans elles : « brick by brick », « forest
+    bathing », « a clear space », « freedom » au sens courant…) ; Unscroll est
+    de loin le plus cité (97 slides, 82 contenus), puis Freedom (8), Forest (4),
+    Brick (2).
+  - **Position imposée** : comme pour Sophia, la première slide (hors
+    couverture) qui cite un concurrent de l'application est la SEULE position
+    permise du placement, même hors des 3 dernières slides ; le prompt demande
+    de la remplacer entièrement. Elle est lue sur la base de la langue cible,
+    sinon sur la base source (positions identiques entre langues). Sans
+    concurrent : une des 3 dernières slides.
+  - Les autres mentions sont retirées phrase par phrase avant le placement
+    (la slide imposée reste lisible pour le modèle), une variante qui cite un
+    concurrent est rejetée, et le deck final repasse au nettoyage. Un deck en
+    cache qui cite un concurrent est recuit.
 - **Répartition par compte** : `comptes.parts_applications` jsonb
   (`{"sophia":70,"unswipe":30}`), `NULL` = 100 % Sophia. Restreinte aux
   applications que ses labels servent, actives et ciblant sa langue
@@ -72,8 +101,8 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
 | Objet | Rôle |
 |---|---|
 | `applications.langues text[]`, `applications.actif bool` | langues ciblées (`NULL` = toutes), interrupteur |
-| `label_applications(label_id, application_id, angle)` | applications servies par un label |
-| `contenu_pertinences(contenu_id, application_id, score, raison, note, eligible, angles, prompt_cle)` | pertinence par application |
+| `label_applications(label_id, application_id, angle)` | applications servies par un label (`angle` : inutilisée) |
+| `contenu_pertinences(contenu_id, application_id, score, raison, note, eligible, angles, prompt_cle)` | pertinence par application (`angles` : toujours `null`) |
 | `contenu_langue_decks(contenu_langue_id, contenu_id, langue, application_id, variante, statut, raison, slides, placement)` | deck placé hors Sophia (`statut` : `pret` / `echec` / `ineligible`) |
 | `passages.application_id` (défaut Sophia), `passages.application_visee_id`, `passages.repli_motif` | application promue, repli |
 | `posts.application_id` (défaut Sophia) | copie pour les pages posteur/admin |
@@ -117,18 +146,36 @@ Les fonctions Edge se déploient au merge sur `main` ; les migrations se passent
    Unswipe = 0 % partout : aucune application inactive n'est jamais choisie,
    aucun label ne la sert, aucun compte n'a de part.
 5. Relire / compléter `pertinence_unswipe` et `placement_unswipe` (Réglages →
-   Prompts, sélecteur sur Unswipe).
-6. **Quand on décide de démarrer** : Pilotage → Applications, choisir les
-   langues d'Unswipe, cocher Unswipe sur les labels voulus (+ angle), lancer le
-   rattrapage de pertinence Unswipe du stock, puis activer Unswipe
-   (l'activation est refusée tant que les deux prompts sont vides).
+   Prompts, sélecteur sur Unswipe). Les brouillons de 0258 sont alignés sur
+   l'enveloppe du code (slide imposée par le code, mention indirecte en mode
+   instructif) mais le pitch (fonctionnalités, chiffres réels) reste à écrire.
+6. **Quand on décide de démarrer** : Pilotage → carte « Applications » →
+   Unswipe → « Langues » (sans langue, aucun compte ne publie Unswipe) ; créer
+   des labels dédiés cochés Unswipe seul (ne pas décocher Sophia d'un label
+   existant) ; lancer le rattrapage de pertinence Unswipe du stock ; puis
+   activer Unswipe (l'activation est refusée tant que les deux prompts sont
+   vides). Commencer par 1 ou 2 comptes et vérifier le lendemain.
 7. Posters : régler la répartition des comptes concernés (défaut 100 % Sophia).
 
 `manage-users` et `papier-cm` tournent sur des bundles figés : ils continuent
 de lire `application_id` (toujours Sophia) et n'ont pas besoin d'être
 reconstruits pour cette évolution.
 
-## 4. Phase 2 (prévue, pas livrée)
+## 4. Plus tard (décidé, pas fait)
+
+1. **Tiers, budget de passages et vues PAR APPLICATION.** Aujourd'hui ELO,
+   tierlist et budget `restants` sont partagés : un post Unswipe consomme le
+   même compteur qu'un post Sophia, et ses vues comptent dans le tier du
+   contenu. Décision : les séparer par application (refonte complète du
+   classement et de la tierlist).
+2. **`manage-users` : repli « label le moins utilisé ».** Quand on crée un
+   poster et que la file de sa langue est vide, le bundle figé lui donne le
+   label le moins utilisé de la langue, sans regarder `label_applications`.
+   Un label « Unswipe seul » tout neuf (0 compte) serait donc donné aux
+   prochaines recrues Sophia. Correctif à faire dans le bundle figé, en deux
+   temps comme #300 / #302 (reconstruire le bundle, puis déployer).
+
+## 5. Phase 2 (prévue, pas livrée)
 
 Posts **doubles** : une slide Sophia + une slide Unswipe, quand les deux
 pertinences dépassent un seuil élevé sur un label commun. Le modèle le permet

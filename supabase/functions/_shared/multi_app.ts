@@ -1,6 +1,6 @@
 /**
  * Multi-applications : décisions pures du moteur (labels → applications
- * servies, répartition d'un compte, application d'un créneau, angles).
+ * servies, répartition d'un compte, application d'un créneau).
  *
  * Copie Deno de `src/features/moteur/multiApp.ts`, à garder synchro :
  * `multiApp.test.ts` compare les deux fichiers et échoue s'ils divergent.
@@ -41,6 +41,11 @@ export interface ApplicationMoteur {
 export interface LienLabelApplication {
   label_id: string;
   application_id: string;
+  /**
+   * Colonne `label_applications.angle` : abandonnée (le prompt de placement
+   * suffit), plus injectée dans aucun prompt. Gardée optionnelle pour les
+   * lecteurs qui la sélectionnent encore.
+   */
   angle?: string | null;
 }
 
@@ -214,39 +219,4 @@ export function choisirApplicationCreneau(
     if (b === SLUG_SOPHIA) return 1;
     return a.localeCompare(b);
   })[0];
-}
-
-/**
- * Angles des labels d'un contenu pour une application (dédoublonnés, non
- * vides, dans l'ordre des labels). Vide tant qu'aucun angle n'est saisi : le
- * prompt reste alors octet pour octet celui d'aujourd'hui.
- */
-export function anglesPourApplication(
-  labels: readonly LabelRef[],
-  liens: readonly LienLabelApplication[],
-  applicationId: string,
-): Array<{ label: string; angle: string }> {
-  const vus = new Set<string>();
-  const out: Array<{ label: string; angle: string }> = [];
-  for (const label of labels) {
-    if (estLabelSystemeSlug(label.slug)) continue;
-    for (const lien of liens) {
-      if (lien.label_id !== label.id || lien.application_id !== applicationId) continue;
-      const angle = (lien.angle ?? "").trim();
-      if (!angle || vus.has(angle)) continue;
-      vus.add(angle);
-      out.push({ label: (label.nom ?? label.slug ?? label.id).trim(), angle });
-    }
-  }
-  return out;
-}
-
-/** Bloc de prompt des angles ; chaîne vide s'il n'y en a aucun. */
-export function blocAngles(
-  angles: ReadonlyArray<{ label: string; angle: string }>,
-  nomApplication: string,
-): string {
-  if (angles.length === 0) return "";
-  const lignes = angles.map((a) => `- ${a.label} : ${a.angle}`).join("\n");
-  return `\n\nAngle à donner à ${nomApplication} pour ce slideshow (selon son label) :\n${lignes}`;
 }

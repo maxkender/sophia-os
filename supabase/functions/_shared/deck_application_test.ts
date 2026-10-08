@@ -216,9 +216,7 @@ function monde(surcharge: Partial<Record<string, Ligne[]>> = {}): Record<string,
     contenu_langue_decks: [],
     prompts: [{ cle: "placement_unswipe", contenu: "Prompt maître Unswipe." }],
     contenu_labels: [{ contenu_id: "c1", label_id: "l1", labels: { id: "l1", slug: "clean-girl", nom: "Clean Girl" } }],
-    label_applications: [
-      { label_id: "l1", application_id: UNSWIPE.id, angle: "reprends le contrôle de ton temps" },
-    ],
+    label_applications: [{ label_id: "l1", application_id: UNSWIPE.id }],
     ...surcharge,
   };
 }
@@ -394,10 +392,11 @@ Deno.test("cuisson en langue cible : base traduite dans slides_base, deck placé
   assertEquals(fr.slides, BASE_FR);
   assertEquals(fr.slides_base, BASE_FR);
 
-  // Une traduction, un placement — et l'angle du label est dans le prompt.
+  // Une traduction, un placement — sans angle de label, sans slide imposée.
   assertEquals(prompts.length, 2);
   assertStringIncludes(prompts[1], "Prompt maître Unswipe.");
-  assertStringIncludes(prompts[1], "- Clean Girl : reprends le contrôle de ton temps");
+  assert(!prompts[1].includes("Angle à donner"));
+  assert(!prompts[1].includes("appli concurrente"));
   assert(!prompts[1].includes("Prompt Sophia"));
 
   const cache = tables.contenu_langue_decks[0];
@@ -410,7 +409,7 @@ Deno.test("cuisson en langue cible : base traduite dans slides_base, deck placé
     variants: ["3. die Unswipe-App hilft mir", "3. Unswipe hilft"],
     bestIndex: 0,
     chosenPosition: 4,
-    angles: [{ label: "Clean Girl", angle: "reprends le contrôle de ton temps" }],
+    positionImposee: undefined,
     prompt_cle: "placement_unswipe",
   });
   aucuneEcritureDeSlides(ecritures);
@@ -425,6 +424,112 @@ Deno.test("cuisson en langue cible : base traduite dans slides_base, deck placé
   assertEquals(cuitPremier, true);
   assertEquals(second.resultat, sansCuit);
   assertEquals(second.prompts.length, 0);
+});
+
+/** 8 slides, « Opal » (concurrent d'Unswipe) en slide 3 et en passant en slide 6. */
+const BASE_OPAL = [
+  slide(1, "7 habitudes pour arrêter de scroller"),
+  slide(2, "1. téléphone hors de la chambre"),
+  slide(3, "2. j'ai installé Opal pour bloquer TikTok"),
+  slide(4, "3. notifications coupées"),
+  slide(5, "4. lecture avant de dormir"),
+  slide(6, "5. marche sans écouteurs. merci Opal pour ça."),
+  slide(7, "6. carnet du soir"),
+  slide(8, "7. lumière du matin"),
+];
+
+Deno.test("concurrent Unswipe en slide 3 sur 8 : position imposée 3, deck final sans « Opal »", async () => {
+  oublierSondeMultiApp();
+  const ecritures: Ecriture[] = [];
+  const tables = monde({
+    contenu_langues: [{
+      id: "cl-fr",
+      contenu_id: "c1",
+      langue: "fr",
+      slides: BASE_OPAL,
+      slides_base: null,
+      hashtags: "#fr1 #fr2 #fr3",
+    }],
+  });
+  const { resultat, prompts } = await avecGemini(() =>
+    assurerDeckApplication(fauxClient(tables, ecritures), "c1", "fr", UNSWIPE)
+  );
+
+  assertEquals(resultat.statut, "pret");
+  if (resultat.statut !== "pret") return;
+  // Le modèle répond 4 : la slide concurrente imposée l'emporte.
+  assertEquals(resultat.slides.filter((s) => s.position_sophia).map((s) => s.position), [3]);
+  assertEquals(resultat.slides[2].texte_overlay, "3. die Unswipe-App hilft mir");
+  assertEquals(resultat.slides[5].texte_overlay, "5. marche sans écouteurs.");
+  for (const s of resultat.slides) assert(!/opal/i.test(s.texte_overlay ?? ""), s.texte_overlay ?? "");
+
+  // Le modèle voit la slide concurrente (pour la remplacer), pas les autres mentions.
+  assertEquals(prompts.length, 1);
+  assertStringIncludes(prompts[0], "La slide 3 cite une appli concurrente");
+  assertStringIncludes(prompts[0], `Slide 3 : "2. j'ai installé Opal pour bloquer TikTok"`);
+  assertStringIncludes(prompts[0], `Slide 6 : "5. marche sans écouteurs."`);
+
+  const cache = tables.contenu_langue_decks[0];
+  assertEquals(cache.statut, "pret");
+  assertEquals((cache.placement as { positionImposee?: number }).positionImposee, 3);
+  assertEquals((cache.placement as { chosenPosition: number }).chosenPosition, 3);
+  // La base source (et le deck Sophia) ne sont pas touchés.
+  assertEquals(tables.contenu_langues[0].slides, BASE_OPAL);
+  aucuneEcritureDeSlides(ecritures);
+
+  // Cache : un deck propre est resservi tel quel.
+  oublierSondeMultiApp();
+  const second = await avecGemini(() =>
+    assurerDeckApplication(fauxClient(tables, ecritures), "c1", "fr", UNSWIPE)
+  );
+  assertEquals(second.prompts.length, 0);
+  assertEquals(second.resultat.statut, "pret");
+});
+
+Deno.test("concurrent perdu par la traduction : position lue sur la base source", async () => {
+  oublierSondeMultiApp();
+  const ecritures: Ecriture[] = [];
+  // La traduction a perdu le nom de la marque partout.
+  const baseDe = BASE_OPAL.map((s) =>
+    slide(s.position, `[de] ${(s.texte_overlay ?? "").replace(/Opal/g, "eine App")}`)
+  );
+  const tables = monde({
+    contenu_langues: [
+      { id: "cl-fr", contenu_id: "c1", langue: "fr", slides: BASE_OPAL, slides_base: null, hashtags: "#fr" },
+      { id: "cl-de", contenu_id: "c1", langue: "de", slides: [], slides_base: baseDe, hashtags: "#de" },
+    ],
+  });
+  const { resultat, prompts } = await avecGemini(() =>
+    assurerDeckApplication(fauxClient(tables, ecritures), "c1", "de", UNSWIPE)
+  );
+  assertEquals(resultat.statut, "pret");
+  if (resultat.statut !== "pret") return;
+  assertEquals(prompts.length, 1, "slides_base allemande déjà là : pas de traduction");
+  assertStringIncludes(prompts[0], "La slide 3 cite une appli concurrente");
+  assertEquals(resultat.slides.filter((s) => s.position_sophia).map((s) => s.position), [3]);
+  for (const s of resultat.slides) assert(!/opal/i.test(s.texte_overlay ?? ""), s.texte_overlay ?? "");
+  aucuneEcritureDeSlides(ecritures);
+});
+
+Deno.test("cache prêt qui cite un concurrent d'Unswipe : recuit", async () => {
+  oublierSondeMultiApp();
+  const ecritures: Ecriture[] = [];
+  const tables = monde({
+    contenu_langue_decks: [{
+      id: "d1",
+      contenu_langue_id: "cl-fr",
+      variante: "unswipe",
+      statut: "pret",
+      slides: [...BASE_FR.slice(0, 2), slide(3, "2. the forest app"), slide(4, "3. l'appli Unswipe m'aide", true)],
+      updated_at: new Date().toISOString(),
+    }],
+  });
+  const { resultat, prompts } = await avecGemini(() =>
+    assurerDeckApplication(fauxClient(tables, ecritures), "c1", "fr", UNSWIPE)
+  );
+  assertEquals(resultat.statut, "pret");
+  assertEquals(prompts.length, 1, "recuit : un placement");
+  aucuneEcritureDeSlides(ecritures);
 });
 
 Deno.test("course à la création de la ligne langue : on relit au lieu d'échouer", async () => {

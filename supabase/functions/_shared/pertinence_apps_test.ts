@@ -12,7 +12,6 @@
 import { assert, assertEquals, assertStrictEquals } from "jsr:@std/assert@1";
 
 import { oublierSondeMultiApp } from "./applications_moteur.ts";
-import { DEFAULT_RELEVANCE_PROMPT } from "./gemini.ts";
 import { ID_SOPHIA, type ApplicationMoteur } from "./multi_app.ts";
 import {
   accrocheDepuisLigneSource,
@@ -25,7 +24,6 @@ import {
   eligibiliteDepuisNote,
   etatBackfillPertinence,
   finaliserPertinence,
-  instructionsPertinence,
   majNotesPertinences,
   normaliserReglageBackfill,
   noterPertinenceImport,
@@ -118,18 +116,6 @@ Deno.test("application inactive notée si son prompt existe ; Sophia d'abord pui
     prompts: new Map([[ID_UNSWIPE, "PU"]]),
   });
   assertEquals(sansSophia.map((a) => a.app.slug), ["unswipe"]);
-});
-
-Deno.test("consigne Sophia sans angle : le prompt stocké octet pour octet", () => {
-  const stocke = "Sophia est une application…\n\nNote de 0 à 100.  ";
-  assertStrictEquals(instructionsPertinence(stocke, ""), stocke);
-  assertStrictEquals(instructionsPertinence(undefined, ""), undefined);
-});
-
-Deno.test("consigne avec angle : bloc ajouté à la fin, au défaut si pas de prompt Sophia", () => {
-  const bloc = "\n\nAngle à donner à Unswipe pour ce slideshow (selon son label) :\n- Clean Girl : temps";
-  assertEquals(instructionsPertinence("PU", bloc), `PU${bloc}`);
-  assertEquals(instructionsPertinence(undefined, bloc), `${DEFAULT_RELEVANCE_PROMPT}${bloc}`);
 });
 
 Deno.test("score stockable : entier borné 0..100", () => {
@@ -502,11 +488,12 @@ Deno.test("import Sophia sans prompt stocké : consigne undefined (défaut de sc
   assertEquals(appels[0].caption, "");
 });
 
-Deno.test("import Sophia + Unswipe : un appel par passage, max au dernier, angle Unswipe seul", async () => {
+Deno.test("import Sophia + Unswipe : un appel par passage, max au dernier, prompts stockés tels quels", async () => {
   oublierSondeMultiApp();
   const base = new FausseBase({
+    // Angles restés en base (colonne inutilisée) : jamais injectés.
     label_applications: [
-      { label_id: "l1", application_id: ID_SOPHIA, angle: null },
+      { label_id: "l1", application_id: ID_SOPHIA, angle: "vieil angle Sophia" },
       { label_id: "l1", application_id: ID_UNSWIPE, angle: "reprends ton temps" },
     ],
     applications: applications(),
@@ -530,14 +517,13 @@ Deno.test("import Sophia + Unswipe : un appel par passage, max au dernier, angle
     scoreRelevance: score,
   });
   assertEquals(p2, { fini: true, score: 81, raison: "moyen", application: "unswipe" });
-  assertEquals(
-    appels[1].instructions,
-    "PROMPT UNSWIPE\n\nAngle à donner à Unswipe pour ce slideshow (selon son label) :\n- Clean Girl : reprends ton temps",
-  );
+  assertStrictEquals(appels[1].instructions, "PROMPT UNSWIPE");
   const unswipe = base.table("contenu_pertinences").find((l) => l.application_id === ID_UNSWIPE)!;
   assertEquals(unswipe.eligible, false);
   assertEquals(unswipe.prompt_cle, "pertinence_unswipe");
-  assertEquals(unswipe.angles, "- Clean Girl : reprends ton temps");
+  assertStrictEquals(unswipe.angles, null);
+  const sophia = base.table("contenu_pertinences").find((l) => l.application_id === ID_SOPHIA)!;
+  assertStrictEquals(sophia.angles, null);
 
   // Reprise après coupure : tout est noté → finalisation sans Gemini.
   const p3 = await noterPertinenceImport(base.client(), { id: "c1", titre: "t" }, "h", {
@@ -621,7 +607,8 @@ Deno.test("étape 4 : note par application, lignes déjà notées laissées tell
 
 function baseRattrapage(reglage: unknown, promptUnswipe: string | null = "PROMPT UNSWIPE") {
   return new FausseBase({
-    label_applications: [{ label_id: "l1", application_id: ID_UNSWIPE, angle: null }],
+    // Angle resté en base (colonne inutilisée) : la consigne reste le prompt stocké.
+    label_applications: [{ label_id: "l1", application_id: ID_UNSWIPE, angle: "reprends ton temps" }],
     applications: applications(),
     prompts: promptUnswipe ? [{ cle: "pertinence_unswipe", contenu: promptUnswipe }] : [],
     reglages: reglage === undefined
@@ -700,6 +687,7 @@ Deno.test("rattrapage : note la file (plus récents d'abord) sans toucher aux co
   const lignes = base.table("contenu_pertinences");
   const neuf = lignes.find((l) => l.contenu_id === "neuf")!;
   assertEquals([neuf.score, neuf.note, neuf.eligible, neuf.prompt_cle], [90, 45, false, "pertinence_unswipe"]);
+  assertStrictEquals(neuf.angles, null);
   // Import forcé : éligible malgré la note.
   const vieux = lignes.find((l) => l.contenu_id === "vieux")!;
   assertEquals([vieux.note, vieux.eligible], [10, true]);

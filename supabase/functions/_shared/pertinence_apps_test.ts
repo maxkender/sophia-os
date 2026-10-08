@@ -537,8 +537,8 @@ Deno.test("import : prompt Unswipe manquant → Sophia seule, aucune ligne Unswi
   oublierSondeMultiApp();
   const base = new FausseBase({
     label_applications: [
-      { label_id: "l1", application_id: ID_SOPHIA, angle: null },
-      { label_id: "l1", application_id: ID_UNSWIPE, angle: "x" },
+      { label_id: "l1", application_id: ID_SOPHIA },
+      { label_id: "l1", application_id: ID_UNSWIPE },
     ],
     applications: applications(),
     prompts: [{ cle: "pertinence", contenu: "PROMPT SOPHIA" }],

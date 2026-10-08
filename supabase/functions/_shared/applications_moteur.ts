@@ -172,7 +172,7 @@ export async function chargerApplicationsMoteur(
   return apps;
 }
 
-/** Liens label → application (avec angle) pour ces labels. Erreur remontée. */
+/** Liens label → application pour ces labels. Erreur remontée. */
 export async function chargerLiensLabels(
   supabase: Supabase,
   labelIds: readonly string[],
@@ -183,12 +183,12 @@ export async function chargerLiensLabels(
   return await lireParLots<LienLabelApplication>(ids, "label_applications", (lot) =>
     supabase
       .from("label_applications")
-      .select("label_id, application_id, angle")
+      .select("label_id, application_id")
       .in("label_id", lot),
   );
 }
 
-/** id, slug, nom des labels (pour écarter les labels système, nommer les angles). */
+/** id, slug, nom des labels (pour écarter les labels système). */
 export async function chargerLabelsRefs(
   supabase: Supabase,
   labelIds: readonly string[],

@@ -38,15 +38,14 @@ export interface ApplicationMoteur {
   actif: boolean;
 }
 
+/**
+ * Lien label → application. Pas d'angle par label : le prompt de placement de
+ * l'application suffit (la colonne `label_applications.angle` reste en base,
+ * inutilisée, ni lue ni écrite).
+ */
 export interface LienLabelApplication {
   label_id: string;
   application_id: string;
-  /**
-   * Colonne `label_applications.angle` : abandonnée (le prompt de placement
-   * suffit), plus injectée dans aucun prompt. Gardée optionnelle pour les
-   * lecteurs qui la sélectionnent encore.
-   */
-  angle?: string | null;
 }
 
 export interface LabelRef {

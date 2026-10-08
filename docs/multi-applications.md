@@ -79,6 +79,11 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
   (`applications.langues`, `NULL` = toutes). Un compte dont les labels ne servent
   QUE Unswipe publie 100 % Unswipe. Tenue par **fenêtre glissante** (déficit) sur
   ses 10 derniers posts : en 70/30, toute suite de 10 posts compte 7/3.
+  Pilotage montre la carte « Répartition par application » dès qu'un label du
+  compte sert une autre application que Sophia, y compris pour un compte 100 %
+  Unswipe (pas de curseur : « Appliqué : Unswipe 100 % », ou en rouge « il ne
+  publiera rien » avec la cause : application désactivée, langue non ciblée,
+  compte UGC). Un compte Sophia pur ne la voit pas.
 - **Chemin historique** : un compte dont les parts effectives sont 100 % Sophia
   (le cas de tous les comptes tant qu'on ne règle rien) suit exactement le code
   d'avant — pas de fenêtre lue, pas de deck d'application.
@@ -89,7 +94,12 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
   dépassé son budget de cuisson des decks non-Sophia : aucune nouvelle cuisson après 60 s de lot, arrêt de toute cuisson à 90 s).
   Pilotage les affiche. Un compte qu'aucun repli ne peut servir (labels 100 %
   Unswipe, Unswipe inactive) ne baisse pas son quota et sort de la chaîne du
-  drain, pour ne pas bloquer les autres.
+  drain, pour ne pas bloquer les autres. Sa raison précise (« Compte 100 %
+  Unswipe : Unswipe est désactivée… », « … ne cible pas la langue de ce
+  compte… », réserve vide, deck en échec, budget) est écrite dans
+  `assignation_journal` (0267) par le drain de la nuit comme par
+  l'assignation globale ; le panneau Minuit la lit. Sans ligne de journal, son
+  diagnostic reconnaît lui-même un compte dont aucun label ne sert Sophia.
 - **Même contenu, deux applications** : autorisé, y compris sur le même compte,
   mais pas à moins de 7 jours d'écart (stats et doublons TikTok).
 - **Unswipe = slideshows classiques uniquement** : un compte UGC reste Sophia.
@@ -117,7 +127,12 @@ Logique pure partagée : `src/features/moteur/multiApp.ts` (tests vitest) et sa
 copie Deno `supabase/functions/_shared/multi_app.ts` (synchro testée). Lectures
 base : `supabase/functions/_shared/applications_moteur.ts`, qui sonde la
 présence de 0256 et retombe sur le comportement 100 % Sophia si la migration
-n'est pas passée.
+n'est pas passée. Une panne n'est JAMAIS prise pour une absence : tout 5xx et
+les codes PGRST000 à PGRST003 (dont le 503 PGRST002 « Could not query the
+database for the schema cache ») rendent la sonde « illisible ». Seuls
+comptent comme absence les codes 42P01, PGRST205, 42703, PGRST204, un 404, ou
+un message explicite (« relation / column … does not exist », « Could not find
+the table / … column »).
 
 ## 3. Déploiement (ordre impératif)
 
@@ -129,10 +144,15 @@ Les fonctions Edge se déploient au merge sur `main` ; les migrations se passent
    place). Filet de sécurité si l'ordre est inversé : le code sonde le schéma
    (lecture GET de `label_applications`, `applications.langues/actif`,
    `passages.application_id`) et reste sur le chemin 100 % Sophia tant que
-   0256 manque. Une sonde illisible (réseau, 5xx) ne pénalise jamais un compte
-   100 % Sophia (chemin d'avant) ; un compte qui demande une autre application,
-   un import ou un deck échouent alors et sont rejoués — sans bascule
-   silencieuse vers Sophia.
+   0256 manque. Une sonde illisible (réseau, 5xx) n'est pas une absence :
+   l'assignation relit alors directement `label_applications` pour les labels
+   du compte (deux essais). Tous ses labels servent Sophia → chemin d'avant,
+   inchangé. Un label qui ne sert pas Sophia (compte 100 % Unswipe ou mixte),
+   ou une relecture elle aussi en panne → le compte part en échec et sera
+   rejoué (rattrapage de 4 h), sans baisse de quota et sans jamais recevoir un
+   deck Sophia. De même, un compte qui demande une autre application, un
+   import ou un deck échouent et sont rejoués — sans bascule silencieuse vers
+   Sophia.
 2. **Merger** la branche (Edge auto-déployées, front Vercel). Sophia tourne à
    l'identique : aucun compte n'a de répartition, aucun label ne sert Unswipe.
    Vérifier la nuit suivante : même volume de posts (~280/jour), pas de pic de

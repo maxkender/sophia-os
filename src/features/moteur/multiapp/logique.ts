@@ -20,16 +20,25 @@ import { applicationsDuLabel, type LienLabelApplication } from "../multiApp";
  * - 42703 / 42P01 : colonne / relation inconnue (Postgres) ;
  * - PGRST204 / PGRST205 : colonne / table absente du cache de schéma ;
  * - PGRST200 : relation (embed) introuvable.
+ *
+ * Une PANNE n'est jamais une absence (même règle que `erreurSchemaAbsent` côté
+ * Edge) : un statut ≥ 500, ou les codes PGRST000 à PGRST003 — dont le 503
+ * PGRST002 « Could not query the database for the schema cache » que rend
+ * PostgREST quand la base ne répond plus. Son message parle du cache de
+ * schéma : l'ancienne règle (« schema cache » quelque part) y lisait « avant
+ * 0256 » et affichait, pour un compte 100 % Unswipe, le diagnostic du pool
+ * Sophia. Le message ne compte que s'il dit qu'une table, une colonne ou une
+ * relation n'existe pas.
  */
 export function estErreurSchemaAbsent(err: unknown): boolean {
   if (!err || typeof err !== "object") return false;
-  const { code, message } = err as { code?: unknown; message?: unknown };
-  if (["42703", "42P01", "PGRST200", "PGRST204", "PGRST205"].includes(String(code ?? ""))) {
-    return true;
-  }
-  return /does not exist|could not find the .*(column|table|relation)|schema cache/i.test(
-    String(message ?? ""),
-  );
+  const { code, message, status } = err as { code?: unknown; message?: unknown; status?: unknown };
+  if (typeof status === "number" && status >= 500) return false;
+  const c = String(code ?? "");
+  if (/^PGRST00[0-3]$/.test(c)) return false;
+  if (["42703", "42P01", "PGRST200", "PGRST204", "PGRST205"].includes(c)) return true;
+  return /(relation|column) .* does not exist|could not find the .*(column|table|relation)|could not find a relationship/i
+    .test(String(message ?? ""));
 }
 
 /** Le label n'a aucune ligne `label_applications` : il sert Sophia par héritage. */

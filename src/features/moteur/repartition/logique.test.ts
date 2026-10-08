@@ -5,6 +5,7 @@ import {
   curseursBornes,
   diagnosticCompteSansSophia,
   etatPartsCompte,
+  labelsPoolSophiaCompteMixte,
   nomApplicationPromue,
   nomsApplicationsDuLabel,
   partsDepuisCurseurs,
@@ -202,6 +203,20 @@ describe("etatPartsCompte", () => {
       expect(e.avertissements).toEqual([{ type: "langue", app: "Unswipe", langue: "de" }]);
     });
 
+    it("désactivée ET sans langue (état de 0258) : les deux causes, comme le moteur", () => {
+      const e = etatPartsCompte({
+        compte,
+        labels: [CLEAN],
+        liens,
+        applications: [SOPHIA, { ...UNSWIPE, actif: false, langues: [] }],
+      });
+      expect(e.bloque).toBe(true);
+      expect(e.avertissements).toEqual([
+        { type: "inactive", app: "Unswipe" },
+        { type: "langue", app: "Unswipe", langue: "fr" },
+      ]);
+    });
+
     it("compte UGC", () => {
       const e = etatPartsCompte({ compte: { ...compte, ugc_ai: true }, labels: [CLEAN], liens, applications: APPS });
       expect(e.bloque).toBe(true);
@@ -261,5 +276,32 @@ describe("diagnosticCompteSansSophia (panneau Minuit)", () => {
     const ugc = diagnosticCompteSansSophia({ ...base, compte: { langue: "fr", ugc: true }, liens: SEUL_UNSWIPE })!;
     expect(ugc).toContain("compte UGC");
     expect(ugc).toContain("il ne publiera rien");
+  });
+
+  it("désactivée ET sans langue (état de 0258) : les deux causes, pas seulement « désactivée »", () => {
+    const d = diagnosticCompteSansSophia({
+      ...base,
+      liens: SEUL_UNSWIPE,
+      applications: [SOPHIA, { ...UNSWIPE, actif: false, langues: [] }],
+    })!;
+    expect(d).toContain("Unswipe est désactivée");
+    expect(d).toContain("Unswipe ne cible encore aucune langue (à cocher dans Pilotage → Applications)");
+  });
+});
+
+describe("labelsPoolSophiaCompteMixte (panneau Minuit, pool Sophia)", () => {
+  const DETOX = { id: "l-detox", slug: "detox", nom: "Detox" };
+  const AVEC_DETOX = [...LIENS, { label_id: DETOX.id, application_id: ID_UNSWIPE }];
+
+  it("compte Sophia pur (système compris) : null, ses labels restent tels quels", () => {
+    expect(labelsPoolSophiaCompteMixte([CINEMA], AVEC_DETOX)).toBeNull();
+    expect(labelsPoolSophiaCompteMixte([CINEMA, CLEAN], AVEC_DETOX)).toBeNull();
+    expect(labelsPoolSophiaCompteMixte([CINEMA, HOOK], AVEC_DETOX)).toBeNull();
+    expect(labelsPoolSophiaCompteMixte([], AVEC_DETOX)).toBeNull();
+  });
+
+  it("compte mixte : seulement les labels qui servent Sophia, comme le moteur", () => {
+    expect(labelsPoolSophiaCompteMixte([CINEMA, DETOX], AVEC_DETOX)).toEqual([CINEMA]);
+    expect(labelsPoolSophiaCompteMixte([DETOX, CLEAN, HOOK], AVEC_DETOX)).toEqual([CLEAN]);
   });
 });

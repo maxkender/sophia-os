@@ -69,37 +69,76 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
     de la remplacer entièrement. Elle est lue sur la base de la langue cible,
     sinon sur la base source (positions identiques entre langues). Sans
     concurrent : une des 3 dernières slides.
-  - Les autres mentions sont retirées phrase par phrase avant le placement
-    (la slide imposée reste lisible pour le modèle), une variante qui cite un
-    concurrent est rejetée, et le deck final repasse au nettoyage. Un deck en
-    cache qui cite un concurrent est recuit.
+  - Une SEULE slide concurrente par contenu : une seconde slide qui cite un
+    concurrent de l'application, ou une couverture qui en cite un, rend le
+    contenu inéligible pour cette application (`ineligible`, en cache ; Sophia
+    continue de le servir), de même qu'un deck dont la slide imposée serait la
+    seule à porter du texte. Le nettoyage (`retirerConcurrent`) travaille
+    LIGNE par ligne, puis phrase par phrase dans la ligne : sur un texte d'OCR
+    coupé en lignes, une phrase ou une parenthèse à cheval sur deux lignes
+    n'était retirée qu'à moitié (« (i use », « content worth your time /
+    Open » d'une carte App Store incrustée). Mesuré sur le stock : un seul
+    contenu a deux slides concurrentes, aucune couverture n'en cite. La slide
+    imposée reste lisible pour le modèle, une variante qui cite un concurrent
+    est rejetée, et le deck final repasse au nettoyage. Un deck en cache qui
+    cite un concurrent est recuit.
+  - Hashtags : ceux d'une ligne de langue sont PARTAGÉS par toutes les
+    applications. Quand c'est le deck Unswipe qui les génère (ligne encore
+    sans hashtags), sa base est nettoyée des concurrents d'Unswipe, pas
+    seulement de ceux de Sophia ; le deck Sophia de cette langue les reprend
+    tels quels. Assumé : retirer « forest app » du texte que voit le modèle des
+    hashtags est sans danger pour un post Sophia. Aucun effet tant qu'aucun
+    label ne sert Unswipe.
 - **Répartition par compte** : `comptes.parts_applications` jsonb
   (`{"sophia":70,"unswipe":30}`), `NULL` = 100 % Sophia. Restreinte aux
   applications que ses labels servent, actives et ciblant sa langue
   (`applications.langues`, `NULL` = toutes). Un compte dont les labels ne servent
   QUE Unswipe publie 100 % Unswipe. Tenue par **fenêtre glissante** (déficit) sur
   ses 10 derniers posts : en 70/30, toute suite de 10 posts compte 7/3.
-  Pilotage montre la carte « Répartition par application » dès qu'un label du
-  compte sert une autre application que Sophia, y compris pour un compte 100 %
-  Unswipe (pas de curseur : « Appliqué : Unswipe 100 % », ou en rouge « il ne
-  publiera rien » avec la cause : application désactivée, langue non ciblée,
-  compte UGC). Un compte Sophia pur ne la voit pas.
+  Admin → Posters (ligne du compte dépliée) montre la carte « Répartition par
+  application » dès qu'un label du compte sert une autre application que
+  Sophia, y compris pour un compte 100 % Unswipe (pas de curseur : « Appliqué :
+  Unswipe 100 % », ou en rouge « il ne publiera rien » avec TOUTES les causes :
+  application désactivée, langue non ciblée — les deux à la fois dans l'état
+  laissé par 0258 —, compte UGC). Un compte Sophia pur ne la voit pas, sauf
+  s'il garde une répartition enregistrée devenue sans objet (à effacer).
 - **Chemin historique** : un compte dont les parts effectives sont 100 % Sophia
   (le cas de tous les comptes tant qu'on ne règle rien) suit exactement le code
   d'avant — pas de fenêtre lue, pas de deck d'application.
 - **Repli** : si l'application demandée ne peut pas être servie, le créneau
   passe sur Sophia et le passage le dit (`application_visee_id`, `repli_motif`).
-  Motifs : `reserve_vide`, `deck_ineligible` (base polluée par une pub Sophia),
-  `deck_echec` (prompt manquant, placement impossible), `budget` (la nuit a
+  Motifs : `reserve_vide`, `deck_ineligible` (base polluée par une pub Sophia,
+  seconde slide ou couverture concurrente…), `deck_echec` (prompt manquant,
+  placement impossible, traduction en échec, panne…), `budget` (la nuit a
   dépassé son budget de cuisson des decks non-Sophia : aucune nouvelle cuisson après 60 s de lot, arrêt de toute cuisson à 90 s).
   Pilotage les affiche. Un compte qu'aucun repli ne peut servir (labels 100 %
   Unswipe, Unswipe inactive) ne baisse pas son quota et sort de la chaîne du
-  drain, pour ne pas bloquer les autres. Sa raison précise (« Compte 100 %
-  Unswipe : Unswipe est désactivée… », « … ne cible pas la langue de ce
-  compte… », réserve vide, deck en échec, budget) est écrite dans
-  `assignation_journal` (0267) par le drain de la nuit comme par
-  l'assignation globale ; le panneau Minuit la lit. Sans ligne de journal, son
-  diagnostic reconnaît lui-même un compte dont aucun label ne sert Sophia.
+  drain, pour ne pas bloquer les autres — sauf si seul le budget de cuisson a
+  manqué : il reste alors dans la chaîne, et un lot suivant (budget neuf) le
+  reprend. Sa raison précise (« Compte 100 % Unswipe : Unswipe est
+  désactivée… », « … ne cible pas la langue de ce compte… », réserve vide,
+  deck refusé ou en échec avec la raison du dernier deck, budget) est écrite
+  dans `assignation_journal` (0267) ; le panneau Minuit la lit. Sans ligne de
+  journal, son diagnostic reconnaît lui-même un compte dont aucun label ne
+  sert Sophia, et compte le pool Sophia d'un compte mixte sur ses seuls labels
+  qui servent Sophia.
+- **Journal de la nuit (`assignation_journal`), pour TOUS les comptes** : le
+  drain de minuit écrit désormais le verdict de chaque compte qu'il traite,
+  Sophia compris (avant, seule l'assignation globale l'écrivait, et minuit
+  passe par le drain). Le bouton « Pourquoi » du panneau Minuit affiche donc,
+  pour un compte Sophia incomplet aussi, la raison de la nuit (« 1/2 créé(s).
+  <diagnostic du pool> ») ou « Minuit a échoué sur ce compte : … » au lieu
+  d'une raison reconstituée sur l'état courant. Les posts, decks et quotas
+  Sophia ne changent pas : seul ce texte change. Une assignation TEST n'écrit
+  rien ; une assignation forcée (recharge posteur, révocation, post de plus)
+  garde le verdict de la nuit et ne l'écrit que s'il manque ; une
+  réassignation manuelle ordinaire le remplace.
+- **Rappels J+7** : un rappel recopie les slides de sa source, pub comprise.
+  Il n'est pas programmé si les labels actuels du compte ne servent plus
+  l'application de la source (compte passé en « Unswipe seul » avec une
+  source Sophia) : noté dans les erreurs de l'étape, la source reste
+  candidate. Un rappel DÉJÀ posé avant le changement de labels reste en place
+  (voir § 3, étape 6).
 - **Même contenu, deux applications** : autorisé, y compris sur le même compte,
   mais pas à moins de 7 jours d'écart (stats et doublons TikTok).
 - **Unswipe = slideshows classiques uniquement** : un compte UGC reste Sophia.
@@ -127,9 +166,10 @@ Logique pure partagée : `src/features/moteur/multiApp.ts` (tests vitest) et sa
 copie Deno `supabase/functions/_shared/multi_app.ts` (synchro testée). Lectures
 base : `supabase/functions/_shared/applications_moteur.ts`, qui sonde la
 présence de 0256 et retombe sur le comportement 100 % Sophia si la migration
-n'est pas passée. Une panne n'est JAMAIS prise pour une absence : tout 5xx et
-les codes PGRST000 à PGRST003 (dont le 503 PGRST002 « Could not query the
-database for the schema cache ») rendent la sonde « illisible ». Seuls
+n'est pas passée. Une panne n'est JAMAIS prise pour une absence (Edge, et
+front : `estErreurSchemaAbsent`) : tout 5xx et les codes PGRST000 à PGRST003
+(dont le 503 PGRST002 « Could not query the database for the schema cache »)
+rendent la sonde « illisible ». Seuls
 comptent comme absence les codes 42P01, PGRST205, 42703, PGRST204, un 404, ou
 un message explicite (« relation / column … does not exist », « Could not find
 the table / … column »).
@@ -150,9 +190,15 @@ Les fonctions Edge se déploient au merge sur `main` ; les migrations se passent
    inchangé. Un label qui ne sert pas Sophia (compte 100 % Unswipe ou mixte),
    ou une relecture elle aussi en panne → le compte part en échec et sera
    rejoué (rattrapage de 4 h), sans baisse de quota et sans jamais recevoir un
-   deck Sophia. De même, un compte qui demande une autre application, un
-   import ou un deck échouent et sont rejoués — sans bascule silencieuse vers
-   Sophia.
+   deck Sophia. Ce dernier cas vaut aussi pour un compte Sophia pur : c'est le
+   seul écart avec le code d'avant, limité à une panne qui couvre la sonde et
+   la relecture (1 à 2 s) puis cesse avant les lectures du pool — sans savoir
+   ce que servent ses labels, le servir en Sophia serait parier. La révocation
+   ADMIN d'un post lève de même (à rejouer) sur une sonde illisible, avant
+   toute écriture : prise pour Sophia, elle rejetterait le slideshow d'un post
+   Unswipe pour toute la flotte. De même, un compte qui demande une autre
+   application, un import ou un deck échouent et sont rejoués — sans bascule
+   silencieuse vers Sophia.
 2. **Merger** la branche (Edge auto-déployées, front Vercel). Sophia tourne à
    l'identique : aucun compte n'a de répartition, aucun label ne sert Unswipe.
    Vérifier la nuit suivante : même volume de posts (~280/jour), pas de pic de
@@ -167,14 +213,22 @@ Les fonctions Edge se déploient au merge sur `main` ; les migrations se passent
    aucun label ne la sert, aucun compte n'a de part.
 5. Relire / compléter `pertinence_unswipe` et `placement_unswipe` (Réglages →
    Prompts, sélecteur sur Unswipe). Les brouillons de 0258 sont alignés sur
-   l'enveloppe du code (slide imposée par le code, mention indirecte en mode
-   instructif) mais le pitch (fonctionnalités, chiffres réels) reste à écrire.
+   l'enveloppe du code (slide imposée par le code, quelle que soit l'appli
+   citée — Vent Now et Readup compris ; longueur comparable à la slide
+   remplacée ; mention indirecte en mode instructif) et leurs exemples
+   n'affirment aucune fonctionnalité (ni blocage, ni limite, ni chiffre), mais
+   le pitch (fonctionnalités, chiffres réels) reste à écrire.
 6. **Quand on décide de démarrer** : Pilotage → carte « Applications » →
-   Unswipe → « Langues » (sans langue, aucun compte ne publie Unswipe) ; créer
-   des labels dédiés cochés Unswipe seul (ne pas décocher Sophia d'un label
-   existant) ; lancer le rattrapage de pertinence Unswipe du stock ; puis
-   activer Unswipe (l'activation est refusée tant que les deux prompts sont
-   vides). Commencer par 1 ou 2 comptes et vérifier le lendemain.
+   Unswipe → « Langues ciblées » (sans langue, aucun compte ne publie
+   Unswipe) ; créer des labels dédiés cochés Unswipe seul (ne pas décocher
+   Sophia d'un label existant) ; lancer le rattrapage de pertinence Unswipe du
+   stock ; puis activer Unswipe (l'activation est refusée tant que les deux
+   prompts sont vides). Commencer par 1 ou 2 comptes et vérifier le lendemain.
+   **Compte existant passé en « Unswipe seul »** : supprimer d'abord ses
+   rappels J+7 à venir non publiés (`passages` avec `est_rappel = true`,
+   `date_publication_prevue` > aujourd'hui, et leurs posts) — posés avant le
+   changement de labels, ils rejoueraient un post Sophia, pub comprise. Le
+   plus simple : démarrer avec des comptes neufs.
 7. Posters : régler la répartition des comptes concernés (défaut 100 % Sophia).
 
 `manage-users` et `papier-cm` tournent sur des bundles figés : ils continuent

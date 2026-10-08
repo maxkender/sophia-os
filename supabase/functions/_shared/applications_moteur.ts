@@ -129,8 +129,10 @@ export async function schemaMultiAppPret(supabase: Supabase): Promise<boolean> {
 
 /**
  * Variante TOLÉRANTE : une sonde illisible vaut « pas prête », donc le chemin
- * Sophia d'avant. Pour les chemins où ce repli est sans risque (rappels d'un
- * passage, révocation) et où un échec coûterait plus qu'il ne protège.
+ * Sophia d'avant. Pour les chemins où ce repli est sans risque (recharge
+ * posteur, qui ne rejette rien) et où un échec coûterait plus qu'il ne protège.
+ * Pas pour une révocation admin : prise pour Sophia, elle rejetterait pour
+ * toute la flotte le slideshow d'un post d'une autre application.
  */
 export async function schemaMultiAppPretSinonSophia(supabase: Supabase): Promise<boolean> {
   return (await sonderSchemaMultiApp(supabase)) === "pret";

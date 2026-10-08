@@ -14,6 +14,8 @@ import { oublierSondeMultiApp } from "./applications_moteur.ts";
 import {
   assignerCompteJour,
   assignerDrainLot,
+  assignerTousComptes,
+  compteSertApplicationRappel,
   contenuIdsDesLabels,
   creerMemoAssignation,
   decksAssignation,
@@ -752,6 +754,8 @@ function fauxMoteur(
     let mode: "liste" | "single" | "maybe" = "liste";
     /** Clés `onConflict` d'un upsert. */
     let conflit: string[] = [];
+    /** `ignoreDuplicates` d'un upsert : une ligne déjà là reste telle quelle. */
+    let garderExistant = false;
     // deno-lint-ignore no-explicit-any
     const lignes = (): any[] => (tables[table] ??= []);
     // deno-lint-ignore no-explicit-any
@@ -835,8 +839,9 @@ function fauxMoteur(
         >;
         for (const v of valeurs) {
           const i = lignes().findIndex((l) => conflit.length > 0 && conflit.every((c) => l[c] === v[c]));
-          if (i >= 0) lignes()[i] = { ...lignes()[i], ...v };
-          else lignes().push({ ...v });
+          if (i >= 0) {
+            if (!garderExistant) lignes()[i] = { ...lignes()[i], ...v };
+          } else lignes().push({ ...v });
         }
         data = valeurs;
       }
@@ -868,10 +873,11 @@ function fauxMoteur(
         op.op = "delete";
         return maillon;
       },
-      upsert: (v: unknown, o?: { onConflict?: string }) => {
+      upsert: (v: unknown, o?: { onConflict?: string; ignoreDuplicates?: boolean }) => {
         op.op = "upsert";
         op.valeurs = v;
         conflit = (o?.onConflict ?? "").split(",").map((c) => c.trim()).filter(Boolean);
+        garderExistant = Boolean(o?.ignoreDuplicates);
         return maillon;
       },
       eq: (c: string, v: unknown) => (op.filtres.push([c, "eq", v]), maillon),
@@ -1780,6 +1786,88 @@ Deno.test("drain — journal en panne : le lot rend quand même ses résultats",
   });
 });
 
+Deno.test("journal — une recharge (forcer) garde le verdict de la nuit, un test n'écrit rien, une réassignation le remplace", async () => {
+  const pret = () => ({ statut: "pret" as const, slides: DECK, hashtags: "#unswipe" });
+  await avecDecks(pret, async () => {
+    const base = baseDrain();
+    base.applications[1].actif = false;
+    const { client, journal, tables } = fauxMoteur(base);
+    const verdict = () =>
+      (tables.assignation_journal as Array<Record<string, unknown>>).find((v) => v.compte_id === "k1")!;
+    const ecrituresJournal = () => journal.filter((o) => o.table === "assignation_journal").length;
+
+    await assignerDrainLot(client, JOUR);
+    const nuit = verdict().raison;
+    assert(String(nuit).includes("Unswipe est désactivée"), String(nuit));
+
+    // Dans la journée : Unswipe rallumée, sa réserve remplie, et la recharge
+    // d'un post réussit. Elle ne doit pas effacer ce que la nuit a constaté.
+    (tables.applications as Array<Record<string, unknown>>)[1].actif = true;
+    for (let i = 0; i < 3; i += 1) {
+      tables.contenu_labels.push({ label_id: "L2", contenu_id: idContenu(i) });
+      tables.contenu_pertinences.push({ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true });
+    }
+    const recharge = await assignerTousComptes(client, JOUR, "k1", { forcer: true, ignorerWarmup: true });
+    assertEquals(recharge[0].crees, 1);
+    assertEquals(recharge[0].raison, undefined);
+    assertEquals([verdict().raison, verdict().crees], [nuit, 0], "verdict de la nuit gardé");
+
+    // Une assignation TEST (posts invisibles, hors quota) n'écrit rien.
+    const avantTest = ecrituresJournal();
+    const test = await assignerTousComptes(client, JOUR, "k2", { test: true, ignorerWarmup: true });
+    assertEquals(test[0].crees, 1);
+    assertEquals(ecrituresJournal(), avantTest);
+
+    // Une réassignation manuelle ordinaire explique l'état courant : elle remplace.
+    await assignerTousComptes(client, JOUR, "k1", { ignorerWarmup: true });
+    assert(String(verdict().raison).startsWith("Quota déjà rempli"), String(verdict().raison));
+  });
+});
+
+Deno.test("drain — budget de cuisson dépassé sur un compte 100 % Unswipe : raison écrite, mais il reste dans la chaîne", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = baseDrain();
+    const { client, tables } = fauxMoteur(base);
+
+    const lot = await assignerDrainLot(client, JOUR, { echeance: Date.now() - 1 });
+
+    const k1 = lot.resultats.find((r) => r.compteId === "k1")!;
+    assertEquals(k1.crees, 0);
+    assertEquals(k1.nonServable, undefined, "un manque de temps n'est pas « non servable »");
+    assertEquals(lot.echecs, [], "le lot suivant, budget neuf, le reprend");
+    assertEquals(appels.application, [], "aucune cuisson après l'échéance");
+    assertEquals(appels.sophia.length, 1, "le seul deck Sophia est celui de k2");
+    const v1 = (tables.assignation_journal as Array<Record<string, unknown>>)
+      .find((v) => v.compte_id === "k1")!;
+    assertEquals(
+      v1.raison,
+      `Compte 100 % Unswipe : budget de cuisson des decks Unswipe dépassé pour ce lot. ${PAS_DE_REPLI}`,
+    );
+  });
+});
+
+Deno.test("non servable — decks en échec : la raison cite la cause réelle du dernier deck", async () => {
+  const echec = () => ({ statut: "echec" as const, raison: "traduction de : 429 Too Many Requests", cuit: true });
+  await avecDecks(echec, async () => {
+    const base = base100Unswipe();
+    base.contenu_pertinences = [0, 1, 2].map((i) => ({
+      contenu_id: idContenu(i),
+      application_id: UNSWIPE,
+      eligible: true,
+    }));
+    const { client } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids, []);
+    assertEquals(detail.nonServable, true);
+    assertEquals(
+      detail.raison,
+      `Compte 100 % Unswipe : decks Unswipe en échec (dernier : traduction de : 429 Too Many Requests). ${PAS_DE_REPLI}`,
+    );
+  });
+});
+
 /* -------------------------------------------------------------------------
  * Compte non servable : la raison dit QUOI régler.
  * ---------------------------------------------------------------------- */
@@ -1833,6 +1921,7 @@ Deno.test("raisonCompteNonServable : une cause par application, dans l'ordre des
     applications?: ApplicationMoteur[];
     parApp: Map<string, string[]>;
     replis?: Map<string, "reserve_vide" | "deck_ineligible" | "deck_echec" | "budget">;
+    details?: Map<string, string>;
     langue?: string;
     ugc?: boolean;
   }) =>
@@ -1840,6 +1929,7 @@ Deno.test("raisonCompteNonServable : une cause par application, dans l'ordre des
       applications: args.applications ?? apps,
       parApp: args.parApp,
       replis: args.replis ?? new Map(),
+      details: args.details,
       langue: args.langue ?? "fr",
       ugc: args.ugc ?? false,
     });
@@ -1860,10 +1950,25 @@ Deno.test("raisonCompteNonServable : une cause par application, dans l'ordre des
       `et ne sert pas les comptes UGC (slideshows classiques uniquement). ${PAS_DE_REPLI}`,
   );
   // Éligible : le motif du repli, en clair.
-  const foo = (motif?: "reserve_vide" | "deck_ineligible" | "deck_echec" | "budget") =>
-    raison({ parApp: new Map([[FOO, ["L3"]]]), replis: motif ? new Map([[FOO, motif]]) : new Map() });
-  assertEquals(foo("deck_ineligible"), `Compte 100 % Foo : aucun deck Foo utilisable (base polluée par une pub Sophia). ${PAS_DE_REPLI}`);
-  assertEquals(foo("deck_echec"), `Compte 100 % Foo : decks Foo en échec (prompt manquant ou placement impossible). ${PAS_DE_REPLI}`);
+  const foo = (motif?: "reserve_vide" | "deck_ineligible" | "deck_echec" | "budget", detail?: string) =>
+    raison({
+      parApp: new Map([[FOO, ["L3"]]]),
+      replis: motif ? new Map([[FOO, motif]]) : new Map(),
+      details: detail ? new Map([[FOO, detail]]) : undefined,
+    });
+  // La cause du deck est CITÉE (deck.raison), jamais devinée : « deck_echec »
+  // couvre un prompt manquant comme un 429 de traduction ou une panne.
+  assertEquals(
+    foo("deck_ineligible", "plusieurs slides citent un concurrent de l'application"),
+    `Compte 100 % Foo : aucun deck Foo utilisable (dernier refus : plusieurs slides citent un concurrent de l'application). ${PAS_DE_REPLI}`,
+  );
+  assertEquals(foo("deck_ineligible"), `Compte 100 % Foo : aucun deck Foo utilisable. ${PAS_DE_REPLI}`);
+  assertEquals(
+    foo("deck_echec", "traduction de : 429 Too Many Requests.\n"),
+    `Compte 100 % Foo : decks Foo en échec (dernier : traduction de : 429 Too Many Requests). ${PAS_DE_REPLI}`,
+  );
+  assertEquals(foo("deck_echec"), `Compte 100 % Foo : decks Foo en échec. ${PAS_DE_REPLI}`);
+  assert(foo("deck_echec", "x".repeat(500)).length < 400, "une raison démesurée est tronquée");
   assertEquals(foo("budget"), `Compte 100 % Foo : budget de cuisson des decks Foo dépassé pour ce lot. ${PAS_DE_REPLI}`);
   assertEquals(foo(), `Compte 100 % Foo : Foo n'a pas pu servir tous les créneaux. ${PAS_DE_REPLI}`);
   // Labels système seulement : aucune application servie.
@@ -1909,18 +2014,29 @@ Deno.test("vidéos uniquement — listerComptesSousQuota : le compte sort de la 
  * Rappel J+7 : le rappel rejoue le MÊME post, donc la même application.
  * ---------------------------------------------------------------------- */
 
-function baseRappel() {
+/**
+ * Un passage percé sur k1. Par défaut : une source Unswipe sur un compte dont
+ * le label (L2) sert Unswipe.
+ */
+function baseRappel(args: {
+  application?: string;
+  vues?: number;
+  labels?: Array<{ id: string; slug: string }>;
+  liens?: Array<{ label_id: string; application_id: string }>;
+} = {}) {
   const il5Jours = new Date(Date.now() - 5 * 86_400_000).toISOString();
+  const labels = args.labels ?? [{ id: "L2", slug: "focus" }];
   return {
     reglages: [{ cle: "tierlist", valeur: {} }],
     comptes: [{ id: "k1", posts_par_jour: 2 }],
+    compte_labels: labels.map((l) => ({ compte_id: "k1", label_id: l.id, labels: { slug: l.slug, nom: l.slug } })),
     contenus: [{ id: "c-perce", sujet_id: null, structure_slides: [], titre: "t" }],
     passages: [{
       id: "p-source",
       contenu_id: "c-perce",
       compte_id: "k1",
       langue: "fr",
-      vues: 80_000,
+      vues: args.vues ?? 80_000,
       statut: "publie",
       publie_at: il5Jours,
       date_publication_prevue: il5Jours.slice(0, 10),
@@ -1932,10 +2048,10 @@ function baseRappel() {
       rappel_rang: 0,
       rappel_source_id: null,
       tier_cycle: 1,
-      application_id: UNSWIPE,
+      application_id: args.application ?? UNSWIPE,
     }],
     posts: [] as unknown[],
-    label_applications: [],
+    label_applications: args.liens ?? [{ label_id: "L2", application_id: UNSWIPE }],
   };
 }
 
@@ -1975,4 +2091,70 @@ Deno.test("rappel J+7 — schéma absent : ni lecture ni écriture de applicatio
   assert(!("application_id" in insertsPassages(journal)[0]));
   assert(!("application_id" in insertsPosts(journal)[0]));
   oublierSondeMultiApp();
+});
+
+Deno.test("rappel J+7 — compte passé en « Unswipe seul » : sa source Sophia (60k vues) n'est PAS rejouée", async () => {
+  oublierSondeMultiApp();
+  // Un compte existant dont on a remplacé les labels par un label Unswipe seul :
+  // rejouer son post Sophia publierait la pub Sophia sur un compte 100 % Unswipe.
+  const base = baseRappel({ application: ID_SOPHIA, vues: 60_000 });
+  const { client, journal } = fauxMoteur(base);
+
+  const res = await programmerRappelsJ7(client);
+
+  assertEquals(res.candidats, 1);
+  assertEquals(res.programmes, 0);
+  assertEquals(insertsPassages(journal), [], "aucun passage");
+  assertEquals(insertsPosts(journal), [], "aucun post");
+  assertEquals(res.erreurs.length, 1);
+  assert(res.erreurs[0].includes("rappel non programmé"), res.erreurs[0]);
+  oublierSondeMultiApp();
+});
+
+Deno.test("rappel J+7 — compte Sophia (label sans ligne, ou aucun label) : le rappel d'avant", async () => {
+  for (const labels of [[{ id: "L1", slug: "smart-girl" }], []]) {
+    oublierSondeMultiApp();
+    const base = baseRappel({ application: ID_SOPHIA, labels, liens: [] });
+    const { client, journal } = fauxMoteur(base);
+
+    const res = await programmerRappelsJ7(client);
+
+    assertEquals(res.erreurs, []);
+    assertEquals(res.programmes, 1);
+    const [rappel] = insertsPassages(journal);
+    assertEquals(rappel.application_id, ID_SOPHIA);
+    assertEquals(rappel.slides, DECK);
+  }
+  oublierSondeMultiApp();
+});
+
+Deno.test("rappel J+7 — labels du compte illisibles : rappel noté en erreur, rien d'écrit, l'étape continue", async () => {
+  oublierSondeMultiApp();
+  const base = baseRappel({ application: ID_SOPHIA });
+  const { client, journal } = fauxMoteur(base, { pannes: { compte_labels: Infinity } });
+
+  const res = await programmerRappelsJ7(client);
+
+  assertEquals(res.programmes, 0);
+  assertEquals(res.erreurs.length, 1);
+  assertEquals(insertsPassages(journal), []);
+  oublierSondeMultiApp();
+});
+
+Deno.test("compteSertApplicationRappel : la règle", () => {
+  const sophiaHeritee = { id: "L1", slug: "smart-girl" };
+  const unswipeSeul = { id: "L2", slug: "focus" };
+  const hook = { id: "H", slug: "hook" };
+  const liens = [{ label_id: "L2", application_id: UNSWIPE }];
+  // Sophia : un label qui la sert, ou aucun label utile (le rappel d'avant).
+  assert(compteSertApplicationRappel([sophiaHeritee], liens, ID_SOPHIA));
+  assert(compteSertApplicationRappel([sophiaHeritee, unswipeSeul], liens, ID_SOPHIA));
+  assert(compteSertApplicationRappel([], liens, ID_SOPHIA));
+  assert(compteSertApplicationRappel([hook], liens, ID_SOPHIA));
+  assert(!compteSertApplicationRappel([unswipeSeul], liens, ID_SOPHIA), "100 % Unswipe : pas de pub Sophia");
+  assert(!compteSertApplicationRappel([unswipeSeul, hook], liens, ID_SOPHIA));
+  // Autre application : il faut un label qui la serve.
+  assert(compteSertApplicationRappel([unswipeSeul], liens, UNSWIPE));
+  assert(!compteSertApplicationRappel([sophiaHeritee], liens, UNSWIPE));
+  assert(!compteSertApplicationRappel([], liens, UNSWIPE));
 });

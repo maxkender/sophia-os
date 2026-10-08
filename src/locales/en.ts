@@ -1725,6 +1725,7 @@ export const en = {
         avertUgc: "UGC account: it stays 100% Sophia (other apps only run on classic slideshows).",
         avertUgcSansSophia: "UGC account: apps other than Sophia only run on classic slideshows, and none of this account's labels serves Sophia.",
         avertObsolete: "The saved split gives a share to {{app}}, which this account's labels no longer serve: it goes to the others. Reset it.",
+        avertObsoleteSansSophia: "The saved split still gives a share to {{app}}, which this account's labels no longer serve: clear it.",
       },
       pertinences: {
         titre: "Relevance by app",

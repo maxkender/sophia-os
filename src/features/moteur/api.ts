@@ -66,7 +66,7 @@ import {
 } from "./applications";
 import { estErreurSchemaAbsent } from "./multiapp/logique";
 import type { ApplicationMoteur } from "./multiApp";
-import { diagnosticCompteSansSophia } from "./repartition/logique";
+import { diagnosticCompteSansSophia, labelsPoolSophiaCompteMixte } from "./repartition/logique";
 import { comptePrincipal, normaliserTypeCompte, resoudrePremierCompte } from "./comptesCm";
 import { estLabelSysteme, SLUG_HOOK } from "./mediaCaption";
 import {
@@ -4915,6 +4915,10 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
   if (labelIds.length === 0) {
     return "Aucun label sur ce compte — ajoute un label pour que minuit puisse piocher.";
   }
+  // Labels où minuit pioche le pool Sophia : tous, sauf pour un compte mixte
+  // (voir plus bas). Un compte Sophia pur garde exactement les siens.
+  let labelIdsPool = labelIds;
+  let labelsTxtPool = labelsTxt;
 
   // MULTI-APPLICATIONS. Tout ce qui suit compte le pool SOPHIA (contenus
   // tagués, prêts, notés dans la langue). Un compte dont aucun label ne sert
@@ -4957,17 +4961,27 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
         labels?: { nom?: string | null; slug?: string | null } | null;
       }>
     ).map((l) => ({ id: l.label_id, slug: l.labels?.slug ?? null, nom: l.labels?.nom ?? null }));
+    const liens = lignes.map((r) => ({
+      label_id: String(r.label_id),
+      application_id: String(r.application_id),
+    }));
     const diagnostic = diagnosticCompteSansSophia({
       compte: { langue, ugc: ugcAi },
       labels: refsLabels,
-      liens: lignes.map((r) => ({
-        label_id: String(r.label_id),
-        application_id: String(r.application_id),
-      })),
+      liens,
       applications: [...applications.values()],
       labelsTxt,
     });
     if (diagnostic) return diagnostic;
+    // Compte MIXTE : minuit ne pioche le pool Sophia que dans ses labels qui
+    // servent Sophia. Compté sur tous ses labels, un label « Unswipe seul »
+    // bien rempli faisait annoncer « pool OK » sur un pool Sophia vide.
+    const poolSophia = labelsPoolSophiaCompteMixte(refsLabels, liens);
+    if (poolSophia) {
+      labelIdsPool = poolSophia.map((l) => l.id);
+      const noms = poolSophia.map((l) => l.nom).filter(Boolean) as string[];
+      labelsTxtPool = noms.length > 0 ? noms.join(", ") : `${labelIdsPool.length} label(s)`;
+    }
   }
 
   // COMPTER CÔTÉ SERVEUR, ne jamais rapatrier les identifiants.
@@ -4989,10 +5003,10 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
   const { count: nTagues, error: errTag } = await supabase
     .from("contenus")
     .select("id, contenu_labels!inner(label_id)", { count: "exact", head: true })
-    .in("contenu_labels.label_id", labelIds);
+    .in("contenu_labels.label_id", labelIdsPool);
   if (errTag) throw errTag;
   if ((nTagues ?? 0) === 0) {
-    return `Aucun slideshow tagué « ${labelsTxt} » dans la bibliothèque.`;
+    return `Aucun slideshow tagué « ${labelsTxtPool} » dans la bibliothèque.`;
   }
 
   const { count: nPrets, error: errPrets } = await supabase
@@ -5001,11 +5015,11 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
     .eq("statut", "valide")
     .eq("import_statut", "done")
     .eq("ugc_compatible", ugcAi)
-    .in("contenu_labels.label_id", labelIds);
+    .in("contenu_labels.label_id", labelIdsPool);
   if (errPrets) throw errPrets;
   if ((nPrets ?? 0) === 0) {
     return (
-      `${nTagues} slideshow(s) « ${labelsTxt} » mais aucun valide + import terminé` +
+      `${nTagues} slideshow(s) « ${labelsTxtPool} » mais aucun valide + import terminé` +
       (ugcAi ? " + checkmark UGC" : " (non-UGC)") +
       "."
     );
@@ -5021,26 +5035,26 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
     .eq("contenus.statut", "valide")
     .eq("contenus.import_statut", "done")
     .eq("contenus.ugc_compatible", ugcAi)
-    .in("contenus.contenu_labels.label_id", labelIds);
+    .in("contenus.contenu_labels.label_id", labelIdsPool);
   if (errLangue) throw errLangue;
   const nLangue = count ?? 0;
   if (nLangue === 0) {
     return (
-      `${nPrets} slideshow(s) « ${labelsTxt} » prêts, mais aucun éligible en ` +
+      `${nPrets} slideshow(s) « ${labelsTxtPool} » prêts, mais aucun éligible en ` +
       `${langue.toUpperCase()} (pas de score ELO langue à l'import pour cette langue).`
     );
   }
 
   if (nLangue >= 15) {
     return (
-      `Pool « ${labelsTxt} » × ${langue.toUpperCase()} OK (${nLangue} candidat(s) ELO) — ` +
+      `Pool « ${labelsTxtPool} » × ${langue.toUpperCase()} OK (${nLangue} candidat(s) ELO) — ` +
       `minuit n'a probablement pas atteint ce compte (timeout batch). ` +
       `Utilise « Réassigner incomplets » (parallèle) ; sinon baisse auto du quota.`
     );
   }
 
   return (
-    `Pool « ${labelsTxt} » × ${langue.toUpperCase()} trop mince ou déjà tout assigné ` +
+    `Pool « ${labelsTxtPool} » × ${langue.toUpperCase()} trop mince ou déjà tout assigné ` +
     `(${nLangue} candidat(s) ELO) — importe / labellise d'autres slideshows ` +
     `(sinon minuit baisse automatiquement le quota du créateur).`
   );

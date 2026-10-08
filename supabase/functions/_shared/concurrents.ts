@@ -9,8 +9,14 @@
  * Deux garde-fous déterministes :
  *  - `positionConcurrent` : la slide qui cite un concurrent est la cible
  *    imposée du placement (elle porte déjà une recommandation d'appli) ;
- *  - `sansConcurrent` : toute mention qui reste est retirée phrase par phrase
- *    (et parenthèse par parenthèse) avant que le deck ne parte.
+ *  - `sansConcurrent` : toute mention qui reste est retirée avant que le deck
+ *    ne parte. LIGNE par ligne d'abord (chaque retour à la ligne est un
+ *    paragraphe), puis phrase par phrase et parenthèse par parenthèse dans la
+ *    ligne : sur un texte d'OCR coupé en lignes, une phrase ou une parenthèse
+ *    à cheval sur deux lignes n'est retirée qu'à moitié. Pour une application
+ *    autre que Sophia, une seconde slide concurrente (ou une couverture qui en
+ *    cite une) rend donc le contenu inéligible plutôt que nettoyé
+ *    (`motifConcurrenceRefusee`, deck_application.ts).
  *
  * Un motif PAR APPLICATION (`motifConcurrentApplication`) : les concurrents
  * d'Unswipe sont les applis de temps d'écran. Sans motif passé, toutes les
@@ -86,7 +92,9 @@ export function citeConcurrent(
 /**
  * Retire d'un texte de slide toute parenthèse et toute phrase qui citent un
  * concurrent. Les paragraphes (titre, corps) gardent leurs retours à la ligne.
- * Un texte sans mention ressort à l'identique.
+ * Un texte sans mention ressort à l'identique. Le travail se fait LIGNE par
+ * ligne : une phrase ou une parenthèse coupée sur deux lignes (texte d'OCR)
+ * n'est retirée qu'à moitié.
  */
 export function retirerConcurrent(texte: string, motif: RegExp = MOTIF_CONCURRENT): string {
   const cite = (t: string) => citeConcurrent(t, motif);

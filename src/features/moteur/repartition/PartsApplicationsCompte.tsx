@@ -117,7 +117,9 @@ export function PartsApplicationsCompte({
           ? t("multiAppPosts.repartition.avertUgc")
           : t("multiAppPosts.repartition.avertUgcSansSophia");
       case "obsolete":
-        return t("multiAppPosts.repartition.avertObsolete", { app: a.app });
+        return sophia
+          ? t("multiAppPosts.repartition.avertObsolete", { app: a.app })
+          : t("multiAppPosts.repartition.avertObsoleteSansSophia", { app: a.app });
     }
   };
 

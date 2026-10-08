@@ -8,7 +8,6 @@ import {
   chargerLiensLabels,
   erreurSchemaAbsent,
   type EtatSchemaMultiApp,
-  schemaMultiAppPretSinonSophia,
   sonderSchemaMultiApp,
 } from "./applications_moteur.ts";
 import {
@@ -363,7 +362,8 @@ export interface AssignationCompteDetail {
    * Compte qu'aucun repli ne peut servir (ses labels ne servent pas Sophia et
    * son application est inactive, hors langue ou à sec). Le drain l'écarte de
    * la suite de la chaîne : sinon, resté sous quota sans erreur, il reviendrait
-   * en tête de chaque lot et affamerait le reste de la flotte.
+   * en tête de chaque lot et affamerait le reste de la flotte. Pas posé quand
+   * seul le budget de cuisson du lot a manqué : un lot suivant le reprend.
    */
   nonServable?: boolean;
 }
@@ -673,6 +673,12 @@ export async function assignerCompteJour(
    * en cours de run, et chaque essai de deck peut coûter un appel modèle.
    */
   const appsRepliees = new Map<string, MotifRepli>();
+  /**
+   * Application → dernière raison de deck refusé ou raté (deck.raison). La
+   * raison d'un compte non servable la cite : « deck_echec » couvre aussi bien
+   * un prompt manquant qu'un 429 de traduction ou une panne réseau.
+   */
+  const detailsRepli = new Map<string, string>();
   /** Contenu IDs déjà pris / exclus cette session (choisirContenu filtre dessus). */
   const contenusSession: string[] = [...(o.exclureContenus ?? [])];
   const maxTentatives = manquants + 8;
@@ -691,19 +697,24 @@ export async function assignerCompteJour(
     app: ApplicationMoteur,
   ): Promise<
     | { choisi: Candidat; slides: SlideLangue[]; hashtags: string }
-    | { motif: MotifRepli }
+    | { motif: MotifRepli; detail?: string }
   > => {
     const labelsApp = repartition.parApp.get(app.id) ?? [];
     const cleEchecs = `${app.id}::${langue}`;
     let motif: MotifRepli = "reserve_vide";
+    /** Raison du dernier deck refusé ou raté de ce créneau. */
+    let detail: string | undefined;
     for (let essai = 0; essai < ESSAIS_DECK_APPLICATION; essai += 1) {
       if (o.echeance !== undefined && Date.now() > o.echeance) {
         log(`Budget de cuisson ${app.nom} du lot épuisé — repli Sophia`);
-        return { motif: essai === 0 ? "budget" : motif };
+        return essai === 0 ? { motif: "budget" } : { motif, detail };
       }
       if ((memo.echecsDeck.get(cleEchecs) ?? 0) >= ECHECS_DECK_PAR_LOT) {
         log(`Decks ${app.nom} ${langue} en échec répété dans ce lot — repli Sophia`);
-        return { motif: "deck_echec" };
+        return {
+          motif: "deck_echec",
+          detail: detail ?? `${ECHECS_DECK_PAR_LOT} cuissons ${app.nom} ${langue} ratées dans ce lot`,
+        };
       }
       const candidat = await choisirContenu(
         supabase,
@@ -724,7 +735,7 @@ export async function assignerCompteJour(
       );
       if (!candidat) {
         log(`Réserve ${app.nom} vide pour ce compte`);
-        return { motif };
+        return { motif, detail };
       }
       contenusSession.push(candidat.contenuId);
       log(
@@ -747,12 +758,14 @@ export async function assignerCompteJour(
       }
       if (deck.statut === "ineligible") {
         motif = "deck_ineligible";
+        detail = deck.raison;
         await noterDeckIneligible(memo, app, langue, candidat.contenuId);
       } else if (deck.statut === "echec" && deck.raison === RAISON_BUDGET) {
         log(`Budget de cuisson ${app.nom} du lot épuisé en cours de deck — repli Sophia`);
         return { motif: "budget" };
       } else {
         motif = "deck_echec";
+        detail = deck.statut === "pret" ? "deck vide" : deck.raison;
         // Seule une cuisson ratée compte comme panne systémique : un échec
         // relu en cache n'a rien coûté et ne dit rien des autres contenus.
         if (deck.cuit) {
@@ -765,7 +778,7 @@ export async function assignerCompteJour(
           `${"raison" in deck ? ` : ${deck.raison}` : ""} — contenu suivant`,
       );
     }
-    return { motif };
+    return { motif, detail };
   };
 
   let persona = null;
@@ -806,6 +819,7 @@ export async function assignerCompteJour(
       } else {
         repli = { visee: appCreneau, motif: servi.motif };
         appsRepliees.set(appCreneau.id, servi.motif);
+        if ("detail" in servi && servi.detail) detailsRepli.set(appCreneau.id, servi.detail);
         log(`Créneau ${appCreneau.nom} replié sur Sophia (${servi.motif})`);
       }
     }
@@ -953,14 +967,22 @@ export async function assignerCompteJour(
       applications: repartition.applications,
       parApp: repartition.parApp,
       replis: appsRepliees,
+      details: detailsRepli,
       langue,
       ugc: ugcAi,
     });
     log(diag);
+    // Toutes les applications tentées ont manqué de TEMPS (budget de cuisson
+    // du lot), pas de stock ni de deck : un lot suivant, budget neuf, peut le
+    // servir. Il reste donc dans la chaîne du drain au lieu d'en sortir jusqu'au
+    // rattrapage de 4 h — « non servable » est réservé à ce qu'aucun lot ne
+    // réglera (application éteinte, langue, réserve vide, deck refusé).
+    const parManqueDeTemps = appsRepliees.size > 0 &&
+      [...appsRepliees.values()].every((motif) => motif === "budget");
     return finir({
       ids: crees,
       raison: crees.length === 0 ? diag : `${crees.length}/${manquants} créé(s). ${diag}`,
-      nonServable: true,
+      ...(parManqueDeTemps ? {} : { nonServable: true }),
     });
   }
 
@@ -1349,15 +1371,28 @@ function colonnesApplicationPassage(
   return colonnes;
 }
 
-/** Ce que veut dire le repli d'une application éligible, en clair. */
-function phraseMotifRepli(nom: string, motif: MotifRepli | undefined): string {
+/** Longueur gardée de la raison d'un deck dans la phrase du journal. */
+const LONGUEUR_DETAIL_REPLI = 160;
+
+/**
+ * Ce que veut dire le repli d'une application éligible, en clair. `detail` :
+ * la raison du dernier deck refusé ou raté (`deck.raison`), citée telle quelle
+ * — « deck_echec » couvre un prompt manquant comme un 429 de traduction ou une
+ * panne réseau, et « deck_ineligible » une base polluée comme une seconde
+ * slide concurrente : en deviner la cause enverrait chercher au mauvais endroit.
+ */
+function phraseMotifRepli(nom: string, motif: MotifRepli | undefined, detail?: string): string {
+  const brut = (detail ?? "").replace(/\s+/g, " ").trim().replace(/[.;\s]+$/, "");
+  const cite = brut.length > LONGUEUR_DETAIL_REPLI
+    ? `${brut.slice(0, LONGUEUR_DETAIL_REPLI - 1)}…`
+    : brut;
   switch (motif) {
     case "reserve_vide":
       return `réserve ${nom} vide pour ses labels`;
     case "deck_ineligible":
-      return `aucun deck ${nom} utilisable (base polluée par une pub Sophia)`;
+      return `aucun deck ${nom} utilisable${cite ? ` (dernier refus : ${cite})` : ""}`;
     case "deck_echec":
-      return `decks ${nom} en échec (prompt manquant ou placement impossible)`;
+      return `decks ${nom} en échec${cite ? ` (dernier : ${cite})` : ""}`;
     case "budget":
       return `budget de cuisson des decks ${nom} dépassé pour ce lot`;
     default:
@@ -1382,6 +1417,8 @@ export function raisonCompteNonServable(args: {
   parApp: ReadonlyMap<string, readonly string[]>;
   /** application_id → motif du repli, pour les applications tentées. */
   replis: ReadonlyMap<string, MotifRepli>;
+  /** application_id → raison du dernier deck refusé ou raté, citée dans la phrase. */
+  details?: ReadonlyMap<string, string>;
   langue: string;
   ugc: boolean;
 }): string {
@@ -1409,7 +1446,7 @@ export function raisonCompteNonServable(args: {
     }
     if (args.ugc) empeche.push("ne sert pas les comptes UGC (slideshows classiques uniquement)");
     if (empeche.length > 0) return `${app.nom} ${empeche.join(" et ")}`;
-    return phraseMotifRepli(app.nom, args.replis.get(id));
+    return phraseMotifRepli(app.nom, args.replis.get(id), args.details?.get(id));
   });
   const noms = ordre.map((id) => parId.get(id)?.nom ?? id).join(" + ");
   return `Compte 100 % ${noms} : ${causes.join(" ; ")}. ${sansRepli}`;
@@ -2517,7 +2554,15 @@ export async function assignerTousComptes(
     }
   });
 
-  await journaliser(supabase, jour, comptes, resultats);
+  // Le journal garde le VERDICT DU JOUR, celui que le panneau Minuit affiche.
+  // Une assignation TEST n'en est pas un (posts invisibles, hors quota) : rien
+  // n'est écrit. Une assignation FORCÉE (recharge posteur, révocation, post de
+  // plus) refait UN créneau : elle n'écrase pas le verdict de la nuit, elle ne
+  // l'écrit que s'il n'y en a pas encore. Une réassignation manuelle ordinaire,
+  // elle, le remplace : c'est elle qui explique l'état courant.
+  if (!o.test) {
+    await journaliser(supabase, jour, comptes, resultats, { garderExistant: Boolean(o.forcer) });
+  }
   return resultats;
 }
 
@@ -2530,7 +2575,9 @@ export async function assignerTousComptes(
  *
  * `upsert` et non `insert` : une réassignation manuelle dans la journée doit
  * remplacer le verdict de la nuit, pas en empiler un second. C'est le dernier
- * qui explique l'état courant.
+ * qui explique l'état courant. `garderExistant` (assignation forcée : un
+ * créneau refait, pas un verdict) : `ignoreDuplicates`, la ligne déjà écrite
+ * pour ce (compte, jour) reste telle quelle.
  */
 async function journaliser(
   supabase: Supabase,
@@ -2538,6 +2585,7 @@ async function journaliser(
   // deno-lint-ignore no-explicit-any
   comptes: any[],
   resultats: Array<{ compteId: string; crees: number; raison?: string; erreur?: string }>,
+  opts: { garderExistant?: boolean } = {},
 ): Promise<void> {
   if (resultats.length === 0) return;
   const quotaParCompte = new Map<string, number | null>(
@@ -2554,7 +2602,7 @@ async function journaliser(
         erreur: r.erreur ?? null,
         maj_at: new Date().toISOString(),
       })),
-      { onConflict: "compte_id,jour" },
+      { onConflict: "compte_id,jour", ignoreDuplicates: Boolean(opts.garderExistant) },
     );
     if (error) console.warn(`[journal assignation] ${error.message}`);
   } catch (e) {
@@ -2673,12 +2721,39 @@ export async function annulerAssignationTest(
 // ---------------------------------------------------------------------------
 
 /**
+ * Le compte sert-il encore l'application d'un rappel ?
+ *
+ * Un rappel recopie les slides de sa source, pub comprise. Si les labels du
+ * compte ont changé depuis (compte existant passé en « Unswipe seul »),
+ * rejouer la source publierait la pub d'une application qu'il ne sert plus :
+ * une pub Sophia sur un compte 100 % Unswipe.
+ *
+ * Sophia : servie si un de ses labels la sert, ou s'il n'a aucun label utile
+ * (aucun, ou des labels système seulement) — le rappel d'avant, inchangé.
+ * Autre application : il faut un label qui la serve. Pure.
+ */
+export function compteSertApplicationRappel(
+  labels: readonly LabelRef[],
+  liens: readonly LienLabelApplication[],
+  applicationId: string,
+): boolean {
+  const parApp = labelsParApplication(labels, liens);
+  if (applicationId === ID_SOPHIA) return parApp.size === 0 || parApp.has(ID_SOPHIA);
+  return parApp.has(applicationId);
+}
+
+/**
  * Programme les rappels J+7 des passages au-delà du seuil de vues (50k).
  *
  * Le rappel rejoue l'EXACT même post sur le MÊME compte, hors de toute
  * assignation classique : il ne consomme pas de passage du budget tierlist et ne
  * compte pas dans le `m` de la requalification. Il occupe en revanche un créneau
  * du quota du jour — posé avant l'assignation, il lui prend sa place.
+ *
+ * Multi-applications : pas de rappel sur un compte dont les labels ne servent
+ * plus l'application de la source (`compteSertApplicationRappel`). Le refus
+ * va dans `erreurs`, sans lever : la source reste candidate, et repassera si
+ * les labels reviennent.
  */
 export async function programmerRappelsJ7(
   supabase: Supabase,
@@ -2688,11 +2763,45 @@ export async function programmerRappelsJ7(
   // lecture ni écriture de la colonne, le rappel est celui d'avant (Sophia par
   // défaut). Sonde illisible : même repli (un rappel n'est pas une raison de
   // perdre l'étape ; au pire un rappel Unswipe serait compté Sophia).
-  const multiApp = await schemaMultiAppPretSinonSophia(supabase);
+  const etat = await sonderSchemaMultiApp(supabase);
+  const multiApp = etat === "pret";
+  // Labels → applications de chaque compte, lus une fois par compte et par run.
+  // Avant 0256 (« absent ») : rien à vérifier, aucun label ne sert autre chose
+  // que Sophia — le rappel d'avant, sans lecture de plus. Sonde illisible : on
+  // vérifie quand même (`chargerLiensLabels` resonde, et lève si la base ne
+  // répond toujours pas : le rappel est alors noté en erreur et repassera).
+  type ApplicationsDuCompte = { labels: LabelRef[]; liens: LienLabelApplication[] };
+  const applicationsDuCompte = new Map<string, Promise<ApplicationsDuCompte>>();
+  const lireApplicationsDuCompte = (compteId: string) =>
+    memoiser(applicationsDuCompte, compteId, async () => {
+      // Un compte porte au plus les 9 labels du dépôt : pas de pagination.
+      const { data, error } = await supabase
+        .from("compte_labels")
+        .select("label_id, labels(slug)")
+        .eq("compte_id", compteId);
+      if (error) throw new Error(`labels du compte : ${error.message}`);
+      type LabelLu = { slug?: string | null };
+      const labels: LabelRef[] = (data ?? []).map((l) => {
+        const brut = (l as { labels?: LabelLu | LabelLu[] | null }).labels;
+        const ref = Array.isArray(brut) ? brut[0] : brut;
+        return { id: l.label_id as string, slug: ref?.slug ?? null };
+      });
+      return { labels, liens: await chargerLiensLabels(supabase, labels.map((l) => l.id)) };
+    });
   return await programmerRappels(
     supabase,
     async ({ passageSource, jour }) => {
       const applicationId = multiApp ? passageSource.application_id : null;
+      if (etat !== "absent") {
+        const { labels, liens } = await lireApplicationsDuCompte(passageSource.compte_id);
+        if (!compteSertApplicationRappel(labels, liens, applicationId ?? ID_SOPHIA)) {
+          throw new Error(
+            `les labels du compte ne servent plus l'application de ce post` +
+              ` (${applicationId && applicationId !== ID_SOPHIA ? `application ${applicationId}` : "Sophia"})` +
+              ` — rappel non programmé, sa pub n'y a plus sa place`,
+          );
+        }
+      }
       const slides = (passageSource.slides ?? []) as SlideLangue[];
       if (!Array.isArray(slides) || slides.length === 0) {
         throw new Error("Deck du passage source vide — rappel impossible");

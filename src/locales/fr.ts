@@ -1729,6 +1729,7 @@ export const fr = {
         avertUgc: "Compte UGC : il reste 100 % Sophia (les autres applications ne passent que par les slideshows classiques).",
         avertUgcSansSophia: "Compte UGC : les applications autres que Sophia ne passent que par les slideshows classiques, et aucun label de ce compte ne sert Sophia.",
         avertObsolete: "La répartition enregistrée donne une part à {{app}}, que les labels de ce compte ne servent plus : elle revient aux autres. Réinitialise-la.",
+        avertObsoleteSansSophia: "La répartition enregistrée donne encore une part à {{app}}, que les labels de ce compte ne servent plus : efface-la.",
       },
       pertinences: {
         titre: "Pertinence par application",

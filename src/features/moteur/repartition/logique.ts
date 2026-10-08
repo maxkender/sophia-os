@@ -12,6 +12,7 @@ import {
   applicationsDuLabel,
   applicationsEligiblesCompte,
   applicationsServies,
+  estLabelSystemeSlug,
   ID_SOPHIA,
   normaliserParts,
   partsEffectives,
@@ -145,10 +146,12 @@ export function etatPartsCompte(args: {
   const sophiaServie = idsServis.includes(ID_SOPHIA);
   const avertissements: AvertissementParts[] = [];
   if (ugc && autres.length > 0) avertissements.push({ type: "ugc" });
+  // Les deux causes à la fois quand les deux valent (état laissé par 0258 :
+  // désactivée ET sans langue) : n'en dire qu'une ferait croire qu'il suffit
+  // d'allumer l'application, comme le dit le moteur (`raisonCompteNonServable`).
   for (const app of autres) {
-    if (!app.actif) {
-      avertissements.push({ type: "inactive", app: app.nom });
-    } else if (app.langues !== null && !app.langues.includes(compte.langue)) {
+    if (!app.actif) avertissements.push({ type: "inactive", app: app.nom });
+    if (app.langues !== null && !app.langues.includes(compte.langue)) {
       avertissements.push({ type: "langue", app: app.nom, langue: compte.langue });
     }
   }
@@ -226,14 +229,40 @@ export function diagnosticCompteSansSophia(args: {
   if (compte.ugc) {
     causes.push("compte UGC (les applications autres que Sophia ne passent que par les slideshows classiques)");
   }
+  // Toutes les causes, pas la première : une application désactivée ET sans
+  // langue (l'état laissé par 0258) ne publie toujours rien une fois allumée.
   for (const app of servies) {
     if (!app.actif) causes.push(`${app.nom} est désactivée`);
-    else if (app.langues !== null && !app.langues.includes(compte.langue)) {
+    if (app.langues !== null && app.langues.length === 0) {
+      causes.push(`${app.nom} ne cible encore aucune langue (à cocher dans Pilotage → Applications)`);
+    } else if (app.langues !== null && !app.langues.includes(compte.langue)) {
       causes.push(`${app.nom} ne cible pas le ${langue}`);
     }
   }
   if (causes.length === 0) causes.push("application(s) introuvable(s)");
   return `${tete} Aucune application ne peut servir ce compte, il ne publiera rien : ${causes.join(" ; ")}.`;
+}
+
+/**
+ * Panneau Minuit, faute de journal, compte MIXTE (un label sert Sophia, un
+ * autre ne sert que d'autres applications) : les labels où minuit pioche le
+ * pool Sophia. Le moteur n'y prend que les labels qui servent Sophia
+ * (`labelsSophia`, labels système exclus) ; compter le pool sur TOUS ses
+ * labels annoncerait « pool OK… timeout batch » là où il a vu un pool Sophia
+ * vide.
+ *
+ * `null` dès qu'aucun label utile ne sert autre chose que Sophia : le
+ * diagnostic historique garde alors exactement ses labels (système compris),
+ * rien ne change pour un compte Sophia pur.
+ */
+export function labelsPoolSophiaCompteMixte(
+  labels: readonly LabelRef[],
+  liens: readonly LienLabelApplication[],
+): LabelRef[] | null {
+  const utiles = labels.filter((l) => !estLabelSystemeSlug(l.slug));
+  const servent = (l: LabelRef) => applicationsDuLabel(l.id, liens).includes(ID_SOPHIA);
+  if (utiles.every(servent)) return null;
+  return utiles.filter(servent);
 }
 
 /**

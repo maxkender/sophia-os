@@ -107,6 +107,21 @@ describe("schéma absent (migration pas encore passée)", () => {
     expect(estErreurSchemaAbsent(new Error("Failed to fetch"))).toBe(false);
     expect(estErreurSchemaAbsent(null)).toBe(false);
   });
+
+  it("base qui ne répond plus (503 PGRST002 « schema cache ») : une panne, pas une absence", () => {
+    expect(
+      estErreurSchemaAbsent({ code: "PGRST002", message: "Could not query the database for the schema cache. Retrying." }),
+    ).toBe(false);
+    // Même message sans code : le « schema cache » seul ne dit rien d'une absence.
+    expect(estErreurSchemaAbsent({ message: "Could not query the database for the schema cache. Retrying." })).toBe(false);
+    expect(estErreurSchemaAbsent({ code: "PGRST001", message: "Database client error" })).toBe(false);
+    // Un 5xx l'emporte sur le message.
+    expect(estErreurSchemaAbsent({ status: 503, message: "relation \"x\" does not exist" })).toBe(false);
+    // Les vraies absences restent reconnues.
+    expect(estErreurSchemaAbsent({ code: "PGRST200", message: "Could not find a relationship between 'a' and 'b'" })).toBe(true);
+    expect(estErreurSchemaAbsent({ message: "Could not find a relationship between 'a' and 'b' in the schema cache" })).toBe(true);
+    expect(estErreurSchemaAbsent({ message: "relation \"public.label_applications\" does not exist" })).toBe(true);
+  });
 });
 
 describe("avancement du rattrapage", () => {

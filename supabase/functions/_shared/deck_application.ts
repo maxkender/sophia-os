@@ -22,7 +22,6 @@ import {
   citeConcurrent,
   motifConcurrentApplication,
   positionConcurrent,
-  retirerConcurrent,
   sansConcurrent,
 } from "./concurrents.ts";
 import {
@@ -108,6 +107,44 @@ export function motifBasePolluee(base: readonly SlideLangue[]): string | null {
 
 const aDuTexte = (deck: readonly SlideLangue[]) =>
   deck.length > 0 && deck.some((s) => (s.texte_overlay ?? "").trim());
+
+/**
+ * Pourquoi une base ne peut pas porter le placement d'une application dont les
+ * concurrents répondent à `motif`, ou `null`.
+ *
+ * La slide qui cite un concurrent (`positionImposee`) est REMPLACÉE par la pub.
+ * Toute AUTRE mention devrait être nettoyée, et le nettoyage ne tient pas sur
+ * le texte d'OCR : `retirerConcurrent` découpe sur les retours à la ligne, donc
+ * une phrase coupée sur deux lignes n'est retirée qu'à moitié (« (i use »
+ * reste), et une carte App Store incrustée (« unscroll: the curated internet /
+ * content worth your time / Open ») laisse « content worth your time / Open ».
+ * Mesuré sur le stock (2026-10-08) : un seul contenu a deux slides
+ * concurrentes, aucune couverture n'en cite. Plutôt qu'un deck illisible, le
+ * contenu est refusé pour CETTE application — Sophia continue de le servir :
+ *
+ *  - la couverture cite un concurrent (jamais imposée : elle porte l'accroche,
+ *    nettoyée elle partait vide) ;
+ *  - une autre slide que la slide imposée cite un concurrent ;
+ *  - la slide imposée est la seule à porter du texte (le deck ne serait que la
+ *    pub).
+ */
+export function motifConcurrenceRefusee(
+  base: readonly SlideLangue[],
+  positionImposee: number | undefined,
+  motif: RegExp,
+): string | null {
+  const premiere = Math.min(...base.map((s) => s.position));
+  const autres = base.filter((s) => s.position !== positionImposee);
+  const citantes = autres.filter((s) => citeConcurrent(s.texte_overlay, motif));
+  if (citantes.some((s) => s.position <= 1 || s.position === premiere)) {
+    return "couverture qui cite un concurrent de l'application";
+  }
+  if (citantes.length > 0) return "plusieurs slides citent un concurrent de l'application";
+  if (positionImposee !== undefined && !aDuTexte(autres)) {
+    return "aucun texte hors de la slide concurrente";
+  }
+  return null;
+}
 
 /**
  * Deck final : la base, avec la slide choisie remplacée par `variante` et
@@ -254,6 +291,11 @@ async function cuire(
   const pollution = motifBasePolluee(base);
   if (pollution) return { statut: "ineligible", raison: pollution };
   if (!aDuTexte(base)) return { statut: "echec", raison: "base source sans texte" };
+  // Applis concurrentes de CETTE application (concurrents.ts) : un refus se lit
+  // sur la base source, avant de payer une traduction ou un placement.
+  const motif = motifConcurrentApplication(app.slug);
+  const refusSource = motifConcurrenceRefusee(base, positionConcurrent(base, motif), motif);
+  if (refusSource) return { statut: "ineligible", raison: refusSource };
 
   // 2. Prompt de placement AVANT toute traduction : sans lui, rien ne sert de
   //    payer Gemini. Jamais de repli sur le texte Sophia.
@@ -295,19 +337,15 @@ async function cuire(
       if (maj.hashtags) ligne.hashtags = traduction.hashtags;
     }
   }
-  // Applis concurrentes de CETTE application (concurrents.ts) : la slide qui en
-  // cite une est la position imposée du placement, comme pour Sophia — lue
-  // AVANT tout nettoyage. Positions identiques entre langues : la base source
-  // rattrape une traduction qui aurait perdu le nom de la marque.
-  const motif = motifConcurrentApplication(app.slug);
+  // La slide qui cite un concurrent est la position imposée du placement, comme
+  // pour Sophia. Positions identiques entre langues : la base source rattrape
+  // une traduction qui aurait perdu le nom de la marque. Elle reste telle quelle
+  // dans la base envoyée au modèle, qui doit voir son texte pour la remplacer
+  // entièrement ; aucune autre slide ne cite de concurrent (refus sinon, voir
+  // `motifConcurrenceRefusee`) : il n'y a rien à nettoyer ailleurs.
   const positionImposee = positionConcurrent(baseCible, motif) ?? positionConcurrent(base, motif);
-  // Mentions retirées partout SAUF sur la slide imposée : le modèle doit voir
-  // son texte pour la remplacer entièrement.
-  baseCible = baseCible.map((s) =>
-    s.position === positionImposee || !citeConcurrent(s.texte_overlay, motif)
-      ? s
-      : { ...s, texte_overlay: retirerConcurrent(s.texte_overlay ?? "", motif) }
-  );
+  const refusCible = motifConcurrenceRefusee(baseCible, positionImposee, motif);
+  if (refusCible) return { statut: "ineligible", raison: `base ${langue} : ${refusCible}` };
   const pollutionCible = motifBasePolluee(baseCible);
   if (pollutionCible) return { statut: "ineligible", raison: `base ${langue} : ${pollutionCible}` };
   if (!aDuTexte(baseCible)) return { statut: "echec", raison: `base ${langue} sans texte` };

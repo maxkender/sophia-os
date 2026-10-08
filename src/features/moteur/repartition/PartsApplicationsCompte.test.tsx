@@ -144,6 +144,24 @@ describe("PartsApplicationsCompte", () => {
     expect(screen.queryByText(/reste 100 % Sophia|stays 100% Sophia/)).not.toBeInTheDocument();
   });
 
+  it("compte 100 % Unswipe bloqué avec une répartition Sophia restée en base : « efface-la », jamais « revient aux autres »", async () => {
+    listerLiensLabels.mockResolvedValue(LIENS_AVEC_DETOX);
+    listerApplicationsMulti.mockResolvedValue([APPS[0], { ...APPS[1], actif: false }]);
+    rendre(compte({ parts_applications: { sophia: 70, unswipe: 30 } }), [DETOX]);
+    expect(await screen.findByText(/ne publiera rien|will publish nothing/)).toBeInTheDocument();
+    expect(screen.getByText(/encore une part à Sophia|still gives a share to Sophia/)).toBeInTheDocument();
+    expect(screen.queryByText(/revient aux autres|goes to the others/)).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Effacer la répartition|Clear the saved split/ })).toBeInTheDocument();
+  });
+
+  it("Unswipe désactivée ET sans langue (état de 0258) : les deux causes, pas seulement « désactivée »", async () => {
+    listerLiensLabels.mockResolvedValue(LIENS_AVEC_DETOX);
+    listerApplicationsMulti.mockResolvedValue([APPS[0], { ...APPS[1], actif: false, langues: [] }]);
+    rendre(compte(), [DETOX]);
+    expect(await screen.findByText(/Unswipe est désactivée|Unswipe is switched off/)).toBeInTheDocument();
+    expect(screen.getByText(/ne cible pas la langue|does not target this account's language/)).toBeInTheDocument();
+  });
+
   it("avant 0256 : l'erreur reste dans le bloc", async () => {
     listerLiensLabels.mockRejectedValue(new Error('relation "label_applications" does not exist'));
     rendre(compte(), [CLEAN]);

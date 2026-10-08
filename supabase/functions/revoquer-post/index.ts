@@ -1,5 +1,6 @@
 import {
   chargerApplicationsMoteur,
+  schemaMultiAppPret,
   schemaMultiAppPretSinonSophia,
 } from "../_shared/applications_moteur.ts";
 import { assignerTousComptes } from "../_shared/assignation_contenu.ts";
@@ -89,8 +90,14 @@ Deno.serve(async (request) => {
 
     // `application_id` n'existe qu'avec 0256 : sans elle, le select d'avant
     // (une colonne inconnue ferait échouer la lecture, donc la révocation).
-    // Sonde illisible : le select d'avant (la révocation passe, comme avant).
-    const multiApp = await schemaMultiAppPretSinonSophia(supabase);
+    // Sonde illisible : une recharge posteur passe comme avant (elle ne rejette
+    // rien). Une révocation ADMIN lève, à rejouer, AVANT toute écriture : sans
+    // `application_id`, le post d'une autre application passerait pour un post
+    // Sophia et son slideshow serait rejeté pour toute la flotte, au lieu de
+    // sortir seulement de la réserve de cette application.
+    const multiApp = acces.role === "poster"
+      ? await schemaMultiAppPretSinonSophia(supabase)
+      : await schemaMultiAppPret(supabase);
     const colonnesPassage = multiApp ? "id, contenu_id, application_id" : "id, contenu_id";
 
     // Passage v-next lié (pont post)

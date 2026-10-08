@@ -6255,10 +6255,12 @@ export async function lireSlideshow(id: string): Promise<SlideshowDetail | null>
         .select("*")
         .eq("contenu_id", id)
         .order("score", { ascending: false }),
+      // `application_id` (0256, en place) : la fiche marque les passages d'une
+      // autre application que Sophia — leur budget n'est pas celui de Sophia.
       supabase
         .from("passages")
         .select(
-          "id, contenu_id, compte_id, langue, date_publication_prevue, statut, publie_url, vues, likes, commentaires, partages, post_id, comptes(handle_tiktok, persona_nom, langue)",
+          "id, contenu_id, compte_id, langue, date_publication_prevue, statut, publie_url, vues, likes, commentaires, partages, post_id, application_id, comptes(handle_tiktok, persona_nom, langue)",
         )
         .eq("contenu_id", id)
         .order("date_publication_prevue", { ascending: false }),

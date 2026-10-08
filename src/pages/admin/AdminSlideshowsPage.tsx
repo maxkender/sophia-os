@@ -62,7 +62,17 @@ import { classeDirectionTexte, directionTexte, nomLangue } from "@/features/mote
 import {
   DecksApplications,
   PertinencesApplications,
+  TiersApplications,
 } from "@/features/moteur/repartition/ApplicationsContenu";
+import { ID_SOPHIA } from "@/features/moteur/multiApp";
+import {
+  contenuHorsSophia,
+  nomApplicationPromue,
+} from "@/features/moteur/repartition/logique";
+import {
+  useApplicationsMulti,
+  useLiensLabels,
+} from "@/features/moteur/repartition/useMultiApp";
 import type {
   ContenuLangue,
   ContenuSlide,
@@ -1168,6 +1178,14 @@ function DetailSlideshow({
     queryFn: lireReglages,
   });
 
+  // Multi-app (lectures partagées, sans relance sur erreur) : liens label →
+  // application pour l'avis « ne sert pas Sophia », noms des applications pour
+  // la puce des passages non-Sophia. Illisibles : affichage d'avant.
+  const liensLabels = useLiensLabels();
+  const applicationsMulti = useApplicationsMulti();
+  const horsSophia = Boolean(d) &&
+    contenuHorsSophia(d?.labels ?? [], liensLabels.isSuccess ? liensLabels.data : undefined);
+
   const relancerRequalif = useMutation({
     mutationFn: () => relancerRequalifContenu(id),
     onSuccess: () => {
@@ -1448,12 +1466,24 @@ function DetailSlideshow({
                 hors Sophia vivent dans les tables de 0256 ; chaque bloc gère
                 sa propre erreur sans toucher au reste de la fiche. */}
             <PertinencesApplications contenuId={d.id} />
+            {/* 0270 : tier, budget et cycle PROPRES à chaque autre application.
+                Rien n'est rendu sans ligne non-Sophia ou sans la migration. */}
+            <TiersApplications contenuId={d.id} tierlist={reglagesDetail?.tierlist} />
             <DecksApplications contenuId={d.id} />
 
             <section className="space-y-2">
               <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                 {t("slideshows.tierlist")}
               </h3>
+              {horsSophia ? (
+                // 0270 : aucun label ne sert Sophia — pas de rang Sophia à
+                // régler ici (le tier de chaque application est plus haut).
+                <p className="text-xs text-muted-foreground">
+                  {t("slideshows.horsSophia", {
+                    labels: (d.labels ?? []).map((l) => l.nom).join(", ") || "—",
+                  })}
+                </p>
+              ) : (
               <div className="flex flex-wrap gap-1.5">
                 {TIERS.map((tier) => (
                   <button
@@ -1475,6 +1505,7 @@ function DetailSlideshow({
                   </button>
                 ))}
               </div>
+              )}
               <dl className="grid grid-cols-2 gap-x-3 gap-y-1 text-xs">
                 <dt className="text-muted-foreground">{t("slideshows.passages")}</dt>
                 <dd className="tabular-nums">
@@ -1683,6 +1714,13 @@ function DetailSlideshow({
                           {p.comptes?.persona_nom ||
                             p.comptes?.handle_tiktok ||
                             p.compte_id.slice(0, 8)}
+                          {/* 0270 : un passage d'une autre application
+                              consomme SON budget, pas celui de Sophia. */}
+                          {p.application_id && p.application_id !== ID_SOPHIA ? (
+                            <Badge variant="info" className="ml-1.5 text-[10px]">
+                              {nomApplicationPromue(p.application_id, applicationsMulti.data ?? [])}
+                            </Badge>
+                          ) : null}
                         </span>
                         <Badge variant="outline">{p.statut}</Badge>
                       </div>
@@ -1774,6 +1812,12 @@ export function AdminSlideshowsPage() {
     const id = searchParams.get("id");
     if (id) setOuvert(id);
   }, [searchParams]);
+
+  // 0270 : un contenu dont aucun label ne sert Sophia n'a pas de rang Sophia —
+  // la grille affiche « — » au lieu d'un D trompeur. Liens illisibles :
+  // affichage d'avant. Tri et nombre de posts inchangés.
+  const liensLabelsListe = useLiensLabels();
+  const liensLisibles = liensLabelsListe.isSuccess ? liensLabelsListe.data : undefined;
 
   // Plus de filtre par application : un contenu sert toutes les applications
   // de ses labels (sa pertinence par application se lit dans le détail).
@@ -2269,7 +2313,16 @@ export function AdminSlideshowsPage() {
                       )}
                     </div>
                     <div className="flex flex-wrap items-center gap-1">
-                      <BadgeTier tier={c.tier} />
+                      {c.tier === "D" && contenuHorsSophia(c.labels ?? [], liensLisibles) ? (
+                        <span
+                          className="px-1.5 text-[10px] font-bold text-muted-foreground"
+                          title={t("slideshows.horsSophiaCourt")}
+                        >
+                          —
+                        </span>
+                      ) : (
+                        <BadgeTier tier={c.tier} />
+                      )}
                       <span
                         className="text-[10px] tabular-nums text-muted-foreground"
                         title={t("slideshows.passagesRestants", {

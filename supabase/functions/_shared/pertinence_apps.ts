@@ -181,6 +181,40 @@ export function eligibiliteDepuisNote(note: number, seuil: number, force: boolea
 }
 
 /**
+ * Comment placer le rang SOPHIA (`contenus.tier`) d'un contenu à l'import,
+ * maintenant que chaque application a SON tier (0270, « plus de tiers
+ * mergés ») :
+ *
+ * - `historique` : contenu Sophia seul (ou aucune ligne de pertinence) — le
+ *   placement d'avant, à l'octet près (porte = score Sophia) ;
+ * - `partage` : noté pour Sophia ET pour une autre application — le rang
+ *   Sophia vient du score SOPHIA, plus du max (la porte, elle, reste le max) ;
+ * - `hors_sophia` : aucune ligne Sophia (labels qui ne servent qu'une autre
+ *   application) — pas de rang Sophia, `contenus` reste D / 0.
+ */
+export type PlacementSophia =
+  | { mode: "historique" }
+  | { mode: "partage"; scoreSophia: number }
+  | { mode: "hors_sophia" };
+
+/**
+ * Placement Sophia depuis les lignes `contenu_pertinences` du contenu. Le score
+ * Sophia du mode `partage` est le score STOCKÉ (entier), celui dont
+ * `majNotesPertinences` tire la note Sophia : rang et éligibilité Sophia
+ * viennent ainsi du même chiffre.
+ */
+export function placementSophiaDepuisLignes(
+  lignes: ReadonlyArray<{ application_id: string; score: number | string | null }>,
+): PlacementSophia {
+  const sophia = lignes.find((l) => l.application_id === ID_SOPHIA);
+  const autres = lignes.some((l) => l.application_id !== ID_SOPHIA);
+  if (!autres) return { mode: "historique" };
+  if (!sophia) return { mode: "hors_sophia" };
+  const score = Number(sophia.score);
+  return { mode: "partage", scoreSophia: Number.isFinite(score) ? score : 0 };
+}
+
+/**
  * Accroche d'un contenu du stock, pour le rattrapage : son OCR source n'est
  * plus dans `structure_slides` (vidé à la validation). On lit la ligne de la
  * langue source, dans sa version SANS pub (`slides_base`) quand elle existe —
@@ -357,6 +391,28 @@ async function lirePertinences(
     note: r.note === null || r.note === undefined ? null : Number(r.note),
     eligible: Boolean(r.eligible),
   }));
+}
+
+/**
+ * Placement Sophia d'un contenu à l'import (voir `PlacementSophia`). LÈVE sur
+ * erreur de lecture : le pas d'import est alors rejoué, plutôt que de figer un
+ * rang Sophia sur une lecture ratée (même doctrine que `schemaMultiAppPret`).
+ * À n'appeler que si 0256 est en place.
+ */
+export async function placementSophiaImport(
+  supabase: Supabase,
+  contenuId: string,
+): Promise<PlacementSophia> {
+  const { data, error } = await supabase
+    .from("contenu_pertinences")
+    .select("application_id, score")
+    .eq("contenu_id", contenuId);
+  if (error) {
+    throw new Error(`Placement Sophia du contenu ${contenuId} : ${messageErreur(error)}`);
+  }
+  return placementSophiaDepuisLignes(
+    (data ?? []) as Array<{ application_id: string; score: number | null }>,
+  );
 }
 
 // ---------------------------------------------------------------------------
@@ -638,6 +694,8 @@ export interface ScoringNote {
   poidsVues: number;
   vuesPlafond: number;
   eloSeuil: number;
+  /** Part de la piste du compte source dans la note (`elo_poids_source`). */
+  poidsSource?: number;
 }
 
 export interface DepsBackfill extends DepsNotation {
@@ -653,7 +711,15 @@ export interface DepsBackfill extends DepsNotation {
     k: number;
     poidsVues?: number;
     vuesPlafond?: number;
+    pisteSource?: number | null;
+    poidsSource?: number;
   }) => number;
+  /**
+   * Piste du compte source (`lirePisteSource` d'import_contenu). Sans elle, ou
+   * `null` (source inconnue / sans preuve), le terme de piste est désactivé —
+   * exactement comme à l'étape 4 pour une source sans piste.
+   */
+  lirePisteSource?: (compteReferenceId: string | null) => Promise<number | null>;
   maintenant?: () => number;
 }
 
@@ -668,7 +734,7 @@ async function noterContenuBackfill(
 ): Promise<void> {
   const { data: contenu, error } = await supabase
     .from("contenus")
-    .select("id, titre, langue_source, vues_source, import_elo_force_seuil")
+    .select("id, titre, langue_source, vues_source, import_elo_force_seuil, compte_reference_id")
     .eq("id", contenuId)
     .maybeSingle();
   if (error) throw new Error(`Contenu ${contenuId} : ${messageErreur(error)}`);
@@ -679,8 +745,15 @@ async function noterContenuBackfill(
     langue_source: string | null;
     vues_source: number | null;
     import_elo_force_seuil: boolean | null;
+    compte_reference_id?: string | null;
   };
   const langueSource = c.langue_source ?? "fr";
+  // Même note qu'à l'étape 4 de l'import : piste du compte source et son poids
+  // compris (sans eux, la note du rattrapage s'écartait de celle de l'import
+  // dès que `elo_poids_source` > 0). Piste lue au moment du rattrapage.
+  const pisteSource = deps.lirePisteSource
+    ? await deps.lirePisteSource(c.compte_reference_id ?? null)
+    : null;
 
   const { data: ligne, error: errLigne } = await supabase
     .from("contenu_langues")
@@ -705,6 +778,8 @@ async function noterContenuBackfill(
     k: scoring.k,
     poidsVues: scoring.poidsVues,
     vuesPlafond: scoring.vuesPlafond,
+    pisteSource,
+    poidsSource: scoring.poidsSource,
   });
   const { error: errUp } = await supabase.from("contenu_pertinences").upsert(
     {

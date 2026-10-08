@@ -35,6 +35,14 @@ const MAX_RECHARGES_CREATEUR = 2;
  * refait un post de la MÊME application (répartition tenue), sous réserve
  * d'éligibilité du compte et avec le repli Sophia habituel.
  *
+ * Tiers par application (0270) : supprimer le passage rend le budget de SON
+ * application (chaque vue de tier ne compte que les passages de son
+ * application). `retirerDeLaReserve` sort le contenu de la réserve de
+ * l'application (`eligible = false`) : une ligne de tier paresseuse retombe en
+ * D / 0, une ligne écrite reste mais n'est plus tirée, et ses rappels J+7 ne
+ * sont plus programmés. `contenus.*` (le tier Sophia) n'est jamais touché par
+ * un post d'une autre application. Aucun changement de code ici.
+ *
  * Gère aussi les coquilles « slideshow vide » : post sans slides / passage
  * orphelin (matérialisation ratée) qui bloquaient le quota.
  */

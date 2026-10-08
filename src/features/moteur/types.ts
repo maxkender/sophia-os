@@ -319,9 +319,26 @@ export interface ContenuTierEtat {
   dernier_publie_at: string | null;
 }
 
+/**
+ * État tierlist d'un contenu POUR UNE APPLICATION autre que Sophia (vue
+ * `contenu_application_tier_etat`, migration 0270) : mêmes colonnes que
+ * `contenu_tier_etat`, sur les seuls passages de cette application.
+ */
+export interface ContenuTierEtatApplication extends ContenuTierEtat {
+  application_id: string;
+  /** `contenu_pertinences.eligible` : dans la réserve de l'application. */
+  eligible: boolean;
+  /** Une ligne existe dans `contenu_tiers_application` ; sinon tier d'entrée paresseux. */
+  materialise: boolean;
+  /** Note d'import de l'application (d'où vient le tier d'entrée). */
+  note: number | null;
+  /** Rapport de la ligne (table `contenu_tiers_application`), si elle existe. */
+  tier_rapport?: TierRapport | null;
+}
+
 /** Trace de la dernière requalification (colonne `contenus.tier_rapport`). */
 export interface TierRapport {
-  origine?: "import" | "import_force";
+  origine?: "import" | "import_force" | "manuel" | "entree_paresseuse";
   avant?: Tier;
   apres?: Tier;
   regle?: string;
@@ -336,6 +353,12 @@ export interface TierRapport {
   seuil?: number;
   tier?: Tier;
   passages?: number;
+  /** 0270 : rang Sophia d'un contenu partagé, posé sur la pertinence SOPHIA. */
+  base?: "pertinence_sophia";
+  /** 0270 : application de la ligne (`contenu_tiers_application`). */
+  application?: string;
+  /** 0270 : S+ hors Sophia — remix qui auraient été débloqués (file non branchée). */
+  remix_en_attente?: number;
 }
 
 export interface ReglagesTierlist {
@@ -657,6 +680,8 @@ export interface Passage {
   tier_cycle?: number;
   /** Rappel automatique J+7 (passage source > 50k vues) — hors quota, hors `m`. */
   est_rappel?: boolean;
+  /** Application promue (0256) ; absente = Sophia. Le budget tierlist est celui de CETTE application (0270). */
+  application_id?: string | null;
   rappel_rang?: number;
   rappel_source_id?: string | null;
   publie_at: string | null;

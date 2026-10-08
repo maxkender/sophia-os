@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
 import {
@@ -14,6 +15,7 @@ import {
   requalifier,
   tierDepuisEloExistant,
   tierImport,
+  tierInitialDepuisNote,
   type CandidatRappel,
   type DecisionRequalifEntree,
   type Tier,
@@ -530,5 +532,43 @@ describe("étalement des rappels J+7", () => {
     expect(jourSuivant("2026-09-30")).toBe("2026-10-01");
     expect(jourSuivant("2026-12-31")).toBe("2027-01-01");
     expect(jourSuivant("2028-02-28")).toBe("2028-02-29");
+  });
+});
+
+describe("tier d'entrée par application (0270)", () => {
+  it("mêmes paliers que tierImport, sans le seuil ; C pour une note absente", () => {
+    for (let n = 0; n <= 100; n += 0.5) {
+      expect(tierInitialDepuisNote(n)).toBe(tierImport(n, 0));
+    }
+    expect(tierInitialDepuisNote(70)).toBe("A");
+    expect(tierInitialDepuisNote(60)).toBe("B");
+    expect(tierInitialDepuisNote(59.99)).toBe("C");
+    expect(tierInitialDepuisNote(null)).toBe("C");
+    expect(tierInitialDepuisNote(undefined)).toBe("C");
+    expect(tierInitialDepuisNote(Number.NaN)).toBe("C");
+  });
+
+  it("synchro avec la migration 0270 : seuils de tier_initial_note et table de passages_du_tier", () => {
+    const sql = readFileSync("supabase/migrations/0270_tiers_par_application.sql", "utf8");
+    const fonction = (nom: string) => {
+      const debut = sql.indexOf(`create or replace function public.${nom}(`);
+      expect(debut).toBeGreaterThanOrEqual(0);
+      return sql.slice(debut, sql.indexOf("$$;", debut));
+    };
+
+    const seuils = [...fonction("tier_initial_note").matchAll(/when p_note >= (\d+) then '([A-Z+]+)'/g)]
+      .map((m) => [Number(m[1]), m[2]]);
+    expect(seuils).toEqual([[70, "A"], [60, "B"]]);
+    expect(fonction("tier_initial_note")).toMatch(/else 'C'/);
+    for (const [n, tier] of seuils) {
+      expect(tierInitialDepuisNote(n as number)).toBe(tier);
+      expect(tierInitialDepuisNote((n as number) - 0.01)).not.toBe(tier);
+    }
+
+    const passages = Object.fromEntries(
+      [...fonction("passages_du_tier").matchAll(/when '([A-Z+]+)'\s+then (\d+)/g)].map((m) => [m[1], Number(m[2])]),
+    );
+    expect(fonction("passages_du_tier")).toMatch(/else 0/);
+    expect({ D: 0, ...passages }).toEqual(PASSAGES_PAR_TIER);
   });
 });

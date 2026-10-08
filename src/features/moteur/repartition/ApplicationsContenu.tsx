@@ -1,11 +1,27 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 
 import { Badge } from "@/components/ui/badge";
-import { messageErreur } from "@/lib/utils";
-import { listerDecksApplicationsContenu, listerPertinencesContenu } from "../apiMultiApp";
+import { Button } from "@/components/ui/button";
+import { cn, messageErreur } from "@/lib/utils";
+import {
+  listerDecksApplicationsContenu,
+  listerPertinencesContenu,
+  listerTiersApplicationsContenu,
+  majTierContenuApplication,
+  relancerRequalifContenuApplication,
+} from "../apiMultiApp";
 import { nomLangue } from "../langues";
-import { nomApplicationPromue } from "./logique";
+import { ID_SOPHIA } from "../multiApp";
+import { estErreurSchemaAbsent } from "../multiapp/logique";
+import {
+  PASSAGES_PAR_TIER,
+  TIERS,
+  type ContenuTierEtatApplication,
+  type ReglagesTierlist,
+  type Tier,
+} from "../types";
+import { etatRequalifCycle, nomApplicationPromue } from "./logique";
 import { useApplicationsMulti } from "./useMultiApp";
 
 /**
@@ -150,5 +166,179 @@ export function DecksApplications({ contenuId }: { contenuId: string }) {
         </ul>
       )}
     </section>
+  );
+}
+
+/**
+ * Tier PAR APPLICATION (0270) d'un contenu, pour chaque application autre que
+ * Sophia : rang, budget de passages et cycle PROPRES à l'application, sur ses
+ * seuls passages. Le bloc Tierlist de la fiche reste celui de Sophia.
+ *
+ * Ne rend RIEN pendant le chargement, sur un schéma absent (0270 pas encore
+ * passée) ni pour un contenu qui n'est noté pour aucune autre application —
+ * la fiche d'un contenu Sophia est donc strictement celle d'avant. Une autre
+ * erreur reste locale au bloc, comme pour les pertinences.
+ */
+export function TiersApplications({
+  contenuId,
+  tierlist,
+}: {
+  contenuId: string;
+  /** Réglages `reglages.tierlist` (recul, délai plafond), lus par la fiche. */
+  tierlist?: Pick<ReglagesTierlist, "recul_jours" | "requalif_max_jours">;
+}) {
+  const { t } = useTranslation();
+  const applications = useApplicationsMulti();
+  const etats = useQuery({
+    queryKey: ["contenu-tiers-applications", contenuId],
+    queryFn: () => listerTiersApplicationsContenu(contenuId),
+    retry: false,
+  });
+  if (etats.isPending) return null;
+  if (etats.isError) {
+    if (estErreurSchemaAbsent(etats.error)) return null;
+    return (
+      <section className="space-y-2">
+        <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+          {t("multiAppPosts.tiers.titre")}
+        </h3>
+        <p className="text-xs text-destructive">
+          {t("multiAppPosts.tiers.erreur", { message: messageErreur(etats.error) })}
+        </p>
+      </section>
+    );
+  }
+  const lignes = (etats.data ?? []).filter((e) => e.application_id !== ID_SOPHIA);
+  if (lignes.length === 0) return null;
+  const apps = applications.data ?? [];
+
+  return (
+    <section className="space-y-2">
+      <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+        {t("multiAppPosts.tiers.titre")}
+      </h3>
+      <p className="text-[11px] text-muted-foreground">{t("multiAppPosts.tiers.aide")}</p>
+      <ul className="space-y-2">
+        {lignes.map((e) => (
+          <LigneTierApplication
+            key={e.application_id}
+            contenuId={contenuId}
+            etat={e}
+            nom={nomApplicationPromue(e.application_id, apps)}
+            tierlist={tierlist}
+          />
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+function LigneTierApplication({
+  contenuId,
+  etat: e,
+  nom,
+  tierlist,
+}: {
+  contenuId: string;
+  etat: ContenuTierEtatApplication;
+  nom: string;
+  tierlist?: Pick<ReglagesTierlist, "recul_jours" | "requalif_max_jours">;
+}) {
+  const { t } = useTranslation();
+  const qc = useQueryClient();
+  const rafraichir = () =>
+    qc.invalidateQueries({ queryKey: ["contenu-tiers-applications", contenuId] });
+  const changerTier = useMutation({
+    mutationFn: (tier: Tier) => majTierContenuApplication(contenuId, e.application_id, tier),
+    onSettled: rafraichir,
+  });
+  const requalifier = useMutation({
+    mutationFn: () => relancerRequalifContenuApplication(contenuId, e.application_id),
+    onSuccess: rafraichir,
+  });
+  const etat = etatRequalifCycle(e, tierlist);
+  const erreur = changerTier.error ?? requalifier.error;
+
+  return (
+    <li className="space-y-1.5 rounded border p-2 text-xs">
+      <div className="flex flex-wrap items-center gap-1.5">
+        <span className="font-medium">{nom}</span>
+        <Badge variant="outline" className="text-[10px] font-bold">
+          {e.tier}
+        </Badge>
+        <span className="tabular-nums text-muted-foreground">
+          {t("slideshows.passagesDetail", {
+            publies: e.publies ?? 0,
+            prevus: e.passages_prevus ?? 0,
+            envol: e.en_vol ?? 0,
+          })}
+        </span>
+      </div>
+      <p className="tabular-nums text-muted-foreground">
+        {t("slideshows.moyenneVues")} :{" "}
+        {e.moyenne_vues != null ? Math.round(e.moyenne_vues).toLocaleString() : "—"}
+        {" · "}
+        {t("slideshows.meilleurPassage")} :{" "}
+        {e.max_vues != null ? e.max_vues.toLocaleString() : "—"}
+      </p>
+      {!e.materialise && (
+        <p className="text-muted-foreground">
+          {t("multiAppPosts.tiers.paresseux", {
+            note: e.note == null ? "—" : Math.round(e.note),
+          })}
+        </p>
+      )}
+      {!e.eligible && (
+        <p className="text-amber-700 dark:text-amber-400">{t("multiAppPosts.tiers.horsReserve")}</p>
+      )}
+      {etat && (
+        <p className={cn(etat.alerte && "text-amber-700 dark:text-amber-400")}>
+          {t(`slideshows.requalif.${etat.cle}`, {
+            mesures: e.mesures ?? 0,
+            publies: e.publies ?? 0,
+            introuvables: e.introuvables ?? 0,
+            attente: e.en_attente_mesure ?? 0,
+            jours: tierlist?.requalif_max_jours ?? 3,
+          })}
+          {etat.echeance ? ` ${t("slideshows.requalifEcheance", { date: etat.echeance })}` : null}
+        </p>
+      )}
+      {e.tier_rapport?.regle ? (
+        <p className="text-muted-foreground">
+          {t("slideshows.derniereRequalif", {
+            avant: e.tier_rapport.avant ?? "—",
+            apres: e.tier_rapport.apres ?? e.tier,
+            regle: e.tier_rapport.regle,
+          })}
+        </p>
+      ) : null}
+      <div className="flex flex-wrap items-center gap-1.5">
+        {TIERS.map((tier) => (
+          <button
+            key={tier}
+            type="button"
+            disabled={changerTier.isPending}
+            onClick={() => changerTier.mutate(tier)}
+            className={cn(
+              "rounded-md border px-2 py-0.5 text-[11px] font-bold disabled:opacity-50",
+              e.tier === tier ? "bg-muted" : "bg-background text-muted-foreground hover:bg-muted",
+            )}
+            title={t("slideshows.tierPassages", { count: PASSAGES_PAR_TIER[tier] })}
+          >
+            {tier}
+          </button>
+        ))}
+        <Button
+          size="sm"
+          variant="outline"
+          className="h-6 text-[11px]"
+          disabled={requalifier.isPending}
+          onClick={() => requalifier.mutate()}
+        >
+          {requalifier.isPending ? t("common.loading") : t("slideshows.requalifMaintenant")}
+        </Button>
+      </div>
+      {erreur ? <p className="text-destructive">{messageErreur(erreur)}</p> : null}
+    </li>
   );
 }

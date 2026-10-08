@@ -348,6 +348,13 @@ export const fr = {
         "Lowered quota — pool trop mince : {{detail}}",
       quotasBaissesDernier:
         "Dernier run minuit : lowered quota — {{detail}}",
+      tiersApplications: {
+        titre: "Tierlist par application :",
+        ligne: "{{app}} {{examines}} examiné(s) · {{requalifies}} requalifié(s)",
+        interrompue: "interrompue (échéance de 20 s, la suite passe la nuit prochaine)",
+        erreur: "en échec : {{message}}",
+        illisible: "Tierlist par application sautée : sonde de la migration 0270 illisible.",
+      },
       erreursAssignation: "Comptes non assignés :",
       prets: "Passages prêts",
       enCoursLabel: "En cours",
@@ -1220,6 +1227,9 @@ export const fr = {
       passagesPublies: "{{publies}}/{{prevus}} publié(s)",
       requalifBloquee: "requalif en attente",
       requalifMaintenant: "Requalifier maintenant",
+      horsSophia:
+        "Ce slideshow ne sert pas Sophia (labels : {{labels}}) — pas de rang Sophia. Son rang par application est plus haut.",
+      horsSophiaCourt: "Ne sert pas Sophia : pas de rang Sophia",
       requalifEcheance: "Relance d'office le {{date}}.",
       requalif: {
         recul:
@@ -1558,6 +1568,10 @@ export const fr = {
         backfillEnCours: "en cours",
         backfillEtat: "{{restants}} restant(s) · {{faits}} fait(s) · {{erreurs}} erreur(s)",
         backfillErreur: "État du rattrapage illisible : {{message}}",
+        migration0270:
+          "Impossible d'activer {{nom}} : appliquer la migration 0270 (tiers par application) avant d'activer. Sans elle, le moteur ne sert aucune autre application que Sophia.",
+        derniereRequalif:
+          "Dernière requalif {{nom}} ({{jour}}) : {{examines}} examiné(s) · {{requalifies}} requalifié(s)",
       },
       labels: {
         applicationsServies: "Applications",
@@ -1751,6 +1765,13 @@ export const fr = {
         statut_pret: "Prêt",
         statut_echec: "Échec",
         statut_ineligible: "Inéligible",
+      },
+      tiers: {
+        titre: "Tier par application",
+        aide: "Chaque autre application a son rang, son budget de passages et son cycle, mesurés sur ses seuls posts. Le bloc Tierlist plus bas est celui de Sophia.",
+        paresseux: "Rang d'entrée (note {{note}}), pas encore requalifié.",
+        horsReserve: "Hors réserve (révoqué ou non éligible) : plus tiré pour cette application.",
+        erreur: "Tiers par application indisponibles : {{message}}",
       },
     },
     analytics: {

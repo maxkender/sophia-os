@@ -1,11 +1,12 @@
 import { describe, expect, it } from "vitest";
 
-import type { RepliApplication } from "../apiMultiApp";
+import type { RepliApplication, RunTiersApplications } from "../apiMultiApp";
 import { ID_SOPHIA } from "../multiApp";
 import {
   avancementBackfill,
   basculerApplicationLabel,
   clesPromptsApplication,
+  derniereRequalifApplication,
   estErreurSchemaAbsent,
   grouperReplis,
   jourParisIlYa,
@@ -13,6 +14,7 @@ import {
   langueCiblee,
   languesApresBascule,
   promptsManquants,
+  resumeRunTiersApplications,
 } from "./logique";
 
 const UNSWIPE = "00000000-0000-4000-8000-000000000003";
@@ -189,5 +191,62 @@ describe("regroupement des replis", () => {
 
   it("vide → vide", () => {
     expect(grouperReplis([])).toEqual([]);
+  });
+});
+
+describe("0270 — trace de la tierlist par application", () => {
+  const bloc = (sur: Partial<RunTiersApplications["applications"][string]> = {}) => ({
+    at: "2026-10-09T22:01:00Z",
+    examines: 0,
+    requalifies: 0,
+    enAttente: 0,
+    sansMesure: 0,
+    attendues: 0,
+    complet: true,
+    repli: false,
+    alerte: null,
+    interrompu: false,
+    dejaRequalifies: 0,
+    erreur: null,
+    ...sur,
+  });
+  const run = (sur: Partial<RunTiersApplications> = {}): RunTiersApplications => ({
+    jour: "2026-10-09",
+    at: "2026-10-09T22:01:00Z",
+    etat: "pret",
+    applications: { unswipe: bloc() },
+    erreur: null,
+    ...sur,
+  });
+
+  it("page Minuit : rien tant qu'il n'y a rien à dire (0270 absente, ou 0 examiné sans alerte)", () => {
+    expect(resumeRunTiersApplications(null, "2026-10-09")).toBeNull();
+    expect(resumeRunTiersApplications(run({ etat: "absent", applications: {} }), "2026-10-09")).toBeNull();
+    expect(resumeRunTiersApplications(run(), "2026-10-09")).toBeNull();
+    // Un autre jour : rien, même avec des examinés.
+    expect(resumeRunTiersApplications(run({ applications: { unswipe: bloc({ examines: 3 }) } }), "2026-10-10")).toBeNull();
+  });
+
+  it("page Minuit : une ligne dès qu'il y a des examinés, une alerte, une erreur, une interruption", () => {
+    const r = resumeRunTiersApplications(
+      run({ applications: { unswipe: bloc({ examines: 4, requalifies: 2 }), foo: bloc() } }),
+      "2026-10-09",
+    );
+    expect(r?.lignes.map((l) => [l.slug, l.examines, l.requalifies])).toEqual([["unswipe", 4, 2]]);
+    for (const sur of [{ alerte: "Lecture INCOMPLÈTE" }, { erreur: "panne" }, { interrompu: true }]) {
+      expect(resumeRunTiersApplications(run({ applications: { unswipe: bloc(sur) } }), "2026-10-09")?.lignes).toHaveLength(1);
+    }
+    expect(resumeRunTiersApplications(run({ etat: "illisible", applications: {} }), "2026-10-09")?.illisible).toBe(true);
+  });
+
+  it("carte Applications : dernière requalif de l'application, en rouge sur alerte ou erreur", () => {
+    expect(derniereRequalifApplication(null, "unswipe")).toBeNull();
+    expect(derniereRequalifApplication(run({ applications: {} }), "unswipe")).toBeNull();
+    const ok = derniereRequalifApplication(run({ applications: { unswipe: bloc({ examines: 2, requalifies: 1 }) } }), "unswipe");
+    expect([ok?.examines, ok?.requalifies, ok?.rouge, ok?.jour]).toEqual([2, 1, false, "2026-10-09"]);
+    expect(derniereRequalifApplication(run({ applications: { unswipe: bloc({ alerte: "x" }) } }), "unswipe")?.rouge).toBe(true);
+    // L'étape entière a levé : rouge pour chaque application.
+    const echec = derniereRequalifApplication(run({ applications: {}, erreur: "applications illisibles" }), "unswipe");
+    expect([echec?.rouge, echec?.erreur]).toEqual([true, "applications illisibles"]);
   });
 });

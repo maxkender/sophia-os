@@ -33,6 +33,17 @@ Note /100 de la **langue source** : `30 % pertinence + 70 % vues`
 
 S et S+ ne sont **jamais** atteints à l'import — seulement par requalification.
 
+**Contenu partagé (0270).** Pour un contenu noté pour Sophia ET pour une autre
+application (`contenu_pertinences`), le rang **Sophia** vient du score
+**Sophia**, et plus du max des applications : même formule, mêmes paramètres
+(piste du compte source comprise), D / 0 sous le seuil. La porte d'import
+(rejet), elle, reste le max. `tier_rapport` porte alors `base:
+"pertinence_sophia"`, la note de la porte (`porte`) et son tier (`tier_porte`).
+Un contenu dont aucun label ne sert Sophia (« hors Sophia ») ne reçoit pas de
+rang Sophia (`contenus` reste D / 0). Un contenu Sophia seul — tout le stock
+actuel — garde le placement d'avant, à l'octet près. Même règle pour l'import
+forcé (note Sophia planchée au seuil).
+
 Plus de gate par langue : toutes les langues cibles sont postables. Le deck d'une
 langue naît à la demande, à la première assignation d'un compte de cette langue
 (`assurerDeckPourLangue`). `contenu_langues.score` reste écrit pour l'historique
@@ -193,7 +204,15 @@ créer les remix, les rattacher au même label, et passer la ligne à `consomme`
 `passages` : `tier_cycle`, `est_rappel`, `rappel_rang`, `rappel_source_id`
 `remix_debloques` : file des remix débloqués par un S+
 `contenu_tier_etat` (vue) : publiés / en vol / restants / `m` / max / nb ≥ 150k /
-mesurés / introuvables / en attente de mesure
+mesurés / introuvables / en attente de mesure — passages **Sophia** seulement
+depuis 0270
+`contenu_tiers_application` (0270) : tier, passages prévus, cycle, rapport par
+contenu × application (hors Sophia ; CHECK `application_id <> Sophia`)
+`contenu_application_tier_etat` (vue, 0270) : l'avancement par contenu ×
+application, sur les passages de l'application
+`contenu_application_a_requalifier` (vue, 0270) : ses cycles terminés
+`tier_initial_note(numeric)`, `passages_du_tier(text)` (0270) : miroirs SQL de
+`tierInitialDepuisNote` et `PASSAGES_PAR_TIER` (synchro testée)
 
 ## Migration des posts existants
 
@@ -223,6 +242,55 @@ Les posts repartent au cycle 1 avec le compteur plein : les passages historiques
 | `repechage_passages` | 1      | passages rendus à un D repêché                   |
 | `requalif_max_jours` | 3      | attente max d'une mesure avant relance au même rang |
 
+## Par application (0270)
+
+Décision du propriétaire (2026-10-08) : « plus de tiers mergés, des tiers
+différents par application ». Chaque application a **son** rang, **son**
+budget de passages, **son** cycle et **sa** mesure `m`, sur ses seuls posts.
+
+- **Sophia** garde `contenus.tier / passages_prevus / tier_cycle / tier_maj_at
+  / tier_rapport` et tout le code ci-dessus (requalification, rappels,
+  repêchage), inchangé. Seule différence : `contenu_tier_etat` ne compte plus
+  que les passages `application_id = Sophia` — un post Unswipe ne consomme
+  jamais le budget Sophia et n'entre pas dans son `m`.
+- **Autres applications** : table `contenu_tiers_application` (contenu ×
+  application) et vue `contenu_application_tier_etat` (mêmes colonnes que
+  `contenu_tier_etat`, plus `application_id`, `eligible`, `materialise`,
+  `note`), sur les seuls passages de l'application.
+- **Tier d'entrée paresseux** : tant qu'aucune ligne n'est écrite, la vue
+  déduit le tier de la note d'import de l'application
+  (`contenu_pertinences.note`, `tier_initial_note` : ≥ 70 A, ≥ 60 B, sinon C ;
+  C aussi pour une ligne forcée sans note), cycle 0. Ligne non éligible : D / 0.
+  La ligne naît à la première écriture (requalification, repêchage D,
+  changement manuel admin). Un réimport fait suivre la nouvelle note à une
+  ligne non écrite ; une ligne écrite garde son rang.
+- **Même logique, appliquée séparément** : `deciderRequalif`, barème, S / S+,
+  cycle terminé, relance sans mesure, bandes de tirage, repêchage D (seulement
+  une ligne écrite à 0 passage), fenêtre « en vol » de 2 jours, réglages
+  `reglages.tierlist`.
+- **Minuit** : étape `tierlist_applications`, APRÈS la tierlist Sophia (et les
+  rappels), AVANT l'assignation, bornée à 20 s (le reste repasse la nuit
+  suivante). Applications inactives comprises (un cycle publié doit finir).
+  Trace dans `reglages.tierlist_applications_dernier_run` (page Minuit, carte
+  Applications) ; `minuit_dernier_run` n'est pas touché. Clic admin
+  « Requalifier maintenant » d'une fiche : `{ etapes:
+  ["tierlist_applications"], contenuId, applicationId }`.
+- **Remix S+ hors Sophia** : rien n'est écrit dans `remix_debloques` (pas
+  d'`application_id`, et son UNIQUE `(contenu_id, tier_cycle)` heurterait les
+  cycles Sophia) ; le rapport porte `remix_en_attente`.
+- **Rappels J+7** : hors budget des deux côtés, inchangés ; ils recopient
+  `tier_cycle` et `application_id` de leur source. Une source d'une autre
+  application sortie de sa réserve (`eligible = false`, révocation) n'est
+  plus rejouée.
+- **Concurrence** : écritures gardées par `tier_cycle` (`.select` : 0 ligne =
+  requalifié ailleurs), repêchage gardé par `passages_prevus = 0`, écriture de
+  l'état paresseux en `ignoreDuplicates`.
+- **Tolérance de déploiement** : le code sonde 0270
+  (`sonderSchemaTiersApplication`). Absente : aucune autre application n'est
+  servie (repli Sophia, motif `reserve_vide` avec la raison), l'étape de
+  minuit ne fait rien. Illisible : le compte est rejoué, la nuit saute l'étape
+  avec un avertissement.
+
 ## Où c'est dans le code
 
 - `src/features/moteur/tierlist.ts` — barèmes, table de requalification,
@@ -232,4 +300,9 @@ Les posts repartent au cycle 1 avec le compteur plein : les passages historiques
 - `supabase/functions/_shared/import_contenu.ts` — `assurerTierImport`
 - `supabase/functions/_shared/assignation_contenu.ts` — pool, tirage, repêchage,
   `programmerRappelsJ7`
-- `supabase/functions/minuit-vnext/index.ts` — étape `tierlist`
+- `supabase/functions/minuit-vnext/index.ts` — étapes `tierlist` et
+  `tierlist_applications`
+- `supabase/functions/_shared/tiers_application.ts` — tierlist par application
+  (sonde 0270, lecture, requalification hors Sophia)
+- `src/features/moteur/repartition/ApplicationsContenu.tsx` — bloc « Tier par
+  application » de la fiche slideshow

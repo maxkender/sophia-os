@@ -2,8 +2,10 @@ import { describe, expect, it } from "vitest";
 
 import { ID_SOPHIA, type ApplicationMoteur } from "../multiApp";
 import {
+  contenuHorsSophia,
   curseursBornes,
   diagnosticCompteSansSophia,
+  etatRequalifCycle,
   etatPartsCompte,
   labelsPoolSophiaCompteMixte,
   nomApplicationPromue,
@@ -303,5 +305,59 @@ describe("labelsPoolSophiaCompteMixte (panneau Minuit, pool Sophia)", () => {
   it("compte mixte : seulement les labels qui servent Sophia, comme le moteur", () => {
     expect(labelsPoolSophiaCompteMixte([CINEMA, DETOX], AVEC_DETOX)).toEqual([CINEMA]);
     expect(labelsPoolSophiaCompteMixte([DETOX, CLEAN, HOOK], AVEC_DETOX)).toEqual([CLEAN]);
+  });
+});
+
+describe("0270 — avis « ne sert pas Sophia » de la fiche", () => {
+  const liens = [
+    { label_id: "L-sophia", application_id: ID_SOPHIA },
+    { label_id: "L-unswipe", application_id: ID_UNSWIPE },
+  ];
+
+  it("seulement si AUCUN label ne sert Sophia", () => {
+    expect(contenuHorsSophia([{ id: "L-unswipe", slug: "focus" }], liens)).toBe(true);
+    expect(contenuHorsSophia([{ id: "L-unswipe", slug: "focus" }, { id: "L-sophia", slug: "s" }], liens)).toBe(false);
+    // Label sans ligne : sert Sophia par héritage.
+    expect(contenuHorsSophia([{ id: "L-neuf", slug: "neuf" }], liens)).toBe(false);
+    // Aucun label utile (aucun, ou système seulement) : Sophia, comme le moteur.
+    expect(contenuHorsSophia([], liens)).toBe(false);
+    expect(contenuHorsSophia([{ id: "H", slug: "hook" }], liens)).toBe(false);
+  });
+
+  it("liens illisibles : jamais d'avis (affichage d'avant)", () => {
+    expect(contenuHorsSophia([{ id: "L-unswipe", slug: "focus" }], undefined)).toBe(false);
+  });
+});
+
+describe("0270 — état de requalification d'un cycle (tier par application)", () => {
+  const base = {
+    contenu_id: "c",
+    tier: "B" as const,
+    passages_prevus: 2,
+    tier_cycle: 0,
+    tier_maj_at: null,
+    publies: 2,
+    en_vol: 0,
+    restants: 0,
+    moyenne_vues: 1200,
+    max_vues: 2000,
+    nb_150k: 0,
+    mesures: 2,
+    introuvables: 0,
+    en_attente_mesure: 0,
+    dernier_publie_at: "2026-01-01T00:00:00Z",
+  };
+  const reglages = { recul_jours: 1, requalif_max_jours: 3 };
+
+  it("même décision que minuit : cycle non fini → rien ; fini et mesuré → « prete »", () => {
+    expect(etatRequalifCycle({ ...base, publies: 1 }, reglages)).toBeNull();
+    expect(etatRequalifCycle(base, reglages)).toEqual({ cle: "prete", alerte: false, echeance: null });
+    expect(etatRequalifCycle(base, undefined)).toBeNull();
+  });
+
+  it("sans mesure, tout introuvable : relance au même rang, signalée", () => {
+    expect(
+      etatRequalifCycle({ ...base, moyenne_vues: null, mesures: 0, introuvables: 2 }, reglages),
+    ).toEqual({ cle: "sansMesure_introuvable", alerte: true, echeance: null });
   });
 });

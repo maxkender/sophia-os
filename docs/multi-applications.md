@@ -42,9 +42,17 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
   (Sophia, clés historiques), `pertinence_<slug>` / `placement_<slug>` (autres).
   Un prompt manquant pour une application non-Sophia = échec franc (jamais de
   repli silencieux sur le texte Sophia).
-- **ELO, tierlist, classement : PARTAGÉS.** Un passage Unswipe consomme le même
-  budget `restants` du contenu qu'un passage Sophia (à séparer par
-  application : voir § 4).
+- **Tierlist et budget de passages : PAR APPLICATION (0270).** Chaque
+  application a son rang, son budget, son cycle et sa mesure `m`, sur ses
+  seuls posts : un post Unswipe ne consomme jamais le budget Sophia, et
+  inversement. Sophia garde `contenus.tier & co` ; les autres applications
+  vivent dans `contenu_tiers_application`, avec un tier d'entrée tiré de LEUR
+  note d'import (voir `docs/tierlist.md` § « Par application »). Le rang
+  Sophia d'un contenu partagé vient de la pertinence Sophia, plus du max.
+  **Restent partagés** : le classement des comptes, l'ELO langue
+  (`contenu_langues.score` / `nb_passages`, donc les variations), « déjà
+  posté » (ordre des bandes de tirage) et l'écart de 7 jours entre deux
+  applications sur un même contenu.
 - **Deck placé** : Sophia reste dans `contenu_langues.slides` (inchangé). Les
   autres applications dans `contenu_langue_decks` (contenu × langue × variante),
   cuits à partir d'une base SANS placement (`slides_base` : OCR source, ou
@@ -159,6 +167,18 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
 | vue `label_application_reserve` | réserve par label × application |
 | vue `stats_posts` + colonne `application_id` (en fin) | stats par application |
 
+Migration 0270 (tiers par application, additive ; parties A puis B) :
+
+| Objet | Rôle |
+|---|---|
+| `contenu_tiers_application(contenu_id, application_id, tier, passages_prevus, tier_cycle, tier_maj_at, tier_rapport)` | tier d'un contenu pour une application hors Sophia (CHECK `<> Sophia`, RLS admin) |
+| vue `contenu_application_tier_etat` | avancement par contenu × application, sur ses passages ; tier d'entrée paresseux tant qu'aucune ligne n'est écrite |
+| vue `contenu_application_a_requalifier` | ses cycles terminés |
+| `tier_initial_note(numeric)`, `passages_du_tier(text)` | miroirs SQL de `tierInitialDepuisNote` / `PASSAGES_PAR_TIER` |
+| `contenu_tier_etat` (modifiée) | ne compte plus que les passages Sophia (preuve d'invariance dans la migration) |
+| `label_application_reserve` (modifiée) | restants propres à chaque application : les réserves ne se recouvrent plus |
+| `reglages.tierlist_applications_dernier_run` | trace de l'étape de minuit `tierlist_applications` |
+
 Constantes : Sophia = `00000000-0000-4000-8000-000000000001`,
 Unswipe = `00000000-0000-4000-8000-000000000003` (0258).
 
@@ -231,18 +251,56 @@ Les fonctions Edge se déploient au merge sur `main` ; les migrations se passent
    plus simple : démarrer avec des comptes neufs.
 7. Posters : régler la répartition des comptes concernés (défaut 100 % Sophia).
 
+### Tiers par application (0270) — ordre impératif
+
+Préalable : Unswipe (et toute application non-Sophia) **INACTIVE** — la partie
+B de 0270 refuse de s'appliquer sinon.
+
+1. **Merger** la PR (Edge et front). La sonde 0270 répond « absent » : aucune
+   autre application n'est servie (repli Sophia, motif `reserve_vide`, raison
+   « migration 0270 non appliquée »), l'étape de minuit écrit
+   `{etat: "absent"}`, la carte Applications refuse l'activation. Sophia est
+   identique (aucun passage non-Sophia ne peut naître, l'import d'un contenu
+   Sophia seul reste « historique »). Nuit suivante : ~280 posts, bloc
+   tierlist habituel, pas de pic de quotas baissés,
+   `tierlist_applications_dernier_run.etat = "absent"`.
+2. Hors des fenêtres de nuit, noter les chiffres d'AVANT (`select count(*),
+   sum(restants) from contenu_tier_etat` ; `select count(*) from
+   contenu_a_requalifier` ; `select * from label_application_reserve` ;
+   `select count(*) from passages where application_id <> '…0001'` → 0), puis
+   appliquer **0270a puis 0270b** (MCP `apply_migration`, deux appels :
+   `0270a_tiers_application_table`, `0270b_tiers_application_vues` ; ou SQL
+   Editor, une exécution par partie, puis l'insert de trace de l'en-tête du
+   fichier). La partie B revérifie l'invariance Sophia dans la transaction et
+   annule tout au moindre écart (≈ 1 s de verrou sur deux vues).
+3. Après : mêmes chiffres (à l'activité près), `select count(*) from
+   contenu_application_tier_etat` → 0, pas d'`anon` dans les droits des
+   nouveaux objets, `schema_migrations` porte 0270a et 0270b. Sous 5 min, la
+   sonde Edge passe à « prête ». Nuit suivante : Sophia identique,
+   `tierlist_applications_dernier_run = {etat: "pret", applications:
+   {unswipe: {examines: 0, …}}}`.
+4. Seulement ensuite : langues ciblées, labels dédiés, **rattrapage de
+   pertinence Unswipe** (il note désormais avec la piste du compte source,
+   comme l'import), puis activation (§ 6 ci-dessus).
+
+Ordre inverse (0270 avant le merge) : sûr tant qu'Unswipe reste inactive (B
+refuse sinon), mais l'ancien front laisserait l'activer : déconseillé.
+
+**Retour arrière.** Revenir sur le CODE après 0270 avec une application
+non-Sophia active la resservirait sans limite (l'ancien code lit
+`contenu_tier_etat`, désormais filtré sur Sophia) : **désactiver d'abord
+toute application non-Sophia**. Revenir sur 0270 :
+`docs/sql/0270_retour_arriere.sql` (même préalable, le script refuse sinon) ;
+la table et les fonctions restent, leur suppression (en commentaire) perd les
+tiers des autres applications.
+
 `manage-users` et `papier-cm` tournent sur des bundles figés : ils continuent
 de lire `application_id` (toujours Sophia) et n'ont pas besoin d'être
 reconstruits pour cette évolution.
 
 ## 4. Plus tard (décidé, pas fait)
 
-1. **Tiers, budget de passages et vues PAR APPLICATION.** Aujourd'hui ELO,
-   tierlist et budget `restants` sont partagés : un post Unswipe consomme le
-   même compteur qu'un post Sophia, et ses vues comptent dans le tier du
-   contenu. Décision : les séparer par application (refonte complète du
-   classement et de la tierlist).
-2. **`manage-users` : repli « label le moins utilisé ».** Quand on crée un
+1. **`manage-users` : repli « label le moins utilisé ».** Quand on crée un
    poster et que la file de sa langue est vide, le bundle figé lui donne le
    label le moins utilisé de la langue, sans regarder `label_applications`.
    Un label « Unswipe seul » tout neuf (0 compte) serait donc donné aux

@@ -101,6 +101,21 @@ export function tierImport(elo: number, seuil = 55): Tier | null {
 }
 
 /**
+ * Tier d'ENTRÉE d'une application autre que Sophia (migration 0270), depuis SA
+ * note d'import, pour une ligne éligible : paliers de `tierImport` sans le
+ * seuil (déjà appliqué par `eligible`). Note absente (forcée) ou non finie → C.
+ *
+ * Miroir de la fonction SQL `tier_initial_note` et de la copie Deno
+ * (`supabase/functions/_shared/tierlist.ts`) — synchro testée.
+ */
+export function tierInitialDepuisNote(note: number | null | undefined): Tier {
+  if (note === null || note === undefined || !Number.isFinite(note)) return "C";
+  if (note >= 70) return "A";
+  if (note >= 60) return "B";
+  return "C";
+}
+
+/**
  * Conversion de l'ancien ELO de la langue native en rang, pour les posts
  * déjà en base au moment du passage à la tierlist (migration 0237).
  */

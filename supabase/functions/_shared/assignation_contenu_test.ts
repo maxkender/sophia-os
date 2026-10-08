@@ -28,6 +28,7 @@ import {
 } from "./assignation_contenu.ts";
 import { PLAFOND_LIGNES, TAILLE_PAGE, lireTout } from "./lots.ts";
 import { ID_SOPHIA, type ApplicationMoteur } from "./multi_app.ts";
+import { oublierSondeTiersApplication } from "./tiers_application.ts";
 
 interface Lien {
   label_id: string;
@@ -982,6 +983,8 @@ function baseEssai(args: {
       restants: 2,
     })),
     contenu_pertinences: args.pertinences ?? [],
+    // Vue 0270 : l'état tierlist PAR APPLICATION des contenus éligibles.
+    contenu_application_tier_etat: etatsApplication(args.pertinences ?? []),
     contenu_langue_decks: [] as unknown[],
     passages,
     posts: passages.map((p) => ({ id: p.post_id, compte_id: "k1", est_test: false })),
@@ -990,6 +993,30 @@ function baseEssai(args: {
 }
 
 const DECK = [{ position: 1, texte_overlay: "texte", position_sophia: false }];
+
+/**
+ * Lignes de `contenu_application_tier_etat` (0270) pour les pertinences
+ * non-Sophia éligibles : tier d'entrée paresseux (note 65 → B), cycle 0,
+ * 2 passages restants — le pendant, par application, des lignes
+ * `contenu_tier_etat` de `baseEssai`.
+ */
+function etatsApplication(
+  pertinences: Array<{ contenu_id: string; application_id: string; eligible: boolean }>,
+) {
+  return pertinences
+    .filter((p) => p.application_id !== ID_SOPHIA && p.eligible)
+    .map((p) => ({
+      contenu_id: p.contenu_id,
+      application_id: p.application_id,
+      tier: "B",
+      tier_cycle: 0,
+      passages_prevus: 2,
+      restants: 2,
+      materialise: false,
+      eligible: true,
+      note: 65,
+    }));
+}
 
 /** Remplace les decks le temps d'un test ; rend les appels faits. */
 async function avecDecks<T>(
@@ -1011,11 +1038,13 @@ async function avecDecks<T>(
   };
   try {
     oublierSondeMultiApp();
+    oublierSondeTiersApplication();
     return await corps(appels);
   } finally {
     decksAssignation.sophia = avant.sophia;
     decksAssignation.application = avant.application;
     oublierSondeMultiApp();
+    oublierSondeTiersApplication();
   }
 }
 
@@ -1806,6 +1835,9 @@ Deno.test("journal — une recharge (forcer) garde le verdict de la nuit, un tes
     for (let i = 0; i < 3; i += 1) {
       tables.contenu_labels.push({ label_id: "L2", contenu_id: idContenu(i) });
       tables.contenu_pertinences.push({ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true });
+      tables.contenu_application_tier_etat.push(
+        ...etatsApplication([{ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true }]),
+      );
     }
     const recharge = await assignerTousComptes(client, JOUR, "k1", { forcer: true, ignorerWarmup: true });
     assertEquals(recharge[0].crees, 1);
@@ -1855,6 +1887,7 @@ Deno.test("non servable — decks en échec : la raison cite la cause réelle du
       application_id: UNSWIPE,
       eligible: true,
     }));
+    base.contenu_application_tier_etat = etatsApplication(base.contenu_pertinences);
     const { client } = fauxMoteur(base);
 
     const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
@@ -2052,6 +2085,8 @@ function baseRappel(args: {
     }],
     posts: [] as unknown[],
     label_applications: args.liens ?? [{ label_id: "L2", application_id: UNSWIPE }],
+    // Le placement Unswipe de la source est encore dans la réserve (0270, P18).
+    contenu_pertinences: [{ contenu_id: "c-perce", application_id: UNSWIPE, eligible: true }],
   };
 }
 
@@ -2157,4 +2192,294 @@ Deno.test("compteSertApplicationRappel : la règle", () => {
   assert(compteSertApplicationRappel([unswipeSeul], liens, UNSWIPE));
   assert(!compteSertApplicationRappel([sophiaHeritee], liens, UNSWIPE));
   assert(!compteSertApplicationRappel([], liens, UNSWIPE));
+});
+
+/* -------------------------------------------------------------------------
+ * Tiers PAR APPLICATION (0270) : chaque application tire dans SON budget.
+ *
+ * Le chemin Sophia ne doit rien voir de 0270 (ni sonde, ni vue, ni table) ;
+ * un créneau Unswipe lit SA vue, estampille SON cycle, repêche dans SA table ;
+ * sans 0270, aucune autre application n'est servie ; une sonde illisible fait
+ * rejouer le compte avant tout passage.
+ * ---------------------------------------------------------------------- */
+
+const OBJETS_0270 = ["contenu_application_tier_etat", "contenu_tiers_application"];
+
+function opsTiersApplication(journal: Op[]) {
+  return journal.filter((o) => OBJETS_0270.includes(o.table));
+}
+
+Deno.test("0270 — compte 100 % Sophia : aucune sonde, aucune vue ni table 0270, insert d'avant", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    // Le label sert AUSSI Unswipe et des contenus lui sont éligibles : le
+    // compte reste sans part Unswipe, c'est l'état de toute la flotte.
+    const base = baseEssai({
+      pertinences: [0, 1, 2].map((i) => ({ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true })),
+    });
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(appels.sophia.length, 1);
+    assertEquals(opsTiersApplication(journal), [], "rien de 0270 sur le chemin Sophia");
+    const etats = journal.filter((o) => o.table === "contenu_tier_etat");
+    assertEquals(etats.length, 1, "l'état tierlist Sophia, lu comme avant");
+    assertEquals(etats[0].colonnes, "contenu_id, tier, tier_cycle, passages_prevus, restants");
+    const [passage] = insertsPassages(journal);
+    assertEquals(passage.tier_cycle, 1, "le cycle SOPHIA (contenu_tier_etat)");
+    for (const c of COLONNES_NOUVELLES) assert(!(c in passage));
+  });
+});
+
+Deno.test("0270 — compte mixte replié sur Sophia (Unswipe inactive, l'état de la prod) : rien de 0270", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = baseEssai({
+      compte: { parts_applications: { sophia: 70, unswipe: 30 } },
+      fenetre: Array(9).fill("sophia"),
+      pertinences: [0, 1].map((i) => ({ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true })),
+    });
+    base.applications[1].actif = false;
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(appels.sophia.length, 1);
+    assertEquals(appels.application, []);
+    assertEquals(opsTiersApplication(journal), []);
+    assertEquals(journal.filter(estLectureFenetre), [], "parts effectives 100 % Sophia : chemin d'avant");
+  });
+});
+
+Deno.test("0270 — créneau Unswipe : SA vue, jamais contenu_tier_etat ; le passage porte le cycle Unswipe", async () => {
+  const pret = () => ({ statut: "pret" as const, slides: DECK, hashtags: "#unswipe" });
+  await avecDecks(pret, async (appels) => {
+    const base = baseEssai({
+      compte: { parts_applications: { unswipe: 100 } },
+      pertinences: [0, 1].map((i) => ({ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true })),
+    });
+    // Cycle Unswipe 3, différent du cycle Sophia (1) des mêmes contenus.
+    for (const e of base.contenu_application_tier_etat) e.tier_cycle = 3;
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(appels.application.length, 1);
+    assertEquals(journal.filter((o) => o.table === "contenu_tier_etat"), [], "le budget Sophia n'est pas lu");
+    // Hors sonde (GET limit 1 sans filtre) : chaque lecture de la vue est
+    // filtrée sur l'application du créneau.
+    const vues = journal.filter((o) => o.table === "contenu_application_tier_etat" && o.filtres.length > 0);
+    assert(vues.length >= 1);
+    for (const v of vues) {
+      assert(v.filtres.some(([c, f, x]) => c === "application_id" && f === "eq" && x === UNSWIPE));
+    }
+    const [passage] = insertsPassages(journal);
+    assertEquals(passage.application_id, UNSWIPE);
+    assertEquals(passage.tier_cycle, 3, "le passage compte dans le cycle UNSWIPE");
+    assertEquals(journal.filter((o) => o.table === "contenus" && o.op !== "select"), []);
+  });
+});
+
+Deno.test("0270 — restants Unswipe à 0 : repêchage dans contenu_tiers_application, jamais dans contenus", async () => {
+  const pret = () => ({ statut: "pret" as const, slides: DECK, hashtags: "#unswipe" });
+  await avecDecks(pret, async (appels) => {
+    const base = baseEssai({
+      n: 2,
+      compte: { parts_applications: { unswipe: 100 } },
+      pertinences: [0, 1].map((i) => ({ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true })),
+    });
+    // c00000 : matérialisé, tombé en D (dort). c00001 : paresseux, cycle fini
+    // (0 restant) — jamais repêché, il n'a pas 0 passage prévu.
+    base.contenu_application_tier_etat = [
+      {
+        contenu_id: idContenu(0), application_id: UNSWIPE, tier: "D", tier_cycle: 4,
+        passages_prevus: 0, restants: 0, materialise: true, eligible: true, note: 65,
+      },
+      {
+        contenu_id: idContenu(1), application_id: UNSWIPE, tier: "C", tier_cycle: 0,
+        passages_prevus: 1, restants: 0, materialise: false, eligible: true, note: 56,
+      },
+    ];
+    (base as unknown as Record<string, unknown[]>).contenu_tiers_application = [
+      { contenu_id: idContenu(0), application_id: UNSWIPE, tier: "D", tier_cycle: 4, passages_prevus: 0 },
+    ];
+    const { client, journal, tables } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(appels.application, [idContenu(0)]);
+    const repeche = journal.filter((o) => o.table === "contenu_tiers_application" && o.op === "update");
+    assertEquals(repeche.length, 1);
+    assert(repeche[0].filtres.some(([c, f, v]) => c === "passages_prevus" && f === "eq" && v === 0), "atomique");
+    assert(repeche[0].filtres.some(([c, , v]) => c === "application_id" && v === UNSWIPE));
+    assertEquals((repeche[0].valeurs as Record<string, unknown>).passages_prevus, 1);
+    assertEquals(tables.contenu_tiers_application[0].passages_prevus, 1);
+    assertEquals(journal.filter((o) => o.table === "contenus" && o.op !== "select"), [], "contenus jamais touché");
+    assertEquals(insertsPassages(journal)[0].tier_cycle, 4);
+  });
+});
+
+Deno.test("0270 — ligne paresseuse à 0 restant : jamais repêchée, le créneau se replie sur Sophia", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = baseEssai({
+      compte: { parts_applications: { sophia: 70, unswipe: 30 } },
+      fenetre: Array(9).fill("sophia"),
+      pertinences: [{ contenu_id: idContenu(0), application_id: UNSWIPE, eligible: true }],
+    });
+    base.contenu_application_tier_etat[0].restants = 0;
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.replis, [{ visee: "unswipe", motif: "reserve_vide" }]);
+    assertEquals(appels.application, []);
+    assertEquals(journal.filter((o) => o.op === "update" && OBJETS_0270.includes(o.table)), []);
+  });
+});
+
+Deno.test("0270 absente — compte mixte : créneau Unswipe replié (réserve vide, raison 0270), aucun passage Unswipe", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = baseEssai({
+      compte: { parts_applications: { sophia: 70, unswipe: 30 } },
+      fenetre: Array(9).fill("sophia"),
+      pertinences: [0, 1, 2].map((i) => ({ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true })),
+    });
+    const { client, journal } = fauxMoteur(base, { absentes: ["contenu_tiers_application"] });
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(detail.replis, [{ visee: "unswipe", motif: "reserve_vide" }]);
+    assertEquals(appels.application, [], "aucun deck Unswipe");
+    const [passage] = insertsPassages(journal);
+    assertEquals(passage.application_id, ID_SOPHIA);
+    assertEquals(passage.application_visee_id, UNSWIPE);
+    assertEquals(journal.filter((o) => o.table === "contenu_application_tier_etat"), []);
+    assertEquals(journal.filter((o) => o.table === "comptes" && o.op === "update"), []);
+  });
+});
+
+Deno.test("0270 absente — compte 100 % Unswipe : non servable, et la raison cite 0270", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = base100Unswipe();
+    base.contenu_pertinences = [0, 1].map((i) => ({ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true }));
+    const { client, journal } = fauxMoteur(base, { absentes: ["contenu_tiers_application"] });
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids, []);
+    assertEquals(detail.nonServable, true);
+    assertEquals(
+      detail.raison,
+      "Compte 100 % Unswipe : réserve Unswipe vide pour ses labels " +
+        `(tiers par application indisponibles (migration 0270 non appliquée)). ${PAS_DE_REPLI}`,
+    );
+    assertEquals(appels.sophia, []);
+    assertEquals(insertsPassages(journal), []);
+  });
+});
+
+Deno.test("0270 — sonde illisible : le compte LÈVE avant tout passage ; le compte suivant du lot resonde", async () => {
+  const pret = () => ({ statut: "pret" as const, slides: DECK, hashtags: "#unswipe" });
+  await avecDecks(pret, async (appels) => {
+    const base = baseEssai({
+      compte: { parts_applications: { sophia: 70, unswipe: 30 }, posts_par_jour: 2 },
+      fenetre: Array(9).fill("sophia"),
+      pertinences: [0, 1, 2].map((i) => ({ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true })),
+    });
+    const { client, journal } = fauxMoteur(base, { pannes: { contenu_tiers_application: 2 } });
+    const memo = creerMemoAssignation();
+
+    await assertRejects(
+      () => assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {}, memo),
+      Error,
+      "sonde 0270 (tiers par application) illisible — compte à rejouer",
+    );
+    assertEquals(insertsPassages(journal), [], "aucun passage, pas même Sophia");
+    assertEquals(appels.sophia, []);
+    assertEquals(journal.filter((o) => o.table === "comptes" && o.op === "update"), [], "quota intact");
+    assertEquals(memo.schema.has("tiers0270"), false, "« illisible » oublié du mémo");
+
+    // La base revient : le compte suivant du même lot resonde et est servi.
+    const second = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {}, memo);
+    assertEquals(second.ids.length, 2);
+    assertEquals(memo.schema.has("tiers0270"), true);
+  });
+});
+
+Deno.test("0270 — un passage Unswipe est budgété sur Unswipe, un passage Sophia sur Sophia (fixtures distinctes)", async () => {
+  const pret = () => ({ statut: "pret" as const, slides: DECK, hashtags: "#unswipe" });
+  await avecDecks(pret, async () => {
+    // Deux créneaux, un par application (50/50, fenêtre vide) : chaque
+    // passage prend le cycle de SA vue, et seule la vue de son application
+    // est lue pour lui.
+    const base = baseEssai({
+      n: 2,
+      compte: { parts_applications: { sophia: 50, unswipe: 50 }, posts_par_jour: 2 },
+      pertinences: [0, 1].map((i) => ({ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true })),
+    });
+    for (const e of base.contenu_application_tier_etat) e.tier_cycle = 9;
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 2);
+    const passages = insertsPassages(journal);
+    const unswipe = passages.find((p) => p.application_id === UNSWIPE)!;
+    const sophia = passages.find((p) => p.application_id === ID_SOPHIA)!;
+    assertEquals(unswipe.tier_cycle, 9);
+    assertEquals(sophia.tier_cycle, 1);
+    // Sophia : contenu_tier_etat, sans filtre d'application ; Unswipe : sa vue.
+    assertEquals(journal.filter((o) => o.table === "contenu_tier_etat").length, 1);
+    assert(journal.some((o) => o.table === "contenu_application_tier_etat"));
+  });
+});
+
+Deno.test("rappel J+7 — source Unswipe sortie de la réserve : refusé dans les erreurs, rien d'écrit", async () => {
+  for (const pertinences of [[], [{ contenu_id: "c-perce", application_id: UNSWIPE, eligible: false }]]) {
+    oublierSondeMultiApp();
+    const base = baseRappel();
+    base.contenu_pertinences = pertinences;
+    const { client, journal } = fauxMoteur(base);
+
+    const res = await programmerRappelsJ7(client);
+
+    assertEquals(res.candidats, 1);
+    assertEquals(res.programmes, 0);
+    assertEquals(res.erreurs.length, 1);
+    assert(res.erreurs[0].includes("placement retiré de la réserve"), res.erreurs[0]);
+    assertEquals(insertsPassages(journal), []);
+    assertEquals(insertsPosts(journal), []);
+  }
+  oublierSondeMultiApp();
+});
+
+Deno.test("rappel J+7 — éligibilité illisible : rappel reporté (erreur), rien d'écrit", async () => {
+  oublierSondeMultiApp();
+  const base = baseRappel();
+  const { client, journal } = fauxMoteur(base, { pannes: { contenu_pertinences: Infinity } });
+
+  const res = await programmerRappelsJ7(client);
+
+  assertEquals(res.programmes, 0);
+  assert(res.erreurs[0].includes("éligibilité illisible"), res.erreurs[0]);
+  assertEquals(insertsPassages(journal), []);
+  oublierSondeMultiApp();
+});
+
+Deno.test("rappel J+7 — source Sophia : contenu_pertinences n'est jamais lue (inchangé)", async () => {
+  oublierSondeMultiApp();
+  const base = baseRappel({ application: ID_SOPHIA, labels: [{ id: "L1", slug: "smart-girl" }], liens: [] });
+  base.contenu_pertinences = [];
+  const { client, journal } = fauxMoteur(base);
+
+  const res = await programmerRappelsJ7(client);
+
+  assertEquals(res.programmes, 1);
+  assertEquals(journal.filter((o) => o.table === "contenu_pertinences"), []);
+  assertEquals(opsTiersApplication(journal), []);
+  oublierSondeMultiApp();
 });

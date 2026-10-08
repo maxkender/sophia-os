@@ -8,6 +8,8 @@
  * moteur fera, pas une approximation.
  */
 import { nomApplication } from "../applications";
+import { decisionDepuisEtat } from "../tierlist";
+import type { ContenuTierEtat, ReglagesTierlist } from "../types";
 import {
   applicationsDuLabel,
   applicationsEligiblesCompte,
@@ -296,4 +298,50 @@ export function resumeParts(
       return `${nom} ${Math.round(parts[slug])} %`;
     })
     .join(" · ");
+}
+
+/**
+ * Où en est la requalification d'un cycle, en clair — pour le tier d'une
+ * application autre que Sophia (0270). Même décision que minuit
+ * (`decisionDepuisEtat`) et mêmes clés de phrases (`slideshows.requalif.*`)
+ * que le bloc Tierlist Sophia de la fiche, dont c'est le pendant par
+ * application. `null` tant que le cycle n'a pas fini ses passages.
+ */
+export function etatRequalifCycle(
+  etat: ContenuTierEtat | null | undefined,
+  tierlist: Pick<ReglagesTierlist, "recul_jours" | "requalif_max_jours"> | undefined,
+): { cle: string; alerte: boolean; echeance: string | null } | null {
+  if (!etat || !tierlist) return null;
+  const d = decisionDepuisEtat(etat, tierlist);
+  if (!d.requalifier && d.motif === "passages") return null;
+  if (!d.requalifier && d.motif === "recul") {
+    return { cle: "recul", alerte: false, echeance: null };
+  }
+  if (!d.requalifier) {
+    const dernier = etat.dernier_publie_at ? Date.parse(etat.dernier_publie_at) : Number.NaN;
+    const echeance = Number.isFinite(dernier)
+      ? new Date(dernier + tierlist.requalif_max_jours * 86_400_000).toISOString().slice(0, 10)
+      : null;
+    return { cle: "mesure", alerte: true, echeance };
+  }
+  return {
+    cle: d.surMesure ? "prete" : `sansMesure_${d.motif}`,
+    alerte: !d.surMesure,
+    echeance: null,
+  };
+}
+
+/**
+ * Aucun label du contenu ne sert Sophia : il n'a pas de rang Sophia (0270 —
+ * import « hors Sophia »). Même règle que le moteur (`applicationsServies` :
+ * un label sans ligne sert Sophia, labels système ignorés, aucun label utile =
+ * Sophia). Faux tant que les liens ne sont pas lisibles : dans le doute, la
+ * fiche garde l'affichage d'avant.
+ */
+export function contenuHorsSophia(
+  labels: readonly LabelRef[],
+  liens: readonly LienLabelApplication[] | undefined,
+): boolean {
+  if (!liens) return false;
+  return !applicationsServies(labels, liens).includes(ID_SOPHIA);
 }

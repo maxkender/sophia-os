@@ -12,6 +12,7 @@
 import { assert, assertEquals, assertStrictEquals } from "jsr:@std/assert@1";
 
 import { oublierSondeMultiApp } from "./applications_moteur.ts";
+import { eloParLangue } from "./import_contenu.ts";
 import { ID_SOPHIA, type ApplicationMoteur } from "./multi_app.ts";
 import {
   accrocheDepuisLigneSource,
@@ -28,6 +29,8 @@ import {
   normaliserReglageBackfill,
   noterPertinenceImport,
   piloterBackfillPertinence,
+  placementSophiaDepuisLignes,
+  placementSophiaImport,
   prochaineANoter,
   scoreStockable,
   tickBackfillPertinence,
@@ -776,4 +779,151 @@ Deno.test("pilotage : Sophia refusée, prompt exigé, état avec le décompte ex
   assert(!refus.ok);
   assert(refus.erreur.includes("pertinence_unswipe"));
   assertEquals(sansPrompt.table("reglages").length, 0);
+});
+
+// ---------------------------------------------------------------------------
+// Tiers par application (0270) : placement Sophia à l'import
+// ---------------------------------------------------------------------------
+
+Deno.test("placement Sophia : historique, partagé (score Sophia stocké), hors Sophia", () => {
+  // Aucune ligne (stock historique, 0256 fraîche) : le chemin d'avant.
+  assertEquals(placementSophiaDepuisLignes([]), { mode: "historique" });
+  // Contenu Sophia seul : le chemin d'avant, à l'octet près.
+  assertEquals(
+    placementSophiaDepuisLignes([{ application_id: ID_SOPHIA, score: 72 }]),
+    { mode: "historique" },
+  );
+  // Partagé : le rang Sophia vient du score SOPHIA, plus du max.
+  assertEquals(
+    placementSophiaDepuisLignes([
+      { application_id: ID_UNSWIPE, score: 90 },
+      { application_id: ID_SOPHIA, score: 41 },
+    ]),
+    { mode: "partage", scoreSophia: 41 },
+  );
+  // Score rendu en texte par PostgREST (numeric) : converti.
+  assertEquals(
+    placementSophiaDepuisLignes([{ application_id: ID_SOPHIA, score: "63" }, { application_id: ID_UNSWIPE, score: 10 }]),
+    { mode: "partage", scoreSophia: 63 },
+  );
+  // Aucune ligne Sophia : labels qui ne servent qu'une autre application.
+  assertEquals(
+    placementSophiaDepuisLignes([{ application_id: ID_UNSWIPE, score: 80 }]),
+    { mode: "hors_sophia" },
+  );
+});
+
+Deno.test("placement Sophia : une lecture ratée LÈVE (le pas d'import est rejoué)", async () => {
+  const base = new FausseBase({ contenu_pertinences: [] });
+  base.pannes.set("contenu_pertinences", "connexion perdue");
+  let leve = false;
+  try {
+    await placementSophiaImport(base.client(), "c1");
+  } catch (e) {
+    leve = true;
+    assert(String((e as Error).message).includes("connexion perdue"));
+  }
+  assert(leve, "jamais un placement « historique » par défaut sur une panne");
+  const ok = new FausseBase({
+    contenu_pertinences: [
+      { contenu_id: "c1", application_id: ID_SOPHIA, score: 50 },
+      { contenu_id: "c1", application_id: ID_UNSWIPE, score: 80 },
+      { contenu_id: "c2", application_id: ID_SOPHIA, score: 99 },
+    ],
+  });
+  assertEquals(await placementSophiaImport(ok.client(), "c1"), { mode: "partage", scoreSophia: 50 });
+});
+
+// ---------------------------------------------------------------------------
+// Rattrapage : même note que l'étape 4 de l'import (piste comprise)
+// ---------------------------------------------------------------------------
+
+const SCORING_PISTE = { prior: 50, k: 1, poidsVues: 0.7, vuesPlafond: 80_000, eloSeuil: 54, poidsSource: 0.45 };
+
+function depsParite(appels: Appel[], scores: Array<{ score: number; reason: string }>, piste: number | null): DepsBackfill {
+  return {
+    scoreRelevance: espionScore(scores, appels),
+    lireScoring: () => Promise.resolve(SCORING_PISTE),
+    noteImport: eloParLangue,
+    lirePisteSource: (id) => Promise.resolve(id === "src-1" ? piste : null),
+    maintenant: () => Date.parse("2026-10-02T12:00:00Z"),
+  };
+}
+
+function baseParite() {
+  const base = baseRattrapage({ [ID_UNSWIPE]: { actif: true, demarre_at: "d", faits: 0, erreurs: 0 } });
+  for (const c of base.table("contenus")) c.compte_reference_id = "src-1";
+  // Un seul contenu dans la file, pour comparer une note à une note.
+  base.tables.contenu_pertinence_manquante = base.table("contenu_pertinence_manquante")
+    .filter((l) => l.contenu_id === "neuf");
+  return base;
+}
+
+/** La note que l'étape 4 calcule pour un score donné (`noteDe` de executerPasImport). */
+async function noteEtape4(score: number, piste: number | null): Promise<number> {
+  oublierSondeMultiApp();
+  const base = new FausseBase({
+    label_applications: [],
+    applications: applications(),
+    passages: [],
+    contenu_pertinences: [{ contenu_id: "neuf", application_id: ID_UNSWIPE, score, raison: "r", note: null, eligible: false }],
+  });
+  const rapport = await majNotesPertinences(base.client(), "neuf", {
+    noteDe: (s) =>
+      eloParLangue({
+        pertinence: s,
+        vues: 5000,
+        langue: "en",
+        langueSource: "en",
+        prior: SCORING_PISTE.prior,
+        k: SCORING_PISTE.k,
+        poidsVues: SCORING_PISTE.poidsVues,
+        vuesPlafond: SCORING_PISTE.vuesPlafond,
+        pisteSource: piste,
+        poidsSource: SCORING_PISTE.poidsSource,
+      }),
+    seuil: SCORING_PISTE.eloSeuil,
+    force: false,
+  });
+  return Number(base.table("contenu_pertinences")[0].note ?? rapport.unswipe.note);
+}
+
+Deno.test("rattrapage : la note est CELLE de l'étape 4 (piste du compte source et poids compris)", async () => {
+  oublierSondeMultiApp();
+  const base = baseParite();
+  const appels: Appel[] = [];
+  const r = await tickBackfillPertinence(base.client(), depsParite(appels, [{ score: 90, reason: "oui" }], 80));
+  assertEquals(r?.faits, 1);
+  const ligne = base.table("contenu_pertinences").find((l) => l.contenu_id === "neuf")!;
+
+  const attendue = await noteEtape4(90, 80);
+  assertEquals(ligne.note, attendue);
+  // Et la piste compte vraiment : sans elle, la note serait une autre.
+  const sansPiste = await noteEtape4(90, null);
+  assert(Math.abs(attendue - sansPiste) > 1e-6, "la piste doit peser dans la note");
+  assertEquals(ligne.eligible, attendue >= SCORING_PISTE.eloSeuil);
+  // Lecture de la source : compte_reference_id lu avec le contenu.
+  assert(!base.traces.some((t) => t.table === "contenus"), "contenus jamais écrit");
+});
+
+Deno.test("rattrapage : source sans piste → terme de piste désactivé (la note d'avant 0264)", async () => {
+  oublierSondeMultiApp();
+  const base = baseParite();
+  const appels: Appel[] = [];
+  await tickBackfillPertinence(base.client(), depsParite(appels, [{ score: 90, reason: "oui" }], null));
+  const ligne = base.table("contenu_pertinences").find((l) => l.contenu_id === "neuf")!;
+  assertEquals(ligne.note, await noteEtape4(90, null));
+  assertEquals(
+    ligne.note,
+    eloParLangue({
+      pertinence: 90,
+      vues: 5000,
+      langue: "en",
+      langueSource: "en",
+      prior: 50,
+      k: 1,
+      poidsVues: 0.7,
+      vuesPlafond: 80_000,
+    }),
+  );
 });

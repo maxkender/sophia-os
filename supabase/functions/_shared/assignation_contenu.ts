@@ -48,6 +48,11 @@ import {
   type Tier,
 } from "./tierlist.ts";
 import {
+  lireEtatsTierApplication,
+  sonderSchemaTiersApplication,
+  TABLE_TIERS_APPLICATION,
+} from "./tiers_application.ts";
+import {
   appliquerFaceSwapUgcPost,
   chargerPersonaUgc,
 } from "./ugc_face_swap.ts";
@@ -232,7 +237,11 @@ export interface MemoAssignation {
   labels: Map<string, Promise<string[]>>;
   /** clé labels+ugc → contenus prêts (hors règles d'application). */
   pool: Map<string, Promise<ContenuCandidat[]>>;
-  /** « schema » → état de la migration 0256 (une sonde par run). */
+  /**
+   * « schema » → état de la migration 0256 (une sonde par run) ; « tiers0270 »
+   * → état de la migration 0270 (tiers par application), sondée seulement pour
+   * un compte qui demande une autre application que Sophia.
+   */
   schema: Map<string, Promise<EtatSchemaMultiApp>>;
   /** « applications » → applications du moteur (table minuscule). */
   applications: Map<string, Promise<ApplicationMoteur[]>>;
@@ -679,6 +688,36 @@ export async function assignerCompteJour(
    * un prompt manquant qu'un 429 de traduction ou une panne réseau.
    */
   const detailsRepli = new Map<string, string>();
+
+  // Tiers PAR APPLICATION (0270). Une autre application que Sophia tire dans
+  // SON budget (`contenu_application_tier_etat`), jamais dans celui de Sophia.
+  // Le code part au merge, 0270 se passe à la main : on sonde, une fois par
+  // lot, et SEULEMENT pour un compte qui peut demander une autre application —
+  // un compte 100 % Sophia (toute la flotte aujourd'hui) ne passe jamais ici.
+  // Sonde AVANT la boucle, donc avant toute création de passage :
+  //   - illisible : le compte lève et sera rejoué (pas de nonServable, pas de
+  //     baisse de quota) — même règle que la sonde 0256 ;
+  //   - absente : aucune autre application n'est servie, ses créneaux partent
+  //     sur Sophia (`reserve_vide`, raison citant 0270).
+  if (repartition.multi && repartition.eligibles.some((a) => a.id !== ID_SOPHIA)) {
+    const sondeTiers = memoiser(memo.schema, "tiers0270", () => sonderSchemaTiersApplication(supabase));
+    const etatTiers = await sondeTiers;
+    if (etatTiers === "illisible") {
+      // Comme « schema » : une lecture ratée n'est pas un état, le compte
+      // suivant du lot resonde.
+      if (memo.schema.get("tiers0270") === sondeTiers) memo.schema.delete("tiers0270");
+      throw new Error("[multi-app] sonde 0270 (tiers par application) illisible — compte à rejouer");
+    }
+    if (etatTiers === "absent") {
+      for (const app of repartition.eligibles) {
+        if (app.id === ID_SOPHIA) continue;
+        appsRepliees.set(app.id, "reserve_vide");
+        detailsRepli.set(app.id, "tiers par application indisponibles (migration 0270 non appliquée)");
+      }
+      log("Tiers par application (0270) absents — aucune autre application servie, repli Sophia");
+    }
+  }
+
   /** Contenu IDs déjà pris / exclus cette session (choisirContenu filtre dessus). */
   const contenusSession: string[] = [...(o.exclureContenus ?? [])];
   const maxTentatives = manquants + 8;
@@ -730,6 +769,8 @@ export async function assignerCompteJour(
           exclureTestsHisto: true,
           regle: { application: app, langue },
           espacement: app.id,
+          // Budget et tier de CETTE application (0270), jamais ceux de Sophia.
+          tiersApplication: app.id,
         },
         memo,
       );
@@ -739,7 +780,7 @@ export async function assignerCompteJour(
       }
       contenusSession.push(candidat.contenuId);
       log(
-        `Contenu ${candidat.contenuId.slice(0, 8)} · ${candidat.tier}-tier` +
+        `Contenu ${candidat.contenuId.slice(0, 8)} · ${app.nom} ${candidat.tier}-tier` +
           `${candidat.repeche ? " (repêché de D)" : ` · ${candidat.restants} passage(s) restant(s)`}` +
           ` — deck ${app.nom} ${langue}…`,
       );
@@ -1388,7 +1429,9 @@ function phraseMotifRepli(nom: string, motif: MotifRepli | undefined, detail?: s
     : brut;
   switch (motif) {
     case "reserve_vide":
-      return `réserve ${nom} vide pour ses labels`;
+      // Le détail n'existe que pour une cause connue (tiers 0270 absents) ;
+      // sans lui, la phrase est celle d'avant.
+      return `réserve ${nom} vide pour ses labels${cite ? ` (${cite})` : ""}`;
     case "deck_ineligible":
       return `aucun deck ${nom} utilisable${cite ? ` (dernier refus : ${cite})` : ""}`;
     case "deck_echec":
@@ -2092,6 +2135,13 @@ async function choisirContenu(
      * ECART_MIN_JOURS_AUTRE_APPLICATION jours du jour assigné.
      */
     espacement?: string | null;
+    /**
+     * Application NON-Sophia du créneau (0270) : l'état tierlist (tier, cycle,
+     * restants) et le repêchage D viennent de SES vues et de SA table, jamais
+     * de `contenu_tier_etat` ni de `contenus`. Absente (tous les appels
+     * Sophia) : lecture et repêchage d'avant, ligne pour ligne.
+     */
+    tiersApplication?: string | null;
   } = {},
   memo?: MemoAssignation,
 ): Promise<Candidat | null> {
@@ -2112,15 +2162,19 @@ async function choisirContenu(
   const meta = new Map(contenus.map((c) => [c.id, c]));
 
   // État tierlist : passages publiés / en vol / restants sur le cycle courant.
-  const etats = await lireParLots<TierEtatLigne>(
-    contenuIds,
-    "État tierlist",
-    (lot) =>
-      supabase
-        .from("contenu_tier_etat")
-        .select("contenu_id, tier, tier_cycle, passages_prevus, restants")
-        .in("contenu_id", lot),
-  );
+  // Autre application (0270) : SON état, sur ses seuls passages.
+  const tiersApplication = opts.tiersApplication ?? null;
+  const etats: TierEtatLigne[] = tiersApplication
+    ? await lireEtatsTierApplication(supabase, tiersApplication, contenuIds)
+    : await lireParLots<TierEtatLigne>(
+      contenuIds,
+      "État tierlist",
+      (lot) =>
+        supabase
+          .from("contenu_tier_etat")
+          .select("contenu_id, tier, tier_cycle, passages_prevus, restants")
+          .in("contenu_id", lot),
+    );
   const etatParContenu = new Map(etats.map((e) => [e.contenu_id, e]));
 
   // Historique passages de CE compte (hors posts test si demandé).
@@ -2198,6 +2252,17 @@ async function choisirContenu(
   // un passage. Le repêchage est par compte — inutile de réveiller un D que
   // personne ne peut poster (labels / application / UGC).
   if (ignorerTierlist) return null;
+  if (tiersApplication) {
+    return await repecherContenuDApplication(
+      supabase,
+      tiersApplication,
+      idsTirables,
+      etatParContenu,
+      dejaCreesCetteSession,
+      reglages.repechagePassages,
+      construire,
+    );
+  }
   return await repecherContenuD(
     supabase,
     idsTirables,
@@ -2214,6 +2279,8 @@ interface TierEtatLigne {
   tier_cycle: number;
   passages_prevus: number;
   restants: number;
+  /** Vues par application (0270) seulement : une ligne existe dans la table. */
+  materialise?: boolean;
 }
 
 /**
@@ -2259,6 +2326,61 @@ async function repecherContenuD(
       tier_cycle: Number(data.tier_cycle ?? 0),
       passages_prevus: passages,
       restants: passages,
+    };
+    etatParContenu.set(cid, etat);
+    return construire(cid, etat, true);
+  }
+  return null;
+}
+
+/**
+ * Repêchage D d'une application NON-Sophia (0270) : même règle que
+ * `repecherContenuD`, sur `contenu_tiers_application` et jamais sur `contenus`.
+ *
+ * Seule une ligne MATÉRIALISÉE à 0 passage dort : une ligne paresseuse
+ * éligible a toujours son tier d'entrée (C au moins), et une ligne non
+ * éligible n'est pas dans le pool. Le `eq("passages_prevus", 0)` rend
+ * l'opération atomique, comme côté Sophia.
+ */
+async function repecherContenuDApplication(
+  supabase: Supabase,
+  applicationId: string,
+  contenuIds: string[],
+  etatParContenu: Map<string, TierEtatLigne>,
+  dejaCreesCetteSession: string[],
+  passages: number,
+  construire: (cid: string, e: TierEtatLigne | undefined, repeche: boolean) => Candidat | null,
+): Promise<Candidat | null> {
+  const dormants = contenuIds.filter((cid) => {
+    if (dejaCreesCetteSession.includes(cid)) return false;
+    const e = etatParContenu.get(cid);
+    return e !== undefined && e.materialise === true && e.passages_prevus <= 0;
+  });
+  if (dormants.length === 0) return null;
+
+  // Ordre aléatoire : le repêchage ne doit pas toujours réveiller les mêmes.
+  for (let i = dormants.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [dormants[i], dormants[j]] = [dormants[j], dormants[i]];
+  }
+
+  for (const cid of dormants.slice(0, 10)) {
+    const { data, error } = await supabase
+      .from(TABLE_TIERS_APPLICATION)
+      .update({ passages_prevus: passages, updated_at: new Date().toISOString() })
+      .eq("contenu_id", cid)
+      .eq("application_id", applicationId)
+      .eq("passages_prevus", 0)
+      .select("tier, tier_cycle")
+      .maybeSingle();
+    if (error || !data) continue;
+    const etat: TierEtatLigne = {
+      contenu_id: cid,
+      tier: estTier(data.tier) ? (data.tier as Tier) : "D",
+      tier_cycle: Number(data.tier_cycle ?? 0),
+      passages_prevus: passages,
+      restants: passages,
+      materialise: true,
     };
     etatParContenu.set(cid, etat);
     return construire(cid, etat, true);
@@ -2799,6 +2921,27 @@ export async function programmerRappelsJ7(
             `les labels du compte ne servent plus l'application de ce post` +
               ` (${applicationId && applicationId !== ID_SOPHIA ? `application ${applicationId}` : "Sophia"})` +
               ` — rappel non programmé, sa pub n'y a plus sa place`,
+          );
+        }
+      }
+      // Source d'une autre application : son placement doit être encore dans
+      // la réserve de l'application (une révocation met `eligible = false`).
+      // Le rappel reste hors budget ; on refuse seulement de rejouer un post
+      // dont le placement a été retiré. Refus noté dans les erreurs, sans
+      // lever plus haut : la source reste candidate. Sophia : inchangé.
+      if (applicationId && applicationId !== ID_SOPHIA) {
+        const { data: pertinence, error: errPertinence } = await supabase
+          .from("contenu_pertinences")
+          .select("eligible")
+          .eq("contenu_id", passageSource.contenu_id)
+          .eq("application_id", applicationId)
+          .maybeSingle();
+        if (errPertinence) {
+          throw new Error(`éligibilité illisible (${errPertinence.message}) — rappel reporté`);
+        }
+        if (!(pertinence as { eligible?: boolean } | null)?.eligible) {
+          throw new Error(
+            "placement retiré de la réserve de l'application — rappel non programmé",
           );
         }
       }

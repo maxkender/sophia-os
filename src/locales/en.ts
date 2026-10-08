@@ -348,6 +348,13 @@ export const en = {
         "Lowered quota — thin pool: {{detail}}",
       quotasBaissesDernier:
         "Last midnight run: lowered quota — {{detail}}",
+      tiersApplications: {
+        titre: "Tierlist per app:",
+        ligne: "{{app}} {{examines}} examined · {{requalifies}} requalified",
+        interrompue: "interrupted (20 s deadline, the rest runs next night)",
+        erreur: "failed: {{message}}",
+        illisible: "Tierlist per app skipped: migration 0270 probe unreadable.",
+      },
       erreursAssignation: "Accounts not assigned:",
       prets: "Passages ready",
       enCoursLabel: "In progress",
@@ -1218,6 +1225,9 @@ export const en = {
       passagesPublies: "{{publies}}/{{prevus}} published",
       requalifBloquee: "requalif pending",
       requalifMaintenant: "Requalify now",
+      horsSophia:
+        "This slideshow does not serve Sophia (labels: {{labels}}) — no Sophia tier. Its per-app tier is shown above.",
+      horsSophiaCourt: "Does not serve Sophia: no Sophia tier",
       requalifEcheance: "Restarts anyway on {{date}}.",
       requalif: {
         recul:
@@ -1555,6 +1565,10 @@ export const en = {
         backfillEnCours: "running",
         backfillEtat: "{{restants}} left · {{faits}} done · {{erreurs}} error(s)",
         backfillErreur: "Backfill state unreadable: {{message}}",
+        migration0270:
+          "Cannot activate {{nom}}: apply migration 0270 (tiers per app) before activating. Without it, the engine serves no app other than Sophia.",
+        derniereRequalif:
+          "Last requalif {{nom}} ({{jour}}): {{examines}} examined · {{requalifies}} requalified",
       },
       labels: {
         applicationsServies: "Applications",
@@ -1747,6 +1761,13 @@ export const en = {
         statut_pret: "Ready",
         statut_echec: "Failed",
         statut_ineligible: "Ineligible",
+      },
+      tiers: {
+        titre: "Tier per app",
+        aide: "Each other app has its own tier, pass budget and cycle, measured on its own posts only. The Tierlist block below is Sophia's.",
+        paresseux: "Entry tier (score {{note}}), not requalified yet.",
+        horsReserve: "Out of the pool (revoked or ineligible): no longer drawn for this app.",
+        erreur: "Per-app tiers unavailable: {{message}}",
       },
     },
     analytics: {

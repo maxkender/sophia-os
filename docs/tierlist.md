@@ -260,7 +260,11 @@ budget de passages, **son** cycle et **sa** mesure `m`, sur ses seuls posts.
 - **Tier d'entrée paresseux** : tant qu'aucune ligne n'est écrite, la vue
   déduit le tier de la note d'import de l'application
   (`contenu_pertinences.note`, `tier_initial_note` : ≥ 70 A, ≥ 60 B, sinon C ;
-  C aussi pour une ligne forcée sans note), cycle 0. Ligne non éligible : D / 0.
+  C aussi pour une ligne forcée pas encore notée), cycle 0. Ligne non
+  éligible : D / 0. Import FORCÉ : la note stockée d'une autre application
+  est planchée au seuil (`noteStockee`), comme la note Sophia forcée
+  (`max(note, seuil)`) — même rang d'entrée des deux côtés, quel que soit le
+  seuil ; la ligne Sophia garde sa note brute.
   La ligne naît à la première écriture (requalification, repêchage D,
   changement manuel admin). Un réimport fait suivre la nouvelle note à une
   ligne non écrite ; une ligne écrite garde son rang.
@@ -268,9 +272,16 @@ budget de passages, **son** cycle et **sa** mesure `m`, sur ses seuls posts.
   cycle terminé, relance sans mesure, bandes de tirage, repêchage D (seulement
   une ligne écrite à 0 passage), fenêtre « en vol » de 2 jours, réglages
   `reglages.tierlist`.
-- **Minuit** : étape `tierlist_applications`, APRÈS la tierlist Sophia (et les
-  rappels), AVANT l'assignation, bornée à 20 s (le reste repasse la nuit
-  suivante). Applications inactives comprises (un cycle publié doit finir).
+- **Minuit** : étape `tierlist_applications`, la DERNIÈRE de la nuit, après
+  toutes les étapes Sophia (tierlist, rappels, lancement du drain
+  d'assignation, upscale, variations) : rien de non-Sophia ne retarde le
+  drain. Le drain peut tirer pendant qu'elle tourne — sans conflit : elle ne
+  touche que des cycles terminés (restants à 0, hors du pool) et ses
+  écritures sont gardées par `tier_cycle` ; un contenu requalifié rejoint le
+  pool des lots suivants. Bornée à 20 s, échéance contrôlée avant chaque
+  lecture (comptage, chaque page, titres) et chaque écriture ; le reste
+  repasse la nuit suivante. Applications inactives comprises (un cycle publié
+  doit finir).
   Trace dans `reglages.tierlist_applications_dernier_run` (page Minuit, carte
   Applications) ; `minuit_dernier_run` n'est pas touché. Clic admin
   « Requalifier maintenant » d'une fiche : `{ etapes:

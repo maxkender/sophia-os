@@ -14,6 +14,7 @@ import { assert, assertEquals, assertStrictEquals } from "jsr:@std/assert@1";
 import { oublierSondeMultiApp } from "./applications_moteur.ts";
 import { eloParLangue } from "./import_contenu.ts";
 import { ID_SOPHIA, type ApplicationMoteur } from "./multi_app.ts";
+import { tierImport, tierInitialDepuisNote } from "./tierlist.ts";
 import {
   accrocheDepuisLigneSource,
   applicationBackfillAPrendre,
@@ -27,6 +28,7 @@ import {
   finaliserPertinence,
   majNotesPertinences,
   normaliserReglageBackfill,
+  noteStockee,
   noterPertinenceImport,
   piloterBackfillPertinence,
   placementSophiaDepuisLignes,
@@ -601,7 +603,26 @@ Deno.test("étape 4 : note par application, lignes déjà notées laissées tell
     seuil: 55,
     force: true,
   });
-  assertEquals(r3.sophia, { score: 40, note: 1, eligible: true });
+  assertEquals(r3.sophia, { score: 40, note: 1, eligible: true }, "Sophia : note brute, inchangée");
+
+  // Import forcé, autre application : note planchée au seuil (même règle que
+  // la note Sophia forcée, max(note, seuil)), donc même tier d'entrée.
+  base.table("contenu_pertinences")[1].note = null;
+  const r4 = await majNotesPertinences(base.client(), "c1", {
+    noteDe: () => 1,
+    seuil: 62,
+    force: true,
+  });
+  assertEquals(r4.unswipe, { score: 80, note: 62, eligible: true });
+  assertEquals(tierInitialDepuisNote(r4.unswipe.note), tierImport(Math.max(1, 62), 62), "B des deux côtés");
+});
+
+Deno.test("note stockée : plancher au seuil pour un import forcé hors Sophia seulement", () => {
+  assertEquals(noteStockee(40, ID_UNSWIPE, 62, true), 62);
+  assertEquals(noteStockee(70, ID_UNSWIPE, 62, true), 70, "au-dessus du seuil : inchangée");
+  assertEquals(noteStockee(40, ID_UNSWIPE, 62, false), 40, "non forcé : note brute");
+  assertEquals(noteStockee(40, ID_SOPHIA, 62, true), 40, "Sophia : note brute, toujours");
+  assert(Number.isNaN(noteStockee(Number.NaN, ID_UNSWIPE, 62, true)));
 });
 
 // ---------------------------------------------------------------------------
@@ -691,9 +712,10 @@ Deno.test("rattrapage : note la file (plus récents d'abord) sans toucher aux co
   const neuf = lignes.find((l) => l.contenu_id === "neuf")!;
   assertEquals([neuf.score, neuf.note, neuf.eligible, neuf.prompt_cle], [90, 45, false, "pertinence_unswipe"]);
   assertStrictEquals(neuf.angles, null);
-  // Import forcé : éligible malgré la note.
+  // Import forcé : éligible malgré la note, note planchée au seuil (55) comme
+  // la note Sophia d'un import forcé — le tier d'entrée (0270) en dépend.
   const vieux = lignes.find((l) => l.contenu_id === "vieux")!;
-  assertEquals([vieux.note, vieux.eligible], [10, true]);
+  assertEquals([vieux.note, vieux.eligible], [55, true]);
   // Jamais de ligne Sophia.
   assert(!lignes.some((l) => l.application_id === ID_SOPHIA));
   assertEquals(base.table("contenus"), contenusAvant);

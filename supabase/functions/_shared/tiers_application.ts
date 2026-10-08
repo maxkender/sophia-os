@@ -60,11 +60,26 @@ export const VUE_TIER_APPLICATION = "contenu_application_tier_etat";
 export const VUE_REQUALIF_APPLICATION = "contenu_application_a_requalifier";
 
 /**
- * Échéance de l'étape de minuit `tierlist_applications` : elle tourne AVANT le
- * drain d'assignation, qui ne doit jamais attendre une étape secondaire. Ce qui
- * n'est pas requalifié dans ce délai repasse la nuit suivante.
+ * Échéance de l'étape de minuit `tierlist_applications`. L'étape tourne APRÈS
+ * toutes les étapes Sophia (le drain d'assignation est déjà lancé) : l'échéance
+ * ne protège plus le drain, elle borne la durée de l'appel de minuit. Elle est
+ * contrôlée avant CHAQUE lecture et chaque écriture d'une application
+ * (comptage, chaque page, titres, chaque contenu) ; ce qui n'est pas requalifié
+ * dans ce délai repasse la nuit suivante.
  */
 export const ECHEANCE_TIERS_APPLICATIONS_MS = 20_000;
+
+/** Échéance dépassée avant une lecture ou une écriture : l'application s'arrête là. */
+class EcheanceDepassee extends Error {
+  constructor() {
+    super("échéance de l'étape tierlist_applications dépassée");
+    this.name = "EcheanceDepassee";
+  }
+}
+
+function controlerEcheance(echeance: number | undefined): void {
+  if (echeance !== undefined && Date.now() > echeance) throw new EcheanceDepassee();
+}
 
 /** Colonnes lues sur les vues par application (celles de Sophia, puis les siennes). */
 export const COLONNES_ETAT_APPLICATION =
@@ -288,11 +303,15 @@ async function compterCyclesTerminesApplication(
 async function lireCyclesTerminesApplication(
   supabase: Supabase,
   app: ApplicationMoteur,
+  echeance: number | undefined,
 ): Promise<{ etats: EtatTierApplication[]; coherence: CoherenceLecture }> {
+  controlerEcheance(echeance);
   const attendues = await compterCyclesTerminesApplication(supabase, app.id);
   const etats = await lireTout<EtatTierApplication>(
     `Requalification ${app.slug} — cycles terminés`,
     async (curseur, taille) => {
+      // Avant chaque page : une échéance dépassée n'attend pas la fin du stock.
+      controlerEcheance(echeance);
       let q = supabase
         .from(VUE_REQUALIF_APPLICATION)
         .select(COLONNES_ETAT_APPLICATION)
@@ -353,8 +372,11 @@ async function lireUnContenuApplication(
  * - Écriture contenu par contenu : matérialisation de l'état paresseux s'il le
  *   faut, puis UPDATE gardé par `tier_cycle` avec `.select` — 0 ligne touchée =
  *   requalifié ailleurs entre-temps (`dejaRequalifies`), pas compté.
- * - `echeance` (epoch ms) vérifiée avant chaque contenu : dépassée, on s'arrête
- *   (`interrompu`), le reste repasse la nuit suivante.
+ * - `echeance` (epoch ms) vérifiée avant chaque lecture (comptage, chaque page,
+ *   titres) et avant chaque contenu écrit : dépassée, l'application s'arrête
+ *   (`interrompu`, sans erreur), les suivantes aussi, et le reste repasse la
+ *   nuit suivante. Seules la sonde, la liste des applications et les réglages
+ *   (trois petites lectures, la sonde « prête » étant mémorisée) la précèdent.
  * - N'écrit JAMAIS dans `contenus` ni dans `remix_debloques`.
  */
 export async function requalifierApplications(
@@ -388,7 +410,7 @@ export async function requalifierApplications(
     try {
       const lecture = opts.contenuId
         ? await lireUnContenuApplication(supabase, app, opts.contenuId)
-        : await lireCyclesTerminesApplication(supabase, app);
+        : await lireCyclesTerminesApplication(supabase, app, opts.echeance);
       res.examines = lecture.etats.length;
       res.coherence = lecture.coherence;
       await requalifierLesEtats(supabase, app, lecture.etats, res, {
@@ -397,6 +419,11 @@ export async function requalifierApplications(
         reglages,
       });
     } catch (e) {
+      if (e instanceof EcheanceDepassee) {
+        // Pas une erreur : ce qui est écrit l'est, le reste passe demain.
+        res.interrompu = true;
+        continue;
+      }
       res.erreur = e instanceof Error ? e.message : String(e);
       console.error(`[tiers-app] requalification ${app.slug} en échec : ${res.erreur}`);
     }
@@ -443,7 +470,8 @@ async function requalifierLesEtats(
   if (mursOk.length === 0 && attentes.length === 0) return;
 
   // Titres : NON fatal, comme côté Sophia — ils ne décident de rien. Lecture
-  // seule de `contenus` (jamais d'écriture).
+  // seule de `contenus` (jamais d'écriture). Échéance contrôlée avant.
+  controlerEcheance(args.echeance);
   const ids = [...mursOk.map((m) => m.etat.contenu_id), ...attentes.map((e) => e.contenu_id)];
   let titreParId = new Map<string, string>();
   try {
@@ -475,10 +503,7 @@ async function requalifierLesEtats(
 
   for (const { etat: e, decision } of mursOk) {
     if (!estTier(e.tier)) continue;
-    if (args.echeance !== undefined && Date.now() > args.echeance) {
-      res.interrompu = true;
-      break;
-    }
+    controlerEcheance(args.echeance);
     const moyenne = Number(e.moyenne_vues ?? 0);
     const maxVues = Number(e.max_vues ?? 0);
     const verdict = decision.surMesure

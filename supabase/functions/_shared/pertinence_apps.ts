@@ -181,6 +181,25 @@ export function eligibiliteDepuisNote(note: number, seuil: number, force: boolea
 }
 
 /**
+ * Note STOCKÉE d'une application autre que Sophia : sur un import FORCÉ, elle
+ * est planchée au seuil, comme la note Sophia d'un import forcé
+ * (`forcerImportElo` : `max(note, seuil)`, puis `tierImport`). Le tier
+ * d'entrée paresseux de l'application (`tier_initial_note`, 0270) se lit sur
+ * cette note : sans plancher, une ligne forcée entrerait en C même quand le
+ * seuil (≥ 60) ferait entrer Sophia en B. Sophia, non forcé ou note non finie :
+ * note brute, inchangée.
+ */
+export function noteStockee(
+  note: number,
+  applicationId: string,
+  seuil: number,
+  force: boolean,
+): number {
+  if (!force || applicationId === ID_SOPHIA || !Number.isFinite(note)) return note;
+  return Math.max(note, seuil);
+}
+
+/**
  * Comment placer le rang SOPHIA (`contenus.tier`) d'un contenu à l'import,
  * maintenant que chaque application a SON tier (0270, « plus de tiers
  * mergés ») :
@@ -528,7 +547,7 @@ export async function majNotesPertinences(
   for (const l of lignes) {
     let { note, eligible } = l;
     if (note === null) {
-      note = opts.noteDe(l.score);
+      note = noteStockee(opts.noteDe(l.score), l.application_id, opts.seuil, opts.force);
       eligible = eligibiliteDepuisNote(note, opts.seuil, opts.force);
       const { error } = await supabase
         .from("contenu_pertinences")
@@ -769,7 +788,8 @@ async function noterContenuBackfill(
     instructions: prompt,
   });
   const stocke = scoreStockable(score);
-  const note = deps.noteImport({
+  const forcee = Boolean(c.import_elo_force_seuil);
+  const brute = deps.noteImport({
     pertinence: stocke,
     vues: c.vues_source ?? null,
     langue: langueSource,
@@ -781,6 +801,8 @@ async function noterContenuBackfill(
     pisteSource,
     poidsSource: scoring.poidsSource,
   });
+  // Import forcé : note planchée au seuil, comme côté Sophia (`noteStockee`).
+  const note = noteStockee(brute, app.id, scoring.eloSeuil, forcee);
   const { error: errUp } = await supabase.from("contenu_pertinences").upsert(
     {
       contenu_id: contenuId,
@@ -788,7 +810,7 @@ async function noterContenuBackfill(
       score: stocke,
       raison: reason,
       note,
-      eligible: eligibiliteDepuisNote(note, scoring.eloSeuil, Boolean(c.import_elo_force_seuil)),
+      eligible: eligibiliteDepuisNote(note, scoring.eloSeuil, forcee),
       // Colonne héritée des angles de label (abandonnés) : plus alimentée.
       angles: null,
       prompt_cle: clePromptPertinenceApp(app),

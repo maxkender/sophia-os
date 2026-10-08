@@ -10,6 +10,7 @@
 import { assert, assertEquals } from "jsr:@std/assert@1";
 
 import { oublierSondeMultiApp } from "./applications_moteur.ts";
+import { oublierSondeTiersApplication } from "./tiers_application.ts";
 import {
   assurerTierImport,
   avancerImport,
@@ -89,6 +90,21 @@ function fauxClient(
 }
 
 const SCORING = { elo_seuil_import: SEUIL };
+
+/** Les deux sondes (0256, 0270) sont mémorisées par isolate : oubliées à chaque test. */
+function oublierSondes() {
+  oublierSondeMultiApp();
+  oublierSondeTiersApplication();
+}
+
+/** 0270 non appliquée : la table des tiers par application est inconnue. */
+const SANS_0270 = ["contenu_tiers_application"];
+
+function lecturesSonde0270(journal: Op[]) {
+  return journal.filter((o) =>
+    o.table === "contenu_tiers_application" || o.table === "contenu_application_tier_etat"
+  );
+}
 
 function note(pertinence: number): number {
   return eloParLangue({
@@ -178,7 +194,7 @@ function sansDate(v: Record<string, unknown>) {
 }
 
 Deno.test("historique : l'UPDATE du rang est celui d'avant, champ pour champ et dans le même ordre", async () => {
-  oublierSondeMultiApp();
+  oublierSondes();
   for (const placement of [undefined, { mode: "historique" as const }]) {
     const { client, journal } = fauxClient(base([]));
     const tier = await assurerTierImport(client, "c1", "en", VUES, 90, null, placement);
@@ -191,7 +207,7 @@ Deno.test("historique : l'UPDATE du rang est celui d'avant, champ pour champ et 
 });
 
 Deno.test("pipeline, contenu Sophia seul : placement « historique », UPDATE et rapport d'avant (pas de clé placement_sophia)", async () => {
-  oublierSondeMultiApp();
+  oublierSondes();
   const b = base([{ application_id: ID_SOPHIA, score: 90 }]);
   const { client, journal, tables } = fauxClient(b);
 
@@ -204,11 +220,11 @@ Deno.test("pipeline, contenu Sophia seul : placement « historique », UPDATE et
   const rapport = tables.contenus[0].import_elo_rapport as Record<string, unknown>;
   assertEquals("placement_sophia" in rapport, false);
   assert(!String(rapport.texte).includes("rang Sophia"));
-  oublierSondeMultiApp();
+  oublierSondes();
 });
 
 Deno.test("pipeline, contenu partagé où Sophia est le max : même tier qu'avant, base « pertinence_sophia »", async () => {
-  oublierSondeMultiApp();
+  oublierSondes();
   const b = base([{ application_id: ID_SOPHIA, score: 90 }, { application_id: UNSWIPE, score: 40 }]);
   const { client, journal, tables } = fauxClient(b);
 
@@ -221,11 +237,11 @@ Deno.test("pipeline, contenu partagé où Sophia est le max : même tier qu'avan
   assertEquals([tr.origine, tr.base, tr.tier, tr.tier_porte], ["import", "pertinence_sophia", avant.tier, avant.tier]);
   const rapport = tables.contenus[0].import_elo_rapport as Record<string, unknown>;
   assertEquals((rapport.placement_sophia as Record<string, unknown>).tier, avant.tier);
-  oublierSondeMultiApp();
+  oublierSondes();
 });
 
 Deno.test("pipeline, contenu partagé où Sophia est sous le seuil : D / 0 côté Sophia, la porte importe quand même", async () => {
-  oublierSondeMultiApp();
+  oublierSondes();
   assert(note(10) < SEUIL && note(95) >= SEUIL, "prémisse des chiffres");
   const b = base(
     [{ application_id: ID_SOPHIA, score: 10 }, { application_id: UNSWIPE, score: 95 }],
@@ -242,11 +258,11 @@ Deno.test("pipeline, contenu partagé où Sophia est sous le seuil : D / 0 côt�
   const rapport = tables.contenus[0].import_elo_rapport as Record<string, unknown>;
   assertEquals((rapport.placement_sophia as Record<string, unknown>).tier, "D");
   assert(String(rapport.texte).includes("rang Sophia : D"));
-  oublierSondeMultiApp();
+  oublierSondes();
 });
 
 Deno.test("pipeline, contenu hors Sophia : aucune écriture du rang dans contenus", async () => {
-  oublierSondeMultiApp();
+  oublierSondes();
   const b = base([{ application_id: UNSWIPE, score: 95 }], { pertinence_score: 95 });
   const { client, journal, tables } = fauxClient(b);
 
@@ -257,11 +273,11 @@ Deno.test("pipeline, contenu hors Sophia : aucune écriture du rang dans contenu
   assertEquals([tables.contenus[0].tier, tables.contenus[0].passages_prevus, tables.contenus[0].tier_maj_at], ["D", 0, null]);
   const rapport = tables.contenus[0].import_elo_rapport as Record<string, unknown>;
   assertEquals((rapport.placement_sophia as Record<string, unknown>).mode, "hors_sophia");
-  oublierSondeMultiApp();
+  oublierSondes();
 });
 
 Deno.test("pipeline, lecture du placement en panne : le pas échoue (rejoué), aucun rang écrit", async () => {
-  oublierSondeMultiApp();
+  oublierSondes();
   const b = base([{ application_id: ID_SOPHIA, score: 90 }]);
   // La note par application (majNotesPertinences) tolère la panne ; la
   // lecture du placement, elle, doit faire échouer le pas.
@@ -273,11 +289,11 @@ Deno.test("pipeline, lecture du placement en panne : le pas échoue (rejoué), a
   assertEquals(updatesRang(journal), []);
   assertEquals(tables.contenus[0].import_statut, "failed");
   assert(String(tables.contenus[0].import_erreur).includes("connexion perdue"));
-  oublierSondeMultiApp();
+  oublierSondes();
 });
 
 Deno.test("pipeline, rang déjà posé (tier_maj_at) : le placement n'est pas relu", async () => {
-  oublierSondeMultiApp();
+  oublierSondes();
   const b = base(
     [{ application_id: ID_SOPHIA, score: 90 }, { application_id: UNSWIPE, score: 40 }],
     { tier_maj_at: "2026-10-01T00:00:00Z", tier: "A", passages_prevus: 4 },
@@ -289,11 +305,11 @@ Deno.test("pipeline, rang déjà posé (tier_maj_at) : le placement n'est pas re
   assertEquals(lecturesPlacement(journal), []);
   assertEquals(updatesRang(journal), []);
   assertEquals(tables.contenus[0].tier, "A");
-  oublierSondeMultiApp();
+  oublierSondes();
 });
 
 Deno.test("pipeline, 0256 absente : chemin historique sans aucune lecture de pertinence", async () => {
-  oublierSondeMultiApp();
+  oublierSondes();
   const b = base([]);
   const { client, journal } = fauxClient(b, { absentes: ["label_applications"] });
 
@@ -301,7 +317,7 @@ Deno.test("pipeline, 0256 absente : chemin historique sans aucune lecture de per
 
   assertEquals(journal.filter((o) => o.table === "contenu_pertinences"), []);
   assertEquals(sansDate(updatesRang(journal)[0]), instantaneHistorique(90));
-  oublierSondeMultiApp();
+  oublierSondes();
 });
 
 /* -------------------------------------------------------------------------
@@ -313,7 +329,7 @@ function baseForcee(lignes: Array<Record<string, unknown>>) {
 }
 
 Deno.test("forçage, contenu Sophia seul : l'UPDATE d'avant (import_force, sans base)", async () => {
-  oublierSondeMultiApp();
+  oublierSondes();
   const b = baseForcee([{ application_id: ID_SOPHIA, score: 10 }]);
   const { client, journal } = fauxClient(b);
 
@@ -327,11 +343,11 @@ Deno.test("forçage, contenu Sophia seul : l'UPDATE d'avant (import_force, sans 
     passages_prevus: 1,
     tier_rapport: { origine: "import_force", elo: SEUIL, seuil: SEUIL, tier: "C", passages: 1 },
   });
-  oublierSondeMultiApp();
+  oublierSondes();
 });
 
 Deno.test("forçage, contenu partagé : rang depuis la note SOPHIA planchée au seuil", async () => {
-  oublierSondeMultiApp();
+  oublierSondes();
   // Sophia 90 → au-dessus du seuil : B, même si la porte (10) était sous le seuil.
   const b = baseForcee([{ application_id: ID_SOPHIA, score: 90 }, { application_id: UNSWIPE, score: 10 }]);
   const { client, journal } = fauxClient(b);
@@ -344,11 +360,11 @@ Deno.test("forçage, contenu partagé : rang depuis la note SOPHIA planchée au 
   assertEquals(v.tier, attendu);
   const tr = v.tier_rapport as Record<string, unknown>;
   assertEquals([tr.origine, tr.base], ["import_force", "pertinence_sophia"]);
-  oublierSondeMultiApp();
+  oublierSondes();
 });
 
 Deno.test("forçage, contenu hors Sophia : pas d'UPDATE du rang, le reste du forçage est fait", async () => {
-  oublierSondeMultiApp();
+  oublierSondes();
   const b = baseForcee([{ application_id: UNSWIPE, score: 10 }]);
   const { client, journal, tables } = fauxClient(b);
 
@@ -358,11 +374,11 @@ Deno.test("forçage, contenu hors Sophia : pas d'UPDATE du rang, le reste du for
   assertEquals(updatesRang(journal), []);
   assertEquals(tables.contenus[0].import_elo_force_seuil, true);
   assertEquals(tables.contenu_pertinences[0].eligible, true);
-  oublierSondeMultiApp();
+  oublierSondes();
 });
 
 Deno.test("forçage, placement illisible : refus propre, aucun rang écrit", async () => {
-  oublierSondeMultiApp();
+  oublierSondes();
   const b = baseForcee([{ application_id: ID_SOPHIA, score: 10 }]);
   const { client, journal } = fauxClient(b, { pannes: { contenu_pertinences: "connexion perdue" } });
 
@@ -370,5 +386,105 @@ Deno.test("forçage, placement illisible : refus propre, aucun rang écrit", asy
 
   assertEquals(r.ok, false);
   assertEquals(updatesRang(journal), []);
-  oublierSondeMultiApp();
+  oublierSondes();
+});
+
+/* -------------------------------------------------------------------------
+ * Sonde 0270 : sans elle, le placement d'avant (rang depuis la porte).
+ * ---------------------------------------------------------------------- */
+
+Deno.test("pipeline, contenu Sophia seul : la sonde 0270 n'est jamais lue", async () => {
+  oublierSondes();
+  const b = base([{ application_id: ID_SOPHIA, score: 90 }]);
+  const { client, journal } = fauxClient(b);
+
+  await avancerImport(client, b.contenus[0]);
+
+  assertEquals(lecturesSonde0270(journal), []);
+  assertEquals(sansDate(updatesRang(journal)[0]), instantaneHistorique(90));
+  oublierSondes();
+});
+
+Deno.test("pipeline, contenu partagé, 0270 ABSENTE : placement historique (rang depuis la porte, comme avant)", async () => {
+  oublierSondes();
+  const b = base(
+    [{ application_id: ID_SOPHIA, score: 10 }, { application_id: UNSWIPE, score: 95 }],
+    { pertinence_score: 95 },
+  );
+  const { client, journal, tables } = fauxClient(b, { absentes: SANS_0270 });
+
+  const r = await avancerImport(client, b.contenus[0]);
+
+  assertEquals(r.etape, "elo");
+  assertEquals(sansDate(updatesRang(journal)[0]), instantaneHistorique(95), "UPDATE d'avant, sur le max");
+  const rapport = tables.contenus[0].import_elo_rapport as Record<string, unknown>;
+  assertEquals("placement_sophia" in rapport, false);
+  oublierSondes();
+});
+
+Deno.test("pipeline, contenu hors Sophia, 0270 ABSENTE : rang Sophia posé comme avant", async () => {
+  oublierSondes();
+  const b = base([{ application_id: UNSWIPE, score: 95 }], { pertinence_score: 95 });
+  const { client, journal } = fauxClient(b, { absentes: SANS_0270 });
+
+  await avancerImport(client, b.contenus[0]);
+
+  assertEquals(sansDate(updatesRang(journal)[0]), instantaneHistorique(95));
+  oublierSondes();
+});
+
+Deno.test("pipeline, contenu partagé, sonde 0270 ILLISIBLE : le pas échoue (rejoué), aucun rang écrit", async () => {
+  oublierSondes();
+  const b = base([{ application_id: ID_SOPHIA, score: 90 }, { application_id: UNSWIPE, score: 40 }]);
+  const { client, journal, tables } = fauxClient(b, { pannes: { contenu_tiers_application: "503 PGRST002" } });
+
+  const r = await avancerImport(client, b.contenus[0]);
+
+  assertEquals(r.etape, "failed");
+  assertEquals(updatesRang(journal), []);
+  assert(String(tables.contenus[0].import_erreur).includes("0270"));
+  oublierSondes();
+});
+
+Deno.test("forçage, contenu partagé, 0270 ABSENTE : l'UPDATE d'avant (import_force, sans base)", async () => {
+  oublierSondes();
+  const b = baseForcee([{ application_id: ID_SOPHIA, score: 90 }, { application_id: UNSWIPE, score: 10 }]);
+  const { client, journal } = fauxClient(b, { absentes: SANS_0270 });
+
+  const r = await forcerImportElo(client, "c1");
+
+  assert(r.ok);
+  const [v] = updatesRang(journal);
+  assertEquals(sansDate(v), {
+    tier: "C",
+    passages_prevus: 1,
+    tier_rapport: { origine: "import_force", elo: SEUIL, seuil: SEUIL, tier: "C", passages: 1 },
+  });
+  oublierSondes();
+});
+
+Deno.test("forçage : ligne d'une AUTRE application planchée au seuil, ligne Sophia brute", async () => {
+  oublierSondes();
+  const b = baseForcee([
+    { application_id: ID_SOPHIA, score: 10, note: 30 },
+    { application_id: UNSWIPE, score: 10, note: 20 },
+  ]);
+  (b.contenus[0] as Record<string, unknown>).import_elo_rapport = {
+    pertinences: {
+      sophia: { score: 10, note: 30, eligible: false },
+      unswipe: { score: 10, note: 20, eligible: false },
+    },
+  };
+  const { client, tables } = fauxClient(b);
+
+  const r = await forcerImportElo(client, "c1");
+
+  assert(r.ok);
+  const ligne = (app: string) => tables.contenu_pertinences.find((l) => l.application_id === app)!;
+  assertEquals([ligne(ID_SOPHIA).note, ligne(ID_SOPHIA).eligible], [30, true], "Sophia : note brute");
+  assertEquals([ligne(UNSWIPE).note, ligne(UNSWIPE).eligible], [SEUIL, true], "Unswipe : max(note, seuil)");
+  const pert = (r.ok ? r.elo : null) as { pertinences?: Record<string, { note: number | null }> } | null;
+  assertEquals(pert?.pertinences?.sophia.note, 30);
+  assertEquals(pert?.pertinences?.unswipe.note, SEUIL);
+  oublierSondes();
 });

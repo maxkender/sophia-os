@@ -500,6 +500,98 @@ Deno.test("requalif application — échéance dépassée : interrompue, rien d'
   oublierSondes();
 });
 
+Deno.test("requalif application — échéance déjà dépassée : ni comptage, ni page, ni titres ; toutes les applications interrompues, sans erreur", async () => {
+  oublierSondes();
+  const base = baseRequalif([cycleTermine("c1"), cycleTermine("c2", { application_id: FOO })]);
+  base.applications.push({ id: FOO, slug: "foo", nom: "Foo", langues: null, actif: true, created_at: "3" });
+  const { client, journal } = fauxPostgrest(base);
+
+  const res = await requalifierApplications(client, { echeance: Date.now() - 1 });
+
+  for (const slug of ["unswipe", "foo"]) {
+    const r = res.parApplication[slug];
+    assertEquals([r.interrompu, r.erreur, r.requalifies], [true, undefined, 0], slug);
+  }
+  assertEquals(
+    journal.filter((o) => o.table === VUE_REQUALIF_APPLICATION || o.table === "contenus"),
+    [],
+    "rien n'est lu après la sonde, la liste des applications et les réglages",
+  );
+  assertEquals(ecritures(journal), []);
+  oublierSondes();
+});
+
+Deno.test("requalif application — échéance dépassée ENTRE deux pages : pas de page suivante, ni titres ni écriture", async () => {
+  oublierSondes();
+  const lignes = Array.from({ length: 1200 }, (_, i) => cycleTermine(`c${String(i).padStart(5, "0")}`));
+  const base = baseRequalif(lignes);
+  const vraiNow = Date.now;
+  let horloge = vraiNow.call(Date);
+  const echeance = horloge + 1_000;
+  const { client, journal } = fauxPostgrest(base, {
+    // Chaque page de la vue « prend » 2 s : l'échéance tombe après la première.
+    echecSi: (o) => {
+      if (o.table === VUE_REQUALIF_APPLICATION && !o.head) horloge += 2_000;
+      return null;
+    },
+  });
+  Date.now = () => horloge;
+  try {
+    const r = (await requalifierApplications(client, { echeance })).parApplication.unswipe;
+
+    assertEquals([r.interrompu, r.erreur, r.requalifies], [true, undefined, 0]);
+    const pages = journal.filter((o) => o.table === VUE_REQUALIF_APPLICATION && !o.head);
+    assertEquals(pages.length, 1, "la seconde page n'est pas demandée");
+    assertEquals(journal.filter((o) => o.table === "contenus"), [], "titres non lus");
+    assertEquals(ecritures(journal), []);
+  } finally {
+    Date.now = vraiNow;
+    oublierSondes();
+  }
+});
+
+Deno.test("requalif application — échéance dépassée pendant les écritures : ce qui est écrit l'est, le reste attend", async () => {
+  oublierSondes();
+  const base = baseRequalif([cycleTermine("c1"), cycleTermine("c2"), cycleTermine("c3")]);
+  const vraiNow = Date.now;
+  let horloge = vraiNow.call(Date);
+  const echeance = horloge + 1_000;
+  const { client, tables } = fauxPostgrest(base, {
+    // Chaque UPDATE de la table « prend » 2 s : un seul contenu passe.
+    echecSi: (o) => {
+      if (o.table === TABLE_TIERS_APPLICATION && o.op === "update") horloge += 2_000;
+      return null;
+    },
+  });
+  Date.now = () => horloge;
+  try {
+    const r = (await requalifierApplications(client, { echeance })).parApplication.unswipe;
+
+    assertEquals([r.interrompu, r.erreur, r.requalifies, r.examines], [true, undefined, 1, 3]);
+    assertEquals(
+      tables[TABLE_TIERS_APPLICATION].filter((l) => l.tier_cycle === 1).map((l) => l.contenu_id),
+      ["c1"],
+    );
+  } finally {
+    Date.now = vraiNow;
+    oublierSondes();
+  }
+});
+
+Deno.test("minuit — tierlist_applications est la DERNIÈRE étape : rien de non-Sophia devant le drain", async () => {
+  const source = await Deno.readTextFile(new URL("../minuit-vnext/index.ts", import.meta.url));
+  const position = (etape: string) => {
+    const i = source.indexOf(`executerEtape(out, bilan, "${etape}"`);
+    assert(i >= 0, `étape ${etape} introuvable`);
+    return i;
+  };
+  const applications = position("tierlist_applications");
+  for (const etape of ["rattrapage", "tierlist", "rappels", "assignation", "upscale", "variations"]) {
+    assert(position(etape) < applications, `${etape} doit passer AVANT tierlist_applications`);
+  }
+  assert(source.indexOf("kickAssignationDrain(request") < applications);
+});
+
 Deno.test("requalif application — une application en erreur n'empêche pas la suivante", async () => {
   oublierSondes();
   const base = baseRequalif([cycleTermine("c1"), cycleTermine("c2", { application_id: FOO })]);

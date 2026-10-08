@@ -172,7 +172,7 @@ Migration 0270 (tiers par application, additive ; parties A puis B) :
 | Objet | Rôle |
 |---|---|
 | `contenu_tiers_application(contenu_id, application_id, tier, passages_prevus, tier_cycle, tier_maj_at, tier_rapport)` | tier d'un contenu pour une application hors Sophia (CHECK `<> Sophia`, RLS admin) |
-| vue `contenu_application_tier_etat` | avancement par contenu × application, sur ses passages ; tier d'entrée paresseux tant qu'aucune ligne n'est écrite |
+| vue `contenu_application_tier_etat` | avancement par contenu × application, sur ses passages ; tier d'entrée paresseux tant qu'aucune ligne n'est écrite ; aucune ligne pour un posteur (note et éligibilité réservées à l'admin) |
 | vue `contenu_application_a_requalifier` | ses cycles terminés |
 | `tier_initial_note(numeric)`, `passages_du_tier(text)` | miroirs SQL de `tierInitialDepuisNote` / `PASSAGES_PAR_TIER` |
 | `contenu_tier_etat` (modifiée) | ne compte plus que les passages Sophia (preuve d'invariance dans la migration) |
@@ -260,23 +260,45 @@ B de 0270 refuse de s'appliquer sinon.
    autre application n'est servie (repli Sophia, motif `reserve_vide`, raison
    « migration 0270 non appliquée »), l'étape de minuit écrit
    `{etat: "absent"}`, la carte Applications refuse l'activation. Sophia est
-   identique (aucun passage non-Sophia ne peut naître, l'import d'un contenu
-   Sophia seul reste « historique »). Nuit suivante : ~280 posts, bloc
-   tierlist habituel, pas de pic de quotas baissés,
-   `tierlist_applications_dernier_run.etat = "absent"`.
-2. Hors des fenêtres de nuit, noter les chiffres d'AVANT (`select count(*),
+   identique : aucun passage non-Sophia ne peut naître, et TOUT import pose
+   le rang Sophia comme avant (« historique », depuis la porte), même pour un
+   contenu dont un label servirait déjà Unswipe — le rang Sophia « partagé »
+   (pertinence Sophia) ou absent (« hors Sophia ») n'existe qu'une fois 0270
+   appliquée ; une sonde illisible fait rejouer le pas d'import. L'étape de
+   minuit `tierlist_applications` passe en DERNIER, après le lancement du
+   drain, l'upscale et les variations : l'ordre et le moment des étapes Sophia
+   sont ceux d'avant. Nuit suivante : ~280 posts, bloc tierlist habituel, pas
+   de pic de quotas baissés, `tierlist_applications_dernier_run.etat =
+   "absent"`.
+2. Hors des fenêtres de nuit, de préférence à une heure calme et pages admin
+   Pilotage / Réserve fermées, noter les chiffres d'AVANT (`select count(*),
    sum(restants) from contenu_tier_etat` ; `select count(*) from
    contenu_a_requalifier` ; `select * from label_application_reserve` ;
    `select count(*) from passages where application_id <> '…0001'` → 0), puis
    appliquer **0270a puis 0270b** (MCP `apply_migration`, deux appels :
    `0270a_tiers_application_table`, `0270b_tiers_application_vues` ; ou SQL
    Editor, une exécution par partie, puis l'insert de trace de l'en-tête du
-   fichier). La partie B revérifie l'invariance Sophia dans la transaction et
-   annule tout au moindre écart (≈ 1 s de verrou sur deux vues).
+   fichier). La partie B prouve l'invariance Sophia AVANT de remplacer quoi
+   que ce soit (copies temporaires « avant » contre définitions « après » ;
+   ≈ 2 s au calme, davantage sous charge, sans bloquer personne), annule tout
+   au moindre écart, puis installe les deux vues Sophia en dernier : verrou
+   exclusif tenu quelques millisecondes, obtenu en 2 s au plus par vue (sinon
+   B échoue sans rien appliquer : la rejouer). Pendant cette attente, une
+   lecture de ces vues attend derrière (au pire ≈ 4 s, sous les 8 s de
+   statement_timeout). Chaque partie est **rejouable** telle quelle (appel
+   MCP expiré après le COMMIT, doute) ; pour savoir ce qui est passé :
+   `to_regclass` de `contenu_tiers_application`,
+   `contenu_application_tier_etat`, `contenu_application_a_requalifier`.
 3. Après : mêmes chiffres (à l'activité près), `select count(*) from
-   contenu_application_tier_etat` → 0, pas d'`anon` dans les droits des
-   nouveaux objets, `schema_migrations` porte 0270a et 0270b. Sous 5 min, la
-   sonde Edge passe à « prête ». Nuit suivante : Sophia identique,
+   contenu_application_tier_etat` → 0, pas d'`anon` dans les droits de la
+   table `contenu_tiers_application` ni des deux vues par application (les
+   deux fonctions pures `tier_initial_note` / `passages_du_tier` gardent
+   EXECUTE pour PUBLIC, donc anon, EXPRÈS : comme `application_id_sophia()`,
+   une fonction appelée par une vue est vérifiée avec les droits du LECTEUR,
+   et les retirer à PUBLIC casserait `label_application_reserve` pour les
+   lectures directes — sans risque, elles ne lisent aucune donnée),
+   `schema_migrations` porte 0270a et 0270b. Sous 5 min, la sonde Edge passe à
+   « prête ». Nuit suivante : Sophia identique,
    `tierlist_applications_dernier_run = {etat: "pret", applications:
    {unswipe: {examines: 0, …}}}`.
 4. Seulement ensuite : langues ciblées, labels dédiés, **rattrapage de
@@ -286,13 +308,28 @@ B de 0270 refuse de s'appliquer sinon.
 Ordre inverse (0270 avant le merge) : sûr tant qu'Unswipe reste inactive (B
 refuse sinon), mais l'ancien front laisserait l'activer : déconseillé.
 
+**Droits des vues par application.** `contenu_application_tier_etat` (et
+donc `contenu_application_a_requalifier`) expose la note et l'éligibilité de
+`contenu_pertinences`, table réservée à l'admin : un utilisateur connecté
+NON admin (posteur) n'y lit aucune ligne. L'admin, l'Edge (`service_role`)
+et les lectures directes voient tout. `contenu_tier_etat` garde, elle, le
+SELECT `anon` hérité de 0237 (ses voisines l'ont perdu en 0253/0254) : 0270
+ne touche pas à ses droits (Sophia identique). À trancher par le
+propriétaire ; si personne ne la lit en anon, une migration séparée :
+`revoke select on public.contenu_tier_etat from anon;`.
+
 **Retour arrière.** Revenir sur le CODE après 0270 avec une application
 non-Sophia active la resservirait sans limite (l'ancien code lit
 `contenu_tier_etat`, désormais filtré sur Sophia) : **désactiver d'abord
-toute application non-Sophia**. Revenir sur 0270 :
-`docs/sql/0270_retour_arriere.sql` (même préalable, le script refuse sinon) ;
-la table et les fonctions restent, leur suppression (en commentaire) perd les
-tiers des autres applications.
+toute application non-Sophia**, et ne jamais la réactiver avec ce code.
+Revenir sur 0270 : `docs/sql/0270_retour_arriere.sql` (même préalable, le
+script refuse sinon). Il remet `label_application_reserve` (0266) et
+supprime les vues par application, mais GARDE le filtre Sophia de
+`contenu_tier_etat` : neutre sans passage non-Sophia, il empêche sinon les
+passages Unswipe de revenir dans le budget et le `m` de Sophia, et laisse la
+partie B rejouable (sa preuve compare alors filtré contre filtré — testé
+avec 30 passages non-Sophia en base). La table et les fonctions restent,
+leur suppression (en commentaire) perd les tiers des autres applications.
 
 `manage-users` et `papier-cm` tournent sur des bundles figés : ils continuent
 de lire `application_id` (toujours Sophia) et n'ont pas besoin d'être

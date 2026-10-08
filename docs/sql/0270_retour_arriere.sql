@@ -1,26 +1,41 @@
 -- RETOUR ARRIÈRE de la migration 0270 (tiers par application).
 --
 -- HORS de supabase/migrations EXPRÈS : un `supabase db reset` ne doit jamais
--- le jouer. À exécuter à la main (SQL Editor, d'un bloc), hors des fenêtres
--- nocturnes (21:50–23:15 UTC, 03:55–04:15 UTC).
+-- le jouer. À exécuter à la main (SQL Editor, d'un bloc : une transaction),
+-- hors des fenêtres nocturnes (21:50–23:15 UTC, 03:55–04:15 UTC).
 --
 -- PRÉALABLE : désactiver TOUTE application non-Sophia (Pilotage → carte
--- Applications). Sans 0270, le code ne sert plus aucune autre application,
--- mais un ancien code (revenu en arrière) lirait de nouveau contenu_tier_etat
--- partagé : Unswipe y serait resservie sans limite. Le script refuse sinon.
+-- Applications). Sans les vues par application, le code ne sert plus aucune
+-- autre application (sa sonde 0270 répond « absent »). Le script refuse sinon.
 --
 -- Ce qu'il fait, dans l'ordre :
 --   1. remet `label_application_reserve` telle que 0266 l'a définie (copie à
 --      l'identique), avec son commentaire d'origine (0256) — elle cesse de
 --      dépendre des vues par application ;
---   2. remet `contenu_tier_etat` telle que 0247 l'a définie (copie à
---      l'identique, SANS le filtre Sophia), avec son commentaire 0247 ;
---   3. supprime les deux vues par application.
+--   2. supprime les deux vues par application.
+--
+-- Ce qu'il NE fait PAS, exprès : remettre `contenu_tier_etat` sans son filtre
+-- Sophia (0247). Le filtre `application_id = Sophia` est NEUTRE tant qu'aucun
+-- passage non-Sophia n'existe (résultats identiques, prouvé par 0270b) et
+-- PROTÈGE Sophia dès qu'il en existe un : sans lui, les passages Unswipe
+-- reviendraient dans les restants, le `m` et les cycles terminés de Sophia —
+-- le budget fusionné que le propriétaire a refusé (« un post Unswipe ne
+-- consomme jamais le budget Sophia »). Le garder rend aussi le retour arrière
+-- rattrapable : réappliquer ensuite la partie B de 0270 compare une
+-- contenu_tier_etat filtrée à elle-même, et sa preuve passe même avec des
+-- passages non-Sophia en base (testé : 30 passages non-Sophia, retour
+-- arrière, puis B rejouée sans écart).
+--
+-- CONSÉQUENCE pour un CODE revenu en arrière (antérieur à 0270) : il lit
+-- contenu_tier_etat filtrée pour la réserve d'une autre application, donc
+-- sans décompter ses passages. Ne JAMAIS réactiver une application non-Sophia
+-- avec un tel code.
+--
 -- La table `contenu_tiers_application` et les deux fonctions restent : les
 -- supprimer PERD les tiers des autres applications (voir la fin, en
--- commentaire). Réappliquer la partie B de 0270 ensuite est sûr (testé).
+-- commentaire).
 
-set lock_timeout = '5s';
+set lock_timeout = '2s';
 
 do $garde_retour$
 begin
@@ -169,71 +184,13 @@ left join demande d
 comment on view public.label_application_reserve is
   'Réserve de passages par label × application. Stock : contenus valides du label éligibles pour l''application (Sophia : sauf refus explicite ; autres : éligibilité explicite). Demande : quota des comptes × part effective de l''application ÷ nombre de leurs labels qui la servent. Les passages restants sont partagés entre applications : les réserves se recouvrent.';
 
--- 2. contenu_tier_etat — 0247 à l'identique (sans le filtre Sophia de 0270).
-create or replace view public.contenu_tier_etat as
-select
-  c.id                                   as contenu_id,
-  c.tier,
-  c.passages_prevus,
-  c.tier_cycle,
-  c.tier_maj_at,
-  coalesce(p.publies, 0)                 as publies,
-  coalesce(p.en_vol, 0)                  as en_vol,
-  greatest(
-    c.passages_prevus - coalesce(p.publies, 0) - coalesce(p.en_vol, 0),
-    0
-  )                                      as restants,
-  p.moyenne_vues                         as moyenne_vues,
-  p.max_vues                             as max_vues,
-  coalesce(p.nb_150k, 0)                 as nb_150k,
-  p.dernier_publie_at                    as dernier_publie_at,
-  -- En queue, et pas au milieu : `create or replace view` n'accepte que des
-  -- colonnes ajoutées à la fin, jamais un réordonnancement.
-  coalesce(p.mesures, 0)                 as mesures,
-  coalesce(p.introuvables, 0)            as introuvables,
-  coalesce(p.en_attente_mesure, 0)       as en_attente_mesure
-from public.contenus c
-left join lateral (
-  select
-    count(*) filter (where s.statut = 'publie')                    as publies,
-    count(*) filter (
-      where s.statut <> 'publie'
-        and coalesce(s.date_publication_prevue, current_date)
-            >= ((now() at time zone 'Europe/Paris')::date - 2)
-    )                                                              as en_vol,
-    avg(s.vues) filter (where s.statut = 'publie' and s.vues is not null)  as moyenne_vues,
-    max(s.vues) filter (where s.statut = 'publie')                 as max_vues,
-    count(*) filter (where s.statut = 'publie' and s.vues >= 150000) as nb_150k,
-    count(*) filter (where s.statut = 'publie' and s.vues is not null) as mesures,
-    count(*) filter (
-      where s.statut = 'publie'
-        and s.vues is null
-        and s.resolution_statut = 'introuvable'
-    )                                                              as introuvables,
-    count(*) filter (
-      where s.statut = 'publie'
-        and s.vues is null
-        and coalesce(s.resolution_statut, 'a_resoudre') <> 'introuvable'
-    )                                                              as en_attente_mesure,
-    coalesce(
-      max(s.publie_at) filter (where s.statut = 'publie'),
-      max((s.date_publication_prevue::timestamp) at time zone 'Europe/Paris')
-        filter (where s.statut = 'publie')
-    )                                                              as dernier_publie_at
-  from public.passages s
-  where s.contenu_id = c.id
-    and s.tier_cycle = c.tier_cycle
-    and s.est_rappel = false
-) p on true;
-
-comment on view public.contenu_tier_etat is
-  'Avancement du cycle tierlist par contenu : passages publiés, en vol (réservés 2 jours), restants, mesurés / introuvables / en attente de mesure, m, max et nb ≥ 150k.';
-
--- 3. Vues par application.
+-- 2. Vues par application.
 drop view public.contenu_application_a_requalifier;
 drop view public.contenu_application_tier_etat;
 
--- 4. FACULTATIF, et IRRÉVERSIBLE : perd les tiers, budgets et cycles des
+-- contenu_tier_etat : INCHANGÉE (filtre Sophia gardé, voir l'en-tête).
+
+-- 3. FACULTATIF, et IRRÉVERSIBLE : perd les tiers, budgets et cycles des
 --    applications non-Sophia. À ne décommenter que sur décision explicite.
 -- drop table public.contenu_tiers_application;
 -- drop function public.passages_du_tier(text);

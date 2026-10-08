@@ -58,18 +58,21 @@ import {
 import { erreurSchemaAbsent, schemaMultiAppPret } from "./applications_moteur.ts";
 import {
   majNotesPertinences,
+  noteStockee,
   noterPertinenceImport,
   placementSophiaImport,
   type PertinencesRapport,
   type PlacementSophia,
 } from "./pertinence_apps.ts";
 import { lireParLots, lireTout } from "./lots.ts";
+import { SLUG_SOPHIA } from "./multi_app.ts";
 import {
   estTier,
   passagesPourTier,
   tierImport,
   type Tier,
 } from "./tierlist.ts";
+import { sonderSchemaTiersApplication } from "./tiers_application.ts";
 import { chargerPrompt, messageErreur, serviceClient } from "./supabase.ts";
 
 export type Supabase = ReturnType<typeof serviceClient>;
@@ -608,6 +611,29 @@ export async function creerContenuDepuisPost(
   // Les lignes `contenu_langues` sont créées APRÈS pertinence + gate ELO
   // (uniquement les langues au-dessus du seuil).
   return { id: contenu.id, reused: false };
+}
+
+/**
+ * Placement du rang SOPHIA à l'import, SOUS la sonde 0270.
+ *
+ * « partage » (rang Sophia depuis la pertinence Sophia) et « hors_sophia »
+ * (pas de rang Sophia) n'ont de sens que si chaque application a SON tier :
+ * le code part au merge, 0270 se passe à la main. Tant qu'elle manque, le
+ * placement est celui d'avant (« historique » : rang depuis la porte, le max).
+ * Sonde illisible : LÈVE — le pas est rejoué, comme sur une lecture ratée du
+ * placement, plutôt que de figer un rang (`tier_maj_at`) sur un pari. Un
+ * contenu Sophia seul (« historique », tout le stock) ne sonde rien.
+ */
+export async function placementSophiaSousSonde0270(
+  supabase: Supabase,
+  contenuId: string,
+): Promise<PlacementSophia> {
+  const placement = await placementSophiaImport(supabase, contenuId);
+  if (placement.mode === "historique") return placement;
+  const etat = await sonderSchemaTiersApplication(supabase);
+  if (etat === "pret") return placement;
+  if (etat === "absent") return { mode: "historique" };
+  throw new Error("sonde 0270 (tiers par application) illisible — rang Sophia non posé, pas d'import à rejouer");
 }
 
 /**
@@ -1339,13 +1365,14 @@ async function executerPasImport(
       }
       // Tiers par application (0270) : le rang SOPHIA d'un contenu partagé
       // vient de SA pertinence, plus du max ; un contenu hors Sophia n'en a
-      // pas. Lu seulement tant que le rang n'est pas posé (une écriture va
-      // suivre) ; une lecture ratée LÈVE : le pas est rejoué plutôt que de
-      // figer un rang Sophia sur une lecture ratée. Contenu Sophia seul :
-      // « historique », rapport et UPDATE d'avant. Contenu rejeté par la porte
-      // (`elo.tier` nul) : aucun rang à poser, rien à lire.
+      // pas — seulement une fois 0270 appliquée (sinon : « historique »).
+      // Lu seulement tant que le rang n'est pas posé (une écriture va
+      // suivre) ; une lecture ou une sonde ratée LÈVE : le pas est rejoué
+      // plutôt que de figer un rang Sophia sur une lecture ratée. Contenu
+      // Sophia seul : « historique », rapport et UPDATE d'avant. Contenu rejeté
+      // par la porte (`elo.tier` nul) : aucun rang à poser, rien à lire.
       const placement = multiPret && !contenu.tier_maj_at && elo.tier
-        ? await placementSophiaImport(supabase, contenu.id)
+        ? await placementSophiaSousSonde0270(supabase, contenu.id)
         : null;
       const resumeSophia = resumePlacementSophia(placement, contenu.tier_rapport, {
         vues: contenu.vues_source ?? null,
@@ -2612,12 +2639,13 @@ export async function forcerImportElo(
   if (insErr) return { ok: false, erreur: insErr.message };
 
   // Tiers par application (0270) : même placement Sophia qu'à l'étape 4 —
-  // historique (contenu Sophia seul) inchangé ; partagé : rang depuis la note
-  // SOPHIA, planchée au seuil comme la porte ; hors Sophia : pas de rang Sophia.
+  // historique (contenu Sophia seul, ou 0270 absente) inchangé ; partagé :
+  // rang depuis la note SOPHIA, planchée au seuil comme la porte ; hors
+  // Sophia : pas de rang Sophia.
   let placement: PlacementSophia = { mode: "historique" };
   try {
     if (await schemaMultiAppPret(supabase)) {
-      placement = await placementSophiaImport(supabase, contenuId);
+      placement = await placementSophiaSousSonde0270(supabase, contenuId);
     }
   } catch (e) {
     return { ok: false, erreur: messageErreur(e) };
@@ -2686,20 +2714,49 @@ export async function forcerImportElo(
     await supabase.from("contenu_langues").update({ slides: slidesSource }).eq("id", cl.id);
   }
 
-  // Multi-app : le forçage vaut pour chaque application déjà notée. Les
-  // lignes gardent leur note (l'étape 4 ne recalcule que les lignes sans note,
-  // et `import_elo_force_seuil` couvre celles-là).
+  // Multi-app : le forçage vaut pour chaque application déjà notée. La ligne
+  // Sophia garde sa note (l'étape 4 ne recalcule que les lignes sans note, et
+  // `import_elo_force_seuil` couvre celles-là). Une ligne d'une AUTRE
+  // application sous le seuil est planchée au seuil, comme la note Sophia
+  // forcée ci-dessus (`noteStockee`) : son tier d'entrée (0270) en dépend.
   if (await schemaMultiAppPret(supabase)) {
     const { error: errP } = await supabase
       .from("contenu_pertinences")
       .update({ eligible: true, updated_at: new Date().toISOString() })
       .eq("contenu_id", contenuId);
     if (errP) return { ok: false, erreur: errP.message };
+    const { data: notees, error: errN } = await supabase
+      .from("contenu_pertinences")
+      .select("application_id, note")
+      .eq("contenu_id", contenuId);
+    if (errN) return { ok: false, erreur: errN.message };
+    for (const l of (notees ?? []) as Array<{ application_id: string; note: number | string | null }>) {
+      if (l.note === null || l.note === undefined) continue;
+      const brute = Number(l.note);
+      const note = noteStockee(brute, l.application_id, scoring.eloSeuil, true);
+      if (note === brute) continue;
+      const { error: errU } = await supabase
+        .from("contenu_pertinences")
+        .update({ note, updated_at: new Date().toISOString() })
+        .eq("contenu_id", contenuId)
+        .eq("application_id", l.application_id);
+      if (errU) return { ok: false, erreur: errU.message };
+    }
     const avant = (contenu.import_elo_rapport as { pertinences?: PertinencesRapport } | null)
       ?.pertinences;
     if (avant && typeof avant === "object") {
       elo.pertinences = Object.fromEntries(
-        Object.entries(avant).map(([slug, p]) => [slug, { ...p, eligible: true }]),
+        Object.entries(avant).map(([slug, p]) => [
+          slug,
+          {
+            ...p,
+            eligible: true,
+            // Même plancher que la ligne (Sophia : note brute, inchangée).
+            ...(slug !== SLUG_SOPHIA && p.note !== null && Number.isFinite(p.note)
+              ? { note: Math.max(p.note, scoring.eloSeuil) }
+              : {}),
+          },
+        ]),
       );
     }
   }

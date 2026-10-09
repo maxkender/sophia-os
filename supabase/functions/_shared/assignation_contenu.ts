@@ -41,6 +41,7 @@ import { mapPool } from "./parallel.ts";
 import { contenusLivresHorsLangue } from "./pods.ts";
 import { serviceClient } from "./supabase.ts";
 import {
+  BANDES_AVANT_DERNIER_RECOURS,
   bandesDeTirage,
   estTier,
   programmerRappels,
@@ -119,7 +120,7 @@ export interface AssignationReglages {
   repechagePassages: number;
   /**
    * Jours minimum avant qu'un contenu puisse repasser sur le MÊME compte.
-   * 0 rend exactement le comportement d'avant 0268.
+   * 0 rend exactement le comportement d'avant 0271.
    */
   ecartMinMemeContenu: number;
 }
@@ -179,6 +180,8 @@ interface Candidat {
   dejaPoste: boolean;
   /** Posté sur CE compte à moins de `ecartMinMemeContenu` jours du jour visé. */
   posteRecemment: boolean;
+  /** Jours jusqu'au passage de ce contenu le PLUS PROCHE du jour visé, sur ce compte. */
+  ecartDepuisDernier: number | null;
   derniereDate: string | null;
 }
 
@@ -2200,11 +2203,32 @@ async function choisirContenu(
    * que les bandes de tirage.
    */
   const tropProches = new Set<string>();
+  /**
+   * Écart MINIMUM, en jours, entre le jour visé et un passage de ce contenu sur
+   * ce compte. C'est lui, et non `derniere`, qui décide de la récence.
+   *
+   * La distinction n'est pas cosmétique : `derniere` ne garde que la date la
+   * plus GRANDE, or `ecartJours` est une valeur absolue. Un passage à venir
+   * au-delà de l'écart minimum — typiquement un rappel J+7 repoussé jour après
+   * jour par `etalerRappels` sur un compte saturé — écrasait donc la date d'une
+   * publication de la veille, et le contenu redevenait « de longue date ».
+   * Reproduit : contenu publié il y a 2 jours ET reprogrammé dans 30 jours,
+   * resservi devant un contenu jamais posté. C'était le symptôme d'origine,
+   * rouvert par l'agrégat.
+   */
+  const ecartLePlusProche = new Map<string, number>();
   for (const h of hist) {
     if (opts.exclureTestsHisto && estPassageDeTest(h.posts)) continue;
     const d = h.date_publication_prevue ?? "";
     const prev = derniere.get(h.contenu_id);
     if (!prev || d > prev) derniere.set(h.contenu_id, d);
+    if (d) {
+      const ecart = ecartJours(d, jour);
+      const connu = ecartLePlusProche.get(h.contenu_id);
+      if (connu === undefined || ecart < connu) {
+        ecartLePlusProche.set(h.contenu_id, ecart);
+      }
+    }
     if (
       espacement !== null &&
       d &&
@@ -2238,12 +2262,17 @@ async function choisirContenu(
    * compte aussi — sans quoi la même nuit pourrait servir deux fois le contenu
    * à deux jours de suite. Une date illisible rend `ecartJours` infini, donc
    * « pas récent » : dans le doute on sert, on ne bloque pas.
+   *
+   * Ce sont les passages du compte, ASSIGNÉS et pas seulement publiés, qui
+   * comptent : c'est bien ce que le créateur reçoit qui se répétait, et c'est
+   * déjà la règle de `dejaPoste` depuis toujours. Un deck qu'il a sauté
+   * compte donc comme vu, ce qui est le comportement voulu.
    */
   const ecartMin = reglages.ecartMinMemeContenu;
   const estPosteRecemment = (cid: string): boolean => {
     if (ecartMin <= 0) return false;
-    const d = derniere.get(cid);
-    return d !== undefined && d !== "" && ecartJours(d, jour) < ecartMin;
+    const ecart = ecartLePlusProche.get(cid);
+    return ecart !== undefined && ecart < ecartMin;
   };
 
   const construire = (cid: string, e: TierEtatLigne | undefined, repeche: boolean): Candidat | null => {
@@ -2262,6 +2291,7 @@ async function choisirContenu(
       musique_plateforme: m.musique_plateforme,
       dejaPoste: derniere.has(cid),
       posteRecemment: estPosteRecemment(cid),
+      ecartDepuisDernier: ecartLePlusProche.get(cid) ?? null,
       derniereDate: derniere.get(cid) ?? null,
     };
   };
@@ -2283,19 +2313,36 @@ async function choisirContenu(
   // rien en B ou au-dessus, le bas de tierlist (C, D repêché dont le passage
   // est encore en vol). Un contenu peut repasser sur le même compte, mais plus
   // à n'importe quel rythme : posté depuis moins de `ecartMinMemeContenu`
-  // jours, il part dans les deux dernières bandes et ne ressort que si le
-  // compte n'a vraiment rien d'autre.
-  for (const bande of bandesDeTirage(pool)) {
+  // jours, il part dans la zone de dernier recours, servie plus bas.
+  const bandes = bandesDeTirage(pool);
+  for (const bande of bandes.slice(0, BANDES_AVANT_DERNIER_RECOURS)) {
     const pick = tirerAuHasard(bande);
     if (pick) return pick;
   }
 
-  // Pool épuisé pour ce compte : on repêche un contenu en D et on lui redonne
-  // un passage. Le repêchage est par compte — inutile de réveiller un D que
-  // personne ne peut poster (labels / application / UGC).
-  if (ignorerTierlist) return null;
-  if (tiersApplication) {
-    return await repecherContenuDApplication(
+  /** Resservir un contenu que ce compte vient de poster. Vraiment en dernier. */
+  const dernierRecours = (): Candidat | null => {
+    for (const bande of bandes.slice(BANDES_AVANT_DERNIER_RECOURS)) {
+      const pick = tirerAuHasard(bande);
+      if (pick) return pick;
+    }
+    return null;
+  };
+
+  // Il ne reste que du récent, ou rien : on repêche un contenu en D et on lui
+  // redonne un passage. Le repêchage est par compte — inutile de réveiller un D
+  // que personne ne peut poster (labels / application / UGC).
+  //
+  // Il passe AVANT le dernier recours, et c'est tout l'intérêt : le pool du
+  // jour ne retient que les contenus à `restants > 0`, alors que les labels du
+  // compte portent souvent des dizaines de D dormants qu'il n'a JAMAIS postés,
+  // atteignables par ce seul chemin. Un contenu neuf en D vaut mieux que le
+  // deck d'hier. Sur le label le plus maigre de la flotte, 12 contenus ont du
+  // budget contre 53 dormants : c'est la différence entre de la variété et une
+  // boucle.
+  if (ignorerTierlist) return dernierRecours();
+  const repeche = tiersApplication
+    ? await repecherContenuDApplication(
       supabase,
       tiersApplication,
       idsTirables,
@@ -2304,17 +2351,17 @@ async function choisirContenu(
       reglages.repechagePassages,
       construire,
       estPosteRecemment,
+    )
+    : await repecherContenuD(
+      supabase,
+      idsTirables,
+      etatParContenu,
+      dejaCreesCetteSession,
+      reglages.repechagePassages,
+      construire,
+      estPosteRecemment,
     );
-  }
-  return await repecherContenuD(
-    supabase,
-    idsTirables,
-    etatParContenu,
-    dejaCreesCetteSession,
-    reglages.repechagePassages,
-    construire,
-    estPosteRecemment,
-  );
+  return repeche ?? dernierRecours();
 }
 
 interface TierEtatLigne {
@@ -2360,8 +2407,8 @@ async function repecherContenuD(
   // `bandesDeTirage` : c'était le dernier chemin par lequel un doublon
   // rapproché pouvait encore sortir. Il reste tirable, mais après les autres.
   const ordonnes = [
-    ...dormants.filter((cid) => !estPosteRecemment(cid)),
     ...dormants.filter((cid) => estPosteRecemment(cid)),
+    ...dormants.filter((cid) => !estPosteRecemment(cid)),
   ];
 
   for (const cid of ordonnes.slice(0, 10)) {
@@ -2421,8 +2468,8 @@ async function repecherContenuDApplication(
   // Puis les fraîchement postés en queue, comme côté Sophia : le repêchage ne
   // passe pas par `bandesDeTirage`, il lui faut sa propre mise en queue.
   const ordonnes = [
-    ...dormants.filter((cid) => !estPosteRecemment(cid)),
     ...dormants.filter((cid) => estPosteRecemment(cid)),
+    ...dormants.filter((cid) => !estPosteRecemment(cid)),
   ];
 
   for (const cid of ordonnes.slice(0, 10)) {

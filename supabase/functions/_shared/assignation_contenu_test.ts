@@ -15,6 +15,7 @@ import {
   assignerCompteJour,
   assignerDrainLot,
   assignerTousComptes,
+  chargerAssignationReglages,
   compteSertApplicationRappel,
   contenuIdsDesLabels,
   creerMemoAssignation,
@@ -2618,4 +2619,158 @@ Deno.test("rappel J+7 — source Sophia : contenu_pertinences n'est jamais lue (
   assertEquals(journal.filter((o) => o.table === "contenu_pertinences"), []);
   assertEquals(opsTiersApplication(journal), []);
   oublierSondeMultiApp();
+});
+
+Deno.test("0271 — un passage à VENIR au-delà de l'écart ne masque pas la publication de la veille", async () => {
+  // La régression qui a failli passer : `derniere` ne garde que la date la plus
+  // GRANDE, et `ecartJours` est absolu. Un rappel J+7 repoussé loin par
+  // `etalerRappels` écrasait donc la date d'avant-hier, et le contenu
+  // redevenait « de longue date » — le symptôme d'origine, rouvert par
+  // l'agrégat. Le bon agrégat est l'écart MINIMUM.
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = baseEssai({ n: 2 });
+    base.contenu_tier_etat = [
+      { contenu_id: idContenu(0), tier: "B", tier_cycle: 1, passages_prevus: 2, restants: 2 },
+      { contenu_id: idContenu(1), tier: "C", tier_cycle: 1, passages_prevus: 1, restants: 1 },
+    ];
+    // c00000 : publié il y a 2 jours ET reprogrammé dans 30 jours.
+    for (const [suffixe, jour] of [["proche", "2026-10-01"], ["loin", "2026-11-02"]]) {
+      base.passages.push({
+        id: `r-${suffixe}`,
+        compte_id: "k1",
+        contenu_id: idContenu(0),
+        date_publication_prevue: jour,
+        created_at: `${jour}T01:00:00Z`,
+        application_id: ID_SOPHIA,
+        post_id: `post-r-${suffixe}`,
+        posts: { est_test: false },
+      });
+      base.posts.push({ id: `post-r-${suffixe}`, compte_id: "k1", est_test: false });
+    }
+    const { client } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(appels.sophia, [idContenu(1)], "le passage lointain a masqué celui d'avant-hier");
+  });
+});
+
+Deno.test("0271 — repêchage AVANT le dernier recours : un D jamais posté passe devant le deck d'hier", async () => {
+  // `poolContenusPrets` ne retient que les contenus à `restants > 0`, alors que
+  // les labels du compte portent des dizaines de D dormants qu'il n'a JAMAIS
+  // postés, atteignables par le seul repêchage. Les servir après le dernier
+  // recours revenait à préférer le deck de la veille à du neuf.
+  for (let essai = 0; essai < 6; essai += 1) {
+    await avecDecks(jamaisPret, async (appels) => {
+      const base = baseEssai({ n: 2 });
+      // c00000 : dans le pool, mais posté hier sur ce compte.
+      // c00001 : dormant (0 passage prévu), jamais posté → hors pool.
+      base.contenu_tier_etat = [
+        { contenu_id: idContenu(0), tier: "B", tier_cycle: 1, passages_prevus: 2, restants: 2 },
+        { contenu_id: idContenu(1), tier: "D", tier_cycle: 3, passages_prevus: 0, restants: 0 },
+      ];
+      base.contenus = base.contenus.map((c) =>
+        c.id === idContenu(1) ? { ...c, tier: "D", tier_cycle: 3, passages_prevus: 0 } : c
+      );
+      base.passages.push({
+        id: "hier",
+        compte_id: "k1",
+        contenu_id: idContenu(0),
+        date_publication_prevue: "2026-10-02",
+        created_at: "2026-10-02T01:00:00Z",
+        application_id: ID_SOPHIA,
+        post_id: "post-hier",
+        posts: { est_test: false },
+      });
+      base.posts.push({ id: "post-hier", compte_id: "k1", est_test: false });
+      const { client, journal } = fauxMoteur(base);
+
+      const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+      assertEquals(detail.ids.length, 1, "le créneau est servi");
+      assertEquals(appels.sophia, [idContenu(1)], "le dormant neuf doit passer devant");
+      const repeche = journal.filter((o) => o.table === "contenus" && o.op === "update");
+      assertEquals(repeche.length, 1, "le repêchage a bien eu lieu");
+    });
+  }
+});
+
+Deno.test("0271 — repêchage vide : on retombe bien sur le dernier recours, pas sur rien", async () => {
+  // Le corollaire du test précédent : passer le repêchage devant ne doit pas
+  // faire perdre le créneau quand il n'y a aucun dormant à réveiller.
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = baseEssai({ n: 1 });
+    base.passages.push({
+      id: "hier",
+      compte_id: "k1",
+      contenu_id: idContenu(0),
+      date_publication_prevue: "2026-10-02",
+      created_at: "2026-10-02T01:00:00Z",
+      application_id: ID_SOPHIA,
+      post_id: "post-hier",
+      posts: { est_test: false },
+    });
+    base.posts.push({ id: "post-hier", compte_id: "k1", est_test: false });
+    const { client } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1, "aucun créneau perdu");
+    assertEquals(appels.sophia, [idContenu(0)]);
+  });
+});
+
+Deno.test("0271 — dernier recours : le doublon le PLUS ANCIEN, jamais celui d'hier", async () => {
+  // Deux contenus de même rang, tous deux trop récents, aucun dormant à
+  // repêcher : seule la date peut trancher. Rejoué, le tirage étant au hasard
+  // à l'intérieur d'une bande.
+  for (let essai = 0; essai < 8; essai += 1) {
+    await avecDecks(jamaisPret, async (appels) => {
+      const base = baseEssai({ n: 2 });
+      const poser = (cid: string, jour: string, suffixe: string) => {
+        base.passages.push({
+          id: `p-${suffixe}`,
+          compte_id: "k1",
+          contenu_id: cid,
+          date_publication_prevue: jour,
+          created_at: `${jour}T01:00:00Z`,
+          application_id: ID_SOPHIA,
+          post_id: `post-p-${suffixe}`,
+          posts: { est_test: false },
+        });
+        base.posts.push({ id: `post-p-${suffixe}`, compte_id: "k1", est_test: false });
+      };
+      poser(idContenu(0), "2026-10-02", "hier");
+      poser(idContenu(1), "2026-09-21", "douze-jours");
+      const { client } = fauxMoteur(base);
+
+      const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+      assertEquals(detail.ids.length, 1);
+      assertEquals(appels.sophia, [idContenu(1)], "12 jours doit passer devant 1 jour");
+    });
+  }
+});
+
+Deno.test("0271 — chargerAssignationReglages : défaut 14, valeur lue, bornes", async () => {
+  // La lecture de la clé jsonb n'était couverte par aucun test : le défaut
+  // pouvait sauter sans qu'une seule assertion bouge.
+  const lire = async (tierlist: Record<string, unknown> | null) => {
+    const { client } = fauxMoteur({
+      reglages: [
+        { cle: "frequence", valeur: { posts_par_jour: 2 } },
+        ...(tierlist ? [{ cle: "tierlist", valeur: tierlist }] : []),
+      ],
+    });
+    return await chargerAssignationReglages(client);
+  };
+
+  assertEquals((await lire(null)).ecartMinMemeContenu, 14, "clé tierlist absente");
+  assertEquals((await lire({})).ecartMinMemeContenu, 14, "clé ecart_min absente");
+  assertEquals((await lire({ ecart_min_meme_contenu: 21 })).ecartMinMemeContenu, 21);
+  assertEquals((await lire({ ecart_min_meme_contenu: 0 })).ecartMinMemeContenu, 0, "0 désactive");
+  assertEquals((await lire({ ecart_min_meme_contenu: -5 })).ecartMinMemeContenu, 0, "borné à 0");
+  // Et le réglage voisin n'a pas bougé au passage.
+  assertEquals((await lire({ repechage_passages: 3 })).repechagePassages, 3);
 });

@@ -5,6 +5,7 @@ import {
   PASSAGES_PAR_TIER,
   TIERS,
   TIER_MIN_PRIORITAIRE,
+  BANDES_AVANT_DERNIER_RECOURS,
   bandesDeTirage,
   deciderRequalif,
   decisionDepuisEtat,
@@ -365,14 +366,18 @@ describe("décision de requalification", () => {
 });
 
 describe("priorité au tirage du jour", () => {
-  /** `pool([tier, dejaPoste, posteRecemment?])` — récence omise = de longue date. */
-  const pool = (...entrees: Array<[Tier, boolean, boolean?]>) =>
-    entrees.map(([tier, dejaPoste, posteRecemment], i) => ({
+  /** `pool([tier, dejaPoste, posteRecemment?, ecartDepuisDernier?])`. */
+  const pool = (...entrees: Array<[Tier, boolean, boolean?, number?]>) =>
+    entrees.map(([tier, dejaPoste, posteRecemment, ecartDepuisDernier], i) => ({
       id: `${tier}-${i}`,
       tier,
       dejaPoste,
       posteRecemment,
+      ecartDepuisDernier,
     }));
+  /** Indice de la bande où atterrit un candidat — ce que le tirage lit vraiment. */
+  const bandeDe = (entree: [Tier, boolean, boolean?, number?]) =>
+    bandesDeTirage(pool(entree)).findIndex((b) => b.length > 0);
   const ids = (bandes: Array<Array<{ id: string }>>) => bandes.map((b) => b.map((c) => c.id));
   /** Première bande non vide = ce que le tirage servira. */
   const servie = (bandes: Array<Array<{ id: string }>>) =>
@@ -440,6 +445,40 @@ describe("priorité au tirage du jour", () => {
 
   it("entre deux récents, le rang départage encore", () => {
     expect(servie(bandesDeTirage(pool(["C", true, true], ["A", true, true])))).toEqual(["A-1"]);
+    // Assertion sur l'INDICE : sans la zone de dernier recours, ces deux
+    // candidats tomberaient en bandes 1 et 3, pas 4 et 5.
+    expect(bandeDe(["A", true, true])).toBe(BANDES_AVANT_DERNIER_RECOURS);
+    expect(bandeDe(["C", true, true])).toBe(BANDES_AVANT_DERNIER_RECOURS + 1);
+    expect(bandeDe(["A", true, false])).toBe(1);
+    expect(bandeDe(["C", true, false])).toBe(3);
+  });
+
+  it("dernier recours : à doublon acquis, le PLUS ANCIEN est servi", () => {
+    // Le doublon est déjà inévitable ; resservir le deck d'hier plutôt que
+    // celui de treize jours serait un pur gâchis. Même bande, même rang : seule
+    // la date peut trancher, et elle doit trancher avant le hasard.
+    const bandes = bandesDeTirage(pool(["A", true, true, 1], ["A", true, true, 13]));
+    expect(servie(bandes)).toEqual(["A-1"]);
+
+    // Trois candidats, deux à égalité au maximum : les deux restent tirables.
+    const trois = bandesDeTirage(
+      pool(["B", true, true, 2], ["B", true, true, 12], ["B", true, true, 12]),
+    );
+    expect(servie(trois)).toEqual(["B-1", "B-2"]);
+  });
+
+  it("dernier recours sans aucune date connue : la bande reste entière", () => {
+    // On ne filtre pas sur une information absente, sinon un candidat sans
+    // date disparaîtrait du tirage et le créneau pourrait être perdu.
+    const bandes = bandesDeTirage(pool(["B", true, true], ["B", true, true]));
+    expect(servie(bandes)).toEqual(["B-0", "B-1"]);
+  });
+
+  it("hors dernier recours, la date ne filtre RIEN (tirage uniforme préservé)", () => {
+    // Les bandes 1 à 4 gardent tous leurs candidats : la préférence pour
+    // l'ancien est volontairement cantonnée au dernier recours.
+    const bandes = bandesDeTirage(pool(["B", true, false, 20], ["B", true, false, 90]));
+    expect(servie(bandes)).toEqual(["B-0", "B-1"]);
   });
 
   it("récence ignorée quand la règle est désactivée (écart 0 => posteRecemment jamais posé)", () => {

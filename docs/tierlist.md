@@ -138,28 +138,56 @@ effectuer.
 
 Le pool du jour est servi **bande par bande**, dans cet ordre :
 
-| Bande | Contenu                                    |
-| ----- | ------------------------------------------ |
-| 1     | B et au-dessus, jamais posté par ce compte |
-| 2     | B et au-dessus, déjà posté par ce compte   |
-| 3     | C (ou D repêché), jamais posté             |
-| 4     | C (ou D repêché), déjà posté               |
+| Bande | Contenu                                           |
+| ----- | ------------------------------------------------- |
+| 1     | B et au-dessus, jamais posté par ce compte        |
+| 2     | B et au-dessus, posté de longue date              |
+| 3     | C (ou D repêché), jamais posté                    |
+| 4     | C (ou D repêché), posté de longue date            |
+| —     | *(repêchage d'un D dormant : voir plus bas)*      |
+| 5     | B et au-dessus, posté **récemment** sur ce compte |
+| 6     | C (ou D repêché), posté **récemment**             |
 
-On ne descend d'une bande que quand la précédente est vide, et le tirage est
-uniforme à l'intérieur d'une bande. Donc **un C n'est donné que s'il n'y a plus
-aucun post en B+ dans le pool du compte** — même un B déjà vu par ce compte
-passe devant un C neuf : le rang prime sur la fraîcheur.
+On ne descend d'une bande que quand la précédente est vide. Donc **un C n'est
+donné que s'il n'y a plus aucun post en B+ dans le pool du compte** — même un B
+déjà vu passe devant un C neuf : le rang prime sur la fraîcheur.
 
-Un post peut repasser sur un compte qui l'a déjà posté ; à rang équivalent, le
-tirage préfère simplement du neuf quand il y en a. Le plancher de priorité est
-`TIER_MIN_PRIORITAIRE` (`B`) dans `tierlist.ts`.
+### Écart minimum sur un même compte (0271)
+
+« Récemment » veut dire à moins de `tierlist.ecart_min_meme_contenu` jours
+(**14** par défaut, modifiable dans Réglages > Assignation ; `0` désactive la
+règle). L'écart est compté en valeur absolue depuis le passage de ce contenu le
+**plus proche** du jour visé sur ce compte, donc un passage déjà programmé pour
+*demain* compte aussi. Les passages **assignés** comptent, pas seulement les
+publiés : c'est ce que le créateur reçoit qui ne doit pas se répéter.
+
+Avant cette règle, un contenu déjà posté était seulement rétrogradé d'une bande,
+sans qu'on regarde la date : un créateur pouvait recevoir le même deck — mêmes
+images et même texte — deux jours de suite. Le seul garde-fou daté
+(`ECART_MIN_JOURS_AUTRE_APPLICATION`, 7 jours) ne valait qu'entre applications
+différentes.
+
+C'est une **relégation, pas une exclusion** : les bandes 5 et 6 restent
+tirables, donc aucun créneau n'est perdu et aucun quota ne baisse, y compris sur
+les langues à petit vivier. À doublon acquis, on ne garde dans ces deux bandes
+que les candidats **les plus éloignés** de leur dernier passage : resservir le
+deck d'hier quand un autre attend depuis treize jours serait du gâchis. Ailleurs
+(bandes 1 à 4), le tirage reste uniforme à l'intérieur d'une bande.
+
+Le plancher de priorité est `TIER_MIN_PRIORITAIRE` (`B`) dans `tierlist.ts`, et
+la frontière du dernier recours est `BANDES_AVANT_DERNIER_RECOURS`.
 
 - **Plus de passages à faire que de créneaux** → tirage au hasard dans la
   première bande non vide.
-- **Plus de créneaux que de passages à faire** (les quatre bandes vides) → un
-  post en D est repêché et reçoit `tierlist.repechage_passages` passage
-  (1 par défaut). Le repêchage est **par compte** : inutile de réveiller un D
-  que ce compte ne peut pas poster.
+- **Plus de créneaux que de passages à faire** (les quatre premières bandes
+  vides) → un post en D est repêché et reçoit `tierlist.repechage_passages`
+  passage (1 par défaut). Le repêchage est **par compte** : inutile de réveiller
+  un D que ce compte ne peut pas poster.
+- Le repêchage passe **avant** les bandes 5 et 6, et c'est voulu : le pool du
+  jour ne retient que les contenus à `restants > 0`, alors que les labels du
+  compte portent souvent des dizaines de D dormants qu'il n'a jamais postés,
+  atteignables par ce seul chemin. Un contenu neuf en D vaut mieux que le deck
+  d'hier.
 
 Un D repêché dont le passage est assigné mais pas encore publié peut revenir
 dans le pool (fenêtre « en vol » de 2 jours) : il est alors servi dans les

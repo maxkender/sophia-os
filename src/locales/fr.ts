@@ -348,6 +348,13 @@ export const fr = {
         "Lowered quota — pool trop mince : {{detail}}",
       quotasBaissesDernier:
         "Dernier run minuit : lowered quota — {{detail}}",
+      tiersApplications: {
+        titre: "Tierlist par application :",
+        ligne: "{{app}} {{examines}} examiné(s) · {{requalifies}} requalifié(s)",
+        interrompue: "interrompue (échéance de 20 s, la suite passe la nuit prochaine)",
+        erreur: "en échec : {{message}}",
+        illisible: "Tierlist par application sautée : sonde de la migration 0270 illisible.",
+      },
       erreursAssignation: "Comptes non assignés :",
       prets: "Passages prêts",
       enCoursLabel: "En cours",
@@ -1220,6 +1227,9 @@ export const fr = {
       passagesPublies: "{{publies}}/{{prevus}} publié(s)",
       requalifBloquee: "requalif en attente",
       requalifMaintenant: "Requalifier maintenant",
+      horsSophia:
+        "Ce slideshow ne sert pas Sophia (labels : {{labels}}) — pas de rang Sophia. Son rang par application est plus haut.",
+      horsSophiaCourt: "Ne sert pas Sophia : pas de rang Sophia",
       requalifEcheance: "Relance d'office le {{date}}.",
       requalif: {
         recul:
@@ -1558,6 +1568,10 @@ export const fr = {
         backfillEnCours: "en cours",
         backfillEtat: "{{restants}} restant(s) · {{faits}} fait(s) · {{erreurs}} erreur(s)",
         backfillErreur: "État du rattrapage illisible : {{message}}",
+        migration0270:
+          "Impossible d'activer {{nom}} : appliquer la migration 0270 (tiers par application) avant d'activer. Sans elle, le moteur ne sert aucune autre application que Sophia.",
+        derniereRequalif:
+          "Dernière requalif {{nom}} ({{jour}}) : {{examines}} examiné(s) · {{requalifies}} requalifié(s)",
       },
       labels: {
         applicationsServies: "Applications",
@@ -1565,9 +1579,6 @@ export const fr = {
         implicite: "Aucun réglage : ce label sert Sophia par défaut.",
         applicationInactive: "Application inactive : le label est prêt, elle ne publie pas encore.",
         derniereApplication: "Un label sert au moins une application : coche l'autre avant de retirer celle-ci.",
-        angles: "Angles ({{n}})",
-        angle: "Angle {{nom}}",
-        anglePlaceholder: "Ex. : ce que {{nom}} apporte à ce public. Vide = pas d'angle.",
         schemaAbsent:
           "Applications par label indisponibles (migration 0256 pas encore passée) : réserve affichée comme avant.",
         erreurLiens: "Applications des labels illisibles : {{message}}",
@@ -1718,15 +1729,21 @@ export const fr = {
       repartition: {
         titre: "Répartition par application",
         aide: "Part des posts de ce compte par application promue, tenue sur ses 10 derniers posts. Sophia prend le reste. Identité du compte (bio, persona) : Sophia, toujours.",
+        aideSansSophia: "Aucun label de ce compte ne sert Sophia : il ne publie que pour les applications de ses labels, sans repli sur Sophia. Identité du compte (bio, persona) : Sophia, toujours.",
         effectif: "Appliqué : {{parts}}",
+        bloque: "Aucune application ne peut servir ce compte : il ne publiera rien.",
         enregistrer: "Enregistrer la répartition",
         reinitialiser: "Réinitialiser (100 % Sophia)",
+        reinitialiserSansSophia: "Effacer la répartition enregistrée",
         erreur: "Répartition par application indisponible : {{message}}",
         avertInactive: "{{app}} est désactivée : sa part revient à Sophia tant qu'elle reste éteinte.",
+        avertInactiveSansSophia: "{{app}} est désactivée : ce compte ne publie pas pour elle tant qu'elle reste éteinte.",
         avertLangue: "{{app}} ne cible pas la langue de ce compte ({{langue}}) : sa part revient à Sophia.",
+        avertLangueSansSophia: "{{app}} ne cible pas la langue de ce compte ({{langue}}) : ce compte ne publie pas pour elle.",
         avertUgc: "Compte UGC : il reste 100 % Sophia (les autres applications ne passent que par les slideshows classiques).",
-        avertSophiaNonServie: "Aucun label de ce compte ne sert Sophia : le reste se répartit entre les autres applications.",
+        avertUgcSansSophia: "Compte UGC : les applications autres que Sophia ne passent que par les slideshows classiques, et aucun label de ce compte ne sert Sophia.",
         avertObsolete: "La répartition enregistrée donne une part à {{app}}, que les labels de ce compte ne servent plus : elle revient aux autres. Réinitialise-la.",
+        avertObsoleteSansSophia: "La répartition enregistrée donne encore une part à {{app}}, que les labels de ce compte ne servent plus : efface-la.",
       },
       pertinences: {
         titre: "Pertinence par application",
@@ -1737,7 +1754,6 @@ export const fr = {
         raison: "Raison",
         oui: "Éligible",
         non: "Non éligible",
-        angles: "Angles : {{angles}}",
         vide: "Aucune note par application pour ce contenu (sans ligne Sophia, il reste éligible Sophia).",
         erreur: "Pertinences par application indisponibles : {{message}}",
       },
@@ -1749,6 +1765,13 @@ export const fr = {
         statut_pret: "Prêt",
         statut_echec: "Échec",
         statut_ineligible: "Inéligible",
+      },
+      tiers: {
+        titre: "Tier par application",
+        aide: "Chaque autre application a son rang, son budget de passages et son cycle, mesurés sur ses seuls posts. Le bloc Tierlist plus bas est celui de Sophia.",
+        paresseux: "Rang d'entrée (note {{note}}), pas encore requalifié.",
+        horsReserve: "Hors réserve (révoqué ou non éligible) : plus tiré pour cette application.",
+        erreur: "Tiers par application indisponibles : {{message}}",
       },
     },
     analytics: {

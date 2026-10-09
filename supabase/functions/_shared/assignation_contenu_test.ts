@@ -13,6 +13,9 @@ import { assert, assertEquals, assertRejects } from "jsr:@std/assert@1";
 import { oublierSondeMultiApp } from "./applications_moteur.ts";
 import {
   assignerCompteJour,
+  assignerDrainLot,
+  assignerTousComptes,
+  compteSertApplicationRappel,
   contenuIdsDesLabels,
   creerMemoAssignation,
   decksAssignation,
@@ -21,9 +24,11 @@ import {
   listerComptesSousQuota,
   poolContenusPrets,
   programmerRappelsJ7,
+  raisonCompteNonServable,
 } from "./assignation_contenu.ts";
 import { PLAFOND_LIGNES, TAILLE_PAGE, lireTout } from "./lots.ts";
 import { ID_SOPHIA, type ApplicationMoteur } from "./multi_app.ts";
+import { oublierSondeTiersApplication } from "./tiers_application.ts";
 
 interface Lien {
   label_id: string;
@@ -703,10 +708,16 @@ Deno.test("historique : le filtre reste découpé par lots de 100 contenus", asy
 const UNSWIPE = "00000000-0000-4000-8000-000000000003";
 const JOUR = "2026-10-03";
 
+/** Ce que rend PostgREST quand la base ne répond plus (mesuré : 503). */
+const PANNE_BASE = {
+  code: "PGRST002",
+  message: "Could not query the database for the schema cache. Retrying.",
+};
+
 /** Une opération vue par le faux serveur. */
 interface Op {
   table: string;
-  op: "select" | "insert" | "update" | "delete";
+  op: "select" | "insert" | "update" | "delete" | "upsert";
   colonnes: string | null;
   head: boolean;
   filtres: Array<[string, string, unknown]>;
@@ -718,11 +729,17 @@ interface Op {
 /**
  * Faux PostgREST à état : assez de PostgREST pour la boucle d'assignation, et
  * rien de plus. Une table « absente » répond en erreur à toute requête — c'est
- * ainsi que la sonde du schéma 0256 voit une base d'avant la migration.
+ * ainsi que la sonde du schéma 0256 voit une base d'avant la migration. Une
+ * table « en panne » répond comme PostgREST quand la base ne répond plus (503
+ * PGRST002), pour ses `n` prochaines requêtes (`Infinity` : tout le test).
  */
-// deno-lint-ignore no-explicit-any
-function fauxMoteur(tables: Record<string, any[]>, opts: { absentes?: string[] } = {}) {
+function fauxMoteur(
+  // deno-lint-ignore no-explicit-any
+  tables: Record<string, any[]>,
+  opts: { absentes?: string[]; pannes?: Record<string, number> } = {},
+) {
   const journal: Op[] = [];
+  const pannes = { ...(opts.pannes ?? {}) };
   let seq = 0;
   const from = (table: string) => {
     const op: Op = {
@@ -736,6 +753,10 @@ function fauxMoteur(tables: Record<string, any[]>, opts: { absentes?: string[] }
       valeurs: null,
     };
     let mode: "liste" | "single" | "maybe" = "liste";
+    /** Clés `onConflict` d'un upsert. */
+    let conflit: string[] = [];
+    /** `ignoreDuplicates` d'un upsert : une ligne déjà là reste telle quelle. */
+    let garderExistant = false;
     // deno-lint-ignore no-explicit-any
     const lignes = (): any[] => (tables[table] ??= []);
     // deno-lint-ignore no-explicit-any
@@ -784,6 +805,10 @@ function fauxMoteur(tables: Record<string, any[]>, opts: { absentes?: string[] }
       if (opts.absentes?.includes(table)) {
         return { data: null, count: null, error: { message: `relation "${table}" does not exist` } };
       }
+      if ((pannes[table] ?? 0) > 0) {
+        pannes[table] -= 1;
+        return { data: null, count: null, error: { ...PANNE_BASE }, status: 503 };
+      }
       // deno-lint-ignore no-explicit-any
       let data: any[] = [];
       if (op.op === "select") {
@@ -809,6 +834,17 @@ function fauxMoteur(tables: Record<string, any[]>, opts: { absentes?: string[] }
       } else if (op.op === "delete") {
         data = filtrer();
         tables[table] = lignes().filter((l) => !data.includes(l));
+      } else if (op.op === "upsert") {
+        const valeurs = (Array.isArray(op.valeurs) ? op.valeurs : [op.valeurs]) as Array<
+          Record<string, unknown>
+        >;
+        for (const v of valeurs) {
+          const i = lignes().findIndex((l) => conflit.length > 0 && conflit.every((c) => l[c] === v[c]));
+          if (i >= 0) {
+            if (!garderExistant) lignes()[i] = { ...lignes()[i], ...v };
+          } else lignes().push({ ...v });
+        }
+        data = valeurs;
       }
       if (mode === "single") {
         return data.length === 1
@@ -836,6 +872,13 @@ function fauxMoteur(tables: Record<string, any[]>, opts: { absentes?: string[] }
       },
       delete: () => {
         op.op = "delete";
+        return maillon;
+      },
+      upsert: (v: unknown, o?: { onConflict?: string; ignoreDuplicates?: boolean }) => {
+        op.op = "upsert";
+        op.valeurs = v;
+        conflit = (o?.onConflict ?? "").split(",").map((c) => c.trim()).filter(Boolean);
+        garderExistant = Boolean(o?.ignoreDuplicates);
         return maillon;
       },
       eq: (c: string, v: unknown) => (op.filtres.push([c, "eq", v]), maillon),
@@ -866,7 +909,7 @@ function fauxMoteur(tables: Record<string, any[]>, opts: { absentes?: string[] }
   return { client: { from } as any, journal, tables };
 }
 
-const APPS = [
+const APPS: Array<ApplicationMoteur & { created_at: string }> = [
   { id: ID_SOPHIA, slug: "sophia", nom: "Sophia", langues: null, actif: true, created_at: "1" },
   { id: UNSWIPE, slug: "unswipe", nom: "Unswipe", langues: null, actif: true, created_at: "2" },
 ];
@@ -940,6 +983,8 @@ function baseEssai(args: {
       restants: 2,
     })),
     contenu_pertinences: args.pertinences ?? [],
+    // Vue 0270 : l'état tierlist PAR APPLICATION des contenus éligibles.
+    contenu_application_tier_etat: etatsApplication(args.pertinences ?? []),
     contenu_langue_decks: [] as unknown[],
     passages,
     posts: passages.map((p) => ({ id: p.post_id, compte_id: "k1", est_test: false })),
@@ -948,6 +993,30 @@ function baseEssai(args: {
 }
 
 const DECK = [{ position: 1, texte_overlay: "texte", position_sophia: false }];
+
+/**
+ * Lignes de `contenu_application_tier_etat` (0270) pour les pertinences
+ * non-Sophia éligibles : tier d'entrée paresseux (note 65 → B), cycle 0,
+ * 2 passages restants — le pendant, par application, des lignes
+ * `contenu_tier_etat` de `baseEssai`.
+ */
+function etatsApplication(
+  pertinences: Array<{ contenu_id: string; application_id: string; eligible: boolean }>,
+) {
+  return pertinences
+    .filter((p) => p.application_id !== ID_SOPHIA && p.eligible)
+    .map((p) => ({
+      contenu_id: p.contenu_id,
+      application_id: p.application_id,
+      tier: "B",
+      tier_cycle: 0,
+      passages_prevus: 2,
+      restants: 2,
+      materialise: false,
+      eligible: true,
+      note: 65,
+    }));
+}
 
 /** Remplace les decks le temps d'un test ; rend les appels faits. */
 async function avecDecks<T>(
@@ -969,11 +1038,13 @@ async function avecDecks<T>(
   };
   try {
     oublierSondeMultiApp();
+    oublierSondeTiersApplication();
     return await corps(appels);
   } finally {
     decksAssignation.sophia = avant.sophia;
     decksAssignation.application = avant.application;
     oublierSondeMultiApp();
+    oublierSondeTiersApplication();
   }
 }
 
@@ -1003,10 +1074,13 @@ Deno.test("multi-app — schéma 0256 absent : le chemin d'avant, aucune table n
     assertEquals(detail.ids.length, 1);
     assertEquals(detail.replis, undefined);
     assertEquals(appels.application, [], "aucun deck d'application");
-    // Seule la sonde touche une table 0256 ; rien d'autre de nouveau n'est lu.
+    // Seuls la sonde et le filet (labels → applications du compte) touchent une
+    // table 0256 ; rien d'autre de nouveau n'est lu.
     const nouvelles = ["contenu_pertinences", "contenu_langue_decks", "applications"];
     assertEquals(journal.filter((o) => nouvelles.includes(o.table)), []);
-    assertEquals(journal.filter((o) => o.table === "label_applications").length, 1);
+    const liens = journal.filter((o) => o.table === "label_applications");
+    assertEquals(liens.length, 2, "la sonde, puis le filet du compte");
+    assert(liens[1].filtres.some(([c, f, v]) => c === "label_id" && f === "in" && String(v) === "L1"));
     assertEquals(journal.filter(estLectureFenetre), []);
     for (const v of [...insertsPassages(journal), ...insertsPosts(journal)]) {
       for (const c of COLONNES_NOUVELLES) assert(!(c in v), `colonne ${c} écrite sans 0256`);
@@ -1184,7 +1258,12 @@ Deno.test("multi-app — réserve Unswipe vide ET compte sans label Sophia : pas
 
     assertEquals(detail.ids, []);
     assertEquals(detail.quotaBaisse, undefined);
-    assert(detail.raison?.includes("ne sert Sophia"), detail.raison);
+    // La raison dit QUOI régler (ici : la réserve), pas seulement « pas de repli ».
+    assertEquals(
+      detail.raison,
+      "Compte 100 % Unswipe : réserve Unswipe vide pour ses labels. " +
+        "Pas de repli Sophia : aucun label de ce compte ne sert Sophia.",
+    );
     assertEquals(detail.nonServable, true, "le drain doit l'écarter de la suite de la chaîne");
     assertEquals(journal.filter((o) => o.table === "comptes" && o.op === "update"), []);
     assertEquals(journal.filter((o) => o.table === "contenu_tier_etat" && o.filtres.some(([c]) => c === "contenu_id") && o.colonnes === "contenu_id, restants, passages_prevus"), [], "pas de diagnostic");
@@ -1476,6 +1555,463 @@ Deno.test("multi-app — pool Unswipe : ligne éligible requise, deck inéligibl
 });
 
 /* -------------------------------------------------------------------------
+ * Sonde illisible : jamais de pub Sophia sur un compte 100 % Unswipe.
+ *
+ * Panne de la base en début de lot (503 PGRST002) : la sonde du schéma 0256
+ * est illisible et le compte part sur le chemin historique, qui prend TOUS ses
+ * labels pour des labels Sophia. Un compte dont les labels ne servent que
+ * Unswipe n'a pas de répartition (parts NULL) : il recevait un deck Sophia. Le
+ * filet relit `label_applications` pour ses labels et le fait rejouer.
+ * ---------------------------------------------------------------------- */
+
+/** Le compte k1 ne porte qu'un label qui sert Unswipe seule. */
+function base100Unswipe() {
+  return baseEssai({ liens: [{ label_id: "L1", application_id: UNSWIPE }] });
+}
+
+/** Les opérations hors sonde et filet (qui seules touchent les tables 0256). */
+function opsMetier(journal: Op[]) {
+  return journal
+    .filter((o) => o.table !== "label_applications" && o.table !== "applications")
+    .filter((o) => !(o.table === "passages" && o.colonnes === "application_id" && o.limite === 1));
+}
+
+Deno.test("sonde illisible — compte 100 % Unswipe : lève (à rejouer), aucun passage ni deck Sophia", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = base100Unswipe();
+    const { client, journal } = fauxMoteur(base, { pannes: { applications: Infinity } });
+
+    await assertRejects(
+      () => assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {}),
+      Error,
+      "un label ne sert pas Sophia — à rejouer",
+    );
+
+    assertEquals(appels.sophia, [], "aucun deck Sophia");
+    assertEquals(appels.application, []);
+    assertEquals(insertsPassages(journal), []);
+    assertEquals(insertsPosts(journal), []);
+    assertEquals(journal.filter((o) => o.table === "comptes" && o.op === "update"), [], "quota intact");
+    // Le filet lit les liens des labels DU COMPTE, borné.
+    const filet = journal.filter((o) => o.table === "label_applications" && o.filtres.length > 0);
+    assertEquals(filet.length, 1);
+    assert(filet[0].limite !== null && filet[0].limite < PLAFOND_LIGNES);
+  });
+});
+
+Deno.test("sonde illisible — compte mixte (un label Sophia, un label Unswipe seule) : lève aussi", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = baseEssai({ liens: [{ label_id: "L2", application_id: UNSWIPE }] });
+    base.compte_labels.push({ compte_id: "k1", label_id: "L2", labels: { nom: "focus", slug: "focus" } });
+    const { client, journal } = fauxMoteur(base, { pannes: { applications: Infinity } });
+
+    await assertRejects(
+      () => assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {}),
+      Error,
+      "à rejouer",
+    );
+    assertEquals(appels.sophia, []);
+    assertEquals(insertsPassages(journal), []);
+  });
+});
+
+Deno.test("sonde illisible — compte Sophia pur, filet lisible : chemin historique, à l'identique", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    // Un contenu : le tirage est déterministe, les deux runs comparables.
+    const liens = [{ label_id: "L1", application_id: ID_SOPHIA }];
+    const reference = baseEssai({ n: 1, liens });
+    const { client: clientRef, journal: journalRef } = fauxMoteur(reference, {
+      absentes: ["label_applications"],
+    });
+    const avant = await assignerCompteJour(clientRef, reference.comptes[0], JOUR, REGLAGES, {});
+    oublierSondeMultiApp();
+
+    const base = baseEssai({ n: 1, liens });
+    const { client, journal } = fauxMoteur(base, { pannes: { applications: Infinity } });
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail, avant);
+    assertEquals(detail.ids.length, 1);
+    assertEquals(appels.sophia.length, 2, "un deck Sophia par run");
+    // Hors sonde et filet : requête pour requête, le chemin d'avant 0256.
+    assertEquals(opsMetier(journal), opsMetier(journalRef));
+    for (const v of [...insertsPassages(journal), ...insertsPosts(journal)]) {
+      for (const c of COLONNES_NOUVELLES) assert(!(c in v), `colonne ${c} écrite au chemin historique`);
+    }
+  });
+});
+
+Deno.test("sonde illisible — label sans ligne (héritage) : sert Sophia, chemin historique", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = baseEssai({ liens: [] });
+    const { client } = fauxMoteur(base, { pannes: { applications: Infinity } });
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(appels.sophia.length, 1);
+  });
+});
+
+Deno.test("sonde illisible — filet en échec (panne, pas une absence) : lève, même pour un compte Sophia", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    // Sonde (2 essais) puis filet (2 essais) : quatre 503. On ne sait pas ce que
+    // servent ses labels — publier Sophia serait parier.
+    const base = baseEssai({ liens: [] });
+    const { client, journal } = fauxMoteur(base, { pannes: { label_applications: 4 } });
+
+    await assertRejects(
+      () => assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {}),
+      Error,
+      "applications des labels illisibles",
+    );
+    assertEquals(appels.sophia, []);
+    assertEquals(insertsPassages(journal), []);
+  });
+});
+
+Deno.test("sonde illisible — filet : un hoquet est retenté une fois, puis le compte Sophia passe", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    // Sonde : 2 essais en panne. Filet : 1er essai en panne, le 2e passe.
+    const base = baseEssai({ liens: [] });
+    const { client, journal } = fauxMoteur(base, { pannes: { label_applications: 3 } });
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(appels.sophia.length, 1);
+    assertEquals(journal.filter((o) => o.table === "label_applications").length, 4);
+  });
+});
+
+Deno.test("sonde absente (vraie table absente) — compte 100 % Unswipe : chemin historique, comme avant 0256", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    // Avant 0256, aucun label ne peut servir Unswipe : le filet constate
+    // l'absence de la table et rend la main au code d'avant.
+    const base = base100Unswipe();
+    const { client } = fauxMoteur(base, { absentes: ["label_applications"] });
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(appels.sophia.length, 1);
+  });
+});
+
+Deno.test("sonde illisible — « illisible » n'est pas gardé pour le lot : le compte suivant resonde", async () => {
+  await avecDecks(jamaisPret, async () => {
+    // Les deux essais de la sonde du premier compte tombent en panne ; la base
+    // revient ensuite. Avant, le mémo gardait « illisible » pour tout le lot.
+    const base = baseEssai({ liens: [], compte: { posts_par_jour: 2 }, n: 4 });
+    const { client, journal } = fauxMoteur(base, { pannes: { applications: 2 } });
+    const memo = creerMemoAssignation();
+    const estSonde = (o: Op) => o.table === "label_applications" && o.filtres.length === 0;
+
+    const premier = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {}, memo);
+    assertEquals(premier.ids.length, 2);
+    assertEquals(journal.filter(estSonde).length, 2, "deux essais, illisible");
+    assertEquals(memo.schema.size, 0, "« illisible » oublié du mémo");
+    assertEquals(journal.filter((o) => o.table === "contenu_pertinences"), [], "chemin historique");
+
+    const second = await assignerCompteJour(
+      client,
+      base.comptes[0],
+      JOUR,
+      REGLAGES,
+      { forcer: true },
+      memo,
+    );
+    assertEquals(second.ids.length, 1);
+    assertEquals(journal.filter(estSonde).length, 3, "le compte suivant a resondé");
+    assertEquals(memo.schema.size, 1, "« prêt » est gardé, lui");
+    assert(journal.some((o) => o.table === "contenu_pertinences"), "chemin « prêt »");
+  });
+});
+
+/* -------------------------------------------------------------------------
+ * Drain de la nuit : un compte qui lève est rejoué sans bloquer les autres, et
+ * la nuit écrit son verdict dans `assignation_journal` (0267).
+ * ---------------------------------------------------------------------- */
+
+/** k1 : 100 % Unswipe (label L2). k2 : Sophia pur (label L1, sans ligne). */
+function baseDrain() {
+  const base = baseEssai({ liens: [{ label_id: "L2", application_id: UNSWIPE }] });
+  const fin = new Date(Date.now() - 86_400_000).toISOString();
+  const compte = base.comptes[0];
+  return {
+    ...base,
+    comptes: [
+      { ...compte, id: "k1", persona_nom: "unswipe-seul", warmup_ends_at: fin },
+      { ...compte, id: "k2", persona_nom: "sophia-pur", warmup_ends_at: fin },
+    ],
+    compte_labels: [
+      { compte_id: "k1", label_id: "L2", labels: { nom: "focus", slug: "focus" } },
+      { compte_id: "k2", label_id: "L1", labels: { nom: "smart_girl", slug: "smart-girl" } },
+    ],
+  };
+}
+
+Deno.test("drain — sonde illisible : le compte 100 % Unswipe est en erreur (rejoué), l'autre est servi", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = baseDrain();
+    const { client, journal, tables } = fauxMoteur(base, { pannes: { applications: Infinity } });
+
+    const lot = await assignerDrainLot(client, JOUR);
+
+    const k1 = lot.resultats.find((r) => r.compteId === "k1")!;
+    const k2 = lot.resultats.find((r) => r.compteId === "k2")!;
+    assertEquals(k1.crees, 0);
+    assert(k1.erreur?.includes("à rejouer"), k1.erreur);
+    assertEquals(k2.erreur, undefined);
+    assertEquals(k2.crees, 1);
+    assertEquals(lot.echecs, ["k1"], "écarté de la suite de la chaîne, pas de la nuit");
+    assertEquals(appels.sophia.length, 1, "un seul deck Sophia : celui de k2");
+    assertEquals(insertsPassages(journal).map((p) => p.compte_id), ["k2"]);
+    assertEquals(journal.filter((o) => o.table === "comptes" && o.op === "update"), [], "aucun quota touché");
+
+    // Le verdict de la nuit est écrit, erreur comprise.
+    const verdicts = tables.assignation_journal as Array<Record<string, unknown>>;
+    assertEquals(verdicts.length, 2);
+    const v1 = verdicts.find((v) => v.compte_id === "k1")!;
+    const v2 = verdicts.find((v) => v.compte_id === "k2")!;
+    assertEquals([v1.jour, v1.quota, v1.crees, v1.raison], [JOUR, 1, 0, null]);
+    assert(String(v1.erreur).includes("à rejouer"));
+    assertEquals([v2.jour, v2.quota, v2.crees, v2.erreur], [JOUR, 1, 1, null]);
+    const upserts = journal.filter((o) => o.table === "assignation_journal");
+    assertEquals(upserts.map((o) => o.op), ["upsert"], "une écriture par lot");
+  });
+});
+
+Deno.test("drain — la nuit écrit sa raison : compte non servable (Unswipe désactivée)", async () => {
+  await avecDecks(jamaisPret, async () => {
+    const base = baseDrain();
+    base.applications[1].actif = false;
+    const { client, tables } = fauxMoteur(base);
+
+    const lot = await assignerDrainLot(client, JOUR);
+
+    assertEquals(lot.echecs, ["k1"]);
+    const v1 = (tables.assignation_journal as Array<Record<string, unknown>>)
+      .find((v) => v.compte_id === "k1")!;
+    assertEquals(
+      v1.raison,
+      "Compte 100 % Unswipe : Unswipe est désactivée. " +
+        "Pas de repli Sophia : aucun label de ce compte ne sert Sophia.",
+    );
+    assertEquals(v1.erreur, null);
+  });
+});
+
+Deno.test("drain — journal en panne : le lot rend quand même ses résultats", async () => {
+  await avecDecks(jamaisPret, async () => {
+    const base = baseDrain();
+    const { client, journal } = fauxMoteur(base, { pannes: { assignation_journal: Infinity } });
+
+    const lot = await assignerDrainLot(client, JOUR);
+
+    assertEquals(lot.traites, 2);
+    assertEquals(lot.resultats.find((r) => r.compteId === "k2")?.crees, 1);
+    assertEquals(journal.filter((o) => o.table === "assignation_journal").length, 1);
+  });
+});
+
+Deno.test("journal — une recharge (forcer) garde le verdict de la nuit, un test n'écrit rien, une réassignation le remplace", async () => {
+  const pret = () => ({ statut: "pret" as const, slides: DECK, hashtags: "#unswipe" });
+  await avecDecks(pret, async () => {
+    const base = baseDrain();
+    base.applications[1].actif = false;
+    const { client, journal, tables } = fauxMoteur(base);
+    const verdict = () =>
+      (tables.assignation_journal as Array<Record<string, unknown>>).find((v) => v.compte_id === "k1")!;
+    const ecrituresJournal = () => journal.filter((o) => o.table === "assignation_journal").length;
+
+    await assignerDrainLot(client, JOUR);
+    const nuit = verdict().raison;
+    assert(String(nuit).includes("Unswipe est désactivée"), String(nuit));
+
+    // Dans la journée : Unswipe rallumée, sa réserve remplie, et la recharge
+    // d'un post réussit. Elle ne doit pas effacer ce que la nuit a constaté.
+    (tables.applications as Array<Record<string, unknown>>)[1].actif = true;
+    for (let i = 0; i < 3; i += 1) {
+      tables.contenu_labels.push({ label_id: "L2", contenu_id: idContenu(i) });
+      tables.contenu_pertinences.push({ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true });
+      tables.contenu_application_tier_etat.push(
+        ...etatsApplication([{ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true }]),
+      );
+    }
+    const recharge = await assignerTousComptes(client, JOUR, "k1", { forcer: true, ignorerWarmup: true });
+    assertEquals(recharge[0].crees, 1);
+    assertEquals(recharge[0].raison, undefined);
+    assertEquals([verdict().raison, verdict().crees], [nuit, 0], "verdict de la nuit gardé");
+
+    // Une assignation TEST (posts invisibles, hors quota) n'écrit rien.
+    const avantTest = ecrituresJournal();
+    const test = await assignerTousComptes(client, JOUR, "k2", { test: true, ignorerWarmup: true });
+    assertEquals(test[0].crees, 1);
+    assertEquals(ecrituresJournal(), avantTest);
+
+    // Une réassignation manuelle ordinaire explique l'état courant : elle remplace.
+    await assignerTousComptes(client, JOUR, "k1", { ignorerWarmup: true });
+    assert(String(verdict().raison).startsWith("Quota déjà rempli"), String(verdict().raison));
+  });
+});
+
+Deno.test("drain — budget de cuisson dépassé sur un compte 100 % Unswipe : raison écrite, mais il reste dans la chaîne", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = baseDrain();
+    const { client, tables } = fauxMoteur(base);
+
+    const lot = await assignerDrainLot(client, JOUR, { echeance: Date.now() - 1 });
+
+    const k1 = lot.resultats.find((r) => r.compteId === "k1")!;
+    assertEquals(k1.crees, 0);
+    assertEquals(k1.nonServable, undefined, "un manque de temps n'est pas « non servable »");
+    assertEquals(lot.echecs, [], "le lot suivant, budget neuf, le reprend");
+    assertEquals(appels.application, [], "aucune cuisson après l'échéance");
+    assertEquals(appels.sophia.length, 1, "le seul deck Sophia est celui de k2");
+    const v1 = (tables.assignation_journal as Array<Record<string, unknown>>)
+      .find((v) => v.compte_id === "k1")!;
+    assertEquals(
+      v1.raison,
+      `Compte 100 % Unswipe : budget de cuisson des decks Unswipe dépassé pour ce lot. ${PAS_DE_REPLI}`,
+    );
+  });
+});
+
+Deno.test("non servable — decks en échec : la raison cite la cause réelle du dernier deck", async () => {
+  const echec = () => ({ statut: "echec" as const, raison: "traduction de : 429 Too Many Requests", cuit: true });
+  await avecDecks(echec, async () => {
+    const base = base100Unswipe();
+    base.contenu_pertinences = [0, 1, 2].map((i) => ({
+      contenu_id: idContenu(i),
+      application_id: UNSWIPE,
+      eligible: true,
+    }));
+    base.contenu_application_tier_etat = etatsApplication(base.contenu_pertinences);
+    const { client } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids, []);
+    assertEquals(detail.nonServable, true);
+    assertEquals(
+      detail.raison,
+      `Compte 100 % Unswipe : decks Unswipe en échec (dernier : traduction de : 429 Too Many Requests). ${PAS_DE_REPLI}`,
+    );
+  });
+});
+
+/* -------------------------------------------------------------------------
+ * Compte non servable : la raison dit QUOI régler.
+ * ---------------------------------------------------------------------- */
+
+const PAS_DE_REPLI = "Pas de repli Sophia : aucun label de ce compte ne sert Sophia.";
+
+Deno.test("non servable — Unswipe ne cible pas la langue du compte : la raison nomme la langue", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = base100Unswipe();
+    base.comptes[0].langue = "de";
+    base.applications[1].langues = ["fr", "en"];
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids, []);
+    assertEquals(detail.nonServable, true);
+    assertEquals(
+      detail.raison,
+      `Compte 100 % Unswipe : Unswipe ne cible pas la langue de ce compte (de). ${PAS_DE_REPLI}`,
+    );
+    assertEquals(appels.sophia, []);
+    assertEquals(journal.filter((o) => o.table === "comptes" && o.op === "update"), []);
+  });
+});
+
+Deno.test("non servable — Unswipe sans aucune langue (état de 0258) : la raison dit de les cocher", async () => {
+  await avecDecks(jamaisPret, async () => {
+    const base = base100Unswipe();
+    base.applications[1].langues = [];
+    const { client } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(
+      detail.raison,
+      "Compte 100 % Unswipe : Unswipe ne cible encore aucune langue " +
+        `(à cocher dans Pilotage → Applications). ${PAS_DE_REPLI}`,
+    );
+  });
+});
+
+Deno.test("raisonCompteNonServable : une cause par application, dans l'ordre des applications", () => {
+  const FOO = "00000000-0000-4000-8000-000000000009";
+  const apps: ApplicationMoteur[] = [
+    { id: ID_SOPHIA, slug: "sophia", nom: "Sophia", langues: null, actif: true },
+    { id: UNSWIPE, slug: "unswipe", nom: "Unswipe", langues: null, actif: false },
+    { id: FOO, slug: "foo", nom: "Foo", langues: null, actif: true },
+  ];
+  const raison = (args: {
+    applications?: ApplicationMoteur[];
+    parApp: Map<string, string[]>;
+    replis?: Map<string, "reserve_vide" | "deck_ineligible" | "deck_echec" | "budget">;
+    details?: Map<string, string>;
+    langue?: string;
+    ugc?: boolean;
+  }) =>
+    raisonCompteNonServable({
+      applications: args.applications ?? apps,
+      parApp: args.parApp,
+      replis: args.replis ?? new Map(),
+      details: args.details,
+      langue: args.langue ?? "fr",
+      ugc: args.ugc ?? false,
+    });
+
+  assertEquals(
+    raison({ parApp: new Map([[FOO, ["L3"]], [UNSWIPE, ["L2"]]]), replis: new Map([[FOO, "reserve_vide"]]) }),
+    `Compte 100 % Unswipe + Foo : Unswipe est désactivée ; réserve Foo vide pour ses labels. ${PAS_DE_REPLI}`,
+  );
+  // Toutes les causes d'inéligibilité à la fois : on les dit toutes.
+  assertEquals(
+    raison({
+      applications: [apps[0], { ...apps[1], langues: ["fr"] }],
+      parApp: new Map([[UNSWIPE, ["L2"]]]),
+      langue: "de",
+      ugc: true,
+    }),
+    "Compte 100 % Unswipe : Unswipe est désactivée et ne cible pas la langue de ce compte (de) " +
+      `et ne sert pas les comptes UGC (slideshows classiques uniquement). ${PAS_DE_REPLI}`,
+  );
+  // Éligible : le motif du repli, en clair.
+  const foo = (motif?: "reserve_vide" | "deck_ineligible" | "deck_echec" | "budget", detail?: string) =>
+    raison({
+      parApp: new Map([[FOO, ["L3"]]]),
+      replis: motif ? new Map([[FOO, motif]]) : new Map(),
+      details: detail ? new Map([[FOO, detail]]) : undefined,
+    });
+  // La cause du deck est CITÉE (deck.raison), jamais devinée : « deck_echec »
+  // couvre un prompt manquant comme un 429 de traduction ou une panne.
+  assertEquals(
+    foo("deck_ineligible", "plusieurs slides citent un concurrent de l'application"),
+    `Compte 100 % Foo : aucun deck Foo utilisable (dernier refus : plusieurs slides citent un concurrent de l'application). ${PAS_DE_REPLI}`,
+  );
+  assertEquals(foo("deck_ineligible"), `Compte 100 % Foo : aucun deck Foo utilisable. ${PAS_DE_REPLI}`);
+  assertEquals(
+    foo("deck_echec", "traduction de : 429 Too Many Requests.\n"),
+    `Compte 100 % Foo : decks Foo en échec (dernier : traduction de : 429 Too Many Requests). ${PAS_DE_REPLI}`,
+  );
+  assertEquals(foo("deck_echec"), `Compte 100 % Foo : decks Foo en échec. ${PAS_DE_REPLI}`);
+  assert(foo("deck_echec", "x".repeat(500)).length < 400, "une raison démesurée est tronquée");
+  assertEquals(foo("budget"), `Compte 100 % Foo : budget de cuisson des decks Foo dépassé pour ce lot. ${PAS_DE_REPLI}`);
+  assertEquals(foo(), `Compte 100 % Foo : Foo n'a pas pu servir tous les créneaux. ${PAS_DE_REPLI}`);
+  // Labels système seulement : aucune application servie.
+  assertEquals(
+    raison({ parApp: new Map() }),
+    `Aucun label de ce compte ne sert une application (labels système seulement). ${PAS_DE_REPLI}`,
+  );
+});
+
+/* -------------------------------------------------------------------------
  * Pod 3 : un compte « vidéos uniquement » n'a jamais de slideshow.
  * ---------------------------------------------------------------------- */
 
@@ -1511,18 +2047,29 @@ Deno.test("vidéos uniquement — listerComptesSousQuota : le compte sort de la 
  * Rappel J+7 : le rappel rejoue le MÊME post, donc la même application.
  * ---------------------------------------------------------------------- */
 
-function baseRappel() {
+/**
+ * Un passage percé sur k1. Par défaut : une source Unswipe sur un compte dont
+ * le label (L2) sert Unswipe.
+ */
+function baseRappel(args: {
+  application?: string;
+  vues?: number;
+  labels?: Array<{ id: string; slug: string }>;
+  liens?: Array<{ label_id: string; application_id: string }>;
+} = {}) {
   const il5Jours = new Date(Date.now() - 5 * 86_400_000).toISOString();
+  const labels = args.labels ?? [{ id: "L2", slug: "focus" }];
   return {
     reglages: [{ cle: "tierlist", valeur: {} }],
     comptes: [{ id: "k1", posts_par_jour: 2 }],
+    compte_labels: labels.map((l) => ({ compte_id: "k1", label_id: l.id, labels: { slug: l.slug, nom: l.slug } })),
     contenus: [{ id: "c-perce", sujet_id: null, structure_slides: [], titre: "t" }],
     passages: [{
       id: "p-source",
       contenu_id: "c-perce",
       compte_id: "k1",
       langue: "fr",
-      vues: 80_000,
+      vues: args.vues ?? 80_000,
       statut: "publie",
       publie_at: il5Jours,
       date_publication_prevue: il5Jours.slice(0, 10),
@@ -1534,10 +2081,12 @@ function baseRappel() {
       rappel_rang: 0,
       rappel_source_id: null,
       tier_cycle: 1,
-      application_id: UNSWIPE,
+      application_id: args.application ?? UNSWIPE,
     }],
     posts: [] as unknown[],
-    label_applications: [],
+    label_applications: args.liens ?? [{ label_id: "L2", application_id: UNSWIPE }],
+    // Le placement Unswipe de la source est encore dans la réserve (0270, P18).
+    contenu_pertinences: [{ contenu_id: "c-perce", application_id: UNSWIPE, eligible: true }],
   };
 }
 
@@ -1576,5 +2125,361 @@ Deno.test("rappel J+7 — schéma absent : ni lecture ni écriture de applicatio
   assert(!String(lecture.colonnes).includes("application_id"), "la liste statique d'avant");
   assert(!("application_id" in insertsPassages(journal)[0]));
   assert(!("application_id" in insertsPosts(journal)[0]));
+  oublierSondeMultiApp();
+});
+
+Deno.test("rappel J+7 — compte passé en « Unswipe seul » : sa source Sophia (60k vues) n'est PAS rejouée", async () => {
+  oublierSondeMultiApp();
+  // Un compte existant dont on a remplacé les labels par un label Unswipe seul :
+  // rejouer son post Sophia publierait la pub Sophia sur un compte 100 % Unswipe.
+  const base = baseRappel({ application: ID_SOPHIA, vues: 60_000 });
+  const { client, journal } = fauxMoteur(base);
+
+  const res = await programmerRappelsJ7(client);
+
+  assertEquals(res.candidats, 1);
+  assertEquals(res.programmes, 0);
+  assertEquals(insertsPassages(journal), [], "aucun passage");
+  assertEquals(insertsPosts(journal), [], "aucun post");
+  assertEquals(res.erreurs.length, 1);
+  assert(res.erreurs[0].includes("rappel non programmé"), res.erreurs[0]);
+  oublierSondeMultiApp();
+});
+
+Deno.test("rappel J+7 — compte Sophia (label sans ligne, ou aucun label) : le rappel d'avant", async () => {
+  for (const labels of [[{ id: "L1", slug: "smart-girl" }], []]) {
+    oublierSondeMultiApp();
+    const base = baseRappel({ application: ID_SOPHIA, labels, liens: [] });
+    const { client, journal } = fauxMoteur(base);
+
+    const res = await programmerRappelsJ7(client);
+
+    assertEquals(res.erreurs, []);
+    assertEquals(res.programmes, 1);
+    const [rappel] = insertsPassages(journal);
+    assertEquals(rappel.application_id, ID_SOPHIA);
+    assertEquals(rappel.slides, DECK);
+  }
+  oublierSondeMultiApp();
+});
+
+Deno.test("rappel J+7 — labels du compte illisibles : rappel noté en erreur, rien d'écrit, l'étape continue", async () => {
+  oublierSondeMultiApp();
+  const base = baseRappel({ application: ID_SOPHIA });
+  const { client, journal } = fauxMoteur(base, { pannes: { compte_labels: Infinity } });
+
+  const res = await programmerRappelsJ7(client);
+
+  assertEquals(res.programmes, 0);
+  assertEquals(res.erreurs.length, 1);
+  assertEquals(insertsPassages(journal), []);
+  oublierSondeMultiApp();
+});
+
+Deno.test("compteSertApplicationRappel : la règle", () => {
+  const sophiaHeritee = { id: "L1", slug: "smart-girl" };
+  const unswipeSeul = { id: "L2", slug: "focus" };
+  const hook = { id: "H", slug: "hook" };
+  const liens = [{ label_id: "L2", application_id: UNSWIPE }];
+  // Sophia : un label qui la sert, ou aucun label utile (le rappel d'avant).
+  assert(compteSertApplicationRappel([sophiaHeritee], liens, ID_SOPHIA));
+  assert(compteSertApplicationRappel([sophiaHeritee, unswipeSeul], liens, ID_SOPHIA));
+  assert(compteSertApplicationRappel([], liens, ID_SOPHIA));
+  assert(compteSertApplicationRappel([hook], liens, ID_SOPHIA));
+  assert(!compteSertApplicationRappel([unswipeSeul], liens, ID_SOPHIA), "100 % Unswipe : pas de pub Sophia");
+  assert(!compteSertApplicationRappel([unswipeSeul, hook], liens, ID_SOPHIA));
+  // Autre application : il faut un label qui la serve.
+  assert(compteSertApplicationRappel([unswipeSeul], liens, UNSWIPE));
+  assert(!compteSertApplicationRappel([sophiaHeritee], liens, UNSWIPE));
+  assert(!compteSertApplicationRappel([], liens, UNSWIPE));
+});
+
+/* -------------------------------------------------------------------------
+ * Tiers PAR APPLICATION (0270) : chaque application tire dans SON budget.
+ *
+ * Le chemin Sophia ne doit rien voir de 0270 (ni sonde, ni vue, ni table) ;
+ * un créneau Unswipe lit SA vue, estampille SON cycle, repêche dans SA table ;
+ * sans 0270, aucune autre application n'est servie ; une sonde illisible fait
+ * rejouer le compte avant tout passage.
+ * ---------------------------------------------------------------------- */
+
+const OBJETS_0270 = ["contenu_application_tier_etat", "contenu_tiers_application"];
+
+function opsTiersApplication(journal: Op[]) {
+  return journal.filter((o) => OBJETS_0270.includes(o.table));
+}
+
+Deno.test("0270 — compte 100 % Sophia : aucune sonde, aucune vue ni table 0270, insert d'avant", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    // Le label sert AUSSI Unswipe et des contenus lui sont éligibles : le
+    // compte reste sans part Unswipe, c'est l'état de toute la flotte.
+    const base = baseEssai({
+      pertinences: [0, 1, 2].map((i) => ({ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true })),
+    });
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(appels.sophia.length, 1);
+    assertEquals(opsTiersApplication(journal), [], "rien de 0270 sur le chemin Sophia");
+    const etats = journal.filter((o) => o.table === "contenu_tier_etat");
+    assertEquals(etats.length, 1, "l'état tierlist Sophia, lu comme avant");
+    assertEquals(etats[0].colonnes, "contenu_id, tier, tier_cycle, passages_prevus, restants");
+    const [passage] = insertsPassages(journal);
+    assertEquals(passage.tier_cycle, 1, "le cycle SOPHIA (contenu_tier_etat)");
+    for (const c of COLONNES_NOUVELLES) assert(!(c in passage));
+  });
+});
+
+Deno.test("0270 — compte mixte replié sur Sophia (Unswipe inactive, l'état de la prod) : rien de 0270", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = baseEssai({
+      compte: { parts_applications: { sophia: 70, unswipe: 30 } },
+      fenetre: Array(9).fill("sophia"),
+      pertinences: [0, 1].map((i) => ({ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true })),
+    });
+    base.applications[1].actif = false;
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(appels.sophia.length, 1);
+    assertEquals(appels.application, []);
+    assertEquals(opsTiersApplication(journal), []);
+    assertEquals(journal.filter(estLectureFenetre), [], "parts effectives 100 % Sophia : chemin d'avant");
+  });
+});
+
+Deno.test("0270 — créneau Unswipe : SA vue, jamais contenu_tier_etat ; le passage porte le cycle Unswipe", async () => {
+  const pret = () => ({ statut: "pret" as const, slides: DECK, hashtags: "#unswipe" });
+  await avecDecks(pret, async (appels) => {
+    const base = baseEssai({
+      compte: { parts_applications: { unswipe: 100 } },
+      pertinences: [0, 1].map((i) => ({ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true })),
+    });
+    // Cycle Unswipe 3, différent du cycle Sophia (1) des mêmes contenus.
+    for (const e of base.contenu_application_tier_etat) e.tier_cycle = 3;
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(appels.application.length, 1);
+    assertEquals(journal.filter((o) => o.table === "contenu_tier_etat"), [], "le budget Sophia n'est pas lu");
+    // Hors sonde (GET limit 1 sans filtre) : chaque lecture de la vue est
+    // filtrée sur l'application du créneau.
+    const vues = journal.filter((o) => o.table === "contenu_application_tier_etat" && o.filtres.length > 0);
+    assert(vues.length >= 1);
+    for (const v of vues) {
+      assert(v.filtres.some(([c, f, x]) => c === "application_id" && f === "eq" && x === UNSWIPE));
+    }
+    const [passage] = insertsPassages(journal);
+    assertEquals(passage.application_id, UNSWIPE);
+    assertEquals(passage.tier_cycle, 3, "le passage compte dans le cycle UNSWIPE");
+    assertEquals(journal.filter((o) => o.table === "contenus" && o.op !== "select"), []);
+  });
+});
+
+Deno.test("0270 — restants Unswipe à 0 : repêchage dans contenu_tiers_application, jamais dans contenus", async () => {
+  const pret = () => ({ statut: "pret" as const, slides: DECK, hashtags: "#unswipe" });
+  await avecDecks(pret, async (appels) => {
+    const base = baseEssai({
+      n: 2,
+      compte: { parts_applications: { unswipe: 100 } },
+      pertinences: [0, 1].map((i) => ({ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true })),
+    });
+    // c00000 : matérialisé, tombé en D (dort). c00001 : paresseux, cycle fini
+    // (0 restant) — jamais repêché, il n'a pas 0 passage prévu.
+    base.contenu_application_tier_etat = [
+      {
+        contenu_id: idContenu(0), application_id: UNSWIPE, tier: "D", tier_cycle: 4,
+        passages_prevus: 0, restants: 0, materialise: true, eligible: true, note: 65,
+      },
+      {
+        contenu_id: idContenu(1), application_id: UNSWIPE, tier: "C", tier_cycle: 0,
+        passages_prevus: 1, restants: 0, materialise: false, eligible: true, note: 56,
+      },
+    ];
+    (base as unknown as Record<string, unknown[]>).contenu_tiers_application = [
+      { contenu_id: idContenu(0), application_id: UNSWIPE, tier: "D", tier_cycle: 4, passages_prevus: 0 },
+    ];
+    const { client, journal, tables } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(appels.application, [idContenu(0)]);
+    const repeche = journal.filter((o) => o.table === "contenu_tiers_application" && o.op === "update");
+    assertEquals(repeche.length, 1);
+    assert(repeche[0].filtres.some(([c, f, v]) => c === "passages_prevus" && f === "eq" && v === 0), "atomique");
+    assert(repeche[0].filtres.some(([c, , v]) => c === "application_id" && v === UNSWIPE));
+    assertEquals((repeche[0].valeurs as Record<string, unknown>).passages_prevus, 1);
+    assertEquals(tables.contenu_tiers_application[0].passages_prevus, 1);
+    assertEquals(journal.filter((o) => o.table === "contenus" && o.op !== "select"), [], "contenus jamais touché");
+    assertEquals(insertsPassages(journal)[0].tier_cycle, 4);
+  });
+});
+
+Deno.test("0270 — ligne paresseuse à 0 restant : jamais repêchée, le créneau se replie sur Sophia", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = baseEssai({
+      compte: { parts_applications: { sophia: 70, unswipe: 30 } },
+      fenetre: Array(9).fill("sophia"),
+      pertinences: [{ contenu_id: idContenu(0), application_id: UNSWIPE, eligible: true }],
+    });
+    base.contenu_application_tier_etat[0].restants = 0;
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.replis, [{ visee: "unswipe", motif: "reserve_vide" }]);
+    assertEquals(appels.application, []);
+    assertEquals(journal.filter((o) => o.op === "update" && OBJETS_0270.includes(o.table)), []);
+  });
+});
+
+Deno.test("0270 absente — compte mixte : créneau Unswipe replié (réserve vide, raison 0270), aucun passage Unswipe", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = baseEssai({
+      compte: { parts_applications: { sophia: 70, unswipe: 30 } },
+      fenetre: Array(9).fill("sophia"),
+      pertinences: [0, 1, 2].map((i) => ({ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true })),
+    });
+    const { client, journal } = fauxMoteur(base, { absentes: ["contenu_tiers_application"] });
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(detail.replis, [{ visee: "unswipe", motif: "reserve_vide" }]);
+    assertEquals(appels.application, [], "aucun deck Unswipe");
+    const [passage] = insertsPassages(journal);
+    assertEquals(passage.application_id, ID_SOPHIA);
+    assertEquals(passage.application_visee_id, UNSWIPE);
+    assertEquals(journal.filter((o) => o.table === "contenu_application_tier_etat"), []);
+    assertEquals(journal.filter((o) => o.table === "comptes" && o.op === "update"), []);
+  });
+});
+
+Deno.test("0270 absente — compte 100 % Unswipe : non servable, et la raison cite 0270", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = base100Unswipe();
+    base.contenu_pertinences = [0, 1].map((i) => ({ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true }));
+    const { client, journal } = fauxMoteur(base, { absentes: ["contenu_tiers_application"] });
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids, []);
+    assertEquals(detail.nonServable, true);
+    assertEquals(
+      detail.raison,
+      "Compte 100 % Unswipe : réserve Unswipe vide pour ses labels " +
+        `(tiers par application indisponibles (migration 0270 non appliquée)). ${PAS_DE_REPLI}`,
+    );
+    assertEquals(appels.sophia, []);
+    assertEquals(insertsPassages(journal), []);
+  });
+});
+
+Deno.test("0270 — sonde illisible : le compte LÈVE avant tout passage ; le compte suivant du lot resonde", async () => {
+  const pret = () => ({ statut: "pret" as const, slides: DECK, hashtags: "#unswipe" });
+  await avecDecks(pret, async (appels) => {
+    const base = baseEssai({
+      compte: { parts_applications: { sophia: 70, unswipe: 30 }, posts_par_jour: 2 },
+      fenetre: Array(9).fill("sophia"),
+      pertinences: [0, 1, 2].map((i) => ({ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true })),
+    });
+    const { client, journal } = fauxMoteur(base, { pannes: { contenu_tiers_application: 2 } });
+    const memo = creerMemoAssignation();
+
+    await assertRejects(
+      () => assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {}, memo),
+      Error,
+      "sonde 0270 (tiers par application) illisible — compte à rejouer",
+    );
+    assertEquals(insertsPassages(journal), [], "aucun passage, pas même Sophia");
+    assertEquals(appels.sophia, []);
+    assertEquals(journal.filter((o) => o.table === "comptes" && o.op === "update"), [], "quota intact");
+    assertEquals(memo.schema.has("tiers0270"), false, "« illisible » oublié du mémo");
+
+    // La base revient : le compte suivant du même lot resonde et est servi.
+    const second = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {}, memo);
+    assertEquals(second.ids.length, 2);
+    assertEquals(memo.schema.has("tiers0270"), true);
+  });
+});
+
+Deno.test("0270 — un passage Unswipe est budgété sur Unswipe, un passage Sophia sur Sophia (fixtures distinctes)", async () => {
+  const pret = () => ({ statut: "pret" as const, slides: DECK, hashtags: "#unswipe" });
+  await avecDecks(pret, async () => {
+    // Deux créneaux, un par application (50/50, fenêtre vide) : chaque
+    // passage prend le cycle de SA vue, et seule la vue de son application
+    // est lue pour lui.
+    const base = baseEssai({
+      n: 2,
+      compte: { parts_applications: { sophia: 50, unswipe: 50 }, posts_par_jour: 2 },
+      pertinences: [0, 1].map((i) => ({ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true })),
+    });
+    for (const e of base.contenu_application_tier_etat) e.tier_cycle = 9;
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 2);
+    const passages = insertsPassages(journal);
+    const unswipe = passages.find((p) => p.application_id === UNSWIPE)!;
+    const sophia = passages.find((p) => p.application_id === ID_SOPHIA)!;
+    assertEquals(unswipe.tier_cycle, 9);
+    assertEquals(sophia.tier_cycle, 1);
+    // Sophia : contenu_tier_etat, sans filtre d'application ; Unswipe : sa vue.
+    assertEquals(journal.filter((o) => o.table === "contenu_tier_etat").length, 1);
+    assert(journal.some((o) => o.table === "contenu_application_tier_etat"));
+  });
+});
+
+Deno.test("rappel J+7 — source Unswipe sortie de la réserve : refusé dans les erreurs, rien d'écrit", async () => {
+  for (const pertinences of [[], [{ contenu_id: "c-perce", application_id: UNSWIPE, eligible: false }]]) {
+    oublierSondeMultiApp();
+    const base = baseRappel();
+    base.contenu_pertinences = pertinences;
+    const { client, journal } = fauxMoteur(base);
+
+    const res = await programmerRappelsJ7(client);
+
+    assertEquals(res.candidats, 1);
+    assertEquals(res.programmes, 0);
+    assertEquals(res.erreurs.length, 1);
+    assert(res.erreurs[0].includes("placement retiré de la réserve"), res.erreurs[0]);
+    assertEquals(insertsPassages(journal), []);
+    assertEquals(insertsPosts(journal), []);
+  }
+  oublierSondeMultiApp();
+});
+
+Deno.test("rappel J+7 — éligibilité illisible : rappel reporté (erreur), rien d'écrit", async () => {
+  oublierSondeMultiApp();
+  const base = baseRappel();
+  const { client, journal } = fauxMoteur(base, { pannes: { contenu_pertinences: Infinity } });
+
+  const res = await programmerRappelsJ7(client);
+
+  assertEquals(res.programmes, 0);
+  assert(res.erreurs[0].includes("éligibilité illisible"), res.erreurs[0]);
+  assertEquals(insertsPassages(journal), []);
+  oublierSondeMultiApp();
+});
+
+Deno.test("rappel J+7 — source Sophia : contenu_pertinences n'est jamais lue (inchangé)", async () => {
+  oublierSondeMultiApp();
+  const base = baseRappel({ application: ID_SOPHIA, labels: [{ id: "L1", slug: "smart-girl" }], liens: [] });
+  base.contenu_pertinences = [];
+  const { client, journal } = fauxMoteur(base);
+
+  const res = await programmerRappelsJ7(client);
+
+  assertEquals(res.programmes, 1);
+  assertEquals(journal.filter((o) => o.table === "contenu_pertinences"), []);
+  assertEquals(opsTiersApplication(journal), []);
   oublierSondeMultiApp();
 });

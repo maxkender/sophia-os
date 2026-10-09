@@ -65,6 +65,8 @@ import {
   type ApplicationOs,
 } from "./applications";
 import { estErreurSchemaAbsent } from "./multiapp/logique";
+import type { ApplicationMoteur } from "./multiApp";
+import { diagnosticCompteSansSophia, labelsPoolSophiaCompteMixte } from "./repartition/logique";
 import { comptePrincipal, normaliserTypeCompte, resoudrePremierCompte } from "./comptesCm";
 import { estLabelSysteme, SLUG_HOOK } from "./mediaCaption";
 import {
@@ -4898,7 +4900,7 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
 
   const { data: labelsCompte, error: errL } = await supabase
     .from("compte_labels")
-    .select("label_id, labels(nom)")
+    .select("label_id, labels(nom, slug)")
     .eq("compte_id", compteId);
   if (errL) throw errL;
 
@@ -4912,6 +4914,74 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
 
   if (labelIds.length === 0) {
     return "Aucun label sur ce compte — ajoute un label pour que minuit puisse piocher.";
+  }
+  // Labels où minuit pioche le pool Sophia : tous, sauf pour un compte mixte
+  // (voir plus bas). Un compte Sophia pur garde exactement les siens.
+  let labelIdsPool = labelIds;
+  let labelsTxtPool = labelsTxt;
+
+  // MULTI-APPLICATIONS. Tout ce qui suit compte le pool SOPHIA (contenus
+  // tagués, prêts, notés dans la langue). Un compte dont aucun label ne sert
+  // Sophia (« 100 % Unswipe ») n'y pioche jamais : la suite lui annoncerait
+  // « pool OK… timeout batch… baisse auto du quota », à tort. On lit donc les
+  // applications de ses labels (un label sans ligne sert Sophia, comme au
+  // moteur) et, si aucun ne sert Sophia, on rend la vraie cause. Un compte
+  // dont un label sert Sophia continue exactement comme avant.
+  const { data: liensApps, error: errApps } = await supabase
+    .from("label_applications")
+    .select("label_id, application_id, applications(id, slug, nom, actif, langues)")
+    .in("label_id", labelIds);
+  if (errApps) {
+    // Avant 0256 : tous les labels servent Sophia, la suite vaut. Une autre
+    // erreur ne doit pas priver le panneau du diagnostic historique : on le
+    // rend quand même, sans enterrer l'erreur.
+    if (!estErreurSchemaAbsent(errApps)) {
+      console.warn(`[diagnostic quota] applications des labels illisibles : ${errApps.message}`);
+    }
+  } else {
+    const lignes = (liensApps ?? []) as Array<Record<string, unknown>>;
+    const applications = new Map<string, ApplicationMoteur>();
+    for (const r of lignes) {
+      const a = (Array.isArray(r.applications) ? r.applications[0] : r.applications) as
+        | { id?: string; slug?: string; nom?: string; actif?: boolean | null; langues?: string[] | null }
+        | null
+        | undefined;
+      if (!a?.id) continue;
+      applications.set(a.id, {
+        id: a.id,
+        slug: a.slug ?? "",
+        nom: a.nom ?? a.slug ?? a.id,
+        actif: a.actif !== false,
+        langues: a.langues ?? null,
+      });
+    }
+    const refsLabels = (
+      (labelsCompte ?? []) as Array<{
+        label_id: string;
+        labels?: { nom?: string | null; slug?: string | null } | null;
+      }>
+    ).map((l) => ({ id: l.label_id, slug: l.labels?.slug ?? null, nom: l.labels?.nom ?? null }));
+    const liens = lignes.map((r) => ({
+      label_id: String(r.label_id),
+      application_id: String(r.application_id),
+    }));
+    const diagnostic = diagnosticCompteSansSophia({
+      compte: { langue, ugc: ugcAi },
+      labels: refsLabels,
+      liens,
+      applications: [...applications.values()],
+      labelsTxt,
+    });
+    if (diagnostic) return diagnostic;
+    // Compte MIXTE : minuit ne pioche le pool Sophia que dans ses labels qui
+    // servent Sophia. Compté sur tous ses labels, un label « Unswipe seul »
+    // bien rempli faisait annoncer « pool OK » sur un pool Sophia vide.
+    const poolSophia = labelsPoolSophiaCompteMixte(refsLabels, liens);
+    if (poolSophia) {
+      labelIdsPool = poolSophia.map((l) => l.id);
+      const noms = poolSophia.map((l) => l.nom).filter(Boolean) as string[];
+      labelsTxtPool = noms.length > 0 ? noms.join(", ") : `${labelIdsPool.length} label(s)`;
+    }
   }
 
   // COMPTER CÔTÉ SERVEUR, ne jamais rapatrier les identifiants.
@@ -4933,10 +5003,10 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
   const { count: nTagues, error: errTag } = await supabase
     .from("contenus")
     .select("id, contenu_labels!inner(label_id)", { count: "exact", head: true })
-    .in("contenu_labels.label_id", labelIds);
+    .in("contenu_labels.label_id", labelIdsPool);
   if (errTag) throw errTag;
   if ((nTagues ?? 0) === 0) {
-    return `Aucun slideshow tagué « ${labelsTxt} » dans la bibliothèque.`;
+    return `Aucun slideshow tagué « ${labelsTxtPool} » dans la bibliothèque.`;
   }
 
   const { count: nPrets, error: errPrets } = await supabase
@@ -4945,11 +5015,11 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
     .eq("statut", "valide")
     .eq("import_statut", "done")
     .eq("ugc_compatible", ugcAi)
-    .in("contenu_labels.label_id", labelIds);
+    .in("contenu_labels.label_id", labelIdsPool);
   if (errPrets) throw errPrets;
   if ((nPrets ?? 0) === 0) {
     return (
-      `${nTagues} slideshow(s) « ${labelsTxt} » mais aucun valide + import terminé` +
+      `${nTagues} slideshow(s) « ${labelsTxtPool} » mais aucun valide + import terminé` +
       (ugcAi ? " + checkmark UGC" : " (non-UGC)") +
       "."
     );
@@ -4965,26 +5035,26 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
     .eq("contenus.statut", "valide")
     .eq("contenus.import_statut", "done")
     .eq("contenus.ugc_compatible", ugcAi)
-    .in("contenus.contenu_labels.label_id", labelIds);
+    .in("contenus.contenu_labels.label_id", labelIdsPool);
   if (errLangue) throw errLangue;
   const nLangue = count ?? 0;
   if (nLangue === 0) {
     return (
-      `${nPrets} slideshow(s) « ${labelsTxt} » prêts, mais aucun éligible en ` +
+      `${nPrets} slideshow(s) « ${labelsTxtPool} » prêts, mais aucun éligible en ` +
       `${langue.toUpperCase()} (pas de score ELO langue à l'import pour cette langue).`
     );
   }
 
   if (nLangue >= 15) {
     return (
-      `Pool « ${labelsTxt} » × ${langue.toUpperCase()} OK (${nLangue} candidat(s) ELO) — ` +
+      `Pool « ${labelsTxtPool} » × ${langue.toUpperCase()} OK (${nLangue} candidat(s) ELO) — ` +
       `minuit n'a probablement pas atteint ce compte (timeout batch). ` +
       `Utilise « Réassigner incomplets » (parallèle) ; sinon baisse auto du quota.`
     );
   }
 
   return (
-    `Pool « ${labelsTxt} » × ${langue.toUpperCase()} trop mince ou déjà tout assigné ` +
+    `Pool « ${labelsTxtPool} » × ${langue.toUpperCase()} trop mince ou déjà tout assigné ` +
     `(${nLangue} candidat(s) ELO) — importe / labellise d'autres slideshows ` +
     `(sinon minuit baisse automatiquement le quota du créateur).`
   );
@@ -6185,10 +6255,12 @@ export async function lireSlideshow(id: string): Promise<SlideshowDetail | null>
         .select("*")
         .eq("contenu_id", id)
         .order("score", { ascending: false }),
+      // `application_id` (0256, en place) : la fiche marque les passages d'une
+      // autre application que Sophia — leur budget n'est pas celui de Sophia.
       supabase
         .from("passages")
         .select(
-          "id, contenu_id, compte_id, langue, date_publication_prevue, statut, publie_url, vues, likes, commentaires, partages, post_id, comptes(handle_tiktok, persona_nom, langue)",
+          "id, contenu_id, compte_id, langue, date_publication_prevue, statut, publie_url, vues, likes, commentaires, partages, post_id, application_id, comptes(handle_tiktok, persona_nom, langue)",
         )
         .eq("contenu_id", id)
         .order("date_publication_prevue", { ascending: false }),

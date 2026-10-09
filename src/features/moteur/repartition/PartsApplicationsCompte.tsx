@@ -23,10 +23,15 @@ import { useApplicationsMulti, useLiensLabels } from "./useMultiApp";
  * posts). Un curseur par application hors Sophia, par pas de 10 ; Sophia prend
  * le reste. Rien ne s'écrit sans « Enregistrer ».
  *
- * Invisible tant que les labels du compte ne servent qu'une application : le
- * cas de tous les comptes aujourd'hui. Les avertissements ne bloquent rien —
- * le moteur restreint de toute façon aux applications éligibles (actives,
- * langue ciblée, compte non UGC) et reporte le reste.
+ * Invisible tant que les labels du compte ne servent que Sophia : le cas de
+ * tous les comptes aujourd'hui. Les avertissements ne bloquent rien — le
+ * moteur restreint de toute façon aux applications éligibles (actives, langue
+ * ciblée, compte non UGC) et reporte le reste.
+ *
+ * Compte dont aucun label ne sert Sophia (« 100 % Unswipe ») : pas de curseur
+ * ni de ligne Sophia, seulement ce qui sera appliqué — ou, si aucune
+ * application ne peut le servir, un avertissement rouge et sa cause : sans
+ * repli Sophia, ce compte ne publierait rien, en silence.
  */
 export function PartsApplicationsCompte({
   compte,
@@ -90,19 +95,31 @@ export function PartsApplicationsCompte({
   const enCours = enregistrer.isPending || reinitialiser.isPending;
   const erreurEcriture = enregistrer.error ?? reinitialiser.error;
   const apps = applications.data ?? [];
+  // Les curseurs n'ont de sens que si Sophia est servie : c'est elle qui prend
+  // le reste. Sans elle, le moteur applique les parts effectives telles quelles.
+  const avecCurseurs = etat.sophiaServie && etat.autres.length > 0;
+  const sophia = etat.sophiaServie;
 
+  // Sans Sophia servie, une application exclue ne « revient » à personne : les
+  // textes « sa part revient à Sophia » mentiraient.
   const texteAvertissement = (a: AvertissementParts): string => {
     switch (a.type) {
       case "inactive":
-        return t("multiAppPosts.repartition.avertInactive", { app: a.app });
+        return sophia
+          ? t("multiAppPosts.repartition.avertInactive", { app: a.app })
+          : t("multiAppPosts.repartition.avertInactiveSansSophia", { app: a.app });
       case "langue":
-        return t("multiAppPosts.repartition.avertLangue", { app: a.app, langue: nomLangue(a.langue) });
+        return sophia
+          ? t("multiAppPosts.repartition.avertLangue", { app: a.app, langue: nomLangue(a.langue) })
+          : t("multiAppPosts.repartition.avertLangueSansSophia", { app: a.app, langue: nomLangue(a.langue) });
       case "ugc":
-        return t("multiAppPosts.repartition.avertUgc");
-      case "sophiaNonServie":
-        return t("multiAppPosts.repartition.avertSophiaNonServie");
+        return sophia
+          ? t("multiAppPosts.repartition.avertUgc")
+          : t("multiAppPosts.repartition.avertUgcSansSophia");
       case "obsolete":
-        return t("multiAppPosts.repartition.avertObsolete", { app: a.app });
+        return sophia
+          ? t("multiAppPosts.repartition.avertObsolete", { app: a.app })
+          : t("multiAppPosts.repartition.avertObsoleteSansSophia", { app: a.app });
     }
   };
 
@@ -116,9 +133,15 @@ export function PartsApplicationsCompte({
           })}
         </span>
       </div>
-      <p className="text-[11px] text-muted-foreground">{t("multiAppPosts.repartition.aide")}</p>
+      <p className="text-[11px] text-muted-foreground">
+        {sophia ? t("multiAppPosts.repartition.aide") : t("multiAppPosts.repartition.aideSansSophia")}
+      </p>
 
-      {etat.autres.length > 0 && (
+      {etat.bloque && (
+        <p className="text-xs font-medium text-destructive">{t("multiAppPosts.repartition.bloque")}</p>
+      )}
+
+      {avecCurseurs && (
         <div className="space-y-1.5">
           {etat.autres.map((app) => {
             const valeur = curseurs[app.slug] ?? 0;
@@ -158,7 +181,10 @@ export function PartsApplicationsCompte({
       {etat.avertissements.length > 0 && (
         <ul className="space-y-0.5">
           {etat.avertissements.map((a, i) => (
-            <li key={`${a.type}-${i}`} className="text-[11px] text-warning">
+            <li
+              key={`${a.type}-${i}`}
+              className={etat.bloque ? "text-[11px] text-destructive" : "text-[11px] text-warning"}
+            >
               {texteAvertissement(a)}
             </li>
           ))}
@@ -166,7 +192,7 @@ export function PartsApplicationsCompte({
       )}
 
       <div className="flex flex-wrap gap-2">
-        {etat.autres.length > 0 && (
+        {avecCurseurs && (
           <Button size="sm" disabled={!modifie || enCours} onClick={() => enregistrer.mutate()}>
             {enregistrer.isPending ? t("common.saving") : t("multiAppPosts.repartition.enregistrer")}
           </Button>
@@ -178,7 +204,9 @@ export function PartsApplicationsCompte({
             disabled={enCours}
             onClick={() => reinitialiser.mutate()}
           >
-            {t("multiAppPosts.repartition.reinitialiser")}
+            {sophia
+              ? t("multiAppPosts.repartition.reinitialiser")
+              : t("multiAppPosts.repartition.reinitialiserSansSophia")}
           </Button>
         )}
       </div>

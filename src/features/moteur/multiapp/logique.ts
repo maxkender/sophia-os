@@ -6,7 +6,7 @@
  * Rien ici ne lit la base : les écrans branchent ces fonctions sur
  * `apiMultiApp.ts`, et les tests les couvrent sans client Supabase.
  */
-import type { RepliApplication } from "../apiMultiApp";
+import type { RepliApplication, RunTiersApplications } from "../apiMultiApp";
 import { clePromptPertinence, clePromptPlacement } from "../applications";
 import { applicationsDuLabel, type LienLabelApplication } from "../multiApp";
 
@@ -20,16 +20,25 @@ import { applicationsDuLabel, type LienLabelApplication } from "../multiApp";
  * - 42703 / 42P01 : colonne / relation inconnue (Postgres) ;
  * - PGRST204 / PGRST205 : colonne / table absente du cache de schéma ;
  * - PGRST200 : relation (embed) introuvable.
+ *
+ * Une PANNE n'est jamais une absence (même règle que `erreurSchemaAbsent` côté
+ * Edge) : un statut ≥ 500, ou les codes PGRST000 à PGRST003 — dont le 503
+ * PGRST002 « Could not query the database for the schema cache » que rend
+ * PostgREST quand la base ne répond plus. Son message parle du cache de
+ * schéma : l'ancienne règle (« schema cache » quelque part) y lisait « avant
+ * 0256 » et affichait, pour un compte 100 % Unswipe, le diagnostic du pool
+ * Sophia. Le message ne compte que s'il dit qu'une table, une colonne ou une
+ * relation n'existe pas.
  */
 export function estErreurSchemaAbsent(err: unknown): boolean {
   if (!err || typeof err !== "object") return false;
-  const { code, message } = err as { code?: unknown; message?: unknown };
-  if (["42703", "42P01", "PGRST200", "PGRST204", "PGRST205"].includes(String(code ?? ""))) {
-    return true;
-  }
-  return /does not exist|could not find the .*(column|table|relation)|schema cache/i.test(
-    String(message ?? ""),
-  );
+  const { code, message, status } = err as { code?: unknown; message?: unknown; status?: unknown };
+  if (typeof status === "number" && status >= 500) return false;
+  const c = String(code ?? "");
+  if (/^PGRST00[0-3]$/.test(c)) return false;
+  if (["42703", "42P01", "PGRST200", "PGRST204", "PGRST205"].includes(c)) return true;
+  return /(relation|column) .* does not exist|could not find the .*(column|table|relation)|could not find a relationship/i
+    .test(String(message ?? ""));
 }
 
 /** Le label n'a aucune ligne `label_applications` : il sert Sophia par héritage. */
@@ -66,16 +75,6 @@ export function basculerApplicationLabel(
     return { ok: true, applications: suivantes };
   }
   return { ok: true, applications: [...actuelles, applicationId].sort() };
-}
-
-/** Angle saisi pour (label, application) ; chaîne vide s'il n'y en a pas. */
-export function angleDuLien(
-  labelId: string,
-  applicationId: string,
-  liens: readonly LienLabelApplication[],
-): string {
-  const lien = liens.find((l) => l.label_id === labelId && l.application_id === applicationId);
-  return lien?.angle ?? "";
 }
 
 /**
@@ -194,4 +193,83 @@ export function grouperReplis(replis: readonly RepliApplication[]): ReplisCompte
   return groupes.sort(
     (a, b) => b.total - a.total || (a.handle ?? a.compte_id).localeCompare(b.handle ?? b.compte_id),
   );
+}
+
+/** Clé react-query du run `tierlist_applications` (page Minuit, carte Applications). */
+export const CLE_RUN_TIERS_APPLICATIONS = ["tierlist-applications-dernier-run"] as const;
+
+/** Ligne d'une application dans le résumé du run `tierlist_applications` (0270). */
+export interface LigneRunTiersApplication {
+  slug: string;
+  at: string | null;
+  examines: number;
+  requalifies: number;
+  alerte: string | null;
+  erreur: string | null;
+  interrompu: boolean;
+}
+
+function lignesRun(run: RunTiersApplications): LigneRunTiersApplication[] {
+  return Object.entries(run.applications ?? {}).map(([slug, b]) => ({
+    slug,
+    at: b?.at ?? null,
+    examines: Number(b?.examines ?? 0),
+    requalifies: Number(b?.requalifies ?? 0),
+    alerte: b?.alerte ?? null,
+    erreur: b?.erreur ?? null,
+    interrompu: Boolean(b?.interrompu),
+  }));
+}
+
+/**
+ * Page Minuit : ce que la tierlist PAR APPLICATION a fait CE jour-là, mais
+ * seulement s'il y a quelque chose à dire (des cycles examinés, une alerte,
+ * une erreur, une interruption, une sonde 0270 illisible). Sinon `null` : la
+ * page reste celle d'avant tant qu'aucune autre application ne tourne.
+ */
+export function resumeRunTiersApplications(
+  run: RunTiersApplications | null | undefined,
+  jour: string,
+): { illisible: boolean; erreur: string | null; lignes: LigneRunTiersApplication[] } | null {
+  if (!run || run.jour !== jour) return null;
+  const lignes = lignesRun(run).filter(
+    (l) => l.examines > 0 || l.alerte !== null || l.erreur !== null || l.interrompu,
+  );
+  const illisible = run.etat === "illisible";
+  const erreur = run.erreur ?? null;
+  if (lignes.length === 0 && !illisible && !erreur) return null;
+  return { illisible, erreur, lignes };
+}
+
+/**
+ * Carte Applications : dernière requalification de CETTE application (0270).
+ * `rouge` dès qu'une alerte ou une erreur est présente — y compris une erreur
+ * de l'étape entière, qui vaut pour toutes les applications. `null` quand le
+ * run ne la connaît pas (0270 absente, ou application jamais requalifiée).
+ */
+export function derniereRequalifApplication(
+  run: RunTiersApplications | null | undefined,
+  slug: string,
+): (LigneRunTiersApplication & { jour: string; rouge: boolean }) | null {
+  if (!run) return null;
+  const ligne = lignesRun(run).find((l) => l.slug === slug);
+  if (!ligne) {
+    if (!run.erreur) return null;
+    return {
+      slug,
+      at: run.at ?? null,
+      examines: 0,
+      requalifies: 0,
+      alerte: null,
+      erreur: run.erreur,
+      interrompu: false,
+      jour: run.jour,
+      rouge: true,
+    };
+  }
+  return {
+    ...ligne,
+    jour: run.jour,
+    rouge: ligne.alerte !== null || ligne.erreur !== null || Boolean(run.erreur),
+  };
 }

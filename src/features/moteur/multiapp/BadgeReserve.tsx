@@ -25,8 +25,10 @@ export interface MesureReserve {
  * Multi-app : `application` préfixe le badge du nom de l'application (une
  * réserve par application servie) ; `attenue` grise celles qui ne sont pas
  * l'application du sélecteur, pour que l'œil tombe d'abord sur celle qu'on
- * pilote. Les passages restants sont PARTAGÉS (tierlist commune) : les
- * réserves de deux applications sur un même label se recouvrent.
+ * pilote. Depuis 0270 (tiers par application), les passages restants sont
+ * PROPRES à l'application (Sophia : son budget `contenus.*` ; autres : celui de
+ * `contenu_application_tier_etat`) : les réserves de deux applications sur un
+ * même label ne se recouvrent plus. Avant 0270, elles restent partagées.
  */
 export function BadgeReserve({
   reserve,

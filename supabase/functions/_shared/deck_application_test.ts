@@ -9,8 +9,14 @@
 
 import { assert, assertEquals, assertRejects, assertStringIncludes } from "jsr:@std/assert@1";
 
-import { assurerDeckApplication, construireDeckPlace, motifBasePolluee } from "./deck_application.ts";
+import {
+  assurerDeckApplication,
+  construireDeckPlace,
+  motifBasePolluee,
+  motifConcurrenceRefusee,
+} from "./deck_application.ts";
 import { oublierSondeMultiApp } from "./applications_moteur.ts";
+import { motifConcurrentApplication } from "./concurrents.ts";
 import { ID_SOPHIA, type ApplicationMoteur } from "./multi_app.ts";
 import type { SlideLangue } from "./import_contenu.ts";
 
@@ -216,9 +222,7 @@ function monde(surcharge: Partial<Record<string, Ligne[]>> = {}): Record<string,
     contenu_langue_decks: [],
     prompts: [{ cle: "placement_unswipe", contenu: "Prompt maître Unswipe." }],
     contenu_labels: [{ contenu_id: "c1", label_id: "l1", labels: { id: "l1", slug: "clean-girl", nom: "Clean Girl" } }],
-    label_applications: [
-      { label_id: "l1", application_id: UNSWIPE.id, angle: "reprends le contrôle de ton temps" },
-    ],
+    label_applications: [{ label_id: "l1", application_id: UNSWIPE.id }],
     ...surcharge,
   };
 }
@@ -394,10 +398,11 @@ Deno.test("cuisson en langue cible : base traduite dans slides_base, deck placé
   assertEquals(fr.slides, BASE_FR);
   assertEquals(fr.slides_base, BASE_FR);
 
-  // Une traduction, un placement — et l'angle du label est dans le prompt.
+  // Une traduction, un placement — sans angle de label, sans slide imposée.
   assertEquals(prompts.length, 2);
   assertStringIncludes(prompts[1], "Prompt maître Unswipe.");
-  assertStringIncludes(prompts[1], "- Clean Girl : reprends le contrôle de ton temps");
+  assert(!prompts[1].includes("Angle à donner"));
+  assert(!prompts[1].includes("appli concurrente"));
   assert(!prompts[1].includes("Prompt Sophia"));
 
   const cache = tables.contenu_langue_decks[0];
@@ -410,7 +415,7 @@ Deno.test("cuisson en langue cible : base traduite dans slides_base, deck placé
     variants: ["3. die Unswipe-App hilft mir", "3. Unswipe hilft"],
     bestIndex: 0,
     chosenPosition: 4,
-    angles: [{ label: "Clean Girl", angle: "reprends le contrôle de ton temps" }],
+    positionImposee: undefined,
     prompt_cle: "placement_unswipe",
   });
   aucuneEcritureDeSlides(ecritures);
@@ -425,6 +430,229 @@ Deno.test("cuisson en langue cible : base traduite dans slides_base, deck placé
   assertEquals(cuitPremier, true);
   assertEquals(second.resultat, sansCuit);
   assertEquals(second.prompts.length, 0);
+});
+
+/** 8 slides, « Opal » (concurrent d'Unswipe) en slide 3 seulement. */
+const BASE_OPAL = [
+  slide(1, "7 habitudes pour arrêter de scroller"),
+  slide(2, "1. téléphone hors de la chambre"),
+  slide(3, "2. j'ai installé Opal pour bloquer TikTok"),
+  slide(4, "3. notifications coupées"),
+  slide(5, "4. lecture avant de dormir"),
+  slide(6, "5. marche sans écouteurs."),
+  slide(7, "6. carnet du soir"),
+  slide(8, "7. lumière du matin"),
+];
+
+Deno.test("concurrent Unswipe en slide 3 sur 8 : position imposée 3, deck final sans « Opal »", async () => {
+  oublierSondeMultiApp();
+  const ecritures: Ecriture[] = [];
+  const tables = monde({
+    contenu_langues: [{
+      id: "cl-fr",
+      contenu_id: "c1",
+      langue: "fr",
+      slides: BASE_OPAL,
+      slides_base: null,
+      hashtags: "#fr1 #fr2 #fr3",
+    }],
+  });
+  const { resultat, prompts } = await avecGemini(() =>
+    assurerDeckApplication(fauxClient(tables, ecritures), "c1", "fr", UNSWIPE)
+  );
+
+  assertEquals(resultat.statut, "pret");
+  if (resultat.statut !== "pret") return;
+  // Le modèle répond 4 : la slide concurrente imposée l'emporte.
+  assertEquals(resultat.slides.filter((s) => s.position_sophia).map((s) => s.position), [3]);
+  assertEquals(resultat.slides[2].texte_overlay, "3. die Unswipe-App hilft mir");
+  assertEquals(resultat.slides[5].texte_overlay, "5. marche sans écouteurs.");
+  for (const s of resultat.slides) assert(!/opal/i.test(s.texte_overlay ?? ""), s.texte_overlay ?? "");
+
+  // Le modèle voit la slide concurrente telle quelle, pour la remplacer.
+  assertEquals(prompts.length, 1);
+  assertStringIncludes(prompts[0], "La slide 3 cite une appli concurrente");
+  assertStringIncludes(prompts[0], `Slide 3 : "2. j'ai installé Opal pour bloquer TikTok"`);
+  assertStringIncludes(prompts[0], `Slide 6 : "5. marche sans écouteurs."`);
+
+  const cache = tables.contenu_langue_decks[0];
+  assertEquals(cache.statut, "pret");
+  assertEquals((cache.placement as { positionImposee?: number }).positionImposee, 3);
+  assertEquals((cache.placement as { chosenPosition: number }).chosenPosition, 3);
+  // La base source (et le deck Sophia) ne sont pas touchés.
+  assertEquals(tables.contenu_langues[0].slides, BASE_OPAL);
+  aucuneEcritureDeSlides(ecritures);
+
+  // Cache : un deck propre est resservi tel quel.
+  oublierSondeMultiApp();
+  const second = await avecGemini(() =>
+    assurerDeckApplication(fauxClient(tables, ecritures), "c1", "fr", UNSWIPE)
+  );
+  assertEquals(second.prompts.length, 0);
+  assertEquals(second.resultat.statut, "pret");
+});
+
+Deno.test("concurrent perdu par la traduction : position lue sur la base source", async () => {
+  oublierSondeMultiApp();
+  const ecritures: Ecriture[] = [];
+  // La traduction a perdu le nom de la marque partout.
+  const baseDe = BASE_OPAL.map((s) =>
+    slide(s.position, `[de] ${(s.texte_overlay ?? "").replace(/Opal/g, "eine App")}`)
+  );
+  const tables = monde({
+    contenu_langues: [
+      { id: "cl-fr", contenu_id: "c1", langue: "fr", slides: BASE_OPAL, slides_base: null, hashtags: "#fr" },
+      { id: "cl-de", contenu_id: "c1", langue: "de", slides: [], slides_base: baseDe, hashtags: "#de" },
+    ],
+  });
+  const { resultat, prompts } = await avecGemini(() =>
+    assurerDeckApplication(fauxClient(tables, ecritures), "c1", "de", UNSWIPE)
+  );
+  assertEquals(resultat.statut, "pret");
+  if (resultat.statut !== "pret") return;
+  assertEquals(prompts.length, 1, "slides_base allemande déjà là : pas de traduction");
+  assertStringIncludes(prompts[0], "La slide 3 cite une appli concurrente");
+  assertEquals(resultat.slides.filter((s) => s.position_sophia).map((s) => s.position), [3]);
+  for (const s of resultat.slides) assert(!/opal/i.test(s.texte_overlay ?? ""), s.texte_overlay ?? "");
+  aucuneEcritureDeSlides(ecritures);
+});
+
+/**
+ * Le cas du stock (contenu f20f0b64, EN) : la slide 4 finit par « (i use
+ * unscroll) » coupé sur deux lignes, la slide 5 porte la carte App Store
+ * d'Unscroll incrustée. Nettoyée ligne par ligne, la slide 5 partait en
+ * « so instead of just scrolling / honestly cured my brain rot / content worth
+ * your time / Open ».
+ */
+const BASE_DEUX_CONCURRENTES = [
+  slide(1, "things that fixed my attention span"),
+  slide(2, "1. phone out of the bedroom"),
+  slide(3, "2. no notifications"),
+  slide(4, "3. i swapped tiktok for articles (i use\nunscroll)"),
+  slide(
+    5,
+    "so instead of just scrolling\nyou're finally reading, using unscroll has\nhonestly cured my brain rot\n\n" +
+      "unscroll: the curated internet\ncontent worth your time\nOpen",
+  ),
+  slide(6, "4. morning walks"),
+];
+
+/** Une ligne source anglaise, sans hashtags, pour `base`. */
+function mondeEn(base: SlideLangue[]) {
+  return monde({
+    contenus: [{ id: "c1", titre: "#focus", langue_source: "en", compte_reference_id: null, structure_slides: [] }],
+    contenu_langues: [{ id: "cl-en", contenu_id: "c1", langue: "en", slides: base, slides_base: null, hashtags: null }],
+  });
+}
+
+Deno.test("deux slides concurrentes (texte d'OCR) : inéligible, en cache, sans aucun appel modèle", async () => {
+  for (const langue of ["en", "de"]) {
+    oublierSondeMultiApp();
+    const ecritures: Ecriture[] = [];
+    const tables = mondeEn(BASE_DEUX_CONCURRENTES);
+    const { resultat, prompts } = await avecGemini(() =>
+      assurerDeckApplication(fauxClient(tables, ecritures), "c1", langue, UNSWIPE)
+    );
+    assertEquals(resultat, {
+      statut: "ineligible",
+      raison: "plusieurs slides citent un concurrent de l'application",
+      cuit: true,
+    });
+    assertEquals(prompts.length, 0, "refus lu sur la base source : ni traduction ni placement");
+    const cache = tables.contenu_langue_decks;
+    assertEquals(cache.length, 1);
+    assertEquals(cache[0].statut, "ineligible");
+    aucuneEcritureDeSlides(ecritures);
+  }
+});
+
+Deno.test("couverture qui cite un concurrent : inéligible (elle partait vide, sans accroche)", async () => {
+  oublierSondeMultiApp();
+  const ecritures: Ecriture[] = [];
+  const base = [
+    slide(1, "how unscroll changed my screen time"),
+    slide(2, "1. phone out of the bedroom"),
+    slide(3, "2. no notifications"),
+    slide(4, "3. morning walks"),
+  ];
+  const { resultat, prompts } = await avecGemini(() =>
+    assurerDeckApplication(fauxClient(mondeEn(base), ecritures), "c1", "en", UNSWIPE)
+  );
+  assertEquals(resultat, {
+    statut: "ineligible",
+    raison: "couverture qui cite un concurrent de l'application",
+    cuit: true,
+  });
+  assertEquals(prompts.length, 0);
+});
+
+Deno.test("slide concurrente seule à porter du texte : inéligible (le deck ne serait que la pub)", async () => {
+  oublierSondeMultiApp();
+  const ecritures: Ecriture[] = [];
+  const base = [slide(1, ""), slide(2, ""), slide(3, "i use opal")];
+  const { resultat, prompts } = await avecGemini(() =>
+    assurerDeckApplication(fauxClient(mondeEn(base), ecritures), "c1", "en", UNSWIPE)
+  );
+  assertEquals(resultat, { statut: "ineligible", raison: "aucun texte hors de la slide concurrente", cuit: true });
+  assertEquals(prompts.length, 0);
+});
+
+Deno.test("traduction qui fait apparaître un second concurrent : inéligible, base de la langue en cause", async () => {
+  oublierSondeMultiApp();
+  const ecritures: Ecriture[] = [];
+  // La base allemande déjà traduite nomme « die App Forest » en slide 4.
+  const baseDe = BASE_OPAL.map((s) =>
+    slide(s.position, s.position === 4 ? "3. die App Forest hilft" : `[de] ${s.texte_overlay}`)
+  );
+  const tables = monde({
+    contenu_langues: [
+      { id: "cl-fr", contenu_id: "c1", langue: "fr", slides: BASE_OPAL, slides_base: null, hashtags: "#fr" },
+      { id: "cl-de", contenu_id: "c1", langue: "de", slides: [], slides_base: baseDe, hashtags: "#de" },
+    ],
+  });
+  const { resultat, prompts } = await avecGemini(() =>
+    assurerDeckApplication(fauxClient(tables, ecritures), "c1", "de", UNSWIPE)
+  );
+  assertEquals(resultat, {
+    statut: "ineligible",
+    raison: "base de : plusieurs slides citent un concurrent de l'application",
+    cuit: true,
+  });
+  assertEquals(prompts.length, 0);
+  aucuneEcritureDeSlides(ecritures);
+});
+
+Deno.test("motifConcurrenceRefusee : une seule slide concurrente, hors couverture, avec du texte ailleurs", () => {
+  const motif = motifConcurrentApplication("unswipe");
+  assertEquals(motifConcurrenceRefusee(BASE_OPAL, 3, motif), null);
+  assertEquals(motifConcurrenceRefusee(BASE_FR, undefined, motif), null, "sans concurrent : rien à refuser");
+  assertEquals(
+    motifConcurrenceRefusee(BASE_DEUX_CONCURRENTES, 4, motif),
+    "plusieurs slides citent un concurrent de l'application",
+  );
+  // Le motif de Sophia ne voit pas Opal : la règle est celle de l'application.
+  assertEquals(motifConcurrenceRefusee(BASE_DEUX_CONCURRENTES, undefined, motifConcurrentApplication("sophia")), null);
+});
+
+Deno.test("cache prêt qui cite un concurrent d'Unswipe : recuit", async () => {
+  oublierSondeMultiApp();
+  const ecritures: Ecriture[] = [];
+  const tables = monde({
+    contenu_langue_decks: [{
+      id: "d1",
+      contenu_langue_id: "cl-fr",
+      variante: "unswipe",
+      statut: "pret",
+      slides: [...BASE_FR.slice(0, 2), slide(3, "2. the forest app"), slide(4, "3. l'appli Unswipe m'aide", true)],
+      updated_at: new Date().toISOString(),
+    }],
+  });
+  const { resultat, prompts } = await avecGemini(() =>
+    assurerDeckApplication(fauxClient(tables, ecritures), "c1", "fr", UNSWIPE)
+  );
+  assertEquals(resultat.statut, "pret");
+  assertEquals(prompts.length, 1, "recuit : un placement");
+  aucuneEcritureDeSlides(ecritures);
 });
 
 Deno.test("course à la création de la ligne langue : on relit au lieu d'échouer", async () => {

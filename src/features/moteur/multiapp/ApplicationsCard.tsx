@@ -11,10 +11,13 @@ import { useAuth } from "@/features/auth/AuthContext";
 import { lirePrompt } from "@/features/moteur/api";
 import {
   lireEtatBackfillPertinence,
+  lireTiersApplicationsDernierRun,
   majApplication,
   piloterBackfillPertinence,
+  sonderTiersApplication,
   type ApplicationMulti,
   type EtatBackfillPertinence,
+  type RunTiersApplications,
 } from "@/features/moteur/apiMultiApp";
 import { nomApplication } from "@/features/moteur/applications";
 import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
@@ -22,7 +25,9 @@ import { ID_SOPHIA } from "@/features/moteur/multiApp";
 
 import {
   avancementBackfill,
+  CLE_RUN_TIERS_APPLICATIONS,
   clesPromptsApplication,
+  derniereRequalifApplication,
   estErreurSchemaAbsent,
   langueCiblee,
   languesApresBascule,
@@ -108,7 +113,43 @@ function BackfillPertinence({ application }: { application: ApplicationMulti }) 
   );
 }
 
-function LigneApplication({ application }: { application: ApplicationMulti }) {
+/**
+ * Dernière requalification de l'application (tier PAR APPLICATION, 0270), lue
+ * dans `reglages.tierlist_applications_dernier_run`. En rouge sur une alerte
+ * ou une erreur. Rien tant que le run ne la connaît pas.
+ */
+function DerniereRequalif({
+  application,
+  run,
+}: {
+  application: ApplicationMulti;
+  run: RunTiersApplications | null | undefined;
+}) {
+  const { t } = useTranslation();
+  const ligne = derniereRequalifApplication(run, application.slug);
+  if (!ligne) return null;
+  return (
+    <p className={`text-[11px] ${ligne.rouge ? "text-destructive" : "text-muted-foreground"}`}>
+      {t("multiApp.applications.derniereRequalif", {
+        nom: nomApplication(application),
+        jour: ligne.jour,
+        examines: ligne.examines,
+        requalifies: ligne.requalifies,
+      })}
+      {ligne.interrompu ? ` · ${t("minuit.tiersApplications.interrompue")}` : ""}
+      {ligne.erreur ? ` · ${t("minuit.tiersApplications.erreur", { message: ligne.erreur })}` : ""}
+      {ligne.alerte ? ` · ${ligne.alerte}` : ""}
+    </p>
+  );
+}
+
+function LigneApplication({
+  application,
+  run,
+}: {
+  application: ApplicationMulti;
+  run?: RunTiersApplications | null;
+}) {
   const { t } = useTranslation();
   const qc = useQueryClient();
   const sophia = application.id === ID_SOPHIA;
@@ -129,6 +170,13 @@ function LigneApplication({ application }: { application: ApplicationMulti }) {
   // enregistrer est relu frais.
   const activer = useMutation({
     mutationFn: async () => {
+      // Tiers par application (0270) d'abord : sans elle, le moteur ne sert
+      // aucune autre application que Sophia. Une panne de la sonde lève (pas
+      // d'activation sur une lecture ratée).
+      if ((await sonderTiersApplication()) === "absent") {
+        setBlocage(t("multiApp.applications.migration0270", { nom: nomApplication(application) }));
+        return;
+      }
       const cles = clesPromptsApplication(application.slug);
       const textes = await Promise.all(
         cles.map((cle) => qc.fetchQuery({ queryKey: ["prompt", cle], queryFn: () => lirePrompt(cle), staleTime: 0 })),
@@ -239,6 +287,7 @@ function LigneApplication({ application }: { application: ApplicationMulti }) {
       </div>
 
       {!sophia && <BackfillPertinence application={application} />}
+      {!sophia && <DerniereRequalif application={application} run={run} />}
 
       {blocage && <p className="text-xs text-destructive">{blocage}</p>}
       {erreur && (
@@ -260,6 +309,13 @@ export function ApplicationsCard() {
   const { t } = useTranslation();
   const { user } = useAuth();
   const apps = useQuery(optionsRequeteApplications(user?.id ?? null));
+  // Trace de la tierlist par application (0270) : illisible → rien d'affiché.
+  const run = useQuery({
+    queryKey: CLE_RUN_TIERS_APPLICATIONS,
+    queryFn: lireTiersApplicationsDernierRun,
+    enabled: Boolean(user?.id),
+    retry: false,
+  });
 
   return (
     <Card>
@@ -271,7 +327,7 @@ export function ApplicationsCard() {
         {apps.isPending && <p className="text-sm text-muted-foreground">{t("common.loading")}</p>}
         {apps.isError && <p className="text-sm text-destructive">{messageErreur(apps.error)}</p>}
         {(apps.data ?? []).map((a) => (
-          <LigneApplication key={a.id} application={a} />
+          <LigneApplication key={a.id} application={a} run={run.data} />
         ))}
         <p className="text-[11px] text-muted-foreground">{t("multiApp.applications.creationParMigration")}</p>
       </CardContent>

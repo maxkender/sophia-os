@@ -7,6 +7,7 @@ import {
   forcerImportElo,
   importerCompteReference,
   importerLien,
+  lirePisteSource,
   lireScoring,
   listerUrlsCompteReference,
   MAX_TENTATIVES_IMPORT,
@@ -358,6 +359,8 @@ async function runWorker(
         scoreRelevance,
         lireScoring: () => lireScoring(supabase),
         noteImport: eloParLangue,
+        // Même note qu'à l'étape 4 : piste du compte source comprise.
+        lirePisteSource: (id) => lirePisteSource(supabase, id),
       }).catch((error) => {
         console.warn(`[backfill pertinence] ${messageErreur(error)}`);
         return null;

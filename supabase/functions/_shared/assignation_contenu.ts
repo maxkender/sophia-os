@@ -6,8 +6,8 @@ import {
   APPLICATION_SOPHIA_SECOURS,
   chargerApplicationsMoteur,
   chargerLiensLabels,
+  erreurSchemaAbsent,
   type EtatSchemaMultiApp,
-  schemaMultiAppPretSinonSophia,
   sonderSchemaMultiApp,
 } from "./applications_moteur.ts";
 import {
@@ -22,8 +22,10 @@ import {
   FENETRE_REPARTITION_DEFAUT,
   ID_SOPHIA,
   SLUG_SOPHIA,
+  applicationsDuLabel,
   applicationsEligiblesCompte,
   choisirApplicationCreneau,
+  estLabelSystemeSlug,
   labelsParApplication,
   normaliserParts,
   partsEffectives,
@@ -45,6 +47,11 @@ import {
   type RappelsResultat,
   type Tier,
 } from "./tierlist.ts";
+import {
+  lireEtatsTierApplication,
+  sonderSchemaTiersApplication,
+  TABLE_TIERS_APPLICATION,
+} from "./tiers_application.ts";
 import {
   appliquerFaceSwapUgcPost,
   chargerPersonaUgc,
@@ -230,7 +237,11 @@ export interface MemoAssignation {
   labels: Map<string, Promise<string[]>>;
   /** clé labels+ugc → contenus prêts (hors règles d'application). */
   pool: Map<string, Promise<ContenuCandidat[]>>;
-  /** « schema » → état de la migration 0256 (une sonde par run). */
+  /**
+   * « schema » → état de la migration 0256 (une sonde par run) ; « tiers0270 »
+   * → état de la migration 0270 (tiers par application), sondée seulement pour
+   * un compte qui demande une autre application que Sophia.
+   */
   schema: Map<string, Promise<EtatSchemaMultiApp>>;
   /** « applications » → applications du moteur (table minuscule). */
   applications: Map<string, Promise<ApplicationMoteur[]>>;
@@ -360,7 +371,8 @@ export interface AssignationCompteDetail {
    * Compte qu'aucun repli ne peut servir (ses labels ne servent pas Sophia et
    * son application est inactive, hors langue ou à sec). Le drain l'écarte de
    * la suite de la chaîne : sinon, resté sous quota sans erreur, il reviendrait
-   * en tête de chaque lot et affamerait le reste de la flotte.
+   * en tête de chaque lot et affamerait le reste de la flotte. Pas posé quand
+   * seul le budget de cuisson du lot a manqué : un lot suivant le reprend.
    */
   nonServable?: boolean;
 }
@@ -670,6 +682,42 @@ export async function assignerCompteJour(
    * en cours de run, et chaque essai de deck peut coûter un appel modèle.
    */
   const appsRepliees = new Map<string, MotifRepli>();
+  /**
+   * Application → dernière raison de deck refusé ou raté (deck.raison). La
+   * raison d'un compte non servable la cite : « deck_echec » couvre aussi bien
+   * un prompt manquant qu'un 429 de traduction ou une panne réseau.
+   */
+  const detailsRepli = new Map<string, string>();
+
+  // Tiers PAR APPLICATION (0270). Une autre application que Sophia tire dans
+  // SON budget (`contenu_application_tier_etat`), jamais dans celui de Sophia.
+  // Le code part au merge, 0270 se passe à la main : on sonde, une fois par
+  // lot, et SEULEMENT pour un compte qui peut demander une autre application —
+  // un compte 100 % Sophia (toute la flotte aujourd'hui) ne passe jamais ici.
+  // Sonde AVANT la boucle, donc avant toute création de passage :
+  //   - illisible : le compte lève et sera rejoué (pas de nonServable, pas de
+  //     baisse de quota) — même règle que la sonde 0256 ;
+  //   - absente : aucune autre application n'est servie, ses créneaux partent
+  //     sur Sophia (`reserve_vide`, raison citant 0270).
+  if (repartition.multi && repartition.eligibles.some((a) => a.id !== ID_SOPHIA)) {
+    const sondeTiers = memoiser(memo.schema, "tiers0270", () => sonderSchemaTiersApplication(supabase));
+    const etatTiers = await sondeTiers;
+    if (etatTiers === "illisible") {
+      // Comme « schema » : une lecture ratée n'est pas un état, le compte
+      // suivant du lot resonde.
+      if (memo.schema.get("tiers0270") === sondeTiers) memo.schema.delete("tiers0270");
+      throw new Error("[multi-app] sonde 0270 (tiers par application) illisible — compte à rejouer");
+    }
+    if (etatTiers === "absent") {
+      for (const app of repartition.eligibles) {
+        if (app.id === ID_SOPHIA) continue;
+        appsRepliees.set(app.id, "reserve_vide");
+        detailsRepli.set(app.id, "tiers par application indisponibles (migration 0270 non appliquée)");
+      }
+      log("Tiers par application (0270) absents — aucune autre application servie, repli Sophia");
+    }
+  }
+
   /** Contenu IDs déjà pris / exclus cette session (choisirContenu filtre dessus). */
   const contenusSession: string[] = [...(o.exclureContenus ?? [])];
   const maxTentatives = manquants + 8;
@@ -688,19 +736,24 @@ export async function assignerCompteJour(
     app: ApplicationMoteur,
   ): Promise<
     | { choisi: Candidat; slides: SlideLangue[]; hashtags: string }
-    | { motif: MotifRepli }
+    | { motif: MotifRepli; detail?: string }
   > => {
     const labelsApp = repartition.parApp.get(app.id) ?? [];
     const cleEchecs = `${app.id}::${langue}`;
     let motif: MotifRepli = "reserve_vide";
+    /** Raison du dernier deck refusé ou raté de ce créneau. */
+    let detail: string | undefined;
     for (let essai = 0; essai < ESSAIS_DECK_APPLICATION; essai += 1) {
       if (o.echeance !== undefined && Date.now() > o.echeance) {
         log(`Budget de cuisson ${app.nom} du lot épuisé — repli Sophia`);
-        return { motif: essai === 0 ? "budget" : motif };
+        return essai === 0 ? { motif: "budget" } : { motif, detail };
       }
       if ((memo.echecsDeck.get(cleEchecs) ?? 0) >= ECHECS_DECK_PAR_LOT) {
         log(`Decks ${app.nom} ${langue} en échec répété dans ce lot — repli Sophia`);
-        return { motif: "deck_echec" };
+        return {
+          motif: "deck_echec",
+          detail: detail ?? `${ECHECS_DECK_PAR_LOT} cuissons ${app.nom} ${langue} ratées dans ce lot`,
+        };
       }
       const candidat = await choisirContenu(
         supabase,
@@ -716,16 +769,18 @@ export async function assignerCompteJour(
           exclureTestsHisto: true,
           regle: { application: app, langue },
           espacement: app.id,
+          // Budget et tier de CETTE application (0270), jamais ceux de Sophia.
+          tiersApplication: app.id,
         },
         memo,
       );
       if (!candidat) {
         log(`Réserve ${app.nom} vide pour ce compte`);
-        return { motif };
+        return { motif, detail };
       }
       contenusSession.push(candidat.contenuId);
       log(
-        `Contenu ${candidat.contenuId.slice(0, 8)} · ${candidat.tier}-tier` +
+        `Contenu ${candidat.contenuId.slice(0, 8)} · ${app.nom} ${candidat.tier}-tier` +
           `${candidat.repeche ? " (repêché de D)" : ` · ${candidat.restants} passage(s) restant(s)`}` +
           ` — deck ${app.nom} ${langue}…`,
       );
@@ -744,12 +799,14 @@ export async function assignerCompteJour(
       }
       if (deck.statut === "ineligible") {
         motif = "deck_ineligible";
+        detail = deck.raison;
         await noterDeckIneligible(memo, app, langue, candidat.contenuId);
       } else if (deck.statut === "echec" && deck.raison === RAISON_BUDGET) {
         log(`Budget de cuisson ${app.nom} du lot épuisé en cours de deck — repli Sophia`);
         return { motif: "budget" };
       } else {
         motif = "deck_echec";
+        detail = deck.statut === "pret" ? "deck vide" : deck.raison;
         // Seule une cuisson ratée compte comme panne systémique : un échec
         // relu en cache n'a rien coûté et ne dit rien des autres contenus.
         if (deck.cuit) {
@@ -762,7 +819,7 @@ export async function assignerCompteJour(
           `${"raison" in deck ? ` : ${deck.raison}` : ""} — contenu suivant`,
       );
     }
-    return { motif };
+    return { motif, detail };
   };
 
   let persona = null;
@@ -803,6 +860,7 @@ export async function assignerCompteJour(
       } else {
         repli = { visee: appCreneau, motif: servi.motif };
         appsRepliees.set(appCreneau.id, servi.motif);
+        if ("detail" in servi && servi.detail) detailsRepli.set(appCreneau.id, servi.detail);
         log(`Créneau ${appCreneau.nom} replié sur Sophia (${servi.motif})`);
       }
     }
@@ -944,18 +1002,28 @@ export async function assignerCompteJour(
     // il n'y a pas de pool Sophia à diagnostiquer, et surtout pas de quota à
     // baisser sur la foi d'une réserve d'une autre application — c'est un
     // réglage (application inactive, langue non ciblée, réserve à remplir),
-    // pas un pool mince.
-    const motifs = [...appsRepliees.entries()]
-      .map(([id, motif]) => `${repartition.eligibles.find((a) => a.id === id)?.nom ?? id} : ${motif}`)
-      .join(", ");
-    const diag =
-      `Aucun label de ce compte ne sert Sophia — repli impossible` +
-      `${motifs ? ` (${motifs})` : ""}. Vérifie les applications de ses labels et leur réserve.`;
+    // pas un pool mince. La raison dit LEQUEL : c'est elle que le journal de
+    // minuit garde et que le panneau affiche.
+    const diag = raisonCompteNonServable({
+      applications: repartition.applications,
+      parApp: repartition.parApp,
+      replis: appsRepliees,
+      details: detailsRepli,
+      langue,
+      ugc: ugcAi,
+    });
     log(diag);
+    // Toutes les applications tentées ont manqué de TEMPS (budget de cuisson
+    // du lot), pas de stock ni de deck : un lot suivant, budget neuf, peut le
+    // servir. Il reste donc dans la chaîne du drain au lieu d'en sortir jusqu'au
+    // rattrapage de 4 h — « non servable » est réservé à ce qu'aucun lot ne
+    // réglera (application éteinte, langue, réserve vide, deck refusé).
+    const parManqueDeTemps = appsRepliees.size > 0 &&
+      [...appsRepliees.values()].every((motif) => motif === "budget");
     return finir({
       ids: crees,
       raison: crees.length === 0 ? diag : `${crees.length}/${manquants} créé(s). ${diag}`,
-      nonServable: true,
+      ...(parManqueDeTemps ? {} : { nonServable: true }),
     });
   }
 
@@ -1072,7 +1140,9 @@ async function baisserQuotaSiBesoin(
  *
  * DEUX CHEMINS, et le premier est celui de toute la flotte au déploiement :
  *
- * - historique : schéma 0256 absent, OU parts effectives 100 % Sophia sans
+ * - historique : schéma 0256 absent (ou sonde illisible, une fois passé le
+ *   filet `verifierLabelsSophiaHorsSonde` : tous les labels du compte servent
+ *   Sophia), OU parts effectives 100 % Sophia sans
  *   application imposée. Aucune fenêtre lue, labels Sophia, pool Sophia, deck
  *   `assurerDeckPourLangue`, passage inséré SANS les colonnes nouvelles. Seule
  *   différence une fois 0256 passée : le pool Sophia écarte les contenus notés
@@ -1095,6 +1165,8 @@ interface Repartition {
   /** Chemin multi : fenêtre, application par créneau, colonnes nouvelles. */
   multi: boolean;
   sophia: ApplicationMoteur;
+  /** Toutes les applications du moteur (déjà chargées) : raison d'un compte non servable. */
+  applications: ApplicationMoteur[];
   /** Labels du compte qui servent Sophia — le pool et le diagnostic Sophia. */
   labelsSophia: string[];
   /** application_id → labels du compte qui la servent. */
@@ -1120,10 +1192,18 @@ async function preparerRepartition(
   },
   memo: MemoAssignation,
 ): Promise<Repartition> {
-  const etat = await memoiser(memo.schema, "schema", () => sonderSchemaMultiApp(supabase));
+  const sondeDuLot = memoiser(memo.schema, "schema", () => sonderSchemaMultiApp(supabase));
+  const etat = await sondeDuLot;
   if (etat === "illisible") {
+    // « Illisible » n'est pas un état du schéma, c'est une lecture ratée : on
+    // l'oublie du mémo, comme une promesse rejetée, pour que le compte suivant
+    // du lot resonde. Gardé, il valait pour les 8 comptes du lot : une seconde
+    // de panne en début de lot les envoyait tous sur le chemin dégradé, même
+    // la base revenue.
+    if (memo.schema.get("schema") === sondeDuLot) memo.schema.delete("schema");
     // Sonde illisible (réseau, 5xx). Un compte qui ne demande que Sophia garde
-    // le chemin d'avant : une panne passagère ne doit pas lui coûter sa nuit.
+    // le chemin d'avant, après le filet ci-dessous : une panne passagère ne
+    // doit pas lui coûter sa nuit.
     // Un compte qui demande une autre application échoue (il sera rejoué au
     // rattrapage) plutôt que de publier Sophia à la place, en silence.
     const parts = normaliserParts(args.partsBrutes);
@@ -1135,11 +1215,18 @@ async function preparerRepartition(
     }
   }
   if (etat !== "pret") {
-    // Avant 0256 : le code d'avant, labels compris (tous, tels que lus).
+    // Le chemin d'avant prend TOUS les labels du compte pour des labels Sophia.
+    // Un compte dont les labels ne servent que Unswipe n'a pas de répartition
+    // (la carte ne s'affiche pas pour lui, `parts` reste NULL) : sans ce filet,
+    // une panne de la sonde lui servait un deck Sophia.
+    await verifierLabelsSophiaHorsSonde(supabase, args.labelRefs);
+    // Avant 0256, ou tous les labels servent Sophia : le code d'avant, labels
+    // compris (tous, tels que lus).
     return {
       pret: false,
       multi: false,
       sophia: APPLICATION_SOPHIA_SECOURS,
+      applications: [APPLICATION_SOPHIA_SECOURS],
       labelsSophia: args.labelIds,
       parApp: new Map([[ID_SOPHIA, args.labelIds]]),
       eligibles: [APPLICATION_SOPHIA_SECOURS],
@@ -1189,6 +1276,7 @@ async function preparerRepartition(
     pret: true,
     multi,
     sophia,
+    applications,
     labelsSophia: parApp.get(ID_SOPHIA) ?? [],
     parApp,
     eligibles,
@@ -1196,6 +1284,70 @@ async function preparerRepartition(
     imposee,
     fenetre,
   };
+}
+
+/**
+ * Borne de la lecture du filet : une ligne par couple (label, application),
+ * donc au plus « labels du compte × applications » — quelques dizaines (9
+ * labels en base). Très loin du plafond de 1000, et déclarée pour le garde-fou
+ * de complétude.
+ */
+const LIMITE_LIENS_FILET = 500;
+
+/**
+ * FILET du chemin historique, quand la sonde n'a pas dit « prête ».
+ *
+ * Le chemin historique prend tous les labels du compte pour des labels Sophia.
+ * C'est juste pour un compte dont chaque label sert Sophia — et faux pour un
+ * compte dont un label ne sert que Unswipe : une panne de la base en début de
+ * lot (sonde illisible) lui donnait un slideshow avec la pub Sophia. On relit
+ * donc DIRECTEMENT `label_applications` pour les labels de ce compte, sans
+ * repasser par la sonde (c'est elle qui vient d'échouer) :
+ *
+ * - chaque label sert Sophia (aucune ligne, ou une ligne Sophia) → on rend la
+ *   main, chemin historique inchangé ;
+ * - un label ne sert pas Sophia → lève : le compte est rejoué, jamais servi en
+ *   Sophia à la place ;
+ * - lecture en échec : table absente (avant 0256) → chemin historique, c'est le
+ *   cas qu'il sert ; toute autre erreur → lève, à rejouer.
+ *
+ * Une seconde tentative après 500 ms, comme la sonde : un compte 100 % Sophia
+ * ne doit pas perdre sa nuit sur un hoquet. Les labels système (hook,
+ * ugc-ai-video) sont ignorés, comme sur le chemin « prêt ».
+ */
+async function verifierLabelsSophiaHorsSonde(
+  supabase: Supabase,
+  labelRefs: LabelRef[],
+): Promise<void> {
+  const ids = [...new Set(labelRefs.map((l) => l.id).filter(Boolean))];
+  if (ids.length === 0) return;
+  const lire = () =>
+    supabase
+      .from("label_applications")
+      .select("label_id, application_id")
+      .in("label_id", ids)
+      .limit(LIMITE_LIENS_FILET);
+  let reponse = await lire();
+  if (reponse.error && !erreurSchemaAbsent(reponse.error, reponse.status)) {
+    await new Promise((ok) => setTimeout(ok, 500));
+    reponse = await lire();
+  }
+  const { data, error, status } = reponse;
+  if (error || status === 404) {
+    if (erreurSchemaAbsent(error, status)) return;
+    throw new Error(
+      `[multi-app] applications des labels illisibles (${error?.message || `HTTP ${status}`}) — à rejouer`,
+    );
+  }
+  const liens = (data ?? []) as LienLabelApplication[];
+  const horsSophia = labelRefs.some(
+    (l) => !estLabelSystemeSlug(l.slug) && !applicationsDuLabel(l.id, liens).includes(ID_SOPHIA),
+  );
+  if (horsSophia) {
+    throw new Error(
+      "[multi-app] schéma illisible pour un compte dont un label ne sert pas Sophia — à rejouer",
+    );
+  }
 }
 
 /**
@@ -1258,6 +1410,89 @@ function colonnesApplicationPassage(
     colonnes.repli_motif = repli.motif;
   }
   return colonnes;
+}
+
+/** Longueur gardée de la raison d'un deck dans la phrase du journal. */
+const LONGUEUR_DETAIL_REPLI = 160;
+
+/**
+ * Ce que veut dire le repli d'une application éligible, en clair. `detail` :
+ * la raison du dernier deck refusé ou raté (`deck.raison`), citée telle quelle
+ * — « deck_echec » couvre un prompt manquant comme un 429 de traduction ou une
+ * panne réseau, et « deck_ineligible » une base polluée comme une seconde
+ * slide concurrente : en deviner la cause enverrait chercher au mauvais endroit.
+ */
+function phraseMotifRepli(nom: string, motif: MotifRepli | undefined, detail?: string): string {
+  const brut = (detail ?? "").replace(/\s+/g, " ").trim().replace(/[.;\s]+$/, "");
+  const cite = brut.length > LONGUEUR_DETAIL_REPLI
+    ? `${brut.slice(0, LONGUEUR_DETAIL_REPLI - 1)}…`
+    : brut;
+  switch (motif) {
+    case "reserve_vide":
+      // Le détail n'existe que pour une cause connue (tiers 0270 absents) ;
+      // sans lui, la phrase est celle d'avant.
+      return `réserve ${nom} vide pour ses labels${cite ? ` (${cite})` : ""}`;
+    case "deck_ineligible":
+      return `aucun deck ${nom} utilisable${cite ? ` (dernier refus : ${cite})` : ""}`;
+    case "deck_echec":
+      return `decks ${nom} en échec${cite ? ` (dernier : ${cite})` : ""}`;
+    case "budget":
+      return `budget de cuisson des decks ${nom} dépassé pour ce lot`;
+    default:
+      return `${nom} n'a pas pu servir tous les créneaux`;
+  }
+}
+
+/**
+ * Pourquoi un compte dont AUCUN label ne sert Sophia n'a rien (ou pas assez)
+ * publié, en français simple. Une cause par application servie par ses labels :
+ * ce qui la rend inéligible (désactivée, langue du compte non ciblée, compte
+ * UGC), sinon le motif de son repli (réserve vide, deck en échec, budget).
+ *
+ * Avant, la raison disait seulement « aucun label ne sert Sophia — repli
+ * impossible » : vrai, mais muet sur ce qu'il fallait régler, et c'est cette
+ * phrase que le journal de minuit garde et que le panneau affiche. Pure, sur ce
+ * que la répartition a déjà chargé : aucune requête.
+ */
+export function raisonCompteNonServable(args: {
+  applications: readonly ApplicationMoteur[];
+  /** application_id → labels du compte qui la servent. */
+  parApp: ReadonlyMap<string, readonly string[]>;
+  /** application_id → motif du repli, pour les applications tentées. */
+  replis: ReadonlyMap<string, MotifRepli>;
+  /** application_id → raison du dernier deck refusé ou raté, citée dans la phrase. */
+  details?: ReadonlyMap<string, string>;
+  langue: string;
+  ugc: boolean;
+}): string {
+  const sansRepli = "Pas de repli Sophia : aucun label de ce compte ne sert Sophia.";
+  const servies = [...args.parApp.keys()].filter((id) => id !== ID_SOPHIA);
+  if (servies.length === 0) {
+    return `Aucun label de ce compte ne sert une application (labels système seulement). ${sansRepli}`;
+  }
+  const parId = new Map(args.applications.map((a) => [a.id, a]));
+  // Dans l'ordre des applications (Sophia, puis par date de création).
+  const ordre = [
+    ...args.applications.filter((a) => servies.includes(a.id)).map((a) => a.id),
+    ...servies.filter((id) => !parId.has(id)),
+  ];
+  const causes = ordre.map((id) => {
+    const app = parId.get(id);
+    if (!app) return `application ${id} introuvable`;
+    // Mêmes conditions, dans le même ordre, que `applicationsEligiblesCompte`.
+    const empeche: string[] = [];
+    if (!app.actif) empeche.push("est désactivée");
+    if (app.langues !== null && app.langues.length === 0) {
+      empeche.push("ne cible encore aucune langue (à cocher dans Pilotage → Applications)");
+    } else if (app.langues !== null && !app.langues.includes(args.langue)) {
+      empeche.push(`ne cible pas la langue de ce compte (${args.langue})`);
+    }
+    if (args.ugc) empeche.push("ne sert pas les comptes UGC (slideshows classiques uniquement)");
+    if (empeche.length > 0) return `${app.nom} ${empeche.join(" et ")}`;
+    return phraseMotifRepli(app.nom, args.replis.get(id), args.details?.get(id));
+  });
+  const noms = ordre.map((id) => parId.get(id)?.nom ?? id).join(" + ");
+  return `Compte 100 % ${noms} : ${causes.join(" ; ")}. ${sansRepli}`;
 }
 
 /** Écart en jours entre deux dates `YYYY-MM-DD` (valeur absolue). */
@@ -1900,6 +2135,13 @@ async function choisirContenu(
      * ECART_MIN_JOURS_AUTRE_APPLICATION jours du jour assigné.
      */
     espacement?: string | null;
+    /**
+     * Application NON-Sophia du créneau (0270) : l'état tierlist (tier, cycle,
+     * restants) et le repêchage D viennent de SES vues et de SA table, jamais
+     * de `contenu_tier_etat` ni de `contenus`. Absente (tous les appels
+     * Sophia) : lecture et repêchage d'avant, ligne pour ligne.
+     */
+    tiersApplication?: string | null;
   } = {},
   memo?: MemoAssignation,
 ): Promise<Candidat | null> {
@@ -1920,15 +2162,19 @@ async function choisirContenu(
   const meta = new Map(contenus.map((c) => [c.id, c]));
 
   // État tierlist : passages publiés / en vol / restants sur le cycle courant.
-  const etats = await lireParLots<TierEtatLigne>(
-    contenuIds,
-    "État tierlist",
-    (lot) =>
-      supabase
-        .from("contenu_tier_etat")
-        .select("contenu_id, tier, tier_cycle, passages_prevus, restants")
-        .in("contenu_id", lot),
-  );
+  // Autre application (0270) : SON état, sur ses seuls passages.
+  const tiersApplication = opts.tiersApplication ?? null;
+  const etats: TierEtatLigne[] = tiersApplication
+    ? await lireEtatsTierApplication(supabase, tiersApplication, contenuIds)
+    : await lireParLots<TierEtatLigne>(
+      contenuIds,
+      "État tierlist",
+      (lot) =>
+        supabase
+          .from("contenu_tier_etat")
+          .select("contenu_id, tier, tier_cycle, passages_prevus, restants")
+          .in("contenu_id", lot),
+    );
   const etatParContenu = new Map(etats.map((e) => [e.contenu_id, e]));
 
   // Historique passages de CE compte (hors posts test si demandé).
@@ -2006,6 +2252,17 @@ async function choisirContenu(
   // un passage. Le repêchage est par compte — inutile de réveiller un D que
   // personne ne peut poster (labels / application / UGC).
   if (ignorerTierlist) return null;
+  if (tiersApplication) {
+    return await repecherContenuDApplication(
+      supabase,
+      tiersApplication,
+      idsTirables,
+      etatParContenu,
+      dejaCreesCetteSession,
+      reglages.repechagePassages,
+      construire,
+    );
+  }
   return await repecherContenuD(
     supabase,
     idsTirables,
@@ -2022,6 +2279,8 @@ interface TierEtatLigne {
   tier_cycle: number;
   passages_prevus: number;
   restants: number;
+  /** Vues par application (0270) seulement : une ligne existe dans la table. */
+  materialise?: boolean;
 }
 
 /**
@@ -2067,6 +2326,61 @@ async function repecherContenuD(
       tier_cycle: Number(data.tier_cycle ?? 0),
       passages_prevus: passages,
       restants: passages,
+    };
+    etatParContenu.set(cid, etat);
+    return construire(cid, etat, true);
+  }
+  return null;
+}
+
+/**
+ * Repêchage D d'une application NON-Sophia (0270) : même règle que
+ * `repecherContenuD`, sur `contenu_tiers_application` et jamais sur `contenus`.
+ *
+ * Seule une ligne MATÉRIALISÉE à 0 passage dort : une ligne paresseuse
+ * éligible a toujours son tier d'entrée (C au moins), et une ligne non
+ * éligible n'est pas dans le pool. Le `eq("passages_prevus", 0)` rend
+ * l'opération atomique, comme côté Sophia.
+ */
+async function repecherContenuDApplication(
+  supabase: Supabase,
+  applicationId: string,
+  contenuIds: string[],
+  etatParContenu: Map<string, TierEtatLigne>,
+  dejaCreesCetteSession: string[],
+  passages: number,
+  construire: (cid: string, e: TierEtatLigne | undefined, repeche: boolean) => Candidat | null,
+): Promise<Candidat | null> {
+  const dormants = contenuIds.filter((cid) => {
+    if (dejaCreesCetteSession.includes(cid)) return false;
+    const e = etatParContenu.get(cid);
+    return e !== undefined && e.materialise === true && e.passages_prevus <= 0;
+  });
+  if (dormants.length === 0) return null;
+
+  // Ordre aléatoire : le repêchage ne doit pas toujours réveiller les mêmes.
+  for (let i = dormants.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [dormants[i], dormants[j]] = [dormants[j], dormants[i]];
+  }
+
+  for (const cid of dormants.slice(0, 10)) {
+    const { data, error } = await supabase
+      .from(TABLE_TIERS_APPLICATION)
+      .update({ passages_prevus: passages, updated_at: new Date().toISOString() })
+      .eq("contenu_id", cid)
+      .eq("application_id", applicationId)
+      .eq("passages_prevus", 0)
+      .select("tier, tier_cycle")
+      .maybeSingle();
+    if (error || !data) continue;
+    const etat: TierEtatLigne = {
+      contenu_id: cid,
+      tier: estTier(data.tier) ? (data.tier as Tier) : "D",
+      tier_cycle: Number(data.tier_cycle ?? 0),
+      passages_prevus: passages,
+      restants: passages,
+      materialise: true,
     };
     etatParContenu.set(cid, etat);
     return construire(cid, etat, true);
@@ -2253,6 +2567,13 @@ export async function assignerDrainLot(
       };
     }
   });
+  // Le verdict de la nuit, compte par compte (0267). Minuit passe par CE drain,
+  // pas par `assignerTousComptes` : sans cette ligne, le journal restait vide
+  // la nuit et le panneau retombait sur une raison reconstituée après coup,
+  // donc fausse. `journaliser` rattrape ses erreurs : jamais d'échec du lot ni
+  // de la chaîne pour une trace. Les lignes de `lot` viennent de
+  // `listerComptesSousQuota` (`select("*")`) : `posts_par_jour` y est.
+  await journaliser(supabase, jour, lot, resultats);
   return {
     resultats,
     restants: Math.max(0, eligibles.length - lot.length),
@@ -2355,7 +2676,15 @@ export async function assignerTousComptes(
     }
   });
 
-  await journaliser(supabase, jour, comptes, resultats);
+  // Le journal garde le VERDICT DU JOUR, celui que le panneau Minuit affiche.
+  // Une assignation TEST n'en est pas un (posts invisibles, hors quota) : rien
+  // n'est écrit. Une assignation FORCÉE (recharge posteur, révocation, post de
+  // plus) refait UN créneau : elle n'écrase pas le verdict de la nuit, elle ne
+  // l'écrit que s'il n'y en a pas encore. Une réassignation manuelle ordinaire,
+  // elle, le remplace : c'est elle qui explique l'état courant.
+  if (!o.test) {
+    await journaliser(supabase, jour, comptes, resultats, { garderExistant: Boolean(o.forcer) });
+  }
   return resultats;
 }
 
@@ -2368,7 +2697,9 @@ export async function assignerTousComptes(
  *
  * `upsert` et non `insert` : une réassignation manuelle dans la journée doit
  * remplacer le verdict de la nuit, pas en empiler un second. C'est le dernier
- * qui explique l'état courant.
+ * qui explique l'état courant. `garderExistant` (assignation forcée : un
+ * créneau refait, pas un verdict) : `ignoreDuplicates`, la ligne déjà écrite
+ * pour ce (compte, jour) reste telle quelle.
  */
 async function journaliser(
   supabase: Supabase,
@@ -2376,6 +2707,7 @@ async function journaliser(
   // deno-lint-ignore no-explicit-any
   comptes: any[],
   resultats: Array<{ compteId: string; crees: number; raison?: string; erreur?: string }>,
+  opts: { garderExistant?: boolean } = {},
 ): Promise<void> {
   if (resultats.length === 0) return;
   const quotaParCompte = new Map<string, number | null>(
@@ -2392,7 +2724,7 @@ async function journaliser(
         erreur: r.erreur ?? null,
         maj_at: new Date().toISOString(),
       })),
-      { onConflict: "compte_id,jour" },
+      { onConflict: "compte_id,jour", ignoreDuplicates: Boolean(opts.garderExistant) },
     );
     if (error) console.warn(`[journal assignation] ${error.message}`);
   } catch (e) {
@@ -2511,12 +2843,39 @@ export async function annulerAssignationTest(
 // ---------------------------------------------------------------------------
 
 /**
+ * Le compte sert-il encore l'application d'un rappel ?
+ *
+ * Un rappel recopie les slides de sa source, pub comprise. Si les labels du
+ * compte ont changé depuis (compte existant passé en « Unswipe seul »),
+ * rejouer la source publierait la pub d'une application qu'il ne sert plus :
+ * une pub Sophia sur un compte 100 % Unswipe.
+ *
+ * Sophia : servie si un de ses labels la sert, ou s'il n'a aucun label utile
+ * (aucun, ou des labels système seulement) — le rappel d'avant, inchangé.
+ * Autre application : il faut un label qui la serve. Pure.
+ */
+export function compteSertApplicationRappel(
+  labels: readonly LabelRef[],
+  liens: readonly LienLabelApplication[],
+  applicationId: string,
+): boolean {
+  const parApp = labelsParApplication(labels, liens);
+  if (applicationId === ID_SOPHIA) return parApp.size === 0 || parApp.has(ID_SOPHIA);
+  return parApp.has(applicationId);
+}
+
+/**
  * Programme les rappels J+7 des passages au-delà du seuil de vues (50k).
  *
  * Le rappel rejoue l'EXACT même post sur le MÊME compte, hors de toute
  * assignation classique : il ne consomme pas de passage du budget tierlist et ne
  * compte pas dans le `m` de la requalification. Il occupe en revanche un créneau
  * du quota du jour — posé avant l'assignation, il lui prend sa place.
+ *
+ * Multi-applications : pas de rappel sur un compte dont les labels ne servent
+ * plus l'application de la source (`compteSertApplicationRappel`). Le refus
+ * va dans `erreurs`, sans lever : la source reste candidate, et repassera si
+ * les labels reviennent.
  */
 export async function programmerRappelsJ7(
   supabase: Supabase,
@@ -2526,11 +2885,66 @@ export async function programmerRappelsJ7(
   // lecture ni écriture de la colonne, le rappel est celui d'avant (Sophia par
   // défaut). Sonde illisible : même repli (un rappel n'est pas une raison de
   // perdre l'étape ; au pire un rappel Unswipe serait compté Sophia).
-  const multiApp = await schemaMultiAppPretSinonSophia(supabase);
+  const etat = await sonderSchemaMultiApp(supabase);
+  const multiApp = etat === "pret";
+  // Labels → applications de chaque compte, lus une fois par compte et par run.
+  // Avant 0256 (« absent ») : rien à vérifier, aucun label ne sert autre chose
+  // que Sophia — le rappel d'avant, sans lecture de plus. Sonde illisible : on
+  // vérifie quand même (`chargerLiensLabels` resonde, et lève si la base ne
+  // répond toujours pas : le rappel est alors noté en erreur et repassera).
+  type ApplicationsDuCompte = { labels: LabelRef[]; liens: LienLabelApplication[] };
+  const applicationsDuCompte = new Map<string, Promise<ApplicationsDuCompte>>();
+  const lireApplicationsDuCompte = (compteId: string) =>
+    memoiser(applicationsDuCompte, compteId, async () => {
+      // Un compte porte au plus les 9 labels du dépôt : pas de pagination.
+      const { data, error } = await supabase
+        .from("compte_labels")
+        .select("label_id, labels(slug)")
+        .eq("compte_id", compteId);
+      if (error) throw new Error(`labels du compte : ${error.message}`);
+      type LabelLu = { slug?: string | null };
+      const labels: LabelRef[] = (data ?? []).map((l) => {
+        const brut = (l as { labels?: LabelLu | LabelLu[] | null }).labels;
+        const ref = Array.isArray(brut) ? brut[0] : brut;
+        return { id: l.label_id as string, slug: ref?.slug ?? null };
+      });
+      return { labels, liens: await chargerLiensLabels(supabase, labels.map((l) => l.id)) };
+    });
   return await programmerRappels(
     supabase,
     async ({ passageSource, jour }) => {
       const applicationId = multiApp ? passageSource.application_id : null;
+      if (etat !== "absent") {
+        const { labels, liens } = await lireApplicationsDuCompte(passageSource.compte_id);
+        if (!compteSertApplicationRappel(labels, liens, applicationId ?? ID_SOPHIA)) {
+          throw new Error(
+            `les labels du compte ne servent plus l'application de ce post` +
+              ` (${applicationId && applicationId !== ID_SOPHIA ? `application ${applicationId}` : "Sophia"})` +
+              ` — rappel non programmé, sa pub n'y a plus sa place`,
+          );
+        }
+      }
+      // Source d'une autre application : son placement doit être encore dans
+      // la réserve de l'application (une révocation met `eligible = false`).
+      // Le rappel reste hors budget ; on refuse seulement de rejouer un post
+      // dont le placement a été retiré. Refus noté dans les erreurs, sans
+      // lever plus haut : la source reste candidate. Sophia : inchangé.
+      if (applicationId && applicationId !== ID_SOPHIA) {
+        const { data: pertinence, error: errPertinence } = await supabase
+          .from("contenu_pertinences")
+          .select("eligible")
+          .eq("contenu_id", passageSource.contenu_id)
+          .eq("application_id", applicationId)
+          .maybeSingle();
+        if (errPertinence) {
+          throw new Error(`éligibilité illisible (${errPertinence.message}) — rappel reporté`);
+        }
+        if (!(pertinence as { eligible?: boolean } | null)?.eligible) {
+          throw new Error(
+            "placement retiré de la réserve de l'application — rappel non programmé",
+          );
+        }
+      }
       const slides = (passageSource.slides ?? []) as SlideLangue[];
       if (!Array.isArray(slides) || slides.length === 0) {
         throw new Error("Deck du passage source vide — rappel impossible");

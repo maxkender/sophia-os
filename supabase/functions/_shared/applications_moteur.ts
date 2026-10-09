@@ -41,15 +41,24 @@ type ErreurSonde = { code?: string; message?: string } | null;
  * `relationAbsente` de tierlist.ts). Un 500, un 502 ou une coupure réseau ne
  * disent rien du schéma : les prendre pour « 0256 absente » ferait publier en
  * Sophia des comptes 100 % Unswipe pendant 5 minutes.
+ *
+ * Le piège mesuré : quand la base ne répond plus, PostgREST rend 503 PGRST002
+ * « Could not query the database for the schema cache. Retrying. ». Le message
+ * parle du cache de schéma, pas d'une table absente — l'ancienne règle (« schema
+ * cache » quelque part dans le message) y lisait une absence. Désormais un
+ * statut ≥ 500 ou un code PGRST000–PGRST003 (connexion, cache de schéma
+ * indisponible) n'est JAMAIS une absence, et le message ne compte que s'il dit
+ * explicitement qu'une table ou une colonne n'existe pas.
  */
 export function erreurSchemaAbsent(erreur: ErreurSonde, statut?: number): boolean {
+  if (typeof statut === "number" && statut >= 500) return false;
   if (!erreur) return statut === 404;
   const code = String(erreur.code ?? "");
+  if (/^PGRST00[0-3]$/.test(code)) return false;
   if (["42P01", "PGRST205", "42703", "PGRST204"].includes(code)) return true;
   if (statut === 404) return true;
-  return /does not exist|could not find the table|schema cache/i.test(
-    String(erreur.message ?? ""),
-  );
+  return /relation .* does not exist|column .* does not exist|could not find the table|could not find the .* column/i
+    .test(String(erreur.message ?? ""));
 }
 
 async function lireSonde(
@@ -120,8 +129,10 @@ export async function schemaMultiAppPret(supabase: Supabase): Promise<boolean> {
 
 /**
  * Variante TOLÉRANTE : une sonde illisible vaut « pas prête », donc le chemin
- * Sophia d'avant. Pour les chemins où ce repli est sans risque (rappels d'un
- * passage, révocation) et où un échec coûterait plus qu'il ne protège.
+ * Sophia d'avant. Pour les chemins où ce repli est sans risque (recharge
+ * posteur, qui ne rejette rien) et où un échec coûterait plus qu'il ne protège.
+ * Pas pour une révocation admin : prise pour Sophia, elle rejetterait pour
+ * toute la flotte le slideshow d'un post d'une autre application.
  */
 export async function schemaMultiAppPretSinonSophia(supabase: Supabase): Promise<boolean> {
   return (await sonderSchemaMultiApp(supabase)) === "pret";
@@ -163,7 +174,7 @@ export async function chargerApplicationsMoteur(
   return apps;
 }
 
-/** Liens label → application (avec angle) pour ces labels. Erreur remontée. */
+/** Liens label → application pour ces labels. Erreur remontée. */
 export async function chargerLiensLabels(
   supabase: Supabase,
   labelIds: readonly string[],
@@ -174,12 +185,12 @@ export async function chargerLiensLabels(
   return await lireParLots<LienLabelApplication>(ids, "label_applications", (lot) =>
     supabase
       .from("label_applications")
-      .select("label_id, application_id, angle")
+      .select("label_id, application_id")
       .in("label_id", lot),
   );
 }
 
-/** id, slug, nom des labels (pour écarter les labels système, nommer les angles). */
+/** id, slug, nom des labels (pour écarter les labels système). */
 export async function chargerLabelsRefs(
   supabase: Supabase,
   labelIds: readonly string[],

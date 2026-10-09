@@ -135,7 +135,9 @@ export function bandesDeTirage<T extends CandidatTirage>(pool: T[]): T[][] {
   const bandes: T[][] = [[], [], [], [], [], []];
   for (const c of pool) {
     const bas = estTierPrioritaire(c.tier) ? 0 : 1;
-    const bande = bas * 2 + (c.dejaPoste ? 1 : 0);
+    const bande = c.posteRecemment
+      ? BANDES_AVANT_DERNIER_RECOURS + bas
+      : bas * 2 + (c.dejaPoste ? 1 : 0);
     bandes[bande].push(c);
   }
   // Dans la zone de dernier recours, la date tranche avant le hasard.

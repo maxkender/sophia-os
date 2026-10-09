@@ -2407,8 +2407,8 @@ async function repecherContenuD(
   // `bandesDeTirage` : c'était le dernier chemin par lequel un doublon
   // rapproché pouvait encore sortir. Il reste tirable, mais après les autres.
   const ordonnes = [
-    ...dormants.filter((cid) => estPosteRecemment(cid)),
     ...dormants.filter((cid) => !estPosteRecemment(cid)),
+    ...dormants.filter((cid) => estPosteRecemment(cid)),
   ];
 
   for (const cid of ordonnes.slice(0, 10)) {
@@ -2468,8 +2468,8 @@ async function repecherContenuDApplication(
   // Puis les fraîchement postés en queue, comme côté Sophia : le repêchage ne
   // passe pas par `bandesDeTirage`, il lui faut sa propre mise en queue.
   const ordonnes = [
-    ...dormants.filter((cid) => estPosteRecemment(cid)),
     ...dormants.filter((cid) => !estPosteRecemment(cid)),
+    ...dormants.filter((cid) => estPosteRecemment(cid)),
   ];
 
   for (const cid of ordonnes.slice(0, 10)) {

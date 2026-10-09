@@ -2774,3 +2774,104 @@ Deno.test("0271 — chargerAssignationReglages : défaut 14, valeur lue, bornes"
   // Et le réglage voisin n'a pas bougé au passage.
   assertEquals((await lire({ repechage_passages: 3 })).repechagePassages, 3);
 });
+
+Deno.test("0271 — repêchage Sophia : le dormant RÉCENT est tenté en dernier", async () => {
+  // La mise en queue à l'intérieur du repêchage. Sans elle, on pouvait
+  // réveiller le dormant que le compte vient de poster alors qu'un autre
+  // dormant, jamais vu, attendait : le repêchage ne passe pas par
+  // `bandesDeTirage` et a donc besoin de son propre ordre.
+  for (let essai = 0; essai < 6; essai += 1) {
+    await avecDecks(jamaisPret, async (appels) => {
+      const base = baseEssai({ n: 2 });
+      // Aucun contenu à `restants > 0` : le pool du jour est vide, on repêche.
+      base.contenu_tier_etat = [0, 1].map((i) => ({
+        contenu_id: idContenu(i),
+        tier: "D",
+        tier_cycle: 2,
+        passages_prevus: 0,
+        restants: 0,
+      }));
+      base.contenus = base.contenus.map((c) => ({
+        ...c,
+        tier: "D",
+        tier_cycle: 2,
+        passages_prevus: 0,
+      }));
+      // c00000 dort ET a été posté il y a 3 jours. c00001 dort, jamais posté.
+      base.passages.push({
+        id: "vu-recent",
+        compte_id: "k1",
+        contenu_id: idContenu(0),
+        date_publication_prevue: "2026-09-30",
+        created_at: "2026-09-30T01:00:00Z",
+        application_id: ID_SOPHIA,
+        post_id: "post-vu-recent",
+        posts: { est_test: false },
+      });
+      base.posts.push({ id: "post-vu-recent", compte_id: "k1", est_test: false });
+      const { client } = fauxMoteur(base);
+
+      const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+      assertEquals(detail.ids.length, 1, "le créneau est servi");
+      assertEquals(appels.sophia, [idContenu(1)], "le dormant jamais vu doit être réveillé d'abord");
+    });
+  }
+});
+
+Deno.test("0271 — créneau NON-Sophia : la relégation vaut aussi pour une application", async () => {
+  // La règle lit l'historique du compte toutes applications confondues, et le
+  // repêchage par application (0270) reçoit la même mise en queue. Sans ce
+  // test, tout le chemin non-Sophia pouvait régresser en silence.
+  const pret = () => ({ statut: "pret" as const, slides: DECK, hashtags: "#unswipe" });
+  for (let essai = 0; essai < 6; essai += 1) {
+    await avecDecks(pret, async (appels) => {
+      const base = baseEssai({
+        n: 2,
+        compte: { parts_applications: { unswipe: 100 } },
+        pertinences: [0, 1].map((i) => ({
+          contenu_id: idContenu(i),
+          application_id: UNSWIPE,
+          eligible: true,
+        })),
+      });
+      // Les deux dorment sur Unswipe : seul le repêchage par application peut
+      // les rendre, et son ordre doit écarter celui qui vient de sortir.
+      base.contenu_application_tier_etat = [0, 1].map((i) => ({
+        contenu_id: idContenu(i),
+        application_id: UNSWIPE,
+        tier: "D",
+        tier_cycle: 4,
+        passages_prevus: 0,
+        restants: 0,
+        materialise: true,
+        eligible: true,
+        note: 65,
+      }));
+      (base as unknown as Record<string, unknown[]>).contenu_tiers_application = [0, 1].map((i) => ({
+        contenu_id: idContenu(i),
+        application_id: UNSWIPE,
+        tier: "D",
+        tier_cycle: 4,
+        passages_prevus: 0,
+      }));
+      base.passages.push({
+        id: "vu-unswipe",
+        compte_id: "k1",
+        contenu_id: idContenu(0),
+        date_publication_prevue: "2026-09-30",
+        created_at: "2026-09-30T01:00:00Z",
+        application_id: UNSWIPE,
+        post_id: "post-vu-unswipe",
+        posts: { est_test: false },
+      });
+      base.posts.push({ id: "post-vu-unswipe", compte_id: "k1", est_test: false });
+      const { client } = fauxMoteur(base);
+
+      const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+      assertEquals(detail.ids.length, 1);
+      assertEquals(appels.application, [idContenu(1)], "le dormant jamais vu d'abord, sur Unswipe aussi");
+    });
+  }
+});

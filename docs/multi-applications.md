@@ -367,9 +367,17 @@ stock de micabo-os. Ce qui est en place :
   sert, rien n'est noté ni publié pour elle. **Ne plus rejouer 0257** : elle
   la supprimerait de nouveau, prompts compris.
 
-Reste à faire, dans cet ordre : labels dédiés (cochés micabo seul, ligne
-`label_applications` posée dans la même transaction que le label), reprise du
-stock et des comptes de micabo-os, puis activation.
+- le label `classic_study` (slug `classic-study`, créé le 2026-10-09, vide) :
+  sa ligne `label_applications` (micabo seul) a été posée dans la même
+  instruction que le label, et **`labels.application_id` vaut micabo**, pas
+  Sophia. Ce n'est pas un oubli : le bundle figé de `manage-users` ne tire ses
+  labels (files et repli « label le moins utilisé ») que parmi ceux dont
+  `labels.application_id` est Sophia — un label micabo vide serait sinon le
+  « moins utilisé » et partirait sur une recrue Sophia (§ 4.1). Ne pas le
+  remettre à Sophia.
+
+Reste à faire, dans cet ordre : reprise des créateurs, du stock et des comptes
+de micabo-os, puis activation.
 
 ## 4. Plus tard (décidé, pas fait)
 

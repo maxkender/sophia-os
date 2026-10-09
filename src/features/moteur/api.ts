@@ -77,6 +77,11 @@ import {
 } from "./creationManuelle";
 import type { CompteIdentifiants, CompteResumePoster, TypeCompte } from "./types";
 import type { ReponseSuiviRc } from "@/features/revenuecat/types";
+import {
+  decouperLignesNdjson,
+  type AssignationABlancLog,
+  type AssignationABlancResultat,
+} from "./assignationABlanc";
 
 export type { EloImportRapport };
 export type { ApplicationOs };
@@ -102,6 +107,14 @@ export function aujourdhui(): string {
 /** Jour calendaire Paris (YYYY-MM-DD) — aligné sur minuit / assignation / alertes. */
 export function aujourdhuiParis(): string {
   return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(new Date());
+}
+
+/** Jour Paris de DEMAIN (YYYY-MM-DD) : celui que prépare la prochaine nuit. */
+export function demainParis(maintenant: Date = new Date()): string {
+  const jour = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(maintenant);
+  const d = new Date(`${jour}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + 1);
+  return d.toISOString().slice(0, 10);
 }
 
 /** Jour Paris d'un timestamptz ISO (ou null). */
@@ -4608,6 +4621,109 @@ export const annulerAssignationTestCompte = (date: string, compteId: string) =>
     date,
     compteId,
   });
+
+export type { AssignationABlancLog, AssignationABlancResultat };
+
+/**
+ * Assignation test À BLANC d'un compte (fonction `assignation-a-blanc`) : le
+ * vrai code de la nuit, rien d'écrit nulle part. NDJSON streamé + logs, comme
+ * l'assignation test. Rend le résultat reconstruit (créneaux, écritures
+ * évitées, appels bloqués, limites).
+ */
+export async function lancerAssignationABlanc(
+  date: string,
+  compteId: string,
+  ia: boolean,
+  onLog?: (ligne: AssignationABlancLog) => void,
+): Promise<AssignationABlancResultat> {
+  const url = import.meta.env.VITE_SUPABASE_URL;
+  const anon = import.meta.env.VITE_SUPABASE_ANON_KEY;
+  if (!url || !anon) throw new Error("Supabase non configuré");
+
+  const { data: sessionData } = await supabase.auth.getSession();
+  const token = sessionData.session?.access_token;
+  if (!token) throw new Error("Session expirée — reconnecte-toi.");
+
+  const res = await fetch(`${url}/functions/v1/assignation-a-blanc`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      apikey: anon,
+      "Content-Type": "application/json",
+      Accept: "application/x-ndjson",
+    },
+    body: JSON.stringify({ date, compteId, ia }),
+  });
+
+  if (!res.ok || !res.body) {
+    let message = `Edge assignation-a-blanc ${res.status}`;
+    try {
+      const j = (await res.json()) as { error?: string };
+      if (j?.error) message = j.error;
+    } catch {
+      // corps non JSON : on garde le statut
+    }
+    if (/idle timeout|150s/i.test(message)) {
+      message = "Timeout Edge (150s) — relance le test à blanc.";
+    }
+    throw new Error(message);
+  }
+
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let tampon = "";
+  let pret: Record<string, unknown> | null = null;
+  const traiter = (lignes: unknown[]) => {
+    for (const brut of lignes) {
+      if (!brut || typeof brut !== "object") continue;
+      const ev = brut as Record<string, unknown>;
+      if (ev.etape === "ready") pret = ev;
+      const detail = typeof ev.detail === "string" ? ev.detail : "";
+      if (detail) {
+        onLog?.({
+          at: typeof ev.at === "string" ? ev.at : new Date().toISOString(),
+          detail,
+          statut: typeof ev.statut === "string" ? ev.statut : undefined,
+          etape: typeof ev.etape === "string" ? ev.etape : undefined,
+        });
+      }
+    }
+  };
+  try {
+    let fini = false;
+    while (!fini) {
+      const { done, value } = await reader.read();
+      fini = done;
+      if (done) break;
+      const { lignes, reste } = decouperLignesNdjson(tampon + decoder.decode(value, { stream: true }));
+      tampon = reste;
+      traiter(lignes);
+    }
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    throw new Error(
+      /idle timeout|150s|network|aborted/i.test(message)
+        ? "Flux du test à blanc interrompu (timeout Edge ?) — relance le test."
+        : message,
+    );
+  }
+  traiter(decouperLignesNdjson(`${tampon}\n`).lignes);
+
+  const fin = pret as Record<string, unknown> | null;
+  if (!fin) throw new Error("Test à blanc : aucune réponse du flux");
+  // Erreur pendant le run : le résultat PARTIEL (journal compris) est rendu,
+  // l'écran affiche `erreurRun`. Sans résultat du tout, c'est une erreur.
+  if (!fin.resultat) {
+    throw new Error(
+      typeof fin.error === "string"
+        ? fin.error
+        : typeof fin.detail === "string"
+          ? fin.detail
+          : "Test à blanc échoué",
+    );
+  }
+  return fin.resultat as AssignationABlancResultat;
+}
 
 const LARGEUR_ASSIGN_FRONT = 6;
 

@@ -261,7 +261,8 @@ budget de passages, **son** cycle et **sa** mesure `m`, sur ses seuls posts.
   déduit le tier de la note d'import de l'application
   (`contenu_pertinences.note`, `tier_initial_note` : ≥ 70 A, ≥ 60 B, sinon C ;
   C aussi pour une ligne forcée pas encore notée), cycle 0. Ligne non
-  éligible : D / 0. Import FORCÉ : la note stockée d'une autre application
+  éligible (note sous le seuil, ou pertinence de l'application < 50 —
+  `PERTINENCE_MIN_HORS_SOPHIA`, forçage compris) : D / 0. Import FORCÉ : la note stockée d'une autre application
   est planchée au seuil (`noteStockee`), comme la note Sophia forcée
   (`max(note, seuil)`) — même rang d'entrée des deux côtés, quel que soit le
   seuil ; la ligne Sophia garde sa note brute.

@@ -24,6 +24,8 @@ import {
   CLE_BACKFILL_PERTINENCE,
   clePromptPertinenceApp,
   eligibiliteDepuisNote,
+  PERTINENCE_MIN_HORS_SOPHIA,
+  pertinenceSuffisante,
   etatBackfillPertinence,
   finaliserPertinence,
   majNotesPertinences,
@@ -177,6 +179,22 @@ Deno.test("éligibilité : note ≥ seuil, ou import forcé", () => {
   assert(!eligibiliteDepuisNote(54.99, 55, false));
   assert(eligibiliteDepuisNote(10, 55, true));
   assert(!eligibiliteDepuisNote(Number.NaN, 55, false));
+  // Plancher de pertinence hors Sophia (PERTINENCE_MIN_HORS_SOPHIA = 50).
+  assertEquals(PERTINENCE_MIN_HORS_SOPHIA, 50);
+  const unswipe = (score: number) => ({ applicationId: ID_UNSWIPE, score });
+  assert(eligibiliteDepuisNote(80, 55, false, unswipe(50)));
+  assert(!eligibiliteDepuisNote(80, 55, false, unswipe(49.9)), "note haute, pertinence trop basse");
+  assert(!eligibiliteDepuisNote(10, 55, true, unswipe(10)), "forcé : le plancher tient");
+  assert(eligibiliteDepuisNote(10, 55, true, unswipe(60)), "forcé + pertinence suffisante");
+  assert(!eligibiliteDepuisNote(80, 55, false, unswipe(Number.NaN)));
+  assert(!eligibiliteDepuisNote(54, 55, false, unswipe(90)), "le seuil de note tient toujours");
+  // Sophia : jamais de plancher — la règle d'avant, à l'identique.
+  const sophia = (score: number) => ({ applicationId: ID_SOPHIA, score });
+  assert(eligibiliteDepuisNote(80, 55, false, sophia(0)));
+  assert(eligibiliteDepuisNote(10, 55, true, sophia(0)));
+  assert(!eligibiliteDepuisNote(54, 55, false, sophia(100)));
+  assert(pertinenceSuffisante(ID_SOPHIA, Number.NaN));
+  assert(!pertinenceSuffisante(ID_UNSWIPE, 49));
 });
 
 Deno.test("accroche du stock : base sans pub d'abord, slide pub sautée", () => {
@@ -617,6 +635,28 @@ Deno.test("étape 4 : note par application, lignes déjà notées laissées tell
   assertEquals(tierInitialDepuisNote(r4.unswipe.note), tierImport(Math.max(1, 62), 62), "B des deux côtés");
 });
 
+Deno.test("étape 4 : pertinence hors Sophia sous 50 → non éligible malgré une note haute ; Sophia sans plancher", async () => {
+  oublierSondeMultiApp();
+  const base = new FausseBase({
+    label_applications: [],
+    applications: applications(),
+    contenu_pertinences: [
+      { contenu_id: "c1", application_id: ID_SOPHIA, score: 30, note: null, eligible: true },
+      { contenu_id: "c1", application_id: ID_UNSWIPE, score: 30, note: null, eligible: false },
+    ],
+  });
+  // Note dominée par les vues : 90 pour les deux, bien au-dessus du seuil.
+  const rapport = await majNotesPertinences(base.client(), "c1", {
+    noteDe: () => 90,
+    seuil: 55,
+    force: false,
+  });
+  assertEquals(rapport, {
+    sophia: { score: 30, note: 90, eligible: true },
+    unswipe: { score: 30, note: 90, eligible: false },
+  });
+});
+
 Deno.test("note stockée : plancher au seuil pour un import forcé hors Sophia seulement", () => {
   assertEquals(noteStockee(40, ID_UNSWIPE, 62, true), 62);
   assertEquals(noteStockee(70, ID_UNSWIPE, 62, true), 70, "au-dessus du seuil : inchangée");
@@ -712,10 +752,11 @@ Deno.test("rattrapage : note la file (plus récents d'abord) sans toucher aux co
   const neuf = lignes.find((l) => l.contenu_id === "neuf")!;
   assertEquals([neuf.score, neuf.note, neuf.eligible, neuf.prompt_cle], [90, 45, false, "pertinence_unswipe"]);
   assertStrictEquals(neuf.angles, null);
-  // Import forcé : éligible malgré la note, note planchée au seuil (55) comme
-  // la note Sophia d'un import forcé — le tier d'entrée (0270) en dépend.
+  // Import forcé : note planchée au seuil (55) comme la note Sophia d'un
+  // import forcé — le tier d'entrée (0270) en dépend. Mais pertinence 20 <
+  // PERTINENCE_MIN_HORS_SOPHIA : forcer ne passe pas outre le sujet.
   const vieux = lignes.find((l) => l.contenu_id === "vieux")!;
-  assertEquals([vieux.note, vieux.eligible], [55, true]);
+  assertEquals([vieux.note, vieux.eligible], [55, false]);
   // Jamais de ligne Sophia.
   assert(!lignes.some((l) => l.application_id === ID_SOPHIA));
   assertEquals(base.table("contenus"), contenusAvant);

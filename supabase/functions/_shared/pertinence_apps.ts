@@ -175,8 +175,38 @@ export function finaliserPertinence(
   return { score: gagnante.n.score, raison };
 }
 
-/** Éligible au pool de l'application : note d'import ≥ seuil, ou import forcé. */
-export function eligibiliteDepuisNote(note: number, seuil: number, force: boolean): boolean {
+/**
+ * Pertinence minimum (score 0-100 du prompt de pertinence) d'une application
+ * AUTRE que Sophia pour entrer dans son pool. Décision du propriétaire
+ * (2026-10-09) : la note d'import est dominée par les vues et la piste du
+ * compte source (la pertinence n'y pèse qu'environ 16 %), si bien qu'un TikTok
+ * très vu passait le seuil même hors sujet pour Unswipe. Sophia n'a pas ce
+ * plancher : son pool n'écarte que les lignes explicitement non éligibles, et
+ * l'en doter retirerait du stock aux comptes Sophia.
+ */
+export const PERTINENCE_MIN_HORS_SOPHIA = 50;
+
+/** Le score de pertinence permet-il le pool de l'application ? Sophia : toujours. */
+export function pertinenceSuffisante(applicationId: string, score: number): boolean {
+  return applicationId === ID_SOPHIA ||
+    (Number.isFinite(score) && score >= PERTINENCE_MIN_HORS_SOPHIA);
+}
+
+/**
+ * Éligible au pool de l'application : note d'import ≥ seuil, ou import forcé.
+ *
+ * `pertinence` (application + score de pertinence) : hors Sophia, il faut EN
+ * PLUS un score ≥ PERTINENCE_MIN_HORS_SOPHIA, import forcé compris — forcer
+ * l'import passe outre les vues et la piste, pas le sujet. Sophia, ou appel
+ * sans `pertinence` : la règle d'avant, inchangée.
+ */
+export function eligibiliteDepuisNote(
+  note: number,
+  seuil: number,
+  force: boolean,
+  pertinence?: { applicationId: string; score: number },
+): boolean {
+  if (pertinence && !pertinenceSuffisante(pertinence.applicationId, pertinence.score)) return false;
   return force || (Number.isFinite(note) && note >= seuil);
 }
 
@@ -548,7 +578,10 @@ export async function majNotesPertinences(
     let { note, eligible } = l;
     if (note === null) {
       note = noteStockee(opts.noteDe(l.score), l.application_id, opts.seuil, opts.force);
-      eligible = eligibiliteDepuisNote(note, opts.seuil, opts.force);
+      eligible = eligibiliteDepuisNote(note, opts.seuil, opts.force, {
+        applicationId: l.application_id,
+        score: l.score,
+      });
       const { error } = await supabase
         .from("contenu_pertinences")
         .update({ note, eligible, updated_at: new Date().toISOString() })
@@ -810,7 +843,10 @@ async function noterContenuBackfill(
       score: stocke,
       raison: reason,
       note,
-      eligible: eligibiliteDepuisNote(note, scoring.eloSeuil, forcee),
+      eligible: eligibiliteDepuisNote(note, scoring.eloSeuil, forcee, {
+        applicationId: app.id,
+        score: stocke,
+      }),
       // Colonne héritée des angles de label (abandonnés) : plus alimentée.
       angles: null,
       prompt_cle: clePromptPertinenceApp(app),

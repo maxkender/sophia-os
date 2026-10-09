@@ -40,9 +40,10 @@ Tout tourne dans un isolate dédié où `globalThis.fetch` est remplacé par un
 intercepteur **fermé par défaut** (`_shared/a_blanc_intercepteur.ts`), posé par
 `assignation-a-blanc/installer.ts`, premier import de l'index. Une fonction Edge
 est un bundle et un isolate à elle : la nuit, l'assignation test et Sophia ne
-sont pas touchées. Aucun fichier existant de `_shared/` n'est modifié ; seul
-l'objet exporté `decksAssignation` est enveloppé, à l'exécution, dans cet
-isolate.
+sont pas touchées. Le code partagé de la nuit n'est pas modifié (le mode
+« contenus » n'y ajoute qu'un export, `noterContenuBackfill`, et une option
+facultative, `ignorerCache`, absente partout ailleurs) ; seul l'objet exporté
+`decksAssignation` est enveloppé, à l'exécution, dans cet isolate.
 
 Décision de l'intercepteur, dans l'ordre :
 
@@ -109,7 +110,8 @@ repêchage rend les vraies valeurs, puis 0 ligne au second essai, comme la nuit)
   déjà pris est exclu de la suite du tirage (`contenusSession`).
 - Insertion : défauts de colonne relevés en prod (`application_id_sophia()` →
   l'id de Sophia, `now()`, `gen_random_uuid()`), clés primaires non-`id`
-  (`assignation_journal`, `contenu_tiers_application`, `reglages`).
+  (`assignation_journal`, `contenu_pertinences` — mode « contenus » —,
+  `contenu_tiers_application`, `reglages`).
 - Non simulés : contraintes uniques, clés étrangères, déclencheurs (vérifiés :
   ils n'agissent que sur un statut publié ou pour le rôle authenticated), vues
   recalculées.
@@ -135,6 +137,65 @@ repêchage rend les vraies valeurs, puis 0 ligne au second essai, comme la nuit)
   - les écritures que ferait la fabrication sont listées à part, sous la fiche
     du créneau (elles ne sont pas dans « écritures évitées »).
 
+## Mode « contenus » : notation et placement de 1 à 3 slideshows
+
+Admin → Tests → « Tester la notation et le placement (à blanc) ». Avant de
+lancer le rattrapage de pertinence d'une application sur TOUT un label, on
+choisit l'application (Unswipe par défaut, jamais Sophia), un label (ceux qui
+servent l'application en tête), 1 à 3 slideshows valides et importés (recherche
+par titre, « 3 au hasard ») et la langue du deck (défaut : langue source). Rien
+n'est enregistré.
+
+Même fonction (`assignation-a-blanc`), même isolate, même intercepteur, même
+contrôle d'accès :
+
+```
+POST { mode: "contenus", applicationId, contenuIds: [1 à 3 uuid], langue? }
+→ flux NDJSON, puis { etape: "ready", aBlanc: true, mode: "contenus", resultat }
+```
+
+`_shared/a_blanc_contenus.ts`, pour chaque slideshow (en parallèle) :
+
+1. **Pertinence** — le VRAI `noterContenuBackfill` (exporté de
+   `pertinence_apps.ts`, inchangé), avec les dépendances du rattrapage réel
+   (`import-contenu` : `scoreRelevance`, `lireScoring`, `eloParLangue`,
+   `lirePisteSource`) : prompt `pertinence_<slug>`, accroche de la langue
+   source, note avec la piste du compte source et son poids, `noteStockee`,
+   `eligibiliteDepuisNote` avec le plancher `PERTINENCE_MIN_HORS_SOPHIA` (50).
+   L'upsert `contenu_pertinences` est simulé ; la ligne est relue à travers le
+   calque. L'écran montre aussi la ligne réellement en base (inchangée).
+2. **Tier d'entrée** — celui d'une ligne neuve dans
+   `contenu_application_tier_etat` : `tierInitialDepuisNote(note)` si éligible,
+   D / 0 sinon, et ses passages.
+3. **Placement** — le VRAI `assurerDeckApplication` avec `{ ignorerCache: true }`
+   (option ajoutée, absente partout ailleurs : la nuit et l'assignation test
+   gardent le cache à l'identique) : le prompt `placement_<slug>` ACTUEL est
+   testé. Une base déjà traduite (`slides_base` de la langue) est réutilisée ;
+   sinon la traduction est faite par le modèle et reste dans le calque. Lancé
+   même pour un contenu non éligible (dit à l'écran). Deck AVANT (base sans
+   pub) / APRÈS (slide pub surlignée), slide concurrente imposée, variantes du
+   modèle : relus dans le calque et dans l'upsert simulé de
+   `contenu_langue_decks`.
+
+Garde-fous propres au mode :
+
+- **IA obligatoire** : mêmes refus la nuit et 30 min après un run de minuit
+  (`raisonRefusIA`). Plafond : `PLAFOND_IA_PAR_CONTENU` (15) × nombre de
+  slideshows — un slideshow coûte au plus 7 appels (notation, traduction,
+  4 essais de placement, hashtags), et un appel en coûte deux quand le premier
+  modèle échoue. Le plafond du mode compte reste 30.
+- **Jamais Sophia** : refus 400 dans l'index, et à nouveau dans le module.
+- **Temps** : au-delà de 110 s, plus de traduction ni d'essai de placement
+  (« temps du test épuisé ») : le résultat sort avant le mur Edge de 150 s.
+- Le calque connaît la clé primaire composée de `contenu_pertinences`
+  (`contenu_id`, `application_id`) : sans elle, le remplacement simulé d'une
+  ligne déjà en base aurait été perdu (table écrite seulement par ce mode).
+
+Limites : le modèle n'est pas déterministe (relancer peut donner un autre score
+ou une autre slide) ; un contenu déjà passé dans `contenu_tiers_application`
+garde son tier réel (le test montre le tier d'entrée) ; une application inactive
+est servie quand même par le test (signalé).
+
 ## Ce qui n'est pas simulé
 
 Rappels J+7 (ils prennent un créneau du quota la nuit), requalification
@@ -147,8 +208,16 @@ montrer un autre contenu).
 
 ```
 DENO_NO_PACKAGE_JSON=1 deno test --no-lock --allow-all --no-check supabase/functions/_shared/a_blanc_*_test.ts
-npx vitest run src/features/moteur/assignationABlanc.test.ts src/features/moteur/AssignationABlancCard.test.tsx
+npx vitest run src/features/moteur/assignationABlanc.test.ts src/features/moteur/AssignationABlancCard.test.tsx \
+  src/features/moteur/contenusABlanc.test.ts src/features/moteur/ContenusABlancCard.test.tsx
 ```
+
+- `a_blanc_contenus_test.ts` : la vraie notation et le vrai placement à
+  travers l'intercepteur (faux réseau piégé, base comparée avant / après) ;
+  note identique au calcul du rattrapage (piste comprise) ; plancher de 50 ;
+  ligne déjà en base remplacée dans le test seulement ; cache ignoré
+  SEULEMENT avec `ignorerCache` ; prompts vides ; refus (Sophia, application
+  inconnue, nuit) ; déploiement (le module ne touche qu'`assignation-a-blanc`).
 
 - `a_blanc_intercepteur_test.ts` : le vrai supabase-js au-dessus d'un faux
   `fetch` sous-jacent **piégé** (toute requête qui n'est pas une lecture

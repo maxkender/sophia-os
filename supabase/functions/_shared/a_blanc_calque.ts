@@ -50,6 +50,9 @@ import { ID_SOPHIA } from "./multi_app.ts";
  */
 export const CLES_PRIMAIRES: Readonly<Record<string, readonly string[]>> = {
   assignation_journal: ["compte_id", "jour"],
+  // Écrite seulement par le mode « contenus » (notation du rattrapage) : sans
+  // cette clé, le patch d'une ligne déjà en base serait perdu par le calque.
+  contenu_pertinences: ["contenu_id", "application_id"],
   contenu_tiers_application: ["contenu_id", "application_id"],
   reglages: ["cle"],
 };

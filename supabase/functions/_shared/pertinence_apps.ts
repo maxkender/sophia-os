@@ -775,8 +775,13 @@ export interface DepsBackfill extends DepsNotation {
   maintenant?: () => number;
 }
 
-/** Note un contenu du stock pour une application. Ne touche QUE `contenu_pertinences`. */
-async function noterContenuBackfill(
+/**
+ * Note un contenu du stock pour une application. Ne touche QUE `contenu_pertinences`.
+ *
+ * Exportée pour le test à blanc (mode « contenus », a_blanc_contenus.ts), qui
+ * la rejoue telle quelle derrière son intercepteur : l'upsert y est simulé.
+ */
+export async function noterContenuBackfill(
   supabase: Supabase,
   contenuId: string,
   app: ApplicationMoteur,

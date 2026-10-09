@@ -13,6 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { assignerTikTok, listerComptes, listerPostsTest, testerTraduction } from "@/features/moteur/api";
 import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import { AssignationABlancCard } from "@/features/moteur/AssignationABlancCard";
+import { ContenusABlancCard } from "@/features/moteur/ContenusABlancCard";
 import { SimulerMinuitCard } from "@/features/moteur/SimulerMinuitCard";
 import { SimulerMinuitCompteCard } from "@/features/moteur/SimulerMinuitCompteCard";
 import { TestBrulerTexteCard } from "@/features/moteur/TestBrulerTexteCard";
@@ -261,6 +262,12 @@ const TESTS = [
     render: () => <SimulerMinuitCompteCard />,
   },
   { value: "a-blanc", titreKey: "aBlanc.title", descKey: "aBlanc.subtitle", render: () => <AssignationABlancCard /> },
+  {
+    value: "contenus-a-blanc",
+    titreKey: "contenusABlanc.title",
+    descKey: "contenusABlanc.subtitle",
+    render: () => <ContenusABlancCard />,
+  },
   { value: "tiktok", titreKey: "tests.tiktokTitre", descKey: "tests.tiktokDesc", render: () => <TesterUnTikTok /> },
   { value: "traduction", titreKey: "tests.tradTitre", descKey: "tests.tradDesc", render: () => <TestTraduction /> },
   {

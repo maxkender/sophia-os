@@ -60,6 +60,8 @@ import {
   majNotesPertinences,
   noteStockee,
   noterPertinenceImport,
+  PERTINENCE_MIN_HORS_SOPHIA,
+  pertinenceSuffisante,
   placementSophiaImport,
   type PertinencesRapport,
   type PlacementSophia,
@@ -2719,6 +2721,8 @@ export async function forcerImportElo(
   // `import_elo_force_seuil` couvre celles-là). Une ligne d'une AUTRE
   // application sous le seuil est planchée au seuil, comme la note Sophia
   // forcée ci-dessus (`noteStockee`) : son tier d'entrée (0270) en dépend.
+  // Forcer passe outre les vues et la piste, PAS le sujet : une ligne d'une
+  // autre application sous PERTINENCE_MIN_HORS_SOPHIA reste hors de son pool.
   if (await schemaMultiAppPret(supabase)) {
     const { error: errP } = await supabase
       .from("contenu_pertinences")
@@ -2727,17 +2731,27 @@ export async function forcerImportElo(
     if (errP) return { ok: false, erreur: errP.message };
     const { data: notees, error: errN } = await supabase
       .from("contenu_pertinences")
-      .select("application_id, note")
+      .select("application_id, note, score")
       .eq("contenu_id", contenuId);
     if (errN) return { ok: false, erreur: errN.message };
-    for (const l of (notees ?? []) as Array<{ application_id: string; note: number | string | null }>) {
-      if (l.note === null || l.note === undefined) continue;
-      const brute = Number(l.note);
-      const note = noteStockee(brute, l.application_id, scoring.eloSeuil, true);
-      if (note === brute) continue;
+    for (
+      const l of (notees ?? []) as Array<{
+        application_id: string;
+        note: number | string | null;
+        score: number | string | null;
+      }>
+    ) {
+      const maj: { note?: number; eligible?: boolean } = {};
+      if (l.note !== null && l.note !== undefined) {
+        const brute = Number(l.note);
+        const note = noteStockee(brute, l.application_id, scoring.eloSeuil, true);
+        if (note !== brute) maj.note = note;
+      }
+      if (!pertinenceSuffisante(l.application_id, Number(l.score))) maj.eligible = false;
+      if (Object.keys(maj).length === 0) continue;
       const { error: errU } = await supabase
         .from("contenu_pertinences")
-        .update({ note, updated_at: new Date().toISOString() })
+        .update({ ...maj, updated_at: new Date().toISOString() })
         .eq("contenu_id", contenuId)
         .eq("application_id", l.application_id);
       if (errU) return { ok: false, erreur: errU.message };
@@ -2750,7 +2764,9 @@ export async function forcerImportElo(
           slug,
           {
             ...p,
-            eligible: true,
+            // Même règle que la ligne : hors Sophia, plancher de pertinence.
+            eligible: slug === SLUG_SOPHIA ||
+              (Number.isFinite(Number(p.score)) && Number(p.score) >= PERTINENCE_MIN_HORS_SOPHIA),
             // Même plancher que la ligne (Sophia : note brute, inchangée).
             ...(slug !== SLUG_SOPHIA && p.note !== null && Number.isFinite(p.note)
               ? { note: Math.max(p.note, scoring.eloSeuil) }

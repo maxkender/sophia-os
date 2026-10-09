@@ -114,6 +114,24 @@ export function tierImport(elo: number, seuil = 55): Tier | null {
   return "C";
 }
 
+/**
+ * Tier d'ENTRÉE d'une application autre que Sophia, depuis SA note d'import
+ * (`contenu_pertinences.note`), pour une ligne déjà éligible : le seuil
+ * d'import est appliqué par `eligible`, il ne reste que les paliers de
+ * `tierImport`. Note absente (ligne forcée) ou non finie → C, le rang minimum
+ * d'un contenu importé.
+ *
+ * Miroir EXACT de la fonction SQL `tier_initial_note` (migration 0270), qui
+ * calcule le tier « paresseux » de `contenu_application_tier_etat` tant
+ * qu'aucune ligne de `contenu_tiers_application` n'est écrite. Synchro testée.
+ */
+export function tierInitialDepuisNote(note: number | null | undefined): Tier {
+  if (note === null || note === undefined || !Number.isFinite(note)) return "C";
+  if (note >= 70) return "A";
+  if (note >= 60) return "B";
+  return "C";
+}
+
 // ---------------------------------------------------------------------------
 // Requalification
 // ---------------------------------------------------------------------------
@@ -463,6 +481,10 @@ export function verifierCoherenceLecture(
   lues: number,
   attendues: number | null,
   motifNonVerifie?: string,
+  // Vue lue, nommée dans l'alerte. Par défaut la vue Sophia : le texte est
+  // alors celui d'avant 0270, à l'octet près. Les applications non-Sophia
+  // passent `contenu_application_a_requalifier`.
+  vue = "contenu_a_requalifier",
 ): CoherenceLecture {
   if (attendues === null) {
     return {
@@ -483,7 +505,7 @@ export function verifierCoherenceLecture(
       attendues,
       ok: false,
       alerte:
-        `Lecture INCOMPLÈTE de contenu_a_requalifier : ${lues} ligne(s) lue(s) pour ${attendues} annoncée(s).` +
+        `Lecture INCOMPLÈTE de ${vue} : ${lues} ligne(s) lue(s) pour ${attendues} annoncée(s).` +
         plafond +
         ` ${attendues - lues} cycle(s) terminé(s) n'ont pas été examinés ce run.`,
     };
@@ -494,7 +516,7 @@ export function verifierCoherenceLecture(
     attendues,
     ok: false,
     alerte:
-      `Lecture de contenu_a_requalifier plus longue que le comptage : ${lues} ligne(s) pour ` +
+      `Lecture de ${vue} plus longue que le comptage : ${lues} ligne(s) pour ` +
       `${attendues} annoncée(s). Sans gravité — des cycles se sont terminés pendant la lecture —, ` +
       `mais l'écart est noté plutôt que tu.`,
   };
@@ -616,8 +638,11 @@ export function reporterBlocTierlist(
  * (migration 0253), précisément pour que cette chaîne n'ait pas à se dédoubler.
  * Si elles divergeaient un jour, ce point unique le ferait apparaître tout de
  * suite au lieu de laisser deux `select` se désynchroniser en silence.
+ *
+ * Exportée pour les vues par application (0270, `tiers_application.ts`), qui
+ * reprennent ces colonnes sous les mêmes noms.
  */
-const COLONNES_ETAT =
+export const COLONNES_ETAT =
   "contenu_id, tier, passages_prevus, tier_cycle, publies, en_vol, restants, moyenne_vues, max_vues, nb_150k, mesures, introuvables, en_attente_mesure, dernier_publie_at";
 
 interface LectureEtats {

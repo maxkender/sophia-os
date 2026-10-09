@@ -12,8 +12,9 @@
 import { assert, assertEquals, assertStrictEquals } from "jsr:@std/assert@1";
 
 import { oublierSondeMultiApp } from "./applications_moteur.ts";
-import { DEFAULT_RELEVANCE_PROMPT } from "./gemini.ts";
+import { eloParLangue } from "./import_contenu.ts";
 import { ID_SOPHIA, type ApplicationMoteur } from "./multi_app.ts";
+import { tierImport, tierInitialDepuisNote } from "./tierlist.ts";
 import {
   accrocheDepuisLigneSource,
   applicationBackfillAPrendre,
@@ -25,11 +26,13 @@ import {
   eligibiliteDepuisNote,
   etatBackfillPertinence,
   finaliserPertinence,
-  instructionsPertinence,
   majNotesPertinences,
   normaliserReglageBackfill,
+  noteStockee,
   noterPertinenceImport,
   piloterBackfillPertinence,
+  placementSophiaDepuisLignes,
+  placementSophiaImport,
   prochaineANoter,
   scoreStockable,
   tickBackfillPertinence,
@@ -118,18 +121,6 @@ Deno.test("application inactive notée si son prompt existe ; Sophia d'abord pui
     prompts: new Map([[ID_UNSWIPE, "PU"]]),
   });
   assertEquals(sansSophia.map((a) => a.app.slug), ["unswipe"]);
-});
-
-Deno.test("consigne Sophia sans angle : le prompt stocké octet pour octet", () => {
-  const stocke = "Sophia est une application…\n\nNote de 0 à 100.  ";
-  assertStrictEquals(instructionsPertinence(stocke, ""), stocke);
-  assertStrictEquals(instructionsPertinence(undefined, ""), undefined);
-});
-
-Deno.test("consigne avec angle : bloc ajouté à la fin, au défaut si pas de prompt Sophia", () => {
-  const bloc = "\n\nAngle à donner à Unswipe pour ce slideshow (selon son label) :\n- Clean Girl : temps";
-  assertEquals(instructionsPertinence("PU", bloc), `PU${bloc}`);
-  assertEquals(instructionsPertinence(undefined, bloc), `${DEFAULT_RELEVANCE_PROMPT}${bloc}`);
 });
 
 Deno.test("score stockable : entier borné 0..100", () => {
@@ -502,11 +493,12 @@ Deno.test("import Sophia sans prompt stocké : consigne undefined (défaut de sc
   assertEquals(appels[0].caption, "");
 });
 
-Deno.test("import Sophia + Unswipe : un appel par passage, max au dernier, angle Unswipe seul", async () => {
+Deno.test("import Sophia + Unswipe : un appel par passage, max au dernier, prompts stockés tels quels", async () => {
   oublierSondeMultiApp();
   const base = new FausseBase({
+    // Angles restés en base (colonne inutilisée) : jamais injectés.
     label_applications: [
-      { label_id: "l1", application_id: ID_SOPHIA, angle: null },
+      { label_id: "l1", application_id: ID_SOPHIA, angle: "vieil angle Sophia" },
       { label_id: "l1", application_id: ID_UNSWIPE, angle: "reprends ton temps" },
     ],
     applications: applications(),
@@ -530,14 +522,13 @@ Deno.test("import Sophia + Unswipe : un appel par passage, max au dernier, angle
     scoreRelevance: score,
   });
   assertEquals(p2, { fini: true, score: 81, raison: "moyen", application: "unswipe" });
-  assertEquals(
-    appels[1].instructions,
-    "PROMPT UNSWIPE\n\nAngle à donner à Unswipe pour ce slideshow (selon son label) :\n- Clean Girl : reprends ton temps",
-  );
+  assertStrictEquals(appels[1].instructions, "PROMPT UNSWIPE");
   const unswipe = base.table("contenu_pertinences").find((l) => l.application_id === ID_UNSWIPE)!;
   assertEquals(unswipe.eligible, false);
   assertEquals(unswipe.prompt_cle, "pertinence_unswipe");
-  assertEquals(unswipe.angles, "- Clean Girl : reprends ton temps");
+  assertStrictEquals(unswipe.angles, null);
+  const sophia = base.table("contenu_pertinences").find((l) => l.application_id === ID_SOPHIA)!;
+  assertStrictEquals(sophia.angles, null);
 
   // Reprise après coupure : tout est noté → finalisation sans Gemini.
   const p3 = await noterPertinenceImport(base.client(), { id: "c1", titre: "t" }, "h", {
@@ -551,8 +542,8 @@ Deno.test("import : prompt Unswipe manquant → Sophia seule, aucune ligne Unswi
   oublierSondeMultiApp();
   const base = new FausseBase({
     label_applications: [
-      { label_id: "l1", application_id: ID_SOPHIA, angle: null },
-      { label_id: "l1", application_id: ID_UNSWIPE, angle: "x" },
+      { label_id: "l1", application_id: ID_SOPHIA },
+      { label_id: "l1", application_id: ID_UNSWIPE },
     ],
     applications: applications(),
     prompts: [{ cle: "pertinence", contenu: "PROMPT SOPHIA" }],
@@ -612,7 +603,26 @@ Deno.test("étape 4 : note par application, lignes déjà notées laissées tell
     seuil: 55,
     force: true,
   });
-  assertEquals(r3.sophia, { score: 40, note: 1, eligible: true });
+  assertEquals(r3.sophia, { score: 40, note: 1, eligible: true }, "Sophia : note brute, inchangée");
+
+  // Import forcé, autre application : note planchée au seuil (même règle que
+  // la note Sophia forcée, max(note, seuil)), donc même tier d'entrée.
+  base.table("contenu_pertinences")[1].note = null;
+  const r4 = await majNotesPertinences(base.client(), "c1", {
+    noteDe: () => 1,
+    seuil: 62,
+    force: true,
+  });
+  assertEquals(r4.unswipe, { score: 80, note: 62, eligible: true });
+  assertEquals(tierInitialDepuisNote(r4.unswipe.note), tierImport(Math.max(1, 62), 62), "B des deux côtés");
+});
+
+Deno.test("note stockée : plancher au seuil pour un import forcé hors Sophia seulement", () => {
+  assertEquals(noteStockee(40, ID_UNSWIPE, 62, true), 62);
+  assertEquals(noteStockee(70, ID_UNSWIPE, 62, true), 70, "au-dessus du seuil : inchangée");
+  assertEquals(noteStockee(40, ID_UNSWIPE, 62, false), 40, "non forcé : note brute");
+  assertEquals(noteStockee(40, ID_SOPHIA, 62, true), 40, "Sophia : note brute, toujours");
+  assert(Number.isNaN(noteStockee(Number.NaN, ID_UNSWIPE, 62, true)));
 });
 
 // ---------------------------------------------------------------------------
@@ -621,7 +631,8 @@ Deno.test("étape 4 : note par application, lignes déjà notées laissées tell
 
 function baseRattrapage(reglage: unknown, promptUnswipe: string | null = "PROMPT UNSWIPE") {
   return new FausseBase({
-    label_applications: [{ label_id: "l1", application_id: ID_UNSWIPE, angle: null }],
+    // Angle resté en base (colonne inutilisée) : la consigne reste le prompt stocké.
+    label_applications: [{ label_id: "l1", application_id: ID_UNSWIPE, angle: "reprends ton temps" }],
     applications: applications(),
     prompts: promptUnswipe ? [{ cle: "pertinence_unswipe", contenu: promptUnswipe }] : [],
     reglages: reglage === undefined
@@ -700,9 +711,11 @@ Deno.test("rattrapage : note la file (plus récents d'abord) sans toucher aux co
   const lignes = base.table("contenu_pertinences");
   const neuf = lignes.find((l) => l.contenu_id === "neuf")!;
   assertEquals([neuf.score, neuf.note, neuf.eligible, neuf.prompt_cle], [90, 45, false, "pertinence_unswipe"]);
-  // Import forcé : éligible malgré la note.
+  assertStrictEquals(neuf.angles, null);
+  // Import forcé : éligible malgré la note, note planchée au seuil (55) comme
+  // la note Sophia d'un import forcé — le tier d'entrée (0270) en dépend.
   const vieux = lignes.find((l) => l.contenu_id === "vieux")!;
-  assertEquals([vieux.note, vieux.eligible], [10, true]);
+  assertEquals([vieux.note, vieux.eligible], [55, true]);
   // Jamais de ligne Sophia.
   assert(!lignes.some((l) => l.application_id === ID_SOPHIA));
   assertEquals(base.table("contenus"), contenusAvant);
@@ -788,4 +801,151 @@ Deno.test("pilotage : Sophia refusée, prompt exigé, état avec le décompte ex
   assert(!refus.ok);
   assert(refus.erreur.includes("pertinence_unswipe"));
   assertEquals(sansPrompt.table("reglages").length, 0);
+});
+
+// ---------------------------------------------------------------------------
+// Tiers par application (0270) : placement Sophia à l'import
+// ---------------------------------------------------------------------------
+
+Deno.test("placement Sophia : historique, partagé (score Sophia stocké), hors Sophia", () => {
+  // Aucune ligne (stock historique, 0256 fraîche) : le chemin d'avant.
+  assertEquals(placementSophiaDepuisLignes([]), { mode: "historique" });
+  // Contenu Sophia seul : le chemin d'avant, à l'octet près.
+  assertEquals(
+    placementSophiaDepuisLignes([{ application_id: ID_SOPHIA, score: 72 }]),
+    { mode: "historique" },
+  );
+  // Partagé : le rang Sophia vient du score SOPHIA, plus du max.
+  assertEquals(
+    placementSophiaDepuisLignes([
+      { application_id: ID_UNSWIPE, score: 90 },
+      { application_id: ID_SOPHIA, score: 41 },
+    ]),
+    { mode: "partage", scoreSophia: 41 },
+  );
+  // Score rendu en texte par PostgREST (numeric) : converti.
+  assertEquals(
+    placementSophiaDepuisLignes([{ application_id: ID_SOPHIA, score: "63" }, { application_id: ID_UNSWIPE, score: 10 }]),
+    { mode: "partage", scoreSophia: 63 },
+  );
+  // Aucune ligne Sophia : labels qui ne servent qu'une autre application.
+  assertEquals(
+    placementSophiaDepuisLignes([{ application_id: ID_UNSWIPE, score: 80 }]),
+    { mode: "hors_sophia" },
+  );
+});
+
+Deno.test("placement Sophia : une lecture ratée LÈVE (le pas d'import est rejoué)", async () => {
+  const base = new FausseBase({ contenu_pertinences: [] });
+  base.pannes.set("contenu_pertinences", "connexion perdue");
+  let leve = false;
+  try {
+    await placementSophiaImport(base.client(), "c1");
+  } catch (e) {
+    leve = true;
+    assert(String((e as Error).message).includes("connexion perdue"));
+  }
+  assert(leve, "jamais un placement « historique » par défaut sur une panne");
+  const ok = new FausseBase({
+    contenu_pertinences: [
+      { contenu_id: "c1", application_id: ID_SOPHIA, score: 50 },
+      { contenu_id: "c1", application_id: ID_UNSWIPE, score: 80 },
+      { contenu_id: "c2", application_id: ID_SOPHIA, score: 99 },
+    ],
+  });
+  assertEquals(await placementSophiaImport(ok.client(), "c1"), { mode: "partage", scoreSophia: 50 });
+});
+
+// ---------------------------------------------------------------------------
+// Rattrapage : même note que l'étape 4 de l'import (piste comprise)
+// ---------------------------------------------------------------------------
+
+const SCORING_PISTE = { prior: 50, k: 1, poidsVues: 0.7, vuesPlafond: 80_000, eloSeuil: 54, poidsSource: 0.45 };
+
+function depsParite(appels: Appel[], scores: Array<{ score: number; reason: string }>, piste: number | null): DepsBackfill {
+  return {
+    scoreRelevance: espionScore(scores, appels),
+    lireScoring: () => Promise.resolve(SCORING_PISTE),
+    noteImport: eloParLangue,
+    lirePisteSource: (id) => Promise.resolve(id === "src-1" ? piste : null),
+    maintenant: () => Date.parse("2026-10-02T12:00:00Z"),
+  };
+}
+
+function baseParite() {
+  const base = baseRattrapage({ [ID_UNSWIPE]: { actif: true, demarre_at: "d", faits: 0, erreurs: 0 } });
+  for (const c of base.table("contenus")) c.compte_reference_id = "src-1";
+  // Un seul contenu dans la file, pour comparer une note à une note.
+  base.tables.contenu_pertinence_manquante = base.table("contenu_pertinence_manquante")
+    .filter((l) => l.contenu_id === "neuf");
+  return base;
+}
+
+/** La note que l'étape 4 calcule pour un score donné (`noteDe` de executerPasImport). */
+async function noteEtape4(score: number, piste: number | null): Promise<number> {
+  oublierSondeMultiApp();
+  const base = new FausseBase({
+    label_applications: [],
+    applications: applications(),
+    passages: [],
+    contenu_pertinences: [{ contenu_id: "neuf", application_id: ID_UNSWIPE, score, raison: "r", note: null, eligible: false }],
+  });
+  const rapport = await majNotesPertinences(base.client(), "neuf", {
+    noteDe: (s) =>
+      eloParLangue({
+        pertinence: s,
+        vues: 5000,
+        langue: "en",
+        langueSource: "en",
+        prior: SCORING_PISTE.prior,
+        k: SCORING_PISTE.k,
+        poidsVues: SCORING_PISTE.poidsVues,
+        vuesPlafond: SCORING_PISTE.vuesPlafond,
+        pisteSource: piste,
+        poidsSource: SCORING_PISTE.poidsSource,
+      }),
+    seuil: SCORING_PISTE.eloSeuil,
+    force: false,
+  });
+  return Number(base.table("contenu_pertinences")[0].note ?? rapport.unswipe.note);
+}
+
+Deno.test("rattrapage : la note est CELLE de l'étape 4 (piste du compte source et poids compris)", async () => {
+  oublierSondeMultiApp();
+  const base = baseParite();
+  const appels: Appel[] = [];
+  const r = await tickBackfillPertinence(base.client(), depsParite(appels, [{ score: 90, reason: "oui" }], 80));
+  assertEquals(r?.faits, 1);
+  const ligne = base.table("contenu_pertinences").find((l) => l.contenu_id === "neuf")!;
+
+  const attendue = await noteEtape4(90, 80);
+  assertEquals(ligne.note, attendue);
+  // Et la piste compte vraiment : sans elle, la note serait une autre.
+  const sansPiste = await noteEtape4(90, null);
+  assert(Math.abs(attendue - sansPiste) > 1e-6, "la piste doit peser dans la note");
+  assertEquals(ligne.eligible, attendue >= SCORING_PISTE.eloSeuil);
+  // Lecture de la source : compte_reference_id lu avec le contenu.
+  assert(!base.traces.some((t) => t.table === "contenus"), "contenus jamais écrit");
+});
+
+Deno.test("rattrapage : source sans piste → terme de piste désactivé (la note d'avant 0264)", async () => {
+  oublierSondeMultiApp();
+  const base = baseParite();
+  const appels: Appel[] = [];
+  await tickBackfillPertinence(base.client(), depsParite(appels, [{ score: 90, reason: "oui" }], null));
+  const ligne = base.table("contenu_pertinences").find((l) => l.contenu_id === "neuf")!;
+  assertEquals(ligne.note, await noteEtape4(90, null));
+  assertEquals(
+    ligne.note,
+    eloParLangue({
+      pertinence: 90,
+      vues: 5000,
+      langue: "en",
+      langueSource: "en",
+      prior: 50,
+      k: 1,
+      poidsVues: 0.7,
+      vuesPlafond: 80_000,
+    }),
+  );
 });

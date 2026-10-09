@@ -10,6 +10,8 @@ import {
   programmerRappels,
   reporterBlocTierlist,
   requalifierContenus,
+  tierImport,
+  tierInitialDepuisNote,
   verifierCoherenceLecture,
   type DecisionRequalifEntree,
   type RequalificationResultat,
@@ -791,4 +793,42 @@ Deno.test("rappels J+7 — une lecture ratée arrête les rappels SANS faire tom
   assertEquals(res.programmes, 0);
   assertEquals(res.erreurs.length, 1);
   assertEquals(res.erreurs[0].includes("aucun rappel programmé"), true);
+});
+
+/* -------------------------------------------------------------------------
+ * Tiers par application (0270) : ajouts purs, Sophia inchangée.
+ * ---------------------------------------------------------------------- */
+
+Deno.test("0270 — tierInitialDepuisNote : paliers de tierImport, C pour une note absente", () => {
+  for (const n of [0, 30, 54.99, 55, 59.99, 60, 69.99, 70, 100]) {
+    assertEquals(tierInitialDepuisNote(n), tierImport(n, 0), `note ${n}`);
+  }
+  assertEquals(tierInitialDepuisNote(null), "C");
+  assertEquals(tierInitialDepuisNote(Number.NaN), "C");
+});
+
+Deno.test("0270 — cohérence : sans nom de vue, les alertes Sophia sont celles d'avant, à l'octet près", () => {
+  assertEquals(
+    verifierCoherenceLecture(PLAFOND_LIGNES, 2521).alerte,
+    "Lecture INCOMPLÈTE de contenu_a_requalifier : 1000 ligne(s) lue(s) pour 2521 annoncée(s)." +
+      " 1000 est un multiple exact du plafond max-rows (1000) : la réponse a été rognée par PostgREST, pas par la donnée." +
+      " 1521 cycle(s) terminé(s) n'ont pas été examinés ce run.",
+  );
+  assertEquals(
+    verifierCoherenceLecture(205, 202).alerte,
+    "Lecture de contenu_a_requalifier plus longue que le comptage : 205 ligne(s) pour " +
+      "202 annoncée(s). Sans gravité — des cycles se sont terminés pendant la lecture —, " +
+      "mais l'écart est noté plutôt que tu.",
+  );
+});
+
+Deno.test("0270 — cohérence : la vue par application est nommée dans l'alerte", () => {
+  const vue = "contenu_application_a_requalifier";
+  const manque = verifierCoherenceLecture(3, 5, undefined, vue);
+  assertEquals(manque.ok, false);
+  assert(manque.alerte?.startsWith(`Lecture INCOMPLÈTE de ${vue} :`), manque.alerte ?? "");
+  assert(!manque.alerte?.includes("contenu_a_requalifier"));
+  const surplus = verifierCoherenceLecture(6, 5, undefined, vue);
+  assert(surplus.alerte?.startsWith(`Lecture de ${vue} plus longue`), surplus.alerte ?? "");
+  assertEquals(verifierCoherenceLecture(5, 5, undefined, vue).alerte, null);
 });

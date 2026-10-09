@@ -26,7 +26,23 @@ for (let i = 0; i < 90 && !["SUCCEEDED", "FAILED", "ABORTED", "TIMED-OUT"].inclu
 }
 if (statut !== "SUCCEEDED") throw new Error(`Apify run ${id} : ${statut}`);
 
-type Item = { id: string; text: string; playCount: number; webVideoUrl: string; authorMeta?: { name: string }; videoMeta?: { duration: number; downloadAddr?: string }; mediaUrls?: string[] };
+type Item = {
+  id: string;
+  text: string;
+  playCount: number;
+  webVideoUrl: string;
+  authorMeta?: { name: string };
+  videoMeta?: { duration: number; downloadAddr?: string };
+  mediaUrls?: string[];
+  musicMeta?: { musicName?: string; musicAuthor?: string; musicId?: string };
+};
+/** La musique de la vidéo : titre lisible et lien de la page son TikTok (le créateur la reprend). */
+function musique(m: Item["musicMeta"]): { musique_titre: string | null; musique_url: string | null } {
+  if (!m?.musicName) return { musique_titre: null, musique_url: null };
+  const titre = m.musicAuthor ? `${m.musicName} – ${m.musicAuthor}` : m.musicName;
+  const slug = m.musicName.replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-|-$/g, "");
+  return { musique_titre: titre, musique_url: m.musicId ? `https://www.tiktok.com/music/${slug}-${m.musicId}` : null };
+}
 const items = (await fetch(`${API}/datasets/${run.data.defaultDatasetId}/items`).then((r) => r.json())) as Item[];
 const vus = new Map<string, Item>();
 for (const it of items) if (it.id && !vus.has(it.id)) vus.set(it.id, it);
@@ -39,6 +55,7 @@ const sortie = tri.map((it) => ({
   url: it.webVideoUrl,
   video: it.mediaUrls?.[0] ?? it.videoMeta?.downloadAddr ?? null,
   texte: (it.text ?? "").slice(0, 200),
+  ...musique(it.musicMeta),
 }));
 mkdirSync("donnees", { recursive: true });
 writeFileSync("donnees/recherche.json", JSON.stringify(sortie, null, 2));

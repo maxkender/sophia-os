@@ -80,6 +80,9 @@ export const en = {
       avatar: "Download avatar",
       copierBio: "Copy bio",
       aide: "Create your TikTok account with this handle, bio and avatar. Everything is already generated for you.",
+      titreUgc: "Your TikTok + Instagram identity",
+      aideUgc:
+        "Create your TikTok AND your Instagram account with this handle, bio and photo. Same @, same photo, same bio on both. Everything is already generated for you.",
       majHandle: "Update my @",
       setHandle: "Set my @",
       handleAide:
@@ -92,6 +95,22 @@ export const en = {
       titre: "Welcome! Watch this video",
       sous: "2 min to learn how to post easily",
       compris: "Got it",
+      ugc: {
+        titre: "Welcome! Your TikTok + Instagram video account",
+        sous: "You post one video a day, the same one on TikTok and on Instagram.",
+        etape1:
+          "Create your TikTok AND your Instagram account with the @, photo and bio from the “Your identity” card (one button downloads the photo, one copies the bio).",
+        etape2: "Update your real @ on the card if the suggested one was taken.",
+        etape3:
+          "Click “Start warmup”. During the warmup, use both apps normally (scroll, like, follow a few accounts) and don't post anything.",
+        etape4:
+          "Once the warmup is over, one video a day arrives in “Videos to post”: download the reaction and the demo, and put them back to back (reaction first).",
+        etape5:
+          "Paste the on-screen text and add the music, paste the caption, post on TikTok, then post the same video as an Instagram Reel.",
+        etape6: "Paste both links (TikTok and Instagram) on the video's card: it switches to “posted”.",
+        regles:
+          "One video a day only. Don't post anything else on these accounts, don't change the name or the photo, and scroll 5 to 6 minutes on both apps every week.",
+      },
     },
     navSection: {
       production: "Production",
@@ -329,6 +348,13 @@ export const en = {
         "Lowered quota — thin pool: {{detail}}",
       quotasBaissesDernier:
         "Last midnight run: lowered quota — {{detail}}",
+      tiersApplications: {
+        titre: "Tierlist per app:",
+        ligne: "{{app}} {{examines}} examined · {{requalifies}} requalified",
+        interrompue: "interrupted (20 s deadline, the rest runs next night)",
+        erreur: "failed: {{message}}",
+        illisible: "Tierlist per app skipped: migration 0270 probe unreadable.",
+      },
       erreursAssignation: "Accounts not assigned:",
       prets: "Passages ready",
       enCoursLabel: "In progress",
@@ -768,6 +794,11 @@ export const en = {
         "Creates the creator login only. You can add a personal or CM account later.",
       creeCm: "Creator created with a CM account. The Instagram + Gmail contract is ready to sign.",
       creeAucun: "Creator login created, no TikTok account yet. Add a personal or CM account from the profile.",
+      ugcVideo: "UGC AI video account (pod 3)",
+      ugcVideoAide:
+        "The account only posts pod 3 videos, one a day, on TikTok and Instagram. No slideshows. Nothing is sent to it before its warmup ends.",
+      creeUgcVideo:
+        "Creator created with their UGC video account. Add their persona through the pod 3 agent, then the creator starts their warmup.",
       nbComptes: "{{n}} account(s)",
       aucunCompte: "No TikTok account",
       compteSansHandle: "No @ yet",
@@ -1055,6 +1086,8 @@ export const en = {
       enregistrerLien: "Save",
       lienEnregistre: "Link saved",
       reste: "Posted on {{fait}}, {{reste}} left",
+      vide: "Your videos show up here, one a day, as soon as your warmup is over.",
+      reference: "See the reference TikTok (pace, text, music)",
     },
     pods: {
       title: "Pods",
@@ -1192,6 +1225,9 @@ export const en = {
       passagesPublies: "{{publies}}/{{prevus}} published",
       requalifBloquee: "requalif pending",
       requalifMaintenant: "Requalify now",
+      horsSophia:
+        "This slideshow does not serve Sophia (labels: {{labels}}) — no Sophia tier. Its per-app tier is shown above.",
+      horsSophiaCourt: "Does not serve Sophia: no Sophia tier",
       requalifEcheance: "Restarts anyway on {{date}}.",
       requalif: {
         recul:
@@ -1529,6 +1565,10 @@ export const en = {
         backfillEnCours: "running",
         backfillEtat: "{{restants}} left · {{faits}} done · {{erreurs}} error(s)",
         backfillErreur: "Backfill state unreadable: {{message}}",
+        migration0270:
+          "Cannot activate {{nom}}: apply migration 0270 (tiers per app) before activating. Without it, the engine serves no app other than Sophia.",
+        derniereRequalif:
+          "Last requalif {{nom}} ({{jour}}): {{examines}} examined · {{requalifies}} requalified",
       },
       labels: {
         applicationsServies: "Applications",
@@ -1536,9 +1576,6 @@ export const en = {
         implicite: "No setting: this label serves Sophia by default.",
         applicationInactive: "Inactive application: the label is ready, it does not publish yet.",
         derniereApplication: "A label serves at least one application: tick the other one before removing this one.",
-        angles: "Angles ({{n}})",
-        angle: "{{nom}} angle",
-        anglePlaceholder: "E.g. what {{nom}} brings to this audience. Empty = no angle.",
         schemaAbsent:
           "Applications per label unavailable (migration 0256 not applied yet): reserve shown as before.",
         erreurLiens: "Label applications unreadable: {{message}}",
@@ -1688,15 +1725,21 @@ export const en = {
       repartition: {
         titre: "Split by app",
         aide: "Share of this account's posts per promoted app, held over its last 10 posts. Sophia takes the rest. Account identity (bio, persona) stays Sophia.",
+        aideSansSophia: "None of this account's labels serves Sophia: it only publishes for its labels' apps, with no fallback to Sophia. Account identity (bio, persona) stays Sophia.",
         effectif: "Applied: {{parts}}",
+        bloque: "No app can serve this account: it will publish nothing.",
         enregistrer: "Save split",
         reinitialiser: "Reset (100% Sophia)",
+        reinitialiserSansSophia: "Clear the saved split",
         erreur: "Split by app unavailable: {{message}}",
         avertInactive: "{{app}} is switched off: its share goes back to Sophia while it stays off.",
+        avertInactiveSansSophia: "{{app}} is switched off: this account does not publish for it while it stays off.",
         avertLangue: "{{app}} does not target this account's language ({{langue}}): its share goes back to Sophia.",
+        avertLangueSansSophia: "{{app}} does not target this account's language ({{langue}}): this account does not publish for it.",
         avertUgc: "UGC account: it stays 100% Sophia (other apps only run on classic slideshows).",
-        avertSophiaNonServie: "None of this account's labels serves Sophia: the rest is split between the other apps.",
+        avertUgcSansSophia: "UGC account: apps other than Sophia only run on classic slideshows, and none of this account's labels serves Sophia.",
         avertObsolete: "The saved split gives a share to {{app}}, which this account's labels no longer serve: it goes to the others. Reset it.",
+        avertObsoleteSansSophia: "The saved split still gives a share to {{app}}, which this account's labels no longer serve: clear it.",
       },
       pertinences: {
         titre: "Relevance by app",
@@ -1707,7 +1750,6 @@ export const en = {
         raison: "Reason",
         oui: "Eligible",
         non: "Not eligible",
-        angles: "Angles: {{angles}}",
         vide: "No per-app grade for this content (without a Sophia row it stays eligible for Sophia).",
         erreur: "Relevance by app unavailable: {{message}}",
       },
@@ -1719,6 +1761,13 @@ export const en = {
         statut_pret: "Ready",
         statut_echec: "Failed",
         statut_ineligible: "Ineligible",
+      },
+      tiers: {
+        titre: "Tier per app",
+        aide: "Each other app has its own tier, pass budget and cycle, measured on its own posts only. The Tierlist block below is Sophia's.",
+        paresseux: "Entry tier (score {{note}}), not requalified yet.",
+        horsReserve: "Out of the pool (revoked or ineligible): no longer drawn for this app.",
+        erreur: "Per-app tiers unavailable: {{message}}",
       },
     },
     analytics: {
@@ -2047,6 +2096,8 @@ export const en = {
       warmupRappel:
         "⚠️ Don't forget to warm up the account before you start posting (and every week, scroll for 5-6 minutes so TikTok doesn't take you for a robot)!",
       warmupADemarrer: "Warmup not started yet",
+      warmupADemarrerAideUgc:
+        "When your TikTok and Instagram accounts are ready, click “Start warmup”. The timer starts; when it ends, you get one video a day to post on both.",
       warmupADemarrerAide:
         "When your TikTok account is ready, click “Start warmup”. The timer starts; when it ends, you enter the process (assigned posts).",
       aujourdhui: "Today",

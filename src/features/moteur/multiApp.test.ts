@@ -4,11 +4,9 @@ import { describe, expect, it } from "vitest";
 import {
   ID_SOPHIA,
   SLUG_SOPHIA,
-  anglesPourApplication,
   applicationsDuLabel,
   applicationsEligiblesCompte,
   applicationsServies,
-  blocAngles,
   choisirApplicationCreneau,
   labelsParApplication,
   normaliserParts,
@@ -36,9 +34,9 @@ const unswipe: ApplicationMoteur = {
 };
 
 const liens: LienLabelApplication[] = [
-  { label_id: "clean", application_id: ID_SOPHIA, angle: null },
-  { label_id: "clean", application_id: ID_UNSWIPE, angle: "reprends le contrôle de ton temps" },
-  { label_id: "detox", application_id: ID_UNSWIPE, angle: "dopamine detox" },
+  { label_id: "clean", application_id: ID_SOPHIA },
+  { label_id: "clean", application_id: ID_UNSWIPE },
+  { label_id: "detox", application_id: ID_UNSWIPE },
 ];
 
 describe("applicationsDuLabel", () => {
@@ -190,27 +188,6 @@ describe("choisirApplicationCreneau", () => {
 
   it("sans part → null", () => {
     expect(choisirApplicationCreneau({}, [])).toBeNull();
-  });
-});
-
-describe("angles", () => {
-  const labels = [
-    { id: "clean", nom: "Clean Girl" },
-    { id: "detox", nom: "Detox" },
-    { id: "h", slug: "hook", nom: "Hook" },
-  ];
-
-  it("liste les angles de l'application, dédoublonnés", () => {
-    expect(anglesPourApplication(labels, liens, ID_UNSWIPE)).toEqual([
-      { label: "Clean Girl", angle: "reprends le contrôle de ton temps" },
-      { label: "Detox", angle: "dopamine detox" },
-    ]);
-    expect(anglesPourApplication(labels, liens, ID_SOPHIA)).toEqual([]);
-  });
-
-  it("aucun angle → aucun bloc (prompt inchangé)", () => {
-    expect(blocAngles([], "Sophia")).toBe("");
-    expect(blocAngles([{ label: "Clean Girl", angle: "x" }], "Unswipe")).toContain("- Clean Girl : x");
   });
 });
 

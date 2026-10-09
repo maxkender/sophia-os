@@ -19,9 +19,9 @@
  *    (`motifConcurrenceRefusee`, deck_application.ts).
  *
  * Un motif PAR APPLICATION (`motifConcurrentApplication`) : les concurrents
- * d'Unswipe sont les applis de temps d'écran. Sans motif passé, toutes les
- * fonctions gardent celui de Sophia : les appels Sophia (import, composer) ne
- * changent pas.
+ * d'Unswipe sont les applis de temps d'écran, ceux de micabo les applis
+ * d'étude. Sans motif passé, toutes les fonctions gardent celui de Sophia : les
+ * appels Sophia (import, composer) ne changent pas.
  */
 
 /** Noms d'applis concurrentes de Sophia. « readup » collé seulement : « read up » est de l'anglais courant. */
@@ -67,8 +67,58 @@ export const MOTIF_CONCURRENT_UNSWIPE = new RegExp(
   "im",
 );
 
+/** Bornes de mot Unicode (drapeau `u`) : `\b` ne connaît que l'ASCII. */
+const DEBUT_MOT = String.raw`(?<![\p{L}\p{N}_])`;
+const FIN_MOT = String.raw`(?![\p{L}\p{N}_])`;
+const motEntier = (motif: string) => `${DEBUT_MOT}(?:${motif})${FIN_MOT}`;
+
+/**
+ * Concurrents de micabo : ceux de Sophia + les applis d'étude. C'est la table
+ * `concurrents` de micabo-os au 2026-10-09 (19 noms), mêmes motifs, en mots
+ * entiers Unicode comme là-bas : « Wilgo'dan », « WILGO-Methode »,
+ * « Flashcards/Anki » sont des mentions, « Ranking » ou « speech » non.
+ * Conditions, mesurées sur les slides de micabo-os (decks et OCR, 2026-10-09) :
+ *  - « anki » : jamais après « şu / o / bu / her » — « şu anki rekor », « o anki
+ *    halim » sont du turc courant (« actuel », « de ce moment-là »), et micabo a
+ *    des comptes turcs. Prix : « Notion o Anki » (espagnol) passe ;
+ *  - « astra » (ou « astra ai ») : jamais après « ad » (« per aspera ad astra ») ;
+ *  - « studysmarter » collé seulement : « study smarter » est une expression ;
+ *  - PeECH (lecture audio) en fait partie : sa slide devient la pub micabo,
+ *    réécrite en entier — le prompt `placement_micabo` interdit l'audio.
+ * Sur ce stock, les plus cités : Wilgo (83 slides, source @jeanne.wilgo), PeECH
+ * (29), Quizlet (11), ElibroAI (8), Knowunity et Anki (5).
+ */
+export const MOTIF_CONCURRENT_MICABO = new RegExp(
+  [
+    MOTIF_CONCURRENT.source,
+    ...[
+      "wilgo",
+      String.raw`(?<!(?:^|[^\p{L}\p{N}_])ad\s+)astra(?:\s?ai)?`,
+      "knowunity",
+      "quizlet",
+      String.raw`(?<!(?:^|[^\p{L}\p{N}_])(?:şu|o|bu|her)\s+)anki`,
+      "studysmarter",
+      "studocu",
+      "brainly",
+      String.raw`gauth(?:math)?`,
+      "photomath",
+      String.raw`turbo\s?ai`,
+      String.raw`study\s?fetch`,
+      "revisely",
+      "mindgrasp",
+      "flashka",
+      String.raw`elibro(?:\s?ai|\.ai)?`,
+      "aistote",
+      "nerdmask",
+      "peech",
+    ].map(motEntier),
+  ].join("|"),
+  "iu",
+);
+
 const MOTIFS_PAR_APPLICATION: Readonly<Record<string, RegExp>> = {
   unswipe: MOTIF_CONCURRENT_UNSWIPE,
+  micabo: MOTIF_CONCURRENT_MICABO,
 };
 
 /** Motif des concurrents d'une application ; celui de Sophia par défaut. */

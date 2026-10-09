@@ -81,6 +81,14 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
     bathing », « a clear space », « freedom » au sens courant…) ; Unscroll est
     de loin le plus cité (97 slides, 82 contenus), puis Freedom (8), Forest (4),
     Brick (2).
+  - micabo (0272) : ceux de Sophia + les applis d'étude de la table
+    `concurrents` de micabo-os (19 noms au 2026-10-09 : Wilgo, Quizlet, Anki,
+    Knowunity, StudySmarter, Studocu, Brainly, Gauth, Photomath, Turbo AI,
+    StudyFetch, Revisely, Mindgrasp, Flashka, ElibroAI, Aistote, Nerdmask,
+    Astra AI, PeECH), en mots entiers Unicode. « anki » jamais après « şu / o /
+    bu / her » (« şu anki rekor » est du turc courant), « astra » jamais après
+    « ad », « studysmarter » collé seulement. Mesuré sur les slides de
+    micabo-os : Wilgo (83 slides), PeECH (29), Quizlet (11), ElibroAI (8).
   - **Position imposée** : comme pour Sophia, la première slide (hors
     couverture) qui cite un concurrent de l'application est la SEULE position
     permise du placement, même hors des 3 dernières slides ; le prompt demande
@@ -190,7 +198,8 @@ Migration 0270 (tiers par application, additive ; parties A puis B) :
 | `reglages.tierlist_applications_dernier_run` | trace de l'étape de minuit `tierlist_applications` |
 
 Constantes : Sophia = `00000000-0000-4000-8000-000000000001`,
-Unswipe = `00000000-0000-4000-8000-000000000003` (0258).
+micabo = `00000000-0000-4000-8000-000000000002` (supprimée en 0257, recréée
+INACTIVE en 0272), Unswipe = `00000000-0000-4000-8000-000000000003` (0258).
 
 Logique pure partagée : `src/features/moteur/multiApp.ts` (tests vitest) et sa
 copie Deno `supabase/functions/_shared/multi_app.ts` (synchro testée). Lectures
@@ -344,6 +353,23 @@ leur suppression (en commentaire) perd les tiers des autres applications.
 `manage-users` et `papier-cm` tournent sur des bundles figés : ils continuent
 de lire `application_id` (toujours Sophia) et n'ont pas besoin d'être
 reconstruits pour cette évolution.
+
+### micabo (0272) — préparation, aucun effet visible
+
+micabo revient comme troisième application, pour reprendre les comptes et le
+stock de micabo-os. Ce qui est en place :
+
+- le motif de concurrents `micabo` (`_shared/concurrents.ts`, § 1), déployé
+  avec les Edge au merge — inerte tant qu'aucun deck micabo n'est cuit ;
+- 0272 : l'application (id `…0002`, langues fr / tr / de / es, INACTIVE) et
+  ses deux prompts, repris de micabo-os en production (v2) et adaptés à
+  l'enveloppe de Sophia (voir l'en-tête de la migration). Sans label qui la
+  sert, rien n'est noté ni publié pour elle. **Ne plus rejouer 0257** : elle
+  la supprimerait de nouveau, prompts compris.
+
+Reste à faire, dans cet ordre : labels dédiés (cochés micabo seul, ligne
+`label_applications` posée dans la même transaction que le label), reprise du
+stock et des comptes de micabo-os, puis activation.
 
 ## 4. Plus tard (décidé, pas fait)
 

@@ -59,6 +59,12 @@ export interface OptionsDeckApplication {
    * le mettre en cache.
    */
   echeance?: number;
+  /**
+   * Test à blanc seulement (mode « contenus ») : ne pas servir le cache
+   * `contenu_langue_decks`, recuire avec le prompt de placement ACTUEL. Absent
+   * ou `false` (la nuit, l'assignation test) : comportement inchangé.
+   */
+  ignorerCache?: boolean;
 }
 
 /**
@@ -440,7 +446,7 @@ export async function assurerDeckApplication(
     .maybeSingle();
   if (errCache) throw new Error(`contenu_langue_decks : ${messageErreur(errCache)}`);
 
-  if (cache) {
+  if (cache && !opts.ignorerCache) {
     const slides = (cache.slides ?? []) as SlideLangue[];
     // Un deck en cache qui cite un concurrent de l'application (motif élargi
     // depuis) est recuit plutôt que servi.

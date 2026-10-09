@@ -82,6 +82,7 @@ import {
   type AssignationABlancLog,
   type AssignationABlancResultat,
 } from "./assignationABlanc";
+import type { ContenusABlancResultat, SlideshowABlanc } from "./contenusABlanc";
 
 export type { EloImportRapport };
 export type { ApplicationOs };
@@ -4625,17 +4626,15 @@ export const annulerAssignationTestCompte = (date: string, compteId: string) =>
 export type { AssignationABlancLog, AssignationABlancResultat };
 
 /**
- * Assignation test À BLANC d'un compte (fonction `assignation-a-blanc`) : le
- * vrai code de la nuit, rien d'écrit nulle part. NDJSON streamé + logs, comme
- * l'assignation test. Rend le résultat reconstruit (créneaux, écritures
- * évitées, appels bloqués, limites).
+ * Appelle la fonction `assignation-a-blanc` et lit son flux NDJSON : chaque
+ * ligne qui porte un `detail` part dans `onLog`, la ligne `ready` finale est
+ * rendue (elle porte `resultat`, partiel compris). Partagé par le test d'un
+ * compte et le test de notation / placement de quelques slideshows.
  */
-export async function lancerAssignationABlanc(
-  date: string,
-  compteId: string,
-  ia: boolean,
+async function posterFluxABlanc(
+  corps: Record<string, unknown>,
   onLog?: (ligne: AssignationABlancLog) => void,
-): Promise<AssignationABlancResultat> {
+): Promise<Record<string, unknown>> {
   const url = import.meta.env.VITE_SUPABASE_URL;
   const anon = import.meta.env.VITE_SUPABASE_ANON_KEY;
   if (!url || !anon) throw new Error("Supabase non configuré");
@@ -4652,7 +4651,7 @@ export async function lancerAssignationABlanc(
       "Content-Type": "application/json",
       Accept: "application/x-ndjson",
     },
-    body: JSON.stringify({ date, compteId, ia }),
+    body: JSON.stringify(corps),
   });
 
   if (!res.ok || !res.body) {
@@ -4722,7 +4721,86 @@ export async function lancerAssignationABlanc(
           : "Test à blanc échoué",
     );
   }
+  return fin;
+}
+
+/**
+ * Assignation test À BLANC d'un compte (fonction `assignation-a-blanc`) : le
+ * vrai code de la nuit, rien d'écrit nulle part. NDJSON streamé + logs, comme
+ * l'assignation test. Rend le résultat reconstruit (créneaux, écritures
+ * évitées, appels bloqués, limites).
+ */
+export async function lancerAssignationABlanc(
+  date: string,
+  compteId: string,
+  ia: boolean,
+  onLog?: (ligne: AssignationABlancLog) => void,
+): Promise<AssignationABlancResultat> {
+  const fin = await posterFluxABlanc({ date, compteId, ia }, onLog);
   return fin.resultat as AssignationABlancResultat;
+}
+
+/**
+ * Test à blanc « contenus » : la notation (calcul du rattrapage) puis le
+ * placement d'une application autre que Sophia, sur 1 à 3 slideshows. IA
+ * toujours utilisée, rien n'est enregistré. `langue` absente : langue source
+ * de chaque slideshow.
+ */
+export async function lancerContenusABlanc(
+  applicationId: string,
+  contenuIds: string[],
+  langue: string | null,
+  onLog?: (ligne: AssignationABlancLog) => void,
+): Promise<ContenusABlancResultat> {
+  const fin = await posterFluxABlanc(
+    { mode: "contenus", applicationId, contenuIds, ...(langue ? { langue } : {}) },
+    onLog,
+  );
+  return fin.resultat as ContenusABlancResultat;
+}
+
+/** Ids des labels qui servent une application (`label_applications`) ; [] avant 0256. */
+export async function listerLabelIdsApplication(applicationId: string): Promise<string[]> {
+  const { data, error } = await supabase
+    .from("label_applications")
+    .select("label_id")
+    .eq("application_id", applicationId);
+  if (error) {
+    if (estErreurSchemaAbsent(error)) return [];
+    throw error;
+  }
+  return [...new Set((data ?? []).map((r) => r.label_id as string).filter(Boolean))];
+}
+
+/**
+ * Slideshows d'un label que le rattrapage noterait : valides et importés, les
+ * plus récents d'abord. Filtre serveur par label (jointure), et par titre si
+ * `recherche` est donnée — jamais la liste complète du label (> 1 000 lignes).
+ */
+export async function listerSlideshowsLabelABlanc(
+  labelId: string,
+  recherche = "",
+  limite = 150,
+): Promise<SlideshowABlanc[]> {
+  let q = supabase
+    .from("contenus")
+    .select("id, titre, langue_source, vues_source, created_at, contenu_labels!inner(label_id)")
+    .eq("contenu_labels.label_id", labelId)
+    .eq("statut", "valide")
+    .eq("import_statut", "done")
+    .order("created_at", { ascending: false })
+    .limit(limite);
+  const r = recherche.trim();
+  if (r) q = q.ilike("titre", `%${r}%`);
+  const { data, error } = await q;
+  if (error) throw error;
+  return ((data ?? []) as Array<Record<string, unknown>>).map((c) => ({
+    id: String(c.id),
+    titre: (c.titre as string | null) ?? null,
+    langue_source: (c.langue_source as string | null) ?? null,
+    vues_source: c.vues_source === null || c.vues_source === undefined ? null : Number(c.vues_source),
+    created_at: String(c.created_at ?? ""),
+  }));
 }
 
 const LARGEUR_ASSIGN_FRONT = 6;

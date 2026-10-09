@@ -17,6 +17,8 @@
 --                    ses comptes vont sur ce login) ou homonyme (→ `creer` avec
 --                    un autre `email_sophia`) : à trancher par un humain. Tant
 --                    qu'il en reste, l'import (3b) refuse de tourner.
+--  - `ignorer`     : posé à la main, créateur laissé dans micabo-os (ex. un login
+--                    qui ne porte qu'un compte vidéo AI UGC). L'import le saute.
 
 create table if not exists migration_micabo.correspondance (
   micabo_id uuid primary key,
@@ -24,7 +26,7 @@ create table if not exists migration_micabo.correspondance (
   email_sophia text not null,
   prenom text,
   nom text,
-  decision text not null check (decision in ('creer', 'a_confirmer', 'existant')),
+  decision text not null check (decision in ('creer', 'a_confirmer', 'existant', 'ignorer')),
   sophia_id uuid,
   importe_le timestamptz
 );

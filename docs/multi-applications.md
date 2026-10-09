@@ -376,8 +376,20 @@ stock de micabo-os. Ce qui est en place :
   « moins utilisé » et partirait sur une recrue Sophia (§ 4.1). Ne pas le
   remettre à Sophia.
 
-Reste à faire, dans cet ordre : reprise des créateurs, du stock et des comptes
-de micabo-os, puis activation.
+- les créateurs et leurs comptes TikTok (2026-10-09, scripts
+  `docs/sql/micabo_*.sql`) : 22 logins `x@sophia.com` recopiés de micabo-os
+  (même id, même mot de passe, profil complet, aucun HM, aucun changement de
+  mot de passe imposé) ; 4 créateurs déjà sur Sophia gardent leur login, ses
+  comptes micabo y sont rattachés ; Eva (seul compte vidéo AI UGC, @eva.learn)
+  reste dans micabo-os. 27 comptes TikTok recopiés **en sommeil**
+  (`is_active = false`, sans label, warmup déjà fini) : ni vus ni servis.
+  Le schéma privé `migration_micabo` garde la correspondance des ids et l'état
+  micabo de chaque compte (`actif_micabo`, `labels_micabo`) pour le réveil ;
+  les mots de passe chiffrés en ont été purgés.
+
+Reste à faire, dans cet ordre : reprise du stock (contenus, decks, images),
+puis, le jour de la bascule, réveil des comptes (`is_active = true` + label
+`classic_study`), arrêt de ces comptes dans micabo-os, activation de micabo.
 
 ## 4. Plus tard (décidé, pas fait)
 

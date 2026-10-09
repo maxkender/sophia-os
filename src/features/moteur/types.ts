@@ -374,6 +374,8 @@ export interface ReglagesTierlist {
   remix_par_requalif: number;
   /** Passages offerts à un contenu en D repêché pour combler le pool. */
   repechage_passages: number;
+  /** Jours minimum avant qu'un contenu puisse repasser sur le même compte. */
+  ecart_min_meme_contenu: number;
   /** Jours d'attente d'une mesure avant de relancer le cycle au même rang. */
   requalif_max_jours: number;
 }

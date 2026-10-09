@@ -1460,8 +1460,9 @@ export const fr = {
       regularisation: "Régularisation k",
       transfert: "Transfert inter-langues",
       repechagePassages: "Passages au repêchage D",
+      ecartMinMemeContenu: "Écart min. même post (jours)",
       assignationParamsAide:
-        "Le rang tierlist décide de la fréquence d'un post (D 0 · C 1 · B 2 · A 4 · S 8 · S+ 16). Dans le pool du jour, le tirage est au hasard. Pool épuisé → un post en D est repêché avec ce nombre de passages.",
+        "Le rang tierlist décide de la fréquence d'un post (D 0 · C 1 · B 2 · A 4 · S 8 · S+ 16). Dans le pool du jour, le tirage est au hasard. Pool épuisé → un post en D est repêché avec ce nombre de passages. Un post déjà passé sur le compte depuis moins que l'écart min. est relégué en dernier recours : il ne ressort que si le compte n'a rien d'autre, un doublon espacé valant mieux qu'un créneau vide. 0 désactive la règle.",
       tierlistParams: "Tierlist & requalification",
       tierlistParamsAide:
         "Un post est requalifié quand tous ses passages sont publiés et ont pris le recul indiqué : m = moyenne des vues du cycle. Faute de mesure, le cycle repart au même rang — dès que plus aucune vue ne peut tomber, ou au bout de l'attente max. Un passage au-delà du seuil de rappel repart sur le même compte à J+7, hors quota et hors calcul de m.",

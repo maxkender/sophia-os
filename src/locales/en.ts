@@ -1458,8 +1458,9 @@ export const en = {
       regularisation: "Regularization k",
       transfert: "Cross-language transfer",
       repechagePassages: "Passes on D revival",
+      ecartMinMemeContenu: "Min. gap, same post (days)",
       assignationParamsAide:
-        "A post's tier sets how often it goes out (D 0 · C 1 · B 2 · A 4 · S 8 · S+ 16). Within the day's pool the draw is uniform. Pool exhausted → a D-tier post is revived with this many passes.",
+        "A post's tier sets how often it goes out (D 0 · C 1 · B 2 · A 4 · S 8 · S+ 16). Within the day's pool the draw is uniform. Pool exhausted → a D-tier post is revived with this many passes. A post the account already ran less than the min. gap ago drops to last resort: it only comes back out if the account has nothing else, since a spaced-out repeat beats an empty slot. 0 turns the rule off.",
       tierlistParams: "Tierlist & requalification",
       tierlistParamsAide:
         "A post is requalified once all its passes are published and have aged the set number of days: m = mean views over the cycle. With no measurement the cycle restarts at the same tier — as soon as no views can arrive, or once the max wait is up. A pass above the recall threshold runs again on the same account at D+7, outside the quota and outside the m calculation.",

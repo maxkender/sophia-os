@@ -5,6 +5,7 @@ import {
   PASSAGES_PAR_TIER,
   TIERS,
   TIER_MIN_PRIORITAIRE,
+  BANDES_AVANT_DERNIER_RECOURS,
   bandesDeTirage,
   deciderRequalif,
   decisionDepuisEtat,
@@ -365,9 +366,22 @@ describe("décision de requalification", () => {
 });
 
 describe("priorité au tirage du jour", () => {
-  const pool = (...entrees: Array<[Tier, boolean]>) =>
-    entrees.map(([tier, dejaPoste], i) => ({ id: `${tier}-${i}`, tier, dejaPoste }));
+  /** `pool([tier, dejaPoste, posteRecemment?, ecartDepuisDernier?])`. */
+  const pool = (...entrees: Array<[Tier, boolean, boolean?, number?]>) =>
+    entrees.map(([tier, dejaPoste, posteRecemment, ecartDepuisDernier], i) => ({
+      id: `${tier}-${i}`,
+      tier,
+      dejaPoste,
+      posteRecemment,
+      ecartDepuisDernier,
+    }));
+  /** Indice de la bande où atterrit un candidat — ce que le tirage lit vraiment. */
+  const bandeDe = (entree: [Tier, boolean, boolean?, number?]) =>
+    bandesDeTirage(pool(entree)).findIndex((b) => b.length > 0);
   const ids = (bandes: Array<Array<{ id: string }>>) => bandes.map((b) => b.map((c) => c.id));
+  /** Première bande non vide = ce que le tirage servira. */
+  const servie = (bandes: Array<Array<{ id: string }>>) =>
+    bandes.find((b) => b.length > 0)?.map((c) => c.id) ?? [];
 
   it("sert B et au-dessus, garde C et D pour combler", () => {
     expect(TIER_MIN_PRIORITAIRE).toBe("B");
@@ -385,16 +399,107 @@ describe("priorité au tirage du jour", () => {
     expect(new Set(rangs).size).toBe(TIERS.length);
   });
 
-  it("range le pool en quatre bandes : B+ neuf, B+ déjà vu, puis le bas", () => {
+  it("range le pool en six bandes : B+ neuf, B+ déjà vu, le bas, puis le récent", () => {
     const bandes = bandesDeTirage(
-      pool(["C", false], ["A", true], ["S+", false], ["D", true], ["C", true], ["B", false]),
+      pool(
+        ["C", false],
+        ["A", true],
+        ["S+", false],
+        ["D", true],
+        ["C", true],
+        ["B", false],
+        ["S", true, true],
+        ["C", true, true],
+      ),
     );
     expect(ids(bandes)).toEqual([
       ["S+-2", "B-5"],
       ["A-1"],
       ["C-0"],
       ["D-3", "C-4"],
+      ["S-6"],
+      ["C-7"],
     ]);
+  });
+
+  it("un post reposté trop récemment passe DERRIÈRE le bas de tierlist", () => {
+    // Le cas Jens : un S qu'il vient de poster ne doit pas repasser devant un
+    // C qu'il n'a jamais vu. C'est la seule entorse au « rang avant fraîcheur ».
+    const bandes = bandesDeTirage(pool(["S", true, true], ["C", false]));
+    expect(servie(bandes)).toEqual(["C-1"]);
+
+    // Même un D jamais vu passe devant un S+ tout juste posté.
+    expect(servie(bandesDeTirage(pool(["S+", true, true], ["D", false])))).toEqual(["D-1"]);
+  });
+
+  it("le récent reste SERVI si le compte n'a rien d'autre (jamais de créneau vide)", () => {
+    // Choix assumé : un doublon espacé vaut mieux qu'un jour sans post. Sans
+    // ces deux dernières bandes, les langues à petit vivier perdraient des
+    // créneaux au lieu de gagner de la variété.
+    expect(servie(bandesDeTirage(pool(["B", true, true])))).toEqual(["B-0"]);
+    expect(servie(bandesDeTirage(pool(["D", true, true])))).toEqual(["D-0"]);
+    for (const tier of TIERS) {
+      expect(bandesDeTirage(pool([tier, true, true])).flat()).toHaveLength(1);
+    }
+  });
+
+  it("entre deux récents, le rang départage encore", () => {
+    expect(servie(bandesDeTirage(pool(["C", true, true], ["A", true, true])))).toEqual(["A-1"]);
+    // Assertion sur l'INDICE : sans la zone de dernier recours, ces deux
+    // candidats tomberaient en bandes 1 et 3, pas 4 et 5.
+    expect(bandeDe(["A", true, true])).toBe(BANDES_AVANT_DERNIER_RECOURS);
+    expect(bandeDe(["C", true, true])).toBe(BANDES_AVANT_DERNIER_RECOURS + 1);
+    expect(bandeDe(["A", true, false])).toBe(1);
+    expect(bandeDe(["C", true, false])).toBe(3);
+  });
+
+  it("dernier recours : à doublon acquis, le PLUS ANCIEN est servi", () => {
+    // Le doublon est déjà inévitable ; resservir le deck d'hier plutôt que
+    // celui de treize jours serait un pur gâchis. Même bande, même rang : seule
+    // la date peut trancher, et elle doit trancher avant le hasard.
+    const bandes = bandesDeTirage(pool(["A", true, true, 1], ["A", true, true, 13]));
+    expect(servie(bandes)).toEqual(["A-1"]);
+
+    // Trois candidats, deux à égalité au maximum : les deux restent tirables.
+    const trois = bandesDeTirage(
+      pool(["B", true, true, 2], ["B", true, true, 12], ["B", true, true, 12]),
+    );
+    expect(servie(trois)).toEqual(["B-1", "B-2"]);
+  });
+
+  it("dernier recours sans aucune date connue : la bande reste entière", () => {
+    // On ne filtre pas sur une information absente, sinon un candidat sans
+    // date disparaîtrait du tirage et le créneau pourrait être perdu.
+    const bandes = bandesDeTirage(pool(["B", true, true], ["B", true, true]));
+    expect(servie(bandes)).toEqual(["B-0", "B-1"]);
+  });
+
+  it("hors dernier recours, la date ne filtre RIEN (tirage uniforme préservé)", () => {
+    // Les bandes 1 à 4 gardent tous leurs candidats : la préférence pour
+    // l'ancien est volontairement cantonnée au dernier recours.
+    const bandes = bandesDeTirage(pool(["B", true, false, 20], ["B", true, false, 90]));
+    expect(servie(bandes)).toEqual(["B-0", "B-1"]);
+  });
+
+  it("récence ignorée quand la règle est désactivée (écart 0 => posteRecemment jamais posé)", () => {
+    // `posteRecemment` absent rend EXACTEMENT les bandes d'avant 0271 : c'est
+    // ce qui garantit qu'un écart réglé à 0 restaure le comportement d'origine.
+    const bandes = bandesDeTirage(pool(["C", false], ["B", true]));
+    expect(servie(bandes)).toEqual(["B-1"]);
+    expect(bandes.slice(4).flat()).toHaveLength(0);
+  });
+
+  it("chaque candidat tombe dans exactement une bande, rien n'est perdu", () => {
+    const entrees: Array<[Tier, boolean, boolean?]> = [];
+    for (const tier of TIERS) {
+      for (const deja of [false, true]) {
+        for (const recent of [undefined, false, true]) entrees.push([tier, deja, recent]);
+      }
+    }
+    const candidats = pool(...entrees);
+    const bandes = bandesDeTirage(candidats);
+    expect(bandes.flat()).toHaveLength(candidats.length);
+    expect(new Set(bandes.flat().map((c) => c.id)).size).toBe(candidats.length);
   });
 
   it("ne tire un C que si le pool n'a plus rien en B+", () => {

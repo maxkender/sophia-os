@@ -1389,6 +1389,28 @@ async function executerPasImport(
       // Toujours persister le détail (historique + logs UI).
       await marquer(supabase, contenu.id, { import_elo_rapport: elo });
 
+      // Contenu hors Sophia dont AUCUNE application ne veut (pertinence sous
+      // PERTINENCE_MIN_HORS_SOPHIA partout) : la porte (le max) le laisserait
+      // passer, mais aucun pool ne pourrait le servir. Rejeté ici, avant les
+      // appels modèle des étapes suivantes. Un contenu servi par Sophia n'est
+      // jamais concerné (son mode n'est pas « hors_sophia »).
+      const notesApps = Object.entries(elo.pertinences ?? {});
+      if (
+        placement?.mode === "hors_sophia" && elo.tier && notesApps.length > 0 &&
+        notesApps.every(([, p]) => !p.eligible)
+      ) {
+        const detail = notesApps.map(([slug, p]) => `${slug} ${p.score}`).join(", ");
+        await marquer(supabase, contenu.id, {
+          statut: "rejete",
+          import_statut: "done",
+          import_etape: "elo_insuffisant",
+          import_erreur:
+            `Pertinence sous ${PERTINENCE_MIN_HORS_SOPHIA} pour toutes ses applications (${detail}) — TikTok non importé`,
+          import_elo_rapport: elo,
+        });
+        return { etape: "elo_insuffisant", elo, progres: true };
+      }
+
       const tier = await assurerTierImport(
         supabase,
         contenu.id,
@@ -2724,11 +2746,9 @@ export async function forcerImportElo(
   // Forcer passe outre les vues et la piste, PAS le sujet : une ligne d'une
   // autre application sous PERTINENCE_MIN_HORS_SOPHIA reste hors de son pool.
   if (await schemaMultiAppPret(supabase)) {
-    const { error: errP } = await supabase
-      .from("contenu_pertinences")
-      .update({ eligible: true, updated_at: new Date().toISOString() })
-      .eq("contenu_id", contenuId);
-    if (errP) return { ok: false, erreur: errP.message };
+    // Éligibilité posée ligne par ligne (Sophia : toujours ; autres : selon le
+    // plancher), jamais « tout à true puis corrigé » : un échec en cours de
+    // route ne laisse pas de ligne sous le plancher éligible.
     const { data: notees, error: errN } = await supabase
       .from("contenu_pertinences")
       .select("application_id, note, score")
@@ -2741,14 +2761,14 @@ export async function forcerImportElo(
         score: number | string | null;
       }>
     ) {
-      const maj: { note?: number; eligible?: boolean } = {};
+      const maj: { note?: number; eligible: boolean } = {
+        eligible: pertinenceSuffisante(l.application_id, Number(l.score)),
+      };
       if (l.note !== null && l.note !== undefined) {
         const brute = Number(l.note);
         const note = noteStockee(brute, l.application_id, scoring.eloSeuil, true);
         if (note !== brute) maj.note = note;
       }
-      if (!pertinenceSuffisante(l.application_id, Number(l.score))) maj.eligible = false;
-      if (Object.keys(maj).length === 0) continue;
       const { error: errU } = await supabase
         .from("contenu_pertinences")
         .update({ ...maj, updated_at: new Date().toISOString() })

@@ -276,6 +276,37 @@ Deno.test("pipeline, contenu hors Sophia : aucune écriture du rang dans contenu
   oublierSondes();
 });
 
+Deno.test("pipeline, contenu hors Sophia sous le plancher de pertinence : rejeté à la porte, avant les étapes suivantes", async () => {
+  oublierSondes();
+  // La porte (le max = 40) passe grâce aux vues ; seule la pertinence est trop basse.
+  assert(note(40) >= SEUIL, "prémisse des chiffres");
+  const b = base([{ application_id: UNSWIPE, score: 40 }], { pertinence_score: 40 });
+  const { client, journal, tables } = fauxClient(b);
+
+  const r = await avancerImport(client, b.contenus[0]);
+
+  assertEquals(r.etape, "elo_insuffisant");
+  assertEquals(updatesRang(journal), []);
+  const c = tables.contenus[0];
+  assertEquals([c.statut, c.import_statut, c.import_etape], ["rejete", "done", "elo_insuffisant"]);
+  assert(String(c.import_erreur).includes("Pertinence sous 50"), String(c.import_erreur));
+  assertEquals(tables.contenu_pertinences[0].eligible, false);
+  oublierSondes();
+});
+
+Deno.test("pipeline, contenu partagé avec Sophia, Unswipe sous le plancher : importé (Sophia le sert)", async () => {
+  oublierSondes();
+  const b = base([{ application_id: ID_SOPHIA, score: 90 }, { application_id: UNSWIPE, score: 40 }]);
+  const { client, tables } = fauxClient(b);
+
+  const r = await avancerImport(client, b.contenus[0]);
+
+  assertEquals(r.etape, "elo");
+  const ligne = (app: string) => tables.contenu_pertinences.find((l) => l.application_id === app)!;
+  assertEquals([ligne(ID_SOPHIA).eligible, ligne(UNSWIPE).eligible], [true, false]);
+  oublierSondes();
+});
+
 Deno.test("pipeline, lecture du placement en panne : le pas échoue (rejoué), aucun rang écrit", async () => {
   oublierSondes();
   const b = base([{ application_id: ID_SOPHIA, score: 90 }]);

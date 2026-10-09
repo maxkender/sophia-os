@@ -39,6 +39,12 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
     import forcé compris : la note est dominée par les vues et la piste du
     compte source, un TikTok très vu passait hors sujet. Sophia : aucun
     plancher (son pool n'écarte que les lignes explicitement non éligibles).
+    Un contenu hors Sophia sous le plancher pour TOUTES ses applications est
+    rejeté dès l'étape 4 (aucun pool ne pourrait le servir). Effet indirect sur
+    un compte mixte : une réserve Unswipe plus petite envoie plus de créneaux en
+    repli Sophia (`repli_motif = reserve_vide`) — à surveiller. Le plancher
+    vaut pour les lignes notées à partir du 2026-10-09 (0 ligne non-Sophia en
+    base à cette date).
   - Pool **Sophia** : exclut seulement une ligne Sophia **explicitement** non
     éligible (pas de ligne = éligible : stock historique, créations manuelles,
     variations). Pool **autre application** : il FAUT une ligne éligible.

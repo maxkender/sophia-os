@@ -60,25 +60,39 @@ export function estTierPrioritaire(tier: Tier): boolean {
 
 export interface CandidatTirage {
   tier: Tier;
-  /** Ce compte a déjà posté ce contenu. */
+  /** Ce compte a déjà posté ce contenu, à une date quelconque. */
   dejaPoste?: boolean;
+  /**
+   * Ce compte l'a posté il y a MOINS de `ecart_min_meme_contenu` jours.
+   * Implique `dejaPoste`, et relègue le contenu en dernier recours.
+   */
+  posteRecemment?: boolean;
 }
 
 /**
  * Découpe le pool du jour en bandes, dans l'ordre où elles doivent être servies :
  *
  *   1. B+ jamais posté par ce compte
- *   2. B+ déjà posté
+ *   2. B+ posté de longue date
  *   3. C (ou D repêché) jamais posté
- *   4. C (ou D repêché) déjà posté
+ *   4. C (ou D repêché) posté de longue date
+ *   5. B+ posté RÉCEMMENT
+ *   6. C (ou D repêché) posté RÉCEMMENT
  *
- * Le rang passe donc avant la fraîcheur : un B déjà vu par le compte est servi
- * avant un C neuf. Le tirage reste uniforme **à l'intérieur** d'une bande.
+ * Le rang passe avant la fraîcheur — un B déjà vu par le compte est servi avant
+ * un C neuf — SAUF pour un contenu que ce compte vient de poster : celui-là
+ * tombe derrière tout le reste, bas de tierlist compris.
+ *
+ * Pourquoi deux bandes de plus et non une exclusion sèche : un compte dont le
+ * vivier de frais est à sec (petite langue) perdrait son créneau. Mieux vaut un
+ * doublon espacé qu'un jour sans post, donc les bandes 5 et 6 restent tirables
+ * en dernier recours. Le tirage reste uniforme **à l'intérieur** d'une bande.
  */
 export function bandesDeTirage<T extends CandidatTirage>(pool: T[]): T[][] {
-  const bandes: T[][] = [[], [], [], []];
+  const bandes: T[][] = [[], [], [], [], [], []];
   for (const c of pool) {
-    const bande = (estTierPrioritaire(c.tier) ? 0 : 2) + (c.dejaPoste ? 1 : 0);
+    const bas = estTierPrioritaire(c.tier) ? 0 : 1;
+    const bande = c.posteRecemment ? 4 + bas : bas * 2 + (c.dejaPoste ? 1 : 0);
     bandes[bande].push(c);
   }
   return bandes;

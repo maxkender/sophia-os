@@ -117,6 +117,11 @@ export interface AssignationReglages {
   postsParJour: number;
   /** Passages offerts à un contenu en D repêché quand le pool ne suffit pas. */
   repechagePassages: number;
+  /**
+   * Jours minimum avant qu'un contenu puisse repasser sur le MÊME compte.
+   * 0 rend exactement le comportement d'avant 0268.
+   */
+  ecartMinMemeContenu: number;
 }
 
 export async function chargerAssignationReglages(
@@ -154,6 +159,7 @@ export async function chargerAssignationReglages(
   return {
     postsParJour: Math.min(3, Math.max(1, frequence.posts_par_jour ?? 1)),
     repechagePassages: Math.max(1, tierlist.repechage_passages ?? 1),
+    ecartMinMemeContenu: Math.max(0, tierlist.ecart_min_meme_contenu ?? 14),
   };
 }
 
@@ -171,6 +177,8 @@ interface Candidat {
   musique_titre: string | null;
   musique_plateforme: string | null;
   dejaPoste: boolean;
+  /** Posté sur CE compte à moins de `ecartMinMemeContenu` jours du jour visé. */
+  posteRecemment: boolean;
   derniereDate: string | null;
 }
 
@@ -2184,8 +2192,12 @@ async function choisirContenu(
   /**
    * Même contenu, autre application, à moins de 7 jours sur CE compte : deux
    * decks quasi identiques se voleraient leurs stats au rattrapage et passeraient
-   * pour du doublon aux yeux de TikTok. `dejaPoste` reste, lui, sans
-   * application : il ne fait qu'ordonner les bandes de tirage.
+   * pour du doublon aux yeux de TikTok. Écart SEC : le contenu sort du pool.
+   *
+   * À ne pas confondre avec `estPosteRecemment` plus bas, qui regarde le même
+   * compte TOUTES applications confondues sur `ecartMinMemeContenu` jours, et
+   * qui ne fait que reléguer. `dejaPoste`, lui, reste sans date : il n'ordonne
+   * que les bandes de tirage.
    */
   const tropProches = new Set<string>();
   for (const h of hist) {
@@ -2207,6 +2219,33 @@ async function choisirContenu(
     ? contenuIds
     : contenuIds.filter((cid) => !tropProches.has(cid));
 
+  /**
+   * Ce compte a-t-il posté ce contenu à moins de `ecartMinMemeContenu` jours du
+   * jour visé ?
+   *
+   * C'est la règle anti-doublon rapproché. Avant elle, un poster recevait le
+   * même deck — mêmes images ET même texte — à un ou deux jours d'intervalle :
+   * `dejaPoste` ne faisait que rétrograder le contenu d'une bande, sans jamais
+   * regarder la date, et le seul garde-fou daté ne valait qu'entre applications
+   * différentes. Les langues à petit vivier (5 comptes en nl) épuisaient leur
+   * bande de frais et retombaient sur du déjà vu dès le lendemain.
+   *
+   * Le contenu n'est pas écarté pour autant : `bandesDeTirage` le relègue en
+   * dernier recours, derrière le bas de tierlist. Un doublon espacé vaut mieux
+   * qu'un créneau vide.
+   *
+   * L'écart est en valeur absolue, donc un passage DÉJÀ PROGRAMMÉ pour demain
+   * compte aussi — sans quoi la même nuit pourrait servir deux fois le contenu
+   * à deux jours de suite. Une date illisible rend `ecartJours` infini, donc
+   * « pas récent » : dans le doute on sert, on ne bloque pas.
+   */
+  const ecartMin = reglages.ecartMinMemeContenu;
+  const estPosteRecemment = (cid: string): boolean => {
+    if (ecartMin <= 0) return false;
+    const d = derniere.get(cid);
+    return d !== undefined && d !== "" && ecartJours(d, jour) < ecartMin;
+  };
+
   const construire = (cid: string, e: TierEtatLigne | undefined, repeche: boolean): Candidat | null => {
     const m = meta.get(cid);
     if (!m) return null;
@@ -2222,6 +2261,7 @@ async function choisirContenu(
       musique_titre: m.musique_titre,
       musique_plateforme: m.musique_plateforme,
       dejaPoste: derniere.has(cid),
+      posteRecemment: estPosteRecemment(cid),
       derniereDate: derniere.get(cid) ?? null,
     };
   };
@@ -2241,8 +2281,10 @@ async function choisirContenu(
 
   // Bandes servies dans l'ordre : B+ d'abord, et seulement si le pool n'a plus
   // rien en B ou au-dessus, le bas de tierlist (C, D repêché dont le passage
-  // est encore en vol). Un contenu peut repasser sur le même compte : à rang
-  // équivalent, le tirage préfère du neuf quand il y en a.
+  // est encore en vol). Un contenu peut repasser sur le même compte, mais plus
+  // à n'importe quel rythme : posté depuis moins de `ecartMinMemeContenu`
+  // jours, il part dans les deux dernières bandes et ne ressort que si le
+  // compte n'a vraiment rien d'autre.
   for (const bande of bandesDeTirage(pool)) {
     const pick = tirerAuHasard(bande);
     if (pick) return pick;
@@ -2261,6 +2303,7 @@ async function choisirContenu(
       dejaCreesCetteSession,
       reglages.repechagePassages,
       construire,
+      estPosteRecemment,
     );
   }
   return await repecherContenuD(
@@ -2270,6 +2313,7 @@ async function choisirContenu(
     dejaCreesCetteSession,
     reglages.repechagePassages,
     construire,
+    estPosteRecemment,
   );
 }
 
@@ -2297,6 +2341,7 @@ async function repecherContenuD(
   dejaCreesCetteSession: string[],
   passages: number,
   construire: (cid: string, e: TierEtatLigne | undefined, repeche: boolean) => Candidat | null,
+  estPosteRecemment: (cid: string) => boolean,
 ): Promise<Candidat | null> {
   const dormants = contenuIds.filter((cid) => {
     if (dejaCreesCetteSession.includes(cid)) return false;
@@ -2311,7 +2356,15 @@ async function repecherContenuD(
     [dormants[i], dormants[j]] = [dormants[j], dormants[i]];
   }
 
-  for (const cid of dormants.slice(0, 10)) {
+  // Puis les fraîchement postés en queue. Le repêchage ne passe pas par
+  // `bandesDeTirage` : c'était le dernier chemin par lequel un doublon
+  // rapproché pouvait encore sortir. Il reste tirable, mais après les autres.
+  const ordonnes = [
+    ...dormants.filter((cid) => !estPosteRecemment(cid)),
+    ...dormants.filter((cid) => estPosteRecemment(cid)),
+  ];
+
+  for (const cid of ordonnes.slice(0, 10)) {
     const { data, error } = await supabase
       .from("contenus")
       .update({ passages_prevus: passages })
@@ -2350,6 +2403,7 @@ async function repecherContenuDApplication(
   dejaCreesCetteSession: string[],
   passages: number,
   construire: (cid: string, e: TierEtatLigne | undefined, repeche: boolean) => Candidat | null,
+  estPosteRecemment: (cid: string) => boolean,
 ): Promise<Candidat | null> {
   const dormants = contenuIds.filter((cid) => {
     if (dejaCreesCetteSession.includes(cid)) return false;
@@ -2364,7 +2418,14 @@ async function repecherContenuDApplication(
     [dormants[i], dormants[j]] = [dormants[j], dormants[i]];
   }
 
-  for (const cid of dormants.slice(0, 10)) {
+  // Puis les fraîchement postés en queue, comme côté Sophia : le repêchage ne
+  // passe pas par `bandesDeTirage`, il lui faut sa propre mise en queue.
+  const ordonnes = [
+    ...dormants.filter((cid) => !estPosteRecemment(cid)),
+    ...dormants.filter((cid) => estPosteRecemment(cid)),
+  ];
+
+  for (const cid of ordonnes.slice(0, 10)) {
     const { data, error } = await supabase
       .from(TABLE_TIERS_APPLICATION)
       .update({ passages_prevus: passages, updated_at: new Date().toISOString() })

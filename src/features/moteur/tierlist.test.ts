@@ -365,9 +365,18 @@ describe("décision de requalification", () => {
 });
 
 describe("priorité au tirage du jour", () => {
-  const pool = (...entrees: Array<[Tier, boolean]>) =>
-    entrees.map(([tier, dejaPoste], i) => ({ id: `${tier}-${i}`, tier, dejaPoste }));
+  /** `pool([tier, dejaPoste, posteRecemment?])` — récence omise = de longue date. */
+  const pool = (...entrees: Array<[Tier, boolean, boolean?]>) =>
+    entrees.map(([tier, dejaPoste, posteRecemment], i) => ({
+      id: `${tier}-${i}`,
+      tier,
+      dejaPoste,
+      posteRecemment,
+    }));
   const ids = (bandes: Array<Array<{ id: string }>>) => bandes.map((b) => b.map((c) => c.id));
+  /** Première bande non vide = ce que le tirage servira. */
+  const servie = (bandes: Array<Array<{ id: string }>>) =>
+    bandes.find((b) => b.length > 0)?.map((c) => c.id) ?? [];
 
   it("sert B et au-dessus, garde C et D pour combler", () => {
     expect(TIER_MIN_PRIORITAIRE).toBe("B");
@@ -385,16 +394,73 @@ describe("priorité au tirage du jour", () => {
     expect(new Set(rangs).size).toBe(TIERS.length);
   });
 
-  it("range le pool en quatre bandes : B+ neuf, B+ déjà vu, puis le bas", () => {
+  it("range le pool en six bandes : B+ neuf, B+ déjà vu, le bas, puis le récent", () => {
     const bandes = bandesDeTirage(
-      pool(["C", false], ["A", true], ["S+", false], ["D", true], ["C", true], ["B", false]),
+      pool(
+        ["C", false],
+        ["A", true],
+        ["S+", false],
+        ["D", true],
+        ["C", true],
+        ["B", false],
+        ["S", true, true],
+        ["C", true, true],
+      ),
     );
     expect(ids(bandes)).toEqual([
       ["S+-2", "B-5"],
       ["A-1"],
       ["C-0"],
       ["D-3", "C-4"],
+      ["S-6"],
+      ["C-7"],
     ]);
+  });
+
+  it("un post reposté trop récemment passe DERRIÈRE le bas de tierlist", () => {
+    // Le cas Jens : un S qu'il vient de poster ne doit pas repasser devant un
+    // C qu'il n'a jamais vu. C'est la seule entorse au « rang avant fraîcheur ».
+    const bandes = bandesDeTirage(pool(["S", true, true], ["C", false]));
+    expect(servie(bandes)).toEqual(["C-1"]);
+
+    // Même un D jamais vu passe devant un S+ tout juste posté.
+    expect(servie(bandesDeTirage(pool(["S+", true, true], ["D", false])))).toEqual(["D-1"]);
+  });
+
+  it("le récent reste SERVI si le compte n'a rien d'autre (jamais de créneau vide)", () => {
+    // Choix assumé : un doublon espacé vaut mieux qu'un jour sans post. Sans
+    // ces deux dernières bandes, les langues à petit vivier perdraient des
+    // créneaux au lieu de gagner de la variété.
+    expect(servie(bandesDeTirage(pool(["B", true, true])))).toEqual(["B-0"]);
+    expect(servie(bandesDeTirage(pool(["D", true, true])))).toEqual(["D-0"]);
+    for (const tier of TIERS) {
+      expect(bandesDeTirage(pool([tier, true, true])).flat()).toHaveLength(1);
+    }
+  });
+
+  it("entre deux récents, le rang départage encore", () => {
+    expect(servie(bandesDeTirage(pool(["C", true, true], ["A", true, true])))).toEqual(["A-1"]);
+  });
+
+  it("récence ignorée quand la règle est désactivée (écart 0 => posteRecemment jamais posé)", () => {
+    // `posteRecemment` absent rend EXACTEMENT les bandes d'avant 0271 : c'est
+    // ce qui garantit qu'un écart réglé à 0 restaure le comportement d'origine.
+    const bandes = bandesDeTirage(pool(["C", false], ["B", true]));
+    expect(servie(bandes)).toEqual(["B-1"]);
+    expect(bandes.slice(4).flat()).toHaveLength(0);
+  });
+
+  it("chaque candidat tombe dans exactement une bande, rien n'est perdu", () => {
+    const entrees: Array<[Tier, boolean, boolean?]> = [];
+    for (const tier of TIERS) {
+      for (const deja of [false, true]) {
+        for (const recent of [undefined, false, true]) entrees.push([tier, deja, recent]);
+      }
+    }
+    const candidats = pool(...entrees);
+    const bandes = bandesDeTirage(candidats);
+    expect(bandes.flat()).toHaveLength(candidats.length);
+    expect(new Set(bandes.flat().map((c) => c.id)).size).toBe(candidats.length);
   });
 
   it("ne tire un C que si le pool n'a plus rien en B+", () => {

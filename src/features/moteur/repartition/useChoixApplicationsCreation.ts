@@ -3,8 +3,10 @@ import { useQuery } from "@tanstack/react-query";
 
 import { listerLabels } from "../api";
 import { listerApplicationsMulti, listerLiensLabels } from "../apiMultiApp";
+import { SLUG_SOPHIA } from "../multiApp";
 import {
   CHOIX_CREATION_DEFAUT,
+  choixApplicationVisible,
   optionsDuChoix,
   validerChoixCreation,
   type ChoixCreation,
@@ -13,10 +15,11 @@ import {
 import { CLE_APPLICATIONS_MULTI, CLE_LIENS_LABELS } from "./useMultiApp";
 
 /**
- * État du choix « label + répartition » d'un formulaire de création de compte
- * (admin, Head of Ops, DM, HM). Inactif (compte CM, UGC vidéo, formulaire
- * fermé) : AUCUNE lecture, options vides, jamais bloquant — le formulaire
- * envoie exactement le corps d'avant.
+ * État du choix « Application du compte » d'un formulaire de création de
+ * compte (admin, Head of Ops, DM, HM). Inactif (compte CM, UGC vidéo,
+ * formulaire fermé) : AUCUNE lecture, options vides, jamais bloquant — le
+ * formulaire envoie exactement le corps d'avant. Sophia (défaut) : options
+ * vides aussi.
  *
  * Mêmes clés de cache que `useApplicationsMulti` / `useLiensLabels` et que la
  * liste des labels de la page Posters : rien de relu en double.
@@ -57,16 +60,23 @@ export function useChoixApplicationsCreation(actif: boolean, langue?: string | n
 
   const reinitialiser = React.useCallback(() => setChoix(CHOIX_CREATION_DEFAUT), []);
   const options: OptionsChoixCreation = actif ? optionsDuChoix(choix) : {};
+  // Au moins deux applications actives ; ou une autre application déjà
+  // choisie (éteinte entre-temps) : le bloc reste pour montrer pourquoi
+  // l'envoi est bloqué.
+  const visible =
+    actif && (choixApplicationVisible(applications.data) || choix.application !== SLUG_SOPHIA);
 
   return {
     actif,
+    /** Le bloc s'affiche (actif et au moins deux applications actives). */
+    visible,
     choix,
     setChoix,
     reinitialiser,
     validation,
-    /** À étaler dans l'appel API : {} tant que rien n'est choisi. */
+    /** À étaler dans l'appel API : {} pour Sophia (corps d'avant). */
     options,
-    /** Envoi à bloquer (choix invalide). Toujours faux quand inactif. */
+    /** Envoi à bloquer (choix invalide). Toujours faux quand inactif ou Sophia. */
     bloque: actif && !validation.ok,
     applications,
     liens,

@@ -498,16 +498,16 @@ export async function creerCompteUgcVideo(input: {
 }
 
 /**
- * Choix admin / Head of Ops à la création d'un compte (deux niveaux) : label
- * imposé et/ou répartition explicite. manage-users refuse ces champs à tout
- * autre rôle (403 CHOIX_COMPTE_ADMIN).
+ * Choix de l'application à la création d'un compte (admin, Head of Ops, DM,
+ * HM). manage-users refuse ces champs à tout autre rôle (403
+ * CHOIX_COMPTE_ADMIN).
  *
- * - `labelId` : label posé tel quel, la File des créateurs n'est pas utilisée.
- * - `partsApplications` : slug → entier 1..100, somme 100. Sans `labelId`,
- *   manage-users choisit un label qui sert toutes les applications à part > 0
- *   (File non utilisée). Répartition exclusive : seules ces applications
- *   seront publiées sur le compte, sans repli Sophia.
- * - Ni l'un ni l'autre : comportement d'avant (File puis repli).
+ * - `partsApplications` : le formulaire n'envoie que `{ <slug>: 100 }` pour une
+ *   application autre que Sophia ; manage-users tire alors le label de la File
+ *   des créateurs de cette application (langue du compte, puis file
+ *   générale), sinon parmi les labels qui la servent.
+ * - `labelId` : n'est plus envoyé par le front (champ gardé pour le contrat).
+ * - Rien (Sophia) : comportement d'avant (File Sophia puis repli).
  */
 export interface OptionsApplicationsCompte {
   labelId?: string | null;

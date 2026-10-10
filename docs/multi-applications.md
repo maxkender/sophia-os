@@ -387,8 +387,26 @@ stock de micabo-os. Ce qui est en place :
   micabo de chaque compte (`actif_micabo`, `labels_micabo`) pour le réveil ;
   les mots de passe chiffrés en ont été purgés.
 
-Reste à faire, dans cet ordre : reprise du stock (contenus, decks, images),
-puis, le jour de la bascule, réveil des comptes (`is_active = true` + label
+- le stock de deux sources (2026-10-10, `docs/sql/micabo_4_import_stock.sql`
+  + fonction temporaire `reprise-micabo`, `docs/reprise-micabo/`) :
+  @luna.study4 (label `medical-study`, 59 contenus) et @jeena_study_tips
+  (`classic-study`, 34). Sources recréées (même id), contenus validés au rang
+  Sophia neutre (D / 0), pertinence micabo éligible quelle que soit la note,
+  tier micabo et **cycle micabo en cours** repris (50 publiés dans le cycle,
+  70 restants), 703 passages publiés recopiés (`resolu`, aucune file Apify),
+  decks micabo : 311 `pret` (slide pub marquée), 53 `ineligible`. Les 552
+  images (653 Mo) sont copiées sous `medias/micabo/…`. Restent chez micabo-os :
+  les originaux bruts des slides (`raw_url` / `reference_url` de
+  `structure_slides`, 475 fichiers) — inutiles pour publier, nécessaires pour
+  re-nettoyer une image ; à copier avant d'arrêter micabo-os.
+  Pièges rencontrés : le connecteur Supabase bloque sans fin sur tout `UPDATE`
+  sans `WHERE` ; pg_net traite sa file par paquets, un appel lent retient les
+  crons de Sophia (d'où la copie en arrière-plan, réponse 202 immédiate) ; la
+  base plafonne à 60 connexions (une seule copie à la fois, 2 images en
+  parallèle).
+
+Reste à faire, dans cet ordre : originaux bruts des deux sources, puis, le
+jour de la bascule, réveil des comptes (`is_active = true` + label
 `classic_study`), arrêt de ces comptes dans micabo-os, activation de micabo.
 
 ## 4. Plus tard (décidé, pas fait)

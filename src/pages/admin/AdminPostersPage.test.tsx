@@ -264,4 +264,43 @@ describe("AdminPostersPage — par zone", () => {
     const section = sectionZone("Spain + Portugal");
     expect(within(section).getByRole("combobox")).toBeTruthy();
   });
+
+  it("DM : total de toute son équipe (HM compris), comme l'ancien arbre", async () => {
+    renderPage();
+    await screen.findByRole("heading", { level: 2, name: "Turkey + Israel" });
+    const section = sectionZone("Turkey + Israel");
+    // Amanda : Beyza en direct + Marta via Kris (HM, autre zone).
+    expect(within(section).getByText("1 HM · 2 creator(s) · 2 not created · 0 warmup · 0 active")).toBeTruthy();
+    expect(
+      within(section).getByText("Creators hired by the DM · 1 creator(s) · 1 not created · 0 warmup · 0 active"),
+    ).toBeTruthy();
+
+    fireEvent.click(within(section).getByRole("button", { name: "Amanda" }));
+    const fiche = (await screen.findByRole("heading", { level: 2, name: "Amanda" })).parentElement!.parentElement!;
+    expect(within(fiche).getByText("1 HM · 2 creator(s) · 2 not created · 0 warmup · 0 active")).toBeTruthy();
+  });
+
+  it("filtre de phase : les compteurs restent ceux de toute l'équipe, rien n'est dit « sans créateur »", async () => {
+    const hmOff = profil({ id: "otto", role: "hiring_manager", prenom: "Otto", is_active: false, zone_recrutement: "France" });
+    listerPosters.mockResolvedValue([...PROFILS, hmOff, profil({ id: "c6", role: "poster", prenom: "Cesar", manager_id: "otto" })]);
+    renderPage();
+    await screen.findByRole("heading", { level: 2, name: "Turkey + Israel" });
+    fireEvent.change(screen.getByLabelText("Phase"), { target: { value: "actif" } });
+
+    const espagne = sectionZone("Spain + Portugal");
+    expect(within(espagne).getByText("1 creator(s) · 1 not created · 0 warmup · 0 active")).toBeTruthy();
+    expect(within(espagne).getByText("0 shown with these filters")).toBeTruthy();
+    expect(within(espagne).getByText("No creator matches the filters (1 in total).")).toBeTruthy();
+    // Désactivé avec un créateur : reste dans sa zone, pas replié « sans créateur ».
+    expect(within(sectionZone("France")).getByRole("button", { name: "Otto" })).toBeTruthy();
+    expect(screen.getByText(/Deactivated recruiters with no creators \(1\)/)).toBeTruthy();
+  });
+
+  it("recherche par l'email d'un recruteur : ses créateurs restent affichés", async () => {
+    renderPage();
+    await screen.findByRole("heading", { level: 2, name: "Turkey + Israel" });
+    fireEvent.change(screen.getByLabelText("Search"), { target: { value: "kris@sophia" } });
+    expect(screen.getByText("Marta")).toBeTruthy();
+    expect(screen.queryByText("Beyza")).toBeNull();
+  });
 });

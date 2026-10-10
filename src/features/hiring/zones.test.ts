@@ -176,6 +176,36 @@ describe("regrouperParZone", () => {
     expect(out.recruteursInactifs).toEqual([]);
   });
 
+  it("compteurs d'équipe : filtres ignorés, compteurs affichés : filtrés", () => {
+    const actif = { compte_id: "x", warmup_started_at: "2020-01-01T00:00:00Z", warmup_ends_at: "2020-01-02T00:00:00Z" };
+    const out = regrouperParZone(
+      [kris, c("a", "kris", actif), c("b", "kris"), c("d", "kris")],
+      { garderCreateur: (p) => p.id === "a" },
+    );
+    const bloc = out.zones[0].recruteurs[0];
+    expect(bloc.createurs.map((p) => p.id)).toEqual(["a"]);
+    expect(bloc.compteurs).toEqual({ total: 1, pasCree: 0, warmup: 0, actif: 1 });
+    expect(bloc.compteursEquipe).toEqual({ total: 3, pasCree: 2, warmup: 0, actif: 1 });
+    expect(out.zones[0].compteurs.total).toBe(1);
+  });
+
+  it("phase ou application (filtre non « liste ») : un désactivé qui a des créateurs reste dans sa zone", () => {
+    const hm = profil({ id: "otto", role: "hiring_manager", is_active: false, zone_recrutement: "France" });
+    const out = regrouperParZone([hm, c("c6", "otto")], { garderCreateur: () => false });
+    expect(out.zones.map((z) => z.zone)).toEqual(["France"]);
+    expect(out.zones[0].recruteurs[0].createurs).toEqual([]);
+    expect(out.zones[0].recruteurs[0].compteursEquipe.total).toBe(1);
+    expect(out.recruteursInactifs).toEqual([]);
+  });
+
+  it("un DM désactivé qui encadre encore des HM n'est pas « sans créateur »", () => {
+    const dm = profil({ id: "dm-off", role: "directing_manager", is_active: false, zone_recrutement: "X" });
+    const hm = profil({ id: "hm-on", role: "hiring_manager", manager_id: "dm-off", zone_recrutement: "Y" });
+    const out = regrouperParZone([dm, hm]);
+    expect(out.recruteursInactifs).toEqual([]);
+    expect(out.zones.map((z) => z.zone)).toEqual(["X", "Y"]);
+  });
+
   it("filtre actif : un recruteur gardé (recherche par son nom) reste visible sans créateur", () => {
     const out = regrouperParZone(tous, {
       garderCreateur: () => false,

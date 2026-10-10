@@ -1016,6 +1016,8 @@ export const fr = {
       recherche: "Rechercher",
       recherchePlaceholder: "Nom, email, @TikTok ou recruteur…",
       aucunResultat: "Aucun créateur ne correspond à ces filtres.",
+      aucunCreateurFiltre: "Aucun créateur ne correspond aux filtres ({{n}} au total).",
+      nbAffiches: "{{n}} affiché(s) avec ces filtres",
       recruteursDesactives: "Recruteurs désactivés sans créateur ({{n}})",
       aideZones:
         "La page est rangée par zone : celle du recruteur (pays gérés), dont ses créateurs héritent. La zone se change depuis la fiche du recruteur.",

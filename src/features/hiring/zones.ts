@@ -47,8 +47,15 @@ export function cleZone(zone: string | null | undefined): string {
 
 export interface BlocRecruteur {
   recruteur: PosterProfil;
+  /** Créateurs directs retenus par les filtres (ceux affichés). */
   createurs: PosterProfil[];
+  /** Compteurs des créateurs affichés (totaux de zone et puces). */
   compteurs: CompteursPhase;
+  /**
+   * Compteurs de TOUS ses créateurs directs, filtres ignorés : un filtre de
+   * phase ne doit pas faire lire « 0 créateur » sous un recruteur qui en a.
+   */
+  compteursEquipe: CompteursPhase;
 }
 
 export interface GroupeZone {
@@ -67,7 +74,10 @@ export interface PostersParZone {
   sansZone: GroupeZone | null;
   /** Créateurs sans recruteur valide. */
   sansRecruteur: PosterProfil[];
-  /** Recruteurs désactivés sans créateur : rangés à part, hors des zones. */
+  /**
+   * Recruteurs désactivés sans aucun créateur ni recruteur rattaché (filtres
+   * ignorés) : rangés à part, hors des zones.
+   */
   recruteursInactifs: PosterProfil[];
 }
 
@@ -119,11 +129,26 @@ export function regrouperParZone(
   const idsRecruteurs = new Set(recruteurs.map((r) => r.id));
 
   const createursParRecruteur = new Map<string, PosterProfil[]>();
+  // Équipe complète, filtres ignorés : compteurs et « sans créateur » en dépendent.
+  const equipeParRecruteur = new Map<string, PosterProfil[]>();
+  // Recruteurs qui en encadrent d'autres (DM → HM) : jamais « sans équipe ».
+  const encadrants = new Set<string>();
   const sansRecruteur: PosterProfil[] = [];
   for (const p of tous) {
-    if (p.role !== "poster" || !garder(p)) continue;
-    if (p.manager_id && idsRecruteurs.has(p.manager_id)) {
-      createursParRecruteur.set(p.manager_id, [...(createursParRecruteur.get(p.manager_id) ?? []), p]);
+    const sousRecruteur = Boolean(p.manager_id && idsRecruteurs.has(p.manager_id));
+    if (estRecruteur(p)) {
+      if (sousRecruteur) encadrants.add(p.manager_id as string);
+      continue;
+    }
+    if (p.role !== "poster") continue;
+    if (sousRecruteur) {
+      const id = p.manager_id as string;
+      equipeParRecruteur.set(id, [...(equipeParRecruteur.get(id) ?? []), p]);
+    }
+    if (!garder(p)) continue;
+    if (sousRecruteur) {
+      const id = p.manager_id as string;
+      createursParRecruteur.set(id, [...(createursParRecruteur.get(id) ?? []), p]);
     } else {
       sansRecruteur.push(p);
     }
@@ -133,10 +158,11 @@ export function regrouperParZone(
   const recruteursInactifs: PosterProfil[] = [];
   for (const r of recruteurs) {
     const createurs = trier(createursParRecruteur.get(r.id) ?? []);
+    const equipe = equipeParRecruteur.get(r.id) ?? [];
     if (createurs.length === 0) {
       if (opts.filtreActif) {
         if (!opts.garderRecruteur?.(r)) continue;
-      } else if (!r.is_active) {
+      } else if (!r.is_active && equipe.length === 0 && !encadrants.has(r.id)) {
         recruteursInactifs.push(r);
         continue;
       }
@@ -149,7 +175,12 @@ export function regrouperParZone(
       recruteurs: [],
       compteurs: { total: 0, pasCree: 0, warmup: 0, actif: 0 },
     };
-    groupe.recruteurs.push({ recruteur: r, createurs, compteurs: compteursDuBloc(createurs) });
+    groupe.recruteurs.push({
+      recruteur: r,
+      createurs,
+      compteurs: compteursDuBloc(createurs),
+      compteursEquipe: compteursDuBloc(equipe),
+    });
     groupes.set(cle, groupe);
   }
 

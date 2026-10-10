@@ -18,7 +18,7 @@ import {
 import { messageErreur } from "@/lib/utils";
 import { badgeManager, estRoleManager, useAuth } from "@/features/auth/AuthContext";
 import { CompteursPhases, ListeCreateursSuivi } from "@/features/hiring/SuiviCreateurs";
-import { hmsDuDm, nomProfil, resumeHm } from "@/features/hiring/suiviEquipe";
+import { equipesParDm, hmsDuDm, nomProfil, resumeHm, type EquipeDm } from "@/features/hiring/suiviEquipe";
 import {
   CLE_SANS_ZONE,
   ZONE_LONGUEUR_MAX,
@@ -504,6 +504,12 @@ export function AdminPostersPage() {
   const posters = useQuery({ queryKey: ["posters"], queryFn: listerPosters });
   // Zones déjà données aux recruteurs : filtre de la page et suggestions de saisie.
   const zonesExistantes = React.useMemo(() => zonesConnues(posters.data ?? []), [posters.data]);
+  // Email du recruteur d'un créateur : chercher « hugo@… » garde ses créateurs,
+  // comme chercher son nom (manager_nom).
+  const emailParId = React.useMemo(
+    () => new Map((posters.data ?? []).map((p) => [p.id, p.email])),
+    [posters.data],
+  );
   // Comptes en sommeil compris (badge « Dormant ») : sous la clé ["comptes"],
   // les invalidations de la page les rechargent aussi.
   const comptes = useQuery({ queryKey: ["comptes", "avec-dormants"], queryFn: listerComptesAvecDormants });
@@ -1036,6 +1042,7 @@ export function AdminPostersPage() {
         nomAffiche(p),
         p.email,
         p.manager_nom,
+        p.manager_id ? emailParId.get(p.manager_id) : null,
         ...liste.flatMap((c) => {
           // Les @ sont stockés sans « @ » : « @maya » doit trouver « maya ».
           const handle = (c.handle_tiktok ?? "").replace(/^@+/, "");
@@ -1177,6 +1184,9 @@ export function AdminPostersPage() {
     garderRecruteur: recruteurCherche,
     trierCreateurs,
   });
+  // Équipe d'un DM (ses créateurs + ceux de ses HM), filtres ignorés : le
+  // résumé que l'ancien arbre DM → HM donnait en tête de chaque DM.
+  const equipeDm = new Map<string, EquipeDm>(equipesParDm(tous).map((e) => [e.dm.id, e]));
   const groupesZone: GroupeZone[] = [
     ...parZone.zones,
     ...(parZone.sansZone ? [parZone.sansZone] : []),
@@ -1333,6 +1343,10 @@ export function AdminPostersPage() {
   const blocRecruteur = (bloc: BlocRecruteur) => {
     const r = bloc.recruteur;
     const badge = badgeManager(r.role);
+    const equipe = r.role === "directing_manager" ? equipeDm.get(r.id) : undefined;
+    // Un filtre de créateurs réduit la liste : dire combien sont affichés,
+    // les compteurs restant ceux de toute l'équipe.
+    const filtre = bloc.createurs.length !== bloc.compteursEquipe.total;
     return (
       <div key={r.id} className="space-y-2">
         <div className="flex flex-wrap items-center gap-2">
@@ -1356,16 +1370,39 @@ export function AdminPostersPage() {
           <div className="w-48">
             <LangueRecruteurDropdown recruteur={r} />
           </div>
-          <span className="text-[11px] tabular-nums text-muted-foreground sm:ml-auto">
-            {t("posters.equipeHoResume", {
-              total: bloc.compteurs.total,
-              pasCree: bloc.compteurs.pasCree,
-              warmup: bloc.compteurs.warmup,
-              actif: bloc.compteurs.actif,
-            })}
+          <span className="flex flex-col text-[11px] tabular-nums text-muted-foreground sm:ml-auto sm:items-end">
+            {equipe && (
+              <span>
+                {t("posters.equipeDmResume", {
+                  hms: equipe.hms.length,
+                  total: equipe.compteurs.total,
+                  pasCree: equipe.compteurs.pasCree,
+                  warmup: equipe.compteurs.warmup,
+                  actif: equipe.compteurs.actif,
+                })}
+              </span>
+            )}
+            <span>
+              {equipe && `${t("posters.createursDuDm")} · `}
+              {t("posters.equipeHoResume", {
+                total: bloc.compteursEquipe.total,
+                pasCree: bloc.compteursEquipe.pasCree,
+                warmup: bloc.compteursEquipe.warmup,
+                actif: bloc.compteursEquipe.actif,
+              })}
+            </span>
+            {filtre && (
+              <span>{t("posters.nbAffiches", { n: bloc.createurs.length })}</span>
+            )}
           </span>
         </div>
-        {grille(bloc.createurs, "createur")}
+        {bloc.createurs.length === 0 && bloc.compteursEquipe.total > 0 ? (
+          <p className="text-xs text-muted-foreground">
+            {t("posters.aucunCreateurFiltre", { n: bloc.compteursEquipe.total })}
+          </p>
+        ) : (
+          grille(bloc.createurs, "createur")
+        )}
       </div>
     );
   };
@@ -1500,6 +1537,7 @@ export function AdminPostersPage() {
       ? tousCreateurs.filter((c) => c.manager_id === fiche.id)
       : [];
   const ficheHms = fiche?.role === "directing_manager" ? hmsDuDm(tous, fiche.id) : [];
+  const ficheEquipeDm = fiche?.role === "directing_manager" ? equipeDm.get(fiche.id) : undefined;
   const ficheDm =
     fiche?.role === "hiring_manager" && fiche.manager_id
       ? tous.find((p) => p.id === fiche.manager_id && p.role === "directing_manager")
@@ -1649,6 +1687,17 @@ export function AdminPostersPage() {
                     <Label className="text-[10px] uppercase tracking-wide text-muted-foreground">
                       {t("posters.hmsDuDm")}
                     </Label>
+                    {ficheEquipeDm && (
+                      <p className="text-xs tabular-nums text-muted-foreground">
+                        {t("posters.equipeDmResume", {
+                          hms: ficheEquipeDm.hms.length,
+                          total: ficheEquipeDm.compteurs.total,
+                          pasCree: ficheEquipeDm.compteurs.pasCree,
+                          warmup: ficheEquipeDm.compteurs.warmup,
+                          actif: ficheEquipeDm.compteurs.actif,
+                        })}
+                      </p>
+                    )}
                     {ficheHms.length === 0 ? (
                       <p className="text-xs text-muted-foreground">{t("hiring.aucunHm")}</p>
                     ) : (

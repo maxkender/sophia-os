@@ -1014,6 +1014,8 @@ export const en = {
       recherche: "Search",
       recherchePlaceholder: "Name, email, TikTok @ or recruiter…",
       aucunResultat: "No creator matches these filters.",
+      aucunCreateurFiltre: "No creator matches the filters ({{n}} in total).",
+      nbAffiches: "{{n}} shown with these filters",
       recruteursDesactives: "Deactivated recruiters with no creators ({{n}})",
       aideZones:
         "The page is grouped by zone: the recruiter’s zone (countries covered), which their creators inherit. Change it from the recruiter’s profile.",

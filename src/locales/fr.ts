@@ -998,6 +998,27 @@ export const fr = {
       equipeHoResume:
         "{{total}} créateur(s) · {{pasCree}} pas créé · {{warmup}} warmup · {{actif}} actif",
       sansRecruteur: "Sans recruteur",
+      recruteur: "Recruteur",
+      zone: "Zone",
+      zonePlaceholder: "ex. Turkey + Israel",
+      zoneAide:
+        "Pays gérés par ce recruteur (master list Notion). Ses créateurs sont rangés dans cette zone. Vide = sans zone.",
+      zoneEnregistrer: "Enregistrer",
+      zoneEnregistree: "Zone enregistrée.",
+      zoneCreationErreur:
+        "Recruteur créé, mais sa zone n’a pas été enregistrée ({{msg}}) : renseigne-la depuis sa fiche.",
+      sansZone: "Sans zone",
+      sansZoneAide: "Recruteurs sans zone : ouvre leur fiche pour leur en donner une.",
+      zoneResume:
+        "{{recruteurs}} recruteur(s) · {{total}} créateur(s) · {{pasCree}} pas créé · {{warmup}} warmup · {{actif}} actif",
+      filtreZone: "Zone",
+      toutesZones: "Toutes",
+      recherche: "Rechercher",
+      recherchePlaceholder: "Nom, email, @TikTok ou recruteur…",
+      aucunResultat: "Aucun créateur ne correspond à ces filtres.",
+      recruteursDesactives: "Recruteurs désactivés sans créateur ({{n}})",
+      aideZones:
+        "La page est rangée par zone : celle du recruteur (pays gérés), dont ses créateurs héritent. La zone se change depuis la fiche du recruteur.",
       langueRecruteur: "Langue",
       languesRecruteur: "Langues gérées",
       languesRecruteurAide:

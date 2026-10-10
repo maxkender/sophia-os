@@ -996,6 +996,27 @@ export const en = {
       equipeHoResume:
         "{{total}} creator(s) · {{pasCree}} not created · {{warmup}} warmup · {{actif}} active",
       sansRecruteur: "No recruiter",
+      recruteur: "Recruiter",
+      zone: "Zone",
+      zonePlaceholder: "e.g. Turkey + Israel",
+      zoneAide:
+        "Countries this recruiter covers (Notion master list). Their creators are grouped under this zone. Empty = no zone.",
+      zoneEnregistrer: "Save",
+      zoneEnregistree: "Zone saved.",
+      zoneCreationErreur:
+        "Recruiter created, but their zone was not saved ({{msg}}): set it from their profile.",
+      sansZone: "No zone",
+      sansZoneAide: "Recruiters without a zone: open their profile to give them one.",
+      zoneResume:
+        "{{recruteurs}} recruiter(s) · {{total}} creator(s) · {{pasCree}} not created · {{warmup}} warmup · {{actif}} active",
+      filtreZone: "Zone",
+      toutesZones: "All",
+      recherche: "Search",
+      recherchePlaceholder: "Name, email, TikTok @ or recruiter…",
+      aucunResultat: "No creator matches these filters.",
+      recruteursDesactives: "Deactivated recruiters with no creators ({{n}})",
+      aideZones:
+        "The page is grouped by zone: the recruiter’s zone (countries covered), which their creators inherit. Change it from the recruiter’s profile.",
       langueRecruteur: "Language",
       languesRecruteur: "Managed languages",
       languesRecruteurAide:

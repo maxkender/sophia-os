@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { HelpCircle, Plus, UserPlus, X } from "lucide-react";
+import { HelpCircle, MapPin, Plus, Search, UserPlus, X } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -18,14 +18,18 @@ import {
 import { messageErreur } from "@/lib/utils";
 import { badgeManager, estRoleManager, useAuth } from "@/features/auth/AuthContext";
 import { CompteursPhases, ListeCreateursSuivi } from "@/features/hiring/SuiviCreateurs";
+import { hmsDuDm, nomProfil, resumeHm } from "@/features/hiring/suiviEquipe";
 import {
-  equipesParDm,
-  headsOfOps,
-  hmsDuDm,
-  hmsSansDm,
-  nomProfil,
-  resumeHm,
-} from "@/features/hiring/suiviEquipe";
+  CLE_SANS_ZONE,
+  ZONE_LONGUEUR_MAX,
+  cleZone,
+  normaliserZone,
+  regrouperParZone,
+  zoneDuCreateur,
+  zonesConnues,
+  type BlocRecruteur,
+  type GroupeZone,
+} from "@/features/hiring/zones";
 import { CompteEditor, PostsParJourCompte } from "@/features/moteur/CompteEditor";
 import { estCompteCm } from "@/features/moteur/comptesCm";
 import { ChampsPremierCompte, type PremierCompte } from "@/features/moteur/ChampsPremierCompte";
@@ -51,6 +55,7 @@ import {
   majLanguesRecruteur,
   majPoster,
   majUpwork,
+  majZoneRecruteur,
   setLabelsCompte,
   supprimerPoster,
 } from "@/features/moteur/api";
@@ -83,6 +88,11 @@ const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
 
 const MOT_DE_PASSE_INITIAL = "12345678";
+
+/** Recherche insensible à la casse et aux accents (« elodie » trouve « Élodie »). */
+function sansAccents(v: string): string {
+  return v.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("fr");
+}
 
 function nomAffiche(p: PosterProfil): string {
   return [p.prenom, p.nom].filter(Boolean).join(" ") || p.email || "—";
@@ -133,6 +143,7 @@ function AidePosters() {
       >
         <span className="mb-1.5 block font-medium text-foreground">{t("posters.aideTitre")}</span>
         <span className="mb-2 block">{t("posters.aideAcces")}</span>
+        <span className="mb-2 block">{t("posters.aideZones")}</span>
         <span className="mb-2 block">{t("posters.labelsAide")}</span>
         <span className="mb-1.5 block">{t("warmup.phasesLegende")}</span>
         <span className="flex flex-wrap gap-1.5">
@@ -291,6 +302,72 @@ function LangueRecruteurDropdown({ recruteur }: { recruteur: PosterProfil }) {
   );
 }
 
+/**
+ * Zone d'un recruteur : texte libre, avec les zones déjà utilisées en
+ * suggestion pour ne pas créer « Turquie + Israël » à côté de « Turkey + Israel ».
+ * Vide = sans zone. Ses créateurs suivent : aucun autre champ à toucher.
+ */
+function EditeurZoneRecruteur({
+  recruteur,
+  zones,
+  idPrefixe,
+}: {
+  recruteur: PosterProfil;
+  zones: string[];
+  idPrefixe: string;
+}) {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const enregistree = normaliserZone(recruteur.zone_recrutement);
+  const [valeur, setValeur] = React.useState(enregistree ?? "");
+  React.useEffect(() => {
+    setValeur(enregistree ?? "");
+  }, [enregistree, recruteur.id]);
+  const maj = useMutation({
+    mutationFn: (zone: string | null) => majZoneRecruteur(recruteur.id, zone),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["posters"] }),
+  });
+  const nouvelle = normaliserZone(valeur);
+  const inchangee = nouvelle === enregistree;
+
+  return (
+    <form
+      className="space-y-1"
+      onSubmit={(e) => {
+        e.preventDefault();
+        if (!inchangee) maj.mutate(nouvelle);
+      }}
+    >
+      <div className="flex gap-2">
+        <Input
+          id={`${idPrefixe}-zone`}
+          list={`${idPrefixe}-zones`}
+          value={valeur}
+          maxLength={ZONE_LONGUEUR_MAX}
+          placeholder={t("posters.zonePlaceholder")}
+          onChange={(e) => {
+            maj.reset();
+            setValeur(e.target.value);
+          }}
+        />
+        <datalist id={`${idPrefixe}-zones`}>
+          {zones.map((z) => (
+            <option key={z} value={z} />
+          ))}
+        </datalist>
+        <Button type="submit" size="sm" variant="outline" disabled={inchangee || maj.isPending}>
+          {maj.isPending ? t("common.saving") : t("posters.zoneEnregistrer")}
+        </Button>
+      </div>
+      {maj.isError && <p className="text-xs text-destructive">{messageErreur(maj.error)}</p>}
+      {maj.isSuccess && inchangee && (
+        <p className="text-xs text-success">{t("posters.zoneEnregistree")}</p>
+      )}
+      <p className="text-[11px] text-muted-foreground">{t("posters.zoneAide")}</p>
+    </form>
+  );
+}
+
 function LangueCompteSelect({ compte }: { compte: CompteAvecDetails }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
@@ -411,6 +488,8 @@ export function AdminPostersPage() {
   const peutChoisirApps = peutChoisirApplicationsCompte(role);
   const queryClient = useQueryClient();
   const posters = useQuery({ queryKey: ["posters"], queryFn: listerPosters });
+  // Zones déjà données aux recruteurs : filtre de la page et suggestions de saisie.
+  const zonesExistantes = React.useMemo(() => zonesConnues(posters.data ?? []), [posters.data]);
   // Comptes en sommeil compris (badge « Dormant ») : sous la clé ["comptes"],
   // les invalidations de la page les rechargent aussi.
   const comptes = useQuery({ queryKey: ["comptes", "avec-dormants"], queryFn: listerComptesAvecDormants });
@@ -431,6 +510,9 @@ export function AdminPostersPage() {
   const [filtreLangue, setFiltreLangue] = React.useState("");
   const [filtreLabel, setFiltreLabel] = React.useState("");
   const [filtreApp, setFiltreApp] = React.useState("tous");
+  // Zone de recrutement (clé `cleZone`, ou CLE_SANS_ZONE) ; "" = toutes.
+  const [filtreZone, setFiltreZone] = React.useState("");
+  const [recherche, setRecherche] = React.useState("");
   const labels = useQuery({
     queryKey: ["labels"],
     queryFn: () => listerLabels(),
@@ -562,21 +644,37 @@ export function AdminPostersPage() {
   const [recPrenom, setRecPrenom] = React.useState("");
   const [recNom, setRecNom] = React.useState("");
   const [recLangues, setRecLangues] = React.useState<string[]>([]);
-  const [recCree, setRecCree] = React.useState<{ email: string } | null>(null);
+  const [recZone, setRecZone] = React.useState("");
+  const [recCree, setRecCree] = React.useState<{
+    email: string;
+    erreurZone: string | null;
+  } | null>(null);
   const basculerRecLangue = (l: string) =>
     setRecLangues((prev) => (prev.includes(l) ? prev.filter((x) => x !== l) : [...prev, l]));
   const creerRec = useMutation({
-    mutationFn: () =>
-      creerRecruteur({
+    mutationFn: async () => {
+      const r = await creerRecruteur({
         prenom: recPrenom,
         nom: recNom,
         langues: recLangues,
-      }),
+      });
+      // Le login existe déjà : un échec de la zone ne doit pas faire croire
+      // que la création a échoué (et pousser à recréer un doublon).
+      const zone = normaliserZone(recZone);
+      if (!zone) return { ...r, erreurZone: null };
+      try {
+        await majZoneRecruteur(r.userId, zone);
+        return { ...r, erreurZone: null };
+      } catch (e) {
+        return { ...r, erreurZone: messageErreur(e) };
+      }
+    },
     onSuccess: (r) => {
-      setRecCree({ email: r.email });
+      setRecCree({ email: r.email, erreurZone: r.erreurZone });
       setRecPrenom("");
       setRecNom("");
       setRecLangues([]);
+      setRecZone("");
       rafraichir();
     },
   });
@@ -840,6 +938,23 @@ export function AdminPostersPage() {
             </div>
             <p className="text-xs text-muted-foreground">{t("posters.languesRecruteurAide")}</p>
           </div>
+          <div className="space-y-2 sm:col-span-3">
+            <Label htmlFor="recZone">{t("posters.zone")}</Label>
+            <Input
+              id="recZone"
+              list="recZone-zones"
+              value={recZone}
+              maxLength={ZONE_LONGUEUR_MAX}
+              placeholder={t("posters.zonePlaceholder")}
+              onChange={(e) => setRecZone(e.target.value)}
+            />
+            <datalist id="recZone-zones">
+              {zonesExistantes.map((z) => (
+                <option key={z} value={z} />
+              ))}
+            </datalist>
+            <p className="text-xs text-muted-foreground">{t("posters.zoneAide")}</p>
+          </div>
           <div className="sm:col-span-3">
             <Button
               type="submit"
@@ -858,6 +973,11 @@ export function AdminPostersPage() {
                 <code className="rounded bg-muted px-1">12345678</code>
               </p>
             )}
+            {recCree?.erreurZone && (
+              <p className="mt-1 text-sm text-destructive">
+                {t("posters.zoneCreationErreur", { msg: recCree.erreurZone })}
+              </p>
+            )}
           </div>
         </form>
       </CardContent>
@@ -870,6 +990,7 @@ export function AdminPostersPage() {
     actif: 2,
   };
 
+  const rechercheNormalisee = sansAccents(recherche.trim());
   const matchCreateur = (p: PosterProfil) => {
     const phase = phaseCreateur({
       compteId: p.compte_id,
@@ -888,6 +1009,15 @@ export function AdminPostersPage() {
       if (!app) return false;
       const labsParCompte = liste.map((c) => labelsComptes.data?.get(c.id) ?? []);
       if (!posterServiApplication(labsParCompte, liensLabels.data ?? [], app.id)) return false;
+    }
+    if (rechercheNormalisee) {
+      const champs = [
+        nomAffiche(p),
+        p.email,
+        p.manager_nom,
+        ...liste.flatMap((c) => [c.handle_tiktok, c.persona_nom]),
+      ];
+      if (!champs.some((v) => v && sansAccents(v).includes(rechercheNormalisee))) return false;
     }
     return true;
   };
@@ -909,10 +1039,48 @@ export function AdminPostersPage() {
       return nomAffiche(a).localeCompare(nomAffiche(b), "fr");
     });
 
-  const filtresActifs = Boolean(filtreLangue) || Boolean(filtreLabel);
+  // Un filtre sur les créateurs : les recruteurs sans créateur retenu sont
+  // masqués. Le filtre de zone, lui, choisit des zones entières.
+  const filtresActifs =
+    filtrePhase !== "tous" ||
+    Boolean(filtreLangue) ||
+    Boolean(filtreLabel) ||
+    (Boolean(filtreApp) && filtreApp !== "tous") ||
+    Boolean(rechercheNormalisee);
 
   const barreFiltres = (
-    <div className="grid gap-3 rounded-lg border bg-muted/20 p-3 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid gap-3 rounded-lg border bg-muted/20 p-3 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="space-y-1 sm:col-span-2 lg:col-span-5">
+        <Label htmlFor="recherchePosters">{t("posters.recherche")}</Label>
+        <div className="relative">
+          <Search className="pointer-events-none absolute left-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+          <Input
+            id="recherchePosters"
+            type="search"
+            className="pl-8"
+            value={recherche}
+            placeholder={t("posters.recherchePlaceholder")}
+            onChange={(e) => setRecherche(e.target.value)}
+          />
+        </div>
+      </div>
+      <div className="space-y-1">
+        <Label htmlFor="filtreZone">{t("posters.filtreZone")}</Label>
+        <select
+          id="filtreZone"
+          className={selectClass}
+          value={filtreZone}
+          onChange={(e) => setFiltreZone(e.target.value)}
+        >
+          <option value="">{t("posters.toutesZones")}</option>
+          {zonesExistantes.map((z) => (
+            <option key={z} value={cleZone(z)}>
+              {z}
+            </option>
+          ))}
+          <option value={CLE_SANS_ZONE}>{t("posters.sansZone")}</option>
+        </select>
+      </div>
       <div className="space-y-1">
         <Label htmlFor="filtrePhase">{t("posters.filtrePhase")}</Label>
         <select
@@ -973,14 +1141,19 @@ export function AdminPostersPage() {
   );
 
   const tous = posters.data ?? [];
-  const creators = trierCreateurs(tous.filter((p) => p.role === "poster").filter(matchCreateur));
   const admins = tous.filter((p) => p.role === "admin");
   const tousCreateurs = tous.filter((p) => p.role === "poster");
-  const parManager = new Map<string, PosterProfil[]>();
-  for (const c of creators) {
-    const k = c.manager_id ?? "__none__";
-    parManager.set(k, [...(parManager.get(k) ?? []), c]);
-  }
+  // Zone → recruteur → créateurs. La zone est celle du RECRUTEUR (master list
+  // Notion), dont ses créateurs héritent — pas la langue des comptes.
+  const parZone = regrouperParZone(tous, {
+    garderCreateur: matchCreateur,
+    filtreActif: filtresActifs,
+    trierCreateurs,
+  });
+  const groupesZone: GroupeZone[] = [
+    ...parZone.zones,
+    ...(parZone.sansZone ? [parZone.sansZone] : []),
+  ];
 
   /** Part des créateurs du recruteur en BIEN ou STAR (null s'il n'en a aucun). */
   const partBienRecruteur = (recId: string): number | null => {
@@ -992,13 +1165,11 @@ export function AdminPostersPage() {
     return bien / cases.length;
   };
 
+  const languesRecruteur = (poster: PosterProfil) =>
+    poster.langues?.length > 0 ? poster.langues : poster.nationalite ? [poster.nationalite] : [];
+
   const carteRecruteur = (poster: PosterProfil) => {
-    const langues =
-      poster.langues?.length > 0
-        ? poster.langues
-        : poster.nationalite
-          ? [poster.nationalite]
-          : [];
+    const langues = languesRecruteur(poster);
     return (
       <article
         key={poster.id}
@@ -1131,108 +1302,125 @@ export function AdminPostersPage() {
     </section>
   );
 
+  /** Un recruteur et ses créateurs, dans sa zone. */
+  const blocRecruteur = (bloc: BlocRecruteur) => {
+    const r = bloc.recruteur;
+    const badge = badgeManager(r.role);
+    return (
+      <div key={r.id} className="space-y-2">
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            className="text-sm font-semibold tracking-tight underline-offset-2 hover:underline"
+            onClick={() => ouvrirFiche(r.id)}
+          >
+            {nomAffiche(r)}
+          </button>
+          {badge && (
+            <Badge variant="outline">
+              {r.role === "head_of_ops" ? t("headOfOps.badge") : badge}
+            </Badge>
+          )}
+          {!r.is_active && <Badge variant="secondary">{t("posters.disabled")}</Badge>}
+          {r.role === "hiring_manager" && r.manager_nom && (
+            <span className="text-[11px] text-violet-700">{t("posters.dmDe", { nom: r.manager_nom })}</span>
+          )}
+          <DrapeauxLangues codes={languesRecruteur(r)} />
+          <span className="text-[11px] tabular-nums text-muted-foreground sm:ml-auto">
+            {t("posters.equipeHoResume", {
+              total: bloc.compteurs.total,
+              pasCree: bloc.compteurs.pasCree,
+              warmup: bloc.compteurs.warmup,
+              actif: bloc.compteurs.actif,
+            })}
+          </span>
+        </div>
+        {grille(bloc.createurs, "createur")}
+      </div>
+    );
+  };
+
+  /** Une zone : ses recruteurs, chacun avec ses créateurs. */
+  const sectionZone = (groupe: GroupeZone) => (
+    <section key={groupe.cle} className="space-y-4 rounded-xl border bg-card/40 p-4">
+      <div className="flex flex-wrap items-baseline gap-2 border-b pb-2">
+        <MapPin className="size-4 shrink-0 self-center text-primary" />
+        <h2 className="text-base font-semibold">{groupe.zone ?? t("posters.sansZone")}</h2>
+        <span className="text-xs tabular-nums text-muted-foreground">
+          {t("posters.zoneResume", {
+            recruteurs: groupe.recruteurs.length,
+            total: groupe.compteurs.total,
+            pasCree: groupe.compteurs.pasCree,
+            warmup: groupe.compteurs.warmup,
+            actif: groupe.compteurs.actif,
+          })}
+        </span>
+      </div>
+      {groupe.zone === null && (
+        <p className="text-xs text-muted-foreground">{t("posters.sansZoneAide")}</p>
+      )}
+      <div className="space-y-6">{groupe.recruteurs.map(blocRecruteur)}</div>
+    </section>
+  );
+
   const liste = (() => {
     if (posters.isPending) {
       return <p className="text-sm text-muted-foreground">{t("common.loading")}</p>;
     }
     if (tous.length === 0) return <EmptyState title={t("posters.empty")} />;
 
-    if (filtresActifs) {
-      return (
-        <div className="space-y-3">
-          <div className="flex items-baseline gap-2 border-b pb-1.5">
-            <h2 className="text-sm font-semibold">{t("posters.createursFiltres")}</h2>
-            <span className="text-xs tabular-nums text-muted-foreground">{creators.length}</span>
-          </div>
-          {grille(creators, "createur")}
-        </div>
-      );
-    }
-
-    const equipes = equipesParDm(tous);
-    const orphelins = hmsSansDm(tous);
-    const hos = headsOfOps(tous);
+    const zonesVisibles = groupesZone.filter((g) => !filtreZone || g.cle === filtreZone);
+    // Les créateurs sans recruteur n'ont pas de zone : rangés avec « Sans zone ».
+    const sansRecruteurVisible =
+      parZone.sansRecruteur.length > 0 && (!filtreZone || filtreZone === CLE_SANS_ZONE);
+    const vueComplete = !filtresActifs && !filtreZone;
 
     return (
-      <div className="space-y-8">
-        {hos.map((ho) => {
-          const createursHo = parManager.get(ho.hm.id) ?? [];
-          return (
-            <div key={ho.hm.id} className="space-y-6">
-              {section(nomAffiche(ho.hm), createursHo.length, [ho.hm], "recruteur", {
-                cle: `ho-${ho.hm.id}`,
-                badge: t("headOfOps.badge"),
-                sousTitre: t("posters.equipeHoResume", {
-                  total: ho.compteurs.total,
-                  pasCree: ho.compteurs.pasCree,
-                  warmup: ho.compteurs.warmup,
-                  actif: ho.compteurs.actif,
-                }),
-              })}
-              {createursHo.length > 0 &&
-                section(nomAffiche(ho.hm), createursHo.length, createursHo, "createur", {
-                  cle: `ho-creators-${ho.hm.id}`,
-                  sousTitre: t("posters.createursDuRecruteur"),
-                })}
-            </div>
-          );
-        })}
-        {equipes.map((eq) => {
-          const membresEquipe = [eq.dm, ...eq.hms.map((h) => h.hm)];
-          const createursDm = parManager.get(eq.dm.id) ?? [];
-          return (
-            <div key={eq.dm.id} className="space-y-6">
-              {section(nomAffiche(eq.dm), eq.hms.length, membresEquipe, "recruteur", {
-                cle: `dm-${eq.dm.id}`,
-                badge: t("hiring.badgeDm"),
-                sousTitre: t("posters.equipeDmResume", {
-                  hms: eq.hms.length,
-                  total: eq.compteurs.total,
-                  pasCree: eq.compteurs.pasCree,
-                  warmup: eq.compteurs.warmup,
-                  actif: eq.compteurs.actif,
-                }),
-              })}
-              {createursDm.length > 0 &&
-                section(nomAffiche(eq.dm), createursDm.length, createursDm, "createur", {
-                  cle: `dm-creators-${eq.dm.id}`,
-                  sousTitre: t("posters.createursDuDm"),
-                })}
-              {eq.hms.map((h) => {
-                const membres = parManager.get(h.hm.id) ?? [];
-                if (membres.length === 0) return null;
-                return section(nomAffiche(h.hm), membres.length, membres, "createur", {
-                  cle: `hm-creators-${h.hm.id}`,
-                  sousTitre: t("posters.createursDuRecruteur"),
-                });
-              })}
-            </div>
-          );
-        })}
-        {orphelins.length > 0 &&
-          section(
-            t("posters.hmSansDm"),
-            orphelins.length,
-            orphelins.map((h) => h.hm),
-            "recruteur",
-            { cle: "hm-sans-dm", badge: t("hiring.badgeHm") },
-          )}
-        {orphelins.map((h) => {
-          const membres = parManager.get(h.hm.id) ?? [];
-          if (membres.length === 0) return null;
-          return section(nomAffiche(h.hm), membres.length, membres, "createur", {
-            cle: `orphan-creators-${h.hm.id}`,
-            sousTitre: t("posters.createursDuRecruteur"),
-          });
-        })}
-        {(parManager.get("__none__") ?? []).length > 0 &&
+      <div className="space-y-6">
+        {groupesZone.length > 1 && (
+          <nav aria-label={t("posters.filtreZone")} className="flex flex-wrap gap-1.5">
+            {groupesZone.map((g) => {
+              const actif = filtreZone === g.cle;
+              return (
+                <button
+                  key={g.cle}
+                  type="button"
+                  aria-pressed={actif}
+                  onClick={() => setFiltreZone(actif ? "" : g.cle)}
+                  className={
+                    actif
+                      ? "rounded-full bg-primary px-2.5 py-1 text-xs font-medium text-primary-foreground"
+                      : "rounded-full border px-2.5 py-1 text-xs hover:bg-muted"
+                  }
+                >
+                  {g.zone ?? t("posters.sansZone")}
+                  <span className="ml-1.5 tabular-nums opacity-70">{g.compteurs.total}</span>
+                </button>
+              );
+            })}
+          </nav>
+        )}
+        {zonesVisibles.length === 0 && !sansRecruteurVisible && (
+          <EmptyState title={t("posters.aucunResultat")} />
+        )}
+        {zonesVisibles.map(sectionZone)}
+        {sansRecruteurVisible &&
           section(
             t("posters.sansRecruteur"),
-            (parManager.get("__none__") ?? []).length,
-            parManager.get("__none__") ?? [],
+            parZone.sansRecruteur.length,
+            parZone.sansRecruteur,
             "createur",
+            { cle: "sans-recruteur" },
           )}
-        {filtrePhase === "tous" &&
+        {vueComplete && parZone.recruteursInactifs.length > 0 && (
+          <details className="space-y-3">
+            <summary className="cursor-pointer text-sm font-semibold">
+              {t("posters.recruteursDesactives", { n: parZone.recruteursInactifs.length })}
+            </summary>
+            <div className="pt-3">{grille(parZone.recruteursInactifs, "recruteur")}</div>
+          </details>
+        )}
+        {vueComplete &&
           admins.length > 0 &&
           section(t("nav.admin"), admins.length, admins, "createur")}
       </div>
@@ -1254,6 +1442,10 @@ export function AdminPostersPage() {
   const fichePartBien =
     fiche && estRoleManager(fiche.role) ? partBienRecruteur(fiche.id) : null;
   const soiMeme = fiche?.id === user?.id;
+  const ficheRecruteur =
+    fiche?.role === "poster" && fiche.manager_id
+      ? tous.find((p) => p.id === fiche.manager_id && estRoleManager(p.role))
+      : undefined;
 
   // Une requête en erreur ne doit pas se lire comme « ce créateur n'a aucun
   // compte » : sans ce bandeau, un 300/400 sur `comptes` affichait 0 compte
@@ -1348,6 +1540,20 @@ export function AdminPostersPage() {
                   {t("posters.languesRecruteur")}
                 </Label>
                 <LangueRecruteurDropdown recruteur={fiche} />
+              </div>
+
+              <div className="space-y-1">
+                <Label
+                  htmlFor={`fiche-${fiche.id}-zone`}
+                  className="text-[10px] uppercase tracking-wide text-muted-foreground"
+                >
+                  {t("posters.zone")}
+                </Label>
+                <EditeurZoneRecruteur
+                  recruteur={fiche}
+                  zones={zonesExistantes}
+                  idPrefixe={`fiche-${fiche.id}`}
+                />
               </div>
 
               {fiche.role === "hiring_manager" && (
@@ -1533,6 +1739,24 @@ export function AdminPostersPage() {
               <div className="flex flex-wrap items-center gap-2">
                 {!fiche.is_active && <Badge variant="secondary">{t("posters.disabled")}</Badge>}
               </div>
+
+              <p className="flex flex-wrap items-center gap-x-1.5 text-xs text-muted-foreground">
+                <span>{t("posters.recruteur")} :</span>
+                {ficheRecruteur ? (
+                  <button
+                    type="button"
+                    className="text-foreground underline underline-offset-2"
+                    onClick={() => ouvrirFiche(ficheRecruteur.id)}
+                  >
+                    {nomAffiche(ficheRecruteur)}
+                  </button>
+                ) : (
+                  <span>{t("posters.sansRecruteur")}</span>
+                )}
+                <span aria-hidden>·</span>
+                <MapPin className="size-3" />
+                <span>{zoneDuCreateur(fiche, tous) ?? t("posters.sansZone")}</span>
+              </p>
 
               <CreateurUpwork
                 poster={fiche}

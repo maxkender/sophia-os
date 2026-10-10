@@ -480,7 +480,11 @@ stock de micabo-os. Ce qui est en place :
   tier micabo et **cycle micabo en cours** repris (50 publiés dans le cycle,
   70 restants), 703 passages publiés recopiés (`resolu`, aucune file Apify),
   decks micabo : 311 `pret` (slide pub marquée), 53 `ineligible`. Les 552
-  images (653 Mo) sont copiées sous `medias/micabo/…` ; les 466 originaux
+  images (653 Mo) sont sous `medias/propre/<contenu>/…`, le chemin de Sophia :
+  copiées d'abord sous `medias/micabo/propre/…`, elles restaient invisibles
+  comme images nettoyées (front, composeur, pods ne reconnaissent que
+  `propre/…`) et ont été déplacées dans le bucket le 2026-10-10, avec 12
+  fichiers d'avatar (`migration_micabo.deplacements`). Les 466 originaux
   bruts des slides (`raw_url` / `reference_url` de `structure_slides`, 153 Mo)
   sous le MÊME chemin `medias/brut/<post TikTok>/…` que ceux de Sophia (les pods
   n'acceptent qu'une référence `medias/brut/`, l'oubli d'une source vide

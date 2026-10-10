@@ -1,7 +1,7 @@
 /**
- * Choix du label et de la répartition À LA CRÉATION d'un compte perso
- * (manage-users : create, ensure_compte, ajouter_compte). Décisions pures, sans
- * I/O : manage-users lit la base, ce module tranche.
+ * Choix de l'APPLICATION d'un compte perso À SA CRÉATION (manage-users :
+ * create, ensure_compte, ajouter_compte). Décisions pures, sans I/O :
+ * manage-users lit la base, ce module tranche.
  *
  * DEUX NIVEAUX (docs/multi-applications.md) :
  *   1. le LABEL dit ce que le compte PEUT promouvoir (`label_applications`,
@@ -11,13 +11,27 @@
  *      à part > 0 : un compte réglé 100 % Unswipe avec un label Sophia +
  *      Unswipe ne fait que de l'Unswipe.
  *
- * Le label choisi doit donc servir TOUTES les applications à part > 0, sinon
+ * Le label du compte doit donc servir TOUTES les applications à part > 0, sinon
  * le compte naîtrait avec une part qu'aucun de ses labels ne peut remplir.
  *
- * Contrat d'API (le front est codé dessus) :
- *   - `label_id` (uuid) et `parts_applications` ({ slug: entier 1..100 },
- *     somme exactement 100, slugs de la table `applications`) sont optionnels ;
- *     absents ou `null` → comportement STRICTEMENT inchangé ;
+ * On choisit l'APPLICATION, pas le label (`modeChoixCompte`) :
+ *   - rien d'envoyé (Sophia, toutes les embauches d'aujourd'hui) → chemin
+ *     historique, inchangé : File Sophia de la langue, File générale Sophia,
+ *     label Sophia le moins utilisé ;
+ *   - `parts_applications = { <slug>: 100 }` → le label est tiré de la File des
+ *     créateurs DE CETTE APPLICATION (langue du compte, puis sa file générale),
+ *     à défaut le moins utilisé parmi les labels qui la servent. `{ sophia: 100 }`
+ *     suit exactement le chemin historique (File Sophia, UGC compris) et écrit
+ *     la répartition telle quelle ;
+ *   - répartition à plusieurs applications → pas de File, le moins utilisé
+ *     parmi les labels qui les servent toutes ;
+ *   - `label_id` (vieux client, le front ne l'envoie plus) → ce label, validé,
+ *     sans File.
+ *
+ * Contrat d'API :
+ *   - `label_id` (uuid) et `parts_applications` ({ slug: entier 10..100 par
+ *     pas de 10, somme exactement 100, slugs de la table `applications`) sont
+ *     optionnels ; absents ou `null` → comportement STRICTEMENT inchangé ;
  *   - les rôles qui créent des comptes de créateurs (admin, head_of_ops,
  *     directing_manager, hiring_manager) : c'est le créateur qui est associé à
  *     des applications, pas son recruteur. Tout autre rôle qui envoie une
@@ -25,8 +39,8 @@
  *   - valeurs invalides → 400 REPARTITION_INVALIDE ; label inexistant, système,
  *     UGC AI VIDEO ou qui ne sert pas toutes les applications à part > 0 →
  *     400 LABEL_INCOMPATIBLE ; compte CM ou UGC AI VIDEO → 400
- *     CHOIX_COMPTE_INCOMPATIBLE ; aucun label slideshow ne sert toutes les
- *     applications demandées → 409 NO_LABELS_APPLICATION.
+ *     CHOIX_COMPTE_INCOMPATIBLE ; aucun label slideshow ne sert l'application
+ *     (ou toutes les applications) demandée(s) → 409 NO_LABELS_APPLICATION.
  *
  * Module à part, importé par manage-users seul : le toucher ne redéploie
  * aucune autre fonction.
@@ -37,6 +51,7 @@ import {
   type LienLabelApplication,
   normaliserParts,
   type PartsApplications,
+  SLUG_SOPHIA,
 } from "./multi_app.ts";
 
 /**
@@ -192,4 +207,50 @@ export function labelChoisiCompatible(
   if (!label?.id) return false;
   if (!estLabelFileSlideshow(label)) return false;
   return labelServitToutes(label.id, liens, requises);
+}
+
+/**
+ * Comment le label d'un compte qui naît avec un choix est décidé.
+ *
+ *   - `label`       : `label_id` fourni (vieux client) — ce label, validé ;
+ *   - `application` : une seule application à 100 % — File de CETTE
+ *                     application (langue, puis générale), puis le moins
+ *                     utilisé parmi les labels qui la servent ;
+ *   - `repartition` : plusieurs applications — pas de File, le moins utilisé
+ *                     parmi les labels qui les servent toutes.
+ *
+ * `parts` = répartition déjà validée (`validerParts`) ; `null` quand le corps
+ * n'en portait pas (seul `label_id` l'a fait entrer ici).
+ */
+export type ModeChoixCompte<A extends { slug: string }> =
+  | { mode: "label"; labelId: string }
+  | { mode: "application"; application: A }
+  | { mode: "repartition" };
+
+export function modeChoixCompte<A extends { slug: string }>(
+  labelId: string | null,
+  parts: PartsApplications | null,
+  applications: readonly A[],
+): ModeChoixCompte<A> {
+  if (labelId) return { mode: "label", labelId };
+  const slugs = parts ? Object.keys(parts) : [];
+  if (parts && slugs.length === 1 && parts[slugs[0]] === 100) {
+    const application = applications.find((a) => a.slug === slugs[0]);
+    if (application) return { mode: "application", application };
+  }
+  return { mode: "repartition" };
+}
+
+/**
+ * Entrée de label posée sur un compte de l'application `slug`, à partir de
+ * l'entrée tirée de SA File. Hors Sophia, jamais UGC : pas de persona UGC, pas
+ * de chemin UGC (un compte Unswipe ne peut pas être UGC), même si l'entrée de
+ * la File était cochée UGC. L'entrée d'origine, elle, retourne telle quelle
+ * dans la File si la création échoue.
+ */
+export function entreeCompteApplication(
+  item: { label_id: string; ugc: boolean },
+  slug: string,
+): { label_id: string; ugc: boolean } {
+  return { label_id: item.label_id, ugc: slug === SLUG_SOPHIA ? Boolean(item.ugc) : false };
 }

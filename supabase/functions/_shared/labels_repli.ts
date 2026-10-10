@@ -1,21 +1,18 @@
 /**
- * Repli « label le moins utilisé » de manage-users : ne garder que les labels
- * qui servent VRAIMENT l'application du compte créé.
+ * Labels qu'une création de compte (manage-users) peut donner : ne garder que
+ * ceux qui servent VRAIMENT l'application du compte créé — pour la File des
+ * créateurs de cette application comme pour le repli « le moins utilisé ».
  *
  * `labels.application_id` ne le dit pas : un label créé depuis l'OS y reçoit
  * Sophia par défaut, même quand `label_applications` ne lui donne ensuite
  * qu'Unswipe. Sans ce filtre, un label « Unswipe seul » tout neuf (0 compte,
  * donc le moins utilisé) partait chez TOUTES les recrues Sophia dont la file
  * de langue est vide. La vérité est `label_applications`, avec la règle
- * d'héritage de `multi_app.ts` : un label sans aucune ligne sert Sophia.
+ * d'héritage de `multi_app.ts` : un label sans aucune ligne sert Sophia. La
+ * colonne historique n'est plus lue nulle part dans manage-users.
  *
- * Seul le repli est filtré sur `label_applications`. La File des créateurs
- * n'est filtrée que par la colonne historique `labels.application_id`
- * (`idsLabelsFileSlideshow` de manage-users) : un label créé dans l'OS y a
- * Sophia par défaut et passe, même « Unswipe seul » — la File reste le choix
- * explicite de l'admin et ce label est donné au compte suivant. Un label dont
- * la colonne historique désigne une autre application est, lui, sauté et
- * retiré de la File.
+ * File : une entrée dont le label ne sert pas l'application de la tranche est
+ * sautée et retirée de la File (comme un label système ou UGC AI VIDEO).
  *
  * Module à part, importé par manage-users seul : le toucher ne redéploie
  * aucune autre fonction.

@@ -395,19 +395,26 @@ stock de micabo-os. Ce qui est en place :
   tier micabo et **cycle micabo en cours** repris (50 publiés dans le cycle,
   70 restants), 703 passages publiés recopiés (`resolu`, aucune file Apify),
   decks micabo : 311 `pret` (slide pub marquée), 53 `ineligible`. Les 552
-  images (653 Mo) sont copiées sous `medias/micabo/…`. Restent chez micabo-os :
-  les originaux bruts des slides (`raw_url` / `reference_url` de
-  `structure_slides`, 475 fichiers) — inutiles pour publier, nécessaires pour
-  re-nettoyer une image ; à copier avant d'arrêter micabo-os.
+  images (653 Mo) sont copiées sous `medias/micabo/…` ; les 466 originaux
+  bruts des slides (`raw_url` / `reference_url` de `structure_slides`, 153 Mo)
+  sous le MÊME chemin `medias/brut/<post TikTok>/…` que ceux de Sophia (les pods
+  n'acceptent qu'une référence `medias/brut/`, l'oubli d'une source vide
+  `brut/<post>`), et les URLs réécrites : plus rien ne pointe vers micabo-os.
+  Avatars des 27 comptes : 19 copiés et repointés ; 8 pointent encore vers
+  micabo-os, où le fichier n'existe déjà plus (avatar cassé là-bas aussi).
+- les 27 comptes micabo ont `parts_applications = {"micabo": 100}` (encore en
+  sommeil, sans label : aucun effet tant qu'ils ne sont pas réveillés).
+  `comptes.application_id` reste Sophia : colonne figée, lue par le composeur
+  et les bundles figés.
   Pièges rencontrés : le connecteur Supabase bloque sans fin sur tout `UPDATE`
   sans `WHERE` ; pg_net traite sa file par paquets, un appel lent retient les
   crons de Sophia (d'où la copie en arrière-plan, réponse 202 immédiate) ; la
   base plafonne à 60 connexions (une seule copie à la fois, 2 images en
   parallèle).
 
-Reste à faire, dans cet ordre : originaux bruts des deux sources, puis, le
-jour de la bascule, réveil des comptes (`is_active = true` + label
-`classic_study`), arrêt de ces comptes dans micabo-os, activation de micabo.
+Reste à faire, le jour de la bascule : réveil des comptes (`is_active = true`
++ label `classic_study`), arrêt de ces comptes dans micabo-os, activation de
+micabo.
 
 ## 4. Plus tard (décidé, pas fait)
 

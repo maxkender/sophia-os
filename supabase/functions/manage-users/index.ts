@@ -6,8 +6,17 @@ import {
   estLabelSysteme,
 } from "../_shared/labels_file.ts";
 import { retirerContentCredentialsBytes } from "../_shared/c2pa.ts";
+import {
+  applicationsRequises,
+  type ChoixCompte,
+  choixApplicableAuCompte,
+  labelChoisiCompatible,
+  lireChoixCompte,
+  validerParts,
+} from "../_shared/creation_compte_apps.ts";
 import { filtrerPoolParApplication } from "../_shared/labels_repli.ts";
 import { lireTout } from "../_shared/lots.ts";
+import type { PartsApplications } from "../_shared/multi_app.ts";
 import { appliquerIdentiteInstantanee } from "../_shared/persona.ts";
 import { cibleComptePapier, motDePasseComptePapier } from "../_shared/papier_cm_compte.ts";
 import { estRoleManager, rattachementNouvelHm, roleACreer } from "../_shared/roles.ts";
@@ -91,6 +100,12 @@ function resoudrePremierCompte(
  * sans métadonnées ; label forcé parmi ceux qui ont des slideshows ugc_compatible.
  * HM `hm_ugc_ai_video` → comptes ugc_ai_video, persona unique (pool partagé),
  * labels = labels HM (`hm_ugc_video_labels`) ; marque = checkmark `comptes.ugc_ai_video`.
+ *
+ * Choix admin / head_of_ops à la création d'un compte perso slideshow
+ * (create, ensure_compte, ajouter_compte) : `label_id` et/ou
+ * `parts_applications` (cf. `_shared/creation_compte_apps.ts`). Fournis, ils
+ * court-circuitent la File des créateurs, qui n'est NI consommée NI retirée ;
+ * absents ou `null`, rien ne change (mêmes requêtes, même insert).
  */
 Deno.serve(async (request) => {
   // Préflight CORS : doit répondre 2xx AVANT tout parse JSON, sinon le
@@ -238,8 +253,24 @@ async function gererRequete(request: Request): Promise<Response> {
       return json({ error: "Prénom requis et mot de passe d'au moins 8 caractères" }, 400);
     }
 
+    // Label / répartition imposés (admin, head_of_ops). `null` = chemin historique.
+    const lecture = lireChoixCompte(body, acces.role);
+    if (!lecture.ok) return json({ error: lecture.erreur }, lecture.statut);
+    const choix = lecture.choix;
+
     // HM UGC AI VIDEO : ses créateurs naissent sans file labels / sans labels.
     const hmUgcAiVideo = await estHmUgcAiVideo(supabase, acces);
+    // Tout refus tombe AVANT createUser : un choix rejeté ne laisse ni login
+    // orphelin ni entrée de File consommée.
+    if (
+      choix &&
+      !choixApplicableAuCompte({
+        typeCompte: creerPerso ? "perso" : creerCm ? "cm" : "aucun",
+        ugcAiVideo: hmUgcAiVideo,
+      })
+    ) {
+      return json({ error: "CHOIX_COMPTE_INCOMPATIBLE" }, 400);
+    }
     // Tout compte naît Sophia (identité, file labels, référence), quoi que dise
     // body.application_id / application_slug : un compte porte des LABELS, et
     // ce sont eux qui décident des applications qu'il promeut
@@ -252,11 +283,18 @@ async function gererRequete(request: Request): Promise<Response> {
     let fileItemQueue: FileLabelQueued | null = null;
     let personaUgc: PersonaUgcLibre | null = null;
     let modeUgcAiVideo = false;
+    let partsApplications: PartsApplications | null = null;
     if (creerPerso) {
       if (hmUgcAiVideo) {
         modeUgcAiVideo = true;
         personaUgc = await personaUgcLibre(supabase, application.id);
         if (!personaUgc) return json({ error: "NO_UGC_PERSONA" }, 409);
+      } else if (choix) {
+        // Choix admin : la File n'est pas touchée, pas de persona UGC.
+        const res = await resoudreChoixCompte(supabase, choix, langue);
+        if (!res.ok) return res.reponse;
+        fileItem = res.fileItem;
+        partsApplications = res.parts;
       } else {
         const prep = await preparerFileEtPersona(supabase, langue, application);
         if (!prep.ok) return json({ error: prep.error }, 409);
@@ -347,7 +385,7 @@ async function gererRequete(request: Request): Promise<Response> {
           postsParJour,
           personaUgc,
           fileItemQueue,
-          { ugcAiVideo: modeUgcAiVideo, application },
+          { ugcAiVideo: modeUgcAiVideo, application, partsApplications },
         )),
         type_compte: "perso",
       };
@@ -416,6 +454,8 @@ async function gererRequete(request: Request): Promise<Response> {
         return json({ error: "forbidden" }, 403);
       }
     }
+    const lecture = lireChoixCompte(body, acces.role);
+    if (!lecture.ok) return json({ error: lecture.erreur }, lecture.statut);
 
     const { data: deja } = await supabase
       .from("comptes")
@@ -438,6 +478,7 @@ async function gererRequete(request: Request): Promise<Response> {
       body.posts_par_jour,
       "",
       application,
+      lecture.choix,
     );
   }
 
@@ -451,6 +492,11 @@ async function gererRequete(request: Request): Promise<Response> {
 
     const interdit = await refuserSiHorsEquipe(supabase, acces, userId);
     if (interdit) return interdit;
+    const lecture = lireChoixCompte(body, acces.role);
+    if (!lecture.ok) return json({ error: lecture.erreur }, lecture.statut);
+    if (lecture.choix && !choixApplicableAuCompte({ typeCompte, ugcAiVideo: false })) {
+      return json({ error: "CHOIX_COMPTE_INCOMPATIBLE" }, 400);
+    }
     await etendreLanguesManager(supabase, acces, langue);
 
     if (typeCompte === "cm") {
@@ -466,6 +512,7 @@ async function gererRequete(request: Request): Promise<Response> {
       body.posts_par_jour,
       String(body.handle_tiktok ?? "").trim().replace(/^@+/, ""),
       application,
+      lecture.choix,
     );
   }
 
@@ -476,6 +523,10 @@ async function gererRequete(request: Request): Promise<Response> {
 
     const interdit = await refuserSiHorsEquipe(supabase, acces, userId);
     if (interdit) return interdit;
+    const lecture = lireChoixCompte(body, acces.role);
+    if (!lecture.ok) return json({ error: lecture.erreur }, lecture.statut);
+    // Un compte CM n'a pas de moteur : ni label slideshow ni répartition.
+    if (lecture.choix) return json({ error: "CHOIX_COMPTE_INCOMPATIBLE" }, 400);
     await etendreLanguesManager(supabase, acces, langue);
 
     return await creerCompteCmPourPoster(supabase, acces, userId, langue, body);
@@ -709,15 +760,27 @@ async function creerComptePersoPourPoster(
   postsParJourBrut: unknown,
   handleTiktok = "",
   application?: ApplicationRow | null,
+  /** Label / répartition imposés par l'admin ; `null` = File puis repli, comme avant. */
+  choix: ChoixCompte | null = null,
 ): Promise<Response> {
   const modeUgcAiVideo = await modeUgcAiVideoPourPoster(supabase, acces, userId);
+  if (choix && !choixApplicableAuCompte({ typeCompte: "perso", ugcAiVideo: modeUgcAiVideo })) {
+    return json({ error: "CHOIX_COMPTE_INCOMPATIBLE" }, 400);
+  }
   let fileItem: FileLabelItem | null = null;
   let fileItemQueue: FileLabelQueued | null = null;
   let personaUgc: PersonaUgcLibre | null = null;
+  let partsApplications: PartsApplications | null = null;
 
   if (modeUgcAiVideo) {
     personaUgc = await personaUgcLibre(supabase, application?.id ?? null);
     if (!personaUgc) return json({ error: "NO_UGC_PERSONA" }, 409);
+  } else if (choix) {
+    // Choix admin : la File n'est pas touchée, pas de persona UGC.
+    const res = await resoudreChoixCompte(supabase, choix, langue);
+    if (!res.ok) return res.reponse;
+    fileItem = res.fileItem;
+    partsApplications = res.parts;
   } else {
     const prep = await preparerFileEtPersona(supabase, langue, application);
     if (!prep.ok) return json({ error: prep.error }, 409);
@@ -737,7 +800,7 @@ async function creerComptePersoPourPoster(
     postsParJour,
     personaUgc,
     fileItemQueue,
-    { ugcAiVideo: modeUgcAiVideo, application },
+    { ugcAiVideo: modeUgcAiVideo, application, partsApplications },
   );
   if (!compte.id) return json({ error: "CREATION_COMPTE_ECHOUEE" }, 500);
   if (handleTiktok) {
@@ -973,13 +1036,23 @@ async function ecrireFileLabels(
   );
 }
 
+/**
+ * Labels slideshow (ni système ni UGC AI VIDEO), filtrés par la colonne
+ * historique `labels.application_id` quand `applicationId` est fourni.
+ *
+ * Une lecture ratée LÈVE. Elle rendait un ensemble vide, que `popLabelFile`
+ * passait à `consommerFileSlideshow` : toute entrée absente de l'ensemble y
+ * est sautée, donc RETIRÉE de la File — une erreur réseau vidait la File des
+ * créateurs en silence. Lue avant toute écriture de la File : rien n'est perdu.
+ */
 async function idsLabelsFileSlideshow(
   supabase: Supabase,
   applicationId?: string | null,
 ): Promise<Set<string>> {
   let q = supabase.from("labels").select("id, slug, nom, ugc_ai_video");
   if (applicationId) q = q.eq("application_id", applicationId);
-  const { data } = await q;
+  const { data, error } = await q;
+  if (error) throw new Error(`Labels slideshow : ${error.message}`);
   return new Set(
     (data ?? [])
       .filter((l) => estLabelFileSlideshow(l))
@@ -1247,25 +1320,102 @@ async function preparerFileEtPersona(
 }
 
 /**
+ * Choix admin (label et/ou répartition) → entrée de label du compte, SANS
+ * toucher à la File des créateurs. Tout est lu et vérifié avant la moindre
+ * écriture ; une lecture ratée lève (500), un refus rend la réponse à renvoyer.
+ *
+ *   - `label_id` fourni : ce label, s'il est slideshow et sert toutes les
+ *     applications à part > 0 (sinon LABEL_INCOMPATIBLE) ;
+ *   - sinon : le moins utilisé dans la langue parmi les labels slideshow qui
+ *     servent toutes ces applications (aucun → NO_LABELS_APPLICATION).
+ *
+ * `ugc: false` dans les deux cas : pas de persona UGC, l'identité (genre,
+ * thème, avatar) suit le label comme pour tout compte classique.
+ */
+async function resoudreChoixCompte(
+  supabase: Supabase,
+  choix: ChoixCompte,
+  langue: string,
+): Promise<
+  | { ok: true; fileItem: FileLabelItem; parts: PartsApplications | null }
+  | { ok: false; reponse: Response }
+> {
+  let parts: PartsApplications | null = null;
+  let requises: string[] = [];
+  if (choix.partsBrutes !== null) {
+    const { data: apps, error } = await supabase.from("applications").select("id, slug");
+    if (error) throw new Error(`Applications : ${error.message}`);
+    const liste = (apps ?? []) as { id: string; slug: string }[];
+    parts = validerParts(choix.partsBrutes, liste.map((a) => a.slug));
+    if (!parts) return { ok: false, reponse: json({ error: "REPARTITION_INVALIDE" }, 400) };
+    requises = applicationsRequises(parts, liste);
+  }
+
+  if (choix.labelId) {
+    const { data: label, error } = await supabase
+      .from("labels")
+      .select("id, slug, nom, ugc_ai_video")
+      .eq("id", choix.labelId)
+      .maybeSingle();
+    if (error) throw new Error(`Label choisi : ${error.message}`);
+    const { data: liens, error: errLiens } = await supabase
+      .from("label_applications")
+      .select("label_id, application_id")
+      .eq("label_id", choix.labelId);
+    if (errLiens) throw new Error(`Applications du label choisi : ${errLiens.message}`);
+    if (!label || !labelChoisiCompatible(label, liens ?? [], requises)) {
+      return { ok: false, reponse: json({ error: "LABEL_INCOMPATIBLE" }, 400) };
+    }
+    return { ok: true, fileItem: { label_id: label.id as string, ugc: false }, parts };
+  }
+
+  const labelId = await labelMoinsUtiliseParLangue(supabase, langue, {
+    ugcOnly: false,
+    applicationsRequises: requises,
+  });
+  const autorise = labelId ? (await filtrerLabelsCompte(supabase, [labelId]))[0] : undefined;
+  if (!autorise) return { ok: false, reponse: json({ error: "NO_LABELS_APPLICATION" }, 409) };
+  return { ok: true, fileItem: { label_id: autorise, ugc: false }, parts };
+}
+
+/**
  * Label avec le moins de comptes actifs dans la langue (ou global si langue
  * vide), parmi ceux qui servent l'application (`label_applications`).
+ *
+ * `applicationsRequises` (répartition choisie par l'admin) : le label doit
+ * servir TOUTES ces applications, et seul `label_applications` en décide — la
+ * colonne historique `labels.application_id` n'est alors plus lue. Absent ou
+ * vide : comportement historique, à l'identique.
  */
 async function labelMoinsUtiliseParLangue(
   supabase: Supabase,
   langue: string,
-  opts: { ugcOnly: boolean; applicationId?: string | null },
+  opts: {
+    ugcOnly: boolean;
+    applicationId?: string | null;
+    applicationsRequises?: readonly string[];
+  },
 ): Promise<string | null> {
+  const requises = opts.applicationsRequises?.length ? opts.applicationsRequises : null;
   let pool: string[] = [];
   if (opts.ugcOnly) {
     const ugc = await labelIdsAvecContenusUgc(supabase, opts.applicationId);
     const slideshow = await idsLabelsFileSlideshow(supabase, opts.applicationId);
     pool = ugc.filter((id) => slideshow.has(id));
   } else {
-    pool = [...await idsLabelsFileSlideshow(supabase, opts.applicationId)];
+    pool = [...await idsLabelsFileSlideshow(supabase, requises ? null : opts.applicationId)];
   }
-  // `labels.application_id` vaut Sophia pour tout label créé depuis l'OS, même
-  // « Unswipe seul » : seul `label_applications` dit qui le label sert.
-  pool = await filtrerPoolParApplication(supabase, pool, opts.applicationId);
+  if (requises) {
+    // Une application après l'autre : le pool rétrécit à chaque passe et ne
+    // garde que les labels qui les servent toutes (héritage Sophia compris).
+    for (const app of requises) {
+      pool = await filtrerPoolParApplication(supabase, pool, app);
+    }
+  } else {
+    // `labels.application_id` vaut Sophia pour tout label créé depuis l'OS, même
+    // « Unswipe seul » : seul `label_applications` dit qui le label sert.
+    pool = await filtrerPoolParApplication(supabase, pool, opts.applicationId);
+  }
   if (pool.length === 0) return null;
 
   const counts = new Map<string, number>(pool.map((id) => [id, 0]));
@@ -1464,7 +1614,12 @@ async function preparerCompte(
   personaUgc: PersonaUgcLibre | null,
   /** Entrée admin à restaurer si l'insert échoue (pas le fallback label). */
   fileItemQueue: FileLabelQueued | null = null,
-  opts: { ugcAiVideo?: boolean; application?: ApplicationRow | null } = {},
+  opts: {
+    ugcAiVideo?: boolean;
+    application?: ApplicationRow | null;
+    /** Répartition choisie par l'admin ; absente = clé omise de l'insert (NULL en base). */
+    partsApplications?: PartsApplications | null;
+  } = {},
 ): Promise<{
   id: string;
   reference: string | null;
@@ -1504,6 +1659,7 @@ async function preparerCompte(
       ugc_ai_video: ugcAiVideo,
       ugc_persona_id: avecPersona ? personaUgc!.id : null,
       persona_nom: avecPersona ? personaUgc!.nom.trim() : null,
+      ...(opts.partsApplications ? { parts_applications: opts.partsApplications } : {}),
     })
     .select("id")
     .single();

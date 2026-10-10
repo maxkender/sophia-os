@@ -1,0 +1,251 @@
+{
+  "post_id": "7690642292855672096",
+  "slides": {
+    "1": {
+      "textes": {
+        "T1": {
+          "en": [
+            "10/10 niche traits of highly",
+            "successful people"
+          ],
+          "fr": "10/10 traits méconnus des gens qui réussissent",
+          "texte": "10/10 rasgos poco comunes de la gente exitosa"
+        },
+        "T2": {
+          "en": [
+            "(science-backed)"
+          ],
+          "fr": "(la science le dit)",
+          "alignement": "droite",
+          "texte": "(según la ciencia)"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    },
+    "2": {
+      "textes": {
+        "T1": {
+          "en": [
+            "they make decisions fast"
+          ],
+          "fr": "ils [[décident vite]]",
+          "texte": "[[deciden rápido]]"
+        },
+        "T2": {
+          "en": [
+            "successful people don’t procrastinate. they don’t",
+            "ask for permission, but instead act and ask for",
+            "forgiveness"
+          ],
+          "fr": "les gens qui réussissent [[remettent rien à plus tard]]. ils [[demandent pas la permission]] : ils foncent et [[s'excusent après]]",
+          "texte": "la gente exitosa [[no deja nada para mañana]]. [[no pide permiso]]: actúa y después [[pide perdón]]"
+        },
+        "T3": {
+          "en": [
+            "they don’t spend 3",
+            "weeks thinking",
+            "about a reversible",
+            "choice"
+          ],
+          "fr": "ils passent pas 3 semaines à cogiter sur [[un choix réversible]]",
+          "texte": "no se pasan 3 semanas dándole vueltas a [[una decisión reversible]]"
+        },
+        "T4": {
+          "en": [
+            "if the downside is small, they decide, act, and",
+            "adjust. speed matters most when decisions can",
+            "be changed later"
+          ],
+          "fr": "si le risque est petit, ils décident, foncent et ajustent. [[aller vite compte surtout]] quand tu peux changer d'avis après",
+          "texte": "si el riesgo es pequeño, deciden, actúan y ajustan. [[la velocidad importa más]] cuando puedes cambiar de opinión después"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    },
+    "3": {
+      "textes": {
+        "T1": {
+          "en": [
+            "they get comfortable looking",
+            "stupid"
+          ],
+          "fr": "ils [[s'en fichent d'avoir l'air bêtes]]",
+          "texte": "[[no les da miedo parecer tontos]]"
+        },
+        "T2": {
+          "en": [
+            "they ask basic questions, try things before they feel",
+            "ready, and admit when they don’t know"
+          ],
+          "fr": "ils posent des questions bêtes, se lancent avant d'être prêts et [[disent quand ils savent pas]]",
+          "texte": "hacen preguntas básicas, se lanzan antes de sentirse listos y [[admiten cuando no saben]]"
+        },
+        "T3": {
+          "en": [
+            "protecting your",
+            "ego feels safe,",
+            "but it slows",
+            "learning down",
+            "massively"
+          ],
+          "fr": "protéger ton ego, ça rassure, mais ça [[te fait apprendre beaucoup moins vite]]",
+          "texte": "proteger tu ego da seguridad, pero [[te hace aprender muchísimo más lento]]"
+        },
+        "T4": {
+          "en": [
+            "growth feels uncomfortable, but",
+            "nothing changes if nothing changes"
+          ],
+          "fr": "évoluer, c'est inconfortable, mais [[si tu changes rien, rien change]]",
+          "texte": "crecer es incómodo, pero [[si nada cambia, nada cambia]]"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    },
+    "4": {
+      "textes": {
+        "T1": {
+          "en": [
+            "they read classic books written",
+            "by the greats"
+          ],
+          "fr": "ils lisent les classiques [[des grands auteurs]]",
+          "texte": "leen los clásicos [[de los grandes autores]]"
+        },
+        "T2a": {
+          "en": [
+            "they know endless tiktok scrolling rots their",
+            "attention"
+          ],
+          "fr": "ils savent que le scroll infini [[leur bousille l'attention]]",
+          "texte": "saben que scrollear tiktok sin fin [[les destroza la atención]]"
+        },
+        "T2b": {
+          "en": [
+            "instead, they read ideas that",
+            "survived decades or",
+            "centuries"
+          ],
+          "fr": "alors ils lisent des idées [[qui tiennent depuis des siècles]]",
+          "texte": "así que leen ideas que [[han sobrevivido décadas]] o [[siglos]]"
+        },
+        "T3": {
+          "en": [
+            "from people who thought",
+            "deeply about psychology,",
+            "power, business, and human",
+            "nature"
+          ],
+          "fr": "de gens qui ont vraiment creusé [[la psycho]], [[le pouvoir]], [[le business]] et [[la nature humaine]]",
+          "texte": "de gente que pensó a fondo sobre [[psicología]], [[poder]], [[negocios]] y [[naturaleza humana]]"
+        },
+        "T4": {
+          "en": [
+            "if you’re stuck on tiktok, you",
+            "can try readup which blocks",
+            "your apps until you read"
+          ],
+          "fr": "si t'es scotchée à tiktok, remplace ton scroll par [[5 min sur l'appli Sophia]]",
+          "texte": "si estás enganchada a tiktok, prueba [[la app Sophia]], una lección de 5 min al día"
+        }
+      },
+      "images": {
+        "I1": "sophia_capture",
+        "I2": "sophia_appstore"
+      },
+      "scissions": {
+        "T2": 2
+      }
+    },
+    "5": {
+      "textes": {
+        "T1": {
+          "en": [
+            "they tolerate long periods with",
+            "no reward"
+          ],
+          "fr": "ils tiennent [[longtemps]] [[sans récompense]]",
+          "texte": "aguantan [[mucho tiempo]] [[sin recompensa]]"
+        },
+        "T2": {
+          "en": [
+            "they can keep working when",
+            "nobody is watching, nothing",
+            "is going viral, and the results",
+            "still look unimpressive"
+          ],
+          "fr": "ils continuent à bosser quand [[personne regarde]], que rien ne fait le buzz et que les résultats [[font pas rêver]]",
+          "texte": "siguen trabajando cuando [[nadie los ve]], nada se hace viral y los resultados todavía [[no impresionan]]"
+        },
+        "T3": {
+          "en": [
+            "most people need constant",
+            "proof that something is",
+            "working"
+          ],
+          "fr": "la plupart des gens veulent sans arrêt la preuve que ça marche",
+          "texte": "la mayoría necesita pruebas constantes de que algo funciona"
+        },
+        "T4": {
+          "en": [
+            "successful people can stay",
+            "consistent long enough for the",
+            "payoff to arrive."
+          ],
+          "fr": "ceux qui réussissent [[restent réguliers assez longtemps]] pour que ça finisse par payer.",
+          "texte": "la gente exitosa [[es constante el tiempo suficiente]] para ver los resultados."
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    },
+    "6": {
+      "textes": {
+        "T1": {
+          "en": [
+            "they obsess over leverage"
+          ],
+          "fr": "ils sont obsédés par [[l'effet de levier]]",
+          "texte": "les obsesiona [[el apalancamiento]]"
+        },
+        "T2": {
+          "en": [
+            "they constantly look for",
+            "ways to make one hour of",
+            "work create more than",
+            "one hour of value"
+          ],
+          "fr": "ils cherchent toujours comment faire qu'[[une heure de boulot]] rapporte [[bien plus qu'une heure]]",
+          "texte": "siempre buscan que [[una hora de trabajo]] genere [[mucho más que una hora de valor]]"
+        },
+        "T3": {
+          "en": [
+            "software, systems,",
+            "content, capital,",
+            "automation, teams"
+          ],
+          "fr": "outils, systèmes, contenu, capital, automatisation, équipes",
+          "texte": "software, sistemas, contenido, capital, automatizar, equipos"
+        },
+        "T4": {
+          "en": [
+            "they’re not just trying to",
+            "work harder, they’re trying"
+          ],
+          "fr": "pas juste bosser plus, mais [[démultiplier leurs efforts]]",
+          "texte": "no buscan solo trabajar más, [[buscan multiplicar su esfuerzo]]"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    }
+  }
+}

@@ -1,0 +1,239 @@
+{
+  "post_id": "original-001",
+  "slides": {
+    "1": {
+      "textes": {
+        "T1": {
+          "en": [
+            "10/10 habits to become",
+            "smart again"
+          ],
+          "fr": "10/10 hobbies pour devenir ultra cultivée",
+          "texte": "10/10 hobbies para volverte peligrosamente culta"
+        },
+        "T2": {
+          "en": [
+            "(in this age of",
+            "short-form content)"
+          ],
+          "fr": "(sans retourner à l'école)",
+          "texte": "(sin volver a estudiar)"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    },
+    "2": {
+      "textes": {
+        "T1": {
+          "en": [
+            "get good at writing"
+          ],
+          "fr": "tiens un [[carnet de curiosités]]",
+          "texte": "lleva un [[cuaderno de curiosidades]]"
+        },
+        "T2": {
+          "en": [
+            "clear writing forces clear",
+            "thinking"
+          ],
+          "fr": "note chaque truc qui t'intrigue",
+          "texte": "apunta todo lo que te da curiosidad"
+        },
+        "T3": {
+          "en": [
+            "learn how to explain",
+            "complicated ideas",
+            "simply, write convincing",
+            "messages, and make",
+            "people actually care"
+          ],
+          "fr": "un mot inconnu, un nom dans un film, une question de ton petit frère. le soir, [[cherche la réponse]]",
+          "texte": "una palabra que no conocías, un nombre en una película, una pregunta de tu hermano menor. por la noche, [[búscalo]]"
+        },
+        "T4": {
+          "en": [
+            "if you can write well, you'll be better at",
+            "marketing, leadership, sales, and building an",
+            "audience"
+          ],
+          "fr": "en un an t'as des centaines de trucs appris, et [[t'as toujours un sujet de conversation]]",
+          "texte": "en un año son cientos de cosas nuevas, y [[nunca más eres la aburrida de la cena]]"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    },
+    "3": {
+      "textes": {
+        "T1": {
+          "en": [
+            "they get comfortable looking",
+            "stupid"
+          ],
+          "fr": "va voir des [[conférences gratuites]]",
+          "texte": "ve a [[charlas y conferencias gratis]]"
+        },
+        "T2": {
+          "en": [
+            "they ask basic questions, try things before they feel",
+            "ready, and admit when they don’t know"
+          ],
+          "fr": "musées, facs, librairies : y'en a chaque semaine, souvent [[gratuites et ouvertes à tous]]",
+          "texte": "museos, facultades, librerías: hay cada semana, casi siempre [[gratis y abiertas a todos]]"
+        },
+        "T3": {
+          "en": [
+            "protecting your",
+            "ego feels safe,",
+            "but it slows",
+            "learning down",
+            "massively"
+          ],
+          "fr": "une heure avec un passionné, ça [[vaut dix vidéos de vulgarisation]]",
+          "texte": "una hora con un experto de verdad [[vale más que diez de youtube]]"
+        },
+        "T4": {
+          "en": [
+            "growth feels uncomfortable, but",
+            "nothing changes if nothing changes"
+          ],
+          "fr": "et en vrai, c'est [[le meilleur rencard]] pas cher qui existe",
+          "texte": "y la verdad, es [[la mejor cita barata]] que existe"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    },
+    "4": {
+      "textes": {
+        "T1": {
+          "en": [
+            "read a book everyday"
+          ],
+          "fr": "apprends un truc [[par jour]]",
+          "texte": "aprende algo [[cada día]]"
+        },
+        "T2": {
+          "en": [
+            "you say you want to read",
+            "more, then find yourself",
+            "scrolling all day"
+          ],
+          "fr": "tu veux [[te cultiver]], puis tu scrolles toute la soirée",
+          "texte": "dices que quieres [[ser más culta]] y luego scrolleas toda la noche"
+        },
+        "T3": {
+          "en": [
+            "i used to be the same until",
+            "i found readup which",
+            "blocks my apps until i read",
+            "for 20 minutes"
+          ],
+          "fr": "perso, quand j'ai envie de scroller, j'ouvre [[l'appli Sophia]] à la place, 5 min par jour",
+          "texte": "yo, cuando me dan ganas de scrollear, abro [[la app Sophia]] en su lugar. 5 minutos al día"
+        },
+        "T4": {
+          "en": [
+            "it builds patience, attention,",
+            "memory, and the ability to",
+            "keep going without constant",
+            "stimulation"
+          ],
+          "fr": "histoire, art, sciences, philo… une leçon par jour, et [[en un mois t'as plein de trucs à raconter]]",
+          "texte": "historia, arte, ciencia, filosofía… una lección al día, y [[en un mes tienes un montón de temas de conversación]]"
+        }
+      },
+      "images": {
+        "I1": "sophia_capture"
+      }
+    },
+    "5": {
+      "textes": {
+        "T1": {
+          "en": [
+            "have more conversations with",
+            "smart people"
+          ],
+          "fr": "intéresse-toi [[vraiment]] aux gens autour de toi",
+          "texte": "interésate [[de verdad]] por la gente"
+        },
+        "T2": {
+          "en": [
+            "your surroundings shape",
+            "you"
+          ],
+          "fr": "chacun est calé sur un truc",
+          "texte": "todo el mundo es experto en algo"
+        },
+        "T3": {
+          "en": [
+            "good conversations force",
+            "you to explain ideas,",
+            "defend assumptions, and",
+            "notice where your",
+            "thinking is weak"
+          ],
+          "fr": "ton coiffeur, ta grand-mère, ton collègue : demande-leur [[comment marche leur métier]] ou ce qu'ils ont vécu",
+          "texte": "tu peluquera, tu abuela, tu compañero de trabajo: pregúntales [[cómo funciona de verdad su trabajo]] o qué han vivido"
+        },
+        "T4": {
+          "en": [
+            "spend more time around people who know",
+            "things you don’t instead of people who agree",
+            "with everything you say"
+          ],
+          "fr": "les gens adorent expliquer ce qu'ils connaissent, et toi [[t'apprends des trucs qu'aucun livre te dira]]",
+          "texte": "a la gente le encanta explicar lo que sabe, y tú [[aprendes cosas que ningún libro te va a contar]]"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    },
+    "6": {
+      "textes": {
+        "T1": {
+          "en": [
+            "explain what you learn out loud"
+          ],
+          "fr": "[[raconte]] ce que t'as appris",
+          "texte": "[[cuéntale a alguien]] lo que aprendes"
+        },
+        "T2": {
+          "en": [
+            "close the book, article, or",
+            "video and explain the idea",
+            "from memory"
+          ],
+          "fr": "au dîner, en vocal, à ta coloc : réexplique l'idée [[sans tes notes]]",
+          "texte": "en la cena o en un audio, explícalo [[sin tus notas]]"
+        },
+        "T3": {
+          "en": [
+            "the moment you get vague",
+            "or confused, you’ve found",
+            "the gap"
+          ],
+          "fr": "dès que tu bloques, t'as trouvé [[ce que t'as pas compris]]",
+          "texte": "si te quedas en blanco, ahí está [[lo que no entendiste]]"
+        },
+        "T4": {
+          "en": [
+            "teaching exposes weak",
+            "understanding faster than",
+            "rereading does"
+          ],
+          "fr": "et ce que tu racontes, [[tu l'oublies plus jamais]]",
+          "texte": "y lo que explicas en voz alta, [[no se te olvida nunca]]"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    }
+  }
+}

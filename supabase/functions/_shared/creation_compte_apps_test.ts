@@ -50,10 +50,18 @@ Deno.test("absents ou null : aucun choix, quel que soit le rôle (chemin histori
   }
 });
 
-Deno.test("seuls admin et head_of_ops choisissent ; les autres → 403 CHOIX_COMPTE_ADMIN", () => {
-  assertEquals(peutChoisirCompte("admin"), true);
-  assertEquals(peutChoisirCompte("head_of_ops"), true);
-  for (const role of ["hiring_manager", "directing_manager", "poster", "", null, undefined]) {
+Deno.test("les rôles qui recrutent choisissent ; les autres → 403 CHOIX_COMPTE_ADMIN", () => {
+  // C'est le créateur qui est associé à des applications, pas son recruteur :
+  // un HM qui crée le compte d'un créateur choisit comme l'admin.
+  for (const role of ["admin", "head_of_ops", "directing_manager", "hiring_manager"]) {
+    assertEquals(peutChoisirCompte(role), true, role);
+    assertEquals(
+      lireChoixCompte({ parts_applications: { unswipe: 100 } }, role),
+      { ok: true, choix: { labelId: null, partsBrutes: { unswipe: 100 } } },
+      role,
+    );
+  }
+  for (const role of ["poster", "", null, undefined]) {
     assertEquals(peutChoisirCompte(role), false, String(role));
     for (const body of [
       { label_id: LABEL },

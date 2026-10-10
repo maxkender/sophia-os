@@ -28,8 +28,8 @@ export function FormulaireAjouterCompte({
   languesProposees: string[];
   onCree?: () => void;
   /**
-   * Admin / Head of Ops : choix du label et de la répartition du compte (deux
-   * niveaux). Faux (recruteur, défaut) : mêmes champs, mêmes lectures et même
+   * Choix du label et de la répartition du compte (deux niveaux), pour les
+   * rôles qui recrutent. Faux (défaut) : mêmes champs, mêmes lectures et même
    * requête qu'avant.
    */
   choixApplications?: boolean;
@@ -45,7 +45,7 @@ export function FormulaireAjouterCompte({
     if (langue && languesType.includes(langue)) return;
     setLangue(languesType[0] ?? "");
   }, [languesType, langue]);
-  // Lectures (applications, labels) seulement formulaire ouvert, jamais pour un recruteur.
+  // Lectures (applications, labels) seulement formulaire ouvert et choix permis.
   const choixApps = useChoixApplicationsCreation(choixApplications && ouvert, langue);
 
   const creer = useMutation({

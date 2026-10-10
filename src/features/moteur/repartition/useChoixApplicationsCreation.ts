@@ -14,8 +14,9 @@ import { CLE_APPLICATIONS_MULTI, CLE_LIENS_LABELS } from "./useMultiApp";
 
 /**
  * État du choix « label + répartition » d'un formulaire de création de compte
- * (admin / Head of Ops). Inactif (recruteur) : AUCUNE lecture, options vides,
- * jamais bloquant — le formulaire envoie exactement le corps d'avant.
+ * (admin, Head of Ops, DM, HM). Inactif (compte CM, UGC vidéo, formulaire
+ * fermé) : AUCUNE lecture, options vides, jamais bloquant — le formulaire
+ * envoie exactement le corps d'avant.
  *
  * Mêmes clés de cache que `useApplicationsMulti` / `useLiensLabels` et que la
  * liste des labels de la page Posters : rien de relu en double.

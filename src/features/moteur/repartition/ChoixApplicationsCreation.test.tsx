@@ -1,7 +1,7 @@
 /**
  * Choix label + répartition dans « Ajouter un compte » : invisible et sans
- * effet pour un recruteur (même corps, aucune lecture de plus), deux niveaux
- * pour l'admin / le Head of Ops, envoi bloqué tant que le choix est invalide.
+ * effet quand le choix n'est pas permis (même corps, aucune lecture de plus),
+ * deux niveaux pour qui recrute, envoi bloqué tant que le choix est invalide.
  */
 import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -74,7 +74,7 @@ describe("FormulaireAjouterCompte × choix des applications", () => {
     listerLiensLabels.mockResolvedValue(LIENS);
   });
 
-  it("recruteur : aucun bloc, aucune lecture de plus, corps d'avant à l'identique", async () => {
+  it("choix non permis : aucun bloc, aucune lecture de plus, corps d'avant à l'identique", async () => {
     rendre();
     await act(async () => {
       await new Promise((r) => setTimeout(r, 10));
@@ -95,7 +95,7 @@ describe("FormulaireAjouterCompte × choix des applications", () => {
     });
   });
 
-  it("admin sans rien choisir : même corps qu'un recruteur", async () => {
+  it("choix permis mais rien choisi : même corps qu'avant", async () => {
     rendre(true);
     await screen.findByRole("button", { name: /Clean Girl/ });
     fireEvent.click(bouton());

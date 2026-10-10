@@ -203,6 +203,21 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
 - **Unswipe = slideshows classiques uniquement** : un compte UGC reste Sophia.
 - **Sélecteur d'application de l'admin** : filtre les prompts, les stats et la
   réserve. Plus les labels, sources, contenus ni comptes.
+- **Choix à la création d'un compte** (admin, Head of Ops, DM, HM : c'est le
+  créateur qui est associé à des applications, pas son recruteur). Les deux
+  niveaux, dans le formulaire de création (`ChoixApplicationsCreation`, Posters
+  et /embauche) : « Label du compte » (Automatique = File des créateurs, ou un
+  label slideshow imposé) puis « Répartition des posts » (Par défaut = `NULL`,
+  100 % d'une application, ou personnalisée). manage-users reçoit `label_id`
+  et `parts_applications` (`_shared/creation_compte_apps.ts`) :
+  - rien choisi → chemin d'avant, File consommée, aucune clé de plus ;
+  - label imposé → il doit servir toutes les applications à part > 0 (sinon
+    400 `LABEL_INCOMPATIBLE`), la File n'est pas touchée ;
+  - répartition sans label → label le moins utilisé de la langue parmi ceux
+    qui servent toutes ses applications (409 `NO_LABELS_APPLICATION` sinon),
+    la File n'est pas touchée ;
+  - compte CM ou UGC vidéo → 400 `CHOIX_COMPTE_INCOMPATIBLE`. Après la
+    création, la répartition se change sur la carte du compte (admin).
 
 ## 2. Schéma (migration 0256, additive)
 

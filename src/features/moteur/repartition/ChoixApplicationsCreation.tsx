@@ -24,9 +24,10 @@ const pastille = (actif: boolean) =>
     : "flex flex-col items-start rounded-md border px-2.5 py-1.5 text-left text-xs hover:bg-muted";
 
 /**
- * Choix des applications d'un compte à sa création, en DEUX NIVEAUX (admin et
- * Head of Ops seulement — `useChoixApplicationsCreation` est inactif pour un
- * recruteur, et ce bloc ne s'affiche pas) :
+ * Choix des applications d'un compte à sa création, en DEUX NIVEAUX, par
+ * celui qui crée le compte du créateur (admin, Head of Ops, DM, HM — c'est le
+ * créateur qui est associé à des applications, pas son recruteur). Inactif,
+ * ce bloc ne s'affiche pas :
  *
  * 1. « Label du compte » : Automatique (la File des créateurs, comme
  *    aujourd'hui) ou un label slideshow imposé, chacun avec les applications

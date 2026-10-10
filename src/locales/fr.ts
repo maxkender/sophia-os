@@ -1046,7 +1046,7 @@ export const fr = {
       infoLangue: "{{app}} ne cible pas le {{langue}} : ce compte ne publiera rien pour elle tant que la langue n’est pas cochée.",
       erreurLecture: "Applications et labels indisponibles : {{message}}",
       erreurs: {
-        CHOIX_COMPTE_ADMIN: "Seuls l’admin et le Head of Ops peuvent choisir le label ou la répartition d’un compte.",
+        CHOIX_COMPTE_ADMIN: "Seuls les recruteurs (HM, DM, Head of Ops) et l’admin peuvent choisir le label ou la répartition d’un compte.",
         REPARTITION_INVALIDE: "Répartition refusée : des entiers de 1 à 100 par application, qui font 100 % en tout.",
         LABEL_INCOMPATIBLE: "Ce label ne sert pas toutes les applications de la répartition.",
         CHOIX_COMPTE_INCOMPATIBLE: "Ce choix de label ou de répartition n’est pas possible pour ce type de compte.",

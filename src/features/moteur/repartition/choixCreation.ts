@@ -1,5 +1,5 @@
 /**
- * Création d'un compte par l'admin ou le Head of Ops : choix des applications
+ * Création du compte d'un créateur (admin, Head of Ops, DM, HM) : choix des applications
  * à DEUX NIVEAUX, décisions pures (le composant `ChoixApplicationsCreation`
  * ne fait qu'afficher ce qui se décide ici).
  *
@@ -27,9 +27,18 @@ import {
   type PartsApplications,
 } from "../multiApp";
 
-/** Seuls ces rôles choisissent label et répartition à la création (manage-users refuse les autres). */
+/**
+ * Rôles qui choisissent label et répartition à la création : tous ceux qui
+ * créent des comptes de créateurs (manage-users refuse les autres). C'est le
+ * créateur qui est associé à des applications, pas son recruteur.
+ */
 export function peutChoisirApplicationsCompte(role: string | null | undefined): boolean {
-  return role === "admin" || role === "head_of_ops";
+  return (
+    role === "admin" ||
+    role === "head_of_ops" ||
+    role === "directing_manager" ||
+    role === "hiring_manager"
+  );
 }
 
 export type RepartitionCreation = "defaut" | "unique" | "perso";

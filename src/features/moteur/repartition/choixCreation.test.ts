@@ -44,11 +44,11 @@ const valider = (c: ChoixCreation, langue = "fr") =>
   validerChoixCreation({ choix: c, applications: APPS, liens: LIENS, labels: LABELS, langue });
 
 describe("peutChoisirApplicationsCompte", () => {
-  it("admin et Head of Ops seulement", () => {
+  it("tous les rôles qui créent des comptes de créateurs", () => {
     expect(peutChoisirApplicationsCompte("admin")).toBe(true);
     expect(peutChoisirApplicationsCompte("head_of_ops")).toBe(true);
-    expect(peutChoisirApplicationsCompte("hiring_manager")).toBe(false);
-    expect(peutChoisirApplicationsCompte("directing_manager")).toBe(false);
+    expect(peutChoisirApplicationsCompte("hiring_manager")).toBe(true);
+    expect(peutChoisirApplicationsCompte("directing_manager")).toBe(true);
     expect(peutChoisirApplicationsCompte("poster")).toBe(false);
     expect(peutChoisirApplicationsCompte(null)).toBe(false);
   });

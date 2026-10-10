@@ -101,7 +101,8 @@ function resoudrePremierCompte(
  * HM `hm_ugc_ai_video` → comptes ugc_ai_video, persona unique (pool partagé),
  * labels = labels HM (`hm_ugc_video_labels`) ; marque = checkmark `comptes.ugc_ai_video`.
  *
- * Choix admin / head_of_ops à la création d'un compte perso slideshow
+ * Choix du recruteur (admin, head_of_ops, DM, HM) à la création d'un compte
+ * perso slideshow
  * (create, ensure_compte, ajouter_compte) : `label_id` et/ou
  * `parts_applications` (cf. `_shared/creation_compte_apps.ts`). Fournis, ils
  * court-circuitent la File des créateurs, qui n'est NI consommée NI retirée ;
@@ -253,7 +254,7 @@ async function gererRequete(request: Request): Promise<Response> {
       return json({ error: "Prénom requis et mot de passe d'au moins 8 caractères" }, 400);
     }
 
-    // Label / répartition imposés (admin, head_of_ops). `null` = chemin historique.
+    // Label / répartition imposés par le recruteur. `null` = chemin historique.
     const lecture = lireChoixCompte(body, acces.role);
     if (!lecture.ok) return json({ error: lecture.erreur }, lecture.statut);
     const choix = lecture.choix;

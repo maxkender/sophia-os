@@ -1044,7 +1044,7 @@ export const en = {
       infoLangue: "{{app}} does not target {{langue}}: this account will publish nothing for it until the language is ticked.",
       erreurLecture: "Apps and labels unavailable: {{message}}",
       erreurs: {
-        CHOIX_COMPTE_ADMIN: "Only the admin and the Head of Ops can choose an account’s label or split.",
+        CHOIX_COMPTE_ADMIN: "Only recruiters (HM, DM, Head of Ops) and the admin can choose an account’s label or split.",
         REPARTITION_INVALIDE: "Split rejected: whole numbers from 1 to 100 per app, adding up to 100%.",
         LABEL_INCOMPATIBLE: "This label does not serve every app in the split.",
         CHOIX_COMPTE_INCOMPATIBLE: "This label or split choice is not possible for this type of account.",

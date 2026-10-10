@@ -18,8 +18,10 @@
  *   - `label_id` (uuid) et `parts_applications` ({ slug: entier 1..100 },
  *     somme exactement 100, slugs de la table `applications`) sont optionnels ;
  *     absents ou `null` → comportement STRICTEMENT inchangé ;
- *   - admin et head_of_ops seuls ; tout autre rôle qui envoie une valeur non
- *     nulle → 403 CHOIX_COMPTE_ADMIN ;
+ *   - les rôles qui créent des comptes de créateurs (admin, head_of_ops,
+ *     directing_manager, hiring_manager) : c'est le créateur qui est associé à
+ *     des applications, pas son recruteur. Tout autre rôle qui envoie une
+ *     valeur non nulle → 403 CHOIX_COMPTE_ADMIN ;
  *   - valeurs invalides → 400 REPARTITION_INVALIDE ; label inexistant, système,
  *     UGC AI VIDEO ou qui ne sert pas toutes les applications à part > 0 →
  *     400 LABEL_INCOMPATIBLE ; compte CM ou UGC AI VIDEO → 400
@@ -37,8 +39,17 @@ import {
   type PartsApplications,
 } from "./multi_app.ts";
 
-/** Seuls rôles qui choisissent le label / la répartition d'un compte qui naît. */
-export const ROLES_CHOIX_COMPTE: readonly string[] = ["admin", "head_of_ops"];
+/**
+ * Rôles qui choisissent le label / la répartition d'un compte qui naît : tous
+ * ceux qui créent des comptes de créateurs. Le choix porte sur le compte du
+ * créateur, pas sur le recruteur.
+ */
+export const ROLES_CHOIX_COMPTE: readonly string[] = [
+  "admin",
+  "head_of_ops",
+  "directing_manager",
+  "hiring_manager",
+];
 
 export type CodeChoixCompte =
   | "CHOIX_COMPTE_ADMIN"
@@ -72,11 +83,12 @@ export function peutChoisirCompte(role: string | null | undefined): boolean {
  * Lit `label_id` / `parts_applications` du corps et vérifie le rôle.
  *
  * Seuls `undefined` et `null` valent « absent » : une chaîne vide est une
- * valeur, refusée comme telle (403 hors admin/HO, sinon 400). C'est ce qui
- * garantit qu'un vieux front ou un recruteur n'entre jamais dans ce chemin.
+ * valeur, refusée comme telle (403 hors des rôles qui recrutent, sinon 400).
+ * C'est ce qui garantit qu'un vieux front n'entre jamais dans ce chemin.
  *
- * Le rôle passe AVANT la forme : un HM qui envoie n'importe quoi reçoit 403,
- * pas un 400 qui lui dirait comment corriger sa requête.
+ * Le rôle passe AVANT la forme : un rôle qui ne recrute pas (poster) et envoie
+ * n'importe quoi reçoit 403, pas un 400 qui lui dirait comment corriger sa
+ * requête.
  */
 export function lireChoixCompte(
   // deno-lint-ignore no-explicit-any

@@ -14,7 +14,11 @@ import {
   listerLabelIdsAvecUgc,
   listerLabels,
 } from "@/features/moteur/api";
-import { FileLabelsApplicationEditeur } from "@/features/moteur/repartition/FileLabelsApplicationEditeur";
+import {
+  FileLabelsApplicationEditeur,
+  type ChangementFileLabels,
+} from "@/features/moteur/repartition/FileLabelsApplicationEditeur";
+import { avecItemsApplication } from "@/features/moteur/repartition/fileApplication";
 import {
   SCHEMA_ASSIGNATION,
   SCHEMA_UPDATE_ELO,
@@ -222,8 +226,9 @@ export function AdminReglagesPage() {
       await ecrireReglage("tierlist", r.tierlist);
       await ecrireReglage("classement_comptes", r.classement_comptes);
       await ecrireReglage("nudges", r.nudges);
-      // File déjà autosauvegardée à chaque edit — on resync quand même.
-      await ecrireReglage("file_labels_comptes", r.file_labels_comptes);
+      // La File des créateurs n'est PAS réécrite ici : elle est sauvegardée à
+      // chaque edit, sur une valeur relue. La réécrire depuis le brouillon
+      // ressusciterait les entrées tirées par les embauches depuis l'ouverture.
       await ecrireReglage("warmup", r.warmup);
     },
     onSuccess: () => {
@@ -232,12 +237,22 @@ export function AdminReglagesPage() {
     },
   });
 
-  /** File admin : persistée immédiatement (prévaut sur l’auto à la création). */
+  /**
+   * File admin : persistée immédiatement (prévaut sur l’auto à la création).
+   * Le changement est réappliqué sur la valeur RELUE en base, jamais sur
+   * l'instantané de la page : une embauche peut avoir tiré une entrée (de
+   * n'importe quelle application) depuis l'ouverture de Réglages.
+   */
   const persisterFile = useMutation({
-    mutationFn: (file: Reglages["file_labels_comptes"]) =>
-      ecrireReglage("file_labels_comptes", file),
-    onSuccess: (_void, file) => {
+    mutationFn: async (chg: ChangementFileLabels) => {
+      const frais = (await lireReglages()).file_labels_comptes;
+      const file = avecItemsApplication(frais, chg.slug, chg.cle, chg.items);
+      await ecrireReglage("file_labels_comptes", file);
+      return file;
+    },
+    onSuccess: (file) => {
       setFileSauveAt(Date.now());
+      setBrouillon((b) => (b ? { ...b, file_labels_comptes: file } : b));
       queryClient.setQueryData<Reglages>(["reglages"], (old) =>
         old ? { ...old, file_labels_comptes: file } : old,
       );
@@ -252,9 +267,9 @@ export function AdminReglagesPage() {
   // File des créateurs PAR APPLICATION : l'éditeur rend le réglage complet
   // (la tranche de l'application choisie, les autres intactes ; Sophia écrite
   // comme avant, file racine comprise), persisté aussitôt.
-  const majFile = (file: Reglages["file_labels_comptes"]) => {
+  const majFile = (file: Reglages["file_labels_comptes"], changement: ChangementFileLabels) => {
     setBrouillon({ ...reglages, file_labels_comptes: file });
-    persisterFile.mutate(file);
+    persisterFile.mutate(changement);
   };
   const majScoring = (patch: Partial<Reglages["scoring"]>) =>
     maj({ scoring: { ...reglages.scoring, ...patch } });

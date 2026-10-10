@@ -953,12 +953,16 @@ async function lireWarmupHeures(supabase: Supabase): Promise<number> {
 }
 
 /** Lit la File des créateurs (toutes tranches, cf. `_shared/file_labels_comptes.ts`). */
-async function lireFileLabels(supabase: Supabase): Promise<FileLabelsValeur> {
-  const { data } = await supabase
+async function lireFileLabels(
+  supabase: Supabase,
+  opts: { leverSiErreur?: boolean } = {},
+): Promise<FileLabelsValeur> {
+  const { data, error } = await supabase
     .from("reglages")
     .select("valeur")
     .eq("cle", "file_labels_comptes")
     .maybeSingle();
+  if (error && opts.leverSiErreur) throw new Error(`File des créateurs : ${error.message}`);
   return normaliserFileLabelsValeur(data?.valeur);
 }
 
@@ -1519,7 +1523,15 @@ async function unshiftLabelFile(
   supabase: Supabase,
   queued: FileLabelQueued,
 ): Promise<void> {
-  const file = await lireFileLabels(supabase);
+  // Relecture ratée : ne RIEN écrire. Réécrire depuis une File lue vide
+  // effacerait toutes les tranches (Sophia comprise) pour remettre une entrée.
+  let file: FileLabelsValeur;
+  try {
+    file = await lireFileLabels(supabase, { leverSiErreur: true });
+  } catch (e) {
+    console.error("[manage-users] entrée de File non remise en tête", queued, e);
+    return;
+  }
   await ecrireFileLabels(supabase, remettreEnTete(file, queued));
 }
 

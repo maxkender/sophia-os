@@ -18,7 +18,7 @@ vi.mock("../apiMultiApp", () => ({
 }));
 
 import type { Label, ReglagesFileLabels } from "../types";
-import { FileLabelsApplicationEditeur } from "./FileLabelsApplicationEditeur";
+import { FileLabelsApplicationEditeur, type ChangementFileLabels } from "./FileLabelsApplicationEditeur";
 
 const ID_SOPHIA = "00000000-0000-4000-8000-000000000001";
 const ID_UNSWIPE = "00000000-0000-4000-8000-000000000003";
@@ -38,14 +38,20 @@ const PROD: ReglagesFileLabels = {
   par_application: { sophia: { items: [], par_langue: { da: [{ label_id: SMART.id, ugc: false }] } } },
 };
 
-function Harnais({ onChange, initial = PROD }: { onChange: (f: ReglagesFileLabels) => void; initial?: ReglagesFileLabels }) {
+function Harnais({
+  onChange,
+  initial = PROD,
+}: {
+  onChange: (f: ReglagesFileLabels, chg: ChangementFileLabels) => void;
+  initial?: ReglagesFileLabels;
+}) {
   const [file, setFile] = React.useState(initial);
   return (
     <FileLabelsApplicationEditeur
       file={file}
-      onChange={(f) => {
+      onChange={(f, chg) => {
         setFile(f);
-        onChange(f);
+        onChange(f, chg);
       }}
       enCours={false}
       labels={[SMART, CLASSIC]}
@@ -93,6 +99,19 @@ describe("FileLabelsApplicationEditeur", () => {
         sophia: { items: [{ label_id: SMART.id, ugc: true }], par_langue: PROD.par_langue },
       },
     });
+    // Le changement seul, que la page réapplique sur la valeur relue en base.
+    expect(onChange.mock.calls[0]![1]).toStrictEqual({
+      slug: "sophia",
+      cle: "general",
+      items: [{ label_id: SMART.id, ugc: true }],
+    });
+  });
+
+  it("liens illisibles : la File Sophia propose quand même tous les labels slideshow", async () => {
+    listerLiensLabels.mockReset();
+    listerLiensLabels.mockRejectedValue(new Error("panne réseau"));
+    rendre();
+    await waitFor(() => expect(optionsAjout()).toEqual(["", SMART.id, CLASSIC.id]));
   });
 
   it("Unswipe : sa tranche seule, labels qui la servent, jamais UGC", async () => {

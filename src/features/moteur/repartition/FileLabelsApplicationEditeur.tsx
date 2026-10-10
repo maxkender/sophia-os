@@ -34,9 +34,17 @@ const selectClass =
  * label ne la sert plus est signalée, pas masquée. La case « Compte UGC »
  * n'existe que pour Sophia.
  *
- * `onChange` reçoit le réglage COMPLET (toutes les applications) : la page le
- * persiste tel quel. La tranche Sophia est écrite exactement comme avant.
+ * `onChange` reçoit le réglage COMPLET (toutes les applications), pour
+ * l'affichage, et le CHANGEMENT (tranche, file, entrées) : la page le réapplique
+ * sur la valeur relue en base avant d'écrire, pour ne pas ressusciter une entrée
+ * qu'une embauche a tirée entre-temps. La tranche Sophia est écrite comme avant.
  */
+export interface ChangementFileLabels {
+  slug: string;
+  cle: CleFile;
+  items: FileLabelCompteItem[];
+}
+
 export function FileLabelsApplicationEditeur({
   file,
   onChange,
@@ -45,7 +53,7 @@ export function FileLabelsApplicationEditeur({
   labelsUgc,
 }: {
   file: ReglagesFileLabels;
-  onChange: (file: ReglagesFileLabels) => void;
+  onChange: (file: ReglagesFileLabels, changement: ChangementFileLabels) => void;
   /** Sauvegarde en cours : boutons désactivés. */
   enCours: boolean;
   labels: readonly LabelOs[] | undefined;
@@ -55,10 +63,14 @@ export function FileLabelsApplicationEditeur({
   const applications = useApplicationsMulti();
   const liensQ = useLiensLabels();
   // Table absente (avant 0256) : tout label sert Sophia (héritage), comme
-  // avant. Lecture en cours ou en panne : `null`, rien n'est proposé ni signalé.
+  // avant. Lecture en cours ou en panne : `null`, rien n'est signalé.
   const liens = liensQ.data ?? (liensQ.isError && estErreurSchemaAbsent(liensQ.error) ? [] : null);
 
   const [slug, setSlug] = React.useState<string>(SLUG_SOPHIA);
+  // Liens illisibles : la File Sophia propose tous les labels slideshow, comme
+  // avant (manage-users saute une entrée qui ne sert pas Sophia) ; une autre
+  // application ne propose rien tant qu'on ne sait pas ce qui la sert.
+  const liensAjout = liens ?? (slug === SLUG_SOPHIA ? [] : null);
   const [cle, setCle] = React.useState<CleFile>("general");
   const [labelAjout, setLabelAjout] = React.useState("");
   const [ugcAjout, setUgcAjout] = React.useState(false);
@@ -72,16 +84,24 @@ export function FileLabelsApplicationEditeur({
 
   const fileApp = fileDeLApplication(file, slug);
   const fileActive = itemsDeLaFile(fileApp, cle);
-  const ajoutables = applicationId ? labelsAjoutables(applicationId, labels ?? [], liens) : [];
+  const ajoutables = applicationId ? labelsAjoutables(applicationId, labels ?? [], liensAjout) : [];
   const ugcIds = labelsUgc ?? [];
 
-  const majFile = (items: FileLabelCompteItem[]) => onChange(avecItemsApplication(file, slug, cle, items));
+  const majFile = (items: FileLabelCompteItem[]) =>
+    onChange(avecItemsApplication(file, slug, cle, items), { slug, cle, items });
 
-  const changerApplication = (s: string) => {
+  const changerApplication = React.useCallback((s: string) => {
     setSlug(s);
     setLabelAjout("");
     setUgcAjout(false);
-  };
+  }, []);
+  // Application éteinte pendant l'édition : retour à Sophia, plutôt qu'un
+  // sélecteur qui afficherait Sophia en écrivant dans l'autre tranche.
+  const appsChargees = applications.data !== undefined;
+  const slugProposable = slug === SLUG_SOPHIA || apps.some((a) => a.slug === slug);
+  React.useEffect(() => {
+    if (appsChargees && !slugProposable) changerApplication(SLUG_SOPHIA);
+  }, [appsChargees, slugProposable, changerApplication]);
 
   return (
     <div className="space-y-3">

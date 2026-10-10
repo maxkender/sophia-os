@@ -56,6 +56,12 @@ import {
 } from "@/features/moteur/api";
 import { estLabelFileSlideshow } from "@/features/moteur/fileLabelsSlideshow";
 import { ApplicationsDuLabel } from "@/features/moteur/repartition/ApplicationsDuLabel";
+import { ChoixApplicationsCreation } from "@/features/moteur/repartition/ChoixApplicationsCreation";
+import {
+  cleErreurChoixCompte,
+  peutChoisirApplicationsCompte,
+} from "@/features/moteur/repartition/choixCreation";
+import { useChoixApplicationsCreation } from "@/features/moteur/repartition/useChoixApplicationsCreation";
 import { posterServiApplication } from "@/features/moteur/repartition/logique";
 import { PartsApplicationsCompte } from "@/features/moteur/repartition/PartsApplicationsCompte";
 import { useLiensLabels } from "@/features/moteur/repartition/useMultiApp";
@@ -386,7 +392,10 @@ function LabelsCompteSelect({
 
 export function AdminPostersPage() {
   const { t } = useTranslation();
-  const { user } = useAuth();
+  const { user, role } = useAuth();
+  // Page admin + Head of Ops : le choix label + répartition à la création leur
+  // est ouvert. Vérifié quand même ici : manage-users refuse tout autre rôle.
+  const peutChoisirApps = peutChoisirApplicationsCompte(role);
   const queryClient = useQueryClient();
   const posters = useQuery({ queryKey: ["posters"], queryFn: listerPosters });
   const comptes = useQuery({ queryKey: ["comptes"], queryFn: listerComptes });
@@ -425,13 +434,26 @@ export function AdminPostersPage() {
   const [ficheId, setFicheId] = React.useState<string | null>(null);
   const [ficheCompteId, setFicheCompteId] = React.useState<string | null>(null);
 
+  // « Créer le premier compte » d'une fiche sans compte : même choix à deux
+  // niveaux, repart de « rien choisi » à chaque fiche ouverte.
+  const choixAppsPremier = useChoixApplicationsCreation(
+    peutChoisirApps && ficheId !== null,
+    (posters.data ?? []).find((p) => p.id === ficheId)?.langues[0] ?? "fr",
+  );
+  const reinitialiserChoixPremier = choixAppsPremier.reinitialiser;
+  React.useEffect(() => {
+    reinitialiserChoixPremier();
+  }, [ficheId, reinitialiserChoixPremier]);
+
   const creerCompteVide = useMutation({
     mutationFn: (p: PosterProfil) =>
       assurerComptePoster({
         userId: p.id,
         langue: p.langues[0] ?? "fr",
+        ...choixAppsPremier.options,
       }),
     onSuccess: () => {
+      reinitialiserChoixPremier();
       void queryClient.invalidateQueries({ queryKey: ["comptes"] });
       void queryClient.invalidateQueries({ queryKey: ["posters"] });
       void queryClient.invalidateQueries({ queryKey: ["reglages"] });
@@ -457,6 +479,13 @@ export function AdminPostersPage() {
   const [ugcVideo, setUgcVideo] = React.useState(false);
   const [handleInstagram, setHandleInstagram] = React.useState("");
   const [password, setPassword] = React.useState(MOT_DE_PASSE_INITIAL);
+  // Label + répartition du premier compte : seulement quand manage-users crée
+  // un compte slideshow (ni « aucun compte », ni UGC vidéo — celui-là n'a pas
+  // de label). Inactif : options vides, corps inchangé.
+  const choixAppsPoster = useChoixApplicationsCreation(
+    peutChoisirApps && !ugcVideo && premierCompte !== "aucun",
+    langue,
+  );
   const [cree, setCree] = React.useState<{
     email: string;
     password: string;
@@ -486,10 +515,12 @@ export function AdminPostersPage() {
         type_compte: premierCompte,
         posts_par_jour: premierCompte === "perso" ? postsParJour : undefined,
         handle_tiktok: premierCompte === "perso" ? handleTiktok : undefined,
+        ...choixAppsPoster.options,
       });
     },
     onSuccess: (r) => {
       setCree({ email: r.email, password, type: ugcVideo ? "ugc_video" : premierCompte });
+      choixAppsPoster.reinitialiser();
       setPrenom("");
       setNom("");
       setHandleTiktok("");
@@ -646,6 +677,7 @@ export function AdminPostersPage() {
             handle={handleTiktok}
             onHandle={setHandleTiktok}
           />
+          <ChoixApplicationsCreation etat={choixAppsPoster} idPrefixe="poster-apps" />
           {ugcVideo && (
             <div className="space-y-1">
               <Label htmlFor="premier-handle-instagram">{t("comptes.pseudoInstagram")}</Label>
@@ -681,7 +713,8 @@ export function AdminPostersPage() {
               type="submit"
               disabled={
                 creer.isPending ||
-                ((ugcVideo || premierCompte !== "aucun") && !langue)
+                ((ugcVideo || premierCompte !== "aucun") && !langue) ||
+                choixAppsPoster.bloque
               }
             >
               {creer.isPending ? t("common.saving") : t("posters.create")}
@@ -696,7 +729,9 @@ export function AdminPostersPage() {
                       ? t("warmup.labelUgcIntrouvable")
                       : (creer.error as Error).message === "NO_FREE_REFERENCE"
                         ? t("posters.creationRefusee")
-                        : (creer.error as Error).message}
+                        : cleErreurChoixCompte(creer.error)
+                          ? t(cleErreurChoixCompte(creer.error)!)
+                          : (creer.error as Error).message}
               </p>
             )}
           </div>
@@ -1488,15 +1523,26 @@ export function AdminPostersPage() {
                 </div>
 
                 {ficheComptes.length === 0 ? (
-                  <div className="flex flex-wrap items-center justify-between gap-3 rounded-md border border-dashed p-3">
-                    <p className="text-sm text-muted-foreground">{t("posters.aucunCompte")}</p>
-                    <Button
-                      size="sm"
-                      disabled={creerCompteVide.isPending}
-                      onClick={() => creerCompteVide.mutate(fiche)}
-                    >
-                      {creerCompteVide.isPending ? t("common.saving") : t("posters.creerCompte")}
-                    </Button>
+                  <div className="space-y-3 rounded-md border border-dashed p-3">
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                      <p className="text-sm text-muted-foreground">{t("posters.aucunCompte")}</p>
+                      <Button
+                        size="sm"
+                        disabled={creerCompteVide.isPending || choixAppsPremier.bloque}
+                        onClick={() => creerCompteVide.mutate(fiche)}
+                      >
+                        {creerCompteVide.isPending ? t("common.saving") : t("posters.creerCompte")}
+                      </Button>
+                    </div>
+                    <ChoixApplicationsCreation
+                      etat={choixAppsPremier}
+                      idPrefixe={`premier-apps-${fiche.id}`}
+                    />
+                    {creerCompteVide.isError && cleErreurChoixCompte(creerCompteVide.error) && (
+                      <p className="text-xs text-destructive">
+                        {t(cleErreurChoixCompte(creerCompteVide.error)!)}
+                      </p>
+                    )}
                   </div>
                 ) : (
                   <ul className="space-y-2">
@@ -1575,6 +1621,7 @@ export function AdminPostersPage() {
                 <FormulaireAjouterCompte
                   posterId={fiche.id}
                   languesProposees={langues.data ?? []}
+                  choixApplications={peutChoisirApps}
                 />
               </div>
 

@@ -30,6 +30,7 @@ import { langueInitiale } from "@/features/moteur/langues";
 import { comptePrincipal, estCompteCm } from "@/features/moteur/comptesCm";
 import { DeplacerCompte } from "@/features/moteur/DeplacerCompte";
 import { FormulaireAjouterCompte } from "@/features/moteur/FormulaireAjouterCompte";
+import { peutChoisirApplicationsCompte } from "@/features/moteur/repartition/choixCreation";
 import { EnteteCompte } from "@/features/moteur/VignetteCompte";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
 import type { PosterProfil } from "@/features/moteur/types";
@@ -51,6 +52,7 @@ function LignePoster({
   createurs: PosterProfil[];
 }) {
   const { t } = useTranslation();
+  const { role } = useAuth();
   const queryClient = useQueryClient();
   const langues = useQuery({ queryKey: ["langues-reference"], queryFn: listerLanguesReference });
   const comptes = p.comptes ?? [];
@@ -224,9 +226,12 @@ function LignePoster({
         </ul>
       )}
 
+      {/* Choix label + répartition : Head of Ops (ou admin) seulement. Un
+          recruteur garde exactement le formulaire et la requête d'avant. */}
       <FormulaireAjouterCompte
         posterId={p.id}
         languesProposees={langues.data ?? []}
+        choixApplications={peutChoisirApplicationsCompte(role)}
       />
     </div>
   );

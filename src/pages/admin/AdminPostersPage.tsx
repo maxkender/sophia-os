@@ -43,7 +43,7 @@ import {
   demarrerWarmup,
   skipWarmup,
   labelsDesComptes,
-  listerComptes,
+  listerComptesAvecDormants,
   listerLabels,
   listerLanguesReference,
   listerPosters,
@@ -100,6 +100,16 @@ function DrapeauxLangues({ codes }: { codes: string[] }) {
         </span>
       ))}
     </span>
+  );
+}
+
+/** Compte en sommeil (`is_active = false`) : visible ici, ni assigné ni mesuré. */
+function BadgeDormant() {
+  const { t } = useTranslation();
+  return (
+    <Badge variant="outline" title={t("posters.compteDormantAide")}>
+      {t("posters.compteDormant")}
+    </Badge>
   );
 }
 
@@ -398,7 +408,9 @@ export function AdminPostersPage() {
   const peutChoisirApps = peutChoisirApplicationsCompte(role);
   const queryClient = useQueryClient();
   const posters = useQuery({ queryKey: ["posters"], queryFn: listerPosters });
-  const comptes = useQuery({ queryKey: ["comptes"], queryFn: listerComptes });
+  // Comptes en sommeil compris (badge « Dormant ») : sous la clé ["comptes"],
+  // les invalidations de la page les rechargent aussi.
+  const comptes = useQuery({ queryKey: ["comptes", "avec-dormants"], queryFn: listerComptesAvecDormants });
   const langues = useQuery({ queryKey: ["langues-reference"], queryFn: listerLanguesReference });
   const applications = useQuery({ queryKey: ["applications"], queryFn: listerApplications });
   // Liens label → application : pour le filtre « application » (comptes dont
@@ -1054,8 +1066,9 @@ export function AdminPostersPage() {
                   compte={c}
                   extra={
                     <div className="mt-1 flex flex-wrap items-center gap-2 text-[11px] text-muted-foreground">
+                      {!c.is_active && <BadgeDormant />}
                       <BadgeClassement classement={c.classement} size="sm" />
-                      {!estCompteCm(c) && (
+                      {c.is_active && !estCompteCm(c) && (
                         <WarmupBadge
                           compteId={c.id}
                           startedAt={c.warmup_started_at}
@@ -1566,8 +1579,9 @@ export function AdminPostersPage() {
                               compte={c}
                               extra={
                                 <div className="mt-1.5 flex flex-wrap items-center gap-2">
+                                  {!c.is_active && <BadgeDormant />}
                                   <BadgeClassement classement={c.classement} />
-                                  {!estCompteCm(c) && (
+                                  {c.is_active && !estCompteCm(c) && (
                                     <span onClick={(e) => e.stopPropagation()}>
                                       <WarmupBadge
                                         compteId={c.id}

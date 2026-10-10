@@ -452,6 +452,29 @@ export async function listerComptes(): Promise<CompteAvecDetails[]> {
   });
 }
 
+/**
+ * Page Posters seulement : les comptes actifs ET les comptes en sommeil
+ * (`is_active = false`, ex. les comptes repris de micabo-os en attendant leur
+ * réveil), pour voir tous les comptes d'un créateur. Un compte en sommeil n'est
+ * ni assigné ni mesuré par le serveur, qui ne lit que les comptes actifs.
+ * L'éditeur et les tests gardent `listerComptes` (actifs seulement).
+ */
+export async function listerComptesAvecDormants(): Promise<CompteAvecDetails[]> {
+  const { data, error } = await supabase
+    .from("comptes")
+    .select("*, comptes_reference(handle_tiktok), applications(slug), profiles(prenom, nom, upwork_url)")
+    .order("created_at", { ascending: false });
+  if (error) throw error;
+  return ((data ?? []) as CompteAvecDetails[]).map((c) => {
+    const app = (c as { applications?: { slug?: string } }).applications;
+    return {
+      ...c,
+      type_compte: normaliserTypeCompte(c.type_compte),
+      application_slug: app?.slug ?? null,
+    };
+  });
+}
+
 export async function creerCompte(input: {
   posterId: string;
   compteReferenceId: string | null;

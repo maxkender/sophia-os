@@ -4,12 +4,16 @@
  * Volontairement HORS de `supabase/functions/` : le workflow de déploiement ne
  * doit jamais la redéployer. Déployée à la main (MCP), neutralisée à la fin.
  *
- * Deux actions, toutes deux gardées par un jeton de `migration_micabo.jetons`
+ * Trois actions, toutes gardées par un jeton de `migration_micabo.jetons`
  * (aléatoire, à durée de vie courte, posé en SQL dans la base Sophia) :
  *  - `deposer` : appelée par la base micabo-os (pg_net) avec un lot JSON
  *    (contenus, decks, médias, passages d'une source) → `migration_micabo.lots` ;
  *  - `images`  : copie un paquet d'images de `migration_micabo.images` depuis le
- *    bucket PUBLIC de micabo-os vers le bucket `medias` de Sophia.
+ *    bucket PUBLIC de micabo-os vers le bucket `medias` de Sophia ;
+ *  - `deplacer` : déplace, DANS le bucket `medias` de Sophia, un paquet de
+ *    `migration_micabo.deplacements` (`micabo/propre/…` → `propre/…`, le seul
+ *    chemin que Sophia reconnaît comme image nettoyée) et repointe la ligne
+ *    `media_library` correspondante.
  * `ping` vérifie seulement le jeton.
  *
  * Aucun secret ne transite : la base est jointe par SUPABASE_DB_URL et le
@@ -109,6 +113,66 @@ async function copierImages(n: number, parallele: number) {
   console.log(`reprise-micabo images : ${copiees} copiée(s), ${echecs} échec(s)`);
 }
 
+// Déplacement dans le bucket : même principe de réservation que la copie.
+async function reserverDeplacements(n: number) {
+  await sql`
+    update migration_micabo.deplacements set statut = 'a_deplacer'
+    where statut = 'en_cours' and maj_le < now() - interval '5 minutes'`;
+  return await sql`
+    update migration_micabo.deplacements d
+    set statut = 'en_cours', maj_le = now()
+    where d.ancien in (
+      select ancien from migration_micabo.deplacements
+      where statut = 'a_deplacer'
+      order by ancien
+      limit ${n}
+      for update skip locked)
+    returning d.ancien, d.nouveau`;
+}
+
+async function deplacerUn(l: { ancien: string; nouveau: string }) {
+  try {
+    const { error } = await supabase.storage.from("medias").move(l.ancien, l.nouveau);
+    if (error) {
+      // Rejoué après un déplacement déjà fait : la source n'existe plus, la
+      // cible oui — c'est un succès, pas une erreur.
+      const [etat] = await sql`
+        select
+          exists (select 1 from storage.objects where bucket_id = 'medias' and name = ${l.nouveau}) as arrive,
+          exists (select 1 from storage.objects where bucket_id = 'medias' and name = ${l.ancien}) as reste`;
+      if (!(etat.arrive && !etat.reste)) throw new Error(`déplacement ${error.message}`);
+    }
+    await sql`
+      update public.media_library
+      set storage_path = ${l.nouveau},
+          url = replace(url, '/object/public/medias/micabo/', '/object/public/medias/')
+      where storage_path = ${l.ancien}`;
+    await sql`
+      update migration_micabo.deplacements
+      set statut = 'deplace', erreur = null, maj_le = now()
+      where ancien = ${l.ancien}`;
+    return true;
+  } catch (e) {
+    await sql`
+      update migration_micabo.deplacements
+      set statut = 'echec', erreur = ${String(e).slice(0, 300)}, maj_le = now()
+      where ancien = ${l.ancien}`;
+    return false;
+  }
+}
+
+async function deplacerFichiers(n: number, parallele: number) {
+  const lot = await reserverDeplacements(n);
+  let faits = 0;
+  let echecs = 0;
+  for (let i = 0; i < lot.length; i += parallele) {
+    const res = await Promise.all(lot.slice(i, i + parallele).map((l) => deplacerUn(l as never)));
+    faits += res.filter(Boolean).length;
+    echecs += res.filter((ok) => !ok).length;
+  }
+  console.log(`reprise-micabo deplacer : ${faits} déplacé(s), ${echecs} échec(s) sur ${lot.length}`);
+}
+
 Deno.serve(async (req) => {
   if (req.method !== "POST") return json({ error: "POST seulement" }, 405);
   let corps: Record<string, unknown>;
@@ -145,6 +209,17 @@ Deno.serve(async (req) => {
       // deno-lint-ignore no-explicit-any
       (globalThis as any).EdgeRuntime.waitUntil(
         copierImages(n, parallele).catch((e) => console.error("reprise-micabo images", e)),
+      );
+      return json({ ok: true, lance: n }, 202);
+    }
+
+    if (action === "deplacer") {
+      if (!(await jetonValide(corps.jeton, "deplacer"))) return json({ error: "jeton" }, 401);
+      const n = Math.max(1, Math.min(200, Number(corps.n) || 10));
+      const parallele = Math.max(1, Math.min(4, Number(corps.parallele) || 2));
+      // deno-lint-ignore no-explicit-any
+      (globalThis as any).EdgeRuntime.waitUntil(
+        deplacerFichiers(n, parallele).catch((e) => console.error("reprise-micabo deplacer", e)),
       );
       return json({ ok: true, lance: n }, 202);
     }

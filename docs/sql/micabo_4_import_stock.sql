@@ -24,8 +24,16 @@
 --  - passages publiés recopiés (application micabo, cycle 1 s'ils sont du
 --    cycle micabo en cours, reposts bonus → rappels hors cycle), puis passés
 --    `resolu` : aucune file Apify ;
---  - images : lignes `media_library` sous `micabo/<chemin>` + file de copie
---    `migration_micabo.images` (la fonction copie les fichiers ensuite).
+--  - images : lignes `media_library` au MÊME chemin que dans micabo-os
+--    (`propre/<contenu>/<n>.jpg`, l'id du contenu étant conservé) + file de
+--    copie `migration_micabo.images` (la fonction copie les fichiers ensuite).
+--    Pas de préfixe `micabo/` : Sophia (front, composeur, pods, oubli d'une
+--    source) ne reconnaît une image nettoyée qu'à son chemin `propre/…` —
+--    les 552 images de la première reprise ont dû être déplacées après coup.
+--
+-- Après l'import (hors script, voir docs/multi-applications.md) : copier les
+-- originaux bruts (`structure_slides[].raw_url / reference_url`) sous le même
+-- chemin `brut/…` et réécrire ces URLs vers le stockage de Sophia.
 
 begin;
 
@@ -116,8 +124,12 @@ begin
     on c.id = t.id or (c.source_url is not null and c.source_url = t.c ->> 'source_url');
   if n > 0 then raise exception '% contenu(s) déjà dans Sophia', n; end if;
   select count(*) into n from public.media_library m join t_medias t
-    on m.id = t.id or m.storage_path = 'micabo/' || (t.m ->> 'storage_path');
+    on m.id = t.id or m.storage_path = t.m ->> 'storage_path';
   if n > 0 then raise exception '% média(s) déjà dans Sophia', n; end if;
+  -- Même chemin que dans micabo-os : aucun fichier de Sophia ne doit l'occuper.
+  select count(*) into n from storage.objects o join t_medias t
+    on o.bucket_id = 'medias' and o.name = t.m ->> 'storage_path';
+  if n > 0 then raise exception '% fichier(s) déjà présents à ces chemins dans Sophia', n; end if;
 end
 $garde$;
 
@@ -165,8 +177,8 @@ insert into public.media_library (
 select t.id, null,
   case when (t.m ->> 'compte_reference_id')::uuid in (select id from t_sources)
        then (t.m ->> 'compte_reference_id')::uuid end,
-  'micabo/' || (t.m ->> 'storage_path'),
-  'https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/micabo/' || (t.m ->> 'storage_path'),
+  t.m ->> 'storage_path',
+  'https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/' || (t.m ->> 'storage_path'),
   coalesce(t.m ->> 'source', 'nettoye_reference')::public.media_source,
   coalesce((select array_agg(x) from jsonb_array_elements_text(t.m -> 'tags') x), '{}'),
   t.m ->> 'langue', (t.m ->> 'visage_identifiable')::boolean,
@@ -182,7 +194,7 @@ from t_medias t;
 insert into migration_micabo.images (media_id, url_source, storage_path)
 select t.id,
   'https://qkmiwnmiwsvwkttldqgb.supabase.co/storage/v1/object/public/medias/' || (t.m ->> 'storage_path'),
-  'micabo/' || (t.m ->> 'storage_path')
+  t.m ->> 'storage_path'
 from t_medias t
 on conflict (media_id) do nothing;
 

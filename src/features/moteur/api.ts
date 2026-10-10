@@ -11,6 +11,7 @@ import {
   type ReviewVideo,
 } from "@/features/reviews/fileJour";
 import { extensionVideo } from "@/features/reviews/videoRemarque";
+import { normaliserZone, ZONE_LONGUEUR_MAX } from "@/features/hiring/zones";
 import { estRoleManager } from "@/features/auth/roles";
 import type { Role } from "@/features/auth/AuthContext";
 import type { EvenementEtape } from "@/features/moteur/nettoyageEtapes";
@@ -608,7 +609,7 @@ export async function listerPosters(): Promise<PosterProfil[]> {
   const { data: profils, error } = await supabase
     .from("profiles")
     .select(
-      "id, prenom, nom, email, langues, nationalite, upwork_url, manager_id, is_active, must_change_password, cout_mensuel, hm_ugc_ai_video",
+      "id, prenom, nom, email, langues, nationalite, upwork_url, manager_id, is_active, must_change_password, cout_mensuel, hm_ugc_ai_video, zone_recrutement",
     )
     .order("created_at", { ascending: false });
   if (error) throw error;
@@ -2610,6 +2611,25 @@ export async function majNationalite(userId: string, nationalite: string): Promi
 
 /** Langues gérées par un recruteur (il peut créer des créateurs dans chacune).
  *  `nationalite` = la première, pour compatibilité. */
+/**
+ * Zone de recrutement d'un recruteur (admin, Head of Ops). Vide = sans zone.
+ * Une mise à jour que RLS filtre ne renvoie AUCUNE erreur : sans le contrôle
+ * du nombre de lignes, l'écran afficherait « enregistré » sans rien changer.
+ */
+export async function majZoneRecruteur(userId: string, zone: string | null): Promise<void> {
+  const valeur = normaliserZone(zone);
+  if (valeur && valeur.length > ZONE_LONGUEUR_MAX) {
+    throw new Error(`Zone trop longue (${ZONE_LONGUEUR_MAX} caractères maximum).`);
+  }
+  const { data, error } = await supabase
+    .from("profiles")
+    .update({ zone_recrutement: valeur })
+    .eq("id", userId)
+    .select("id");
+  if (error) throw error;
+  if (!data?.length) throw new Error("Zone non enregistrée : profil introuvable ou droit refusé.");
+}
+
 export async function majLanguesRecruteur(userId: string, langues: string[]): Promise<void> {
   const { error } = await supabase
     .from("profiles")

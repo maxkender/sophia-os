@@ -288,6 +288,11 @@ export interface PosterProfil {
     | null;
   /** Recruteur UGC AI VIDEO : créateurs = marque vidéo + persona, sans labels. */
   hm_ugc_ai_video: boolean;
+  /**
+   * Zone d'un recruteur (pays gérés, master list Notion) ; ses créateurs en
+   * héritent par `manager_id`. Pas la zone de paiement A/B/C. Voir hiring/zones.ts.
+   */
+  zone_recrutement?: string | null;
   /** Tous les comptes actifs du créateur (perso + CM). */
   comptes: CompteResumePoster[];
 }

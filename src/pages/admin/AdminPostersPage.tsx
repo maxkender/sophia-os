@@ -89,9 +89,23 @@ const selectClass =
 
 const MOT_DE_PASSE_INITIAL = "12345678";
 
-/** Recherche insensible à la casse et aux accents (« elodie » trouve « Élodie »). */
+/**
+ * Recherche insensible à la casse et aux accents (« elodie » trouve « Élodie »).
+ * ł, ı, ø, đ, æ, œ, ß n'ont pas de décomposition NFD : convertis à la main
+ * (« michal » trouve « Michał », « isil » trouve « Işıl »).
+ */
 function sansAccents(v: string): string {
-  return v.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("fr");
+  return v
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLocaleLowerCase("fr")
+    .replace(/ł/g, "l")
+    .replace(/ı/g, "i")
+    .replace(/ø/g, "o")
+    .replace(/đ/g, "d")
+    .replace(/æ/g, "ae")
+    .replace(/œ/g, "oe")
+    .replace(/ß/g, "ss");
 }
 
 function nomAffiche(p: PosterProfil): string {
@@ -512,6 +526,13 @@ export function AdminPostersPage() {
   const [filtreApp, setFiltreApp] = React.useState("tous");
   // Zone de recrutement (clé `cleZone`, ou CLE_SANS_ZONE) ; "" = toutes.
   const [filtreZone, setFiltreZone] = React.useState("");
+  // Une zone renommée, vidée ou sans plus aucun recruteur ne doit pas laisser
+  // la page vide derrière un filtre qui s'affiche « Toutes » : un filtre qui
+  // ne désigne plus aucune zone connue ne filtre plus rien.
+  const filtreZoneEffectif =
+    filtreZone === CLE_SANS_ZONE || zonesExistantes.some((z) => cleZone(z) === filtreZone)
+      ? filtreZone
+      : "";
   const [recherche, setRecherche] = React.useState("");
   const labels = useQuery({
     queryKey: ["labels"],
@@ -1015,7 +1036,11 @@ export function AdminPostersPage() {
         nomAffiche(p),
         p.email,
         p.manager_nom,
-        ...liste.flatMap((c) => [c.handle_tiktok, c.persona_nom]),
+        ...liste.flatMap((c) => {
+          // Les @ sont stockés sans « @ » : « @maya » doit trouver « maya ».
+          const handle = (c.handle_tiktok ?? "").replace(/^@+/, "");
+          return [handle, handle ? `@${handle}` : null, c.persona_nom];
+        }),
       ];
       if (!champs.some((v) => v && sansAccents(v).includes(rechercheNormalisee))) return false;
     }
@@ -1039,14 +1064,15 @@ export function AdminPostersPage() {
       return nomAffiche(a).localeCompare(nomAffiche(b), "fr");
     });
 
-  // Un filtre sur les créateurs : les recruteurs sans créateur retenu sont
-  // masqués. Le filtre de zone, lui, choisit des zones entières.
-  const filtresActifs =
-    filtrePhase !== "tous" ||
-    Boolean(filtreLangue) ||
-    Boolean(filtreLabel) ||
-    (Boolean(filtreApp) && filtreApp !== "tous") ||
-    Boolean(rechercheNormalisee);
+  // Langue, label, recherche : la liste se réduit aux créateurs retenus (les
+  // recruteurs sans créateur retenu sont masqués, sauf un recruteur trouvé par
+  // son nom). Phase et application, comme avant les zones, ne filtrent que les
+  // créateurs : tous les recruteurs restent visibles et cliquables. Le filtre
+  // de zone, lui, choisit des zones entières.
+  const filtreListe = Boolean(filtreLangue) || Boolean(filtreLabel) || Boolean(rechercheNormalisee);
+  const recruteurCherche = (r: PosterProfil) =>
+    Boolean(rechercheNormalisee) &&
+    [nomAffiche(r), r.email].some((v) => v && sansAccents(v).includes(rechercheNormalisee));
 
   const barreFiltres = (
     <div className="grid gap-3 rounded-lg border bg-muted/20 p-3 sm:grid-cols-2 lg:grid-cols-5">
@@ -1069,7 +1095,7 @@ export function AdminPostersPage() {
         <select
           id="filtreZone"
           className={selectClass}
-          value={filtreZone}
+          value={filtreZoneEffectif}
           onChange={(e) => setFiltreZone(e.target.value)}
         >
           <option value="">{t("posters.toutesZones")}</option>
@@ -1147,7 +1173,8 @@ export function AdminPostersPage() {
   // Notion), dont ses créateurs héritent — pas la langue des comptes.
   const parZone = regrouperParZone(tous, {
     garderCreateur: matchCreateur,
-    filtreActif: filtresActifs,
+    filtreActif: filtreListe,
+    garderRecruteur: recruteurCherche,
     trierCreateurs,
   });
   const groupesZone: GroupeZone[] = [
@@ -1326,6 +1353,9 @@ export function AdminPostersPage() {
             <span className="text-[11px] text-violet-700">{t("posters.dmDe", { nom: r.manager_nom })}</span>
           )}
           <DrapeauxLangues codes={languesRecruteur(r)} />
+          <div className="w-48">
+            <LangueRecruteurDropdown recruteur={r} />
+          </div>
           <span className="text-[11px] tabular-nums text-muted-foreground sm:ml-auto">
             {t("posters.equipeHoResume", {
               total: bloc.compteurs.total,
@@ -1369,40 +1399,77 @@ export function AdminPostersPage() {
     }
     if (tous.length === 0) return <EmptyState title={t("posters.empty")} />;
 
-    const zonesVisibles = groupesZone.filter((g) => !filtreZone || g.cle === filtreZone);
+    const zonesVisibles = groupesZone.filter(
+      (g) => !filtreZoneEffectif || g.cle === filtreZoneEffectif,
+    );
     // Les créateurs sans recruteur n'ont pas de zone : rangés avec « Sans zone ».
     const sansRecruteurVisible =
-      parZone.sansRecruteur.length > 0 && (!filtreZone || filtreZone === CLE_SANS_ZONE);
-    const vueComplete = !filtresActifs && !filtreZone;
+      parZone.sansRecruteur.length > 0 &&
+      (!filtreZoneEffectif || filtreZoneEffectif === CLE_SANS_ZONE);
+    // Recruteurs désactivés sans créateur : repliés à part, mais jamais hors
+    // d'atteinte — filtrés par zone comme les autres (leur zone, ou « Sans zone »).
+    const inactifsVisibles = filtreListe
+      ? []
+      : parZone.recruteursInactifs.filter(
+          (r) => !filtreZoneEffectif || cleZone(r.zone_recrutement) === filtreZoneEffectif,
+        );
+    // Admins : mêmes règles qu'avant les zones (masqués par un filtre de phase,
+    // de langue ou de label), et hors de toute zone.
+    const adminsVisibles =
+      filtrePhase === "tous" && !filtreListe && !filtreZoneEffectif && admins.length > 0;
+
+    // Puces : une par zone, plus « Sans zone » qui compte aussi les créateurs
+    // sans recruteur (le clic les montre). La zone filtrée garde sa puce même
+    // vide, pour pouvoir la désélectionner.
+    const puces: { cle: string; libelle: string; n: number }[] = parZone.zones.map((g) => ({
+      cle: g.cle,
+      libelle: g.zone ?? "",
+      n: g.compteurs.total,
+    }));
+    const nSansZone = (parZone.sansZone?.compteurs.total ?? 0) + parZone.sansRecruteur.length;
+    if (parZone.sansZone || parZone.sansRecruteur.length > 0) {
+      puces.push({ cle: CLE_SANS_ZONE, libelle: t("posters.sansZone"), n: nSansZone });
+    }
+    if (filtreZoneEffectif && !puces.some((p) => p.cle === filtreZoneEffectif)) {
+      puces.push({
+        cle: filtreZoneEffectif,
+        libelle:
+          filtreZoneEffectif === CLE_SANS_ZONE
+            ? t("posters.sansZone")
+            : (zonesExistantes.find((z) => cleZone(z) === filtreZoneEffectif) ?? filtreZoneEffectif),
+        n: 0,
+      });
+    }
+
+    const rien =
+      zonesVisibles.length === 0 && !sansRecruteurVisible && inactifsVisibles.length === 0;
 
     return (
       <div className="space-y-6">
-        {groupesZone.length > 1 && (
-          <nav aria-label={t("posters.filtreZone")} className="flex flex-wrap gap-1.5">
-            {groupesZone.map((g) => {
-              const actif = filtreZone === g.cle;
+        {(puces.length > 1 || filtreZoneEffectif) && (
+          <div role="group" aria-label={t("posters.filtreZone")} className="flex flex-wrap gap-1.5">
+            {puces.map((puce) => {
+              const actif = filtreZoneEffectif === puce.cle;
               return (
                 <button
-                  key={g.cle}
+                  key={puce.cle}
                   type="button"
                   aria-pressed={actif}
-                  onClick={() => setFiltreZone(actif ? "" : g.cle)}
+                  onClick={() => setFiltreZone(actif ? "" : puce.cle)}
                   className={
                     actif
                       ? "rounded-full bg-primary px-2.5 py-1 text-xs font-medium text-primary-foreground"
                       : "rounded-full border px-2.5 py-1 text-xs hover:bg-muted"
                   }
                 >
-                  {g.zone ?? t("posters.sansZone")}
-                  <span className="ml-1.5 tabular-nums opacity-70">{g.compteurs.total}</span>
+                  {puce.libelle}{" "}
+                  <span className="ml-1 tabular-nums opacity-70">{puce.n}</span>
                 </button>
               );
             })}
-          </nav>
+          </div>
         )}
-        {zonesVisibles.length === 0 && !sansRecruteurVisible && (
-          <EmptyState title={t("posters.aucunResultat")} />
-        )}
+        {rien && <EmptyState title={t("posters.aucunResultat")} />}
         {zonesVisibles.map(sectionZone)}
         {sansRecruteurVisible &&
           section(
@@ -1412,17 +1479,15 @@ export function AdminPostersPage() {
             "createur",
             { cle: "sans-recruteur" },
           )}
-        {vueComplete && parZone.recruteursInactifs.length > 0 && (
-          <details className="space-y-3">
+        {inactifsVisibles.length > 0 && (
+          <details className="space-y-3" open={Boolean(filtreZoneEffectif) || undefined}>
             <summary className="cursor-pointer text-sm font-semibold">
-              {t("posters.recruteursDesactives", { n: parZone.recruteursInactifs.length })}
+              {t("posters.recruteursDesactives", { n: inactifsVisibles.length })}
             </summary>
-            <div className="pt-3">{grille(parZone.recruteursInactifs, "recruteur")}</div>
+            <div className="pt-3">{grille(inactifsVisibles, "recruteur")}</div>
           </details>
         )}
-        {vueComplete &&
-          admins.length > 0 &&
-          section(t("nav.admin"), admins.length, admins, "createur")}
+        {adminsVisibles && section(t("nav.admin"), admins.length, admins, "createur")}
       </div>
     );
   })();
@@ -1550,6 +1615,7 @@ export function AdminPostersPage() {
                   {t("posters.zone")}
                 </Label>
                 <EditeurZoneRecruteur
+                  key={fiche.id}
                   recruteur={fiche}
                   zones={zonesExistantes}
                   idPrefixe={`fiche-${fiche.id}`}

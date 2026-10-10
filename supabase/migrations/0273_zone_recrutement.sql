@@ -7,8 +7,12 @@
 -- (posterGuide.ts), déduite de la langue — d'où ce nom.
 --
 -- Additive : colonne nullable, aucune lecture existante ne change. Le
--- remplissage ne touche qu'une zone encore vide (rejouable sans écraser une
--- zone modifiée depuis l'OS).
+-- remplissage ne touche qu'une zone NULL : rejouer n'écrase pas une zone
+-- changée depuis l'OS, mais REMET celle d'un recruteur dont la zone a été
+-- vidée depuis l'OS. Appliquée le 10/10/2026 : ne pas la rejouer.
+-- Retour arrière : retirer d'abord la lecture côté front (listerPosters
+-- sélectionne la colonne), puis `alter table public.profiles drop column
+-- zone_recrutement;`.
 
 alter table public.profiles add column if not exists zone_recrutement text;
 

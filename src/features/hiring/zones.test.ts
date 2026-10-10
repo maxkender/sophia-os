@@ -176,6 +176,19 @@ describe("regrouperParZone", () => {
     expect(out.recruteursInactifs).toEqual([]);
   });
 
+  it("filtre actif : un recruteur gardé (recherche par son nom) reste visible sans créateur", () => {
+    const out = regrouperParZone(tous, {
+      garderCreateur: () => false,
+      filtreActif: true,
+      garderRecruteur: (r) => r.id === "taimoor" || r.id === "kris",
+    });
+    expect(out.zones.map((z) => z.zone)).toEqual(["Spain + Portugal"]);
+    expect(out.zones[0].recruteurs[0].createurs).toEqual([]);
+    // Désactivé sans créateur, mais cherché : dans son groupe, pas replié à part.
+    expect(out.sansZone?.recruteurs.map((b) => b.recruteur.id)).toEqual(["taimoor"]);
+    expect(out.recruteursInactifs).toEqual([]);
+  });
+
   it("deux recruteurs, même zone à la casse près : un seul groupe, DM d'abord", () => {
     const hm = profil({ id: "zz-hm", role: "hiring_manager", zone_recrutement: "turkey + israel" });
     const out = regrouperParZone([hm, amanda, c("a", "zz-hm")]);

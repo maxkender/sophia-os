@@ -8,6 +8,7 @@ import type { PosterProfil } from "@/features/moteur/types";
 
 const listerPosters = vi.fn();
 const majZoneRecruteur = vi.fn();
+const listerComptes = vi.fn();
 
 vi.mock("@/features/auth/AuthContext", async (importOriginal) => ({
   ...(await importOriginal<typeof import("@/features/auth/AuthContext")>()),
@@ -17,7 +18,7 @@ vi.mock("@/features/auth/AuthContext", async (importOriginal) => ({
 vi.mock("@/features/moteur/api", async (importOriginal) => ({
   ...(await importOriginal<typeof import("@/features/moteur/api")>()),
   listerPosters: () => listerPosters(),
-  listerComptesAvecDormants: async () => [],
+  listerComptesAvecDormants: () => listerComptes(),
   listerLanguesReference: async () => ["fr", "tr", "es"],
   listerApplications: async () => [],
   listerLabels: async () => [],
@@ -64,7 +65,14 @@ function profil(over: Partial<PosterProfil> & { id: string; role: PosterProfil["
 const PROFILS = [
   profil({ id: "admin-1", role: "admin", prenom: "Max" }),
   profil({ id: "amanda", role: "directing_manager", prenom: "Amanda", zone_recrutement: "Turkey + Israel" }),
-  profil({ id: "kris", role: "hiring_manager", prenom: "Kris", zone_recrutement: "Spain + Portugal" }),
+  profil({
+    id: "kris",
+    role: "hiring_manager",
+    prenom: "Kris",
+    zone_recrutement: "Spain + Portugal",
+    manager_id: "amanda",
+    manager_nom: "Amanda",
+  }),
   profil({ id: "remi", role: "hiring_manager", prenom: "Rémi" }),
   profil({ id: "taimoor", role: "hiring_manager", prenom: "Taimoor", is_active: false }),
   profil({ id: "beyza", role: "poster", prenom: "Beyza", manager_id: "amanda", manager_nom: "Amanda" }),
@@ -96,6 +104,8 @@ describe("AdminPostersPage — par zone", () => {
     listerPosters.mockResolvedValue(PROFILS);
     majZoneRecruteur.mockReset();
     majZoneRecruteur.mockResolvedValue(undefined);
+    listerComptes.mockReset();
+    listerComptes.mockResolvedValue([]);
   });
 
   it("range chaque créateur sous la zone de son recruteur", async () => {
@@ -120,7 +130,7 @@ describe("AdminPostersPage — par zone", () => {
     renderPage();
     await screen.findByRole("heading", { level: 2, name: "Turkey + Israel" });
 
-    const puces = screen.getByRole("navigation", { name: "Zone" });
+    const puces = screen.getByRole("group", { name: "Zone" });
     fireEvent.click(within(puces).getByRole("button", { name: /Spain \+ Portugal/ }));
     expect(screen.queryByRole("heading", { level: 2, name: "Turkey + Israel" })).toBeNull();
     expect(screen.getByText("Marta")).toBeTruthy();
@@ -141,5 +151,117 @@ describe("AdminPostersPage — par zone", () => {
     fireEvent.click(screen.getByRole("button", { name: "Save" }));
 
     await waitFor(() => expect(majZoneRecruteur).toHaveBeenCalledWith("remi", "France"));
+  });
+
+  it("une zone renommée pendant qu'on la filtre : le filtre tombe, personne ne disparaît", async () => {
+    let donnees = PROFILS.map((p) => ({ ...p }));
+    listerPosters.mockImplementation(async () => donnees);
+    majZoneRecruteur.mockImplementation(async (id: string, zone: string | null) => {
+      donnees = donnees.map((p) => (p.id === id ? { ...p, zone_recrutement: zone } : p));
+    });
+    renderPage();
+    await screen.findByRole("heading", { level: 2, name: "Turkey + Israel" });
+
+    fireEvent.click(
+      within(screen.getByRole("group", { name: "Zone" })).getByRole("button", { name: /Spain \+ Portugal/ }),
+    );
+    expect(screen.queryByText("Beyza")).toBeNull();
+
+    fireEvent.click(screen.getByRole("button", { name: "Kris" }));
+    fireEvent.change(await screen.findByLabelText("Zone", { selector: "input" }), {
+      target: { value: "Spain" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Save" }));
+    await waitFor(() => expect(majZoneRecruteur).toHaveBeenCalledWith("kris", "Spain"));
+
+    await screen.findByRole("heading", { level: 2, name: "Spain" });
+    expect(screen.getByRole("heading", { level: 2, name: "Turkey + Israel" })).toBeTruthy();
+    expect(screen.getByText("Beyza")).toBeTruthy();
+    expect((screen.getByLabelText("Zone", { selector: "select" }) as HTMLSelectElement).value).toBe("");
+  });
+
+  it("filtre de phase : tous les recruteurs restent visibles et cliquables", async () => {
+    renderPage();
+    await screen.findByRole("heading", { level: 2, name: "Turkey + Israel" });
+    fireEvent.change(screen.getByLabelText("Phase"), { target: { value: "warmup" } });
+
+    for (const nom of ["Amanda", "Kris", "Rémi"]) {
+      expect(screen.getByRole("button", { name: nom })).toBeTruthy();
+    }
+    expect(screen.queryByText("Marta")).toBeNull();
+    expect(screen.getByText(/Deactivated recruiters with no creators \(1\)/)).toBeTruthy();
+  });
+
+  it("recherche : un recruteur sans créateur se trouve par son nom", async () => {
+    renderPage();
+    await screen.findByRole("heading", { level: 2, name: "Turkey + Israel" });
+    fireEvent.change(screen.getByLabelText("Search"), { target: { value: "taimoor" } });
+    expect(screen.getByRole("button", { name: "Taimoor" })).toBeTruthy();
+    expect(screen.queryByText("No creator matches these filters.")).toBeNull();
+  });
+
+  it("recherche : « @handle » trouve le compte TikTok (stocké sans @)", async () => {
+    listerComptes.mockResolvedValue([
+      {
+        id: "c-beyza",
+        poster_id: "beyza",
+        handle_tiktok: "beyzareads",
+        persona_nom: "Beyza",
+        langue: "tr",
+        type_compte: "perso",
+        is_active: true,
+        classement: "passable",
+        warmup_started_at: null,
+        warmup_ends_at: null,
+        avatar_url: null,
+        parts_applications: null,
+        ugc_ai_video: false,
+      },
+    ]);
+    renderPage();
+    await screen.findByRole("heading", { level: 2, name: "Turkey + Israel" });
+    await screen.findByText("@beyzareads");
+    fireEvent.change(screen.getByLabelText("Search"), { target: { value: "@beyzareads" } });
+    expect(screen.getByText("@beyzareads")).toBeTruthy();
+    expect(screen.getByText("beyza@sophia.com")).toBeTruthy();
+    expect(screen.queryByText("Marta")).toBeNull();
+  });
+
+  it("la puce « Sans zone » compte aussi les créateurs sans recruteur", async () => {
+    renderPage();
+    await screen.findByRole("heading", { level: 2, name: "Turkey + Israel" });
+    const puce = within(screen.getByRole("group", { name: "Zone" })).getByRole("button", { name: /No zone/ });
+    expect(puce.textContent).toBe("No zone 2");
+    fireEvent.click(puce);
+    expect(screen.getByText("Élodie")).toBeTruthy();
+    expect(screen.getByText("Solo")).toBeTruthy();
+    // Recruteur désactivé sans zone : dans le repli de « Sans zone ».
+    expect(screen.getByText(/Deactivated recruiters with no creators \(1\)/)).toBeTruthy();
+  });
+
+  it("l'éditeur de zone ne garde pas l'état d'un autre recruteur", async () => {
+    renderPage();
+    fireEvent.click(await screen.findByRole("button", { name: "Kris" }));
+    fireEvent.change(await screen.findByLabelText("Zone", { selector: "input" }), {
+      target: { value: "Spain + Portugal + Andorra" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Save" }));
+    await waitFor(() => expect(majZoneRecruteur).toHaveBeenCalledTimes(1));
+
+    // Lien vers son DM, dans la fiche.
+    const fiche = screen.getByRole("heading", { level: 2, name: "Kris" }).parentElement!.parentElement!;
+    fireEvent.click(within(fiche).getByRole("button", { name: "Amanda" }));
+    await screen.findByRole("heading", { level: 2, name: "Amanda" });
+    expect(screen.queryByText("Zone saved.")).toBeNull();
+    expect((screen.getByLabelText("Zone", { selector: "input" }) as HTMLInputElement).value).toBe(
+      "Turkey + Israel",
+    );
+  });
+
+  it("le bloc d'un recruteur garde le choix de ses langues", async () => {
+    renderPage();
+    await screen.findByRole("heading", { level: 2, name: "Turkey + Israel" });
+    const section = sectionZone("Spain + Portugal");
+    expect(within(section).getByRole("combobox")).toBeTruthy();
   });
 });

@@ -81,6 +81,11 @@ export interface OptionsRegroupement {
   filtreActif?: boolean;
   /** Ordre des créateurs d'un bloc. Par défaut : par nom. */
   trierCreateurs?: (liste: PosterProfil[]) => PosterProfil[];
+  /**
+   * Filtre actif : recruteur gardé même sans créateur retenu (la recherche
+   * trouve un recruteur par son nom, même tout neuf, sans créateur).
+   */
+  garderRecruteur?: (r: PosterProfil) => boolean;
 }
 
 const ORDRE_ROLE: Record<string, number> = {
@@ -129,8 +134,9 @@ export function regrouperParZone(
   for (const r of recruteurs) {
     const createurs = trier(createursParRecruteur.get(r.id) ?? []);
     if (createurs.length === 0) {
-      if (opts.filtreActif) continue;
-      if (!r.is_active) {
+      if (opts.filtreActif) {
+        if (!opts.garderRecruteur?.(r)) continue;
+      } else if (!r.is_active) {
         recruteursInactifs.push(r);
         continue;
       }

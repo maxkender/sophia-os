@@ -1,0 +1,244 @@
+{
+ "post_id": "7689918962905124129",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become smart",
+      "again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "10/10 hábitos para recuperar tu cerebro"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(lo dice la ciencia)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop always listening",
+      "to music"
+     ],
+     "fr": "arrête [[la musique non-stop]]",
+     "texte": "deja de [[poner música]] a todas horas"
+    },
+    "T2": {
+     "en": [
+      "stop filling every empty second with podcasts,",
+      "music, youtube, or scrolling"
+     ],
+     "fr": "arrête de combler [[le moindre blanc]] avec podcasts, musique, youtube ou scroll",
+     "texte": "deja de llenar [[cada segundo libre]] con podcasts, música, youtube o scroll"
+    },
+    "T3": {
+     "en": [
+      "your brain",
+      "needs quiet",
+      "time to connect",
+      "ideas, replay",
+      "information, and",
+      "actually form its",
+      "own thought"
+     ],
+     "fr": "ton cerveau a besoin de calme pour faire des liens, digérer les infos et [[vraiment avoir ses propres idées]]",
+     "texte": "tu cerebro necesita silencio para conectar ideas, repasar información y [[pensar de verdad por sí mismo]]"
+    },
+    "T4": {
+     "en": [
+      "instead of constantly reacting to",
+      "someone else’s"
+     ],
+     "fr": "au lieu de [[toujours réagir]] à [[celles des autres]]",
+     "texte": "en vez de [[reaccionar siempre]] a [[lo que piensan otros]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "think for yourself before",
+      "using AI"
+     ],
+     "fr": "réfléchis [[avant]] de demander à l'IA",
+     "texte": "piensa por ti misma [[antes]] de usar la IA"
+    },
+    "T2": {
+     "en": [
+      "don’t outsource the first draft of every thought"
+     ],
+     "fr": "le premier jet de [[tes idées]], fais-le toi-même",
+     "texte": "no delegues el primer borrador de [[cada idea]]"
+    },
+    "T3": {
+     "en": [
+      "write what you",
+      "think first, then use",
+      "AI to challenge it,",
+      "improve it, or find",
+      "gaps"
+     ],
+     "fr": "écris d'abord [[ce que tu penses]], ensuite l'IA le critique, l'améliore, trouve les trous",
+     "texte": "escribe primero [[lo que piensas]], y luego usa la IA para cuestionarlo, mejorarlo o ver qué falta"
+    },
+    "T4": {
+     "en": [
+      "otherwise you get better at prompting while",
+      "your own reasoning gets less practice"
+     ],
+     "fr": "sinon tu deviens forte en prompts pendant que [[ton raisonnement à toi]] [[s'atrophie]]",
+     "texte": "si no, mejoras escribiendo prompts mientras [[tu propio razonamiento]] se queda [[sin práctica]]"
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "lee libros [[en vez de scrollear]]"
+    },
+    "T2": {
+     "en": [
+      "reading makes you hold",
+      "attention, remember",
+      "details, and build the",
+      "picture in your own head"
+     ],
+     "fr": "lire t'oblige à [[rester concentrée]], à retenir des détails et à [[te faire le film]] dans ta tête",
+     "texte": "leer te obliga a [[sostener la atención]], recordar detalles y [[crear la escena]] en tu cabeza"
+    },
+    "T3": {
+     "en": [
+      "if you want your brain to",
+      "feel sharper again, swap",
+      "some of your scrolling for",
+      "books"
+     ],
+     "fr": "si tu veux [[retrouver un cerveau vif]], remplace un peu de [[scroll par des livres]]",
+     "texte": "si quieres que tu cerebro [[vuelva a estar ágil]], cambia parte del [[scroll por libros]]"
+    },
+    "T4": {
+     "en": [
+      "i use readup to lock my",
+      "apps until i’ve read for 20",
+      "minutes, or just put your",
+      "phone in another room"
+     ],
+     "fr": "perso j'ai remplacé mon scroll du soir par [[5 min sur l'appli Sophia]], sinon laisse ton tel dans une autre pièce",
+     "texte": "cambié mi scroll por [[5 min al día en la app Sophia]], y leo con el teléfono en otra habitación"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "have more conversations with",
+      "smart people"
+     ],
+     "fr": "traîne avec des gens plus calés que toi",
+     "texte": "habla más con gente inteligente"
+    },
+    "T2": {
+     "en": [
+      "your surroundings shape",
+      "you"
+     ],
+     "fr": "ton entourage déteint sur toi",
+     "texte": "tu entorno te moldea"
+    },
+    "T3": {
+     "en": [
+      "good conversations force",
+      "you to explain ideas,",
+      "defend assumptions, and",
+      "notice where your",
+      "thinking is weak"
+     ],
+     "fr": "une vraie discussion t'oblige à expliquer tes idées, à les défendre et à voir où ton raisonnement coince",
+     "texte": "las buenas conversaciones te obligan a explicar ideas, defender lo que das por hecho y ver dónde falla tu razonamiento"
+    },
+    "T4": {
+     "en": [
+      "spend more time around people who know",
+      "things you don’t instead of people who agree",
+      "with everything you say"
+     ],
+     "fr": "entoure-toi de gens qui savent des trucs que tu sais pas, pas de gens qui te donnent raison sur tout",
+     "texte": "pasa más tiempo con gente que sabe cosas que tú no, y menos con gente que te da la razón en todo"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things that are difficult",
+      "on purpose"
+     ],
+     "fr": "force-toi à apprendre [[des trucs difficiles]]",
+     "texte": "aprende cosas [[difíciles a propósito]]"
+    },
+    "T2": {
+     "en": [
+      "if everything you consume is",
+      "easy, your brain has no",
+      "reason to adapt"
+     ],
+     "fr": "si tout ce que tu regardes est facile, ton cerveau a zéro raison de progresser",
+     "texte": "si todo lo que consumes es fácil, tu cerebro no tiene por qué adaptarse"
+    },
+    "T3": {
+     "en": [
+      "read harder books, study",
+      "unfamiliar topics, solve",
+      "problems without",
+      "immediately searching the",
+      "answer"
+     ],
+     "fr": "lis des livres plus costauds, plonge dans des sujets inconnus, résous des problèmes sans googler direct",
+     "texte": "lee libros más difíciles, estudia temas nuevos, resuelve problemas sin buscar la respuesta enseguida"
+    },
+    "T4": {
+     "en": [
+      "cognitive effort is the point"
+     ],
+     "fr": "tout l'intérêt, c'est l'effort",
+     "texte": "el esfuerzo mental es la clave"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

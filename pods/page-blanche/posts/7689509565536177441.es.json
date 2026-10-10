@@ -1,0 +1,226 @@
+{
+ "post_id": "7689509565536177441",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 skills to learn to be",
+      "successful by 25"
+     ],
+     "fr": "10/10 compétences pour percer avant 25 ans",
+     "texte": "10/10 habilidades para triunfar antes de los 25"
+    },
+    "T2": {
+     "en": [
+      "(7 figures by 25)"
+     ],
+     "fr": "(millionnaire à 25 ans)",
+     "alignement": "droite",
+     "texte": "(7 cifras a los 25)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to focus for hours"
+     ],
+     "fr": "apprends à bosser [[des heures]]",
+     "texte": "concéntrate [[horas seguidas]]"
+    },
+    "T2": {
+     "en": [
+      "most people can barely work for 20",
+      "minutes without checking something"
+     ],
+     "fr": "la plupart des gens [[tiennent pas 20 minutes]] sans aller checker un truc",
+     "texte": "la mayoría [[no aguanta ni 20 minutos]] trabajando sin revisar algo"
+    },
+    "T3": {
+     "en": [
+      "train yourself to",
+      "do 60–90 minutes",
+      "of uninterrupted",
+      "deep work"
+     ],
+     "fr": "entraîne-toi à bosser [[60 à 90 minutes]] à fond, sans aucune pause",
+     "texte": "entrénate para trabajar [[60–90 minutos]] a fondo, sin interrupciones"
+    },
+    "T4": {
+     "en": [
+      "being able to concentrate while everyone",
+      "else is distracted is a ridiculous advantage"
+     ],
+     "fr": "savoir te concentrer quand tous les autres sont éparpillés, c'est un avantage de dingue",
+     "texte": "poder concentrarte cuando todos los demás están distraídos es una ventaja brutal"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn how money actually works"
+     ],
+     "fr": "comprends l'argent, [[pour de vrai]]",
+     "texte": "entiende el dinero [[de verdad]]"
+    },
+    "T2": {
+     "en": [
+      "understand investing,",
+      "cash flow, debt, and",
+      "compound growth",
+      "before you start earning",
+      "serious money"
+     ],
+     "fr": "comprends l'investissement, le cash-flow, les dettes et [[les intérêts composés]] avant de [[gagner gros]]",
+     "texte": "entiende de inversión, flujo de caja, deudas e [[interés compuesto]] antes de [[ganar dinero en serio]]"
+    },
+    "T3": {
+     "en": [
+      "making more helps, but",
+      "keeping and allocating it",
+      "properly is what stops",
+      "you from being broke"
+     ],
+     "fr": "gagner plus, ça aide, mais ce qui [[t'empêche d'être à sec]], c'est de bien le garder et le placer",
+     "texte": "ganar más ayuda, pero lo que [[te salva de estar en la ruina]] es saber guardarlo y repartirlo bien"
+    },
+    "T4": {
+     "en": [
+      "you can't save your way to wealth,",
+      "you have to earn your way there!"
+     ],
+     "fr": "[[on devient pas riche en épargnant, on devient riche en gagnant plus !]]",
+     "texte": "[[¡ahorrando no te haces rica, te haces rica ganando más!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn from history's greatest minds"
+     ],
+     "fr": "inspire-toi [[des plus grands esprits]]",
+     "texte": "aprende de [[las mentes más brillantes]]"
+    },
+    "T2": {
+     "en": [
+      "read philosophy, history,",
+      "biographies and literature",
+      "from people who spent",
+      "decades thinking deeply"
+     ],
+     "fr": "lis de la philo, de l'histoire, des biographies et des romans de gens qui ont [[passé leur vie à réfléchir]]",
+     "texte": "lee filosofía, historia, biografías y literatura de gente que [[pasó décadas pensando a fondo]]"
+    },
+    "T3": {
+     "en": [
+      "if you can't focus",
+      "because you get bored",
+      "and start scrolling, use",
+      "readup to block your",
+      "apps until you've read for",
+      "20 minutes"
+     ],
+     "fr": "si tu t'ennuies vite et que tu finis sur tiktok, commence par [[5 minutes par jour sur l'appli Sophia]]",
+     "texte": "si no te concentras porque te aburres y acabas scrolleando, abre [[la app Sophia]] y haz una lección de 5 min de historia o filosofía"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get good at writing"
+     ],
+     "fr": "apprends à bien écrire",
+     "texte": "aprende a escribir bien"
+    },
+    "T2": {
+     "en": [
+      "clear writing forces clear",
+      "thinking"
+     ],
+     "fr": "écrire clair, ça oblige à penser clair",
+     "texte": "escribir claro te obliga a pensar claro"
+    },
+    "T3": {
+     "en": [
+      "learn how to explain",
+      "complicated ideas",
+      "simply, write convincing",
+      "messages, and make",
+      "people actually care"
+     ],
+     "fr": "apprends à expliquer simplement des trucs compliqués, à convaincre par écrit et à [[toucher vraiment les gens]]",
+     "texte": "aprende a explicar ideas complicadas de forma simple, a convencer por escrito y a [[que a la gente le importe]]"
+    },
+    "T4": {
+     "en": [
+      "if you can write well, you'll be better at",
+      "marketing, leadership, sales, and building an",
+      "audience"
+     ],
+     "fr": "si tu sais écrire, tout devient plus simple : marketing, management, vente, et te créer une commu",
+     "texte": "si escribes bien, serás mejor en marketing, liderazgo, ventas y creando una comunidad"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "become dangerously good",
+      "at communication"
+     ],
+     "fr": "deviens [[une machine]] en communication",
+     "texte": "vuélvete [[peligrosamente buena]] comunicando"
+    },
+    "T2": {
+     "en": [
+      "learn how to speak",
+      "clearly, ask better",
+      "questions, negotiate,",
+      "listen, and handle",
+      "uncomfortable",
+      "conversations"
+     ],
+     "fr": "apprends à parler clairement, à poser les bonnes questions, à négocier, à écouter et à gérer les discussions gênantes",
+     "texte": "aprende a hablar claro, hacer mejores preguntas, negociar, escuchar y manejar conversaciones incómodas"
+    },
+    "T3": {
+     "en": [
+      "a lot of “talent” gets ignored because the",
+      "person can't explain what they know or",
+      "get other people on board"
+     ],
+     "fr": "plein de « talents » passent à la trappe parce qu'ils savent pas expliquer ce qu'ils savent ni embarquer les autres",
+     "texte": "mucho “talento” pasa desapercibido porque esa persona no sabe explicar lo que sabe ni convencer a los demás"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

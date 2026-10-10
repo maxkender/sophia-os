@@ -1,0 +1,265 @@
+{
+ "post_id": "7685340052989398275",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become smart",
+      "again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "10/10 hábitos para recuperar tu cerebro"
+    },
+    "T2": {
+     "en": [
+      "(niche edition #2)"
+     ],
+     "fr": "(version niche #2)",
+     "alignement": "droite",
+     "texte": "(edición nicho #2)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop googling everything",
+      "immediately"
+     ],
+     "fr": "arrête de tout googler [[dans la seconde]]",
+     "texte": "deja de googlearlo todo [[al instante]]"
+    },
+    "T2": {
+     "en": [
+      "give your brain 30–60 seconds to find the",
+      "answer before reaching for Google or AI"
+     ],
+     "fr": "laisse [[30 à 60 secondes]] à ton cerveau pour trouver avant de demander à Google ou à l'IA",
+     "texte": "dale [[30–60 segundos]] a tu cerebro para encontrar la respuesta antes de ir a Google o a la IA"
+    },
+    "T3": {
+     "en": [
+      "constantly",
+      "outsourcing recall",
+      "makes you worse",
+      "at using what you",
+      "already know"
+     ],
+     "fr": "à force de tout chercher ailleurs, t'as [[plus de mal]] à [[utiliser ce que tu sais déjà]]",
+     "texte": "si nunca intentas acordarte, cada vez [[te cuesta más]] usar [[lo que ya sabes]]"
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    },
+    "T5": {
+     "en": [
+      "struggle with the question first, remember,",
+      "this is how you learn"
+     ],
+     "fr": "[[réfléchis]] d'abord, souviens-toi : c'est comme ça qu'on [[apprend]]",
+     "texte": "[[dale vueltas]] primero a la pregunta, recuerda: así es como [[aprendes]]"
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder",
+    "I3": "garder",
+    "I4": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things with no obvious",
+      "payoff"
+     ],
+     "fr": "apprends des trucs [[qui servent à rien]]",
+     "texte": "aprende cosas [[que no sirven para nada]]"
+    },
+    "T2": {
+     "en": [
+      "history, philosophy,",
+      "physics, economics,",
+      "languages, whatever",
+      "genuinely interests you"
+     ],
+     "fr": "histoire, philo, physique, éco, langues, tout ce qui te passionne vraiment",
+     "texte": "historia, filosofía, física, economía, idiomas, lo que de verdad te interese"
+    },
+    "T3": {
+     "en": [
+      "not every hour needs to",
+      "make money"
+     ],
+     "fr": "[[pas besoin de rentabiliser chaque heure]]",
+     "texte": "[[no todas las horas tienen que dar dinero]]"
+    },
+    "T4": {
+     "en": [
+      "broad knowledge gives your brain more ideas",
+      "to connect when you actually need to solve",
+      "something"
+     ],
+     "fr": "plus t'as de culture, plus ton cerveau a d'idées à relier le jour où tu dois vraiment régler un problème",
+     "texte": "cuanta más cultura tienes, más ideas puede conectar tu cerebro cuando de verdad necesitas resolver algo"
+    },
+    "T5": {
+     "en": [
+      "also, it is just fun to be knowledgable!!"
+     ],
+     "fr": "et puis, [[la culture, c'est trop cool !!]]",
+     "texte": "además, [[¡¡saber cosas es divertidísimo!!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "let yourself be bored"
+     ],
+     "fr": "accepte de t'[[ennuyer]]",
+     "texte": "permítete [[aburrirte]]"
+    },
+    "T2": {
+     "en": [
+      "every queue, walk and",
+      "bathroom break gets filled",
+      "with input now"
+     ],
+     "fr": "[[chaque]] file d'attente, balade, pause pipi : on remplit tout",
+     "texte": "ahora llenamos [[cada]] espera, paseo o ida al baño con algo"
+    },
+    "T3": {
+     "en": [
+      "that sounds harmless, but",
+      "you're removing every",
+      "chance your attention has",
+      "to sit still"
+     ],
+     "fr": "ça a l'air de rien, mais ton attention n'a [[plus jamais l'occasion]] de se poser",
+     "texte": "parece inofensivo, pero le quitas a tu atención [[cada oportunidad]] de quedarse quieta"
+    },
+    "T4": {
+     "en": [
+      "spend 20–30 minutes a day with no podcast,",
+      "music, scrolling or second screen"
+     ],
+     "fr": "chaque jour, [[20-30 minutes]] sans podcast, musique, scroll ni deuxième écran",
+     "texte": "pasa [[20–30 minutos]] al día sin podcast, música, scroll ni segunda pantalla"
+    },
+    "T5": {
+     "en": [
+      "listen to your thoughts"
+     ],
+     "fr": "[[écoute tes pensées]]",
+     "texte": "[[escucha tus pensamientos]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "explain what you learn out loud"
+     ],
+     "fr": "explique ce que t'apprends [[à voix haute]]",
+     "texte": "explica lo que aprendes [[en voz alta]]"
+    },
+    "T2": {
+     "en": [
+      "if you can't explain an idea",
+      "simply, you probably don't",
+      "understand it yet"
+     ],
+     "fr": "si tu sais pas expliquer une idée simplement, [[tu l'as pas encore comprise]]",
+     "texte": "si no sabes explicar algo de forma simple, seguro que [[todavía no lo entiendes]]"
+    },
+    "T3": {
+     "en": [
+      "after reading or studying,",
+      "spend 5 minutes teaching it",
+      "from memory"
+     ],
+     "fr": "après avoir lu ou révisé, prends [[5 minutes]] pour tout réexpliquer de tête",
+     "texte": "después de leer o estudiar, dedica [[5 minutos]] a explicarlo de memoria"
+    },
+    "T4": {
+     "en": [
+      "the gaps become painfully",
+      "obvious very quickly"
+     ],
+     "fr": "les trous te sautent aux yeux direct, et ça pique",
+     "texte": "los huecos se notan rapidísimo, y duele"
+    },
+    "T5": {
+     "en": [
+      "it's also scientifically proven to be one of the best",
+      "ways to learn!"
+     ],
+     "fr": "et c'est prouvé : c'est une des meilleures façons d'apprendre !",
+     "texte": "¡y la ciencia dice que es de las mejores formas de aprender!"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write things down by hand"
+     ],
+     "fr": "note tout [[à la main]]",
+     "texte": "escribe las cosas [[a mano]]"
+    },
+    "T2": {
+     "en": [
+      "typing is faster, but that's not always better"
+     ],
+     "fr": "taper, c'est plus rapide, mais pas forcément [[mieux]]",
+     "texte": "teclear es más rápido, pero no siempre es [[mejor]]"
+    },
+    "T3": {
+     "en": [
+      "handwriting forces you to",
+      "slow down, compress",
+      "ideas, and actually process",
+      "what matters"
+     ],
+     "fr": "écrire à la main te force à [[ralentir]], à résumer et à vraiment capter ce qui compte",
+     "texte": "escribir a mano te obliga a [[ir más lento]], resumir y procesar de verdad lo importante"
+    },
+    "T4": {
+     "en": [
+      "use a notebook for",
+      "anything you genuinely",
+      "want to remember"
+     ],
+     "fr": "garde un [[carnet]] pour tout ce que tu veux vraiment retenir",
+     "texte": "usa un [[cuaderno]] para todo lo que de verdad quieras recordar"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

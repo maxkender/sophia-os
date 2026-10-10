@@ -9,8 +9,13 @@
  * de langue est vide. La vérité est `label_applications`, avec la règle
  * d'héritage de `multi_app.ts` : un label sans aucune ligne sert Sophia.
  *
- * Seul le repli est filtré. La File des créateurs reste le choix explicite de
- * l'admin : un label Unswipe qu'il y range est bien donné au compte suivant.
+ * Seul le repli est filtré sur `label_applications`. La File des créateurs
+ * n'est filtrée que par la colonne historique `labels.application_id`
+ * (`idsLabelsFileSlideshow` de manage-users) : un label créé dans l'OS y a
+ * Sophia par défaut et passe, même « Unswipe seul » — la File reste le choix
+ * explicite de l'admin et ce label est donné au compte suivant. Un label dont
+ * la colonne historique désigne une autre application est, lui, sauté et
+ * retiré de la File.
  *
  * Module à part, importé par manage-users seul : le toucher ne redéploie
  * aucune autre fonction.

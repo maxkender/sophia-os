@@ -1,0 +1,234 @@
+{
+  "post_id": "7691007701127564576",
+  "slides": {
+    "1": {
+      "textes": {
+        "T1": {
+          "en": [
+            "10/10 hobbies to make you",
+            "dangerously disciplined"
+          ],
+          "fr": "10/10 hobbies pour devenir ultra disciplinée",
+          "texte": "10/10 hobbies para ser súper disciplinada"
+        },
+        "T2": {
+          "en": [
+            "(neuroscience approved)"
+          ],
+          "fr": "(la science est d'accord)",
+          "alignement": "droite",
+          "texte": "(según la neurociencia)"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    },
+    "2": {
+      "textes": {
+        "T1": {
+          "en": [
+            "work out in the morning"
+          ],
+          "fr": "fais du sport [[le matin]]",
+          "texte": "haz ejercicio [[por la mañana]]"
+        },
+        "T2": {
+          "en": [
+            "your cortisol is at it's peak in the morning, and how",
+            "you begin your day sets the mood for the rest of it"
+          ],
+          "fr": "ton cortisol est [[au max le matin]], et comment tu démarres ta journée [[conditionne tout le reste]]",
+          "texte": "tu cortisol está [[en su punto más alto por la mañana]], y cómo empiezas el día [[marca todo lo demás]]"
+        },
+        "T3": {
+          "en": [
+            "working out helps",
+            "you practice delayed",
+            "gratification, in a",
+            "world that runs on",
+            "short-form content"
+          ],
+          "fr": "le sport t'apprend [[à attendre ta récompense]], à l'époque des [[vidéos de 10 secondes]]",
+          "texte": "el ejercicio te enseña [[a esperar tu recompensa]], en plena era de [[los reels de 10 segundos]]"
+        },
+        "T4": {
+          "en": [
+            "discipline gets easier when discomfort becomes part",
+            "of the routine"
+          ],
+          "fr": "la discipline vient toute seule quand [[l'inconfort]] devient [[la routine]]",
+          "texte": "la disciplina es más fácil cuando [[la incomodidad]] se vuelve [[parte de la rutina]]"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    },
+    "3": {
+      "textes": {
+        "T1": {
+          "en": [
+            "learn a difficult instrument"
+          ],
+          "fr": "apprends [[un instrument difficile]]",
+          "texte": "aprende [[un instrumento difícil]]"
+        },
+        "T2": {
+          "en": [
+            "you can't shortcut being bad at piano, guitar,",
+            "drums, whatever"
+          ],
+          "fr": "piano, guitare, batterie : au début t'es nulle, [[y'a pas de raccourci]]",
+          "texte": "piano, guitarra, batería: al principio eres malísima, [[no hay atajos]]"
+        },
+        "T3": {
+          "en": [
+            "progress comes from",
+            "repeating boring",
+            "fundamentals until they",
+            "finally become automatic"
+          ],
+          "fr": "tu progresses en [[répétant les bases ennuyeuses]] jusqu'à ce que ça devienne automatique",
+          "texte": "avanzas [[repitiendo lo básico aburrido]] hasta que por fin te sale solo"
+        },
+        "T4": {
+          "en": [
+            "it teaches patience, consistency, and delayed",
+            "gratification better than most productivity advice"
+          ],
+          "fr": "ça t'apprend [[la patience, la régularité et à savoir attendre]] mieux que n'importe quel conseil productivité",
+          "texte": "te enseña [[paciencia, constancia y a esperar tu recompensa]] mejor que cualquier consejo de productividad"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    },
+    "4": {
+      "textes": {
+        "T1": {
+          "en": [
+            "read a book everyday"
+          ],
+          "fr": "apprends un truc [[chaque jour]]",
+          "texte": "aprende algo [[cada día]]"
+        },
+        "T2": {
+          "en": [
+            "you say you want to read",
+            "more, then find yourself",
+            "scrolling all day"
+          ],
+          "fr": "tu dis que [[tu veux apprendre plus]], puis tu [[scrolles toute la journée]]",
+          "texte": "dices que [[quieres aprender más]] y luego te pasas [[el día scrolleando]]"
+        },
+        "T3": {
+          "en": [
+            "i used to be the same until",
+            "i found readup which",
+            "blocks my apps until i read",
+            "for 20 minutes"
+          ],
+          "fr": "[[j'étais pareille]], jusqu'à ce que je remplace mon scroll par [[5 min par jour sur l'appli Sophia]]",
+          "texte": "[[yo era igual]] hasta que cambié el scroll por 5 minutos al día en [[la app Sophia]]"
+        },
+        "T4": {
+          "en": [
+            "it builds patience, attention,",
+            "memory, and the ability to",
+            "keep going without constant",
+            "stimulation"
+          ],
+          "fr": "ça muscle ta patience, ton attention, ta mémoire, et tu tiens enfin [[sans stimulation non-stop]]",
+          "texte": "entrena tu paciencia, tu atención, tu memoria y tu capacidad de seguir [[sin estímulos constantes]]"
+        }
+      },
+      "images": {
+        "I1": "sophia_capture"
+      }
+    },
+    "5": {
+      "textes": {
+        "T1": {
+          "en": [
+            "train a martial art"
+          ],
+          "fr": "fais un sport de combat",
+          "texte": "haz artes marciales"
+        },
+        "T2": {
+          "en": [
+            "you get corrected constantly, exposed when your",
+            "technique is bad, and forced to keep going when",
+            "you're tired"
+          ],
+          "fr": "on te [[corrige sans arrêt]], on voit direct quand ta technique est nulle, et tu dois continuer [[même crevée]]",
+          "texte": "te [[corrigen todo el tiempo]], se nota enseguida cuando tu técnica es mala y tienes que seguir [[aunque estés agotada]]"
+        },
+        "T3": {
+          "en": [
+            "martial arts teaches",
+            "you to stay calm under",
+            "pressure"
+          ],
+          "fr": "ça t'apprend à [[rester calme sous pression]]",
+          "texte": "te enseñan a [[mantener la calma bajo presión]]"
+        },
+        "T4": {
+          "en": [
+            "instead of quitting the",
+            "second something gets",
+            "uncomfortable"
+          ],
+          "fr": "au lieu de tout lâcher dès que ça devient inconfortable",
+          "texte": "en vez de rendirte en cuanto algo se pone incómodo"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    },
+    "6": {
+      "textes": {
+        "T1": {
+          "en": [
+            "study longer than you want to"
+          ],
+          "fr": "bosse [[même quand t'as plus envie]]",
+          "texte": "estudia [[más de lo que quieres]]"
+        },
+        "T2": {
+          "en": [
+            "the useful part usually starts when your brain",
+            "wants to quit"
+          ],
+          "fr": "le plus utile commence souvent quand [[ton cerveau veut lâcher]]",
+          "texte": "lo útil suele empezar cuando [[tu cerebro quiere rendirse]]"
+        },
+        "T3": {
+          "en": [
+            "stay for another",
+            "20–30 minutes",
+            "after you feel",
+            "bored, distracted,",
+            "or restless"
+          ],
+          "fr": "reste encore 20 à 30 min [[après]] avoir commencé à t'ennuyer ou à décrocher",
+          "texte": "quédate 20–30 minutos más [[después]] de sentirte aburrida, distraída o inquieta"
+        },
+        "T4": {
+          "en": [
+            "you're not just learning the subject, you're training",
+            "yourself to keep going when motivation disappears"
+          ],
+          "fr": "t'apprends pas juste la matière, tu t'entraînes [[à continuer quand t'as plus de motivation]]",
+          "texte": "no solo aprendes la materia, te entrenas [[para seguir cuando la motivación desaparece]]"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    }
+  }
+}

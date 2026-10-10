@@ -81,6 +81,14 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
     bathing », « a clear space », « freedom » au sens courant…) ; Unscroll est
     de loin le plus cité (97 slides, 82 contenus), puis Freedom (8), Forest (4),
     Brick (2).
+  - micabo (0272) : ceux de Sophia + les applis d'étude de la table
+    `concurrents` de micabo-os (19 noms au 2026-10-09 : Wilgo, Quizlet, Anki,
+    Knowunity, StudySmarter, Studocu, Brainly, Gauth, Photomath, Turbo AI,
+    StudyFetch, Revisely, Mindgrasp, Flashka, ElibroAI, Aistote, Nerdmask,
+    Astra AI, PeECH), en mots entiers Unicode. « anki » jamais après « şu / o /
+    bu / her » (« şu anki rekor » est du turc courant), « astra » jamais après
+    « ad », « studysmarter » collé seulement. Mesuré sur les slides de
+    micabo-os : Wilgo (83 slides), PeECH (29), Quizlet (11), ElibroAI (8).
   - **Position imposée** : comme pour Sophia, la première slide (hors
     couverture) qui cite un concurrent de l'application est la SEULE position
     permise du placement, même hors des 3 dernières slides ; le prompt demande
@@ -271,7 +279,8 @@ Migration 0270 (tiers par application, additive ; parties A puis B) :
 | `reglages.tierlist_applications_dernier_run` | trace de l'étape de minuit `tierlist_applications` |
 
 Constantes : Sophia = `00000000-0000-4000-8000-000000000001`,
-Unswipe = `00000000-0000-4000-8000-000000000003` (0258).
+micabo = `00000000-0000-4000-8000-000000000002` (supprimée en 0257, recréée
+INACTIVE en 0272), Unswipe = `00000000-0000-4000-8000-000000000003` (0258).
 
 Logique pure partagée : `src/features/moteur/multiApp.ts` (tests vitest) et sa
 copie Deno `supabase/functions/_shared/multi_app.ts` (synchro testée). Lectures
@@ -429,6 +438,68 @@ leur suppression (en commentaire) perd les tiers des autres applications.
 `manage-users` et `papier-cm` tournent sur des bundles figés : ils continuent
 de lire `application_id` (toujours Sophia) et n'ont pas besoin d'être
 reconstruits pour cette évolution.
+
+### micabo (0272) — préparation, aucun effet visible
+
+micabo revient comme troisième application, pour reprendre les comptes et le
+stock de micabo-os. Ce qui est en place :
+
+- le motif de concurrents `micabo` (`_shared/concurrents.ts`, § 1), déployé
+  avec les Edge au merge — inerte tant qu'aucun deck micabo n'est cuit ;
+- 0272 : l'application (id `…0002`, langues fr / tr / de / es, INACTIVE) et
+  ses deux prompts, repris de micabo-os en production (v2) et adaptés à
+  l'enveloppe de Sophia (voir l'en-tête de la migration). Sans label qui la
+  sert, rien n'est noté ni publié pour elle. **Ne plus rejouer 0257** : elle
+  la supprimerait de nouveau, prompts compris.
+
+- le label `classic_study` (slug `classic-study`, créé le 2026-10-09, vide) :
+  sa ligne `label_applications` (micabo seul) a été posée dans la même
+  instruction que le label, et **`labels.application_id` vaut micabo**, pas
+  Sophia. Ce n'est pas un oubli : le bundle figé de `manage-users` ne tire ses
+  labels (files et repli « label le moins utilisé ») que parmi ceux dont
+  `labels.application_id` est Sophia — un label micabo vide serait sinon le
+  « moins utilisé » et partirait sur une recrue Sophia (§ 4.1). Ne pas le
+  remettre à Sophia.
+
+- les créateurs et leurs comptes TikTok (2026-10-09, scripts
+  `docs/sql/micabo_*.sql`) : 22 logins `x@sophia.com` recopiés de micabo-os
+  (même id, même mot de passe, profil complet, aucun HM, aucun changement de
+  mot de passe imposé) ; 4 créateurs déjà sur Sophia gardent leur login, ses
+  comptes micabo y sont rattachés ; Eva (seul compte vidéo AI UGC, @eva.learn)
+  reste dans micabo-os. 27 comptes TikTok recopiés **en sommeil**
+  (`is_active = false`, sans label, warmup déjà fini) : ni vus ni servis.
+  Le schéma privé `migration_micabo` garde la correspondance des ids et l'état
+  micabo de chaque compte (`actif_micabo`, `labels_micabo`) pour le réveil ;
+  les mots de passe chiffrés en ont été purgés.
+
+- le stock de deux sources (2026-10-10, `docs/sql/micabo_4_import_stock.sql`
+  + fonction temporaire `reprise-micabo`, `docs/reprise-micabo/`) :
+  @luna.study4 (label `medical-study`, 59 contenus) et @jeena_study_tips
+  (`classic-study`, 34). Sources recréées (même id), contenus validés au rang
+  Sophia neutre (D / 0), pertinence micabo éligible quelle que soit la note,
+  tier micabo et **cycle micabo en cours** repris (50 publiés dans le cycle,
+  70 restants), 703 passages publiés recopiés (`resolu`, aucune file Apify),
+  decks micabo : 311 `pret` (slide pub marquée), 53 `ineligible`. Les 552
+  images (653 Mo) sont copiées sous `medias/micabo/…` ; les 466 originaux
+  bruts des slides (`raw_url` / `reference_url` de `structure_slides`, 153 Mo)
+  sous le MÊME chemin `medias/brut/<post TikTok>/…` que ceux de Sophia (les pods
+  n'acceptent qu'une référence `medias/brut/`, l'oubli d'une source vide
+  `brut/<post>`), et les URLs réécrites : plus rien ne pointe vers micabo-os.
+  Avatars des 27 comptes : 19 copiés et repointés ; 8 pointent encore vers
+  micabo-os, où le fichier n'existe déjà plus (avatar cassé là-bas aussi).
+- les 27 comptes micabo ont `parts_applications = {"micabo": 100}` (encore en
+  sommeil, sans label : aucun effet tant qu'ils ne sont pas réveillés).
+  `comptes.application_id` reste Sophia : colonne figée, lue par le composeur
+  et les bundles figés.
+  Pièges rencontrés : le connecteur Supabase bloque sans fin sur tout `UPDATE`
+  sans `WHERE` ; pg_net traite sa file par paquets, un appel lent retient les
+  crons de Sophia (d'où la copie en arrière-plan, réponse 202 immédiate) ; la
+  base plafonne à 60 connexions (une seule copie à la fois, 2 images en
+  parallèle).
+
+Reste à faire, le jour de la bascule : réveil des comptes (`is_active = true`
++ label `classic_study`), arrêt de ces comptes dans micabo-os, activation de
+micabo.
 
 ## 4. Plus tard (décidé, pas fait)
 

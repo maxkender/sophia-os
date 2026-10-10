@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { ID_SOPHIA, type ApplicationMoteur } from "../multiApp";
 import {
+  applicationsAfficheesCompte,
   contenuHorsSophia,
   curseursBornes,
   diagnosticCompteSansSophia,
@@ -501,5 +502,53 @@ describe("0270 — état de requalification d'un cycle (tier par application)", 
     expect(
       etatRequalifCycle({ ...base, moyenne_vues: null, mesures: 0, introuvables: 2 }, reglages),
     ).toEqual({ cle: "sansMesure_introuvable", alerte: true, echeance: null });
+  });
+});
+
+describe("applicationsAfficheesCompte", () => {
+  const ID_MICABO = "00000000-0000-4000-8000-000000000002";
+  const STUDY = { id: "l-study", slug: "classic-study", nom: "classic_study" };
+  const liens = [
+    ...LIENS,
+    { label_id: STUDY.id, application_id: ID_MICABO },
+    { label_id: STUDY.id, application_id: ID_UNSWIPE },
+  ];
+  const slugParId = (id: string) =>
+    ({ [ID_SOPHIA]: "sophia", [ID_UNSWIPE]: "unswipe", [ID_MICABO]: "micabo" })[id];
+
+  it("répartition explicite : ses applications, même sans label (compte micabo en sommeil)", () => {
+    expect(applicationsAfficheesCompte({ parts: { micabo: 100 }, labels: [], liens, slugParId })).toEqual([
+      { slug: "micabo", part: null },
+    ]);
+  });
+
+  it("répartition à plusieurs applications : Sophia d'abord, avec les parts", () => {
+    expect(applicationsAfficheesCompte({ parts: { unswipe: 30, sophia: 70 } })).toEqual([
+      { slug: "sophia", part: 70 },
+      { slug: "unswipe", part: 30 },
+    ]);
+  });
+
+  it("répartition null : Sophia dès qu'un label la sert, ou sans label utile", () => {
+    expect(applicationsAfficheesCompte({ parts: null, labels: [CLEAN], liens, slugParId })).toEqual([
+      { slug: "sophia", part: null },
+    ]);
+    expect(applicationsAfficheesCompte({ parts: null, labels: [CINEMA], liens, slugParId })).toEqual([
+      { slug: "sophia", part: null },
+    ]);
+    expect(applicationsAfficheesCompte({ parts: null, labels: [HOOK], liens, slugParId })).toEqual([
+      { slug: "sophia", part: null },
+    ]);
+  });
+
+  it("répartition null et labels hors Sophia : les applications de ses labels", () => {
+    expect(applicationsAfficheesCompte({ parts: null, labels: [STUDY], liens, slugParId })).toEqual([
+      { slug: "micabo", part: null },
+      { slug: "unswipe", part: null },
+    ]);
+  });
+
+  it("labels non chargés et pas de répartition : Sophia, comme avant", () => {
+    expect(applicationsAfficheesCompte({ parts: null })).toEqual([{ slug: "sophia", part: null }]);
   });
 });

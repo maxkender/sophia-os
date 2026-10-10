@@ -3099,8 +3099,26 @@ Deno.test("deux niveaux — recharge : l'application imposée n'est servie que s
     assertEquals(insertsPassages(journal).map((p) => p.application_id), [UNSWIPE]);
   });
   await avecDecks(pret, async (appels) => {
-    // Répartition NULL : l'imposée éligible est servie, comme avant.
+    // Répartition NULL, label partagé : 100 % Sophia par défaut — un post
+    // Unswipe révoqué est rechargé en Sophia, jamais en Unswipe.
     const base = baseEssai({
+      pertinences: [0, 1].map((i) => ({ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true })),
+    });
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {
+      forcer: true,
+      applicationImposee: "unswipe",
+    });
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(appels.application, []);
+    assertEquals(insertsPassages(journal).map((p) => p.application_id ?? ID_SOPHIA), [ID_SOPHIA]);
+  });
+  await avecDecks(pret, async (appels) => {
+    // Répartition NULL, label Unswipe seul : l'imposée éligible est servie.
+    const base = baseEssai({
+      liens: [{ label_id: "L1", application_id: UNSWIPE }],
       pertinences: [0, 1].map((i) => ({ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true })),
     });
     const { client, journal } = fauxMoteur(base);
@@ -3251,25 +3269,51 @@ Deno.test("rappel J+7 — label partagé, 100 % Unswipe : la source Unswipe est 
   oublierSondeMultiApp();
 });
 
-Deno.test("rappel J+7 — répartition NULL : la règle d'avant, sans lire les applications", async () => {
-  for (const application of [ID_SOPHIA, UNSWIPE]) {
-    oublierSondeMultiApp();
-    const base = baseRappelPartage(application, null);
-    const { client, journal } = fauxMoteur(base);
+Deno.test("rappel J+7 — répartition NULL, label partagé : Sophia rejouée, sans lire les applications", async () => {
+  oublierSondeMultiApp();
+  const base = baseRappelPartage(ID_SOPHIA, null);
+  const { client, journal } = fauxMoteur(base);
 
-    const res = await programmerRappelsJ7(client);
+  const res = await programmerRappelsJ7(client);
 
-    assertEquals(res.erreurs, []);
-    assertEquals(res.programmes, 1);
-    assertEquals(insertsPassages(journal)[0].application_id, application);
-    // La sonde du schéma lit une ligne d'`applications` ; le catalogue
-    // (id ↔ slug), lui, n'est chargé que pour une répartition explicite.
-    assertEquals(
-      journal.filter((o) => o.table === "applications" && String(o.colonnes).includes("slug")),
-      [],
-      "aucune lecture du catalogue des applications",
-    );
-  }
+  assertEquals(res.erreurs, []);
+  assertEquals(res.programmes, 1);
+  assertEquals(insertsPassages(journal)[0].application_id, ID_SOPHIA);
+  // La sonde du schéma lit une ligne d'`applications` ; le catalogue
+  // (id ↔ slug), lui, n'est chargé que pour une répartition explicite.
+  assertEquals(
+    journal.filter((o) => o.table === "applications" && String(o.colonnes).includes("slug")),
+    [],
+    "aucune lecture du catalogue des applications",
+  );
+  oublierSondeMultiApp();
+});
+
+Deno.test("rappel J+7 — répartition NULL, label partagé : un post Unswipe n'est PAS rejoué (100 % Sophia par défaut)", async () => {
+  oublierSondeMultiApp();
+  const base = baseRappelPartage(UNSWIPE, null);
+  const { client, journal } = fauxMoteur(base);
+
+  const res = await programmerRappelsJ7(client);
+
+  assertEquals(res.programmes, 0);
+  assertEquals(insertsPassages(journal), []);
+  assertEquals(res.erreurs.length, 1);
+  assert(res.erreurs[0].includes("répartition par défaut (100 % Sophia)"), res.erreurs[0]);
+  oublierSondeMultiApp();
+});
+
+Deno.test("rappel J+7 — répartition NULL, label Unswipe seul : le post Unswipe est rejoué", async () => {
+  oublierSondeMultiApp();
+  const base = baseRappelPartage(UNSWIPE, null);
+  base.label_applications = [{ label_id: "L1", application_id: UNSWIPE }];
+  const { client, journal } = fauxMoteur(base);
+
+  const res = await programmerRappelsJ7(client);
+
+  assertEquals(res.erreurs, []);
+  assertEquals(res.programmes, 1);
+  assertEquals(insertsPassages(journal)[0].application_id, UNSWIPE);
   oublierSondeMultiApp();
 });
 

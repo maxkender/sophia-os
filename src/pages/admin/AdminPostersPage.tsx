@@ -483,7 +483,7 @@ export function AdminPostersPage() {
   // un compte slideshow (ni « aucun compte », ni UGC vidéo — celui-là n'a pas
   // de label). Inactif : options vides, corps inchangé.
   const choixAppsPoster = useChoixApplicationsCreation(
-    peutChoisirApps && !ugcVideo && premierCompte !== "aucun",
+    peutChoisirApps && !ugcVideo && premierCompte === "perso",
     langue,
   );
   const [cree, setCree] = React.useState<{

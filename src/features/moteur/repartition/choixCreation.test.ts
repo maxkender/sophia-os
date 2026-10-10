@@ -100,8 +100,13 @@ describe("validerChoixCreation", () => {
     expect(v.parts).toBeNull();
   });
 
-  it("décimal, négatif ou vide : saisie refusée", () => {
-    for (const perso of [{ sophia: 50.5, unswipe: 49.5 }, { sophia: 110, unswipe: -10 }, { sophia: Number.NaN }]) {
+  it("décimal, négatif, vide ou hors de la grille de 10 : saisie refusée", () => {
+    for (const perso of [
+      { sophia: 50.5, unswipe: 49.5 },
+      { sophia: 110, unswipe: -10 },
+      { sophia: Number.NaN },
+      { sophia: 75, unswipe: 25 },
+    ]) {
       expect(valider(choix({ repartition: "perso", perso })).erreurs).toEqual([{ type: "saisie" }]);
     }
   });

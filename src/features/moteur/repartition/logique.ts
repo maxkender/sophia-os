@@ -278,7 +278,13 @@ function diagnosticRepartitionSansSophia(args: {
   parts: PartsApplications;
   idsServis: readonly string[];
 }): string | null {
-  const { compte, applications, labelsTxt, parts, idsServis } = args;
+  const { compte, labelsTxt, parts, idsServis } = args;
+  // Sophia toujours au catalogue, comme `chargerApplicationsMoteur` côté
+  // moteur : l'appelant ne liste que les applications jointes aux lignes
+  // `label_applications`, et un label sans ligne sert Sophia par héritage.
+  const applications = args.applications.some((a) => a.id === ID_SOPHIA)
+    ? args.applications
+    : [{ id: ID_SOPHIA, slug: SLUG_SOPHIA, nom: "Sophia", actif: true, langues: null }, ...args.applications];
   const eligibles = applicationsEligiblesCompte({
     applications,
     servies: idsServis,

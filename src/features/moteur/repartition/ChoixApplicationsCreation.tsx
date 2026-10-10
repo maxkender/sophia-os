@@ -13,6 +13,7 @@ import {
   type ErreurChoixCreation,
   type InfoChoixCreation,
 } from "./choixCreation";
+import { PAS_PARTS } from "./logique";
 import type { EtatChoixApplicationsCreation } from "./useChoixApplicationsCreation";
 
 const selectClass =
@@ -190,7 +191,7 @@ export function ChoixApplicationsCreation({
                     inputMode="numeric"
                     min={0}
                     max={100}
-                    step={1}
+                    step={PAS_PARTS}
                     className="h-8 w-24"
                     value={Number.isFinite(v) ? v : ""}
                     onChange={(e) => {

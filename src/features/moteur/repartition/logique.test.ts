@@ -361,6 +361,30 @@ describe("diagnosticCompteSansSophia (panneau Minuit)", () => {
     expect(ugc).toContain("il ne publiera rien");
   });
 
+  it("répartition explicite avec part Sophia, label sans ligne (Sophia héritée) : rien à signaler", () => {
+    // L'appelant (api.ts) ne liste que les applications jointes aux lignes
+    // `label_applications` : Sophia peut y manquer, le moteur l'a toujours.
+    const sansLigne = { id: "L9", slug: "nouveau", nom: "nouveau" };
+    expect(
+      diagnosticCompteSansSophia({
+        ...base,
+        compte: { langue: "fr", ugc: false, parts_applications: { sophia: 100 } },
+        labels: [sansLigne],
+        liens: [],
+        applications: [UNSWIPE],
+      }),
+    ).toBeNull();
+    expect(
+      diagnosticCompteSansSophia({
+        ...base,
+        compte: { langue: "fr", ugc: false, parts_applications: { sophia: 70, unswipe: 30 } },
+        labels: [sansLigne, CINEMA],
+        liens: SEUL_UNSWIPE,
+        applications: [UNSWIPE],
+      }),
+    ).toBeNull();
+  });
+
   it("désactivée ET sans langue (état de 0258) : les deux causes, pas seulement « désactivée »", () => {
     const d = diagnosticCompteSansSophia({
       ...base,

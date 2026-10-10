@@ -1037,7 +1037,7 @@ export const fr = {
       preReglage: "100 % {{app}}",
       perso: "Personnalisée",
       total: "Total : {{total}} %",
-      erreurSaisie: "Chaque part doit être un nombre entier entre 0 et 100.",
+      erreurSaisie: "Chaque part doit être un multiple de 10 entre 0 et 100.",
       erreurSomme: "La répartition doit faire exactement 100 % (actuellement {{total}} %).",
       erreurLabelIncompatible: "Le label « {{label}} » ne sert pas {{apps}} : choisis un label qui sert toutes les applications de la répartition, ou change la répartition.",
       erreurAucunLabel: "Aucun label ne sert {{apps}} à la fois : impossible d’en choisir un automatiquement. Coche ces applications sur un label (Pilotage → Labels) ou change la répartition.",

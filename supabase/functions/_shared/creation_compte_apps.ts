@@ -145,7 +145,8 @@ export function validerParts(
   for (const [slug, valeur] of entrees) {
     if (!slugsExistants.includes(slug)) return null;
     if (typeof valeur !== "number" || !Number.isInteger(valeur)) return null;
-    if (valeur < 1 || valeur > 100) return null;
+    // Grille de 10, celle de la carte du compte (10 % = 1 post sur 10).
+    if (valeur < 1 || valeur > 100 || valeur % 10 !== 0) return null;
     somme += valeur;
   }
   if (somme !== 100) return null;

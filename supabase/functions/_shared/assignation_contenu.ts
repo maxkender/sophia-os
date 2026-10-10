@@ -1303,13 +1303,13 @@ async function preparerRepartition(
   const partsDemandees = normaliserParts(args.partsBrutes);
   const parts = partsEffectives(partsDemandees, eligibles.map((a) => a.slug));
   const sophia = applications.find((a) => a.id === ID_SOPHIA) ?? APPLICATION_SOPHIA_SECOURS;
-  // Répartition explicite : une recharge ne ressert l'application du post
-  // révoqué que si la répartition lui laisse une part effective — sinon le
-  // créneau suit la répartition, comme un autre. NULL : inchangé.
+  // Une recharge ne ressert l'application du post révoqué que si la
+  // répartition lui laisse une part effective — sinon le créneau suit la
+  // répartition, comme un autre. Par défaut (NULL) aussi : un compte dont un
+  // label sert Sophia est 100 % Sophia, il ne refait pas un post Unswipe. La
+  // flotte (posts Sophia, parts {sophia: 100}) : inchangé.
   const imposee = args.imposee
-    ? eligibles.find(
-      (a) => a.slug === args.imposee && (partsDemandees === null || (parts[a.slug] ?? 0) > 0),
-    ) ?? null
+    ? eligibles.find((a) => a.slug === args.imposee && (parts[a.slug] ?? 0) > 0) ?? null
     : null;
   // Le repli Sophia (et le pool d'un créneau Sophia) n'existe que si la
   // répartition lui laisse une part effective. NULL : les labels qui la
@@ -3105,10 +3105,11 @@ export async function programmerRappelsJ7(
   // vérifie quand même (`chargerLiensLabels` resonde, et lève si la base ne
   // répond toujours pas : le rappel est alors noté en erreur et repassera).
   //
-  // La répartition du compte (`comptes.parts_applications`) est lue avec : une
-  // ligne, par sa clé. NULL (toute la flotte) : rien de plus n'est chargé, la
-  // décision est celle d'avant. Explicite : les applications (id ↔ slug) sont
-  // chargées une fois pour le run.
+  // La répartition du compte (`comptes.parts_applications`) est lue avec, en
+  // parallèle : une ligne `comptes` par sa clé, pour chaque compte à rappel
+  // (une poignée par nuit). NULL (toute la flotte) : le catalogue des
+  // applications n'est pas chargé, la décision sort des labels seuls.
+  // Explicite : les applications (id ↔ slug) sont chargées une fois pour le run.
   type ApplicationsDuCompte = {
     labels: LabelRef[];
     liens: LienLabelApplication[];
@@ -3172,8 +3173,16 @@ export async function programmerRappelsJ7(
               ` — rappel non programmé, sa pub n'y a plus sa place`,
           );
         }
-        // Répartition explicite : l'application doit y garder une part. NULL :
-        // rien de plus, ni lecture ni décision.
+        // Répartition par défaut (NULL) : un compte dont un label sert Sophia
+        // est 100 % Sophia (`partsEffectives`) — il ne rejoue pas un post d'une
+        // autre application, même si un label partagé la sert aussi. Sans
+        // lecture de plus : les labels suffisent.
+        if (parts === null && appRappel !== ID_SOPHIA && labelsParApplication(labels, liens).has(ID_SOPHIA)) {
+          throw new Error(
+            `répartition par défaut (100 % Sophia) — rappel ${nomApp} non programmé, sa pub n'y a plus sa place`,
+          );
+        }
+        // Répartition explicite : l'application doit y garder une part.
         if (
           parts !== null &&
           !compteSertApplicationRappel(labels, liens, appRappel, {

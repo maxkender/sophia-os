@@ -1035,7 +1035,7 @@ export const en = {
       preReglage: "100% {{app}}",
       perso: "Custom",
       total: "Total: {{total}}%",
-      erreurSaisie: "Each share must be a whole number between 0 and 100.",
+      erreurSaisie: "Each share must be a multiple of 10 between 0 and 100.",
       erreurSomme: "The split must add up to exactly 100% (currently {{total}}%).",
       erreurLabelIncompatible: "The label “{{label}}” does not serve {{apps}}: pick a label that serves every app in the split, or change the split.",
       erreurAucunLabel: "No label serves {{apps}} at once: none can be picked automatically. Tick these apps on a label (Pilotage → Labels) or change the split.",

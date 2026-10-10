@@ -57,7 +57,7 @@ function LignePoster({
   createurs: PosterProfil[];
 }) {
   const { t } = useTranslation();
-  const { role } = useAuth();
+  const { role, profil } = useAuth();
   const queryClient = useQueryClient();
   const langues = useQuery({ queryKey: ["langues-reference"], queryFn: listerLanguesReference });
   const comptes = p.comptes ?? [];
@@ -235,7 +235,7 @@ function LignePoster({
       <FormulaireAjouterCompte
         posterId={p.id}
         languesProposees={langues.data ?? []}
-        choixApplications={peutChoisirApplicationsCompte(role)}
+        choixApplications={peutChoisirApplicationsCompte(role) && !profil?.hm_ugc_ai_video}
       />
     </div>
   );
@@ -247,7 +247,7 @@ function LignePoster({
  */
 export function HiringPosterPage() {
   const { t } = useTranslation();
-  const { role } = useAuth();
+  const { role, profil } = useAuth();
   const queryClient = useQueryClient();
 
   const langues = useQuery({ queryKey: ["langues-reference"], queryFn: listerLanguesReference });
@@ -270,9 +270,10 @@ export function HiringPosterPage() {
   } | null>(null);
   // Label + répartition du premier compte : c'est le créateur qui est associé
   // à des applications, son recruteur choisit pour lui. Seulement pour un
-  // compte perso (un compte CM n'a pas de label) ; rien choisi = corps d'avant.
+  // compte perso (un compte CM n'a pas de label), et pas pour un HM UGC AI
+  // vidéo (ses créateurs suivent ses labels vidéo) ; rien choisi = corps d'avant.
   const choixApps = useChoixApplicationsCreation(
-    peutChoisirApplicationsCompte(role) && premierCompte === "perso",
+    peutChoisirApplicationsCompte(role) && !profil?.hm_ugc_ai_video && premierCompte === "perso",
     langue,
   );
 

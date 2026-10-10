@@ -115,10 +115,10 @@ Deno.test("un choix ne vaut que pour un compte perso slideshow", () => {
 // Validation des parts
 // ---------------------------------------------------------------------------
 
-Deno.test("parts valides : entiers 1..100, slugs existants, somme exactement 100", () => {
+Deno.test("parts valides : multiples de 10 de 10 à 100, slugs existants, somme exactement 100", () => {
   assertEquals(validerParts({ unswipe: 100 }, SLUGS), { unswipe: 100 });
   assertEquals(validerParts({ sophia: 70, unswipe: 30 }, SLUGS), { sophia: 70, unswipe: 30 });
-  assertEquals(validerParts({ sophia: 1, unswipe: 99 }, SLUGS), { sophia: 1, unswipe: 99 });
+  assertEquals(validerParts({ sophia: 10, unswipe: 90 }, SLUGS), { sophia: 10, unswipe: 90 });
 });
 
 Deno.test("parts invalides → null (REPARTITION_INVALIDE)", () => {
@@ -135,6 +135,8 @@ Deno.test("parts invalides → null (REPARTITION_INVALIDE)", () => {
     { sophia: 100, unswipe: 0 }, // 0 hors bornes
     { sophia: 110, unswipe: -10 }, // hors bornes, même si la somme fait 100
     { sophia: 50.5, unswipe: 49.5 }, // pas des entiers
+    { sophia: 1, unswipe: 99 }, // hors de la grille de 10 de la carte
+    { sophia: 75, unswipe: 25 },
     { sophia: "70", unswipe: 30 }, // chaîne
     { micabo: 100 }, // slug supprimé
     { inconnue: 50, sophia: 50 },

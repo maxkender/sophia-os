@@ -18,6 +18,7 @@
  * identique à celui d'avant, File des créateurs puis repli.
  */
 import { nomApplication } from "../applications";
+import { PAS_PARTS } from "./logique";
 import { estLabelFileSlideshow, type LabelFileSlideshow } from "../fileLabelsSlideshow";
 import {
   applicationsDuLabel,
@@ -188,7 +189,9 @@ export function validerChoixCreation(args: {
 
   if (choix.repartition === "perso") {
     const valeurs = Object.values(choix.perso);
-    if (valeurs.some((v) => !Number.isInteger(v) || v < 0 || v > 100)) {
+    // Même grille que la carte du compte et que le moteur : 10 % = 1 post sur
+    // la fenêtre de 10. Une part hors grille y serait arrondie à l'affichage.
+    if (valeurs.some((v) => !Number.isInteger(v) || v < 0 || v > 100 || v % PAS_PARTS !== 0)) {
       erreurs.push({ type: "saisie" });
     } else {
       const total = valeurs.reduce((s, v) => s + v, 0);

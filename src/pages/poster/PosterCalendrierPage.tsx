@@ -21,6 +21,7 @@ import {
   aujourdhui,
   demarrerWarmup,
   majMonHandle,
+  majMonHandleInstagram,
   mesComptes,
   type MonCompte,
 } from "@/features/moteur/api";
@@ -153,7 +154,16 @@ function SelecteurCompte({
   );
 }
 
-function IdentiteTikTok({ compte }: { compte: MonCompte }) {
+/** Un @ éditable par le poster (TikTok, ou Instagram pour les comptes du pod 3). */
+function ChampHandle({
+  valeur,
+  plateforme,
+  enregistrer,
+}: {
+  valeur: string | null;
+  plateforme?: string;
+  enregistrer: (handle: string) => Promise<void>;
+}) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
 
@@ -161,13 +171,50 @@ function IdentiteTikTok({ compte }: { compte: MonCompte }) {
   const [handle, setHandle] = React.useState("");
 
   const majHandle = useMutation({
-    mutationFn: () => majMonHandle(handle, compte.id),
+    mutationFn: () => enregistrer(handle),
     onSuccess: () => {
       setEditHandle(false);
       queryClient.invalidateQueries({ queryKey: ["mes-comptes"] });
     },
   });
 
+  return editHandle ? (
+    <div className="flex items-center gap-1">
+      <span className="text-sm text-muted-foreground">{plateforme ? `${plateforme} @` : "@"}</span>
+      <input
+        value={handle}
+        onChange={(e) => setHandle(e.target.value)}
+        placeholder={valeur ?? "ton.pseudo"}
+        className="h-7 flex-1 rounded-md border border-input bg-background px-2 text-sm"
+      />
+      <Button size="sm" className="h-7" disabled={majHandle.isPending} onClick={() => majHandle.mutate()}>
+        {t("common.save")}
+      </Button>
+      <Button size="sm" variant="ghost" className="h-7" onClick={() => setEditHandle(false)}>
+        {t("common.cancel")}
+      </Button>
+    </div>
+  ) : (
+    <div className="flex flex-wrap items-center gap-2">
+      <p className="text-sm text-muted-foreground">
+        {plateforme ? `${plateforme} ` : ""}@{valeur ?? "—"}
+      </p>
+      <button
+        type="button"
+        onClick={() => {
+          setHandle(valeur ?? "");
+          setEditHandle(true);
+        }}
+        className="text-xs text-primary underline underline-offset-2"
+      >
+        {valeur ? t("identite.majHandle") : t("identite.setHandle")}
+      </button>
+    </div>
+  );
+}
+
+function IdentiteTikTok({ compte }: { compte: MonCompte }) {
+  const { t } = useTranslation();
 
   const copier = (texte: string) => navigator.clipboard?.writeText(texte);
 
@@ -184,43 +231,19 @@ function IdentiteTikTok({ compte }: { compte: MonCompte }) {
           )}
           <div className="min-w-0 flex-1 space-y-1.5">
             <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-              {t("identite.titre")}
+              {compte.videos_uniquement ? t("identite.titreUgc") : t("identite.titre")}
             </p>
             {compte.persona_nom && <p className="text-sm font-semibold">{compte.persona_nom}</p>}
 
             {/* Le @ TikTok : éditable par le poster une fois son compte créé. */}
-            {editHandle ? (
-              <div className="flex items-center gap-1">
-                <span className="text-sm text-muted-foreground">@</span>
-                <input
-                  value={handle}
-                  onChange={(e) => setHandle(e.target.value)}
-                  placeholder={compte.handle_tiktok ?? "ton.pseudo"}
-                  className="h-7 flex-1 rounded-md border border-input bg-background px-2 text-sm"
-                />
-                <Button size="sm" className="h-7" disabled={majHandle.isPending} onClick={() => majHandle.mutate()}>
-                  {t("common.save")}
-                </Button>
-                <Button size="sm" variant="ghost" className="h-7" onClick={() => setEditHandle(false)}>
-                  {t("common.cancel")}
-                </Button>
-              </div>
-            ) : (
-              <div className="flex flex-wrap items-center gap-2">
-                <p className="text-sm text-muted-foreground">
-                  @{compte.handle_tiktok ?? "—"}
-                </p>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setHandle(compte.handle_tiktok ?? "");
-                    setEditHandle(true);
-                  }}
-                  className="text-xs text-primary underline underline-offset-2"
-                >
-                  {compte.handle_tiktok ? t("identite.majHandle") : t("identite.setHandle")}
-                </button>
-              </div>
+            <ChampHandle valeur={compte.handle_tiktok} enregistrer={(h) => majMonHandle(h, compte.id)} />
+            {/* Compte du pod 3 : il publie aussi sur Instagram. */}
+            {compte.videos_uniquement && (
+              <ChampHandle
+                valeur={compte.handle_instagram}
+                plateforme={t("identite.instagram")}
+                enregistrer={(h) => majMonHandleInstagram(h, compte.id)}
+              />
             )}
             <p className="text-[11px] text-muted-foreground">{t("identite.handleAide")}</p>
 
@@ -243,7 +266,9 @@ function IdentiteTikTok({ compte }: { compte: MonCompte }) {
                 </Button>
               )}
             </div>
-            <p className="pt-1 text-xs text-muted-foreground">{t("identite.aide")}</p>
+            <p className="pt-1 text-xs text-muted-foreground">
+              {compte.videos_uniquement ? t("identite.aideUgc") : t("identite.aide")}
+            </p>
           </div>
         </div>
       </CardContent>
@@ -269,6 +294,8 @@ export function PosterCalendrierPage() {
   const compte =
     (comptes ?? []).find((c) => c.id === compteId) ?? comptePrincipal(comptes ?? []);
   const estCm = compte ? estCompteCm(compte) : false;
+  // Compte UGC vidéo (pod 3) : une vidéo par jour, aucun slideshow à afficher.
+  const ugc = Boolean(compte?.videos_uniquement);
 
   React.useEffect(() => {
     if (!user?.id || !comptes?.length) return;
@@ -371,7 +398,9 @@ export function PosterCalendrierPage() {
               : t("calendrier.warmupRappel")}
           </p>
           {warmupStatut === "attente" && (
-            <p className="text-xs text-muted-foreground">{t("calendrier.warmupADemarrerAide")}</p>
+            <p className="text-xs text-muted-foreground">
+              {ugc ? t("calendrier.warmupADemarrerAideUgc") : t("calendrier.warmupADemarrerAide")}
+            </p>
           )}
         </div>
         {compte && (
@@ -396,7 +425,14 @@ export function PosterCalendrierPage() {
 
       {compte && <IdentiteTikTok compte={compte} />}
 
-      {compte && <VideosAPoster compteId={compte.id} />}
+      {compte && (
+        <VideosAPoster
+          compteId={compte.id}
+          handleTiktok={compte.handle_tiktok}
+          handleInstagram={compte.handle_instagram}
+          vide={ugc ? t("videosPod.vide") : undefined}
+        />
+      )}
 
       <Link
         to="/createur/parrainage"
@@ -414,6 +450,7 @@ export function PosterCalendrierPage() {
         </div>
       </Link>
 
+      {!ugc && (
       <section className="space-y-4">
         <h2 className="text-lg font-semibold tracking-tight">{titreJour}</h2>
         {duJour.length === 0 ? (
@@ -429,7 +466,9 @@ export function PosterCalendrierPage() {
           </div>
         )}
       </section>
+      )}
 
+      {!ugc && (
       <section className="space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="text-lg font-semibold capitalize tracking-tight">{nomDuMois}</h2>
@@ -529,6 +568,7 @@ export function PosterCalendrierPage() {
 
         <p className="text-xs text-muted-foreground">{t("calendrier.legende")}</p>
       </section>
+      )}
     </div>
   );
 }

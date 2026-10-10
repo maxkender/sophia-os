@@ -7,7 +7,13 @@
  * applications notées — identique au score Sophia pour un contenu Sophia seul,
  * qui garde exactement un passage et un appel Gemini.
  *
- * Les décisions pures (applications à noter, consigne, finalisation,
+ * La consigne passée à `scoreRelevance` est le prompt stocké TEL QUEL
+ * (`undefined` pour Sophia sans prompt : le défaut de `scoreRelevance`) : plus
+ * d'angle de label injecté. Le texte envoyé à Gemini pour un contenu Sophia
+ * est octet pour octet celui d'avant le multi-app. La colonne
+ * `contenu_pertinences.angles` reste en base, toujours écrite à `null`.
+ *
+ * Les décisions pures (applications à noter, finalisation,
  * éligibilité, file du rattrapage) sont en tête de fichier et testées dans
  * `pertinence_apps_test.ts`. Le reste lit / écrit la base, TOUJOURS derrière
  * `schemaMultiAppPret` : sans la migration 0256, rien ici n'est appelé.
@@ -23,11 +29,9 @@ import {
   schemaMultiAppPret,
 } from "./applications_moteur.ts";
 import { baseDeTraduction, type LigneLangueBase } from "./deck_langue.ts";
-import { DEFAULT_RELEVANCE_PROMPT, scoreRelevance } from "./gemini.ts";
+import { scoreRelevance } from "./gemini.ts";
 import {
-  anglesPourApplication,
   applicationsServies,
-  blocAngles,
   ID_SOPHIA,
   SLUG_SOPHIA,
   type ApplicationMoteur,
@@ -117,32 +121,6 @@ export function applicationsAPrompter(
   return [sophia, ...autres];
 }
 
-/**
- * Consigne passée à `scoreRelevance`.
- *
- * Sans angle, c'est le prompt stocké TEL QUEL (`undefined` compris, pour que
- * Sophia garde le prompt par défaut de `scoreRelevance`) : le texte envoyé à
- * Gemini pour un contenu Sophia est octet pour octet celui d'avant le
- * multi-app. Avec un angle, le bloc s'ajoute à la fin — au prompt par défaut
- * si Sophia n'a pas de prompt stocké, jamais à la place.
- */
-export function instructionsPertinence(
-  prompt: string | undefined,
-  bloc: string,
-  defaut: string = DEFAULT_RELEVANCE_PROMPT,
-): string | undefined {
-  if (!bloc) return prompt;
-  return `${prompt ?? defaut}${bloc}`;
-}
-
-/** Texte stocké dans `contenu_pertinences.angles` (`null` sans angle). */
-export function texteAngles(
-  angles: ReadonlyArray<{ label: string; angle: string }>,
-): string | null {
-  if (angles.length === 0) return null;
-  return angles.map((a) => `- ${a.label} : ${a.angle}`).join("\n");
-}
-
 /** Score stockable : `contenu_pertinences.score` est un entier 0..100 (check SQL). */
 export function scoreStockable(score: number): number {
   const n = Number.isFinite(score) ? score : 0;
@@ -197,9 +175,92 @@ export function finaliserPertinence(
   return { score: gagnante.n.score, raison };
 }
 
-/** Éligible au pool de l'application : note d'import ≥ seuil, ou import forcé. */
-export function eligibiliteDepuisNote(note: number, seuil: number, force: boolean): boolean {
+/**
+ * Pertinence minimum (score 0-100 du prompt de pertinence) d'une application
+ * AUTRE que Sophia pour entrer dans son pool. Décision du propriétaire
+ * (2026-10-09) : la note d'import est dominée par les vues et la piste du
+ * compte source (la pertinence n'y pèse qu'environ 16 %), si bien qu'un TikTok
+ * très vu passait le seuil même hors sujet pour Unswipe. Sophia n'a pas ce
+ * plancher : son pool n'écarte que les lignes explicitement non éligibles, et
+ * l'en doter retirerait du stock aux comptes Sophia.
+ */
+export const PERTINENCE_MIN_HORS_SOPHIA = 50;
+
+/** Le score de pertinence permet-il le pool de l'application ? Sophia : toujours. */
+export function pertinenceSuffisante(applicationId: string, score: number): boolean {
+  return applicationId === ID_SOPHIA ||
+    (Number.isFinite(score) && score >= PERTINENCE_MIN_HORS_SOPHIA);
+}
+
+/**
+ * Éligible au pool de l'application : note d'import ≥ seuil, ou import forcé.
+ *
+ * `pertinence` (application + score de pertinence) : hors Sophia, il faut EN
+ * PLUS un score ≥ PERTINENCE_MIN_HORS_SOPHIA, import forcé compris — forcer
+ * l'import passe outre les vues et la piste, pas le sujet. Sophia, ou appel
+ * sans `pertinence` : la règle d'avant, inchangée.
+ */
+export function eligibiliteDepuisNote(
+  note: number,
+  seuil: number,
+  force: boolean,
+  pertinence?: { applicationId: string; score: number },
+): boolean {
+  if (pertinence && !pertinenceSuffisante(pertinence.applicationId, pertinence.score)) return false;
   return force || (Number.isFinite(note) && note >= seuil);
+}
+
+/**
+ * Note STOCKÉE d'une application autre que Sophia : sur un import FORCÉ, elle
+ * est planchée au seuil, comme la note Sophia d'un import forcé
+ * (`forcerImportElo` : `max(note, seuil)`, puis `tierImport`). Le tier
+ * d'entrée paresseux de l'application (`tier_initial_note`, 0270) se lit sur
+ * cette note : sans plancher, une ligne forcée entrerait en C même quand le
+ * seuil (≥ 60) ferait entrer Sophia en B. Sophia, non forcé ou note non finie :
+ * note brute, inchangée.
+ */
+export function noteStockee(
+  note: number,
+  applicationId: string,
+  seuil: number,
+  force: boolean,
+): number {
+  if (!force || applicationId === ID_SOPHIA || !Number.isFinite(note)) return note;
+  return Math.max(note, seuil);
+}
+
+/**
+ * Comment placer le rang SOPHIA (`contenus.tier`) d'un contenu à l'import,
+ * maintenant que chaque application a SON tier (0270, « plus de tiers
+ * mergés ») :
+ *
+ * - `historique` : contenu Sophia seul (ou aucune ligne de pertinence) — le
+ *   placement d'avant, à l'octet près (porte = score Sophia) ;
+ * - `partage` : noté pour Sophia ET pour une autre application — le rang
+ *   Sophia vient du score SOPHIA, plus du max (la porte, elle, reste le max) ;
+ * - `hors_sophia` : aucune ligne Sophia (labels qui ne servent qu'une autre
+ *   application) — pas de rang Sophia, `contenus` reste D / 0.
+ */
+export type PlacementSophia =
+  | { mode: "historique" }
+  | { mode: "partage"; scoreSophia: number }
+  | { mode: "hors_sophia" };
+
+/**
+ * Placement Sophia depuis les lignes `contenu_pertinences` du contenu. Le score
+ * Sophia du mode `partage` est le score STOCKÉ (entier), celui dont
+ * `majNotesPertinences` tire la note Sophia : rang et éligibilité Sophia
+ * viennent ainsi du même chiffre.
+ */
+export function placementSophiaDepuisLignes(
+  lignes: ReadonlyArray<{ application_id: string; score: number | string | null }>,
+): PlacementSophia {
+  const sophia = lignes.find((l) => l.application_id === ID_SOPHIA);
+  const autres = lignes.some((l) => l.application_id !== ID_SOPHIA);
+  if (!autres) return { mode: "historique" };
+  if (!sophia) return { mode: "hors_sophia" };
+  const score = Number(sophia.score);
+  return { mode: "partage", scoreSophia: Number.isFinite(score) ? score : 0 };
 }
 
 /**
@@ -351,15 +412,10 @@ interface ContextePertinence {
 async function chargerContexte(
   supabase: Supabase,
   contenuId: string,
-  applications?: ApplicationMoteur[],
 ): Promise<ContextePertinence> {
   const labels = await chargerLabelsDuContenu(supabase, contenuId);
   const liens = await chargerLiensLabels(supabase, labels.map((l) => l.id));
-  return {
-    labels,
-    liens,
-    applications: applications ?? (await chargerApplicationsMoteur(supabase)),
-  };
+  return { labels, liens, applications: await chargerApplicationsMoteur(supabase) };
 }
 
 async function lirePertinences(
@@ -384,6 +440,28 @@ async function lirePertinences(
     note: r.note === null || r.note === undefined ? null : Number(r.note),
     eligible: Boolean(r.eligible),
   }));
+}
+
+/**
+ * Placement Sophia d'un contenu à l'import (voir `PlacementSophia`). LÈVE sur
+ * erreur de lecture : le pas d'import est alors rejoué, plutôt que de figer un
+ * rang Sophia sur une lecture ratée (même doctrine que `schemaMultiAppPret`).
+ * À n'appeler que si 0256 est en place.
+ */
+export async function placementSophiaImport(
+  supabase: Supabase,
+  contenuId: string,
+): Promise<PlacementSophia> {
+  const { data, error } = await supabase
+    .from("contenu_pertinences")
+    .select("application_id, score")
+    .eq("contenu_id", contenuId);
+  if (error) {
+    throw new Error(`Placement Sophia du contenu ${contenuId} : ${messageErreur(error)}`);
+  }
+  return placementSophiaDepuisLignes(
+    (data ?? []) as Array<{ application_id: string; score: number | null }>,
+  );
 }
 
 // ---------------------------------------------------------------------------
@@ -427,11 +505,10 @@ export async function noterPertinenceImport(
   const suivante = prochaineANoter(aNoter, notees);
 
   if (suivante) {
-    const angles = anglesPourApplication(ctx.labels, ctx.liens, suivante.app.id);
     const { score, reason } = await deps.scoreRelevance({
       caption: contenu.titre ?? "",
       hookText,
-      instructions: instructionsPertinence(suivante.prompt, blocAngles(angles, suivante.app.nom)),
+      instructions: suivante.prompt,
     });
     const { error } = await supabase.from("contenu_pertinences").upsert(
       {
@@ -439,7 +516,8 @@ export async function noterPertinenceImport(
         application_id: suivante.app.id,
         score: scoreStockable(score),
         raison: reason,
-        angles: texteAngles(angles),
+        // Colonne héritée des angles de label (abandonnés) : plus alimentée.
+        angles: null,
         prompt_cle: suivante.cle,
         note: null,
         // Provisoire jusqu'à l'étape 4 (note d'import). Sophia : éligible —
@@ -499,8 +577,11 @@ export async function majNotesPertinences(
   for (const l of lignes) {
     let { note, eligible } = l;
     if (note === null) {
-      note = opts.noteDe(l.score);
-      eligible = eligibiliteDepuisNote(note, opts.seuil, opts.force);
+      note = noteStockee(opts.noteDe(l.score), l.application_id, opts.seuil, opts.force);
+      eligible = eligibiliteDepuisNote(note, opts.seuil, opts.force, {
+        applicationId: l.application_id,
+        score: l.score,
+      });
       const { error } = await supabase
         .from("contenu_pertinences")
         .update({ note, eligible, updated_at: new Date().toISOString() })
@@ -665,6 +746,8 @@ export interface ScoringNote {
   poidsVues: number;
   vuesPlafond: number;
   eloSeuil: number;
+  /** Part de la piste du compte source dans la note (`elo_poids_source`). */
+  poidsSource?: number;
 }
 
 export interface DepsBackfill extends DepsNotation {
@@ -680,23 +763,35 @@ export interface DepsBackfill extends DepsNotation {
     k: number;
     poidsVues?: number;
     vuesPlafond?: number;
+    pisteSource?: number | null;
+    poidsSource?: number;
   }) => number;
+  /**
+   * Piste du compte source (`lirePisteSource` d'import_contenu). Sans elle, ou
+   * `null` (source inconnue / sans preuve), le terme de piste est désactivé —
+   * exactement comme à l'étape 4 pour une source sans piste.
+   */
+  lirePisteSource?: (compteReferenceId: string | null) => Promise<number | null>;
   maintenant?: () => number;
 }
 
-/** Note un contenu du stock pour une application. Ne touche QUE `contenu_pertinences`. */
-async function noterContenuBackfill(
+/**
+ * Note un contenu du stock pour une application. Ne touche QUE `contenu_pertinences`.
+ *
+ * Exportée pour le test à blanc (mode « contenus », a_blanc_contenus.ts), qui
+ * la rejoue telle quelle derrière son intercepteur : l'upsert y est simulé.
+ */
+export async function noterContenuBackfill(
   supabase: Supabase,
   contenuId: string,
   app: ApplicationMoteur,
   prompt: string,
   scoring: ScoringNote,
-  applications: ApplicationMoteur[],
   deps: DepsBackfill,
 ): Promise<void> {
   const { data: contenu, error } = await supabase
     .from("contenus")
-    .select("id, titre, langue_source, vues_source, import_elo_force_seuil")
+    .select("id, titre, langue_source, vues_source, import_elo_force_seuil, compte_reference_id")
     .eq("id", contenuId)
     .maybeSingle();
   if (error) throw new Error(`Contenu ${contenuId} : ${messageErreur(error)}`);
@@ -707,8 +802,15 @@ async function noterContenuBackfill(
     langue_source: string | null;
     vues_source: number | null;
     import_elo_force_seuil: boolean | null;
+    compte_reference_id?: string | null;
   };
   const langueSource = c.langue_source ?? "fr";
+  // Même note qu'à l'étape 4 de l'import : piste du compte source et son poids
+  // compris (sans eux, la note du rattrapage s'écartait de celle de l'import
+  // dès que `elo_poids_source` > 0). Piste lue au moment du rattrapage.
+  const pisteSource = deps.lirePisteSource
+    ? await deps.lirePisteSource(c.compte_reference_id ?? null)
+    : null;
 
   const { data: ligne, error: errLigne } = await supabase
     .from("contenu_langues")
@@ -718,15 +820,14 @@ async function noterContenuBackfill(
     .maybeSingle();
   if (errLigne) throw new Error(`Deck source de ${contenuId} : ${messageErreur(errLigne)}`);
 
-  const ctx = await chargerContexte(supabase, contenuId, applications);
-  const angles = anglesPourApplication(ctx.labels, ctx.liens, app.id);
   const { score, reason } = await deps.scoreRelevance({
     caption: c.titre ?? "",
     hookText: accrocheDepuisLigneSource(ligne as LigneLangueBase | null),
-    instructions: instructionsPertinence(prompt, blocAngles(angles, app.nom)),
+    instructions: prompt,
   });
   const stocke = scoreStockable(score);
-  const note = deps.noteImport({
+  const forcee = Boolean(c.import_elo_force_seuil);
+  const brute = deps.noteImport({
     pertinence: stocke,
     vues: c.vues_source ?? null,
     langue: langueSource,
@@ -735,7 +836,11 @@ async function noterContenuBackfill(
     k: scoring.k,
     poidsVues: scoring.poidsVues,
     vuesPlafond: scoring.vuesPlafond,
+    pisteSource,
+    poidsSource: scoring.poidsSource,
   });
+  // Import forcé : note planchée au seuil, comme côté Sophia (`noteStockee`).
+  const note = noteStockee(brute, app.id, scoring.eloSeuil, forcee);
   const { error: errUp } = await supabase.from("contenu_pertinences").upsert(
     {
       contenu_id: contenuId,
@@ -743,8 +848,12 @@ async function noterContenuBackfill(
       score: stocke,
       raison: reason,
       note,
-      eligible: eligibiliteDepuisNote(note, scoring.eloSeuil, Boolean(c.import_elo_force_seuil)),
-      angles: texteAngles(angles),
+      eligible: eligibiliteDepuisNote(note, scoring.eloSeuil, forcee, {
+        applicationId: app.id,
+        score: stocke,
+      }),
+      // Colonne héritée des angles de label (abandonnés) : plus alimentée.
+      angles: null,
       prompt_cle: clePromptPertinenceApp(app),
       updated_at: new Date().toISOString(),
     },
@@ -843,7 +952,7 @@ export async function tickBackfillPertinence(
         if (maintenant() - debut > BUDGET_BACKFILL_MS) break;
         traites += 1;
         try {
-          await noterContenuBackfill(supabase, contenuId, app, prompt, scoring, applications, deps);
+          await noterContenuBackfill(supabase, contenuId, app, prompt, scoring, deps);
           faits += 1;
         } catch (e) {
           erreurs += 1;

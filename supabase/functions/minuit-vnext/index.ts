@@ -20,6 +20,12 @@ import {
   type RequalificationResultat,
 } from "../_shared/tierlist.ts";
 import {
+  blocRunTierlistApplications,
+  ECHEANCE_TIERS_APPLICATIONS_MS,
+  requalifierApplications,
+  type RequalificationApplications,
+} from "../_shared/tiers_application.ts";
+import {
   kickUpscaleAssignes,
   listerMediasAssignesNonUpscales,
 } from "../_shared/upscale_media_core.ts";
@@ -230,6 +236,41 @@ async function enregistrerRunTierlist(
 }
 
 /**
+ * Trace de l'étape `tierlist_applications` dans sa PROPRE clé,
+ * `reglages.tierlist_applications_dernier_run` — jamais dans
+ * `minuit_dernier_run` (Sophia), dont les trois littéraux restent intacts.
+ * Écrite même quand l'étape a levé (`erreur`) : c'est ce que lisent la carte
+ * Applications et la page Minuit. Une écriture ratée ne fait pas échouer
+ * l'étape (la requalification est faite) : elle est dite et logguée.
+ */
+async function enregistrerRunTierlistApplications(
+  supabase: Supabase,
+  jour: string,
+  res: RequalificationApplications | null,
+  erreur: string | null,
+  out: Record<string, unknown>,
+): Promise<void> {
+  const { error } = await supabase.from("reglages").upsert(
+    {
+      cle: "tierlist_applications_dernier_run",
+      valeur: {
+        jour,
+        at: new Date().toISOString(),
+        etat: res?.etat ?? null,
+        applications: res ? blocRunTierlistApplications(res) : {},
+        erreur,
+      },
+    },
+    { onConflict: "cle" },
+  );
+  if (error) {
+    const message = `trace tierlist par application non écrite : ${messageErreur(error)}`;
+    console.error(`[minuit] ${message}`);
+    ajouterAvertissement(out, message);
+  }
+}
+
+/**
  * Ligne « Lowered quota » telle que l'admin l'affiche. Un seul endroit pour la
  * fabriquer, parce qu'elle est écrite par trois chemins (minuit compte isolé,
  * minuit tierlist, drain d'assignation) et qu'un libellé qui diverge ferait
@@ -263,10 +304,15 @@ function ligneQuotasBaisses(
  *   - crée passages statut=assigne (musique + hashtags) estampillés du cycle
  *
  *   {}  → kick rattrapage (async) + tierlist + assignation + upscale
- *   { etapes?: ['stats'|'scores'|'tierlist'|'assignation'|'upscale'|'variations'|'rattrapage'|'classement'], compteId?, date?, forcer? }
+ *   { etapes?: ['stats'|'scores'|'tierlist'|'tierlist_applications'|'assignation'|'upscale'|'variations'|'rattrapage'|'classement'], compteId?, date?, forcer? }
  *   etape `tierlist` : requalification des contenus au bout de leurs passages
  *                      (m = moyenne des vues du cycle) + rappels J+7 des
- *                      passages au-delà de 50k vues
+ *                      passages au-delà de 50k vues — puis, sans contenu ciblé,
+ *                      `tierlist_applications`
+ *   etape `tierlist_applications` : tier PAR APPLICATION (0270, hors Sophia),
+ *                      en DERNIER, après toutes les étapes Sophia (drain
+ *                      lancé), borné à 20 s ; explicite avec
+ *                      { contenuId, applicationId } (clic admin)
  *   etape `rattrapage` : stats 4j + ELO langue + snapshot vues (contourne PAUSE_ELO_RUNTIME)
  *                        — kick async si tous comptes (évite timeout cron). La
  *                        requalification du classement des comptes tourne en fin
@@ -597,6 +643,86 @@ Deno.serve(async (request) => {
       await executerEtape(out, bilan, "variations", async () => {
         // Un candidat par passage minuit ; le drain `variations` en fait plus souvent.
         out.variations = await avancerVariations(supabase);
+      });
+    }
+
+    // Tierlist PAR APPLICATION (0270) : les applications autres que Sophia
+    // requalifient LEUR tier, sur LEURS vues et LEUR budget. Étape à part, et
+    // la DERNIÈRE : rien de non-Sophia ne passe devant une étape Sophia — le
+    // drain d'assignation, l'upscale et les variations partent exactement
+    // comme avant 0270, au même moment. Le drain, lancé juste avant, peut tirer
+    // pendant qu'elle tourne : sans risque, elle ne touche que des cycles
+    // TERMINÉS (restants à 0, donc hors du pool) et ses écritures sont gardées
+    // par `tier_cycle` ; un contenu requalifié rejoint le pool pour les lots
+    // suivants. Bornée à 20 s (échéance contrôlée avant chaque lecture et
+    // chaque écriture) ; le reste repasse la nuit suivante. Ne lit et n'écrit
+    // QUE les objets de 0270 et sa propre clé de réglages :
+    // `minuit_dernier_run` (Sophia) n'est pas touché.
+    //
+    // Lancée par le run de nuit (`tierlist` sans contenu ciblé), ou demandée
+    // explicitement : le clic admin « Requalifier maintenant » d'une fiche
+    // envoie { etapes: ["tierlist_applications"], contenuId, applicationId }.
+    if (
+      etapes.includes("tierlist_applications") ||
+      (etapes.includes("tierlist") && !body?.contenuId)
+    ) {
+      await executerEtape(out, bilan, "tierlist_applications", async () => {
+        const explicite = etapes.includes("tierlist_applications") && Boolean(body?.contenuId);
+        const dryRun = Boolean(body?.dryRun);
+        let res: RequalificationApplications | null = null;
+        let erreur: string | null = null;
+        try {
+          res = await requalifierApplications(supabase, {
+            dryRun,
+            contenuId: explicite ? String(body.contenuId) : null,
+            applicationId: explicite ? ((body?.applicationId as string | undefined) ?? null) : null,
+            echeance: explicite ? undefined : Date.now() + ECHEANCE_TIERS_APPLICATIONS_MS,
+          });
+        } catch (error) {
+          erreur = messageErreur(error);
+        }
+        if (res) out.tierlist_applications = res;
+        // Trace persistée, échec compris (la réponse part à pg_cron, qui la
+        // jette) — sauf dry run et clic admin, comme le bloc tierlist Sophia.
+        if (!dryRun && !explicite) {
+          await enregistrerRunTierlistApplications(supabase, jour, res, erreur, out);
+        }
+        if (erreur) throw new Error(erreur);
+        if (!res) return;
+        if (res.etat === "illisible") {
+          if (explicite) throw new Error("sonde 0270 (tiers par application) illisible — réessayer");
+          // La nuit ne s'arrête pas pour ça : l'étape est sautée, et dite.
+          ajouterAvertissement(out, "tierlist par application sautée : sonde 0270 illisible");
+          console.error("[minuit] tierlist par application sautée : sonde 0270 illisible");
+          return;
+        }
+        if (res.etat === "absent") {
+          if (explicite) {
+            throw new Error("migration 0270 non appliquée — tiers par application indisponibles");
+          }
+          return;
+        }
+        const erreurs: string[] = [];
+        for (const [slug, r] of Object.entries(res.parApplication)) {
+          if (!r.coherence.ok && r.coherence.alerte) {
+            ajouterAvertissement(out, `tierlist ${slug} — ${r.coherence.alerte}`);
+            console.error(`[minuit] tierlist ${slug} — ${r.coherence.alerte}`);
+          }
+          if (r.interrompu) {
+            const texte =
+              `tierlist ${slug} interrompue (échéance de ${ECHEANCE_TIERS_APPLICATIONS_MS / 1000} s) — ` +
+              `la suite passe la nuit prochaine`;
+            ajouterAvertissement(out, texte);
+            console.error(`[minuit] ${texte}`);
+          }
+          if (r.erreur) erreurs.push(`${slug} : ${r.erreur}`);
+        }
+        // Une application en erreur : l'étape est en échec (et dite). Les
+        // étapes Sophia sont déjà passées, et le statut HTTP n'en dépend pas
+        // (seule l'assignation le décide).
+        if (erreurs.length > 0) {
+          throw new Error(`tierlist par application en échec — ${erreurs.join(" · ")}`);
+        }
       });
     }
 

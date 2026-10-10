@@ -65,6 +65,8 @@ import {
   type ApplicationOs,
 } from "./applications";
 import { estErreurSchemaAbsent } from "./multiapp/logique";
+import type { ApplicationMoteur } from "./multiApp";
+import { diagnosticCompteSansSophia, labelsPoolSophiaCompteMixte } from "./repartition/logique";
 import { comptePrincipal, normaliserTypeCompte, resoudrePremierCompte } from "./comptesCm";
 import { estLabelSysteme, SLUG_HOOK } from "./mediaCaption";
 import {
@@ -75,6 +77,12 @@ import {
 } from "./creationManuelle";
 import type { CompteIdentifiants, CompteResumePoster, TypeCompte } from "./types";
 import type { ReponseSuiviRc } from "@/features/revenuecat/types";
+import {
+  decouperLignesNdjson,
+  type AssignationABlancLog,
+  type AssignationABlancResultat,
+} from "./assignationABlanc";
+import type { ContenusABlancResultat, SlideshowABlanc } from "./contenusABlanc";
 
 export type { EloImportRapport };
 export type { ApplicationOs };
@@ -100,6 +108,14 @@ export function aujourdhui(): string {
 /** Jour calendaire Paris (YYYY-MM-DD) — aligné sur minuit / assignation / alertes. */
 export function aujourdhuiParis(): string {
   return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(new Date());
+}
+
+/** Jour Paris de DEMAIN (YYYY-MM-DD) : celui que prépare la prochaine nuit. */
+export function demainParis(maintenant: Date = new Date()): string {
+  const jour = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(maintenant);
+  const d = new Date(`${jour}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + 1);
+  return d.toISOString().slice(0, 10);
 }
 
 /** Jour Paris d'un timestamptz ISO (ou null). */
@@ -450,6 +466,32 @@ export async function creerCompte(input: {
     langue: input.langue,
     persona_nom: input.personaNom.trim() || null,
     handle_tiktok: input.handleTiktok.trim().replace(/^@/, "") || null,
+    posts_par_jour: 1,
+  });
+  if (error) throw error;
+}
+
+/**
+ * Compte UGC vidéo (pod 3) d'un poster qui vient d'être créé sans compte :
+ * vidéos uniquement (TikTok + Instagram), jamais de slideshow, ni label ni
+ * persona tirés de la file. Le warmup n'est pas démarré : rien n'est servi au
+ * compte avant que son poster le lance et qu'il se termine.
+ */
+export async function creerCompteUgcVideo(input: {
+  posterId: string;
+  langue: string;
+  personaNom: string;
+  handleTiktok: string;
+  handleInstagram: string;
+}): Promise<void> {
+  const { error } = await supabase.from("comptes").insert({
+    poster_id: input.posterId,
+    type_compte: "perso",
+    langue: input.langue,
+    persona_nom: input.personaNom.trim() || null,
+    handle_tiktok: input.handleTiktok.trim().replace(/^@/, "") || null,
+    handle_instagram: input.handleInstagram.trim().replace(/^@/, "") || null,
+    videos_uniquement: true,
     posts_par_jour: 1,
   });
   if (error) throw error;
@@ -1050,6 +1092,9 @@ export interface MonCompte {
   persona_nom: string | null;
   persona_bio: string | null;
   handle_tiktok: string | null;
+  handle_instagram: string | null;
+  /** Compte du pod 3 : vidéos uniquement, publiées sur TikTok ET Instagram. */
+  videos_uniquement: boolean;
   avatar_url: string | null;
   langue: string;
   warmup_started_at: string | null;
@@ -1061,7 +1106,7 @@ export async function mesComptes(): Promise<MonCompte[]> {
   const { data, error } = await supabase
     .from("comptes")
     .select(
-      "id, type_compte, persona_nom, persona_bio, handle_tiktok, avatar_url, langue, warmup_started_at, warmup_ends_at",
+      "id, type_compte, persona_nom, persona_bio, handle_tiktok, handle_instagram, videos_uniquement, avatar_url, langue, warmup_started_at, warmup_ends_at",
     )
     .eq("is_active", true)
     .order("created_at", { ascending: true });
@@ -1083,6 +1128,15 @@ export async function monCompte(): Promise<MonCompte | null> {
 /** Le poster met à jour le @ d'un de ses comptes. */
 export async function majMonHandle(handle: string, compteId?: string): Promise<void> {
   const { error } = await supabase.rpc("maj_mon_handle", {
+    nouveau: handle,
+    cible: compteId ?? null,
+  });
+  if (error) throw error;
+}
+
+/** Le poster met à jour le @ Instagram d'un de ses comptes (pod 3). */
+export async function majMonHandleInstagram(handle: string, compteId?: string): Promise<void> {
+  const { error } = await supabase.rpc("maj_mon_handle_instagram", {
     nouveau: handle,
     cible: compteId ?? null,
   });
@@ -1196,17 +1250,40 @@ export async function onboardingVu(): Promise<boolean> {
   if (!uid) return true;
   const { data, error } = await supabase
     .from("profiles")
-    .select("onboarding_vu_at")
+    .select("onboarding_vu_at, onboarding_en_boucle")
     .eq("id", uid)
     .maybeSingle();
   if (error) throw error;
+  // Profil de test : vu seulement pour CETTE connexion, donc revu à la suivante.
+  if (data?.onboarding_en_boucle) return lireVuConnexion(cleVuConnexion(sess.user));
   return Boolean(data?.onboarding_vu_at);
+}
+
+/** Clé « vu pour cette connexion » : change à chaque connexion (last_sign_in_at). */
+function cleVuConnexion(user: { id: string; last_sign_in_at?: string | null } | null): string | null {
+  return user ? `onboarding-vu:${user.id}:${user.last_sign_in_at ?? ""}` : null;
+}
+
+function lireVuConnexion(cle: string | null): boolean {
+  if (!cle) return true;
+  try {
+    return window.localStorage.getItem(cle) === "1";
+  } catch {
+    return false;
+  }
 }
 
 /** Marque la vidéo d'onboarding comme vue (le pop-up ne réapparaîtra plus). */
 export async function marquerOnboardingVu(): Promise<void> {
   const { error } = await supabase.rpc("marquer_onboarding_vu");
   if (error) throw error;
+  const { data: sess } = await supabase.auth.getUser();
+  const cle = cleVuConnexion(sess.user);
+  try {
+    if (cle) window.localStorage.setItem(cle, "1");
+  } catch {
+    // Stockage indisponible : le pop-up réapparaîtra, sans gravité pour un profil de test.
+  }
 }
 
 /** Le lien Upwork du poster connecté (sur sa propre ligne profiles). */
@@ -3339,6 +3416,7 @@ export async function lireReglages(): Promise<Reglages> {
       remix_par_requalif: 3,
       repechage_passages: 1,
       requalif_max_jours: 3,
+      ecart_min_meme_contenu: 14,
       ...((map.get("tierlist") as Partial<Reglages["tierlist"]> | undefined) ?? {}),
     },
     classement_comptes: lireClassementReglages(map.get("classement_comptes")),
@@ -4545,6 +4623,186 @@ export const annulerAssignationTestCompte = (date: string, compteId: string) =>
     compteId,
   });
 
+export type { AssignationABlancLog, AssignationABlancResultat };
+
+/**
+ * Appelle la fonction `assignation-a-blanc` et lit son flux NDJSON : chaque
+ * ligne qui porte un `detail` part dans `onLog`, la ligne `ready` finale est
+ * rendue (elle porte `resultat`, partiel compris). Partagé par le test d'un
+ * compte et le test de notation / placement de quelques slideshows.
+ */
+async function posterFluxABlanc(
+  corps: Record<string, unknown>,
+  onLog?: (ligne: AssignationABlancLog) => void,
+): Promise<Record<string, unknown>> {
+  const url = import.meta.env.VITE_SUPABASE_URL;
+  const anon = import.meta.env.VITE_SUPABASE_ANON_KEY;
+  if (!url || !anon) throw new Error("Supabase non configuré");
+
+  const { data: sessionData } = await supabase.auth.getSession();
+  const token = sessionData.session?.access_token;
+  if (!token) throw new Error("Session expirée — reconnecte-toi.");
+
+  const res = await fetch(`${url}/functions/v1/assignation-a-blanc`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      apikey: anon,
+      "Content-Type": "application/json",
+      Accept: "application/x-ndjson",
+    },
+    body: JSON.stringify(corps),
+  });
+
+  if (!res.ok || !res.body) {
+    let message = `Edge assignation-a-blanc ${res.status}`;
+    try {
+      const j = (await res.json()) as { error?: string };
+      if (j?.error) message = j.error;
+    } catch {
+      // corps non JSON : on garde le statut
+    }
+    if (/idle timeout|150s/i.test(message)) {
+      message = "Timeout Edge (150s) — relance le test à blanc.";
+    }
+    throw new Error(message);
+  }
+
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let tampon = "";
+  let pret: Record<string, unknown> | null = null;
+  const traiter = (lignes: unknown[]) => {
+    for (const brut of lignes) {
+      if (!brut || typeof brut !== "object") continue;
+      const ev = brut as Record<string, unknown>;
+      if (ev.etape === "ready") pret = ev;
+      const detail = typeof ev.detail === "string" ? ev.detail : "";
+      if (detail) {
+        onLog?.({
+          at: typeof ev.at === "string" ? ev.at : new Date().toISOString(),
+          detail,
+          statut: typeof ev.statut === "string" ? ev.statut : undefined,
+          etape: typeof ev.etape === "string" ? ev.etape : undefined,
+        });
+      }
+    }
+  };
+  try {
+    let fini = false;
+    while (!fini) {
+      const { done, value } = await reader.read();
+      fini = done;
+      if (done) break;
+      const { lignes, reste } = decouperLignesNdjson(tampon + decoder.decode(value, { stream: true }));
+      tampon = reste;
+      traiter(lignes);
+    }
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    throw new Error(
+      /idle timeout|150s|network|aborted/i.test(message)
+        ? "Flux du test à blanc interrompu (timeout Edge ?) — relance le test."
+        : message,
+    );
+  }
+  traiter(decouperLignesNdjson(`${tampon}\n`).lignes);
+
+  const fin = pret as Record<string, unknown> | null;
+  if (!fin) throw new Error("Test à blanc : aucune réponse du flux");
+  // Erreur pendant le run : le résultat PARTIEL (journal compris) est rendu,
+  // l'écran affiche `erreurRun`. Sans résultat du tout, c'est une erreur.
+  if (!fin.resultat) {
+    throw new Error(
+      typeof fin.error === "string"
+        ? fin.error
+        : typeof fin.detail === "string"
+          ? fin.detail
+          : "Test à blanc échoué",
+    );
+  }
+  return fin;
+}
+
+/**
+ * Assignation test À BLANC d'un compte (fonction `assignation-a-blanc`) : le
+ * vrai code de la nuit, rien d'écrit nulle part. NDJSON streamé + logs, comme
+ * l'assignation test. Rend le résultat reconstruit (créneaux, écritures
+ * évitées, appels bloqués, limites).
+ */
+export async function lancerAssignationABlanc(
+  date: string,
+  compteId: string,
+  ia: boolean,
+  onLog?: (ligne: AssignationABlancLog) => void,
+): Promise<AssignationABlancResultat> {
+  const fin = await posterFluxABlanc({ date, compteId, ia }, onLog);
+  return fin.resultat as AssignationABlancResultat;
+}
+
+/**
+ * Test à blanc « contenus » : la notation (calcul du rattrapage) puis le
+ * placement d'une application autre que Sophia, sur 1 à 3 slideshows. IA
+ * toujours utilisée, rien n'est enregistré. `langue` absente : langue source
+ * de chaque slideshow.
+ */
+export async function lancerContenusABlanc(
+  applicationId: string,
+  contenuIds: string[],
+  langue: string | null,
+  onLog?: (ligne: AssignationABlancLog) => void,
+): Promise<ContenusABlancResultat> {
+  const fin = await posterFluxABlanc(
+    { mode: "contenus", applicationId, contenuIds, ...(langue ? { langue } : {}) },
+    onLog,
+  );
+  return fin.resultat as ContenusABlancResultat;
+}
+
+/** Ids des labels qui servent une application (`label_applications`) ; [] avant 0256. */
+export async function listerLabelIdsApplication(applicationId: string): Promise<string[]> {
+  const { data, error } = await supabase
+    .from("label_applications")
+    .select("label_id")
+    .eq("application_id", applicationId);
+  if (error) {
+    if (estErreurSchemaAbsent(error)) return [];
+    throw error;
+  }
+  return [...new Set((data ?? []).map((r) => r.label_id as string).filter(Boolean))];
+}
+
+/**
+ * Slideshows d'un label que le rattrapage noterait : valides et importés, les
+ * plus récents d'abord. Filtre serveur par label (jointure), et par titre si
+ * `recherche` est donnée — jamais la liste complète du label (> 1 000 lignes).
+ */
+export async function listerSlideshowsLabelABlanc(
+  labelId: string,
+  recherche = "",
+  limite = 150,
+): Promise<SlideshowABlanc[]> {
+  let q = supabase
+    .from("contenus")
+    .select("id, titre, langue_source, vues_source, created_at, contenu_labels!inner(label_id)")
+    .eq("contenu_labels.label_id", labelId)
+    .eq("statut", "valide")
+    .eq("import_statut", "done")
+    .order("created_at", { ascending: false })
+    .limit(limite);
+  const r = recherche.trim();
+  if (r) q = q.ilike("titre", `%${r}%`);
+  const { data, error } = await q;
+  if (error) throw error;
+  return ((data ?? []) as Array<Record<string, unknown>>).map((c) => ({
+    id: String(c.id),
+    titre: (c.titre as string | null) ?? null,
+    langue_source: (c.langue_source as string | null) ?? null,
+    vues_source: c.vues_source === null || c.vues_source === undefined ? null : Number(c.vues_source),
+    created_at: String(c.created_at ?? ""),
+  }));
+}
+
 const LARGEUR_ASSIGN_FRONT = 6;
 
 async function assignerCompteAvecRetry(
@@ -4778,16 +5036,55 @@ export async function suiviAssignation(date: string): Promise<SuiviMinuit[]> {
  * `diagnostiquerPoolVide`) — sans créer de post.
  */
 export async function diagnostiquerQuotaCompte(compteId: string): Promise<string> {
+  // LA RAISON ENREGISTRÉE L'EMPORTE SUR LA RECONSTITUTION.
+  //
+  // Tout ce qui suit rejoue une logique approchante sur l'état COURANT, alors
+  // que minuit a décidé cette nuit, sur l'état d'alors. Les deux divergent dès
+  // qu'on touche à un réglage dans la journée, et la reconstitution se trompe
+  // en silence. Quand minuit a écrit son verdict (0267), on le rend tel quel.
+  const { data: journal, error: errJournal } = await supabase
+    .from("assignation_journal")
+    .select("raison, erreur")
+    .eq("compte_id", compteId)
+    .eq("jour", new Date().toLocaleDateString("en-CA", { timeZone: "Europe/Paris" }))
+    .maybeSingle();
+  // Pas de ligne = normal (minuit n'est pas encore passé). Une ERREUR de
+  // lecture, elle, n'est pas normale : on retombe sur la reconstitution pour
+  // rendre quand même quelque chose, mais sans l'enterrer — c'est exactement
+  // le silence qui avait laissé « aucun valide » s'afficher pendant des jours.
+  if (errJournal) console.warn(`[diagnostic quota] journal illisible : ${errJournal.message}`);
+  if (journal?.erreur) return `Minuit a échoué sur ce compte : ${journal.erreur}`;
+  if (journal?.raison) return journal.raison as string;
+
   const { data: compte, error: errC } = await supabase
     .from("comptes")
-    .select("id, langue, ugc_ai, ugc_ai_video, ugc_persona_id, posts_par_jour")
+    .select(
+      "id, langue, type_compte, videos_uniquement, ugc_ai, ugc_ai_video, ugc_persona_id, posts_par_jour",
+    )
     .eq("id", compteId)
     .maybeSingle();
   if (errC) throw errC;
   if (!compte) return "Compte introuvable.";
 
+  // L'ORDRE SUIT CELUI DE `assignerCompteJour`, et ce n'est pas cosmétique :
+  // ce diagnostic doit rendre LA raison que minuit a réellement appliquée. Il
+  // lui manquait les deux premières sorties (compte CM, compte vidéos
+  // uniquement) ; faute de les tester, il tombait dans l'analyse de pool et
+  // inventait une explication de contenu pour un compte que minuit n'avait
+  // même pas regardé. C'est ce qui a fait chercher un manque de slideshows
+  // inexistant pendant que 4 comptes ne publiaient plus rien.
+  if (compte.type_compte === "cm") {
+    return "Compte CM — hors assignation slideshow (vidéo papier).";
+  }
   if (compte.ugc_ai_video) {
     return "Compte UGC AI VIDEO — hors assignation slideshow (pipeline vidéos à part).";
+  }
+  if (compte.videos_uniquement) {
+    return (
+      "Compte vidéos uniquement (pod 3) — hors assignation slideshow. " +
+      "Si ce compte doit publier des slideshows, décoche « vidéos uniquement » : " +
+      "le quota restera inatteignable tant qu'il est posé."
+    );
   }
   if (compte.ugc_ai && !compte.ugc_persona_id) {
     return "Compte UGC AI sans persona — assigne un persona UGC (4 angles) sur le créateur.";
@@ -4798,7 +5095,7 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
 
   const { data: labelsCompte, error: errL } = await supabase
     .from("compte_labels")
-    .select("label_id, labels(nom)")
+    .select("label_id, labels(nom, slug)")
     .eq("compte_id", compteId);
   if (errL) throw errL;
 
@@ -4813,55 +5110,146 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
   if (labelIds.length === 0) {
     return "Aucun label sur ce compte — ajoute un label pour que minuit puisse piocher.";
   }
+  // Labels où minuit pioche le pool Sophia : tous, sauf pour un compte mixte
+  // (voir plus bas). Un compte Sophia pur garde exactement les siens.
+  let labelIdsPool = labelIds;
+  let labelsTxtPool = labelsTxt;
 
-  const { data: liens } = await supabase
-    .from("contenu_labels")
-    .select("contenu_id")
+  // MULTI-APPLICATIONS. Tout ce qui suit compte le pool SOPHIA (contenus
+  // tagués, prêts, notés dans la langue). Un compte dont aucun label ne sert
+  // Sophia (« 100 % Unswipe ») n'y pioche jamais : la suite lui annoncerait
+  // « pool OK… timeout batch… baisse auto du quota », à tort. On lit donc les
+  // applications de ses labels (un label sans ligne sert Sophia, comme au
+  // moteur) et, si aucun ne sert Sophia, on rend la vraie cause. Un compte
+  // dont un label sert Sophia continue exactement comme avant.
+  const { data: liensApps, error: errApps } = await supabase
+    .from("label_applications")
+    .select("label_id, application_id, applications(id, slug, nom, actif, langues)")
     .in("label_id", labelIds);
-  const idsLabel = [...new Set((liens ?? []).map((l) => l.contenu_id as string))];
-  if (idsLabel.length === 0) {
-    return `Aucun slideshow tagué « ${labelsTxt} » dans la bibliothèque.`;
+  if (errApps) {
+    // Avant 0256 : tous les labels servent Sophia, la suite vaut. Une autre
+    // erreur ne doit pas priver le panneau du diagnostic historique : on le
+    // rend quand même, sans enterrer l'erreur.
+    if (!estErreurSchemaAbsent(errApps)) {
+      console.warn(`[diagnostic quota] applications des labels illisibles : ${errApps.message}`);
+    }
+  } else {
+    const lignes = (liensApps ?? []) as Array<Record<string, unknown>>;
+    const applications = new Map<string, ApplicationMoteur>();
+    for (const r of lignes) {
+      const a = (Array.isArray(r.applications) ? r.applications[0] : r.applications) as
+        | { id?: string; slug?: string; nom?: string; actif?: boolean | null; langues?: string[] | null }
+        | null
+        | undefined;
+      if (!a?.id) continue;
+      applications.set(a.id, {
+        id: a.id,
+        slug: a.slug ?? "",
+        nom: a.nom ?? a.slug ?? a.id,
+        actif: a.actif !== false,
+        langues: a.langues ?? null,
+      });
+    }
+    const refsLabels = (
+      (labelsCompte ?? []) as Array<{
+        label_id: string;
+        labels?: { nom?: string | null; slug?: string | null } | null;
+      }>
+    ).map((l) => ({ id: l.label_id, slug: l.labels?.slug ?? null, nom: l.labels?.nom ?? null }));
+    const liens = lignes.map((r) => ({
+      label_id: String(r.label_id),
+      application_id: String(r.application_id),
+    }));
+    const diagnostic = diagnosticCompteSansSophia({
+      compte: { langue, ugc: ugcAi },
+      labels: refsLabels,
+      liens,
+      applications: [...applications.values()],
+      labelsTxt,
+    });
+    if (diagnostic) return diagnostic;
+    // Compte MIXTE : minuit ne pioche le pool Sophia que dans ses labels qui
+    // servent Sophia. Compté sur tous ses labels, un label « Unswipe seul »
+    // bien rempli faisait annoncer « pool OK » sur un pool Sophia vide.
+    const poolSophia = labelsPoolSophiaCompteMixte(refsLabels, liens);
+    if (poolSophia) {
+      labelIdsPool = poolSophia.map((l) => l.id);
+      const noms = poolSophia.map((l) => l.nom).filter(Boolean) as string[];
+      labelsTxtPool = noms.length > 0 ? noms.join(", ") : `${labelIdsPool.length} label(s)`;
+    }
   }
 
-  const { data: prets } = await supabase
+  // COMPTER CÔTÉ SERVEUR, ne jamais rapatrier les identifiants.
+  //
+  // L'ancienne version lisait tous les `contenu_labels` puis refiltrait avec
+  // un `.in(...)` sur la liste obtenue. Deux pièges, qui se sont déclenchés
+  // ensemble sur `smart_girl` (1227 contenus) :
+  //   1. un select sans `limit` est plafonné à 1000 lignes par PostgREST, donc
+  //      « 1000 slideshow(s) » n'était pas un total mais le plafond ;
+  //   2. un `.in(...)` sur 1000 UUID fait une URL d'environ 37 ko, que le
+  //      serveur refuse — et l'erreur n'était pas lue, donc elle devenait
+  //      « 0 résultat », donc « aucun valide ».
+  // Résultat : le panneau annonçait « aucun valide » là où 822 slideshows
+  // étaient prêts, et envoyait chercher un problème de contenu inexistant.
+  //
+  // Les filtres imbriqués gardent le travail dans Postgres : l'URL ne porte
+  // plus que les quelques `labelIds`, et le nombre de contenus n'a plus
+  // d'influence sur elle.
+  const { count: nTagues, error: errTag } = await supabase
     .from("contenus")
-    .select("id")
+    .select("id, contenu_labels!inner(label_id)", { count: "exact", head: true })
+    .in("contenu_labels.label_id", labelIdsPool);
+  if (errTag) throw errTag;
+  if ((nTagues ?? 0) === 0) {
+    return `Aucun slideshow tagué « ${labelsTxtPool} » dans la bibliothèque.`;
+  }
+
+  const { count: nPrets, error: errPrets } = await supabase
+    .from("contenus")
+    .select("id, contenu_labels!inner(label_id)", { count: "exact", head: true })
     .eq("statut", "valide")
     .eq("import_statut", "done")
     .eq("ugc_compatible", ugcAi)
-    .in("id", idsLabel);
-  const idsPrets = (prets ?? []).map((c) => c.id as string);
-  if (idsPrets.length === 0) {
+    .in("contenu_labels.label_id", labelIdsPool);
+  if (errPrets) throw errPrets;
+  if ((nPrets ?? 0) === 0) {
     return (
-      `${idsLabel.length} slideshow(s) « ${labelsTxt} » mais aucun valide + import terminé` +
+      `${nTagues} slideshow(s) « ${labelsTxtPool} » mais aucun valide + import terminé` +
       (ugcAi ? " + checkmark UGC" : " (non-UGC)") +
       "."
     );
   }
 
-  const { count } = await supabase
+  const { count, error: errLangue } = await supabase
     .from("contenu_langues")
-    .select("contenu_id", { count: "exact", head: true })
+    .select("contenu_id, contenus!inner(statut, import_statut, ugc_compatible, contenu_labels!inner(label_id))", {
+      count: "exact",
+      head: true,
+    })
     .eq("langue", langue)
-    .in("contenu_id", idsPrets);
+    .eq("contenus.statut", "valide")
+    .eq("contenus.import_statut", "done")
+    .eq("contenus.ugc_compatible", ugcAi)
+    .in("contenus.contenu_labels.label_id", labelIdsPool);
+  if (errLangue) throw errLangue;
   const nLangue = count ?? 0;
   if (nLangue === 0) {
     return (
-      `${idsPrets.length} slideshow(s) « ${labelsTxt} » prêts, mais aucun éligible en ` +
+      `${nPrets} slideshow(s) « ${labelsTxtPool} » prêts, mais aucun éligible en ` +
       `${langue.toUpperCase()} (pas de score ELO langue à l'import pour cette langue).`
     );
   }
 
   if (nLangue >= 15) {
     return (
-      `Pool « ${labelsTxt} » × ${langue.toUpperCase()} OK (${nLangue} candidat(s) ELO) — ` +
+      `Pool « ${labelsTxtPool} » × ${langue.toUpperCase()} OK (${nLangue} candidat(s) ELO) — ` +
       `minuit n'a probablement pas atteint ce compte (timeout batch). ` +
       `Utilise « Réassigner incomplets » (parallèle) ; sinon baisse auto du quota.`
     );
   }
 
   return (
-    `Pool « ${labelsTxt} » × ${langue.toUpperCase()} trop mince ou déjà tout assigné ` +
+    `Pool « ${labelsTxtPool} » × ${langue.toUpperCase()} trop mince ou déjà tout assigné ` +
     `(${nLangue} candidat(s) ELO) — importe / labellise d'autres slideshows ` +
     `(sinon minuit baisse automatiquement le quota du créateur).`
   );
@@ -6062,10 +6450,12 @@ export async function lireSlideshow(id: string): Promise<SlideshowDetail | null>
         .select("*")
         .eq("contenu_id", id)
         .order("score", { ascending: false }),
+      // `application_id` (0256, en place) : la fiche marque les passages d'une
+      // autre application que Sophia — leur budget n'est pas celui de Sophia.
       supabase
         .from("passages")
         .select(
-          "id, contenu_id, compte_id, langue, date_publication_prevue, statut, publie_url, vues, likes, commentaires, partages, post_id, comptes(handle_tiktok, persona_nom, langue)",
+          "id, contenu_id, compte_id, langue, date_publication_prevue, statut, publie_url, vues, likes, commentaires, partages, post_id, application_id, comptes(handle_tiktok, persona_nom, langue)",
         )
         .eq("contenu_id", id)
         .order("date_publication_prevue", { ascending: false }),

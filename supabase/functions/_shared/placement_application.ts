@@ -10,14 +10,16 @@
  *    « die Sophia-App »…) ne doit jamais fuiter dans une pub Unswipe ;
  *  - pas de bloc « corrections » : ce sont des retours de l'admin sur la slide
  *    SOPHIA, ils apprendraient au modèle à citer Sophia ;
- *  - le bloc d'angles des labels (`blocAngles`) est injecté dans les données
- *    quand il n'est pas vide ;
+ *  - une slide qui cite une appli concurrente de CETTE application
+ *    (`positionImposee`, voir concurrents.ts) est la seule position permise et
+ *    le prompt demande de la remplacer entièrement ;
  *  - les variantes sont filtrées de façon déterministe : nom de l'application
- *    présent, « Sophia » absent, pas de « l'appli » française hors français.
- *    Aucune variante valable → on relance ; après 4 essais → `null`, et
- *    l'appelant échoue franchement (jamais de texte de repli : celui de
- *    `placementParDefaut` est une pub Sophia).
+ *    présent, « Sophia » absent, aucun concurrent cité, pas de « l'appli »
+ *    française hors français. Aucune variante valable → on relance ; après 4
+ *    essais → `null`, et l'appelant échoue franchement (jamais de texte de
+ *    repli : celui de `placementParDefaut` est une pub Sophia).
  */
+import { citeConcurrent, MOTIF_CONCURRENT, motifConcurrentApplication } from "./concurrents.ts";
 import { variantesSansFrancaisResiduel } from "./deck_langue.ts";
 import {
   callWithFallback,
@@ -35,8 +37,12 @@ export interface PlacementApplicationEntree {
   /** Langue du compte : la slide de placement doit parler comme ses voisines. */
   langue: string;
   application: { slug: string; nom: string };
-  /** Bloc déjà construit par `blocAngles` ; "" quand aucun angle n'est saisi. */
-  angles: string;
+  /**
+   * Slide qui recommande déjà une appli concurrente (`positionConcurrent` avec
+   * le motif de l'application) : c'est ELLE qui est remplacée, même hors des 3
+   * dernières slides. Ignorée si c'est la couverture ou une position absente.
+   */
+  positionImposee?: number;
 }
 
 export interface OptionsPlacementApplication {
@@ -57,18 +63,36 @@ export const MOT_SOPHIA = /\bsophia\b/i;
 
 const attendreParDefaut = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
+/** La position imposée si elle est valable (hors couverture, présente dans le deck). */
+function imposeeValable(
+  slides: Array<{ position: number }>,
+  positionImposee: number | undefined,
+): number | undefined {
+  return positionImposee != null && positionImposee >= 2 &&
+      slides.some((s) => s.position === positionImposee)
+    ? positionImposee
+    : undefined;
+}
+
 /**
- * Positions où la pub peut tomber : les 3 dernières, jamais la couverture
- * (slide 1). Même borne que Sophia.
+ * Positions où la pub peut tomber : la slide concurrente imposée si elle est
+ * valable, sinon les 3 dernières, jamais la couverture (slide 1). Mêmes bornes
+ * que Sophia (`integrateSophia`).
  */
-export function positionsAutorisees(slides: Array<{ position: number }>): number[] {
+export function positionsAutorisees(
+  slides: Array<{ position: number }>,
+  positionImposee?: number,
+): number[] {
+  const imposee = imposeeValable(slides, positionImposee);
+  if (imposee != null) return [imposee];
   const positions = slides.map((s) => s.position).sort((a, b) => a - b);
   return positions.filter((p) => p >= 2).slice(-3);
 }
 
 /** Le prompt envoyé au modèle. Pur : testé sans réseau. */
 export function construirePromptPlacementApplication(input: PlacementApplicationEntree): string {
-  const autoriseesTxt = positionsAutorisees(input.slides).join(", ");
+  const imposee = imposeeValable(input.slides, input.positionImposee);
+  const autoriseesTxt = positionsAutorisees(input.slides, input.positionImposee).join(", ");
   const slideList = input.slides
     .map((s) => `Slide ${s.position} : "${s.text || "(vide)"}"`)
     .join("\n");
@@ -76,6 +100,16 @@ export function construirePromptPlacementApplication(input: PlacementApplication
   const code = input.langue || "fr";
   const langue = LANGUES[code] ?? code;
   const nom = input.application.nom;
+
+  // Slide concurrente : le choix est fait par le code, le modèle n'a plus qu'à
+  // la réécrire en entier (la laisser publiait la pub d'un concurrent).
+  const consignePosition = imposee != null
+    ? `Ne remplace jamais la slide 1 (couverture). La slide ${imposee} cite une appli concurrente :
+remplace-la ENTIÈREMENT par la pub ${nom}, aucune trace du concurrent ne doit rester.
+Position imposée : choisis la slide ${imposee} UNIQUEMENT. Écris 3 variantes qui remplacent son texte.`
+    : `Ne remplace jamais la slide 1 (couverture). Le placement de ${nom} doit toujours tomber dans les
+2-3 DERNIÈRES slides, jamais avant : choisis UNE slide parmi ces positions
+UNIQUEMENT : ${autoriseesTxt}. Écris 3 variantes qui remplacent son texte.`;
 
   // Les exemples du mot « appli » sont ceux du prompt Sophia, réécrits avec le
   // nom de l'application : c'est eux qui ont fait disparaître le calque
@@ -90,12 +124,10 @@ ${input.masterPrompt}
 Application à placer : ${nom}
 Légende de la vidéo : ${input.caption || "(aucune)"}
 Slides du slideshow (slide 1 = couverture) :
-${slideList}${input.angles}
+${slideList}
 
 --- SORTIE ---
-Ne remplace jamais la slide 1 (couverture). Le placement de ${nom} doit toujours tomber dans les
-2-3 DERNIÈRES slides, jamais avant : choisis UNE slide parmi ces positions
-UNIQUEMENT : ${autoriseesTxt}. Écris 3 variantes qui remplacent son texte.
+${consignePosition}
 Chaque variante DOIT :
 - MENTIONNER ${nom} selon le TON des slides. Si elles s'adressent au lecteur à
   la 2e personne du singulier, la mention doit être INDIRECTE : pas d'impératif
@@ -137,16 +169,23 @@ Réponds UNIQUEMENT en JSON, sans bloc de code ni commentaire :
  * Garde-fous déterministes sur les variantes : un prompt n'est qu'une
  * consigne. Une pub qui ne nomme pas l'application ne sert à rien ; une pub
  * qui nomme Sophia sur un créneau Unswipe fausse les stats des deux et brouille
- * le compte. Liste vide = l'appelant relance le modèle.
+ * le compte ; une pub qui cite encore un concurrent (`motif`, celui de
+ * l'application) lui fait de la publicité. Liste vide = l'appelant relance le
+ * modèle.
  */
 export function variantesValidesApplication(
   variantes: string[],
   langue: string,
   nom: string,
+  motif: RegExp = MOTIF_CONCURRENT,
 ): string[] {
   const nomMinuscule = nom.trim().toLowerCase();
   return variantesSansFrancaisResiduel(variantes, langue).filter(
-    (v) => !!nomMinuscule && v.toLowerCase().includes(nomMinuscule) && !MOT_SOPHIA.test(v),
+    (v) =>
+      !!nomMinuscule &&
+      v.toLowerCase().includes(nomMinuscule) &&
+      !MOT_SOPHIA.test(v) &&
+      !citeConcurrent(v, motif),
   );
 }
 
@@ -160,9 +199,10 @@ export async function integrerApplication(
   options: OptionsPlacementApplication = {},
 ): Promise<SophiaPlacement | null> {
   const attendre = options.attendre ?? attendreParDefaut;
-  const autorisees = positionsAutorisees(input.slides);
+  const autorisees = positionsAutorisees(input.slides, input.positionImposee);
   if (autorisees.length === 0) return null;
   const prompt = construirePromptPlacementApplication(input);
+  const motif = motifConcurrentApplication(input.application.slug);
 
   // Quatre essais espacés, comme Sophia : une réponse mal formée, des
   // variantes toutes rejetées ou une surcharge passagère ne doivent pas faire
@@ -187,9 +227,10 @@ export async function integrerApplication(
       const preferee = Number.isInteger(best) && best >= 0 && best < brutes.length
         ? brutes[best]
         : null;
-      const variants = variantesValidesApplication(brutes, input.langue, input.application.nom);
+      const variants = variantesValidesApplication(brutes, input.langue, input.application.nom, motif);
 
-      // Position hors zone : ramenée sur la dernière autorisée (comme Sophia).
+      // Position hors zone : ramenée sur la dernière autorisée (comme Sophia) ;
+      // avec une slide imposée, c'est toujours elle.
       const positionFinale = autorisees.includes(chosenPosition)
         ? chosenPosition
         : autorisees[autorisees.length - 1];

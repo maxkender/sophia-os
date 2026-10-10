@@ -33,6 +33,17 @@ Note /100 de la **langue source** : `30 % pertinence + 70 % vues`
 
 S et S+ ne sont **jamais** atteints à l'import — seulement par requalification.
 
+**Contenu partagé (0270).** Pour un contenu noté pour Sophia ET pour une autre
+application (`contenu_pertinences`), le rang **Sophia** vient du score
+**Sophia**, et plus du max des applications : même formule, mêmes paramètres
+(piste du compte source comprise), D / 0 sous le seuil. La porte d'import
+(rejet), elle, reste le max. `tier_rapport` porte alors `base:
+"pertinence_sophia"`, la note de la porte (`porte`) et son tier (`tier_porte`).
+Un contenu dont aucun label ne sert Sophia (« hors Sophia ») ne reçoit pas de
+rang Sophia (`contenus` reste D / 0). Un contenu Sophia seul — tout le stock
+actuel — garde le placement d'avant, à l'octet près. Même règle pour l'import
+forcé (note Sophia planchée au seuil).
+
 Plus de gate par langue : toutes les langues cibles sont postables. Le deck d'une
 langue naît à la demande, à la première assignation d'un compte de cette langue
 (`assurerDeckPourLangue`). `contenu_langues.score` reste écrit pour l'historique
@@ -127,28 +138,56 @@ effectuer.
 
 Le pool du jour est servi **bande par bande**, dans cet ordre :
 
-| Bande | Contenu                                    |
-| ----- | ------------------------------------------ |
-| 1     | B et au-dessus, jamais posté par ce compte |
-| 2     | B et au-dessus, déjà posté par ce compte   |
-| 3     | C (ou D repêché), jamais posté             |
-| 4     | C (ou D repêché), déjà posté               |
+| Bande | Contenu                                           |
+| ----- | ------------------------------------------------- |
+| 1     | B et au-dessus, jamais posté par ce compte        |
+| 2     | B et au-dessus, posté de longue date              |
+| 3     | C (ou D repêché), jamais posté                    |
+| 4     | C (ou D repêché), posté de longue date            |
+| —     | *(repêchage d'un D dormant : voir plus bas)*      |
+| 5     | B et au-dessus, posté **récemment** sur ce compte |
+| 6     | C (ou D repêché), posté **récemment**             |
 
-On ne descend d'une bande que quand la précédente est vide, et le tirage est
-uniforme à l'intérieur d'une bande. Donc **un C n'est donné que s'il n'y a plus
-aucun post en B+ dans le pool du compte** — même un B déjà vu par ce compte
-passe devant un C neuf : le rang prime sur la fraîcheur.
+On ne descend d'une bande que quand la précédente est vide. Donc **un C n'est
+donné que s'il n'y a plus aucun post en B+ dans le pool du compte** — même un B
+déjà vu passe devant un C neuf : le rang prime sur la fraîcheur.
 
-Un post peut repasser sur un compte qui l'a déjà posté ; à rang équivalent, le
-tirage préfère simplement du neuf quand il y en a. Le plancher de priorité est
-`TIER_MIN_PRIORITAIRE` (`B`) dans `tierlist.ts`.
+### Écart minimum sur un même compte (0271)
+
+« Récemment » veut dire à moins de `tierlist.ecart_min_meme_contenu` jours
+(**14** par défaut, modifiable dans Réglages > Assignation ; `0` désactive la
+règle). L'écart est compté en valeur absolue depuis le passage de ce contenu le
+**plus proche** du jour visé sur ce compte, donc un passage déjà programmé pour
+*demain* compte aussi. Les passages **assignés** comptent, pas seulement les
+publiés : c'est ce que le créateur reçoit qui ne doit pas se répéter.
+
+Avant cette règle, un contenu déjà posté était seulement rétrogradé d'une bande,
+sans qu'on regarde la date : un créateur pouvait recevoir le même deck — mêmes
+images et même texte — deux jours de suite. Le seul garde-fou daté
+(`ECART_MIN_JOURS_AUTRE_APPLICATION`, 7 jours) ne valait qu'entre applications
+différentes.
+
+C'est une **relégation, pas une exclusion** : les bandes 5 et 6 restent
+tirables, donc aucun créneau n'est perdu et aucun quota ne baisse, y compris sur
+les langues à petit vivier. À doublon acquis, on ne garde dans ces deux bandes
+que les candidats **les plus éloignés** de leur dernier passage : resservir le
+deck d'hier quand un autre attend depuis treize jours serait du gâchis. Ailleurs
+(bandes 1 à 4), le tirage reste uniforme à l'intérieur d'une bande.
+
+Le plancher de priorité est `TIER_MIN_PRIORITAIRE` (`B`) dans `tierlist.ts`, et
+la frontière du dernier recours est `BANDES_AVANT_DERNIER_RECOURS`.
 
 - **Plus de passages à faire que de créneaux** → tirage au hasard dans la
   première bande non vide.
-- **Plus de créneaux que de passages à faire** (les quatre bandes vides) → un
-  post en D est repêché et reçoit `tierlist.repechage_passages` passage
-  (1 par défaut). Le repêchage est **par compte** : inutile de réveiller un D
-  que ce compte ne peut pas poster.
+- **Plus de créneaux que de passages à faire** (les quatre premières bandes
+  vides) → un post en D est repêché et reçoit `tierlist.repechage_passages`
+  passage (1 par défaut). Le repêchage est **par compte** : inutile de réveiller
+  un D que ce compte ne peut pas poster.
+- Le repêchage passe **avant** les bandes 5 et 6, et c'est voulu : le pool du
+  jour ne retient que les contenus à `restants > 0`, alors que les labels du
+  compte portent souvent des dizaines de D dormants qu'il n'a jamais postés,
+  atteignables par ce seul chemin. Un contenu neuf en D vaut mieux que le deck
+  d'hier.
 
 Un D repêché dont le passage est assigné mais pas encore publié peut revenir
 dans le pool (fenêtre « en vol » de 2 jours) : il est alors servi dans les
@@ -193,7 +232,15 @@ créer les remix, les rattacher au même label, et passer la ligne à `consomme`
 `passages` : `tier_cycle`, `est_rappel`, `rappel_rang`, `rappel_source_id`
 `remix_debloques` : file des remix débloqués par un S+
 `contenu_tier_etat` (vue) : publiés / en vol / restants / `m` / max / nb ≥ 150k /
-mesurés / introuvables / en attente de mesure
+mesurés / introuvables / en attente de mesure — passages **Sophia** seulement
+depuis 0270
+`contenu_tiers_application` (0270) : tier, passages prévus, cycle, rapport par
+contenu × application (hors Sophia ; CHECK `application_id <> Sophia`)
+`contenu_application_tier_etat` (vue, 0270) : l'avancement par contenu ×
+application, sur les passages de l'application
+`contenu_application_a_requalifier` (vue, 0270) : ses cycles terminés
+`tier_initial_note(numeric)`, `passages_du_tier(text)` (0270) : miroirs SQL de
+`tierInitialDepuisNote` et `PASSAGES_PAR_TIER` (synchro testée)
 
 ## Migration des posts existants
 
@@ -223,6 +270,67 @@ Les posts repartent au cycle 1 avec le compteur plein : les passages historiques
 | `repechage_passages` | 1      | passages rendus à un D repêché                   |
 | `requalif_max_jours` | 3      | attente max d'une mesure avant relance au même rang |
 
+## Par application (0270)
+
+Décision du propriétaire (2026-10-08) : « plus de tiers mergés, des tiers
+différents par application ». Chaque application a **son** rang, **son**
+budget de passages, **son** cycle et **sa** mesure `m`, sur ses seuls posts.
+
+- **Sophia** garde `contenus.tier / passages_prevus / tier_cycle / tier_maj_at
+  / tier_rapport` et tout le code ci-dessus (requalification, rappels,
+  repêchage), inchangé. Seule différence : `contenu_tier_etat` ne compte plus
+  que les passages `application_id = Sophia` — un post Unswipe ne consomme
+  jamais le budget Sophia et n'entre pas dans son `m`.
+- **Autres applications** : table `contenu_tiers_application` (contenu ×
+  application) et vue `contenu_application_tier_etat` (mêmes colonnes que
+  `contenu_tier_etat`, plus `application_id`, `eligible`, `materialise`,
+  `note`), sur les seuls passages de l'application.
+- **Tier d'entrée paresseux** : tant qu'aucune ligne n'est écrite, la vue
+  déduit le tier de la note d'import de l'application
+  (`contenu_pertinences.note`, `tier_initial_note` : ≥ 70 A, ≥ 60 B, sinon C ;
+  C aussi pour une ligne forcée pas encore notée), cycle 0. Ligne non
+  éligible (note sous le seuil, ou pertinence de l'application < 50 —
+  `PERTINENCE_MIN_HORS_SOPHIA`, forçage compris) : D / 0. Import FORCÉ : la note stockée d'une autre application
+  est planchée au seuil (`noteStockee`), comme la note Sophia forcée
+  (`max(note, seuil)`) — même rang d'entrée des deux côtés, quel que soit le
+  seuil ; la ligne Sophia garde sa note brute.
+  La ligne naît à la première écriture (requalification, repêchage D,
+  changement manuel admin). Un réimport fait suivre la nouvelle note à une
+  ligne non écrite ; une ligne écrite garde son rang.
+- **Même logique, appliquée séparément** : `deciderRequalif`, barème, S / S+,
+  cycle terminé, relance sans mesure, bandes de tirage, repêchage D (seulement
+  une ligne écrite à 0 passage), fenêtre « en vol » de 2 jours, réglages
+  `reglages.tierlist`.
+- **Minuit** : étape `tierlist_applications`, la DERNIÈRE de la nuit, après
+  toutes les étapes Sophia (tierlist, rappels, lancement du drain
+  d'assignation, upscale, variations) : rien de non-Sophia ne retarde le
+  drain. Le drain peut tirer pendant qu'elle tourne — sans conflit : elle ne
+  touche que des cycles terminés (restants à 0, hors du pool) et ses
+  écritures sont gardées par `tier_cycle` ; un contenu requalifié rejoint le
+  pool des lots suivants. Bornée à 20 s, échéance contrôlée avant chaque
+  lecture (comptage, chaque page, titres) et chaque écriture ; le reste
+  repasse la nuit suivante. Applications inactives comprises (un cycle publié
+  doit finir).
+  Trace dans `reglages.tierlist_applications_dernier_run` (page Minuit, carte
+  Applications) ; `minuit_dernier_run` n'est pas touché. Clic admin
+  « Requalifier maintenant » d'une fiche : `{ etapes:
+  ["tierlist_applications"], contenuId, applicationId }`.
+- **Remix S+ hors Sophia** : rien n'est écrit dans `remix_debloques` (pas
+  d'`application_id`, et son UNIQUE `(contenu_id, tier_cycle)` heurterait les
+  cycles Sophia) ; le rapport porte `remix_en_attente`.
+- **Rappels J+7** : hors budget des deux côtés, inchangés ; ils recopient
+  `tier_cycle` et `application_id` de leur source. Une source d'une autre
+  application sortie de sa réserve (`eligible = false`, révocation) n'est
+  plus rejouée.
+- **Concurrence** : écritures gardées par `tier_cycle` (`.select` : 0 ligne =
+  requalifié ailleurs), repêchage gardé par `passages_prevus = 0`, écriture de
+  l'état paresseux en `ignoreDuplicates`.
+- **Tolérance de déploiement** : le code sonde 0270
+  (`sonderSchemaTiersApplication`). Absente : aucune autre application n'est
+  servie (repli Sophia, motif `reserve_vide` avec la raison), l'étape de
+  minuit ne fait rien. Illisible : le compte est rejoué, la nuit saute l'étape
+  avec un avertissement.
+
 ## Où c'est dans le code
 
 - `src/features/moteur/tierlist.ts` — barèmes, table de requalification,
@@ -232,4 +340,9 @@ Les posts repartent au cycle 1 avec le compteur plein : les passages historiques
 - `supabase/functions/_shared/import_contenu.ts` — `assurerTierImport`
 - `supabase/functions/_shared/assignation_contenu.ts` — pool, tirage, repêchage,
   `programmerRappelsJ7`
-- `supabase/functions/minuit-vnext/index.ts` — étape `tierlist`
+- `supabase/functions/minuit-vnext/index.ts` — étapes `tierlist` et
+  `tierlist_applications`
+- `supabase/functions/_shared/tiers_application.ts` — tierlist par application
+  (sonde 0270, lecture, requalification hors Sophia)
+- `src/features/moteur/repartition/ApplicationsContenu.tsx` — bloc « Tier par
+  application » de la fiche slideshow

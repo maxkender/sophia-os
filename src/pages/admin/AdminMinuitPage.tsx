@@ -33,6 +33,7 @@ import {
   type SuiviMinuit,
 } from "@/features/moteur/api";
 import { CLASSEMENTS } from "@/features/moteur/classementComptes";
+import { LigneTiersApplicationsMinuit } from "@/features/moteur/multiapp/TiersApplicationsRun";
 import { nomLangue } from "@/features/moteur/langues";
 import { cn } from "@/lib/utils";
 
@@ -665,6 +666,9 @@ export function AdminMinuitPage() {
             {!eloRun.data?.at && !eloRun.isLoading && (
               <p className="text-warning">{t("minuit.eloDernierRunAucun")}</p>
             )}
+            {/* 0270 : tierlist PAR APPLICATION du jour affiché — rien tant
+                qu'il n'y a rien à dire. */}
+            <LigneTiersApplicationsMinuit jour={date} />
           </div>
 
           <div className="flex flex-wrap items-end gap-3">

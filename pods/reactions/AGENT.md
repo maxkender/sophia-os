@@ -23,13 +23,13 @@ Tu ne touches pas au code de l'OS (`src/`, `supabase/`). Si l'OS doit changer, t
    - Jamais le visage ni la ressemblance d'une personne réelle. Le créateur de la vidéo source n'est **jamais** reproduit : seul son **mouvement** est repris.
    - Jamais de mineur ni d'apparence mineure.
 2. **Aucun texte à l'écran dans la vidéo.**
-   - L'image de départ est nettoyée de tout texte, logo ou sous-titre.
+   - Le texte incrusté dans la source ne doit jamais réapparaître dans la vidéo animée : vérifie chaque MP4.
    - Le texte est livré à part (`texte_ecran`) et le poster le colle dans l'éditeur TikTok.
-3. **Filtres des fournisseurs** : un refus de fal, Kling ou Higgsfield (contenu, ressemblance…) ne se contourne pas. Tu le signales et tu changes de source.
-4. **Budget fal** :
-   - `animer` sans `--oui` affiche le coût, qui est d'environ $0,50 par compte en `pro`.
-   - Annonce ce coût à l'humain et attends son accord avant `--oui`.
-   - Le journal `donnees/depenses.json` garde le cumul.
+3. **Filtres des fournisseurs** : un refus de Higgsfield (contenu, ressemblance…) ne se contourne pas. Tu le signales et tu changes de source.
+4. **Budget Higgsfield (Genjutsu)** :
+   - Genjutsu coûte **28 crédits par compte en 720p** (44 en 1080p). Vérifie toujours le coût avec `get_cost: true` et le solde avec `balance` avant de lancer.
+   - Hors routine, annonce le coût total à l'humain et attends son accord.
+   - **Routine du matin** (voir plus bas) : budget pré-approuvé de **150 crédits par jour** (5 comptes × 28). Dans ce budget, tu lances sans attendre. Au-delà, ou si le solde ne suffit pas, tu t'arrêtes et tu demandes.
 5. **Jeton du pod** : il vient de `POD_JETON` (ton prompt système) et ne s'écrit jamais dans un fichier, un commit ou un message.
 6. **Les concurrents ne se citent pas** : ni Vent Now, ni Readup. On dit « l'appli Sophia » ou « the Sophia app ».
 
@@ -41,11 +41,13 @@ Tu ne touches pas au code de l'OS (`src/`, `supabase/`). Si l'OS doit changer, t
 | `npm run chercher "<requête>" […] [--n 20]` | Recherche TikTok via Apify, résultats classés par vues, enregistrés dans `donnees/recherche.json`. |
 | `npm run couper <source_id> <id_tiktok\|fichier.mp4> <début> <fin>` | Coupe la réaction seule, entre 3 et 10 s, sans son, et l'envoie dans l'OS. Produit aussi `sortie/<source_id>/frame.jpg`. |
 | `npm run persona <compte_id> <image> "<description>"` | Enregistre le persona d'un compte. Il part en validation. |
-| `npm run animer <source_id> [--standard] [--oui]` | Kling motion control, compte par compte. Produit `sortie/<source_id>/<compte>.mp4`, sans métadonnées. |
+| `npm run animer <source_id> [--standard] [--oui]` | **Ancien moteur (Kling sur fal), abandonné.** Ne l'utilise plus sauf demande explicite de l'humain : l'animation passe par Genjutsu (étape 6). |
 | `npm run deposer <source_id>` | Envoie les MP4 et dépose la livraison dans la file de validation. |
 | `npm run etat` | État de tes livraisons. |
 
 Lance `npm install` une fois. Il faut `POD_JETON` dans l'environnement.
+
+Avec npm, les options du script passent après `--` (sinon npm les avale).
 
 ## La recette
 
@@ -77,16 +79,13 @@ Cette étape ne se fait qu'une fois par compte, avec le MCP Higgsfield.
 - Une description courte suffit : âge, cheveux, style, décor.
 - L'humain valide dans Pilotage → Pods. Tant que le persona n'est pas validé, `animer` et `deposer` refusent le compte.
 
-### 4. Préparer les images de départ
+### 4. Préparer les entrées de Genjutsu
 
-Fais-en une par compte, avec le MCP Higgsfield.
-- `generate_image` avec le modèle `nano_banana_pro` et deux références : `frame.jpg` et le persona validé du compte.
-- Le persona doit prendre la place de la personne d'origine dans la même pose, le même cadrage et le même décor.
-- Consigne : supprimer **tout texte**, tout logo et toute interface TikTok.
-- Télécharge chaque image dans `sortie/<source_id>/depart/<compte>.jpg` et **regarde-la** :
-  - pas de texte ;
-  - le bon persona ;
-  - aucun trait de la personne d'origine.
+Pas d'image de départ : Genjutsu prend directement le **portrait du persona validé** et la **vidéo de la réaction**.
+- `npm run comptes` donne, pour chaque compte, l'`image_url` de son persona. Télécharge-la dans `sortie/personas/<compte>.jpg`.
+- Envoie dans Higgsfield (`media_upload` puis `media_confirm`) :
+  - chaque portrait de persona (une fois par session suffit) ;
+  - `sortie/<source_id>/reaction.mp4`.
 
 ### 5. Écrire `livraisons/<source_id>.json`
 
@@ -98,10 +97,12 @@ Fais-en une par compte, avec le MCP Higgsfield.
   "titre": "I could kiss whoever told me about this app",
   "texte_source": "texte affiché dans la vidéo d'origine",
   "prompt": "young woman reacting with genuine surprise, natural phone selfie",
+  "musique_titre": "QKThr – Aphex Twin",
+  "musique_url": "https://www.tiktok.com/music/QKThr-6771810675950880769",
   "comptes": [
     {
       "compte_id": "…",
-      "depart": "sortie/kiss-01/depart/<compte>.jpg",
+      "depart": "sortie/personas/<compte>.jpg",
       "texte_ecran": "Je pourrais EMBRASSER la personne qui m'a montré ça 😭😭",
       "legende": "… #apprendre #culturegenerale #astuce"
     }
@@ -112,16 +113,24 @@ Fais-en une par compte, avec le MCP Higgsfield.
 - `texte_ecran` reprend **exactement** l'accroche de la source, traduite fidèlement dans la langue du compte (mêmes mots, mêmes majuscules, mêmes emojis). Au plus 200 caractères.
 - **Jamais de mention de Sophia** dans `texte_ecran` ni dans `legende` (ni nom, ni hashtag). Le placement Sophia se fait uniquement en vidéo, dans la deuxième partie (la démo fournie par l'humain).
 - `legende` est la légende TikTok dans la langue du compte, avec 3 hashtags neutres.
+- `source_url`, `musique_titre` et `musique_url` sont **obligatoires** : le créateur voit le TikTok de référence et reprend la même musique. Ils viennent de `donnees/recherche.json` (la musique est la piste de la vidéo source).
 - Pas de tiret cadratin ni de point-virgule. Le ton est oral et naturel.
 
-### 6. Animer
+### 6. Animer avec Genjutsu (Higgsfield)
 
-- Lance `animer <source_id>` pour voir le coût, puis `--oui` une fois que l'humain a donné son accord.
+- Un `generate_video` par compte, modèle **`hf_mult_motion_control`**, `resolution: "720p"`. Les médias :
+  - le portrait du persona du compte, rôle `image_references` ;
+  - la réaction, rôle `video_references`.
+- Prompt court en anglais : « the woman from the image performs exactly the motion of the video, natural phone selfie, no text, no captions ».
+- Vérifie d'abord le coût (`get_cost: true`) et le solde (`balance`). Higgsfield accepte **4 jobs en parallèle au plus** : lance par lots, puis attends avec `jobs_wait`.
+- Télécharge chaque résultat, puis retire le son et **toutes** les métadonnées, y compris celles cachées dans le flux vidéo (SEI : Kling y écrit « kling-ai ») et la signature de ffmpeg :
+  `ffmpeg -i brut.mp4 -map 0:v -an -c:v copy -bsf:v filter_units=remove_types=6 -map_metadata -1 -map_chapters -1 -fflags +bitexact -flags:v +bitexact -movflags +faststart sortie/<source_id>/<compte>.mp4`
+- Vérifie : `strings -n 5 <fichier> | grep -i -E 'c2pa|jumb|kling|higgs|lavf'` ne doit rien renvoyer d'autre qu'un hasard dans les données compressées, et `ffprobe -show_entries format_tags` ne doit montrer aucun encodeur.
 - Regarde chaque MP4, par exemple avec une planche d'images `ffmpeg` :
-  - le visage reste stable ;
-  - aucun texte n'apparaît ;
+  - le visage est celui du persona et reste stable ;
+  - **aucun texte n'apparaît** (le texte incrusté dans la source ne doit pas être recopié) ;
   - le mouvement est naturel.
-- Une vidéo ratée se refait : supprime `sortie/<source_id>/<compte>.mp4`, puis relance, ce qui a un coût.
+- Une vidéo ratée se refait, ce qui coûte encore 28 crédits. Après deux échecs sur le même compte, arrête-toi et signale-le.
 
 ### 7. Déposer
 
@@ -136,6 +145,28 @@ Fais-en une par compte, avec le MCP Higgsfield.
   - les textes à copier ;
   - le lien TikTok à saisir une fois la vidéo publiée.
 - Si une langue n'a pas de démo, la validation est refusée. Demande alors à l'humain de l'envoyer dans Pilotage → Pods.
+
+## Photos de profil des comptes
+
+Les images Higgsfield portent un manifeste **C2PA** (« généré par IA ») dans le fichier. Une photo de profil ou toute image publiée ne part jamais telle quelle :
+- recadre et réencode-la en recopiant **seulement les pixels** (PIL), sans EXIF, XMP, ICC ni C2PA ;
+- vérifie avec `strings -n 5 <fichier> | grep -i -E 'exif|xmp|c2pa|jumb|higgs'`, qui ne doit rien renvoyer.
+
+## La routine du matin
+
+Chaque matin, une session de ce pod produit **une** vidéo de réaction pour tous les comptes dont le persona est validé, puis la dépose. L'humain n'a plus qu'à valider dans Pilotage → Pods.
+
+1. `npm run comptes` : prends les comptes au persona **validé**. Le persona d'un compte ne change jamais, donc on ne régénère jamais de persona dans la routine.
+2. `npm run chercher …` avec des requêtes variées. Écarte toute vidéo déjà utilisée : son `source_url` figure dans un fichier de `livraisons/`.
+3. Choisis toi-même la meilleure réaction selon les critères de l'étape 1, sans attendre de validation. Donne-lui un `source_id` neuf (`kiss-02`, `wow-01`…).
+4. Suis la recette de l'étape 2 à l'étape 7. Les étapes 3 (créer un persona) et la validation humaine avant de couper sont sautées.
+5. Le budget du jour est de **150 crédits Higgsfield**, soit 28 × le nombre de comptes en 720p. Si le coût dépasse ou si le solde ne suffit pas, arrête-toi et demande à l'humain.
+6. Versionne `livraisons/<source_id>.json` (PR vers main, mergée).
+7. Termine par un message court : la source et ses vues, la planche des vidéos, le coût, et ce qui reste à faire (démos manquantes…).
+
+En cas de refus d'un fournisseur ou de résultat raté deux fois, ne force pas : arrête-toi et signale-le.
+
+Les comptes de ce pod ne postent **que** des vidéos, une par jour, sur TikTok **et** Instagram (même vidéo, mêmes textes).
 
 ## Ce que l'OS fait, pas toi
 

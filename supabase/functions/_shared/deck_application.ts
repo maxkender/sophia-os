@@ -18,7 +18,12 @@
  * Refus métier → résultat (`ineligible` / `echec`, mis en cache) ; seule une
  * lecture base en panne lève.
  */
-import { sansConcurrent } from "./concurrents.ts";
+import {
+  citeConcurrent,
+  motifConcurrentApplication,
+  positionConcurrent,
+  sansConcurrent,
+} from "./concurrents.ts";
 import {
   assurerSlidesBase,
   completerHashtags,
@@ -28,18 +33,8 @@ import {
   type Supabase,
   traduireBaseDeck,
 } from "./import_contenu.ts";
-import {
-  anglesPourApplication,
-  type ApplicationMoteur,
-  blocAngles,
-  ID_SOPHIA,
-  SLUG_SOPHIA,
-} from "./multi_app.ts";
-import {
-  chargerLabelsDuContenu,
-  chargerLiensLabels,
-  schemaMultiAppPret,
-} from "./applications_moteur.ts";
+import { type ApplicationMoteur, ID_SOPHIA, SLUG_SOPHIA } from "./multi_app.ts";
+import { schemaMultiAppPret } from "./applications_moteur.ts";
 import { clePromptPlacement } from "./applications.ts";
 import { baseDeTraduction, estDeckPret } from "./deck_langue.ts";
 import { integrerApplication, MOT_SOPHIA } from "./placement_application.ts";
@@ -64,6 +59,12 @@ export interface OptionsDeckApplication {
    * le mettre en cache.
    */
   echeance?: number;
+  /**
+   * Test à blanc seulement (mode « contenus ») : ne pas servir le cache
+   * `contenu_langue_decks`, recuire avec le prompt de placement ACTUEL. Absent
+   * ou `false` (la nuit, l'assignation test) : comportement inchangé.
+   */
+  ignorerCache?: boolean;
 }
 
 /**
@@ -83,7 +84,8 @@ type Placement = {
   variants: string[];
   bestIndex: number;
   chosenPosition: number;
-  angles: Array<{ label: string; angle: string }>;
+  /** Slide qui citait un concurrent de l'application, imposée au placement. */
+  positionImposee?: number;
   prompt_cle: string;
 };
 
@@ -111,6 +113,44 @@ export function motifBasePolluee(base: readonly SlideLangue[]): string | null {
 
 const aDuTexte = (deck: readonly SlideLangue[]) =>
   deck.length > 0 && deck.some((s) => (s.texte_overlay ?? "").trim());
+
+/**
+ * Pourquoi une base ne peut pas porter le placement d'une application dont les
+ * concurrents répondent à `motif`, ou `null`.
+ *
+ * La slide qui cite un concurrent (`positionImposee`) est REMPLACÉE par la pub.
+ * Toute AUTRE mention devrait être nettoyée, et le nettoyage ne tient pas sur
+ * le texte d'OCR : `retirerConcurrent` découpe sur les retours à la ligne, donc
+ * une phrase coupée sur deux lignes n'est retirée qu'à moitié (« (i use »
+ * reste), et une carte App Store incrustée (« unscroll: the curated internet /
+ * content worth your time / Open ») laisse « content worth your time / Open ».
+ * Mesuré sur le stock (2026-10-08) : un seul contenu a deux slides
+ * concurrentes, aucune couverture n'en cite. Plutôt qu'un deck illisible, le
+ * contenu est refusé pour CETTE application — Sophia continue de le servir :
+ *
+ *  - la couverture cite un concurrent (jamais imposée : elle porte l'accroche,
+ *    nettoyée elle partait vide) ;
+ *  - une autre slide que la slide imposée cite un concurrent ;
+ *  - la slide imposée est la seule à porter du texte (le deck ne serait que la
+ *    pub).
+ */
+export function motifConcurrenceRefusee(
+  base: readonly SlideLangue[],
+  positionImposee: number | undefined,
+  motif: RegExp,
+): string | null {
+  const premiere = Math.min(...base.map((s) => s.position));
+  const autres = base.filter((s) => s.position !== positionImposee);
+  const citantes = autres.filter((s) => citeConcurrent(s.texte_overlay, motif));
+  if (citantes.some((s) => s.position <= 1 || s.position === premiere)) {
+    return "couverture qui cite un concurrent de l'application";
+  }
+  if (citantes.length > 0) return "plusieurs slides citent un concurrent de l'application";
+  if (positionImposee !== undefined && !aDuTexte(autres)) {
+    return "aucun texte hors de la slide concurrente";
+  }
+  return null;
+}
 
 /**
  * Deck final : la base, avec la slide choisie remplacée par `variante` et
@@ -257,6 +297,11 @@ async function cuire(
   const pollution = motifBasePolluee(base);
   if (pollution) return { statut: "ineligible", raison: pollution };
   if (!aDuTexte(base)) return { statut: "echec", raison: "base source sans texte" };
+  // Applis concurrentes de CETTE application (concurrents.ts) : un refus se lit
+  // sur la base source, avant de payer une traduction ou un placement.
+  const motif = motifConcurrentApplication(app.slug);
+  const refusSource = motifConcurrenceRefusee(base, positionConcurrent(base, motif), motif);
+  if (refusSource) return { statut: "ineligible", raison: refusSource };
 
   // 2. Prompt de placement AVANT toute traduction : sans lui, rien ne sert de
   //    payer Gemini. Jamais de repli sur le texte Sophia.
@@ -298,16 +343,20 @@ async function cuire(
       if (maj.hashtags) ligne.hashtags = traduction.hashtags;
     }
   }
-  // Mentions d'applis concurrentes : retirées avant le placement (concurrents.ts).
-  baseCible = sansConcurrent(baseCible).slides;
+  // La slide qui cite un concurrent est la position imposée du placement, comme
+  // pour Sophia. Positions identiques entre langues : la base source rattrape
+  // une traduction qui aurait perdu le nom de la marque. Elle reste telle quelle
+  // dans la base envoyée au modèle, qui doit voir son texte pour la remplacer
+  // entièrement ; aucune autre slide ne cite de concurrent (refus sinon, voir
+  // `motifConcurrenceRefusee`) : il n'y a rien à nettoyer ailleurs.
+  const positionImposee = positionConcurrent(baseCible, motif) ?? positionConcurrent(base, motif);
+  const refusCible = motifConcurrenceRefusee(baseCible, positionImposee, motif);
+  if (refusCible) return { statut: "ineligible", raison: `base ${langue} : ${refusCible}` };
   const pollutionCible = motifBasePolluee(baseCible);
   if (pollutionCible) return { statut: "ineligible", raison: `base ${langue} : ${pollutionCible}` };
   if (!aDuTexte(baseCible)) return { statut: "echec", raison: `base ${langue} sans texte` };
 
-  // 4. Placement, avec les angles des labels du contenu pour cette application.
-  const labels = await chargerLabelsDuContenu(supabase, contenu.id);
-  const liens = await chargerLiensLabels(supabase, labels.map((l) => l.id));
-  const angles = anglesPourApplication(labels, liens, app.id);
+  // 4. Placement.
   if (horsDelai(opts)) return { statut: "echec", raison: RAISON_BUDGET };
   const placement = await integrerApplication({
     masterPrompt,
@@ -315,10 +364,14 @@ async function cuire(
     caption: contenu.titre ?? "",
     langue,
     application: { slug: app.slug, nom: app.nom },
-    angles: blocAngles(angles, app.nom),
+    positionImposee,
   }, { echeance: opts.echeance });
   if (!placement) {
-    return { statut: "echec", raison: "placement impossible", placement: { angles, prompt_cle: cle } };
+    return {
+      statut: "echec",
+      raison: "placement impossible",
+      placement: { positionImposee, prompt_cle: cle },
+    };
   }
 
   // 5. Deck final : la variante préférée d'abord, les autres en secours.
@@ -331,14 +384,17 @@ async function cuire(
     if (!deck) continue;
     return {
       statut: "pret",
-      slides: deck,
-      baseCible,
+      // Par sécurité : aucune mention de concurrent ne part, même si la slide
+      // imposée n'a pas été celle remplacée.
+      slides: sansConcurrent(deck, motif).slides,
+      // Base des hashtags : sans pub ET sans la slide concurrente gardée pour le modèle.
+      baseCible: sansConcurrent(baseCible, motif).slides,
       placement: {
         mode: placement.mode,
         variants: placement.variants,
         bestIndex: index,
         chosenPosition: placement.chosenPosition,
-        angles,
+        positionImposee,
         prompt_cle: cle,
       },
     };
@@ -346,7 +402,7 @@ async function cuire(
   return {
     statut: "echec",
     raison: "deck placé refusé par les garde-fous",
-    placement: { ...placement, angles, prompt_cle: cle },
+    placement: { ...placement, positionImposee, prompt_cle: cle },
   };
 }
 
@@ -390,9 +446,12 @@ export async function assurerDeckApplication(
     .maybeSingle();
   if (errCache) throw new Error(`contenu_langue_decks : ${messageErreur(errCache)}`);
 
-  if (cache) {
+  if (cache && !opts.ignorerCache) {
     const slides = (cache.slides ?? []) as SlideLangue[];
-    if (cache.statut === "pret" && estDeckPret(slides) && !sansConcurrent(slides).modifie) {
+    // Un deck en cache qui cite un concurrent de l'application (motif élargi
+    // depuis) est recuit plutôt que servi.
+    const sansMention = !sansConcurrent(slides, motifConcurrentApplication(app.slug)).modifie;
+    if (cache.statut === "pret" && estDeckPret(slides) && sansMention) {
       const hashtags = await hashtagsDe(
         supabase,
         ligne,

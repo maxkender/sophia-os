@@ -69,26 +69,89 @@ export function estTierPrioritaire(tier: Tier): boolean {
 
 export interface CandidatTirage {
   tier: Tier;
-  /** Ce compte a déjà posté ce contenu. */
+  /** Ce compte a déjà posté ce contenu, à une date quelconque. */
   dejaPoste?: boolean;
+  /**
+   * Ce compte l'a posté il y a MOINS de `ecart_min_meme_contenu` jours.
+   * Implique `dejaPoste`, et relègue le contenu en dernier recours.
+   */
+  posteRecemment?: boolean;
+  /**
+   * Jours entre le jour visé et le passage de ce contenu le PLUS PROCHE de ce
+   * jour sur ce compte (valeur absolue, donc un passage à venir compte). Sert
+   * à départager la zone de dernier recours : à resservir un doublon, autant
+   * que ce soit le plus ancien.
+   *
+   * `null` accepté pour les appelants qui n'ont rien à mettre : traité comme
+   * une date inconnue, donc jamais départagé dessus.
+   */
+  ecartDepuisDernier?: number | null;
+}
+
+/**
+ * Bandes servies avant la zone de dernier recours. Les bandes d'indice
+ * supérieur ou égal portent les contenus que le compte vient de poster, qu'on
+ * ne sert qu'à défaut de tout le reste, repêchage compris.
+ */
+export const BANDES_AVANT_DERNIER_RECOURS = 4;
+
+/**
+ * Réduit une bande aux candidats les plus éloignés de leur dernier passage.
+ *
+ * N'est appliqué qu'à la zone de dernier recours : là, le doublon est déjà
+ * acquis, et le seul arbitrage qui reste est de prendre le moins récent. Sans
+ * ça, `tirerAuHasard` pouvait resservir le deck de la veille alors qu'un autre
+ * doublon vieux de treize jours attendait dans la même bande.
+ *
+ * Bande sans aucune date connue : rendue telle quelle, on ne filtre pas sur
+ * une information absente.
+ */
+function plusLoinDuDernierPassage<T extends CandidatTirage>(bande: T[]): T[] {
+  let max = Number.NEGATIVE_INFINITY;
+  for (const c of bande) {
+    const e = c.ecartDepuisDernier;
+    if (typeof e === "number" && Number.isFinite(e) && e > max) max = e;
+  }
+  if (!Number.isFinite(max)) return bande;
+  return bande.filter((c) => c.ecartDepuisDernier === max);
 }
 
 /**
  * Découpe le pool du jour en bandes, dans l'ordre où elles doivent être servies :
  *
  *   1. B+ jamais posté par ce compte
- *   2. B+ déjà posté
+ *   2. B+ posté de longue date
  *   3. C (ou D repêché) jamais posté
- *   4. C (ou D repêché) déjà posté
+ *   4. C (ou D repêché) posté de longue date
+ *   5. B+ posté RÉCEMMENT
+ *   6. C (ou D repêché) posté RÉCEMMENT
  *
- * Le rang passe donc avant la fraîcheur : un B déjà vu par le compte est servi
- * avant un C neuf. Le tirage reste uniforme **à l'intérieur** d'une bande.
+ * Le rang passe avant la fraîcheur — un B déjà vu par le compte est servi avant
+ * un C neuf — SAUF pour un contenu que ce compte vient de poster : celui-là
+ * tombe derrière tout le reste, bas de tierlist compris.
+ *
+ * Pourquoi deux bandes de plus et non une exclusion sèche : un compte dont le
+ * vivier de frais est à sec (petite langue) perdrait son créneau. Mieux vaut un
+ * doublon espacé qu'un jour sans post, donc les bandes 5 et 6 restent tirables
+ * en dernier recours — mais seulement après le repêchage d'un contenu dormant,
+ * que l'appelant tente entre les deux (voir `BANDES_AVANT_DERNIER_RECOURS`).
+ *
+ * Le tirage reste uniforme à l'intérieur des bandes 1 à 4. Dans les deux
+ * dernières, le doublon étant déjà acquis, on ne garde que les candidats les
+ * plus éloignés de leur dernier passage avant de tirer.
  */
 export function bandesDeTirage<T extends CandidatTirage>(pool: T[]): T[][] {
-  const bandes: T[][] = [[], [], [], []];
+  const bandes: T[][] = [[], [], [], [], [], []];
   for (const c of pool) {
-    const bande = (estTierPrioritaire(c.tier) ? 0 : 2) + (c.dejaPoste ? 1 : 0);
+    const bas = estTierPrioritaire(c.tier) ? 0 : 1;
+    const bande = c.posteRecemment
+      ? BANDES_AVANT_DERNIER_RECOURS + bas
+      : bas * 2 + (c.dejaPoste ? 1 : 0);
     bandes[bande].push(c);
+  }
+  // Dans la zone de dernier recours, la date tranche avant le hasard.
+  for (let i = BANDES_AVANT_DERNIER_RECOURS; i < bandes.length; i += 1) {
+    bandes[i] = plusLoinDuDernierPassage(bandes[i]);
   }
   return bandes;
 }
@@ -111,6 +174,24 @@ export function tierImport(elo: number, seuil = 55): Tier | null {
   if (!Number.isFinite(elo) || elo < seuil) return null;
   if (elo >= 70) return "A";
   if (elo >= 60) return "B";
+  return "C";
+}
+
+/**
+ * Tier d'ENTRÉE d'une application autre que Sophia, depuis SA note d'import
+ * (`contenu_pertinences.note`), pour une ligne déjà éligible : le seuil
+ * d'import est appliqué par `eligible`, il ne reste que les paliers de
+ * `tierImport`. Note absente (ligne forcée) ou non finie → C, le rang minimum
+ * d'un contenu importé.
+ *
+ * Miroir EXACT de la fonction SQL `tier_initial_note` (migration 0270), qui
+ * calcule le tier « paresseux » de `contenu_application_tier_etat` tant
+ * qu'aucune ligne de `contenu_tiers_application` n'est écrite. Synchro testée.
+ */
+export function tierInitialDepuisNote(note: number | null | undefined): Tier {
+  if (note === null || note === undefined || !Number.isFinite(note)) return "C";
+  if (note >= 70) return "A";
+  if (note >= 60) return "B";
   return "C";
 }
 
@@ -463,6 +544,10 @@ export function verifierCoherenceLecture(
   lues: number,
   attendues: number | null,
   motifNonVerifie?: string,
+  // Vue lue, nommée dans l'alerte. Par défaut la vue Sophia : le texte est
+  // alors celui d'avant 0270, à l'octet près. Les applications non-Sophia
+  // passent `contenu_application_a_requalifier`.
+  vue = "contenu_a_requalifier",
 ): CoherenceLecture {
   if (attendues === null) {
     return {
@@ -483,7 +568,7 @@ export function verifierCoherenceLecture(
       attendues,
       ok: false,
       alerte:
-        `Lecture INCOMPLÈTE de contenu_a_requalifier : ${lues} ligne(s) lue(s) pour ${attendues} annoncée(s).` +
+        `Lecture INCOMPLÈTE de ${vue} : ${lues} ligne(s) lue(s) pour ${attendues} annoncée(s).` +
         plafond +
         ` ${attendues - lues} cycle(s) terminé(s) n'ont pas été examinés ce run.`,
     };
@@ -494,7 +579,7 @@ export function verifierCoherenceLecture(
     attendues,
     ok: false,
     alerte:
-      `Lecture de contenu_a_requalifier plus longue que le comptage : ${lues} ligne(s) pour ` +
+      `Lecture de ${vue} plus longue que le comptage : ${lues} ligne(s) pour ` +
       `${attendues} annoncée(s). Sans gravité — des cycles se sont terminés pendant la lecture —, ` +
       `mais l'écart est noté plutôt que tu.`,
   };
@@ -616,8 +701,11 @@ export function reporterBlocTierlist(
  * (migration 0253), précisément pour que cette chaîne n'ait pas à se dédoubler.
  * Si elles divergeaient un jour, ce point unique le ferait apparaître tout de
  * suite au lieu de laisser deux `select` se désynchroniser en silence.
+ *
+ * Exportée pour les vues par application (0270, `tiers_application.ts`), qui
+ * reprennent ces colonnes sous les mêmes noms.
  */
-const COLONNES_ETAT =
+export const COLONNES_ETAT =
   "contenu_id, tier, passages_prevus, tier_cycle, publies, en_vol, restants, moyenne_vues, max_vues, nb_150k, mesures, introuvables, en_attente_mesure, dernier_publie_at";
 
 interface LectureEtats {

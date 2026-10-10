@@ -2,10 +2,8 @@ import * as React from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 
-import { Textarea } from "@/components/ui/textarea";
 import {
   definirApplicationsLabel,
-  majAngleLabel,
   type ApplicationMulti,
   type LienLabelApplicationRow,
   type ReserveLabelApplication,
@@ -15,7 +13,7 @@ import { applicationsDuLabel, ID_SOPHIA } from "@/features/moteur/multiApp";
 import { cn } from "@/lib/utils";
 
 import { BadgeReserve } from "./BadgeReserve";
-import { angleDuLien, basculerApplicationLabel, labelImplicite } from "./logique";
+import { basculerApplicationLabel, labelImplicite } from "./logique";
 
 function messageErreur(err: unknown): string {
   if (err instanceof Error) return err.message;
@@ -24,70 +22,9 @@ function messageErreur(err: unknown): string {
 }
 
 /**
- * Angle d'un label pour une application, enregistré à la sortie du champ.
- *
- * Un label encore implicite (aucune ligne : il sert Sophia par héritage) n'a
- * pas de lien sur lequel poser l'angle : on matérialise d'abord son ensemble
- * explicite ({Sophia}), puis on écrit l'angle.
- */
-function ChampAngle({
-  labelId,
-  application,
-  liens,
-}: {
-  labelId: string;
-  application: ApplicationMulti;
-  liens: readonly LienLabelApplicationRow[];
-}) {
-  const { t } = useTranslation();
-  const qc = useQueryClient();
-  const enBase = angleDuLien(labelId, application.id, liens);
-  const [brouillon, setBrouillon] = React.useState<string | null>(null);
-  const valeur = brouillon ?? enBase;
-
-  const sauver = useMutation({
-    mutationFn: async (angle: string) => {
-      if (labelImplicite(labelId, liens)) {
-        await definirApplicationsLabel(labelId, applicationsDuLabel(labelId, liens));
-      }
-      await majAngleLabel(labelId, application.id, angle);
-    },
-    onSuccess: async () => {
-      await qc.invalidateQueries({ queryKey: ["label-applications"] });
-      setBrouillon(null);
-    },
-  });
-
-  return (
-    <div className="space-y-1">
-      <label className="text-[11px] font-medium" htmlFor={`angle-${labelId}-${application.id}`}>
-        {t("multiApp.labels.angle", { nom: nomApplication(application) })}
-      </label>
-      <Textarea
-        id={`angle-${labelId}-${application.id}`}
-        rows={2}
-        className="text-xs"
-        placeholder={t("multiApp.labels.anglePlaceholder", { nom: nomApplication(application) })}
-        value={valeur}
-        disabled={sauver.isPending}
-        onChange={(e) => setBrouillon(e.target.value)}
-        onBlur={() => {
-          if (brouillon === null) return;
-          if (brouillon.trim() === enBase.trim()) {
-            setBrouillon(null);
-            return;
-          }
-          sauver.mutate(brouillon);
-        }}
-      />
-      {sauver.isError && <p className="text-[11px] text-destructive">{messageErreur(sauver.error)}</p>}
-    </div>
-  );
-}
-
-/**
  * Applications servies par un label : une puce par application (cliquer
- * coche / décoche), la réserve de chaque application servie, et les angles.
+ * coche / décoche) et la réserve de chaque application servie. Pas d'angle
+ * par label : le prompt de placement de l'application suffit.
  *
  * Un label sans ligne affiche Sophia servie (héritage) ; la première
  * modification écrit l'ensemble EXPLICITE complet, Sophia comprise. La
@@ -181,18 +118,6 @@ export function LabelApplications({
       </div>
       {refus && <p className="text-[11px] text-destructive">{refus}</p>}
       {definir.isError && <p className="text-[11px] text-destructive">{messageErreur(definir.error)}</p>}
-      <details className="text-xs">
-        <summary className="cursor-pointer text-[11px] text-muted-foreground">
-          {t("multiApp.labels.angles", {
-            n: appsServies.filter((a) => angleDuLien(labelId, a.id, liens).trim()).length,
-          })}
-        </summary>
-        <div className="mt-1.5 space-y-2">
-          {appsServies.map((app) => (
-            <ChampAngle key={app.id} labelId={labelId} application={app} liens={liens} />
-          ))}
-        </div>
-      </details>
     </div>
   );
 }

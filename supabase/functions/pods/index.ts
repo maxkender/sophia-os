@@ -1027,7 +1027,7 @@ async function comptesDuPod(request: Request, supabase: Supabase, body: Record<s
   if (!pod) return json({ ok: false, error: "unauthorized" }, 401);
   let q = supabase
     .from("comptes")
-    .select("id, langue, persona_nom, handle_tiktok, is_active")
+    .select("id, langue, persona_nom, handle_tiktok, handle_instagram, videos_uniquement, warmup_ends_at, is_active")
     .eq("is_active", true)
     .order("langue")
     .limit(500);
@@ -1094,9 +1094,14 @@ async function deciderPersona(supabase: Supabase, id: string, valide: boolean, m
     .update({ statut: valide ? "valide" : "rejete", motif, decide_le: new Date().toISOString() })
     .eq("id", id)
     .eq("statut", "a_valider")
-    .select("id");
+    .select("id, compte_id");
   if (error) throw error;
   if (!data?.length) return json({ ok: false, error: "persona introuvable ou déjà décidé" }, 409);
+  // Persona validé : le compte passe en vidéos uniquement (plus de slideshows).
+  if (valide) {
+    const { error: e } = await supabase.from("comptes").update({ videos_uniquement: true }).eq("id", data[0].compte_id);
+    if (e) throw new Error(`compte : ${messageErreur(e)}`);
+  }
   return json({ ok: true, statut: valide ? "valide" : "rejete" });
 }
 
@@ -1117,7 +1122,7 @@ async function deposerVideo(request: Request, supabase: Supabase, body: Record<s
 
   const ids = items.map((i) => i.compte_id);
   const [{ data: comptes }, { data: personas }] = await Promise.all([
-    supabase.from("comptes").select("id, langue, persona_nom").in("id", ids).limit(ids.length),
+    supabase.from("comptes").select("id, langue, persona_nom, videos_uniquement, warmup_ends_at").in("id", ids).limit(ids.length),
     supabase.from("pod_personas").select("compte_id, statut").eq("pod", pod.slug).in("compte_id", ids).limit(ids.length),
   ]);
   const langues = new Map((comptes ?? []).map((c: { id: string; langue: string }) => [c.id, c.langue]));
@@ -1128,6 +1133,17 @@ async function deposerVideo(request: Request, supabase: Supabase, body: Record<s
   const sansPersona = ids.filter((id) => langues.has(id) && !valides.has(id));
   if (manquants.length) return json({ ok: false, error: `comptes introuvables : ${manquants.join(", ")}` }, 400);
   if (sansPersona.length) return json({ ok: false, error: `persona non validé : ${sansPersona.join(", ")}` }, 409);
+  // Une vidéo ne part que vers un compte UGC vidéo dont le warmup est fini :
+  // un compte slideshow ou encore en warmup ne reçoit jamais de vidéo du pod.
+  const maintenant = Date.now();
+  const nonPrets = (comptes ?? [])
+    .filter((c: { videos_uniquement: boolean; warmup_ends_at: string | null }) =>
+      !c.videos_uniquement || !c.warmup_ends_at || new Date(c.warmup_ends_at).getTime() > maintenant
+    )
+    .map((c: { id: string }) => c.id);
+  if (nonPrets.length) {
+    return json({ ok: false, error: `compte pas en vidéos uniquement ou warmup pas fini : ${nonPrets.join(", ")}` }, 409);
+  }
 
   const { data: existante } = await supabase
     .from("pod_livraisons")
@@ -1215,6 +1231,7 @@ async function validerVideo(supabase: Supabase, l: any, userId: string | null) {
     legende: d.legende,
     musique_titre: l.musique_titre,
     musique_url: l.musique_url,
+    source_url: l.source_url,
   }));
   const { error } = await supabase.from("pod_videos").insert(lignes);
   if (error) throw new Error(`vidéos : ${messageErreur(error)}`);

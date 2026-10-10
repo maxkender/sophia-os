@@ -16,6 +16,8 @@ import {
   CardTitle,
   EmptyState,
 } from "@/components/ui/card";
+import { useAuth } from "@/features/auth/AuthContext";
+import { CarteCreerRecruteur } from "@/features/hiring/CarteCreerRecruteur";
 import {
   creerPoster,
   listerLanguesReference,
@@ -236,6 +238,7 @@ function LignePoster({
  */
 export function HiringPosterPage() {
   const { t } = useTranslation();
+  const { role } = useAuth();
   const queryClient = useQueryClient();
 
   const langues = useQuery({ queryKey: ["langues-reference"], queryFn: listerLanguesReference });
@@ -291,6 +294,10 @@ export function HiringPosterPage() {
       queryClient.invalidateQueries({ queryKey: ["posters"] });
     },
   });
+
+  // Le DM a sa propre page « Suivi des HM » où la même carte vit à côté de son
+  // équipe : l'afficher ici aussi lui donnerait deux formulaires identiques.
+  const montrerCreerRecruteur = role === "hiring_manager" || role === "head_of_ops";
 
   return (
     <div className="space-y-6">
@@ -390,6 +397,8 @@ export function HiringPosterPage() {
           )}
         </CardContent>
       </Card>
+
+      {montrerCreerRecruteur && <CarteCreerRecruteur prefixeId="hmHm" />}
 
       <Card>
         <CardContent className="space-y-2 pt-5">

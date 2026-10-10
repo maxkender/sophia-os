@@ -8,10 +8,13 @@
  * moteur fera, pas une approximation.
  */
 import { nomApplication } from "../applications";
+import { decisionDepuisEtat } from "../tierlist";
+import type { ContenuTierEtat, ReglagesTierlist } from "../types";
 import {
   applicationsDuLabel,
   applicationsEligiblesCompte,
   applicationsServies,
+  estLabelSystemeSlug,
   ID_SOPHIA,
   normaliserParts,
   partsEffectives,
@@ -68,16 +71,25 @@ export type AvertissementParts =
   | { type: "langue"; app: string; langue: string }
   /** Compte UGC : Unswipe = slideshows classiques uniquement, il reste Sophia. */
   | { type: "ugc" }
-  /** Aucun label du compte ne sert Sophia : le reste ira aux autres applications. */
-  | { type: "sophiaNonServie" }
   /** Répartition enregistrée pour une application que les labels ne servent plus. */
   | { type: "obsolete"; app: string };
 
 export interface EtatPartsCompte {
   /** Applications servies par les labels du compte (Sophia d'abord). */
   servies: ApplicationMoteur[];
-  /** Applications servies hors Sophia : un curseur chacune. */
+  /** Applications servies hors Sophia : un curseur chacune (quand Sophia est servie). */
   autres: ApplicationMoteur[];
+  /**
+   * Au moins un label du compte sert Sophia. Sinon (compte « 100 % Unswipe ») :
+   * pas de curseur — Sophia ne prend pas le reste — et pas de repli Sophia, une
+   * application éteinte ou hors langue ne « revient » à personne.
+   */
+  sophiaServie: boolean;
+  /**
+   * Sophia non servie ET aucune application éligible : le moteur n'a rien à
+   * publier sur ce compte (application éteinte, langue non ciblée, compte UGC).
+   */
+  bloque: boolean;
   /** `comptes.parts_applications` lu ; `null` = 100 % Sophia. */
   stockees: PartsApplications | null;
   /** Valeur initiale des curseurs (slug → %, multiples de 10, total ≤ 100). */
@@ -86,8 +98,10 @@ export interface EtatPartsCompte {
   effectives: PartsApplications;
   avertissements: AvertissementParts[];
   /**
-   * Le bloc a quelque chose à dire : plusieurs applications servies, ou une
-   * répartition enregistrée qui n'a plus d'objet (à réinitialiser).
+   * Le bloc a quelque chose à dire : une application autre que Sophia servie
+   * — y compris seule, c'est là que se lit « Unswipe est désactivée » —, ou
+   * une répartition enregistrée qui n'a plus d'objet (à réinitialiser). Un
+   * compte Sophia pur ne l'affiche jamais.
    */
   afficher: boolean;
 }
@@ -131,21 +145,23 @@ export function etatPartsCompte(args: {
   }).map((a) => a.slug);
   const effectives = partsEffectives(stockees, eligibles);
 
+  const sophiaServie = idsServis.includes(ID_SOPHIA);
   const avertissements: AvertissementParts[] = [];
   if (ugc && autres.length > 0) avertissements.push({ type: "ugc" });
+  // Les deux causes à la fois quand les deux valent (état laissé par 0258 :
+  // désactivée ET sans langue) : n'en dire qu'une ferait croire qu'il suffit
+  // d'allumer l'application, comme le dit le moteur (`raisonCompteNonServable`).
   for (const app of autres) {
-    if (!app.actif) {
-      avertissements.push({ type: "inactive", app: app.nom });
-    } else if (app.langues !== null && !app.langues.includes(compte.langue)) {
+    if (!app.actif) avertissements.push({ type: "inactive", app: app.nom });
+    if (app.langues !== null && !app.langues.includes(compte.langue)) {
       avertissements.push({ type: "langue", app: app.nom, langue: compte.langue });
     }
   }
-  if (autres.length > 0 && !idsServis.includes(ID_SOPHIA)) {
-    avertissements.push({ type: "sophiaNonServie" });
-  }
   const slugsServis = new Set(servies.map((a) => a.slug));
   for (const [slug, part] of Object.entries(stockees ?? {})) {
-    if (slug === SLUG_SOPHIA || part <= 0 || slugsServis.has(slug)) continue;
+    // Une part Sophia n'est un reliquat que si plus aucun label ne la sert :
+    // sur un compte qui la sert, c'est le défaut.
+    if ((slug === SLUG_SOPHIA && sophiaServie) || part <= 0 || slugsServis.has(slug)) continue;
     const app = applications.find((a) => a.slug === slug);
     avertissements.push({ type: "obsolete", app: app ? app.nom : slug });
   }
@@ -154,12 +170,101 @@ export function etatPartsCompte(args: {
   return {
     servies,
     autres,
+    sophiaServie,
+    bloque: !sophiaServie && Object.keys(effectives).length === 0,
     stockees,
     curseurs,
     effectives,
     avertissements,
-    afficher: servies.length > 1 || obsolete,
+    afficher: servies.length > 1 || autres.length > 0 || !sophiaServie || obsolete,
   };
+}
+
+/**
+ * Panneau Minuit, faute de journal de la nuit : pourquoi un compte dont AUCUN
+ * label ne sert Sophia (« 100 % Unswipe ») n'a pas publié. Le diagnostic
+ * historique compte le pool Sophia, que ce compte ne touche jamais : il
+ * annoncerait « pool OK, timeout batch, baisse auto du quota » à tort.
+ *
+ * `null` dès qu'un label sert Sophia : le diagnostic historique s'applique
+ * alors tel quel, rien ne change pour ces comptes. Même règle que le moteur
+ * (`applicationsServies`, `applicationsEligiblesCompte`) : un label sans ligne
+ * sert Sophia, les labels système sont ignorés.
+ */
+export function diagnosticCompteSansSophia(args: {
+  compte: { langue: string; ugc: boolean };
+  labels: readonly LabelRef[];
+  liens: readonly LienLabelApplication[];
+  /** Au moins les applications servies par les labels du compte. */
+  applications: readonly ApplicationMoteur[];
+  /** Noms des labels, pour le message. */
+  labelsTxt: string;
+}): string | null {
+  const { compte, labels, liens, applications, labelsTxt } = args;
+  const idsServis = applicationsServies(labels, liens);
+  if (idsServis.includes(ID_SOPHIA)) return null;
+
+  const servies = applications
+    .filter((a) => idsServis.includes(a.id))
+    .sort((a, b) => a.nom.localeCompare(b.nom));
+  const noms = servies.length > 0 ? servies.map((a) => a.nom).join(", ") : `${idsServis.length} application(s)`;
+  const langue = compte.langue.toUpperCase();
+  const tete =
+    `Aucun label de ce compte (« ${labelsTxt} ») ne sert Sophia : il ne publie que pour ${noms}, ` +
+    `sans repli possible sur Sophia.`;
+
+  const eligibles = applicationsEligiblesCompte({
+    applications,
+    servies: idsServis,
+    langue: compte.langue,
+    ugc: compte.ugc,
+  });
+  if (eligibles.length > 0) {
+    const nomsEligibles = eligibles.map((a) => a.nom).join(", ");
+    return (
+      `${tete} ${nomsEligibles} peut le servir (active, ${langue} ciblé) : réserve à vérifier ` +
+      `— Pilotage → Labels, badge ${nomsEligibles} de ces labels.`
+    );
+  }
+
+  const causes: string[] = [];
+  if (compte.ugc) {
+    causes.push("compte UGC (les applications autres que Sophia ne passent que par les slideshows classiques)");
+  }
+  // Toutes les causes, pas la première : une application désactivée ET sans
+  // langue (l'état laissé par 0258) ne publie toujours rien une fois allumée.
+  for (const app of servies) {
+    if (!app.actif) causes.push(`${app.nom} est désactivée`);
+    if (app.langues !== null && app.langues.length === 0) {
+      causes.push(`${app.nom} ne cible encore aucune langue (à cocher dans Pilotage → Applications)`);
+    } else if (app.langues !== null && !app.langues.includes(compte.langue)) {
+      causes.push(`${app.nom} ne cible pas le ${langue}`);
+    }
+  }
+  if (causes.length === 0) causes.push("application(s) introuvable(s)");
+  return `${tete} Aucune application ne peut servir ce compte, il ne publiera rien : ${causes.join(" ; ")}.`;
+}
+
+/**
+ * Panneau Minuit, faute de journal, compte MIXTE (un label sert Sophia, un
+ * autre ne sert que d'autres applications) : les labels où minuit pioche le
+ * pool Sophia. Le moteur n'y prend que les labels qui servent Sophia
+ * (`labelsSophia`, labels système exclus) ; compter le pool sur TOUS ses
+ * labels annoncerait « pool OK… timeout batch » là où il a vu un pool Sophia
+ * vide.
+ *
+ * `null` dès qu'aucun label utile ne sert autre chose que Sophia : le
+ * diagnostic historique garde alors exactement ses labels (système compris),
+ * rien ne change pour un compte Sophia pur.
+ */
+export function labelsPoolSophiaCompteMixte(
+  labels: readonly LabelRef[],
+  liens: readonly LienLabelApplication[],
+): LabelRef[] | null {
+  const utiles = labels.filter((l) => !estLabelSystemeSlug(l.slug));
+  const servent = (l: LabelRef) => applicationsDuLabel(l.id, liens).includes(ID_SOPHIA);
+  if (utiles.every(servent)) return null;
+  return utiles.filter(servent);
 }
 
 /**
@@ -193,4 +298,50 @@ export function resumeParts(
       return `${nom} ${Math.round(parts[slug])} %`;
     })
     .join(" · ");
+}
+
+/**
+ * Où en est la requalification d'un cycle, en clair — pour le tier d'une
+ * application autre que Sophia (0270). Même décision que minuit
+ * (`decisionDepuisEtat`) et mêmes clés de phrases (`slideshows.requalif.*`)
+ * que le bloc Tierlist Sophia de la fiche, dont c'est le pendant par
+ * application. `null` tant que le cycle n'a pas fini ses passages.
+ */
+export function etatRequalifCycle(
+  etat: ContenuTierEtat | null | undefined,
+  tierlist: Pick<ReglagesTierlist, "recul_jours" | "requalif_max_jours"> | undefined,
+): { cle: string; alerte: boolean; echeance: string | null } | null {
+  if (!etat || !tierlist) return null;
+  const d = decisionDepuisEtat(etat, tierlist);
+  if (!d.requalifier && d.motif === "passages") return null;
+  if (!d.requalifier && d.motif === "recul") {
+    return { cle: "recul", alerte: false, echeance: null };
+  }
+  if (!d.requalifier) {
+    const dernier = etat.dernier_publie_at ? Date.parse(etat.dernier_publie_at) : Number.NaN;
+    const echeance = Number.isFinite(dernier)
+      ? new Date(dernier + tierlist.requalif_max_jours * 86_400_000).toISOString().slice(0, 10)
+      : null;
+    return { cle: "mesure", alerte: true, echeance };
+  }
+  return {
+    cle: d.surMesure ? "prete" : `sansMesure_${d.motif}`,
+    alerte: !d.surMesure,
+    echeance: null,
+  };
+}
+
+/**
+ * Aucun label du contenu ne sert Sophia : il n'a pas de rang Sophia (0270 —
+ * import « hors Sophia »). Même règle que le moteur (`applicationsServies` :
+ * un label sans ligne sert Sophia, labels système ignorés, aucun label utile =
+ * Sophia). Faux tant que les liens ne sont pas lisibles : dans le doute, la
+ * fiche garde l'affichage d'avant.
+ */
+export function contenuHorsSophia(
+  labels: readonly LabelRef[],
+  liens: readonly LienLabelApplication[] | undefined,
+): boolean {
+  if (!liens) return false;
+  return !applicationsServies(labels, liens).includes(ID_SOPHIA);
 }

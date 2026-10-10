@@ -124,17 +124,20 @@ describe("etatPartsCompte", () => {
   });
 
   it("prévient : application éteinte, langue non ciblée, compte UGC", () => {
+    // Répartition mixte (Sophia y garde une part) : la part exclue lui revient.
     const eteinte = etatPartsCompte({
-      compte: { ...compte, parts_applications: { unswipe: 30 } },
+      compte: { ...compte, parts_applications: { sophia: 70, unswipe: 30 } },
       labels: [CLEAN],
       liens: LIENS,
       applications: [SOPHIA, { ...UNSWIPE, actif: false }],
     });
     expect(eteinte.avertissements).toEqual([{ type: "inactive", app: "Unswipe" }]);
     expect(eteinte.effectives).toEqual({ sophia: 100 });
+    expect(eteinte.repliSophia).toBe(true);
+    expect(eteinte.bloque).toBe(false);
 
     const langue = etatPartsCompte({
-      compte: { ...compte, langue: "de", parts_applications: { unswipe: 30 } },
+      compte: { ...compte, langue: "de", parts_applications: { sophia: 70, unswipe: 30 } },
       labels: [CLEAN],
       liens: LIENS,
       applications: APPS,
@@ -143,7 +146,7 @@ describe("etatPartsCompte", () => {
     expect(langue.effectives).toEqual({ sophia: 100 });
 
     const ugc = etatPartsCompte({
-      compte: { ...compte, ugc_ai: true, parts_applications: { unswipe: 30 } },
+      compte: { ...compte, ugc_ai: true, parts_applications: { sophia: 70, unswipe: 30 } },
       labels: [CLEAN],
       liens: LIENS,
       applications: APPS,
@@ -239,6 +242,84 @@ describe("etatPartsCompte", () => {
   });
 });
 
+describe("etatPartsCompte — deux niveaux : la répartition choisit parmi ce que les labels permettent", () => {
+  const compte = { langue: "fr", ugc_ai: false, parts_applications: null };
+
+  it("défaut (NULL), label partagé : repli Sophia, 100 % Sophia (inchangé)", () => {
+    const e = etatPartsCompte({ compte, labels: [CLEAN], liens: LIENS, applications: APPS });
+    expect(e.repliSophia).toBe(true);
+    expect(e.bloque).toBe(false);
+    expect(e.effectives).toEqual({ sophia: 100 });
+  });
+
+  it("label partagé réglé 100 % Unswipe : Unswipe seule, pas de repli Sophia", () => {
+    const e = etatPartsCompte({
+      compte: { ...compte, parts_applications: { unswipe: 100 } },
+      labels: [CLEAN],
+      liens: LIENS,
+      applications: APPS,
+    });
+    expect(e.sophiaServie).toBe(true);
+    expect(e.repliSophia).toBe(false);
+    expect(e.bloque).toBe(false);
+    expect(e.effectives).toEqual({ unswipe: 100 });
+  });
+
+  it("label partagé réglé 100 % Unswipe, Unswipe éteinte / hors langue / UGC : ne publiera rien", () => {
+    for (const [patch, applications] of [
+      [{}, [SOPHIA, { ...UNSWIPE, actif: false }]],
+      [{ langue: "de" }, APPS],
+      [{ ugc_ai: true }, APPS],
+    ] as const) {
+      const e = etatPartsCompte({
+        compte: { ...compte, ...patch, parts_applications: { unswipe: 100 } },
+        labels: [CLEAN],
+        liens: LIENS,
+        applications,
+      });
+      expect(e.repliSophia).toBe(false);
+      expect(e.effectives).toEqual({});
+      expect(e.bloque).toBe(true);
+    }
+  });
+
+  it("labels Sophia seuls, répartition enregistrée : la carte reste visible", () => {
+    const sophia100 = etatPartsCompte({
+      compte: { ...compte, parts_applications: { sophia: 100 } },
+      labels: [CINEMA],
+      liens: LIENS,
+      applications: APPS,
+    });
+    expect(sophia100.afficher).toBe(true);
+    expect(sophia100.repliSophia).toBe(true);
+    expect(sophia100.bloque).toBe(false);
+
+    // Réglée 100 % Unswipe alors qu'aucun label ne sert Unswipe : rien.
+    const unswipe100 = etatPartsCompte({
+      compte: { ...compte, parts_applications: { unswipe: 100 } },
+      labels: [CINEMA],
+      liens: LIENS,
+      applications: APPS,
+    });
+    expect(unswipe100.afficher).toBe(true);
+    expect(unswipe100.repliSophia).toBe(false);
+    expect(unswipe100.bloque).toBe(true);
+    expect(unswipe100.effectives).toEqual({});
+    expect(unswipe100.avertissements).toEqual([{ type: "obsolete", app: "Unswipe" }]);
+  });
+
+  it("labels 100 % Unswipe, réglage resté 100 % Sophia : ne publiera rien (plus de parts égales)", () => {
+    const e = etatPartsCompte({
+      compte: { ...compte, parts_applications: { sophia: 100 } },
+      labels: [CLEAN],
+      liens: [{ label_id: CLEAN.id, application_id: ID_UNSWIPE }],
+      applications: APPS,
+    });
+    expect(e.effectives).toEqual({});
+    expect(e.bloque).toBe(true);
+  });
+});
+
 describe("diagnosticCompteSansSophia (panneau Minuit)", () => {
   const SEUL_UNSWIPE = [{ label_id: CLEAN.id, application_id: ID_UNSWIPE }];
   const base = {
@@ -280,6 +361,30 @@ describe("diagnosticCompteSansSophia (panneau Minuit)", () => {
     expect(ugc).toContain("il ne publiera rien");
   });
 
+  it("répartition explicite avec part Sophia, label sans ligne (Sophia héritée) : rien à signaler", () => {
+    // L'appelant (api.ts) ne liste que les applications jointes aux lignes
+    // `label_applications` : Sophia peut y manquer, le moteur l'a toujours.
+    const sansLigne = { id: "L9", slug: "nouveau", nom: "nouveau" };
+    expect(
+      diagnosticCompteSansSophia({
+        ...base,
+        compte: { langue: "fr", ugc: false, parts_applications: { sophia: 100 } },
+        labels: [sansLigne],
+        liens: [],
+        applications: [UNSWIPE],
+      }),
+    ).toBeNull();
+    expect(
+      diagnosticCompteSansSophia({
+        ...base,
+        compte: { langue: "fr", ugc: false, parts_applications: { sophia: 70, unswipe: 30 } },
+        labels: [sansLigne, CINEMA],
+        liens: SEUL_UNSWIPE,
+        applications: [UNSWIPE],
+      }),
+    ).toBeNull();
+  });
+
   it("désactivée ET sans langue (état de 0258) : les deux causes, pas seulement « désactivée »", () => {
     const d = diagnosticCompteSansSophia({
       ...base,
@@ -288,6 +393,43 @@ describe("diagnosticCompteSansSophia (panneau Minuit)", () => {
     })!;
     expect(d).toContain("Unswipe est désactivée");
     expect(d).toContain("Unswipe ne cible encore aucune langue (à cocher dans Pilotage → Applications)");
+  });
+
+  describe("deux niveaux : répartition explicite", () => {
+    const partage = (parts: Record<string, number>) => ({
+      ...base,
+      compte: { langue: "fr", ugc: false, parts_applications: parts },
+      liens: LIENS,
+    });
+
+    it("répartition NULL ou part Sophia > 0 : null, diagnostic historique", () => {
+      expect(diagnosticCompteSansSophia({ ...base, compte: { ...base.compte, parts_applications: null }, liens: LIENS })).toBeNull();
+      expect(diagnosticCompteSansSophia(partage({ sophia: 70, unswipe: 30 }))).toBeNull();
+    });
+
+    it("label partagé réglé 100 % Unswipe : la répartition coupe le repli, réserve Unswipe à vérifier", () => {
+      const d = diagnosticCompteSansSophia(partage({ unswipe: 100 }))!;
+      expect(d).toContain("La répartition de ce compte donne 0 % à Sophia");
+      expect(d).toContain("sans repli possible sur Sophia");
+      expect(d).toContain("Unswipe peut le servir");
+      expect(d).not.toContain("ne sert Sophia");
+      expect(d).not.toMatch(/timeout|baisse/);
+    });
+
+    it("label partagé réglé 100 % Unswipe, Unswipe éteinte : il ne publiera rien, cause dite", () => {
+      const d = diagnosticCompteSansSophia({
+        ...partage({ unswipe: 100 }),
+        applications: [SOPHIA, { ...UNSWIPE, actif: false }],
+      })!;
+      expect(d).toContain("il ne publiera rien");
+      expect(d).toContain("Unswipe est désactivée");
+    });
+
+    it("labels Sophia seuls réglés 100 % Unswipe : aucun label ne sert Unswipe", () => {
+      const d = diagnosticCompteSansSophia({ ...partage({ unswipe: 100 }), labels: [CINEMA], liens: [] })!;
+      expect(d).toContain("il ne publiera rien");
+      expect(d).toContain("aucun label de ce compte ne sert Unswipe");
+    });
   });
 });
 

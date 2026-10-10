@@ -23,10 +23,16 @@ import { useApplicationsMulti, useLiensLabels } from "./useMultiApp";
  * posts). Un curseur par application hors Sophia, par pas de 10 ; Sophia prend
  * le reste. Rien ne s'écrit sans « Enregistrer ».
  *
- * Invisible tant que les labels du compte ne servent que Sophia : le cas de
- * tous les comptes aujourd'hui. Les avertissements ne bloquent rien — le
- * moteur restreint de toute façon aux applications éligibles (actives, langue
- * ciblée, compte non UGC) et reporte le reste.
+ * DEUX NIVEAUX, comme le moteur : les labels disent ce que le compte peut
+ * promouvoir, la répartition ce qu'il promeut. Une répartition qui donne 0 %
+ * à Sophia coupe le repli Sophia, même si un label la sert : la carte le dit,
+ * et dit en rouge quand plus rien ne peut être publié.
+ *
+ * Invisible tant que les labels du compte ne servent que Sophia ET qu'aucune
+ * répartition n'est enregistrée : le cas de tous les comptes aujourd'hui. Les
+ * avertissements ne bloquent rien — le moteur restreint de toute façon aux
+ * applications éligibles (actives, langue ciblée, compte non UGC) et reporte
+ * le reste sur les autres applications à part > 0.
  *
  * Compte dont aucun label ne sert Sophia (« 100 % Unswipe ») : pas de curseur
  * ni de ligne Sophia, seulement ce qui sera appliqué — ou, si aucune
@@ -99,25 +105,30 @@ export function PartsApplicationsCompte({
   // le reste. Sans elle, le moteur applique les parts effectives telles quelles.
   const avecCurseurs = etat.sophiaServie && etat.autres.length > 0;
   const sophia = etat.sophiaServie;
+  // Le moteur peut-il se replier sur Sophia ? Faux dès que la répartition
+  // enregistrée lui donne 0 %, même si un label la sert.
+  const repli = etat.repliSophia;
 
-  // Sans Sophia servie, une application exclue ne « revient » à personne : les
-  // textes « sa part revient à Sophia » mentiraient.
+  // Sans repli Sophia, une application exclue ne « revient » pas à Sophia :
+  // les textes « sa part revient à Sophia » mentiraient.
   const texteAvertissement = (a: AvertissementParts): string => {
     switch (a.type) {
       case "inactive":
-        return sophia
+        return repli
           ? t("multiAppPosts.repartition.avertInactive", { app: a.app })
           : t("multiAppPosts.repartition.avertInactiveSansSophia", { app: a.app });
       case "langue":
-        return sophia
+        return repli
           ? t("multiAppPosts.repartition.avertLangue", { app: a.app, langue: nomLangue(a.langue) })
           : t("multiAppPosts.repartition.avertLangueSansSophia", { app: a.app, langue: nomLangue(a.langue) });
       case "ugc":
-        return sophia
+        return repli
           ? t("multiAppPosts.repartition.avertUgc")
-          : t("multiAppPosts.repartition.avertUgcSansSophia");
+          : sophia
+            ? t("multiAppPosts.repartition.avertUgcSansRepli")
+            : t("multiAppPosts.repartition.avertUgcSansSophia");
       case "obsolete":
-        return sophia
+        return repli
           ? t("multiAppPosts.repartition.avertObsolete", { app: a.app })
           : t("multiAppPosts.repartition.avertObsoleteSansSophia", { app: a.app });
     }
@@ -134,11 +145,19 @@ export function PartsApplicationsCompte({
         </span>
       </div>
       <p className="text-[11px] text-muted-foreground">
-        {sophia ? t("multiAppPosts.repartition.aide") : t("multiAppPosts.repartition.aideSansSophia")}
+        {repli
+          ? t("multiAppPosts.repartition.aide")
+          : sophia
+            ? t("multiAppPosts.repartition.aideSansRepli")
+            : t("multiAppPosts.repartition.aideSansSophia")}
       </p>
 
       {etat.bloque && (
-        <p className="text-xs font-medium text-destructive">{t("multiAppPosts.repartition.bloque")}</p>
+        <p className="text-xs font-medium text-destructive">
+          {etat.stockees !== null
+            ? t("multiAppPosts.repartition.bloqueRepartition")
+            : t("multiAppPosts.repartition.bloque")}
+        </p>
       )}
 
       {avecCurseurs && (
@@ -175,6 +194,10 @@ export function PartsApplicationsCompte({
             <span className="flex-1" />
             <span className="w-10 shrink-0 text-right tabular-nums">{resteSophia} %</span>
           </div>
+          {/* Ce que les curseurs vont enregistrer : Sophia à 0 %, plus de repli. */}
+          {resteSophia === 0 && (
+            <p className="text-[11px] text-warning">{t("multiAppPosts.repartition.sansRepliCurseurs")}</p>
+          )}
         </div>
       )}
 

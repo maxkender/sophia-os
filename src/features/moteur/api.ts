@@ -498,6 +498,37 @@ export async function creerCompteUgcVideo(input: {
 }
 
 /**
+ * Choix admin / Head of Ops à la création d'un compte (deux niveaux) : label
+ * imposé et/ou répartition explicite. manage-users refuse ces champs à tout
+ * autre rôle (403 CHOIX_COMPTE_ADMIN).
+ *
+ * - `labelId` : label posé tel quel, la File des créateurs n'est pas utilisée.
+ * - `partsApplications` : slug → entier 1..100, somme 100. Sans `labelId`,
+ *   manage-users choisit un label qui sert toutes les applications à part > 0
+ *   (File non utilisée). Répartition exclusive : seules ces applications
+ *   seront publiées sur le compte, sans repli Sophia.
+ * - Ni l'un ni l'autre : comportement d'avant (File puis repli).
+ */
+export interface OptionsApplicationsCompte {
+  labelId?: string | null;
+  partsApplications?: Record<string, number> | null;
+}
+
+/**
+ * Champs `label_id` / `parts_applications` du corps manage-users — AUCUNE clé
+ * tant que rien n'est renseigné : un recruteur (ou un admin qui ne choisit
+ * rien) envoie exactement le même corps qu'avant.
+ */
+export function corpsApplicationsCompte(o: OptionsApplicationsCompte): Record<string, unknown> {
+  const corps: Record<string, unknown> = {};
+  if (o.labelId) corps.label_id = o.labelId;
+  if (o.partsApplications && Object.keys(o.partsApplications).length > 0) {
+    corps.parts_applications = o.partsApplications;
+  }
+  return corps;
+}
+
+/**
  * Crée le compte d'un poster existant en consommant la file admin
  * (label + UGC + persona) — même logique que la création poster.
  */
@@ -505,7 +536,7 @@ export function assurerComptePoster(input: {
   userId: string;
   langue: string;
   posts_par_jour?: number;
-}) {
+} & OptionsApplicationsCompte) {
   return invoke<{
     ok: boolean;
     deja?: boolean;
@@ -524,6 +555,7 @@ export function assurerComptePoster(input: {
     ...(input.posts_par_jour != null
       ? { posts_par_jour: normaliserPostsParJour(Number(input.posts_par_jour)) }
       : {}),
+    ...corpsApplicationsCompte(input),
   });
 }
 
@@ -1154,7 +1186,7 @@ export function ajouterCompte(input: {
   tiktok_2fa_note?: string;
   notes_hm?: string;
   persona_nom?: string;
-}) {
+} & OptionsApplicationsCompte) {
   return invoke<{
     ok: boolean;
     compteId?: string;
@@ -1173,6 +1205,7 @@ export function ajouterCompte(input: {
     tiktok_2fa_note: input.tiktok_2fa_note ?? "",
     notes_hm: input.notes_hm ?? "",
     persona_nom: input.persona_nom ?? "",
+    ...corpsApplicationsCompte(input),
   });
 }
 
@@ -1313,7 +1346,7 @@ export function creerPoster(input: {
   tiktok_email?: string;
   tiktok_password?: string;
   tiktok_2fa_note?: string;
-}) {
+} & OptionsApplicationsCompte) {
   return invoke<{
     userId: string;
     email: string;
@@ -1341,6 +1374,7 @@ export function creerPoster(input: {
     tiktok_email: input.tiktok_email ?? "",
     tiktok_password: input.tiktok_password ?? "",
     tiktok_2fa_note: input.tiktok_2fa_note ?? "",
+    ...corpsApplicationsCompte(input),
   });
 }
 
@@ -5059,7 +5093,7 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
   const { data: compte, error: errC } = await supabase
     .from("comptes")
     .select(
-      "id, langue, type_compte, videos_uniquement, ugc_ai, ugc_ai_video, ugc_persona_id, posts_par_jour",
+      "id, langue, type_compte, videos_uniquement, ugc_ai, ugc_ai_video, ugc_persona_id, posts_par_jour, parts_applications",
     )
     .eq("id", compteId)
     .maybeSingle();
@@ -5116,12 +5150,13 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
   let labelsTxtPool = labelsTxt;
 
   // MULTI-APPLICATIONS. Tout ce qui suit compte le pool SOPHIA (contenus
-  // tagués, prêts, notés dans la langue). Un compte dont aucun label ne sert
-  // Sophia (« 100 % Unswipe ») n'y pioche jamais : la suite lui annoncerait
-  // « pool OK… timeout batch… baisse auto du quota », à tort. On lit donc les
+  // tagués, prêts, notés dans la langue). Un compte sans repli Sophia — aucun
+  // label ne la sert (« 100 % Unswipe »), ou sa répartition explicite lui
+  // donne 0 % — n'y pioche jamais : la suite lui annoncerait « pool OK…
+  // timeout batch… baisse auto du quota », à tort. On lit donc les
   // applications de ses labels (un label sans ligne sert Sophia, comme au
-  // moteur) et, si aucun ne sert Sophia, on rend la vraie cause. Un compte
-  // dont un label sert Sophia continue exactement comme avant.
+  // moteur) et, sans repli Sophia, on rend la vraie cause. Un compte dont un
+  // label sert Sophia, sans répartition, continue exactement comme avant.
   const { data: liensApps, error: errApps } = await supabase
     .from("label_applications")
     .select("label_id, application_id, applications(id, slug, nom, actif, langues)")
@@ -5161,7 +5196,7 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
       application_id: String(r.application_id),
     }));
     const diagnostic = diagnosticCompteSansSophia({
-      compte: { langue, ugc: ugcAi },
+      compte: { langue, ugc: ugcAi, parts_applications: compte.parts_applications },
       labels: refsLabels,
       liens,
       applications: [...applications.values()],

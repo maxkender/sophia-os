@@ -11,6 +11,9 @@ import {
   majIdentifiantsCm,
 } from "@/features/moteur/api";
 import { nomLangue } from "@/features/moteur/langues";
+import { ChoixApplicationsCreation } from "@/features/moteur/repartition/ChoixApplicationsCreation";
+import { cleErreurChoixCompte } from "@/features/moteur/repartition/choixCreation";
+import { useChoixApplicationsCreation } from "@/features/moteur/repartition/useChoixApplicationsCreation";
 
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
@@ -19,10 +22,17 @@ export function FormulaireAjouterCompte({
   posterId,
   languesProposees,
   onCree,
+  choixApplications = false,
 }: {
   posterId: string;
   languesProposees: string[];
   onCree?: () => void;
+  /**
+   * Choix du label et de la répartition du compte (deux niveaux), pour les
+   * rôles qui recrutent. Faux (défaut) : mêmes champs, mêmes lectures et même
+   * requête qu'avant.
+   */
+  choixApplications?: boolean;
 }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
@@ -35,6 +45,8 @@ export function FormulaireAjouterCompte({
     if (langue && languesType.includes(langue)) return;
     setLangue(languesType[0] ?? "");
   }, [languesType, langue]);
+  // Lectures (applications, labels) seulement formulaire ouvert et choix permis.
+  const choixApps = useChoixApplicationsCreation(choixApplications && ouvert, langue);
 
   const creer = useMutation({
     mutationFn: () =>
@@ -44,10 +56,12 @@ export function FormulaireAjouterCompte({
         langue,
         posts_par_jour: postsParJour,
         handle_tiktok: handle,
+        ...choixApps.options,
       }),
     onSuccess: () => {
       setHandle("");
       setPostsParJour(2);
+      choixApps.reinitialiser();
       setOuvert(false);
       void queryClient.invalidateQueries({ queryKey: ["comptes"] });
       void queryClient.invalidateQueries({ queryKey: ["posters"] });
@@ -120,9 +134,14 @@ export function FormulaireAjouterCompte({
             ))}
           </div>
         </div>
+        <ChoixApplicationsCreation etat={choixApps} idPrefixe={`compte-apps-${posterId}`} />
       </div>
       <div className="flex flex-wrap gap-2">
-        <Button type="submit" size="sm" disabled={creer.isPending || !langue}>
+        <Button
+          type="submit"
+          size="sm"
+          disabled={creer.isPending || !langue || choixApps.bloque}
+        >
           {creer.isPending ? t("common.saving") : t("cm.creerCompte")}
         </Button>
         <Button type="button" size="sm" variant="ghost" onClick={() => setOuvert(false)}>
@@ -133,7 +152,9 @@ export function FormulaireAjouterCompte({
         <p className="text-xs text-destructive">
           {(creer.error as Error).message === "CM_LANGUE_PRISE"
             ? t("cm.languePrise")
-            : (creer.error as Error).message}
+            : cleErreurChoixCompte(creer.error)
+              ? t(cleErreurChoixCompte(creer.error)!)
+              : (creer.error as Error).message}
         </p>
       )}
     </form>

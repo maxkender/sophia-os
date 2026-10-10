@@ -30,6 +30,12 @@ import { langueInitiale } from "@/features/moteur/langues";
 import { comptePrincipal, estCompteCm } from "@/features/moteur/comptesCm";
 import { DeplacerCompte } from "@/features/moteur/DeplacerCompte";
 import { FormulaireAjouterCompte } from "@/features/moteur/FormulaireAjouterCompte";
+import { ChoixApplicationsCreation } from "@/features/moteur/repartition/ChoixApplicationsCreation";
+import {
+  cleErreurChoixCompte,
+  peutChoisirApplicationsCompte,
+} from "@/features/moteur/repartition/choixCreation";
+import { useChoixApplicationsCreation } from "@/features/moteur/repartition/useChoixApplicationsCreation";
 import { EnteteCompte } from "@/features/moteur/VignetteCompte";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
 import type { PosterProfil } from "@/features/moteur/types";
@@ -51,6 +57,7 @@ function LignePoster({
   createurs: PosterProfil[];
 }) {
   const { t } = useTranslation();
+  const { role, profil } = useAuth();
   const queryClient = useQueryClient();
   const langues = useQuery({ queryKey: ["langues-reference"], queryFn: listerLanguesReference });
   const comptes = p.comptes ?? [];
@@ -224,9 +231,11 @@ function LignePoster({
         </ul>
       )}
 
+      {/* Choix label + répartition du compte du créateur, comme à la création. */}
       <FormulaireAjouterCompte
         posterId={p.id}
         languesProposees={langues.data ?? []}
+        choixApplications={peutChoisirApplicationsCompte(role) && !profil?.hm_ugc_ai_video}
       />
     </div>
   );
@@ -238,7 +247,7 @@ function LignePoster({
  */
 export function HiringPosterPage() {
   const { t } = useTranslation();
-  const { role } = useAuth();
+  const { role, profil } = useAuth();
   const queryClient = useQueryClient();
 
   const langues = useQuery({ queryKey: ["langues-reference"], queryFn: listerLanguesReference });
@@ -259,6 +268,14 @@ export function HiringPosterPage() {
     persona: boolean;
     type: PremierCompte;
   } | null>(null);
+  // Label + répartition du premier compte : c'est le créateur qui est associé
+  // à des applications, son recruteur choisit pour lui. Seulement pour un
+  // compte perso (un compte CM n'a pas de label), et pas pour un HM UGC AI
+  // vidéo (ses créateurs suivent ses labels vidéo) ; rien choisi = corps d'avant.
+  const choixApps = useChoixApplicationsCreation(
+    peutChoisirApplicationsCompte(role) && !profil?.hm_ugc_ai_video && premierCompte === "perso",
+    langue,
+  );
 
   // Langues cibles : un créateur = une langue, choisie à l'embauche.
   // Toutes les langues OS sont proposées ; une langue nouvelle s'ajoute
@@ -280,6 +297,7 @@ export function HiringPosterPage() {
         type_compte: premierCompte,
         posts_par_jour: premierCompte === "perso" ? postsParJour : undefined,
         handle_tiktok: premierCompte === "perso" ? handleTiktok : undefined,
+        ...choixApps.options,
       }),
     onSuccess: (r) => {
       setCree({
@@ -291,6 +309,7 @@ export function HiringPosterPage() {
       setNom("");
       setPostsParJour(2);
       setHandleTiktok("");
+      choixApps.reinitialiser();
       queryClient.invalidateQueries({ queryKey: ["posters"] });
     },
   });
@@ -339,12 +358,18 @@ export function HiringPosterPage() {
               handle={handleTiktok}
               onHandle={setHandleTiktok}
             />
+            {choixApps.actif && (
+              <div className="sm:col-span-2">
+                <ChoixApplicationsCreation etat={choixApps} idPrefixe="embauche-apps" />
+              </div>
+            )}
             <div className="sm:col-span-2 space-y-3">
               <Button
                 type="submit"
                 disabled={
                   creer.isPending ||
-                  !langue
+                  !langue ||
+                  choixApps.bloque
                 }
               >
                 {creer.isPending ? t("hiring.enCours") : t("hiring.create")}
@@ -366,7 +391,9 @@ export function HiringPosterPage() {
                         ? t("warmup.plusDePersonaUgc")
                         : (creer.error as Error).message === "NO_UGC_LABEL"
                           ? t("warmup.labelUgcIntrouvable")
-                          : (creer.error as Error).message}
+                          : cleErreurChoixCompte(creer.error)
+                            ? t(cleErreurChoixCompte(creer.error)!)
+                            : (creer.error as Error).message}
                 </p>
               )}
             </div>

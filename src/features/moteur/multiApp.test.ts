@@ -113,9 +113,22 @@ describe("normaliserParts / partsEffectives", () => {
     expect(partsEffectives({ sophia: 70, unswipe: 30 }, ["sophia"])).toEqual({ sophia: 100 });
   });
 
-  it("un compte aux labels 100 % Unswipe publie Unswipe quel que soit le réglage", () => {
+  it("un compte aux labels 100 % Unswipe publie Unswipe sans aucun réglage", () => {
     expect(partsEffectives(null, ["unswipe"])).toEqual({ unswipe: 100 });
-    expect(partsEffectives({ sophia: 100 }, ["unswipe"])).toEqual({ unswipe: 100 });
+    expect(partsEffectives(null, ["foo", "unswipe"])).toEqual({ foo: 50, unswipe: 50 });
+  });
+
+  it("répartition explicite : seules les applications à part > 0, jamais de repli hors répartition", () => {
+    // Label partagé (Sophia + Unswipe), réglé 100 % Unswipe : Unswipe seule.
+    expect(partsEffectives({ unswipe: 100 }, ["sophia", "unswipe"])).toEqual({ unswipe: 100 });
+    // Unswipe inéligible (éteinte, langue, UGC) : rien, pas 100 % Sophia.
+    expect(partsEffectives({ unswipe: 100 }, ["sophia"])).toEqual({});
+    // Labels 100 % Unswipe, réglage resté 100 % Sophia : rien, pas Unswipe.
+    expect(partsEffectives({ sophia: 100 }, ["unswipe"])).toEqual({});
+    // Mixte : la part d'une application inéligible va aux AUTRES à part > 0.
+    expect(partsEffectives({ sophia: 70, unswipe: 30 }, ["sophia"])).toEqual({ sophia: 100 });
+    expect(partsEffectives({ sophia: 70, unswipe: 30 }, ["unswipe"])).toEqual({ unswipe: 100 });
+    expect(partsEffectives({ unswipe: 60, foo: 40 }, ["sophia", "foo"])).toEqual({ foo: 100 });
   });
 
   it("renormalise à 100", () => {

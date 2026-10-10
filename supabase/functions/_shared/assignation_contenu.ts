@@ -24,6 +24,7 @@ import {
   SLUG_SOPHIA,
   applicationsDuLabel,
   applicationsEligiblesCompte,
+  applicationsServies,
   choisirApplicationCreneau,
   estLabelSystemeSlug,
   labelsParApplication,
@@ -408,7 +409,10 @@ export interface AssignationOpts {
   /**
    * Slug de l'application à servir pour ces créneaux, au lieu de la répartition
    * (recharge d'un post révoqué : on refait un post de la MÊME application).
-   * Toujours soumis à l'éligibilité du compte, et au repli sur Sophia.
+   * Toujours soumis à l'éligibilité du compte, et au repli sur Sophia. Avec
+   * une répartition explicite, ignorée si elle n'y a pas de part effective
+   * (le créneau suit alors la répartition), et le repli Sophia n'existe que
+   * si Sophia y garde une part.
    */
   applicationImposee?: string | null;
   /**
@@ -872,7 +876,11 @@ export async function assignerCompteJour(
         repli = { visee: appCreneau, motif: servi.motif };
         appsRepliees.set(appCreneau.id, servi.motif);
         if ("detail" in servi && servi.detail) detailsRepli.set(appCreneau.id, servi.detail);
-        log(`Créneau ${appCreneau.nom} replié sur Sophia (${servi.motif})`);
+        log(
+          labelsSophia.length > 0
+            ? `Créneau ${appCreneau.nom} replié sur Sophia (${servi.motif})`
+            : `Créneau ${appCreneau.nom} sans repli Sophia (${servi.motif})`,
+        );
       }
     }
 
@@ -1009,12 +1017,13 @@ export async function assignerCompteJour(
   }
 
   if (crees.length < manquants && labelsSophia.length === 0) {
-    // Aucun label du compte ne sert Sophia (compte 100 % autre application) :
-    // il n'y a pas de pool Sophia à diagnostiquer, et surtout pas de quota à
-    // baisser sur la foi d'une réserve d'une autre application — c'est un
-    // réglage (application inactive, langue non ciblée, réserve à remplir),
-    // pas un pool mince. La raison dit LEQUEL : c'est elle que le journal de
-    // minuit garde et que le panneau affiche.
+    // Pas de repli Sophia : aucun label du compte ne la sert (compte 100 %
+    // autre application), ou sa répartition explicite lui donne 0 %. Il n'y a
+    // pas de pool Sophia à diagnostiquer, et surtout pas de quota à baisser
+    // sur la foi d'une réserve d'une autre application — c'est un réglage
+    // (application inactive, langue non ciblée, réserve à remplir,
+    // répartition), pas un pool mince. La raison dit LEQUEL : c'est elle que
+    // le journal de minuit garde et que le panneau affiche.
     const diag = raisonCompteNonServable({
       applications: repartition.applications,
       parApp: repartition.parApp,
@@ -1022,6 +1031,7 @@ export async function assignerCompteJour(
       details: detailsRepli,
       langue,
       ugc: ugcAi,
+      parts: repartition.partsDemandees,
     });
     log(diag);
     // Toutes les applications tentées ont manqué de TEMPS (budget de cuisson
@@ -1149,6 +1159,14 @@ async function baisserQuotaSiBesoin(
  * UGC reste Sophia. La part est tenue par DÉFICIT sur ses 10 derniers posts
  * (`choisirApplicationCreneau`) : en 70/30, toute suite de 10 posts compte 7/3.
  *
+ * DEUX NIVEAUX. Les labels disent ce que le compte PEUT promouvoir ; une
+ * répartition EXPLICITE (non NULL) dit ce qu'il promeut, et rien d'autre :
+ * seules ses applications à part > 0 sont jamais publiées. Le repli Sophia
+ * n'existe donc que si Sophia y a une part (ou par défaut, NULL) — un compte
+ * réglé 100 % Unswipe dont le label sert aussi Sophia ne publie QUE de
+ * l'Unswipe, et rien (non servable, sans baisse de quota) quand sa réserve
+ * Unswipe est vide.
+ *
  * DEUX CHEMINS, et le premier est celui de toute la flotte au déploiement :
  *
  * - historique : schéma 0256 absent (ou sonde illisible, une fois passé le
@@ -1178,8 +1196,18 @@ interface Repartition {
   sophia: ApplicationMoteur;
   /** Toutes les applications du moteur (déjà chargées) : raison d'un compte non servable. */
   applications: ApplicationMoteur[];
-  /** Labels du compte qui servent Sophia — le pool et le diagnostic Sophia. */
+  /**
+   * Labels du compte qui servent Sophia — le pool et le diagnostic Sophia, et
+   * donc le repli. VIDE quand une répartition explicite ne laisse aucune part
+   * effective à Sophia : pas de pool Sophia, pas de repli, le compte sort par
+   * la branche « non servable » (sans baisse de quota) s'il n'a rien publié.
+   */
   labelsSophia: string[];
+  /**
+   * `comptes.parts_applications` normalisé, AVANT restriction aux éligibles :
+   * `null` = répartition par défaut. Sert la raison d'un compte non servable.
+   */
+  partsDemandees: PartsApplications | null;
   /** application_id → labels du compte qui la servent. */
   parApp: Map<string, string[]>;
   eligibles: ApplicationMoteur[];
@@ -1216,7 +1244,10 @@ async function preparerRepartition(
     // le chemin d'avant, après le filet ci-dessous : une panne passagère ne
     // doit pas lui coûter sa nuit.
     // Un compte qui demande une autre application échoue (il sera rejoué au
-    // rattrapage) plutôt que de publier Sophia à la place, en silence.
+    // rattrapage) plutôt que de publier Sophia à la place, en silence. Toute
+    // répartition explicite sans part Sophia en demande une autre
+    // (`normaliserParts` ne garde que des parts > 0) : elle lève ici, jamais
+    // servie en Sophia.
     const parts = normaliserParts(args.partsBrutes);
     const demandeAutre =
       Object.keys(parts ?? {}).some((slug) => slug !== SLUG_SOPHIA) ||
@@ -1232,16 +1263,23 @@ async function preparerRepartition(
     // une panne de la sonde lui servait un deck Sophia.
     await verifierLabelsSophiaHorsSonde(supabase, args.labelRefs);
     // Avant 0256, ou tous les labels servent Sophia : le code d'avant, labels
-    // compris (tous, tels que lus).
+    // compris (tous, tels que lus). Seule exception, qui ne touche aucun
+    // compte NULL : une répartition explicite sans part Sophia (sonde
+    // illisible, elle a déjà levé plus haut ; schéma absent, elle n'a pas pu
+    // être réglée) n'a pas de pool Sophia — rien plutôt qu'une application
+    // qu'elle exclut.
+    const partsDemandees = normaliserParts(args.partsBrutes);
+    const sansSophia = partsDemandees !== null && !((partsDemandees[SLUG_SOPHIA] ?? 0) > 0);
     return {
       pret: false,
       multi: false,
       sophia: APPLICATION_SOPHIA_SECOURS,
       applications: [APPLICATION_SOPHIA_SECOURS],
-      labelsSophia: args.labelIds,
+      labelsSophia: sansSophia ? [] : args.labelIds,
+      partsDemandees,
       parApp: new Map([[ID_SOPHIA, args.labelIds]]),
       eligibles: [APPLICATION_SOPHIA_SECOURS],
-      parts: { [SLUG_SOPHIA]: 100 },
+      parts: sansSophia ? {} : { [SLUG_SOPHIA]: 100 },
       imposee: null,
       fenetre: [],
     };
@@ -1262,14 +1300,21 @@ async function preparerRepartition(
     langue: args.langue,
     ugc: args.ugcAi,
   });
-  const parts = partsEffectives(
-    normaliserParts(args.partsBrutes),
-    eligibles.map((a) => a.slug),
-  );
+  const partsDemandees = normaliserParts(args.partsBrutes);
+  const parts = partsEffectives(partsDemandees, eligibles.map((a) => a.slug));
   const sophia = applications.find((a) => a.id === ID_SOPHIA) ?? APPLICATION_SOPHIA_SECOURS;
+  // Une recharge ne ressert l'application du post révoqué que si la
+  // répartition lui laisse une part effective — sinon le créneau suit la
+  // répartition, comme un autre. Par défaut (NULL) aussi : un compte dont un
+  // label sert Sophia est 100 % Sophia, il ne refait pas un post Unswipe. La
+  // flotte (posts Sophia, parts {sophia: 100}) : inchangé.
   const imposee = args.imposee
-    ? eligibles.find((a) => a.slug === args.imposee) ?? null
+    ? eligibles.find((a) => a.slug === args.imposee && (parts[a.slug] ?? 0) > 0) ?? null
     : null;
+  // Le repli Sophia (et le pool d'un créneau Sophia) n'existe que si la
+  // répartition lui laisse une part effective. NULL : les labels qui la
+  // servent, comme avant, quelle que soit son éligibilité.
+  const sansSophia = partsDemandees !== null && !((parts[SLUG_SOPHIA] ?? 0) > 0);
   const multi =
     Object.keys(parts).some((slug) => slug !== SLUG_SOPHIA) ||
     (imposee !== null && imposee.id !== ID_SOPHIA);
@@ -1288,7 +1333,8 @@ async function preparerRepartition(
     multi,
     sophia,
     applications,
-    labelsSophia: parApp.get(ID_SOPHIA) ?? [],
+    labelsSophia: sansSophia ? [] : parApp.get(ID_SOPHIA) ?? [],
+    partsDemandees,
     parApp,
     eligibles,
     parts,
@@ -1455,10 +1501,17 @@ function phraseMotifRepli(nom: string, motif: MotifRepli | undefined, detail?: s
 }
 
 /**
- * Pourquoi un compte dont AUCUN label ne sert Sophia n'a rien (ou pas assez)
- * publié, en français simple. Une cause par application servie par ses labels :
- * ce qui la rend inéligible (désactivée, langue du compte non ciblée, compte
- * UGC), sinon le motif de son repli (réserve vide, deck en échec, budget).
+ * Pourquoi un compte SANS repli Sophia n'a rien (ou pas assez) publié, en
+ * français simple. Deux cas :
+ *
+ * - répartition par défaut (`parts` absent ou `null`) : AUCUN label du compte
+ *   ne sert Sophia. Une cause par application servie par ses labels : ce qui
+ *   la rend inéligible (désactivée, langue du compte non ciblée, compte UGC),
+ *   sinon le motif de son repli (réserve vide, deck en échec, budget) ;
+ * - répartition EXPLICITE : une cause par application à part > 0, les seules
+ *   que le compte peut publier — aucun label ne la sert, inéligible, ou motif
+ *   du repli. Et la vraie raison de l'absence de repli : si ses labels servent
+ *   Sophia, c'est la répartition qui lui donne 0 %, pas les labels.
  *
  * Avant, la raison disait seulement « aucun label ne sert Sophia — repli
  * impossible » : vrai, mais muet sur ce qu'il fallait régler, et c'est cette
@@ -1475,19 +1528,15 @@ export function raisonCompteNonServable(args: {
   details?: ReadonlyMap<string, string>;
   langue: string;
   ugc: boolean;
+  /**
+   * Répartition demandée (`normaliserParts`), avant restriction aux
+   * éligibles. Absente ou `null` : répartition par défaut, phrase d'avant.
+   */
+  parts?: PartsApplications | null;
 }): string {
   const sansRepli = "Pas de repli Sophia : aucun label de ce compte ne sert Sophia.";
-  const servies = [...args.parApp.keys()].filter((id) => id !== ID_SOPHIA);
-  if (servies.length === 0) {
-    return `Aucun label de ce compte ne sert une application (labels système seulement). ${sansRepli}`;
-  }
   const parId = new Map(args.applications.map((a) => [a.id, a]));
-  // Dans l'ordre des applications (Sophia, puis par date de création).
-  const ordre = [
-    ...args.applications.filter((a) => servies.includes(a.id)).map((a) => a.id),
-    ...servies.filter((id) => !parId.has(id)),
-  ];
-  const causes = ordre.map((id) => {
+  const cause = (id: string): string => {
     const app = parId.get(id);
     if (!app) return `application ${id} introuvable`;
     // Mêmes conditions, dans le même ordre, que `applicationsEligiblesCompte`.
@@ -1498,10 +1547,47 @@ export function raisonCompteNonServable(args: {
     } else if (app.langues !== null && !app.langues.includes(args.langue)) {
       empeche.push(`ne cible pas la langue de ce compte (${args.langue})`);
     }
-    if (args.ugc) empeche.push("ne sert pas les comptes UGC (slideshows classiques uniquement)");
+    if (args.ugc && id !== ID_SOPHIA) {
+      empeche.push("ne sert pas les comptes UGC (slideshows classiques uniquement)");
+    }
     if (empeche.length > 0) return `${app.nom} ${empeche.join(" et ")}`;
     return phraseMotifRepli(app.nom, args.replis.get(id), args.details?.get(id));
-  });
+  };
+
+  if (args.parts) {
+    const parts = args.parts;
+    const parSlug = new Map(args.applications.map((a) => [a.slug, a]));
+    const visees = Object.keys(parts).filter((slug) => parts[slug] > 0);
+    // Dans l'ordre des applications, puis les slugs inconnus.
+    const ordre = [
+      ...args.applications.filter((a) => visees.includes(a.slug)).map((a) => a.slug),
+      ...visees.filter((slug) => !parSlug.has(slug)).sort(),
+    ];
+    const nom = (slug: string) => parSlug.get(slug)?.nom ?? slug;
+    const causes = ordre.map((slug) => {
+      const app = parSlug.get(slug);
+      if (!app) return `application « ${slug} » introuvable`;
+      if (!(args.parApp.get(app.id)?.length)) return `aucun label de ce compte ne sert ${app.nom}`;
+      return cause(app.id);
+    });
+    const tete = `Répartition ${ordre.map((slug) => `${nom(slug)} ${Math.round(parts[slug])} %`).join(" · ")}`;
+    if ((parts[SLUG_SOPHIA] ?? 0) > 0) return `${tete} : ${causes.join(" ; ")}.`;
+    const fin = (args.parApp.get(ID_SOPHIA)?.length ?? 0) > 0
+      ? "Pas de repli Sophia : la répartition du compte lui donne 0 %."
+      : sansRepli;
+    return `${tete} : ${causes.join(" ; ")}. ${fin}`;
+  }
+
+  const servies = [...args.parApp.keys()].filter((id) => id !== ID_SOPHIA);
+  if (servies.length === 0) {
+    return `Aucun label de ce compte ne sert une application (labels système seulement). ${sansRepli}`;
+  }
+  // Dans l'ordre des applications (Sophia, puis par date de création).
+  const ordre = [
+    ...args.applications.filter((a) => servies.includes(a.id)).map((a) => a.id),
+    ...servies.filter((id) => !parId.has(id)),
+  ];
+  const causes = ordre.map(cause);
   const noms = ordre.map((id) => parId.get(id)?.nom ?? id).join(" + ");
   return `Compte 100 % ${noms} : ${causes.join(" ; ")}. ${sansRepli}`;
 }
@@ -2960,16 +3046,33 @@ export async function annulerAssignationTest(
  *
  * Sophia : servie si un de ses labels la sert, ou s'il n'a aucun label utile
  * (aucun, ou des labels système seulement) — le rappel d'avant, inchangé.
- * Autre application : il faut un label qui la serve. Pure.
+ * Autre application : il faut un label qui la serve.
+ *
+ * DEUX NIVEAUX, comme l'assignation : avec une répartition EXPLICITE
+ * (`repartition.parts` non `null`), l'application doit en plus y avoir une
+ * part effective (`partsEffectives` sur les applications servies par ses
+ * labels). Un compte réglé 100 % Unswipe dont le label sert aussi Sophia ne
+ * rejoue pas un ancien post Sophia. Répartition absente ou `null` : la règle
+ * d'avant, à l'identique. Pure.
  */
 export function compteSertApplicationRappel(
   labels: readonly LabelRef[],
   liens: readonly LienLabelApplication[],
   applicationId: string,
+  repartition: {
+    parts: PartsApplications | null;
+    /** application_id → slug (les parts sont par slug). */
+    slugParId: ReadonlyMap<string, string>;
+  } | null = null,
 ): boolean {
   const parApp = labelsParApplication(labels, liens);
-  if (applicationId === ID_SOPHIA) return parApp.size === 0 || parApp.has(ID_SOPHIA);
-  return parApp.has(applicationId);
+  const servie = applicationId === ID_SOPHIA
+    ? parApp.size === 0 || parApp.has(ID_SOPHIA)
+    : parApp.has(applicationId);
+  if (!servie || !repartition?.parts) return servie;
+  const slug = (id: string) => repartition.slugParId.get(id) ?? (id === ID_SOPHIA ? SLUG_SOPHIA : id);
+  const effectives = partsEffectives(repartition.parts, applicationsServies(labels, liens).map(slug));
+  return (effectives[slug(applicationId)] ?? 0) > 0;
 }
 
 /**
@@ -2981,9 +3084,10 @@ export function compteSertApplicationRappel(
  * du quota du jour — posé avant l'assignation, il lui prend sa place.
  *
  * Multi-applications : pas de rappel sur un compte dont les labels ne servent
- * plus l'application de la source (`compteSertApplicationRappel`). Le refus
- * va dans `erreurs`, sans lever : la source reste candidate, et repassera si
- * les labels reviennent.
+ * plus l'application de la source, ni dont la répartition explicite ne lui
+ * laisse plus de part (`compteSertApplicationRappel`). Le refus va dans
+ * `erreurs`, sans lever : la source reste candidate, et repassera si les
+ * labels ou la répartition reviennent.
  */
 export async function programmerRappelsJ7(
   supabase: Supabase,
@@ -3000,35 +3104,95 @@ export async function programmerRappelsJ7(
   // que Sophia — le rappel d'avant, sans lecture de plus. Sonde illisible : on
   // vérifie quand même (`chargerLiensLabels` resonde, et lève si la base ne
   // répond toujours pas : le rappel est alors noté en erreur et repassera).
-  type ApplicationsDuCompte = { labels: LabelRef[]; liens: LienLabelApplication[] };
+  //
+  // La répartition du compte (`comptes.parts_applications`) est lue avec, en
+  // parallèle : une ligne `comptes` par sa clé, pour chaque compte à rappel
+  // (une poignée par nuit). NULL (toute la flotte) : le catalogue des
+  // applications n'est pas chargé, la décision sort des labels seuls.
+  // Explicite : les applications (id ↔ slug) sont chargées une fois pour le run.
+  type ApplicationsDuCompte = {
+    labels: LabelRef[];
+    liens: LienLabelApplication[];
+    parts: PartsApplications | null;
+  };
   const applicationsDuCompte = new Map<string, Promise<ApplicationsDuCompte>>();
   const lireApplicationsDuCompte = (compteId: string) =>
     memoiser(applicationsDuCompte, compteId, async () => {
       // Un compte porte au plus les 9 labels du dépôt : pas de pagination.
-      const { data, error } = await supabase
-        .from("compte_labels")
-        .select("label_id, labels(slug)")
-        .eq("compte_id", compteId);
+      const [{ data, error }, lecturesParts] = await Promise.all([
+        supabase
+          .from("compte_labels")
+          .select("label_id, labels(slug)")
+          .eq("compte_id", compteId),
+        supabase
+          .from("comptes")
+          .select("parts_applications")
+          .eq("id", compteId)
+          .maybeSingle(),
+      ]);
       if (error) throw new Error(`labels du compte : ${error.message}`);
+      // Illisible : on ne sait pas ce que la répartition permet — rappel noté
+      // en erreur, il repassera.
+      if (lecturesParts.error) {
+        throw new Error(`répartition du compte : ${lecturesParts.error.message}`);
+      }
       type LabelLu = { slug?: string | null };
       const labels: LabelRef[] = (data ?? []).map((l) => {
         const brut = (l as { labels?: LabelLu | LabelLu[] | null }).labels;
         const ref = Array.isArray(brut) ? brut[0] : brut;
         return { id: l.label_id as string, slug: ref?.slug ?? null };
       });
-      return { labels, liens: await chargerLiensLabels(supabase, labels.map((l) => l.id)) };
+      const parts = normaliserParts(
+        (lecturesParts.data as { parts_applications?: unknown } | null)?.parts_applications,
+      );
+      return { labels, liens: await chargerLiensLabels(supabase, labels.map((l) => l.id)), parts };
     });
+  let slugsApplications: Promise<Map<string, string>> | null = null;
+  const lireSlugsApplications = () => {
+    slugsApplications ??= chargerApplicationsMoteur(supabase).then(
+      (apps) => new Map(apps.map((a) => [a.id, a.slug])),
+    );
+    // Une lecture ratée n'est pas gardée : le rappel suivant relit.
+    slugsApplications.catch(() => {
+      slugsApplications = null;
+    });
+    return slugsApplications;
+  };
   return await programmerRappels(
     supabase,
     async ({ passageSource, jour }) => {
       const applicationId = multiApp ? passageSource.application_id : null;
       if (etat !== "absent") {
-        const { labels, liens } = await lireApplicationsDuCompte(passageSource.compte_id);
-        if (!compteSertApplicationRappel(labels, liens, applicationId ?? ID_SOPHIA)) {
+        const { labels, liens, parts } = await lireApplicationsDuCompte(passageSource.compte_id);
+        const appRappel = applicationId ?? ID_SOPHIA;
+        const nomApp = applicationId && applicationId !== ID_SOPHIA ? `application ${applicationId}` : "Sophia";
+        if (!compteSertApplicationRappel(labels, liens, appRappel)) {
           throw new Error(
             `les labels du compte ne servent plus l'application de ce post` +
-              ` (${applicationId && applicationId !== ID_SOPHIA ? `application ${applicationId}` : "Sophia"})` +
+              ` (${nomApp})` +
               ` — rappel non programmé, sa pub n'y a plus sa place`,
+          );
+        }
+        // Répartition par défaut (NULL) : un compte dont un label sert Sophia
+        // est 100 % Sophia (`partsEffectives`) — il ne rejoue pas un post d'une
+        // autre application, même si un label partagé la sert aussi. Sans
+        // lecture de plus : les labels suffisent.
+        if (parts === null && appRappel !== ID_SOPHIA && labelsParApplication(labels, liens).has(ID_SOPHIA)) {
+          throw new Error(
+            `répartition par défaut (100 % Sophia) — rappel ${nomApp} non programmé, sa pub n'y a plus sa place`,
+          );
+        }
+        // Répartition explicite : l'application doit y garder une part.
+        if (
+          parts !== null &&
+          !compteSertApplicationRappel(labels, liens, appRappel, {
+            parts,
+            slugParId: await lireSlugsApplications(),
+          })
+        ) {
+          throw new Error(
+            `la répartition du compte ne donne plus de part à l'application de ce post` +
+              ` (${nomApp}) — rappel non programmé, sa pub n'y a plus sa place`,
           );
         }
       }

@@ -28,9 +28,9 @@ export function FormulaireAjouterCompte({
   languesProposees: string[];
   onCree?: () => void;
   /**
-   * Choix du label et de la répartition du compte (deux niveaux), pour les
-   * rôles qui recrutent. Faux (défaut) : mêmes champs, mêmes lectures et même
-   * requête qu'avant.
+   * Choix de l'application du compte (Sophia par défaut ; le label est tiré de
+   * la File des créateurs de cette application), pour les rôles qui recrutent.
+   * Faux (défaut) : mêmes champs, mêmes lectures et même requête qu'avant.
    */
   choixApplications?: boolean;
 }) {

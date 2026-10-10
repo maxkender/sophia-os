@@ -204,20 +204,45 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
 - **Sélecteur d'application de l'admin** : filtre les prompts, les stats et la
   réserve. Plus les labels, sources, contenus ni comptes.
 - **Choix à la création d'un compte** (admin, Head of Ops, DM, HM : c'est le
-  créateur qui est associé à des applications, pas son recruteur). Les deux
-  niveaux, dans le formulaire de création (`ChoixApplicationsCreation`, Posters
-  et /embauche) : « Label du compte » (Automatique = File des créateurs, ou un
-  label slideshow imposé) puis « Répartition des posts » (Par défaut = `NULL`,
-  100 % d'une application, ou personnalisée). manage-users reçoit `label_id`
-  et `parts_applications` (`_shared/creation_compte_apps.ts`) :
-  - rien choisi → chemin d'avant, File consommée, aucune clé de plus ;
-  - label imposé → il doit servir toutes les applications à part > 0 (sinon
-    400 `LABEL_INCOMPATIBLE`), la File n'est pas touchée ;
-  - répartition sans label → label le moins utilisé de la langue parmi ceux
-    qui servent toutes ses applications (409 `NO_LABELS_APPLICATION` sinon),
-    la File n'est pas touchée ;
+  créateur qui est associé à une application, pas son recruteur). On ne
+  choisit PAS le label : on choisit seulement l'**application du compte**
+  (bloc « Application du compte », `ChoixApplicationsCreation`, dans les
+  formulaires de création de Posters, de la fiche d'un créateur sans compte et
+  de /embauche). Une option par application ACTIVE, Sophia par défaut et
+  sélectionnée ; le bloc n'apparaît qu'à partir de deux applications actives,
+  pour un compte perso seulement, jamais pour un HM UGC AI vidéo. Le label est
+  ensuite tiré par manage-users :
+  1. File des créateurs DE CETTE APPLICATION pour la langue du compte
+     (`reglages.file_labels_comptes.par_application[slug].par_langue[langue]`),
+  2. puis sa file générale (`par_application[slug].items`),
+  3. sinon le label le moins utilisé parmi les labels qui servent cette
+     application (`label_applications`, un label sans ligne sert Sophia ; la
+     colonne historique `labels.application_id` n'est plus lue).
+
+  Contrat du corps (inchangé) :
+  - Sophia → AUCUNE clé de plus : corps d'avant à l'octet près, donc même
+    résultat qu'aujourd'hui (File Sophia de la langue, puis File générale
+    Sophia, puis label Sophia le moins utilisé). Toutes les embauches
+    d'aujourd'hui passent par là ;
+  - autre application → `parts_applications = { <slug>: 100 }`, jamais
+    `label_id` (le front ne l'envoie plus). Répartition exclusive : le compte
+    ne publie que pour cette application, sans repli Sophia, et n'est jamais
+    UGC ;
+  - 409 `NO_LABELS_APPLICATION` si aucun label ne sert l'application. Le
+    formulaire bloque l'envoi avant : « Aucun label slideshow ne sert <App> »
+    (à cocher dans Pilotage → Labels). Une application qui ne cible pas la
+    langue du compte donne une information, pas un blocage ;
   - compte CM ou UGC vidéo → 400 `CHOIX_COMPTE_INCOMPATIBLE`. Après la
     création, la répartition se change sur la carte du compte (admin).
+- **File des créateurs par application** (Réglages → « Warmup & file de
+  labels ») : un sélecteur d'application (actives, Sophia par défaut) choisit
+  la File éditée (`par_application[slug]`, file générale + files par langue,
+  même ergonomie qu'avant). Les labels proposés à l'ajout sont ceux qui
+  servent l'application choisie ; une entrée déjà en File dont le label ne la
+  sert plus est signalée (badge « ne sert pas <App> »), pas masquée. La case
+  « Compte UGC » n'existe que pour Sophia. La tranche Sophia s'écrit exactement
+  comme avant (`par_application.sophia` ET la file racine `items` /
+  `par_langue`, que lisent les lecteurs historiques).
 
 ## 2. Schéma (migration 0256, additive)
 

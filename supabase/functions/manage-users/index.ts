@@ -1,4 +1,4 @@
-import { applicationSophia, type ApplicationRow } from "../_shared/applications.ts";
+import { applicationSophia, type ApplicationRow, SLUG_SOPHIA } from "../_shared/applications.ts";
 import {
   consommerFileSlideshow,
   estLabelFileSlideshow,
@@ -10,10 +10,22 @@ import {
   applicationsRequises,
   type ChoixCompte,
   choixApplicableAuCompte,
+  entreeCompteApplication,
   labelChoisiCompatible,
   lireChoixCompte,
+  modeChoixCompte,
   validerParts,
 } from "../_shared/creation_compte_apps.ts";
+import {
+  avecSliceApplication,
+  type FileLabelItem,
+  type FileLabelQueued,
+  type FileLabelsValeur,
+  normaliserFileLabelsValeur,
+  remettreEnTete,
+  sliceFileLabels,
+  valeurFileLabels,
+} from "../_shared/file_labels_comptes.ts";
 import { filtrerPoolParApplication } from "../_shared/labels_repli.ts";
 import { lireTout } from "../_shared/lots.ts";
 import type { PartsApplications } from "../_shared/multi_app.ts";
@@ -31,30 +43,6 @@ import {
 type Supabase = ReturnType<typeof serviceClient>;
 const DOMAINE = "sophia.com";
 const BUCKET = "medias";
-
-interface FileLabelItem {
-  label_id: string;
-  ugc: boolean;
-}
-
-/** Entrée consommée depuis une file admin — à restaurer au même endroit si échec. */
-interface FileLabelQueued {
-  item: FileLabelItem;
-  /** `"general"` ou code langue (`fr`, `de`, …). */
-  queueKey: string;
-  applicationSlug?: string;
-}
-
-interface FileLabelsSlice {
-  items: FileLabelItem[];
-  par_langue: Record<string, FileLabelItem[]>;
-}
-
-interface FileLabelsValeur {
-  items: FileLabelItem[];
-  par_langue: Record<string, FileLabelItem[]>;
-  par_application?: Record<string, FileLabelsSlice>;
-}
 
 interface PersonaUgcLibre {
   id: string;
@@ -101,12 +89,21 @@ function resoudrePremierCompte(
  * HM `hm_ugc_ai_video` → comptes ugc_ai_video, persona unique (pool partagé),
  * labels = labels HM (`hm_ugc_video_labels`) ; marque = checkmark `comptes.ugc_ai_video`.
  *
- * Choix du recruteur (admin, head_of_ops, DM, HM) à la création d'un compte
- * perso slideshow
- * (create, ensure_compte, ajouter_compte) : `label_id` et/ou
- * `parts_applications` (cf. `_shared/creation_compte_apps.ts`). Fournis, ils
- * court-circuitent la File des créateurs, qui n'est NI consommée NI retirée ;
- * absents ou `null`, rien ne change (mêmes requêtes, même insert).
+ * Application du compte (admin, head_of_ops, DM, HM) à la création d'un compte
+ * perso slideshow (create, ensure_compte, ajouter_compte) : on choisit
+ * l'APPLICATION, pas le label (cf. `_shared/creation_compte_apps.ts`).
+ *   - rien d'envoyé (Sophia) : chemin historique ci-dessus, inchangé ;
+ *   - `parts_applications = { <slug>: 100 }` : File des créateurs de CETTE
+ *     application (tranche `par_application[slug]`, langue puis générale), puis
+ *     le moins utilisé parmi les labels qui la servent (aucun → 409
+ *     NO_LABELS_APPLICATION). Hors Sophia, jamais UGC. `{ sophia: 100 }` =
+ *     chemin historique, répartition écrite telle quelle ;
+ *   - répartition à plusieurs applications : pas de File, moins utilisé parmi
+ *     les labels qui les servent toutes ;
+ *   - `label_id` (vieux client) : ce label, validé, sans File.
+ * Éligibilité d'un label à une File et au repli : `label_applications` (un
+ * label sans ligne sert Sophia), jamais la colonne historique
+ * `labels.application_id`.
  */
 Deno.serve(async (request) => {
   // Préflight CORS : doit répondre 2xx AVANT tout parse JSON, sinon le
@@ -291,10 +288,13 @@ async function gererRequete(request: Request): Promise<Response> {
         personaUgc = await personaUgcLibre(supabase, application.id);
         if (!personaUgc) return json({ error: "NO_UGC_PERSONA" }, 409);
       } else if (choix) {
-        // Choix admin : la File n'est pas touchée, pas de persona UGC.
+        // Application choisie : SA File (remise en tête de SA tranche si la
+        // création échoue plus bas), puis le moins utilisé de ses labels.
         const res = await resoudreChoixCompte(supabase, choix, langue);
         if (!res.ok) return res.reponse;
         fileItem = res.fileItem;
+        fileItemQueue = res.fileItemQueue;
+        personaUgc = res.personaUgc;
         partsApplications = res.parts;
       } else {
         const prep = await preparerFileEtPersona(supabase, langue, application);
@@ -761,7 +761,7 @@ async function creerComptePersoPourPoster(
   postsParJourBrut: unknown,
   handleTiktok = "",
   application?: ApplicationRow | null,
-  /** Label / répartition imposés par l'admin ; `null` = File puis repli, comme avant. */
+  /** Application choisie (ou label d'un vieux client) ; `null` = File Sophia puis repli, comme avant. */
   choix: ChoixCompte | null = null,
 ): Promise<Response> {
   const modeUgcAiVideo = await modeUgcAiVideoPourPoster(supabase, acces, userId);
@@ -777,10 +777,12 @@ async function creerComptePersoPourPoster(
     personaUgc = await personaUgcLibre(supabase, application?.id ?? null);
     if (!personaUgc) return json({ error: "NO_UGC_PERSONA" }, 409);
   } else if (choix) {
-    // Choix admin : la File n'est pas touchée, pas de persona UGC.
+    // Application choisie : SA File, remise en tête de SA tranche si l'insert échoue.
     const res = await resoudreChoixCompte(supabase, choix, langue);
     if (!res.ok) return res.reponse;
     fileItem = res.fileItem;
+    fileItemQueue = res.fileItemQueue;
+    personaUgc = res.personaUgc;
     partsApplications = res.parts;
   } else {
     const prep = await preparerFileEtPersona(supabase, langue, application);
@@ -950,87 +952,28 @@ async function lireWarmupHeures(supabase: Supabase): Promise<number> {
   return Number.isFinite(h) && h > 0 ? Math.min(168, h) : 24;
 }
 
-function normaliserFileLabelItemList(raw: unknown): FileLabelItem[] {
-  if (!Array.isArray(raw)) return [];
-  return raw
-    .map((it) => {
-      const o = (it ?? {}) as { label_id?: string; ugc?: boolean };
-      return {
-        label_id: String(o.label_id ?? "").trim(),
-        ugc: Boolean(o.ugc),
-      };
-    })
-    .filter((it) => it.label_id);
-}
-
-/** Normalise `{ items, par_langue }` (+ legacy `label_ids`). */
-function normaliserFileLabelsValeur(valeur: unknown): FileLabelsValeur {
-  const v = (valeur ?? {}) as {
-    items?: Array<{ label_id?: string; ugc?: boolean }>;
-    label_ids?: string[];
-    par_langue?: Record<string, unknown>;
-  };
-
-  let items = normaliserFileLabelItemList(v.items);
-  if (items.length === 0) {
-    items = (v.label_ids ?? [])
-      .map((id) => String(id ?? "").trim())
-      .filter(Boolean)
-      .map((label_id) => ({ label_id, ugc: false }));
-  }
-
-  const par_langue: Record<string, FileLabelItem[]> = {};
-  if (v.par_langue && typeof v.par_langue === "object" && !Array.isArray(v.par_langue)) {
-    for (const [code, arr] of Object.entries(v.par_langue)) {
-      const lang = String(code ?? "").trim().toLowerCase();
-      if (!lang) continue;
-      const liste = normaliserFileLabelItemList(arr);
-      if (liste.length > 0) par_langue[lang] = liste;
-    }
-  }
-
-  return { items, par_langue };
-}
-
-function sliceFileLabels(file: FileLabelsValeur, slug: string): FileLabelsSlice {
-  const inner = file.par_application?.[slug];
-  if (inner) return { items: inner.items ?? [], par_langue: inner.par_langue ?? {} };
-  if (slug === "sophia") return { items: file.items, par_langue: file.par_langue };
-  return { items: [], par_langue: {} };
-}
-
-function avecSliceApplication(
-  file: FileLabelsValeur,
-  slug: string,
-  slice: FileLabelsSlice,
-): FileLabelsValeur {
-  const par_application = { ...(file.par_application ?? {}) };
-  par_application[slug] = slice;
-  if (slug === "sophia") {
-    return { items: slice.items, par_langue: slice.par_langue, par_application };
-  }
-  return { items: file.items, par_langue: file.par_langue, par_application };
+/** Lit la File des créateurs (toutes tranches, cf. `_shared/file_labels_comptes.ts`). */
+async function lireFileLabels(
+  supabase: Supabase,
+  opts: { leverSiErreur?: boolean } = {},
+): Promise<FileLabelsValeur> {
+  const { data, error } = await supabase
+    .from("reglages")
+    .select("valeur")
+    .eq("cle", "file_labels_comptes")
+    .maybeSingle();
+  if (error && opts.leverSiErreur) throw new Error(`File des créateurs : ${error.message}`);
+  return normaliserFileLabelsValeur(data?.valeur);
 }
 
 async function ecrireFileLabels(
   supabase: Supabase,
   file: FileLabelsValeur,
 ): Promise<void> {
-  const par_langue: Record<string, FileLabelItem[]> = {};
-  for (const [code, liste] of Object.entries(file.par_langue)) {
-    if (liste.length > 0) par_langue[code] = liste;
-  }
-  const par_application: Record<string, FileLabelsSlice> = {};
-  for (const [slug, slice] of Object.entries(file.par_application ?? {})) {
-    par_application[slug] = {
-      items: slice.items ?? [],
-      par_langue: slice.par_langue ?? {},
-    };
-  }
   await supabase.from("reglages").upsert(
     {
       cle: "file_labels_comptes",
-      valeur: { items: file.items, par_langue, par_application },
+      valeur: valeurFileLabels(file),
       updated_at: new Date().toISOString(),
     },
     { onConflict: "cle" },
@@ -1038,21 +981,18 @@ async function ecrireFileLabels(
 }
 
 /**
- * Labels slideshow (ni système ni UGC AI VIDEO), filtrés par la colonne
- * historique `labels.application_id` quand `applicationId` est fourni.
+ * Labels slideshow (ni système ni UGC AI VIDEO), toutes applications. La
+ * colonne historique `labels.application_id` n'est plus lue : elle vaut Sophia
+ * pour tout label créé dans l'OS, même « Unswipe seul ». Qui un label sert, c'est
+ * `label_applications` (cf. `idsLabelsEligiblesFile`, `labelMoinsUtiliseParLangue`).
  *
  * Une lecture ratée LÈVE. Elle rendait un ensemble vide, que `popLabelFile`
  * passait à `consommerFileSlideshow` : toute entrée absente de l'ensemble y
  * est sautée, donc RETIRÉE de la File — une erreur réseau vidait la File des
  * créateurs en silence. Lue avant toute écriture de la File : rien n'est perdu.
  */
-async function idsLabelsFileSlideshow(
-  supabase: Supabase,
-  applicationId?: string | null,
-): Promise<Set<string>> {
-  let q = supabase.from("labels").select("id, slug, nom, ugc_ai_video");
-  if (applicationId) q = q.eq("application_id", applicationId);
-  const { data, error } = await q;
+async function idsLabelsFileSlideshow(supabase: Supabase): Promise<Set<string>> {
+  const { data, error } = await supabase.from("labels").select("id, slug, nom, ugc_ai_video");
   if (error) throw new Error(`Labels slideshow : ${error.message}`);
   return new Set(
     (data ?? [])
@@ -1060,6 +1000,19 @@ async function idsLabelsFileSlideshow(
       .map((l) => l.id as string)
       .filter(Boolean),
   );
+}
+
+/**
+ * Labels qu'une File peut donner : slideshow ET qui servent l'application de la
+ * tranche (`label_applications`, un label sans ligne sert Sophia). Deux lectures,
+ * qui LÈVENT si elles ratent — toujours AVANT la moindre écriture de la File.
+ */
+async function idsLabelsEligiblesFile(
+  supabase: Supabase,
+  applicationId: string | null,
+): Promise<Set<string>> {
+  const slideshow = await idsLabelsFileSlideshow(supabase);
+  return new Set(await filtrerPoolParApplication(supabase, [...slideshow], applicationId));
 }
 
 /** Rejette Hook / marque UGC AI VIDEO (et, hors compte vidéo, tout label ugc_ai_video). */
@@ -1086,11 +1039,15 @@ async function filtrerLabelsCompte(
 }
 
 /**
- * Tire la première entrée slideshow (FIFO) :
+ * Tire la première entrée slideshow (FIFO) de la tranche de `application`
+ * (Sophia par défaut) :
  *   1) file de la langue (surpasse la générale)
  *   2) sinon file générale
- *   3) sinon label classique le moins utilisé (ne consomme pas les files)
- * Les labels UGC AI VIDEO / système en tête sont sautés (retirés, pas assignés).
+ *   3) sinon label le moins utilisé parmi ceux qui servent l'application (ne
+ *      consomme pas les files)
+ * Une entrée non éligible en tête (système, UGC AI VIDEO, ou label qui ne sert
+ * pas l'application de la tranche selon `label_applications`) est sautée :
+ * retirée, pas assignée. L'ensemble éligible est lu AVANT toute écriture.
  */
 async function popLabelFile(
   supabase: Supabase,
@@ -1101,16 +1058,11 @@ async function popLabelFile(
   | { ok: true; item: FileLabelItem; fromQueue: true; queueKey: string }
   | { ok: false; error: string }
 > {
-  const { data } = await supabase
-    .from("reglages")
-    .select("valeur")
-    .eq("cle", "file_labels_comptes")
-    .maybeSingle();
-  const file = normaliserFileLabelsValeur(data?.valeur);
-  const slug = application?.slug ?? "sophia";
+  const file = await lireFileLabels(supabase);
+  const slug = application?.slug ?? SLUG_SOPHIA;
   const slice = sliceFileLabels(file, slug);
   const lang = String(langue ?? "").trim().toLowerCase();
-  const eligible = await idsLabelsFileSlideshow(supabase, application?.id ?? null);
+  const eligible = await idsLabelsEligiblesFile(supabase, application?.id ?? null);
 
   let parLangueActuel = { ...slice.par_langue };
   const fileLangue = lang ? (parLangueActuel[lang] ?? []) : [];
@@ -1321,53 +1273,103 @@ async function preparerFileEtPersona(
 }
 
 /**
- * Choix admin (label et/ou répartition) → entrée de label du compte, SANS
- * toucher à la File des créateurs. Tout est lu et vérifié avant la moindre
- * écriture ; une lecture ratée lève (500), un refus rend la réponse à renvoyer.
+ * Application choisie à la création (ou label d'un vieux client) → entrée de
+ * label du compte. Une lecture ratée lève (500), un refus rend la réponse à
+ * renvoyer. Trois chemins (`modeChoixCompte`) :
  *
- *   - `label_id` fourni : ce label, s'il est slideshow et sert toutes les
- *     applications à part > 0 (sinon LABEL_INCOMPATIBLE) ;
- *   - sinon : le moins utilisé dans la langue parmi les labels slideshow qui
- *     servent toutes ces applications (aucun → NO_LABELS_APPLICATION).
+ *   - `application` (une seule application à 100 %) : File des créateurs de
+ *     CETTE application (sa tranche : langue du compte, puis générale), puis le
+ *     moins utilisé parmi les labels qui la servent (aucun → 409
+ *     NO_LABELS_APPLICATION). Sophia = `preparerFileEtPersona`, exactement le
+ *     chemin historique (UGC compris). Hors Sophia : jamais UGC, pas de persona.
+ *     L'entrée tirée revient dans `fileItemQueue` (avec SA tranche) : l'appelant
+ *     la remet en tête si la création échoue ensuite ;
+ *   - `repartition` (plusieurs applications) : pas de File, le moins utilisé
+ *     dans la langue parmi les labels slideshow qui les servent toutes ;
+ *   - `label` (`label_id` d'un vieux client) : ce label, s'il est slideshow et
+ *     sert toutes les applications à part > 0 (sinon LABEL_INCOMPATIBLE).
  *
- * `ugc: false` dans les deux cas : pas de persona UGC, l'identité (genre,
- * thème, avatar) suit le label comme pour tout compte classique.
+ * Validation (répartition, label) avant toute écriture de la File.
  */
 async function resoudreChoixCompte(
   supabase: Supabase,
   choix: ChoixCompte,
   langue: string,
 ): Promise<
-  | { ok: true; fileItem: FileLabelItem; parts: PartsApplications | null }
+  | {
+    ok: true;
+    fileItem: FileLabelItem;
+    fileItemQueue: FileLabelQueued | null;
+    personaUgc: PersonaUgcLibre | null;
+    parts: PartsApplications | null;
+  }
   | { ok: false; reponse: Response }
 > {
   let parts: PartsApplications | null = null;
   let requises: string[] = [];
+  let liste: ApplicationRow[] = [];
   if (choix.partsBrutes !== null) {
-    const { data: apps, error } = await supabase.from("applications").select("id, slug");
+    const { data: apps, error } = await supabase.from("applications").select("id, slug, nom");
     if (error) throw new Error(`Applications : ${error.message}`);
-    const liste = (apps ?? []) as { id: string; slug: string }[];
+    liste = (apps ?? []) as ApplicationRow[];
     parts = validerParts(choix.partsBrutes, liste.map((a) => a.slug));
     if (!parts) return { ok: false, reponse: json({ error: "REPARTITION_INVALIDE" }, 400) };
     requises = applicationsRequises(parts, liste);
   }
 
-  if (choix.labelId) {
+  const mode = modeChoixCompte(choix.labelId, parts, liste);
+
+  if (mode.mode === "label") {
     const { data: label, error } = await supabase
       .from("labels")
       .select("id, slug, nom, ugc_ai_video")
-      .eq("id", choix.labelId)
+      .eq("id", mode.labelId)
       .maybeSingle();
     if (error) throw new Error(`Label choisi : ${error.message}`);
     const { data: liens, error: errLiens } = await supabase
       .from("label_applications")
       .select("label_id, application_id")
-      .eq("label_id", choix.labelId);
+      .eq("label_id", mode.labelId);
     if (errLiens) throw new Error(`Applications du label choisi : ${errLiens.message}`);
     if (!label || !labelChoisiCompatible(label, liens ?? [], requises)) {
       return { ok: false, reponse: json({ error: "LABEL_INCOMPATIBLE" }, 400) };
     }
-    return { ok: true, fileItem: { label_id: label.id as string, ugc: false }, parts };
+    return {
+      ok: true,
+      fileItem: { label_id: label.id as string, ugc: false },
+      fileItemQueue: null,
+      personaUgc: null,
+      parts,
+    };
+  }
+
+  if (mode.mode === "application") {
+    const app = mode.application;
+    if (app.slug === SLUG_SOPHIA) {
+      // `{ sophia: 100 }` : le chemin historique, File Sophia et UGC compris.
+      const prep = await preparerFileEtPersona(supabase, langue, app);
+      if (!prep.ok) return { ok: false, reponse: json({ error: prep.error }, 409) };
+      return {
+        ok: true,
+        fileItem: prep.fileItem,
+        fileItemQueue: prep.fileItemQueue,
+        personaUgc: prep.personaUgc,
+        parts,
+      };
+    }
+    const popped = await popLabelFile(supabase, langue, app);
+    if (!popped.ok) {
+      return { ok: false, reponse: json({ error: "NO_LABELS_APPLICATION" }, 409) };
+    }
+    return {
+      ok: true,
+      fileItem: entreeCompteApplication(popped.item, app.slug),
+      fileItemQueue: popped.fromQueue
+        ? { item: { ...popped.item }, queueKey: popped.queueKey, applicationSlug: app.slug }
+        : null,
+      personaUgc: null,
+      parts,
+    };
   }
 
   const labelId = await labelMoinsUtiliseParLangue(supabase, langue, {
@@ -1376,17 +1378,25 @@ async function resoudreChoixCompte(
   });
   const autorise = labelId ? (await filtrerLabelsCompte(supabase, [labelId]))[0] : undefined;
   if (!autorise) return { ok: false, reponse: json({ error: "NO_LABELS_APPLICATION" }, 409) };
-  return { ok: true, fileItem: { label_id: autorise, ugc: false }, parts };
+  return {
+    ok: true,
+    fileItem: { label_id: autorise, ugc: false },
+    fileItemQueue: null,
+    personaUgc: null,
+    parts,
+  };
 }
 
 /**
  * Label avec le moins de comptes actifs dans la langue (ou global si langue
- * vide), parmi ceux qui servent l'application (`label_applications`).
+ * vide), parmi les labels slideshow qui servent l'application
+ * (`label_applications`, Sophia par défaut).
  *
- * `applicationsRequises` (répartition choisie par l'admin) : le label doit
- * servir TOUTES ces applications, et seul `label_applications` en décide — la
- * colonne historique `labels.application_id` n'est alors plus lue. Absent ou
- * vide : comportement historique, à l'identique.
+ * `applicationsRequises` (répartition à plusieurs applications) : le label doit
+ * servir TOUTES ces applications.
+ *
+ * La colonne historique `labels.application_id` n'est jamais lue : elle vaut
+ * Sophia pour tout label créé dans l'OS, même « Unswipe seul ».
  */
 async function labelMoinsUtiliseParLangue(
   supabase: Supabase,
@@ -1401,10 +1411,10 @@ async function labelMoinsUtiliseParLangue(
   let pool: string[] = [];
   if (opts.ugcOnly) {
     const ugc = await labelIdsAvecContenusUgc(supabase, opts.applicationId);
-    const slideshow = await idsLabelsFileSlideshow(supabase, opts.applicationId);
+    const slideshow = await idsLabelsFileSlideshow(supabase);
     pool = ugc.filter((id) => slideshow.has(id));
   } else {
-    pool = [...await idsLabelsFileSlideshow(supabase, requises ? null : opts.applicationId)];
+    pool = [...await idsLabelsFileSlideshow(supabase)];
   }
   if (requises) {
     // Une application après l'autre : le pool rétrécit à chaque passe et ne
@@ -1413,8 +1423,6 @@ async function labelMoinsUtiliseParLangue(
       pool = await filtrerPoolParApplication(supabase, pool, app);
     }
   } else {
-    // `labels.application_id` vaut Sophia pour tout label créé depuis l'OS, même
-    // « Unswipe seul » : seul `label_applications` dit qui le label sert.
     pool = await filtrerPoolParApplication(supabase, pool, opts.applicationId);
   }
   if (pool.length === 0) return null;
@@ -1507,28 +1515,24 @@ async function labelADesContenusUgc(supabase: Supabase, labelId: string): Promis
   return (data?.length ?? 0) > 0;
 }
 
-/** Remet une entrée en tête de la file d’où elle a été tirée (langue ou générale). */
+/**
+ * Remet une entrée en tête de la file d’où elle a été tirée (langue ou
+ * générale), dans la tranche de SON application (`applicationSlug`).
+ */
 async function unshiftLabelFile(
   supabase: Supabase,
   queued: FileLabelQueued,
 ): Promise<void> {
-  const { data } = await supabase
-    .from("reglages")
-    .select("valeur")
-    .eq("cle", "file_labels_comptes")
-    .maybeSingle();
-  const file = normaliserFileLabelsValeur(data?.valeur);
-  const slug = queued.applicationSlug ?? "sophia";
-  const slice = sliceFileLabels(file, slug);
-  const key = String(queued.queueKey ?? "general").trim().toLowerCase() || "general";
-
-  const next: FileLabelsSlice = key === "general"
-    ? { items: [queued.item, ...slice.items], par_langue: slice.par_langue }
-    : {
-      items: slice.items,
-      par_langue: { ...slice.par_langue, [key]: [queued.item, ...(slice.par_langue[key] ?? [])] },
-    };
-  await ecrireFileLabels(supabase, avecSliceApplication(file, slug, next));
+  // Relecture ratée : ne RIEN écrire. Réécrire depuis une File lue vide
+  // effacerait toutes les tranches (Sophia comprise) pour remettre une entrée.
+  let file: FileLabelsValeur;
+  try {
+    file = await lireFileLabels(supabase, { leverSiErreur: true });
+  } catch (e) {
+    console.error("[manage-users] entrée de File non remise en tête", queued, e);
+    return;
+  }
+  await ecrireFileLabels(supabase, remettreEnTete(file, queued));
 }
 
 async function personaUgcLibre(

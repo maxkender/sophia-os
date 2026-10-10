@@ -231,7 +231,7 @@ function LignePoster({
         </ul>
       )}
 
-      {/* Choix label + répartition du compte du créateur, comme à la création. */}
+      {/* Choix de l'application du compte du créateur, comme à la création. */}
       <FormulaireAjouterCompte
         posterId={p.id}
         languesProposees={langues.data ?? []}
@@ -268,10 +268,11 @@ export function HiringPosterPage() {
     persona: boolean;
     type: PremierCompte;
   } | null>(null);
-  // Label + répartition du premier compte : c'est le créateur qui est associé
-  // à des applications, son recruteur choisit pour lui. Seulement pour un
-  // compte perso (un compte CM n'a pas de label), et pas pour un HM UGC AI
-  // vidéo (ses créateurs suivent ses labels vidéo) ; rien choisi = corps d'avant.
+  // Application du premier compte : c'est le créateur qui est associé à une
+  // application, son recruteur choisit pour lui (le label, lui, est tiré de la
+  // File des créateurs de cette application). Seulement pour un compte perso
+  // (un compte CM n'a pas de label), et pas pour un HM UGC AI vidéo (ses
+  // créateurs suivent ses labels vidéo) ; Sophia (défaut) = corps d'avant.
   const choixApps = useChoixApplicationsCreation(
     peutChoisirApplicationsCompte(role) && !profil?.hm_ugc_ai_video && premierCompte === "perso",
     langue,
@@ -358,7 +359,7 @@ export function HiringPosterPage() {
               handle={handleTiktok}
               onHandle={setHandleTiktok}
             />
-            {choixApps.actif && (
+            {choixApps.visible && (
               <div className="sm:col-span-2">
                 <ChoixApplicationsCreation etat={choixApps} idPrefixe="embauche-apps" />
               </div>

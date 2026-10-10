@@ -1,7 +1,9 @@
 /**
- * Choix label + répartition dans « Ajouter un compte » : invisible et sans
- * effet quand le choix n'est pas permis (même corps, aucune lecture de plus),
- * deux niveaux pour qui recrute, envoi bloqué tant que le choix est invalide.
+ * « Application du compte » dans « Ajouter un compte » : invisible et sans
+ * effet quand le choix n'est pas permis ou qu'il n'y a qu'une application
+ * active (même corps, aucune lecture de plus) ; Sophia par défaut = corps
+ * d'avant ; autre application = { slug: 100 }, jamais de label ; envoi bloqué
+ * si aucun label ne sert l'application.
  */
 import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -31,43 +33,45 @@ import { CODES_ERREUR_CHOIX_COMPTE } from "./choixCreation";
 
 const ID_SOPHIA = "00000000-0000-4000-8000-000000000001";
 const ID_UNSWIPE = "00000000-0000-4000-8000-000000000003";
+const ID_ZEN = "00000000-0000-4000-8000-000000000009";
 const APPS = [
   { id: ID_SOPHIA, slug: "sophia", nom: "Sophia", created_at: "", langues: null, actif: true },
-  { id: ID_UNSWIPE, slug: "unswipe", nom: "Unswipe", created_at: "", langues: ["fr"], actif: true },
+  { id: ID_UNSWIPE, slug: "unswipe", nom: "Unswipe", created_at: "", langues: ["fr", "de"], actif: true },
+  { id: ID_ZEN, slug: "zen", nom: "Zen", created_at: "", langues: null, actif: false },
 ];
-const CLEAN = { id: "l-clean", slug: "clean-girl", nom: "Clean Girl", ugc_ai_video: false };
-const DETOX = { id: "l-detox", slug: "detox", nom: "Detox", ugc_ai_video: false };
-const LIENS = [
-  { label_id: CLEAN.id, application_id: ID_SOPHIA },
-  { label_id: CLEAN.id, application_id: ID_UNSWIPE },
-  { label_id: DETOX.id, application_id: ID_UNSWIPE },
-];
+const SMART = { id: "l-smart", slug: "smart_girl", nom: "Smart Girl", ugc_ai_video: false };
+const CLASSIC = { id: "l-classic", slug: "classic-study", nom: "Classic Study", ugc_ai_video: false };
+const LIENS = [{ label_id: CLASSIC.id, application_id: ID_UNSWIPE }];
 
-function rendre(choixApplications?: boolean) {
+const CORPS_AVANT = {
+  posterId: "p1",
+  type_compte: "perso",
+  langue: "fr",
+  posts_par_jour: 2,
+  handle_tiktok: "",
+};
+
+function rendre(choixApplications?: boolean, langues = ["fr", "en"]) {
   const client = new QueryClient({
     defaultOptions: { queries: { retry: false }, mutations: { retry: false } },
   });
   render(
     <QueryClientProvider client={client}>
-      <FormulaireAjouterCompte
-        posterId="p1"
-        languesProposees={["fr", "en"]}
-        choixApplications={choixApplications}
-      />
+      <FormulaireAjouterCompte posterId="p1" languesProposees={langues} choixApplications={choixApplications} />
     </QueryClientProvider>,
   );
   fireEvent.click(screen.getByRole("button", { name: /Ajouter un compte|Add an account/ }));
 }
 
 const bouton = () => screen.getByRole("button", { name: /^(Créer le compte|Create account)$/ });
-const selectRepartition = () => screen.getByLabelText(/Répartition des posts|Post split/);
+const selectApplication = () => screen.getByLabelText(/^(Application du compte|Account app)$/);
 
-describe("FormulaireAjouterCompte × choix des applications", () => {
+describe("FormulaireAjouterCompte × application du compte", () => {
   beforeEach(() => {
     ajouterCompte.mockReset();
     ajouterCompte.mockResolvedValue({ ok: true, compteId: "c-new" });
     listerLabels.mockReset();
-    listerLabels.mockResolvedValue([CLEAN, DETOX]);
+    listerLabels.mockResolvedValue([SMART, CLASSIC]);
     listerApplicationsMulti.mockReset();
     listerApplicationsMulti.mockResolvedValue(APPS);
     listerLiensLabels.mockReset();
@@ -86,89 +90,88 @@ describe("FormulaireAjouterCompte × choix des applications", () => {
 
     fireEvent.click(bouton());
     await waitFor(() => expect(ajouterCompte).toHaveBeenCalledTimes(1));
-    expect(ajouterCompte.mock.calls[0]![0]).toStrictEqual({
-      posterId: "p1",
-      type_compte: "perso",
-      langue: "fr",
-      posts_par_jour: 2,
-      handle_tiktok: "",
-    });
+    expect(ajouterCompte.mock.calls[0]![0]).toStrictEqual(CORPS_AVANT);
   });
 
-  it("choix permis mais rien choisi : même corps qu'avant", async () => {
+  it("Sophia par défaut, sélectionnée, sans choix de label : corps d'avant à l'octet près", async () => {
     rendre(true);
-    await screen.findByRole("button", { name: /Clean Girl/ });
-    fireEvent.click(bouton());
-    await waitFor(() => expect(ajouterCompte).toHaveBeenCalledTimes(1));
-    expect(ajouterCompte.mock.calls[0]![0]).toStrictEqual({
-      posterId: "p1",
-      type_compte: "perso",
-      langue: "fr",
-      posts_par_jour: 2,
-      handle_tiktok: "",
-    });
-  });
-
-  it("deux niveaux : label Sophia+Unswipe réglé 100 % Unswipe → label_id + { unswipe: 100 }", async () => {
-    rendre(true);
-    const clean = await screen.findByRole("button", { name: /Clean Girl/ });
-    // Les applications servies sont affichées à côté du label.
-    await waitFor(() => expect(clean).toHaveTextContent("Sophia, Unswipe"));
-    fireEvent.click(clean);
-    expect(clean).toHaveAttribute("aria-pressed", "true");
-    fireEvent.change(selectRepartition(), { target: { value: "app:unswipe" } });
-    expect(screen.getByText(/ne publiera que pour Unswipe|only publish for Unswipe/)).toBeInTheDocument();
+    await waitFor(() => expect(selectApplication()).toBeInTheDocument());
+    expect(selectApplication()).toHaveValue("sophia");
+    // Une option par application ACTIVE, rien d'autre.
+    const options = screen.getAllByRole("option").filter((o) => o.closest("select") === selectApplication());
+    expect(options.map((o) => (o as HTMLOptionElement).value)).toEqual(["sophia", "unswipe"]);
+    // Plus de choix de label ni de répartition.
+    expect(screen.queryByText(/Label du compte|Account label/)).toBeNull();
+    expect(screen.queryByText(/Répartition des posts|Post split/)).toBeNull();
+    expect(screen.getByText(/File des créateurs de Sophia|Sophia creators queue/)).toBeInTheDocument();
 
     fireEvent.click(bouton());
     await waitFor(() => expect(ajouterCompte).toHaveBeenCalledTimes(1));
-    expect(ajouterCompte.mock.calls[0]![0]).toMatchObject({
-      posterId: "p1",
-      labelId: CLEAN.id,
-      partsApplications: { unswipe: 100 },
-    });
+    expect(ajouterCompte.mock.calls[0]![0]).toStrictEqual(CORPS_AVANT);
   });
 
-  it("personnalisée : somme ≠ 100 bloque l'envoi, 70/30 passe", async () => {
+  it("Unswipe : partsApplications { unswipe: 100 }, jamais labelId", async () => {
     rendre(true);
-    await screen.findByRole("button", { name: /Clean Girl/ });
-    await waitFor(() => expect(screen.getByRole("option", { name: /Personnalisée|Custom/ })).toBeInTheDocument());
-    fireEvent.change(selectRepartition(), { target: { value: "perso" } });
-    const sophia = screen.getByLabelText("Sophia");
-    const unswipe = screen.getByLabelText("Unswipe");
-    expect(sophia).toHaveValue(100);
-    fireEvent.change(unswipe, { target: { value: "30" } });
-    expect(screen.getByText(/exactement 100 %.*130 %|exactly 100%.*130%/)).toBeInTheDocument();
-    expect(bouton()).toBeDisabled();
-
-    fireEvent.change(sophia, { target: { value: "70" } });
+    await waitFor(() => expect(screen.getByRole("option", { name: "Unswipe" })).toBeInTheDocument());
+    fireEvent.change(selectApplication(), { target: { value: "unswipe" } });
+    expect(screen.getByText(/File des créateurs de Unswipe|Unswipe creators queue/)).toBeInTheDocument();
+    await waitFor(() =>
+      expect(screen.getByTestId("labels-application")).toHaveTextContent("Classic Study"),
+    );
     expect(bouton()).toBeEnabled();
-    // Label Automatique : manage-users choisira un label qui sert les deux.
-    expect(screen.getByText(/sera choisi automatiquement|will be picked automatically/)).toBeInTheDocument();
+
     fireEvent.click(bouton());
     await waitFor(() => expect(ajouterCompte).toHaveBeenCalledTimes(1));
     const corps = ajouterCompte.mock.calls[0]![0] as Record<string, unknown>;
-    expect(corps.partsApplications).toEqual({ sophia: 70, unswipe: 30 });
+    expect(corps).toStrictEqual({ ...CORPS_AVANT, partsApplications: { unswipe: 100 } });
     expect("labelId" in corps).toBe(false);
   });
 
-  it("label qui ne sert pas l'application choisie : message et envoi bloqué", async () => {
+  it("aucun label ne sert l'application : message clair et envoi bloqué", async () => {
+    listerLiensLabels.mockResolvedValue([]);
     rendre(true);
-    fireEvent.click(await screen.findByRole("button", { name: /Detox/ }));
-    await waitFor(() => expect(screen.getByRole("option", { name: /100 % Sophia|100% Sophia/ })).toBeInTheDocument());
-    // Par défaut, Detox (Unswipe seul) donne 100 % Unswipe.
-    expect(screen.getByRole("option", { name: /Par défaut — 100 % Unswipe|Default — 100% Unswipe/ })).toBeInTheDocument();
-    fireEvent.change(selectRepartition(), { target: { value: "app:sophia" } });
-    expect(screen.getByText(/« Detox » ne sert pas Sophia|“Detox” does not serve Sophia/)).toBeInTheDocument();
+    await waitFor(() => expect(screen.getByRole("option", { name: "Unswipe" })).toBeInTheDocument());
+    fireEvent.change(selectApplication(), { target: { value: "unswipe" } });
+    expect(
+      await screen.findByText(/Aucun label slideshow ne sert Unswipe.*Pilotage → Labels|No slideshow label serves Unswipe.*Pilotage → Labels/),
+    ).toBeInTheDocument();
     expect(bouton()).toBeDisabled();
+    // Retour à Sophia : débloqué.
+    fireEvent.change(selectApplication(), { target: { value: "sophia" } });
+    expect(bouton()).toBeEnabled();
+  });
+
+  it("application qui ne cible pas la langue du compte : info, pas de blocage", async () => {
+    rendre(true, ["en", "fr"]);
+    await waitFor(() => expect(screen.getByRole("option", { name: "Unswipe" })).toBeInTheDocument());
+    fireEvent.change(selectApplication(), { target: { value: "unswipe" } });
+    expect(await screen.findByText(/Unswipe ne cible pas|Unswipe does not target/)).toBeInTheDocument();
+    await waitFor(() => expect(screen.getByTestId("labels-application")).toBeInTheDocument());
+    expect(bouton()).toBeEnabled();
+  });
+
+  it("une seule application active : aucun bloc, corps d'avant", async () => {
+    listerApplicationsMulti.mockResolvedValue([APPS[0], APPS[2]]);
+    rendre(true);
+    await waitFor(() => expect(listerApplicationsMulti).toHaveBeenCalled());
+    await act(async () => {
+      await new Promise((r) => setTimeout(r, 10));
+    });
+    expect(screen.queryByTestId("choix-applications-creation")).toBeNull();
+    fireEvent.click(bouton());
+    await waitFor(() => expect(ajouterCompte).toHaveBeenCalledTimes(1));
+    expect(ajouterCompte.mock.calls[0]![0]).toStrictEqual(CORPS_AVANT);
   });
 
   it("erreur manage-users du contrat : message lisible", async () => {
-    ajouterCompte.mockRejectedValue(new Error("LABEL_INCOMPATIBLE"));
+    ajouterCompte.mockRejectedValue(new Error("NO_LABELS_APPLICATION"));
     rendre(true);
-    fireEvent.click(await screen.findByRole("button", { name: /Clean Girl/ }));
+    await waitFor(() => expect(screen.getByRole("option", { name: "Unswipe" })).toBeInTheDocument());
+    fireEvent.change(selectApplication(), { target: { value: "unswipe" } });
+    await waitFor(() => expect(screen.getByTestId("labels-application")).toBeInTheDocument());
     fireEvent.click(bouton());
     expect(
-      await screen.findByText(/Ce label ne sert pas toutes|This label does not serve every/),
+      await screen.findByText(/Aucun label ne sert l’application choisie|No label serves the chosen app/),
     ).toBeInTheDocument();
   });
 });
@@ -181,6 +184,25 @@ describe("textes du choix", () => {
     for (const code of CODES_ERREUR_CHOIX_COMPTE) {
       expect(frBloc.erreurs[code]).toBeTruthy();
       expect(enBloc.erreurs[code]).toBeTruthy();
+    }
+  });
+  it("fr et en ont les mêmes clés de File par application", () => {
+    const cles = [
+      "fileApp",
+      "fileDesc",
+      "fileApplication",
+      "fileApplicationAide",
+      "fileHorsApplication",
+      "fileLangueNonCiblee",
+      "fileJamaisUgc",
+      "fileAucunLabelApplication",
+    ] as const;
+    const avecApp = new Set(["fileApp", "fileDesc", "fileHorsApplication", "fileJamaisUgc", "fileAucunLabelApplication"]);
+    for (const cle of cles) {
+      for (const bloc of [fr.translation.warmup, en.translation.warmup]) {
+        expect(bloc[cle]).toBeTruthy();
+        if (avecApp.has(cle)) expect(bloc[cle]).toContain("{{app}}");
+      }
     }
   });
 });

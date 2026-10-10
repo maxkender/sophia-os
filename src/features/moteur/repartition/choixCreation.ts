@@ -1,24 +1,23 @@
 /**
- * Création du compte d'un créateur (admin, Head of Ops, DM, HM) : choix des applications
- * à DEUX NIVEAUX, décisions pures (le composant `ChoixApplicationsCreation`
- * ne fait qu'afficher ce qui se décide ici).
+ * Création du compte d'un créateur (admin, Head of Ops, DM, HM) : choix de
+ * l'APPLICATION du compte, décisions pures (le composant
+ * `ChoixApplicationsCreation` ne fait qu'afficher ce qui se décide ici).
  *
- * 1. Le label dit ce que le compte PEUT promouvoir (`label_applications`, un
- *    label sans ligne sert Sophia — `applicationsDuLabel`). « Automatique » =
- *    la File des créateurs, exactement comme aujourd'hui.
- * 2. La répartition (`comptes.parts_applications`) choisit parmi ce que le
- *    label permet. « Par défaut » = rien n'est envoyé (NULL) : 100 % Sophia si
- *    le label la sert, sinon l'application (ou les applications à parts
- *    égales) qu'il sert. Une répartition EXPLICITE est exclusive : seules les
- *    applications à part > 0 seront jamais publiées sur ce compte, sans repli
- *    Sophia — un compte réglé 100 % Unswipe ne fait que de l'Unswipe.
+ * On ne choisit PAS le label. On choisit seulement l'application que le compte
+ * promeut (Sophia par défaut). Le label est ensuite tiré par manage-users :
+ * File des créateurs DE CETTE APPLICATION (file de la langue du compte, puis sa
+ * file générale), et à défaut le label le moins utilisé parmi ceux qui servent
+ * l'application (`label_applications`, un label sans ligne sert Sophia —
+ * `applicationsDuLabel`).
  *
- * Contrat manage-users : `label_id` et `parts_applications` (slug → entier
- * 1..100, somme 100) ne partent QUE s'ils sont renseignés. Rien choisi = corps
- * identique à celui d'avant, File des créateurs puis repli.
+ * Contrat manage-users :
+ * - Sophia → AUCUNE clé de plus : corps identique à celui d'avant, à l'octet
+ *   près (File Sophia de la langue, puis File générale, puis label Sophia le
+ *   moins utilisé) ;
+ * - autre application → `parts_applications = { <slug>: 100 }`, jamais
+ *   `label_id`.
  */
 import { nomApplication } from "../applications";
-import { PAS_PARTS } from "./logique";
 import { estLabelFileSlideshow, type LabelFileSlideshow } from "../fileLabelsSlideshow";
 import {
   applicationsDuLabel,
@@ -29,9 +28,9 @@ import {
 } from "../multiApp";
 
 /**
- * Rôles qui choisissent label et répartition à la création : tous ceux qui
- * créent des comptes de créateurs (manage-users refuse les autres). C'est le
- * créateur qui est associé à des applications, pas son recruteur.
+ * Rôles qui choisissent l'application à la création : tous ceux qui créent des
+ * comptes de créateurs (manage-users refuse les autres). C'est le créateur qui
+ * est associé à une application, pas son recruteur.
  */
 export function peutChoisirApplicationsCompte(role: string | null | undefined): boolean {
   return (
@@ -42,29 +41,16 @@ export function peutChoisirApplicationsCompte(role: string | null | undefined): 
   );
 }
 
-export type RepartitionCreation = "defaut" | "unique" | "perso";
-
 export interface ChoixCreation {
-  /** Label imposé ; `null` = Automatique (File des créateurs). */
-  labelId: string | null;
-  repartition: RepartitionCreation;
-  /** Slug du préréglage « 100 % <Nom> » (repartition = "unique"). */
-  appUnique: string | null;
-  /** Saisie « Personnalisée » : slug → entier (0 = aucune part). */
-  perso: Record<string, number>;
+  /** Slug de l'application du compte (Sophia par défaut). */
+  application: string;
 }
 
-/** Rien choisi : rien n'est envoyé, le comportement d'avant tel quel. */
-export const CHOIX_CREATION_DEFAUT: ChoixCreation = {
-  labelId: null,
-  repartition: "defaut",
-  appUnique: null,
-  perso: {},
-};
+/** Sophia : rien n'est envoyé, le comportement d'avant tel quel. */
+export const CHOIX_CREATION_DEFAUT: ChoixCreation = { application: SLUG_SOPHIA };
 
-/** Ce qui part dans le corps manage-users (clés absentes = non renseigné). */
+/** Ce qui part dans le corps manage-users (clé absente = Sophia, chemin d'avant). */
 export interface OptionsChoixCreation {
-  labelId?: string | null;
   partsApplications?: PartsApplications | null;
 }
 
@@ -81,184 +67,93 @@ export function applicationsProposees<T extends ApplicationMoteur>(applications:
     );
 }
 
-/** Labels proposés : ceux que la File a le droit de poser sur un créateur slideshow. */
-export function labelsProposes<T extends LabelFileSlideshow & { id: string }>(labels: readonly T[]): T[] {
-  return labels.filter((l) => estLabelFileSlideshow(l));
+/**
+ * Le choix n'a de sens qu'avec au moins deux applications actives : seule,
+ * Sophia n'est pas un choix (et rien n'est envoyé de toute façon).
+ */
+export function choixApplicationVisible(applications: readonly ApplicationMoteur[] | null | undefined): boolean {
+  return applicationsProposees(applications ?? []).length >= 2;
 }
 
 /**
- * Répartition à envoyer. « Par défaut » → `null` (rien n'est envoyé). Sinon
- * les seules parts > 0, entières : le contrat refuse un 0 comme un décimal.
+ * Labels qui servent une application : ceux que la File a le droit de poser
+ * sur un créateur slideshow (ni système, ni UGC AI vidéo) ET dont les
+ * applications servies (`label_applications`, héritage Sophia) la contiennent.
+ * La colonne historique `labels.application_id` n'est PAS lue.
  */
-export function partsDuChoix(choix: ChoixCreation): PartsApplications | null {
-  if (choix.repartition === "unique") {
-    return choix.appUnique ? { [choix.appUnique]: 100 } : null;
-  }
-  if (choix.repartition === "perso") {
-    const parts: PartsApplications = {};
-    for (const [slug, v] of Object.entries(choix.perso)) {
-      if (Number(v) > 0) parts[slug] = Number(v);
-    }
-    return Object.keys(parts).length > 0 ? parts : null;
-  }
-  return null;
+export function labelsDeLApplication<T extends LabelFileSlideshow & { id: string }>(
+  applicationId: string,
+  labels: readonly T[],
+  liens: readonly LienLabelApplication[],
+): T[] {
+  return labels.filter(
+    (l) => estLabelFileSlideshow(l) && applicationsDuLabel(l.id, liens).includes(applicationId),
+  );
 }
 
-/** Options du corps : uniquement ce qui est renseigné ({} = comportement actuel). */
+/**
+ * Options du corps : Sophia (ou rien de choisi) → {} (corps d'avant à
+ * l'octet près) ; autre application → { partsApplications: { slug: 100 } }.
+ */
 export function optionsDuChoix(choix: ChoixCreation): OptionsChoixCreation {
-  const options: OptionsChoixCreation = {};
-  if (choix.labelId) options.labelId = choix.labelId;
-  const parts = partsDuChoix(choix);
-  if (parts) options.partsApplications = parts;
-  return options;
-}
-
-/** Passage en « Personnalisée » : repart de ce qui était affiché (défaut = 100 % Sophia). */
-export function persoInitial(
-  choix: ChoixCreation,
-  applications: readonly { slug: string }[],
-): Record<string, number> {
-  const depart =
-    choix.repartition === "unique" && choix.appUnique ? choix.appUnique : SLUG_SOPHIA;
-  return Object.fromEntries(applications.map((a) => [a.slug, a.slug === depart ? 100 : 0]));
+  const slug = String(choix.application ?? "").trim();
+  if (!slug || slug === SLUG_SOPHIA) return {};
+  return { partsApplications: { [slug]: 100 } };
 }
 
 export type ErreurChoixCreation =
-  /** Saisie Personnalisée : un nombre n'est pas un entier entre 0 et 100. */
-  | { type: "saisie" }
-  /** Saisie Personnalisée : le total n'est pas 100. */
-  | { type: "somme"; total: number }
-  /** Le label choisi ne sert pas toutes les applications à part > 0. */
-  | { type: "labelIncompatible"; label: string; apps: string[] }
-  /** Label Automatique : aucun label ne sert toutes les applications à part > 0. */
-  | { type: "aucunLabel"; apps: string[] };
+  /** L'application choisie n'est plus active (ou n'existe plus). */
+  | { type: "applicationInactive"; app: string }
+  /** Aucun label slideshow ne sert l'application choisie : manage-users n'aurait rien à poser. */
+  | { type: "aucunLabel"; app: string };
 
 export type InfoChoixCreation =
-  /** Label Automatique + répartition explicite : manage-users choisira le label, sans la File. */
-  | { type: "labelAuto"; apps: string[] }
-  /** Répartition explicite : seules ces applications seront publiées, sans repli. */
-  | { type: "exclusif"; apps: string[] }
-  /** Une application à part > 0 ne cible pas la langue du compte : rien ne sera publié pour elle. */
-  | { type: "langue"; app: string; langue: string };
+  /** L'application ne cible pas la langue du compte : rien ne sera publié pour elle. */
+  { type: "langue"; app: string; langue: string };
 
 export interface ValidationChoixCreation {
-  parts: PartsApplications | null;
+  /** Application choisie (fiche), `null` tant que le catalogue n'est pas lu. */
+  application: ApplicationMoteur | null;
   erreurs: ErreurChoixCreation[];
   infos: InfoChoixCreation[];
-  /** Envoi permis. Un choix par défaut l'est toujours (rien n'est envoyé). */
+  /** Envoi permis. Sophia l'est toujours (rien n'est envoyé). */
   ok: boolean;
 }
 
-function nomDuSlug(slug: string, applications: readonly ApplicationMoteur[]): string {
-  const app = applications.find((a) => a.slug === slug);
-  return app ? nomApplication(app) : nomApplication({ slug });
-}
-
-/** Le label sert-il TOUTES ces applications (slugs) ? Slug inconnu = non servi. */
-function labelSertTout(
-  labelId: string,
-  slugs: readonly string[],
-  liens: readonly LienLabelApplication[],
-  applications: readonly ApplicationMoteur[],
-): string[] {
-  const servies = applicationsDuLabel(labelId, liens);
-  return slugs.filter((slug) => {
-    const app = applications.find((a) => a.slug === slug);
-    return !app || !servies.includes(app.id);
-  });
-}
-
 /**
- * Validation locale, avant envoi. Les lectures absentes (`null`, encore en
- * cours ou en erreur) ne bloquent rien : manage-users revalide de toute façon
- * (LABEL_INCOMPATIBLE, NO_LABELS_APPLICATION…). Seul ce qui est SÛR de
- * échouer bloque.
+ * Validation locale, avant envoi. Sophia ne bloque jamais (chemin d'avant).
+ * Les lectures absentes (`null`, encore en cours ou en erreur) ne bloquent
+ * rien : manage-users revalide de toute façon (NO_LABELS_APPLICATION…). Seul
+ * ce qui est SÛR d'échouer bloque.
  */
 export function validerChoixCreation(args: {
   choix: ChoixCreation;
   applications: readonly ApplicationMoteur[] | null;
   liens: readonly LienLabelApplication[] | null;
-  labels: ReadonlyArray<LabelFileSlideshow & { id: string; nom?: string | null }> | null;
-  /** Langue du compte créé (avertissement seulement). */
+  labels: ReadonlyArray<LabelFileSlideshow & { id: string }> | null;
+  /** Langue du compte créé (information seulement). */
   langue?: string | null;
 }): ValidationChoixCreation {
-  const { choix, liens, labels, langue } = args;
-  const applications = args.applications ?? [];
+  const { choix, applications, liens, labels, langue } = args;
   const erreurs: ErreurChoixCreation[] = [];
   const infos: InfoChoixCreation[] = [];
+  const slug = String(choix.application ?? "").trim() || SLUG_SOPHIA;
+  const app = applications?.find((a) => a.slug === slug) ?? null;
 
-  if (choix.repartition === "perso") {
-    const valeurs = Object.values(choix.perso);
-    // Même grille que la carte du compte et que le moteur : 10 % = 1 post sur
-    // la fenêtre de 10. Une part hors grille y serait arrondie à l'affichage.
-    if (valeurs.some((v) => !Number.isInteger(v) || v < 0 || v > 100 || v % PAS_PARTS !== 0)) {
-      erreurs.push({ type: "saisie" });
+  if (slug !== SLUG_SOPHIA && applications) {
+    if (!app || !app.actif) {
+      erreurs.push({ type: "applicationInactive", app: app ? nomApplication(app) : slug });
     } else {
-      const total = valeurs.reduce((s, v) => s + v, 0);
-      if (total !== 100) erreurs.push({ type: "somme", total });
-    }
-  }
-
-  const parts = erreurs.length > 0 ? null : partsDuChoix(choix);
-  if (parts) {
-    const slugs = Object.keys(parts).sort((a, b) =>
-      a === SLUG_SOPHIA ? -1 : b === SLUG_SOPHIA ? 1 : a.localeCompare(b),
-    );
-    const noms = slugs.map((s) => nomDuSlug(s, applications));
-
-    if (choix.labelId && liens && args.applications) {
-      const manquantes = labelSertTout(choix.labelId, slugs, liens, applications);
-      if (manquantes.length > 0) {
-        const label = labels?.find((l) => l.id === choix.labelId);
-        erreurs.push({
-          type: "labelIncompatible",
-          label: String(label?.nom ?? "").trim() || "—",
-          apps: manquantes.map((s) => nomDuSlug(s, applications)),
-        });
+      if (liens && labels && labelsDeLApplication(app.id, labels, liens).length === 0) {
+        erreurs.push({ type: "aucunLabel", app: nomApplication(app) });
       }
-    } else if (!choix.labelId) {
-      const candidats =
-        liens && labels && args.applications
-          ? labelsProposes(labels).filter(
-              (l) => labelSertTout(l.id, slugs, liens, applications).length === 0,
-            )
-          : null;
-      if (candidats && candidats.length === 0) erreurs.push({ type: "aucunLabel", apps: noms });
-      else infos.push({ type: "labelAuto", apps: noms });
-    }
-
-    infos.push({ type: "exclusif", apps: noms });
-    if (langue) {
-      for (const slug of slugs) {
-        const app = applications.find((a) => a.slug === slug);
-        if (app && app.langues !== null && !app.langues.includes(langue)) {
-          infos.push({ type: "langue", app: nomApplication(app), langue });
-        }
+      if (langue && app.langues !== null && !app.langues.includes(langue)) {
+        infos.push({ type: "langue", app: nomApplication(app), langue });
       }
     }
   }
 
-  return { parts, erreurs, infos, ok: erreurs.length === 0 };
-}
-
-/**
- * Ce que « Par défaut » donnera, en clair, pour le label choisi : 100 %
- * Sophia s'il la sert, sinon son application, ou ses applications à parts
- * égales. `null` = label Automatique (on ne sait pas encore lequel).
- */
-export function defautDuLabel(
-  labelId: string | null,
-  liens: readonly LienLabelApplication[] | null,
-  applications: readonly ApplicationMoteur[] | null,
-): { type: "sophia" } | { type: "unique"; app: string } | { type: "egales"; apps: string[] } | null {
-  if (!labelId || !liens || !applications) return null;
-  const ids = applicationsDuLabel(labelId, liens);
-  const apps = ids
-    .map((id) => applications.find((a) => a.id === id))
-    .filter((a): a is ApplicationMoteur => Boolean(a));
-  if (apps.some((a) => a.slug === SLUG_SOPHIA) || apps.length === 0) return { type: "sophia" };
-  if (apps.length === 1) return { type: "unique", app: nomApplication(apps[0]!) };
-  return { type: "egales", apps: apps.map((a) => nomApplication(a)).sort((a, b) => a.localeCompare(b)) };
+  return { application: app, erreurs, infos, ok: erreurs.length === 0 };
 }
 
 /** Codes d'erreur de manage-users propres à ce choix (contrat d'API). */

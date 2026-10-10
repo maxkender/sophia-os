@@ -1,6 +1,7 @@
 /**
- * Choix du label et de la répartition à la création d'un compte : qui peut,
- * ce qui est valide, et quel label peut porter quelle répartition.
+ * Choix de l'application (et, pour un vieux client, du label) à la création
+ * d'un compte : qui peut, ce qui est valide, quel chemin décide du label, et
+ * quel label peut porter quelle répartition.
  *
  * La règle des DEUX NIVEAUX : le label dit ce que le compte PEUT promouvoir,
  * la répartition choisit parmi ça. Un compte 100 % Unswipe doit donc naître
@@ -12,9 +13,11 @@ import { assertEquals } from "jsr:@std/assert@1";
 import {
   applicationsRequises,
   choixApplicableAuCompte,
+  entreeCompteApplication,
   labelChoisiCompatible,
   labelServitToutes,
   lireChoixCompte,
+  modeChoixCompte,
   peutChoisirCompte,
   validerParts,
 } from "./creation_compte_apps.ts";
@@ -209,4 +212,56 @@ Deno.test("label choisi slideshow : compatible ssi il sert toutes les applicatio
   assertEquals(labelChoisiCompatible(partage, liens, [ID_SOPHIA, UNSWIPE]), true);
   assertEquals(labelChoisiCompatible(unswipeSeul, liens, [ID_SOPHIA, UNSWIPE]), false);
   assertEquals(labelChoisiCompatible(ancien, liens, [ID_SOPHIA, UNSWIPE]), false);
+});
+
+// ---------------------------------------------------------------------------
+// On choisit l'APPLICATION, pas le label
+// ---------------------------------------------------------------------------
+
+Deno.test("une seule application à 100 % : sa File puis ses labels (mode application)", () => {
+  assertEquals(modeChoixCompte(null, { unswipe: 100 }, APPS), {
+    mode: "application",
+    application: APPS[1],
+  });
+  // { sophia: 100 } explicite : même mode, manage-users y prend le chemin historique.
+  assertEquals(modeChoixCompte(null, { sophia: 100 }, APPS), {
+    mode: "application",
+    application: APPS[0],
+  });
+});
+
+Deno.test("plusieurs applications : pas de File, répartition (moins utilisé qui les sert toutes)", () => {
+  assertEquals(modeChoixCompte(null, { sophia: 70, unswipe: 30 }, APPS), { mode: "repartition" });
+  // Application inconnue de la liste (ne peut pas arriver après validerParts) : pas de File.
+  assertEquals(modeChoixCompte(null, { micabo: 100 }, APPS), { mode: "repartition" });
+});
+
+Deno.test("label_id d'un vieux client : prioritaire, inchangé (validation + label imposé)", () => {
+  assertEquals(modeChoixCompte(LABEL, { unswipe: 100 }, APPS), { mode: "label", labelId: LABEL });
+  assertEquals(modeChoixCompte(LABEL, null, APPS), { mode: "label", labelId: LABEL });
+});
+
+Deno.test("corps du front (parts_applications seul) : lu, validé, mode application", () => {
+  const lecture = lireChoixCompte({ parts_applications: { unswipe: 100 } }, "hiring_manager");
+  assertEquals(lecture.ok, true);
+  if (!lecture.ok || !lecture.choix) throw new Error("choix attendu");
+  const parts = validerParts(lecture.choix.partsBrutes, SLUGS);
+  assertEquals(parts, { unswipe: 100 });
+  assertEquals(modeChoixCompte(lecture.choix.labelId, parts, APPS).mode, "application");
+  assertEquals(applicationsRequises(parts, APPS), [UNSWIPE]);
+});
+
+Deno.test("hors Sophia, l'entrée tirée de la File n'est jamais UGC ; Sophia la garde telle quelle", () => {
+  assertEquals(entreeCompteApplication({ label_id: "classic-study", ugc: true }, "unswipe"), {
+    label_id: "classic-study",
+    ugc: false,
+  });
+  assertEquals(entreeCompteApplication({ label_id: "classic-study", ugc: false }, "unswipe"), {
+    label_id: "classic-study",
+    ugc: false,
+  });
+  assertEquals(entreeCompteApplication({ label_id: "smart_girl", ugc: true }, "sophia"), {
+    label_id: "smart_girl",
+    ugc: true,
+  });
 });

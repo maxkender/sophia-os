@@ -1,44 +1,32 @@
 import { useTranslation } from "react-i18next";
 
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { messageErreur } from "@/lib/utils";
+import { nomApplication } from "../applications";
 import { nomLangue } from "../langues";
-import { ApplicationsDuLabel } from "./ApplicationsDuLabel";
+import { SLUG_SOPHIA } from "../multiApp";
 import {
   applicationsProposees,
-  defautDuLabel,
-  labelsProposes,
-  persoInitial,
+  labelsDeLApplication,
   type ErreurChoixCreation,
   type InfoChoixCreation,
 } from "./choixCreation";
-import { PAS_PARTS } from "./logique";
 import type { EtatChoixApplicationsCreation } from "./useChoixApplicationsCreation";
 
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
 
-const pastille = (actif: boolean) =>
-  actif
-    ? "flex flex-col items-start rounded-md border border-primary bg-primary/10 px-2.5 py-1.5 text-left text-xs font-medium"
-    : "flex flex-col items-start rounded-md border px-2.5 py-1.5 text-left text-xs hover:bg-muted";
-
 /**
- * Choix des applications d'un compte à sa création, en DEUX NIVEAUX, par
- * celui qui crée le compte du créateur (admin, Head of Ops, DM, HM — c'est le
- * créateur qui est associé à des applications, pas son recruteur). Inactif,
- * ce bloc ne s'affiche pas :
+ * « Application du compte » à sa création, par celui qui crée le compte du
+ * créateur (admin, Head of Ops, DM, HM — c'est le créateur qui est associé à
+ * une application, pas son recruteur). Un seul choix : l'application (Sophia
+ * par défaut). Le label n'est PAS choisi ici : manage-users le tire de la File
+ * des créateurs de cette application (langue du compte, puis file générale),
+ * sinon parmi les labels qui la servent.
  *
- * 1. « Label du compte » : Automatique (la File des créateurs, comme
- *    aujourd'hui) ou un label slideshow imposé, chacun avec les applications
- *    qu'il sert. Le label dit ce que le compte PEUT promouvoir.
- * 2. « Répartition des posts » : Par défaut (rien n'est envoyé), « 100 % X »
- *    par application active, ou Personnalisée (entiers, somme 100). Une
- *    répartition explicite est exclusive : seules ses applications seront
- *    publiées, jamais de repli Sophia.
- *
- * Rien choisi = corps manage-users identique à celui d'avant.
+ * Invisible tant qu'il n'y a pas au moins deux applications actives, ou quand
+ * le choix n'est pas permis. Sophia = corps manage-users identique à celui
+ * d'avant.
  */
 export function ChoixApplicationsCreation({
   etat,
@@ -48,77 +36,70 @@ export function ChoixApplicationsCreation({
   idPrefixe: string;
 }) {
   const { t } = useTranslation();
-  if (!etat.actif) return null;
+  if (!etat.visible) return null;
 
   const { choix, setChoix, validation } = etat;
-  const applications = etat.applications.data ?? null;
-  const liens = etat.liens.data ?? null;
-  const apps = applications ? applicationsProposees(applications) : [];
-  const labels = labelsProposes(etat.labels.data ?? []);
+  const applications = etat.applications.data ?? [];
+  const apps = applicationsProposees(applications);
   const erreurLecture = etat.applications.error ?? etat.liens.error ?? etat.labels.error;
-
-  const defaut = defautDuLabel(choix.labelId, liens, applications);
-  const texteDefaut = !defaut
-    ? t("choixCompteCreation.defautAuto")
-    : defaut.type === "sophia"
-      ? t("choixCompteCreation.defautSophia")
-      : defaut.type === "unique"
-        ? t("choixCompteCreation.defautUnique", { app: defaut.app })
-        : t("choixCompteCreation.defautEgales", { apps: defaut.apps.join(", ") });
-
-  const valeurRepartition =
-    choix.repartition === "unique" && choix.appUnique
-      ? `app:${choix.appUnique}`
-      : choix.repartition === "perso"
-        ? "perso"
-        : "defaut";
-
-  const changerRepartition = (v: string) => {
-    if (v === "perso") {
-      setChoix({ ...choix, repartition: "perso", appUnique: null, perso: persoInitial(choix, apps) });
-    } else if (v.startsWith("app:")) {
-      setChoix({ ...choix, repartition: "unique", appUnique: v.slice(4), perso: {} });
-    } else {
-      setChoix({ ...choix, repartition: "defaut", appUnique: null, perso: {} });
-    }
-  };
-
-  const totalPerso = Object.values(choix.perso).reduce(
-    (s, v) => s + (Number.isFinite(v) ? v : 0),
-    0,
-  );
+  const choisie = applications.find((a) => a.slug === choix.application) ?? null;
+  const nomChoisie = choisie ? nomApplication(choisie) : nomApplication({ slug: choix.application });
+  const labelsPossibles =
+    choisie && etat.liens.data && etat.labels.data
+      ? labelsDeLApplication(choisie.id, etat.labels.data, etat.liens.data)
+      : null;
+  // Application choisie éteinte entre-temps : gardée dans la liste pour que
+  // le select reflète l'état (l'erreur dit pourquoi l'envoi est bloqué).
+  const options =
+    choisie && !apps.some((a) => a.slug === choisie.slug) ? [...apps, choisie] : apps;
 
   const texteErreur = (e: ErreurChoixCreation): string => {
     switch (e.type) {
-      case "saisie":
-        return t("choixCompteCreation.erreurSaisie");
-      case "somme":
-        return t("choixCompteCreation.erreurSomme", { total: e.total });
-      case "labelIncompatible":
-        return t("choixCompteCreation.erreurLabelIncompatible", {
-          label: e.label,
-          apps: e.apps.join(", "),
-        });
       case "aucunLabel":
-        return t("choixCompteCreation.erreurAucunLabel", { apps: e.apps.join(", ") });
+        return t("choixCompteCreation.erreurAucunLabel", { app: e.app });
+      case "applicationInactive":
+        return t("choixCompteCreation.erreurApplicationInactive", { app: e.app });
     }
   };
-  const texteInfo = (i: InfoChoixCreation): string => {
-    switch (i.type) {
-      case "labelAuto":
-        return t("choixCompteCreation.infoLabelAuto", { apps: i.apps.join(", ") });
-      case "exclusif":
-        return t("choixCompteCreation.infoExclusif", { apps: i.apps.join(", ") });
-      case "langue":
-        return t("choixCompteCreation.infoLangue", { app: i.app, langue: nomLangue(i.langue) });
-    }
-  };
+  const texteInfo = (i: InfoChoixCreation): string =>
+    t("choixCompteCreation.infoLangue", { app: i.app, langue: nomLangue(i.langue) });
+
+  const id = `${idPrefixe}-application`;
 
   return (
-    <div className="space-y-3 rounded-md border p-3 sm:col-span-2" data-testid="choix-applications-creation">
-      <div className="space-y-0.5">
-        <p className="text-sm font-medium">{t("choixCompteCreation.titre")}</p>
-        <p className="text-xs text-muted-foreground">{t("choixCompteCreation.aide")}</p>
+    <div className="space-y-2 rounded-md border p-3 sm:col-span-2" data-testid="choix-applications-creation">
+      <div className="space-y-1.5">
+        <Label htmlFor={id}>{t("choixCompteCreation.application")}</Label>
+        <select
+          id={id}
+          className={selectClass}
+          value={choix.application}
+          onChange={(e) => setChoix({ application: e.target.value })}
+        >
+          {options.map((a) => (
+            <option key={a.id} value={a.slug}>
+              {a.slug === SLUG_SOPHIA
+                ? t("choixCompteCreation.applicationDefaut", { app: nomApplication(a) })
+                : nomApplication(a)}
+            </option>
+          ))}
+        </select>
+        <p className="text-[11px] text-muted-foreground">
+          {t("choixCompteCreation.aideLabel", { app: nomChoisie })}
+        </p>
+        {choix.application !== SLUG_SOPHIA && (
+          <p className="text-[11px] text-muted-foreground">
+            {t("choixCompteCreation.aideAutreApplication", { app: nomChoisie })}
+          </p>
+        )}
+        {labelsPossibles && labelsPossibles.length > 0 && (
+          <p className="text-[11px] text-muted-foreground" data-testid="labels-application">
+            {t("choixCompteCreation.labelsPossibles", {
+              app: nomChoisie,
+              labels: labelsPossibles.map((l) => String(l.nom ?? "").trim() || l.id.slice(0, 8)).join(", "),
+            })}
+          </p>
+        )}
       </div>
 
       {erreurLecture && (
@@ -126,90 +107,6 @@ export function ChoixApplicationsCreation({
           {t("choixCompteCreation.erreurLecture", { message: messageErreur(erreurLecture) })}
         </p>
       )}
-
-      <div className="space-y-1.5">
-        <Label>{t("choixCompteCreation.label")}</Label>
-        <div className="flex flex-wrap gap-1.5" role="group" aria-label={t("choixCompteCreation.label")}>
-          <button
-            type="button"
-            aria-pressed={choix.labelId === null}
-            className={pastille(choix.labelId === null)}
-            onClick={() => setChoix({ ...choix, labelId: null })}
-          >
-            {t("choixCompteCreation.labelAuto")}
-          </button>
-          {labels.map((l) => (
-            <button
-              key={l.id}
-              type="button"
-              aria-pressed={choix.labelId === l.id}
-              className={pastille(choix.labelId === l.id)}
-              onClick={() => setChoix({ ...choix, labelId: l.id })}
-            >
-              <span>{l.nom}</span>
-              <ApplicationsDuLabel labelId={l.id} />
-            </button>
-          ))}
-        </div>
-        <p className="text-[11px] text-muted-foreground">
-          {choix.labelId === null
-            ? t("choixCompteCreation.labelAutoAide")
-            : t("choixCompteCreation.labelImposeAide")}
-        </p>
-      </div>
-
-      <div className="space-y-1.5">
-        <Label htmlFor={`${idPrefixe}-repartition`}>{t("choixCompteCreation.repartition")}</Label>
-        <select
-          id={`${idPrefixe}-repartition`}
-          className={selectClass}
-          value={valeurRepartition}
-          onChange={(e) => changerRepartition(e.target.value)}
-        >
-          <option value="defaut">{texteDefaut}</option>
-          {apps.map((a) => (
-            <option key={a.id} value={`app:${a.slug}`}>
-              {t("choixCompteCreation.preReglage", { app: a.nom })}
-            </option>
-          ))}
-          {apps.length > 0 && <option value="perso">{t("choixCompteCreation.perso")}</option>}
-        </select>
-
-        {choix.repartition === "perso" && (
-          <div className="space-y-1.5">
-            {apps.map((a) => {
-              const id = `${idPrefixe}-part-${a.slug}`;
-              const v = choix.perso[a.slug] ?? 0;
-              return (
-                <div key={a.id} className="flex items-center gap-2">
-                  <label htmlFor={id} className="w-24 shrink-0 truncate text-xs">
-                    {a.nom}
-                  </label>
-                  <Input
-                    id={id}
-                    type="number"
-                    inputMode="numeric"
-                    min={0}
-                    max={100}
-                    step={PAS_PARTS}
-                    className="h-8 w-24"
-                    value={Number.isFinite(v) ? v : ""}
-                    onChange={(e) => {
-                      const brut = e.target.value;
-                      const n = brut === "" ? Number.NaN : Number(brut);
-                      setChoix({ ...choix, perso: { ...choix.perso, [a.slug]: n } });
-                    }}
-                  />
-                  <span className="text-xs text-muted-foreground">%</span>
-                </div>
-              );
-            })}
-            <p className="text-xs tabular-nums text-muted-foreground">
-              {t("choixCompteCreation.total", { total: totalPerso })}
-            </p>
-          </div>
-        )}
-      </div>
 
       {validation.erreurs.length > 0 && (
         <ul className="space-y-0.5">
@@ -223,10 +120,7 @@ export function ChoixApplicationsCreation({
       {validation.infos.length > 0 && (
         <ul className="space-y-0.5">
           {validation.infos.map((info, i) => (
-            <li
-              key={`${info.type}-${i}`}
-              className={info.type === "langue" ? "text-[11px] text-warning" : "text-[11px] text-muted-foreground"}
-            >
+            <li key={`${info.type}-${i}`} className="text-[11px] text-warning">
               {texteInfo(info)}
             </li>
           ))}

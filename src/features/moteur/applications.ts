@@ -44,9 +44,10 @@ export function clePromptPlacement(slug: string | null | undefined): string {
 }
 
 /**
- * Tranche d'une application dans la file des labels créateurs. Seule la
- * tranche Sophia sert encore (identité d'un compte = Sophia, toujours) : c'est
- * elle que Réglages édite, et elle que lit le bundle figé de manage-users.
+ * Tranche d'une application dans la file des labels créateurs. Réglages édite
+ * la tranche de l'application choisie ; manage-users lit celle de
+ * l'application du compte créé (Sophia par défaut : la file « racine » tant
+ * que la tranche n'existe pas).
  */
 export function fileLabelsDeLApplication<T extends { items: unknown[]; par_langue: Record<string, unknown[]> }>(
   file: T & { par_application?: Record<string, { items: T["items"]; par_langue: T["par_langue"] }> },

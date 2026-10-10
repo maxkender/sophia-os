@@ -1,18 +1,17 @@
 /**
- * Choix à deux niveaux à la création d'un compte (label puis répartition) :
- * ce qui part dans le corps manage-users, et ce qui bloque l'envoi.
+ * Choix de l'APPLICATION à la création d'un compte (le label n'est pas
+ * choisi : manage-users le tire de la File de cette application) : ce qui part
+ * dans le corps manage-users, et ce qui bloque l'envoi.
  */
 import { describe, expect, it } from "vitest";
 
 import {
   applicationsProposees,
   CHOIX_CREATION_DEFAUT,
+  choixApplicationVisible,
   cleErreurChoixCompte,
-  defautDuLabel,
-  labelsProposes,
+  labelsDeLApplication,
   optionsDuChoix,
-  partsDuChoix,
-  persoInitial,
   peutChoisirApplicationsCompte,
   validerChoixCreation,
   type ChoixCreation,
@@ -20,28 +19,30 @@ import {
 
 const ID_SOPHIA = "00000000-0000-4000-8000-000000000001";
 const ID_UNSWIPE = "00000000-0000-4000-8000-000000000003";
+const ID_MICABO = "00000000-0000-4000-8000-000000000005";
 const ID_ZEN = "00000000-0000-4000-8000-000000000009";
 const APPS = [
-  { id: ID_UNSWIPE, slug: "unswipe", nom: "Unswipe", langues: ["fr", "en"], actif: true },
+  { id: ID_UNSWIPE, slug: "unswipe", nom: "Unswipe", langues: ["fr", "en", "de", "it", "es", "tr"], actif: true },
   { id: ID_SOPHIA, slug: "sophia", nom: "Sophia", langues: null, actif: true },
+  { id: ID_MICABO, slug: "micabo", nom: "Micabo", langues: null, actif: true },
   { id: ID_ZEN, slug: "zen", nom: "Zen", langues: null, actif: false },
 ];
-/** Clean Girl sert Sophia ET Unswipe ; Detox ne sert qu'Unswipe ; Cinéma n'a pas de ligne (= Sophia). */
-const CLEAN = { id: "l-clean", slug: "clean-girl", nom: "Clean Girl" };
-const DETOX = { id: "l-detox", slug: "detox", nom: "Detox" };
-const CINEMA = { id: "l-cinema", slug: "cinema", nom: "Cinéma" };
-const HOOK = { id: "l-hook", slug: "hook", nom: "Hook" };
-const UGC = { id: "l-ugc", slug: "ugc-x", nom: "UGC X", ugc_ai_video: true };
-const LABELS = [CLEAN, DETOX, CINEMA, HOOK, UGC];
+/** Smart Girl sans ligne (= Sophia) ; Medical Study sert Micabo + Unswipe ; UGC X est UGC AI vidéo. */
+const SMART = { id: "l-smart", slug: "smart_girl", nom: "Smart Girl" };
+const MEDICAL = { id: "l-medical", slug: "medical-study", nom: "Medical Study" };
+const MICABO_SEUL = { id: "l-mic", slug: "mic", nom: "Mic" };
+const UGC_UNSWIPE = { id: "l-ugc", slug: "ugc-x", nom: "UGC X", ugc_ai_video: true };
+const LABELS = [SMART, MEDICAL, MICABO_SEUL, UGC_UNSWIPE];
 const LIENS = [
-  { label_id: CLEAN.id, application_id: ID_SOPHIA },
-  { label_id: CLEAN.id, application_id: ID_UNSWIPE },
-  { label_id: DETOX.id, application_id: ID_UNSWIPE },
+  { label_id: MEDICAL.id, application_id: ID_MICABO },
+  { label_id: MEDICAL.id, application_id: ID_UNSWIPE },
+  { label_id: MICABO_SEUL.id, application_id: ID_MICABO },
+  { label_id: UGC_UNSWIPE.id, application_id: ID_UNSWIPE },
 ];
 
-const choix = (patch: Partial<ChoixCreation>): ChoixCreation => ({ ...CHOIX_CREATION_DEFAUT, ...patch });
-const valider = (c: ChoixCreation, langue = "fr") =>
-  validerChoixCreation({ choix: c, applications: APPS, liens: LIENS, labels: LABELS, langue });
+const choix = (application: string): ChoixCreation => ({ application });
+const valider = (c: ChoixCreation, langue: string | null = "fr", liens = LIENS, labels = LABELS) =>
+  validerChoixCreation({ choix: c, applications: APPS, liens, labels, langue });
 
 describe("peutChoisirApplicationsCompte", () => {
   it("tous les rôles qui créent des comptes de créateurs", () => {
@@ -55,154 +56,88 @@ describe("peutChoisirApplicationsCompte", () => {
 });
 
 describe("ce qui part dans le corps", () => {
-  it("rien choisi : aucune clé (comportement d'avant)", () => {
-    expect(partsDuChoix(CHOIX_CREATION_DEFAUT)).toBeNull();
-    expect(optionsDuChoix(CHOIX_CREATION_DEFAUT)).toEqual({});
+  it("défaut = Sophia : aucune clé (corps d'avant à l'octet près)", () => {
+    expect(CHOIX_CREATION_DEFAUT).toEqual({ application: "sophia" });
+    expect(optionsDuChoix(CHOIX_CREATION_DEFAUT)).toStrictEqual({});
+    expect(optionsDuChoix(choix(""))).toStrictEqual({});
   });
 
-  it("label seul : label_id, pas de répartition (défaut NULL)", () => {
-    expect(optionsDuChoix(choix({ labelId: CLEAN.id }))).toEqual({ labelId: CLEAN.id });
+  it("autre application : { slug: 100 }, jamais de label", () => {
+    expect(optionsDuChoix(choix("unswipe"))).toStrictEqual({ partsApplications: { unswipe: 100 } });
+    expect("labelId" in optionsDuChoix(choix("unswipe"))).toBe(false);
   });
+});
 
-  it("préréglage 100 % Unswipe : { unswipe: 100 }", () => {
-    expect(optionsDuChoix(choix({ repartition: "unique", appUnique: "unswipe" }))).toEqual({
-      partsApplications: { unswipe: 100 },
-    });
+describe("applications proposées et visibilité", () => {
+  it("les actives, Sophia d'abord puis par nom", () => {
+    expect(applicationsProposees(APPS).map((a) => a.slug)).toEqual(["sophia", "micabo", "unswipe"]);
   });
-
-  it("personnalisée : les seules parts > 0", () => {
-    const c = choix({ labelId: CLEAN.id, repartition: "perso", perso: { sophia: 70, unswipe: 30, zen: 0 } });
-    expect(optionsDuChoix(c)).toEqual({ labelId: CLEAN.id, partsApplications: { sophia: 70, unswipe: 30 } });
+  it("le bloc n'apparaît qu'à partir de deux applications actives", () => {
+    expect(choixApplicationVisible(APPS)).toBe(true);
+    expect(choixApplicationVisible(APPS.filter((a) => a.slug === "sophia" || a.slug === "zen"))).toBe(false);
+    expect(choixApplicationVisible(null)).toBe(false);
+    expect(choixApplicationVisible(undefined)).toBe(false);
   });
+});
 
-  it("personnalisée tout à 0 : rien n'est envoyé (et la somme bloque)", () => {
-    const c = choix({ repartition: "perso", perso: { sophia: 0, unswipe: 0 } });
-    expect(partsDuChoix(c)).toBeNull();
-    expect(valider(c).erreurs).toEqual([{ type: "somme", total: 0 }]);
+describe("labelsDeLApplication", () => {
+  it("label_applications avec héritage Sophia, labels slideshow seulement", () => {
+    expect(labelsDeLApplication(ID_SOPHIA, LABELS, LIENS).map((l) => l.id)).toEqual([SMART.id]);
+    // UGC X sert Unswipe mais est UGC AI vidéo : jamais posé par la File.
+    expect(labelsDeLApplication(ID_UNSWIPE, LABELS, LIENS).map((l) => l.id)).toEqual([MEDICAL.id]);
+    expect(labelsDeLApplication(ID_MICABO, LABELS, LIENS).map((l) => l.id)).toEqual([
+      MEDICAL.id,
+      MICABO_SEUL.id,
+    ]);
+  });
+  it("la colonne historique labels.application_id n'est pas lue", () => {
+    const labels = [{ ...SMART, application_id: ID_UNSWIPE }];
+    expect(labelsDeLApplication(ID_UNSWIPE, labels, LIENS)).toEqual([]);
+    expect(labelsDeLApplication(ID_SOPHIA, labels, LIENS).map((l) => l.id)).toEqual([SMART.id]);
   });
 });
 
 describe("validerChoixCreation", () => {
-  it("le défaut ne bloque jamais, même sans lectures", () => {
-    const v = validerChoixCreation({
-      choix: CHOIX_CREATION_DEFAUT,
-      applications: null,
-      liens: null,
-      labels: null,
-    });
-    expect(v).toEqual({ parts: null, erreurs: [], infos: [], ok: true });
+  it("Sophia ne bloque jamais, même sans aucune lecture", () => {
+    expect(valider(CHOIX_CREATION_DEFAUT)).toMatchObject({ ok: true, erreurs: [], infos: [] });
+    expect(
+      validerChoixCreation({ choix: CHOIX_CREATION_DEFAUT, applications: null, liens: null, labels: null }),
+    ).toMatchObject({ ok: true, erreurs: [], infos: [] });
+    // Même si aucun label ne sert Sophia : c'est le chemin d'avant, manage-users décide.
+    expect(valider(CHOIX_CREATION_DEFAUT, "fr", LIENS, [MEDICAL])).toMatchObject({ ok: true });
   });
 
-  it("somme ≠ 100 : bloqué", () => {
-    const v = valider(choix({ repartition: "perso", perso: { sophia: 60, unswipe: 30 } }));
+  it("Unswipe avec un label qui la sert : ok, sans info pour une langue ciblée", () => {
+    const v = valider(choix("unswipe"));
+    expect(v.ok).toBe(true);
+    expect(v.application?.slug).toBe("unswipe");
+    expect(v.infos).toEqual([]);
+  });
+
+  it("aucun label slideshow ne sert l'application : envoi bloqué", () => {
+    const v = valider(choix("unswipe"), "fr", LIENS, [SMART, MICABO_SEUL, UGC_UNSWIPE]);
     expect(v.ok).toBe(false);
-    expect(v.erreurs).toEqual([{ type: "somme", total: 90 }]);
-    expect(v.parts).toBeNull();
+    expect(v.erreurs).toEqual([{ type: "aucunLabel", app: "Unswipe" }]);
   });
 
-  it("décimal, négatif, vide ou hors de la grille de 10 : saisie refusée", () => {
-    for (const perso of [
-      { sophia: 50.5, unswipe: 49.5 },
-      { sophia: 110, unswipe: -10 },
-      { sophia: Number.NaN },
-      { sophia: 75, unswipe: 25 },
-    ]) {
-      expect(valider(choix({ repartition: "perso", perso })).erreurs).toEqual([{ type: "saisie" }]);
-    }
-  });
-
-  it("exemple du propriétaire : label Sophia+Unswipe réglé 100 % Unswipe — permis, exclusif", () => {
-    const v = valider(choix({ labelId: CLEAN.id, repartition: "unique", appUnique: "unswipe" }));
+  it("application qui ne cible pas la langue : information, pas de blocage", () => {
+    const v = valider(choix("unswipe"), "da");
     expect(v.ok).toBe(true);
-    expect(v.parts).toEqual({ unswipe: 100 });
-    expect(v.infos).toEqual([{ type: "exclusif", apps: ["Unswipe"] }]);
+    expect(v.infos).toEqual([{ type: "langue", app: "Unswipe", langue: "da" }]);
   });
 
-  it("label qui ne sert pas une application à part > 0 : bloqué, avec les manquantes", () => {
-    // Detox ne sert qu'Unswipe : 70 % Sophia est impossible.
-    const v = valider(choix({ labelId: DETOX.id, repartition: "perso", perso: { sophia: 70, unswipe: 30 } }));
-    expect(v.ok).toBe(false);
-    expect(v.erreurs).toEqual([{ type: "labelIncompatible", label: "Detox", apps: ["Sophia"] }]);
+  it("application éteinte ou inconnue : bloqué", () => {
+    expect(valider(choix("zen")).erreurs).toEqual([{ type: "applicationInactive", app: "Zen" }]);
+    expect(valider(choix("fantome")).erreurs).toEqual([{ type: "applicationInactive", app: "fantome" }]);
   });
 
-  it("label sans ligne = Sophia : 100 % Unswipe incompatible, 100 % Sophia permis", () => {
-    expect(valider(choix({ labelId: CINEMA.id, repartition: "unique", appUnique: "unswipe" })).erreurs).toEqual([
-      { type: "labelIncompatible", label: "Cinéma", apps: ["Unswipe"] },
-    ]);
-    expect(valider(choix({ labelId: CINEMA.id, repartition: "unique", appUnique: "sophia" })).ok).toBe(true);
-  });
-
-  it("label Automatique + répartition : label choisi par manage-users, File non utilisée", () => {
-    const v = valider(choix({ repartition: "perso", perso: { sophia: 70, unswipe: 30 } }));
-    expect(v.ok).toBe(true);
-    expect(v.infos).toEqual([
-      { type: "labelAuto", apps: ["Sophia", "Unswipe"] },
-      { type: "exclusif", apps: ["Sophia", "Unswipe"] },
-    ]);
-  });
-
-  it("label Automatique : aucun label slideshow ne sert tout → bloqué (Hook / UGC ne comptent pas)", () => {
-    const liens = [...LIENS, { label_id: HOOK.id, application_id: ID_ZEN }, { label_id: UGC.id, application_id: ID_ZEN }];
-    const v = validerChoixCreation({
-      choix: choix({ repartition: "unique", appUnique: "zen" }),
-      applications: APPS,
-      liens,
-      labels: LABELS,
-      langue: "fr",
-    });
-    expect(v.erreurs).toEqual([{ type: "aucunLabel", apps: ["Zen"] }]);
-  });
-
-  it("liens illisibles : rien ne bloque, manage-users revalidera", () => {
-    const v = validerChoixCreation({
-      choix: choix({ labelId: DETOX.id, repartition: "unique", appUnique: "sophia" }),
-      applications: APPS,
-      liens: null,
-      labels: LABELS,
-    });
-    expect(v.ok).toBe(true);
-  });
-
-  it("application qui ne cible pas la langue : avertissement, pas de blocage", () => {
-    const v = valider(choix({ labelId: CLEAN.id, repartition: "unique", appUnique: "unswipe" }), "de");
-    expect(v.ok).toBe(true);
-    expect(v.infos).toContainEqual({ type: "langue", app: "Unswipe", langue: "de" });
-  });
-});
-
-describe("listes proposées", () => {
-  it("applications actives, Sophia d'abord", () => {
-    expect(applicationsProposees(APPS).map((a) => a.slug)).toEqual(["sophia", "unswipe"]);
-  });
-
-  it("labels de la File slideshow : ni Hook ni UGC AI VIDEO", () => {
-    expect(labelsProposes(LABELS).map((l) => l.id)).toEqual([CLEAN.id, DETOX.id, CINEMA.id]);
-  });
-
-  it("Personnalisée repart de l'affichage : défaut = Sophia 100, préréglage = son application", () => {
-    const apps = applicationsProposees(APPS);
-    expect(persoInitial(CHOIX_CREATION_DEFAUT, apps)).toEqual({ sophia: 100, unswipe: 0 });
-    expect(persoInitial(choix({ repartition: "unique", appUnique: "unswipe" }), apps)).toEqual({
-      sophia: 0,
-      unswipe: 100,
-    });
-  });
-});
-
-describe("defautDuLabel", () => {
-  it("Automatique : on ne sait pas encore", () => {
-    expect(defautDuLabel(null, LIENS, APPS)).toBeNull();
-  });
-  it("label qui sert Sophia : 100 % Sophia", () => {
-    expect(defautDuLabel(CLEAN.id, LIENS, APPS)).toEqual({ type: "sophia" });
-    expect(defautDuLabel(CINEMA.id, LIENS, APPS)).toEqual({ type: "sophia" });
-  });
-  it("label qui ne sert qu'Unswipe : 100 % Unswipe", () => {
-    expect(defautDuLabel(DETOX.id, LIENS, APPS)).toEqual({ type: "unique", app: "Unswipe" });
-  });
-  it("plusieurs sans Sophia : parts égales", () => {
-    const liens = [...LIENS, { label_id: DETOX.id, application_id: ID_ZEN }];
-    expect(defautDuLabel(DETOX.id, liens, APPS)).toEqual({ type: "egales", apps: ["Unswipe", "Zen"] });
+  it("lectures absentes : rien ne bloque (manage-users revalide)", () => {
+    expect(
+      validerChoixCreation({ choix: choix("unswipe"), applications: APPS, liens: null, labels: LABELS }).ok,
+    ).toBe(true);
+    expect(
+      validerChoixCreation({ choix: choix("unswipe"), applications: null, liens: LIENS, labels: LABELS }).ok,
+    ).toBe(true);
   });
 });
 

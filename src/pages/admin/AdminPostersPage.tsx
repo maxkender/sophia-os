@@ -393,8 +393,8 @@ function LabelsCompteSelect({
 export function AdminPostersPage() {
   const { t } = useTranslation();
   const { user, role } = useAuth();
-  // Page admin + Head of Ops : le choix label + répartition à la création leur
-  // est ouvert. Vérifié quand même ici : manage-users refuse tout autre rôle.
+  // Choix de l'application du compte à la création (admin, Head of Ops, DM,
+  // HM). Vérifié quand même ici : manage-users refuse tout autre rôle.
   const peutChoisirApps = peutChoisirApplicationsCompte(role);
   const queryClient = useQueryClient();
   const posters = useQuery({ queryKey: ["posters"], queryFn: listerPosters });
@@ -434,8 +434,8 @@ export function AdminPostersPage() {
   const [ficheId, setFicheId] = React.useState<string | null>(null);
   const [ficheCompteId, setFicheCompteId] = React.useState<string | null>(null);
 
-  // « Créer le premier compte » d'une fiche sans compte : même choix à deux
-  // niveaux, repart de « rien choisi » à chaque fiche ouverte.
+  // « Créer le premier compte » d'une fiche sans compte : même choix de
+  // l'application, repart de Sophia à chaque fiche ouverte.
   const choixAppsPremier = useChoixApplicationsCreation(
     peutChoisirApps && ficheId !== null,
     (posters.data ?? []).find((p) => p.id === ficheId)?.langues[0] ?? "fr",
@@ -479,9 +479,9 @@ export function AdminPostersPage() {
   const [ugcVideo, setUgcVideo] = React.useState(false);
   const [handleInstagram, setHandleInstagram] = React.useState("");
   const [password, setPassword] = React.useState(MOT_DE_PASSE_INITIAL);
-  // Label + répartition du premier compte : seulement quand manage-users crée
-  // un compte slideshow (ni « aucun compte », ni UGC vidéo — celui-là n'a pas
-  // de label). Inactif : options vides, corps inchangé.
+  // Application du premier compte : seulement quand manage-users crée un
+  // compte slideshow (ni « aucun compte », ni UGC vidéo — celui-là n'a pas de
+  // label). Inactif ou Sophia : options vides, corps inchangé.
   const choixAppsPoster = useChoixApplicationsCreation(
     peutChoisirApps && !ugcVideo && premierCompte === "perso",
     langue,

@@ -62,7 +62,10 @@ import {
   peutChoisirApplicationsCompte,
 } from "@/features/moteur/repartition/choixCreation";
 import { useChoixApplicationsCreation } from "@/features/moteur/repartition/useChoixApplicationsCreation";
-import { posterServiApplication } from "@/features/moteur/repartition/logique";
+import {
+  applicationsAfficheesCompte,
+  posterServiApplication,
+} from "@/features/moteur/repartition/logique";
 import { PartsApplicationsCompte } from "@/features/moteur/repartition/PartsApplicationsCompte";
 import { useLiensLabels } from "@/features/moteur/repartition/useMultiApp";
 import { SelectApplication } from "@/features/moteur/SelectApplication";
@@ -432,6 +435,16 @@ export function AdminPostersPage() {
     queryKey: ["labels"],
     queryFn: () => listerLabels(),
   });
+
+  // Badge d'application d'un compte : sa répartition, sinon ses labels
+  // (`comptes.application_id` vaut Sophia pour tous les comptes).
+  const applicationsCompte = (c: CompteAvecDetails) =>
+    applicationsAfficheesCompte({
+      parts: c.parts_applications,
+      labels: labelsComptes.data ? (labelsComptes.data.get(c.id) ?? []) : null,
+      liens: liensLabels.data ?? [],
+      slugParId: (id) => (applications.data ?? []).find((a) => a.id === id)?.slug,
+    });
 
   const comptesParPoster = React.useMemo(() => {
     const m = new Map<string, CompteAvecDetails[]>();
@@ -1064,6 +1077,7 @@ export function AdminPostersPage() {
                 <EnteteCompte
                   compact
                   compte={c}
+                  applications={applicationsCompte(c)}
                   extra={
                     <div className="mt-1 flex flex-wrap items-center gap-2 text-[11px] text-muted-foreground">
                       {!c.is_active && <BadgeDormant />}
@@ -1577,6 +1591,7 @@ export function AdminPostersPage() {
                           >
                             <EnteteCompte
                               compte={c}
+                              applications={applicationsCompte(c)}
                               extra={
                                 <div className="mt-1.5 flex flex-wrap items-center gap-2">
                                   {!c.is_active && <BadgeDormant />}

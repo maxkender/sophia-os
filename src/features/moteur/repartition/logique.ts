@@ -382,6 +382,50 @@ export function partsDepuisCurseurs(curseurs: Record<string, number>): PartsAppl
   return parts;
 }
 
+/** Une application du badge d'un compte ; `part` seulement s'il y en a plusieurs. */
+export interface ApplicationAffichee {
+  slug: string;
+  part: number | null;
+}
+
+const sophiaDabord = (a: string, b: string) =>
+  a === SLUG_SOPHIA ? -1 : b === SLUG_SOPHIA ? 1 : a.localeCompare(b);
+
+/**
+ * Applications du badge d'un compte (Posters, fiche recruteur), Sophia d'abord.
+ *
+ * `comptes.application_id` vaut Sophia pour TOUS les comptes : colonne figée,
+ * jamais le reflet de ce que le compte promeut. Ce sont les deux niveaux du
+ * moteur (`partsEffectives`) :
+ * - répartition explicite : les applications à part > 0 ;
+ * - répartition `null` : Sophia si un de ses labels la sert (ou s'il n'a aucun
+ *   label utile), sinon les applications que ses labels servent.
+ * Sans `labels` (non chargés) et sans répartition : Sophia, comme avant.
+ */
+export function applicationsAfficheesCompte(args: {
+  parts: unknown;
+  labels?: readonly LabelRef[] | null;
+  liens?: readonly LienLabelApplication[] | null;
+  slugParId?: (id: string) => string | undefined;
+}): ApplicationAffichee[] {
+  const parts = normaliserParts(args.parts);
+  if (parts) {
+    const slugs = Object.keys(parts).sort(sophiaDabord);
+    const total = slugs.reduce((s, slug) => s + parts[slug], 0);
+    return slugs.map((slug) => ({
+      slug,
+      part: slugs.length > 1 ? Math.round((parts[slug] * 100) / total) : null,
+    }));
+  }
+  if (!args.labels) return [{ slug: SLUG_SOPHIA, part: null }];
+  const servies = applicationsServies(args.labels, args.liens ?? []);
+  if (servies.includes(ID_SOPHIA)) return [{ slug: SLUG_SOPHIA, part: null }];
+  return servies
+    .map((id) => args.slugParId?.(id) ?? id)
+    .sort(sophiaDabord)
+    .map((slug) => ({ slug, part: null }));
+}
+
 /** « Sophia 70 % · Unswipe 30 % », dans l'ordre Sophia d'abord. */
 export function resumeParts(
   parts: PartsApplications,

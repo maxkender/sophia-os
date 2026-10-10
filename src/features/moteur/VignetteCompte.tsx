@@ -4,6 +4,10 @@ import { useTranslation } from "react-i18next";
 import { Badge } from "@/components/ui/badge";
 import { estCompteCm } from "@/features/moteur/comptesCm";
 import { drapeauLangue } from "@/features/moteur/langues";
+import {
+  applicationsAfficheesCompte,
+  type ApplicationAffichee,
+} from "@/features/moteur/repartition/logique";
 
 export type CompteVignette = {
   id: string;
@@ -11,6 +15,8 @@ export type CompteVignette = {
   langue: string;
   application_id?: string | null;
   application_slug?: string | null;
+  /** Répartition explicite ; `application_id` vaut Sophia pour tous les comptes. */
+  parts_applications?: unknown;
   handle_tiktok?: string | null;
   persona_nom?: string | null;
   avatar_url?: string | null;
@@ -61,13 +67,20 @@ export function EnteteCompte({
   compte,
   compact,
   extra,
+  applications,
 }: {
   compte: CompteVignette;
   compact?: boolean;
   extra?: React.ReactNode;
+  /**
+   * Applications promues (`applicationsAfficheesCompte` avec ses labels). Sans
+   * elles : sa répartition explicite, sinon Sophia.
+   */
+  applications?: ApplicationAffichee[];
 }) {
   const { t } = useTranslation();
   const handle = (compte.handle_tiktok ?? "").trim().replace(/^@+/, "");
+  const apps = applications ?? applicationsAfficheesCompte({ parts: compte.parts_applications });
 
   return (
     <div className="flex min-w-0 items-start gap-2.5">
@@ -75,9 +88,11 @@ export function EnteteCompte({
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-center gap-1.5">
           <BadgeTypeCompte compte={compte} />
-          {(compte.application_slug || compte.application_id) && (
-            <Badge variant="secondary">{compte.application_slug ?? "app"}</Badge>
-          )}
+          {apps.map((a) => (
+            <Badge key={a.slug} variant="secondary">
+              {a.part === null ? a.slug : `${a.slug} ${a.part} %`}
+            </Badge>
+          ))}
           <span className="text-sm leading-none" title={compte.langue}>
             {drapeauLangue(compte.langue)}
           </span>

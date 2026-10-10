@@ -86,8 +86,17 @@ export interface EtatPartsCompte {
    */
   sophiaServie: boolean;
   /**
-   * Sophia non servie ET aucune application éligible : le moteur n'a rien à
-   * publier sur ce compte (application éteinte, langue non ciblée, compte UGC).
+   * Le moteur peut se replier sur Sophia (son `labelsSophia` n'est pas vide) :
+   * un label sert Sophia ET la répartition lui laisse une part — par défaut
+   * (NULL), ou explicitement > 0 et effective. Faux pour un compte réglé
+   * 100 % Unswipe, même si son label sert aussi Sophia : DEUX NIVEAUX, les
+   * labels disent ce qu'il peut promouvoir, la répartition ce qu'il promeut.
+   */
+  repliSophia: boolean;
+  /**
+   * Aucune application à publier ET pas de repli Sophia : le moteur ne publie
+   * rien sur ce compte (application éteinte, langue non ciblée, compte UGC,
+   * répartition qui ne vise que des applications que rien ne sert).
    */
   bloque: boolean;
   /** `comptes.parts_applications` lu ; `null` = 100 % Sophia. */
@@ -100,8 +109,9 @@ export interface EtatPartsCompte {
   /**
    * Le bloc a quelque chose à dire : une application autre que Sophia servie
    * — y compris seule, c'est là que se lit « Unswipe est désactivée » —, ou
-   * une répartition enregistrée qui n'a plus d'objet (à réinitialiser). Un
-   * compte Sophia pur ne l'affiche jamais.
+   * une répartition enregistrée, quelle qu'elle soit : c'est elle qui décide,
+   * même sur un compte dont les labels ne servent que Sophia. Un compte
+   * Sophia pur SANS répartition ne l'affiche jamais.
    */
   afficher: boolean;
 }
@@ -167,32 +177,41 @@ export function etatPartsCompte(args: {
   }
 
   const obsolete = avertissements.some((a) => a.type === "obsolete");
+  // Même règle que `preparerRepartition` : NULL → les labels Sophia, comme
+  // avant ; explicite → seulement si Sophia y garde une part effective.
+  const repliSophia = sophiaServie && (stockees === null || (effectives[SLUG_SOPHIA] ?? 0) > 0);
   return {
     servies,
     autres,
     sophiaServie,
-    bloque: !sophiaServie && Object.keys(effectives).length === 0,
+    repliSophia,
+    bloque: !repliSophia && Object.keys(effectives).length === 0,
     stockees,
     curseurs,
     effectives,
     avertissements,
-    afficher: servies.length > 1 || autres.length > 0 || !sophiaServie || obsolete,
+    afficher:
+      servies.length > 1 || autres.length > 0 || !sophiaServie || obsolete || stockees !== null,
   };
 }
 
 /**
- * Panneau Minuit, faute de journal de la nuit : pourquoi un compte dont AUCUN
- * label ne sert Sophia (« 100 % Unswipe ») n'a pas publié. Le diagnostic
- * historique compte le pool Sophia, que ce compte ne touche jamais : il
- * annoncerait « pool OK, timeout batch, baisse auto du quota » à tort.
+ * Panneau Minuit, faute de journal de la nuit : pourquoi un compte SANS repli
+ * Sophia n'a pas publié. Le diagnostic historique compte le pool Sophia, que
+ * ce compte ne touche jamais : il annoncerait « pool OK, timeout batch, baisse
+ * auto du quota » à tort. Sans repli Sophia : aucun label ne la sert (« 100 %
+ * Unswipe »), ou une répartition EXPLICITE lui donne 0 % (deux niveaux, comme
+ * le moteur : la répartition choisit parmi ce que les labels permettent).
  *
- * `null` dès qu'un label sert Sophia : le diagnostic historique s'applique
- * alors tel quel, rien ne change pour ces comptes. Même règle que le moteur
- * (`applicationsServies`, `applicationsEligiblesCompte`) : un label sans ligne
- * sert Sophia, les labels système sont ignorés.
+ * `null` quand le moteur peut se replier sur Sophia — un label la sert et la
+ * répartition (NULL, ou une part Sophia > 0) le permet : le diagnostic
+ * historique s'applique alors tel quel, rien ne change pour ces comptes. Même
+ * règle que le moteur (`applicationsServies`, `applicationsEligiblesCompte`,
+ * `partsEffectives`) : un label sans ligne sert Sophia, les labels système
+ * sont ignorés.
  */
 export function diagnosticCompteSansSophia(args: {
-  compte: { langue: string; ugc: boolean };
+  compte: { langue: string; ugc: boolean; parts_applications?: unknown };
   labels: readonly LabelRef[];
   liens: readonly LienLabelApplication[];
   /** Au moins les applications servies par les labels du compte. */
@@ -202,6 +221,8 @@ export function diagnosticCompteSansSophia(args: {
 }): string | null {
   const { compte, labels, liens, applications, labelsTxt } = args;
   const idsServis = applicationsServies(labels, liens);
+  const parts = normaliserParts(compte.parts_applications);
+  if (parts !== null) return diagnosticRepartitionSansSophia({ ...args, parts, idsServis });
   if (idsServis.includes(ID_SOPHIA)) return null;
 
   const servies = applications
@@ -243,6 +264,78 @@ export function diagnosticCompteSansSophia(args: {
   }
   if (causes.length === 0) causes.push("application(s) introuvable(s)");
   return `${tete} Aucune application ne peut servir ce compte, il ne publiera rien : ${causes.join(" ; ")}.`;
+}
+
+/**
+ * `diagnosticCompteSansSophia` pour une répartition EXPLICITE : seules ses
+ * applications à part > 0 peuvent être publiées. `null` quand Sophia y garde
+ * une part effective (le moteur s'y replie : diagnostic historique).
+ */
+function diagnosticRepartitionSansSophia(args: {
+  compte: { langue: string; ugc: boolean };
+  applications: readonly ApplicationMoteur[];
+  labelsTxt: string;
+  parts: PartsApplications;
+  idsServis: readonly string[];
+}): string | null {
+  const { compte, applications, labelsTxt, parts, idsServis } = args;
+  const eligibles = applicationsEligiblesCompte({
+    applications,
+    servies: idsServis,
+    langue: compte.langue,
+    ugc: compte.ugc,
+  });
+  const effectives = partsEffectives(parts, eligibles.map((a) => a.slug));
+  const sophiaServie = idsServis.includes(ID_SOPHIA);
+  if (sophiaServie && (effectives[SLUG_SOPHIA] ?? 0) > 0) return null;
+
+  const visees = Object.keys(parts)
+    .filter((slug) => parts[slug] > 0)
+    .sort((a, b) => (a === SLUG_SOPHIA ? -1 : b === SLUG_SOPHIA ? 1 : a.localeCompare(b)));
+  const parSlug = new Map(applications.map((a) => [a.slug, a]));
+  const nom = (slug: string) => {
+    const app = parSlug.get(slug);
+    return app ? app.nom : nomApplication({ slug });
+  };
+  const noms = visees.map(nom).join(", ");
+  const tete = sophiaServie
+    ? `La répartition de ce compte donne 0 % à Sophia : il ne publie que pour ${noms}, ` +
+      `sans repli possible sur Sophia.`
+    : `Aucun label de ce compte (« ${labelsTxt} ») ne sert Sophia : il ne publie que pour ${noms} ` +
+      `(sa répartition), sans repli possible sur Sophia.`;
+
+  const servables = eligibles.filter((a) => (effectives[a.slug] ?? 0) > 0);
+  const langue = compte.langue.toUpperCase();
+  if (servables.length > 0) {
+    const nomsServables = servables.map((a) => a.nom).join(", ");
+    return (
+      `${tete} ${nomsServables} peut le servir (active, ${langue} ciblé) : réserve à vérifier ` +
+      `— Pilotage → Labels, badge ${nomsServables} de ces labels.`
+    );
+  }
+
+  const causes: string[] = [];
+  for (const slug of visees) {
+    const app = parSlug.get(slug);
+    if (!app || !idsServis.includes(app.id)) {
+      causes.push(`aucun label de ce compte ne sert ${nom(slug)}`);
+      continue;
+    }
+    if (compte.ugc && app.id !== ID_SOPHIA) {
+      causes.push(`compte UGC (${app.nom} ne passe que par les slideshows classiques)`);
+    }
+    if (!app.actif) causes.push(`${app.nom} est désactivée`);
+    if (app.langues !== null && app.langues.length === 0) {
+      causes.push(`${app.nom} ne cible encore aucune langue (à cocher dans Pilotage → Applications)`);
+    } else if (app.langues !== null && !app.langues.includes(compte.langue)) {
+      causes.push(`${app.nom} ne cible pas le ${langue}`);
+    }
+  }
+  if (causes.length === 0) causes.push("application(s) introuvable(s)");
+  return (
+    `${tete} Aucune application de sa répartition ne peut le servir, il ne publiera rien : ` +
+    `${causes.join(" ; ")}.`
+  );
 }
 
 /**

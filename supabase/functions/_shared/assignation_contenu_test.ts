@@ -1362,9 +1362,11 @@ Deno.test("multi-app — échecs relus en cache : ne bloquent pas l'application 
 Deno.test("multi-app — deck inéligible : contenu suivant, puis repli Sophia (3 essais au plus)", async () => {
   const ineligible = () => ({ statut: "ineligible" as const, raison: "base polluée" });
   await avecDecks(ineligible, async (appels) => {
+    // Compte MIXTE (Sophia y garde une part) : le repli Sophia lui est permis.
+    // Fenêtre vide : la plus grosse part (Unswipe) prend le créneau.
     const base = baseEssai({
       n: 8,
-      compte: { parts_applications: { unswipe: 100 } },
+      compte: { parts_applications: { sophia: 10, unswipe: 90 } },
       pertinences: [0, 1, 2, 3, 4].map((i) => ({
         contenu_id: idContenu(i),
         application_id: UNSWIPE,
@@ -1391,7 +1393,7 @@ Deno.test("multi-app — deck inéligible sur toute la réserve (2 contenus) : r
   const ineligible = () => ({ statut: "ineligible" as const, raison: "base polluée" });
   await avecDecks(ineligible, async (appels) => {
     const base = baseEssai({
-      compte: { parts_applications: { unswipe: 100 } },
+      compte: { parts_applications: { sophia: 10, unswipe: 90 } },
       pertinences: [0, 1].map((i) => ({
         contenu_id: idContenu(i),
         application_id: UNSWIPE,
@@ -2874,4 +2876,441 @@ Deno.test("0271 — créneau NON-Sophia : la relégation vaut aussi pour une app
       assertEquals(appels.application, [idContenu(1)], "le dormant jamais vu d'abord, sur Unswipe aussi");
     });
   }
+});
+
+/* -------------------------------------------------------------------------
+ * DEUX NIVEAUX : les labels disent ce que le compte PEUT promouvoir, une
+ * répartition EXPLICITE dit ce qu'il promeut, et rien d'autre.
+ *
+ * Le cas du propriétaire : un compte réglé 100 % Unswipe dont le label sert à
+ * la fois Sophia et Unswipe ne fait QUE de l'Unswipe — jamais de repli Sophia,
+ * même réserve Unswipe vide. Rien publié ce jour-là : non servable, raison
+ * claire, et surtout pas de baisse de quota. Un compte NULL (toute la flotte)
+ * ne voit aucune différence ; un compte mixte garde son repli.
+ * ---------------------------------------------------------------------- */
+
+const SANS_REPLI_REPARTITION = "Pas de repli Sophia : la répartition du compte lui donne 0 %.";
+
+/** Un passage déjà posé aujourd'hui : la baisse de quota (2 → 1) devient possible. */
+function avecPassageDuJour(base: ReturnType<typeof baseEssai>) {
+  base.passages.push({
+    id: "deja-1",
+    compte_id: "k1",
+    contenu_id: "z",
+    date_publication_prevue: JOUR,
+    created_at: `${JOUR}T00:30:00Z`,
+    application_id: UNSWIPE,
+    post_id: "post-deja",
+    posts: { est_test: false },
+  });
+  base.posts.push({ id: "post-deja", compte_id: "k1", est_test: false });
+  return base;
+}
+
+Deno.test("deux niveaux — label partagé, 100 % Unswipe, réserve vide : aucun passage Sophia, non servable, quota intact", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    // Le label sert Sophia ET Unswipe, Sophia a de quoi servir (6 contenus) :
+    // avant, le créneau se repliait sur Sophia.
+    const base = avecPassageDuJour(baseEssai({
+      compte: { parts_applications: { unswipe: 100 }, posts_par_jour: 2 },
+    }));
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids, []);
+    assertEquals(appels.sophia, [], "aucun deck Sophia");
+    assertEquals(insertsPassages(journal), [], "aucun passage");
+    assertEquals(insertsPosts(journal), [], "aucun post");
+    assertEquals(detail.nonServable, true, "le drain l'écarte de la suite de la chaîne");
+    assertEquals(detail.quotaBaisse, undefined);
+    assertEquals(journal.filter((o) => o.table === "comptes" && o.op === "update"), [], "posts_par_jour intact");
+    assertEquals(
+      detail.raison,
+      `Répartition Unswipe 100 % : réserve Unswipe vide pour ses labels. ${SANS_REPLI_REPARTITION}`,
+    );
+    // Pas de diagnostic du pool Sophia : il n'est pas en cause.
+    assertEquals(
+      journal.filter((o) => o.table === "contenu_tier_etat" && o.colonnes === "contenu_id, restants, passages_prevus"),
+      [],
+    );
+  });
+});
+
+Deno.test("deux niveaux — label partagé, 100 % Unswipe : le 1er créneau en Unswipe, le 2e réserve vide reste vide", async () => {
+  const pret = () => ({ statut: "pret" as const, slides: DECK, hashtags: "#unswipe" });
+  await avecDecks(pret, async (appels) => {
+    const base = baseEssai({
+      compte: { parts_applications: { unswipe: 100 }, posts_par_jour: 2 },
+      pertinences: [{ contenu_id: idContenu(0), application_id: UNSWIPE, eligible: true }],
+    });
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(appels.sophia, []);
+    assertEquals(insertsPassages(journal).map((p) => p.application_id), [UNSWIPE]);
+    assertEquals(detail.replis, undefined, "aucun créneau servi en Sophia");
+    assertEquals(detail.nonServable, true);
+    assertEquals(detail.quotaBaisse, undefined);
+    assertEquals(
+      detail.raison,
+      `1/2 créé(s). Répartition Unswipe 100 % : réserve Unswipe vide pour ses labels. ${SANS_REPLI_REPARTITION}`,
+    );
+    assertEquals(journal.filter((o) => o.table === "comptes" && o.op === "update"), []);
+  });
+});
+
+Deno.test("deux niveaux — label partagé, répartition NULL : inchangé, 100 % Sophia, chemin d'avant", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    // Même compte, même réserve Unswipe pleine : sans réglage, Sophia.
+    const pertinences = [0, 1].map((i) => ({ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true }));
+    const base = baseEssai({ n: 1, pertinences });
+    const { client, journal } = fauxMoteur(base);
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+    oublierSondeMultiApp();
+
+    // Référence : la colonne absente de la ligne lue (undefined) — même chose.
+    const reference = baseEssai({ n: 1, pertinences });
+    delete (reference.comptes[0] as Record<string, unknown>).parts_applications;
+    const { client: clientRef, journal: journalRef } = fauxMoteur(reference);
+    const avant = await assignerCompteJour(clientRef, reference.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail, avant);
+    assertEquals(detail.ids.length, 1);
+    assertEquals(appels.sophia.length, 2, "un deck Sophia par run");
+    assertEquals(appels.application, []);
+    assertEquals(journal, journalRef, "requête pour requête");
+    assertEquals(journal.filter(estLectureFenetre), []);
+    for (const c of COLONNES_NOUVELLES) assert(!(c in insertsPassages(journal)[0]));
+  });
+});
+
+Deno.test("deux niveaux — labels Sophia seuls, répartition 100 % Unswipe : rien, et la raison le dit", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = avecPassageDuJour(baseEssai({
+      compte: { parts_applications: { unswipe: 100 }, posts_par_jour: 2 },
+      liens: [{ label_id: "L1", application_id: ID_SOPHIA }],
+    }));
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids, []);
+    assertEquals(appels.sophia, []);
+    assertEquals(insertsPassages(journal), []);
+    assertEquals(detail.nonServable, true);
+    assertEquals(detail.quotaBaisse, undefined);
+    assertEquals(journal.filter((o) => o.table === "comptes" && o.op === "update"), []);
+    assertEquals(
+      detail.raison,
+      `Répartition Unswipe 100 % : aucun label de ce compte ne sert Unswipe. ${SANS_REPLI_REPARTITION}`,
+    );
+  });
+});
+
+Deno.test("deux niveaux — label partagé, 100 % Unswipe, Unswipe désactivée ou hors langue : rien, cause nommée", async () => {
+  for (const [regler, cause] of [
+    [(b: ReturnType<typeof baseEssai>) => (b.applications[1].actif = false), "Unswipe est désactivée"],
+    [
+      (b: ReturnType<typeof baseEssai>) => (b.applications[1].langues = ["en"]),
+      "Unswipe ne cible pas la langue de ce compte (fr)",
+    ],
+  ] as const) {
+    await avecDecks(jamaisPret, async (appels) => {
+      const base = baseEssai({ compte: { parts_applications: { unswipe: 100 } } });
+      regler(base);
+      const { client, journal } = fauxMoteur(base);
+
+      const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+      assertEquals(detail.ids, []);
+      assertEquals(appels.sophia, []);
+      assertEquals(insertsPassages(journal), []);
+      assertEquals(detail.nonServable, true);
+      assertEquals(detail.raison, `Répartition Unswipe 100 % : ${cause}. ${SANS_REPLI_REPARTITION}`);
+    });
+  }
+});
+
+Deno.test("deux niveaux — compte UGC réglé 100 % Unswipe : rien (pas de Sophia de secours)", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = baseEssai({
+      ugc: true,
+      compte: { ugc_ai: true, ugc_persona_id: "persona-1", parts_applications: { unswipe: 100 } },
+    });
+    // deno-lint-ignore no-explicit-any
+    (base as any).ugc_personas = [{ id: "persona-1", image_face_url: "https://x/face.png" }];
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids, []);
+    assertEquals(appels.sophia, []);
+    assertEquals(insertsPassages(journal), []);
+    assertEquals(detail.nonServable, true);
+    assertEquals(
+      detail.raison,
+      "Répartition Unswipe 100 % : Unswipe ne sert pas les comptes UGC (slideshows classiques uniquement). " +
+        SANS_REPLI_REPARTITION,
+    );
+  });
+});
+
+Deno.test("deux niveaux — compte mixte 70/30, réserve Unswipe vide : le repli Sophia reste permis", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = avecPassageDuJour(baseEssai({
+      compte: { parts_applications: { sophia: 70, unswipe: 30 }, posts_par_jour: 2 },
+      fenetre: Array(9).fill("sophia"),
+    }));
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(appels.sophia.length, 1);
+    assertEquals(detail.replis, [{ visee: "unswipe", motif: "reserve_vide" }]);
+    assertEquals(detail.nonServable, undefined);
+    const [passage] = insertsPassages(journal);
+    assertEquals(passage.application_id, ID_SOPHIA);
+    assertEquals(passage.application_visee_id, UNSWIPE);
+  });
+});
+
+Deno.test("deux niveaux — recharge : l'application imposée n'est servie que si la répartition lui laisse une part", async () => {
+  const pret = () => ({ statut: "pret" as const, slides: DECK, hashtags: "#unswipe" });
+  await avecDecks(pret, async (appels) => {
+    // Post Sophia révoqué sur un compte depuis réglé 100 % Unswipe : la
+    // recharge suit la répartition, jamais un post Sophia.
+    const base = baseEssai({
+      compte: { parts_applications: { unswipe: 100 } },
+      pertinences: [0, 1].map((i) => ({ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true })),
+    });
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {
+      forcer: true,
+      applicationImposee: "sophia",
+    });
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(appels.sophia, []);
+    assertEquals(insertsPassages(journal).map((p) => p.application_id), [UNSWIPE]);
+  });
+  await avecDecks(pret, async (appels) => {
+    // Répartition NULL : l'imposée éligible est servie, comme avant.
+    const base = baseEssai({
+      pertinences: [0, 1].map((i) => ({ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true })),
+    });
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {
+      forcer: true,
+      applicationImposee: "unswipe",
+    });
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(appels.sophia, []);
+    assertEquals(insertsPassages(journal).map((p) => p.application_id), [UNSWIPE]);
+  });
+});
+
+Deno.test("deux niveaux — sonde illisible, label partagé, 100 % Unswipe : lève (à rejouer), jamais Sophia", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = baseEssai({ compte: { parts_applications: { unswipe: 100 } } });
+    const { client, journal } = fauxMoteur(base, { pannes: { applications: Infinity } });
+
+    await assertRejects(
+      () => assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {}),
+      Error,
+      "à rejouer",
+    );
+    assertEquals(appels.sophia, []);
+    assertEquals(insertsPassages(journal), []);
+  });
+});
+
+Deno.test("deux niveaux — schéma absent, répartition sans part Sophia : rien plutôt que Sophia", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = baseEssai({ compte: { parts_applications: { unswipe: 100 } } });
+    const { client, journal } = fauxMoteur(base, { absentes: ["label_applications"] });
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids, []);
+    assertEquals(appels.sophia, []);
+    assertEquals(insertsPassages(journal), []);
+    assertEquals(detail.nonServable, true);
+    assertEquals(journal.filter((o) => o.table === "comptes" && o.op === "update"), []);
+  });
+});
+
+Deno.test("raisonCompteNonServable — répartition explicite : les applications à part > 0, et la vraie raison du non-repli", () => {
+  const apps: ApplicationMoteur[] = [
+    { id: ID_SOPHIA, slug: "sophia", nom: "Sophia", langues: null, actif: true },
+    { id: UNSWIPE, slug: "unswipe", nom: "Unswipe", langues: ["fr"], actif: true },
+  ];
+  const raison = (args: {
+    parApp: Map<string, string[]>;
+    parts: Record<string, number> | null;
+    replis?: Map<string, "reserve_vide" | "deck_ineligible" | "deck_echec" | "budget">;
+    langue?: string;
+  }) =>
+    raisonCompteNonServable({
+      applications: apps,
+      parApp: args.parApp,
+      replis: args.replis ?? new Map(),
+      langue: args.langue ?? "fr",
+      ugc: false,
+      parts: args.parts,
+    });
+  const partage = new Map([[ID_SOPHIA, ["L1"]], [UNSWIPE, ["L1"]]]);
+
+  // Labels qui servent Sophia, répartition à 0 % pour elle : c'est la
+  // répartition qui coupe le repli, pas les labels.
+  assertEquals(
+    raison({ parApp: partage, parts: { unswipe: 100 }, replis: new Map([[UNSWIPE, "reserve_vide"]]) }),
+    `Répartition Unswipe 100 % : réserve Unswipe vide pour ses labels. ${SANS_REPLI_REPARTITION}`,
+  );
+  assertEquals(
+    raison({ parApp: partage, parts: { unswipe: 100 }, langue: "de" }),
+    `Répartition Unswipe 100 % : Unswipe ne cible pas la langue de ce compte (de). ${SANS_REPLI_REPARTITION}`,
+  );
+  // Aucun label ne sert ni l'application visée, ni Sophia.
+  assertEquals(
+    raison({ parApp: new Map([[UNSWIPE, ["L2"]]]), parts: { foo: 100 } }),
+    `Répartition foo 100 % : application « foo » introuvable. ${PAS_DE_REPLI}`,
+  );
+  assertEquals(
+    raison({ parApp: new Map([[ID_SOPHIA, ["L1"]]]), parts: { unswipe: 100 } }),
+    `Répartition Unswipe 100 % : aucun label de ce compte ne sert Unswipe. ${SANS_REPLI_REPARTITION}`,
+  );
+  // Sophia a une part mais aucun label ne la sert : la cause le dit, sans
+  // phrase de repli en double.
+  assertEquals(
+    raison({
+      parApp: new Map([[UNSWIPE, ["L2"]]]),
+      parts: { sophia: 70, unswipe: 30 },
+      replis: new Map([[UNSWIPE, "reserve_vide"]]),
+    }),
+    "Répartition Sophia 70 % · Unswipe 30 % : aucun label de ce compte ne sert Sophia ; " +
+      "réserve Unswipe vide pour ses labels.",
+  );
+  // Répartition par défaut : la phrase d'avant, au mot près.
+  assertEquals(
+    raison({ parApp: new Map([[UNSWIPE, ["L2"]]]), parts: null, replis: new Map([[UNSWIPE, "reserve_vide"]]) }),
+    `Compte 100 % Unswipe : réserve Unswipe vide pour ses labels. ${PAS_DE_REPLI}`,
+  );
+});
+
+/* -------------------------------------------------------------------------
+ * Rappels J+7 : la même règle à deux niveaux.
+ * ---------------------------------------------------------------------- */
+
+/** k1 porte L1, label partagé Sophia + Unswipe ; `parts` = sa répartition. */
+function baseRappelPartage(application: string, parts: Record<string, number> | null) {
+  const base = baseRappel({
+    application,
+    labels: [{ id: "L1", slug: "clean-girl" }],
+    liens: [
+      { label_id: "L1", application_id: ID_SOPHIA },
+      { label_id: "L1", application_id: UNSWIPE },
+    ],
+  });
+  (base.comptes[0] as Record<string, unknown>).parts_applications = parts;
+  return { ...base, applications: APPS.map((a) => ({ ...a })) };
+}
+
+Deno.test("rappel J+7 — label partagé, 100 % Unswipe : la source Sophia n'est PAS rejouée", async () => {
+  oublierSondeMultiApp();
+  const base = baseRappelPartage(ID_SOPHIA, { unswipe: 100 });
+  const { client, journal } = fauxMoteur(base);
+
+  const res = await programmerRappelsJ7(client);
+
+  assertEquals(res.candidats, 1);
+  assertEquals(res.programmes, 0);
+  assertEquals(insertsPassages(journal), []);
+  assertEquals(insertsPosts(journal), []);
+  assertEquals(res.erreurs.length, 1);
+  assert(res.erreurs[0].includes("la répartition du compte ne donne plus de part"), res.erreurs[0]);
+  oublierSondeMultiApp();
+});
+
+Deno.test("rappel J+7 — label partagé, 100 % Unswipe : la source Unswipe est rejouée", async () => {
+  oublierSondeMultiApp();
+  const base = baseRappelPartage(UNSWIPE, { unswipe: 100 });
+  const { client, journal } = fauxMoteur(base);
+
+  const res = await programmerRappelsJ7(client);
+
+  assertEquals(res.erreurs, []);
+  assertEquals(res.programmes, 1);
+  assertEquals(insertsPassages(journal)[0].application_id, UNSWIPE);
+  oublierSondeMultiApp();
+});
+
+Deno.test("rappel J+7 — répartition NULL : la règle d'avant, sans lire les applications", async () => {
+  for (const application of [ID_SOPHIA, UNSWIPE]) {
+    oublierSondeMultiApp();
+    const base = baseRappelPartage(application, null);
+    const { client, journal } = fauxMoteur(base);
+
+    const res = await programmerRappelsJ7(client);
+
+    assertEquals(res.erreurs, []);
+    assertEquals(res.programmes, 1);
+    assertEquals(insertsPassages(journal)[0].application_id, application);
+    // La sonde du schéma lit une ligne d'`applications` ; le catalogue
+    // (id ↔ slug), lui, n'est chargé que pour une répartition explicite.
+    assertEquals(
+      journal.filter((o) => o.table === "applications" && String(o.colonnes).includes("slug")),
+      [],
+      "aucune lecture du catalogue des applications",
+    );
+  }
+  oublierSondeMultiApp();
+});
+
+Deno.test("rappel J+7 — compte mixte 70/30 : les deux applications restent rejouables", async () => {
+  for (const application of [ID_SOPHIA, UNSWIPE]) {
+    oublierSondeMultiApp();
+    const base = baseRappelPartage(application, { sophia: 70, unswipe: 30 });
+    const { client } = fauxMoteur(base);
+
+    const res = await programmerRappelsJ7(client);
+
+    assertEquals(res.erreurs, []);
+    assertEquals(res.programmes, 1);
+  }
+  oublierSondeMultiApp();
+});
+
+Deno.test("compteSertApplicationRappel : la répartition explicite, second niveau", () => {
+  const partage = { id: "L1", slug: "clean-girl" };
+  const sophiaHeritee = { id: "L3", slug: "smart-girl" };
+  const liens = [
+    { label_id: "L1", application_id: ID_SOPHIA },
+    { label_id: "L1", application_id: UNSWIPE },
+  ];
+  const slugParId = new Map([[ID_SOPHIA, "sophia"], [UNSWIPE, "unswipe"]]);
+  const avec = (parts: Record<string, number> | null) => ({ parts, slugParId });
+
+  // NULL (ou pas de répartition) : la règle d'avant.
+  assert(compteSertApplicationRappel([partage], liens, ID_SOPHIA, avec(null)));
+  assert(compteSertApplicationRappel([partage], liens, UNSWIPE, avec(null)));
+  // 100 % Unswipe : Unswipe seule, même si le label sert Sophia.
+  assert(!compteSertApplicationRappel([partage], liens, ID_SOPHIA, avec({ unswipe: 100 })));
+  assert(compteSertApplicationRappel([partage], liens, UNSWIPE, avec({ unswipe: 100 })));
+  // 100 % Sophia explicite : plus d'Unswipe.
+  assert(!compteSertApplicationRappel([partage], liens, UNSWIPE, avec({ sophia: 100 })));
+  // Mixte : les deux.
+  assert(compteSertApplicationRappel([partage], liens, ID_SOPHIA, avec({ sophia: 70, unswipe: 30 })));
+  assert(compteSertApplicationRappel([partage], liens, UNSWIPE, avec({ sophia: 70, unswipe: 30 })));
+  // Le premier niveau tient toujours : un label qui ne sert pas l'application
+  // ne la rejoue pas, quelle que soit la répartition.
+  assert(!compteSertApplicationRappel([sophiaHeritee], liens, UNSWIPE, avec({ unswipe: 100 })));
+  // Labels Sophia seuls, réglage 100 % Unswipe : rien.
+  assert(!compteSertApplicationRappel([sophiaHeritee], liens, ID_SOPHIA, avec({ unswipe: 100 })));
 });

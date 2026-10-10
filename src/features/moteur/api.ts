@@ -5059,7 +5059,7 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
   const { data: compte, error: errC } = await supabase
     .from("comptes")
     .select(
-      "id, langue, type_compte, videos_uniquement, ugc_ai, ugc_ai_video, ugc_persona_id, posts_par_jour",
+      "id, langue, type_compte, videos_uniquement, ugc_ai, ugc_ai_video, ugc_persona_id, posts_par_jour, parts_applications",
     )
     .eq("id", compteId)
     .maybeSingle();
@@ -5116,12 +5116,13 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
   let labelsTxtPool = labelsTxt;
 
   // MULTI-APPLICATIONS. Tout ce qui suit compte le pool SOPHIA (contenus
-  // tagués, prêts, notés dans la langue). Un compte dont aucun label ne sert
-  // Sophia (« 100 % Unswipe ») n'y pioche jamais : la suite lui annoncerait
-  // « pool OK… timeout batch… baisse auto du quota », à tort. On lit donc les
+  // tagués, prêts, notés dans la langue). Un compte sans repli Sophia — aucun
+  // label ne la sert (« 100 % Unswipe »), ou sa répartition explicite lui
+  // donne 0 % — n'y pioche jamais : la suite lui annoncerait « pool OK…
+  // timeout batch… baisse auto du quota », à tort. On lit donc les
   // applications de ses labels (un label sans ligne sert Sophia, comme au
-  // moteur) et, si aucun ne sert Sophia, on rend la vraie cause. Un compte
-  // dont un label sert Sophia continue exactement comme avant.
+  // moteur) et, sans repli Sophia, on rend la vraie cause. Un compte dont un
+  // label sert Sophia, sans répartition, continue exactement comme avant.
   const { data: liensApps, error: errApps } = await supabase
     .from("label_applications")
     .select("label_id, application_id, applications(id, slug, nom, actif, langues)")
@@ -5161,7 +5162,7 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
       application_id: String(r.application_id),
     }));
     const diagnostic = diagnosticCompteSansSophia({
-      compte: { langue, ugc: ugcAi },
+      compte: { langue, ugc: ugcAi, parts_applications: compte.parts_applications },
       labels: refsLabels,
       liens,
       applications: [...applications.values()],

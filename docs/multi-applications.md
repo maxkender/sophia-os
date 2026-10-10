@@ -107,39 +107,75 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
     tels quels. Assumé : retirer « forest app » du texte que voit le modèle des
     hashtags est sans danger pour un post Sophia. Aucun effet tant qu'aucun
     label ne sert Unswipe.
-- **Répartition par compte** : `comptes.parts_applications` jsonb
-  (`{"sophia":70,"unswipe":30}`), `NULL` = 100 % Sophia. Restreinte aux
-  applications que ses labels servent, actives et ciblant sa langue
-  (`applications.langues`, `NULL` = toutes). Un compte dont les labels ne servent
-  QUE Unswipe publie 100 % Unswipe. Tenue par **fenêtre glissante** (déficit) sur
-  ses 10 derniers posts : en 70/30, toute suite de 10 posts compte 7/3.
+- **Répartition par compte : DEUX NIVEAUX.**
+  1. **Le label** dit ce que le compte PEUT promouvoir : `label_applications`
+     (un label sans ligne sert Sophia), restreint aux applications actives,
+     ciblant sa langue (`applications.langues`, `NULL` = toutes), et à Sophia
+     seule pour un compte UGC.
+  2. **La répartition du compte** (`comptes.parts_applications` jsonb,
+     `{"sophia":70,"unswipe":30}`) choisit parmi ce que les labels permettent.
+     - `NULL` (toute la flotte aujourd'hui, comportement inchangé) : 100 %
+       Sophia si un label du compte sert Sophia ; sinon l'application (ou les
+       applications, à parts égales) que ses labels servent et qui sont
+       éligibles — un compte dont les labels ne servent QUE Unswipe publie
+       100 % Unswipe sans aucun réglage.
+     - **Explicite (non `NULL`) : règle stricte.** Seules les applications à
+       part > 0 peuvent JAMAIS être publiées sur ce compte. Un compte réglé
+       100 % Unswipe dont le label sert à la fois Sophia et Unswipe ne fait
+       QUE de l'Unswipe : jamais de repli Sophia, même réserve Unswipe vide.
+       La part d'une application à part > 0 inéligible va aux AUTRES
+       applications à part > 0 (un 70/30 dont Unswipe est éteinte publie
+       100 % Sophia), jamais à une application à 0 %. Si aucune application à
+       part > 0 n'est éligible (inactive, langue non ciblée, aucun label ne la
+       sert, compte UGC), `partsEffectives` rend `{}` : le compte ne publie
+       rien ce jour-là, sort « non servable » avec une raison claire, et son
+       quota ne baisse pas. Un compte mixte (Sophia 70 / Unswipe 30) garde le
+       repli entre ses applications à part > 0.
+  Tenue par **fenêtre glissante** (déficit) sur ses 10 derniers posts : en
+  70/30, toute suite de 10 posts compte 7/3.
   Admin → Posters (ligne du compte dépliée) montre la carte « Répartition par
   application » dès qu'un label du compte sert une autre application que
   Sophia, y compris pour un compte 100 % Unswipe (pas de curseur : « Appliqué :
   Unswipe 100 % », ou en rouge « il ne publiera rien » avec TOUTES les causes :
   application désactivée, langue non ciblée — les deux à la fois dans l'état
-  laissé par 0258 —, compte UGC). Un compte Sophia pur ne la voit pas, sauf
-  s'il garde une répartition enregistrée devenue sans objet (à effacer).
+  laissé par 0258 —, compte UGC), et dès qu'une répartition est enregistrée,
+  même sur un compte dont les labels ne servent que Sophia. Elle reflète le
+  moteur : plus aucune mention de repli Sophia quand la répartition donne 0 % à
+  Sophia (aide dédiée, et avertissement dès que le curseur laisse Sophia à
+  0 %), et le rouge « il ne publiera rien » quand aucune application à part > 0
+  n'est éligible. Un compte Sophia pur sans répartition ne la voit pas.
 - **Chemin historique** : un compte dont les parts effectives sont 100 % Sophia
   (le cas de tous les comptes tant qu'on ne règle rien) suit exactement le code
   d'avant — pas de fenêtre lue, pas de deck d'application.
 - **Repli** : si l'application demandée ne peut pas être servie, le créneau
-  passe sur Sophia et le passage le dit (`application_visee_id`, `repli_motif`).
+  passe sur Sophia et le passage le dit (`application_visee_id`, `repli_motif`)
+  — SEULEMENT si Sophia a une part effective dans la répartition du compte
+  (toujours vrai pour une répartition `NULL` dont un label sert Sophia). Une
+  répartition explicite sans part Sophia n'a pas de pool Sophia (labels Sophia
+  du moteur vides) : le créneau reste vide.
   Motifs : `reserve_vide`, `deck_ineligible` (base polluée par une pub Sophia,
   seconde slide ou couverture concurrente…), `deck_echec` (prompt manquant,
   placement impossible, traduction en échec, panne…), `budget` (la nuit a
   dépassé son budget de cuisson des decks non-Sophia : aucune nouvelle cuisson après 60 s de lot, arrêt de toute cuisson à 90 s).
   Pilotage les affiche. Un compte qu'aucun repli ne peut servir (labels 100 %
-  Unswipe, Unswipe inactive) ne baisse pas son quota et sort de la chaîne du
-  drain, pour ne pas bloquer les autres — sauf si seul le budget de cuisson a
-  manqué : il reste alors dans la chaîne, et un lot suivant (budget neuf) le
-  reprend. Sa raison précise (« Compte 100 % Unswipe : Unswipe est
-  désactivée… », « … ne cible pas la langue de ce compte… », réserve vide,
-  deck refusé ou en échec avec la raison du dernier deck, budget) est écrite
-  dans `assignation_journal` (0267) ; le panneau Minuit la lit. Sans ligne de
-  journal, son diagnostic reconnaît lui-même un compte dont aucun label ne
-  sert Sophia, et compte le pool Sophia d'un compte mixte sur ses seuls labels
-  qui servent Sophia.
+  Unswipe, Unswipe inactive ; ou répartition explicite à 0 % Sophia) ne baisse
+  pas son quota et sort de la chaîne du drain, pour ne pas bloquer les autres
+  — sauf si seul le budget de cuisson a manqué : il reste alors dans la
+  chaîne, et un lot suivant (budget neuf) le reprend. Sa raison précise
+  (« Compte 100 % Unswipe : Unswipe est désactivée… », « … ne cible pas la
+  langue de ce compte… », réserve vide, deck refusé ou en échec avec la raison
+  du dernier deck, budget ; pour une répartition explicite, « Répartition
+  Unswipe 100 % : réserve Unswipe vide pour ses labels. Pas de repli Sophia :
+  la répartition du compte lui donne 0 %. », ou « aucun label de ce compte ne
+  sert Unswipe ») est écrite dans `assignation_journal` (0267) ; le panneau
+  Minuit la lit. Sans ligne de journal, son diagnostic reconnaît lui-même un
+  compte sans repli Sophia (aucun label ne la sert, ou sa répartition lui
+  donne 0 %), et compte le pool Sophia d'un compte mixte sur ses seuls labels
+  qui servent Sophia. Une recharge (post révoqué) ne ressert l'application du
+  post que si la répartition explicite lui laisse une part ; sinon le créneau
+  suit la répartition. Sonde du schéma illisible : un compte dont la
+  répartition demande une autre application que Sophia lève (rejoué), jamais
+  servi en Sophia.
 - **Journal de la nuit (`assignation_journal`), pour TOUS les comptes** : le
   drain de minuit écrit désormais le verdict de chaque compte qu'il traite,
   Sophia compris (avant, seule l'assignation globale l'écrivait, et minuit
@@ -154,9 +190,14 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
 - **Rappels J+7** : un rappel recopie les slides de sa source, pub comprise.
   Il n'est pas programmé si les labels actuels du compte ne servent plus
   l'application de la source (compte passé en « Unswipe seul » avec une
-  source Sophia) : noté dans les erreurs de l'étape, la source reste
-  candidate. Un rappel DÉJÀ posé avant le changement de labels reste en place
-  (voir § 3, étape 6).
+  source Sophia), ni — deux niveaux — si sa répartition explicite ne donne
+  plus de part effective à cette application (`partsEffectives` sur les
+  applications servies par ses labels : un compte réglé 100 % Unswipe ne
+  rejoue pas un ancien post Sophia). Répartition `NULL` : règle d'avant, sans
+  lecture du catalogue des applications (la répartition du compte, elle, est
+  lue : une ligne `comptes` par compte à rappel). Refus noté dans les erreurs
+  de l'étape, la source reste candidate. Un rappel DÉJÀ posé avant le
+  changement de labels ou de répartition reste en place (voir § 3, étape 6).
 - **Même contenu, deux applications** : autorisé, y compris sur le même compte,
   mais pas à moins de 7 jours d'écart (stats et doublons TikTok).
 - **Unswipe = slideshows classiques uniquement** : un compte UGC reste Sophia.
@@ -260,6 +301,10 @@ Les fonctions Edge se déploient au merge sur `main` ; les migrations se passent
    changement de labels, ils rejoueraient un post Sophia, pub comprise. Le
    plus simple : démarrer avec des comptes neufs.
 7. Posters : régler la répartition des comptes concernés (défaut 100 % Sophia).
+   Une répartition qui laisse Sophia à 0 % coupe le repli Sophia du compte,
+   même si son label sert Sophia : réserve Unswipe vide = aucun post ce
+   jour-là (non servable, quota intact). Garder une part Sophia pour garder
+   le repli.
 
 ### Tiers par application (0270) — ordre impératif
 

@@ -959,6 +959,9 @@ export const fr = {
         "Créateur créé avec son compte UGC vidéo. Ajoute son persona via l'agent du pod 3, puis le créateur lance son warmup.",
       nbComptes: "{{n}} compte(s)",
       aucunCompte: "Aucun compte TikTok",
+      compteDormant: "Dormant",
+      compteDormantAide:
+        "Compte en sommeil : rien ne lui est assigné et ses stats ne sont pas relevées tant qu'il n'est pas réactivé.",
       compteSansHandle: "Pas encore de @",
       creerCompte: "Créer le premier compte",
       sansCompteCree: "Ce créateur n'a pas encore de compte TikTok.",

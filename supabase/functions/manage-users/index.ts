@@ -6,6 +6,7 @@ import {
   estLabelSysteme,
 } from "../_shared/labels_file.ts";
 import { retirerContentCredentialsBytes } from "../_shared/c2pa.ts";
+import { filtrerPoolParApplication } from "../_shared/labels_repli.ts";
 import { lireTout } from "../_shared/lots.ts";
 import { appliquerIdentiteInstantanee } from "../_shared/persona.ts";
 import { cibleComptePapier, motDePasseComptePapier } from "../_shared/papier_cm_compte.ts";
@@ -1213,10 +1214,17 @@ async function preparerFileEtPersona(
   if (fileItem.ugc) {
     const labelOk = await labelADesContenusUgc(supabase, fileItem.label_id);
     if (!labelOk) {
-      const fallback = await labelMoinsUtiliseParLangue(supabase, langue, {
-        ugcOnly: true,
-        applicationId: application?.id ?? null,
-      });
+      let fallback: string | null;
+      try {
+        fallback = await labelMoinsUtiliseParLangue(supabase, langue, {
+          ugcOnly: true,
+          applicationId: application?.id ?? null,
+        });
+      } catch (error) {
+        // Lecture ratée : l'entrée tirée de la file y retourne avant l'erreur.
+        if (fileItemQueue) await unshiftLabelFile(supabase, fileItemQueue);
+        throw error;
+      }
       if (!fallback) {
         if (fileItemQueue) await unshiftLabelFile(supabase, fileItemQueue);
         return { ok: false, error: "NO_UGC_LABEL" };
@@ -1238,7 +1246,10 @@ async function preparerFileEtPersona(
   return { ok: true, fileItem, fileItemQueue, personaUgc };
 }
 
-/** Label avec le moins de comptes actifs dans la langue (ou global si langue vide). */
+/**
+ * Label avec le moins de comptes actifs dans la langue (ou global si langue
+ * vide), parmi ceux qui servent l'application (`label_applications`).
+ */
 async function labelMoinsUtiliseParLangue(
   supabase: Supabase,
   langue: string,
@@ -1252,6 +1263,9 @@ async function labelMoinsUtiliseParLangue(
   } else {
     pool = [...await idsLabelsFileSlideshow(supabase, opts.applicationId)];
   }
+  // `labels.application_id` vaut Sophia pour tout label créé depuis l'OS, même
+  // « Unswipe seul » : seul `label_applications` dit qui le label sert.
+  pool = await filtrerPoolParApplication(supabase, pool, opts.applicationId);
   if (pool.length === 0) return null;
 
   const counts = new Map<string, number>(pool.map((id) => [id, 0]));

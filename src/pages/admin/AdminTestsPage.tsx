@@ -12,6 +12,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Textarea } from "@/components/ui/textarea";
 import { assignerTikTok, listerComptes, listerPostsTest, testerTraduction } from "@/features/moteur/api";
 import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
+import { SimulerOnboardingCard } from "@/features/onboarding/SimulerOnboardingCard";
 import { SimulerMinuitCard } from "@/features/moteur/SimulerMinuitCard";
 import { SimulerMinuitCompteCard } from "@/features/moteur/SimulerMinuitCompteCard";
 import { TestBrulerTexteCard } from "@/features/moteur/TestBrulerTexteCard";
@@ -268,6 +269,12 @@ const TESTS = [
     render: () => <TestBrulerTexteCard />,
   },
   { value: "complet", titreKey: "tests.completTitre", descKey: "tests.completDesc", render: () => <TestCompletCard /> },
+  {
+    value: "onboarding",
+    titreKey: "tests.onboardingTitre",
+    descKey: "tests.onboardingDesc",
+    render: () => <SimulerOnboardingCard />,
+  },
 ] as const;
 
 export function AdminTestsPage() {

@@ -1229,20 +1229,47 @@ export async function majMonUpwork(url: string): Promise<void> {
   if (error) throw error;
 }
 
-/** Le poster a-t-il déjà vu la vidéo d'onboarding ? (null = jamais vue). */
-export async function onboardingVu(): Promise<boolean> {
+export interface EtatOnboarding {
+  /** Parcours terminé : on ne montre plus rien. */
+  vu: boolean;
+  /** Dernier écran atteint, pour reprendre où on en était. */
+  etape: number;
+}
+
+/**
+ * Où en est le poster dans son accueil ? `vu` à vrai = terminé, rien à
+ * afficher. Sinon `etape` dit par quel écran reprendre.
+ */
+export async function etatOnboarding(): Promise<EtatOnboarding> {
   const { data: sess } = await supabase.auth.getUser();
   const uid = sess.user?.id;
-  if (!uid) return true;
+  if (!uid) return { vu: true, etape: 0 };
   const { data, error } = await supabase
     .from("profiles")
-    .select("onboarding_vu_at, onboarding_en_boucle")
+    .select("onboarding_vu_at, onboarding_en_boucle, onboarding_etape")
     .eq("id", uid)
     .maybeSingle();
   if (error) throw error;
-  // Profil de test : vu seulement pour CETTE connexion, donc revu à la suivante.
-  if (data?.onboarding_en_boucle) return lireVuConnexion(cleVuConnexion(sess.user));
-  return Boolean(data?.onboarding_vu_at);
+  // Profil de test : vu seulement pour CETTE connexion, donc revu à la
+  // suivante — et toujours repris depuis le premier écran, sinon on ne
+  // reteste jamais le début.
+  if (data?.onboarding_en_boucle) {
+    return { vu: lireVuConnexion(cleVuConnexion(sess.user)), etape: 0 };
+  }
+  return {
+    vu: Boolean(data?.onboarding_vu_at),
+    etape: Number(data?.onboarding_etape ?? 0),
+  };
+}
+
+/**
+ * Mémorise l'écran atteint. Jamais bloquant : perdre la progression fait
+ * recommencer le parcours, ce qui est désagréable mais pas grave — alors
+ * qu'une erreur remontée ici bloquerait un créateur sur son accueil.
+ */
+export async function enregistrerOnboardingEtape(etape: number): Promise<void> {
+  const { error } = await supabase.rpc("enregistrer_onboarding_etape", { etape });
+  if (error) console.warn(`[onboarding] étape ${etape} non enregistrée : ${error.message}`);
 }
 
 /** Clé « vu pour cette connexion » : change à chaque connexion (last_sign_in_at). */

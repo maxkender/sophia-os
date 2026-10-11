@@ -190,6 +190,14 @@ export const en = {
         "Everything for testing, in one place. Nothing here touches production (the creators' calendars).",
       choisir: "Pick a test — it opens below. Nothing here touches production.",
       choisirPlaceholder: "— Choose a test —",
+      onboardingTitre: "Preview the creator onboarding",
+      onboardingDesc:
+        "Open the welcome flow exactly as a slideshow creator sees it at their first login. Nothing is saved: no step recorded, no profile marked as done.",
+      onboardingDepart: "Start at:",
+      onboardingQuiz: "Quiz",
+      onboardingOuvrir: "Open the onboarding",
+      onboardingNote:
+        "The flow is in English only for now. Video creators (pod 3) keep their own screen and never see it.",
       completTitre: "Full test (one post per account)",
       completDesc:
         "Simulates the full pipeline on each account: import → cleaning → translation → Sophia. Outputs one test post per account, without assigning or publishing anything.",

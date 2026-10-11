@@ -71,7 +71,7 @@ import {
 import { useChoixApplicationsCreation } from "@/features/moteur/repartition/useChoixApplicationsCreation";
 import {
   applicationsAfficheesCompte,
-  posterServiApplication,
+  posterPromeutApplication,
 } from "@/features/moteur/repartition/logique";
 import { PartsApplicationsCompte } from "@/features/moteur/repartition/PartsApplicationsCompte";
 import { useLiensLabels } from "@/features/moteur/repartition/useMultiApp";
@@ -553,13 +553,15 @@ export function AdminPostersPage() {
   });
 
   // Badge d'application d'un compte : sa répartition, sinon ses labels
-  // (`comptes.application_id` vaut Sophia pour tous les comptes).
+  // (`comptes.application_id` vaut Sophia pour tous les comptes). Le filtre
+  // « application » lit la même règle.
+  const slugParId = (id: string) => (applications.data ?? []).find((a) => a.id === id)?.slug;
   const applicationsCompte = (c: CompteAvecDetails) =>
     applicationsAfficheesCompte({
       parts: c.parts_applications,
       labels: labelsComptes.data ? (labelsComptes.data.get(c.id) ?? []) : null,
       liens: liensLabels.data ?? [],
-      slugParId: (id) => (applications.data ?? []).find((a) => a.id === id)?.slug,
+      slugParId,
     });
 
   const comptesParPoster = React.useMemo(() => {
@@ -1039,10 +1041,14 @@ export function AdminPostersPage() {
       if (!labs.some((l) => l.id === filtreLabel)) return false;
     }
     if (filtreApp && filtreApp !== "tous") {
-      const app = (applications.data ?? []).find((a) => a.slug === filtreApp);
-      if (!app) return false;
-      const labsParCompte = liste.map((c) => labelsComptes.data?.get(c.id) ?? []);
-      if (!posterServiApplication(labsParCompte, liensLabels.data ?? [], app.id)) return false;
+      // Ce que ses comptes PROMEUVENT (leur badge), pas ce que leurs labels
+      // permettraient : un label Sophia + Unswipe sur un compte à la
+      // répartition par défaut ne publie que Sophia.
+      const comptesApp = liste.map((c) => ({
+        parts: c.parts_applications,
+        labels: labelsComptes.data ? (labelsComptes.data.get(c.id) ?? []) : null,
+      }));
+      if (!posterPromeutApplication(comptesApp, liensLabels.data ?? [], filtreApp, slugParId)) return false;
     }
     if (rechercheNormalisee) {
       const champs = [
@@ -1078,12 +1084,16 @@ export function AdminPostersPage() {
       return nomAffiche(a).localeCompare(nomAffiche(b), "fr");
     });
 
-  // Langue, label, recherche : la liste se réduit aux créateurs retenus (les
-  // recruteurs sans créateur retenu sont masqués, sauf un recruteur trouvé par
-  // son nom). Phase et application, comme avant les zones, ne filtrent que les
-  // créateurs : tous les recruteurs restent visibles et cliquables. Le filtre
-  // de zone, lui, choisit des zones entières.
-  const filtreListe = Boolean(filtreLangue) || Boolean(filtreLabel) || Boolean(rechercheNormalisee);
+  // Langue, label, application, recherche : la liste se réduit aux créateurs
+  // retenus (les recruteurs sans créateur retenu sont masqués, sauf un
+  // recruteur trouvé par son nom). La phase, comme avant les zones, ne filtre
+  // que les créateurs : tous les recruteurs restent visibles et cliquables. Le
+  // filtre de zone, lui, choisit des zones entières.
+  const filtreListe =
+    Boolean(filtreLangue) ||
+    Boolean(filtreLabel) ||
+    (Boolean(filtreApp) && filtreApp !== "tous") ||
+    Boolean(rechercheNormalisee);
   const recruteurCherche = (r: PosterProfil) =>
     Boolean(rechercheNormalisee) &&
     [nomAffiche(r), r.email].some((v) => v && sansAccents(v).includes(rechercheNormalisee));

@@ -1938,7 +1938,7 @@ export const fr = {
     },
     multiAppPosts: {
       appPromue: "{{app}}",
-      filtreApp: "Application servie (labels)",
+      filtreApp: "Application promue",
       repartition: {
         titre: "Répartition par application",
         aide: "Part des posts de ce compte par application promue, tenue sur ses 10 derniers posts. Sophia prend le reste. Identité du compte (bio, persona) : Sophia, toujours.",

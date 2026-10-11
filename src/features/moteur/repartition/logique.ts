@@ -53,15 +53,22 @@ export function nomsApplicationsDuLabel(
 
 /**
  * Filtre « application » de la page Posters : un créateur passe si au moins un
- * de ses comptes a des labels qui servent cette application. Un compte sans
- * label sert Sophia (même règle que le moteur).
+ * de ses comptes PROMEUT cette application — ce que dit son badge
+ * (`applicationsAfficheesCompte`, les deux niveaux du moteur), pas ce que ses
+ * labels permettraient. Un compte à la répartition par défaut dont un label sert
+ * Sophia + Unswipe ne publie que Sophia : il n'est pas sous Unswipe.
  */
-export function posterServiApplication(
-  labelsParCompte: ReadonlyArray<readonly LabelRef[]>,
+export function posterPromeutApplication(
+  comptes: ReadonlyArray<{ parts: unknown; labels: readonly LabelRef[] | null }>,
   liens: readonly LienLabelApplication[],
-  applicationId: string,
+  slug: string,
+  slugParId?: (id: string) => string | undefined,
 ): boolean {
-  return labelsParCompte.some((labels) => applicationsServies(labels, liens).includes(applicationId));
+  return comptes.some((c) =>
+    applicationsAfficheesCompte({ parts: c.parts, labels: c.labels, liens, slugParId }).some(
+      (a) => a.slug === slug,
+    ),
+  );
 }
 
 export type AvertissementParts =

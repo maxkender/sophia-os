@@ -268,6 +268,12 @@ export interface MemoAssignation {
   decksIneligibles: Map<string, Promise<Set<string>>>;
   /** application_id::langue → échecs de cuisson dans ce lot. */
   echecsDeck: Map<string, number>;
+  /**
+   * « deuxieme_telephone » → contenus qui se filment avec un second téléphone ;
+   * « poster:<compte_id> » → le posteur du compte en a-t-il deux (0275) ?
+   * Invariants pendant le run, lus une fois par lot.
+   */
+  consignes?: Map<string, Promise<Set<string> | boolean>>;
 }
 
 export function creerMemoAssignation(): MemoAssignation {
@@ -280,6 +286,7 @@ export function creerMemoAssignation(): MemoAssignation {
     pertinences: new Map(),
     decksIneligibles: new Map(),
     echecsDeck: new Map(),
+    consignes: new Map(),
   };
 }
 
@@ -2212,6 +2219,51 @@ async function materialiserPostDepuisPassage(
   return post.id as string;
 }
 
+/**
+ * Contenus à écarter pour CE compte au titre du second téléphone (0275) :
+ * l'ensemble des contenus `deuxieme_telephone = true` si le posteur du compte
+ * n'a pas `profiles.deux_telephones`, l'ensemble vide sinon. Une colonne
+ * absente (migration 0275 pas encore appliquée) vaut « aucune consigne » : on
+ * n'ajoute pas un mode de panne à minuit pour une règle de confort.
+ */
+async function contenusDeuxiemeTelephoneExclus(
+  supabase: Supabase,
+  compteId: string,
+  memo?: MemoAssignation,
+): Promise<Set<string>> {
+  const cache = memo?.consignes ?? new Map<string, Promise<Set<string> | boolean>>();
+  const lireContenus = async (): Promise<Set<string>> => {
+    const { data, error } = await supabase
+      .from("contenus")
+      .select("id")
+      .eq("deuxieme_telephone", true)
+      .limit(999);
+    if (error) return new Set();
+    return new Set(((data ?? []) as { id: string }[]).map((c) => c.id));
+  };
+  const lirePoster = async (): Promise<boolean> => {
+    const { data: compte } = await supabase
+      .from("comptes")
+      .select("poster_id")
+      .eq("id", compteId)
+      .maybeSingle();
+    const posterId = (compte?.poster_id as string | null) ?? null;
+    if (!posterId) return false;
+    const { data: profil, error } = await supabase
+      .from("profiles")
+      .select("deux_telephones")
+      .eq("id", posterId)
+      .maybeSingle();
+    // Colonne absente → erreur PostgREST → on considère qu'il n'y a rien à exclure.
+    if (error) return true;
+    return Boolean(profil?.deux_telephones);
+  };
+  const exclus = (await memoiser(cache, "deuxieme_telephone", lireContenus)) as Set<string>;
+  if (exclus.size === 0) return exclus;
+  const aDeux = (await memoiser(cache, `poster:${compteId}`, lirePoster)) as boolean;
+  return aDeux ? new Set() : exclus;
+}
+
 async function choisirContenu(
   supabase: Supabase,
   compteId: string,
@@ -2247,12 +2299,15 @@ async function choisirContenu(
   // le bloc « Mémo de RUN »), au lieu d'être relu à chaque tentative de pioche.
   // Contenus livrés par un pod sans deck dans la langue du compte : hors pool.
   const horsLangue = await contenusLivresHorsLangue(supabase, langue);
+  // Contenus « deuxième téléphone » (0275) : jamais servis à un posteur qui
+  // n'en a qu'un. Lu une fois par run, et seulement si de tels contenus existent.
+  const horsTelephone = await contenusDeuxiemeTelephoneExclus(supabase, compteId, memo);
   const contenus = (await poolContenusPrets(
     supabase,
     labelIds,
     { ugcAi, regle: opts.regle ?? null },
     memo,
-  )).filter((c) => !horsLangue.has(c.id));
+  )).filter((c) => !horsLangue.has(c.id) && !horsTelephone.has(c.id));
   if (contenus.length === 0) return null;
 
   const contenuIds = contenus.map((c) => c.id);

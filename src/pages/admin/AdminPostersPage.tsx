@@ -56,6 +56,8 @@ import {
   majCompte,
   majLanguesRecruteur,
   majPoster,
+  attribuerCodeApplication,
+  codesDuPoster,
   majUpwork,
   majZoneRecruteur,
   setLabelsCompte,
@@ -1872,6 +1874,8 @@ export function AdminPostersPage() {
                 onSave={(url) => enregistrerUpwork.mutate({ id: fiche.id, url })}
               />
 
+              <ConsignesPosteur poster={fiche} onChange={rafraichir} />
+
               <div className="space-y-2">
                 <div className="flex items-baseline justify-between gap-2">
                   <p className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
@@ -2102,6 +2106,80 @@ export function AdminPostersPage() {
           )}
         </ModalFiche>
       )}
+    </div>
+  );
+}
+
+
+/**
+ * Bloc « consignes » de la fiche d'un posteur (0275) : d'où il vient (site =
+ * payé par le Hub, pas de milestone Upwork), s'il a deux téléphones, et son
+ * code UnSwipe (attribuable d'ici par l'admin ou son recruteur).
+ */
+function ConsignesPosteur({ poster, onChange }: { poster: PosterProfil; onChange: () => void }) {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const codes = useQuery({
+    queryKey: ["codes-poster", poster.id],
+    queryFn: () => codesDuPoster(poster.id),
+  });
+  const deuxTel = useMutation({
+    mutationFn: (valeur: boolean) => majPoster(poster.id, { deux_telephones: valeur }),
+    onSuccess: onChange,
+  });
+  const attribuer = useMutation({
+    mutationFn: () => attribuerCodeApplication(poster.id, "unswipe"),
+    onSuccess: () => void queryClient.invalidateQueries({ queryKey: ["codes-poster", poster.id] }),
+  });
+  const codeUnswipe = codes.data?.unswipe ?? null;
+
+  return (
+    <div className="space-y-1.5 text-xs">
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+        {poster.source === "site" && (
+          <Badge variant="info" title={t("posters.sourceSiteAide")}>{t("posters.sourceSite")}</Badge>
+        )}
+        <label className="flex items-center gap-1.5">
+          <input
+            type="checkbox"
+            checked={Boolean(poster.deux_telephones)}
+            disabled={deuxTel.isPending}
+            onChange={(e) => deuxTel.mutate(e.target.checked)}
+          />
+          {t("posters.deuxTelephones")}
+        </label>
+      </div>
+      <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+        <span className="text-muted-foreground">{t("posters.codeUnswipe")} :</span>
+        {codeUnswipe ? (
+          <>
+            <span className="font-mono">{codeUnswipe.code}</span>
+            <a
+              href={codeUnswipe.redeem_url}
+              target="_blank"
+              rel="noreferrer"
+              className="underline underline-offset-2"
+            >
+              ↗
+            </a>
+          </>
+        ) : (
+          <>
+            <span className="text-muted-foreground">{t("posters.codeAucun")}</span>
+            <button
+              type="button"
+              className="underline underline-offset-2"
+              disabled={attribuer.isPending}
+              onClick={() => attribuer.mutate()}
+            >
+              {attribuer.isPending ? t("common.saving") : t("posters.codeAttribuer")}
+            </button>
+          </>
+        )}
+        {attribuer.isError && (
+          <span className="text-destructive">{(attribuer.error as Error).message}</span>
+        )}
+      </div>
     </div>
   );
 }

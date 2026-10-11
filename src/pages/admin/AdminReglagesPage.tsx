@@ -9,7 +9,9 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {
+  compterCodesApplication,
   ecrireReglage,
+  importerCodesApplication,
   lireReglages,
   listerLabelIdsAvecUgc,
   listerLabels,
@@ -769,6 +771,8 @@ export function AdminReglagesPage() {
         </CardContent>
       </Card>
 
+      <CodesApplicationsCard />
+
       {/* ── Legacy ── */}
       <Card>
         <CardHeader>
@@ -862,5 +866,96 @@ export function AdminReglagesPage() {
         )}
       </div>
     </div>
+  );
+}
+
+
+/**
+ * Codes de rachat App Store par application (0275) : compteurs et import
+ * d'une fournée collée (un code par ligne, `CODE` ou `CODE,url`). Les
+ * compteurs viennent de requêtes `count` : on ne relit jamais les lignes.
+ */
+function CodesApplicationsCard() {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const compteurs = useQuery({ queryKey: ["codes-compteurs"], queryFn: compterCodesApplication });
+  const [slug, setSlug] = React.useState("unswipe");
+  const [texte, setTexte] = React.useState("");
+  const [resultat, setResultat] = React.useState<string | null>(null);
+  const cible = compteurs.data?.find((c) => c.slug === slug) ?? compteurs.data?.[0] ?? null;
+  const importer = useMutation({
+    mutationFn: () =>
+      importerCodesApplication(
+        cible!.application_id,
+        cible!.slug,
+        texte,
+        `${cible!.nom} – ${new Date().toISOString().slice(0, 10)}`,
+      ),
+    onSuccess: (r) => {
+      setResultat(t("codes.importResultat", { inseres: r.inseres, ignores: r.ignores }));
+      setTexte("");
+      void queryClient.invalidateQueries({ queryKey: ["codes-compteurs"] });
+    },
+  });
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>{t("codes.adminTitre")}</CardTitle>
+        <CardDescription>{t("codes.adminSousTitre")}</CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        {compteurs.isError && (
+          <p className="text-sm text-destructive">{(compteurs.error as Error).message}</p>
+        )}
+        <div className="grid gap-2 sm:grid-cols-3">
+          {(compteurs.data ?? []).map((c) => (
+            <div key={c.application_id} className="rounded-md border p-3 text-sm">
+              <p className="font-medium">{c.nom}</p>
+              <p className="text-muted-foreground">
+                {t("codes.compteurs", { disponible: c.disponible, attribue: c.attribue, caduc: c.caduc })}
+              </p>
+            </div>
+          ))}
+        </div>
+        <section className="space-y-2">
+          <div className="flex flex-wrap items-end gap-3">
+            <div className="space-y-2">
+              <Label htmlFor="codes-app">{t("codes.application")}</Label>
+              <select
+                id="codes-app"
+                className="h-9 rounded-md border bg-background px-2 text-sm"
+                value={cible?.slug ?? slug}
+                onChange={(e) => setSlug(e.target.value)}
+              >
+                {(compteurs.data ?? []).map((c) => (
+                  <option key={c.slug} value={c.slug}>{c.nom}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <Textarea
+            value={texte}
+            onChange={(e) => setTexte(e.target.value)}
+            placeholder={"XWXRR6XP3NAEWLRT47\nXTTH4LEALTLXFM76MN,https://apps.apple.com/redeem?…"}
+            rows={5}
+            className="font-mono text-xs"
+          />
+          <div className="flex items-center gap-3">
+            <Button
+              disabled={!cible || texte.trim() === "" || importer.isPending}
+              onClick={() => importer.mutate()}
+            >
+              {importer.isPending ? t("common.saving") : t("codes.importer")}
+            </Button>
+            {resultat && <p className="text-sm text-muted-foreground">{resultat}</p>}
+            {importer.isError && (
+              <p className="text-sm text-destructive">{(importer.error as Error).message}</p>
+            )}
+          </div>
+          <p className="text-xs text-muted-foreground">{t("codes.importAide")}</p>
+        </section>
+      </CardContent>
+    </Card>
   );
 }

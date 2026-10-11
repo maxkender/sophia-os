@@ -32,6 +32,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { BlocConsignes, useConsignesPosts } from "@/features/moteur/ConsignesPost";
 import {
   compteReferenceDuPost,
   contrainteDelaiPublication,
@@ -433,6 +434,8 @@ export function PosterPostPage() {
     queryFn: () => lirePost(id!),
     enabled: Boolean(id),
   });
+  // Consignes de tournage (0274) : 2e téléphone, lien d'exemple.
+  const consignes = useConsignesPosts(id ? [id] : []);
   const slides = useQuery({
     queryKey: ["slides", id],
     queryFn: () => listerSlides(id!),
@@ -671,6 +674,9 @@ export function PosterPostPage() {
           {t("posts.rappelLien")}
         </div>
       )}
+
+      {/* Consignes du slideshow : 2e téléphone, exemple à regarder. */}
+      <BlocConsignes consigne={consignes.data?.get(id ?? "") ?? null} />
 
       {/* Recharge en tête : les créateurs ne la trouvaient pas en bas de page. */}
       {peutRecharger && (

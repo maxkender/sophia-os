@@ -33,6 +33,9 @@ import {
 } from "@/features/moteur/comptesCm";
 import { drapeauLangue } from "@/features/moteur/langues";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
+import { CodeApplicationCarte } from "@/features/moteur/CodeApplicationCarte";
+import { BadgeDeuxiemeTelephone, useConsignesPosts } from "@/features/moteur/ConsignesPost";
+import type { ConsignesPost } from "@/features/moteur/api";
 import { VideosAPoster } from "@/features/pods/VideosAPoster";
 import { statutWarmup } from "@/features/moteur/warmup";
 import { useAuth } from "@/features/auth/AuthContext";
@@ -84,7 +87,15 @@ function grilleDuMois(annee: number, mois: number) {
   return cases;
 }
 
-function CartePost({ post, creneau }: { post: PostCalendrier; creneau?: number }) {
+function CartePost({
+  post,
+  creneau,
+  consigne,
+}: {
+  post: PostCalendrier;
+  creneau?: number;
+  consigne?: ConsignesPost | null;
+}) {
   const { t } = useTranslation();
   const publie = Boolean(post.publie_at);
 
@@ -102,6 +113,7 @@ function CartePost({ post, creneau }: { post: PostCalendrier; creneau?: number }
             {creneau && <Badge variant="outline">{t("calendrier.creneau", { n: creneau })}</Badge>}
             <Badge variant="secondary">{t(`type.${post.type}`)}</Badge>
             {post.handle_tiktok && <Badge variant="outline">@{post.handle_tiktok}</Badge>}
+            <BadgeDeuxiemeTelephone consigne={consigne} />
           </div>
         </div>
 
@@ -335,11 +347,15 @@ export function PosterCalendrierPage() {
     return carte;
   }, [posts, compte?.id]);
 
+  const duJour = parJour.get(jour) ?? [];
+  // Consignes (2e téléphone, exemple) des posts du jour, en une requête.
+  // Avant le retour anticipé : un hook ne se saute pas.
+  const consignes = useConsignesPosts(duJour.map((p) => p.id));
+
   if (isPending) {
     return <p className="text-sm text-muted-foreground">{t("common.loading")}</p>;
   }
 
-  const duJour = parJour.get(jour) ?? [];
   const titreJour = t("calendrier.aujourdhui");
   const cases = grilleDuMois(mois.annee, mois.mois);
   const nomDuMois = new Date(mois.annee, mois.mois, 1).toLocaleDateString(i18n.language, {
@@ -434,6 +450,8 @@ export function PosterCalendrierPage() {
         />
       )}
 
+      <CodeApplicationCarte />
+
       <Link
         to="/createur/parrainage"
         className="block rounded-lg border border-primary/30 bg-primary/5 p-4 transition-colors hover:bg-primary/10"
@@ -461,7 +479,12 @@ export function PosterCalendrierPage() {
         ) : (
           <div className="grid gap-4 sm:grid-cols-2">
             {duJour.map((post, index) => (
-              <CartePost key={post.id} post={post} creneau={index + 1} />
+              <CartePost
+                key={post.id}
+                post={post}
+                creneau={index + 1}
+                consigne={consignes.data?.get(post.id) ?? null}
+              />
             ))}
           </div>
         )}

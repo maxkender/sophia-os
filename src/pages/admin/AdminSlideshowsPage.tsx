@@ -37,6 +37,7 @@ import {
   jobsReimportDepuisSlides,
   listerJobsReimportPhotosValides,
   listerMediasPourContenu,
+  majConsignesContenu,
   majMediaSlideContenu,
   marquerUgcParLabel,
   mediaIdsDepuisSlides,
@@ -1301,6 +1302,16 @@ function DetailSlideshow({
               </Button>
             </div>
 
+            <ConsignesSection
+              contenuId={d.id}
+              deuxiemeTelephone={Boolean(d.deuxieme_telephone)}
+              exempleUrl={d.exemple_url ?? null}
+              onSaved={() => {
+                void queryClient.invalidateQueries({ queryKey: ["slideshow", id] });
+                void queryClient.invalidateQueries({ queryKey: ["slideshows"] });
+              }}
+            />
+
             <section className="space-y-2 rounded border p-3">
               <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                 {t("slideshows.ugcSection")}
@@ -2389,5 +2400,81 @@ export function AdminSlideshowsPage() {
 
       {ouvert && <DetailSlideshow id={ouvert} onFermer={fermerDetail} />}
     </div>
+  );
+}
+
+
+/**
+ * Consignes de tournage d'un slideshow (0275) : « deuxième téléphone » (jamais
+ * assigné à un posteur qui n'en a qu'un) et lien d'exemple montré au posteur.
+ */
+function ConsignesSection({
+  contenuId,
+  deuxiemeTelephone,
+  exempleUrl,
+  onSaved,
+}: {
+  contenuId: string;
+  deuxiemeTelephone: boolean;
+  exempleUrl: string | null;
+  onSaved: () => void;
+}) {
+  const { t } = useTranslation();
+  const [url, setUrl] = React.useState(exempleUrl ?? "");
+  React.useEffect(() => setUrl(exempleUrl ?? ""), [exempleUrl, contenuId]);
+  const enregistrer = useMutation({
+    mutationFn: (patch: { deuxieme_telephone?: boolean; exemple_url?: string | null }) =>
+      majConsignesContenu(contenuId, patch),
+    onSuccess: onSaved,
+  });
+  const urlValide = url.trim() === "" || /^https?:\/\/\S+$/.test(url.trim());
+  const urlChangee = (url.trim() || null) !== (exempleUrl ?? null);
+
+  return (
+    <section className="space-y-2 rounded border p-3">
+      <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+        {t("consignes.section")}
+      </h3>
+      <label className="flex items-center gap-2 text-sm">
+        <input
+          type="checkbox"
+          checked={deuxiemeTelephone}
+          disabled={enregistrer.isPending}
+          onChange={(e) => enregistrer.mutate({ deuxieme_telephone: e.target.checked })}
+        />
+        {t("consignes.deuxTelAdmin")}
+      </label>
+      <p className="text-[11px] text-muted-foreground">{t("consignes.deuxTelAdminAide")}</p>
+      <div className="flex flex-wrap items-center gap-1.5">
+        <Input
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+          placeholder="https://www.tiktok.com/…"
+          className={cn("h-7 w-72 text-xs", !urlValide && "border-destructive")}
+        />
+        <Button
+          size="sm"
+          className="h-7 text-xs"
+          disabled={!urlValide || !urlChangee || enregistrer.isPending}
+          onClick={() => enregistrer.mutate({ exemple_url: url.trim() || null })}
+        >
+          {enregistrer.isPending ? t("common.saving") : t("consignes.exempleEnregistrer")}
+        </Button>
+        {exempleUrl && (
+          <a
+            href={exempleUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="text-xs underline underline-offset-2"
+          >
+            {t("consignes.voirExemple")} ↗
+          </a>
+        )}
+      </div>
+      <p className="text-[11px] text-muted-foreground">{t("consignes.exempleAide")}</p>
+      {enregistrer.isError && (
+        <p className="text-xs text-destructive">{(enregistrer.error as Error).message}</p>
+      )}
+    </section>
   );
 }

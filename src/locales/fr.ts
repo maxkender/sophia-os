@@ -919,6 +919,12 @@ export const fr = {
     posters: {
       title: "Posters",
       subtitle: "Créateurs (logins) et leurs comptes TikTok.",
+      sourceSite: "site",
+      sourceSiteAide: "Venu du site sophia-culture.com : payé par le Hub chaque semaine, pas de milestone Upwork.",
+      deuxTelephones: "A deux téléphones",
+      codeUnswipe: "Code UnSwipe",
+      codeAucun: "aucun",
+      codeAttribuer: "Attribuer un code",
       creerPosterDesc:
         "Crée un login créateur. Le premier compte TikTok peut être perso, CM, ou aucun (à ajouter plus tard).",
       aideTitre: "Aide",
@@ -2531,6 +2537,37 @@ export const fr = {
         vues: "0 vue",
         doux: "Sous-quota, grosses vues",
       },
+    },
+    codes: {
+      titre: "Ton code {{app}}",
+      corps:
+        "Tu promeus {{app}} : voici un code pour avoir l’appli gratuitement sur ton iPhone et la montrer dans tes posts. Il est à toi, utilisable une seule fois.",
+      aide: "Ouvre le lien sur ton iPhone pour activer {{app}}. Le code ne marche qu’une fois.",
+      obtenir: "Obtenir mon code",
+      copier: "Copier",
+      copie: "Copié !",
+      activer: "Activer sur l’App Store",
+      adminTitre: "Codes applications",
+      adminSousTitre:
+        "Codes de rachat App Store distribués aux posteurs (un par posteur, usage unique). Colle une fournée ci-dessous.",
+      compteurs: "{{disponible}} disponibles · {{attribue}} attribués · {{caduc}} caducs",
+      application: "Application",
+      importer: "Importer la fournée",
+      importResultat: "{{inseres}} codes importés, {{ignores}} ignorés (doublons ou lignes invalides).",
+      importAide:
+        "Un code par ligne : « CODE » ou « CODE,url ». Pour UnSwipe l’URL de rachat est construite automatiquement. Les codes déjà présents sont ignorés.",
+    },
+    consignes: {
+      section: "Consignes de tournage",
+      deuxTelAdmin: "Besoin d’un 2e téléphone",
+      deuxTelAdminAide:
+        "Ce slideshow ne sera jamais assigné à un posteur qui n’a qu’un téléphone (case « A deux téléphones » sur sa fiche).",
+      exempleEnregistrer: "Enregistrer le lien",
+      exempleAide: "Un TikTok d’exemple : le posteur voit un bouton « Voir un exemple » sur ce post.",
+      badge2tel: "2 téléphones",
+      deuxTelTitre: "Ce post se filme avec un deuxième téléphone",
+      deuxTelCorps: "Prépare ton second téléphone avant de commencer : tu en as besoin pour ce slideshow.",
+      voirExemple: "Voir un exemple",
     },
     referral: {
       title: "Recommander un créateur",

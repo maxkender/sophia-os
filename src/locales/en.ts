@@ -918,6 +918,12 @@ export const en = {
     posters: {
       title: "Posters",
       subtitle: "Creators (logins) and their TikTok accounts.",
+      sourceSite: "site",
+      sourceSiteAide: "Came from sophia-culture.com: paid weekly by the Hub, no Upwork milestone.",
+      deuxTelephones: "Has two phones",
+      codeUnswipe: "UnSwipe code",
+      codeAucun: "none",
+      codeAttribuer: "Assign a code",
       creerPosterDesc:
         "Create a creator login. The first TikTok account can be personal, CM, or none (add later).",
       aideTitre: "Help",
@@ -2531,6 +2537,37 @@ export const en = {
         vues: "0 views",
         doux: "Under quota, high views",
       },
+    },
+    codes: {
+      titre: "Your {{app}} code",
+      corps:
+        "You promote {{app}}: here is a code to get the app for free on your iPhone and show it in your posts. It’s yours, usable once.",
+      aide: "Open the link on your iPhone to activate {{app}}. The code works only once.",
+      obtenir: "Get my code",
+      copier: "Copy",
+      copie: "Copied!",
+      activer: "Redeem on the App Store",
+      adminTitre: "App codes",
+      adminSousTitre:
+        "App Store redeem codes handed to posters (one per poster, single use). Paste a batch below.",
+      compteurs: "{{disponible}} available · {{attribue}} assigned · {{caduc}} void",
+      application: "App",
+      importer: "Import the batch",
+      importResultat: "{{inseres}} codes imported, {{ignores}} ignored (duplicates or invalid lines).",
+      importAide:
+        "One code per line: “CODE” or “CODE,url”. For UnSwipe the redeem URL is built automatically. Codes already present are ignored.",
+    },
+    consignes: {
+      section: "Filming instructions",
+      deuxTelAdmin: "Needs a second phone",
+      deuxTelAdminAide:
+        "This slideshow will never be assigned to a poster who has only one phone (“Has two phones” box on their profile).",
+      exempleEnregistrer: "Save the link",
+      exempleAide: "An example TikTok: the poster sees a “See an example” button on this post.",
+      badge2tel: "2 phones",
+      deuxTelTitre: "This post is filmed with a second phone",
+      deuxTelCorps: "Get your second phone ready before you start: you need it for this slideshow.",
+      voirExemple: "See an example",
     },
     referral: {
       title: "Refer a creator",

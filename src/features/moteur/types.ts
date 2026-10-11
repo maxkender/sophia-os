@@ -295,6 +295,10 @@ export interface PosterProfil {
   zone_recrutement?: string | null;
   /** Photo du membre (copie de sa photo Upwork, 0274) ; null : initiales. */
   photo_url?: string | null;
+  /** D'où vient le posteur (0275) : upwork, site (payé par le Hub) ou micabo. */
+  source?: "upwork" | "site" | "micabo" | null;
+  /** Le posteur a deux téléphones : peut recevoir les contenus « 2e téléphone ». */
+  deux_telephones?: boolean;
   /** Tous les comptes actifs du créateur (perso + CM). */
   comptes: CompteResumePoster[];
 }
@@ -655,6 +659,10 @@ export interface Contenu {
   variation_langue: string | null;
   /** Marqué UGC — scan visage premier plan sur les images. */
   ugc_compatible: boolean;
+  /** Consigne posteur (0275) : se filme avec un deuxième téléphone. */
+  deuxieme_telephone?: boolean;
+  /** Consigne posteur (0275) : un TikTok d'exemple à regarder avant de poster. */
+  exemple_url?: string | null;
   /** import = pipeline TikTok ; manuel = création semi-manuelle admin. */
   creation_mode?: "import" | "manuel";
   /** Slideshow d'origine du hook (musique reprise). */

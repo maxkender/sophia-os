@@ -609,7 +609,7 @@ export async function listerPosters(): Promise<PosterProfil[]> {
   const { data: profils, error } = await supabase
     .from("profiles")
     .select(
-      "id, prenom, nom, email, langues, nationalite, upwork_url, manager_id, is_active, must_change_password, cout_mensuel, hm_ugc_ai_video, zone_recrutement",
+      "id, prenom, nom, email, langues, nationalite, upwork_url, manager_id, is_active, must_change_password, cout_mensuel, hm_ugc_ai_video, zone_recrutement, photo_url",
     )
     .order("created_at", { ascending: false });
   if (error) throw error;

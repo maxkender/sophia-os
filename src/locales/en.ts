@@ -987,10 +987,7 @@ export const en = {
       creerRecruteurDesc:
         "Enter their name and the languages they manage — they can hire creators in each one.",
       recruteurs: "Recruiters",
-      dmDe: "DM · {{nom}}",
-      directingManager: "Directing manager",
       hmsDuDm: "Assigned hiring managers",
-      hmSansDm: "HMs without a directing manager",
       equipeDmResume:
         "{{hms}} HM · {{total}} creator(s) · {{pasCree}} not created · {{warmup}} warmup · {{actif}} active",
       equipeHoResume:
@@ -1017,6 +1014,21 @@ export const en = {
       aucunCreateurFiltre: "No creator matches the filters ({{n}} in total).",
       nbAffiches: "{{n}} shown with these filters",
       recruteursDesactives: "Deactivated recruiters with no creators ({{n}})",
+      carte: {
+        titre: "Recruitment zones map",
+        aide: "Hover a country to see its zone, click to show only that zone.",
+        monde: "World",
+        europe: "Europe",
+        createurs:
+          "{{total}} creator(s) · {{actif}} active · {{warmup}} warmup · {{pasCree}} not created",
+        nbCreas: "{{n}} creators",
+        cliquer: "Click: show only this zone.",
+        cliquerTout: "Click: show all zones again.",
+        legende: "Creators per zone",
+        horsZone: "Countries with no recruiter",
+        nonPlace: "Not on the map: {{liste}}",
+        erreur: "Map unavailable: {{message}}",
+      },
       aideZones:
         "The page is grouped by zone: the recruiter’s zone (countries covered), which their creators inherit. Change it from the recruiter’s profile.",
       langueRecruteur: "Language",
@@ -1102,7 +1114,6 @@ export const en = {
       badgeHm: "HM",
       badgeDm: "DM",
       promote: "Make recruiter",
-      promoteDm: "Make Directing manager",
       repasserHm: "Back to hiring manager",
       revoke: "Back to poster",
       valider: "Confirm",

@@ -293,6 +293,8 @@ export interface PosterProfil {
    * héritent par `manager_id`. Pas la zone de paiement A/B/C. Voir hiring/zones.ts.
    */
   zone_recrutement?: string | null;
+  /** Photo du membre (copie de sa photo Upwork, 0274) ; null : initiales. */
+  photo_url?: string | null;
   /** Tous les comptes actifs du créateur (perso + CM). */
   comptes: CompteResumePoster[];
 }

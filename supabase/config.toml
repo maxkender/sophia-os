@@ -77,6 +77,11 @@ verify_jwt = false
 [functions.extraction]
 verify_jwt = false
 
+# Appelée par le Hub (serveur à serveur) avec le seul en-tête `x-hub-secret`,
+# jamais de JWT : la passerelle ne doit pas en exiger un. Voir docs/hub-posteurs.md.
+[functions.hub-posteurs]
+verify_jwt = false
+
 [functions.import-contenu]
 verify_jwt = false
 

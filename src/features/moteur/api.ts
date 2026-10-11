@@ -609,7 +609,7 @@ export async function listerPosters(): Promise<PosterProfil[]> {
   const { data: profils, error } = await supabase
     .from("profiles")
     .select(
-      "id, prenom, nom, email, langues, nationalite, upwork_url, manager_id, is_active, must_change_password, cout_mensuel, hm_ugc_ai_video, zone_recrutement, photo_url",
+      "id, prenom, nom, email, langues, nationalite, upwork_url, manager_id, is_active, must_change_password, cout_mensuel, hm_ugc_ai_video, zone_recrutement, photo_url, source, deux_telephones",
     )
     .order("created_at", { ascending: false });
   if (error) throw error;
@@ -1640,8 +1640,189 @@ export function supprimerPoster(userId: string) {
   return invoke("manage-users", { action: "delete", userId });
 }
 
-export async function majPoster(id: string, patch: { is_active?: boolean }): Promise<void> {
+export async function majPoster(
+  id: string,
+  patch: { is_active?: boolean; deux_telephones?: boolean },
+): Promise<void> {
   const { error } = await supabase.from("profiles").update(patch).eq("id", id);
+  if (error) throw error;
+}
+
+// --- Codes par application (0275) ------------------------------------------
+
+export interface CodeApplication {
+  code: string;
+  redeem_url: string;
+  attribue_le: string | null;
+}
+
+/** Applications que le posteur connecté sert (slugs), d'après ses comptes. */
+export async function mesApplications(): Promise<string[]> {
+  const { data, error } = await supabase.rpc("mes_applications");
+  if (error) throw error;
+  return ((data ?? []) as Array<string | { mes_applications?: string }>).map((l) =>
+    typeof l === "string" ? l : String(l.mes_applications ?? ""),
+  ).filter(Boolean);
+}
+
+/** Le posteur tire (ou relit) SON code pour une application. */
+export async function monCodeApplication(slug: string): Promise<CodeApplication> {
+  const { data, error } = await supabase.rpc("mon_code_application", { slug });
+  if (error) throw error;
+  const ligne = (Array.isArray(data) ? data[0] : data) as CodeApplication | undefined;
+  if (!ligne) throw new Error("Aucun code rendu.");
+  return ligne;
+}
+
+/** Un admin ou le recruteur attribue un code à un posteur. */
+export async function attribuerCodeApplication(cible: string, slug: string): Promise<CodeApplication> {
+  const { data, error } = await supabase.rpc("attribuer_code_application", { cible, slug });
+  if (error) throw error;
+  const ligne = (Array.isArray(data) ? data[0] : data) as CodeApplication | undefined;
+  if (!ligne) throw new Error("Aucun code rendu.");
+  return ligne;
+}
+
+/**
+ * Codes déjà attribués à un posteur, par slug d'application. Sans `profileId` :
+ * ceux du posteur connecté (RLS : il ne voit que les siens).
+ */
+export async function codesDuPoster(profileId?: string): Promise<Record<string, CodeApplication>> {
+  let q = supabase
+    .from("codes_application")
+    .select("code, redeem_url, attribue_le, applications(slug)")
+    .eq("statut", "attribue");
+  if (profileId) q = q.eq("profile_id", profileId);
+  const { data, error } = await q;
+  if (error) throw error;
+  const out: Record<string, CodeApplication> = {};
+  for (const l of (data ?? []) as Array<CodeApplication & { applications?: { slug?: string } | null }>) {
+    const slug = l.applications?.slug;
+    if (slug) out[slug] = { code: l.code, redeem_url: l.redeem_url, attribue_le: l.attribue_le };
+  }
+  return out;
+}
+
+export interface CompteurCodes {
+  application_id: string;
+  slug: string;
+  nom: string;
+  disponible: number;
+  attribue: number;
+  caduc: number;
+}
+
+/** Compteurs par application, via des requêtes `count` (jamais une lecture des lignes). */
+export async function compterCodesApplication(): Promise<CompteurCodes[]> {
+  const { data: apps, error } = await supabase.from("applications").select("id, slug, nom").eq("actif", true);
+  if (error) throw error;
+  const statuts = ["disponible", "attribue", "caduc"] as const;
+  return await Promise.all(
+    ((apps ?? []) as Array<{ id: string; slug: string; nom: string }>).map(async (a) => {
+      const comptes = await Promise.all(
+        statuts.map(async (statut) => {
+          const { count, error: errC } = await supabase
+            .from("codes_application")
+            .select("id", { count: "exact", head: true })
+            .eq("application_id", a.id)
+            .eq("statut", statut);
+          if (errC) throw errC;
+          return count ?? 0;
+        }),
+      );
+      return {
+        application_id: a.id,
+        slug: a.slug,
+        nom: a.nom,
+        disponible: comptes[0],
+        attribue: comptes[1],
+        caduc: comptes[2],
+      };
+    }),
+  );
+}
+
+/** URL de rachat App Store d'une application (id App Store par slug). */
+const APP_STORE_IDS: Record<string, string> = { unswipe: "6814633088", sophia: "6760919622" };
+
+/** Une ligne collée : `CODE` ou `CODE,url` (ou `CODE;url`). Rend null si vide. */
+export function analyserLigneCode(
+  ligne: string,
+  slug: string,
+): { code: string; redeem_url: string } | null {
+  const [brut, url] = ligne.split(/[,;\t]/).map((x) => x.trim());
+  const code = (brut ?? "").toUpperCase();
+  if (!/^[A-Z0-9]{6,32}$/.test(code)) return null;
+  const id = APP_STORE_IDS[slug];
+  const redeem = url && /^https?:\/\//.test(url)
+    ? url
+    : id
+      ? `https://apps.apple.com/redeem?ctx=offercodes&id=${id}&code=${code}`
+      : null;
+  if (!redeem) return null;
+  return { code, redeem_url: redeem };
+}
+
+/** Importe une fournée de codes (admin). Les doublons sont ignorés. */
+export async function importerCodesApplication(
+  applicationId: string,
+  slug: string,
+  texte: string,
+  lot: string,
+): Promise<{ inseres: number; ignores: number }> {
+  const lignes = texte.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
+  const vus = new Set<string>();
+  const valides: Array<{ code: string; redeem_url: string }> = [];
+  let ignores = 0;
+  for (const l of lignes) {
+    const r = analyserLigneCode(l, slug);
+    if (!r || vus.has(r.code)) {
+      ignores += 1;
+      continue;
+    }
+    vus.add(r.code);
+    valides.push(r);
+  }
+  let inseres = 0;
+  for (let i = 0; i < valides.length; i += 500) {
+    const lotLignes = valides.slice(i, i + 500).map((v) => ({
+      application_id: applicationId,
+      code: v.code,
+      redeem_url: v.redeem_url,
+      lot,
+    }));
+    const { data, error } = await supabase
+      .from("codes_application")
+      .upsert(lotLignes, { onConflict: "code", ignoreDuplicates: true })
+      .select("id");
+    if (error) throw error;
+    inseres += (data ?? []).length;
+  }
+  return { inseres, ignores: ignores + (valides.length - inseres) };
+}
+
+// --- Consignes posteur (0275) ----------------------------------------------
+
+export interface ConsignesPost {
+  post_id: string;
+  deuxieme_telephone: boolean;
+  exemple_url: string | null;
+}
+
+/** Consignes des posts du posteur connecté (2e téléphone, lien d'exemple). */
+export async function consignesDeMesPosts(postIds: string[]): Promise<Map<string, ConsignesPost>> {
+  if (postIds.length === 0) return new Map();
+  const { data, error } = await supabase.rpc("consignes_de_mes_posts", { post_ids: postIds });
+  if (error) throw error;
+  return new Map(((data ?? []) as ConsignesPost[]).map((c) => [c.post_id, c]));
+}
+
+/** Admin : consignes d'un slideshow. */
+export async function majConsignesContenu(
+  contenuId: string,
+  patch: { deuxieme_telephone?: boolean; exemple_url?: string | null },
+): Promise<void> {
+  const { error } = await supabase.from("contenus").update(patch).eq("id", contenuId);
   if (error) throw error;
 }
 

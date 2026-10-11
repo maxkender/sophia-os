@@ -174,6 +174,25 @@ describe("le contenu tient ses promesses", () => {
     expect(indexEcran("fonctionnement")).toBe(-1);
   });
 
+  it("le créateur rejoint Vik Studios, pas Sophia", () => {
+    // Sophia est UNE des apps du studio, pas l'employeur. Le texte d'accueil
+    // présentait l'inverse ; le quiproquo revient vite si on ne le fige pas.
+    const texte = ECRANS.flatMap((e) => [
+      e.titre,
+      ...e.blocs.flatMap((b) =>
+        b.type === "p" || b.type === "titre"
+          ? [b.texte]
+          : b.type === "liste" || b.type === "etapes"
+          ? b.items
+          : b.type === "alerte"
+          ? [b.titre ?? "", ...b.items]
+          : [],
+      ),
+    ]).join(" ");
+    expect(texte).toContain("Vik Studios");
+    expect(texte).not.toMatch(/Sophia team|Welcome to Sophia|Sophia System/i);
+  });
+
   it("aucune clé d'écran n'est en double", () => {
     const cles = ECRANS.map((e) => e.cle);
     expect(new Set(cles).size).toBe(cles.length);

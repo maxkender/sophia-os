@@ -32,7 +32,7 @@ export const ATTENTE_TEXTE_S = 8;
 export const LIEN_GUIDE =
   "https://app.notion.com/p/Vik-Studios-TikTok-Poster-Guide-3f4241308d6681f8ad41dc507f2c8505";
 
-/** Invitation Slack de l'espace Sophia. */
+/** Invitation Slack de l'espace de travail. */
 export const LIEN_SLACK =
   "https://join.slack.com/t/sophia-system/shared_invite/zt-44pqj3z39-X4KkPQI6cwOwWE2LNaLbig";
 
@@ -61,11 +61,11 @@ export interface Ecran {
 export const ECRANS: Ecran[] = [
   {
     cle: "welcome",
-    titre: "Welcome to Sophia!",
+    titre: "Welcome to Vik Studios!",
     mico: "wave",
     attente: ATTENTE_TEXTE_S,
     blocs: [
-      { type: "p", texte: "Hello! Welcome to the Sophia team!" },
+      { type: "p", texte: "Hello! Welcome to the Vik Studios team!" },
       {
         type: "p",
         texte:
@@ -127,11 +127,11 @@ export const ECRANS: Ecran[] = [
   },
   {
     cle: "plateforme",
-    titre: "Sophia System",
+    titre: "The platform",
     mico: "think",
     attente: ATTENTE_TEXTE_S,
     blocs: [
-      { type: "p", texte: "The platform you are on right now." },
+      { type: "p", texte: "The Vik Studios platform you are on right now." },
       {
         type: "p",
         texte:

@@ -3360,7 +3360,7 @@ Deno.test("compteSertApplicationRappel : la répartition explicite, second nivea
 });
 
 /* -------------------------------------------------------------------------
- * Contenus livrés par un pod (0275) : sur un créneau d'application, seul un
+ * Contenus livrés par un pod (0276) : sur un créneau d'application, seul un
  * contenu dont le pod a fourni le deck de CETTE application est tiré, et ses
  * images finies (media_id) partent telles quelles dans le post.
  * ---------------------------------------------------------------------- */
@@ -3399,7 +3399,7 @@ function baseLivree(args: { compte?: Record<string, unknown> } = {}) {
   return base;
 }
 
-Deno.test("pods 0275 — créneau Unswipe : le livré sans deck Unswipe est écarté, celui qui en a un est tiré avec ses images", async () => {
+Deno.test("pods 0276 — créneau Unswipe : le livré sans deck Unswipe est écarté, celui qui en a un est tiré avec ses images", async () => {
   const deckDuPod = (contenuId: string) =>
     contenuId === idContenu(1)
       ? { statut: "pret" as const, slides: DECK_LIVRE_UNSWIPE as unknown as typeof DECK, hashtags: "#pod" }
@@ -3426,7 +3426,7 @@ Deno.test("pods 0275 — créneau Unswipe : le livré sans deck Unswipe est éca
   });
 });
 
-Deno.test("pods 0275 — créneau Unswipe : aucun livré n'a de deck Unswipe → réserve vide, aucun deck demandé", async () => {
+Deno.test("pods 0276 — créneau Unswipe : aucun livré n'a de deck Unswipe → réserve vide, aucun deck demandé", async () => {
   await avecDecks(jamaisPret, async (appels) => {
     const base = baseLivree({ compte: { parts_applications: { unswipe: 100 } } });
     base.contenu_langue_decks.length = 0;
@@ -3440,7 +3440,7 @@ Deno.test("pods 0275 — créneau Unswipe : aucun livré n'a de deck Unswipe →
   });
 });
 
-Deno.test("pods 0275 — créneau Sophia : inchangé, les decks d'application ne sont jamais lus", async () => {
+Deno.test("pods 0276 — créneau Sophia : inchangé, les decks d'application ne sont jamais lus", async () => {
   const pret = () => ({ statut: "pret" as const, slides: DECK, hashtags: "#unswipe" });
   await avecDecks(pret, async (appels) => {
     const base = baseLivree();

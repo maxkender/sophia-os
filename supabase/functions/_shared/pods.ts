@@ -88,7 +88,7 @@ export async function deckLivre(
 }
 
 // ---------------------------------------------------------------------------
-// Decks livrés d'une APPLICATION autre que Sophia (migration 0275)
+// Decks livrés d'une APPLICATION autre que Sophia (migration 0276)
 // ---------------------------------------------------------------------------
 
 /** Ce qu'il faut d'une application pour lire ses decks livrés. */

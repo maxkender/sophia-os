@@ -697,7 +697,7 @@ Deno.test("langue hors langues cibles : échec, rien de créé", async () => {
 });
 
 /* -------------------------------------------------------------------------
- * Contenus livrés par un pod (0275) : jamais de cuisson. Seul le deck fourni
+ * Contenus livrés par un pod (0276) : jamais de cuisson. Seul le deck fourni
  * par le pod pour l'application est servi ; sinon inéligible, sans écrire.
  * ---------------------------------------------------------------------- */
 

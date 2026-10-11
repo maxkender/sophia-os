@@ -6,7 +6,7 @@
  *       Agent du pod, en-tête `x-pod-jeton` (comparé à pods.jeton_hash).
  *       Range les images finies (JPEG sans métadonnées) dans le stockage et
  *       met la livraison dans la file de validation. Ne crée AUCUN contenu.
- *       `decks_applications` (facultatif, 0275) : variantes du deck pour une
+ *       `decks_applications` (facultatif, 0276) : variantes du deck pour une
  *       autre application que Sophia, servies sur SES seuls créneaux :
  *         { "unswipe": { "fr": { "hashtags": "…", "slides": [
  *             { "position": 1, "reprendre": true },        ← image Sophia fr #1
@@ -179,7 +179,7 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
   if (!sourceId) return json({ ok: false, error: "source_id requis" }, 400);
   const langueSource = String(body.langue_source ?? "fr");
   const decks = (body.decks ?? {}) as Record<string, DeckDepose>;
-  // Variantes du deck par application (0275) : absentes, rien ne change.
+  // Variantes du deck par application (0276) : absentes, rien ne change.
   const decksApps = (body.decks_applications ?? {}) as DecksApplicationsDeposes;
   if (typeof decksApps !== "object" || Array.isArray(decksApps)) {
     return json({ ok: false, error: "decks_applications invalide" }, 400);
@@ -191,7 +191,7 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
   //  - à valider : on remplace les langues redéposées, on garde les autres ;
   //  - validée : les langues déposées forment une livraison « langues »,
   //    à valider elle aussi, qui les ajoutera au contenu déjà en ligne.
-  // `*` : lit `decks_applications` quand 0275 est passée, sans dépendre d'elle.
+  // `*` : lit `decks_applications` quand 0276 est passée, sans dépendre d'elle.
   const { data: existante } = await supabase
     .from("pod_livraisons")
     .select("*")
@@ -231,7 +231,7 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
   if (avecApps) {
     const sonde = await supabase.from("pod_livraisons").select("decks_applications").limit(1);
     if (sonde.error) {
-      return json({ ok: false, error: "decks_applications indisponible (migration 0275 non appliquée)" }, 409);
+      return json({ ok: false, error: "decks_applications indisponible (migration 0276 non appliquée)" }, 409);
     }
     for (const [langue, d] of Object.entries((existante?.decks ?? {}) as Record<string, { slides: RefSlideDeck[] }>)) {
       poser(langue, d.slides);
@@ -437,7 +437,7 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
     // Redépôt d'une livraison en attente : les langues redéposées remplacent les
     // anciennes, les autres restent.
     decks: { ...((existante?.decks as Record<string, unknown>) ?? {}), ...sortie },
-    // Colonne écrite seulement quand le dépôt en porte (0275 peut manquer).
+    // Colonne écrite seulement quand le dépôt en porte (0276 peut manquer).
     ...(decksAppsFinal ? { decks_applications: decksAppsFinal } : {}),
     transcription: { textes: Array.isArray(body.textes) ? body.textes.map(String) : [] },
     statut: "a_valider",
@@ -614,7 +614,7 @@ async function valider(
     const medias = Object.values(decks).flatMap((d) => d.slides.map((s) => s.media_id));
     const { error: mErr } = await supabase.from("media_library").update({ contenu_id: contenu.id }).in("id", medias);
     if (mErr) throw mErr;
-    // Variantes par application fournies par le pod (0275) : decks prêts,
+    // Variantes par application fournies par le pod (0276) : decks prêts,
     // réserve et rang de chaque application.
     await ecrireDecksApplications(supabase, contenu.id, l, { tierForce, pertinenceScore: pertinence.score, pod: l.pod });
   } catch (e) {

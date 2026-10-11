@@ -140,7 +140,7 @@ Deno.test("CHEMIN_POD : personas, réactions et sources seulement", () => {
 });
 
 // ---------------------------------------------------------------------------
-// Decks d'application livrés (0275)
+// Decks d'application livrés (0276)
 // ---------------------------------------------------------------------------
 
 Deno.test("verifierDecksApplications : slug, langue Sophia, positions, une slide de l'app hors couverture", () => {

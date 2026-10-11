@@ -431,7 +431,8 @@ export interface FileLabelCompteItem {
 /**
  * File FIFO des labels assignés aux prochains comptes créés.
  * `par_langue[code]` surpasse `items` (file générale) pour cette langue ;
- * si la file langue est vide → file générale ; si les deux sont vides → least-used.
+ * si la file langue est vide → file générale ; si les deux sont vides → choix
+ * équilibré (manage-users).
  */
 export interface FileLabelsApplication {
   items: FileLabelCompteItem[];

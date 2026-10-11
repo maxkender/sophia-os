@@ -17,13 +17,13 @@
  * On choisit l'APPLICATION, pas le label (`modeChoixCompte`) :
  *   - rien d'envoyé (Sophia, toutes les embauches d'aujourd'hui) → chemin
  *     historique, inchangé : File Sophia de la langue, File générale Sophia,
- *     label Sophia le moins utilisé ;
+ *     choix équilibré parmi les labels Sophia ;
  *   - `parts_applications = { <slug>: 100 }` → le label est tiré de la File des
  *     créateurs DE CETTE APPLICATION (langue du compte, puis sa file générale),
- *     à défaut le moins utilisé parmi les labels qui la servent. `{ sophia: 100 }`
+ *     à défaut le choix équilibré parmi les labels qui la servent. `{ sophia: 100 }`
  *     suit exactement le chemin historique (File Sophia, UGC compris) et écrit
  *     la répartition telle quelle ;
- *   - répartition à plusieurs applications → pas de File, le moins utilisé
+ *   - répartition à plusieurs applications → pas de File, le choix équilibré
  *     parmi les labels qui les servent toutes ;
  *   - `label_id` (vieux client, le front ne l'envoie plus) → ce label, validé,
  *     sans File.
@@ -78,7 +78,7 @@ export type CodeChoixCompte =
  * `lireChoixCompte` rend `null` : aucun choix, chemin historique).
  */
 export interface ChoixCompte {
-  /** uuid du label imposé, en minuscules ; `null` = repli « moins utilisé ». */
+  /** uuid du label imposé, en minuscules ; `null` = File puis choix équilibré. */
   labelId: string | null;
   /** `parts_applications` tel que reçu, validé plus tard contre `applications`. */
   partsBrutes: unknown;
@@ -214,9 +214,9 @@ export function labelChoisiCompatible(
  *
  *   - `label`       : `label_id` fourni (vieux client) — ce label, validé ;
  *   - `application` : une seule application à 100 % — File de CETTE
- *                     application (langue, puis générale), puis le moins
- *                     utilisé parmi les labels qui la servent ;
- *   - `repartition` : plusieurs applications — pas de File, le moins utilisé
+ *                     application (langue, puis générale), puis le choix
+ *                     équilibré parmi les labels qui la servent ;
+ *   - `repartition` : plusieurs applications — pas de File, le choix équilibré
  *                     parmi les labels qui les servent toutes.
  *
  * `parts` = répartition déjà validée (`validerParts`) ; `null` quand le corps

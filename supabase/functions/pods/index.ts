@@ -6,6 +6,14 @@
  *       Agent du pod, en-tête `x-pod-jeton` (comparé à pods.jeton_hash).
  *       Range les images finies (JPEG sans métadonnées) dans le stockage et
  *       met la livraison dans la file de validation. Ne crée AUCUN contenu.
+ *       `decks_applications` (facultatif, 0276) : variantes du deck pour une
+ *       autre application que Sophia, servies sur SES seuls créneaux :
+ *         { "unswipe": { "fr": { "hashtags": "…", "slides": [
+ *             { "position": 1, "reprendre": true },        ← image Sophia fr #1
+ *             { "position": 6, "position_app": true, "jpeg_base64": "…" } ] } } }
+ *       Mêmes positions que le deck Sophia de la langue, une seule slide de
+ *       l'app (jamais la couverture), label du pod lié à l'application. Un
+ *       post déjà validé peut ne recevoir QUE des decks d'application.
  *
  *   { action: "deposer", type: "original", pod, source_id, titre,
  *     langue_source, musique_url?, musique_titre?, inspirations?, slides }
@@ -47,6 +55,8 @@ import { genererHashtagsSlideshow, scoreRelevance } from "../_shared/gemini.ts";
 import { eloParLangue, lireScoring } from "../_shared/import_contenu.ts";
 import {
   CHEMIN_POD,
+  ecrireDecksApplications,
+  estSlideApp,
   metadonneesJpeg,
   prochainJour,
   sha256Hex,
@@ -56,8 +66,13 @@ import {
   verifierDepot,
   verifierOriginal,
   type DeckDepose,
+  type DecksApplicationsDeposes,
+  type DecksApplicationsLivres,
+  type SlideAppLivree,
   type SlideOriginale,
+  verifierDecksApplications,
 } from "../_shared/pods.ts";
+import { ID_SOPHIA } from "../_shared/multi_app.ts";
 import { lireParLots, lireTout } from "../_shared/lots.ts";
 import { assertRole, chargerPrompt, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 import { passagesPourTier, tierImport } from "../_shared/tierlist.ts";
@@ -154,7 +169,7 @@ async function podDuJeton(request: Request, supabase: Supabase, slug: string) {
 async function deposer(request: Request, supabase: Supabase, body: Record<string, unknown>) {
   const slug = String(body.pod ?? "");
   const jeton = request.headers.get("x-pod-jeton") ?? "";
-  const { data: pod } = await supabase.from("pods").select("slug, actif, jeton_hash").eq("slug", slug).maybeSingle();
+  const { data: pod } = await supabase.from("pods").select("slug, label_id, actif, jeton_hash").eq("slug", slug).maybeSingle();
   if (!pod || !jeton || !pod.jeton_hash || (await sha256Hex(jeton)) !== pod.jeton_hash) {
     return json({ ok: false, error: "unauthorized" }, 401);
   }
@@ -164,15 +179,22 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
   if (!sourceId) return json({ ok: false, error: "source_id requis" }, 400);
   const langueSource = String(body.langue_source ?? "fr");
   const decks = (body.decks ?? {}) as Record<string, DeckDepose>;
+  // Variantes du deck par application (0276) : absentes, rien ne change.
+  const decksApps = (body.decks_applications ?? {}) as DecksApplicationsDeposes;
+  if (typeof decksApps !== "object" || Array.isArray(decksApps)) {
+    return json({ ok: false, error: "decks_applications invalide" }, 400);
+  }
+  const avecApps = Object.keys(decksApps).length > 0;
 
   // Trois cas selon ce qui existe déjà pour ce post :
   //  - rien : nouvelle livraison (la langue source est obligatoire) ;
   //  - à valider : on remplace les langues redéposées, on garde les autres ;
   //  - validée : les langues déposées forment une livraison « langues »,
   //    à valider elle aussi, qui les ajoutera au contenu déjà en ligne.
+  // `*` : lit `decks_applications` quand 0276 est passée, sans dépendre d'elle.
   const { data: existante } = await supabase
     .from("pod_livraisons")
-    .select("id, statut, decks, contenu_id")
+    .select("*")
     .eq("pod", slug)
     .eq("source_id", sourceId)
     .maybeSingle();
@@ -180,55 +202,191 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
     return json({ ok: false, error: `livraison déjà ${existante.statut}` }, 409);
   }
   const complement = existante?.statut === "validee";
-  const erreurs = verifierDepot(decks, existante ? Object.keys(decks)[0] : langueSource);
+  // Complément d'un post en ligne : un dépôt peut n'apporter QUE des decks d'application.
+  const appsSeules = complement && avecApps && Object.keys(decks).length === 0;
+  const erreurs = appsSeules ? [] : verifierDepot(decks, existante ? Object.keys(decks)[0] : langueSource);
   if (erreurs.length) return json({ ok: false, error: erreurs.join(" · ") }, 400);
+
+  // Livraison « langues » de ce post (complément), lue avant les contrôles :
+  // ses decks en attente comptent comme decks Sophia.
+  const sourceLangues = `${sourceId}~langues`;
+  const { data: attente } = complement
+    ? await supabase.from("pod_livraisons").select("*").eq("pod", slug).eq("source_id", sourceLangues).maybeSingle()
+    : { data: null };
+
+  // Decks Sophia connus, par langue puis position (le plus récent l'emporte) :
+  // de quoi contrôler les decks d'application et résoudre `reprendre`.
+  const sophia = new Map<string, Map<number, RefSlide>>();
+  const poser = (langue: string, slides: RefSlideDeck[] | null | undefined) => {
+    sophia.set(
+      langue,
+      new Map(
+        (slides ?? []).map((s) => [
+          Number(s.position),
+          { media_id: s.media_id ?? null, url: s.url ?? null, position_sophia: Boolean(s.position_sophia) },
+        ]),
+      ),
+    );
+  };
+  if (avecApps) {
+    const sonde = await supabase.from("pod_livraisons").select("decks_applications").limit(1);
+    if (sonde.error) {
+      return json({ ok: false, error: "decks_applications indisponible (migration 0276 non appliquée)" }, 409);
+    }
+    for (const [langue, d] of Object.entries((existante?.decks ?? {}) as Record<string, { slides: RefSlideDeck[] }>)) {
+      poser(langue, d.slides);
+    }
+    if (complement && existante?.contenu_id) {
+      const { data: cls, error } = await supabase
+        .from("contenu_langues")
+        .select("langue, slides")
+        .eq("contenu_id", existante.contenu_id);
+      if (error) throw new Error(`contenu_langues : ${messageErreur(error)}`);
+      for (const cl of (cls ?? []) as { langue: string; slides: RefSlideDeck[] | null }[]) {
+        if ((cl.slides ?? []).length) poser(cl.langue, cl.slides);
+      }
+    }
+    if (attente?.statut === "a_valider") {
+      for (const [langue, d] of Object.entries((attente.decks ?? {}) as Record<string, { slides: RefSlideDeck[] }>)) {
+        poser(langue, d.slides);
+      }
+    }
+    // Ce dépôt : images pas encore envoyées, seules les positions et la slide Sophia comptent ici.
+    for (const [langue, d] of Object.entries(decks)) {
+      poser(langue, d.slides.map((s) => ({ position: s.position, position_sophia: Boolean(s.position_sophia || s.position_app) })));
+    }
+    const positions = new Map([...sophia].map(([l, m]) => [l, [...m.keys()]]));
+    const pubs = new Map([...sophia].map(([l, m]) => [l, [...m].filter(([, r]) => r.position_sophia).map(([p]) => p)]));
+    const erreursApps = verifierDecksApplications(decksApps, new Set(sophia.keys()), positions, pubs);
+    if (erreursApps.length) return json({ ok: false, error: erreursApps.join(" · ") }, 400);
+
+    // Applications servies par le label du pod, jamais Sophia.
+    const slugsApps = Object.keys(decksApps);
+    const { data: apps, error: aErr } = await supabase
+      .from("applications")
+      .select("id, slug")
+      .in("slug", slugsApps)
+      .neq("id", ID_SOPHIA);
+    if (aErr) throw new Error(`applications : ${messageErreur(aErr)}`);
+    const idParSlug = new Map(((apps ?? []) as { id: string; slug: string }[]).map((a) => [a.slug, a.id]));
+    const inconnue = slugsApps.find((s) => !idParSlug.has(s));
+    if (inconnue) return json({ ok: false, error: `application inconnue : ${inconnue}` }, 400);
+    if (!pod.label_id) return json({ ok: false, error: "le pod n'a pas de label" }, 409);
+    const { data: liens, error: lErr } = await supabase
+      .from("label_applications")
+      .select("application_id")
+      .eq("label_id", pod.label_id)
+      .in("application_id", [...idParSlug.values()]);
+    if (lErr) throw new Error(`label_applications : ${messageErreur(lErr)}`);
+    const servies = new Set(((liens ?? []) as { application_id: string }[]).map((l) => l.application_id));
+    const nonServie = slugsApps.find((s) => !servies.has(idParSlug.get(s)!));
+    if (nonServie) return json({ ok: false, error: `le label du pod ne sert pas ${nonServie}` }, 400);
+  }
 
   // Images : contrôle complet AVANT le premier envoi (pas de dépôt à moitié).
   const binaires = new Map<string, Uint8Array>();
+  const controler = (cle: string, quoi: string, base64: string): string | null => {
+    let octets: Uint8Array;
+    try {
+      octets = Uint8Array.from(atob(base64), (c) => c.charCodeAt(0));
+    } catch {
+      return `${quoi} : base64 invalide`;
+    }
+    const restes = metadonneesJpeg(octets);
+    if (restes === null) return `${quoi} : pas un JPEG`;
+    if (restes.length) return `${quoi} : métadonnées ${restes.join(", ")}`;
+    binaires.set(cle, octets);
+    return null;
+  };
   for (const [langue, deck] of Object.entries(decks)) {
     for (const s of deck.slides) {
-      const octets = Uint8Array.from(atob(s.jpeg_base64), (c) => c.charCodeAt(0));
-      const restes = metadonneesJpeg(octets);
-      if (restes === null) return json({ ok: false, error: `${langue} #${s.position} : pas un JPEG` }, 400);
-      if (restes.length) {
-        return json({ ok: false, error: `${langue} #${s.position} : métadonnées ${restes.join(", ")}` }, 400);
+      const erreur = controler(`${langue}/${s.position}`, `${langue} #${s.position}`, s.jpeg_base64);
+      if (erreur) return json({ ok: false, error: erreur }, 400);
+    }
+  }
+  for (const [app, parLangue] of Object.entries(decksApps)) {
+    for (const [langue, deck] of Object.entries(parLangue)) {
+      for (const s of deck.slides) {
+        if (s.reprendre) continue;
+        const erreur = controler(`${app}/${langue}/${s.position}`, `${app} ${langue} #${s.position}`, String(s.jpeg_base64));
+        if (erreur) return json({ ok: false, error: erreur }, 400);
       }
-      binaires.set(`${langue}/${s.position}`, octets);
     }
   }
 
-  const sortie: Record<string, { hashtags: string; slides: unknown[] }> = {};
   const version = Date.now();
+  /** Envoie une image finie au stockage et l'inscrit dans la médiathèque. */
+  const envoyer = async (path: string, octets: Uint8Array, langue: string) => {
+    const { error: upErr } = await supabase.storage
+      .from(BUCKET)
+      .upload(path, octets, { contentType: "image/jpeg", upsert: true });
+    if (upErr) throw new Error(`stockage ${path} : ${messageErreur(upErr)}`);
+    const url = `${supabase.storage.from(BUCKET).getPublicUrl(path).data.publicUrl}?v=${version}`;
+    // `pods/…` + texte_restant : jamais repris par les banques de photos
+    // (avatars, images de repli), qui ne lisent que `propre/…` sans texte.
+    const { data: media, error: mErr } = await supabase
+      .from("media_library")
+      .upsert(
+        { storage_path: path, url, source: "genere_ia", langue, texte_restant: true },
+        { onConflict: "storage_path" },
+      )
+      .select("id")
+      .single();
+    if (mErr || !media) throw new Error(`média ${path} : ${messageErreur(mErr)}`);
+    return { media_id: media.id as string, url };
+  };
+
+  const sortie: Record<string, { hashtags: string; slides: unknown[] }> = {};
   for (const [langue, deck] of Object.entries(decks)) {
     const slides = [];
     for (const s of [...deck.slides].sort((a, b) => a.position - b.position)) {
       const path = `pods/${slug}/${sourceId}/${langue}/${s.position}.jpg`;
-      const { error: upErr } = await supabase.storage
-        .from(BUCKET)
-        .upload(path, binaires.get(`${langue}/${s.position}`)!, { contentType: "image/jpeg", upsert: true });
-      if (upErr) throw new Error(`stockage ${path} : ${messageErreur(upErr)}`);
-      const url = `${supabase.storage.from(BUCKET).getPublicUrl(path).data.publicUrl}?v=${version}`;
-      // `pods/…` + texte_restant : jamais repris par les banques de photos
-      // (avatars, images de repli), qui ne lisent que `propre/…` sans texte.
-      const { data: media, error: mErr } = await supabase
-        .from("media_library")
-        .upsert(
-          { storage_path: path, url, source: "genere_ia", langue, texte_restant: true },
-          { onConflict: "storage_path" },
-        )
-        .select("id")
-        .single();
-      if (mErr || !media) throw new Error(`média ${path} : ${messageErreur(mErr)}`);
-      slides.push({ position: s.position, media_id: media.id, url, position_sophia: Boolean(s.position_sophia) });
+      const { media_id, url } = await envoyer(path, binaires.get(`${langue}/${s.position}`)!, langue);
+      slides.push({ position: s.position, media_id, url, position_sophia: Boolean(s.position_sophia) });
+      sophia.get(langue)?.set(Number(s.position), { media_id, url, position_sophia: Boolean(s.position_sophia || s.position_app) });
     }
     sortie[langue] = { hashtags: String(deck.hashtags ?? "").trim(), slides };
   }
 
+  // Decks d'application : la slide de l'app (et toute autre image fournie) au
+  // stockage, le reste repris du deck Sophia de même langue et position.
+  const sortieApps: DecksApplicationsLivres = {};
+  for (const [app, parLangue] of Object.entries(decksApps)) {
+    sortieApps[app] = {};
+    for (const [langue, deck] of Object.entries(parLangue)) {
+      const slides: SlideAppLivree[] = [];
+      for (const s of [...deck.slides].sort((a, b) => a.position - b.position)) {
+        if (s.reprendre) {
+          const ref = sophia.get(langue)?.get(Number(s.position));
+          if (!ref?.media_id) throw new Error(`${app} ${langue} #${s.position} : image Sophia à reprendre introuvable`);
+          slides.push({ position: Number(s.position), media_id: ref.media_id, url: ref.url, position_sophia: false });
+          continue;
+        }
+        const path = `pods/${slug}/${sourceId}/${app}/${langue}/${s.position}.jpg`;
+        const { media_id, url } = await envoyer(path, binaires.get(`${app}/${langue}/${s.position}`)!, langue);
+        slides.push({ position: Number(s.position), media_id, url, position_sophia: estSlideApp(s) });
+      }
+      sortieApps[app][langue] = { hashtags: String(deck.hashtags ?? "").trim(), slides };
+    }
+  }
+  // Images reprises du contenu en ligne : l'URL vient de la médiathèque.
+  const sansUrl = Object.values(sortieApps)
+    .flatMap((l) => Object.values(l).flatMap((d) => d.slides))
+    .filter((s) => !s.url);
+  if (sansUrl.length) {
+    const { data: medias } = await supabase
+      .from("media_library")
+      .select("id, url")
+      .in("id", [...new Set(sansUrl.map((s) => s.media_id))]);
+    const urls = new Map(((medias ?? []) as { id: string; url: string }[]).map((m) => [m.id, m.url]));
+    for (const s of sansUrl) s.url = urls.get(s.media_id) ?? null;
+  }
+
   if (complement) {
-    const ligneLangues = {
+    const ligneLangues: Record<string, unknown> = {
       pod: slug,
       type: "langues",
-      source_id: `${sourceId}~langues`,
+      source_id: sourceLangues,
       source_url: body.source_url ? String(body.source_url) : null,
       titre: body.titre ? String(body.titre).slice(0, 160) : null,
       langue_source: langueSource,
@@ -238,22 +396,34 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
       statut: "a_valider",
     };
     // Une livraison « langues » encore en attente pour ce post : on y fusionne.
-    const { data: attente } = await supabase
-      .from("pod_livraisons")
-      .select("decks, statut")
-      .eq("pod", slug)
-      .eq("source_id", ligneLangues.source_id)
-      .maybeSingle();
-    if (attente?.statut === "a_valider") ligneLangues.decks = { ...(attente.decks ?? {}), ...sortie };
+    const enAttente = attente?.statut === "a_valider";
+    if (enAttente) ligneLangues.decks = { ...(attente.decks ?? {}), ...sortie };
+    if (avecApps) {
+      ligneLangues.decks_applications = enAttente ? fusionnerDecksApps(attente.decks_applications, sortieApps) : sortieApps;
+    } else if (attente && !enAttente && attente.decks_applications) {
+      // Livraison « langues » déjà validée, réutilisée : ses anciens decks
+      // d'application ne repartent pas en validation avec les nouvelles langues.
+      ligneLangues.decks_applications = null;
+    }
     const { data: l, error } = await supabase
       .from("pod_livraisons")
       .upsert(ligneLangues, { onConflict: "pod,source_id" })
       .select("id")
       .single();
     if (error || !l) throw new Error(`livraison langues : ${messageErreur(error)}`);
-    return json({ ok: true, id: l.id, type: "langues", langues: Object.keys(ligneLangues.decks) });
+    const appsFinales = "decks_applications" in ligneLangues
+      ? ligneLangues.decks_applications
+      : (enAttente ? attente.decks_applications : null);
+    return json({
+      ok: true,
+      id: l.id,
+      type: "langues",
+      langues: Object.keys(ligneLangues.decks as Record<string, unknown>),
+      applications: resumeDecksApps(appsFinales as DecksApplicationsLivres | null),
+    });
   }
 
+  const decksAppsFinal = avecApps ? fusionnerDecksApps(existante?.decks_applications, sortieApps) : null;
   const ligne = {
     pod: slug,
     type: "nouveau",
@@ -267,6 +437,8 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
     // Redépôt d'une livraison en attente : les langues redéposées remplacent les
     // anciennes, les autres restent.
     decks: { ...((existante?.decks as Record<string, unknown>) ?? {}), ...sortie },
+    // Colonne écrite seulement quand le dépôt en porte (0276 peut manquer).
+    ...(decksAppsFinal ? { decks_applications: decksAppsFinal } : {}),
     transcription: { textes: Array.isArray(body.textes) ? body.textes.map(String) : [] },
     statut: "a_valider",
   };
@@ -276,7 +448,32 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
     .select("id")
     .single();
   if (error || !livraison) throw new Error(`livraison : ${messageErreur(error)}`);
-  return json({ ok: true, id: livraison.id, type: "nouveau", langues: Object.keys(ligne.decks) });
+  return json({
+    ok: true,
+    id: livraison.id,
+    type: "nouveau",
+    langues: Object.keys(ligne.decks),
+    applications: resumeDecksApps(decksAppsFinal ?? existante?.decks_applications ?? null),
+  });
+}
+
+/** Slide Sophia connue, pour contrôler et reprendre dans un deck d'application. */
+type RefSlide = { media_id: string | null; url: string | null; position_sophia: boolean };
+type RefSlideDeck = { position: number; media_id?: string | null; url?: string | null; position_sophia?: boolean };
+
+/** Fusion par application PUIS par langue : une langue redéposée remplace l'ancienne. */
+function fusionnerDecksApps(
+  avant: DecksApplicationsLivres | null | undefined,
+  nouveau: DecksApplicationsLivres,
+): DecksApplicationsLivres {
+  const r: DecksApplicationsLivres = { ...(avant ?? {}) };
+  for (const [app, parLangue] of Object.entries(nouveau)) r[app] = { ...(r[app] ?? {}), ...parLangue };
+  return r;
+}
+
+/** `{ unswipe: ["fr"] }` */
+function resumeDecksApps(d: DecksApplicationsLivres | null | undefined): Record<string, string[]> {
+  return Object.fromEntries(Object.entries(d ?? {}).map(([app, parLangue]) => [app, Object.keys(parLangue ?? {})]));
 }
 
 const TIERS_FORCABLES = ["A", "B", "C"] as const;
@@ -417,6 +614,9 @@ async function valider(
     const medias = Object.values(decks).flatMap((d) => d.slides.map((s) => s.media_id));
     const { error: mErr } = await supabase.from("media_library").update({ contenu_id: contenu.id }).in("id", medias);
     if (mErr) throw mErr;
+    // Variantes par application fournies par le pod (0276) : decks prêts,
+    // réserve et rang de chaque application.
+    await ecrireDecksApplications(supabase, contenu.id, l, { tierForce, pertinenceScore: pertinence.score, pod: l.pod });
   } catch (e) {
     // Pas de contenu à moitié créé : il sortirait au tirage sans ses decks.
     await supabase.from("contenus").delete().eq("id", contenu.id);
@@ -463,16 +663,25 @@ async function validerLangues(supabase: Supabase, l: any, userId: string | null)
     hashtags: hashtags[langue] || null,
   }));
   // Une langue déjà présente est remplacée (nouvelle version), sans toucher à
-  // son compteur de passages.
-  const { error } = await supabase.from("contenu_langues").upsert(lignes, { onConflict: "contenu_id,langue" });
-  if (error) throw new Error(`langues : ${messageErreur(error)}`);
-  const medias = Object.values(decks).flatMap((d) => d.slides.map((s) => s.media_id));
-  await supabase.from("media_library").update({ contenu_id: l.contenu_id }).in("id", medias);
+  // son compteur de passages. (Vide : livraison qui n'apporte que des decks
+  // d'application.)
+  if (lignes.length) {
+    const { error } = await supabase.from("contenu_langues").upsert(lignes, { onConflict: "contenu_id,langue" });
+    if (error) throw new Error(`langues : ${messageErreur(error)}`);
+    const medias = Object.values(decks).flatMap((d) => d.slides.map((s) => s.media_id));
+    await supabase.from("media_library").update({ contenu_id: l.contenu_id }).in("id", medias);
+  }
+  const { data: contenu } = await supabase.from("contenus").select("pertinence_score").eq("id", l.contenu_id).maybeSingle();
+  const applications = await ecrireDecksApplications(supabase, l.contenu_id, l, {
+    tierForce: null,
+    pertinenceScore: contenu?.pertinence_score ?? null,
+    pod: l.pod,
+  });
   await supabase
     .from("pod_livraisons")
     .update({ statut: "validee", decide_par: userId, decide_le: new Date().toISOString(), motif: null })
     .eq("id", l.id);
-  return json({ ok: true, statut: "validee", contenu_id: l.contenu_id, langues: Object.keys(decks) });
+  return json({ ok: true, statut: "validee", contenu_id: l.contenu_id, langues: Object.keys(decks), applications });
 }
 
 /**

@@ -2343,7 +2343,7 @@ export const en = {
       fileTitre: "Next accounts queue (label + UGC)",
       fileApp: "{{app}} creators queue — a new {{app}} account gets the next label at creation.",
       fileDesc:
-        "On creating a {{app}} account: that language’s queue first (priority), else the general queue, else the least-used label among those serving {{app}}. FIFO: the first entry sets the label (and, for Sophia, whether the account is UGC). UGC AI VIDEO labels (e.g. test) stay out of this queue — they only go to creators of a video HM.",
+        "On creating a {{app}} account: that language’s queue first (priority), else the general queue, else a balanced pick among the labels serving {{app}} (each language follows each label’s share by stock and last-28-day views, never the same label 3 times in 4 accounts). FIFO: the first entry sets the label (and, for Sophia, whether the account is UGC). UGC AI VIDEO labels (e.g. test) stay out of this queue — they only go to creators of a video HM.",
       fileApplication: "App",
       fileApplicationAide:
         "Each app has its own queue. The new account takes the queue of the app chosen at its creation (Sophia by default).",
@@ -2360,14 +2360,14 @@ export const en = {
         "Priority for posters in {{langue}} — overrides the general queue while it isn’t empty.",
       filePrioritaire: "priority",
       fileLangueVide:
-        "Language queue empty — the next poster in this language will take the general queue (then least-used if that is empty too).",
+        "Language queue empty — the next poster in this language will take the general queue (then the balanced pick if that is empty too).",
       fileAutosave:
         "Saved immediately on every add / reorder — no need for the bottom Save button.",
       fileSauvee: "queue up to date",
       fileVideListe:
-        "General queue empty — only used when the poster’s language queue is empty; otherwise least-used.",
+        "General queue empty — only used when the poster’s language queue is empty; otherwise the balanced pick.",
       fileVide:
-        "Language + general queues are empty: we assign the least-used label for the creator’s language.",
+        "Language + general queues are empty: we assign a balanced label for the creator’s language (stock × views).",
       aucunLabel:
         "No labels in the database — create at least one (Library / Labels) before creating a poster.",
       aucunLabelUgc:

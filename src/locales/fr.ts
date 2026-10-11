@@ -2343,7 +2343,7 @@ export const fr = {
       fileTitre: "File des prochains comptes (label + UGC)",
       fileApp: "File des créateurs de {{app}} — un nouveau compte {{app}} prend le label suivant à sa création.",
       fileDesc:
-        "À la création d’un compte {{app}} : file de SA langue d’abord (prioritaire), sinon file générale, sinon le label le moins utilisé parmi ceux qui servent {{app}}. FIFO : la 1ʳᵉ entrée décide le label (et, pour Sophia, si le compte est UGC). Les labels UGC AI VIDEO (ex. test) n’entrent pas dans cette file : ils vont uniquement aux créateurs d’un HM vidéo.",
+        "À la création d’un compte {{app}} : file de SA langue d’abord (prioritaire), sinon file générale, sinon un choix équilibré parmi les labels qui servent {{app}} (chaque langue suit la part de chaque label selon son stock et ses vues des 28 derniers jours, jamais 3 fois le même label sur 4 comptes). FIFO : la 1ʳᵉ entrée décide le label (et, pour Sophia, si le compte est UGC). Les labels UGC AI VIDEO (ex. test) n’entrent pas dans cette file : ils vont uniquement aux créateurs d’un HM vidéo.",
       fileApplication: "Application",
       fileApplicationAide:
         "Chaque application a sa File. Le compte créé prend la File de l’application choisie à sa création (Sophia par défaut).",
@@ -2360,14 +2360,14 @@ export const fr = {
         "Prioritaire pour les posters en {{langue}} — surpasse la file générale tant qu’elle n’est pas vide.",
       filePrioritaire: "prioritaire",
       fileLangueVide:
-        "File langue vide — le prochain poster de cette langue prendra la file générale (puis least-used si elle est vide aussi).",
+        "File langue vide — le prochain poster de cette langue prendra la file générale (puis le choix équilibré si elle est vide aussi).",
       fileAutosave:
         "Enregistré immédiatement à chaque ajout / réordonnancement — pas besoin du bouton Enregistrer en bas.",
       fileSauvee: "file à jour",
       fileVideListe:
-        "File générale vide — utilisée seulement si la file de la langue du poster est vide ; sinon least-used.",
+        "File générale vide — utilisée seulement si la file de la langue du poster est vide ; sinon choix équilibré.",
       fileVide:
-        "Les files langue + générale sont vides : on assigne le label le moins utilisé pour la langue du créateur.",
+        "Les files langue + générale sont vides : on assigne un label équilibré pour la langue du créateur (stock × vues).",
       aucunLabel:
         "Aucun label en base — crée-en au moins un (Bibliothèque / Labels) avant de créer un poster.",
       aucunLabelUgc:

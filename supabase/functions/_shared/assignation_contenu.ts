@@ -39,7 +39,7 @@ import {
 import { LOT_IDS, decouperEnLots, lireParLots, lireTout } from "./lots.ts";
 import { avecMentionPublicite } from "./mention_publicite.ts";
 import { mapPool } from "./parallel.ts";
-import { contenusLivresHorsLangue } from "./pods.ts";
+import { contenusLivresHorsApplication, contenusLivresHorsLangue } from "./pods.ts";
 import { serviceClient } from "./supabase.ts";
 import {
   BANDES_AVANT_DERNIER_RECOURS,
@@ -2246,7 +2246,14 @@ async function choisirContenu(
   // Labels du compte → contenus prêts. Invariant pendant le run : mémoïsé (voir
   // le bloc « Mémo de RUN »), au lieu d'être relu à chaque tentative de pioche.
   // Contenus livrés par un pod sans deck dans la langue du compte : hors pool.
-  const horsLangue = await contenusLivresHorsLangue(supabase, langue);
+  // Créneau d'une autre application : il leur faut le deck de CETTE application
+  // fourni par le pod (jamais cuit pour un contenu livré).
+  const appSlot = opts.regle?.application && opts.regle.application.id !== ID_SOPHIA
+    ? opts.regle.application
+    : null;
+  const horsLangue = appSlot
+    ? await contenusLivresHorsApplication(supabase, langue, appSlot)
+    : await contenusLivresHorsLangue(supabase, langue);
   const contenus = (await poolContenusPrets(
     supabase,
     labelIds,

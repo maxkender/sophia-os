@@ -6,14 +6,14 @@
  * On ne choisit PAS le label. On choisit seulement l'application que le compte
  * promeut (Sophia par défaut). Le label est ensuite tiré par manage-users :
  * File des créateurs DE CETTE APPLICATION (file de la langue du compte, puis sa
- * file générale), et à défaut le label le moins utilisé parmi ceux qui servent
- * l'application (`label_applications`, un label sans ligne sert Sophia —
+ * file générale), et à défaut un choix équilibré (stock × vues, par langue)
+ * parmi les labels qui servent l'application (`label_applications`, un label sans ligne sert Sophia —
  * `applicationsDuLabel`).
  *
  * Contrat manage-users :
  * - Sophia → AUCUNE clé de plus : corps identique à celui d'avant, à l'octet
- *   près (File Sophia de la langue, puis File générale, puis label Sophia le
- *   moins utilisé) ;
+ *   près (File Sophia de la langue, puis File générale, puis choix équilibré
+ *   parmi les labels Sophia) ;
  * - autre application → `parts_applications = { <slug>: 100 }`, jamais
  *   `label_id`.
  */

@@ -216,8 +216,11 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
   choisit PAS le label : on choisit seulement l'**application du compte**
   (bloc « Application du compte », `ChoixApplicationsCreation`, dans les
   formulaires de création de Posters, de la fiche d'un créateur sans compte et
-  de /embauche). Une option par application ACTIVE, Sophia par défaut et
-  sélectionnée ; le bloc n'apparaît qu'à partir de deux applications actives,
+  de /embauche). Une CARTE cliquable par application ACTIVE (Sophia d'abord),
+  AUCUNE cochée d'avance : « Créer » sans choix affiche « tu dois choisir
+  l'application » et n'envoie rien (catalogue en lecture ou illisible :
+  choix exigé aussi, jamais Sophia d'office). Le bloc n'apparaît qu'à partir
+  de deux applications actives,
   pour un compte perso seulement, jamais pour un HM UGC AI vidéo. Le label est
   ensuite tiré par manage-users :
   1. File des créateurs DE CETTE APPLICATION pour la langue du compte

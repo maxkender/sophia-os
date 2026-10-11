@@ -272,7 +272,8 @@ export function HiringPosterPage() {
   // application, son recruteur choisit pour lui (le label, lui, est tiré de la
   // File des créateurs de cette application). Seulement pour un compte perso
   // (un compte CM n'a pas de label), et pas pour un HM UGC AI vidéo (ses
-  // créateurs suivent ses labels vidéo) ; Sophia (défaut) = corps d'avant.
+  // créateurs suivent ses labels vidéo). Rien de coché d'avance : il faut
+  // cliquer ; Sophia = corps d'avant.
   const choixApps = useChoixApplicationsCreation(
     peutChoisirApplicationsCompte(role) && !profil?.hm_ugc_ai_video && premierCompte === "perso",
     langue,
@@ -335,6 +336,8 @@ export function HiringPosterPage() {
           <form
             onSubmit={(e) => {
               e.preventDefault();
+              // Application du compte non choisie : le bloc le dit, rien ne part.
+              if (!choixApps.verifier()) return;
               setCree(null);
               creer.mutate();
             }}

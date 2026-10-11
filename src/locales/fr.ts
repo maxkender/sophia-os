@@ -1062,7 +1062,10 @@ export const fr = {
     },
     choixCompteCreation: {
       application: "Application du compte",
-      applicationDefaut: "{{app}} (par défaut)",
+      choisir: "Clique sur l’application que ce compte va promouvoir : aucune n’est choisie d’avance.",
+      choisirAvant: "Tu dois choisir l’application du compte avant de le créer.",
+      toutesLangues: "Toutes les langues",
+      relire: "Réessayer",
       aideLabel: "Le label n’est pas choisi ici : il sera pris dans la File des créateurs de {{app}} pour la langue du compte (puis sa file générale), sinon parmi les labels qui servent {{app}}.",
       aideAutreApplication: "Ce compte ne publiera que pour {{app}}, jamais de repli sur une autre application, et ne sera jamais UGC.",
       labelsPossibles: "Labels qui servent {{app}} : {{labels}}",

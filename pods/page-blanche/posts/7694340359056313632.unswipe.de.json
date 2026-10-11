@@ -1,0 +1,254 @@
+{
+ "post_id": "7694340359056313632",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 to habits to become",
+      "disgustingly productive"
+     ],
+     "fr": "10/10 habitudes pour devenir ultra productive",
+     "texte": "10/10 Gewohnheiten, um absurd produktiv zu werden"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(laut Neurowissenschaft)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "think for yourself instead",
+      "of relying on AI"
+     ],
+     "fr": "[[pense par toi-même]], pas par [[l'IA]]",
+     "texte": "[[denk selbst]], statt dich auf [[KI]] zu verlassen"
+    },
+    "T2": {
+     "en": [
+      "don’t ask AI what to think the second you hit",
+      "friction"
+     ],
+     "fr": "[[demande pas à l'IA]] quoi penser dès que ça coince",
+     "texte": "[[frag nicht die KI]], was du denken sollst, sobald es hakt"
+    },
+    "T3": {
+     "en": [
+      "sit with the problem, form your",
+      "own opinion, make a guess,",
+      "then use AI to challenge it"
+     ],
+     "fr": "creuse le problème, [[fais-toi ton avis]], tente une réponse, puis laisse l'IA la démonter",
+     "texte": "bleib am Problem dran, [[bild dir deine Meinung]], rate einfach, dann lass die KI dagegenhalten"
+    },
+    "T4": {
+     "en": [
+      "if you outsource every first",
+      "thought, your own judgment",
+      "never gets stronger"
+     ],
+     "fr": "si tu délègues toutes tes premières idées, [[ton jugement se muscle jamais]]",
+     "texte": "wenn du jeden ersten Gedanken abgibst, [[wird dein Urteil nie stärker]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop procrastinating and",
+      "make a first draft"
+     ],
+     "fr": "[[arrête de procrastiner]] et fais un premier jet",
+     "texte": "[[schieb nicht auf]] und mach einen ersten Entwurf"
+    },
+    "T2": {
+     "en": [
+      "an idiot in motion goes",
+      "further than a genius at",
+      "rest"
+     ],
+     "fr": "[[un idiot qui avance va plus loin qu'un génie assis]]",
+     "texte": "[[ein Idiot in Bewegung kommt weiter als ein Genie in Ruhe]]"
+    },
+    "T3": {
+     "en": [
+      "get the first draft out",
+      "first, even if it feels",
+      "embarrassing"
+     ],
+     "fr": "sors ton premier jet d'abord, [[même si t'as un peu honte]]",
+     "texte": "hau den ersten Entwurf raus, [[auch wenn er peinlich ist]]"
+    },
+    "T4": {
+     "en": [
+      "once something exists, you can fix it. staring at a blank",
+      "page gives you nothing to improve"
+     ],
+     "fr": "une fois que t'as un truc, tu peux le corriger. une page blanche, y'a rien à améliorer",
+     "texte": "sobald etwas da ist, kannst du es verbessern. ein leeres Blatt gibt dir nichts zum Verbessern"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "apprends [[au lieu de scroller]]",
+     "texte": "lies, [[statt zu scrollen]]"
+    },
+    "T2": {
+     "en": [
+      "short-form content destroys your attention span"
+     ],
+     "fr": "les vidéos courtes [[te bousillent la concentration]]",
+     "texte": "Kurzvideos [[zerstören deine Aufmerksamkeitsspanne]]"
+    },
+    "T3": {
+     "en": [
+      "books force you to stay with",
+      "one idea, remember what",
+      "came before, and actually",
+      "think"
+     ],
+     "fr": "apprendre te force à suivre une idée, à retenir ce qui précède et à vraiment réfléchir",
+     "texte": "Bücher zwingen dich, bei einer Idee zu bleiben, dir das Vorherige zu merken und echt nachzudenken"
+    },
+    "T4": {
+     "en": [
+      "i used to struggle with",
+      "doomscrolling too much"
+     ],
+     "fr": "[[avant, je doomscrollais]] beaucoup trop",
+     "texte": "[[zu viel Doomscrolling]]?"
+    },
+    "T5": {
+     "en": [
+      "until i found this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "puis j'ai remplacé le scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "[[die UnSwipe-App]] kann TikTok sperren und die Reels aus Instagram nehmen"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop checking your phone constantly"
+     ],
+     "fr": "arrête de checker ton tel [[H24]]",
+     "texte": "hör auf, [[ständig]] aufs Handy zu schauen"
+    },
+    "T2": {
+     "en": [
+      "instagram, tiktok, snapchat, random notifications"
+     ],
+     "fr": "instagram, tiktok, snapchat, notifs en tout genre",
+     "texte": "instagram, tiktok, snapchat, random Benachrichtigungen"
+    },
+    "T3": {
+     "en": [
+      "you're not going to miss",
+      "anything important by not",
+      "going on your phone!!"
+     ],
+     "fr": "tu vas [[rien rater d'important]] si tu vas pas sur ton tel!!",
+     "texte": "du [[verpasst nichts Wichtiges]], nur weil du nicht am Handy bist!!"
+    },
+    "T4": {
+     "en": [
+      "relax,"
+     ],
+     "fr": "relax,",
+     "texte": "chill,"
+    },
+    "T5": {
+     "en": [
+      "keep your phone away",
+      "when working/studying",
+      "until you're taking a break"
+     ],
+     "fr": "[[range ton tel quand tu bosses/révises]] jusqu'à ta pause",
+     "texte": "leg dein [[Handy weg beim Arbeiten/Lernen]], bis du Pause machst"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "protect your first 90 minutes"
+     ],
+     "fr": "protège tes [[90 premières minutes]]",
+     "texte": "schütz deine [[ersten 90 Minuten]]"
+    },
+    "T2": {
+     "en": [
+      "don’t spend your best attention on messages, email, or",
+      "scrolling"
+     ],
+     "fr": "gâche pas ton meilleur focus sur les messages, les mails ou le scroll",
+     "texte": "verschwende deinen besten Fokus nicht an Nachrichten, Mails, Scrollen"
+    },
+    "T3": {
+     "en": [
+      "use the first 60–90 minutes",
+      "for the hardest thing you",
+      "need to move forward"
+     ],
+     "fr": "mets [[tes 60–90 premières minutes sur la tâche la plus dure]] pour avancer",
+     "texte": "nutz die [[ersten 60–90 Minuten für das Schwierigste]], das dich weiterbringt"
+    },
+    "T4": {
+     "en": [
+      "once the day gets noisy,",
+      "that level of focus gets",
+      "much harder to recover"
+     ],
+     "fr": "dès que la journée s'agite, ce niveau de focus devient dur à retrouver",
+     "texte": "sobald der Tag laut wird, ist dieser Fokus viel schwerer zurückzuholen"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ },
+ "application": "unswipe"
+}

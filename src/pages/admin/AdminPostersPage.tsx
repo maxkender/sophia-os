@@ -578,7 +578,7 @@ export function AdminPostersPage() {
   const [ficheCompteId, setFicheCompteId] = React.useState<string | null>(null);
 
   // « Créer le premier compte » d'une fiche sans compte : même choix de
-  // l'application, repart de Sophia à chaque fiche ouverte.
+  // l'application, à refaire (rien de coché) à chaque fiche ouverte.
   const choixAppsPremier = useChoixApplicationsCreation(
     peutChoisirApps && ficheId !== null,
     (posters.data ?? []).find((p) => p.id === ficheId)?.langues[0] ?? "fr",
@@ -785,6 +785,8 @@ export function AdminPostersPage() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
+            // Application du compte non choisie : le bloc le dit, rien ne part.
+            if (!choixAppsPoster.verifier()) return;
             setCree(null);
             creer.mutate();
           }}
@@ -878,6 +880,9 @@ export function AdminPostersPage() {
             >
               {creer.isPending ? t("common.saving") : t("posters.create")}
             </Button>
+            {choixAppsPoster.signalerManquant && (
+              <p className="mt-2 text-sm text-destructive">{t("choixCompteCreation.choisirAvant")}</p>
+            )}
             {creer.isError && (
               <p className="mt-2 text-sm text-destructive">
                 {(creer.error as Error).message === "NO_LABELS"
@@ -1899,7 +1904,10 @@ export function AdminPostersPage() {
                       <Button
                         size="sm"
                         disabled={creerCompteVide.isPending || choixAppsPremier.bloque}
-                        onClick={() => creerCompteVide.mutate(fiche)}
+                        onClick={() => {
+                          if (!choixAppsPremier.verifier()) return;
+                          creerCompteVide.mutate(fiche);
+                        }}
                       >
                         {creerCompteVide.isPending ? t("common.saving") : t("posters.creerCompte")}
                       </Button>

@@ -1060,7 +1060,11 @@ export const en = {
     },
     choixCompteCreation: {
       application: "Account app",
-      applicationDefaut: "{{app}} (default)",
+      choisir: "Click the app this account will promote: none is picked in advance.",
+      choisirAvant: "You must choose the account’s app before creating it.",
+      chargement: "Loading apps…",
+      toutesLangues: "All languages",
+      relire: "Retry",
       aideLabel: "The label is not chosen here: it will be taken from the {{app}} creators queue for the account’s language (then its general queue), otherwise among the labels serving {{app}}.",
       aideAutreApplication: "This account will only publish for {{app}}, never falling back to another app, and will never be UGC.",
       labelsPossibles: "Labels serving {{app}}: {{labels}}",

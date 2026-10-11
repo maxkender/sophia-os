@@ -28,7 +28,7 @@ export function FormulaireAjouterCompte({
   languesProposees: string[];
   onCree?: () => void;
   /**
-   * Choix de l'application du compte (Sophia par défaut ; le label est tiré de
+   * Choix de l'application du compte (aucune cochée d'avance ; le label est tiré de
    * la File des créateurs de cette application), pour les rôles qui recrutent.
    * Faux (défaut) : mêmes champs, mêmes lectures et même requête qu'avant.
    */
@@ -82,6 +82,8 @@ export function FormulaireAjouterCompte({
       className="space-y-3 rounded-md border p-3"
       onSubmit={(e) => {
         e.preventDefault();
+        // Application du compte non choisie : le bloc le dit, rien ne part.
+        if (!choixApps.verifier()) return;
         creer.mutate();
       }}
     >

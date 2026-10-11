@@ -64,6 +64,11 @@ export const PART_MAX = 0.5;
 export const RAFALE_RECENTS = 2;
 const EPS = 1e-9;
 
+/** Clé de tri tolérante ET transitive : deux valeurs à moins de EPS près se valent. */
+function cle(x: number): number {
+  return Math.round(x / EPS);
+}
+
 function nombre(v: unknown): number {
   const n = Number(v);
   return Number.isFinite(n) ? n : 0;
@@ -166,13 +171,16 @@ export function classerLabels(stats: readonly StatLabelCreation[]): LabelClasse[
 
   return classes.sort((a, b) => {
     if (!tousEnRafale && a.rafale !== b.rafale) return a.rafale ? 1 : -1;
-    const aEnRetard = a.retardLangue > EPS;
-    const bEnRetard = b.retardLangue > EPS;
+    const aEnRetard = cle(a.retardLangue) > 0;
+    const bEnRetard = cle(b.retardLangue) > 0;
     if (aEnRetard !== bEnRetard) return aEnRetard ? -1 : 1;
-    if (a.recence !== b.recence) return a.recence - b.recence;
-    if (Math.abs(a.retardLangue - b.retardLangue) > EPS) return b.retardLangue - a.retardLangue;
-    if (Math.abs(a.retardFlotte - b.retardFlotte) > EPS) return b.retardFlotte - a.retardFlotte;
-    if (Math.abs(a.poids - b.poids) > EPS) return b.poids - a.poids;
+    // La récence ne départage que des labels EN RETARD : entre labels déjà
+    // servis, le moins en avance d'abord, sinon un petit label trop servi
+    // repasserait sans fin devant les gros.
+    if (aEnRetard && a.recence !== b.recence) return a.recence - b.recence;
+    if (cle(a.retardLangue) !== cle(b.retardLangue)) return cle(b.retardLangue) - cle(a.retardLangue);
+    if (cle(a.retardFlotte) !== cle(b.retardFlotte)) return cle(b.retardFlotte) - cle(a.retardFlotte);
+    if (cle(a.poids) !== cle(b.poids)) return cle(b.poids) - cle(a.poids);
     return a.label_id < b.label_id ? -1 : a.label_id > b.label_id ? 1 : 0;
   });
 }

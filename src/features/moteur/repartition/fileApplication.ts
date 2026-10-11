@@ -2,8 +2,8 @@
  * Réglages → « Warmup & file de labels » : une File des créateurs PAR
  * APPLICATION (`reglages.file_labels_comptes.par_application[slug]`). À la
  * création d'un compte, manage-users tire le label de la File de l'application
- * du compte (sa langue, puis sa file générale), sinon le label le moins utilisé
- * parmi ceux qui servent cette application. Décisions pures de l'éditeur.
+ * du compte (sa langue, puis sa file générale), sinon un choix équilibré
+ * (stock × vues, par langue) parmi les labels qui servent cette application. Décisions pures de l'éditeur.
  *
  * La tranche Sophia est écrite exactement comme avant
  * (`avecFileLabelsApplication` recopie aussi la file racine `items` /

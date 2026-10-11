@@ -248,6 +248,38 @@ Deno.test("pools au hasard (reproductibles) : un choix ne fait jamais 3 sur 4 co
   }
 });
 
+Deno.test("1000 créations, 2 gros labels + 1 petit : aucune dérive, chacun tient sa part", () => {
+  // Parts 50 (plafonnée) / 40 / 10 : le petit label ne doit pas repasser devant
+  // les gros parce qu'il a servi moins récemment.
+  for (const stocks of [[3600, 1600, 100], [2209, 1024, 256]]) {
+    const pool = stocks.map((stock, i) => stat({ label_id: `l${i}`, stock }));
+    const choix = simuler(pool, 1000);
+    const n = compter(choix);
+    for (const c of classerLabels(pool)) {
+      const ecart = Math.abs((n.get(c.label_id) ?? 0) - c.part * 1000);
+      assert(ecart < 5, `${stocks} : ${c.label_id} ${n.get(c.label_id)} pour ${(c.part * 1000).toFixed(1)}`);
+    }
+    assert(maxParFenetre(choix, 4) <= 2);
+  }
+});
+
+Deno.test("le choix ne dépend pas de l'ordre des lignes (même à 1e-9 près)", () => {
+  const presque = [
+    stat({ label_id: "a", passages: 1e9, perf_label: 1 }),
+    stat({ label_id: "b", passages: 1e9, perf_label: 1 + 2e-9, comptes_total: 1 }),
+    stat({ label_id: "c", passages: 1e9, perf_label: 1 + 4e-9, comptes_total: 2 }),
+  ];
+  const permutations = [[0, 1, 2], [0, 2, 1], [1, 0, 2], [1, 2, 0], [2, 0, 1], [2, 1, 0]];
+  const alea = lcg(7);
+  for (const pool of [presque, poolProd(), poolProd(2500)]) {
+    const ordres = pool.length === 3
+      ? permutations.map((p) => p.map((i) => pool[i]))
+      : Array.from({ length: 20 }, () => [...pool].sort(() => alea() - 0.5));
+    const choix = new Set(ordres.map((o) => choisirLabelEquilibre(o)));
+    assertEquals(choix.size, 1, `choix ${[...choix]}`);
+  }
+});
+
 Deno.test("le label du dernier compte de la langue attend s'il en reste un autre en retard", () => {
   const labels = [
     stat({ label_id: "a", stock: 900 }),

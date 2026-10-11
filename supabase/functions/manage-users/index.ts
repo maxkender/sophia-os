@@ -81,7 +81,8 @@ function resoudrePremierCompte(
  * Création poster : premier compte perso, CM, ou aucun (login seul).
  * File FIFO `file_labels_comptes` :
  *   { items: [...], par_langue: { fr: [...], de: [...] } }
- * Priorité : file de la langue du poster → file générale (`items`) → least-used.
+ * Priorité : file de la langue du poster → file générale (`items`) → choix
+ * équilibré (`labelMoinsUtiliseParLangue`).
  * Labels UGC AI VIDEO (ex. `test`) exclus de la file et du fallback — réservés
  * aux créateurs nés d'un HM `hm_ugc_ai_video`.
  * Hook et la marque `ugc-ai-video` ne sont JAMAIS posés sur un créateur.
@@ -96,11 +97,11 @@ function resoudrePremierCompte(
  *   - rien d'envoyé (Sophia) : chemin historique ci-dessus, inchangé ;
  *   - `parts_applications = { <slug>: 100 }` : File des créateurs de CETTE
  *     application (tranche `par_application[slug]`, langue puis générale), puis
- *     le moins utilisé parmi les labels qui la servent (aucun → 409
+ *     le choix équilibré parmi les labels qui la servent (aucun → 409
  *     NO_LABELS_APPLICATION). Hors Sophia, jamais UGC. `{ sophia: 100 }` =
  *     chemin historique, répartition écrite telle quelle ;
- *   - répartition à plusieurs applications : pas de File, moins utilisé parmi
- *     les labels qui les servent toutes ;
+ *   - répartition à plusieurs applications : pas de File, choix équilibré
+ *     parmi les labels qui les servent toutes ;
  *   - `label_id` (vieux client) : ce label, validé, sans File.
  * Éligibilité d'un label à une File et au repli : `label_applications` (un
  * label sans ligne sert Sophia), jamais la colonne historique
@@ -290,7 +291,7 @@ async function gererRequete(request: Request): Promise<Response> {
         if (!personaUgc) return json({ error: "NO_UGC_PERSONA" }, 409);
       } else if (choix) {
         // Application choisie : SA File (remise en tête de SA tranche si la
-        // création échoue plus bas), puis le moins utilisé de ses labels.
+        // création échoue plus bas), puis le choix équilibré parmi ses labels.
         const res = await resoudreChoixCompte(supabase, choix, langue);
         if (!res.ok) return res.reponse;
         fileItem = res.fileItem;
@@ -1044,8 +1045,8 @@ async function filtrerLabelsCompte(
  * (Sophia par défaut) :
  *   1) file de la langue (surpasse la générale)
  *   2) sinon file générale
- *   3) sinon label le moins utilisé parmi ceux qui servent l'application (ne
- *      consomme pas les files)
+ *   3) sinon choix équilibré parmi les labels qui servent l'application (ne
+ *      consomme pas les files ; cf. `labelMoinsUtiliseParLangue`)
  * Une entrée non éligible en tête (système, UGC AI VIDEO, ou label qui ne sert
  * pas l'application de la tranche selon `label_applications`) est sautée :
  * retirée, pas assignée. L'ensemble éligible est lu AVANT toute écriture.
@@ -1280,13 +1281,14 @@ async function preparerFileEtPersona(
  *
  *   - `application` (une seule application à 100 %) : File des créateurs de
  *     CETTE application (sa tranche : langue du compte, puis générale), puis le
- *     moins utilisé parmi les labels qui la servent (aucun → 409
+ *     choix équilibré parmi les labels qui la servent (aucun → 409
  *     NO_LABELS_APPLICATION). Sophia = `preparerFileEtPersona`, exactement le
  *     chemin historique (UGC compris). Hors Sophia : jamais UGC, pas de persona.
  *     L'entrée tirée revient dans `fileItemQueue` (avec SA tranche) : l'appelant
  *     la remet en tête si la création échoue ensuite ;
- *   - `repartition` (plusieurs applications) : pas de File, le moins utilisé
- *     dans la langue parmi les labels slideshow qui les servent toutes ;
+ *   - `repartition` (plusieurs applications) : pas de File, le choix
+ *     équilibré dans la langue parmi les labels slideshow qui les servent
+ *     toutes ;
  *   - `label` (`label_id` d'un vieux client) : ce label, s'il est slideshow et
  *     sert toutes les applications à part > 0 (sinon LABEL_INCOMPATIBLE).
  *

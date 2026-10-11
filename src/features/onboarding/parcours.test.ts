@@ -12,8 +12,10 @@
 
 import { describe, expect, it } from "vitest";
 
+import { ETATS_MICO } from "./Mico";
 import { DUREE_VIDEO_S, ECRANS, LIEN_GUIDE, QUESTIONS } from "./contenu";
 import {
+  basDePageAtteint,
   corrigerQuiz,
   etapeDeReprise,
   indexEcran,
@@ -42,6 +44,34 @@ describe("avancer d'un écran", () => {
     expect(secondesRestantes(5, 8)).toBe(3);
     expect(secondesRestantes(8, 8)).toBe(0);
     expect(secondesRestantes(40, 8)).toBe(0);
+  });
+});
+
+describe("bas de page", () => {
+  // Le bug de production du 11/10 : l'écran 1 tient entièrement dans le
+  // dialogue, donc rien à faire défiler, donc aucun événement de défilement, et
+  // le bouton restait « Scroll to the bottom » à vie.
+  it("un écran qui tient entièrement est lu d'emblée", () => {
+    expect(basDePageAtteint({ scrollHeight: 300, scrollTop: 0, clientHeight: 300 })).toBe(true);
+  });
+
+  it("un écran long n'est pas lu tant qu'on est en haut", () => {
+    expect(basDePageAtteint({ scrollHeight: 1200, scrollTop: 0, clientHeight: 300 })).toBe(false);
+  });
+
+  it("est lu une fois descendu en bas", () => {
+    expect(basDePageAtteint({ scrollHeight: 1200, scrollTop: 900, clientHeight: 300 })).toBe(true);
+  });
+
+  it("tolère les derniers pixels, sans tolérer le milieu", () => {
+    expect(basDePageAtteint({ scrollHeight: 1200, scrollTop: 880, clientHeight: 300 })).toBe(true);
+    expect(basDePageAtteint({ scrollHeight: 1200, scrollTop: 600, clientHeight: 300 })).toBe(false);
+  });
+
+  it("un conteneur pas encore mesuré ne conclut rien", () => {
+    // Pendant l'animation d'entrée du dialogue. Répondre « lu » ici ouvrirait
+    // le bouton sur un écran long sans l'avoir montré.
+    expect(basDePageAtteint({ scrollHeight: 1200, scrollTop: 0, clientHeight: 0 })).toBe(false);
   });
 });
 
@@ -127,6 +157,45 @@ describe("le contenu tient ses promesses", () => {
     expect(
       fin.blocs.some((b) => b.type === "lien" && b.href === LIEN_GUIDE),
     ).toBe(true);
+  });
+
+  it("chaque écran donne une humeur connue à Mico", () => {
+    for (const e of ECRANS) {
+      expect(ETATS_MICO, `écran ${e.cle}`).toContain(e.mico);
+    }
+  });
+
+  it("« how we work » est bien éclaté en trois écrans distincts", () => {
+    // Un seul écran empilait Slack, les paiements et la plateforme ; trois
+    // sujets sans rapport sur une même page, qu'on survole donc.
+    for (const cle of ["slack", "paiements", "plateforme"]) {
+      expect(indexEcran(cle), cle).toBeGreaterThanOrEqual(0);
+    }
+    expect(indexEcran("fonctionnement")).toBe(-1);
+  });
+
+  it("le créateur rejoint Vik Studios, pas Sophia", () => {
+    // Sophia est UNE des apps du studio, pas l'employeur. Le texte d'accueil
+    // présentait l'inverse ; le quiproquo revient vite si on ne le fige pas.
+    const texte = ECRANS.flatMap((e) => [
+      e.titre,
+      ...e.blocs.flatMap((b) =>
+        b.type === "p" || b.type === "titre"
+          ? [b.texte]
+          : b.type === "liste" || b.type === "etapes"
+          ? b.items
+          : b.type === "alerte"
+          ? [b.titre ?? "", ...b.items]
+          : [],
+      ),
+    ]).join(" ");
+    expect(texte).toContain("Vik Studios");
+    expect(texte).not.toMatch(/Sophia team|Welcome to Sophia|Sophia System/i);
+  });
+
+  it("aucune clé d'écran n'est en double", () => {
+    const cles = ECRANS.map((e) => e.cle);
+    expect(new Set(cles).size).toBe(cles.length);
   });
 
   it("le quiz est bien la dernière étape", () => {

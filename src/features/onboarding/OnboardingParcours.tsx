@@ -1,19 +1,15 @@
 import * as React from "react";
-import { ArrowLeft, ArrowRight, BookOpen, CheckCircle2, Lock } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen, Lock, PartyPopper, Sparkles } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogFooter,
-  DialogHeader,
-  DialogPopup,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogPopup } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import { enregistrerOnboardingEtape, marquerOnboardingVu } from "@/features/moteur/api";
 
+import { Mico, type EtatMico } from "./Mico";
 import { ECRANS, QUESTIONS, type Bloc } from "./contenu";
 import {
+  basDePageAtteint,
   corrigerQuiz,
   etapeDeReprise,
   indexEcran,
@@ -24,59 +20,99 @@ import {
   type CorrectionQuiz,
 } from "./parcours";
 
-function BlocVue({ bloc }: { bloc: Bloc }) {
+/** Les blocs entrent les uns après les autres, pas tous d'un coup. */
+const DECALAGE_MS = 70;
+
+function BlocVue({ bloc, rang }: { bloc: Bloc; rang: number }) {
+  const anime = "animate-in fade-in slide-in-from-bottom-2 duration-500 fill-mode-backwards";
+  const style = { animationDelay: `${rang * DECALAGE_MS}ms` };
+
   switch (bloc.type) {
     case "p":
-      return <p className="text-sm leading-relaxed">{bloc.texte}</p>;
+      return <p className={cn("text-sm leading-relaxed", anime)} style={style}>{bloc.texte}</p>;
     case "titre":
-      return <h3 className="pt-1 font-semibold text-sm tracking-tight">{bloc.texte}</h3>;
+      return (
+        <h3 className={cn("pt-1 font-semibold text-sm tracking-tight", anime)} style={style}>
+          {bloc.texte}
+        </h3>
+      );
     case "liste":
       return (
-        <ul className="list-disc space-y-1.5 pl-5 text-sm leading-relaxed">
-          {bloc.items.map((i) => <li key={i}>{i}</li>)}
+        <ul className={cn("space-y-1.5 text-sm leading-relaxed", anime)} style={style}>
+          {bloc.items.map((i) => (
+            <li key={i} className="flex gap-2">
+              <span aria-hidden className="mt-2 size-1.5 shrink-0 rounded-full bg-primary/60" />
+              <span>{i}</span>
+            </li>
+          ))}
         </ul>
       );
     case "etapes":
       return (
-        <ol className="list-decimal space-y-1.5 pl-5 text-sm leading-relaxed">
-          {bloc.items.map((i) => <li key={i}>{i}</li>)}
+        <ol className={cn("space-y-2 text-sm leading-relaxed", anime)} style={style}>
+          {bloc.items.map((i, n) => (
+            <li key={i} className="flex gap-2.5">
+              <span
+                aria-hidden
+                className="flex size-5 shrink-0 items-center justify-center rounded-full bg-primary/10 font-semibold text-[11px] text-primary tabular-nums"
+              >
+                {n + 1}
+              </span>
+              <span className="pt-px">{i}</span>
+            </li>
+          ))}
         </ol>
       );
     case "alerte":
       return (
         <div
           className={cn(
-            "rounded-lg border p-3 text-sm leading-relaxed",
+            "rounded-xl border p-3 text-sm leading-relaxed shadow-sm",
             bloc.ton === "rouge"
               ? "border-destructive/50 bg-destructive/10"
               : "border-warning/50 bg-warning/10",
+            anime,
           )}
+          style={style}
         >
-          {bloc.titre && <p className="mb-1.5 font-semibold">{bloc.titre}</p>}
+          {bloc.titre && (
+            <p className="mb-1.5 flex items-center gap-1.5 font-semibold">
+              <Sparkles className="size-3.5" />
+              {bloc.titre}
+            </p>
+          )}
           {bloc.items.length === 1
             ? <p className="font-medium">{bloc.items[0]}</p>
             : (
-              <ul className="list-disc space-y-1 pl-5">
-                {bloc.items.map((i) => <li key={i}>{i}</li>)}
+              <ul className="space-y-1">
+                {bloc.items.map((i) => (
+                  <li key={i} className="flex gap-2">
+                    <span aria-hidden className="mt-2 size-1.5 shrink-0 rounded-full bg-current opacity-50" />
+                    <span>{i}</span>
+                  </li>
+                ))}
               </ul>
             )}
         </div>
       );
     case "video":
       return (
-        <div className="aspect-video w-full overflow-hidden rounded-xl border bg-black">
+        <div
+          className={cn("aspect-video w-full overflow-hidden rounded-xl border bg-black shadow-lifted", anime)}
+          style={style}
+        >
           <iframe src={bloc.src} title={bloc.titre} allowFullScreen className="size-full" />
         </div>
       );
     case "lien":
       return (
-        <p className="text-sm leading-relaxed">
+        <p className={cn("text-sm leading-relaxed", anime)} style={style}>
           {bloc.avant && <span className="text-muted-foreground">{bloc.avant} </span>}
           <a
             href={bloc.href}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 font-medium text-primary underline underline-offset-2"
+            className="inline-flex items-center gap-1.5 font-medium text-primary underline underline-offset-2 transition-opacity hover:opacity-70"
           >
             <BookOpen className="size-3.5" />
             {bloc.libelle}
@@ -84,6 +120,25 @@ function BlocVue({ bloc }: { bloc: Bloc }) {
         </p>
       );
   }
+}
+
+/** Les pastilles de progression : où on en est, d'un coup d'œil. */
+function Pastilles({ etape }: { etape: number }) {
+  return (
+    <div className="flex items-center gap-1.5" aria-hidden>
+      {Array.from({ length: NB_ETAPES }, (_, i) => (
+        <span
+          key={i}
+          className={cn(
+            "h-1.5 rounded-full transition-all duration-500",
+            i < etape && "w-1.5 bg-primary/40",
+            i === etape && "w-6 bg-primary",
+            i > etape && "w-1.5 bg-muted",
+          )}
+        />
+      ))}
+    </div>
+  );
 }
 
 function Quiz({
@@ -102,12 +157,13 @@ function Quiz({
         Four quick questions, to be sure nothing important was missed. You need all four right.
       </p>
       {QUESTIONS.map((q, n) => (
-        <fieldset key={q.cle} className="space-y-2">
+        <fieldset
+          key={q.cle}
+          className="animate-in fade-in slide-in-from-bottom-2 space-y-2 fill-mode-backwards duration-500"
+          style={{ animationDelay: `${n * DECALAGE_MS}ms` }}
+        >
           <legend
-            className={cn(
-              "font-medium text-sm",
-              verdict && ratees.has(q.cle) && "text-destructive",
-            )}
+            className={cn("font-medium text-sm", verdict && ratees.has(q.cle) && "text-destructive")}
           >
             {n + 1}. {q.question}
           </legend>
@@ -115,8 +171,10 @@ function Quiz({
             <label
               key={option}
               className={cn(
-                "flex cursor-pointer items-start gap-2.5 rounded-lg border p-2.5 text-sm transition-colors",
-                reponses[q.cle] === index ? "border-primary bg-primary/5" : "hover:bg-muted/50",
+                "flex cursor-pointer items-start gap-2.5 rounded-xl border p-2.5 text-sm transition-all",
+                reponses[q.cle] === index
+                  ? "border-primary bg-primary/5 shadow-sm"
+                  : "hover:border-primary/40 hover:bg-muted/50",
               )}
             >
               <input
@@ -136,13 +194,16 @@ function Quiz({
 }
 
 /**
- * Le parcours d'accueil d'un créateur slideshow : six écrans puis un quiz.
+ * Le parcours d'accueil d'un créateur slideshow : huit écrans, puis un quiz.
  *
  * Il ne se ferme pas : ni croix, ni Échap, ni clic à côté. « Next » reste
  * verrouillé tant que l'écran n'a pas été déroulé jusqu'en bas ET que son
- * attente n'est pas purgée (`Ecran.attente`) ; le bouton affiche le décompte,
- * sinon il passerait pour cassé. Le quiz final est le vrai verrou : quatre
- * questions, une faute renvoie à l'écran concerné.
+ * attente n'est pas purgée (`Ecran.attente`). Le bouton se remplit au fil de
+ * l'attente et dit ce qui manque, sinon il passerait pour cassé. Le quiz final
+ * est le vrai verrou : quatre questions, une faute renvoie à l'écran concerné.
+ *
+ * Mico commente : il salue, réfléchit, s'étonne sur l'écran qui compte, pleure
+ * sur une mauvaise réponse et fait la fête à la fin.
  *
  * `simulation` : l'aperçu admin. Rien n'est écrit en base et la croix revient,
  * sinon on enfermerait l'admin dans l'accueil d'un créateur.
@@ -168,31 +229,44 @@ export function OnboardingParcours({
   const ecran = surQuiz ? null : ECRANS[etape];
   const attente = ecran?.attente ?? 0;
 
-  // Changement d'écran : on repart du haut, le chrono redémarre, et un écran
-  // trop court pour défiler est « lu » d'emblée — sinon son bouton ne
-  // s'ouvrirait jamais, faute de scroll possible.
+  /**
+   * Remesure, et n'ouvre jamais dans l'autre sens : une fois le bas atteint,
+   * il le reste. Appelée souvent (montage, défilement, redimensionnement,
+   * chaque seconde) parce qu'une mesure unique se prend pendant l'animation
+   * d'entrée du dialogue, quand la hauteur vaut encore zéro — c'est ce qui
+   * avait verrouillé l'écran 1 en production.
+   */
+  const verifierBas = React.useCallback(() => {
+    const el = corps.current;
+    if (el && basDePageAtteint(el)) setBasAtteint(true);
+  }, []);
+
   React.useLayoutEffect(() => {
     setEcoulees(0);
     setBasAtteint(false);
-    const el = corps.current;
-    if (!el) return;
-    el.scrollTop = 0;
-    const id = requestAnimationFrame(() => {
-      if (el.scrollHeight - el.clientHeight <= 4) setBasAtteint(true);
-    });
+    if (corps.current) corps.current.scrollTop = 0;
+    const id = requestAnimationFrame(verifierBas);
     return () => cancelAnimationFrame(id);
-  }, [etape]);
+  }, [etape, verifierBas]);
+
+  // Le contenu arrive en retard (vidéo, polices, fin de l'animation) : on
+  // réagit au redimensionnement plutôt que d'espérer.
+  React.useEffect(() => {
+    const el = corps.current;
+    if (!el || typeof ResizeObserver === "undefined") return;
+    const ro = new ResizeObserver(verifierBas);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [etape, verifierBas]);
 
   React.useEffect(() => {
     if (surQuiz) return;
-    const id = setInterval(() => setEcoulees((s) => s + 1), 1000);
+    const id = setInterval(() => {
+      setEcoulees((s) => s + 1);
+      verifierBas(); // filet : l'état est rattrapé en une seconde quoi qu'il arrive
+    }, 1000);
     return () => clearInterval(id);
-  }, [surQuiz]);
-
-  const surScroll = (e: React.UIEvent<HTMLDivElement>) => {
-    const el = e.currentTarget;
-    if (el.scrollHeight - el.scrollTop - el.clientHeight <= 24) setBasAtteint(true);
-  };
+  }, [surQuiz, verifierBas]);
 
   const allerA = (n: number) => {
     setEtape(n);
@@ -201,17 +275,14 @@ export function OnboardingParcours({
 
   const reste = secondesRestantes(ecoulees, attente);
   const ouvert = peutAvancer({ ecoulees, attente, basAtteint });
+  const remplissage = attente > 0 ? Math.min(100, (ecoulees / attente) * 100) : 100;
 
   const valider = () => {
     const resultat = corrigerQuiz(reponses);
     setVerdict(resultat);
     if (!resultat.reussi) return;
     setTermine(true);
-    if (simulation) {
-      onTermine?.();
-      return;
-    }
-    void marquerOnboardingVu().then(() => onTermine?.());
+    if (!simulation) void marquerOnboardingVu();
   };
 
   const relire = () => {
@@ -220,7 +291,14 @@ export function OnboardingParcours({
     if (cible >= 0) setEtape(cible);
   };
 
-  const progression = Math.round(((etape + 1) / NB_ETAPES) * 100);
+  /** Mico suit l'écran, et le quiz le fait réagir. */
+  const humeur: EtatMico = termine
+    ? "celebrate"
+    : surQuiz
+    ? (verdict && verdict.complet && !verdict.reussi ? "sad" : "think")
+    : (ecran?.mico ?? "idle");
+
+  const titre = termine ? "You're all set!" : surQuiz ? "One last thing" : ecran?.titre;
 
   return (
     <Dialog open disablePointerDismissal={!simulation}>
@@ -232,84 +310,130 @@ export function OnboardingParcours({
           if (e.key === "Escape") e.preventDefault();
         }}
       >
-        <DialogHeader>
-          {simulation && (
-            <span className="w-fit rounded-md bg-warning/20 px-2 py-0.5 font-medium text-warning-foreground text-xs">
-              Preview — nothing is saved
-            </span>
-          )}
-          <DialogTitle className="text-base">
-            {surQuiz ? "One last thing" : ecran?.titre}
-          </DialogTitle>
-          <div className="flex items-center gap-2">
-            <div className="h-1 flex-1 overflow-hidden rounded-full bg-muted">
-              <div
-                className="h-full rounded-full bg-primary transition-[width] duration-300"
-                style={{ width: `${progression}%` }}
-              />
-            </div>
-            <span className="shrink-0 text-muted-foreground text-xs tabular-nums">
-              {etape + 1} / {NB_ETAPES}
-            </span>
+        {/* Bandeau : Mico a sa petite scène à lui, pas un coin de marge. */}
+        <div className="relative flex items-start gap-3 overflow-hidden rounded-t-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-transparent p-6 pb-4 max-sm:rounded-none">
+          <div
+            key={humeur}
+            className="w-20 shrink-0 animate-in zoom-in-50 duration-500 sm:w-24"
+          >
+            <Mico etat={humeur} />
           </div>
-        </DialogHeader>
-
-        <div
-          ref={corps}
-          onScroll={surScroll}
-          className="max-h-[56vh] space-y-3 overflow-y-auto px-6 py-1"
-        >
-          {surQuiz
-            ? <Quiz reponses={reponses} onRepondre={(cle, i) => {
-              setReponses((r) => ({ ...r, [cle]: i }));
-              setVerdict(null);
-            }} verdict={verdict} />
-            : ecran?.blocs.map((bloc, i) => <BlocVue key={`${ecran.cle}-${i}`} bloc={bloc} />)}
-
-          {surQuiz && verdict && !verdict.complet && (
-            <p className="text-destructive text-sm">Please answer all four questions.</p>
-          )}
-          {surQuiz && verdict?.complet && !verdict.reussi && (
-            <div className="space-y-2 rounded-lg border border-destructive/50 bg-destructive/10 p-3 text-sm">
-              <p className="font-medium">
-                {verdict.fausses.length === 1
-                  ? "One answer is not right."
-                  : `${verdict.fausses.length} answers are not right.`}{" "}
-                Let's read that part again.
-              </p>
-              <Button size="sm" variant="outline" onClick={relire}>
-                <ArrowLeft />
-                Re-read it
-              </Button>
+          <div className="min-w-0 flex-1 space-y-2 pt-1">
+            {simulation && (
+              <span className="inline-block rounded-md bg-warning/20 px-2 py-0.5 font-medium text-warning-foreground text-xs">
+                Preview, nothing is saved
+              </span>
+            )}
+            <h2 key={titre} className="animate-in fade-in slide-in-from-right-2 font-semibold text-base tracking-tight duration-400">
+              {titre}
+            </h2>
+            <div className="flex items-center gap-2">
+              <Pastilles etape={Math.min(etape, NB_ETAPES - 1)} />
+              <span className="ml-auto shrink-0 text-muted-foreground text-xs tabular-nums">
+                {Math.min(etape + 1, NB_ETAPES)} / {NB_ETAPES}
+              </span>
             </div>
-          )}
+          </div>
         </div>
 
-        <DialogFooter className="border-t">
+        <div ref={corps} onScroll={verifierBas} className="max-h-[52vh] overflow-y-auto px-6 py-1">
+          {termine
+            ? (
+              <div className="animate-in fade-in zoom-in-95 space-y-2 py-4 text-center duration-500">
+                <p className="font-semibold text-lg">Welcome to the team!</p>
+                <p className="text-muted-foreground text-sm">
+                  You know everything you need to post your first slideshow. See you on Slack.
+                </p>
+              </div>
+            )
+            : (
+              <div key={etape} className="space-y-3">
+                {surQuiz
+                  ? (
+                    <Quiz
+                      reponses={reponses}
+                      onRepondre={(cle, i) => {
+                        setReponses((r) => ({ ...r, [cle]: i }));
+                        setVerdict(null);
+                      }}
+                      verdict={verdict}
+                    />
+                  )
+                  : ecran?.blocs.map((bloc, i) => (
+                    <BlocVue key={`${ecran.cle}-${i}`} bloc={bloc} rang={i} />
+                  ))}
+
+                {surQuiz && verdict && !verdict.complet && (
+                  <p className="animate-in fade-in text-destructive text-sm">
+                    Please answer all four questions.
+                  </p>
+                )}
+                {surQuiz && verdict?.complet && !verdict.reussi && (
+                  <div className="animate-in fade-in slide-in-from-bottom-2 space-y-2 rounded-xl border border-destructive/50 bg-destructive/10 p-3 text-sm duration-300">
+                    <p className="font-medium">
+                      {verdict.fausses.length === 1
+                        ? "One answer is not right."
+                        : `${verdict.fausses.length} answers are not right.`}{" "}
+                      Let's read that part again.
+                    </p>
+                    <Button size="sm" variant="outline" onClick={relire}>
+                      <ArrowLeft />
+                      Re-read it
+                    </Button>
+                  </div>
+                )}
+              </div>
+            )}
+        </div>
+
+        <div className="flex items-center gap-2 border-t p-4 sm:p-6">
           {etape > 0 && !termine && (
             <Button variant="ghost" onClick={() => setEtape(etape - 1)}>
               <ArrowLeft />
               Back
             </Button>
           )}
-          {surQuiz
-            ? (
-              <Button onClick={valider} disabled={termine}>
-                <CheckCircle2 />
-                {termine ? "All good!" : "Finish"}
-              </Button>
-            )
-            : (
-              <Button onClick={() => allerA(etape + 1)} disabled={!ouvert}>
-                {ouvert ? <ArrowRight /> : <Lock />}
-                {reste > 0
-                  ? `Next (${reste}s)`
-                  : basAtteint
-                  ? "Next"
-                  : "Scroll to the bottom"}
-              </Button>
-            )}
-        </DialogFooter>
+          <div className="ml-auto">
+            {termine
+              ? (
+                <Button onClick={() => onTermine?.()} className="animate-in zoom-in-95 duration-300">
+                  <PartyPopper />
+                  Let's go!
+                </Button>
+              )
+              : surQuiz
+              ? (
+                <Button onClick={valider}>
+                  <Sparkles />
+                  Check my answers
+                </Button>
+              )
+              : (
+                <Button
+                  onClick={() => allerA(etape + 1)}
+                  disabled={!ouvert}
+                  className={cn("relative overflow-hidden", ouvert && "animate-fade-in")}
+                >
+                  {/* Le remplissage dit combien d'attente il reste, sans chiffre à lire. */}
+                  {!ouvert && (
+                    <span
+                      aria-hidden
+                      className="absolute inset-y-0 left-0 bg-foreground/10 transition-[width] duration-1000 ease-linear"
+                      style={{ width: `${remplissage}%` }}
+                    />
+                  )}
+                  <span className="relative inline-flex items-center gap-2">
+                    {ouvert ? <ArrowRight /> : <Lock />}
+                    {!basAtteint
+                      ? "Scroll to the bottom"
+                      : reste > 0
+                      ? `Next (${reste}s)`
+                      : "Next"}
+                  </span>
+                </Button>
+              )}
+          </div>
+        </div>
       </DialogPopup>
     </Dialog>
   );

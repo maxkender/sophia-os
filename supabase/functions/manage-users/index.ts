@@ -27,8 +27,9 @@ import {
   valeurFileLabels,
 } from "../_shared/file_labels_comptes.ts";
 import { filtrerPoolParApplication } from "../_shared/labels_repli.ts";
+import { choisirLabelEquilibre, normaliserStatLabel } from "../_shared/choix_label_equilibre.ts";
 import { lireTout } from "../_shared/lots.ts";
-import type { PartsApplications } from "../_shared/multi_app.ts";
+import { ID_SOPHIA, type PartsApplications } from "../_shared/multi_app.ts";
 import { appliquerIdentiteInstantanee } from "../_shared/persona.ts";
 import { cibleComptePapier, motDePasseComptePapier } from "../_shared/papier_cm_compte.ts";
 import { estRoleManager, rattachementNouvelHm, roleACreer } from "../_shared/roles.ts";
@@ -80,7 +81,8 @@ function resoudrePremierCompte(
  * Création poster : premier compte perso, CM, ou aucun (login seul).
  * File FIFO `file_labels_comptes` :
  *   { items: [...], par_langue: { fr: [...], de: [...] } }
- * Priorité : file de la langue du poster → file générale (`items`) → least-used.
+ * Priorité : file de la langue du poster → file générale (`items`) → choix
+ * équilibré (`labelMoinsUtiliseParLangue`).
  * Labels UGC AI VIDEO (ex. `test`) exclus de la file et du fallback — réservés
  * aux créateurs nés d'un HM `hm_ugc_ai_video`.
  * Hook et la marque `ugc-ai-video` ne sont JAMAIS posés sur un créateur.
@@ -95,11 +97,11 @@ function resoudrePremierCompte(
  *   - rien d'envoyé (Sophia) : chemin historique ci-dessus, inchangé ;
  *   - `parts_applications = { <slug>: 100 }` : File des créateurs de CETTE
  *     application (tranche `par_application[slug]`, langue puis générale), puis
- *     le moins utilisé parmi les labels qui la servent (aucun → 409
+ *     le choix équilibré parmi les labels qui la servent (aucun → 409
  *     NO_LABELS_APPLICATION). Hors Sophia, jamais UGC. `{ sophia: 100 }` =
  *     chemin historique, répartition écrite telle quelle ;
- *   - répartition à plusieurs applications : pas de File, moins utilisé parmi
- *     les labels qui les servent toutes ;
+ *   - répartition à plusieurs applications : pas de File, choix équilibré
+ *     parmi les labels qui les servent toutes ;
  *   - `label_id` (vieux client) : ce label, validé, sans File.
  * Éligibilité d'un label à une File et au repli : `label_applications` (un
  * label sans ligne sert Sophia), jamais la colonne historique
@@ -289,7 +291,7 @@ async function gererRequete(request: Request): Promise<Response> {
         if (!personaUgc) return json({ error: "NO_UGC_PERSONA" }, 409);
       } else if (choix) {
         // Application choisie : SA File (remise en tête de SA tranche si la
-        // création échoue plus bas), puis le moins utilisé de ses labels.
+        // création échoue plus bas), puis le choix équilibré parmi ses labels.
         const res = await resoudreChoixCompte(supabase, choix, langue);
         if (!res.ok) return res.reponse;
         fileItem = res.fileItem;
@@ -1043,8 +1045,8 @@ async function filtrerLabelsCompte(
  * (Sophia par défaut) :
  *   1) file de la langue (surpasse la générale)
  *   2) sinon file générale
- *   3) sinon label le moins utilisé parmi ceux qui servent l'application (ne
- *      consomme pas les files)
+ *   3) sinon choix équilibré parmi les labels qui servent l'application (ne
+ *      consomme pas les files ; cf. `labelMoinsUtiliseParLangue`)
  * Une entrée non éligible en tête (système, UGC AI VIDEO, ou label qui ne sert
  * pas l'application de la tranche selon `label_applications`) est sautée :
  * retirée, pas assignée. L'ensemble éligible est lu AVANT toute écriture.
@@ -1279,13 +1281,14 @@ async function preparerFileEtPersona(
  *
  *   - `application` (une seule application à 100 %) : File des créateurs de
  *     CETTE application (sa tranche : langue du compte, puis générale), puis le
- *     moins utilisé parmi les labels qui la servent (aucun → 409
+ *     choix équilibré parmi les labels qui la servent (aucun → 409
  *     NO_LABELS_APPLICATION). Sophia = `preparerFileEtPersona`, exactement le
  *     chemin historique (UGC compris). Hors Sophia : jamais UGC, pas de persona.
  *     L'entrée tirée revient dans `fileItemQueue` (avec SA tranche) : l'appelant
  *     la remet en tête si la création échoue ensuite ;
- *   - `repartition` (plusieurs applications) : pas de File, le moins utilisé
- *     dans la langue parmi les labels slideshow qui les servent toutes ;
+ *   - `repartition` (plusieurs applications) : pas de File, le choix
+ *     équilibré dans la langue parmi les labels slideshow qui les servent
+ *     toutes ;
  *   - `label` (`label_id` d'un vieux client) : ce label, s'il est slideshow et
  *     sert toutes les applications à part > 0 (sinon LABEL_INCOMPATIBLE).
  *
@@ -1387,13 +1390,27 @@ async function resoudreChoixCompte(
   };
 }
 
+/** Derniers comptes de la langue regardés contre les rafales (cf. choix équilibré). */
+const RECENTS_LABEL_LANGUE = 3;
+
 /**
- * Label avec le moins de comptes actifs dans la langue (ou global si langue
- * vide), parmi les labels slideshow qui servent l'application
- * (`label_applications`, Sophia par défaut).
+ * Label d'un compte créé quand la File des créateurs n'impose rien, parmi les
+ * labels slideshow qui servent l'application (`label_applications`, Sophia par
+ * défaut) — `applicationsRequises` (répartition à plusieurs applications) : le
+ * label doit les servir TOUTES.
  *
- * `applicationsRequises` (répartition à plusieurs applications) : le label doit
- * servir TOUTES ces applications.
+ * Choix ÉQUILIBRÉ, sans hasard (`_shared/choix_label_equilibre.ts`) : la langue
+ * du compte suit la part de chaque label (√stock × performance des 28 derniers
+ * jours, rapportée à la langue des posts ; part plafonnée à 1/2), jamais 3 fois
+ * le même label sur 4 comptes de la langue, et pas celui du dernier compte tant
+ * qu'un autre est en retard ; la flotte départage. Les chiffres viennent de
+ * `stats_choix_label_creation` (0275) en une lecture ; si elle échoue, repli
+ * sur l'ancien « moins de comptes actifs dans la langue » : une création ne
+ * casse jamais pour ça.
+ *
+ * Limite connue : deux créations dans la même langue à la même seconde lisent
+ * les mêmes chiffres et reçoivent le même label (le lien compte ↔ label n'est
+ * écrit qu'après) ; la création suivante rééquilibre.
  *
  * La colonne historique `labels.application_id` n'est jamais lue : elle vaut
  * Sophia pour tout label créé dans l'OS, même « Unswipe seul ».
@@ -1427,12 +1444,46 @@ async function labelMoinsUtiliseParLangue(
   }
   if (pool.length === 0) return null;
 
+  // Sans langue (jamais à la création : elle est requise), l'ancien choix global.
+  const langueStats = String(langue ?? "").trim().toLowerCase();
+  if (!langueStats) return await labelMoinsUtiliseRepli(supabase, langue, pool);
+  // Stock et performance : ceux de l'application du compte. Répartition à
+  // plusieurs applications : Sophia si elle en est, sinon la première.
+  const appStats = requises
+    ? (requises.includes(ID_SOPHIA) ? ID_SOPHIA : requises[0])
+    : (opts.applicationId ?? null);
+  const { data: stats, error } = await supabase.rpc("stats_choix_label_creation", {
+    p_labels: pool,
+    p_application: appStats,
+    p_langue: langueStats,
+    p_recents: RECENTS_LABEL_LANGUE,
+  });
+  if (!error && Array.isArray(stats)) {
+    const choix = choisirLabelEquilibre(
+      (stats as Record<string, unknown>[])
+        .map(normaliserStatLabel)
+        .filter((st) => pool.includes(st.label_id)),
+    );
+    if (choix) return choix;
+  }
+  console.warn(
+    `[manage-users] choix équilibré indisponible (${error?.message ?? "aucune ligne"}) : repli « moins utilisé »`,
+  );
+  return await labelMoinsUtiliseRepli(supabase, langue, pool);
+}
+
+/** L'ancien choix : moins de comptes actifs dans la langue, égalités au hasard. */
+async function labelMoinsUtiliseRepli(
+  supabase: Supabase,
+  langue: string,
+  pool: readonly string[],
+): Promise<string | null> {
   const counts = new Map<string, number>(pool.map((id) => [id, 0]));
   let q = supabase
     .from("compte_labels")
     .select("label_id, comptes!inner(langue, is_active)")
     .eq("comptes.is_active", true)
-    .in("label_id", pool);
+    .in("label_id", [...pool]);
   if (langue) q = q.eq("comptes.langue", langue);
   const { data: usages } = await q;
   for (const u of usages ?? []) {

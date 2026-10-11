@@ -223,14 +223,21 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
   1. File des créateurs DE CETTE APPLICATION pour la langue du compte
      (`reglages.file_labels_comptes.par_application[slug].par_langue[langue]`),
   2. puis sa file générale (`par_application[slug].items`),
-  3. sinon le label le moins utilisé parmi les labels qui servent cette
-     application (`label_applications`, un label sans ligne sert Sophia ; la
-     colonne historique `labels.application_id` n'est plus lue).
+  3. sinon le choix ÉQUILIBRÉ parmi les labels qui servent cette application
+     (`label_applications`, un label sans ligne sert Sophia ; la colonne
+     historique `labels.application_id` n'est plus lue) : sans hasard, la
+     langue du compte suit la part de chaque label (√stock × performance des
+     28 derniers jours rapportée à la langue des posts, part plafonnée à 1/2),
+     jamais 3 fois le même label sur 4 comptes de la langue, et pas celui du
+     dernier compte tant qu'un autre est en retard
+     (`_shared/choix_label_equilibre.ts`, chiffres lus par
+     `stats_choix_label_creation`, migration 0275 ; si la lecture échoue,
+     repli sur l'ancien « moins utilisé »).
 
   Contrat du corps (inchangé) :
   - Sophia → AUCUNE clé de plus : corps d'avant à l'octet près, donc même
     résultat qu'aujourd'hui (File Sophia de la langue, puis File générale
-    Sophia, puis label Sophia le moins utilisé). Toutes les embauches
+    Sophia, puis choix équilibré parmi les labels Sophia). Toutes les embauches
     d'aujourd'hui passent par là ;
   - autre application → `parts_applications = { <slug>: 100 }`, jamais
     `label_id` (le front ne l'envoie plus). Répartition exclusive : le compte

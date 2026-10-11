@@ -11,6 +11,7 @@ import {
   type ReviewVideo,
 } from "@/features/reviews/fileJour";
 import { extensionVideo } from "@/features/reviews/videoRemarque";
+import { normaliserZone, ZONE_LONGUEUR_MAX } from "@/features/hiring/zones";
 import { estRoleManager } from "@/features/auth/roles";
 import type { Role } from "@/features/auth/AuthContext";
 import type { EvenementEtape } from "@/features/moteur/nettoyageEtapes";
@@ -77,6 +78,12 @@ import {
 } from "./creationManuelle";
 import type { CompteIdentifiants, CompteResumePoster, TypeCompte } from "./types";
 import type { ReponseSuiviRc } from "@/features/revenuecat/types";
+import {
+  decouperLignesNdjson,
+  type AssignationABlancLog,
+  type AssignationABlancResultat,
+} from "./assignationABlanc";
+import type { ContenusABlancResultat, SlideshowABlanc } from "./contenusABlanc";
 
 export type { EloImportRapport };
 export type { ApplicationOs };
@@ -102,6 +109,14 @@ export function aujourdhui(): string {
 /** Jour calendaire Paris (YYYY-MM-DD) — aligné sur minuit / assignation / alertes. */
 export function aujourdhuiParis(): string {
   return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(new Date());
+}
+
+/** Jour Paris de DEMAIN (YYYY-MM-DD) : celui que prépare la prochaine nuit. */
+export function demainParis(maintenant: Date = new Date()): string {
+  const jour = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(maintenant);
+  const d = new Date(`${jour}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + 1);
+  return d.toISOString().slice(0, 10);
 }
 
 /** Jour Paris d'un timestamptz ISO (ou null). */
@@ -438,6 +453,29 @@ export async function listerComptes(): Promise<CompteAvecDetails[]> {
   });
 }
 
+/**
+ * Page Posters seulement : les comptes actifs ET les comptes en sommeil
+ * (`is_active = false`, ex. les comptes repris de micabo-os en attendant leur
+ * réveil), pour voir tous les comptes d'un créateur. Un compte en sommeil n'est
+ * ni assigné ni mesuré par le serveur, qui ne lit que les comptes actifs.
+ * L'éditeur et les tests gardent `listerComptes` (actifs seulement).
+ */
+export async function listerComptesAvecDormants(): Promise<CompteAvecDetails[]> {
+  const { data, error } = await supabase
+    .from("comptes")
+    .select("*, comptes_reference(handle_tiktok), applications(slug), profiles(prenom, nom, upwork_url)")
+    .order("created_at", { ascending: false });
+  if (error) throw error;
+  return ((data ?? []) as CompteAvecDetails[]).map((c) => {
+    const app = (c as { applications?: { slug?: string } }).applications;
+    return {
+      ...c,
+      type_compte: normaliserTypeCompte(c.type_compte),
+      application_slug: app?.slug ?? null,
+    };
+  });
+}
+
 export async function creerCompte(input: {
   posterId: string;
   compteReferenceId: string | null;
@@ -484,6 +522,37 @@ export async function creerCompteUgcVideo(input: {
 }
 
 /**
+ * Choix de l'application à la création d'un compte (admin, Head of Ops, DM,
+ * HM). manage-users refuse ces champs à tout autre rôle (403
+ * CHOIX_COMPTE_ADMIN).
+ *
+ * - `partsApplications` : le formulaire n'envoie que `{ <slug>: 100 }` pour une
+ *   application autre que Sophia ; manage-users tire alors le label de la File
+ *   des créateurs de cette application (langue du compte, puis file
+ *   générale), sinon parmi les labels qui la servent.
+ * - `labelId` : n'est plus envoyé par le front (champ gardé pour le contrat).
+ * - Rien (Sophia) : comportement d'avant (File Sophia puis repli).
+ */
+export interface OptionsApplicationsCompte {
+  labelId?: string | null;
+  partsApplications?: Record<string, number> | null;
+}
+
+/**
+ * Champs `label_id` / `parts_applications` du corps manage-users — AUCUNE clé
+ * tant que rien n'est renseigné : un recruteur (ou un admin qui ne choisit
+ * rien) envoie exactement le même corps qu'avant.
+ */
+export function corpsApplicationsCompte(o: OptionsApplicationsCompte): Record<string, unknown> {
+  const corps: Record<string, unknown> = {};
+  if (o.labelId) corps.label_id = o.labelId;
+  if (o.partsApplications && Object.keys(o.partsApplications).length > 0) {
+    corps.parts_applications = o.partsApplications;
+  }
+  return corps;
+}
+
+/**
  * Crée le compte d'un poster existant en consommant la file admin
  * (label + UGC + persona) — même logique que la création poster.
  */
@@ -491,7 +560,7 @@ export function assurerComptePoster(input: {
   userId: string;
   langue: string;
   posts_par_jour?: number;
-}) {
+} & OptionsApplicationsCompte) {
   return invoke<{
     ok: boolean;
     deja?: boolean;
@@ -510,6 +579,7 @@ export function assurerComptePoster(input: {
     ...(input.posts_par_jour != null
       ? { posts_par_jour: normaliserPostsParJour(Number(input.posts_par_jour)) }
       : {}),
+    ...corpsApplicationsCompte(input),
   });
 }
 
@@ -539,7 +609,7 @@ export async function listerPosters(): Promise<PosterProfil[]> {
   const { data: profils, error } = await supabase
     .from("profiles")
     .select(
-      "id, prenom, nom, email, langues, nationalite, upwork_url, manager_id, is_active, must_change_password, cout_mensuel, hm_ugc_ai_video",
+      "id, prenom, nom, email, langues, nationalite, upwork_url, manager_id, is_active, must_change_password, cout_mensuel, hm_ugc_ai_video, zone_recrutement, photo_url",
     )
     .order("created_at", { ascending: false });
   if (error) throw error;
@@ -1140,7 +1210,7 @@ export function ajouterCompte(input: {
   tiktok_2fa_note?: string;
   notes_hm?: string;
   persona_nom?: string;
-}) {
+} & OptionsApplicationsCompte) {
   return invoke<{
     ok: boolean;
     compteId?: string;
@@ -1159,6 +1229,7 @@ export function ajouterCompte(input: {
     tiktok_2fa_note: input.tiktok_2fa_note ?? "",
     notes_hm: input.notes_hm ?? "",
     persona_nom: input.persona_nom ?? "",
+    ...corpsApplicationsCompte(input),
   });
 }
 
@@ -1326,7 +1397,7 @@ export function creerPoster(input: {
   tiktok_email?: string;
   tiktok_password?: string;
   tiktok_2fa_note?: string;
-}) {
+} & OptionsApplicationsCompte) {
   return invoke<{
     userId: string;
     email: string;
@@ -1354,6 +1425,7 @@ export function creerPoster(input: {
     tiktok_email: input.tiktok_email ?? "",
     tiktok_password: input.tiktok_password ?? "",
     tiktok_2fa_note: input.tiktok_2fa_note ?? "",
+    ...corpsApplicationsCompte(input),
   });
 }
 
@@ -2566,6 +2638,25 @@ export async function majNationalite(userId: string, nationalite: string): Promi
 
 /** Langues gérées par un recruteur (il peut créer des créateurs dans chacune).
  *  `nationalite` = la première, pour compatibilité. */
+/**
+ * Zone de recrutement d'un recruteur (admin, Head of Ops). Vide = sans zone.
+ * Une mise à jour que RLS filtre ne renvoie AUCUNE erreur : sans le contrôle
+ * du nombre de lignes, l'écran afficherait « enregistré » sans rien changer.
+ */
+export async function majZoneRecruteur(userId: string, zone: string | null): Promise<void> {
+  const valeur = normaliserZone(zone);
+  if (valeur && valeur.length > ZONE_LONGUEUR_MAX) {
+    throw new Error(`Zone trop longue (${ZONE_LONGUEUR_MAX} caractères maximum).`);
+  }
+  const { data, error } = await supabase
+    .from("profiles")
+    .update({ zone_recrutement: valeur })
+    .eq("id", userId)
+    .select("id");
+  if (error) throw error;
+  if (!data?.length) throw new Error("Zone non enregistrée : profil introuvable ou droit refusé.");
+}
+
 export async function majLanguesRecruteur(userId: string, langues: string[]): Promise<void> {
   const { error } = await supabase
     .from("profiles")
@@ -4636,6 +4727,186 @@ export const annulerAssignationTestCompte = (date: string, compteId: string) =>
     compteId,
   });
 
+export type { AssignationABlancLog, AssignationABlancResultat };
+
+/**
+ * Appelle la fonction `assignation-a-blanc` et lit son flux NDJSON : chaque
+ * ligne qui porte un `detail` part dans `onLog`, la ligne `ready` finale est
+ * rendue (elle porte `resultat`, partiel compris). Partagé par le test d'un
+ * compte et le test de notation / placement de quelques slideshows.
+ */
+async function posterFluxABlanc(
+  corps: Record<string, unknown>,
+  onLog?: (ligne: AssignationABlancLog) => void,
+): Promise<Record<string, unknown>> {
+  const url = import.meta.env.VITE_SUPABASE_URL;
+  const anon = import.meta.env.VITE_SUPABASE_ANON_KEY;
+  if (!url || !anon) throw new Error("Supabase non configuré");
+
+  const { data: sessionData } = await supabase.auth.getSession();
+  const token = sessionData.session?.access_token;
+  if (!token) throw new Error("Session expirée — reconnecte-toi.");
+
+  const res = await fetch(`${url}/functions/v1/assignation-a-blanc`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      apikey: anon,
+      "Content-Type": "application/json",
+      Accept: "application/x-ndjson",
+    },
+    body: JSON.stringify(corps),
+  });
+
+  if (!res.ok || !res.body) {
+    let message = `Edge assignation-a-blanc ${res.status}`;
+    try {
+      const j = (await res.json()) as { error?: string };
+      if (j?.error) message = j.error;
+    } catch {
+      // corps non JSON : on garde le statut
+    }
+    if (/idle timeout|150s/i.test(message)) {
+      message = "Timeout Edge (150s) — relance le test à blanc.";
+    }
+    throw new Error(message);
+  }
+
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let tampon = "";
+  let pret: Record<string, unknown> | null = null;
+  const traiter = (lignes: unknown[]) => {
+    for (const brut of lignes) {
+      if (!brut || typeof brut !== "object") continue;
+      const ev = brut as Record<string, unknown>;
+      if (ev.etape === "ready") pret = ev;
+      const detail = typeof ev.detail === "string" ? ev.detail : "";
+      if (detail) {
+        onLog?.({
+          at: typeof ev.at === "string" ? ev.at : new Date().toISOString(),
+          detail,
+          statut: typeof ev.statut === "string" ? ev.statut : undefined,
+          etape: typeof ev.etape === "string" ? ev.etape : undefined,
+        });
+      }
+    }
+  };
+  try {
+    let fini = false;
+    while (!fini) {
+      const { done, value } = await reader.read();
+      fini = done;
+      if (done) break;
+      const { lignes, reste } = decouperLignesNdjson(tampon + decoder.decode(value, { stream: true }));
+      tampon = reste;
+      traiter(lignes);
+    }
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    throw new Error(
+      /idle timeout|150s|network|aborted/i.test(message)
+        ? "Flux du test à blanc interrompu (timeout Edge ?) — relance le test."
+        : message,
+    );
+  }
+  traiter(decouperLignesNdjson(`${tampon}\n`).lignes);
+
+  const fin = pret as Record<string, unknown> | null;
+  if (!fin) throw new Error("Test à blanc : aucune réponse du flux");
+  // Erreur pendant le run : le résultat PARTIEL (journal compris) est rendu,
+  // l'écran affiche `erreurRun`. Sans résultat du tout, c'est une erreur.
+  if (!fin.resultat) {
+    throw new Error(
+      typeof fin.error === "string"
+        ? fin.error
+        : typeof fin.detail === "string"
+          ? fin.detail
+          : "Test à blanc échoué",
+    );
+  }
+  return fin;
+}
+
+/**
+ * Assignation test À BLANC d'un compte (fonction `assignation-a-blanc`) : le
+ * vrai code de la nuit, rien d'écrit nulle part. NDJSON streamé + logs, comme
+ * l'assignation test. Rend le résultat reconstruit (créneaux, écritures
+ * évitées, appels bloqués, limites).
+ */
+export async function lancerAssignationABlanc(
+  date: string,
+  compteId: string,
+  ia: boolean,
+  onLog?: (ligne: AssignationABlancLog) => void,
+): Promise<AssignationABlancResultat> {
+  const fin = await posterFluxABlanc({ date, compteId, ia }, onLog);
+  return fin.resultat as AssignationABlancResultat;
+}
+
+/**
+ * Test à blanc « contenus » : la notation (calcul du rattrapage) puis le
+ * placement d'une application autre que Sophia, sur 1 à 3 slideshows. IA
+ * toujours utilisée, rien n'est enregistré. `langue` absente : langue source
+ * de chaque slideshow.
+ */
+export async function lancerContenusABlanc(
+  applicationId: string,
+  contenuIds: string[],
+  langue: string | null,
+  onLog?: (ligne: AssignationABlancLog) => void,
+): Promise<ContenusABlancResultat> {
+  const fin = await posterFluxABlanc(
+    { mode: "contenus", applicationId, contenuIds, ...(langue ? { langue } : {}) },
+    onLog,
+  );
+  return fin.resultat as ContenusABlancResultat;
+}
+
+/** Ids des labels qui servent une application (`label_applications`) ; [] avant 0256. */
+export async function listerLabelIdsApplication(applicationId: string): Promise<string[]> {
+  const { data, error } = await supabase
+    .from("label_applications")
+    .select("label_id")
+    .eq("application_id", applicationId);
+  if (error) {
+    if (estErreurSchemaAbsent(error)) return [];
+    throw error;
+  }
+  return [...new Set((data ?? []).map((r) => r.label_id as string).filter(Boolean))];
+}
+
+/**
+ * Slideshows d'un label que le rattrapage noterait : valides et importés, les
+ * plus récents d'abord. Filtre serveur par label (jointure), et par titre si
+ * `recherche` est donnée — jamais la liste complète du label (> 1 000 lignes).
+ */
+export async function listerSlideshowsLabelABlanc(
+  labelId: string,
+  recherche = "",
+  limite = 150,
+): Promise<SlideshowABlanc[]> {
+  let q = supabase
+    .from("contenus")
+    .select("id, titre, langue_source, vues_source, created_at, contenu_labels!inner(label_id)")
+    .eq("contenu_labels.label_id", labelId)
+    .eq("statut", "valide")
+    .eq("import_statut", "done")
+    .order("created_at", { ascending: false })
+    .limit(limite);
+  const r = recherche.trim();
+  if (r) q = q.ilike("titre", `%${r}%`);
+  const { data, error } = await q;
+  if (error) throw error;
+  return ((data ?? []) as Array<Record<string, unknown>>).map((c) => ({
+    id: String(c.id),
+    titre: (c.titre as string | null) ?? null,
+    langue_source: (c.langue_source as string | null) ?? null,
+    vues_source: c.vues_source === null || c.vues_source === undefined ? null : Number(c.vues_source),
+    created_at: String(c.created_at ?? ""),
+  }));
+}
+
 const LARGEUR_ASSIGN_FRONT = 6;
 
 async function assignerCompteAvecRetry(
@@ -4892,7 +5163,7 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
   const { data: compte, error: errC } = await supabase
     .from("comptes")
     .select(
-      "id, langue, type_compte, videos_uniquement, ugc_ai, ugc_ai_video, ugc_persona_id, posts_par_jour",
+      "id, langue, type_compte, videos_uniquement, ugc_ai, ugc_ai_video, ugc_persona_id, posts_par_jour, parts_applications",
     )
     .eq("id", compteId)
     .maybeSingle();
@@ -4949,12 +5220,13 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
   let labelsTxtPool = labelsTxt;
 
   // MULTI-APPLICATIONS. Tout ce qui suit compte le pool SOPHIA (contenus
-  // tagués, prêts, notés dans la langue). Un compte dont aucun label ne sert
-  // Sophia (« 100 % Unswipe ») n'y pioche jamais : la suite lui annoncerait
-  // « pool OK… timeout batch… baisse auto du quota », à tort. On lit donc les
+  // tagués, prêts, notés dans la langue). Un compte sans repli Sophia — aucun
+  // label ne la sert (« 100 % Unswipe »), ou sa répartition explicite lui
+  // donne 0 % — n'y pioche jamais : la suite lui annoncerait « pool OK…
+  // timeout batch… baisse auto du quota », à tort. On lit donc les
   // applications de ses labels (un label sans ligne sert Sophia, comme au
-  // moteur) et, si aucun ne sert Sophia, on rend la vraie cause. Un compte
-  // dont un label sert Sophia continue exactement comme avant.
+  // moteur) et, sans repli Sophia, on rend la vraie cause. Un compte dont un
+  // label sert Sophia, sans répartition, continue exactement comme avant.
   const { data: liensApps, error: errApps } = await supabase
     .from("label_applications")
     .select("label_id, application_id, applications(id, slug, nom, actif, langues)")
@@ -4994,7 +5266,7 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
       application_id: String(r.application_id),
     }));
     const diagnostic = diagnosticCompteSansSophia({
-      compte: { langue, ugc: ugcAi },
+      compte: { langue, ugc: ugcAi, parts_applications: compte.parts_applications },
       labels: refsLabels,
       liens,
       applications: [...applications.values()],

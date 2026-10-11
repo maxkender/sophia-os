@@ -288,6 +288,13 @@ export interface PosterProfil {
     | null;
   /** Recruteur UGC AI VIDEO : créateurs = marque vidéo + persona, sans labels. */
   hm_ugc_ai_video: boolean;
+  /**
+   * Zone d'un recruteur (pays gérés, master list Notion) ; ses créateurs en
+   * héritent par `manager_id`. Pas la zone de paiement A/B/C. Voir hiring/zones.ts.
+   */
+  zone_recrutement?: string | null;
+  /** Photo du membre (copie de sa photo Upwork, 0274) ; null : initiales. */
+  photo_url?: string | null;
   /** Tous les comptes actifs du créateur (perso + CM). */
   comptes: CompteResumePoster[];
 }
@@ -424,7 +431,8 @@ export interface FileLabelCompteItem {
 /**
  * File FIFO des labels assignés aux prochains comptes créés.
  * `par_langue[code]` surpasse `items` (file générale) pour cette langue ;
- * si la file langue est vide → file générale ; si les deux sont vides → least-used.
+ * si la file langue est vide → file générale ; si les deux sont vides → choix
+ * équilibré (manage-users).
  */
 export interface FileLabelsApplication {
   items: FileLabelCompteItem[];

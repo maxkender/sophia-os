@@ -45,6 +45,11 @@ verify_jwt = false
 [functions.assignation]
 verify_jwt = false
 
+# Test à blanc d'une assignation (admin) : même contrôle interne que
+# `assignation` (assertAuthorised), jamais d'écriture — voir docs/assignation-a-blanc.md.
+[functions.assignation-a-blanc]
+verify_jwt = false
+
 [functions.assignation-contenu]
 verify_jwt = false
 

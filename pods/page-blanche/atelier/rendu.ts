@@ -106,10 +106,22 @@ export async function rendreSlide(
     ? options.ressources.captures[(options.variante ?? 0) % options.ressources.captures.length]
     : null;
   const appstore = options.ressources?.appstore ?? null;
-  const poserCapture = (b: Boite) =>
+  const poserCaptureSeule = (b: Boite) =>
     capture ? dessinerCapture(ctx, capture, b) : dessinerEmplacement(ctx, b, "CAPTURE APP SOPHIA", true);
   const poserFiche = (b: Boite) =>
     appstore ? dessinerFiche(ctx, appstore, b) : dessinerEmplacement(ctx, b, "FICHE APP STORE SOPHIA", false);
+  // Slide de l'app sans fiche App Store dans l'original : on la loge sous la
+  // capture, dans le même emplacement, pour que le NOM de l'app soit toujours là.
+  const actionsApp = [...Object.values(tr.images ?? {}), ...(tr.zones ?? []).map((z) => z.action)];
+  const ficheSousCapture = !actionsApp.includes("sophia_appstore");
+  const poserCapture = (b: Boite) => {
+    if (!ficheSousCapture) return poserCaptureSeule(b);
+    const ratio = appstore ? appstore.width / appstore.height : 2.5;
+    const hFiche = Math.round(Math.min(b.l / ratio, b.h * 0.22));
+    const ecart = Math.round(b.h * 0.025);
+    poserCaptureSeule({ x: b.x, y: b.y, l: b.l, h: b.h - hFiche - ecart });
+    poserFiche({ x: b.x, y: b.y + b.h - hFiche, l: b.l, h: hFiche });
+  };
   const imgSource = await loadImage(source);
   const canvas = createCanvas(geo.largeur, geo.hauteur);
   const ctx = canvas.getContext("2d");

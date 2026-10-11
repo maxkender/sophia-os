@@ -1,0 +1,291 @@
+{
+ "post_id": "7684726544442346774",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6 habits to become",
+      "disgustingly productive"
+     ],
+     "fr": "6 habitudes pour devenir ultra productive",
+     "texte": "6 hábitos para volverte súper productiva"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(según la neurociencia)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "1. take real breaks"
+     ],
+     "fr": "1. fais de [[vraies pauses]]",
+     "texte": "1. haz [[pausas de verdad]]"
+    },
+    "T2": {
+     "en": [
+      "doomscrolling between work",
+      "blocks is not rest, that's why",
+      "you always feel tired"
+     ],
+     "fr": "[[scroller]] entre deux sessions, [[c'est pas une pause]], d'où ta fatigue constante",
+     "texte": "[[scrollear]] entre bloques de trabajo [[no es descansar]], por eso siempre estás cansada"
+    },
+    "T3": {
+     "en": [
+      "you're just swapping",
+      "one stream of",
+      "stimulation for another"
+     ],
+     "fr": "tu remplaces juste une dose de stimulation par une autre",
+     "texte": "solo cambias una fuente de estímulos por otra"
+    },
+    "T4": {
+     "en": [
+      "take 10 minutes with",
+      "no screen"
+     ],
+     "fr": "prends 10 minutes sans écran",
+     "texte": "tómate 10 minutos sin pantallas"
+    },
+    "T5": {
+     "en": [
+      "walk, stretch, stare outside, then come",
+      "back with an actually quieter brain"
+     ],
+     "fr": "marche, étire-toi, regarde dehors, puis reviens avec un cerveau enfin au calme",
+     "texte": "camina, estírate, mira por la ventana y vuelve con la mente por fin en calma"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stop trying to multitask"
+     ],
+     "fr": "2. arrête [[le multitâche]]",
+     "texte": "2. deja [[el multitasking]]"
+    },
+    "T2": {
+     "en": [
+      "every task switch forces",
+      "your working memory to",
+      "drop one context and",
+      "load another"
+     ],
+     "fr": "chaque fois que tu changes de tâche, ta mémoire doit tout lâcher et tout recharger",
+     "texte": "cada vez que cambias de tarea, tu memoria suelta todo y tiene que recargar"
+    },
+    "T3": {
+     "en": [
+      "doing 2 things at once",
+      "feels productive, but",
+      "your brain is just",
+      "constantly re-orienting"
+     ],
+     "fr": "faire 2 trucs à la fois, ça [[a l'air productif]], mais ton cerveau passe son temps à se recaler",
+     "texte": "hacer 2 cosas a la vez [[parece productivo]], pero tu cerebro solo está reenfocándose sin parar"
+    },
+    "T4": {
+     "en": [
+      "one task, one tab, until it's finished"
+     ],
+     "fr": "une tâche, un onglet, [[jusqu'au bout]]",
+     "texte": "una tarea, una pestaña, [[hasta terminarla]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "3. read classic books"
+     ],
+     "fr": "3. lis des [[classiques]]",
+     "texte": "3. lee [[libros clásicos]]"
+    },
+    "T2": {
+     "en": [
+      "do you remember what tiktok",
+      "you saw 5 scrolls ago?"
+     ],
+     "fr": "tu te souviens du tiktok d'il y a [[5 scrolls]] ?",
+     "texte": "¿te acuerdas del tiktok que viste [[hace 5 scrolls]]?"
+    },
+    "T3": {
+     "en": [
+      "exactly. read 20 pages",
+      "of a good book instead"
+     ],
+     "fr": "[[bah voilà]]. lis plutôt 20 pages d'un bon livre",
+     "texte": "[[exacto]]. cambia 5 min de scroll por [[la app Sophia]]"
+    },
+    "T4": {
+     "en": [
+      "books that survived 50–",
+      "100+ years usually",
+      "survived for a reason"
+     ],
+     "fr": "un livre qui tient depuis 50 ou 100 ans, c'est rarement un hasard",
+     "texte": "si un libro sigue vivo después de 50–100+ años, por algo será"
+    },
+    "T5": {
+     "en": [
+      "fix your attention span"
+     ],
+     "fr": "[[répare ta concentration]]",
+     "texte": "[[recupera tu concentración]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "4. put your phone in another room"
+     ],
+     "fr": "4. mets ton tel [[dans une autre pièce]]",
+     "alignement": "gauche",
+     "texte": "4. deja el teléfono [[en otra habitación]]"
+    },
+    "T2": {
+     "en": [
+      "willpower alone is a",
+      "terrible phone blocker"
+     ],
+     "fr": "la volonté, [[ça suffit pas]] contre ton tel",
+     "texte": "la fuerza de voluntad [[no basta]] contra el teléfono"
+    },
+    "T3": {
+     "en": [
+      "one study of nearly",
+      "800 people"
+     ],
+     "fr": "une étude sur presque 800 personnes",
+     "texte": "un estudio con casi 800 personas"
+    },
+    "T4": {
+     "en": [
+      "found that just having",
+      "your phone nearby",
+      "reduced available",
+      "cognitive capacity"
+     ],
+     "fr": "a montré qu'avoir juste ton tel à côté [[suffit à te ralentir le cerveau]]",
+     "texte": "descubrió que solo tener el teléfono cerca [[reduce tu capacidad mental]]"
+    },
+    "T5": {
+     "en": [
+      "even when you weren't using it!!"
+     ],
+     "fr": "[[même quand tu t'en sers pas !!]]",
+     "texte": "¡¡[[aunque ni lo estés usando]]!!"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1a": {
+     "en": [
+      "5. do your hardest task first"
+     ],
+     "fr": "5. commence par [[le plus dur]]",
+     "texte": "5. haz primero lo [[más difícil]]"
+    },
+    "T1b": {
+     "en": [
+      "your prefrontal cortex",
+      "handles planning, focus and",
+      "self-control"
+     ],
+     "fr": "ton [[cortex préfrontal]] gère l'organisation, le focus et la volonté",
+     "texte": "tu [[corteza prefrontal]] gestiona el foco, los planes y el autocontrol"
+    },
+    "T2": {
+     "en": [
+      "don't waste your freshest",
+      "attention on emails and",
+      "tiny tasks"
+     ],
+     "fr": "[[gâche pas]] ta tête fraîche pour des mails et des bricoles",
+     "texte": "[[no desperdicies]] tu mente fresca en correos y tareas pequeñas"
+    },
+    "T3": {
+     "en": [
+      "spend the first 60–90",
+      "minutes on the thing",
+      "you're most likely to avoid",
+      "late"
+     ],
+     "fr": "passe [[les 60-90 premières minutes]] sur ce que t'aurais envie d'esquiver",
+     "texte": "dedica [[los primeros 60–90 minutos]] a lo que más te cuesta empezar"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "scissions": {
+    "T1": 1
+   }
+  },
+  "7": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6. work before you communicate"
+     ],
+     "fr": "6. bosse [[avant]] de répondre",
+     "texte": "6. trabaja [[antes]] de contestar"
+    },
+    "T2": {
+     "en": [
+      "give yourself 60–90",
+      "minutes of uninterrupted",
+      "creation before",
+      "becoming available to",
+      "everyone else"
+     ],
+     "fr": "garde-toi 60-90 minutes pour [[créer sans interruption]] avant d'être dispo pour les autres",
+     "texte": "date 60–90 minutos para [[crear sin interrupciones]] antes de estar disponible para los demás"
+    },
+    "T3": {
+     "en": [
+      "your priorities should",
+      "enter your head before",
+      "theirs do"
+     ],
+     "fr": "tes priorités d'abord dans ta tête, celles des autres après",
+     "texte": "primero tus prioridades, después las de los demás"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

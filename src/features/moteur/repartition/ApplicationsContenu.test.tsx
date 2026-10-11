@@ -63,6 +63,46 @@ describe("ApplicationsContenu", () => {
     expect(listerPertinencesContenu).toHaveBeenCalledWith("ct-1");
   });
 
+  it("Sophia, sans ligne en base, apparaît en tête avec sa pertinence de fiche", async () => {
+    listerPertinencesContenu.mockResolvedValue([
+      {
+        application_id: ID_UNSWIPE,
+        score: 88,
+        raison: "Anti-scroll",
+        note: 58,
+        eligible: true,
+        prompt_cle: "pertinence_unswipe",
+        updated_at: "",
+      },
+    ]);
+    rendre(<PertinencesApplications contenuId="ct-1" sophia={RESUME_SOPHIA} />);
+    expect(await screen.findByText("Réussite scolaire")).toBeInTheDocument();
+    const lignes = screen.getAllByRole("row").slice(1);
+    expect(lignes).toHaveLength(2);
+    expect(lignes[0]).toHaveTextContent("Sophia");
+    expect(lignes[0]).toHaveTextContent("80");
+    expect(lignes[0]).toHaveTextContent("61");
+    expect(lignes[1]).toHaveTextContent("Unswipe");
+  });
+
+  it("une ligne Sophia en base fait foi : pas de doublon", async () => {
+    listerPertinencesContenu.mockResolvedValue([
+      {
+        application_id: ID_SOPHIA,
+        score: 72,
+        raison: "Note Sophia en base",
+        note: 60,
+        eligible: true,
+        prompt_cle: "pertinence",
+        updated_at: "",
+      },
+    ]);
+    rendre(<PertinencesApplications contenuId="ct-1" sophia={RESUME_SOPHIA} />);
+    expect(await screen.findByText("Note Sophia en base")).toBeInTheDocument();
+    expect(screen.getAllByText("Sophia")).toHaveLength(1);
+    expect(screen.queryByText("Réussite scolaire")).not.toBeInTheDocument();
+  });
+
   it("marque la slide pub d'un deck avec le nom de l'application", async () => {
     listerDecksApplicationsContenu.mockResolvedValue([
       {
@@ -129,6 +169,19 @@ function etatApplication(sur: Record<string, unknown> = {}) {
 
 const TIERLIST = { recul_jours: 1, requalif_max_jours: 3 };
 
+const RESUME_SOPHIA = {
+  score: 80,
+  note: 61.4,
+  eligible: true,
+  raison: "Réussite scolaire",
+  tier: "B" as const,
+  publies: 2,
+  prevus: 2,
+  enVol: 0,
+  moyenneVues: 1200,
+  maxVues: 1500,
+};
+
 describe("TiersApplications (0270)", () => {
   beforeEach(() => {
     listerApplicationsMulti.mockReset();
@@ -149,6 +202,26 @@ describe("TiersApplications (0270)", () => {
     expect(screen.getByText(/4[\s\u202f,.]?321/)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Requalify now" })).toBeInTheDocument();
     expect(listerTiersApplicationsContenu).toHaveBeenCalledWith("ct-1");
+  });
+
+  it("Sophia en tête, en lecture seule (réglée dans le bloc Tierlist)", async () => {
+    listerTiersApplicationsContenu.mockResolvedValue([etatApplication()]);
+    rendre(<TiersApplications contenuId="ct-1" tierlist={TIERLIST} sophia={RESUME_SOPHIA} />);
+    expect(await screen.findByText("Sophia")).toBeInTheDocument();
+    expect(screen.getByText("Set in the Tierlist block below.")).toBeInTheDocument();
+    expect(screen.getByText("2/2 published · 0 in flight")).toBeInTheDocument();
+    // Boutons de rang et de requalification : ceux d'Unswipe seulement.
+    expect(screen.getAllByRole("button", { name: "Requalify now" })).toHaveLength(1);
+  });
+
+  it("contenu Sophia seul : rien, même avec le résumé Sophia", async () => {
+    listerTiersApplicationsContenu.mockResolvedValue([]);
+    const { container } = rendre(
+      <TiersApplications contenuId="ct-1" tierlist={TIERLIST} sophia={RESUME_SOPHIA} />,
+    );
+    await waitFor(() => expect(listerTiersApplicationsContenu).toHaveBeenCalled());
+    await new Promise((ok) => setTimeout(ok, 0));
+    expect(container).toBeEmptyDOMElement();
   });
 
   it("ligne matérialisée hors réserve : le dit, sans parler de rang d'entrée", async () => {

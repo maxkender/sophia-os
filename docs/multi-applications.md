@@ -34,7 +34,17 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
     applications servies (identique au score Sophia pour un contenu Sophia seul).
     Un contenu n'est rejeté que s'il n'est pertinent pour AUCUNE application.
   - `eligible` = la note d'import calculée avec CE score passe le seuil
-    (`elo_seuil_import`), ou import forcé.
+    (`elo_seuil_import`), ou import forcé. **Hors Sophia, il faut EN PLUS une
+    pertinence ≥ 50** (`PERTINENCE_MIN_HORS_SOPHIA`, décision du 2026-10-09),
+    import forcé compris : la note est dominée par les vues et la piste du
+    compte source, un TikTok très vu passait hors sujet. Sophia : aucun
+    plancher (son pool n'écarte que les lignes explicitement non éligibles).
+    Un contenu hors Sophia sous le plancher pour TOUTES ses applications est
+    rejeté dès l'étape 4 (aucun pool ne pourrait le servir). Effet indirect sur
+    un compte mixte : une réserve Unswipe plus petite envoie plus de créneaux en
+    repli Sophia (`repli_motif = reserve_vide`) — à surveiller. Le plancher
+    vaut pour les lignes notées à partir du 2026-10-09 (0 ligne non-Sophia en
+    base à cette date).
   - Pool **Sophia** : exclut seulement une ligne Sophia **explicitement** non
     éligible (pas de ligne = éligible : stock historique, créations manuelles,
     variations). Pool **autre application** : il FAUT une ligne éligible.
@@ -71,6 +81,14 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
     bathing », « a clear space », « freedom » au sens courant…) ; Unscroll est
     de loin le plus cité (97 slides, 82 contenus), puis Freedom (8), Forest (4),
     Brick (2).
+  - micabo (0272) : ceux de Sophia + les applis d'étude de la table
+    `concurrents` de micabo-os (19 noms au 2026-10-09 : Wilgo, Quizlet, Anki,
+    Knowunity, StudySmarter, Studocu, Brainly, Gauth, Photomath, Turbo AI,
+    StudyFetch, Revisely, Mindgrasp, Flashka, ElibroAI, Aistote, Nerdmask,
+    Astra AI, PeECH), en mots entiers Unicode. « anki » jamais après « şu / o /
+    bu / her » (« şu anki rekor » est du turc courant), « astra » jamais après
+    « ad », « studysmarter » collé seulement. Mesuré sur les slides de
+    micabo-os : Wilgo (83 slides), PeECH (29), Quizlet (11), ElibroAI (8).
   - **Position imposée** : comme pour Sophia, la première slide (hors
     couverture) qui cite un concurrent de l'application est la SEULE position
     permise du placement, même hors des 3 dernières slides ; le prompt demande
@@ -97,39 +115,75 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
     tels quels. Assumé : retirer « forest app » du texte que voit le modèle des
     hashtags est sans danger pour un post Sophia. Aucun effet tant qu'aucun
     label ne sert Unswipe.
-- **Répartition par compte** : `comptes.parts_applications` jsonb
-  (`{"sophia":70,"unswipe":30}`), `NULL` = 100 % Sophia. Restreinte aux
-  applications que ses labels servent, actives et ciblant sa langue
-  (`applications.langues`, `NULL` = toutes). Un compte dont les labels ne servent
-  QUE Unswipe publie 100 % Unswipe. Tenue par **fenêtre glissante** (déficit) sur
-  ses 10 derniers posts : en 70/30, toute suite de 10 posts compte 7/3.
+- **Répartition par compte : DEUX NIVEAUX.**
+  1. **Le label** dit ce que le compte PEUT promouvoir : `label_applications`
+     (un label sans ligne sert Sophia), restreint aux applications actives,
+     ciblant sa langue (`applications.langues`, `NULL` = toutes), et à Sophia
+     seule pour un compte UGC.
+  2. **La répartition du compte** (`comptes.parts_applications` jsonb,
+     `{"sophia":70,"unswipe":30}`) choisit parmi ce que les labels permettent.
+     - `NULL` (toute la flotte aujourd'hui, comportement inchangé) : 100 %
+       Sophia si un label du compte sert Sophia ; sinon l'application (ou les
+       applications, à parts égales) que ses labels servent et qui sont
+       éligibles — un compte dont les labels ne servent QUE Unswipe publie
+       100 % Unswipe sans aucun réglage.
+     - **Explicite (non `NULL`) : règle stricte.** Seules les applications à
+       part > 0 peuvent JAMAIS être publiées sur ce compte. Un compte réglé
+       100 % Unswipe dont le label sert à la fois Sophia et Unswipe ne fait
+       QUE de l'Unswipe : jamais de repli Sophia, même réserve Unswipe vide.
+       La part d'une application à part > 0 inéligible va aux AUTRES
+       applications à part > 0 (un 70/30 dont Unswipe est éteinte publie
+       100 % Sophia), jamais à une application à 0 %. Si aucune application à
+       part > 0 n'est éligible (inactive, langue non ciblée, aucun label ne la
+       sert, compte UGC), `partsEffectives` rend `{}` : le compte ne publie
+       rien ce jour-là, sort « non servable » avec une raison claire, et son
+       quota ne baisse pas. Un compte mixte (Sophia 70 / Unswipe 30) garde le
+       repli entre ses applications à part > 0.
+  Tenue par **fenêtre glissante** (déficit) sur ses 10 derniers posts : en
+  70/30, toute suite de 10 posts compte 7/3.
   Admin → Posters (ligne du compte dépliée) montre la carte « Répartition par
   application » dès qu'un label du compte sert une autre application que
   Sophia, y compris pour un compte 100 % Unswipe (pas de curseur : « Appliqué :
   Unswipe 100 % », ou en rouge « il ne publiera rien » avec TOUTES les causes :
   application désactivée, langue non ciblée — les deux à la fois dans l'état
-  laissé par 0258 —, compte UGC). Un compte Sophia pur ne la voit pas, sauf
-  s'il garde une répartition enregistrée devenue sans objet (à effacer).
+  laissé par 0258 —, compte UGC), et dès qu'une répartition est enregistrée,
+  même sur un compte dont les labels ne servent que Sophia. Elle reflète le
+  moteur : plus aucune mention de repli Sophia quand la répartition donne 0 % à
+  Sophia (aide dédiée, et avertissement dès que le curseur laisse Sophia à
+  0 %), et le rouge « il ne publiera rien » quand aucune application à part > 0
+  n'est éligible. Un compte Sophia pur sans répartition ne la voit pas.
 - **Chemin historique** : un compte dont les parts effectives sont 100 % Sophia
   (le cas de tous les comptes tant qu'on ne règle rien) suit exactement le code
   d'avant — pas de fenêtre lue, pas de deck d'application.
 - **Repli** : si l'application demandée ne peut pas être servie, le créneau
-  passe sur Sophia et le passage le dit (`application_visee_id`, `repli_motif`).
+  passe sur Sophia et le passage le dit (`application_visee_id`, `repli_motif`)
+  — SEULEMENT si Sophia a une part effective dans la répartition du compte
+  (toujours vrai pour une répartition `NULL` dont un label sert Sophia). Une
+  répartition explicite sans part Sophia n'a pas de pool Sophia (labels Sophia
+  du moteur vides) : le créneau reste vide.
   Motifs : `reserve_vide`, `deck_ineligible` (base polluée par une pub Sophia,
   seconde slide ou couverture concurrente…), `deck_echec` (prompt manquant,
   placement impossible, traduction en échec, panne…), `budget` (la nuit a
   dépassé son budget de cuisson des decks non-Sophia : aucune nouvelle cuisson après 60 s de lot, arrêt de toute cuisson à 90 s).
   Pilotage les affiche. Un compte qu'aucun repli ne peut servir (labels 100 %
-  Unswipe, Unswipe inactive) ne baisse pas son quota et sort de la chaîne du
-  drain, pour ne pas bloquer les autres — sauf si seul le budget de cuisson a
-  manqué : il reste alors dans la chaîne, et un lot suivant (budget neuf) le
-  reprend. Sa raison précise (« Compte 100 % Unswipe : Unswipe est
-  désactivée… », « … ne cible pas la langue de ce compte… », réserve vide,
-  deck refusé ou en échec avec la raison du dernier deck, budget) est écrite
-  dans `assignation_journal` (0267) ; le panneau Minuit la lit. Sans ligne de
-  journal, son diagnostic reconnaît lui-même un compte dont aucun label ne
-  sert Sophia, et compte le pool Sophia d'un compte mixte sur ses seuls labels
-  qui servent Sophia.
+  Unswipe, Unswipe inactive ; ou répartition explicite à 0 % Sophia) ne baisse
+  pas son quota et sort de la chaîne du drain, pour ne pas bloquer les autres
+  — sauf si seul le budget de cuisson a manqué : il reste alors dans la
+  chaîne, et un lot suivant (budget neuf) le reprend. Sa raison précise
+  (« Compte 100 % Unswipe : Unswipe est désactivée… », « … ne cible pas la
+  langue de ce compte… », réserve vide, deck refusé ou en échec avec la raison
+  du dernier deck, budget ; pour une répartition explicite, « Répartition
+  Unswipe 100 % : réserve Unswipe vide pour ses labels. Pas de repli Sophia :
+  la répartition du compte lui donne 0 %. », ou « aucun label de ce compte ne
+  sert Unswipe ») est écrite dans `assignation_journal` (0267) ; le panneau
+  Minuit la lit. Sans ligne de journal, son diagnostic reconnaît lui-même un
+  compte sans repli Sophia (aucun label ne la sert, ou sa répartition lui
+  donne 0 %), et compte le pool Sophia d'un compte mixte sur ses seuls labels
+  qui servent Sophia. Une recharge (post révoqué) ne ressert l'application du
+  post que si la répartition explicite lui laisse une part ; sinon le créneau
+  suit la répartition. Sonde du schéma illisible : un compte dont la
+  répartition demande une autre application que Sophia lève (rejoué), jamais
+  servi en Sophia.
 - **Journal de la nuit (`assignation_journal`), pour TOUS les comptes** : le
   drain de minuit écrit désormais le verdict de chaque compte qu'il traite,
   Sophia compris (avant, seule l'assignation globale l'écrivait, et minuit
@@ -144,14 +198,69 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
 - **Rappels J+7** : un rappel recopie les slides de sa source, pub comprise.
   Il n'est pas programmé si les labels actuels du compte ne servent plus
   l'application de la source (compte passé en « Unswipe seul » avec une
-  source Sophia) : noté dans les erreurs de l'étape, la source reste
-  candidate. Un rappel DÉJÀ posé avant le changement de labels reste en place
-  (voir § 3, étape 6).
+  source Sophia), ni — deux niveaux — si sa répartition explicite ne donne
+  plus de part effective à cette application (`partsEffectives` sur les
+  applications servies par ses labels : un compte réglé 100 % Unswipe ne
+  rejoue pas un ancien post Sophia). Répartition `NULL` : règle d'avant, sans
+  lecture du catalogue des applications (la répartition du compte, elle, est
+  lue : une ligne `comptes` par compte à rappel). Refus noté dans les erreurs
+  de l'étape, la source reste candidate. Un rappel DÉJÀ posé avant le
+  changement de labels ou de répartition reste en place (voir § 3, étape 6).
 - **Même contenu, deux applications** : autorisé, y compris sur le même compte,
   mais pas à moins de 7 jours d'écart (stats et doublons TikTok).
 - **Unswipe = slideshows classiques uniquement** : un compte UGC reste Sophia.
 - **Sélecteur d'application de l'admin** : filtre les prompts, les stats et la
   réserve. Plus les labels, sources, contenus ni comptes.
+- **Choix à la création d'un compte** (admin, Head of Ops, DM, HM : c'est le
+  créateur qui est associé à une application, pas son recruteur). On ne
+  choisit PAS le label : on choisit seulement l'**application du compte**
+  (bloc « Application du compte », `ChoixApplicationsCreation`, dans les
+  formulaires de création de Posters, de la fiche d'un créateur sans compte et
+  de /embauche). Une CARTE cliquable par application ACTIVE (Sophia d'abord),
+  AUCUNE cochée d'avance : « Créer » sans choix affiche « tu dois choisir
+  l'application » et n'envoie rien (catalogue en lecture ou illisible :
+  choix exigé aussi, jamais Sophia d'office). Le bloc n'apparaît qu'à partir
+  de deux applications actives,
+  pour un compte perso seulement, jamais pour un HM UGC AI vidéo. Le label est
+  ensuite tiré par manage-users :
+  1. File des créateurs DE CETTE APPLICATION pour la langue du compte
+     (`reglages.file_labels_comptes.par_application[slug].par_langue[langue]`),
+  2. puis sa file générale (`par_application[slug].items`),
+  3. sinon le choix ÉQUILIBRÉ parmi les labels qui servent cette application
+     (`label_applications`, un label sans ligne sert Sophia ; la colonne
+     historique `labels.application_id` n'est plus lue) : sans hasard, la
+     langue du compte suit la part de chaque label (√stock × performance des
+     28 derniers jours rapportée à la langue des posts, part plafonnée à 1/2),
+     jamais 3 fois le même label sur 4 comptes de la langue, et pas celui du
+     dernier compte tant qu'un autre est en retard
+     (`_shared/choix_label_equilibre.ts`, chiffres lus par
+     `stats_choix_label_creation`, migration 0275 ; si la lecture échoue,
+     repli sur l'ancien « moins utilisé »).
+
+  Contrat du corps (inchangé) :
+  - Sophia → AUCUNE clé de plus : corps d'avant à l'octet près, donc même
+    résultat qu'aujourd'hui (File Sophia de la langue, puis File générale
+    Sophia, puis choix équilibré parmi les labels Sophia). Toutes les embauches
+    d'aujourd'hui passent par là ;
+  - autre application → `parts_applications = { <slug>: 100 }`, jamais
+    `label_id` (le front ne l'envoie plus). Répartition exclusive : le compte
+    ne publie que pour cette application, sans repli Sophia, et n'est jamais
+    UGC ;
+  - 409 `NO_LABELS_APPLICATION` si aucun label ne sert l'application. Le
+    formulaire bloque l'envoi avant : « Aucun label slideshow ne sert <App> »
+    (à cocher dans Pilotage → Labels). Une application qui ne cible pas la
+    langue du compte donne une information, pas un blocage ;
+  - compte CM ou UGC vidéo → 400 `CHOIX_COMPTE_INCOMPATIBLE`. Après la
+    création, la répartition se change sur la carte du compte (admin).
+- **File des créateurs par application** (Réglages → « Warmup & file de
+  labels ») : un sélecteur d'application (actives, Sophia par défaut) choisit
+  la File éditée (`par_application[slug]`, file générale + files par langue,
+  même ergonomie qu'avant). Les labels proposés à l'ajout sont ceux qui
+  servent l'application choisie ; une entrée déjà en File dont le label ne la
+  sert plus est signalée (badge « ne sert pas <App> »), pas masquée. La case
+  « Compte UGC » n'existe que pour Sophia. La tranche Sophia s'écrit exactement
+  comme avant (`par_application.sophia` ET la file racine `items` /
+  `par_langue`, que lisent les lecteurs historiques).
 
 ## 2. Schéma (migration 0256, additive)
 
@@ -180,7 +289,8 @@ Migration 0270 (tiers par application, additive ; parties A puis B) :
 | `reglages.tierlist_applications_dernier_run` | trace de l'étape de minuit `tierlist_applications` |
 
 Constantes : Sophia = `00000000-0000-4000-8000-000000000001`,
-Unswipe = `00000000-0000-4000-8000-000000000003` (0258).
+micabo = `00000000-0000-4000-8000-000000000002` (supprimée en 0257, recréée
+INACTIVE en 0272), Unswipe = `00000000-0000-4000-8000-000000000003` (0258).
 
 Logique pure partagée : `src/features/moteur/multiApp.ts` (tests vitest) et sa
 copie Deno `supabase/functions/_shared/multi_app.ts` (synchro testée). Lectures
@@ -250,6 +360,10 @@ Les fonctions Edge se déploient au merge sur `main` ; les migrations se passent
    changement de labels, ils rejoueraient un post Sophia, pub comprise. Le
    plus simple : démarrer avec des comptes neufs.
 7. Posters : régler la répartition des comptes concernés (défaut 100 % Sophia).
+   Une répartition qui laisse Sophia à 0 % coupe le repli Sophia du compte,
+   même si son label sert Sophia : réserve Unswipe vide = aucun post ce
+   jour-là (non servable, quota intact). Garder une part Sophia pour garder
+   le repli.
 
 ### Tiers par application (0270) — ordre impératif
 
@@ -334,6 +448,72 @@ leur suppression (en commentaire) perd les tiers des autres applications.
 `manage-users` et `papier-cm` tournent sur des bundles figés : ils continuent
 de lire `application_id` (toujours Sophia) et n'ont pas besoin d'être
 reconstruits pour cette évolution.
+
+### micabo (0272) — préparation, aucun effet visible
+
+micabo revient comme troisième application, pour reprendre les comptes et le
+stock de micabo-os. Ce qui est en place :
+
+- le motif de concurrents `micabo` (`_shared/concurrents.ts`, § 1), déployé
+  avec les Edge au merge — inerte tant qu'aucun deck micabo n'est cuit ;
+- 0272 : l'application (id `…0002`, langues fr / tr / de / es, INACTIVE) et
+  ses deux prompts, repris de micabo-os en production (v2) et adaptés à
+  l'enveloppe de Sophia (voir l'en-tête de la migration). Sans label qui la
+  sert, rien n'est noté ni publié pour elle. **Ne plus rejouer 0257** : elle
+  la supprimerait de nouveau, prompts compris.
+
+- le label `classic_study` (slug `classic-study`, créé le 2026-10-09, vide) :
+  sa ligne `label_applications` (micabo seul) a été posée dans la même
+  instruction que le label, et **`labels.application_id` vaut micabo**, pas
+  Sophia. Ce n'est pas un oubli : le bundle figé de `manage-users` ne tire ses
+  labels (files et repli « label le moins utilisé ») que parmi ceux dont
+  `labels.application_id` est Sophia — un label micabo vide serait sinon le
+  « moins utilisé » et partirait sur une recrue Sophia (§ 4.1). Ne pas le
+  remettre à Sophia.
+
+- les créateurs et leurs comptes TikTok (2026-10-09, scripts
+  `docs/sql/micabo_*.sql`) : 22 logins `x@sophia.com` recopiés de micabo-os
+  (même id, même mot de passe, profil complet, aucun HM, aucun changement de
+  mot de passe imposé) ; 4 créateurs déjà sur Sophia gardent leur login, ses
+  comptes micabo y sont rattachés ; Eva (seul compte vidéo AI UGC, @eva.learn)
+  reste dans micabo-os. 27 comptes TikTok recopiés **en sommeil**
+  (`is_active = false`, sans label, warmup déjà fini) : ni vus ni servis.
+  Le schéma privé `migration_micabo` garde la correspondance des ids et l'état
+  micabo de chaque compte (`actif_micabo`, `labels_micabo`) pour le réveil ;
+  les mots de passe chiffrés en ont été purgés.
+
+- le stock de deux sources (2026-10-10, `docs/sql/micabo_4_import_stock.sql`
+  + fonction temporaire `reprise-micabo`, `docs/reprise-micabo/`) :
+  @luna.study4 (label `medical-study`, 59 contenus) et @jeena_study_tips
+  (`classic-study`, 34). Sources recréées (même id), contenus validés au rang
+  Sophia neutre (D / 0), pertinence micabo éligible quelle que soit la note,
+  tier micabo et **cycle micabo en cours** repris (50 publiés dans le cycle,
+  70 restants), 703 passages publiés recopiés (`resolu`, aucune file Apify),
+  decks micabo : 311 `pret` (slide pub marquée), 53 `ineligible`. Les 552
+  images (653 Mo) sont sous `medias/propre/<contenu>/…`, le chemin de Sophia :
+  copiées d'abord sous `medias/micabo/propre/…`, elles restaient invisibles
+  comme images nettoyées (front, composeur, pods ne reconnaissent que
+  `propre/…`) et ont été déplacées dans le bucket le 2026-10-10, avec 12
+  fichiers d'avatar (`migration_micabo.deplacements`). Les 466 originaux
+  bruts des slides (`raw_url` / `reference_url` de `structure_slides`, 153 Mo)
+  sous le MÊME chemin `medias/brut/<post TikTok>/…` que ceux de Sophia (les pods
+  n'acceptent qu'une référence `medias/brut/`, l'oubli d'une source vide
+  `brut/<post>`), et les URLs réécrites : plus rien ne pointe vers micabo-os.
+  Avatars des 27 comptes : 19 copiés et repointés ; 8 pointent encore vers
+  micabo-os, où le fichier n'existe déjà plus (avatar cassé là-bas aussi).
+- les 27 comptes micabo ont `parts_applications = {"micabo": 100}` (encore en
+  sommeil, sans label : aucun effet tant qu'ils ne sont pas réveillés).
+  `comptes.application_id` reste Sophia : colonne figée, lue par le composeur
+  et les bundles figés.
+  Pièges rencontrés : le connecteur Supabase bloque sans fin sur tout `UPDATE`
+  sans `WHERE` ; pg_net traite sa file par paquets, un appel lent retient les
+  crons de Sophia (d'où la copie en arrière-plan, réponse 202 immédiate) ; la
+  base plafonne à 60 connexions (une seule copie à la fois, 2 images en
+  parallèle).
+
+Reste à faire, le jour de la bascule : réveil des comptes (`is_active = true`
++ label `classic_study`), arrêt de ces comptes dans micabo-os, activation de
+micabo.
 
 ## 4. Plus tard (décidé, pas fait)
 

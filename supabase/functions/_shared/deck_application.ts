@@ -38,6 +38,7 @@ import { schemaMultiAppPret } from "./applications_moteur.ts";
 import { clePromptPlacement } from "./applications.ts";
 import { baseDeTraduction, estDeckPret } from "./deck_langue.ts";
 import { integrerApplication, MOT_SOPHIA } from "./placement_application.ts";
+import { deckLivreApplication, estContenuLivre } from "./pods.ts";
 import { chargerPrompt, messageErreur } from "./supabase.ts";
 
 /**
@@ -46,7 +47,13 @@ import { chargerPrompt, messageErreur } from "./supabase.ts";
  * systémique » que les échecs réellement cuits.
  */
 export type DeckApplicationResultat =
-  | { statut: "pret"; slides: SlideLangue[]; hashtags: string | null; cuit?: boolean }
+  | {
+    statut: "pret";
+    /** `media_id` : image finie d'un contenu livré par un pod (deck fourni). */
+    slides: Array<SlideLangue & { media_id?: string | null }>;
+    hashtags: string | null;
+    cuit?: boolean;
+  }
   | { statut: "ineligible" | "echec"; raison: string; cuit?: boolean };
 
 /** Raison d'un échec par manque de temps : jamais mise en cache (rien à voir avec le contenu). */
@@ -59,6 +66,12 @@ export interface OptionsDeckApplication {
    * le mettre en cache.
    */
   echeance?: number;
+  /**
+   * Test à blanc seulement (mode « contenus ») : ne pas servir le cache
+   * `contenu_langue_decks`, recuire avec le prompt de placement ACTUEL. Absent
+   * ou `false` (la nuit, l'assignation test) : comportement inchangé.
+   */
+  ignorerCache?: boolean;
 }
 
 /**
@@ -420,6 +433,12 @@ export async function assurerDeckApplication(
   if (!(await schemaMultiAppPret(supabase))) {
     return { statut: "echec", raison: "schéma multi-app absent" };
   }
+  // Contenu livré par un pod (images finies, texte en dur) : rien à traduire ni
+  // à placer. Seul le deck fourni par le pod pour CETTE application est servi
+  // (lecture seule, ni cache ni ligne langue créée) ; sinon inéligible.
+  if (await estContenuLivre(supabase, contenuId)) {
+    return await deckLivreApplication(supabase, contenuId, langue, app);
+  }
 
   const { data: contenu, error: errContenu } = await supabase
     .from("contenus")
@@ -440,7 +459,7 @@ export async function assurerDeckApplication(
     .maybeSingle();
   if (errCache) throw new Error(`contenu_langue_decks : ${messageErreur(errCache)}`);
 
-  if (cache) {
+  if (cache && !opts.ignorerCache) {
     const slides = (cache.slides ?? []) as SlideLangue[];
     // Un deck en cache qui cite un concurrent de l'application (motif élargi
     // depuis) est recuit plutôt que servi.

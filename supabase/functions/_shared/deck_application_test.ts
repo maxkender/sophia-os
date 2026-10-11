@@ -695,3 +695,94 @@ Deno.test("langue hors langues cibles : échec, rien de créé", async () => {
   assertEquals(resultat, { statut: "echec", raison: "langue xx hors langues cibles" });
   assertEquals(ecritures, []);
 });
+
+/* -------------------------------------------------------------------------
+ * Contenus livrés par un pod (0276) : jamais de cuisson. Seul le deck fourni
+ * par le pod pour l'application est servi ; sinon inéligible, sans écrire.
+ * ---------------------------------------------------------------------- */
+
+const DECK_LIVRE_UNSWIPE = [
+  { position: 1, media_id: "m-fr-1", texte_overlay: "", position_sophia: false },
+  { position: 2, media_id: "m-unswipe-2", texte_overlay: "", position_sophia: true },
+];
+
+/** Contenu livré : images finies dans contenu_langues (fr), deck Unswipe fourni ou non. */
+function mondeLivre(avecDeck: boolean): Record<string, Ligne[]> {
+  return monde({
+    contenus: [{ id: "c1", titre: "#pod", langue_source: "fr", compte_reference_id: null, structure_slides: [], livre: true }],
+    contenu_langues: [{
+      id: "cl-fr",
+      contenu_id: "c1",
+      langue: "fr",
+      slides: [
+        { position: 1, media_id: "m-fr-1", texte_overlay: "", position_sophia: false },
+        { position: 2, media_id: "m-fr-2", texte_overlay: "", position_sophia: true },
+      ],
+      slides_base: null,
+      hashtags: "#livre #fr",
+    }],
+    contenu_langue_decks: avecDeck
+      ? [{
+        id: "d-pod",
+        contenu_langue_id: "cl-fr",
+        contenu_id: "c1",
+        langue: "fr",
+        variante: "unswipe",
+        statut: "pret",
+        slides: DECK_LIVRE_UNSWIPE,
+        placement: { origine: "pod" },
+        updated_at: new Date().toISOString(),
+      }]
+      : [],
+  });
+}
+
+Deno.test("contenu livré avec deck Unswipe fourni : servi tel quel (media_id), sans Gemini ni écriture", async () => {
+  for (const ignorerCache of [false, true]) {
+    oublierSondeMultiApp();
+    const ecritures: Ecriture[] = [];
+    const { resultat, prompts } = await avecGemini(() =>
+      assurerDeckApplication(fauxClient(mondeLivre(true), ecritures), "c1", "fr", UNSWIPE, { ignorerCache })
+    );
+    assertEquals(resultat, { statut: "pret", slides: DECK_LIVRE_UNSWIPE, hashtags: "#livre #fr", cuit: false });
+    assertEquals(prompts.length, 0);
+    assertEquals(ecritures, []);
+  }
+});
+
+Deno.test("contenu livré sans deck Unswipe : inéligible, aucune écriture (ni cache, ni ligne langue), sans Gemini", async () => {
+  for (const [langue, ignorerCache] of [["fr", false], ["fr", true], ["de", false]] as const) {
+    oublierSondeMultiApp();
+    const ecritures: Ecriture[] = [];
+    const tables = mondeLivre(false);
+    const { resultat, prompts } = await avecGemini(() =>
+      assurerDeckApplication(fauxClient(tables, ecritures), "c1", langue, UNSWIPE, { ignorerCache })
+    );
+    assertEquals(resultat, { statut: "ineligible", raison: `contenu livré : pas de deck unswipe en ${langue}` });
+    assertEquals(prompts.length, 0);
+    assertEquals(ecritures, []);
+    assertEquals(tables.contenu_langues.length, 1, "aucune ligne langue créée");
+  }
+});
+
+Deno.test("contenu NON livré (livre: false) : chemin d'avant, cache prêt servi", async () => {
+  oublierSondeMultiApp();
+  const ecritures: Ecriture[] = [];
+  const deck = [...BASE_FR.slice(0, 3), slide(4, "3. l'appli Unswipe m'aide", true)];
+  const tables = monde({
+    contenus: [{ id: "c1", titre: "#digitaldetox", langue_source: "fr", compte_reference_id: null, structure_slides: [], livre: false }],
+    contenu_langue_decks: [{
+      contenu_langue_id: "cl-fr",
+      variante: "unswipe",
+      statut: "pret",
+      slides: deck,
+      updated_at: new Date().toISOString(),
+    }],
+  });
+  const { resultat, prompts } = await avecGemini(() =>
+    assurerDeckApplication(fauxClient(tables, ecritures), "c1", "fr", UNSWIPE)
+  );
+  assertEquals(resultat, { statut: "pret", slides: deck, hashtags: "#fr1 #fr2 #fr3" });
+  assertEquals(prompts.length, 0);
+  assertEquals(ecritures, []);
+});

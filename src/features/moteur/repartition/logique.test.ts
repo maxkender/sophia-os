@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { ID_SOPHIA, type ApplicationMoteur } from "../multiApp";
 import {
+  applicationsAfficheesCompte,
   contenuHorsSophia,
   curseursBornes,
   diagnosticCompteSansSophia,
@@ -11,8 +12,9 @@ import {
   nomApplicationPromue,
   nomsApplicationsDuLabel,
   partsDepuisCurseurs,
-  posterServiApplication,
+  posterPromeutApplication,
   resumeParts,
+  resumeSophiaContenu,
 } from "./logique";
 
 const ID_UNSWIPE = "00000000-0000-4000-8000-000000000003";
@@ -30,6 +32,7 @@ const APPS = [SOPHIA, UNSWIPE];
 const CLEAN = { id: "l-clean", slug: "clean-girl", nom: "Clean Girl" };
 const CINEMA = { id: "l-cinema", slug: "cinema", nom: "Cinéma" };
 const HOOK = { id: "l-hook", slug: "hook", nom: "Hook" };
+type LabelRefTest = { id: string; slug: string; nom: string };
 
 /** Clean Girl sert Sophia + Unswipe ; Cinéma n'a aucune ligne (= Sophia). */
 const LIENS = [
@@ -53,13 +56,32 @@ describe("applications d'un label", () => {
     expect(nomsApplicationsDuLabel(CLEAN.id, LIENS, APPS).sort()).toEqual(["Sophia", "Unswipe"]);
   });
 
-  it("filtre Posters : au moins un compte dont les labels servent l'application", () => {
-    expect(posterServiApplication([[CINEMA], [CLEAN]], LIENS, ID_UNSWIPE)).toBe(true);
-    expect(posterServiApplication([[CINEMA]], LIENS, ID_UNSWIPE)).toBe(false);
-    // Compte sans label, ou seulement des labels système : Sophia.
-    expect(posterServiApplication([[]], LIENS, ID_SOPHIA)).toBe(true);
-    expect(posterServiApplication([[HOOK]], LIENS, ID_SOPHIA)).toBe(true);
-    expect(posterServiApplication([], LIENS, ID_SOPHIA)).toBe(false);
+  it("filtre Posters : au moins un compte qui PROMEUT l'application (son badge), pas ce que ses labels permettent", () => {
+    const slugParId = (id: string) => APPS.find((a) => a.id === id)?.slug;
+    const UNSWIPE_SEUL = { id: "l-unswipe", slug: "focus", nom: "Focus" };
+    const liens = [...LIENS, { label_id: UNSWIPE_SEUL.id, application_id: ID_UNSWIPE }];
+    const promeut = (comptes: { parts: unknown; labels: LabelRefTest[] | null }[], slug: string) =>
+      posterPromeutApplication(comptes, liens, slug, slugParId);
+
+    // Répartition par défaut + label Sophia + Unswipe : Sophia seulement.
+    expect(promeut([{ parts: null, labels: [CLEAN] }], "sophia")).toBe(true);
+    expect(promeut([{ parts: null, labels: [CLEAN] }], "unswipe")).toBe(false);
+    // Labels qui ne servent qu'Unswipe : Unswipe sans réglage.
+    expect(promeut([{ parts: null, labels: [UNSWIPE_SEUL] }], "unswipe")).toBe(true);
+    expect(promeut([{ parts: null, labels: [UNSWIPE_SEUL] }], "sophia")).toBe(false);
+    // Répartition explicite : ses applications à part > 0, et elles seules.
+    expect(promeut([{ parts: { unswipe: 100 }, labels: [CLEAN] }], "unswipe")).toBe(true);
+    expect(promeut([{ parts: { unswipe: 100 }, labels: [CLEAN] }], "sophia")).toBe(false);
+    expect(promeut([{ parts: { sophia: 70, unswipe: 30 }, labels: [CLEAN] }], "unswipe")).toBe(true);
+    expect(promeut([{ parts: { sophia: 100, unswipe: 0 }, labels: [CLEAN] }], "unswipe")).toBe(false);
+    // Un seul compte suffit ; sans label (ou système) ni répartition : Sophia.
+    expect(promeut([{ parts: null, labels: [CINEMA] }, { parts: { unswipe: 100 }, labels: [CLEAN] }], "unswipe")).toBe(true);
+    expect(promeut([{ parts: null, labels: [] }], "sophia")).toBe(true);
+    expect(promeut([{ parts: null, labels: [HOOK] }], "sophia")).toBe(true);
+    // Labels pas encore chargés : Sophia, comme le badge.
+    expect(promeut([{ parts: null, labels: null }], "sophia")).toBe(true);
+    // Aucun compte : aucune application.
+    expect(promeut([], "sophia")).toBe(false);
   });
 });
 
@@ -124,17 +146,20 @@ describe("etatPartsCompte", () => {
   });
 
   it("prévient : application éteinte, langue non ciblée, compte UGC", () => {
+    // Répartition mixte (Sophia y garde une part) : la part exclue lui revient.
     const eteinte = etatPartsCompte({
-      compte: { ...compte, parts_applications: { unswipe: 30 } },
+      compte: { ...compte, parts_applications: { sophia: 70, unswipe: 30 } },
       labels: [CLEAN],
       liens: LIENS,
       applications: [SOPHIA, { ...UNSWIPE, actif: false }],
     });
     expect(eteinte.avertissements).toEqual([{ type: "inactive", app: "Unswipe" }]);
     expect(eteinte.effectives).toEqual({ sophia: 100 });
+    expect(eteinte.repliSophia).toBe(true);
+    expect(eteinte.bloque).toBe(false);
 
     const langue = etatPartsCompte({
-      compte: { ...compte, langue: "de", parts_applications: { unswipe: 30 } },
+      compte: { ...compte, langue: "de", parts_applications: { sophia: 70, unswipe: 30 } },
       labels: [CLEAN],
       liens: LIENS,
       applications: APPS,
@@ -143,7 +168,7 @@ describe("etatPartsCompte", () => {
     expect(langue.effectives).toEqual({ sophia: 100 });
 
     const ugc = etatPartsCompte({
-      compte: { ...compte, ugc_ai: true, parts_applications: { unswipe: 30 } },
+      compte: { ...compte, ugc_ai: true, parts_applications: { sophia: 70, unswipe: 30 } },
       labels: [CLEAN],
       liens: LIENS,
       applications: APPS,
@@ -239,6 +264,84 @@ describe("etatPartsCompte", () => {
   });
 });
 
+describe("etatPartsCompte — deux niveaux : la répartition choisit parmi ce que les labels permettent", () => {
+  const compte = { langue: "fr", ugc_ai: false, parts_applications: null };
+
+  it("défaut (NULL), label partagé : repli Sophia, 100 % Sophia (inchangé)", () => {
+    const e = etatPartsCompte({ compte, labels: [CLEAN], liens: LIENS, applications: APPS });
+    expect(e.repliSophia).toBe(true);
+    expect(e.bloque).toBe(false);
+    expect(e.effectives).toEqual({ sophia: 100 });
+  });
+
+  it("label partagé réglé 100 % Unswipe : Unswipe seule, pas de repli Sophia", () => {
+    const e = etatPartsCompte({
+      compte: { ...compte, parts_applications: { unswipe: 100 } },
+      labels: [CLEAN],
+      liens: LIENS,
+      applications: APPS,
+    });
+    expect(e.sophiaServie).toBe(true);
+    expect(e.repliSophia).toBe(false);
+    expect(e.bloque).toBe(false);
+    expect(e.effectives).toEqual({ unswipe: 100 });
+  });
+
+  it("label partagé réglé 100 % Unswipe, Unswipe éteinte / hors langue / UGC : ne publiera rien", () => {
+    for (const [patch, applications] of [
+      [{}, [SOPHIA, { ...UNSWIPE, actif: false }]],
+      [{ langue: "de" }, APPS],
+      [{ ugc_ai: true }, APPS],
+    ] as const) {
+      const e = etatPartsCompte({
+        compte: { ...compte, ...patch, parts_applications: { unswipe: 100 } },
+        labels: [CLEAN],
+        liens: LIENS,
+        applications,
+      });
+      expect(e.repliSophia).toBe(false);
+      expect(e.effectives).toEqual({});
+      expect(e.bloque).toBe(true);
+    }
+  });
+
+  it("labels Sophia seuls, répartition enregistrée : la carte reste visible", () => {
+    const sophia100 = etatPartsCompte({
+      compte: { ...compte, parts_applications: { sophia: 100 } },
+      labels: [CINEMA],
+      liens: LIENS,
+      applications: APPS,
+    });
+    expect(sophia100.afficher).toBe(true);
+    expect(sophia100.repliSophia).toBe(true);
+    expect(sophia100.bloque).toBe(false);
+
+    // Réglée 100 % Unswipe alors qu'aucun label ne sert Unswipe : rien.
+    const unswipe100 = etatPartsCompte({
+      compte: { ...compte, parts_applications: { unswipe: 100 } },
+      labels: [CINEMA],
+      liens: LIENS,
+      applications: APPS,
+    });
+    expect(unswipe100.afficher).toBe(true);
+    expect(unswipe100.repliSophia).toBe(false);
+    expect(unswipe100.bloque).toBe(true);
+    expect(unswipe100.effectives).toEqual({});
+    expect(unswipe100.avertissements).toEqual([{ type: "obsolete", app: "Unswipe" }]);
+  });
+
+  it("labels 100 % Unswipe, réglage resté 100 % Sophia : ne publiera rien (plus de parts égales)", () => {
+    const e = etatPartsCompte({
+      compte: { ...compte, parts_applications: { sophia: 100 } },
+      labels: [CLEAN],
+      liens: [{ label_id: CLEAN.id, application_id: ID_UNSWIPE }],
+      applications: APPS,
+    });
+    expect(e.effectives).toEqual({});
+    expect(e.bloque).toBe(true);
+  });
+});
+
 describe("diagnosticCompteSansSophia (panneau Minuit)", () => {
   const SEUL_UNSWIPE = [{ label_id: CLEAN.id, application_id: ID_UNSWIPE }];
   const base = {
@@ -280,6 +383,30 @@ describe("diagnosticCompteSansSophia (panneau Minuit)", () => {
     expect(ugc).toContain("il ne publiera rien");
   });
 
+  it("répartition explicite avec part Sophia, label sans ligne (Sophia héritée) : rien à signaler", () => {
+    // L'appelant (api.ts) ne liste que les applications jointes aux lignes
+    // `label_applications` : Sophia peut y manquer, le moteur l'a toujours.
+    const sansLigne = { id: "L9", slug: "nouveau", nom: "nouveau" };
+    expect(
+      diagnosticCompteSansSophia({
+        ...base,
+        compte: { langue: "fr", ugc: false, parts_applications: { sophia: 100 } },
+        labels: [sansLigne],
+        liens: [],
+        applications: [UNSWIPE],
+      }),
+    ).toBeNull();
+    expect(
+      diagnosticCompteSansSophia({
+        ...base,
+        compte: { langue: "fr", ugc: false, parts_applications: { sophia: 70, unswipe: 30 } },
+        labels: [sansLigne, CINEMA],
+        liens: SEUL_UNSWIPE,
+        applications: [UNSWIPE],
+      }),
+    ).toBeNull();
+  });
+
   it("désactivée ET sans langue (état de 0258) : les deux causes, pas seulement « désactivée »", () => {
     const d = diagnosticCompteSansSophia({
       ...base,
@@ -288,6 +415,43 @@ describe("diagnosticCompteSansSophia (panneau Minuit)", () => {
     })!;
     expect(d).toContain("Unswipe est désactivée");
     expect(d).toContain("Unswipe ne cible encore aucune langue (à cocher dans Pilotage → Applications)");
+  });
+
+  describe("deux niveaux : répartition explicite", () => {
+    const partage = (parts: Record<string, number>) => ({
+      ...base,
+      compte: { langue: "fr", ugc: false, parts_applications: parts },
+      liens: LIENS,
+    });
+
+    it("répartition NULL ou part Sophia > 0 : null, diagnostic historique", () => {
+      expect(diagnosticCompteSansSophia({ ...base, compte: { ...base.compte, parts_applications: null }, liens: LIENS })).toBeNull();
+      expect(diagnosticCompteSansSophia(partage({ sophia: 70, unswipe: 30 }))).toBeNull();
+    });
+
+    it("label partagé réglé 100 % Unswipe : la répartition coupe le repli, réserve Unswipe à vérifier", () => {
+      const d = diagnosticCompteSansSophia(partage({ unswipe: 100 }))!;
+      expect(d).toContain("La répartition de ce compte donne 0 % à Sophia");
+      expect(d).toContain("sans repli possible sur Sophia");
+      expect(d).toContain("Unswipe peut le servir");
+      expect(d).not.toContain("ne sert Sophia");
+      expect(d).not.toMatch(/timeout|baisse/);
+    });
+
+    it("label partagé réglé 100 % Unswipe, Unswipe éteinte : il ne publiera rien, cause dite", () => {
+      const d = diagnosticCompteSansSophia({
+        ...partage({ unswipe: 100 }),
+        applications: [SOPHIA, { ...UNSWIPE, actif: false }],
+      })!;
+      expect(d).toContain("il ne publiera rien");
+      expect(d).toContain("Unswipe est désactivée");
+    });
+
+    it("labels Sophia seuls réglés 100 % Unswipe : aucun label ne sert Unswipe", () => {
+      const d = diagnosticCompteSansSophia({ ...partage({ unswipe: 100 }), labels: [CINEMA], liens: [] })!;
+      expect(d).toContain("il ne publiera rien");
+      expect(d).toContain("aucun label de ce compte ne sert Unswipe");
+    });
   });
 });
 
@@ -359,5 +523,95 @@ describe("0270 — état de requalification d'un cycle (tier par application)", 
     expect(
       etatRequalifCycle({ ...base, moyenne_vues: null, mesures: 0, introuvables: 2 }, reglages),
     ).toEqual({ cle: "sansMesure_introuvable", alerte: true, echeance: null });
+  });
+});
+
+describe("applicationsAfficheesCompte", () => {
+  const ID_MICABO = "00000000-0000-4000-8000-000000000002";
+  const STUDY = { id: "l-study", slug: "classic-study", nom: "classic_study" };
+  const liens = [
+    ...LIENS,
+    { label_id: STUDY.id, application_id: ID_MICABO },
+    { label_id: STUDY.id, application_id: ID_UNSWIPE },
+  ];
+  const slugParId = (id: string) =>
+    ({ [ID_SOPHIA]: "sophia", [ID_UNSWIPE]: "unswipe", [ID_MICABO]: "micabo" })[id];
+
+  it("répartition explicite : ses applications, même sans label (compte micabo en sommeil)", () => {
+    expect(applicationsAfficheesCompte({ parts: { micabo: 100 }, labels: [], liens, slugParId })).toEqual([
+      { slug: "micabo", part: null },
+    ]);
+  });
+
+  it("répartition à plusieurs applications : Sophia d'abord, avec les parts", () => {
+    expect(applicationsAfficheesCompte({ parts: { unswipe: 30, sophia: 70 } })).toEqual([
+      { slug: "sophia", part: 70 },
+      { slug: "unswipe", part: 30 },
+    ]);
+  });
+
+  it("répartition null : Sophia dès qu'un label la sert, ou sans label utile", () => {
+    expect(applicationsAfficheesCompte({ parts: null, labels: [CLEAN], liens, slugParId })).toEqual([
+      { slug: "sophia", part: null },
+    ]);
+    expect(applicationsAfficheesCompte({ parts: null, labels: [CINEMA], liens, slugParId })).toEqual([
+      { slug: "sophia", part: null },
+    ]);
+    expect(applicationsAfficheesCompte({ parts: null, labels: [HOOK], liens, slugParId })).toEqual([
+      { slug: "sophia", part: null },
+    ]);
+  });
+
+  it("répartition null et labels hors Sophia : les applications de ses labels", () => {
+    expect(applicationsAfficheesCompte({ parts: null, labels: [STUDY], liens, slugParId })).toEqual([
+      { slug: "micabo", part: null },
+      { slug: "unswipe", part: null },
+    ]);
+  });
+
+  it("labels non chargés et pas de répartition : Sophia, comme avant", () => {
+    expect(applicationsAfficheesCompte({ parts: null })).toEqual([{ slug: "sophia", part: null }]);
+  });
+});
+
+describe("resumeSophiaContenu", () => {
+  const contenu = {
+    pertinence_score: 80,
+    pertinence_raison: "Réussite scolaire",
+    statut: "valide",
+    tier: "B" as const,
+    passages_prevus: 2,
+    langue_source: "en",
+    langues: [
+      { langue: "fr", score: 55 },
+      { langue: "en", score: 61.4 },
+    ],
+    tierEtat: { publies: 1, passages_prevus: 2, en_vol: 1, moyenne_vues: 900, max_vues: 1200 },
+  };
+
+  it("reprend la pertinence de la fiche, la note de la langue source et le cycle Sophia", () => {
+    expect(resumeSophiaContenu(contenu, false)).toEqual({
+      score: 80,
+      note: 61.4,
+      eligible: true,
+      raison: "Réussite scolaire",
+      tier: "B",
+      publies: 1,
+      prevus: 2,
+      enVol: 1,
+      moyenneVues: 900,
+      maxVues: 1200,
+    });
+  });
+
+  it("aucun label ne sert Sophia : pas de ligne", () => {
+    expect(resumeSophiaContenu(contenu, true)).toBeNull();
+  });
+
+  it("rang D ou contenu non validé : non éligible ; sans cycle, budget du rang", () => {
+    expect(resumeSophiaContenu({ ...contenu, tier: "D" }, false)?.eligible).toBe(false);
+    expect(resumeSophiaContenu({ ...contenu, statut: "brouillon" }, false)?.eligible).toBe(false);
+    const sansCycle = resumeSophiaContenu({ ...contenu, tierEtat: null, langues: [] }, false);
+    expect(sansCycle).toMatchObject({ prevus: 2, publies: 0, enVol: 0, note: null });
   });
 });

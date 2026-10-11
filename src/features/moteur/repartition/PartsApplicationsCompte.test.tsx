@@ -89,7 +89,7 @@ describe("PartsApplicationsCompte", () => {
   });
 
   it("prévient sans bloquer : langue non ciblée, compte UGC", async () => {
-    rendre(compte({ langue: "de", ugc_ai: true, parts_applications: { unswipe: 30 } }), [CLEAN]);
+    rendre(compte({ langue: "de", ugc_ai: true, parts_applications: { sophia: 70, unswipe: 30 } }), [CLEAN]);
     expect(await screen.findByText(/Compte UGC|UGC account/)).toBeInTheDocument();
     expect(screen.getByText(/ne cible pas la langue|does not target this account's language/)).toBeInTheDocument();
     // Sophia servie : la part exclue lui revient, et le texte le dit (inchangé).
@@ -160,6 +160,48 @@ describe("PartsApplicationsCompte", () => {
     rendre(compte(), [DETOX]);
     expect(await screen.findByText(/Unswipe est désactivée|Unswipe is switched off/)).toBeInTheDocument();
     expect(screen.getByText(/ne cible pas la langue|does not target this account's language/)).toBeInTheDocument();
+  });
+
+  it("deux niveaux — label partagé réglé 100 % Unswipe : pas de repli Sophia annoncé", async () => {
+    rendre(compte({ parts_applications: { unswipe: 100 } }), [CLEAN]);
+    expect(await screen.findByText(/Unswipe 100 %/)).toBeInTheDocument();
+    expect(screen.getByText(/donne 0 % à Sophia|gives Sophia 0%/)).toBeInTheDocument();
+    expect(screen.getByText(/plus de repli sur Sophia|no more fallback to Sophia/)).toBeInTheDocument();
+    expect(screen.queryByText(/prend le reste|takes the rest/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/revient à Sophia|goes back to Sophia/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/ne publiera rien|will publish nothing/)).not.toBeInTheDocument();
+  });
+
+  it("deux niveaux — label partagé réglé 100 % Unswipe, Unswipe éteinte : rouge, sans « revient à Sophia »", async () => {
+    listerApplicationsMulti.mockResolvedValue([APPS[0], { ...APPS[1], actif: false }]);
+    rendre(compte({ parts_applications: { unswipe: 100 } }), [CLEAN]);
+    const bloque = await screen.findByText(/ne publiera rien|will publish nothing/);
+    expect(bloque).toHaveClass("text-destructive");
+    expect(screen.getByText(/Unswipe est désactivée|Unswipe is switched off/)).toHaveClass("text-destructive");
+    expect(screen.queryByText(/revient à Sophia|goes back to Sophia/)).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Réinitialiser|Reset/ })).toBeInTheDocument();
+  });
+
+  it("deux niveaux — curseur Unswipe à 100 : prévient qu'il n'y aura plus de repli Sophia", async () => {
+    rendre(compte(), [CLEAN]);
+    const curseur = await screen.findByLabelText("Unswipe");
+    expect(screen.queryByText(/plus de repli sur Sophia|no more fallback to Sophia/)).not.toBeInTheDocument();
+    fireEvent.change(curseur, { target: { value: "100" } });
+    expect(screen.getByText(/plus de repli sur Sophia|no more fallback to Sophia/)).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /Enregistrer la répartition|Save split/ }));
+    await waitFor(() => expect(majPartsApplicationsCompte).toHaveBeenCalledWith("c1", { unswipe: 100 }));
+  });
+
+  it("deux niveaux — labels Sophia seuls avec une répartition enregistrée : la carte reste visible", async () => {
+    const { unmount } = rendre(compte({ parts_applications: { sophia: 100 } }), [CINEMA]);
+    expect(await screen.findByText(/Sophia 100 %/)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Réinitialiser|Reset/ })).toBeInTheDocument();
+    expect(screen.queryByText(/ne publiera rien|will publish nothing/)).not.toBeInTheDocument();
+    unmount();
+
+    rendre(compte({ parts_applications: { unswipe: 100 } }), [CINEMA]);
+    expect(await screen.findByText(/ne publiera rien|will publish nothing/)).toHaveClass("text-destructive");
+    expect(screen.queryByText(/revient aux autres|goes to the others/)).not.toBeInTheDocument();
   });
 
   it("avant 0256 : l'erreur reste dans le bloc", async () => {

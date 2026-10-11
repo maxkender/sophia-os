@@ -1,4 +1,4 @@
--- 0272 : reprise du parcours d'accueil là où le créateur l'a laissé.
+-- 0277 : reprise du parcours d'accueil là où le créateur l'a laissé.
 --
 -- L'accueil passe d'une pop-up (une vidéo, un bouton) à un parcours en
 -- plusieurs écrans terminé par un quiz. Fermer l'onglet au milieu ne doit ni

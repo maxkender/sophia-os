@@ -9,18 +9,16 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {
-  avecFileLabelsApplication,
-  fileLabelsDeLApplication,
-  SLUG_SOPHIA,
-} from "@/features/moteur/applications";
-import {
   ecrireReglage,
   lireReglages,
   listerLabelIdsAvecUgc,
   listerLabels,
 } from "@/features/moteur/api";
-import { estLabelFileSlideshow } from "@/features/moteur/fileLabelsSlideshow";
-import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
+import {
+  FileLabelsApplicationEditeur,
+  type ChangementFileLabels,
+} from "@/features/moteur/repartition/FileLabelsApplicationEditeur";
+import { avecItemsApplication } from "@/features/moteur/repartition/fileApplication";
 import {
   SCHEMA_ASSIGNATION,
   SCHEMA_UPDATE_ELO,
@@ -28,33 +26,8 @@ import {
   type PipelineAction,
   type PipelineStep,
 } from "@/features/moteur/pipelinesSchema";
-import type {
-  FileLabelCompteItem,
-  ModeleNudge,
-  Reglages,
-  ReglagesFileLabels,
-} from "@/features/moteur/types";
+import type { ModeleNudge, Reglages } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
-
-/** `"general"` ou code langue. */
-type FileQueueKey = "general" | (typeof LANGUES_CIBLES)[number];
-
-function itemsDeLaFile(file: ReglagesFileLabels, key: FileQueueKey): FileLabelCompteItem[] {
-  if (key === "general") return file.items;
-  return file.par_langue[key] ?? [];
-}
-
-function avecItemsFile(
-  file: ReglagesFileLabels,
-  key: FileQueueKey,
-  items: FileLabelCompteItem[],
-): ReglagesFileLabels {
-  if (key === "general") return { ...file, items };
-  const par_langue = { ...file.par_langue };
-  if (items.length === 0) delete par_langue[key];
-  else par_langue[key] = items;
-  return { ...file, par_langue };
-}
 
 function ChampNombre({
   id,
@@ -238,10 +211,7 @@ export function AdminReglagesPage() {
 
   const [brouillon, setBrouillon] = React.useState<Reglages | null>(null);
   const reglages = brouillon ?? data ?? null;
-  const [labelAjout, setLabelAjout] = React.useState("");
-  const [ugcAjout, setUgcAjout] = React.useState(false);
   const [fileSauveAt, setFileSauveAt] = React.useState<number | null>(null);
-  const [fileQueueKey, setFileQueueKey] = React.useState<FileQueueKey>("general");
 
 
   const enregistrer = useMutation({
@@ -256,8 +226,9 @@ export function AdminReglagesPage() {
       await ecrireReglage("tierlist", r.tierlist);
       await ecrireReglage("classement_comptes", r.classement_comptes);
       await ecrireReglage("nudges", r.nudges);
-      // File déjà autosauvegardée à chaque edit — on resync quand même.
-      await ecrireReglage("file_labels_comptes", r.file_labels_comptes);
+      // La File des créateurs n'est PAS réécrite ici : elle est sauvegardée à
+      // chaque edit, sur une valeur relue. La réécrire depuis le brouillon
+      // ressusciterait les entrées tirées par les embauches depuis l'ouverture.
       await ecrireReglage("warmup", r.warmup);
     },
     onSuccess: () => {
@@ -266,12 +237,22 @@ export function AdminReglagesPage() {
     },
   });
 
-  /** File admin : persistée immédiatement (prévaut sur l’auto à la création). */
+  /**
+   * File admin : persistée immédiatement (prévaut sur l’auto à la création).
+   * Le changement est réappliqué sur la valeur RELUE en base, jamais sur
+   * l'instantané de la page : une embauche peut avoir tiré une entrée (de
+   * n'importe quelle application) depuis l'ouverture de Réglages.
+   */
   const persisterFile = useMutation({
-    mutationFn: (file: Reglages["file_labels_comptes"]) =>
-      ecrireReglage("file_labels_comptes", file),
-    onSuccess: (_void, file) => {
+    mutationFn: async (chg: ChangementFileLabels) => {
+      const frais = (await lireReglages()).file_labels_comptes;
+      const file = avecItemsApplication(frais, chg.slug, chg.cle, chg.items);
+      await ecrireReglage("file_labels_comptes", file);
+      return file;
+    },
+    onSuccess: (file) => {
       setFileSauveAt(Date.now());
+      setBrouillon((b) => (b ? { ...b, file_labels_comptes: file } : b));
       queryClient.setQueryData<Reglages>(["reglages"], (old) =>
         old ? { ...old, file_labels_comptes: file } : old,
       );
@@ -283,16 +264,12 @@ export function AdminReglagesPage() {
   }
 
   const maj = (patch: Partial<Reglages>) => setBrouillon({ ...reglages, ...patch });
-  // File des créateurs : TOUJOURS la tranche Sophia, quel que soit le
-  // sélecteur d'application. L'identité d'un compte est Sophia (bio, persona)
-  // et manage-users (bundle figé) ne lit que cette tranche — éditer une
-  // tranche Unswipe ici écrirait une file que personne ne consomme.
-  const fileApp = fileLabelsDeLApplication(reglages.file_labels_comptes, SLUG_SOPHIA);
-  const majFile = (items: FileLabelCompteItem[]) => {
-    const slice = avecItemsFile(fileApp, fileQueueKey, items);
-    const file = avecFileLabelsApplication(reglages.file_labels_comptes, SLUG_SOPHIA, slice);
+  // File des créateurs PAR APPLICATION : l'éditeur rend le réglage complet
+  // (la tranche de l'application choisie, les autres intactes ; Sophia écrite
+  // comme avant, file racine comprise), persisté aussitôt.
+  const majFile = (file: Reglages["file_labels_comptes"], changement: ChangementFileLabels) => {
     setBrouillon({ ...reglages, file_labels_comptes: file });
-    persisterFile.mutate(file);
+    persisterFile.mutate(changement);
   };
   const majScoring = (patch: Partial<Reglages["scoring"]>) =>
     maj({ scoring: { ...reglages.scoring, ...patch } });
@@ -304,7 +281,6 @@ export function AdminReglagesPage() {
   const total =
     reglages.repartition.recycle + reglages.repartition.remanie + reglages.repartition.nouveau;
   const totalValide = total === 100;
-  const fileActive = itemsDeLaFile(fileApp, fileQueueKey);
   const cleaningSchema = schemaCleaning(reglages.nettoyage.provider_principal);
 
   return (
@@ -768,10 +744,6 @@ export function AdminReglagesPage() {
 
           <section className="space-y-3">
             <h3 className="text-sm font-medium">{t("warmup.fileTitre")}</h3>
-            <p className="text-xs font-medium text-foreground">
-              {t("warmup.fileApp")}
-            </p>
-            <p className="text-xs text-muted-foreground">{t("warmup.fileDesc")}</p>
             <p className="text-xs text-muted-foreground">
               {t("warmup.fileAutosave")}
               {persisterFile.isPending
@@ -781,173 +753,13 @@ export function AdminReglagesPage() {
                   : ""}
             </p>
 
-            <div className="space-y-1 sm:max-w-sm">
-              <Label htmlFor="fileQueueKey">{t("warmup.fileChoisir")}</Label>
-              <select
-                id="fileQueueKey"
-                className="h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm"
-                value={fileQueueKey}
-                onChange={(e) => {
-                  const v = e.target.value;
-                  setFileQueueKey(
-                    v === "general" || (LANGUES_CIBLES as readonly string[]).includes(v)
-                      ? (v as FileQueueKey)
-                      : "general",
-                  );
-                }}
-              >
-                <option value="general">
-                  {t("warmup.fileGenerale")} ({fileApp.items.length})
-                </option>
-                {LANGUES_CIBLES.map((code) => {
-                  const n = (fileApp.par_langue[code] ?? []).length;
-                  return (
-                    <option key={code} value={code}>
-                      {nomLangue(code)} ({n})
-                      {n > 0 ? ` — ${t("warmup.filePrioritaire")}` : ""}
-                    </option>
-                  );
-                })}
-              </select>
-              <p className="text-xs text-muted-foreground">
-                {fileQueueKey === "general"
-                  ? t("warmup.fileGeneraleAide")
-                  : t("warmup.fileLangueAide", { langue: nomLangue(fileQueueKey) })}
-              </p>
-            </div>
-
-            <ol className="space-y-1.5">
-              {fileActive.length === 0 && (
-                <li className="text-sm text-muted-foreground">
-                  {fileQueueKey === "general"
-                    ? t("warmup.fileVideListe")
-                    : t("warmup.fileLangueVide")}
-                </li>
-              )}
-              {fileActive.map((item, i) => {
-                const lab = (labels.data ?? []).find((l) => l.id === item.label_id);
-                const horsSlideshow = lab ? !estLabelFileSlideshow(lab) : false;
-                return (
-                  <li
-                    key={`${fileQueueKey}-${item.label_id}-${item.ugc}-${i}`}
-                    className="flex flex-wrap items-center justify-between gap-2 rounded-md border px-2.5 py-2 text-sm"
-                  >
-                    <span className="flex min-w-0 items-center gap-2 truncate">
-                      <span className="text-muted-foreground">{i + 1}.</span>
-                      <span className="truncate">{lab?.nom ?? item.label_id.slice(0, 8)}</span>
-                      {item.ugc && (
-                        <Badge variant="secondary" className="shrink-0 text-[10px]">
-                          UGC
-                        </Badge>
-                      )}
-                      {horsSlideshow && (
-                        <Badge variant="outline" className="shrink-0 text-[10px]">
-                          {t("warmup.fileIgnoreUgcVideo")}
-                        </Badge>
-                      )}
-                    </span>
-                    <div className="flex items-center gap-1">
-                      <Button
-                        type="button"
-                        size="sm"
-                        variant="ghost"
-                        disabled={i === 0 || persisterFile.isPending}
-                        onClick={() => {
-                          const items = [...fileActive];
-                          [items[i - 1], items[i]] = [items[i]!, items[i - 1]!];
-                          majFile(items);
-                        }}
-                      >
-                        ↑
-                      </Button>
-                      <Button
-                        type="button"
-                        size="sm"
-                        variant="ghost"
-                        disabled={i >= fileActive.length - 1 || persisterFile.isPending}
-                        onClick={() => {
-                          const items = [...fileActive];
-                          [items[i], items[i + 1]] = [items[i + 1]!, items[i]!];
-                          majFile(items);
-                        }}
-                      >
-                        ↓
-                      </Button>
-                      <Button
-                        type="button"
-                        size="sm"
-                        variant="ghost"
-                        className="text-destructive"
-                        disabled={persisterFile.isPending}
-                        onClick={() => {
-                          majFile(fileActive.filter((_, j) => j !== i));
-                        }}
-                      >
-                        ×
-                      </Button>
-                    </div>
-                  </li>
-                );
-              })}
-            </ol>
-            <div className="flex flex-wrap items-end gap-2">
-              <div className="min-w-[180px] flex-1 space-y-1">
-                <Label htmlFor="ajoutLabel">{t("warmup.ajouterLabel")}</Label>
-                <select
-                  id="ajoutLabel"
-                  className="h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm"
-                  value={labelAjout}
-                  onChange={(e) => setLabelAjout(e.target.value)}
-                >
-                  <option value="">{t("common.none")}</option>
-                  {(labels.data ?? [])
-                    .filter((l) => estLabelFileSlideshow(l))
-                    .filter((l) => !ugcAjout || (labelsUgc.data ?? []).includes(l.id))
-                    .map((l) => (
-                      <option key={l.id} value={l.id}>
-                        {l.nom}
-                      </option>
-                    ))}
-                </select>
-              </div>
-              <label className="flex h-9 items-center gap-2 text-sm">
-                <input
-                  type="checkbox"
-                  checked={ugcAjout}
-                  onChange={(e) => {
-                    const on = e.target.checked;
-                    setUgcAjout(on);
-                    if (
-                      on &&
-                      labelAjout &&
-                      !(labelsUgc.data ?? []).includes(labelAjout)
-                    ) {
-                      setLabelAjout("");
-                    }
-                  }}
-                />
-                {t("warmup.ajouterUgc")}
-              </label>
-              <Button
-                type="button"
-                size="sm"
-                disabled={
-                  !labelAjout ||
-                  persisterFile.isPending ||
-                  (ugcAjout && !(labelsUgc.data ?? []).includes(labelAjout))
-                }
-                onClick={() => {
-                  majFile([...fileActive, { label_id: labelAjout, ugc: ugcAjout }]);
-                  setLabelAjout("");
-                  setUgcAjout(false);
-                }}
-              >
-                {t("warmup.ajouter")}
-              </Button>
-            </div>
-            {ugcAjout && (labelsUgc.data ?? []).length === 0 && (
-              <p className="text-xs text-destructive">{t("warmup.aucunLabelUgc")}</p>
-            )}
+            <FileLabelsApplicationEditeur
+              file={reglages.file_labels_comptes}
+              onChange={majFile}
+              enCours={persisterFile.isPending}
+              labels={labels.data}
+              labelsUgc={labelsUgc.data}
+            />
             {persisterFile.isError && (
               <p className="text-xs text-destructive">
                 {(persisterFile.error as Error).message}

@@ -276,6 +276,37 @@ Deno.test("pipeline, contenu hors Sophia : aucune écriture du rang dans contenu
   oublierSondes();
 });
 
+Deno.test("pipeline, contenu hors Sophia sous le plancher de pertinence : rejeté à la porte, avant les étapes suivantes", async () => {
+  oublierSondes();
+  // La porte (le max = 40) passe grâce aux vues ; seule la pertinence est trop basse.
+  assert(note(40) >= SEUIL, "prémisse des chiffres");
+  const b = base([{ application_id: UNSWIPE, score: 40 }], { pertinence_score: 40 });
+  const { client, journal, tables } = fauxClient(b);
+
+  const r = await avancerImport(client, b.contenus[0]);
+
+  assertEquals(r.etape, "elo_insuffisant");
+  assertEquals(updatesRang(journal), []);
+  const c = tables.contenus[0];
+  assertEquals([c.statut, c.import_statut, c.import_etape], ["rejete", "done", "elo_insuffisant"]);
+  assert(String(c.import_erreur).includes("Pertinence sous 50"), String(c.import_erreur));
+  assertEquals(tables.contenu_pertinences[0].eligible, false);
+  oublierSondes();
+});
+
+Deno.test("pipeline, contenu partagé avec Sophia, Unswipe sous le plancher : importé (Sophia le sert)", async () => {
+  oublierSondes();
+  const b = base([{ application_id: ID_SOPHIA, score: 90 }, { application_id: UNSWIPE, score: 40 }]);
+  const { client, tables } = fauxClient(b);
+
+  const r = await avancerImport(client, b.contenus[0]);
+
+  assertEquals(r.etape, "elo");
+  const ligne = (app: string) => tables.contenu_pertinences.find((l) => l.application_id === app)!;
+  assertEquals([ligne(ID_SOPHIA).eligible, ligne(UNSWIPE).eligible], [true, false]);
+  oublierSondes();
+});
+
 Deno.test("pipeline, lecture du placement en panne : le pas échoue (rejoué), aucun rang écrit", async () => {
   oublierSondes();
   const b = base([{ application_id: ID_SOPHIA, score: 90 }]);
@@ -373,7 +404,9 @@ Deno.test("forçage, contenu hors Sophia : pas d'UPDATE du rang, le reste du for
   assert(r.ok);
   assertEquals(updatesRang(journal), []);
   assertEquals(tables.contenus[0].import_elo_force_seuil, true);
-  assertEquals(tables.contenu_pertinences[0].eligible, true);
+  // Pertinence Unswipe 10 < PERTINENCE_MIN_HORS_SOPHIA : le forçage ne
+  // l'ouvre pas au pool Unswipe.
+  assertEquals(tables.contenu_pertinences[0].eligible, false);
   oublierSondes();
 });
 
@@ -467,12 +500,14 @@ Deno.test("forçage : ligne d'une AUTRE application planchée au seuil, ligne So
   oublierSondes();
   const b = baseForcee([
     { application_id: ID_SOPHIA, score: 10, note: 30 },
-    { application_id: UNSWIPE, score: 10, note: 20 },
+    // Pertinence au-dessus du plancher (PERTINENCE_MIN_HORS_SOPHIA) : seule la
+    // note, tirée vers le bas par les vues, est sous le seuil.
+    { application_id: UNSWIPE, score: 80, note: 20 },
   ]);
   (b.contenus[0] as Record<string, unknown>).import_elo_rapport = {
     pertinences: {
       sophia: { score: 10, note: 30, eligible: false },
-      unswipe: { score: 10, note: 20, eligible: false },
+      unswipe: { score: 80, note: 20, eligible: false },
     },
   };
   const { client, tables } = fauxClient(b);
@@ -486,5 +521,30 @@ Deno.test("forçage : ligne d'une AUTRE application planchée au seuil, ligne So
   const pert = (r.ok ? r.elo : null) as { pertinences?: Record<string, { note: number | null }> } | null;
   assertEquals(pert?.pertinences?.sophia.note, 30);
   assertEquals(pert?.pertinences?.unswipe.note, SEUIL);
+  oublierSondes();
+});
+
+Deno.test("forçage : pertinence hors Sophia sous 50 → la ligne reste hors du pool, Sophia éligible", async () => {
+  oublierSondes();
+  const b = baseForcee([
+    { application_id: ID_SOPHIA, score: 10, note: 30 },
+    { application_id: UNSWIPE, score: 49, note: 20 },
+  ]);
+  (b.contenus[0] as Record<string, unknown>).import_elo_rapport = {
+    pertinences: {
+      sophia: { score: 10, note: 30, eligible: false },
+      unswipe: { score: 49, note: 20, eligible: false },
+    },
+  };
+  const { client, tables } = fauxClient(b);
+
+  const r = await forcerImportElo(client, "c1");
+
+  assert(r.ok);
+  const ligne = (app: string) => tables.contenu_pertinences.find((l) => l.application_id === app)!;
+  assertEquals(ligne(ID_SOPHIA).eligible, true, "Sophia : pas de plancher de pertinence");
+  assertEquals([ligne(UNSWIPE).note, ligne(UNSWIPE).eligible], [SEUIL, false], "forcer ne passe pas outre le sujet");
+  const pert = (r.ok ? r.elo : null) as { pertinences?: Record<string, { eligible: boolean }> } | null;
+  assertEquals([pert?.pertinences?.sophia.eligible, pert?.pertinences?.unswipe.eligible], [true, false]);
   oublierSondes();
 });

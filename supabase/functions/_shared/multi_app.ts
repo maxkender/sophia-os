@@ -7,7 +7,10 @@
  * Les tests vivent côté front.
  */
 
-/** Sophia : application d'origine, identité des comptes, repli universel. */
+/**
+ * Sophia : application d'origine, identité des comptes, et repli d'un compte
+ * dont la répartition lui laisse une part (toute la flotte, répartition NULL).
+ */
 export const ID_SOPHIA = "00000000-0000-4000-8000-000000000001";
 export const SLUG_SOPHIA = "sophia";
 
@@ -142,7 +145,9 @@ export function applicationsEligiblesCompte(args: {
 
 /**
  * Lit `comptes.parts_applications`. `null`, invalide ou vide → `null`, qui
- * signifie « 100 % Sophia » (le défaut des comptes existants).
+ * signifie « répartition par défaut » (100 % Sophia pour un compte dont un
+ * label sert Sophia — le défaut des comptes existants). Non `null` : une
+ * répartition EXPLICITE, que `partsEffectives` applique à la lettre.
  */
 export function normaliserParts(brut: unknown): PartsApplications | null {
   if (!brut || typeof brut !== "object" || Array.isArray(brut)) return null;
@@ -157,14 +162,21 @@ export function normaliserParts(brut: unknown): PartsApplications | null {
 
 /**
  * Parts réellement appliquées, restreintes aux applications éligibles et
- * renormalisées à 100.
+ * renormalisées à 100. DEUX NIVEAUX : les labels du compte disent ce qu'il
+ * PEUT promouvoir (`eligibles`), sa répartition choisit parmi eux.
  *
- * - Pas de réglage : 100 % Sophia (si Sophia est éligible).
- * - Une application inéligible (langue non ciblée, inactive, aucun label) voit
- *   sa part reportée sur les autres.
- * - Aucune part sur une application éligible : tout sur Sophia si elle l'est,
- *   sinon parts égales — un compte dont les labels ne servent QUE Unswipe
- *   publie 100 % Unswipe, quel que soit le réglage.
+ * - Pas de réglage (`null`) : 100 % Sophia si Sophia est éligible, sinon parts
+ *   égales entre les éligibles — un compte dont les labels ne servent QUE
+ *   Unswipe publie 100 % Unswipe sans aucun réglage. Inchangé : c'est toute
+ *   la flotte.
+ * - Répartition explicite : seules les applications à part > 0 peuvent être
+ *   publiées. Une application à part > 0 inéligible (langue non ciblée,
+ *   inactive, aucun label, compte UGC) voit sa part reportée sur les AUTRES
+ *   applications à part > 0, jamais sur une application à 0 %.
+ * - Répartition explicite dont aucune application à part > 0 n'est éligible :
+ *   `{}`, le compte ne publie rien — pas de repli Sophia ni de parts égales.
+ *   Un compte réglé 100 % Unswipe dont le label sert aussi Sophia ne fait que
+ *   de l'Unswipe.
  */
 export function partsEffectives(
   parts: PartsApplications | null,
@@ -174,6 +186,7 @@ export function partsEffectives(
   const base: PartsApplications = parts ?? { [SLUG_SOPHIA]: 100 };
   const retenues = eligibles.filter((slug) => (base[slug] ?? 0) > 0);
   if (retenues.length === 0) {
+    if (parts !== null) return {};
     if (eligibles.includes(SLUG_SOPHIA)) return { [SLUG_SOPHIA]: 100 };
     const egal = 100 / eligibles.length;
     return Object.fromEntries(eligibles.map((slug) => [slug, egal]));

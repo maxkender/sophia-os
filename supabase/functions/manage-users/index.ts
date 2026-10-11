@@ -1,4 +1,4 @@
-import { applicationSophia, type ApplicationRow } from "../_shared/applications.ts";
+import { applicationSophia, type ApplicationRow, SLUG_SOPHIA } from "../_shared/applications.ts";
 import {
   consommerFileSlideshow,
   estLabelFileSlideshow,
@@ -6,7 +6,30 @@ import {
   estLabelSysteme,
 } from "../_shared/labels_file.ts";
 import { retirerContentCredentialsBytes } from "../_shared/c2pa.ts";
+import {
+  applicationsRequises,
+  type ChoixCompte,
+  choixApplicableAuCompte,
+  entreeCompteApplication,
+  labelChoisiCompatible,
+  lireChoixCompte,
+  modeChoixCompte,
+  validerParts,
+} from "../_shared/creation_compte_apps.ts";
+import {
+  avecSliceApplication,
+  type FileLabelItem,
+  type FileLabelQueued,
+  type FileLabelsValeur,
+  normaliserFileLabelsValeur,
+  remettreEnTete,
+  sliceFileLabels,
+  valeurFileLabels,
+} from "../_shared/file_labels_comptes.ts";
+import { filtrerPoolParApplication } from "../_shared/labels_repli.ts";
+import { choisirLabelEquilibre, normaliserStatLabel } from "../_shared/choix_label_equilibre.ts";
 import { lireTout } from "../_shared/lots.ts";
+import { ID_SOPHIA, type PartsApplications } from "../_shared/multi_app.ts";
 import { appliquerIdentiteInstantanee } from "../_shared/persona.ts";
 import { cibleComptePapier, motDePasseComptePapier } from "../_shared/papier_cm_compte.ts";
 import { estRoleManager, rattachementNouvelHm, roleACreer } from "../_shared/roles.ts";
@@ -21,30 +44,6 @@ import {
 type Supabase = ReturnType<typeof serviceClient>;
 const DOMAINE = "sophia.com";
 const BUCKET = "medias";
-
-interface FileLabelItem {
-  label_id: string;
-  ugc: boolean;
-}
-
-/** Entrée consommée depuis une file admin — à restaurer au même endroit si échec. */
-interface FileLabelQueued {
-  item: FileLabelItem;
-  /** `"general"` ou code langue (`fr`, `de`, …). */
-  queueKey: string;
-  applicationSlug?: string;
-}
-
-interface FileLabelsSlice {
-  items: FileLabelItem[];
-  par_langue: Record<string, FileLabelItem[]>;
-}
-
-interface FileLabelsValeur {
-  items: FileLabelItem[];
-  par_langue: Record<string, FileLabelItem[]>;
-  par_application?: Record<string, FileLabelsSlice>;
-}
 
 interface PersonaUgcLibre {
   id: string;
@@ -82,7 +81,8 @@ function resoudrePremierCompte(
  * Création poster : premier compte perso, CM, ou aucun (login seul).
  * File FIFO `file_labels_comptes` :
  *   { items: [...], par_langue: { fr: [...], de: [...] } }
- * Priorité : file de la langue du poster → file générale (`items`) → least-used.
+ * Priorité : file de la langue du poster → file générale (`items`) → choix
+ * équilibré (`labelMoinsUtiliseParLangue`).
  * Labels UGC AI VIDEO (ex. `test`) exclus de la file et du fallback — réservés
  * aux créateurs nés d'un HM `hm_ugc_ai_video`.
  * Hook et la marque `ugc-ai-video` ne sont JAMAIS posés sur un créateur.
@@ -90,6 +90,22 @@ function resoudrePremierCompte(
  * sans métadonnées ; label forcé parmi ceux qui ont des slideshows ugc_compatible.
  * HM `hm_ugc_ai_video` → comptes ugc_ai_video, persona unique (pool partagé),
  * labels = labels HM (`hm_ugc_video_labels`) ; marque = checkmark `comptes.ugc_ai_video`.
+ *
+ * Application du compte (admin, head_of_ops, DM, HM) à la création d'un compte
+ * perso slideshow (create, ensure_compte, ajouter_compte) : on choisit
+ * l'APPLICATION, pas le label (cf. `_shared/creation_compte_apps.ts`).
+ *   - rien d'envoyé (Sophia) : chemin historique ci-dessus, inchangé ;
+ *   - `parts_applications = { <slug>: 100 }` : File des créateurs de CETTE
+ *     application (tranche `par_application[slug]`, langue puis générale), puis
+ *     le choix équilibré parmi les labels qui la servent (aucun → 409
+ *     NO_LABELS_APPLICATION). Hors Sophia, jamais UGC. `{ sophia: 100 }` =
+ *     chemin historique, répartition écrite telle quelle ;
+ *   - répartition à plusieurs applications : pas de File, choix équilibré
+ *     parmi les labels qui les servent toutes ;
+ *   - `label_id` (vieux client) : ce label, validé, sans File.
+ * Éligibilité d'un label à une File et au repli : `label_applications` (un
+ * label sans ligne sert Sophia), jamais la colonne historique
+ * `labels.application_id`.
  */
 Deno.serve(async (request) => {
   // Préflight CORS : doit répondre 2xx AVANT tout parse JSON, sinon le
@@ -237,8 +253,24 @@ async function gererRequete(request: Request): Promise<Response> {
       return json({ error: "Prénom requis et mot de passe d'au moins 8 caractères" }, 400);
     }
 
+    // Label / répartition imposés par le recruteur. `null` = chemin historique.
+    const lecture = lireChoixCompte(body, acces.role);
+    if (!lecture.ok) return json({ error: lecture.erreur }, lecture.statut);
+    const choix = lecture.choix;
+
     // HM UGC AI VIDEO : ses créateurs naissent sans file labels / sans labels.
     const hmUgcAiVideo = await estHmUgcAiVideo(supabase, acces);
+    // Tout refus tombe AVANT createUser : un choix rejeté ne laisse ni login
+    // orphelin ni entrée de File consommée.
+    if (
+      choix &&
+      !choixApplicableAuCompte({
+        typeCompte: creerPerso ? "perso" : creerCm ? "cm" : "aucun",
+        ugcAiVideo: hmUgcAiVideo,
+      })
+    ) {
+      return json({ error: "CHOIX_COMPTE_INCOMPATIBLE" }, 400);
+    }
     // Tout compte naît Sophia (identité, file labels, référence), quoi que dise
     // body.application_id / application_slug : un compte porte des LABELS, et
     // ce sont eux qui décident des applications qu'il promeut
@@ -251,11 +283,21 @@ async function gererRequete(request: Request): Promise<Response> {
     let fileItemQueue: FileLabelQueued | null = null;
     let personaUgc: PersonaUgcLibre | null = null;
     let modeUgcAiVideo = false;
+    let partsApplications: PartsApplications | null = null;
     if (creerPerso) {
       if (hmUgcAiVideo) {
         modeUgcAiVideo = true;
         personaUgc = await personaUgcLibre(supabase, application.id);
         if (!personaUgc) return json({ error: "NO_UGC_PERSONA" }, 409);
+      } else if (choix) {
+        // Application choisie : SA File (remise en tête de SA tranche si la
+        // création échoue plus bas), puis le choix équilibré parmi ses labels.
+        const res = await resoudreChoixCompte(supabase, choix, langue);
+        if (!res.ok) return res.reponse;
+        fileItem = res.fileItem;
+        fileItemQueue = res.fileItemQueue;
+        personaUgc = res.personaUgc;
+        partsApplications = res.parts;
       } else {
         const prep = await preparerFileEtPersona(supabase, langue, application);
         if (!prep.ok) return json({ error: prep.error }, 409);
@@ -346,7 +388,7 @@ async function gererRequete(request: Request): Promise<Response> {
           postsParJour,
           personaUgc,
           fileItemQueue,
-          { ugcAiVideo: modeUgcAiVideo, application },
+          { ugcAiVideo: modeUgcAiVideo, application, partsApplications },
         )),
         type_compte: "perso",
       };
@@ -415,6 +457,8 @@ async function gererRequete(request: Request): Promise<Response> {
         return json({ error: "forbidden" }, 403);
       }
     }
+    const lecture = lireChoixCompte(body, acces.role);
+    if (!lecture.ok) return json({ error: lecture.erreur }, lecture.statut);
 
     const { data: deja } = await supabase
       .from("comptes")
@@ -437,6 +481,7 @@ async function gererRequete(request: Request): Promise<Response> {
       body.posts_par_jour,
       "",
       application,
+      lecture.choix,
     );
   }
 
@@ -450,6 +495,11 @@ async function gererRequete(request: Request): Promise<Response> {
 
     const interdit = await refuserSiHorsEquipe(supabase, acces, userId);
     if (interdit) return interdit;
+    const lecture = lireChoixCompte(body, acces.role);
+    if (!lecture.ok) return json({ error: lecture.erreur }, lecture.statut);
+    if (lecture.choix && !choixApplicableAuCompte({ typeCompte, ugcAiVideo: false })) {
+      return json({ error: "CHOIX_COMPTE_INCOMPATIBLE" }, 400);
+    }
     await etendreLanguesManager(supabase, acces, langue);
 
     if (typeCompte === "cm") {
@@ -465,6 +515,7 @@ async function gererRequete(request: Request): Promise<Response> {
       body.posts_par_jour,
       String(body.handle_tiktok ?? "").trim().replace(/^@+/, ""),
       application,
+      lecture.choix,
     );
   }
 
@@ -475,6 +526,10 @@ async function gererRequete(request: Request): Promise<Response> {
 
     const interdit = await refuserSiHorsEquipe(supabase, acces, userId);
     if (interdit) return interdit;
+    const lecture = lireChoixCompte(body, acces.role);
+    if (!lecture.ok) return json({ error: lecture.erreur }, lecture.statut);
+    // Un compte CM n'a pas de moteur : ni label slideshow ni répartition.
+    if (lecture.choix) return json({ error: "CHOIX_COMPTE_INCOMPATIBLE" }, 400);
     await etendreLanguesManager(supabase, acces, langue);
 
     return await creerCompteCmPourPoster(supabase, acces, userId, langue, body);
@@ -708,15 +763,29 @@ async function creerComptePersoPourPoster(
   postsParJourBrut: unknown,
   handleTiktok = "",
   application?: ApplicationRow | null,
+  /** Application choisie (ou label d'un vieux client) ; `null` = File Sophia puis repli, comme avant. */
+  choix: ChoixCompte | null = null,
 ): Promise<Response> {
   const modeUgcAiVideo = await modeUgcAiVideoPourPoster(supabase, acces, userId);
+  if (choix && !choixApplicableAuCompte({ typeCompte: "perso", ugcAiVideo: modeUgcAiVideo })) {
+    return json({ error: "CHOIX_COMPTE_INCOMPATIBLE" }, 400);
+  }
   let fileItem: FileLabelItem | null = null;
   let fileItemQueue: FileLabelQueued | null = null;
   let personaUgc: PersonaUgcLibre | null = null;
+  let partsApplications: PartsApplications | null = null;
 
   if (modeUgcAiVideo) {
     personaUgc = await personaUgcLibre(supabase, application?.id ?? null);
     if (!personaUgc) return json({ error: "NO_UGC_PERSONA" }, 409);
+  } else if (choix) {
+    // Application choisie : SA File, remise en tête de SA tranche si l'insert échoue.
+    const res = await resoudreChoixCompte(supabase, choix, langue);
+    if (!res.ok) return res.reponse;
+    fileItem = res.fileItem;
+    fileItemQueue = res.fileItemQueue;
+    personaUgc = res.personaUgc;
+    partsApplications = res.parts;
   } else {
     const prep = await preparerFileEtPersona(supabase, langue, application);
     if (!prep.ok) return json({ error: prep.error }, 409);
@@ -736,7 +805,7 @@ async function creerComptePersoPourPoster(
     postsParJour,
     personaUgc,
     fileItemQueue,
-    { ugcAiVideo: modeUgcAiVideo, application },
+    { ugcAiVideo: modeUgcAiVideo, application, partsApplications },
   );
   if (!compte.id) return json({ error: "CREATION_COMPTE_ECHOUEE" }, 500);
   if (handleTiktok) {
@@ -885,106 +954,67 @@ async function lireWarmupHeures(supabase: Supabase): Promise<number> {
   return Number.isFinite(h) && h > 0 ? Math.min(168, h) : 24;
 }
 
-function normaliserFileLabelItemList(raw: unknown): FileLabelItem[] {
-  if (!Array.isArray(raw)) return [];
-  return raw
-    .map((it) => {
-      const o = (it ?? {}) as { label_id?: string; ugc?: boolean };
-      return {
-        label_id: String(o.label_id ?? "").trim(),
-        ugc: Boolean(o.ugc),
-      };
-    })
-    .filter((it) => it.label_id);
-}
-
-/** Normalise `{ items, par_langue }` (+ legacy `label_ids`). */
-function normaliserFileLabelsValeur(valeur: unknown): FileLabelsValeur {
-  const v = (valeur ?? {}) as {
-    items?: Array<{ label_id?: string; ugc?: boolean }>;
-    label_ids?: string[];
-    par_langue?: Record<string, unknown>;
-  };
-
-  let items = normaliserFileLabelItemList(v.items);
-  if (items.length === 0) {
-    items = (v.label_ids ?? [])
-      .map((id) => String(id ?? "").trim())
-      .filter(Boolean)
-      .map((label_id) => ({ label_id, ugc: false }));
-  }
-
-  const par_langue: Record<string, FileLabelItem[]> = {};
-  if (v.par_langue && typeof v.par_langue === "object" && !Array.isArray(v.par_langue)) {
-    for (const [code, arr] of Object.entries(v.par_langue)) {
-      const lang = String(code ?? "").trim().toLowerCase();
-      if (!lang) continue;
-      const liste = normaliserFileLabelItemList(arr);
-      if (liste.length > 0) par_langue[lang] = liste;
-    }
-  }
-
-  return { items, par_langue };
-}
-
-function sliceFileLabels(file: FileLabelsValeur, slug: string): FileLabelsSlice {
-  const inner = file.par_application?.[slug];
-  if (inner) return { items: inner.items ?? [], par_langue: inner.par_langue ?? {} };
-  if (slug === "sophia") return { items: file.items, par_langue: file.par_langue };
-  return { items: [], par_langue: {} };
-}
-
-function avecSliceApplication(
-  file: FileLabelsValeur,
-  slug: string,
-  slice: FileLabelsSlice,
-): FileLabelsValeur {
-  const par_application = { ...(file.par_application ?? {}) };
-  par_application[slug] = slice;
-  if (slug === "sophia") {
-    return { items: slice.items, par_langue: slice.par_langue, par_application };
-  }
-  return { items: file.items, par_langue: file.par_langue, par_application };
+/** Lit la File des créateurs (toutes tranches, cf. `_shared/file_labels_comptes.ts`). */
+async function lireFileLabels(
+  supabase: Supabase,
+  opts: { leverSiErreur?: boolean } = {},
+): Promise<FileLabelsValeur> {
+  const { data, error } = await supabase
+    .from("reglages")
+    .select("valeur")
+    .eq("cle", "file_labels_comptes")
+    .maybeSingle();
+  if (error && opts.leverSiErreur) throw new Error(`File des créateurs : ${error.message}`);
+  return normaliserFileLabelsValeur(data?.valeur);
 }
 
 async function ecrireFileLabels(
   supabase: Supabase,
   file: FileLabelsValeur,
 ): Promise<void> {
-  const par_langue: Record<string, FileLabelItem[]> = {};
-  for (const [code, liste] of Object.entries(file.par_langue)) {
-    if (liste.length > 0) par_langue[code] = liste;
-  }
-  const par_application: Record<string, FileLabelsSlice> = {};
-  for (const [slug, slice] of Object.entries(file.par_application ?? {})) {
-    par_application[slug] = {
-      items: slice.items ?? [],
-      par_langue: slice.par_langue ?? {},
-    };
-  }
   await supabase.from("reglages").upsert(
     {
       cle: "file_labels_comptes",
-      valeur: { items: file.items, par_langue, par_application },
+      valeur: valeurFileLabels(file),
       updated_at: new Date().toISOString(),
     },
     { onConflict: "cle" },
   );
 }
 
-async function idsLabelsFileSlideshow(
-  supabase: Supabase,
-  applicationId?: string | null,
-): Promise<Set<string>> {
-  let q = supabase.from("labels").select("id, slug, nom, ugc_ai_video");
-  if (applicationId) q = q.eq("application_id", applicationId);
-  const { data } = await q;
+/**
+ * Labels slideshow (ni système ni UGC AI VIDEO), toutes applications. La
+ * colonne historique `labels.application_id` n'est plus lue : elle vaut Sophia
+ * pour tout label créé dans l'OS, même « Unswipe seul ». Qui un label sert, c'est
+ * `label_applications` (cf. `idsLabelsEligiblesFile`, `labelMoinsUtiliseParLangue`).
+ *
+ * Une lecture ratée LÈVE. Elle rendait un ensemble vide, que `popLabelFile`
+ * passait à `consommerFileSlideshow` : toute entrée absente de l'ensemble y
+ * est sautée, donc RETIRÉE de la File — une erreur réseau vidait la File des
+ * créateurs en silence. Lue avant toute écriture de la File : rien n'est perdu.
+ */
+async function idsLabelsFileSlideshow(supabase: Supabase): Promise<Set<string>> {
+  const { data, error } = await supabase.from("labels").select("id, slug, nom, ugc_ai_video");
+  if (error) throw new Error(`Labels slideshow : ${error.message}`);
   return new Set(
     (data ?? [])
       .filter((l) => estLabelFileSlideshow(l))
       .map((l) => l.id as string)
       .filter(Boolean),
   );
+}
+
+/**
+ * Labels qu'une File peut donner : slideshow ET qui servent l'application de la
+ * tranche (`label_applications`, un label sans ligne sert Sophia). Deux lectures,
+ * qui LÈVENT si elles ratent — toujours AVANT la moindre écriture de la File.
+ */
+async function idsLabelsEligiblesFile(
+  supabase: Supabase,
+  applicationId: string | null,
+): Promise<Set<string>> {
+  const slideshow = await idsLabelsFileSlideshow(supabase);
+  return new Set(await filtrerPoolParApplication(supabase, [...slideshow], applicationId));
 }
 
 /** Rejette Hook / marque UGC AI VIDEO (et, hors compte vidéo, tout label ugc_ai_video). */
@@ -1011,11 +1041,15 @@ async function filtrerLabelsCompte(
 }
 
 /**
- * Tire la première entrée slideshow (FIFO) :
+ * Tire la première entrée slideshow (FIFO) de la tranche de `application`
+ * (Sophia par défaut) :
  *   1) file de la langue (surpasse la générale)
  *   2) sinon file générale
- *   3) sinon label classique le moins utilisé (ne consomme pas les files)
- * Les labels UGC AI VIDEO / système en tête sont sautés (retirés, pas assignés).
+ *   3) sinon choix équilibré parmi les labels qui servent l'application (ne
+ *      consomme pas les files ; cf. `labelMoinsUtiliseParLangue`)
+ * Une entrée non éligible en tête (système, UGC AI VIDEO, ou label qui ne sert
+ * pas l'application de la tranche selon `label_applications`) est sautée :
+ * retirée, pas assignée. L'ensemble éligible est lu AVANT toute écriture.
  */
 async function popLabelFile(
   supabase: Supabase,
@@ -1026,16 +1060,11 @@ async function popLabelFile(
   | { ok: true; item: FileLabelItem; fromQueue: true; queueKey: string }
   | { ok: false; error: string }
 > {
-  const { data } = await supabase
-    .from("reglages")
-    .select("valeur")
-    .eq("cle", "file_labels_comptes")
-    .maybeSingle();
-  const file = normaliserFileLabelsValeur(data?.valeur);
-  const slug = application?.slug ?? "sophia";
+  const file = await lireFileLabels(supabase);
+  const slug = application?.slug ?? SLUG_SOPHIA;
   const slice = sliceFileLabels(file, slug);
   const lang = String(langue ?? "").trim().toLowerCase();
-  const eligible = await idsLabelsFileSlideshow(supabase, application?.id ?? null);
+  const eligible = await idsLabelsEligiblesFile(supabase, application?.id ?? null);
 
   let parLangueActuel = { ...slice.par_langue };
   const fileLangue = lang ? (parLangueActuel[lang] ?? []) : [];
@@ -1213,10 +1242,17 @@ async function preparerFileEtPersona(
   if (fileItem.ugc) {
     const labelOk = await labelADesContenusUgc(supabase, fileItem.label_id);
     if (!labelOk) {
-      const fallback = await labelMoinsUtiliseParLangue(supabase, langue, {
-        ugcOnly: true,
-        applicationId: application?.id ?? null,
-      });
+      let fallback: string | null;
+      try {
+        fallback = await labelMoinsUtiliseParLangue(supabase, langue, {
+          ugcOnly: true,
+          applicationId: application?.id ?? null,
+        });
+      } catch (error) {
+        // Lecture ratée : l'entrée tirée de la file y retourne avant l'erreur.
+        if (fileItemQueue) await unshiftLabelFile(supabase, fileItemQueue);
+        throw error;
+      }
       if (!fallback) {
         if (fileItemQueue) await unshiftLabelFile(supabase, fileItemQueue);
         return { ok: false, error: "NO_UGC_LABEL" };
@@ -1238,28 +1274,216 @@ async function preparerFileEtPersona(
   return { ok: true, fileItem, fileItemQueue, personaUgc };
 }
 
-/** Label avec le moins de comptes actifs dans la langue (ou global si langue vide). */
+/**
+ * Application choisie à la création (ou label d'un vieux client) → entrée de
+ * label du compte. Une lecture ratée lève (500), un refus rend la réponse à
+ * renvoyer. Trois chemins (`modeChoixCompte`) :
+ *
+ *   - `application` (une seule application à 100 %) : File des créateurs de
+ *     CETTE application (sa tranche : langue du compte, puis générale), puis le
+ *     choix équilibré parmi les labels qui la servent (aucun → 409
+ *     NO_LABELS_APPLICATION). Sophia = `preparerFileEtPersona`, exactement le
+ *     chemin historique (UGC compris). Hors Sophia : jamais UGC, pas de persona.
+ *     L'entrée tirée revient dans `fileItemQueue` (avec SA tranche) : l'appelant
+ *     la remet en tête si la création échoue ensuite ;
+ *   - `repartition` (plusieurs applications) : pas de File, le choix
+ *     équilibré dans la langue parmi les labels slideshow qui les servent
+ *     toutes ;
+ *   - `label` (`label_id` d'un vieux client) : ce label, s'il est slideshow et
+ *     sert toutes les applications à part > 0 (sinon LABEL_INCOMPATIBLE).
+ *
+ * Validation (répartition, label) avant toute écriture de la File.
+ */
+async function resoudreChoixCompte(
+  supabase: Supabase,
+  choix: ChoixCompte,
+  langue: string,
+): Promise<
+  | {
+    ok: true;
+    fileItem: FileLabelItem;
+    fileItemQueue: FileLabelQueued | null;
+    personaUgc: PersonaUgcLibre | null;
+    parts: PartsApplications | null;
+  }
+  | { ok: false; reponse: Response }
+> {
+  let parts: PartsApplications | null = null;
+  let requises: string[] = [];
+  let liste: ApplicationRow[] = [];
+  if (choix.partsBrutes !== null) {
+    const { data: apps, error } = await supabase.from("applications").select("id, slug, nom");
+    if (error) throw new Error(`Applications : ${error.message}`);
+    liste = (apps ?? []) as ApplicationRow[];
+    parts = validerParts(choix.partsBrutes, liste.map((a) => a.slug));
+    if (!parts) return { ok: false, reponse: json({ error: "REPARTITION_INVALIDE" }, 400) };
+    requises = applicationsRequises(parts, liste);
+  }
+
+  const mode = modeChoixCompte(choix.labelId, parts, liste);
+
+  if (mode.mode === "label") {
+    const { data: label, error } = await supabase
+      .from("labels")
+      .select("id, slug, nom, ugc_ai_video")
+      .eq("id", mode.labelId)
+      .maybeSingle();
+    if (error) throw new Error(`Label choisi : ${error.message}`);
+    const { data: liens, error: errLiens } = await supabase
+      .from("label_applications")
+      .select("label_id, application_id")
+      .eq("label_id", mode.labelId);
+    if (errLiens) throw new Error(`Applications du label choisi : ${errLiens.message}`);
+    if (!label || !labelChoisiCompatible(label, liens ?? [], requises)) {
+      return { ok: false, reponse: json({ error: "LABEL_INCOMPATIBLE" }, 400) };
+    }
+    return {
+      ok: true,
+      fileItem: { label_id: label.id as string, ugc: false },
+      fileItemQueue: null,
+      personaUgc: null,
+      parts,
+    };
+  }
+
+  if (mode.mode === "application") {
+    const app = mode.application;
+    if (app.slug === SLUG_SOPHIA) {
+      // `{ sophia: 100 }` : le chemin historique, File Sophia et UGC compris.
+      const prep = await preparerFileEtPersona(supabase, langue, app);
+      if (!prep.ok) return { ok: false, reponse: json({ error: prep.error }, 409) };
+      return {
+        ok: true,
+        fileItem: prep.fileItem,
+        fileItemQueue: prep.fileItemQueue,
+        personaUgc: prep.personaUgc,
+        parts,
+      };
+    }
+    const popped = await popLabelFile(supabase, langue, app);
+    if (!popped.ok) {
+      return { ok: false, reponse: json({ error: "NO_LABELS_APPLICATION" }, 409) };
+    }
+    return {
+      ok: true,
+      fileItem: entreeCompteApplication(popped.item, app.slug),
+      fileItemQueue: popped.fromQueue
+        ? { item: { ...popped.item }, queueKey: popped.queueKey, applicationSlug: app.slug }
+        : null,
+      personaUgc: null,
+      parts,
+    };
+  }
+
+  const labelId = await labelMoinsUtiliseParLangue(supabase, langue, {
+    ugcOnly: false,
+    applicationsRequises: requises,
+  });
+  const autorise = labelId ? (await filtrerLabelsCompte(supabase, [labelId]))[0] : undefined;
+  if (!autorise) return { ok: false, reponse: json({ error: "NO_LABELS_APPLICATION" }, 409) };
+  return {
+    ok: true,
+    fileItem: { label_id: autorise, ugc: false },
+    fileItemQueue: null,
+    personaUgc: null,
+    parts,
+  };
+}
+
+/** Derniers comptes de la langue regardés contre les rafales (cf. choix équilibré). */
+const RECENTS_LABEL_LANGUE = 3;
+
+/**
+ * Label d'un compte créé quand la File des créateurs n'impose rien, parmi les
+ * labels slideshow qui servent l'application (`label_applications`, Sophia par
+ * défaut) — `applicationsRequises` (répartition à plusieurs applications) : le
+ * label doit les servir TOUTES.
+ *
+ * Choix ÉQUILIBRÉ, sans hasard (`_shared/choix_label_equilibre.ts`) : la langue
+ * du compte suit la part de chaque label (√stock × performance des 28 derniers
+ * jours, rapportée à la langue des posts ; part plafonnée à 1/2), jamais 3 fois
+ * le même label sur 4 comptes de la langue, et pas celui du dernier compte tant
+ * qu'un autre est en retard ; la flotte départage. Les chiffres viennent de
+ * `stats_choix_label_creation` (0275) en une lecture ; si elle échoue, repli
+ * sur l'ancien « moins de comptes actifs dans la langue » : une création ne
+ * casse jamais pour ça.
+ *
+ * Limite connue : deux créations dans la même langue à la même seconde lisent
+ * les mêmes chiffres et reçoivent le même label (le lien compte ↔ label n'est
+ * écrit qu'après) ; la création suivante rééquilibre.
+ *
+ * La colonne historique `labels.application_id` n'est jamais lue : elle vaut
+ * Sophia pour tout label créé dans l'OS, même « Unswipe seul ».
+ */
 async function labelMoinsUtiliseParLangue(
   supabase: Supabase,
   langue: string,
-  opts: { ugcOnly: boolean; applicationId?: string | null },
+  opts: {
+    ugcOnly: boolean;
+    applicationId?: string | null;
+    applicationsRequises?: readonly string[];
+  },
 ): Promise<string | null> {
+  const requises = opts.applicationsRequises?.length ? opts.applicationsRequises : null;
   let pool: string[] = [];
   if (opts.ugcOnly) {
     const ugc = await labelIdsAvecContenusUgc(supabase, opts.applicationId);
-    const slideshow = await idsLabelsFileSlideshow(supabase, opts.applicationId);
+    const slideshow = await idsLabelsFileSlideshow(supabase);
     pool = ugc.filter((id) => slideshow.has(id));
   } else {
-    pool = [...await idsLabelsFileSlideshow(supabase, opts.applicationId)];
+    pool = [...await idsLabelsFileSlideshow(supabase)];
+  }
+  if (requises) {
+    // Une application après l'autre : le pool rétrécit à chaque passe et ne
+    // garde que les labels qui les servent toutes (héritage Sophia compris).
+    for (const app of requises) {
+      pool = await filtrerPoolParApplication(supabase, pool, app);
+    }
+  } else {
+    pool = await filtrerPoolParApplication(supabase, pool, opts.applicationId);
   }
   if (pool.length === 0) return null;
 
+  // Sans langue (jamais à la création : elle est requise), l'ancien choix global.
+  const langueStats = String(langue ?? "").trim().toLowerCase();
+  if (!langueStats) return await labelMoinsUtiliseRepli(supabase, langue, pool);
+  // Stock et performance : ceux de l'application du compte. Répartition à
+  // plusieurs applications : Sophia si elle en est, sinon la première.
+  const appStats = requises
+    ? (requises.includes(ID_SOPHIA) ? ID_SOPHIA : requises[0])
+    : (opts.applicationId ?? null);
+  const { data: stats, error } = await supabase.rpc("stats_choix_label_creation", {
+    p_labels: pool,
+    p_application: appStats,
+    p_langue: langueStats,
+    p_recents: RECENTS_LABEL_LANGUE,
+  });
+  if (!error && Array.isArray(stats)) {
+    const choix = choisirLabelEquilibre(
+      (stats as Record<string, unknown>[])
+        .map(normaliserStatLabel)
+        .filter((st) => pool.includes(st.label_id)),
+    );
+    if (choix) return choix;
+  }
+  console.warn(
+    `[manage-users] choix équilibré indisponible (${error?.message ?? "aucune ligne"}) : repli « moins utilisé »`,
+  );
+  return await labelMoinsUtiliseRepli(supabase, langue, pool);
+}
+
+/** L'ancien choix : moins de comptes actifs dans la langue, égalités au hasard. */
+async function labelMoinsUtiliseRepli(
+  supabase: Supabase,
+  langue: string,
+  pool: readonly string[],
+): Promise<string | null> {
   const counts = new Map<string, number>(pool.map((id) => [id, 0]));
   let q = supabase
     .from("compte_labels")
     .select("label_id, comptes!inner(langue, is_active)")
     .eq("comptes.is_active", true)
-    .in("label_id", pool);
+    .in("label_id", [...pool]);
   if (langue) q = q.eq("comptes.langue", langue);
   const { data: usages } = await q;
   for (const u of usages ?? []) {
@@ -1342,28 +1566,24 @@ async function labelADesContenusUgc(supabase: Supabase, labelId: string): Promis
   return (data?.length ?? 0) > 0;
 }
 
-/** Remet une entrée en tête de la file d’où elle a été tirée (langue ou générale). */
+/**
+ * Remet une entrée en tête de la file d’où elle a été tirée (langue ou
+ * générale), dans la tranche de SON application (`applicationSlug`).
+ */
 async function unshiftLabelFile(
   supabase: Supabase,
   queued: FileLabelQueued,
 ): Promise<void> {
-  const { data } = await supabase
-    .from("reglages")
-    .select("valeur")
-    .eq("cle", "file_labels_comptes")
-    .maybeSingle();
-  const file = normaliserFileLabelsValeur(data?.valeur);
-  const slug = queued.applicationSlug ?? "sophia";
-  const slice = sliceFileLabels(file, slug);
-  const key = String(queued.queueKey ?? "general").trim().toLowerCase() || "general";
-
-  const next: FileLabelsSlice = key === "general"
-    ? { items: [queued.item, ...slice.items], par_langue: slice.par_langue }
-    : {
-      items: slice.items,
-      par_langue: { ...slice.par_langue, [key]: [queued.item, ...(slice.par_langue[key] ?? [])] },
-    };
-  await ecrireFileLabels(supabase, avecSliceApplication(file, slug, next));
+  // Relecture ratée : ne RIEN écrire. Réécrire depuis une File lue vide
+  // effacerait toutes les tranches (Sophia comprise) pour remettre une entrée.
+  let file: FileLabelsValeur;
+  try {
+    file = await lireFileLabels(supabase, { leverSiErreur: true });
+  } catch (e) {
+    console.error("[manage-users] entrée de File non remise en tête", queued, e);
+    return;
+  }
+  await ecrireFileLabels(supabase, remettreEnTete(file, queued));
 }
 
 async function personaUgcLibre(
@@ -1450,7 +1670,12 @@ async function preparerCompte(
   personaUgc: PersonaUgcLibre | null,
   /** Entrée admin à restaurer si l'insert échoue (pas le fallback label). */
   fileItemQueue: FileLabelQueued | null = null,
-  opts: { ugcAiVideo?: boolean; application?: ApplicationRow | null } = {},
+  opts: {
+    ugcAiVideo?: boolean;
+    application?: ApplicationRow | null;
+    /** Répartition choisie par l'admin ; absente = clé omise de l'insert (NULL en base). */
+    partsApplications?: PartsApplications | null;
+  } = {},
 ): Promise<{
   id: string;
   reference: string | null;
@@ -1490,6 +1715,7 @@ async function preparerCompte(
       ugc_ai_video: ugcAiVideo,
       ugc_persona_id: avecPersona ? personaUgc!.id : null,
       persona_nom: avecPersona ? personaUgc!.nom.trim() : null,
+      ...(opts.partsApplications ? { parts_applications: opts.partsApplications } : {}),
     })
     .select("id")
     .single();

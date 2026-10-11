@@ -27,8 +27,9 @@ import {
   valeurFileLabels,
 } from "../_shared/file_labels_comptes.ts";
 import { filtrerPoolParApplication } from "../_shared/labels_repli.ts";
+import { choisirLabelEquilibre, normaliserStatLabel } from "../_shared/choix_label_equilibre.ts";
 import { lireTout } from "../_shared/lots.ts";
-import type { PartsApplications } from "../_shared/multi_app.ts";
+import { ID_SOPHIA, type PartsApplications } from "../_shared/multi_app.ts";
 import { appliquerIdentiteInstantanee } from "../_shared/persona.ts";
 import { cibleComptePapier, motDePasseComptePapier } from "../_shared/papier_cm_compte.ts";
 import { estRoleManager, rattachementNouvelHm, roleACreer } from "../_shared/roles.ts";
@@ -1387,13 +1388,21 @@ async function resoudreChoixCompte(
   };
 }
 
+/** Comptes récents de la langue dont le label attend son tour (anti-rafale). */
+const RECENTS_LABEL_LANGUE = 3;
+
 /**
- * Label avec le moins de comptes actifs dans la langue (ou global si langue
- * vide), parmi les labels slideshow qui servent l'application
- * (`label_applications`, Sophia par défaut).
+ * Label d'un compte créé quand la File des créateurs n'impose rien, parmi les
+ * labels slideshow qui servent l'application (`label_applications`, Sophia par
+ * défaut) — `applicationsRequises` (répartition à plusieurs applications) : le
+ * label doit les servir TOUTES.
  *
- * `applicationsRequises` (répartition à plusieurs applications) : le label doit
- * servir TOUTES ces applications.
+ * Choix ÉQUILIBRÉ, sans hasard (`_shared/choix_label_equilibre.ts`) : la langue
+ * du compte suit la part de chaque label (√stock × performance des 28 derniers
+ * jours), sans reprendre le label de l'un des 3 derniers comptes de la langue
+ * tant qu'un autre est en retard ; la flotte départage. Les chiffres viennent de `stats_labels_creation`
+ * (0275) en une lecture ; si elle échoue, repli sur l'ancien « moins de comptes
+ * actifs dans la langue » : une création ne casse jamais pour ça.
  *
  * La colonne historique `labels.application_id` n'est jamais lue : elle vaut
  * Sophia pour tout label créé dans l'OS, même « Unswipe seul ».
@@ -1427,12 +1436,47 @@ async function labelMoinsUtiliseParLangue(
   }
   if (pool.length === 0) return null;
 
+  // Stock et performance : ceux de l'application du compte. Répartition à
+  // plusieurs applications : Sophia si elle en est, sinon la première.
+  // Sans langue (jamais à la création : elle est requise), l'ancien choix global.
+  const langueStats = String(langue ?? "").trim().toLowerCase();
+  if (!langueStats) return await labelMoinsUtiliseRepli(supabase, langue, pool);
+  const appStats = requises
+    ? (requises.includes(ID_SOPHIA) ? ID_SOPHIA : requises[0])
+    : (opts.applicationId ?? null);
+  const { data: stats, error } = await supabase.rpc("stats_labels_creation", {
+    p_labels: pool,
+    p_application: appStats,
+    p_langue: langueStats,
+    // Pas le même label que l'un des 3 derniers comptes de la langue.
+    p_recents: RECENTS_LABEL_LANGUE,
+  });
+  if (!error && Array.isArray(stats)) {
+    const choix = choisirLabelEquilibre(
+      (stats as Record<string, unknown>[])
+        .map(normaliserStatLabel)
+        .filter((st) => pool.includes(st.label_id)),
+    );
+    if (choix) return choix;
+  }
+  console.warn(
+    `[manage-users] choix équilibré indisponible (${error?.message ?? "aucune ligne"}) : repli « moins utilisé »`,
+  );
+  return await labelMoinsUtiliseRepli(supabase, langue, pool);
+}
+
+/** L'ancien choix : moins de comptes actifs dans la langue, égalités au hasard. */
+async function labelMoinsUtiliseRepli(
+  supabase: Supabase,
+  langue: string,
+  pool: readonly string[],
+): Promise<string | null> {
   const counts = new Map<string, number>(pool.map((id) => [id, 0]));
   let q = supabase
     .from("compte_labels")
     .select("label_id, comptes!inner(langue, is_active)")
     .eq("comptes.is_active", true)
-    .in("label_id", pool);
+    .in("label_id", [...pool]);
   if (langue) q = q.eq("comptes.langue", langue);
   const { data: usages } = await q;
   for (const u of usages ?? []) {

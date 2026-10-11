@@ -191,17 +191,78 @@ describe("FormulaireAjouterCompte × application du compte", () => {
     expect(ajouterCompte.mock.calls[0]![0]).toStrictEqual(CORPS_AVANT);
   });
 
-  it("catalogue illisible : erreur + « Réessayer », et pas d'envoi sans choix (jamais Sophia d'office)", async () => {
+  it("catalogue illisible : erreur + « Réessayer », envoi grisé (jamais Sophia d'office)", async () => {
     listerApplicationsMulti.mockRejectedValue(new Error("réseau coupé"));
     rendre(true);
     expect(await screen.findByText(/réseau coupé/)).toBeInTheDocument();
-    fireEvent.click(bouton());
-    expect(await screen.findByText(MESSAGE_CHOISIR)).toBeInTheDocument();
+    expect(screen.queryByRole("radiogroup")).toBeNull();
+    expect(bouton()).toBeDisabled();
+    expect(screen.queryByText(MESSAGE_CHOISIR)).toBeNull();
     expect(ajouterCompte).not.toHaveBeenCalled();
-    // La relecture réussit : les cartes reviennent.
+    // La relecture réussit : les cartes reviennent, et il faut encore choisir.
     listerApplicationsMulti.mockResolvedValue(APPS);
     fireEvent.click(screen.getByRole("button", { name: /^(Réessayer|Retry)$/ }));
     await waitFor(() => expect(carte("Unswipe")).toBeInTheDocument());
+    expect(bouton()).toBeEnabled();
+    fireEvent.click(bouton());
+    expect(await screen.findByText(MESSAGE_CHOISIR)).toBeInTheDocument();
+    expect(ajouterCompte).not.toHaveBeenCalled();
+  });
+
+  it("catalogue en lecture : envoi grisé sans message ; une seule application active ensuite : corps d'avant", async () => {
+    let lire: (v: unknown) => void = () => {};
+    listerApplicationsMulti.mockReturnValue(new Promise((r) => (lire = r)));
+    rendre(true);
+    await waitFor(() => expect(listerApplicationsMulti).toHaveBeenCalled());
+    expect(bouton()).toBeDisabled();
+    expect(screen.queryByTestId("choix-applications-creation")).toBeNull();
+    expect(screen.queryByText(MESSAGE_CHOISIR)).toBeNull();
+    await act(async () => lire([APPS[0], APPS[2]]));
+    await waitFor(() => expect(bouton()).toBeEnabled());
+    expect(screen.queryByTestId("choix-applications-creation")).toBeNull();
+    fireEvent.click(bouton());
+    await waitFor(() => expect(ajouterCompte).toHaveBeenCalledTimes(1));
+    expect(ajouterCompte.mock.calls[0]![0]).toStrictEqual(CORPS_AVANT);
+  });
+
+  it("le message ne revient pas tout seul : Annuler puis rouvrir, rien en rouge", async () => {
+    rendre(true);
+    await waitFor(() => expect(carte("Unswipe")).toBeInTheDocument());
+    fireEvent.click(bouton());
+    expect(await screen.findByText(MESSAGE_CHOISIR)).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /^(Annuler|Cancel)$/ }));
+    fireEvent.click(screen.getByRole("button", { name: /Ajouter un compte|Add an account/ }));
+    await waitFor(() => expect(carte("Unswipe")).toBeInTheDocument());
+    expect(screen.queryByText(MESSAGE_CHOISIR)).toBeNull();
+    expect(screen.getByRole("radiogroup")).not.toHaveAttribute("aria-invalid");
+  });
+
+  it("clavier : un seul arrêt de tabulation, flèches et Début / Fin choisissent ; erreur exposée", async () => {
+    rendre(true);
+    await waitFor(() => expect(carte("Unswipe")).toBeInTheDocument());
+    const groupe = screen.getByRole("radiogroup");
+    expect(groupe).toHaveAttribute("aria-required", "true");
+    expect(screen.getAllByRole("radio").map((c) => c.tabIndex)).toEqual([0, -1]);
+
+    fireEvent.click(bouton());
+    await screen.findByText(MESSAGE_CHOISIR);
+    expect(groupe).toHaveAttribute("aria-invalid", "true");
+    expect(groupe.getAttribute("aria-describedby")).toBeTruthy();
+    // Le focus est ramené sur la première carte.
+    expect(document.activeElement).toBe(carte("Sophia"));
+
+    fireEvent.keyDown(carte("Sophia"), { key: "ArrowRight" });
+    expect(carte("Unswipe")).toHaveAttribute("aria-checked", "true");
+    expect(document.activeElement).toBe(carte("Unswipe"));
+    expect(screen.getAllByRole("radio").map((c) => c.tabIndex)).toEqual([-1, 0]);
+    // Retour au début après la dernière carte.
+    fireEvent.keyDown(carte("Unswipe"), { key: "ArrowDown" });
+    expect(carte("Sophia")).toHaveAttribute("aria-checked", "true");
+    fireEvent.keyDown(carte("Sophia"), { key: "End" });
+    expect(carte("Unswipe")).toHaveAttribute("aria-checked", "true");
+    fireEvent.keyDown(carte("Unswipe"), { key: "Home" });
+    expect(carte("Sophia")).toHaveAttribute("aria-checked", "true");
+    expect(screen.queryByText(MESSAGE_CHOISIR)).toBeNull();
   });
 
   it("après une création, le choix repart de zéro (rien de coché)", async () => {

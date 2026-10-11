@@ -29,8 +29,13 @@ import { CLE_APPLICATIONS_MULTI, CLE_LIENS_LABELS } from "./useMultiApp";
  */
 export function useChoixApplicationsCreation(actif: boolean, langue?: string | null) {
   const [choix, setChoix] = React.useState<ChoixCreation>(CHOIX_CREATION_DEFAUT);
-  // Envoi tenté sans application : le bloc le signale en rouge.
-  const [tente, setTente] = React.useState(false);
+  // Envois tentés sans application (compteur : chaque clic ramène le bloc
+  // sous les yeux) ; remis à zéro à la fermeture, au changement de type de
+  // compte et après une création.
+  const [tentatives, setTentatives] = React.useState(0);
+  React.useEffect(() => {
+    if (!actif) setTentatives(0);
+  }, [actif]);
   const applications = useQuery({
     queryKey: CLE_APPLICATIONS_MULTI,
     queryFn: listerApplicationsMulti,
@@ -65,7 +70,7 @@ export function useChoixApplicationsCreation(actif: boolean, langue?: string | n
 
   const reinitialiser = React.useCallback(() => {
     setChoix(CHOIX_CREATION_DEFAUT);
-    setTente(false);
+    setTentatives(0);
   }, []);
   const options: OptionsChoixCreation = actif ? optionsDuChoix(choix) : {};
   // Choix exigé : au moins deux applications actives, ou catalogue pas encore
@@ -74,13 +79,17 @@ export function useChoixApplicationsCreation(actif: boolean, langue?: string | n
   // l'envoi est bloqué.
   const requis = choixApplicationRequis(actif, applications.data);
   const manquant = requis && !choix.application;
-  const visible = actif && (requis || choix.application !== null);
+  // Catalogue pas encore lu, ou illisible : rien à cliquer — l'envoi est grisé
+  // (jamais Sophia d'office), sans « choisis l'application ».
+  const chargement = actif && applications.isPending;
+  const illisible = actif && !applications.data && applications.isError;
+  const visible = actif && !chargement && (requis || choix.application !== null);
   /** À appeler avant d'envoyer : `false` (et message affiché) si rien n'est choisi. */
   const verifier = React.useCallback((): boolean => {
     if (!manquant) return true;
-    setTente(true);
+    if (!chargement && !illisible) setTentatives((n) => n + 1);
     return false;
-  }, [manquant]);
+  }, [manquant, chargement, illisible]);
 
   return {
     actif,
@@ -92,16 +101,21 @@ export function useChoixApplicationsCreation(actif: boolean, langue?: string | n
     /** Une application doit être choisie et ne l'est pas encore. */
     manquant,
     /** Envoi tenté sans application : message « choisis l'application ». */
-    signalerManquant: tente && manquant,
+    signalerManquant: tentatives > 0 && manquant,
+    /** Nombre d'envois tentés sans application (chaque clic ramène le bloc). */
+    tentatives,
+    /** Catalogue illisible : le bloc montre l'erreur et « Réessayer ». */
+    illisible,
     verifier,
     validation,
     /** À étaler dans l'appel API : {} pour Sophia (corps d'avant). */
     options,
     /**
-     * Bouton à griser (application choisie mais impossible : éteinte, sans
-     * label). Rien de choisi ne grise PAS : le clic passe par `verifier()`.
+     * Bouton à griser : application choisie mais impossible (éteinte, sans
+     * label), ou catalogue en lecture / illisible. Rien de choisi ne grise PAS :
+     * le clic passe par `verifier()`.
      */
-    bloque: actif && !validation.ok,
+    bloque: actif && (!validation.ok || chargement || illisible),
     applications,
     liens,
     labels,

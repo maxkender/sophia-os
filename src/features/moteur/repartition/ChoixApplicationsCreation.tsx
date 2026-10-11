@@ -37,18 +37,21 @@ export function ChoixApplicationsCreation({
 }) {
   const { t } = useTranslation();
   const bloc = React.useRef<HTMLDivElement>(null);
-  const { signalerManquant } = etat;
-  // Envoi tenté sans application : on ramène le bloc sous les yeux.
+  const cartes = React.useRef<Array<HTMLButtonElement | null>>([]);
+  const { signalerManquant, tentatives } = etat;
+  // Chaque envoi tenté sans application ramène le bloc sous les yeux et met
+  // le focus sur la première carte.
   React.useEffect(() => {
-    if (signalerManquant) bloc.current?.scrollIntoView?.({ block: "center", behavior: "smooth" });
-  }, [signalerManquant]);
+    if (tentatives === 0) return;
+    bloc.current?.scrollIntoView?.({ block: "center", behavior: "smooth" });
+    cartes.current[0]?.focus({ preventScroll: true });
+  }, [tentatives]);
   if (!etat.visible) return null;
 
   const { choix, setChoix, validation } = etat;
   const applications = etat.applications.data ?? [];
   const apps = applicationsProposees(applications);
   const erreurLecture = etat.applications.error ?? etat.liens.error ?? etat.labels.error;
-  const chargement = etat.applications.isPending;
   const choisie = choix.application
     ? (applications.find((a) => a.slug === choix.application) ?? null)
     : null;
@@ -78,6 +81,30 @@ export function ChoixApplicationsCreation({
     t("choixCompteCreation.infoLangue", { app: i.app, langue: nomLangue(i.langue) });
 
   const idTitre = `${idPrefixe}-application`;
+  const idErreur = `${idPrefixe}-application-erreur`;
+  // Radiogroup au clavier : flèches (avec retour au début), Début / Fin ; un
+  // seul arrêt de tabulation (la carte cochée, sinon la première).
+  const choisirIndex = (i: number) => {
+    const n = options.length;
+    if (n === 0) return;
+    const j = ((i % n) + n) % n;
+    setChoix({ application: options[j]!.slug });
+    cartes.current[j]?.focus();
+  };
+  const indexCoche = options.findIndex((a) => a.slug === choix.application);
+  const surTouche = (e: React.KeyboardEvent, i: number) => {
+    const cibles: Record<string, number> = {
+      ArrowRight: i + 1,
+      ArrowDown: i + 1,
+      ArrowLeft: i - 1,
+      ArrowUp: i - 1,
+      Home: 0,
+      End: options.length - 1,
+    };
+    if (!(e.key in cibles)) return;
+    e.preventDefault();
+    choisirIndex(cibles[e.key]!);
+  };
   const relire = () => {
     void etat.applications.refetch();
     void etat.liens.refetch();
@@ -97,19 +124,29 @@ export function ChoixApplicationsCreation({
         <p id={idTitre} className="text-sm font-medium leading-none">
           {t("choixCompteCreation.application")} <span className="text-destructive">*</span>
         </p>
-        {chargement ? (
-          <p className="text-xs text-muted-foreground">{t("choixCompteCreation.chargement")}</p>
-        ) : (
-          <div role="radiogroup" aria-labelledby={idTitre} className="grid gap-2 sm:grid-cols-3">
-            {options.map((a) => {
+        {!etat.illisible && (
+          <div
+            role="radiogroup"
+            aria-labelledby={idTitre}
+            aria-required="true"
+            aria-invalid={signalerManquant || undefined}
+            aria-describedby={signalerManquant ? idErreur : undefined}
+            className="grid gap-2 sm:grid-cols-3"
+          >
+            {options.map((a, i) => {
               const coche = choix.application === a.slug;
               return (
                 <button
                   key={a.id}
+                  ref={(el) => {
+                    cartes.current[i] = el;
+                  }}
                   type="button"
                   role="radio"
                   aria-checked={coche}
+                  tabIndex={i === (indexCoche >= 0 ? indexCoche : 0) ? 0 : -1}
                   onClick={() => setChoix({ application: a.slug })}
+                  onKeyDown={(e) => surTouche(e, i)}
                   className={cn(
                     "flex items-start justify-between gap-2 rounded-md border px-3 py-2 text-left text-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
                     coche
@@ -133,12 +170,12 @@ export function ChoixApplicationsCreation({
           </div>
         )}
         {signalerManquant ? (
-          <p className="text-xs font-medium text-destructive" role="alert">
+          <p id={idErreur} className="text-xs font-medium text-destructive" role="alert">
             {t("choixCompteCreation.choisirAvant")}
           </p>
         ) : (
           !choix.application &&
-          !chargement && (
+          !etat.illisible && (
             <p className="text-[11px] text-muted-foreground">{t("choixCompteCreation.choisir")}</p>
           )
         )}

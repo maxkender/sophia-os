@@ -624,9 +624,9 @@ export function AdminPostersPage() {
   const [password, setPassword] = React.useState(MOT_DE_PASSE_INITIAL);
   // Application du premier compte : seulement quand manage-users crée un
   // compte slideshow (ni « aucun compte », ni UGC vidéo — celui-là n'a pas de
-  // label). Inactif ou Sophia : options vides, corps inchangé.
+  // label), formulaire ouvert. Inactif ou Sophia : options vides, corps inchangé.
   const choixAppsPoster = useChoixApplicationsCreation(
-    peutChoisirApps && !ugcVideo && premierCompte === "perso",
+    peutChoisirApps && ajout === "poster" && !ugcVideo && premierCompte === "perso",
     langue,
   );
   const [cree, setCree] = React.useState<{

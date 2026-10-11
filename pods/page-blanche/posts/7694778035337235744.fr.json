@@ -1,0 +1,232 @@
+{
+  "post_id": "7694778035337235744",
+  "slides": {
+    "1": {
+      "textes": {
+        "T1": {
+          "en": [
+            "10/10 habits to become",
+            "dangerously successful"
+          ],
+          "fr": "10/10 habitudes pour réussir à un niveau flippant"
+        },
+        "T2": {
+          "en": [
+            "(niche edition)"
+          ],
+          "fr": "(version niche)",
+          "alignement": "droite"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    },
+    "2": {
+      "textes": {
+        "T1": {
+          "en": [
+            "stop always listening to something"
+          ],
+          "fr": "arrête d'[[écouter un truc non-stop]]"
+        },
+        "T2": {
+          "en": [
+            "music, podcasts, youtube, something constantly playing in",
+            "the background means your brain never gets to rest"
+          ],
+          "fr": "musique, podcasts, youtube : si y'a toujours un truc en fond, [[ton cerveau se repose jamais]]"
+        },
+        "T3": {
+          "en": [
+            ""
+          ],
+          "fr": "",
+          "garder": true
+        },
+        "T4": {
+          "en": [
+            ""
+          ],
+          "fr": "",
+          "garder": true
+        },
+        "T5": {
+          "en": [
+            "leave parts of",
+            "your day",
+            "completely quiet",
+            "so your brain can",
+            "actually think",
+            "and come up with",
+            "its own ideas"
+          ],
+          "fr": "garde des moments de vrai silence dans ta journée, ton cerveau pourra enfin réfléchir et [[avoir ses idées à lui]]"
+        },
+        "T6": {
+          "en": [
+            "you don't need music every time you go outside"
+          ],
+          "fr": "[[t'as pas besoin de musique dès que tu sors]]"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    },
+    "3": {
+      "textes": {
+        "T1": {
+          "en": [
+            "make decisions before you feel ready"
+          ],
+          "fr": "décide [[avant de te sentir prête]]"
+        },
+        "T2": {
+          "en": [
+            "there will never be a",
+            "perfect moment, you will",
+            "never feel ready"
+          ],
+          "fr": "[[le moment parfait n'existe pas]], tu te sentiras jamais prête"
+        },
+        "T3": {
+          "en": [
+            "take that risk you've",
+            "been thinking about, you",
+            "have nothing to lose"
+          ],
+          "fr": "prends ce risque auquel tu penses depuis longtemps, [[t'as rien à perdre]]"
+        },
+        "T4": {
+          "en": [
+            "procrastination is making you lose trust in yourself"
+          ],
+          "fr": "procrastiner te fait [[perdre confiance en toi]]"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    },
+    "4": {
+      "textes": {
+        "T1": {
+          "en": [
+            "read classic books"
+          ],
+          "fr": "inspire-toi des [[classiques]]"
+        },
+        "T2": {
+          "en": [
+            "people have faced ambition, failure, and hard choices",
+            "for centuries"
+          ],
+          "fr": "l'ambition, l'échec, les choix durs : on vit ça [[depuis des siècles]]"
+        },
+        "T3": {
+          "en": [
+            "people are more illiterate",
+            "than ever and attention",
+            "spans across the world are",
+            "being destroyed by",
+            "short-form content"
+          ],
+          "fr": "[[on n'a jamais aussi peu lu]] et partout, notre attention est [[grillée par les vidéos courtes]]"
+        },
+        "T4": {
+          "en": [
+            "i used to struggle with",
+            "reading long books but i",
+            "found this thing that",
+            "blocks my apps until i read"
+          ],
+          "fr": "j'arrivais plus à me concentrer, puis j'ai remplacé mon scroll par [[5 min par jour sur l'appli Sophia]]"
+        }
+      },
+      "images": {
+        "I1": "sophia_capture",
+        "I2": "sophia_appstore"
+      }
+    },
+    "5": {
+      "textes": {
+        "T1": {
+          "en": [
+            "become good at multiple things"
+          ],
+          "fr": "deviens bonne en [[plein de trucs]]"
+        },
+        "T2": {
+          "en": [
+            "learn to write, communicate, build, sell ideas, analyse,",
+            "and use technology well"
+          ],
+          "fr": "apprends à écrire, parler, créer, vendre tes idées, analyser et maîtriser la tech"
+        },
+        "T3": {
+          "en": [
+            "you don’t need to be",
+            "world-class at",
+            "everything"
+          ],
+          "fr": "pas besoin d'être la meilleure au monde en tout"
+        },
+        "T4": {
+          "en": [
+            "being good across",
+            "several valuable skills",
+            "makes you unusually",
+            "hard to replace"
+          ],
+          "fr": "être bonne dans plusieurs compétences utiles te rend [[super dure à remplacer]]"
+        },
+        "T5": {
+          "en": [
+            "a jack of all trades is better than a master of one"
+          ],
+          "fr": "[[mieux vaut être touche-à-tout qu'experte en un seul truc]]"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    },
+    "6": {
+      "textes": {
+        "T1": {
+          "en": [
+            "learn to tolerate boring repetition"
+          ],
+          "fr": "apprends à [[supporter la routine chiante]]"
+        },
+        "T2": {
+          "en": [
+            "most success is less",
+            "exciting than it looks"
+          ],
+          "fr": "réussir, c'est [[moins excitant]] que ça en a l'air"
+        },
+        "T3": {
+          "en": [
+            "it’s doing the same",
+            "useful things for",
+            "months after the",
+            "novelty disappears"
+          ],
+          "fr": "c'est répéter les mêmes trucs utiles [[des mois]], bien après l'effet waouh"
+        },
+        "T4": {
+          "en": [
+            "consistency gets powerful when other people get bored",
+            "and move on"
+          ],
+          "fr": "[[la régularité]] devient une force quand les autres s'ennuient et lâchent"
+        }
+      },
+      "images": {
+        "I1": "garder"
+      }
+    }
+  }
+}

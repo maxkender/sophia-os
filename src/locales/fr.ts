@@ -1974,7 +1974,8 @@ export const fr = {
       },
       tiers: {
         titre: "Tier par application",
-        aide: "Chaque autre application a son rang, son budget de passages et son cycle, mesurés sur ses seuls posts. Le bloc Tierlist plus bas est celui de Sophia.",
+        aide: "Chaque application a son rang, son budget de passages et son cycle, mesurés sur ses seuls posts. Celui de Sophia se règle dans le bloc Tierlist plus bas.",
+        sophiaPlusBas: "Se règle dans le bloc Tierlist plus bas.",
         paresseux: "Rang d'entrée (note {{note}}), pas encore requalifié.",
         horsReserve: "Hors réserve (révoqué ou non éligible) : plus tiré pour cette application.",
         erreur: "Tiers par application indisponibles : {{message}}",

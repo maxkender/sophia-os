@@ -1970,7 +1970,8 @@ export const en = {
       },
       tiers: {
         titre: "Tier per app",
-        aide: "Each other app has its own tier, pass budget and cycle, measured on its own posts only. The Tierlist block below is Sophia's.",
+        aide: "Each app has its own tier, pass budget and cycle, measured on its own posts only. Sophia's is set in the Tierlist block below.",
+        sophiaPlusBas: "Set in the Tierlist block below.",
         paresseux: "Entry tier (score {{note}}), not requalified yet.",
         horsReserve: "Out of the pool (revoked or ineligible): no longer drawn for this app.",
         erreur: "Per-app tiers unavailable: {{message}}",

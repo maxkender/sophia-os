@@ -21,7 +21,11 @@ import {
   type ReglagesTierlist,
   type Tier,
 } from "../types";
-import { etatRequalifCycle, nomApplicationPromue } from "./logique";
+import {
+  etatRequalifCycle,
+  nomApplicationPromue,
+  type ResumeSophiaContenu,
+} from "./logique";
 import { useApplicationsMulti } from "./useMultiApp";
 
 /**
@@ -30,7 +34,14 @@ import { useApplicationsMulti } from "./useMultiApp";
  * blocs ne lisent que les tables de 0256 et, avant elle, n'affichent que leur
  * propre erreur — jamais de quoi casser le reste de la fiche.
  */
-export function PertinencesApplications({ contenuId }: { contenuId: string }) {
+export function PertinencesApplications({
+  contenuId,
+  sophia,
+}: {
+  contenuId: string;
+  /** Sophia (sans ligne en base) montrée en tête ; absent : pas de ligne Sophia. */
+  sophia?: ResumeSophiaContenu | null;
+}) {
   const { t } = useTranslation();
   const applications = useApplicationsMulti();
   const pertinences = useQuery({
@@ -39,6 +50,21 @@ export function PertinencesApplications({ contenuId }: { contenuId: string }) {
     retry: false,
   });
   const apps = applications.data ?? [];
+  const enBase = pertinences.data ?? [];
+  // Une ligne Sophia en base (mode « partage ») fait foi : pas de doublon.
+  const lignes =
+    sophia && !enBase.some((p) => p.application_id === ID_SOPHIA)
+      ? [
+          {
+            application_id: ID_SOPHIA,
+            score: sophia.score,
+            note: sophia.note,
+            eligible: sophia.eligible,
+            raison: sophia.raison,
+          },
+          ...enBase,
+        ]
+      : enBase;
 
   return (
     <section className="space-y-2">
@@ -51,7 +77,7 @@ export function PertinencesApplications({ contenuId }: { contenuId: string }) {
         <p className="text-xs text-destructive">
           {t("multiAppPosts.pertinences.erreur", { message: messageErreur(pertinences.error) })}
         </p>
-      ) : (pertinences.data ?? []).length === 0 ? (
+      ) : lignes.length === 0 ? (
         <p className="text-xs text-muted-foreground">{t("multiAppPosts.pertinences.vide")}</p>
       ) : (
         <div className="overflow-x-auto rounded border">
@@ -66,12 +92,12 @@ export function PertinencesApplications({ contenuId }: { contenuId: string }) {
               </tr>
             </thead>
             <tbody>
-              {(pertinences.data ?? []).map((p) => (
+              {lignes.map((p) => (
                 <tr key={p.application_id} className="border-t align-top">
                   <td className="px-2 py-1.5 font-medium">
                     {nomApplicationPromue(p.application_id, apps)}
                   </td>
-                  <td className="px-2 py-1.5 text-right tabular-nums">{p.score}</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums">{p.score ?? "—"}</td>
                   <td className="px-2 py-1.5 text-right tabular-nums">
                     {p.note == null ? "—" : Math.round(p.note)}
                   </td>
@@ -172,7 +198,8 @@ export function DecksApplications({ contenuId }: { contenuId: string }) {
 /**
  * Tier PAR APPLICATION (0270) d'un contenu, pour chaque application autre que
  * Sophia : rang, budget de passages et cycle PROPRES à l'application, sur ses
- * seuls passages. Le bloc Tierlist de la fiche reste celui de Sophia.
+ * seuls passages. Le bloc Tierlist de la fiche reste celui de Sophia : sa
+ * ligne ici n'en est que le résumé, sans boutons (on le règle plus bas).
  *
  * Ne rend RIEN pendant le chargement, sur un schéma absent (0270 pas encore
  * passée) ni pour un contenu qui n'est noté pour aucune autre application —
@@ -182,10 +209,13 @@ export function DecksApplications({ contenuId }: { contenuId: string }) {
 export function TiersApplications({
   contenuId,
   tierlist,
+  sophia,
 }: {
   contenuId: string;
   /** Réglages `reglages.tierlist` (recul, délai plafond), lus par la fiche. */
   tierlist?: Pick<ReglagesTierlist, "recul_jours" | "requalif_max_jours">;
+  /** Résumé du rang Sophia, montré en tête quand d'autres applications ont le leur. */
+  sophia?: ResumeSophiaContenu | null;
 }) {
   const { t } = useTranslation();
   const applications = useApplicationsMulti();
@@ -219,6 +249,7 @@ export function TiersApplications({
       </h3>
       <p className="text-[11px] text-muted-foreground">{t("multiAppPosts.tiers.aide")}</p>
       <ul className="space-y-2">
+        {sophia && <LigneTierSophia resume={sophia} />}
         {lignes.map((e) => (
           <LigneTierApplication
             key={e.application_id}
@@ -230,6 +261,36 @@ export function TiersApplications({
         ))}
       </ul>
     </section>
+  );
+}
+
+/** Rang Sophia en lecture seule : il se règle dans le bloc Tierlist de la fiche. */
+function LigneTierSophia({ resume: r }: { resume: ResumeSophiaContenu }) {
+  const { t } = useTranslation();
+  return (
+    <li className="space-y-1.5 rounded border p-2 text-xs">
+      <div className="flex flex-wrap items-center gap-1.5">
+        <span className="font-medium">Sophia</span>
+        <Badge variant="outline" className="text-[10px] font-bold">
+          {r.tier}
+        </Badge>
+        <span className="tabular-nums text-muted-foreground">
+          {t("slideshows.passagesDetail", {
+            publies: r.publies,
+            prevus: r.prevus,
+            envol: r.enVol,
+          })}
+        </span>
+      </div>
+      <p className="tabular-nums text-muted-foreground">
+        {t("slideshows.moyenneVues")} :{" "}
+        {r.moyenneVues != null ? Math.round(r.moyenneVues).toLocaleString() : "—"}
+        {" · "}
+        {t("slideshows.meilleurPassage")} :{" "}
+        {r.maxVues != null ? r.maxVues.toLocaleString() : "—"}
+      </p>
+      <p className="text-muted-foreground">{t("multiAppPosts.tiers.sophiaPlusBas")}</p>
+    </li>
   );
 }
 

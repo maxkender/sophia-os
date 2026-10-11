@@ -9,7 +9,7 @@
  */
 import { nomApplication } from "../applications";
 import { decisionDepuisEtat } from "../tierlist";
-import type { ContenuTierEtat, ReglagesTierlist } from "../types";
+import type { ContenuTierEtat, ReglagesTierlist, Tier } from "../types";
 import {
   applicationsDuLabel,
   applicationsEligiblesCompte,
@@ -487,4 +487,58 @@ export function contenuHorsSophia(
 ): boolean {
   if (!liens) return false;
   return !applicationsServies(labels, liens).includes(ID_SOPHIA);
+}
+
+/**
+ * Sophia dans les tableaux « par application » de la fiche slideshow. Elle n'a
+ * pas de ligne `contenu_pertinences` (mode historique) ni de ligne de tier par
+ * application : sa pertinence est `contenus.pertinence_score`, sa note celle de
+ * la langue source, son rang le bloc Tierlist de la fiche. Ce résumé la montre
+ * à côté des autres sans rien recalculer.
+ */
+export interface ResumeSophiaContenu {
+  score: number | null;
+  note: number | null;
+  /** Tiré par le moteur Sophia : contenu validé, rang autre que D. */
+  eligible: boolean;
+  raison: string | null;
+  tier: Tier;
+  publies: number;
+  prevus: number;
+  enVol: number;
+  moyenneVues: number | null;
+  maxVues: number | null;
+}
+
+/** null quand aucun label du contenu ne sert Sophia (pas de ligne Sophia à montrer). */
+export function resumeSophiaContenu(
+  contenu: {
+    pertinence_score: number | null;
+    pertinence_raison: string | null;
+    statut: string;
+    tier: Tier;
+    passages_prevus: number;
+    langue_source: string;
+    langues?: ReadonlyArray<{ langue: string; score: number }> | null;
+    tierEtat?: Pick<
+      ContenuTierEtat,
+      "publies" | "passages_prevus" | "en_vol" | "moyenne_vues" | "max_vues"
+    > | null;
+  },
+  horsSophia: boolean,
+): ResumeSophiaContenu | null {
+  if (horsSophia) return null;
+  const source = (contenu.langues ?? []).find((l) => l.langue === contenu.langue_source);
+  return {
+    score: contenu.pertinence_score,
+    note: source && Number.isFinite(source.score) ? source.score : null,
+    eligible: contenu.statut === "valide" && contenu.tier !== "D",
+    raison: contenu.pertinence_raison,
+    tier: contenu.tier,
+    publies: contenu.tierEtat?.publies ?? 0,
+    prevus: contenu.tierEtat?.passages_prevus ?? contenu.passages_prevus,
+    enVol: contenu.tierEtat?.en_vol ?? 0,
+    moyenneVues: contenu.tierEtat?.moyenne_vues ?? null,
+    maxVues: contenu.tierEtat?.max_vues ?? null,
+  };
 }

@@ -347,6 +347,14 @@ export const fr = {
         "Tout ce qui sert à tester, au même endroit. Rien ici ne touche la production (les calendriers des créateurs).",
       choisir: "Choisis un test — il s'ouvre en dessous. Rien ici ne touche la production.",
       choisirPlaceholder: "— Choisir un test —",
+      onboardingTitre: "Aperçu de l'accueil des créateurs",
+      onboardingDesc:
+        "Ouvre le parcours de bienvenue exactement tel qu'un créateur slideshow le voit à sa première connexion. Rien n'est enregistré : aucune étape retenue, aucun profil marqué comme terminé.",
+      onboardingDepart: "Démarrer à :",
+      onboardingQuiz: "Quiz",
+      onboardingOuvrir: "Ouvrir l'accueil",
+      onboardingNote:
+        "Le parcours est en anglais seulement pour l'instant. Les créateurs vidéo (pod 3) gardent leur écran et ne le voient jamais.",
       completTitre: "Test complet (un post par compte)",
       completDesc:
         "Simule le pipeline complet sur chaque compte : import → nettoyage → traduction → Sophia. Sort un post de test par compte, sans rien assigner ni publier.",

@@ -1,0 +1,258 @@
+{
+ "post_id": "original-002",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to stop in your 20s"
+     ],
+     "fr": "10/10 trucs que font les gens vraiment cultivés",
+     "texte": "10/10 abitudini delle persone colte"
+    },
+    "T2": {
+     "en": [
+      "(harsh truth)"
+     ],
+     "fr": "(ça se voit direct)",
+     "alignement": "droite",
+     "texte": "(si nota subito)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never take risks"
+     ],
+     "fr": "ils connaissent [[l'histoire]]",
+     "texte": "conoscono [[la storia dietro]]"
+    },
+    "T2": {
+     "en": [
+      "what if you fail?",
+      "what if people laugh?",
+      "what if it doesn't go to plan?"
+     ],
+     "fr": "pourquoi cette rue s'appelle comme ça ? qui a bâti ce pont ?",
+     "texte": "perché la via si chiama così? chi ha fatto questo ponte?"
+    },
+    "T3": {
+     "en": [
+      "better stay safe in your",
+      "room, on your phone,",
+      "thinking about the life you",
+      "could've lived"
+     ],
+     "fr": "10 min de lecture avant de partir, et sur place ils voient [[ce que les autres ratent]]",
+     "texte": "leggono 10 min prima di un viaggio, così sul posto vedono [[quello che gli altri non notano]]"
+    },
+    "T4": {
+     "en": [
+      "taking risks might make you fail, avoiding",
+      "them only wastes your life"
+     ],
+     "fr": "même ta ville devient intéressante quand tu sais [[ce qui s'y est passé]]",
+     "texte": "anche la tua città diventa interessante quando sai [[cosa è successo lì]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things with no obvious",
+      "payoff"
+     ],
+     "fr": "ils lisent [[hors de leur domaine]]",
+     "texte": "leggono [[fuori dal loro campo]]"
+    },
+    "T2": {
+     "en": [
+      "history, philosophy,",
+      "physics, economics,",
+      "languages, whatever",
+      "genuinely interests you"
+     ],
+     "fr": "une ingé qui lit de la philo, un prof de sport fan d'histoire romaine",
+     "texte": "un'ingegnera che legge filosofia, un prof di ginnastica fissato con Roma antica"
+    },
+    "T3": {
+     "en": [
+      "not every hour needs to",
+      "make money"
+     ],
+     "fr": "[[pas besoin que ça serve au boulot]]",
+     "texte": "[[non deve per forza servire al lavoro]]"
+    },
+    "T4": {
+     "en": [
+      "broad knowledge gives your brain more ideas",
+      "to connect when you actually need to solve",
+      "something"
+     ],
+     "fr": "mélanger les domaines, ça donne des idées que personne n'a, et des conversations bien plus riches",
+     "texte": "mischiare i campi ti dà idee che nessun altro ha, e conversazioni molto migliori"
+    },
+    "T5": {
+     "en": [
+      "also, it is just fun to be knowledgable!!"
+     ],
+     "fr": "et en vrai, [[c'est le plus fun !!]]",
+     "texte": "sinceramente, [[è la parte più bella!!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they read classic books written",
+      "by the greats"
+     ],
+     "fr": "ils apprennent un truc [[chaque jour]]",
+     "texte": "imparano qualcosa [[ogni giorno]]"
+    },
+    "T2a": {
+     "en": [
+      "they know endless tiktok scrolling rots their",
+      "attention"
+     ],
+     "fr": "pas de grandes séances, juste [[un peu tous les jours]]",
+     "texte": "niente maratone di studio, solo [[un po' ogni giorno]]"
+    },
+    "T2b": {
+     "en": [
+      "instead, they read ideas that",
+      "survived decades or",
+      "centuries"
+     ],
+     "fr": "une date, une œuvre, une idée : [[ça s'accumule vite]]",
+     "texte": "una data, un quadro, un'idea: [[si accumulano in fretta]]"
+    },
+    "T3": {
+     "en": [
+      "from people who thought",
+      "deeply about psychology,",
+      "power, business, and human",
+      "nature"
+     ],
+     "fr": "au bout d'un an, ça fait 365 trucs en [[histoire]], [[art]], [[sciences]] et [[philo]]",
+     "texte": "dopo un anno sono 365 cose di [[storia]], [[arte]], [[scienza]] e [[filosofia]]"
+    },
+    "T4": {
+     "en": [
+      "if you’re stuck on tiktok, you",
+      "can try readup which blocks",
+      "your apps until you read"
+     ],
+     "fr": "si t'es scotchée à tiktok, remplace un scroll par une leçon de 5 min sur [[l'appli Sophia]]",
+     "texte": "se sei incollata a tiktok, [[l'app UnSwipe]] può bloccarlo del tutto"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   },
+   "scissions": {
+    "T2": 2
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "googling every random thought",
+      "you have"
+     ],
+     "fr": "ils osent dire [[« je sais pas »]]",
+     "texte": "dicono [[\"non lo so\"]]"
+    },
+    "T2": {
+     "en": [
+      "you don't need to solve every curiosity the second it",
+      "appears"
+     ],
+     "fr": "pas de honte à pas savoir, la honte c'est de faire semblant",
+     "texte": "non sapere non è imbarazzante, fingere di sapere sì"
+    },
+    "T3": {
+     "en": [
+      "one search becomes five",
+      "tabs, then Reddit, then",
+      "somehow 20 minutes",
+      "disappeared"
+     ],
+     "fr": "au lieu de hocher la tête, ils demandent ou sortent leur tel et [[cherchent direct]]",
+     "texte": "invece di annuire e basta, chiedono, o prendono il telefono e [[lo cercano]]"
+    },
+    "T4": {
+     "en": [
+      "write the thought down",
+      "and finish what you were",
+      "doing first"
+     ],
+     "fr": "résultat : [[ils comprennent vraiment]] ce dont on parle",
+     "texte": "così [[capiscono davvero]] di cosa si sta parlando"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "improve your communication",
+      "skills"
+     ],
+     "fr": "ils expliquent [[simplement]]",
+     "texte": "spiegano [[in modo semplice]]"
+    },
+    "T2": {
+     "en": [
+      "if you can't explain an idea",
+      "clearly, you probably don't",
+      "understand it deeply",
+      "enough"
+     ],
+     "fr": "ils te racontent la relativité ou une guerre comme une histoire, [[sans jargon]]",
+     "texte": "ti raccontano la relatività o una guerra come una storia, [[senza paroloni]]"
+    },
+    "T3": {
+     "en": [
+      "practice writing, speaking,",
+      "storytelling, and teaching"
+     ],
+     "fr": "pas pour frimer, juste pour que [[tout le monde suive]]",
+     "texte": "non per tirarsela, ma perché [[tutti capiscano]]"
+    },
+    "T4": {
+     "en": [
+      "turning complicated",
+      "thoughts into simple",
+      "language forces your brain",
+      "to organise them properly"
+     ],
+     "fr": "et c'est ça le vrai signe : [[plus tu comprends un truc, plus tu sais le dire simple]]",
+     "texte": "ecco il vero segnale: [[più capisci una cosa, più la spieghi semplice]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ },
+ "application": "unswipe"
+}

@@ -26,6 +26,31 @@ export function etapeDeReprise(enregistree: unknown): number {
   return Math.min(Math.floor(n), INDEX_QUIZ);
 }
 
+/** Marge sous laquelle on considère le bas de page atteint, en pixels. */
+export const SEUIL_BAS_PX = 24;
+
+/**
+ * Le bas de l'écran est-il atteint ?
+ *
+ * Un conteneur qui tient entièrement (`scrollHeight === clientHeight`) répond
+ * oui dès le premier coup : il n'y a rien à faire défiler, exiger un
+ * défilement verrouillerait le bouton pour toujours.
+ *
+ * `clientHeight` à zéro veut dire « pas encore mesuré », pas « ça déborde » :
+ * le dialogue a une animation d'entrée, et la première mesure tombe pendant.
+ * On répond non, et c'est à l'appelant de REMESURER — jamais de conclure sur
+ * cette seule réponse. C'est précisément ce qui a verrouillé l'écran 1 en
+ * production : une mesure unique, prise trop tôt, jamais reprise.
+ */
+export function basDePageAtteint(mesure: {
+  scrollHeight: number;
+  scrollTop: number;
+  clientHeight: number;
+}): boolean {
+  if (mesure.clientHeight <= 0) return false;
+  return mesure.scrollHeight - mesure.scrollTop - mesure.clientHeight <= SEUIL_BAS_PX;
+}
+
 /** Secondes encore à tenir sur l'écran, 0 quand l'attente est purgée. */
 export function secondesRestantes(ecoulees: number, attente: number): number {
   const reste = Math.ceil(attente - ecoulees);

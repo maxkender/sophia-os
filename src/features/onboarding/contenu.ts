@@ -36,6 +36,8 @@ export const LIEN_GUIDE =
 export const LIEN_SLACK =
   "https://join.slack.com/t/sophia-system/shared_invite/zt-44pqj3z39-X4KkPQI6cwOwWE2LNaLbig";
 
+import type { EtatMico } from "./Mico";
+
 export type Bloc =
   | { type: "p"; texte: string }
   | { type: "liste"; items: string[] }
@@ -49,6 +51,8 @@ export interface Ecran {
   /** Identifiant stable : sert de clé React et d'ancre dans les tests. */
   cle: string;
   titre: string;
+  /** L'humeur de Mico sur cet écran. */
+  mico: EtatMico;
   blocs: Bloc[];
   /** Secondes à passer sur l'écran avant que « Next » se déverrouille. */
   attente: number;
@@ -58,6 +62,7 @@ export const ECRANS: Ecran[] = [
   {
     cle: "welcome",
     titre: "Welcome to Sophia!",
+    mico: "wave",
     attente: ATTENTE_TEXTE_S,
     blocs: [
       { type: "p", texte: "Hello! Welcome to the Sophia team!" },
@@ -77,6 +82,7 @@ export const ECRANS: Ecran[] = [
   {
     cle: "mission",
     titre: "Our mission",
+    mico: "happy",
     attente: ATTENTE_TEXTE_S,
     blocs: [
       {
@@ -91,31 +97,57 @@ export const ECRANS: Ecran[] = [
     ],
   },
   {
-    cle: "fonctionnement",
-    titre: "How we work",
+    cle: "slack",
+    titre: "Slack",
+    mico: "wave",
     attente: ATTENTE_TEXTE_S,
     blocs: [
-      { type: "p", texte: "Here is how we work." },
-      { type: "titre", texte: "Slack" },
+      { type: "p", texte: "First thing: all communication happens on Slack." },
       {
         type: "p",
         texte:
-          "All communication happens on Slack. You will be invited to your country's channel. Ask all your questions there, whether you hit a problem (technical, payment) or simply want to chat and connect with other members of the Vik Studios team.",
+          "You will be invited to your country's channel. Ask all your questions there, whether you hit a problem (technical, payment) or simply want to chat and connect with other members of the Vik Studios team.",
       },
       { type: "lien", avant: "Not in yet?", libelle: "Join the Slack workspace", href: LIEN_SLACK },
-      { type: "titre", texte: "Payments" },
-      { type: "p", texte: "Handled directly by your hiring manager." },
-      { type: "titre", texte: "Sophia System" },
+    ],
+  },
+  {
+    cle: "paiements",
+    titre: "Payments",
+    mico: "happy",
+    attente: ATTENTE_TEXTE_S,
+    blocs: [
+      { type: "p", texte: "Payments are handled directly by your hiring manager." },
       {
         type: "p",
         texte:
-          "The platform you are on right now. This is where the creatives and everything about your posting mission live. You will find your posts and your account information here: TikTok handle, bio, profile picture.",
+          "Anything about money goes to them, on Slack. They are the right person, and the fastest one.",
+      },
+    ],
+  },
+  {
+    cle: "plateforme",
+    titre: "Sophia System",
+    mico: "think",
+    attente: ATTENTE_TEXTE_S,
+    blocs: [
+      { type: "p", texte: "The platform you are on right now." },
+      {
+        type: "p",
+        texte:
+          "This is where the creatives and everything about your posting mission live. You will find your posts and your account information here: TikTok handle, bio, profile picture.",
+      },
+      {
+        type: "alerte",
+        ton: "orange",
+        items: ["Everything you need to post is here. Nothing important is sent by message."],
       },
     ],
   },
   {
     cle: "compte",
     titre: "Setting up your account",
+    mico: "think",
     attente: ATTENTE_TEXTE_S,
     blocs: [
       {
@@ -144,6 +176,7 @@ export const ECRANS: Ecran[] = [
   {
     cle: "posting",
     titre: "Posting your slideshows",
+    mico: "surprise",
     attente: DUREE_VIDEO_S,
     blocs: [
       {
@@ -204,6 +237,7 @@ export const ECRANS: Ecran[] = [
   {
     cle: "fin",
     titre: "That's it!",
+    mico: "celebrate",
     attente: ATTENTE_TEXTE_S,
     blocs: [
       {

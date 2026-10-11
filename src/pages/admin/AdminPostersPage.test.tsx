@@ -9,6 +9,9 @@ import type { PosterProfil } from "@/features/moteur/types";
 const listerPosters = vi.fn();
 const majZoneRecruteur = vi.fn();
 const listerComptes = vi.fn();
+const listerApplications = vi.fn();
+const labelsDesComptes = vi.fn();
+const listerLiensLabels = vi.fn();
 
 vi.mock("@/features/auth/AuthContext", async (importOriginal) => ({
   ...(await importOriginal<typeof import("@/features/auth/AuthContext")>()),
@@ -20,15 +23,15 @@ vi.mock("@/features/moteur/api", async (importOriginal) => ({
   listerPosters: () => listerPosters(),
   listerComptesAvecDormants: () => listerComptes(),
   listerLanguesReference: async () => ["fr", "tr", "es"],
-  listerApplications: async () => [],
+  listerApplications: () => listerApplications(),
   listerLabels: async () => [],
-  labelsDesComptes: async () => new Map(),
+  labelsDesComptes: (ids: string[]) => labelsDesComptes(ids),
   majZoneRecruteur: (id: string, zone: string | null) => majZoneRecruteur(id, zone),
 }));
 
 vi.mock("@/features/moteur/apiMultiApp", async (importOriginal) => ({
   ...(await importOriginal<typeof import("@/features/moteur/apiMultiApp")>()),
-  listerLiensLabels: async () => [],
+  listerLiensLabels: () => listerLiensLabels(),
 }));
 
 import { AdminPostersPage } from "./AdminPostersPage";
@@ -106,6 +109,12 @@ describe("AdminPostersPage — par zone", () => {
     majZoneRecruteur.mockResolvedValue(undefined);
     listerComptes.mockReset();
     listerComptes.mockResolvedValue([]);
+    listerApplications.mockReset();
+    listerApplications.mockResolvedValue([]);
+    labelsDesComptes.mockReset();
+    labelsDesComptes.mockResolvedValue(new Map());
+    listerLiensLabels.mockReset();
+    listerLiensLabels.mockResolvedValue([]);
   });
 
   it("range chaque créateur sous la zone de son recruteur", async () => {
@@ -301,5 +310,71 @@ describe("AdminPostersPage — par zone", () => {
     fireEvent.change(screen.getByLabelText("Search"), { target: { value: "kris@sophia" } });
     expect(screen.getByText("Marta")).toBeTruthy();
     expect(screen.queryByText("Beyza")).toBeNull();
+  });
+
+  it("filtre « application promue » : ce que les comptes publient, pas ce que leurs labels permettent", async () => {
+    const SOPHIA = "00000000-0000-4000-8000-000000000001";
+    const MICABO = "00000000-0000-4000-8000-000000000002";
+    const UNSWIPE = "00000000-0000-4000-8000-000000000003";
+    listerApplications.mockResolvedValue([
+      { id: SOPHIA, slug: "sophia", nom: "Sophia", actif: true, langues: null },
+      { id: MICABO, slug: "micabo", nom: "micabo", actif: true, langues: ["tr"] },
+      { id: UNSWIPE, slug: "unswipe", nom: "Unswipe", actif: true, langues: null },
+    ]);
+    // beau_smart_girl sert Sophia + micabo + Unswipe ; classic_study micabo + Unswipe.
+    listerLiensLabels.mockResolvedValue([
+      { label_id: "l-bsg", application_id: SOPHIA },
+      { label_id: "l-bsg", application_id: MICABO },
+      { label_id: "l-bsg", application_id: UNSWIPE },
+      { label_id: "l-cs", application_id: MICABO },
+      { label_id: "l-cs", application_id: UNSWIPE },
+    ]);
+    const compte = (id: string, poster_id: string, parts_applications: unknown) => ({
+      id,
+      poster_id,
+      handle_tiktok: id,
+      persona_nom: id,
+      langue: "tr",
+      type_compte: "perso",
+      is_active: true,
+      classement: "passable",
+      warmup_started_at: null,
+      warmup_ends_at: null,
+      avatar_url: null,
+      parts_applications,
+      ugc_ai_video: false,
+    });
+    // Beyza : compte Sophia par défaut (label partagé). Omer : compte micabo 100 %.
+    listerPosters.mockResolvedValue([
+      ...PROFILS,
+      profil({ id: "omer", role: "poster", prenom: "Omer", manager_id: "amanda", manager_nom: "Amanda" }),
+    ]);
+    listerComptes.mockResolvedValue([compte("c-beyza", "beyza", null), compte("c-omer", "omer", { micabo: 100 })]);
+    labelsDesComptes.mockResolvedValue(
+      new Map([
+        ["c-beyza", [{ id: "l-bsg", nom: "beau_smart_girl", slug: "beau-smart-girl" }]],
+        ["c-omer", [{ id: "l-cs", nom: "classic_study", slug: "classic-study" }]],
+      ]),
+    );
+    renderPage();
+    await screen.findByRole("heading", { level: 2, name: "Turkey + Israel" });
+    await waitFor(() => expect(labelsDesComptes).toHaveBeenCalled());
+    const filtre = screen.getByLabelText("Promoted app") as HTMLSelectElement;
+    await waitFor(() => expect(within(filtre).getByRole("option", { name: /micabo/ })).toBeTruthy());
+
+    fireEvent.change(filtre, { target: { value: "micabo" } });
+    await waitFor(() => expect(screen.queryByText("beyza@sophia.com")).toBeNull());
+    expect(screen.getByText("omer@sophia.com")).toBeTruthy();
+    // Recruteurs sans créateur correspondant masqués : Kris (Espagne) disparaît.
+    expect(screen.queryByRole("heading", { level: 2, name: "Spain + Portugal" })).toBeNull();
+
+    fireEvent.change(filtre, { target: { value: "unswipe" } });
+    expect(screen.queryByText("beyza@sophia.com")).toBeNull();
+    expect(screen.queryByText("omer@sophia.com")).toBeNull();
+    expect(screen.getByText("No creator matches these filters.")).toBeTruthy();
+
+    fireEvent.change(filtre, { target: { value: "sophia" } });
+    expect(screen.getByText("beyza@sophia.com")).toBeTruthy();
+    expect(screen.queryByText("omer@sophia.com")).toBeNull();
   });
 });

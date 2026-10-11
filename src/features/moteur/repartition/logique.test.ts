@@ -12,7 +12,7 @@ import {
   nomApplicationPromue,
   nomsApplicationsDuLabel,
   partsDepuisCurseurs,
-  posterServiApplication,
+  posterPromeutApplication,
   resumeParts,
   resumeSophiaContenu,
 } from "./logique";
@@ -32,6 +32,7 @@ const APPS = [SOPHIA, UNSWIPE];
 const CLEAN = { id: "l-clean", slug: "clean-girl", nom: "Clean Girl" };
 const CINEMA = { id: "l-cinema", slug: "cinema", nom: "Cinéma" };
 const HOOK = { id: "l-hook", slug: "hook", nom: "Hook" };
+type LabelRefTest = { id: string; slug: string; nom: string };
 
 /** Clean Girl sert Sophia + Unswipe ; Cinéma n'a aucune ligne (= Sophia). */
 const LIENS = [
@@ -55,13 +56,32 @@ describe("applications d'un label", () => {
     expect(nomsApplicationsDuLabel(CLEAN.id, LIENS, APPS).sort()).toEqual(["Sophia", "Unswipe"]);
   });
 
-  it("filtre Posters : au moins un compte dont les labels servent l'application", () => {
-    expect(posterServiApplication([[CINEMA], [CLEAN]], LIENS, ID_UNSWIPE)).toBe(true);
-    expect(posterServiApplication([[CINEMA]], LIENS, ID_UNSWIPE)).toBe(false);
-    // Compte sans label, ou seulement des labels système : Sophia.
-    expect(posterServiApplication([[]], LIENS, ID_SOPHIA)).toBe(true);
-    expect(posterServiApplication([[HOOK]], LIENS, ID_SOPHIA)).toBe(true);
-    expect(posterServiApplication([], LIENS, ID_SOPHIA)).toBe(false);
+  it("filtre Posters : au moins un compte qui PROMEUT l'application (son badge), pas ce que ses labels permettent", () => {
+    const slugParId = (id: string) => APPS.find((a) => a.id === id)?.slug;
+    const UNSWIPE_SEUL = { id: "l-unswipe", slug: "focus", nom: "Focus" };
+    const liens = [...LIENS, { label_id: UNSWIPE_SEUL.id, application_id: ID_UNSWIPE }];
+    const promeut = (comptes: { parts: unknown; labels: LabelRefTest[] | null }[], slug: string) =>
+      posterPromeutApplication(comptes, liens, slug, slugParId);
+
+    // Répartition par défaut + label Sophia + Unswipe : Sophia seulement.
+    expect(promeut([{ parts: null, labels: [CLEAN] }], "sophia")).toBe(true);
+    expect(promeut([{ parts: null, labels: [CLEAN] }], "unswipe")).toBe(false);
+    // Labels qui ne servent qu'Unswipe : Unswipe sans réglage.
+    expect(promeut([{ parts: null, labels: [UNSWIPE_SEUL] }], "unswipe")).toBe(true);
+    expect(promeut([{ parts: null, labels: [UNSWIPE_SEUL] }], "sophia")).toBe(false);
+    // Répartition explicite : ses applications à part > 0, et elles seules.
+    expect(promeut([{ parts: { unswipe: 100 }, labels: [CLEAN] }], "unswipe")).toBe(true);
+    expect(promeut([{ parts: { unswipe: 100 }, labels: [CLEAN] }], "sophia")).toBe(false);
+    expect(promeut([{ parts: { sophia: 70, unswipe: 30 }, labels: [CLEAN] }], "unswipe")).toBe(true);
+    expect(promeut([{ parts: { sophia: 100, unswipe: 0 }, labels: [CLEAN] }], "unswipe")).toBe(false);
+    // Un seul compte suffit ; sans label (ou système) ni répartition : Sophia.
+    expect(promeut([{ parts: null, labels: [CINEMA] }, { parts: { unswipe: 100 }, labels: [CLEAN] }], "unswipe")).toBe(true);
+    expect(promeut([{ parts: null, labels: [] }], "sophia")).toBe(true);
+    expect(promeut([{ parts: null, labels: [HOOK] }], "sophia")).toBe(true);
+    // Labels pas encore chargés : Sophia, comme le badge.
+    expect(promeut([{ parts: null, labels: null }], "sophia")).toBe(true);
+    // Aucun compte : aucune application.
+    expect(promeut([], "sophia")).toBe(false);
   });
 });
 

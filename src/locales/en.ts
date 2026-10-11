@@ -1934,7 +1934,7 @@ export const en = {
     },
     multiAppPosts: {
       appPromue: "{{app}}",
-      filtreApp: "Served app (labels)",
+      filtreApp: "Promoted app",
       repartition: {
         titre: "Split by app",
         aide: "Share of this account's posts per promoted app, held over its last 10 posts. Sophia takes the rest. Account identity (bio, persona) stays Sophia.",

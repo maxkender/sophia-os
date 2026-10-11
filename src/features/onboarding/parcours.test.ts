@@ -10,10 +10,13 @@
  * casse à l'écran. D'où ces tests.
  */
 
+import fs from "node:fs";
+import path from "node:path";
+
 import { describe, expect, it } from "vitest";
 
 import { ETATS_MICO } from "./Mico";
-import { DUREE_VIDEO_S, ECRANS, LIEN_GUIDE, QUESTIONS } from "./contenu";
+import { ATTENTE_VIDEO_S, ECRANS, LIEN_GUIDE, QUESTIONS } from "./contenu";
 import {
   basDePageAtteint,
   corrigerQuiz,
@@ -140,10 +143,12 @@ describe("le contenu tient ses promesses", () => {
     }
   });
 
-  it("l'écran de la vidéo attend que la vidéo ait eu le temps de passer", () => {
+  it("l'écran de la vidéo impose une attente nettement plus longue que les autres", () => {
     const posting = ECRANS.find((e) => e.cle === "posting")!;
-    expect(posting.attente).toBe(DUREE_VIDEO_S);
+    expect(posting.attente).toBe(ATTENTE_VIDEO_S);
     expect(posting.blocs.some((b) => b.type === "video")).toBe(true);
+    const autres = ECRANS.filter((e) => e.cle !== "posting").map((e) => e.attente);
+    expect(posting.attente).toBeGreaterThan(Math.max(...autres) * 3);
   });
 
   it("le quiz couvre les deux erreurs qui coûtent cher : le son et le lien", () => {
@@ -201,5 +206,33 @@ describe("le contenu tient ses promesses", () => {
   it("le quiz est bien la dernière étape", () => {
     expect(INDEX_QUIZ).toBe(ECRANS.length);
     expect(NB_ETAPES).toBe(ECRANS.length + 1);
+  });
+});
+
+/**
+ * Le parcours ne doit pas pouvoir se fermer côté créateur. C'est une
+ * exigence, pas un détail : un accueil qu'on esquive ne sert à rien.
+ *
+ * Trois choses le garantissent, et elles tiennent à trois props qu'une
+ * refonte de l'habillage peut faire sauter sans que rien ne casse à l'écran.
+ * On lit donc la source, comme `pagesHeadOfOps.test.ts` lit le routeur.
+ * Vérifié en vrai par ailleurs (Échap, clics sur le fond, Tab) : rien ne ferme.
+ */
+describe("le créateur ne peut pas fermer", () => {
+  const source = fs.readFileSync(
+    path.join(__dirname, "OnboardingParcours.tsx"),
+    "utf8",
+  );
+
+  it("pas de croix, sauf en aperçu admin", () => {
+    expect(source).toContain("showCloseButton={simulation}");
+  });
+
+  it("pas de fermeture au clic à côté, sauf en aperçu admin", () => {
+    expect(source).toContain("disablePointerDismissal={!simulation}");
+  });
+
+  it("Échap est neutralisé", () => {
+    expect(source).toMatch(/Escape.*preventDefault|preventDefault.*Escape/s);
   });
 });

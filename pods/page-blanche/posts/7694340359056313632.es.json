@@ -186,7 +186,7 @@
             "going on your phone!!"
           ],
           "fr": "tu vas [[rien rater d'important]] si tu vas pas sur ton tel!!",
-          "texte": "[[no te vas a perder nada importante]] por no mirar el teléfono!!"
+          "texte": "¡¡[[no te vas a perder nada importante]] por no mirar el teléfono!!"
         },
         "T4": {
           "en": [
@@ -202,7 +202,7 @@
             "until you're taking a break"
           ],
           "fr": "[[range ton tel quand tu bosses/révises]] jusqu'à ta pause",
-          "texte": "deja el [[teléfono lejos al trabajar/estudiar]] hasta tu descanso"
+          "texte": "aleja el [[teléfono cuando trabajes/estudies]] hasta tu descanso"
         }
       },
       "images": {

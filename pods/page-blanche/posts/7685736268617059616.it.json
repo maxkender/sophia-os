@@ -1,0 +1,303 @@
+{
+ "post_id": "7685736268617059616",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "5 signs that you've harmed",
+      "your brain from scrolling"
+     ],
+     "fr": "5 signes que le scroll t'a grillé le cerveau",
+     "texte": "5 segnali che lo scroll ti ha bruciato il cervello"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience-backed sources at the end)"
+     ],
+     "fr": "(les sources en neurosciences sont à la fin)",
+     "texte": "(fonti di neuroscienze alla fine)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you watch everything at",
+      "2x speed"
+     ],
+     "fr": "tu regardes tout [[en vitesse x2]]",
+     "texte": "guardi tutto [[a velocità 2x]]"
+    },
+    "T2": {
+     "en": [
+      "a 20-minute video becoming 10 feels efficient, but",
+      "you're teaching yourself that normal pacing is too",
+      "slow"
+     ],
+     "fr": "passer une vidéo de 20 min en 10, ça a l'air [[rentable]] mais ton cerveau retient qu'un rythme normal, c'est [[trop lent]]",
+     "texte": "guardare in 10 minuti un video da 20 [[sembra efficiente]], ma il cervello impara che il ritmo normale è [[troppo lento]]"
+    },
+    "T3": {
+     "en": [
+      "eventually lectures,",
+      "reading, and even",
+      "conversations start",
+      "feeling painfully",
+      "under-stimulating"
+     ],
+     "fr": "à force, même les cours, les livres et les [[conversations]] te paraissent [[d'un ennui mortel]]",
+     "texte": "alla fine lezioni, libri e perfino le [[conversazioni]] ti sembrano [[di una noia mortale]]"
+    },
+    "T4": {
+     "en": [
+      "are you really in a rush",
+      "to watch a tiktok?"
+     ],
+     "fr": "y'a vraiment urgence à regarder [[un tiktok]] ?",
+     "texte": "hai davvero così fretta di guardare [[un tiktok]]?"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you feel tired even during the",
+      "day"
+     ],
+     "fr": "t'es à plat [[même en pleine journée]]",
+     "texte": "ti senti stanca [[anche in pieno giorno]]"
+    },
+    "T2": {
+     "en": [
+      "you can sleep 8 hours and still",
+      "feel mentally exhausted if",
+      "your brain is getting",
+      "hammered with stimulation all",
+      "day"
+     ],
+     "fr": "tu peux dormir 8 heures et [[avoir quand même la tête en vrac]] si ton cerveau se fait [[bombarder toute la journée]]",
+     "texte": "puoi dormire 8 ore e [[sentirti comunque a pezzi]] se il tuo cervello viene bombardato di [[stimoli tutto il giorno]]"
+    },
+    "T3": {
+     "en": [
+      "constant switching, scrolling",
+      "and notifications create",
+      "attentional fatigue"
+     ],
+     "fr": "zapper sans arrêt, scroller, les notifs : ton attention finit par saturer",
+     "texte": "zapping continuo, scroll e notifiche ti mandano l'attenzione in tilt"
+    },
+    "T4": {
+     "en": [
+      "so even simple tasks start",
+      "feeling weirdly draining"
+     ],
+     "fr": "du coup, même les trucs simples te [[lessivent sans raison]]",
+     "texte": "così anche le cose semplici [[ti sfiniscono senza motivo]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you want to stop scrolling but",
+      "can't"
+     ],
+     "fr": "tu veux décrocher [[mais t'y arrives pas]]",
+     "texte": "vuoi mollare lo scroll [[ma non ci riesci]]"
+    },
+    "T2": {
+     "en": [
+      "if you keep opening tiktok",
+      "without even deciding to,",
+      "that's the problem"
+     ],
+     "fr": "si t'ouvres tiktok sans même l'avoir décidé, [[le problème est là]]",
+     "texte": "se apri tiktok senza neanche deciderlo, [[il problema è questo]]"
+    },
+    "T3": {
+     "en": [
+      "endless feeds remove",
+      "natural stopping points, so",
+      "“5 minutes” turns into 45"
+     ],
+     "fr": "le fil est sans fin, rien ne t'arrête, du coup [[« 5 min » ça devient 45]]",
+     "texte": "i feed infiniti non hanno un punto in cui fermarti, così [[“5 minuti” diventano 45]]"
+    },
+    "T4": {
+     "en": [
+      "make scrolling harder, not",
+      "your self-control stronger"
+     ],
+     "fr": "complique-toi le scroll [[au lieu de]] forcer sur ta volonté",
+     "texte": "complica lo scroll [[invece di]] contare sulla volontà"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you can't read a book without",
+      "getting bored"
+     ],
+     "fr": "t'arrives pas à lire un livre [[sans t'ennuyer]]",
+     "texte": "non riesci a leggere un libro [[senza annoiarti]]"
+    },
+    "T2": {
+     "en": [
+      "if the idea of reading 20 pages seems daunting but",
+      "watching 100 tiktoks is easy, that's a serious issue"
+     ],
+     "fr": "si lire [[20 pages]] te paraît insurmontable mais que [[100 tiktoks]] passent tout seuls, y'a un [[vrai souci]]",
+     "texte": "se leggere [[20 pagine]] ti sembra un'impresa ma guardare [[100 tiktok]] è facilissimo, c'è un [[problema serio]]"
+    },
+    "T3": {
+     "en": [
+      "this is because your attention",
+      "span is damaged from all the",
+      "short-form content"
+     ],
+     "fr": "c'est parce que ta [[concentration est cramée]] par tous ces formats courts",
+     "texte": "è perché la tua [[concentrazione è bruciata]] da tutti questi contenuti brevi"
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for 20",
+      "minutes, it keeps me",
+      "consistent"
+     ],
+     "fr": "perso, j'ai remplacé une partie de mon scroll par [[5 min par jour sur l'appli Sophia]], et je m'y tiens",
+     "texte": "io ho sostituito lo scroll con 5 minuti al giorno [[sull'app Sophia]] e mi aiuta a essere costante"
+    },
+    "T5": {
+     "en": [
+      "you can also try moving your",
+      "phone in a different room"
+     ],
+     "fr": "sinon, laisse ton tel dans une autre pièce",
+     "texte": "e quando leggi, lascia il telefono in un'altra stanza"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you reach for your phone the",
+      "second nothing is happening"
+     ],
+     "fr": "tu sors ton tel [[à la seconde où]] il se passe rien",
+     "texte": "prendi il telefono [[appena]] non succede niente"
+    },
+    "T2": {
+     "en": [
+      "waiting 30 seconds,",
+      "standing in a queue, sitting",
+      "in a lift, you instantly need",
+      "input"
+     ],
+     "fr": "30 secondes d'attente, une file, un ascenseur… et [[il te faut direct un truc à regarder]]",
+     "texte": "30 secondi di attesa, una fila, un ascensore, e [[ti serve subito qualcosa da guardare]]"
+    },
+    "T3": {
+     "en": [
+      "boredom is where your",
+      "brain gets a chance to",
+      "wander, reflect and",
+      "connect ideas"
+     ],
+     "fr": "l'ennui, c'est le moment où ton cerveau peut divaguer, réfléchir et faire des liens",
+     "texte": "la noia è il momento in cui il cervello può vagare, riflettere e collegare idee"
+    },
+    "T4": {
+     "en": [
+      "stop deleting every empty",
+      "moment"
+     ],
+     "fr": "[[arrête de remplir]] chaque temps mort",
+     "texte": "[[smetti di riempire]] ogni tempo morto"
+    },
+    "T5": {
+     "en": [
+      "listen to your thoughts"
+     ],
+     "fr": "[[écoute tes pensées]]",
+     "texte": "[[ascolta i tuoi pensieri]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "7": {
+   "textes": {
+    "T1": {
+     "en": [
+      "sources"
+     ],
+     "fr": "sources",
+     "texte": "fonti"
+    },
+    "T2": {
+     "en": [
+      "Nguyen et al. (2025)",
+      "“Feeds, feelings, and focus: A systematic review and meta-analysis",
+      "examining the cognitive and mental health correlates of short-form",
+      "video use”",
+      "https://doi.org/10.1037/bul0000498"
+     ],
+     "fr": "Nguyen et al. (2025)\n“Feeds, feelings, and focus: A systematic review and meta-analysis examining the cognitive and mental health correlates of short-form video use”\nhttps://doi.org/10.1037/bul0000498",
+     "texte": "Nguyen et al. (2025)\n“Feeds, feelings, and focus: A systematic review and meta-analysis examining the cognitive and mental health correlates of short-form video use”\nhttps://doi.org/10.1037/bul0000498"
+    },
+    "T3": {
+     "en": [
+      "“The effect of short-form video addiction on users’ attention”",
+      "https://doi.org/10.1080/0144929X.2022.2151512"
+     ],
+     "fr": "Chen, Li, Guo & Wang (2023)\n“The effect of short-form video addiction on users’ attention”\nhttps://doi.org/10.1080/0144929X.2022.2151512",
+     "texte": "Chen, Li, Guo & Wang (2023)\n“The effect of short-form video addiction on users’ attention”\nhttps://doi.org/10.1080/0144929X.2022.2151512"
+    },
+    "T4": {
+     "en": [
+      "Ebster et al. (2026)",
+      "“Taming the endless scroll? Short-form videos, digital routines and",
+      "https://doi.org/10.1007/s00787-026-03083-7"
+     ],
+     "fr": "Ebster et al. (2026)\n“Taming the endless scroll? Short-form videos, digital routines and neurocognitive outcomes in youth” https://doi.org/10.1007/s00787-026-03083-7",
+     "texte": "Ebster et al. (2026)\n“Taming the endless scroll? Short-form videos, digital routines and neurocognitive outcomes in youth” https://doi.org/10.1007/s00787-026-03083-7"
+    },
+    "T5": {
+     "en": [
+      "Stothart, Mitchum & Yehnert (2015)",
+      "“The attentional cost of receiving a cell phone notification”",
+      "https://doi.org/10.1037/xhp0000100"
+     ],
+     "fr": "Stothart, Mitchum & Yehnert (2015)\n“The attentional cost of receiving a cell phone notification”\nhttps://doi.org/10.1037/xhp0000100",
+     "texte": "Stothart, Mitchum & Yehnert (2015)\n“The attentional cost of receiving a cell phone notification”\nhttps://doi.org/10.1037/xhp0000100"
+    }
+   },
+   "images": {}
+  }
+ }
+}

@@ -227,11 +227,12 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
      (`label_applications`, un label sans ligne sert Sophia ; la colonne
      historique `labels.application_id` n'est plus lue) : sans hasard, la
      langue du compte suit la part de chaque label (√stock × performance des
-     28 derniers jours), sans reprendre le label de l'un des 3 derniers
-     comptes de la langue tant qu'un autre est en retard
+     28 derniers jours rapportée à la langue des posts, part plafonnée à 1/2),
+     jamais 3 fois le même label sur 4 comptes de la langue, et pas celui du
+     dernier compte tant qu'un autre est en retard
      (`_shared/choix_label_equilibre.ts`, chiffres lus par
-     `stats_labels_creation`, migration 0275 ; si la lecture échoue, repli sur
-     l'ancien « moins utilisé »).
+     `stats_choix_label_creation`, migration 0275 ; si la lecture échoue,
+     repli sur l'ancien « moins utilisé »).
 
   Contrat du corps (inchangé) :
   - Sophia → AUCUNE clé de plus : corps d'avant à l'octet près, donc même

@@ -1388,7 +1388,7 @@ async function resoudreChoixCompte(
   };
 }
 
-/** Comptes récents de la langue dont le label attend son tour (anti-rafale). */
+/** Derniers comptes de la langue regardés contre les rafales (cf. choix équilibré). */
 const RECENTS_LABEL_LANGUE = 3;
 
 /**
@@ -1399,10 +1399,16 @@ const RECENTS_LABEL_LANGUE = 3;
  *
  * Choix ÉQUILIBRÉ, sans hasard (`_shared/choix_label_equilibre.ts`) : la langue
  * du compte suit la part de chaque label (√stock × performance des 28 derniers
- * jours), sans reprendre le label de l'un des 3 derniers comptes de la langue
- * tant qu'un autre est en retard ; la flotte départage. Les chiffres viennent de `stats_labels_creation`
- * (0275) en une lecture ; si elle échoue, repli sur l'ancien « moins de comptes
- * actifs dans la langue » : une création ne casse jamais pour ça.
+ * jours, rapportée à la langue des posts ; part plafonnée à 1/2), jamais 3 fois
+ * le même label sur 4 comptes de la langue, et pas celui du dernier compte tant
+ * qu'un autre est en retard ; la flotte départage. Les chiffres viennent de
+ * `stats_choix_label_creation` (0275) en une lecture ; si elle échoue, repli
+ * sur l'ancien « moins de comptes actifs dans la langue » : une création ne
+ * casse jamais pour ça.
+ *
+ * Limite connue : deux créations dans la même langue à la même seconde lisent
+ * les mêmes chiffres et reçoivent le même label (le lien compte ↔ label n'est
+ * écrit qu'après) ; la création suivante rééquilibre.
  *
  * La colonne historique `labels.application_id` n'est jamais lue : elle vaut
  * Sophia pour tout label créé dans l'OS, même « Unswipe seul ».
@@ -1436,19 +1442,18 @@ async function labelMoinsUtiliseParLangue(
   }
   if (pool.length === 0) return null;
 
-  // Stock et performance : ceux de l'application du compte. Répartition à
-  // plusieurs applications : Sophia si elle en est, sinon la première.
   // Sans langue (jamais à la création : elle est requise), l'ancien choix global.
   const langueStats = String(langue ?? "").trim().toLowerCase();
   if (!langueStats) return await labelMoinsUtiliseRepli(supabase, langue, pool);
+  // Stock et performance : ceux de l'application du compte. Répartition à
+  // plusieurs applications : Sophia si elle en est, sinon la première.
   const appStats = requises
     ? (requises.includes(ID_SOPHIA) ? ID_SOPHIA : requises[0])
     : (opts.applicationId ?? null);
-  const { data: stats, error } = await supabase.rpc("stats_labels_creation", {
+  const { data: stats, error } = await supabase.rpc("stats_choix_label_creation", {
     p_labels: pool,
     p_application: appStats,
     p_langue: langueStats,
-    // Pas le même label que l'un des 3 derniers comptes de la langue.
     p_recents: RECENTS_LABEL_LANGUE,
   });
   if (!error && Array.isArray(stats)) {

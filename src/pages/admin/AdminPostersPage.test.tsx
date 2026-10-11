@@ -248,9 +248,8 @@ describe("AdminPostersPage — par zone", () => {
     fireEvent.click(screen.getByRole("button", { name: "Save" }));
     await waitFor(() => expect(majZoneRecruteur).toHaveBeenCalledTimes(1));
 
-    // Lien vers son DM, dans la fiche.
-    const fiche = screen.getByRole("heading", { level: 2, name: "Kris" }).parentElement!.parentElement!;
-    fireEvent.click(within(fiche).getByRole("button", { name: "Amanda" }));
+    // Un autre recruteur, ouvert depuis la liste de la page.
+    fireEvent.click(screen.getAllByRole("button", { name: "Amanda" })[0]);
     await screen.findByRole("heading", { level: 2, name: "Amanda" });
     expect(screen.queryByText("Zone saved.")).toBeNull();
     expect((screen.getByLabelText("Zone", { selector: "input" }) as HTMLInputElement).value).toBe(

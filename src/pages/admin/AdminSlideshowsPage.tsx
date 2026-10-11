@@ -68,6 +68,7 @@ import { ID_SOPHIA } from "@/features/moteur/multiApp";
 import {
   contenuHorsSophia,
   nomApplicationPromue,
+  resumeSophiaContenu,
 } from "@/features/moteur/repartition/logique";
 import {
   useApplicationsMulti,
@@ -1185,6 +1186,8 @@ function DetailSlideshow({
   const applicationsMulti = useApplicationsMulti();
   const horsSophia = Boolean(d) &&
     contenuHorsSophia(d?.labels ?? [], liensLabels.isSuccess ? liensLabels.data : undefined);
+  // Sophia en tête des tableaux par application (elle n'y a pas de ligne en base).
+  const resumeSophia = d ? resumeSophiaContenu(d, horsSophia) : null;
 
   const relancerRequalif = useMutation({
     mutationFn: () => relancerRequalifContenu(id),
@@ -1465,10 +1468,14 @@ function DetailSlideshow({
                 applications servies). Le détail par application et les decks
                 hors Sophia vivent dans les tables de 0256 ; chaque bloc gère
                 sa propre erreur sans toucher au reste de la fiche. */}
-            <PertinencesApplications contenuId={d.id} />
+            <PertinencesApplications contenuId={d.id} sophia={resumeSophia} />
             {/* 0270 : tier, budget et cycle PROPRES à chaque autre application.
                 Rien n'est rendu sans ligne non-Sophia ou sans la migration. */}
-            <TiersApplications contenuId={d.id} tierlist={reglagesDetail?.tierlist} />
+            <TiersApplications
+              contenuId={d.id}
+              tierlist={reglagesDetail?.tierlist}
+              sophia={resumeSophia}
+            />
             <DecksApplications contenuId={d.id} />
 
             <section className="space-y-2">

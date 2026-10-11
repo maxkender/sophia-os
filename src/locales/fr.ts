@@ -989,10 +989,7 @@ export const fr = {
       creerRecruteurDesc:
         "Saisis son nom et les langues qu’il gère : il pourra embaucher des créateurs dans chacune.",
       recruteurs: "Recruteurs",
-      dmDe: "DM · {{nom}}",
-      directingManager: "Directing manager",
       hmsDuDm: "Hiring managers rattachés",
-      hmSansDm: "HM sans directing manager",
       equipeDmResume:
         "{{hms}} HM · {{total}} créateur(s) · {{pasCree}} pas créé · {{warmup}} warmup · {{actif}} actif",
       equipeHoResume:
@@ -1019,6 +1016,21 @@ export const fr = {
       aucunCreateurFiltre: "Aucun créateur ne correspond aux filtres ({{n}} au total).",
       nbAffiches: "{{n}} affiché(s) avec ces filtres",
       recruteursDesactives: "Recruteurs désactivés sans créateur ({{n}})",
+      carte: {
+        titre: "Carte des zones de recrutement",
+        aide: "Survole un pays pour voir sa zone, clique pour n’afficher qu’elle.",
+        monde: "Monde",
+        europe: "Europe",
+        createurs:
+          "{{total}} créateur(s) · {{actif}} actif · {{warmup}} warmup · {{pasCree}} pas créé",
+        nbCreas: "{{n}} créa.",
+        cliquer: "Clic : n’afficher que cette zone.",
+        cliquerTout: "Clic : revoir toutes les zones.",
+        legende: "Créateurs par zone",
+        horsZone: "Pays sans recruteur",
+        nonPlace: "Pas sur la carte : {{liste}}",
+        erreur: "Carte indisponible : {{message}}",
+      },
       aideZones:
         "La page est rangée par zone : celle du recruteur (pays gérés), dont ses créateurs héritent. La zone se change depuis la fiche du recruteur.",
       langueRecruteur: "Langue",
@@ -1104,7 +1116,6 @@ export const fr = {
       badgeHm: "HM",
       badgeDm: "DM",
       promote: "Faire recruteur",
-      promoteDm: "Passer Directing manager",
       repasserHm: "Repasser hiring manager",
       revoke: "Repasser poster",
       valider: "Valider",
@@ -1974,7 +1985,8 @@ export const fr = {
       },
       tiers: {
         titre: "Tier par application",
-        aide: "Chaque autre application a son rang, son budget de passages et son cycle, mesurés sur ses seuls posts. Le bloc Tierlist plus bas est celui de Sophia.",
+        aide: "Chaque application a son rang, son budget de passages et son cycle, mesurés sur ses seuls posts. Celui de Sophia se règle dans le bloc Tierlist plus bas.",
+        sophiaPlusBas: "Se règle dans le bloc Tierlist plus bas.",
         paresseux: "Rang d'entrée (note {{note}}), pas encore requalifié.",
         horsReserve: "Hors réserve (révoqué ou non éligible) : plus tiré pour cette application.",
         erreur: "Tiers par application indisponibles : {{message}}",

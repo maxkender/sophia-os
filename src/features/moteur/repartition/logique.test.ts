@@ -14,6 +14,7 @@ import {
   partsDepuisCurseurs,
   posterServiApplication,
   resumeParts,
+  resumeSophiaContenu,
 } from "./logique";
 
 const ID_UNSWIPE = "00000000-0000-4000-8000-000000000003";
@@ -550,5 +551,47 @@ describe("applicationsAfficheesCompte", () => {
 
   it("labels non chargés et pas de répartition : Sophia, comme avant", () => {
     expect(applicationsAfficheesCompte({ parts: null })).toEqual([{ slug: "sophia", part: null }]);
+  });
+});
+
+describe("resumeSophiaContenu", () => {
+  const contenu = {
+    pertinence_score: 80,
+    pertinence_raison: "Réussite scolaire",
+    statut: "valide",
+    tier: "B" as const,
+    passages_prevus: 2,
+    langue_source: "en",
+    langues: [
+      { langue: "fr", score: 55 },
+      { langue: "en", score: 61.4 },
+    ],
+    tierEtat: { publies: 1, passages_prevus: 2, en_vol: 1, moyenne_vues: 900, max_vues: 1200 },
+  };
+
+  it("reprend la pertinence de la fiche, la note de la langue source et le cycle Sophia", () => {
+    expect(resumeSophiaContenu(contenu, false)).toEqual({
+      score: 80,
+      note: 61.4,
+      eligible: true,
+      raison: "Réussite scolaire",
+      tier: "B",
+      publies: 1,
+      prevus: 2,
+      enVol: 1,
+      moyenneVues: 900,
+      maxVues: 1200,
+    });
+  });
+
+  it("aucun label ne sert Sophia : pas de ligne", () => {
+    expect(resumeSophiaContenu(contenu, true)).toBeNull();
+  });
+
+  it("rang D ou contenu non validé : non éligible ; sans cycle, budget du rang", () => {
+    expect(resumeSophiaContenu({ ...contenu, tier: "D" }, false)?.eligible).toBe(false);
+    expect(resumeSophiaContenu({ ...contenu, statut: "brouillon" }, false)?.eligible).toBe(false);
+    const sansCycle = resumeSophiaContenu({ ...contenu, tierEtat: null, langues: [] }, false);
+    expect(sansCycle).toMatchObject({ prevus: 2, publies: 0, enVol: 0, note: null });
   });
 });

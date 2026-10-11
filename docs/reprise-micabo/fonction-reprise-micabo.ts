@@ -4,7 +4,7 @@
  * Volontairement HORS de `supabase/functions/` : le workflow de déploiement ne
  * doit jamais la redéployer. Déployée à la main (MCP), neutralisée à la fin.
  *
- * Trois actions, toutes gardées par un jeton de `migration_micabo.jetons`
+ * Quatre actions, toutes gardées par un jeton de `migration_micabo.jetons`
  * (aléatoire, à durée de vie courte, posé en SQL dans la base Sophia) :
  *  - `deposer` : appelée par la base micabo-os (pg_net) avec un lot JSON
  *    (contenus, decks, médias, passages d'une source) → `migration_micabo.lots` ;
@@ -13,7 +13,10 @@
  *  - `deplacer` : déplace, DANS le bucket `medias` de Sophia, un paquet de
  *    `migration_micabo.deplacements` (`micabo/propre/…` → `propre/…`, le seul
  *    chemin que Sophia reconnaît comme image nettoyée) et repointe la ligne
- *    `media_library` correspondante.
+ *    `media_library` correspondante ;
+ *  - `photos` : copie une fois la photo Upwork des recruteurs (HM, DM…) dans
+ *    `medias/profils/<id>.jpg` et renseigne `profiles.photo_url` (0274). Seules
+ *    les adresses `https://www.upwork.com/profile-portraits/…` sont lues.
  * `ping` vérifie seulement le jeton.
  *
  * Aucun secret ne transite : la base est jointe par SUPABASE_DB_URL et le
@@ -173,6 +176,37 @@ async function deplacerFichiers(n: number, parallele: number) {
   console.log(`reprise-micabo deplacer : ${faits} déplacé(s), ${echecs} échec(s) sur ${lot.length}`);
 }
 
+const PREFIXE_PORTRAIT = "https://www.upwork.com/profile-portraits/";
+const RE_UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
+
+// Une photo : lue sur Upwork, posée dans le bucket, puis l'URL publique (avec
+// un paramètre de version : le navigateur ne garde pas l'ancienne en cache).
+async function copierPhoto(p: { profil_id: string; url: string }) {
+  try {
+    if (!RE_UUID.test(p.profil_id)) throw new Error("profil_id");
+    if (!p.url.startsWith(PREFIXE_PORTRAIT)) throw new Error("url hors portraits Upwork");
+    const rep = await fetch(p.url, { signal: AbortSignal.timeout(20_000) });
+    if (!rep.ok) throw new Error(`lecture ${rep.status}`);
+    const type = rep.headers.get("content-type") ?? "";
+    if (!type.startsWith("image/")) throw new Error(`type ${type}`);
+    const octets = new Uint8Array(await rep.arrayBuffer());
+    if (octets.length === 0 || octets.length > 2_000_000) throw new Error(`taille ${octets.length}`);
+    const chemin = `profils/${p.profil_id}.jpg`;
+    const { error } = await supabase.storage
+      .from("medias")
+      .upload(chemin, octets, { contentType: type, upsert: true });
+    if (error) throw new Error(`écriture ${error.message}`);
+    const publique = supabase.storage.from("medias").getPublicUrl(chemin).data.publicUrl;
+    const url = `${publique}?v=${Date.now()}`;
+    const maj = await sql`
+      update public.profiles set photo_url = ${url} where id = ${p.profil_id} returning id`;
+    if (maj.length !== 1) throw new Error("profil introuvable");
+    return { profil_id: p.profil_id, ok: true, octets: octets.length, url };
+  } catch (e) {
+    return { profil_id: p.profil_id, ok: false, erreur: String(e).slice(0, 200) };
+  }
+}
+
 Deno.serve(async (req) => {
   if (req.method !== "POST") return json({ error: "POST seulement" }, 405);
   let corps: Record<string, unknown>;
@@ -222,6 +256,17 @@ Deno.serve(async (req) => {
         deplacerFichiers(n, parallele).catch((e) => console.error("reprise-micabo deplacer", e)),
       );
       return json({ ok: true, lance: n }, 202);
+    }
+
+    if (action === "photos") {
+      if (!(await jetonValide(corps.jeton, "photos"))) return json({ error: "jeton" }, 401);
+      const photos = Array.isArray(corps.photos) ? corps.photos.slice(0, 40) : [];
+      const res = [];
+      // Une à la fois : une vingtaine de vignettes de 100 px, réponse directe.
+      for (const p of photos) {
+        res.push(await copierPhoto({ profil_id: String(p?.profil_id ?? ""), url: String(p?.url ?? "") }));
+      }
+      return json({ ok: true, res });
     }
 
     return json({ error: "action inconnue" }, 400);

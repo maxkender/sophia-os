@@ -18,6 +18,8 @@ import {
 import { messageErreur } from "@/lib/utils";
 import { badgeManager, estRoleManager, useAuth } from "@/features/auth/AuthContext";
 import { CompteursPhases, ListeCreateursSuivi } from "@/features/hiring/SuiviCreateurs";
+import { AvatarProfil } from "@/features/hiring/AvatarProfil";
+import type { ZoneCarte } from "@/features/hiring/carteZones";
 import { equipesParDm, hmsDuDm, nomProfil, resumeHm, type EquipeDm } from "@/features/hiring/suiviEquipe";
 import {
   CLE_SANS_ZONE,
@@ -83,6 +85,9 @@ import type {
   Label as LabelType,
   PosterProfil,
 } from "@/features/moteur/types";
+
+// Carte des zones : d3-geo et le fond de carte dans un morceau à part.
+const CarteZones = React.lazy(() => import("@/features/hiring/CarteZones"));
 
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
@@ -532,6 +537,8 @@ export function AdminPostersPage() {
   const [filtreApp, setFiltreApp] = React.useState("tous");
   // Zone de recrutement (clé `cleZone`, ou CLE_SANS_ZONE) ; "" = toutes.
   const [filtreZone, setFiltreZone] = React.useState("");
+  // Zone survolée sur la carte ou sur sa puce : les deux se répondent.
+  const [zoneSurvolee, setZoneSurvolee] = React.useState<string | null>(null);
   // Une zone renommée, vidée ou sans plus aucun recruteur ne doit pas laisser
   // la page vide derrière un filtre qui s'affiche « Toutes » : un filtre qui
   // ne désigne plus aucune zone connue ne filtre plus rien.
@@ -1184,6 +1191,21 @@ export function AdminPostersPage() {
     garderRecruteur: recruteurCherche,
     trierCreateurs,
   });
+  // Carte : toutes les zones, filtres ignorés — un filtre ne repeint pas la
+  // carte, il ne fait que mettre sa zone en avant.
+  const zonesCarte: ZoneCarte[] = regrouperParZone(tous).zones.map((g) => ({
+    cle: g.cle,
+    zone: g.zone ?? "",
+    compteurs: g.compteurs,
+    recruteurs: g.recruteurs.map((b) => ({
+      id: b.recruteur.id,
+      nom: nomAffiche(b.recruteur),
+      role: b.recruteur.role,
+      photoUrl: b.recruteur.photo_url ?? null,
+      actif: b.recruteur.is_active,
+      createurs: b.compteursEquipe.total,
+    })),
+  }));
   // Équipe d'un DM (ses créateurs + ceux de ses HM), filtres ignorés : le
   // résumé que l'ancien arbre DM → HM donnait en tête de chaque DM.
   const equipeDm = new Map<string, EquipeDm>(equipesParDm(tous).map((e) => [e.dm.id, e]));
@@ -1231,9 +1253,6 @@ export function AdminPostersPage() {
           </div>
           <DrapeauxLangues codes={langues} />
         </div>
-        {poster.role === "hiring_manager" && poster.manager_nom && (
-          <p className="text-[11px] text-violet-700">{t("posters.dmDe", { nom: poster.manager_nom })}</p>
-        )}
         <LangueRecruteurDropdown recruteur={poster} />
       </article>
     );
@@ -1350,6 +1369,7 @@ export function AdminPostersPage() {
     return (
       <div key={r.id} className="space-y-2">
         <div className="flex flex-wrap items-center gap-2">
+          <AvatarProfil nom={nomAffiche(r)} photoUrl={r.photo_url} />
           <button
             type="button"
             className="text-sm font-semibold tracking-tight underline-offset-2 hover:underline"
@@ -1363,9 +1383,6 @@ export function AdminPostersPage() {
             </Badge>
           )}
           {!r.is_active && <Badge variant="secondary">{t("posters.disabled")}</Badge>}
-          {r.role === "hiring_manager" && r.manager_nom && (
-            <span className="text-[11px] text-violet-700">{t("posters.dmDe", { nom: r.manager_nom })}</span>
-          )}
           <DrapeauxLangues codes={languesRecruteur(r)} />
           <div className="w-48">
             <LangueRecruteurDropdown recruteur={r} />
@@ -1483,6 +1500,19 @@ export function AdminPostersPage() {
 
     return (
       <div className="space-y-6">
+        {zonesCarte.length > 0 && (
+          <React.Suspense
+            fallback={<div className="aspect-[2/1] w-full animate-pulse rounded-xl bg-muted/50" />}
+          >
+            <CarteZones
+              zones={zonesCarte}
+              selection={filtreZoneEffectif}
+              survol={zoneSurvolee}
+              onSurvol={setZoneSurvolee}
+              onSelection={(cle) => setFiltreZone(filtreZoneEffectif === cle ? "" : cle)}
+            />
+          </React.Suspense>
+        )}
         {(puces.length > 1 || filtreZoneEffectif) && (
           <div role="group" aria-label={t("posters.filtreZone")} className="flex flex-wrap gap-1.5">
             {puces.map((puce) => {
@@ -1493,6 +1523,10 @@ export function AdminPostersPage() {
                   type="button"
                   aria-pressed={actif}
                   onClick={() => setFiltreZone(actif ? "" : puce.cle)}
+                  onMouseEnter={() => setZoneSurvolee(puce.cle)}
+                  onMouseLeave={() => setZoneSurvolee(null)}
+                  onFocus={() => setZoneSurvolee(puce.cle)}
+                  onBlur={() => setZoneSurvolee(null)}
                   className={
                     actif
                       ? "rounded-full bg-primary px-2.5 py-1 text-xs font-medium text-primary-foreground"
@@ -1538,10 +1572,6 @@ export function AdminPostersPage() {
       : [];
   const ficheHms = fiche?.role === "directing_manager" ? hmsDuDm(tous, fiche.id) : [];
   const ficheEquipeDm = fiche?.role === "directing_manager" ? equipeDm.get(fiche.id) : undefined;
-  const ficheDm =
-    fiche?.role === "hiring_manager" && fiche.manager_id
-      ? tous.find((p) => p.id === fiche.manager_id && p.role === "directing_manager")
-      : undefined;
   const fichePartBien =
     fiche && estRoleManager(fiche.role) ? partBienRecruteur(fiche.id) : null;
   const soiMeme = fiche?.id === user?.id;
@@ -1627,6 +1657,7 @@ export function AdminPostersPage() {
           {estRoleManager(fiche.role) && (
             <>
               <div className="flex flex-wrap items-center gap-2">
+                <AvatarProfil nom={nomAffiche(fiche)} photoUrl={fiche.photo_url} className="size-10" />
                 {badgeManager(fiche.role) && (
                   <Badge variant="outline">{badgeManager(fiche.role)}</Badge>
                 )}
@@ -1659,27 +1690,6 @@ export function AdminPostersPage() {
                   idPrefixe={`fiche-${fiche.id}`}
                 />
               </div>
-
-              {fiche.role === "hiring_manager" && (
-                <p className="text-sm">
-                  <span className="text-[10px] uppercase tracking-wide text-muted-foreground">
-                    {t("posters.directingManager")}
-                  </span>
-                  <span className="mt-0.5 block">
-                    {ficheDm ? (
-                      <button
-                        type="button"
-                        className="underline underline-offset-2"
-                        onClick={() => ouvrirFiche(ficheDm.id)}
-                      >
-                        {nomAffiche(ficheDm)}
-                      </button>
-                    ) : (
-                      <span className="text-muted-foreground">{t("posters.hmSansDm")}</span>
-                    )}
-                  </span>
-                </p>
-              )}
 
               {fiche.role === "directing_manager" && (
                 <div className="space-y-3">
@@ -1784,22 +1794,6 @@ export function AdminPostersPage() {
 
               {!soiMeme && (
                 <div className="flex flex-wrap gap-2 border-t pt-3">
-                  {fiche.role === "hiring_manager" && (
-                    <Button
-                      size="sm"
-                      disabled={changerRole.isPending}
-                      onClick={() =>
-                        changerRole.mutate({
-                          id: fiche.id,
-                          role: "directing_manager",
-                          langues: fiche.langues,
-                          nationalite: fiche.nationalite ?? fiche.langues?.[0],
-                        })
-                      }
-                    >
-                      {t("hiring.promoteDm")}
-                    </Button>
-                  )}
                   {fiche.role === "directing_manager" && (
                     <Button
                       size="sm"

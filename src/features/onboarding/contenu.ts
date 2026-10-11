@@ -17,13 +17,15 @@
 export const LOOM_EMBED = "https://www.loom.com/embed/c79229ddee5d4dfd84f38e1f4d2f731c";
 
 /**
- * Durée réelle de cette vidéo, en secondes (203,6 s arrondies).
+ * Attente imposée sur l'écran « Posting », en secondes.
  *
- * C'est aussi l'attente imposée sur l'écran « Posting » : le bouton se
- * déverrouille quand la vidéo a eu le temps de passer. C'est long et c'est
- * voulu, mais c'est LA valeur à baisser si le support se plaint.
+ * La démo Loom dure 203,6 s. On a d'abord calé l'attente dessus, puis ramenée
+ * à 60 s : bloquer 3 min 24 sur un bouton verrouillé décourage plus que ça
+ * n'instruit, et c'est le quiz qui vérifie vraiment que la vidéo a servi.
+ * Assez long pour qu'on ne clique pas sans regarder, assez court pour ne pas
+ * faire fuir.
  */
-export const DUREE_VIDEO_S = 204;
+export const ATTENTE_VIDEO_S = 60;
 
 /** Attente par défaut d'un écran de texte, en secondes. */
 export const ATTENTE_TEXTE_S = 8;
@@ -177,7 +179,7 @@ export const ECRANS: Ecran[] = [
     cle: "posting",
     titre: "Posting your slideshows",
     mico: "surprise",
-    attente: DUREE_VIDEO_S,
+    attente: ATTENTE_VIDEO_S,
     blocs: [
       {
         type: "alerte",

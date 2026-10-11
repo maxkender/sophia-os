@@ -72,7 +72,11 @@ cli-livrer.ts ──deposer──▶ fonction `pods` ──▶ pod_livraisons (�
 - **Dépôt** : `POD_JETON=… node atelier/cli-livrer.ts <slides> <post_id|all> --langues fr`
   (`--essai <dossier>` écrit les requêtes au lieu de les envoyer). Une langue
   n'est livrée que si `posts/<id>.<langue>.json` existe. Un post sans slide de
-  l'app n'est pas déposé (rien à promouvoir).
+  l'app n'est pas déposé (rien à promouvoir). `--unswipe <dossier>` ajoute la
+  variante UnSwipe d'une langue quand `<dossier>/<id>/unswipe/<langue>/<n>.jpg`
+  existe (la slide de l'app à la position de la slide Sophia ; les autres
+  slides reprennent l'image Sophia). Elle n'est servie que sur les créneaux
+  UnSwipe, et seulement si le label du pod sert UnSwipe.
 - **Validation** (admin, Pilotage → Pods) : la fonction calcule la note d'import
   comme pour un slideshow importé (30 % pertinence via le prompt `pertinence`,
   70 % vues source) ; sous le seuil la livraison est « écartée », sinon un

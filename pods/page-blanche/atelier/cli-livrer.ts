@@ -1,4 +1,5 @@
 // Usage : node atelier/cli-livrer.ts [sources] <post_id|all> [--langues fr,de] [--essai <dossier>]
+//                                    [--unswipe <dossier>]
 //
 // Rend un post (une version par langue dont la traduction existe :
 // posts/<id>.<langue>.json) et le DÉPOSE dans la file de validation de l'OS
@@ -8,8 +9,15 @@
 // Environnement : POD_JETON (jeton de l'agent du pod), SUPABASE_URL (défaut :
 // projet de prod). --essai écrit le corps de la requête sur disque au lieu
 // de l'envoyer.
+//
+// --unswipe <dossier> : variante UnSwipe du deck (servie sur les seuls créneaux
+// UnSwipe). Pour chaque langue rendue, si `<dossier>/<post_id>/unswipe/<langue>/`
+// contient `<position>.jpg` (la slide de l'app, rendue à part), elle est déposée
+// dans `decks_applications.unswipe.<langue>` ; les autres positions reprennent
+// l'image Sophia (`reprendre: true`). Une seule image, à la position de la slide
+// Sophia (c'est elle qu'elle remplace).
 
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { analyserSlide } from "./geometrie.ts";
 import { chargerRessources, rendreSlide, type Transcription } from "./rendu.ts";
@@ -37,6 +45,7 @@ const opt = (nom: string) => {
 };
 const langues = (opt("--langues") ?? "fr").split(",").map((l) => l.trim()).filter(Boolean);
 const essai = opt("--essai");
+const dossierUnswipe = opt("--unswipe");
 const langueSource = langues[0];
 
 const manifeste = JSON.parse(readFileSync("posts/manifeste.json", "utf8")) as Manifeste;
@@ -55,10 +64,42 @@ function texteSlide(t: Transcription): string {
 const estSlideApp = (t: Transcription) =>
   Object.values(t.images ?? {}).some((a) => a.startsWith("sophia_")) || (t.zones ?? []).length > 0;
 
+type SlideApp = { position: number; reprendre?: true; position_app?: true; jpeg_base64?: string };
+
+/**
+ * Variante UnSwipe d'un deck rendu : l'image de `<dossier>/<id>/unswipe/<langue>/`
+ * pour la slide de l'app, `reprendre` pour les autres. `null` si rien à déposer.
+ */
+function deckUnswipe(
+  postId: string,
+  langue: string,
+  slides: { position: number; position_sophia: boolean }[],
+): { slides: SlideApp[] } | string | null {
+  if (!dossierUnswipe) return null;
+  const dossier = join(dossierUnswipe, postId, "unswipe", langue);
+  if (!existsSync(dossier)) return null;
+  const images = readdirSync(dossier).filter((f) => /^\d+\.jpg$/.test(f));
+  const sophia = slides.filter((s) => s.position_sophia).map((s) => s.position);
+  const position = images.length === 1 ? Number(images[0].replace(".jpg", "")) : null;
+  if (position === null || sophia.length !== 1 || sophia[0] !== position) {
+    return `une image attendue dans ${dossier}, à la position de la slide Sophia (${sophia.join(",")})`;
+  }
+  const propre = retirerMetadonnees(readFileSync(join(dossier, images[0])));
+  if (metadonneesRestantes(propre).length) return `${dossier}/${images[0]} : métadonnées restantes`;
+  return {
+    slides: slides.map((s) =>
+      s.position === position
+        ? { position: s.position, position_app: true as const, jpeg_base64: propre.toString("base64") }
+        : { position: s.position, reprendre: true as const }
+    ),
+  };
+}
+
 const bilan: string[] = [];
 for (const p of posts) {
   const variante = [...p.post_id].reduce((a, c) => a + c.charCodeAt(0), 0);
   const decks: Record<string, { hashtags: string; slides: { position: number; position_sophia: boolean; jpeg_base64: string }[] }> = {};
+  const unswipe: Record<string, { hashtags: string; slides: SlideApp[] }> = {};
   let textes: string[] = [];
 
   for (const langue of langues) {
@@ -79,6 +120,9 @@ for (const p of posts) {
       textesLangue.push(texteSlide(t));
     }
     decks[langue] = { hashtags: p.legende, slides };
+    const deckApp = deckUnswipe(p.post_id, langue, slides);
+    if (typeof deckApp === "string") bilan.push(`${p.post_id} ${langue} : unswipe ignoré (${deckApp})`);
+    else if (deckApp) unswipe[langue] = { hashtags: p.legende, slides: deckApp.slides };
     if (langue === langueSource) textes = textesLangue;
   }
 
@@ -104,12 +148,14 @@ for (const p of posts) {
     musique_titre: p.musique.titre,
     textes,
     decks,
+    ...(Object.keys(unswipe).length ? { decks_applications: { unswipe } } : {}),
   };
 
   if (essai) {
     mkdirSync(essai, { recursive: true });
     writeFileSync(join(essai, `${p.post_id}.depot.json`), JSON.stringify(corps));
-    bilan.push(`${p.post_id} : écrit (${Object.keys(decks).join(",")})`);
+    const app = Object.keys(unswipe).length ? ` + unswipe ${Object.keys(unswipe).join(",")}` : "";
+    bilan.push(`${p.post_id} : écrit (${Object.keys(decks).join(",")}${app})`);
     continue;
   }
 

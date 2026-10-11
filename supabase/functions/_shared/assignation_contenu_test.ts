@@ -3358,3 +3358,106 @@ Deno.test("compteSertApplicationRappel : la répartition explicite, second nivea
   // Labels Sophia seuls, réglage 100 % Unswipe : rien.
   assert(!compteSertApplicationRappel([sophiaHeritee], liens, ID_SOPHIA, avec({ unswipe: 100 })));
 });
+
+/* -------------------------------------------------------------------------
+ * Contenus livrés par un pod (0275) : sur un créneau d'application, seul un
+ * contenu dont le pod a fourni le deck de CETTE application est tiré, et ses
+ * images finies (media_id) partent telles quelles dans le post.
+ * ---------------------------------------------------------------------- */
+
+const DECK_LIVRE_UNSWIPE = [
+  { position: 1, texte_overlay: "", position_sophia: false, media_id: "m-fr-1" },
+  { position: 2, texte_overlay: "", position_sophia: true, media_id: "m-unswipe-2" },
+];
+
+/** Deux contenus livrés, tous deux éligibles Unswipe ; seul idContenu(1) a son deck Unswipe fr. */
+function baseLivree(args: { compte?: Record<string, unknown> } = {}) {
+  const base = baseEssai({
+    n: 2,
+    compte: args.compte,
+    pertinences: [0, 1].map((i) => ({ contenu_id: idContenu(i), application_id: UNSWIPE, eligible: true })),
+  });
+  for (const c of base.contenus) Object.assign(c, { livre: true });
+  base.contenu_langue_decks.push({
+    id: "d-pod",
+    contenu_id: idContenu(1),
+    application_id: UNSWIPE,
+    langue: "fr",
+    variante: "unswipe",
+    statut: "pret",
+    slides: DECK_LIVRE_UNSWIPE,
+  });
+  // deno-lint-ignore no-explicit-any
+  const tables = base as any;
+  // Decks Sophia livrés en fr pour les deux (le créneau Sophia peut tirer l'un ou l'autre).
+  tables.contenu_langues = [0, 1].map((i) => ({
+    contenu_id: idContenu(i),
+    langue: "fr",
+    slides: [{ position: 1, media_id: `m-sophia-${i}` }],
+  }));
+  tables.media_library = [{ id: "m-fr-1" }, { id: "m-unswipe-2" }];
+  return base;
+}
+
+Deno.test("pods 0275 — créneau Unswipe : le livré sans deck Unswipe est écarté, celui qui en a un est tiré avec ses images", async () => {
+  const deckDuPod = (contenuId: string) =>
+    contenuId === idContenu(1)
+      ? { statut: "pret" as const, slides: DECK_LIVRE_UNSWIPE as unknown as typeof DECK, hashtags: "#pod" }
+      : { statut: "ineligible" as const, raison: "contenu livré : pas de deck unswipe en fr" };
+  // Tirage aléatoire : répété pour qu'un pool non filtré (idContenu(0) tiré en premier) se voie.
+  for (let essai = 0; essai < 8; essai += 1) await avecDecks(deckDuPod, async (appels) => {
+    const base = baseLivree({ compte: { parts_applications: { unswipe: 100 } } });
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(appels.sophia, []);
+    assertEquals(appels.application, [idContenu(1)], "le livré sans deck Unswipe n'est jamais tiré");
+    const [passage] = insertsPassages(journal);
+    assertEquals(passage.application_id, UNSWIPE);
+    assertEquals(passage.contenu_id, idContenu(1));
+    const slides = journal.filter((o) => o.table === "post_slides" && o.op === "insert")
+      .flatMap((o) => o.valeurs as Array<Record<string, unknown>>);
+    assertEquals(
+      slides.map((s) => [s.position, s.media_id, s.position_sophia]),
+      [[1, "m-fr-1", false], [2, "m-unswipe-2", true]],
+    );
+  });
+});
+
+Deno.test("pods 0275 — créneau Unswipe : aucun livré n'a de deck Unswipe → réserve vide, aucun deck demandé", async () => {
+  await avecDecks(jamaisPret, async (appels) => {
+    const base = baseLivree({ compte: { parts_applications: { unswipe: 100 } } });
+    base.contenu_langue_decks.length = 0;
+    const { client } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids, []);
+    assertEquals(appels.application, []);
+    assertEquals(appels.sophia, []);
+  });
+});
+
+Deno.test("pods 0275 — créneau Sophia : inchangé, les decks d'application ne sont jamais lus", async () => {
+  const pret = () => ({ statut: "pret" as const, slides: DECK, hashtags: "#unswipe" });
+  await avecDecks(pret, async (appels) => {
+    const base = baseLivree();
+    // Le deck Sophia fr de idContenu(1) est incomplet : seul idContenu(0) est servable en Sophia.
+    // deno-lint-ignore no-explicit-any
+    (base as any).contenu_langues[1].slides = [{ position: 1, media_id: null }];
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids.length, 1);
+    assertEquals(appels.application, []);
+    assertEquals(appels.sophia, [idContenu(0)]);
+    assertEquals(
+      journal.filter((o) => o.table === "contenu_langue_decks" && o.filtres.some(([c]) => c === "variante")),
+      [],
+      "aucune lecture des decks d'application",
+    );
+  });
+});

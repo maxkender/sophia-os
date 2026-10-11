@@ -7,6 +7,11 @@
  * traduit pas, n'y place pas l'app, et ne le sert que dans ses langues livrées.
  */
 
+import { PERTINENCE_MIN_HORS_SOPHIA } from "./pertinence_apps.ts";
+import { SLUG_SOPHIA } from "./multi_app.ts";
+import { passagesPourTier, type Tier } from "./tierlist.ts";
+import { sonderSchemaTiersApplication, TABLE_TIERS_APPLICATION } from "./tiers_application.ts";
+
 // deno-lint-ignore no-explicit-any
 type Supabase = any;
 
@@ -83,6 +88,89 @@ export async function deckLivre(
 }
 
 // ---------------------------------------------------------------------------
+// Decks livrés d'une APPLICATION autre que Sophia (migration 0275)
+// ---------------------------------------------------------------------------
+
+/** Ce qu'il faut d'une application pour lire ses decks livrés. */
+export interface ApplicationDeck {
+  id: string;
+  slug: string;
+}
+
+export type DeckLivreApplicationResultat =
+  | { statut: "pret"; slides: SlideLivree[]; hashtags: string | null; cuit: false }
+  | { statut: "ineligible"; raison: string };
+
+/**
+ * Deck livré par le pod pour `app` dans `langue` (une ligne `pret` de
+ * `contenu_langue_decks`, écrite à la validation). Jamais de cuisson ni
+ * d'écriture : un contenu livré n'est servi à une application que si le pod a
+ * fourni son deck. Sinon `ineligible` (le créneau prend un autre contenu ou
+ * replie sur Sophia). Une lecture en panne lève.
+ */
+export async function deckLivreApplication(
+  supabase: Supabase,
+  contenuId: string,
+  langue: string,
+  app: ApplicationDeck,
+): Promise<DeckLivreApplicationResultat> {
+  const { data: deck, error } = await supabase
+    .from("contenu_langue_decks")
+    .select("statut, slides")
+    .eq("contenu_id", contenuId)
+    .eq("langue", langue)
+    .eq("variante", app.slug)
+    .maybeSingle();
+  if (error) throw new Error(`Deck livré ${app.slug} ${langue} illisible : ${error.message ?? error}`);
+  const slides = ((deck?.slides ?? []) as Partial<SlideLivree>[]).map((s) => ({
+    position: Number(s.position),
+    media_id: s.media_id ?? null,
+    texte_overlay: s.texte_overlay ?? "",
+    position_sophia: Boolean(s.position_sophia),
+  }));
+  if (deck?.statut !== "pret" || !deckLivrePret(slides)) {
+    return { statut: "ineligible", raison: `contenu livré : pas de deck ${app.slug} en ${langue}` };
+  }
+  const { data: cl, error: e2 } = await supabase
+    .from("contenu_langues")
+    .select("hashtags")
+    .eq("contenu_id", contenuId)
+    .eq("langue", langue)
+    .maybeSingle();
+  if (e2) throw new Error(`Légende ${langue} illisible : ${e2.message ?? e2}`);
+  const hashtags = ((cl?.hashtags as string | null) ?? "").trim();
+  return { statut: "pret", slides, hashtags: hashtags || null, cuit: false };
+}
+
+/**
+ * Pendant de `contenusLivresHorsLangue` pour un créneau d'application : les
+ * contenus livrés SANS deck `app` prêt dans `langue` sortent du pool. Tolérant
+ * (ensemble vide en cas d'erreur) : `deckLivreApplication` reste le garde-fou.
+ */
+export async function contenusLivresHorsApplication(
+  supabase: Supabase,
+  langue: string,
+  app: ApplicationDeck,
+): Promise<Set<string>> {
+  const { data: livres, error } = await supabase.from("contenus").select("id").eq("livre", true);
+  if (error || !livres?.length) return new Set();
+  const ids = (livres as { id: string }[]).map((c) => c.id);
+  const { data: decks, error: e2 } = await supabase
+    .from("contenu_langue_decks")
+    .select("contenu_id, statut, slides")
+    .eq("variante", app.slug)
+    .eq("langue", langue)
+    .in("contenu_id", ids);
+  if (e2) return new Set();
+  const servables = new Set(
+    ((decks ?? []) as { contenu_id: string; statut: string; slides: Partial<SlideLivree>[] | null }[])
+      .filter((d) => d.statut === "pret" && deckLivrePret(d.slides))
+      .map((d) => d.contenu_id),
+  );
+  return new Set(ids.filter((id) => !servables.has(id)));
+}
+
+// ---------------------------------------------------------------------------
 // Dépôt d'une livraison (fonction `pods`)
 // ---------------------------------------------------------------------------
 
@@ -114,6 +202,8 @@ export function metadonneesJpeg(jpeg: Uint8Array): string[] | null {
 export interface SlideDeposee {
   position: number;
   position_sophia?: boolean;
+  /** Alias de `position_sophia` (la slide de l'app), surtout pour les decks d'application. */
+  position_app?: boolean;
   jpeg_base64: string;
 }
 
@@ -136,6 +226,222 @@ export function verifierDepot(decks: Record<string, DeckDepose> | null | undefin
     if (!(deck?.slides ?? []).some((s) => s.position_sophia)) erreurs.push(`${langue} : aucune slide de l'app`);
   }
   return erreurs;
+}
+
+/**
+ * Slide d'un deck d'APPLICATION déposé : une image (`jpeg_base64`), ou
+ * `reprendre: true` pour réutiliser l'image Sophia de même langue et position.
+ * `position_app` (alias `position_sophia`) marque LA slide de l'application.
+ */
+export interface SlideAppDeposee {
+  position: number;
+  jpeg_base64?: string;
+  reprendre?: boolean;
+  position_app?: boolean;
+  position_sophia?: boolean;
+}
+
+/** `{ "<slug app>": { "<langue>": { hashtags?, slides } } }` */
+export type DecksApplicationsDeposes = Record<string, Record<string, { hashtags?: string; slides: SlideAppDeposee[] }>>;
+
+/** Slide d'une variante d'application telle que stockée dans `pod_livraisons.decks_applications`. */
+export interface SlideAppLivree {
+  position: number;
+  media_id: string;
+  url?: string | null;
+  position_sophia: boolean;
+}
+
+export type DecksApplicationsLivres = Record<string, Record<string, { hashtags?: string; slides: SlideAppLivree[] }>>;
+
+/** La slide de l'application (`position_app`, ou son alias `position_sophia`). */
+export const estSlideApp = (s: Partial<SlideAppDeposee>): boolean => Boolean(s.position_app || s.position_sophia);
+
+/**
+ * Contrôles des decks d'application d'un dépôt, AVANT tout envoi au stockage.
+ *
+ * - `languesSophia` : langues qui ont un deck Sophia (ce dépôt, la livraison
+ *   existante, ou le contenu déjà en ligne) — un deck d'app n'existe qu'à côté ;
+ * - `positionsSophia` : positions de ces decks, que la variante doit reprendre
+ *   à l'identique ;
+ * - `slidesAppSophia` (facultatif) : positions de la slide Sophia par langue,
+ *   qu'aucune slide `reprendre` ne peut recopier (ce serait la pub Sophia).
+ */
+export function verifierDecksApplications(
+  decksApps: DecksApplicationsDeposes | null | undefined,
+  languesSophia: Set<string>,
+  positionsSophia: Map<string, number[]>,
+  slidesAppSophia: Map<string, number[]> = new Map(),
+): string[] {
+  if (decksApps === null || decksApps === undefined) return [];
+  if (typeof decksApps !== "object" || Array.isArray(decksApps)) return ["decks_applications invalide"];
+  const erreurs: string[] = [];
+  for (const [slug, parLangue] of Object.entries(decksApps)) {
+    if (!/^[a-z0-9_-]+$/.test(slug)) {
+      erreurs.push(`application invalide : ${slug}`);
+      continue;
+    }
+    if (slug === SLUG_SOPHIA) {
+      erreurs.push("sophia : son deck va dans decks, pas dans decks_applications");
+      continue;
+    }
+    const langues = Object.entries(parLangue ?? {});
+    if (!langues.length) erreurs.push(`${slug} : aucun deck`);
+    for (const [langue, deck] of langues) {
+      const ou = `${slug} ${langue}`;
+      if (!/^[a-z]{2}$/.test(langue)) {
+        erreurs.push(`${slug} : langue invalide : ${langue}`);
+        continue;
+      }
+      if (!languesSophia.has(langue)) erreurs.push(`${ou} : pas de deck Sophia dans cette langue`);
+      const slides = Array.isArray(deck?.slides) ? deck.slides : [];
+      if (!slides.length) {
+        erreurs.push(`${ou} : deck vide`);
+        continue;
+      }
+      const positions = slides.map((s) => Number(s.position));
+      if (positions.some((p) => !Number.isInteger(p))) erreurs.push(`${ou} : position invalide`);
+      if (new Set(positions).size !== positions.length) erreurs.push(`${ou} : positions en double`);
+      const apps = slides.filter(estSlideApp);
+      if (apps.length !== 1) erreurs.push(`${ou} : ${apps.length} slide(s) de l'app (une seule attendue)`);
+      else if (Number(apps[0].position) === Math.min(...positions)) {
+        erreurs.push(`${ou} : la slide de l'app ne peut pas être la couverture`);
+      }
+      const pubSophia = new Set(slidesAppSophia.get(langue) ?? []);
+      for (const s of slides) {
+        if (s.reprendre) {
+          if (estSlideApp(s)) erreurs.push(`${ou} #${s.position} : la slide de l'app doit être une image (pas reprendre)`);
+          else if (pubSophia.has(Number(s.position))) erreurs.push(`${ou} #${s.position} : reprendrait la slide Sophia`);
+        } else if (!s.jpeg_base64) erreurs.push(`${ou} #${s.position} : image manquante (jpeg_base64 ou reprendre)`);
+      }
+      const attendues = positionsSophia.get(langue);
+      if (attendues) {
+        const a = [...new Set(attendues)].sort((x, y) => x - y).join(",");
+        const b = [...new Set(positions)].sort((x, y) => x - y).join(",");
+        if (a !== b) erreurs.push(`${ou} : positions ${b} au lieu de celles du deck Sophia (${a})`);
+      }
+    }
+  }
+  return erreurs;
+}
+
+/** Note d'import stockée pour une application, par rang d'entrée (miroir de `tierInitialDepuisNote`). */
+export const NOTE_TIER_POD: Record<"A" | "B" | "C", number> = { A: 70, B: 60, C: 50 };
+
+/**
+ * Validation d'une livraison : ses decks d'application deviennent des decks
+ * `pret` de `contenu_langue_decks` (origine pod), le contenu entre dans la
+ * réserve de chaque application (`contenu_pertinences` éligible) et, si 0270
+ * est là, y prend son rang d'entrée (sans écraser un rang déjà vécu).
+ *
+ * Exige la ligne `contenu_langues` de chaque langue (insérée juste avant par
+ * la validation). Toute erreur LÈVE : l'appelant défait le contenu.
+ * Rend les slugs écrits (vide : rien à faire).
+ */
+export async function ecrireDecksApplications(
+  supabase: Supabase,
+  contenuId: string,
+  livraison: { id: string; decks_applications?: DecksApplicationsLivres | null },
+  opts: { tierForce: "A" | "B" | "C" | null; pertinenceScore: number | null; pod: string },
+): Promise<string[]> {
+  const decksApps = livraison.decks_applications ?? {};
+  const slugs = Object.keys(decksApps).filter((s) => Object.keys(decksApps[s] ?? {}).length > 0);
+  if (!slugs.length) return [];
+
+  const { data: apps, error: aErr } = await supabase.from("applications").select("id, slug").in("slug", slugs);
+  if (aErr) throw new Error(`applications : ${aErr.message ?? aErr}`);
+  const idParSlug = new Map(((apps ?? []) as { id: string; slug: string }[]).map((a) => [a.slug, a.id]));
+  const inconnue = slugs.find((s) => !idParSlug.has(s));
+  if (inconnue) throw new Error(`application inconnue : ${inconnue}`);
+
+  const maintenant = new Date().toISOString();
+  const medias: string[] = [];
+  for (const slug of slugs) {
+    for (const [langue, deck] of Object.entries(decksApps[slug])) {
+      const { data: cl, error } = await supabase
+        .from("contenu_langues")
+        .select("id")
+        .eq("contenu_id", contenuId)
+        .eq("langue", langue)
+        .maybeSingle();
+      if (error) throw new Error(`contenu_langues ${langue} : ${error.message ?? error}`);
+      if (!cl) throw new Error(`deck ${slug} ${langue} : pas de deck Sophia ${langue} sur le contenu`);
+      const slides = [...deck.slides]
+        .sort((a, b) => a.position - b.position)
+        .map((s) => ({
+          position: Number(s.position),
+          media_id: s.media_id,
+          texte_overlay: "",
+          position_sophia: Boolean(s.position_sophia),
+        }));
+      medias.push(...slides.map((s) => s.media_id));
+      const { error: dErr } = await supabase.from("contenu_langue_decks").upsert(
+        {
+          contenu_langue_id: cl.id,
+          contenu_id: contenuId,
+          langue,
+          application_id: idParSlug.get(slug),
+          variante: slug,
+          statut: "pret",
+          raison: null,
+          slides,
+          placement: {
+            origine: "pod",
+            pod: opts.pod,
+            livraison_id: livraison.id,
+            hashtags_pod: String(deck.hashtags ?? "").trim() || null,
+          },
+          updated_at: maintenant,
+        },
+        { onConflict: "contenu_langue_id,variante" },
+      );
+      if (dErr) throw new Error(`deck ${slug} ${langue} : ${dErr.message ?? dErr}`);
+    }
+  }
+  if (medias.length) {
+    const { error } = await supabase.from("media_library").update({ contenu_id: contenuId }).in("id", [...new Set(medias)]);
+    if (error) throw new Error(`médias : ${error.message ?? error}`);
+  }
+
+  const tierApp: Tier = opts.tierForce ?? (TIER_ORIGINAL as Tier);
+  const brut = Math.round(Number(opts.pertinenceScore ?? 0));
+  const score = Math.max(PERTINENCE_MIN_HORS_SOPHIA, Math.min(100, Math.max(0, Number.isFinite(brut) ? brut : 0)));
+  const note = NOTE_TIER_POD[tierApp as "A" | "B" | "C"] ?? NOTE_TIER_POD.B;
+  const tiersPrets = (await sonderSchemaTiersApplication(supabase)) === "pret";
+  for (const slug of slugs) {
+    const applicationId = idParSlug.get(slug);
+    const { error: pErr } = await supabase.from("contenu_pertinences").upsert(
+      {
+        contenu_id: contenuId,
+        application_id: applicationId,
+        score,
+        note,
+        eligible: true,
+        raison: `livraison pod ${opts.pod} (deck ${slug} fourni)`,
+        prompt_cle: "pod",
+        angles: null,
+        updated_at: maintenant,
+      },
+      { onConflict: "contenu_id,application_id" },
+    );
+    if (pErr) throw new Error(`pertinence ${slug} : ${pErr.message ?? pErr}`);
+    if (!tiersPrets) continue;
+    const passages = passagesPourTier(tierApp);
+    const { error: tErr } = await supabase.from(TABLE_TIERS_APPLICATION).upsert(
+      {
+        contenu_id: contenuId,
+        application_id: applicationId,
+        tier: tierApp,
+        passages_prevus: passages,
+        tier_cycle: 0,
+        tier_maj_at: maintenant,
+        tier_rapport: { origine: "pod", pod: opts.pod, tier: tierApp, force: Boolean(opts.tierForce), passages },
+      },
+      { onConflict: "contenu_id,application_id", ignoreDuplicates: true },
+    );
+    if (tErr) throw new Error(`rang ${slug} : ${tErr.message ?? tErr}`);
+  }
+  return slugs;
 }
 
 // ---------------------------------------------------------------------------

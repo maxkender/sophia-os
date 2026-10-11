@@ -1,15 +1,21 @@
-import { assertEquals } from "jsr:@std/assert@1";
+import { assertEquals, assertRejects } from "jsr:@std/assert@1";
 import {
   CHEMIN_POD,
+  contenusLivresHorsApplication,
   contenusLivresHorsLangue,
+  deckLivreApplication,
   deckLivrePret,
+  ecrireDecksApplications,
+  estSlideApp,
   metadonneesJpeg,
   prochainJour,
   sha256Hex,
+  verifierDecksApplications,
   verifierDepot,
   verifierOriginal,
   verifierVideo,
 } from "./pods.ts";
+import { oublierSondeTiersApplication } from "./tiers_application.ts";
 
 Deno.test("deckLivrePret : toutes les slides doivent avoir leur image", () => {
   assertEquals(deckLivrePret([]), false);
@@ -131,4 +137,231 @@ Deno.test("CHEMIN_POD : personas, réactions et sources seulement", () => {
   assertEquals(CHEMIN_POD.test(`sources/hook-01/${id}.jpg`), true);
   assertEquals(CHEMIN_POD.test(`sources/hook-01/autre.mp4`), false);
   assertEquals(CHEMIN_POD.test(`sources/../x/reaction.mp4`), false);
+});
+
+// ---------------------------------------------------------------------------
+// Decks d'application livrés (0275)
+// ---------------------------------------------------------------------------
+
+Deno.test("verifierDecksApplications : slug, langue Sophia, positions, une slide de l'app hors couverture", () => {
+  const img = (position: number, app = false) => ({ position, position_app: app, jpeg_base64: "x" });
+  const rep = (position: number) => ({ position, reprendre: true });
+  const langues = new Set(["fr", "en"]);
+  const positions = new Map([["fr", [1, 2, 3]], ["en", [1, 2, 3]]]);
+  const pubs = new Map([["fr", [3]]]);
+  const ok = { unswipe: { fr: { slides: [rep(1), img(2, true), rep(3)] } } };
+  const v = (d: unknown, p: Map<string, number[]> = positions) =>
+    verifierDecksApplications(d as Parameters<typeof verifierDecksApplications>[0], langues, p);
+  assertEquals(v(ok), []);
+  assertEquals(v(undefined), []);
+  // position_sophia vaut alias de position_app.
+  assertEquals(v({ unswipe: { fr: { slides: [rep(1), { position: 2, position_sophia: true, jpeg_base64: "x" }, rep(3)] } } }), []);
+  assertEquals(v({ "Un Swipe": { fr: ok.unswipe.fr } }), ["application invalide : Un Swipe"]);
+  assertEquals(v({ sophia: { fr: ok.unswipe.fr } }).length, 1);
+  assertEquals(v({ unswipe: {} }), ["unswipe : aucun deck"]);
+  assertEquals(v({ unswipe: { de: ok.unswipe.fr } }), ["unswipe de : pas de deck Sophia dans cette langue"]);
+  assertEquals(v({ unswipe: { fra: ok.unswipe.fr } }), ["unswipe : langue invalide : fra"]);
+  assertEquals(v({ unswipe: { fr: { slides: [] } } }), ["unswipe fr : deck vide"]);
+  assertEquals(v({ unswipe: { fr: { slides: [rep(1), img(1, true), rep(3)] } } }).includes("unswipe fr : positions en double"), true);
+  assertEquals(v({ unswipe: { fr: { slides: [rep(1), img(2), rep(3)] } } }), [
+    "unswipe fr : 0 slide(s) de l'app (une seule attendue)",
+  ]);
+  assertEquals(v({ unswipe: { fr: { slides: [rep(1), img(2, true), img(3, true)] } } }), [
+    "unswipe fr : 2 slide(s) de l'app (une seule attendue)",
+  ]);
+  assertEquals(v({ unswipe: { fr: { slides: [img(1, true), rep(2), rep(3)] } } }), [
+    "unswipe fr : la slide de l'app ne peut pas être la couverture",
+  ]);
+  assertEquals(v({ unswipe: { fr: { slides: [rep(1), img(2, true)] } } }), [
+    "unswipe fr : positions 1,2 au lieu de celles du deck Sophia (1,2,3)",
+  ]);
+  assertEquals(v({ unswipe: { fr: { slides: [rep(1), { position: 2, position_app: true, reprendre: true }, rep(3)] } } }), [
+    "unswipe fr #2 : la slide de l'app doit être une image (pas reprendre)",
+  ]);
+  assertEquals(v({ unswipe: { fr: { slides: [{ position: 1 }, img(2, true), rep(3)] } } }), [
+    "unswipe fr #1 : image manquante (jpeg_base64 ou reprendre)",
+  ]);
+  // Reprendre la slide Sophia : ce serait la pub Sophia dans le deck Unswipe.
+  assertEquals(verifierDecksApplications(ok, langues, positions, pubs), ["unswipe fr #3 : reprendrait la slide Sophia"]);
+  // Langue sans positions connues : pas de comparaison.
+  assertEquals(v(ok, new Map()), []);
+  assertEquals(estSlideApp({ position_app: true }), true);
+  assertEquals(estSlideApp({ position_sophia: true }), true);
+  assertEquals(estSlideApp({}), false);
+});
+
+type L = Record<string, unknown>;
+interface Ecrit {
+  table: string;
+  op: "update" | "upsert";
+  valeurs: unknown;
+  options?: { onConflict?: string; ignoreDuplicates?: boolean };
+}
+
+/** Faux PostgREST à état, qui journalise les écritures. */
+function fauxEtat(tables: Record<string, L[]>, ecrits: Ecrit[]) {
+  return {
+    from(table: string) {
+      const filtres: Array<(l: L) => boolean> = [];
+      let op: "select" | "update" | "upsert" = "select";
+      let valeurs: unknown = null;
+      let options: Ecrit["options"];
+      let mode: "liste" | "un" = "liste";
+      const lignes = () => (tables[table] ??= []);
+      const executer = () => {
+        if (op === "select") {
+          const r = lignes().filter((l) => filtres.every((f) => f(l)));
+          return mode === "un" ? { data: r[0] ?? null, error: null } : { data: r, error: null };
+        }
+        ecrits.push({ table, op, valeurs, options });
+        if (op === "update") {
+          for (const l of lignes().filter((l) => filtres.every((f) => f(l)))) Object.assign(l, valeurs);
+        } else {
+          const cles = (options?.onConflict ?? "id").split(",");
+          const v = valeurs as L;
+          const ex = lignes().find((l) => cles.every((c) => l[c] === v[c]));
+          if (ex && !options?.ignoreDuplicates) Object.assign(ex, v);
+          if (!ex) lignes().push({ ...v });
+        }
+        return { data: null, error: null };
+      };
+      const q = {
+        select: () => q,
+        limit: () => q,
+        eq: (c: string, v: unknown) => (filtres.push((l) => l[c] === v), q),
+        in: (c: string, vs: unknown[]) => (filtres.push((l) => vs.includes(l[c])), q),
+        update: (v: unknown) => ((op = "update"), (valeurs = v), q),
+        upsert: (v: unknown, o?: Ecrit["options"]) => ((op = "upsert"), (valeurs = v), (options = o), q),
+        maybeSingle: () => ((mode = "un"), q),
+        single: () => ((mode = "un"), q),
+        then: (ok: (r: unknown) => unknown, ko?: (e: unknown) => unknown) => Promise.resolve(executer()).then(ok, ko),
+      };
+      return q;
+    },
+  };
+}
+
+const UNSWIPE_APP = { id: "app-unswipe", slug: "unswipe" };
+const deckApp = (statut: string, slides: L[]) => ({ contenu_id: "c1", langue: "fr", variante: "unswipe", statut, slides });
+
+Deno.test("deckLivreApplication : deck pret fourni par le pod, tel quel, sans écriture", async () => {
+  const ecrits: Ecrit[] = [];
+  const slides = [
+    { position: 1, media_id: "m1", texte_overlay: "", position_sophia: false },
+    { position: 2, media_id: "m2u", texte_overlay: "", position_sophia: true },
+  ];
+  const sb = fauxEtat({
+    contenu_langue_decks: [deckApp("pret", slides)],
+    contenu_langues: [{ contenu_id: "c1", langue: "fr", hashtags: " #a #b " }],
+  }, ecrits);
+  assertEquals(await deckLivreApplication(sb, "c1", "fr", UNSWIPE_APP), { statut: "pret", slides, hashtags: "#a #b", cuit: false });
+  assertEquals(await deckLivreApplication(sb, "c1", "en", UNSWIPE_APP), {
+    statut: "ineligible",
+    raison: "contenu livré : pas de deck unswipe en en",
+  });
+  assertEquals(ecrits, []);
+});
+
+Deno.test("deckLivreApplication : deck incomplet ou non prêt → inéligible", async () => {
+  for (const ligne of [deckApp("pret", [{ position: 1, media_id: null }]), deckApp("echec", [{ position: 1, media_id: "m" }])]) {
+    const sb = fauxEtat({ contenu_langue_decks: [ligne], contenu_langues: [] }, []);
+    assertEquals((await deckLivreApplication(sb, "c1", "fr", UNSWIPE_APP)).statut, "ineligible");
+  }
+});
+
+Deno.test("contenusLivresHorsApplication : retire les livrés sans deck de CETTE application prêt dans la langue", async () => {
+  const sb = faux({
+    contenus: [
+      { id: "a", livre: true },
+      { id: "b", livre: true },
+      { id: "c", livre: true },
+      { id: "d", livre: false },
+    ],
+    contenu_langue_decks: [
+      { contenu_id: "a", langue: "fr", variante: "unswipe", statut: "pret", slides: [{ position: 1, media_id: "m" }] },
+      { contenu_id: "b", langue: "fr", variante: "unswipe", statut: "pret", slides: [{ position: 1, media_id: null }] },
+      { contenu_id: "c", langue: "fr", variante: "autre", statut: "pret", slides: [{ position: 1, media_id: "m" }] },
+      { contenu_id: "c", langue: "en", variante: "unswipe", statut: "pret", slides: [{ position: 1, media_id: "m" }] },
+    ],
+  });
+  assertEquals([...(await contenusLivresHorsApplication(sb, "fr", UNSWIPE_APP))].sort(), ["b", "c"]);
+  assertEquals([...(await contenusLivresHorsApplication(sb, "en", UNSWIPE_APP))].sort(), ["a", "b"]);
+});
+
+function mondeValidation() {
+  return {
+    applications: [{ id: "app-unswipe", slug: "unswipe" }] as L[],
+    contenu_langues: [{ id: "cl-fr", contenu_id: "c1", langue: "fr" }] as L[],
+    contenu_langue_decks: [] as L[],
+    contenu_pertinences: [] as L[],
+    contenu_tiers_application: [] as L[],
+    contenu_application_tier_etat: [] as L[],
+    media_library: [{ id: "m1" }, { id: "m2u" }] as L[],
+  };
+}
+const LIVRAISON = {
+  id: "liv-1",
+  decks_applications: {
+    unswipe: {
+      fr: {
+        hashtags: "#pod",
+        slides: [
+          { position: 2, media_id: "m2u", url: "u2", position_sophia: true },
+          { position: 1, media_id: "m1", url: "u1", position_sophia: false },
+        ],
+      },
+    },
+  },
+};
+
+Deno.test("ecrireDecksApplications : deck pret origine pod, réserve éligible (note 60), rang B sans écraser", async () => {
+  oublierSondeTiersApplication();
+  const ecrits: Ecrit[] = [];
+  const tables = mondeValidation();
+  // Rang déjà vécu pour Unswipe : jamais écrasé (ignoreDuplicates).
+  tables.contenu_tiers_application.push({ contenu_id: "c1", application_id: "app-unswipe", tier: "S" });
+  const sb = fauxEtat(tables, ecrits);
+  const slugs = await ecrireDecksApplications(sb, "c1", LIVRAISON, { tierForce: null, pertinenceScore: 32.4, pod: "page_blanche" });
+  assertEquals(slugs, ["unswipe"]);
+  const [deck] = tables.contenu_langue_decks;
+  assertEquals(deck.contenu_langue_id, "cl-fr");
+  assertEquals(deck.application_id, "app-unswipe");
+  assertEquals(deck.variante, "unswipe");
+  assertEquals(deck.statut, "pret");
+  assertEquals(deck.raison, null);
+  assertEquals(deck.slides, [
+    { position: 1, media_id: "m1", texte_overlay: "", position_sophia: false },
+    { position: 2, media_id: "m2u", texte_overlay: "", position_sophia: true },
+  ]);
+  assertEquals(deck.placement, { origine: "pod", pod: "page_blanche", livraison_id: "liv-1", hashtags_pod: "#pod" });
+  const [p] = tables.contenu_pertinences;
+  assertEquals([p.eligible, p.note, p.score, p.prompt_cle], [true, 60, 50, "pod"]);
+  const tiers = ecrits.find((e) => e.table === "contenu_tiers_application")!;
+  assertEquals(tiers.options, { onConflict: "contenu_id,application_id", ignoreDuplicates: true });
+  assertEquals((tiers.valeurs as L).tier, "B");
+  assertEquals((tiers.valeurs as L).passages_prevus, 2);
+  assertEquals(tables.contenu_tiers_application[0].tier, "S");
+  assertEquals(tables.media_library.every((m) => m.contenu_id === "c1"), true);
+  // Jamais le deck Sophia.
+  assertEquals(ecrits.some((e) => e.table === "contenu_langues"), false);
+  oublierSondeTiersApplication();
+});
+
+Deno.test("ecrireDecksApplications : rang imposé A → note 70, tier A ; pertinence haute gardée", async () => {
+  oublierSondeTiersApplication();
+  const tables = mondeValidation();
+  await ecrireDecksApplications(fauxEtat(tables, []), "c1", LIVRAISON, { tierForce: "A", pertinenceScore: 88, pod: "page_blanche" });
+  assertEquals([tables.contenu_pertinences[0].note, tables.contenu_pertinences[0].score], [70, 88]);
+  assertEquals([tables.contenu_tiers_application[0].tier, tables.contenu_tiers_application[0].passages_prevus], ["A", 4]);
+  oublierSondeTiersApplication();
+});
+
+Deno.test("ecrireDecksApplications : rien à écrire sans decks ; lève si la langue manque au contenu", async () => {
+  const ecrits: Ecrit[] = [];
+  const opts = { tierForce: null, pertinenceScore: 0, pod: "p" };
+  assertEquals(await ecrireDecksApplications(fauxEtat(mondeValidation(), ecrits), "c1", { id: "x" }, opts), []);
+  assertEquals(ecrits, []);
+  const tables = mondeValidation();
+  tables.contenu_langues = [];
+  await assertRejects(() => ecrireDecksApplications(fauxEtat(tables, []), "c1", LIVRAISON, opts));
 });

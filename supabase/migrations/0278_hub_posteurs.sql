@@ -12,11 +12,21 @@
 --     Slack aura besoin pour le reconnaître quand il rejoint le workspace ;
 --   - `hub_posts_semaine` : prévus / publiés / manqués d'une semaine par
 --     poster, que le site lit chaque matin pour sa paie hebdomadaire ;
---   - `hub_stats_langues` : posters actifs par langue de publication.
+--   - `hub_stats_langues` : posters actifs par langue de publication ;
+--   - le LUNDI FIXE : le site donne à chaque poster un lundi de démarrage
+--     (`debut_le`), et c'est à partir de ce lundi qu'il est payé. Le poster
+--     lance toujours son warm-up lui-même, quand il veut ; mais s'il le lance
+--     tôt, la fin du warm-up est repoussée au lundi 00:00 (Paris), pour que ses
+--     premiers posts tombent le lundi et pas avant (trigger sur `comptes`,
+--     limité aux posters venus du site). Le « skip warmup » de l'admin (fin =
+--     maintenant) n'est pas touché.
 --
--- Additive : une table neuve et deux fonctions, rien d'existant ne change.
--- Les deux fonctions ne sont exécutables que par le service (la fonction Edge).
--- Retour arrière : `drop function public.hub_posts_semaine(uuid[], date);
+-- Additive : une table neuve, deux fonctions et un trigger qui ne concerne que
+-- les posters de `hub_posteurs` ; rien d'existant ne change.
+-- Les deux fonctions de lecture ne sont exécutables que par le service.
+-- Retour arrière : `drop trigger comptes_warmup_jusqu_au_lundi_hub on
+-- public.comptes; drop function public.hub_warmup_jusqu_au_lundi();
+-- drop function public.hub_posts_semaine(uuid[], date);
 -- drop function public.hub_stats_langues(); drop table public.hub_posteurs;`
 
 create table if not exists public.hub_posteurs (
@@ -32,6 +42,8 @@ create table if not exists public.hub_posteurs (
   pays_code text,
   langue text,
   applications text[] not null default '{}',
+  -- Lundi de démarrage décidé par le site (premiers posts, début de la paie).
+  debut_le date,
   reserve_at timestamptz not null default now(),
   cree_at timestamptz,
   created_at timestamptz not null default now(),
@@ -143,6 +155,41 @@ as $$
   group by c.langue
   order by 2 desc, 1;
 $$;
+
+-- Lundi fixe : un warm-up lancé tôt se termine au lundi de démarrage, pas avant.
+-- Ne s'applique qu'à une fin de warm-up posée DANS LE FUTUR (le lancement par
+-- le poster : maintenant + N heures) ; le skip admin (fin = maintenant) passe.
+create or replace function public.hub_warmup_jusqu_au_lundi()
+returns trigger
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_debut date;
+begin
+  if new.warmup_ends_at is null
+     or new.warmup_ends_at <= now()
+     or new.warmup_ends_at is not distinct from old.warmup_ends_at
+     or new.type_compte is distinct from 'perso' then
+    return new;
+  end if;
+  select h.debut_le into v_debut
+  from public.hub_posteurs h
+  where h.profile_id = new.poster_id
+    and h.statut = 'cree'
+  limit 1;
+  if v_debut is not null then
+    new.warmup_ends_at := greatest(new.warmup_ends_at, v_debut::timestamp at time zone 'Europe/Paris');
+  end if;
+  return new;
+end;
+$$;
+
+drop trigger if exists comptes_warmup_jusqu_au_lundi_hub on public.comptes;
+create trigger comptes_warmup_jusqu_au_lundi_hub
+  before update of warmup_ends_at on public.comptes
+  for each row execute function public.hub_warmup_jusqu_au_lundi();
 
 revoke all on function public.hub_posts_semaine(uuid[], date) from public, anon, authenticated;
 revoke all on function public.hub_stats_langues() from public, anon, authenticated;

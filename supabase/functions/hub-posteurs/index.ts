@@ -18,7 +18,9 @@
  *       login @sophia.com, premier compte perso, labels, persona), dans la
  *       langue de son pays, puis le rattache à son HM et l'oblige à changer
  *       son mot de passe à la première connexion. Le warm-up n'est pas lancé :
- *       c'est le poster qui le démarre dans l'OS, comme aujourd'hui.
+ *       c'est le poster qui le démarre dans l'OS, comme aujourd'hui ; lancé
+ *       avant son lundi de démarrage (`start_monday`), il dure jusqu'à ce
+ *       lundi (trigger de 0278) — premiers posts et paie partent du lundi.
  *       Idempotent sur `hub_id` : un rejeu renvoie `existed: true` et, si le
  *       poster ne s'est jamais connecté, un nouveau mot de passe provisoire
  *       (sinon `password: null`, `deja_connecte: true`).
@@ -189,6 +191,8 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     langue,
     applications,
     manager_id: hm.id,
+    // Lundi fixe : le trigger de 0278 repousse la fin du warm-up à ce lundi.
+    debut_le: dateIso(body.start_monday),
     reserve_at: new Date().toISOString(),
   };
   if (lien) {

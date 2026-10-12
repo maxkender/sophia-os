@@ -21,7 +21,12 @@ identifiants par email. Ce document décrit le contrat entre les deux.
   la langue (`profiles.langues`). Plusieurs : le moins chargé ;
 - mot de passe provisoire aléatoire, **changement obligatoire à la première
   connexion** (`must_change_password`) ;
-- le warm-up n'est **pas** lancé : le poster le démarre lui-même dans l'OS.
+- le warm-up n'est **pas** lancé : le poster le démarre lui-même dans l'OS ;
+- **lundi fixe** : le site envoie le lundi de démarrage (`start_monday`,
+  gardé dans `hub_posteurs.debut_le`). Un warm-up lancé plus tôt se termine
+  ce lundi à 00:00 (Paris), pas avant — trigger `comptes_warmup_jusqu_au_lundi_hub`
+  de 0278. Premiers posts et paie partent donc du même lundi. Le « skip
+  warmup » de l'admin reste immédiat.
 
 Refus (le site les affiche sur la fiche, sans réessayer) :
 
@@ -47,7 +52,7 @@ d'identifiants).
 |---|---|---|
 | `ping` | — | `{ ok, version }` |
 | `zones` | — | `{ ok, ouverts: [{ pays_code, langue, hm_id }], fermes: [{ pays_code, raison, langue }], inconnus }` |
-| `creer_posteur` | `hub_id, prenom, nom, email_perso, pays_code, pays_nom, applications` (le reste est ignoré) | `{ ok, existed, profile_id, compte_id, email_os, password, langue, manager: { id, prenom, nom, email } }` |
+| `creer_posteur` | `hub_id, prenom, nom, email_perso, pays_code, pays_nom, applications, start_monday` (le reste est ignoré) | `{ ok, existed, profile_id, compte_id, email_os, password, langue, manager: { id, prenom, nom, email } }` |
 | `posts_semaine` | `profile_ids` (≤ 500), `lundi` | `{ ok, rows: [{ profile_id, prevus, publies, manques, dernier_post_at, is_active }] }` |
 | `stats_pays` | — | `{ ok, by_langue: [{ langue, actifs }] }` |
 

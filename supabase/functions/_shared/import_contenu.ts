@@ -80,6 +80,34 @@ import { chargerPrompt, messageErreur, serviceClient } from "./supabase.ts";
 export type Supabase = ReturnType<typeof serviceClient>;
 
 const BUCKET = "medias";
+
+/**
+ * Un diaporama publiable fait au moins TROIS slides.
+ *
+ * En dessous il ne reste qu'une accroche et le placement de l'application :
+ * le deck n'a plus de corps, et le placement se retrouve seul. C'est là qu'il
+ * dérape — le 12/10/2026 un créateur allemand a reçu deux photos dont la
+ * seconde s'ouvrait sur « 6. », en continuant une liste que le deck ne
+ * contenait pas. 217 contenus étaient dans ce cas, 186 n'avaient jamais servi.
+ *
+ * Le plancher est posé à l'ENDROIT LE PLUS TÔT possible (la création, avant
+ * OCR, pertinence, ELO, nettoyage et traduction), pour qu'un deck trop court
+ * ne coûte pas un seul appel de modèle. La validation finale le revérifie :
+ * c'est elle qui ouvre le contenu au tirage, et aucun chemin ne doit pouvoir
+ * y arriver en passant à côté.
+ */
+export const SLIDES_MIN = 3;
+
+/** `true` quand le deck n'atteint pas le plancher. */
+export function deckTropCourt(slides: readonly unknown[] | null | undefined): boolean {
+  return (slides?.length ?? 0) < SLIDES_MIN;
+}
+
+/** Le motif écrit dans `import_erreur`, en clair pour l'admin. */
+export function motifDeckTropCourt(n: number): string {
+  return `${n} slide${n > 1 ? "s" : ""} seulement, minimum ${SLIDES_MIN} — TikTok non importé`;
+}
+
 export const LANGUES_CIBLES = [
   "fr",
   "en",
@@ -526,6 +554,9 @@ async function reouvrirContenuPourReimport(
   langueSource: string,
 ): Promise<void> {
   const slides = await slidesBrutesDepuisPost(supabase, post);
+  // Même plancher au RÉIMPORT : un contenu qui revient plus court qu'avant
+  // (la source a retiré des photos) ne doit pas se rouvrir au tirage.
+  const tropCourt = deckTropCourt(slides);
   const { error } = await supabase
     .from("contenus")
     .update({
@@ -539,10 +570,10 @@ async function reouvrirContenuPourReimport(
       vues_source: post.stats?.vues ?? null,
       pertinence_score: null,
       pertinence_raison: null,
-      statut: "brouillon",
-      import_statut: "pending",
-      import_etape: null,
-      import_erreur: null,
+      statut: tropCourt ? "rejete" : "brouillon",
+      import_statut: tropCourt ? "done" : "pending",
+      import_etape: tropCourt ? "trop_court" : null,
+      import_erreur: tropCourt ? motifDeckTropCourt(slides.length) : null,
       import_tentatives: 0,
     })
     .eq("id", contenuId);
@@ -589,6 +620,12 @@ export async function creerContenuDepuisPost(
 
   const slides = await slidesBrutesDepuisPost(supabase, post);
 
+  // Plancher (SLIDES_MIN) : on garde une LIGNE, rejetée, plutôt que de ne rien
+  // créer. L'admin voit alors pourquoi ce TikTok n'est pas entré, et
+  // `trouverContenuParUrl` le reconnaît au prochain scrape au lieu de le
+  // retenter indéfiniment.
+  const tropCourt = deckTropCourt(slides);
+
   const { data: contenu, error } = await supabase
     .from("contenus")
     .insert({
@@ -600,9 +637,10 @@ export async function creerContenuDepuisPost(
       musique_url: post.musicUrl,
       musique_titre: post.musicTitle,
       vues_source: post.stats?.vues ?? null,
-      statut: "brouillon",
-      import_statut: "pending",
-      import_etape: null,
+      statut: tropCourt ? "rejete" : "brouillon",
+      import_statut: tropCourt ? "done" : "pending",
+      import_etape: tropCourt ? "trop_court" : null,
+      import_erreur: tropCourt ? motifDeckTropCourt(slides.length) : null,
       profondeur: 0,
     })
     .select("id")
@@ -1651,6 +1689,21 @@ async function executerPasImport(
       raw_url: s.raw_url,
       reference_url: s.reference_url ?? s.raw_url,
     }));
+
+    // Dernier filet du plancher : c'est CETTE écriture qui ouvre le contenu au
+    // tirage (le pool ne lit que `statut = valide`). Quel que soit le chemin
+    // parcouru, un deck sous SLIDES_MIN n'en sort pas validé.
+    if (deckTropCourt(slidesPropres)) {
+      await marquer(supabase, contenu.id, {
+        structure_slides: slidesPropres,
+        statut: "rejete",
+        import_statut: "done",
+        import_etape: "trop_court",
+        import_erreur: motifDeckTropCourt(slidesPropres.length),
+        import_tentatives: 0,
+      });
+      return { etape: "trop_court", progres: true };
+    }
 
     await marquer(supabase, contenu.id, {
       structure_slides: slidesPropres,

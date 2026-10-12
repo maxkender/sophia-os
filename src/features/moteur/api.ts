@@ -2443,6 +2443,8 @@ export interface PostCalendrierAdmin {
   nb_media: number;
   /** Aucune slide, ou aucune image — inutilisable pour le poster. */
   slideshow_vide: boolean;
+  /** Application promue par le post (0256) ; null = Sophia (post d'avant). */
+  application_id: string | null;
 }
 
 /** Médias uniques liés aux slides des posts prévus un jour (planning). */
@@ -2492,7 +2494,7 @@ export async function postsCalendrierAdmin(): Promise<PostCalendrierAdmin[]> {
   const { data, error } = await supabase
     .from("posts")
     .select(
-      "id, compte_id, date_publication_prevue, type, statut, pipeline_statut, publie_at, publie_url, " +
+      "id, compte_id, date_publication_prevue, type, statut, pipeline_statut, publie_at, publie_url, application_id, " +
         "sujets(titre), comptes(handle_tiktok, persona_nom, avatar_url, langue, classement, ugc_ai, ugc_ai_video, profiles(prenom, nom))",
     )
     .eq("est_test", false)
@@ -2548,6 +2550,7 @@ export async function postsCalendrierAdmin(): Promise<PostCalendrierAdmin[]> {
       nb_slides: counts.nb,
       nb_media: counts.media,
       slideshow_vide,
+      application_id: (p.application_id as string | null) ?? null,
     };
   });
 }

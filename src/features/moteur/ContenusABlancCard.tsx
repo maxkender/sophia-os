@@ -194,9 +194,13 @@ export function ContenusABlancCard() {
         {labelId && (
           <div className="space-y-1.5 rounded-md border p-3" data-testid="angle-a-blanc">
             <p className="text-xs text-muted-foreground">
-              {angleEnregistre
-                ? t("contenusABlanc.angleEnregistre", { angle: angleEnregistre })
-                : t("contenusABlanc.angleAucun")}
+              {liens.isPending
+                ? t("common.loading")
+                : liens.isError
+                  ? t("contenusABlanc.angleIllisible")
+                  : angleEnregistre
+                    ? t("contenusABlanc.angleEnregistre", { angle: angleEnregistre })
+                    : t("contenusABlanc.angleAucun")}
             </p>
             <label className="flex items-center gap-2 text-sm">
               <input
@@ -211,7 +215,7 @@ export function ContenusABlancCard() {
                 rows={3}
                 maxLength={ANGLE_LONGUEUR_MAX}
                 className="text-xs"
-                aria-label={t("contenusABlanc.angleEssayer")}
+                aria-label={t("contenusABlanc.angleBrouillonLabel")}
                 placeholder={t("contenusABlanc.angleBrouillonPh")}
                 value={angleBrouillon}
                 onChange={(e) => setAngleBrouillon(e.target.value)}
@@ -526,9 +530,13 @@ function BlocDeck({
       {deck.positionImposee !== null && (
         <p className="text-xs text-info">{t("contenusABlanc.concurrent", { position: deck.positionImposee })}</p>
       )}
-      <p className="text-xs text-muted-foreground" data-testid="angle-utilise">
-        {deck.angle ? t("contenusABlanc.angleUtilise", { angle: deck.angle }) : t("contenusABlanc.sansAngle")}
-      </p>
+      {/* Seulement si le placement a été tenté : un refus en amont (base
+          polluée, concurrent, budget…) ne dit rien de l'angle. */}
+      {(deck.angle || deck.statut === "pret" || deck.variantes.length > 0) && (
+        <p className="text-xs text-muted-foreground" data-testid="angle-utilise">
+          {deck.angle ? t("contenusABlanc.angleUtilise", { angle: deck.angle }) : t("contenusABlanc.sansAngle")}
+        </p>
+      )}
       <div className="grid gap-3 md:grid-cols-2">
         <ListeSlides titre={t("contenusABlanc.avant")} slides={deck.base} remplacee={deck.slidePub} />
         {deck.statut === "pret" && (

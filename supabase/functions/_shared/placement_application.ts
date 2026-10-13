@@ -18,11 +18,12 @@
  *    prompt ne bouge pas d'un octet ;
  *  - les variantes sont filtrées de façon déterministe : nom de l'application
  *    présent, « Sophia » absent, aucun concurrent cité, pas de « l'appli »
- *    française hors français. Aucune variante valable → on relance ; après 4
+ *    française hors français, pas de formule recopiée de l'angle hors
+ *    français. Aucune variante valable → on relance ; après 4
  *    essais → `null`, et l'appelant échoue franchement (jamais de texte de
  *    repli : celui de `placementParDefaut` est une pub Sophia).
  */
-import { blocConsignePlacement } from "./angle_placement.ts";
+import { blocConsignePlacement, variantesSansCopieAngle } from "./angle_placement.ts";
 import { citeConcurrent, MOTIF_CONCURRENT, motifConcurrentApplication } from "./concurrents.ts";
 import { variantesSansFrancaisResiduel } from "./deck_langue.ts";
 import {
@@ -187,9 +188,10 @@ export function variantesValidesApplication(
   langue: string,
   nom: string,
   motif: RegExp = MOTIF_CONCURRENT,
+  angle?: string,
 ): string[] {
   const nomMinuscule = nom.trim().toLowerCase();
-  return variantesSansFrancaisResiduel(variantes, langue).filter(
+  return variantesSansCopieAngle(variantesSansFrancaisResiduel(variantes, langue), angle, langue).filter(
     (v) =>
       !!nomMinuscule &&
       v.toLowerCase().includes(nomMinuscule) &&
@@ -236,7 +238,7 @@ export async function integrerApplication(
       const preferee = Number.isInteger(best) && best >= 0 && best < brutes.length
         ? brutes[best]
         : null;
-      const variants = variantesValidesApplication(brutes, input.langue, input.application.nom, motif);
+      const variants = variantesValidesApplication(brutes, input.langue, input.application.nom, motif, input.angle);
 
       // Position hors zone : ramenée sur la dernière autorisée (comme Sophia) ;
       // avec une slide imposée, c'est toujours elle.

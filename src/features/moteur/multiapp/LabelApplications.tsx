@@ -73,7 +73,9 @@ export function LabelApplications({
         const app = applications.find((a) => a.id === id);
         return app ? nomApplication(app) : id;
       };
-      const detail = perdus.map((p) => `${nomApp(p.applicationId)} : « ${p.angle} »`).join("\n");
+      const detail = perdus
+        .map((p) => t("multiApp.labels.ligneAnglePerdu", { app: nomApp(p.applicationId), angle: p.angle }))
+        .join("\n");
       if (!window.confirm(t("multiApp.labels.confirmerPerteAngle", { detail }))) return;
     }
     definir.mutate(r.applications);

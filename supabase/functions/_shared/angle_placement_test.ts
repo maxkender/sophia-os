@@ -9,11 +9,13 @@ import { assert, assertEquals, assertStringIncludes } from "jsr:@std/assert@1";
 import {
   anglesPourApplication,
   blocConsignePlacement,
+  copieAngle,
   normaliserAngle,
   texteAngle,
+  variantesSansCopieAngle,
 } from "./angle_placement.ts";
 import { integrateSophia } from "./gemini.ts";
-import { construirePromptPlacementApplication } from "./placement_application.ts";
+import { construirePromptPlacementApplication, variantesValidesApplication } from "./placement_application.ts";
 
 const UNSWIPE = "00000000-0000-4000-8000-000000000003";
 const SOPHIA = "00000000-0000-4000-8000-000000000001";
@@ -132,4 +134,63 @@ Deno.test("placement Sophia : angle vide = prompt identique, angle = bloc entre 
     avec,
     sans.replace("Prompt maître Sophia.\n\n--- DONNÉES ---", `Prompt maître Sophia.${bloc}\n\n--- DONNÉES ---`),
   );
+});
+
+const ANGLE_FR = "insister sur le temps récupéré pour ce qui compte vraiment";
+
+Deno.test("copieAngle : 6 mots d'affilée de l'angle (casse, accents, ponctuation ignorés), pas moins", () => {
+  assert(copieAngle("3. Unswipe hilft: INSISTER sur le temps recupere pour ce qui compte", ANGLE_FR));
+  assert(!copieAngle("3. Unswipe hilft mir, Zeit für das zu haben, was wirklich zählt", ANGLE_FR));
+  assert(!copieAngle("insister sur le temps", ANGLE_FR), "5 mots seulement");
+  assert(!copieAngle("insister sur le temps récupéré", "insister sur le temps récupéré"), "angle de moins de 6 mots");
+});
+
+Deno.test("variantesSansCopieAngle : hors français seulement, et jamais sans angle", () => {
+  const recopiee = "3. die Unswipe-App: insister sur le temps récupéré pour ce qui compte";
+  const propre = "3. die Unswipe-App gibt mir Zeit für das, was zählt";
+  assertEquals(variantesSansCopieAngle([recopiee, propre], ANGLE_FR, "de"), [propre]);
+  assertEquals(variantesSansCopieAngle([recopiee, propre], ANGLE_FR, "fr"), [recopiee, propre]);
+  assertEquals(variantesSansCopieAngle([recopiee, propre], "", "de"), [recopiee, propre]);
+  assertEquals(variantesSansCopieAngle([recopiee, propre], undefined, "de"), [recopiee, propre]);
+});
+
+Deno.test("variantesValidesApplication : la formule recopiée de l'angle est écartée hors français", () => {
+  const recopiee = "3. die Unswipe-App: insister sur le temps récupéré pour ce qui compte";
+  const propre = "3. die Unswipe-App gibt mir Zeit für das, was zählt";
+  assertEquals(variantesValidesApplication([recopiee, propre], "de", "Unswipe", undefined, ANGLE_FR), [propre]);
+  assertEquals(variantesValidesApplication([recopiee, propre], "de", "Unswipe"), [recopiee, propre]);
+});
+
+Deno.test("placement Sophia : une variante qui recopie l'angle hors français est écartée", async () => {
+  const vraiFetch = globalThis.fetch;
+  const avaitCle = Deno.env.get("GEMINI_API_KEY");
+  Deno.env.set("GEMINI_API_KEY", avaitCle ?? "cle-de-test");
+  globalThis.fetch = (() => {
+    const texte = JSON.stringify({
+      chosen_position: 4,
+      mode: "instructif",
+      variants: [
+        "3. die Sophia-App: insister sur le temps récupéré pour ce qui compte",
+        "3. die Sophia-App schenkt mir Zeit für das, was zählt",
+      ],
+      best: 0,
+    });
+    return Promise.resolve(
+      new Response(JSON.stringify({ candidates: [{ content: { parts: [{ text: texte }] } }] }), { status: 200 }),
+    );
+  }) as typeof fetch;
+  try {
+    const r = await integrateSophia({
+      masterPrompt: "Prompt maître Sophia.",
+      corrections: [],
+      slides: ENTREE_APP.slides,
+      caption: "#etudes",
+      langue: "de",
+      angle: ANGLE_FR,
+    });
+    assertEquals(r?.variants, ["3. die Sophia-App schenkt mir Zeit für das, was zählt"]);
+  } finally {
+    globalThis.fetch = vraiFetch;
+    if (avaitCle === undefined) Deno.env.delete("GEMINI_API_KEY");
+  }
 });

@@ -25,6 +25,12 @@ import { estLabelSystemeSlug, type LabelRef } from "./multi_app.ts";
 /** Longueur maximale d'un angle dans l'éditeur (Réglages → Prompts). */
 export const ANGLE_LONGUEUR_MAX = 500;
 
+/**
+ * Une variante qui reprend autant de mots d'affilée de l'angle l'a recopié
+ * (voir `variantesSansCopieAngle`).
+ */
+export const MOTS_COPIE_ANGLE = 6;
+
 /** Ligne `label_applications` lue avec son angle. */
 export interface LienAngle {
   label_id: string;
@@ -97,4 +103,48 @@ Cette consigne oriente le FOND de la slide ${nomApplication} : ce qu'elle met en
 Elle ne remplace aucune règle de forme (langue, longueur, préfixe, casse, ton,
 façon de mentionner ${nomApplication}). Les 3 variantes la suivent, chacune à sa
 façon. N'en recopie aucune formule telle quelle : tes variantes sont en ${langue}.`;
+}
+
+/** Mots d'un texte, sans casse, sans accents ni ponctuation. */
+function mots(texte: string): string[] {
+  return texte
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .split(/[^\p{L}\p{N}]+/u)
+    .filter(Boolean);
+}
+
+/**
+ * La variante reprend-elle `n` mots d'affilée de l'angle (casse, accents et
+ * ponctuation ignorés) ? Un angle plus court que `n` mots ne déclenche jamais.
+ */
+export function copieAngle(variante: string, angle: string, n = MOTS_COPIE_ANGLE): boolean {
+  const motsAngle = mots(normaliserAngle(angle));
+  if (motsAngle.length < n) return false;
+  const suites = new Set<string>();
+  for (let i = 0; i + n <= motsAngle.length; i += 1) suites.add(motsAngle.slice(i, i + n).join(" "));
+  const motsVariante = mots(variante);
+  for (let i = 0; i + n <= motsVariante.length; i += 1) {
+    if (suites.has(motsVariante.slice(i, i + n).join(" "))) return true;
+  }
+  return false;
+}
+
+/**
+ * Garde-fou déterministe : l'angle est écrit en français comme une consigne,
+ * et le prompt interdit d'en recopier une formule. Hors français, une variante
+ * qui en reprend `MOTS_COPIE_ANGLE` mots d'affilée porterait du français (ou
+ * un slogan) dans une slide d'une autre langue : elle est écartée, et s'il n'en
+ * reste aucune l'appelant relance le modèle. Sans angle, ou en français :
+ * aucune variante n'est touchée.
+ */
+export function variantesSansCopieAngle(
+  variantes: readonly string[],
+  angle: string | null | undefined,
+  langue: string | null | undefined,
+): string[] {
+  const consigne = normaliserAngle(angle);
+  if (!consigne || (langue ?? "fr") === "fr") return [...variantes];
+  return variantes.filter((v) => !copieAngle(v, consigne));
 }

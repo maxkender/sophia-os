@@ -9,6 +9,7 @@ const SOPHIA = "00000000-0000-4000-8000-000000000001";
 const UNSWIPE = "00000000-0000-4000-8000-000000000003";
 
 let liens: Array<{ label_id: string; application_id: string; angle?: string | null }> = [];
+let liensEnPanne = false;
 const majAngleLabel = vi.fn();
 const definirApplicationsLabel = vi.fn();
 
@@ -22,7 +23,7 @@ vi.mock("@/features/moteur/api", () => ({
 }));
 
 vi.mock("@/features/moteur/apiMultiApp", () => ({
-  listerLiensLabels: () => Promise.resolve(liens),
+  listerLiensLabels: () => (liensEnPanne ? Promise.reject(new Error("réseau coupé")) : Promise.resolve(liens)),
   majAngleLabel: (...args: unknown[]) => majAngleLabel(...args),
   definirApplicationsLabel: (...args: unknown[]) => definirApplicationsLabel(...args),
 }));
@@ -43,6 +44,7 @@ describe("AnglesPlacementCard", () => {
       { label_id: "b", application_id: UNSWIPE, angle: null },
       { label_id: "h", application_id: UNSWIPE, angle: "jamais affiché" },
     ];
+    liensEnPanne = false;
     majAngleLabel.mockReset();
     majAngleLabel.mockResolvedValue(undefined);
   });
@@ -73,6 +75,31 @@ describe("AnglesPlacementCard", () => {
       expect(majAngleLabel).toHaveBeenCalledWith("b", UNSWIPE, "montrer la fierté d'avoir tenu"),
     );
     expect(majAngleLabel).toHaveBeenCalledTimes(1);
+  });
+
+  it("pendant l'enregistrement le champ est figé, et le bouton porte le nom du label", async () => {
+    let finir: () => void = () => undefined;
+    majAngleLabel.mockImplementation(() => new Promise<void>((r) => (finir = r)));
+    rendre(<AnglesPlacementCard applicationId={UNSWIPE} nom="Unswipe" sophia={false} />);
+    const champ = (await screen.findByLabelText("beau_smart_girl")) as HTMLTextAreaElement;
+    fireEvent.change(champ, { target: { value: "v1" } });
+    fireEvent.click(screen.getByRole("button", { name: /beau_smart_girl/ }));
+    await waitFor(() => expect(champ).toBeDisabled());
+    finir();
+    await waitFor(() => expect(champ).not.toBeDisabled());
+    expect(majAngleLabel).toHaveBeenCalledWith("b", UNSWIPE, "v1");
+  });
+
+  it("relecture ratée après un enregistrement : les champs et les brouillons restent, l'erreur s'affiche au-dessus", async () => {
+    rendre(<AnglesPlacementCard applicationId={UNSWIPE} nom="Unswipe" sophia={false} />);
+    const brouillon = (await screen.findByLabelText("weird_alpha")) as HTMLTextAreaElement;
+    fireEvent.change(brouillon, { target: { value: "brouillon non enregistré" } });
+    const autre = screen.getByLabelText("beau_smart_girl") as HTMLTextAreaElement;
+    fireEvent.change(autre, { target: { value: "enregistré" } });
+    liensEnPanne = true;
+    fireEvent.click(screen.getByRole("button", { name: /beau_smart_girl/ }));
+    await screen.findByRole("alert");
+    expect((screen.getByLabelText("weird_alpha") as HTMLTextAreaElement).value).toBe("brouillon non enregistré");
   });
 
   it("Sophia : mêmes champs, et le rappel que le test à blanc ne la couvre pas", async () => {

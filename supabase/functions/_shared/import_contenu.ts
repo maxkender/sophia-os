@@ -1793,7 +1793,7 @@ async function placerSophiaSurDeck(
         position_sophia: true,
       };
       await supabase.from("contenu_langues").update({ slides: deck }).eq("id", contenuLangueId);
-      if (angle) await tracerAngleSophia(supabase, contenuLangueId, angle);
+      if (angle) await tracerAngleSophia(supabase, { id: contenuLangueId }, angle);
       return "ok";
     }
   }
@@ -1804,19 +1804,21 @@ async function placerSophiaSurDeck(
  * Garde l'angle qui a servi au placement Sophia de ce deck
  * (`contenu_langues.angle_placement`, migration 0279), pour comparer plus tard
  * les posts avec et sans angle. Écriture à part, après celle du deck : une
- * colonne absente ou une écriture refusée ne coûte jamais le deck.
+ * colonne absente ou une écriture refusée ne coûte jamais le deck. Ligne visée
+ * par son id, ou par (contenu, langue) quand elle vient d'être insérée.
  */
-async function tracerAngleSophia(
+export async function tracerAngleSophia(
   supabase: Supabase,
-  contenuLangueId: string,
+  ligne: { id: string } | { contenuId: string; langue: string },
   angle: string,
 ): Promise<void> {
-  const { error } = await supabase
-    .from("contenu_langues")
-    .update({ angle_placement: angle })
-    .eq("id", contenuLangueId);
+  let requete = supabase.from("contenu_langues").update({ angle_placement: angle });
+  requete = "id" in ligne
+    ? requete.eq("id", ligne.id)
+    : requete.eq("contenu_id", ligne.contenuId).eq("langue", ligne.langue);
+  const { error } = await requete;
   if (error) {
-    console.warn(`[angle] contenu_langue=${contenuLangueId} : angle non tracé (${messageErreur(error)})`);
+    console.warn(`[angle] ${JSON.stringify(ligne)} : angle non tracé (${messageErreur(error)})`);
   }
 }
 

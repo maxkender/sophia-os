@@ -1,4 +1,4 @@
-import { blocConsignePlacement } from "./angle_placement.ts";
+import { blocConsignePlacement, variantesSansCopieAngle } from "./angle_placement.ts";
 import { downloadImage } from "./apify.ts";
 import { variantesSansFrancaisResiduel } from "./deck_langue.ts";
 import { messageErreur } from "./supabase.ts";
@@ -617,7 +617,14 @@ Réponds UNIQUEMENT en JSON, sans bloc de code ni commentaire :
       // « l'appli » hors français, mais un prompt n'est qu'une consigne. Une
       // variante qui la contient est écartée ; s'il n'en reste aucune, on
       // relance le modèle plutôt que de publier une pub moitié française.
-      const variants = variantesSansFrancaisResiduel(brutes, input.langue);
+      // Même règle pour l'angle (français) : une variante qui en recopie une
+      // formule hors français est écartée (angle_placement.ts). Sans angle :
+      // aucun effet.
+      const variants = variantesSansCopieAngle(
+        variantesSansFrancaisResiduel(brutes, input.langue),
+        input.angle,
+        input.langue,
+      );
 
       // La position choisie DOIT être dans les 2-3 dernières slides. Si le modèle
       // sort une position hors zone, on la ramène sur la dernière slide autorisée

@@ -9,7 +9,8 @@ import {
 } from "./gemini.ts";
 import { chargerAnglePlacement } from "./applications_moteur.ts";
 import { contenuIdsDesLabels } from "./assignation_contenu.ts";
-import { LANGUES_CIBLES, type SlideLangue } from "./import_contenu.ts";
+import { LANGUES_CIBLES, type SlideLangue, tracerAngleSophia } from "./import_contenu.ts";
+import { ID_SOPHIA } from "./multi_app.ts";
 import { lireParLots } from "./lots.ts";
 import { chargerPrompt, messageErreur, serviceClient } from "./supabase.ts";
 
@@ -337,9 +338,10 @@ export async function creerVariation(
 
   const appVar = await applicationParId(supabase, candidat.application_id);
   const slugApp = appVar?.slug ?? "sophia";
-  // Angle du label du parent (la variation hérite de ses labels) pour cette
-  // application ; vide = prompt d'avant (angle_placement.ts).
-  const angle = appVar?.id ? await chargerAnglePlacement(supabase, candidat.contenuId, appVar.id) : "";
+  // Angle du label du parent (la variation hérite de ses labels) pour SOPHIA :
+  // integrateSophia écrit toujours une pub Sophia. Vide = prompt d'avant
+  // (angle_placement.ts).
+  const angle = await chargerAnglePlacement(supabase, candidat.contenuId, ID_SOPHIA);
   const placement = await integrateSophia({
     masterPrompt: (await chargerPrompt(supabase, clePromptPlacement(slugApp))) ?? "",
     corrections: (corrections ?? []).map((c) => ({
@@ -353,6 +355,8 @@ export async function creerVariation(
     ...(angle ? { angle } : {}),
   });
 
+  // L'angle n'est tracé que s'il a vraiment servi (pas sur le texte de repli).
+  let angleUtilise = "";
   if (placement) {
     const idx = deck.findIndex((s) => s.position === placement.chosenPosition);
     if (idx >= 0) {
@@ -361,6 +365,7 @@ export async function creerVariation(
         texte_overlay: placement.variants[placement.bestIndex],
         position_sophia: true,
       };
+      angleUtilise = angle;
     }
   } else {
     const derniere = deck[deck.length - 1];
@@ -439,6 +444,10 @@ export async function creerVariation(
   }));
   const { error: errLang } = await supabase.from("contenu_langues").insert(rows);
   if (errLang) throw errLang;
+  // Trace à part (colonne de 0279, jamais dans l'insert) : best effort.
+  if (angleUtilise) {
+    await tracerAngleSophia(supabase, { contenuId: nouveau.id, langue: candidat.langue }, angleUtilise);
+  }
 
   // Incrémente used_count des médias choisis. Compteur d'usage servant au tri
   // `order("used_count")` du pool : le fausser dégrade la rotation des visuels,

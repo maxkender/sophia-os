@@ -35,11 +35,13 @@ function LigneAngle({
   const modifie = brouillon !== null && normaliserAngle(brouillon) !== angle;
   const id = `angle-${labelId}-${applicationId}`;
 
+  // La valeur envoyée voyage avec la mutation : un brouillon retouché pendant
+  // l'enregistrement n'est pas effacé par la réponse (seul celui envoyé l'est).
   const enregistrer = useMutation({
-    mutationFn: () => majAngleLabel(labelId, applicationId, valeur),
-    onSuccess: async () => {
+    mutationFn: (envoye: string) => majAngleLabel(labelId, applicationId, envoye),
+    onSuccess: async (_r, envoye) => {
       await qc.invalidateQueries({ queryKey: ["label-applications"] });
-      setBrouillon(null);
+      setBrouillon((b) => (b !== null && normaliserAngle(b) === normaliserAngle(envoye) ? null : b));
     },
   });
 
@@ -55,10 +57,16 @@ function LigneAngle({
         className="text-xs"
         placeholder={t("prompts.angles.placeholder")}
         value={valeur}
+        disabled={enregistrer.isPending}
         onChange={(e) => setBrouillon(e.target.value)}
       />
       <div className="flex flex-wrap items-center gap-3">
-        <Button size="sm" disabled={!modifie || enregistrer.isPending} onClick={() => enregistrer.mutate()}>
+        <Button
+          size="sm"
+          aria-label={t("prompts.angles.enregistrerLabel", { label: nomLabel })}
+          disabled={!modifie || enregistrer.isPending}
+          onClick={() => enregistrer.mutate(valeur)}
+        >
           {enregistrer.isPending ? t("common.saving") : t("common.save")}
         </Button>
         <span className="text-[11px] text-muted-foreground">
@@ -66,10 +74,16 @@ function LigneAngle({
         </span>
         {!modifie && !angle && <span className="text-[11px] text-muted-foreground">{t("prompts.angles.vide")}</span>}
         {enregistrer.isSuccess && !modifie && (
-          <span className="text-[11px] text-success">{t("prompts.saved")}</span>
+          <span role="status" className="text-[11px] text-success">
+            {t("prompts.saved")}
+          </span>
         )}
       </div>
-      {enregistrer.isError && <p className="text-xs text-destructive">{messageErreur(enregistrer.error)}</p>}
+      {enregistrer.isError && (
+        <p role="alert" className="text-xs text-destructive">
+          {messageErreur(enregistrer.error)}
+        </p>
+      )}
     </div>
   );
 }
@@ -114,9 +128,17 @@ export function AnglesPlacementCard({
           <li>{t("prompts.angles.pods")}</li>
           <li>{sophia ? t("prompts.angles.testSophia") : t("prompts.angles.test")}</li>
         </ul>
-        {erreur ? (
-          <p className="text-sm text-destructive">{messageErreur(erreur)}</p>
-        ) : !applicationId || liens.isPending || labels.isPending ? (
+        {/* Une relecture ratée APRÈS un premier chargement n'efface pas les
+            champs (ni les brouillons des autres labels) : l'erreur s'affiche
+            au-dessus. Les champs ne sont remplacés que si rien n'a pu être lu. */}
+        {erreur && (
+          <p role="alert" className="text-sm text-destructive">
+            {messageErreur(erreur)}
+          </p>
+        )}
+        {!liens.data || !labels.data ? (
+          erreur ? null : <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
+        ) : !applicationId ? (
           <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
         ) : lignes.length === 0 ? (
           <p className="text-sm text-muted-foreground">{t("prompts.angles.aucunLabel", { nom })}</p>

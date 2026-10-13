@@ -272,7 +272,8 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
 | `applications.langues text[]`, `applications.actif bool` | langues ciblées (`NULL` = toutes), interrupteur |
 | `label_applications(label_id, application_id, angle)` | applications servies par un label ; `angle` : angle de placement de la paire (vide = placement seul) |
 | `contenu_pertinences(contenu_id, application_id, score, raison, note, eligible, angles, prompt_cle)` | pertinence par application (`angles` : toujours `null`) |
-| `contenu_langue_decks(contenu_langue_id, contenu_id, langue, application_id, variante, statut, raison, slides, placement)` | deck placé hors Sophia (`statut` : `pret` / `echec` / `ineligible`) |
+| `contenu_langue_decks(contenu_langue_id, contenu_id, langue, application_id, variante, statut, raison, slides, placement)` | deck placé hors Sophia (`statut` : `pret` / `echec` / `ineligible` ; `placement.angle` : angle utilisé, absent sans angle) |
+| `contenu_langues.angle_placement` (0279) | angle utilisé pour poser Sophia sur ce deck (NULL = sans angle, ou posé avant 0279) |
 | `passages.application_id` (défaut Sophia), `passages.application_visee_id`, `passages.repli_motif` | application promue, repli |
 | `posts.application_id` (défaut Sophia) | copie pour les pages posteur/admin |
 | `comptes.parts_applications jsonb` | répartition ; écriture réservée admin (trigger) |
@@ -518,6 +519,15 @@ Reste à faire, le jour de la bascule : réveil des comptes (`is_active = true`
 + label `classic_study`), arrêt de ces comptes dans micabo-os, activation de
 micabo.
 
+### Angle de placement (0279) — avant le merge
+
+Appliquer `supabase/migrations/0279_angle_placement.sql` (SQL Editor ou MCP)
+AVANT de merger le code qui écrit `contenu_langues.angle_placement`. Additive
+(colonne nullable) ; sans elle, seul le traçage des angles Sophia est perdu
+(avertissement dans les logs), jamais un deck. Vérification :
+`select 1 from information_schema.columns where table_name = 'contenu_langues'
+and column_name = 'angle_placement';` → 1 ligne.
+
 ## 4. Plus tard (décidé, pas fait)
 
 1. **`manage-users` : repli « label le moins utilisé ».** Quand on crée un
@@ -559,11 +569,22 @@ pour les slideshows de ce label.
 - **Quand il s'applique** : aux prochaines préparations seulement. Un deck déjà
   prêt (`contenu_langue_decks`, `contenu_langues.slides`) est servi tel quel ;
   un post déjà assigné garde son texte. Les contenus livrés par un pod (images
-  finies) ne passent pas par le placement : l'angle ne s'y applique pas.
+  finies) ne passent pas par le placement : l'angle ne s'y applique pas. Les
+  originaux de pod (`pod` renseigné, slide Sophia écrite par le pod puis
+  traduite) n'ont pas d'angle Sophia non plus ; Unswipe et micabo, placés
+  depuis la base sans pub, ont bien le leur.
 - **Trace** : `contenu_langue_decks.placement.angle` (absente sans angle) ;
-  pour Sophia, `contenu_langues.angle_placement` (migration 0279, écrite à part
-  après le deck). Un placement qui échoue avec un angle le dit dans sa raison
-  (« placement impossible (avec angle) »).
+  pour Sophia (et les variations), `contenu_langues.angle_placement`
+  (migration 0279, écrite à part après le deck, seulement quand l'angle a
+  vraiment servi). Limite : un deck Sophia reposé plus tard SANS angle (import
+  forcé dans la langue source) garde l'ancienne trace. Hors Sophia, un
+  placement qui échoue avec un angle le dit dans sa raison (« placement
+  impossible (avec angle) ») ; pour Sophia, un échec retombe sur le texte de
+  repli (`placementParDefaut`), sans raison ni trace d'angle.
+- **Garde-fou** : hors français, une variante qui recopie 6 mots d'affilée de
+  l'angle (casse, accents et ponctuation ignorés) est écartée comme celles qui
+  disent « l'appli » (`variantesSansCopieAngle`) ; s'il n'en reste aucune, le
+  modèle est relancé.
 - **Où le régler** : Réglages → Prompts, sous le prompt de placement de
   l'application du sélecteur, un champ par label qui la sert (500 caractères
   au plus, écrit en français comme une consigne, pas comme un slogan à

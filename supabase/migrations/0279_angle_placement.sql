@@ -17,10 +17,14 @@
 -- l'écrit à part, après le deck : si elle manque, seul le traçage est perdu.
 -- Retour arrière : `alter table public.contenu_langues drop column angle_placement;`
 
+-- contenu_langues est lue en continu (assignation, pages posteur) : on
+-- n'attend pas indéfiniment le verrou d'un ALTER derrière une longue lecture.
+set lock_timeout = '5s';
+
 alter table public.contenu_langues add column if not exists angle_placement text;
 
 comment on column public.contenu_langues.angle_placement is
-  'Angle (label_applications.angle du label du contenu × Sophia) ajouté au prompt de placement quand Sophia a été posée sur ce deck. NULL = sans angle.';
+  'Angle (label_applications.angle du label du contenu × Sophia) ajouté au prompt de placement quand Sophia a été posée sur ce deck. NULL = sans angle (ou posé avant 0279). Écrit seulement quand un angle a servi : un deck reposé plus tard sans angle garde l''ancienne valeur.';
 
 comment on column public.label_applications.angle is
   'Angle de placement : consigne libre ajoutée au prompt de placement de cette application pour les contenus du label (placement seulement, pas la pertinence). Vide = prompt de placement seul. Voir supabase/functions/_shared/angle_placement.ts.';

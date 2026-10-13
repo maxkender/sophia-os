@@ -98,6 +98,11 @@ verify_jwt = false
 [functions.nettoyer-test]
 verify_jwt = false
 
+# Appelée par pg_cron, qui n'envoie que x-cron-secret : un JWT exigé par la
+# passerelle la rendrait inappelable. Le contrôle est interne (assertAuthorised).
+[functions.notion-hired]
+verify_jwt = false
+
 [functions.oublier-source]
 verify_jwt = false
 

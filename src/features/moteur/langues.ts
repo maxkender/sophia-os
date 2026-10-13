@@ -1,3 +1,20 @@
+import i18next from "i18next";
+
+/**
+ * Libellé traduit, ou `undefined` si i18next n'est pas prêt ou n'a pas la clé.
+ *
+ * `nomLangue` et `nomPays` rendaient les tables françaises en dur, donc le
+ * sélecteur FR/EN laissait « Anglais, Allemand, Tchèque » dans une interface
+ * par ailleurs traduite. Les tables restent ici comme REPLI : une clé absente
+ * doit afficher « Allemand », jamais « langues.de ». Elles servent aussi aux
+ * tests unitaires, qui n'initialisent pas i18next.
+ */
+function libelleTraduit(cle: string): string | undefined {
+  if (!i18next.isInitialized || !i18next.exists(cle)) return undefined;
+  const valeur = i18next.t(cle);
+  return typeof valeur === "string" && valeur && valeur !== cle ? valeur : undefined;
+}
+
 // Langues CIBLES supportées : la langue d'un poster est celle dans laquelle il
 // PUBLIE, c.-à-d. la cible de traduction. Elle est indépendante de la langue des
 // comptes sources (souvent FR) : un slideshow source stocké est simplement
@@ -115,9 +132,9 @@ const DRAPEAU_LANGUE: Record<string, string> = {
   bg: "🇧🇬",
 };
 
-/** Nom lisible d'une langue (« Allemand » plutôt que « DE »). */
+/** Nom lisible d'une langue, dans la langue de l'interface (FR/EN). */
 export function nomLangue(code: string): string {
-  return NOM_LANGUE[code] ?? code.toUpperCase();
+  return libelleTraduit(`langues.${code}`) ?? NOM_LANGUE[code] ?? code.toUpperCase();
 }
 
 /** Valeur initiale d'un sélecteur de langue : garde l'actuelle, sinon fr, sinon la 1ʳᵉ. */
@@ -167,7 +184,7 @@ const NOM_PAYS: Record<string, string> = {
 };
 
 export function nomPays(code: string): string {
-  return NOM_PAYS[code] ?? nomLangue(code);
+  return libelleTraduit(`pays.${code}`) ?? NOM_PAYS[code] ?? nomLangue(code);
 }
 
 /** Pays physiques de l'OS = un pays par langue cible (en → Royaume-Uni). */

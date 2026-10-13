@@ -55,7 +55,11 @@ import {
   clePromptPlacement,
   placementParDefaut,
 } from "./applications.ts";
-import { erreurSchemaAbsent, schemaMultiAppPret } from "./applications_moteur.ts";
+import {
+  chargerAnglePlacement,
+  erreurSchemaAbsent,
+  schemaMultiAppPret,
+} from "./applications_moteur.ts";
 import {
   majNotesPertinences,
   noteStockee,
@@ -67,7 +71,7 @@ import {
   type PlacementSophia,
 } from "./pertinence_apps.ts";
 import { lireParLots, lireTout } from "./lots.ts";
-import { SLUG_SOPHIA } from "./multi_app.ts";
+import { ID_SOPHIA, SLUG_SOPHIA } from "./multi_app.ts";
 import {
   estTier,
   passagesPourTier,
@@ -1763,6 +1767,10 @@ async function placerSophiaSurDeck(
   // d'`application_id` sélectionné plus haut) — un reste de micabo, et deux
   // lectures de plus par placement. Les autres applications cuisent leur deck
   // dans `contenu_langue_decks` (deck_application.ts).
+  //
+  // Angle du label du contenu pour Sophia (angle_placement.ts) : vide tant
+  // qu'aucun n'est saisi, et le prompt reste alors octet pour octet le même.
+  const angle = await chargerAnglePlacement(supabase, contenu.id, ID_SOPHIA);
   const placement = await integrateSophia({
     masterPrompt: (await chargerPrompt(supabase, clePromptPlacement("sophia"))) ?? "",
     corrections: (corrections ?? []).map((c) => ({
@@ -1773,6 +1781,7 @@ async function placerSophiaSurDeck(
     caption: contenu.titre ?? "",
     langue,
     positionImposee,
+    ...(angle ? { angle } : {}),
   });
 
   if (placement) {
@@ -1784,10 +1793,31 @@ async function placerSophiaSurDeck(
         position_sophia: true,
       };
       await supabase.from("contenu_langues").update({ slides: deck }).eq("id", contenuLangueId);
+      if (angle) await tracerAngleSophia(supabase, contenuLangueId, angle);
       return "ok";
     }
   }
   return "retry";
+}
+
+/**
+ * Garde l'angle qui a servi au placement Sophia de ce deck
+ * (`contenu_langues.angle_placement`, migration 0279), pour comparer plus tard
+ * les posts avec et sans angle. Écriture à part, après celle du deck : une
+ * colonne absente ou une écriture refusée ne coûte jamais le deck.
+ */
+async function tracerAngleSophia(
+  supabase: Supabase,
+  contenuLangueId: string,
+  angle: string,
+): Promise<void> {
+  const { error } = await supabase
+    .from("contenu_langues")
+    .update({ angle_placement: angle })
+    .eq("id", contenuLangueId);
+  if (error) {
+    console.warn(`[angle] contenu_langue=${contenuLangueId} : angle non tracé (${messageErreur(error)})`);
+  }
 }
 
 export type LigneLangue = {

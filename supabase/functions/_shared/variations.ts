@@ -7,6 +7,7 @@ import {
   integrateSophia,
   translateSlideshow,
 } from "./gemini.ts";
+import { chargerAnglePlacement } from "./applications_moteur.ts";
 import { contenuIdsDesLabels } from "./assignation_contenu.ts";
 import { LANGUES_CIBLES, type SlideLangue } from "./import_contenu.ts";
 import { lireParLots } from "./lots.ts";
@@ -336,6 +337,9 @@ export async function creerVariation(
 
   const appVar = await applicationParId(supabase, candidat.application_id);
   const slugApp = appVar?.slug ?? "sophia";
+  // Angle du label du parent (la variation hérite de ses labels) pour cette
+  // application ; vide = prompt d'avant (angle_placement.ts).
+  const angle = appVar?.id ? await chargerAnglePlacement(supabase, candidat.contenuId, appVar.id) : "";
   const placement = await integrateSophia({
     masterPrompt: (await chargerPrompt(supabase, clePromptPlacement(slugApp))) ?? "",
     corrections: (corrections ?? []).map((c) => ({
@@ -346,6 +350,7 @@ export async function creerVariation(
     caption: candidat.titre,
     langue: candidat.langue,
     marque: slugApp,
+    ...(angle ? { angle } : {}),
   });
 
   if (placement) {

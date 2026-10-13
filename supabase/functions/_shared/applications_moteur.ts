@@ -8,6 +8,7 @@
  * comportement historique (100 % Sophia, aucune colonne nouvelle écrite) au
  * lieu de casser l'import ou la nuit d'assignation.
  */
+import { anglesPourApplication, type LienAngle, texteAngle } from "./angle_placement.ts";
 import { lireParLots } from "./lots.ts";
 import {
   ID_SOPHIA,
@@ -221,4 +222,40 @@ export async function chargerLabelsDuContenu(
     out.push(l ? { id: l.id, slug: l.slug ?? null, nom: l.nom ?? null } : { id: row.label_id });
   }
   return out;
+}
+
+/**
+ * Angle de placement d'un contenu pour une application : celui de son label
+ * (`label_applications.angle`, voir angle_placement.ts). Chaîne vide s'il n'y
+ * en a pas — le prompt de placement reste alors celui d'avant.
+ *
+ * Ne lève jamais : l'angle affine une pub, il ne doit pas faire tomber une
+ * préparation de deck. Une lecture en panne est journalisée et vaut « pas
+ * d'angle ».
+ */
+export async function chargerAnglePlacement(
+  supabase: Supabase,
+  contenuId: string,
+  applicationId: string,
+): Promise<string> {
+  try {
+    if (!(await schemaMultiAppPret(supabase))) return "";
+    const labels = await chargerLabelsDuContenu(supabase, contenuId);
+    const ids = [...new Set(labels.map((l) => l.id).filter(Boolean))];
+    if (ids.length === 0) return "";
+    const { data, error } = await supabase
+      .from("label_applications")
+      .select("label_id, application_id, angle")
+      .in("label_id", ids)
+      .eq("application_id", applicationId);
+    if (error) throw new Error(`label_applications : ${error.message}`);
+    return texteAngle(anglesPourApplication(labels, (data ?? []) as LienAngle[], applicationId));
+  } catch (error) {
+    console.warn(
+      `[angle] contenu=${contenuId} application=${applicationId} : angle non lu (${
+        error instanceof Error ? error.message : String(error)
+      }), placement sans angle`,
+    );
+    return "";
+  }
 }

@@ -33,8 +33,9 @@ import {
   type Supabase,
   traduireBaseDeck,
 } from "./import_contenu.ts";
+import { normaliserAngle } from "./angle_placement.ts";
 import { type ApplicationMoteur, ID_SOPHIA, SLUG_SOPHIA } from "./multi_app.ts";
-import { schemaMultiAppPret } from "./applications_moteur.ts";
+import { chargerAnglePlacement, schemaMultiAppPret } from "./applications_moteur.ts";
 import { clePromptPlacement } from "./applications.ts";
 import { baseDeTraduction, estDeckPret } from "./deck_langue.ts";
 import { integrerApplication, MOT_SOPHIA } from "./placement_application.ts";
@@ -72,6 +73,12 @@ export interface OptionsDeckApplication {
    * ou `false` (la nuit, l'assignation test) : comportement inchangé.
    */
   ignorerCache?: boolean;
+  /**
+   * Test à blanc seulement : angle à essayer À LA PLACE de celui enregistré
+   * pour le label du contenu (`""` = essayer sans angle). Absent : l'angle
+   * enregistré (`label_applications.angle`) est lu comme la nuit.
+   */
+  angleBrouillon?: string;
 }
 
 /**
@@ -94,6 +101,11 @@ type Placement = {
   /** Slide qui citait un concurrent de l'application, imposée au placement. */
   positionImposee?: number;
   prompt_cle: string;
+  /**
+   * Angle du label ajouté au prompt (angle_placement.ts). Absent quand il n'y
+   * en avait pas : le placement d'un deck sans angle s'écrit comme avant.
+   */
+  angle?: string;
 };
 
 type Cuisson =
@@ -363,8 +375,13 @@ async function cuire(
   if (pollutionCible) return { statut: "ineligible", raison: `base ${langue} : ${pollutionCible}` };
   if (!aDuTexte(baseCible)) return { statut: "echec", raison: `base ${langue} sans texte` };
 
-  // 4. Placement.
+  // 4. Placement, avec l'angle du label du contenu pour cette application
+  //    (vide = prompt d'avant). Le test à blanc peut en essayer un autre.
   if (horsDelai(opts)) return { statut: "echec", raison: RAISON_BUDGET };
+  const angle = opts.angleBrouillon !== undefined
+    ? normaliserAngle(opts.angleBrouillon)
+    : await chargerAnglePlacement(supabase, contenu.id, app.id);
+  const traceAngle = angle ? { angle } : {};
   const placement = await integrerApplication({
     masterPrompt,
     slides: baseCible.map((s) => ({ position: s.position, text: s.texte_overlay ?? "" })),
@@ -372,12 +389,14 @@ async function cuire(
     langue,
     application: { slug: app.slug, nom: app.nom },
     positionImposee,
+    angle,
   }, { echeance: opts.echeance });
   if (!placement) {
     return {
       statut: "echec",
-      raison: "placement impossible",
-      placement: { positionImposee, prompt_cle: cle },
+      // Un angle trop contraignant se voit dans les échecs, pas en silence.
+      raison: angle ? "placement impossible (avec angle)" : "placement impossible",
+      placement: { positionImposee, prompt_cle: cle, ...traceAngle },
     };
   }
 
@@ -403,13 +422,14 @@ async function cuire(
         chosenPosition: placement.chosenPosition,
         positionImposee,
         prompt_cle: cle,
+        ...traceAngle,
       },
     };
   }
   return {
     statut: "echec",
     raison: "deck placé refusé par les garde-fous",
-    placement: { ...placement, positionImposee, prompt_cle: cle },
+    placement: { ...placement, positionImposee, prompt_cle: cle, ...traceAngle },
   };
 }
 

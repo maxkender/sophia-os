@@ -13,12 +13,16 @@
  *  - une slide qui cite une appli concurrente de CETTE application
  *    (`positionImposee`, voir concurrents.ts) est la seule position permise et
  *    le prompt demande de la remplacer entièrement ;
+ *  - l'angle du label du contenu pour cette application (`angle`, voir
+ *    angle_placement.ts) s'ajoute juste après le prompt maître ; vide, le
+ *    prompt ne bouge pas d'un octet ;
  *  - les variantes sont filtrées de façon déterministe : nom de l'application
  *    présent, « Sophia » absent, aucun concurrent cité, pas de « l'appli »
  *    française hors français. Aucune variante valable → on relance ; après 4
  *    essais → `null`, et l'appelant échoue franchement (jamais de texte de
  *    repli : celui de `placementParDefaut` est une pub Sophia).
  */
+import { blocConsignePlacement } from "./angle_placement.ts";
 import { citeConcurrent, MOTIF_CONCURRENT, motifConcurrentApplication } from "./concurrents.ts";
 import { variantesSansFrancaisResiduel } from "./deck_langue.ts";
 import {
@@ -43,6 +47,11 @@ export interface PlacementApplicationEntree {
    * dernières slides. Ignorée si c'est la couverture ou une position absente.
    */
   positionImposee?: number;
+  /**
+   * Angle du label du contenu pour cette application (`label_applications.angle`).
+   * Vide ou absent : prompt identique à celui sans angle.
+   */
+  angle?: string;
 }
 
 export interface OptionsPlacementApplication {
@@ -118,7 +127,7 @@ UNIQUEMENT : ${autoriseesTxt}. Écris 3 variantes qui remplacent son texte.`;
 Les variantes que tu écris doivent être en ${langue}, quelle que soit la langue
 des consignes ci-dessous.
 
-${input.masterPrompt}
+${input.masterPrompt}${blocConsignePlacement(input.angle, nom, langue)}
 
 --- DONNÉES ---
 Application à placer : ${nom}

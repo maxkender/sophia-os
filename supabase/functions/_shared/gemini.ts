@@ -1,3 +1,4 @@
+import { blocConsignePlacement } from "./angle_placement.ts";
 import { downloadImage } from "./apify.ts";
 import { variantesSansFrancaisResiduel } from "./deck_langue.ts";
 import { messageErreur } from "./supabase.ts";
@@ -509,6 +510,12 @@ export async function integrateSophia(input: {
    * c'est ELLE que Sophia remplace, même hors des 3 dernières slides.
    */
   positionImposee?: number;
+  /**
+   * Angle du label du contenu pour Sophia (`label_applications.angle`, voir
+   * angle_placement.ts). Vide ou absent : prompt identique octet pour octet
+   * (instantanés de gemini_placement_golden_test.ts).
+   */
+  angle?: string;
 }): Promise<SophiaPlacement | null> {
   // Sophia DOIT tomber dans les 2-3 dernières slides (jamais au début) : on borne
   // les positions permises aux 3 dernières (hors couverture = slide 1). Une slide
@@ -545,7 +552,7 @@ export async function integrateSophia(input: {
 Les variantes que tu écris doivent être en ${langue}, quelle que soit la langue
 des consignes ci-dessous.
 
-${input.masterPrompt}
+${input.masterPrompt}${blocConsignePlacement(input.angle, "Sophia", langue)}
 
 --- DONNÉES ---
 Légende de la vidéo : ${input.caption || "(aucune)"}

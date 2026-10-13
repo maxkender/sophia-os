@@ -105,6 +105,65 @@ Deno.test("Sophia, IA cochée, ligne absente : vrai deck traduit + placé, relu 
   assertEquals(tables, avant);
 });
 
+Deno.test("Sophia, IA cochée, label avec un angle Sophia : consigne dans le prompt, angle tracé sur la ligne (simulé)", async () => {
+  const tables = base({
+    contenu_labels: [{ contenu_id: "c1", label_id: "L1" }],
+    labels: [{ id: "L1", slug: "weird-alpha", nom: "weird_alpha" }],
+    label_applications: [
+      { label_id: "L1", application_id: ID_SOPHIA, angle: "insister sur la régularité" },
+      { label_id: "L1", application_id: UNSWIPE, angle: "angle Unswipe, jamais pour Sophia" },
+    ],
+  });
+  const avant = instantane(tables);
+  const gemini = fauxGemini(traductionEtPlacement);
+  const serveur = fauxServeurPostgrest(tables, {
+    gemini,
+    relations: { contenu_labels: { labels: { fk: "label_id", table: "labels" } } },
+  });
+  await avecIntercepteur(serveur.fetch, () =>
+    avecDecks(async () => {
+      const ctx = run(true);
+      const deck = await executerDansContexte(ctx, async () => await decksAssignation.sophia(serviceClient(), "c1", "de"));
+      assertEquals(deck.slides.filter((s) => s.position_sophia).map((s) => s.position), [3]);
+      const placement = gemini.appels.find((p) => p.includes("chosen_position")) ?? "";
+      assert(
+        placement.includes("Place Sophia.\n\n--- CONSIGNE PROPRE À CE SLIDESHOW ---\ninsister sur la régularité\n"),
+        placement,
+      );
+      assert(!placement.includes("angle Unswipe"), "l'angle d'une autre application ne fuit pas");
+      const traces = ctx.etat.journal.filter((e) =>
+        e.table === "contenu_langues" && e.valeurs.some((v) => "angle_placement" in v)
+      );
+      assertEquals(traces.length, 1, "un seul traçage, à part de l'écriture du deck");
+      assertEquals(traces[0].valeurs[0], { angle_placement: "insister sur la régularité" });
+    })
+  );
+  assertEquals(serveur.violations, []);
+  assertEquals(tables, avant);
+});
+
+Deno.test("Sophia, IA cochée, label sans angle : aucune consigne, aucun traçage", async () => {
+  const tables = base({
+    contenu_labels: [{ contenu_id: "c1", label_id: "L1" }],
+    labels: [{ id: "L1", slug: "weird-alpha", nom: "weird_alpha" }],
+  });
+  const gemini = fauxGemini(traductionEtPlacement);
+  const serveur = fauxServeurPostgrest(tables, {
+    gemini,
+    relations: { contenu_labels: { labels: { fk: "label_id", table: "labels" } } },
+  });
+  await avecIntercepteur(serveur.fetch, () =>
+    avecDecks(async () => {
+      const ctx = run(true);
+      await executerDansContexte(ctx, async () => await decksAssignation.sophia(serviceClient(), "c1", "de"));
+      const placement = gemini.appels.find((p) => p.includes("chosen_position")) ?? "";
+      assert(placement.includes("Place Sophia.\n\n--- DONNÉES ---"), placement);
+      assert(!ctx.etat.journal.some((e) => e.valeurs.some((v) => "angle_placement" in v)));
+    })
+  );
+  assertEquals(serveur.violations, []);
+});
+
 Deno.test("Sophia, IA décochée, deck absent : aperçu « à fabriquer » (texte source, sans pub), aucun appel, < 1 s", async () => {
   const tables = base();
   const avant = instantane(tables);

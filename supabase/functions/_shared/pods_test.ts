@@ -41,6 +41,21 @@ Deno.test("verifierDepot : langue source, slide de l'app, positions uniques", ()
   assertEquals(verifierDepot({ fr: { slides: [s(1)] } }, "fr"), ["fr : aucune slide de l'app"]);
 });
 
+Deno.test("verifierDepot : accepte une variante régionale, refuse un code mal formé", () => {
+  const s = (position: number, position_sophia = false) => ({ position, position_sophia, jpeg_base64: "" });
+  // Le test « deux lettres » refusait tout deck brésilien ou latino-américain.
+  assertEquals(verifierDepot({ "pt-BR": { slides: [s(1), s(2, true)] } }, "pt-BR"), []);
+  assertEquals(verifierDepot({ "es-419": { slides: [s(1), s(2, true)] } }, "es-419"), []);
+  assertEquals(
+    verifierDepot({ "pt-br": { slides: [s(1), s(2, true)] } }, "pt-br"),
+    ["langue invalide : pt-br"],
+  );
+  assertEquals(
+    verifierDepot({ "pt-BRA": { slides: [s(1), s(2, true)] } }, "pt-BRA"),
+    ["langue invalide : pt-BRA"],
+  );
+});
+
 Deno.test("sha256Hex", async () => {
   assertEquals(await sha256Hex("abc"), "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad");
 });

@@ -108,13 +108,19 @@ export function motifDeckTropCourt(n: number): string {
   return `${n} slide${n > 1 ? "s" : ""} seulement, minimum ${SLIDES_MIN} — TikTok non importé`;
 }
 
+/** Copie Deno de `src/features/moteur/langues.ts` — garder synchro.
+ *  `es-419` / `pt-BR` sont des variantes régionales : une langue à part
+ *  entière pour le moteur, c'est `LANGUES` (gemini.ts) qui porte la région
+ *  jusqu'au modèle. */
 export const LANGUES_CIBLES = [
   "fr",
   "en",
   "de",
   "it",
   "es",
+  "es-419",
   "pt",
+  "pt-BR",
   "cs",
   "nl",
   "el",

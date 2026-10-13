@@ -42,14 +42,17 @@ const CODES_ISO_PAYS: Record<string, string> = {
   ch: "de", // majoritaire — la Suisse romande et italienne sont comptées ici
   it: "it",
   es: "es",
-  mx: "es",
-  ar: "es", // Argentine, PAS l'arabe
-  co: "es",
-  cl: "es",
-  pe: "es",
-  sv: "es", // Salvador, PAS la Suède (SE)
+  // Amériques hispanophones → `es-419`, pas `es` : sans ce découpage, le
+  // revenu mexicain ou colombien était crédité à l'Espagne, et la zone
+  // Espagne+Portugal+AmLat ne pouvait pas être pilotée séparément.
+  mx: "es-419",
+  ar: "es-419", // Argentine, PAS l'arabe
+  co: "es-419",
+  cl: "es-419",
+  pe: "es-419",
+  sv: "es-419", // Salvador, PAS la Suède (SE)
   pt: "pt",
-  br: "pt",
+  br: "pt-BR",
   cz: "cs",
   nl: "nl",
   be: "nl", // majoritaire — la Belgique francophone est comptée ici
@@ -98,15 +101,15 @@ const NOMS_PAYS: Record<string, string> = {
   italia: "it",
   spain: "es",
   espana: "es",
-  mexico: "es",
-  argentina: "es",
-  colombia: "es",
-  chile: "es",
-  peru: "es",
-  "el salvador": "es",
+  mexico: "es-419",
+  argentina: "es-419",
+  colombia: "es-419",
+  chile: "es-419",
+  peru: "es-419",
+  "el salvador": "es-419",
   portugal: "pt",
-  brazil: "pt",
-  brasil: "pt",
+  brazil: "pt-BR",
+  brasil: "pt-BR",
   czechia: "cs",
   "czech republic": "cs",
   netherlands: "nl",

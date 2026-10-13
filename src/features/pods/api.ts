@@ -2,6 +2,7 @@
 
 import { supabase } from "@/lib/supabase/client";
 import { invoke } from "@/features/moteur/api";
+import { LANGUES_CIBLES } from "@/features/moteur/langues";
 
 export type StatutLivraison = "a_valider" | "validee" | "rejetee" | "ecartee_note";
 
@@ -186,8 +187,15 @@ export async function listerDemos(): Promise<DemoApp[]> {
 
 /** Démo Sophia d'une langue : la vidéo remplace la précédente (même chemin). */
 export async function enregistrerDemo(langue: string, fichier: File): Promise<void> {
-  const code = langue.trim().toLowerCase();
-  if (!/^[a-z]{2}$/.test(code)) throw new Error("langue : 2 lettres (fr, en, es…)");
+  // Deux pièges avec les variantes régionales : `pt-BR` ne passe pas un test
+  // « deux lettres », et le passer en minuscules donnerait `pt-br`, qui n'est
+  // la langue de personne et pointerait vers un autre chemin de stockage. On
+  // résout donc vers le code canonique de `LANGUES_CIBLES`.
+  const saisi = langue.trim();
+  const code = (LANGUES_CIBLES as readonly string[]).find(
+    (l) => l.toLowerCase() === saisi.toLowerCase(),
+  );
+  if (!code) throw new Error(`langue inconnue : « ${saisi} » (fr, en, es, pt-BR…)`);
   const chemin = `pods/demos/sophia/${code}.mp4`;
   const { error: upErr } = await supabase.storage.from("medias").upload(chemin, fichier, {
     contentType: fichier.type || "video/mp4",

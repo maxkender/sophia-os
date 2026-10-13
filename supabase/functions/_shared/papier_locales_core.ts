@@ -28,7 +28,11 @@ export const NOM_LANGUE_MODELE: Record<CodeLanguePapier, string> = {
   de: "allemand (Hochdeutsch)",
   it: "italien",
   es: "espagnol d'Espagne",
-  pt: "portugais du Brésil",
+  // Disait « portugais du Brésil » alors que les posteurs `pt` sont au
+  // Portugal : le papier contredisait le slideshow. `pt` = Portugal partout.
+  // Le Brésil (`pt-BR`) et l'AmLat (`es-419`) n'ont pas encore de voix TTS,
+  // ils restent donc hors de `LANGUES_PAPIER` tant que la vidéo ne suit pas.
+  pt: "portugais du Portugal",
   cs: "tchèque",
   nl: "néerlandais",
   el: "grec moderne",

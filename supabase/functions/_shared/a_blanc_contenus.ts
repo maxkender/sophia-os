@@ -25,6 +25,7 @@
  * l'option `ignorerCache` (absente ailleurs) et appelle le code tel quel.
  */
 
+import { normaliserAngle } from "./angle_placement.ts";
 import { clePromptPlacement } from "./applications.ts";
 import { chargerApplicationsMoteur, schemaMultiAppPret } from "./applications_moteur.ts";
 import { assurerDeckApplication, type DeckApplicationResultat } from "./deck_application.ts";
@@ -120,6 +121,11 @@ export interface DeckTeste {
   mode: string | null;
   variantes: string[];
   varianteRetenue: number | null;
+  /**
+   * Angle de placement ajouté au prompt (brouillon du test, sinon celui
+   * enregistré pour le label du contenu) ; null = placement sans angle.
+   */
+  angle: string | null;
   hashtags: string | null;
   appelsIA: SuiviIA;
 }
@@ -155,6 +161,11 @@ export interface ResultatContenusABlanc {
     placement: { cle: string; present: boolean };
   } | null;
   scoring: { seuil: number; plancher: number; poidsVues: number; poidsSource: number } | null;
+  /**
+   * Angle brouillon essayé à la place de l'angle enregistré de chaque contenu
+   * (`""` = essai sans angle) ; null = angles enregistrés, comme la nuit.
+   */
+  angleBrouillon: string | null;
   contenus: ContenuTeste[];
   ecrituresEvitees: Array<{ table: string; operation: OperationEcriture; requetes: number; lignes: number | null }>;
   appelsBloques: Array<{ hote: string; motif: MotifBlocage; nombre: number }>;
@@ -170,6 +181,7 @@ export const LIMITES_CONTENUS: readonly string[] = [
   "Placement : cache contenu_langue_decks ignoré pour tester le prompt actuel ; une base déjà traduite en base (slides_base de la langue) est réutilisée, sinon la traduction est faite par le modèle et jamais enregistrée.",
   "Tier d'entrée : celui d'une ligne neuve (tier_initial_note). Un contenu déjà passé dans contenu_tiers_application garde son tier réel.",
   "Le modèle n'est pas déterministe : relancer peut donner un autre score, une autre slide ou une autre phrase.",
+  "Angle : celui enregistré pour le label de chaque contenu, ou l'angle brouillon s'il est fourni (jamais enregistré). L'angle n'entre que dans le placement, pas dans la notation.",
 ];
 
 function texte(v: unknown): string | null {
@@ -359,13 +371,20 @@ async function testerDeck(
   langue: string,
   app: ApplicationMoteur,
   echeance: number,
+  angleBrouillon: string | null,
 ): Promise<DeckTeste> {
   const suivi: SuiviIA = { autorises: 0, bloques: 0 };
   const debutSeq = etat.seq;
   // LE VRAI CODE DU PLACEMENT, cache ignoré : ses écritures sont simulées.
+  // Un angle brouillon remplace l'angle enregistré du label, sans l'écrire.
   const r = await avecSuivi(
     suivi,
-    () => assurerDeckApplication(supabase, contenu.id, langue, app, { echeance, ignorerCache: true }),
+    () =>
+      assurerDeckApplication(supabase, contenu.id, langue, app, {
+        echeance,
+        ignorerCache: true,
+        ...(angleBrouillon !== null ? { angleBrouillon } : {}),
+      }),
   );
 
   // Base de la langue AVANT placement, relue dans le calque (sauvegarde ou
@@ -407,6 +426,7 @@ async function testerDeck(
     mode: texte(placement?.mode) || null,
     variantes,
     varianteRetenue: nombre(placement?.bestIndex),
+    angle: texte(placement?.angle) || null,
     hashtags: r.statut === "pret" ? r.hashtags : null,
     appelsIA: suivi,
   };
@@ -426,6 +446,11 @@ export async function executerContenusABlanc(
     contenuIds: readonly string[];
     /** Langue du deck testé ; absente : langue source de chaque contenu. */
     langue?: string | null;
+    /**
+     * Angle brouillon à essayer à la place de l'angle enregistré du label de
+     * chaque contenu (`""` = sans angle). Absent : angles enregistrés.
+     */
+    angle?: string | null;
     onLog?: (detail: string) => void;
     /** Dépendances du rattrapage (tests) ; défaut : celles du rattrapage réel. */
     deps?: DepsBackfill;
@@ -463,6 +488,7 @@ export async function executerContenusABlanc(
     application: null,
     prompts: null,
     scoring: null,
+    angleBrouillon: typeof args.angle === "string" ? normaliserAngle(args.angle) : null,
     contenus: [],
     ecrituresEvitees: [],
     appelsBloques: [],
@@ -603,7 +629,7 @@ export async function executerContenusABlanc(
     let erreur: string | undefined;
     log(`${nom} : placement ${appli.nom} en ${langue}${pertinence.eligible ? "" : " (contenu non éligible : testé quand même)"}…`);
     try {
-      deck = await testerDeck(supabase, etat, contenu, langue, appli, echeance);
+      deck = await testerDeck(supabase, etat, contenu, langue, appli, echeance, r.angleBrouillon);
       log(
         deck.statut === "pret"
           ? `${nom} : deck prêt, pub en slide ${deck.slidePub ?? "?"}` +

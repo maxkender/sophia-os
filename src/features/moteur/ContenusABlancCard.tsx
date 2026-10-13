@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import {
   lancerContenusABlanc,
@@ -16,7 +17,9 @@ import {
   listerLabels,
   listerSlideshowsLabelABlanc,
 } from "./api";
+import { listerLiensLabels } from "./apiMultiApp";
 import { ID_SOPHIA, SLUG_SOPHIA } from "./multiApp";
+import { ANGLE_LONGUEUR_MAX, angleDuLien } from "./multiapp/angles";
 import { LANGUES_CIBLES, nomLangue } from "./langues";
 import {
   iaBloqueeParLaNuit,
@@ -84,6 +87,12 @@ export function ContenusABlancCard() {
   });
   const [choisis, setChoisis] = React.useState<SlideshowABlanc[]>([]);
   const [langue, setLangue] = React.useState("");
+  // Angle brouillon : essayé à la place de l'angle enregistré du label de
+  // chaque slideshow, jamais enregistré. Décoché = angles enregistrés.
+  const [essayerAngle, setEssayerAngle] = React.useState(false);
+  const [angleBrouillon, setAngleBrouillon] = React.useState("");
+  const liens = useQuery({ queryKey: ["label-applications"], queryFn: listerLiensLabels, retry: false });
+  const angleEnregistre = labelId && applicationId ? angleDuLien(liens.data ?? [], labelId, applicationId) : "";
   const [logs, setLogs] = React.useState<AssignationABlancLog[]>([]);
   const logsRef = React.useRef<HTMLDivElement>(null);
   const nuit = iaBloqueeParLaNuit();
@@ -109,6 +118,7 @@ export function ContenusABlancCard() {
         choisis.map((c) => c.id),
         langue || null,
         (ligne) => setLogs((prev) => [...prev, ligne]),
+        essayerAngle ? angleBrouillon : null,
       );
     },
   });
@@ -180,6 +190,35 @@ export function ContenusABlancCard() {
             </select>
           </div>
         </div>
+
+        {labelId && (
+          <div className="space-y-1.5 rounded-md border p-3" data-testid="angle-a-blanc">
+            <p className="text-xs text-muted-foreground">
+              {angleEnregistre
+                ? t("contenusABlanc.angleEnregistre", { angle: angleEnregistre })
+                : t("contenusABlanc.angleAucun")}
+            </p>
+            <label className="flex items-center gap-2 text-sm">
+              <input
+                type="checkbox"
+                checked={essayerAngle}
+                onChange={(e) => setEssayerAngle(e.target.checked)}
+              />
+              {t("contenusABlanc.angleEssayer")}
+            </label>
+            {essayerAngle && (
+              <Textarea
+                rows={3}
+                maxLength={ANGLE_LONGUEUR_MAX}
+                className="text-xs"
+                aria-label={t("contenusABlanc.angleEssayer")}
+                placeholder={t("contenusABlanc.angleBrouillonPh")}
+                value={angleBrouillon}
+                onChange={(e) => setAngleBrouillon(e.target.value)}
+              />
+            )}
+          </div>
+        )}
 
         {labelId && (
           <div className="space-y-2">
@@ -487,6 +526,9 @@ function BlocDeck({
       {deck.positionImposee !== null && (
         <p className="text-xs text-info">{t("contenusABlanc.concurrent", { position: deck.positionImposee })}</p>
       )}
+      <p className="text-xs text-muted-foreground" data-testid="angle-utilise">
+        {deck.angle ? t("contenusABlanc.angleUtilise", { angle: deck.angle }) : t("contenusABlanc.sansAngle")}
+      </p>
       <div className="grid gap-3 md:grid-cols-2">
         <ListeSlides titre={t("contenusABlanc.avant")} slides={deck.base} remplacee={deck.slidePub} />
         {deck.statut === "pret" && (

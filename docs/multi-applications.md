@@ -9,10 +9,13 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
 - **Les comptes portent des LABELS, pas des applications.** Identité d'un compte
   (bio, lien, persona) : Sophia, toujours.
 - **Un label sert une ou plusieurs applications** (`label_applications`).
-  Pas d'« angle » par label : le prompt de placement de l'application suffit
-  (décision du 2026-10-08). Les colonnes `label_applications.angle` et
-  `contenu_pertinences.angles` restent en base, inutilisées (`angles` est
-  toujours écrite à `null`).
+  **Angle de placement** par paire label × application
+  (`label_applications.angle`, décision du 2026-10-13, qui revient sur celle du
+  2026-10-08) : une consigne libre, ajoutée au prompt de placement de
+  l'application pour les slideshows de ce label (ex. weird_alpha × Unswipe =
+  « insister sur le côté … »). Vide = placement seul, prompt identique octet
+  pour octet. Voir § « Angle de placement ». La pertinence ne le lit pas :
+  `contenu_pertinences.angles` reste en base, toujours écrite à `null`.
   - **Règle d'héritage** : un label SANS ligne sert Sophia. Un oubli de backfill
     ne peut jamais vider le stock Sophia.
   - Labels système (`hook`, `ugc-ai-video`) : aucune application.
@@ -267,7 +270,7 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
 | Objet | Rôle |
 |---|---|
 | `applications.langues text[]`, `applications.actif bool` | langues ciblées (`NULL` = toutes), interrupteur |
-| `label_applications(label_id, application_id, angle)` | applications servies par un label (`angle` : inutilisée) |
+| `label_applications(label_id, application_id, angle)` | applications servies par un label ; `angle` : angle de placement de la paire (vide = placement seul) |
 | `contenu_pertinences(contenu_id, application_id, score, raison, note, eligible, angles, prompt_cle)` | pertinence par application (`angles` : toujours `null`) |
 | `contenu_langue_decks(contenu_langue_id, contenu_id, langue, application_id, variante, statut, raison, slides, placement)` | deck placé hors Sophia (`statut` : `pret` / `echec` / `ineligible`) |
 | `passages.application_id` (défaut Sophia), `passages.application_visee_id`, `passages.repli_motif` | application promue, repli |
@@ -531,3 +534,44 @@ pertinences dépassent un seuil élevé sur un label commun. Le modèle le perme
 déjà : variante `dual:sophia+unswipe` dans `contenu_langue_decks`, poids 0,5 par
 application dans la fenêtre de répartition (`EntreeFenetre.poids`), et une
 colonne `passages.application_secondaire_id` à ajouter.
+
+## Angle de placement (label × application)
+
+Décision du 2026-10-13. Une consigne libre par paire label × application,
+`label_applications.angle`, ajoutée au prompt de placement de l'application
+pour les slideshows de ce label.
+
+- **Où il entre** : uniquement dans le placement — `integrerApplication`
+  (Unswipe, micabo) et `integrateSophia` (Sophia), via un bloc « CONSIGNE
+  PROPRE À CE SLIDESHOW » posé juste après le prompt maître, avant les
+  données du deck (`_shared/angle_placement.ts`). Le mot « angle » n'est pas
+  dans le texte envoyé au modèle : les prompts maîtres l'emploient déjà pour
+  les 3 variantes. La consigne oriente le fond de la slide pub, jamais sa
+  forme (langue, longueur, préfixe, casse, ton, mention de la marque).
+- **Angle vide** : aucun octet ajouté — instantanés Sophia
+  (`gemini_placement_golden_test.ts`) intacts, tests dédiés pour les autres
+  applications (`angle_placement_test.ts`).
+- **Quel angle** : celui du label du CONTENU (`contenu_labels`), pas du compte
+  — le cache des decks est par contenu × langue × application, partagé entre
+  comptes. Labels système exclus ; plusieurs angles (aucun cas aujourd'hui :
+  un label par contenu) = liste à puces. Lecture en panne = placement sans
+  angle, jamais un deck perdu (`chargerAnglePlacement`).
+- **Quand il s'applique** : aux prochaines préparations seulement. Un deck déjà
+  prêt (`contenu_langue_decks`, `contenu_langues.slides`) est servi tel quel ;
+  un post déjà assigné garde son texte. Les contenus livrés par un pod (images
+  finies) ne passent pas par le placement : l'angle ne s'y applique pas.
+- **Trace** : `contenu_langue_decks.placement.angle` (absente sans angle) ;
+  pour Sophia, `contenu_langues.angle_placement` (migration 0279, écrite à part
+  après le deck). Un placement qui échoue avec un angle le dit dans sa raison
+  (« placement impossible (avec angle) »).
+- **Où le régler** : Réglages → Prompts, sous le prompt de placement de
+  l'application du sélecteur, un champ par label qui la sert (500 caractères
+  au plus, écrit en français comme une consigne, pas comme un slogan à
+  recopier). Décocher une application d'un label supprime sa ligne, et
+  l'angle avec : Pilotage → Labels demande confirmation.
+- **L'essayer** : Tests → test à blanc « contenus », case « Essayer un angle
+  brouillon » — l'angle brouillon remplace celui du label sans être enregistré,
+  et chaque deck testé affiche l'angle utilisé. Ce test ne couvre pas Sophia.
+- **Hors périmètre** : la composition legacy (`composer.ts`, sans label de
+  contenu, inactive) ne lit pas d'angle ; les variations (dormantes) lisent
+  celui du label du parent.

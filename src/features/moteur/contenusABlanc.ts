@@ -48,6 +48,8 @@ export interface DeckTesteABlanc {
   mode: string | null;
   variantes: string[];
   varianteRetenue: number | null;
+  /** Angle de placement ajouté au prompt (brouillon ou enregistré) ; null = sans angle. */
+  angle?: string | null;
   hashtags: string | null;
   appelsIA: { autorises: number; bloques: number };
 }
@@ -81,6 +83,8 @@ export interface ContenusABlancResultat {
     placement: { cle: string; present: boolean };
   } | null;
   scoring: { seuil: number; plancher: number; poidsVues: number; poidsSource: number } | null;
+  /** Angle brouillon essayé (`""` = sans angle) ; null = angles enregistrés. */
+  angleBrouillon?: string | null;
   contenus: ContenuTesteABlanc[];
   ecrituresEvitees: Array<{ table: string; operation: OperationABlanc; requetes: number; lignes: number | null }>;
   appelsBloques: Array<{ hote: string; motif: MotifBlocageABlanc; nombre: number }>;

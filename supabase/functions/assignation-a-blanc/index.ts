@@ -11,6 +11,7 @@ import {
   MAX_CONTENUS_A_BLANC,
   PLAFOND_IA_PAR_CONTENU,
 } from "../_shared/a_blanc_contenus.ts";
+import { ANGLE_LONGUEUR_MAX } from "../_shared/angle_placement.ts";
 import { ID_SOPHIA } from "../_shared/multi_app.ts";
 import { reponseNdjson } from "../_shared/nettoyage_etapes.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
@@ -36,7 +37,9 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
  *
  * Mode « contenus » (même isolate, même intercepteur, même contrôle d'accès) :
  *
- *   POST { mode: "contenus", applicationId, contenuIds (1 à 3), langue? }
+ *   POST { mode: "contenus", applicationId, contenuIds (1 à 3), langue?, angle? }
+ *   (`angle` : angle de placement brouillon, essayé à la place de celui du
+ *   label de chaque contenu, jamais enregistré ; "" = essai sans angle)
  *   → même flux NDJSON, puis { etape: "ready", aBlanc: true, mode: "contenus", resultat }.
  *
  * Note 1 à 3 slideshows pour une application AUTRE que Sophia (le vrai calcul
@@ -178,6 +181,11 @@ function lancerModeContenus(body: Record<string, unknown>): Response {
   const brut = Array.isArray(body.contenuIds) ? body.contenuIds : [];
   const contenuIds = [...new Set(brut.filter((x): x is string => typeof x === "string"))];
   const langue = typeof body.langue === "string" && body.langue.trim() ? body.langue.trim() : null;
+  // Angle brouillon : essayé à la place de l'angle enregistré, jamais écrit.
+  const angle = typeof body.angle === "string" ? body.angle : null;
+  if (angle !== null && angle.trim().length > ANGLE_LONGUEUR_MAX) {
+    return json({ error: `angle : ${ANGLE_LONGUEUR_MAX} caractères au plus` }, 400);
+  }
   if (!UUID.test(applicationId)) return json({ error: "applicationId (uuid) requis" }, 400);
   if (applicationId === ID_SOPHIA) {
     return json({ error: "Mode contenus réservé aux applications autres que Sophia" }, 400);
@@ -221,7 +229,13 @@ function lancerModeContenus(body: Record<string, unknown>): Response {
             `Test à BLANC · notation + placement · ${contenuIds.length} slideshow(s)` +
               `${langue ? ` · ${langue}` : ""} · IA autorisée (rien n'est enregistré)`,
           );
-          const r = await executerContenusABlanc(serviceClient(), ctx, { applicationId, contenuIds, langue, onLog: log });
+          const r = await executerContenusABlanc(serviceClient(), ctx, {
+            applicationId,
+            contenuIds,
+            langue,
+            angle,
+            onLog: log,
+          });
           emettre({
             etape: "ready",
             statut: r.erreurRun ? "echec" : "ok",

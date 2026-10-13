@@ -26,6 +26,14 @@ vi.mock("@/features/moteur/api", () => ({
   lancerContenusABlanc: (...args: unknown[]) => lancer(...args),
 }));
 
+vi.mock("@/features/moteur/apiMultiApp", () => ({
+  listerLiensLabels: () =>
+    Promise.resolve([
+      { label_id: "L2", application_id: UNSWIPE, angle: "insister sur le temps récupéré" },
+      { label_id: "L1", application_id: UNSWIPE, angle: null },
+    ]),
+}));
+
 import { ContenusABlancCard } from "./ContenusABlancCard";
 
 function rendre(ui: React.ReactElement) {
@@ -136,7 +144,8 @@ describe("ContenusABlancCard", () => {
 
     fireEvent.click(screen.getByRole("button", { name: /nothing is saved|rien n'est enregistré/i }));
     await screen.findByTestId("resultat-contenus-a-blanc");
-    expect(lancer).toHaveBeenCalledWith(UNSWIPE, [C1], null, expect.any(Function));
+    expect(lancer).toHaveBeenCalledWith(UNSWIPE, [C1], null, expect.any(Function), null);
+    expect(screen.getByTestId("angle-utilise").textContent).toMatch(/Sans angle|No angle/);
     expect(screen.getByText("Évité · UPSERT contenu_pertinences (1)")).toBeInTheDocument();
     expect(screen.getByText("82")).toBeInTheDocument();
     expect(screen.getByText(/71\.2/)).toBeInTheDocument();
@@ -145,6 +154,49 @@ describe("ContenusABlancCard", () => {
     const pub = document.querySelector("[data-pub=true]");
     expect(pub?.textContent).toContain("unswipe");
     expect(screen.getByText("contenu_langue_decks")).toBeInTheDocument();
+  });
+
+  it("angle : l'angle enregistré du label est affiché, un angle brouillon est envoyé au test et l'angle utilisé est montré", async () => {
+    lancer.mockImplementation(() =>
+      Promise.resolve({
+        ...RESULTAT,
+        angleBrouillon: "montrer la fierté",
+        contenus: [{ ...RESULTAT.contenus[0], deck: { ...RESULTAT.contenus[0].deck!, angle: "montrer la fierté" } }],
+      }),
+    );
+    rendre(<ContenusABlancCard />);
+    const app = (await screen.findByLabelText(/^application$/i)) as HTMLSelectElement;
+    await waitFor(() => expect(app.value).toBe(UNSWIPE));
+    const label = screen.getByLabelText(/^label$/i) as HTMLSelectElement;
+    await waitFor(() => expect(label.options.length).toBe(3));
+    fireEvent.change(label, { target: { value: "L2" } });
+
+    const bloc = await screen.findByTestId("angle-a-blanc");
+    await waitFor(() => expect(bloc.textContent).toContain("insister sur le temps récupéré"));
+    fireEvent.click(screen.getByRole("checkbox", { name: /angle brouillon|draft angle/i }));
+    fireEvent.change(screen.getByRole("textbox", { name: /angle brouillon|draft angle/i }), {
+      target: { value: "montrer la fierté" },
+    });
+
+    const liste = await screen.findByTestId("liste-slideshows");
+    await waitFor(() => expect(liste.querySelectorAll("input[type=checkbox]")).toHaveLength(2));
+    fireEvent.click(liste.querySelectorAll("input[type=checkbox]")[0]);
+    fireEvent.click(screen.getByRole("button", { name: /nothing is saved|rien n'est enregistré/i }));
+    await screen.findByTestId("resultat-contenus-a-blanc");
+    expect(lancer).toHaveBeenCalledWith(UNSWIPE, [C1], null, expect.any(Function), "montrer la fierté");
+    expect(screen.getByTestId("angle-utilise").textContent).toContain("montrer la fierté");
+  });
+
+  it("angle : label sans angle enregistré, case décochée → angles enregistrés (null)", async () => {
+    rendre(<ContenusABlancCard />);
+    const app = (await screen.findByLabelText(/^application$/i)) as HTMLSelectElement;
+    await waitFor(() => expect(app.value).toBe(UNSWIPE));
+    const label = screen.getByLabelText(/^label$/i) as HTMLSelectElement;
+    await waitFor(() => expect(label.options.length).toBe(3));
+    fireEvent.change(label, { target: { value: "L1" } });
+    const bloc = await screen.findByTestId("angle-a-blanc");
+    expect(bloc.textContent).toMatch(/Aucun angle enregistré|No saved angle/);
+    expect(screen.queryByRole("textbox", { name: /angle brouillon|draft angle/i })).toBeNull();
   });
 
   it("3 au hasard : jamais plus de 3, et le résultat affiche un prompt vide clairement", async () => {

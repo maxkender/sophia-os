@@ -388,6 +388,12 @@ export const en = {
       enBase: "Currently in the database: {{score}}/100, score {{note}}, {{eligible}} (unchanged by this test)",
       jamaisNote: "Never scored for {{app}} in the database.",
       etapePlacement: "2. {{app}} placement ({{langue}})",
+      angleEnregistre: "Saved angle for this label: \"{{angle}}\"",
+      angleAucun: "No saved angle for this label: placement only.",
+      angleEssayer: "Try a draft angle (never saved)",
+      angleBrouillonPh: "Empty = try without an angle.",
+      angleUtilise: "Angle: \"{{angle}}\"",
+      sansAngle: "No angle",
       statutDeck: {
         pret: "deck ready",
         ineligible: "content refused for the application",
@@ -1815,6 +1821,23 @@ export const en = {
       pertinenceDescApp: "Decides which topics deserve a {{nom}} placement.",
       placementTitleApp: "Prompt — {{nom}} placement",
       placementDescApp: "How the {{nom}} app fits into an existing slide.",
+      angles: {
+        titre: "Placement angles — {{nom}}",
+        description:
+          "One instruction per label, added to the placement prompt above for that label's slideshows. Empty = placement only.",
+        prochaines:
+          "Only applies to decks prepared from now on: decks already ready and posts already assigned keep their text.",
+        consigne:
+          "Write an instruction (what the {{nom}} slide should highlight), not a slogan to copy: it is in French, slides are in the account's language. {{max}} characters max.",
+        pods: "Contents delivered by a pod (finished images) skip placement: the angle does not apply to them.",
+        test: "To try one without saving it: Tests → \"contents\" dry run, \"Try a draft angle\" box.",
+        testSophia:
+          "The \"contents\" dry run does not cover Sophia: a Sophia angle applies directly to the next decks.",
+        placeholder: "E.g.: stress the time won back for what really matters.",
+        compteur: "{{n}} / {{max}}",
+        vide: "No angle: placement only.",
+        aucunLabel: "No label serves {{nom}}.",
+      },
       communsTitre: "Shared by all applications",
       communsDesc: "Translation, UGC identity and writing guidance: the same whichever application is promoted.",
       traductionTitle: "Prompt — Translation (French)",
@@ -1870,6 +1893,8 @@ export const en = {
         implicite: "No setting: this label serves Sophia by default.",
         applicationInactive: "Inactive application: the label is ready, it does not publish yet.",
         derniereApplication: "A label serves at least one application: tick the other one before removing this one.",
+        confirmerPerteAngle:
+          "Removing this application from the label also deletes its placement angle:\n{{detail}}\n\nContinue?",
         schemaAbsent:
           "Applications per label unavailable (migration 0256 not applied yet): reserve shown as before.",
         erreurLiens: "Label applications unreadable: {{message}}",

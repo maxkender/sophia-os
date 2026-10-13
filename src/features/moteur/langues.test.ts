@@ -6,7 +6,9 @@ import {
   classeDirectionTexte,
   contientLettresRtl,
   directionTexte,
+  drapeauLangue,
   estLangueRtl,
+  nomLangue,
   nomPays,
 } from "./langues";
 
@@ -27,6 +29,40 @@ describe("LANGUES_CIBLES", () => {
     expect(nomPays("sr")).toBe("Serbie");
     expect(nomPays("da")).toBe("Danemark");
     expect(nomPays("bg")).toBe("Bulgarie");
+  });
+});
+
+describe("variantes régionales", () => {
+  it("expose l'Amérique latine et le Brésil comme langues cibles", () => {
+    expect(LANGUES_CIBLES).toContain("es-419");
+    expect(LANGUES_CIBLES).toContain("pt-BR");
+  });
+
+  it("garde la variante d'Europe distincte de celle des Amériques", () => {
+    expect(nomPays("es")).toBe("Espagne");
+    expect(nomPays("es-419")).toBe("Amérique latine");
+    expect(nomPays("pt")).toBe("Portugal");
+    expect(nomPays("pt-BR")).toBe("Brésil");
+  });
+
+  it("nomme la région dans le libellé, pour qu'un recruteur ne confonde pas", () => {
+    expect(nomLangue("es")).toBe("Espagnol (Espagne)");
+    expect(nomLangue("es-419")).toBe("Espagnol (Amérique latine)");
+    expect(nomLangue("pt")).toBe("Portugais (Portugal)");
+    expect(nomLangue("pt-BR")).toBe("Portugais (Brésil)");
+  });
+
+  it("donne un drapeau propre à chaque variante", () => {
+    const codes = ["es", "es-419", "pt", "pt-BR"];
+    const drapeaux = codes.map(drapeauLangue);
+    expect(new Set(drapeaux).size).toBe(codes.length);
+    for (const d of drapeaux) expect(d).not.toBe("");
+  });
+
+  it("reste LTR : une variante régionale n'est pas une écriture différente", () => {
+    expect(estLangueRtl("es-419")).toBe(false);
+    expect(estLangueRtl("pt-BR")).toBe(false);
+    expect(directionTexte("pt-BR", "Quer aprender algo novo?")).toBe("ltr");
   });
 });
 

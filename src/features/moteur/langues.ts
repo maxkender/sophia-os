@@ -4,13 +4,30 @@
 // re-traduit vers chacune de ces langues (images nettoyées réutilisées, seul le
 // texte change + insertion Sophia). Ajouter une langue ici suffit à l'exposer
 // partout (création poster/recruteur, édition de compte).
+//
+// Un code peut porter un suffixe de région BCP-47 (`es-419`, `pt-BR`) : c'est
+// alors une VARIANTE, une langue différente pour le moteur comme pour le
+// modèle. Elle existe parce que `PAYS_OS = LANGUES_CIBLES` — un code = un
+// marché de posteurs — et que servir le même texte des deux côtés de
+// l'Atlantique se paie cash : `es` est du castillan, `es-419` de l'espagnol
+// latino-américain neutre, `pt` du portugais européen, `pt-BR` du brésilien.
+// Avant ces variantes, les posteuses du Portugal recevaient du brésilien (le
+// modèle n'avait aucune consigne de région et retombait sur sa variante la
+// plus représentée) et le réécrivaient à la main slide par slide.
+//
+// Ajouter une variante oblige à la servir partout où la langue est une clé :
+// `NOM_LANGUE`, `DRAPEAU_LANGUE`, `NOM_PAYS` ici, `HASHTAGS_PAR_LANGUE`,
+// `placementParDefaut`, la table `LANGUES` de `gemini.ts` (c'est elle qui
+// nomme la région au modèle) et un prompt `traduction_<code>` en base.
 export const LANGUES_CIBLES = [
   "fr",
   "en",
   "de",
   "it",
   "es",
+  "es-419",
   "pt",
+  "pt-BR",
   "cs",
   "nl",
   "el",
@@ -40,8 +57,10 @@ const NOM_LANGUE: Record<string, string> = {
   en: "Anglais",
   de: "Allemand",
   it: "Italien",
-  es: "Espagnol",
-  pt: "Portugais",
+  es: "Espagnol (Espagne)",
+  "es-419": "Espagnol (Amérique latine)",
+  pt: "Portugais (Portugal)",
+  "pt-BR": "Portugais (Brésil)",
   cs: "Tchèque",
   nl: "Néerlandais",
   el: "Grec",
@@ -71,7 +90,9 @@ const DRAPEAU_LANGUE: Record<string, string> = {
   de: "🇩🇪",
   it: "🇮🇹",
   es: "🇪🇸",
+  "es-419": "🌎",
   pt: "🇵🇹",
+  "pt-BR": "🇧🇷",
   cs: "🇨🇿",
   nl: "🇳🇱",
   el: "🇬🇷",
@@ -118,7 +139,11 @@ const NOM_PAYS: Record<string, string> = {
   de: "Allemagne",
   it: "Italie",
   es: "Espagne",
+  // Pas un pays : le marché hispanophone des Amériques, recruté comme un tout
+  // (Mexique, Colombie, Argentine, Chili, Pérou…). Un seul deck les sert.
+  "es-419": "Amérique latine",
   pt: "Portugal",
+  "pt-BR": "Brésil",
   cs: "Tchéquie",
   nl: "Pays-Bas",
   el: "Grèce",

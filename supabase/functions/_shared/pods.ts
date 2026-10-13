@@ -212,6 +212,15 @@ export interface DeckDepose {
   slides: SlideDeposee[];
 }
 
+/**
+ * Forme d'un code de langue cible : deux lettres, éventuellement suivies d'une
+ * région BCP-47 (`pt-BR`, `es-419`). Une simple paire de lettres refusait les
+ * variantes régionales, donc tout deck brésilien ou latino-américain déposé
+ * par un pod. Pas d'import de `LANGUES_CIBLES` ici : `import_contenu.ts`
+ * importe déjà ce module, et le cycle rendrait la constante indéfinie.
+ */
+const RE_CODE_LANGUE = /^[a-z]{2}(-(?:[A-Z]{2}|\d{3}))?$/;
+
 /** Contrôles d'un dépôt AVANT tout envoi au stockage. Renvoie les erreurs. */
 export function verifierDepot(decks: Record<string, DeckDepose> | null | undefined, langueSource: string): string[] {
   const erreurs: string[] = [];
@@ -219,7 +228,7 @@ export function verifierDepot(decks: Record<string, DeckDepose> | null | undefin
   if (!langues.length) return ["aucun deck"];
   if (!langues.includes(langueSource)) erreurs.push(`pas de deck dans la langue source (${langueSource})`);
   for (const [langue, deck] of Object.entries(decks ?? {})) {
-    if (!/^[a-z]{2}$/.test(langue)) erreurs.push(`langue invalide : ${langue}`);
+    if (!RE_CODE_LANGUE.test(langue)) erreurs.push(`langue invalide : ${langue}`);
     const positions = (deck?.slides ?? []).map((s) => Number(s.position));
     if (!positions.length) erreurs.push(`${langue} : deck vide`);
     if (new Set(positions).size !== positions.length) erreurs.push(`${langue} : positions en double`);
@@ -289,7 +298,7 @@ export function verifierDecksApplications(
     if (!langues.length) erreurs.push(`${slug} : aucun deck`);
     for (const [langue, deck] of langues) {
       const ou = `${slug} ${langue}`;
-      if (!/^[a-z]{2}$/.test(langue)) {
+      if (!RE_CODE_LANGUE.test(langue)) {
         erreurs.push(`${slug} : langue invalide : ${langue}`);
         continue;
       }

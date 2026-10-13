@@ -242,13 +242,26 @@ Si la slide ne contient aucun texte incrusté, réponds exactement : (aucun text
  * une bonne fois. Renvoie une traduction par position + hashtags (légende TikTok)
  * dans la langue cible.
  */
+/**
+ * Nom de la langue DONNÉ AU MODÈLE. C'est le seul endroit où la région d'une
+ * variante devient une consigne : le prompt ouvre sur
+ * `LANGUE DE SORTIE : ${langue.toUpperCase()}` et y revient à chaque section.
+ *
+ * `es` et `pt` étaient nus (« espagnol », « portugais »). Sans région, le
+ * modèle retombe sur sa variante la plus représentée : du brésilien pour le
+ * portugais. Les posteuses du Portugal recevaient donc des slides brésiliennes
+ * et les réécrivaient à la main, slide par slide, avant publication. Nommer la
+ * région des quatre codes supprime la cause.
+ */
 export const LANGUES: Record<string, string> = {
   fr: "français",
   en: "anglais",
-  es: "espagnol",
+  es: "espagnol d'Espagne (castillan)",
+  "es-419": "espagnol d'Amérique latine (neutre, ni castillan ni voseo)",
   it: "italien",
   de: "allemand",
-  pt: "portugais",
+  pt: "portugais du Portugal (européen)",
+  "pt-BR": "portugais du Brésil",
   cs: "tchèque",
   nl: "néerlandais",
   el: "grec",

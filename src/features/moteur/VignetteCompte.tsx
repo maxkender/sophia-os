@@ -3,7 +3,8 @@ import { useTranslation } from "react-i18next";
 
 import { Badge } from "@/components/ui/badge";
 import { estCompteCm } from "@/features/moteur/comptesCm";
-import { drapeauLangue } from "@/features/moteur/langues";
+import { drapeauLangue, nomLangue } from "@/features/moteur/langues";
+import { drapeauPays, nomPaysIso } from "@/features/moteur/pays";
 import {
   applicationsAfficheesCompte,
   type ApplicationAffichee,
@@ -13,6 +14,8 @@ export type CompteVignette = {
   id: string;
   type_compte?: string | null;
   langue: string;
+  /** Marché du compte (ISO-3166-1 alpha-2), migration 0278. */
+  pays?: string | null;
   application_id?: string | null;
   application_slug?: string | null;
   /** Répartition explicite ; `application_id` vaut Sophia pour tous les comptes. */
@@ -22,6 +25,37 @@ export type CompteVignette = {
   avatar_url?: string | null;
   score?: number | null;
 };
+
+/**
+ * Drapeau du PAYS du compte, pas de sa langue. Cinq marchés anglophones
+ * partageaient `en` et donc le même 🇬🇧 : impossible de voir où était un
+ * posteur. Tant que le pays n'est pas renseigné on garde le drapeau de la
+ * langue, mais estompé et dit comme tel, pour que le trou se voie au lieu de
+ * passer pour une réponse.
+ */
+export function DrapeauPaysCompte({
+  compte,
+}: {
+  compte: { langue: string; pays?: string | null };
+}) {
+  const { t } = useTranslation();
+  const pays = compte.pays ?? null;
+  if (pays) {
+    return (
+      <span className="text-sm leading-none" title={`${nomPaysIso(pays)} · ${nomLangue(compte.langue)}`}>
+        {drapeauPays(pays)}
+      </span>
+    );
+  }
+  return (
+    <span
+      className="text-sm leading-none opacity-40"
+      title={`${t("posters.paysNonRenseigne")} · ${nomLangue(compte.langue)}`}
+    >
+      {drapeauLangue(compte.langue)}
+    </span>
+  );
+}
 
 export function BadgeTypeCompte({ compte }: { compte: { type_compte?: string | null } }) {
   const { t } = useTranslation();
@@ -93,9 +127,7 @@ export function EnteteCompte({
               {a.part === null ? a.slug : `${a.slug} ${a.part} %`}
             </Badge>
           ))}
-          <span className="text-sm leading-none" title={compte.langue}>
-            {drapeauLangue(compte.langue)}
-          </span>
+          <DrapeauPaysCompte compte={compte} />
           {handle ? (
             <HandleCompte handle={handle} />
           ) : (

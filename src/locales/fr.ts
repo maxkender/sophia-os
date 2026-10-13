@@ -1068,6 +1068,13 @@ export const fr = {
         "{{total}} créateur(s) · {{pasCree}} pas créé · {{warmup}} warmup · {{actif}} actif",
       sansRecruteur: "Sans recruteur",
       recruteur: "Recruteur",
+      pays: "Pays",
+      paysNonRenseigne: "Pays non renseigné",
+      paysARenseigner: "Pays à renseigner",
+      filtrePays: "Pays",
+      tousPays: "Tous",
+      paysAide:
+        "Marché du compte. Indépendant de la langue : cinq pays anglophones partagent « Anglais », leur drapeau ne les distinguait pas.",
       zone: "Zone",
       zonePlaceholder: "ex. Turkey + Israel",
       zoneAide:

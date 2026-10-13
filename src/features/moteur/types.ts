@@ -96,6 +96,13 @@ export interface Compte {
   type_compte: TypeCompte;
   langue: string;
   /**
+   * Marché du compte en ISO-3166-1 alpha-2 (`GB`, `US`, `AU`…), migration
+   * 0278. Distinct de `langue`, qui reste la seule chose que le moteur lit :
+   * cinq pays anglophones partagent `en` et ne se distinguaient pas.
+   * `null` = pas encore renseigné par le HM.
+   */
+  pays?: string | null;
+  /**
    * Toujours Sophia : identité du compte (bio, persona, recrutement). Ce que
    * le compte PROMEUT se règle par `parts_applications` et ses labels.
    */

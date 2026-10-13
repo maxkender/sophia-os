@@ -1065,6 +1065,13 @@ export const en = {
         "{{total}} creator(s) · {{pasCree}} not created · {{warmup}} warmup · {{actif}} active",
       sansRecruteur: "No recruiter",
       recruteur: "Recruiter",
+      pays: "Country",
+      paysNonRenseigne: "Country not set",
+      paysARenseigner: "Country to set",
+      filtrePays: "Country",
+      tousPays: "All",
+      paysAide:
+        "The account's market. Independent of the language: five English-speaking countries share \"English\", and their flag did not tell them apart.",
       zone: "Zone",
       zonePlaceholder: "e.g. Turkey + Israel",
       zoneAide:

@@ -77,6 +77,7 @@ import { PartsApplicationsCompte } from "@/features/moteur/repartition/PartsAppl
 import { useLiensLabels } from "@/features/moteur/repartition/useMultiApp";
 import { SelectApplication } from "@/features/moteur/SelectApplication";
 import { drapeauLangue, langueInitiale, nomLangue } from "@/features/moteur/langues";
+import { drapeauPays, nomPaysIso, paysTries } from "@/features/moteur/pays";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
 import { phaseCreateur, type PhaseCreateur } from "@/features/moteur/warmup";
 import type {
@@ -116,6 +117,9 @@ function sansAccents(v: string): string {
 function nomAffiche(p: PosterProfil): string {
   return [p.prenom, p.nom].filter(Boolean).join(" ") || p.email || "—";
 }
+
+/** Valeur du filtre « pays à renseigner » : un `comptes.pays` encore NULL. */
+const CLE_SANS_PAYS = "__sans_pays__";
 
 /** Petits drapeaux en haut à droite des cartes grille (aperçu rapide des langues). */
 function DrapeauxLangues({ codes }: { codes: string[] }) {
@@ -421,6 +425,46 @@ function LangueCompteSelect({ compte }: { compte: CompteAvecDetails }) {
 }
 
 /**
+ * Pays du compte. Séparé de la langue exprès : cinq marchés anglophones
+ * partagent `en`, et tant que le drapeau suivait la langue ils étaient tous
+ * 🇬🇧. Le moteur ne lit pas ce champ, le changer ne touche ni l'assignation
+ * ni la traduction.
+ */
+function PaysCompteSelect({ compte }: { compte: CompteAvecDetails }) {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const options = React.useMemo(() => paysTries(), []);
+  const maj = useMutation({
+    mutationFn: (pays: string) => majCompte(compte.id, { pays: pays || null }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["comptes"] });
+      queryClient.invalidateQueries({ queryKey: ["posters"] });
+    },
+  });
+
+  return (
+    <div className="space-y-1">
+      <Label className="text-[10px] uppercase tracking-wide text-muted-foreground">
+        {t("posters.pays")}
+      </Label>
+      <select
+        className={selectClass}
+        value={compte.pays ?? ""}
+        disabled={maj.isPending}
+        onChange={(e) => maj.mutate(e.target.value)}
+      >
+        <option value="">{t("posters.paysARenseigner")}</option>
+        {options.map((p) => (
+          <option key={p.code} value={p.code}>
+            {drapeauPays(p.code)} {p.nom}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
+/**
  * Labels d'un compte. Tous les labels sont proposés (plus de cloison par
  * application) ; chaque pastille dit quelles applications le label sert, donc
  * ce que le compte pourra promouvoir.
@@ -518,6 +562,16 @@ export function AdminPostersPage() {
   // Comptes en sommeil compris (badge « Dormant ») : sous la clé ["comptes"],
   // les invalidations de la page les rechargent aussi.
   const comptes = useQuery({ queryKey: ["comptes", "avec-dormants"], queryFn: listerComptesAvecDormants });
+  // Pays RÉELLEMENT portés par un compte : un filtre sur les 230 codes ISO
+  // serait illisible, et seuls les marchés ouverts intéressent ici.
+  const paysUtilises = React.useMemo(() => {
+    const vus = new Set((comptes.data ?? []).map((c) => c.pays).filter(Boolean) as string[]);
+    return [...vus].sort((a, b) => nomPaysIso(a).localeCompare(nomPaysIso(b)));
+  }, [comptes.data]);
+  const comptesSansPays = React.useMemo(
+    () => (comptes.data ?? []).filter((c) => !c.pays).length,
+    [comptes.data],
+  );
   const langues = useQuery({ queryKey: ["langues-reference"], queryFn: listerLanguesReference });
   const applications = useQuery({ queryKey: ["applications"], queryFn: listerApplications });
   // Liens label → application : pour le filtre « application » (comptes dont
@@ -533,6 +587,8 @@ export function AdminPostersPage() {
   // Défaut « tous » : les nouveaux (warmup pas démarré) restent visibles.
   const [filtrePhase, setFiltrePhase] = React.useState<"tous" | PhaseCreateur>("tous");
   const [filtreLangue, setFiltreLangue] = React.useState("");
+  // Pays du compte (ISO-3166), ou CLE_SANS_PAYS pour « à renseigner ».
+  const [filtrePays, setFiltrePays] = React.useState("");
   const [filtreLabel, setFiltreLabel] = React.useState("");
   const [filtreApp, setFiltreApp] = React.useState("tous");
   // Zone de recrutement (clé `cleZone`, ou CLE_SANS_ZONE) ; "" = toutes.
@@ -1041,6 +1097,13 @@ export function AdminPostersPage() {
     if (filtrePhase !== "tous" && phase !== filtrePhase) return false;
     const liste = comptesParPoster.get(p.id) ?? [];
     if (filtreLangue && !liste.some((c) => c.langue === filtreLangue)) return false;
+    if (filtrePays) {
+      const correspond =
+        filtrePays === CLE_SANS_PAYS
+          ? liste.some((c) => !c.pays)
+          : liste.some((c) => c.pays === filtrePays);
+      if (!correspond) return false;
+    }
     if (filtreLabel) {
       const labs = liste.flatMap((c) => labelsComptes.data?.get(c.id) ?? []);
       if (!labs.some((l) => l.id === filtreLabel)) return false;
@@ -1096,6 +1159,7 @@ export function AdminPostersPage() {
   // filtre de zone, lui, choisit des zones entières.
   const filtreListe =
     Boolean(filtreLangue) ||
+    Boolean(filtrePays) ||
     Boolean(filtreLabel) ||
     (Boolean(filtreApp) && filtreApp !== "tous") ||
     Boolean(rechercheNormalisee);
@@ -1104,8 +1168,8 @@ export function AdminPostersPage() {
     [nomAffiche(r), r.email].some((v) => v && sansAccents(v).includes(rechercheNormalisee));
 
   const barreFiltres = (
-    <div className="grid gap-3 rounded-lg border bg-muted/20 p-3 sm:grid-cols-2 lg:grid-cols-5">
-      <div className="space-y-1 sm:col-span-2 lg:col-span-5">
+    <div className="grid gap-3 rounded-lg border bg-muted/20 p-3 sm:grid-cols-2 lg:grid-cols-6">
+      <div className="space-y-1 sm:col-span-2 lg:col-span-6">
         <Label htmlFor="recherchePosters">{t("posters.recherche")}</Label>
         <div className="relative">
           <Search className="pointer-events-none absolute left-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
@@ -1164,6 +1228,27 @@ export function AdminPostersPage() {
               {nomLangue(l)}
             </option>
           ))}
+        </select>
+      </div>
+      <div className="space-y-1">
+        <Label htmlFor="filtrePays">{t("posters.filtrePays")}</Label>
+        <select
+          id="filtrePays"
+          className={selectClass}
+          value={filtrePays}
+          onChange={(e) => setFiltrePays(e.target.value)}
+        >
+          <option value="">{t("posters.filtreTous")}</option>
+          {paysUtilises.map((code) => (
+            <option key={code} value={code}>
+              {drapeauPays(code)} {nomPaysIso(code)}
+            </option>
+          ))}
+          {comptesSansPays > 0 && (
+            <option value={CLE_SANS_PAYS}>
+              {t("posters.paysARenseigner")} ({comptesSansPays})
+            </option>
+          )}
         </select>
       </div>
       <div className="space-y-1">
@@ -1971,6 +2056,7 @@ export function AdminPostersPage() {
                               {!estCompteCm(c) && (
                                 <div className="grid gap-3 sm:grid-cols-2">
                                   <LangueCompteSelect compte={c} />
+                                  <PaysCompteSelect compte={c} />
                                   <LabelsCompteSelect compteId={c.id} actifs={labs} />
                                   <div className="sm:col-span-2">
                                     <PostsParJourCompte compte={c} />

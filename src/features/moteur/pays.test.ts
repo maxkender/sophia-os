@@ -84,6 +84,9 @@ describe("pays déduit de la langue", () => {
     expect(paysParDefaut("en")).toBeNull();
     expect(paysParDefaut("ar")).toBeNull();
     expect(paysParDefaut("es-419")).toBeNull();
+    // `ru` : la ligne de recrutement est « Russian-Speaking (not russia) »,
+    // qui couvre KZ, UA et BY. RU n'est pas un de nos marchés.
+    expect(paysParDefaut("ru")).toBeNull();
   });
 
   it("déduit le pays des langues qui ne désignent qu'un marché", () => {
@@ -96,7 +99,7 @@ describe("pays déduit de la langue", () => {
   });
 
   it("ne propose que des codes ISO réels, et couvre tout le reste des langues", () => {
-    const sansDefaut = ["en", "ar", "es-419"];
+    const sansDefaut = ["en", "ar", "es-419", "ru"];
     for (const code of LANGUES_CIBLES) {
       const pays = paysParDefaut(code);
       if (sansDefaut.includes(code)) {

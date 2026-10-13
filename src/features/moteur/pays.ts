@@ -82,10 +82,21 @@ export function paysTries(): Array<{ code: string; nom: string }> {
 
 /**
  * Pays déduit de la langue, là où la langue ne désigne qu'un seul de nos
- * marchés. Jumeau du remplissage de la migration 0278 : `en`, `ar` et
- * `es-419` sont ABSENTS exprès, parce qu'ils couvrent plusieurs pays et qu'un
- * défaut faux est pire qu'un champ vide. Sert à proposer une valeur à la
- * création d'un compte, jamais à en écraser une.
+ * marchés. Quatre langues sont ABSENTES exprès, parce qu'elles couvrent
+ * plusieurs pays et qu'un défaut faux est pire qu'un champ vide : personne ne
+ * vient vérifier un champ rempli.
+ *   `en`     Royaume-Uni, États-Unis, Australie, Nouvelle-Zélande, Irlande, Canada
+ *   `ar`     Émirats, Égypte
+ *   `es-419` toute l'Amérique latine
+ *   `ru`     Kazakhstan, Ukraine, Biélorussie. `RU` lui-même n'est pas un de nos
+ *            marchés : la ligne de recrutement s'appelle « Russian-Speaking
+ *            (not russia) ». Nos deux comptes russophones sont kazakhs.
+ *
+ * Jumeau côté base : le trigger `comptes_pays_defaut` (migration 0281), qui
+ * applique la même table à l'INSERT, d'où que vienne la création. Les deux
+ * doivent rester synchronisés.
+ *
+ * Sert à proposer une valeur, jamais à en écraser une.
  */
 export const PAYS_PAR_DEFAUT_LANGUE: Readonly<Record<string, string>> = Object.freeze({
   fr: "FR",
@@ -104,7 +115,6 @@ export const PAYS_PAR_DEFAUT_LANGUE: Readonly<Record<string, string>> = Object.f
   tr: "TR",
   da: "DK",
   no: "NO",
-  ru: "RU",
   hr: "HR",
   sl: "SI",
   sk: "SK",

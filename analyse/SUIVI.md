@@ -8,7 +8,7 @@ une piste infirmée reste, c'est ce qui évite de la reproposer.
 | # | Ouverte le | Piste / alerte | Qui | Mesure | Statut | Dernier point |
 | --- | --- | --- | --- | --- | --- | --- |
 | P1 | 2026-10-13 | Coupe anticipée tierlist : requalifier dès que les 2 premiers passages font r < 0,6 (647 passages gâchés en 60 j) | moteur | `05b` passages_apres_verdict | ouverte | 13/10 : 647 passages, r 0,70 |
-| P2 | 2026-10-13 | @supermaxing déclaré `en`, contenu français (197 contenus dont 126 valides) | moteur | `09` | correction proposée | 13/10 : migration 0278 écrite et testée (base locale + simulation sur la prod), à appliquer. Seul compte source touché |
+| P2 | 2026-10-13 | @supermaxing déclaré `en`, contenu français (197 contenus dont 126 valides) | moteur | `09` + decks « en » de @supermaxing recréés | corrigée, à confirmer | 13/10 09 h 23 : migration 0278 appliquée en prod. 197 contenus en `fr`, 126 decks fr avec texte, 0 deck en rempli, 328 decks d'autres langues intacts, `09` vide. Reste à vérifier : les prochains decks « en » de ces contenus (recréés à l'assignation d'un compte anglais) doivent être en anglais |
 | P3 | 2026-10-13 | Compte bridé `mia.arbeit842` (de) | ops | `08`, apify | ouverte | 13/10 : 26-118 vues en direct |
 | P4 | 2026-10-13 | Compte mort `aleksandar.distsiplina37` (bg), toujours actif | ops | `08`, apify | ouverte | 13/10 : profil vide |
 | P5 | 2026-10-13 | `ella.mindset714` (hu) : 1 post sur 2 à 1-18 vues | ops | `08b`, apify | ouverte | 13/10 : 7 posts depuis le 07/10 |

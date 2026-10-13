@@ -150,9 +150,16 @@ Même fonction (`assignation-a-blanc`), même isolate, même intercepteur, même
 contrôle d'accès :
 
 ```
-POST { mode: "contenus", applicationId, contenuIds: [1 à 3 uuid], langue? }
+POST { mode: "contenus", applicationId, contenuIds: [1 à 3 uuid], langue?, angle? }
 → flux NDJSON, puis { etape: "ready", aBlanc: true, mode: "contenus", resultat }
 ```
+
+`angle` (facultatif) : angle de placement BROUILLON, essayé à la place de
+l'angle enregistré du label de chaque slideshow (`label_applications.angle`),
+jamais écrit ; `""` = essai sans angle ; plus de 500 caractères (après trim)
+→ 400. Absent : l'angle enregistré est lu, comme la nuit. Le résultat porte
+`resultat.angleBrouillon` (null sans brouillon) et, par deck, `deck.angle`
+(angle ajouté au prompt, null sans angle).
 
 `_shared/a_blanc_contenus.ts`, pour chaque slideshow (en parallèle) :
 

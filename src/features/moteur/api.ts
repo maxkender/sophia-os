@@ -4851,16 +4851,25 @@ export async function lancerAssignationABlanc(
  * Test à blanc « contenus » : la notation (calcul du rattrapage) puis le
  * placement d'une application autre que Sophia, sur 1 à 3 slideshows. IA
  * toujours utilisée, rien n'est enregistré. `langue` absente : langue source
- * de chaque slideshow.
+ * de chaque slideshow. `angle` (chaîne, même vide) : angle de placement
+ * brouillon essayé à la place de l'angle enregistré du label ; null = angles
+ * enregistrés, comme la nuit.
  */
 export async function lancerContenusABlanc(
   applicationId: string,
   contenuIds: string[],
   langue: string | null,
   onLog?: (ligne: AssignationABlancLog) => void,
+  angle: string | null = null,
 ): Promise<ContenusABlancResultat> {
   const fin = await posterFluxABlanc(
-    { mode: "contenus", applicationId, contenuIds, ...(langue ? { langue } : {}) },
+    {
+      mode: "contenus",
+      applicationId,
+      contenuIds,
+      ...(langue ? { langue } : {}),
+      ...(angle !== null ? { angle } : {}),
+    },
     onLog,
   );
   return fin.resultat as ContenusABlancResultat;

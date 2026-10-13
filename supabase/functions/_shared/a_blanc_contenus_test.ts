@@ -152,7 +152,13 @@ const modele = (prompt: string): string => {
 
 async function lancer(
   tables: ReturnType<typeof base>,
-  args: { applicationId?: string; contenuIds?: string[]; langue?: string | null; maintenant?: () => Date },
+  args: {
+    applicationId?: string;
+    contenuIds?: string[];
+    langue?: string | null;
+    angle?: string | null;
+    maintenant?: () => Date;
+  },
 ) {
   const gemini = fauxGemini(modele);
   const serveur = fauxServeurPostgrest(tables, { gemini });
@@ -164,6 +170,7 @@ async function lancer(
         applicationId: args.applicationId ?? UNSWIPE,
         contenuIds: ids,
         langue: args.langue ?? null,
+        ...(args.angle !== undefined ? { angle: args.angle } : {}),
         maintenant: args.maintenant ?? MIDI,
       })
     )
@@ -244,6 +251,34 @@ Deno.test("contenus : vraie notation + vrai placement, cache ignoré, rien d'éc
   assertEquals(gemini.appels.length, 4, "2 notations + 2 placements");
   assertEquals(ctx.etat.compteurIA.bloques, 0);
   assert(r.resume.includes("rien n'a été écrit"));
+});
+
+Deno.test("contenus : angle brouillon essayé à la place de l'angle enregistré, jamais écrit", async () => {
+  const tables = base();
+  const avant = instantane(tables);
+  const { r, gemini, serveur } = await lancer(tables, {
+    contenuIds: [C1],
+    angle: "  insister sur le temps récupéré  ",
+  });
+  assertEquals(serveur.violations, []);
+  assertEquals(tables, avant, "rien n'a bougé en base");
+  assertEquals(r.angleBrouillon, "insister sur le temps récupéré");
+  const placement = gemini.appels.find((p) => p.includes("chosen_position")) ?? "";
+  assert(
+    placement.includes("--- CONSIGNE PROPRE À CE SLIDESHOW ---\ninsister sur le temps récupéré\n"),
+    placement,
+  );
+  assert(placement.indexOf("--- CONSIGNE PROPRE") < placement.indexOf("--- DONNÉES ---"));
+  assertEquals(r.contenus[0].deck?.angle, "insister sur le temps récupéré");
+  assert(r.limites.some((l) => l.startsWith("Angle :")), "la limite « angle » est affichée");
+});
+
+Deno.test("contenus : sans angle brouillon ni angle enregistré, prompt et deck sans angle", async () => {
+  const { r, gemini } = await lancer(base(), { contenuIds: [C1] });
+  assertEquals(r.angleBrouillon, null);
+  const placement = gemini.appels.find((p) => p.includes("chosen_position")) ?? "";
+  assert(!placement.includes("CONSIGNE PROPRE"), placement);
+  assertEquals(r.contenus[0].deck?.angle, null);
 });
 
 Deno.test("contenus : langue demandée ≠ source — traduction simulée, base relue dans le calque", async () => {

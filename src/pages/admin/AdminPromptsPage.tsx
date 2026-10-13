@@ -14,13 +14,15 @@ import {
   nomApplication,
 } from "@/features/moteur/applications";
 import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
+import { AnglesPlacementCard } from "@/features/moteur/multiapp/AnglesPlacementCard";
 
 /**
  * Les prompts qui pilotent le moteur, modifiables sans redéploiement.
  *
  * Pertinence et placement sont PROPRES à l'application du sélecteur (clés
  * `pertinence` / `placement_sophia` pour Sophia, `pertinence_<slug>` /
- * `placement_<slug>` pour les autres) ; tout le reste est commun.
+ * `placement_<slug>` pour les autres), comme les angles de placement par label
+ * (`label_applications.angle`) ; tout le reste est commun.
  */
 const PROMPTS_COMMUNS = [
   { cle: "traduction", titre: "prompts.traductionTitle", desc: "prompts.traductionDesc" },
@@ -92,7 +94,7 @@ function EditeurPrompt({ cle, titre, desc }: { cle: string; titre: string; desc:
 
 export function AdminPromptsPage() {
   const { t } = useTranslation();
-  const { slug, application } = useApplication();
+  const { slug, application, applicationId } = useApplication();
   const nom = application ? nomApplication(application) : nomApplication({ slug });
   const sophia = estSlugSophia(slug);
   return (
@@ -121,6 +123,9 @@ export function AdminPromptsPage() {
         titre={t("prompts.placementTitleApp", { nom })}
         desc={t("prompts.placementDescApp", { nom })}
       />
+      {/* Angle par label : couche ajoutée au prompt de placement ci-dessus,
+          pour les slideshows de chaque label (vide = placement seul). */}
+      <AnglesPlacementCard key={`angles-${slug}`} applicationId={applicationId} nom={nom} sophia={sophia} />
 
       <div className="pt-2">
         <h2 className="text-sm font-semibold">{t("prompts.communsTitre")}</h2>

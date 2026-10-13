@@ -389,6 +389,14 @@ export const fr = {
       enBase: "Aujourd'hui en base : {{score}}/100, note {{note}}, {{eligible}} (inchangé par ce test)",
       jamaisNote: "Jamais noté pour {{app}} en base.",
       etapePlacement: "2. Placement {{app}} ({{langue}})",
+      angleEnregistre: "Angle enregistré pour ce label : « {{angle}} »",
+      angleAucun: "Aucun angle enregistré pour ce label : placement seul.",
+      angleIllisible: "Angle enregistré illisible : le test utilisera celui en base, s'il y en a un.",
+      angleBrouillonLabel: "Angle brouillon",
+      angleEssayer: "Essayer un angle brouillon (jamais enregistré)",
+      angleBrouillonPh: "Vide = essayer sans angle.",
+      angleUtilise: "Angle : « {{angle}} »",
+      sansAngle: "Sans angle",
       statutDeck: {
         pret: "deck prêt",
         ineligible: "contenu refusé pour l'application",
@@ -1819,6 +1827,24 @@ export const fr = {
       pertinenceDescApp: "Décide quels sujets méritent un placement {{nom}}.",
       placementTitleApp: "Prompt — Placement de {{nom}}",
       placementDescApp: "Comment l'appli {{nom}} s'intègre dans une slide existante.",
+      angles: {
+        titre: "Angles de placement — {{nom}}",
+        description:
+          "Une consigne par label, ajoutée au prompt de placement ci-dessus pour les slideshows de ce label. Vide = placement seul.",
+        prochaines:
+          "Ne vaut que pour les prochaines préparations : les decks déjà prêts et les posts déjà assignés gardent leur texte.",
+        consigne:
+          "Écris une consigne (ce que la slide {{nom}} doit mettre en avant), pas un slogan à recopier : elle est en français, les slides sont dans la langue du compte. {{max}} caractères au plus.",
+        pods: "Les contenus livrés par un pod (images finies) ne passent pas par le placement : l'angle ne s'y applique pas. Les originaux de pod (slide Sophia écrite par le pod) n'ont pas d'angle Sophia ; Unswipe et micabo gardent le leur.",
+        test: "Pour l'essayer sans l'enregistrer : Tests → test à blanc « contenus », case « Essayer un angle brouillon ».",
+        testSophia:
+          "Le test à blanc « contenus » ne couvre pas Sophia : un angle Sophia s'applique directement aux prochains decks.",
+        placeholder: "Ex. : insister sur le temps récupéré pour ce qui compte vraiment.",
+        compteur: "{{n}} / {{max}}",
+        enregistrerLabel: "Enregistrer l'angle de {{label}}",
+        vide: "Aucun angle : placement seul.",
+        aucunLabel: "Aucun label ne sert {{nom}}.",
+      },
       communsTitre: "Communs à toutes les applications",
       communsDesc: "Traduction, identité UGC et consignes de rédaction : les mêmes quelle que soit l'application promue.",
       traductionTitle: "Prompt — Traduction (Français)",
@@ -1874,6 +1900,9 @@ export const fr = {
         implicite: "Aucun réglage : ce label sert Sophia par défaut.",
         applicationInactive: "Application inactive : le label est prêt, elle ne publie pas encore.",
         derniereApplication: "Un label sert au moins une application : coche l'autre avant de retirer celle-ci.",
+        ligneAnglePerdu: "{{app}} : « {{angle}} »",
+        confirmerPerteAngle:
+          "Retirer cette application du label supprime aussi son angle de placement :\n{{detail}}\n\nContinuer ?",
         schemaAbsent:
           "Applications par label indisponibles (migration 0256 pas encore passée) : réserve affichée comme avant.",
         erreurLiens: "Applications des labels illisibles : {{message}}",

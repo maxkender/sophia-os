@@ -11,6 +11,7 @@ import { supabase } from "@/lib/supabase/client";
 import { invoke } from "./api";
 import type { ApplicationOs } from "./applications";
 import { ID_SOPHIA, normaliserParts, type PartsApplications } from "./multiApp";
+import { ANGLE_LONGUEUR_MAX } from "./multiapp/angles";
 import { estErreurSchemaAbsent } from "./multiapp/logique";
 import {
   PASSAGES_PAR_TIER,
@@ -26,13 +27,14 @@ export interface ApplicationMulti extends ApplicationOs {
 }
 
 /**
- * Lien label → application. La colonne `angle` reste en base (nullable) mais
- * n'est plus ni lue ni écrite : pas d'angle par label, le prompt de placement
- * de l'application suffit.
+ * Lien label → application, avec l'angle de placement de la paire
+ * (`label_applications.angle`, voir multiapp/angles.ts) : consigne ajoutée au
+ * prompt de placement de l'application pour les slideshows du label.
  */
 export interface LienLabelApplicationRow {
   label_id: string;
   application_id: string;
+  angle?: string | null;
 }
 
 export interface ReserveLabelApplication {
@@ -119,14 +121,40 @@ export async function majApplication(
   if (error) throw error;
 }
 
-/** Tous les liens label → application (table de quelques dizaines de lignes). */
+/** Tous les liens label → application, angles compris (quelques dizaines de lignes). */
 export async function listerLiensLabels(): Promise<LienLabelApplicationRow[]> {
   const { data, error } = await supabase
     .from("label_applications")
-    .select("label_id, application_id")
+    .select("label_id, application_id, angle")
     .order("created_at");
   if (error) throw error;
   return (data ?? []) as LienLabelApplicationRow[];
+}
+
+/**
+ * Enregistre l'angle de placement d'une paire label × application (vide =
+ * placement seul). La paire doit exister : on n'ajoute pas d'application à un
+ * label par ce chemin. Ne vaut que pour les prochaines préparations de deck.
+ */
+export async function majAngleLabel(
+  labelId: string,
+  applicationId: string,
+  angle: string,
+): Promise<void> {
+  const propre = angle.trim();
+  if (propre.length > ANGLE_LONGUEUR_MAX) {
+    throw new Error(`Angle trop long : ${ANGLE_LONGUEUR_MAX} caractères au plus.`);
+  }
+  const { data, error } = await supabase
+    .from("label_applications")
+    .update({ angle: propre || null, updated_at: new Date().toISOString() })
+    .eq("label_id", labelId)
+    .eq("application_id", applicationId)
+    .select("label_id");
+  if (error) throw error;
+  if (!data || data.length === 0) {
+    throw new Error("Ce label ne sert plus cette application : rien n'a été enregistré.");
+  }
 }
 
 /**

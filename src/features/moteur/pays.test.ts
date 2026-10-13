@@ -61,10 +61,20 @@ describe("drapeau et nom d'un pays", () => {
     expect(liste.some((p) => p.code === "US")).toBe(true);
   });
 
-  it("couvre les marchés où nous recrutons", () => {
+  it("porte les 249 codes ISO-3166-1, sans aucune exclusion", () => {
+    // Une liste de référence amputée ne se lit pas comme un choix éditorial,
+    // elle se lit comme un bug : l'Australie et la Nouvelle-Zélande avaient
+    // été signalées manquantes. Elle se tient entière ou pas du tout.
+    expect(PAYS_ISO.length).toBe(249);
+    expect(new Set(PAYS_ISO).size).toBe(249);
     for (const code of ["GB", "US", "AU", "NZ", "IE", "CA", "BR", "MX", "CH", "AT", "AE"]) {
       expect(PAYS_ISO, code).toContain(code);
     }
+    // Y compris les territoires sans population permanente, retirés un temps.
+    for (const code of ["AQ", "BV", "HM", "TF", "UM", "GS", "CC", "CX", "NF", "PN", "SJ", "IO"]) {
+      expect(PAYS_ISO, code).toContain(code);
+    }
+    for (const code of PAYS_ISO) expect(code, code).toMatch(/^[A-Z]{2}$/);
   });
 });
 
@@ -74,6 +84,9 @@ describe("pays déduit de la langue", () => {
     expect(paysParDefaut("en")).toBeNull();
     expect(paysParDefaut("ar")).toBeNull();
     expect(paysParDefaut("es-419")).toBeNull();
+    // `ru` : la ligne de recrutement est « Russian-Speaking (not russia) »,
+    // qui couvre KZ, UA et BY. RU n'est pas un de nos marchés.
+    expect(paysParDefaut("ru")).toBeNull();
   });
 
   it("déduit le pays des langues qui ne désignent qu'un marché", () => {
@@ -86,7 +99,7 @@ describe("pays déduit de la langue", () => {
   });
 
   it("ne propose que des codes ISO réels, et couvre tout le reste des langues", () => {
-    const sansDefaut = ["en", "ar", "es-419"];
+    const sansDefaut = ["en", "ar", "es-419", "ru"];
     for (const code of LANGUES_CIBLES) {
       const pays = paysParDefaut(code);
       if (sansDefaut.includes(code)) {

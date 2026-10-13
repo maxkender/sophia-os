@@ -61,10 +61,20 @@ describe("drapeau et nom d'un pays", () => {
     expect(liste.some((p) => p.code === "US")).toBe(true);
   });
 
-  it("couvre les marchés où nous recrutons", () => {
+  it("porte les 249 codes ISO-3166-1, sans aucune exclusion", () => {
+    // Une liste de référence amputée ne se lit pas comme un choix éditorial,
+    // elle se lit comme un bug : l'Australie et la Nouvelle-Zélande avaient
+    // été signalées manquantes. Elle se tient entière ou pas du tout.
+    expect(PAYS_ISO.length).toBe(249);
+    expect(new Set(PAYS_ISO).size).toBe(249);
     for (const code of ["GB", "US", "AU", "NZ", "IE", "CA", "BR", "MX", "CH", "AT", "AE"]) {
       expect(PAYS_ISO, code).toContain(code);
     }
+    // Y compris les territoires sans population permanente, retirés un temps.
+    for (const code of ["AQ", "BV", "HM", "TF", "UM", "GS", "CC", "CX", "NF", "PN", "SJ", "IO"]) {
+      expect(PAYS_ISO, code).toContain(code);
+    }
+    for (const code of PAYS_ISO) expect(code, code).toMatch(/^[A-Z]{2}$/);
   });
 });
 

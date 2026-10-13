@@ -77,7 +77,7 @@ import { PartsApplicationsCompte } from "@/features/moteur/repartition/PartsAppl
 import { useLiensLabels } from "@/features/moteur/repartition/useMultiApp";
 import { SelectApplication } from "@/features/moteur/SelectApplication";
 import { drapeauLangue, langueInitiale, nomLangue } from "@/features/moteur/langues";
-import { drapeauPays, nomPaysIso, paysTries } from "@/features/moteur/pays";
+import { drapeauPays, paysTries } from "@/features/moteur/pays";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
 import { phaseCreateur, type PhaseCreateur } from "@/features/moteur/warmup";
 import type {
@@ -562,11 +562,16 @@ export function AdminPostersPage() {
   // Comptes en sommeil compris (badge « Dormant ») : sous la clé ["comptes"],
   // les invalidations de la page les rechargent aussi.
   const comptes = useQuery({ queryKey: ["comptes", "avec-dormants"], queryFn: listerComptesAvecDormants });
-  // Pays RÉELLEMENT portés par un compte : un filtre sur les 230 codes ISO
-  // serait illisible, et seuls les marchés ouverts intéressent ici.
-  const paysUtilises = React.useMemo(() => {
-    const vus = new Set((comptes.data ?? []).map((c) => c.pays).filter(Boolean) as string[]);
-    return [...vus].sort((a, b) => nomPaysIso(a).localeCompare(nomPaysIso(b)));
+  // TOUS les pays, avec le nombre de comptes de chacun. Une première version
+  // ne listait que les marchés déjà ouverts : l'Australie, la Nouvelle-Zélande
+  // et l'Irlande manquaient donc à l'appel, précisément les pays où l'on veut
+  // recruter. Un pays à zéro n'est pas du bruit ici, c'est la cible.
+  const paysOptions = React.useMemo(() => {
+    const compte = new Map<string, number>();
+    for (const c of comptes.data ?? []) {
+      if (c.pays) compte.set(c.pays, (compte.get(c.pays) ?? 0) + 1);
+    }
+    return paysTries().map((p) => ({ ...p, n: compte.get(p.code) ?? 0 }));
   }, [comptes.data]);
   const comptesSansPays = React.useMemo(
     () => (comptes.data ?? []).filter((c) => !c.pays).length,
@@ -1239,9 +1244,10 @@ export function AdminPostersPage() {
           onChange={(e) => setFiltrePays(e.target.value)}
         >
           <option value="">{t("posters.filtreTous")}</option>
-          {paysUtilises.map((code) => (
-            <option key={code} value={code}>
-              {drapeauPays(code)} {nomPaysIso(code)}
+          {paysOptions.map((p) => (
+            <option key={p.code} value={p.code}>
+              {drapeauPays(p.code)} {p.nom}
+              {p.n > 0 ? ` (${p.n})` : ""}
             </option>
           ))}
           {comptesSansPays > 0 && (

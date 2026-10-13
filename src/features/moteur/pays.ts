@@ -15,26 +15,29 @@ import i18next from "i18next";
  */
 
 /**
- * Codes ISO-3166-1 alpha-2 officiellement attribués, moins les territoires
- * sans population permanente (AQ, BV, HM, TF, UM, GS, CC, CX, NF, PN, SJ,
- * IO) : personne ne recrute un posteur à l'île Bouvet, et les laisser
- * allongeait la liste déroulante pour rien.
+ * Les 249 codes ISO-3166-1 alpha-2 officiellement attribués, sans exception.
+ *
+ * Une première version retirait les douze territoires sans population
+ * permanente (AQ, BV, HM…), par souci de concision. Mauvais calcul : un
+ * utilisateur qui cherche un pays et ne le trouve pas ne se dit pas « il a
+ * dû être filtré », il se dit que la liste est cassée, et il a raison de s'en
+ * méfier. Une liste de référence se tient entière ou pas du tout.
  */
 const CODES_ISO =
-  "AD AE AF AG AI AL AM AO AR AS AT AU AW AX AZ " +
-  "BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BW BY BZ " +
-  "CA CD CF CG CH CI CK CL CM CN CO CR CU CV CW CY CZ " +
+  "AD AE AF AG AI AL AM AO AQ AR AS AT AU AW AX AZ " +
+  "BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BV BW BY BZ " +
+  "CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ " +
   "DE DJ DK DM DO DZ EC EE EG EH ER ES ET " +
-  "FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GT GU GW GY " +
-  "HK HN HR HT HU ID IE IL IM IN IQ IR IS IT " +
+  "FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY " +
+  "HK HM HN HR HT HU ID IE IL IM IN IO IQ IR IS IT " +
   "JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ " +
   "LA LB LC LI LK LR LS LT LU LV LY " +
   "MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ " +
-  "NA NC NE NG NI NL NO NP NR NU NZ OM " +
-  "PA PE PF PG PH PK PL PM PR PS PT PW PY QA RE RO RS RU RW " +
-  "SA SB SC SD SE SG SH SI SK SL SM SN SO SR SS ST SV SX SY SZ " +
-  "TC TD TG TH TJ TK TL TM TN TO TR TT TV TW TZ " +
-  "UA UG US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW";
+  "NA NC NE NF NG NI NL NO NP NR NU NZ OM " +
+  "PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW " +
+  "SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR SS ST SV SX SY SZ " +
+  "TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ " +
+  "UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW";
 
 export const PAYS_ISO: readonly string[] = Object.freeze(CODES_ISO.split(" "));
 

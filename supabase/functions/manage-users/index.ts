@@ -669,15 +669,40 @@ async function gererRequete(request: Request): Promise<Response> {
     });
   }
 
-  if (body.action === "delete") {
-    if (!body.userId) return json({ error: "userId requis" }, 400);
-    if (acces.role !== "admin") {
+  if (body.action === "activer") {
+    if (!body.userId || typeof body.actif !== "boolean") {
+      return json({ error: "userId et actif requis" }, 400);
+    }
+    if (acces.role !== "admin" && acces.role !== "head_of_ops") {
       const { data: cible } = await supabase
         .from("profiles")
         .select("manager_id")
         .eq("id", body.userId)
         .single();
       if (!cible || cible.manager_id !== acces.userId) return json({ error: "forbidden" }, 403);
+    }
+    const { error } = await supabase
+      .from("profiles")
+      .update({ is_active: body.actif })
+      .eq("id", body.userId);
+    if (error) return json({ error: error.message }, 400);
+    // Désactiver le créateur met aussi ses comptes en dormant : le moteur ne
+    // lit que les comptes actifs, sans quoi il continuerait de leur générer
+    // des posts que personne ne publie. Réactiver les réveille.
+    const { error: errComptes } = await supabase
+      .from("comptes")
+      .update({ is_active: body.actif })
+      .eq("poster_id", body.userId);
+    if (errComptes) return json({ error: errComptes.message }, 400);
+    return json({ ok: true });
+  }
+
+  if (body.action === "delete") {
+    if (!body.userId) return json({ error: "userId requis" }, 400);
+    // Supprimer efface tout l'historique du créateur en cascade : réservé à
+    // l'admin et au Head of Ops. Un recruteur désactive (action « activer »).
+    if (acces.role !== "admin" && acces.role !== "head_of_ops") {
+      return json({ error: "forbidden" }, 403);
     }
     await supabase
       .from("profiles")

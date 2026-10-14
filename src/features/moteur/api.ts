@@ -1677,13 +1677,14 @@ export async function majDocument(
   if (error) throw error;
 }
 
+/** Suppression définitive, historique compris : admin et Head of Ops seulement. */
 export function supprimerPoster(userId: string) {
   return invoke("manage-users", { action: "delete", userId });
 }
 
-export async function majPoster(id: string, patch: { is_active?: boolean }): Promise<void> {
-  const { error } = await supabase.from("profiles").update(patch).eq("id", id);
-  if (error) throw error;
+/** Désactive (ou réactive) un créateur ET ses comptes : désactivé, il ne reçoit plus de posts. */
+export function activerPoster(userId: string, actif: boolean) {
+  return invoke("manage-users", { action: "activer", userId, actif });
 }
 
 // --- Bibliothèque -----------------------------------------------------------

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Check, Pencil, Trash2, UserPlus, X } from "lucide-react";
+import { Check, Pencil, Power, Trash2, UserPlus, X } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -19,6 +19,7 @@ import {
 import { useAuth } from "@/features/auth/AuthContext";
 import { CarteCreerRecruteur } from "@/features/hiring/CarteCreerRecruteur";
 import {
+  activerPoster,
   creerPoster,
   listerLanguesReference,
   listerPosters,
@@ -95,6 +96,14 @@ function LignePoster({
       queryClient.invalidateQueries({ queryKey: ["posters"] });
     },
   });
+  // Un recruteur désactive ; supprimer (historique compris) reste à l'admin et
+  // au Head of Ops, seuls autorisés par manage-users.
+  const peutSupprimer = role === "admin" || role === "head_of_ops";
+  const nomAffiche = [p.prenom, p.nom].filter(Boolean).join(" ") || p.email;
+  const basculer = useMutation({
+    mutationFn: () => activerPoster(p.id, !p.is_active),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["posters"] }),
+  });
   const supprimer = useMutation({
     mutationFn: () => supprimerPoster(p.id),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["posters"] }),
@@ -118,16 +127,29 @@ function LignePoster({
           </span>
           <button
             type="button"
-            disabled={supprimer.isPending}
+            disabled={basculer.isPending}
             onClick={() => {
-              if (window.confirm(t("hiring.confirmSuppr", { nom: [p.prenom, p.nom].filter(Boolean).join(" ") || p.email })))
-                supprimer.mutate();
+              if (!p.is_active || window.confirm(t("hiring.confirmDesactiver", { nom: nomAffiche })))
+                basculer.mutate();
             }}
-            className="inline-flex items-center gap-1 text-xs font-medium text-destructive"
+            className="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground"
           >
-            <Trash2 className="size-3" />
-            {t("common.delete")}
+            <Power className="size-3" />
+            {p.is_active ? t("posters.disable") : t("posters.enable")}
           </button>
+          {peutSupprimer && (
+            <button
+              type="button"
+              disabled={supprimer.isPending}
+              onClick={() => {
+                if (window.confirm(t("hiring.confirmSuppr", { nom: nomAffiche }))) supprimer.mutate();
+              }}
+              className="inline-flex items-center gap-1 text-xs font-medium text-destructive"
+            >
+              <Trash2 className="size-3" />
+              {t("common.delete")}
+            </button>
+          )}
         </div>
       </div>
 

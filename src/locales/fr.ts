@@ -1224,6 +1224,8 @@ export const fr = {
       apercuTitre: "Aperçu du post",
       apercuVide: "Ce post n'a pas encore de contenu (en cours de fabrication).",
       confirmSuppr: "Supprimer définitivement {{nom}} ?",
+      confirmDesactiver:
+        "Désactiver {{nom}} ? Il ne peut plus se connecter et ses comptes TikTok ne reçoivent plus de posts. Tu peux le réactiver à tout moment.",
       badge: "Recruteur",
       badgeHm: "HM",
       badgeDm: "DM",

@@ -256,7 +256,7 @@ Deno.test("Sophia, IA décochée, deck prêt sans hashtags : vrai deck, hashtags
   assertEquals(serveur.violations, []);
 });
 
-Deno.test("Application, IA décochée : cache prêt → vrai deck ; base polluée → refusé comme la nuit", async () => {
+Deno.test("Application, IA décochée : cache prêt → vrai deck ; Sophia sur la couverture → refusé comme la nuit", async () => {
   const deckUnswipe = [
     { position: 1, texte_overlay: "trois habitudes", position_sophia: false },
     { position: 2, texte_overlay: "avec Unswipe", position_sophia: true },
@@ -291,7 +291,7 @@ Deno.test("Application, IA décochée : cache prêt → vrai deck ; base pollué
         assertEquals(pret.statut, "pret");
         assert(pret.statut === "pret" && pret.slides[1].texte_overlay === "avec Unswipe");
         const refuse = await decksAssignation.application(supabase, "c2", "fr", APP, {});
-        assertEquals(refuse, { statut: "ineligible", raison: "base polluée par une pub Sophia", cuit: true });
+        assertEquals(refuse, { statut: "ineligible", raison: "couverture qui cite Sophia", cuit: true });
       });
       assertEquals(ctx.etat.decks.map((n) => n.origine), ["existant", "refuse"]);
       // La nuit met le refus en cache : simulé, jamais écrit.

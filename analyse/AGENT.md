@@ -49,6 +49,9 @@ et un humain la valide.
 1. **Maturité.** Les vues sont relevées une seule fois, vers J+2 (médiane 55 h),
    puis jamais remises à jour. Ne juge que des posts publiés il y a plus de
    3 jours. La semaine en cours n'est pas comparable aux autres.
+   **Exception : Micabo est relevé tous les soirs** (constaté le 14/10 : ses posts
+   du 05/10 remesurés à 182 h). Ses vues « mûres » ne se comparent pas à celles de
+   Sophia ou d'Unswipe ; entre applications, ne compare que des posts du même âge.
 2. **Les vues à J+2 classent bien, mais sous-estiment la portée.** Mesuré le
    2026-10-13 sur 67 posts : un post médian ne prend que 12 % de plus après J+2,
    mais le total prend 41 %, parce que les viraux continuent de monter. Pour

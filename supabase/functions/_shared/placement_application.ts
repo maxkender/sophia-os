@@ -49,7 +49,7 @@ export interface PlacementApplicationEntree {
    */
   positionImposee?: number;
   /**
-   * Angle du label du contenu pour cette application (`label_applications.angle`).
+   * Angle du label du contenu pour cette application (`angles_placement`).
    * Vide ou absent : prompt identique à celui sans angle.
    */
   angle?: string;

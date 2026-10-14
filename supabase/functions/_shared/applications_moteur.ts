@@ -17,6 +17,7 @@ import {
 } from "./angle_placement.ts";
 import { lireParLots } from "./lots.ts";
 import {
+  applicationsDuLabel,
   ID_SOPHIA,
   SLUG_SOPHIA,
   type ApplicationMoteur,
@@ -232,7 +233,10 @@ export async function chargerLabelsDuContenu(
 
 /**
  * Angles (`angles_placement`, 0285) des labels d'un contenu pour une
- * application, au statut demandé. Lève sur une lecture en panne.
+ * application, au statut demandé. Seulement ceux des labels qui SERVENT
+ * l'application (`label_applications`, un label sans ligne sert Sophia) :
+ * décocher l'application d'un label garde ses angles, sans qu'ils servent.
+ * Lève sur une lecture en panne.
  */
 async function lireAnglesDuContenu(
   supabase: Supabase,
@@ -252,7 +256,13 @@ async function lireAnglesDuContenu(
     .eq("statut", statut)
     .order("created_at", { ascending: true });
   if (error) throw new Error(`angles_placement : ${error.message}`);
-  return { labels, angles: (data ?? []) as AnglePlacementLigne[] };
+  const angles = (data ?? []) as AnglePlacementLigne[];
+  if (angles.length === 0) return { labels, angles };
+  const liens = await chargerLiensLabels(supabase, angles.map((a) => a.label_id));
+  return {
+    labels,
+    angles: angles.filter((a) => applicationsDuLabel(a.label_id, liens).includes(applicationId)),
+  };
 }
 
 const avertirAngle = (contenuId: string, applicationId: string, quoi: string, error: unknown) =>

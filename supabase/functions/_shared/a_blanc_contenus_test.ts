@@ -255,11 +255,12 @@ Deno.test("contenus : vraie notation + vrai placement, cache ignoré, rien d'éc
   assert(r.resume.includes("rien n'a été écrit"));
 });
 
-/** Le label L1 sur C1, et des angles pour la paire (L1 × application). */
+/** Le label L1 (qui sert Sophia et Unswipe) sur C1, et des angles pour ses paires. */
 const avecAngles = (angles: Array<Record<string, unknown>>, extra: Record<string, unknown[]> = {}) =>
   base({
     contenu_labels: [{ contenu_id: C1, label_id: "L1" }],
     labels: [{ id: "L1", slug: "weird-alpha", nom: "weird_alpha" }],
+    label_applications: [{ label_id: "L1", application_id: ID_SOPHIA }, { label_id: "L1", application_id: UNSWIPE }],
     angles_placement: angles,
     ...extra,
   });
@@ -320,6 +321,18 @@ Deno.test("angles : aucun angle en test → un seul placement, comme avant", asy
   assertEquals(r.contenus[0].angles[0].angle, null);
   assertEquals(placements(gemini.appels).length, 1);
   assert(!placements(gemini.appels)[0].includes("CONSIGNE PROPRE"));
+});
+
+Deno.test("angles : un label qui ne sert plus l'application garde ses angles, sans qu'ils servent", async () => {
+  const tables = avecAngles(
+    [angle("a-actif", "insister sur le temps récupéré", "actif"), angle("a-test", "montrer la fierté", "test", UNSWIPE, 1)],
+    { label_applications: [{ label_id: "L1", application_id: ID_SOPHIA }] },
+  );
+  const { r, gemini } = await lancer(tables, { contenuIds: [C1] });
+  const [c1] = r.contenus;
+  assertEquals(c1.angles.map((a) => [a.source, a.angle]), [["reference", null]]);
+  assertEquals(placements(gemini.appels).map(consigne), [null]);
+  assertEquals((tables as unknown as Record<string, unknown[]>).angles_placement.length, 2, "les angles restent en base");
 });
 
 Deno.test("angles : au-delà de MAX_ANGLES_TEST, les plus récents attendent, et c'est dit", async () => {

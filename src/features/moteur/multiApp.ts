@@ -41,9 +41,10 @@ export interface ApplicationMoteur {
 }
 
 /**
- * Lien label → application. L'angle de placement de la paire
- * (`label_applications.angle`) se lit à part, là où il sert : prompt de
- * placement côté Edge (angle_placement.ts), éditeur côté front (apiMultiApp.ts).
+ * Lien label → application. Les angles de placement de la paire
+ * (`angles_placement`) se lisent à part, là où ils servent : prompt de
+ * placement côté Edge (angle_placement.ts), page Angles de placement côté
+ * front (apiAngles.ts).
  */
 export interface LienLabelApplication {
   label_id: string;

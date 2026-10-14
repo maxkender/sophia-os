@@ -986,6 +986,26 @@ Deno.test("angle d'un label système : ignoré", async () => {
   assert(!promptPlacement(prompts).includes("CONSIGNE PROPRE"));
 });
 
+Deno.test("angle actif d'un label qui ne sert plus l'application : ignoré (gardé en base)", async () => {
+  oublierSondeMultiApp();
+  const tables = monde({
+    // Contenu dans deux labels : l1 sert Unswipe, l2 ne la sert plus (angle gardé).
+    contenu_labels: [
+      { contenu_id: "c1", label_id: "l1", labels: { id: "l1", slug: "clean-girl", nom: "Clean Girl" } },
+      { contenu_id: "c1", label_id: "l2", labels: { id: "l2", slug: "weird-alpha", nom: "Weird Alpha" } },
+    ],
+    label_applications: [{ label_id: "l1", application_id: UNSWIPE.id }, { label_id: "l2", application_id: ID_SOPHIA }],
+    angles_placement: [
+      { id: "a1", label_id: "l1", application_id: UNSWIPE.id, texte: ANGLE, statut: "actif" },
+      { id: "a2", label_id: "l2", application_id: UNSWIPE.id, texte: "angle d'un label qui ne sert plus", statut: "actif" },
+    ],
+  });
+  const { prompts } = await avecGemini(() => assurerDeckApplication(fauxClient(tables, []), "c1", "fr", UNSWIPE));
+  const prompt = promptPlacement(prompts);
+  assert(prompt.includes(ANGLE), "l'angle du label qui sert est lu");
+  assert(!prompt.includes("ne sert plus"), "l'angle du label qui ne sert plus ne l'est pas");
+});
+
 Deno.test("test à blanc : l'angle à essayer remplace l'angle actif, '' essaie sans angle", async () => {
   oublierSondeMultiApp();
   const enregistre = () =>

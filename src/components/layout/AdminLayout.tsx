@@ -6,6 +6,7 @@ import {
   BookOpen,
   CalendarDays,
   Columns2,
+  Crosshair,
   FlaskConical,
   Gauge,
   LineChart,
@@ -213,6 +214,12 @@ export function AdminLayout() {
               label: t("nav.prompts"),
               icon: MessageSquareQuote,
               description: t("navDesc.prompts"),
+            },
+            {
+              to: "/admin/angles",
+              label: t("nav.angles"),
+              icon: Crosshair,
+              description: t("navDesc.angles"),
             },
             {
               to: "/admin/documents",

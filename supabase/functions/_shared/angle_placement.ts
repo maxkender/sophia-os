@@ -1,7 +1,7 @@
 /**
- * Angle de placement : consigne propre à un label pour UNE application
- * (`label_applications.angle`), ajoutée au prompt de placement de cette
- * application quand elle n'est pas vide.
+ * Angle de placement : consigne propre à un label pour UNE application,
+ * ajoutée au prompt de placement de cette application quand elle n'est pas
+ * vide.
  *
  * Exemple : weird_alpha × Unswipe = « insister sur le côté … ». Le prompt de
  * placement de l'application reste le socle ; l'angle oriente le FOND de la
@@ -11,7 +11,9 @@
  * paire peut en porter plusieurs, chacun ACTIF (au plus un par paire : ajouté
  * au prompt partout) ou en TEST (lu seulement par le test à blanc « contenus »,
  * une variante par angle pour comparer). Le moteur de la nuit ne lit que
- * l'angle actif ; `label_applications.angle` n'est plus lue.
+ * l'angle actif ; `label_applications.angle` n'est plus lue. Seuls comptent
+ * les angles des labels qui SERVENT l'application (décocher l'application
+ * d'un label garde ses angles, inutilisés).
  *
  * Décision du 2026-10-13 (l'angle avait été retiré le 2026-10-08) :
  *  - placement seulement : la pertinence (le contenu entre-t-il dans la réserve
@@ -28,7 +30,7 @@
  */
 import { estLabelSystemeSlug, type LabelRef } from "./multi_app.ts";
 
-/** Longueur maximale d'un angle dans l'éditeur (Réglages → Prompts). */
+/** Longueur maximale d'un angle (page Angles de placement, contrainte SQL). */
 export const ANGLE_LONGUEUR_MAX = 500;
 
 /**

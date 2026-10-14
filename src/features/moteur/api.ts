@@ -4862,19 +4862,17 @@ export async function lancerAssignationABlanc(
 }
 
 /**
- * Test à blanc « contenus » : la notation (calcul du rattrapage) puis le
- * placement d'une application autre que Sophia, sur 1 à 3 slideshows. IA
- * toujours utilisée, rien n'est enregistré. `langue` absente : langue source
- * de chaque slideshow. `angle` (chaîne, même vide) : angle de placement
- * brouillon essayé à la place de l'angle enregistré du label ; null = angles
- * enregistrés, comme la nuit.
+ * Test à blanc « contenus » : la notation (calcul du rattrapage ; pas pour
+ * Sophia) puis le placement d'une application, sur 1 à 3 slideshows : la
+ * référence (angle actif du label, ou sans angle) et un placement par angle
+ * en test du label, pour comparer. IA toujours utilisée, rien n'est
+ * enregistré. `langue` absente : langue source de chaque slideshow.
  */
 export async function lancerContenusABlanc(
   applicationId: string,
   contenuIds: string[],
   langue: string | null,
   onLog?: (ligne: AssignationABlancLog) => void,
-  angle: string | null = null,
 ): Promise<ContenusABlancResultat> {
   const fin = await posterFluxABlanc(
     {
@@ -4882,7 +4880,6 @@ export async function lancerContenusABlanc(
       applicationId,
       contenuIds,
       ...(langue ? { langue } : {}),
-      ...(angle !== null ? { angle } : {}),
     },
     onLog,
   );

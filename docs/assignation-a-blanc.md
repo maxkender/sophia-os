@@ -141,25 +141,42 @@ repêchage rend les vraies valeurs, puis 0 ligne au second essai, comme la nuit)
 
 Admin → Tests → « Tester la notation et le placement (à blanc) ». Avant de
 lancer le rattrapage de pertinence d'une application sur TOUT un label, on
-choisit l'application (Unswipe par défaut, jamais Sophia), un label (ceux qui
-servent l'application en tête), 1 à 3 slideshows valides et importés (recherche
-par titre, « 3 au hasard ») et la langue du deck (défaut : langue source). Rien
-n'est enregistré.
+choisit l'application (Unswipe par défaut ; Sophia : placement seul), un label
+(ceux qui servent l'application en tête), 1 à 3 slideshows valides et importés
+(recherche par titre, « 3 au hasard ») et la langue du deck (défaut : langue
+source). Rien n'est enregistré. L'écran annonce, pour le label choisi, l'angle
+actif (la référence) et le nombre d'angles en test.
 
 Même fonction (`assignation-a-blanc`), même isolate, même intercepteur, même
 contrôle d'accès :
 
 ```
-POST { mode: "contenus", applicationId, contenuIds: [1 à 3 uuid], langue?, angle? }
+POST { mode: "contenus", applicationId, contenuIds: [1 à 3 uuid], langue? }
 → flux NDJSON, puis { etape: "ready", aBlanc: true, mode: "contenus", resultat }
 ```
 
-`angle` (facultatif) : angle de placement BROUILLON, essayé à la place de
-l'angle enregistré du label de chaque slideshow (`label_applications.angle`),
-jamais écrit ; `""` = essai sans angle ; plus de 500 caractères (après trim)
-→ 400. Absent : l'angle enregistré est lu, comme la nuit. Le résultat porte
-`resultat.angleBrouillon` (null sans brouillon) et, par deck, `deck.angle`
-(angle ajouté au prompt, null sans angle).
+**Angles** (`angles_placement`, voir multi-applications.md § « Angle de
+placement ») : pour chaque slideshow, un placement de RÉFÉRENCE (l'angle actif
+de ses labels qui servent l'application, ou sans angle : ce que fera la nuit),
+puis un placement par angle EN TEST de ces labels (au plus `MAX_ANGLES_TEST` =
+4, les plus anciens ; un angle en test identique à la référence n'est pas
+refait). `resultat.contenus[i].angles` : `{ source: "reference" | "test",
+angleId, angle, deck, erreur? }`, la référence d'abord ; `deck` du contenu =
+celui de la référence ; `anglesNonTestes` : angles au-delà du maximum (dit
+dans les limites). Si la référence n'a pas de base dans la langue
+(traduction ratée, deck source vide), les angles en test ne sont pas lancés
+(« non testé ») : chacun retraduirait sa base, la comparaison serait faussée. Les angles en test ne sont lus que par ce mode
+(`chargerAnglesTest`) et n'entrent dans le placement que par
+`angleBrouillon` + `ignorerCache`.
+
+**Sophia** : `resultat.notation = false`, pas de notation (le contenu est déjà
+dans le stock Sophia), résumé sans compte d'éligibles et limites propres
+(`LIMITES_SOPHIA`) ; la base sans pub de la langue est préparée une fois
+(traduite si besoin, avec la voix du compte source comme la nuit ; slide
+concurrente imposée puis retirée), puis
+`integrateSophia` pose la slide pour chaque angle. Refus (dit par contenu) :
+contenu livré par un pod, original de pod, base vide, base qui porte déjà une
+slide Sophia.
 
 `_shared/a_blanc_contenus.ts`, pour chaque slideshow (en parallèle) :
 
@@ -174,7 +191,7 @@ jamais écrit ; `""` = essai sans angle ; plus de 500 caractères (après trim)
 2. **Tier d'entrée** — celui d'une ligne neuve dans
    `contenu_application_tier_etat` : `tierInitialDepuisNote(note)` si éligible,
    D / 0 sinon, et ses passages.
-3. **Placement** — le VRAI `assurerDeckApplication` avec `{ ignorerCache: true }`
+3. **Placement** (hors Sophia) — le VRAI `assurerDeckApplication` avec `{ ignorerCache: true }`
    (option ajoutée, absente partout ailleurs : la nuit et l'assignation test
    gardent le cache à l'identique) : le prompt `placement_<slug>` ACTUEL est
    testé. Une base déjà traduite (`slides_base` de la langue) est réutilisée ;
@@ -182,7 +199,9 @@ jamais écrit ; `""` = essai sans angle ; plus de 500 caractères (après trim)
    même pour un contenu non éligible (dit à l'écran). Deck AVANT (base sans
    pub) / APRÈS (slide pub surlignée), slide concurrente imposée, variantes du
    modèle : relus dans le calque et dans l'upsert simulé de
-   `contenu_langue_decks`.
+   `contenu_langue_decks`. La référence passe d'abord (elle traduit la base
+   dans le calque), les angles en test ensuite, en parallèle, sans
+   retraduire ; chacun retrouve son upsert simulé par `placement.angle`.
 
 Garde-fous propres au mode :
 
@@ -190,8 +209,8 @@ Garde-fous propres au mode :
   (`raisonRefusIA`). Plafond : `PLAFOND_IA_PAR_CONTENU` (15) × nombre de
   slideshows — un slideshow coûte au plus 7 appels (notation, traduction,
   4 essais de placement, hashtags), et un appel en coûte deux quand le premier
-  modèle échoue. Le plafond du mode compte reste 30.
-- **Jamais Sophia** : refus 400 dans l'index, et à nouveau dans le module.
+  modèle échoue ; chaque angle en test ajoute 6 au plafond (15 + 6 × 4 = 39).
+  Le plafond du mode compte reste 30.
 - **Temps** : au-delà de 110 s, plus de traduction ni d'essai de placement
   (« temps du test épuisé ») : le résultat sort avant le mur Edge de 150 s.
 - Le calque connaît la clé primaire composée de `contenu_pertinences`
@@ -223,8 +242,12 @@ npx vitest run src/features/moteur/assignationABlanc.test.ts src/features/moteur
   travers l'intercepteur (faux réseau piégé, base comparée avant / après) ;
   note identique au calcul du rattrapage (piste comprise) ; plancher de 50 ;
   ligne déjà en base remplacée dans le test seulement ; cache ignoré
-  SEULEMENT avec `ignorerCache` ; prompts vides ; refus (Sophia, application
-  inconnue, nuit) ; déploiement (le module ne touche qu'`assignation-a-blanc`).
+  SEULEMENT avec `ignorerCache` ; prompts vides ; refus (application
+  inconnue, nuit) ; angles (référence + un placement par angle en test, sans
+  angle actif, plafond `MAX_ANGLES_TEST`, label qui ne sert plus) ; Sophia
+  (placement seul) ; déploiement (le module ne touche qu'`assignation-a-blanc`).
+- `angle_test_seulement_test.ts` : les identifiants qui lisent ou injectent un
+  angle en test n'apparaissent que dans les fichiers du test à blanc.
 
 - `a_blanc_intercepteur_test.ts` : le vrai supabase-js au-dessus d'un faux
   `fetch` sous-jacent **piégé** (toute requête qui n'est pas une lecture

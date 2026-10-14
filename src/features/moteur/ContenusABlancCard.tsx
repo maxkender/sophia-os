@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { Shuffle, ShieldCheck, Sparkles } from "lucide-react";
@@ -8,18 +9,17 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import {
   lancerContenusABlanc,
   listerApplications,
-  listerLabelIdsApplication,
   listerLabels,
   listerSlideshowsLabelABlanc,
 } from "./api";
+import { listerAnglesPlacement } from "./apiAngles";
 import { listerLiensLabels } from "./apiMultiApp";
-import { ID_SOPHIA, SLUG_SOPHIA } from "./multiApp";
-import { ANGLE_LONGUEUR_MAX, angleDuLien } from "./multiapp/angles";
+import { applicationsDuLabel } from "./multiApp";
+import { anglesTestCompares, MAX_ANGLES_TEST } from "./multiapp/angles";
 import { LANGUES_CIBLES, nomLangue } from "./langues";
 import {
   iaBloqueeParLaNuit,
@@ -36,6 +36,7 @@ import {
   raisonDeckCle,
   statutDeckCle,
   tirerAuHasard,
+  type AngleTesteABlanc,
   type ContenusABlancResultat,
   type ContenuTesteABlanc,
   type DeckTesteABlanc,
@@ -54,29 +55,30 @@ const SLUG_DEFAUT = "unswipe";
  * éligibilité, son tier d'entrée et son placement — sans rien enregistrer
  * (fonction `assignation-a-blanc`, mode `contenus`). Sert à vérifier les
  * prompts `pertinence_<app>` / `placement_<app>` avant de lancer le rattrapage
- * de tout un label.
+ * de tout un label. Sophia : placement seul (pas de notation).
+ *
+ * Angles : le placement de RÉFÉRENCE (l'angle actif du label, ou sans angle :
+ * ce que fera la nuit), puis un placement par angle EN TEST du label, côte à
+ * côte pour comparer. Les angles en test ne servent qu'ici.
  */
 export function ContenusABlancCard() {
   const { t } = useTranslation();
   const applications = useQuery({ queryKey: ["applications"], queryFn: listerApplications });
-  const autres = React.useMemo(
-    () => (applications.data ?? []).filter((a) => a.id !== ID_SOPHIA && a.slug !== SLUG_SOPHIA),
-    [applications.data],
-  );
+  const apps = applications.data ?? [];
   const [applicationChoisie, setApplicationChoisie] = React.useState("");
   const applicationId =
-    applicationChoisie || (autres.find((a) => a.slug === SLUG_DEFAUT) ?? autres[0])?.id || "";
+    applicationChoisie || (apps.find((a) => a.slug === SLUG_DEFAUT) ?? apps[0])?.id || "";
 
   const labels = useQuery({ queryKey: ["labels"], queryFn: () => listerLabels(), staleTime: 60_000 });
-  const servis = useQuery({
-    queryKey: ["labels-application", applicationId],
-    queryFn: () => listerLabelIdsApplication(applicationId),
-    enabled: Boolean(applicationId),
-  });
-  const labelsOrdonnes = React.useMemo(
-    () => ordonnerLabels(labels.data ?? [], new Set(servis.data ?? [])),
-    [labels.data, servis.data],
-  );
+  // Un label sans ligne sert Sophia (héritage) : `applicationsDuLabel` le dit.
+  const liens = useQuery({ queryKey: ["label-applications"], queryFn: listerLiensLabels, retry: false });
+  const labelsOrdonnes = React.useMemo(() => {
+    const liste = labels.data ?? [];
+    const servis = new Set(
+      liens.data ? liste.filter((l) => applicationsDuLabel(l.id, liens.data).includes(applicationId)).map((l) => l.id) : [],
+    );
+    return ordonnerLabels(liste, servis);
+  }, [labels.data, liens.data, applicationId]);
   const [labelId, setLabelId] = React.useState("");
   const [recherche, setRecherche] = React.useState("");
   const rechercheDifferee = React.useDeferredValue(recherche.trim());
@@ -87,12 +89,20 @@ export function ContenusABlancCard() {
   });
   const [choisis, setChoisis] = React.useState<SlideshowABlanc[]>([]);
   const [langue, setLangue] = React.useState("");
-  // Angle brouillon : essayé à la place de l'angle enregistré du label de
-  // chaque slideshow, jamais enregistré. Décoché = angles enregistrés.
-  const [essayerAngle, setEssayerAngle] = React.useState(false);
-  const [angleBrouillon, setAngleBrouillon] = React.useState("");
-  const liens = useQuery({ queryKey: ["label-applications"], queryFn: listerLiensLabels, retry: false });
-  const angleEnregistre = labelId && applicationId ? angleDuLien(liens.data ?? [], labelId, applicationId) : "";
+  const angles = useQuery({ queryKey: ["angles-placement"], queryFn: listerAnglesPlacement, retry: false });
+  const anglesPaire = (angles.data ?? []).filter((a) => a.label_id === labelId && a.application_id === applicationId);
+  const angleActif = anglesPaire.find((a) => a.statut === "actif") ?? null;
+  // Règle du moteur pour un slideshow de ce seul label : sans doublon ni copie
+  // de l'actif, au plus MAX (plusieurs labels : le résultat fait foi).
+  const { compares: anglesTest, nonCompares } = anglesTestCompares(
+    angleActif,
+    anglesPaire.filter((a) => a.statut === "test"),
+  );
+  const auDela = [...nonCompares.values()].filter((m) => m === "au_dela_max").length;
+  // Le moteur ne lit que les angles des labels qui servent l'application.
+  const labelSert = !liens.data || (labelsOrdonnes.find((l) => l.id === labelId)?.sert ?? true);
+  const appChoisie = apps.find((a) => a.id === applicationId);
+  const nomAppChoisie = appChoisie ? appChoisie.nom || appChoisie.slug : "";
   const [logs, setLogs] = React.useState<AssignationABlancLog[]>([]);
   const logsRef = React.useRef<HTMLDivElement>(null);
   const nuit = iaBloqueeParLaNuit();
@@ -118,7 +128,6 @@ export function ContenusABlancCard() {
         choisis.map((c) => c.id),
         langue || null,
         (ligne) => setLogs((prev) => [...prev, ligne]),
-        essayerAngle ? angleBrouillon : null,
       );
     },
   });
@@ -150,8 +159,8 @@ export function ContenusABlancCard() {
               value={applicationId}
               onChange={(e) => setApplicationChoisie(e.target.value)}
             >
-              {autres.length === 0 && <option value="">{t("contenusABlanc.aucuneApplication")}</option>}
-              {autres.map((a) => (
+              {apps.length === 0 && <option value="">{t("contenusABlanc.aucuneApplication")}</option>}
+              {apps.map((a) => (
                 <option key={a.id} value={a.id}>
                   {a.nom || a.slug}
                 </option>
@@ -191,36 +200,35 @@ export function ContenusABlancCard() {
           </div>
         </div>
 
-        {labelId && (
-          <div className="space-y-1.5 rounded-md border p-3" data-testid="angle-a-blanc">
-            <p className="text-xs text-muted-foreground">
-              {liens.isPending
-                ? t("common.loading")
-                : liens.isError
-                  ? t("contenusABlanc.angleIllisible")
-                  : angleEnregistre
-                    ? t("contenusABlanc.angleEnregistre", { angle: angleEnregistre })
-                    : t("contenusABlanc.angleAucun")}
-            </p>
-            <label className="flex items-center gap-2 text-sm">
-              <input
-                type="checkbox"
-                checked={essayerAngle}
-                onChange={(e) => setEssayerAngle(e.target.checked)}
-              />
-              {t("contenusABlanc.angleEssayer")}
-            </label>
-            {essayerAngle && (
-              <Textarea
-                rows={3}
-                maxLength={ANGLE_LONGUEUR_MAX}
-                className="text-xs"
-                aria-label={t("contenusABlanc.angleBrouillonLabel")}
-                placeholder={t("contenusABlanc.angleBrouillonPh")}
-                value={angleBrouillon}
-                onChange={(e) => setAngleBrouillon(e.target.value)}
-              />
+        {labelId && applicationId && (
+          <div className="space-y-1 rounded-md border p-3 text-xs text-muted-foreground" data-testid="angles-a-blanc">
+            {angles.isPending ? (
+              <p>{t("common.loading")}</p>
+            ) : angles.isError ? (
+              <p>{t("contenusABlanc.anglesIllisibles")}</p>
+            ) : !labelSert ? (
+              <p>{t("contenusABlanc.anglesLabelNeSertPas", { app: nomAppChoisie })}</p>
+            ) : (
+              <>
+                <p>
+                  {angleActif
+                    ? t("contenusABlanc.anglesReferenceActif", { angle: angleActif.texte })
+                    : t("contenusABlanc.anglesReferenceSans")}
+                </p>
+                <p>
+                  {anglesTest.length > 0
+                    ? t("contenusABlanc.anglesEnTest", { count: anglesTest.length })
+                    : t("contenusABlanc.anglesAucunTest")}
+                  {auDela > 0 && ` ${t("contenusABlanc.anglesTrop", { max: MAX_ANGLES_TEST })}`}
+                </p>
+              </>
             )}
+            <p>
+              {t("contenusABlanc.anglesLabels")}{" "}
+              <Link to="/admin/angles" className="underline">
+                {t("contenusABlanc.anglesGerer")}
+              </Link>
+            </p>
           </div>
         )}
 
@@ -363,19 +371,21 @@ function ResultatContenus({ r }: { r: ContenusABlancResultat }) {
         </p>
       )}
       {!r.erreurRun && <p className="rounded-md bg-success/10 p-3 text-sm font-medium text-success">{r.resume}</p>}
-      {r.prompts && !r.prompts.pertinence.present && (
+      {r.prompts && r.notation !== false && !r.prompts.pertinence.present && (
         <p className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">
           {t("contenusABlanc.promptPertinenceVide", { cle: r.prompts.pertinence.cle })}
         </p>
       )}
       {r.prompts && !r.prompts.placement.present && (
         <p className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">
-          {t("contenusABlanc.promptPlacementVide", { cle: r.prompts.placement.cle })}
+          {t(r.notation === false ? "contenusABlanc.promptPlacementVideSophia" : "contenusABlanc.promptPlacementVide", {
+            cle: r.prompts.placement.cle,
+          })}
         </p>
       )}
 
       {r.contenus.map((c, i) => (
-        <FicheContenu key={c.id} c={c} rang={i + 1} nomApp={nomApp} />
+        <FicheContenu key={c.id} c={c} rang={i + 1} nomApp={nomApp} notation={r.notation !== false} />
       ))}
 
       <div className="space-y-1.5">
@@ -424,9 +434,25 @@ function ResultatContenus({ r }: { r: ContenusABlancResultat }) {
   );
 }
 
-function FicheContenu({ c, rang, nomApp }: { c: ContenuTesteABlanc; rang: number; nomApp: string }) {
+function FicheContenu({
+  c,
+  rang,
+  nomApp,
+  notation,
+}: {
+  c: ContenuTesteABlanc;
+  rang: number;
+  nomApp: string;
+  notation: boolean;
+}) {
   const { t } = useTranslation();
   const p = c.pertinence;
+  // null : pas de notation (Sophia) — rien à dire sur l'éligibilité.
+  const eligible = notation && p ? p.eligible : null;
+  const etape = notation
+    ? t("contenusABlanc.etapePlacement", { app: nomApp, langue: c.langue })
+    : t("contenusABlanc.etapePlacementSeul", { app: nomApp, langue: c.langue });
+  const angles = c.angles ?? [];
   return (
     <div className="space-y-3 rounded-md border p-3 text-sm" data-testid="contenu-a-blanc">
       <div className="space-y-0.5">
@@ -497,36 +523,153 @@ function FicheContenu({ c, rang, nomApp }: { c: ContenuTesteABlanc; rang: number
         </div>
       )}
 
-      {c.deck && <BlocDeck deck={c.deck} eligible={Boolean(p?.eligible)} langue={c.langue} nomApp={nomApp} />}
+      {angles.length > 1 ? (
+        <ComparatifAngles angles={angles} nonTestes={c.anglesNonTestes ?? 0} eligible={eligible} etape={etape} />
+      ) : (
+        c.deck && <BlocDeck deck={c.deck} eligible={eligible} etape={etape} />
+      )}
     </div>
   );
 }
 
-function BlocDeck({
-  deck,
-  eligible,
-  langue,
-  nomApp,
-}: {
-  deck: DeckTesteABlanc;
-  eligible: boolean;
-  langue: string;
-  nomApp: string;
-}) {
+function BadgeStatutDeck({ deck }: { deck: DeckTesteABlanc }) {
+  const { t } = useTranslation();
+  return (
+    <Badge variant={deck.statut === "pret" ? "success" : deck.statut === "ineligible" ? "warning" : "error"}>
+      {t(statutDeckCle(deck.statut))}
+    </Badge>
+  );
+}
+
+function RaisonDeck({ deck }: { deck: DeckTesteABlanc }) {
   const { t } = useTranslation();
   const raison = raisonDeckCle(deck.raison);
+  return raison ? <p className="text-xs text-destructive">{t(raison.cle, { raison: raison.brut, cle: raison.brut })}</p> : null;
+}
+
+function ListeVariantes({ deck }: { deck: DeckTesteABlanc }) {
+  const { t } = useTranslation();
+  if (deck.variantes.length === 0) return null;
+  return (
+    <details className="text-xs">
+      <summary className="cursor-pointer text-muted-foreground">
+        {t("contenusABlanc.variantes", { n: deck.variantes.length })}
+        {deck.mode ? ` · ${deck.mode}` : ""}
+      </summary>
+      <ol className="mt-1 list-decimal space-y-0.5 pl-5">
+        {deck.variantes.map((v, i) => (
+          <li key={i} className={cn(i === deck.varianteRetenue && "font-medium")}>
+            {v}
+            {i === deck.varianteRetenue && (
+              <Badge variant="default" className="ml-1.5">
+                {t("contenusABlanc.retenue")}
+              </Badge>
+            )}
+          </li>
+        ))}
+      </ol>
+    </details>
+  );
+}
+
+/**
+ * Le comparatif d'un slideshow : la base une fois, puis la référence et
+ * chaque angle en test côte à côte (slide pub, variantes, deck complet).
+ */
+function ComparatifAngles({
+  angles,
+  nonTestes,
+  eligible,
+  etape,
+}: {
+  angles: AngleTesteABlanc[];
+  nonTestes: number;
+  eligible: boolean | null;
+  etape: string;
+}) {
+  const { t } = useTranslation();
+  const premier = angles.find((a) => a.deck)?.deck ?? null;
+  return (
+    <div className="space-y-2 rounded-md bg-muted/30 p-2.5" data-testid="comparatif-angles">
+      <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+        {t("contenusABlanc.comparatif", { etape, n: angles.length })}
+      </p>
+      {eligible === false && <p className="text-xs text-warning">{t("contenusABlanc.placementQuandMeme")}</p>}
+      {premier && premier.positionImposee !== null && (
+        <p className="text-xs text-info">{t("contenusABlanc.concurrent", { position: premier.positionImposee })}</p>
+      )}
+      {nonTestes > 0 && (
+        <p className="text-xs text-warning">{t("contenusABlanc.anglesNonTestes", { count: nonTestes, max: MAX_ANGLES_TEST })}</p>
+      )}
+      {premier && (
+        <details className="text-xs">
+          <summary className="cursor-pointer text-muted-foreground">{t("contenusABlanc.avant")}</summary>
+          <div className="mt-1">
+            <ListeSlides titre="" slides={premier.base} />
+          </div>
+        </details>
+      )}
+      <div className="grid gap-3 md:grid-cols-2">
+        {angles.map((a, k) => (
+          <CarteAngleTeste key={a.angleId ?? `reference-${k}`} a={a} rang={k} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function CarteAngleTeste({ a, rang }: { a: AngleTesteABlanc; rang: number }) {
+  const { t } = useTranslation();
+  const deck = a.deck;
+  const pub = deck && deck.slidePub !== null ? deck.slides.find((s) => s.position === deck.slidePub) ?? null : null;
+  return (
+    <div className="min-w-0 space-y-1.5 rounded-md border bg-background p-2.5" data-testid="angle-teste" data-source={a.source}>
+      <div className="flex flex-wrap items-center gap-1.5">
+        <p className="text-xs font-semibold">
+          {a.source === "reference" ? t("contenusABlanc.reference") : t("contenusABlanc.angleTest", { n: rang })}
+        </p>
+        {deck && <BadgeStatutDeck deck={deck} />}
+      </div>
+      <p className="text-xs text-muted-foreground">
+        {a.angle ? t("contenusABlanc.angleUtilise", { angle: a.angle }) : t("contenusABlanc.sansAngle")}
+        {a.source === "reference" && ` · ${t("contenusABlanc.referenceNuit")}`}
+      </p>
+      {a.erreur && <p className="text-xs text-destructive">{a.erreur}</p>}
+      {deck && <RaisonDeck deck={deck} />}
+      {pub && (
+        <p className="whitespace-pre-line rounded border border-primary bg-primary/10 px-1.5 py-1 text-xs font-medium" data-testid="pub-angle">
+          <span className="text-muted-foreground">{t("contenusABlanc.slidePub", { position: pub.position })}</span>{" "}
+          {pub.texte || "—"}
+        </p>
+      )}
+      {deck?.hashtags && (
+        <p className="text-xs">
+          <span className="text-muted-foreground">{t("aBlanc.hashtags")} :</span> {deck.hashtags}
+        </p>
+      )}
+      {deck && <ListeVariantes deck={deck} />}
+      {deck && deck.statut === "pret" && (
+        <details className="text-xs">
+          <summary className="cursor-pointer text-muted-foreground">{t("contenusABlanc.deckComplet")}</summary>
+          <div className="mt-1">
+            <ListeSlides titre="" slides={deck.slides} pub={deck.slidePub} />
+          </div>
+        </details>
+      )}
+    </div>
+  );
+}
+
+function BlocDeck({ deck, eligible, etape }: { deck: DeckTesteABlanc; eligible: boolean | null; etape: string }) {
+  const { t } = useTranslation();
   return (
     <div className="space-y-2 rounded-md bg-muted/30 p-2.5">
       <div className="flex flex-wrap items-center gap-1.5">
-        <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-          {t("contenusABlanc.etapePlacement", { app: nomApp, langue })}
-        </p>
-        <Badge variant={deck.statut === "pret" ? "success" : deck.statut === "ineligible" ? "warning" : "error"}>
-          {t(statutDeckCle(deck.statut))}
-        </Badge>
+        <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">{etape}</p>
+        <BadgeStatutDeck deck={deck} />
       </div>
-      {raison && <p className="text-xs text-destructive">{t(raison.cle, { raison: raison.brut, cle: raison.brut })}</p>}
-      {!eligible && <p className="text-xs text-warning">{t("contenusABlanc.placementQuandMeme")}</p>}
+      <RaisonDeck deck={deck} />
+      {eligible === false && <p className="text-xs text-warning">{t("contenusABlanc.placementQuandMeme")}</p>}
       {deck.positionImposee !== null && (
         <p className="text-xs text-info">{t("contenusABlanc.concurrent", { position: deck.positionImposee })}</p>
       )}
@@ -548,26 +691,7 @@ function BlocDeck({
           <span className="text-muted-foreground">{t("aBlanc.hashtags")} :</span> {deck.hashtags}
         </p>
       )}
-      {deck.variantes.length > 0 && (
-        <details className="text-xs">
-          <summary className="cursor-pointer text-muted-foreground">
-            {t("contenusABlanc.variantes", { n: deck.variantes.length })}
-            {deck.mode ? ` · ${deck.mode}` : ""}
-          </summary>
-          <ol className="mt-1 list-decimal space-y-0.5 pl-5">
-            {deck.variantes.map((v, i) => (
-              <li key={i} className={cn(i === deck.varianteRetenue && "font-medium")}>
-                {v}
-                {i === deck.varianteRetenue && (
-                  <Badge variant="default" className="ml-1.5">
-                    {t("contenusABlanc.retenue")}
-                  </Badge>
-                )}
-              </li>
-            ))}
-          </ol>
-        </details>
-      )}
+      <ListeVariantes deck={deck} />
     </div>
   );
 }
@@ -586,7 +710,7 @@ function ListeSlides({
   const { t } = useTranslation();
   return (
     <div className="space-y-1">
-      <p className="text-xs font-medium">{titre}</p>
+      {titre && <p className="text-xs font-medium">{titre}</p>}
       {slides.length === 0 ? (
         <p className="text-xs text-muted-foreground">—</p>
       ) : (

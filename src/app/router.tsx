@@ -25,6 +25,7 @@ import { AdminRecrutementsPaysPage } from "@/pages/admin/AdminRecrutementsPaysPa
 import { AdminBibliothequePage } from "@/pages/admin/AdminBibliothequePage";
 import { AdminReglagesPage } from "@/pages/admin/AdminReglagesPage";
 import { AdminPromptsPage } from "@/pages/admin/AdminPromptsPage";
+import { AdminAnglesPage } from "@/pages/admin/AdminAnglesPage";
 import { AdminAnalyticsPage } from "@/pages/admin/AdminAnalyticsPage";
 import { AdminSuiviRcPage } from "@/pages/admin/AdminSuiviRcPage";
 import { AdminReviewsPage } from "@/pages/admin/AdminReviewsPage";
@@ -104,6 +105,7 @@ export function AppRouter() {
               <Route path="/admin/test-nettoyage" element={<Navigate to="/admin/tests" replace />} />
               <Route path="/admin/reglages" element={<AdminReglagesPage />} />
               <Route path="/admin/prompts" element={<AdminPromptsPage />} />
+              <Route path="/admin/angles" element={<AdminAnglesPage />} />
               {/* Papier CM et UGC AI retirés — les anciens liens retombent sur le pilotage. */}
               <Route path="/admin/papier" element={<Navigate to="/admin" replace />} />
               <Route path="/admin/ugc/*" element={<Navigate to="/admin" replace />} />

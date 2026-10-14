@@ -79,9 +79,10 @@ export interface OptionsDeckApplication {
    */
   ignorerCache?: boolean;
   /**
-   * Test à blanc seulement : angle à essayer À LA PLACE de celui enregistré
-   * pour le label du contenu (`""` = essayer sans angle). Absent : l'angle
-   * enregistré (`label_applications.angle`) est lu comme la nuit.
+   * Test à blanc seulement : angle à essayer À LA PLACE de l'angle actif du
+   * label du contenu (`""` = essayer sans angle) — c'est ainsi que le test
+   * compare les angles en test. Absent : l'angle ACTIF (`angles_placement`)
+   * est lu comme la nuit ; un angle en test ne l'est jamais.
    */
   angleBrouillon?: string;
 }
@@ -440,7 +441,11 @@ async function cuire(
   // 4. Placement, avec l'angle du label du contenu pour cette application
   //    (vide = prompt d'avant). Le test à blanc peut en essayer un autre.
   if (horsDelai(opts)) return { statut: "echec", raison: RAISON_BUDGET };
-  const angle = opts.angleBrouillon !== undefined
+  // Un angle EN TEST ne doit JAMAIS atteindre un placement véritable : l'angle
+  // imposé n'est accepté qu'avec `ignorerCache`, l'option du seul test à blanc
+  // (angle_test_seulement_test.ts vérifie qu'aucun autre appelant ne les
+  // passe). Sinon, seul l'angle ACTIF est lu.
+  const angle = opts.angleBrouillon !== undefined && opts.ignorerCache === true
     ? normaliserAngle(opts.angleBrouillon)
     : await chargerAnglePlacement(supabase, contenu.id, app.id);
   const traceAngle = angle ? { angle } : {};

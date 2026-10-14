@@ -511,7 +511,7 @@ export async function integrateSophia(input: {
    */
   positionImposee?: number;
   /**
-   * Angle du label du contenu pour Sophia (`label_applications.angle`, voir
+   * Angle ACTIF du label du contenu pour Sophia (`angles_placement`, voir
    * angle_placement.ts). Vide ou absent : prompt identique octet pour octet
    * (instantanés de gemini_placement_golden_test.ts).
    */

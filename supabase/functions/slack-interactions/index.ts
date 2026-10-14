@@ -11,6 +11,11 @@ import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
  * `response_url`, sans jeton bot.
  */
 Deno.serve(async (request) => {
+  // Pas de signature, pas de Slack : 401 comme toute fonction appelée sans
+  // preuve (c'est aussi ce que vérifie le workflow de déploiement).
+  const signature = request.headers.get("x-slack-signature");
+  if (!signature) return json({ error: "unauthorized" }, 401);
+
   const secret = Deno.env.get("SLACK_SIGNING_SECRET");
   if (!secret) return json({ error: "SLACK_SIGNING_SECRET manquant" }, 500);
 
@@ -19,7 +24,7 @@ Deno.serve(async (request) => {
     secret,
     request.headers.get("x-slack-request-timestamp"),
     corps,
-    request.headers.get("x-slack-signature"),
+    signature,
   );
   if (!valide) return json({ error: "signature Slack invalide" }, 401);
 

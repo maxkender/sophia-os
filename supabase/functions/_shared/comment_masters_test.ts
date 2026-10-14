@@ -19,21 +19,16 @@ import {
   similarite,
 } from "./comment_masters.ts";
 
-Deno.test("problemesCommentaire : un commentaire conforme passe", () => {
+Deno.test("problemesCommentaire : seul le minimum non négociable est vérifié", () => {
   assertEquals(
     problemesCommentaire("wusste nicht dass man reels einfach ausblenden kann, UnSwipe hat mein handy gerettet 🙏", "UnSwipe"),
     [],
   );
-});
-
-Deno.test("problemesCommentaire : chaque règle de Max est vérifiée", () => {
-  assertEquals(problemesCommentaire("Sophia top", "Sophia"), ["10 caractères (60 à 150)"]);
-  const p = problemesCommentaire('ho imparato tantissimo con "questa app" #fyp 😍😍 vai su www.sophia.com davvero', "Sophia");
-  assert(p.includes("plus d'un emoji"));
-  assert(p.includes("hashtag"));
-  assert(p.includes("guillemets"));
-  assert(p.includes("lien"));
-  assert(problemesCommentaire("x".repeat(80), "Micabo").includes("ne cite pas Micabo"));
+  // Longueur, emojis, hashtags : c'est au prompt éditable d'en décider.
+  assertEquals(problemesCommentaire("Sophia 😍😍 #fyp", "Sophia"), []);
+  assertEquals(problemesCommentaire("va su www.sophia.com", "Sophia"), ["lien"]);
+  assertEquals(problemesCommentaire("trop bien cette appli", "Micabo"), ["ne cite pas Micabo"]);
+  assertEquals(problemesCommentaire("  ", "Micabo"), ["vide", "ne cite pas Micabo"]);
 });
 
 Deno.test("nomAppli : l'orthographe TikTok, pas celle de la table", () => {
@@ -42,12 +37,22 @@ Deno.test("nomAppli : l'orthographe TikTok, pas celle de la table", () => {
   assertEquals(nomAppli(null), "Sophia");
 });
 
-Deno.test("promptCommentaire : langue, appli et slides dans le prompt", () => {
-  const p = promptCommentaire({ langue: "it", appli: "Sophia", slides: ["5 abitudini", "leggi\n5 minuti"], hashtags: "#fyp" });
+Deno.test("promptCommentaire : variables remplacées, consigne JSON toujours ajoutée", () => {
+  const entree = { langue: "it", appli: "Sophia", slides: ["5 abitudini", "leggi\n5 minuti"], hashtags: "#fyp" };
+  const p = promptCommentaire(entree);
   assert(p.includes("Write it in Italian"));
   assert(p.includes("mention the app Sophia"));
   assert(p.includes("2. leggi 5 minuti"));
   assert(p.includes("Hashtags: #fyp"));
+  assert(!p.includes("{{"));
+  assert(p.endsWith('{"comment": "...", "translation_en": "..."}'));
+
+  const perso = promptCommentaire(entree, "Comment in {{ langue }} about {{appli}}.\n{{slides}}\n{{hashtags}}\n{{inconnue}}");
+  assert(perso.startsWith("Comment in Italian about Sophia.\n1. 5 abitudini\n2. leggi 5 minuti\n#fyp\n{{inconnue}}"));
+  assert(perso.endsWith('{"comment": "...", "translation_en": "..."}'));
+
+  const vide = promptCommentaire({ ...entree, slides: [], hashtags: null }, "{{slides}} / {{hashtags}}");
+  assert(vide.startsWith("(no text) / (none)"));
 });
 
 Deno.test("lireReponse : JSON nu ou entouré d'un bloc de code", () => {

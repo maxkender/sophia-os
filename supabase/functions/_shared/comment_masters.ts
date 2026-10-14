@@ -1,27 +1,14 @@
 /**
  * Comment masters (TICKET 002) : la partie pure, testable sans réseau.
  *
- * Prompt du commentaire, contrôle des règles de Max, message Slack, signature
- * Slack et rapprochement du commentaire réellement posté.
+ * Prompt du commentaire (modèle éditable), contrôle minimal, message Slack,
+ * signature Slack et rapprochement du commentaire réellement posté.
  */
 
 export const LANGUE_REGION: Record<string, { nom: string; drapeau: string }> = {
   de: { nom: "German", drapeau: "🇩🇪" },
   it: { nom: "Italian", drapeau: "🇮🇹" },
 };
-
-// Les exemples de Max, tels quels : ils donnent le ton, pas la langue.
-const EXEMPLES = [
-  "the app unswipe is so good ! thanks for sharing that",
-  "I've learned so much stuff with sophia, thanks so much",
-  "it's crazy how great Sophia is ! I don't know why it's not famous",
-  "I didn't know you get delete reels from instagram, unswipe is so good !",
-  "how did I not hear about UnSwipe before ??, it's so good thanks",
-  "bro you've just gave me the solution to my phone addiction, thanks for unswipe so much",
-  "Micabo is so good for flashcards, thanks bro",
-  "i have tried so many general knowledge app but Sophia is really amazing",
-  "who invented UnSwipe ? it's so good",
-];
 
 // Nom d'appli tel qu'il doit apparaître dans le commentaire. La table
 // `applications` écrit « Unswipe » et « micabo » ; sur TikTok c'est UnSwipe et Micabo.
@@ -31,21 +18,19 @@ export function nomAppli(brut: string | null): string {
   return NOM_APPLI[(brut ?? "").toLowerCase()] ?? brut ?? "Sophia";
 }
 
-export function promptCommentaire(input: {
-  langue: string;
-  appli: string;
-  slides: string[];
-  hashtags: string | null;
-}): string {
-  const langue = LANGUE_REGION[input.langue]?.nom ?? input.langue;
-  const slides = input.slides
-    .map((t, i) => `${i + 1}. ${t.replace(/\s+/g, " ").trim()}`)
-    .join("\n");
-  return `You write ONE TikTok comment, as a regular viewer, under the post below.
+/** Clé du prompt dans la table `prompts`, éditable depuis Admin → Prompts. */
+export const CLE_PROMPT = "comment_master";
 
-Write it in ${langue}, the way a young ${langue}-speaking person really types on TikTok: casual, lowercase is fine, light slang is fine, never formal, never sounding like an ad.
+/**
+ * Prompt par défaut, utilisé tant que la clé `comment_master` est vide. Les
+ * règles et les exemples sont ceux du ticket de Max. Variables remplacées à
+ * chaque post : {{langue}}, {{appli}}, {{slides}}, {{hashtags}}.
+ */
+export const PROMPT_DEFAUT = `You write ONE TikTok comment, as a regular viewer, under the post below.
 
-The comment MUST mention the app ${input.appli} (write the name exactly like that), as someone who uses it and loves it.
+Write it in {{langue}}, the way a young {{langue}}-speaking person really types on TikTok: casual, lowercase is fine, light slang is fine, never formal, never sounding like an ad.
+
+The comment MUST mention the app {{appli}} (write the name exactly like that), as someone who uses it and loves it.
 
 Rules:
 - Tie the comment to ONE specific detail of the post: a fact, a number, a name or the hook. Do not copy a sentence from the post.
@@ -53,13 +38,42 @@ Rules:
 - At most 1 emoji. No hashtags. No quotation marks.
 - No sales pitch, no "download now", no links, no promo codes.
 
-Examples of the tone (in English; yours must be in ${langue}):
-${EXEMPLES.map((e) => `- ${e}`).join("\n")}
+Examples of the tone (in English; yours must be in {{langue}}):
+- the app unswipe is so good ! thanks for sharing that
+- I've learned so much stuff with sophia, thanks so much
+- it's crazy how great Sophia is ! I don't know why it's not famous
+- I didn't know you get delete reels from instagram, unswipe is so good !
+- how did I not hear about UnSwipe before ??, it's so good thanks
+- bro you've just gave me the solution to my phone addiction, thanks for unswipe so much
+- Micabo is so good for flashcards, thanks bro
+- i have tried so many general knowledge app but Sophia is really amazing
+- who invented UnSwipe ? it's so good
 
 The post (slide texts, in order):
-${slides}
-${input.hashtags ? `Hashtags: ${input.hashtags}\n` : ""}
-Answer with JSON only, no code fence: {"comment": "...", "translation_en": "..."}`;
+{{slides}}
+
+Hashtags: {{hashtags}}`;
+
+// Ajouté par le code, jamais éditable : c'est ce que `lireReponse` sait lire.
+const CONSIGNE_JSON =
+  `\n\nAnswer with JSON only, no code fence: {"comment": "...", "translation_en": "..."}`;
+
+export function promptCommentaire(
+  input: { langue: string; appli: string; slides: string[]; hashtags: string | null },
+  modele: string = PROMPT_DEFAUT,
+): string {
+  const langue = LANGUE_REGION[input.langue]?.nom ?? input.langue;
+  const slides = input.slides
+    .map((t, i) => `${i + 1}. ${t.replace(/\s+/g, " ").trim()}`)
+    .join("\n");
+  const valeurs: Record<string, string> = {
+    langue,
+    appli: input.appli,
+    slides: slides || "(no text)",
+    hashtags: input.hashtags?.trim() || "(none)",
+  };
+  return modele.replace(/\{\{\s*(langue|appli|slides|hashtags)\s*\}\}/g, (_, k: string) => valeurs[k]) +
+    CONSIGNE_JSON;
 }
 
 export function lireReponse(brut: string): { comment: string; translation_en: string } | null {
@@ -75,14 +89,14 @@ export function lireReponse(brut: string): { comment: string; translation_en: st
 
 const EMOJI = /\p{Extended_Pictographic}/gu;
 
-/** Les règles de Max, vérifiées : liste vide = commentaire valide. */
+/**
+ * Le minimum non négociable, vérifié quel que soit le prompt : l'appli citée,
+ * aucun lien. Le reste (longueur, emojis, ton) vit dans le prompt éditable,
+ * pour qu'un changement de règle n'ait pas à passer par le code.
+ */
 export function problemesCommentaire(texte: string, appli: string): string[] {
   const p: string[] = [];
-  const n = [...texte].length;
-  if (n < 60 || n > 150) p.push(`${n} caractères (60 à 150)`);
-  if ((texte.match(EMOJI) ?? []).length > 1) p.push("plus d'un emoji");
-  if (texte.includes("#")) p.push("hashtag");
-  if (/["“”«»„]/.test(texte)) p.push("guillemets");
+  if (!texte.trim()) p.push("vide");
   if (/https?:\/\/|www\.|\.com\b/i.test(texte)) p.push("lien");
   if (!texte.toLowerCase().includes(appli.toLowerCase())) p.push(`ne cite pas ${appli}`);
   return p;

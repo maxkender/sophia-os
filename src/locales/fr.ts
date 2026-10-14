@@ -1852,6 +1852,20 @@ export const fr = {
       ugcFaceSwapTitle: "Prompt — Identité UGC (corps entier, Nano Banana)",
       ugcFaceSwapDesc:
         "À l’assignation UGC AI : Figure 1 = slide (pose/scène), Figures 2+ = persona. Transfert d’identité CORPS ENTIER (peau, visage, cheveux) — pas un collage de tête. Pose, expression, grain et vêtements de la slide restent.",
+      commentMaster: {
+        section: "Comment masters",
+        sectionDesc:
+          "Le commentaire envoyé sur Slack aux comment masters pour chaque post DE / IT qui passe 8 000 vues en moins de 12 h.",
+        titre: "Prompt — Commentaire",
+        description:
+          "Pris en compte dès l'enregistrement, au prochain passage horaire. « Tester » génère les commentaires de 6 vrais posts avec le texte ci-dessus, enregistré ou non, sans rien envoyer sur Slack.",
+        variables: "Variables remplacées à chaque post :",
+        vide: "Vide = prompt par défaut (celui du ticket de Max).",
+        tester: "Tester",
+        enCours: "Génération…",
+        nonEnregistre: "Pas encore enregistré",
+        vues: "{{vues}} vues",
+      },
       traductionsLanguesTitre: "Traductions par langue",
       traductionsLanguesDesc:
         "Le ton propre à chaque langue cible. Sans prompt ici, cette langue est traduite avec des règles neutres — écris-en un pour la soigner (tutoiement, tournures à éviter, registre).",

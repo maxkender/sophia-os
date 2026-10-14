@@ -1,16 +1,18 @@
 import { scrapeCommentaires, scrapeStatsPosts } from "../_shared/apify.ts";
 import {
   blocsSlack,
+  CLE_PROMPT,
   type DemandeSlack,
   idDuLien,
   lireReponse,
   nomAppli,
   problemesCommentaire,
+  PROMPT_DEFAUT,
   promptCommentaire,
   retrouverCommentaire,
   texteNotification,
 } from "../_shared/comment_masters.ts";
-import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { assertAuthorised, chargerPrompt, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
 
@@ -43,24 +45,33 @@ const MODELES_TEXTE = ["gemini-3.5-flash", "gemini-2.0-flash", "gemini-3.1-flash
  * 3. 48 h après un « Done », retrouve le commentaire sous le post et relève
  *    ses likes, puis les annonce en réponse au message Slack.
  *
- *   {}              → le passage horaire
- *   { apercu: n }   → commentaires des n derniers posts DE / IT déjà au-dessus
- *                     de 8 000 vues, renvoyés en JSON : ni Slack, ni Apify,
- *                     rien d'écrit. Pour valider le ton avec Max.
+ * Le prompt se règle dans Admin → Prompts (clé `comment_master`), sans
+ * redéploiement ; vide, c'est PROMPT_DEFAUT.
+ *
+ *   {}                      → le passage horaire
+ *   { apercu: n, prompt? }  → commentaires des n derniers posts DE / IT déjà
+ *                             au-dessus de 8 000 vues, renvoyés en JSON : ni
+ *                             Slack, ni Apify, rien d'écrit. `prompt` essaie un
+ *                             brouillon sans l'enregistrer (bouton « Tester »).
  */
 Deno.serve(async (request) => {
   const denied = await assertAuthorised(request);
   if (denied) return denied;
 
   let apercu = 0;
+  let brouillon: string | null = null;
   try {
-    apercu = Number((await request.json())?.apercu) || 0;
+    const corps = await request.json();
+    apercu = Number(corps?.apercu) || 0;
+    if (typeof corps?.prompt === "string" && corps.prompt.trim()) brouillon = corps.prompt;
   } catch {
     // Corps vide : passage horaire.
   }
   if (apercu > 0) {
     try {
-      return json({ ok: true, apercu: await apercuCommentaires(serviceClient(), Math.min(apercu, 20)) });
+      const supabase = serviceClient();
+      const modele = brouillon ?? await promptEnregistre(supabase);
+      return json({ ok: true, apercu: await apercuCommentaires(supabase, Math.min(apercu, 12), modele) });
     } catch (error) {
       return json({ ok: false, error: messageErreur(error) }, 500);
     }
@@ -80,7 +91,7 @@ Deno.serve(async (request) => {
     if (error) throw error;
     if (!regions?.length) return json({ ok: true, info: "aucune région active avec un canal Slack" });
 
-    const detection = await detecter(supabase, regions as Region[], slack);
+    const detection = await detecter(supabase, regions as Region[], slack, await promptEnregistre(supabase));
     const renvois = await renvoyer(supabase, slack);
     const mesures = await mesurer(supabase, slack);
     return json({ ok: true, ...detection, renvois, mesures });
@@ -89,7 +100,11 @@ Deno.serve(async (request) => {
   }
 });
 
-async function detecter(supabase: Supabase, regions: Region[], slack: string) {
+async function promptEnregistre(supabase: Supabase): Promise<string> {
+  return (await chargerPrompt(supabase, CLE_PROMPT)) ?? PROMPT_DEFAUT;
+}
+
+async function detecter(supabase: Supabase, regions: Region[], slack: string, modele: string) {
   const parLangue = new Map(regions.map((r) => [r.langue, r]));
   const fenetreMax = Math.max(...regions.map((r) => r.fenetre_heures));
   const depuis = new Date(Date.now() - fenetreMax * 3600_000).toISOString();
@@ -142,7 +157,7 @@ async function detecter(supabase: Supabase, regions: Region[], slack: string) {
     try {
       const entree = entreeCommentaire(c.p, c.compte, nomParId);
       const application = entree.appli;
-      const { commentaire, traduction } = await genererCommentaire(entree);
+      const { commentaire, traduction } = await genererCommentaire(entree, modele);
 
       // Insertion AVANT l'envoi : l'unicité sur passage_id garantit qu'un post
       // ne part qu'une fois, même si deux relevés se chevauchent.
@@ -208,7 +223,7 @@ function entreeCommentaire(
   };
 }
 
-async function apercuCommentaires(supabase: Supabase, n: number) {
+async function apercuCommentaires(supabase: Supabase, n: number, modele: string) {
   const { data, error } = await supabase
     .from("passages")
     .select("id, application_id, publie_url, vues, slides, hashtags, comptes!inner(handle_tiktok, langue, application_id)")
@@ -223,9 +238,10 @@ async function apercuCommentaires(supabase: Supabase, n: number) {
   return await Promise.all((data ?? []).map(async (p) => {
     const compte = p.comptes as unknown as { handle_tiktok: string | null; langue: string; application_id: string | null };
     const entree = entreeCommentaire(p, compte, nomParId);
-    const { commentaire, traduction } = await genererCommentaire(entree);
+    const { commentaire, traduction } = await genererCommentaire(entree, modele);
     return {
       lien: p.publie_url,
+      handle: compte.handle_tiktok,
       langue: compte.langue,
       appli: entree.appli,
       vues: p.vues,
@@ -237,18 +253,16 @@ async function apercuCommentaires(supabase: Supabase, n: number) {
   }));
 }
 
-async function genererCommentaire(input: {
-  langue: string;
-  appli: string;
-  slides: string[];
-  hashtags: string | null;
-}): Promise<{ commentaire: string; traduction: string }> {
-  const prompt = promptCommentaire(input);
+async function genererCommentaire(
+  input: { langue: string; appli: string; slides: string[]; hashtags: string | null },
+  modele: string,
+): Promise<{ commentaire: string; traduction: string }> {
+  const prompt = promptCommentaire(input, modele);
   let meilleur: { commentaire: string; traduction: string; problemes: number } | null = null;
   for (let i = 0; i < ESSAIS_GENERATION; i++) {
     const r = lireReponse(await genererTexte(prompt));
     if (!r) continue;
-    const commentaire = r.comment.replace(/["“”«»„]/g, "").replace(/\s*#\S+/g, "").trim();
+    const commentaire = r.comment.trim();
     const problemes = problemesCommentaire(commentaire, input.appli).length;
     if (!meilleur || problemes < meilleur.problemes) {
       meilleur = { commentaire, traduction: r.translation_en, problemes };

@@ -1848,6 +1848,20 @@ export const en = {
       ugcFaceSwapTitle: "Prompt — UGC full-identity transfer (Nano Banana)",
       ugcFaceSwapDesc:
         "On UGC AI assignment: Figure 1 = slide (pose/scene), Figures 2+ = persona. FULL-body identity transfer (skin, face, hair) — not a head paste. Keep pose, expression, grain and clothing from the slide.",
+      commentMaster: {
+        section: "Comment masters",
+        sectionDesc:
+          "The comment sent on Slack to the comment masters for every DE / IT post that passes 8,000 views within 12 hours.",
+        titre: "Prompt — Comment",
+        description:
+          "Used as soon as it's saved, on the next hourly run. “Test” generates the comments of 6 real posts with the text above, saved or not, without sending anything to Slack.",
+        variables: "Variables filled in for each post:",
+        vide: "Empty = default prompt (the one from Max's ticket).",
+        tester: "Test",
+        enCours: "Generating…",
+        nonEnregistre: "Not saved yet",
+        vues: "{{vues}} views",
+      },
       traductionsLanguesTitre: "Translations by language",
       traductionsLanguesDesc:
         "The tone specific to each target language. Without a prompt here, that language is translated with neutral rules — write one to refine it (register, phrasings to avoid).",

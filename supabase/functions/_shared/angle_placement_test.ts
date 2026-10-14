@@ -8,7 +8,9 @@ import { assert, assertEquals, assertStringIncludes } from "jsr:@std/assert@1";
 
 import {
   anglesPourApplication,
+  anglesTestPourApplication,
   blocConsignePlacement,
+  liensActifs,
   copieAngle,
   normaliserAngle,
   texteAngle,
@@ -193,4 +195,25 @@ Deno.test("placement Sophia : une variante qui recopie l'angle hors français es
     globalThis.fetch = vraiFetch;
     if (avaitCle === undefined) Deno.env.delete("GEMINI_API_KEY");
   }
+});
+
+Deno.test("liensActifs / anglesTestPourApplication : l'actif pour la nuit, les tests pour le test à blanc", () => {
+  const labels = [
+    { id: "w", slug: "weird-alpha", nom: "weird_alpha" },
+    { id: "h", slug: "hook", nom: "hook" },
+  ];
+  const angles = [
+    { id: "1", label_id: "w", application_id: UNSWIPE, texte: "actif", statut: "actif" },
+    { id: "2", label_id: "w", application_id: UNSWIPE, texte: " test A ", statut: "test" },
+    { id: "3", label_id: "w", application_id: UNSWIPE, texte: "test A", statut: "test" },
+    { id: "4", label_id: "w", application_id: SOPHIA, texte: "test Sophia", statut: "test" },
+    { id: "5", label_id: "h", application_id: UNSWIPE, texte: "test système", statut: "test" },
+    { id: "6", label_id: "w", application_id: UNSWIPE, texte: "test B", statut: "test" },
+  ];
+  assertEquals(anglesPourApplication(labels, liensActifs(angles), UNSWIPE), ["actif"]);
+  assertEquals(anglesTestPourApplication(labels, angles, UNSWIPE), [
+    { id: "2", texte: "test A" },
+    { id: "6", texte: "test B" },
+  ]);
+  assertEquals(anglesTestPourApplication(labels, angles, SOPHIA), [{ id: "4", texte: "test Sophia" }]);
 });

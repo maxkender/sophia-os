@@ -932,9 +932,10 @@ Deno.test("angle du label pour Unswipe : juste après le prompt maître, gardé 
   oublierSondeMultiApp();
   const ecritures: Ecriture[] = [];
   const tables = monde({
-    label_applications: [
-      { label_id: "l1", application_id: UNSWIPE.id, angle: `  ${ANGLE}\n` },
-      { label_id: "l1", application_id: ID_SOPHIA, angle: "angle Sophia, jamais pour Unswipe" },
+    angles_placement: [
+      { id: "a1", label_id: "l1", application_id: UNSWIPE.id, texte: `  ${ANGLE}\n`, statut: "actif" },
+      { id: "a2", label_id: "l1", application_id: ID_SOPHIA, texte: "angle Sophia, jamais pour Unswipe", statut: "actif" },
+      { id: "a3", label_id: "l1", application_id: UNSWIPE.id, texte: "angle en test, jamais la nuit", statut: "test" },
     ],
   });
   const { resultat, prompts } = await avecGemini(() =>
@@ -948,6 +949,7 @@ Deno.test("angle du label pour Unswipe : juste après le prompt maître, gardé 
   );
   assert(prompt.indexOf("--- CONSIGNE PROPRE") < prompt.indexOf("--- DONNÉES ---"));
   assert(!prompt.includes("angle Sophia"), "l'angle d'une autre application ne fuit pas");
+  assert(!prompt.includes("angle en test"), "un angle en test n'est jamais lu hors du test à blanc");
   const placement = tables.contenu_langue_decks[0].placement as Record<string, unknown>;
   assertEquals(placement.angle, ANGLE);
   aucuneEcritureDeSlides(ecritures);
@@ -955,10 +957,13 @@ Deno.test("angle du label pour Unswipe : juste après le prompt maître, gardé 
 
 Deno.test("aucun angle pour cette application : prompt sans consigne, placement sans clé angle", async () => {
   oublierSondeMultiApp();
-  for (const angle of [undefined, null, "", "   "]) {
-    const tables = monde({
-      label_applications: [{ label_id: "l1", application_id: UNSWIPE.id, angle }],
-    });
+  for (const angles of [
+    [],
+    [{ id: "t", label_id: "l1", application_id: UNSWIPE.id, texte: "seulement en test", statut: "test" }],
+    [{ id: "s", label_id: "l1", application_id: ID_SOPHIA, texte: "actif pour Sophia", statut: "actif" }],
+  ]) {
+    const angle = angles.map((a) => a.statut).join(",") || "aucun";
+    const tables = monde({ angles_placement: angles });
     const { resultat, prompts } = await avecGemini(() =>
       assurerDeckApplication(fauxClient(tables, []), "c1", "fr", UNSWIPE)
     );
@@ -975,16 +980,16 @@ Deno.test("angle d'un label système : ignoré", async () => {
   oublierSondeMultiApp();
   const tables = monde({
     contenu_labels: [{ contenu_id: "c1", label_id: "h", labels: { id: "h", slug: "hook", nom: "hook" } }],
-    label_applications: [{ label_id: "h", application_id: UNSWIPE.id, angle: ANGLE }],
+    angles_placement: [{ id: "a", label_id: "h", application_id: UNSWIPE.id, texte: ANGLE, statut: "actif" }],
   });
   const { prompts } = await avecGemini(() => assurerDeckApplication(fauxClient(tables, []), "c1", "fr", UNSWIPE));
   assert(!promptPlacement(prompts).includes("CONSIGNE PROPRE"));
 });
 
-Deno.test("test à blanc : l'angle brouillon remplace l'angle enregistré, '' essaie sans angle", async () => {
+Deno.test("test à blanc : l'angle à essayer remplace l'angle actif, '' essaie sans angle", async () => {
   oublierSondeMultiApp();
   const enregistre = () =>
-    monde({ label_applications: [{ label_id: "l1", application_id: UNSWIPE.id, angle: ANGLE }] });
+    monde({ angles_placement: [{ id: "a", label_id: "l1", application_id: UNSWIPE.id, texte: ANGLE, statut: "actif" }] });
 
   const brouillon = enregistre();
   const essai = await avecGemini(() =>
@@ -1010,7 +1015,9 @@ Deno.test("test à blanc : l'angle brouillon remplace l'angle enregistré, '' es
 
 Deno.test("lecture de l'angle en panne : deck préparé sans angle, rien ne casse", async () => {
   oublierSondeMultiApp();
-  const tables = monde({ label_applications: [{ label_id: "l1", application_id: UNSWIPE.id, angle: ANGLE }] });
+  const tables = monde({
+    angles_placement: [{ id: "a", label_id: "l1", application_id: UNSWIPE.id, texte: ANGLE, statut: "actif" }],
+  });
   const { resultat, prompts } = await avecGemini(() =>
     assurerDeckApplication(fauxClient(tables, [], { anglesEnPanne: true }), "c1", "fr", UNSWIPE)
   );
@@ -1023,7 +1030,7 @@ Deno.test("deck prêt en cache : un angle saisi après coup ne le recuit pas (pr
   const ecritures: Ecriture[] = [];
   const deck = [...BASE_FR.slice(0, 3), slide(4, "3. l'appli Unswipe m'aide", true)];
   const tables = monde({
-    label_applications: [{ label_id: "l1", application_id: UNSWIPE.id, angle: ANGLE }],
+    angles_placement: [{ id: "a", label_id: "l1", application_id: UNSWIPE.id, texte: ANGLE, statut: "actif" }],
     contenu_langue_decks: [{
       contenu_langue_id: "cl-fr",
       variante: "unswipe",
@@ -1038,4 +1045,20 @@ Deno.test("deck prêt en cache : un angle saisi après coup ne le recuit pas (pr
   assertEquals(resultat, { statut: "pret", slides: deck, hashtags: "#fr1 #fr2 #fr3" });
   assertEquals(prompts.length, 0);
   assertEquals(ecritures, []);
+});
+
+Deno.test("angle imposé SANS ignorerCache (hors test à blanc) : ignoré, seul l'angle actif est lu", async () => {
+  oublierSondeMultiApp();
+  const tables = monde({
+    angles_placement: [
+      { id: "a", label_id: "l1", application_id: UNSWIPE.id, texte: ANGLE, statut: "actif" },
+      { id: "t", label_id: "l1", application_id: UNSWIPE.id, texte: "angle en test", statut: "test" },
+    ],
+  });
+  const { prompts } = await avecGemini(() =>
+    assurerDeckApplication(fauxClient(tables, []), "c1", "fr", UNSWIPE, { angleBrouillon: "angle en test" })
+  );
+  const prompt = promptPlacement(prompts);
+  assertStringIncludes(prompt, ANGLE);
+  assert(!prompt.includes("angle en test"), "un angle en test ne passe jamais hors du test à blanc");
 });

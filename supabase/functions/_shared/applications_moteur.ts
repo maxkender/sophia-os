@@ -8,7 +8,13 @@
  * comportement historique (100 % Sophia, aucune colonne nouvelle écrite) au
  * lieu de casser l'import ou la nuit d'assignation.
  */
-import { anglesPourApplication, type LienAngle, texteAngle } from "./angle_placement.ts";
+import {
+  type AnglePlacementLigne,
+  anglesPourApplication,
+  anglesTestPourApplication,
+  liensActifs,
+  texteAngle,
+} from "./angle_placement.ts";
 import { lireParLots } from "./lots.ts";
 import {
   ID_SOPHIA,
@@ -225,9 +231,42 @@ export async function chargerLabelsDuContenu(
 }
 
 /**
- * Angle de placement d'un contenu pour une application : celui de son label
- * (`label_applications.angle`, voir angle_placement.ts). Chaîne vide s'il n'y
- * en a pas — le prompt de placement reste alors celui d'avant.
+ * Angles (`angles_placement`, 0285) des labels d'un contenu pour une
+ * application, au statut demandé. Lève sur une lecture en panne.
+ */
+async function lireAnglesDuContenu(
+  supabase: Supabase,
+  contenuId: string,
+  applicationId: string,
+  statut: "actif" | "test",
+): Promise<{ labels: LabelRef[]; angles: AnglePlacementLigne[] }> {
+  if (!(await schemaMultiAppPret(supabase))) return { labels: [], angles: [] };
+  const labels = await chargerLabelsDuContenu(supabase, contenuId);
+  const ids = [...new Set(labels.map((l) => l.id).filter(Boolean))];
+  if (ids.length === 0) return { labels, angles: [] };
+  const { data, error } = await supabase
+    .from("angles_placement")
+    .select("id, label_id, application_id, texte, statut, created_at")
+    .in("label_id", ids)
+    .eq("application_id", applicationId)
+    .eq("statut", statut)
+    .order("created_at", { ascending: true });
+  if (error) throw new Error(`angles_placement : ${error.message}`);
+  return { labels, angles: (data ?? []) as AnglePlacementLigne[] };
+}
+
+const avertirAngle = (contenuId: string, applicationId: string, quoi: string, error: unknown) =>
+  console.warn(
+    `[angle] contenu=${contenuId} application=${applicationId} : ${quoi} non lu (${
+      error instanceof Error ? error.message : String(error)
+    })`,
+  );
+
+/**
+ * Angle de placement ACTIF d'un contenu pour une application : celui de son
+ * label (`angles_placement`, statut actif, voir angle_placement.ts). Chaîne
+ * vide s'il n'y en a pas — le prompt de placement reste alors celui d'avant.
+ * Les angles en test ne sont JAMAIS lus ici (seul le test à blanc les lit).
  *
  * Ne lève jamais : l'angle affine une pub, il ne doit pas faire tomber une
  * préparation de deck. Une lecture en panne est journalisée et vaut « pas
@@ -239,23 +278,28 @@ export async function chargerAnglePlacement(
   applicationId: string,
 ): Promise<string> {
   try {
-    if (!(await schemaMultiAppPret(supabase))) return "";
-    const labels = await chargerLabelsDuContenu(supabase, contenuId);
-    const ids = [...new Set(labels.map((l) => l.id).filter(Boolean))];
-    if (ids.length === 0) return "";
-    const { data, error } = await supabase
-      .from("label_applications")
-      .select("label_id, application_id, angle")
-      .in("label_id", ids)
-      .eq("application_id", applicationId);
-    if (error) throw new Error(`label_applications : ${error.message}`);
-    return texteAngle(anglesPourApplication(labels, (data ?? []) as LienAngle[], applicationId));
+    const { labels, angles } = await lireAnglesDuContenu(supabase, contenuId, applicationId, "actif");
+    return texteAngle(anglesPourApplication(labels, liensActifs(angles), applicationId));
   } catch (error) {
-    console.warn(
-      `[angle] contenu=${contenuId} application=${applicationId} : angle non lu (${
-        error instanceof Error ? error.message : String(error)
-      }), placement sans angle`,
-    );
+    avertirAngle(contenuId, applicationId, "angle actif", error);
     return "";
+  }
+}
+
+/**
+ * Angles EN TEST d'un contenu pour une application (test à blanc seulement),
+ * du plus ancien au plus récent. Ne lève jamais : liste vide sur une panne.
+ */
+export async function chargerAnglesTest(
+  supabase: Supabase,
+  contenuId: string,
+  applicationId: string,
+): Promise<Array<{ id: string; texte: string }>> {
+  try {
+    const { labels, angles } = await lireAnglesDuContenu(supabase, contenuId, applicationId, "test");
+    return anglesTestPourApplication(labels, angles, applicationId);
+  } catch (error) {
+    avertirAngle(contenuId, applicationId, "angles en test", error);
+    return [];
   }
 }

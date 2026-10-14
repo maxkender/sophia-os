@@ -14,6 +14,7 @@ import {
   PLAFOND_IA_PAR_CONTENU,
   tierEntree,
 } from "./a_blanc_contenus.ts";
+import { MAX_ANGLES_TEST } from "./angle_placement.ts";
 import { creerContexteABlanc, executerDansContexte } from "./a_blanc_intercepteur.ts";
 import { avecIntercepteur, fauxGemini, fauxServeurPostgrest, instantane } from "./a_blanc_test_utils.ts";
 import { assurerDeckApplication } from "./deck_application.ts";
@@ -156,12 +157,14 @@ async function lancer(
     applicationId?: string;
     contenuIds?: string[];
     langue?: string | null;
-    angle?: string | null;
     maintenant?: () => Date;
   },
 ) {
   const gemini = fauxGemini(modele);
-  const serveur = fauxServeurPostgrest(tables, { gemini });
+  const serveur = fauxServeurPostgrest(tables, {
+    gemini,
+    relations: { contenu_labels: { labels: { fk: "label_id", table: "labels" } } },
+  });
   const ids = args.contenuIds ?? [C1, C2];
   const ctx = creerContexteABlanc({ nature: "run", ia: true, plafondIA: PLAFOND_IA_PAR_CONTENU * ids.length });
   const r = await avecIntercepteur(serveur.fetch, () =>
@@ -170,7 +173,6 @@ async function lancer(
         applicationId: args.applicationId ?? UNSWIPE,
         contenuIds: ids,
         langue: args.langue ?? null,
-        ...(args.angle !== undefined ? { angle: args.angle } : {}),
         maintenant: args.maintenant ?? MIDI,
       })
     )
@@ -253,32 +255,112 @@ Deno.test("contenus : vraie notation + vrai placement, cache ignoré, rien d'éc
   assert(r.resume.includes("rien n'a été écrit"));
 });
 
-Deno.test("contenus : angle brouillon essayé à la place de l'angle enregistré, jamais écrit", async () => {
-  const tables = base();
-  const avant = instantane(tables);
-  const { r, gemini, serveur } = await lancer(tables, {
-    contenuIds: [C1],
-    angle: "  insister sur le temps récupéré  ",
+/** Le label L1 sur C1, et des angles pour la paire (L1 × application). */
+const avecAngles = (angles: Array<Record<string, unknown>>, extra: Record<string, unknown[]> = {}) =>
+  base({
+    contenu_labels: [{ contenu_id: C1, label_id: "L1" }],
+    labels: [{ id: "L1", slug: "weird-alpha", nom: "weird_alpha" }],
+    angles_placement: angles,
+    ...extra,
   });
+const angle = (id: string, texte: string, statut: "actif" | "test", application_id = UNSWIPE, minute = 0) => ({
+  id,
+  label_id: "L1",
+  application_id,
+  texte,
+  statut,
+  created_at: `2026-10-14T08:${String(minute).padStart(2, "0")}:00Z`,
+});
+const placements = (appels: string[]) => appels.filter((p) => p.includes("chosen_position"));
+const consigne = (prompt: string) => /--- CONSIGNE PROPRE À CE SLIDESHOW ---\n(.*)\n/.exec(prompt)?.[1] ?? null;
+
+Deno.test("angles : la référence (angle actif) puis une variante par angle EN TEST, rien d'écrit", async () => {
+  const tables = avecAngles([
+    angle("a-actif", "insister sur le temps récupéré", "actif"),
+    angle("a-test-1", "montrer la fierté d'avoir tenu", "test", UNSWIPE, 1),
+    angle("a-test-2", "parler du soir, avant de dormir", "test", UNSWIPE, 2),
+    angle("a-sophia", "angle Sophia, jamais pour Unswipe", "test", ID_SOPHIA, 3),
+  ]);
+  const avant = instantane(tables);
+  const { r, gemini, serveur } = await lancer(tables, { contenuIds: [C1] });
   assertEquals(serveur.violations, []);
   assertEquals(tables, avant, "rien n'a bougé en base");
-  assertEquals(r.angleBrouillon, "insister sur le temps récupéré");
-  const placement = gemini.appels.find((p) => p.includes("chosen_position")) ?? "";
-  assert(
-    placement.includes("--- CONSIGNE PROPRE À CE SLIDESHOW ---\ninsister sur le temps récupéré\n"),
-    placement,
+  const [c1] = r.contenus;
+  assertEquals(
+    c1.angles.map((a) => [a.source, a.angleId, a.angle, a.deck?.statut, a.deck?.angle]),
+    [
+      ["reference", null, "insister sur le temps récupéré", "pret", "insister sur le temps récupéré"],
+      ["test", "a-test-1", "montrer la fierté d'avoir tenu", "pret", "montrer la fierté d'avoir tenu"],
+      ["test", "a-test-2", "parler du soir, avant de dormir", "pret", "parler du soir, avant de dormir"],
+    ],
   );
-  assert(placement.indexOf("--- CONSIGNE PROPRE") < placement.indexOf("--- DONNÉES ---"));
-  assertEquals(r.contenus[0].deck?.angle, "insister sur le temps récupéré");
-  assert(r.limites.some((l) => l.startsWith("Angle :")), "la limite « angle » est affichée");
+  assertEquals(c1.deck, c1.angles[0].deck, "le deck affiché est celui de la référence");
+  assertEquals(placements(gemini.appels).map(consigne).sort(), [
+    "insister sur le temps récupéré",
+    "montrer la fierté d'avoir tenu",
+    "parler du soir, avant de dormir",
+  ]);
+  assertEquals(gemini.appels.length, 4, "1 notation + 3 placements, la base n'est traduite qu'une fois");
+  assertEquals(c1.anglesNonTestes, 0);
 });
 
-Deno.test("contenus : sans angle brouillon ni angle enregistré, prompt et deck sans angle", async () => {
+Deno.test("angles : sans angle actif, la référence est sans angle", async () => {
+  const { r, gemini } = await lancer(avecAngles([angle("t", "montrer la fierté", "test")]), { contenuIds: [C1] });
+  const [c1] = r.contenus;
+  assertEquals(c1.angles.map((a) => [a.source, a.angle]), [["reference", null], ["test", "montrer la fierté"]]);
+  assertEquals(placements(gemini.appels).map(consigne).sort((a, b) => String(a).localeCompare(String(b))), [
+    "montrer la fierté",
+    null,
+  ]);
+});
+
+Deno.test("angles : aucun angle en test → un seul placement, comme avant", async () => {
   const { r, gemini } = await lancer(base(), { contenuIds: [C1] });
-  assertEquals(r.angleBrouillon, null);
-  const placement = gemini.appels.find((p) => p.includes("chosen_position")) ?? "";
-  assert(!placement.includes("CONSIGNE PROPRE"), placement);
-  assertEquals(r.contenus[0].deck?.angle, null);
+  assertEquals(r.contenus[0].angles.length, 1);
+  assertEquals(r.contenus[0].angles[0].angle, null);
+  assertEquals(placements(gemini.appels).length, 1);
+  assert(!placements(gemini.appels)[0].includes("CONSIGNE PROPRE"));
+});
+
+Deno.test("angles : au-delà de MAX_ANGLES_TEST, les plus récents attendent, et c'est dit", async () => {
+  const tests = Array.from({ length: MAX_ANGLES_TEST + 2 }, (_, k) => angle(`t${k}`, `angle ${k}`, "test", UNSWIPE, k));
+  const { r } = await lancer(avecAngles(tests), { contenuIds: [C1] });
+  const [c1] = r.contenus;
+  assertEquals(c1.angles.length, 1 + MAX_ANGLES_TEST);
+  assertEquals(c1.angles.slice(1).map((a) => a.angleId), tests.slice(0, MAX_ANGLES_TEST).map((t) => t.id));
+  assertEquals(c1.anglesNonTestes, 2);
+  assert(r.limites.some((l) => l.includes("non testés")), r.limites.join(" | "));
+});
+
+Deno.test("Sophia : placement seul (pas de notation), une variante par angle, rien d'écrit", async () => {
+  const tables = avecAngles(
+    [
+      angle("s-actif", "insister sur la régularité", "actif", ID_SOPHIA),
+      angle("s-test", "parler de culture générale", "test", ID_SOPHIA, 1),
+      angle("u-test", "angle Unswipe, jamais pour Sophia", "test", UNSWIPE, 2),
+    ],
+    { prompts: [{ cle: "placement_sophia", contenu: "Place Sophia." }] },
+  );
+  const avant = instantane(tables);
+  const { r, gemini, serveur } = await lancer(tables, { applicationId: ID_SOPHIA, contenuIds: [C1] });
+  assertEquals(serveur.violations, []);
+  assertEquals(tables, avant);
+  assertEquals(r.erreurRun, undefined, r.resume);
+  assertEquals(r.notation, false);
+  assertEquals(r.scoring, null);
+  const [c1] = r.contenus;
+  assertEquals(c1.pertinence, null);
+  assertEquals(c1.angles.map((a) => [a.source, a.angle, a.deck?.statut, a.deck?.promptCle]), [
+    ["reference", "insister sur la régularité", "pret", "placement_sophia"],
+    ["test", "parler de culture générale", "pret", "placement_sophia"],
+  ]);
+  assertEquals(c1.deck?.slidePub, 3);
+  assertEquals(gemini.appels.filter((p) => p.includes("Slideshow candidat")).length, 0, "aucune notation");
+  assertEquals(placements(gemini.appels).map(consigne).sort(), [
+    "insister sur la régularité",
+    "parler de culture générale",
+  ]);
+  assert(r.limites.some((l) => l.startsWith("Sophia : placement seul")));
 });
 
 Deno.test("contenus : langue demandée ≠ source — traduction simulée, base relue dans le calque", async () => {
@@ -352,9 +434,8 @@ Deno.test("contenus : prompt de pertinence vide → notation refusée (pas de re
   assert(!r.ecrituresEvitees.some((e) => e.table === "contenu_pertinences"));
 });
 
-Deno.test("contenus : refus — Sophia, application inconnue, IA la nuit ; aucun appel au modèle", async () => {
+Deno.test("contenus : refus — application inconnue, IA la nuit ; aucun appel au modèle", async () => {
   for (const [args, attendu] of [
-    [{ applicationId: ID_SOPHIA }, "autres que Sophia"],
     [{ applicationId: "00000000-0000-4000-8000-0000000000ff" }, "inconnue"],
     [{ maintenant: () => new Date("2026-10-09T22:30:00Z") }, "pendant la nuit"],
   ] as const) {

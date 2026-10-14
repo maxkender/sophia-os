@@ -7,6 +7,12 @@
  * placement de l'application reste le socle ; l'angle oriente le FOND de la
  * slide pub (ce qu'elle met en avant), jamais sa forme.
  *
+ * Depuis 0285 (2026-10-14), les angles vivent dans `angles_placement` : une
+ * paire peut en porter plusieurs, chacun ACTIF (au plus un par paire : ajouté
+ * au prompt partout) ou en TEST (lu seulement par le test à blanc « contenus »,
+ * une variante par angle pour comparer). Le moteur de la nuit ne lit que
+ * l'angle actif ; `label_applications.angle` n'est plus lue.
+ *
  * Décision du 2026-10-13 (l'angle avait été retiré le 2026-10-08) :
  *  - placement seulement : la pertinence (le contenu entre-t-il dans la réserve
  *    de l'application ?) ne lit pas l'angle ;
@@ -31,11 +37,58 @@ export const ANGLE_LONGUEUR_MAX = 500;
  */
 export const MOTS_COPIE_ANGLE = 6;
 
-/** Ligne `label_applications` lue avec son angle. */
+/**
+ * Angles en test lus par le test à blanc pour une paire : au-delà, les plus
+ * récents attendent (le test le dit). Chacun coûte un placement par slideshow.
+ */
+export const MAX_ANGLES_TEST = 4;
+
+/** Une paire label × application avec un angle (forme commune aux lectures). */
 export interface LienAngle {
   label_id: string;
   application_id: string;
   angle?: string | null;
+}
+
+export type StatutAngle = "test" | "actif";
+
+/** Ligne de `angles_placement` (0285). */
+export interface AnglePlacementLigne {
+  id: string;
+  label_id: string;
+  application_id: string;
+  texte: string;
+  statut: StatutAngle | string;
+}
+
+/** Les angles ACTIFS, sous la forme lue par `anglesPourApplication`. */
+export function liensActifs(angles: readonly AnglePlacementLigne[]): LienAngle[] {
+  return angles
+    .filter((a) => a.statut === "actif")
+    .map((a) => ({ label_id: a.label_id, application_id: a.application_id, angle: a.texte }));
+}
+
+/**
+ * Angles EN TEST des labels d'un contenu pour une application : non vides,
+ * dédoublonnés (par texte), dans l'ordre reçu (le plus ancien d'abord), labels
+ * système exclus.
+ */
+export function anglesTestPourApplication(
+  labels: readonly LabelRef[],
+  angles: readonly AnglePlacementLigne[],
+  applicationId: string,
+): Array<{ id: string; texte: string }> {
+  const ids = new Set(labels.filter((l) => !estLabelSystemeSlug(l.slug)).map((l) => l.id));
+  const vus = new Set<string>();
+  const out: Array<{ id: string; texte: string }> = [];
+  for (const a of angles) {
+    if (a.statut !== "test" || a.application_id !== applicationId || !ids.has(a.label_id)) continue;
+    const texte = normaliserAngle(a.texte);
+    if (!texte || vus.has(texte)) continue;
+    vus.add(texte);
+    out.push({ id: a.id, texte });
+  }
+  return out;
 }
 
 /** Angle saisi, sans les blancs de bord ; chaîne vide = pas d'angle. */

@@ -873,8 +873,15 @@ export function PosterPostPage() {
                 <SignalerTexte slide={slide} postId={id!} propre={estPropre(slide)} />
               )}
 
-              {slide.texte_overlay && (
+              {/* Sans texte, le bloc disparaissait et le créateur croyait à un
+                  bug (slide finale d'un listicle, photo seule dans la source) :
+                  on dit explicitement qu'il n'y a rien à écrire. */}
+              {slide.texte_overlay?.trim() ? (
                 <TexteCopiable texte={slide.texte_overlay} label={t("posts.texteSlide")} />
+              ) : (
+                <p className="rounded-lg border border-dashed p-3 text-center text-sm text-muted-foreground">
+                  {t("posts.texteSlideAucun")}
+                </p>
               )}
 
               {estAdmin && (

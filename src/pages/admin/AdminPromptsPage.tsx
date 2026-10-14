@@ -15,6 +15,7 @@ import {
 } from "@/features/moteur/applications";
 import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import { AnglesPlacementCard } from "@/features/moteur/multiapp/AnglesPlacementCard";
+import { PromptCommentMasterCard } from "@/features/commentMasters/PromptCommentMasterCard";
 
 /**
  * Les prompts qui pilotent le moteur, modifiables sans redéploiement.
@@ -139,6 +140,12 @@ export function AdminPromptsPage() {
           desc={t(p.desc)}
         />
       ))}
+
+      <div className="pt-2">
+        <h2 className="text-sm font-semibold">{t("prompts.commentMaster.section")}</h2>
+        <p className="text-xs text-muted-foreground">{t("prompts.commentMaster.sectionDesc")}</p>
+      </div>
+      <PromptCommentMasterCard />
 
       <div className="pt-2">
         <h2 className="text-sm font-semibold">{t("prompts.traductionsLanguesTitre")}</h2>

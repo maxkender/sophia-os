@@ -10,9 +10,9 @@
 import { assert, assertEquals, assertRejects, assertStringIncludes } from "jsr:@std/assert@1";
 
 import {
+  analyserSophiaBase,
   assurerDeckApplication,
   construireDeckPlace,
-  motifBasePolluee,
   motifConcurrenceRefusee,
 } from "./deck_application.ts";
 import { oublierSondeMultiApp } from "./applications_moteur.ts";
@@ -331,7 +331,60 @@ Deno.test("cache en échec depuis plus de 24 h : recuit", async () => {
   aucuneEcritureDeSlides(ecritures);
 });
 
-Deno.test("base source polluée par la pub Sophia : inéligible, mis en cache, sans Gemini", async () => {
+/**
+ * Base source « polluée » : la pub Sophia a écrasé la slide 3 avant
+ * `slides_base` (le cas des ≈ 110 contenus Unswipe refusés jusqu'au 14/10).
+ */
+const BASE_POLLUEE = [
+  slide(1, "5 habitudes pour arrêter de scroller"),
+  slide(2, "1. téléphone hors de la chambre"),
+  slide(3, "2. une appli de micro-apprentissage comme l'appli Sophia", true),
+  slide(4, "3. lecture avant de dormir"),
+  slide(5, "4. marche sans écouteurs."),
+];
+
+Deno.test("base source polluée par la pub Sophia : la slide Sophia est imposée et remplacée", async () => {
+  for (const langue of ["fr", "de"]) {
+    oublierSondeMultiApp();
+    const ecritures: Ecriture[] = [];
+    const tables = monde({
+      contenu_langues: [{
+        id: "cl-fr",
+        contenu_id: "c1",
+        langue: "fr",
+        slides: BASE_POLLUEE,
+        slides_base: null,
+        hashtags: "#fr1 #fr2 #fr3",
+      }],
+    });
+    const { resultat, prompts } = await avecGemini(() =>
+      assurerDeckApplication(fauxClient(tables, ecritures), "c1", langue, UNSWIPE)
+    );
+
+    assertEquals(resultat.statut, "pret", langue);
+    if (resultat.statut !== "pret") return;
+    // Le modèle répond 4 : la slide Sophia imposée l'emporte.
+    assertEquals(resultat.slides.filter((s) => s.position_sophia).map((s) => s.position), [3]);
+    assertEquals(resultat.slides[2].texte_overlay, "3. die Unswipe-App hilft mir");
+    for (const s of resultat.slides) assert(!/sophia/i.test(s.texte_overlay ?? ""), s.texte_overlay ?? "");
+
+    // Le modèle voit la slide Sophia telle quelle, pour la remplacer en entier.
+    const placement = prompts.filter((p) => p.includes("Application à placer"));
+    assertEquals(placement.length, 1);
+    assertStringIncludes(placement[0], "La slide 3 cite une appli concurrente");
+    assertStringIncludes(placement[0], "Position imposée : choisis la slide 3 UNIQUEMENT");
+
+    const cache = tables.contenu_langue_decks[0];
+    assertEquals(cache.statut, "pret");
+    assertEquals((cache.placement as { positionImposee?: number }).positionImposee, 3);
+    assertEquals((cache.placement as { chosenPosition: number }).chosenPosition, 3);
+    // La base source (et le deck Sophia) ne sont pas touchés.
+    assertEquals(tables.contenu_langues[0].slides, BASE_POLLUEE);
+    aucuneEcritureDeSlides(ecritures);
+  }
+});
+
+Deno.test("base polluée, langue cible : la base traduite garde la slide Sophia marquée", async () => {
   oublierSondeMultiApp();
   const ecritures: Ecriture[] = [];
   const tables = monde({
@@ -339,27 +392,101 @@ Deno.test("base source polluée par la pub Sophia : inéligible, mis en cache, s
       id: "cl-fr",
       contenu_id: "c1",
       langue: "fr",
-      slides: [...BASE_FR.slice(0, 3), slide(4, "3. l'appli Sophia m'aide", true)],
+      slides: BASE_POLLUEE,
+      slides_base: null,
+      hashtags: "#fr",
+    }],
+  });
+  await avecGemini(() => assurerDeckApplication(fauxClient(tables, ecritures), "c1", "de", UNSWIPE));
+  const de = tables.contenu_langues.find((l) => l.langue === "de")!;
+  const baseDe = de.slides_base as SlideLangue[];
+  // La slide 3 reste l'emplacement de pub pour Unswipe ET micabo (cache partagé).
+  assertEquals(baseDe.filter((s) => s.position_sophia).map((s) => s.position), [3]);
+  aucuneEcritureDeSlides(ecritures);
+});
+
+Deno.test("base qui cite Sophia sans marquage, perdue par la traduction : position lue sur la source", async () => {
+  oublierSondeMultiApp();
+  const ecritures: Ecriture[] = [];
+  const source = BASE_POLLUEE.map((s) => slide(s.position, s.texte_overlay ?? ""));
+  // La base allemande déjà traduite a perdu le nom (« eine App »).
+  const baseDe = source.map((s) =>
+    slide(s.position, `[de] ${(s.texte_overlay ?? "").replace(/l'appli Sophia/g, "eine App")}`)
+  );
+  const tables = monde({
+    contenu_langues: [
+      { id: "cl-fr", contenu_id: "c1", langue: "fr", slides: source, slides_base: null, hashtags: "#fr" },
+      { id: "cl-de", contenu_id: "c1", langue: "de", slides: [], slides_base: baseDe, hashtags: "#de" },
+    ],
+  });
+  const { resultat, prompts } = await avecGemini(() =>
+    assurerDeckApplication(fauxClient(tables, ecritures), "c1", "de", UNSWIPE)
+  );
+  assertEquals(resultat.statut, "pret");
+  if (resultat.statut !== "pret") return;
+  assertEquals(prompts.length, 1, "slides_base allemande déjà là : pas de traduction");
+  assertStringIncludes(prompts[0], "La slide 3 cite une appli concurrente");
+  assertEquals(resultat.slides.filter((s) => s.position_sophia).map((s) => s.position), [3]);
+  aucuneEcritureDeSlides(ecritures);
+});
+
+Deno.test("base polluée sans légende : les hashtags ne voient pas la slide Sophia", async () => {
+  oublierSondeMultiApp();
+  const ecritures: Ecriture[] = [];
+  const tables = monde({
+    contenu_langues: [{
+      id: "cl-fr",
+      contenu_id: "c1",
+      langue: "fr",
+      slides: BASE_POLLUEE,
       slides_base: null,
       hashtags: null,
     }],
   });
   const { resultat, prompts } = await avecGemini(() =>
-    assurerDeckApplication(fauxClient(tables, ecritures), "c1", "de", UNSWIPE)
+    assurerDeckApplication(fauxClient(tables, ecritures), "c1", "fr", UNSWIPE)
   );
-  assertEquals(resultat, { statut: "ineligible", raison: "base polluée par une pub Sophia", cuit: true });
-  assertEquals(prompts.length, 0);
-  const cache = tables.contenu_langue_decks;
-  assertEquals(cache.length, 1);
-  assertEquals(cache[0].statut, "ineligible");
-  assertEquals(cache[0].variante, "unswipe");
-  assertEquals(cache[0].application_id, UNSWIPE.id);
+  assertEquals(resultat.statut, "pret");
+  const horsPlacement = prompts.filter((p) => !p.includes("Application à placer"));
+  assert(horsPlacement.length > 0, "une légende a été générée");
+  for (const p of horsPlacement) assert(!/sophia/i.test(p), "la légende ne doit pas partir de la slide Sophia");
   aucuneEcritureDeSlides(ecritures);
 });
 
-Deno.test("base qui cite Sophia sans marquage : inéligible aussi", () => {
-  assertEquals(motifBasePolluee([slide(1, "x"), slide(2, "merci SOPHIA")]), "base qui cite Sophia");
-  assertEquals(motifBasePolluee(BASE_FR), null);
+Deno.test("slide Sophia ET slide concurrente : inéligible (deux pubs), sans aucun appel modèle", async () => {
+  oublierSondeMultiApp();
+  const ecritures: Ecriture[] = [];
+  const base = [
+    slide(1, "things that fixed my attention span"),
+    slide(2, "1. phone out of the bedroom"),
+    slide(3, "2. i installed opal to block tiktok"),
+    slide(4, "3. the Sophia app teaches me something daily", true),
+    slide(5, "4. morning walks"),
+  ];
+  const { resultat, prompts } = await avecGemini(() =>
+    assurerDeckApplication(fauxClient(mondeEn(base), ecritures), "c1", "en", UNSWIPE)
+  );
+  assertEquals(resultat, { statut: "ineligible", raison: "une slide Sophia et une slide concurrente", cuit: true });
+  assertEquals(prompts.length, 0);
+});
+
+Deno.test("analyserSophiaBase : une seule slide Sophia, hors couverture, avec du texte ailleurs", () => {
+  assertEquals(analyserSophiaBase(BASE_FR), {});
+  assertEquals(analyserSophiaBase(BASE_POLLUEE), { position: 3 });
+  // Non marquée mais qui nomme Sophia (source qui faisait déjà sa promo).
+  assertEquals(analyserSophiaBase([slide(1, "x"), slide(2, "merci SOPHIA"), slide(3, "y")]), { position: 2 });
+  assertEquals(
+    analyserSophiaBase([slide(1, "comment Sophia m'a rendue cultivée"), slide(2, "x")]),
+    { refus: "couverture qui cite Sophia" },
+  );
+  assertEquals(
+    analyserSophiaBase([slide(1, "x"), slide(2, "l'appli Sophia", true), slide(3, "merci Sophia")]),
+    { refus: "plusieurs slides citent Sophia" },
+  );
+  assertEquals(
+    analyserSophiaBase([slide(1, ""), slide(2, "l'appli Sophia", true)]),
+    { refus: "aucun texte hors de la slide Sophia" },
+  );
 });
 
 Deno.test("prompt placement_<slug> manquant : échec en cache, AUCUN appel Gemini", async () => {

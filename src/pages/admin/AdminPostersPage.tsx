@@ -42,6 +42,7 @@ import { BadgeClassement } from "@/features/moteur/BadgeClassement";
 import { EnteteCompte } from "@/features/moteur/VignetteCompte";
 import {
   assurerComptePoster,
+  activerPoster,
   creerCompteUgcVideo,
   creerPoster,
   creerRecruteur,
@@ -56,7 +57,6 @@ import {
   listerPosters,
   majCompte,
   majLanguesRecruteur,
-  majPoster,
   majUpwork,
   majZoneRecruteur,
   setLabelsCompte,
@@ -831,7 +831,7 @@ export function AdminPostersPage() {
   });
   const basculer = useMutation({
     mutationFn: (input: { id: string; actif: boolean }) =>
-      majPoster(input.id, { is_active: input.actif }),
+      activerPoster(input.id, input.actif),
     onSuccess: rafraichir,
   });
   const warmupStart = useMutation({

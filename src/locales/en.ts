@@ -1203,6 +1203,8 @@ export const en = {
       apercuTitre: "Post preview",
       apercuVide: "This post has no content yet (still being built).",
       confirmSuppr: "Permanently delete {{nom}}?",
+      confirmDesactiver:
+        "Deactivate {{nom}}? They can no longer log in and their TikTok accounts stop receiving posts. You can reactivate them anytime.",
       badge: "Recruiter",
       badgeHm: "HM",
       badgeDm: "DM",

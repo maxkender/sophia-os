@@ -42,23 +42,25 @@ Deno.test("une ligne déjà à zéro et toujours vide ne déclenche aucune écri
   assertEquals(plan.inchangees, 1);
 });
 
-Deno.test("KZ, UA et BY alimentent la même ligne russophone, et s'additionnent", () => {
-  // La ligne s'appelle « Russian-Speaking (not russia) » : ce n'est pas un
-  // pays, et RU n'en fait justement pas partie.
+Deno.test("KZ, UA et BY ont chacun leur ligne, comme LATAM", () => {
+  // Découpage demandé par Aram le 14/10 : plus de ligne « Russian-Speaking ».
   const plan = planifier(
     [os("KZ", "sophia", 2), os("UA", "sophia", 1), os("BY", "sophia", 1)],
-    [notion("Russian-Speaking (not russia)", "Sophia", 0)],
+    [notion("Kazakhstan", "Sophia", 0), notion("Ukraine", "Sophia", 0), notion("Belarus", "Sophia", 0)],
   );
-  assertEquals(plan.ecritures.length, 1);
-  assertEquals(plan.ecritures[0].apres, 4);
+  assertEquals(plan.inconnus, []);
+  assertEquals(
+    plan.ecritures.map((e) => `${e.country} ${e.apres}`).sort(),
+    ["Belarus 1", "Kazakhstan 2", "Ukraine 1"],
+  );
 });
 
 Deno.test("RU n'est rattaché à aucune ligne et remonte dans les inconnus", () => {
-  // La ligne russophone est à 2 ; les 3 comptes « RU » ne l'alimentent PAS,
+  // La ligne Kazakhstan est à 2 ; les 3 comptes « RU » ne l'alimentent PAS,
   // donc elle retombe à 0 et les 3 comptes sont signalés comme invisibles.
   // C'est exactement pour éviter ce silence que `ru` n'a plus de pays par
   // défaut (migration 0281).
-  const plan = planifier([os("RU", "sophia", 3)], [notion("Russian-Speaking (not russia)", "Sophia", 2)]);
+  const plan = planifier([os("RU", "sophia", 3)], [notion("Kazakhstan", "Sophia", 2)]);
   assertEquals(plan.inconnus.length, 1);
   assertEquals(plan.inconnus[0].pays, "RU");
   assertEquals(plan.inconnus[0].hired, 3);
@@ -106,7 +108,9 @@ Deno.test("les trois libellés qui ne tombent pas tout seuls sont bien câblés"
   // deux casseraient la correspondance. Vérifié ici plutôt qu'en production.
   assertEquals(PAYS_VERS_NOTION["AE"], "UAE");
   assertEquals(PAYS_VERS_NOTION["TR"], "Turkey");
-  assertEquals(PAYS_VERS_NOTION["KZ"], "Russian-Speaking (not russia)");
+  assertEquals(PAYS_VERS_NOTION["KZ"], "Kazakhstan");
+  assertEquals(PAYS_VERS_NOTION["UA"], "Ukraine");
+  assertEquals(PAYS_VERS_NOTION["BY"], "Belarus");
   assertEquals(PAYS_VERS_NOTION["RU"], undefined);
 });
 
@@ -116,7 +120,7 @@ Deno.test("les trois applications sont capitalisées comme les options du select
   assertEquals(APP_VERS_NOTION["micabo"], "Micabo");
 });
 
-Deno.test("le cas réel du 13/10/2026 : 53 lignes sur 56 ne bougent pas", () => {
+Deno.test("le cas réel du 13/10/2026 : 55 lignes sur 58 ne bougent pas", () => {
   // Blanc calculé sur les vrais chiffres, gardé comme filet : si une
   // refactorisation change le comportement, ce test le dit avec les vrais
   // ordres de grandeur plutôt qu'avec des cas jouets.
@@ -142,7 +146,9 @@ Deno.test("le cas réel du 13/10/2026 : 53 lignes sur 56 ne bougent pas", () => 
     ["Israel", "Sophia", 0], ["Italy", "Sophia", 10], ["Netherlands", "Sophia", 5],
     ["New Zealand", "Sophia", 0], ["Norway", "Sophia", 2], ["Poland", "Sophia", 9],
     ["Portugal", "Sophia", 12], ["Romania", "Sophia", 10],
-    ["Russian-Speaking (not russia)", "Sophia", 2], ["Serbia", "Sophia", 4],
+    // Ligne « Russian-Speaking (not russia) » découpée le 14/10 en trois pays.
+    ["Kazakhstan", "Sophia", 2], ["Ukraine", "Sophia", 0], ["Belarus", "Sophia", 0],
+    ["Serbia", "Sophia", 4],
     ["Slovakia", "Sophia", 3], ["Slovenia", "Sophia", 5], ["Spain", "Sophia", 9],
     ["Sweden", "Sophia", 4], ["Switzerland", "Sophia", 0], ["Turkey", "Sophia", 14],
     ["UAE", "Sophia", 0], ["United Kingdom", "Sophia", 2], ["United States", "Sophia", 3],
@@ -153,10 +159,10 @@ Deno.test("le cas réel du 13/10/2026 : 53 lignes sur 56 ne bougent pas", () => 
     ["United Kingdom", "Unswipe", 0], ["United States", "Unswipe", 0], ["Uruguay", "Unswipe", 0],
   ];
   const lignesNotion = avant.map(([c, a, h]) => notion(c, a, h));
-  assertEquals(lignesNotion.length, 56);
+  assertEquals(lignesNotion.length, 58);
 
   const plan = planifier(lignesOs, lignesNotion);
-  assertEquals(plan.inchangees, 53);
+  assertEquals(plan.inchangees, 55);
   assertEquals(plan.inconnus, []);
   assertEquals(plan.doublons, []);
   assertEquals(

@@ -36,10 +36,10 @@ export function cleNotion(): string | null {
  *   • TR  : la ligne s'appelle « Turkey », Intl moderne dit « Türkiye ». Ça
  *           marcherait sur un runtime à vieil ICU et casserait en silence à la
  *           première mise à jour. Vérifié sur Node 22 : « Türkiye ».
- *   • KZ/UA/BY : la ligne s'appelle « Russian-Speaking (not russia) » et n'est
- *           pas un pays. Périmètre arrêté avec le référent le 13/10/2026 :
- *           Kazakhstan, Ukraine, Biélorussie. La Russie elle-même n'en fait
- *           PAS partie, le titre de la ligne le dit. Nos deux comptes
+ *   • KZ/UA/BY : jusqu'au 14/10/2026, une seule ligne « Russian-Speaking (not
+ *           russia) ». Aram l'a fait découper en trois lignes pays, comme
+ *           LATAM : Kazakhstan, Ukraine, Belarus. La Russie n'en fait PAS
+ *           partie (périmètre arrêté le 13/10/2026). Nos deux comptes
  *           russophones sont kazakhs (ils étaient rangés en RU à tort, corrigé
  *           par 0280), et `ru` n'a volontairement plus de pays par défaut
  *           (0281) : au HM de choisir.
@@ -85,9 +85,9 @@ export const PAYS_VERS_NOTION: Readonly<Record<string, string>> = Object.freeze(
   GB: "United Kingdom",
   US: "United States",
   UY: "Uruguay",
-  KZ: "Russian-Speaking (not russia)",
-  UA: "Russian-Speaking (not russia)",
-  BY: "Russian-Speaking (not russia)",
+  KZ: "Kazakhstan",
+  UA: "Ukraine",
+  BY: "Belarus",
 });
 
 /** Slug d'application en base → option exacte du select « App ». */

@@ -78,7 +78,7 @@ import { PartsApplicationsCompte } from "@/features/moteur/repartition/PartsAppl
 import { useLiensLabels } from "@/features/moteur/repartition/useMultiApp";
 import { SelectApplication } from "@/features/moteur/SelectApplication";
 import { drapeauLangue, langueInitiale, nomLangue } from "@/features/moteur/langues";
-import { drapeauPays, paysTries } from "@/features/moteur/pays";
+import { drapeauPays, estCodePays, nomPaysIso, paysTries } from "@/features/moteur/pays";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
 import { phaseCreateur, type PhaseCreateur } from "@/features/moteur/warmup";
 import type {
@@ -134,6 +134,28 @@ function DrapeauxLangues({ codes }: { codes: string[] }) {
       {uniques.map((code) => (
         <span key={code} title={nomLangue(code)} className="select-none">
           {drapeauLangue(code)}
+        </span>
+      ))}
+    </span>
+  );
+}
+
+/**
+ * Drapeaux des PAYS où l'équipe d'un recruteur poste réellement. Les langues
+ * gérées ne disent pas le pays : « ru » sortait 🇷🇺 alors que la Russie n'est
+ * pas un de nos marchés et que les comptes russophones sont kazakhs.
+ */
+function DrapeauxPays({ codes }: { codes: string[] }) {
+  const uniques = [...new Set(codes.filter((c) => estCodePays(c)))].sort();
+  if (uniques.length === 0) return null;
+  return (
+    <span
+      className="flex shrink-0 flex-wrap items-center justify-end gap-0.5 text-[15px] leading-none"
+      aria-label={uniques.map((c) => nomPaysIso(c)).join(", ")}
+    >
+      {uniques.map((code) => (
+        <span key={code} title={nomPaysIso(code)} className="select-none">
+          {drapeauPays(code)}
         </span>
       ))}
     </span>
@@ -1351,8 +1373,17 @@ export function AdminPostersPage() {
   const languesRecruteur = (poster: PosterProfil) =>
     poster.langues?.length > 0 ? poster.langues : poster.nationalite ? [poster.nationalite] : [];
 
+  /** Pays des comptes de ses créateurs directs ; les langues seulement s'il n'en a aucun. */
+  const drapeauxRecruteur = (poster: PosterProfil) => {
+    const pays = tousCreateurs
+      .filter((c) => c.manager_id === poster.id)
+      .flatMap((c) => (comptesParPoster.get(c.id) ?? []).map((x) => x.pays ?? ""));
+    return pays.some((c) => estCodePays(c))
+      ? <DrapeauxPays codes={pays} />
+      : <DrapeauxLangues codes={languesRecruteur(poster)} />;
+  };
+
   const carteRecruteur = (poster: PosterProfil) => {
-    const langues = languesRecruteur(poster);
     return (
       <article
         key={poster.id}
@@ -1375,7 +1406,7 @@ export function AdminPostersPage() {
             )}
             {!poster.is_active && <Badge variant="secondary">{t("posters.disabled")}</Badge>}
           </div>
-          <DrapeauxLangues codes={langues} />
+          {drapeauxRecruteur(poster)}
         </div>
         <LangueRecruteurDropdown recruteur={poster} />
       </article>
@@ -1507,7 +1538,7 @@ export function AdminPostersPage() {
             </Badge>
           )}
           {!r.is_active && <Badge variant="secondary">{t("posters.disabled")}</Badge>}
-          <DrapeauxLangues codes={languesRecruteur(r)} />
+          {drapeauxRecruteur(r)}
           <div className="w-48">
             <LangueRecruteurDropdown recruteur={r} />
           </div>

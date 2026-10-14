@@ -212,19 +212,26 @@ export interface ResultatContenusABlanc {
   limites: string[];
 }
 
-/** Ce que ce mode ne rejoue pas — toujours affiché. */
+const LIMITE_NON_DETERMINISTE =
+  "Le modèle n'est pas déterministe : relancer peut donner un autre score, une autre slide ou une autre phrase.";
+const LIMITE_ANGLES =
+  `Angles : la référence est l'angle ACTIF du label (ou sans angle), comme la nuit ; chaque angle EN TEST du label donne un placement de plus (au plus ${MAX_ANGLES_TEST}). L'angle n'entre que dans le placement, pas dans la notation.`;
+
+/** Ce que ce mode ne rejoue pas — toujours affiché (hors Sophia). */
 export const LIMITES_CONTENUS: readonly string[] = [
   "Notation : même calcul que le rattrapage (noterContenuBackfill, piste du compte source comprise) ; une ligne déjà en base n'est remplacée que dans le test.",
   "Placement : cache contenu_langue_decks ignoré pour tester le prompt actuel ; une base déjà traduite en base (slides_base de la langue) est réutilisée, sinon la traduction est faite par le modèle et jamais enregistrée.",
   "Tier d'entrée : celui d'une ligne neuve (tier_initial_note). Un contenu déjà passé dans contenu_tiers_application garde son tier réel.",
-  "Le modèle n'est pas déterministe : relancer peut donner un autre score, une autre slide ou une autre phrase.",
-  `Angles : la référence est l'angle ACTIF du label (ou sans angle), comme la nuit ; chaque angle EN TEST du label donne un placement de plus (au plus ${MAX_ANGLES_TEST}). L'angle n'entre que dans le placement, pas dans la notation.`,
+  LIMITE_NON_DETERMINISTE,
+  LIMITE_ANGLES,
 ];
 
-/** Limites propres à Sophia — affichées quand l'application testée est Sophia. */
+/** Limites quand l'application testée est Sophia (à la place de LIMITES_CONTENUS). */
 export const LIMITES_SOPHIA: readonly string[] = [
   "Sophia : placement seul, pas de notation (le contenu est déjà dans le stock Sophia).",
   "Sophia : la slide est posée sur la base sans pub de la langue ; la nuit, un deck Sophia déjà prêt est servi tel quel (un angle ne vaut que pour les prochains decks).",
+  LIMITE_NON_DETERMINISTE,
+  LIMITE_ANGLES,
 ];
 
 function texte(v: unknown): string | null {
@@ -300,6 +307,8 @@ interface ContenuLu {
   statut: string | null;
   import_statut: string | null;
   import_elo_force_seuil: boolean | null;
+  /** Compte source : sa voix guide la traduction de la base (comme la nuit). */
+  compte_reference_id: string | null;
 }
 
 async function testerPertinence(
@@ -694,11 +703,13 @@ export async function executerContenusABlanc(
     if (!erreurRun) delete r.erreurRun;
     r.resume = erreurRun
       ? `Test interrompu : ${erreurRun} — ${sansEcriture}`
-      : `${r.contenus.length} slideshow(s) testé(s) : ${eligibles} éligible(s), ${prets} deck(s) prêt(s) — ${sansEcriture}`;
+      : r.notation
+      ? `${r.contenus.length} slideshow(s) testé(s) : ${eligibles} éligible(s), ${prets} deck(s) prêt(s) — ${sansEcriture}`
+      : `${r.contenus.length} slideshow(s) testé(s) : ${prets} deck(s) prêt(s) — ${sansEcriture}`;
     Object.assign(r, agregerJournal(etat));
     r.appelsIA = { ...etat.compteurIA };
     r.lectures = etat.lectures;
-    r.limites = [...etat.limites, ...r.limites, ...LIMITES_CONTENUS];
+    r.limites = [...etat.limites, ...r.limites, ...(r.notation ? LIMITES_CONTENUS : LIMITES_SOPHIA)];
     r.dureeMs = Date.now() - debut;
     return r;
   };
@@ -729,7 +740,6 @@ export async function executerContenusABlanc(
   // Sophia : placement seul (ni rattrapage ni deck d'application).
   const estSophia = app.id === ID_SOPHIA || app.slug === SLUG_SOPHIA;
   r.notation = !estSophia;
-  if (estSophia) r.limites.push(...LIMITES_SOPHIA);
   r.application = { id: app.id, slug: app.slug, nom: app.nom, actif: app.actif, langues: app.langues };
   if (!app.actif) {
     r.limites.push(`${app.nom} est inactive : la nuit ne la sert pas encore (le test la sert quand même).`);
@@ -746,7 +756,13 @@ export async function executerContenusABlanc(
     placement: { cle: clePlacement, present: Boolean(promptPlacement) },
   };
   if (!promptPertinence && !estSophia) log(`Prompt « ${clePertinence} » vide : pas de notation possible.`);
-  if (!promptPlacement) log(`Prompt « ${clePlacement} » vide : pas de placement possible.`);
+  if (!promptPlacement) {
+    log(
+      estSophia
+        ? `Prompt « ${clePlacement} » vide : Sophia posée sans prompt maître, comme la nuit.`
+        : `Prompt « ${clePlacement} » vide : pas de placement possible.`,
+    );
+  }
 
   const deps = args.deps ?? depsRattrapage(supabase);
   let scoring: ScoringNote | null = null;
@@ -772,7 +788,7 @@ export async function executerContenusABlanc(
     const tag = `[${i + 1}/${ids.length}]`;
     const { data, error } = await supabase
       .from("contenus")
-      .select("id, titre, langue_source, vues_source, statut, import_statut, import_elo_force_seuil")
+      .select("id, titre, langue_source, vues_source, statut, import_statut, import_elo_force_seuil, compte_reference_id")
       .eq("id", id)
       .maybeSingle();
     if (error || !data) {
@@ -878,7 +894,17 @@ export async function executerContenusABlanc(
         }
       };
       angles.push(await lancer(essais[0]));
-      angles.push(...await Promise.all(essais.slice(1).map(lancer)));
+      // Sans base (traduction ratée, deck source vide…), les angles en test
+      // retraduiraient chacun la leur : comparaison faussée. Ils attendent.
+      if (essais.length > 1 && (angles[0].deck?.base.length ?? 0) === 0) {
+        angles.push(...essais.slice(1).map((e) => ({
+          ...e,
+          deck: null,
+          erreur: "non testé : la référence n'a pas de base dans cette langue (traduction ou deck source indisponible)",
+        })));
+      } else {
+        angles.push(...await Promise.all(essais.slice(1).map(lancer)));
+      }
     }
     angles.forEach((a, k) => {
       if (a.deck) log(`${nom} · ${etiquette(a, k)} : ${decrire(a.deck)}`);

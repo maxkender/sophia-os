@@ -49,8 +49,9 @@ export async function activerAnglePlacement(id: string): Promise<void> {
 }
 
 /**
- * Nouvel angle. Créé en test ; s'il doit être actif, il est ensuite activé
- * (si l'activation échoue, il reste en test : jamais actif par erreur).
+ * Nouvel angle, en test ou directement actif, en UNE transaction (fonction
+ * `ajouter_angle_placement`) : actif, l'actif précédent de la paire repasse en
+ * test ; un échec n'ajoute rien.
  */
 export async function creerAnglePlacement(
   labelId: string,
@@ -58,13 +59,13 @@ export async function creerAnglePlacement(
   texte: string,
   statut: StatutAngle,
 ): Promise<void> {
-  const { data, error } = await supabase
-    .from("angles_placement")
-    .insert({ label_id: labelId, application_id: applicationId, texte: texteValide(texte), statut: "test" })
-    .select("id")
-    .single();
+  const { error } = await supabase.rpc("ajouter_angle_placement", {
+    p_label_id: labelId,
+    p_application_id: applicationId,
+    p_texte: texteValide(texte),
+    p_actif: statut === "actif",
+  });
   if (error) throw error;
-  if (statut === "actif") await activerAnglePlacement((data as { id: string }).id);
 }
 
 export async function modifierTexteAngle(id: string, texte: string): Promise<void> {

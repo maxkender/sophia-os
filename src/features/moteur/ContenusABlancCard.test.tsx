@@ -231,6 +231,21 @@ describe("ContenusABlancCard", () => {
     expect(bloc.querySelector("a")?.getAttribute("href")).toBe("/admin/angles");
   });
 
+  it("angles annoncés : doublons et copies de l'actif ne comptent pas, comme dans le moteur", async () => {
+    anglesEnBase.mockResolvedValue([
+      angleEnBase("a", "actif", "insister sur le temps récupéré"),
+      angleEnBase("t1", "test", " insister sur le temps récupéré"),
+      angleEnBase("t2", "test", "montrer la fierté"),
+      angleEnBase("t3", "test", "montrer la fierté"),
+    ]);
+    rendre(<ContenusABlancCard />);
+    const label = (await screen.findByLabelText(/^label$/i)) as HTMLSelectElement;
+    await waitFor(() => expect(label.options.length).toBe(3));
+    fireEvent.change(label, { target: { value: "L2" } });
+    const bloc = await screen.findByTestId("angles-a-blanc");
+    await waitFor(() => expect(bloc.textContent).toMatch(/1 (angle en test|test angle)/));
+  });
+
   it("label qui ne sert pas l'application : ses angles ne sont pas lus, c'est dit", async () => {
     anglesEnBase.mockResolvedValue([angleEnBase("t1", "test", "montrer la fierté", "L1")]);
     rendre(<ContenusABlancCard />);
@@ -277,7 +292,7 @@ describe("ContenusABlancCard", () => {
         application: { id: SOPHIA, slug: "sophia", nom: "Sophia", actif: true, langues: null },
         prompts: {
           pertinence: { cle: "pertinence", present: false },
-          placement: { cle: "placement_sophia", present: true },
+          placement: { cle: "placement_sophia", present: false },
         },
         scoring: null,
         notation: false,
@@ -291,6 +306,8 @@ describe("ContenusABlancCard", () => {
     expect(r.textContent).not.toMatch(/non éligible|not eligible/i);
     expect(r.textContent).toMatch(/Sophia placement|Placement Sophia/);
     expect(r.textContent).not.toMatch(/2\. (Sophia placement|Placement Sophia)/);
+    expect(r.textContent).toMatch(/sans prompt maître|without a master prompt/);
+    expect(r.textContent).not.toMatch(/placement est impossible|placement is impossible/);
   });
 
   it("3 au hasard : jamais plus de 3, et le résultat affiche un prompt vide clairement", async () => {

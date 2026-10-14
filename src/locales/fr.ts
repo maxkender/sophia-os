@@ -372,6 +372,8 @@ export const fr = {
       enCours: "Test en cours…",
       promptPertinenceVide: "Prompt « {{cle}} » vide : la notation est impossible (le rattrapage refuserait de démarrer). Remplis-le dans Prompts.",
       promptPlacementVide: "Prompt « {{cle}} » vide : le placement est impossible. Remplis-le dans Prompts.",
+      promptPlacementVideSophia:
+        "Prompt « {{cle}} » vide : Sophia est posée sans prompt maître, comme la nuit le ferait. Remplis-le dans Prompts.",
       langues: "langue source {{source}} → deck testé en {{langue}}",
       vues: "{{n}} vues",
       piste: "piste du compte source {{n}}/100",
@@ -1916,6 +1918,10 @@ export const fr = {
       resumeTests_one: "{{count}} angle en test",
       resumeTests_other: "{{count}} angles en test",
       tropDeTests: "Plus de {{max}} angles en test : le test à blanc ne compare que les {{max}} plus anciens.",
+      nonCompareIdentique: "identique à l'actif : pas comparé",
+      nonCompareDoublon: "doublon : pas comparé",
+      nonCompareAuDela: "au-delà de {{max}} : pas comparé",
+      existeDeja: "Cet angle existe déjà pour ce label.",
     },
     multiApp: {
       schemaAbsent: "Multi-applications pas encore en base (migration 0256).",

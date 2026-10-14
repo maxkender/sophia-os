@@ -16,7 +16,14 @@ import {
   type StatutAngle,
 } from "@/features/moteur/apiAngles";
 
-import { ANGLE_LONGUEUR_MAX, MAX_ANGLES_TEST, normaliserAngle, type GroupeAngles } from "./angles";
+import {
+  ANGLE_LONGUEUR_MAX,
+  anglesTestCompares,
+  MAX_ANGLES_TEST,
+  normaliserAngle,
+  type GroupeAngles,
+  type MotifAngleNonCompare,
+} from "./angles";
 
 function messageErreur(err: unknown): string {
   if (err instanceof Error) return err.message;
@@ -26,12 +33,28 @@ function messageErreur(err: unknown): string {
 
 const CLE_ANGLES = ["angles-placement"] as const;
 
+const CLE_MOTIF: Record<MotifAngleNonCompare, string> = {
+  identique_actif: "angles.nonCompareIdentique",
+  doublon: "angles.nonCompareDoublon",
+  au_dela_max: "angles.nonCompareAuDela",
+};
+
 /** Un angle : statut, texte (modifiable), passage actif ↔ test, suppression. */
-function LigneAngle({ angle, nomLabel }: { angle: AnglePlacement; nomLabel: string }) {
+function LigneAngle({
+  angle,
+  nomLabel,
+  autresTextes,
+  nonCompare,
+}: {
+  angle: AnglePlacement;
+  nomLabel: string;
+  /** Textes (normalisés) des autres angles de la paire : pas de doublon. */
+  autresTextes: ReadonlySet<string>;
+  nonCompare: MotifAngleNonCompare | undefined;
+}) {
   const { t } = useTranslation();
   const qc = useQueryClient();
   const [edition, setEdition] = React.useState<string | null>(null);
-  const rafraichir = () => qc.invalidateQueries({ queryKey: CLE_ANGLES });
   const action = useMutation({
     mutationFn: async (quoi: "activer" | "tester" | "supprimer" | "enregistrer") => {
       if (quoi === "activer") return activerAnglePlacement(angle.id);
@@ -39,19 +62,27 @@ function LigneAngle({ angle, nomLabel }: { angle: AnglePlacement; nomLabel: stri
       if (quoi === "supprimer") return supprimerAnglePlacement(angle.id);
       return modifierTexteAngle(angle.id, edition ?? angle.texte);
     },
-    onSuccess: async (_r, quoi) => {
-      await rafraichir();
+    onSuccess: (_r, quoi) => {
       if (quoi === "enregistrer") setEdition(null);
     },
+    // Succès ou échec : la liste est relue (un échec peut cacher un état changé).
+    onSettled: () => qc.invalidateQueries({ queryKey: CLE_ANGLES }),
   });
   const actif = angle.statut === "actif";
   const occupe = action.isPending;
-  const modifie = edition !== null && normaliserAngle(edition) !== angle.texte && normaliserAngle(edition) !== "";
+  const propre = edition === null ? "" : normaliserAngle(edition);
+  const doublon = edition !== null && autresTextes.has(propre);
+  const modifie = edition !== null && propre !== angle.texte && propre !== "" && !doublon;
 
   return (
     <li className="space-y-2 rounded-md border p-3" data-testid="angle" data-statut={angle.statut}>
       <div className="flex flex-wrap items-start gap-2">
         <Badge variant={actif ? "success" : "warning"}>{actif ? t("angles.statutActif") : t("angles.statutTest")}</Badge>
+        {nonCompare && (
+          <Badge variant="outline" data-testid="non-compare">
+            {t(CLE_MOTIF[nonCompare], { max: MAX_ANGLES_TEST })}
+          </Badge>
+        )}
         {edition === null ? (
           <p className="min-w-0 flex-1 whitespace-pre-line text-sm">{angle.texte}</p>
         ) : (
@@ -104,6 +135,7 @@ function LigneAngle({ angle, nomLabel }: { angle: AnglePlacement; nomLabel: stri
             <span className="text-[11px] text-muted-foreground">
               {t("angles.compteur", { n: edition.length, max: ANGLE_LONGUEUR_MAX })}
             </span>
+            {doublon && <span className="text-[11px] text-warning">{t("angles.existeDeja")}</span>}
           </>
         )}
       </div>
@@ -117,18 +149,28 @@ function LigneAngle({ angle, nomLabel }: { angle: AnglePlacement; nomLabel: stri
 }
 
 /** Ajout d'un angle à la paire, en test ou directement actif. */
-function NouvelAngle({ labelId, applicationId, nomLabel }: { labelId: string; applicationId: string; nomLabel: string }) {
+function NouvelAngle({
+  labelId,
+  applicationId,
+  nomLabel,
+  textes,
+}: {
+  labelId: string;
+  applicationId: string;
+  nomLabel: string;
+  /** Textes (normalisés) des angles de la paire : pas de doublon. */
+  textes: ReadonlySet<string>;
+}) {
   const { t } = useTranslation();
   const qc = useQueryClient();
   const [texte, setTexte] = React.useState("");
   const creer = useMutation({
     mutationFn: (statut: StatutAngle) => creerAnglePlacement(labelId, applicationId, texte, statut),
-    onSuccess: async () => {
-      await qc.invalidateQueries({ queryKey: CLE_ANGLES });
-      setTexte("");
-    },
+    onSuccess: () => setTexte(""),
+    onSettled: () => qc.invalidateQueries({ queryKey: CLE_ANGLES }),
   });
-  const vide = normaliserAngle(texte) === "";
+  const doublon = textes.has(normaliserAngle(texte));
+  const vide = normaliserAngle(texte) === "" || doublon;
   return (
     <div className="space-y-1.5 border-t pt-3">
       <Textarea
@@ -151,6 +193,7 @@ function NouvelAngle({ labelId, applicationId, nomLabel }: { labelId: string; ap
         <span className="text-[11px] text-muted-foreground">
           {t("angles.compteur", { n: texte.length, max: ANGLE_LONGUEUR_MAX })}
         </span>
+        {doublon && <span className="text-[11px] text-warning">{t("angles.existeDeja")}</span>}
       </div>
       {creer.isError && (
         <p role="alert" className="text-xs text-destructive">
@@ -173,6 +216,10 @@ export function CarteAnglesLabel({
 }) {
   const { t } = useTranslation();
   const angles = groupe.actif ? [groupe.actif, ...groupe.tests] : groupe.tests;
+  const { compares, nonCompares } = anglesTestCompares(groupe.actif, groupe.tests);
+  const textes = new Set(angles.map((a) => normaliserAngle(a.texte)));
+  const autresTextes = (a: AnglePlacement) =>
+    new Set(angles.filter((b) => b.id !== a.id).map((b) => normaliserAngle(b.texte)));
   return (
     <Card data-testid="carte-angles" data-label={groupe.nom}>
       <CardHeader className="pb-3">
@@ -183,21 +230,27 @@ export function CarteAnglesLabel({
         <p className="text-xs text-muted-foreground">
           {groupe.actif ? t("angles.resumeActif") : t("angles.resumeSansActif")}
           {" · "}
-          {t("angles.resumeTests", { count: groupe.tests.length })}
+          {t("angles.resumeTests", { count: compares.length })}
         </p>
       </CardHeader>
       <CardContent className="space-y-3">
         {angles.length > 0 && (
           <ul className="space-y-2">
             {angles.map((a) => (
-              <LigneAngle key={a.id} angle={a} nomLabel={groupe.nom} />
+              <LigneAngle
+                key={a.id}
+                angle={a}
+                nomLabel={groupe.nom}
+                autresTextes={autresTextes(a)}
+                nonCompare={nonCompares.get(a.id)}
+              />
             ))}
           </ul>
         )}
-        {groupe.tests.length > MAX_ANGLES_TEST && (
+        {[...nonCompares.values()].includes("au_dela_max") && (
           <p className="text-xs text-warning">{t("angles.tropDeTests", { max: MAX_ANGLES_TEST })}</p>
         )}
-        <NouvelAngle labelId={groupe.labelId} applicationId={applicationId} nomLabel={groupe.nom} />
+        <NouvelAngle labelId={groupe.labelId} applicationId={applicationId} nomLabel={groupe.nom} textes={textes} />
       </CardContent>
     </Card>
   );

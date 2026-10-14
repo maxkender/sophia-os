@@ -158,9 +158,10 @@ async function lancer(
     contenuIds?: string[];
     langue?: string | null;
     maintenant?: () => Date;
+    modele?: (prompt: string) => string;
   },
 ) {
-  const gemini = fauxGemini(modele);
+  const gemini = fauxGemini(args.modele ?? modele);
   const serveur = fauxServeurPostgrest(tables, {
     gemini,
     relations: { contenu_labels: { labels: { fk: "label_id", table: "labels" } } },
@@ -374,6 +375,38 @@ Deno.test("Sophia : placement seul (pas de notation), une variante par angle, ri
     "parler de culture générale",
   ]);
   assert(r.limites.some((l) => l.startsWith("Sophia : placement seul")));
+  assert(!r.resume.includes("éligible"), r.resume);
+  assert(!r.limites.some((l) => l.startsWith("Notation") || l.startsWith("Tier d'entrée")), r.limites.join(" | "));
+});
+
+Deno.test("Sophia, autre langue : la base est traduite avec la voix du compte source, comme la nuit", async () => {
+  const tables = avecAngles([], {
+    prompts: [{ cle: "placement_sophia", contenu: "Place Sophia." }],
+    comptes_reference: [{ id: "r1", style_profile: "VOIX_DU_COMPTE_R1" }],
+  });
+  const { r, gemini, serveur } = await lancer(tables, { applicationId: ID_SOPHIA, contenuIds: [C1], langue: "de" });
+  assertEquals(serveur.violations, []);
+  const traductions = gemini.appels.filter((p) => p.includes('"translated"'));
+  assertEquals(traductions.length, 1);
+  assert(traductions[0].includes("VOIX_DU_COMPTE_R1"), "voix du compte source dans la traduction");
+  assertEquals(r.contenus[0].angles[0].deck?.statut, "pret");
+});
+
+Deno.test("angles : référence sans base (traduction ratée) → les angles en test ne retraduisent pas, c'est dit", async () => {
+  const tables = avecAngles([angle("t1", "montrer la fierté", "test"), angle("t2", "parler du soir", "test", UNSWIPE, 1)]);
+  const sansTraduction = (prompt: string) => prompt.includes('"translated"') ? "pas du json" : modele(prompt);
+  const { r, gemini, serveur } = await lancer(tables, { contenuIds: [C1], langue: "de", modele: sansTraduction });
+  assertEquals(serveur.violations, []);
+  const [c1] = r.contenus;
+  assertEquals(c1.angles.map((a) => a.source), ["reference", "test", "test"]);
+  assertEquals(c1.angles[0].deck?.base ?? [], []);
+  for (const a of c1.angles.slice(1)) {
+    assertEquals(a.deck, null);
+    assert(a.erreur?.startsWith("non testé"), a.erreur);
+  }
+  const traductions = gemini.appels.filter((p) => p.includes('"translated"')).length;
+  const { gemini: seul } = await lancer(avecAngles([]), { contenuIds: [C1], langue: "de", modele: sansTraduction });
+  assertEquals(traductions, seul.appels.filter((p) => p.includes('"translated"')).length, "pas une traduction de plus");
 });
 
 Deno.test("contenus : langue demandée ≠ source — traduction simulée, base relue dans le calque", async () => {

@@ -53,6 +53,39 @@ export function normaliserAngle(angle: string | null | undefined): string {
   return (angle ?? "").trim();
 }
 
+/** Pourquoi le test à blanc ne compare pas un angle en test. */
+export type MotifAngleNonCompare = "identique_actif" | "doublon" | "au_dela_max";
+
+/**
+ * Angles en test que le test à blanc compare VRAIMENT, avec la règle du
+ * moteur (`anglesTestPourApplication` puis le filtre de la référence dans
+ * a_blanc_contenus.ts) : sans ceux identiques à l'actif, sans doublon (le plus
+ * ancien reste), les `MAX_ANGLES_TEST` plus anciens. `tests` : du plus ancien
+ * au plus récent. `nonCompares` : id → motif.
+ */
+export function anglesTestCompares<A extends { id: string; texte: string }>(
+  actif: A | null,
+  tests: readonly A[],
+): { compares: A[]; nonCompares: Map<string, MotifAngleNonCompare> } {
+  const reference = normaliserAngle(actif?.texte);
+  const vus = new Set<string>();
+  const compares: A[] = [];
+  const nonCompares = new Map<string, MotifAngleNonCompare>();
+  for (const a of tests) {
+    const texte = normaliserAngle(a.texte);
+    if (reference && texte === reference) nonCompares.set(a.id, "identique_actif");
+    else if (vus.has(texte)) nonCompares.set(a.id, "doublon");
+    else if (compares.length >= MAX_ANGLES_TEST) {
+      vus.add(texte);
+      nonCompares.set(a.id, "au_dela_max");
+    } else {
+      vus.add(texte);
+      compares.push(a);
+    }
+  }
+  return { compares, nonCompares };
+}
+
 /**
  * Une carte par label pour l'application : ceux qui la servent (ligne
  * `label_applications` ; un label sans ligne sert Sophia), plus ceux qui ont

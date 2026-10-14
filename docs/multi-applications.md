@@ -272,8 +272,8 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
 | Objet | Rôle |
 |---|---|
 | `applications.langues text[]`, `applications.actif bool` | langues ciblées (`NULL` = toutes), interrupteur |
-| `label_applications(label_id, application_id, angle)` | applications servies par un label ; `angle` : obsolète depuis 0285 (ni lue ni écrite) |
-| `angles_placement(id, label_id, application_id, texte, statut, created_by)` (0285) | angles de placement d'une paire label × application : `statut` `actif` (au plus un par paire, index unique partiel) ou `test` ; activation par `activer_angle_placement(id)` |
+| `label_applications(label_id, application_id, angle)` | applications servies par un label ; `angle` : obsolète depuis 0285 (plus lue ; une écriture non vide est refusée par un déclencheur) |
+| `angles_placement(id, label_id, application_id, texte, statut, created_by)` (0285) | angles de placement d'une paire label × application : `statut` `actif` (au plus un par paire, index unique partiel) ou `test` ; ajout par `ajouter_angle_placement(label, application, texte, actif)`, activation par `activer_angle_placement(id)` (une transaction chacune) |
 | `contenu_pertinences(contenu_id, application_id, score, raison, note, eligible, angles, prompt_cle)` | pertinence par application (`angles` : toujours `null`) |
 | `contenu_langue_decks(contenu_langue_id, contenu_id, langue, application_id, variante, statut, raison, slides, placement)` | deck placé hors Sophia (`statut` : `pret` / `echec` / `ineligible` ; `placement.angle` : angle utilisé, absent sans angle) |
 | `contenu_langues.angle_placement` (0279) | angle utilisé pour poser Sophia sur ce deck (NULL = sans angle, ou posé avant 0279) |
@@ -537,11 +537,21 @@ Appliquer `supabase/migrations/0285_angles_placement.sql` AVANT de merger le
 code qui lit `angles_placement` (le moteur ne lève jamais sur cette lecture :
 sans la table, placement sans angle et un avertissement dans les logs).
 Additive : une table, ses index, ses droits (lecture authentifiée, écriture
-admin) et la fonction `activer_angle_placement`. Reprend en `actif` les angles
-non vides de `label_applications.angle` (aucun en prod au 2026-10-14).
-Vérification : `select statut, count(*) from angles_placement group by 1;` et
-`select proname from pg_proc where proname = 'activer_angle_placement';` →
-1 ligne. Retour arrière : le code d'avant ne lit pas la table ; la laisser.
+admin), les fonctions `ajouter_angle_placement` et `activer_angle_placement`,
+et un déclencheur qui REFUSE une écriture non vide de
+`label_applications.angle` (un ancien onglet resté ouvert reçoit une erreur au
+lieu d'un « enregistré » qui ne servirait jamais). Reprend en `actif` les
+angles non vides de `label_applications.angle` (aucun en prod au 2026-10-14).
+Vérification : `select statut, count(*) from angles_placement group by 1;`,
+`select proname from pg_proc where proname in ('ajouter_angle_placement',
+'activer_angle_placement');` → 2 lignes, `select tgname from pg_trigger where
+tgname = 'label_applications_angle_remplacee';` → 1 ligne. Après le
+déploiement : `select count(*) from label_applications la where
+nullif(btrim(la.angle), '') is not null and not exists (select 1 from
+angles_placement ap where ap.label_id = la.label_id and ap.application_id =
+la.application_id);` → 0. Retour arrière : le code d'avant ne lit pas la
+table ; la LAISSER (la supprimer effacerait les angles saisis) ; seul le
+déclencheur se retire.
 
 ## 4. Plus tard (décidé, pas fait)
 
@@ -626,10 +636,12 @@ de placement de l'application pour les slideshows de ce label.
   modèle est relancé.
 - **Où le régler** : Configuration → Angles de placement (`/admin/angles`),
   pour l'application du sélecteur : une carte par label qui la sert, avec son
-  angle actif, ses angles en test, et l'ajout (« en test » ou « actif »).
-  Chaque angle se modifie, s'active, repasse en test ou se supprime. 500
-  caractères au plus, écrit en français comme une consigne, pas comme un
-  slogan à recopier. La page Prompts renvoie vers elle.
+  angle actif, ses angles en test, et l'ajout (« en test » ou « actif », en
+  une transaction). Chaque angle se modifie, s'active, repasse en test ou se
+  supprime. 500 caractères au plus, écrit en français comme une consigne, pas
+  comme un slogan à recopier. Un texte déjà présent dans la paire est refusé ;
+  un angle en test que le test à blanc ne comparera pas (identique à l'actif,
+  doublon, au-delà de 4) est marqué. La page Prompts renvoie vers elle.
 - **L'essayer** : écrire l'angle en test, puis Tests → test à blanc
   « contenus » (Sophia comprise : placement seul, sans notation). Chaque
   slideshow montre la référence et un placement par angle en test (slide pub,

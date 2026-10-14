@@ -163,13 +163,17 @@ puis un placement par angle EN TEST de ces labels (au plus `MAX_ANGLES_TEST` =
 refait). `resultat.contenus[i].angles` : `{ source: "reference" | "test",
 angleId, angle, deck, erreur? }`, la référence d'abord ; `deck` du contenu =
 celui de la référence ; `anglesNonTestes` : angles au-delà du maximum (dit
-dans les limites). Les angles en test ne sont lus que par ce mode
+dans les limites). Si la référence n'a pas de base dans la langue
+(traduction ratée, deck source vide), les angles en test ne sont pas lancés
+(« non testé ») : chacun retraduirait sa base, la comparaison serait faussée. Les angles en test ne sont lus que par ce mode
 (`chargerAnglesTest`) et n'entrent dans le placement que par
 `angleBrouillon` + `ignorerCache`.
 
 **Sophia** : `resultat.notation = false`, pas de notation (le contenu est déjà
-dans le stock Sophia) ; la base sans pub de la langue est préparée une fois
-(traduite si besoin, slide concurrente imposée puis retirée), puis
+dans le stock Sophia), résumé sans compte d'éligibles et limites propres
+(`LIMITES_SOPHIA`) ; la base sans pub de la langue est préparée une fois
+(traduite si besoin, avec la voix du compte source comme la nuit ; slide
+concurrente imposée puis retirée), puis
 `integrateSophia` pose la slide pour chaque angle. Refus (dit par contenu) :
 contenu livré par un pod, original de pod, base vide, base qui porte déjà une
 slide Sophia.

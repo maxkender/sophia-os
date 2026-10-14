@@ -174,6 +174,39 @@ describe("AdminAnglesPage", () => {
     expect(await within(test1).findByRole("alert")).toHaveTextContent("refus RLS");
   });
 
+  it("doublon refusé à l'ajout comme à la modification ; un angle que le test ne comparera pas est marqué", async () => {
+    lister.mockResolvedValue([...ANGLES, ligne("t3", "w", "test", " insister sur le temps récupéré ", 5)]);
+    rendre();
+    const w = await carte("weird_alpha");
+    // Résumé : seuls les angles vraiment comparés comptent.
+    expect(w.textContent).toMatch(/2 (angles en test|test angles)/);
+    const copie = within(w).getAllByTestId("angle")[3];
+    expect(within(copie).getByTestId("non-compare")).toHaveTextContent(/identique à l'actif|same as the active one/);
+
+    const saisie = within(w).getByRole("textbox", { name: /nouvel angle|new angle/i });
+    fireEvent.change(saisie, { target: { value: "  montrer la fierté " } });
+    expect(within(w).getByRole("button", { name: /ajouter en test|add in test/i })).toBeDisabled();
+    expect(within(w).getByRole("button", { name: /ajouter actif|add as active/i })).toBeDisabled();
+    expect(within(w).getByText(/existe déjà|already exists/i)).toBeInTheDocument();
+
+    const test1 = within(w).getAllByTestId("angle")[1];
+    fireEvent.click(within(test1).getByRole("button", { name: /^(modifier|edit)$/i }));
+    fireEvent.change(within(test1).getByRole("textbox"), { target: { value: "parler du soir" } });
+    expect(within(test1).getByRole("button", { name: /enregistrer|save/i })).toBeDisabled();
+    expect(creer).not.toHaveBeenCalled();
+    expect(modifier).not.toHaveBeenCalled();
+  });
+
+  it("une action en échec relit quand même la liste", async () => {
+    supprimer.mockRejectedValueOnce(new Error("réseau"));
+    vi.spyOn(window, "confirm").mockReturnValue(true);
+    rendre();
+    const w = await carte("weird_alpha");
+    const appelsAvant = lister.mock.calls.length;
+    fireEvent.click(within(within(w).getAllByTestId("angle")[2]).getByRole("button", { name: /supprimer|delete/i }));
+    await waitFor(() => expect(lister.mock.calls.length).toBeGreaterThan(appelsAvant));
+  });
+
   it("lecture des angles en panne : message, pas de carte", async () => {
     lister.mockRejectedValue(new Error("table absente"));
     rendre();

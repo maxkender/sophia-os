@@ -19,7 +19,7 @@ import {
 import { listerAnglesPlacement } from "./apiAngles";
 import { listerLiensLabels } from "./apiMultiApp";
 import { applicationsDuLabel } from "./multiApp";
-import { MAX_ANGLES_TEST } from "./multiapp/angles";
+import { anglesTestCompares, MAX_ANGLES_TEST } from "./multiapp/angles";
 import { LANGUES_CIBLES, nomLangue } from "./langues";
 import {
   iaBloqueeParLaNuit,
@@ -92,7 +92,12 @@ export function ContenusABlancCard() {
   const angles = useQuery({ queryKey: ["angles-placement"], queryFn: listerAnglesPlacement, retry: false });
   const anglesPaire = (angles.data ?? []).filter((a) => a.label_id === labelId && a.application_id === applicationId);
   const angleActif = anglesPaire.find((a) => a.statut === "actif") ?? null;
-  const anglesTest = anglesPaire.filter((a) => a.statut === "test");
+  // Même règle que le moteur : sans doublon ni copie de l'actif, au plus MAX.
+  const { compares: anglesTest, nonCompares } = anglesTestCompares(
+    angleActif,
+    anglesPaire.filter((a) => a.statut === "test"),
+  );
+  const auDela = [...nonCompares.values()].filter((m) => m === "au_dela_max").length;
   // Le moteur ne lit que les angles des labels qui servent l'application.
   const labelSert = !liens.data || (labelsOrdonnes.find((l) => l.id === labelId)?.sert ?? true);
   const appChoisie = apps.find((a) => a.id === applicationId);
@@ -213,7 +218,7 @@ export function ContenusABlancCard() {
                   {anglesTest.length > 0
                     ? t("contenusABlanc.anglesEnTest", { count: anglesTest.length })
                     : t("contenusABlanc.anglesAucunTest")}
-                  {anglesTest.length > MAX_ANGLES_TEST && ` ${t("contenusABlanc.anglesTrop", { max: MAX_ANGLES_TEST })}`}
+                  {auDela > 0 && ` ${t("contenusABlanc.anglesTrop", { max: MAX_ANGLES_TEST })}`}
                 </p>
               </>
             )}
@@ -372,7 +377,9 @@ function ResultatContenus({ r }: { r: ContenusABlancResultat }) {
       )}
       {r.prompts && !r.prompts.placement.present && (
         <p className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">
-          {t("contenusABlanc.promptPlacementVide", { cle: r.prompts.placement.cle })}
+          {t(r.notation === false ? "contenusABlanc.promptPlacementVideSophia" : "contenusABlanc.promptPlacementVide", {
+            cle: r.prompts.placement.cle,
+          })}
         </p>
       )}
 

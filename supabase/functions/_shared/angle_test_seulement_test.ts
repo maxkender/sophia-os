@@ -6,7 +6,7 @@
  * autre fichier lit les angles en test ou passe un angle imposé.
  */
 
-import { assertEquals } from "jsr:@std/assert@1";
+import { assert, assertEquals } from "jsr:@std/assert@1";
 
 const RACINE = new URL("..", import.meta.url).pathname;
 
@@ -19,7 +19,13 @@ const AUTORISES: Record<string, string[]> = {
   angleBrouillon: ["_shared/deck_application.ts", "_shared/a_blanc_contenus.ts"],
   // Option qui seule permet un angle imposé : test à blanc seulement.
   ignorerCache: ["_shared/deck_application.ts", "_shared/a_blanc_contenus.ts"],
+  // Lecture brute de la table (tous statuts) : privée au moteur des angles.
+  lireAnglesDuContenu: ["_shared/applications_moteur.ts"],
 };
+
+/** Lecture directe de la table : seul applications_moteur.ts filtre par statut. */
+const LECTURE_TABLE = /\.from\(\s*["'`]angles_placement["'`]/;
+const LECTEURS_TABLE = ["_shared/applications_moteur.ts"];
 
 async function* fichiersTs(dossier: string): AsyncGenerator<string> {
   for await (const e of Deno.readDir(dossier)) {
@@ -35,14 +41,34 @@ async function* fichiersTs(dossier: string): AsyncGenerator<string> {
 
 Deno.test("angles en test : lus et imposés par le test à blanc « contenus » SEULEMENT", async () => {
   const trouves: Record<string, string[]> = {};
+  const lecteurs: string[] = [];
   for await (const chemin of fichiersTs(RACINE.replace(/\/$/, ""))) {
     const texte = await Deno.readTextFile(chemin);
     const relatif = chemin.slice(RACINE.length).replace(/^\//, "");
     for (const mot of Object.keys(AUTORISES)) {
       if (new RegExp(`\\b${mot}\\b`).test(texte)) (trouves[mot] ??= []).push(relatif);
     }
+    if (LECTURE_TABLE.test(texte)) lecteurs.push(relatif);
   }
   for (const [mot, permis] of Object.entries(AUTORISES)) {
     assertEquals((trouves[mot] ?? []).sort(), [...permis].sort(), `« ${mot} » employé hors du test à blanc`);
   }
+  assertEquals(lecteurs.sort(), LECTEURS_TABLE, "angles_placement lue hors de applications_moteur.ts");
+});
+
+Deno.test("angles en test : le lecteur de la nuit ne demande que l'actif, celui du test à blanc seul demande « test »", async () => {
+  const texte = await Deno.readTextFile(`${RACINE.replace(/\/$/, "")}/_shared/applications_moteur.ts`);
+  assert(!/export\s+(async\s+)?function\s+lireAnglesDuContenu/.test(texte), "lireAnglesDuContenu reste privée");
+  const corps = (nom: string) => {
+    const debut = texte.indexOf(`export async function ${nom}(`);
+    assert(debut >= 0, `${nom} introuvable`);
+    const fin = texte.indexOf("\n}\n", debut);
+    return texte.slice(debut, fin);
+  };
+  const appels = [...texte.matchAll(/lireAnglesDuContenu\(([^)]*)\)/g)].map((m) => m[1].trim());
+  // La définition + un appel « actif » + un appel « test ».
+  assertEquals(appels.filter((a) => a.endsWith('"test"')).length, 1, appels.join(" | "));
+  assertEquals(appels.filter((a) => a.endsWith('"actif"')).length, 1, appels.join(" | "));
+  assert(corps("chargerAnglePlacement").includes('"actif")') && !corps("chargerAnglePlacement").includes('"test"'));
+  assert(corps("chargerAnglesTest").includes('"test")'));
 });

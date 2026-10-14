@@ -1,6 +1,12 @@
 import { describe, expect, it } from "vitest";
 
-import { ANGLE_LONGUEUR_MAX, groupesAnglesApplication, MAX_ANGLES_TEST, normaliserAngle } from "./angles";
+import {
+  ANGLE_LONGUEUR_MAX,
+  anglesTestCompares,
+  groupesAnglesApplication,
+  MAX_ANGLES_TEST,
+  normaliserAngle,
+} from "./angles";
 
 const SOPHIA = "00000000-0000-4000-8000-000000000001";
 const UNSWIPE = "00000000-0000-4000-8000-000000000003";
@@ -87,5 +93,23 @@ describe("angles de placement", () => {
   it("label inconnu ou système : jamais de carte, même avec des angles", () => {
     const g = groupesAnglesApplication(UNSWIPE, LABELS, LIENS, [angle("x", "inconnu", "test", 1), angle("y", "h", "actif", 2)]);
     expect(g.map((x) => x.nom)).toEqual(["beau_smart_girl", "weird_alpha"]);
+  });
+
+  it("anglesTestCompares : même règle que le moteur — sans copie de l'actif, sans doublon, les plus anciens d'abord", () => {
+    const a = (id: string, texte: string) => ({ id, texte });
+    const actif = a("actif", "insister sur le temps");
+    const tests = [
+      a("t1", " insister sur le temps "),
+      a("t2", "montrer la fierté"),
+      a("t3", "montrer la fierté"),
+      a("t4", "b"),
+      a("t5", "c"),
+      a("t6", "d"),
+      a("t7", "e"),
+    ];
+    const { compares, nonCompares } = anglesTestCompares(actif, tests);
+    expect(compares.map((x) => x.id)).toEqual(["t2", "t4", "t5", "t6"]);
+    expect(Object.fromEntries(nonCompares)).toEqual({ t1: "identique_actif", t3: "doublon", t7: "au_dela_max" });
+    expect(anglesTestCompares(null, [a("x", "y")]).compares.map((x) => x.id)).toEqual(["x"]);
   });
 });

@@ -371,6 +371,8 @@ export const en = {
       enCours: "Testing…",
       promptPertinenceVide: "Prompt “{{cle}}” is empty: scoring is impossible (the backfill would refuse to start). Fill it in Prompts.",
       promptPlacementVide: "Prompt “{{cle}}” is empty: placement is impossible. Fill it in Prompts.",
+      promptPlacementVideSophia:
+        "Prompt “{{cle}}” is empty: Sophia is placed without a master prompt, as the night would. Fill it in Prompts.",
       langues: "source language {{source}} → deck tested in {{langue}}",
       vues: "{{n}} views",
       piste: "source account track record {{n}}/100",
@@ -1912,6 +1914,10 @@ export const en = {
       resumeTests_one: "{{count}} test angle",
       resumeTests_other: "{{count}} test angles",
       tropDeTests: "More than {{max}} test angles: the dry run only compares the {{max}} oldest.",
+      nonCompareIdentique: "same as the active one: not compared",
+      nonCompareDoublon: "duplicate: not compared",
+      nonCompareAuDela: "beyond {{max}}: not compared",
+      existeDeja: "This angle already exists for this label.",
     },
     multiApp: {
       schemaAbsent: "Multi-application not in the database yet (migration 0256).",

@@ -62,11 +62,13 @@ function LigneAngle({
       if (quoi === "supprimer") return supprimerAnglePlacement(angle.id);
       return modifierTexteAngle(angle.id, edition ?? angle.texte);
     },
-    onSuccess: (_r, quoi) => {
+    // Liste relue AVANT de fermer l'éditeur (pas d'ancien texte qui clignote),
+    // et relue aussi après un échec (il peut cacher un état changé).
+    onSuccess: async (_r, quoi) => {
+      await qc.invalidateQueries({ queryKey: CLE_ANGLES });
       if (quoi === "enregistrer") setEdition(null);
     },
-    // Succès ou échec : la liste est relue (un échec peut cacher un état changé).
-    onSettled: () => qc.invalidateQueries({ queryKey: CLE_ANGLES }),
+    onError: () => qc.invalidateQueries({ queryKey: CLE_ANGLES }),
   });
   const actif = angle.statut === "actif";
   const occupe = action.isPending;
@@ -166,8 +168,11 @@ function NouvelAngle({
   const [texte, setTexte] = React.useState("");
   const creer = useMutation({
     mutationFn: (statut: StatutAngle) => creerAnglePlacement(labelId, applicationId, texte, statut),
-    onSuccess: () => setTexte(""),
-    onSettled: () => qc.invalidateQueries({ queryKey: CLE_ANGLES }),
+    onSuccess: async () => {
+      await qc.invalidateQueries({ queryKey: CLE_ANGLES });
+      setTexte("");
+    },
+    onError: () => qc.invalidateQueries({ queryKey: CLE_ANGLES }),
   });
   const doublon = textes.has(normaliserAngle(texte));
   const vide = normaliserAngle(texte) === "" || doublon;

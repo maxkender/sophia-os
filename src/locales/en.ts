@@ -393,15 +393,16 @@ export const en = {
       jamaisNote: "Never scored for {{app}} in the database.",
       etapePlacement: "2. {{app}} placement ({{langue}})",
       etapePlacementSeul: "{{app}} placement ({{langue}})",
-      anglesReferenceActif: "Reference: the active angle \"{{angle}}\" (what the night will do).",
-      anglesReferenceSans: "Reference: no angle (no active angle for this label).",
+      anglesReferenceActif: "For this label, reference: the active angle \"{{angle}}\" (what the night will do).",
+      anglesReferenceSans: "For this label, reference: no angle (no active angle).",
       anglesEnTest_one: "{{count}} test angle: each slideshow is also placed with it, to compare.",
       anglesEnTest_other: "{{count}} test angles: each slideshow is also placed with each of them, to compare.",
       anglesAucunTest: "No test angle: reference placement only.",
       anglesTrop: "Only the {{max}} oldest are tested.",
       anglesIllisibles: "Angles unreadable: the test will read the ones in the database.",
       anglesLabelNeSertPas: "This label does not serve {{app}}: its angles are not read.",
-      anglesLabels: "The angles read are those of each slideshow's labels that serve the application.",
+      anglesLabels:
+        "A slideshow with several labels compares the angles of all those that serve the application: the result details them.",
       anglesGerer: "Manage angles",
       comparatif: "{{etape}} — {{n}} versions to compare",
       anglesNonTestes_one: "{{count}} test angle beyond {{max}}: not tested this time.",
@@ -1894,6 +1895,8 @@ export const en = {
         "Write an instruction (what the slide should highlight), not a slogan to copy: it is in French, slides are in the account's language. {{max}} characters max.",
       reglePods:
         "Contents delivered by a pod (finished images) skip placement: the angle does not apply to them. Pod originals (Sophia slide written by the pod) get no Sophia angle; Unswipe and micabo keep theirs.",
+      regleMultiLabels:
+        "A slideshow with several labels takes the angles of all those that serve {{nom}}: the \"not compared\" marks hold for a slideshow of this label only.",
       aucunLabel: "No label serves {{nom}}.",
       statutActif: "Active",
       statutTest: "In test",

@@ -57,11 +57,12 @@ export function normaliserAngle(angle: string | null | undefined): string {
 export type MotifAngleNonCompare = "identique_actif" | "doublon" | "au_dela_max";
 
 /**
- * Angles en test que le test à blanc compare VRAIMENT, avec la règle du
- * moteur (`anglesTestPourApplication` puis le filtre de la référence dans
- * a_blanc_contenus.ts) : sans ceux identiques à l'actif, sans doublon (le plus
- * ancien reste), les `MAX_ANGLES_TEST` plus anciens. `tests` : du plus ancien
- * au plus récent. `nonCompares` : id → motif.
+ * Angles en test que le test à blanc compare pour un slideshow de CE SEUL
+ * label, avec la règle du moteur (`anglesTestPourApplication` puis le filtre
+ * de la référence dans a_blanc_contenus.ts) : sans ceux identiques à l'actif,
+ * sans doublon (le plus ancien reste), les `MAX_ANGLES_TEST` plus anciens.
+ * Un slideshow à plusieurs labels mélange ceux de tous ses labels (le moteur
+ * fait foi). `tests` : du plus ancien au plus récent. `nonCompares` : id → motif.
  */
 export function anglesTestCompares<A extends { id: string; texte: string }>(
   actif: A | null,

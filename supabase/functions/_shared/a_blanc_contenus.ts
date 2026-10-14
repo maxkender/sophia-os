@@ -894,13 +894,17 @@ export async function executerContenusABlanc(
         }
       };
       angles.push(await lancer(essais[0]));
-      // Sans base (traduction ratée, deck source vide…), les angles en test
-      // retraduiraient chacun la leur : comparaison faussée. Ils attendent.
-      if (essais.length > 1 && (angles[0].deck?.base.length ?? 0) === 0) {
+      // Référence placée SANS base (traduction ratée, deck source vide…) : les
+      // angles en test retraduiraient chacun la leur, comparaison faussée. Ils
+      // attendent. Une référence qui a levé (deck absent) ne dit rien de la
+      // base : les angles en test tournent comme d'habitude.
+      const reference = angles[0].deck;
+      if (essais.length > 1 && reference !== null && reference.base.length === 0) {
+        const pourquoi = reference.raison ? ` (${reference.raison})` : "";
         angles.push(...essais.slice(1).map((e) => ({
           ...e,
           deck: null,
-          erreur: "non testé : la référence n'a pas de base dans cette langue (traduction ou deck source indisponible)",
+          erreur: `non testé : la référence n'a pas de base dans cette langue${pourquoi}`,
         })));
       } else {
         angles.push(...await Promise.all(essais.slice(1).map(lancer)));

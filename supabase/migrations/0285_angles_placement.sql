@@ -132,17 +132,6 @@ $$;
 revoke all on function public.ajouter_angle_placement(uuid, uuid, text, boolean) from public, anon;
 grant execute on function public.ajouter_angle_placement(uuid, uuid, text, boolean) to authenticated, service_role;
 
--- Reprise de 0279 : un angle non vide de label_applications devient l'angle
--- actif de sa paire (sans doublon si on rejoue la migration).
-insert into public.angles_placement (label_id, application_id, texte, statut, created_by)
-select la.label_id, la.application_id, left(btrim(la.angle), 500), 'actif', null
-from public.label_applications la
-where nullif(btrim(la.angle), '') is not null
-  and not exists (
-    select 1 from public.angles_placement ap
-    where ap.label_id = la.label_id and ap.application_id = la.application_id and ap.statut = 'actif'
-  );
-
 comment on column public.label_applications.angle is
   'Remplacée par la table angles_placement (0285) : n''est plus lue par le moteur, et une écriture non vide est refusée.';
 
@@ -169,3 +158,19 @@ drop trigger if exists label_applications_angle_remplacee on public.label_applic
 create trigger label_applications_angle_remplacee
   before insert or update of angle on public.label_applications
   for each row execute function public.label_applications_angle_remplacee();
+
+-- Reprise de 0279 : un angle non vide de label_applications devient l'angle
+-- actif de sa paire. APRÈS le déclencheur : poser celui-ci attend la fin des
+-- écritures en cours (un ancien écran qui enregistre à cet instant), que la
+-- reprise voit donc ; les suivantes sont refusées. Rejouée, la migration ne
+-- touche pas une paire qui a déjà un angle (quel que soit son statut).
+insert into public.angles_placement (label_id, application_id, texte, statut, created_by)
+select la.label_id, la.application_id, left(btrim(la.angle), 500), 'actif', null
+from public.label_applications la
+where nullif(btrim(la.angle), '') is not null
+  and not exists (
+    select 1 from public.angles_placement ap
+    where ap.label_id = la.label_id and ap.application_id = la.application_id
+  );
+
+reset lock_timeout;

@@ -92,7 +92,8 @@ export function ContenusABlancCard() {
   const angles = useQuery({ queryKey: ["angles-placement"], queryFn: listerAnglesPlacement, retry: false });
   const anglesPaire = (angles.data ?? []).filter((a) => a.label_id === labelId && a.application_id === applicationId);
   const angleActif = anglesPaire.find((a) => a.statut === "actif") ?? null;
-  // Même règle que le moteur : sans doublon ni copie de l'actif, au plus MAX.
+  // Règle du moteur pour un slideshow de ce seul label : sans doublon ni copie
+  // de l'actif, au plus MAX (plusieurs labels : le résultat fait foi).
   const { compares: anglesTest, nonCompares } = anglesTestCompares(
     angleActif,
     anglesPaire.filter((a) => a.statut === "test"),

@@ -394,15 +394,16 @@ export const fr = {
       jamaisNote: "Jamais noté pour {{app}} en base.",
       etapePlacement: "2. Placement {{app}} ({{langue}})",
       etapePlacementSeul: "Placement {{app}} ({{langue}})",
-      anglesReferenceActif: "Référence : l'angle actif « {{angle}} » (ce que fera la nuit).",
-      anglesReferenceSans: "Référence : sans angle (aucun angle actif pour ce label).",
+      anglesReferenceActif: "Pour ce label, référence : l'angle actif « {{angle}} » (ce que fera la nuit).",
+      anglesReferenceSans: "Pour ce label, référence : sans angle (aucun angle actif).",
       anglesEnTest_one: "{{count}} angle en test : chaque slideshow est aussi placé avec lui, pour comparer.",
       anglesEnTest_other: "{{count}} angles en test : chaque slideshow est aussi placé avec chacun, pour comparer.",
       anglesAucunTest: "Aucun angle en test : placement de référence seul.",
       anglesTrop: "Seuls les {{max}} plus anciens sont testés.",
       anglesIllisibles: "Angles illisibles : le test lira ceux en base.",
       anglesLabelNeSertPas: "Ce label ne sert pas {{app}} : ses angles ne sont pas lus.",
-      anglesLabels: "Les angles lus sont ceux des labels de chaque slideshow qui servent l'application.",
+      anglesLabels:
+        "Un slideshow qui porte plusieurs labels compare les angles de tous ceux qui servent l'application : le résultat le détaille.",
       anglesGerer: "Gérer les angles",
       comparatif: "{{etape}} — {{n}} versions à comparer",
       anglesNonTestes_one: "{{count}} angle en test au-delà de {{max}} : pas testé cette fois.",
@@ -1898,6 +1899,8 @@ export const fr = {
         "Écris une consigne (ce que la slide doit mettre en avant), pas un slogan à recopier : elle est en français, les slides sont dans la langue du compte. {{max}} caractères au plus.",
       reglePods:
         "Les contenus livrés par un pod (images finies) ne passent pas par le placement : l'angle ne s'y applique pas. Les originaux de pod (slide Sophia écrite par le pod) n'ont pas d'angle Sophia ; Unswipe et micabo gardent le leur.",
+      regleMultiLabels:
+        "Un slideshow qui porte plusieurs labels prend les angles de tous ceux qui servent {{nom}} : les marques « pas comparé » valent pour un slideshow de ce seul label.",
       aucunLabel: "Aucun label ne sert {{nom}}.",
       statutActif: "Actif",
       statutTest: "En test",

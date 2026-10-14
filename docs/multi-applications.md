@@ -541,7 +541,10 @@ admin), les fonctions `ajouter_angle_placement` et `activer_angle_placement`,
 et un déclencheur qui REFUSE une écriture non vide de
 `label_applications.angle` (un ancien onglet resté ouvert reçoit une erreur au
 lieu d'un « enregistré » qui ne servirait jamais). Reprend en `actif` les
-angles non vides de `label_applications.angle` (aucun en prod au 2026-10-14).
+angles non vides de `label_applications.angle` (aucun en prod au 2026-10-14),
+APRÈS la pose du déclencheur : une sauvegarde de l'ancien écran en cours à cet
+instant est reprise, les suivantes sont refusées ; rejouée, la reprise ne
+touche pas une paire qui a déjà un angle.
 Vérification : `select statut, count(*) from angles_placement group by 1;`,
 `select proname from pg_proc where proname in ('ajouter_angle_placement',
 'activer_angle_placement');` → 2 lignes, `select tgname from pg_trigger where

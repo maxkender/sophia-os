@@ -56,6 +56,7 @@ export function AdminAnglesPage() {
           <li>{t("angles.regleProchaines")}</li>
           <li>{t("angles.regleConsigne", { max: ANGLE_LONGUEUR_MAX })}</li>
           <li>{t("angles.reglePods")}</li>
+          <li>{t("angles.regleMultiLabels", { nom })}</li>
         </ul>
       </div>
       {erreur && (

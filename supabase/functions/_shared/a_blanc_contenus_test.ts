@@ -336,6 +336,36 @@ Deno.test("angles : un label qui ne sert plus l'application garde ses angles, sa
   assertEquals((tables as unknown as Record<string, unknown[]>).angles_placement.length, 2, "les angles restent en base");
 });
 
+Deno.test("angles : une référence qui LÈVE (lecture en panne) n'empêche pas les angles en test", async () => {
+  const tables = avecAngles([angle("t1", "montrer la fierté", "test")]);
+  const gemini = fauxGemini(modele);
+  const serveur = fauxServeurPostgrest(tables, {
+    gemini,
+    relations: { contenu_labels: { labels: { fk: "label_id", table: "labels" } } },
+  });
+  // Première lecture de contenu_langue_decks (celle de la référence) en panne.
+  let panne = true;
+  const fetchPanne: typeof fetch = (entree, init) => {
+    const url = typeof entree === "string" ? entree : entree instanceof URL ? entree.href : entree.url;
+    if (panne && url.includes("/rest/v1/contenu_langue_decks") && (init?.method ?? "GET") === "GET") {
+      panne = false;
+      return Promise.resolve(new Response(JSON.stringify({ message: "boom", code: "PGRST000" }), { status: 400 }));
+    }
+    return serveur.fetch(entree, init);
+  };
+  const ctx = creerContexteABlanc({ nature: "run", ia: true, plafondIA: PLAFOND_IA_PAR_CONTENU });
+  const r = await avecIntercepteur(fetchPanne, () =>
+    executerDansContexte(ctx, () =>
+      executerContenusABlanc(serviceClient(), ctx, { applicationId: UNSWIPE, contenuIds: [C1], maintenant: MIDI })
+    )
+  );
+  const [c1] = r.contenus;
+  assertEquals(c1.angles[0].deck, null);
+  assert(c1.angles[0].erreur?.includes("boom"), c1.angles[0].erreur);
+  assertEquals(c1.angles[1].deck?.statut, "pret", c1.angles[1].erreur ?? "");
+  assertEquals(serveur.violations, []);
+});
+
 Deno.test("angles : au-delà de MAX_ANGLES_TEST, les plus récents attendent, et c'est dit", async () => {
   const tests = Array.from({ length: MAX_ANGLES_TEST + 2 }, (_, k) => angle(`t${k}`, `angle ${k}`, "test", UNSWIPE, k));
   const { r } = await lancer(avecAngles(tests), { contenuIds: [C1] });
@@ -399,7 +429,8 @@ Deno.test("angles : référence sans base (traduction ratée) → les angles en 
   assertEquals(serveur.violations, []);
   const [c1] = r.contenus;
   assertEquals(c1.angles.map((a) => a.source), ["reference", "test", "test"]);
-  assertEquals(c1.angles[0].deck?.base ?? [], []);
+  assert(c1.angles[0].deck !== null, "la référence rend un deck (en échec)");
+  assertEquals(c1.angles[0].deck?.base, []);
   for (const a of c1.angles.slice(1)) {
     assertEquals(a.deck, null);
     assert(a.erreur?.startsWith("non testé"), a.erreur);

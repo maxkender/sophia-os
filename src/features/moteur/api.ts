@@ -507,11 +507,14 @@ export async function creerCompteUgcVideo(input: {
   personaNom: string;
   handleTiktok: string;
   handleInstagram: string;
+  /** Voir `ajouterCompte` : uniquement quand la langue ne tranche pas. */
+  pays?: string;
 }): Promise<void> {
   const { error } = await supabase.from("comptes").insert({
     poster_id: input.posterId,
     type_compte: "perso",
     langue: input.langue,
+    ...(input.pays ? { pays: input.pays } : {}),
     persona_nom: input.personaNom.trim() || null,
     handle_tiktok: input.handleTiktok.trim().replace(/^@/, "") || null,
     handle_instagram: input.handleInstagram.trim().replace(/^@/, "") || null,
@@ -1210,6 +1213,13 @@ export function ajouterCompte(input: {
   tiktok_2fa_note?: string;
   notes_hm?: string;
   persona_nom?: string;
+  /**
+   * Marché du compte (ISO-3166-1 alpha-2). À n'envoyer que quand la langue ne
+   * le désigne pas (en, ar, es-419, ru) : sinon le trigger
+   * `comptes_pays_defaut` le déduit, et deux sources de vérité finissent par
+   * diverger. Voir paysAEnvoyer() dans ChampPaysCompte.
+   */
+  pays?: string;
 } & OptionsApplicationsCompte) {
   return invoke<{
     ok: boolean;
@@ -1229,6 +1239,7 @@ export function ajouterCompte(input: {
     tiktok_2fa_note: input.tiktok_2fa_note ?? "",
     notes_hm: input.notes_hm ?? "",
     persona_nom: input.persona_nom ?? "",
+    ...(input.pays ? { pays: input.pays } : {}),
     ...corpsApplicationsCompte(input),
   });
 }
@@ -1397,6 +1408,8 @@ export function creerPoster(input: {
   tiktok_email?: string;
   tiktok_password?: string;
   tiktok_2fa_note?: string;
+  /** Voir `ajouterCompte` : uniquement quand la langue ne tranche pas. */
+  pays?: string;
 } & OptionsApplicationsCompte) {
   return invoke<{
     userId: string;
@@ -1425,6 +1438,7 @@ export function creerPoster(input: {
     tiktok_email: input.tiktok_email ?? "",
     tiktok_password: input.tiktok_password ?? "",
     tiktok_2fa_note: input.tiktok_2fa_note ?? "",
+    ...(input.pays ? { pays: input.pays } : {}),
     ...corpsApplicationsCompte(input),
   });
 }

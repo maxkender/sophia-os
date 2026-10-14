@@ -1083,6 +1083,10 @@ export const fr = {
       tousPays: "Tous",
       paysAide:
         "Marché du compte. Indépendant de la langue : cinq pays anglophones partagent « Anglais », leur drapeau ne les distinguait pas.",
+      paysDeduit: "Déduit de la langue, rien à saisir.",
+      paysAChoisir: "Choisir un pays…",
+      paysObligatoireAide:
+        "Cette langue couvre plusieurs marchés, personne ne peut deviner à ta place. Un compte sans pays n’apparaît dans aucune ligne des cibles de recrutement.",
       zone: "Zone",
       zonePlaceholder: "ex. Turkey + Israel",
       zoneAide:

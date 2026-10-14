@@ -6,6 +6,7 @@ import {
   type LigneNotion,
   type LigneOs,
   planifier,
+  texteAlerte,
 } from "./notion.ts";
 
 function notion(country: string, app: string, hired: number): LigneNotion {
@@ -162,4 +163,55 @@ Deno.test("le cas réel du 13/10/2026 : 53 lignes sur 56 ne bougent pas", () => 
     plan.ecritures.map((e) => `${e.country}/${e.app} ${e.avant}->${e.apres}`).sort(),
     ["Australia/Sophia 0->1", "Sweden/Sophia 4->5", "Turkey/Sophia 14->12"],
   );
+});
+
+Deno.test("aucune alerte quand il n'y a rien à signaler", () => {
+  // Une alerte quotidienne « tout va bien » cesse d'être lue au bout d'une
+  // semaine. Le silence est le comportement normal.
+  const plan = planifier([os("FR", "sophia", 1)], [notion("France", "Sophia", 1)]);
+  assertEquals(texteAlerte(plan, []), null);
+});
+
+Deno.test("alerte quand des comptes n'ont pas de pays, avec de quoi agir", () => {
+  const plan = planifier([os("FR", "sophia", 1)], [notion("France", "Sophia", 1)]);
+  const texte = texteAlerte(plan, [
+    { handle_tiktok: "isla.growth253", langue: "en", poster: "Raheemat Sunmonu" },
+  ]);
+  assertEquals(typeof texte, "string");
+  assertEquals(texte!.includes("isla.growth253"), true);
+  assertEquals(texte!.includes("Raheemat Sunmonu"), true);
+  // Le message doit dire QUOI FAIRE, pas seulement qu'il y a un problème.
+  assertEquals(texte!.includes("Posters page"), true);
+});
+
+Deno.test("alerte quand des comptes réels n'ont aucune ligne où aller", () => {
+  const plan = planifier([os("JP", "sophia", 4)], [notion("France", "Sophia", 0)]);
+  const texte = texteAlerte(plan, []);
+  assertEquals(texte!.includes("JP"), true);
+  assertEquals(texte!.includes("4 account"), true);
+});
+
+Deno.test("alerte sur les lignes en double, en disant que rien n'a été écrit", () => {
+  const plan = planifier(
+    [os("FR", "sophia", 13)],
+    [notion("France", "Sophia", 1), { ...notion("France", "Sophia", 2), pageId: "bis" }],
+  );
+  const texte = texteAlerte(plan, []);
+  assertEquals(texte!.includes("France / Sophia"), true);
+  assertEquals(texte!.includes("wrote neither"), true);
+});
+
+Deno.test("au-delà de 15 comptes sans pays, le message est tronqué et le dit", () => {
+  // Un message Slack de 200 lignes ne se lit pas. Mais taire le reste serait
+  // pire que le tronquer : on annonce le nombre restant.
+  const plan = planifier([], []);
+  const beaucoup = Array.from({ length: 40 }, (_, i) => ({
+    handle_tiktok: `compte${i}`,
+    langue: "en",
+    poster: `Poster ${i}`,
+  }));
+  const texte = texteAlerte(plan, beaucoup)!;
+  assertEquals(texte.includes("compte14"), true);
+  assertEquals(texte.includes("compte15"), false);
+  assertEquals(texte.includes("and 25 more"), true);
 });

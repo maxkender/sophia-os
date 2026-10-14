@@ -25,6 +25,7 @@ import {
   majCompte,
   supprimerPoster,
 } from "@/features/moteur/api";
+import { paysAEnvoyer, paysRequis } from "@/features/moteur/paysCompte";
 import { ChampsPremierCompte, type PremierCompte } from "@/features/moteur/ChampsPremierCompte";
 import { langueInitiale } from "@/features/moteur/langues";
 import { comptePrincipal, estCompteCm } from "@/features/moteur/comptesCm";
@@ -261,6 +262,11 @@ export function HiringPosterPage() {
   const [nom, setNom] = React.useState("");
   const [langue, setLangue] = React.useState("");
   const [premierCompte, setPremierCompte] = React.useState<PremierCompte>("perso");
+  const [paysCompte, setPaysCompte] = React.useState("");
+  // Un pays choisi pour l'anglais n'a plus de sens une fois passé au suédois.
+  React.useEffect(() => {
+    setPaysCompte("");
+  }, [langue]);
   const [postsParJour, setPostsParJour] = React.useState<1 | 2 | 3>(2);
   const [handleTiktok, setHandleTiktok] = React.useState("");
   const [cree, setCree] = React.useState<{
@@ -299,6 +305,9 @@ export function HiringPosterPage() {
         type_compte: premierCompte,
         posts_par_jour: premierCompte === "perso" ? postsParJour : undefined,
         handle_tiktok: premierCompte === "perso" ? handleTiktok : undefined,
+        ...(paysAEnvoyer(langue, paysCompte)
+          ? { pays: paysAEnvoyer(langue, paysCompte)! }
+          : {}),
         ...choixApps.options,
       }),
     onSuccess: (r) => {
@@ -308,6 +317,7 @@ export function HiringPosterPage() {
         type: premierCompte,
       });
       setPrenom("");
+      setPaysCompte("");
       setNom("");
       setPostsParJour(2);
       setHandleTiktok("");
@@ -357,6 +367,8 @@ export function HiringPosterPage() {
               langues={languesChoix}
               langue={langue}
               onLangue={setLangue}
+              pays={paysCompte}
+              onPays={setPaysCompte}
               postsParJour={postsParJour}
               onPostsParJour={setPostsParJour}
               handle={handleTiktok}
@@ -373,6 +385,7 @@ export function HiringPosterPage() {
                 disabled={
                   creer.isPending ||
                   !langue ||
+                  (paysRequis(langue) && !paysCompte) ||
                   choixApps.bloque
                 }
               >

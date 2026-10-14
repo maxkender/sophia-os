@@ -207,6 +207,61 @@ export function planifier(lignesOs: LigneOs[], lignesNotion: LigneNotion[]): Pla
   return { ecritures, inchangees, inconnus, doublons };
 }
 
+export interface CompteSansPays {
+  handle_tiktok: string | null;
+  langue: string | null;
+  poster: string | null;
+}
+
+/**
+ * Le message d'alerte, ou `null` quand il n'y a rien à dire.
+ *
+ * Rendre `null` est la moitié du travail : une alerte qui part toutes les
+ * nuits, même pour dire que tout va bien, cesse d'être lue au bout d'une
+ * semaine, et le soir où elle compte vraiment personne ne l'ouvre. On ne
+ * parle donc QUE de ce qui demande une main humaine.
+ *
+ * Écrit en anglais : le salon #target-updates est partagé avec l'équipe ops.
+ */
+export function texteAlerte(plan: Plan, sansPays: CompteSansPays[]): string | null {
+  const blocs: string[] = [];
+
+  if (sansPays.length > 0) {
+    const lignes = sansPays
+      .slice(0, 15)
+      .map((c) => {
+        const qui = c.poster ? ` (${c.poster})` : "";
+        return `• \`${c.handle_tiktok ?? "?"}\`${qui}, language \`${c.langue ?? "?"}\``;
+      })
+      .join("\n");
+    const reste = sansPays.length > 15 ? `\n• …and ${sansPays.length - 15} more` : "";
+    blocs.push(
+      `*${sansPays.length} account${sansPays.length > 1 ? "s have" : " has"} no country, ` +
+        `so ${sansPays.length > 1 ? "they are" : "it is"} counted in no row at all*\n` +
+        `${lignes}${reste}\n` +
+        `Set the country on the Posters page. Until then the numbers are low and nothing says so.`,
+    );
+  }
+
+  if (plan.inconnus.length > 0) {
+    const lignes = plan.inconnus
+      .map((i) => `• ${i.pays} / ${i.application}: ${i.hired} account(s), ${i.raison}`)
+      .join("\n");
+    blocs.push(`*Accounts that no row in the table can hold*\n${lignes}\nAdd the missing row, or tell me which row they belong to.`);
+  }
+
+  if (plan.doublons.length > 0) {
+    blocs.push(
+      `*Duplicate rows, left untouched*\n` +
+        plan.doublons.map((d) => `• ${d}`).join("\n") +
+        `\nTwo rows for the same Country and App would get two contradictory numbers, so I wrote neither.`,
+    );
+  }
+
+  if (blocs.length === 0) return null;
+  return `:warning: *Recruitment Targets needs a human*\n\n${blocs.join("\n\n")}`;
+}
+
 async function appelNotion(
   chemin: string,
   cle: string,

@@ -34,6 +34,7 @@ import {
 } from "@/features/hiring/zones";
 import { CompteEditor, PostsParJourCompte } from "@/features/moteur/CompteEditor";
 import { estCompteCm } from "@/features/moteur/comptesCm";
+import { paysAEnvoyer, paysRequis } from "@/features/moteur/paysCompte";
 import { ChampsPremierCompte, type PremierCompte } from "@/features/moteur/ChampsPremierCompte";
 import { DeplacerCompte } from "@/features/moteur/DeplacerCompte";
 import { FormulaireAjouterCompte } from "@/features/moteur/FormulaireAjouterCompte";
@@ -676,6 +677,11 @@ export function AdminPostersPage() {
     setLangue((actuel) => langueInitiale(liste, actuel));
   }, [langues.data]);
   const [premierCompte, setPremierCompte] = React.useState<PremierCompte>("perso");
+  const [paysCompte, setPaysCompte] = React.useState("");
+  // Un pays choisi pour l'anglais n'a plus de sens une fois passé au suédois.
+  React.useEffect(() => {
+    setPaysCompte("");
+  }, [langue]);
   const [postsParJour, setPostsParJour] = React.useState<1 | 2 | 3>(2);
   const [handleTiktok, setHandleTiktok] = React.useState("");
   // Compte UGC vidéo (pod 3) : login seul côté manage-users, puis le compte
@@ -705,6 +711,9 @@ export function AdminPostersPage() {
         await creerCompteUgcVideo({
           posterId: r.userId,
           langue,
+          ...(paysAEnvoyer(langue, paysCompte)
+            ? { pays: paysAEnvoyer(langue, paysCompte)! }
+            : {}),
           personaNom: prenom,
           handleTiktok,
           handleInstagram,
@@ -719,6 +728,9 @@ export function AdminPostersPage() {
         type_compte: premierCompte,
         posts_par_jour: premierCompte === "perso" ? postsParJour : undefined,
         handle_tiktok: premierCompte === "perso" ? handleTiktok : undefined,
+        ...(paysAEnvoyer(langue, paysCompte)
+          ? { pays: paysAEnvoyer(langue, paysCompte)! }
+          : {}),
         ...choixAppsPoster.options,
       });
     },
@@ -729,6 +741,7 @@ export function AdminPostersPage() {
       setNom("");
       setHandleTiktok("");
       setHandleInstagram("");
+      setPaysCompte("");
       setPostsParJour(2);
       setPassword(MOT_DE_PASSE_INITIAL);
       rafraichir();
@@ -894,6 +907,8 @@ export function AdminPostersPage() {
             langues={langues.data ?? []}
             langue={langue}
             onLangue={setLangue}
+            pays={paysCompte}
+            onPays={setPaysCompte}
             postsParJour={ugcVideo ? undefined : postsParJour}
             onPostsParJour={ugcVideo ? undefined : setPostsParJour}
             handle={handleTiktok}
@@ -936,6 +951,9 @@ export function AdminPostersPage() {
               disabled={
                 creer.isPending ||
                 ((ugcVideo || premierCompte !== "aucun") && !langue) ||
+                ((ugcVideo || premierCompte !== "aucun") &&
+                  paysRequis(langue) &&
+                  !paysCompte) ||
                 choixAppsPoster.bloque
               }
             >

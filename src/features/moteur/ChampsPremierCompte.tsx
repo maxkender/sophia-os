@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 
+import { ChampPaysCompte } from "@/features/moteur/ChampPaysCompte";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { nomLangue } from "@/features/moteur/langues";
@@ -17,6 +18,8 @@ export function ChampsPremierCompte({
   langues,
   langue,
   onLangue,
+  pays = "",
+  onPays,
   postsParJour,
   onPostsParJour,
   handle,
@@ -28,6 +31,9 @@ export function ChampsPremierCompte({
   langues: string[];
   langue: string;
   onLangue: (langue: string) => void;
+  /** Pays du compte. Omettre les deux laisse le champ hors du formulaire. */
+  pays?: string;
+  onPays?: (pays: string) => void;
   postsParJour?: 1 | 2 | 3;
   onPostsParJour?: (n: 1 | 2 | 3) => void;
   handle?: string;
@@ -82,6 +88,14 @@ export function ChampsPremierCompte({
               ))}
             </select>
           </div>
+          {onPays && (
+            <ChampPaysCompte
+              id="premier-pays"
+              langue={langue}
+              pays={pays}
+              onPays={onPays}
+            />
+          )}
           {typeCompte === "perso" && onHandle && (
             <div className="space-y-1">
               <Label htmlFor="premier-handle">{t("comptes.pseudo")}</Label>

@@ -52,6 +52,23 @@ interface PersonaUgcLibre {
   image_profile_url: string | null;
 }
 
+/**
+ * Marché du compte envoyé par le front, en ISO-3166-1 alpha-2.
+ *
+ * Le front ne l'envoie QUE lorsque la langue ne désigne pas un seul marché
+ * (en, ar, es-419, ru). Pour les 24 autres langues, la clé est absente et le
+ * trigger `comptes_pays_defaut` (migration 0281) la déduit : une seule source
+ * de vérité, donc rien à resynchroniser le jour où un marché s'ajoute.
+ *
+ * On normalise en majuscules et on refuse tout ce qui n'est pas deux lettres,
+ * plutôt que de laisser la contrainte CHECK de la table faire échouer la
+ * création entière d'un poster sur une faute de frappe.
+ */
+function paysSaisi(body: unknown): string | null {
+  const brut = String((body as { pays?: unknown } | null)?.pays ?? "").trim().toUpperCase();
+  return /^[A-Z]{2}$/.test(brut) ? brut : null;
+}
+
 /** Aligné sur `resoudrePremierCompte` (src/features/moteur/comptesCm.ts). */
 function resoudrePremierCompte(
   type: unknown,
@@ -388,7 +405,7 @@ async function gererRequete(request: Request): Promise<Response> {
           postsParJour,
           personaUgc,
           fileItemQueue,
-          { ugcAiVideo: modeUgcAiVideo, application, partsApplications },
+          { ugcAiVideo: modeUgcAiVideo, application, partsApplications, pays: paysSaisi(body) },
         )),
         type_compte: "perso",
       };
@@ -482,6 +499,7 @@ async function gererRequete(request: Request): Promise<Response> {
       "",
       application,
       lecture.choix,
+      paysSaisi(body),
     );
   }
 
@@ -516,6 +534,7 @@ async function gererRequete(request: Request): Promise<Response> {
       String(body.handle_tiktok ?? "").trim().replace(/^@+/, ""),
       application,
       lecture.choix,
+      paysSaisi(body),
     );
   }
 
@@ -765,6 +784,8 @@ async function creerComptePersoPourPoster(
   application?: ApplicationRow | null,
   /** Application choisie (ou label d'un vieux client) ; `null` = File Sophia puis repli, comme avant. */
   choix: ChoixCompte | null = null,
+  /** Marché saisi par le HM ; `null` = déduit de la langue par le trigger 0281. */
+  pays: string | null = null,
 ): Promise<Response> {
   const modeUgcAiVideo = await modeUgcAiVideoPourPoster(supabase, acces, userId);
   if (choix && !choixApplicableAuCompte({ typeCompte: "perso", ugcAiVideo: modeUgcAiVideo })) {
@@ -805,7 +826,7 @@ async function creerComptePersoPourPoster(
     postsParJour,
     personaUgc,
     fileItemQueue,
-    { ugcAiVideo: modeUgcAiVideo, application, partsApplications },
+    { ugcAiVideo: modeUgcAiVideo, application, partsApplications, pays },
   );
   if (!compte.id) return json({ error: "CREATION_COMPTE_ECHOUEE" }, 500);
   if (handleTiktok) {
@@ -830,6 +851,7 @@ async function creerCompteCmPourPoster(
   const notesHm = String(body.notes_hm ?? "").trim();
   const handle = String(body.handle_tiktok ?? "").trim().replace(/^@+/, "") || cible.instagram;
   const personaNom = String(body.persona_nom ?? "").trim();
+  const pays = paysSaisi(body);
 
   const { data: deja } = await supabase
     .from("comptes")
@@ -857,6 +879,7 @@ async function creerCompteCmPourPoster(
       ugc_ai: false,
       ugc_ai_video: false,
       ugc_persona_id: null,
+      ...(pays ? { pays } : {}),
       handle_tiktok: handle || null,
       persona_nom: personaNom || null,
     })
@@ -1675,6 +1698,13 @@ async function preparerCompte(
     application?: ApplicationRow | null;
     /** Répartition choisie par l'admin ; absente = clé omise de l'insert (NULL en base). */
     partsApplications?: PartsApplications | null;
+    /**
+     * Marché du compte, saisi par le HM quand la langue ne le désigne pas
+     * (en, ar, es-419, ru). Absent = clé omise, et le trigger
+     * `comptes_pays_defaut` (0281) le déduit de la langue. Ne jamais écrire
+     * une valeur devinée ici : un pays faux ne se voit pas, un pays vide si.
+     */
+    pays?: string | null;
   } = {},
 ): Promise<{
   id: string;
@@ -1716,6 +1746,7 @@ async function preparerCompte(
       ugc_persona_id: avecPersona ? personaUgc!.id : null,
       persona_nom: avecPersona ? personaUgc!.nom.trim() : null,
       ...(opts.partsApplications ? { parts_applications: opts.partsApplications } : {}),
+      ...(opts.pays ? { pays: opts.pays } : {}),
     })
     .select("id")
     .single();

@@ -1,12 +1,15 @@
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 import {
+  type CompteSansPays,
   type LigneOs,
   baseRecrutement,
   cleNotion,
   ecrireHired,
   lireLignesNotion,
   planifier,
+  texteAlerte,
 } from "../_shared/notion.ts";
+import { alerterSlack } from "../_shared/slack.ts";
 
 /**
  * Met à jour la colonne « Hired » de la table Notion « Recruitment Targets »,
@@ -73,6 +76,16 @@ Deno.serve(async (request) => {
     if (error) return json({ error: error.message }, 500);
     const lignesOs = (data ?? []) as LigneOs[];
 
+    // Les comptes sans pays ne sont dans AUCUNE ligne : la vue les écarte par
+    // construction. On les lit à part pour pouvoir le DIRE, plutôt que de
+    // laisser un chiffre silencieusement bas.
+    const { data: orphelins, error: erreurOrphelins } = await supabase
+      .from("comptes_sans_pays")
+      .select("handle_tiktok, langue, poster")
+      .limit(200);
+    if (erreurOrphelins) return json({ error: erreurOrphelins.message }, 500);
+    const sansPays = (orphelins ?? []) as CompteSansPays[];
+
     // Garde-fou : un compte servant plusieurs applications rend le comptage
     // ambigu. Le référent tient le cas pour impossible, et il ne s'est jamais
     // produit — mais rien ne l'interdit en base. On s'arrête plutôt que
@@ -105,9 +118,12 @@ Deno.serve(async (request) => {
       // peut pas accueillir, donc des posteurs invisibles côté recrutement.
       inconnus: plan.inconnus,
       doublons: plan.doublons,
+      sans_pays: sansPays.length,
     };
 
-    if (blanc) return json({ ...resume, blanc: true, ecrites: 0 });
+    if (blanc) {
+      return json({ ...resume, blanc: true, ecrites: 0, alerte: texteAlerte(plan, sansPays) });
+    }
 
     let ecrites = 0;
     for (const e of plan.ecritures) {
@@ -118,7 +134,13 @@ Deno.serve(async (request) => {
       if (ecrites < plan.ecritures.length) await new Promise((r) => setTimeout(r, 350));
     }
 
-    return json({ ...resume, ecrites });
+    // L'alerte part APRÈS les écritures : si Slack est en panne, les chiffres
+    // sont quand même à jour. Et elle ne part que s'il y a quelque chose à
+    // dire — une alerte quotidienne « tout va bien » cesse d'être lue.
+    const alerte = texteAlerte(plan, sansPays);
+    const slack = alerte ? await alerterSlack(alerte) : { envoye: false, raison: "rien à signaler" };
+
+    return json({ ...resume, ecrites, alerte_slack: slack });
   } catch (erreur) {
     return json({ error: messageErreur(erreur) }, 500);
   }

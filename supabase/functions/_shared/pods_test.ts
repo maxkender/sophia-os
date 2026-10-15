@@ -8,6 +8,7 @@ import {
   ecrireDecksApplications,
   estSlideApp,
   metadonneesJpeg,
+  PODS_AVEC_PREUVE,
   prochainJour,
   sha256Hex,
   verifierDecksApplications,
@@ -78,12 +79,17 @@ Deno.test("verifierOriginal : positions, images, une slide Sophia, inspiration, 
   assertEquals(verifierOriginal(avec(5, { media_id: id(1) })), ["même image utilisée deux fois"]);
   assertEquals(verifierOriginal(avec(5, { texte_overlay: "i use the sophia app" })).length, 1);
   assertEquals(verifierOriginal(avec(5, { texte_overlay: "the vent now app helped" })).length, 1);
+  assertEquals(verifierOriginal(avec(4, { texte_overlay: "adapté à l'offre avec turboresume" })).length, 1);
   assertEquals(verifierOriginal(avec(0, { texte_overlay: "x".repeat(121) })).length, 1);
   assertEquals(verifierOriginal(avec(5, { texte_overlay: " " })), ["#6 : texte vide"]);
   assertEquals(verifierOriginal(avec(4, { texte_sophia: null })), ["0 slide(s) Sophia (une seule attendue)"]);
   assertEquals(verifierOriginal(avec(3, { texte_sophia: "the Sophia app" })).length, 1);
   assertEquals(verifierOriginal(avec(4, { texte_sophia: "a micro-learning app" })).length, 1);
   assertEquals(verifierOriginal(avec(2, { reference_url: "https://p16.tiktokcdn.com/x.jpg" })).length, 1);
+});
+
+Deno.test("PODS_AVEC_PREUVE : pods 4 et 5 seulement", () => {
+  assertEquals([...PODS_AVEC_PREUVE].sort(), ["originaux_alpha_yellow", "originaux_rh"]);
 });
 
 Deno.test("verifierPreuve : 200 k vues en 30 jours suffisent ; sinon des contenus du label à faire mesurer par l'OS", () => {

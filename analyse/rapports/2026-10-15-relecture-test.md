@@ -39,9 +39,50 @@ Bilan : environ 15 défauts relevés, tous visibles sur les planches (la police
 de sophie reste à confirmer) ; 2 ratés (police de tomas, colonne étroite de
 julia sur une seule slide).
 
+## Troisième passe (v2) : justification à part, reviews plus courtes
+
+Retour de l'admin sur la seconde passe : trop centrée sur la taille, trop de
+remarques, et des phrases de robot (« the text is about 1.3× bigger »).
+
+Ce qui change :
+
+- **Justification mesurée à part de la taille.** Dans l'éditeur de TikTok, la
+  zone de texte a une largeur fixe : le curseur de taille décide où se coupent
+  les lignes, le pincement agrandit le bloc sans toucher aux retours à la
+  ligne. Mesure : largeur du paragraphe en hauteurs de ligne, publiée ÷
+  originale (invariante au pincement), confirmée par les caractères par
+  ligne ; paragraphe de 3 lignes et 60 caractères au moins.
+- **Moins sévère.** Taille relevée hors de ×0,7 – ×1,4 seulement. Deux points
+  au plus par review. Police, graisse et placement : notes pour l'admin,
+  jamais envoyées.
+- **Rédaction.** Chaque point dit ce qui se voit puis le geste dans TikTok
+  (curseur puis pincement, bouton d'alignement, bouton A, rangée de
+  couleurs). Gemini reformule ; la reformulation n'est gardée que si elle
+  cite les mêmes slides, sans chiffre technique.
+
+| Compte | Review (points envoyés) | Notes admin | Relecture à l'œil |
+| --- | --- | --- | --- |
+| hanna.rozwoj122 | lignes trop courtes, colonne (slides 5, 6) · accroche centrée au lieu d'à gauche | — | juste |
+| emma.inspira316 | lignes trop courtes, colonne (slides 1, 3, 4) | — | juste, net sur les 3 slides |
+| sophie.mindset5098 | lignes trop courtes, 7 lignes au lieu de 5 (slides 2, 3) · jaune au lieu de blanc | police | juste |
+| christina.nootropia966 | texte nettement plus grand (slides 2, 6) · accroche centrée | — | juste : mêmes lignes, bloc pincé plus grand |
+| sofia.cultura4148 | accroche alignée à gauche | texte plus haut | juste ; texte ×1,3 – ×1,4 non relevé (sous le seuil) |
+| julia.ksiazki2 | — | — | juste ; accroche courte non jugée |
+| louis.ambition622 | — | — | juste |
+| margarida.aprende717 | — | police | titre fondu (slide 7) non retenu : écart léger |
+| su.efsane263 | — | police | texte ×1,3 non relevé |
+| tomas.fokus333 | — | — | police différente visible, non relevée |
+
+Bilan : 5 reviews sur 10, 1 ou 2 points chacune, tous vérifiés sur les
+planches. La taille n'est plus le sujet principal : elle sort sur 1 post
+(christina) au lieu de 6, et la justification sur 3 (hanna, emma, sophie),
+que la seconde passe ne voyait qu'à moitié. Le prix de la sévérité réduite : les textes ×1,3 (sofia, su, tomas)
+ne sont plus relevés.
+
 ## À suivre
 
-- Le grossissement du texte (×1,3) est le défaut le plus courant : 6 posts sur 10.
+- Le grossissement du texte (×1,3) est fréquent (6 posts sur 10) mais n'est
+  relevé qu'au-delà de ×1,4 : à rediscuter si l'admin le veut plus tôt.
 - Calibrer sur 100 posts étiquetés avant tout envoi automatique.
 - La question « police » rate une police grasse remplacée par la police de
   TikTok : à reformuler ou à mesurer autrement.

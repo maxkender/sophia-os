@@ -507,11 +507,14 @@ export async function creerCompteUgcVideo(input: {
   personaNom: string;
   handleTiktok: string;
   handleInstagram: string;
+  /** Voir `ajouterCompte` : uniquement quand la langue ne tranche pas. */
+  pays?: string;
 }): Promise<void> {
   const { error } = await supabase.from("comptes").insert({
     poster_id: input.posterId,
     type_compte: "perso",
     langue: input.langue,
+    ...(input.pays ? { pays: input.pays } : {}),
     persona_nom: input.personaNom.trim() || null,
     handle_tiktok: input.handleTiktok.trim().replace(/^@/, "") || null,
     handle_instagram: input.handleInstagram.trim().replace(/^@/, "") || null,
@@ -1210,6 +1213,13 @@ export function ajouterCompte(input: {
   tiktok_2fa_note?: string;
   notes_hm?: string;
   persona_nom?: string;
+  /**
+   * Marché du compte (ISO-3166-1 alpha-2). À n'envoyer que quand la langue ne
+   * le désigne pas (en, ar, es-419, ru) : sinon le trigger
+   * `comptes_pays_defaut` le déduit, et deux sources de vérité finissent par
+   * diverger. Voir paysAEnvoyer() dans ChampPaysCompte.
+   */
+  pays?: string;
 } & OptionsApplicationsCompte) {
   return invoke<{
     ok: boolean;
@@ -1229,6 +1239,7 @@ export function ajouterCompte(input: {
     tiktok_2fa_note: input.tiktok_2fa_note ?? "",
     notes_hm: input.notes_hm ?? "",
     persona_nom: input.persona_nom ?? "",
+    ...(input.pays ? { pays: input.pays } : {}),
     ...corpsApplicationsCompte(input),
   });
 }
@@ -1397,6 +1408,8 @@ export function creerPoster(input: {
   tiktok_email?: string;
   tiktok_password?: string;
   tiktok_2fa_note?: string;
+  /** Voir `ajouterCompte` : uniquement quand la langue ne tranche pas. */
+  pays?: string;
 } & OptionsApplicationsCompte) {
   return invoke<{
     userId: string;
@@ -1425,6 +1438,7 @@ export function creerPoster(input: {
     tiktok_email: input.tiktok_email ?? "",
     tiktok_password: input.tiktok_password ?? "",
     tiktok_2fa_note: input.tiktok_2fa_note ?? "",
+    ...(input.pays ? { pays: input.pays } : {}),
     ...corpsApplicationsCompte(input),
   });
 }
@@ -1663,13 +1677,14 @@ export async function majDocument(
   if (error) throw error;
 }
 
+/** Suppression définitive, historique compris : admin et Head of Ops seulement. */
 export function supprimerPoster(userId: string) {
   return invoke("manage-users", { action: "delete", userId });
 }
 
-export async function majPoster(id: string, patch: { is_active?: boolean }): Promise<void> {
-  const { error } = await supabase.from("profiles").update(patch).eq("id", id);
-  if (error) throw error;
+/** Désactive (ou réactive) un créateur ET ses comptes : désactivé, il ne reçoit plus de posts. */
+export function activerPoster(userId: string, actif: boolean) {
+  return invoke("manage-users", { action: "activer", userId, actif });
 }
 
 // --- Bibliothèque -----------------------------------------------------------
@@ -4848,19 +4863,17 @@ export async function lancerAssignationABlanc(
 }
 
 /**
- * Test à blanc « contenus » : la notation (calcul du rattrapage) puis le
- * placement d'une application autre que Sophia, sur 1 à 3 slideshows. IA
- * toujours utilisée, rien n'est enregistré. `langue` absente : langue source
- * de chaque slideshow. `angle` (chaîne, même vide) : angle de placement
- * brouillon essayé à la place de l'angle enregistré du label ; null = angles
- * enregistrés, comme la nuit.
+ * Test à blanc « contenus » : la notation (calcul du rattrapage ; pas pour
+ * Sophia) puis le placement d'une application, sur 1 à 3 slideshows : la
+ * référence (angle actif du label, ou sans angle) et un placement par angle
+ * en test du label, pour comparer. IA toujours utilisée, rien n'est
+ * enregistré. `langue` absente : langue source de chaque slideshow.
  */
 export async function lancerContenusABlanc(
   applicationId: string,
   contenuIds: string[],
   langue: string | null,
   onLog?: (ligne: AssignationABlancLog) => void,
-  angle: string | null = null,
 ): Promise<ContenusABlancResultat> {
   const fin = await posterFluxABlanc(
     {
@@ -4868,7 +4881,6 @@ export async function lancerContenusABlanc(
       applicationId,
       contenuIds,
       ...(langue ? { langue } : {}),
-      ...(angle !== null ? { angle } : {}),
     },
     onLog,
   );
@@ -5527,14 +5539,18 @@ export async function dernierPostCompteJour(
   compteId: string,
   date: string,
   exclureId?: string,
+  /** Créé à partir de cet instant seulement : sans ça, l'AUTRE créneau du jour passait pour le remplaçant. */
+  depuis?: string,
 ): Promise<string | null> {
-  const { data, error } = await supabase
+  let query = supabase
     .from("posts")
     .select("id")
     .eq("compte_id", compteId)
     .eq("date_publication_prevue", date)
     .eq("est_test", false)
-    .eq("pipeline_statut", "done")
+    .eq("pipeline_statut", "done");
+  if (depuis) query = query.gte("created_at", depuis);
+  const { data, error } = await query
     .order("created_at", { ascending: false })
     .limit(5);
   if (error) throw error;

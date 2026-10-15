@@ -1,10 +1,10 @@
 import { describe, expect, it } from "vitest";
 
 import {
-  angleDuLien,
-  anglesPerdus,
   ANGLE_LONGUEUR_MAX,
-  lignesAnglesApplication,
+  anglesTestCompares,
+  groupesAnglesApplication,
+  MAX_ANGLES_TEST,
   normaliserAngle,
 } from "./angles";
 
@@ -16,19 +16,31 @@ const LABELS = [
   { id: "b", nom: "beau_smart_girl", slug: "beau-smart-girl" },
   { id: "h", nom: "hook", slug: "hook" },
   { id: "s", nom: "smart_girl", slug: "smart-girl" },
+  { id: "z", nom: "zen", slug: "zen" },
 ];
 
+// w : Sophia + Unswipe ; b : Unswipe ; h : système ; s : Sophia ; z : aucune ligne (sert Sophia).
 const LIENS = [
-  { label_id: "w", application_id: SOPHIA, angle: null },
-  { label_id: "w", application_id: UNSWIPE, angle: "  insister sur la discipline  " },
-  { label_id: "b", application_id: UNSWIPE, angle: "" },
-  { label_id: "h", application_id: UNSWIPE, angle: "système, jamais affiché" },
+  { label_id: "w", application_id: SOPHIA },
+  { label_id: "w", application_id: UNSWIPE },
+  { label_id: "b", application_id: UNSWIPE },
+  { label_id: "h", application_id: UNSWIPE },
   { label_id: "s", application_id: SOPHIA },
 ];
 
+const angle = (id: string, label_id: string, statut: string, minute: number, application_id = UNSWIPE) => ({
+  id,
+  label_id,
+  application_id,
+  texte: `angle ${id}`,
+  statut,
+  created_at: `2026-10-14T08:${String(minute).padStart(2, "0")}:00Z`,
+});
+
 describe("angles de placement", () => {
-  it("borne identique à celle du moteur", () => {
+  it("bornes identiques à celles du moteur", () => {
     expect(ANGLE_LONGUEUR_MAX).toBe(500);
+    expect(MAX_ANGLES_TEST).toBe(4);
   });
 
   it("normaliserAngle : blancs de bord retirés, null = vide", () => {
@@ -37,28 +49,67 @@ describe("angles de placement", () => {
     expect(normaliserAngle(undefined)).toBe("");
   });
 
-  it("angleDuLien : l'angle de la paire, vide sinon", () => {
-    expect(angleDuLien(LIENS, "w", UNSWIPE)).toBe("insister sur la discipline");
-    expect(angleDuLien(LIENS, "w", SOPHIA)).toBe("");
-    expect(angleDuLien(LIENS, "x", UNSWIPE)).toBe("");
+  it("une carte par label qui sert l'application, système exclu, ceux qui servent d'abord puis par nom", () => {
+    const g = groupesAnglesApplication(UNSWIPE, LABELS, LIENS, []);
+    expect(g.map((x) => [x.nom, x.sert, x.actif, x.tests])).toEqual([
+      ["beau_smart_girl", true, null, []],
+      ["weird_alpha", true, null, []],
+    ]);
   });
 
-  it("lignesAnglesApplication : labels qui servent l'application, sans système, triés par nom", () => {
-    expect(lignesAnglesApplication(UNSWIPE, LABELS, LIENS)).toEqual([
-      { labelId: "b", nom: "beau_smart_girl", angle: "" },
-      { labelId: "w", nom: "weird_alpha", angle: "insister sur la discipline" },
-    ]);
-    expect(lignesAnglesApplication(SOPHIA, LABELS, LIENS).map((l) => l.nom)).toEqual([
+  it("Sophia : un label sans aucune ligne la sert (héritage)", () => {
+    expect(groupesAnglesApplication(SOPHIA, LABELS, LIENS, []).map((x) => x.nom)).toEqual([
       "smart_girl",
       "weird_alpha",
+      "zen",
     ]);
   });
 
-  it("anglesPerdus : décocher une application qui a un angle le signale, pas les autres", () => {
-    expect(anglesPerdus("w", LIENS, [SOPHIA])).toEqual([
-      { applicationId: UNSWIPE, angle: "insister sur la discipline" },
+  it("actif et tests rangés par paire, tests du plus ancien au plus récent, autres applications ignorées", () => {
+    const angles = [
+      angle("t2", "w", "test", 5),
+      angle("a", "w", "actif", 1),
+      angle("t1", "w", "test", 2),
+      angle("sophia", "w", "test", 0, SOPHIA),
+      angle("b1", "b", "test", 3),
+    ];
+    const [b, w] = groupesAnglesApplication(UNSWIPE, LABELS, LIENS, angles);
+    expect(w.actif?.id).toBe("a");
+    expect(w.tests.map((x) => x.id)).toEqual(["t1", "t2"]);
+    expect(b.actif).toBeNull();
+    expect(b.tests.map((x) => x.id)).toEqual(["b1"]);
+  });
+
+  it("un label qui ne sert plus l'application mais garde des angles : listé en dernier, marqué", () => {
+    const g = groupesAnglesApplication(UNSWIPE, LABELS, LIENS, [angle("x", "s", "actif", 1)]);
+    expect(g.map((x) => [x.nom, x.sert])).toEqual([
+      ["beau_smart_girl", true],
+      ["weird_alpha", true],
+      ["smart_girl", false],
     ]);
-    expect(anglesPerdus("w", LIENS, [SOPHIA, UNSWIPE])).toEqual([]);
-    expect(anglesPerdus("b", LIENS, [SOPHIA]), "angle vide : rien à perdre").toEqual([]);
+    expect(g[2].actif?.id).toBe("x");
+  });
+
+  it("label inconnu ou système : jamais de carte, même avec des angles", () => {
+    const g = groupesAnglesApplication(UNSWIPE, LABELS, LIENS, [angle("x", "inconnu", "test", 1), angle("y", "h", "actif", 2)]);
+    expect(g.map((x) => x.nom)).toEqual(["beau_smart_girl", "weird_alpha"]);
+  });
+
+  it("anglesTestCompares : même règle que le moteur — sans copie de l'actif, sans doublon, les plus anciens d'abord", () => {
+    const a = (id: string, texte: string) => ({ id, texte });
+    const actif = a("actif", "insister sur le temps");
+    const tests = [
+      a("t1", " insister sur le temps "),
+      a("t2", "montrer la fierté"),
+      a("t3", "montrer la fierté"),
+      a("t4", "b"),
+      a("t5", "c"),
+      a("t6", "d"),
+      a("t7", "e"),
+    ];
+    const { compares, nonCompares } = anglesTestCompares(actif, tests);
+    expect(compares.map((x) => x.id)).toEqual(["t2", "t4", "t5", "t6"]);
+    expect(Object.fromEntries(nonCompares)).toEqual({ t1: "identique_actif", t3: "doublon", t7: "au_dela_max" });
+    expect(anglesTestCompares(null, [a("x", "y")]).compares.map((x) => x.id)).toEqual(["x"]);
   });
 });

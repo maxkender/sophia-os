@@ -6,6 +6,7 @@ import {
   type LigneNotion,
   type LigneOs,
   planifier,
+  texteAlerte,
 } from "./notion.ts";
 
 function notion(country: string, app: string, hired: number): LigneNotion {
@@ -41,23 +42,25 @@ Deno.test("une ligne déjà à zéro et toujours vide ne déclenche aucune écri
   assertEquals(plan.inchangees, 1);
 });
 
-Deno.test("KZ, UA et BY alimentent la même ligne russophone, et s'additionnent", () => {
-  // La ligne s'appelle « Russian-Speaking (not russia) » : ce n'est pas un
-  // pays, et RU n'en fait justement pas partie.
+Deno.test("KZ, UA et BY ont chacun leur ligne, comme LATAM", () => {
+  // Découpage demandé par Aram le 14/10 : plus de ligne « Russian-Speaking ».
   const plan = planifier(
     [os("KZ", "sophia", 2), os("UA", "sophia", 1), os("BY", "sophia", 1)],
-    [notion("Russian-Speaking (not russia)", "Sophia", 0)],
+    [notion("Kazakhstan", "Sophia", 0), notion("Ukraine", "Sophia", 0), notion("Belarus", "Sophia", 0)],
   );
-  assertEquals(plan.ecritures.length, 1);
-  assertEquals(plan.ecritures[0].apres, 4);
+  assertEquals(plan.inconnus, []);
+  assertEquals(
+    plan.ecritures.map((e) => `${e.country} ${e.apres}`).sort(),
+    ["Belarus 1", "Kazakhstan 2", "Ukraine 1"],
+  );
 });
 
 Deno.test("RU n'est rattaché à aucune ligne et remonte dans les inconnus", () => {
-  // La ligne russophone est à 2 ; les 3 comptes « RU » ne l'alimentent PAS,
+  // La ligne Kazakhstan est à 2 ; les 3 comptes « RU » ne l'alimentent PAS,
   // donc elle retombe à 0 et les 3 comptes sont signalés comme invisibles.
   // C'est exactement pour éviter ce silence que `ru` n'a plus de pays par
   // défaut (migration 0281).
-  const plan = planifier([os("RU", "sophia", 3)], [notion("Russian-Speaking (not russia)", "Sophia", 2)]);
+  const plan = planifier([os("RU", "sophia", 3)], [notion("Kazakhstan", "Sophia", 2)]);
   assertEquals(plan.inconnus.length, 1);
   assertEquals(plan.inconnus[0].pays, "RU");
   assertEquals(plan.inconnus[0].hired, 3);
@@ -105,7 +108,9 @@ Deno.test("les trois libellés qui ne tombent pas tout seuls sont bien câblés"
   // deux casseraient la correspondance. Vérifié ici plutôt qu'en production.
   assertEquals(PAYS_VERS_NOTION["AE"], "UAE");
   assertEquals(PAYS_VERS_NOTION["TR"], "Turkey");
-  assertEquals(PAYS_VERS_NOTION["KZ"], "Russian-Speaking (not russia)");
+  assertEquals(PAYS_VERS_NOTION["KZ"], "Kazakhstan");
+  assertEquals(PAYS_VERS_NOTION["UA"], "Ukraine");
+  assertEquals(PAYS_VERS_NOTION["BY"], "Belarus");
   assertEquals(PAYS_VERS_NOTION["RU"], undefined);
 });
 
@@ -115,7 +120,7 @@ Deno.test("les trois applications sont capitalisées comme les options du select
   assertEquals(APP_VERS_NOTION["micabo"], "Micabo");
 });
 
-Deno.test("le cas réel du 13/10/2026 : 53 lignes sur 56 ne bougent pas", () => {
+Deno.test("le cas réel du 13/10/2026 : 55 lignes sur 58 ne bougent pas", () => {
   // Blanc calculé sur les vrais chiffres, gardé comme filet : si une
   // refactorisation change le comportement, ce test le dit avec les vrais
   // ordres de grandeur plutôt qu'avec des cas jouets.
@@ -141,7 +146,9 @@ Deno.test("le cas réel du 13/10/2026 : 53 lignes sur 56 ne bougent pas", () => 
     ["Israel", "Sophia", 0], ["Italy", "Sophia", 10], ["Netherlands", "Sophia", 5],
     ["New Zealand", "Sophia", 0], ["Norway", "Sophia", 2], ["Poland", "Sophia", 9],
     ["Portugal", "Sophia", 12], ["Romania", "Sophia", 10],
-    ["Russian-Speaking (not russia)", "Sophia", 2], ["Serbia", "Sophia", 4],
+    // Ligne « Russian-Speaking (not russia) » découpée le 14/10 en trois pays.
+    ["Kazakhstan", "Sophia", 2], ["Ukraine", "Sophia", 0], ["Belarus", "Sophia", 0],
+    ["Serbia", "Sophia", 4],
     ["Slovakia", "Sophia", 3], ["Slovenia", "Sophia", 5], ["Spain", "Sophia", 9],
     ["Sweden", "Sophia", 4], ["Switzerland", "Sophia", 0], ["Turkey", "Sophia", 14],
     ["UAE", "Sophia", 0], ["United Kingdom", "Sophia", 2], ["United States", "Sophia", 3],
@@ -152,14 +159,65 @@ Deno.test("le cas réel du 13/10/2026 : 53 lignes sur 56 ne bougent pas", () => 
     ["United Kingdom", "Unswipe", 0], ["United States", "Unswipe", 0], ["Uruguay", "Unswipe", 0],
   ];
   const lignesNotion = avant.map(([c, a, h]) => notion(c, a, h));
-  assertEquals(lignesNotion.length, 56);
+  assertEquals(lignesNotion.length, 58);
 
   const plan = planifier(lignesOs, lignesNotion);
-  assertEquals(plan.inchangees, 53);
+  assertEquals(plan.inchangees, 55);
   assertEquals(plan.inconnus, []);
   assertEquals(plan.doublons, []);
   assertEquals(
     plan.ecritures.map((e) => `${e.country}/${e.app} ${e.avant}->${e.apres}`).sort(),
     ["Australia/Sophia 0->1", "Sweden/Sophia 4->5", "Turkey/Sophia 14->12"],
   );
+});
+
+Deno.test("aucune alerte quand il n'y a rien à signaler", () => {
+  // Une alerte quotidienne « tout va bien » cesse d'être lue au bout d'une
+  // semaine. Le silence est le comportement normal.
+  const plan = planifier([os("FR", "sophia", 1)], [notion("France", "Sophia", 1)]);
+  assertEquals(texteAlerte(plan, []), null);
+});
+
+Deno.test("alerte quand des comptes n'ont pas de pays, avec de quoi agir", () => {
+  const plan = planifier([os("FR", "sophia", 1)], [notion("France", "Sophia", 1)]);
+  const texte = texteAlerte(plan, [
+    { handle_tiktok: "isla.growth253", langue: "en", poster: "Raheemat Sunmonu" },
+  ]);
+  assertEquals(typeof texte, "string");
+  assertEquals(texte!.includes("isla.growth253"), true);
+  assertEquals(texte!.includes("Raheemat Sunmonu"), true);
+  // Le message doit dire QUOI FAIRE, pas seulement qu'il y a un problème.
+  assertEquals(texte!.includes("Posters page"), true);
+});
+
+Deno.test("alerte quand des comptes réels n'ont aucune ligne où aller", () => {
+  const plan = planifier([os("JP", "sophia", 4)], [notion("France", "Sophia", 0)]);
+  const texte = texteAlerte(plan, []);
+  assertEquals(texte!.includes("JP"), true);
+  assertEquals(texte!.includes("4 account"), true);
+});
+
+Deno.test("alerte sur les lignes en double, en disant que rien n'a été écrit", () => {
+  const plan = planifier(
+    [os("FR", "sophia", 13)],
+    [notion("France", "Sophia", 1), { ...notion("France", "Sophia", 2), pageId: "bis" }],
+  );
+  const texte = texteAlerte(plan, []);
+  assertEquals(texte!.includes("France / Sophia"), true);
+  assertEquals(texte!.includes("wrote neither"), true);
+});
+
+Deno.test("au-delà de 15 comptes sans pays, le message est tronqué et le dit", () => {
+  // Un message Slack de 200 lignes ne se lit pas. Mais taire le reste serait
+  // pire que le tronquer : on annonce le nombre restant.
+  const plan = planifier([], []);
+  const beaucoup = Array.from({ length: 40 }, (_, i) => ({
+    handle_tiktok: `compte${i}`,
+    langue: "en",
+    poster: `Poster ${i}`,
+  }));
+  const texte = texteAlerte(plan, beaucoup)!;
+  assertEquals(texte.includes("compte14"), true);
+  assertEquals(texte.includes("compte15"), false);
+  assertEquals(texte.includes("and 25 more"), true);
 });

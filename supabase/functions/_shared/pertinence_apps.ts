@@ -9,7 +9,7 @@
  *
  * La consigne passée à `scoreRelevance` est le prompt stocké TEL QUEL
  * (`undefined` pour Sophia sans prompt : le défaut de `scoreRelevance`) : aucun
- * angle de label injecté (l'angle de placement, `label_applications.angle`, ne
+ * angle de label injecté (l'angle de placement, `angles_placement`, ne
  * sert qu'au placement : angle_placement.ts). Le texte envoyé à Gemini pour un contenu Sophia
  * est octet pour octet celui d'avant le multi-app. La colonne
  * `contenu_pertinences.angles` reste en base, toujours écrite à `null`.

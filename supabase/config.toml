@@ -68,6 +68,9 @@ verify_jwt = false
 [functions.chatbot]
 verify_jwt = false
 
+[functions.comment-masters]
+verify_jwt = false
+
 [functions.composition]
 verify_jwt = false
 
@@ -148,6 +151,9 @@ verify_jwt = false
 verify_jwt = false
 
 [functions.signaler-texte]
+verify_jwt = false
+
+[functions.slack-interactions]
 verify_jwt = false
 
 [functions.strip-c2pa]

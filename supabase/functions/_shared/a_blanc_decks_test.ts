@@ -105,13 +105,14 @@ Deno.test("Sophia, IA cochée, ligne absente : vrai deck traduit + placé, relu 
   assertEquals(tables, avant);
 });
 
-Deno.test("Sophia, IA cochée, label avec un angle Sophia : consigne dans le prompt, angle tracé sur la ligne (simulé)", async () => {
+Deno.test("Sophia, IA cochée, label avec un angle Sophia ACTIF : consigne dans le prompt, angle tracé (simulé), angle en test ignoré", async () => {
   const tables = base({
     contenu_labels: [{ contenu_id: "c1", label_id: "L1" }],
     labels: [{ id: "L1", slug: "weird-alpha", nom: "weird_alpha" }],
-    label_applications: [
-      { label_id: "L1", application_id: ID_SOPHIA, angle: "insister sur la régularité" },
-      { label_id: "L1", application_id: UNSWIPE, angle: "angle Unswipe, jamais pour Sophia" },
+    angles_placement: [
+      { id: "a1", label_id: "L1", application_id: ID_SOPHIA, texte: "insister sur la régularité", statut: "actif", created_at: "2026-10-14T08:00:00Z" },
+      { id: "a2", label_id: "L1", application_id: UNSWIPE, texte: "angle Unswipe, jamais pour Sophia", statut: "actif", created_at: "2026-10-14T08:00:00Z" },
+      { id: "a3", label_id: "L1", application_id: ID_SOPHIA, texte: "angle en test, jamais la nuit", statut: "test", created_at: "2026-10-14T09:00:00Z" },
     ],
   });
   const avant = instantane(tables);
@@ -131,6 +132,7 @@ Deno.test("Sophia, IA cochée, label avec un angle Sophia : consigne dans le pro
         placement,
       );
       assert(!placement.includes("angle Unswipe"), "l'angle d'une autre application ne fuit pas");
+      assert(!placement.includes("angle en test"), "un angle en test n'est lu que par le test « contenus »");
       const traces = ctx.etat.journal.filter((e) =>
         e.table === "contenu_langues" && e.valeurs.some((v) => "angle_placement" in v)
       );
@@ -146,6 +148,7 @@ Deno.test("Sophia, IA cochée, label sans angle : aucune consigne, aucun traçag
   const tables = base({
     contenu_labels: [{ contenu_id: "c1", label_id: "L1" }],
     labels: [{ id: "L1", slug: "weird-alpha", nom: "weird_alpha" }],
+    angles_placement: [],
   });
   const gemini = fauxGemini(traductionEtPlacement);
   const serveur = fauxServeurPostgrest(tables, {

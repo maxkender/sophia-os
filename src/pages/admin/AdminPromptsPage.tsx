@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 
@@ -14,15 +15,15 @@ import {
   nomApplication,
 } from "@/features/moteur/applications";
 import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
-import { AnglesPlacementCard } from "@/features/moteur/multiapp/AnglesPlacementCard";
+import { PromptCommentMasterCard } from "@/features/commentMasters/PromptCommentMasterCard";
 
 /**
  * Les prompts qui pilotent le moteur, modifiables sans redéploiement.
  *
  * Pertinence et placement sont PROPRES à l'application du sélecteur (clés
  * `pertinence` / `placement_sophia` pour Sophia, `pertinence_<slug>` /
- * `placement_<slug>` pour les autres), comme les angles de placement par label
- * (`label_applications.angle`) ; tout le reste est commun.
+ * `placement_<slug>` pour les autres) ; tout le reste est commun. Les angles
+ * de placement par label ont leur page (Configuration → Angles de placement).
  */
 const PROMPTS_COMMUNS = [
   { cle: "traduction", titre: "prompts.traductionTitle", desc: "prompts.traductionDesc" },
@@ -94,7 +95,7 @@ function EditeurPrompt({ cle, titre, desc }: { cle: string; titre: string; desc:
 
 export function AdminPromptsPage() {
   const { t } = useTranslation();
-  const { slug, application, applicationId } = useApplication();
+  const { slug, application } = useApplication();
   const nom = application ? nomApplication(application) : nomApplication({ slug });
   const sophia = estSlugSophia(slug);
   return (
@@ -123,9 +124,13 @@ export function AdminPromptsPage() {
         titre={t("prompts.placementTitleApp", { nom })}
         desc={t("prompts.placementDescApp", { nom })}
       />
-      {/* Angle par label : couche ajoutée au prompt de placement ci-dessus,
-          pour les slideshows de chaque label (vide = placement seul). */}
-      <AnglesPlacementCard key={`angles-${slug}`} applicationId={applicationId} nom={nom} sophia={sophia} />
+      {/* Les angles par label (couche ajoutée à ce prompt) ont leur page. */}
+      <p className="text-xs text-muted-foreground">
+        {t("prompts.anglesPage", { nom })}{" "}
+        <Link to="/admin/angles" className="underline">
+          {t("nav.angles")}
+        </Link>
+      </p>
 
       <div className="pt-2">
         <h2 className="text-sm font-semibold">{t("prompts.communsTitre")}</h2>
@@ -139,6 +144,12 @@ export function AdminPromptsPage() {
           desc={t(p.desc)}
         />
       ))}
+
+      <div className="pt-2">
+        <h2 className="text-sm font-semibold">{t("prompts.commentMaster.section")}</h2>
+        <p className="text-xs text-muted-foreground">{t("prompts.commentMaster.sectionDesc")}</p>
+      </div>
+      <PromptCommentMasterCard />
 
       <div className="pt-2">
         <h2 className="text-sm font-semibold">{t("prompts.traductionsLanguesTitre")}</h2>

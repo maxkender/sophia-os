@@ -543,6 +543,8 @@ export function PosterPostPage() {
     const compteId = post.data.compte_id;
     const jour = post.data.date_publication_prevue;
     const ancienId = id;
+    // Marge de 2 min pour l'écart d'horloge entre ce téléphone et la base.
+    const depuis = new Date(Date.now() - 2 * 60_000).toISOString();
     try {
       const r = await rechargerPostCreateur(id);
       if (!r.newPostId) {
@@ -558,7 +560,7 @@ export function PosterPostPage() {
       // Timeout / erreur après delete : le nouveau post peut déjà exister.
       if (compteId && jour && !msg.includes("RECHARGE_LIMITE") && !msg.includes("RECHARGE_PUBLIE")) {
         try {
-          const recup = await dernierPostCompteJour(compteId, jour, ancienId);
+          const recup = await dernierPostCompteJour(compteId, jour, ancienId, depuis);
           if (recup) {
             queryClient.invalidateQueries({ queryKey: ["mes-posts"] });
             setRechargeMsg(t("posts.rechargerOk"));

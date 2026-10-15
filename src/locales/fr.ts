@@ -124,6 +124,7 @@ export const fr = {
       testNettoyage: "Test nettoyage",
       reglages: "Réglages",
       prompts: "Prompts",
+      angles: "Angles de placement",
       calendrier: "Planning",
       minuit: "Assignation de minuit",
       assignSources: "Ordre des sources",
@@ -203,6 +204,7 @@ export const fr = {
       testNettoyage: "Tester le nettoyage sans rien modifier",
       reglages: "Actions moteur — cleaning, ELO, assignation",
       prompts: "Éditer les prompts de l'IA (traduction, Sophia…)",
+      angles: "Une consigne de placement par label et par application, en test ou active",
       reviews: "Retours aux créateurs (pop-up à leur connexion)",
       fileReviews: "TikToks publiés aujourd’hui, à comparer et reviewer",
       tests: "Tester un TikTok ou la chaîne complète",
@@ -347,11 +349,11 @@ export const fr = {
     contenusABlanc: {
       title: "Tester la notation et le placement (à blanc)",
       subtitle:
-        "Choisis 1 à 3 slideshows d'un label : on calcule leur score de pertinence pour une application (même calcul que le rattrapage), leur éligibilité et leur tier d'entrée, puis on fait le placement de l'application. Rien n'est enregistré : à faire avant de lancer le rattrapage de tout un label.",
+        "Choisis 1 à 3 slideshows d'un label : on calcule leur score de pertinence pour une application (même calcul que le rattrapage), leur éligibilité et leur tier d'entrée, puis on fait le placement de l'application — une fois avec la référence, puis une fois par angle en test du label, pour comparer. Sophia : placement seul. Rien n'est enregistré : à faire avant de lancer le rattrapage de tout un label.",
       garantie:
         "Zéro écriture : la note, le deck traduit et le deck placé restent en mémoire le temps du test. L'IA est utilisée (quelques centimes).",
       application: "Application",
-      aucuneApplication: "Aucune application autre que Sophia",
+      aucuneApplication: "Aucune application",
       label: "Label",
       labelChoisir: "— Choisir un label —",
       labelSert: "sert l'application",
@@ -370,6 +372,8 @@ export const fr = {
       enCours: "Test en cours…",
       promptPertinenceVide: "Prompt « {{cle}} » vide : la notation est impossible (le rattrapage refuserait de démarrer). Remplis-le dans Prompts.",
       promptPlacementVide: "Prompt « {{cle}} » vide : le placement est impossible. Remplis-le dans Prompts.",
+      promptPlacementVideSophia:
+        "Prompt « {{cle}} » vide : Sophia est posée sans prompt maître, comme la nuit le ferait. Remplis-le dans Prompts.",
       langues: "langue source {{source}} → deck testé en {{langue}}",
       vues: "{{n}} vues",
       piste: "piste du compte source {{n}}/100",
@@ -389,12 +393,26 @@ export const fr = {
       enBase: "Aujourd'hui en base : {{score}}/100, note {{note}}, {{eligible}} (inchangé par ce test)",
       jamaisNote: "Jamais noté pour {{app}} en base.",
       etapePlacement: "2. Placement {{app}} ({{langue}})",
-      angleEnregistre: "Angle enregistré pour ce label : « {{angle}} »",
-      angleAucun: "Aucun angle enregistré pour ce label : placement seul.",
-      angleIllisible: "Angle enregistré illisible : le test utilisera celui en base, s'il y en a un.",
-      angleBrouillonLabel: "Angle brouillon",
-      angleEssayer: "Essayer un angle brouillon (jamais enregistré)",
-      angleBrouillonPh: "Vide = essayer sans angle.",
+      etapePlacementSeul: "Placement {{app}} ({{langue}})",
+      anglesReferenceActif: "Pour ce label, référence : l'angle actif « {{angle}} » (ce que fera la nuit).",
+      anglesReferenceSans: "Pour ce label, référence : sans angle (aucun angle actif).",
+      anglesEnTest_one: "{{count}} angle en test : chaque slideshow est aussi placé avec lui, pour comparer.",
+      anglesEnTest_other: "{{count}} angles en test : chaque slideshow est aussi placé avec chacun, pour comparer.",
+      anglesAucunTest: "Aucun angle en test : placement de référence seul.",
+      anglesTrop: "Seuls les {{max}} plus anciens sont testés.",
+      anglesIllisibles: "Angles illisibles : le test lira ceux en base.",
+      anglesLabelNeSertPas: "Ce label ne sert pas {{app}} : ses angles ne sont pas lus.",
+      anglesLabels:
+        "Un slideshow qui porte plusieurs labels compare les angles de tous ceux qui servent l'application : le résultat le détaille.",
+      anglesGerer: "Gérer les angles",
+      comparatif: "{{etape}} — {{n}} versions à comparer",
+      anglesNonTestes_one: "{{count}} angle en test au-delà de {{max}} : pas testé cette fois.",
+      anglesNonTestes_other: "{{count}} angles en test au-delà de {{max}} : pas testés cette fois.",
+      reference: "Référence",
+      referenceNuit: "ce que fera la nuit",
+      angleTest: "Angle en test {{n}}",
+      slidePub: "Slide pub ({{position}}) :",
+      deckComplet: "Deck complet",
       angleUtilise: "Angle : « {{angle}} »",
       sansAngle: "Sans angle",
       statutDeck: {
@@ -1083,6 +1101,10 @@ export const fr = {
       tousPays: "Tous",
       paysAide:
         "Marché du compte. Indépendant de la langue : cinq pays anglophones partagent « Anglais », leur drapeau ne les distinguait pas.",
+      paysDeduit: "Déduit de la langue, rien à saisir.",
+      paysAChoisir: "Choisir un pays…",
+      paysObligatoireAide:
+        "Cette langue couvre plusieurs marchés, personne ne peut deviner à ta place. Un compte sans pays n’apparaît dans aucune ligne des cibles de recrutement.",
       zone: "Zone",
       zonePlaceholder: "ex. Turkey + Israel",
       zoneAide:
@@ -1202,6 +1224,8 @@ export const fr = {
       apercuTitre: "Aperçu du post",
       apercuVide: "Ce post n'a pas encore de contenu (en cours de fabrication).",
       confirmSuppr: "Supprimer définitivement {{nom}} ?",
+      confirmDesactiver:
+        "Désactiver {{nom}} ? Il ne peut plus se connecter et ses comptes TikTok ne reçoivent plus de posts. Tu peux le réactiver à tout moment.",
       badge: "Recruteur",
       badgeHm: "HM",
       badgeDm: "DM",
@@ -1827,24 +1851,7 @@ export const fr = {
       pertinenceDescApp: "Décide quels sujets méritent un placement {{nom}}.",
       placementTitleApp: "Prompt — Placement de {{nom}}",
       placementDescApp: "Comment l'appli {{nom}} s'intègre dans une slide existante.",
-      angles: {
-        titre: "Angles de placement — {{nom}}",
-        description:
-          "Une consigne par label, ajoutée au prompt de placement ci-dessus pour les slideshows de ce label. Vide = placement seul.",
-        prochaines:
-          "Ne vaut que pour les prochaines préparations : les decks déjà prêts et les posts déjà assignés gardent leur texte.",
-        consigne:
-          "Écris une consigne (ce que la slide {{nom}} doit mettre en avant), pas un slogan à recopier : elle est en français, les slides sont dans la langue du compte. {{max}} caractères au plus.",
-        pods: "Les contenus livrés par un pod (images finies) ne passent pas par le placement : l'angle ne s'y applique pas. Les originaux de pod (slide Sophia écrite par le pod) n'ont pas d'angle Sophia ; Unswipe et micabo gardent le leur.",
-        test: "Pour l'essayer sans l'enregistrer : Tests → test à blanc « contenus », case « Essayer un angle brouillon ».",
-        testSophia:
-          "Le test à blanc « contenus » ne couvre pas Sophia : un angle Sophia s'applique directement aux prochains decks.",
-        placeholder: "Ex. : insister sur le temps récupéré pour ce qui compte vraiment.",
-        compteur: "{{n}} / {{max}}",
-        enregistrerLabel: "Enregistrer l'angle de {{label}}",
-        vide: "Aucun angle : placement seul.",
-        aucunLabel: "Aucun label ne sert {{nom}}.",
-      },
+      anglesPage: "Les consignes par label ajoutées à ce prompt (en test ou actives) se règlent dans",
       communsTitre: "Communs à toutes les applications",
       communsDesc: "Traduction, identité UGC et consignes de rédaction : les mêmes quelle que soit l'application promue.",
       traductionTitle: "Prompt — Traduction (Français)",
@@ -1852,6 +1859,20 @@ export const fr = {
       ugcFaceSwapTitle: "Prompt — Identité UGC (corps entier, Nano Banana)",
       ugcFaceSwapDesc:
         "À l’assignation UGC AI : Figure 1 = slide (pose/scène), Figures 2+ = persona. Transfert d’identité CORPS ENTIER (peau, visage, cheveux) — pas un collage de tête. Pose, expression, grain et vêtements de la slide restent.",
+      commentMaster: {
+        section: "Comment masters",
+        sectionDesc:
+          "Le commentaire envoyé sur Slack aux comment masters pour chaque post DE / IT qui passe 8 000 vues en moins de 12 h.",
+        titre: "Prompt — Commentaire",
+        description:
+          "Pris en compte dès l'enregistrement, au prochain passage horaire. « Tester » génère les commentaires de 6 vrais posts avec le texte ci-dessus, enregistré ou non, sans rien envoyer sur Slack.",
+        variables: "Variables remplacées à chaque post :",
+        vide: "Vide = prompt par défaut (celui du ticket de Max).",
+        tester: "Tester",
+        enCours: "Génération…",
+        nonEnregistre: "Pas encore enregistré",
+        vues: "{{vues}} vues",
+      },
       traductionsLanguesTitre: "Traductions par langue",
       traductionsLanguesDesc:
         "Le ton propre à chaque langue cible. Sans prompt ici, cette langue est traduite avec des règles neutres — écris-en un pour la soigner (tutoiement, tournures à éviter, registre).",
@@ -1864,6 +1885,48 @@ export const fr = {
       nouveauDesc: "Comment rédiger un post inédit sur le compte.",
       remanieTitle: "Consignes — Recopiage avec visuels différents",
       remanieDesc: "Comment reformuler un sujet déjà publié, avec d'autres images.",
+    },
+    angles: {
+      titre: "Angles de placement — {{nom}}",
+      description:
+        "Une consigne par label, ajoutée au prompt de placement de {{nom}} pour les slideshows de ce label (placement seulement, pas la pertinence). Change d'application avec le sélecteur de la barre latérale.",
+      regleActif:
+        "Actif : utilisé partout, tout le temps (préparation des decks, nuit, assignation). Au plus un par label : en activer un autre renvoie le précédent en test.",
+      regleTest:
+        "En test : utilisé SEULEMENT par le test à blanc « contenus » de la page Tests, jamais par le vrai placement. Chaque slideshow testé y est placé une fois par angle en test (au plus {{max}}), à côté de la référence, pour comparer.",
+      lienTests: "Ouvrir les tests",
+      regleProchaines:
+        "Un angle activé ne vaut que pour les prochaines préparations : les decks déjà prêts et les posts déjà assignés gardent leur texte.",
+      regleConsigne:
+        "Écris une consigne (ce que la slide doit mettre en avant), pas un slogan à recopier : elle est en français, les slides sont dans la langue du compte. {{max}} caractères au plus.",
+      reglePods:
+        "Les contenus livrés par un pod (images finies) ne passent pas par le placement : l'angle ne s'y applique pas. Les originaux de pod (slide Sophia écrite par le pod) n'ont pas d'angle Sophia ; Unswipe et micabo gardent le leur.",
+      regleMultiLabels:
+        "Un slideshow qui porte plusieurs labels prend les angles de tous ceux qui servent {{nom}} : les marques « pas comparé » valent pour un slideshow de ce seul label.",
+      aucunLabel: "Aucun label ne sert {{nom}}.",
+      statutActif: "Actif",
+      statutTest: "En test",
+      modifier: "Modifier",
+      modifierLabel: "Modifier un angle de {{label}}",
+      activer: "Activer",
+      passerEnTest: "Passer en test",
+      supprimer: "Supprimer",
+      confirmerSuppression: "Supprimer cet angle ?\n« {{texte}} »",
+      compteur: "{{n}} / {{max}}",
+      nouveauLabel: "Nouvel angle pour {{label}}",
+      placeholder: "Ex. : insister sur le temps récupéré pour ce qui compte vraiment.",
+      ajouterTest: "Ajouter en test",
+      ajouterActif: "Ajouter actif",
+      neSertPlus: "ne sert plus {{nom}} : angles gardés, inutilisés",
+      resumeActif: "Angle actif : utilisé partout",
+      resumeSansActif: "Aucun angle actif : placement seul",
+      resumeTests_one: "{{count}} angle en test",
+      resumeTests_other: "{{count}} angles en test",
+      tropDeTests: "Plus de {{max}} angles en test : le test à blanc ne compare que les {{max}} plus anciens.",
+      nonCompareIdentique: "identique à l'actif : pas comparé",
+      nonCompareDoublon: "doublon : pas comparé",
+      nonCompareAuDela: "au-delà de {{max}} : pas comparé",
+      existeDeja: "Cet angle existe déjà pour ce label.",
     },
     multiApp: {
       schemaAbsent: "Multi-applications pas encore en base (migration 0256).",
@@ -1900,9 +1963,6 @@ export const fr = {
         implicite: "Aucun réglage : ce label sert Sophia par défaut.",
         applicationInactive: "Application inactive : le label est prêt, elle ne publie pas encore.",
         derniereApplication: "Un label sert au moins une application : coche l'autre avant de retirer celle-ci.",
-        ligneAnglePerdu: "{{app}} : « {{angle}} »",
-        confirmerPerteAngle:
-          "Retirer cette application du label supprime aussi son angle de placement :\n{{detail}}\n\nContinuer ?",
         schemaAbsent:
           "Applications par label indisponibles (migration 0256 pas encore passée) : réserve affichée comme avant.",
         erreurLiens: "Applications des labels illisibles : {{message}}",

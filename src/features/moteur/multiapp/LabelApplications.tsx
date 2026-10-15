@@ -12,7 +12,6 @@ import { nomApplication } from "@/features/moteur/applications";
 import { applicationsDuLabel, ID_SOPHIA } from "@/features/moteur/multiApp";
 import { cn } from "@/lib/utils";
 
-import { anglesPerdus } from "./angles";
 import { BadgeReserve } from "./BadgeReserve";
 import { basculerApplicationLabel, labelImplicite } from "./logique";
 
@@ -24,10 +23,9 @@ function messageErreur(err: unknown): string {
 
 /**
  * Applications servies par un label : une puce par application (cliquer
- * coche / décoche) et la réserve de chaque application servie. L'angle de
- * placement d'une paire se règle dans Réglages → Prompts ; décocher une
- * application qui en a un le SUPPRIME (la ligne part avec), d'où la
- * confirmation.
+ * coche / décoche) et la réserve de chaque application servie. Les angles de
+ * placement d'une paire (page Angles de placement, table `angles_placement`)
+ * ne dépendent pas de cette ligne : décocher une application les garde.
  *
  * Un label sans ligne affiche Sophia servie (héritage) ; la première
  * modification écrit l'ensemble EXPLICITE complet, Sophia comprise. La
@@ -67,17 +65,6 @@ export function LabelApplications({
       return;
     }
     setRefus(null);
-    const perdus = anglesPerdus(labelId, liens, r.applications);
-    if (perdus.length > 0) {
-      const nomApp = (id: string) => {
-        const app = applications.find((a) => a.id === id);
-        return app ? nomApplication(app) : id;
-      };
-      const detail = perdus
-        .map((p) => t("multiApp.labels.ligneAnglePerdu", { app: nomApp(p.applicationId), angle: p.angle }))
-        .join("\n");
-      if (!window.confirm(t("multiApp.labels.confirmerPerteAngle", { detail }))) return;
-    }
     definir.mutate(r.applications);
   };
 

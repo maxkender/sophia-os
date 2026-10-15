@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Check, Pencil, Trash2, UserPlus, X } from "lucide-react";
+import { Check, Pencil, Power, Trash2, UserPlus, X } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -19,12 +19,14 @@ import {
 import { useAuth } from "@/features/auth/AuthContext";
 import { CarteCreerRecruteur } from "@/features/hiring/CarteCreerRecruteur";
 import {
+  activerPoster,
   creerPoster,
   listerLanguesReference,
   listerPosters,
   majCompte,
   supprimerPoster,
 } from "@/features/moteur/api";
+import { paysAEnvoyer, paysRequis } from "@/features/moteur/paysCompte";
 import { ChampsPremierCompte, type PremierCompte } from "@/features/moteur/ChampsPremierCompte";
 import { langueInitiale } from "@/features/moteur/langues";
 import { comptePrincipal, estCompteCm } from "@/features/moteur/comptesCm";
@@ -94,6 +96,14 @@ function LignePoster({
       queryClient.invalidateQueries({ queryKey: ["posters"] });
     },
   });
+  // Un recruteur désactive ; supprimer (historique compris) reste à l'admin et
+  // au Head of Ops, seuls autorisés par manage-users.
+  const peutSupprimer = role === "admin" || role === "head_of_ops";
+  const nomAffiche = [p.prenom, p.nom].filter(Boolean).join(" ") || p.email;
+  const basculer = useMutation({
+    mutationFn: () => activerPoster(p.id, !p.is_active),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["posters"] }),
+  });
   const supprimer = useMutation({
     mutationFn: () => supprimerPoster(p.id),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["posters"] }),
@@ -117,16 +127,29 @@ function LignePoster({
           </span>
           <button
             type="button"
-            disabled={supprimer.isPending}
+            disabled={basculer.isPending}
             onClick={() => {
-              if (window.confirm(t("hiring.confirmSuppr", { nom: [p.prenom, p.nom].filter(Boolean).join(" ") || p.email })))
-                supprimer.mutate();
+              if (!p.is_active || window.confirm(t("hiring.confirmDesactiver", { nom: nomAffiche })))
+                basculer.mutate();
             }}
-            className="inline-flex items-center gap-1 text-xs font-medium text-destructive"
+            className="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground"
           >
-            <Trash2 className="size-3" />
-            {t("common.delete")}
+            <Power className="size-3" />
+            {p.is_active ? t("posters.disable") : t("posters.enable")}
           </button>
+          {peutSupprimer && (
+            <button
+              type="button"
+              disabled={supprimer.isPending}
+              onClick={() => {
+                if (window.confirm(t("hiring.confirmSuppr", { nom: nomAffiche }))) supprimer.mutate();
+              }}
+              className="inline-flex items-center gap-1 text-xs font-medium text-destructive"
+            >
+              <Trash2 className="size-3" />
+              {t("common.delete")}
+            </button>
+          )}
         </div>
       </div>
 
@@ -261,6 +284,11 @@ export function HiringPosterPage() {
   const [nom, setNom] = React.useState("");
   const [langue, setLangue] = React.useState("");
   const [premierCompte, setPremierCompte] = React.useState<PremierCompte>("perso");
+  const [paysCompte, setPaysCompte] = React.useState("");
+  // Un pays choisi pour l'anglais n'a plus de sens une fois passé au suédois.
+  React.useEffect(() => {
+    setPaysCompte("");
+  }, [langue]);
   const [postsParJour, setPostsParJour] = React.useState<1 | 2 | 3>(2);
   const [handleTiktok, setHandleTiktok] = React.useState("");
   const [cree, setCree] = React.useState<{
@@ -299,6 +327,9 @@ export function HiringPosterPage() {
         type_compte: premierCompte,
         posts_par_jour: premierCompte === "perso" ? postsParJour : undefined,
         handle_tiktok: premierCompte === "perso" ? handleTiktok : undefined,
+        ...(paysAEnvoyer(langue, paysCompte)
+          ? { pays: paysAEnvoyer(langue, paysCompte)! }
+          : {}),
         ...choixApps.options,
       }),
     onSuccess: (r) => {
@@ -308,6 +339,7 @@ export function HiringPosterPage() {
         type: premierCompte,
       });
       setPrenom("");
+      setPaysCompte("");
       setNom("");
       setPostsParJour(2);
       setHandleTiktok("");
@@ -357,6 +389,8 @@ export function HiringPosterPage() {
               langues={languesChoix}
               langue={langue}
               onLangue={setLangue}
+              pays={paysCompte}
+              onPays={setPaysCompte}
               postsParJour={postsParJour}
               onPostsParJour={setPostsParJour}
               handle={handleTiktok}
@@ -373,6 +407,7 @@ export function HiringPosterPage() {
                 disabled={
                   creer.isPending ||
                   !langue ||
+                  (paysRequis(langue) && !paysCompte) ||
                   choixApps.bloque
                 }
               >

@@ -1932,7 +1932,7 @@ export async function traduireBaseDeck(
  * porte sa slide Sophia dans `slides`, la base sans appli dans `slides_base`.
  * C'est ce deck-là qu'on traduit pour les autres langues, au lieu de placer.
  */
-function deckSophiaDuPod(
+export function deckSophiaDuPod(
   contenu: { pod?: string | null },
   ligneSource: LigneLangue | null,
 ): SlideLangue[] | null {

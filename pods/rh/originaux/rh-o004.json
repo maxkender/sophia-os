@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o004",
+ "schema_id": "mentir-entretien",
+ "titre": "les trucs sur lesquels j'ai « MENTI » en entretien… et j'ai signé #rechercheemploi #emploi #entretien #cv #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "Schéma mentir-entretien (479 k vues le 17/09, r 2,93 sur 81f87361). Accroches écrites : « les trucs sur lesquels j'ai « MENTI » en entretien… et j'ai signé » (retenue : le gabarit gagnant passé en récit à la première personne, avec la fierté du résultat, et les guillemets annoncent le recadrage), « ce que j'ai dit en entretien vs ce qui était vrai » (écartée : sans le mot mentir), « j'ai menti 6 fois à mon dernier entretien (sans rien inventer) » (écartée : trop longue). Six questions neuves (ce que tu n'aimais pas dans ton ancien poste, plus grande réussite, seule ou en équipe, trois mots, le couloir avant l'entretien, à l'aise avec le changement), aucune reprise du pilote ni de la source. Format : question, « j'ai dit », « la vérité », le pourquoi. Chaque « vérité » montre qu'on a juste choisi ses mots, rien d'inventé. Sophia en 5 sur le petit trajet jusqu'à la salle. Slide d'inspiration de la position 5 : la 6 de la source (sa 5 montre une appli concurrente).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "01da1eaf",
+   "texte_overlay": "les trucs sur lesquels\nj'ai « MENTI » en entretien…\net j'ai signé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "18dc89bf",
+   "texte_overlay": "1\n« qu'est-ce que vous aimiez pas dans votre ancien poste ? »\nj'ai dit « j'avais envie de projets plus longs, avec plus d'autonomie »\nla vérité : mon manager\ntu parles de ce que tu cherches, jamais de qui tu fuis",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "32a36e40",
+   "texte_overlay": "2\n« votre plus grande réussite ? »\nj'ai dit « j'ai remis à plat le suivi des commandes de l'équipe »\nla vérité : j'avais fait un tableau excel propre\nc'est vrai aussi. donne le bon nom à ce que t'as fait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "221aebc3",
+   "texte_overlay": "3\n« seule ou en équipe ? »\nj'ai dit « seule pour produire, en équipe pour décider »\nla vérité : seule, clairement\nt'as pas menti, t'as juste précisé quand",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "36cbb533",
+   "texte_overlay": "4\n« vous avez trouvé facilement ? »\nj'ai dit « oui ! » et j'ai enchaîné sur une anecdote d'histoire lue le matin\nla vérité : je prépare toujours un sujet pour le couloir\nl'entretien commence avant la salle",
+   "texte_sophia": "4\n« vous avez trouvé facilement ? »\nj'ai dit « oui ! » et j'ai enchaîné sur une anecdote d'histoire\nla vérité : je l'avais apprise le matin même sur l'appli Sophia, 5 minutes par jour et plus jamais de blanc dans l'ascenseur",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2945e309",
+   "texte_overlay": "5\n« décrivez-vous en trois mots »\nj'ai dit « exigeante, prévoyante, à l'aise à l'oral »\nla vérité : perfectionniste, angoissée, bavarde\nmêmes défauts, mais vus du bon côté",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "36312939",
+   "texte_overlay": "6\n« vous êtes à l'aise avec le changement ? »\nj'ai dit « oui, tant que je comprends pourquoi on change »\nla vérité : j'adore mes habitudes\nc'est vrai pour tout le monde, et ça montre que tu réfléchis",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "1be3db16",
+   "texte_overlay": "j'ai rien inventé\nj'ai juste choisi mes mots\nlaquelle tu vas me piquer ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

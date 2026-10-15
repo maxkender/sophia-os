@@ -1,0 +1,292 @@
+{
+  "maj_le": "2026-10-15",
+  "regle": "Un schéma n'est actif que s'il a une preuve valable aujourd'hui : un post de la niche à 200 k vues ou plus publié il y a 30 jours au plus, ou un contenu du label à r ≥ 2 (3 passages au moins, recalculé par l'OS au dépôt). Un schéma « en attente » a des contenus du label qui marchent mais pas encore 3 passages mûrs : `npm run playbook -- --mesurer` chaque jour, il s'active tout seul quand son r passe 2.",
+  "schemas": [
+    {
+      "id": "mentir-entretien",
+      "schema": "les trucs sur lesquels tu DOIS MENTIR en entretien",
+      "exemples": [
+        "les trucs sur lesquels tu DOIS MENTIR en entretien",
+        "5 mensonges à dire en entretien d'embauche"
+      ],
+      "pourquoi": "Le plus gros succès de la source (479 k vues le 17/09) et 270 k vues sur un de nos comptes russes. Format question du recruteur → « tu réponds » → la phrase à dire. Chez nous : RECADRER, jamais inventer (pas de fausse offre, de faux diplôme, de compétence qu'on n'a pas).",
+      "inspiration_contenus": [
+        "496f8d72-9914-4320-89d8-1b580c74f5c9",
+        "81f87361-1b5b-44e1-ae7d-90c30674253a"
+      ],
+      "musiques": [
+        {
+          "titre": "Blue Lamp Window",
+          "url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611"
+        }
+      ],
+      "preuves": [
+        {
+          "type": "tiktok",
+          "url": "https://www.tiktok.com/@careerswemma/video/7686513850799197473",
+          "vues": 479000,
+          "enregistrements": 19239,
+          "publie_le": "2026-09-17",
+          "releve_le": "2026-10-15"
+        },
+        {
+          "type": "os",
+          "contenu_id": "81f87361-1b5b-44e1-ae7d-90c30674253a",
+          "r_median": 2.93,
+          "publies": 3,
+          "releve_le": "2026-10-15"
+        },
+        {
+          "type": "os",
+          "contenu_id": "496f8d72-9914-4320-89d8-1b580c74f5c9",
+          "r_median": null,
+          "publies": 1,
+          "releve_le": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "insider-rh",
+      "schema": "quand j'étais rh, voilà ce qu'on faisait de vos candidatures (j'en suis pas fière) / les trucs de recruteurs que je devrais pas dire à voix haute",
+      "exemples": [
+        "quand j'étais rh, voilà ce qu'on faisait de vos candidatures (j'en suis pas fière...)",
+        "les trucs de recruteurs que je devrais pas dire à voix haute"
+      ],
+      "pourquoi": "La confession d'initiée : 139 k vues à la source (18/09), 105 k et 22 k vues chez nous sur un seul passage chacun. En attente de 3 passages mûrs.",
+      "inspiration_contenus": [
+        "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+        "b80c0573-ff44-459e-beeb-e54be7ea617d"
+      ],
+      "musiques": [
+        {
+          "titre": "Blue Lamp Window",
+          "url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611"
+        }
+      ],
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+          "r_median": null,
+          "publies": 2,
+          "releve_le": "2026-10-15"
+        },
+        {
+          "type": "os",
+          "contenu_id": "b80c0573-ff44-459e-beeb-e54be7ea617d",
+          "r_median": null,
+          "publies": 1,
+          "releve_le": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "questions-recruteur",
+      "schema": "N questions à poser quand le recruteur dit « vous avez des questions ? »",
+      "exemples": [
+        "7 questions à poser quand le recruteur dit 'vous avez des questions?'"
+      ],
+      "pourquoi": "Jusqu'à 76 k vues chez nous (de). Attention : une autre version (1d7c9673) ne fait que r 1,26 sur 3 passages. L'exécution compte.",
+      "inspiration_contenus": [
+        "9c184eab-41d2-41e2-9afc-02f3d47825ac"
+      ],
+      "musiques": [],
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "9c184eab-41d2-41e2-9afc-02f3d47825ac",
+          "r_median": null,
+          "publies": 2,
+          "releve_le": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "copie-habitudes",
+      "schema": "j'ai copié N habitudes de ma manager / ma collègue pendant 3 mois et …",
+      "exemples": [
+        "j'ai copié 4 habitudes de ma manager pendant 3 mois et on a commencé à me traiter comme une senior",
+        "ma collègue faisait moins d'heures que moi mais avançait plus vite, j'ai copié trois de ses habitudes"
+      ],
+      "pourquoi": "Récit à la première personne, habitudes concrètes avec une réplique : 146 k vues à la source (01/09), 28 k chez nous sur un passage.",
+      "inspiration_contenus": [
+        "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+        "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+      ],
+      "musiques": [],
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+          "r_median": null,
+          "publies": 1,
+          "releve_le": "2026-10-15"
+        },
+        {
+          "type": "os",
+          "contenu_id": "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93",
+          "r_median": null,
+          "publies": 1,
+          "releve_le": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "job-toxique",
+      "schema": "comment quitter un job toxique sans démissionner (et garder tes droits)",
+      "exemples": [
+        "comment quitter un job toxique sans démissionner et se retrouver au chômage"
+      ],
+      "pourquoi": "Jusqu'à 28 k vues chez nous. Sujet sensible : rester sur des démarches légales et générales (rupture conventionnelle, en parler à un juriste), pas de conseil juridique précis.",
+      "inspiration_contenus": [
+        "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+      ],
+      "musiques": [],
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "bf49b37f-8796-4620-b756-6e72ff8a68fe",
+          "r_median": null,
+          "publies": 2,
+          "releve_le": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "boite-te-merite",
+      "schema": "ta période d'essai sert aussi à vérifier si la boîte te mérite / mes règles non négociables au travail",
+      "exemples": [
+        "ta période d'essai sert aussi à vérifier si la boîte te mérite",
+        "Mes règles non négociables au travail pour garder ma santé mentale"
+      ],
+      "pourquoi": "Le renversement du rapport de force : 47 k et 44 k vues chez nous sur un passage chacun.",
+      "inspiration_contenus": [
+        "bbe75cf0-48c8-4181-b88b-19bd7b8e13a3",
+        "1fd9d1f3-71b5-423b-aadc-d27c2a00601b"
+      ],
+      "musiques": [],
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "bbe75cf0-48c8-4181-b88b-19bd7b8e13a3",
+          "r_median": null,
+          "publies": 1,
+          "releve_le": "2026-10-15"
+        },
+        {
+          "type": "os",
+          "contenu_id": "1fd9d1f3-71b5-423b-aadc-d27c2a00601b",
+          "r_median": null,
+          "publies": 1,
+          "releve_le": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "erreurs-chomage",
+      "schema": "N erreurs débiles qui m'ont gardée au chômage pendant N mois (et comment je les ai corrigées)",
+      "exemples": [
+        "6 erreurs débiles qui m'ont gardée au chômage pendant 9 mois (et comment je les ai corrigées)"
+      ],
+      "pourquoi": "Rang S chez nous, jusqu'à 46 k vues : l'échec raconté puis réparé.",
+      "inspiration_contenus": [
+        "4adc261e-6c81-4b3a-b8da-485c6bc2c4c2"
+      ],
+      "musiques": [],
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "4adc261e-6c81-4b3a-b8da-485c6bc2c4c2",
+          "r_median": null,
+          "publies": 2,
+          "releve_le": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "signaux-recruteur",
+      "schema": "N signaux en entretien qui te disent que le recruteur a déjà décidé",
+      "exemples": [
+        "4 signaux en entretien qui te disent que le recruteur a déjà décidé",
+        "si tu rates ces 4 questions le recruteur te ghoste direct"
+      ],
+      "pourquoi": "15 k et 23 k vues chez nous sur un passage. Mais « les signes que t'as décroché le poste » ne fait que r 1,29 sur 3 passages : à confirmer.",
+      "inspiration_contenus": [
+        "d9f07ab9-5d08-4307-b806-695a3fc1876a",
+        "e33deadc-e074-4832-869b-1b80a73356b3"
+      ],
+      "musiques": [],
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "d9f07ab9-5d08-4307-b806-695a3fc1876a",
+          "r_median": null,
+          "publies": 1,
+          "releve_le": "2026-10-15"
+        },
+        {
+          "type": "os",
+          "contenu_id": "e33deadc-e074-4832-869b-1b80a73356b3",
+          "r_median": null,
+          "publies": 1,
+          "releve_le": "2026-10-15"
+        }
+      ]
+    }
+  ],
+  "a_eviter": [
+    {
+      "schema": "la préparation d'entretien générique (sans apprendre par cœur, 6 étapes pour répondre à tout, à préparer pour un 2e entretien)",
+      "pourquoi": "Les pires du label : r 0,24 à 0,47. Pas de transgression, pas d'initié, juste un tuto.",
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "7e741c53-d2f1-4c92-b10c-296acb3e6af3",
+          "r_median": null,
+          "releve_le": "2026-10-15",
+          "publies": 2
+        },
+        {
+          "type": "os",
+          "contenu_id": "c69dfee0-5a93-4773-a3a9-047f4396b560",
+          "r_median": null,
+          "releve_le": "2026-10-15",
+          "publies": 2
+        },
+        {
+          "type": "os",
+          "contenu_id": "cf038ada-157e-41b6-a695-ee2b125fd62b",
+          "r_median": null,
+          "releve_le": "2026-10-15",
+          "publies": 2
+        }
+      ]
+    },
+    {
+      "schema": "la fraude : fausse contre-offre, faux diplôme, compétence inventée",
+      "pourquoi": "r 0,47 sur 3 passages (« comment j'ai inventé une contre-offre »), et hors de question pour l'image de Sophia : on recadre, on n'invente pas.",
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "a15e9221-1088-4166-963c-bac93dfca932",
+          "r_median": 0.47,
+          "releve_le": "2026-10-15",
+          "publies": 3
+        }
+      ]
+    },
+    {
+      "schema": "la provocation vulgaire (« va te faire foutre, mais de façon pro »)",
+      "pourquoi": "r 0,30.",
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "ce8ede4b-a083-4a49-9db5-ef76f2cffc74",
+          "r_median": null,
+          "releve_le": "2026-10-15",
+          "publies": 2
+        }
+      ]
+    }
+  ]
+}

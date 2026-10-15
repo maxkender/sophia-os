@@ -1471,6 +1471,11 @@ export const fr = {
       demoEnvoyer: "Envoyer la démo",
       demoEnvoi: "Envoi…",
       appli: "slide de l'app",
+      preuve: "Preuve",
+      preuveSchema: "schéma d'accroche « {{schema}} »",
+      preuveTiktok: "TikTok : {{vues}} vues, publié le {{date}}",
+      preuveEnregistrements: "{{n}} enregistrements",
+      preuveOs: "chez nous : r {{r}} sur {{n}} passages (contenu {{contenu}})",
       nouvellesLangues: "Nouvelles langues ({{langues}}) pour un post déjà validé",
       statut: {
         a_valider: "À valider",

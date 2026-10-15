@@ -1468,6 +1468,11 @@ export const en = {
       demoEnvoyer: "Upload demo",
       demoEnvoi: "Uploading…",
       appli: "app slide",
+      preuve: "Proof",
+      preuveSchema: "hook pattern “{{schema}}”",
+      preuveTiktok: "TikTok: {{vues}} views, posted {{date}}",
+      preuveEnregistrements: "{{n}} saves",
+      preuveOs: "on our accounts: r {{r}} over {{n}} posts (content {{contenu}})",
       nouvellesLangues: "New languages ({{langues}}) for an approved post",
       statut: {
         a_valider: "To review",

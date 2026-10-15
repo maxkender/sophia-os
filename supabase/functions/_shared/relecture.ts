@@ -54,6 +54,7 @@ export interface MesureSlide {
 
 export type CodeDefaut =
   | "justification"
+  | "largeur"
   | "taille"
   | "hierarchie"
   | "alignement"
@@ -119,6 +120,15 @@ export const SEUIL_TAILLE_MIN = 0.7;
 export const SEUIL_TAILLE_MAX = 1.4;
 /** Le titre de l'original est plus grand que son corps d'au moins ce facteur. */
 export const SEUIL_HIERARCHIE = 1.15;
+/**
+ * Largeur du paragraphe sur l'écran (ses marges), publiée ÷ originale. Les
+ * mêmes retours à la ligne en plus gros donnent un paragraphe qui mange les
+ * marges : c'est aussi de la justification pour l'admin, et ça se corrige en
+ * pinçant. Au-delà de ±15 %, ça se voit (cas klara.mudrost149 du 15/10 :
+ * 44 % → 52 % de l'écran, mêmes lignes).
+ */
+export const SEUIL_LARGEUR_MIN = 0.85;
+export const SEUIL_LARGEUR_MAX = 1.15;
 /** Écart vertical du centre du texte, en fraction de la hauteur (info admin). */
 export const SEUIL_PLACEMENT = 0.25;
 /** Au plus autant de points dans une review : au-delà, le créateur décroche. */
@@ -126,7 +136,7 @@ export const MAX_POINTS_REVIEW = 2;
 
 /** Ce qui peut partir dans la review, du plus important au moins important. */
 const PRIORITE: CodeDefaut[] = [
-  "texte_absent", "justification", "hierarchie", "taille", "alignement", "couleur", "effet",
+  "texte_absent", "justification", "largeur", "hierarchie", "taille", "alignement", "couleur", "effet",
   "nb_slides", "musique",
 ];
 /** Mesuré, montré à l'admin, jamais envoyé : la mesure est trop fragile ou l'écart secondaire. */
@@ -220,6 +230,11 @@ function parserBloc(item: any): BlocTexte | null {
     gras: vrai(item.gras ?? item.bold),
     alignement: alignementDe(item.alignement ?? item.align),
   };
+}
+
+/** Blocs relus depuis la base (relecture sans nouvel appel à Gemini). */
+export function normaliserBlocs(raw: unknown): BlocTexte[] {
+  return (Array.isArray(raw) ? raw : []).map(parserBloc).filter((b): b is BlocTexte => b !== null);
 }
 
 export interface Mesure {
@@ -389,6 +404,20 @@ export function jugerPaire(
     }
   }
 
+  // Largeur du paragraphe sur l'écran (les marges), quand les lignes se
+  // coupent comme dans l'original : le bloc a été pincé trop grand ou trop petit.
+  if (pa.lignes >= 2 && pb.lignes >= 2) {
+    evalues.push("largeur");
+    const justifRelevee = constats.some((c) => c.code === "justification");
+    const ratio = pb.w / pa.w;
+    const valeurs = { ratio: arrondi(ratio), part_original: Math.round(pa.w * 100), part_publie: Math.round(pb.w * 100) };
+    if (!justifRelevee && ratio > SEUIL_LARGEUR_MAX) {
+      ajouter("largeur", `paragraphe plus large que l'original, marges plus étroites : ${valeurs.part_publie} % de la largeur de l'écran contre ${valeurs.part_original} %`, { ...valeurs, sens: "large" });
+    } else if (!justifRelevee && ratio < SEUIL_LARGEUR_MIN) {
+      ajouter("largeur", `paragraphe plus étroit que l'original, marges plus larges : ${valeurs.part_publie} % de la largeur de l'écran contre ${valeurs.part_original} %`, { ...valeurs, sens: "etroit" });
+    }
+  }
+
   // Taille à l'écran (le pincement).
   evalues.push("taille");
   const ratioTaille = hauteurLigne(pb, b) / hauteurLigne(pa, a);
@@ -487,7 +516,14 @@ export function agreger(jugements: JugementPaire[]): Defaut[] {
       valeurs: premier.valeurs,
     });
   }
-  return trier(defauts);
+  // Un paragraphe plus large et des lettres plus grosses, c'est le même geste
+  // (pincer) : un seul point.
+  const sensLargeur = defauts.find((d) => d.code === "largeur")?.valeurs?.sens;
+  const doublon = (d: Defaut) =>
+    d.code === "taille" &&
+    ((sensLargeur === "large" && d.valeurs?.sens === "plus grand") ||
+      (sensLargeur === "etroit" && d.valeurs?.sens === "plus petit"));
+  return trier(defauts.filter((d) => !doublon(d)));
 }
 
 function rang(code: CodeDefaut): number {
@@ -559,6 +595,7 @@ export interface RemarqueType {
 /** Remarque-type de la file (et sa vidéo tuto) qui couvre chaque défaut, retrouvée par son titre. */
 const REMARQUE_DU_CODE: Partial<Record<CodeDefaut, RegExp>> = {
   justification: /justif|jutif/i,
+  largeur: /justif|jutif/i,
   taille: /not the same|style/i,
   couleur: /not the same|style/i,
   effet: /not the same|style/i,
@@ -599,6 +636,10 @@ export function pointAnglais(d: Defaut): string {
       const lignes = lp > lo ? ` (${lp} lines where the original has ${lo})` : "";
       return `${sur}your lines are shorter than in the original, so the paragraph looks like a thin column instead of a block${lignes}. Tap the text, move the size slider down until your lines are about as long as in the original, tap Done, then pinch it back to the right size. Pinching never changes where the lines break, only the slider does.`;
     }
+    case "largeur":
+      return v.sens === "etroit"
+        ? `${sur}your paragraph is narrower than in the original, with more empty space on each side. Pinch it up a little until the space on each side is the same as in the original.`
+        : `${sur}your paragraph is wider than in the original: the text goes closer to the edges of the screen. Pinch it down a little until the space on each side is the same as in the original.`;
     case "taille":
       return v.sens === "plus grand"
         ? `${sur}the text is clearly bigger than in the original and covers more of the picture. Pinch it down a little so it takes the same space as in the original.`

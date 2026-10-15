@@ -10,6 +10,7 @@ import {
   idMusique,
   jugerPaire,
   type MesureSlide,
+  normaliserBlocs,
   parserMesure,
   redigerBrouillon,
   reformulationValide,
@@ -267,3 +268,48 @@ Deno.test("reformulationValide : mêmes slides, pas de ratio, sinon on garde le 
   const trois = "On slides 1, 3 and 4, your lines are shorter than in the original. Move the size slider down.";
   assert(reformulationValide(trois, "Nice post! On slides 1, 3, and 4 your lines are a bit short, so move the size slider down. Thanks!"));
 });
+
+Deno.test("largeur : mêmes lignes en plus gros, le paragraphe mange les marges (cas klara.mudrost149)", () => {
+  // Mesures Gemini du 15/10, slide 7 : 41 % de l'écran → 52 %, 10 lignes → 11.
+  const texteA = "i have a personal “minimum\nstandard” even during\nhorrible weeks:\nshow up reasonably put-\ntogether, know what’s\nhappening in my classes, eat\nsomething\nkeep my space survivable,\nsleep enough to form\nsentences (very important!)";
+  const texteB = "imam osobni \"minimalni\nstandard\" čak i u najgorim\ntjednima:\npojaviti se pristojno\nsređena, znati što se\ndogađa na predavanjima,\npojesti nešto\ndržati sobu u urednom\nstanju, odspavati dovoljno\nza sastaviti rečenicu\n(stvarno bitno!)";
+  const a: MesureSlide = { blocs: [bloc({ texte: texteA, lignes: 10, x: 0.298, y: 0.366, w: 0.405, h: 0.266 })], largeurPx: 1284, hauteurPx: 1712 };
+  const b: MesureSlide = { blocs: [bloc({ texte: texteB, lignes: 11, x: 0.24, y: 0.222, w: 0.52, h: 0.408 })], largeurPx: 1760, hauteurPx: 2368 };
+  const j = jugerPaire(7, a, b);
+  assert(!j.constats.some((c) => c.code === "justification"), "les lignes se coupent comme dans l'original");
+  const largeur = j.constats.find((c) => c.code === "largeur");
+  assertEquals(largeur?.valeurs?.sens, "large");
+  assertEquals(largeur?.valeurs?.part_publie, 52);
+  // Écart léger (5 %) : rien.
+  const proche: MesureSlide = { ...b, blocs: [bloc({ texte: texteB, lignes: 11, w: 0.425, h: 0.33 })] };
+  assert(!jugerPaire(7, a, proche).constats.some((c) => c.code === "largeur"));
+});
+
+Deno.test("largeur et taille dans le même sens : un seul point (pincer)", () => {
+  const a = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, w: 0.4, h: 0.12 })]);
+  const b = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, w: 0.6, h: 0.18 })]);
+  const defauts = agreger([jugerPaire(2, a, b), jugerPaire(3, a, b)]);
+  assertEquals(defauts.map((d) => d.code), ["largeur"]);
+  const { texte, remarques } = redigerBrouillon(defauts, REMARQUES);
+  assert(texte.includes("On slides 2 and 3, your paragraph is wider than in the original"));
+  assert(texte.includes("Pinch it down"));
+  assertEquals(remarques.map((r) => r.id), ["h", "j"]);
+});
+
+Deno.test("largeur : pas de second point quand la justification explique déjà l'écart", () => {
+  const a = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, w: 0.8, h: 0.12 })]);
+  const b = slide([bloc({ texte: PARAGRAPHE_ETROIT, lignes: 10, w: 0.45, h: 0.3 })]);
+  const codes = jugerPaire(2, a, b).constats.map((c) => c.code);
+  assert(codes.includes("justification"));
+  assert(!codes.includes("largeur"));
+});
+
+Deno.test("normaliserBlocs relit les blocs stockés, ancien format compris", () => {
+  const blocs = normaliserBlocs([
+    { role: "corps", x: 0.1, y: 0.2, w: 0.5, h: 0.1, lignes: 2, texte: "a\nb", couleur: "#ffffff", contour: true, gras: false, alignement: "centre" },
+    { pas: "un bloc" },
+  ]);
+  assertEquals(blocs.length, 1);
+  assertEquals(blocs[0].effet, "contour");
+});
+

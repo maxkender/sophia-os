@@ -13,6 +13,9 @@
  *                                                     « Tester » de la file de reviews) et
  *                                                     renvoie sa relecture ; à rappeler tant
  *                                                     qu'elle n'est pas finie
+ *   { rejuger: { jour } | { post_ids } }            → réapplique les règles aux mesures
+ *                                                     déjà stockées (après un changement de
+ *                                                     seuil), sans nouveau scrape ni mesure
  *
  * Déclenché par le cron `relecture-drain` (toutes les 2 min, 01:00-05:58 UTC) ;
  * la file est remplie par `relecture-enfiler` (01:00 UTC, posts de la veille).
@@ -34,6 +37,7 @@ import {
   type JugementPaire,
   jugerPaire,
   type MesureSlide,
+  normaliserBlocs,
   parserMesure,
   PROMPT_MESURE,
   PROMPT_TON,
@@ -410,6 +414,71 @@ async function analyserLigne(
 }
 
 // ---------------------------------------------------------------------------
+// Rejuger : les règles changent, les mesures restent
+// ---------------------------------------------------------------------------
+
+interface ComparaisonStockee {
+  position: number;
+  original: { blocs?: unknown; largeurPx?: number; hauteurPx?: number };
+  publie: { blocs?: unknown; largeurPx?: number; hauteurPx?: number };
+  police_identique?: boolean | null;
+}
+
+function mesureStockee(m: ComparaisonStockee["original"]): MesureSlide {
+  return { blocs: normaliserBlocs(m?.blocs), largeurPx: Number(m?.largeurPx) || 1080, hauteurPx: Number(m?.hauteurPx) || 1920 };
+}
+
+/** Réapplique les règles aux mesures stockées : défauts, brouillon et remarques à jour, sans appel à Apify. */
+async function rejugerLigne(
+  supabase: Client,
+  ligne: { id: string; comparaisons: unknown; defauts: unknown },
+  remarquesTypes: RemarqueType[],
+): Promise<string[]> {
+  const comparaisons = (Array.isArray(ligne.comparaisons) ? ligne.comparaisons : []) as ComparaisonStockee[];
+  const jugements = comparaisons.map((c) =>
+    jugerPaire(c.position, mesureStockee(c.original), mesureStockee(c.publie), c.police_identique ?? null)
+  );
+  // Nombre de slides et son ne dépendent pas des mesures : on garde ceux de la relecture.
+  const controles = ((Array.isArray(ligne.defauts) ? ligne.defauts : []) as Array<Record<string, unknown>>)
+    .filter((d) => d.code === "nb_slides" || d.code === "musique")
+    .map((d) => ({ ...d, niveau: "remarque" })) as unknown as ReturnType<typeof controlesPost>;
+  const defauts = trier([...agreger(jugements), ...controles]);
+  const brouillon = redigerBrouillon(defauts, remarquesTypes);
+  await maj(supabase, [ligne.id], {
+    comparaisons: comparaisons.map((c, i) => ({ ...c, constats: jugements[i].constats })),
+    defauts,
+    brouillon: (await reformuler(brouillon.texte)) || null,
+    remarques: brouillon.remarques,
+  });
+  return defauts.map((d) => d.code);
+}
+
+async function rejuger(
+  supabase: Client,
+  cible: { jour?: unknown; post_ids?: unknown },
+  remarquesTypes: RemarqueType[],
+): Promise<Array<{ post_id: string; defauts: string[] }>> {
+  let requete = supabase
+    .from("relectures_auto")
+    .select("id, post_id, comparaisons, defauts")
+    .eq("statut", "fait")
+    .limit(60);
+  if (Array.isArray(cible.post_ids)) requete = requete.in("post_id", cible.post_ids.map(String));
+  else if (typeof cible.jour === "string" && /^\d{4}-\d{2}-\d{2}$/.test(cible.jour)) requete = requete.eq("jour", cible.jour);
+  else throw new Error("rejuger : jour (AAAA-MM-JJ) ou post_ids attendus");
+  const { data, error } = await requete;
+  if (error) throw error;
+  const lignes = (data ?? []) as Array<{ id: string; post_id: string; comparaisons: unknown; defauts: unknown }>;
+  const bilan: Array<{ post_id: string; defauts: string[] }> = [];
+  for (let i = 0; i < lignes.length; i += 4) {
+    const lot = lignes.slice(i, i + 4);
+    const codes = await Promise.all(lot.map((l) => rejugerLigne(supabase, l, remarquesTypes)));
+    lot.forEach((l, k) => bilan.push({ post_id: l.post_id, defauts: codes[k] }));
+  }
+  return bilan;
+}
+
+// ---------------------------------------------------------------------------
 // Relecture d'un seul post, à la demande (bouton « Tester » de la file)
 // ---------------------------------------------------------------------------
 
@@ -539,6 +608,7 @@ Deno.serve(async (request) => {
   let corps: {
     enfiler?: { jour?: unknown; limite?: unknown; aleatoire?: unknown };
     relire?: { post_id?: unknown };
+    rejuger?: { jour?: unknown; post_ids?: unknown };
   } = {};
   try {
     corps = (await request.json()) ?? {};
@@ -552,6 +622,15 @@ Deno.serve(async (request) => {
     const { data } = await supabase.from("review_remarques").select("id, titre, corps");
     return (data ?? []) as RemarqueType[];
   };
+
+  if (corps.rejuger) {
+    try {
+      const bilan = await rejuger(supabase, corps.rejuger, await remarquesTypes());
+      return json({ ok: true, rejuges: bilan.length, bilan, duree_ms: Date.now() - debut });
+    } catch (error) {
+      return json({ ok: false, error: messageErreur(error) }, 500);
+    }
+  }
 
   if (corps.relire) {
     const postId = String(corps.relire.post_id ?? "");

@@ -106,7 +106,8 @@
      "en": [
       "read books instead of scrolling"
      ],
-     "fr": "lis des livres [[au lieu de scroller]]"
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "lâche les [[vidéos courtes]]"
     },
     "T2": {
      "en": [
@@ -115,7 +116,8 @@
       "details, and build the",
       "picture in your own head"
      ],
-     "fr": "lire t'oblige à [[rester concentrée]], à retenir des détails et à [[te faire le film]] dans ta tête"
+     "fr": "lire t'oblige à [[rester concentrée]], à retenir des détails et à [[te faire le film]] dans ta tête",
+     "texte": "des clips de 60 secondes apprennent à ton cerveau à [[lâcher tout]] ce qui dure plus longtemps"
     },
     "T3": {
      "en": [
@@ -124,7 +126,8 @@
       "some of your scrolling for",
       "books"
      ],
-     "fr": "si tu veux [[retrouver un cerveau vif]], remplace un peu de [[scroll par des livres]]"
+     "fr": "si tu veux [[retrouver un cerveau vif]], remplace un peu de [[scroll par des livres]]",
+     "texte": "si tu veux [[retrouver un cerveau vif]], donne-lui des trucs qui demandent [[une vraie attention]]"
     },
     "T4": {
      "en": [
@@ -134,7 +137,7 @@
       "phone in another room"
      ],
      "fr": "perso j'ai remplacé mon scroll du soir par [[5 min sur l'appli Sophia]], sinon laisse ton tel dans une autre pièce",
-     "texte": "laisse ton tel dans une autre pièce, ou essaie [[l'appli UnSwipe]] : tu gardes Insta, mais sans les Reels"
+     "texte": "commence par enlever les Reels d'Insta avec [[l'appli UnSwipe]]"
     }
    },
    "images": {

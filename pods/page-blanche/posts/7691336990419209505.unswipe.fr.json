@@ -127,7 +127,7 @@
       "me from mindlessly scrolling"
      ],
      "fr": "perso j'ai remplacé mon scroll du soir par [[5 min sur l'appli Sophia]], du coup je scrolle plus dans le vide",
-     "texte": "si t'arrives pas à décrocher, [[l'appli UnSwipe]] enlève les Reels d'Insta. plus de scroll dans le vide, et tu gardes tes messages"
+     "texte": "ton tel peut bien attendre que t'aies fait [[un truc que t'avais prévu]]."
     },
     "T5": {
      "en": [
@@ -135,7 +135,8 @@
       "you have done one thing",
       "you meant to do."
      ],
-     "fr": "ton tel peut bien attendre que t'aies fait [[un truc que t'avais prévu]]."
+     "fr": "ton tel peut bien attendre que t'aies fait [[un truc que t'avais prévu]].",
+     "texte": "et si les Reels gagnent toujours, vire-les d'Insta avec [[l'appli UnSwipe]]."
     }
    },
    "images": {

@@ -103,7 +103,8 @@
      "en": [
       "learn from history's greatest minds"
      ],
-     "fr": "inspire-toi [[des plus grands esprits]]"
+     "fr": "inspire-toi [[des plus grands esprits]]",
+     "texte": "apprends à [[ignorer le fil]]"
     },
     "T2": {
      "en": [
@@ -112,7 +113,8 @@
       "from people who spent",
       "decades thinking deeply"
      ],
-     "fr": "lis de la philo, de l'histoire, des biographies et des romans de gens qui ont [[passé leur vie à réfléchir]]"
+     "fr": "lis de la philo, de l'histoire, des biographies et des romans de gens qui ont [[passé leur vie à réfléchir]]",
+     "texte": "la plupart des gens perdent [[des heures par jour]] à scroller et appellent ça une pause"
     },
     "T3": {
      "en": [
@@ -124,7 +126,7 @@
       "20 minutes"
      ],
      "fr": "si tu t'ennuies vite et que tu finis sur tiktok, commence par [[5 minutes par jour sur l'appli Sophia]]",
-     "texte": "si tu décroches vite et que tu finis sur tiktok, [[l'appli UnSwipe]] peut bloquer tiktok et enlever les Reels d'Insta"
+     "texte": "lâcher ton tel, ça s'apprend, et ça commence par des obstacles. premier pas : enlève les Reels d'Insta avec [[l'appli UnSwipe]]"
     }
    },
    "images": {

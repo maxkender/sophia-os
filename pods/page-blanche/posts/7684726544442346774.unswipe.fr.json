@@ -108,7 +108,8 @@
      "en": [
       "3. read classic books"
      ],
-     "fr": "3. lis des [[classiques]]"
+     "fr": "3. lis des [[classiques]]",
+     "texte": "3. arrête de [[scroller entre deux tâches]]"
     },
     "T2": {
      "en": [
@@ -123,7 +124,7 @@
       "of a good book instead"
      ],
      "fr": "[[bah voilà]]. remplace 5 min de scroll par [[l'appli Sophia]]",
-     "texte": "[[bah voilà]]. lis 20 pages à la place (astuce : [[l'appli UnSwipe]] enlève les Reels d'Insta)"
+     "texte": "[[bah voilà]]. ça t'a rien apporté et ça t'a pris ta concentration"
     },
     "T4": {
      "en": [
@@ -131,13 +132,15 @@
       "100+ years usually",
       "survived for a reason"
      ],
-     "fr": "un livre qui tient depuis 50 ou 100 ans, c'est rarement un hasard"
+     "fr": "un livre qui tient depuis 50 ou 100 ans, c'est rarement un hasard",
+     "texte": "rends-le chiant : plus de Reels sur Insta, tiktok bloqué avec [[l'appli UnSwipe]]"
     },
     "T5": {
      "en": [
       "fix your attention span"
      ],
-     "fr": "[[répare ta concentration]]"
+     "fr": "[[répare ta concentration]]",
+     "texte": "[[récupère ta concentration]]"
     }
    },
    "images": {

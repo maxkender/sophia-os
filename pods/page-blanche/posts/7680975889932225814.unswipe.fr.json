@@ -110,7 +110,8 @@
      "en": [
       "Never scroll in bed"
      ],
-     "fr": "Jamais de scroll au lit"
+     "fr": "Jamais de scroll au lit",
+     "texte": "Jamais de scroll au lit"
     },
     "T2": {
      "en": [
@@ -128,7 +129,7 @@
       "isn't your phone"
      ],
      "fr": "Je lis un livre à la place, et j'ai remplacé mon scroll du soir par 5 min sur l'appli Sophia, un truc nouveau par jour. Mais tout marche, sauf ton tel",
-     "texte": "Je prends un livre à la place. Et si c'est les Reels qui te tiennent éveillée jusqu'à 2h, [[l'appli UnSwipe]] les enlève d'Insta, tu gardes tout le reste"
+     "texte": "Ton lit, c'est pour dormir, pas pour un Reel de plus. Lis quelques pages à la place. Ce qui m'a vraiment sortie de cette habitude : enlever les Reels d'Insta avec [[l'appli UnSwipe]]"
     }
    },
    "images": {

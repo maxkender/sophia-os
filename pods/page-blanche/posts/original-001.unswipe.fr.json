@@ -104,7 +104,8 @@
      "en": [
       "read a book everyday"
      ],
-     "fr": "apprends un truc [[par jour]]"
+     "fr": "apprends un truc [[par jour]]",
+     "texte": "échange tes Reels contre [[de la vraie curiosité]]"
     },
     "T2": {
      "en": [
@@ -112,7 +113,8 @@
       "more, then find yourself",
       "scrolling all day"
      ],
-     "fr": "tu veux [[te cultiver]], puis tu scrolles toute la soirée"
+     "fr": "tu veux [[te cultiver]], puis tu scrolles toute la soirée",
+     "texte": "tu veux [[te cultiver]], puis tu scrolles toute la soirée"
     },
     "T3": {
      "en": [
@@ -122,7 +124,7 @@
       "for 20 minutes"
      ],
      "fr": "perso, quand j'ai envie de scroller, j'ouvre [[l'appli Sophia]] à la place, 5 min par jour",
-     "texte": "si c'est Insta qui te garde éveillée, [[l'appli UnSwipe]] enlève les Reels et te laisse le reste"
+     "texte": "une heure de Reels, il te reste rien. une heure de docu ou de livre, [[t'as un truc à raconter]]"
     },
     "T4": {
      "en": [
@@ -132,7 +134,7 @@
       "stimulation"
      ],
      "fr": "histoire, art, sciences, philo… une leçon par jour, et [[en un mois t'as plein de trucs à raconter]]",
-     "texte": "un article, un docu, un musée… un truc nouveau par jour, et [[en un mois t'as plein de trucs à raconter]]"
+     "texte": "l'astuce, c'est de rendre le fil chiant : plus de Reels sur Insta, avec [[l'appli UnSwipe]]"
     }
    },
    "images": {

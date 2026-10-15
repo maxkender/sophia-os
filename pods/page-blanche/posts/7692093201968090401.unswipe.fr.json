@@ -115,7 +115,7 @@
       "start reading everyday"
      ],
      "fr": "apprends un truc [[chaque jour]]",
-     "texte": "lis [[chaque jour]]"
+     "texte": "arrête de [[vivre de vidéos courtes]]"
     },
     "T2": {
      "en": [
@@ -133,7 +133,7 @@
       "read"
      ],
      "fr": "perso j'ai remplacé mon scroll par [[5 min sur l'appli Sophia]]",
-     "texte": "et si tes applis te rappellent sans arrêt, [[l'appli UnSwipe]] enlève les Reels d'Insta"
+     "texte": "une longue vidéo, un article, un livre te paraissent soudain [[impossibles à finir]]"
     },
     "T4": {
      "en": [
@@ -143,7 +143,7 @@
       "idea for longer"
      ],
      "fr": "apprendre, ça t'oblige à [[te concentrer]], [[retenir des détails]] et suivre une idée jusqu'au bout",
-     "texte": "lire, ça t'oblige à [[te concentrer]], [[retenir des détails]] et suivre une idée jusqu'au bout"
+     "texte": "une seule semaine sans elles suffit à [[réparer ta concentration]]"
     },
     "T5": {
      "en": [
@@ -151,7 +151,8 @@
       "enough to start rebuilding",
       "your attention span"
      ],
-     "fr": "même un petit peu par jour suffit à [[réparer ta concentration]]"
+     "fr": "même un petit peu par jour suffit à [[réparer ta concentration]]",
+     "texte": "commence par les Reels : enlève-les d'Insta avec [[l'appli UnSwipe]]"
     }
    },
    "images": {

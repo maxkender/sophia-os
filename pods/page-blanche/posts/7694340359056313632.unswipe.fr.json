@@ -111,13 +111,14 @@
       "read books instead of scrolling"
      ],
      "fr": "apprends [[au lieu de scroller]]",
-     "texte": "lis [[au lieu de scroller]]"
+     "texte": "[[coupe les vidéos courtes]]"
     },
     "T2": {
      "en": [
       "short-form content destroys your attention span"
      ],
-     "fr": "les vidéos courtes [[te bousillent la concentration]]"
+     "fr": "les vidéos courtes [[te bousillent la concentration]]",
+     "texte": "les vidéos courtes [[te bousillent la concentration]]"
     },
     "T3": {
      "en": [
@@ -127,7 +128,7 @@
       "think"
      ],
      "fr": "apprendre te force à suivre une idée, à retenir ce qui précède et à vraiment réfléchir",
-     "texte": "un livre te force à suivre une idée, à retenir ce qui précède et à vraiment réfléchir"
+     "texte": "après une heure de Reels, 20 minutes de boulot concentré, ça devient impossible"
     },
     "T4": {
      "en": [
@@ -144,7 +145,7 @@
       "for 20 minutes"
      ],
      "fr": "puis j'ai remplacé le scroll par [[5 min par jour sur l'appli Sophia]]",
-     "texte": "[[l'appli UnSwipe]] peut bloquer tiktok et enlever les Reels d'Insta"
+     "texte": "vire les Reels d'Insta avec [[l'appli UnSwipe]]"
     }
    },
    "images": {

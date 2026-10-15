@@ -102,7 +102,7 @@
       "read a book everyday"
      ],
      "fr": "apprends un truc [[chaque jour]]",
-     "texte": "lis un livre [[chaque jour]]"
+     "texte": "passe [[une semaine sans Reels]]"
     },
     "T2": {
      "en": [
@@ -111,7 +111,7 @@
       "scrolling all day"
      ],
      "fr": "tu dis que [[tu veux apprendre plus]], puis tu [[scrolles toute la journée]]",
-     "texte": "tu dis que [[tu veux lire plus]], puis tu [[scrolles toute la journée]]"
+     "texte": "tu dis que tu veux de la discipline, puis tu [[scrolles toute la journée]]"
     },
     "T3": {
      "en": [
@@ -121,7 +121,7 @@
       "for 20 minutes"
      ],
      "fr": "[[j'étais pareille]], jusqu'à ce que je remplace mon scroll par [[5 min par jour sur l'appli Sophia]]",
-     "texte": "[[ça te parle ?]] y'a une appli qui peut bloquer tiktok et enlever les Reels d'Insta : [[UnSwipe]]"
+     "texte": "une semaine sans Reels ni tiktok, c'est [[plus dur qu'une séance de sport]]"
     },
     "T4": {
      "en": [
@@ -130,7 +130,8 @@
       "keep going without constant",
       "stimulation"
      ],
-     "fr": "ça muscle ta patience, ton attention, ta mémoire, et tu tiens enfin [[sans stimulation non-stop]]"
+     "fr": "ça muscle ta patience, ton attention, ta mémoire, et tu tiens enfin [[sans stimulation non-stop]]",
+     "texte": "ça muscle ta patience et ta capacité à tenir [[sans stimulation non-stop]]. pour commencer : [[l'appli UnSwipe]]"
     }
    },
    "images": {

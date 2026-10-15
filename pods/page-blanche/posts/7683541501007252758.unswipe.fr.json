@@ -138,7 +138,8 @@
      "en": [
       "read CLASSIC books"
      ],
-     "fr": "lis des CLASSIQUES"
+     "fr": "lis des CLASSIQUES",
+     "texte": "lâche le scroll INFINI"
     },
     "T4": {
      "en": [
@@ -146,7 +147,8 @@
       "minutes of reading reduced",
       "stress levels by up to 68%"
      ],
-     "fr": "une étude a montré que 6 minutes de lecture suffisent à [[faire baisser le stress jusqu'à 68 %]]"
+     "fr": "une étude a montré que 6 minutes de lecture suffisent à [[faire baisser le stress jusqu'à 68 %]]",
+     "texte": "une revue de 2025 relie l'abus de vidéos courtes à [[moins d'attention et moins de self-control]]"
     },
     "T5": {
      "en": [
@@ -157,7 +159,7 @@
       "you read"
      ],
      "fr": "si t'as du mal à lâcher ton tel, perso j'ai remplacé mon scroll par 5 min sur l'appli Sophia, un truc nouveau chaque jour",
-     "texte": "si t'arrives pas à lâcher ton tel pour lire, [[l'appli UnSwipe]] enlève les Reels d'Insta. plus rien à doomscroller"
+     "texte": "la volonté seule suffira pas. le plus simple : enlève les Reels d'Insta avec [[l'appli UnSwipe]]"
     }
    },
    "images": {

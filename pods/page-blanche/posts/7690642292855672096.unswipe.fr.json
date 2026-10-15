@@ -105,14 +105,16 @@
       "they read classic books written",
       "by the greats"
      ],
-     "fr": "ils lisent les classiques [[des grands auteurs]]"
+     "fr": "ils lisent les classiques [[des grands auteurs]]",
+     "texte": "ils [[doomscrollent pas]]"
     },
     "T2a": {
      "en": [
       "they know endless tiktok scrolling rots their",
       "attention"
      ],
-     "fr": "ils savent que le scroll infini [[leur bousille l'attention]]"
+     "fr": "ils savent que le scroll infini [[leur bousille l'attention]]",
+     "texte": "ils savent que le scroll infini [[leur bousille l'attention]]"
     },
     "T2b": {
      "en": [
@@ -120,7 +122,8 @@
       "survived decades or",
       "centuries"
      ],
-     "fr": "alors ils lisent des idées [[qui tiennent depuis des siècles]]"
+     "fr": "alors ils lisent des idées [[qui tiennent depuis des siècles]]",
+     "texte": "alors ils rendent le fil [[dur à atteindre]]"
     },
     "T3": {
      "en": [
@@ -129,7 +132,8 @@
       "power, business, and human",
       "nature"
      ],
-     "fr": "de gens qui ont vraiment creusé [[la psycho]], [[le pouvoir]], [[le business]] et [[la nature humaine]]"
+     "fr": "de gens qui ont vraiment creusé [[la psycho]], [[le pouvoir]], [[le business]] et [[la nature humaine]]",
+     "texte": "pas de tiktok sur le tel, pas de Reels sur Insta, [[rien où tomber]] entre deux tâches"
     },
     "T4": {
      "en": [
@@ -138,7 +142,7 @@
       "your apps until you read"
      ],
      "fr": "si t'es scotchée à tiktok, remplace ton scroll par [[5 min sur l'appli Sophia]]",
-     "texte": "si t'es scotchée à tiktok, [[l'appli UnSwipe]] peut le bloquer complètement"
+     "texte": "le plus simple pour faire pareil : [[l'appli UnSwipe]]"
     }
    },
    "images": {

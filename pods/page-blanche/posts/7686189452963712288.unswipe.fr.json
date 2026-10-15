@@ -111,7 +111,8 @@
      "en": [
       "stop scrolling and start reading"
      ],
-     "fr": "[[lâche ton tel]] et [[ouvre un livre]]"
+     "fr": "[[lâche ton tel]] et [[ouvre un livre]]",
+     "texte": "passe [[une journée sans vidéos courtes]]"
     },
     "T2": {
      "en": [
@@ -128,7 +129,8 @@
       "imagination to stay",
       "switched on"
      ],
-     "fr": "un livre [[t'oblige]] à garder [[attention]], [[mémoire]] et [[imagination]] allumées"
+     "fr": "un livre [[t'oblige]] à garder [[attention]], [[mémoire]] et [[imagination]] allumées",
+     "texte": "sans elles, [[attention]], [[mémoire]] et [[imagination]] ont enfin de la place"
     },
     "T4": {
      "en": [
@@ -136,7 +138,8 @@
       "feel sharper again, replace",
       "your scrolling with reading"
      ],
-     "fr": "si tu veux [[retrouver un cerveau vif]], remplace ton scroll par de la lecture"
+     "fr": "si tu veux [[retrouver un cerveau vif]], remplace ton scroll par de la lecture",
+     "texte": "commence par un jour par semaine, puis fais-en [[ta norme]]"
     },
     "T5": {
      "en": [
@@ -146,7 +149,7 @@
       "different room"
      ],
      "fr": "perso je remplace mon scroll par 5 min sur l'appli Sophia, sinon mets ton tel dans une autre pièce",
-     "texte": "mets ton tel dans une autre pièce, ou essaie [[l'appli UnSwipe]] : Insta, mais sans les Reels"
+     "texte": "premier pas facile : vire les Reels d'Insta avec [[l'appli UnSwipe]]"
     }
    },
    "images": {

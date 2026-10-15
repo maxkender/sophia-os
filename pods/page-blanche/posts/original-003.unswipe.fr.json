@@ -108,7 +108,8 @@
      "en": [
       "scrolling whenever you're bored"
      ],
-     "fr": "quand [[l'envie de scroller]] arrive"
+     "fr": "quand [[l'envie de scroller]] arrive",
+     "texte": "j'ai rendu le scroll [[chiant]]"
     },
     "T2": {
      "en": [
@@ -124,7 +125,7 @@
       "time."
      ],
      "fr": "maintenant j'ai [[un réflexe]].",
-     "texte": "[[rends-le plus difficile]]."
+     "texte": "[[fini les Reels]]."
     },
     "T4": {
      "en": [
@@ -134,7 +135,7 @@
       "me from mindlessly scrolling"
      ],
      "fr": "j'ouvre [[l'appli Sophia]] à la place et j'apprends un truc en 5 min. histoire, art, sciences, philo…",
-     "texte": "une appli comme [[UnSwipe]] enlève les Reels d'Insta et peut carrément bloquer tiktok"
+     "texte": "insta, c'est juste mes messages et les stories de mes potes maintenant, et tiktok est bloqué"
     },
     "T5": {
      "en": [
@@ -143,7 +144,7 @@
       "you meant to do."
      ],
      "fr": "même sur mon tel, [[j'en ressors avec un truc dans la tête]].",
-     "texte": "tu gardes tes messages et tes stories, [[juste plus le trou noir]]."
+     "texte": "ça, c'est [[l'appli UnSwipe]]. [[le reste a suivi]]."
     }
    },
    "images": {

@@ -116,14 +116,15 @@
       "read classic books"
      ],
      "fr": "inspire-toi des [[classiques]]",
-     "texte": "lis des [[classiques]]"
+     "texte": "lâche les [[vidéos courtes]]"
     },
     "T2": {
      "en": [
       "people have faced ambition, failure, and hard choices",
       "for centuries"
      ],
-     "fr": "l'ambition, l'échec, les choix durs : on vit ça [[depuis des siècles]]"
+     "fr": "l'ambition, l'échec, les choix durs : on vit ça [[depuis des siècles]]",
+     "texte": "tes concurrents [[scrollent des heures]] chaque jour"
     },
     "T3": {
      "en": [
@@ -133,7 +134,8 @@
       "being destroyed by",
       "short-form content"
      ],
-     "fr": "[[on n'a jamais aussi peu lu]] et partout, notre attention est [[grillée par les vidéos courtes]]"
+     "fr": "[[on n'a jamais aussi peu lu]] et partout, notre attention est [[grillée par les vidéos courtes]]",
+     "texte": "partout, l'attention est [[grillée par les vidéos courtes]]. garde la tienne et [[t'as déjà une longueur d'avance]]"
     },
     "T4": {
      "en": [
@@ -143,7 +145,7 @@
       "blocks my apps until i read"
      ],
      "fr": "j'arrivais plus à me concentrer, puis j'ai remplacé mon scroll par [[5 min par jour sur l'appli Sophia]]",
-     "texte": "si t'arrives plus à te concentrer sur un livre, [[l'appli UnSwipe]] enlève les Reels d'Insta"
+     "texte": "premier geste : enlève les Reels d'Insta avec [[l'appli UnSwipe]]"
     }
    },
    "images": {

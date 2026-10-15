@@ -51,9 +51,10 @@ le pincement ne la change pas, seul le curseur la change.
 | Défaut | Règle | Envoyé ? | Remarque-type |
 | --- | --- | --- | --- |
 | `texte_absent` | slide publiée sans texte | oui | — |
-| `justification` | largeur en hauteurs de ligne, publiée ÷ originale, sous 0,75 (lignes courtes) ou au-dessus de 1,35, confirmé par les caractères par ligne ; paragraphe de 3 lignes et 60 caractères ou plus | oui | Jutifier |
+| `justification` | largeur en hauteurs de ligne, publiée ÷ originale, sous 0,75 (lignes courtes) ou au-dessus de 1,35, confirmé par la ligne la plus longue (en caractères) ; paragraphe de 3 lignes et 60 caractères ou plus. **Jamais de comparaison du nombre de lignes** : le texte est traduit, une version plus longue fait plus de lignes de la même largeur | oui | Jutifier |
 | `hierarchie` | l'original distingue un titre, le publié non | oui | Corpus / head |
-| `taille` | hauteur de ligne (rapportée à la largeur de l'image) hors de ×0,7 à ×1,4 | oui | text not the same |
+| `largeur` | largeur du paragraphe sur l'écran (ses marges), publiée ÷ originale, hors de ×0,85 à ×1,15, avec des lettres elles aussi plus grosses (ou plus petites) d'au moins 10 % : le bloc a été pincé trop grand ou trop petit. Plus large à taille égale (traduction plus longue) : rien | oui | Jutifier |
+| `taille` | hauteur de ligne (rapportée à la largeur de l'image) hors de ×0,7 à ×1,4 ; pas de second point si `largeur` dit déjà « pincer » | oui | text not the same |
 | `alignement` | gauche / centre / droite du paragraphe principal | oui | — |
 | `couleur`, `effet` | famille de couleur ; effet du bouton A (aucun, contour, fond) | oui | text not the same |
 | `nb_slides`, `musique` | nombre de slides ou son différents de ce qui était fourni | oui | — |
@@ -68,11 +69,16 @@ suffit.
 
 Au plus **deux points**, dans l'ordre du tableau ; le reste attend la review
 suivante (et reste visible pour l'admin dans `defauts`). Chaque point dit ce
-qui se voit, en mots (« your lines are shorter than in the original, so the paragraph looks like a thin column »),
+qui se voit, en mots (« your lines are shorter than in the original, so the paragraph looks like a thin column » ; jamais « 5 lignes au lieu de 3 », le texte étant traduit),
 puis le geste dans l'éditeur de TikTok : curseur puis pincement pour la
 justification, pincement pour la taille, bouton d'alignement, zone de texte à
 part pour le titre, bouton A et rangée de couleurs pour le style. Jamais de
 ratio ni de pourcentage.
+
+Après un changement de seuil, `{ "rejuger": { "jour": "AAAA-MM-JJ" } }` (ou
+`{ "rejuger": { "post_ids": [...] } }`) réapplique les règles aux mesures déjà
+stockées : défauts, brouillon et remarques sont réécrits sans nouveau scrape ni
+nouvelle mesure.
 
 Gemini reformule ensuite le brouillon sur un ton de manager. La reformulation
 n'est gardée que si elle cite les mêmes slides, sans chiffre technique ; sinon

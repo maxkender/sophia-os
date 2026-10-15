@@ -54,6 +54,7 @@ export interface MesureSlide {
 
 export type CodeDefaut =
   | "justification"
+  | "largeur"
   | "taille"
   | "hierarchie"
   | "alignement"
@@ -119,6 +120,22 @@ export const SEUIL_TAILLE_MIN = 0.7;
 export const SEUIL_TAILLE_MAX = 1.4;
 /** Le titre de l'original est plus grand que son corps d'au moins ce facteur. */
 export const SEUIL_HIERARCHIE = 1.15;
+/**
+ * Largeur du paragraphe sur l'écran (ses marges), publiée ÷ originale. Les
+ * mêmes retours à la ligne en plus gros donnent un paragraphe qui mange les
+ * marges : c'est aussi de la justification pour l'admin, et ça se corrige en
+ * pinçant. Au-delà de ±15 %, ça se voit (cas klara.mudrost149 du 15/10 :
+ * 44 % → 52 % de l'écran, mêmes lignes).
+ */
+export const SEUIL_LARGEUR_MIN = 0.85;
+export const SEUIL_LARGEUR_MAX = 1.15;
+/**
+ * …et seulement si les lettres sont elles aussi plus grosses (ou plus petites)
+ * d'au moins 10 % : un paragraphe plus large à taille égale vient d'une
+ * traduction plus longue (cas hugo.notes813 du 15/10), pas d'un pincement, et
+ * « pince pour réduire » rendrait les lettres trop petites.
+ */
+export const ECART_TAILLE_LARGEUR = 0.1;
 /** Écart vertical du centre du texte, en fraction de la hauteur (info admin). */
 export const SEUIL_PLACEMENT = 0.25;
 /** Au plus autant de points dans une review : au-delà, le créateur décroche. */
@@ -126,7 +143,7 @@ export const MAX_POINTS_REVIEW = 2;
 
 /** Ce qui peut partir dans la review, du plus important au moins important. */
 const PRIORITE: CodeDefaut[] = [
-  "texte_absent", "justification", "hierarchie", "taille", "alignement", "couleur", "effet",
+  "texte_absent", "justification", "largeur", "hierarchie", "taille", "alignement", "couleur", "effet",
   "nb_slides", "musique",
 ];
 /** Mesuré, montré à l'admin, jamais envoyé : la mesure est trop fragile ou l'écart secondaire. */
@@ -192,6 +209,15 @@ export function lignesTexte(texte: string): string[] {
   return texte.split(/\n/).map((l) => l.trim()).filter(Boolean);
 }
 
+/**
+ * Caractères de la ligne la plus longue : la longueur d'une ligne pleine, qui
+ * fixe la largeur du bloc. Une moyenne serait faussée par les fins de phrase
+ * courtes, plus ou moins nombreuses selon la langue de la traduction.
+ */
+export function ligneLaPlusLongue(texte: string): number {
+  return Math.max(0, ...lignesTexte(texte).map((l) => l.length));
+}
+
 // deno-lint-ignore no-explicit-any
 function parserBloc(item: any): BlocTexte | null {
   if (!item || typeof item !== "object") return null;
@@ -220,6 +246,11 @@ function parserBloc(item: any): BlocTexte | null {
     gras: vrai(item.gras ?? item.bold),
     alignement: alignementDe(item.alignement ?? item.align),
   };
+}
+
+/** Blocs relus depuis la base (relecture sans nouvel appel à Gemini). */
+export function normaliserBlocs(raw: unknown): BlocTexte[] {
+  return (Array.isArray(raw) ? raw : []).map(parserBloc).filter((b): b is BlocTexte => b !== null);
 }
 
 export interface Mesure {
@@ -362,10 +393,12 @@ export function jugerPaire(
   const pa = blocPrincipal(a.blocs)!;
   const pb = blocPrincipal(b.blocs)!;
 
-  // Justification : où se coupent les lignes, indépendamment de la taille.
+  // Justification : la longueur des lignes, indépendamment de la taille. On
+  // ne compare JAMAIS le nombre de lignes : le texte est traduit, une version
+  // plus longue fait naturellement plus de lignes de la même largeur.
   // Il faut un vrai paragraphe des deux côtés (une accroche de deux mots par
-  // ligne se coupe comme l'auteur l'a voulu) et que les caractères par ligne
-  // confirment l'écart : une mesure de boîte ratée ne suffit pas.
+  // ligne se coupe comme l'auteur l'a voulu) et que la ligne la plus longue,
+  // en caractères, confirme l'écart : une mesure de boîte ratée ne suffit pas.
   const charsA = lignesTexte(pa.texte).join(" ").length;
   const charsB = lignesTexte(pb.texte).join(" ").length;
   if (
@@ -374,24 +407,33 @@ export function jugerPaire(
   ) {
     evalues.push("justification");
     const j = largeurEnLignes(pb, b) / largeurEnLignes(pa, a);
-    const cpl = (charsB / pb.lignes) / (charsA / pa.lignes);
-    const valeurs = {
-      lignes_original: pa.lignes,
-      lignes_publie: pb.lignes,
-      car_ligne_original: Math.round(charsA / pa.lignes),
-      car_ligne_publie: Math.round(charsB / pb.lignes),
-      j: arrondi(j),
-    };
-    if (j < SEUIL_JUSTIF_COURTES && cpl < 0.85) {
-      ajouter("justification", `lignes trop courtes, le paragraphe fait colonne : environ ${valeurs.car_ligne_publie} caractères par ligne contre ${valeurs.car_ligne_original} (${pb.lignes} lignes contre ${pa.lignes})`, { ...valeurs, sens: "courtes" });
-    } else if (j > SEUIL_JUSTIF_LONGUES && cpl > 1.2) {
-      ajouter("justification", `lignes trop longues : environ ${valeurs.car_ligne_publie} caractères par ligne contre ${valeurs.car_ligne_original} (${pb.lignes} lignes contre ${pa.lignes})`, { ...valeurs, sens: "longues" });
+    const ligneA = ligneLaPlusLongue(pa.texte), ligneB = ligneLaPlusLongue(pb.texte);
+    const confirme = ligneB / Math.max(1, ligneA);
+    const valeurs = { car_ligne_original: ligneA, car_ligne_publie: ligneB, j: arrondi(j) };
+    if (j < SEUIL_JUSTIF_COURTES && confirme < 0.85) {
+      ajouter("justification", `lignes trop courtes, le paragraphe fait colonne : ligne la plus longue de ${ligneB} caractères contre ${ligneA} dans l'original`, { ...valeurs, sens: "courtes" });
+    } else if (j > SEUIL_JUSTIF_LONGUES && confirme > 1.2) {
+      ajouter("justification", `lignes trop longues : ligne la plus longue de ${ligneB} caractères contre ${ligneA} dans l'original`, { ...valeurs, sens: "longues" });
+    }
+  }
+
+  // Largeur du paragraphe sur l'écran (les marges), quand les lignes se
+  // coupent comme dans l'original : le bloc a été pincé trop grand ou trop petit.
+  const ratioTaille = hauteurLigne(pb, b) / hauteurLigne(pa, a);
+  if (pa.lignes >= 2 && pb.lignes >= 2) {
+    evalues.push("largeur");
+    const justifRelevee = constats.some((c) => c.code === "justification");
+    const ratio = pb.w / pa.w;
+    const valeurs = { ratio: arrondi(ratio), part_original: Math.round(pa.w * 100), part_publie: Math.round(pb.w * 100) };
+    if (!justifRelevee && ratio > SEUIL_LARGEUR_MAX && ratioTaille >= 1 + ECART_TAILLE_LARGEUR) {
+      ajouter("largeur", `paragraphe plus large que l'original, marges plus étroites : ${valeurs.part_publie} % de la largeur de l'écran contre ${valeurs.part_original} %`, { ...valeurs, sens: "large" });
+    } else if (!justifRelevee && ratio < SEUIL_LARGEUR_MIN && ratioTaille <= 1 - ECART_TAILLE_LARGEUR) {
+      ajouter("largeur", `paragraphe plus étroit que l'original, marges plus larges : ${valeurs.part_publie} % de la largeur de l'écran contre ${valeurs.part_original} %`, { ...valeurs, sens: "etroit" });
     }
   }
 
   // Taille à l'écran (le pincement).
   evalues.push("taille");
-  const ratioTaille = hauteurLigne(pb, b) / hauteurLigne(pa, a);
   if (ratioTaille < SEUIL_TAILLE_MIN || ratioTaille > SEUIL_TAILLE_MAX) {
     const sens = ratioTaille > 1 ? "plus grand" : "plus petit";
     ajouter("taille", `texte nettement ${sens} que l'original (×${arrondi(ratioTaille, 1)})`, { ratio: arrondi(ratioTaille), sens });
@@ -487,7 +529,14 @@ export function agreger(jugements: JugementPaire[]): Defaut[] {
       valeurs: premier.valeurs,
     });
   }
-  return trier(defauts);
+  // Un paragraphe plus large et des lettres plus grosses, c'est le même geste
+  // (pincer) : un seul point.
+  const sensLargeur = defauts.find((d) => d.code === "largeur")?.valeurs?.sens;
+  const doublon = (d: Defaut) =>
+    d.code === "taille" &&
+    ((sensLargeur === "large" && d.valeurs?.sens === "plus grand") ||
+      (sensLargeur === "etroit" && d.valeurs?.sens === "plus petit"));
+  return trier(defauts.filter((d) => !doublon(d)));
 }
 
 function rang(code: CodeDefaut): number {
@@ -559,6 +608,7 @@ export interface RemarqueType {
 /** Remarque-type de la file (et sa vidéo tuto) qui couvre chaque défaut, retrouvée par son titre. */
 const REMARQUE_DU_CODE: Partial<Record<CodeDefaut, RegExp>> = {
   justification: /justif|jutif/i,
+  largeur: /justif|jutif/i,
   taille: /not the same|style/i,
   couleur: /not the same|style/i,
   effet: /not the same|style/i,
@@ -590,15 +640,15 @@ export function pointAnglais(d: Defaut): string {
   const sur = d.slides.length ? `On ${slidesEn(d.slides)}, ` : "";
   const v = d.valeurs ?? {};
   switch (d.code) {
-    case "justification": {
-      const lp = Number(v.lignes_publie), lo = Number(v.lignes_original);
-      if (v.sens === "longues") {
-        const lignes = lp < lo ? ` (${lp} lines where the original has ${lo})` : "";
-        return `${sur}your lines are longer than in the original, so the text looks stretched${lignes}. Tap the text, move the size slider up until the lines break like in the original, tap Done, then pinch it back to the right size.`;
-      }
-      const lignes = lp > lo ? ` (${lp} lines where the original has ${lo})` : "";
-      return `${sur}your lines are shorter than in the original, so the paragraph looks like a thin column instead of a block${lignes}. Tap the text, move the size slider down until your lines are about as long as in the original, tap Done, then pinch it back to the right size. Pinching never changes where the lines break, only the slider does.`;
-    }
+    case "justification":
+      // Jamais de nombre de lignes à viser : le texte est traduit.
+      return v.sens === "longues"
+        ? `${sur}your lines are longer than in the original, so the text looks stretched. Tap the text, move the size slider up until your lines are about as long as in the original, tap Done, then pinch it back to the right size. Your text is translated, so you may not get the same number of lines, and that's fine: what matters is the length of each line.`
+        : `${sur}your lines are shorter than in the original, so the paragraph looks like a thin column instead of a block. Tap the text, move the size slider down until your lines are about as long as in the original, tap Done, then pinch it back to the right size. Your text is translated, so you may not get the same number of lines, and that's fine: what matters is the length of each line.`;
+    case "largeur":
+      return v.sens === "etroit"
+        ? `${sur}your paragraph is narrower than in the original, with more empty space on each side. Pinch it up a little until the space on each side is the same as in the original.`
+        : `${sur}your paragraph is wider than in the original: the text goes closer to the edges of the screen. Pinch it down a little until the space on each side is the same as in the original.`;
     case "taille":
       return v.sens === "plus grand"
         ? `${sur}the text is clearly bigger than in the original and covers more of the picture. Pinch it down a little so it takes the same space as in the original.`
@@ -654,13 +704,15 @@ export function redigerBrouillon(defauts: Defaut[], remarquesTypes: RemarqueType
 
 /**
  * La reformulation de Gemini n'est gardée que si elle n'a rien perdu ni
- * inventé : mêmes numéros de slides, pas de chiffres techniques, longueur
- * raisonnable. Sinon on garde le brouillon déterministe.
+ * inventé : mêmes numéros de slides, pas de chiffres techniques ni de nombre
+ * de lignes, longueur raisonnable. Sinon on garde le brouillon déterministe.
  */
 export function reformulationValide(brouillon: string, reformule: string): boolean {
   const texte = reformule.trim();
   if (texte.length < 40 || texte.length > Math.max(900, brouillon.length * 1.3)) return false;
   if (/%|×|\bratio\b|```/i.test(texte)) return false;
+  // Jamais de nombre de lignes à viser : le texte est traduit.
+  if (/\b\d+\s+(?:lines?|rows?)\b/i.test(texte)) return false;
   const numeros = (s: string) =>
     new Set([...s.matchAll(/slides?\s+((?:\d+(?:,?\s+and\s+|,\s*))*\d+)/gi)].flatMap((m) => m[1].match(/\d+/g) ?? []));
   const attendus = numeros(brouillon);
@@ -677,7 +729,8 @@ Rewrite the draft below so it sounds like a real person wrote it: warm, encourag
 
 Rules:
 - Keep every fact, every slide number and every instruction exactly (what to tap, which slider, pinch). Do not add new problems or new advice.
-- No percentages, ratios or technical words. "About N words per line" is fine.
+- No percentages, ratios or technical words.
+- Never ask the creator to match the number of lines: the text is translated, so it can have more or fewer lines than the original. Talk about how long the lines are, not how many there are.
 - Start with one short positive sentence, then the points (one short paragraph each), then a one-line friendly closing.
 - At most 120 words.
 - Return only the message. No quotes, no markdown, no subject line.

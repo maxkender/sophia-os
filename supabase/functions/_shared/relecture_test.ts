@@ -346,6 +346,8 @@ Deno.test("redigerBrouillon : renvoie à la vidéo tuto quand la remarque-type e
   const defaut = { code: "justification" as const, niveau: "remarque" as const, slides: [5, 6], confiance: 1, detail: "", valeurs: { sens: "courtes" } };
   assert(redigerBrouillon([defaut], avecVideo).texte.includes("The short video with this message shows how to do it."));
   assert(!redigerBrouillon([defaut], REMARQUES).texte.includes("video"));
+  const largeur = { code: "largeur" as const, niveau: "remarque" as const, slides: [4, 7], confiance: 1, detail: "", valeurs: { sens: "large" } };
+  assert(!redigerBrouillon([largeur], avecVideo).texte.includes("video"), "la vidéo montre le curseur, pas le pincement");
 });
 
 Deno.test("reformulationValide : les étapes et le geste du slider doivent survivre", () => {

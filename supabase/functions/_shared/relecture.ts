@@ -715,11 +715,12 @@ export function redigerBrouillon(defauts: Defaut[], remarquesTypes: RemarqueType
   const ouverture = points.length === 1
     ? "Hi! Thanks for your post. One small thing to make it match the original:"
     : "Hi! Thanks for your post. Two small things to make it match the original:";
-  // La vidéo tuto de la remarque est jointe à la review : on y renvoie.
+  // La vidéo tuto « Jutifier » est jointe à la review et montre le curseur :
+  // on n'y renvoie que pour la justification (pas pour un simple pincement).
   const avecVideo = (d: Defaut) => {
-    const re = REMARQUE_DU_CODE[d.code];
-    const r = re ? trouver(re) : undefined;
     const texte = pointAnglais(d);
+    if (d.code !== "justification") return texte;
+    const r = trouver(REMARQUE_DU_CODE.justification!);
     return r?.video_url ? `${texte}\nThe short video with this message shows how to do it.` : texte;
   };
   const texte = [ouverture, ...points.map(avecVideo), "Keep it up!"].join("\n\n");

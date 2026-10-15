@@ -2,9 +2,9 @@ import { supabase } from "@/lib/supabase/client";
 import { DELAI_PUBLICATION_MIN_DEFAUT } from "@/features/moteur/delaiPublication";
 import { LANGUES_CIBLES } from "@/features/moteur/langues";
 import {
-  compterMemesLiens,
   estCompteSlideshowAssigne,
   isoBornesJourParis,
+  liensDesAutresPosts,
   normaliserRemarquesReview,
   normaliserVideosReview,
   type CompteRemarque,
@@ -812,8 +812,8 @@ export interface PostFileReview {
   poster_prenom: string | null;
   poster_nom: string | null;
   langue: string | null;
-  /** Autres posts du même compte, ce jour-là, avec le même lien TikTok (collé deux fois). */
-  memes_liens: number;
+  /** Liens des autres posts du même compte ce jour-là (reviewés compris) : repérer un TikTok collé deux fois. */
+  autres_liens: string[];
 }
 
 function sourceUrlDepuisSujet(row: {
@@ -899,7 +899,7 @@ export async function listerFileReviewsJour(opts?: {
   }
 
   // Sur tous les posts du jour, reviewés compris : le doublon peut être déjà traité.
-  const memesLiens = compterMemesLiens(rows);
+  const autresLiens = liensDesAutresPosts(rows);
   return rows
     .filter((p) => {
       if (vus.has(p.id)) return false;
@@ -926,7 +926,7 @@ export async function listerFileReviewsJour(opts?: {
         poster_prenom: profil?.prenom ?? null,
         poster_nom: profil?.nom ?? null,
         langue: p.comptes?.langue ?? null,
-        memes_liens: memesLiens.get(p.id) ?? 0,
+        autres_liens: autresLiens.get(p.id) ?? [],
       };
     });
 }

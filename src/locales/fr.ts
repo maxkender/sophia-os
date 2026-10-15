@@ -573,9 +573,9 @@ export const fr = {
       aujourdhui: "Aujourd’hui",
       videAideJour: "Tous les TikToks publiés ce jour-là ont été reviewés ou passés.",
       lienDouble_one:
-        "Ce créateur a collé le même lien TikTok pour un autre post : le TikTok de droite ne correspond peut-être pas à ce slideshow.",
+        "Ce TikTok a aussi été collé pour un autre slideshow de ce compte : le créateur a mis le même lien deux fois, le TikTok de droite n'est sans doute pas celui de ce slideshow.",
       lienDouble_other:
-        "Ce créateur a collé le même lien TikTok pour {{count}} autres posts : le TikTok de droite ne correspond peut-être pas à ce slideshow.",
+        "Ce TikTok a aussi été collé pour {{count}} autres slideshows de ce compte : le créateur a mis le même lien plusieurs fois, le TikTok de droite n'est sans doute pas celui de ce slideshow.",
       agent: {
         titre: "Relecture de l’agent",
         proposees_one: "{{count}} review proposée par l’agent",

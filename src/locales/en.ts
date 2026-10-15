@@ -572,9 +572,9 @@ export const en = {
       aujourdhui: "Today",
       videAideJour: "Every TikTok published that day has been reviewed or skipped.",
       lienDouble_one:
-        "This creator pasted the same TikTok link for another post: the TikTok on the right may not match this slideshow.",
+        "This TikTok was also pasted for another slideshow of this account: the creator used the same link twice, so the TikTok on the right is probably not this slideshow.",
       lienDouble_other:
-        "This creator pasted the same TikTok link for {{count}} other posts: the TikTok on the right may not match this slideshow.",
+        "This TikTok was also pasted for {{count}} other slideshows of this account: the creator used the same link several times, so the TikTok on the right is probably not this slideshow.",
       agent: {
         titre: "Agent review",
         proposees_one: "{{count}} review suggested by the agent",

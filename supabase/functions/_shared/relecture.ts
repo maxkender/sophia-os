@@ -704,13 +704,15 @@ export function redigerBrouillon(defauts: Defaut[], remarquesTypes: RemarqueType
 
 /**
  * La reformulation de Gemini n'est gardée que si elle n'a rien perdu ni
- * inventé : mêmes numéros de slides, pas de chiffres techniques, longueur
- * raisonnable. Sinon on garde le brouillon déterministe.
+ * inventé : mêmes numéros de slides, pas de chiffres techniques ni de nombre
+ * de lignes, longueur raisonnable. Sinon on garde le brouillon déterministe.
  */
 export function reformulationValide(brouillon: string, reformule: string): boolean {
   const texte = reformule.trim();
   if (texte.length < 40 || texte.length > Math.max(900, brouillon.length * 1.3)) return false;
   if (/%|×|\bratio\b|```/i.test(texte)) return false;
+  // Jamais de nombre de lignes à viser : le texte est traduit.
+  if (/\b\d+\s+(?:lines?|rows?)\b/i.test(texte)) return false;
   const numeros = (s: string) =>
     new Set([...s.matchAll(/slides?\s+((?:\d+(?:,?\s+and\s+|,\s*))*\d+)/gi)].flatMap((m) => m[1].match(/\d+/g) ?? []));
   const attendus = numeros(brouillon);

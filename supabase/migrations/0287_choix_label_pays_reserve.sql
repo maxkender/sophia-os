@@ -242,6 +242,9 @@ grant execute on function public.stats_choix_label(uuid[], uuid, text, text, int
 comment on function public.stats_choix_label(uuid[], uuid, text, text, integer) is
   'Choix de label (manage-users à la création, minuit-vnext pour réaffecter les comptes d''un label fermé) : comptes par label (langue / pays / flotte), réserve de l''application (passages restants, demande par jour), performance 28 j rapportée à la langue, présence parmi les derniers comptes de la langue et du pays. Lecture seule.';
 
+-- APPLIQUÉE le 15/10/2026 en deux temps, enregistrée sous `0287a_pays_defaut_langue`
+-- (pays_defaut_langue + trigger) puis `0287b_stats_choix_label`. Vérifiée : SE | BR | NULL | BG.
+--
 -- Vérification attendue après pose (lecture seule) :
 --   select pays_defaut_langue('sv'), pays_defaut_langue('pt-BR'),
 --          pays_defaut_langue('en'), pays_defaut_langue('bg');

@@ -5539,14 +5539,18 @@ export async function dernierPostCompteJour(
   compteId: string,
   date: string,
   exclureId?: string,
+  /** Créé à partir de cet instant seulement : sans ça, l'AUTRE créneau du jour passait pour le remplaçant. */
+  depuis?: string,
 ): Promise<string | null> {
-  const { data, error } = await supabase
+  let query = supabase
     .from("posts")
     .select("id")
     .eq("compte_id", compteId)
     .eq("date_publication_prevue", date)
     .eq("est_test", false)
-    .eq("pipeline_statut", "done")
+    .eq("pipeline_statut", "done");
+  if (depuis) query = query.gte("created_at", depuis);
+  const { data, error } = await query
     .order("created_at", { ascending: false })
     .limit(5);
   if (error) throw error;

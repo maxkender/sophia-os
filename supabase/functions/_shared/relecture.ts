@@ -129,6 +129,13 @@ export const SEUIL_HIERARCHIE = 1.15;
  */
 export const SEUIL_LARGEUR_MIN = 0.85;
 export const SEUIL_LARGEUR_MAX = 1.15;
+/**
+ * …et seulement si les lettres sont elles aussi plus grosses (ou plus petites)
+ * d'au moins 10 % : un paragraphe plus large à taille égale vient d'une
+ * traduction plus longue (cas hugo.notes813 du 15/10), pas d'un pincement, et
+ * « pince pour réduire » rendrait les lettres trop petites.
+ */
+export const ECART_TAILLE_LARGEUR = 0.1;
 /** Écart vertical du centre du texte, en fraction de la hauteur (info admin). */
 export const SEUIL_PLACEMENT = 0.25;
 /** Au plus autant de points dans une review : au-delà, le créateur décroche. */
@@ -406,21 +413,21 @@ export function jugerPaire(
 
   // Largeur du paragraphe sur l'écran (les marges), quand les lignes se
   // coupent comme dans l'original : le bloc a été pincé trop grand ou trop petit.
+  const ratioTaille = hauteurLigne(pb, b) / hauteurLigne(pa, a);
   if (pa.lignes >= 2 && pb.lignes >= 2) {
     evalues.push("largeur");
     const justifRelevee = constats.some((c) => c.code === "justification");
     const ratio = pb.w / pa.w;
     const valeurs = { ratio: arrondi(ratio), part_original: Math.round(pa.w * 100), part_publie: Math.round(pb.w * 100) };
-    if (!justifRelevee && ratio > SEUIL_LARGEUR_MAX) {
+    if (!justifRelevee && ratio > SEUIL_LARGEUR_MAX && ratioTaille >= 1 + ECART_TAILLE_LARGEUR) {
       ajouter("largeur", `paragraphe plus large que l'original, marges plus étroites : ${valeurs.part_publie} % de la largeur de l'écran contre ${valeurs.part_original} %`, { ...valeurs, sens: "large" });
-    } else if (!justifRelevee && ratio < SEUIL_LARGEUR_MIN) {
+    } else if (!justifRelevee && ratio < SEUIL_LARGEUR_MIN && ratioTaille <= 1 - ECART_TAILLE_LARGEUR) {
       ajouter("largeur", `paragraphe plus étroit que l'original, marges plus larges : ${valeurs.part_publie} % de la largeur de l'écran contre ${valeurs.part_original} %`, { ...valeurs, sens: "etroit" });
     }
   }
 
   // Taille à l'écran (le pincement).
   evalues.push("taille");
-  const ratioTaille = hauteurLigne(pb, b) / hauteurLigne(pa, a);
   if (ratioTaille < SEUIL_TAILLE_MIN || ratioTaille > SEUIL_TAILLE_MAX) {
     const sens = ratioTaille > 1 ? "plus grand" : "plus petit";
     ajouter("taille", `texte nettement ${sens} que l'original (×${arrondi(ratioTaille, 1)})`, { ratio: arrondi(ratioTaille), sens });

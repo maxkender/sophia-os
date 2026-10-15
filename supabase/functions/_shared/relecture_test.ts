@@ -285,6 +285,12 @@ Deno.test("largeur : mêmes lignes en plus gros, le paragraphe mange les marges 
   assert(!jugerPaire(7, a, proche).constats.some((c) => c.code === "largeur"));
 });
 
+Deno.test("largeur : plus large à taille égale (traduction plus longue), rien à pincer (cas hugo.notes813)", () => {
+  const a = slide([bloc({ role: "titre", texte: "play calm and\nmotivating music", lignes: 2, w: 0.3, h: 0.06 })]);
+  const b = slide([bloc({ role: "titre", texte: "Pets de la musique calme et\nmotivante", lignes: 2, w: 0.53, h: 0.06 })]);
+  assert(!jugerPaire(8, a, b).constats.some((c) => c.code === "largeur"));
+});
+
 Deno.test("largeur et taille dans le même sens : un seul point (pincer)", () => {
   const a = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, w: 0.4, h: 0.12 })]);
   const b = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, w: 0.6, h: 0.18 })]);

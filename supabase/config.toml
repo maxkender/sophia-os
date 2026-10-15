@@ -129,6 +129,9 @@ verify_jwt = false
 [functions.rattrapage-elo]
 verify_jwt = false
 
+[functions.relecture-auto]
+verify_jwt = false
+
 [functions.renettoyer]
 verify_jwt = false
 

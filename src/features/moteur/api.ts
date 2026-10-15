@@ -10,6 +10,7 @@ import {
   type ReviewRemarqueUtilisee,
   type ReviewVideo,
 } from "@/features/reviews/fileJour";
+import { normaliserRelecture, type RelectureAuto } from "@/features/reviews/relectureAgent";
 import { extensionVideo } from "@/features/reviews/videoRemarque";
 import { normaliserZone, ZONE_LONGUEUR_MAX } from "@/features/hiring/zones";
 import { estRoleManager } from "@/features/auth/roles";
@@ -932,6 +933,44 @@ export async function passerPostReview(postId: string): Promise<void> {
     admin_id: auth.user?.id ?? null,
   });
   if (error) throw error;
+}
+
+/**
+ * Relectures automatiques des posts de la file (`relectures_auto`, écrites par
+ * le cron de 3 h sur les posts de la veille) : `{ post_id → relecture }`.
+ */
+export async function listerRelecturesAuto(
+  postIds: string[],
+): Promise<Record<string, RelectureAuto>> {
+  const ids = [...new Set(postIds.filter(Boolean))];
+  const out: Record<string, RelectureAuto> = {};
+  const chunk = 80;
+  for (let i = 0; i < ids.length; i += chunk) {
+    const { data, error } = await supabase
+      .from("relectures_auto")
+      .select("post_id, statut, defauts, brouillon, remarques, erreur")
+      .in("post_id", ids.slice(i, i + chunk));
+    if (error) throw error;
+    for (const row of data ?? []) {
+      const r = normaliserRelecture(row as Record<string, unknown>);
+      if (r) out[r.post_id] = r;
+    }
+  }
+  return out;
+}
+
+/**
+ * Fait relire ce post par l'agent tout de suite (bouton « Tester » de la file).
+ * Un appel avance la relecture aussi loin qu'il peut (scrape, puis mesure) ;
+ * tant que `statut` n'est pas final, il faut rappeler.
+ */
+export async function testerRelecture(postId: string): Promise<RelectureAuto> {
+  const { relecture } = await invoke<{ relecture: Record<string, unknown> }>("relecture-auto", {
+    relire: { post_id: postId },
+  });
+  const r = normaliserRelecture(relecture ?? {});
+  if (!r) throw new Error("Réponse de l'agent illisible");
+  return r;
 }
 
 type LigneRemarqueCreateur = {

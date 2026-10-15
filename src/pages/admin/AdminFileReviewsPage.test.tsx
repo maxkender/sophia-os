@@ -9,9 +9,13 @@ const listerReviewRemarques = vi.fn();
 const compterRemarquesParCreateur = vi.fn();
 const envoyerReview = vi.fn();
 const ameliorerReview = vi.fn();
+const listerRelecturesAuto = vi.fn();
+const testerRelecture = vi.fn();
 vi.mock("@/features/moteur/api", () => ({
   aujourdhuiParis: () => "2026-09-09",
-  listerFileReviewsJour: () => listerFileReviewsJour(),
+  listerFileReviewsJour: (opts?: { jour?: string }) => listerFileReviewsJour(opts),
+  listerRelecturesAuto: (ids: string[]) => listerRelecturesAuto(ids),
+  testerRelecture: (postId: string) => testerRelecture(postId),
   listerReviewRemarques: () => listerReviewRemarques(),
   compterRemarquesParCreateur: (ids: string[]) => compterRemarquesParCreateur(ids),
   resoudreTiktok: vi.fn(),
@@ -71,6 +75,9 @@ describe("AdminFileReviewsPage", () => {
     envoyerReview.mockResolvedValue(undefined);
     ameliorerReview.mockReset();
     ameliorerReview.mockResolvedValue({ texte: "The hook is too slow, rewritten." });
+    listerRelecturesAuto.mockReset();
+    listerRelecturesAuto.mockResolvedValue({});
+    testerRelecture.mockReset();
   });
   it("affiche l'état vide quand la file est soldée", async () => {
     listerFileReviewsJour.mockResolvedValue([]);
@@ -179,5 +186,96 @@ describe("AdminFileReviewsPage", () => {
     expect(screen.getByDisplayValue("Timing")).toBeInTheDocument();
     expect(screen.queryByPlaceholderText(/Titre \(bouton\)|Title \(button\)/)).not.toBeInTheDocument();
     expect(screen.getByTestId("liste-remarques")).toHaveClass("overflow-y-auto");
+  });
+
+  it("ouvre la file d'hier, que l'agent a relue cette nuit", async () => {
+    listerFileReviewsJour.mockResolvedValue([]);
+    listerReviewRemarques.mockResolvedValue([]);
+    renderPage();
+    await screen.findByText(/File du jour vide|Today's queue is empty/);
+    expect(listerFileReviewsJour).toHaveBeenLastCalledWith({ jour: "2026-09-09" });
+    fireEvent.click(screen.getByRole("button", { name: /^(Hier|Yesterday)$/ }));
+    await waitFor(() => expect(listerFileReviewsJour).toHaveBeenLastCalledWith({ jour: "2026-09-08" }));
+  });
+
+  it("« Tester » fait relire le post et pré-remplit la review de l'agent", async () => {
+    listerFileReviewsJour.mockResolvedValue([POST]);
+    listerReviewRemarques.mockResolvedValue([
+      { ...REMARQUE, id: "j", titre: "Jutifier", video_url: "https://cdn.example/justif.mp4" },
+    ]);
+    testerRelecture.mockResolvedValue({
+      post_id: "post-1",
+      statut: "fait",
+      defauts: [
+        { code: "justification", niveau: "remarque", slides: [5, 6], detail: "lignes trop courtes" },
+        { code: "police", niveau: "info", slides: [1], detail: "police peut-être différente" },
+      ],
+      brouillon: "On slides 5 and 6, your lines are shorter than in the original.",
+      remarques: [{ id: "j", titre: "Jutifier" }],
+      erreur: null,
+    });
+    renderPage();
+    expect(await screen.findByText(/Pas encore relu|Not reviewed yet/)).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /^(Tester|Test)$/ }));
+    await waitFor(() =>
+      expect(screen.getByPlaceholderText(/Ton retour|Your feedback/)).toHaveValue(
+        "On slides 5 and 6, your lines are shorter than in the original.",
+      ),
+    );
+    expect(testerRelecture).toHaveBeenCalledWith("post-1");
+    expect(screen.getByText("Lignes trop courtes (slides 5 et 6)")).toBeInTheDocument();
+    expect(screen.getByText("Police peut-être différente (slide 1)")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /Envoyer|Send/ }));
+    await waitFor(() => {
+      expect(envoyerReview).toHaveBeenCalledWith(
+        "poster-1",
+        "The hook is too slow, rewritten.",
+        expect.objectContaining({
+          remarques: [{ id: "j", titre: "Jutifier" }],
+          videos: [{ url: "https://cdn.example/justif.mp4", titre: "Jutifier" }],
+        }),
+      );
+    });
+  });
+
+  it("« Tester » sans rien à signaler laisse la review vide", async () => {
+    listerFileReviewsJour.mockResolvedValue([POST]);
+    listerReviewRemarques.mockResolvedValue([]);
+    testerRelecture.mockResolvedValue({
+      post_id: "post-1",
+      statut: "fait",
+      defauts: [],
+      brouillon: null,
+      remarques: [],
+      erreur: null,
+    });
+    renderPage();
+    fireEvent.click(await screen.findByRole("button", { name: /^(Tester|Test)$/ }));
+    expect(await screen.findByText(/Rien à signaler|Nothing to flag/)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/Ton retour|Your feedback/)).toHaveValue("");
+  });
+
+  it("montre la relecture de la nuit et le compte des reviews proposées", async () => {
+    listerFileReviewsJour.mockResolvedValue([POST]);
+    listerReviewRemarques.mockResolvedValue([]);
+    listerRelecturesAuto.mockResolvedValue({
+      "post-1": {
+        post_id: "post-1",
+        statut: "ignore",
+        defauts: [],
+        brouillon: null,
+        remarques: [],
+        erreur: "publié en vidéo",
+      },
+    });
+    renderPage();
+    expect(await screen.findByText(/Pas relu : publié en vidéo|Not reviewed: publié en vidéo/)).toBeInTheDocument();
+  });
+
+  it("annonce un post pas encore relu", async () => {
+    listerFileReviewsJour.mockResolvedValue([POST]);
+    listerReviewRemarques.mockResolvedValue([]);
+    renderPage();
+    expect(await screen.findByText(/Pas encore relu|Not reviewed yet/)).toBeInTheDocument();
   });
 });

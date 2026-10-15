@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { ChevronUp, Film, Plus, Send, Settings2, SkipForward, Sparkles, Trash2, X } from "lucide-react";
+import { Bot, ChevronUp, Film, Plus, Send, Settings2, SkipForward, Sparkles, Trash2, X } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -29,17 +29,20 @@ import {
   creerReviewRemarque,
   envoyerReview,
   listerFileReviewsJour,
+  listerRelecturesAuto,
   listerReviewRemarques,
   majReviewRemarque,
   passerPostReview,
   retirerVideoRemarque,
   supprimerReviewRemarque,
+  testerRelecture,
   uploaderVideoRemarque,
   type PostFileReview,
   type ReviewRemarque,
 } from "@/features/moteur/api";
 import { DropVideoRemarque } from "@/features/reviews/DropVideoRemarque";
 import {
+  ajouterJourCalendaire,
   ajouterRemarqueUtilisee,
   ajouterVideoReview,
   insererRemarqueDansBrouillon,
@@ -50,10 +53,21 @@ import {
   type ReviewRemarqueUtilisee,
   type ReviewVideo,
 } from "@/features/reviews/fileJour";
+import {
+  libelleDefaut,
+  relectureFinie,
+  repartirDefauts,
+  type DefautRelecture,
+  type RelectureAuto,
+} from "@/features/reviews/relectureAgent";
 import { TikTokEmbed } from "@/features/reviews/TikTokEmbed";
 import { controlerVideoRemarque, premierFichierVideo } from "@/features/reviews/videoRemarque";
 import { cn } from "@/lib/utils";
 import { AvatarCompte } from "@/features/moteur/VignetteCompte";
+
+/** « Tester » : l'agent relit le post (scrape puis mesure), on le rappelle jusqu'au verdict. */
+const SONDAGE_TEST_MS = 5000;
+const ATTENTE_TEST_MAX_MS = 4 * 60 * 1000;
 
 function nomCreateur(post: PostFileReview): string {
   const perso = [post.poster_prenom, post.poster_nom].filter(Boolean).join(" ");
@@ -331,7 +345,10 @@ export function AdminFileReviewsPage() {
   const [remarquesUtilisees, setRemarquesUtilisees] = React.useState<ReviewRemarqueUtilisee[]>([]);
   const [errVideoFile, setErrVideoFile] = React.useState<string | null>(null);
   const [reglages, setReglages] = React.useState(false);
-  const jour = aujourdhuiParis();
+  // L'agent relit chaque nuit les posts de la veille : la file s'ouvre aussi sur hier.
+  const aujourdhui = aujourdhuiParis();
+  const hier = ajouterJourCalendaire(aujourdhui, -1);
+  const [jour, setJour] = React.useState(aujourdhui);
 
   const file = useQuery({
     queryKey: ["file-reviews", jour],
@@ -354,7 +371,18 @@ export function AdminFileReviewsPage() {
     enabled: posterIds.length > 0,
   });
 
+  const postIds = React.useMemo(() => (file.data ?? []).map((p) => p.id), [file.data]);
+  const relectures = useQuery({
+    queryKey: ["relectures-auto", postIds],
+    queryFn: () => listerRelecturesAuto(postIds),
+    enabled: postIds.length > 0,
+  });
+  const proposees = postIds.filter((id) => relectures.data?.[id]?.brouillon).length;
+
   const courant = (file.data ?? [])[0] ?? null;
+  // Le post affiché au moment où un test se termine (l'admin a pu passer au suivant).
+  const courantId = React.useRef<string | null>(null);
+  courantId.current = courant?.id ?? null;
 
   React.useEffect(() => {
     setTexte("");
@@ -416,6 +444,41 @@ export function AdminFileReviewsPage() {
     },
   });
 
+  /** Pré-remplit la review avec celle de l'agent, ses remarques-types et leurs vidéos tuto. */
+  const reprendreBrouillon = (r: RelectureAuto) => {
+    if (!r.brouillon) return;
+    setTexte(r.brouillon);
+    setRemarquesUtilisees(r.remarques.reduce(ajouterRemarqueUtilisee, [] as ReviewRemarqueUtilisee[]));
+    setVideos(
+      r.remarques.reduce((acc, utilisee) => {
+        const type = (remarques.data ?? []).find((x) => x.id === utilisee.id);
+        return type ? ajouterVideoReview(acc, { url: type.video_url, titre: type.titre }) : acc;
+      }, [] as ReviewVideo[]),
+    );
+  };
+
+  const tester = useMutation({
+    mutationFn: async (postId: string) => {
+      const limite = Date.now() + ATTENTE_TEST_MAX_MS;
+      let r = await testerRelecture(postId);
+      while (!relectureFinie(r) && Date.now() < limite) {
+        await new Promise((ok) => setTimeout(ok, SONDAGE_TEST_MS));
+        r = await testerRelecture(postId);
+      }
+      if (!relectureFinie(r)) throw new Error(t("fileReviews.agent.tropLong"));
+      return r;
+    },
+    onSuccess: (r) => {
+      // Toutes les files en cache : l'admin a pu changer de jour pendant le test.
+      queryClient.setQueriesData<Record<string, RelectureAuto>>({ queryKey: ["relectures-auto"] }, (prev) =>
+        prev ? { ...prev, [r.post_id]: r } : prev,
+      );
+      if (courantId.current === r.post_id) reprendreBrouillon(r);
+    },
+  });
+  const testEnCours = tester.isPending && tester.variables === courant?.id;
+  const testEchoue = tester.isError && tester.variables === courant?.id;
+
   const utiliserRemarque = (r: ReviewRemarque) => {
     setTexte((prev) => insererRemarqueDansBrouillon(prev, r.corps));
     setVideos((prev) => ajouterVideoReview(prev, { url: r.video_url, titre: r.titre }));
@@ -443,8 +506,31 @@ export function AdminFileReviewsPage() {
               {t("fileReviews.subtitle", { date: labelJour })}
             </CardDescription>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <div className="flex rounded-lg border p-0.5">
+              {[
+                { valeur: hier, label: t("fileReviews.hier") },
+                { valeur: aujourdhui, label: t("fileReviews.aujourdhui") },
+              ].map((j) => (
+                <Button
+                  key={j.valeur}
+                  type="button"
+                  size="sm"
+                  variant={jour === j.valeur ? "secondary" : "ghost"}
+                  aria-pressed={jour === j.valeur}
+                  onClick={() => setJour(j.valeur)}
+                >
+                  {j.label}
+                </Button>
+              ))}
+            </div>
             <Badge variant="secondary">{t("fileReviews.restants", { count: restants })}</Badge>
+            {proposees > 0 && (
+              <Badge variant="secondary" className="gap-1">
+                <Bot className="size-3" />
+                {t("fileReviews.agent.proposees", { count: proposees })}
+              </Badge>
+            )}
             <Button variant="outline" size="sm" onClick={() => setReglages(true)}>
               <Settings2 className="size-4" />
               {t("fileReviews.reglages")}
@@ -460,7 +546,10 @@ export function AdminFileReviewsPage() {
         <p className="text-sm text-destructive">{(file.error as Error).message}</p>
       )}
       {!file.isPending && !courant && (
-        <EmptyState title={t("fileReviews.vide")} description={t("fileReviews.videAide")} />
+        <EmptyState
+          title={t("fileReviews.vide")}
+          description={jour === aujourdhui ? t("fileReviews.videAide") : t("fileReviews.videAideJour")}
+        />
       )}
 
       {courant && (
@@ -499,6 +588,12 @@ export function AdminFileReviewsPage() {
               chargementLabel={t("fileReviews.apercuChargement")}
             />
           </div>
+
+          <RelectureAgent
+            relecture={relectures.data?.[courant.id] ?? null}
+            chargement={relectures.isPending}
+            enCours={testEnCours}
+          />
 
           {(remarques.data ?? []).length > 0 && (
             <div className="space-y-2">
@@ -588,14 +683,23 @@ export function AdminFileReviewsPage() {
             placeholder={t("fileReviews.placeholder")}
             rows={5}
           />
-          {(envoyer.isError || ameliorer.isError || passer.isError) && (
+          {(envoyer.isError || ameliorer.isError || passer.isError || testEchoue) && (
             <p className="text-sm text-destructive">
               {(envoyer.error as Error | undefined)?.message ||
                 (ameliorer.error as Error | undefined)?.message ||
-                (passer.error as Error | undefined)?.message}
+                (passer.error as Error | undefined)?.message ||
+                (testEchoue ? (tester.error as Error | undefined)?.message : undefined)}
             </p>
           )}
           <div className="flex flex-wrap gap-2">
+            <Button
+              variant="outline"
+              disabled={tester.isPending || envoyer.isPending}
+              onClick={() => tester.mutate(courant.id)}
+            >
+              <Bot className="size-4" />
+              {testEnCours ? t("fileReviews.agent.testEnCours") : t("fileReviews.agent.tester")}
+            </Button>
             <Button
               variant="outline"
               disabled={ameliorer.isPending || !texte.trim()}
@@ -628,6 +732,89 @@ export function AdminFileReviewsPage() {
 
 function jourParisOuPrevue(post: PostFileReview): string | null {
   return jourParisDepuisIso(post.publie_at) ?? post.date_publication_prevue;
+}
+
+/**
+ * Ce que l'agent de relecture a vu sur ce post (cron de 3 h sur les posts de
+ * la veille, ou bouton « Tester ») : les points de la review qu'il propose,
+ * ceux qui attendent la suivante, et ses notes pour l'admin. Sa review
+ * pré-remplit le champ au clic sur « Tester » ; rien n'est envoyé sans l'admin.
+ */
+function RelectureAgent({
+  relecture,
+  chargement,
+  enCours,
+}: {
+  relecture: RelectureAuto | null;
+  chargement: boolean;
+  /** « Tester » tourne pour ce post. */
+  enCours: boolean;
+}) {
+  const { t } = useTranslation();
+  if (chargement) return null;
+
+  let contenu: React.ReactNode;
+  if (enCours) {
+    contenu = <p className="text-sm text-muted-foreground">{t("fileReviews.agent.enCours")}</p>;
+  } else if (!relecture) {
+    contenu = <p className="text-sm text-muted-foreground">{t("fileReviews.agent.pasEncore")}</p>;
+  } else if (relecture.statut === "ignore" || relecture.statut === "echec") {
+    contenu = (
+      <p className="text-sm text-muted-foreground">
+        {t(relecture.statut === "ignore" ? "fileReviews.agent.ignore" : "fileReviews.agent.echec", {
+          raison: relecture.erreur ?? "—",
+        })}
+      </p>
+    );
+  } else if (relecture.statut !== "fait") {
+    contenu = <p className="text-sm text-muted-foreground">{t("fileReviews.agent.enCours")}</p>;
+  } else {
+    const { review, plusTard, notes } = repartirDefauts(relecture.defauts);
+    contenu = (
+      <div className="space-y-3">
+        {review.length === 0 ? (
+          <p className="text-sm text-muted-foreground">{t("fileReviews.agent.rien")}</p>
+        ) : (
+          <ListeDefauts titre={t("fileReviews.agent.points")} defauts={review} />
+        )}
+        {plusTard.length > 0 && (
+          <ListeDefauts titre={t("fileReviews.agent.plusTard")} defauts={plusTard} discret />
+        )}
+        {notes.length > 0 && <ListeDefauts titre={t("fileReviews.agent.notes")} defauts={notes} discret />}
+      </div>
+    );
+  }
+
+  return (
+    <section className="space-y-2 rounded-xl border p-4" aria-label={t("fileReviews.agent.titre")}>
+      <p className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
+        <Bot className="size-3.5" />
+        {t("fileReviews.agent.titre")}
+      </p>
+      {contenu}
+    </section>
+  );
+}
+
+function ListeDefauts({
+  titre,
+  defauts,
+  discret,
+}: {
+  titre: string;
+  defauts: DefautRelecture[];
+  discret?: boolean;
+}) {
+  return (
+    <div className="space-y-1">
+      <p className="text-xs text-muted-foreground">{titre}</p>
+      <ul className={cn("list-disc space-y-0.5 pl-5 text-sm", discret && "text-muted-foreground")}>
+        {defauts.map((d) => (
+          <li key={`${d.code}-${d.slides.join(",")}`}>{libelleDefaut(d)}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 /** « 3× Texte illisible » : ce qu'on a déjà reproché à ce créateur, tous ses comptes confondus. */

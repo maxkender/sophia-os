@@ -108,6 +108,8 @@ export interface Defaut {
  */
 export const SEUIL_JUSTIF_COURTES = 0.75;
 export const SEUIL_JUSTIF_LONGUES = 1.35;
+/** En dessous (de chaque côté), le texte est trop court pour parler de paragraphe. */
+export const SEUIL_JUSTIF_CARACTERES = 60;
 /**
  * Taille à l'écran (le pincement) : hauteur de ligne rapportée à la largeur de
  * l'image. Volontairement large : on ne relève qu'un écart qui se voit au
@@ -300,12 +302,6 @@ export function largeurEnLignes(b: BlocTexte, m: MesureSlide): number {
   return (b.w * m.largeurPx) / hauteurLignePx(b, m);
 }
 
-/** Mots par ligne, arrondis, pour parler au créateur en mots plutôt qu'en ratios. */
-export function motsParLigne(b: BlocTexte): number {
-  const mots = lignesTexte(b.texte).join(" ").split(/\s+/).filter(Boolean).length;
-  return Math.max(1, Math.round(mots / b.lignes));
-}
-
 /** Famille de couleur : les nuances proches (blanc / blanc cassé / crème) se confondent. */
 export function familleCouleur(hex: string): string {
   const v = parseInt(hex.slice(1), 16);
@@ -367,25 +363,29 @@ export function jugerPaire(
   const pb = blocPrincipal(b.blocs)!;
 
   // Justification : où se coupent les lignes, indépendamment de la taille.
+  // Il faut un vrai paragraphe des deux côtés (une accroche de deux mots par
+  // ligne se coupe comme l'auteur l'a voulu) et que les caractères par ligne
+  // confirment l'écart : une mesure de boîte ratée ne suffit pas.
   const charsA = lignesTexte(pa.texte).join(" ").length;
   const charsB = lignesTexte(pb.texte).join(" ").length;
   if (
     pa.lignes >= 2 && pb.lignes >= 2 && Math.max(pa.lignes, pb.lignes) >= 3 &&
-    charsA >= 40 && charsB >= 40
+    charsA >= SEUIL_JUSTIF_CARACTERES && charsB >= SEUIL_JUSTIF_CARACTERES
   ) {
     evalues.push("justification");
     const j = largeurEnLignes(pb, b) / largeurEnLignes(pa, a);
+    const cpl = (charsB / pb.lignes) / (charsA / pa.lignes);
     const valeurs = {
-      mots_original: motsParLigne(pa),
-      mots_publie: motsParLigne(pb),
       lignes_original: pa.lignes,
       lignes_publie: pb.lignes,
+      car_ligne_original: Math.round(charsA / pa.lignes),
+      car_ligne_publie: Math.round(charsB / pb.lignes),
       j: arrondi(j),
     };
-    if (j < SEUIL_JUSTIF_COURTES) {
-      ajouter("justification", `lignes trop courtes : environ ${valeurs.mots_publie} mots par ligne contre ${valeurs.mots_original} dans l'original (${pb.lignes} lignes contre ${pa.lignes})`, { ...valeurs, sens: "courtes" });
-    } else if (j > SEUIL_JUSTIF_LONGUES) {
-      ajouter("justification", `lignes trop longues : environ ${valeurs.mots_publie} mots par ligne contre ${valeurs.mots_original} dans l'original`, { ...valeurs, sens: "longues" });
+    if (j < SEUIL_JUSTIF_COURTES && cpl < 0.85) {
+      ajouter("justification", `lignes trop courtes, le paragraphe fait colonne : environ ${valeurs.car_ligne_publie} caractères par ligne contre ${valeurs.car_ligne_original} (${pb.lignes} lignes contre ${pa.lignes})`, { ...valeurs, sens: "courtes" });
+    } else if (j > SEUIL_JUSTIF_LONGUES && cpl > 1.2) {
+      ajouter("justification", `lignes trop longues : environ ${valeurs.car_ligne_publie} caractères par ligne contre ${valeurs.car_ligne_original} (${pb.lignes} lignes contre ${pa.lignes})`, { ...valeurs, sens: "longues" });
     }
   }
 
@@ -461,26 +461,28 @@ export function jugerPaire(
 const VU_SUR_UNE_SLIDE: CodeDefaut[] = ["alignement"];
 
 export function agreger(jugements: JugementPaire[]): Defaut[] {
-  const parCode = new Map<CodeDefaut, { evalues: number; constats: Constat[] }>();
+  const evalues = new Map<CodeDefaut, number>();
+  for (const j of jugements) for (const code of j.evalues) evalues.set(code, (evalues.get(code) ?? 0) + 1);
+  // Des lignes trop courtes ici et trop longues là ne font pas un défaut qui se répète.
+  const parCle = new Map<string, Constat[]>();
   for (const j of jugements) {
-    for (const code of j.evalues) {
-      const e = parCode.get(code) ?? { evalues: 0, constats: [] };
-      e.evalues += 1;
-      parCode.set(code, e);
+    for (const c of j.constats) {
+      const cle = `${c.code}:${c.valeurs?.sens ?? ""}`;
+      parCle.set(cle, [...(parCle.get(cle) ?? []), c]);
     }
-    for (const c of j.constats) parCode.get(c.code)!.constats.push(c);
   }
   const defauts: Defaut[] = [];
-  for (const [code, e] of parCode) {
-    const vus = e.constats.length;
-    if (vus === 0) continue;
-    if (!VU_SUR_UNE_SLIDE.includes(code) && (vus / e.evalues < 0.5 || vus < Math.min(2, e.evalues))) continue;
-    const premier = e.constats[0];
+  for (const constats of parCle.values()) {
+    const code = constats[0].code;
+    const n = evalues.get(code) ?? constats.length;
+    const vus = constats.length;
+    if (!VU_SUR_UNE_SLIDE.includes(code) && (vus / n < 0.5 || vus < Math.min(2, n))) continue;
+    const premier = constats[0];
     defauts.push({
       code,
       niveau: INFO.includes(code) ? "info" : "remarque",
-      slides: e.constats.map((c) => c.position).sort((p, q) => p - q),
-      confiance: arrondi(vus / e.evalues),
+      slides: constats.map((c) => c.position).sort((p, q) => p - q),
+      confiance: arrondi(vus / n),
       detail: premier.detail,
       valeurs: premier.valeurs,
     });
@@ -588,10 +590,15 @@ export function pointAnglais(d: Defaut): string {
   const sur = d.slides.length ? `On ${slidesEn(d.slides)}, ` : "";
   const v = d.valeurs ?? {};
   switch (d.code) {
-    case "justification":
-      return v.sens === "longues"
-        ? `${sur}your lines are longer than in the original (about ${v.mots_publie} words per line, the original has about ${v.mots_original}), so the text looks stretched. Tap the text, move the size slider up until the lines break like in the original, tap Done, then pinch it back to the right size.`
-        : `${sur}your paragraph is cut into short lines (about ${v.mots_publie} words per line, the original has about ${v.mots_original}), so it looks like a thin column instead of a block. Tap the text, move the size slider down until each line holds about as many words as in the original, tap Done, then pinch it back to the right size. Pinching never changes where the lines break, only the slider does.`;
+    case "justification": {
+      const lp = Number(v.lignes_publie), lo = Number(v.lignes_original);
+      if (v.sens === "longues") {
+        const lignes = lp < lo ? ` (${lp} lines where the original has ${lo})` : "";
+        return `${sur}your lines are longer than in the original, so the text looks stretched${lignes}. Tap the text, move the size slider up until the lines break like in the original, tap Done, then pinch it back to the right size.`;
+      }
+      const lignes = lp > lo ? ` (${lp} lines where the original has ${lo})` : "";
+      return `${sur}your lines are shorter than in the original, so the paragraph looks like a thin column instead of a block${lignes}. Tap the text, move the size slider down until your lines are about as long as in the original, tap Done, then pinch it back to the right size. Pinching never changes where the lines break, only the slider does.`;
+    }
     case "taille":
       return v.sens === "plus grand"
         ? `${sur}the text is clearly bigger than in the original and covers more of the picture. Pinch it down a little so it takes the same space as in the original.`

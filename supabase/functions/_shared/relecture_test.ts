@@ -86,8 +86,7 @@ Deno.test("justification : texte tapé trop gros puis pincé = lignes courtes, m
   const justif = j.constats.find((c) => c.code === "justification");
   assert(justif);
   assertEquals(justif.valeurs?.sens, "courtes");
-  assertEquals(justif.valeurs?.mots_original, 8);
-  assertEquals(justif.valeurs?.mots_publie, 3);
+  assertEquals(justif.valeurs?.lignes_publie, 10);
   assert(!j.constats.some((c) => c.code === "taille"), "la taille de ligne est la même");
 });
 
@@ -107,10 +106,18 @@ Deno.test("justification : lignes trop longues", () => {
   assertEquals(justif?.valeurs?.sens, "longues");
 });
 
-Deno.test("justification : pas jugée sur un texte de deux lignes courtes", () => {
-  const a = slide([bloc({ texte: "Read this\nevery day", lignes: 2, w: 0.5, h: 0.06 })]);
-  const b = slide([bloc({ texte: "Lis ça\ntous les jours", lignes: 2, w: 0.3, h: 0.06 })]);
+Deno.test("justification : pas jugée sur une accroche courte, coupée comme l'auteur l'a voulu", () => {
+  // Cas julia.ksiazki2 du 15/10 : 4 lignes de 2 mots contre 3 lignes plus larges.
+  const a = slide([bloc({ role: "titre", texte: "how to actually\nbecome the\nbest version of\nyourself", lignes: 4, w: 0.39, h: 0.34 })]);
+  const b = slide([bloc({ role: "titre", texte: "jak naprawdę\nstać się najlepszą wersją\nsiebie", lignes: 3, w: 0.54, h: 0.23 })]);
   assert(!jugerPaire(1, a, b).evalues.includes("justification"));
+});
+
+Deno.test("agreger : des lignes trop courtes ici et trop longues là ne font pas un défaut", () => {
+  const large = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, w: 0.8, h: 0.12 })]);
+  const etroit = slide([bloc({ texte: PARAGRAPHE_ETROIT, lignes: 10, w: 0.45, h: 0.3 })]);
+  const defauts = agreger([jugerPaire(2, large, etroit), jugerPaire(3, etroit, large)]);
+  assertEquals(defauts.find((d) => d.code === "justification"), undefined);
 });
 
 Deno.test("police : le verdict du modèle compte quand il se prononce", () => {
@@ -231,11 +238,11 @@ Deno.test("redigerBrouillon : deux points au plus, les plus importants, en mots 
     { code: "taille", niveau: "remarque", slides: [1, 2], confiance: 0.67, detail: "", valeurs: { ratio: 1.9, sens: "plus grand" } },
     { code: "police", niveau: "info", slides: [1, 2, 3], confiance: 1, detail: "" },
     { code: "musique", niveau: "remarque", slides: [], confiance: 1, detail: "" },
-    { code: "justification", niveau: "remarque", slides: [2, 4], confiance: 1, detail: "", valeurs: { mots_original: 7, mots_publie: 3, sens: "courtes" } },
+    { code: "justification", niveau: "remarque", slides: [2, 4], confiance: 1, detail: "", valeurs: { lignes_original: 3, lignes_publie: 5, sens: "courtes" } },
   ], REMARQUES);
   assertEquals(points.map((p) => p.code), ["justification", "taille"]);
   assertEquals(remarques.map((r) => r.id), ["h", "j", "s"]);
-  assert(texte.includes("On slides 2 and 4, your paragraph is cut into short lines (about 3 words per line, the original has about 7)"));
+  assert(texte.includes("On slides 2 and 4, your lines are shorter than in the original, so the paragraph looks like a thin column instead of a block (5 lines where the original has 3)"));
   assert(texte.includes("size slider down"));
   assert(texte.includes("Pinch it down"));
   assert(!/[×%]|1\.9/.test(texte), "pas de ratio dans le texte envoyé");

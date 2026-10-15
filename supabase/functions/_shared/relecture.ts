@@ -521,7 +521,7 @@ function phraseAnglaise(d: Defaut): string {
         ? `${ou}the lines run much longer than in the original (${v.cpl_publie} characters per line instead of ${v.cpl_original}).`
         : `${ou}the paragraph is a narrow column (${v.lignes_publie} lines instead of ${v.lignes_original}). Make the lines as long as in the original.`;
     case "taille":
-      return `${ou}the text is about ${v.ratio}× ${v.sens === "plus grand" ? "bigger" : "smaller"} than in the original.`;
+      return `${ou}the text is about ${Number(v.ratio).toFixed(1)}× ${v.sens === "plus grand" ? "bigger" : "smaller"} than in the original.`;
     case "hierarchie":
       return `${ou}the title and the body look the same: the title should stand out like in the original.`;
     case "alignement":

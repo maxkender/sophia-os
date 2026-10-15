@@ -95,13 +95,23 @@ avancer le drain (le run Apify prend une à deux minutes).
 
 ## Dans l'OS
 
-`/admin/file-reviews`, bouton **Hier** : la file des posts de la veille, que
-l'agent a relus dans la nuit. Pour le post en cours, l'encadré « Relecture de
-l'agent » montre les points de la review proposée, ceux gardés pour une
-prochaine review, les notes pour l'admin (jamais envoyées) et le brouillon.
-« Reprendre ce brouillon » remplit la review avec ses remarques-types et leurs
-vidéos tuto ; l'admin relit, corrige au besoin, puis envoie ou passe. Rien ne
-part sans lui.
+`/admin/file-reviews` (« Today's queue »), pour le post en cours :
+
+- l'encadré « Relecture de l'agent » montre les points de la review proposée,
+  ceux gardés pour une prochaine review et les notes pour l'admin (jamais
+  envoyées) ;
+- le bouton **Tester** pré-remplit la review avec celle de l'agent, ses
+  remarques-types et leurs vidéos tuto. Si le post n'a pas encore été relu,
+  l'agent le relit sur-le-champ (scrape puis mesure, 1 à 2 min) ; s'il l'a été
+  cette nuit, la review arrive aussitôt ;
+- le bouton **Hier** ouvre la file de la veille, relue pendant la nuit.
+
+L'admin relit, corrige au besoin, puis envoie ou passe. Rien ne part sans lui.
+
+Côté fonction, « Tester » appelle `{ "relire": { "post_id": "…" } }` : le post
+entre en file s'il n'y est pas (`origine = 'test'`), et chaque appel avance sa
+relecture aussi loin que possible ; le navigateur rappelle tant qu'elle n'est
+pas finie.
 
 ## Lire les résultats en SQL
 
@@ -115,5 +125,4 @@ order by jsonb_array_length(r.defauts) desc;
 ## Suite prévue
 
 1. Étiqueter 100 posts à la main et recalibrer les seuils.
-2. Relancer la relecture d'un post depuis la file, sans attendre la nuit.
-3. Envoi automatique des défauts sûrs, une review par créateur et par jour au plus.
+2. Envoi automatique des défauts sûrs, une review par créateur et par jour au plus.

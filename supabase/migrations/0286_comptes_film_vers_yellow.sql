@@ -19,9 +19,10 @@
 --
 -- IDEMPOTENTE : rejouée, elle ne trouve plus de compte alpha_male_film.
 --
--- ÉTAT AU 15/10 : l'ajout d'alpha_male_yellow est passé en prod (connecteur
--- MCP) ; le DELETE attend la confirmation du connecteur et n'est pas encore
--- passé. Rejouer le fichier en entier termine le travail.
+-- ÉTAT AU 15/10 : appliquée en prod en deux temps (ajout, puis retrait passé
+-- après confirmation du connecteur) ; les 10 comptes ne portent plus que
+-- alpha_male_yellow. Non inscrite dans `schema_migrations`. Attention : la
+-- rejouer basculerait aussi `sam.focus429`, créé en alpha_male_film à 10 h 08.
 
 do $$
 declare

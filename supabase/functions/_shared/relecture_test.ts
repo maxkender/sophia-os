@@ -3,6 +3,7 @@ import { assert, assertEquals } from "jsr:@std/assert@1";
 import {
   agreger,
   type BlocTexte,
+  blocPrincipal,
   choisirPositions,
   controlesPost,
   familleCouleur,
@@ -11,6 +12,7 @@ import {
   type MesureSlide,
   parserMesure,
   redigerBrouillon,
+  reformulationValide,
 } from "./relecture.ts";
 
 function bloc(p: Partial<BlocTexte>): BlocTexte {
@@ -23,7 +25,7 @@ function bloc(p: Partial<BlocTexte>): BlocTexte {
     lignes: 4,
     texte: "",
     couleur: "#FFFFFF",
-    contour: false,
+    effet: "aucun",
     gras: false,
     alignement: "centre",
     ...p,
@@ -60,11 +62,13 @@ Deno.test("parserMesure lit le JSON même entouré de texte, et l'échelle 0-100
   assertEquals(m.a.length, 1);
   assertEquals(m.a[0].x, 0.1);
   assertEquals(m.a[0].couleur, "#FFE600");
-  assertEquals(m.a[0].contour, true);
+  assertEquals(m.a[0].effet, "contour");
   assertEquals(m.a[0].alignement, "gauche");
   assertEquals(m.b.length, 0);
   assertEquals(m.policeIdentique, null);
   assertEquals(parserMesure('{"a":[],"b":[],"police_identique":false}')?.policeIdentique, false);
+  const fond = parserMesure('{"a":[{"x":0.1,"y":0.1,"w":0.5,"h":0.1,"texte":"Hi","effet":"fond"}],"b":[]}');
+  assertEquals(fond!.a[0].effet, "fond");
   assertEquals(parserMesure("pas de json"), null);
 });
 
@@ -73,23 +77,40 @@ Deno.test("le nombre de lignes suit la transcription quand le compte déclaré e
   assertEquals(m!.a[0].lignes, 10);
 });
 
-Deno.test("forme du paragraphe : une colonne étroite est relevée, même à taille égale", () => {
-  const a = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, h: 0.12 })]);
-  // Même hauteur de ligne (0,03), mais 10 lignes de 15 caractères au lieu de 4 de 38.
-  const b = slide([bloc({ texte: PARAGRAPHE_ETROIT, lignes: 10, h: 0.3, w: 0.45 })]);
+Deno.test("justification : texte tapé trop gros puis pincé = lignes courtes, même si la taille à l'écran est bonne", () => {
+  // Original : 4 lignes d'environ 8 mots sur 80 % de la largeur, ligne de 0,03.
+  const a = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, w: 0.8, h: 0.12 })]);
+  // Publié : 10 lignes d'environ 3 mots, même hauteur de ligne, colonne de 45 %.
+  const b = slide([bloc({ texte: PARAGRAPHE_ETROIT, lignes: 10, w: 0.45, h: 0.3 })]);
   const j = jugerPaire(2, a, b);
-  const codes = j.constats.map((c) => c.code);
-  assert(codes.includes("forme_paragraphe"));
-  assert(!codes.includes("taille"), "la taille de ligne est la même");
+  const justif = j.constats.find((c) => c.code === "justification");
+  assert(justif);
+  assertEquals(justif.valeurs?.sens, "courtes");
+  assertEquals(justif.valeurs?.mots_original, 8);
+  assertEquals(justif.valeurs?.mots_publie, 3);
+  assert(!j.constats.some((c) => c.code === "taille"), "la taille de ligne est la même");
 });
 
-Deno.test("forme du paragraphe : colonne nettement moins large, même avec autant de caractères par ligne", () => {
-  // Cas relevé le 15/10 : texte traduit plus long et plus petit, bloc à 60 % de la largeur d'origine.
-  const a = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, w: 0.62, h: 0.12 })]);
-  const b = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 5, w: 0.37, h: 0.13 })]);
-  const forme = jugerPaire(5, a, b).constats.find((c) => c.code === "forme_paragraphe");
-  assert(forme);
-  assertEquals(forme.valeurs?.largeur, 0.6);
+Deno.test("justification : pincer le bloc entier ne change rien, seule la taille bouge", () => {
+  const a = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, w: 0.6, h: 0.12 })]);
+  // Mêmes retours à la ligne, bloc agrandi ×1,5 dans les deux sens.
+  const b = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, w: 0.9, h: 0.18 })]);
+  const codes = jugerPaire(3, a, b).constats.map((c) => c.code);
+  assert(!codes.includes("justification"));
+  assert(codes.includes("taille"));
+});
+
+Deno.test("justification : lignes trop longues", () => {
+  const a = slide([bloc({ texte: PARAGRAPHE_ETROIT, lignes: 10, w: 0.45, h: 0.3 })]);
+  const b = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, w: 0.8, h: 0.12 })]);
+  const justif = jugerPaire(2, a, b).constats.find((c) => c.code === "justification");
+  assertEquals(justif?.valeurs?.sens, "longues");
+});
+
+Deno.test("justification : pas jugée sur un texte de deux lignes courtes", () => {
+  const a = slide([bloc({ texte: "Read this\nevery day", lignes: 2, w: 0.5, h: 0.06 })]);
+  const b = slide([bloc({ texte: "Lis ça\ntous les jours", lignes: 2, w: 0.3, h: 0.06 })]);
+  assert(!jugerPaire(1, a, b).evalues.includes("justification"));
 });
 
 Deno.test("police : le verdict du modèle compte quand il se prononce", () => {
@@ -110,14 +131,14 @@ Deno.test("agreger : un alignement différent sur la seule accroche suffit", () 
   assertEquals(al.slides, [1]);
 });
 
-Deno.test("taille : un texte deux fois plus grand est relevé, ×1,15 passe", () => {
-  const a = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, h: 0.12 })]);
-  const b = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, h: 0.24 })]);
+Deno.test("taille : seul un écart net est relevé (×2 oui, ×1,3 non)", () => {
+  const a = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, w: 0.4, h: 0.12 })]);
+  const b = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, w: 0.8, h: 0.24 })]);
   const j = jugerPaire(3, a, b);
   const taille = j.constats.find((c) => c.code === "taille");
   assert(taille);
   assertEquals(taille.valeurs?.sens, "plus grand");
-  const proche = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, h: 0.138 })]);
+  const proche = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, w: 0.52, h: 0.156 })]);
   assert(!jugerPaire(3, a, proche).constats.some((c) => c.code === "taille"));
 });
 
@@ -132,11 +153,22 @@ Deno.test("hiérarchie : titre distinct dans l'original, un seul bloc publié", 
   assert(j.constats.some((c) => c.code === "hierarchie"));
 });
 
-Deno.test("style : couleur, contour et gras", () => {
+Deno.test("style : couleur, effet et gras ; le gras reste une info pour l'admin", () => {
   const a = slide([bloc({ texte: PARAGRAPHE_LARGE, couleur: "#FFFFFF", gras: true })]);
-  const b = slide([bloc({ texte: PARAGRAPHE_LARGE, couleur: "#FF8C00", contour: true, gras: false })]);
-  const codes = jugerPaire(2, a, b).constats.map((c) => c.code).sort();
-  assertEquals(codes, ["contour", "couleur", "gras"]);
+  const b = slide([bloc({ texte: PARAGRAPHE_LARGE, couleur: "#FF8C00", effet: "fond", gras: false })]);
+  const j = jugerPaire(2, a, b);
+  assertEquals(j.constats.map((c) => c.code).sort(), ["couleur", "effet", "gras"]);
+  const defauts = agreger([j, jugerPaire(3, a, b)]);
+  assertEquals(defauts.find((d) => d.code === "gras")?.niveau, "info");
+  assertEquals(defauts.find((d) => d.code === "couleur")?.niveau, "remarque");
+});
+
+Deno.test("paragraphe principal : le corps l'emporte sur un titre un peu plus grand, pas sur un titre énorme", () => {
+  const titre = bloc({ role: "titre", texte: "Big title", lignes: 1, y: 0.2, w: 0.8, h: 0.08 });
+  const corps = bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, y: 0.4, w: 0.7, h: 0.06 });
+  assertEquals(blocPrincipal([titre, corps]), corps);
+  const minuscule = bloc({ texte: "small", lignes: 1, y: 0.8, w: 0.2, h: 0.02 });
+  assertEquals(blocPrincipal([titre, minuscule]), titre);
 });
 
 Deno.test("familleCouleur : blanc cassé reste blanc, jaune et orange se distinguent", () => {
@@ -187,21 +219,42 @@ Deno.test("choisirPositions : l'accroche puis les deux textes les plus longs", (
   assertEquals(choisirPositions([{ position: 3, longueur: 10 }, { position: 2, longueur: 5 }]), [2, 3]);
 });
 
-Deno.test("redigerBrouillon : remarques-types puis constats précis, au format reviews.remarques", () => {
-  const remarques = [
-    { id: "h", titre: "Hello", corps: "Hello thanks for your post." },
-    { id: "s", titre: "text not the same", corps: "The text style must be the same." },
-    { id: "j", titre: "Jutifier", corps: "The text should follow the same alignement." },
-    { id: "c", titre: "Corpus / head", corps: "Mark a difference between title and body." },
-  ];
-  const { texte, remarques: utilisees } = redigerBrouillon([
-    { code: "forme_paragraphe", slides: [2, 4], confiance: 1, detail: "", valeurs: { cpl_original: 38, cpl_publie: 15, sens: "courtes" } },
-    { code: "taille", slides: [1, 2], confiance: 0.67, detail: "", valeurs: { ratio: 1.9, sens: "plus grand" } },
-    { code: "musique", slides: [], confiance: 1, detail: "" },
-  ], remarques);
-  assertEquals(utilisees.map((r) => r.id), ["h", "j", "s"]);
-  assert(texte.includes("On slides 2 and 4, the paragraph is a narrow column"));
-  assert(texte.includes("1.9× bigger"));
-  assert(texte.includes("sound provided"));
-  assertEquals(redigerBrouillon([], remarques), { texte: "", remarques: [] });
+const REMARQUES = [
+  { id: "h", titre: "Hello", corps: "Hello thanks for your post." },
+  { id: "s", titre: "text not the same", corps: "The text style must be the same." },
+  { id: "j", titre: "Jutifier", corps: "The text should follow the same alignement." },
+  { id: "c", titre: "Corpus / head", corps: "Mark a difference between title and body." },
+];
+
+Deno.test("redigerBrouillon : deux points au plus, les plus importants, en mots et en gestes TikTok", () => {
+  const { texte, remarques, points } = redigerBrouillon([
+    { code: "taille", niveau: "remarque", slides: [1, 2], confiance: 0.67, detail: "", valeurs: { ratio: 1.9, sens: "plus grand" } },
+    { code: "police", niveau: "info", slides: [1, 2, 3], confiance: 1, detail: "" },
+    { code: "musique", niveau: "remarque", slides: [], confiance: 1, detail: "" },
+    { code: "justification", niveau: "remarque", slides: [2, 4], confiance: 1, detail: "", valeurs: { mots_original: 7, mots_publie: 3, sens: "courtes" } },
+  ], REMARQUES);
+  assertEquals(points.map((p) => p.code), ["justification", "taille"]);
+  assertEquals(remarques.map((r) => r.id), ["h", "j", "s"]);
+  assert(texte.includes("On slides 2 and 4, your paragraph is cut into short lines (about 3 words per line, the original has about 7)"));
+  assert(texte.includes("size slider down"));
+  assert(texte.includes("Pinch it down"));
+  assert(!/[×%]|1\.9/.test(texte), "pas de ratio dans le texte envoyé");
+  assert(!texte.includes("sound"), "le troisième point attend une prochaine review");
+  assertEquals(redigerBrouillon([], REMARQUES), { texte: "", remarques: [], points: [] });
+});
+
+Deno.test("redigerBrouillon : les infos admin seules ne produisent pas de review", () => {
+  const { texte } = redigerBrouillon([
+    { code: "police", niveau: "info", slides: [1, 2], confiance: 1, detail: "" },
+    { code: "gras", niveau: "info", slides: [1, 2], confiance: 1, detail: "" },
+  ], REMARQUES);
+  assertEquals(texte, "");
+});
+
+Deno.test("reformulationValide : mêmes slides, pas de ratio, sinon on garde le brouillon", () => {
+  const brouillon = "Hi!\n\nOn slides 2 and 4, your paragraph is cut into short lines. Tap the text, move the size slider down.\n\nKeep it up!";
+  assert(reformulationValide(brouillon, "Hey, great post! On slides 2 and 4 the lines are a bit short: tap the text and move the size slider down. Thanks!"));
+  assert(!reformulationValide(brouillon, "Hey, great post! On slide 2 the lines are a bit short: tap the text and move the size slider down. Thanks!"));
+  assert(!reformulationValide(brouillon, "Hey! On slides 2 and 4 the text is 30% too narrow, move the size slider down please, thank you."));
+  assert(!reformulationValide(brouillon, "ok"));
 });

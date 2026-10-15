@@ -2,19 +2,32 @@
  * Relecture automatique des posts publiés : la mise en forme du texte que le
  * créateur a retapé dans TikTok, comparée slide par slide à l'original.
  *
- * Le créateur reçoit des images propres et des textes à copier ; il choisit
- * lui-même taille, couleur, retours à la ligne. C'est là que naissent les
- * défauts que l'admin relevait à la main dans /admin/file-reviews (« text not
- * the same », « Jutifier », « Corpus / head »).
+ * Le créateur reçoit des images propres et des textes à copier ; il retape
+ * chaque texte dans l'éditeur de TikTok. C'est là que naissent les défauts que
+ * l'admin relevait à la main dans /admin/file-reviews. Ce que montrent les
+ * vidéos tuto des remarques-types :
+ *
+ *   - « Jutifier » (la justification) : dans l'éditeur de TikTok, la zone de
+ *     texte a une LARGEUR FIXE. Le curseur de taille décide donc combien de mots
+ *     tiennent sur une ligne, c'est-à-dire où les lignes se coupent ; le
+ *     pincement, après « Done », agrandit ou réduit le bloc entier sans toucher
+ *     aux retours à la ligne. Justifier comme l'original = retrouver ses lignes
+ *     (autant de mots par ligne), puis pincer à la bonne taille.
+ *   - « text not the same » : les réglages de style de l'éditeur (police
+ *     Classic / Elegance / Neon…, effet contour ou fond, couleur).
+ *   - « Corpus / head » : le titre dans sa propre zone de texte, plus grand que
+ *     le paragraphe.
  *
  * Ce module est PUR (aucun appel réseau) : il parse la mesure renvoyée par
  * Gemini, juge chaque paire original / publié avec des règles chiffrées, agrège
- * à l'échelle du post et rédige le brouillon de review. L'IA mesure, les règles
- * jugent : même mesure → même verdict, et chaque seuil se recalibre ici.
+ * à l'échelle du post et prépare le brouillon de review. L'IA mesure, les
+ * règles jugent : même mesure → même verdict, et chaque seuil se recalibre ici.
  */
 
 export type Role = "titre" | "corps";
 export type Alignement = "gauche" | "centre" | "droite";
+/** Effet de texte de l'éditeur TikTok (bouton « A ») : rien, contour, fond. */
+export type Effet = "aucun" | "contour" | "fond";
 
 /** Un bloc de texte incrusté, boîte SERRÉE en fractions 0..1 de l'image. */
 export interface BlocTexte {
@@ -28,7 +41,7 @@ export interface BlocTexte {
   /** Transcription, une ligne visuelle par ligne. */
   texte: string;
   couleur: string;
-  contour: boolean;
+  effet: Effet;
   gras: boolean;
   alignement: Alignement;
 }
@@ -40,18 +53,21 @@ export interface MesureSlide {
 }
 
 export type CodeDefaut =
-  | "forme_paragraphe"
+  | "justification"
   | "taille"
   | "hierarchie"
+  | "alignement"
   | "couleur"
-  | "contour"
+  | "effet"
   | "gras"
   | "police"
-  | "alignement"
   | "placement"
   | "texte_absent"
   | "nb_slides"
   | "musique";
+
+/** « remarque » : peut partir dans la review ; « info » : pour l'admin seulement. */
+export type Niveau = "remarque" | "info";
 
 /** Ce qu'une paire de slides révèle, défaut ou non. */
 export interface Constat {
@@ -59,7 +75,7 @@ export interface Constat {
   position: number;
   /** Phrase courte en français, pour l'admin. */
   detail: string;
-  /** Valeurs utiles au brouillon (car./ligne, ratio de taille…). */
+  /** Valeurs utiles au brouillon (mots par ligne, sens de l'écart…). */
   valeurs?: Record<string, number | string>;
 }
 
@@ -72,6 +88,7 @@ export interface JugementPaire {
 
 export interface Defaut {
   code: CodeDefaut;
+  niveau: Niveau;
   slides: number[];
   /** Part des slides comparables où l'écart est vu (1 pour les contrôles de post). */
   confiance: number;
@@ -80,32 +97,38 @@ export interface Defaut {
 }
 
 // ---------------------------------------------------------------------------
-// Seuils — à recalibrer sur le jeu de référence (voir docs/relecture-auto.md)
+// Seuils — calibrés le 15/10 sur 10 posts relus à l'œil (docs/relecture-auto.md)
 // ---------------------------------------------------------------------------
 
-/** Caractères par ligne publiés ÷ originaux : en dessous, paragraphe en colonne étroite. */
-export const SEUIL_LIGNES_COURTES = 0.72;
 /**
- * Largeur du paragraphe publiée ÷ originale : en dessous, colonne étroite même
- * si le texte, plus petit, garde autant de caractères par ligne (test du 15/10 :
- * 0,59 et 0,63 sur un post où la remarque « Jutifier » s'imposait à l'œil).
+ * Justification : largeur du paragraphe exprimée en hauteurs de ligne, publiée
+ * ÷ originale. Le pincement ne la change pas, seul le curseur de taille la
+ * change. En dessous, lignes trop courtes (le texte a été tapé trop gros puis
+ * pincé) ; au-dessus, lignes trop longues.
  */
-export const SEUIL_LARGEUR = 0.75;
-/** Au-dessus : lignes nettement plus longues que l'original. */
-export const SEUIL_LIGNES_LONGUES = 1.5;
+export const SEUIL_JUSTIF_COURTES = 0.75;
+export const SEUIL_JUSTIF_LONGUES = 1.35;
 /**
- * Hauteur de ligne publiée ÷ originale, rapportée à la largeur de l'image.
- * Calibré le 15/10 sur 10 posts relus à l'œil : les textes grossis à ×1,3
- * se voient nettement, ceux à ×1,1-1,2 passent pour fidèles.
+ * Taille à l'écran (le pincement) : hauteur de ligne rapportée à la largeur de
+ * l'image. Volontairement large : on ne relève qu'un écart qui se voit au
+ * premier coup d'œil.
  */
-export const SEUIL_TAILLE_MIN = 0.8;
-export const SEUIL_TAILLE_MAX = 1.25;
+export const SEUIL_TAILLE_MIN = 0.7;
+export const SEUIL_TAILLE_MAX = 1.4;
 /** Le titre de l'original est plus grand que son corps d'au moins ce facteur. */
 export const SEUIL_HIERARCHIE = 1.15;
-/** Écart vertical du centre du texte, en fraction de la hauteur de l'image. */
-export const SEUIL_PLACEMENT = 0.2;
-/** Paragraphe assez long pour juger sa forme. */
-const MIN_CARACTERES_FORME = 60;
+/** Écart vertical du centre du texte, en fraction de la hauteur (info admin). */
+export const SEUIL_PLACEMENT = 0.25;
+/** Au plus autant de points dans une review : au-delà, le créateur décroche. */
+export const MAX_POINTS_REVIEW = 2;
+
+/** Ce qui peut partir dans la review, du plus important au moins important. */
+const PRIORITE: CodeDefaut[] = [
+  "texte_absent", "justification", "hierarchie", "taille", "alignement", "couleur", "effet",
+  "nb_slides", "musique",
+];
+/** Mesuré, montré à l'admin, jamais envoyé : la mesure est trop fragile ou l'écart secondaire. */
+const INFO: CodeDefaut[] = ["gras", "police", "placement"];
 
 // ---------------------------------------------------------------------------
 // Mesure : prompt et parsing
@@ -121,8 +144,8 @@ Pour chaque bloc :
 - x, y, w, h : boîte SERRÉE autour des lettres, en fractions 0..1 de l'image (origine en haut à gauche), sans marge
 - lignes : nombre de lignes VISUELLES affichées (compte-les une par une)
 - texte : transcription exacte, en respectant les retours à la ligne AFFICHÉS (un \\n entre deux lignes visuelles)
-- couleur : couleur de remplissage des lettres en #RRGGBB (pas le contour)
-- contour : true seulement si chaque lettre a un contour ou une ombre nette
+- couleur : couleur de remplissage des lettres en #RRGGBB (pas le contour, pas le fond)
+- effet : "contour" si chaque lettre a un contour ou une ombre nette, "fond" si le texte est posé sur un fond (bandeau, pastille, encadré plein ou translucide), "aucun" sinon
 - gras : true si les lettres sont nettement grasses
 - alignement : "gauche", "centre" ou "droite", d'après les bords des lignes
 
@@ -130,7 +153,7 @@ Enfin, compare les deux images :
 - police_identique : true si B utilise la même police que A (même famille de caractères ET même graisse), false sinon
 
 Réponds UNIQUEMENT par un objet JSON, sans texte autour :
-{"a":[{"role":"titre","x":0.1,"y":0.3,"w":0.8,"h":0.06,"lignes":1,"texte":"...","couleur":"#FFFFFF","contour":false,"gras":true,"alignement":"centre"}],"b":[...],"police_identique":true}`;
+{"a":[{"role":"titre","x":0.1,"y":0.3,"w":0.8,"h":0.06,"lignes":1,"texte":"...","couleur":"#FFFFFF","effet":"aucun","gras":true,"alignement":"centre"}],"b":[...],"police_identique":true}`;
 
 function nombre(v: unknown): number | null {
   const n = typeof v === "string" ? Number(v) : v;
@@ -151,6 +174,15 @@ function alignementDe(v: unknown): Alignement {
   if (s.startsWith("g") || s.startsWith("l")) return "gauche";
   if (s.startsWith("d") || s.startsWith("r")) return "droite";
   return "centre";
+}
+
+function effetDe(item: Record<string, unknown>): Effet {
+  const s = String(item.effet ?? item.effect ?? "").toLowerCase();
+  if (s.startsWith("f") || s.startsWith("b")) return "fond";
+  if (s.startsWith("c") || s.startsWith("o") || s.startsWith("s")) return "contour";
+  if (s.startsWith("a") || s.startsWith("n")) return "aucun";
+  // Ancien format : un booléen de contour.
+  return vrai(item.contour ?? item.ombre) ? "contour" : "aucun";
 }
 
 /** Lignes non vides de la transcription. */
@@ -182,7 +214,7 @@ function parserBloc(item: any): BlocTexte | null {
     lignes,
     texte,
     couleur: couleurHex(item.couleur ?? item.color),
-    contour: vrai(item.contour ?? item.ombre ?? item.stroke),
+    effet: effetDe(item),
     gras: vrai(item.gras ?? item.bold),
     alignement: alignementDe(item.alignement ?? item.align),
   };
@@ -226,11 +258,18 @@ export function parserMesure(reponse: string): Mesure | null {
 
 const aire = (b: BlocTexte) => b.w * b.h;
 
-/** Le paragraphe principal : le plus grand bloc « corps », à défaut le plus grand bloc. */
+/**
+ * Le paragraphe principal : le plus grand bloc, sauf si un bloc « corps » pèse
+ * au moins 40 % de celui-ci (on préfère alors le corps au titre). Un petit
+ * sous-titre ne doit pas passer pour le texte de la slide.
+ */
 export function blocPrincipal(blocs: BlocTexte[]): BlocTexte | null {
-  const corps = blocs.filter((b) => b.role === "corps");
-  const pool = corps.length > 0 ? corps : blocs;
-  return pool.reduce<BlocTexte | null>((m, b) => (!m || aire(b) > aire(m) ? b : m), null);
+  const plusGrand = blocs.reduce<BlocTexte | null>((m, b) => (!m || aire(b) > aire(m) ? b : m), null);
+  if (!plusGrand) return null;
+  const corps = blocs
+    .filter((b) => b.role === "corps" && aire(b) >= 0.4 * aire(plusGrand))
+    .sort((p, q) => aire(q) - aire(p));
+  return corps[0] ?? plusGrand;
 }
 
 function titreAuDessus(blocs: BlocTexte[], corps: BlocTexte): BlocTexte | null {
@@ -238,22 +277,36 @@ function titreAuDessus(blocs: BlocTexte[], corps: BlocTexte): BlocTexte | null {
   return titres.sort((p, q) => q.y - p.y)[0] ?? null;
 }
 
-/** Caractères par ligne visuelle. */
-export function caracteresParLigne(b: BlocTexte): number {
-  const total = lignesTexte(b.texte).join(" ").length;
-  return total / b.lignes;
+/** Hauteur d'une ligne en pixels. */
+function hauteurLignePx(b: BlocTexte, m: MesureSlide): number {
+  return (b.h * m.hauteurPx) / b.lignes;
 }
 
 /**
- * Hauteur d'une ligne rapportée à la LARGEUR de l'image : dans TikTok, la
- * taille du texte se juge par rapport à la largeur de l'écran, et les deux
- * images n'ont pas toujours le même format.
+ * Taille à l'écran : hauteur d'une ligne rapportée à la LARGEUR de l'image (dans
+ * TikTok, la taille se juge par rapport à la largeur de l'écran, et les deux
+ * images n'ont pas toujours le même format).
  */
 export function hauteurLigne(b: BlocTexte, m: MesureSlide): number {
-  return (b.h * m.hauteurPx) / (b.lignes * m.largeurPx);
+  return hauteurLignePx(b, m) / m.largeurPx;
 }
 
-/** Famille de couleur : les nuances proches (blanc / blanc cassé) se confondent. */
+/**
+ * Justification : largeur du paragraphe en hauteurs de ligne. Le pincement
+ * agrandit largeur et hauteur de ligne ensemble, ce rapport ne bouge pas ;
+ * seul le curseur de taille (où se coupent les lignes) le change.
+ */
+export function largeurEnLignes(b: BlocTexte, m: MesureSlide): number {
+  return (b.w * m.largeurPx) / hauteurLignePx(b, m);
+}
+
+/** Mots par ligne, arrondis, pour parler au créateur en mots plutôt qu'en ratios. */
+export function motsParLigne(b: BlocTexte): number {
+  const mots = lignesTexte(b.texte).join(" ").split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(mots / b.lignes));
+}
+
+/** Famille de couleur : les nuances proches (blanc / blanc cassé / crème) se confondent. */
 export function familleCouleur(hex: string): string {
   const v = parseInt(hex.slice(1), 16);
   const r = (v >> 16) & 255, g = (v >> 8) & 255, b = v & 255;
@@ -284,6 +337,8 @@ function centreVertical(blocs: BlocTexte[]): number {
 
 const arrondi = (n: number, d = 2) => Math.round(n * 10 ** d) / 10 ** d;
 
+const EFFET_FR: Record<Effet, string> = { aucun: "sans effet", contour: "avec contour", fond: "sur un fond" };
+
 // ---------------------------------------------------------------------------
 // Jugement d'une paire original / publié
 // ---------------------------------------------------------------------------
@@ -311,34 +366,35 @@ export function jugerPaire(
   const pa = blocPrincipal(a.blocs)!;
   const pb = blocPrincipal(b.blocs)!;
 
-  // Forme du paragraphe (« Jutifier ») : longueur des lignes, quelle que soit la taille.
+  // Justification : où se coupent les lignes, indépendamment de la taille.
   const charsA = lignesTexte(pa.texte).join(" ").length;
   const charsB = lignesTexte(pb.texte).join(" ").length;
   if (
-    charsA >= MIN_CARACTERES_FORME && charsB >= MIN_CARACTERES_FORME &&
-    Math.max(pa.lignes, pb.lignes) >= 3
+    pa.lignes >= 2 && pb.lignes >= 2 && Math.max(pa.lignes, pb.lignes) >= 3 &&
+    charsA >= 40 && charsB >= 40
   ) {
-    evalues.push("forme_paragraphe");
-    const cplA = caracteresParLigne(pa);
-    const cplB = caracteresParLigne(pb);
-    const ratio = cplB / cplA;
-    const largeur = pb.w / pa.w;
-    const valeurs = { cpl_original: Math.round(cplA), cpl_publie: Math.round(cplB), lignes_original: pa.lignes, lignes_publie: pb.lignes, largeur: arrondi(largeur) };
-    if (largeur < SEUIL_LARGEUR && pb.lignes >= 3) {
-      ajouter("forme_paragraphe", `colonne étroite : paragraphe ${Math.round((1 - largeur) * 100)} % moins large que l'original (${pb.lignes} lignes contre ${pa.lignes})`, { ...valeurs, sens: "courtes" });
-    } else if (ratio < SEUIL_LIGNES_COURTES) {
-      ajouter("forme_paragraphe", `lignes trop courtes : ${Math.round(cplB)} car./ligne contre ${Math.round(cplA)} (${pb.lignes} lignes contre ${pa.lignes})`, { ...valeurs, sens: "courtes" });
-    } else if (ratio > SEUIL_LIGNES_LONGUES) {
-      ajouter("forme_paragraphe", `lignes trop longues : ${Math.round(cplB)} car./ligne contre ${Math.round(cplA)}`, { ...valeurs, sens: "longues" });
+    evalues.push("justification");
+    const j = largeurEnLignes(pb, b) / largeurEnLignes(pa, a);
+    const valeurs = {
+      mots_original: motsParLigne(pa),
+      mots_publie: motsParLigne(pb),
+      lignes_original: pa.lignes,
+      lignes_publie: pb.lignes,
+      j: arrondi(j),
+    };
+    if (j < SEUIL_JUSTIF_COURTES) {
+      ajouter("justification", `lignes trop courtes : environ ${valeurs.mots_publie} mots par ligne contre ${valeurs.mots_original} dans l'original (${pb.lignes} lignes contre ${pa.lignes})`, { ...valeurs, sens: "courtes" });
+    } else if (j > SEUIL_JUSTIF_LONGUES) {
+      ajouter("justification", `lignes trop longues : environ ${valeurs.mots_publie} mots par ligne contre ${valeurs.mots_original} dans l'original`, { ...valeurs, sens: "longues" });
     }
   }
 
-  // Taille du texte.
+  // Taille à l'écran (le pincement).
   evalues.push("taille");
   const ratioTaille = hauteurLigne(pb, b) / hauteurLigne(pa, a);
   if (ratioTaille < SEUIL_TAILLE_MIN || ratioTaille > SEUIL_TAILLE_MAX) {
     const sens = ratioTaille > 1 ? "plus grand" : "plus petit";
-    ajouter("taille", `texte ${sens} que l'original (×${arrondi(ratioTaille, 1)})`, { ratio: arrondi(ratioTaille), sens });
+    ajouter("taille", `texte nettement ${sens} que l'original (×${arrondi(ratioTaille, 1)})`, { ratio: arrondi(ratioTaille), sens });
   }
 
   // Hiérarchie titre / corps : l'original distingue un titre, le publié non.
@@ -353,28 +409,26 @@ export function jugerPaire(
         hauteurLigne(titreB, b) / hauteurLigne(pb, b) >= 1.08 ||
         titreB.gras !== pb.gras || familleCouleur(titreB.couleur) !== familleCouleur(pb.couleur)
       );
-      if (!distinctB) ajouter("hierarchie", "titre et corps à la même taille, dans le même style");
+      if (!distinctB) ajouter("hierarchie", "titre et paragraphe à la même taille, dans le même style");
     }
   }
 
-  // Style : couleur, contour, graisse du paragraphe principal.
-  evalues.push("couleur", "contour", "gras");
+  // Style du paragraphe principal : couleur et effet (envoyés), graisse et police (info).
+  evalues.push("couleur", "effet", "gras");
   const famA = familleCouleur(pa.couleur), famB = familleCouleur(pb.couleur);
-  if (famA !== famB) ajouter("couleur", `couleur ${famB} au lieu de ${famA}`, { original: famA, publie: famB });
-  if (pa.contour !== pb.contour) {
-    ajouter("contour", pb.contour ? "contour ou ombre ajouté sur les lettres" : "contour de l'original absent", { original: String(pa.contour), publie: String(pb.contour) });
+  if (famA !== famB) ajouter("couleur", `texte ${famB} au lieu de ${famA}`, { original: famA, publie: famB });
+  if (pa.effet !== pb.effet) {
+    ajouter("effet", `texte ${EFFET_FR[pb.effet]} au lieu de ${EFFET_FR[pa.effet]}`, { original: pa.effet, publie: pb.effet });
   }
   if (pa.gras !== pb.gras) {
     ajouter("gras", pb.gras ? "texte en gras, l'original ne l'est pas" : "gras de l'original perdu", { original: String(pa.gras), publie: String(pb.gras) });
   }
-
-  // Police et graisse : comparées directement par le modèle sur les deux images.
   if (policeIdentique !== null) {
     evalues.push("police");
-    if (!policeIdentique) ajouter("police", "police ou graisse différente de l'original");
+    if (!policeIdentique) ajouter("police", "police ou graisse peut-être différente de l'original (à vérifier)");
   }
 
-  // Alignement, seulement s'il a un sens (au moins 2 lignes de chaque côté).
+  // Alignement du paragraphe principal, s'il a un sens (2 lignes ou plus de chaque côté).
   if (pa.lignes >= 2 && pb.lignes >= 2) {
     evalues.push("alignement");
     if (pa.alignement !== pb.alignement) {
@@ -382,7 +436,7 @@ export function jugerPaire(
     }
   }
 
-  // Placement vertical de l'ensemble du texte.
+  // Placement vertical de l'ensemble du texte (info).
   evalues.push("placement");
   const ecart = centreVertical(b.blocs) - centreVertical(a.blocs);
   if (Math.abs(ecart) > SEUIL_PLACEMENT) {
@@ -399,11 +453,10 @@ export function jugerPaire(
 /**
  * Un défaut n'est retenu que s'il se répète : vu sur au moins la moitié des
  * slides où la règle s'applique, et sur 2 slides dès qu'il y en a 2 à juger.
- * Une mesure ratée sur une slide ne suffit donc pas à envoyer une remarque.
+ * Une mesure ratée sur une slide ne suffit donc pas à faire une remarque.
  *
  * Exception : l'alignement. Souvent seule l'accroche a un alignement propre
- * (à gauche quand le reste est centré), et le modèle le lit sans erreur sur
- * les posts relus à l'œil : une slide suffit.
+ * (à gauche quand le reste est centré) : une slide suffit.
  */
 const VU_SUR_UNE_SLIDE: CodeDefaut[] = ["alignement"];
 
@@ -425,19 +478,24 @@ export function agreger(jugements: JugementPaire[]): Defaut[] {
     const premier = e.constats[0];
     defauts.push({
       code,
+      niveau: INFO.includes(code) ? "info" : "remarque",
       slides: e.constats.map((c) => c.position).sort((p, q) => p - q),
       confiance: arrondi(vus / e.evalues),
       detail: premier.detail,
       valeurs: premier.valeurs,
     });
   }
-  return defauts.sort((p, q) => ORDRE.indexOf(p.code) - ORDRE.indexOf(q.code));
+  return trier(defauts);
 }
 
-const ORDRE: CodeDefaut[] = [
-  "forme_paragraphe", "taille", "hierarchie", "alignement", "police", "couleur", "contour", "gras",
-  "placement", "texte_absent", "nb_slides", "musique",
-];
+function rang(code: CodeDefaut): number {
+  const i = PRIORITE.indexOf(code);
+  return i >= 0 ? i : PRIORITE.length + INFO.indexOf(code);
+}
+
+export function trier(defauts: Defaut[]): Defaut[] {
+  return [...defauts].sort((p, q) => rang(p.code) - rang(q.code));
+}
 
 /** Contrôles du post entier : nombre de slides et son fourni. */
 export function controlesPost(input: {
@@ -450,6 +508,7 @@ export function controlesPost(input: {
   if (input.slidesPubliees > 0 && input.slidesPubliees !== input.slidesAttendues) {
     out.push({
       code: "nb_slides",
+      niveau: "remarque",
       slides: [],
       confiance: 1,
       detail: `${input.slidesPubliees} slides publiées au lieu de ${input.slidesAttendues}`,
@@ -457,7 +516,7 @@ export function controlesPost(input: {
     });
   }
   if (input.musiqueAttendueId && input.musiquePublieeId && input.musiqueAttendueId !== input.musiquePublieeId) {
-    out.push({ code: "musique", slides: [], confiance: 1, detail: "le son n'est pas celui fourni" });
+    out.push({ code: "musique", niveau: "remarque", slides: [], confiance: 1, detail: "le son n'est pas celui fourni" });
   }
   return out;
 }
@@ -470,7 +529,7 @@ export function idMusique(url: string | null | undefined): string | null {
 
 /**
  * Slides à comparer : l'accroche, puis les deux slides au texte le plus long
- * (ce sont elles qui montrent la forme du paragraphe). Jamais la slide de
+ * (ce sont elles qui montrent la justification). Jamais la slide de
  * l'appli, qui n'a pas d'équivalent dans l'original.
  */
 export function choisirPositions(
@@ -495,14 +554,12 @@ export interface RemarqueType {
   corps: string;
 }
 
-/** Remarque-type de la file qui couvre chaque défaut, retrouvée par son titre. */
+/** Remarque-type de la file (et sa vidéo tuto) qui couvre chaque défaut, retrouvée par son titre. */
 const REMARQUE_DU_CODE: Partial<Record<CodeDefaut, RegExp>> = {
-  forme_paragraphe: /justif|jutif/i,
+  justification: /justif|jutif/i,
   taille: /not the same|style/i,
   couleur: /not the same|style/i,
-  contour: /not the same|style/i,
-  gras: /not the same|style/i,
-  police: /not the same|style/i,
+  effet: /not the same|style/i,
   hierarchie: /corpus|head/i,
 };
 
@@ -512,68 +569,111 @@ function slidesEn(slides: number[]): string {
   return `slides ${slides.slice(0, -1).join(", ")} and ${slides[slides.length - 1]}`;
 }
 
-function phraseAnglaise(d: Defaut): string {
-  const ou = d.slides.length ? `On ${slidesEn(d.slides)}, ` : "";
-  const v = d.valeurs ?? {};
-  switch (d.code) {
-    case "forme_paragraphe":
-      return v.sens === "longues"
-        ? `${ou}the lines run much longer than in the original (${v.cpl_publie} characters per line instead of ${v.cpl_original}).`
-        : `${ou}the paragraph is a narrow column (${v.lignes_publie} lines instead of ${v.lignes_original}). Make the lines as long as in the original.`;
-    case "taille":
-      return `${ou}the text is about ${Number(v.ratio).toFixed(1)}× ${v.sens === "plus grand" ? "bigger" : "smaller"} than in the original.`;
-    case "hierarchie":
-      return `${ou}the title and the body look the same: the title should stand out like in the original.`;
-    case "alignement":
-      return `${ou}the text is ${v.publie === "centre" ? "centered" : `${v.publie === "gauche" ? "left" : "right"}-aligned`}, the original is ${v.original === "centre" ? "centered" : `${v.original === "gauche" ? "left" : "right"}-aligned`}.`;
-    case "couleur":
-      return `${ou}the text color is not the original one (original: ${COULEURS_EN[String(v.original)] ?? v.original}).`;
-    case "contour":
-      return `${ou}${v.publie === "true" ? "the letters have an outline or shadow that the original does not have" : "the outline of the original letters is missing"}.`;
-    case "gras":
-      return `${ou}${v.publie === "true" ? "the text is bold, the original is not" : "the original text is bold, yours is not"}.`;
-    case "police":
-      return `${ou}the font is not the one of the original (typeface or weight).`;
-    case "placement":
-      return `${ou}the text sits much ${v.sens === "bas" ? "lower" : "higher"} than in the original.`;
-    case "texte_absent":
-      return `${ou}there is no text.`;
-    case "nb_slides":
-      return `The post has ${v.publie} slides instead of ${v.attendu}.`;
-    case "musique":
-      return "Please use the sound provided with the slideshow.";
-  }
-}
-
 const COULEURS_EN: Record<string, string> = {
   blanc: "white", noir: "black", gris: "grey", rouge: "red", orange: "orange",
   jaune: "yellow", vert: "green", bleu: "blue", violet: "purple", rose: "pink",
 };
+const EFFETS_EN: Record<string, string> = {
+  aucun: "plain, with no outline or background",
+  contour: "with an outline around the letters",
+  fond: "on a background box",
+};
+const ALIGN_EN: Record<string, string> = { gauche: "left-aligned", centre: "centered", droite: "right-aligned" };
 
 /**
- * Brouillon prêt à relire : la remarque-type de chaque famille (avec sa vidéo
- * tuto côté file), suivie des constats précis. `remarques` garde le même format
- * que `reviews.remarques`, pour que le compteur « 3× » par créateur continue de
- * marcher quand la review sera envoyée.
+ * Un point de review, comme l'écrirait un manager : ce qui se voit, puis le
+ * geste exact dans l'éditeur de TikTok. Jamais de ratio ni de pourcentage.
+ */
+export function pointAnglais(d: Defaut): string {
+  const sur = d.slides.length ? `On ${slidesEn(d.slides)}, ` : "";
+  const v = d.valeurs ?? {};
+  switch (d.code) {
+    case "justification":
+      return v.sens === "longues"
+        ? `${sur}your lines are longer than in the original (about ${v.mots_publie} words per line, the original has about ${v.mots_original}), so the text looks stretched. Tap the text, move the size slider up until the lines break like in the original, tap Done, then pinch it back to the right size.`
+        : `${sur}your paragraph is cut into short lines (about ${v.mots_publie} words per line, the original has about ${v.mots_original}), so it looks like a thin column instead of a block. Tap the text, move the size slider down until each line holds about as many words as in the original, tap Done, then pinch it back to the right size. Pinching never changes where the lines break, only the slider does.`;
+    case "taille":
+      return v.sens === "plus grand"
+        ? `${sur}the text is clearly bigger than in the original and covers more of the picture. Pinch it down a little so it takes the same space as in the original.`
+        : `${sur}the text is clearly smaller than in the original, so it is harder to read on a phone. Pinch it up a little so it takes the same space as in the original.`;
+    case "hierarchie":
+      return `${sur}the title and the paragraph look the same. Put the title in its own text box, a bit bigger than the paragraph, like in the original.`;
+    case "alignement":
+      return `${sur}the text is ${ALIGN_EN[String(v.publie)]} while the original is ${ALIGN_EN[String(v.original)]}. Tap the alignment button (the lines icon at the top of the text editor) until it matches.`;
+    case "couleur":
+      return `${sur}the text is ${COULEURS_EN[String(v.publie)] ?? v.publie} while the original is ${COULEURS_EN[String(v.original)] ?? v.original}. Pick the same color in the color row of the text editor.`;
+    case "effet":
+      return `${sur}the original text is ${EFFETS_EN[String(v.original)]}, yours is ${EFFETS_EN[String(v.publie)]}. Tap the A button at the top of the text editor until you get the same style.`;
+    case "texte_absent":
+      return `${sur}there is no text. Please add the text provided for this slide.`;
+    case "nb_slides":
+      return `The post has ${v.publie} slides instead of ${v.attendu}. Please use all the images provided, in the same order.`;
+    case "musique":
+      return "Please use the sound provided with the slideshow, it is part of what makes these posts work.";
+    default:
+      return "";
+  }
+}
+
+/**
+ * Brouillon prêt à relire : au plus MAX_POINTS_REVIEW points, les plus
+ * importants ; le reste est gardé pour l'admin. `remarques` garde le format
+ * de `reviews.remarques` (compteur « 3× » par créateur, vidéos tuto jointes).
+ * Ce brouillon est déjà lisible tel quel ; `relecture-auto` le fait ensuite
+ * reformuler par Gemini pour qu'il sonne moins mécanique.
  */
 export function redigerBrouillon(defauts: Defaut[], remarquesTypes: RemarqueType[]): {
   texte: string;
   remarques: Array<{ id: string; titre: string }>;
+  points: Defaut[];
 } {
-  if (defauts.length === 0) return { texte: "", remarques: [] };
+  const points = trier(defauts.filter((d) => d.niveau === "remarque")).slice(0, MAX_POINTS_REVIEW);
+  if (points.length === 0) return { texte: "", remarques: [], points: [] };
   const trouver = (re: RegExp) => remarquesTypes.find((r) => re.test(r.titre));
   const utilisees: RemarqueType[] = [];
   const bonjour = trouver(/hello/i);
   if (bonjour) utilisees.push(bonjour);
-  for (const d of defauts) {
+  for (const d of points) {
     const re = REMARQUE_DU_CODE[d.code];
     const r = re ? trouver(re) : undefined;
     if (r && !utilisees.includes(r)) utilisees.push(r);
   }
-  const paragraphes = utilisees.map((r) => r.corps.trim());
-  paragraphes.push(defauts.map(phraseAnglaise).join("\n"));
-  return {
-    texte: paragraphes.join("\n\n"),
-    remarques: utilisees.map((r) => ({ id: r.id, titre: r.titre })),
-  };
+  const ouverture = points.length === 1
+    ? "Hi! Thanks for your post. One small thing to make it match the original:"
+    : "Hi! Thanks for your post. Two small things to make it match the original:";
+  const texte = [ouverture, ...points.map(pointAnglais), "Keep it up!"].join("\n\n");
+  return { texte, remarques: utilisees.map((r) => ({ id: r.id, titre: r.titre })), points };
 }
+
+/**
+ * La reformulation de Gemini n'est gardée que si elle n'a rien perdu ni
+ * inventé : mêmes numéros de slides, pas de chiffres techniques, longueur
+ * raisonnable. Sinon on garde le brouillon déterministe.
+ */
+export function reformulationValide(brouillon: string, reformule: string): boolean {
+  const texte = reformule.trim();
+  if (texte.length < 40 || texte.length > Math.max(900, brouillon.length * 1.3)) return false;
+  if (/%|×|\bratio\b|```/i.test(texte)) return false;
+  const numeros = (s: string) =>
+    new Set([...s.matchAll(/slides?\s+((?:\d+(?:,\s*|\s+and\s+))*\d+)/gi)].flatMap((m) => m[1].match(/\d+/g) ?? []));
+  const attendus = numeros(brouillon);
+  const obtenus = numeros(texte);
+  for (const n of attendus) if (!obtenus.has(n)) return false;
+  for (const n of obtenus) if (!attendus.has(n)) return false;
+  return true;
+}
+
+/** Consigne de reformulation (Gemini) : garder chaque fait et chaque geste, changer le ton. */
+export const PROMPT_TON = `You are a friendly manager writing a short review to a TikTok creator (who may not be a native English speaker) about one of their slideshow posts.
+
+Rewrite the draft below so it sounds like a real person wrote it: warm, encouraging, simple English, short sentences.
+
+Rules:
+- Keep every fact, every slide number and every instruction exactly (what to tap, which slider, pinch). Do not add new problems or new advice.
+- No percentages, ratios or technical words. "About N words per line" is fine.
+- Start with one short positive sentence, then the points (one short paragraph each), then a one-line friendly closing.
+- At most 120 words.
+- Return only the message. No quotes, no markdown, no subject line.
+
+Draft:
+`;

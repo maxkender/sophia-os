@@ -2,9 +2,10 @@
  * Relecture automatique des posts publiés : drain de la file `relectures_auto`.
  *
  * Compare la mise en forme du texte retapé par le créateur à celle de
- * l'original (forme du paragraphe, taille, titre / corps, style, placement),
- * plus le nombre de slides et le son. Écrit les défauts et un brouillon de
- * review. N'ENVOIE RIEN au créateur.
+ * l'original (justification, taille, titre / corps, alignement, style), plus
+ * le nombre de slides et le son. Écrit les défauts et un brouillon de review
+ * (au plus deux points, rédigés puis reformulés par Gemini). N'ENVOIE RIEN au
+ * créateur.
  *
  *   {}                                              → un passage de drain
  *   { enfiler: { jour?, limite?, aleatoire? } }     → met un lot de test en file, puis draine
@@ -19,7 +20,7 @@
  */
 
 import { downloadMedia } from "../_shared/apify.ts";
-import { callWithFallback, type Part, TEXT_MODELS, textOf } from "../_shared/gemini.ts";
+import { callWithFallback, generateTextFast, type Part, TEXT_MODELS, textOf } from "../_shared/gemini.ts";
 import { dimensionsImage } from "../_shared/inpaint.ts";
 import {
   agreger,
@@ -31,7 +32,9 @@ import {
   type MesureSlide,
   parserMesure,
   PROMPT_MESURE,
+  PROMPT_TON,
   redigerBrouillon,
+  reformulationValide,
   type RemarqueType,
 } from "../_shared/relecture.ts";
 import {
@@ -287,6 +290,18 @@ async function mesurerPaire(position: number, urlOriginal: string, urlPublie: st
   return { position, original, publie, policeIdentique: mesure.policeIdentique };
 }
 
+/** Le brouillon déterministe dit juste ; Gemini le rend plus humain. En cas de doute, on garde le brouillon. */
+async function reformuler(brouillon: string): Promise<string> {
+  if (!brouillon) return brouillon;
+  try {
+    const brut = (await generateTextFast(`${PROMPT_TON}${brouillon}`)).trim();
+    const texte = brut.replace(/^```(?:\w+)?\n?/, "").replace(/\n?```$/, "").trim();
+    return reformulationValide(brouillon, texte) ? texte : brouillon;
+  } catch {
+    return brouillon;
+  }
+}
+
 async function analyserLigne(
   supabase: Client,
   ligne: LigneRelecture,
@@ -357,7 +372,7 @@ async function analyserLigne(
       statut: "fait",
       comparaisons,
       defauts,
-      brouillon: brouillon.texte || null,
+      brouillon: (await reformuler(brouillon.texte)) || null,
       remarques: brouillon.remarques,
       erreur: echecs.length ? `mesures partielles : ${echecs.join(" | ").slice(0, 500)}` : null,
       analyse_at: new Date().toISOString(),

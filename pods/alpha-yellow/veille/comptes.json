@@ -1,0 +1,4 @@
+{
+  "note": "Comptes relevés par `npm run veille`. Ajoute un compte trouvé par --decouvrir quand il fait des vues ce mois-ci (au moins un diaporama à 100 k vues en 30 jours) et que son format colle au label (accroche jaune, photos candides, items concrets). Retire un compte qui ne publie plus depuis 30 jours.",
+  "comptes": ["stonemag.co", "supermaxing"]
+}

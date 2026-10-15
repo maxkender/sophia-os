@@ -524,6 +524,85 @@ export function verifierOriginal(slides: Partial<SlideOriginale>[] | null | unde
 }
 
 // ---------------------------------------------------------------------------
+// Preuve d'un original (pod 4) : « uniquement des posts qui font des vues »
+// ---------------------------------------------------------------------------
+
+/**
+ * Pods dont chaque original doit arriver avec la PREUVE que son schéma
+ * d'accroche fait des vues aujourd'hui (décidé le 15/10 pour le pod 4).
+ */
+export const PODS_AVEC_PREUVE = new Set(["originaux_alpha_yellow"]);
+export const PREUVE_VUES_MIN = 200_000;
+export const PREUVE_JOURS_MAX = 30;
+export const PREUVE_R_MIN = 2;
+
+/**
+ * Un post TikTok de la niche (vues déclarées par l'agent, lien cliquable dans
+ * la file) ou un contenu du label (r recalculé par l'OS au dépôt).
+ */
+export type ReferencePreuve =
+  | { type: "tiktok"; url: string; vues: number; publie_le: string; enregistrements?: number | null }
+  | { type: "os"; contenu_id: string };
+
+export interface PreuveOriginal {
+  /** Le schéma d'accroche, tel qu'écrit dans le playbook du pod. */
+  schema: string;
+  references: ReferencePreuve[];
+}
+
+const URL_TIKTOK = /^https:\/\/www\.tiktok\.com\/@[\w.-]{2,40}\/(video|photo)\/\d{10,25}$/;
+const DATE_ISO = /^\d{4}-\d{2}-\d{2}$/;
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+const joursEntre = (debut: string, fin: string) =>
+  Math.round((Date.parse(`${fin}T00:00:00Z`) - Date.parse(`${debut}T00:00:00Z`)) / 86_400_000);
+
+/**
+ * Contrôle d'une preuve AVANT tout accès base. Rend les erreurs de forme, si
+ * une référence TikTok suffit déjà (≥ 200 k vues, publiée dans les 30 derniers
+ * jours) et les contenus du label dont l'OS doit recalculer le r.
+ */
+export function verifierPreuve(
+  preuve: unknown,
+  aujourdhui: string,
+): { erreurs: string[]; tiktokSuffit: boolean; contenusOs: string[] } {
+  const erreurs: string[] = [];
+  const p = (preuve ?? {}) as Partial<PreuveOriginal>;
+  const schema = String(p.schema ?? "").trim();
+  if (!schema) erreurs.push("preuve : schéma d'accroche manquant");
+  else if (schema.length > 200) erreurs.push("preuve : schéma trop long (200 caractères au plus)");
+  const refs = Array.isArray(p.references) ? p.references : [];
+  if (!refs.length || refs.length > 6) erreurs.push(`preuve : ${refs.length} référence(s) (1 à 6 attendues)`);
+  let tiktokSuffit = false;
+  const contenusOs: string[] = [];
+  for (const [i, ref] of refs.entries()) {
+    const r = (ref ?? {}) as Record<string, unknown>;
+    if (r.type === "tiktok") {
+      const urlOk = URL_TIKTOK.test(String(r.url ?? ""));
+      const vues = Number(r.vues);
+      const vuesOk = Number.isInteger(vues) && vues >= 0;
+      const date = String(r.publie_le ?? "");
+      if (!urlOk) erreurs.push(`preuve #${i + 1} : lien TikTok invalide`);
+      if (!vuesOk) erreurs.push(`preuve #${i + 1} : vues invalides`);
+      if (!DATE_ISO.test(date) || Number.isNaN(Date.parse(date))) {
+        erreurs.push(`preuve #${i + 1} : date de publication invalide (AAAA-MM-JJ)`);
+      } else if (date > aujourdhui) {
+        erreurs.push(`preuve #${i + 1} : date de publication dans le futur`);
+      } else if (urlOk && vuesOk && vues >= PREUVE_VUES_MIN && joursEntre(date, aujourdhui) <= PREUVE_JOURS_MAX) {
+        tiktokSuffit = true;
+      }
+    } else if (r.type === "os") {
+      const id = String(r.contenu_id ?? "");
+      if (UUID.test(id)) contenusOs.push(id.toLowerCase());
+      else erreurs.push(`preuve #${i + 1} : contenu_id invalide (uuid complet attendu)`);
+    } else {
+      erreurs.push(`preuve #${i + 1} : type « tiktok » ou « os » attendu`);
+    }
+  }
+  return { erreurs, tiktokSuffit, contenusOs: [...new Set(contenusOs)] };
+}
+
+// ---------------------------------------------------------------------------
 // Vidéos par compte (pod 3, réactions UGC)
 // ---------------------------------------------------------------------------
 

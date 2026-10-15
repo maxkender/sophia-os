@@ -19,6 +19,18 @@ export interface SlideLivraison {
   reference_url?: string;
 }
 
+/** Pod 4 : une référence de la preuve, telle que vérifiée par l'OS au dépôt. */
+export type ReferencePreuve =
+  | { type: "tiktok"; url: string; vues: number; publie_le: string; enregistrements: number | null }
+  | { type: "os"; contenu_id: string; publies: number; r_median: number | null };
+
+/** Pod 4 : pourquoi cet original devrait faire des vues (schéma d'accroche et ses preuves). */
+export interface PreuveOriginal {
+  schema: string;
+  verifiee_le: string;
+  references: ReferencePreuve[];
+}
+
 export interface Livraison {
   id: string;
   pod: string;
@@ -42,10 +54,12 @@ export interface Livraison {
   contenu_id: string | null;
   created_at: string;
   decide_le: string | null;
+  /** Original d'un pod à preuve (pod 4) : rangée dans `transcription.preuve`. */
+  preuve?: PreuveOriginal | null;
 }
 
 const COLONNES =
-  "id, pod, type, source_url, source_vues, titre, langue_source, musique_titre, musique_url, decks, statut, motif, note_import, tier, contenu_id, created_at, decide_le";
+  "id, pod, type, source_url, source_vues, titre, langue_source, musique_titre, musique_url, decks, statut, motif, note_import, tier, contenu_id, created_at, decide_le, preuve:transcription->preuve";
 
 export interface Pod {
   slug: string;

@@ -23,6 +23,11 @@
  *       (reference_url). Validé, il devient un contenu CLASSIQUE au rang
  *       TIER_ORIGINAL : images sans texte, texte à part, traduit et placé à
  *       l'assignation pour les autres langues.
+ *       Pods de PODS_AVEC_PREUVE (pod 4) : `preuve` obligatoire,
+ *         { schema, references: [{ type: "tiktok", url, vues, publie_le },
+ *                                { type: "os", contenu_id }] }
+ *       Il faut un post de la niche à 200 k vues ou plus publié dans les
+ *       30 derniers jours, ou un contenu du label à r ≥ 2 (recalculé ici).
  *
  *   { action: "label", pod, limite? }   — agent : contenus du label avec texte
  *       source, rang et vues chez nous (de quoi voir ce qui marche).
@@ -41,7 +46,8 @@
  *   { action: "rejeter", id, motif? }   — admin
  *
  *   { action: "etat", pod }   — agent du pod (lecture seule) : file, rangs et
- *       vues des contenus en ligne, comptes du label par langue.
+ *       vues des contenus en ligne (avec le r de chaque passage mûr), comptes
+ *       du label par langue.
  *
  * Redéposer un post en attente remplace ses langues redéposées. Déposer une
  * langue pour un post déjà validé crée une livraison « langues » (à valider)
@@ -58,6 +64,10 @@ import {
   ecrireDecksApplications,
   estSlideApp,
   metadonneesJpeg,
+  PODS_AVEC_PREUVE,
+  PREUVE_JOURS_MAX,
+  PREUVE_R_MIN,
+  PREUVE_VUES_MIN,
   prochainJour,
   sha256Hex,
   TIER_ORIGINAL,
@@ -65,10 +75,12 @@ import {
   type ItemVideo,
   verifierDepot,
   verifierOriginal,
+  verifierPreuve,
   type DeckDepose,
   type DecksApplicationsDeposes,
   type DecksApplicationsLivres,
   type SlideAppLivree,
+  type PreuveOriginal,
   type SlideOriginale,
   verifierDecksApplications,
 } from "../_shared/pods.ts";
@@ -718,13 +730,17 @@ async function etat(request: Request, supabase: Supabase, slug: string) {
     const langue = (c as any).comptes?.langue ?? "?";
     parLangue[langue] = (parLangue[langue] ?? 0) + 1;
   }
+  // Ce que vaut chaque contenu chez nous, à audience égale (r par passage mûr) :
+  // de quoi couper tôt un original qui flop et décliner celui qui marche.
+  const chezNous = contenuIds.length ? await statsPassages(supabase, contenuIds as string[]) : new Map();
   return json({
     ok: true,
     pod: { slug: pod.slug, actif: pod.actif },
     comptes_du_label_par_langue: parLangue,
     // deno-lint-ignore no-explicit-any
     livraisons: (livraisons ?? []).map((l: any) => ({ ...l, decks: undefined, langues: Object.keys(l.decks ?? {}) })),
-    perfs: perfs ?? [],
+    // deno-lint-ignore no-explicit-any
+    perfs: (perfs ?? []).map((p: any) => ({ ...p, chez_nous: chezNous.get(p.contenu_id) ?? null })),
   });
 }
 
@@ -767,6 +783,12 @@ async function deposerOriginal(request: Request, supabase: Supabase, body: Recor
   const erreurs = verifierOriginal(slides);
   if (!erreurs.length) erreurs.push(...(await verifierImagesDuLabel(supabase, pod.label_id, slides.map((s) => s.media_id))));
   if (erreurs.length) return json({ ok: false, error: erreurs.join(" · ") }, 400);
+  let preuve: Record<string, unknown> | null = null;
+  if (PODS_AVEC_PREUVE.has(pod.slug)) {
+    const p = await preuveVerifiee(supabase, pod.label_id, body.preuve);
+    if ("erreur" in p) return json({ ok: false, error: p.erreur }, 400);
+    preuve = p.preuve;
+  }
 
   const { data: existante } = await supabase
     .from("pod_livraisons")
@@ -811,6 +833,7 @@ async function deposerOriginal(request: Request, supabase: Supabase, body: Recor
       textes: deck.map((s) => s.texte_overlay),
       legende: titre,
       inspirations: Array.isArray(body.inspirations) ? body.inspirations.map(String).slice(0, 20) : [],
+      ...(preuve ? { preuve } : {}),
     },
     statut: "a_valider",
   };
@@ -820,7 +843,72 @@ async function deposerOriginal(request: Request, supabase: Supabase, body: Recor
     .select("id")
     .single();
   if (error || !l) throw new Error(`livraison : ${messageErreur(error)}`);
-  return json({ ok: true, id: l.id, type: "original" });
+  return json({ ok: true, id: l.id, type: "original", ...(preuve ? { preuve } : {}) });
+}
+
+/**
+ * Pod 4 : la preuve que le schéma d'accroche fait des vues AUJOURD'HUI. Un post
+ * de la niche à 200 k vues ou plus publié dans les 30 derniers jours (vues
+ * déclarées par l'agent, lien cliquable dans la file), ou un contenu du label
+ * à r ≥ 2 sur au moins 3 passages, recalculé ici. Rend la preuve telle
+ * qu'affichée dans la file, mesures de l'OS comprises.
+ */
+async function preuveVerifiee(
+  supabase: Supabase,
+  labelId: string,
+  brute: unknown,
+): Promise<{ erreur: string } | { preuve: Record<string, unknown> }> {
+  const aujourdhui = new Date().toISOString().slice(0, 10);
+  const { erreurs, tiktokSuffit, contenusOs } = verifierPreuve(brute, aujourdhui);
+  if (erreurs.length) return { erreur: erreurs.join(" · ") };
+  const p = brute as PreuveOriginal;
+  const mesures = new Map<string, { publies: number; r_median: number | null }>();
+  if (contenusOs.length) {
+    const { data: liens } = await supabase
+      .from("contenu_labels")
+      .select("contenu_id")
+      .eq("label_id", labelId)
+      .in("contenu_id", contenusOs)
+      .limit(contenusOs.length);
+    const duLabel = new Set((liens ?? []).map((l: { contenu_id: string }) => l.contenu_id));
+    const horsLabel = contenusOs.filter((id) => !duLabel.has(id));
+    if (horsLabel.length) return { erreur: `preuve : contenu(s) hors du label : ${horsLabel.join(", ")}` };
+    for (const [id, s] of await statsPassages(supabase, contenusOs)) {
+      mesures.set(id, { publies: s.publies, r_median: s.r_median });
+    }
+  }
+  const osSuffit = [...mesures.values()].some((m) => (m.r_median ?? 0) >= PREUVE_R_MIN);
+  if (!tiktokSuffit && !osSuffit) {
+    return {
+      erreur:
+        `preuve insuffisante : il faut un post de la niche à ${PREUVE_VUES_MIN} vues ou plus publié dans les ` +
+        `${PREUVE_JOURS_MAX} derniers jours, ou un contenu du label à r ≥ ${PREUVE_R_MIN} (3 passages au moins)` +
+        (mesures.size
+          ? ` ; mesuré : ${[...contenusOs].map((id) => `${id.slice(0, 8)} r ${mesures.get(id)?.r_median ?? "—"}`).join(", ")}`
+          : ""),
+    };
+  }
+  return {
+    preuve: {
+      schema: p.schema.trim(),
+      verifiee_le: aujourdhui,
+      references: p.references.map((r) =>
+        r.type === "os"
+          ? {
+            type: "os",
+            contenu_id: r.contenu_id.toLowerCase(),
+            ...(mesures.get(r.contenu_id.toLowerCase()) ?? { publies: 0, r_median: null }),
+          }
+          : {
+            type: "tiktok",
+            url: r.url,
+            vues: Number(r.vues),
+            publie_le: r.publie_le,
+            enregistrements: r.enregistrements == null ? null : Number(r.enregistrements),
+          }
+      ),
+    },
+  };
 }
 
 /**
@@ -1088,7 +1176,18 @@ async function statsPassages(supabase: Supabase, contenuIds: string[]) {
     if (m > 0) e.r.push(Number(p.vues) / m);
     parContenu.set(p.contenu_id, e);
   }
-  const sortie = new Map<string, { publies: number; vues_mediane: number; vues_moyenne: number; vues_max: number; r_median: number | null }>();
+  const sortie = new Map<
+    string,
+    {
+      publies: number;
+      vues_mediane: number;
+      vues_moyenne: number;
+      vues_max: number;
+      r_median: number | null;
+      r_passages: number[];
+      vues_passages: number[];
+    }
+  >();
   for (const [id, e] of parContenu) {
     sortie.set(id, {
       publies: e.vues.length,
@@ -1097,6 +1196,9 @@ async function statsPassages(supabase: Supabase, contenuIds: string[]) {
       vues_max: Math.max(...e.vues),
       // Sous 3 passages, le r n'est pas significatif.
       r_median: e.r.length >= 3 ? Math.round(mediane(e.r) * 100) / 100 : null,
+      // Chaque passage, pour juger un contenu dès ses premiers passages.
+      r_passages: e.r.map((r) => Math.round(r * 100) / 100),
+      vues_passages: e.vues,
     });
   }
   return sortie;

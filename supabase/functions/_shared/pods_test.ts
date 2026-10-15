@@ -13,6 +13,7 @@ import {
   verifierDecksApplications,
   verifierDepot,
   verifierOriginal,
+  verifierPreuve,
   verifierVideo,
 } from "./pods.ts";
 import { oublierSondeTiersApplication } from "./tiers_application.ts";
@@ -83,6 +84,44 @@ Deno.test("verifierOriginal : positions, images, une slide Sophia, inspiration, 
   assertEquals(verifierOriginal(avec(3, { texte_sophia: "the Sophia app" })).length, 1);
   assertEquals(verifierOriginal(avec(4, { texte_sophia: "a micro-learning app" })).length, 1);
   assertEquals(verifierOriginal(avec(2, { reference_url: "https://p16.tiktokcdn.com/x.jpg" })).length, 1);
+});
+
+Deno.test("verifierPreuve : 200 k vues en 30 jours suffisent ; sinon des contenus du label à faire mesurer par l'OS", () => {
+  const jour = "2026-10-15";
+  const tiktok = (vues: number, publie_le: string, url = "https://www.tiktok.com/@stonemag.co/video/7689427930929319176") => ({
+    type: "tiktok",
+    url,
+    vues,
+    publie_le,
+  });
+  const os = { type: "os", contenu_id: "2A9D2D47-9EBA-4122-BBBA-49A09BA8A933" };
+  const preuve = (...references: unknown[]) => ({ schema: "N skills that'll make you dangerously X in your 20s", references });
+
+  assertEquals(verifierPreuve(preuve(tiktok(1_300_000, "2026-09-25")), jour), { erreurs: [], tiktokSuffit: true, contenusOs: [] });
+  // Pile 30 jours : encore valable ; 31 : trop vieux. Sous 200 k : ne suffit pas.
+  assertEquals(verifierPreuve(preuve(tiktok(200_000, "2026-09-15")), jour).tiktokSuffit, true);
+  assertEquals(verifierPreuve(preuve(tiktok(900_000, "2026-09-14")), jour).tiktokSuffit, false);
+  assertEquals(verifierPreuve(preuve(tiktok(199_999, "2026-10-10")), jour).tiktokSuffit, false);
+  // Un contenu du label : rien ne suffit encore, l'OS recalcule son r (uuid en minuscules, sans doublon).
+  assertEquals(verifierPreuve(preuve(os, os, tiktok(5_000, "2026-10-01")), jour), {
+    erreurs: [],
+    tiktokSuffit: false,
+    contenusOs: ["2a9d2d47-9eba-4122-bbba-49a09ba8a933"],
+  });
+
+  assertEquals(verifierPreuve(null, jour).erreurs.length, 2);
+  assertEquals(verifierPreuve({ schema: " ", references: [tiktok(300_000, "2026-10-01")] }, jour).erreurs, [
+    "preuve : schéma d'accroche manquant",
+  ]);
+  assertEquals(verifierPreuve(preuve(tiktok(300_000, "2026-10-16")), jour).erreurs, ["preuve #1 : date de publication dans le futur"]);
+  assertEquals(verifierPreuve(preuve(tiktok(300_000, "16/10/2026")), jour).erreurs.length, 1);
+  const lienFaux = verifierPreuve(preuve(tiktok(300_000, "2026-10-01", "https://tiktok.com/x")), jour);
+  assertEquals(lienFaux.erreurs, ["preuve #1 : lien TikTok invalide"]);
+  assertEquals(lienFaux.tiktokSuffit, false);
+  assertEquals(verifierPreuve(preuve(tiktok(-3, "2026-10-01")), jour).erreurs, ["preuve #1 : vues invalides"]);
+  assertEquals(verifierPreuve(preuve({ type: "os", contenu_id: "2a9d2d47" }), jour).erreurs.length, 1);
+  assertEquals(verifierPreuve(preuve({ type: "instagram" }), jour).erreurs.length, 1);
+  assertEquals(verifierPreuve(preuve(...Array(7).fill(os)), jour).erreurs.length, 1);
 });
 
 /** Client minimal : `from(table)` → filtres eq/in appliqués sur des lignes fixes. */

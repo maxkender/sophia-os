@@ -9,6 +9,7 @@ import {
   familleCouleur,
   idMusique,
   jugerPaire,
+  ligneLaPlusLongue,
   type MesureSlide,
   normaliserBlocs,
   parserMesure,
@@ -87,7 +88,8 @@ Deno.test("justification : texte tapé trop gros puis pincé = lignes courtes, m
   const justif = j.constats.find((c) => c.code === "justification");
   assert(justif);
   assertEquals(justif.valeurs?.sens, "courtes");
-  assertEquals(justif.valeurs?.lignes_publie, 10);
+  assertEquals(justif.valeurs?.car_ligne_original, 39);
+  assertEquals(justif.valeurs?.car_ligne_publie, 17);
   assert(!j.constats.some((c) => c.code === "taille"), "la taille de ligne est la même");
 });
 
@@ -239,11 +241,13 @@ Deno.test("redigerBrouillon : deux points au plus, les plus importants, en mots 
     { code: "taille", niveau: "remarque", slides: [1, 2], confiance: 0.67, detail: "", valeurs: { ratio: 1.9, sens: "plus grand" } },
     { code: "police", niveau: "info", slides: [1, 2, 3], confiance: 1, detail: "" },
     { code: "musique", niveau: "remarque", slides: [], confiance: 1, detail: "" },
-    { code: "justification", niveau: "remarque", slides: [2, 4], confiance: 1, detail: "", valeurs: { lignes_original: 3, lignes_publie: 5, sens: "courtes" } },
+    { code: "justification", niveau: "remarque", slides: [2, 4], confiance: 1, detail: "", valeurs: { car_ligne_original: 39, car_ligne_publie: 17, sens: "courtes" } },
   ], REMARQUES);
   assertEquals(points.map((p) => p.code), ["justification", "taille"]);
   assertEquals(remarques.map((r) => r.id), ["h", "j", "s"]);
-  assert(texte.includes("On slides 2 and 4, your lines are shorter than in the original, so the paragraph looks like a thin column instead of a block (5 lines where the original has 3)"));
+  assert(texte.includes("On slides 2 and 4, your lines are shorter than in the original, so the paragraph looks like a thin column instead of a block."));
+  assert(texte.includes("you may not get the same number of lines"));
+  assert(!/\d+ lines/.test(texte), "jamais de nombre de lignes à viser");
   assert(texte.includes("size slider down"));
   assert(texte.includes("Pinch it down"));
   assert(!/[×%]|1\.9/.test(texte), "pas de ratio dans le texte envoyé");
@@ -317,5 +321,21 @@ Deno.test("normaliserBlocs relit les blocs stockés, ancien format compris", () 
   ]);
   assertEquals(blocs.length, 1);
   assertEquals(blocs[0].effet, "contour");
+});
+
+Deno.test("justification : une traduction plus longue fait plus de lignes de la même largeur, ce n'est pas un défaut", () => {
+  // Original : 3 lignes pleines. Traduction 60 % plus longue : 5 lignes, même largeur, même taille.
+  const original = "Matcha helps me stay focused and gives\nme the energy I need to get through the\nday without any crash at all, really.";
+  const traduit = "Le matcha m'aide à rester concentrée et\nme donne l'énergie dont j'ai besoin pour\ntenir toute la journée sans aucun coup de\nbarre, vraiment, et je le préfère au café\npour cette raison.";
+  const a = slide([bloc({ texte: original, lignes: 3, w: 0.8, h: 0.09 })]);
+  const b = slide([bloc({ texte: traduit, lignes: 5, w: 0.8, h: 0.15 })]);
+  const j = jugerPaire(2, a, b);
+  assert(j.evalues.includes("justification"));
+  assert(!j.constats.some((c) => c.code === "justification" || c.code === "largeur" || c.code === "taille"));
+});
+
+Deno.test("justification : la confirmation lit la ligne la plus longue, pas une moyenne tirée par les fins de phrase", () => {
+  assertEquals(ligneLaPlusLongue("hair mask while finishing a\nreading\nlaundry"), 27);
+  assertEquals(ligneLaPlusLongue(""), 0);
 });
 

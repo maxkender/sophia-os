@@ -30,6 +30,7 @@ import {
   listerMediasAssignesNonUpscales,
 } from "../_shared/upscale_media_core.ts";
 import { avancerVariations } from "../_shared/variations.ts";
+import { fermerLabelsEtReaffecter, ligneFermetureLabels } from "../_shared/fermeture_labels.ts";
 import {
   assertAuthorised,
   aujourdhuiParis,
@@ -304,7 +305,12 @@ function ligneQuotasBaisses(
  *   - crée passages statut=assigne (musique + hashtags) estampillés du cycle
  *
  *   {}  → kick rattrapage (async) + tierlist + assignation + upscale
- *   { etapes?: ['stats'|'scores'|'tierlist'|'tierlist_applications'|'assignation'|'upscale'|'variations'|'rattrapage'|'classement'], compteId?, date?, forcer? }
+ *   { etapes?: ['stats'|'scores'|'tierlist'|'tierlist_applications'|'labels'|'assignation'|'upscale'|'variations'|'rattrapage'|'classement'], compteId?, date?, forcer?, dryRun? }
+ *   etape `labels` : fermeture des labels faibles (sous 0,75 de la flotte sur
+ *                      150 posts) et réaffectation des comptes qui les portent
+ *                      (`_shared/fermeture_labels.ts`) ; tourne d'elle-même
+ *                      avant l'assignation de toute la flotte. `dryRun` : rien
+ *                      n'est écrit, le résultat dit ce qui serait fait.
  *   etape `tierlist` : requalification des contenus au bout de leurs passages
  *                      (m = moyenne des vues du cycle) + rappels J+7 des
  *                      passages au-delà de 50k vues — puis, sans contenu ciblé,
@@ -564,6 +570,17 @@ Deno.serve(async (request) => {
           }
         });
       }
+    }
+    // Fermeture des labels faibles AVANT de remplir la journée : un compte sorti
+    // d'un label fermé reçoit cette nuit déjà le contenu de son nouveau label.
+    // Isolée comme les autres : un échec ici n'empêche pas l'assignation.
+    if ((etapes.includes("labels") || etapes.includes("assignation")) && !compteId && !body?.contenuId) {
+      await executerEtape(out, bilan, "labels", async () => {
+        const res = await fermerLabelsEtReaffecter(supabase, { jour, dryRun: Boolean(body?.dryRun) });
+        out.labels = res;
+        const ligne = ligneFermetureLabels(res);
+        if (ligne) ajouterAvertissement(out, ligne);
+      });
     }
     // L'étape qui compte. `kickAssignationDrain` est la seule chose qui remplit
     // la journée des 131 comptes ; elle est désormais hors d'atteinte de tout ce

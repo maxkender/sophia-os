@@ -1,4 +1,4 @@
--- 0288 : relecture automatique des posts publiés (« agent de relecture »).
+-- 0290 : relecture automatique des posts publiés (« agent de relecture »).
 --
 -- POURQUOI. La file /admin/file-reviews se faisait à la main : 227 posts relus
 -- du 11 au 18/09, plus rien depuis, pour 300 posts publiés par jour. Les
@@ -53,7 +53,7 @@ create table if not exists public.relectures_auto (
 );
 
 comment on table public.relectures_auto is
-  'Relecture automatique d''un post publié (mise en forme du texte comparée à l''original). Voir migration 0288 et docs/relecture-auto.md.';
+  'Relecture automatique d''un post publié (mise en forme du texte comparée à l''original). Voir migration 0290 et docs/relecture-auto.md.';
 
 create index if not exists relectures_auto_file_idx
   on public.relectures_auto (statut, created_at)

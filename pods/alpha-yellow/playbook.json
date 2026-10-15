@@ -130,6 +130,14 @@
           "enregistrements": 16809,
           "publie_le": "2026-10-11",
           "releve_le": "2026-10-15"
+        },
+        {
+          "type": "tiktok",
+          "url": "https://www.tiktok.com/@stonemag.co/video/7695465258047065351",
+          "vues": 302600,
+          "enregistrements": 16958,
+          "publie_le": "2026-10-11",
+          "releve_le": "2026-10-15"
         }
       ]
     },
@@ -275,6 +283,29 @@
           "contenu_id": "5490f976-0b6e-404f-b6f1-ae7d41b7901e",
           "r_median": 3.32,
           "publies": 13,
+          "releve_le": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "unrecognisable",
+      "schema": "N ways to be unrecognisable in 6 months",
+      "exemples": [
+        "5 Ways To Be Unrecognisable In 6 Months"
+      ],
+      "pourquoi": "768 k vues et 5,2 % d'enregistrements le 29/09 chez @fathom0g (repris le 09/10 : 155 k). Promesse de transformation datée, une action concrète par slide. Format différent du label (vignettes YouTube, appli concurrente) : on garde l'accroche, pas le format. Éviter l'item « delete social media » (voir a_eviter, addiction au téléphone).",
+      "inspiration_contenus": [
+        "2a9d2d47-9eb0-4122-bbba-49a09ba8a933",
+        "8f6a7e16-e8b6-4a9c-87e4-aa748bb0f708"
+      ],
+      "musiques": [],
+      "preuves": [
+        {
+          "type": "tiktok",
+          "url": "https://www.tiktok.com/@fathom0g/video/7690948590805519638",
+          "vues": 767500,
+          "enregistrements": 39937,
+          "publie_le": "2026-09-29",
           "releve_le": "2026-10-15"
         }
       ]

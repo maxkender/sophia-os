@@ -586,10 +586,14 @@ Deno.test("minuit — tierlist_applications est la DERNIÈRE étape : rien de no
     return i;
   };
   const applications = position("tierlist_applications");
-  for (const etape of ["rattrapage", "tierlist", "rappels", "assignation", "upscale", "variations"]) {
+  for (const etape of ["rattrapage", "tierlist", "rappels", "labels", "assignation", "upscale", "variations"]) {
     assert(position(etape) < applications, `${etape} doit passer AVANT tierlist_applications`);
   }
   assert(source.indexOf("kickAssignationDrain(request") < applications);
+  // Seule exception multi-application devant le drain : la fermeture des
+  // labels, parce qu'un compte déplacé doit recevoir son nouveau label la nuit
+  // même. Elle est bornée en temps (BUDGET_LABELS_MS), comme tierlist_applications.
+  assert(position("labels") < source.indexOf("kickAssignationDrain(request"));
 });
 
 Deno.test("requalif application — une application en erreur n'empêche pas la suivante", async () => {

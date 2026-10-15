@@ -27,7 +27,8 @@ import {
   valeurFileLabels,
 } from "../_shared/file_labels_comptes.ts";
 import { filtrerPoolParApplication } from "../_shared/labels_repli.ts";
-import { choisirLabelEquilibre, normaliserStatLabel } from "../_shared/choix_label_equilibre.ts";
+import { choisirLabel, labelsFermesConnus } from "../_shared/choix_label_equilibre.ts";
+import { chargerReglagesChoixLabel, statsChoixLabel } from "../_shared/fermeture_labels.ts";
 import { lireTout } from "../_shared/lots.ts";
 import { ID_SOPHIA, type PartsApplications } from "../_shared/multi_app.ts";
 import { appliquerIdentiteInstantanee } from "../_shared/persona.ts";
@@ -309,14 +310,14 @@ async function gererRequete(request: Request): Promise<Response> {
       } else if (choix) {
         // Application choisie : SA File (remise en tête de SA tranche si la
         // création échoue plus bas), puis le choix équilibré parmi ses labels.
-        const res = await resoudreChoixCompte(supabase, choix, langue);
+        const res = await resoudreChoixCompte(supabase, choix, langue, paysSaisi(body));
         if (!res.ok) return res.reponse;
         fileItem = res.fileItem;
         fileItemQueue = res.fileItemQueue;
         personaUgc = res.personaUgc;
         partsApplications = res.parts;
       } else {
-        const prep = await preparerFileEtPersona(supabase, langue, application);
+        const prep = await preparerFileEtPersona(supabase, langue, application, paysSaisi(body));
         if (!prep.ok) return json({ error: prep.error }, 409);
         fileItem = prep.fileItem;
         fileItemQueue = prep.fileItemQueue;
@@ -826,14 +827,14 @@ async function creerComptePersoPourPoster(
     if (!personaUgc) return json({ error: "NO_UGC_PERSONA" }, 409);
   } else if (choix) {
     // Application choisie : SA File, remise en tête de SA tranche si l'insert échoue.
-    const res = await resoudreChoixCompte(supabase, choix, langue);
+    const res = await resoudreChoixCompte(supabase, choix, langue, pays);
     if (!res.ok) return res.reponse;
     fileItem = res.fileItem;
     fileItemQueue = res.fileItemQueue;
     personaUgc = res.personaUgc;
     partsApplications = res.parts;
   } else {
-    const prep = await preparerFileEtPersona(supabase, langue, application);
+    const prep = await preparerFileEtPersona(supabase, langue, application, pays);
     if (!prep.ok) return json({ error: prep.error }, 409);
     fileItem = prep.fileItem;
     fileItemQueue = prep.fileItemQueue;
@@ -1103,6 +1104,8 @@ async function popLabelFile(
   supabase: Supabase,
   langue: string,
   application?: ApplicationRow | null,
+  /** Marché du compte (saisi par le HM) ; vide = celui de la langue. */
+  pays: string | null = null,
 ): Promise<
   | { ok: true; item: FileLabelItem; fromQueue: false }
   | { ok: true; item: FileLabelItem; fromQueue: true; queueKey: string }
@@ -1112,7 +1115,14 @@ async function popLabelFile(
   const slug = application?.slug ?? SLUG_SOPHIA;
   const slice = sliceFileLabels(file, slug);
   const lang = String(langue ?? "").trim().toLowerCase();
-  const eligible = await idsLabelsEligiblesFile(supabase, application?.id ?? null);
+  // Un label fermé (fermeture forcée ou décidée par la nuit) ne sort plus de la
+  // File : l'entrée est sautée et retirée, comme un label qui ne sert pas
+  // l'application. Sinon la nuit le retirerait au compte dès le lendemain.
+  const reglagesChoix = await chargerReglagesChoixLabel(supabase);
+  const fermes = labelsFermesConnus(reglagesChoix, application?.id ?? ID_SOPHIA);
+  const eligible = new Set(
+    [...await idsLabelsEligiblesFile(supabase, application?.id ?? null)].filter((id) => !fermes.has(id)),
+  );
 
   let parLangueActuel = { ...slice.par_langue };
   const fileLangue = lang ? (parLangueActuel[lang] ?? []) : [];
@@ -1152,6 +1162,7 @@ async function popLabelFile(
   const labelId = await labelMoinsUtiliseParLangue(supabase, langue, {
     ugcOnly: false,
     applicationId: application?.id ?? null,
+    pays,
   });
   if (!labelId) return { ok: false, error: "NO_LABELS" };
   const ok = await filtrerLabelsCompte(supabase, [labelId]);
@@ -1260,6 +1271,7 @@ async function preparerFileEtPersona(
   supabase: Supabase,
   langue: string,
   application?: ApplicationRow | null,
+  pays: string | null = null,
 ): Promise<
   | {
     ok: true;
@@ -1269,7 +1281,7 @@ async function preparerFileEtPersona(
   }
   | { ok: false; error: string }
 > {
-  const popped = await popLabelFile(supabase, langue, application);
+  const popped = await popLabelFile(supabase, langue, application, pays);
   if (!popped.ok) return { ok: false, error: popped.error };
 
   let fileItem = popped.item;
@@ -1295,6 +1307,7 @@ async function preparerFileEtPersona(
         fallback = await labelMoinsUtiliseParLangue(supabase, langue, {
           ugcOnly: true,
           applicationId: application?.id ?? null,
+          pays,
         });
       } catch (error) {
         // Lecture ratée : l'entrée tirée de la file y retourne avant l'erreur.
@@ -1346,6 +1359,7 @@ async function resoudreChoixCompte(
   supabase: Supabase,
   choix: ChoixCompte,
   langue: string,
+  pays: string | null = null,
 ): Promise<
   | {
     ok: true;
@@ -1398,7 +1412,7 @@ async function resoudreChoixCompte(
     const app = mode.application;
     if (app.slug === SLUG_SOPHIA) {
       // `{ sophia: 100 }` : le chemin historique, File Sophia et UGC compris.
-      const prep = await preparerFileEtPersona(supabase, langue, app);
+      const prep = await preparerFileEtPersona(supabase, langue, app, pays);
       if (!prep.ok) return { ok: false, reponse: json({ error: prep.error }, 409) };
       return {
         ok: true,
@@ -1408,7 +1422,7 @@ async function resoudreChoixCompte(
         parts,
       };
     }
-    const popped = await popLabelFile(supabase, langue, app);
+    const popped = await popLabelFile(supabase, langue, app, pays);
     if (!popped.ok) {
       return { ok: false, reponse: json({ error: "NO_LABELS_APPLICATION" }, 409) };
     }
@@ -1426,6 +1440,7 @@ async function resoudreChoixCompte(
   const labelId = await labelMoinsUtiliseParLangue(supabase, langue, {
     ugcOnly: false,
     applicationsRequises: requises,
+    pays,
   });
   const autorise = labelId ? (await filtrerLabelsCompte(supabase, [labelId]))[0] : undefined;
   if (!autorise) return { ok: false, reponse: json({ error: "NO_LABELS_APPLICATION" }, 409) };
@@ -1438,7 +1453,7 @@ async function resoudreChoixCompte(
   };
 }
 
-/** Derniers comptes de la langue regardés contre les rafales (cf. choix équilibré). */
+/** Derniers comptes de la langue (et du pays) regardés contre les rafales (cf. choix équilibré). */
 const RECENTS_LABEL_LANGUE = 3;
 
 /**
@@ -1447,14 +1462,17 @@ const RECENTS_LABEL_LANGUE = 3;
  * défaut) — `applicationsRequises` (répartition à plusieurs applications) : le
  * label doit les servir TOUTES.
  *
- * Choix ÉQUILIBRÉ, sans hasard (`_shared/choix_label_equilibre.ts`) : la langue
- * du compte suit la part de chaque label (√stock × performance des 28 derniers
- * jours, rapportée à la langue des posts ; part plafonnée à 1/2), jamais 3 fois
- * le même label sur 4 comptes de la langue, et pas celui du dernier compte tant
- * qu'un autre est en retard ; la flotte départage. Les chiffres viennent de
- * `stats_choix_label_creation` (0275) en une lecture ; si elle échoue, repli
- * sur l'ancien « moins de comptes actifs dans la langue » : une création ne
- * casse jamais pour ça.
+ * Choix ÉQUILIBRÉ, sans hasard (`_shared/choix_label_equilibre.ts`) : les
+ * labels fermés (performance sous 0,75 de la flotte sur 150 posts, ou fermés à
+ * la main) sont écartés ; chaque label pèse sa performance au carré × sa
+ * réserve restante (plafonnée à 14 jours) ; la langue ET le pays du compte
+ * suivent ces parts (plafonnées à 1/2), jamais 3 fois le même label sur 4
+ * comptes de la langue, puis du pays ; un label à court de réserve passe après
+ * les autres. Les chiffres viennent de `stats_choix_label` (0287) en une
+ * lecture, les réglages de `reglages.choix_labels` ; si la lecture échoue,
+ * repli sur l'ancien « moins de comptes actifs dans la langue » : une création
+ * ne casse jamais pour ça. Aucun label ouvert : on choisit quand même parmi
+ * les fermés (une recrue ne reste pas sans label), la nuit l'en sortira.
  *
  * Limite connue : deux créations dans la même langue à la même seconde lisent
  * les mêmes chiffres et reçoivent le même label (le lien compte ↔ label n'est
@@ -1470,6 +1488,8 @@ async function labelMoinsUtiliseParLangue(
     ugcOnly: boolean;
     applicationId?: string | null;
     applicationsRequises?: readonly string[];
+    /** Marché saisi par le HM ; vide = celui de la langue (`pays_defaut_langue`). */
+    pays?: string | null;
   },
 ): Promise<string | null> {
   const requises = opts.applicationsRequises?.length ? opts.applicationsRequises : null;
@@ -1500,23 +1520,29 @@ async function labelMoinsUtiliseParLangue(
   const appStats = requises
     ? (requises.includes(ID_SOPHIA) ? ID_SOPHIA : requises[0])
     : (opts.applicationId ?? null);
-  const { data: stats, error } = await supabase.rpc("stats_choix_label_creation", {
-    p_labels: pool,
-    p_application: appStats,
-    p_langue: langueStats,
-    p_recents: RECENTS_LABEL_LANGUE,
-  });
-  if (!error && Array.isArray(stats)) {
-    const choix = choisirLabelEquilibre(
-      (stats as Record<string, unknown>[])
-        .map(normaliserStatLabel)
-        .filter((st) => pool.includes(st.label_id)),
+  const application = appStats ?? ID_SOPHIA;
+  let raison = "aucune ligne";
+  try {
+    const [stats, reglages] = await Promise.all([
+      statsChoixLabel(supabase, {
+        labels: pool,
+        application,
+        langue: langueStats,
+        pays: String(opts.pays ?? "").trim().toUpperCase() || null,
+        recents: RECENTS_LABEL_LANGUE,
+      }),
+      chargerReglagesChoixLabel(supabase),
+    ]);
+    const choix = choisirLabel(
+      stats.filter((st) => pool.includes(st.label_id)),
+      reglages,
+      { applicationId: application, jamaisSansLabel: true },
     );
     if (choix) return choix;
+  } catch (error) {
+    raison = error instanceof Error ? error.message : String(error);
   }
-  console.warn(
-    `[manage-users] choix équilibré indisponible (${error?.message ?? "aucune ligne"}) : repli « moins utilisé »`,
-  );
+  console.warn(`[manage-users] choix équilibré indisponible (${raison}) : repli « moins utilisé »`);
   return await labelMoinsUtiliseRepli(supabase, langue, pool);
 }
 

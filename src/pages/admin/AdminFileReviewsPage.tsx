@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Bot, ChevronUp, Film, Plus, Send, Settings2, SkipForward, Sparkles, Trash2, X } from "lucide-react";
+import { AlertTriangle, Bot, ChevronUp, Film, Plus, Send, Settings2, SkipForward, Sparkles, Trash2, X } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -573,6 +573,13 @@ export function AdminFileReviewsPage() {
               titreRemarque={titreRemarque}
             />
           </div>
+
+          {courant.memes_liens > 0 && (
+            <p className="flex items-start gap-2 rounded-md bg-warning/10 p-3 text-sm text-warning">
+              <AlertTriangle className="mt-0.5 size-4 shrink-0" />
+              {t("fileReviews.lienDouble", { count: courant.memes_liens })}
+            </p>
+          )}
 
           <div className="grid gap-6 lg:grid-cols-2">
             <TikTokEmbed

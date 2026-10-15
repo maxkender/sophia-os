@@ -8,6 +8,7 @@ import {
   insererRemarqueDansBrouillon,
   isoBornesJourParis,
   jourParisDepuisIso,
+  compterMemesLiens,
   normaliserRemarquesReview,
   normaliserVideosReview,
   retirerRemarqueUtilisee,
@@ -97,5 +98,22 @@ describe("fileJour", () => {
         { url: "https://cdn/a.mp4", titre: "dup" },
       ]),
     ).toEqual([{ url: "https://cdn/a.mp4", titre: "Hook" }]);
+  });
+
+  it("repère le même TikTok collé pour plusieurs posts d'un compte", () => {
+    const n = compterMemesLiens([
+      { id: "a", compte_id: "c1", publie_url: "https://vt.tiktok.com/ZSgdFvsVU/" },
+      { id: "b", compte_id: "c1", publie_url: "https://vt.tiktok.com/ZSgdFvsVU" },
+      { id: "c", compte_id: "c1", publie_url: "https://www.tiktok.com/@x/photo/123?lang=fr" },
+      { id: "d", compte_id: "c1", publie_url: "https://www.tiktok.com/@x/video/123" },
+      { id: "e", compte_id: "c2", publie_url: "https://vt.tiktok.com/ZSgdFvsVU/" },
+      { id: "f", compte_id: "c1", publie_url: null },
+    ]);
+    expect(n.get("a")).toBe(1);
+    expect(n.get("b")).toBe(1);
+    expect(n.get("c")).toBe(1);
+    expect(n.get("d")).toBe(1);
+    expect(n.get("e")).toBe(0);
+    expect(n.get("f")).toBe(0);
   });
 });

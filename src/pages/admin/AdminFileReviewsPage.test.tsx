@@ -278,4 +278,13 @@ describe("AdminFileReviewsPage", () => {
     renderPage();
     expect(await screen.findByText(/Pas encore relu|Not reviewed yet/)).toBeInTheDocument();
   });
+
+  it("prévient quand le créateur a collé le même lien pour un autre post", async () => {
+    listerFileReviewsJour.mockResolvedValue([{ ...POST, memes_liens: 1 }]);
+    listerReviewRemarques.mockResolvedValue([]);
+    renderPage();
+    expect(
+      await screen.findByText(/même lien TikTok pour un autre post|same TikTok link for another post/),
+    ).toBeInTheDocument();
+  });
 });

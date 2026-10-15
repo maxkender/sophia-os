@@ -70,6 +70,7 @@ const BUDGET_MS = 150_000;
 interface LigneRelecture {
   id: string;
   passage_id: string;
+  compte_id: string | null;
   publie_url: string;
   tentatives: number;
   reserve_at: string | null;
@@ -110,6 +111,60 @@ async function apify<T>(chemin: string, corps?: unknown): Promise<T> {
 /** ID numérique du post : `webVideoUrl` revient en /video/ même pour un post photo. */
 function idPost(url: string): string | null {
   return url.match(/\/(?:photo|video)\/(\d+)/)?.[1] ?? null;
+}
+
+const UA =
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0 Safari/537.36";
+
+/** Lien « Partager » de l'app (vm / vt / t) : il ne contient pas l'ID du post. */
+function estLienCourt(url: string): boolean {
+  return /\/\/(?:vm|vt)\.tiktok\.com\//i.test(url) || /tiktok\.com\/t\//i.test(url);
+}
+
+/** Suit la redirection d'un lien court jusqu'au lien complet du post ; les autres liens sont rendus tels quels. */
+async function lienCanonique(url: string): Promise<string> {
+  const brut = url.trim();
+  if (!estLienCourt(brut)) return brut;
+  try {
+    const reponse = await fetch(brut, { redirect: "follow", headers: { "user-agent": UA } });
+    await reponse.body?.cancel();
+    return reponse.url || brut;
+  } catch {
+    return brut;
+  }
+}
+
+/**
+ * Autres posts du même compte (30 derniers jours) dont le lien mène au même
+ * TikTok. Un créateur qui colle deux fois le même lien : impossible de savoir
+ * quel slideshow ce TikTok montre, on ne juge pas (cas asya.ogrenir761 et
+ * mia.thrives282 du 15/10).
+ */
+async function autresPostsMemeTiktok(
+  supabase: Client,
+  ligne: { passage_id: string; compte_id: string | null; publie_url: string },
+): Promise<number> {
+  const id = idPost(ligne.publie_url);
+  if (!id || !ligne.compte_id) return 0;
+  const { data, error } = await supabase
+    .from("passages")
+    .select("id, publie_url")
+    .eq("compte_id", ligne.compte_id)
+    .neq("id", ligne.passage_id)
+    .not("publie_url", "is", null)
+    .gte("publie_at", new Date(Date.now() - 30 * 24 * 3600 * 1000).toISOString());
+  if (error) throw error;
+  const ids = await Promise.all(
+    (data ?? []).map(async (p) => {
+      const url = String(p.publie_url ?? "");
+      return idPost(url) ?? (estLienCourt(url) ? idPost(await lienCanonique(url)) : null);
+    }),
+  );
+  return ids.filter((autre) => autre === id).length;
+}
+
+function erreurDoublon(n: number): string {
+  return `même TikTok collé pour ${n + 1} posts de ce compte : impossible de savoir quel slideshow il montre`;
 }
 
 async function reserver(
@@ -332,6 +387,12 @@ async function analyserLigne(
   remarquesTypes: RemarqueType[],
 ): Promise<"fait" | "ignore" | "reessai" | "echec"> {
   try {
+    const doublons = await autresPostsMemeTiktok(supabase, ligne);
+    if (doublons > 0) {
+      await maj(supabase, [ligne.id], { statut: "ignore", erreur: erreurDoublon(doublons), analyse_at: new Date().toISOString() });
+      return "ignore";
+    }
+
     const { data: passage, error } = await supabase
       .from("passages")
       .select("slides, musique_url, contenus(structure_slides)")
@@ -488,7 +549,7 @@ const ATTENTE_SCRAPE_MS = 70_000;
 const ANALYSE_EN_COURS_MS = 3 * 60 * 1000;
 
 const COLONNES_LIGNE =
-  "id, passage_id, post_id, publie_url, statut, tentatives, reserve_at, apify_run_id, slides_publiees, " +
+  "id, passage_id, compte_id, post_id, publie_url, statut, tentatives, reserve_at, apify_run_id, slides_publiees, " +
   "musique_publiee_id, defauts, brouillon, remarques, erreur";
 
 type LigneComplete = LigneRelecture & {
@@ -529,8 +590,9 @@ async function ligneDuPost(supabase: Client, postId: string): Promise<LigneCompl
   const post = (Array.isArray(passage.posts) ? passage.posts[0] : passage.posts) as
     | { publie_url?: string | null; publie_at?: string | null }
     | null;
-  const url = (passage.publie_url as string | null) || post?.publie_url || "";
-  if (!idPost(url)) throw new Error("le lien TikTok du post n'est pas un lien de post (/photo/… ou /video/…)");
+  // Lien court (« Partager » de l'app) : on suit la redirection pour avoir l'ID du post.
+  const url = await lienCanonique((passage.publie_url as string | null) || post?.publie_url || "");
+  if (!idPost(url)) throw new Error("le lien collé par le créateur ne mène pas à un post TikTok");
   const { error: errInsert } = await supabase.from("relectures_auto").insert({
     passage_id: passage.id,
     post_id: postId,
@@ -567,6 +629,11 @@ async function relireMaintenant(
   }
 
   if (ligne.statut === "a_scraper" || (ligne.statut === "scrape" && !ligne.apify_run_id)) {
+    const doublons = await autresPostsMemeTiktok(supabase, ligne);
+    if (doublons > 0) {
+      await maj(supabase, [ligne.id], { statut: "ignore", erreur: erreurDoublon(doublons), analyse_at: new Date().toISOString() });
+      return (await lireLigne(supabase, postId))!;
+    }
     const runId = await lancerRun([ligne.publie_url]);
     await maj(supabase, [ligne.id], {
       statut: "scrape",

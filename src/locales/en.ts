@@ -571,6 +571,10 @@ export const en = {
       hier: "Yesterday",
       aujourdhui: "Today",
       videAideJour: "Every TikTok published that day has been reviewed or skipped.",
+      lienDouble_one:
+        "This creator pasted the same TikTok link for another post: the TikTok on the right may not match this slideshow.",
+      lienDouble_other:
+        "This creator pasted the same TikTok link for {{count}} other posts: the TikTok on the right may not match this slideshow.",
       agent: {
         titre: "Agent review",
         proposees_one: "{{count}} review suggested by the agent",

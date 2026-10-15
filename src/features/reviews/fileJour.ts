@@ -1,5 +1,7 @@
 /** File du jour : posts marqués publiés (jour Paris). */
 
+import { idTiktokDepuisUrl } from "./tiktokEmbed";
+
 /** Jour calendaire Paris d'un timestamptz ISO (ou null). */
 export function jourParisDepuisIso(iso: string | null | undefined): string | null {
   if (!iso) return null;
@@ -134,6 +136,40 @@ export function normaliserVideosReview(raw: unknown): ReviewVideo[] {
         ? (item as { titre: string }).titre.trim()
         : "";
     out.push({ url, titre });
+  }
+  return out;
+}
+
+/** Clé d'un lien de post : l'ID TikTok quand le lien le contient, sinon le lien nettoyé (lien court « Partager »). */
+export function cleLienPost(url: string | null | undefined): string | null {
+  const brut = (url ?? "").trim();
+  if (!brut) return null;
+  const id = idTiktokDepuisUrl(brut);
+  if (id) return `id:${id}`;
+  return brut.toLowerCase().replace(/[?#].*$/, "").replace(/\/+$/, "");
+}
+
+/**
+ * Pour chaque post, combien d'AUTRES posts du même compte ont le même lien :
+ * le créateur a collé deux fois le même TikTok, celui affiché ne correspond
+ * peut-être pas au slideshow.
+ */
+export function compterMemesLiens(
+  posts: Array<{ id: string; compte_id: string; publie_url: string | null }>,
+): Map<string, number> {
+  const parCle = new Map<string, number>();
+  const cle = (p: { compte_id: string; publie_url: string | null }) => {
+    const lien = cleLienPost(p.publie_url);
+    return lien ? `${p.compte_id}|${lien}` : null;
+  };
+  for (const p of posts) {
+    const k = cle(p);
+    if (k) parCle.set(k, (parCle.get(k) ?? 0) + 1);
+  }
+  const out = new Map<string, number>();
+  for (const p of posts) {
+    const k = cle(p);
+    out.set(p.id, k ? (parCle.get(k) ?? 1) - 1 : 0);
   }
   return out;
 }

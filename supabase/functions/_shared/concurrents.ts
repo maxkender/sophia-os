@@ -24,8 +24,14 @@
  * appels Sophia (import, composer) ne changent pas.
  */
 
-/** Noms d'applis concurrentes de Sophia. « readup » collé seulement : « read up » est de l'anglais courant. */
-export const MOTIF_CONCURRENT = /\b(vent[\s-]?now|readup)\b/i;
+/**
+ * Noms d'applis concurrentes de Sophia. « readup » collé seulement : « read up »
+ * est de l'anglais courant. « turboresume » (aussi « TurboResume.ai ») : la
+ * source du label RH (@careerswemma) le cite dans 117 contenus sur 228, et
+ * 57 passages RH sur 139 sont partis avec (octobre 2026). Jamais « turbo »
+ * seul (« en mode turbo », « disturbo »).
+ */
+export const MOTIF_CONCURRENT = /\b(vent[\s-]?now|readup|turbo[\s-]?resume)\b/i;
 
 /**
  * Concurrents d'Unswipe : ceux de Sophia + les applis de temps d'écran.

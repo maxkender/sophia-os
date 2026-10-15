@@ -1,4 +1,4 @@
--- 0286 : relecture automatique des posts publiés (« agent de relecture »).
+-- 0288 : relecture automatique des posts publiés (« agent de relecture »).
 --
 -- POURQUOI. La file /admin/file-reviews se faisait à la main : 227 posts relus
 -- du 11 au 18/09, plus rien depuis, pour 300 posts publiés par jour. Les
@@ -53,7 +53,7 @@ create table if not exists public.relectures_auto (
 );
 
 comment on table public.relectures_auto is
-  'Relecture automatique d''un post publié (mise en forme du texte comparée à l''original). Voir migration 0286 et docs/relecture-auto.md.';
+  'Relecture automatique d''un post publié (mise en forme du texte comparée à l''original). Voir migration 0288 et docs/relecture-auto.md.';
 
 create index if not exists relectures_auto_file_idx
   on public.relectures_auto (statut, created_at)
@@ -68,7 +68,6 @@ drop policy if exists relectures_auto_admin_lecture on public.relectures_auto;
 create policy relectures_auto_admin_lecture on public.relectures_auto
   for select using (public.is_admin());
 
-revoke all on public.relectures_auto from anon;
 grant select on public.relectures_auto to authenticated;
 grant all on public.relectures_auto to service_role;
 
@@ -92,6 +91,12 @@ as $$
 declare
   n integer;
 begin
+  -- Réservé au cron (pas de JWT) et aux fonctions serveur (service_role) :
+  -- la file déclenche des scrapes et des appels Gemini payants.
+  if coalesce(auth.role(), '') in ('anon', 'authenticated') then
+    raise exception 'relecture_enfiler : réservé au cron et aux fonctions serveur';
+  end if;
+
   insert into public.relectures_auto (passage_id, post_id, compte_id, poster_id, jour, publie_url, origine)
   select p.id, p.post_id, p.compte_id, c.poster_id, p_jour, p.publie_url, p_origine
   from public.passages p
@@ -130,29 +135,36 @@ create or replace function public.relecture_reserver(
   p_reprendre boolean default true
 )
 returns setof public.relectures_auto
-language sql
+language plpgsql
 security definer
 set search_path = public
 as $$
+begin
+  if coalesce(auth.role(), '') in ('anon', 'authenticated') then
+    raise exception 'relecture_reserver : réservé aux fonctions serveur';
+  end if;
+
+  return query
   update public.relectures_auto r
      set statut = p_vers,
          reserve_at = now(),
          tentatives = r.tentatives + 1,
          maj_at = now()
    where r.id in (
-     select id
-       from public.relectures_auto
-      where statut = p_de
-         or (p_reprendre and statut = p_vers and reserve_at < now() - interval '15 minutes')
-      order by created_at
+     select x.id
+       from public.relectures_auto x
+      where x.statut = p_de
+         or (p_reprendre and x.statut = p_vers and x.reserve_at < now() - interval '15 minutes')
+      order by x.created_at
       limit p_n
       for update skip locked
    )
   returning r.*;
+end;
 $$;
 
-revoke all on function public.relecture_enfiler(date, integer, boolean, text) from public, anon, authenticated;
-revoke all on function public.relecture_reserver(text, text, integer, boolean) from public, anon, authenticated;
+-- Le garde-fou en tête de chaque fonction refuse anon et authenticated : pas
+-- besoin de toucher aux droits par défaut sur les fonctions.
 grant execute on function public.relecture_enfiler(date, integer, boolean, text) to service_role;
 grant execute on function public.relecture_reserver(text, text, integer, boolean) to service_role;
 

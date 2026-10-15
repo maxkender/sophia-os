@@ -9,6 +9,10 @@
  *
  *   {}                                              → un passage de drain
  *   { enfiler: { jour?, limite?, aleatoire? } }     → met un lot de test en file, puis draine
+ *   { relire: { post_id } }                         → relit ce post tout de suite (bouton
+ *                                                     « Tester » de la file de reviews) et
+ *                                                     renvoie sa relecture ; à rappeler tant
+ *                                                     qu'elle n'est pas finie
  *
  * Déclenché par le cron `relecture-drain` (toutes les 2 min, 01:00-05:58 UTC) ;
  * la file est remplie par `relecture-enfiler` (01:00 UTC, posts de la veille).
@@ -134,6 +138,19 @@ async function maj(supabase: Client, ids: string[], champs: Record<string, unkno
 // 1. Lancer les scrapes
 // ---------------------------------------------------------------------------
 
+/** Un run Apify asynchrone pour ces posts : slides téléchargées, son, légende. */
+async function lancerRun(urls: string[]): Promise<string> {
+  const run = await apify<{ data: { id: string } }>(`/acts/${ACTEUR}/runs`, {
+    postURLs: urls,
+    resultsPerPage: 1,
+    shouldDownloadSlideshowImages: true,
+    shouldDownloadVideos: false,
+    shouldDownloadCovers: false,
+    proxyCountryCode: "None",
+  });
+  return run.data.id;
+}
+
 async function lancerScrapes(supabase: Client): Promise<number> {
   const lot = await reserver(supabase, "a_scraper", "scrape", LOT_SCRAPE, false);
   const usees = lot.filter((l) => l.tentatives > MAX_TENTATIVES);
@@ -142,15 +159,8 @@ async function lancerScrapes(supabase: Client): Promise<number> {
   if (aLancer.length === 0) return 0;
   const ids = aLancer.map((l) => l.id);
   try {
-    const run = await apify<{ data: { id: string } }>(`/acts/${ACTEUR}/runs`, {
-      postURLs: aLancer.map((l) => l.publie_url),
-      resultsPerPage: 1,
-      shouldDownloadSlideshowImages: true,
-      shouldDownloadVideos: false,
-      shouldDownloadCovers: false,
-      proxyCountryCode: "None",
-    });
-    await maj(supabase, ids, { apify_run_id: run.data.id, erreur: null });
+    const runId = await lancerRun(aLancer.map((l) => l.publie_url));
+    await maj(supabase, ids, { apify_run_id: runId, erreur: null });
     return aLancer.length;
   } catch (error) {
     await maj(supabase, ids, { statut: "a_scraper", erreur: `lancement Apify : ${messageErreur(error)}` });
@@ -190,48 +200,57 @@ async function releverScrapes(supabase: Client): Promise<number> {
   }
 
   let releves = 0;
-  for (const [runId, groupe] of parRun) {
-    const ids = groupe.map((l) => l.id);
-    const run = (await apify<{ data: { status: string; defaultDatasetId: string } }>(`/actor-runs/${runId}`)).data;
-    if (run.status === "READY" || run.status === "RUNNING") {
-      const lance = Math.min(...groupe.map((l) => Date.parse(l.reserve_at ?? "") || Date.now()));
-      if (Date.now() - lance > RUN_PERIME_MS) {
-        await maj(supabase, ids, { statut: "a_scraper", apify_run_id: null, erreur: `run Apify ${runId} trop long` });
-      }
-      continue;
-    }
-    if (run.status !== "SUCCEEDED") {
-      await maj(supabase, ids, { statut: "a_scraper", apify_run_id: null, erreur: `run Apify ${runId} : ${run.status}` });
-      continue;
-    }
+  for (const [runId, groupe] of parRun) releves += await releverRun(supabase, runId, groupe);
+  return releves;
+}
 
-    const items = await apify<ItemApify[]>(`/datasets/${run.defaultDatasetId}/items?clean=true`);
-    const parId = new Map(items.filter((i) => i.id).map((i) => [String(i.id), i]));
-    for (const l of groupe) {
-      const item = parId.get(idPost(l.publie_url) ?? "");
-      if (!item) {
-        await maj(supabase, [l.id], { statut: "echec", erreur: "post introuvable sur TikTok (supprimé ou privé ?)" });
-        continue;
-      }
-      const images = liensImages(item);
-      if (!item.isSlideshow || images.length === 0) {
-        await maj(supabase, [l.id], {
-          statut: "ignore",
-          erreur: "publié en vidéo, pas en diaporama : rien à comparer slide par slide",
-          legende: item.text ?? null,
-          musique_publiee_id: item.musicMeta?.musicId ?? null,
-        });
-        continue;
-      }
-      await maj(supabase, [l.id], {
-        statut: "a_analyser",
-        slides_publiees: images,
-        musique_publiee_id: item.musicMeta?.musicId ?? null,
-        legende: item.text ?? null,
-        erreur: null,
-      });
-      releves += 1;
+/**
+ * Un run terminé : chaque post passe à analyser (slides publiées en main), ou
+ * sort de la file s'il est introuvable ou publié en vidéo. Un run encore en
+ * cours est laissé tel quel, sauf s'il traîne depuis trop longtemps.
+ */
+async function releverRun(supabase: Client, runId: string, groupe: LigneRelecture[]): Promise<number> {
+  const ids = groupe.map((l) => l.id);
+  const run = (await apify<{ data: { status: string; defaultDatasetId: string } }>(`/actor-runs/${runId}`)).data;
+  if (run.status === "READY" || run.status === "RUNNING") {
+    const lance = Math.min(...groupe.map((l) => Date.parse(l.reserve_at ?? "") || Date.now()));
+    if (Date.now() - lance > RUN_PERIME_MS) {
+      await maj(supabase, ids, { statut: "a_scraper", apify_run_id: null, erreur: `run Apify ${runId} trop long` });
     }
+    return 0;
+  }
+  if (run.status !== "SUCCEEDED") {
+    await maj(supabase, ids, { statut: "a_scraper", apify_run_id: null, erreur: `run Apify ${runId} : ${run.status}` });
+    return 0;
+  }
+
+  const items = await apify<ItemApify[]>(`/datasets/${run.defaultDatasetId}/items?clean=true`);
+  const parId = new Map(items.filter((i) => i.id).map((i) => [String(i.id), i]));
+  let releves = 0;
+  for (const l of groupe) {
+    const item = parId.get(idPost(l.publie_url) ?? "");
+    if (!item) {
+      await maj(supabase, [l.id], { statut: "echec", erreur: "post introuvable sur TikTok (supprimé ou privé ?)" });
+      continue;
+    }
+    const images = liensImages(item);
+    if (!item.isSlideshow || images.length === 0) {
+      await maj(supabase, [l.id], {
+        statut: "ignore",
+        erreur: "publié en vidéo, pas en diaporama : rien à comparer slide par slide",
+        legende: item.text ?? null,
+        musique_publiee_id: item.musicMeta?.musicId ?? null,
+      });
+      continue;
+    }
+    await maj(supabase, [l.id], {
+      statut: "a_analyser",
+      slides_publiees: images,
+      musique_publiee_id: item.musicMeta?.musicId ?? null,
+      legende: item.text ?? null,
+      erreur: null,
+    });
+    releves += 1;
   }
   return releves;
 }
@@ -391,12 +410,136 @@ async function analyserLigne(
 }
 
 // ---------------------------------------------------------------------------
+// Relecture d'un seul post, à la demande (bouton « Tester » de la file)
+// ---------------------------------------------------------------------------
+
+/** On attend le scrape au plus autant dans un appel ; au-delà, le navigateur rappelle. */
+const ATTENTE_SCRAPE_MS = 70_000;
+/** Une analyse lancée il y a moins longtemps est encore en cours (double clic, cron). */
+const ANALYSE_EN_COURS_MS = 3 * 60 * 1000;
+
+const COLONNES_LIGNE =
+  "id, passage_id, post_id, publie_url, statut, tentatives, reserve_at, apify_run_id, slides_publiees, " +
+  "musique_publiee_id, defauts, brouillon, remarques, erreur";
+
+type LigneComplete = LigneRelecture & {
+  post_id: string;
+  statut: string;
+  defauts: unknown;
+  brouillon: string | null;
+  remarques: unknown;
+  erreur: string | null;
+};
+
+const pause = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+function jourParis(iso: string | null): string {
+  const d = iso ? new Date(iso) : new Date();
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(Number.isNaN(d.getTime()) ? new Date() : d);
+}
+
+async function lireLigne(supabase: Client, postId: string): Promise<LigneComplete | null> {
+  const { data, error } = await supabase.from("relectures_auto").select(COLONNES_LIGNE).eq("post_id", postId).maybeSingle();
+  if (error) throw error;
+  return (data as LigneComplete | null) ?? null;
+}
+
+/** Met le post en file s'il n'y est pas (même sélection que `relecture_enfiler`, pour un seul post). */
+async function ligneDuPost(supabase: Client, postId: string): Promise<LigneComplete> {
+  const existante = await lireLigne(supabase, postId);
+  if (existante) return existante;
+  const { data: passage, error } = await supabase
+    .from("passages")
+    .select("id, post_id, compte_id, publie_url, publie_at, comptes(poster_id), posts(publie_url, publie_at)")
+    .eq("post_id", postId)
+    .limit(1)
+    .maybeSingle();
+  if (error) throw error;
+  if (!passage) throw new Error("pas de slideshow assigné pour ce post : rien à comparer");
+  const compte = (Array.isArray(passage.comptes) ? passage.comptes[0] : passage.comptes) as { poster_id?: string } | null;
+  const post = (Array.isArray(passage.posts) ? passage.posts[0] : passage.posts) as
+    | { publie_url?: string | null; publie_at?: string | null }
+    | null;
+  const url = (passage.publie_url as string | null) || post?.publie_url || "";
+  if (!idPost(url)) throw new Error("le lien TikTok du post n'est pas un lien de post (/photo/… ou /video/…)");
+  const { error: errInsert } = await supabase.from("relectures_auto").insert({
+    passage_id: passage.id,
+    post_id: postId,
+    compte_id: passage.compte_id,
+    poster_id: compte?.poster_id ?? null,
+    jour: jourParis((passage.publie_at as string | null) ?? post?.publie_at ?? null),
+    publie_url: url,
+    origine: "test",
+  });
+  // Un autre appel vient de l'insérer : on reprend la sienne.
+  if (errInsert && errInsert.code !== "23505") throw errInsert;
+  const ligne = await lireLigne(supabase, postId);
+  if (!ligne) throw new Error("mise en file impossible");
+  return ligne;
+}
+
+/**
+ * Fait avancer la relecture de ce post aussi loin que possible dans cet appel :
+ * scrape (attendu jusqu'à ATTENTE_SCRAPE_MS), puis mesure et jugement. Une
+ * relecture déjà finie est renvoyée telle quelle ; un échec est retenté.
+ */
+async function relireMaintenant(
+  supabase: Client,
+  postId: string,
+  remarquesTypes: () => Promise<RemarqueType[]>,
+): Promise<LigneComplete> {
+  const debut = Date.now();
+  let ligne = await ligneDuPost(supabase, postId);
+
+  if (ligne.statut === "echec") {
+    const scrape = Array.isArray(ligne.slides_publiees) && ligne.slides_publiees.length > 0;
+    await maj(supabase, [ligne.id], { statut: scrape ? "a_analyser" : "a_scraper", tentatives: 0, apify_run_id: null, erreur: null });
+    ligne = (await lireLigne(supabase, postId))!;
+  }
+
+  if (ligne.statut === "a_scraper" || (ligne.statut === "scrape" && !ligne.apify_run_id)) {
+    const runId = await lancerRun([ligne.publie_url]);
+    await maj(supabase, [ligne.id], {
+      statut: "scrape",
+      apify_run_id: runId,
+      reserve_at: new Date().toISOString(),
+      tentatives: ligne.tentatives + 1,
+      erreur: null,
+    });
+    ligne = (await lireLigne(supabase, postId))!;
+  }
+
+  while (ligne.statut === "scrape" && ligne.apify_run_id) {
+    await releverRun(supabase, ligne.apify_run_id, [ligne]);
+    ligne = (await lireLigne(supabase, postId))!;
+    if (ligne.statut !== "scrape" || Date.now() - debut > ATTENTE_SCRAPE_MS) break;
+    await pause(4000);
+  }
+
+  const analyseFigee = ligne.statut === "analyse" &&
+    Date.now() - (Date.parse(ligne.reserve_at ?? "") || 0) > ANALYSE_EN_COURS_MS;
+  if (ligne.statut === "a_analyser" || analyseFigee) {
+    await maj(supabase, [ligne.id], {
+      statut: "analyse",
+      reserve_at: new Date().toISOString(),
+      tentatives: ligne.tentatives + 1,
+    });
+    await analyserLigne(supabase, { ...ligne, tentatives: ligne.tentatives + 1 }, await remarquesTypes());
+    ligne = (await lireLigne(supabase, postId))!;
+  }
+  return ligne;
+}
+
+// ---------------------------------------------------------------------------
 
 Deno.serve(async (request) => {
   const denied = await assertAuthorised(request);
   if (denied) return denied;
 
-  let corps: { enfiler?: { jour?: unknown; limite?: unknown; aleatoire?: unknown } } = {};
+  let corps: {
+    enfiler?: { jour?: unknown; limite?: unknown; aleatoire?: unknown };
+    relire?: { post_id?: unknown };
+  } = {};
   try {
     corps = (await request.json()) ?? {};
   } catch {
@@ -405,6 +548,31 @@ Deno.serve(async (request) => {
 
   const debut = Date.now();
   const supabase = serviceClient();
+  const remarquesTypes = async () => {
+    const { data } = await supabase.from("review_remarques").select("id, titre, corps");
+    return (data ?? []) as RemarqueType[];
+  };
+
+  if (corps.relire) {
+    const postId = String(corps.relire.post_id ?? "");
+    if (!/^[0-9a-f-]{36}$/i.test(postId)) return json({ error: "post_id attendu" }, 400);
+    try {
+      const ligne = await relireMaintenant(supabase, postId, remarquesTypes);
+      return json({
+        ok: true,
+        relecture: {
+          post_id: ligne.post_id,
+          statut: ligne.statut,
+          defauts: ligne.defauts,
+          brouillon: ligne.brouillon,
+          remarques: ligne.remarques,
+          erreur: ligne.erreur,
+        },
+      });
+    } catch (error) {
+      return json({ ok: false, error: messageErreur(error) }, 500);
+    }
+  }
   const bilan = { enfiles: 0, scrapesLances: 0, releves: 0, faits: 0, ignores: 0, reessais: 0, echecs: 0, erreurs: [] as string[] };
 
   try {
@@ -433,12 +601,11 @@ Deno.serve(async (request) => {
       }
     }
 
-    const { data: remarques } = await supabase.from("review_remarques").select("id, titre, corps");
-    const remarquesTypes = (remarques ?? []) as RemarqueType[];
+    const types = await remarquesTypes();
     while (Date.now() - debut < BUDGET_MS) {
       const lot = await reserver(supabase, "a_analyser", "analyse", 2, true);
       if (lot.length === 0) break;
-      const issues = await Promise.all(lot.map((l) => analyserLigne(supabase, l, remarquesTypes)));
+      const issues = await Promise.all(lot.map((l) => analyserLigne(supabase, l, types)));
       for (const issue of issues) {
         if (issue === "fait") bilan.faits += 1;
         else if (issue === "ignore") bilan.ignores += 1;

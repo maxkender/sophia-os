@@ -959,6 +959,20 @@ export async function listerRelecturesAuto(
   return out;
 }
 
+/**
+ * Fait relire ce post par l'agent tout de suite (bouton « Tester » de la file).
+ * Un appel avance la relecture aussi loin qu'il peut (scrape, puis mesure) ;
+ * tant que `statut` n'est pas final, il faut rappeler.
+ */
+export async function testerRelecture(postId: string): Promise<RelectureAuto> {
+  const { relecture } = await invoke<{ relecture: Record<string, unknown> }>("relecture-auto", {
+    relire: { post_id: postId },
+  });
+  const r = normaliserRelecture(relecture ?? {});
+  if (!r) throw new Error("Réponse de l'agent illisible");
+  return r;
+}
+
 type LigneRemarqueCreateur = {
   poster_id: string | null;
   remarque_id: string | null;

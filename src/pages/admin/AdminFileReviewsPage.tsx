@@ -35,6 +35,7 @@ import {
   passerPostReview,
   retirerVideoRemarque,
   supprimerReviewRemarque,
+  testerRelecture,
   uploaderVideoRemarque,
   type PostFileReview,
   type ReviewRemarque,
@@ -54,6 +55,7 @@ import {
 } from "@/features/reviews/fileJour";
 import {
   libelleDefaut,
+  relectureFinie,
   repartirDefauts,
   type DefautRelecture,
   type RelectureAuto,
@@ -62,6 +64,10 @@ import { TikTokEmbed } from "@/features/reviews/TikTokEmbed";
 import { controlerVideoRemarque, premierFichierVideo } from "@/features/reviews/videoRemarque";
 import { cn } from "@/lib/utils";
 import { AvatarCompte } from "@/features/moteur/VignetteCompte";
+
+/** « Tester » : l'agent relit le post (scrape puis mesure), on le rappelle jusqu'au verdict. */
+const SONDAGE_TEST_MS = 5000;
+const ATTENTE_TEST_MAX_MS = 4 * 60 * 1000;
 
 function nomCreateur(post: PostFileReview): string {
   const perso = [post.poster_prenom, post.poster_nom].filter(Boolean).join(" ");
@@ -374,6 +380,9 @@ export function AdminFileReviewsPage() {
   const proposees = postIds.filter((id) => relectures.data?.[id]?.brouillon).length;
 
   const courant = (file.data ?? [])[0] ?? null;
+  // Le post affiché au moment où un test se termine (l'admin a pu passer au suivant).
+  const courantId = React.useRef<string | null>(null);
+  courantId.current = courant?.id ?? null;
 
   React.useEffect(() => {
     setTexte("");
@@ -435,18 +444,40 @@ export function AdminFileReviewsPage() {
     },
   });
 
-  /** Reprend la review proposée par l'agent, avec ses remarques-types et leurs vidéos tuto. */
+  /** Pré-remplit la review avec celle de l'agent, ses remarques-types et leurs vidéos tuto. */
   const reprendreBrouillon = (r: RelectureAuto) => {
     if (!r.brouillon) return;
     setTexte(r.brouillon);
     setRemarquesUtilisees(r.remarques.reduce(ajouterRemarqueUtilisee, [] as ReviewRemarqueUtilisee[]));
-    setVideos((prev) =>
+    setVideos(
       r.remarques.reduce((acc, utilisee) => {
         const type = (remarques.data ?? []).find((x) => x.id === utilisee.id);
         return type ? ajouterVideoReview(acc, { url: type.video_url, titre: type.titre }) : acc;
-      }, prev),
+      }, [] as ReviewVideo[]),
     );
   };
+
+  const tester = useMutation({
+    mutationFn: async (postId: string) => {
+      const limite = Date.now() + ATTENTE_TEST_MAX_MS;
+      let r = await testerRelecture(postId);
+      while (!relectureFinie(r) && Date.now() < limite) {
+        await new Promise((ok) => setTimeout(ok, SONDAGE_TEST_MS));
+        r = await testerRelecture(postId);
+      }
+      if (!relectureFinie(r)) throw new Error(t("fileReviews.agent.tropLong"));
+      return r;
+    },
+    onSuccess: (r) => {
+      // Toutes les files en cache : l'admin a pu changer de jour pendant le test.
+      queryClient.setQueriesData<Record<string, RelectureAuto>>({ queryKey: ["relectures-auto"] }, (prev) =>
+        prev ? { ...prev, [r.post_id]: r } : prev,
+      );
+      if (courantId.current === r.post_id) reprendreBrouillon(r);
+    },
+  });
+  const testEnCours = tester.isPending && tester.variables === courant?.id;
+  const testEchoue = tester.isError && tester.variables === courant?.id;
 
   const utiliserRemarque = (r: ReviewRemarque) => {
     setTexte((prev) => insererRemarqueDansBrouillon(prev, r.corps));
@@ -561,7 +592,7 @@ export function AdminFileReviewsPage() {
           <RelectureAgent
             relecture={relectures.data?.[courant.id] ?? null}
             chargement={relectures.isPending}
-            onReprendre={reprendreBrouillon}
+            enCours={testEnCours}
           />
 
           {(remarques.data ?? []).length > 0 && (
@@ -652,14 +683,23 @@ export function AdminFileReviewsPage() {
             placeholder={t("fileReviews.placeholder")}
             rows={5}
           />
-          {(envoyer.isError || ameliorer.isError || passer.isError) && (
+          {(envoyer.isError || ameliorer.isError || passer.isError || testEchoue) && (
             <p className="text-sm text-destructive">
               {(envoyer.error as Error | undefined)?.message ||
                 (ameliorer.error as Error | undefined)?.message ||
-                (passer.error as Error | undefined)?.message}
+                (passer.error as Error | undefined)?.message ||
+                (testEchoue ? (tester.error as Error | undefined)?.message : undefined)}
             </p>
           )}
           <div className="flex flex-wrap gap-2">
+            <Button
+              variant="outline"
+              disabled={tester.isPending || envoyer.isPending}
+              onClick={() => tester.mutate(courant.id)}
+            >
+              <Bot className="size-4" />
+              {testEnCours ? t("fileReviews.agent.testEnCours") : t("fileReviews.agent.tester")}
+            </Button>
             <Button
               variant="outline"
               disabled={ameliorer.isPending || !texte.trim()}
@@ -695,24 +735,28 @@ function jourParisOuPrevue(post: PostFileReview): string | null {
 }
 
 /**
- * Ce que l'agent de relecture a vu sur ce post (cron de 3 h, posts de la
- * veille) : les points de la review qu'il propose, ceux qui attendent la
- * suivante, et ses notes pour l'admin. Rien n'est envoyé sans l'admin.
+ * Ce que l'agent de relecture a vu sur ce post (cron de 3 h sur les posts de
+ * la veille, ou bouton « Tester ») : les points de la review qu'il propose,
+ * ceux qui attendent la suivante, et ses notes pour l'admin. Sa review
+ * pré-remplit le champ au clic sur « Tester » ; rien n'est envoyé sans l'admin.
  */
 function RelectureAgent({
   relecture,
   chargement,
-  onReprendre,
+  enCours,
 }: {
   relecture: RelectureAuto | null;
   chargement: boolean;
-  onReprendre: (r: RelectureAuto) => void;
+  /** « Tester » tourne pour ce post. */
+  enCours: boolean;
 }) {
   const { t } = useTranslation();
   if (chargement) return null;
 
   let contenu: React.ReactNode;
-  if (!relecture) {
+  if (enCours) {
+    contenu = <p className="text-sm text-muted-foreground">{t("fileReviews.agent.enCours")}</p>;
+  } else if (!relecture) {
     contenu = <p className="text-sm text-muted-foreground">{t("fileReviews.agent.pasEncore")}</p>;
   } else if (relecture.statut === "ignore" || relecture.statut === "echec") {
     contenu = (
@@ -737,15 +781,6 @@ function RelectureAgent({
           <ListeDefauts titre={t("fileReviews.agent.plusTard")} defauts={plusTard} discret />
         )}
         {notes.length > 0 && <ListeDefauts titre={t("fileReviews.agent.notes")} defauts={notes} discret />}
-        {relecture.brouillon && (
-          <div className="space-y-2">
-            <p className="whitespace-pre-line rounded-lg bg-muted/60 p-3 text-sm">{relecture.brouillon}</p>
-            <Button type="button" size="sm" variant="outline" onClick={() => onReprendre(relecture)}>
-              <Bot className="size-4" />
-              {t("fileReviews.agent.reprendre")}
-            </Button>
-          </div>
-        )}
       </div>
     );
   }

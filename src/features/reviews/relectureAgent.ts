@@ -36,6 +36,11 @@ export interface RelectureAuto {
   erreur: string | null;
 }
 
+/** Relecture terminée, avec ou sans review : plus besoin de rappeler l'agent. */
+export function relectureFinie(r: Pick<RelectureAuto, "statut">): boolean {
+  return r.statut === "fait" || r.statut === "ignore" || r.statut === "echec";
+}
+
 /** Au plus autant de points par review : même règle que `_shared/relecture.ts`. */
 export const MAX_POINTS_REVIEW = 2;
 

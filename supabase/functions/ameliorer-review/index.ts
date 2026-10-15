@@ -15,7 +15,7 @@ Rules:
 - Output English only, even if the draft is French or mixed.
 - Fix spelling and grammar.
 - Complete unfinished sentences without changing the meaning.
-- Format into short, readable paragraphs.
+- Format into short, readable paragraphs. Keep numbered steps as numbered steps, one per line, in the same order.
 - Keep the admin's intent, facts and tone. Do not invent details about the TikTok.
 - Do not add a rigid template (what went well / to fix / next time) unless the draft already uses that structure.
 - Do not add a greeting or signature unless the draft has one.

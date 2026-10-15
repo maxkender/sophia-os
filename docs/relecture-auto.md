@@ -32,8 +32,9 @@ Règles dans `supabase/functions/_shared/relecture.ts`, seuils en tête du fichi
 
 | Défaut | Règle | Remarque-type de la file |
 | --- | --- | --- |
-| `forme_paragraphe` | caractères par ligne publiés ÷ originaux < 0,7 (colonne étroite) ou > 1,5 | Jutifier |
-| `taille` | hauteur de ligne (rapportée à la largeur de l'image) hors de ×0,7 à ×1,45 | text not the same |
+| `forme_paragraphe` | paragraphe 25 % moins large que l'original (3 lignes ou plus), ou caractères par ligne ÷ originaux < 0,72 ; lignes trop longues au-delà de 1,5 | Jutifier |
+| `taille` | hauteur de ligne (rapportée à la largeur de l'image) hors de ×0,8 à ×1,25 | text not the same |
+| `police` | Gemini compare les deux images : même famille de caractères et même graisse ? | text not the same |
 | `hierarchie` | l'original distingue un titre, le publié non | Corpus / head |
 | `couleur`, `contour`, `gras` | famille de couleur, contour, graisse différents | text not the same |
 | `alignement` | gauche / centre / droite différent | — |
@@ -43,6 +44,11 @@ Règles dans `supabase/functions/_shared/relecture.ts`, seuils en tête du fichi
 
 Un défaut de slide n'est retenu que s'il se répète : vu sur au moins la moitié
 des slides où la règle s'applique, et sur 2 slides dès qu'il y en a 2 à juger.
+Sauf l'alignement : souvent seule l'accroche a un alignement propre, une slide
+suffit.
+
+Seuils calibrés le 15/10 sur 10 posts relus à l'œil (planches original /
+publié) : voir `analyse/rapports/2026-10-15-relecture-test.md`.
 
 ## Lancer un lot de test
 

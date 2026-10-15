@@ -63,6 +63,8 @@ Deno.test("parserMesure lit le JSON même entouré de texte, et l'échelle 0-100
   assertEquals(m.a[0].contour, true);
   assertEquals(m.a[0].alignement, "gauche");
   assertEquals(m.b.length, 0);
+  assertEquals(m.policeIdentique, null);
+  assertEquals(parserMesure('{"a":[],"b":[],"police_identique":false}')?.policeIdentique, false);
   assertEquals(parserMesure("pas de json"), null);
 });
 
@@ -81,13 +83,42 @@ Deno.test("forme du paragraphe : une colonne étroite est relevée, même à tai
   assert(!codes.includes("taille"), "la taille de ligne est la même");
 });
 
-Deno.test("taille : un texte deux fois plus grand est relevé", () => {
+Deno.test("forme du paragraphe : colonne nettement moins large, même avec autant de caractères par ligne", () => {
+  // Cas relevé le 15/10 : texte traduit plus long et plus petit, bloc à 60 % de la largeur d'origine.
+  const a = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, w: 0.62, h: 0.12 })]);
+  const b = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 5, w: 0.37, h: 0.13 })]);
+  const forme = jugerPaire(5, a, b).constats.find((c) => c.code === "forme_paragraphe");
+  assert(forme);
+  assertEquals(forme.valeurs?.largeur, 0.6);
+});
+
+Deno.test("police : le verdict du modèle compte quand il se prononce", () => {
+  const a = slide([bloc({ texte: PARAGRAPHE_LARGE })]);
+  const b = slide([bloc({ texte: PARAGRAPHE_LARGE })]);
+  assert(jugerPaire(2, a, b, false).constats.some((c) => c.code === "police"));
+  assert(!jugerPaire(2, a, b, true).constats.some((c) => c.code === "police"));
+  assert(!jugerPaire(2, a, b, null).evalues.includes("police"));
+});
+
+Deno.test("agreger : un alignement différent sur la seule accroche suffit", () => {
+  const accrocheA = slide([bloc({ role: "titre", texte: "things that will make you\ndisgustingly intelligent", lignes: 2, alignement: "gauche" })]);
+  const accrocheB = slide([bloc({ role: "titre", texte: "πράγματα που θα σε\nκάνουν αδιανόητα έξυπνο", lignes: 2, alignement: "centre" })]);
+  const corps = slide([bloc({ texte: PARAGRAPHE_LARGE })]);
+  const defauts = agreger([jugerPaire(1, accrocheA, accrocheB), jugerPaire(2, corps, corps), jugerPaire(3, corps, corps)]);
+  const al = defauts.find((d) => d.code === "alignement");
+  assert(al);
+  assertEquals(al.slides, [1]);
+});
+
+Deno.test("taille : un texte deux fois plus grand est relevé, ×1,15 passe", () => {
   const a = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, h: 0.12 })]);
   const b = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, h: 0.24 })]);
   const j = jugerPaire(3, a, b);
   const taille = j.constats.find((c) => c.code === "taille");
   assert(taille);
   assertEquals(taille.valeurs?.sens, "plus grand");
+  const proche = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, h: 0.138 })]);
+  assert(!jugerPaire(3, a, proche).constats.some((c) => c.code === "taille"));
 });
 
 Deno.test("hiérarchie : titre distinct dans l'original, un seul bloc publié", () => {

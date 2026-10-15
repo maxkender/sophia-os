@@ -284,7 +284,7 @@ async function mesurerPaire(position: number, urlOriginal: string, urlPublie: st
   if (!mesure) throw new Error(`slide ${position} : réponse Gemini illisible`);
   const original: MesureSlide = { blocs: mesure.a, largeurPx: a.largeur, hauteurPx: a.hauteur };
   const publie: MesureSlide = { blocs: mesure.b, largeurPx: b.largeur, hauteurPx: b.hauteur };
-  return { position, original, publie };
+  return { position, original, publie, policeIdentique: mesure.policeIdentique };
 }
 
 async function analyserLigne(
@@ -339,12 +339,13 @@ async function analyserLigne(
         echecs.push(messageErreur(r.reason));
         continue;
       }
-      const j = jugerPaire(r.value.position, r.value.original, r.value.publie);
+      const j = jugerPaire(r.value.position, r.value.original, r.value.publie, r.value.policeIdentique);
       jugements.push(j);
       comparaisons.push({
         position: r.value.position,
         original: r.value.original,
         publie: r.value.publie,
+        police_identique: r.value.policeIdentique,
         constats: j.constats,
       });
     }

@@ -46,6 +46,7 @@ export type CodeDefaut =
   | "couleur"
   | "contour"
   | "gras"
+  | "police"
   | "alignement"
   | "placement"
   | "texte_absent"
@@ -83,12 +84,22 @@ export interface Defaut {
 // ---------------------------------------------------------------------------
 
 /** Caractères par ligne publiés ÷ originaux : en dessous, paragraphe en colonne étroite. */
-export const SEUIL_LIGNES_COURTES = 0.7;
+export const SEUIL_LIGNES_COURTES = 0.72;
+/**
+ * Largeur du paragraphe publiée ÷ originale : en dessous, colonne étroite même
+ * si le texte, plus petit, garde autant de caractères par ligne (test du 15/10 :
+ * 0,59 et 0,63 sur un post où la remarque « Jutifier » s'imposait à l'œil).
+ */
+export const SEUIL_LARGEUR = 0.75;
 /** Au-dessus : lignes nettement plus longues que l'original. */
 export const SEUIL_LIGNES_LONGUES = 1.5;
-/** Hauteur de ligne publiée ÷ originale, rapportée à la largeur de l'image. */
-export const SEUIL_TAILLE_MIN = 0.7;
-export const SEUIL_TAILLE_MAX = 1.45;
+/**
+ * Hauteur de ligne publiée ÷ originale, rapportée à la largeur de l'image.
+ * Calibré le 15/10 sur 10 posts relus à l'œil : les textes grossis à ×1,3
+ * se voient nettement, ceux à ×1,1-1,2 passent pour fidèles.
+ */
+export const SEUIL_TAILLE_MIN = 0.8;
+export const SEUIL_TAILLE_MAX = 1.25;
 /** Le titre de l'original est plus grand que son corps d'au moins ce facteur. */
 export const SEUIL_HIERARCHIE = 1.15;
 /** Écart vertical du centre du texte, en fraction de la hauteur de l'image. */
@@ -115,8 +126,11 @@ Pour chaque bloc :
 - gras : true si les lettres sont nettement grasses
 - alignement : "gauche", "centre" ou "droite", d'après les bords des lignes
 
+Enfin, compare les deux images :
+- police_identique : true si B utilise la même police que A (même famille de caractères ET même graisse), false sinon
+
 Réponds UNIQUEMENT par un objet JSON, sans texte autour :
-{"a":[{"role":"titre","x":0.1,"y":0.3,"w":0.8,"h":0.06,"lignes":1,"texte":"...","couleur":"#FFFFFF","contour":false,"gras":true,"alignement":"centre"}],"b":[...]}`;
+{"a":[{"role":"titre","x":0.1,"y":0.3,"w":0.8,"h":0.06,"lignes":1,"texte":"...","couleur":"#FFFFFF","contour":false,"gras":true,"alignement":"centre"}],"b":[...],"police_identique":true}`;
 
 function nombre(v: unknown): number | null {
   const n = typeof v === "string" ? Number(v) : v;
@@ -174,8 +188,15 @@ function parserBloc(item: any): BlocTexte | null {
   };
 }
 
-/** `{"a":[...],"b":[...]}`, même noyé dans du texte ou un bloc de code. */
-export function parserMesure(reponse: string): { a: BlocTexte[]; b: BlocTexte[] } | null {
+export interface Mesure {
+  a: BlocTexte[];
+  b: BlocTexte[];
+  /** null quand le modèle ne s'est pas prononcé. */
+  policeIdentique: boolean | null;
+}
+
+/** `{"a":[...],"b":[...],"police_identique":…}`, même noyé dans du texte ou un bloc de code. */
+export function parserMesure(reponse: string): Mesure | null {
   const debut = reponse.indexOf("{");
   const fin = reponse.lastIndexOf("}");
   if (debut < 0 || fin <= debut) return null;
@@ -190,7 +211,13 @@ export function parserMesure(reponse: string): { a: BlocTexte[]; b: BlocTexte[] 
   const liste = (v: unknown) =>
     (Array.isArray(v) ? v : []).map(parserBloc).filter((b): b is BlocTexte => b !== null);
   if (!Array.isArray(d.a) && !Array.isArray(d.b)) return null;
-  return { a: liste(d.a), b: liste(d.b) };
+  const police = d.police_identique;
+  const policeIdentique = police === true || police === "true"
+    ? true
+    : police === false || police === "false"
+    ? false
+    : null;
+  return { a: liste(d.a), b: liste(d.b), policeIdentique };
 }
 
 // ---------------------------------------------------------------------------
@@ -261,7 +288,12 @@ const arrondi = (n: number, d = 2) => Math.round(n * 10 ** d) / 10 ** d;
 // Jugement d'une paire original / publié
 // ---------------------------------------------------------------------------
 
-export function jugerPaire(position: number, a: MesureSlide, b: MesureSlide): JugementPaire {
+export function jugerPaire(
+  position: number,
+  a: MesureSlide,
+  b: MesureSlide,
+  policeIdentique: boolean | null = null,
+): JugementPaire {
   const evalues: CodeDefaut[] = [];
   const constats: Constat[] = [];
   const ajouter = (code: CodeDefaut, detail: string, valeurs?: Constat["valeurs"]) =>
@@ -290,8 +322,11 @@ export function jugerPaire(position: number, a: MesureSlide, b: MesureSlide): Ju
     const cplA = caracteresParLigne(pa);
     const cplB = caracteresParLigne(pb);
     const ratio = cplB / cplA;
-    const valeurs = { cpl_original: Math.round(cplA), cpl_publie: Math.round(cplB), lignes_original: pa.lignes, lignes_publie: pb.lignes };
-    if (ratio < SEUIL_LIGNES_COURTES) {
+    const largeur = pb.w / pa.w;
+    const valeurs = { cpl_original: Math.round(cplA), cpl_publie: Math.round(cplB), lignes_original: pa.lignes, lignes_publie: pb.lignes, largeur: arrondi(largeur) };
+    if (largeur < SEUIL_LARGEUR && pb.lignes >= 3) {
+      ajouter("forme_paragraphe", `colonne étroite : paragraphe ${Math.round((1 - largeur) * 100)} % moins large que l'original (${pb.lignes} lignes contre ${pa.lignes})`, { ...valeurs, sens: "courtes" });
+    } else if (ratio < SEUIL_LIGNES_COURTES) {
       ajouter("forme_paragraphe", `lignes trop courtes : ${Math.round(cplB)} car./ligne contre ${Math.round(cplA)} (${pb.lignes} lignes contre ${pa.lignes})`, { ...valeurs, sens: "courtes" });
     } else if (ratio > SEUIL_LIGNES_LONGUES) {
       ajouter("forme_paragraphe", `lignes trop longues : ${Math.round(cplB)} car./ligne contre ${Math.round(cplA)}`, { ...valeurs, sens: "longues" });
@@ -333,6 +368,12 @@ export function jugerPaire(position: number, a: MesureSlide, b: MesureSlide): Ju
     ajouter("gras", pb.gras ? "texte en gras, l'original ne l'est pas" : "gras de l'original perdu", { original: String(pa.gras), publie: String(pb.gras) });
   }
 
+  // Police et graisse : comparées directement par le modèle sur les deux images.
+  if (policeIdentique !== null) {
+    evalues.push("police");
+    if (!policeIdentique) ajouter("police", "police ou graisse différente de l'original");
+  }
+
   // Alignement, seulement s'il a un sens (au moins 2 lignes de chaque côté).
   if (pa.lignes >= 2 && pb.lignes >= 2) {
     evalues.push("alignement");
@@ -359,7 +400,13 @@ export function jugerPaire(position: number, a: MesureSlide, b: MesureSlide): Ju
  * Un défaut n'est retenu que s'il se répète : vu sur au moins la moitié des
  * slides où la règle s'applique, et sur 2 slides dès qu'il y en a 2 à juger.
  * Une mesure ratée sur une slide ne suffit donc pas à envoyer une remarque.
+ *
+ * Exception : l'alignement. Souvent seule l'accroche a un alignement propre
+ * (à gauche quand le reste est centré), et le modèle le lit sans erreur sur
+ * les posts relus à l'œil : une slide suffit.
  */
+const VU_SUR_UNE_SLIDE: CodeDefaut[] = ["alignement"];
+
 export function agreger(jugements: JugementPaire[]): Defaut[] {
   const parCode = new Map<CodeDefaut, { evalues: number; constats: Constat[] }>();
   for (const j of jugements) {
@@ -374,7 +421,7 @@ export function agreger(jugements: JugementPaire[]): Defaut[] {
   for (const [code, e] of parCode) {
     const vus = e.constats.length;
     if (vus === 0) continue;
-    if (vus / e.evalues < 0.5 || vus < Math.min(2, e.evalues)) continue;
+    if (!VU_SUR_UNE_SLIDE.includes(code) && (vus / e.evalues < 0.5 || vus < Math.min(2, e.evalues))) continue;
     const premier = e.constats[0];
     defauts.push({
       code,
@@ -388,7 +435,7 @@ export function agreger(jugements: JugementPaire[]): Defaut[] {
 }
 
 const ORDRE: CodeDefaut[] = [
-  "forme_paragraphe", "taille", "hierarchie", "alignement", "couleur", "contour", "gras",
+  "forme_paragraphe", "taille", "hierarchie", "alignement", "police", "couleur", "contour", "gras",
   "placement", "texte_absent", "nb_slides", "musique",
 ];
 
@@ -455,6 +502,7 @@ const REMARQUE_DU_CODE: Partial<Record<CodeDefaut, RegExp>> = {
   couleur: /not the same|style/i,
   contour: /not the same|style/i,
   gras: /not the same|style/i,
+  police: /not the same|style/i,
   hierarchie: /corpus|head/i,
 };
 
@@ -471,7 +519,7 @@ function phraseAnglaise(d: Defaut): string {
     case "forme_paragraphe":
       return v.sens === "longues"
         ? `${ou}the lines run much longer than in the original (${v.cpl_publie} characters per line instead of ${v.cpl_original}).`
-        : `${ou}the paragraph is a narrow column: about ${v.cpl_publie} characters per line instead of ${v.cpl_original} in the original. Make the lines as long as in the original.`;
+        : `${ou}the paragraph is a narrow column (${v.lignes_publie} lines instead of ${v.lignes_original}). Make the lines as long as in the original.`;
     case "taille":
       return `${ou}the text is about ${v.ratio}× ${v.sens === "plus grand" ? "bigger" : "smaller"} than in the original.`;
     case "hierarchie":
@@ -484,6 +532,8 @@ function phraseAnglaise(d: Defaut): string {
       return `${ou}${v.publie === "true" ? "the letters have an outline or shadow that the original does not have" : "the outline of the original letters is missing"}.`;
     case "gras":
       return `${ou}${v.publie === "true" ? "the text is bold, the original is not" : "the original text is bold, yours is not"}.`;
+    case "police":
+      return `${ou}the font is not the one of the original (typeface or weight).`;
     case "placement":
       return `${ou}the text sits much ${v.sens === "bas" ? "lower" : "higher"} than in the original.`;
     case "texte_absent":

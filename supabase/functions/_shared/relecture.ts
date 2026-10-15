@@ -603,6 +603,8 @@ export interface RemarqueType {
   id: string;
   titre: string;
   corps: string;
+  /** Vidéo tuto jointe à la review quand la remarque est utilisée. */
+  video_url?: string | null;
 }
 
 /** Remarque-type de la file (et sa vidéo tuto) qui couvre chaque défaut, retrouvée par son titre. */
@@ -640,15 +642,30 @@ export function pointAnglais(d: Defaut): string {
   const sur = d.slides.length ? `On ${slidesEn(d.slides)}, ` : "";
   const v = d.valeurs ?? {};
   switch (d.code) {
-    case "justification":
+    case "justification": {
+      // Le geste est peu connu des créateurs : le curseur de taille n'apparaît
+      // qu'en touchant le texte, sur le bord droit (vidéo tuto « Jutifier »).
       // Jamais de nombre de lignes à viser : le texte est traduit.
-      return v.sens === "longues"
-        ? `${sur}your lines are longer than in the original, so the text looks stretched. Tap the text, move the size slider up until your lines are about as long as in the original, tap Done, then pinch it back to the right size. Your text is translated, so you may not get the same number of lines, and that's fine: what matters is the length of each line.`
-        : `${sur}your lines are shorter than in the original, so the paragraph looks like a thin column instead of a block. Tap the text, move the size slider down until your lines are about as long as in the original, tap Done, then pinch it back to the right size. Your text is translated, so you may not get the same number of lines, and that's fine: what matters is the length of each line.`;
+      const longues = v.sens === "longues";
+      return [
+        longues
+          ? `${sur}your lines are longer than in the original, so the text looks stretched. Here's how to fix it:`
+          : `${sur}your lines are shorter than in the original, so the paragraph looks like a thin column. Here's how to fix it:`,
+        "1. Tap your text to edit it.",
+        longues
+          ? "2. A small slider appears on the right edge of the screen (a white dot on a thin line). Slide the dot up: the letters get bigger and fewer words fit on each line."
+          : "2. A small slider appears on the right edge of the screen (a white dot on a thin line). Slide the dot down: the letters get smaller and more words fit on each line.",
+        "3. Stop when your lines look about as long as in the original, then tap Done.",
+        longues
+          ? "4. If the text is now too big, pinch it with two fingers to make it smaller. This keeps your line breaks."
+          : "4. If the text is now too small, spread two fingers on it to make it bigger. This keeps your line breaks.",
+        "Your text is translated, so you may not get the same number of lines, and that's fine.",
+      ].join("\n");
+    }
     case "largeur":
       return v.sens === "etroit"
-        ? `${sur}your paragraph is narrower than in the original, with more empty space on each side. Pinch it up a little until the space on each side is the same as in the original.`
-        : `${sur}your paragraph is wider than in the original: the text goes closer to the edges of the screen. Pinch it down a little until the space on each side is the same as in the original.`;
+        ? `${sur}your paragraph is narrower than in the original, with more empty space on each side. Spread two fingers on the text to make it a bit bigger, until the space on each side is the same as in the original.`
+        : `${sur}your paragraph is wider than in the original: the text goes closer to the edges of the screen. Pinch the text with two fingers to make it a bit smaller, until the space on each side is the same as in the original.`;
     case "taille":
       return v.sens === "plus grand"
         ? `${sur}the text is clearly bigger than in the original and covers more of the picture. Pinch it down a little so it takes the same space as in the original.`
@@ -698,7 +715,14 @@ export function redigerBrouillon(defauts: Defaut[], remarquesTypes: RemarqueType
   const ouverture = points.length === 1
     ? "Hi! Thanks for your post. One small thing to make it match the original:"
     : "Hi! Thanks for your post. Two small things to make it match the original:";
-  const texte = [ouverture, ...points.map(pointAnglais), "Keep it up!"].join("\n\n");
+  // La vidéo tuto de la remarque est jointe à la review : on y renvoie.
+  const avecVideo = (d: Defaut) => {
+    const re = REMARQUE_DU_CODE[d.code];
+    const r = re ? trouver(re) : undefined;
+    const texte = pointAnglais(d);
+    return r?.video_url ? `${texte}\nThe short video with this message shows how to do it.` : texte;
+  };
+  const texte = [ouverture, ...points.map(avecVideo), "Keep it up!"].join("\n\n");
   return { texte, remarques: utilisees.map((r) => ({ id: r.id, titre: r.titre })), points };
 }
 
@@ -707,12 +731,21 @@ export function redigerBrouillon(defauts: Defaut[], remarquesTypes: RemarqueType
  * inventé : mêmes numéros de slides, pas de chiffres techniques ni de nombre
  * de lignes, longueur raisonnable. Sinon on garde le brouillon déterministe.
  */
+/** Mots du geste qu'une reformulation ne doit pas perdre. */
+const GESTES = [/slider/i, /right edge/i, /white dot/i, /\bDone\b/, /pinch|spread two fingers/i, /alignment button/i, /\bA button\b/i, /color row/i, /video/i];
+
 export function reformulationValide(brouillon: string, reformule: string): boolean {
   const texte = reformule.trim();
   if (texte.length < 40 || texte.length > Math.max(900, brouillon.length * 1.3)) return false;
   if (/%|×|\bratio\b|```/i.test(texte)) return false;
   // Jamais de nombre de lignes à viser : le texte est traduit.
   if (/\b\d+\s+(?:lines?|rows?)\b/i.test(texte)) return false;
+  // Les gestes doivent survivre mot pour mot : c'est la partie que les créateurs ne connaissent pas.
+  for (const mot of GESTES) {
+    if (mot.test(brouillon) && !mot.test(texte)) return false;
+  }
+  const etapes = (t: string) => (t.match(/^\s*\d\.\s/gm) ?? []).length;
+  if (etapes(texte) < etapes(brouillon)) return false;
   const numeros = (s: string) =>
     new Set([...s.matchAll(/slides?\s+((?:\d+(?:,?\s+and\s+|,\s*))*\d+)/gi)].flatMap((m) => m[1].match(/\d+/g) ?? []));
   const attendus = numeros(brouillon);
@@ -731,8 +764,10 @@ Rules:
 - Keep every fact, every slide number and every instruction exactly (what to tap, which slider, pinch). Do not add new problems or new advice.
 - No percentages, ratios or technical words.
 - Never ask the creator to match the number of lines: the text is translated, so it can have more or fewer lines than the original. Talk about how long the lines are, not how many there are.
-- Start with one short positive sentence, then the points (one short paragraph each), then a one-line friendly closing.
-- At most 120 words.
+- Start with one short positive sentence, then the points, then a one-line friendly closing.
+- If a point has numbered steps, keep them as numbered steps, one per line, with the same gestures in the same order (tap the text, the small slider on the right edge of the screen, the white dot, slide down or up, tap Done, pinch or spread two fingers). You may only make the wording simpler.
+- Keep any sentence about the short video.
+- At most 170 words.
 - Return only the message. No quotes, no markdown, no subject line.
 
 Draft:

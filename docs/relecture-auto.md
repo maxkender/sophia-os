@@ -70,8 +70,10 @@ suffit.
 Au plus **deux points**, dans l'ordre du tableau ; le reste attend la review
 suivante (et reste visible pour l'admin dans `defauts`). Chaque point dit ce
 qui se voit, en mots (« your lines are shorter than in the original, so the paragraph looks like a thin column » ; jamais « 5 lignes au lieu de 3 », le texte étant traduit),
-puis le geste dans l'éditeur de TikTok : curseur puis pincement pour la
-justification, pincement pour la taille, bouton d'alignement, zone de texte à
+puis le geste dans l'éditeur de TikTok : pour la justification, des étapes
+numérotées (toucher le texte, le petit curseur qui apparaît sur le bord droit
+de l'écran, descendre ou monter le point blanc, Done, puis pincer ou écarter
+deux doigts), avec renvoi à la vidéo tuto de la remarque « Jutifier » ; pincement pour la taille, bouton d'alignement, zone de texte à
 part pour le titre, bouton A et rangée de couleurs pour le style. Jamais de
 ratio ni de pourcentage.
 

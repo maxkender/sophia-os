@@ -245,10 +245,11 @@ Deno.test("redigerBrouillon : deux points au plus, les plus importants, en mots 
   ], REMARQUES);
   assertEquals(points.map((p) => p.code), ["justification", "taille"]);
   assertEquals(remarques.map((r) => r.id), ["h", "j", "s"]);
-  assert(texte.includes("On slides 2 and 4, your lines are shorter than in the original, so the paragraph looks like a thin column instead of a block."));
+  assert(texte.includes("On slides 2 and 4, your lines are shorter than in the original, so the paragraph looks like a thin column. Here's how to fix it:"));
+  assert(texte.includes("\n1. Tap your text to edit it.\n2. A small slider appears on the right edge of the screen (a white dot on a thin line). Slide the dot down"));
+  assert(texte.includes("then tap Done"));
   assert(texte.includes("you may not get the same number of lines"));
   assert(!/\d+ lines/.test(texte), "jamais de nombre de lignes à viser");
-  assert(texte.includes("size slider down"));
   assert(texte.includes("Pinch it down"));
   assert(!/[×%]|1\.9/.test(texte), "pas de ratio dans le texte envoyé");
   assert(!texte.includes("sound"), "le troisième point attend une prochaine review");
@@ -303,7 +304,7 @@ Deno.test("largeur et taille dans le même sens : un seul point (pincer)", () =>
   assertEquals(defauts.map((d) => d.code), ["largeur"]);
   const { texte, remarques } = redigerBrouillon(defauts, REMARQUES);
   assert(texte.includes("On slides 2 and 3, your paragraph is wider than in the original"));
-  assert(texte.includes("Pinch it down"));
+  assert(texte.includes("Pinch the text with two fingers to make it a bit smaller"));
   assertEquals(remarques.map((r) => r.id), ["h", "j"]);
 });
 
@@ -338,5 +339,23 @@ Deno.test("justification : une traduction plus longue fait plus de lignes de la 
 Deno.test("justification : la confirmation lit la ligne la plus longue, pas une moyenne tirée par les fins de phrase", () => {
   assertEquals(ligneLaPlusLongue("hair mask while finishing a\nreading\nlaundry"), 27);
   assertEquals(ligneLaPlusLongue(""), 0);
+});
+
+Deno.test("redigerBrouillon : renvoie à la vidéo tuto quand la remarque-type en a une", () => {
+  const avecVideo = REMARQUES.map((r) => (r.id === "j" ? { ...r, video_url: "https://cdn.example/justif.mp4" } : r));
+  const defaut = { code: "justification" as const, niveau: "remarque" as const, slides: [5, 6], confiance: 1, detail: "", valeurs: { sens: "courtes" } };
+  assert(redigerBrouillon([defaut], avecVideo).texte.includes("The short video with this message shows how to do it."));
+  assert(!redigerBrouillon([defaut], REMARQUES).texte.includes("video"));
+});
+
+Deno.test("reformulationValide : les étapes et le geste du slider doivent survivre", () => {
+  const defaut = { code: "justification" as const, niveau: "remarque" as const, slides: [5, 6], confiance: 1, detail: "", valeurs: { sens: "courtes" } };
+  const brouillon = redigerBrouillon([defaut], REMARQUES).texte;
+  // Reprise fidèle, tournures simplifiées : gardée.
+  const fidele = brouillon.replace("Hi! Thanks for your post.", "Hey, great post!").replace("Keep it up!", "Thanks a lot!");
+  assert(reformulationValide(brouillon, fidele));
+  // Étapes fondues en une phrase, bord droit perdu : rejetée.
+  const fondu = "Great post! On slides 5 and 6 your lines are short. Tap the text, use the slider to make the letters smaller, tap Done and pinch it bigger. Your text is translated, so that's fine. Keep it up!";
+  assert(!reformulationValide(brouillon, fondu));
 });
 

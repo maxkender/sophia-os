@@ -619,7 +619,7 @@ Deno.serve(async (request) => {
   const debut = Date.now();
   const supabase = serviceClient();
   const remarquesTypes = async () => {
-    const { data } = await supabase.from("review_remarques").select("id, titre, corps");
+    const { data } = await supabase.from("review_remarques").select("id, titre, corps, video_url");
     return (data ?? []) as RemarqueType[];
   };
 

@@ -264,4 +264,6 @@ Deno.test("reformulationValide : mêmes slides, pas de ratio, sinon on garde le 
   assert(!reformulationValide(brouillon, "Hey, great post! On slide 2 the lines are a bit short: tap the text and move the size slider down. Thanks!"));
   assert(!reformulationValide(brouillon, "Hey! On slides 2 and 4 the text is 30% too narrow, move the size slider down please, thank you."));
   assert(!reformulationValide(brouillon, "ok"));
+  const trois = "On slides 1, 3 and 4, your lines are shorter than in the original. Move the size slider down.";
+  assert(reformulationValide(trois, "Nice post! On slides 1, 3, and 4 your lines are a bit short, so move the size slider down. Thanks!"));
 });

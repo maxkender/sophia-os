@@ -662,7 +662,7 @@ export function reformulationValide(brouillon: string, reformule: string): boole
   if (texte.length < 40 || texte.length > Math.max(900, brouillon.length * 1.3)) return false;
   if (/%|×|\bratio\b|```/i.test(texte)) return false;
   const numeros = (s: string) =>
-    new Set([...s.matchAll(/slides?\s+((?:\d+(?:,\s*|\s+and\s+))*\d+)/gi)].flatMap((m) => m[1].match(/\d+/g) ?? []));
+    new Set([...s.matchAll(/slides?\s+((?:\d+(?:,?\s+and\s+|,\s*))*\d+)/gi)].flatMap((m) => m[1].match(/\d+/g) ?? []));
   const attendus = numeros(brouillon);
   const obtenus = numeros(texte);
   for (const n of attendus) if (!obtenus.has(n)) return false;

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { ChevronUp, Film, Plus, Send, Settings2, SkipForward, Sparkles, Trash2, X } from "lucide-react";
+import { Bot, ChevronUp, Film, Plus, Send, Settings2, SkipForward, Sparkles, Trash2, X } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -29,6 +29,7 @@ import {
   creerReviewRemarque,
   envoyerReview,
   listerFileReviewsJour,
+  listerRelecturesAuto,
   listerReviewRemarques,
   majReviewRemarque,
   passerPostReview,
@@ -40,6 +41,7 @@ import {
 } from "@/features/moteur/api";
 import { DropVideoRemarque } from "@/features/reviews/DropVideoRemarque";
 import {
+  ajouterJourCalendaire,
   ajouterRemarqueUtilisee,
   ajouterVideoReview,
   insererRemarqueDansBrouillon,
@@ -50,6 +52,12 @@ import {
   type ReviewRemarqueUtilisee,
   type ReviewVideo,
 } from "@/features/reviews/fileJour";
+import {
+  libelleDefaut,
+  repartirDefauts,
+  type DefautRelecture,
+  type RelectureAuto,
+} from "@/features/reviews/relectureAgent";
 import { TikTokEmbed } from "@/features/reviews/TikTokEmbed";
 import { controlerVideoRemarque, premierFichierVideo } from "@/features/reviews/videoRemarque";
 import { cn } from "@/lib/utils";
@@ -331,7 +339,10 @@ export function AdminFileReviewsPage() {
   const [remarquesUtilisees, setRemarquesUtilisees] = React.useState<ReviewRemarqueUtilisee[]>([]);
   const [errVideoFile, setErrVideoFile] = React.useState<string | null>(null);
   const [reglages, setReglages] = React.useState(false);
-  const jour = aujourdhuiParis();
+  // L'agent relit chaque nuit les posts de la veille : la file s'ouvre aussi sur hier.
+  const aujourdhui = aujourdhuiParis();
+  const hier = ajouterJourCalendaire(aujourdhui, -1);
+  const [jour, setJour] = React.useState(aujourdhui);
 
   const file = useQuery({
     queryKey: ["file-reviews", jour],
@@ -353,6 +364,14 @@ export function AdminFileReviewsPage() {
     queryFn: () => compterRemarquesParCreateur(posterIds),
     enabled: posterIds.length > 0,
   });
+
+  const postIds = React.useMemo(() => (file.data ?? []).map((p) => p.id), [file.data]);
+  const relectures = useQuery({
+    queryKey: ["relectures-auto", postIds],
+    queryFn: () => listerRelecturesAuto(postIds),
+    enabled: postIds.length > 0,
+  });
+  const proposees = postIds.filter((id) => relectures.data?.[id]?.brouillon).length;
 
   const courant = (file.data ?? [])[0] ?? null;
 
@@ -416,6 +435,19 @@ export function AdminFileReviewsPage() {
     },
   });
 
+  /** Reprend la review proposée par l'agent, avec ses remarques-types et leurs vidéos tuto. */
+  const reprendreBrouillon = (r: RelectureAuto) => {
+    if (!r.brouillon) return;
+    setTexte(r.brouillon);
+    setRemarquesUtilisees(r.remarques.reduce(ajouterRemarqueUtilisee, [] as ReviewRemarqueUtilisee[]));
+    setVideos((prev) =>
+      r.remarques.reduce((acc, utilisee) => {
+        const type = (remarques.data ?? []).find((x) => x.id === utilisee.id);
+        return type ? ajouterVideoReview(acc, { url: type.video_url, titre: type.titre }) : acc;
+      }, prev),
+    );
+  };
+
   const utiliserRemarque = (r: ReviewRemarque) => {
     setTexte((prev) => insererRemarqueDansBrouillon(prev, r.corps));
     setVideos((prev) => ajouterVideoReview(prev, { url: r.video_url, titre: r.titre }));
@@ -443,8 +475,31 @@ export function AdminFileReviewsPage() {
               {t("fileReviews.subtitle", { date: labelJour })}
             </CardDescription>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <div className="flex rounded-lg border p-0.5">
+              {[
+                { valeur: hier, label: t("fileReviews.hier") },
+                { valeur: aujourdhui, label: t("fileReviews.aujourdhui") },
+              ].map((j) => (
+                <Button
+                  key={j.valeur}
+                  type="button"
+                  size="sm"
+                  variant={jour === j.valeur ? "secondary" : "ghost"}
+                  aria-pressed={jour === j.valeur}
+                  onClick={() => setJour(j.valeur)}
+                >
+                  {j.label}
+                </Button>
+              ))}
+            </div>
             <Badge variant="secondary">{t("fileReviews.restants", { count: restants })}</Badge>
+            {proposees > 0 && (
+              <Badge variant="secondary" className="gap-1">
+                <Bot className="size-3" />
+                {t("fileReviews.agent.proposees", { count: proposees })}
+              </Badge>
+            )}
             <Button variant="outline" size="sm" onClick={() => setReglages(true)}>
               <Settings2 className="size-4" />
               {t("fileReviews.reglages")}
@@ -460,7 +515,10 @@ export function AdminFileReviewsPage() {
         <p className="text-sm text-destructive">{(file.error as Error).message}</p>
       )}
       {!file.isPending && !courant && (
-        <EmptyState title={t("fileReviews.vide")} description={t("fileReviews.videAide")} />
+        <EmptyState
+          title={t("fileReviews.vide")}
+          description={jour === aujourdhui ? t("fileReviews.videAide") : t("fileReviews.videAideJour")}
+        />
       )}
 
       {courant && (
@@ -499,6 +557,12 @@ export function AdminFileReviewsPage() {
               chargementLabel={t("fileReviews.apercuChargement")}
             />
           </div>
+
+          <RelectureAgent
+            relecture={relectures.data?.[courant.id] ?? null}
+            chargement={relectures.isPending}
+            onReprendre={reprendreBrouillon}
+          />
 
           {(remarques.data ?? []).length > 0 && (
             <div className="space-y-2">
@@ -628,6 +692,94 @@ export function AdminFileReviewsPage() {
 
 function jourParisOuPrevue(post: PostFileReview): string | null {
   return jourParisDepuisIso(post.publie_at) ?? post.date_publication_prevue;
+}
+
+/**
+ * Ce que l'agent de relecture a vu sur ce post (cron de 3 h, posts de la
+ * veille) : les points de la review qu'il propose, ceux qui attendent la
+ * suivante, et ses notes pour l'admin. Rien n'est envoyé sans l'admin.
+ */
+function RelectureAgent({
+  relecture,
+  chargement,
+  onReprendre,
+}: {
+  relecture: RelectureAuto | null;
+  chargement: boolean;
+  onReprendre: (r: RelectureAuto) => void;
+}) {
+  const { t } = useTranslation();
+  if (chargement) return null;
+
+  let contenu: React.ReactNode;
+  if (!relecture) {
+    contenu = <p className="text-sm text-muted-foreground">{t("fileReviews.agent.pasEncore")}</p>;
+  } else if (relecture.statut === "ignore" || relecture.statut === "echec") {
+    contenu = (
+      <p className="text-sm text-muted-foreground">
+        {t(relecture.statut === "ignore" ? "fileReviews.agent.ignore" : "fileReviews.agent.echec", {
+          raison: relecture.erreur ?? "—",
+        })}
+      </p>
+    );
+  } else if (relecture.statut !== "fait") {
+    contenu = <p className="text-sm text-muted-foreground">{t("fileReviews.agent.enCours")}</p>;
+  } else {
+    const { review, plusTard, notes } = repartirDefauts(relecture.defauts);
+    contenu = (
+      <div className="space-y-3">
+        {review.length === 0 ? (
+          <p className="text-sm text-muted-foreground">{t("fileReviews.agent.rien")}</p>
+        ) : (
+          <ListeDefauts titre={t("fileReviews.agent.points")} defauts={review} />
+        )}
+        {plusTard.length > 0 && (
+          <ListeDefauts titre={t("fileReviews.agent.plusTard")} defauts={plusTard} discret />
+        )}
+        {notes.length > 0 && <ListeDefauts titre={t("fileReviews.agent.notes")} defauts={notes} discret />}
+        {relecture.brouillon && (
+          <div className="space-y-2">
+            <p className="whitespace-pre-line rounded-lg bg-muted/60 p-3 text-sm">{relecture.brouillon}</p>
+            <Button type="button" size="sm" variant="outline" onClick={() => onReprendre(relecture)}>
+              <Bot className="size-4" />
+              {t("fileReviews.agent.reprendre")}
+            </Button>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <section className="space-y-2 rounded-xl border p-4" aria-label={t("fileReviews.agent.titre")}>
+      <p className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
+        <Bot className="size-3.5" />
+        {t("fileReviews.agent.titre")}
+      </p>
+      {contenu}
+    </section>
+  );
+}
+
+function ListeDefauts({
+  titre,
+  defauts,
+  discret,
+}: {
+  titre: string;
+  defauts: DefautRelecture[];
+  discret?: boolean;
+}) {
+  return (
+    <div className="space-y-1">
+      <p className="text-xs text-muted-foreground">{titre}</p>
+      <ul className={cn("list-disc space-y-0.5 pl-5 text-sm", discret && "text-muted-foreground")}>
+        {defauts.map((d) => (
+          <li key={`${d.code}-${d.slides.join(",")}`}>{libelleDefaut(d)}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 /** « 3× Texte illisible » : ce qu'on a déjà reproché à ce créateur, tous ses comptes confondus. */

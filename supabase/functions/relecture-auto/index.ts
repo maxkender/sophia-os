@@ -36,6 +36,7 @@ import {
   redigerBrouillon,
   reformulationValide,
   type RemarqueType,
+  trier,
 } from "../_shared/relecture.ts";
 import {
   assertAuthorised,
@@ -366,7 +367,8 @@ async function analyserLigne(
     }
     if (jugements.length === 0) throw new Error(echecs.join(" | ") || "aucune mesure");
 
-    const defauts = [...agreger(jugements), ...controles];
+    // Du plus important au moins important : la file de reviews montre les premiers comme points de la review.
+    const defauts = trier([...agreger(jugements), ...controles]);
     const brouillon = redigerBrouillon(defauts, remarquesTypes);
     await maj(supabase, [ligne.id], {
       statut: "fait",

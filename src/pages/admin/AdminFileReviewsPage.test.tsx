@@ -9,9 +9,11 @@ const listerReviewRemarques = vi.fn();
 const compterRemarquesParCreateur = vi.fn();
 const envoyerReview = vi.fn();
 const ameliorerReview = vi.fn();
+const listerRelecturesAuto = vi.fn();
 vi.mock("@/features/moteur/api", () => ({
   aujourdhuiParis: () => "2026-09-09",
-  listerFileReviewsJour: () => listerFileReviewsJour(),
+  listerFileReviewsJour: (opts?: { jour?: string }) => listerFileReviewsJour(opts),
+  listerRelecturesAuto: (ids: string[]) => listerRelecturesAuto(ids),
   listerReviewRemarques: () => listerReviewRemarques(),
   compterRemarquesParCreateur: (ids: string[]) => compterRemarquesParCreateur(ids),
   resoudreTiktok: vi.fn(),
@@ -71,6 +73,8 @@ describe("AdminFileReviewsPage", () => {
     envoyerReview.mockResolvedValue(undefined);
     ameliorerReview.mockReset();
     ameliorerReview.mockResolvedValue({ texte: "The hook is too slow, rewritten." });
+    listerRelecturesAuto.mockReset();
+    listerRelecturesAuto.mockResolvedValue({});
   });
   it("affiche l'état vide quand la file est soldée", async () => {
     listerFileReviewsJour.mockResolvedValue([]);
@@ -179,5 +183,61 @@ describe("AdminFileReviewsPage", () => {
     expect(screen.getByDisplayValue("Timing")).toBeInTheDocument();
     expect(screen.queryByPlaceholderText(/Titre \(bouton\)|Title \(button\)/)).not.toBeInTheDocument();
     expect(screen.getByTestId("liste-remarques")).toHaveClass("overflow-y-auto");
+  });
+
+  it("ouvre la file d'hier, que l'agent a relue cette nuit", async () => {
+    listerFileReviewsJour.mockResolvedValue([]);
+    listerReviewRemarques.mockResolvedValue([]);
+    renderPage();
+    await screen.findByText(/File du jour vide|Today's queue is empty/);
+    expect(listerFileReviewsJour).toHaveBeenLastCalledWith({ jour: "2026-09-09" });
+    fireEvent.click(screen.getByRole("button", { name: /^(Hier|Yesterday)$/ }));
+    await waitFor(() => expect(listerFileReviewsJour).toHaveBeenLastCalledWith({ jour: "2026-09-08" }));
+  });
+
+  it("affiche la relecture de l'agent et reprend son brouillon", async () => {
+    listerFileReviewsJour.mockResolvedValue([POST]);
+    listerReviewRemarques.mockResolvedValue([
+      { ...REMARQUE, id: "j", titre: "Jutifier", video_url: "https://cdn.example/justif.mp4" },
+    ]);
+    listerRelecturesAuto.mockResolvedValue({
+      "post-1": {
+        post_id: "post-1",
+        statut: "fait",
+        defauts: [
+          { code: "justification", niveau: "remarque", slides: [5, 6], detail: "lignes trop courtes" },
+          { code: "police", niveau: "info", slides: [1], detail: "police peut-être différente" },
+        ],
+        brouillon: "On slides 5 and 6, your lines are shorter than in the original.",
+        remarques: [{ id: "j", titre: "Jutifier" }],
+        erreur: null,
+      },
+    });
+    renderPage();
+    expect(await screen.findByText("Lignes trop courtes (slides 5 et 6)")).toBeInTheDocument();
+    expect(screen.getByText("Police peut-être différente (slide 1)")).toBeInTheDocument();
+    expect(screen.getByText(/review proposée par l’agent|review suggested by the agent/)).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /Reprendre ce brouillon|Use this draft/ }));
+    expect(screen.getByPlaceholderText(/Ton retour|Your feedback/)).toHaveValue(
+      "On slides 5 and 6, your lines are shorter than in the original.",
+    );
+    fireEvent.click(screen.getByRole("button", { name: /Envoyer|Send/ }));
+    await waitFor(() => {
+      expect(envoyerReview).toHaveBeenCalledWith(
+        "poster-1",
+        "The hook is too slow, rewritten.",
+        expect.objectContaining({
+          remarques: [{ id: "j", titre: "Jutifier" }],
+          videos: [{ url: "https://cdn.example/justif.mp4", titre: "Jutifier" }],
+        }),
+      );
+    });
+  });
+
+  it("annonce un post pas encore relu", async () => {
+    listerFileReviewsJour.mockResolvedValue([POST]);
+    listerReviewRemarques.mockResolvedValue([]);
+    renderPage();
+    expect(await screen.findByText(/Pas encore relu|Not reviewed yet/)).toBeInTheDocument();
   });
 });

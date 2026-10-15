@@ -2069,6 +2069,8 @@ export const en = {
         "Two posts published back to back compete with each other: one eats the other's views. Space them out and together they will do better.",
       delaiBouton: "Available in {{minutes}} min",
       delaiRefus: "Too soon: wait {{minutes}} more min before posting on this account.",
+      lienDejaUtilise:
+        "This link is for a TikTok post you already used for another slideshow ({{date}}). Open the post of THIS slideshow on TikTok, tap Share, then Copy link, and paste it here.",
       valider: "Approve this post",
       valide: "Approved",
       monterSlide: "Move up",

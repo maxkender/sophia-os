@@ -2074,6 +2074,8 @@ export const fr = {
       delaiBouton: "Disponible dans {{minutes}} min",
       delaiRefus:
         "Trop tôt : attends encore {{minutes}} min avant de publier sur ce compte.",
+      lienDejaUtilise:
+        "Ce lien est celui d'un post TikTok que tu as déjà déclaré pour un autre slideshow (le {{date}}). Ouvre le post de CE slideshow sur TikTok, touche Partager puis Copier le lien, et colle-le ici.",
       valider: "Valider ce post",
       valide: "Validé",
       monterSlide: "Monter",

@@ -25,6 +25,7 @@ import {
   minutesAvantPublication,
   minutesDepuisErreurPublication,
 } from "@/features/moteur/delaiPublication";
+import { dateDepuisErreurLienDejaUtilise, lienPourEnregistrement } from "@/features/moteur/lienPublication";
 import { NettoyageEtapes } from "@/components/moteur/NettoyageEtapes";
 import { UpscaleMediaControl } from "@/components/moteur/UpscaleMediaControl";
 import { Badge } from "@/components/ui/badge";
@@ -45,6 +46,7 @@ import {
   rechargerPostCreateur,
   renettoyerSlide,
   reordonnerSlides,
+  resoudreTiktok,
   signalerTexteSlide,
 } from "@/features/moteur/api";
 import {
@@ -518,9 +520,12 @@ export function PosterPostPage() {
   });
 
   const publier = useMutation({
-    mutationFn: () => {
-      const lien = lienPublie.trim();
-      if (!lien) throw new Error(t("posts.lienObligatoire"));
+    mutationFn: async () => {
+      const saisi = lienPublie.trim();
+      if (!saisi) throw new Error(t("posts.lienObligatoire"));
+      // Lien court « Partager » → lien complet du post, pour que le serveur
+      // puisse reconnaître un post déjà déclaré pour un autre slideshow.
+      const lien = await lienPourEnregistrement(saisi, resoudreTiktok);
       return majPost(id!, {
         statut: "publie",
         publie_at: new Date().toISOString(),
@@ -992,6 +997,8 @@ function messageErreurPublication(
 ): string {
   const minutes = minutesDepuisErreurPublication(erreur);
   if (minutes !== null) return t("posts.delaiRefus", { minutes });
+  const date = dateDepuisErreurLienDejaUtilise(erreur);
+  if (date !== null) return t("posts.lienDejaUtilise", { date });
 
   if (erreur instanceof Error && erreur.message) return erreur.message;
   if (erreur && typeof erreur === "object") {

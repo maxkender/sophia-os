@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Bot, ChevronUp, Film, Plus, Send, Settings2, SkipForward, Sparkles, Trash2, X } from "lucide-react";
+import { AlertTriangle, Bot, ChevronUp, Film, Plus, Send, Settings2, SkipForward, Sparkles, Trash2, X } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -33,6 +33,7 @@ import {
   listerReviewRemarques,
   majReviewRemarque,
   passerPostReview,
+  resoudreTiktok,
   retirerVideoRemarque,
   supprimerReviewRemarque,
   testerRelecture,
@@ -45,6 +46,7 @@ import {
   ajouterJourCalendaire,
   ajouterRemarqueUtilisee,
   ajouterVideoReview,
+  compterMemeTiktok,
   insererRemarqueDansBrouillon,
   jourParisDepuisIso,
   retirerRemarqueUtilisee,
@@ -61,6 +63,7 @@ import {
   type RelectureAuto,
 } from "@/features/reviews/relectureAgent";
 import { TikTokEmbed } from "@/features/reviews/TikTokEmbed";
+import { besoinResoudreTiktok, idTiktokDepuisUrl } from "@/features/reviews/tiktokEmbed";
 import { controlerVideoRemarque, premierFichierVideo } from "@/features/reviews/videoRemarque";
 import { cn } from "@/lib/utils";
 import { AvatarCompte } from "@/features/moteur/VignetteCompte";
@@ -476,6 +479,34 @@ export function AdminFileReviewsPage() {
       if (courantId.current === r.post_id) reprendreBrouillon(r);
     },
   });
+  // Même TikTok collé pour plusieurs posts du compte : les liens courts sont
+  // résolus (même cache que le lecteur) pour comparer les vrais posts.
+  const memeTiktok = useQuery({
+    queryKey: ["meme-tiktok", courant?.id, courant?.publie_url, courant?.autres_liens],
+    enabled: Boolean(courant?.publie_url) && (courant?.autres_liens?.length ?? 0) > 0,
+    queryFn: async () => {
+      const resoudre = async (lien: string) => {
+        if (!besoinResoudreTiktok(lien)) return { lien, id: idTiktokDepuisUrl(lien) };
+        try {
+          const r = await queryClient.fetchQuery({
+            queryKey: ["tiktok-apercu", lien],
+            queryFn: () => resoudreTiktok(lien),
+            staleTime: 10 * 60_000,
+          });
+          return { lien, id: r.id ?? idTiktokDepuisUrl(r.url) };
+        } catch {
+          return { lien, id: null };
+        }
+      };
+      const [lui, ...autres] = await Promise.all(
+        [courant!.publie_url as string, ...(courant!.autres_liens ?? [])].map(resoudre),
+      );
+      return compterMemeTiktok(lui, autres);
+    },
+    staleTime: 10 * 60_000,
+  });
+  const memesLiens = memeTiktok.data ?? 0;
+
   const testEnCours = tester.isPending && tester.variables === courant?.id;
   const testEchoue = tester.isError && tester.variables === courant?.id;
 
@@ -573,6 +604,13 @@ export function AdminFileReviewsPage() {
               titreRemarque={titreRemarque}
             />
           </div>
+
+          {memesLiens > 0 && (
+            <p className="flex items-start gap-2 rounded-md bg-warning/10 p-3 text-sm text-warning">
+              <AlertTriangle className="mt-0.5 size-4 shrink-0" />
+              {t("fileReviews.lienDouble", { count: memesLiens })}
+            </p>
+          )}
 
           <div className="grid gap-6 lg:grid-cols-2">
             <TikTokEmbed

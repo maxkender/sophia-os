@@ -4,6 +4,7 @@ import { LANGUES_CIBLES } from "@/features/moteur/langues";
 import {
   estCompteSlideshowAssigne,
   isoBornesJourParis,
+  liensDesAutresPosts,
   normaliserRemarquesReview,
   normaliserVideosReview,
   type CompteRemarque,
@@ -811,6 +812,8 @@ export interface PostFileReview {
   poster_prenom: string | null;
   poster_nom: string | null;
   langue: string | null;
+  /** Liens des autres posts du même compte ce jour-là (reviewés compris) : repérer un TikTok collé deux fois. */
+  autres_liens: string[];
 }
 
 function sourceUrlDepuisSujet(row: {
@@ -895,6 +898,8 @@ export async function listerFileReviewsJour(opts?: {
     }
   }
 
+  // Sur tous les posts du jour, reviewés compris : le doublon peut être déjà traité.
+  const autresLiens = liensDesAutresPosts(rows);
   return rows
     .filter((p) => {
       if (vus.has(p.id)) return false;
@@ -921,6 +926,7 @@ export async function listerFileReviewsJour(opts?: {
         poster_prenom: profil?.prenom ?? null,
         poster_nom: profil?.nom ?? null,
         langue: p.comptes?.langue ?? null,
+        autres_liens: autresLiens.get(p.id) ?? [],
       };
     });
 }

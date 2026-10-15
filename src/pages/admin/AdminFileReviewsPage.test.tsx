@@ -18,7 +18,7 @@ vi.mock("@/features/moteur/api", () => ({
   testerRelecture: (postId: string) => testerRelecture(postId),
   listerReviewRemarques: () => listerReviewRemarques(),
   compterRemarquesParCreateur: (ids: string[]) => compterRemarquesParCreateur(ids),
-  resoudreTiktok: vi.fn(),
+  resoudreTiktok: vi.fn().mockResolvedValue({ url: "", id: null, thumbnail: null }),
   uploaderVideoRemarque: vi.fn(),
   retirerVideoRemarque: vi.fn(),
   envoyerReview: (...args: unknown[]) => envoyerReview(...args),
@@ -277,5 +277,25 @@ describe("AdminFileReviewsPage", () => {
     listerReviewRemarques.mockResolvedValue([]);
     renderPage();
     expect(await screen.findByText(/Pas encore relu|Not reviewed yet/)).toBeInTheDocument();
+  });
+
+  it("prévient quand le créateur a collé le même lien pour un autre post", async () => {
+    // Même post TikTok (même ID) collé pour un autre slideshow du compte.
+    listerFileReviewsJour.mockResolvedValue([
+      { ...POST, autres_liens: ["https://www.tiktok.com/@crea/photo/1?lang=fr", "https://www.tiktok.com/@crea/photo/9"] },
+    ]);
+    listerReviewRemarques.mockResolvedValue([]);
+    renderPage();
+    expect(
+      await screen.findByText(/aussi été collé pour un autre slideshow|also pasted for another slideshow/),
+    ).toBeInTheDocument();
+  });
+
+  it("ne prévient pas quand les autres posts du compte ont leur propre TikTok", async () => {
+    listerFileReviewsJour.mockResolvedValue([{ ...POST, autres_liens: ["https://www.tiktok.com/@crea/photo/9"] }]);
+    listerReviewRemarques.mockResolvedValue([]);
+    renderPage();
+    await screen.findByText(/TikTok du créateur|Creator's TikTok/);
+    expect(screen.queryByText(/aussi été collé|also pasted/)).not.toBeInTheDocument();
   });
 });

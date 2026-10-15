@@ -571,6 +571,10 @@ export const en = {
       hier: "Yesterday",
       aujourdhui: "Today",
       videAideJour: "Every TikTok published that day has been reviewed or skipped.",
+      lienDouble_one:
+        "This TikTok was also pasted for another slideshow of this account: the creator used the same link twice, so the TikTok on the right is probably not this slideshow.",
+      lienDouble_other:
+        "This TikTok was also pasted for {{count}} other slideshows of this account: the creator used the same link several times, so the TikTok on the right is probably not this slideshow.",
       agent: {
         titre: "Agent review",
         proposees_one: "{{count}} review suggested by the agent",
@@ -2065,6 +2069,8 @@ export const en = {
         "Two posts published back to back compete with each other: one eats the other's views. Space them out and together they will do better.",
       delaiBouton: "Available in {{minutes}} min",
       delaiRefus: "Too soon: wait {{minutes}} more min before posting on this account.",
+      lienDejaUtilise:
+        "This link is for a TikTok post you already used for another slideshow ({{date}}). Open the post of THIS slideshow on TikTok, tap Share, then Copy link, and paste it here.",
       valider: "Approve this post",
       valide: "Approved",
       monterSlide: "Move up",

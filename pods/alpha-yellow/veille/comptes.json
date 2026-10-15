@@ -1,4 +1,19 @@
 {
   "note": "Comptes relevés par `npm run veille`. Ajoute un compte trouvé par --decouvrir quand il fait des vues ce mois-ci (au moins un diaporama à 100 k vues en 30 jours) et que son format colle au label (accroche jaune, photos candides, items concrets). Retire un compte qui ne publie plus depuis 30 jours.",
-  "comptes": ["stonemag.co", "supermaxing"]
+  "comptes": [
+    "stonemag.co",
+    "supermaxing"
+  ],
+  "ecartes": [
+    {
+      "compte": "fathom0g",
+      "releve_le": "2026-10-15",
+      "pourquoi": "768 k vues (29/09) mais hors format : vignettes YouTube sur fond blanc, promo d'une appli concurrente (Fathomly). Accroche reprise dans le playbook (unrecognisable)."
+    },
+    {
+      "compte": "passkey_official",
+      "releve_le": "2026-10-15",
+      "pourquoi": "1,5 M vues (22/09) mais hors niche : couples peints, romance, 1 % d'enregistrements."
+    }
+  ]
 }

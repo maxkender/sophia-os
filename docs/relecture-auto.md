@@ -93,7 +93,17 @@ POST /functions/v1/relecture-auto
 Le lot est marqué `origine = 'test'`. Rappeler la fonction avec `{}` fait
 avancer le drain (le run Apify prend une à deux minutes).
 
-## Lire les résultats
+## Dans l'OS
+
+`/admin/file-reviews`, bouton **Hier** : la file des posts de la veille, que
+l'agent a relus dans la nuit. Pour le post en cours, l'encadré « Relecture de
+l'agent » montre les points de la review proposée, ceux gardés pour une
+prochaine review, les notes pour l'admin (jamais envoyées) et le brouillon.
+« Reprendre ce brouillon » remplit la review avec ses remarques-types et leurs
+vidéos tuto ; l'admin relit, corrige au besoin, puis envoie ou passe. Rien ne
+part sans lui.
+
+## Lire les résultats en SQL
 
 ```sql
 select r.jour, c.handle_tiktok, r.statut, r.defauts, r.brouillon
@@ -105,6 +115,5 @@ order by jsonb_array_length(r.defauts) desc;
 ## Suite prévue
 
 1. Étiqueter 100 posts à la main et recalibrer les seuils.
-2. Copilote : la file de reviews s'ouvre sur la veille, pré-remplie avec le
-   brouillon et les remarques-types ; l'admin envoie en un clic.
+2. Relancer la relecture d'un post depuis la file, sans attendre la nuit.
 3. Envoi automatique des défauts sûrs, une review par créateur et par jour au plus.

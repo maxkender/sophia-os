@@ -12,8 +12,8 @@ import { RetourParcours } from "@/features/reviews/RetourParcours";
 /**
  * « Mes retours » : tous les retours de l'admin au créateur, lus ou non. Un
  * retour se rouvre dans le même parcours qu'à sa réception (son post à côté de
- * l'original, puis le message et les vidéos), mais se ferme librement et ne
- * change rien à son état « vu ».
+ * l'original, puis le message et les vidéos) ; « Fermer », au bout, ne change
+ * rien à son état « vu ».
  */
 export function PosterRetoursPage() {
   const { t, i18n } = useTranslation();
@@ -78,7 +78,6 @@ export function PosterRetoursPage() {
           retour={ouvert}
           mode="relecture"
           onCompris={() => setOuvert(null)}
-          onFermer={() => setOuvert(null)}
         />
       )}
     </div>

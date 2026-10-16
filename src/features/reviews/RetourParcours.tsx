@@ -19,9 +19,10 @@ export type RetourAffiche = Pick<
 >;
 
 /**
- * reel : le retour arrive, on n'en sort qu'avec « Compris » (marqué lu) ;
- * relecture : le créateur le rouvre depuis « Mes retours », il se ferme ;
- * apercu : l'admin regarde ce que verrait le créateur, rien n'est enregistré.
+ * Dans tous les modes, on ne sort qu'à la fin, par le bouton du bas.
+ * reel : le retour arrive, « Compris » le marque lu ;
+ * relecture : le créateur le rouvre depuis « Mes retours », « Fermer » sans verrou ;
+ * apercu : l'admin voit exactement ce que verrait le créateur, rien n'est enregistré.
  */
 export type ModeRetour = "reel" | "relecture" | "apercu";
 
@@ -64,16 +65,16 @@ export function RetourParcours({
   retour,
   mode,
   onCompris,
-  onFermer,
   occupe = false,
   ensuite = 0,
 }: {
   retour: RetourAffiche;
   mode: ModeRetour;
-  /** Dernier bouton (« Compris » en vrai et en aperçu, « Fermer » en relecture). */
+  /**
+   * Le bouton en bas à droite de la dernière étape (« Compris » en vrai et en
+   * aperçu, « Fermer » en relecture) : la seule façon de sortir du parcours.
+   */
   onCompris: () => void;
-  /** Croix ou clic à côté, hors mode réel. */
-  onFermer?: () => void;
   occupe?: boolean;
   /** Retours non lus qui suivent celui-ci (ils s'enchaînent après « Compris »). */
   ensuite?: number;
@@ -86,7 +87,6 @@ export function RetourParcours({
   const corps = React.useRef<HTMLDivElement>(null);
   const etape = etapes[Math.min(index, etapes.length - 1)];
   const derniere = index >= etapes.length - 1;
-  const fermable = mode !== "reel";
   // En relecture, le créateur a déjà lu : pas de verrou. L'aperçu admin le montre.
   const verrou = mode !== "relecture" && etape === "retour" && !basAtteint;
 
@@ -125,31 +125,22 @@ export function RetourParcours({
     : null;
 
   return (
-    <Dialog
-      open
-      disablePointerDismissal={!fermable}
-      onOpenChange={(ouvert) => {
-        if (!ouvert && fermable) onFermer?.();
-      }}
-    >
+    // Ni croix, ni clic à côté, ni Échap, dans tous les modes : on ne sort
+    // qu'à la fin, par le bouton du bas (l'aperçu admin se comporte en vrai).
+    <Dialog open disablePointerDismissal>
       <DialogPopup
-        showCloseButton={fermable}
-        closeProps={fermable ? { onClick: () => onFermer?.() } : undefined}
+        showCloseButton={false}
         className={cn(
           "max-w-4xl",
           // Les posts prennent toute la hauteur (téléphone : sous la marge du haut du dialogue).
           etape === "comparer" && "h-[calc(100dvh-3rem)] sm:h-[calc(100dvh-2rem)] sm:max-h-[1100px]",
         )}
-        onKeyDown={
-          fermable
-            ? undefined
-            : (e) => {
-                if (e.key === "Escape") e.preventDefault();
-              }
-        }
+        onKeyDown={(e) => {
+          if (e.key === "Escape") e.preventDefault();
+        }}
       >
         {/* En-tête sur une ligne : la place va aux posts et au message. */}
-        <div className="flex items-center gap-3 rounded-t-2xl border-b bg-gradient-to-br from-primary/10 via-primary/5 to-transparent py-2.5 pr-12 pl-4 max-sm:rounded-none">
+        <div className="flex items-center gap-3 rounded-t-2xl border-b bg-gradient-to-br from-primary/10 via-primary/5 to-transparent px-4 py-2.5 max-sm:rounded-none">
           <div key={etape} className="w-10 shrink-0 animate-in zoom-in-50 duration-500">
             <Mico etat={etape === "comparer" ? "wave" : "think"} />
           </div>

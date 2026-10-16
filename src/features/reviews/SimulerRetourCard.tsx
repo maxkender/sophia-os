@@ -70,7 +70,6 @@ export function SimulerRetourCard() {
           retour={retour}
           mode="apercu"
           onCompris={() => setOuvert(false)}
-          onFermer={() => setOuvert(false)}
         />
       )}
     </>

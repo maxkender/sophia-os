@@ -138,6 +138,7 @@ export const en = {
       hiring: "Recruiting",
       embauche: "Create a poster",
       referral: "Referral",
+      retours: "My feedback",
       recrutements: "Recruiting",
     },
     identite: {
@@ -438,6 +439,12 @@ export const en = {
         "Everything for testing, in one place. Nothing here touches production (the creators' calendars).",
       choisir: "Pick a test — it opens below. Nothing here touches production.",
       choisirPlaceholder: "— Choose a test —",
+      retourTitre: "Creator feedback preview",
+      retourDesc:
+        "Opens a feedback exactly as the creator gets it: their post next to the original, then the message and the videos. Nothing is marked as read.",
+      retourChoisir: "Feedback to show",
+      retourOuvrir: "Open the feedback",
+      retourVide: "No feedback linked to a post yet.",
       onboardingTitre: "Preview the creator onboarding",
       onboardingDesc:
         "Open the welcome flow exactly as a slideshow creator sees it at their first login. Nothing is saved: no step recorded, no profile marked as done.",
@@ -529,6 +536,28 @@ export const en = {
       compris: "Got it, thanks",
       voirPost: "See the published TikTok",
       videoProgress: "Video {{current}} / {{total}}",
+    },
+    retour: {
+      titreComparer: "Your post next to the original",
+      aideComparer: "Look at both posts side by side, slide by slide. Your admin's feedback is on the next page.",
+      original: "Original",
+      tonPost: "Your post",
+      titreRetour: "What to change",
+      voirRetour: "See the feedback",
+      precedent: "Back",
+      fermer: "Close",
+      apercu: "Preview: nothing is saved",
+      sansLien: "No link for this post.",
+      chargement: "Loading the preview…",
+    },
+    mesRetours: {
+      titre: "My feedback",
+      sousTitre: "All the feedback from your admin. Open one to see your post next to the original again.",
+      vide: "No feedback yet. When your admin sends you some, it shows up here.",
+      nouveau: "New",
+      ouvrir: "Open",
+      videos_one: "{{count}} video",
+      videos_other: "{{count}} videos",
     },
     fileReviews: {
       title: "Today's queue",
@@ -668,6 +697,7 @@ export const en = {
       messageAide:
         "Word for word what the creator gets when you send the agent's draft unchanged from Today's queue.",
       pasDeMessage: "No message: nothing would be sent to this creator.",
+      voirCommeCreateur: "See it as the creator",
       pasDeMessageMarche: "No message: the post is doing well ({{vues}} views), so we don't correct it.",
       codes: {
         justification: "Justification",

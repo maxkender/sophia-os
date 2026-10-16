@@ -785,11 +785,49 @@ export async function listerReviews(): Promise<Review[]> {
 
 /** Reviews non encore vues du poster connecté (RLS ne renvoie que les siennes). */
 export async function mesReviewsNonVues(): Promise<Review[]> {
+  const moi = await idUtilisateur();
+  if (!moi) return [];
   const { data, error } = await supabase
     .from("reviews")
     .select(REVIEW_COLONNES)
+    // Filtre explicite : la RLS laisse l'admin tout lire, et l'admin passe
+    // aussi par l'espace créateur (relire un post de test). Sans lui, il
+    // recevait en pop-up les retours de tous les créateurs, et « Compris »
+    // les marquait lus à leur place.
+    .eq("poster_id", moi)
     .is("seen_at", null)
     .order("created_at", { ascending: true });
+  if (error) throw error;
+  return (data ?? []).map((r) => mapperReview(r as Review));
+}
+
+async function idUtilisateur(): Promise<string | null> {
+  const { data } = await supabase.auth.getUser();
+  return data.user?.id ?? null;
+}
+
+/** Tous les retours du créateur connecté, lus ou non, les plus récents d'abord (page « Mes retours »). */
+export async function mesReviews(): Promise<Review[]> {
+  const moi = await idUtilisateur();
+  if (!moi) return [];
+  const { data, error } = await supabase
+    .from("reviews")
+    .select(REVIEW_COLONNES)
+    .eq("poster_id", moi)
+    .order("created_at", { ascending: false })
+    .limit(200);
+  if (error) throw error;
+  return (data ?? []).map((r) => mapperReview(r as Review));
+}
+
+/** Derniers retours envoyés liés à un post, pour l'aperçu admin (Tests). */
+export async function listerReviewsExemples(limite = 25): Promise<Review[]> {
+  const { data, error } = await supabase
+    .from("reviews")
+    .select(REVIEW_COLONNES)
+    .not("publie_url", "is", null)
+    .order("created_at", { ascending: false })
+    .limit(limite);
   if (error) throw error;
   return (data ?? []).map((r) => mapperReview(r as Review));
 }

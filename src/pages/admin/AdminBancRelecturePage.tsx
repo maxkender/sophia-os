@@ -2,7 +2,19 @@ import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
-import { Bot, Check, ChevronLeft, ChevronRight, Film, ListChecks, Plus, SkipForward, Trash2, X } from "lucide-react";
+import {
+  Bot,
+  Check,
+  ChevronLeft,
+  ChevronRight,
+  Eye,
+  Film,
+  ListChecks,
+  Plus,
+  SkipForward,
+  Trash2,
+  X,
+} from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -42,6 +54,7 @@ import {
   vuesCompactes,
   type DefautRelecture,
 } from "@/features/reviews/relectureAgent";
+import { RetourParcours } from "@/features/reviews/RetourParcours";
 import { TikTokEmbed } from "@/features/reviews/TikTokEmbed";
 import { cn } from "@/lib/utils";
 
@@ -455,6 +468,7 @@ function PanneauJugement({
   onSupprimer: (a: AvisRelecture) => void;
 }) {
   const { t } = useTranslation();
+  const [apercu, setApercu] = React.useState(false);
 
   if (!relectureFinie(relecture)) {
     return <Encart>{t("banc.enCours")}</Encart>;
@@ -612,7 +626,26 @@ function PanneauJugement({
         texte={relecture.brouillon}
         videos={videos}
         vuesSiMarche={marche ? relecture.vues : null}
+        onVoirCommeCreateur={() => setApercu(true)}
       />
+
+      {apercu && relecture.brouillon && (
+        <RetourParcours
+          retour={{
+            id: relecture.id,
+            body: relecture.brouillon,
+            publie_url: relecture.publie_url || null,
+            source_url: relecture.source_url,
+            handle_tiktok: relecture.handle_tiktok,
+            compte_label: null,
+            date_publication: relecture.jour,
+            videos,
+          }}
+          mode="apercu"
+          onCompris={() => setApercu(false)}
+          onFermer={() => setApercu(false)}
+        />
+      )}
     </div>
   );
 }
@@ -716,11 +749,14 @@ function MessageExact({
   texte,
   videos,
   vuesSiMarche,
+  onVoirCommeCreateur,
 }: {
   texte: string | null;
   videos: { url: string; titre: string }[];
   /** Le post marche : on dit pourquoi il n'y a pas de message. */
   vuesSiMarche: number | null;
+  /** Ouvre le message tel que le créateur le recevrait (aperçu). */
+  onVoirCommeCreateur: () => void;
 }) {
   const { t, i18n } = useTranslation();
   return (
@@ -744,6 +780,10 @@ function MessageExact({
             </ul>
           )}
           <p className="text-xs text-muted-foreground">{t("banc.messageAide")}</p>
+          <Button size="sm" variant="outline" onClick={onVoirCommeCreateur}>
+            <Eye className="size-4" />
+            {t("banc.voirCommeCreateur")}
+          </Button>
         </>
       ) : (
         <p className="text-sm text-muted-foreground">

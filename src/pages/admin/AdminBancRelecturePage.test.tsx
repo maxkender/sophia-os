@@ -87,6 +87,7 @@ function renderPage(url = "/admin/banc-relecture") {
 
 describe("AdminBancRelecturePage", () => {
   beforeEach(() => {
+    vi.spyOn(HTMLMediaElement.prototype, "play").mockResolvedValue(undefined);
     listerJoursRelecture.mockReset().mockResolvedValue(["2026-10-15", "2026-10-14"]);
     listerRelecturesBanc.mockReset().mockResolvedValue([AVEC_MESSAGE, SANS_MESSAGE, IGNORE]);
     listerAvisRelecture.mockReset().mockResolvedValue([]);
@@ -184,5 +185,15 @@ describe("AdminBancRelecturePage", () => {
     expect(screen.queryByText(/^(dans le message|in the message)$/)).not.toBeInTheDocument();
     expect(screen.getByText(/(Pas de message : le post marche|No message: the post is doing well) \(15/)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /^(Juste|Correct)$/ })).toBeInTheDocument();
+  });
+
+  it("« Voir comme le créateur » ouvre le message de l'agent tel que le créateur le recevrait", async () => {
+    renderPage();
+    fireEvent.click(await screen.findByRole("button", { name: /Voir comme le créateur|See it as the creator/ }));
+    expect(screen.getByText(/Aperçu : rien n’est enregistré|Preview: nothing is saved/)).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /Voir le retour|See the feedback/ }));
+    expect(
+      screen.getAllByText((_, el) => el?.tagName === "P" && el.textContent === AVEC_MESSAGE.brouillon).length,
+    ).toBeGreaterThan(1);
   });
 });

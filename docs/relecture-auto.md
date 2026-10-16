@@ -134,6 +134,21 @@ Un brouillon de l'agent envoyé **sans retouche** part mot pour mot (il ne
 repasse pas par « Améliorer ») : c'est exactement le message relu sur le banc
 d'essai. Un texte retouché ou écrit à la main repasse par l'IA comme avant.
 
+### Côté créateur
+
+Un retour envoyé s'ouvre à la prochaine visite du créateur dans son espace,
+comme un petit onboarding (`src/features/reviews/RetourParcours.tsx`) :
+
+1. **son post à côté de l'original** (les lecteurs TikTok, comme dans la file ;
+   sur téléphone, un sélecteur « Original / Ton post ») ;
+2. **le message et les vidéos tuto**, puis « Compris, merci », qui le marque lu.
+
+Il ne se ferme qu'avec « Compris ». La page **Mes retours**
+(`/createur/retours`) liste tous ses retours, lus ou non, et rouvre chacun dans
+le même parcours. L'admin voit ce parcours sans rien marquer : dans
+`/admin/tests` (« Aperçu d'un retour créateur », sur un vrai retour envoyé) et
+sur le banc d'essai (« Voir comme le créateur », sur le brouillon de l'agent).
+
 ### Banc d'essai
 
 `/admin/banc-relecture` (« Agent test bench », menu Suivi) : les relectures d'un

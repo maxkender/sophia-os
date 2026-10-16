@@ -142,8 +142,13 @@ comme un petit onboarding (`src/features/reviews/RetourParcours.tsx`) :
 1. **son post à côté de l'original** (les lecteurs TikTok, comme dans la file ;
    sur téléphone, un sélecteur « Original / Ton post ») ;
 2. **le message et les vidéos tuto**, puis « Compris, merci », qui le marque lu.
+   « Compris » reste verrouillé (« Lis jusqu'en bas ») tant que le message n'a
+   pas été déroulé jusqu'en bas, comme les écrans de l'onboarding.
 
-Il ne se ferme qu'avec « Compris ». La page **Mes retours**
+À l'étape 1, le dialogue prend toute la hauteur de l'écran : en-tête et
+boutons tiennent sur une ligne chacun, le reste va aux posts. Il ne se ferme
+qu'avec « Compris ». Plusieurs retours non lus s'enchaînent, du plus ancien au
+plus récent ; l'en-tête annonce « encore N retours après ». La page **Mes retours**
 (`/createur/retours`) liste tous ses retours, lus ou non, et rouvre chacun dans
 le même parcours. L'admin voit ce parcours sans rien marquer : dans
 `/admin/tests` (« Aperçu d'un retour créateur », sur un vrai retour envoyé) et

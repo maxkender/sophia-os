@@ -1,7 +1,8 @@
 import { Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { BookOpen, CalendarDays, Gift, HelpCircle } from "lucide-react";
+import { CalendarDays, Gift } from "lucide-react";
 
+import { BoutonGuideNotion, GUIDE_NOTION_POSTER } from "@/features/documents/BoutonGuideNotion";
 import { NudgePopup } from "@/features/moteur/NudgePopup";
 import { ReviewPopup } from "@/features/reviews/ReviewPopup";
 import { OnboardingPopup } from "@/features/onboarding/OnboardingPopup";
@@ -16,16 +17,10 @@ export function PosterLayout() {
   return (
     <AppShell
       navLabel={t("nav.poster")}
-      groups={[
-        { items },
-        {
-          title: t("documents.rubrique"),
-          items: [
-            { to: "/createur/guide", label: t("documents.guideCreateur"), icon: BookOpen },
-            { to: "/createur/faq", label: t("documents.faq"), icon: HelpCircle },
-          ],
-        },
-      ]}
+      groups={[{ items }]}
+      sidebarExtra={
+        <BoutonGuideNotion url={GUIDE_NOTION_POSTER} titre={t("documents.voirRegles")} sousTitre={t("documents.guideNotionPoster")} />
+      }
     >
       <OnboardingPopup />
       <ReviewPopup />

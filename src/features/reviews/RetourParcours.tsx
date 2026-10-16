@@ -1,11 +1,12 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { ArrowLeft, ArrowRight, Check, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Lock, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogPopup } from "@/components/ui/dialog";
 import type { Review } from "@/features/moteur/api";
 import { Mico } from "@/features/onboarding/Mico";
+import { basDePageAtteint } from "@/features/onboarding/parcours";
 import { cn } from "@/lib/utils";
 
 import { LecteurVideosReview } from "./LecteurVideosReview";
@@ -53,7 +54,9 @@ function Pastilles({ total, actuelle }: { total: number; actuelle: number }) {
  * Un retour de l'admin, vu par le créateur, comme un petit onboarding :
  *   1. son post à côté de l'original (les lecteurs TikTok, comme dans la file
  *      de l'admin), pour qu'il voie la différence avant de lire quoi que ce soit ;
- *   2. le message et les vidéos tuto.
+ *      le dialogue prend alors toute la hauteur, ce sont les posts qui comptent ;
+ *   2. le message et les vidéos tuto. « Compris » ne s'ouvre qu'une fois le
+ *      message déroulé jusqu'en bas, comme les écrans de l'onboarding.
  * Sur téléphone, les deux posts ne tiennent pas côte à côte : un sélecteur
  * passe de l'un à l'autre.
  */
@@ -63,22 +66,54 @@ export function RetourParcours({
   onCompris,
   onFermer,
   occupe = false,
+  ensuite = 0,
 }: {
   retour: RetourAffiche;
   mode: ModeRetour;
-  /** Dernier bouton (« Compris » en vrai, « Fermer » sinon). */
+  /** Dernier bouton (« Compris » en vrai et en aperçu, « Fermer » en relecture). */
   onCompris: () => void;
   /** Croix ou clic à côté, hors mode réel. */
   onFermer?: () => void;
   occupe?: boolean;
+  /** Retours non lus qui suivent celui-ci (ils s'enchaînent après « Compris »). */
+  ensuite?: number;
 }) {
   const { t, i18n } = useTranslation();
   const etapes = etapesDuRetour(retour);
   const [index, setIndex] = React.useState(0);
   const [vue, setVue] = React.useState<"original" | "poste">("original");
+  const [basAtteint, setBasAtteint] = React.useState(false);
+  const corps = React.useRef<HTMLDivElement>(null);
   const etape = etapes[Math.min(index, etapes.length - 1)];
   const derniere = index >= etapes.length - 1;
   const fermable = mode !== "reel";
+  // En relecture, le créateur a déjà lu : pas de verrou. L'aperçu admin le montre.
+  const verrou = mode !== "relecture" && etape === "retour" && !basAtteint;
+
+  /** Remesure souvent : une mesure prise pendant l'animation d'entrée vaut zéro (cf. onboarding). */
+  const verifierBas = React.useCallback(() => {
+    const el = corps.current;
+    if (el && basDePageAtteint(el)) setBasAtteint(true);
+  }, []);
+
+  React.useLayoutEffect(() => {
+    setBasAtteint(false);
+    if (corps.current) corps.current.scrollTop = 0;
+    const id = requestAnimationFrame(verifierBas);
+    return () => cancelAnimationFrame(id);
+  }, [etape, verifierBas]);
+
+  React.useEffect(() => {
+    if (etape !== "retour") return;
+    const el = corps.current;
+    const ro = typeof ResizeObserver === "undefined" || !el ? null : new ResizeObserver(verifierBas);
+    if (el) ro?.observe(el);
+    const filet = setInterval(verifierBas, 1000);
+    return () => {
+      ro?.disconnect();
+      clearInterval(filet);
+    };
+  }, [etape, verifierBas]);
 
   const compte =
     retour.compte_label || (retour.handle_tiktok ? `@${retour.handle_tiktok.replace(/^@/, "")}` : null);
@@ -100,7 +135,11 @@ export function RetourParcours({
       <DialogPopup
         showCloseButton={fermable}
         closeProps={fermable ? { onClick: () => onFermer?.() } : undefined}
-        className="max-w-3xl"
+        className={cn(
+          "max-w-4xl",
+          // Les posts prennent toute la hauteur (téléphone : sous la marge du haut du dialogue).
+          etape === "comparer" && "h-[calc(100dvh-3rem)] sm:h-[calc(100dvh-2rem)] sm:max-h-[1100px]",
+        )}
         onKeyDown={
           fermable
             ? undefined
@@ -109,42 +148,41 @@ export function RetourParcours({
               }
         }
       >
-        <div className="relative flex items-start gap-3 overflow-hidden rounded-t-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-transparent p-6 pb-4 max-sm:rounded-none">
-          <div key={etape} className="w-16 shrink-0 animate-in zoom-in-50 duration-500 sm:w-20">
+        {/* En-tête sur une ligne : la place va aux posts et au message. */}
+        <div className="flex items-center gap-3 rounded-t-2xl border-b bg-gradient-to-br from-primary/10 via-primary/5 to-transparent py-2.5 pr-12 pl-4 max-sm:rounded-none">
+          <div key={etape} className="w-10 shrink-0 animate-in zoom-in-50 duration-500">
             <Mico etat={etape === "comparer" ? "wave" : "think"} />
           </div>
-          <div className="min-w-0 flex-1 space-y-2 pt-1">
-            {mode === "apercu" && (
-              <span className="inline-block rounded-md bg-warning/20 px-2 py-0.5 font-medium text-warning-foreground text-xs">
-                {t("retour.apercu")}
-              </span>
-            )}
-            <p className="text-muted-foreground text-xs">
-              {t("reviews.popupTitre")} · {t("reviews.popupSous")}
-              {compte ? ` · ${compte}` : ""}
-              {date ? ` · ${date}` : ""}
-            </p>
-            <h2 key={etape} className="animate-in fade-in slide-in-from-right-2 font-semibold text-base tracking-tight duration-400">
+          <div className="min-w-0 flex-1">
+            <h2 key={etape} className="animate-in fade-in slide-in-from-right-2 truncate font-semibold text-sm tracking-tight duration-400 sm:text-base">
               {etape === "comparer" ? t("retour.titreComparer") : t("retour.titreRetour")}
             </h2>
-            {etapes.length > 1 && (
-              <div className="flex items-center gap-2">
-                <Pastilles total={etapes.length} actuelle={index} />
-                <span className="ml-auto shrink-0 text-muted-foreground text-xs tabular-nums">
-                  {index + 1} / {etapes.length}
+            <p className="truncate text-muted-foreground text-xs">
+              {mode === "apercu" && (
+                <span className="mr-1.5 rounded bg-warning/20 px-1.5 py-px font-medium text-warning-foreground">
+                  {t("retour.apercu")}
                 </span>
-              </div>
-            )}
+              )}
+              {[t("reviews.popupSous"), compte, date].filter(Boolean).join(" · ")}
+              {ensuite > 0 ? ` · ${t("retour.ensuite", { count: ensuite })}` : ""}
+            </p>
           </div>
+          {etapes.length > 1 && (
+            <div className="flex shrink-0 items-center gap-2">
+              <Pastilles total={etapes.length} actuelle={index} />
+              <span className="text-muted-foreground text-xs tabular-nums">
+                {index + 1} / {etapes.length}
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Le corps défile, l'en-tête et les boutons restent en place. */}
-        <div className="min-h-0 flex-1 overflow-y-auto px-6 py-2">
+        <div ref={corps} onScroll={verifierBas} className="min-h-0 flex-1 overflow-y-auto px-4 py-3 sm:px-6">
           {etape === "comparer" ? (
-            <div key="comparer" className="animate-in fade-in space-y-3 duration-500">
-              <p className="text-sm leading-relaxed">{t("retour.aideComparer")}</p>
+            <div key="comparer" className="flex h-full min-h-0 animate-in flex-col gap-3 fade-in duration-500">
               {/* Téléphone : un seul lecteur à la fois. */}
-              <div className="flex rounded-lg border p-0.5 md:hidden" role="tablist">
+              <div className="flex shrink-0 rounded-lg border p-0.5 md:hidden" role="tablist">
                 {(["original", "poste"] as const).map((v) => (
                   <Button
                     key={v}
@@ -160,21 +198,23 @@ export function RetourParcours({
                   </Button>
                 ))}
               </div>
-              <div className="grid gap-4 md:grid-cols-2">
-                <div className={cn(vue !== "original" && "max-md:hidden")}>
+              <div className="grid min-h-[420px] flex-1 gap-4 md:grid-cols-2">
+                <div className={cn("min-h-0", vue !== "original" && "max-md:hidden")}>
                   <TikTokEmbed
                     url={retour.source_url}
                     titre={t("retour.original")}
                     videLabel={t("retour.sansLien")}
                     chargementLabel={t("retour.chargement")}
+                    pleineHauteur
                   />
                 </div>
-                <div className={cn(vue !== "poste" && "max-md:hidden")}>
+                <div className={cn("min-h-0", vue !== "poste" && "max-md:hidden")}>
                   <TikTokEmbed
                     url={retour.publie_url}
                     titre={t("retour.tonPost")}
                     videLabel={t("retour.sansLien")}
                     chargementLabel={t("retour.chargement")}
+                    pleineHauteur
                   />
                 </div>
               </div>
@@ -193,21 +233,29 @@ export function RetourParcours({
           )}
         </div>
 
-        <div className="flex items-center gap-2 border-t p-4 sm:p-6">
-          {index > 0 && (
-            <Button variant="ghost" onClick={() => setIndex(index - 1)}>
+        <div className="flex items-center gap-2 border-t px-4 py-2.5 sm:px-6">
+          {index > 0 ? (
+            <Button variant="ghost" size="sm" onClick={() => setIndex(index - 1)}>
               <ArrowLeft />
               {t("retour.precedent")}
             </Button>
+          ) : (
+            !derniere && <p className="text-muted-foreground text-xs">{t("retour.aideComparer")}</p>
           )}
-          <div className="ml-auto">
+          <div className="ml-auto shrink-0">
             {derniere ? (
-              <Button size="lg" loading={occupe} onClick={onCompris}>
-                {mode === "reel" ? <Check /> : <X />}
-                {mode === "reel" ? (occupe ? t("common.saving") : t("reviews.compris")) : t("retour.fermer")}
+              <Button loading={occupe} disabled={verrou} onClick={onCompris}>
+                {verrou ? <Lock /> : mode === "relecture" ? <X /> : <Check />}
+                {verrou
+                  ? t("retour.deroule")
+                  : mode === "relecture"
+                    ? t("retour.fermer")
+                    : occupe
+                      ? t("common.saving")
+                      : t("reviews.compris")}
               </Button>
             ) : (
-              <Button size="lg" onClick={() => setIndex(index + 1)}>
+              <Button onClick={() => setIndex(index + 1)}>
                 {t("retour.voirRetour")}
                 <ArrowRight />
               </Button>

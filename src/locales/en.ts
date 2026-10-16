@@ -539,7 +539,10 @@ export const en = {
     },
     retour: {
       titreComparer: "Your post next to the original",
-      aideComparer: "Look at both posts side by side, slide by slide. Your admin's feedback is on the next page.",
+      aideComparer: "Swipe through both, slide by slide. The feedback is on the next page.",
+      deroule: "Read to the bottom",
+      ensuite_one: "{{count}} more feedback after this one",
+      ensuite_other: "{{count}} more feedbacks after this one",
       original: "Original",
       tonPost: "Your post",
       titreRetour: "What to change",

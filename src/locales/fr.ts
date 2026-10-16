@@ -540,7 +540,10 @@ export const fr = {
     },
     retour: {
       titreComparer: "Ton post à côté de l’original",
-      aideComparer: "Regarde les deux posts côte à côte, slide par slide. Le retour de ton admin est à la page suivante.",
+      aideComparer: "Fais défiler les deux, slide par slide. Le retour est à la page suivante.",
+      deroule: "Lis jusqu’en bas",
+      ensuite_one: "encore {{count}} retour après",
+      ensuite_other: "encore {{count}} retours après",
       original: "Original",
       tonPost: "Ton post",
       titreRetour: "Ce qu’il faut changer",

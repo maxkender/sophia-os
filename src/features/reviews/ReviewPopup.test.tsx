@@ -1,6 +1,6 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import "@/locales";
 
@@ -34,6 +34,12 @@ const REVIEW = {
   remarques: [],
 };
 
+/** jsdom ne mesure rien : on lui donne la hauteur du message et de la zone qui défile. */
+function hauteurs(contenu: number, visible = 500) {
+  Object.defineProperty(HTMLElement.prototype, "scrollHeight", { configurable: true, get: () => contenu });
+  Object.defineProperty(HTMLElement.prototype, "clientHeight", { configurable: true, get: () => visible });
+}
+
 function renderPopup() {
   const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
   return render(
@@ -48,6 +54,12 @@ describe("ReviewPopup", () => {
     mesReviewsNonVues.mockReset();
     marquerReviewVue.mockReset().mockResolvedValue(undefined);
     vi.spyOn(HTMLMediaElement.prototype, "play").mockResolvedValue(undefined);
+    hauteurs(500); // tout tient à l'écran
+  });
+
+  afterEach(() => {
+    delete (HTMLElement.prototype as { scrollHeight?: number }).scrollHeight;
+    delete (HTMLElement.prototype as { clientHeight?: number }).clientHeight;
   });
 
   it("montre d'abord son post à côté de l'original, puis le message et les vidéos", async () => {
@@ -66,7 +78,8 @@ describe("ReviewPopup", () => {
     expect(document.querySelector("video")).toHaveAttribute("src", "https://cdn.example/timing.mp4");
     expect(screen.getByText(/Vidéo 2 \/ 2|Video 2 \/ 2/)).toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole("button", { name: /Compris, merci|Got it, thanks/ }));
+    // Tout tient à l'écran : « Compris » s'ouvre dès la première mesure.
+    fireEvent.click(await screen.findByRole("button", { name: /Compris, merci|Got it, thanks/ }));
     await waitFor(() => expect(marquerReviewVue).toHaveBeenCalledWith("rev-1"));
   });
 
@@ -75,6 +88,25 @@ describe("ReviewPopup", () => {
     renderPopup();
     expect(await screen.findByText("The hook is too slow.")).toBeInTheDocument();
     expect(screen.queryByRole("button", { name: /Voir le retour|See the feedback/ })).not.toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /Compris, merci|Got it, thanks/ })).toBeInTheDocument();
+    expect(await screen.findByRole("button", { name: /Compris, merci|Got it, thanks/ })).toBeInTheDocument();
+  });
+
+  it("« Compris » reste verrouillé tant que le message n'est pas lu jusqu'en bas", async () => {
+    hauteurs(1500);
+    mesReviewsNonVues.mockResolvedValue([{ ...REVIEW, publie_url: null, source_url: null, videos: [] }]);
+    renderPopup();
+    const verrou = await screen.findByRole("button", { name: /Lis jusqu’en bas|Read to the bottom/ });
+    expect(verrou).toBeDisabled();
+    const zone = screen.getByText("The hook is too slow.").closest("div.overflow-y-auto") as HTMLElement;
+    zone.scrollTop = 1000;
+    fireEvent.scroll(zone);
+    const compris = await screen.findByRole("button", { name: /Compris, merci|Got it, thanks/ });
+    expect(compris).toBeEnabled();
+  });
+
+  it("annonce les retours qui suivent", async () => {
+    mesReviewsNonVues.mockResolvedValue([REVIEW, { ...REVIEW, id: "rev-2" }, { ...REVIEW, id: "rev-3" }]);
+    renderPopup();
+    expect(await screen.findByText(/encore 2 retours après|2 more feedbacks after this one/)).toBeInTheDocument();
   });
 });

@@ -68,6 +68,7 @@ import { useApplication } from "@/features/moteur/ApplicationContext";
 import { nomApplicationPromue } from "@/features/moteur/repartition/logique";
 import { classeDirectionTexte, directionTexte } from "@/features/moteur/langues";
 import { cleErreurSignalement, slideEstLivree, slideEstPropre } from "@/features/moteur/signalementTexte";
+import { referenceAffichee } from "@/features/moteur/referencePlacement";
 
 function nomFichier(postId: string, position: number) {
   return `${postId.slice(0, 8)}-${String(position).padStart(2, "0")}.jpg`;
@@ -194,10 +195,12 @@ function Visuel({
   url,
   legende,
   onZoom,
+  onError,
 }: {
   url: string;
   legende: string;
   onZoom: () => void;
+  onError?: () => void;
 }) {
   return (
     <figure className="space-y-1.5">
@@ -208,6 +211,7 @@ function Visuel({
         <img
           src={url}
           alt=""
+          onError={onError}
           className="w-full rounded-lg border object-contain transition hover:opacity-90"
         />
       </button>
@@ -478,6 +482,11 @@ export function PosterPostPage() {
   }, [minutesRestantes]);
 
   const liste = React.useMemo(() => slides.data ?? [], [slides.data]);
+  // Originaux qui ne se chargent pas (lien Apify expiré) : on emprunte celui
+  // d'une slide voisine (referencePlacement.ts).
+  const [refsEchouees, setRefsEchouees] = React.useState<ReadonlySet<string>>(() => new Set());
+  const marquerRefEchouee = (url: string) =>
+    setRefsEchouees((avant) => (avant.has(url) ? avant : new Set(avant).add(url)));
 
   // Préchargement des visuels : `navigator.share` doit être appelé dans la
   // foulée du tap, il ne peut pas attendre un fetch.
@@ -856,13 +865,23 @@ export function PosterPostPage() {
                     </span>
                   </div>
                 )}
-                {slide.reference_url && (
-                  <Visuel
-                    url={slide.reference_url}
-                    legende={t("posts.placementTitre")}
-                    onZoom={() => setLoupe(slide.reference_url!)}
-                  />
-                )}
+                {(() => {
+                  const ref = referenceAffichee(liste, index, refsEchouees);
+                  if (!ref) return null;
+                  return (
+                    <Visuel
+                      key={ref.url}
+                      url={ref.url}
+                      legende={
+                        ref.autrePosition == null
+                          ? t("posts.placementTitre")
+                          : t("posts.placementAutreSlide", { position: ref.autrePosition })
+                      }
+                      onZoom={() => setLoupe(ref.url)}
+                      onError={() => marquerRefEchouee(ref.url)}
+                    />
+                  );
+                })()}
               </div>
 
               {estPropre(slide) && (

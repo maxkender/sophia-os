@@ -2187,6 +2187,7 @@ export const fr = {
         "{{count}} photos n'ont pas pu être nettoyées, vérifie-les avant de publier.",
       voirPlacement: "Voir où poser le texte",
       placementTitre: "Photo d'origine",
+      placementAutreSlide: "Photo d'origine de la slide {{position}} (même mise en page du texte)",
       photoAPoster: "Photo à poster",
       placementAide:
         "Visuel d'origine : reproduis la même position et la même taille de texte dans TikTok.",

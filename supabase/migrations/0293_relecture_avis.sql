@@ -1,4 +1,4 @@
--- 0292 : banc d'essai de l'agent de relecture — le jugement de l'admin.
+-- 0293 : banc d'essai de l'agent de relecture — le jugement de l'admin.
 --
 -- POURQUOI. Avant de laisser l'agent proposer ses reviews (voir 0290), l'admin
 -- le fait tourner « à blanc » sur un lot de vrais posts (`relecture_enfiler`
@@ -31,7 +31,7 @@ create table if not exists public.relecture_avis (
 );
 
 comment on table public.relecture_avis is
-  'Jugement de l''admin sur une relecture automatique (banc d''essai) : ✓/✗ par point, défauts ratés. Voir migration 0292.';
+  'Jugement de l''admin sur une relecture automatique (banc d''essai) : ✓/✗ par point, défauts ratés. Voir migration 0293.';
 
 alter table public.relecture_avis enable row level security;
 

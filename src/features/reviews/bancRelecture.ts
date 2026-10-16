@@ -1,7 +1,7 @@
 /**
  * Banc d'essai de l'agent de relecture (/admin/banc-relecture) : l'agent relit
  * un lot de vrais posts sans rien envoyer, l'admin juge chaque résultat. Les
- * jugements vivent dans `relecture_avis` (migration 0292).
+ * jugements vivent dans `relecture_avis` (migration 0293).
  *
  *   ✓ / ✗ sur chaque point relevé (ceux de la review ET ceux gardés pour plus tard) ;
  *   « raté » : un défaut que l'agent n'a pas vu, avec ce qui ne va pas ;

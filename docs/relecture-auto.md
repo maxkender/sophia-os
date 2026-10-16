@@ -134,7 +134,7 @@ jour de publication, lot de test et cron confondus, une à la fois :
 
 En tête : posts jugés, messages proposés, points justes (et le taux), défauts
 ratés, et le détail par règle. Les jugements vivent dans `relecture_avis`
-(migration 0292), un par point (`cle` = `code|slides`, `aucun`, ou `rate:…`) ;
+(migration 0293), un par point (`cle` = `code|slides`, `aucun`, ou `rate:…`) ;
 un point qui disparaît après un `rejuger` ne compte plus. Rien n'est envoyé.
 
 Lancer un lot : `{ "enfiler": { "jour": "AAAA-MM-JJ", "limite": 50, "aleatoire": true } }`,

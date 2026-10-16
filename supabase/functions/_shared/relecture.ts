@@ -140,6 +140,12 @@ export const ECART_TAILLE_LARGEUR = 0.1;
 export const SEUIL_PLACEMENT = 0.25;
 /** Au plus autant de points dans une review : au-delà, le créateur décroche. */
 export const MAX_POINTS_REVIEW = 2;
+/**
+ * Un post qui marche ne reçoit pas de remarque, seulement un bravo : on ne
+ * corrige pas ce qui fait des vues. Les défauts restent relevés pour l'admin.
+ * Vues au moment de la relecture (TikTok au scrape, ou le relevé de l'OS).
+ */
+export const SEUIL_VUES_BRAVO = 5000;
 
 /** Ce qui peut partir dans la review, du plus important au moins important. */
 const PRIORITE: CodeDefaut[] = [
@@ -617,12 +623,6 @@ const REMARQUE_DU_CODE: Partial<Record<CodeDefaut, RegExp>> = {
   hierarchie: /corpus|head/i,
 };
 
-function slidesEn(slides: number[]): string {
-  if (slides.length === 0) return "";
-  if (slides.length === 1) return `slide ${slides[0]}`;
-  return `slides ${slides.slice(0, -1).join(", ")} and ${slides[slides.length - 1]}`;
-}
-
 const COULEURS_EN: Record<string, string> = {
   blanc: "white", noir: "black", gris: "grey", rouge: "red", orange: "orange",
   jaune: "yellow", vert: "green", bleu: "blue", violet: "purple", rose: "pink",
@@ -635,11 +635,19 @@ const EFFETS_EN: Record<string, string> = {
 const ALIGN_EN: Record<string, string> = { gauche: "left-aligned", centre: "centered", droite: "right-aligned" };
 
 /**
+ * Jamais de numéro de slide pour le créateur : l'agent ne compare que 3 slides,
+ * et un défaut vu sur les slides 5 et 6 est presque toujours sur toutes. « On
+ * slides 5 and 6 » se lirait comme « les autres sont bonnes ». Les numéros
+ * restent dans `slides`, pour l'admin.
+ */
+export const SUR_DES_SLIDES = "On some of your slides, ";
+
+/**
  * Un point de review, comme l'écrirait un manager : ce qui se voit, puis le
  * geste exact dans l'éditeur de TikTok. Jamais de ratio ni de pourcentage.
  */
 export function pointAnglais(d: Defaut): string {
-  const sur = d.slides.length ? `On ${slidesEn(d.slides)}, ` : "";
+  const sur = d.slides.length ? SUR_DES_SLIDES : "";
   const v = d.valeurs ?? {};
   switch (d.code) {
     case "justification": {
@@ -689,20 +697,33 @@ export function pointAnglais(d: Defaut): string {
   }
 }
 
+/** Le message d'un post au-dessus de SEUIL_VUES_BRAVO : rien à corriger, juste bravo. */
+export const BRAVO = "Hi! Great work on this post, it's doing really well. Keep it up!";
+
+export function estBravo(vues: number | null | undefined): boolean {
+  return typeof vues === "number" && vues >= SEUIL_VUES_BRAVO;
+}
+
 /**
  * Brouillon prêt à relire : au plus MAX_POINTS_REVIEW points, les plus
  * importants ; le reste est gardé pour l'admin. `remarques` garde le format
  * de `reviews.remarques` (compteur « 3× » par créateur, vidéos tuto jointes).
  * Ce brouillon est déjà lisible tel quel ; `relecture-auto` le fait ensuite
- * reformuler par Gemini pour qu'il sonne moins mécanique.
+ * reformuler par Gemini pour qu'il sonne moins mécanique (sauf le bravo, final).
  */
-export function redigerBrouillon(defauts: Defaut[], remarquesTypes: RemarqueType[]): {
+export function redigerBrouillon(
+  defauts: Defaut[],
+  remarquesTypes: RemarqueType[],
+  opts: { vues?: number | null } = {},
+): {
   texte: string;
   remarques: Array<{ id: string; titre: string }>;
   points: Defaut[];
+  bravo: boolean;
 } {
+  if (estBravo(opts.vues)) return { texte: BRAVO, remarques: [], points: [], bravo: true };
   const points = trier(defauts.filter((d) => d.niveau === "remarque")).slice(0, MAX_POINTS_REVIEW);
-  if (points.length === 0) return { texte: "", remarques: [], points: [] };
+  if (points.length === 0) return { texte: "", remarques: [], points: [], bravo: false };
   const trouver = (re: RegExp) => remarquesTypes.find((r) => re.test(r.titre));
   const utilisees: RemarqueType[] = [];
   const bonjour = trouver(/hello/i);
@@ -724,13 +745,13 @@ export function redigerBrouillon(defauts: Defaut[], remarquesTypes: RemarqueType
     return r?.video_url ? `${texte}\nThe short video with this message shows how to do it.` : texte;
   };
   const texte = [ouverture, ...points.map(avecVideo), "Keep it up!"].join("\n\n");
-  return { texte, remarques: utilisees.map((r) => ({ id: r.id, titre: r.titre })), points };
+  return { texte, remarques: utilisees.map((r) => ({ id: r.id, titre: r.titre })), points, bravo: false };
 }
 
 /**
  * La reformulation de Gemini n'est gardée que si elle n'a rien perdu ni
- * inventé : mêmes numéros de slides, pas de chiffres techniques ni de nombre
- * de lignes, longueur raisonnable. Sinon on garde le brouillon déterministe.
+ * inventé : aucun numéro de slide, pas de chiffres techniques ni de nombre de
+ * lignes, longueur raisonnable. Sinon on garde le brouillon déterministe.
  */
 /** Mots du geste qu'une reformulation ne doit pas perdre. */
 const GESTES = [/slider/i, /right edge/i, /white dot/i, /\bDone\b/, /pinch|spread two fingers/i, /alignment button/i, /\bA button\b/i, /color row/i, /video/i];
@@ -747,12 +768,10 @@ export function reformulationValide(brouillon: string, reformule: string): boole
   }
   const etapes = (t: string) => (t.match(/^\s*\d\.\s/gm) ?? []).length;
   if (etapes(texte) < etapes(brouillon)) return false;
-  const numeros = (s: string) =>
-    new Set([...s.matchAll(/slides?\s+((?:\d+(?:,?\s+and\s+|,\s*))*\d+)/gi)].flatMap((m) => m[1].match(/\d+/g) ?? []));
-  const attendus = numeros(brouillon);
-  const obtenus = numeros(texte);
-  for (const n of attendus) if (!obtenus.has(n)) return false;
-  for (const n of obtenus) if (!attendus.has(n)) return false;
+  // Jamais de numéro de slide (voir SUR_DES_SLIDES), et le « some » reste :
+  // « on your slides » affirmerait un défaut sur toutes.
+  if (/\bslides?\s*(?:#|n°|no\.?\s*)?\d/i.test(texte)) return false;
+  if (/\bsome of your slides\b/i.test(brouillon) && !/\bsome\b(?:\s+\w+){0,3}\s+slides\b/i.test(texte)) return false;
   return true;
 }
 
@@ -762,7 +781,8 @@ export const PROMPT_TON = `You are a friendly manager writing a short review to 
 Rewrite the draft below so it sounds like a real person wrote it: warm, encouraging, simple English, short sentences.
 
 Rules:
-- Keep every fact, every slide number and every instruction exactly (what to tap, which slider, pinch). Do not add new problems or new advice.
+- Keep every fact and every instruction exactly (what to tap, which slider, pinch). Do not add new problems or new advice.
+- Never mention slide numbers. The draft says "some of your slides" on purpose: keep "some of your slides", do not turn it into "your slides" or "all your slides".
 - No percentages, ratios or technical words.
 - Never ask the creator to match the number of lines: the text is translated, so it can have more or fewer lines than the original. Talk about how long the lines are, not how many there are.
 - Start with one short positive sentence, then the points, then a one-line friendly closing.

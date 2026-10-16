@@ -39,6 +39,8 @@ export interface RelectureAuto {
   /** Remarques-types couvertes par le brouillon (compteur par créateur, vidéos tuto). */
   remarques: ReviewRemarqueUtilisee[];
   erreur: string | null;
+  /** Vues du post au moment de la relecture (null : inconnues). */
+  vues: number | null;
 }
 
 /** Relecture terminée, avec ou sans review : plus besoin de rappeler l'agent. */
@@ -48,6 +50,17 @@ export function relectureFinie(r: Pick<RelectureAuto, "statut">): boolean {
 
 /** Au plus autant de points par review : même règle que `_shared/relecture.ts`. */
 export const MAX_POINTS_REVIEW = 2;
+
+/**
+ * Au-delà, l'agent ne fait pas de remarque, il félicite : même seuil que
+ * `SEUIL_VUES_BRAVO` dans `_shared/relecture.ts`. Les défauts restent relevés.
+ */
+export const SEUIL_VUES_BRAVO = 5000;
+
+/** Le post marche : le message de l'agent n'est qu'un bravo, ses points ne partent pas. */
+export function estBravo(r: Pick<RelectureAuto, "vues" | "statut">): boolean {
+  return r.statut === "fait" && typeof r.vues === "number" && r.vues >= SEUIL_VUES_BRAVO;
+}
 
 const STATUTS: StatutRelecture[] = ["a_scraper", "scrape", "a_analyser", "analyse", "fait", "ignore", "echec"];
 
@@ -81,6 +94,7 @@ export function normaliserRelecture(row: Record<string, unknown>): RelectureAuto
     brouillon: brouillon || null,
     remarques: normaliserRemarquesReview(row.remarques),
     erreur: typeof row.erreur === "string" && row.erreur.trim() ? row.erreur.trim() : null,
+    vues: typeof row.vues === "number" && Number.isFinite(row.vues) ? row.vues : null,
   };
 }
 
@@ -136,4 +150,9 @@ export function videosDuBrouillon(
  */
 export function estBrouillonIntact(texte: string, brouillon: string | null | undefined): boolean {
   return Boolean(brouillon) && texte.trim() === (brouillon ?? "").trim();
+}
+
+/** « 12,3 k » / « 12.3K » : les vues comme les lit l'admin. */
+export function vuesCompactes(vues: number, langue: string): string {
+  return new Intl.NumberFormat(langue, { notation: "compact", maximumFractionDigits: 1 }).format(vues);
 }

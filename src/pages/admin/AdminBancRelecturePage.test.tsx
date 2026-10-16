@@ -31,6 +31,7 @@ const base = {
   langue: "en",
   analyse_at: "2026-10-16T08:50:00Z",
   erreur: null,
+  vues: 900,
 };
 
 const AVEC_MESSAGE = {
@@ -174,5 +175,16 @@ describe("AdminBancRelecturePage", () => {
     expect(screen.queryByRole("button", { name: /^(Juste|Correct)$/ })).not.toBeInTheDocument();
     const nav = screen.getByRole("navigation", { name: /Posts relus par l’agent|Posts reviewed by the agent/ });
     expect(within(nav).getAllByRole("button")).toHaveLength(3);
+  });
+
+  it("un post qui marche : le message est un bravo, les points restent à juger sans partir", async () => {
+    listerRelecturesBanc.mockResolvedValue([
+      { ...AVEC_MESSAGE, vues: 15200, brouillon: "Hi! Great work on this post, it's doing really well. Keep it up!", remarques: [] },
+    ]);
+    renderPage();
+    expect(await screen.findByText(/(pas envoyé : le post marche|not sent: the post is doing well)/)).toBeInTheDocument();
+    expect(screen.queryByText(/^(dans le message|in the message)$/)).not.toBeInTheDocument();
+    expect(screen.getByText(/15(,|\.)2 ?[kK] (vues|views)/)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /^(Juste|Correct)$/ })).toBeInTheDocument();
   });
 });

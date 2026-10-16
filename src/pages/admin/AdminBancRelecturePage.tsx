@@ -34,10 +34,12 @@ import {
   type VerdictAvis,
 } from "@/features/reviews/bancRelecture";
 import {
+  estBravo,
   libelleDefaut,
   MAX_POINTS_REVIEW,
   relectureFinie,
   videosDuBrouillon,
+  vuesCompactes,
   type DefautRelecture,
 } from "@/features/reviews/relectureAgent";
 import { TikTokEmbed } from "@/features/reviews/TikTokEmbed";
@@ -239,6 +241,10 @@ export function AdminBancRelecturePage() {
                   <span className="text-muted-foreground">
                     {courant.handle_tiktok ? `@${courant.handle_tiktok.replace(/^@/, "")}` : courant.persona_nom}
                     {courant.langue ? ` · ${courant.langue.toUpperCase()}` : ""}
+                    {" · "}
+                    {courant.vues === null
+                      ? t("banc.vuesInconnues")
+                      : t("banc.vues", { vues: vuesCompactes(courant.vues, i18n.language) })}
                   </span>
                 </div>
                 <div className="flex flex-wrap gap-2">
@@ -351,6 +357,7 @@ function Statistiques({ stats, libelleCode }: { stats: StatsBanc; libelleCode: (
         )}
         <p className="text-xs text-muted-foreground">
           {[
+            stats.bravos > 0 ? t("banc.stats.bravos", { count: stats.bravos }) : null,
             stats.aucunConfirme > 0 ? t("banc.stats.aucunConfirme", { count: stats.aucunConfirme }) : null,
             stats.horsBanc > 0 ? t("banc.stats.horsBanc", { count: stats.horsBanc }) : null,
             stats.enCours > 0 ? t("banc.stats.enCours", { count: stats.enCours }) : null,
@@ -462,6 +469,8 @@ function PanneauJugement({
 
   const points = pointsAJuger(relecture);
   const notes = relecture.defauts.filter((d) => d.niveau === "info");
+  // Post au-delà du seuil de vues : le message est un bravo, aucun point ne part.
+  const bravo = estBravo(relecture);
   const rates = avis.filter((a) => a.verdict === "rate");
   const aucun = avis.find((a) => a.cle === CLE_AUCUN) ?? null;
 
@@ -524,8 +533,12 @@ function PanneauJugement({
                   <div className="flex flex-wrap items-start justify-between gap-2">
                     <div className="min-w-0 flex-1 space-y-1">
                       <p className="text-sm">{libelleDefaut(d)}</p>
-                      <Badge variant={i < MAX_POINTS_REVIEW ? "info" : "outline"}>
-                        {i < MAX_POINTS_REVIEW ? t("banc.dansMessage") : t("banc.plusTard")}
+                      <Badge variant={!bravo && i < MAX_POINTS_REVIEW ? "info" : "outline"}>
+                        {bravo
+                          ? t("banc.nonEnvoyeBravo")
+                          : i < MAX_POINTS_REVIEW
+                            ? t("banc.dansMessage")
+                            : t("banc.plusTard")}
                       </Badge>
                     </div>
                     <div className="flex gap-1">

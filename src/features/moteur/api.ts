@@ -959,7 +959,7 @@ export async function listerRelecturesAuto(
   for (let i = 0; i < ids.length; i += chunk) {
     const { data, error } = await supabase
       .from("relectures_auto")
-      .select("post_id, statut, defauts, brouillon, remarques, erreur")
+      .select("post_id, statut, defauts, brouillon, remarques, erreur, vues")
       .in("post_id", ids.slice(i, i + chunk));
     if (error) throw error;
     for (const row of data ?? []) {
@@ -1013,7 +1013,7 @@ export async function listerRelecturesBanc(jour: string): Promise<RelectureBanc[
   const { data, error } = await supabase
     .from("relectures_auto")
     .select(
-      "id, post_id, jour, origine, publie_url, statut, defauts, brouillon, remarques, erreur, analyse_at, created_at, " +
+      "id, post_id, jour, origine, publie_url, statut, defauts, brouillon, remarques, erreur, vues, analyse_at, created_at, " +
         "passages(contenus(source_url)), comptes(handle_tiktok, persona_nom, langue)",
     )
     .eq("jour", jour)

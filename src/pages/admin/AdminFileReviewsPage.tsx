@@ -56,11 +56,13 @@ import {
   type ReviewVideo,
 } from "@/features/reviews/fileJour";
 import {
+  estBravo,
   estBrouillonIntact,
   libelleDefaut,
   relectureFinie,
   repartirDefauts,
   videosDuBrouillon,
+  vuesCompactes,
   type DefautRelecture,
   type RelectureAuto,
 } from "@/features/reviews/relectureAgent";
@@ -789,7 +791,7 @@ function RelectureAgent({
   /** « Tester » tourne pour ce post. */
   enCours: boolean;
 }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   if (chargement) return null;
 
   let contenu: React.ReactNode;
@@ -807,6 +809,21 @@ function RelectureAgent({
     );
   } else if (relecture.statut !== "fait") {
     contenu = <p className="text-sm text-muted-foreground">{t("fileReviews.agent.enCours")}</p>;
+  } else if (estBravo(relecture)) {
+    // Le post marche : l'agent félicite, ses points ne partent pas.
+    const { review, plusTard, notes } = repartirDefauts(relecture.defauts);
+    const nonEnvoyes = [...review, ...plusTard];
+    contenu = (
+      <div className="space-y-3">
+        <p className="text-sm">
+          {t("fileReviews.agent.bravo", { vues: vuesCompactes(relecture.vues ?? 0, i18n.language) })}
+        </p>
+        {nonEnvoyes.length > 0 && (
+          <ListeDefauts titre={t("fileReviews.agent.nonEnvoyes")} defauts={nonEnvoyes} discret />
+        )}
+        {notes.length > 0 && <ListeDefauts titre={t("fileReviews.agent.notes")} defauts={notes} discret />}
+      </div>
+    );
   } else {
     const { review, plusTard, notes } = repartirDefauts(relecture.defauts);
     contenu = (

@@ -4,6 +4,7 @@ import {
   libelleDefaut,
   normaliserRelecture,
   repartirDefauts,
+  estBravo,
   estBrouillonIntact,
   slidesEnFrancais,
   videosDuBrouillon,
@@ -83,5 +84,14 @@ describe("relectureAgent", () => {
     expect(estBrouillonIntact("Hi! Fix it please.", "Hi!\nFix it.")).toBe(false);
     expect(estBrouillonIntact("", null)).toBe(false);
     expect(estBrouillonIntact("Hi", undefined)).toBe(false);
+  });
+
+  it("félicite au-delà de 5 000 vues, pas en dessous ni à vues inconnues", () => {
+    expect(estBravo({ statut: "fait", vues: 5000 })).toBe(true);
+    expect(estBravo({ statut: "fait", vues: 4999 })).toBe(false);
+    expect(estBravo({ statut: "fait", vues: null })).toBe(false);
+    expect(estBravo({ statut: "ignore", vues: 90000 })).toBe(false);
+    expect(normaliserRelecture({ post_id: "p", statut: "fait", vues: 12300 })?.vues).toBe(12300);
+    expect(normaliserRelecture({ post_id: "p", statut: "fait" })?.vues).toBeNull();
   });
 });

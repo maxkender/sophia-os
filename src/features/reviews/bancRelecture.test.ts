@@ -29,7 +29,7 @@ const relecture = (
   statut,
   defauts,
   vues,
-  brouillon: vues !== null && vues >= 5000 ? "Great work!" : defauts.some((d) => d.niveau === "remarque") ? "Hi!" : null,
+  brouillon: vues !== null && vues >= 5000 ? null : defauts.some((d) => d.niveau === "remarque") ? "Hi!" : null,
 });
 
 let n = 0;
@@ -85,7 +85,7 @@ describe("bancRelecture", () => {
       enCours: 1,
       juges: 3,
       proposees: 2,
-      bravos: 0,
+      quiMarchent: 0,
       justes: 1,
       faux: 2,
       rates: 1,
@@ -126,11 +126,15 @@ describe("bancRelecture", () => {
     expect(normaliserAvis({ id: "a", relecture_id: "r", cle: "x", code: "x", verdict: "peut-être" })).toBeNull();
   });
 
-  it("compte à part les bravos des posts qui marchent", () => {
+  it("compte à part les posts qui marchent, laissés sans message", () => {
     const s = statsBanc(
-      [relecture("r1", [point("justification", [1])], "fait", 12000), relecture("r2", [], "fait", 800)],
+      [
+        relecture("r1", [point("justification", [1])], "fait", 12000),
+        relecture("r2", [point("taille", [2])], "fait", 800),
+        relecture("r3", [], "fait", null),
+      ],
       {},
     );
-    expect(s).toMatchObject({ jugeables: 2, proposees: 1, bravos: 1 });
+    expect(s).toMatchObject({ jugeables: 3, proposees: 1, quiMarchent: 1 });
   });
 });

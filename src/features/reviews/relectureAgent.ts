@@ -52,14 +52,14 @@ export function relectureFinie(r: Pick<RelectureAuto, "statut">): boolean {
 export const MAX_POINTS_REVIEW = 2;
 
 /**
- * Au-delà, l'agent ne fait pas de remarque, il félicite : même seuil que
- * `SEUIL_VUES_BRAVO` dans `_shared/relecture.ts`. Les défauts restent relevés.
+ * Au-delà, l'agent n'envoie rien : même seuil que `SEUIL_VUES_SANS_REMARQUE`
+ * dans `_shared/relecture.ts`. Les défauts restent relevés pour l'admin.
  */
-export const SEUIL_VUES_BRAVO = 5000;
+export const SEUIL_VUES_SANS_REMARQUE = 5000;
 
-/** Le post marche : le message de l'agent n'est qu'un bravo, ses points ne partent pas. */
-export function estBravo(r: Pick<RelectureAuto, "vues" | "statut">): boolean {
-  return r.statut === "fait" && typeof r.vues === "number" && r.vues >= SEUIL_VUES_BRAVO;
+/** Le post marche : pas de message, ses points ne partent pas. */
+export function postQuiMarche(r: Pick<RelectureAuto, "vues" | "statut">): boolean {
+  return r.statut === "fait" && typeof r.vues === "number" && r.vues >= SEUIL_VUES_SANS_REMARQUE;
 }
 
 const STATUTS: StatutRelecture[] = ["a_scraper", "scrape", "a_analyser", "analyse", "fait", "ignore", "echec"];

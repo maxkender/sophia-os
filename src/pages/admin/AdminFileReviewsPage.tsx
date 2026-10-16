@@ -56,7 +56,7 @@ import {
   type ReviewVideo,
 } from "@/features/reviews/fileJour";
 import {
-  estBravo,
+  postQuiMarche,
   estBrouillonIntact,
   libelleDefaut,
   relectureFinie,
@@ -809,14 +809,14 @@ function RelectureAgent({
     );
   } else if (relecture.statut !== "fait") {
     contenu = <p className="text-sm text-muted-foreground">{t("fileReviews.agent.enCours")}</p>;
-  } else if (estBravo(relecture)) {
-    // Le post marche : l'agent félicite, ses points ne partent pas.
+  } else if (postQuiMarche(relecture)) {
+    // Le post marche : pas de message, ses points ne partent pas.
     const { review, plusTard, notes } = repartirDefauts(relecture.defauts);
     const nonEnvoyes = [...review, ...plusTard];
     contenu = (
       <div className="space-y-3">
         <p className="text-sm">
-          {t("fileReviews.agent.bravo", { vues: vuesCompactes(relecture.vues ?? 0, i18n.language) })}
+          {t("fileReviews.agent.marche", { vues: vuesCompactes(relecture.vues ?? 0, i18n.language) })}
         </p>
         {nonEnvoyes.length > 0 && (
           <ListeDefauts titre={t("fileReviews.agent.nonEnvoyes")} defauts={nonEnvoyes} discret />

@@ -297,7 +297,7 @@ describe("AdminFileReviewsPage", () => {
     expect(await screen.findByText(/Pas relu : publié en vidéo|Not reviewed: publié en vidéo/)).toBeInTheDocument();
   });
 
-  it("un post qui marche : l'agent félicite, ses points sont montrés comme non envoyés", async () => {
+  it("un post qui marche : pas de remarque, ses points sont montrés comme non envoyés", async () => {
     listerFileReviewsJour.mockResolvedValue([POST]);
     listerReviewRemarques.mockResolvedValue([]);
     listerRelecturesAuto.mockResolvedValue({
@@ -305,7 +305,7 @@ describe("AdminFileReviewsPage", () => {
         post_id: "post-1",
         statut: "fait",
         defauts: [{ code: "justification", niveau: "remarque", slides: [2, 3], detail: "lignes trop courtes" }],
-        brouillon: "Hi! Great work on this post, it's doing really well. Keep it up!",
+        brouillon: null,
         remarques: [],
         erreur: null,
         vues: 12300,

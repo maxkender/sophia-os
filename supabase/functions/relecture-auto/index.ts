@@ -475,8 +475,8 @@ async function analyserLigne(
       comparaisons,
       defauts,
       vues,
-      // Le bravo d'un post qui marche part tel quel.
-      brouillon: (brouillon.bravo ? brouillon.texte : await reformuler(brouillon.texte)) || null,
+      // Post qui marche : texte vide, donc pas de brouillon.
+      brouillon: (await reformuler(brouillon.texte)) || null,
       remarques: brouillon.remarques,
       erreur: echecs.length ? `mesures partielles : ${echecs.join(" | ").slice(0, 500)}` : null,
       analyse_at: new Date().toISOString(),
@@ -529,7 +529,7 @@ async function rejugerLigne(
     comparaisons: comparaisons.map((c, i) => ({ ...c, constats: jugements[i].constats })),
     defauts,
     vues,
-    brouillon: (brouillon.bravo ? brouillon.texte : await reformuler(brouillon.texte)) || null,
+    brouillon: (await reformuler(brouillon.texte)) || null,
     remarques: brouillon.remarques,
   });
   return defauts.map((d) => d.code);

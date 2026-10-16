@@ -2,7 +2,6 @@ import { assert, assertEquals } from "jsr:@std/assert@1";
 
 import {
   agreger,
-  BRAVO,
   type BlocTexte,
   blocPrincipal,
   choisirPositions,
@@ -17,7 +16,7 @@ import {
   pointAnglais,
   redigerBrouillon,
   reformulationValide,
-  SEUIL_VUES_BRAVO,
+  SEUIL_VUES_SANS_REMARQUE,
 } from "./relecture.ts";
 
 function bloc(p: Partial<BlocTexte>): BlocTexte {
@@ -257,7 +256,7 @@ Deno.test("redigerBrouillon : deux points au plus, les plus importants, en mots 
   assert(texte.includes("Pinch it down"));
   assert(!/[×%]|1\.9/.test(texte), "pas de ratio dans le texte envoyé");
   assert(!texte.includes("sound"), "le troisième point attend une prochaine review");
-  assertEquals(redigerBrouillon([], REMARQUES), { texte: "", remarques: [], points: [], bravo: false });
+  assertEquals(redigerBrouillon([], REMARQUES), { texte: "", remarques: [], points: [], marche: false });
 });
 
 Deno.test("redigerBrouillon : les infos admin seules ne produisent pas de review", () => {
@@ -290,18 +289,17 @@ Deno.test("pointAnglais : nomme une slide seule, pas plusieurs", () => {
   assert(pointAnglais({ ...align, slides: [1, 2, 6] }).startsWith("On some of your slides, the text is centered"));
 });
 
-Deno.test("redigerBrouillon : un post qui marche n'a que des félicitations, ses défauts restent pour l'admin", () => {
+Deno.test("redigerBrouillon : un post qui marche n'a aucun message, ses défauts restent pour l'admin", () => {
   const defauts = [
     { code: "justification" as const, niveau: "remarque" as const, slides: [2, 4], confiance: 1, detail: "", valeurs: { sens: "courtes" } },
   ];
-  const bravo = redigerBrouillon(defauts, REMARQUES, { vues: SEUIL_VUES_BRAVO });
-  assertEquals(bravo, { texte: BRAVO, remarques: [], points: [], bravo: true });
-  const juste = redigerBrouillon(defauts, REMARQUES, { vues: SEUIL_VUES_BRAVO - 1 });
-  assertEquals(juste.bravo, false);
+  const marche = redigerBrouillon(defauts, REMARQUES, { vues: SEUIL_VUES_SANS_REMARQUE });
+  assertEquals(marche, { texte: "", remarques: [], points: [], marche: true });
+  const juste = redigerBrouillon(defauts, REMARQUES, { vues: SEUIL_VUES_SANS_REMARQUE - 1 });
+  assertEquals(juste.marche, false);
   assertEquals(juste.points.map((p) => p.code), ["justification"]);
-  // Vues inconnues : on ne félicite pas à l'aveugle.
-  assertEquals(redigerBrouillon(defauts, REMARQUES, { vues: null }).bravo, false);
-  assertEquals(redigerBrouillon([], REMARQUES, { vues: 12000 }).texte, BRAVO);
+  // Vues inconnues : les règles s'appliquent.
+  assertEquals(redigerBrouillon(defauts, REMARQUES, { vues: null }).points.length, 1);
 });
 
 Deno.test("largeur : mêmes lignes en plus gros, le paragraphe mange les marges (cas klara.mudrost149)", () => {

@@ -141,11 +141,11 @@ export const SEUIL_PLACEMENT = 0.25;
 /** Au plus autant de points dans une review : au-delà, le créateur décroche. */
 export const MAX_POINTS_REVIEW = 2;
 /**
- * Un post qui marche ne reçoit pas de remarque, seulement un bravo : on ne
- * corrige pas ce qui fait des vues. Les défauts restent relevés pour l'admin.
- * Vues au moment de la relecture (TikTok au scrape, ou le relevé de l'OS).
+ * Un post qui marche ne reçoit aucun message : on ne corrige pas ce qui fait
+ * des vues. Les défauts restent relevés pour l'admin. Vues au moment de la
+ * relecture (TikTok au scrape, ou le relevé de l'OS).
  */
-export const SEUIL_VUES_BRAVO = 5000;
+export const SEUIL_VUES_SANS_REMARQUE = 5000;
 
 /** Ce qui peut partir dans la review, du plus important au moins important. */
 const PRIORITE: CodeDefaut[] = [
@@ -703,11 +703,9 @@ export function pointAnglais(d: Defaut): string {
   }
 }
 
-/** Le message d'un post au-dessus de SEUIL_VUES_BRAVO : rien à corriger, juste bravo. */
-export const BRAVO = "Hi! Great work on this post, it's doing really well. Keep it up!";
-
-export function estBravo(vues: number | null | undefined): boolean {
-  return typeof vues === "number" && vues >= SEUIL_VUES_BRAVO;
+/** Vues inconnues : le post n'est pas réputé marcher, les règles s'appliquent. */
+export function postQuiMarche(vues: number | null | undefined): boolean {
+  return typeof vues === "number" && vues >= SEUIL_VUES_SANS_REMARQUE;
 }
 
 /**
@@ -715,7 +713,8 @@ export function estBravo(vues: number | null | undefined): boolean {
  * importants ; le reste est gardé pour l'admin. `remarques` garde le format
  * de `reviews.remarques` (compteur « 3× » par créateur, vidéos tuto jointes).
  * Ce brouillon est déjà lisible tel quel ; `relecture-auto` le fait ensuite
- * reformuler par Gemini pour qu'il sonne moins mécanique (sauf le bravo, final).
+ * reformuler par Gemini pour qu'il sonne moins mécanique. Un post qui marche
+ * n'a pas de brouillon (`marche`), même avec des défauts.
  */
 export function redigerBrouillon(
   defauts: Defaut[],
@@ -725,11 +724,11 @@ export function redigerBrouillon(
   texte: string;
   remarques: Array<{ id: string; titre: string }>;
   points: Defaut[];
-  bravo: boolean;
+  marche: boolean;
 } {
-  if (estBravo(opts.vues)) return { texte: BRAVO, remarques: [], points: [], bravo: true };
+  if (postQuiMarche(opts.vues)) return { texte: "", remarques: [], points: [], marche: true };
   const points = trier(defauts.filter((d) => d.niveau === "remarque")).slice(0, MAX_POINTS_REVIEW);
-  if (points.length === 0) return { texte: "", remarques: [], points: [], bravo: false };
+  if (points.length === 0) return { texte: "", remarques: [], points: [], marche: false };
   const trouver = (re: RegExp) => remarquesTypes.find((r) => re.test(r.titre));
   const utilisees: RemarqueType[] = [];
   const bonjour = trouver(/hello/i);
@@ -751,7 +750,7 @@ export function redigerBrouillon(
     return r?.video_url ? `${texte}\nThe short video with this message shows how to do it.` : texte;
   };
   const texte = [ouverture, ...points.map(avecVideo), "Keep it up!"].join("\n\n");
-  return { texte, remarques: utilisees.map((r) => ({ id: r.id, titre: r.titre })), points, bravo: false };
+  return { texte, remarques: utilisees.map((r) => ({ id: r.id, titre: r.titre })), points, marche: false };
 }
 
 /**

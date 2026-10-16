@@ -84,13 +84,12 @@ et « On slides 5 and 6 » se lirait comme « les autres sont bonnes ». Une sli
 seule est nommée (« On slide 1, the text is centered… ») : c'est précis et
 utile. Les numéros restent dans `defauts`, pour l'admin.
 
-**Un post qui marche n'a pas de remarque** : au-delà de 5 000 vues
-(`SEUIL_VUES_BRAVO`), le message est un simple bravo (« Hi! Great work on this
-post, it's doing really well. Keep it up! »), sans remarque-type. Les défauts
-restent relevés, montrés à l'admin comme « pas envoyés ». Les vues gardées
-(`relectures_auto.vues`, migration 0294) sont les plus fraîches connues : celles
-de TikTok au scrape ou le relevé de l'OS (`passages.vues`). Vues inconnues :
-pas de bravo, les règles s'appliquent.
+**Un post qui marche n'a pas de message** : au-delà de 5 000 vues
+(`SEUIL_VUES_SANS_REMARQUE`), l'agent n'envoie rien, on ne corrige pas ce qui
+fait des vues. Les défauts restent relevés, montrés à l'admin comme « pas
+envoyés ». Les vues gardées (`relectures_auto.vues`, migration 0294) sont les
+plus fraîches connues : celles de TikTok au scrape ou le relevé de l'OS
+(`passages.vues`). Vues inconnues : les règles s'appliquent.
 
 Après un changement de seuil, `{ "rejuger": { "jour": "AAAA-MM-JJ" } }` (ou
 `{ "rejuger": { "post_ids": [...] } }`) réapplique les règles aux mesures déjà
@@ -100,8 +99,7 @@ nouvelle mesure.
 Gemini reformule ensuite le brouillon sur un ton de manager. La reformulation
 n'est gardée que si elle cite les mêmes numéros de slide que le brouillon (aucun
 quand il dit « some of your slides », qu'elle doit garder), sans chiffre
-technique ; sinon le brouillon déterministe part tel quel. Le
-bravo ne passe pas par Gemini.
+technique ; sinon le brouillon déterministe part tel quel.
 
 Seuils calibrés le 15/10 sur 10 posts relus à l'œil (planches original /
 publié) : voir `analyse/rapports/2026-10-15-relecture-test.md`.

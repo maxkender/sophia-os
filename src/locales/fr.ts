@@ -139,6 +139,7 @@ export const fr = {
       hiring: "Recrutement",
       embauche: "Créer un poster",
       referral: "Parrainage",
+      retours: "Mes retours",
       recrutements: "Recrutements",
     },
     identite: {
@@ -439,6 +440,12 @@ export const fr = {
         "Tout ce qui sert à tester, au même endroit. Rien ici ne touche la production (les calendriers des créateurs).",
       choisir: "Choisis un test — il s'ouvre en dessous. Rien ici ne touche la production.",
       choisirPlaceholder: "— Choisir un test —",
+      retourTitre: "Aperçu d'un retour créateur",
+      retourDesc:
+        "Ouvre un retour tel que le créateur le reçoit : son post à côté de l'original, puis le message et les vidéos. Rien n'est marqué comme lu.",
+      retourChoisir: "Retour à montrer",
+      retourOuvrir: "Ouvrir le retour",
+      retourVide: "Aucun retour lié à un post pour l'instant.",
       onboardingTitre: "Aperçu de l'accueil des créateurs",
       onboardingDesc:
         "Ouvre le parcours de bienvenue exactement tel qu'un créateur slideshow le voit à sa première connexion. Rien n'est enregistré : aucune étape retenue, aucun profil marqué comme terminé.",
@@ -530,6 +537,28 @@ export const fr = {
       compris: "Compris, merci",
       voirPost: "Voir le TikTok publié",
       videoProgress: "Vidéo {{current}} / {{total}}",
+    },
+    retour: {
+      titreComparer: "Ton post à côté de l’original",
+      aideComparer: "Regarde les deux posts côte à côte, slide par slide. Le retour de ton admin est à la page suivante.",
+      original: "Original",
+      tonPost: "Ton post",
+      titreRetour: "Ce qu’il faut changer",
+      voirRetour: "Voir le retour",
+      precedent: "Retour",
+      fermer: "Fermer",
+      apercu: "Aperçu : rien n’est enregistré",
+      sansLien: "Pas de lien pour ce post.",
+      chargement: "Chargement de l’aperçu…",
+    },
+    mesRetours: {
+      titre: "Mes retours",
+      sousTitre: "Tous les retours de ton admin. Ouvre-en un pour revoir ton post à côté de l’original.",
+      vide: "Pas encore de retour. Quand ton admin t’en envoie un, il apparaît ici.",
+      nouveau: "Nouveau",
+      ouvrir: "Revoir",
+      videos_one: "{{count}} vidéo",
+      videos_other: "{{count}} vidéos",
     },
     fileReviews: {
       title: "File du jour",
@@ -669,6 +698,7 @@ export const fr = {
       messageAide:
         "Mot pour mot ce que reçoit le créateur quand, dans la file du jour, tu envoies le brouillon de l’agent sans le modifier.",
       pasDeMessage: "Pas de message : rien ne serait envoyé à ce créateur.",
+      voirCommeCreateur: "Voir comme le créateur",
       pasDeMessageMarche: "Pas de message : le post marche ({{vues}} vues), on ne le corrige pas.",
       codes: {
         justification: "Justification",

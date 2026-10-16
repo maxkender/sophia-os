@@ -4,7 +4,9 @@ import {
   libelleDefaut,
   normaliserRelecture,
   repartirDefauts,
+  estBrouillonIntact,
   slidesEnFrancais,
+  videosDuBrouillon,
   type DefautRelecture,
 } from "./relectureAgent";
 
@@ -55,5 +57,31 @@ describe("relectureAgent", () => {
     expect(
       libelleDefaut({ code: "justification", niveau: "remarque", slides: [5, 6], detail: "lignes trop courtes" }),
     ).toBe("Lignes trop courtes (slides 5 et 6)");
+  });
+
+  it("joint les vidéos tuto des remarques-types du brouillon, sans doublon", () => {
+    const types = [
+      { id: "j", titre: "Justify", video_url: "https://v/j.mp4" },
+      { id: "s", titre: "Style", video_url: null },
+      { id: "h", titre: "Hello", video_url: "https://v/j.mp4" },
+    ];
+    expect(
+      videosDuBrouillon(
+        [
+          { id: "h", titre: "Hello" },
+          { id: "j", titre: "Justify" },
+          { id: "s", titre: "Style" },
+          { id: "x", titre: "Supprimée" },
+        ],
+        types,
+      ),
+    ).toEqual([{ url: "https://v/j.mp4", titre: "Hello" }]);
+  });
+
+  it("reconnaît un brouillon de l'agent envoyé sans retouche", () => {
+    expect(estBrouillonIntact("  Hi!\nFix it.  ", "Hi!\nFix it.")).toBe(true);
+    expect(estBrouillonIntact("Hi! Fix it please.", "Hi!\nFix it.")).toBe(false);
+    expect(estBrouillonIntact("", null)).toBe(false);
+    expect(estBrouillonIntact("Hi", undefined)).toBe(false);
   });
 });

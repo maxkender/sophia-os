@@ -56,9 +56,11 @@ import {
   type ReviewVideo,
 } from "@/features/reviews/fileJour";
 import {
+  estBrouillonIntact,
   libelleDefaut,
   relectureFinie,
   repartirDefauts,
+  videosDuBrouillon,
   type DefautRelecture,
   type RelectureAuto,
 } from "@/features/reviews/relectureAgent";
@@ -404,7 +406,11 @@ export function AdminFileReviewsPage() {
   const envoyer = useMutation({
     mutationFn: async () => {
       if (!courant) throw new Error("empty");
-      const { texte: anglais } = await ameliorerReview(texte);
+      // Le brouillon de l'agent part tel quel : c'est le message relu sur le
+      // banc d'essai. Un texte retouché ou écrit à la main repasse par l'IA.
+      const anglais = estBrouillonIntact(texte, relectures.data?.[courant.id]?.brouillon)
+        ? texte.trim()
+        : (await ameliorerReview(texte)).texte;
       await envoyerReview(courant.poster_id, anglais, {
         post_id: courant.id,
         publie_url: courant.publie_url,
@@ -452,12 +458,7 @@ export function AdminFileReviewsPage() {
     if (!r.brouillon) return;
     setTexte(r.brouillon);
     setRemarquesUtilisees(r.remarques.reduce(ajouterRemarqueUtilisee, [] as ReviewRemarqueUtilisee[]));
-    setVideos(
-      r.remarques.reduce((acc, utilisee) => {
-        const type = (remarques.data ?? []).find((x) => x.id === utilisee.id);
-        return type ? ajouterVideoReview(acc, { url: type.video_url, titre: type.titre }) : acc;
-      }, [] as ReviewVideo[]),
-    );
+    setVideos(videosDuBrouillon(r.remarques, remarques.data ?? []));
   };
 
   const tester = useMutation({

@@ -64,8 +64,12 @@ const LOT_SCRAPE = 40;
 const MAX_TENTATIVES = 5;
 /** Un run Apify encore en cours après ce délai est abandonné et relancé. */
 const RUN_PERIME_MS = 20 * 60 * 1000;
-/** On ne commence plus d'analyse au-delà : un passage doit finir avant le timeout du cron (280 s). */
-const BUDGET_MS = 150_000;
+/**
+ * On ne commence plus d'analyse au-delà. La passerelle coupe l'appel à 150 s
+ * (504) et tue la fonction avec : une paire d'analyses (jusqu'à ~60 s) lancée
+ * plus tard mourrait en route, et ses posts resteraient « analyse » 15 min.
+ */
+const BUDGET_MS = 75_000;
 
 interface LigneRelecture {
   id: string;

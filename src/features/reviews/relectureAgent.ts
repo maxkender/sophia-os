@@ -4,7 +4,12 @@
  * La file de reviews l'affiche pour le post en cours et propose de reprendre
  * son brouillon.
  */
-import { normaliserRemarquesReview, type ReviewRemarqueUtilisee } from "./fileJour";
+import {
+  ajouterVideoReview,
+  normaliserRemarquesReview,
+  type ReviewRemarqueUtilisee,
+  type ReviewVideo,
+} from "./fileJour";
 
 export type StatutRelecture =
   | "a_scraper"
@@ -108,4 +113,27 @@ export function libelleDefaut(d: DefautRelecture): string {
   const texte = d.detail ? d.detail.charAt(0).toUpperCase() + d.detail.slice(1) : d.code;
   const slides = slidesEnFrancais(d.slides);
   return slides ? `${texte} (${slides})` : texte;
+}
+
+/**
+ * Les vidéos tuto qui partent avec le brouillon de l'agent : celles de ses
+ * remarques-types, dans l'ordre, sans doublon.
+ */
+export function videosDuBrouillon(
+  utilisees: ReviewRemarqueUtilisee[],
+  types: { id: string; titre: string; video_url: string | null }[],
+): ReviewVideo[] {
+  return utilisees.reduce((acc, utilisee) => {
+    const type = types.find((x) => x.id === utilisee.id);
+    return type ? ajouterVideoReview(acc, { url: type.video_url, titre: type.titre }) : acc;
+  }, [] as ReviewVideo[]);
+}
+
+/**
+ * Le texte part-il tel que l'agent l'a écrit ? Alors on ne le repasse pas à
+ * l'IA avant l'envoi : le créateur reçoit exactement le message relu sur le
+ * banc d'essai.
+ */
+export function estBrouillonIntact(texte: string, brouillon: string | null | undefined): boolean {
+  return Boolean(brouillon) && texte.trim() === (brouillon ?? "").trim();
 }

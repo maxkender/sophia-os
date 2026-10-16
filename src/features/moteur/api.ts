@@ -12,6 +12,11 @@ import {
   type ReviewVideo,
 } from "@/features/reviews/fileJour";
 import { normaliserRelecture, type RelectureAuto } from "@/features/reviews/relectureAgent";
+import {
+  normaliserAvis,
+  type AvisRelecture,
+  type VerdictAvis,
+} from "@/features/reviews/bancRelecture";
 import { extensionVideo } from "@/features/reviews/videoRemarque";
 import { normaliserZone, ZONE_LONGUEUR_MAX } from "@/features/hiring/zones";
 import { estRoleManager } from "@/features/auth/roles";
@@ -977,6 +982,126 @@ export async function testerRelecture(postId: string): Promise<RelectureAuto> {
   const r = normaliserRelecture(relecture ?? {});
   if (!r) throw new Error("Réponse de l'agent illisible");
   return r;
+}
+
+/** Une relecture vue du banc d'essai : le post, ses deux TikToks, le verdict de l'agent. */
+export interface RelectureBanc extends RelectureAuto {
+  id: string;
+  jour: string;
+  origine: "cron" | "test";
+  publie_url: string;
+  source_url: string | null;
+  handle_tiktok: string | null;
+  persona_nom: string | null;
+  langue: string | null;
+  analyse_at: string | null;
+}
+
+/** Les jours qui ont des relectures de l'agent, le plus récent d'abord. */
+export async function listerJoursRelecture(): Promise<string[]> {
+  const { data, error } = await supabase
+    .from("relectures_auto")
+    .select("jour")
+    .order("jour", { ascending: false })
+    .limit(2000);
+  if (error) throw error;
+  return [...new Set((data ?? []).map((r) => r.jour as string).filter(Boolean))];
+}
+
+/** Toutes les relectures d'un jour de publication (lot de test et cron), dans l'ordre d'arrivée. */
+export async function listerRelecturesBanc(jour: string): Promise<RelectureBanc[]> {
+  const { data, error } = await supabase
+    .from("relectures_auto")
+    .select(
+      "id, post_id, jour, origine, publie_url, statut, defauts, brouillon, remarques, erreur, analyse_at, created_at, " +
+        "passages(contenus(source_url)), comptes(handle_tiktok, persona_nom, langue)",
+    )
+    .eq("jour", jour)
+    .order("created_at", { ascending: true })
+    .order("id", { ascending: true });
+  if (error) throw error;
+  const out: RelectureBanc[] = [];
+  for (const row of (data ?? []) as unknown as Record<string, unknown>[]) {
+    const base = normaliserRelecture(row);
+    if (!base) continue;
+    const passage = (Array.isArray(row.passages) ? row.passages[0] : row.passages) as
+      | { contenus?: { source_url?: string | null } | { source_url?: string | null }[] | null }
+      | null
+      | undefined;
+    const compte = (Array.isArray(row.comptes) ? row.comptes[0] : row.comptes) as
+      | { handle_tiktok?: string | null; persona_nom?: string | null; langue?: string | null }
+      | null
+      | undefined;
+    out.push({
+      ...base,
+      id: row.id as string,
+      jour: row.jour as string,
+      origine: row.origine === "cron" ? "cron" : "test",
+      publie_url: (row.publie_url as string) ?? "",
+      source_url: passage ? sourceUrlDepuisContenu(passage) : null,
+      handle_tiktok: compte?.handle_tiktok ?? null,
+      persona_nom: compte?.persona_nom ?? null,
+      langue: compte?.langue ?? null,
+      analyse_at: (row.analyse_at as string | null) ?? null,
+    });
+  }
+  return out;
+}
+
+const AVIS_COLONNES = "id, relecture_id, cle, code, verdict, commentaire, detail";
+
+export async function listerAvisRelecture(relectureIds: string[]): Promise<AvisRelecture[]> {
+  const ids = [...new Set(relectureIds.filter(Boolean))];
+  const out: AvisRelecture[] = [];
+  const chunk = 80;
+  for (let i = 0; i < ids.length; i += chunk) {
+    const { data, error } = await supabase
+      .from("relecture_avis")
+      .select(AVIS_COLONNES)
+      .in("relecture_id", ids.slice(i, i + chunk));
+    if (error) throw error;
+    for (const row of data ?? []) {
+      const a = normaliserAvis(row as Record<string, unknown>);
+      if (a) out.push(a);
+    }
+  }
+  return out;
+}
+
+/** Pose (ou remplace) le jugement de l'admin sur un point d'une relecture. */
+export async function enregistrerAvisRelecture(input: {
+  relecture_id: string;
+  cle: string;
+  code: string;
+  verdict: VerdictAvis;
+  commentaire?: string | null;
+  detail?: string | null;
+}): Promise<AvisRelecture> {
+  const { data, error } = await supabase
+    .from("relecture_avis")
+    .upsert(
+      {
+        relecture_id: input.relecture_id,
+        cle: input.cle,
+        code: input.code,
+        verdict: input.verdict,
+        commentaire: input.commentaire?.trim() || null,
+        detail: input.detail?.trim() || null,
+        maj_at: new Date().toISOString(),
+      },
+      { onConflict: "relecture_id,cle" },
+    )
+    .select(AVIS_COLONNES)
+    .single();
+  if (error) throw error;
+  const avis = normaliserAvis(data as Record<string, unknown>);
+  if (!avis) throw new Error("Jugement illisible");
+  return avis;
+}
+
+export async function supprimerAvisRelecture(id: string): Promise<void> {
+  const { error } = await supabase.from("relecture_avis").delete().eq("id", id);
+  if (error) throw error;
 }
 
 type LigneRemarqueCreateur = {

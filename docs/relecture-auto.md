@@ -115,6 +115,30 @@ avancer le drain (le run Apify prend une à deux minutes).
 - le bouton **Hier** ouvre la file de la veille, relue pendant la nuit.
 
 L'admin relit, corrige au besoin, puis envoie ou passe. Rien ne part sans lui.
+Un brouillon de l'agent envoyé **sans retouche** part mot pour mot (il ne
+repasse pas par « Améliorer ») : c'est exactement le message relu sur le banc
+d'essai. Un texte retouché ou écrit à la main repasse par l'IA comme avant.
+
+### Banc d'essai
+
+`/admin/banc-relecture` (« Agent test bench », menu Suivi) : les relectures d'un
+jour de publication, lot de test et cron confondus, une à la fois :
+
+- l'original et le post du créateur côte à côte (lecteurs TikTok, comme dans la
+  file) ;
+- chaque point relevé par l'agent avec **✓ juste / ✗ faux** (et, sur un ✗,
+  pourquoi) — ceux qui partiraient dans le message et ceux gardés pour plus tard ;
+- **Raté** : un défaut que l'agent n'a pas vu, sa règle et ce qui ne va pas ;
+- sans point relevé : **« D'accord, rien à signaler »** ;
+- le **message exact** que recevrait le créateur, avec ses vidéos tuto.
+
+En tête : posts jugés, messages proposés, points justes (et le taux), défauts
+ratés, et le détail par règle. Les jugements vivent dans `relecture_avis`
+(migration 0292), un par point (`cle` = `code|slides`, `aucun`, ou `rate:…`) ;
+un point qui disparaît après un `rejuger` ne compte plus. Rien n'est envoyé.
+
+Lancer un lot : `{ "enfiler": { "jour": "AAAA-MM-JJ", "limite": 50, "aleatoire": true } }`,
+puis des appels `{}` tant que des lignes sont en cours (crons en pause).
 
 Côté fonction, « Tester » appelle `{ "relire": { "post_id": "…" } }` : le post
 entre en file s'il n'y est pas (`origine = 'test'`), et chaque appel avance sa
@@ -122,6 +146,15 @@ relecture aussi loin que possible ; le navigateur rappelle tant qu'elle n'est
 pas finie.
 
 ## Lire les résultats en SQL
+
+Justesse par règle sur le banc :
+
+```sql
+select a.code, a.verdict, count(*)
+from relecture_avis a join relectures_auto r on r.id = a.relecture_id
+where r.jour = '2026-10-15'
+group by 1, 2 order by 1, 2;
+```
 
 ```sql
 select r.jour, c.handle_tiktok, r.statut, r.defauts, r.brouillon

@@ -30,6 +30,7 @@ import { AdminAnalyticsPage } from "@/pages/admin/AdminAnalyticsPage";
 import { AdminSuiviRcPage } from "@/pages/admin/AdminSuiviRcPage";
 import { AdminReviewsPage } from "@/pages/admin/AdminReviewsPage";
 import { AdminFileReviewsPage } from "@/pages/admin/AdminFileReviewsPage";
+import { AdminBancRelecturePage } from "@/pages/admin/AdminBancRelecturePage";
 import { AdminReferralsPage } from "@/pages/admin/AdminReferralsPage";
 import { AdminCalendrierPage } from "@/pages/admin/AdminCalendrierPage";
 import { AdminCreateurPage } from "@/pages/admin/AdminCreateurPage";
@@ -102,6 +103,7 @@ export function AppRouter() {
               <Route path="/admin/recrutements" element={<AdminRecrutementsPage />} />
               <Route path="/admin/bibliotheque" element={<AdminBibliothequePage />} />
               <Route path="/admin/tests" element={<AdminTestsPage />} />
+              <Route path="/admin/banc-relecture" element={<AdminBancRelecturePage />} />
               <Route path="/admin/test-nettoyage" element={<Navigate to="/admin/tests" replace />} />
               <Route path="/admin/reglages" element={<AdminReglagesPage />} />
               <Route path="/admin/prompts" element={<AdminPromptsPage />} />

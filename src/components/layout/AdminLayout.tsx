@@ -10,6 +10,7 @@ import {
   FlaskConical,
   Gauge,
   LineChart,
+  ListChecks,
   Gift,
   Images,
   ListOrdered,
@@ -191,6 +192,12 @@ export function AdminLayout() {
               label: t("nav.fileReviews"),
               icon: Columns2,
               description: t("navDesc.fileReviews"),
+            },
+            {
+              to: "/admin/banc-relecture",
+              label: t("nav.bancRelecture"),
+              icon: ListChecks,
+              description: t("navDesc.bancRelecture"),
             },
             {
               to: "/admin/parrainages",

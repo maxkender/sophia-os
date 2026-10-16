@@ -226,16 +226,41 @@ describe("AdminFileReviewsPage", () => {
     expect(screen.getByText("Lignes trop courtes (slides 5 et 6)")).toBeInTheDocument();
     expect(screen.getByText("Police peut-être différente (slide 1)")).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: /Envoyer|Send/ }));
+    // Brouillon non retouché : il part mot pour mot, sans repasser par l'IA.
     await waitFor(() => {
       expect(envoyerReview).toHaveBeenCalledWith(
         "poster-1",
-        "The hook is too slow, rewritten.",
+        "On slides 5 and 6, your lines are shorter than in the original.",
         expect.objectContaining({
           remarques: [{ id: "j", titre: "Jutifier" }],
           videos: [{ url: "https://cdn.example/justif.mp4", titre: "Jutifier" }],
         }),
       );
     });
+    expect(ameliorerReview).not.toHaveBeenCalled();
+  });
+
+  it("un brouillon de l'agent retouché repasse par l'IA avant l'envoi", async () => {
+    listerFileReviewsJour.mockResolvedValue([POST]);
+    listerReviewRemarques.mockResolvedValue([]);
+    testerRelecture.mockResolvedValue({
+      post_id: "post-1",
+      statut: "fait",
+      defauts: [{ code: "taille", niveau: "remarque", slides: [2], detail: "texte trop gros" }],
+      brouillon: "On slide 2, your text is bigger than in the original.",
+      remarques: [],
+      erreur: null,
+    });
+    renderPage();
+    fireEvent.click(await screen.findByRole("button", { name: /^(Tester|Test)$/ }));
+    const champ = screen.getByPlaceholderText(/Ton retour|Your feedback/);
+    await waitFor(() => expect(champ).toHaveValue("On slide 2, your text is bigger than in the original."));
+    fireEvent.change(champ, { target: { value: "On slide 2, your text is way too big." } });
+    fireEvent.click(screen.getByRole("button", { name: /Envoyer|Send/ }));
+    await waitFor(() =>
+      expect(envoyerReview).toHaveBeenCalledWith("poster-1", "The hook is too slow, rewritten.", expect.anything()),
+    );
+    expect(ameliorerReview).toHaveBeenCalledWith("On slide 2, your text is way too big.");
   });
 
   it("« Tester » sans rien à signaler laisse la review vide", async () => {

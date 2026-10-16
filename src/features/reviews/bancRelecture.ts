@@ -7,7 +7,7 @@
  *   « raté » : un défaut que l'agent n'a pas vu, avec ce qui ne va pas ;
  *   « rien à signaler » : l'agent n'a rien relevé, et il a raison.
  */
-import type { DefautRelecture, RelectureAuto } from "./relectureAgent";
+import { postQuiMarche, type DefautRelecture, type RelectureAuto } from "./relectureAgent";
 
 export type VerdictAvis = "juste" | "faux" | "rate";
 
@@ -90,6 +90,8 @@ export interface StatsBanc {
   juges: number;
   /** Relectures qui produiraient un message au créateur. */
   proposees: number;
+  /** Sans message parce que le post marche (au-delà du seuil de vues). */
+  quiMarchent: number;
   justes: number;
   faux: number;
   rates: number;
@@ -100,7 +102,7 @@ export interface StatsBanc {
 }
 
 export function statsBanc(
-  relectures: (Pick<RelectureAuto, "statut" | "defauts" | "brouillon"> & { id: string })[],
+  relectures: (Pick<RelectureAuto, "statut" | "defauts" | "brouillon" | "vues"> & { id: string })[],
   avisParRelecture: Record<string, AvisRelecture[]>,
 ): StatsBanc {
   const s: StatsBanc = {
@@ -110,6 +112,7 @@ export function statsBanc(
     enCours: 0,
     juges: 0,
     proposees: 0,
+    quiMarchent: 0,
     justes: 0,
     faux: 0,
     rates: 0,
@@ -137,6 +140,7 @@ export function statsBanc(
     }
     s.jugeables += 1;
     if (r.brouillon) s.proposees += 1;
+    if (postQuiMarche(r)) s.quiMarchent += 1;
     const avis = avisParRelecture[r.id] ?? [];
     if (estJuge(r, avis)) s.juges += 1;
     // Seuls les points encore relevés comptent : un jugement d'un point disparu

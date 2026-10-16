@@ -77,14 +77,29 @@ deux doigts), avec renvoi à la vidéo tuto de la remarque « Jutifier » ; pinc
 part pour le titre, bouton A et rangée de couleurs pour le style. Jamais de
 ratio ni de pourcentage.
 
+**Pas de numéros quand le défaut touche plusieurs slides** : « On some of your
+slides, … ». L'agent ne compare que 3 slides (l'accroche et les deux plus
+longues) ; un défaut vu sur les slides 5 et 6 est presque toujours sur toutes,
+et « On slides 5 and 6 » se lirait comme « les autres sont bonnes ». Une slide
+seule est nommée (« On slide 1, the text is centered… ») : c'est précis et
+utile. Les numéros restent dans `defauts`, pour l'admin.
+
+**Un post qui marche n'a pas de message** : au-delà de 5 000 vues
+(`SEUIL_VUES_SANS_REMARQUE`), l'agent n'envoie rien, on ne corrige pas ce qui
+fait des vues. Les défauts restent relevés, montrés à l'admin comme « pas
+envoyés ». Les vues gardées (`relectures_auto.vues`, migration 0294) sont les
+plus fraîches connues : celles de TikTok au scrape ou le relevé de l'OS
+(`passages.vues`). Vues inconnues : les règles s'appliquent.
+
 Après un changement de seuil, `{ "rejuger": { "jour": "AAAA-MM-JJ" } }` (ou
 `{ "rejuger": { "post_ids": [...] } }`) réapplique les règles aux mesures déjà
 stockées : défauts, brouillon et remarques sont réécrits sans nouveau scrape ni
 nouvelle mesure.
 
 Gemini reformule ensuite le brouillon sur un ton de manager. La reformulation
-n'est gardée que si elle cite les mêmes slides, sans chiffre technique ; sinon
-le brouillon déterministe part tel quel.
+n'est gardée que si elle cite les mêmes numéros de slide que le brouillon (aucun
+quand il dit « some of your slides », qu'elle doit garder), sans chiffre
+technique ; sinon le brouillon déterministe part tel quel.
 
 Seuils calibrés le 15/10 sur 10 posts relus à l'œil (planches original /
 publié) : voir `analyse/rapports/2026-10-15-relecture-test.md`.

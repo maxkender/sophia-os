@@ -140,6 +140,12 @@ export const ECART_TAILLE_LARGEUR = 0.1;
 export const SEUIL_PLACEMENT = 0.25;
 /** Au plus autant de points dans une review : au-delà, le créateur décroche. */
 export const MAX_POINTS_REVIEW = 2;
+/**
+ * Un post qui marche ne reçoit aucun message : on ne corrige pas ce qui fait
+ * des vues. Les défauts restent relevés pour l'admin. Vues au moment de la
+ * relecture (TikTok au scrape, ou le relevé de l'OS).
+ */
+export const SEUIL_VUES_SANS_REMARQUE = 5000;
 
 /** Ce qui peut partir dans la review, du plus important au moins important. */
 const PRIORITE: CodeDefaut[] = [
@@ -617,12 +623,6 @@ const REMARQUE_DU_CODE: Partial<Record<CodeDefaut, RegExp>> = {
   hierarchie: /corpus|head/i,
 };
 
-function slidesEn(slides: number[]): string {
-  if (slides.length === 0) return "";
-  if (slides.length === 1) return `slide ${slides[0]}`;
-  return `slides ${slides.slice(0, -1).join(", ")} and ${slides[slides.length - 1]}`;
-}
-
 const COULEURS_EN: Record<string, string> = {
   blanc: "white", noir: "black", gris: "grey", rouge: "red", orange: "orange",
   jaune: "yellow", vert: "green", bleu: "blue", violet: "purple", rose: "pink",
@@ -635,11 +635,25 @@ const EFFETS_EN: Record<string, string> = {
 const ALIGN_EN: Record<string, string> = { gauche: "left-aligned", centre: "centered", droite: "right-aligned" };
 
 /**
+ * Où est le défaut, pour le créateur. Sur plusieurs slides, pas de numéros :
+ * l'agent n'en compare que 3, et un défaut vu sur les slides 5 et 6 est presque
+ * toujours sur toutes — « On slides 5 and 6 » se lirait comme « les autres sont
+ * bonnes ». Sur une seule slide (l'alignement de l'accroche…), on la nomme :
+ * c'est précis et utile. Les numéros restent dans `slides`, pour l'admin.
+ */
+export const SUR_DES_SLIDES = "On some of your slides, ";
+
+export function ouSurLesSlides(slides: number[]): string {
+  if (slides.length === 0) return "";
+  return slides.length === 1 ? `On slide ${slides[0]}, ` : SUR_DES_SLIDES;
+}
+
+/**
  * Un point de review, comme l'écrirait un manager : ce qui se voit, puis le
  * geste exact dans l'éditeur de TikTok. Jamais de ratio ni de pourcentage.
  */
 export function pointAnglais(d: Defaut): string {
-  const sur = d.slides.length ? `On ${slidesEn(d.slides)}, ` : "";
+  const sur = ouSurLesSlides(d.slides);
   const v = d.valeurs ?? {};
   switch (d.code) {
     case "justification": {
@@ -689,20 +703,32 @@ export function pointAnglais(d: Defaut): string {
   }
 }
 
+/** Vues inconnues : le post n'est pas réputé marcher, les règles s'appliquent. */
+export function postQuiMarche(vues: number | null | undefined): boolean {
+  return typeof vues === "number" && vues >= SEUIL_VUES_SANS_REMARQUE;
+}
+
 /**
  * Brouillon prêt à relire : au plus MAX_POINTS_REVIEW points, les plus
  * importants ; le reste est gardé pour l'admin. `remarques` garde le format
  * de `reviews.remarques` (compteur « 3× » par créateur, vidéos tuto jointes).
  * Ce brouillon est déjà lisible tel quel ; `relecture-auto` le fait ensuite
- * reformuler par Gemini pour qu'il sonne moins mécanique.
+ * reformuler par Gemini pour qu'il sonne moins mécanique. Un post qui marche
+ * n'a pas de brouillon (`marche`), même avec des défauts.
  */
-export function redigerBrouillon(defauts: Defaut[], remarquesTypes: RemarqueType[]): {
+export function redigerBrouillon(
+  defauts: Defaut[],
+  remarquesTypes: RemarqueType[],
+  opts: { vues?: number | null } = {},
+): {
   texte: string;
   remarques: Array<{ id: string; titre: string }>;
   points: Defaut[];
+  marche: boolean;
 } {
+  if (postQuiMarche(opts.vues)) return { texte: "", remarques: [], points: [], marche: true };
   const points = trier(defauts.filter((d) => d.niveau === "remarque")).slice(0, MAX_POINTS_REVIEW);
-  if (points.length === 0) return { texte: "", remarques: [], points: [] };
+  if (points.length === 0) return { texte: "", remarques: [], points: [], marche: false };
   const trouver = (re: RegExp) => remarquesTypes.find((r) => re.test(r.titre));
   const utilisees: RemarqueType[] = [];
   const bonjour = trouver(/hello/i);
@@ -724,13 +750,14 @@ export function redigerBrouillon(defauts: Defaut[], remarquesTypes: RemarqueType
     return r?.video_url ? `${texte}\nThe short video with this message shows how to do it.` : texte;
   };
   const texte = [ouverture, ...points.map(avecVideo), "Keep it up!"].join("\n\n");
-  return { texte, remarques: utilisees.map((r) => ({ id: r.id, titre: r.titre })), points };
+  return { texte, remarques: utilisees.map((r) => ({ id: r.id, titre: r.titre })), points, marche: false };
 }
 
 /**
  * La reformulation de Gemini n'est gardée que si elle n'a rien perdu ni
- * inventé : mêmes numéros de slides, pas de chiffres techniques ni de nombre
- * de lignes, longueur raisonnable. Sinon on garde le brouillon déterministe.
+ * inventé : mêmes numéros de slides (aucun quand le brouillon dit « some of
+ * your slides »), pas de chiffres techniques ni de nombre de lignes, longueur
+ * raisonnable. Sinon on garde le brouillon déterministe.
  */
 /** Mots du geste qu'une reformulation ne doit pas perdre. */
 const GESTES = [/slider/i, /right edge/i, /white dot/i, /\bDone\b/, /pinch|spread two fingers/i, /alignment button/i, /\bA button\b/i, /color row/i, /video/i];
@@ -747,12 +774,15 @@ export function reformulationValide(brouillon: string, reformule: string): boole
   }
   const etapes = (t: string) => (t.match(/^\s*\d\.\s/gm) ?? []).length;
   if (etapes(texte) < etapes(brouillon)) return false;
-  const numeros = (s: string) =>
-    new Set([...s.matchAll(/slides?\s+((?:\d+(?:,?\s+and\s+|,\s*))*\d+)/gi)].flatMap((m) => m[1].match(/\d+/g) ?? []));
+  // Les numéros de slide du brouillon, ni plus ni moins (voir ouSurLesSlides).
+  const numeros = (t: string) =>
+    new Set([...t.matchAll(/slides?\s*(?:#|n°)?\s*((?:\d+(?:,?\s+and\s+|,\s*))*\d+)/gi)].flatMap((m) => m[1].match(/\d+/g) ?? []));
   const attendus = numeros(brouillon);
   const obtenus = numeros(texte);
   for (const n of attendus) if (!obtenus.has(n)) return false;
   for (const n of obtenus) if (!attendus.has(n)) return false;
+  // Le « some » reste : « on your slides » affirmerait un défaut sur toutes.
+  if (/\bsome of your slides\b/i.test(brouillon) && !/\bsome\b(?:\s+\w+){0,3}\s+slides\b/i.test(texte)) return false;
   return true;
 }
 
@@ -762,7 +792,8 @@ export const PROMPT_TON = `You are a friendly manager writing a short review to 
 Rewrite the draft below so it sounds like a real person wrote it: warm, encouraging, simple English, short sentences.
 
 Rules:
-- Keep every fact, every slide number and every instruction exactly (what to tap, which slider, pinch). Do not add new problems or new advice.
+- Keep every fact and every instruction exactly (what to tap, which slider, pinch). Do not add new problems or new advice.
+- Keep a slide number only where the draft names one slide ("On slide 1"), and never add one. Where the draft says "some of your slides", keep exactly that: do not turn it into slide numbers, "your slides" or "all your slides".
 - No percentages, ratios or technical words.
 - Never ask the creator to match the number of lines: the text is translated, so it can have more or fewer lines than the original. Talk about how long the lines are, not how many there are.
 - Start with one short positive sentence, then the points, then a one-line friendly closing.

@@ -34,10 +34,12 @@ import {
   type VerdictAvis,
 } from "@/features/reviews/bancRelecture";
 import {
+  postQuiMarche,
   libelleDefaut,
   MAX_POINTS_REVIEW,
   relectureFinie,
   videosDuBrouillon,
+  vuesCompactes,
   type DefautRelecture,
 } from "@/features/reviews/relectureAgent";
 import { TikTokEmbed } from "@/features/reviews/TikTokEmbed";
@@ -239,6 +241,10 @@ export function AdminBancRelecturePage() {
                   <span className="text-muted-foreground">
                     {courant.handle_tiktok ? `@${courant.handle_tiktok.replace(/^@/, "")}` : courant.persona_nom}
                     {courant.langue ? ` · ${courant.langue.toUpperCase()}` : ""}
+                    {" · "}
+                    {courant.vues === null
+                      ? t("banc.vuesInconnues")
+                      : t("banc.vues", { vues: vuesCompactes(courant.vues, i18n.language) })}
                   </span>
                 </div>
                 <div className="flex flex-wrap gap-2">
@@ -351,6 +357,7 @@ function Statistiques({ stats, libelleCode }: { stats: StatsBanc; libelleCode: (
         )}
         <p className="text-xs text-muted-foreground">
           {[
+            stats.quiMarchent > 0 ? t("banc.stats.quiMarchent", { count: stats.quiMarchent }) : null,
             stats.aucunConfirme > 0 ? t("banc.stats.aucunConfirme", { count: stats.aucunConfirme }) : null,
             stats.horsBanc > 0 ? t("banc.stats.horsBanc", { count: stats.horsBanc }) : null,
             stats.enCours > 0 ? t("banc.stats.enCours", { count: stats.enCours }) : null,
@@ -462,6 +469,8 @@ function PanneauJugement({
 
   const points = pointsAJuger(relecture);
   const notes = relecture.defauts.filter((d) => d.niveau === "info");
+  // Post au-delà du seuil de vues : pas de message, aucun point ne part.
+  const marche = postQuiMarche(relecture);
   const rates = avis.filter((a) => a.verdict === "rate");
   const aucun = avis.find((a) => a.cle === CLE_AUCUN) ?? null;
 
@@ -524,8 +533,12 @@ function PanneauJugement({
                   <div className="flex flex-wrap items-start justify-between gap-2">
                     <div className="min-w-0 flex-1 space-y-1">
                       <p className="text-sm">{libelleDefaut(d)}</p>
-                      <Badge variant={i < MAX_POINTS_REVIEW ? "info" : "outline"}>
-                        {i < MAX_POINTS_REVIEW ? t("banc.dansMessage") : t("banc.plusTard")}
+                      <Badge variant={!marche && i < MAX_POINTS_REVIEW ? "info" : "outline"}>
+                        {marche
+                          ? t("banc.nonEnvoyeMarche")
+                          : i < MAX_POINTS_REVIEW
+                            ? t("banc.dansMessage")
+                            : t("banc.plusTard")}
                       </Badge>
                     </div>
                     <div className="flex gap-1">
@@ -595,7 +608,11 @@ function PanneauJugement({
 
       {erreur && <p className="text-sm text-destructive">{erreur}</p>}
 
-      <MessageExact texte={relecture.brouillon} videos={videos} />
+      <MessageExact
+        texte={relecture.brouillon}
+        videos={videos}
+        vuesSiMarche={marche ? relecture.vues : null}
+      />
     </div>
   );
 }
@@ -695,8 +712,17 @@ function Rates({
 }
 
 /** Le message tel que le créateur le recevrait : texte de l'agent et vidéos tuto jointes. */
-function MessageExact({ texte, videos }: { texte: string | null; videos: { url: string; titre: string }[] }) {
-  const { t } = useTranslation();
+function MessageExact({
+  texte,
+  videos,
+  vuesSiMarche,
+}: {
+  texte: string | null;
+  videos: { url: string; titre: string }[];
+  /** Le post marche : on dit pourquoi il n'y a pas de message. */
+  vuesSiMarche: number | null;
+}) {
+  const { t, i18n } = useTranslation();
   return (
     <section className="space-y-2 rounded-xl border p-4">
       <p className="text-xs font-medium text-muted-foreground">{t("banc.message")}</p>
@@ -720,7 +746,11 @@ function MessageExact({ texte, videos }: { texte: string | null; videos: { url: 
           <p className="text-xs text-muted-foreground">{t("banc.messageAide")}</p>
         </>
       ) : (
-        <p className="text-sm text-muted-foreground">{t("banc.pasDeMessage")}</p>
+        <p className="text-sm text-muted-foreground">
+          {vuesSiMarche !== null
+            ? t("banc.pasDeMessageMarche", { vues: vuesCompactes(vuesSiMarche, i18n.language) })
+            : t("banc.pasDeMessage")}
+        </p>
       )}
     </section>
   );

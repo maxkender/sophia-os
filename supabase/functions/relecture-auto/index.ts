@@ -81,6 +81,8 @@ interface LigneRelecture {
   apify_run_id: string | null;
   slides_publiees: unknown;
   musique_publiee_id: string | null;
+  /** Vues TikTok relevées au scrape (null avant). */
+  vues?: number | null;
 }
 
 interface ItemApify {
@@ -89,6 +91,13 @@ interface ItemApify {
   isSlideshow?: boolean;
   slideshowImageLinks?: Array<string | { downloadLink?: string; tiktokLink?: string }>;
   musicMeta?: { musicId?: string };
+  playCount?: number;
+}
+
+/** Les vues les plus fraîches connues : TikTok au scrape ou le relevé de l'OS (`passages.vues`). */
+function plusDeVues(...valeurs: unknown[]): number | null {
+  const nombres = valeurs.filter((v): v is number => typeof v === "number" && Number.isFinite(v));
+  return nombres.length ? Math.max(...nombres) : null;
 }
 
 function jetonApify(): string {
@@ -303,6 +312,7 @@ async function releverRun(supabase: Client, runId: string, groupe: LigneRelectur
         erreur: "publié en vidéo, pas en diaporama : rien à comparer slide par slide",
         legende: item.text ?? null,
         musique_publiee_id: item.musicMeta?.musicId ?? null,
+        vues: item.playCount ?? null,
       });
       continue;
     }
@@ -311,6 +321,7 @@ async function releverRun(supabase: Client, runId: string, groupe: LigneRelectur
       slides_publiees: images,
       musique_publiee_id: item.musicMeta?.musicId ?? null,
       legende: item.text ?? null,
+      vues: item.playCount ?? null,
       erreur: null,
     });
     releves += 1;
@@ -399,7 +410,7 @@ async function analyserLigne(
 
     const { data: passage, error } = await supabase
       .from("passages")
-      .select("slides, musique_url, contenus(structure_slides)")
+      .select("slides, musique_url, vues, contenus(structure_slides)")
       .eq("id", ligne.passage_id)
       .single();
     if (error) throw error;
@@ -457,11 +468,14 @@ async function analyserLigne(
 
     // Du plus important au moins important : la file de reviews montre les premiers comme points de la review.
     const defauts = trier([...agreger(jugements), ...controles]);
-    const brouillon = redigerBrouillon(defauts, remarquesTypes);
+    const vues = plusDeVues(ligne.vues, passage.vues);
+    const brouillon = redigerBrouillon(defauts, remarquesTypes, { vues });
     await maj(supabase, [ligne.id], {
       statut: "fait",
       comparaisons,
       defauts,
+      vues,
+      // Post qui marche : texte vide, donc pas de brouillon.
       brouillon: (await reformuler(brouillon.texte)) || null,
       remarques: brouillon.remarques,
       erreur: echecs.length ? `mesures partielles : ${echecs.join(" | ").slice(0, 500)}` : null,
@@ -496,7 +510,7 @@ function mesureStockee(m: ComparaisonStockee["original"]): MesureSlide {
 /** Réapplique les règles aux mesures stockées : défauts, brouillon et remarques à jour, sans appel à Apify. */
 async function rejugerLigne(
   supabase: Client,
-  ligne: { id: string; comparaisons: unknown; defauts: unknown },
+  ligne: { id: string; passage_id: string; comparaisons: unknown; defauts: unknown; vues: number | null },
   remarquesTypes: RemarqueType[],
 ): Promise<string[]> {
   const comparaisons = (Array.isArray(ligne.comparaisons) ? ligne.comparaisons : []) as ComparaisonStockee[];
@@ -508,10 +522,13 @@ async function rejugerLigne(
     .filter((d) => d.code === "nb_slides" || d.code === "musique")
     .map((d) => ({ ...d, niveau: "remarque" })) as unknown as ReturnType<typeof controlesPost>;
   const defauts = trier([...agreger(jugements), ...controles]);
-  const brouillon = redigerBrouillon(defauts, remarquesTypes);
+  const { data: passage } = await supabase.from("passages").select("vues").eq("id", ligne.passage_id).maybeSingle();
+  const vues = plusDeVues(ligne.vues, passage?.vues);
+  const brouillon = redigerBrouillon(defauts, remarquesTypes, { vues });
   await maj(supabase, [ligne.id], {
     comparaisons: comparaisons.map((c, i) => ({ ...c, constats: jugements[i].constats })),
     defauts,
+    vues,
     brouillon: (await reformuler(brouillon.texte)) || null,
     remarques: brouillon.remarques,
   });
@@ -525,7 +542,7 @@ async function rejuger(
 ): Promise<Array<{ post_id: string; defauts: string[] }>> {
   let requete = supabase
     .from("relectures_auto")
-    .select("id, post_id, comparaisons, defauts")
+    .select("id, post_id, passage_id, comparaisons, defauts, vues")
     .eq("statut", "fait")
     .limit(60);
   if (Array.isArray(cible.post_ids)) requete = requete.in("post_id", cible.post_ids.map(String));
@@ -533,7 +550,14 @@ async function rejuger(
   else throw new Error("rejuger : jour (AAAA-MM-JJ) ou post_ids attendus");
   const { data, error } = await requete;
   if (error) throw error;
-  const lignes = (data ?? []) as Array<{ id: string; post_id: string; comparaisons: unknown; defauts: unknown }>;
+  const lignes = (data ?? []) as Array<{
+    id: string;
+    post_id: string;
+    passage_id: string;
+    comparaisons: unknown;
+    defauts: unknown;
+    vues: number | null;
+  }>;
   const bilan: Array<{ post_id: string; defauts: string[] }> = [];
   for (let i = 0; i < lignes.length; i += 4) {
     const lot = lignes.slice(i, i + 4);
@@ -554,7 +578,7 @@ const ANALYSE_EN_COURS_MS = 3 * 60 * 1000;
 
 const COLONNES_LIGNE =
   "id, passage_id, compte_id, post_id, publie_url, statut, tentatives, reserve_at, apify_run_id, slides_publiees, " +
-  "musique_publiee_id, defauts, brouillon, remarques, erreur";
+  "musique_publiee_id, vues, defauts, brouillon, remarques, erreur";
 
 type LigneComplete = LigneRelecture & {
   post_id: string;
@@ -717,6 +741,7 @@ Deno.serve(async (request) => {
           brouillon: ligne.brouillon,
           remarques: ligne.remarques,
           erreur: ligne.erreur,
+          vues: ligne.vues ?? null,
         },
       });
     } catch (error) {

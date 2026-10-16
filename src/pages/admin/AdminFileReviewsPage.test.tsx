@@ -297,6 +297,26 @@ describe("AdminFileReviewsPage", () => {
     expect(await screen.findByText(/Pas relu : publié en vidéo|Not reviewed: publié en vidéo/)).toBeInTheDocument();
   });
 
+  it("un post qui marche : pas de remarque, ses points sont montrés comme non envoyés", async () => {
+    listerFileReviewsJour.mockResolvedValue([POST]);
+    listerReviewRemarques.mockResolvedValue([]);
+    listerRelecturesAuto.mockResolvedValue({
+      "post-1": {
+        post_id: "post-1",
+        statut: "fait",
+        defauts: [{ code: "justification", niveau: "remarque", slides: [2, 3], detail: "lignes trop courtes" }],
+        brouillon: null,
+        remarques: [],
+        erreur: null,
+        vues: 12300,
+      },
+    });
+    renderPage();
+    expect(await screen.findByText(/(Le post marche|The post is doing well) \(12/)).toBeInTheDocument();
+    expect(screen.getByText(/pas envoyé \(le post marche\)|not sent \(the post is doing well\)/)).toBeInTheDocument();
+    expect(screen.getByText("Lignes trop courtes (slides 2 et 3)")).toBeInTheDocument();
+  });
+
   it("annonce un post pas encore relu", async () => {
     listerFileReviewsJour.mockResolvedValue([POST]);
     listerReviewRemarques.mockResolvedValue([]);

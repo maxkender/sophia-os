@@ -13,8 +13,10 @@ import {
   type MesureSlide,
   normaliserBlocs,
   parserMesure,
+  pointAnglais,
   redigerBrouillon,
   reformulationValide,
+  SEUIL_VUES_SANS_REMARQUE,
 } from "./relecture.ts";
 
 function bloc(p: Partial<BlocTexte>): BlocTexte {
@@ -245,7 +247,8 @@ Deno.test("redigerBrouillon : deux points au plus, les plus importants, en mots 
   ], REMARQUES);
   assertEquals(points.map((p) => p.code), ["justification", "taille"]);
   assertEquals(remarques.map((r) => r.id), ["h", "j", "s"]);
-  assert(texte.includes("On slides 2 and 4, your lines are shorter than in the original, so the paragraph looks like a thin column. Here's how to fix it:"));
+  assert(texte.includes("On some of your slides, your lines are shorter than in the original, so the paragraph looks like a thin column. Here's how to fix it:"));
+  assert(!/slides? \d/.test(texte), "jamais de numéro de slide : l'agent n'en compare que 3");
   assert(texte.includes("\n1. Tap your text to edit it.\n2. A small slider appears on the right edge of the screen (a white dot on a thin line). Slide the dot down"));
   assert(texte.includes("then tap Done"));
   assert(texte.includes("you may not get the same number of lines"));
@@ -253,7 +256,7 @@ Deno.test("redigerBrouillon : deux points au plus, les plus importants, en mots 
   assert(texte.includes("Pinch it down"));
   assert(!/[×%]|1\.9/.test(texte), "pas de ratio dans le texte envoyé");
   assert(!texte.includes("sound"), "le troisième point attend une prochaine review");
-  assertEquals(redigerBrouillon([], REMARQUES), { texte: "", remarques: [], points: [] });
+  assertEquals(redigerBrouillon([], REMARQUES), { texte: "", remarques: [], points: [], marche: false });
 });
 
 Deno.test("redigerBrouillon : les infos admin seules ne produisent pas de review", () => {
@@ -264,15 +267,39 @@ Deno.test("redigerBrouillon : les infos admin seules ne produisent pas de review
   assertEquals(texte, "");
 });
 
-Deno.test("reformulationValide : mêmes slides, pas de ratio, sinon on garde le brouillon", () => {
-  const brouillon = "Hi!\n\nOn slides 2 and 4, your paragraph is cut into short lines. Tap the text, move the size slider down.\n\nKeep it up!";
-  assert(reformulationValide(brouillon, "Hey, great post! On slides 2 and 4 the lines are a bit short: tap the text and move the size slider down. Thanks!"));
-  assert(!reformulationValide(brouillon, "Hey, great post! On slide 2 the lines are a bit short: tap the text and move the size slider down. Thanks!"));
-  assert(!reformulationValide(brouillon, "Hey! On slides 2 and 4 the text is 30% too narrow, move the size slider down please, thank you."));
+Deno.test("reformulationValide : ni numéro de slide ni ratio, « some » gardé, sinon on garde le brouillon", () => {
+  const brouillon = "Hi!\n\nOn some of your slides, your paragraph is cut into short lines. Tap the text, move the size slider down.\n\nKeep it up!";
+  assert(reformulationValide(brouillon, "Hey, great post! On some of your slides the lines are a bit short: tap the text and move the size slider down. Thanks!"));
+  assert(reformulationValide(brouillon, "Hey, great post! On some slides the lines are a bit short: tap the text and move the size slider down. Thanks!"));
+  assert(!reformulationValide(brouillon, "Hey, great post! On slides 2 and 4 the lines are a bit short: tap the text and move the size slider down. Thanks!"));
+  assert(!reformulationValide(brouillon, "Hey, great post! On your slides the lines are a bit short: tap the text and move the size slider down. Thanks a lot!"));
+  assert(!reformulationValide(brouillon, "Hey! On some of your slides the text is 30% too narrow, move the size slider down please, thank you."));
   assert(!reformulationValide(brouillon, "ok"));
-  assert(!reformulationValide(brouillon, "Hey! On slides 2 and 4 your text is a thin column with 7 lines instead of 5, move the size slider down please."));
-  const trois = "On slides 1, 3 and 4, your lines are shorter than in the original. Move the size slider down.";
-  assert(reformulationValide(trois, "Nice post! On slides 1, 3, and 4 your lines are a bit short, so move the size slider down. Thanks!"));
+  assert(!reformulationValide(brouillon, "Hey! On some of your slides your text is a thin column with 7 lines instead of 5, move the size slider down please."));
+  // Une seule slide nommée : le numéro reste, et seulement lui.
+  const une = "Hi!\n\nOn slide 1, the text is centered while the original is left-aligned. Tap the alignment button until it matches.\n\nKeep it up!";
+  assert(reformulationValide(une, "Great post! On slide 1 your text is centered, but the original is left-aligned. Tap the alignment button until it matches. Thanks!"));
+  assert(!reformulationValide(une, "Great post! On some of your slides your text is centered, but the original is left-aligned. Tap the alignment button until it matches."));
+  assert(!reformulationValide(une, "Great post! On slides 1 and 2 your text is centered, but the original is left-aligned. Tap the alignment button until it matches."));
+});
+
+Deno.test("pointAnglais : nomme une slide seule, pas plusieurs", () => {
+  const align = { code: "alignement" as const, niveau: "remarque" as const, slides: [1], confiance: 1, detail: "", valeurs: { publie: "centre", original: "gauche" } };
+  assert(pointAnglais(align).startsWith("On slide 1, the text is centered while the original is left-aligned."));
+  assert(pointAnglais({ ...align, slides: [1, 2, 6] }).startsWith("On some of your slides, the text is centered"));
+});
+
+Deno.test("redigerBrouillon : un post qui marche n'a aucun message, ses défauts restent pour l'admin", () => {
+  const defauts = [
+    { code: "justification" as const, niveau: "remarque" as const, slides: [2, 4], confiance: 1, detail: "", valeurs: { sens: "courtes" } },
+  ];
+  const marche = redigerBrouillon(defauts, REMARQUES, { vues: SEUIL_VUES_SANS_REMARQUE });
+  assertEquals(marche, { texte: "", remarques: [], points: [], marche: true });
+  const juste = redigerBrouillon(defauts, REMARQUES, { vues: SEUIL_VUES_SANS_REMARQUE - 1 });
+  assertEquals(juste.marche, false);
+  assertEquals(juste.points.map((p) => p.code), ["justification"]);
+  // Vues inconnues : les règles s'appliquent.
+  assertEquals(redigerBrouillon(defauts, REMARQUES, { vues: null }).points.length, 1);
 });
 
 Deno.test("largeur : mêmes lignes en plus gros, le paragraphe mange les marges (cas klara.mudrost149)", () => {
@@ -303,7 +330,7 @@ Deno.test("largeur et taille dans le même sens : un seul point (pincer)", () =>
   const defauts = agreger([jugerPaire(2, a, b), jugerPaire(3, a, b)]);
   assertEquals(defauts.map((d) => d.code), ["largeur"]);
   const { texte, remarques } = redigerBrouillon(defauts, REMARQUES);
-  assert(texte.includes("On slides 2 and 3, your paragraph is wider than in the original"));
+  assert(texte.includes("On some of your slides, your paragraph is wider than in the original"));
   assert(texte.includes("Pinch the text with two fingers to make it a bit smaller"));
   assertEquals(remarques.map((r) => r.id), ["h", "j"]);
 });
@@ -357,7 +384,7 @@ Deno.test("reformulationValide : les étapes et le geste du slider doivent survi
   const fidele = brouillon.replace("Hi! Thanks for your post.", "Hey, great post!").replace("Keep it up!", "Thanks a lot!");
   assert(reformulationValide(brouillon, fidele));
   // Étapes fondues en une phrase, bord droit perdu : rejetée.
-  const fondu = "Great post! On slides 5 and 6 your lines are short. Tap the text, use the slider to make the letters smaller, tap Done and pinch it bigger. Your text is translated, so that's fine. Keep it up!";
+  const fondu = "Great post! On some of your slides your lines are short. Tap the text, use the slider to make the letters smaller, tap Done and pinch it bigger. Your text is translated, so that's fine. Keep it up!";
   assert(!reformulationValide(brouillon, fondu));
 });
 

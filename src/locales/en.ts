@@ -2183,6 +2183,7 @@ export const en = {
         "{{count}} photos couldn't be cleaned, check them before publishing.",
       voirPlacement: "See where to place the text",
       placementTitre: "Original photo",
+      placementAutreSlide: "Original photo of slide {{position}} (same text layout)",
       photoAPoster: "Photo to post",
       placementAide:
         "Original visual: reproduce the same text position and size in TikTok.",

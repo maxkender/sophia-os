@@ -1,4 +1,4 @@
--- 0286 : index sur post_slides.media_id — appliqué à la main le 16/10/2026.
+-- 0292 : index sur post_slides.media_id — appliqué à la main le 16/10/2026.
 --
 -- Les règles RLS de media_library (`media_select_slides`, `media_select_hiring`)
 -- vérifient, pour CHAQUE image lue, qu'elle figure dans un slide d'un post du

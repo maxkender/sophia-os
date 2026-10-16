@@ -635,19 +635,25 @@ const EFFETS_EN: Record<string, string> = {
 const ALIGN_EN: Record<string, string> = { gauche: "left-aligned", centre: "centered", droite: "right-aligned" };
 
 /**
- * Jamais de numéro de slide pour le créateur : l'agent ne compare que 3 slides,
- * et un défaut vu sur les slides 5 et 6 est presque toujours sur toutes. « On
- * slides 5 and 6 » se lirait comme « les autres sont bonnes ». Les numéros
- * restent dans `slides`, pour l'admin.
+ * Où est le défaut, pour le créateur. Sur plusieurs slides, pas de numéros :
+ * l'agent n'en compare que 3, et un défaut vu sur les slides 5 et 6 est presque
+ * toujours sur toutes — « On slides 5 and 6 » se lirait comme « les autres sont
+ * bonnes ». Sur une seule slide (l'alignement de l'accroche…), on la nomme :
+ * c'est précis et utile. Les numéros restent dans `slides`, pour l'admin.
  */
 export const SUR_DES_SLIDES = "On some of your slides, ";
+
+export function ouSurLesSlides(slides: number[]): string {
+  if (slides.length === 0) return "";
+  return slides.length === 1 ? `On slide ${slides[0]}, ` : SUR_DES_SLIDES;
+}
 
 /**
  * Un point de review, comme l'écrirait un manager : ce qui se voit, puis le
  * geste exact dans l'éditeur de TikTok. Jamais de ratio ni de pourcentage.
  */
 export function pointAnglais(d: Defaut): string {
-  const sur = d.slides.length ? SUR_DES_SLIDES : "";
+  const sur = ouSurLesSlides(d.slides);
   const v = d.valeurs ?? {};
   switch (d.code) {
     case "justification": {
@@ -750,8 +756,9 @@ export function redigerBrouillon(
 
 /**
  * La reformulation de Gemini n'est gardée que si elle n'a rien perdu ni
- * inventé : aucun numéro de slide, pas de chiffres techniques ni de nombre de
- * lignes, longueur raisonnable. Sinon on garde le brouillon déterministe.
+ * inventé : mêmes numéros de slides (aucun quand le brouillon dit « some of
+ * your slides »), pas de chiffres techniques ni de nombre de lignes, longueur
+ * raisonnable. Sinon on garde le brouillon déterministe.
  */
 /** Mots du geste qu'une reformulation ne doit pas perdre. */
 const GESTES = [/slider/i, /right edge/i, /white dot/i, /\bDone\b/, /pinch|spread two fingers/i, /alignment button/i, /\bA button\b/i, /color row/i, /video/i];
@@ -768,9 +775,14 @@ export function reformulationValide(brouillon: string, reformule: string): boole
   }
   const etapes = (t: string) => (t.match(/^\s*\d\.\s/gm) ?? []).length;
   if (etapes(texte) < etapes(brouillon)) return false;
-  // Jamais de numéro de slide (voir SUR_DES_SLIDES), et le « some » reste :
-  // « on your slides » affirmerait un défaut sur toutes.
-  if (/\bslides?\s*(?:#|n°|no\.?\s*)?\d/i.test(texte)) return false;
+  // Les numéros de slide du brouillon, ni plus ni moins (voir ouSurLesSlides).
+  const numeros = (t: string) =>
+    new Set([...t.matchAll(/slides?\s*(?:#|n°)?\s*((?:\d+(?:,?\s+and\s+|,\s*))*\d+)/gi)].flatMap((m) => m[1].match(/\d+/g) ?? []));
+  const attendus = numeros(brouillon);
+  const obtenus = numeros(texte);
+  for (const n of attendus) if (!obtenus.has(n)) return false;
+  for (const n of obtenus) if (!attendus.has(n)) return false;
+  // Le « some » reste : « on your slides » affirmerait un défaut sur toutes.
   if (/\bsome of your slides\b/i.test(brouillon) && !/\bsome\b(?:\s+\w+){0,3}\s+slides\b/i.test(texte)) return false;
   return true;
 }
@@ -782,7 +794,7 @@ Rewrite the draft below so it sounds like a real person wrote it: warm, encourag
 
 Rules:
 - Keep every fact and every instruction exactly (what to tap, which slider, pinch). Do not add new problems or new advice.
-- Never mention slide numbers. The draft says "some of your slides" on purpose: keep "some of your slides", do not turn it into "your slides" or "all your slides".
+- Keep a slide number only where the draft names one slide ("On slide 1"), and never add one. Where the draft says "some of your slides", keep exactly that: do not turn it into slide numbers, "your slides" or "all your slides".
 - No percentages, ratios or technical words.
 - Never ask the creator to match the number of lines: the text is translated, so it can have more or fewer lines than the original. Talk about how long the lines are, not how many there are.
 - Start with one short positive sentence, then the points, then a one-line friendly closing.

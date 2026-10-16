@@ -14,6 +14,7 @@ import {
   type MesureSlide,
   normaliserBlocs,
   parserMesure,
+  pointAnglais,
   redigerBrouillon,
   reformulationValide,
   SEUIL_VUES_BRAVO,
@@ -276,6 +277,17 @@ Deno.test("reformulationValide : ni numéro de slide ni ratio, « some » gardé
   assert(!reformulationValide(brouillon, "Hey! On some of your slides the text is 30% too narrow, move the size slider down please, thank you."));
   assert(!reformulationValide(brouillon, "ok"));
   assert(!reformulationValide(brouillon, "Hey! On some of your slides your text is a thin column with 7 lines instead of 5, move the size slider down please."));
+  // Une seule slide nommée : le numéro reste, et seulement lui.
+  const une = "Hi!\n\nOn slide 1, the text is centered while the original is left-aligned. Tap the alignment button until it matches.\n\nKeep it up!";
+  assert(reformulationValide(une, "Great post! On slide 1 your text is centered, but the original is left-aligned. Tap the alignment button until it matches. Thanks!"));
+  assert(!reformulationValide(une, "Great post! On some of your slides your text is centered, but the original is left-aligned. Tap the alignment button until it matches."));
+  assert(!reformulationValide(une, "Great post! On slides 1 and 2 your text is centered, but the original is left-aligned. Tap the alignment button until it matches."));
+});
+
+Deno.test("pointAnglais : nomme une slide seule, pas plusieurs", () => {
+  const align = { code: "alignement" as const, niveau: "remarque" as const, slides: [1], confiance: 1, detail: "", valeurs: { publie: "centre", original: "gauche" } };
+  assert(pointAnglais(align).startsWith("On slide 1, the text is centered while the original is left-aligned."));
+  assert(pointAnglais({ ...align, slides: [1, 2, 6] }).startsWith("On some of your slides, the text is centered"));
 });
 
 Deno.test("redigerBrouillon : un post qui marche n'a que des félicitations, ses défauts restent pour l'admin", () => {

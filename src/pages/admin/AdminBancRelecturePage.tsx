@@ -643,7 +643,6 @@ function PanneauJugement({
           }}
           mode="apercu"
           onCompris={() => setApercu(false)}
-          onFermer={() => setApercu(false)}
         />
       )}
     </div>

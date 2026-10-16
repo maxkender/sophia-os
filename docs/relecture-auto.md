@@ -146,8 +146,9 @@ comme un petit onboarding (`src/features/reviews/RetourParcours.tsx`) :
    pas été déroulé jusqu'en bas, comme les écrans de l'onboarding.
 
 À l'étape 1, le dialogue prend toute la hauteur de l'écran : en-tête et
-boutons tiennent sur une ligne chacun, le reste va aux posts. Il ne se ferme
-qu'avec « Compris ». Plusieurs retours non lus s'enchaînent, du plus ancien au
+boutons tiennent sur une ligne chacun, le reste va aux posts. Pas de croix :
+on ne sort qu'à la fin, par le bouton en bas à droite (« Compris » ; « Fermer »
+en relecture), y compris dans l'aperçu admin. Plusieurs retours non lus s'enchaînent, du plus ancien au
 plus récent ; l'en-tête annonce « encore N retours après ». La page **Mes retours**
 (`/createur/retours`) liste tous ses retours, lus ou non, et rouvre chacun dans
 le même parcours. L'admin voit ce parcours sans rien marquer : dans

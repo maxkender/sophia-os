@@ -41,6 +41,10 @@ describe("SimulerRetourCard", () => {
     fireEvent.click(await screen.findByRole("button", { name: /Ouvrir le retour|Open the feedback/ }));
     expect(screen.getByText(/Aperçu : rien n’est enregistré|Preview: nothing is saved/)).toBeInTheDocument();
     expect(screen.getByText(/Ton post à côté de l’original|Your post next to the original/)).toBeInTheDocument();
+    // Comme pour le créateur : pas de croix, Échap ne ferme pas, on sort par le bouton du bas.
+    expect(screen.queryByRole("button", { name: /^(Close|Fermer)$/ })).not.toBeInTheDocument();
+    fireEvent.keyDown(document.activeElement ?? document.body, { key: "Escape" });
+    expect(screen.getByText(/Ton post à côté de l’original|Your post next to the original/)).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: /Voir le retour|See the feedback/ }));
     expect(screen.getByText("On some of your slides, your lines are shorter than in the original.")).toBeInTheDocument();
   });

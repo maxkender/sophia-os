@@ -1574,6 +1574,20 @@ export async function etatOnboarding(): Promise<EtatOnboarding> {
  * recommencer le parcours, ce qui est désagréable mais pas grave — alors
  * qu'une erreur remontée ici bloquerait un créateur sur son accueil.
  */
+/**
+ * Le créateur connecté vient-il du site (cohorte Ruul, sans HM) ? Rend aussi
+ * l'adresse à utiliser sur Ruul. Aucune ligne = recruté par un HM.
+ */
+export async function lireCohorteAccueil(): Promise<{ cohorteRuul: boolean; emailRuul: string | null }> {
+  const { data, error } = await supabase.rpc("hub_ma_cohorte");
+  if (error) {
+    console.warn(`[onboarding] cohorte non lue : ${error.message}`);
+    return { cohorteRuul: false, emailRuul: null };
+  }
+  const ligne = (Array.isArray(data) ? data[0] : data) as { cohorte_ruul?: boolean; email_ruul?: string | null } | null;
+  return { cohorteRuul: Boolean(ligne?.cohorte_ruul), emailRuul: ligne?.email_ruul ?? null };
+}
+
 export async function enregistrerOnboardingEtape(etape: number): Promise<void> {
   const { error } = await supabase.rpc("enregistrer_onboarding_etape", { etape });
   if (error) console.warn(`[onboarding] étape ${etape} non enregistrée : ${error.message}`);

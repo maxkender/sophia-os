@@ -1,13 +1,14 @@
 import * as React from "react";
+import { useQuery } from "@tanstack/react-query";
 import { ArrowLeft, ArrowRight, BookOpen, Lock, PartyPopper, Sparkles } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogPopup } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
-import { enregistrerOnboardingEtape, marquerOnboardingVu } from "@/features/moteur/api";
+import { enregistrerOnboardingEtape, lireCohorteAccueil, marquerOnboardingVu } from "@/features/moteur/api";
 
 import { Mico, type EtatMico } from "./Mico";
-import { ECRANS, QUESTIONS, type Bloc } from "./contenu";
+import { ecransPour, QUESTIONS, type Bloc } from "./contenu";
 import {
   basDePageAtteint,
   corrigerQuiz,
@@ -225,8 +226,18 @@ export function OnboardingParcours({
   const [termine, setTermine] = React.useState(false);
   const corps = React.useRef<HTMLDivElement>(null);
 
+  // Cohorte Ruul (posters venus du site) : écrans Slack et Payments à part.
+  // L'aperçu admin montre l'accueil standard.
+  const cohorte = useQuery({
+    queryKey: ["accueil-cohorte"],
+    queryFn: lireCohorteAccueil,
+    enabled: !simulation,
+    staleTime: Infinity,
+  });
+  const ecrans = ecransPour(simulation ? null : cohorte.data);
+
   const surQuiz = etape >= INDEX_QUIZ;
-  const ecran = surQuiz ? null : ECRANS[etape];
+  const ecran = surQuiz ? null : ecrans[etape];
   const attente = ecran?.attente ?? 0;
 
   /**

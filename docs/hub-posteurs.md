@@ -22,8 +22,16 @@ identifiants par email. Ce document décrit le contrat entre les deux.
   (`paysAEnvoyer`) ; sinon le trigger `comptes_pays_defaut` le déduit ;
 - applications : Sophia seule = chemin historique ; UnSwipe seule =
   `{ unswipe: 100 }` ; les deux = `{ sophia: 50, unswipe: 50 }` ;
-- **HM = celui dont `profiles.zone_recrutement` couvre le pays** et qui gère
-  la langue (`profiles.langues`). Plusieurs : le moins chargé ;
+- **ouverture du pays et langue = le HM** dont `profiles.zone_recrutement`
+  couvre le pays et qui gère la langue (`profiles.langues`) ; sans lui, le pays
+  est fermé ;
+- **rattachement = la cohorte Ruul** (décision du 17/10) : les posters du site
+  n'ont pas de HM. `profiles.manager_id` pointe vers le profil « RUUL cohort »,
+  dont l'id est dans le réglage `hub_posteurs` (`{"cohorte_ruul_id": …}`).
+  Sans ce réglage, retour au HM de la zone (le moins chargé s'il y en a
+  plusieurs). Payés chaque semaine par Ruul, suivis dans le salon Slack
+  #ruul-cohort ; leur accueil remplace les écrans Slack et Payments
+  (`hub_ma_cohorte()`, migration 0297) ;
 - mot de passe `12345678`, comme tous les comptes OS créés par l'admin, sans
   changement imposé ;
 - le warm-up n'est **pas** lancé : le poster le démarre lui-même dans l'OS ;

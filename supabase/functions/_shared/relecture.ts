@@ -127,8 +127,13 @@ export const SEUIL_HIERARCHIE = 1.15;
  * pinçant. Au-delà de ±15 %, ça se voit (cas klara.mudrost149 du 15/10 :
  * 44 % → 52 % de l'écran, mêmes lignes).
  */
-export const SEUIL_LARGEUR_MIN = 0.85;
 export const SEUIL_LARGEUR_MAX = 1.15;
+/**
+ * Plus étroit : seuil plus large. Un texte un peu plus petit se voit à peine
+ * (cas lina.entwickelt399 du 16/10 : 59 % de l'écran contre 71 %, flag jugé
+ * trop dur) ; un texte qui mange les marges, si.
+ */
+export const SEUIL_LARGEUR_MIN = 0.78;
 /**
  * …et seulement si les lettres sont elles aussi plus grosses (ou plus petites)
  * d'au moins 10 % : un paragraphe plus large à taille égale vient d'une
@@ -148,12 +153,16 @@ export const MAX_POINTS_REVIEW = 2;
 export const SEUIL_VUES_SANS_REMARQUE = 5000;
 
 /** Ce qui peut partir dans la review, du plus important au moins important. */
-const PRIORITE: CodeDefaut[] = [
+export const PRIORITE: CodeDefaut[] = [
   "texte_absent", "justification", "largeur", "hierarchie", "taille", "alignement", "couleur", "effet",
-  "nb_slides", "musique",
 ];
-/** Mesuré, montré à l'admin, jamais envoyé : la mesure est trop fragile ou l'écart secondaire. */
-const INFO: CodeDefaut[] = ["gras", "police", "placement"];
+/**
+ * Mesuré, montré à l'admin, jamais envoyé : la mesure est trop fragile ou
+ * l'écart secondaire. Nombre de slides et son : souvent une erreur
+ * d'assignation plutôt qu'une faute du créateur, et TikTok sert parfois le
+ * même son sous un autre identifiant (cas dominik.fokus983 du 16/10).
+ */
+const INFO: CodeDefaut[] = ["nb_slides", "musique", "gras", "police", "placement"];
 
 // ---------------------------------------------------------------------------
 // Mesure : prompt et parsing
@@ -172,7 +181,7 @@ Pour chaque bloc :
 - couleur : couleur de remplissage des lettres en #RRGGBB (pas le contour, pas le fond)
 - effet : "contour" si chaque lettre a un contour ou une ombre nette, "fond" si le texte est posé sur un fond (bandeau, pastille, encadré plein ou translucide), "aucun" sinon
 - gras : true si les lettres sont nettement grasses
-- alignement : "gauche", "centre" ou "droite", d'après les bords des lignes
+- alignement : "gauche", "centre" ou "droite", d'après les lignes ENTRE ELLES : toutes commencent au même x = "gauche" ; toutes finissent au même x = "droite" ; débuts et fins décalés de façon symétrique = "centre". La position du bloc dans l'image ne compte pas : un bloc centré posé à droite de l'image est "centre"
 
 Enfin, compare les deux images :
 - police_identique : true si B utilise la même police que A (même famille de caractères ET même graisse), false sinon
@@ -344,6 +353,10 @@ export function familleCouleur(hex: string): string {
   const v = parseInt(hex.slice(1), 16);
   const r = (v >> 16) & 255, g = (v >> 8) & 255, b = v & 255;
   const max = Math.max(r, g, b), min = Math.min(r, g, b);
+  // Blanc crème, jaune très pâle : du blanc teinté par la photo ou la
+  // compression. Gemini lit le même texte #FFFFFF d'un côté et #FFF29A de
+  // l'autre (cas dominik.fokus983 du 16/10) ; un vrai jaune TikTok est saturé.
+  if (min >= 140 && max >= 225) return "blanc";
   if (max - min < 50) {
     const l = (max + min) / 2;
     return l > 190 ? "blanc" : l < 60 ? "noir" : "gris";
@@ -503,10 +516,15 @@ export function jugerPaire(
  * slides où la règle s'applique, et sur 2 slides dès qu'il y en a 2 à juger.
  * Une mesure ratée sur une slide ne suffit donc pas à faire une remarque.
  *
- * Exception : l'alignement. Souvent seule l'accroche a un alignement propre
- * (à gauche quand le reste est centré) : une slide suffit.
+ * Exception : l'alignement gauche / centre. Souvent seule l'accroche a un
+ * alignement propre (à gauche quand le reste est centré) : une slide suffit.
+ * Pas pour « droite » : Gemini prend un bloc centré posé à droite de l'image
+ * pour un texte aligné à droite (cas ben.wissen295 du 16/10).
  */
-const VU_SUR_UNE_SLIDE: CodeDefaut[] = ["alignement"];
+function vuSurUneSlideSuffit(constats: Constat[]): boolean {
+  return constats[0].code === "alignement" &&
+    constats.every((c) => c.valeurs?.original !== "droite" && c.valeurs?.publie !== "droite");
+}
 
 export function agreger(jugements: JugementPaire[]): Defaut[] {
   const evalues = new Map<CodeDefaut, number>();
@@ -524,7 +542,7 @@ export function agreger(jugements: JugementPaire[]): Defaut[] {
     const code = constats[0].code;
     const n = evalues.get(code) ?? constats.length;
     const vus = constats.length;
-    if (!VU_SUR_UNE_SLIDE.includes(code) && (vus / n < 0.5 || vus < Math.min(2, n))) continue;
+    if (!vuSurUneSlideSuffit(constats) && (vus / n < 0.5 || vus < Math.min(2, n))) continue;
     const premier = constats[0];
     defauts.push({
       code,
@@ -565,15 +583,21 @@ export function controlesPost(input: {
   if (input.slidesPubliees > 0 && input.slidesPubliees !== input.slidesAttendues) {
     out.push({
       code: "nb_slides",
-      niveau: "remarque",
+      niveau: "info",
       slides: [],
       confiance: 1,
-      detail: `${input.slidesPubliees} slides publiées au lieu de ${input.slidesAttendues}`,
+      detail: `${input.slidesPubliees} slides publiées au lieu de ${input.slidesAttendues} (vérifier l'assignation)`,
       valeurs: { publie: input.slidesPubliees, attendu: input.slidesAttendues },
     });
   }
   if (input.musiqueAttendueId && input.musiquePublieeId && input.musiqueAttendueId !== input.musiquePublieeId) {
-    out.push({ code: "musique", niveau: "remarque", slides: [], confiance: 1, detail: "le son n'est pas celui fourni" });
+    out.push({
+      code: "musique",
+      niveau: "info",
+      slides: [],
+      confiance: 1,
+      detail: "son différent de celui fourni (ou le même sous un autre identifiant TikTok)",
+    });
   }
   return out;
 }
@@ -677,9 +701,10 @@ export function pointAnglais(d: Defaut): string {
       ].join("\n");
     }
     case "largeur":
+      // Ce que voit le créateur : un texte plus petit ou plus grand, pas des marges.
       return v.sens === "etroit"
-        ? `${sur}your paragraph is narrower than in the original, with more empty space on each side. Spread two fingers on the text to make it a bit bigger, until the space on each side is the same as in the original.`
-        : `${sur}your paragraph is wider than in the original: the text goes closer to the edges of the screen. Pinch the text with two fingers to make it a bit smaller, until the space on each side is the same as in the original.`;
+        ? `${sur}your text is smaller than in the original, so there is more empty space around it. Spread two fingers on the text to make it a bit bigger, until it is as wide as in the original.`
+        : `${sur}your text is bigger than in the original, so it goes closer to the edges of the screen. Pinch the text with two fingers to make it a bit smaller, until it is as wide as in the original.`;
     case "taille":
       return v.sens === "plus grand"
         ? `${sur}the text is clearly bigger than in the original and covers more of the picture. Pinch it down a little so it takes the same space as in the original.`
@@ -804,3 +829,49 @@ Rules:
 
 Draft:
 `;
+
+// ---------------------------------------------------------------------------
+// Envoi automatique : quel brouillon part chez quel créateur
+// ---------------------------------------------------------------------------
+
+export const RAISON_DEJA_TRAITE = "post déjà reviewé ou passé dans la file";
+export const RAISON_UN_PAR_CREATEUR = "un retour par créateur et par nuit : un autre de ses posts est parti";
+export const RAISON_SANS_CREATEUR = "compte sans créateur";
+
+/**
+ * Un retour par créateur et par nuit : celui du post au défaut le plus
+ * important (rang du premier point dans PRIORITE), puis celui qui a le plus de
+ * points. Ses autres posts restent en brouillon pour l'admin. Un post déjà
+ * reviewé ou passé à la main n'est jamais repris, et un créateur qui a déjà
+ * reçu le retour de l'agent cette nuit n'en reçoit pas un deuxième.
+ */
+export function choisirRetoursAEnvoyer<
+  L extends { id: string; post_id: string | null; poster_id: string | null; defauts: Defaut[] },
+>(
+  lignes: L[],
+  postsDejaTraites: Set<string>,
+  postersDejaServis: Set<string>,
+): { envoyer: L[]; sauter: Array<{ id: string; raison: string }> } {
+  const sauter: Array<{ id: string; raison: string }> = [];
+  const parPoster = new Map<string, L[]>();
+  for (const l of lignes) {
+    if (!l.poster_id) sauter.push({ id: l.id, raison: RAISON_SANS_CREATEUR });
+    else if (l.post_id && postsDejaTraites.has(l.post_id)) sauter.push({ id: l.id, raison: RAISON_DEJA_TRAITE });
+    else if (postersDejaServis.has(l.poster_id)) sauter.push({ id: l.id, raison: RAISON_UN_PAR_CREATEUR });
+    else parPoster.set(l.poster_id, [...(parPoster.get(l.poster_id) ?? []), l]);
+  }
+  const poids = (l: L) => {
+    const points = trier(l.defauts.filter((d) => d.niveau === "remarque"));
+    return { rang: points.length ? rang(points[0].code) : Number.MAX_SAFE_INTEGER, n: points.length };
+  };
+  const envoyer: L[] = [];
+  for (const posts of parPoster.values()) {
+    const [retenu, ...autres] = [...posts].sort((p, q) => {
+      const a = poids(p), b = poids(q);
+      return a.rang - b.rang || b.n - a.n || p.id.localeCompare(q.id);
+    });
+    envoyer.push(retenu);
+    for (const a of autres) sauter.push({ id: a.id, raison: RAISON_UN_PAR_CREATEUR });
+  }
+  return { envoyer, sauter };
+}

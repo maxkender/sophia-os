@@ -722,6 +722,8 @@ export interface Review {
   videos: ReviewVideo[];
   /** Remarques génériques utilisées — sert au comptage par créateur. */
   remarques: ReviewRemarqueUtilisee[];
+  /** admin : écrit à la main ; agent : envoyé par l'agent de relecture (0296). */
+  origine: "admin" | "agent";
 }
 
 export type ReviewCible = {
@@ -736,15 +738,16 @@ export type ReviewCible = {
 };
 
 const REVIEW_COLONNES =
-  "id, poster_id, body, note, created_at, seen_at, post_id, publie_url, source_url, handle_tiktok, compte_label, date_publication, videos, remarques";
+  "id, poster_id, body, note, created_at, seen_at, post_id, publie_url, source_url, handle_tiktok, compte_label, date_publication, videos, remarques, origine";
 
 function mapperReview(
-  row: Omit<Review, "videos" | "remarques"> & { videos?: unknown; remarques?: unknown },
+  row: Omit<Review, "videos" | "remarques" | "origine"> & { videos?: unknown; remarques?: unknown; origine?: unknown },
 ): Review {
   return {
     ...row,
     videos: normaliserVideosReview(row.videos),
     remarques: normaliserRemarquesReview(row.remarques),
+    origine: row.origine === "agent" ? "agent" : "admin",
   };
 }
 
@@ -1033,6 +1036,19 @@ export interface RelectureBanc extends RelectureAuto {
   persona_nom: string | null;
   langue: string | null;
   analyse_at: string | null;
+  /** Envoi automatique : null (pas traité), « envoye », « envoi en cours », ou la raison du non-envoi. */
+  envoi: string | null;
+}
+
+/** L'agent envoie-t-il lui-même ses retours (une fois la nuit de relecture finie) ? */
+export async function lireEnvoiAutoRelecture(): Promise<boolean> {
+  const { data, error } = await supabase.from("reglages").select("valeur").eq("cle", "relecture_envoi_auto").maybeSingle();
+  if (error) throw error;
+  return (data?.valeur as { actif?: boolean } | null)?.actif === true;
+}
+
+export async function ecrireEnvoiAutoRelecture(actif: boolean): Promise<void> {
+  await ecrireReglage("relecture_envoi_auto", { actif });
 }
 
 /** Les jours qui ont des relectures de l'agent, le plus récent d'abord. */
@@ -1051,7 +1067,7 @@ export async function listerRelecturesBanc(jour: string): Promise<RelectureBanc[
   const { data, error } = await supabase
     .from("relectures_auto")
     .select(
-      "id, post_id, jour, origine, publie_url, statut, defauts, brouillon, remarques, erreur, vues, analyse_at, created_at, " +
+      "id, post_id, jour, origine, publie_url, statut, defauts, brouillon, remarques, erreur, vues, envoi, analyse_at, created_at, " +
         "passages(contenus(source_url)), comptes(handle_tiktok, persona_nom, langue)",
     )
     .eq("jour", jour)
@@ -1081,6 +1097,7 @@ export async function listerRelecturesBanc(jour: string): Promise<RelectureBanc[
       persona_nom: compte?.persona_nom ?? null,
       langue: compte?.langue ?? null,
       analyse_at: (row.analyse_at as string | null) ?? null,
+      envoi: typeof row.envoi === "string" && row.envoi ? row.envoi : null,
     });
   }
   return out;

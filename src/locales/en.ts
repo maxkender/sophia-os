@@ -531,6 +531,7 @@ export const en = {
       vue: "Seen",
       envoyeeNonVue: "Sent, not seen",
       jamais: "Never",
+      agent: "Agent",
       popupTitre: "Feedback for you",
       popupSous: "From your admin",
       compris: "Got it, thanks",
@@ -631,7 +632,7 @@ export const en = {
     banc: {
       titre: "Agent test bench",
       sousTitre:
-        "The agent reviews real posts and sends nothing to anyone. Mark each point ✓ / ✗ and flag what it missed: this tells us how accurate each rule is.",
+        "What the agent reviewed, post by post. Mark each point ✓ / ✗ and flag what it missed: this tells us how accurate each rule is.",
       jour: "Posts published on",
       aucunJour: "No agent reviews yet.",
       posts: "Posts reviewed by the agent",
@@ -698,9 +699,16 @@ export const en = {
       message: "Exact message sent to the creator",
       messageVideo: "Attached video: {{titre}}",
       messageAide:
-        "Word for word what the creator gets when you send the agent's draft unchanged from Today's queue.",
+        "Word for word what the creator gets: sent by the agent at night (automatic sending on), or by you from Today's queue without editing it.",
       pasDeMessage: "No message: nothing would be sent to this creator.",
       voirCommeCreateur: "See it as the creator",
+      envoye: "Sent to the creator",
+      pasEnvoye: "Not sent: {{raison}}",
+      envoiAuto: "Automatic sending of feedback",
+      envoiAutoActif: "Automatic sending on",
+      envoiAutoInactif: "Automatic sending off (drafts only)",
+      envoiAutoAide:
+        "At night, once the review run is done: one feedback per creator (their post with the most important defect), never on a post already reviewed or skipped in the queue.",
       pasDeMessageMarche: "No message: the post is doing well ({{vues}} views), so we don't correct it.",
       codes: {
         justification: "Justification",

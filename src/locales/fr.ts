@@ -532,6 +532,7 @@ export const fr = {
       vue: "Vue",
       envoyeeNonVue: "Envoyée, non vue",
       jamais: "Jamais",
+      agent: "Agent",
       popupTitre: "Un retour pour toi",
       popupSous: "De la part de ton admin",
       compris: "Compris, merci",
@@ -632,7 +633,7 @@ export const fr = {
     banc: {
       titre: "Banc d’essai de l’agent",
       sousTitre:
-        "L’agent relit de vrais posts sans rien envoyer à personne. Juge chaque point ✓ / ✗ et signale ce qu’il a raté : on en tire la justesse de chaque règle.",
+        "Ce que l’agent a relu, post par post. Juge chaque point ✓ / ✗ et signale ce qu’il a raté : on en tire la justesse de chaque règle.",
       jour: "Posts publiés le",
       aucunJour: "Aucune relecture de l’agent pour l’instant.",
       posts: "Posts relus par l’agent",
@@ -699,9 +700,16 @@ export const fr = {
       message: "Message exact envoyé au créateur",
       messageVideo: "Vidéo jointe : {{titre}}",
       messageAide:
-        "Mot pour mot ce que reçoit le créateur quand, dans la file du jour, tu envoies le brouillon de l’agent sans le modifier.",
+        "Mot pour mot ce que reçoit le créateur : envoyé par l’agent la nuit (envoi automatique activé), ou par toi depuis la file du jour sans le modifier.",
       pasDeMessage: "Pas de message : rien ne serait envoyé à ce créateur.",
       voirCommeCreateur: "Voir comme le créateur",
+      envoye: "Envoyé au créateur",
+      pasEnvoye: "Pas envoyé : {{raison}}",
+      envoiAuto: "Envoi automatique des retours",
+      envoiAutoActif: "Envoi automatique activé",
+      envoiAutoInactif: "Envoi automatique désactivé (brouillons seulement)",
+      envoiAutoAide:
+        "La nuit, une fois la relecture finie : un retour par créateur (son post au défaut le plus important), jamais sur un post déjà reviewé ou passé dans la file.",
       pasDeMessageMarche: "Pas de message : le post marche ({{vues}} vues), on ne le corrige pas.",
       codes: {
         justification: "Justification",

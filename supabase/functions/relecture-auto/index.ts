@@ -45,6 +45,8 @@ import {
   reformulationValide,
   type RemarqueType,
   trier,
+  choisirRetoursAEnvoyer,
+  type Defaut,
 } from "../_shared/relecture.ts";
 import {
   assertAuthorised,
@@ -520,7 +522,7 @@ async function rejugerLigne(
   // Nombre de slides et son ne dépendent pas des mesures : on garde ceux de la relecture.
   const controles = ((Array.isArray(ligne.defauts) ? ligne.defauts : []) as Array<Record<string, unknown>>)
     .filter((d) => d.code === "nb_slides" || d.code === "musique")
-    .map((d) => ({ ...d, niveau: "remarque" })) as unknown as ReturnType<typeof controlesPost>;
+    .map((d) => ({ ...d, niveau: "info" })) as unknown as ReturnType<typeof controlesPost>;
   const defauts = trier([...agreger(jugements), ...controles]);
   const { data: passage } = await supabase.from("passages").select("vues").eq("id", ligne.passage_id).maybeSingle();
   const vues = plusDeVues(ligne.vues, passage?.vues);
@@ -565,6 +567,162 @@ async function rejuger(
     lot.forEach((l, k) => bilan.push({ post_id: l.post_id, defauts: codes[k] }));
   }
   return bilan;
+}
+
+// ---------------------------------------------------------------------------
+// Envoi automatique des retours (migration 0296)
+// ---------------------------------------------------------------------------
+
+/**
+ * Fenêtre d'envoi, heure de Paris : la nuit de relecture et le début de
+ * matinée. Un drain lancé à la main l'après-midi n'envoie donc rien, même
+ * interrupteur ouvert.
+ */
+const ENVOI_HEURE_MIN = 2;
+const ENVOI_HEURE_MAX = 10;
+
+function heureParis(): number {
+  return Number(new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Paris", hour: "2-digit", hour12: false }).format(new Date()));
+}
+
+function veille(jour: string): string {
+  const d = new Date(`${jour}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() - 1);
+  return d.toISOString().slice(0, 10);
+}
+
+async function parLots<T>(ids: string[], lire: (lot: string[]) => Promise<T[]>): Promise<T[]> {
+  const out: T[] = [];
+  for (let i = 0; i < ids.length; i += 100) out.push(...(await lire(ids.slice(i, i + 100))));
+  return out;
+}
+
+interface LigneEnvoi {
+  id: string;
+  post_id: string | null;
+  poster_id: string | null;
+  publie_url: string;
+  brouillon: string;
+  remarques: unknown;
+  defauts: Defaut[];
+  comptes: { handle_tiktok: string | null; persona_nom: string | null } | null;
+  passages: { contenus: { source_url: string | null } | null } | null;
+}
+
+/**
+ * Une fois la nuit de relecture finie (plus rien en cours pour la veille),
+ * envoie les retours : un par créateur (choisirRetoursAEnvoyer), en review
+ * « agent ». Chaque ligne est réservée avant l'envoi : deux drains qui se
+ * chevauchent n'envoient pas deux fois (et l'index unique de 0296 tient bon).
+ */
+async function envoyerRetours(supabase: Client, types: RemarqueType[]): Promise<number> {
+  const { data: reglage } = await supabase.from("reglages").select("valeur").eq("cle", "relecture_envoi_auto").maybeSingle();
+  if ((reglage?.valeur as { actif?: boolean } | null)?.actif !== true) return 0;
+  const heure = heureParis();
+  if (heure < ENVOI_HEURE_MIN || heure >= ENVOI_HEURE_MAX) return 0;
+
+  const jour = veille(aujourdhuiParis());
+  const { count, error: errCours } = await supabase
+    .from("relectures_auto")
+    .select("id", { count: "exact", head: true })
+    .eq("jour", jour)
+    .in("statut", ["a_scraper", "scrape", "a_analyser", "analyse"]);
+  if (errCours) throw errCours;
+  if ((count ?? 0) > 0) return 0;
+
+  const { data, error } = await supabase
+    .from("relectures_auto")
+    .select("id, post_id, poster_id, publie_url, brouillon, remarques, defauts, comptes(handle_tiktok, persona_nom), passages(contenus(source_url))")
+    .eq("jour", jour)
+    .eq("origine", "cron")
+    .eq("statut", "fait")
+    .not("brouillon", "is", null)
+    .is("envoi", null);
+  if (error) throw error;
+  const lignes = (data ?? []) as unknown as LigneEnvoi[];
+  if (lignes.length === 0) return 0;
+
+  const postIds = [...new Set(lignes.map((l) => l.post_id).filter((x): x is string => Boolean(x)))];
+  const posterIds = [...new Set(lignes.map((l) => l.poster_id).filter((x): x is string => Boolean(x)))];
+  const [reviews, passes, servis] = await Promise.all([
+    parLots(postIds, async (lot) => {
+      const { data: d, error: e } = await supabase.from("reviews").select("post_id").in("post_id", lot);
+      if (e) throw e;
+      return (d ?? []).map((r) => r.post_id as string);
+    }),
+    parLots(postIds, async (lot) => {
+      const { data: d, error: e } = await supabase.from("review_passes").select("post_id").in("post_id", lot);
+      if (e) throw e;
+      return (d ?? []).map((r) => r.post_id as string);
+    }),
+    parLots(posterIds, async (lot) => {
+      const { data: d, error: e } = await supabase
+        .from("reviews")
+        .select("poster_id")
+        .eq("origine", "agent")
+        .eq("date_publication", jour)
+        .in("poster_id", lot);
+      if (e) throw e;
+      return (d ?? []).map((r) => r.poster_id as string);
+    }),
+  ]);
+
+  const { envoyer, sauter } = choisirRetoursAEnvoyer(lignes, new Set([...reviews, ...passes]), new Set(servis));
+  const parRaison = new Map<string, string[]>();
+  for (const s of sauter) parRaison.set(s.raison, [...(parRaison.get(s.raison) ?? []), s.id]);
+  for (const [raison, ids] of parRaison) {
+    for (let i = 0; i < ids.length; i += 100) await maj(supabase, ids.slice(i, i + 100), { envoi: raison, envoi_at: new Date().toISOString() });
+  }
+
+  let envoyes = 0;
+  for (const l of envoyer) {
+    const { data: prise } = await supabase
+      .from("relectures_auto")
+      .update({ envoi: "envoi en cours", maj_at: new Date().toISOString() })
+      .eq("id", l.id)
+      .is("envoi", null)
+      .select("id");
+    if (!prise?.length) continue;
+
+    const utilisees = Array.isArray(l.remarques) ? (l.remarques as Array<{ id?: string; titre?: string }>) : [];
+    const videos = utilisees
+      .map((u) => types.find((t) => t.id === u.id))
+      .filter((t): t is RemarqueType => Boolean(t?.video_url))
+      .map((t) => ({ url: t.video_url as string, titre: t.titre }))
+      .filter((v, i, tous) => tous.findIndex((w) => w.url === v.url) === i);
+    const compte = Array.isArray(l.comptes) ? l.comptes[0] : l.comptes;
+    const passage = Array.isArray(l.passages) ? l.passages[0] : l.passages;
+    const contenu = Array.isArray(passage?.contenus) ? passage?.contenus[0] : passage?.contenus;
+    const handle = compte?.handle_tiktok?.replace(/^@/, "") || null;
+
+    const { data: review, error: errReview } = await supabase
+      .from("reviews")
+      .insert({
+        poster_id: l.poster_id,
+        body: l.brouillon.trim(),
+        admin_id: null,
+        origine: "agent",
+        post_id: l.post_id,
+        publie_url: l.publie_url,
+        source_url: contenu?.source_url ?? null,
+        handle_tiktok: handle,
+        compte_label: handle ? `@${handle}` : compte?.persona_nom ?? null,
+        date_publication: jour,
+        videos,
+        remarques: utilisees.filter((u) => u.id && u.titre).map((u) => ({ id: u.id, titre: u.titre })),
+      })
+      .select("id")
+      .single();
+    if (errReview) {
+      // Rendue à la file d'envoi : le prochain drain réessaie.
+      await maj(supabase, [l.id], { envoi: null });
+      console.log(`[relecture-auto] ERR envoi ${l.id} : ${messageErreur(errReview)}`);
+      continue;
+    }
+    await maj(supabase, [l.id], { envoi: "envoye", review_id: review.id, envoi_at: new Date().toISOString() });
+    envoyes += 1;
+  }
+  return envoyes;
 }
 
 // ---------------------------------------------------------------------------
@@ -748,7 +906,7 @@ Deno.serve(async (request) => {
       return json({ ok: false, error: messageErreur(error) }, 500);
     }
   }
-  const bilan = { enfiles: 0, scrapesLances: 0, releves: 0, faits: 0, ignores: 0, reessais: 0, echecs: 0, erreurs: [] as string[] };
+  const bilan = { enfiles: 0, scrapesLances: 0, releves: 0, faits: 0, ignores: 0, reessais: 0, echecs: 0, envoyes: 0, erreurs: [] as string[] };
 
   try {
     if (corps.enfiler) {
@@ -789,10 +947,18 @@ Deno.serve(async (request) => {
       }
     }
 
-    if (bilan.enfiles + bilan.scrapesLances + bilan.releves + bilan.faits + bilan.ignores + bilan.reessais + bilan.echecs > 0) {
+    // La nuit finie, les retours partent (si l'interrupteur est ouvert).
+    try {
+      bilan.envoyes = await envoyerRetours(supabase, types);
+    } catch (error) {
+      bilan.erreurs.push(`envoi : ${messageErreur(error)}`);
+    }
+
+    if (bilan.enfiles + bilan.scrapesLances + bilan.releves + bilan.faits + bilan.ignores + bilan.reessais + bilan.echecs + bilan.envoyes > 0) {
       console.log(
         `[relecture-auto] ${bilan.enfiles} en file · ${bilan.scrapesLances} scrape(s) lancé(s) · ${bilan.releves} relevé(s)` +
-          ` · ${bilan.faits} relu(s) · ${bilan.ignores} ignoré(s) · ${bilan.reessais} à reprendre · ${bilan.echecs} échec(s)`,
+          ` · ${bilan.faits} relu(s) · ${bilan.ignores} ignoré(s) · ${bilan.reessais} à reprendre · ${bilan.echecs} échec(s)` +
+          ` · ${bilan.envoyes} retour(s) envoyé(s)`,
       );
     }
     for (const e of bilan.erreurs) console.log(`[relecture-auto] ERR ${e}`);

@@ -11,7 +11,11 @@ const listerAvisRelecture = vi.fn();
 const enregistrerAvisRelecture = vi.fn();
 const supprimerAvisRelecture = vi.fn();
 const listerReviewRemarques = vi.fn();
+const lireEnvoiAutoRelecture = vi.fn();
+const ecrireEnvoiAutoRelecture = vi.fn();
 vi.mock("@/features/moteur/api", () => ({
+  lireEnvoiAutoRelecture: () => lireEnvoiAutoRelecture(),
+  ecrireEnvoiAutoRelecture: (actif: boolean) => ecrireEnvoiAutoRelecture(actif),
   listerJoursRelecture: () => listerJoursRelecture(),
   listerRelecturesBanc: (jour: string) => listerRelecturesBanc(jour),
   listerAvisRelecture: (ids: string[]) => listerAvisRelecture(ids),
@@ -22,6 +26,11 @@ vi.mock("@/features/moteur/api", () => ({
 }));
 
 import { AdminBancRelecturePage } from "./AdminBancRelecturePage";
+
+// jsdom n'a pas PointerEvent ; l'interrupteur (base-ui) en construit un au clic.
+if (typeof window.PointerEvent === "undefined") {
+  (window as unknown as { PointerEvent: typeof MouseEvent }).PointerEvent = MouseEvent;
+}
 
 const base = {
   jour: "2026-10-15",
@@ -89,6 +98,8 @@ describe("AdminBancRelecturePage", () => {
   beforeEach(() => {
     vi.spyOn(HTMLMediaElement.prototype, "play").mockResolvedValue(undefined);
     listerJoursRelecture.mockReset().mockResolvedValue(["2026-10-15", "2026-10-14"]);
+    lireEnvoiAutoRelecture.mockReset().mockResolvedValue(false);
+    ecrireEnvoiAutoRelecture.mockReset().mockResolvedValue(undefined);
     listerRelecturesBanc.mockReset().mockResolvedValue([AVEC_MESSAGE, SANS_MESSAGE, IGNORE]);
     listerAvisRelecture.mockReset().mockResolvedValue([]);
     enregistrerAvisRelecture.mockReset().mockImplementation(async (a: Record<string, unknown>) => ({
@@ -195,5 +206,24 @@ describe("AdminBancRelecturePage", () => {
     expect(
       screen.getAllByText((_, el) => el?.tagName === "P" && el.textContent === AVEC_MESSAGE.brouillon).length,
     ).toBeGreaterThan(1);
+  });
+
+  it("l'interrupteur ouvre l'envoi automatique, et le post envoyé le dit", async () => {
+    listerRelecturesBanc.mockResolvedValue([{ ...AVEC_MESSAGE, envoi: "envoye" }]);
+    renderPage();
+    const interrupteur = await screen.findByRole("switch", { name: /Envoi automatique|Automatic sending/ });
+    expect(screen.getByText(/Envoi automatique désactivé|Automatic sending off/)).toBeInTheDocument();
+    fireEvent.click(interrupteur);
+    await waitFor(() => expect(ecrireEnvoiAutoRelecture).toHaveBeenCalledWith(true));
+    expect(await screen.findByText(/Envoi automatique activé|Automatic sending on/)).toBeInTheDocument();
+    expect(screen.getByText(/^(Envoyé au créateur|Sent to the creator)$/)).toBeInTheDocument();
+  });
+
+  it("un post non envoyé dit pourquoi", async () => {
+    listerRelecturesBanc.mockResolvedValue([
+      { ...AVEC_MESSAGE, envoi: "un retour par créateur et par nuit : un autre de ses posts est parti" },
+    ]);
+    renderPage();
+    expect(await screen.findByText(/(Pas envoyé|Not sent) ?: un retour par créateur/)).toBeInTheDocument();
   });
 });

@@ -30,7 +30,8 @@ identifiants par email. Ce document décrit le contrat entre les deux.
   dont l'id est dans le réglage `hub_posteurs` (`{"cohorte_ruul_id": …}`).
   Sans ce réglage, retour au HM de la zone (le moins chargé s'il y en a
   plusieurs). Payés chaque semaine par Ruul, suivis dans le salon Slack
-  #ruul-cohort ; leur accueil remplace les écrans Slack et Payments
+  #ruul-cohort (ils rejoignent aussi #welcome) ; leur accueil remplace les
+  écrans Slack et Payments
   (`hub_ma_cohorte()`, migration 0297) ;
 - mot de passe `12345678`, comme tous les comptes OS créés par l'admin, sans
   changement imposé ;

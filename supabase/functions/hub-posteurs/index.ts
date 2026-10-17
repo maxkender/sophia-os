@@ -1,6 +1,6 @@
 /**
  * hub-posteurs — guichet du site (Sophia Culture Hub, Lovable) vers l'OS
- * (migration 0278, docs/hub-posteurs.md).
+ * (migration 0296, docs/hub-posteurs.md).
  *
  * Le site recrute les posters slideshow ; dès que l'un d'eux signe son
  * contrat, il l'envoie ici pour qu'il soit créé dans l'OS, rattaché au HM de
@@ -20,7 +20,7 @@
  *       rattache à son HM. Le warm-up n'est pas lancé :
  *       c'est le poster qui le démarre dans l'OS, comme aujourd'hui ; lancé
  *       avant son lundi de démarrage (`start_monday`), il dure jusqu'à ce
- *       lundi (trigger de 0278) — premiers posts et paie partent du lundi.
+ *       lundi (trigger de 0296) — premiers posts et paie partent du lundi.
  *       Idempotent sur `hub_id` : un rejeu renvoie `existed: true` et, si le
  *       poster ne s'est jamais connecté, son mot de passe remis à 12345678
  *       (sinon `password: null`, `deja_connecte: true`).
@@ -41,6 +41,7 @@ import {
   estUuid,
   MOT_DE_PASSE_INITIAL,
   partsPourApplications,
+  paysAEnvoyer,
   type Recruteur,
   reservationPerimee,
   resoudreAffectation,
@@ -49,7 +50,7 @@ import {
 import { lireParLots } from "../_shared/lots.ts";
 import { corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
-const VERSION = "2026-10-12";
+const VERSION = "2026-10-17";
 const POSTS_PAR_JOUR = 2;
 const PROFILS_MAX = 500;
 
@@ -191,7 +192,7 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     langue,
     applications,
     manager_id: hm.id,
-    // Lundi fixe : le trigger de 0278 repousse la fin du warm-up à ce lundi.
+    // Lundi fixe : le trigger de 0296 repousse la fin du warm-up à ce lundi.
     debut_le: dateIso(body.start_monday),
     reserve_at: new Date().toISOString(),
   };
@@ -215,6 +216,7 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
 
   // 4. Création par le chemin de l'admin (manage-users), jamais un second chemin.
   const password = MOT_DE_PASSE_INITIAL;
+  const paysCompte = paysAEnvoyer(langue, pays);
   const cree = await appelerManageUsers({
     action: "create",
     prenom,
@@ -223,6 +225,7 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     langue,
     type_compte: "perso",
     posts_par_jour: POSTS_PAR_JOUR,
+    ...(paysCompte ? { pays: paysCompte } : {}),
     ...(parts ? { parts_applications: parts } : {}),
   });
   if (!cree.ok) {

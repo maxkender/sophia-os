@@ -1,4 +1,4 @@
--- 0278 : guichet du site (Sophia Culture Hub) → OS, pour les posters slideshow.
+-- 0296 : guichet du site (Sophia Culture Hub) → OS, pour les posters slideshow.
 --
 -- Le site recrute (formulaire public, acceptation à la main, contrat signé en
 -- ligne) puis appelle la fonction `hub-posteurs` pour créer le poster ici

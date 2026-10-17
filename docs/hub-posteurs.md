@@ -17,6 +17,9 @@ identifiants par email. Ce document décrit le contrat entre les deux.
 - premier compte perso, labels, persona, référence — comme une création admin ;
 - **langue de publication = langue du pays** (`LANGUE_PAR_PAYS`), pas la langue
   des emails choisie sur le formulaire ;
+- **pays du compte** : envoyé à manage-users seulement quand la langue ne
+  désigne pas un seul marché (en, ar, ru…), comme le front
+  (`paysAEnvoyer`) ; sinon le trigger `comptes_pays_defaut` le déduit ;
 - applications : Sophia seule = chemin historique ; UnSwipe seule =
   `{ unswipe: 100 }` ; les deux = `{ sophia: 50, unswipe: 50 }` ;
 - **HM = celui dont `profiles.zone_recrutement` couvre le pays** et qui gère
@@ -27,7 +30,7 @@ identifiants par email. Ce document décrit le contrat entre les deux.
 - **lundi fixe** : le site envoie le lundi de démarrage (`start_monday`,
   gardé dans `hub_posteurs.debut_le`). Un warm-up lancé plus tôt se termine
   ce lundi à 00:00 (Paris), pas avant — trigger `comptes_warmup_jusqu_au_lundi_hub`
-  de 0278. Premiers posts et paie partent donc du même lundi. Le « skip
+  de 0296. Premiers posts et paie partent donc du même lundi. Le « skip
   warmup » de l'admin reste immédiat.
 
 Refus (le site les affiche sur la fiche, sans réessayer) :
@@ -65,7 +68,7 @@ sorti du warm-up.
 
 ## Mise en service
 
-1. **Migration** `0278_hub_posteurs.sql` : à passer à la main (SQL Editor ou
+1. **Migration** `0296_hub_posteurs.sql` : à passer à la main (SQL Editor ou
    MCP), comme les autres — jamais `supabase db push`.
 2. **Secret** `OS_HUB_SECRET` : une longue valeur aléatoire, posée **à
    l'identique** dans les secrets des fonctions Supabase de l'OS et dans

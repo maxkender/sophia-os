@@ -14,6 +14,7 @@ import {
   dateIso,
   MOT_DE_PASSE_INITIAL,
   partsPourApplications,
+  paysAEnvoyer,
   type Recruteur,
   reservationPerimee,
   resoudreAffectation,
@@ -132,6 +133,15 @@ Deno.test("applications : Sophia seule garde le chemin historique de création",
   assertEquals(partsPourApplications(["UnSwipe", "sophia", "sophia"]), { sophia: 50, unswipe: 50 });
   // Une application inconnue n'ouvre rien : seule Sophia reste.
   assertEquals(partsPourApplications(["micabo", "sophia"]), null);
+});
+
+Deno.test("pays du compte : envoyé seulement quand la langue ne suffit pas, comme le front", () => {
+  assertEquals(paysAEnvoyer("fr", "FR"), undefined);
+  assertEquals(paysAEnvoyer("pl", "PL"), undefined);
+  assertEquals(paysAEnvoyer("en", "GB"), "GB");
+  assertEquals(paysAEnvoyer("en", "IE"), "IE");
+  assertEquals(paysAEnvoyer("ru", "BY"), "BY");
+  assertEquals(paysAEnvoyer("ar", "AE"), "AE");
 });
 
 Deno.test("mot de passe de départ : celui de tous les comptes OS", () => {

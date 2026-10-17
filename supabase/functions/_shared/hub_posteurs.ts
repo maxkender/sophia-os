@@ -219,6 +219,26 @@ export function partsPourApplications(applications: unknown): Record<string, num
 }
 
 /**
+ * Langues qui ne désignent qu'un marché : le trigger `comptes_pays_defaut`
+ * (migration 0281) en déduit le pays du compte. Copie des clés de
+ * `PAYS_PAR_DEFAUT_LANGUE` (src/features/moteur/pays.ts), à garder alignée.
+ */
+const LANGUES_UN_SEUL_MARCHE = new Set([
+  "fr", "de", "it", "es", "pt", "pt-BR", "cs", "nl", "el", "hu", "pl", "ro",
+  "sv", "tr", "da", "no", "hr", "sl", "sk", "sr", "he", "fi", "et", "bg",
+]);
+
+/**
+ * Pays à envoyer à manage-users, comme `paysAEnvoyer` côté front
+ * (src/features/moteur/paysCompte.ts) : rien quand la langue suffit, le pays
+ * du poster pour en, ar, ru… Sans lui, un compte anglais n'a pas de pays et
+ * manque dans la table de recrutement.
+ */
+export function paysAEnvoyer(langue: string, paysCode: string): string | undefined {
+  return LANGUES_UN_SEUL_MARCHE.has(langue) ? undefined : paysCode;
+}
+
+/**
  * Mot de passe de départ : le même que pour tous les comptes OS créés par
  * l'admin (`MDP_OS_INITIAL` côté front), sans changement imposé.
  */

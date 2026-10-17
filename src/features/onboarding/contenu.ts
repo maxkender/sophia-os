@@ -44,6 +44,9 @@ export const SALON_COHORTE_RUUL = "#ruul-cohort";
 /** Le salon d'accueil, que les posters venus du site rejoignent aussi. */
 export const SALON_BIENVENUE = "#welcome";
 
+/** Page d'inscription freelancer de Ruul (paie de la cohorte Ruul). */
+export const LIEN_RUUL_INSCRIPTION = "https://app.ruul.io/register";
+
 import type { EtatMico } from "./Mico";
 
 export type Bloc =
@@ -53,7 +56,9 @@ export type Bloc =
   | { type: "titre"; texte: string }
   | { type: "alerte"; ton: "rouge" | "orange"; titre?: string; items: string[] }
   | { type: "video"; src: string; titre: string }
-  | { type: "lien"; avant?: string; libelle: string; href: string };
+  | { type: "lien"; avant?: string; libelle: string; href: string }
+  /** Formulaire prénom + nom de la pièce d'identité (cohorte Ruul) : verrouille « Next ». */
+  | { type: "identite" };
 
 export interface Ecran {
   /** Identifiant stable : sert de clé React et d'ancre dans les tests. */
@@ -337,6 +342,8 @@ export interface ContexteAccueil {
   cohorteRuul: boolean;
   /** L'adresse donnée sur le site : celle de leur compte Ruul. */
   emailRuul: string | null;
+  /** Prénom et nom de la pièce d'identité, déjà donnés (pour l'ajout dans Ruul). */
+  identite?: { prenom: string; nom: string } | null;
 }
 
 function ecransCohorteRuul(emailRuul: string | null): Record<string, Ecran> {
@@ -378,6 +385,7 @@ function ecransCohorteRuul(emailRuul: string | null): Record<string, Ecran> {
             "Add your bank account in Ruul.",
           ],
         },
+        { type: "lien", avant: "Start here:", libelle: "Create my Ruul account", href: LIEN_RUUL_INSCRIPTION },
         {
           type: "alerte",
           ton: "orange",
@@ -388,6 +396,7 @@ function ecransCohorteRuul(emailRuul: string | null): Record<string, Ecran> {
           type: "p",
           texte: `Questions about money: send a direct message on Slack to the team running ${SALON_COHORTE_RUUL}, never in the channel.`,
         },
+        { type: "identite" },
       ],
     },
   };

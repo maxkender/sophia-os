@@ -66,8 +66,10 @@ export function peutAvancer(opts: {
   ecoulees: number;
   attente: number;
   basAtteint: boolean;
+  /** L'écran demande le nom de la pièce d'identité et il n'est pas encore enregistré. */
+  identiteManquante?: boolean;
 }): boolean {
-  return opts.basAtteint && secondesRestantes(opts.ecoulees, opts.attente) === 0;
+  return opts.basAtteint && secondesRestantes(opts.ecoulees, opts.attente) === 0 && !opts.identiteManquante;
 }
 
 export interface CorrectionQuiz {

@@ -353,10 +353,12 @@ export function familleCouleur(hex: string): string {
   const v = parseInt(hex.slice(1), 16);
   const r = (v >> 16) & 255, g = (v >> 8) & 255, b = v & 255;
   const max = Math.max(r, g, b), min = Math.min(r, g, b);
-  // Blanc crème, jaune très pâle : du blanc teinté par la photo ou la
-  // compression. Gemini lit le même texte #FFFFFF d'un côté et #FFF29A de
-  // l'autre (cas dominik.fokus983 du 16/10) ; un vrai jaune TikTok est saturé.
-  if (min >= 140 && max >= 225) return "blanc";
+  // Blanc crème, jaune pâle : du blanc teinté par la photo ou la compression,
+  // ou une couleur que la palette de TikTok n'a pas. Gemini lit le même texte
+  // #FFFFFF d'un côté et #FFF29A de l'autre (cas dominik.fokus983 du 16/10),
+  // #FFF7D4 et #FFF18A (emma.saggezza925). Un vrai jaune TikTok est doré,
+  // saturé (#EDBD59, #F8CD50) : il reste jaune.
+  if (min >= 120 && max >= 225) return "blanc";
   if (max - min < 50) {
     const l = (max + min) / 2;
     return l > 190 ? "blanc" : l < 60 ? "noir" : "gris";

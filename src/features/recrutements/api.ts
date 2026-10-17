@@ -53,7 +53,9 @@ export async function listerCreateursRecrutement(): Promise<RecrutementCreateur[
     .select(CRE_SELECT)
     .order("nom_affiche");
   if (error) throw error;
-  return (data ?? []) as RecrutementCreateur[];
+  return ((data ?? []) as RecrutementCreateur[]).filter(
+    (c) => !estCompteTestRecrutement({ email: c.email_os, prenom: c.prenom }),
+  );
 }
 
 export async function listerSuggestionsRecrutement(

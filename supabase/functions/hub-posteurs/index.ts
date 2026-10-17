@@ -56,7 +56,7 @@ import {
 import { lireParLots } from "../_shared/lots.ts";
 import { corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
-const VERSION = "2026-10-17c";
+const VERSION = "2026-10-17d";
 const POSTS_PAR_JOUR = 2;
 const PROFILS_MAX = 500;
 
@@ -203,6 +203,8 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     langue,
     applications,
     manager_id: rattachement.id,
+    // HM de la zone du pays : la page Posters range le poster dans sa zone.
+    hm_zone_id: hm.id,
     // Lundi fixe : le trigger de 0296 repousse la fin du warm-up à ce lundi.
     debut_le: dateIso(body.start_monday),
     reserve_at: new Date().toISOString(),

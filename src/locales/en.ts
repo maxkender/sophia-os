@@ -1279,6 +1279,7 @@ export const en = {
       zoneResume:
         "{{recruteurs}} recruiter(s) · {{total}} creator(s) · {{pasCree}} not created · {{warmup}} warmup · {{actif}} active",
       filtreZone: "Zone",
+      filtreRuul: "RUUL cohort only (creators from the site, paid by Ruul) · {{n}}",
       toutesZones: "All",
       recherche: "Search",
       recherchePlaceholder: "Name, email, TikTok @ or recruiter…",

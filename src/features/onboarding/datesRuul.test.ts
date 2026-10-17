@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { ajouterJours, conseilWarmupRuul, partiesParis, premierPaiementRuul } from "./datesRuul";
+import { ajouterJours, conseilWarmupRuul, friseRuul, partiesParis, premierPaiementRuul } from "./datesRuul";
 
 // Lundi de démarrage du 26/10/2026 (heure d'hiver à Paris depuis le 25/10 : UTC+1).
 const DEBUT = "2026-10-26";
@@ -64,5 +64,32 @@ describe("dates de la cohorte Ruul", () => {
         maintenant: new Date("2026-10-26T08:00:00Z"),
       }),
     ).toEqual({ cas: "termine" });
+  });
+});
+
+describe("frise de la première semaine (cohorte Ruul)", () => {
+  const base = { debutLe: DEBUT, warmupStartedAt: null, warmupEndsAt: null };
+
+  it("jeudi d'avant, pas lancé : tout reste à faire, l'étape en cours est le clic", () => {
+    const f = friseRuul({ ...base, maintenant: new Date("2026-10-22T10:00:00Z") });
+    expect(f.etats).toEqual({ lancer: "en_cours", warmup: "a_venir", posts: "a_venir", paiement: "a_venir" });
+    expect(f.terminee).toBe(false);
+  });
+
+  it("warm-up en cours : le clic est fait", () => {
+    const f = friseRuul({
+      debutLe: DEBUT,
+      warmupStartedAt: "2026-10-22T10:00:00Z",
+      warmupEndsAt: "2026-10-25T23:00:00Z",
+      maintenant: new Date("2026-10-23T10:00:00Z"),
+    });
+    expect(f.etats).toEqual({ lancer: "fait", warmup: "en_cours", posts: "a_venir", paiement: "a_venir" });
+  });
+
+  it("semaine de posts, puis le dimanche du premier paiement, puis plus de frise", () => {
+    const lance = { debutLe: DEBUT, warmupStartedAt: "2026-10-22T10:00:00Z", warmupEndsAt: "2026-10-25T23:00:00Z" };
+    expect(friseRuul({ ...lance, maintenant: new Date("2026-10-28T10:00:00Z") }).etats.posts).toBe("en_cours");
+    expect(friseRuul({ ...lance, maintenant: new Date("2026-11-01T10:00:00Z") }).etats.paiement).toBe("en_cours");
+    expect(friseRuul({ ...lance, maintenant: new Date("2026-11-02T10:00:00Z") }).terminee).toBe(true);
   });
 });

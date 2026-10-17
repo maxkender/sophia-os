@@ -26,7 +26,8 @@ import {
   mesComptes,
   type MonCompte,
 } from "@/features/moteur/api";
-import { AideWarmupRuul, BandeauCohorteRuul } from "@/features/onboarding/CohorteRuulCalendrier";
+import { BandeauCohorteRuul, FriseCohorteRuul } from "@/features/onboarding/CohorteRuulCalendrier";
+import { premierPaiementRuul } from "@/features/onboarding/datesRuul";
 import {
   comptePrincipal,
   ecrireCompteActif,
@@ -386,6 +387,15 @@ export function PosterCalendrierPage() {
         />
       )}
 
+      {/* Cohorte Ruul : la première semaine en quatre étapes datées, juste au-dessus du bouton. */}
+      {debutRuul && compte && !estCm && !ugc && (
+        <FriseCohorteRuul
+          debutLe={debutRuul}
+          warmupStartedAt={compte.warmup_started_at}
+          warmupEndsAt={compte.warmup_ends_at}
+        />
+      )}
+
       {/* Warmup : le créateur démarre le timer ici (plus côté HM). Pas pour les CM. */}
       {compte && !estCm && (
       <div
@@ -407,19 +417,11 @@ export function PosterCalendrierPage() {
               ? t("calendrier.warmupADemarrer")
               : t("calendrier.warmupRappel")}
           </p>
-          {debutRuul && !ugc && warmupStatut !== "termine"
-            ? (
-              <AideWarmupRuul
-                debutLe={debutRuul}
-                warmupStartedAt={compte.warmup_started_at}
-                warmupEndsAt={compte.warmup_ends_at}
-              />
-            )
-            : warmupStatut === "attente" && (
-              <p className="text-xs text-muted-foreground">
-                {ugc ? t("calendrier.warmupADemarrerAideUgc") : t("calendrier.warmupADemarrerAide")}
-              </p>
-            )}
+          {warmupStatut === "attente" && !(debutRuul && !ugc) && (
+            <p className="text-xs text-muted-foreground">
+              {ugc ? t("calendrier.warmupADemarrerAideUgc") : t("calendrier.warmupADemarrerAide")}
+            </p>
+          )}
         </div>
         {compte && (
           <div className="flex flex-wrap items-center gap-2">
@@ -441,7 +443,7 @@ export function PosterCalendrierPage() {
       </div>
       )}
 
-      {debutRuul && <BandeauCohorteRuul debutLe={debutRuul} />}
+      {debutRuul && <BandeauCohorteRuul />}
 
       {compte && <IdentiteTikTok compte={compte} />}
 
@@ -563,6 +565,17 @@ export function PosterCalendrierPage() {
                   >
                     {numero}
                   </span>
+
+                  {debutRuul && date === debutRuul && (
+                    <p className="w-full max-w-full truncate rounded bg-warning/20 px-1.5 py-1 font-medium text-[11px] leading-tight">
+                      🚀 {t("calendrier.ruul.premierPost")}
+                    </p>
+                  )}
+                  {debutRuul && date === premierPaiementRuul(debutRuul) && (
+                    <p className="w-full max-w-full truncate rounded bg-success/15 px-1.5 py-1 font-medium text-[11px] text-success leading-tight">
+                      💰 {t("calendrier.ruul.premierPaiementCase")}
+                    </p>
+                  )}
 
                   {duJourCase.map((post) => (
                     <Link

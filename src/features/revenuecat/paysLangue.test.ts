@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 
+import { LANGUES_CIBLES } from "@/features/moteur/langues";
+
 import { langueDepuisPays, languesReferencees } from "./paysLangue";
 
 describe("langueDepuisPays", () => {
@@ -11,7 +13,7 @@ describe("langueDepuisPays", () => {
     expect(langueDepuisPays("United States")).toBe("en");
     expect(langueDepuisPays("Poland")).toBe("pl");
     expect(langueDepuisPays("Germany")).toBe("de");
-    expect(langueDepuisPays("Brazil")).toBe("pt");
+    expect(langueDepuisPays("Brazil")).toBe("pt-BR");
     expect(langueDepuisPays("Denmark")).toBe("da");
     expect(langueDepuisPays("Norway")).toBe("no");
     expect(langueDepuisPays("Russia")).toBe("ru");
@@ -42,8 +44,9 @@ describe("langueDepuisPays", () => {
 describe("codes ISO-3166 : un segment à deux lettres est un PAYS", () => {
   it("les cinq collisions historiques sont résolues comme des pays", () => {
     // Avant : le code était lu comme une langue, donc AR → arabe, SV → suédois…
-    expect(langueDepuisPays("AR")).toBe("es"); // Argentine, pas l'arabe
-    expect(langueDepuisPays("SV")).toBe("es"); // Salvador, pas la Suède
+    // Les deux sont des pays hispanophones des Amériques, donc `es-419`.
+    expect(langueDepuisPays("AR")).toBe("es-419"); // Argentine, pas l'arabe
+    expect(langueDepuisPays("SV")).toBe("es-419"); // Salvador, pas la Suède
     expect(langueDepuisPays("ET")).toBeNull(); // Éthiopie, pas l'Estonie
     expect(langueDepuisPays("SL")).toBeNull(); // Sierra Leone, pas la Slovénie
     expect(langueDepuisPays("SR")).toBeNull(); // Suriname, pas la Serbie
@@ -64,8 +67,8 @@ describe("codes ISO-3166 : un segment à deux lettres est un PAYS", () => {
   it("les autres codes marché restent corrects", () => {
     const attendu: Record<string, string> = {
       FR: "fr", GB: "en", US: "en", CA: "en", AU: "en", IE: "en",
-      DE: "de", AT: "de", CH: "de", IT: "it", ES: "es", MX: "es",
-      PT: "pt", BR: "pt", NL: "nl", BE: "nl", HU: "hu", PL: "pl",
+      DE: "de", AT: "de", CH: "de", IT: "it", ES: "es", MX: "es-419",
+      PT: "pt", BR: "pt-BR", NL: "nl", BE: "nl", HU: "hu", PL: "pl",
       RO: "ro", TR: "tr", NO: "no", RU: "ru", HR: "hr", SK: "sk",
       EG: "ar", SA: "ar", AE: "ar", FI: "fi",
     };
@@ -91,9 +94,31 @@ describe("codes ISO-3166 : un segment à deux lettres est un PAYS", () => {
   });
 });
 
+describe("découpage Europe / Amériques", () => {
+  it("sépare l'Espagne de l'Amérique latine et le Portugal du Brésil", () => {
+    // Sans ce découpage, le revenu mexicain était crédité à l'Espagne et le
+    // revenu brésilien au Portugal : la zone Espagne+Portugal+AmLat ne pouvait
+    // pas être pilotée, et le Brésil restait invisible dans les comptes.
+    expect(langueDepuisPays("Spain")).toBe("es");
+    expect(langueDepuisPays("Portugal")).toBe("pt");
+    for (const pays of ["Mexico", "Colombia", "Chile", "Peru", "Argentina"]) {
+      expect(langueDepuisPays(pays), pays).toBe("es-419");
+    }
+    expect(langueDepuisPays("Brasil")).toBe("pt-BR");
+  });
+
+  it("ne touche pas aux pays rattachés aux zones US+UK et germanophone", () => {
+    // Canada → zone US+UK, Suisse et Autriche → zone germanophone : leur
+    // langue OS ne change pas, seul le périmètre Slack a bougé.
+    expect(langueDepuisPays("Canada")).toBe("en");
+    expect(langueDepuisPays("Switzerland")).toBe("de");
+    expect(langueDepuisPays("Austria")).toBe("de");
+  });
+});
+
 describe("noms de pays", () => {
   it("couvre les libellés ajoutés", () => {
-    expect(langueDepuisPays("El Salvador")).toBe("es");
+    expect(langueDepuisPays("El Salvador")).toBe("es-419");
     expect(langueDepuisPays("Czechia")).toBe("cs");
     expect(langueDepuisPays("Sverige")).toBe("sv");
     expect(langueDepuisPays("New Zealand")).toBe("en");
@@ -119,10 +144,14 @@ describe("intégrité des tables", () => {
     expect(languesReferencees()).toEqual([]);
   });
 
-  it("ne rend jamais autre chose qu'une langue ou null", () => {
-    for (const entree of ["", "  ", "Total", "Unknown", "ZZ", "123"]) {
+  it("ne rend jamais autre chose qu'une langue cible ou null", () => {
+    // Invariant posé sur LANGUES_CIBLES, pas sur « deux lettres » : depuis
+    // `es-419` et `pt-BR`, un code peut porter une région. Et la liste est
+    // plus stricte que la forme, elle refuse aussi un `zz` bien formé.
+    const cibles = LANGUES_CIBLES as readonly string[];
+    for (const entree of ["", "  ", "Total", "Unknown", "ZZ", "123", "MX", "BR", "Mexico"]) {
       const r = langueDepuisPays(entree);
-      expect(r === null || /^[a-z]{2}$/.test(r), entree).toBe(true);
+      expect(r === null || cibles.includes(r), entree).toBe(true);
     }
   });
 });

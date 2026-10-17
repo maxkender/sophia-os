@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o001",
+ "schema_id": "mentir-entretien",
+ "titre": "les trucs sur lesquels tu dois mentir en entretien (enfin… presque) #rechercheemploi #emploi #entretien #cv #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9"
+ ],
+ "notes": "Pilote du pod 5 (écrit à la mise en place). Schéma mentir-entretien : 479 k vues le 17/09 chez @careerswemma, 270 k vues chez nous (ru), r 2,93 sur 81f87361. Accroches écrites : « les trucs sur lesquels tu DOIS MENTIR en entretien (enfin… presque) » (retenue : le gabarit gagnant, et « presque » annonce qu'on recadre sans inventer), « les questions d'entretien où la vérité brute te coule » (écartée : plus faible, perd le mot MENTIR), « 6 phrases à dire en entretien même si c'est pas 100 % vrai » (écartée : plus longue). Six questions neuves (aucune reprise des items de la source : départ, autres process, salaire, trou dans le cv, outil, points faibles), réponses RECADRÉES, jamais inventées. Sophia en 5 sur l'item « j'apprends un truc chaque jour ». Mise en page : celle du post à 479 k (question, « tu réponds », la phrase, le pourquoi). Slide d'inspiration de la position 5 : la 6 de la source (sa slide 5 montre TurboResume écrit dans l'image).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a5a1e299",
+   "texte_overlay": "les trucs sur lesquels\ntu DOIS MENTIR en entretien\n(enfin… presque)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0cd3fd81",
+   "texte_overlay": "1\n« parlez-moi de vous »\ntu réponds\n« je fais X, je suis fière de Y, et ce poste m'attire pour Z »\npas ton cv récité. trois phrases, et tu finis sur eux",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6a71eaa7",
+   "texte_overlay": "2\n« où vous vous voyez dans 5 ans ? »\ntu réponds\n« ici, avec plus de responsabilités »\nmême si t'en as aucune idée. ils vérifient juste que tu pars pas dans 6 mois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5eb1d171",
+   "texte_overlay": "3\n« vous regardez d'autres offres ? »\ntu réponds\n« quelques-unes, mais c'est celle-ci qui me motive le plus »\njamais « non ». sinon t'as l'air moins demandée, et ta marge de négo fond",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "96dfee09",
+   "texte_overlay": "4\n« vous faites quoi en dehors du travail ? »\ntu réponds\n« j'apprends un truc nouveau chaque jour »\net c'est même pas un mensonge si tu le fais vraiment. 5 minutes par jour suffisent",
+   "texte_sophia": "4\n« vous faites quoi en dehors du travail ? »\ntu réponds\n« j'apprends un truc nouveau chaque jour »\net c'est même pas un mensonge : 5 minutes par jour sur l'appli Sophia, et t'as toujours un sujet pour briser la glace",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c6c5d68e",
+   "texte_overlay": "5\n« que pensez-vous de votre manager actuel ? »\ntu réponds\n« il m'a appris à être rigoureuse »\nmême s'il te rend folle. celle qui critique son chef actuel critiquera le prochain",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "e2a6ed0a",
+   "texte_overlay": "6\n« vous gérez bien la pression ? »\ntu réponds\n« oui, je priorise et je préviens tôt quand ça coince »\njamais « je stresse jamais ». personne n'y croit, et ça sonne appris par cœur",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "f4ba7932",
+   "texte_overlay": "c'est pas mentir, c'est traduire\nune amie rh me l'a dit : ils écoutent comment tu le dis, pas juste ce que tu dis\nenregistre-le avant ton prochain entretien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

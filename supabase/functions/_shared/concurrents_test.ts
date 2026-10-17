@@ -19,6 +19,23 @@ Deno.test("citeConcurrent : vent now / readup, pas « read up »", () => {
   assertEquals(citeConcurrent(null), false);
 });
 
+Deno.test("citeConcurrent : turboresume (label RH), pas « turbo » seul", () => {
+  assertEquals(citeConcurrent("mon cv racontait déjà ça : adapté à l'offre avec turboresume, le trou devient une compétence"), true);
+  assertEquals(citeConcurrent("TurboResume.ai\n\ncopie l'offre, il te génère le cv"), true);
+  assertEquals(citeConcurrent("j'ai collé l'annonce dans turbo resume"), true);
+  assertEquals(citeConcurrent("в turboresume я говорю с ним на одном языке"), true);
+  assertEquals(citeConcurrent("je bosse en mode turbo avant les entretiens"), false);
+  assertEquals(citeConcurrent("non disturbo mai il capo"), false);
+  assertEquals(citeConcurrent("my resume got me the interview"), false);
+});
+
+Deno.test("retirerConcurrent : turboresume retiré, le reste de la slide gardé", () => {
+  assertEquals(
+    retirerConcurrent("4\n« ce trou dans votre cv ? »\ntu réponds\n« un projet perso et une formation »\nmon cv racontait déjà ça : adapté à l'offre avec turboresume, le trou devient une compétence"),
+    "4\n« ce trou dans votre cv ? »\ntu réponds\n« un projet perso et une formation »",
+  );
+});
+
 Deno.test("retirerConcurrent : retire la parenthèse, garde la phrase", () => {
   assertEquals(
     retirerConcurrent("3) kognitivno kartiranje\n\npo petih ne grem na nobeno aplikacijo (razen na vent now lol). zakaj bi gledal?"),
@@ -73,11 +90,12 @@ Deno.test("motif par application : Sophia (et inconnue) = le motif d'avant, Unsw
   assertStrictEquals(motifConcurrentApplication(undefined), MOTIF_CONCURRENT);
   assertStrictEquals(motifConcurrentApplication("autre"), MOTIF_CONCURRENT);
   assertStrictEquals(motifConcurrentApplication(" Unswipe "), MOTIF_CONCURRENT_UNSWIPE);
-  assertEquals(MOTIF_CONCURRENT.source, String.raw`\b(vent[\s-]?now|readup)\b`);
+  assertEquals(MOTIF_CONCURRENT.source, String.raw`\b(vent[\s-]?now|readup|turbo[\s-]?resume)\b`);
   assertEquals(MOTIF_CONCURRENT.flags, "i");
   // Les concurrents de Sophia le sont aussi d'Unswipe.
   assertEquals(citeConcurrent("the vent now app", UNSWIPE), true);
   assertEquals(citeConcurrent("i use ReadUp to block tiktok", UNSWIPE), true);
+  assertEquals(citeConcurrent("adapté avec turboresume", UNSWIPE), true);
 });
 
 Deno.test("Unswipe : les applis de temps d'écran sont reconnues", () => {

@@ -1,0 +1,385 @@
+{
+  "maj_le": "2026-10-15",
+  "regle": "Un schéma n'est actif que s'il a une preuve valable aujourd'hui : un post de la niche à 200 k vues ou plus publié il y a 30 jours au plus, ou un contenu du label à r ≥ 2 (3 passages au moins, recalculé par l'OS au dépôt). Une accroche ne s'écrit que sur un schéma actif.",
+  "schemas": [
+    {
+      "id": "skills-20s",
+      "schema": "N skills/habits that'll make you dangerously <capable|attractive> in your 20s",
+      "exemples": [
+        "7 skills that'll make you dangerously capable in your 20s",
+        "7 habits that will make you dangerously attractive in your 20s"
+      ],
+      "pourquoi": "Le plus gros succès du mois (1,3 M vues, 9 % d'enregistrements) et S+ chez nous (r 5,59, jusqu'à 151 k). Une compétence concrète par slide, utile, qu'on enregistre.",
+      "inspiration_contenus": [
+        "2a9d2d47-9eb0-4122-bbba-49a09ba8a933",
+        "8f6a7e16-e8b6-4a9c-87e4-aa748bb0f708"
+      ],
+      "musiques": [
+        {
+          "titre": "0.5 (slowed)",
+          "url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737"
+        }
+      ],
+      "preuves": [
+        {
+          "type": "tiktok",
+          "url": "https://www.tiktok.com/@stonemag.co/video/7689427930929319176",
+          "vues": 1300000,
+          "enregistrements": 119907,
+          "publie_le": "2026-09-25",
+          "releve_le": "2026-10-15"
+        },
+        {
+          "type": "os",
+          "contenu_id": "2a9d2d47-9eb0-4122-bbba-49a09ba8a933",
+          "r_median": 5.59,
+          "publies": 8,
+          "releve_le": "2026-10-15"
+        },
+        {
+          "type": "os",
+          "contenu_id": "8f6a7e16-e8b6-4a9c-87e4-aa748bb0f708",
+          "r_median": 3.82,
+          "publies": 6,
+          "releve_le": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "unforgettable",
+      "schema": "Skills that will make you <unforgettable|magnetic|impossible to ignore>",
+      "exemples": [
+        "Skills that will make you unforgettable"
+      ],
+      "pourquoi": "444 k vues et 9 % d'enregistrements : des habitudes sociales précises (recommandations, prénoms, histoires en 30 s).",
+      "inspiration_contenus": [
+        "452e706f-c8ff-4405-8f96-fe0b6010f90a"
+      ],
+      "musiques": [
+        {
+          "titre": "cutting up",
+          "url": "https://www.tiktok.com/music/cutting-up-7509290619085522945"
+        }
+      ],
+      "preuves": [
+        {
+          "type": "tiktok",
+          "url": "https://www.tiktok.com/@stonemag.co/video/7689774214550686984",
+          "vues": 444100,
+          "enregistrements": 39065,
+          "publie_le": "2026-09-26",
+          "releve_le": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "stop-awkward",
+      "schema": "How to stop feeling <awkward around people> (and finally <relax>)",
+      "exemples": [
+        "How to stop feeling awkward around people (and finally relax)"
+      ],
+      "pourquoi": "412 k vues : un malaise précis, puis des consignes concrètes pour s'en sortir. r 3,24 chez nous.",
+      "inspiration_contenus": [
+        "ee79c00a-c7d9-4754-87bd-4c21798a3161"
+      ],
+      "musiques": [
+        {
+          "titre": "ENDO SMOKE",
+          "url": "https://www.tiktok.com/music/endo-smoke-7053758651309606914"
+        }
+      ],
+      "preuves": [
+        {
+          "type": "tiktok",
+          "url": "https://www.tiktok.com/@stonemag.co/video/7689885995193486600",
+          "vues": 411700,
+          "enregistrements": 28778,
+          "publie_le": "2026-09-26",
+          "releve_le": "2026-10-15"
+        },
+        {
+          "type": "os",
+          "contenu_id": "ee79c00a-c7d9-4754-87bd-4c21798a3161",
+          "r_median": 3.09,
+          "publies": 7,
+          "releve_le": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "social-hacks",
+      "schema": "N social hacks that feel like cheating",
+      "exemples": [
+        "7 Social Hacks That Feel Like Cheating"
+      ],
+      "pourquoi": "300 k vues en 4 jours (11/10) : des répliques toutes faites pour des situations du quotidien, avec une chute drôle.",
+      "inspiration_contenus": [
+        "2a9d2d47-9eb0-4122-bbba-49a09ba8a933"
+      ],
+      "musiques": [
+        {
+          "titre": "original sound",
+          "url": "https://www.tiktok.com/music/original-sound-7525666038534081293"
+        }
+      ],
+      "preuves": [
+        {
+          "type": "tiktok",
+          "url": "https://www.tiktok.com/@stonemag.co/video/7695465258047065351",
+          "vues": 299900,
+          "enregistrements": 16809,
+          "publie_le": "2026-10-11",
+          "releve_le": "2026-10-15"
+        },
+        {
+          "type": "tiktok",
+          "url": "https://www.tiktok.com/@stonemag.co/video/7695465258047065351",
+          "vues": 302600,
+          "enregistrements": 16958,
+          "publie_le": "2026-10-11",
+          "releve_le": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "quietly",
+      "schema": "Things that make you quietly <sophisticated|confident|attractive>",
+      "exemples": [
+        "Things That Make You Quietly Sophisticated"
+      ],
+      "pourquoi": "239 k vues (02/10) : du raffinement discret et concret (devenir un habitué, présenter les gens, garder des choses privées).",
+      "inspiration_contenus": [
+        "452e706f-c8ff-4405-8f96-fe0b6010f90a"
+      ],
+      "musiques": [
+        {
+          "titre": "original sound",
+          "url": "https://www.tiktok.com/music/original-sound-7636558659853536016"
+        }
+      ],
+      "preuves": [
+        {
+          "type": "tiktok",
+          "url": "https://www.tiktok.com/@stonemag.co/video/7692120508057406738",
+          "vues": 239300,
+          "enregistrements": 11844,
+          "publie_le": "2026-10-02",
+          "releve_le": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "talking-women",
+      "schema": "Things that make you surprisingly good at <talking to women> / How to never run out of things to say with a girl",
+      "exemples": [
+        "Things that make you surprisingly good at talking to women",
+        "How to instantly become more noticeable to girls",
+        "How to never run out of things to say with a girl"
+      ],
+      "pourquoi": "Le meilleur r chez nous (6,50, 6,22, 4,10) et 217 k vues sur TikTok. Toujours RESPECTUEUX : être curieux, écouter, avoir de la conversation. Jamais de manipulation.",
+      "inspiration_contenus": [
+        "51759eba-2baa-40c2-90dc-2ab9d65273db",
+        "114f61ce-f972-4879-b886-01694a747522",
+        "409a91e1-6766-4163-afbd-e39949f78261"
+      ],
+      "musiques": [
+        {
+          "titre": "Intro Reborn - Krisengebeat Remix",
+          "url": "https://www.tiktok.com/music/intro-reborn-krisengebeat-remix-7670375330235140113"
+        }
+      ],
+      "preuves": [
+        {
+          "type": "tiktok",
+          "url": "https://www.tiktok.com/@stonemag.co/video/7687926438485511431",
+          "vues": 216800,
+          "enregistrements": 10094,
+          "publie_le": "2026-09-21",
+          "releve_le": "2026-10-15"
+        },
+        {
+          "type": "os",
+          "contenu_id": "51759eba-2baa-40c2-90dc-2ab9d65273db",
+          "r_median": 6.77,
+          "publies": 4,
+          "releve_le": "2026-10-15"
+        },
+        {
+          "type": "os",
+          "contenu_id": "114f61ce-f972-4879-b886-01694a747522",
+          "r_median": null,
+          "publies": 2,
+          "releve_le": "2026-10-15"
+        },
+        {
+          "type": "os",
+          "contenu_id": "409a91e1-6766-4163-afbd-e39949f78261",
+          "r_median": 4.05,
+          "publies": 5,
+          "releve_le": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "respect",
+      "schema": "How to make people respect you instantly <without raising your voice> / N behaviors that make you intimidating",
+      "exemples": [
+        "How to make people respect you without raising your voice",
+        "4 subtle body language details that make you intimidating"
+      ],
+      "pourquoi": "La veine « respect et présence » de @supermaxing marche chez nous (r 3,03 à 3,83). Rester du côté de la maîtrise de soi, jamais de la manipulation des autres.",
+      "inspiration_contenus": [
+        "35ee3b67-4a34-44e5-bd97-bc66a82764dd",
+        "7ecc8796-4f49-4b3e-abbc-3a111dee2030",
+        "5d42b2c3-cb27-427a-b7fa-0397ca7f68c9",
+        "4b1c178e-a684-4cde-878a-208022731b43"
+      ],
+      "musiques": [],
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "7ecc8796-4f49-4b3e-abbc-3a111dee2030",
+          "r_median": 3.76,
+          "publies": 6,
+          "releve_le": "2026-10-15"
+        },
+        {
+          "type": "os",
+          "contenu_id": "5d42b2c3-cb27-427a-b7fa-0397ca7f68c9",
+          "r_median": 3.53,
+          "publies": 6,
+          "releve_le": "2026-10-15"
+        },
+        {
+          "type": "os",
+          "contenu_id": "4b1c178e-a684-4cde-878a-208022731b43",
+          "r_median": 3.11,
+          "publies": 6,
+          "releve_le": "2026-10-15"
+        },
+        {
+          "type": "os",
+          "contenu_id": "35ee3b67-4a34-44e5-bd97-bc66a82764dd",
+          "r_median": 3,
+          "publies": 6,
+          "releve_le": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "japanese-habits",
+      "schema": "N japanese habits I use to destroy laziness",
+      "exemples": [
+        "6 japanese habits I use to destroy laziness"
+      ],
+      "pourquoi": "r 3,37 sur 13 passages chez nous (1 M vues à la source, en mai). Format court à concepts (kaizen, ikigai) : à garder pour varier, pas en priorité.",
+      "inspiration_contenus": [
+        "5490f976-0b6e-404f-b6f1-ae7d41b7901e"
+      ],
+      "musiques": [],
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "5490f976-0b6e-404f-b6f1-ae7d41b7901e",
+          "r_median": 3.32,
+          "publies": 13,
+          "releve_le": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "unrecognisable",
+      "schema": "N ways to be unrecognisable in 6 months",
+      "exemples": [
+        "5 Ways To Be Unrecognisable In 6 Months"
+      ],
+      "pourquoi": "768 k vues et 5,2 % d'enregistrements le 29/09 chez @fathom0g (repris le 09/10 : 155 k). Promesse de transformation datée, une action concrète par slide. Format différent du label (vignettes YouTube, appli concurrente) : on garde l'accroche, pas le format. Éviter l'item « delete social media » (voir a_eviter, addiction au téléphone).",
+      "inspiration_contenus": [
+        "2a9d2d47-9eb0-4122-bbba-49a09ba8a933",
+        "8f6a7e16-e8b6-4a9c-87e4-aa748bb0f708"
+      ],
+      "musiques": [],
+      "preuves": [
+        {
+          "type": "tiktok",
+          "url": "https://www.tiktok.com/@fathom0g/video/7690948590805519638",
+          "vues": 767500,
+          "enregistrements": 39937,
+          "publie_le": "2026-09-29",
+          "releve_le": "2026-10-15"
+        }
+      ]
+    }
+  ],
+  "a_eviter": [
+    {
+      "schema": "how you <but vague> (reach your full potential, escape the average life, become more interesting, get your focus back)",
+      "pourquoi": "Les pires contenus du label chez nous (r 0,26 à 0,47), presque tous de @rockyjune00 : aucune promesse concrète, aucun enjeu social.",
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "d73d46e1-d329-431c-ba96-83e12f957ad6",
+          "r_median": 0.28,
+          "releve_le": "2026-10-15",
+          "publies": 5
+        },
+        {
+          "type": "os",
+          "contenu_id": "a186bf8f-9a90-4438-b3ee-e1a5e2b81c14",
+          "r_median": 0.36,
+          "releve_le": "2026-10-15",
+          "publies": 7
+        },
+        {
+          "type": "os",
+          "contenu_id": "3e9988c3-bd5e-48d8-95d9-c1948b920d59",
+          "r_median": 0.59,
+          "releve_le": "2026-10-15",
+          "publies": 6
+        },
+        {
+          "type": "os",
+          "contenu_id": "63d2a455-b017-452e-912c-1fc7c7548942",
+          "r_median": 0.46,
+          "releve_le": "2026-10-15",
+          "publies": 12
+        }
+      ]
+    },
+    {
+      "schema": "lifestyle contemplatif (make ordinary days feel special, the art of having a signature)",
+      "pourquoi": "2 900 vues chez @stonemag.co avec les mêmes photos que ses posts à 1,3 M : un texte d'essai, rien à appliquer, rien à enregistrer (1,4 à 2,6 % d'enregistrements).",
+      "preuves": [
+        {
+          "type": "tiktok",
+          "url": "https://www.tiktok.com/@stonemag.co/video/7687301197593627912",
+          "vues": 2934,
+          "enregistrements": 75,
+          "publie_le": "2026-09-19",
+          "releve_le": "2026-10-15"
+        },
+        {
+          "type": "tiktok",
+          "url": "https://www.tiktok.com/@stonemag.co/video/7686908673003638034",
+          "vues": 2938,
+          "enregistrements": 42,
+          "publie_le": "2026-09-18",
+          "releve_le": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "schema": "addiction au téléphone, « how to cure your phone addiction »",
+      "pourquoi": "r 0,26 : le pire contenu du label.",
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "d73d46e1-d329-431c-ba96-83e12f957ad6",
+          "r_median": 0.28,
+          "releve_le": "2026-10-15",
+          "publies": 5
+        }
+      ]
+    }
+  ]
+}

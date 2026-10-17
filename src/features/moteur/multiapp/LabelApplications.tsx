@@ -23,8 +23,9 @@ function messageErreur(err: unknown): string {
 
 /**
  * Applications servies par un label : une puce par application (cliquer
- * coche / décoche) et la réserve de chaque application servie. Pas d'angle
- * par label : le prompt de placement de l'application suffit.
+ * coche / décoche) et la réserve de chaque application servie. Les angles de
+ * placement d'une paire (page Angles de placement, table `angles_placement`)
+ * ne dépendent pas de cette ligne : décocher une application les garde.
  *
  * Un label sans ligne affiche Sophia servie (héritage) ; la première
  * modification écrit l'ensemble EXPLICITE complet, Sophia comprise. La

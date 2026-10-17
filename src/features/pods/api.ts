@@ -2,6 +2,7 @@
 
 import { supabase } from "@/lib/supabase/client";
 import { invoke } from "@/features/moteur/api";
+import { LANGUES_CIBLES } from "@/features/moteur/langues";
 
 export type StatutLivraison = "a_valider" | "validee" | "rejetee" | "ecartee_note";
 
@@ -16,6 +17,18 @@ export interface SlideLivraison {
   texte_sophia?: string | null;
   /** Original : slide TikTok d'inspiration, modèle de mise en page du poster. */
   reference_url?: string;
+}
+
+/** Pod 4 : une référence de la preuve, telle que vérifiée par l'OS au dépôt. */
+export type ReferencePreuve =
+  | { type: "tiktok"; url: string; vues: number; publie_le: string; enregistrements: number | null }
+  | { type: "os"; contenu_id: string; publies: number; r_median: number | null };
+
+/** Pod 4 : pourquoi cet original devrait faire des vues (schéma d'accroche et ses preuves). */
+export interface PreuveOriginal {
+  schema: string;
+  verifiee_le: string;
+  references: ReferencePreuve[];
 }
 
 export interface Livraison {
@@ -34,6 +47,11 @@ export interface Livraison {
   musique_titre: string | null;
   musique_url: string | null;
   decks: Record<string, { hashtags: string; slides: SlideLivraison[] }>;
+  /**
+   * Variantes par application autre que Sophia (0276), par langue. Label hors
+   * Sophia (pod 6, UnSwipe seul) : la seule version servie, tirée du deck déposé.
+   */
+  decks_applications?: Record<string, Record<string, { hashtags?: string; slides: SlideLivraison[] }>> | null;
   statut: StatutLivraison;
   motif: string | null;
   note_import: number | null;
@@ -41,10 +59,12 @@ export interface Livraison {
   contenu_id: string | null;
   created_at: string;
   decide_le: string | null;
+  /** Original d'un pod à preuve (pod 4) : rangée dans `transcription.preuve`. */
+  preuve?: PreuveOriginal | null;
 }
 
 const COLONNES =
-  "id, pod, type, source_url, source_vues, titre, langue_source, musique_titre, musique_url, decks, statut, motif, note_import, tier, contenu_id, created_at, decide_le";
+  "id, pod, type, source_url, source_vues, titre, langue_source, musique_titre, musique_url, decks, decks_applications, statut, motif, note_import, tier, contenu_id, created_at, decide_le, preuve:transcription->preuve";
 
 export interface Pod {
   slug: string;
@@ -112,6 +132,33 @@ export function languesOrdonnees(l: Pick<Livraison, "decks" | "langue_source">):
   return Object.keys(l.decks ?? {}).sort((a, b) =>
     a === l.langue_source ? -1 : b === l.langue_source ? 1 : a.localeCompare(b),
   );
+}
+
+const NOMS_APPLICATIONS: Record<string, string> = { sophia: "Sophia", unswipe: "UnSwipe", micabo: "micabo" };
+
+/** Nom affiché d'une application à partir de son slug. */
+export const nomApplication = (slug: string): string => NOMS_APPLICATIONS[slug] ?? slug;
+
+/**
+ * Versions montrables d'un deck dans une langue : le deck Sophia s'il porte la
+ * slide Sophia (ou s'il n'y a rien d'autre), puis chaque application livrée.
+ * Un pod hors Sophia (pod 6) n'a donc que sa version UnSwipe.
+ */
+export function variantesDeck(
+  l: Pick<Livraison, "decks" | "decks_applications">,
+  langue: string,
+): { cle: string; hashtags: string; slides: SlideLivraison[] }[] {
+  const base = l.decks?.[langue];
+  const apps = Object.entries(l.decks_applications ?? {}).filter(([, parLangue]) => parLangue?.[langue]?.slides?.length);
+  const sortie: { cle: string; hashtags: string; slides: SlideLivraison[] }[] = [];
+  if (base && (base.slides.some((s) => s.position_sophia) || !apps.length)) {
+    sortie.push({ cle: "sophia", hashtags: base.hashtags ?? "", slides: base.slides });
+  }
+  for (const [app, parLangue] of apps) {
+    const deck = parLangue[langue];
+    sortie.push({ cle: app, hashtags: deck.hashtags || base?.hashtags || "", slides: deck.slides });
+  }
+  return sortie;
 }
 
 // ---------------------------------------------------------------------------
@@ -186,8 +233,15 @@ export async function listerDemos(): Promise<DemoApp[]> {
 
 /** Démo Sophia d'une langue : la vidéo remplace la précédente (même chemin). */
 export async function enregistrerDemo(langue: string, fichier: File): Promise<void> {
-  const code = langue.trim().toLowerCase();
-  if (!/^[a-z]{2}$/.test(code)) throw new Error("langue : 2 lettres (fr, en, es…)");
+  // Deux pièges avec les variantes régionales : `pt-BR` ne passe pas un test
+  // « deux lettres », et le passer en minuscules donnerait `pt-br`, qui n'est
+  // la langue de personne et pointerait vers un autre chemin de stockage. On
+  // résout donc vers le code canonique de `LANGUES_CIBLES`.
+  const saisi = langue.trim();
+  const code = (LANGUES_CIBLES as readonly string[]).find(
+    (l) => l.toLowerCase() === saisi.toLowerCase(),
+  );
+  if (!code) throw new Error(`langue inconnue : « ${saisi} » (fr, en, es, pt-BR…)`);
   const chemin = `pods/demos/sophia/${code}.mp4`;
   const { error: upErr } = await supabase.storage.from("medias").upload(chemin, fichier, {
     contentType: fichier.type || "video/mp4",

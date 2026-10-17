@@ -62,7 +62,7 @@ export function minutesDepuisErreurPublication(erreur: unknown): number | null {
   return Number.isFinite(minutes) ? minutes : null;
 }
 
-function messageDErreur(erreur: unknown): string {
+export function messageDErreur(erreur: unknown): string {
   if (typeof erreur === "string") return erreur;
   if (erreur instanceof Error) return erreur.message;
   if (erreur && typeof erreur === "object") {

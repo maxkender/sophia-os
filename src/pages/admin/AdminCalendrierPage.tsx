@@ -24,7 +24,14 @@ import {
   type ModeleUpscale,
   type PostCalendrierAdmin,
 } from "@/features/moteur/api";
+import {
+  applicationDuPost,
+  postsParApplication,
+  resumeParApplication,
+} from "@/features/moteur/calendrierApplications";
 import { nomLangue } from "@/features/moteur/langues";
+import { nomApplicationPromue } from "@/features/moteur/repartition/logique";
+import { useApplicationsMulti } from "@/features/moteur/repartition/useMultiApp";
 import { AGENTS_UPSCALE, AGENTS_UPSCALE_SEEDVR, executerEnLot } from "@/lib/lot";
 import { cn } from "@/lib/utils";
 
@@ -51,6 +58,11 @@ export function AdminCalendrierPage() {
   const queryClient = useQueryClient();
   const [date, setDate] = React.useState(aujourdhui);
   const [filtreLangue, setFiltreLangue] = React.useState("");
+  // Application promue par les posts ("" = toutes) et tri de la grille.
+  const [filtreApp, setFiltreApp] = React.useState("");
+  const [tri, setTri] = React.useState<"createur" | "application">("createur");
+  const applications = useApplicationsMulti();
+  const apps = React.useMemo(() => applications.data ?? [], [applications.data]);
   const [modeleUpscale, setModeleUpscale] = React.useState<ModeleUpscale>("realesrgan");
   const [upscaleLot, setUpscaleLot] = React.useState<{ fait: number; total: number } | null>(
     null,
@@ -67,33 +79,65 @@ export function AdminCalendrierPage() {
     [posts],
   );
 
-  const duJour = React.useMemo(() => {
+  // Posts du jour dans la langue choisie, toutes applications : les puces
+  // d'application en donnent la répartition et servent de filtre.
+  const duJourToutesApps = React.useMemo(() => {
     let list = (posts ?? []).filter((p) => p.date_publication_prevue === date);
     if (filtreLangue) list = list.filter((p) => p.langue === filtreLangue);
     return list;
   }, [posts, date, filtreLangue]);
 
-  const parCreateur = React.useMemo(() => {
-    const map = new Map<string, PostCalendrierAdmin[]>();
-    for (const p of duJour) {
-      const list = map.get(p.compte_id) ?? [];
-      list.push(p);
-      map.set(p.compte_id, list);
-    }
-    return [...map.entries()]
-      .map(([compteId, postsCompte]) => ({
-        compteId,
-        posts: postsCompte,
-        nom: nomCreateur(postsCompte[0]!),
-        handle: postsCompte[0]?.handle_tiktok ?? null,
-        avatar: postsCompte[0]?.avatar_url ?? null,
-        langue: postsCompte[0]?.langue ?? null,
-        classement: postsCompte[0]?.classement ?? null,
-        postes: postsCompte.filter(estPoste).length,
-        vides: postsCompte.filter((p) => p.slideshow_vide && !estPoste(p)).length,
-      }))
-      .sort((a, b) => a.nom.localeCompare(b.nom, i18n.language));
-  }, [duJour, i18n.language]);
+  const resumeApps = React.useMemo(
+    () => resumeParApplication(duJourToutesApps, estPoste, apps),
+    [duJourToutesApps, apps],
+  );
+
+  const duJour = React.useMemo(
+    () =>
+      filtreApp
+        ? duJourToutesApps.filter((p) => applicationDuPost(p) === filtreApp)
+        : duJourToutesApps,
+    [duJourToutesApps, filtreApp],
+  );
+
+  const grouperParCreateur = React.useCallback(
+    (liste: PostCalendrierAdmin[]) => {
+      const map = new Map<string, PostCalendrierAdmin[]>();
+      for (const p of liste) {
+        const list = map.get(p.compte_id) ?? [];
+        list.push(p);
+        map.set(p.compte_id, list);
+      }
+      return [...map.entries()]
+        .map(([compteId, postsCompte]) => ({
+          compteId,
+          posts: postsCompte,
+          nom: nomCreateur(postsCompte[0]!),
+          handle: postsCompte[0]?.handle_tiktok ?? null,
+          avatar: postsCompte[0]?.avatar_url ?? null,
+          langue: postsCompte[0]?.langue ?? null,
+          classement: postsCompte[0]?.classement ?? null,
+          postes: postsCompte.filter(estPoste).length,
+          vides: postsCompte.filter((p) => p.slideshow_vide && !estPoste(p)).length,
+          applications: [...new Set(postsCompte.map(applicationDuPost))],
+        }))
+        .sort((a, b) => a.nom.localeCompare(b.nom, i18n.language));
+    },
+    [i18n.language],
+  );
+
+  const parCreateur = React.useMemo(() => grouperParCreateur(duJour), [grouperParCreateur, duJour]);
+
+  // Tri par application : une section par application, chaque créateur sous
+  // l'application de ses posts (dans chacune s'il en promeut plusieurs).
+  const parApplication = React.useMemo(
+    () =>
+      postsParApplication(duJour, estPoste, apps).map((g) => ({
+        ...g,
+        createurs: grouperParCreateur(g.posts),
+      })),
+    [duJour, apps, grouperParCreateur],
+  );
 
   const prevus = duJour.length;
   const postes = duJour.filter(estPoste).length;
@@ -204,6 +248,61 @@ export function AdminCalendrierPage() {
     void queryClient.invalidateQueries({ queryKey: ["medias-biblio"] });
   }
 
+  type GroupeCreateur = ReturnType<typeof grouperParCreateur>[number];
+  const carteCreateur = (groupe: GroupeCreateur) => {
+    const complet = groupe.postes === groupe.posts.length;
+    return (
+      <Link
+        key={groupe.compteId}
+        to={`/admin/createurs/${groupe.compteId}?date=${date}`}
+        className={cn(
+          "group flex flex-col gap-3 rounded-xl border bg-card p-3 transition-colors",
+          "hover:border-foreground/20 hover:bg-muted/40",
+          groupe.vides > 0 && "border-destructive/50 bg-destructive/5",
+        )}
+      >
+        <div className="flex items-start gap-2.5">
+          <div className="size-11 shrink-0 overflow-hidden rounded-full bg-muted">
+            {groupe.avatar ? (
+              <img src={groupe.avatar} alt="" className="size-full object-cover" />
+            ) : null}
+          </div>
+          <div className="min-w-0 flex-1">
+            <p className="truncate text-sm font-medium leading-tight group-hover:underline">
+              {groupe.nom}
+            </p>
+            <p className="truncate text-xs text-muted-foreground">
+              {groupe.handle ? `@${groupe.handle}` : "—"}
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-auto flex flex-wrap items-center gap-1.5">
+          <Badge variant={complet ? "success" : "warning"}>
+            {t("adminCal.faitSur", { faits: groupe.postes, total: groupe.posts.length })}
+          </Badge>
+          {groupe.vides > 0 && (
+            <Badge variant="destructive" title={t("adminCal.slideshowVideAide")}>
+              {t("adminCal.slideshowVide")}
+              {groupe.vides > 1 ? ` ×${groupe.vides}` : ""}
+            </Badge>
+          )}
+          {groupe.classement && (
+            <BadgeClassement classement={groupe.classement} size="sm" />
+          )}
+          {groupe.langue && (
+            <Badge variant="outline">{groupe.langue.toUpperCase()}</Badge>
+          )}
+          {groupe.applications.map((id) => (
+            <Badge key={id} variant="secondary">
+              {nomApplicationPromue(id, apps)}
+            </Badge>
+          ))}
+        </div>
+      </Link>
+    );
+  };
+
   return (
     <div className="space-y-6">
       <Card>
@@ -307,7 +406,68 @@ export function AdminCalendrierPage() {
                 </select>
               </div>
             )}
+            <div className="space-y-1">
+              <label className="text-xs font-medium text-muted-foreground" htmlFor="cal-tri">
+                {t("adminCal.trierPar")}
+              </label>
+              <select
+                id="cal-tri"
+                value={tri}
+                onChange={(e) => setTri(e.target.value === "application" ? "application" : "createur")}
+                className="flex h-9 w-44 rounded-md border border-input bg-background px-2 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+              >
+                <option value="createur">{t("adminCal.triCreateur")}</option>
+                <option value="application">{t("adminCal.triApplication")}</option>
+              </select>
+            </div>
           </div>
+
+          {resumeApps.length > 0 && (
+            <div
+              role="group"
+              aria-label={t("adminCal.filtreApp")}
+              className="flex flex-wrap items-center gap-1.5"
+            >
+              <span className="text-xs font-medium text-muted-foreground">
+                {t("adminCal.filtreApp")}
+              </span>
+              <button
+                type="button"
+                aria-pressed={!filtreApp}
+                onClick={() => setFiltreApp("")}
+                className={
+                  !filtreApp
+                    ? "rounded-full bg-primary px-2.5 py-1 text-xs font-medium text-primary-foreground"
+                    : "rounded-full border px-2.5 py-1 text-xs hover:bg-muted"
+                }
+              >
+                {t("adminCal.toutesApps")}{" "}
+                <span className="ml-1 tabular-nums opacity-70">{duJourToutesApps.length}</span>
+              </button>
+              {resumeApps.map((r) => {
+                const actif = filtreApp === r.applicationId;
+                return (
+                  <button
+                    key={r.applicationId}
+                    type="button"
+                    aria-pressed={actif}
+                    onClick={() => setFiltreApp(actif ? "" : r.applicationId)}
+                    title={t("adminCal.resumeApp", { prevus: r.prevus, postes: r.postes })}
+                    className={
+                      actif
+                        ? "rounded-full bg-primary px-2.5 py-1 text-xs font-medium text-primary-foreground"
+                        : "rounded-full border px-2.5 py-1 text-xs hover:bg-muted"
+                    }
+                  >
+                    {r.nom}{" "}
+                    <span className="ml-1 tabular-nums opacity-70">
+                      {r.postes}/{r.prevus}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          )}
 
           <p className="text-sm capitalize text-muted-foreground">{labelDate}</p>
 
@@ -367,56 +527,29 @@ export function AdminCalendrierPage() {
       {isPending && <p className="text-sm text-muted-foreground">{t("common.loading")}</p>}
       {!isPending && parCreateur.length === 0 && <EmptyState title={t("adminCal.videJour")} />}
 
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-        {parCreateur.map((groupe) => {
-          const complet = groupe.postes === groupe.posts.length;
-          return (
-            <Link
-              key={groupe.compteId}
-              to={`/admin/createurs/${groupe.compteId}?date=${date}`}
-              className={cn(
-                "group flex flex-col gap-3 rounded-xl border bg-card p-3 transition-colors",
-                "hover:border-foreground/20 hover:bg-muted/40",
-                groupe.vides > 0 && "border-destructive/50 bg-destructive/5",
-              )}
-            >
-              <div className="flex items-start gap-2.5">
-                <div className="size-11 shrink-0 overflow-hidden rounded-full bg-muted">
-                  {groupe.avatar ? (
-                    <img src={groupe.avatar} alt="" className="size-full object-cover" />
-                  ) : null}
-                </div>
-                <div className="min-w-0 flex-1">
-                  <p className="truncate text-sm font-medium leading-tight group-hover:underline">
-                    {groupe.nom}
-                  </p>
-                  <p className="truncate text-xs text-muted-foreground">
-                    {groupe.handle ? `@${groupe.handle}` : "—"}
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-auto flex flex-wrap items-center gap-1.5">
-                <Badge variant={complet ? "success" : "warning"}>
-                  {t("adminCal.faitSur", { faits: groupe.postes, total: groupe.posts.length })}
-                </Badge>
-                {groupe.vides > 0 && (
-                  <Badge variant="destructive" title={t("adminCal.slideshowVideAide")}>
-                    {t("adminCal.slideshowVide")}
-                    {groupe.vides > 1 ? ` ×${groupe.vides}` : ""}
-                  </Badge>
-                )}
-                {groupe.classement && (
-                  <BadgeClassement classement={groupe.classement} size="sm" />
-                )}
-                {groupe.langue && (
-                  <Badge variant="outline">{groupe.langue.toUpperCase()}</Badge>
-                )}
-              </div>
-            </Link>
-          );
-        })}
-      </div>
+      {tri === "application" ? (
+        parApplication.map((section) => (
+          <section key={section.applicationId} className="space-y-3">
+            <div className="flex flex-wrap items-baseline gap-2 border-b pb-1.5">
+              <h2 className="text-base font-semibold">{section.nom}</h2>
+              <span className="text-xs tabular-nums text-muted-foreground">
+                {t("adminCal.resumeSection", {
+                  createurs: section.createurs.length,
+                  prevus: section.prevus,
+                  postes: section.postes,
+                })}
+              </span>
+            </div>
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+              {section.createurs.map(carteCreateur)}
+            </div>
+          </section>
+        ))
+      ) : (
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+          {parCreateur.map(carteCreateur)}
+        </div>
+      )}
     </div>
   );
 }

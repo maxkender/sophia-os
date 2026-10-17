@@ -65,10 +65,12 @@ const ALIAS: Record<string, readonly string[]> = {
   "south korea": ["South Korea"],
   korea: ["South Korea"],
   russie: ["Russia"],
-  // Les créateurs russophones : pas un pays, les trois grands pays russophones.
-  "russian speaking": ["Russia", "Belarus", "Kazakhstan"],
-  russophone: ["Russia", "Belarus", "Kazakhstan"],
-  russophones: ["Russia", "Belarus", "Kazakhstan"],
+  // Les créateurs russophones : pas un pays, et surtout pas la Russie (la ligne
+  // Notion disait « not russia »). Kazakhstan, Ukraine, Biélorussie, comme les
+  // trois lignes de Recruitment Targets et le job Hired (_shared/notion.ts).
+  "russian speaking": ["Kazakhstan", "Ukraine", "Belarus"],
+  russophone: ["Kazakhstan", "Ukraine", "Belarus"],
+  russophones: ["Kazakhstan", "Ukraine", "Belarus"],
 };
 
 /** Minuscules, sans accents ni ponctuation : « Russian-speaking » → « russian speaking ». */

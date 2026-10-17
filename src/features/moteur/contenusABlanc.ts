@@ -2,8 +2,9 @@
  * Test à blanc « contenus » — types et aides PURES (testées par vitest).
  *
  * Miroir de `ResultatContenusABlanc` (supabase/functions/_shared/a_blanc_contenus.ts) :
- * la notation d'une application autre que Sophia (calcul du rattrapage) puis
- * son placement, sur 1 à 3 slideshows, sans rien enregistrer.
+ * la notation d'une application (calcul du rattrapage ; pas pour Sophia) puis
+ * son placement — référence et un placement par angle en test du label — sur
+ * 1 à 3 slideshows, sans rien enregistrer.
  */
 
 import type { MotifBlocageABlanc, OperationABlanc } from "./assignationABlanc";
@@ -48,8 +49,22 @@ export interface DeckTesteABlanc {
   mode: string | null;
   variantes: string[];
   varianteRetenue: number | null;
+  /** Angle de placement ajouté au prompt ; null = sans angle. */
+  angle?: string | null;
   hashtags: string | null;
   appelsIA: { autorises: number; bloques: number };
+}
+
+/** Un placement du comparatif d'angles d'un contenu. */
+export interface AngleTesteABlanc {
+  /** `reference` : ce que ferait la nuit (angle actif, ou sans angle) ; `test` : un angle en test. */
+  source: "reference" | "test";
+  /** Id de l'angle en test ; null pour la référence. */
+  angleId: string | null;
+  /** Angle ajouté au prompt ; null = sans angle. */
+  angle: string | null;
+  deck: DeckTesteABlanc | null;
+  erreur?: string;
 }
 
 export interface ContenuTesteABlanc {
@@ -63,7 +78,12 @@ export interface ContenuTesteABlanc {
   pisteSource: number | null;
   avertissements: string[];
   pertinence: PertinenceTesteeABlanc | null;
+  /** Deck de la RÉFÉRENCE (= `angles[0].deck`). */
   deck: DeckTesteABlanc | null;
+  /** Référence puis un placement par angle en test (absent : ancienne réponse). */
+  angles?: AngleTesteABlanc[];
+  /** Angles en test au-delà du maximum, non testés. */
+  anglesNonTestes?: number;
   erreur?: string;
   dureeMs: number;
 }
@@ -81,6 +101,8 @@ export interface ContenusABlancResultat {
     placement: { cle: string; present: boolean };
   } | null;
   scoring: { seuil: number; plancher: number; poidsVues: number; poidsSource: number } | null;
+  /** Notation testée : false pour Sophia (placement seul). Absent : true. */
+  notation?: boolean;
   contenus: ContenuTesteABlanc[];
   ecrituresEvitees: Array<{ table: string; operation: OperationABlanc; requetes: number; lignes: number | null }>;
   appelsBloques: Array<{ hote: string; motif: MotifBlocageABlanc; nombre: number }>;

@@ -4,12 +4,19 @@ import { LANGUES_CIBLES } from "@/features/moteur/langues";
 import {
   estCompteSlideshowAssigne,
   isoBornesJourParis,
+  liensDesAutresPosts,
   normaliserRemarquesReview,
   normaliserVideosReview,
   type CompteRemarque,
   type ReviewRemarqueUtilisee,
   type ReviewVideo,
 } from "@/features/reviews/fileJour";
+import { normaliserRelecture, type RelectureAuto } from "@/features/reviews/relectureAgent";
+import {
+  normaliserAvis,
+  type AvisRelecture,
+  type VerdictAvis,
+} from "@/features/reviews/bancRelecture";
 import { extensionVideo } from "@/features/reviews/videoRemarque";
 import { normaliserZone, ZONE_LONGUEUR_MAX } from "@/features/hiring/zones";
 import { estRoleManager } from "@/features/auth/roles";
@@ -507,11 +514,14 @@ export async function creerCompteUgcVideo(input: {
   personaNom: string;
   handleTiktok: string;
   handleInstagram: string;
+  /** Voir `ajouterCompte` : uniquement quand la langue ne tranche pas. */
+  pays?: string;
 }): Promise<void> {
   const { error } = await supabase.from("comptes").insert({
     poster_id: input.posterId,
     type_compte: "perso",
     langue: input.langue,
+    ...(input.pays ? { pays: input.pays } : {}),
     persona_nom: input.personaNom.trim() || null,
     handle_tiktok: input.handleTiktok.trim().replace(/^@/, "") || null,
     handle_instagram: input.handleInstagram.trim().replace(/^@/, "") || null,
@@ -775,11 +785,49 @@ export async function listerReviews(): Promise<Review[]> {
 
 /** Reviews non encore vues du poster connecté (RLS ne renvoie que les siennes). */
 export async function mesReviewsNonVues(): Promise<Review[]> {
+  const moi = await idUtilisateur();
+  if (!moi) return [];
   const { data, error } = await supabase
     .from("reviews")
     .select(REVIEW_COLONNES)
+    // Filtre explicite : la RLS laisse l'admin tout lire, et l'admin passe
+    // aussi par l'espace créateur (relire un post de test). Sans lui, il
+    // recevait en pop-up les retours de tous les créateurs, et « Compris »
+    // les marquait lus à leur place.
+    .eq("poster_id", moi)
     .is("seen_at", null)
     .order("created_at", { ascending: true });
+  if (error) throw error;
+  return (data ?? []).map((r) => mapperReview(r as Review));
+}
+
+async function idUtilisateur(): Promise<string | null> {
+  const { data } = await supabase.auth.getUser();
+  return data.user?.id ?? null;
+}
+
+/** Tous les retours du créateur connecté, lus ou non, les plus récents d'abord (page « Mes retours »). */
+export async function mesReviews(): Promise<Review[]> {
+  const moi = await idUtilisateur();
+  if (!moi) return [];
+  const { data, error } = await supabase
+    .from("reviews")
+    .select(REVIEW_COLONNES)
+    .eq("poster_id", moi)
+    .order("created_at", { ascending: false })
+    .limit(200);
+  if (error) throw error;
+  return (data ?? []).map((r) => mapperReview(r as Review));
+}
+
+/** Derniers retours envoyés liés à un post, pour l'aperçu admin (Tests). */
+export async function listerReviewsExemples(limite = 25): Promise<Review[]> {
+  const { data, error } = await supabase
+    .from("reviews")
+    .select(REVIEW_COLONNES)
+    .not("publie_url", "is", null)
+    .order("created_at", { ascending: false })
+    .limit(limite);
   if (error) throw error;
   return (data ?? []).map((r) => mapperReview(r as Review));
 }
@@ -807,6 +855,8 @@ export interface PostFileReview {
   poster_prenom: string | null;
   poster_nom: string | null;
   langue: string | null;
+  /** Liens des autres posts du même compte ce jour-là (reviewés compris) : repérer un TikTok collé deux fois. */
+  autres_liens: string[];
 }
 
 function sourceUrlDepuisSujet(row: {
@@ -891,6 +941,8 @@ export async function listerFileReviewsJour(opts?: {
     }
   }
 
+  // Sur tous les posts du jour, reviewés compris : le doublon peut être déjà traité.
+  const autresLiens = liensDesAutresPosts(rows);
   return rows
     .filter((p) => {
       if (vus.has(p.id)) return false;
@@ -917,6 +969,7 @@ export async function listerFileReviewsJour(opts?: {
         poster_prenom: profil?.prenom ?? null,
         poster_nom: profil?.nom ?? null,
         langue: p.comptes?.langue ?? null,
+        autres_liens: autresLiens.get(p.id) ?? [],
       };
     });
 }
@@ -928,6 +981,164 @@ export async function passerPostReview(postId: string): Promise<void> {
     post_id: postId,
     admin_id: auth.user?.id ?? null,
   });
+  if (error) throw error;
+}
+
+/**
+ * Relectures automatiques des posts de la file (`relectures_auto`, écrites par
+ * le cron de 3 h sur les posts de la veille) : `{ post_id → relecture }`.
+ */
+export async function listerRelecturesAuto(
+  postIds: string[],
+): Promise<Record<string, RelectureAuto>> {
+  const ids = [...new Set(postIds.filter(Boolean))];
+  const out: Record<string, RelectureAuto> = {};
+  const chunk = 80;
+  for (let i = 0; i < ids.length; i += chunk) {
+    const { data, error } = await supabase
+      .from("relectures_auto")
+      .select("post_id, statut, defauts, brouillon, remarques, erreur, vues")
+      .in("post_id", ids.slice(i, i + chunk));
+    if (error) throw error;
+    for (const row of data ?? []) {
+      const r = normaliserRelecture(row as Record<string, unknown>);
+      if (r) out[r.post_id] = r;
+    }
+  }
+  return out;
+}
+
+/**
+ * Fait relire ce post par l'agent tout de suite (bouton « Tester » de la file).
+ * Un appel avance la relecture aussi loin qu'il peut (scrape, puis mesure) ;
+ * tant que `statut` n'est pas final, il faut rappeler.
+ */
+export async function testerRelecture(postId: string): Promise<RelectureAuto> {
+  const { relecture } = await invoke<{ relecture: Record<string, unknown> }>("relecture-auto", {
+    relire: { post_id: postId },
+  });
+  const r = normaliserRelecture(relecture ?? {});
+  if (!r) throw new Error("Réponse de l'agent illisible");
+  return r;
+}
+
+/** Une relecture vue du banc d'essai : le post, ses deux TikToks, le verdict de l'agent. */
+export interface RelectureBanc extends RelectureAuto {
+  id: string;
+  jour: string;
+  origine: "cron" | "test";
+  publie_url: string;
+  source_url: string | null;
+  handle_tiktok: string | null;
+  persona_nom: string | null;
+  langue: string | null;
+  analyse_at: string | null;
+}
+
+/** Les jours qui ont des relectures de l'agent, le plus récent d'abord. */
+export async function listerJoursRelecture(): Promise<string[]> {
+  const { data, error } = await supabase
+    .from("relectures_auto")
+    .select("jour")
+    .order("jour", { ascending: false })
+    .limit(2000);
+  if (error) throw error;
+  return [...new Set((data ?? []).map((r) => r.jour as string).filter(Boolean))];
+}
+
+/** Toutes les relectures d'un jour de publication (lot de test et cron), dans l'ordre d'arrivée. */
+export async function listerRelecturesBanc(jour: string): Promise<RelectureBanc[]> {
+  const { data, error } = await supabase
+    .from("relectures_auto")
+    .select(
+      "id, post_id, jour, origine, publie_url, statut, defauts, brouillon, remarques, erreur, vues, analyse_at, created_at, " +
+        "passages(contenus(source_url)), comptes(handle_tiktok, persona_nom, langue)",
+    )
+    .eq("jour", jour)
+    .order("created_at", { ascending: true })
+    .order("id", { ascending: true });
+  if (error) throw error;
+  const out: RelectureBanc[] = [];
+  for (const row of (data ?? []) as unknown as Record<string, unknown>[]) {
+    const base = normaliserRelecture(row);
+    if (!base) continue;
+    const passage = (Array.isArray(row.passages) ? row.passages[0] : row.passages) as
+      | { contenus?: { source_url?: string | null } | { source_url?: string | null }[] | null }
+      | null
+      | undefined;
+    const compte = (Array.isArray(row.comptes) ? row.comptes[0] : row.comptes) as
+      | { handle_tiktok?: string | null; persona_nom?: string | null; langue?: string | null }
+      | null
+      | undefined;
+    out.push({
+      ...base,
+      id: row.id as string,
+      jour: row.jour as string,
+      origine: row.origine === "cron" ? "cron" : "test",
+      publie_url: (row.publie_url as string) ?? "",
+      source_url: passage ? sourceUrlDepuisContenu(passage) : null,
+      handle_tiktok: compte?.handle_tiktok ?? null,
+      persona_nom: compte?.persona_nom ?? null,
+      langue: compte?.langue ?? null,
+      analyse_at: (row.analyse_at as string | null) ?? null,
+    });
+  }
+  return out;
+}
+
+const AVIS_COLONNES = "id, relecture_id, cle, code, verdict, commentaire, detail";
+
+export async function listerAvisRelecture(relectureIds: string[]): Promise<AvisRelecture[]> {
+  const ids = [...new Set(relectureIds.filter(Boolean))];
+  const out: AvisRelecture[] = [];
+  const chunk = 80;
+  for (let i = 0; i < ids.length; i += chunk) {
+    const { data, error } = await supabase
+      .from("relecture_avis")
+      .select(AVIS_COLONNES)
+      .in("relecture_id", ids.slice(i, i + chunk));
+    if (error) throw error;
+    for (const row of data ?? []) {
+      const a = normaliserAvis(row as Record<string, unknown>);
+      if (a) out.push(a);
+    }
+  }
+  return out;
+}
+
+/** Pose (ou remplace) le jugement de l'admin sur un point d'une relecture. */
+export async function enregistrerAvisRelecture(input: {
+  relecture_id: string;
+  cle: string;
+  code: string;
+  verdict: VerdictAvis;
+  commentaire?: string | null;
+  detail?: string | null;
+}): Promise<AvisRelecture> {
+  const { data, error } = await supabase
+    .from("relecture_avis")
+    .upsert(
+      {
+        relecture_id: input.relecture_id,
+        cle: input.cle,
+        code: input.code,
+        verdict: input.verdict,
+        commentaire: input.commentaire?.trim() || null,
+        detail: input.detail?.trim() || null,
+        maj_at: new Date().toISOString(),
+      },
+      { onConflict: "relecture_id,cle" },
+    )
+    .select(AVIS_COLONNES)
+    .single();
+  if (error) throw error;
+  const avis = normaliserAvis(data as Record<string, unknown>);
+  if (!avis) throw new Error("Jugement illisible");
+  return avis;
+}
+
+export async function supprimerAvisRelecture(id: string): Promise<void> {
+  const { error } = await supabase.from("relecture_avis").delete().eq("id", id);
   if (error) throw error;
 }
 
@@ -1210,6 +1421,13 @@ export function ajouterCompte(input: {
   tiktok_2fa_note?: string;
   notes_hm?: string;
   persona_nom?: string;
+  /**
+   * Marché du compte (ISO-3166-1 alpha-2). À n'envoyer que quand la langue ne
+   * le désigne pas (en, ar, es-419, ru) : sinon le trigger
+   * `comptes_pays_defaut` le déduit, et deux sources de vérité finissent par
+   * diverger. Voir paysAEnvoyer() dans ChampPaysCompte.
+   */
+  pays?: string;
 } & OptionsApplicationsCompte) {
   return invoke<{
     ok: boolean;
@@ -1229,6 +1447,7 @@ export function ajouterCompte(input: {
     tiktok_2fa_note: input.tiktok_2fa_note ?? "",
     notes_hm: input.notes_hm ?? "",
     persona_nom: input.persona_nom ?? "",
+    ...(input.pays ? { pays: input.pays } : {}),
     ...corpsApplicationsCompte(input),
   });
 }
@@ -1397,6 +1616,8 @@ export function creerPoster(input: {
   tiktok_email?: string;
   tiktok_password?: string;
   tiktok_2fa_note?: string;
+  /** Voir `ajouterCompte` : uniquement quand la langue ne tranche pas. */
+  pays?: string;
 } & OptionsApplicationsCompte) {
   return invoke<{
     userId: string;
@@ -1425,6 +1646,7 @@ export function creerPoster(input: {
     tiktok_email: input.tiktok_email ?? "",
     tiktok_password: input.tiktok_password ?? "",
     tiktok_2fa_note: input.tiktok_2fa_note ?? "",
+    ...(input.pays ? { pays: input.pays } : {}),
     ...corpsApplicationsCompte(input),
   });
 }
@@ -1663,13 +1885,14 @@ export async function majDocument(
   if (error) throw error;
 }
 
+/** Suppression définitive, historique compris : admin et Head of Ops seulement. */
 export function supprimerPoster(userId: string) {
   return invoke("manage-users", { action: "delete", userId });
 }
 
-export async function majPoster(id: string, patch: { is_active?: boolean }): Promise<void> {
-  const { error } = await supabase.from("profiles").update(patch).eq("id", id);
-  if (error) throw error;
+/** Désactive (ou réactive) un créateur ET ses comptes : désactivé, il ne reçoit plus de posts. */
+export function activerPoster(userId: string, actif: boolean) {
+  return invoke("manage-users", { action: "activer", userId, actif });
 }
 
 // --- Bibliothèque -----------------------------------------------------------
@@ -2443,6 +2666,8 @@ export interface PostCalendrierAdmin {
   nb_media: number;
   /** Aucune slide, ou aucune image — inutilisable pour le poster. */
   slideshow_vide: boolean;
+  /** Application promue par le post (0256) ; null = Sophia (post d'avant). */
+  application_id: string | null;
 }
 
 /** Médias uniques liés aux slides des posts prévus un jour (planning). */
@@ -2492,7 +2717,7 @@ export async function postsCalendrierAdmin(): Promise<PostCalendrierAdmin[]> {
   const { data, error } = await supabase
     .from("posts")
     .select(
-      "id, compte_id, date_publication_prevue, type, statut, pipeline_statut, publie_at, publie_url, " +
+      "id, compte_id, date_publication_prevue, type, statut, pipeline_statut, publie_at, publie_url, application_id, " +
         "sujets(titre), comptes(handle_tiktok, persona_nom, avatar_url, langue, classement, ugc_ai, ugc_ai_video, profiles(prenom, nom))",
     )
     .eq("est_test", false)
@@ -2548,6 +2773,7 @@ export async function postsCalendrierAdmin(): Promise<PostCalendrierAdmin[]> {
       nb_slides: counts.nb,
       nb_media: counts.media,
       slideshow_vide,
+      application_id: (p.application_id as string | null) ?? null,
     };
   });
 }
@@ -4845,10 +5071,11 @@ export async function lancerAssignationABlanc(
 }
 
 /**
- * Test à blanc « contenus » : la notation (calcul du rattrapage) puis le
- * placement d'une application autre que Sophia, sur 1 à 3 slideshows. IA
- * toujours utilisée, rien n'est enregistré. `langue` absente : langue source
- * de chaque slideshow.
+ * Test à blanc « contenus » : la notation (calcul du rattrapage ; pas pour
+ * Sophia) puis le placement d'une application, sur 1 à 3 slideshows : la
+ * référence (angle actif du label, ou sans angle) et un placement par angle
+ * en test du label, pour comparer. IA toujours utilisée, rien n'est
+ * enregistré. `langue` absente : langue source de chaque slideshow.
  */
 export async function lancerContenusABlanc(
   applicationId: string,
@@ -4857,7 +5084,12 @@ export async function lancerContenusABlanc(
   onLog?: (ligne: AssignationABlancLog) => void,
 ): Promise<ContenusABlancResultat> {
   const fin = await posterFluxABlanc(
-    { mode: "contenus", applicationId, contenuIds, ...(langue ? { langue } : {}) },
+    {
+      mode: "contenus",
+      applicationId,
+      contenuIds,
+      ...(langue ? { langue } : {}),
+    },
     onLog,
   );
   return fin.resultat as ContenusABlancResultat;
@@ -5515,14 +5747,18 @@ export async function dernierPostCompteJour(
   compteId: string,
   date: string,
   exclureId?: string,
+  /** Créé à partir de cet instant seulement : sans ça, l'AUTRE créneau du jour passait pour le remplaçant. */
+  depuis?: string,
 ): Promise<string | null> {
-  const { data, error } = await supabase
+  let query = supabase
     .from("posts")
     .select("id")
     .eq("compte_id", compteId)
     .eq("date_publication_prevue", date)
     .eq("est_test", false)
-    .eq("pipeline_statut", "done")
+    .eq("pipeline_statut", "done");
+  if (depuis) query = query.gte("created_at", depuis);
+  const { data, error } = await query
     .order("created_at", { ascending: false })
     .limit(5);
   if (error) throw error;

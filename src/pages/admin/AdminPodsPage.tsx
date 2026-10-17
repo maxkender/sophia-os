@@ -19,10 +19,13 @@ import {
   POD_VIDEO,
   listerLivraisons,
   listerPods,
+  nomApplication,
   parPod,
   rejeterLivraison,
   validerLivraison,
+  variantesDeck,
   type Livraison,
+  type PreuveOriginal,
   type StatutLivraison,
 } from "@/features/pods/api";
 
@@ -37,7 +40,10 @@ function Deck({ livraison }: { livraison: Livraison }) {
   const { t } = useTranslation();
   const langues = languesOrdonnees(livraison);
   const [langue, setLangue] = React.useState(langues[0]);
-  const deck = livraison.decks[langue];
+  // Sophia et/ou les applications livrées (pod 6 : UnSwipe seul).
+  const variantes = variantesDeck(livraison, langue);
+  const [cle, setCle] = React.useState<string | null>(null);
+  const deck = variantes.find((v) => v.cle === cle) ?? variantes[0];
   return (
     <div className="space-y-2">
       {langues.length > 1 && (
@@ -45,6 +51,15 @@ function Deck({ livraison }: { livraison: Livraison }) {
           {langues.map((l) => (
             <Button key={l} size="sm" variant={l === langue ? "default" : "outline"} onClick={() => setLangue(l)}>
               {drapeauLangue(l)} {l}
+            </Button>
+          ))}
+        </div>
+      )}
+      {(variantes.length > 1 || (deck && deck.cle !== "sophia")) && (
+        <div className="flex flex-wrap gap-1">
+          {variantes.map((v) => (
+            <Button key={v.cle} size="sm" variant={v.cle === deck?.cle ? "secondary" : "ghost"} onClick={() => setCle(v.cle)}>
+              {nomApplication(v.cle)}
             </Button>
           ))}
         </div>
@@ -80,6 +95,45 @@ function Deck({ livraison }: { livraison: Livraison }) {
           <span className="font-medium text-foreground">{t("pods.legende")} :</span> {deck.hashtags}
         </p>
       )}
+    </div>
+  );
+}
+
+const nombreCourt = (n: number) =>
+  n >= 1_000_000 ? `${(n / 1_000_000).toFixed(1).replace(/\.0$/, "")} M` : n >= 1_000 ? `${Math.round(n / 1_000)} k` : String(n);
+
+/** Pod 4 : le schéma d'accroche et ce qui prouve qu'il fait des vues aujourd'hui. */
+function Preuve({ preuve }: { preuve: PreuveOriginal }) {
+  const { t } = useTranslation();
+  return (
+    <div className="space-y-1 rounded-lg border border-dashed p-2 text-xs">
+      <p>
+        <span className="font-medium">{t("pods.preuve")} :</span> {t("pods.preuveSchema", { schema: preuve.schema })}
+      </p>
+      <ul className="flex flex-wrap gap-x-3 gap-y-1 text-muted-foreground">
+        {preuve.references.map((r) =>
+          r.type === "tiktok" ? (
+            <li key={r.url}>
+              <a className="inline-flex items-center gap-1 underline" href={r.url} target="_blank" rel="noreferrer">
+                {t("pods.preuveTiktok", {
+                  vues: nombreCourt(r.vues),
+                  date: new Date(`${r.publie_le}T12:00:00Z`).toLocaleDateString(),
+                })}
+                <ExternalLink className="size-3" />
+              </a>
+              {r.enregistrements != null && ` · ${t("pods.preuveEnregistrements", { n: nombreCourt(r.enregistrements) })}`}
+            </li>
+          ) : (
+            <li key={r.contenu_id}>
+              {t("pods.preuveOs", {
+                r: r.r_median?.toLocaleString() ?? "—",
+                n: r.publies,
+                contenu: r.contenu_id.slice(0, 8),
+              })}
+            </li>
+          ),
+        )}
+      </ul>
     </div>
   );
 }
@@ -130,6 +184,8 @@ function LigneLivraison({ livraison }: { livraison: Livraison }) {
         </div>
         <Badge variant={varianteStatut(livraison.statut)}>{t(`pods.statut.${livraison.statut}`)}</Badge>
       </div>
+
+      {livraison.preuve && <Preuve preuve={livraison.preuve} />}
 
       {livraison.type === "video" ? <DeckVideo livraison={livraison} /> : <Deck livraison={livraison} />}
 

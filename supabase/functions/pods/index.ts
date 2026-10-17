@@ -14,6 +14,12 @@
  *       Mêmes positions que le deck Sophia de la langue, une seule slide de
  *       l'app (jamais la couverture), label du pod lié à l'application. Un
  *       post déjà validé peut ne recevoir QUE des decks d'application.
+ *       Label qui ne sert PAS Sophia (pod 6, UnSwipe seul) : un seul deck par
+ *       langue dans `decks`, la slide de l'application marquée `position_app`
+ *       (jamais la couverture), sans `decks_applications` : l'OS en tire la
+ *       variante de l'application. La validation note alors la pertinence
+ *       avec `pertinence_<app>`, laisse le rang Sophia à D / 0 et donne le
+ *       rang calculé à l'application.
  *
  *   { action: "deposer", type: "original", pod, source_id, titre,
  *     langue_source, musique_url?, musique_titre?, inspirations?, slides }
@@ -23,6 +29,11 @@
  *       (reference_url). Validé, il devient un contenu CLASSIQUE au rang
  *       TIER_ORIGINAL : images sans texte, texte à part, traduit et placé à
  *       l'assignation pour les autres langues.
+ *       Pods de PODS_AVEC_PREUVE (pod 4) : `preuve` obligatoire,
+ *         { schema, references: [{ type: "tiktok", url, vues, publie_le },
+ *                                { type: "os", contenu_id }] }
+ *       Il faut un post de la niche à 200 k vues ou plus publié dans les
+ *       30 derniers jours, ou un contenu du label à r ≥ 2 (recalculé ici).
  *
  *   { action: "label", pod, limite? }   — agent : contenus du label avec texte
  *       source, rang et vues chez nous (de quoi voir ce qui marche).
@@ -41,7 +52,8 @@
  *   { action: "rejeter", id, motif? }   — admin
  *
  *   { action: "etat", pod }   — agent du pod (lecture seule) : file, rangs et
- *       vues des contenus en ligne, comptes du label par langue.
+ *       vues des contenus en ligne (avec le r de chaque passage mûr), comptes
+ *       du label par langue.
  *
  * Redéposer un post en attente remplace ses langues redéposées. Déposer une
  * langue pour un post déjà validé crée une livraison « langues » (à valider)
@@ -54,10 +66,16 @@
 import { genererHashtagsSlideshow, scoreRelevance } from "../_shared/gemini.ts";
 import { eloParLangue, lireScoring } from "../_shared/import_contenu.ts";
 import {
+  applicationsHorsSophia,
   CHEMIN_POD,
+  decksApplicationDepuisBase,
   ecrireDecksApplications,
   estSlideApp,
   metadonneesJpeg,
+  PODS_AVEC_PREUVE,
+  PREUVE_JOURS_MAX,
+  PREUVE_R_MIN,
+  PREUVE_VUES_MIN,
   prochainJour,
   sha256Hex,
   TIER_ORIGINAL,
@@ -65,14 +83,17 @@ import {
   type ItemVideo,
   verifierDepot,
   verifierOriginal,
+  verifierPreuve,
   type DeckDepose,
   type DecksApplicationsDeposes,
   type DecksApplicationsLivres,
   type SlideAppLivree,
+  type SlideEnvoyee,
+  type PreuveOriginal,
   type SlideOriginale,
   verifierDecksApplications,
 } from "../_shared/pods.ts";
-import { ID_SOPHIA } from "../_shared/multi_app.ts";
+import { applicationsDuLabel, ID_SOPHIA } from "../_shared/multi_app.ts";
 import { lireParLots, lireTout } from "../_shared/lots.ts";
 import { assertRole, chargerPrompt, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 import { passagesPourTier, tierImport } from "../_shared/tierlist.ts";
@@ -154,6 +175,33 @@ async function legendeLocale(textes: string[], titre: string | null, langue: str
   return genere || repli.trim();
 }
 
+/**
+ * Application du label d'un pod quand ce label ne sert PAS Sophia (pod 6,
+ * label UnSwipe seul) : son id et son slug. `null` : le label sert Sophia, le
+ * cas de tous les pods d'avant (un label sans ligne sert Sophia). Un label hors
+ * Sophia qui sert plusieurs applications lève : un deck déposé ne porte qu'une
+ * pub.
+ */
+async function applicationHorsSophiaDuPod(
+  supabase: Supabase,
+  labelId: string | null,
+): Promise<{ id: string; slug: string } | null> {
+  if (!labelId) return null;
+  const { data: liens, error } = await supabase
+    .from("label_applications")
+    .select("label_id, application_id")
+    .eq("label_id", labelId);
+  if (error) throw new Error(`label_applications : ${messageErreur(error)}`);
+  const horsSophia = applicationsHorsSophia(applicationsDuLabel(labelId, liens ?? []), ID_SOPHIA);
+  if (!horsSophia) return null;
+  if (horsSophia.length !== 1) {
+    throw new Error(`le label du pod sert ${horsSophia.length} applications hors Sophia : non pris en charge`);
+  }
+  const { data: app, error: aErr } = await supabase.from("applications").select("id, slug").eq("id", horsSophia[0]).single();
+  if (aErr || !app) throw new Error(`application ${horsSophia[0]} : ${messageErreur(aErr)}`);
+  return app as { id: string; slug: string };
+}
+
 /** Pod authentifié par son jeton, ou null. */
 async function podDuJeton(request: Request, supabase: Supabase, slug: string) {
   const jeton = request.headers.get("x-pod-jeton") ?? "";
@@ -185,6 +233,16 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
     return json({ ok: false, error: "decks_applications invalide" }, 400);
   }
   const avecApps = Object.keys(decksApps).length > 0;
+  // Label hors Sophia (pod 6) : le deck déposé EST celui de l'application, sa
+  // slide marquée `position_app` ; l'OS en tire la variante lui-même.
+  const appLabel = await applicationHorsSophiaDuPod(supabase, pod.label_id);
+  if (appLabel && avecApps) {
+    return json({
+      ok: false,
+      error: `label hors Sophia : dépose un seul deck par langue, la slide ${appLabel.slug} marquée position_app (l'OS en tire la variante)`,
+    }, 400);
+  }
+  const avecVariantes = avecApps || appLabel !== null;
 
   // Trois cas selon ce qui existe déjà pour ce post :
   //  - rien : nouvelle livraison (la langue source est obligatoire) ;
@@ -204,7 +262,9 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
   const complement = existante?.statut === "validee";
   // Complément d'un post en ligne : un dépôt peut n'apporter QUE des decks d'application.
   const appsSeules = complement && avecApps && Object.keys(decks).length === 0;
-  const erreurs = appsSeules ? [] : verifierDepot(decks, existante ? Object.keys(decks)[0] : langueSource);
+  const erreurs = appsSeules
+    ? []
+    : verifierDepot(decks, existante ? Object.keys(decks)[0] : langueSource, appLabel ? "application" : "sophia");
   if (erreurs.length) return json({ ok: false, error: erreurs.join(" · ") }, 400);
 
   // Livraison « langues » de ce post (complément), lue avant les contrôles :
@@ -228,11 +288,13 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
       ),
     );
   };
-  if (avecApps) {
+  if (avecVariantes) {
     const sonde = await supabase.from("pod_livraisons").select("decks_applications").limit(1);
     if (sonde.error) {
       return json({ ok: false, error: "decks_applications indisponible (migration 0276 non appliquée)" }, 409);
     }
+  }
+  if (avecApps) {
     for (const [langue, d] of Object.entries((existante?.decks ?? {}) as Record<string, { slides: RefSlideDeck[] }>)) {
       poser(langue, d.slides);
     }
@@ -337,20 +399,26 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
   };
 
   const sortie: Record<string, { hashtags: string; slides: unknown[] }> = {};
+  const envoyees: Record<string, { hashtags: string; slides: SlideEnvoyee[] }> = {};
   for (const [langue, deck] of Object.entries(decks)) {
     const slides = [];
+    const hashtags = String(deck.hashtags ?? "").trim();
+    envoyees[langue] = { hashtags, slides: [] };
     for (const s of [...deck.slides].sort((a, b) => a.position - b.position)) {
       const path = `pods/${slug}/${sourceId}/${langue}/${s.position}.jpg`;
       const { media_id, url } = await envoyer(path, binaires.get(`${langue}/${s.position}`)!, langue);
-      slides.push({ position: s.position, media_id, url, position_sophia: Boolean(s.position_sophia) });
+      // Label hors Sophia : aucune slide Sophia dans le deck de base.
+      slides.push({ position: s.position, media_id, url, position_sophia: appLabel ? false : Boolean(s.position_sophia) });
+      envoyees[langue].slides.push({ position: Number(s.position), media_id, url, app: estSlideApp(s) });
       sophia.get(langue)?.set(Number(s.position), { media_id, url, position_sophia: Boolean(s.position_sophia || s.position_app) });
     }
-    sortie[langue] = { hashtags: String(deck.hashtags ?? "").trim(), slides };
+    sortie[langue] = { hashtags, slides };
   }
 
   // Decks d'application : la slide de l'app (et toute autre image fournie) au
-  // stockage, le reste repris du deck Sophia de même langue et position.
-  const sortieApps: DecksApplicationsLivres = {};
+  // stockage, le reste repris du deck Sophia de même langue et position. Label
+  // hors Sophia : la variante de son application, tirée du deck déposé.
+  const sortieApps: DecksApplicationsLivres = appLabel ? decksApplicationDepuisBase(appLabel.slug, envoyees) : {};
   for (const [app, parLangue] of Object.entries(decksApps)) {
     sortieApps[app] = {};
     for (const [langue, deck] of Object.entries(parLangue)) {
@@ -398,7 +466,7 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
     // Une livraison « langues » encore en attente pour ce post : on y fusionne.
     const enAttente = attente?.statut === "a_valider";
     if (enAttente) ligneLangues.decks = { ...(attente.decks ?? {}), ...sortie };
-    if (avecApps) {
+    if (avecVariantes) {
       ligneLangues.decks_applications = enAttente ? fusionnerDecksApps(attente.decks_applications, sortieApps) : sortieApps;
     } else if (attente && !enAttente && attente.decks_applications) {
       // Livraison « langues » déjà validée, réutilisée : ses anciens decks
@@ -423,7 +491,7 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
     });
   }
 
-  const decksAppsFinal = avecApps ? fusionnerDecksApps(existante?.decks_applications, sortieApps) : null;
+  const decksAppsFinal = avecVariantes ? fusionnerDecksApps(existante?.decks_applications, sortieApps) : null;
   const ligne = {
     pod: slug,
     type: "nouveau",
@@ -492,13 +560,22 @@ async function valider(
   if (l.type === "video") return await validerVideo(supabase, l, userId);
   const { data: pod } = await supabase.from("pods").select("slug, label_id").eq("slug", l.pod).single();
   if (!pod?.label_id) return json({ ok: false, error: "le pod n'a pas de label" }, 409);
+  // Label hors Sophia (pod 6) : la livraison ne sert que son application.
+  const appLabel = await applicationHorsSophiaDuPod(supabase, pod.label_id);
+  if (appLabel && !Object.keys(l.decks_applications?.[appLabel.slug] ?? {}).length) {
+    return json({ ok: false, error: `livraison sans deck ${appLabel.slug} : rien à servir pour ce label` }, 409);
+  }
 
-  // Note d'import CLASSIQUE, comme un slideshow importé.
+  // Note d'import CLASSIQUE, comme un slideshow importé. Label hors Sophia :
+  // pertinence notée par le prompt de SON application, jamais celui de Sophia.
   const textes: string[] = l.transcription?.textes ?? [];
+  const clePrompt = appLabel ? `pertinence_${appLabel.slug}` : "pertinence";
+  const instructions = await chargerPrompt(supabase, clePrompt);
+  if (appLabel && !instructions) return json({ ok: false, error: `prompt ${clePrompt} manquant` }, 409);
   const pertinence = await scoreRelevance({
     caption: textes.join("\n"),
     hookText: textes[0] ?? l.titre ?? "",
-    instructions: await chargerPrompt(supabase, "pertinence"),
+    instructions,
   });
   const scoring = await lireScoring(supabase);
   // PAS de `pisteSource` ici, volontairement : une livraison de pod n'a pas de
@@ -565,11 +642,22 @@ async function valider(
         raw_url: null,
         reference_url: null,
       })),
-      tier,
-      passages_prevus: passagesPourTier(tier),
+      // Hors Sophia : aucun rang Sophia (D / 0, comme un import « hors
+      // Sophia ») ; le rang calculé va à l'application du label.
+      tier: appLabel ? "D" : tier,
+      passages_prevus: appLabel ? 0 : passagesPourTier(tier),
       tier_cycle: 0,
       tier_maj_at: maintenant,
-      tier_rapport: { origine: original ? "pod_original" : "pod", pod: l.pod, elo: note, seuil: scoring.eloSeuil, tier, force: Boolean(tierForce), passages: passagesPourTier(tier) },
+      tier_rapport: {
+        origine: original ? "pod_original" : "pod",
+        pod: l.pod,
+        elo: note,
+        seuil: scoring.eloSeuil,
+        tier,
+        force: Boolean(tierForce),
+        passages: passagesPourTier(tier),
+        ...(appLabel ? { hors_sophia: true, application: appLabel.slug } : {}),
+      },
       livre: true,
       pod: l.pod,
     })
@@ -616,7 +704,12 @@ async function valider(
     if (mErr) throw mErr;
     // Variantes par application fournies par le pod (0276) : decks prêts,
     // réserve et rang de chaque application.
-    await ecrireDecksApplications(supabase, contenu.id, l, { tierForce, pertinenceScore: pertinence.score, pod: l.pod });
+    await ecrireDecksApplications(supabase, contenu.id, l, {
+      tierForce,
+      pertinenceScore: pertinence.score,
+      pod: l.pod,
+      tierApp: appLabel ? tier : null,
+    });
   } catch (e) {
     // Pas de contenu à moitié créé : il sortirait au tirage sans ses decks.
     await supabase.from("contenus").delete().eq("id", contenu.id);
@@ -718,13 +811,17 @@ async function etat(request: Request, supabase: Supabase, slug: string) {
     const langue = (c as any).comptes?.langue ?? "?";
     parLangue[langue] = (parLangue[langue] ?? 0) + 1;
   }
+  // Ce que vaut chaque contenu chez nous, à audience égale (r par passage mûr) :
+  // de quoi couper tôt un original qui flop et décliner celui qui marche.
+  const chezNous = contenuIds.length ? await statsPassages(supabase, contenuIds as string[]) : new Map();
   return json({
     ok: true,
     pod: { slug: pod.slug, actif: pod.actif },
     comptes_du_label_par_langue: parLangue,
     // deno-lint-ignore no-explicit-any
     livraisons: (livraisons ?? []).map((l: any) => ({ ...l, decks: undefined, langues: Object.keys(l.decks ?? {}) })),
-    perfs: perfs ?? [],
+    // deno-lint-ignore no-explicit-any
+    perfs: (perfs ?? []).map((p: any) => ({ ...p, chez_nous: chezNous.get(p.contenu_id) ?? null })),
   });
 }
 
@@ -760,6 +857,15 @@ async function deposerOriginal(request: Request, supabase: Supabase, body: Recor
   if (!pod) return json({ ok: false, error: "unauthorized" }, 401);
   if (!pod.actif) return json({ ok: false, error: "pod en pause" }, 409);
   if (!pod.label_id) return json({ ok: false, error: "le pod n'a pas de label" }, 409);
+  // Un original traduisible porte une slide Sophia : sans objet pour un label
+  // qui ne sert pas Sophia (ses originaux se déposent en images finies).
+  const appLabel = await applicationHorsSophiaDuPod(supabase, pod.label_id);
+  if (appLabel) {
+    return json({
+      ok: false,
+      error: `label hors Sophia (${appLabel.slug}) : dépose l'original en images finies (deposer sans type ni source_url)`,
+    }, 400);
+  }
 
   const sourceId = String(body.source_id ?? "");
   if (!/^[a-z0-9][a-z0-9_-]{2,60}$/i.test(sourceId)) return json({ ok: false, error: "source_id requis (a-z0-9_-)" }, 400);
@@ -767,6 +873,12 @@ async function deposerOriginal(request: Request, supabase: Supabase, body: Recor
   const erreurs = verifierOriginal(slides);
   if (!erreurs.length) erreurs.push(...(await verifierImagesDuLabel(supabase, pod.label_id, slides.map((s) => s.media_id))));
   if (erreurs.length) return json({ ok: false, error: erreurs.join(" · ") }, 400);
+  let preuve: Record<string, unknown> | null = null;
+  if (PODS_AVEC_PREUVE.has(pod.slug)) {
+    const p = await preuveVerifiee(supabase, pod.label_id, body.preuve);
+    if ("erreur" in p) return json({ ok: false, error: p.erreur }, 400);
+    preuve = p.preuve;
+  }
 
   const { data: existante } = await supabase
     .from("pod_livraisons")
@@ -811,6 +923,7 @@ async function deposerOriginal(request: Request, supabase: Supabase, body: Recor
       textes: deck.map((s) => s.texte_overlay),
       legende: titre,
       inspirations: Array.isArray(body.inspirations) ? body.inspirations.map(String).slice(0, 20) : [],
+      ...(preuve ? { preuve } : {}),
     },
     statut: "a_valider",
   };
@@ -820,7 +933,72 @@ async function deposerOriginal(request: Request, supabase: Supabase, body: Recor
     .select("id")
     .single();
   if (error || !l) throw new Error(`livraison : ${messageErreur(error)}`);
-  return json({ ok: true, id: l.id, type: "original" });
+  return json({ ok: true, id: l.id, type: "original", ...(preuve ? { preuve } : {}) });
+}
+
+/**
+ * Pod 4 : la preuve que le schéma d'accroche fait des vues AUJOURD'HUI. Un post
+ * de la niche à 200 k vues ou plus publié dans les 30 derniers jours (vues
+ * déclarées par l'agent, lien cliquable dans la file), ou un contenu du label
+ * à r ≥ 2 sur au moins 3 passages, recalculé ici. Rend la preuve telle
+ * qu'affichée dans la file, mesures de l'OS comprises.
+ */
+async function preuveVerifiee(
+  supabase: Supabase,
+  labelId: string,
+  brute: unknown,
+): Promise<{ erreur: string } | { preuve: Record<string, unknown> }> {
+  const aujourdhui = new Date().toISOString().slice(0, 10);
+  const { erreurs, tiktokSuffit, contenusOs } = verifierPreuve(brute, aujourdhui);
+  if (erreurs.length) return { erreur: erreurs.join(" · ") };
+  const p = brute as PreuveOriginal;
+  const mesures = new Map<string, { publies: number; r_median: number | null }>();
+  if (contenusOs.length) {
+    const { data: liens } = await supabase
+      .from("contenu_labels")
+      .select("contenu_id")
+      .eq("label_id", labelId)
+      .in("contenu_id", contenusOs)
+      .limit(contenusOs.length);
+    const duLabel = new Set((liens ?? []).map((l: { contenu_id: string }) => l.contenu_id));
+    const horsLabel = contenusOs.filter((id) => !duLabel.has(id));
+    if (horsLabel.length) return { erreur: `preuve : contenu(s) hors du label : ${horsLabel.join(", ")}` };
+    for (const [id, s] of await statsPassages(supabase, contenusOs)) {
+      mesures.set(id, { publies: s.publies, r_median: s.r_median });
+    }
+  }
+  const osSuffit = [...mesures.values()].some((m) => (m.r_median ?? 0) >= PREUVE_R_MIN);
+  if (!tiktokSuffit && !osSuffit) {
+    return {
+      erreur:
+        `preuve insuffisante : il faut un post de la niche à ${PREUVE_VUES_MIN} vues ou plus publié dans les ` +
+        `${PREUVE_JOURS_MAX} derniers jours, ou un contenu du label à r ≥ ${PREUVE_R_MIN} (3 passages au moins)` +
+        (mesures.size
+          ? ` ; mesuré : ${[...contenusOs].map((id) => `${id.slice(0, 8)} r ${mesures.get(id)?.r_median ?? "—"}`).join(", ")}`
+          : ""),
+    };
+  }
+  return {
+    preuve: {
+      schema: p.schema.trim(),
+      verifiee_le: aujourdhui,
+      references: p.references.map((r) =>
+        r.type === "os"
+          ? {
+            type: "os",
+            contenu_id: r.contenu_id.toLowerCase(),
+            ...(mesures.get(r.contenu_id.toLowerCase()) ?? { publies: 0, r_median: null }),
+          }
+          : {
+            type: "tiktok",
+            url: r.url,
+            vues: Number(r.vues),
+            publie_le: r.publie_le,
+            enregistrements: r.enregistrements == null ? null : Number(r.enregistrements),
+          }
+      ),
+    },
+  };
 }
 
 /**
@@ -1088,7 +1266,18 @@ async function statsPassages(supabase: Supabase, contenuIds: string[]) {
     if (m > 0) e.r.push(Number(p.vues) / m);
     parContenu.set(p.contenu_id, e);
   }
-  const sortie = new Map<string, { publies: number; vues_mediane: number; vues_moyenne: number; vues_max: number; r_median: number | null }>();
+  const sortie = new Map<
+    string,
+    {
+      publies: number;
+      vues_mediane: number;
+      vues_moyenne: number;
+      vues_max: number;
+      r_median: number | null;
+      r_passages: number[];
+      vues_passages: number[];
+    }
+  >();
   for (const [id, e] of parContenu) {
     sortie.set(id, {
       publies: e.vues.length,
@@ -1097,6 +1286,9 @@ async function statsPassages(supabase: Supabase, contenuIds: string[]) {
       vues_max: Math.max(...e.vues),
       // Sous 3 passages, le r n'est pas significatif.
       r_median: e.r.length >= 3 ? Math.round(mediane(e.r) * 100) / 100 : null,
+      // Chaque passage, pour juger un contenu dès ses premiers passages.
+      r_passages: e.r.map((r) => Math.round(r * 100) / 100),
+      vues_passages: e.vues,
     });
   }
   return sortie;

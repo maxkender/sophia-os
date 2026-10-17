@@ -10,6 +10,8 @@ import {
   lireIdentifiantsCm,
   majIdentifiantsCm,
 } from "@/features/moteur/api";
+import { ChampPaysCompte } from "@/features/moteur/ChampPaysCompte";
+import { paysAEnvoyer } from "@/features/moteur/paysCompte";
 import { nomLangue } from "@/features/moteur/langues";
 import { ChoixApplicationsCreation } from "@/features/moteur/repartition/ChoixApplicationsCreation";
 import { cleErreurChoixCompte } from "@/features/moteur/repartition/choixCreation";
@@ -40,11 +42,16 @@ export function FormulaireAjouterCompte({
   const languesType = languesProposees;
   const [langue, setLangue] = React.useState(languesType[0] ?? "");
   const [handle, setHandle] = React.useState("");
+  const [pays, setPays] = React.useState("");
   const [postsParJour, setPostsParJour] = React.useState<1 | 2 | 3>(2);
   React.useEffect(() => {
     if (langue && languesType.includes(langue)) return;
     setLangue(languesType[0] ?? "");
   }, [languesType, langue]);
+  // Un pays choisi pour l'anglais n'a aucun sens une fois passé au suédois.
+  React.useEffect(() => {
+    setPays("");
+  }, [langue]);
   // Lectures (applications, labels) seulement formulaire ouvert et choix permis.
   const choixApps = useChoixApplicationsCreation(choixApplications && ouvert, langue);
 
@@ -56,10 +63,14 @@ export function FormulaireAjouterCompte({
         langue,
         posts_par_jour: postsParJour,
         handle_tiktok: handle,
+        // Clé posée seulement si elle a une valeur : le corps envoyé doit
+        // rester identique à celui d'avant quand la langue suffit.
+        ...(paysAEnvoyer(langue, pays) ? { pays: paysAEnvoyer(langue, pays)! } : {}),
         ...choixApps.options,
       }),
     onSuccess: () => {
       setHandle("");
+      setPays("");
       setPostsParJour(2);
       choixApps.reinitialiser();
       setOuvert(false);
@@ -107,6 +118,12 @@ export function FormulaireAjouterCompte({
             ))}
           </select>
         </div>
+        <ChampPaysCompte
+          id={`compte-pays-${posterId}`}
+          langue={langue}
+          pays={pays}
+          onPays={setPays}
+        />
         <div className="space-y-1">
           <Label htmlFor={`compte-handle-${posterId}`}>{t("comptes.pseudo")}</Label>
           <Input

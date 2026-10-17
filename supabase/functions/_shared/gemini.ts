@@ -1,3 +1,4 @@
+import { blocConsignePlacement, variantesSansCopieAngle } from "./angle_placement.ts";
 import { downloadImage } from "./apify.ts";
 import { variantesSansFrancaisResiduel } from "./deck_langue.ts";
 import { messageErreur } from "./supabase.ts";
@@ -242,13 +243,26 @@ Si la slide ne contient aucun texte incrusté, réponds exactement : (aucun text
  * une bonne fois. Renvoie une traduction par position + hashtags (légende TikTok)
  * dans la langue cible.
  */
+/**
+ * Nom de la langue DONNÉ AU MODÈLE. C'est le seul endroit où la région d'une
+ * variante devient une consigne : le prompt ouvre sur
+ * `LANGUE DE SORTIE : ${langue.toUpperCase()}` et y revient à chaque section.
+ *
+ * `es` et `pt` étaient nus (« espagnol », « portugais »). Sans région, le
+ * modèle retombe sur sa variante la plus représentée : du brésilien pour le
+ * portugais. Les posteuses du Portugal recevaient donc des slides brésiliennes
+ * et les réécrivaient à la main, slide par slide, avant publication. Nommer la
+ * région des quatre codes supprime la cause.
+ */
 export const LANGUES: Record<string, string> = {
   fr: "français",
   en: "anglais",
-  es: "espagnol",
+  es: "espagnol d'Espagne (castillan)",
+  "es-419": "espagnol d'Amérique latine (neutre, ni castillan ni voseo)",
   it: "italien",
   de: "allemand",
-  pt: "portugais",
+  pt: "portugais du Portugal (européen)",
+  "pt-BR": "portugais du Brésil",
   cs: "tchèque",
   nl: "néerlandais",
   el: "grec",
@@ -496,6 +510,12 @@ export async function integrateSophia(input: {
    * c'est ELLE que Sophia remplace, même hors des 3 dernières slides.
    */
   positionImposee?: number;
+  /**
+   * Angle ACTIF du label du contenu pour Sophia (`angles_placement`, voir
+   * angle_placement.ts). Vide ou absent : prompt identique octet pour octet
+   * (instantanés de gemini_placement_golden_test.ts).
+   */
+  angle?: string;
 }): Promise<SophiaPlacement | null> {
   // Sophia DOIT tomber dans les 2-3 dernières slides (jamais au début) : on borne
   // les positions permises aux 3 dernières (hors couverture = slide 1). Une slide
@@ -532,7 +552,7 @@ export async function integrateSophia(input: {
 Les variantes que tu écris doivent être en ${langue}, quelle que soit la langue
 des consignes ci-dessous.
 
-${input.masterPrompt}
+${input.masterPrompt}${blocConsignePlacement(input.angle, "Sophia", langue)}
 
 --- DONNÉES ---
 Légende de la vidéo : ${input.caption || "(aucune)"}
@@ -597,7 +617,14 @@ Réponds UNIQUEMENT en JSON, sans bloc de code ni commentaire :
       // « l'appli » hors français, mais un prompt n'est qu'une consigne. Une
       // variante qui la contient est écartée ; s'il n'en reste aucune, on
       // relance le modèle plutôt que de publier une pub moitié française.
-      const variants = variantesSansFrancaisResiduel(brutes, input.langue);
+      // Même règle pour l'angle (français) : une variante qui en recopie une
+      // formule hors français est écartée (angle_placement.ts). Sans angle :
+      // aucun effet.
+      const variants = variantesSansCopieAngle(
+        variantesSansFrancaisResiduel(brutes, input.langue),
+        input.angle,
+        input.langue,
+      );
 
       // La position choisie DOIT être dans les 2-3 dernières slides. Si le modèle
       // sort une position hors zone, on la ramène sur la dernière slide autorisée

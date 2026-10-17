@@ -13,12 +13,17 @@
  *  - une slide qui cite une appli concurrente de CETTE application
  *    (`positionImposee`, voir concurrents.ts) est la seule position permise et
  *    le prompt demande de la remplacer entièrement ;
+ *  - l'angle du label du contenu pour cette application (`angle`, voir
+ *    angle_placement.ts) s'ajoute juste après le prompt maître ; vide, le
+ *    prompt ne bouge pas d'un octet ;
  *  - les variantes sont filtrées de façon déterministe : nom de l'application
  *    présent, « Sophia » absent, aucun concurrent cité, pas de « l'appli »
- *    française hors français. Aucune variante valable → on relance ; après 4
+ *    française hors français, pas de formule recopiée de l'angle hors
+ *    français. Aucune variante valable → on relance ; après 4
  *    essais → `null`, et l'appelant échoue franchement (jamais de texte de
  *    repli : celui de `placementParDefaut` est une pub Sophia).
  */
+import { blocConsignePlacement, variantesSansCopieAngle } from "./angle_placement.ts";
 import { citeConcurrent, MOTIF_CONCURRENT, motifConcurrentApplication } from "./concurrents.ts";
 import { variantesSansFrancaisResiduel } from "./deck_langue.ts";
 import {
@@ -43,6 +48,11 @@ export interface PlacementApplicationEntree {
    * dernières slides. Ignorée si c'est la couverture ou une position absente.
    */
   positionImposee?: number;
+  /**
+   * Angle du label du contenu pour cette application (`angles_placement`).
+   * Vide ou absent : prompt identique à celui sans angle.
+   */
+  angle?: string;
 }
 
 export interface OptionsPlacementApplication {
@@ -118,7 +128,7 @@ UNIQUEMENT : ${autoriseesTxt}. Écris 3 variantes qui remplacent son texte.`;
 Les variantes que tu écris doivent être en ${langue}, quelle que soit la langue
 des consignes ci-dessous.
 
-${input.masterPrompt}
+${input.masterPrompt}${blocConsignePlacement(input.angle, nom, langue)}
 
 --- DONNÉES ---
 Application à placer : ${nom}
@@ -178,9 +188,10 @@ export function variantesValidesApplication(
   langue: string,
   nom: string,
   motif: RegExp = MOTIF_CONCURRENT,
+  angle?: string,
 ): string[] {
   const nomMinuscule = nom.trim().toLowerCase();
-  return variantesSansFrancaisResiduel(variantes, langue).filter(
+  return variantesSansCopieAngle(variantesSansFrancaisResiduel(variantes, langue), angle, langue).filter(
     (v) =>
       !!nomMinuscule &&
       v.toLowerCase().includes(nomMinuscule) &&
@@ -227,7 +238,7 @@ export async function integrerApplication(
       const preferee = Number.isInteger(best) && best >= 0 && best < brutes.length
         ? brutes[best]
         : null;
-      const variants = variantesValidesApplication(brutes, input.langue, input.application.nom, motif);
+      const variants = variantesValidesApplication(brutes, input.langue, input.application.nom, motif, input.angle);
 
       // Position hors zone : ramenée sur la dernière autorisée (comme Sophia) ;
       // avec une slide imposée, c'est toujours elle.

@@ -105,6 +105,68 @@ Deno.test("Sophia, IA cochée, ligne absente : vrai deck traduit + placé, relu 
   assertEquals(tables, avant);
 });
 
+Deno.test("Sophia, IA cochée, label avec un angle Sophia ACTIF : consigne dans le prompt, angle tracé (simulé), angle en test ignoré", async () => {
+  const tables = base({
+    contenu_labels: [{ contenu_id: "c1", label_id: "L1" }],
+    labels: [{ id: "L1", slug: "weird-alpha", nom: "weird_alpha" }],
+    angles_placement: [
+      { id: "a1", label_id: "L1", application_id: ID_SOPHIA, texte: "insister sur la régularité", statut: "actif", created_at: "2026-10-14T08:00:00Z" },
+      { id: "a2", label_id: "L1", application_id: UNSWIPE, texte: "angle Unswipe, jamais pour Sophia", statut: "actif", created_at: "2026-10-14T08:00:00Z" },
+      { id: "a3", label_id: "L1", application_id: ID_SOPHIA, texte: "angle en test, jamais la nuit", statut: "test", created_at: "2026-10-14T09:00:00Z" },
+    ],
+  });
+  const avant = instantane(tables);
+  const gemini = fauxGemini(traductionEtPlacement);
+  const serveur = fauxServeurPostgrest(tables, {
+    gemini,
+    relations: { contenu_labels: { labels: { fk: "label_id", table: "labels" } } },
+  });
+  await avecIntercepteur(serveur.fetch, () =>
+    avecDecks(async () => {
+      const ctx = run(true);
+      const deck = await executerDansContexte(ctx, async () => await decksAssignation.sophia(serviceClient(), "c1", "de"));
+      assertEquals(deck.slides.filter((s) => s.position_sophia).map((s) => s.position), [3]);
+      const placement = gemini.appels.find((p) => p.includes("chosen_position")) ?? "";
+      assert(
+        placement.includes("Place Sophia.\n\n--- CONSIGNE PROPRE À CE SLIDESHOW ---\ninsister sur la régularité\n"),
+        placement,
+      );
+      assert(!placement.includes("angle Unswipe"), "l'angle d'une autre application ne fuit pas");
+      assert(!placement.includes("angle en test"), "un angle en test n'est lu que par le test « contenus »");
+      const traces = ctx.etat.journal.filter((e) =>
+        e.table === "contenu_langues" && e.valeurs.some((v) => "angle_placement" in v)
+      );
+      assertEquals(traces.length, 1, "un seul traçage, à part de l'écriture du deck");
+      assertEquals(traces[0].valeurs[0], { angle_placement: "insister sur la régularité" });
+    })
+  );
+  assertEquals(serveur.violations, []);
+  assertEquals(tables, avant);
+});
+
+Deno.test("Sophia, IA cochée, label sans angle : aucune consigne, aucun traçage", async () => {
+  const tables = base({
+    contenu_labels: [{ contenu_id: "c1", label_id: "L1" }],
+    labels: [{ id: "L1", slug: "weird-alpha", nom: "weird_alpha" }],
+    angles_placement: [],
+  });
+  const gemini = fauxGemini(traductionEtPlacement);
+  const serveur = fauxServeurPostgrest(tables, {
+    gemini,
+    relations: { contenu_labels: { labels: { fk: "label_id", table: "labels" } } },
+  });
+  await avecIntercepteur(serveur.fetch, () =>
+    avecDecks(async () => {
+      const ctx = run(true);
+      await executerDansContexte(ctx, async () => await decksAssignation.sophia(serviceClient(), "c1", "de"));
+      const placement = gemini.appels.find((p) => p.includes("chosen_position")) ?? "";
+      assert(placement.includes("Place Sophia.\n\n--- DONNÉES ---"), placement);
+      assert(!ctx.etat.journal.some((e) => e.valeurs.some((v) => "angle_placement" in v)));
+    })
+  );
+  assertEquals(serveur.violations, []);
+});
+
 Deno.test("Sophia, IA décochée, deck absent : aperçu « à fabriquer » (texte source, sans pub), aucun appel, < 1 s", async () => {
   const tables = base();
   const avant = instantane(tables);
@@ -197,7 +259,7 @@ Deno.test("Sophia, IA décochée, deck prêt sans hashtags : vrai deck, hashtags
   assertEquals(serveur.violations, []);
 });
 
-Deno.test("Application, IA décochée : cache prêt → vrai deck ; base polluée → refusé comme la nuit", async () => {
+Deno.test("Application, IA décochée : cache prêt → vrai deck ; Sophia sur la couverture → refusé comme la nuit", async () => {
   const deckUnswipe = [
     { position: 1, texte_overlay: "trois habitudes", position_sophia: false },
     { position: 2, texte_overlay: "avec Unswipe", position_sophia: true },
@@ -232,7 +294,7 @@ Deno.test("Application, IA décochée : cache prêt → vrai deck ; base pollué
         assertEquals(pret.statut, "pret");
         assert(pret.statut === "pret" && pret.slides[1].texte_overlay === "avec Unswipe");
         const refuse = await decksAssignation.application(supabase, "c2", "fr", APP, {});
-        assertEquals(refuse, { statut: "ineligible", raison: "base polluée par une pub Sophia", cuit: true });
+        assertEquals(refuse, { statut: "ineligible", raison: "couverture qui cite Sophia", cuit: true });
       });
       assertEquals(ctx.etat.decks.map((n) => n.origine), ["existant", "refuse"]);
       // La nuit met le refus en cache : simulé, jamais écrit.

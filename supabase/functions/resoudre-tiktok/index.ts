@@ -2,7 +2,8 @@ import { assertRole, json, messageErreur } from "../_shared/supabase.ts";
 
 /**
  * Résout un lien TikTok (court vm/vt/t → URL canonique) et récupère id +
- * miniature oEmbed pour l'aperçu admin.
+ * miniature oEmbed pour l'aperçu admin, et pour la page du créateur qui enregistre
+ * le lien complet plutôt que le lien court.
  *
  *   { url }  → { ok, url, id, thumbnail }
  */
@@ -54,7 +55,8 @@ async function oembed(url: string): Promise<{ id: string | null; thumbnail: stri
 }
 
 Deno.serve(async (request) => {
-  const acces = await assertRole(request, ["admin"]);
+  // Les créateurs aussi : leur page résout un lien court avant d'enregistrer.
+  const acces = await assertRole(request, ["admin", "poster"]);
   if (acces instanceof Response) return acces;
 
   try {

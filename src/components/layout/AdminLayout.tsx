@@ -6,9 +6,11 @@ import {
   BookOpen,
   CalendarDays,
   Columns2,
+  Crosshair,
   FlaskConical,
   Gauge,
   LineChart,
+  ListChecks,
   Gift,
   Images,
   ListOrdered,
@@ -192,6 +194,12 @@ export function AdminLayout() {
               description: t("navDesc.fileReviews"),
             },
             {
+              to: "/admin/banc-relecture",
+              label: t("nav.bancRelecture"),
+              icon: ListChecks,
+              description: t("navDesc.bancRelecture"),
+            },
+            {
               to: "/admin/parrainages",
               label: t("nav.referral"),
               icon: Gift,
@@ -213,6 +221,12 @@ export function AdminLayout() {
               label: t("nav.prompts"),
               icon: MessageSquareQuote,
               description: t("navDesc.prompts"),
+            },
+            {
+              to: "/admin/angles",
+              label: t("nav.angles"),
+              icon: Crosshair,
+              description: t("navDesc.angles"),
             },
             {
               to: "/admin/documents",

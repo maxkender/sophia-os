@@ -1,18 +1,22 @@
 import { assertEquals, assertRejects } from "jsr:@std/assert@1";
 import {
+  applicationsHorsSophia,
   CHEMIN_POD,
   contenusLivresHorsApplication,
   contenusLivresHorsLangue,
   deckLivreApplication,
   deckLivrePret,
+  decksApplicationDepuisBase,
   ecrireDecksApplications,
   estSlideApp,
   metadonneesJpeg,
+  PODS_AVEC_PREUVE,
   prochainJour,
   sha256Hex,
   verifierDecksApplications,
   verifierDepot,
   verifierOriginal,
+  verifierPreuve,
   verifierVideo,
 } from "./pods.ts";
 import { oublierSondeTiersApplication } from "./tiers_application.ts";
@@ -41,6 +45,86 @@ Deno.test("verifierDepot : langue source, slide de l'app, positions uniques", ()
   assertEquals(verifierDepot({ fr: { slides: [s(1)] } }, "fr"), ["fr : aucune slide de l'app"]);
 });
 
+Deno.test("verifierDepot (label hors Sophia) : une slide de l'application, jamais la couverture", () => {
+  const s = (position: number, app?: "app" | "sophia") => ({
+    position,
+    jpeg_base64: "",
+    ...(app === "app" ? { position_app: true } : {}),
+    ...(app === "sophia" ? { position_sophia: true } : {}),
+  });
+  assertEquals(verifierDepot({ en: { slides: [s(1), s(2, "app")] } }, "en", "application"), []);
+  // `position_sophia` reste l'alias de la slide de l'app.
+  assertEquals(verifierDepot({ en: { slides: [s(1), s(2, "sophia")] } }, "en", "application"), []);
+  assertEquals(
+    verifierDepot({ en: { slides: [s(1), s(2)] } }, "en", "application"),
+    ["en : 0 slide(s) de l'app (une seule attendue)"],
+  );
+  assertEquals(
+    verifierDepot({ en: { slides: [s(1), s(2, "app"), s(3, "app")] } }, "en", "application"),
+    ["en : 2 slide(s) de l'app (une seule attendue)"],
+  );
+  assertEquals(
+    verifierDepot({ en: { slides: [s(1, "app"), s(2)] } }, "en", "application"),
+    ["en : la slide de l'app ne peut pas être la couverture"],
+  );
+  // Le chemin Sophia ne lit toujours que `position_sophia`.
+  assertEquals(verifierDepot({ en: { slides: [s(1), s(2, "app")] } }, "en"), ["en : aucune slide de l'app"]);
+});
+
+Deno.test("decksApplicationDepuisBase : mêmes images, triées, la slide de l'app marquée", () => {
+  const d = decksApplicationDepuisBase("unswipe", {
+    en: {
+      hashtags: "#a",
+      slides: [
+        { position: 2, media_id: "m2", url: "u2", app: true },
+        { position: 1, media_id: "m1", url: null, app: false },
+      ],
+    },
+    fr: { hashtags: "", slides: [{ position: 1, media_id: "f1", url: "v1", app: false }, { position: 2, media_id: "f2", url: "v2", app: true }] },
+  });
+  assertEquals(d, {
+    unswipe: {
+      en: {
+        hashtags: "#a",
+        slides: [
+          { position: 1, media_id: "m1", url: null, position_sophia: false },
+          { position: 2, media_id: "m2", url: "u2", position_sophia: true },
+        ],
+      },
+      fr: {
+        hashtags: "",
+        slides: [
+          { position: 1, media_id: "f1", url: "v1", position_sophia: false },
+          { position: 2, media_id: "f2", url: "v2", position_sophia: true },
+        ],
+      },
+    },
+  });
+});
+
+Deno.test("applicationsHorsSophia : null dès que le label sert Sophia (ou n'a pas de ligne)", () => {
+  assertEquals(applicationsHorsSophia([], "sophia-id"), null);
+  assertEquals(applicationsHorsSophia(["sophia-id"], "sophia-id"), null);
+  assertEquals(applicationsHorsSophia(["sophia-id", "unswipe-id"], "sophia-id"), null);
+  assertEquals(applicationsHorsSophia(["unswipe-id"], "sophia-id"), ["unswipe-id"]);
+  assertEquals(applicationsHorsSophia(["micabo-id", "unswipe-id"], "sophia-id"), ["micabo-id", "unswipe-id"]);
+});
+
+Deno.test("verifierDepot : accepte une variante régionale, refuse un code mal formé", () => {
+  const s = (position: number, position_sophia = false) => ({ position, position_sophia, jpeg_base64: "" });
+  // Le test « deux lettres » refusait tout deck brésilien ou latino-américain.
+  assertEquals(verifierDepot({ "pt-BR": { slides: [s(1), s(2, true)] } }, "pt-BR"), []);
+  assertEquals(verifierDepot({ "es-419": { slides: [s(1), s(2, true)] } }, "es-419"), []);
+  assertEquals(
+    verifierDepot({ "pt-br": { slides: [s(1), s(2, true)] } }, "pt-br"),
+    ["langue invalide : pt-br"],
+  );
+  assertEquals(
+    verifierDepot({ "pt-BRA": { slides: [s(1), s(2, true)] } }, "pt-BRA"),
+    ["langue invalide : pt-BRA"],
+  );
+});
+
 Deno.test("sha256Hex", async () => {
   assertEquals(await sha256Hex("abc"), "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad");
 });
@@ -62,12 +146,55 @@ Deno.test("verifierOriginal : positions, images, une slide Sophia, inspiration, 
   assertEquals(verifierOriginal(avec(5, { media_id: id(1) })), ["même image utilisée deux fois"]);
   assertEquals(verifierOriginal(avec(5, { texte_overlay: "i use the sophia app" })).length, 1);
   assertEquals(verifierOriginal(avec(5, { texte_overlay: "the vent now app helped" })).length, 1);
+  assertEquals(verifierOriginal(avec(4, { texte_overlay: "adapté à l'offre avec turboresume" })).length, 1);
   assertEquals(verifierOriginal(avec(0, { texte_overlay: "x".repeat(121) })).length, 1);
   assertEquals(verifierOriginal(avec(5, { texte_overlay: " " })), ["#6 : texte vide"]);
   assertEquals(verifierOriginal(avec(4, { texte_sophia: null })), ["0 slide(s) Sophia (une seule attendue)"]);
   assertEquals(verifierOriginal(avec(3, { texte_sophia: "the Sophia app" })).length, 1);
   assertEquals(verifierOriginal(avec(4, { texte_sophia: "a micro-learning app" })).length, 1);
   assertEquals(verifierOriginal(avec(2, { reference_url: "https://p16.tiktokcdn.com/x.jpg" })).length, 1);
+});
+
+Deno.test("PODS_AVEC_PREUVE : pods 4 et 5 seulement", () => {
+  assertEquals([...PODS_AVEC_PREUVE].sort(), ["originaux_alpha_yellow", "originaux_rh"]);
+});
+
+Deno.test("verifierPreuve : 200 k vues en 30 jours suffisent ; sinon des contenus du label à faire mesurer par l'OS", () => {
+  const jour = "2026-10-15";
+  const tiktok = (vues: number, publie_le: string, url = "https://www.tiktok.com/@stonemag.co/video/7689427930929319176") => ({
+    type: "tiktok",
+    url,
+    vues,
+    publie_le,
+  });
+  const os = { type: "os", contenu_id: "2A9D2D47-9EBA-4122-BBBA-49A09BA8A933" };
+  const preuve = (...references: unknown[]) => ({ schema: "N skills that'll make you dangerously X in your 20s", references });
+
+  assertEquals(verifierPreuve(preuve(tiktok(1_300_000, "2026-09-25")), jour), { erreurs: [], tiktokSuffit: true, contenusOs: [] });
+  // Pile 30 jours : encore valable ; 31 : trop vieux. Sous 200 k : ne suffit pas.
+  assertEquals(verifierPreuve(preuve(tiktok(200_000, "2026-09-15")), jour).tiktokSuffit, true);
+  assertEquals(verifierPreuve(preuve(tiktok(900_000, "2026-09-14")), jour).tiktokSuffit, false);
+  assertEquals(verifierPreuve(preuve(tiktok(199_999, "2026-10-10")), jour).tiktokSuffit, false);
+  // Un contenu du label : rien ne suffit encore, l'OS recalcule son r (uuid en minuscules, sans doublon).
+  assertEquals(verifierPreuve(preuve(os, os, tiktok(5_000, "2026-10-01")), jour), {
+    erreurs: [],
+    tiktokSuffit: false,
+    contenusOs: ["2a9d2d47-9eba-4122-bbba-49a09ba8a933"],
+  });
+
+  assertEquals(verifierPreuve(null, jour).erreurs.length, 2);
+  assertEquals(verifierPreuve({ schema: " ", references: [tiktok(300_000, "2026-10-01")] }, jour).erreurs, [
+    "preuve : schéma d'accroche manquant",
+  ]);
+  assertEquals(verifierPreuve(preuve(tiktok(300_000, "2026-10-16")), jour).erreurs, ["preuve #1 : date de publication dans le futur"]);
+  assertEquals(verifierPreuve(preuve(tiktok(300_000, "16/10/2026")), jour).erreurs.length, 1);
+  const lienFaux = verifierPreuve(preuve(tiktok(300_000, "2026-10-01", "https://tiktok.com/x")), jour);
+  assertEquals(lienFaux.erreurs, ["preuve #1 : lien TikTok invalide"]);
+  assertEquals(lienFaux.tiktokSuffit, false);
+  assertEquals(verifierPreuve(preuve(tiktok(-3, "2026-10-01")), jour).erreurs, ["preuve #1 : vues invalides"]);
+  assertEquals(verifierPreuve(preuve({ type: "os", contenu_id: "2a9d2d47" }), jour).erreurs.length, 1);
+  assertEquals(verifierPreuve(preuve({ type: "instagram" }), jour).erreurs.length, 1);
+  assertEquals(verifierPreuve(preuve(...Array(7).fill(os)), jour).erreurs.length, 1);
 });
 
 /** Client minimal : `from(table)` → filtres eq/in appliqués sur des lignes fixes. */
@@ -353,6 +480,24 @@ Deno.test("ecrireDecksApplications : rang imposé A → note 70, tier A ; pertin
   await ecrireDecksApplications(fauxEtat(tables, []), "c1", LIVRAISON, { tierForce: "A", pertinenceScore: 88, pod: "page_blanche" });
   assertEquals([tables.contenu_pertinences[0].note, tables.contenu_pertinences[0].score], [70, 88]);
   assertEquals([tables.contenu_tiers_application[0].tier, tables.contenu_tiers_application[0].passages_prevus], ["A", 4]);
+  oublierSondeTiersApplication();
+});
+
+Deno.test("ecrireDecksApplications : label hors Sophia → le rang calculé (tierApp) va à l'application", async () => {
+  oublierSondeTiersApplication();
+  const tables = mondeValidation();
+  await ecrireDecksApplications(fauxEtat(tables, []), "c1", LIVRAISON, {
+    tierForce: null,
+    pertinenceScore: 91,
+    pod: "remakes_mentalapp",
+    tierApp: "A",
+  });
+  assertEquals([tables.contenu_pertinences[0].note, tables.contenu_pertinences[0].score], [70, 91]);
+  assertEquals([tables.contenu_tiers_application[0].tier, tables.contenu_tiers_application[0].passages_prevus], ["A", 4]);
+  // Rang imposé par l'admin : il passe aussi par `tierApp` (la validation le lui donne).
+  const t2 = mondeValidation();
+  await ecrireDecksApplications(fauxEtat(t2, []), "c1", LIVRAISON, { tierForce: "C", pertinenceScore: 91, pod: "p", tierApp: "C" });
+  assertEquals(t2.contenu_tiers_application[0].tier, "C");
   oublierSondeTiersApplication();
 });
 

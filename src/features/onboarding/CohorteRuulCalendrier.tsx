@@ -8,6 +8,7 @@ import { LIEN_SLACK, SALON_COHORTE_RUUL } from "./contenu";
 import {
   ajouterJours,
   formaterInstantParis,
+  finPremiereSemaineRuul,
   formaterJour,
   friseRuul,
   premierPaiementRuul,
@@ -53,7 +54,8 @@ function Etape({
 
 /**
  * Cohorte Ruul : la première semaine en quatre étapes datées, du clic sur
- * « Start warmup » au premier paiement. Disparaît une fois ce paiement passé.
+ * « Start warmup » au premier paiement (le lundi qui suit la première semaine
+ * de posts). Disparaît une fois ce paiement passé.
  */
 export function FriseCohorteRuul({
   debutLe,
@@ -70,7 +72,8 @@ export function FriseCohorteRuul({
   const { conseil, etats } = frise;
   const jour = (d: string) => formaterJour(d, i18n.language);
   const lundi = jour(debutLe);
-  const dimanche = jour(premierPaiementRuul(debutLe));
+  const dimanche = jour(finPremiereSemaineRuul(debutLe));
+  const paiement = jour(premierPaiementRuul(debutLe));
 
   const quandLancer =
     etats.lancer === "fait"
@@ -123,7 +126,7 @@ export function FriseCohorteRuul({
           numero={4}
           etat={etats.paiement}
           titre={t("calendrier.ruul.frise.paiement")}
-          quand={dimanche}
+          quand={paiement}
           detail={t("calendrier.ruul.frise.paiementDetail", { lundi, dimanche })}
           derniere
         />

@@ -7,7 +7,8 @@
  *   premiers posts glissent au mardi.
  * - Les posts sont attribués la nuit aux comptes sortis du warm-up : ils
  *   arrivent le matin qui suit la fin du warm-up.
- * - Premier paiement : le dimanche qui clôt la première semaine de posts.
+ * - Premier paiement : le lundi qui suit la première semaine de posts
+ *   (lundi → dimanche), comme chaque paiement ensuite.
  */
 
 export type ConseilWarmupRuul =
@@ -47,9 +48,14 @@ export function ajouterJours(jour: string, n: number): string {
   return d.toISOString().slice(0, 10);
 }
 
-/** Le dimanche qui clôt la première semaine de posts (lundi → dimanche). */
-export function premierPaiementRuul(debutLe: string): string {
+/** Dernier jour de la première semaine de posts (le dimanche). */
+export function finPremiereSemaineRuul(debutLe: string): string {
   return ajouterJours(debutLe, 6);
+}
+
+/** Le lundi qui suit la première semaine de posts : premier paiement. */
+export function premierPaiementRuul(debutLe: string): string {
+  return ajouterJours(debutLe, 7);
 }
 
 export function conseilWarmupRuul(opts: {
@@ -91,17 +97,17 @@ export function friseRuul(opts: {
   const maintenant = opts.maintenant ?? new Date();
   const conseil = conseilWarmupRuul({ ...opts, maintenant });
   const aujourdhui = partiesParis(maintenant).date;
-  const dimanche = premierPaiementRuul(opts.debutLe);
+  const paiement = premierPaiementRuul(opts.debutLe);
   const lance = conseil.cas === "en_cours" || conseil.cas === "termine";
   return {
     conseil,
     etats: {
       lancer: lance ? "fait" : "en_cours",
       warmup: conseil.cas === "termine" ? "fait" : conseil.cas === "en_cours" ? "en_cours" : "a_venir",
-      posts: conseil.cas === "termine" ? (aujourdhui > dimanche ? "fait" : "en_cours") : "a_venir",
-      paiement: aujourdhui > dimanche ? "fait" : aujourdhui === dimanche ? "en_cours" : "a_venir",
+      posts: conseil.cas === "termine" ? (aujourdhui >= paiement ? "fait" : "en_cours") : "a_venir",
+      paiement: aujourdhui > paiement ? "fait" : aujourdhui === paiement ? "en_cours" : "a_venir",
     },
-    terminee: aujourdhui > dimanche,
+    terminee: aujourdhui > paiement,
   };
 }
 

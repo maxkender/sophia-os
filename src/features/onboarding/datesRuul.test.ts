@@ -6,8 +6,8 @@ import { ajouterJours, conseilWarmupRuul, friseRuul, partiesParis, premierPaieme
 const DEBUT = "2026-10-26";
 
 describe("dates de la cohorte Ruul", () => {
-  it("premier paiement : le dimanche qui clôt la première semaine de posts", () => {
-    expect(premierPaiementRuul(DEBUT)).toBe("2026-11-01");
+  it("premier paiement : le lundi qui suit la première semaine de posts", () => {
+    expect(premierPaiementRuul(DEBUT)).toBe("2026-11-02");
     expect(ajouterJours(DEBUT, -1)).toBe("2026-10-25");
   });
 
@@ -86,10 +86,11 @@ describe("frise de la première semaine (cohorte Ruul)", () => {
     expect(f.etats).toEqual({ lancer: "fait", warmup: "en_cours", posts: "a_venir", paiement: "a_venir" });
   });
 
-  it("semaine de posts, puis le dimanche du premier paiement, puis plus de frise", () => {
+  it("semaine de posts, puis le lundi du premier paiement, puis plus de frise", () => {
     const lance = { debutLe: DEBUT, warmupStartedAt: "2026-10-22T10:00:00Z", warmupEndsAt: "2026-10-25T23:00:00Z" };
     expect(friseRuul({ ...lance, maintenant: new Date("2026-10-28T10:00:00Z") }).etats.posts).toBe("en_cours");
-    expect(friseRuul({ ...lance, maintenant: new Date("2026-11-01T10:00:00Z") }).etats.paiement).toBe("en_cours");
-    expect(friseRuul({ ...lance, maintenant: new Date("2026-11-02T10:00:00Z") }).terminee).toBe(true);
+    expect(friseRuul({ ...lance, maintenant: new Date("2026-11-01T10:00:00Z") }).etats.paiement).toBe("a_venir");
+    expect(friseRuul({ ...lance, maintenant: new Date("2026-11-02T10:00:00Z") }).etats.paiement).toBe("en_cours");
+    expect(friseRuul({ ...lance, maintenant: new Date("2026-11-03T10:00:00Z") }).terminee).toBe(true);
   });
 });

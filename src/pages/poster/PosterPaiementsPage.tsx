@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { lireCohorteAccueil } from "@/features/moteur/api";
 import { LIEN_RUUL_INSCRIPTION, LIEN_SLACK, SALON_COHORTE_RUUL } from "@/features/onboarding/contenu";
-import { formaterJour, partiesParis, premierPaiementRuul } from "@/features/onboarding/datesRuul";
+import { finPremiereSemaineRuul, formaterJour, partiesParis, premierPaiementRuul } from "@/features/onboarding/datesRuul";
 
 /** Espace freelancer Ruul (connexion, compte bancaire, paiements reçus). */
 const LIEN_RUUL = "https://app.ruul.io";
@@ -25,8 +25,8 @@ export function PosterPaiementsPage() {
   if (!cohorte.data?.cohorteRuul) return <Navigate to="/calendrier" replace />;
 
   const { emailRuul, identite, debutLe } = cohorte.data;
-  const dimanche = debutLe ? premierPaiementRuul(debutLe) : null;
-  const premierPasse = dimanche ? partiesParis(new Date()).date > dimanche : false;
+  const paiement = debutLe ? premierPaiementRuul(debutLe) : null;
+  const premierPasse = paiement ? partiesParis(new Date()).date > paiement : false;
 
   return (
     <div className="mx-auto max-w-2xl space-y-6">
@@ -46,12 +46,13 @@ export function PosterPaiementsPage() {
           </CardTitle>
           <CardDescription>{t("paiementsRuul.quand")}</CardDescription>
         </CardHeader>
-        {dimanche && debutLe && !premierPasse && (
+        {paiement && debutLe && !premierPasse && (
           <CardContent>
             <p className="rounded-md bg-success/10 p-3 font-medium text-sm">
               {t("paiementsRuul.premier", {
-                dimanche: formaterJour(dimanche, i18n.language),
+                paiement: formaterJour(paiement, i18n.language),
                 lundi: formaterJour(debutLe, i18n.language),
+                dimanche: formaterJour(finPremiereSemaineRuul(debutLe), i18n.language),
               })}
             </p>
           </CardContent>

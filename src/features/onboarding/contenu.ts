@@ -374,7 +374,7 @@ function ecransCohorteRuul(emailRuul: string | null): Record<string, Ecran> {
         {
           type: "p",
           texte:
-            "You are paid every week through Ruul (ruul.io), our payment partner. Nothing to submit: every Sunday, at the end of your week of posts, we pay you for that week. Your first payment date is shown on your calendar.",
+            "You are paid every week through Ruul (ruul.io), our payment partner. Nothing to submit: every Monday, we pay you for the week of posts that just ended (Monday → Sunday). Your first payment date is shown on your calendar.",
         },
         { type: "titre", texte: "Before your first Monday" },
         {

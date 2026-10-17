@@ -1,0 +1,3173 @@
+{
+ "source_id": "7694665011779685650",
+ "format": "tier-list",
+ "titre": "",
+ "legendes": {},
+ "app": null,
+ "slides": [
+  {
+   "position": 1,
+   "blocs": [
+    {
+     "id": "t1",
+     "boite": [
+      238,
+      99,
+      603,
+      136
+     ],
+     "lignes": [
+      [
+       238,
+       99,
+       603,
+       136
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000200",
+     "fond": "#edf2eb",
+     "libre": [
+      6,
+      1073
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t2",
+     "boite": [
+      576,
+      464,
+      16,
+      80
+     ],
+     "lignes": [
+      [
+       576,
+       464,
+       14,
+       34
+      ],
+      [
+       578,
+       496,
+       14,
+       48
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#f6290b",
+     "fond": "#fbfbfb",
+     "libre": [
+      511,
+      604
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t3",
+     "boite": [
+      244,
+      852,
+      598,
+      132
+     ],
+     "lignes": [
+      [
+       244,
+       852,
+       598,
+       132
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#010200",
+     "fond": "#edf2eb",
+     "libre": [
+      6,
+      842
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t4",
+     "boite": [
+      356,
+      993,
+      368,
+      65
+     ],
+     "lignes": [
+      [
+       356,
+       993,
+       368,
+       65
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000400",
+     "fond": "#edf2eb",
+     "libre": [
+      6,
+      1073
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t5",
+     "boite": [
+      200,
+      1087,
+      76,
+      65
+     ],
+     "lignes": [
+      [
+       200,
+       1087,
+       76,
+       65
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#10181f",
+     "fond": "#edf2eb",
+     "libre": [
+      200,
+      786
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t6",
+     "boite": [
+      398,
+      1264,
+      281,
+      46
+     ],
+     "lignes": [
+      [
+       398,
+       1264,
+       281,
+       46
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#7c817a",
+     "fond": "#edf2eb",
+     "libre": [
+      227,
+      1073
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t7",
+     "boite": [
+      399,
+      1266,
+      76,
+      34
+     ],
+     "lignes": [
+      [
+       399,
+       1266,
+       76,
+       34
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000000",
+     "fond": "#edf2eb",
+     "libre": [
+      227,
+      475
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t8",
+     "boite": [
+      552,
+      1266,
+      127,
+      43
+     ],
+     "lignes": [
+      [
+       552,
+       1266,
+       127,
+       43
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000000",
+     "fond": "#edf2eb",
+     "libre": [
+      552,
+      1073
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t9",
+     "boite": [
+      488,
+      1274,
+      52,
+      15
+     ],
+     "lignes": [
+      [
+       488,
+       1274,
+       52,
+       15
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000000",
+     "fond": "#edf2eb",
+     "libre": [
+      488,
+      540
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t10",
+     "boite": [
+      540,
+      1274,
+      11,
+      4
+     ],
+     "lignes": [
+      [
+       540,
+       1274,
+       11,
+       4
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000000",
+     "fond": "#edf2eb",
+     "libre": [
+      540,
+      551
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t11",
+     "boite": [
+      536,
+      1292,
+      21,
+      15
+     ],
+     "lignes": [
+      [
+       536,
+       1292,
+       21,
+       15
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000000",
+     "fond": "#edf2eb",
+     "libre": [
+      536,
+      557
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    }
+   ]
+  },
+  {
+   "position": 2,
+   "blocs": [
+    {
+     "id": "t1",
+     "boite": [
+      121,
+      108,
+      562,
+      65
+     ],
+     "lignes": [
+      [
+       121,
+       108,
+       562,
+       65
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000400",
+     "fond": "#edf2eb",
+     "libre": [
+      6,
+      1073
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t2",
+     "boite": [
+      309,
+      289,
+      521,
+      62
+     ],
+     "lignes": [
+      [
+       309,
+       289,
+       521,
+       62
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000500",
+     "fond": "#edf2eb",
+     "libre": [
+      245,
+      915
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t3",
+     "boite": [
+      126,
+      290,
+      62,
+      46
+     ],
+     "lignes": [
+      [
+       126,
+       290,
+       62,
+       46
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#470100",
+     "fond": "#fb0200",
+     "libre": [
+      126,
+      231
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t4",
+     "boite": [
+      88,
+      363,
+      144,
+      19
+     ],
+     "lignes": [
+      [
+       88,
+       363,
+       144,
+       19
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#8a0000",
+     "fond": "#f90301",
+     "libre": [
+      88,
+      232
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t5",
+     "boite": [
+      813,
+      408,
+      19,
+      8
+     ],
+     "lignes": [
+      [
+       813,
+       408,
+       19,
+       8
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000000",
+     "fond": "#f9bd32",
+     "libre": [
+      813,
+      834
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t6",
+     "boite": [
+      140,
+      441,
+      38,
+      45
+     ],
+     "lignes": [
+      [
+       140,
+       441,
+       38,
+       45
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#190100",
+     "fond": "#fcbc75",
+     "libre": [
+      89,
+      231
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t7",
+     "boite": [
+      447,
+      472,
+      43,
+      11
+     ],
+     "lignes": [
+      [
+       447,
+       472,
+       43,
+       11
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#323f47",
+     "fond": "#395599",
+     "libre": [
+      446,
+      490
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t8",
+     "boite": [
+      788,
+      504,
+      88,
+      28
+     ],
+     "lignes": [
+      [
+       788,
+       504,
+       88,
+       28
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#0d120a",
+     "fond": "#edf2eb",
+     "libre": [
+      725,
+      915
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t9",
+     "boite": [
+      260,
+      509,
+      32,
+      22
+     ],
+     "lignes": [
+      [
+       260,
+       509,
+       32,
+       22
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#080d06",
+     "fond": "#edf2eb",
+     "libre": [
+      245,
+      292
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t10",
+     "boite": [
+      314,
+      509,
+      53,
+      22
+     ],
+     "lignes": [
+      [
+       314,
+       509,
+       53,
+       22
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#121710",
+     "fond": "#edf2eb",
+     "libre": [
+      314,
+      450
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t11",
+     "boite": [
+      583,
+      509,
+      135,
+      27
+     ],
+     "lignes": [
+      [
+       583,
+       509,
+       135,
+       27
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#151a13",
+     "fond": "#edf2eb",
+     "libre": [
+      503,
+      778
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t12",
+     "boite": [
+      461,
+      511,
+      35,
+      25
+     ],
+     "lignes": [
+      [
+       461,
+       511,
+       35,
+       25
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#0e120b",
+     "fond": "#edf2eb",
+     "libre": [
+      461,
+      575
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t13",
+     "boite": [
+      90,
+      513,
+      136,
+      19
+     ],
+     "lignes": [
+      [
+       90,
+       513,
+       136,
+       19
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#633100",
+     "fond": "#fcbc75",
+     "libre": [
+      90,
+      231
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t14",
+     "boite": [
+      601,
+      548,
+      91,
+      110
+     ],
+     "lignes": [
+      [
+       601,
+       548,
+       91,
+       110
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#232424",
+     "fond": "#edf2eb",
+     "libre": [
+      553,
+      692
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t15",
+     "boite": [
+      794,
+      556,
+      57,
+      58
+     ],
+     "lignes": [
+      [
+       794,
+       556,
+       57,
+       58
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#020300",
+     "fond": "#edf2eb",
+     "libre": [
+      794,
+      851
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t16",
+     "boite": [
+      143,
+      591,
+      33,
+      46
+     ],
+     "lignes": [
+      [
+       143,
+       591,
+       33,
+       46
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#120200",
+     "fond": "#fddd70",
+     "libre": [
+      89,
+      231
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t17",
+     "boite": [
+      768,
+      636,
+      98,
+      46
+     ],
+     "lignes": [
+      [
+       768,
+       636,
+       98,
+       46
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#0b1009",
+     "fond": "#edf2eb",
+     "libre": [
+      725,
+      866
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t18",
+     "boite": [
+      864,
+      642,
+      14,
+      16
+     ],
+     "lignes": [
+      [
+       864,
+       642,
+       14,
+       16
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#161b14",
+     "fond": "#edf2eb",
+     "libre": [
+      864,
+      915
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t19",
+     "boite": [
+      255,
+      658,
+      141,
+      22
+     ],
+     "lignes": [
+      [
+       255,
+       658,
+       141,
+       22
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#121710",
+     "fond": "#edf2eb",
+     "libre": [
+      245,
+      426
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t20",
+     "boite": [
+      496,
+      660,
+      52,
+      22
+     ],
+     "lignes": [
+      [
+       496,
+       660,
+       52,
+       22
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#181d16",
+     "fond": "#edf2eb",
+     "libre": [
+      496,
+      587
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t21",
+     "boite": [
+      434,
+      662,
+      42,
+      20
+     ],
+     "lignes": [
+      [
+       434,
+       662,
+       42,
+       20
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#1c211a",
+     "fond": "#edf2eb",
+     "libre": [
+      405,
+      476
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t22",
+     "boite": [
+      596,
+      662,
+      121,
+      21
+     ],
+     "lignes": [
+      [
+       596,
+       662,
+       121,
+       21
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#171c15",
+     "fond": "#edf2eb",
+     "libre": [
+      557,
+      760
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t23",
+     "boite": [
+      146,
+      666,
+      50,
+      16
+     ],
+     "lignes": [
+      [
+       146,
+       666,
+       50,
+       16
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#6a5302",
+     "fond": "#fcdc71",
+     "libre": [
+      146,
+      231
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t24",
+     "boite": [
+      184,
+      666,
+      1,
+      14
+     ],
+     "lignes": [
+      [
+       184,
+       666,
+       1,
+       14
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#220700",
+     "fond": "#fbdc73",
+     "libre": [
+      184,
+      185
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t25",
+     "boite": [
+      778,
+      666,
+      48,
+      16
+     ],
+     "lignes": [
+      [
+       778,
+       666,
+       48,
+       16
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#161b14",
+     "fond": "#edf2eb",
+     "libre": [
+      778,
+      826
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t26",
+     "boite": [
+      662,
+      696,
+      54,
+      26
+     ],
+     "lignes": [
+      [
+       662,
+       696,
+       54,
+       26
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000500",
+     "fond": "#edf2eb",
+     "libre": [
+      539,
+      818
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t27",
+     "boite": [
+      833,
+      697,
+      63,
+      57
+     ],
+     "lignes": [
+      [
+       833,
+       697,
+       63,
+       57
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#362219",
+     "fond": "#edf2eb",
+     "libre": [
+      833,
+      915
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t28",
+     "boite": [
+      438,
+      709,
+      94,
+      94
+     ],
+     "lignes": [
+      [
+       438,
+       709,
+       94,
+       94
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#080a08",
+     "fond": "#edf2eb",
+     "libre": [
+      373,
+      599
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t29",
+     "boite": [
+      785,
+      730,
+      109,
+      82
+     ],
+     "lignes": [
+      [
+       785,
+       730,
+       109,
+       82
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#37241c",
+     "fond": "#edf2eb",
+     "libre": [
+      754,
+      915
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t30",
+     "boite": [
+      140,
+      741,
+      38,
+      47
+     ],
+     "lignes": [
+      [
+       140,
+       741,
+       38,
+       47
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#0d0700",
+     "fond": "#fffe68",
+     "libre": [
+      90,
+      231
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t31",
+     "boite": [
+      270,
+      742,
+      77,
+      62
+     ],
+     "lignes": [
+      [
+       273,
+       742,
+       41,
+       19
+      ],
+      [
+       270,
+       768,
+       77,
+       36
+      ]
+     ],
+     "alignement": "gauche",
+     "couleur": "#804829",
+     "fond": "#edf2eb",
+     "libre": [
+      245,
+      347
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t32",
+     "boite": [
+      607,
+      762,
+      140,
+      73
+     ],
+     "lignes": [
+      [
+       644,
+       762,
+       40,
+       36
+      ],
+      [
+       607,
+       808,
+       140,
+       27
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#060904",
+     "fond": "#edf2eb",
+     "libre": [
+      543,
+      747
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t33",
+     "boite": [
+      249,
+      808,
+      153,
+      21
+     ],
+     "lignes": [
+      [
+       249,
+       808,
+       153,
+       21
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#121610",
+     "fond": "#edf2eb",
+     "libre": [
+      245,
+      402
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t34",
+     "boite": [
+      444,
+      808,
+      92,
+      27
+     ],
+     "lignes": [
+      [
+       444,
+       808,
+       92,
+       27
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#0f140d",
+     "fond": "#edf2eb",
+     "libre": [
+      413,
+      595
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t35",
+     "boite": [
+      120,
+      817,
+      80,
+      15
+     ],
+     "lignes": [
+      [
+       120,
+       817,
+       80,
+       15
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#565300",
+     "fond": "#fffd68",
+     "libre": [
+      89,
+      231
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t36",
+     "boite": [
+      803,
+      818,
+      48,
+      16
+     ],
+     "lignes": [
+      [
+       803,
+       818,
+       48,
+       16
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#1a1f18",
+     "fond": "#edf2eb",
+     "libre": [
+      754,
+      851
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t37",
+     "boite": [
+      588,
+      853,
+      59,
+      74
+     ],
+     "lignes": [
+      [
+       588,
+       853,
+       59,
+       74
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#6f747a",
+     "fond": "#edf2eb",
+     "libre": [
+      523,
+      915
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t38",
+     "boite": [
+      265,
+      862,
+      108,
+      89
+     ],
+     "lignes": [
+      [
+       265,
+       862,
+       108,
+       89
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#010201",
+     "fond": "#edf2eb",
+     "libre": [
+      245,
+      424
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t39",
+     "boite": [
+      287,
+      862,
+      21,
+      22
+     ],
+     "lignes": [
+      [
+       287,
+       862,
+       21,
+       22
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#030402",
+     "fond": "#edf2eb",
+     "libre": [
+      287,
+      308
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t40",
+     "boite": [
+      432,
+      866,
+      80,
+      78
+     ],
+     "lignes": [
+      [
+       432,
+       866,
+       80,
+       30
+      ],
+      [
+       432,
+       912,
+       16,
+       32
+      ]
+     ],
+     "alignement": "gauche",
+     "couleur": "#e12a85",
+     "fond": "#edf2eb",
+     "libre": [
+      381,
+      512
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t41",
+     "boite": [
+      142,
+      892,
+      35,
+      46
+     ],
+     "lignes": [
+      [
+       142,
+       892,
+       35,
+       46
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#001000",
+     "fond": "#affd6b",
+     "libre": [
+      90,
+      231
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t42",
+     "boite": [
+      496,
+      928,
+      16,
+      16
+     ],
+     "lignes": [
+      [
+       496,
+       928,
+       16,
+       16
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#e72d5f",
+     "fond": "#edf2eb",
+     "libre": [
+      496,
+      561
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t43",
+     "boite": [
+      569,
+      933,
+      96,
+      49
+     ],
+     "lignes": [
+      [
+       569,
+       933,
+       96,
+       23
+      ],
+      [
+       569,
+       958,
+       96,
+       24
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#181d16",
+     "fond": "#edf2eb",
+     "libre": [
+      526,
+      665
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t44",
+     "boite": [
+      426,
+      953,
+      93,
+      28
+     ],
+     "lignes": [
+      [
+       426,
+       953,
+       93,
+       28
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#10140e",
+     "fond": "#edf2eb",
+     "libre": [
+      405,
+      561
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t45",
+     "boite": [
+      248,
+      954,
+      149,
+      27
+     ],
+     "lignes": [
+      [
+       248,
+       954,
+       149,
+       27
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#11160f",
+     "fond": "#edf2eb",
+     "libre": [
+      245,
+      418
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t46",
+     "boite": [
+      104,
+      958,
+      112,
+      17
+     ],
+     "lignes": [
+      [
+       104,
+       958,
+       112,
+       17
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#2c6b00",
+     "fond": "#affd6b",
+     "libre": [
+      90,
+      231
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t47",
+     "boite": [
+      141,
+      1004,
+      39,
+      43
+     ],
+     "lignes": [
+      [
+       141,
+       1004,
+       39,
+       43
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000500",
+     "fond": "#edf2eb",
+     "libre": [
+      6,
+      1073
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t48",
+     "boite": [
+      81,
+      1072,
+      159,
+      144
+     ],
+     "lignes": [
+      [
+       81,
+       1072,
+       159,
+       144
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#7f7efd",
+     "fond": "#edf2eb",
+     "libre": [
+      6,
+      255
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t49",
+     "boite": [
+      816,
+      1073,
+      47,
+      64
+     ],
+     "lignes": [
+      [
+       816,
+       1073,
+       47,
+       64
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000500",
+     "fond": "#edf2eb",
+     "libre": [
+      735,
+      915
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t50",
+     "boite": [
+      336,
+      1089,
+      16,
+      15
+     ],
+     "lignes": [
+      [
+       336,
+       1089,
+       16,
+       15
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#ea0d0a",
+     "fond": "#edf2eb",
+     "libre": [
+      336,
+      434
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t51",
+     "boite": [
+      290,
+      1096,
+      43,
+      65
+     ],
+     "lignes": [
+      [
+       290,
+       1096,
+       43,
+       65
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#030302",
+     "fond": "#eff1ea",
+     "libre": [
+      290,
+      333
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t52",
+     "boite": [
+      444,
+      1101,
+      60,
+      10
+     ],
+     "lignes": [
+      [
+       444,
+       1101,
+       60,
+       10
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#828186",
+     "fond": "#f2f1f6",
+     "libre": [
+      364,
+      504
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t53",
+     "boite": [
+      445,
+      1101,
+      91,
+      42
+     ],
+     "lignes": [
+      [
+       445,
+       1101,
+       17,
+       10
+      ],
+      [
+       446,
+       1124,
+       90,
+       19
+      ]
+     ],
+     "alignement": "gauche",
+     "couleur": "#070708",
+     "fond": "#fcfcfb",
+     "libre": [
+      445,
+      562
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t54",
+     "boite": [
+      482,
+      1104,
+      6,
+      7
+     ],
+     "lignes": [
+      [
+       482,
+       1104,
+       6,
+       7
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000000",
+     "fond": "#f2f1f6",
+     "libre": [
+      482,
+      488
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t55",
+     "boite": [
+      502,
+      1104,
+      22,
+      7
+     ],
+     "lignes": [
+      [
+       502,
+       1104,
+       22,
+       7
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000000",
+     "fond": "#f2f1f6",
+     "libre": [
+      502,
+      524
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t56",
+     "boite": [
+      145,
+      1118,
+      30,
+      46
+     ],
+     "lignes": [
+      [
+       145,
+       1118,
+       30,
+       46
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000625",
+     "fond": "#7f7efd",
+     "libre": [
+      145,
+      175
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t57",
+     "boite": [
+      407,
+      1161,
+      185,
+      47
+     ],
+     "lignes": [
+      [
+       407,
+       1161,
+       185,
+       19
+      ],
+      [
+       407,
+       1184,
+       184,
+       24
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#171c15",
+     "fond": "#edf2eb",
+     "libre": [
+      407,
+      635
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t58",
+     "boite": [
+      783,
+      1162,
+      123,
+      46
+     ],
+     "lignes": [
+      [
+       788,
+       1162,
+       118,
+       26
+      ],
+      [
+       783,
+       1192,
+       107,
+       16
+      ]
+     ],
+     "alignement": "gauche",
+     "couleur": "#060b05",
+     "fond": "#edf2eb",
+     "libre": [
+      783,
+      906
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t59",
+     "boite": [
+      774,
+      1167,
+      131,
+      45
+     ],
+     "lignes": [
+      [
+       774,
+       1167,
+       131,
+       45
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#090e07",
+     "fond": "#edf2eb",
+     "libre": [
+      774,
+      905
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t60",
+     "boite": [
+      141,
+      1185,
+      37,
+      15
+     ],
+     "lignes": [
+      [
+       141,
+       1185,
+       37,
+       15
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#232680",
+     "fond": "#7f7efd",
+     "libre": [
+      141,
+      178
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t61",
+     "boite": [
+      645,
+      1186,
+      88,
+      23
+     ],
+     "lignes": [
+      [
+       645,
+       1186,
+       88,
+       23
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#20241d",
+     "fond": "#edf2eb",
+     "libre": [
+      645,
+      766
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t62",
+     "boite": [
+      264,
+      1189,
+      98,
+      18
+     ],
+     "lignes": [
+      [
+       264,
+       1189,
+       98,
+       18
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#171c15",
+     "fond": "#edf2eb",
+     "libre": [
+      247,
+      399
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t63",
+     "boite": [
+      120,
+      1272,
+      334,
+      37
+     ],
+     "lignes": [
+      [
+       120,
+       1272,
+       334,
+       37
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#040903",
+     "fond": "#edf2eb",
+     "libre": [
+      6,
+      1073
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    }
+   ]
+  },
+  {
+   "position": 3,
+   "blocs": [
+    {
+     "id": "t1",
+     "boite": [
+      324,
+      126,
+      518,
+      61
+     ],
+     "lignes": [
+      [
+       324,
+       126,
+       518,
+       41
+      ],
+      [
+       403,
+       165,
+       360,
+       22
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#0b1009",
+     "fond": "#edf2eb",
+     "libre": [
+      253,
+      842
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t2",
+     "boite": [
+      140,
+      139,
+      61,
+      41
+     ],
+     "lignes": [
+      [
+       140,
+       139,
+       61,
+       41
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#470100",
+     "fond": "#fb0200",
+     "libre": [
+      96,
+      201
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t3",
+     "boite": [
+      127,
+      247,
+      76,
+      115
+     ],
+     "lignes": [
+      [
+       127,
+       247,
+       76,
+       115
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#313230",
+     "fond": "#edf2eb",
+     "libre": [
+      94,
+      240
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t4",
+     "boite": [
+      143,
+      248,
+      28,
+      35
+     ],
+     "lignes": [
+      [
+       143,
+       248,
+       28,
+       35
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#212321",
+     "fond": "#edf2eb",
+     "libre": [
+      143,
+      171
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t5",
+     "boite": [
+      337,
+      300,
+      460,
+      54
+     ],
+     "lignes": [
+      [
+       368,
+       300,
+       396,
+       22
+      ],
+      [
+       337,
+       331,
+       460,
+       23
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#181d16",
+     "fond": "#edf2eb",
+     "libre": [
+      253,
+      907
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t6",
+     "boite": [
+      108,
+      360,
+      117,
+      27
+     ],
+     "lignes": [
+      [
+       108,
+       360,
+       117,
+       27
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#0a0f08",
+     "fond": "#edf2eb",
+     "libre": [
+      94,
+      225
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t7",
+     "boite": [
+      271,
+      475,
+      273,
+      23
+     ],
+     "lignes": [
+      [
+       271,
+       475,
+       273,
+       23
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#151a13",
+     "fond": "#edf2eb",
+     "libre": [
+      253,
+      544
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t8",
+     "boite": [
+      567,
+      475,
+      311,
+      23
+     ],
+     "lignes": [
+      [
+       567,
+       475,
+       311,
+       23
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#181d16",
+     "fond": "#edf2eb",
+     "libre": [
+      567,
+      907
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t9",
+     "boite": [
+      144,
+      483,
+      46,
+      34
+     ],
+     "lignes": [
+      [
+       144,
+       483,
+       46,
+       34
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#12110e",
+     "fond": "#edf2eb",
+     "libre": [
+      94,
+      240
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t10",
+     "boite": [
+      426,
+      505,
+      297,
+      23
+     ],
+     "lignes": [
+      [
+       426,
+       505,
+       297,
+       23
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#1a1f18",
+     "fond": "#edf2eb",
+     "libre": [
+      253,
+      723
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t11",
+     "boite": [
+      99,
+      525,
+      136,
+      46
+     ],
+     "lignes": [
+      [
+       140,
+       525,
+       48,
+       28
+      ],
+      [
+       99,
+       549,
+       136,
+       22
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#0d120b",
+     "fond": "#edf2eb",
+     "libre": [
+      94,
+      240
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t12",
+     "boite": [
+      131,
+      602,
+      27,
+      27
+     ],
+     "lignes": [
+      [
+       131,
+       602,
+       27,
+       27
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#020501",
+     "fond": "#edf2eb",
+     "libre": [
+      119,
+      240
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t13",
+     "boite": [
+      116,
+      629,
+      102,
+      57
+     ],
+     "lignes": [
+      [
+       116,
+       629,
+       102,
+       57
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000100",
+     "fond": "#edf2eb",
+     "libre": [
+      94,
+      218
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t14",
+     "boite": [
+      329,
+      631,
+      492,
+      56
+     ],
+     "lignes": [
+      [
+       329,
+       631,
+       492,
+       27
+      ],
+      [
+       522,
+       665,
+       245,
+       22
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#161b14",
+     "fond": "#edf2eb",
+     "libre": [
+      253,
+      907
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t15",
+     "boite": [
+      399,
+      665,
+      100,
+      22
+     ],
+     "lignes": [
+      [
+       399,
+       665,
+       100,
+       22
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#191e17",
+     "fond": "#edf2eb",
+     "libre": [
+      399,
+      499
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t16",
+     "boite": [
+      107,
+      693,
+      120,
+      27
+     ],
+     "lignes": [
+      [
+       107,
+       693,
+       120,
+       27
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#121710",
+     "fond": "#edf2eb",
+     "libre": [
+      94,
+      240
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t17",
+     "boite": [
+      255,
+      791,
+      645,
+      139
+     ],
+     "lignes": [
+      [
+       255,
+       791,
+       645,
+       28
+      ],
+      [
+       287,
+       830,
+       581,
+       27
+      ],
+      [
+       275,
+       869,
+       606,
+       27
+      ],
+      [
+       495,
+       908,
+       88,
+       22
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#090e07",
+     "fond": "#edf2eb",
+     "libre": [
+      253,
+      907
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t18",
+     "boite": [
+      116,
+      820,
+      32,
+      27
+     ],
+     "lignes": [
+      [
+       116,
+       820,
+       32,
+       27
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#07492b",
+     "fond": "#c5f265",
+     "libre": [
+      115,
+      148
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t19",
+     "boite": [
+      108,
+      887,
+      113,
+      32
+     ],
+     "lignes": [
+      [
+       108,
+       887,
+       113,
+       32
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#090e07",
+     "fond": "#edf2eb",
+     "libre": [
+      94,
+      240
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t20",
+     "boite": [
+      601,
+      914,
+      10,
+      16
+     ],
+     "lignes": [
+      [
+       601,
+       914,
+       10,
+       16
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#010600",
+     "fond": "#edf2eb",
+     "libre": [
+      601,
+      611
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t21",
+     "boite": [
+      645,
+      914,
+      15,
+      21
+     ],
+     "lignes": [
+      [
+       645,
+       914,
+       15,
+       21
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#030602",
+     "fond": "#edf2eb",
+     "libre": [
+      645,
+      660
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t22",
+     "boite": [
+      64,
+      1060,
+      371,
+      37
+     ],
+     "lignes": [
+      [
+       64,
+       1060,
+       371,
+       37
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#060b05",
+     "fond": "#edf2eb",
+     "libre": [
+      6,
+      435
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t23",
+     "boite": [
+      459,
+      1060,
+      524,
+      36
+     ],
+     "lignes": [
+      [
+       459,
+       1060,
+       524,
+       36
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#030801",
+     "fond": "#edf2eb",
+     "libre": [
+      459,
+      1073
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t24",
+     "boite": [
+      295,
+      1137,
+      240,
+      63
+     ],
+     "lignes": [
+      [
+       295,
+       1137,
+       240,
+       29
+      ],
+      [
+       295,
+       1175,
+       189,
+       25
+      ]
+     ],
+     "alignement": "gauche",
+     "couleur": "#040404",
+     "fond": "#fefefe",
+     "libre": [
+      295,
+      682
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t25",
+     "boite": [
+      104,
+      1194,
+      50,
+      46
+     ],
+     "lignes": [
+      [
+       104,
+       1194,
+       50,
+       46
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#005131",
+     "fond": "#ade966",
+     "libre": [
+      99,
+      154
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t26",
+     "boite": [
+      205,
+      1202,
+      3,
+      22
+     ],
+     "lignes": [
+      [
+       205,
+       1202,
+       3,
+       22
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#05491f",
+     "fond": "#aeea65",
+     "libre": [
+      164,
+      208
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t27",
+     "boite": [
+      256,
+      1203,
+      3,
+      21
+     ],
+     "lignes": [
+      [
+       256,
+       1203,
+       3,
+       21
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#034e19",
+     "fond": "#87de6c",
+     "libre": [
+      256,
+      262
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t28",
+     "boite": [
+      295,
+      1217,
+      296,
+      21
+     ],
+     "lignes": [
+      [
+       295,
+       1217,
+       296,
+       21
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#8a8a8a",
+     "fond": "#fefefe",
+     "libre": [
+      295,
+      682
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t29",
+     "boite": [
+      561,
+      1218,
+      8,
+      16
+     ],
+     "lignes": [
+      [
+       561,
+       1218,
+       8,
+       16
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000000",
+     "fond": "#fefefe",
+     "libre": [
+      561,
+      569
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t30",
+     "boite": [
+      426,
+      1219,
+      11,
+      14
+     ],
+     "lignes": [
+      [
+       426,
+       1219,
+       11,
+       14
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000000",
+     "fond": "#fefefe",
+     "libre": [
+      426,
+      437
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t31",
+     "boite": [
+      376,
+      1222,
+      9,
+      5
+     ],
+     "lignes": [
+      [
+       376,
+       1222,
+       9,
+       5
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000000",
+     "fond": "#fbfbfb",
+     "libre": [
+      376,
+      385
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t32",
+     "boite": [
+      389,
+      1223,
+      19,
+      10
+     ],
+     "lignes": [
+      [
+       389,
+       1223,
+       19,
+       10
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000000",
+     "fond": "#fdfdfd",
+     "libre": [
+      389,
+      408
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t33",
+     "boite": [
+      467,
+      1223,
+      15,
+      11
+     ],
+     "lignes": [
+      [
+       467,
+       1223,
+       15,
+       11
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000000",
+     "fond": "#fefefe",
+     "libre": [
+      467,
+      482
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t34",
+     "boite": [
+      363,
+      1229,
+      9,
+      5
+     ],
+     "lignes": [
+      [
+       363,
+       1229,
+       9,
+       5
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000000",
+     "fond": "#fdfdfd",
+     "libre": [
+      363,
+      372
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t35",
+     "boite": [
+      324,
+      1278,
+      51,
+      18
+     ],
+     "lignes": [
+      [
+       324,
+       1278,
+       51,
+       18
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000000",
+     "fond": "#038cfa",
+     "libre": [
+      324,
+      375
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [],
+     "textes": {}
+    }
+   ]
+  }
+ ],
+ "notes": "source : https://www.tiktok.com/@mentalapp/video/7694665011779685650 · 11300 vues · « Start enjoy life by saving your time daily with Journey - Screen time controll app #journeyapp #screentime #dopaminesour »"
+}

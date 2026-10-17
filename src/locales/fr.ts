@@ -1282,6 +1282,7 @@ export const fr = {
       zoneResume:
         "{{recruteurs}} recruteur(s) · {{total}} créateur(s) · {{pasCree}} pas créé · {{warmup}} warmup · {{actif}} actif",
       filtreZone: "Zone",
+      filtreRuul: "Seulement la cohorte RUUL (créateurs venus du site, payés par Ruul) · {{n}}",
       toutesZones: "Toutes",
       recherche: "Rechercher",
       recherchePlaceholder: "Nom, email, @TikTok ou recruteur…",

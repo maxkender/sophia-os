@@ -253,3 +253,61 @@ describe("zonesConnues / zoneDuCreateur", () => {
     expect(zoneDuCreateur(c("q", null), tous)).toBeNull();
   });
 });
+
+describe("cohorte Ruul", () => {
+  // Posters du site : rattachés au profil « RUUL cohort » (sans zone), rangés
+  // dans la zone du HM de leur pays, sous un bloc à côté de ce HM.
+  const sara = profil({ id: "sara", role: "hiring_manager", zone_recrutement: "France" });
+  const ruul = profil({ id: "ruul", role: "hiring_manager", prenom: "RUUL cohort" });
+  const equipe = [
+    sara,
+    ruul,
+    c("amira", "sara"),
+    c("adrien", "ruul"),
+    c("lea", "ruul"),
+    c("sanspays", "ruul"),
+  ];
+  const zonesCohorteRuul = new Map<string, string | null>([
+    ["adrien", "sara"],
+    ["lea", "sara"],
+    ["sanspays", null],
+  ]);
+
+  it("rangée dans la zone du HM de son pays, sous son propre bloc, pas sous le HM", () => {
+    const r = regrouperParZone(equipe, { zonesCohorteRuul });
+    const france = r.zones.find((z) => z.zone === "France");
+    expect(france?.recruteurs.map((b) => [b.recruteur.id, b.createurs.map((p) => p.id)])).toEqual([
+      ["ruul", ["adrien", "lea"]],
+      ["sara", ["amira"]],
+    ]);
+    expect(france?.compteurs.total).toBe(3);
+    // HM du pays inconnu : reste sous son rattachement, en « Sans zone ».
+    expect(r.sansZone?.recruteurs.map((b) => [b.recruteur.id, b.createurs.map((p) => p.id)])).toEqual([
+      ["ruul", ["sanspays"]],
+    ]);
+  });
+
+  it("pas de bloc « RUUL cohort » vide en « Sans zone » quand tous ses posters ont une zone", () => {
+    const r = regrouperParZone(equipe.filter((p) => p.id !== "sanspays"), { zonesCohorteRuul });
+    expect(r.sansZone).toBeNull();
+  });
+
+  it("filtre « cohorte Ruul seulement » : seuls ses blocs restent", () => {
+    const r = regrouperParZone(equipe, {
+      zonesCohorteRuul,
+      filtreActif: true,
+      garderCreateur: (p) => zonesCohorteRuul.has(p.id),
+    });
+    expect(r.zones.flatMap((z) => z.recruteurs.map((b) => b.recruteur.id))).toEqual(["ruul"]);
+  });
+
+  it("sans la carte de la cohorte, rien ne change", () => {
+    const r = regrouperParZone(equipe);
+    expect(r.zones.find((z) => z.zone === "France")?.recruteurs.map((b) => b.recruteur.id)).toEqual(["sara"]);
+  });
+
+  it("la fiche d'un poster de la cohorte affiche la zone de son pays", () => {
+    expect(zoneDuCreateur(c("adrien", "ruul"), equipe, zonesCohorteRuul)).toBe("France");
+    expect(zoneDuCreateur(c("sanspays", "ruul"), equipe, zonesCohorteRuul)).toBeNull();
+  });
+});

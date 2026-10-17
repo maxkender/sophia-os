@@ -55,6 +55,7 @@ import {
   listerLabels,
   listerLanguesReference,
   listerPosters,
+  lireZonesCohorteRuul,
   majCompte,
   majLanguesRecruteur,
   majUpwork,
@@ -574,6 +575,9 @@ export function AdminPostersPage() {
   const peutChoisirApps = peutChoisirApplicationsCompte(role);
   const queryClient = useQueryClient();
   const posters = useQuery({ queryKey: ["posters"], queryFn: listerPosters });
+  // Cohorte Ruul (posters venus du site) → HM de la zone de leur pays.
+  const cohorteRuul = useQuery({ queryKey: ["posters", "cohorte-ruul"], queryFn: lireZonesCohorteRuul });
+  const zonesCohorteRuul = cohorteRuul.data;
   // Zones déjà données aux recruteurs : filtre de la page et suggestions de saisie.
   const zonesExistantes = React.useMemo(() => zonesConnues(posters.data ?? []), [posters.data]);
   // Email du recruteur d'un créateur : chercher « hugo@… » garde ses créateurs,
@@ -619,6 +623,8 @@ export function AdminPostersPage() {
   const [filtrePays, setFiltrePays] = React.useState("");
   const [filtreLabel, setFiltreLabel] = React.useState("");
   const [filtreApp, setFiltreApp] = React.useState("tous");
+  // Seulement la cohorte Ruul (posters venus du site, payés par Ruul).
+  const [filtreRuul, setFiltreRuul] = React.useState(false);
   // Zone de recrutement (clé `cleZone`, ou CLE_SANS_ZONE) ; "" = toutes.
   const [filtreZone, setFiltreZone] = React.useState("");
   // Zone survolée sur la carte ou sur sa puce : les deux se répondent.
@@ -1140,6 +1146,7 @@ export function AdminPostersPage() {
       warmup_ends_at: p.warmup_ends_at,
     });
     if (filtrePhase !== "tous" && phase !== filtrePhase) return false;
+    if (filtreRuul && !zonesCohorteRuul?.has(p.id)) return false;
     const liste = comptesParPoster.get(p.id) ?? [];
     if (filtreLangue && !liste.some((c) => c.langue === filtreLangue)) return false;
     if (filtrePays) {
@@ -1207,6 +1214,7 @@ export function AdminPostersPage() {
     Boolean(filtrePays) ||
     Boolean(filtreLabel) ||
     (Boolean(filtreApp) && filtreApp !== "tous") ||
+    filtreRuul ||
     Boolean(rechercheNormalisee);
   const recruteurCherche = (r: PosterProfil) =>
     Boolean(rechercheNormalisee) &&
@@ -1323,6 +1331,15 @@ export function AdminPostersPage() {
           allowTous
         />
       </div>
+      <label className="flex items-center gap-2 text-sm sm:col-span-2 lg:col-span-6">
+        <input
+          type="checkbox"
+          className="size-4 accent-[var(--color-primary)]"
+          checked={filtreRuul}
+          onChange={(e) => setFiltreRuul(e.target.checked)}
+        />
+        {t("posters.filtreRuul", { n: zonesCohorteRuul?.size ?? 0 })}
+      </label>
     </div>
   );
 
@@ -1336,10 +1353,11 @@ export function AdminPostersPage() {
     filtreActif: filtreListe,
     garderRecruteur: recruteurCherche,
     trierCreateurs,
+    zonesCohorteRuul,
   });
   // Carte : toutes les zones, filtres ignorés — un filtre ne repeint pas la
   // carte, il ne fait que mettre sa zone en avant.
-  const zonesCarte: ZoneCarte[] = regrouperParZone(tous).zones.map((g) => ({
+  const zonesCarte: ZoneCarte[] = regrouperParZone(tous, { zonesCohorteRuul }).zones.map((g) => ({
     cle: g.cle,
     zone: g.zone ?? "",
     compteurs: g.compteurs,
@@ -2019,7 +2037,7 @@ export function AdminPostersPage() {
                 )}
                 <span aria-hidden>·</span>
                 <MapPin className="size-3" />
-                <span>{zoneDuCreateur(fiche, tous) ?? t("posters.sansZone")}</span>
+                <span>{zoneDuCreateur(fiche, tous, zonesCohorteRuul) ?? t("posters.sansZone")}</span>
               </p>
 
               <CreateurUpwork

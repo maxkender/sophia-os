@@ -1598,6 +1598,26 @@ export async function lireCohorteAccueil(): Promise<ContexteAccueil> {
   };
 }
 
+/**
+ * Posters de la cohorte Ruul (venus du site) → HM de la zone de leur pays
+ * (null s'il n'est pas connu). Lecture admin (RLS de `hub_posteurs`).
+ */
+export async function lireZonesCohorteRuul(): Promise<Map<string, string | null>> {
+  const { data, error } = await supabase
+    .from("hub_posteurs")
+    .select("profile_id, hm_zone_id")
+    .eq("statut", "cree");
+  if (error) {
+    console.warn(`[posters] cohorte Ruul non lue : ${error.message}`);
+    return new Map();
+  }
+  return new Map(
+    ((data ?? []) as { profile_id: string | null; hm_zone_id: string | null }[])
+      .filter((r) => r.profile_id)
+      .map((r) => [r.profile_id as string, r.hm_zone_id]),
+  );
+}
+
 /** Cohorte Ruul : le prénom et le nom de la pièce d'identité, pour l'ajout dans Ruul. */
 export async function enregistrerIdentiteRuul(prenom: string, nom: string): Promise<void> {
   const { error } = await supabase.rpc("hub_enregistrer_identite", { p_prenom: prenom, p_nom: nom });

@@ -448,9 +448,9 @@ export const en = {
       onboardingTitre: "Preview the creator onboarding",
       onboardingDesc:
         "Open the welcome flow exactly as a slideshow creator sees it at their first login. Nothing is saved: no step recorded, no profile marked as done.",
-      onboardingProfil: "Creator:",
-      onboardingProfilHm: "Recruited by an HM",
-      onboardingProfilRuul: "Ruul cohort (from the site)",
+      onboardingRuulTitre: "Preview the Ruul creator onboarding",
+      onboardingRuulDesc:
+        "Open the welcome flow as a creator from the site (Ruul cohort, no HM) sees it at their first login. Nothing is saved.",
       onboardingDepart: "Start at:",
       onboardingQuiz: "Quiz",
       onboardingOuvrir: "Open the onboarding",

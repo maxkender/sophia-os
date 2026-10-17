@@ -449,9 +449,9 @@ export const fr = {
       onboardingTitre: "Aperçu de l'accueil des créateurs",
       onboardingDesc:
         "Ouvre le parcours de bienvenue exactement tel qu'un créateur slideshow le voit à sa première connexion. Rien n'est enregistré : aucune étape retenue, aucun profil marqué comme terminé.",
-      onboardingProfil: "Créateur :",
-      onboardingProfilHm: "Recruté par un HM",
-      onboardingProfilRuul: "Cohorte Ruul (venu du site)",
+      onboardingRuulTitre: "Aperçu de l'accueil des créateurs Ruul",
+      onboardingRuulDesc:
+        "Ouvre le parcours de bienvenue tel qu'un créateur venu du site (cohorte Ruul, sans HM) le voit à sa première connexion. Rien n'est enregistré.",
       onboardingDepart: "Démarrer à :",
       onboardingQuiz: "Quiz",
       onboardingOuvrir: "Ouvrir l'accueil",

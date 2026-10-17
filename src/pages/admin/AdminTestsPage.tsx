@@ -286,6 +286,12 @@ const TESTS = [
     render: () => <SimulerOnboardingCard />,
   },
   {
+    value: "onboarding-ruul",
+    titreKey: "tests.onboardingRuulTitre",
+    descKey: "tests.onboardingRuulDesc",
+    render: () => <SimulerOnboardingCard cohorteRuul />,
+  },
+  {
     value: "retour",
     titreKey: "tests.retourTitre",
     descKey: "tests.retourDesc",

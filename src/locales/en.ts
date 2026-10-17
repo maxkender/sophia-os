@@ -448,11 +448,16 @@ export const en = {
       onboardingTitre: "Preview the creator onboarding",
       onboardingDesc:
         "Open the welcome flow exactly as a slideshow creator sees it at their first login. Nothing is saved: no step recorded, no profile marked as done.",
+      onboardingProfil: "Creator:",
+      onboardingProfilHm: "Recruited by an HM",
+      onboardingProfilRuul: "Ruul cohort (from the site)",
       onboardingDepart: "Start at:",
       onboardingQuiz: "Quiz",
       onboardingOuvrir: "Open the onboarding",
       onboardingNote:
         "The flow is in English only for now. Video creators (pod 3) keep their own screen and never see it.",
+      onboardingNoteRuul:
+        "Ruul cohort: the Slack (#welcome, #ruul-cohort) and Payments (Ruul) screens change, the rest is the same. The address shown is an example; the creator sees the one given on the site.",
       completTitre: "Full test (one post per account)",
       completDesc:
         "Simulates the full pipeline on each account: import → cleaning → translation → Sophia. Outputs one test post per account, without assigning or publishing anything.",

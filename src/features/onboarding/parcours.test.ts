@@ -236,3 +236,16 @@ describe("le créateur ne peut pas fermer", () => {
     expect(source).toMatch(/Escape.*preventDefault|preventDefault.*Escape/s);
   });
 });
+
+/**
+ * L'aperçu admin montre l'accueil choisi (standard ou cohorte Ruul), jamais
+ * celui qui découlerait du compte de l'admin.
+ */
+describe("aperçu admin", () => {
+  const source = fs.readFileSync(path.join(__dirname, "OnboardingParcours.tsx"), "utf8");
+
+  it("l'accueil vient du choix de l'aperçu, pas du compte connecté", () => {
+    expect(source).toContain("enabled: !simulation");
+    expect(source).toContain("ecransPour(simulation ? contexteSimule : cohorte.data)");
+  });
+});

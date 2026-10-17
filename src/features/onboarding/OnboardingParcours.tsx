@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { enregistrerOnboardingEtape, lireCohorteAccueil, marquerOnboardingVu } from "@/features/moteur/api";
 
 import { Mico, type EtatMico } from "./Mico";
-import { ecransPour, QUESTIONS, type Bloc } from "./contenu";
+import { ecransPour, QUESTIONS, type Bloc, type ContexteAccueil } from "./contenu";
 import {
   basDePageAtteint,
   corrigerQuiz,
@@ -207,15 +207,18 @@ function Quiz({
  * sur une mauvaise réponse et fait la fête à la fin.
  *
  * `simulation` : l'aperçu admin. Rien n'est écrit en base et la croix revient,
- * sinon on enfermerait l'admin dans l'accueil d'un créateur.
+ * sinon on enfermerait l'admin dans l'accueil d'un créateur. `contexteSimule`
+ * choisit l'accueil montré (standard, ou cohorte Ruul).
  */
 export function OnboardingParcours({
   etapeInitiale = 0,
   simulation = false,
+  contexteSimule = null,
   onTermine,
 }: {
   etapeInitiale?: number;
   simulation?: boolean;
+  contexteSimule?: ContexteAccueil | null;
   onTermine?: () => void;
 }) {
   const [etape, setEtape] = React.useState(() => etapeDeReprise(etapeInitiale));
@@ -227,14 +230,14 @@ export function OnboardingParcours({
   const corps = React.useRef<HTMLDivElement>(null);
 
   // Cohorte Ruul (posters venus du site) : écrans Slack et Payments à part.
-  // L'aperçu admin montre l'accueil standard.
+  // L'aperçu admin montre l'accueil qu'on lui demande, pas celui de l'admin.
   const cohorte = useQuery({
     queryKey: ["accueil-cohorte"],
     queryFn: lireCohorteAccueil,
     enabled: !simulation,
     staleTime: Infinity,
   });
-  const ecrans = ecransPour(simulation ? null : cohorte.data);
+  const ecrans = ecransPour(simulation ? contexteSimule : cohorte.data);
 
   const surQuiz = etape >= INDEX_QUIZ;
   const ecran = surQuiz ? null : ecrans[etape];

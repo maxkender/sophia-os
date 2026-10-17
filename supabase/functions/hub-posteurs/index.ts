@@ -17,7 +17,8 @@
  *       Crée le poster par le MÊME chemin que l'admin (manage-users `create` :
  *       login @sophia.com, mot de passe 12345678 comme tout compte OS, premier
  *       compte perso, labels, persona), dans la langue de son pays, puis le
- *       rattache à son HM. Le warm-up n'est pas lancé :
+ *       rattache au profil « RUUL cohort » (réglage `hub_posteurs`), ou à
+ *       défaut au HM de sa zone. Le warm-up n'est pas lancé :
  *       c'est le poster qui le démarre dans l'OS, comme aujourd'hui ; lancé
  *       avant son lundi de démarrage (`start_monday`), il dure jusqu'à ce
  *       lundi (trigger de 0296) — premiers posts et paie partent du lundi.
@@ -39,6 +40,7 @@ import {
   codePays,
   dateIso,
   estUuid,
+  idCohorteRuul,
   MOT_DE_PASSE_INITIAL,
   partsPourApplications,
   paysAEnvoyer,
@@ -50,7 +52,7 @@ import {
 import { lireParLots } from "../_shared/lots.ts";
 import { corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
-const VERSION = "2026-10-17";
+const VERSION = "2026-10-17b";
 const POSTS_PAR_JOUR = 2;
 const PROFILS_MAX = 500;
 
@@ -180,7 +182,10 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
         : {}),
     }, 422);
   }
+  // Le HM de la zone décide de la langue et de l'ouverture du pays ; le poster,
+  // lui, est rattaché à la cohorte Ruul quand elle est configurée.
   const { hm, langue } = affectation;
+  const rattachement = (await lireCohorteRuul(supabase)) ?? hm;
   const parts = partsPourApplications(body.applications);
   const applications = parts ? Object.keys(parts) : ["sophia"];
 
@@ -191,7 +196,7 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     pays_code: pays,
     langue,
     applications,
-    manager_id: hm.id,
+    manager_id: rattachement.id,
     // Lundi fixe : le trigger de 0296 repousse la fin du warm-up à ce lundi.
     debut_le: dateIso(body.start_monday),
     reserve_at: new Date().toISOString(),
@@ -246,7 +251,7 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
   if (errCree) throw errCree;
   const { error: errProfil } = await supabase
     .from("profiles")
-    .update({ manager_id: hm.id })
+    .update({ manager_id: rattachement.id })
     .eq("id", cree.userId);
   if (errProfil) throw errProfil;
 
@@ -258,8 +263,30 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     email_os: cree.email,
     password,
     langue,
-    manager: managerPublic(hm),
+    manager: managerPublic(rattachement),
   });
+}
+
+/** Le profil « RUUL cohort » (réglage `hub_posteurs`), s'il existe et est actif. */
+async function lireCohorteRuul(
+  supabase: Supabase,
+): Promise<{ id: string; prenom: string | null; nom: string | null; email: string | null } | null> {
+  const { data: reglage, error } = await supabase
+    .from("reglages")
+    .select("valeur")
+    .eq("cle", "hub_posteurs")
+    .maybeSingle();
+  if (error) throw error;
+  const id = idCohorteRuul(reglage?.valeur);
+  if (!id) return null;
+  const { data: profil, error: errProfil } = await supabase
+    .from("profiles")
+    .select("id, prenom, nom, email")
+    .eq("id", id)
+    .eq("is_active", true)
+    .maybeSingle();
+  if (errProfil) throw errProfil;
+  return profil ?? null;
 }
 
 /** Rejeu sur un poster déjà créé : rien n'est recréé, le rattachement au HM est revérifié. */

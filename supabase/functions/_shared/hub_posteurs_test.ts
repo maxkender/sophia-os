@@ -12,6 +12,7 @@ import {
   codePays,
   codesDeZone,
   dateIso,
+  idCohorteRuul,
   MOT_DE_PASSE_INITIAL,
   partsPourApplications,
   paysAEnvoyer,
@@ -165,4 +166,13 @@ Deno.test("dates et réservations", () => {
   assertEquals(reservationPerimee("2026-10-12T09:58:00Z", t), false);
   assertEquals(reservationPerimee("2026-10-12T09:50:00Z", t), true);
   assertEquals(reservationPerimee(null, t), true);
+});
+
+Deno.test("cohorte Ruul : l'id vient du réglage, sinon retour au HM de la zone", () => {
+  const id = "0f0e0d0c-0b0a-4908-8706-050403020100";
+  assertEquals(idCohorteRuul({ cohorte_ruul_id: id }), id);
+  assertEquals(idCohorteRuul({ cohorte_ruul_id: id.toUpperCase() }), id);
+  assertEquals(idCohorteRuul({ cohorte_ruul_id: "pas-un-uuid" }), null);
+  assertEquals(idCohorteRuul({}), null);
+  assertEquals(idCohorteRuul(null), null);
 });

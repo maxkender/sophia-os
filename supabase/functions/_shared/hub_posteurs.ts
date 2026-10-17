@@ -219,6 +219,16 @@ export function partsPourApplications(applications: unknown): Record<string, num
 }
 
 /**
+ * Profil « RUUL cohort » auquel sont rattachés les posters du site, à la place
+ * d'un HM (décision du 17/10) : réglage `hub_posteurs`, clé `cohorte_ruul_id`.
+ * Absent ou illisible : null, et le poster revient au HM de sa zone.
+ */
+export function idCohorteRuul(valeur: unknown): string | null {
+  const id = (valeur as { cohorte_ruul_id?: unknown } | null)?.cohorte_ruul_id;
+  return estUuid(id) ? id.toLowerCase() : null;
+}
+
+/**
  * Langues qui ne désignent qu'un marché : le trigger `comptes_pays_defaut`
  * (migration 0281) en déduit le pays du compte. Copie des clés de
  * `PAYS_PAR_DEFAUT_LANGUE` (src/features/moteur/pays.ts), à garder alignée.

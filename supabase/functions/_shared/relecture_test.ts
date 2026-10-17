@@ -194,6 +194,9 @@ Deno.test("familleCouleur : blanc cassé reste blanc, jaune et orange se disting
   assertEquals(familleCouleur("#FFF29A"), "blanc");
   assertEquals(familleCouleur("#FFF8B5"), "blanc");
   assertEquals(familleCouleur("#F8D81C"), "jaune");
+  assertEquals(familleCouleur("#FFF18A"), "blanc");
+  assertEquals(familleCouleur("#ECC765"), "jaune");
+  assertEquals(familleCouleur("#F8CD50"), "jaune");
 });
 
 Deno.test("slide publiée sans texte", () => {

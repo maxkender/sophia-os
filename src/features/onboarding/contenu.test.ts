@@ -27,6 +27,7 @@ describe("ecransPour", () => {
     expect(paie).toContain("ana@example.com");
     expect(paie).not.toMatch(/hiring manager|upwork/i);
     expect(texte(ecrans, "slack")).toContain("#ruul-cohort");
+    expect(texte(ecrans, "slack")).toContain("#welcome");
   });
 
   it("cohorte Ruul sans adresse connue : renvoie à l'adresse de candidature", () => {

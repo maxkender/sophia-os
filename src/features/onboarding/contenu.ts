@@ -41,6 +41,9 @@ export const LIEN_SLACK =
 /** Le salon des posters venus du site, qui n'ont pas de HM. */
 export const SALON_COHORTE_RUUL = "#ruul-cohort";
 
+/** Le salon d'accueil, que les posters venus du site rejoignent aussi. */
+export const SALON_BIENVENUE = "#welcome";
+
 import type { EtatMico } from "./Mico";
 
 export type Bloc =
@@ -348,7 +351,7 @@ function ecransCohorteRuul(emailRuul: string | null): Record<string, Ecran> {
         {
           type: "p",
           texte:
-            `You will be invited to the ${SALON_COHORTE_RUUL} channel. Ask all your questions there, whether you hit a problem (technical, payment) or simply want to chat and connect with the Vik Studios team.`,
+            `Join the ${SALON_BIENVENUE} and ${SALON_COHORTE_RUUL} channels. Ask all your questions in ${SALON_COHORTE_RUUL}, whether you hit a problem (technical, payment) or simply want to chat and connect with the Vik Studios team.`,
         },
         { type: "lien", avant: "Not in yet?", libelle: "Join the Slack workspace", href: LIEN_SLACK },
       ],

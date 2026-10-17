@@ -5,14 +5,14 @@
  * 12/10/2026 : si l'une d'elles cesse d'être comprise, un poster du site
  * tombe en « zone non ouverte » alors qu'un HM l'attend.
  */
-import { assert, assertEquals, assertNotEquals } from "jsr:@std/assert@1";
+import { assert, assertEquals } from "jsr:@std/assert@1";
 
 import {
   carteDesZones,
   codePays,
   codesDeZone,
   dateIso,
-  genererMotDePasse,
+  MOT_DE_PASSE_INITIAL,
   partsPourApplications,
   type Recruteur,
   reservationPerimee,
@@ -134,13 +134,9 @@ Deno.test("applications : Sophia seule garde le chemin historique de création",
   assertEquals(partsPourApplications(["micabo", "sophia"]), null);
 });
 
-Deno.test("mot de passe provisoire : 12 caractères lisibles, jamais deux fois le même", () => {
-  const a = genererMotDePasse();
-  const b = genererMotDePasse();
-  assertEquals(a.length, 12);
-  assert(/^[a-km-zA-HJ-NP-Z2-9]+$/.test(a), a);
-  assert(!/[01lIoO]/.test(a), a);
-  assertNotEquals(a, b);
+Deno.test("mot de passe de départ : celui de tous les comptes OS", () => {
+  // Le même que MDP_OS_INITIAL côté front : les HM le donnent aux posters.
+  assertEquals(MOT_DE_PASSE_INITIAL, "12345678");
 });
 
 Deno.test("secret : bon secret accepté, tout le reste refusé", async () => {

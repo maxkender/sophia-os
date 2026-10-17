@@ -11,7 +11,9 @@ identifiants par email. Ce document décrit le contrat entre les deux.
 `creer_posteur` crée le poster par **le même chemin que l'admin**
 (`manage-users`, action `create`, appelée avec `x-cron-secret`) :
 
-- login `prenom+initiale@sophia.com` (collision gérée par manage-users) ;
+- login `prenom+initiale@sophia.com` ; s'il est déjà pris, manage-users
+  ajoute un numéro (`anab@`, puis `anab1@`, `anab2@`…) et le site envoie le
+  login renvoyé par l'OS ;
 - premier compte perso, labels, persona, référence — comme une création admin ;
 - **langue de publication = langue du pays** (`LANGUE_PAR_PAYS`), pas la langue
   des emails choisie sur le formulaire ;
@@ -19,8 +21,8 @@ identifiants par email. Ce document décrit le contrat entre les deux.
   `{ unswipe: 100 }` ; les deux = `{ sophia: 50, unswipe: 50 }` ;
 - **HM = celui dont `profiles.zone_recrutement` couvre le pays** et qui gère
   la langue (`profiles.langues`). Plusieurs : le moins chargé ;
-- mot de passe provisoire aléatoire, **changement obligatoire à la première
-  connexion** (`must_change_password`) ;
+- mot de passe `12345678`, comme tous les comptes OS créés par l'admin, sans
+  changement imposé ;
 - le warm-up n'est **pas** lancé : le poster le démarre lui-même dans l'OS ;
 - **lundi fixe** : le site envoie le lundi de démarrage (`start_monday`,
   gardé dans `hub_posteurs.debut_le`). Un warm-up lancé plus tôt se termine
@@ -40,7 +42,7 @@ Refus (le site les affiche sur la fiche, sans réessayer) :
 
 Idempotence : `hub_posteurs.hub_id` = id de la candidature côté site. Un rejeu
 ne recrée rien et renvoie `existed: true` ; si le poster ne s'est jamais
-connecté, il reçoit un **nouveau** mot de passe provisoire (sinon
+connecté, son mot de passe est remis à `12345678` et renvoyé (sinon
 `password: null`, `deja_connecte: true` — le site ne renvoie alors pas
 d'identifiants).
 

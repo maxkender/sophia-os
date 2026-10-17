@@ -218,22 +218,11 @@ export function partsPourApplications(applications: unknown): Record<string, num
   return { sophia: 50, unswipe: 50 };
 }
 
-/** Sans 0/O, 1/l/I : un mot de passe recopié depuis un email ne doit pas piéger. */
-const ALPHABET_MDP = "abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ23456789";
-
-/** Mot de passe provisoire (12 caractères, tirage sans biais). Changé à la première connexion. */
-export function genererMotDePasse(longueur = 12): string {
-  const n = ALPHABET_MDP.length;
-  const plafond = 256 - (256 % n);
-  let mdp = "";
-  while (mdp.length < longueur) {
-    const octets = crypto.getRandomValues(new Uint8Array(longueur * 2));
-    for (const o of octets) {
-      if (o < plafond && mdp.length < longueur) mdp += ALPHABET_MDP[o % n];
-    }
-  }
-  return mdp;
-}
+/**
+ * Mot de passe de départ : le même que pour tous les comptes OS créés par
+ * l'admin (`MDP_OS_INITIAL` côté front), sans changement imposé.
+ */
+export const MOT_DE_PASSE_INITIAL = "12345678";
 
 /** Comparaison du secret en temps constant (empreintes de même longueur). */
 export async function secretValide(recu: string | null, attendu: string): Promise<boolean> {

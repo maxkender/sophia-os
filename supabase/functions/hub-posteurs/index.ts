@@ -15,14 +15,14 @@
  *   { action: "creer_posteur", hub_id, prenom, nom, email_perso, pays_code,
  *     pays_nom, applications }
  *       Crée le poster par le MÊME chemin que l'admin (manage-users `create` :
- *       login @sophia.com, premier compte perso, labels, persona), dans la
- *       langue de son pays, puis le rattache à son HM et l'oblige à changer
- *       son mot de passe à la première connexion. Le warm-up n'est pas lancé :
+ *       login @sophia.com, mot de passe 12345678 comme tout compte OS, premier
+ *       compte perso, labels, persona), dans la langue de son pays, puis le
+ *       rattache à son HM. Le warm-up n'est pas lancé :
  *       c'est le poster qui le démarre dans l'OS, comme aujourd'hui ; lancé
  *       avant son lundi de démarrage (`start_monday`), il dure jusqu'à ce
  *       lundi (trigger de 0278) — premiers posts et paie partent du lundi.
  *       Idempotent sur `hub_id` : un rejeu renvoie `existed: true` et, si le
- *       poster ne s'est jamais connecté, un nouveau mot de passe provisoire
+ *       poster ne s'est jamais connecté, son mot de passe remis à 12345678
  *       (sinon `password: null`, `deja_connecte: true`).
  *   { action: "posts_semaine", profile_ids, lundi }
  *       Prévus / publiés / manqués de la semaine par poster (paie du site).
@@ -39,7 +39,7 @@ import {
   codePays,
   dateIso,
   estUuid,
-  genererMotDePasse,
+  MOT_DE_PASSE_INITIAL,
   partsPourApplications,
   type Recruteur,
   reservationPerimee,
@@ -214,7 +214,7 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
   }
 
   // 4. Création par le chemin de l'admin (manage-users), jamais un second chemin.
-  const password = genererMotDePasse();
+  const password = MOT_DE_PASSE_INITIAL;
   const cree = await appelerManageUsers({
     action: "create",
     prenom,
@@ -243,7 +243,7 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
   if (errCree) throw errCree;
   const { error: errProfil } = await supabase
     .from("profiles")
-    .update({ manager_id: hm.id, must_change_password: true })
+    .update({ manager_id: hm.id })
     .eq("id", cree.userId);
   if (errProfil) throw errProfil;
 
@@ -279,16 +279,16 @@ async function dejaCree(supabase: Supabase, lien: any): Promise<Response> {
     ? await supabase.from("profiles").select("id, prenom, nom, email").eq("id", managerId).maybeSingle()
     : { data: null };
 
-  // Jamais connecté : ses identifiants ont pu se perdre en route, on en
-  // refait. Déjà connecté : on ne touche à rien (il a son propre mot de passe).
+  // Jamais connecté : ses identifiants ont pu se perdre en route, on remet le
+  // mot de passe de départ pour que l'email renvoyé dise vrai. Déjà connecté :
+  // on ne touche à rien.
   const { data: auth } = await supabase.auth.admin.getUserById(profil.id);
   const jamaisConnecte = !auth?.user?.last_sign_in_at;
   let password: string | null = null;
   if (jamaisConnecte) {
-    password = genererMotDePasse();
+    password = MOT_DE_PASSE_INITIAL;
     const { error: errMdp } = await supabase.auth.admin.updateUserById(profil.id, { password });
     if (errMdp) throw errMdp;
-    await supabase.from("profiles").update({ must_change_password: true }).eq("id", profil.id);
   }
 
   return json({

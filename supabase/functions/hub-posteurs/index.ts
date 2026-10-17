@@ -29,6 +29,10 @@
  *       Prévus / publiés / manqués de la semaine par poster (paie du site).
  *   { action: "stats_pays" }
  *       Posters actifs par langue de publication.
+ *   { action: "identites", hub_ids }
+ *       Prénom et nom légaux (pièce d'identité) saisis par le poster dans
+ *       l'accueil de l'OS, pour l'ajouter dans Ruul. Seuls ceux qui les ont
+ *       donnés sont rendus.
  *
  * Réponses `{ ok: true, … }` ou `{ ok: false, error }`. Un 4xx est un refus
  * définitif (le site ne réessaie pas et l'affiche sur la fiche), un 5xx est
@@ -52,7 +56,7 @@ import {
 import { lireParLots } from "../_shared/lots.ts";
 import { corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
-const VERSION = "2026-10-17b";
+const VERSION = "2026-10-17c";
 const POSTS_PAR_JOUR = 2;
 const PROFILS_MAX = 500;
 
@@ -96,8 +100,10 @@ Deno.serve(async (request) => {
         return await postsSemaine(supabase, body);
       case "stats_pays":
         return await statsPays(supabase);
+      case "identites":
+        return await identites(supabase, body);
       default:
-        return json({ ok: false, error: "action inconnue (ping | zones | creer_posteur | posts_semaine | stats_pays)" }, 400);
+        return json({ ok: false, error: "action inconnue (ping | zones | creer_posteur | posts_semaine | stats_pays | identites)" }, 400);
     }
   } catch (e) {
     return json({ ok: false, error: messageErreur(e) }, 500);
@@ -382,4 +388,22 @@ async function statsPays(supabase: Supabase): Promise<Response> {
   const { data, error } = await supabase.rpc("hub_stats_langues");
   if (error) throw error;
   return json({ ok: true, by_langue: data ?? [] });
+}
+
+/** Nom légal saisi dans l'accueil de l'OS, pour l'ajout dans Ruul. Absent tant que le poster ne l'a pas donné. */
+// deno-lint-ignore no-explicit-any
+async function identites(supabase: Supabase, body: any): Promise<Response> {
+  const brut = Array.isArray(body.hub_ids) ? body.hub_ids : null;
+  if (!brut) return json({ ok: false, error: "hub_ids (uuid[]) requis" }, 400);
+  const ids = [...new Set(brut.filter(estUuid).map((s: string) => s.toLowerCase()))] as string[];
+  if (ids.length > PROFILS_MAX) return json({ ok: false, error: `au plus ${PROFILS_MAX} hub_ids par appel` }, 400);
+  if (ids.length === 0) return json({ ok: true, rows: [] });
+
+  const { data, error } = await supabase
+    .from("hub_posteurs")
+    .select("hub_id, prenom_legal, nom_legal, identite_le")
+    .in("hub_id", ids)
+    .not("identite_le", "is", null);
+  if (error) throw error;
+  return json({ ok: true, rows: data ?? [] });
 }

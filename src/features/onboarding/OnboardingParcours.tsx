@@ -1,11 +1,18 @@
 import * as React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { ArrowLeft, ArrowRight, BookOpen, Lock, PartyPopper, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight, BadgeCheck, BookOpen, IdCard, Lock, PartyPopper, Sparkles } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogPopup } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
-import { enregistrerOnboardingEtape, lireCohorteAccueil, marquerOnboardingVu } from "@/features/moteur/api";
+import {
+  enregistrerIdentiteRuul,
+  enregistrerOnboardingEtape,
+  lireCohorteAccueil,
+  marquerOnboardingVu,
+} from "@/features/moteur/api";
 
 import { Mico, type EtatMico } from "./Mico";
 import { ecransPour, QUESTIONS, type Bloc, type ContexteAccueil } from "./contenu";
@@ -120,7 +127,85 @@ function BlocVue({ bloc, rang }: { bloc: Bloc; rang: number }) {
           </a>
         </p>
       );
+    case "identite":
+      return null; // rendu par le parcours, qui tient l'état du formulaire
   }
+}
+
+/**
+ * Cohorte Ruul : prénom et nom tels que sur la pièce d'identité. Ruul les
+ * exige pour ajouter le poster et les compare à sa vérification d'identité.
+ * Modifier un champ après l'enregistrement reverrouille « Next » jusqu'au
+ * prochain enregistrement. En aperçu admin, rien n'est écrit.
+ */
+function IdentiteRuul({
+  initiale,
+  simulation,
+  onChange,
+}: {
+  initiale: { prenom: string; nom: string } | null;
+  simulation: boolean;
+  onChange: (enregistree: boolean) => void;
+}) {
+  const [prenom, setPrenom] = React.useState(initiale?.prenom ?? "");
+  const [nom, setNom] = React.useState(initiale?.nom ?? "");
+  const [etat, setEtat] = React.useState<"saisie" | "envoi" | "ok" | "erreur">(initiale ? "ok" : "saisie");
+  const complet = prenom.trim() !== "" && nom.trim() !== "";
+
+  const modifier = (set: (v: string) => void) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    set(e.target.value);
+    if (etat === "ok") onChange(false);
+    setEtat("saisie");
+  };
+
+  const enregistrer = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!complet || etat === "envoi") return;
+    setEtat("envoi");
+    try {
+      if (!simulation) await enregistrerIdentiteRuul(prenom, nom);
+      setEtat("ok");
+      onChange(true);
+    } catch {
+      setEtat("erreur");
+    }
+  };
+
+  return (
+    <form
+      onSubmit={enregistrer}
+      className="animate-in fade-in slide-in-from-bottom-2 space-y-3 rounded-xl border border-primary/30 bg-primary/5 p-3 duration-500"
+    >
+      <div className="space-y-1">
+        <p className="flex items-center gap-1.5 font-semibold text-sm">
+          <IdCard className="size-4 text-primary" />
+          Your legal name
+        </p>
+        <p className="text-muted-foreground text-sm leading-relaxed">
+          Exactly as on your ID. We need it to add you in Ruul, and Ruul checks it against your identity check.
+        </p>
+      </div>
+      <div className="grid gap-3 sm:grid-cols-2">
+        <div className="space-y-1.5">
+          <Label htmlFor="identite-prenom">First name</Label>
+          <Input id="identite-prenom" autoComplete="given-name" value={prenom} onChange={modifier(setPrenom)} maxLength={80} />
+        </div>
+        <div className="space-y-1.5">
+          <Label htmlFor="identite-nom">Last name</Label>
+          <Input id="identite-nom" autoComplete="family-name" value={nom} onChange={modifier(setNom)} maxLength={80} />
+        </div>
+      </div>
+      <div className="flex items-center gap-3">
+        <Button type="submit" size="sm" disabled={!complet || etat === "envoi" || etat === "ok"}>
+          {etat === "ok" ? <BadgeCheck /> : null}
+          {etat === "ok" ? "Saved" : etat === "envoi" ? "Saving…" : "Save"}
+        </Button>
+        {etat === "erreur" && (
+          <p className="text-destructive text-sm">Could not save. Please try again.</p>
+        )}
+      </div>
+    </form>
+  );
 }
 
 /** Les pastilles de progression : où on en est, d'un coup d'œil. */
@@ -237,11 +322,17 @@ export function OnboardingParcours({
     enabled: !simulation,
     staleTime: Infinity,
   });
-  const ecrans = ecransPour(simulation ? contexteSimule : cohorte.data);
+  const contexte = simulation ? contexteSimule : cohorte.data;
+  const ecrans = ecransPour(contexte);
 
   const surQuiz = etape >= INDEX_QUIZ;
   const ecran = surQuiz ? null : ecrans[etape];
   const attente = ecran?.attente ?? 0;
+
+  // Nom de la pièce d'identité (cohorte Ruul) : déjà connu, ou saisi ici.
+  const [identiteSaisie, setIdentiteSaisie] = React.useState<boolean | null>(null);
+  const identiteOk = identiteSaisie ?? Boolean(contexte?.identite);
+  const demandeIdentite = ecran?.blocs.some((b) => b.type === "identite") ?? false;
 
   /**
    * Remesure, et n'ouvre jamais dans l'autre sens : une fois le bas atteint,
@@ -288,7 +379,8 @@ export function OnboardingParcours({
   };
 
   const reste = secondesRestantes(ecoulees, attente);
-  const ouvert = peutAvancer({ ecoulees, attente, basAtteint });
+  const identiteManquante = demandeIdentite && !identiteOk;
+  const ouvert = peutAvancer({ ecoulees, attente, basAtteint, identiteManquante });
   const remplissage = attente > 0 ? Math.min(100, (ecoulees / attente) * 100) : 100;
 
   const valider = () => {
@@ -373,9 +465,18 @@ export function OnboardingParcours({
                       verdict={verdict}
                     />
                   )
-                  : ecran?.blocs.map((bloc, i) => (
-                    <BlocVue key={`${ecran.cle}-${i}`} bloc={bloc} rang={i} />
-                  ))}
+                  : ecran?.blocs.map((bloc, i) =>
+                    bloc.type === "identite"
+                      ? (
+                        <IdentiteRuul
+                          key={`${ecran.cle}-${i}`}
+                          initiale={contexte?.identite ?? null}
+                          simulation={simulation}
+                          onChange={setIdentiteSaisie}
+                        />
+                      )
+                      : <BlocVue key={`${ecran.cle}-${i}`} bloc={bloc} rang={i} />
+                  )}
 
                 {surQuiz && verdict && !verdict.complet && (
                   <p className="animate-in fade-in text-destructive text-sm">
@@ -442,6 +543,8 @@ export function OnboardingParcours({
                       ? "Scroll to the bottom"
                       : reste > 0
                       ? `Next (${reste}s)`
+                      : identiteManquante
+                      ? "Save your legal name"
                       : "Next"}
                   </span>
                 </Button>

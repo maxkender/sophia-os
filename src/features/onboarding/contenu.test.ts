@@ -26,8 +26,16 @@ describe("ecransPour", () => {
     expect(paie).toContain("Ruul");
     expect(paie).toContain("ana@example.com");
     expect(paie).not.toMatch(/hiring manager|upwork/i);
+    expect(paie).toContain("https://app.ruul.io/register");
     expect(texte(ecrans, "slack")).toContain("#ruul-cohort");
     expect(texte(ecrans, "slack")).toContain("#welcome");
+  });
+
+  it("cohorte Ruul : l'écran Payments demande le nom de la pièce d'identité, l'accueil standard jamais", () => {
+    const demande = (ecrans: ReturnType<typeof ecransPour>) =>
+      ecrans.filter((e) => e.blocs.some((b) => b.type === "identite")).map((e) => e.cle);
+    expect(demande(ecransPour({ cohorteRuul: true, emailRuul: "ana@example.com" }))).toEqual(["paiements"]);
+    expect(demande(ECRANS)).toEqual([]);
   });
 
   it("cohorte Ruul sans adresse connue : renvoie à l'adresse de candidature", () => {

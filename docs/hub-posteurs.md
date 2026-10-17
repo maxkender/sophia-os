@@ -32,7 +32,11 @@ identifiants par email. Ce document décrit le contrat entre les deux.
   plusieurs). Payés chaque semaine par Ruul, suivis dans le salon Slack
   #ruul-cohort (ils rejoignent aussi #welcome) ; leur accueil remplace les
   écrans Slack et Payments
-  (`hub_ma_cohorte()`, migration 0297) ;
+  (`hub_ma_cohorte()`, migration 0297). L'écran Payments demande aussi le
+  prénom et le nom de la pièce d'identité, obligatoires pour l'ajouter dans
+  Ruul (« Next » verrouillé tant qu'ils ne sont pas enregistrés) : stockés dans
+  `hub_posteurs.prenom_legal` / `nom_legal` (`hub_enregistrer_identite()`,
+  migration 0298), lus par le site avec l'action `identites` (`hub_ids`) ;
 - mot de passe `12345678`, comme tous les comptes OS créés par l'admin, sans
   changement imposé ;
 - le warm-up n'est **pas** lancé : le poster le démarre lui-même dans l'OS ;

@@ -42,6 +42,11 @@ describe("avancer d'un écran", () => {
     expect(peutAvancer({ ecoulees: 7, attente: 8, basAtteint: true })).toBe(false);
   });
 
+  it("cohorte Ruul : reste verrouillé tant que le nom de la pièce d'identité n'est pas enregistré", () => {
+    expect(peutAvancer({ ecoulees: 8, attente: 8, basAtteint: true, identiteManquante: true })).toBe(false);
+    expect(peutAvancer({ ecoulees: 8, attente: 8, basAtteint: true, identiteManquante: false })).toBe(true);
+  });
+
   it("décompte jusqu'à zéro et n'affiche jamais de négatif", () => {
     expect(secondesRestantes(0, 8)).toBe(8);
     expect(secondesRestantes(5, 8)).toBe(3);
@@ -246,6 +251,7 @@ describe("aperçu admin", () => {
 
   it("l'accueil vient du choix de l'aperçu, pas du compte connecté", () => {
     expect(source).toContain("enabled: !simulation");
-    expect(source).toContain("ecransPour(simulation ? contexteSimule : cohorte.data)");
+    expect(source).toContain("const contexte = simulation ? contexteSimule : cohorte.data;");
+    expect(source).toContain("ecransPour(contexte)");
   });
 });

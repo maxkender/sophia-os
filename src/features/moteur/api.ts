@@ -22,6 +22,7 @@ import { normaliserZone, ZONE_LONGUEUR_MAX } from "@/features/hiring/zones";
 import { estRoleManager } from "@/features/auth/roles";
 import type { Role } from "@/features/auth/AuthContext";
 import type { EvenementEtape } from "@/features/moteur/nettoyageEtapes";
+import type { ContexteAccueil } from "@/features/onboarding/contenu";
 import type {
   Compte,
   StatsCompte,
@@ -1578,14 +1579,29 @@ export async function etatOnboarding(): Promise<EtatOnboarding> {
  * Le créateur connecté vient-il du site (cohorte Ruul, sans HM) ? Rend aussi
  * l'adresse à utiliser sur Ruul. Aucune ligne = recruté par un HM.
  */
-export async function lireCohorteAccueil(): Promise<{ cohorteRuul: boolean; emailRuul: string | null }> {
+export async function lireCohorteAccueil(): Promise<ContexteAccueil> {
   const { data, error } = await supabase.rpc("hub_ma_cohorte");
   if (error) {
     console.warn(`[onboarding] cohorte non lue : ${error.message}`);
     return { cohorteRuul: false, emailRuul: null };
   }
-  const ligne = (Array.isArray(data) ? data[0] : data) as { cohorte_ruul?: boolean; email_ruul?: string | null } | null;
-  return { cohorteRuul: Boolean(ligne?.cohorte_ruul), emailRuul: ligne?.email_ruul ?? null };
+  const ligne = (Array.isArray(data) ? data[0] : data) as {
+    cohorte_ruul?: boolean;
+    email_ruul?: string | null;
+    prenom_legal?: string | null;
+    nom_legal?: string | null;
+  } | null;
+  return {
+    cohorteRuul: Boolean(ligne?.cohorte_ruul),
+    emailRuul: ligne?.email_ruul ?? null,
+    identite: ligne?.prenom_legal && ligne?.nom_legal ? { prenom: ligne.prenom_legal, nom: ligne.nom_legal } : null,
+  };
+}
+
+/** Cohorte Ruul : le prénom et le nom de la pièce d'identité, pour l'ajout dans Ruul. */
+export async function enregistrerIdentiteRuul(prenom: string, nom: string): Promise<void> {
+  const { error } = await supabase.rpc("hub_enregistrer_identite", { p_prenom: prenom, p_nom: nom });
+  if (error) throw new Error(error.message);
 }
 
 export async function enregistrerOnboardingEtape(etape: number): Promise<void> {

@@ -344,6 +344,8 @@ export interface ContexteAccueil {
   emailRuul: string | null;
   /** Prénom et nom de la pièce d'identité, déjà donnés (pour l'ajout dans Ruul). */
   identite?: { prenom: string; nom: string } | null;
+  /** Lundi de démarrage (AAAA-MM-JJ) : fin du warm-up, premiers posts, premier paiement. */
+  debutLe?: string | null;
 }
 
 function ecransCohorteRuul(emailRuul: string | null): Record<string, Ecran> {
@@ -372,7 +374,7 @@ function ecransCohorteRuul(emailRuul: string | null): Record<string, Ecran> {
         {
           type: "p",
           texte:
-            "You are paid every week through Ruul (ruul.io), our payment partner. Nothing to submit: every Monday we pay you for the week before.",
+            "You are paid every week through Ruul (ruul.io), our payment partner. Nothing to submit: every Sunday, at the end of your week of posts, we pay you for that week. Your first payment date is shown on your calendar.",
         },
         { type: "titre", texte: "Before your first Monday" },
         {

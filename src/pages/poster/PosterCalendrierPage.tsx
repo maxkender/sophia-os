@@ -20,11 +20,13 @@ import { supabase } from "@/lib/supabase/client";
 import {
   aujourdhui,
   demarrerWarmup,
+  lireCohorteAccueil,
   majMonHandle,
   majMonHandleInstagram,
   mesComptes,
   type MonCompte,
 } from "@/features/moteur/api";
+import { AideWarmupRuul, BandeauCohorteRuul } from "@/features/onboarding/CohorteRuulCalendrier";
 import {
   comptePrincipal,
   ecrireCompteActif,
@@ -296,6 +298,14 @@ export function PosterCalendrierPage() {
   const estCm = compte ? estCompteCm(compte) : false;
   // Compte UGC vidéo (pod 3) : une vidéo par jour, aucun slideshow à afficher.
   const ugc = Boolean(compte?.videos_uniquement);
+  // Cohorte Ruul (venus du site) : leurs dates en clair, et Slack toujours à portée.
+  const cohorte = useQuery({
+    queryKey: ["accueil-cohorte"],
+    queryFn: lireCohorteAccueil,
+    enabled: Boolean(user?.id),
+    staleTime: Infinity,
+  });
+  const debutRuul = cohorte.data?.cohorteRuul ? (cohorte.data.debutLe ?? null) : null;
 
   React.useEffect(() => {
     if (!user?.id || !comptes?.length) return;
@@ -397,11 +407,19 @@ export function PosterCalendrierPage() {
               ? t("calendrier.warmupADemarrer")
               : t("calendrier.warmupRappel")}
           </p>
-          {warmupStatut === "attente" && (
-            <p className="text-xs text-muted-foreground">
-              {ugc ? t("calendrier.warmupADemarrerAideUgc") : t("calendrier.warmupADemarrerAide")}
-            </p>
-          )}
+          {debutRuul && !ugc && warmupStatut !== "termine"
+            ? (
+              <AideWarmupRuul
+                debutLe={debutRuul}
+                warmupStartedAt={compte.warmup_started_at}
+                warmupEndsAt={compte.warmup_ends_at}
+              />
+            )
+            : warmupStatut === "attente" && (
+              <p className="text-xs text-muted-foreground">
+                {ugc ? t("calendrier.warmupADemarrerAideUgc") : t("calendrier.warmupADemarrerAide")}
+              </p>
+            )}
         </div>
         {compte && (
           <div className="flex flex-wrap items-center gap-2">
@@ -422,6 +440,8 @@ export function PosterCalendrierPage() {
         )}
       </div>
       )}
+
+      {debutRuul && <BandeauCohorteRuul debutLe={debutRuul} />}
 
       {compte && <IdentiteTikTok compte={compte} />}
 

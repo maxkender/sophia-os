@@ -71,6 +71,40 @@ export function conseilWarmupRuul(opts: {
   return { cas: "a_lancer" };
 }
 
+export type EtatEtape = "fait" | "en_cours" | "a_venir";
+
+export interface FriseRuul {
+  conseil: ConseilWarmupRuul;
+  /** Lancer le warm-up → warm-up → premiers posts → premier paiement. */
+  etats: Record<"lancer" | "warmup" | "posts" | "paiement", EtatEtape>;
+  /** Le premier paiement est passé : la frise n'a plus lieu d'être. */
+  terminee: boolean;
+}
+
+/** La première semaine d'un poster de la cohorte Ruul, étape par étape. */
+export function friseRuul(opts: {
+  debutLe: string;
+  warmupStartedAt: string | null;
+  warmupEndsAt: string | null;
+  maintenant?: Date;
+}): FriseRuul {
+  const maintenant = opts.maintenant ?? new Date();
+  const conseil = conseilWarmupRuul({ ...opts, maintenant });
+  const aujourdhui = partiesParis(maintenant).date;
+  const dimanche = premierPaiementRuul(opts.debutLe);
+  const lance = conseil.cas === "en_cours" || conseil.cas === "termine";
+  return {
+    conseil,
+    etats: {
+      lancer: lance ? "fait" : "en_cours",
+      warmup: conseil.cas === "termine" ? "fait" : conseil.cas === "en_cours" ? "en_cours" : "a_venir",
+      posts: conseil.cas === "termine" ? (aujourdhui > dimanche ? "fait" : "en_cours") : "a_venir",
+      paiement: aujourdhui > dimanche ? "fait" : aujourdhui === dimanche ? "en_cours" : "a_venir",
+    },
+    terminee: aujourdhui > dimanche,
+  };
+}
+
 /** « Monday 26 October » dans la langue de l'interface (date de calendrier). */
 export function formaterJour(jour: string, langue: string): string {
   return new Intl.DateTimeFormat(langue, { weekday: "long", day: "numeric", month: "long", timeZone: "UTC" }).format(

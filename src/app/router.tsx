@@ -42,6 +42,7 @@ import { AdminCreationPage } from "@/pages/admin/AdminCreationPage";
 import { AdminPodsPage } from "@/pages/admin/AdminPodsPage";
 import { PosterCalendrierPage } from "@/pages/poster/PosterCalendrierPage";
 import { PosterReferralPage } from "@/pages/poster/PosterReferralPage";
+import { PosterPaiementsPage } from "@/pages/poster/PosterPaiementsPage";
 import { PosterRetoursPage } from "@/pages/poster/PosterRetoursPage";
 import { PosterPostPage } from "@/pages/poster/PosterPostPage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
@@ -120,6 +121,7 @@ export function AppRouter() {
           <Route element={<PosterLayout />}>
             <Route path="/calendrier" element={<PosterCalendrierPage />} />
             <Route path="/createur/parrainage" element={<PosterReferralPage />} />
+            <Route path="/createur/paiements" element={<PosterPaiementsPage />} />
             <Route path="/createur/retours" element={<PosterRetoursPage />} />
             <Route path="/createur/contrat-papier" element={<Navigate to="/calendrier" replace />} />
             <Route path="/createur/guide" element={<DocumentView cle="guide_poster" />} />

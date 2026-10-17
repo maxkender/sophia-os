@@ -1,9 +1,25 @@
 {
  "source_id": "7686526569703017735",
- "format": "tier-list",
- "titre": "",
- "legendes": {},
- "app": null,
+ "format": "guide",
+ "titre": "everything you need to Mentalmaxx",
+ "legendes": {
+  "en": "body and mind, everything you need to mentalmaxx #mentalmaxxing #dopamine #selfimprovement",
+  "fr": "corps et esprit, tout ce qu’il faut pour mentalmaxx #mentalmaxxing #dopamine #developpementpersonnel",
+  "de": "Körper und Geist, alles, was du zum Mentalmaxxen brauchst #mentalmaxxing #dopamin #selbstverbesserung",
+  "es": "cuerpo y mente, todo lo que necesitas para mentalmaxxear #mentalmaxxing #dopamina #superacionpersonal",
+  "it": "corpo e mente, tutto ciò che ti serve per il mentalmaxxing #mentalmaxxing #dopamina #crescitapersonale",
+  "tr": "beden ve zihin, mentalmaxxing için gereken her şey #mentalmaxxing #dopamin #kişiselgelişim"
+ },
+ "app": {
+  "position": 2,
+  "icone": [
+   681,
+   1117,
+   138,
+   137
+  ],
+  "legende": "t36"
+ },
  "slides": [
   {
    "position": 1,
@@ -84,13 +100,31 @@
      "couleur": "#000500",
      "fond": "#edf2eb",
      "libre": [
-      173,
+      176,
       1073
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "everything you need to"
+     ],
+     "textes": {
+      "fr": [
+       "tout ce qu’il faut pour"
+      ],
+      "de": [
+       "alles, was du brauchst zum"
+      ],
+      "es": [
+       "todo lo que necesitas para"
+      ],
+      "it": [
+       "tutto ciò che ti serve per"
+      ],
+      "tr": [
+       "ihtiyacın olan her şey:"
+      ]
+     }
     },
     {
      "id": "t4",
@@ -200,7 +234,7 @@
       1073
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -228,7 +262,7 @@
       1073
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "effacer",
      "en": [],
      "textes": {}
     }
@@ -289,7 +323,7 @@
       994
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -369,13 +403,31 @@
      "couleur": "#040902",
      "fond": "#edf2eb",
      "libre": [
-      598,
-      865
+      638,
+      860
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "coffee / tea"
+     ],
+     "textes": {
+      "fr": [
+       "café / thé"
+      ],
+      "de": [
+       "Kaffee / Tee"
+      ],
+      "es": [
+       "café / té"
+      ],
+      "it": [
+       "caffè / tè"
+      ],
+      "tr": [
+       "kahve / çay"
+      ]
+     }
     },
     {
      "id": "t6",
@@ -397,13 +449,31 @@
      "couleur": "#020700",
      "fond": "#edf2eb",
      "libre": [
-      844,
-      1073
+      864,
+      1075
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "2l+ of water"
+     ],
+     "textes": {
+      "fr": [
+       "2l+ d’eau"
+      ],
+      "de": [
+       "2l+ Wasser"
+      ],
+      "es": [
+       "2l+ de agua"
+      ],
+      "it": [
+       "2l+ d’acqua"
+      ],
+      "tr": [
+       "2l+ su"
+      ]
+     }
     },
     {
      "id": "t7",
@@ -426,12 +496,30 @@
      "fond": "#edf2eb",
      "libre": [
       420,
-      632
+      634
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "eat well"
+     ],
+     "textes": {
+      "fr": [
+       "bien manger"
+      ],
+      "de": [
+       "gut essen"
+      ],
+      "es": [
+       "comer bien"
+      ],
+      "it": [
+       "mangiare bene"
+      ],
+      "tr": [
+       "iyi beslen"
+      ]
+     }
     },
     {
      "id": "t8",
@@ -525,7 +613,7 @@
       893
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -555,13 +643,37 @@
      "couleur": "#030701",
      "fond": "#edf2eb",
      "libre": [
-      829,
-      1073
+      864,
+      1075
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "breathe",
+      "air"
+     ],
+     "textes": {
+      "fr": [
+       "respirer",
+       "dehors"
+      ],
+      "de": [
+       "frische",
+       "Luft"
+      ],
+      "es": [
+       "respirar",
+       "aire"
+      ],
+      "it": [
+       "respirare",
+       "aria"
+      ],
+      "tr": [
+       "temiz",
+       "hava"
+      ]
+     }
     },
     {
      "id": "t12",
@@ -584,12 +696,30 @@
      "fond": "#edf2eb",
      "libre": [
       420,
-      674
+      634
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "sunlight"
+     ],
+     "textes": {
+      "fr": [
+       "soleil"
+      ],
+      "de": [
+       "Sonnenlicht"
+      ],
+      "es": [
+       "luz solar"
+      ],
+      "it": [
+       "sole"
+      ],
+      "tr": [
+       "güneş ışığı"
+      ]
+     }
     },
     {
      "id": "t13",
@@ -639,13 +769,31 @@
      "couleur": "#000400",
      "fond": "#edf2eb",
      "libre": [
-      6,
-      306
+      10,
+      405
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "Body"
+     ],
+     "textes": {
+      "fr": [
+       "Corps"
+      ],
+      "de": [
+       "Körper"
+      ],
+      "es": [
+       "Cuerpo"
+      ],
+      "it": [
+       "Corpo"
+      ],
+      "tr": [
+       "Beden"
+      ]
+     }
     },
     {
      "id": "t15",
@@ -696,12 +844,30 @@
      "fond": "#edf2eb",
      "libre": [
       420,
-      674
+      634
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "8 hour sleep"
+     ],
+     "textes": {
+      "fr": [
+       "8h de sommeil"
+      ],
+      "de": [
+       "8h Schlaf"
+      ],
+      "es": [
+       "dormir 8h"
+      ],
+      "it": [
+       "8 ore di sonno"
+      ],
+      "tr": [
+       "8 saat uyku"
+      ]
+     }
     },
     {
      "id": "t17",
@@ -723,41 +889,77 @@
      "couleur": "#040902",
      "fond": "#edf2eb",
      "libre": [
-      828,
-      1073
+      864,
+      1070
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "10k+ steps"
+     ],
+     "textes": {
+      "fr": [
+       "10k+ pas"
+      ],
+      "de": [
+       "10k+ Schritte"
+      ],
+      "es": [
+       "10k+ pasos"
+      ],
+      "it": [
+       "10k+ passi"
+      ],
+      "tr": [
+       "10k+ adım"
+      ]
+     }
     },
     {
      "id": "t18",
      "boite": [
       682,
-      633,
+      625,
       139,
-      24
+      32
      ],
      "lignes": [
       [
        682,
-       633,
+       625,
        139,
-       24
+       32
       ]
      ],
      "alignement": "centre",
      "couleur": "#030802",
      "fond": "#edf2eb",
      "libre": [
-      639,
-      856
+      638,
+      860
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "exercise"
+     ],
+     "textes": {
+      "fr": [
+       "sport"
+      ],
+      "de": [
+       "Sport"
+      ],
+      "es": [
+       "ejercicio"
+      ],
+      "it": [
+       "allenamento"
+      ],
+      "tr": [
+       "egzersiz"
+      ]
+     }
     },
     {
      "id": "t19",
@@ -863,13 +1065,31 @@
      "couleur": "#030801",
      "fond": "#edf2eb",
      "libre": [
-      679,
-      1073
+      706,
+      1075
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "no distractions"
+     ],
+     "textes": {
+      "fr": [
+       "zéro distraction"
+      ],
+      "de": [
+       "keine Ablenkung"
+      ],
+      "es": [
+       "sin distracciones"
+      ],
+      "it": [
+       "zero distrazioni"
+      ],
+      "tr": [
+       "tam odak"
+      ]
+     }
     },
     {
      "id": "t23",
@@ -892,12 +1112,30 @@
      "fond": "#edf2eb",
      "libre": [
       420,
-      722
+      702
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "conversations"
+     ],
+     "textes": {
+      "fr": [
+       "discussions"
+      ],
+      "de": [
+       "Gespräche"
+      ],
+      "es": [
+       "conversaciones"
+      ],
+      "it": [
+       "conversazioni"
+      ],
+      "tr": [
+       "sohbetler"
+      ]
+     }
     },
     {
      "id": "t24",
@@ -953,13 +1191,37 @@
      "couleur": "#030801",
      "fond": "#edf2eb",
      "libre": [
-      853,
-      1073
+      864,
+      1075
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "smart",
+      "hobby"
+     ],
+     "textes": {
+      "fr": [
+       "hobby",
+       "malin"
+      ],
+      "de": [
+       "kluges",
+       "Hobby"
+      ],
+      "es": [
+       "hobby",
+       "inteligente"
+      ],
+      "it": [
+       "hobby",
+       "intelligente"
+      ],
+      "tr": [
+       "akıllı",
+       "hobi"
+      ]
+     }
     },
     {
      "id": "t26",
@@ -987,13 +1249,37 @@
      "couleur": "#040902",
      "fond": "#edf2eb",
      "libre": [
-      629,
-      898
+      648,
+      900
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "low",
+      "screen time"
+     ],
+     "textes": {
+      "fr": [
+       "peu",
+       "d’écrans"
+      ],
+      "de": [
+       "wenig",
+       "Bildschirm"
+      ],
+      "es": [
+       "menos",
+       "pantalla"
+      ],
+      "it": [
+       "meno",
+       "schermo"
+      ],
+      "tr": [
+       "az",
+       "ekran süresi"
+      ]
+     }
     },
     {
      "id": "t27",
@@ -1015,13 +1301,31 @@
      "couleur": "#040903",
      "fond": "#edf2eb",
      "libre": [
-      419,
-      645
+      424,
+      646
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "good music"
+     ],
+     "textes": {
+      "fr": [
+       "bonne musique"
+      ],
+      "de": [
+       "gute Musik"
+      ],
+      "es": [
+       "buena música"
+      ],
+      "it": [
+       "buona musica"
+      ],
+      "tr": [
+       "iyi müzik"
+      ]
+     }
     },
     {
      "id": "t28",
@@ -1047,7 +1351,7 @@
       567
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -1103,7 +1407,7 @@
       518
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -1183,13 +1487,31 @@
      "couleur": "#000300",
      "fond": "#edf2eb",
      "libre": [
-      6,
+      10,
       405
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "Mind"
+     ],
+     "textes": {
+      "fr": [
+       "Esprit"
+      ],
+      "de": [
+       "Geist"
+      ],
+      "es": [
+       "Mente"
+      ],
+      "it": [
+       "Mente"
+      ],
+      "tr": [
+       "Zihin"
+      ]
+     }
     },
     {
      "id": "t34",
@@ -1246,12 +1568,36 @@
      "fond": "#edf2eb",
      "libre": [
       420,
-      624
+      614
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "cortisol",
+      "minimizing"
+     ],
+     "textes": {
+      "fr": [
+       "moins de",
+       "cortisol"
+      ],
+      "de": [
+       "Cortisol",
+       "senken"
+      ],
+      "es": [
+       "bajar el",
+       "cortisol"
+      ],
+      "it": [
+       "ridurre il",
+       "cortisolo"
+      ],
+      "tr": [
+       "kortizolü",
+       "düşür"
+      ]
+     }
     },
     {
      "id": "t36",
@@ -1279,12 +1625,15 @@
      "couleur": "#040902",
      "fond": "#edf2eb",
      "libre": [
-      619,
-      884
+      614,
+      924
      ],
      "probable": "texte",
-     "action": "traduire",
-     "en": [],
+     "action": "effacer",
+     "en": [
+      "state tracking",
+      "(check bio)"
+     ],
      "textes": {}
     },
     {
@@ -1307,16 +1656,92 @@
      "couleur": "#030801",
      "fond": "#edf2eb",
      "libre": [
-      872,
-      1073
+      922,
+      1070
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "0 noises"
+     ],
+     "textes": {
+      "fr": [
+       "zéro bruit"
+      ],
+      "de": [
+       "null Lärm"
+      ],
+      "es": [
+       "cero ruido"
+      ],
+      "it": [
+       "silenzio"
+      ],
+      "tr": [
+       "sessizlik"
+      ]
+     }
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "traduire",
+     "en": [
+      "contrast",
+      "shower"
+     ],
+     "textes": {
+      "fr": [
+       "douche",
+       "écossaise"
+      ],
+      "de": [
+       "Wechsel-",
+       "dusche"
+      ],
+      "es": [
+       "ducha de",
+       "contraste"
+      ],
+      "it": [
+       "doccia",
+       "scozzese"
+      ],
+      "tr": [
+       "kontrast",
+       "duş"
+      ]
+     },
+     "couleur": "#151a13",
+     "fond": "#edf2eb",
+     "id": "m1",
+     "boite": [
+      684,
+      393,
+      136,
+      63
+     ],
+     "lignes": [
+      [
+       685,
+       393,
+       135,
+       30
+      ],
+      [
+       691,
+       424,
+       123,
+       32
+      ]
+     ],
+     "libre": [
+      638,
+      860
+     ]
     }
    ]
   }
  ],
- "notes": "source : https://www.tiktok.com/@mentalapp/video/7686526569703017735 · 76100 vues · « Everything you need to mentalmaxx #mental #mentalhealth #mentalmaxxing #healthylifestyle #selfimprovement »"
+ "notes": "source : https://www.tiktok.com/@mentalapp/video/7686526569703017735 · 76100 vues · « Everything you need to mentalmaxx #mental #mentalhealth #mentalmaxxing #healthylifestyle #selfimprovement » · remake : guide corps/esprit ; « Mentalmaxx » de la couverture gardé tel quel (mot du genre …maxx) ; « contrast shower » refait en bloc manuel m1 (la détection englobait le pictogramme) ; élément UnSwipe à la place de leur icône « state tracking (check bio) »."
 }

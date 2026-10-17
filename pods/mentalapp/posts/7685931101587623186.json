@@ -1,9 +1,25 @@
 {
  "source_id": "7685931101587623186",
- "format": "tier-list",
- "titre": "",
- "legendes": {},
- "app": null,
+ "format": "comparatif",
+ "titre": "Brainwashed “health” vs Actually healthy",
+ "legendes": {
+  "en": "brainwashed health vs actually healthy, which side are you on? #mentalmaxxing #dopamine #selfimprovement",
+  "fr": "fausse santé vs vraiment sain, tu es de quel côté ? #mentalmaxxing #dopamine #developpementpersonnel",
+  "de": "falsche Gesundheit vs wirklich gesund, auf welcher Seite bist du? #mentalmaxxing #dopamin #selbstverbesserung",
+  "es": "falsa salud vs realmente sano, ¿de qué lado estás? #mentalmaxxing #dopamina #superacionpersonal",
+  "it": "falsa salute vs davvero sano, tu da che parte stai? #mentalmaxxing #dopamina #crescitapersonale",
+  "tr": "sahte sağlık vs gerçekten sağlıklı, sen hangi taraftasın? #mentalmaxxing #dopamin #kişiselgelişim"
+ },
+ "app": {
+  "position": 2,
+  "icone": [
+   728,
+   197,
+   113,
+   113
+  ],
+  "legende": "t22"
+ },
  "slides": [
   {
    "position": 1,
@@ -256,7 +272,7 @@
       657
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -284,7 +300,7 @@
       921
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -397,8 +413,27 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "Actually healthy"
+     ],
+     "textes": {
+      "fr": [
+       "Vraiment sain"
+      ],
+      "de": [
+       "Wirklich gesund"
+      ],
+      "es": [
+       "Realmente sano"
+      ],
+      "it": [
+       "Davvero sano"
+      ],
+      "tr": [
+       "Gerçekten sağlıklı"
+      ]
+     },
+     "graisse": 200
     },
     {
      "id": "t15",
@@ -424,9 +459,56 @@
       1073
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "effacer",
      "en": [],
      "textes": {}
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "traduire",
+     "en": [
+      "Brainwashed “health”"
+     ],
+     "textes": {
+      "fr": [
+       "Fausse « santé »"
+      ],
+      "de": [
+       "Falsche „Gesundheit“"
+      ],
+      "es": [
+       "Falsa «salud»"
+      ],
+      "it": [
+       "Falsa «salute»"
+      ],
+      "tr": [
+       "Sahte “sağlık”"
+      ]
+     },
+     "couleur": "#000400",
+     "fond": "#edf2eb",
+     "id": "m1",
+     "graisse": 200,
+     "boite": [
+      136,
+      431,
+      811,
+      73
+     ],
+     "lignes": [
+      [
+       136,
+       431,
+       811,
+       73
+      ]
+     ],
+     "libre": [
+      6,
+      1073
+     ]
     }
    ]
   },
@@ -750,8 +832,32 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "low",
+      "screen time"
+     ],
+     "textes": {
+      "fr": [
+       "peu",
+       "d’écran"
+      ],
+      "de": [
+       "wenig",
+       "Handyzeit"
+      ],
+      "es": [
+       "poca",
+       "pantalla"
+      ],
+      "it": [
+       "poco",
+       "schermo"
+      ],
+      "tr": [
+       "az ekran",
+       "süresi"
+      ]
+     }
     },
     {
      "id": "t12",
@@ -778,29 +884,47 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "espresso"
+     ],
+     "textes": {
+      "fr": [
+       "expresso"
+      ],
+      "de": [
+       "Espresso"
+      ],
+      "es": [
+       "espresso"
+      ],
+      "it": [
+       "espresso"
+      ],
+      "tr": [
+       "espresso"
+      ]
+     }
     },
     {
      "id": "t13",
      "boite": [
       77,
-      132,
+      180,
       110,
-      94
+      47
      ],
      "lignes": [
-      [
-       93,
-       132,
-       44,
-       41
-      ],
       [
        77,
        180,
        110,
-       46
+       24
+      ],
+      [
+       82,
+       203,
+       104,
+       23
       ]
      ],
      "alignement": "centre",
@@ -812,8 +936,32 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "contrast",
+      "shower"
+     ],
+     "textes": {
+      "fr": [
+       "douche",
+       "écossaise"
+      ],
+      "de": [
+       "Wechsel-",
+       "dusche"
+      ],
+      "es": [
+       "ducha",
+       "de contraste"
+      ],
+      "it": [
+       "doccia",
+       "scozzese"
+      ],
+      "tr": [
+       "kontrast",
+       "duş"
+      ]
+     }
     },
     {
      "id": "t14",
@@ -839,7 +987,7 @@
       992
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -868,8 +1016,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "magnesium"
+     ],
+     "textes": {
+      "fr": [
+       "magnésium"
+      ],
+      "de": [
+       "Magnesium"
+      ],
+      "es": [
+       "magnesio"
+      ],
+      "it": [
+       "magnesio"
+      ],
+      "tr": [
+       "magnezyum"
+      ]
+     }
     },
     {
      "id": "t16",
@@ -1036,8 +1202,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "10k steps"
+     ],
+     "textes": {
+      "fr": [
+       "10k pas"
+      ],
+      "de": [
+       "10k Schritte"
+      ],
+      "es": [
+       "10k pasos"
+      ],
+      "it": [
+       "10k passi"
+      ],
+      "tr": [
+       "10k adım"
+      ]
+     }
     },
     {
      "id": "t22",
@@ -1052,19 +1236,28 @@
        681,
        311,
        207,
-       63
+       34
+      ],
+      [
+       706,
+       342,
+       166,
+       32
       ]
      ],
      "alignement": "centre",
      "couleur": "#070904",
      "fond": "#edf2eb",
      "libre": [
-      681,
-      899
+      656,
+      912
      ],
      "probable": "texte",
-     "action": "traduire",
-     "en": [],
+     "action": "effacer",
+     "en": [
+      "state tracking",
+      "(check bio)"
+     ],
      "textes": {}
     },
     {
@@ -1210,8 +1403,32 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "training",
+      "consistently"
+     ],
+     "textes": {
+      "fr": [
+       "s’entraîner",
+       "régulièrement"
+      ],
+      "de": [
+       "regelmäßig",
+       "trainieren"
+      ],
+      "es": [
+       "entrenar",
+       "constante"
+      ],
+      "it": [
+       "allenarsi",
+       "con costanza"
+      ],
+      "tr": [
+       "düzenli",
+       "antrenman"
+      ]
+     }
     },
     {
      "id": "t28",
@@ -1238,8 +1455,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "real food"
+     ],
+     "textes": {
+      "fr": [
+       "vraie bouffe"
+      ],
+      "de": [
+       "echtes Essen"
+      ],
+      "es": [
+       "comida real"
+      ],
+      "it": [
+       "cibo vero"
+      ],
+      "tr": [
+       "gerçek yemek"
+      ]
+     }
     },
     {
      "id": "t29",
@@ -1294,8 +1529,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "2l+ of water"
+     ],
+     "textes": {
+      "fr": [
+       "2l+ d’eau"
+      ],
+      "de": [
+       "2l+ Wasser"
+      ],
+      "es": [
+       "2l+ de agua"
+      ],
+      "it": [
+       "2l+ d’acqua"
+      ],
+      "tr": [
+       "2l+ su"
+      ]
+     }
     },
     {
      "id": "t31",
@@ -1322,8 +1575,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "7h+ sleep"
+     ],
+     "textes": {
+      "fr": [
+       "7h+ de sommeil"
+      ],
+      "de": [
+       "7h+ Schlaf"
+      ],
+      "es": [
+       "7h+ de sueño"
+      ],
+      "it": [
+       "7h+ di sonno"
+      ],
+      "tr": [
+       "7s+ uyku"
+      ]
+     }
     },
     {
      "id": "t32",
@@ -1377,7 +1648,7 @@
       289
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -1405,7 +1676,7 @@
       240
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -1467,7 +1738,7 @@
       140
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -1495,7 +1766,7 @@
       921
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -1523,7 +1794,7 @@
       1059
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -1670,8 +1941,32 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "never",
+      "stress"
+     ],
+     "textes": {
+      "fr": [
+       "jamais",
+       "stressé"
+      ],
+      "de": [
+       "nie",
+       "Stress"
+      ],
+      "es": [
+       "nunca",
+       "estrés"
+      ],
+      "it": [
+       "mai",
+       "stress"
+      ],
+      "tr": [
+       "asla",
+       "stres"
+      ]
+     }
     },
     {
      "id": "t44",
@@ -1754,8 +2049,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "high activity"
+     ],
+     "textes": {
+      "fr": [
+       "très actif"
+      ],
+      "de": [
+       "viel Bewegung"
+      ],
+      "es": [
+       "muy activo"
+      ],
+      "it": [
+       "molto attivo"
+      ],
+      "tr": [
+       "bol hareket"
+      ]
+     }
     },
     {
      "id": "t47",
@@ -1782,8 +2095,27 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "Actually healthy"
+     ],
+     "textes": {
+      "fr": [
+       "Vraiment sain"
+      ],
+      "de": [
+       "Wirklich gesund"
+      ],
+      "es": [
+       "Realmente sano"
+      ],
+      "it": [
+       "Davvero sano"
+      ],
+      "tr": [
+       "Gerçekten sağlıklı"
+      ]
+     },
+     "graisse": 200
     },
     {
      "id": "t48",
@@ -1810,8 +2142,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "no seed oils"
+     ],
+     "textes": {
+      "fr": [
+       "zéro huile de graines"
+      ],
+      "de": [
+       "keine Samenöle"
+      ],
+      "es": [
+       "sin aceites de semillas"
+      ],
+      "it": [
+       "niente oli di semi"
+      ],
+      "tr": [
+       "tohum yağı yok"
+      ]
+     }
     },
     {
      "id": "t49",
@@ -1838,8 +2188,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "conversations"
+     ],
+     "textes": {
+      "fr": [
+       "discussions"
+      ],
+      "de": [
+       "Gespräche"
+      ],
+      "es": [
+       "conversaciones"
+      ],
+      "it": [
+       "conversazioni"
+      ],
+      "tr": [
+       "sohbetler"
+      ]
+     }
     },
     {
      "id": "t50",
@@ -1913,10 +2281,16 @@
      ],
      "lignes": [
       [
-       681,
+       734,
        1003,
+       62,
+       30
+      ],
+      [
+       681,
+       1026,
        169,
-       51
+       28
       ]
      ],
      "alignement": "centre",
@@ -1927,7 +2301,7 @@
       850
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -1990,8 +2364,32 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "synthetic",
+      "protein"
+     ],
+     "textes": {
+      "fr": [
+       "protéine",
+       "synthétique"
+      ],
+      "de": [
+       "synthetisches",
+       "Protein"
+      ],
+      "es": [
+       "proteína",
+       "sintética"
+      ],
+      "it": [
+       "proteine",
+       "sintetiche"
+      ],
+      "tr": [
+       "sentetik",
+       "protein"
+      ]
+     }
     },
     {
      "id": "t55",
@@ -2017,7 +2415,7 @@
       1034
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -2045,7 +2443,7 @@
       433
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -2261,9 +2659,9 @@
        51
       ],
       [
-       460,
+       441,
        1239,
-       160,
+       197,
        51
       ]
      ],
@@ -2276,8 +2674,32 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "Brainwashed",
+      "“health”"
+     ],
+     "textes": {
+      "fr": [
+       "Fausse",
+       "« santé »"
+      ],
+      "de": [
+       "Falsche",
+       "„Gesundheit“"
+      ],
+      "es": [
+       "Falsa",
+       "«salud»"
+      ],
+      "it": [
+       "Falsa",
+       "«salute»"
+      ],
+      "tr": [
+       "Sahte",
+       "“sağlık”"
+      ]
+     }
     },
     {
      "id": "t65",
@@ -2332,8 +2754,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "mouth taping"
+     ],
+     "textes": {
+      "fr": [
+       "bouche scotchée"
+      ],
+      "de": [
+       "Mund zukleben"
+      ],
+      "es": [
+       "boca con cinta"
+      ],
+      "it": [
+       "bocca col nastro"
+      ],
+      "tr": [
+       "ağız bantlama"
+      ]
+     }
     },
     {
      "id": "t67",
@@ -2360,8 +2800,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "fasting"
+     ],
+     "textes": {
+      "fr": [
+       "jeûne"
+      ],
+      "de": [
+       "Fasten"
+      ],
+      "es": [
+       "ayuno"
+      ],
+      "it": [
+       "digiuno"
+      ],
+      "tr": [
+       "oruç"
+      ]
+     }
     },
     {
      "id": "t68",
@@ -2394,8 +2852,32 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "REM",
+      "optimization"
+     ],
+     "textes": {
+      "fr": [
+       "optimiser",
+       "le REM"
+      ],
+      "de": [
+       "REM-",
+       "Optimierung"
+      ],
+      "es": [
+       "optimizar",
+       "el REM"
+      ],
+      "it": [
+       "ottimizzare",
+       "il REM"
+      ],
+      "tr": [
+       "REM",
+       "optimizasyonu"
+      ]
+     }
     },
     {
      "id": "t69",
@@ -2478,11 +2960,249 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "ice bath"
+     ],
+     "textes": {
+      "fr": [
+       "bain glacé"
+      ],
+      "de": [
+       "Eisbad"
+      ],
+      "es": [
+       "baño helado"
+      ],
+      "it": [
+       "bagno gelido"
+      ],
+      "tr": [
+       "buz banyosu"
+      ]
+     }
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "traduire",
+     "en": [
+      "morning",
+      "sunlight"
+     ],
+     "textes": {
+      "fr": [
+       "soleil",
+       "du matin"
+      ],
+      "de": [
+       "Morgen-",
+       "sonne"
+      ],
+      "es": [
+       "sol de",
+       "la mañana"
+      ],
+      "it": [
+       "sole del",
+       "mattino"
+      ],
+      "tr": [
+       "sabah",
+       "güneşi"
+      ]
+     },
+     "couleur": "#0b0e07",
+     "fond": "#edf2eb",
+     "id": "m1",
+     "boite": [
+      46,
+      607,
+      112,
+      58
+     ],
+     "lignes": [
+      [
+       46,
+       607,
+       112,
+       31
+      ],
+      [
+       52,
+       634,
+       106,
+       31
+      ]
+     ],
+     "libre": [
+      6,
+      192
+     ]
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "traduire",
+     "en": [
+      "no distractions"
+     ],
+     "textes": {
+      "fr": [
+       "zéro distraction"
+      ],
+      "de": [
+       "keine Ablenkung"
+      ],
+      "es": [
+       "sin distracciones"
+      ],
+      "it": [
+       "zero distrazioni"
+      ],
+      "tr": [
+       "bildirim yok"
+      ]
+     },
+     "couleur": "#070c06",
+     "fond": "#edf2eb",
+     "id": "m2",
+     "boite": [
+      845,
+      627,
+      214,
+      27
+     ],
+     "lignes": [
+      [
+       845,
+       627,
+       214,
+       27
+      ]
+     ],
+     "libre": [
+      850,
+      1076
+     ]
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "traduire",
+     "en": [
+      "“but at least",
+      "I’m happy”"
+     ],
+     "textes": {
+      "fr": [
+       "« mais au moins",
+       "je suis heureux »"
+      ],
+      "de": [
+       "„aber immerhin",
+       "bin ich glücklich“"
+      ],
+      "es": [
+       "«pero al menos",
+       "soy feliz»"
+      ],
+      "it": [
+       "«ma almeno",
+       "sono felice»"
+      ],
+      "tr": [
+       "“ama en azından",
+       "mutluyum”"
+      ]
+     },
+     "couleur": "#050b04",
+     "fond": "#edf2eb",
+     "id": "m3",
+     "boite": [
+      873,
+      1025,
+      161,
+      77
+     ],
+     "lignes": [
+      [
+       873,
+       1025,
+       161,
+       32
+      ],
+      [
+       885,
+       1069,
+       143,
+       33
+      ]
+     ],
+     "libre": [
+      860,
+      1075
+     ]
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "traduire",
+     "en": [
+      "gym",
+      "cheatcodes"
+     ],
+     "textes": {
+      "fr": [
+       "cheat codes",
+       "muscu"
+      ],
+      "de": [
+       "Gym-",
+       "Cheatcodes"
+      ],
+      "es": [
+       "trucos",
+       "de gym"
+      ],
+      "it": [
+       "trucchi",
+       "da palestra"
+      ],
+      "tr": [
+       "spor",
+       "hileleri"
+      ]
+     },
+     "couleur": "#070c05",
+     "fond": "#edf2eb",
+     "id": "m4",
+     "boite": [
+      681,
+      1003,
+      169,
+      51
+     ],
+     "lignes": [
+      [
+       734,
+       1003,
+       62,
+       30
+      ],
+      [
+       681,
+       1026,
+       169,
+       28
+      ]
+     ],
+     "libre": [
+      634,
+      852
+     ]
     }
    ]
   }
  ],
- "notes": "source : https://www.tiktok.com/@mentalapp/video/7685931101587623186 · 246800 vues · « Brainwashed health vs actually healthy  #mentalmaxxing #mental #mentalhealth #compare #healthylifestyle »"
+ "notes": "source : https://www.tiktok.com/@mentalapp/video/7685931101587623186 · 246800 vues · « Brainwashed health vs actually healthy  #mentalmaxxing #mental #mentalhealth #compare #healthylifestyle » · remake : comparatif : élément UnSwipe à la place de « state tracking (check bio) » et de leur icône ; titres et légendes coupées refaits en blocs manuels (titre de couverture, morning sunlight, no distractions, but at least I’m happy)."
 }

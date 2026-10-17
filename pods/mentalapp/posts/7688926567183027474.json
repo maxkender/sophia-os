@@ -1,9 +1,25 @@
 {
  "source_id": "7688926567183027474",
  "format": "tier-list",
- "titre": "",
- "legendes": {},
- "app": null,
+ "titre": "tier list of Dopamine sources pt3 (final)",
+ "legendes": {
+  "en": "dopamine sources tier list, last part #dopamine #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "tier list des sources de dopamine, dernière partie #dopamine #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "Tierlist der Dopaminquellen, letzter Teil #dopamin #mentalmaxxing #tierlist #selbstverbesserung",
+  "es": "tier list de fuentes de dopamina, última parte #dopamina #mentalmaxxing #tierlist #superacionpersonal",
+  "it": "tier list delle fonti di dopamina, ultima parte #dopamina #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "dopamin kaynakları tier list, son bölüm #dopamin #mentalmaxxing #tierlist #kişiselgelişim"
+ },
+ "app": {
+  "position": 2,
+  "icone": [
+   828,
+   72,
+   76,
+   76
+  ],
+  "legende": "t4"
+ },
  "slides": [
   {
    "position": 1,
@@ -33,8 +49,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "tier list of"
+     ],
+     "textes": {
+      "fr": [
+       "tier list :"
+      ],
+      "de": [
+       "Tierlist der"
+      ],
+      "es": [
+       "tier list:"
+      ],
+      "it": [
+       "tier list:"
+      ],
+      "tr": [
+       "tier list:"
+      ]
+     }
     },
     {
      "id": "t2",
@@ -200,7 +234,7 @@
       482
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -312,7 +346,7 @@
       600
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "effacer",
      "en": [],
      "textes": {}
     },
@@ -341,8 +375,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "Dopamine"
+     ],
+     "textes": {
+      "fr": [
+       "Dopamine"
+      ],
+      "de": [
+       "Dopamin-"
+      ],
+      "es": [
+       "Dopamina"
+      ],
+      "it": [
+       "Dopamina"
+      ],
+      "tr": [
+       "Dopamin"
+      ]
+     }
     },
     {
      "id": "t13",
@@ -369,8 +421,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "sources"
+     ],
+     "textes": {
+      "fr": [
+       "les sources"
+      ],
+      "de": [
+       "quellen"
+      ],
+      "es": [
+       "las fuentes"
+      ],
+      "it": [
+       "le fonti"
+      ],
+      "tr": [
+       "kaynakları"
+      ]
+     }
     },
     {
      "id": "t14",
@@ -509,8 +579,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "pt3 (final)"
+     ],
+     "textes": {
+      "fr": [
+       "pt3 (fin)"
+      ],
+      "de": [
+       "Teil 3 (Ende)"
+      ],
+      "es": [
+       "pt3 (final)"
+      ],
+      "it": [
+       "pt3 (finale)"
+      ],
+      "tr": [
+       "3. bölüm (son)"
+      ]
+     }
     },
     {
      "id": "t19",
@@ -536,7 +624,7 @@
       572
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -620,7 +708,7 @@
       481
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -749,7 +837,7 @@
       788
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -769,25 +857,43 @@
        50
       ]
      ],
-     "alignement": "centre",
+     "alignement": "gauche",
      "couleur": "#010600",
      "fond": "#edf2eb",
      "libre": [
       6,
-      667
+      650
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "prove me wrong"
+     ],
+     "textes": {
+      "fr": [
+       "prouve-moi le contraire"
+      ],
+      "de": [
+       "beweis mir das Gegenteil"
+      ],
+      "es": [
+       "demuéstrame lo contrario"
+      ],
+      "it": [
+       "dimostrami il contrario"
+      ],
+      "tr": [
+       "aksini kanıtla"
+      ]
+     }
     },
     {
      "id": "t4",
      "boite": [
-      840,
+      825,
       150,
-      51,
-      14
+      81,
+      33
      ],
      "lignes": [
       [
@@ -795,18 +901,27 @@
        150,
        51,
        14
+      ],
+      [
+       825,
+       166,
+       81,
+       17
       ]
      ],
      "alignement": "centre",
      "couleur": "#2c3129",
      "fond": "#edf2eb",
      "libre": [
-      840,
-      891
+      800,
+      933
      ],
      "probable": "texte",
-     "action": "traduire",
-     "en": [],
+     "action": "effacer",
+     "en": [
+      "Mental",
+      "(check bio)"
+     ],
      "textes": {}
     },
     {
@@ -833,7 +948,7 @@
       866
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -861,7 +976,7 @@
       906
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -1172,8 +1287,32 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "receiving",
+      "money"
+     ],
+     "textes": {
+      "fr": [
+       "recevoir",
+       "de l’argent"
+      ],
+      "de": [
+       "Geld",
+       "bekommen"
+      ],
+      "es": [
+       "recibir",
+       "dinero"
+      ],
+      "it": [
+       "ricevere",
+       "soldi"
+      ],
+      "tr": [
+       "para",
+       "kazanmak"
+      ]
+     }
     },
     {
      "id": "t17",
@@ -1206,8 +1345,32 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "mastering",
+      "a skill"
+     ],
+     "textes": {
+      "fr": [
+       "maîtriser",
+       "un skill"
+      ],
+      "de": [
+       "einen Skill",
+       "meistern"
+      ],
+      "es": [
+       "dominar",
+       "algo nuevo"
+      ],
+      "it": [
+       "dominare",
+       "una skill"
+      ],
+      "tr": [
+       "bir beceride",
+       "ustalaşmak"
+      ]
+     }
     },
     {
      "id": "t18",
@@ -1229,13 +1392,31 @@
      "couleur": "#0c110a",
      "fond": "#edf2eb",
      "libre": [
-      614,
-      673
+      560,
+      740
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "sport"
+     ],
+     "textes": {
+      "fr": [
+       "sport"
+      ],
+      "de": [
+       "Sport"
+      ],
+      "es": [
+       "deporte"
+      ],
+      "it": [
+       "sport"
+      ],
+      "tr": [
+       "spor"
+      ]
+     }
     },
     {
      "id": "t19",
@@ -1262,8 +1443,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "winning"
+     ],
+     "textes": {
+      "fr": [
+       "gagner"
+      ],
+      "de": [
+       "Gewinnen"
+      ],
+      "es": [
+       "ganar"
+      ],
+      "it": [
+       "vincere"
+      ],
+      "tr": [
+       "kazanmak"
+      ]
+     }
     },
     {
      "id": "t20",
@@ -1296,30 +1495,48 @@
     {
      "id": "t21",
      "boite": [
-      166,
-      365,
-      66,
-      16
+      89,
+      364,
+      144,
+      18
      ],
      "lignes": [
       [
-       166,
-       365,
-       66,
-       16
+       89,
+       364,
+       144,
+       18
       ]
      ],
      "alignement": "centre",
      "couleur": "#890000",
      "fond": "#f70301",
      "libre": [
-      166,
-      232
+      86,
+      235
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "real, earned, lasts"
+     ],
+     "textes": {
+      "fr": [
+       "vrai, mérité, durable"
+      ],
+      "de": [
+       "echt, verdient, bleibt"
+      ],
+      "es": [
+       "real, ganado, dura"
+      ],
+      "it": [
+       "vero, meritato, dura"
+      ],
+      "tr": [
+       "gerçek, kalıcı"
+      ]
+     }
     },
     {
      "id": "t22",
@@ -1429,7 +1646,7 @@
       490
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -1458,8 +1675,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "good food"
+     ],
+     "textes": {
+      "fr": [
+       "bonne bouffe"
+      ],
+      "de": [
+       "gutes Essen"
+      ],
+      "es": [
+       "buena comida"
+      ],
+      "it": [
+       "buon cibo"
+      ],
+      "tr": [
+       "iyi yemek"
+      ]
+     }
     },
     {
      "id": "t27",
@@ -1486,8 +1721,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "walking"
+     ],
+     "textes": {
+      "fr": [
+       "marcher"
+      ],
+      "de": [
+       "Spazieren"
+      ],
+      "es": [
+       "caminar"
+      ],
+      "it": [
+       "camminare"
+      ],
+      "tr": [
+       "yürümek"
+      ]
+     }
     },
     {
      "id": "t28",
@@ -1514,8 +1767,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "good sleep"
+     ],
+     "textes": {
+      "fr": [
+       "bien dormir"
+      ],
+      "de": [
+       "guter Schlaf"
+      ],
+      "es": [
+       "buen sueño"
+      ],
+      "it": [
+       "dormire bene"
+      ],
+      "tr": [
+       "iyi uyku"
+      ]
+     }
     },
     {
      "id": "t29",
@@ -1542,8 +1813,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "trip"
+     ],
+     "textes": {
+      "fr": [
+       "voyage"
+      ],
+      "de": [
+       "Reise"
+      ],
+      "es": [
+       "viaje"
+      ],
+      "it": [
+       "viaggio"
+      ],
+      "tr": [
+       "seyahat"
+      ]
+     }
     },
     {
      "id": "t30",
@@ -1570,8 +1859,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "strong, still earned"
+     ],
+     "textes": {
+      "fr": [
+       "fort, encore mérité"
+      ],
+      "de": [
+       "stark, noch verdient"
+      ],
+      "es": [
+       "fuerte, aún ganado"
+      ],
+      "it": [
+       "forte, ancora meritato"
+      ],
+      "tr": [
+       "güçlü, hak edilmiş"
+      ]
+     }
     },
     {
      "id": "t31",
@@ -1766,8 +2073,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "nice weather"
+     ],
+     "textes": {
+      "fr": [
+       "beau temps"
+      ],
+      "de": [
+       "schönes Wetter"
+      ],
+      "es": [
+       "buen tiempo"
+      ],
+      "it": [
+       "bel tempo"
+      ],
+      "tr": [
+       "güzel hava"
+      ]
+     }
     },
     {
      "id": "t38",
@@ -1794,8 +2119,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "cooking"
+     ],
+     "textes": {
+      "fr": [
+       "cuisiner"
+      ],
+      "de": [
+       "Kochen"
+      ],
+      "es": [
+       "cocinar"
+      ],
+      "it": [
+       "cucinare"
+      ],
+      "tr": [
+       "yemek yapmak"
+      ]
+     }
     },
     {
      "id": "t39",
@@ -1822,8 +2165,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "film"
+     ],
+     "textes": {
+      "fr": [
+       "film"
+      ],
+      "de": [
+       "Film"
+      ],
+      "es": [
+       "peli"
+      ],
+      "it": [
+       "film"
+      ],
+      "tr": [
+       "film"
+      ]
+     }
     },
     {
      "id": "t40",
@@ -1850,8 +2211,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "good music"
+     ],
+     "textes": {
+      "fr": [
+       "bonne musique"
+      ],
+      "de": [
+       "gute Musik"
+      ],
+      "es": [
+       "buena música"
+      ],
+      "it": [
+       "buona musica"
+      ],
+      "tr": [
+       "iyi müzik"
+      ]
+     }
     },
     {
      "id": "t41",
@@ -1878,8 +2257,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "solid, mild"
+     ],
+     "textes": {
+      "fr": [
+       "solide, doux"
+      ],
+      "de": [
+       "solide, mild"
+      ],
+      "es": [
+       "sólido, suave"
+      ],
+      "it": [
+       "solido, leggero"
+      ],
+      "tr": [
+       "sağlam, hafif"
+      ]
+     }
     },
     {
      "id": "t42",
@@ -2197,7 +2594,7 @@
       883
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -2226,8 +2623,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "book"
+     ],
+     "textes": {
+      "fr": [
+       "livre"
+      ],
+      "de": [
+       "Buch"
+      ],
+      "es": [
+       "libro"
+      ],
+      "it": [
+       "libro"
+      ],
+      "tr": [
+       "kitap"
+      ]
+     }
     },
     {
      "id": "t54",
@@ -2254,8 +2669,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "new outfit"
+     ],
+     "textes": {
+      "fr": [
+       "nouveau look"
+      ],
+      "de": [
+       "neues Outfit"
+      ],
+      "es": [
+       "ropa nueva"
+      ],
+      "it": [
+       "outfit nuovo"
+      ],
+      "tr": [
+       "yeni kıyafet"
+      ]
+     }
     },
     {
      "id": "t55",
@@ -2281,7 +2714,7 @@
       842
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -2309,7 +2742,7 @@
       915
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -2338,8 +2771,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "cold water"
+     ],
+     "textes": {
+      "fr": [
+       "eau froide"
+      ],
+      "de": [
+       "kaltes Wasser"
+      ],
+      "es": [
+       "agua fría"
+      ],
+      "it": [
+       "acqua fredda"
+      ],
+      "tr": [
+       "soğuk su"
+      ]
+     }
     },
     {
      "id": "t58",
@@ -2366,8 +2817,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "neutral, fine"
+     ],
+     "textes": {
+      "fr": [
+       "neutre, ok"
+      ],
+      "de": [
+       "neutral, okay"
+      ],
+      "es": [
+       "neutral, bien"
+      ],
+      "it": [
+       "neutro, ok"
+      ],
+      "tr": [
+       "nötr, idare eder"
+      ]
+     }
     },
     {
      "id": "t59",
@@ -2456,8 +2925,32 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "background",
+      "youtube"
+     ],
+     "textes": {
+      "fr": [
+       "YouTube",
+       "en fond"
+      ],
+      "de": [
+       "YouTube im",
+       "Hintergrund"
+      ],
+      "es": [
+       "YouTube",
+       "de fondo"
+      ],
+      "it": [
+       "YouTube",
+       "in sottofondo"
+      ],
+      "tr": [
+       "arka planda",
+       "YouTube"
+      ]
+     }
     },
     {
      "id": "t62",
@@ -2484,8 +2977,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "scrolling"
+     ],
+     "textes": {
+      "fr": [
+       "scroller"
+      ],
+      "de": [
+       "Scrollen"
+      ],
+      "es": [
+       "hacer scroll"
+      ],
+      "it": [
+       "scrollare"
+      ],
+      "tr": [
+       "scroll"
+      ]
+     }
     },
     {
      "id": "t63",
@@ -2512,8 +3023,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "junk food"
+     ],
+     "textes": {
+      "fr": [
+       "malbouffe"
+      ],
+      "de": [
+       "Junkfood"
+      ],
+      "es": [
+       "comida basura"
+      ],
+      "it": [
+       "cibo spazzatura"
+      ],
+      "tr": [
+       "abur cubur"
+      ]
+     }
     },
     {
      "id": "t64",
@@ -2540,8 +3069,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "gaming"
+     ],
+     "textes": {
+      "fr": [
+       "jeux vidéo"
+      ],
+      "de": [
+       "Zocken"
+      ],
+      "es": [
+       "videojuegos"
+      ],
+      "it": [
+       "videogiochi"
+      ],
+      "tr": [
+       "oyun"
+      ]
+     }
     },
     {
      "id": "t65",
@@ -2568,8 +3115,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "cheap, mostly harness"
+     ],
+     "textes": {
+      "fr": [
+       "facile, plutôt inoffensif"
+      ],
+      "de": [
+       "billig, meist harmlos"
+      ],
+      "es": [
+       "barato, casi inofensivo"
+      ],
+      "it": [
+       "economico, quasi innocuo"
+      ],
+      "tr": [
+       "ucuz, çoğunlukla zararsız"
+      ]
+     }
     },
     {
      "id": "t66",
@@ -2853,7 +3418,7 @@
       914
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -2881,7 +3446,7 @@
       913
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -2916,8 +3481,32 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "absolutely useless /",
+      "bad practice"
+     ],
+     "textes": {
+      "fr": [
+       "complètement inutile /",
+       "mauvaise habitude"
+      ],
+      "de": [
+       "absolut nutzlos /",
+       "schlechte Praxis"
+      ],
+      "es": [
+       "totalmente inútil /",
+       "mala práctica"
+      ],
+      "it": [
+       "del tutto inutile /",
+       "cattiva abitudine"
+      ],
+      "tr": [
+       "tamamen gereksiz /",
+       "kötü alışkanlık"
+      ]
+     }
     },
     {
      "id": "t78",
@@ -2939,13 +3528,31 @@
      "couleur": "#1e231c",
      "fond": "#edf2eb",
      "libre": [
-      390,
-      496
+      372,
+      500
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "gambling"
+     ],
+     "textes": {
+      "fr": [
+       "jeux d’argent"
+      ],
+      "de": [
+       "Glücksspiel"
+      ],
+      "es": [
+       "apuestas"
+      ],
+      "it": [
+       "azzardo"
+      ],
+      "tr": [
+       "kumar"
+      ]
+     }
     },
     {
      "id": "t79",
@@ -2972,8 +3579,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "addictions"
+     ],
+     "textes": {
+      "fr": [
+       "addictions"
+      ],
+      "de": [
+       "Süchte"
+      ],
+      "es": [
+       "adicciones"
+      ],
+      "it": [
+       "dipendenze"
+      ],
+      "tr": [
+       "bağımlılıklar"
+      ]
+     }
     },
     {
      "id": "t80",
@@ -3000,8 +3625,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "doomshopping"
+     ],
+     "textes": {
+      "fr": [
+       "achats compulsifs"
+      ],
+      "de": [
+       "Frustshopping"
+      ],
+      "es": [
+       "compras compulsivas"
+      ],
+      "it": [
+       "shopping compulsivo"
+      ],
+      "tr": [
+       "aşırı alışveriş"
+      ]
+     }
     },
     {
      "id": "t81",
@@ -3028,8 +3671,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "goon"
+     ],
+     "textes": {
+      "fr": [
+       "goon"
+      ],
+      "de": [
+       "goon"
+      ],
+      "es": [
+       "goon"
+      ],
+      "it": [
+       "goon"
+      ],
+      "tr": [
+       "goon"
+      ]
+     }
     },
     {
      "id": "t82",
@@ -3047,7 +3708,7 @@
        44
       ]
      ],
-     "alignement": "centre",
+     "alignement": "gauche",
      "couleur": "#020700",
      "fond": "#edf2eb",
      "libre": [
@@ -3056,8 +3717,29 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "check prev parts"
+     ],
+     "textes": {
+      "fr": [
+       "il manque quoi dans la liste ?"
+      ],
+      "de": [
+       "was fehlt in der Liste?"
+      ],
+      "es": [
+       "¿qué falta en la lista?"
+      ],
+      "it": [
+       "cosa manca nella lista?"
+      ],
+      "tr": [
+       "listede ne eksik?"
+      ],
+      "en": [
+       "what’s missing from this list?"
+      ]
+     }
     },
     {
      "id": "t83",
@@ -3083,12 +3765,174 @@
       1073
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "effacer",
      "en": [],
      "textes": {}
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "traduire",
+     "en": [
+      "first coffee",
+      "/ evening tea"
+     ],
+     "textes": {
+      "fr": [
+       "premier café",
+       "/ tisane du soir"
+      ],
+      "de": [
+       "erster Kaffee",
+       "/ Abendtee"
+      ],
+      "es": [
+       "primer café",
+       "/ té de la noche"
+      ],
+      "it": [
+       "primo caffè",
+       "/ tè della sera"
+      ],
+      "tr": [
+       "ilk kahve",
+       "/ akşam çayı"
+      ]
+     },
+     "couleur": "#151a13",
+     "fond": "#edf2eb",
+     "id": "m1",
+     "boite": [
+      751,
+      788,
+      150,
+      50
+     ],
+     "lignes": [
+      [
+       759,
+       788,
+       124,
+       24
+      ],
+      [
+       751,
+       808,
+       150,
+       31
+      ]
+     ],
+     "libre": [
+      745,
+      918
+     ]
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "traduire",
+     "en": [
+      "your option",
+      "(comment)"
+     ],
+     "textes": {
+      "fr": [
+       "ton choix",
+       "(commente)"
+      ],
+      "de": [
+       "deine Wahl",
+       "(kommentiere)"
+      ],
+      "es": [
+       "tu opción",
+       "(comenta)"
+      ],
+      "it": [
+       "la tua scelta",
+       "(commenta)"
+      ],
+      "tr": [
+       "senin seçimin",
+       "(yorum yap)"
+      ]
+     },
+     "couleur": "#151a13",
+     "fond": "#edf2eb",
+     "id": "m2",
+     "boite": [
+      782,
+      1158,
+      132,
+      53
+     ],
+     "lignes": [
+      [
+       782,
+       1158,
+       132,
+       30
+      ],
+      [
+       783,
+       1186,
+       130,
+       25
+      ]
+     ],
+     "libre": [
+      776,
+      918
+     ]
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "traduire",
+     "en": [
+      "try this out"
+     ],
+     "textes": {
+      "fr": [
+       "essaie ça"
+      ],
+      "de": [
+       "probier’s aus"
+      ],
+      "es": [
+       "pruébalo"
+      ],
+      "it": [
+       "provalo"
+      ],
+      "tr": [
+       "bunu dene"
+      ]
+     },
+     "couleur": "#51302a",
+     "fond": "#fcd0cf",
+     "id": "m3",
+     "boite": [
+      705,
+      170,
+      56,
+      13
+     ],
+     "lignes": [
+      [
+       705,
+       170,
+       56,
+       13
+      ]
+     ],
+     "libre": [
+      689,
+      795
+     ]
     }
    ]
   }
  ],
- "notes": "source : https://www.tiktok.com/@mentalapp/video/7688926567183027474 · 207400 vues · « Last part, dopamine sources tier list, check bio instead #dopaminesources #dopamine #mental #mentalmaxxing #MentalHealth »"
+ "notes": "source : https://www.tiktok.com/@mentalapp/video/7688926567183027474 · 207400 vues · « Last part, dopamine sources tier list, check bio instead #dopaminesources #dopamine #mental #mentalmaxxing #MentalHealth » · remake : tier list pt3 : élément UnSwipe à la place de leur icône de la case BONUS (« Mental (check bio) »), « BONUS tier » gardé ; légendes coupées refaites en blocs manuels (first coffee / evening tea, your option (comment), try this out) ; pied « check prev parts » remplacé par une question."
 }

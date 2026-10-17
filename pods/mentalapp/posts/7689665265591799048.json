@@ -1,9 +1,25 @@
 {
  "source_id": "7689665265591799048",
  "format": "tier-list",
- "titre": "",
- "legendes": {},
- "app": null,
+ "titre": "tier list of Resting methods",
+ "legendes": {
+  "en": "resting methods tier list, how do you actually rest? #mentalmaxxing #dopamine #tierlist #selfimprovement",
+  "fr": "tier list des méthodes de repos, tu te reposes comment ? #mentalmaxxing #dopamine #tierlist #developpementpersonnel",
+  "de": "Tierlist der Erholungsmethoden, wie ruhst du dich aus? #mentalmaxxing #dopamin #tierlist #selbstverbesserung",
+  "es": "tier list de métodos de descanso, ¿tú cómo descansas? #mentalmaxxing #dopamina #tierlist #superacionpersonal",
+  "it": "tier list dei metodi di riposo, tu come ti riposi? #mentalmaxxing #dopamina #tierlist #crescitapersonale",
+  "tr": "dinlenme yöntemleri tier list, sen nasıl dinleniyorsun? #mentalmaxxing #dopamin #tierlist #kişiselgelişim"
+ },
+ "app": {
+  "position": 2,
+  "icone": [
+   231,
+   72,
+   77,
+   78
+  ],
+  "legende": "t4"
+ },
  "slides": [
   {
    "position": 1,
@@ -14,14 +30,14 @@
       213,
       92,
       652,
-      147
+      120
      ],
      "lignes": [
       [
        213,
        92,
        652,
-       147
+       120
       ]
      ],
      "alignement": "centre",
@@ -33,8 +49,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "tier list of"
+     ],
+     "textes": {
+      "fr": [
+       "tier list des"
+      ],
+      "de": [
+       "Tierlist der"
+      ],
+      "es": [
+       "tier list de"
+      ],
+      "it": [
+       "tier list dei"
+      ],
+      "tr": [
+       "tier list:"
+      ]
+     }
     },
     {
      "id": "t2",
@@ -256,7 +290,7 @@
       600
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "effacer",
      "en": [],
      "textes": {}
     },
@@ -280,13 +314,105 @@
      "couleur": "#000300",
      "fond": "#edf2eb",
      "libre": [
-      310,
-      754
+      40,
+      1040
      ],
      "probable": "texte",
      "action": "traduire",
+     "en": [
+      "methods"
+     ],
+     "textes": {
+      "fr": [
+       "de repos"
+      ],
+      "de": [
+       "methoden"
+      ],
+      "es": [
+       "de descanso"
+      ],
+      "it": [
+       "di riposo"
+      ],
+      "tr": [
+       "yöntemleri"
+      ]
+     }
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "traduire",
+     "en": [
+      "Resting"
+     ],
+     "textes": {
+      "fr": [
+       "Méthodes"
+      ],
+      "de": [
+       "Erholungs-"
+      ],
+      "es": [
+       "Métodos"
+      ],
+      "it": [
+       "Metodi"
+      ],
+      "tr": [
+       "Dinlenme"
+      ]
+     },
+     "couleur": "#000300",
+     "fond": "#edf2eb",
+     "id": "m1",
+     "boite": [
+      247,
+      880,
+      571,
+      182
+     ],
+     "lignes": [
+      [
+       247,
+       880,
+       571,
+       182
+      ]
+     ],
+     "libre": [
+      40,
+      1040
+     ]
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "effacer",
      "en": [],
-     "textes": {}
+     "textes": {},
+     "couleur": "#000300",
+     "fond": "#edf2eb",
+     "id": "m2",
+     "boite": [
+      213,
+      222,
+      652,
+      18
+     ],
+     "lignes": [
+      [
+       213,
+       222,
+       652,
+       18
+      ]
+     ],
+     "libre": [
+      213,
+      865
+     ]
     }
    ]
   },
@@ -351,7 +477,7 @@
       191
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -371,17 +497,35 @@
        50
       ]
      ],
-     "alignement": "centre",
+     "alignement": "gauche",
      "couleur": "#000500",
      "fond": "#edf2eb",
      "libre": [
       346,
-      1073
+      1030
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "prove me wrong"
+     ],
+     "textes": {
+      "fr": [
+       "prouve-moi le contraire"
+      ],
+      "de": [
+       "beweis mir das Gegenteil"
+      ],
+      "es": [
+       "demuéstrame lo contrario"
+      ],
+      "it": [
+       "dimostrami il contrario"
+      ],
+      "tr": [
+       "aksini kanıtla"
+      ]
+     }
     },
     {
      "id": "t4",
@@ -409,12 +553,15 @@
      "couleur": "#2c3129",
      "fond": "#edf2eb",
      "libre": [
-      222,
-      316
+      206,
+      336
      ],
      "probable": "texte",
-     "action": "traduire",
-     "en": [],
+     "action": "effacer",
+     "en": [
+      "write it down",
+      "(check bio)"
+     ],
      "textes": {}
     },
     {
@@ -441,7 +588,7 @@
       138
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -469,7 +616,7 @@
       165
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -644,8 +791,32 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "deep",
+      "conversation"
+     ],
+     "textes": {
+      "fr": [
+       "vraie",
+       "discussion"
+      ],
+      "de": [
+       "tiefes",
+       "Gespräch"
+      ],
+      "es": [
+       "charla",
+       "profunda"
+      ],
+      "it": [
+       "dialogo",
+       "profondo"
+      ],
+      "tr": [
+       "derin",
+       "sohbet"
+      ]
+     }
     },
     {
      "id": "t13",
@@ -672,8 +843,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "workout"
+     ],
+     "textes": {
+      "fr": [
+       "sport"
+      ],
+      "de": [
+       "Training"
+      ],
+      "es": [
+       "entreno"
+      ],
+      "it": [
+       "allenamento"
+      ],
+      "tr": [
+       "antrenman"
+      ]
+     }
     },
     {
      "id": "t14",
@@ -700,8 +889,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "proper sleep"
+     ],
+     "textes": {
+      "fr": [
+       "vrai sommeil"
+      ],
+      "de": [
+       "guter Schlaf"
+      ],
+      "es": [
+       "dormir bien"
+      ],
+      "it": [
+       "buon sonno"
+      ],
+      "tr": [
+       "kaliteli uyku"
+      ]
+     }
     },
     {
      "id": "t15",
@@ -728,8 +935,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "walk outside"
+     ],
+     "textes": {
+      "fr": [
+       "marcher dehors"
+      ],
+      "de": [
+       "Spaziergang"
+      ],
+      "es": [
+       "caminar fuera"
+      ],
+      "it": [
+       "passeggiata"
+      ],
+      "tr": [
+       "dışarıda yürüyüş"
+      ]
+     }
     },
     {
      "id": "t16",
@@ -755,7 +980,7 @@
       148
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -783,7 +1008,7 @@
       231
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -873,7 +1098,7 @@
       875
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -985,7 +1210,7 @@
       434
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -1042,8 +1267,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "long shower"
+     ],
+     "textes": {
+      "fr": [
+       "longue douche"
+      ],
+      "de": [
+       "lange Dusche"
+      ],
+      "es": [
+       "ducha larga"
+      ],
+      "it": [
+       "doccia lunga"
+      ],
+      "tr": [
+       "uzun duş"
+      ]
+     }
     },
     {
      "id": "t27",
@@ -1070,8 +1313,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "meditation"
+     ],
+     "textes": {
+      "fr": [
+       "méditation"
+      ],
+      "de": [
+       "Meditation"
+      ],
+      "es": [
+       "meditación"
+      ],
+      "it": [
+       "meditazione"
+      ],
+      "tr": [
+       "meditasyon"
+      ]
+     }
     },
     {
      "id": "t28",
@@ -1098,8 +1359,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "digital detox"
+     ],
+     "textes": {
+      "fr": [
+       "détox digitale"
+      ],
+      "de": [
+       "Digital Detox"
+      ],
+      "es": [
+       "detox digital"
+      ],
+      "it": [
+       "detox digitale"
+      ],
+      "tr": [
+       "dijital detoks"
+      ]
+     }
     },
     {
      "id": "t29",
@@ -1126,8 +1405,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "good film"
+     ],
+     "textes": {
+      "fr": [
+       "bon film"
+      ],
+      "de": [
+       "guter Film"
+      ],
+      "es": [
+       "buena peli"
+      ],
+      "it": [
+       "bel film"
+      ],
+      "tr": [
+       "iyi film"
+      ]
+     }
     },
     {
      "id": "t30",
@@ -1154,8 +1451,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "genuinely restores"
+     ],
+     "textes": {
+      "fr": [
+       "ressource vraiment"
+      ],
+      "de": [
+       "erholt wirklich"
+      ],
+      "es": [
+       "restaura de verdad"
+      ],
+      "it": [
+       "rigenera davvero"
+      ],
+      "tr": [
+       "gerçekten yeniler"
+      ]
+     }
     },
     {
      "id": "t31",
@@ -1272,8 +1587,32 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "time with",
+      "a pet"
+     ],
+     "textes": {
+      "fr": [
+       "temps avec",
+       "un animal"
+      ],
+      "de": [
+       "Zeit mit",
+       "Haustier"
+      ],
+      "es": [
+       "tiempo con",
+       "tu mascota"
+      ],
+      "it": [
+       "tempo con",
+       "un animale"
+      ],
+      "tr": [
+       "evcil hayvanla",
+       "vakit"
+      ]
+     }
     },
     {
      "id": "t35",
@@ -1300,8 +1639,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "silence"
+     ],
+     "textes": {
+      "fr": [
+       "silence"
+      ],
+      "de": [
+       "Stille"
+      ],
+      "es": [
+       "silencio"
+      ],
+      "it": [
+       "silenzio"
+      ],
+      "tr": [
+       "sessizlik"
+      ]
+     }
     },
     {
      "id": "t36",
@@ -1328,8 +1685,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "good meal"
+     ],
+     "textes": {
+      "fr": [
+       "bon repas"
+      ],
+      "de": [
+       "gutes Essen"
+      ],
+      "es": [
+       "buena comida"
+      ],
+      "it": [
+       "buon pasto"
+      ],
+      "tr": [
+       "güzel yemek"
+      ]
+     }
     },
     {
      "id": "t37",
@@ -1356,36 +1731,72 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "rest, but shallow"
+     ],
+     "textes": {
+      "fr": [
+       "repos, mais léger"
+      ],
+      "de": [
+       "Ruhe, aber flach"
+      ],
+      "es": [
+       "descanso, pero leve"
+      ],
+      "it": [
+       "riposo, ma leggero"
+      ],
+      "tr": [
+       "yüzeysel dinlenme"
+      ]
+     }
     },
     {
      "id": "t38",
      "boite": [
-      620,
-      667,
-      48,
-      16
+      618,
+      666,
+      66,
+      22
      ],
      "lignes": [
       [
-       620,
-       667,
-       48,
-       16
+       618,
+       666,
+       66,
+       22
       ]
      ],
      "alignement": "centre",
      "couleur": "#181d15",
      "fond": "#edf2ea",
      "libre": [
-      548,
-      668
+      590,
+      750
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "a nap"
+     ],
+     "textes": {
+      "fr": [
+       "une sieste"
+      ],
+      "de": [
+       "ein Nickerchen"
+      ],
+      "es": [
+       "una siesta"
+      ],
+      "it": [
+       "un pisolino"
+      ],
+      "tr": [
+       "şekerleme"
+      ]
+     }
     },
     {
      "id": "t39",
@@ -1539,20 +1950,20 @@
       417,
       785,
       129,
-      47
+      52
      ],
      "lignes": [
       [
        417,
        785,
        129,
-       28
+       25
       ],
       [
-       450,
-       810,
-       76,
-       22
+       436,
+       809,
+       90,
+       28
       ]
      ],
      "alignement": "centre",
@@ -1564,8 +1975,32 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "cooking for",
+      "yourself"
+     ],
+     "textes": {
+      "fr": [
+       "cuisiner",
+       "pour toi"
+      ],
+      "de": [
+       "für dich",
+       "kochen"
+      ],
+      "es": [
+       "cocinar",
+       "para ti"
+      ],
+      "it": [
+       "cucinare",
+       "per te"
+      ],
+      "tr": [
+       "kendine",
+       "yemek yapmak"
+      ]
+     }
     },
     {
      "id": "t45",
@@ -1592,8 +2027,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "music"
+     ],
+     "textes": {
+      "fr": [
+       "musique"
+      ],
+      "de": [
+       "Musik"
+      ],
+      "es": [
+       "música"
+      ],
+      "it": [
+       "musica"
+      ],
+      "tr": [
+       "müzik"
+      ]
+     }
     },
     {
      "id": "t46",
@@ -1620,8 +2073,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "drive alone"
+     ],
+     "textes": {
+      "fr": [
+       "rouler seul"
+      ],
+      "de": [
+       "allein fahren"
+      ],
+      "es": [
+       "conducir solo"
+      ],
+      "it": [
+       "guidare da solo"
+      ],
+      "tr": [
+       "yalnız sürüş"
+      ]
+     }
     },
     {
      "id": "t47",
@@ -1629,14 +2100,14 @@
       603,
       810,
       85,
-      27
+      25
      ],
      "lignes": [
       [
        603,
        810,
        85,
-       27
+       25
       ]
      ],
      "alignement": "centre",
@@ -1648,8 +2119,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "reading"
+     ],
+     "textes": {
+      "fr": [
+       "lire"
+      ],
+      "de": [
+       "Lesen"
+      ],
+      "es": [
+       "leer"
+      ],
+      "it": [
+       "leggere"
+      ],
+      "tr": [
+       "okumak"
+      ]
+     }
     },
     {
      "id": "t48",
@@ -1676,8 +2165,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "neutral"
+     ],
+     "textes": {
+      "fr": [
+       "neutre"
+      ],
+      "de": [
+       "neutral"
+      ],
+      "es": [
+       "neutral"
+      ],
+      "it": [
+       "neutro"
+      ],
+      "tr": [
+       "nötr"
+      ]
+     }
     },
     {
      "id": "t49",
@@ -1872,8 +2379,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "scrolling"
+     ],
+     "textes": {
+      "fr": [
+       "scroller"
+      ],
+      "de": [
+       "Scrollen"
+      ],
+      "es": [
+       "scroll"
+      ],
+      "it": [
+       "scrollare"
+      ],
+      "tr": [
+       "scroll"
+      ]
+     }
     },
     {
      "id": "t56",
@@ -1900,8 +2425,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "oversleep"
+     ],
+     "textes": {
+      "fr": [
+       "trop dormir"
+      ],
+      "de": [
+       "verschlafen"
+      ],
+      "es": [
+       "dormir de más"
+      ],
+      "it": [
+       "dormire troppo"
+      ],
+      "tr": [
+       "fazla uyumak"
+      ]
+     }
     },
     {
      "id": "t57",
@@ -1928,8 +2471,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "binge-watching"
+     ],
+     "textes": {
+      "fr": [
+       "binge-watching"
+      ],
+      "de": [
+       "Binge-Watching"
+      ],
+      "es": [
+       "maratonear"
+      ],
+      "it": [
+       "binge-watching"
+      ],
+      "tr": [
+       "dizi maratonu"
+      ]
+     }
     },
     {
      "id": "t58",
@@ -1956,8 +2517,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "junk food"
+     ],
+     "textes": {
+      "fr": [
+       "malbouffe"
+      ],
+      "de": [
+       "Junkfood"
+      ],
+      "es": [
+       "comida basura"
+      ],
+      "it": [
+       "junk food"
+      ],
+      "tr": [
+       "abur cubur"
+      ]
+     }
     },
     {
      "id": "t59",
@@ -1984,8 +2563,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "feels like rest, it isn’t"
+     ],
+     "textes": {
+      "fr": [
+       "faux repos"
+      ],
+      "de": [
+       "falsche Erholung"
+      ],
+      "es": [
+       "falso descanso"
+      ],
+      "it": [
+       "falso riposo"
+      ],
+      "tr": [
+       "sahte dinlenme"
+      ]
+     }
     },
     {
      "id": "t60",
@@ -2214,22 +2811,22 @@
     {
      "id": "t68",
      "boite": [
-      775,
-      1160,
-      123,
-      50
+      766,
+      1159,
+      132,
+      51
      ],
      "lignes": [
       [
-       780,
-       1160,
-       118,
+       766,
+       1159,
+       132,
        26
       ],
       [
-       775,
+       766,
        1183,
-       122,
+       131,
        27
       ]
      ],
@@ -2237,13 +2834,37 @@
      "couleur": "#070c05",
      "fond": "#edf2eb",
      "libre": [
-      775,
-      898
+      745,
+      912
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "your option",
+      "(comment)"
+     ],
+     "textes": {
+      "fr": [
+       "ton choix",
+       "(commente)"
+      ],
+      "de": [
+       "deine Wahl",
+       "(kommentiere)"
+      ],
+      "es": [
+       "tu opción",
+       "(comenta)"
+      ],
+      "it": [
+       "la tua scelta",
+       "(commenta)"
+      ],
+      "tr": [
+       "senin seçimin",
+       "(yorum yap)"
+      ]
+     }
     },
     {
      "id": "t69",
@@ -2304,42 +2925,90 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "competitive",
+      "games"
+     ],
+     "textes": {
+      "fr": [
+       "jeux",
+       "compétitifs"
+      ],
+      "de": [
+       "kompetitive",
+       "Games"
+      ],
+      "es": [
+       "juegos",
+       "competitivos"
+      ],
+      "it": [
+       "giochi",
+       "competitivi"
+      ],
+      "tr": [
+       "rekabetçi",
+       "oyunlar"
+      ]
+     }
     },
     {
      "id": "t71",
      "boite": [
-      551,
-      1174,
-      161,
-      37
+      550,
+      1172,
+      162,
+      40
      ],
      "lignes": [
       [
-       551,
-       1174,
-       161,
+       550,
+       1172,
+       162,
        22
       ],
       [
-       573,
+       559,
        1194,
-       129,
-       17
+       143,
+       18
       ]
      ],
      "alignement": "centre",
      "couleur": "#1c211a",
      "fond": "#edf2eb",
      "libre": [
-      551,
-      755
+      545,
+      745
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "revenge bedtime",
+      "procrastination"
+     ],
+     "textes": {
+      "fr": [
+       "veiller tard",
+       "par revanche"
+      ],
+      "de": [
+       "spät ins Bett",
+       "aus Trotz"
+      ],
+      "es": [
+       "trasnochar",
+       "por venganza"
+      ],
+      "it": [
+       "fare tardi",
+       "per ripicca"
+      ],
+      "tr": [
+       "geç yatmak",
+       "inadına"
+      ]
+     }
     },
     {
      "id": "t72",
@@ -2366,8 +3035,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "actively costs you"
+     ],
+     "textes": {
+      "fr": [
+       "te coûte vraiment"
+      ],
+      "de": [
+       "kostet dich Kraft"
+      ],
+      "es": [
+       "te pasa factura"
+      ],
+      "it": [
+       "ti costa caro"
+      ],
+      "tr": [
+       "seni yorar"
+      ]
+     }
     },
     {
      "id": "t73",
@@ -2394,8 +3081,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "addictions"
+     ],
+     "textes": {
+      "fr": [
+       "addictions"
+      ],
+      "de": [
+       "Süchte"
+      ],
+      "es": [
+       "adicciones"
+      ],
+      "it": [
+       "dipendenze"
+      ],
+      "tr": [
+       "bağımlılıklar"
+      ]
+     }
     },
     {
      "id": "t74",
@@ -2413,7 +3118,7 @@
        37
       ]
      ],
-     "alignement": "centre",
+     "alignement": "gauche",
      "couleur": "#040903",
      "fond": "#edf2eb",
      "libre": [
@@ -2422,8 +3127,29 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "check bio instead"
+     ],
+     "textes": {
+      "fr": [
+       "tu te reposes comment, toi ?"
+      ],
+      "de": [
+       "wie ruhst du dich aus?"
+      ],
+      "es": [
+       "¿tú cómo descansas?"
+      ],
+      "it": [
+       "tu come ti riposi?"
+      ],
+      "tr": [
+       "sen nasıl dinleniyorsun?"
+      ],
+      "en": [
+       "how do you actually rest?"
+      ]
+     }
     },
     {
      "id": "t75",
@@ -2449,12 +3175,104 @@
       1073
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "effacer",
      "en": [],
      "textes": {}
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "traduire",
+     "en": [
+      "try this out"
+     ],
+     "textes": {
+      "fr": [
+       "essaie ça"
+      ],
+      "de": [
+       "probier’s aus"
+      ],
+      "es": [
+       "pruébalo"
+      ],
+      "it": [
+       "provalo"
+      ],
+      "tr": [
+       "bunu dene"
+      ]
+     },
+     "couleur": "#51302a",
+     "fond": "#fbcece",
+     "id": "m1",
+     "boite": [
+      109,
+      171,
+      56,
+      12
+     ],
+     "lignes": [
+      [
+       109,
+       171,
+       56,
+       12
+      ]
+     ],
+     "libre": [
+      84,
+      200
+     ]
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "traduire",
+     "en": [
+      "actually recover"
+     ],
+     "textes": {
+      "fr": [
+       "vraie récup"
+      ],
+      "de": [
+       "echte Erholung"
+      ],
+      "es": [
+       "recupera bien"
+      ],
+      "it": [
+       "recupero vero"
+      ],
+      "tr": [
+       "tam toparlanma"
+      ]
+     },
+     "couleur": "#800100",
+     "fond": "#fc3a3a",
+     "id": "m2",
+     "boite": [
+      94,
+      364,
+      134,
+      20
+     ],
+     "lignes": [
+      [
+       94,
+       364,
+       134,
+       20
+      ]
+     ],
+     "libre": [
+      86,
+      234
+     ]
     }
    ]
   }
  ],
- "notes": "source : https://www.tiktok.com/@mentalapp/video/7689665265591799048 · 37400 vues · « Check bio for the best resting method!! #rest #tierlist #mental #mentalhealth #mentalmaxxing »"
+ "notes": "source : https://www.tiktok.com/@mentalapp/video/7689665265591799048 · 37400 vues · « Check bio for the best resting method!! #rest #tierlist #mental #mentalhealth #mentalmaxxing » · remake : couverture : « Resting » lu comme des images, refait en bloc manuel m1 (descendante du g comprise) ; « actually recover » et « try this out » coupés, refaits en m2/m1 ; élément UnSwipe à la place de leur icône de la case BONUS (« write it down (check bio) »)."
 }

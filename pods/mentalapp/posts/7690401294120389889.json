@@ -1,9 +1,25 @@
 {
  "source_id": "7690401294120389889",
- "format": "tier-list",
- "titre": "",
- "legendes": {},
- "app": null,
+ "format": "guide",
+ "titre": "PROBLEM",
+ "legendes": {
+  "en": "tired, zero focus, everything feels the same? here’s the fix #mentalmaxxing #dopamine #selfimprovement",
+  "fr": "fatigué, zéro concentration, tout a le même goût ? voilà la solution #mentalmaxxing #dopamine #developpementpersonnel",
+  "de": "müde, null Fokus, alles fühlt sich gleich an? hier ist die Lösung #mentalmaxxing #dopamin #selbstverbesserung",
+  "es": "¿cansado, cero concentración, todo se siente igual? aquí está la solución #mentalmaxxing #dopamina #superacionpersonal",
+  "it": "stanco, zero concentrazione, tutto sembra uguale? ecco la soluzione #mentalmaxxing #dopamina #crescitapersonale",
+  "tr": "yorgun, sıfır odak, her şey aynı mı geliyor? işte çözüm #mentalmaxxing #dopamin #kişiselgelişim"
+ },
+ "app": {
+  "position": 2,
+  "icone": [
+   478,
+   1047,
+   165,
+   165
+  ],
+  "legende": "t27"
+ },
  "slides": [
   {
    "position": 1,
@@ -235,8 +251,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "PROBLEM"
+     ],
+     "textes": {
+      "fr": [
+       "PROBLÈME"
+      ],
+      "de": [
+       "PROBLEM"
+      ],
+      "es": [
+       "PROBLEMA"
+      ],
+      "it": [
+       "PROBLEMA"
+      ],
+      "tr": [
+       "SORUN"
+      ]
+     }
     },
     {
      "id": "t9",
@@ -363,17 +397,23 @@
        605,
        834,
        302,
-       72
+       34
+      ],
+      [
+       671,
+       873,
+       178,
+       33
       ]
      ],
      "alignement": "centre",
      "couleur": "#020701",
      "fond": "#edf2eb",
      "libre": [
-      605,
-      907
+      560,
+      1000
      ],
-     "probable": "autre",
+     "probable": "texte",
      "action": "garder",
      "en": [],
      "textes": {}
@@ -402,23 +442,23 @@
       218
      ],
      "probable": "autre",
-     "action": "garder",
+     "action": "effacer",
      "en": [],
      "textes": {}
     },
     {
      "id": "t15",
      "boite": [
-      223,
+      209,
       887,
-      187,
+      201,
       37
      ],
      "lignes": [
       [
-       223,
+       209,
        887,
-       187,
+       201,
        37
       ]
      ],
@@ -426,13 +466,31 @@
      "couleur": "#030802",
      "fond": "#edf2eb",
      "libre": [
-      223,
-      597
+      120,
+      520
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "“i feel tired”"
+     ],
+     "textes": {
+      "fr": [
+       "“je suis crevé”"
+      ],
+      "de": [
+       "“ich bin müde”"
+      ],
+      "es": [
+       "“estoy cansado”"
+      ],
+      "it": [
+       "“sono stanco”"
+      ],
+      "tr": [
+       "“yorgunum”"
+      ]
+     }
     },
     {
      "id": "t16",
@@ -538,13 +596,31 @@
      "couleur": "#030801",
      "fond": "#edf2eb",
      "libre": [
-      305,
-      770
+      360,
+      690
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "high cortisol"
+     ],
+     "textes": {
+      "fr": [
+       "cortisol élevé"
+      ],
+      "de": [
+       "hohes Cortisol"
+      ],
+      "es": [
+       "cortisol alto"
+      ],
+      "it": [
+       "cortisolo alto"
+      ],
+      "tr": [
+       "yüksek kortizol"
+      ]
+     }
     },
     {
      "id": "t20",
@@ -628,13 +704,37 @@
      "couleur": "#020701",
      "fond": "#edf2eb",
      "libre": [
-      37,
-      690
+      10,
+      330
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "zero attention",
+      "span"
+     ],
+     "textes": {
+      "fr": [
+       "zéro",
+       "concentration"
+      ],
+      "de": [
+       "null",
+       "Konzentration"
+      ],
+      "es": [
+       "cero",
+       "concentración"
+      ],
+      "it": [
+       "zero",
+       "concentrazione"
+      ],
+      "tr": [
+       "sıfır",
+       "odak"
+      ]
+     }
     },
     {
      "id": "t23",
@@ -656,13 +756,89 @@
      "couleur": "#020701",
      "fond": "#edf2eb",
      "libre": [
-      305,
-      1073
+      660,
+      1070
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "always bloated"
+     ],
+     "textes": {
+      "fr": [
+       "toujours gonflé"
+      ],
+      "de": [
+       "immer aufgebläht"
+      ],
+      "es": [
+       "siempre hinchado"
+      ],
+      "it": [
+       "sempre gonfio"
+      ],
+      "tr": [
+       "hep şişkin"
+      ]
+     }
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "traduire",
+     "en": [
+      "everything feels",
+      "the same"
+     ],
+     "textes": {
+      "fr": [
+       "tout a le",
+       "même goût"
+      ],
+      "de": [
+       "alles fühlt sich",
+       "gleich an"
+      ],
+      "es": [
+       "todo se",
+       "siente igual"
+      ],
+      "it": [
+       "tutto sembra",
+       "uguale"
+      ],
+      "tr": [
+       "her şey",
+       "aynı geliyor"
+      ]
+     },
+     "couleur": "#151a13",
+     "fond": "#edf2eb",
+     "id": "m2",
+     "boite": [
+      605,
+      834,
+      302,
+      72
+     ],
+     "lignes": [
+      [
+       605,
+       834,
+       302,
+       34
+      ],
+      [
+       671,
+       873,
+       178,
+       33
+      ]
+     ],
+     "libre": [
+      560,
+      1000
+     ]
     }
    ]
   },
@@ -674,14 +850,14 @@
      "boite": [
       353,
       508,
-      352,
+      370,
       88
      ],
      "lignes": [
       [
        353,
        508,
-       352,
+       370,
        88
       ]
      ],
@@ -694,8 +870,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "solution."
+     ],
+     "textes": {
+      "fr": [
+       "solution."
+      ],
+      "de": [
+       "Lösung."
+      ],
+      "es": [
+       "solución."
+      ],
+      "it": [
+       "soluzione."
+      ],
+      "tr": [
+       "çözüm."
+      ]
+     }
     },
     {
      "id": "t2",
@@ -721,7 +915,7 @@
       1073
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "effacer",
      "en": [],
      "textes": {}
     },
@@ -805,7 +999,7 @@
       1073
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -969,13 +1163,31 @@
      "couleur": "#020700",
      "fond": "#edf2eb",
      "libre": [
-      6,
-      226
+      10,
+      225
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "training"
+     ],
+     "textes": {
+      "fr": [
+       "sport"
+      ],
+      "de": [
+       "Training"
+      ],
+      "es": [
+       "entreno"
+      ],
+      "it": [
+       "allenamento"
+      ],
+      "tr": [
+       "antrenman"
+      ]
+     }
     },
     {
      "id": "t12",
@@ -997,13 +1209,31 @@
      "couleur": "#020701",
      "fond": "#edf2eb",
      "libre": [
-      238,
-      472
+      232,
+      465
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "natural food"
+     ],
+     "textes": {
+      "fr": [
+       "vrais aliments"
+      ],
+      "de": [
+       "echtes Essen"
+      ],
+      "es": [
+       "comida real"
+      ],
+      "it": [
+       "cibo vero"
+      ],
+      "tr": [
+       "doğal gıda"
+      ]
+     }
     },
     {
      "id": "t13",
@@ -1025,13 +1255,31 @@
      "couleur": "#010700",
      "fond": "#edf2eb",
      "libre": [
-      686,
-      914
+      678,
+      900
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "potassium"
+     ],
+     "textes": {
+      "fr": [
+       "potassium"
+      ],
+      "de": [
+       "Kalium"
+      ],
+      "es": [
+       "potasio"
+      ],
+      "it": [
+       "potassio"
+      ],
+      "tr": [
+       "potasyum"
+      ]
+     }
     },
     {
      "id": "t14",
@@ -1053,13 +1301,31 @@
      "couleur": "#040902",
      "fond": "#edf2eb",
      "libre": [
-      450,
-      674
+      468,
+      675
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "10k steps"
+     ],
+     "textes": {
+      "fr": [
+       "10k pas"
+      ],
+      "de": [
+       "10k Schritte"
+      ],
+      "es": [
+       "10k pasos"
+      ],
+      "it": [
+       "10k passi"
+      ],
+      "tr": [
+       "10k adım"
+      ]
+     }
     },
     {
      "id": "t15",
@@ -1199,13 +1465,31 @@
      "couleur": "#020701",
      "fond": "#edf2eb",
      "libre": [
-      189,
-      473
+      232,
+      465
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "7h+ sleep"
+     ],
+     "textes": {
+      "fr": [
+       "dormir 7h+"
+      ],
+      "de": [
+       "7h+ Schlaf"
+      ],
+      "es": [
+       "7h+ de sueño"
+      ],
+      "it": [
+       "7h+ di sonno"
+      ],
+      "tr": [
+       "7s+ uyku"
+      ]
+     }
     },
     {
      "id": "t20",
@@ -1227,13 +1511,31 @@
      "couleur": "#030701",
      "fond": "#edf2eb",
      "libre": [
-      429,
-      695
+      468,
+      675
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "3l+ water"
+     ],
+     "textes": {
+      "fr": [
+       "3l+ d’eau"
+      ],
+      "de": [
+       "3l+ Wasser"
+      ],
+      "es": [
+       "3l+ de agua"
+      ],
+      "it": [
+       "3l+ d’acqua"
+      ],
+      "tr": [
+       "3l+ su"
+      ]
+     }
     },
     {
      "id": "t21",
@@ -1255,13 +1557,31 @@
      "couleur": "#040802",
      "fond": "#edf1eb",
      "libre": [
-      703,
-      930
+      678,
+      900
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "learning"
+     ],
+     "textes": {
+      "fr": [
+       "apprendre"
+      ],
+      "de": [
+       "Lernen"
+      ],
+      "es": [
+       "aprender"
+      ],
+      "it": [
+       "imparare"
+      ],
+      "tr": [
+       "öğrenmek"
+      ]
+     }
     },
     {
      "id": "t22",
@@ -1283,13 +1603,31 @@
      "couleur": "#070c06",
      "fond": "#edf2eb",
      "libre": [
-      845,
-      993
+      880,
+      1070
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "tea"
+     ],
+     "textes": {
+      "fr": [
+       "thé"
+      ],
+      "de": [
+       "Tee"
+      ],
+      "es": [
+       "té"
+      ],
+      "it": [
+       "tè"
+      ],
+      "tr": [
+       "çay"
+      ]
+     }
     },
     {
      "id": "t23",
@@ -1311,13 +1649,31 @@
      "couleur": "#020701",
      "fond": "#edf2eb",
      "libre": [
-      6,
-      249
+      10,
+      225
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "coffee"
+     ],
+     "textes": {
+      "fr": [
+       "café"
+      ],
+      "de": [
+       "Kaffee"
+      ],
+      "es": [
+       "café"
+      ],
+      "it": [
+       "caffè"
+      ],
+      "tr": [
+       "kahve"
+      ]
+     }
     },
     {
      "id": "t24",
@@ -1429,12 +1785,15 @@
      "couleur": "#030802",
      "fond": "#edf2eb",
      "libre": [
-      437,
-      699
+      408,
+      714
      ],
      "probable": "texte",
-     "action": "traduire",
-     "en": [],
+     "action": "effacer",
+     "en": [
+      "journaling",
+      "(check bio)"
+     ],
      "textes": {}
     },
     {
@@ -1457,13 +1816,31 @@
      "couleur": "#050a04",
      "fond": "#edf2eb",
      "libre": [
-      196,
+      212,
       426
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "chill music"
+     ],
+     "textes": {
+      "fr": [
+       "musique zen"
+      ],
+      "de": [
+       "Chill-Musik"
+      ],
+      "es": [
+       "música zen"
+      ],
+      "it": [
+       "musica chill"
+      ],
+      "tr": [
+       "sakin müzik"
+      ]
+     }
     },
     {
      "id": "t29",
@@ -1491,13 +1868,37 @@
      "couleur": "#040902",
      "fond": "#edf2eb",
      "libre": [
-      847,
-      1025
+      904,
+      1074
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "brain",
+      "games"
+     ],
+     "textes": {
+      "fr": [
+       "jeux de",
+       "réflexion"
+      ],
+      "de": [
+       "Denk-",
+       "spiele"
+      ],
+      "es": [
+       "juegos",
+       "mentales"
+      ],
+      "it": [
+       "giochi",
+       "mentali"
+      ],
+      "tr": [
+       "zeka",
+       "oyunları"
+      ]
+     }
     },
     {
      "id": "t30",
@@ -1519,13 +1920,31 @@
      "couleur": "#050a03",
      "fond": "#edf2eb",
      "libre": [
-      6,
-      245
+      10,
+      210
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "walking"
+     ],
+     "textes": {
+      "fr": [
+       "marcher"
+      ],
+      "de": [
+       "Gehen"
+      ],
+      "es": [
+       "caminar"
+      ],
+      "it": [
+       "camminare"
+      ],
+      "tr": [
+       "yürüyüş"
+      ]
+     }
     },
     {
      "id": "t31",
@@ -1547,16 +1966,92 @@
      "couleur": "#020500",
      "fond": "#edf2eb",
      "libre": [
-      660,
-      898
+      716,
+      902
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "sunlight"
+     ],
+     "textes": {
+      "fr": [
+       "soleil"
+      ],
+      "de": [
+       "Sonnenlicht"
+      ],
+      "es": [
+       "luz solar"
+      ],
+      "it": [
+       "sole"
+      ],
+      "tr": [
+       "güneş"
+      ]
+     }
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "traduire",
+     "en": [
+      "digital",
+      "detox"
+     ],
+     "textes": {
+      "fr": [
+       "détox",
+       "digitale"
+      ],
+      "de": [
+       "Digital",
+       "Detox"
+      ],
+      "es": [
+       "détox",
+       "digital"
+      ],
+      "it": [
+       "detox",
+       "digitale"
+      ],
+      "tr": [
+       "dijital",
+       "detoks"
+      ]
+     },
+     "couleur": "#151a13",
+     "fond": "#edf2eb",
+     "id": "m1",
+     "boite": [
+      923,
+      789,
+      100,
+      68
+     ],
+     "lignes": [
+      [
+       923,
+       789,
+       98,
+       36
+      ],
+      [
+       923,
+       822,
+       100,
+       35
+      ]
+     ],
+     "libre": [
+      880,
+      1070
+     ]
     }
    ]
   }
  ],
- "notes": "source : https://www.tiktok.com/@mentalapp/video/7690401294120389889 · 146100 vues · « #mental #mentalmaxxing #mentalhealth #healthylifestyle #dopamine »"
+ "notes": "source : https://www.tiktok.com/@mentalapp/video/7690401294120389889 · 146100 vues · « #mental #mentalmaxxing #mentalhealth #healthylifestyle #dopamine » · remake : problème/solution ; « digital detox » mal détecté (boîte sur le pictogramme) refait en bloc manuel m1 ; élément UnSwipe à la place de leur icône « journaling (check bio) »."
 }

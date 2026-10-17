@@ -1,9 +1,25 @@
 {
  "source_id": "7692811167261248775",
  "format": "tier-list",
- "titre": "",
- "legendes": {},
- "app": null,
+ "titre": "tier list of Peakmaxxing things",
+ "legendes": {
+  "en": "peakmaxxing tier list, what matters most #mentalmaxxing #dopamine #tierlist #selfimprovement",
+  "fr": "tier list peakmaxxing, ce qui compte vraiment #mentalmaxxing #dopamine #tierlist #developpementpersonnel",
+  "de": "Peakmaxxing Tierlist, was wirklich zählt #mentalmaxxing #dopamin #tierlist #selbstverbesserung",
+  "es": "tier list peakmaxxing, lo que de verdad importa #mentalmaxxing #dopamina #tierlist #superacionpersonal",
+  "it": "tier list peakmaxxing, ciò che conta davvero #mentalmaxxing #dopamina #tierlist #crescitapersonale",
+  "tr": "peakmaxxing tier list, gerçekten önemli olanlar #mentalmaxxing #dopamin #tierlist #kişiselgelişim"
+ },
+ "app": {
+  "position": 2,
+  "icone": [
+   780,
+   399,
+   92,
+   91
+  ],
+  "legende": "t18"
+ },
  "slides": [
   {
    "position": 1,
@@ -33,8 +49,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "tier list of"
+     ],
+     "textes": {
+      "fr": [
+       "tier list :"
+      ],
+      "de": [
+       "Tierlist:"
+      ],
+      "es": [
+       "tier list:"
+      ],
+      "it": [
+       "tier list:"
+      ],
+      "tr": [
+       "tier list:"
+      ]
+     }
     },
     {
      "id": "t2",
@@ -480,7 +514,7 @@
       773
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "effacer",
      "en": [],
      "textes": {}
     },
@@ -490,7 +524,7 @@
       146,
       918,
       790,
-      227
+      135
      ],
      "lignes": [
       [
@@ -498,12 +532,6 @@
        918,
        790,
        135
-      ],
-      [
-       401,
-       1036,
-       277,
-       109
       ]
      ],
      "alignement": "centre",
@@ -514,8 +542,10 @@
       1073
      ],
      "probable": "texte",
-     "action": "traduire",
-     "en": [],
+     "action": "effacer",
+     "en": [
+      "Peakmaxxing"
+     ],
      "textes": {}
     },
     {
@@ -713,6 +743,98 @@
      "action": "garder",
      "en": [],
      "textes": {}
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "traduire",
+     "en": [
+      "Peakmaxxing"
+     ],
+     "textes": {
+      "fr": [
+       "Peakmaxxing"
+      ],
+      "de": [
+       "Peakmaxxing"
+      ],
+      "es": [
+       "Peakmaxxing"
+      ],
+      "it": [
+       "Peakmaxxing"
+      ],
+      "tr": [
+       "Peakmaxxing"
+      ]
+     },
+     "couleur": "#000300",
+     "fond": "#edf2eb",
+     "id": "m2",
+     "boite": [
+      146,
+      918,
+      790,
+      135
+     ],
+     "lignes": [
+      [
+       146,
+       918,
+       790,
+       135
+      ]
+     ],
+     "libre": [
+      6,
+      1073
+     ]
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "traduire",
+     "en": [
+      "things"
+     ],
+     "textes": {
+      "fr": [
+       "ce qui compte"
+      ],
+      "de": [
+       "was zählt"
+      ],
+      "es": [
+       "lo que importa"
+      ],
+      "it": [
+       "ciò che conta"
+      ],
+      "tr": [
+       "önemli şeyler"
+      ]
+     },
+     "couleur": "#000300",
+     "fond": "#edf2eb",
+     "id": "m1",
+     "boite": [
+      401,
+      1036,
+      277,
+      109
+     ],
+     "lignes": [
+      [
+       401,
+       1036,
+       277,
+       109
+      ]
+     ],
+     "libre": [
+      6,
+      1073
+     ]
     }
    ]
   },
@@ -735,17 +857,35 @@
        50
       ]
      ],
-     "alignement": "centre",
+     "alignement": "gauche",
      "couleur": "#000500",
      "fond": "#edf2eb",
      "libre": [
       6,
-      538
+      1000
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "prove me wrong"
+     ],
+     "textes": {
+      "fr": [
+       "prouve-moi le contraire"
+      ],
+      "de": [
+       "beweis mir das Gegenteil"
+      ],
+      "es": [
+       "demuéstrame lo contrario"
+      ],
+      "it": [
+       "dimostrami il contrario"
+      ],
+      "tr": [
+       "aksini kanıtla"
+      ]
+     }
     },
     {
      "id": "t2",
@@ -891,27 +1031,33 @@
      "id": "t7",
      "boite": [
       437,
-      336,
+      334,
       92,
-      47
+      49
      ],
      "lignes": [
       [
        437,
-       336,
+       334,
        92,
-       47
+       26
+      ],
+      [
+       443,
+       360,
+       85,
+       23
       ]
      ],
      "alignement": "centre",
      "couleur": "#171c15",
      "fond": "#edf2eb",
      "libre": [
-      437,
-      602
+      405,
+      565
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -940,8 +1086,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "health"
+     ],
+     "textes": {
+      "fr": [
+       "santé"
+      ],
+      "de": [
+       "Gesundheit"
+      ],
+      "es": [
+       "salud"
+      ],
+      "it": [
+       "salute"
+      ],
+      "tr": [
+       "sağlık"
+      ]
+     }
     },
     {
      "id": "t9",
@@ -968,8 +1132,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "sleep"
+     ],
+     "textes": {
+      "fr": [
+       "sommeil"
+      ],
+      "de": [
+       "Schlaf"
+      ],
+      "es": [
+       "sueño"
+      ],
+      "it": [
+       "sonno"
+      ],
+      "tr": [
+       "uyku"
+      ]
+     }
     },
     {
      "id": "t10",
@@ -996,8 +1178,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "purpose"
+     ],
+     "textes": {
+      "fr": [
+       "un but"
+      ],
+      "de": [
+       "ein Ziel"
+      ],
+      "es": [
+       "propósito"
+      ],
+      "it": [
+       "uno scopo"
+      ],
+      "tr": [
+       "amaç"
+      ]
+     }
     },
     {
      "id": "t11",
@@ -1023,7 +1223,7 @@
       124
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -1051,7 +1251,7 @@
       232
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -1219,26 +1419,35 @@
       738,
       491,
       178,
-      45
+      44
      ],
      "lignes": [
       [
        738,
        491,
        178,
-       45
+       22
+      ],
+      [
+       765,
+       513,
+       125,
+       22
       ]
      ],
      "alignement": "centre",
      "couleur": "#131811",
      "fond": "#edf2eb",
      "libre": [
-      717,
-      916
+      700,
+      921
      ],
      "probable": "autre",
-     "action": "garder",
-     "en": [],
+     "action": "effacer",
+     "en": [
+      "Mentalmaxxing",
+      "(check bio)"
+     ],
      "textes": {}
     },
     {
@@ -1265,7 +1474,7 @@
       342
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -1294,8 +1503,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "travelling"
+     ],
+     "textes": {
+      "fr": [
+       "voyager"
+      ],
+      "de": [
+       "Reisen"
+      ],
+      "es": [
+       "viajar"
+      ],
+      "it": [
+       "viaggiare"
+      ],
+      "tr": [
+       "seyahat"
+      ]
+     }
     },
     {
      "id": "t21",
@@ -1317,13 +1544,31 @@
      "couleur": "#070c05",
      "fond": "#edf2eb",
      "libre": [
-      574,
-      730
+      566,
+      698
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "natural food"
+     ],
+     "textes": {
+      "fr": [
+       "manger sain"
+      ],
+      "de": [
+       "echtes Essen"
+      ],
+      "es": [
+       "comida real"
+      ],
+      "it": [
+       "cibo sano"
+      ],
+      "tr": [
+       "doğal gıda"
+      ]
+     }
     },
     {
      "id": "t22",
@@ -1345,13 +1590,31 @@
      "couleur": "#712d00",
      "fond": "#fda13c",
      "libre": [
-      90,
-      231
+      88,
+      234
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "actually matters"
+     ],
+     "textes": {
+      "fr": [
+       "compte vraiment"
+      ],
+      "de": [
+       "zählt wirklich"
+      ],
+      "es": [
+       "importa de verdad"
+      ],
+      "it": [
+       "conta davvero"
+      ],
+      "tr": [
+       "gerçekten önemli"
+      ]
+     }
     },
     {
      "id": "t23",
@@ -1546,8 +1809,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "training"
+     ],
+     "textes": {
+      "fr": [
+       "muscu"
+      ],
+      "de": [
+       "Training"
+      ],
+      "es": [
+       "entreno"
+      ],
+      "it": [
+       "allenamento"
+      ],
+      "tr": [
+       "antrenman"
+      ]
+     }
     },
     {
      "id": "t30",
@@ -1574,8 +1855,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "relationships"
+     ],
+     "textes": {
+      "fr": [
+       "relations"
+      ],
+      "de": [
+       "Beziehungen"
+      ],
+      "es": [
+       "relaciones"
+      ],
+      "it": [
+       "relazioni"
+      ],
+      "tr": [
+       "ilişkiler"
+      ]
+     }
     },
     {
      "id": "t31",
@@ -1597,13 +1896,31 @@
      "couleur": "#121710",
      "fond": "#edf2eb",
      "libre": [
-      363,
-      539
+      402,
+      564
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "good friends"
+     ],
+     "textes": {
+      "fr": [
+       "bons amis"
+      ],
+      "de": [
+       "gute Freunde"
+      ],
+      "es": [
+       "buenos amigos"
+      ],
+      "it": [
+       "buoni amici"
+      ],
+      "tr": [
+       "iyi arkadaşlar"
+      ]
+     }
     },
     {
      "id": "t32",
@@ -1625,13 +1942,31 @@
      "couleur": "#121710",
      "fond": "#edf2eb",
      "libre": [
-      548,
-      746
+      566,
+      728
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "time in nature"
+     ],
+     "textes": {
+      "fr": [
+       "temps en nature"
+      ],
+      "de": [
+       "Zeit in der Natur"
+      ],
+      "es": [
+       "naturaleza"
+      ],
+      "it": [
+       "tempo nella natura"
+      ],
+      "tr": [
+       "doğada zaman"
+      ]
+     }
     },
     {
      "id": "t33",
@@ -1653,13 +1988,31 @@
      "couleur": "#573d00",
      "fond": "#f9db7e",
      "libre": [
-      89,
-      231
+      88,
+      234
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "must have"
+     ],
+     "textes": {
+      "fr": [
+       "indispensable"
+      ],
+      "de": [
+       "ein Muss"
+      ],
+      "es": [
+       "imprescindible"
+      ],
+      "it": [
+       "essenziale"
+      ],
+      "tr": [
+       "olmazsa olmaz"
+      ]
+     }
     },
     {
      "id": "t34",
@@ -1839,13 +2192,37 @@
      "couleur": "#171b14",
      "fond": "#edf2eb",
      "libre": [
-      765,
-      915
+      728,
+      919
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "career you",
+      "don’t hate"
+     ],
+     "textes": {
+      "fr": [
+       "un taf que",
+       "tu kiffes"
+      ],
+      "de": [
+       "ein Job, den",
+       "du magst"
+      ],
+      "es": [
+       "un curro",
+       "que no odias"
+      ],
+      "it": [
+       "un lavoro",
+       "che non odi"
+      ],
+      "tr": [
+       "nefret etmediğin",
+       "bir iş"
+      ]
+     }
     },
     {
      "id": "t40",
@@ -1872,8 +2249,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "hobby"
+     ],
+     "textes": {
+      "fr": [
+       "loisir"
+      ],
+      "de": [
+       "Hobby"
+      ],
+      "es": [
+       "hobby"
+      ],
+      "it": [
+       "hobby"
+      ],
+      "tr": [
+       "hobi"
+      ]
+     }
     },
     {
      "id": "t41",
@@ -1900,23 +2295,41 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "style"
+     ],
+     "textes": {
+      "fr": [
+       "style"
+      ],
+      "de": [
+       "Style"
+      ],
+      "es": [
+       "estilo"
+      ],
+      "it": [
+       "stile"
+      ],
+      "tr": [
+       "stil"
+      ]
+     }
     },
     {
      "id": "t42",
      "boite": [
       454,
-      814,
+      808,
       67,
-      16
+      22
      ],
      "lignes": [
       [
        454,
-       814,
+       808,
        67,
-       16
+       22
       ]
      ],
      "alignement": "centre",
@@ -1928,8 +2341,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "music"
+     ],
+     "textes": {
+      "fr": [
+       "musique"
+      ],
+      "de": [
+       "Musik"
+      ],
+      "es": [
+       "música"
+      ],
+      "it": [
+       "musica"
+      ],
+      "tr": [
+       "müzik"
+      ]
+     }
     },
     {
      "id": "t43",
@@ -1951,13 +2382,31 @@
      "couleur": "#5f5b00",
      "fond": "#fefd68",
      "libre": [
-      102,
-      231
+      88,
+      234
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "nice but optional"
+     ],
+     "textes": {
+      "fr": [
+       "sympa, pas vital"
+      ],
+      "de": [
+       "nett, aber optional"
+      ],
+      "es": [
+       "bien, pero opcional"
+      ],
+      "it": [
+       "bello ma opzionale"
+      ],
+      "tr": [
+       "güzel ama şart değil"
+      ]
+     }
     },
     {
      "id": "t44",
@@ -2130,8 +2579,32 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "staying in",
+      "comfort zone"
+     ],
+     "textes": {
+      "fr": [
+       "rester en",
+       "zone de confort"
+      ],
+      "de": [
+       "in der",
+       "Komfortzone"
+      ],
+      "es": [
+       "quedarse en",
+       "la zona de confort"
+      ],
+      "it": [
+       "restare nella",
+       "comfort zone"
+      ],
+      "tr": [
+       "konfor alanında",
+       "kalmak"
+      ]
+     }
     },
     {
      "id": "t50",
@@ -2158,8 +2631,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "scrolling"
+     ],
+     "textes": {
+      "fr": [
+       "scroller"
+      ],
+      "de": [
+       "Scrollen"
+      ],
+      "es": [
+       "hacer scroll"
+      ],
+      "it": [
+       "scrollare"
+      ],
+      "tr": [
+       "scroll"
+      ]
+     }
     },
     {
      "id": "t51",
@@ -2186,8 +2677,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "fastfood"
+     ],
+     "textes": {
+      "fr": [
+       "fast food"
+      ],
+      "de": [
+       "Fast Food"
+      ],
+      "es": [
+       "comida rápida"
+      ],
+      "it": [
+       "fast food"
+      ],
+      "tr": [
+       "fast food"
+      ]
+     }
     },
     {
      "id": "t52",
@@ -2214,8 +2723,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "gaming"
+     ],
+     "textes": {
+      "fr": [
+       "jeux vidéo"
+      ],
+      "de": [
+       "Zocken"
+      ],
+      "es": [
+       "videojuegos"
+      ],
+      "it": [
+       "videogiochi"
+      ],
+      "tr": [
+       "oyun"
+      ]
+     }
     },
     {
      "id": "t53",
@@ -2237,13 +2764,31 @@
      "couleur": "#366a0b",
      "fond": "#bdfd84",
      "libre": [
-      89,
-      231
+      88,
+      234
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "temporary pleasure"
+     ],
+     "textes": {
+      "fr": [
+       "plaisir éphémère"
+      ],
+      "de": [
+       "kurzes Vergnügen"
+      ],
+      "es": [
+       "placer pasajero"
+      ],
+      "it": [
+       "piacere breve"
+      ],
+      "tr": [
+       "geçici zevk"
+      ]
+     }
     },
     {
      "id": "t54",
@@ -2549,30 +3094,30 @@
       915
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "effacer",
      "en": [],
      "textes": {}
     },
     {
      "id": "t65",
      "boite": [
-      739,
-      1160,
-      123,
-      49
+      730,
+      1157,
+      132,
+      53
      ],
      "lignes": [
       [
-       744,
-       1160,
-       118,
+       730,
+       1157,
+       132,
        26
       ],
       [
-       739,
+       731,
        1183,
-       122,
-       26
+       130,
+       27
       ]
      ],
      "alignement": "centre",
@@ -2584,8 +3129,32 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "your option",
+      "(comment)"
+     ],
+     "textes": {
+      "fr": [
+       "ton choix",
+       "(commente)"
+      ],
+      "de": [
+       "deine Wahl",
+       "(kommentiere)"
+      ],
+      "es": [
+       "tu opción",
+       "(comenta)"
+      ],
+      "it": [
+       "la tua scelta",
+       "(commenta)"
+      ],
+      "tr": [
+       "senin seçimin",
+       "(yorum yap)"
+      ]
+     }
     },
     {
      "id": "t66",
@@ -2611,7 +3180,7 @@
       743
      ],
      "probable": "autre",
-     "action": "garder",
+     "action": "effacer",
      "en": [],
      "textes": {}
     },
@@ -2628,7 +3197,7 @@
        254,
        1185,
        106,
-       28
+       26
       ]
      ],
      "alignement": "centre",
@@ -2640,8 +3209,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "gambling"
+     ],
+     "textes": {
+      "fr": [
+       "jeux d’argent"
+      ],
+      "de": [
+       "Glücksspiel"
+      ],
+      "es": [
+       "apuestas"
+      ],
+      "it": [
+       "gioco d’azzardo"
+      ],
+      "tr": [
+       "kumar"
+      ]
+     }
     },
     {
      "id": "t68",
@@ -2663,13 +3250,31 @@
      "couleur": "#2d2f7a",
      "fond": "#8685ed",
      "libre": [
-      114,
-      205
+      88,
+      234
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "wasting time"
+     ],
+     "textes": {
+      "fr": [
+       "perte de temps"
+      ],
+      "de": [
+       "Zeitverschwendung"
+      ],
+      "es": [
+       "perder el tiempo"
+      ],
+      "it": [
+       "tempo perso"
+      ],
+      "tr": [
+       "zaman kaybı"
+      ]
+     }
     },
     {
      "id": "t69",
@@ -2696,8 +3301,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "addictions"
+     ],
+     "textes": {
+      "fr": [
+       "addictions"
+      ],
+      "de": [
+       "Süchte"
+      ],
+      "es": [
+       "adicciones"
+      ],
+      "it": [
+       "dipendenze"
+      ],
+      "tr": [
+       "bağımlılıklar"
+      ]
+     }
     },
     {
      "id": "t70",
@@ -2724,8 +3347,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "workaholism"
+     ],
+     "textes": {
+      "fr": [
+       "accro au taf"
+      ],
+      "de": [
+       "Arbeitssucht"
+      ],
+      "es": [
+       "adicto al curro"
+      ],
+      "it": [
+       "lavorare troppo"
+      ],
+      "tr": [
+       "işkoliklik"
+      ]
+     }
     },
     {
      "id": "t71",
@@ -2743,7 +3384,7 @@
        37
       ]
      ],
-     "alignement": "centre",
+     "alignement": "gauche",
      "couleur": "#040903",
      "fond": "#edf2eb",
      "libre": [
@@ -2752,8 +3393,29 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "check bio"
+     ],
+     "textes": {
+      "fr": [
+       "il manque quoi ?"
+      ],
+      "de": [
+       "was fehlt hier?"
+      ],
+      "es": [
+       "¿qué falta aquí?"
+      ],
+      "it": [
+       "cosa manca qui?"
+      ],
+      "tr": [
+       "burada ne eksik?"
+      ],
+      "en": [
+       "what’s missing here?"
+      ]
+     }
     },
     {
      "id": "t72",
@@ -2779,12 +3441,174 @@
       1073
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "effacer",
      "en": [],
      "textes": {}
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "traduire",
+     "en": [
+      "changes your life"
+     ],
+     "textes": {
+      "fr": [
+       "change ta vie"
+      ],
+      "de": [
+       "ändert dein Leben"
+      ],
+      "es": [
+       "cambia tu vida"
+      ],
+      "it": [
+       "cambia la vita"
+      ],
+      "tr": [
+       "hayatını değiştirir"
+      ]
+     },
+     "couleur": "#4a0000",
+     "fond": "#f70300",
+     "id": "m1",
+     "boite": [
+      90,
+      364,
+      142,
+      20
+     ],
+     "lignes": [
+      [
+       90,
+       364,
+       142,
+       20
+      ]
+     ],
+     "libre": [
+      88,
+      234
+     ]
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "traduire",
+     "en": [
+      "personal",
+      "growth"
+     ],
+     "textes": {
+      "fr": [
+       "évolution",
+       "perso"
+      ],
+      "de": [
+       "persönliches",
+       "Wachstum"
+      ],
+      "es": [
+       "crecimiento",
+       "personal"
+      ],
+      "it": [
+       "crescita",
+       "personale"
+      ],
+      "tr": [
+       "kişisel",
+       "gelişim"
+      ]
+     },
+     "couleur": "#151a13",
+     "fond": "#edf2eb",
+     "id": "m2",
+     "boite": [
+      262,
+      489,
+      101,
+      48
+     ],
+     "lignes": [
+      [
+       262,
+       489,
+       101,
+       24
+      ],
+      [
+       272,
+       512,
+       84,
+       23
+      ]
+     ],
+     "libre": [
+      245,
+      398
+     ]
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "traduire",
+     "en": [
+      "financial",
+      "stability"
+     ],
+     "textes": {
+      "fr": [
+       "stabilité",
+       "financière"
+      ],
+      "de": [
+       "finanzielle",
+       "Sicherheit"
+      ],
+      "es": [
+       "estabilidad",
+       "financiera"
+      ],
+      "it": [
+       "stabilità",
+       "economica"
+      ],
+      "tr": [
+       "finansal",
+       "istikrar"
+      ]
+     },
+     "couleur": "#151a13",
+     "fond": "#edf2eb",
+     "id": "m3",
+     "boite": [
+      437,
+      334,
+      92,
+      49
+     ],
+     "lignes": [
+      [
+       437,
+       334,
+       92,
+       26
+      ],
+      [
+       443,
+       360,
+       85,
+       23
+      ]
+     ],
+     "libre": [
+      405,
+      565
+     ]
     }
    ]
   }
  ],
- "notes": "source : https://www.tiktok.com/@mentalapp/video/7692811167261248775 · 71800 vues · « Absolute peak maxxing things tier list (wow) | check bio instead #mental #mentalmaxxing #peakmaxxing #tierlist #dopamine »"
+ "notes": "source : https://www.tiktok.com/@mentalapp/video/7692811167261248775 · 71800 vues · « Absolute peak maxxing things tier list (wow) | check bio instead #mental #mentalmaxxing #peakmaxxing #tierlist #dopamine » · remake : couverture : « Peakmaxxing » et « things » séparés (tailles différentes, m1) ; sous-titre S+ et « personal growth » refaits en blocs manuels ; élément UnSwipe à la place de « Mentalmaxxing (check bio) » (rang A) ; pied « check bio » → « what’s missing here? »."
 }

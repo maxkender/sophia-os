@@ -1,9 +1,25 @@
 {
  "source_id": "7686216051712970002",
- "format": "tier-list",
- "titre": "",
- "legendes": {},
- "app": null,
+ "format": "comparatif",
+ "titre": "“you only live once”",
+ "legendes": {
+  "en": "yes, you only live once. which side are you on? #mentalmaxxing #dopamine #selfimprovement",
+  "fr": "oui, on ne vit qu’une fois. t’es de quel côté ? #mentalmaxxing #dopamine #developpementpersonnel",
+  "de": "ja, man lebt nur einmal. auf welcher Seite bist du? #mentalmaxxing #dopamin #selbstverbesserung",
+  "es": "sí, solo se vive una vez. ¿de qué lado estás? #mentalmaxxing #dopamina #superacionpersonal",
+  "it": "sì, si vive una volta sola. da che parte stai? #mentalmaxxing #dopamina #crescitapersonale",
+  "tr": "evet, hayat bir kere yaşanır. sen hangi taraftasın? #mentalmaxxing #dopamin #kişiselgelişim"
+ },
+ "app": {
+  "position": 2,
+  "icone": [
+   549,
+   817,
+   150,
+   153
+  ],
+  "legende": "t37"
+ },
  "slides": [
   {
    "position": 1,
@@ -116,7 +132,7 @@
       925
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -144,7 +160,7 @@
       964
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -172,7 +188,7 @@
       1073
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -228,7 +244,7 @@
       938
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -397,8 +413,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "alcohol"
+     ],
+     "textes": {
+      "fr": [
+       "alcool"
+      ],
+      "de": [
+       "Alkohol"
+      ],
+      "es": [
+       "alcohol"
+      ],
+      "it": [
+       "alcol"
+      ],
+      "tr": [
+       "alkol"
+      ]
+     }
     },
     {
      "id": "t15",
@@ -425,8 +459,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "laziness"
+     ],
+     "textes": {
+      "fr": [
+       "flemme"
+      ],
+      "de": [
+       "Faulheit"
+      ],
+      "es": [
+       "pereza"
+      ],
+      "it": [
+       "pigrizia"
+      ],
+      "tr": [
+       "tembellik"
+      ]
+     }
     },
     {
      "id": "t16",
@@ -476,13 +528,31 @@
      "couleur": "#020701",
      "fond": "#edf2eb",
      "libre": [
-      6,
-      265
+      20,
+      290
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "low energy"
+     ],
+     "textes": {
+      "fr": [
+       "peu d’énergie"
+      ],
+      "de": [
+       "wenig Energie"
+      ],
+      "es": [
+       "poca energía"
+      ],
+      "it": [
+       "poca energia"
+      ],
+      "tr": [
+       "düşük enerji"
+      ]
+     }
     },
     {
      "id": "t18",
@@ -504,13 +574,31 @@
      "couleur": "#000500",
      "fond": "#edf2eb",
      "libre": [
-      702,
-      1073
+      760,
+      1060
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "high cortisol"
+     ],
+     "textes": {
+      "fr": [
+       "cortisol élevé"
+      ],
+      "de": [
+       "hohes Cortisol"
+      ],
+      "es": [
+       "cortisol alto"
+      ],
+      "it": [
+       "cortisolo alto"
+      ],
+      "tr": [
+       "yüksek kortizol"
+      ]
+     }
     },
     {
      "id": "t19",
@@ -760,23 +848,23 @@
       164
      ],
      "probable": "autre",
-     "action": "garder",
+     "action": "effacer",
      "en": [],
      "textes": {}
     },
     {
      "id": "t28",
      "boite": [
-      170,
+      145,
       749,
-      739,
+      790,
       98
      ],
      "lignes": [
       [
-       170,
+       145,
        749,
-       739,
+       790,
        98
       ]
      ],
@@ -784,13 +872,31 @@
      "couleur": "#000400",
      "fond": "#edf2eb",
      "libre": [
-      170,
-      909
+      60,
+      1020
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "“you only live once”"
+     ],
+     "textes": {
+      "fr": [
+       "“on ne vit qu’une fois”"
+      ],
+      "de": [
+       "“man lebt nur einmal”"
+      ],
+      "es": [
+       "“solo se vive una vez”"
+      ],
+      "it": [
+       "“si vive una volta sola”"
+      ],
+      "tr": [
+       "“hayat bir kere yaşanır”"
+      ]
+     }
     },
     {
      "id": "t29",
@@ -816,7 +922,7 @@
       1073
      ],
      "probable": "autre",
-     "action": "garder",
+     "action": "effacer",
      "en": [],
      "textes": {}
     },
@@ -986,13 +1092,37 @@
      "couleur": "#020701",
      "fond": "#edf2eb",
      "libre": [
-      221,
-      486
+      255,
+      445
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "energy",
+      "drinks"
+     ],
+     "textes": {
+      "fr": [
+       "boissons",
+       "énergisantes"
+      ],
+      "de": [
+       "Energy-",
+       "drinks"
+      ],
+      "es": [
+       "bebidas",
+       "energéticas"
+      ],
+      "it": [
+       "energy",
+       "drink"
+      ],
+      "tr": [
+       "enerji",
+       "içeceği"
+      ]
+     }
     },
     {
      "id": "t36",
@@ -1019,8 +1149,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "vaping"
+     ],
+     "textes": {
+      "fr": [
+       "vapoter"
+      ],
+      "de": [
+       "Vapen"
+      ],
+      "es": [
+       "vapear"
+      ],
+      "it": [
+       "svapare"
+      ],
+      "tr": [
+       "vape"
+      ]
+     }
     },
     {
      "id": "t37",
@@ -1042,13 +1190,31 @@
      "couleur": "#020701",
      "fond": "#edf2eb",
      "libre": [
-      6,
-      272
+      20,
+      245
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "smoking"
+     ],
+     "textes": {
+      "fr": [
+       "fumer"
+      ],
+      "de": [
+       "Rauchen"
+      ],
+      "es": [
+       "fumar"
+      ],
+      "it": [
+       "fumare"
+      ],
+      "tr": [
+       "sigara"
+      ]
+     }
     },
     {
      "id": "t38",
@@ -1076,13 +1242,37 @@
      "couleur": "#030802",
      "fond": "#edf2eb",
      "libre": [
-      815,
-      1073
+      800,
+      1040
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "processed",
+      "food"
+     ],
+     "textes": {
+      "fr": [
+       "plats",
+       "industriels"
+      ],
+      "de": [
+       "Fertig-",
+       "essen"
+      ],
+      "es": [
+       "comida",
+       "procesada"
+      ],
+      "it": [
+       "cibo",
+       "processato"
+      ],
+      "tr": [
+       "işlenmiş",
+       "gıda"
+      ]
+     }
     },
     {
      "id": "t39",
@@ -1277,8 +1467,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "oil"
+     ],
+     "textes": {
+      "fr": [
+       "huile"
+      ],
+      "de": [
+       "Öl"
+      ],
+      "es": [
+       "aceite"
+      ],
+      "it": [
+       "olio"
+      ],
+      "tr": [
+       "yağ"
+      ]
+     }
     },
     {
      "id": "t46",
@@ -1332,7 +1540,7 @@
       860
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -1400,7 +1608,7 @@
       991
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -1430,13 +1638,37 @@
      "couleur": "#030701",
      "fond": "#edf2eb",
      "libre": [
-      213,
-      427
+      245,
+      425
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "wasting",
+      "time"
+     ],
+     "textes": {
+      "fr": [
+       "perdre",
+       "son temps"
+      ],
+      "de": [
+       "Zeit",
+       "killen"
+      ],
+      "es": [
+       "perder",
+       "el tiempo"
+      ],
+      "it": [
+       "perdere",
+       "tempo"
+      ],
+      "tr": [
+       "zaman",
+       "kaybı"
+      ]
+     }
     },
     {
      "id": "t51",
@@ -1458,13 +1690,31 @@
      "couleur": "#020701",
      "fond": "#edf2eb",
      "libre": [
-      6,
-      249
+      20,
+      240
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "4h sleep"
+     ],
+     "textes": {
+      "fr": [
+       "dormir 4h"
+      ],
+      "de": [
+       "4h Schlaf"
+      ],
+      "es": [
+       "dormir 4h"
+      ],
+      "it": [
+       "dormire 4h"
+      ],
+      "tr": [
+       "4 saat uyku"
+      ]
+     }
     },
     {
      "id": "t52",
@@ -1486,13 +1736,89 @@
      "couleur": "#030801",
      "fond": "#edf2eb",
      "libre": [
-      419,
-      818
+      430,
+      705
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "doomscrolling"
+     ],
+     "textes": {
+      "fr": [
+       "doomscrolling"
+      ],
+      "de": [
+       "Doomscrolling"
+      ],
+      "es": [
+       "doomscrolling"
+      ],
+      "it": [
+       "doomscrolling"
+      ],
+      "tr": [
+       "doomscrolling"
+      ]
+     }
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "traduire",
+     "en": [
+      "a lot of",
+      "screen time"
+     ],
+     "textes": {
+      "fr": [
+       "beaucoup",
+       "d’écran"
+      ],
+      "de": [
+       "viel",
+       "Bildschirmzeit"
+      ],
+      "es": [
+       "mucha",
+       "pantalla"
+      ],
+      "it": [
+       "troppo",
+       "schermo"
+      ],
+      "tr": [
+       "çok fazla",
+       "ekran süresi"
+      ]
+     },
+     "couleur": "#151a13",
+     "fond": "#edf2eb",
+     "id": "m1",
+     "boite": [
+      829,
+      1290,
+      162,
+      54
+     ],
+     "lignes": [
+      [
+       865,
+       1290,
+       90,
+       26
+      ],
+      [
+       829,
+       1318,
+       162,
+       26
+      ]
+     ],
+     "libre": [
+      800,
+      1060
+     ]
     }
    ]
   },
@@ -1594,14 +1920,14 @@
      "boite": [
       76,
       204,
-      90,
+      289,
       38
      ],
      "lignes": [
       [
        76,
        204,
-       90,
+       289,
        38
       ]
      ],
@@ -1609,13 +1935,31 @@
      "couleur": "#030802",
      "fond": "#edf2eb",
      "libre": [
-      6,
-      166
+      20,
+      420
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "no distractions"
+     ],
+     "textes": {
+      "fr": [
+       "zéro distraction"
+      ],
+      "de": [
+       "keine Ablenkung"
+      ],
+      "es": [
+       "sin distracciones"
+      ],
+      "it": [
+       "zero distrazioni"
+      ],
+      "tr": [
+       "odak modu"
+      ]
+     }
     },
     {
      "id": "t5",
@@ -1641,7 +1985,7 @@
       403
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -1698,8 +2042,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "coffee"
+     ],
+     "textes": {
+      "fr": [
+       "café"
+      ],
+      "de": [
+       "Kaffee"
+      ],
+      "es": [
+       "café"
+      ],
+      "it": [
+       "caffè"
+      ],
+      "tr": [
+       "kahve"
+      ]
+     }
     },
     {
      "id": "t8",
@@ -1781,7 +2143,7 @@
       560
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -2033,7 +2395,7 @@
       468
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -2225,13 +2587,31 @@
      "couleur": "#000500",
      "fond": "#edf2eb",
      "libre": [
-      6,
-      266
+      15,
+      290
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "7h+ sleep"
+     ],
+     "textes": {
+      "fr": [
+       "dormir 7h+"
+      ],
+      "de": [
+       "7h+ Schlaf"
+      ],
+      "es": [
+       "7h+ de sueño"
+      ],
+      "it": [
+       "7h+ di sonno"
+      ],
+      "tr": [
+       "7+ saat uyku"
+      ]
+     }
     },
     {
      "id": "t27",
@@ -2258,8 +2638,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "discipline"
+     ],
+     "textes": {
+      "fr": [
+       "discipline"
+      ],
+      "de": [
+       "Disziplin"
+      ],
+      "es": [
+       "disciplina"
+      ],
+      "it": [
+       "disciplina"
+      ],
+      "tr": [
+       "disiplin"
+      ]
+     }
     },
     {
      "id": "t28",
@@ -2337,13 +2735,31 @@
      "couleur": "#000400",
      "fond": "#edf2eb",
      "libre": [
-      6,
-      1026
+      50,
+      1035
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "Yes, you only live once."
+     ],
+     "textes": {
+      "fr": [
+       "Oui, on ne vit qu’une fois."
+      ],
+      "de": [
+       "Ja, man lebt nur einmal."
+      ],
+      "es": [
+       "Sí, solo se vive una vez."
+      ],
+      "it": [
+       "Sì, si vive una volta sola."
+      ],
+      "tr": [
+       "Evet, hayat bir kere yaşanır."
+      ]
+     }
     },
     {
      "id": "t31",
@@ -2526,25 +2942,28 @@
        497,
        968,
        251,
-       44
+       38
       ],
       [
        527,
-       1004,
-       200,
-       42
+       1007,
+       219,
+       39
       ]
      ],
      "alignement": "centre",
      "couleur": "#030701",
      "fond": "#edf2eb",
      "libre": [
-      460,
-      802
+      462,
+      804
      ],
      "probable": "texte",
-     "action": "traduire",
-     "en": [],
+     "action": "effacer",
+     "en": [
+      "state tracking",
+      "(check bio)"
+     ],
      "textes": {}
     },
     {
@@ -2567,13 +2986,31 @@
      "couleur": "#040903",
      "fond": "#edf2eb",
      "libre": [
-      6,
-      282
+      15,
+      270
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "2l+ of water"
+     ],
+     "textes": {
+      "fr": [
+       "2l+ d’eau"
+      ],
+      "de": [
+       "2l+ Wasser"
+      ],
+      "es": [
+       "2l+ de agua"
+      ],
+      "it": [
+       "2l+ d’acqua"
+      ],
+      "tr": [
+       "2l+ su"
+      ]
+     }
     },
     {
      "id": "t39",
@@ -2595,13 +3032,31 @@
      "couleur": "#020700",
      "fond": "#edf2eb",
      "libre": [
-      266,
-      489
+      278,
+      456
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "real food"
+     ],
+     "textes": {
+      "fr": [
+       "vraie bouffe"
+      ],
+      "de": [
+       "gut essen"
+      ],
+      "es": [
+       "comida real"
+      ],
+      "it": [
+       "cibo vero"
+      ],
+      "tr": [
+       "ev yemeği"
+      ]
+     }
     },
     {
      "id": "t40",
@@ -2623,13 +3078,31 @@
      "couleur": "#050a04",
      "fond": "#edf2eb",
      "libre": [
-      755,
-      1002
+      814,
+      1040
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "10k steps"
+     ],
+     "textes": {
+      "fr": [
+       "10k pas"
+      ],
+      "de": [
+       "10k Schritte"
+      ],
+      "es": [
+       "10k pasos"
+      ],
+      "it": [
+       "10k passi"
+      ],
+      "tr": [
+       "10k adım"
+      ]
+     }
     },
     {
      "id": "t41",
@@ -2683,7 +3156,7 @@
       199
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -2711,7 +3184,7 @@
       210
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -2868,60 +3341,108 @@
        73,
        1230,
        135,
-       34
+       36
       ],
       [
        67,
-       1263,
+       1267,
        145,
-       43
+       39
       ]
      ],
      "alignement": "centre",
      "couleur": "#010600",
      "fond": "#edf2eb",
      "libre": [
-      6,
-      290
+      20,
+      265
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "never",
+      "stress"
+     ],
+     "textes": {
+      "fr": [
+       "zéro",
+       "stress"
+      ],
+      "de": [
+       "null",
+       "Stress"
+      ],
+      "es": [
+       "cero",
+       "estrés"
+      ],
+      "it": [
+       "zero",
+       "stress"
+      ],
+      "tr": [
+       "sıfır",
+       "stres"
+      ]
+     }
     },
     {
      "id": "t50",
      "boite": [
       298,
-      1244,
-      117,
-      70
+      1252,
+      140,
+      69
      ],
      "lignes": [
       [
        298,
-       1244,
-       117,
-       33
+       1252,
+       140,
+       31
       ],
       [
        305,
-       1289,
-       74,
-       25
+       1284,
+       132,
+       37
       ]
      ],
      "alignement": "centre",
      "couleur": "#010600",
      "fond": "#edf2eb",
      "libre": [
-      221,
-      415
+      270,
+      480
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "morning",
+      "sunlight"
+     ],
+     "textes": {
+      "fr": [
+       "soleil du",
+       "matin"
+      ],
+      "de": [
+       "Morgen-",
+       "sonne"
+      ],
+      "es": [
+       "sol de la",
+       "mañana"
+      ],
+      "it": [
+       "sole del",
+       "mattino"
+      ],
+      "tr": [
+       "sabah",
+       "güneşi"
+      ]
+     }
     },
     {
      "id": "t51",
@@ -2935,27 +3456,51 @@
       [
        536,
        1249,
-       140,
-       45
+       161,
+       38
       ],
       [
        492,
-       1286,
+       1288,
        229,
-       44
+       42
       ]
      ],
      "alignement": "centre",
      "couleur": "#030802",
      "fond": "#edf2eb",
      "libre": [
-      445,
-      754
+      480,
+      750
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "training",
+      "consistently"
+     ],
+     "textes": {
+      "fr": [
+       "s’entraîner",
+       "souvent"
+      ],
+      "de": [
+       "immer",
+       "trainieren"
+      ],
+      "es": [
+       "entrenar",
+       "siempre"
+      ],
+      "it": [
+       "allenarsi",
+       "sempre"
+      ],
+      "tr": [
+       "düzenli",
+       "antrenman"
+      ]
+     }
     },
     {
      "id": "t52",
@@ -2981,7 +3526,7 @@
       484
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -3005,16 +3550,34 @@
      "couleur": "#010600",
      "fond": "#edf2eb",
      "libre": [
-      729,
-      1073
+      735,
+      1050
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "high activity"
+     ],
+     "textes": {
+      "fr": [
+       "bouger beaucoup"
+      ],
+      "de": [
+       "viel Bewegung"
+      ],
+      "es": [
+       "mucha actividad"
+      ],
+      "it": [
+       "tanto movimento"
+      ],
+      "tr": [
+       "bol hareket"
+      ]
+     }
     }
    ]
   }
  ],
- "notes": "source : https://www.tiktok.com/@mentalapp/video/7686216051712970002 · 11000 vues · « YOLO, remember that, make right decisions. Check bio.\n#mental #mentalmaxxing #mentalhealth #yolo #healthylifestyle »"
+ "notes": "source : https://www.tiktok.com/@mentalapp/video/7686216051712970002 · 11000 vues · « YOLO, remember that, make right decisions. Check bio.\n#mental #mentalmaxxing #mentalhealth #yolo #healthylifestyle » · remake : comparatif YOLO (2 slides) : élément UnSwipe à la place de leur icône sombre « state tracking (check bio) » (slide 2) ; « a lot of screen time » refait en bloc manuel m1 sous le widget Screen Time gardé ; guillemets de la couverture intégrés au titre."
 }

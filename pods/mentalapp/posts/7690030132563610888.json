@@ -1,9 +1,25 @@
 {
  "source_id": "7690030132563610888",
  "format": "tier-list",
- "titre": "",
- "legendes": {},
- "app": null,
+ "titre": "Dopamine pyramid",
+ "legendes": {
+  "en": "the real dopamine pyramid, how many do you get daily? #dopamine #mentalmaxxing #dopaminemaxxing #selfimprovement",
+  "fr": "la vraie pyramide de la dopamine, t’en coches combien par jour ? #dopamine #mentalmaxxing #dopaminemaxxing #developpementpersonnel",
+  "de": "die echte Dopamin-Pyramide, wie viele schaffst du täglich? #dopamin #mentalmaxxing #dopaminemaxxing #selbstverbesserung",
+  "es": "la verdadera pirámide de la dopamina, ¿cuántas cumples al día? #dopamina #mentalmaxxing #dopaminemaxxing #superacionpersonal",
+  "it": "la vera piramide della dopamina, quante ne fai ogni giorno? #dopamina #mentalmaxxing #dopaminemaxxing #crescitapersonale",
+  "tr": "gerçek dopamin piramidi, günde kaçını yapıyorsun? #dopamin #mentalmaxxing #dopaminemaxxing #kişiselgelişim"
+ },
+ "app": {
+  "position": 2,
+  "icone": [
+   478,
+   747,
+   130,
+   130
+  ],
+  "legende": "t21"
+ },
  "slides": [
   {
    "position": 1,
@@ -123,8 +139,32 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "Dopamine",
+      "pyramid"
+     ],
+     "textes": {
+      "fr": [
+       "pyramide de",
+       "la dopamine"
+      ],
+      "de": [
+       "Dopamin-",
+       "pyramide"
+      ],
+      "es": [
+       "pirámide de",
+       "la dopamina"
+      ],
+      "it": [
+       "piramide della",
+       "dopamina"
+      ],
+      "tr": [
+       "Dopamin",
+       "piramidi"
+      ]
+     }
     },
     {
      "id": "t5",
@@ -1304,8 +1344,26 @@
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "real Dopamine"
+     ],
+     "textes": {
+      "fr": [
+       "vraie dopamine"
+      ],
+      "de": [
+       "echtes Dopamin"
+      ],
+      "es": [
+       "dopamina real"
+      ],
+      "it": [
+       "dopamina vera"
+      ],
+      "tr": [
+       "gerçek dopamin"
+      ]
+     }
     },
     {
      "id": "t7",
@@ -1373,35 +1431,59 @@
      "id": "t9",
      "boite": [
       474,
-      454,
-      89,
-      55
+      446,
+      131,
+      70
      ],
      "lignes": [
       [
        494,
-       454,
-       69,
-       25
+       446,
+       96,
+       33
       ],
       [
        474,
-       484,
-       86,
-       25
+       479,
+       131,
+       37
       ]
      ],
-     "alignement": "droite",
+     "alignement": "centre",
      "couleur": "#030802",
      "fond": "#edf2eb",
      "libre": [
-      6,
-      563
+      440,
+      640
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "sleep",
+      "enough"
+     ],
+     "textes": {
+      "fr": [
+       "dormir",
+       "assez"
+      ],
+      "de": [
+       "gut",
+       "schlafen"
+      ],
+      "es": [
+       "dormir",
+       "bien"
+      ],
+      "it": [
+       "dormire",
+       "bene"
+      ],
+      "tr": [
+       "yeterli",
+       "uyku"
+      ]
+     }
     },
     {
      "id": "t10",
@@ -1569,13 +1651,37 @@
      "couleur": "#040802",
      "fond": "#edf2eb",
      "libre": [
-      497,
-      713
+      565,
+      730
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "high",
+      "activity"
+     ],
+     "textes": {
+      "fr": [
+       "bouger",
+       "à fond"
+      ],
+      "de": [
+       "viel",
+       "Bewegung"
+      ],
+      "es": [
+       "mucha",
+       "actividad"
+      ],
+      "it": [
+       "tanta",
+       "attività"
+      ],
+      "tr": [
+       "yüksek",
+       "aktivite"
+      ]
+     }
     },
     {
      "id": "t16",
@@ -1590,26 +1696,50 @@
        370,
        669,
        105,
-       40
+       33
       ],
       [
        366,
-       704,
+       702,
        124,
-       40
+       42
       ]
      ],
      "alignement": "centre",
      "couleur": "#020700",
      "fond": "#edf2eb",
      "libre": [
-      366,
-      585
+      340,
+      580
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "eating",
+      "healthy"
+     ],
+     "textes": {
+      "fr": [
+       "manger",
+       "sain"
+      ],
+      "de": [
+       "gesund",
+       "essen"
+      ],
+      "es": [
+       "comer",
+       "sano"
+      ],
+      "it": [
+       "mangiare",
+       "sano"
+      ],
+      "tr": [
+       "sağlıklı",
+       "beslenme"
+      ]
+     }
     },
     {
      "id": "t17",
@@ -1691,7 +1821,7 @@
       331
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -1726,64 +1856,97 @@
     {
      "id": "t21",
      "boite": [
-      443,
-      878,
-      236,
-      72
+      401,
+      873,
+      278,
+      77
      ],
      "lignes": [
       [
-       443,
-       878,
-       236,
-       72
+       401,
+       874,
+       278,
+       37
+      ],
+      [
+       447,
+       911,
+       186,
+       39
       ]
      ],
      "alignement": "centre",
      "couleur": "#040802",
      "fond": "#edf2eb",
      "libre": [
-      443,
-      728
+      372,
+      722
      ],
      "probable": "texte",
-     "action": "traduire",
-     "en": [],
+     "action": "effacer",
+     "en": [
+      "seeing progress",
+      "(check bio)"
+     ],
      "textes": {}
     },
     {
      "id": "t22",
      "boite": [
       736,
-      878,
+      873,
       101,
-      68
+      73
      ],
      "lignes": [
       [
        737,
-       878,
+       873,
        89,
-       40
+       45
       ],
       [
        736,
-       913,
+       918,
        101,
-       33
+       28
       ]
      ],
      "alignement": "centre",
      "couleur": "#020700",
      "fond": "#edf2eb",
      "libre": [
-      686,
-      1073
+      728,
+      900
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "good",
+      "music"
+     ],
+     "textes": {
+      "fr": [
+       "bonne",
+       "musique"
+      ],
+      "de": [
+       "gute",
+       "Musik"
+      ],
+      "es": [
+       "buena",
+       "música"
+      ],
+      "it": [
+       "buona",
+       "musica"
+      ],
+      "tr": [
+       "iyi",
+       "müzik"
+      ]
+     }
     },
     {
      "id": "t23",
@@ -1798,26 +1961,50 @@
        241,
        879,
        90,
-       40
+       34
       ],
       [
        215,
-       914,
+       913,
        143,
-       33
+       34
       ]
      ],
      "alignement": "centre",
      "couleur": "#040902",
      "fond": "#edf2eb",
      "libre": [
-      6,
-      393
+      190,
+      385
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "good",
+      "workout"
+     ],
+     "textes": {
+      "fr": [
+       "bonne",
+       "séance"
+      ],
+      "de": [
+       "gutes",
+       "Training"
+      ],
+      "es": [
+       "buen",
+       "entreno"
+      ],
+      "it": [
+       "allenarsi",
+       "bene"
+      ],
+      "tr": [
+       "iyi",
+       "idman"
+      ]
+     }
     },
     {
      "id": "t24",
@@ -1899,7 +2086,7 @@
       336
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -2114,26 +2301,50 @@
        132,
        1097,
        99,
-       40
+       34
       ],
       [
        136,
-       1132,
+       1131,
        100,
-       33
+       34
       ]
      ],
      "alignement": "centre",
      "couleur": "#040902",
      "fond": "#edf2eb",
      "libre": [
-      6,
-      310
+      100,
+      300
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "digital",
+      "detox"
+     ],
+     "textes": {
+      "fr": [
+       "détox",
+       "digitale"
+      ],
+      "de": [
+       "digital",
+       "Detox"
+      ],
+      "es": [
+       "detox",
+       "digital"
+      ],
+      "it": [
+       "detox",
+       "digitale"
+      ],
+      "tr": [
+       "dijital",
+       "detoks"
+      ]
+     }
     },
     {
      "id": "t34",
@@ -2148,26 +2359,50 @@
        318,
        1112,
        171,
-       40
+       34
       ],
       [
        363,
-       1147,
+       1146,
        88,
-       33
+       34
       ]
      ],
      "alignement": "centre",
      "couleur": "#010600",
      "fond": "#edf2eb",
      "libre": [
-      245,
-      547
+      300,
+      525
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "mastering",
+      "a skill"
+     ],
+     "textes": {
+      "fr": [
+       "maîtriser",
+       "un talent"
+      ],
+      "de": [
+       "einen Skill",
+       "meistern"
+      ],
+      "es": [
+       "dominar",
+       "un talento"
+      ],
+      "it": [
+       "dominare",
+       "un’abilità"
+      ],
+      "tr": [
+       "bir beceride",
+       "ustalaşmak"
+      ]
+     }
     },
     {
      "id": "t35",
@@ -2189,13 +2424,31 @@
      "couleur": "#020701",
      "fond": "#edf2eb",
      "libre": [
-      496,
-      795
+      530,
+      775
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "travelling"
+     ],
+     "textes": {
+      "fr": [
+       "voyager"
+      ],
+      "de": [
+       "Reisen"
+      ],
+      "es": [
+       "viajar"
+      ],
+      "it": [
+       "viaggiare"
+      ],
+      "tr": [
+       "seyahat"
+      ]
+     }
     },
     {
      "id": "t36",
@@ -2217,13 +2470,31 @@
      "couleur": "#040902",
      "fond": "#edf2eb",
      "libre": [
-      716,
-      1073
+      785,
+      965
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "walking"
+     ],
+     "textes": {
+      "fr": [
+       "marcher"
+      ],
+      "de": [
+       "Spazieren"
+      ],
+      "es": [
+       "caminar"
+      ],
+      "it": [
+       "camminare"
+      ],
+      "tr": [
+       "yürüyüş"
+      ]
+     }
     },
     {
      "id": "t37",
@@ -2305,7 +2576,7 @@
       707
      ],
      "probable": "texte",
-     "action": "traduire",
+     "action": "garder",
      "en": [],
      "textes": {}
     },
@@ -2481,119 +2752,197 @@
      "id": "t46",
      "boite": [
       459,
-      1313,
+      1305,
       154,
-      75
+      83
      ],
      "lignes": [
       [
        459,
-       1313,
+       1305,
        154,
-       40
+       48
       ],
       [
        480,
-       1356,
+       1353,
        120,
-       32
+       35
       ]
      ],
      "alignement": "centre",
      "couleur": "#030802",
      "fond": "#edf2eb",
      "libre": [
-      340,
-      650
+      430,
+      645
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "receiving",
+      "money"
+     ],
+     "textes": {
+      "fr": [
+       "recevoir",
+       "de l’argent"
+      ],
+      "de": [
+       "Geld",
+       "bekommen"
+      ],
+      "es": [
+       "recibir",
+       "dinero"
+      ],
+      "it": [
+       "ricevere",
+       "soldi"
+      ],
+      "tr": [
+       "para",
+       "kazanmak"
+      ]
+     }
     },
     {
      "id": "t47",
      "boite": [
       658,
-      1330,
+      1322,
       180,
-      33
+      41
      ],
      "lignes": [
       [
        658,
-       1330,
+       1322,
        180,
-       33
+       41
       ]
      ],
      "alignement": "centre",
      "couleur": "#050a04",
      "fond": "#edf2eb",
      "libre": [
-      620,
-      854
+      650,
+      850
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "cold water"
+     ],
+     "textes": {
+      "fr": [
+       "eau froide"
+      ],
+      "de": [
+       "Eiswasser"
+      ],
+      "es": [
+       "agua fría"
+      ],
+      "it": [
+       "acqua fredda"
+      ],
+      "tr": [
+       "soğuk su"
+      ]
+     }
     },
     {
      "id": "t48",
      "boite": [
       862,
-      1330,
+      1322,
       197,
-      33
+      41
      ],
      "lignes": [
       [
        862,
-       1330,
+       1322,
        197,
-       33
+       41
       ]
      ],
      "alignement": "centre",
      "couleur": "#040903",
      "fond": "#edf2eb",
      "libre": [
-      845,
-      1073
+      855,
+      1072
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "coffee / tea"
+     ],
+     "textes": {
+      "fr": [
+       "café / thé"
+      ],
+      "de": [
+       "Kaffee / Tee"
+      ],
+      "es": [
+       "café / té"
+      ],
+      "it": [
+       "caffè / tè"
+      ],
+      "tr": [
+       "kahve / çay"
+      ]
+     }
     },
     {
      "id": "t49",
      "boite": [
       31,
-      1333,
+      1325,
       131,
-      40
+      48
      ],
      "lignes": [
       [
        31,
-       1333,
+       1325,
        131,
-       40
+       48
       ]
      ],
      "alignement": "centre",
      "couleur": "#030802",
      "fond": "#edf2eb",
      "libre": [
-      31,
-      258
+      20,
+      195
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "winning"
+     ],
+     "textes": {
+      "fr": [
+       "gagner"
+      ],
+      "de": [
+       "Gewinnen"
+      ],
+      "es": [
+       "ganar"
+      ],
+      "it": [
+       "vincere"
+      ],
+      "tr": [
+       "kazanmak"
+      ]
+     }
     },
     {
      "id": "t50",
@@ -2615,16 +2964,34 @@
      "couleur": "#050902",
      "fond": "#edf2eb",
      "libre": [
-      269,
-      451
+      215,
+      385
      ],
      "probable": "texte",
      "action": "traduire",
-     "en": [],
-     "textes": {}
+     "en": [
+      "sun"
+     ],
+     "textes": {
+      "fr": [
+       "soleil"
+      ],
+      "de": [
+       "Sonne"
+      ],
+      "es": [
+       "sol"
+      ],
+      "it": [
+       "sole"
+      ],
+      "tr": [
+       "güneş"
+      ]
+     }
     }
    ]
   }
  ],
- "notes": "source : https://www.tiktok.com/@mentalapp/video/7690030132563610888 · 6871 vues · « Dopamine pyramid #dopamine #cortisol #lifemaxxing #dopaminemaxxing #mentalmaxxing »"
+ "notes": "source : https://www.tiktok.com/@mentalapp/video/7690030132563610888 · 6871 vues · « Dopamine pyramid #dopamine #cortisol #lifemaxxing #dopaminemaxxing #mentalmaxxing » · remake : pyramide : élément UnSwipe à la place de l’icône « seeing progress (check bio) » (t21, légende remesurée) ; « IS » du t-shirt, icône téléphone et billets gardés ; pas de pied ni de filigrane sur la source."
 }

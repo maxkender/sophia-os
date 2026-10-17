@@ -19,14 +19,14 @@ const COHORTE_RUUL_EXEMPLE: ContexteAccueil = { cohorteRuul: true, emailRuul: "n
  * Le parcours tourne en mode `simulation` : aucune étape enregistrée, aucun
  * `onboarding_vu_at` posé, et la croix revient pour pouvoir en sortir. On peut
  * aussi démarrer à un écran précis, parce que relire les six écrans pour
- * vérifier une virgule du quiz serait absurde. Deux accueils : celui d'un
- * créateur recruté par un HM, et celui de la cohorte Ruul (venus du site).
+ * vérifier une virgule du quiz serait absurde. `cohorteRuul` montre l'accueil
+ * des posters venus du site (sans HM, payés par Ruul) au lieu de l'accueil
+ * standard ; c'est une entrée à part dans les tests admin.
  */
-export function SimulerOnboardingCard() {
+export function SimulerOnboardingCard({ cohorteRuul = false }: { cohorteRuul?: boolean }) {
   const { t } = useTranslation();
   const [ouvert, setOuvert] = React.useState(false);
   const [depart, setDepart] = React.useState(0);
-  const [cohorteRuul, setCohorteRuul] = React.useState(false);
 
   const choix = (actif: boolean) =>
     actif
@@ -39,20 +39,11 @@ export function SimulerOnboardingCard() {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <GraduationCap className="size-4 text-primary" />
-            {t("tests.onboardingTitre")}
+            {t(cohorteRuul ? "tests.onboardingRuulTitre" : "tests.onboardingTitre")}
           </CardTitle>
-          <CardDescription>{t("tests.onboardingDesc")}</CardDescription>
+          <CardDescription>{t(cohorteRuul ? "tests.onboardingRuulDesc" : "tests.onboardingDesc")}</CardDescription>
         </CardHeader>
         <CardContent className="space-y-3">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="text-muted-foreground text-sm">{t("tests.onboardingProfil")}</span>
-            <button type="button" onClick={() => setCohorteRuul(false)} className={choix(!cohorteRuul)}>
-              {t("tests.onboardingProfilHm")}
-            </button>
-            <button type="button" onClick={() => setCohorteRuul(true)} className={choix(cohorteRuul)}>
-              {t("tests.onboardingProfilRuul")}
-            </button>
-          </div>
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-muted-foreground text-sm">{t("tests.onboardingDepart")}</span>
             {ECRANS.map((e, i) => (

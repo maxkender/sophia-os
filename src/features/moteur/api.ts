@@ -1590,11 +1590,13 @@ export async function lireCohorteAccueil(): Promise<ContexteAccueil> {
     email_ruul?: string | null;
     prenom_legal?: string | null;
     nom_legal?: string | null;
+    debut_le?: string | null;
   } | null;
   return {
     cohorteRuul: Boolean(ligne?.cohorte_ruul),
     emailRuul: ligne?.email_ruul ?? null,
     identite: ligne?.prenom_legal && ligne?.nom_legal ? { prenom: ligne.prenom_legal, nom: ligne.nom_legal } : null,
+    debutLe: ligne?.debut_le ?? null,
   };
 }
 

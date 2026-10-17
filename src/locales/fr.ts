@@ -2672,6 +2672,23 @@ export const fr = {
         "Quand tes comptes TikTok et Instagram sont prêts, clique sur « Commencer le warmup ». Le timer part ; à la fin, tu reçois une vidéo par jour à publier sur les deux.",
       warmupADemarrerAide:
         "Quand ton compte TikTok est prêt, clique sur « Commencer le warmup ». Le timer part ; à la fin, tu entres dans le process (posts assignés).",
+      ruul: {
+        aLancer:
+          "Ton lundi de début est le {{lundi}}. Clique sur « Commencer le warmup » maintenant, et samedi au plus tard : ton warm-up dure alors jusqu'au {{lundi}} à 00:00 (heure de Paris), et tes 2 premiers slideshows arrivent ce lundi matin. D'ici là, utilise TikTok normalement chaque jour, sans publier.",
+        aLancerDimanche:
+          "Clique sur « Commencer le warmup » maintenant. Ton lundi de début est le {{lundi}}, mais un warm-up dure toujours au moins 24 heures : lancé aujourd'hui, il se termine lundi dans la journée, et tes premiers slideshows arrivent mardi matin.",
+        aLancerEnRetard:
+          "Clique sur « Commencer le warmup » maintenant : ta première semaine a commencé le {{lundi}}. Le warm-up dure 24 heures, et tes premiers slideshows arrivent le matin qui suit sa fin.",
+        enCoursLundi:
+          "Ton warm-up se termine le {{fin}} (heure de Paris). Tes 2 premiers slideshows arrivent ce matin-là. D'ici là, utilise TikTok normalement chaque jour, sans publier.",
+        enCours:
+          "Ton warm-up se termine le {{fin}} (heure de Paris). Tes premiers slideshows arrivent le lendemain matin. D'ici là, utilise TikTok normalement chaque jour, sans publier.",
+        premierPaiement:
+          "Premier paiement : {{dimanche}}, à la fin de ta première semaine de posts ({{lundi}} → {{dimanche}}), via Ruul.",
+        paiementHebdo: "Tu es payé·e chaque dimanche, à la fin de chaque semaine de posts, via Ruul.",
+        question: "Une question ?",
+        rejoindreSlack: "Rejoins Slack, puis pose-la dans {{salon}}",
+      },
       aujourdhui: "Aujourd'hui",
       filtreLangue: "Filtrer par langue",
       toutesLangues: "Toutes les langues",

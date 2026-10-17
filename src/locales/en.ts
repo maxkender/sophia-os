@@ -2671,6 +2671,23 @@ export const en = {
         "When your TikTok and Instagram accounts are ready, click “Start warmup”. The timer starts; when it ends, you get one video a day to post on both.",
       warmupADemarrerAide:
         "When your TikTok account is ready, click “Start warmup”. The timer starts; when it ends, you enter the process (assigned posts).",
+      ruul: {
+        aLancer:
+          "Your start Monday is {{lundi}}. Click “Start warmup” now, and on Saturday at the latest: your warm-up then runs until {{lundi}} at 00:00 (Paris time), and your first 2 slideshows arrive that Monday morning. Until then, use TikTok normally every day, without posting.",
+        aLancerDimanche:
+          "Click “Start warmup” now. Your start Monday is {{lundi}}, but a warm-up always lasts at least 24 hours: started today, it ends on Monday during the day, and your first slideshows arrive on Tuesday morning.",
+        aLancerEnRetard:
+          "Click “Start warmup” now: your first week started on {{lundi}}. The warm-up lasts 24 hours, and your first slideshows arrive the morning after it ends.",
+        enCoursLundi:
+          "Your warm-up ends on {{fin}} (Paris time). Your first 2 slideshows arrive that morning. Until then, use TikTok normally every day, without posting.",
+        enCours:
+          "Your warm-up ends on {{fin}} (Paris time). Your first slideshows arrive the next morning. Until then, use TikTok normally every day, without posting.",
+        premierPaiement:
+          "First payment: {{dimanche}}, at the end of your first week of posts ({{lundi}} → {{dimanche}}), through Ruul.",
+        paiementHebdo: "You are paid every Sunday, at the end of each week of posts, through Ruul.",
+        question: "A question?",
+        rejoindreSlack: "Join Slack, then ask in {{salon}}",
+      },
       aujourdhui: "Today",
       filtreLangue: "Filter by language",
       toutesLangues: "All languages",

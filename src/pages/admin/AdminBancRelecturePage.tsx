@@ -11,6 +11,7 @@ import {
   Film,
   ListChecks,
   Plus,
+  Send,
   SkipForward,
   Trash2,
   X,
@@ -20,13 +21,16 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardHeader, CardTitle, EmptyState } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import {
+  ecrireEnvoiAutoRelecture,
   enregistrerAvisRelecture,
   listerAvisRelecture,
   listerJoursRelecture,
   listerRelecturesBanc,
   listerReviewRemarques,
+  lireEnvoiAutoRelecture,
   supprimerAvisRelecture,
   type RelectureBanc,
 } from "@/features/moteur/api";
@@ -176,6 +180,7 @@ export function AdminBancRelecturePage() {
               {t("banc.titre")}
             </CardTitle>
             <CardDescription>{t("banc.sousTitre")}</CardDescription>
+            <EnvoiAuto />
           </div>
           {(jours.data ?? []).length > 0 && (
             <label className="flex items-center gap-2 text-sm">
@@ -625,6 +630,7 @@ function PanneauJugement({
       <MessageExact
         texte={relecture.brouillon}
         videos={videos}
+        envoi={relecture.envoi}
         vuesSiMarche={marche ? relecture.vues : null}
         onVoirCommeCreateur={() => setApercu(true)}
       />
@@ -747,11 +753,14 @@ function Rates({
 function MessageExact({
   texte,
   videos,
+  envoi,
   vuesSiMarche,
   onVoirCommeCreateur,
 }: {
   texte: string | null;
   videos: { url: string; titre: string }[];
+  /** Ce que l'envoi automatique en a fait (null : pas encore traité). */
+  envoi: string | null;
   /** Le post marche : on dit pourquoi il n'y a pas de message. */
   vuesSiMarche: number | null;
   /** Ouvre le message tel que le créateur le recevrait (aperçu). */
@@ -778,6 +787,14 @@ function MessageExact({
               ))}
             </ul>
           )}
+          {envoi === "envoye" ? (
+            <Badge variant="success" className="gap-1">
+              <Send className="size-3" />
+              {t("banc.envoye")}
+            </Badge>
+          ) : envoi && envoi !== "envoi en cours" ? (
+            <p className="text-xs text-muted-foreground">{t("banc.pasEnvoye", { raison: envoi })}</p>
+          ) : null}
           <p className="text-xs text-muted-foreground">{t("banc.messageAide")}</p>
           <Button size="sm" variant="outline" onClick={onVoirCommeCreateur}>
             <Eye className="size-4" />
@@ -792,6 +809,35 @@ function MessageExact({
         </p>
       )}
     </section>
+  );
+}
+
+/**
+ * L'interrupteur de l'envoi automatique : ouvert, l'agent envoie lui-même ses
+ * retours une fois la nuit de relecture finie (un par créateur).
+ */
+function EnvoiAuto() {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const etat = useQuery({ queryKey: ["relecture-envoi-auto"], queryFn: lireEnvoiAutoRelecture });
+  const basculer = useMutation({
+    mutationFn: ecrireEnvoiAutoRelecture,
+    onSuccess: (_, actif) => queryClient.setQueryData(["relecture-envoi-auto"], actif),
+  });
+  if (etat.isPending) return null;
+  const actif = etat.data === true;
+  return (
+    <div className="flex flex-wrap items-center gap-2 pt-2 text-sm">
+      <Switch
+        checked={actif}
+        disabled={basculer.isPending}
+        onCheckedChange={(v) => basculer.mutate(v === true)}
+        aria-label={t("banc.envoiAuto")}
+      />
+      <span className="font-medium">{actif ? t("banc.envoiAutoActif") : t("banc.envoiAutoInactif")}</span>
+      <span className="text-xs text-muted-foreground">{t("banc.envoiAutoAide")}</span>
+      {basculer.isError && <span className="text-xs text-destructive">{(basculer.error as Error).message}</span>}
+    </div>
   );
 }
 

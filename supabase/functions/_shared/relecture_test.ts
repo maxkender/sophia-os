@@ -2,6 +2,7 @@ import { assert, assertEquals } from "jsr:@std/assert@1";
 
 import {
   agreger,
+  choisirRetoursAEnvoyer,
   type BlocTexte,
   blocPrincipal,
   choisirPositions,
@@ -10,6 +11,7 @@ import {
   idMusique,
   jugerPaire,
   ligneLaPlusLongue,
+  type Defaut,
   type MesureSlide,
   normaliserBlocs,
   parserMesure,
@@ -188,6 +190,10 @@ Deno.test("familleCouleur : blanc cassé reste blanc, jaune et orange se disting
   assertEquals(familleCouleur("#FFE600"), "jaune");
   assertEquals(familleCouleur("#FF8C00"), "orange");
   assertEquals(familleCouleur("#FE2C55"), "rouge");
+  // Blanc crème lu sur une photo chaude (cas dominik.fokus983 du 16/10) : pas du jaune.
+  assertEquals(familleCouleur("#FFF29A"), "blanc");
+  assertEquals(familleCouleur("#FFF8B5"), "blanc");
+  assertEquals(familleCouleur("#F8D81C"), "jaune");
 });
 
 Deno.test("slide publiée sans texte", () => {
@@ -211,7 +217,33 @@ Deno.test("agreger : un écart vu sur une seule slide sur trois n'est pas retenu
 Deno.test("controlesPost : nombre de slides et son", () => {
   const d = controlesPost({ slidesAttendues: 6, slidesPubliees: 5, musiqueAttendueId: "7300000000000000001", musiquePublieeId: "7300000000000000002" });
   assertEquals(d.map((x) => x.code), ["nb_slides", "musique"]);
+  // Souvent une erreur d'assignation, ou le même son sous un autre identifiant : notes pour l'admin.
+  assertEquals(d.map((x) => x.niveau), ["info", "info"]);
+  assertEquals(redigerBrouillon(d, REMARQUES).texte, "");
   assertEquals(controlesPost({ slidesAttendues: 6, slidesPubliees: 6, musiqueAttendueId: null, musiquePublieeId: "1" }), []);
+});
+
+Deno.test("alignement : une slide suffit pour gauche / centre, pas pour « droite » (cas ben.wissen295)", () => {
+  const centre = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, alignement: "centre" })]);
+  const gauche = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, alignement: "gauche" })]);
+  const droite = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, alignement: "droite" })]);
+  const unGauche = agreger([jugerPaire(1, gauche, centre), jugerPaire(2, centre, centre), jugerPaire(3, centre, centre)]);
+  assertEquals(unGauche.find((d) => d.code === "alignement")?.slides, [1]);
+  const unDroite = agreger([jugerPaire(2, centre, centre), jugerPaire(3, centre, centre), jugerPaire(4, centre, droite)]);
+  assertEquals(unDroite.find((d) => d.code === "alignement"), undefined);
+  const deuxDroite = agreger([jugerPaire(2, centre, droite), jugerPaire(3, centre, centre), jugerPaire(4, centre, droite)]);
+  assertEquals(deuxDroite.find((d) => d.code === "alignement")?.slides, [2, 4]);
+});
+
+Deno.test("largeur : un texte à peine plus petit n'est pas relevé (cas lina.entwickelt399)", () => {
+  // 71 % → 59 % de l'écran (×0.84), lettres plus petites : en dessous du seuil.
+  const a = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, w: 0.71, h: 0.12 })]);
+  const b = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, w: 0.59, h: 0.1 })]);
+  assert(!jugerPaire(3, a, b).constats.some((c) => c.code === "largeur"));
+  // 74 % → 50 % : là, ça se voit.
+  const c = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, w: 0.74, h: 0.12 })]);
+  const d = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, w: 0.5, h: 0.08 })]);
+  assertEquals(jugerPaire(5, c, d).constats.find((x) => x.code === "largeur")?.valeurs?.sens, "etroit");
 });
 
 Deno.test("idMusique lit l'ID au bout du lien /music/", () => {
@@ -330,7 +362,7 @@ Deno.test("largeur et taille dans le même sens : un seul point (pincer)", () =>
   const defauts = agreger([jugerPaire(2, a, b), jugerPaire(3, a, b)]);
   assertEquals(defauts.map((d) => d.code), ["largeur"]);
   const { texte, remarques } = redigerBrouillon(defauts, REMARQUES);
-  assert(texte.includes("On some of your slides, your paragraph is wider than in the original"));
+  assert(texte.includes("On some of your slides, your text is bigger than in the original, so it goes closer to the edges of the screen."));
   assert(texte.includes("Pinch the text with two fingers to make it a bit smaller"));
   assertEquals(remarques.map((r) => r.id), ["h", "j"]);
 });
@@ -388,3 +420,25 @@ Deno.test("reformulationValide : les étapes et le geste du slider doivent survi
   assert(!reformulationValide(brouillon, fondu));
 });
 
+Deno.test("choisirRetoursAEnvoyer : un retour par créateur, le défaut le plus important, jamais un post déjà traité", () => {
+  const d = (code: Defaut["code"], niveau: Defaut["niveau"] = "remarque"): Defaut =>
+    ({ code, niveau, slides: [1], confiance: 1, detail: "" });
+  const lignes = [
+    { id: "a1", post_id: "p1", poster_id: "ana", defauts: [d("couleur")] },
+    { id: "a2", post_id: "p2", poster_id: "ana", defauts: [d("justification"), d("effet")] },
+    { id: "a3", post_id: "p3", poster_id: "ana", defauts: [d("justification")] },
+    { id: "b1", post_id: "p4", poster_id: "ben", defauts: [d("largeur")] },
+    { id: "c1", post_id: "p5", poster_id: "cleo", defauts: [d("taille")] },
+    { id: "c2", post_id: "p6", poster_id: "cleo", defauts: [d("alignement")] },
+    { id: "x1", post_id: "p7", poster_id: null, defauts: [d("taille")] },
+    { id: "z1", post_id: "p8", poster_id: "zoe", defauts: [d("taille")] },
+  ];
+  // p5 a déjà été reviewé à la main ; zoe a déjà reçu le retour de l'agent cette nuit.
+  const { envoyer, sauter } = choisirRetoursAEnvoyer(lignes, new Set(["p5"]), new Set(["zoe"]));
+  assertEquals(envoyer.map((l) => l.id).sort(), ["a2", "b1", "c2"]);
+  const raisons = Object.fromEntries(sauter.map((s) => [s.id, s.raison]));
+  assertEquals(Object.keys(raisons).sort(), ["a1", "a3", "c1", "x1", "z1"]);
+  assert(raisons.c1.includes("déjà reviewé"));
+  assert(raisons.a1.includes("un retour par créateur"));
+  assert(raisons.z1.includes("un retour par créateur"));
+});

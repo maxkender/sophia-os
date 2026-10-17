@@ -53,17 +53,23 @@ le pincement ne la change pas, seul le curseur la change.
 | `texte_absent` | slide publiée sans texte | oui | — |
 | `justification` | largeur en hauteurs de ligne, publiée ÷ originale, sous 0,75 (lignes courtes) ou au-dessus de 1,35, confirmé par la ligne la plus longue (en caractères) ; paragraphe de 3 lignes et 60 caractères ou plus. **Jamais de comparaison du nombre de lignes** : le texte est traduit, une version plus longue fait plus de lignes de la même largeur | oui | Jutifier |
 | `hierarchie` | l'original distingue un titre, le publié non | oui | Corpus / head |
-| `largeur` | largeur du paragraphe sur l'écran (ses marges), publiée ÷ originale, hors de ×0,85 à ×1,15, avec des lettres elles aussi plus grosses (ou plus petites) d'au moins 10 % : le bloc a été pincé trop grand ou trop petit. Plus large à taille égale (traduction plus longue) : rien | oui | Jutifier |
+| `largeur` | largeur du paragraphe sur l'écran (ses marges), publiée ÷ originale, sous ×0,78 ou au-dessus de ×1,15, avec des lettres elles aussi plus petites (ou plus grosses) d'au moins 10 % : le bloc a été pincé trop petit ou trop grand. Plus large à taille égale (traduction plus longue) : rien. Le message parle d'un texte « plus petit / plus grand », pas de marges | oui | Jutifier |
 | `taille` | hauteur de ligne (rapportée à la largeur de l'image) hors de ×0,7 à ×1,4 ; pas de second point si `largeur` dit déjà « pincer » | oui | text not the same |
-| `alignement` | gauche / centre / droite du paragraphe principal | oui | — |
-| `couleur`, `effet` | famille de couleur ; effet du bouton A (aucun, contour, fond) | oui | text not the same |
-| `nb_slides`, `musique` | nombre de slides ou son différents de ce qui était fourni | oui | — |
+| `alignement` | gauche / centre / droite du paragraphe principal (2 lignes ou plus), jugé sur les lignes entre elles, pas sur la place du bloc dans l'image | oui | — |
+| `couleur`, `effet` | famille de couleur (un blanc crème ou un jaune très pâle compte comme du blanc) ; effet du bouton A (aucun, contour, fond) | oui | text not the same |
+| `nb_slides`, `musique` | nombre de slides ou son différents de ce qui était fourni : souvent une erreur d'assignation, et TikTok sert parfois le même son sous un autre identifiant | **non**, info admin | — |
 | `police`, `gras`, `placement` | avis de Gemini sur la police ; graisse ; centre du texte décalé de plus de 25 % de la hauteur | **non**, info admin | — |
 
 Un défaut de slide n'est retenu que s'il se répète : vu sur au moins la moitié
 des slides où la règle s'applique, et sur 2 slides dès qu'il y en a 2 à juger.
-Sauf l'alignement : souvent seule l'accroche a un alignement propre, une slide
-suffit.
+Sauf l'alignement gauche / centre : souvent seule l'accroche a un alignement
+propre, une slide suffit. Pas pour « droite » : Gemini prend un bloc centré posé
+à droite de l'image pour un texte aligné à droite (cas ben.wissen295 du 16/10).
+
+Recalé le 17/10 sur les cas jugés faux au banc d'essai : lina.entwickelt399
+(texte à peine plus petit), ben.wissen295 (« aligné à droite »),
+dominik.fokus983 (blanc crème lu comme du jaune, même son sous un autre
+identifiant).
 
 ### La review
 
@@ -129,10 +135,28 @@ avancer le drain (le run Apify prend une à deux minutes).
   cette nuit, la review arrive aussitôt ;
 - le bouton **Hier** ouvre la file de la veille, relue pendant la nuit.
 
-L'admin relit, corrige au besoin, puis envoie ou passe. Rien ne part sans lui.
-Un brouillon de l'agent envoyé **sans retouche** part mot pour mot (il ne
+L'admin relit, corrige au besoin, puis envoie ou passe. Un brouillon de l'agent envoyé **sans retouche** part mot pour mot (il ne
 repasse pas par « Améliorer ») : c'est exactement le message relu sur le banc
 d'essai. Un texte retouché ou écrit à la main repasse par l'IA comme avant.
+
+### Envoi automatique
+
+Interrupteur en tête du banc d'essai (`reglages.relecture_envoi_auto`, migration
+0296). Ouvert, l'agent envoie lui-même ses retours, en review « agent » (badge
+dans `/admin/reviews`) :
+
+- une fois la nuit de relecture finie (plus rien en cours pour la veille), et
+  seulement entre 2 h et 10 h (heure de Paris) : un drain lancé à la main
+  l'après-midi n'envoie rien ;
+- seulement les posts de la veille relus par le cron (pas les « Tester ») ;
+- **un retour par créateur et par nuit** : celui du post au défaut le plus
+  important, puis au plus de points ; ses autres posts restent en brouillon ;
+- jamais pour un post déjà reviewé ou passé à la main dans la file.
+
+`relectures_auto.envoi` garde ce que l'envoi a fait de chaque relecture
+(« envoye » avec `review_id`, ou la raison du non-envoi), affiché sur le banc.
+Chaque ligne est réservée avant l'envoi et un index unique interdit deux
+retours de l'agent sur le même post. Fermé, l'agent n'écrit que des brouillons.
 
 ### Côté créateur
 

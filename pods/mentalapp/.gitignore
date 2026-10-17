@@ -1,0 +1,4 @@
+node_modules/
+sortie/
+sources/*/
+donnees/

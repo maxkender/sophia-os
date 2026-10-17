@@ -18,6 +18,7 @@
     "rendu": "node atelier/cli-rendu.ts",
     "apercu": "node atelier/cli-apercu.ts",
     "livrer": "NODE_USE_ENV_PROXY=1 node atelier/cli-livrer.ts",
-    "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts"
+    "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts",
+    "original": "NODE_USE_ENV_PROXY=1 node atelier/cli-original.ts"
   }
 }

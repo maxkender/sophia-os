@@ -1,0 +1,551 @@
+{
+ "id": "mm-o001",
+ "titre": "tier list of attention span fixes",
+ "position_app": 2,
+ "legendes": {
+  "en": "attention span fixes, ranked #mentalmaxxing #focus #tierlist #selfimprovement",
+  "fr": "les remèdes à la concentration, classés #mentalmaxxing #concentration #tierlist #developpementpersonnel",
+  "de": "Fokus-Retter im Ranking #mentalmaxxing #fokus #tierlist #selbstverbesserung",
+  "es": "remedios para la atención, en ranking #mentalmaxxing #concentracion #tierlist #superacionpersonal",
+  "it": "rimedi per l’attenzione, in classifica #mentalmaxxing #concentrazione #tierlist #crescitapersonale",
+  "tr": "dikkat toparlayıcılar sıralaması #mentalmaxxing #odak #tierlist #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7686526569703017735/2",
+   "boite": [
+    30,
+    792,
+    362,
+    380
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list des",
+   "de": "Tierlist der",
+   "es": "tier list de",
+   "it": "tier list dei",
+   "tr": "tier list:"
+  },
+  "gros": {
+   "en": "Attention",
+   "fr": "remèdes",
+   "de": "Fokus-",
+   "es": "remedios",
+   "it": "rimedi",
+   "tr": "dikkat"
+  },
+  "bas": {
+   "en": "span fixes",
+   "fr": "à la concentration",
+   "de": "Retter",
+   "es": "para la atención",
+   "it": "per l'attenzione",
+   "tr": "toparlayıcılar"
+  }
+ },
+ "titre_tableau": {
+  "en": "rate my ranking",
+  "fr": "note mon classement",
+  "de": "bewerte mein Ranking",
+  "es": "puntúa mi ranking",
+  "it": "vota la mia classifica",
+  "tr": "sıralamamı puanla"
+ },
+ "pied": {
+  "en": "what fixed your focus?",
+  "fr": "qu’est-ce qui t’a rendu ta concentration ?",
+  "de": "was hat deinen Fokus gerettet?",
+  "es": "¿qué te devolvió la concentración?",
+  "it": "cosa ti ha ridato la concentrazione?",
+  "tr": "odağını ne geri getirdi?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "rebuilds it",
+    "fr": "la reconstruit",
+    "de": "baut ihn neu auf",
+    "es": "la reconstruye",
+    "it": "la ricostruisce",
+    "tr": "baştan kurar"
+   },
+   "cases": [
+    {
+     "app": true
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      398,
+      712,
+      150,
+      94
+     ],
+     "t": {
+      "en": "reading a book",
+      "fr": "lire un livre",
+      "de": "ein Buch lesen",
+      "es": "leer un libro",
+      "it": "leggere un libro",
+      "tr": "kitap okumak"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      449,
+      512,
+      162,
+      104
+     ],
+     "t": {
+      "en": "8h of sleep",
+      "fr": "8h de sommeil",
+      "de": "8h Schlaf",
+      "es": "8h de sueño",
+      "it": "8 ore di sonno",
+      "tr": "8 saat uyku"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      676,
+      890,
+      142,
+      139
+     ],
+     "t": {
+      "en": "phone in|another room",
+      "fr": "téléphone dans|une autre pièce",
+      "de": "Handy im|anderen Raum",
+      "es": "móvil en|otra habitación",
+      "it": "telefono in|un’altra stanza",
+      "tr": "telefon|başka odada"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "real gains",
+    "fr": "vrais progrès",
+    "de": "echte Fortschritte",
+    "es": "avances reales",
+    "it": "progressi veri",
+    "tr": "gerçek ilerleme"
+   },
+   "cases": [
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      28,
+      624,
+      200,
+      154
+     ],
+     "t": {
+      "en": "training",
+      "fr": "muscu",
+      "de": "Training",
+      "es": "entrenar",
+      "it": "allenamento",
+      "tr": "antrenman"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      766,
+      394,
+      110,
+      110
+     ],
+     "t": {
+      "en": "walking outside",
+      "fr": "marcher dehors",
+      "de": "draußen gehen",
+      "es": "caminar fuera",
+      "it": "camminare fuori",
+      "tr": "dışarıda yürümek"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      452,
+      245,
+      154,
+      154
+     ],
+     "t": {
+      "en": "morning sunlight",
+      "fr": "soleil du matin",
+      "de": "Morgensonne",
+      "es": "sol de la mañana",
+      "it": "sole del mattino",
+      "tr": "sabah güneşi"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      742,
+      739,
+      230,
+      94
+     ],
+     "t": {
+      "en": "focus mode on",
+      "fr": "mode focus",
+      "de": "Fokus-Modus an",
+      "es": "modo concentración",
+      "it": "modalità focus",
+      "tr": "odak modu açık"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "solid",
+    "fr": "solide",
+    "de": "solide",
+    "es": "sólido",
+    "it": "solido",
+    "tr": "sağlam"
+   },
+   "cases": [
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      695,
+      236,
+      114,
+      152
+     ],
+     "t": {
+      "en": "cold shower",
+      "fr": "douche froide",
+      "de": "kalte Dusche",
+      "es": "ducha fría",
+      "it": "doccia fredda",
+      "tr": "soğuk duş"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      690,
+      852,
+      160,
+      150
+     ],
+     "t": {
+      "en": "learning",
+      "fr": "apprendre",
+      "de": "Lernen",
+      "es": "aprender",
+      "it": "studiare",
+      "tr": "öğrenmek"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      910,
+      895,
+      86,
+      132
+     ],
+     "t": {
+      "en": "chess",
+      "fr": "échecs",
+      "de": "Schach",
+      "es": "ajedrez",
+      "it": "scacchi",
+      "tr": "satranç"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      592,
+      556,
+      122,
+      84
+     ],
+     "t": {
+      "en": "cooking",
+      "fr": "cuisiner",
+      "de": "Kochen",
+      "es": "cocinar",
+      "it": "cucinare",
+      "tr": "aşçılık"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "helps a bit",
+    "fr": "aide un peu",
+    "de": "hilft etwas",
+    "es": "ayuda un poco",
+    "it": "aiuta un po’",
+    "tr": "biraz yardımcı"
+   },
+   "cases": [
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      54,
+      866,
+      146,
+      106
+     ],
+     "t": {
+      "en": "coffee",
+      "fr": "café",
+      "de": "Kaffee",
+      "es": "café",
+      "it": "caffè",
+      "tr": "kahve"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      246,
+      1044,
+      186,
+      184
+     ],
+     "t": {
+      "en": "music, no lyrics",
+      "fr": "musique sans paroles",
+      "de": "Musik ohne Text",
+      "es": "música sin letra",
+      "it": "musica senza testo",
+      "tr": "sözsüz müzik"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      508,
+      862,
+      100,
+      134
+     ],
+     "t": {
+      "en": "water",
+      "fr": "boire de l’eau",
+      "de": "Wasser trinken",
+      "es": "beber agua",
+      "it": "bere acqua",
+      "tr": "su içmek"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      263,
+      404,
+      100,
+      100
+     ],
+     "t": {
+      "en": "a nap",
+      "fr": "une sieste",
+      "de": "ein Nickerchen",
+      "es": "una siesta",
+      "it": "un pisolino",
+      "tr": "şekerleme"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "fake fixes",
+    "fr": "faux remèdes",
+    "de": "falsche Lösungen",
+    "es": "falsos remedios",
+    "it": "falsi rimedi",
+    "tr": "sahte çözümler"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      596,
+      848,
+      120,
+      84
+     ],
+     "t": {
+      "en": "focus videos|on youtube",
+      "fr": "vidéos focus|sur youtube",
+      "de": "Fokus-Videos|auf YouTube",
+      "es": "vídeos focus|en youtube",
+      "it": "video focus|su youtube",
+      "tr": "youtube’da|odak videoları"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      764,
+      860,
+      124,
+      92
+     ],
+     "t": {
+      "en": "gaming breaks",
+      "fr": "pauses gaming",
+      "de": "Gaming-Pausen",
+      "es": "pausas gaming",
+      "it": "pause gaming",
+      "tr": "oyun molası"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      416,
+      850,
+      116,
+      86
+     ],
+     "t": {
+      "en": "sugar rush",
+      "fr": "shoot de sucre",
+      "de": "Zuckerkick",
+      "es": "subidón de azúcar",
+      "it": "picco di zuccheri",
+      "tr": "şeker patlaması"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      658,
+      1086,
+      76,
+      94
+     ],
+     "t": {
+      "en": "buying a planner",
+      "fr": "acheter un agenda",
+      "de": "Planer kaufen",
+      "es": "comprar una agenda",
+      "it": "comprare un’agenda",
+      "tr": "ajanda almak"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "kills it",
+   "fr": "la détruit",
+   "de": "zerstört ihn",
+   "es": "la destruye",
+   "it": "la distrugge",
+   "tr": "yok eder"
+  },
+  "cases": [
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     596,
+     860,
+     88,
+     86
+    ],
+    "t": {
+     "en": "endless reels",
+     "fr": "reels à l’infini",
+     "de": "endlose Reels",
+     "es": "reels sin fin",
+     "it": "reel infiniti",
+     "tr": "bitmeyen reels"
+    }
+   },
+   {
+    "src": "7688926567183027474/2",
+    "boite": [
+     273,
+     848,
+     94,
+     94
+    ],
+    "t": {
+     "en": "doomscrolling|in bed",
+     "fr": "scroller|au lit",
+     "de": "Doomscrolling|im Bett",
+     "es": "scroll|en la cama",
+     "it": "scrollare|a letto",
+     "tr": "yatakta|scroll"
+    }
+   },
+   {
+    "src": "7688926567183027474/2",
+    "boite": [
+     386,
+     1083,
+     94,
+     104
+    ],
+    "t": {
+     "en": "betting apps",
+     "fr": "applis de paris",
+     "de": "Wett-Apps",
+     "es": "apps de apuestas",
+     "it": "app di scommesse",
+     "tr": "bahis uygulamaları"
+    }
+   },
+   {
+    "src": "7688926567183027474/2",
+    "boite": [
+     822,
+     1072,
+     52,
+     92
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine Wahl|(kommentiere)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)"
+    }
+   }
+  ]
+ },
+ "notes": "premier original 100 % (décision du 17/10) : tier list neuve sur la concentration, images recadrées dans les slides @mentalapp (sources/<id>/<n>.jpg), sans Higgsfield ; élément UnSwipe en tête du S+."
+}

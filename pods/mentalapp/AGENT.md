@@ -25,7 +25,7 @@ validation** de l'OS (Pilotage → Pods), où un humain valide ou rejette.
 - **Ordre de travail** (décision du 17/10) :
   1. les **14 posts à 20 k vues ou plus**, ceux de 2 slides ou plus (`npm run releve` les liste) ;
   2. ensuite les 6 autres ;
-  3. **plus tard, des originaux à 100 %** : on en conviendra avec l'humain le moment venu.
+  3. **des originaux à 100 %** (décision du 17/10) : voir « Un original » plus bas.
 - Les posts d'**une seule slide** (collages) sont **exclus**. L'appli y serait sur la couverture, ce que l'OS refuse.
 - **Validé**, un remake devient un contenu « livré » du label. Son rang UnSwipe vient de la note d'import, faite de la pertinence UnSwipe et des vues du post source. L'OS sert à chaque compte le deck de sa langue, tel quel.
 
@@ -55,6 +55,7 @@ Lance `npm install` une fois par session.
 | `npm run rendu -- <id>` | Rend chaque langue dans `sortie/<id>/<langue>/<n>.jpg` (JPEG sans métadonnées).<br>Signale ce qui déborde (⚠). |
 | `npm run apercu -- <id>` | Fait la planche de relecture : source, puis une rangée par langue (`sortie/apercus/<id>.jpg`). |
 | `npm run livrer -- <id> [--essai <dossier>]` | Rend et dépose dans la file.<br>Le deck de chaque langue porte l'élément UnSwipe, et l'OS en tire la version UnSwipe. Le dépôt n'est fait que si tous les textes de la langue sont écrits. |
+| `npm run original -- <mm-oNNN> [--essai <dossier> \| --deposer]` | Rend un original (`originaux/<id>.json`) dans les 6 langues : `sortie/originaux/<id>/<langue>/` et la planche `sortie/apercus/<id>.jpg`.<br>`--deposer` le dépose (sans source ni vues : l'OS le prend pour un original). |
 | `npm run etat` | Montre la file, le rang UnSwipe, puis les vues et le r de chaque remake en ligne. |
 
 Regarde **toujours** les images annotées, les rendus et la planche avec l'outil
@@ -88,6 +89,18 @@ Read avant de livrer.
 7. **Commite** `posts/<id>.json` et `sources/manifeste.json`.
 
 Le pilote `posts/7688365608508919047.json` (la tier list à 1 M) est l'exemple complet.
+
+## Un original (`originaux/<id>.json`)
+
+Décision du 17/10 : une tier list neuve de 2 slides dans le style du compte.
+- **Couverture** : « tier list of » / une image / le mot fort en très gros / la suite.
+- **Tableau** : titre (« rate my ranking »…), rangs S+ à D de 4 cases, un « + », le rang F, et un pied en question.
+- **Images** : recadrées dans les slides @mentalapp déjà relevées (`src` : `<id>/<n>`, `boite` mesurée). Pas de Higgsfield.
+  - Vérifie qu'un recadrage n'emporte ni texte ni trait voisin.
+- **L'élément UnSwipe** : une case `{ "app": true }`, en slide 2, à une place qui a du sens (en tête du S+ sur un sujet d'attention).
+- **Textes** : par langue ; `|` force un retour à la ligne, sinon une légende trop large se coupe seule. Mêmes règles que `posts/CONSIGNES.md`.
+- **Id** : `mm-o` + numéro, jamais réutilisé une fois validé ou rejeté.
+- **Flux** : `npm run original -- <id>`, relis la planche, montre-la à l'humain, puis `--deposer`. Validé, l'original entre au rang original.
 
 ## Règles
 

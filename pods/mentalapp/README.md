@@ -26,9 +26,12 @@ atelier/
   cli-apercu.ts     planche de relecture (source + langues)
   cli-livrer.ts     rendu + dépôt dans la file de validation
   cli-etat.ts       file, rangs, vues et r
+  original.ts       original à 100 % : couverture + tableau composés avec les images des slides relevées
+  cli-original.ts   rendu d'un original, planche, dépôt (sans source : rang original)
 assets/unswipe_icone.jpg   icône App Store d'UnSwipe
 polices/                   Inter Tight ExtraLight / Light / Regular / SemiBold (SIL OFL)
 posts/<id>.json            transcriptions et traductions (versionnées)
+originaux/<id>.json        originaux à 100 % (mm-oNNN, versionnés)
 sources/manifeste.json     posts source et leur statut (versionné ; les slides, non)
 ```
 

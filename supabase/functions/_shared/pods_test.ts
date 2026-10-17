@@ -1,10 +1,12 @@
 import { assertEquals, assertRejects } from "jsr:@std/assert@1";
 import {
+  applicationsHorsSophia,
   CHEMIN_POD,
   contenusLivresHorsApplication,
   contenusLivresHorsLangue,
   deckLivreApplication,
   deckLivrePret,
+  decksApplicationDepuisBase,
   ecrireDecksApplications,
   estSlideApp,
   metadonneesJpeg,
@@ -41,6 +43,71 @@ Deno.test("verifierDepot : langue source, slide de l'app, positions uniques", ()
   assertEquals(verifierDepot({ de: { slides: [s(1, true)] } }, "fr"), ["pas de deck dans la langue source (fr)"]);
   assertEquals(verifierDepot({ fr: { slides: [s(1), s(1, true)] } }, "fr"), ["fr : positions en double"]);
   assertEquals(verifierDepot({ fr: { slides: [s(1)] } }, "fr"), ["fr : aucune slide de l'app"]);
+});
+
+Deno.test("verifierDepot (label hors Sophia) : une slide de l'application, jamais la couverture", () => {
+  const s = (position: number, app?: "app" | "sophia") => ({
+    position,
+    jpeg_base64: "",
+    ...(app === "app" ? { position_app: true } : {}),
+    ...(app === "sophia" ? { position_sophia: true } : {}),
+  });
+  assertEquals(verifierDepot({ en: { slides: [s(1), s(2, "app")] } }, "en", "application"), []);
+  // `position_sophia` reste l'alias de la slide de l'app.
+  assertEquals(verifierDepot({ en: { slides: [s(1), s(2, "sophia")] } }, "en", "application"), []);
+  assertEquals(
+    verifierDepot({ en: { slides: [s(1), s(2)] } }, "en", "application"),
+    ["en : 0 slide(s) de l'app (une seule attendue)"],
+  );
+  assertEquals(
+    verifierDepot({ en: { slides: [s(1), s(2, "app"), s(3, "app")] } }, "en", "application"),
+    ["en : 2 slide(s) de l'app (une seule attendue)"],
+  );
+  assertEquals(
+    verifierDepot({ en: { slides: [s(1, "app"), s(2)] } }, "en", "application"),
+    ["en : la slide de l'app ne peut pas être la couverture"],
+  );
+  // Le chemin Sophia ne lit toujours que `position_sophia`.
+  assertEquals(verifierDepot({ en: { slides: [s(1), s(2, "app")] } }, "en"), ["en : aucune slide de l'app"]);
+});
+
+Deno.test("decksApplicationDepuisBase : mêmes images, triées, la slide de l'app marquée", () => {
+  const d = decksApplicationDepuisBase("unswipe", {
+    en: {
+      hashtags: "#a",
+      slides: [
+        { position: 2, media_id: "m2", url: "u2", app: true },
+        { position: 1, media_id: "m1", url: null, app: false },
+      ],
+    },
+    fr: { hashtags: "", slides: [{ position: 1, media_id: "f1", url: "v1", app: false }, { position: 2, media_id: "f2", url: "v2", app: true }] },
+  });
+  assertEquals(d, {
+    unswipe: {
+      en: {
+        hashtags: "#a",
+        slides: [
+          { position: 1, media_id: "m1", url: null, position_sophia: false },
+          { position: 2, media_id: "m2", url: "u2", position_sophia: true },
+        ],
+      },
+      fr: {
+        hashtags: "",
+        slides: [
+          { position: 1, media_id: "f1", url: "v1", position_sophia: false },
+          { position: 2, media_id: "f2", url: "v2", position_sophia: true },
+        ],
+      },
+    },
+  });
+});
+
+Deno.test("applicationsHorsSophia : null dès que le label sert Sophia (ou n'a pas de ligne)", () => {
+  assertEquals(applicationsHorsSophia([], "sophia-id"), null);
+  assertEquals(applicationsHorsSophia(["sophia-id"], "sophia-id"), null);
+  assertEquals(applicationsHorsSophia(["sophia-id", "unswipe-id"], "sophia-id"), null);
+  assertEquals(applicationsHorsSophia(["unswipe-id"], "sophia-id"), ["unswipe-id"]);
+  assertEquals(applicationsHorsSophia(["micabo-id", "unswipe-id"], "sophia-id"), ["micabo-id", "unswipe-id"]);
 });
 
 Deno.test("verifierDepot : accepte une variante régionale, refuse un code mal formé", () => {
@@ -413,6 +480,24 @@ Deno.test("ecrireDecksApplications : rang imposé A → note 70, tier A ; pertin
   await ecrireDecksApplications(fauxEtat(tables, []), "c1", LIVRAISON, { tierForce: "A", pertinenceScore: 88, pod: "page_blanche" });
   assertEquals([tables.contenu_pertinences[0].note, tables.contenu_pertinences[0].score], [70, 88]);
   assertEquals([tables.contenu_tiers_application[0].tier, tables.contenu_tiers_application[0].passages_prevus], ["A", 4]);
+  oublierSondeTiersApplication();
+});
+
+Deno.test("ecrireDecksApplications : label hors Sophia → le rang calculé (tierApp) va à l'application", async () => {
+  oublierSondeTiersApplication();
+  const tables = mondeValidation();
+  await ecrireDecksApplications(fauxEtat(tables, []), "c1", LIVRAISON, {
+    tierForce: null,
+    pertinenceScore: 91,
+    pod: "remakes_mentalapp",
+    tierApp: "A",
+  });
+  assertEquals([tables.contenu_pertinences[0].note, tables.contenu_pertinences[0].score], [70, 91]);
+  assertEquals([tables.contenu_tiers_application[0].tier, tables.contenu_tiers_application[0].passages_prevus], ["A", 4]);
+  // Rang imposé par l'admin : il passe aussi par `tierApp` (la validation le lui donne).
+  const t2 = mondeValidation();
+  await ecrireDecksApplications(fauxEtat(t2, []), "c1", LIVRAISON, { tierForce: "C", pertinenceScore: 91, pod: "p", tierApp: "C" });
+  assertEquals(t2.contenu_tiers_application[0].tier, "C");
   oublierSondeTiersApplication();
 });
 

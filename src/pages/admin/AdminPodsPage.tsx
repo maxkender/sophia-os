@@ -19,9 +19,11 @@ import {
   POD_VIDEO,
   listerLivraisons,
   listerPods,
+  nomApplication,
   parPod,
   rejeterLivraison,
   validerLivraison,
+  variantesDeck,
   type Livraison,
   type PreuveOriginal,
   type StatutLivraison,
@@ -38,7 +40,10 @@ function Deck({ livraison }: { livraison: Livraison }) {
   const { t } = useTranslation();
   const langues = languesOrdonnees(livraison);
   const [langue, setLangue] = React.useState(langues[0]);
-  const deck = livraison.decks[langue];
+  // Sophia et/ou les applications livrées (pod 6 : UnSwipe seul).
+  const variantes = variantesDeck(livraison, langue);
+  const [cle, setCle] = React.useState<string | null>(null);
+  const deck = variantes.find((v) => v.cle === cle) ?? variantes[0];
   return (
     <div className="space-y-2">
       {langues.length > 1 && (
@@ -46,6 +51,15 @@ function Deck({ livraison }: { livraison: Livraison }) {
           {langues.map((l) => (
             <Button key={l} size="sm" variant={l === langue ? "default" : "outline"} onClick={() => setLangue(l)}>
               {drapeauLangue(l)} {l}
+            </Button>
+          ))}
+        </div>
+      )}
+      {(variantes.length > 1 || (deck && deck.cle !== "sophia")) && (
+        <div className="flex flex-wrap gap-1">
+          {variantes.map((v) => (
+            <Button key={v.cle} size="sm" variant={v.cle === deck?.cle ? "secondary" : "ghost"} onClick={() => setCle(v.cle)}>
+              {nomApplication(v.cle)}
             </Button>
           ))}
         </div>

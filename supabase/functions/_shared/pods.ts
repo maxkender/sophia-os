@@ -221,20 +221,82 @@ export interface DeckDepose {
  */
 const RE_CODE_LANGUE = /^[a-z]{2}(-(?:[A-Z]{2}|\d{3}))?$/;
 
-/** Contrôles d'un dépôt AVANT tout envoi au stockage. Renvoie les erreurs. */
-export function verifierDepot(decks: Record<string, DeckDepose> | null | undefined, langueSource: string): string[] {
+/**
+ * Contrôles d'un dépôt AVANT tout envoi au stockage. Renvoie les erreurs.
+ *
+ * `slideApp` :
+ * - `"sophia"` (défaut) : le label sert Sophia, chaque deck porte la slide
+ *   Sophia (`position_sophia`) ;
+ * - `"application"` : le label ne sert PAS Sophia (pod 6, label UnSwipe seul).
+ *   Chaque deck porte UNE slide de l'application du label (`position_app`, ou
+ *   son alias `position_sophia`), jamais la couverture : l'OS en tire la
+ *   variante de l'application (`decksApplicationDepuisBase`).
+ */
+export function verifierDepot(
+  decks: Record<string, DeckDepose> | null | undefined,
+  langueSource: string,
+  slideApp: "sophia" | "application" = "sophia",
+): string[] {
   const erreurs: string[] = [];
   const langues = Object.keys(decks ?? {});
   if (!langues.length) return ["aucun deck"];
   if (!langues.includes(langueSource)) erreurs.push(`pas de deck dans la langue source (${langueSource})`);
   for (const [langue, deck] of Object.entries(decks ?? {})) {
     if (!RE_CODE_LANGUE.test(langue)) erreurs.push(`langue invalide : ${langue}`);
-    const positions = (deck?.slides ?? []).map((s) => Number(s.position));
+    const slides = deck?.slides ?? [];
+    const positions = slides.map((s) => Number(s.position));
     if (!positions.length) erreurs.push(`${langue} : deck vide`);
     if (new Set(positions).size !== positions.length) erreurs.push(`${langue} : positions en double`);
-    if (!(deck?.slides ?? []).some((s) => s.position_sophia)) erreurs.push(`${langue} : aucune slide de l'app`);
+    if (slideApp === "sophia") {
+      if (!slides.some((s) => s.position_sophia)) erreurs.push(`${langue} : aucune slide de l'app`);
+      continue;
+    }
+    const apps = slides.filter(estSlideApp);
+    if (apps.length !== 1) erreurs.push(`${langue} : ${apps.length} slide(s) de l'app (une seule attendue)`);
+    else if (positions.length && Number(apps[0].position) === Math.min(...positions)) {
+      erreurs.push(`${langue} : la slide de l'app ne peut pas être la couverture`);
+    }
   }
   return erreurs;
+}
+
+/** Slide d'un deck déposé, une fois son image au stockage. */
+export interface SlideEnvoyee {
+  position: number;
+  media_id: string;
+  url: string | null;
+  /** La slide de l'application (`position_app` ou `position_sophia` au dépôt). */
+  app: boolean;
+}
+
+/**
+ * Label qui ne sert pas Sophia : le deck déposé EST celui de l'application.
+ * On en tire sa variante (`decks_applications`), mêmes images, la slide de
+ * l'app marquée ; le deck de base garde ces images sans aucune slide Sophia.
+ */
+export function decksApplicationDepuisBase(
+  slugApp: string,
+  decks: Record<string, { hashtags: string; slides: SlideEnvoyee[] }>,
+): DecksApplicationsLivres {
+  const parLangue: Record<string, { hashtags?: string; slides: SlideAppLivree[] }> = {};
+  for (const [langue, deck] of Object.entries(decks)) {
+    parLangue[langue] = {
+      hashtags: deck.hashtags,
+      slides: [...deck.slides]
+        .sort((a, b) => a.position - b.position)
+        .map((s) => ({ position: s.position, media_id: s.media_id, url: s.url, position_sophia: s.app })),
+    };
+  }
+  return { [slugApp]: parLangue };
+}
+
+/**
+ * Applications servies par le label d'un pod, hors Sophia, ou `null` s'il sert
+ * Sophia (règle d'héritage : un label sans ligne sert Sophia).
+ */
+export function applicationsHorsSophia(idsApplicationsDuLabel: readonly string[], idSophia: string): string[] | null {
+  if (!idsApplicationsDuLabel.length || idsApplicationsDuLabel.includes(idSophia)) return null;
+  return [...idsApplicationsDuLabel];
 }
 
 /**
@@ -351,7 +413,7 @@ export async function ecrireDecksApplications(
   supabase: Supabase,
   contenuId: string,
   livraison: { id: string; decks_applications?: DecksApplicationsLivres | null },
-  opts: { tierForce: "A" | "B" | "C" | null; pertinenceScore: number | null; pod: string },
+  opts: { tierForce: "A" | "B" | "C" | null; pertinenceScore: number | null; pod: string; tierApp?: Tier | null },
 ): Promise<string[]> {
   const decksApps = livraison.decks_applications ?? {};
   const slugs = Object.keys(decksApps).filter((s) => Object.keys(decksApps[s] ?? {}).length > 0);
@@ -412,7 +474,9 @@ export async function ecrireDecksApplications(
     if (error) throw new Error(`médias : ${error.message ?? error}`);
   }
 
-  const tierApp: Tier = opts.tierForce ?? (TIER_ORIGINAL as Tier);
+  // Label hors Sophia (pod 6) : le rang vient de la note d'import, comme le
+  // rang Sophia d'un pod classique. Sinon : rang imposé, ou celui d'un original.
+  const tierApp: Tier = opts.tierApp ?? opts.tierForce ?? (TIER_ORIGINAL as Tier);
   const brut = Math.round(Number(opts.pertinenceScore ?? 0));
   const score = Math.max(PERTINENCE_MIN_HORS_SOPHIA, Math.min(100, Math.max(0, Number.isFinite(brut) ? brut : 0)));
   const note = NOTE_TIER_POD[tierApp as "A" | "B" | "C"] ?? NOTE_TIER_POD.B;

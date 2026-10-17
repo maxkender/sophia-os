@@ -433,6 +433,19 @@ export const en = {
       retenue: "selected",
       iaCompteur: "AI: {{autorises}} call(s) out of {{plafond}} allowed, {{bloques}} blocked",
     },
+    simFaceSwapVideo: {
+      title: "Pure video face-swap test",
+      subtitle:
+        "Pick a persona and a reference video: Kling puts the persona’s face on the video. Nothing else — no account, label, caption, concat, or production post.",
+      persona: "UGC persona",
+      video: "Reference video",
+      lancer: "Run face swap",
+      enCours: "Kling face swap…",
+      aide: "Isolated test. Writes only a file under ugc/test-runs/. Does not touch assignment or calendars.",
+      logs: "Logs",
+      logsAttente: "Connecting to stream…",
+      ok: "Face swap ready — play below.",
+    },
     tests: {
       title: "Tests",
       subtitle:

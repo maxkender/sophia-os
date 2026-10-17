@@ -2169,6 +2169,7 @@ export const en = {
       copierTout: "Copy all texts",
       taperPourCopier: "Tap to copy",
       texteSlide: "Text to put on the photo",
+      texteSlideAucun: "No text on this slide: post the photo as it is.",
       ouvrirMusique: "Open the sound",
       musiqueFavori: "Click the link and add it to your favorites.",
       photoManquante: "Photo not cleaned",

@@ -12,10 +12,14 @@
 --
 -- Même mécanique que la cohorte Ruul (0296) : un trigger sur `comptes` repousse
 -- `warmup_ends_at`, rien d'autre ne change (l'assignation lit toujours
--- `warmup_ends_at <= now()`). Les posters de la cohorte Ruul ne sont PAS
--- concernés : leur trigger et leur lundi de démarrage (`debut_le`) restent
--- tels quels. Le « skip warmup » de l'admin (fin = maintenant) n'est pas
--- touché, ni les comptes CM (pas de warm-up).
+-- `warmup_ends_at <= now()`). Le « skip warmup » de l'admin (fin = maintenant)
+-- n'est pas touché, ni les comptes CM (pas de warm-up).
+--
+-- Cohorte Ruul aussi : plus de minimum de 24 h. Ce trigger passe avant le leur
+-- (ordre alphabétique des noms), qui garde ensuite le plus tard des deux entre
+-- ce lundi et leur lundi de démarrage (`debut_le`) : lancé avant `debut_le`,
+-- même le dimanche, posts à `debut_le` ; lancé après, posts le lundi qui suit
+-- le clic.
 --
 -- Les 24 warm-up déjà en cours (minuteur 24 h, fin avant lundi matin) ne sont
 -- pas réécrits.
@@ -36,13 +40,6 @@ begin
      or new.warmup_ends_at <= now()
      or new.warmup_ends_at is not distinct from old.warmup_ends_at
      or new.type_compte is distinct from 'perso' then
-    return new;
-  end if;
-  -- Cohorte Ruul : son propre lundi (0296).
-  if exists (
-    select 1 from public.hub_posteurs h
-    where h.profile_id = new.poster_id and h.statut = 'cree'
-  ) then
     return new;
   end if;
   -- Jour du clic à Paris, puis le lundi qui suit (isodow : lundi 1 → +7,

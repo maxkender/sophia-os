@@ -177,7 +177,7 @@ export const ECRANS: Ecran[] = [
       {
         type: "alerte",
         ton: "orange",
-        titre: "The next 24 hours",
+        titre: "Until your first posts, on the Monday after you start",
         items: [
           "Scroll through a few videos, about 5 minutes, IN THE NICHE YOU WILL BE POSTING IN.",
           "Follow a few people, leave comments, repost.",

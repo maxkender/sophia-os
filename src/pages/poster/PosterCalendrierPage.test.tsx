@@ -91,15 +91,24 @@ describe("calendrier poster : warm-up jusqu'au lundi", () => {
     expect(screen.queryByText(/FIRST POSTS/)).not.toBeInTheDocument();
   });
 
-  it("cohorte Ruul : ses propres dates, pas les cases du warm-up au lundi", async () => {
+  it("cohorte Ruul, pas lancé : leur lundi prévu sur le calendrier", async () => {
+    lireCohorteAccueil.mockResolvedValue({ cohorteRuul: true, emailRuul: "a@b.c", debutLe: "2026-11-02" });
+    mesComptes.mockResolvedValue([compte({})]);
+    afficher();
+
+    expect(await screen.findByText("Your first week, step by step")).toBeInTheDocument();
+    expect(screen.queryByText(/FIRST POSTS/)).not.toBeInTheDocument();
+  });
+
+  it("cohorte Ruul, warm-up lancé : mêmes cases que les autres, une seule case de premiers posts", async () => {
     lireCohorteAccueil.mockResolvedValue({ cohorteRuul: true, emailRuul: "a@b.c", debutLe: "2026-10-26" });
     mesComptes.mockResolvedValue([
       compte({ warmup_started_at: "2026-10-20T08:00:00Z", warmup_ends_at: "2026-10-25T23:00:00Z" }),
     ]);
     afficher();
 
-    expect(await screen.findAllByText(/First post/)).not.toHaveLength(0);
-    expect(screen.queryByText(/FIRST POSTS/)).not.toBeInTheDocument();
-    expect(screen.queryByText(/Warm-up in progress/)).not.toBeInTheDocument();
+    expect(await screen.findByText(/Warm-up in progress: your first posts arrive on/)).toBeInTheDocument();
+    expect(screen.getAllByText(/FIRST POSTS/)).toHaveLength(1);
+    expect(screen.queryByText(/First post$/)).not.toBeInTheDocument();
   });
 });

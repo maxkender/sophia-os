@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Check, MessageCircle, Wallet } from "lucide-react";
 
+import { lundiApres, premierJourPosts } from "@/features/moteur/premiersPosts";
 import { cn } from "@/lib/utils";
 
 import { LIEN_SLACK, SALON_COHORTE_RUUL } from "./contenu";
@@ -78,30 +79,26 @@ export function FriseCohorteRuul({
   const quandLancer =
     etats.lancer === "fait"
       ? t("calendrier.ruul.frise.lancerFait")
-      : conseil.cas === "a_lancer_dimanche"
-      ? t("calendrier.ruul.frise.lancerDimanche")
       : conseil.cas === "a_lancer_en_retard"
       ? t("calendrier.ruul.frise.lancerRetard", { lundi })
-      : t("calendrier.ruul.frise.lancerQuand", { samedi: jour(ajouterJours(debutLe, -2)) });
+      : t("calendrier.ruul.frise.lancerQuand", { dimanche: jour(ajouterJours(debutLe, -1)) });
 
-  const finAuLundi = conseil.cas === "a_lancer" || (conseil.cas === "en_cours" && conseil.finAuLundi);
+  // Plus de minimum de 24 h (0301) : lancé avant le lundi de démarrage, même le
+  // dimanche, posts ce lundi-là ; lancé après, le lundi qui suit le clic.
+  const lundiPrevu = conseil.cas === "a_lancer_en_retard" ? jour(lundiApres(new Date())) : lundi;
   const quandWarmup =
     conseil.cas === "en_cours"
       ? t("calendrier.ruul.frise.warmupJusqua", { fin: formaterInstantParis(conseil.fin, i18n.language) })
-      : conseil.cas === "a_lancer"
-      ? t("calendrier.ruul.frise.warmupJusqua", { fin: t("calendrier.ruul.frise.lundiMinuit", { lundi }) })
       : conseil.cas === "termine"
       ? t("calendrier.ruul.frise.warmupFini")
-      : t("calendrier.ruul.frise.warmup24h");
+      : t("calendrier.ruul.frise.warmupJusqua", { fin: t("calendrier.ruul.frise.lundiMinuit", { lundi: lundiPrevu }) });
 
   const quandPosts =
     conseil.cas === "termine"
       ? t("calendrier.ruul.frise.postsEnCours")
-      : finAuLundi
-      ? t("calendrier.ruul.frise.postsLundi", { lundi })
-      : conseil.cas === "a_lancer_dimanche"
-      ? t("calendrier.ruul.frise.postsMardi")
-      : t("calendrier.ruul.frise.postsLendemain");
+      : conseil.cas === "en_cours"
+      ? t("calendrier.ruul.frise.postsLundi", { lundi: jour(premierJourPosts(conseil.fin)) })
+      : t("calendrier.ruul.frise.postsLundi", { lundi: lundiPrevu });
 
   return (
     <section className="space-y-3 rounded-lg border border-primary/30 bg-primary/5 p-4">

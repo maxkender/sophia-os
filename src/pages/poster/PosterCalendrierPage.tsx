@@ -378,10 +378,14 @@ export function PosterCalendrierPage() {
       })
     : null;
 
-  // Hors cohorte Ruul (ses dates à part, au-dessus) : warm-up jusqu'au lundi qui
-  // suit le clic (0301). Le bandeau dit quand arrivent les premiers posts, le
-  // calendrier couvre les jours de warm-up et marque la case « FIRST POSTS ».
-  const warmupLundi = Boolean(compte && !estCm && !debutRuul);
+  // Warm-up jusqu'au lundi qui suit le clic (0301), cohorte Ruul comprise (au
+  // plus tôt leur lundi de démarrage). Le bandeau dit quand arrivent les
+  // premiers posts, le calendrier couvre les jours de warm-up et marque la case
+  // « FIRST POSTS ».
+  const warmupLundi = Boolean(compte && !estCm);
+  const lundiApresAujourdhui = lundiApres(new Date());
+  const lundiSiLanceAujourdhui =
+    debutRuul && debutRuul > lundiApresAujourdhui ? debutRuul : lundiApresAujourdhui;
   const premiersPostsLe =
     warmupLundi && warmupStatut === "en_cours" && compte?.warmup_ends_at
       ? premierJourPosts(compte.warmup_ends_at)
@@ -439,10 +443,10 @@ export function PosterCalendrierPage() {
                   })
                 : t("calendrier.warmupRappel")}
           </p>
-          {warmupStatut === "attente" && !debutRuul && (
+          {warmupStatut === "attente" && !(debutRuul && !ugc) && (
             <p className="text-xs text-muted-foreground">
               {t(ugc ? "calendrier.warmupADemarrerAideUgc" : "calendrier.warmupADemarrerAide", {
-                lundi: formaterJour(lundiApres(new Date()), i18n.language),
+                lundi: formaterJour(lundiSiLanceAujourdhui, i18n.language),
               })}
             </p>
           )}
@@ -595,7 +599,8 @@ export function PosterCalendrierPage() {
                     {numero}
                   </span>
 
-                  {debutRuul && date === debutRuul && (
+                  {/* Cohorte Ruul : leur lundi prévu, tant que le warm-up ne pose pas ses propres cases. */}
+                  {debutRuul && !casesWarmup && date === debutRuul && (
                     <p className="w-full max-w-full truncate rounded bg-warning/20 px-1.5 py-1 font-medium text-[11px] leading-tight">
                       🚀 {t("calendrier.ruul.premierPost")}
                     </p>

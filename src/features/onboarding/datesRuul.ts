@@ -2,9 +2,9 @@
  * Dates d'un poster de la cohorte Ruul (venu du site), en heure de Paris
  * comme l'OS : lundi de démarrage, fin du warm-up, premier paiement.
  *
- * - Le warm-up lancé avant le lundi dure jusqu'au lundi 00:00 (trigger de
- *   0296), au moins 24 h : lancé le dimanche, il déborde sur le lundi et les
- *   premiers posts glissent au mardi.
+ * - Le warm-up lancé avant le lundi dure jusqu'au lundi 00:00 (triggers de
+ *   0296 et 0301), sans minimum : lancé le dimanche, posts le lundi. Lancé
+ *   après, il dure jusqu'au lundi qui suit le clic.
  * - Les posts sont attribués la nuit aux comptes sortis du warm-up : ils
  *   arrivent le matin qui suit la fin du warm-up.
  * - Premier paiement : le lundi qui suit la première semaine de posts
@@ -12,11 +12,9 @@
  */
 
 export type ConseilWarmupRuul =
-  /** Pas lancé, au plus tard le samedi d'avant le lundi : posts le lundi. */
+  /** Pas lancé, au plus tard le dimanche d'avant le lundi : posts le lundi. */
   | { cas: "a_lancer" }
-  /** Pas lancé, on est le dimanche d'avant : posts le mardi. */
-  | { cas: "a_lancer_dimanche" }
-  /** Pas lancé, le lundi est passé : 24 h, puis posts le lendemain matin. */
+  /** Pas lancé, le lundi est passé : posts le lundi qui suit le clic. */
   | { cas: "a_lancer_en_retard" }
   /** En cours : `finAuLundi` = se termine pile au lundi 00:00 (posts ce matin-là). */
   | { cas: "en_cours"; fin: string; finAuLundi: boolean }
@@ -73,7 +71,6 @@ export function conseilWarmupRuul(opts: {
   }
   const aujourdhui = partiesParis(maintenant).date;
   if (aujourdhui >= opts.debutLe) return { cas: "a_lancer_en_retard" };
-  if (aujourdhui === ajouterJours(opts.debutLe, -1)) return { cas: "a_lancer_dimanche" };
   return { cas: "a_lancer" };
 }
 

@@ -629,14 +629,27 @@ function CarteCohorte({
               {
                 cle: "verdict",
                 titre: t("repartition.colAtteignable"),
-                rendu: (l) =>
-                  l.verdict.atteignable ? (
+                rendu: (l) => {
+                  // Sans cible posée, `lireCibleApplications` rend des parts
+                  // ÉGALES pour montrer le manque. Juger « impossible » une
+                  // cible que personne n'a choisie serait un faux reproche :
+                  // le plancher, lui, reste vrai, il ne dépend que de la
+                  // cohorte.
+                  if (l.part.base === "aucune" || cible.source === "defaut") {
+                    return (
+                      <span className="text-xs text-muted-foreground">
+                        {t("repartition.verdictSansCible")}
+                      </span>
+                    );
+                  }
+                  return l.verdict.atteignable ? (
                     <Badge variant="outline">{t("repartition.atteignableOui")}</Badge>
                   ) : (
                     <Badge variant="destructive">
                       {t("repartition.atteignableNon", { minimum: pourcent(l.verdict.minimum) })}
                     </Badge>
-                  ),
+                  );
+                },
               },
             ] satisfies Array<ColonneTableau<Ligne>>
           }

@@ -184,6 +184,23 @@ describe("AdminRepartitionPage — cohorte Ruul", () => {
     expect(ligneCohorte(/Allemand|German/).textContent).toMatch(/Atteignable|Reachable/);
   });
 
+  it("sans cible posée, aucun verdict : on ne juge pas une cible que personne n'a choisie", async () => {
+    // Sans réglage, la page calcule avec des parts ÉGALES pour montrer le
+    // manque. En français, 33,3 % de Sophia contre 45,5 % promis ferait
+    // « impossible » — un faux reproche adressé à une cible fictive.
+    lireCibleRepartitionApps.mockResolvedValue({
+      source: "defaut",
+      parts: { sophia: 100 / 3, unswipe: 100 / 3, micabo: 100 / 3 },
+    });
+    renderPage();
+    await screen.findByText(/Recrues de la cohorte Ruul|Recruits from the Ruul cohort/);
+    const ligne = ligneCohorte(/Français|French/);
+    expect(ligne.textContent).toMatch(/cible non posée|no target set/);
+    expect(ligne.textContent).not.toMatch(/Impossible/);
+    // Le plancher, lui, ne dépend pas de la cible : il reste affiché.
+    expect(ligne.textContent).toMatch(/45,5 %/);
+  });
+
   it("la projection dit combien des vingt prochaines recrues sont promises", async () => {
     renderPage();
     const titre = await screen.findByText(

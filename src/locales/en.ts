@@ -2148,6 +2148,7 @@ export const en = {
       mesure_aucune: "nothing",
       atteignableOui: "Reachable",
       atteignableNon: "Impossible below {{minimum}}",
+      verdictSansCible: "no target set",
       dontCohorte: "{{n}} / {{total}}",
       dontCohorteCourt: "{{n}} from cohort",
     },

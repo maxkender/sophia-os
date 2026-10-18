@@ -2946,23 +2946,23 @@ export const en = {
         "Recommend someone to join Sophia as a creator. Each proposal is reviewed by admin.",
       bonusTitre: "Referral bonus",
       bonusCorps:
-        "If the person you recruit publishes at least {{posts}} posts, you receive ${{bonus}}. Refer 10 people who each hit {{posts}} posts and you receive ${{dizaine}}.",
+        "If the person you recruit completes their first week of posting, you receive ${{bonus}}. Refer 10 people who each complete their first week and you receive ${{dizaine}}.",
       conditionsTitre: "Requirements",
       condPresent:
         "This person must be PHYSICALLY present in one of the OS countries (listed below).",
       condFiable: "They must be able to post regularly and reliably.",
-      condContact: "Share their Upwork profile link, email, or phone number.",
+      condContact: "Share their Upwork profile link or their email.",
       condMajeur: "They must be 18 or older.",
       paysTitre: "Available countries (one per OS language)",
       formTitre: "New proposal",
-      formSous: "One contact is enough: Upwork, email, or phone.",
+      formSous: "One contact is enough: Upwork or email.",
       prenom: "First name",
       nom: "Last name (optional)",
       paysLabel: "Country they are in",
       upwork: "Upwork link",
       email: "Email",
       telephone: "Phone",
-      contactAide: "Fill in at least one of the three contacts.",
+      contactAide: "Fill in at least one of the two contacts.",
       checkPresent: "I confirm they are physically in the selected country.",
       checkFiable: "I confirm they can post regularly and reliably.",
       checkMajeur: "I confirm they are 18 or older.",
@@ -2970,11 +2970,11 @@ export const en = {
       envoye: "Proposal sent — admin will review it.",
       mesTitre: "Your proposals",
       mesSous:
-        "{{n}} accepted — potential ${{bonus}} if each person publishes at least 5 posts.",
+        "{{n}} accepted — potential ${{bonus}} if each person completes their first week of posting.",
       mesVide: "No proposals yet.",
       dashTitre: "Creator referral",
       dashCorps:
-        "Recommend someone to become a creator. If they publish at least 5 posts, you receive $10. 10 people = $100.",
+        "Recommend someone to become a creator. If they complete their first week of posting, you receive $10. 10 people = $100.",
       dashLien: "Open referral →",
       parrain: "Referred by",
       recuLe: "Received",
@@ -2986,9 +2986,9 @@ export const en = {
       adminSubtitle:
         "Every proposal from a creator. Accept to validate the profile — then create the account from Posters.",
       adminBonus:
-        "Bonus shown to creators: {{posts}} posts by the recruit → ${{bonus}} for the referrer.",
+        "Bonus shown to creators: the recruit completes their first week of posting → ${{bonus}} for the referrer.",
       adminStats:
-        "{{attente}} pending · {{acceptees}} accepted · potential ${{potentiel}} (if 5 posts each).",
+        "{{attente}} pending · {{acceptees}} accepted · potential ${{potentiel}} (if each completes their first week).",
       adminApresAccept:
         "Accepting does not create the account: open Posters next to hire them.",
       adminVide: "No proposals.",
@@ -3030,12 +3030,11 @@ export const en = {
       err: {
         prenom: "First name is required.",
         pays: "Pick an OS country.",
-        contact: "Provide at least one contact: Upwork, email, or phone.",
+        contact: "Provide at least one contact: Upwork or email.",
         present: "Confirm they are physically in that country.",
         fiable: "Confirm they can post regularly and reliably.",
         majeur: "Confirm they are 18 or older.",
         email: "The email is not valid.",
-        telephone: "The phone number is not valid.",
         upwork: "The Upwork link is not valid.",
         session: "Session expired — sign in again.",
         envoi: "Could not send the proposal. Try again.",

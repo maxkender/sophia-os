@@ -2947,23 +2947,23 @@ export const fr = {
         "Propose une personne pour qu’elle rejoigne Sophia en tant que créateur. Chaque proposition est examinée par l’admin.",
       bonusTitre: "Bonus de parrainage",
       bonusCorps:
-        "Si la personne recrutée fait au moins {{posts}} posts, tu reçois {{bonus}} $. Si tu en recommandes 10 (qui font chacune {{posts}} posts), tu reçois {{dizaine}} $.",
+        "Si la personne recrutée termine sa première semaine de posts, tu reçois {{bonus}} $. Si tu en recommandes 10 (qui terminent chacune leur première semaine), tu reçois {{dizaine}} $.",
       conditionsTitre: "Conditions",
       condPresent:
         "Cette personne doit être présente PHYSIQUEMENT dans un des pays de l’OS (liste ci-dessous).",
       condFiable: "Elle doit pouvoir poster régulièrement et de manière fiable.",
-      condContact: "Donne son lien Upwork, son email ou son numéro de téléphone.",
+      condContact: "Donne son lien Upwork ou son email.",
       condMajeur: "Elle doit être majeure (18 ans ou plus).",
       paysTitre: "Pays disponibles (un par langue de l’OS)",
       formTitre: "Nouvelle proposition",
-      formSous: "Un seul contact suffit : Upwork, email ou téléphone.",
+      formSous: "Un seul contact suffit : Upwork ou email.",
       prenom: "Prénom",
       nom: "Nom (optionnel)",
       paysLabel: "Pays où elle est présente",
       upwork: "Lien Upwork",
       email: "Email",
       telephone: "Téléphone",
-      contactAide: "Remplis au moins un des trois contacts.",
+      contactAide: "Remplis au moins un des deux contacts.",
       checkPresent: "Je confirme qu’elle est physiquement dans le pays choisi.",
       checkFiable: "Je confirme qu’elle peut poster régulièrement et de manière fiable.",
       checkMajeur: "Je confirme qu’elle est majeure (18+).",
@@ -2971,11 +2971,11 @@ export const fr = {
       envoye: "Proposition envoyée — l’admin va l’examiner.",
       mesTitre: "Tes propositions",
       mesSous:
-        "{{n}} acceptée(s) — bonus potentiel {{bonus}} $ si chacune fait au moins 5 posts.",
+        "{{n}} acceptée(s) — bonus potentiel {{bonus}} $ si chacune termine sa première semaine de posts.",
       mesVide: "Aucune proposition pour l’instant.",
       dashTitre: "Parrainage créateur",
       dashCorps:
-        "Recommande quelqu’un pour devenir créateur. S’il ou elle fait au moins 5 posts, tu reçois 10 $. 10 personnes = 100 $.",
+        "Recommande quelqu’un pour devenir créateur. S’il ou elle termine sa première semaine de posts, tu reçois 10 $. 10 personnes = 100 $.",
       dashLien: "Ouvrir le parrainage →",
       parrain: "Recommandé par",
       recuLe: "Reçu le",
@@ -2987,9 +2987,9 @@ export const fr = {
       adminSubtitle:
         "Chaque proposition d’un créateur. Accepte pour valider le profil — crée ensuite le compte depuis Posters.",
       adminBonus:
-        "Bonus indiqué au créateur : {{posts}} posts de la recrue → {{bonus}} $ pour le parrain.",
+        "Bonus indiqué au créateur : la recrue termine sa première semaine de posts → {{bonus}} $ pour le parrain.",
       adminStats:
-        "{{attente}} en attente · {{acceptees}} acceptée(s) · potentiel {{potentiel}} $ (si 5 posts chacune).",
+        "{{attente}} en attente · {{acceptees}} acceptée(s) · potentiel {{potentiel}} $ (si chacune termine sa première semaine).",
       adminApresAccept:
         "Accepter ne crée pas le compte : ouvre ensuite Posters pour embaucher la personne.",
       adminVide: "Aucune proposition.",
@@ -3031,12 +3031,11 @@ export const fr = {
       err: {
         prenom: "Le prénom est obligatoire.",
         pays: "Choisis un pays de l’OS.",
-        contact: "Donne au moins un contact : Upwork, email ou téléphone.",
+        contact: "Donne au moins un contact : Upwork ou email.",
         present: "Confirme qu’elle est physiquement dans ce pays.",
         fiable: "Confirme qu’elle peut poster régulièrement et de manière fiable.",
         majeur: "Confirme qu’elle est majeure.",
         email: "L’email n’est pas valide.",
-        telephone: "Le numéro de téléphone n’est pas valide.",
         upwork: "Le lien Upwork n’est pas valide.",
         session: "Session expirée — reconnecte-toi.",
         envoi: "Impossible d’envoyer la proposition. Réessaie.",

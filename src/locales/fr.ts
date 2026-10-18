@@ -2692,9 +2692,16 @@ export const fr = {
         "⚠️ N'oublie pas de warm up le compte avant de commencer à poster (et chaque semaine, scrolle 5-6 minutes pour que TikTok ne te prenne pas pour un robot) !",
       warmupADemarrer: "Warmup pas encore démarré",
       warmupADemarrerAideUgc:
-        "Quand tes comptes TikTok et Instagram sont prêts, clique sur « Commencer le warmup ». Le timer part ; à la fin, tu reçois une vidéo par jour à publier sur les deux.",
+        "Quand tes comptes TikTok et Instagram sont prêts, clique sur « Commencer le warmup ». Ton warm-up dure alors jusqu'au lundi suivant, et ta première vidéo arrive ce lundi matin. Lancé aujourd'hui → première vidéo le {{lundi}}.",
       warmupADemarrerAide:
-        "Quand ton compte TikTok est prêt, clique sur « Commencer le warmup ». Le timer part ; à la fin, tu entres dans le process (posts assignés).",
+        "Quand ton compte TikTok est prêt, clique sur « Commencer le warmup ». Ton warm-up dure alors jusqu'au lundi suivant, et tes premiers posts arrivent ce lundi matin. Lancé aujourd'hui → premiers posts le {{lundi}}.",
+      warmupEnCours: "Warm-up en cours : tes premiers posts arrivent le {{jour}}",
+      warmupEnCoursUgc: "Warm-up en cours : ta première vidéo arrive le {{jour}}",
+      warmupEnCoursAide:
+        "D'ici là, utilise TikTok normalement chaque jour : scrolle, like, abonne-toi. Ne poste jamais. Rien à poster pour l'instant : c'est normal.",
+      caseWarmup: "Warm-up",
+      casePremiersPosts: "PREMIERS POSTS",
+      legendeWarmup: "🔥 Warm-up : utilise TikTok normalement, ne poste jamais. 🚀 Premiers posts : ils arrivent ce matin-là.",
       ruul: {
         frise: {
           titre: "Ta première semaine, étape par étape",
@@ -2745,7 +2752,7 @@ export const fr = {
         "À la création d’un poster, une entrée (label + UGC ou non) est prise en tête de file. Le compte n’entre dans le process (assignation, classements, stats) qu’après le warmup.",
       heures: "Durée du warmup (heures)",
       heuresAide:
-        "Timer lancé quand le créateur clique « Commencer le warmup » dans son calendrier (défaut 24 h).",
+        "Cohorte Ruul seulement (minimum avant leur lundi de démarrage). Tous les autres créateurs : le warm-up dure du clic sur « Commencer le warmup » jusqu'au lundi suivant 00:00 (Paris), premiers posts ce lundi-là.",
       fileTitre: "File des prochains comptes (label + UGC)",
       fileApp: "File des créateurs de {{app}} — un nouveau compte {{app}} prend le label suivant à sa création.",
       fileDesc:
@@ -2794,7 +2801,7 @@ export const fr = {
       skipAide: "Coupe le timer warmup — le compte devient immédiatement actif (en process).",
       enCours: "Warmup · {{temps}}",
       apresCreation:
-        "Ensuite : le créateur clique « Commencer le warmup » dans son calendrier pour lancer le timer. À la fin, le compte entre dans le process.",
+        "Ensuite : le créateur clique « Commencer le warmup » dans son calendrier. Le warm-up dure jusqu'au lundi suivant, et le compte reçoit ses premiers posts ce lundi-là.",
       phasePasCree: "Compte pas créé",
       phaseWarmupAttente: "Warmup — à démarrer",
       phaseWarmup: "Warmup · {{temps}}",

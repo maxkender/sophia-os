@@ -27,7 +27,7 @@ import {
   type MonCompte,
 } from "@/features/moteur/api";
 import { BandeauCohorteRuul, FriseCohorteRuul } from "@/features/onboarding/CohorteRuulCalendrier";
-import { premierPaiementRuul } from "@/features/onboarding/datesRuul";
+import { formaterJour, premierPaiementRuul } from "@/features/onboarding/datesRuul";
 import {
   comptePrincipal,
   ecrireCompteActif,
@@ -38,6 +38,7 @@ import { drapeauLangue } from "@/features/moteur/langues";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
 import { VideosAPoster } from "@/features/pods/VideosAPoster";
 import { statutWarmup } from "@/features/moteur/warmup";
+import { calendrierWarmup, lundiApres, premierJourPosts } from "@/features/moteur/premiersPosts";
 import { useAuth } from "@/features/auth/AuthContext";
 import { cn } from "@/lib/utils";
 
@@ -377,6 +378,23 @@ export function PosterCalendrierPage() {
       })
     : null;
 
+  // Hors cohorte Ruul (ses dates à part, au-dessus) : warm-up jusqu'au lundi qui
+  // suit le clic (0301). Le bandeau dit quand arrivent les premiers posts, le
+  // calendrier couvre les jours de warm-up et marque la case « FIRST POSTS ».
+  const warmupLundi = Boolean(compte && !estCm && !debutRuul);
+  const premiersPostsLe =
+    warmupLundi && warmupStatut === "en_cours" && compte?.warmup_ends_at
+      ? premierJourPosts(compte.warmup_ends_at)
+      : null;
+  const casesWarmup =
+    warmupLundi && !ugc && compte
+      ? calendrierWarmup({
+          warmupStartedAt: compte.warmup_started_at,
+          warmupEndsAt: compte.warmup_ends_at,
+        })
+      : null;
+  const bandeauOrange = warmupStatut === "attente" || Boolean(premiersPostsLe);
+
   return (
     <div className="space-y-8">
       {comptes && comptes.length > 0 && (
@@ -401,7 +419,7 @@ export function PosterCalendrierPage() {
       <div
         className={cn(
           "flex flex-col gap-3 rounded-lg border p-3 sm:flex-row sm:items-center sm:justify-between",
-          warmupStatut === "attente"
+          bandeauOrange
             ? "border-warning/50 bg-warning/10"
             : "border-destructive/40 bg-destructive/10",
         )}
@@ -410,17 +428,26 @@ export function PosterCalendrierPage() {
           <p
             className={cn(
               "text-sm font-medium",
-              warmupStatut === "attente" ? "text-warning" : "text-destructive",
+              bandeauOrange ? "text-warning" : "text-destructive",
             )}
           >
             {warmupStatut === "attente"
               ? t("calendrier.warmupADemarrer")
-              : t("calendrier.warmupRappel")}
+              : premiersPostsLe
+                ? t(ugc ? "calendrier.warmupEnCoursUgc" : "calendrier.warmupEnCours", {
+                    jour: formaterJour(premiersPostsLe, i18n.language),
+                  })
+                : t("calendrier.warmupRappel")}
           </p>
-          {warmupStatut === "attente" && !(debutRuul && !ugc) && (
+          {warmupStatut === "attente" && !debutRuul && (
             <p className="text-xs text-muted-foreground">
-              {ugc ? t("calendrier.warmupADemarrerAideUgc") : t("calendrier.warmupADemarrerAide")}
+              {t(ugc ? "calendrier.warmupADemarrerAideUgc" : "calendrier.warmupADemarrerAide", {
+                lundi: formaterJour(lundiApres(new Date()), i18n.language),
+              })}
             </p>
+          )}
+          {premiersPostsLe && (
+            <p className="text-xs text-muted-foreground">{t("calendrier.warmupEnCoursAide")}</p>
           )}
         </div>
         {compte && (
@@ -432,6 +459,7 @@ export function PosterCalendrierPage() {
               showStart={warmupStatut === "attente"}
               startPending={startWarmup.isPending}
               onStart={() => startWarmup.mutate()}
+              libelle={warmupLundi ? `🔥 ${t("calendrier.caseWarmup")}` : undefined}
             />
             {startWarmup.isError && (
               <span className="text-xs text-destructive">
@@ -553,6 +581,7 @@ export function PosterCalendrierPage() {
                     // colonne à s'élargir et fait déborder toute la grille.
                     "min-h-20 min-w-0 space-y-1 border-b border-r p-1.5",
                     estAujourdhui && "bg-primary/5",
+                    casesWarmup?.joursWarmup.has(date) && "bg-warning/10",
                   )}
                 >
                   <span
@@ -574,6 +603,19 @@ export function PosterCalendrierPage() {
                   {debutRuul && date === premierPaiementRuul(debutRuul) && (
                     <p className="w-full max-w-full truncate rounded bg-success/15 px-1.5 py-1 font-medium text-[11px] text-success leading-tight">
                       💰 {t("calendrier.ruul.premierPaiementCase")}
+                    </p>
+                  )}
+
+                  {casesWarmup?.joursWarmup.has(date) && (
+                    // Téléphone : la case teintée et 🔥 suffisent, le mot ne tiendrait pas.
+                    <p className="w-full max-w-full truncate rounded bg-warning/20 px-1.5 py-1 font-medium text-[11px] leading-tight">
+                      🔥<span className="hidden sm:inline"> {t("calendrier.caseWarmup")}</span>
+                    </p>
+                  )}
+                  {casesWarmup?.premiersPosts === date && (
+                    // Passe à la ligne plutôt que d'être tronquée : c'est LA case à lire.
+                    <p className="w-full max-w-full break-words rounded bg-primary px-1.5 py-1 font-semibold text-[11px] text-primary-foreground leading-tight">
+                      🚀 {t("calendrier.casePremiersPosts")}
                     </p>
                   )}
 
@@ -600,6 +642,9 @@ export function PosterCalendrierPage() {
         </div>
 
         <p className="text-xs text-muted-foreground">{t("calendrier.legende")}</p>
+        {casesWarmup && (
+          <p className="text-xs text-muted-foreground">{t("calendrier.legendeWarmup")}</p>
+        )}
       </section>
       )}
     </div>

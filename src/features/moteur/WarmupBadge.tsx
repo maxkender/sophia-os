@@ -25,6 +25,7 @@ export function WarmupBadge({
   onSkip,
   skipPending,
   showSkip,
+  libelle,
 }: {
   /** Null / absent = phase « compte pas créé ». */
   compteId?: string | null;
@@ -38,6 +39,8 @@ export function WarmupBadge({
   onSkip?: () => void;
   skipPending?: boolean;
   showSkip?: boolean;
+  /** Warmup en cours : remplace le compte à rebours (côté créateur : plus de minuteur depuis 0301). */
+  libelle?: string;
 }) {
   const { t } = useTranslation();
   const phase = phaseCreateur({
@@ -49,10 +52,10 @@ export function WarmupBadge({
   const [, setTick] = React.useState(0);
 
   React.useEffect(() => {
-    if (phase !== "warmup" || statut !== "en_cours") return;
+    if (phase !== "warmup" || statut !== "en_cours" || libelle) return;
     const id = window.setInterval(() => setTick((n) => n + 1), 1000);
     return () => window.clearInterval(id);
-  }, [phase, statut]);
+  }, [phase, statut, libelle]);
 
   if (phase === "pas_cree") {
     return <Badge variant="outline">{t("warmup.phasePasCree")}</Badge>;
@@ -91,7 +94,7 @@ export function WarmupBadge({
   return (
     <span className="inline-flex flex-wrap items-center gap-2">
       <Badge variant="warning" title={endsAt ? new Date(endsAt).toLocaleString() : undefined}>
-        {t("warmup.phaseWarmup", { temps: formaterDuree(restant) })}
+        {libelle ?? t("warmup.phaseWarmup", { temps: formaterDuree(restant) })}
       </Badge>
       {showSkip && onSkip && (
         <Button

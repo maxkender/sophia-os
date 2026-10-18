@@ -322,7 +322,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     cle: "warmup",
-    question: "What do you do during the 24 hours of warmup?",
+    question: "What do you do during your warmup?",
     options: [
       "Post your first slideshow straight away",
       "Scroll about 5 minutes in your niche, follow, comment and repost, without posting yet",

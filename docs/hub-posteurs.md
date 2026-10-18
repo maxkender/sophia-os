@@ -29,8 +29,13 @@ identifiants par email. Ce document décrit le contrat entre les deux.
   n'ont pas de HM. `profiles.manager_id` pointe vers le profil « RUUL cohort »,
   dont l'id est dans le réglage `hub_posteurs` (`{"cohorte_ruul_id": …}`).
   Sans ce réglage, retour au HM de la zone (le moins chargé s'il y en a
-  plusieurs). Payés chaque semaine par Ruul, suivis dans le salon Slack
-  #ruul-cohort (ils rejoignent aussi #welcome) ; leur accueil remplace les
+  plusieurs). Payés chaque semaine par Ruul, suivis dans le salon Slack privé
+  de la cohorte (#ruul-questions ; ils rejoignent aussi #welcome). Le lien
+  d'invitation ne fait entrer que dans le workspace : la fonction
+  `hub-slack-cohorte` (cron toutes les 15 min, migration 0304) retrouve le
+  poster par son email perso et l'invite dans le salon (bot Slack, secret
+  `SLACK_BOT_TOKEN2`, scopes `users:read`, `users:read.email`, `groups:write`,
+  bot membre du salon ; `hub_posteurs.slack_ajoute_le` une fois fait). Leur accueil remplace les
   écrans Slack et Payments
   (`hub_ma_cohorte()`, migration 0297). L'écran Payments demande aussi le
   prénom et le nom de la pièce d'identité, obligatoires pour l'ajouter dans
@@ -99,7 +104,6 @@ sorti du warm-up.
 
 ## Suite prévue
 
-- **Slack** : un bot (app Slack, événement `team_join`) reconnaît le poster par
-  son email perso (`hub_posteurs.email_perso`) et l'ajoute au salon de son HM.
+- **Slack** : fait pour la cohorte Ruul (`hub-slack-cohorte`, voir plus haut).
   L'API Slack ne permet pas d'inviter dans un workspace hors offre Enterprise :
-  le lien d'invitation reste dans l'email.
+  le lien d'invitation reste dans l'email, et il expire au bout de 30 jours.

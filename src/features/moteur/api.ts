@@ -642,7 +642,7 @@ export async function listerPosters(): Promise<PosterProfil[]> {
   const { data: comptes, error: errComptes } = await supabase
     .from("comptes")
     .select(
-      "id, poster_id, type_compte, langue, application_id, handle_tiktok, persona_nom, persona_bio, avatar_url, classement, classement_maj_at, warmup_started_at, warmup_ends_at, comptes_reference(handle_tiktok), applications(slug)",
+      "id, poster_id, type_compte, langue, pays, application_id, parts_applications, handle_tiktok, persona_nom, persona_bio, avatar_url, classement, classement_maj_at, warmup_started_at, warmup_ends_at, comptes_reference(handle_tiktok), applications(slug)",
     )
     .eq("is_active", true)
     .order("created_at", { ascending: false });
@@ -655,8 +655,10 @@ export async function listerPosters(): Promise<PosterProfil[]> {
       id: c.id,
       type_compte: normaliserTypeCompte(c.type_compte),
       langue: c.langue,
+      pays: (c.pays as string | null) ?? null,
       application_id: (c.application_id as string | null) ?? null,
       application_slug: appJoin?.slug ?? null,
+      parts_applications: c.parts_applications ?? null,
       handle_tiktok: c.handle_tiktok,
       persona_nom: c.persona_nom,
       persona_bio: c.persona_bio,

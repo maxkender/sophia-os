@@ -76,8 +76,12 @@ export interface CompteResumePoster {
   id: string;
   type_compte: TypeCompte;
   langue: string;
+  /** Marché du compte (0278). Sans lui, la vignette HM disait « Country not set ». */
+  pays: string | null;
   application_id: string | null;
   application_slug: string | null;
+  /** Répartition par application ; sans elle, la vignette HM affichait « sophia » pour un compte Unswipe. */
+  parts_applications: unknown;
   handle_tiktok: string | null;
   persona_nom: string | null;
   persona_bio: string | null;

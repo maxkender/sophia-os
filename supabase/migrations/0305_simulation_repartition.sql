@@ -35,7 +35,9 @@ returns table (
   comptes_langue integer,
   comptes_pays integer,
   comptes_total integer,
-  passages_restants integer,
+  -- `numeric` et pas `integer` : c'est le type que rend `stats_choix_label`,
+  -- et un `integer` ici fait échouer la fonction à l'exécution.
+  passages_restants numeric,
   demande_jour numeric,
   passages integer,
   perf_label numeric,
@@ -50,6 +52,11 @@ stable
 security definer
 set search_path = public
 as $$
+-- Les paramètres de sortie portent le nom de colonnes réelles (`langue`,
+-- `pays`, `label_id`, `slug`). Sans cette directive, plpgsql peut rendre la
+-- référence ambiguë et la fonction échouerait à l'exécution, pas à la
+-- création : on tranche explicitement en faveur de la colonne.
+#variable_conflict use_column
 declare
   v_app uuid := coalesce(p_application, '00000000-0000-4000-8000-000000000001'::uuid);
   v_pool uuid[];
@@ -118,3 +125,72 @@ comment on function public.simulation_repartition(uuid) is
 
 revoke all on function public.simulation_repartition(uuid) from public;
 grant execute on function public.simulation_repartition(uuid) to authenticated;
+
+-- La même lecture, pour l'APPLICATION cette fois.
+--
+-- POURQUOI À PART. Le label se choisit DANS une application : il faut d'abord
+-- savoir où va le compte. Aujourd'hui c'est le recruteur qui coche, sans
+-- aucune cible de flotte ; la page doit donc montrer la répartition réelle,
+-- par marché, avant qu'on décide d'une cible.
+--
+-- COMPTAGE FRACTIONNAIRE. `comptes.parts_applications` est un pourcentage par
+-- slug (`null` = 100 % Sophia). En pratique la flotte est binaire (209 Sophia,
+-- 39 Unswipe, 15 Micabo, aucun compte partagé), mais on compte la part réelle
+-- plutôt que « l'application majoritaire » : le jour où un compte est réglé
+-- 50/50, le tableau reste juste au lieu de mentir d'un demi-compte.
+create or replace function public.simulation_repartition_apps()
+returns table (
+  langue text,
+  pays text,
+  application_id uuid,
+  slug text,
+  comptes numeric
+)
+language plpgsql
+stable
+security definer
+set search_path = public
+as $$
+-- Les paramètres de sortie portent le nom de colonnes réelles (`langue`,
+-- `pays`, `label_id`, `slug`). Sans cette directive, plpgsql peut rendre la
+-- référence ambiguë et la fonction échouerait à l'exécution, pas à la
+-- création : on tranche explicitement en faveur de la colonne.
+#variable_conflict use_column
+begin
+  if not public.is_admin() then
+    raise exception 'reserve aux administrateurs' using errcode = '42501';
+  end if;
+
+  return query
+  with servis as (
+    select co.langue, co.pays, co.parts_applications
+    from public.comptes co
+    where co.is_active
+      and coalesce(co.type_compte, '') <> 'cm'
+      and coalesce(co.ugc_ai_video, false) = false
+      and co.langue is not null
+  ),
+  eclate as (
+    -- Pas de réglage : 100 % Sophia, le cas de 209 comptes sur 263.
+    select s.langue, s.pays, 'sophia'::text as slug, 1.0::numeric as part
+    from servis s
+    where s.parts_applications is null
+    union all
+    select s.langue, s.pays, e.key, (e.value)::numeric / 100.0
+    from servis s
+    cross join lateral jsonb_each_text(s.parts_applications) e
+    where s.parts_applications is not null and (e.value)::numeric > 0
+  )
+  select x.langue, x.pays, a.id, a.slug, sum(x.part)
+  from eclate x
+  join public.applications a on a.slug = x.slug
+  group by x.langue, x.pays, a.id, a.slug
+  order by x.langue, x.pays, a.slug;
+end;
+$$;
+
+comment on function public.simulation_repartition_apps() is
+  'Comptes actifs par marché (langue × pays) et par application, part fractionnaire de parts_applications (null = 100 % Sophia). Lecture seule, admin uniquement : alimente la page Répartition.';
+
+revoke all on function public.simulation_repartition_apps() from public;
+grant execute on function public.simulation_repartition_apps() to authenticated;

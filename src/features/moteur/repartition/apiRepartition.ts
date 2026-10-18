@@ -13,6 +13,11 @@
 import { supabase } from "@/lib/supabase/client";
 
 import {
+  lireCibleApplications,
+  type CibleApplications,
+  type MarcheApplications,
+} from "./scoreApplication";
+import {
   lireFermeturesParApplication,
   lireReglagesChoixLabel,
   type FermeturesParApplication,
@@ -37,7 +42,7 @@ interface LigneSimulation {
   comptes_langue: number;
   comptes_pays: number;
   comptes_total: number;
-  passages_restants: number;
+  passages_restants: number | string;
   demande_jour: number | string;
   passages: number;
   perf_label: number | string | null;
@@ -110,6 +115,54 @@ export async function lireMarchesRepartition(
   return [...parMarche.values()].sort(
     (a, b) => b.comptes - a.comptes || a.langue.localeCompare(b.langue),
   );
+}
+
+interface LigneApps {
+  langue: string;
+  pays: string | null;
+  application_id: string;
+  slug: string;
+  comptes: number | string;
+}
+
+/**
+ * Les comptes par marché et par application. Même découpage (langue × pays)
+ * que `lireMarchesRepartition`, pour que les deux tableaux de la page
+ * s'alignent ligne à ligne.
+ */
+export async function lireMarchesApplications(): Promise<MarcheApplications[]> {
+  const { data, error } = await supabase.rpc("simulation_repartition_apps");
+  if (error) throw error;
+
+  const parMarche = new Map<string, MarcheApplications>();
+  for (const l of (data ?? []) as LigneApps[]) {
+    const pays = l.pays ?? null;
+    const k = `${l.langue}|${pays ?? ""}`;
+    let m = parMarche.get(k);
+    if (!m) {
+      m = { langue: l.langue, pays, parts: [] };
+      parMarche.set(k, m);
+    }
+    m.parts.push({
+      application_id: l.application_id,
+      slug: l.slug,
+      comptes: nombre(l.comptes),
+    });
+  }
+  return [...parMarche.values()];
+}
+
+/** La cible de répartition entre applications, si un admin en a posé une. */
+export async function lireCibleRepartitionApps(
+  slugsActifs: readonly string[],
+): Promise<CibleApplications> {
+  const { data, error } = await supabase
+    .from("reglages")
+    .select("valeur")
+    .eq("cle", "repartition_applications")
+    .maybeSingle();
+  if (error) throw error;
+  return lireCibleApplications(data?.valeur, slugsActifs);
 }
 
 export interface ReglagesRepartition {

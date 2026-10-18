@@ -11,10 +11,18 @@ import { nomApplication } from "@/features/moteur/applications";
 import { nomLangue } from "@/features/moteur/langues";
 import { drapeauPays, nomPaysIso } from "@/features/moteur/pays";
 import {
+  lireCibleRepartitionApps,
+  lireMarchesApplications,
   lireMarchesRepartition,
   lireReglagesRepartition,
   type MarcheRepartition,
 } from "@/features/moteur/repartition/apiRepartition";
+import {
+  classerApplications,
+  ecartsFlotte,
+  type CibleApplications,
+  type MarcheApplications,
+} from "@/features/moteur/repartition/scoreApplication";
 import {
   classerLabels,
   classerPropose,
@@ -56,9 +64,14 @@ function nombre(n: number, decimales = 2): string {
  */
 export function AdminRepartitionPage() {
   const { t } = useTranslation();
-  const { application, applicationId, slug } = useApplication();
+  const { applications, application, applicationId, slug } = useApplication();
   const nomApp = application ? nomApplication(application) : nomApplication({ slug });
   const [marcheOuvert, setMarcheOuvert] = React.useState<string | null>(null);
+  const actifs = React.useMemo(
+    () => applications.filter((a) => a.actif).map((a) => ({ id: a.id, slug: a.slug })),
+    [applications],
+  );
+  const slugsActifs = React.useMemo(() => actifs.map((a) => a.slug), [actifs]);
 
   const marches = useQuery({
     queryKey: ["repartition-marches", applicationId],
@@ -71,9 +84,21 @@ export function AdminRepartitionPage() {
     queryFn: lireReglagesRepartition,
     retry: false,
   });
+  const marchesApps = useQuery({
+    queryKey: ["repartition-apps"],
+    queryFn: lireMarchesApplications,
+    retry: false,
+  });
+  const cibleApps = useQuery({
+    queryKey: ["repartition-cible-apps", slugsActifs],
+    queryFn: () => lireCibleRepartitionApps(slugsActifs),
+    enabled: slugsActifs.length > 0,
+    retry: false,
+  });
 
-  const erreur = marches.error ?? reglages.error;
+  const erreur = marches.error ?? reglages.error ?? marchesApps.error ?? cibleApps.error;
   const pret = Boolean(applicationId && marches.data && reglages.data);
+  const pretApps = Boolean(marchesApps.data && cibleApps.data && actifs.length > 0);
 
   const lignes = React.useMemo(() => {
     if (!pret || !applicationId) return [];
@@ -97,6 +122,11 @@ export function AdminRepartitionPage() {
   }, [pret, applicationId, marches.data, reglages.data]);
 
   const nbChangements = lignes.filter((l) => l.change).length;
+  // Somme des comptes du pool, pour exprimer chaque label en part de flotte.
+  const totalFlotte = React.useMemo(
+    () => (lignes[0]?.marche.stats ?? []).reduce((a, s) => a + s.comptes_total, 0),
+    [lignes],
+  );
 
   // Une ligne par label, prise sur le marché le plus peuplé : les chiffres de
   // stock et de performance sont les mêmes partout, seule la présence change.
@@ -139,6 +169,14 @@ export function AdminRepartitionPage() {
       )}
 
       {!pret && !erreur && <p className="text-sm text-muted-foreground">{t("common.loading")}</p>}
+
+      {pretApps && (
+        <CarteApplications
+          marches={marchesApps.data!}
+          cible={cibleApps.data!}
+          applications={actifs}
+        />
+      )}
 
       {pret && (
         <>
@@ -229,6 +267,11 @@ export function AdminRepartitionPage() {
                   </span>
                   <span className="text-right tabular-nums text-muted-foreground">
                     {e.stat.comptes_total}
+                    {totalFlotte > 0 && (
+                      <span className="ml-1.5 text-xs">
+                        {pourcent((100 * e.stat.comptes_total) / totalFlotte)}
+                      </span>
+                    )}
                   </span>
                   <EtatLabel motif={e.motif} />
                 </div>
@@ -240,6 +283,144 @@ export function AdminRepartitionPage() {
         </>
       )}
     </div>
+  );
+}
+
+function pourcent(n: number): string {
+  return `${n.toLocaleString("fr-FR", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} %`;
+}
+
+/**
+ * Répartition entre applications. Deux niveaux : la flotte entière face à la
+ * cible, puis marché par marché, parce que viser 25 % d'Unswipe ne veut rien
+ * dire si les 25 % sont tous en allemand. La dernière colonne dit quelle
+ * application prendrait la prochaine recrue de ce marché.
+ */
+function CarteApplications({
+  marches,
+  cible,
+  applications,
+}: {
+  marches: MarcheApplications[];
+  cible: CibleApplications;
+  applications: Array<{ id: string; slug: string }>;
+}) {
+  const { t } = useTranslation();
+  const flotte = ecartsFlotte(marches, cible);
+  const colonnes = applications.map((a) => a.slug);
+  const lignes = marches
+    .map((m) => {
+      const total = m.parts.reduce((a, p) => a + p.comptes, 0);
+      const parSlug = new Map(m.parts.map((p) => [p.slug, p.comptes]));
+      return {
+        cle: `${m.langue}|${m.pays ?? ""}`,
+        marche: m,
+        total,
+        parSlug,
+        classe: classerApplications(m, cible, applications),
+      };
+    })
+    .sort((a, b) => b.total - a.total || a.marche.langue.localeCompare(b.marche.langue));
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>{t("repartition.appsTitre")}</CardTitle>
+        <CardDescription>{t("repartition.appsAide")}</CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-5">
+        {cible.source === "defaut" && (
+          <Alert>
+            <AlertTriangle className="h-4 w-4" />
+            <AlertTitle>{t("repartition.cibleAbsenteTitre")}</AlertTitle>
+            <AlertDescription>{t("repartition.cibleAbsenteAide")}</AlertDescription>
+          </Alert>
+        )}
+
+        <div>
+          <p className="mb-2 text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
+            {t("repartition.appsFlotte")}
+          </p>
+          <div className="grid grid-cols-[1fr_auto_auto_auto_auto] gap-x-4 border-b pb-1 text-[11px] uppercase tracking-wide text-muted-foreground">
+            <span>{t("repartition.colApp")}</span>
+            <span className="text-right">{t("repartition.colComptes")}</span>
+            <span className="text-right">{t("repartition.colReelle")}</span>
+            <span className="text-right">{t("repartition.colVisee")}</span>
+            <span className="text-right">{t("repartition.colEcart")}</span>
+          </div>
+          {flotte.map((f) => (
+            <div
+              key={f.slug}
+              className="grid grid-cols-[1fr_auto_auto_auto_auto] gap-x-4 py-1.5 text-sm"
+            >
+              <span className="font-mono text-xs">{f.slug}</span>
+              <span className="text-right tabular-nums">{Math.round(f.comptes)}</span>
+              <span className="text-right tabular-nums">{pourcent(f.partReelle)}</span>
+              <span className="text-right tabular-nums text-muted-foreground">
+                {pourcent(f.partVisee)}
+              </span>
+              <span
+                className={`text-right tabular-nums ${
+                  Math.abs(f.ecart) >= 5 ? "font-semibold text-amber-700" : "text-muted-foreground"
+                }`}
+              >
+                {f.ecart > 0 ? "+" : ""}
+                {pourcent(f.ecart)}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <div>
+          <p className="mb-2 text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
+            {t("repartition.appsMarches")}
+          </p>
+          <div
+            className="grid gap-x-4 border-b pb-1 text-[11px] uppercase tracking-wide text-muted-foreground"
+            style={{ gridTemplateColumns: `1fr auto repeat(${colonnes.length}, auto) auto` }}
+          >
+            <span>{t("repartition.colMarche")}</span>
+            <span className="text-right">{t("repartition.colComptes")}</span>
+            {colonnes.map((s) => (
+              <span key={s} className="text-right font-mono normal-case">
+                {s}
+              </span>
+            ))}
+            <span>{t("repartition.colProchaine")}</span>
+          </div>
+          {lignes.map((l) => (
+            <div
+              key={l.cle}
+              className="grid items-center gap-x-4 py-1.5 text-sm"
+              style={{ gridTemplateColumns: `1fr auto repeat(${colonnes.length}, auto) auto` }}
+            >
+              <span className="flex items-center gap-2">
+                {l.marche.pays && <span aria-hidden>{drapeauPays(l.marche.pays)}</span>}
+                <span>{nomLangue(l.marche.langue)}</span>
+                {l.marche.pays && (
+                  <span className="text-xs text-muted-foreground">{nomPaysIso(l.marche.pays)}</span>
+                )}
+              </span>
+              <span className="text-right tabular-nums text-muted-foreground">
+                {Math.round(l.total)}
+              </span>
+              {colonnes.map((s) => {
+                const n = l.parSlug.get(s) ?? 0;
+                return (
+                  <span
+                    key={s}
+                    className={`text-right tabular-nums ${n === 0 ? "text-muted-foreground/40" : ""}`}
+                  >
+                    {l.total > 0 ? pourcent((100 * n) / l.total) : "—"}
+                  </span>
+                );
+              })}
+              <span className="font-mono text-xs">{l.classe[0]?.slug ?? "—"}</span>
+            </div>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
   );
 }
 
@@ -265,9 +446,10 @@ function DetailMarche({
       <p className="mb-2 text-xs text-muted-foreground">
         {t("repartition.detailAide", { langue: nomLangue(marche.langue) })}
       </p>
-      <div className="grid grid-cols-[1fr_auto_auto_auto_auto_auto] gap-x-3 border-b pb-1 text-[10px] uppercase tracking-wide text-muted-foreground">
+      <div className="grid grid-cols-[1fr_auto_auto_auto_auto_auto_auto] gap-x-3 border-b pb-1 text-[10px] uppercase tracking-wide text-muted-foreground">
         <span>{t("repartition.colLabel")}</span>
         <span className="text-right">{t("repartition.colPoids")}</span>
+        <span className="text-right">{t("repartition.colVisee")}</span>
         <span className="text-right">{t("repartition.colPresence")}</span>
         <span className="text-right">{t("repartition.colScore")}</span>
         <span className="text-right">{t("repartition.colRangActuel")}</span>
@@ -276,10 +458,13 @@ function DetailMarche({
       {propose.map((c, i) => (
         <div
           key={c.label_id}
-          className="grid grid-cols-[1fr_auto_auto_auto_auto_auto] gap-x-3 py-1 text-xs"
+          className="grid grid-cols-[1fr_auto_auto_auto_auto_auto_auto] gap-x-3 py-1 text-xs"
         >
           <span className="font-mono">{c.label_nom}</span>
           <span className="text-right tabular-nums">{nombre(c.poids)}</span>
+          <span className="text-right tabular-nums text-muted-foreground">
+            {pourcent(100 * c.part)}
+          </span>
           <span className="text-right tabular-nums">{c.presence}</span>
           <span className={`text-right tabular-nums ${i === 0 ? "font-semibold" : ""}`}>
             {nombre(c.score, 3)}

@@ -19,6 +19,7 @@ import {
   MoonStar,
   PenLine,
   Boxes,
+  Scale,
   Settings,
   ShieldAlert,
   Users,
@@ -215,6 +216,12 @@ export function AdminLayout() {
               label: t("nav.reglages"),
               icon: Settings,
               description: t("navDesc.reglages"),
+            },
+            {
+              to: "/admin/repartition",
+              label: t("nav.repartition"),
+              icon: Scale,
+              description: t("navDesc.repartition"),
             },
             {
               to: "/admin/prompts",

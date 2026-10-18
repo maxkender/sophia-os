@@ -22,7 +22,6 @@ import {
 } from "@/features/referral/api";
 import {
   BONUS_PAR_RECRUE_USD,
-  POSTS_POUR_BONUS,
   bonusPotentielUsd,
   type StatutReferral,
 } from "@/features/referral/referral";
@@ -161,7 +160,6 @@ export function AdminReferralsPage() {
         <CardContent className="space-y-2 text-sm text-muted-foreground">
           <p>
             {t("referral.adminBonus", {
-              posts: POSTS_POUR_BONUS,
               bonus: BONUS_PAR_RECRUE_USD,
             })}
           </p>

@@ -1270,6 +1270,7 @@ export const fr = {
       paysAide:
         "Marché du compte. Indépendant de la langue : cinq pays anglophones partagent « Anglais », leur drapeau ne les distinguait pas.",
       paysDeduit: "Déduit de la langue, rien à saisir.",
+      paysProposesAide: "Pré-rempli d'après la langue. Change-le si le poster vit dans un autre de ces pays.",
       paysAChoisir: "Choisir un pays…",
       paysObligatoireAide:
         "Cette langue couvre plusieurs marchés, personne ne peut deviner à ta place. Un compte sans pays n’apparaît dans aucune ligne des cibles de recrutement.",

@@ -275,7 +275,7 @@ function ReglagesCompte({ compte }: { compte: CompteAvecDetails }) {
 }
 
 /** Infos du compte : nom affiché, @ TikTok, @ Instagram, langue, lien Upwork. */
-function InfosCompte({ compte }: { compte: CompteAvecDetails }) {
+export function InfosCompte({ compte }: { compte: CompteAvecDetails }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const langues = useQuery({ queryKey: ["langues-reference"], queryFn: listerLanguesReference });
@@ -285,6 +285,16 @@ function InfosCompte({ compte }: { compte: CompteAvecDetails }) {
   const [handleInsta, setHandleInsta] = React.useState(compte.handle_instagram ?? "");
   const [langue, setLangue] = React.useState(compte.langue);
   const [upwork, setUpwork] = React.useState(compte.profiles?.upwork_url ?? "");
+
+  // Recalé sur la base quand elle change. La fiche admin a un autre sélecteur
+  // de langue, qui enregistre tout de suite : sans ce recalage, ce formulaire
+  // gardait l'ancienne langue, affichait « Save », et l'enregistrer la
+  // remettait (Lin Li, 17-18/10).
+  React.useEffect(() => setNom(compte.persona_nom ?? ""), [compte.persona_nom]);
+  React.useEffect(() => setHandle(compte.handle_tiktok ?? ""), [compte.handle_tiktok]);
+  React.useEffect(() => setHandleInsta(compte.handle_instagram ?? ""), [compte.handle_instagram]);
+  React.useEffect(() => setLangue(compte.langue), [compte.langue]);
+  React.useEffect(() => setUpwork(compte.profiles?.upwork_url ?? ""), [compte.profiles?.upwork_url]);
 
   const upworkInitial = compte.profiles?.upwork_url ?? "";
   const modifie =
@@ -296,12 +306,16 @@ function InfosCompte({ compte }: { compte: CompteAvecDetails }) {
 
   const enregistrer = useMutation({
     mutationFn: async () => {
-      await majCompte(compte.id, {
-        persona_nom: nom.trim() || null,
-        handle_tiktok: handle.trim().replace(/^@/, "") || null,
-        handle_instagram: handleInsta.trim().replace(/^@/, "") || null,
-        langue,
-      });
+      // Seulement ce qui a changé : ne jamais réécrire un champ qu'on n'a pas touché.
+      const patch: Parameters<typeof majCompte>[1] = {};
+      const nomFinal = nom.trim() || null;
+      const handleFinal = handle.trim().replace(/^@/, "") || null;
+      const handleInstaFinal = handleInsta.trim().replace(/^@/, "") || null;
+      if (nomFinal !== (compte.persona_nom ?? null)) patch.persona_nom = nomFinal;
+      if (handleFinal !== (compte.handle_tiktok ?? null)) patch.handle_tiktok = handleFinal;
+      if (handleInstaFinal !== (compte.handle_instagram ?? null)) patch.handle_instagram = handleInstaFinal;
+      if (langue !== compte.langue) patch.langue = langue;
+      if (Object.keys(patch).length > 0) await majCompte(compte.id, patch);
       if (upwork !== upworkInitial) await majUpwork(compte.poster_id, upwork);
     },
     onSuccess: () => rafraichirComptes(queryClient),

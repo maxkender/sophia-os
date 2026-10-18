@@ -13,8 +13,10 @@ describe("premiers posts après le warm-up", () => {
     expect(lundiApres(new Date("2026-10-25T22:30:00Z"))).toBe("2026-10-26");
   });
 
-  it("fin pile à minuit : ce jour-là ; sinon le lendemain", () => {
+  it("fin avant le rattrapage de 04:00 UTC : ce jour-là ; sinon le lendemain", () => {
     expect(premierJourPosts("2026-10-25T23:00:00Z")).toBe("2026-10-26");
+    // Julieta : fin à 01:11 à Paris, rattrapée à 04:00 UTC → posts le matin même.
+    expect(premierJourPosts("2026-10-18T23:11:39Z")).toBe("2026-10-19");
     expect(premierJourPosts("2026-10-19T08:44:41Z")).toBe("2026-10-20");
   });
 

@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 
+import { cibleHorsCohorte } from "./provenance";
 import { lireCibleApplications, type MarcheApplications } from "./scoreApplication";
 import { REGLAGES_CHOIX_LABEL_DEFAUT, type StatLabel } from "./scoreLabel";
 import { simulerTirages } from "./tirages";
@@ -130,5 +131,177 @@ describe("projection des prochains tirages", () => {
     const copie = JSON.parse(JSON.stringify(stats));
     simulerTirages(marche("fr"), stats, cible, APPS, R, 20);
     expect(stats).toEqual(copie);
+  });
+});
+
+describe("cohorte Ruul dans la projection", () => {
+  const cible = lireCibleApplications({ sophia: 60, unswipe: 40 }, ["sophia", "unswipe"]);
+  const stats = {
+    "id-sophia": [stat("a"), stat("b")],
+    "id-unswipe": [stat("c")],
+  };
+
+  function parApp(t: ReturnType<typeof simulerTirages>): Record<string, number> {
+    const r: Record<string, number> = {};
+    for (const x of t) r[x.app] = (r[x.app] ?? 0) + x.comptes;
+    return r;
+  }
+
+  it("sans option, rien ne change : la projection est celle d'avant", () => {
+    const avant = simulerTirages(marche("fr"), stats, cible, APPS, R, 20);
+    const avecZero = simulerTirages(marche("fr"), stats, cible, APPS, R, 20, { partCohorte: 0 });
+    expect(avecZero).toEqual(avant);
+    expect(avant.every((x) => x.comptesCohorte === 0)).toBe(true);
+  });
+
+  it("tant que la cohorte reste sous la cible, la répartition ne bouge pas", () => {
+    // C'est la propriété qui justifie de passer la cible de l'admin TELLE
+    // QUELLE à la projection. Les comptes de la cohorte comptent comme les
+    // autres, donc Sainte-Laguë envoie d'autant moins de recrues placées par
+    // le moteur vers Sophia, et le total retombe sur 60/40 tout seul.
+    //
+    // L'invariant n'est PAS universel, et le nom ne doit pas le laisser
+    // croire : il vaut tant que la part promise reste sous la cible de
+    // Sophia. Au-delà, voir le test suivant.
+    for (const p of [0, 0.25, 5 / 11, 0.5]) {
+      const t = simulerTirages(marche("fr"), stats, cible, APPS, R, 20, { partCohorte: p });
+      expect(parApp(t), `part ${p}`).toEqual({ sophia: 12, unswipe: 8 });
+    }
+  });
+
+  it("au-dessus de la cible, Sophia la dépasse : c'est le cas inatteignable", () => {
+    // 70 % de recrues promises contre une cible à 60 % : le moteur ne peut
+    // plus rien y faire, et la projection doit le montrer au lieu de
+    // prétendre tenir la cible.
+    const t = simulerTirages(marche("fr"), stats, cible, APPS, R, 20, { partCohorte: 0.7 });
+    const obtenu = parApp(t);
+    expect(obtenu.sophia).toBeGreaterThan(12);
+    expect(obtenu.sophia).toBeGreaterThanOrEqual(14);
+    // Et c'est exactement le plancher qu'annonce cibleHorsCohorte.
+    expect(cibleHorsCohorte(cible, 0.7).atteignable).toBe(false);
+    expect(cibleHorsCohorte(cible, 0.7).minimum).toBeCloseTo(70);
+  });
+
+  it("corriger la cible EN PLUS ferait chuter Sophia sous le demandé", () => {
+    // Le piège que les deux modules documentent en majuscules, enfin mis en
+    // évidence : on fait exprès la bêtise et on constate les dégâts.
+    const p = 5 / 11;
+    const brute = simulerTirages(marche("fr"), stats, cible, APPS, R, 20, { partCohorte: p });
+    const corrigee = cibleHorsCohorte(cible, p);
+    const doublement = simulerTirages(
+      marche("fr"),
+      stats,
+      { source: "reglage", parts: corrigee.parts },
+      APPS,
+      R,
+      20,
+      { partCohorte: p },
+    );
+    // La bonne façon tombe sur la cible de l'admin, 60 % de 20.
+    expect(parApp(brute).sophia).toBe(12);
+    // La double correction, elle, sous-sert Sophia.
+    expect(parApp(doublement).sophia).toBeLessThan(12);
+  });
+
+  it("le nombre de recrues promises est celui annoncé, et toutes sont sur Sophia", () => {
+    const t = simulerTirages(marche("fr"), stats, cible, APPS, R, 20, { partCohorte: 0.5 });
+    expect(t.reduce((a, x) => a + x.comptesCohorte, 0)).toBe(10);
+    expect(t.filter((x) => x.comptesCohorte > 0).every((x) => x.app === "sophia")).toBe(true);
+  });
+
+  it("une recrue de la cohorte part sur Sophia même si l'admin y vise 0 %", () => {
+    // La règle est une contrainte, pas une préférence : elle ne passe donc pas
+    // par classerApplications, qui écarte une application à cible nulle.
+    const sansSophia = lireCibleApplications({ unswipe: 100 }, ["sophia", "unswipe"]);
+    const t = simulerTirages(
+      marche("fr"),
+      { "id-sophia": [stat("a")], "id-unswipe": [stat("c")] },
+      sansSophia,
+      APPS,
+      R,
+      10,
+      { partCohorte: 0.3 },
+    );
+    expect(parApp(t)).toEqual({ sophia: 3, unswipe: 7 });
+    expect(t.find((x) => x.app === "sophia")!.comptesCohorte).toBe(3);
+  });
+
+  it("Sophia sans label ouvert : la cohorte cale, le recrutement continue", () => {
+    // Avant, un seul échec sortait de TOUTE la boucle et tronquait aussi les
+    // tirages que le moteur pouvait encore placer.
+    const t = simulerTirages(
+      marche("fr"),
+      { "id-sophia": [], "id-unswipe": [stat("c")] },
+      lireCibleApplications({ sophia: 50, unswipe: 50 }, ["sophia", "unswipe"]),
+      APPS,
+      R,
+      10,
+      { partCohorte: 0.5 },
+    );
+    expect(parApp(t)).toEqual({ unswipe: 5 });
+    expect(t.reduce((a, x) => a + x.comptesCohorte, 0)).toBe(0);
+  });
+
+  it("en polonais, où seule Sophia sert, tout est Sophia et la cohorte est comptée", () => {
+    const t = simulerTirages(
+      marche("pl"),
+      { "id-sophia": [stat("a"), stat("b")] },
+      lireCibleApplications(null, ["sophia"]),
+      [SOPHIA],
+      R,
+      10,
+      { partCohorte: 0.4 },
+    );
+    expect(t.every((x) => x.app === "sophia")).toBe(true);
+    expect(t.reduce((a, x) => a + x.comptes, 0)).toBe(10);
+    expect(t.reduce((a, x) => a + x.comptesCohorte, 0)).toBe(4);
+  });
+
+  it("comptesCohorte ne dépasse jamais comptes", () => {
+    for (const p of [0.1, 0.5, 0.9, 1]) {
+      const t = simulerTirages(marche("fr"), stats, cible, APPS, R, 20, { partCohorte: p });
+      for (const x of t) expect(x.comptesCohorte, `part ${p}`).toBeLessThanOrEqual(x.comptes);
+    }
+  });
+
+  it("tout promis : les vingt comptes sont Sophia, et tous de la cohorte", () => {
+    const t = simulerTirages(marche("fr"), stats, cible, APPS, R, 20, { partCohorte: 1 });
+    expect(parApp(t)).toEqual({ sophia: 20 });
+    expect(t.reduce((a, x) => a + x.comptesCohorte, 0)).toBe(20);
+  });
+
+  it("la projection reste stable : deux appels donnent le même résultat", () => {
+    const a = simulerTirages(marche("fr"), stats, cible, APPS, R, 15, { partCohorte: 5 / 11 });
+    const b = simulerTirages(marche("fr"), stats, cible, APPS, R, 15, { partCohorte: 5 / 11 });
+    expect(a).toEqual(b);
+  });
+
+  it("elle ne modifie toujours pas les statistiques qu'on lui passe", () => {
+    const copie = JSON.parse(JSON.stringify(stats));
+    simulerTirages(marche("fr"), stats, cible, APPS, R, 20, { partCohorte: 0.5 });
+    expect(stats).toEqual(copie);
+  });
+});
+
+describe("robustesse de l'option cohorte", () => {
+  const cible = lireCibleApplications({ sophia: 60, unswipe: 40 }, ["sophia", "unswipe"]);
+  const stats = { "id-sophia": [stat("a")], "id-unswipe": [stat("c")] };
+
+  it("une part aberrante est bornée, pas propagée", () => {
+    const attendu = simulerTirages(marche("fr"), stats, cible, APPS, R, 10);
+    for (const p of [Number.NaN, -1, undefined]) {
+      expect(
+        simulerTirages(marche("fr"), stats, cible, APPS, R, 10, { partCohorte: p }),
+        `part ${p}`,
+      ).toEqual(attendu);
+    }
+    // Au-dessus de 1, on plafonne à « tout promis ».
+    const trop = simulerTirages(marche("fr"), stats, cible, APPS, R, 10, { partCohorte: 4 });
+    expect(trop.every((x) => x.app === "sophia")).toBe(true);
+    expect(trop.reduce((a, x) => a + x.comptesCohorte, 0)).toBe(10);
+  });
+
+  it("sans donnée du tout, la boucle sort tout de suite même avec une cohorte", () => {
+    expect(simulerTirages(marche("fr"), {}, cible, APPS, R, 20, { partCohorte: 0.5 })).toEqual([]);
   });
 });

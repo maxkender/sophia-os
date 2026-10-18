@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQueries, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { AlertTriangle, Lock } from "lucide-react";
+import { AlertTriangle, Lock, UserCheck } from "lucide-react";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
@@ -17,9 +17,18 @@ import {
   lireCibleRepartitionApps,
   lireMarchesApplications,
   lireMarchesRepartition,
+  lireCohorteRecrutement,
   lireReglagesRepartition,
+  PROVENANCE_JOURS,
   type MarcheRepartition,
 } from "@/features/moteur/repartition/apiRepartition";
+import {
+  APPLICATION_COHORTE_RUUL,
+  cibleHorsCohorte,
+  partCohorte,
+  type PartCohorte,
+  type ProvenanceMarche,
+} from "@/features/moteur/repartition/provenance";
 import {
   applicationsEligibles,
   classerApplications,
@@ -103,6 +112,14 @@ export function AdminRepartitionPage() {
     enabled: slugsActifs.length > 0,
     retry: false,
   });
+  // D'où viennent les recrues. Celles de la cohorte Ruul partent toujours sur
+  // Sophia : sans ce chiffre, la cible afficherait une concurrence entre
+  // applications qui n'existe pas pour cette part des recrues.
+  const provenance = useQuery({
+    queryKey: ["repartition-provenance", PROVENANCE_JOURS],
+    queryFn: () => lireCohorteRecrutement(PROVENANCE_JOURS),
+    retry: false,
+  });
   // Les labels de CHAQUE application : la projection croise les deux étages,
   // elle ne peut pas se contenter de l'application du sélecteur.
   const parApp = useQueries({
@@ -114,10 +131,36 @@ export function AdminRepartitionPage() {
   });
 
   const erreur =
-    reglages.error ?? marchesApps.error ?? cible.error ?? parApp.find((q) => q.error)?.error;
+    reglages.error ??
+    marchesApps.error ??
+    cible.error ??
+    provenance.error ??
+    parApp.find((q) => q.error)?.error;
   const chargement =
-    reglages.isPending || marchesApps.isPending || cible.isPending || parApp.some((q) => q.isPending);
+    reglages.isPending ||
+    marchesApps.isPending ||
+    cible.isPending ||
+    provenance.isPending ||
+    parApp.some((q) => q.isPending);
   const pret = !chargement && !erreur && actifs.length > 0;
+
+  /**
+   * La part des prochaines recrues déjà promise à Sophia, marché par marché.
+   *
+   * Appariée sur la clé de marché BRUTE, comme les deux autres lectures : les
+   * trois RPC rendent la langue et le pays tels qu'ils sont en base, et
+   * normaliser ici désaccorderait silencieusement les tableaux.
+   */
+  const partParMarche = React.useMemo(() => {
+    const flotte = provenance.data ?? [];
+    const parCle = new Map(flotte.map((p) => [`${p.langue}|${p.pays ?? ""}`, p]));
+    const out = new Map<string, PartCohorte>();
+    for (const m of marchesApps.data ?? []) {
+      const k = `${m.langue}|${m.pays ?? ""}`;
+      out.set(k, partCohorte(parCle.get(k), flotte));
+    }
+    return out;
+  }, [provenance.data, marchesApps.data]);
 
   /** Les stats de chaque application, indexées par marché. */
   const statsParAppEtMarche = React.useMemo(() => {
@@ -203,6 +246,13 @@ export function AdminRepartitionPage() {
       {pret && cible.data && marchesApps.data && (
         <>
           <CarteCible cible={cible.data} applications={actifs} />
+          <CarteCohorte
+            marches={marchesApps.data}
+            cible={cible.data}
+            applications={actifs}
+            partParMarche={partParMarche}
+            flotte={provenance.data ?? []}
+          />
           <CarteApplications
             marches={marchesApps.data}
             cible={cible.data}
@@ -214,6 +264,7 @@ export function AdminRepartitionPage() {
             cible={cible.data}
             applications={actifs}
             reglages={reglages.data!}
+            partParMarche={partParMarche}
           />
         </>
       )}
@@ -454,6 +505,205 @@ function CarteCible({
   );
 }
 
+/**
+ * Les recrues que la cible ne peut pas placer.
+ *
+ * Un créateur de la cohorte Ruul va TOUJOURS sur Sophia. Sur 30 jours
+ * glissants, en français, c'est 5 recrues sur 11 : près de la moitié des
+ * prochains comptes sont promis avant que le moindre classement ne tourne.
+ * Une cible qui demanderait moins de Sophia que ça n'est pas ambitieuse, elle
+ * est impossible, et la page doit le dire plutôt que d'afficher un écart que
+ * personne ne pourra jamais combler.
+ *
+ * La colonne « Sophia au minimum » est ce plancher. La dernière colonne
+ * confronte la cible posée à ce plancher, marché par marché.
+ */
+function CarteCohorte({
+  marches,
+  cible,
+  applications,
+  partParMarche,
+  flotte,
+}: {
+  marches: MarcheApplications[];
+  cible: CibleApplications;
+  applications: ApplicationCandidate[];
+  partParMarche: Map<string, PartCohorte>;
+  flotte: ProvenanceMarche[];
+}) {
+  const { t } = useTranslation();
+
+  const totalRecrues = flotte.reduce((a, m) => a + m.recrues, 0);
+  const totalCohorte = flotte.reduce((a, m) => a + m.recruesRuul, 0);
+  const totalEcart = flotte.reduce((a, m) => a + m.recruesRuulHorsSophia, 0);
+
+  const parCle = new Map(flotte.map((x) => [`${x.langue}|${x.pays ?? ""}`, x]));
+
+  const lignes = marches
+    .map((m) => {
+      const cle = `${m.langue}|${m.pays ?? ""}`;
+      const p = partParMarche.get(cle) ?? partCohorte(undefined, flotte);
+      // Les EFFECTIFS affichés sont ceux du marché, toujours. Quand la part
+      // est empruntée à la flotte, `p.recrues` vaut ceux de la flotte entière
+      // et afficher 28 recrues en face de l'Espagne, qui en a eu 2, serait
+      // simplement faux. C'est la colonne « Mesurée sur » qui dit d'où vient
+      // le pourcentage.
+      const sien = parCle.get(cle);
+      // La cible doit être ramenée aux applications qui servent la langue
+      // AVANT d'en déduire quoi que ce soit : c'est ce que fait déjà
+      // `classerApplications`, on lui reprend ses parts visées.
+      const classe = classerApplications(m, cible, applications);
+      const cibleMarche: CibleApplications = {
+        source: cible.source,
+        parts: Object.fromEntries(classe.map((a) => [a.slug, a.partVisee])),
+      };
+      return {
+        cle,
+        marche: m,
+        part: p,
+        recrues: sien?.recrues ?? 0,
+        cohorte: sien?.recruesRuul ?? 0,
+        verdict: cibleHorsCohorte(cibleMarche, p.part),
+      };
+    })
+    .sort(
+      (a, b) =>
+        b.cohorte - a.cohorte ||
+        b.part.part - a.part.part ||
+        a.marche.langue.localeCompare(b.marche.langue),
+    );
+
+  type Ligne = (typeof lignes)[number];
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>{t("repartition.cohorteTitre")}</CardTitle>
+        <CardDescription>
+          {t("repartition.cohorteAide", { app: APPLICATION_COHORTE_RUUL, jours: PROVENANCE_JOURS })}
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <Alert variant={totalEcart > 0 ? "error" : undefined}>
+          {totalEcart > 0 ? (
+            <AlertTriangle className="h-4 w-4" />
+          ) : (
+            <UserCheck className="h-4 w-4" />
+          )}
+          <AlertDescription>
+            {t("repartition.cohorteResume", {
+              jours: PROVENANCE_JOURS,
+              recrues: totalRecrues,
+              cohorte: totalCohorte,
+              part: totalRecrues > 0 ? pourcent((100 * totalCohorte) / totalRecrues, 0) : "—",
+            })}{" "}
+            {/* La règle n'est appliquée nulle part : c'est le site qui choisit
+                l'application de ses candidats et il sait demander Unswipe. On
+                la vérifie donc à chaque ouverture au lieu de la supposer. */}
+            {totalCohorte === 0
+              ? null
+              : totalEcart > 0
+                ? t("repartition.cohorteEcart", { n: totalEcart })
+                : t("repartition.cohorteRegleTient")}
+          </AlertDescription>
+        </Alert>
+        <Tableau
+          lignes={lignes}
+          cleLigne={(l) => l.cle}
+          vide={t("repartition.cohorteVide")}
+          colonnes={
+            [
+              {
+                cle: "marche",
+                titre: t("repartition.colMarche"),
+                rendu: (l) => <CelluleMarche langue={l.marche.langue} pays={l.marche.pays} />,
+              },
+              {
+                cle: "recrues",
+                titre: t("repartition.colRecrues", { jours: PROVENANCE_JOURS }),
+                align: "droite",
+                classe: "text-muted-foreground",
+                rendu: (l) => l.recrues,
+              },
+              {
+                cle: "cohorte",
+                titre: t("repartition.colCohorte"),
+                align: "droite",
+                rendu: (l) => (
+                  <span className={l.cohorte > 0 ? "font-semibold" : "text-muted-foreground/60"}>
+                    {l.cohorte}
+                  </span>
+                ),
+              },
+              {
+                cle: "part",
+                titre: t("repartition.colPartCohorte"),
+                align: "droite",
+                // Sans décimale : 5 sur 11 ne vaut pas « 45,5 % », il vaut
+                // « à peu près 45 % », et l'effectif est juste à côté pour
+                // qui veut juger de la confiance à lui accorder.
+                rendu: (l) => (l.part.base === "aucune" ? "—" : pourcent(100 * l.part.part, 0)),
+              },
+              {
+                cle: "mesure",
+                titre: t("repartition.colMesure"),
+                classe: "text-xs text-muted-foreground",
+                rendu: (l) => t(`repartition.mesure_${l.part.base}`),
+              },
+              {
+                cle: "plancher",
+                titre: t("repartition.colPlancher", { app: APPLICATION_COHORTE_RUUL }),
+                align: "droite",
+                classe: "text-muted-foreground",
+                rendu: (l) => (l.part.part > 0 ? pourcent(l.verdict.partPromise, 0) : "—"),
+              },
+              {
+                cle: "verdict",
+                titre: t("repartition.colAtteignable"),
+                rendu: (l) => {
+                  // Sans cible posée, `lireCibleApplications` rend des parts
+                  // ÉGALES pour montrer le manque. Juger « impossible » une
+                  // cible que personne n'a choisie serait un faux reproche :
+                  // le plancher, lui, reste vrai, il ne dépend que de la
+                  // cohorte.
+                  if (l.part.base === "aucune" || cible.source === "defaut") {
+                    return (
+                      <span className="text-xs text-muted-foreground">
+                        {t("repartition.verdictSansCible")}
+                      </span>
+                    );
+                  }
+                  if (l.verdict.atteignable) {
+                    return <Badge variant="outline">{t("repartition.atteignableOui")}</Badge>;
+                  }
+                  // 29 marchés sur 36 n'ont pas assez de recrues pour parler
+                  // d'eux-mêmes et empruntent la part de la flotte. Déclarer
+                  // une cible impossible sur un chiffre emprunté, c'est
+                  // pousser l'admin à la gonfler pour rien.
+                  if (l.part.base !== "marche") {
+                    return (
+                      <span className="text-xs text-muted-foreground">
+                        {t("repartition.verdictEchantillon", {
+                          minimum: pourcent(l.verdict.minimum, 0),
+                        })}
+                      </span>
+                    );
+                  }
+                  return (
+                    <Badge variant="destructive">
+                      {t("repartition.atteignableNon", { minimum: pourcent(l.verdict.minimum, 0) })}
+                    </Badge>
+                  );
+                },
+              },
+            ] satisfies Array<ColonneTableau<Ligne>>
+          }
+        />
+      </CardContent>
+    </Card>
+  );
+}
+
 function CarteApplications({
   marches,
   cible,
@@ -582,29 +832,44 @@ function CarteTirages({
   cible,
   applications,
   reglages,
+  partParMarche,
 }: {
   marches: MarcheApplications[];
   statsParAppEtMarche: Record<string, Record<string, StatLabel[]>>;
   cible: CibleApplications;
   applications: ApplicationCandidate[];
   reglages: ReglagesChoixLabel;
+  partParMarche: Map<string, PartCohorte>;
 }) {
   const { t } = useTranslation();
   const lignes = marches
     .map((m) => {
       const cle = `${m.langue}|${m.pays ?? ""}`;
+      // La cible passe TELLE QUELLE : les comptes de la cohorte sont comptés
+      // comme les autres, donc Sainte-Laguë envoie d'autant moins de recrues
+      // placées par le moteur vers Sophia. Lui passer une cible déjà corrigée
+      // la corrigerait deux fois.
+      const tirages = simulerTirages(
+        m,
+        statsParAppEtMarche[cle] ?? {},
+        cible,
+        applications,
+        reglages,
+        TIRAGES_DEFAUT,
+        { partCohorte: partParMarche.get(cle)?.part ?? 0 },
+      );
+      const places = tirages.reduce((a, x) => a + x.comptes, 0);
       return {
         cle,
         marche: m,
         comptes: m.parts.reduce((a, p) => a + p.comptes, 0),
-        tirages: simulerTirages(
-          m,
-          statsParAppEtMarche[cle] ?? {},
-          cible,
-          applications,
-          reglages,
-          TIRAGES_DEFAUT,
-        ),
+        tirages,
+        cohorte: tirages.reduce((a, x) => a + x.comptesCohorte, 0),
+        // Les recrues qu'aucune application n'a pu prendre, faute de label
+        // ouvert. Sans ce compteur elles disparaissaient en silence et le
+        // « mix » était renormalisé à 100 % sur les survivantes : l'admin
+        // lisait une composition qui excluait des comptes à créer quand même.
+        perdues: Math.max(0, TIRAGES_DEFAUT - places),
       };
     })
     .sort((a, b) => b.comptes - a.comptes || a.marche.langue.localeCompare(b.marche.langue));
@@ -633,6 +898,24 @@ function CarteTirages({
               rendu: (l) => Math.round(l.comptes),
             },
             {
+              cle: "cohorte",
+              titre: t("repartition.colCohorte"),
+              align: "droite",
+              classe: "text-muted-foreground",
+              rendu: (l) => (
+                <>
+                  {l.cohorte > 0
+                    ? t("repartition.dontCohorte", { n: l.cohorte, total: TIRAGES_DEFAUT })
+                    : "—"}
+                  {l.perdues > 0 && (
+                    <span className="block text-xs text-destructive">
+                      {t("repartition.tiragesPerdus", { n: l.perdues })}
+                    </span>
+                  )}
+                </>
+              ),
+            },
+            {
               cle: "mix",
               titre: t("repartition.colMix"),
               rendu: (l) =>
@@ -646,6 +929,12 @@ function CarteTirages({
                         <span className="font-mono">
                           {x.app} × {x.label_nom}
                         </span>
+                        {x.comptesCohorte > 0 && (
+                          <span className="text-muted-foreground">
+                            {" "}
+                            ({t("repartition.dontCohorteCourt", { n: x.comptesCohorte })})
+                          </span>
+                        )}
                       </span>
                     ))}
                   </span>

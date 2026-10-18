@@ -14,7 +14,9 @@
  * quoi penche le système aujourd'hui », ce qui est la question qu'on se pose
  * en regardant une langue.
  */
+import { APPLICATION_COHORTE_RUUL, estTirageCohorte } from "./provenance";
 import {
+  applicationsEligibles,
   classerApplications,
   type ApplicationCandidate,
   type CibleApplications,
@@ -35,6 +37,8 @@ export interface Tirage {
   label_nom: string;
   /** Comptes obtenus sur les `n` tirages. */
   comptes: number;
+  /** Parmi eux, ceux d'une recrue de la cohorte Ruul, qui n'avait pas le choix. */
+  comptesCohorte: number;
   /** Part des tirages, en pourcentage. */
   part: number;
 }
@@ -42,8 +46,24 @@ export interface Tirage {
 /** Nombre de tirages projetés par défaut : deux semaines d'embauches. */
 export const TIRAGES_DEFAUT = 20;
 
+export interface OptionsTirages {
+  /**
+   * Part des prochaines recrues qui viennent de la cohorte Ruul, entre 0 et 1.
+   * Ces recrues-là partent sur Sophia quoi qu'en dise la cible.
+   */
+  partCohorte?: number;
+  /** L'application de la cohorte. Ne change que si la règle change. */
+  applicationCohorte?: string;
+}
+
 function cle(applicationId: string, labelId: string): string {
   return `${applicationId}:${labelId}`;
+}
+
+/** Un candidat retenu pour un tirage, quelle que soit la façon dont il l'a été. */
+interface Candidat {
+  application_id: string;
+  slug: string;
 }
 
 /**
@@ -54,6 +74,19 @@ function cle(applicationId: string, labelId: string): string {
  * leurs chiffres. Une application sans entrée (ou sans label ouvert) ne peut
  * rien recevoir : elle est sautée, et le tirage va à la suivante, sinon un
  * trou de données ferait disparaître des comptes de la projection.
+ *
+ * LA COHORTE RUUL. Avec `options.partCohorte`, une partie des tirages est
+ * réservée à des recrues venues du site, qui partent TOUJOURS sur Sophia.
+ * Deux conséquences, et aucune n'est cosmétique :
+ *
+ *  - ces tirages-là ne passent pas par `classerApplications`, qui écarte une
+ *    application à cible nulle. Une recrue Ruul va sur Sophia même si l'admin
+ *    y vise 0 % : c'est une contrainte, pas une préférence ;
+ *  - leur compte est ajouté à Sophia comme n'importe quel autre. C'est ce qui
+ *    fait que Sainte-Laguë se corrige seul, en envoyant d'autant moins de
+ *    recrues placées par le moteur vers Sophia. Ne pas l'ajouter rendrait la
+ *    projection sourde à la cohorte, et lui passer en plus une cible déjà
+ *    corrigée la corrigerait deux fois.
  */
 export function simulerTirages(
   marche: MarcheApplications,
@@ -62,10 +95,24 @@ export function simulerTirages(
   applications: readonly ApplicationCandidate[],
   reglages: ReglagesChoixLabel = REGLAGES_CHOIX_LABEL_DEFAUT,
   n: number = TIRAGES_DEFAUT,
+  options: OptionsTirages = {},
 ): Tirage[] {
   const comptesApp = new Map(marche.parts.map((p) => [p.slug, p.comptes]));
   const ajoutLabel = new Map<string, number>();
   const obtenus = new Map<string, Tirage>();
+  // Bornée ici et pas seulement chez l'appelant : un NaN qui passerait ferait
+  // sortir de la boucle au premier tour et rendrait une projection vide.
+  const part = Math.min(1, Math.max(0, Number(options.partCohorte) || 0));
+  const slugCohorte = options.applicationCohorte ?? APPLICATION_COHORTE_RUUL;
+  // Un genre de recrue qui n'a rien pu placer ne pourra plus rien placer :
+  // ses tours suivants donneraient le même résultat. L'AUTRE genre, lui, peut
+  // très bien continuer — d'où deux drapeaux et non un `break` global.
+  const epuise = { cohorte: false, recrutement: false };
+  // Sans cohorte, il n'y aura jamais de tirage de cohorte à épuiser : sans
+  // ces deux drapeaux, le cas le plus courant tournerait à vide jusqu'à `n`
+  // au lieu de s'arrêter comme avant.
+  const peutCohorte = part > 0;
+  const peutRecrutement = part < 1;
 
   const avecAjouts = (applicationId: string, stats: StatLabel[]): StatLabel[] =>
     stats.map((s) => {
@@ -80,6 +127,12 @@ export function simulerTirages(
     });
 
   for (let i = 0; i < Math.max(0, n); i += 1) {
+    if ((!peutCohorte || epuise.cohorte) && (!peutRecrutement || epuise.recrutement)) break;
+
+    const deLaCohorte = estTirageCohorte(i, part);
+    const genre = deLaCohorte ? "cohorte" : "recrutement";
+    if (epuise[genre]) continue;
+
     const marcheCourant: MarcheApplications = {
       langue: marche.langue,
       pays: marche.pays,
@@ -90,10 +143,21 @@ export function simulerTirages(
       })),
     };
 
-    // On descend le classement des applications jusqu'à en trouver une qui a
-    // vraiment un label à donner.
+    // Une recrue de la cohorte n'a qu'un candidat, et il ne dépend pas de la
+    // cible. Une recrue placée par le moteur descend le classement habituel.
+    const candidats: Candidat[] = deLaCohorte
+      ? applicationsEligibles(marche.langue, applications)
+          .filter((a) => a.slug === slugCohorte)
+          .map((a) => ({ application_id: a.id, slug: a.slug }))
+      : classerApplications(marcheCourant, cible, applications).map((a) => ({
+          application_id: a.application_id,
+          slug: a.slug,
+        }));
+
+    // On descend les candidats jusqu'à en trouver un qui a vraiment un label
+    // à donner.
     let place = false;
-    for (const app of classerApplications(marcheCourant, cible, applications)) {
+    for (const app of candidats) {
       const stats = statsParApp[app.application_id];
       if (!stats || stats.length === 0) continue;
       const labels = classerPropose(avecAjouts(app.application_id, stats), reglages, {
@@ -109,6 +173,7 @@ export function simulerTirages(
       const deja = obtenus.get(k);
       if (deja) {
         deja.comptes += 1;
+        if (deLaCohorte) deja.comptesCohorte += 1;
       } else {
         obtenus.set(k, {
           application_id: app.application_id,
@@ -116,15 +181,14 @@ export function simulerTirages(
           label_id: gagnant.label_id,
           label_nom: gagnant.label_nom,
           comptes: 1,
+          comptesCohorte: deLaCohorte ? 1 : 0,
           part: 0,
         });
       }
       place = true;
       break;
     }
-    // Aucune application ne peut rien donner : inutile d'insister, les tours
-    // suivants donneraient le même résultat.
-    if (!place) break;
+    if (!place) epuise[genre] = true;
   }
 
   const total = [...obtenus.values()].reduce((a, t) => a + t.comptes, 0);

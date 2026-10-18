@@ -14,6 +14,7 @@ import { supabase } from "@/lib/supabase/client";
 
 import { ecrireReglage } from "../api";
 
+import type { ProvenanceMarche } from "./provenance";
 import {
   lireCibleApplications,
   type CibleApplications,
@@ -150,6 +151,40 @@ export async function lireMarchesApplications(): Promise<MarcheApplications[]> {
     });
   }
   return [...parMarche.values()];
+}
+
+interface LigneProvenance {
+  langue: string;
+  pays: string | null;
+  recrues: number | string;
+  recrues_ruul: number | string;
+}
+
+/** Nombre de jours sur lesquels on mesure la provenance des recrues. */
+export const PROVENANCE_JOURS = 30;
+
+/**
+ * Combien de recrues par marché, et combien venaient de la cohorte Ruul.
+ *
+ * Ces créateurs-là partent TOUJOURS sur Sophia (migration 0308). Sans ce
+ * chiffre, la page montrerait une cible « 60 % Sophia » comme si les trois
+ * applications se disputaient chaque recrue, alors qu'une partie est promise
+ * d'avance — en français, près d'une sur deux.
+ */
+export async function lireProvenanceRecrutement(
+  jours: number = PROVENANCE_JOURS,
+): Promise<ProvenanceMarche[]> {
+  const { data, error } = await supabase.rpc("simulation_repartition_provenance", {
+    p_jours: jours,
+  });
+  if (error) throw error;
+
+  return ((data ?? []) as LigneProvenance[]).map((l) => ({
+    langue: l.langue,
+    pays: l.pays ?? null,
+    recrues: nombre(l.recrues),
+    recruesRuul: nombre(l.recrues_ruul),
+  }));
 }
 
 /** La cible de répartition entre applications, si un admin en a posé une. */

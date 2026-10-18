@@ -22,6 +22,33 @@
  * Répartition l'affiche, `manage-users` continue de lire la case du recruteur.
  */
 
+/** Une application candidate : son id, son slug, et les langues qu'elle sert. */
+export interface ApplicationCandidate {
+  id: string;
+  slug: string;
+  /** Langues servies ; `null` = toutes (c'est le cas de Sophia). */
+  langues: string[] | null;
+}
+
+/**
+ * Les applications qui servent cette langue.
+ *
+ * `applications.langues` n'est pas décoratif : Micabo ne sert que fr, tr, de
+ * et es, Unswipe fr, en, de, it, es et tr. En polonais, seule Sophia est
+ * candidate, et viser « 25 % Unswipe » n'y veut rien dire. La cible est donc
+ * RENORMALISÉE sur les seules applications éligibles au marché, sinon la part
+ * d'une application absente serait perdue et la somme ne ferait plus 100 %.
+ */
+export function applicationsEligibles(
+  langue: string,
+  applications: readonly ApplicationCandidate[],
+): ApplicationCandidate[] {
+  const lg = String(langue ?? "").trim().toLowerCase();
+  return applications.filter(
+    (a) => a.langues === null || a.langues.some((x) => String(x).trim().toLowerCase() === lg),
+  );
+}
+
 /** Comptes d'une application sur un marché (part fractionnaire). */
 export interface PartApplication {
   application_id: string;
@@ -102,16 +129,22 @@ export interface ApplicationClassee {
 export function classerApplications(
   marche: MarcheApplications,
   cible: CibleApplications,
-  applications: readonly { id: string; slug: string }[],
+  applications: readonly ApplicationCandidate[],
 ): ApplicationClassee[] {
   const comptesPar = new Map(marche.parts.map((p) => [p.slug, p.comptes]));
   const total = marche.parts.reduce((a, p) => a + p.comptes, 0);
 
-  return applications
-    .filter((a) => (cible.parts[a.slug] ?? 0) > 0)
+  const candidates = applicationsEligibles(marche.langue, applications).filter(
+    (a) => (cible.parts[a.slug] ?? 0) > 0,
+  );
+  // Renormalisation : les parts des applications qui ne servent pas cette
+  // langue reviennent aux autres, au prorata.
+  const sommeVisee = candidates.reduce((a, x) => a + (cible.parts[x.slug] ?? 0), 0);
+
+  return candidates
     .map((a): ApplicationClassee => {
       const comptes = comptesPar.get(a.slug) ?? 0;
-      const visee = cible.parts[a.slug] ?? 0;
+      const visee = sommeVisee > 0 ? (100 * (cible.parts[a.slug] ?? 0)) / sommeVisee : 0;
       return {
         application_id: a.id,
         slug: a.slug,

@@ -2087,6 +2087,20 @@ export const en = {
       colPoids: "Weight",
       colPresence: "Presence",
       colScore: "Score",
+      cibleTitre: "Target split between applications",
+      cibleAide:
+        "Whole percentages, renormalised to 100 when read. An application left at 0 gets nothing. The target is then narrowed to the applications that serve the market's language: aiming for 25% Unswipe means nothing in Polish, where Unswipe does not publish.",
+      poserCible: "Set the target",
+      sommeAide: "Entered total: {{total}} (renormalised to 100)",
+      toutesLangues: "All languages",
+      langues: "Languages: {{liste}}",
+      nonServie: "—",
+      tiragesTitre: "Mix of the next {{n}} hires",
+      tiragesAide:
+        "For each market, the next {{n}} creations are played out one by one, updating presence each time exactly as the engine will, and the result is counted. It is a projection at frozen stock and performance, not a prediction.",
+      colMix: "Application × label",
+      colPart: "Share",
+      rFermesApp: "Labels closed by hand",
       appsTitre: "Allocation by application",
       appsAide:
         "Today a new account's application is ticked by hand by the recruiter, with no target at all. Here is the real split, for the whole fleet then market by market, and which application would take the next hire if a target were set.",

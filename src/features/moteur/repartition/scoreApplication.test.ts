@@ -1,16 +1,19 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  applicationsEligibles,
   classerApplications,
   ecartsFlotte,
   lireCibleApplications,
   type MarcheApplications,
 } from "./scoreApplication";
 
+// Les vraies langues de la prod au 18/10 : Sophia partout, Unswipe sur six
+// langues, Micabo sur quatre.
 const APPS = [
-  { id: "id-sophia", slug: "sophia" },
-  { id: "id-unswipe", slug: "unswipe" },
-  { id: "id-micabo", slug: "micabo" },
+  { id: "id-sophia", slug: "sophia", langues: null },
+  { id: "id-unswipe", slug: "unswipe", langues: ["fr", "en", "de", "it", "es", "tr"] },
+  { id: "id-micabo", slug: "micabo", langues: ["fr", "tr", "de", "es"] },
 ];
 const SLUGS = APPS.map((a) => a.slug);
 
@@ -116,6 +119,45 @@ describe("classement des applications sur un marché", () => {
       comptes[classerApplications(marche(comptes), cibleNette, APPS)[0].slug] += 1;
     }
     expect(comptes).toEqual({ sophia: 5, unswipe: 3, micabo: 2 });
+  });
+});
+
+describe("langues servies", () => {
+  it("une application sans restriction sert toutes les langues", () => {
+    expect(applicationsEligibles("pl", APPS).map((a) => a.slug)).toEqual(["sophia"]);
+  });
+
+  it("en français, les trois servent", () => {
+    expect(applicationsEligibles("fr", APPS)).toHaveLength(3);
+  });
+
+  it("en italien, Micabo ne sert pas", () => {
+    expect(applicationsEligibles("it", APPS).map((a) => a.slug)).toEqual(["sophia", "unswipe"]);
+  });
+
+  it("la casse de la langue est ignorée", () => {
+    expect(applicationsEligibles("FR", APPS)).toHaveLength(3);
+  });
+
+  it("la cible est renormalisée sur les seules applications servies", () => {
+    const cible = lireCibleApplications({ sophia: 60, unswipe: 25, micabo: 15 }, SLUGS);
+    // En polonais, Sophia est seule : elle doit viser 100 %, pas 60 %, sinon
+    // 40 % de la cible disparaîtraient dans le vide.
+    const pl = classerApplications(marche({}, "pl", "PL"), cible, APPS);
+    expect(pl).toHaveLength(1);
+    expect(pl[0].partVisee).toBe(100);
+
+    // En italien, les 15 % de Micabo se répartissent entre les deux autres.
+    const it = classerApplications(marche({}, "it", "IT"), cible, APPS);
+    expect(it.reduce((a, x) => a + x.partVisee, 0)).toBeCloseTo(100);
+    expect(it.find((x) => x.slug === "sophia")!.partVisee).toBeCloseTo((100 * 60) / 85);
+  });
+
+  it("une langue non servie n'apparaît jamais dans le classement", () => {
+    const cible = lireCibleApplications({ sophia: 50, micabo: 50 }, SLUGS);
+    expect(classerApplications(marche({}, "pl", "PL"), cible, APPS).map((x) => x.slug)).toEqual([
+      "sophia",
+    ]);
   });
 });
 

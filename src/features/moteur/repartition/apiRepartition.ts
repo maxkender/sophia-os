@@ -12,15 +12,15 @@
  */
 import { supabase } from "@/lib/supabase/client";
 
+import { ecrireReglage } from "../api";
+
 import {
   lireCibleApplications,
   type CibleApplications,
   type MarcheApplications,
 } from "./scoreApplication";
 import {
-  lireFermeturesParApplication,
   lireReglagesChoixLabel,
-  type FermeturesParApplication,
   type ReglagesChoixLabel,
   type StatLabel,
 } from "./scoreLabel";
@@ -165,21 +165,34 @@ export async function lireCibleRepartitionApps(
   return lireCibleApplications(data?.valeur, slugsActifs);
 }
 
-export interface ReglagesRepartition {
-  reglages: ReglagesChoixLabel;
-  fermeturesApp: FermeturesParApplication;
-}
+
 
 /** `reglages.choix_labels`. Absent en base : les valeurs par défaut du moteur. */
-export async function lireReglagesRepartition(): Promise<ReglagesRepartition> {
+export async function lireReglagesRepartition(): Promise<ReglagesChoixLabel> {
   const { data, error } = await supabase
     .from("reglages")
     .select("valeur")
     .eq("cle", "choix_labels")
     .maybeSingle();
   if (error) throw error;
-  return {
-    reglages: lireReglagesChoixLabel(data?.valeur),
-    fermeturesApp: lireFermeturesParApplication(data?.valeur),
-  };
+  return lireReglagesChoixLabel(data?.valeur);
+}
+
+/**
+ * Pose la cible de répartition entre applications.
+ *
+ * Écrit des pourcentages entiers par slug dans `reglages.repartition_applications`.
+ * C'est la SEULE écriture de la page : elle ne touche ni les comptes, ni les
+ * labels, ni le moteur. Tant que personne ne lit cette clé côté moteur (c'est
+ * le cas aujourd'hui), la poser ne change que ce que la page projette.
+ */
+export async function ecrireCibleRepartitionApps(
+  parts: Readonly<Record<string, number>>,
+): Promise<void> {
+  const propre: Record<string, number> = {};
+  for (const [slug, v] of Object.entries(parts)) {
+    const n = Math.round(Number(v));
+    if (slug && Number.isFinite(n) && n > 0) propre[slug] = n;
+  }
+  await ecrireReglage("repartition_applications", propre);
 }

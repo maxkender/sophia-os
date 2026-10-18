@@ -2091,6 +2091,20 @@ export const fr = {
       colPoids: "Poids",
       colPresence: "Présence",
       colScore: "Score",
+      cibleTitre: "Cible de répartition entre applications",
+      cibleAide:
+        "Des pourcentages entiers, renormalisés à 100 à la lecture. Une application laissée à 0 ne reçoit rien. La cible est ensuite ramenée aux seules applications qui servent la langue du marché : viser 25 % d'Unswipe ne veut rien dire en polonais, où Unswipe ne publie pas.",
+      poserCible: "Poser la cible",
+      sommeAide: "Somme saisie : {{total}} (renormalisée à 100)",
+      toutesLangues: "Toutes les langues",
+      langues: "Langues : {{liste}}",
+      nonServie: "—",
+      tiragesTitre: "Composition des {{n}} prochaines recrues",
+      tiragesAide:
+        "Pour chaque marché, on déroule les {{n}} prochaines créations en mettant à jour la présence à chaque fois, exactement comme le fera le moteur, et on compte ce qu'on obtient. C'est une projection à stock et performance figés, pas une prédiction.",
+      colMix: "Application × label",
+      colPart: "Part",
+      rFermesApp: "Labels fermés à la main",
       appsTitre: "Répartition par application",
       appsAide:
         "Aujourd'hui, l'application d'un compte est cochée à la main par le recruteur, sans aucune cible. Voici la répartition réelle, pour la flotte puis marché par marché, et quelle application prendrait la prochaine recrue si une cible était posée.",

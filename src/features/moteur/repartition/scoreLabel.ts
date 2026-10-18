@@ -63,15 +63,24 @@ export interface ReglagesChoixLabel {
   postsParJourNouveau: number;
   partMax: number;
   rafaleRecents: number;
+  /** Comptes réaffectés au plus par nuit (garde-fou d'un réglage mal posé). */
   relabelsMaxParNuit: number;
   /** Labels jamais fermés (réouverture manuelle), toutes applications. */
   ouverts: string[];
   /** Labels toujours fermés (fermeture manuelle), toutes applications. */
   fermes: string[];
-  /** Fermetures décidées par la nuit, mémorisées, clé `application:label`. */
+  /**
+   * Fermeture et réouverture manuelles POUR UNE APPLICATION, clés
+   * `application:label`. `fermes` et `ouverts` sont globaux : fermer
+   * `white_bg` le fermait partout, y compris là où il marche. Ces deux
+   * listes-ci permettent de le fermer sur Unswipe en le gardant sur Sophia.
+   * Elles gagnent sur les listes globales : le plus précis l'emporte.
+   */
+  fermesApp: string[];
+  ouvertsApp: string[];
+  /** Fermetures décidées par la nuit, mémorisées. */
   fermesAuto: Record<string, FermetureAuto>;
 }
-
 export const REGLAGES_CHOIX_LABEL_DEFAUT: Readonly<ReglagesChoixLabel> = Object.freeze({
   perfExposant: 2,
   perfLissage: 30,
@@ -87,28 +96,10 @@ export const REGLAGES_CHOIX_LABEL_DEFAUT: Readonly<ReglagesChoixLabel> = Object.
   relabelsMaxParNuit: 20,
   ouverts: [],
   fermes: [],
-  fermesAuto: {},
-});
-
-/**
- * Fermeture manuelle PAR APPLICATION, demandée le 18/10.
- *
- * `fermes` et `ouverts` sont globaux : fermer `white_bg` les ferme partout, y
- * compris là où il marche. Ces deux listes-ci portent des clés
- * `application:label`, comme `fermesAuto`. Le moteur ne les lit pas encore :
- * tant qu'elles sont vides le comportement est identique, et la page les
- * affiche en lecture seule. Les câbler est une ligne dans `estFerme`, côté Deno.
- */
-export interface FermeturesParApplication {
-  fermesApp: string[];
-  ouvertsApp: string[];
-}
-
-export const FERMETURES_PAR_APPLICATION_DEFAUT: Readonly<FermeturesParApplication> = Object.freeze({
   fermesApp: [],
   ouvertsApp: [],
+  fermesAuto: {},
 });
-
 /** Plancher de capacité : un label sans réserve garde un poids infime, jamais nul. */
 export const CAPACITE_MIN = 0.05;
 /** Sous un jour de réserve (avec le compte en plus), le label est à sec. */
@@ -131,18 +122,19 @@ function nombreOuNull(v: unknown): number | null {
 
 function positif(v: unknown, defaut: number): number {
   const n = Number(v);
-  return Number.isFinite(n) && n > 0 ? n : defaut;
+  return v !== null && v !== undefined && Number.isFinite(n) && n > 0 ? n : defaut;
 }
 
 function listeIds(v: unknown): string[] {
-  return Array.isArray(v) ? v.map((x) => String(x)).filter(Boolean) : [];
+  return Array.isArray(v) ? [...new Set(v.map((x) => String(x ?? "").trim()).filter(Boolean))] : [];
 }
 
 /** `reglages.choix_labels` → valeurs propres. Mêmes clés snake_case que le moteur. */
 export function lireReglagesChoixLabel(valeur: unknown): ReglagesChoixLabel {
-  const v = (valeur && typeof valeur === "object" && !Array.isArray(valeur)
-    ? valeur
-    : {}) as Record<string, unknown>;
+  const v = (valeur && typeof valeur === "object" && !Array.isArray(valeur) ? valeur : {}) as Record<
+    string,
+    unknown
+  >;
   const d = REGLAGES_CHOIX_LABEL_DEFAUT;
   const fermesAuto: Record<string, FermetureAuto> = {};
   const brut = v.fermes_auto;
@@ -168,23 +160,14 @@ export function lireReglagesChoixLabel(valeur: unknown): ReglagesChoixLabel {
     reserveMinJours: Math.max(0, nombre(v.reserve_min_jours ?? d.reserveMinJours)),
     reserveCibleJours: positif(v.reserve_cible_jours, d.reserveCibleJours),
     postsParJourNouveau: positif(v.posts_par_jour_nouveau, d.postsParJourNouveau),
-    partMax: positif(v.part_max, d.partMax),
+    partMax: Math.min(1, positif(v.part_max, d.partMax)),
     rafaleRecents: positif(v.rafale_recents, d.rafaleRecents),
-    relabelsMaxParNuit: Math.max(0, nombre(v.relabels_max_par_nuit ?? d.relabelsMaxParNuit)),
-    ouverts: listeIds(v.ouverts),
-    fermes: listeIds(v.fermes),
+    relabelsMaxParNuit: Math.max(0, Math.round(nombre(v.relabels_max_par_nuit ?? d.relabelsMaxParNuit))),
+    ouverts: listeIds(v.labels_ouverts),
+    fermes: listeIds(v.labels_fermes),
+    fermesApp: listeIds(v.labels_fermes_app),
+    ouvertsApp: listeIds(v.labels_ouverts_app),
     fermesAuto,
-  };
-}
-
-/** Les deux listes par application, lues à part (le moteur ne les lit pas encore). */
-export function lireFermeturesParApplication(valeur: unknown): FermeturesParApplication {
-  const v = (valeur && typeof valeur === "object" && !Array.isArray(valeur)
-    ? valeur
-    : {}) as Record<string, unknown>;
-  return {
-    fermesApp: listeIds(v.fermes_app),
-    ouvertsApp: listeIds(v.ouverts_app),
   };
 }
 
@@ -213,13 +196,15 @@ export function motifFermeture(
   applicationId: string,
   r: ReglagesChoixLabel,
   s?: StatLabel | null,
-  app: FermeturesParApplication = FERMETURES_PAR_APPLICATION_DEFAUT,
 ): MotifFermeture | null {
+  // MÊME ÉCHELLE que `estFerme` côté moteur, du plus précis au moins précis.
+  // Un test compare les deux fonctions sur tous les cas : elles ne peuvent
+  // pas diverger sans le dire.
   const k = cleFermeture(applicationId, labelId);
-  if (app.ouvertsApp.includes(k)) return null;
+  if (r.ouvertsApp.includes(k)) return null;
+  if (r.fermesApp.includes(k)) return "manuelle_app";
   if (r.ouverts.includes(labelId)) return null;
   if (r.fermes.includes(labelId)) return "manuelle";
-  if (app.fermesApp.includes(k)) return "manuelle_app";
   if (r.fermesAuto[k]) return "auto";
   return s && doitFermer(s, r) ? "chiffres" : null;
 }
@@ -229,9 +214,16 @@ export function estFerme(
   applicationId: string,
   r: ReglagesChoixLabel,
   s?: StatLabel | null,
-  app: FermeturesParApplication = FERMETURES_PAR_APPLICATION_DEFAUT,
 ): boolean {
-  return motifFermeture(labelId, applicationId, r, s, app) !== null;
+  const k = cleFermeture(applicationId, labelId);
+  // Du plus précis au moins précis : une décision prise POUR une application
+  // l'emporte sur la même décision prise pour toutes.
+  if (r.ouvertsApp.includes(k)) return false;
+  if (r.fermesApp.includes(k)) return true;
+  if (r.ouverts.includes(labelId)) return false;
+  if (r.fermes.includes(labelId)) return true;
+  if (r.fermesAuto[k]) return true;
+  return s ? doitFermer(s, r) : false;
 }
 
 /** Facteur de performance d'un label (1 = comme la flotte), lissé et borné. */
@@ -326,7 +318,6 @@ export interface LabelClasse {
 export interface OptionsClassement {
   applicationId: string;
   ignorerFermeture?: boolean;
-  fermeturesApp?: FermeturesParApplication;
 }
 
 function prepare(
@@ -337,9 +328,7 @@ function prepare(
   const uniques = new Map<string, StatLabel>();
   for (const s of stats) if (s.label_id && !uniques.has(s.label_id)) uniques.set(s.label_id, s);
   const liste = [...uniques.values()].filter(
-    (s) =>
-      opts.ignorerFermeture ||
-      !estFerme(s.label_id, opts.applicationId, r, s, opts.fermeturesApp),
+    (s) => opts.ignorerFermeture || !estFerme(s.label_id, opts.applicationId, r, s),
   );
   if (liste.length === 0) return [];
 

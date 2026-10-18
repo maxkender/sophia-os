@@ -3,7 +3,6 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
 import {
-  FERMETURES_PAR_APPLICATION_DEFAUT,
   REGLAGES_CHOIX_LABEL_DEFAUT,
   capacite,
   classerLabels,
@@ -11,7 +10,6 @@ import {
   estFerme,
   facteurPerformance,
   joursApresCompte,
-  lireFermeturesParApplication,
   lireReglagesChoixLabel,
   motifFermeture,
   poidsLabel,
@@ -68,7 +66,21 @@ describe("copie Deno", () => {
     ["joursApresCompte", "export function joursApresCompte("],
     ["capacite", "export function capacite("],
     ["poidsLabel", "export function poidsLabel("],
-  ])("la formule de %s est la même des deux côtés", (_nom, debut) => {
+    ["perfRelative", "export function perfRelative("],
+    ["doitFermer", "export function doitFermer("],
+    // Les deux qui avaient dérivé sans que rien ne le dise : le lecteur
+    // cherchait `ouverts` au lieu de `labels_ouverts`, donc la page n'aurait
+    // jamais montré une fermeture manuelle.
+    ["lireReglagesChoixLabel", "export function lireReglagesChoixLabel("],
+    ["estFerme", "export function estFerme("],
+    ["listeIds", "function listeIds("],
+    ["positif", "function positif("],
+  ])("le code de %s est le même des deux côtés", (_nom, debut) => {
+    expect(bloc(FRONT, debut, "\n}")).toBe(bloc(DENO, debut, "\n}"));
+  });
+
+  it("l'interface des réglages est la même des deux côtés", () => {
+    const debut = "export interface ReglagesChoixLabel {";
     expect(bloc(FRONT, debut, "\n}")).toBe(bloc(DENO, debut, "\n}"));
   });
 
@@ -102,11 +114,16 @@ describe("lecture du réglage", () => {
     expect(lireReglagesChoixLabel({ fermes_auto: { lab: { posts: 1 } } }).fermesAuto).toEqual({});
   });
 
-  it("les fermetures par application se lisent à part", () => {
-    expect(lireFermeturesParApplication(null)).toEqual(FERMETURES_PAR_APPLICATION_DEFAUT);
-    expect(lireFermeturesParApplication({ fermes_app: [`${APP}:lab`] }).fermesApp).toEqual([
-      `${APP}:lab`,
-    ]);
+  it("les listes par application se lisent dans le même réglage", () => {
+    const r = lireReglagesChoixLabel({ labels_fermes_app: [`${APP}:lab`] });
+    expect(r.fermesApp).toEqual([`${APP}:lab`]);
+    expect(lireReglagesChoixLabel(null).fermesApp).toEqual([]);
+  });
+
+  it("les listes globales se lisent sous labels_ouverts / labels_fermes", () => {
+    const r = lireReglagesChoixLabel({ labels_ouverts: ["a"], labels_fermes: ["b"] });
+    expect(r.ouverts).toEqual(["a"]);
+    expect(r.fermes).toEqual(["b"]);
   });
 });
 
@@ -129,9 +146,37 @@ describe("fermeture", () => {
   });
 
   it("une fermeture manuelle par application ne ferme que cette application", () => {
-    const app = { fermesApp: [`${APP}:lab`], ouvertsApp: [] };
-    expect(motifFermeture("lab", APP, r, stat({ label_id: "lab" }), app)).toBe("manuelle_app");
-    expect(motifFermeture("lab", "autre-app", r, stat({ label_id: "lab" }), app)).toBeNull();
+    const parApp = { ...r, fermesApp: [`${APP}:lab`] };
+    expect(motifFermeture("lab", APP, parApp, stat({ label_id: "lab" }))).toBe("manuelle_app");
+    expect(motifFermeture("lab", "autre-app", parApp, stat({ label_id: "lab" }))).toBeNull();
+  });
+
+  it("le plus précis gagne : par application avant global", () => {
+    const k = `${APP}:lab`;
+    expect(estFerme("lab", APP, { ...r, fermes: ["lab"], ouvertsApp: [k] })).toBe(false);
+    expect(estFerme("lab", APP, { ...r, ouverts: ["lab"], fermesApp: [k] })).toBe(true);
+  });
+
+  it("motifFermeture et estFerme ne peuvent pas se contredire", () => {
+    const cas: Array<Partial<typeof r>> = [
+      {},
+      { fermes: ["lab"] },
+      { ouverts: ["lab"] },
+      { fermesApp: [`${APP}:lab`] },
+      { ouvertsApp: [`${APP}:lab`] },
+      { fermes: ["lab"], ouvertsApp: [`${APP}:lab`] },
+      { ouverts: ["lab"], fermesApp: [`${APP}:lab`] },
+      { fermesAuto: { [`${APP}:lab`]: { depuis: "j", perf: 0.5, posts: 200 } } },
+    ];
+    const chiffres = [stat({ label_id: "lab" }), stat({ label_id: "lab", perf_label: 0.5, passages: 200 })];
+    for (const over of cas) {
+      for (const s of chiffres) {
+        const reg = { ...r, ...over };
+        expect(estFerme("lab", APP, reg, s), JSON.stringify(over)).toBe(
+          motifFermeture("lab", APP, reg, s) !== null,
+        );
+      }
+    }
   });
 
   it("une réouverture manuelle l'emporte sur tout", () => {

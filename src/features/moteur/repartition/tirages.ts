@@ -14,7 +14,7 @@
  * quoi penche le système aujourd'hui », ce qui est la question qu'on se pose
  * en regardant une langue.
  */
-import { APPLICATION_COHORTE_RUUL, estTirageCohorte } from "./provenance";
+import { estTirageSite, prochaineAppSite } from "./provenance";
 import {
   applicationsEligibles,
   classerApplications,
@@ -37,8 +37,8 @@ export interface Tirage {
   label_nom: string;
   /** Comptes obtenus sur les `n` tirages. */
   comptes: number;
-  /** Parmi eux, ceux d'une recrue de la cohorte Ruul, qui n'avait pas le choix. */
-  comptesCohorte: number;
+  /** Parmi eux, ceux d'une recrue venue du site, que le moteur n'a pas placée. */
+  comptesSite: number;
   /** Part des tirages, en pourcentage. */
   part: number;
 }
@@ -48,12 +48,16 @@ export const TIRAGES_DEFAUT = 20;
 
 export interface OptionsTirages {
   /**
-   * Part des prochaines recrues qui viennent de la cohorte Ruul, entre 0 et 1.
-   * Ces recrues-là partent sur Sophia quoi qu'en dise la cible.
+   * Part des prochaines recrues qui viennent du site, entre 0 et 1. Leur
+   * application est déjà décidée quand le moteur les voit.
    */
-  partCohorte?: number;
-  /** L'application de la cohorte. Ne change que si la règle change. */
-  applicationCohorte?: string;
+  partSite?: number;
+  /**
+   * Où le site envoie ces recrues, tel que MESURÉ, pas tel que supposé :
+   * `{ sophia: 1 }` aujourd'hui, autre chose le jour où il change d'avis.
+   * Vide, il n'y a pas de tirage du site, quelle que soit la part.
+   */
+  siteParApp?: Readonly<Record<string, number>>;
 }
 
 function cle(applicationId: string, labelId: string): string {
@@ -75,18 +79,18 @@ interface Candidat {
  * rien recevoir : elle est sautée, et le tirage va à la suivante, sinon un
  * trou de données ferait disparaître des comptes de la projection.
  *
- * LA COHORTE RUUL. Avec `options.partCohorte`, une partie des tirages est
- * réservée à des recrues venues du site, qui partent TOUJOURS sur Sophia.
- * Deux conséquences, et aucune n'est cosmétique :
+ * LES RECRUES DU SITE. Avec `options.partSite`, une partie des tirages
+ * revient à des recrues dont le site a DÉJÀ choisi l'application. Deux
+ * conséquences, et aucune n'est cosmétique :
  *
  *  - ces tirages-là ne passent pas par `classerApplications`, qui écarte une
- *    application à cible nulle. Une recrue Ruul va sur Sophia même si l'admin
- *    y vise 0 % : c'est une contrainte, pas une préférence ;
- *  - leur compte est ajouté à Sophia comme n'importe quel autre. C'est ce qui
- *    fait que Sainte-Laguë se corrige seul, en envoyant d'autant moins de
- *    recrues placées par le moteur vers Sophia. Ne pas l'ajouter rendrait la
- *    projection sourde à la cohorte, et lui passer en plus une cible déjà
- *    corrigée la corrigerait deux fois.
+ *    application à cible nulle. Le site envoie où il veut, y compris là où
+ *    l'admin vise 0 % : c'est un fait, pas une préférence ;
+ *  - leur compte est ajouté à l'application reçue comme n'importe quel autre.
+ *    C'est ce qui fait que Sainte-Laguë se corrige seul, en envoyant d'autant
+ *    moins de recrues placées par le moteur vers cette application. Ne pas
+ *    l'ajouter rendrait la projection sourde au site, et lui passer en plus
+ *    une cible déjà corrigée la corrigerait deux fois.
  */
 export function simulerTirages(
   marche: MarcheApplications,
@@ -100,18 +104,26 @@ export function simulerTirages(
   const comptesApp = new Map(marche.parts.map((p) => [p.slug, p.comptes]));
   const ajoutLabel = new Map<string, number>();
   const obtenus = new Map<string, Tirage>();
+  const parApp = options.siteParApp ?? {};
   // Bornée ici et pas seulement chez l'appelant : un NaN qui passerait ferait
-  // sortir de la boucle au premier tour et rendrait une projection vide.
-  const part = Math.min(1, Math.max(0, Number(options.partCohorte) || 0));
-  const slugCohorte = options.applicationCohorte ?? APPLICATION_COHORTE_RUUL;
+  // sortir de la boucle au premier tour et rendrait une projection vide. Sans
+  // répartition mesurée, il n'y a rien à réserver au site.
+  const part =
+    Object.keys(parApp).length > 0
+      ? Math.min(1, Math.max(0, Number(options.partSite) || 0))
+      : 0;
+  // Ce que le site a déjà attribué dans CETTE projection, pour que la suite
+  // de ses tirages suive sa répartition réelle au lieu de tout donner au
+  // premier slug.
+  const attribuesSite: Record<string, number> = {};
   // Un genre de recrue qui n'a rien pu placer ne pourra plus rien placer :
   // ses tours suivants donneraient le même résultat. L'AUTRE genre, lui, peut
   // très bien continuer — d'où deux drapeaux et non un `break` global.
-  const epuise = { cohorte: false, recrutement: false };
-  // Sans cohorte, il n'y aura jamais de tirage de cohorte à épuiser : sans
+  const epuise = { site: false, recrutement: false };
+  // Sans recrue du site, il n'y a jamais de tirage du site à épuiser : sans
   // ces deux drapeaux, le cas le plus courant tournerait à vide jusqu'à `n`
   // au lieu de s'arrêter comme avant.
-  const peutCohorte = part > 0;
+  const peutSite = part > 0;
   const peutRecrutement = part < 1;
 
   const avecAjouts = (applicationId: string, stats: StatLabel[]): StatLabel[] =>
@@ -127,10 +139,10 @@ export function simulerTirages(
     });
 
   for (let i = 0; i < Math.max(0, n); i += 1) {
-    if ((!peutCohorte || epuise.cohorte) && (!peutRecrutement || epuise.recrutement)) break;
+    if ((!peutSite || epuise.site) && (!peutRecrutement || epuise.recrutement)) break;
 
-    const deLaCohorte = estTirageCohorte(i, part);
-    const genre = deLaCohorte ? "cohorte" : "recrutement";
+    const duSite = estTirageSite(i, part);
+    const genre = duSite ? "site" : "recrutement";
     if (epuise[genre]) continue;
 
     const marcheCourant: MarcheApplications = {
@@ -143,11 +155,20 @@ export function simulerTirages(
       })),
     };
 
-    // Une recrue de la cohorte n'a qu'un candidat, et il ne dépend pas de la
-    // cible. Une recrue placée par le moteur descend le classement habituel.
-    const candidats: Candidat[] = deLaCohorte
+    // Une recrue du site va là où le site l'envoie, et ça ne dépend pas de la
+    // cible. On garde les autres applications qu'il sert derrière, au cas où
+    // la première n'ait aucun label ouvert. Une recrue placée par le moteur,
+    // elle, descend le classement habituel.
+    const voulu = duSite ? prochaineAppSite(attribuesSite, parApp) : null;
+    const candidats: Candidat[] = duSite
       ? applicationsEligibles(marche.langue, applications)
-          .filter((a) => a.slug === slugCohorte)
+          .filter((a) => (parApp[a.slug] ?? 0) > 0)
+          .sort(
+            (x, y) =>
+              (y.slug === voulu ? 1 : 0) - (x.slug === voulu ? 1 : 0) ||
+              (parApp[y.slug] ?? 0) - (parApp[x.slug] ?? 0) ||
+              x.slug.localeCompare(y.slug),
+          )
           .map((a) => ({ application_id: a.id, slug: a.slug }))
       : classerApplications(marcheCourant, cible, applications).map((a) => ({
           application_id: a.application_id,
@@ -170,10 +191,12 @@ export function simulerTirages(
       ajoutLabel.set(k, (ajoutLabel.get(k) ?? 0) + 1);
       comptesApp.set(app.slug, (comptesApp.get(app.slug) ?? 0) + 1);
 
+      if (duSite) attribuesSite[app.slug] = (attribuesSite[app.slug] ?? 0) + 1;
+
       const deja = obtenus.get(k);
       if (deja) {
         deja.comptes += 1;
-        if (deLaCohorte) deja.comptesCohorte += 1;
+        if (duSite) deja.comptesSite += 1;
       } else {
         obtenus.set(k, {
           application_id: app.application_id,
@@ -181,7 +204,7 @@ export function simulerTirages(
           label_id: gagnant.label_id,
           label_nom: gagnant.label_nom,
           comptes: 1,
-          comptesCohorte: deLaCohorte ? 1 : 0,
+          comptesSite: duSite ? 1 : 0,
           part: 0,
         });
       }

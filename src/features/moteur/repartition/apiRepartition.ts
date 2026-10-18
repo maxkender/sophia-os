@@ -14,7 +14,7 @@ import { supabase } from "@/lib/supabase/client";
 
 import { ecrireReglage } from "../api";
 
-import type { ProvenanceMarche } from "./provenance";
+import type { RecruesMarche } from "./provenance";
 import {
   lireCibleApplications,
   type CibleApplications,
@@ -153,45 +153,53 @@ export async function lireMarchesApplications(): Promise<MarcheApplications[]> {
   return [...parMarche.values()];
 }
 
-interface LigneCohorte {
+interface LigneRecrues {
   langue: string;
   pays: string | null;
   recrues: number | string;
-  recrues_ruul: number | string;
-  recrues_ruul_hors_sophia: number | string;
+  recrues_site: number | string;
+  site_par_app: Record<string, number | string> | null;
 }
 
 /** Nombre de jours sur lesquels on mesure la provenance des recrues. */
 export const PROVENANCE_JOURS = 30;
 
 /**
- * Combien de recrues par marché, combien venaient de la cohorte Ruul, et
- * combien de celles-là démentent la règle.
+ * Combien de recrues par marché, combien venaient du site, et où le site les
+ * a envoyées.
  *
- * Un créateur de la cohorte est censé partir sur Sophia. Sans ce chiffre, la
- * page montrerait une cible « 60 % Sophia » comme si les trois applications se
- * disputaient chaque recrue, alors qu'une partie est promise d'avance — en
- * français, près d'une sur deux.
+ * Ces recrues-là, le moteur ne les place pas : leur application est déjà
+ * décidée quand il les voit. Sans ce chiffre, la page montrerait une cible
+ * « 60 % Sophia » comme si les trois applications se disputaient chaque
+ * recrue, alors qu'une partie est attribuée d'avance — en français, près
+ * d'une sur deux.
  *
- * La troisième colonne est là parce que la règle n'est appliquée NULLE PART :
- * c'est le site qui choisit l'application de ses candidats et il sait demander
- * Unswipe. La page vérifie donc au lieu de supposer (migration 0309).
+ * La répartition est MESURÉE, pas supposée (migration 0310) : le site décide
+ * candidat par candidat et sait demander autre chose que Sophia. Le jour où
+ * il le fait, la page suit sans qu'on y touche.
  */
-export async function lireCohorteRecrutement(
+export async function lireRecruesSite(
   jours: number = PROVENANCE_JOURS,
-): Promise<ProvenanceMarche[]> {
-  const { data, error } = await supabase.rpc("simulation_repartition_cohorte", {
+): Promise<RecruesMarche[]> {
+  const { data, error } = await supabase.rpc("simulation_recrues_site", {
     p_jours: jours,
   });
   if (error) throw error;
 
-  return ((data ?? []) as LigneCohorte[]).map((l) => ({
-    langue: l.langue,
-    pays: l.pays ?? null,
-    recrues: nombre(l.recrues),
-    recruesRuul: nombre(l.recrues_ruul),
-    recruesRuulHorsSophia: nombre(l.recrues_ruul_hors_sophia),
-  }));
+  return ((data ?? []) as LigneRecrues[]).map((l) => {
+    const parApp: Record<string, number> = {};
+    for (const [slug, v] of Object.entries(l.site_par_app ?? {})) {
+      const n = nombre(v);
+      if (n > 0) parApp[slug] = n;
+    }
+    return {
+      langue: l.langue,
+      pays: l.pays ?? null,
+      recrues: nombre(l.recrues),
+      recruesSite: nombre(l.recrues_site),
+      siteParApp: parApp,
+    };
+  });
 }
 
 /** La cible de répartition entre applications, si un admin en a posé une. */

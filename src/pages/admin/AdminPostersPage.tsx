@@ -58,6 +58,7 @@ import {
   lireZonesCohorteRuul,
   majCompte,
   majLanguesRecruteur,
+  majRecruteur,
   majUpwork,
   majZoneRecruteur,
   setLabelsCompte,
@@ -484,6 +485,54 @@ function PaysCompteSelect({ compte }: { compte: CompteAvecDetails }) {
           </option>
         ))}
       </select>
+    </div>
+  );
+}
+
+/**
+ * Recruteur d'un créateur. Un poster créé par l'admin ou le Head of Ops leur
+ * est rattaché : ils le passent ici au HM de sa zone (ticket Aram, 18/10).
+ */
+function ChoixRecruteur({
+  poster,
+  recruteurs,
+}: {
+  poster: PosterProfil;
+  recruteurs: PosterProfil[];
+}) {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const maj = useMutation({
+    mutationFn: (managerId: string) => majRecruteur(poster.id, managerId || null),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["posters"] });
+    },
+  });
+
+  return (
+    <div className="max-w-sm space-y-1">
+      <Label
+        htmlFor={`recruteur-${poster.id}`}
+        className="text-[10px] uppercase tracking-wide text-muted-foreground"
+      >
+        {t("posters.changerRecruteur")}
+      </Label>
+      <select
+        id={`recruteur-${poster.id}`}
+        className={selectClass}
+        value={poster.manager_id ?? ""}
+        disabled={maj.isPending}
+        onChange={(e) => maj.mutate(e.target.value)}
+      >
+        <option value="">{t("posters.sansRecruteur")}</option>
+        {recruteurs.map((r) => (
+          <option key={r.id} value={r.id}>
+            {nomAffiche(r)}
+            {r.zone_recrutement ? ` · ${r.zone_recrutement}` : ""}
+          </option>
+        ))}
+      </select>
+      {maj.isError && <p className="text-xs text-destructive">{messageErreur(maj.error)}</p>}
     </div>
   );
 }
@@ -1752,6 +1801,11 @@ export function AdminPostersPage() {
     fiche?.role === "poster" && fiche.manager_id
       ? tous.find((p) => p.id === fiche.manager_id && estRoleManager(p.role))
       : undefined;
+  // Changer le recruteur d'un créateur : admin et Head of Ops (RLS `is_admin`).
+  const peutChangerRecruteur = role === "admin" || role === "head_of_ops";
+  const recruteursPossibles = tous
+    .filter((p) => estRoleManager(p.role) && (p.is_active || p.id === fiche?.manager_id))
+    .sort((a, b) => nomAffiche(a).localeCompare(nomAffiche(b)));
 
   // Une requête en erreur ne doit pas se lire comme « ce créateur n'a aucun
   // compte » : sans ce bandeau, un 300/400 sur `comptes` affichait 0 compte
@@ -2039,6 +2093,9 @@ export function AdminPostersPage() {
                 <MapPin className="size-3" />
                 <span>{zoneDuCreateur(fiche, tous, zonesCohorteRuul) ?? t("posters.sansZone")}</span>
               </p>
+              {fiche.role === "poster" && peutChangerRecruteur && (
+                <ChoixRecruteur poster={fiche} recruteurs={recruteursPossibles} />
+              )}
 
               <CreateurUpwork
                 poster={fiche}

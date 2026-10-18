@@ -1255,6 +1255,7 @@ export const en = {
       equipeHoResume:
         "{{total}} creator(s) · {{pasCree}} not created · {{warmup}} warmup · {{actif}} active",
       sansRecruteur: "No recruiter",
+      changerRecruteur: "Recruiter (HM)",
       recruteur: "Recruiter",
       pays: "Country",
       paysNonRenseigne: "Country not set",

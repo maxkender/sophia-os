@@ -1364,6 +1364,19 @@ export async function majUpwork(userId: string, url: string): Promise<void> {
   if (error) throw error;
 }
 
+/**
+ * Rattache un créateur à un recruteur (admin, Head of Ops ; RLS `is_admin`).
+ * `null` = sans recruteur. Ses comptes, posts et stats suivent : tout se lit
+ * par `manager_id`.
+ */
+export async function majRecruteur(posterId: string, managerId: string | null): Promise<void> {
+  const { error } = await supabase
+    .from("profiles")
+    .update({ manager_id: managerId })
+    .eq("id", posterId);
+  if (error) throw error;
+}
+
 /** Coût mensuel (€) d'un créateur/recruteur, saisi par l'admin (null = vide). */
 export async function majCoutMensuel(userId: string, montant: number | null): Promise<void> {
   const { error } = await supabase

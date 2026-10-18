@@ -102,65 +102,55 @@ sorti du warm-up.
    nul, envoyer le lien de paiement dans la foulée, renseigner le lien Slack et
    le guide du posteur.
 
-## « Créateur Ruul => Sophia » : ce qu'il faudrait pour que ce soit vrai
+## Qui choisit l'application d'un poster du site
 
-**Ça ne l'est pas aujourd'hui.** C'est le site qui choisit l'application de
-ses candidats : `APPLICATIONS_HUB` vaut `["sophia", "unswipe"]` et
-`partsPourApplications` (`_shared/hub_posteurs.ts`) sait rendre
-`{unswipe: 100}` comme `{sophia: 50, unswipe: 50}`. Au 18/10 les 7 comptes de
-la cohorte sont bien sur Sophia, mais parce que le site a demandé `["sophia"]`,
-pas parce qu'une règle l'impose.
+**Le site, candidat par candidat.** Décision du 18/10, après avoir envisagé
+l'inverse : il n'y aura pas de règle « un créateur venu du site va sur
+Sophia ». `APPLICATIONS_HUB` vaut `["sophia", "unswipe"]`,
+`partsPourApplications` (`_shared/hub_posteurs.ts`) traduit la demande en
+`null` (chemin historique, 100 % Sophia), `{unswipe: 100}` ou
+`{sophia: 50, unswipe: 50}`, et `manage-users` la recopie telle quelle. C'est
+voulu, et rien côté OS ne doit l'empêcher.
 
-La page `/admin/repartition` MODÉLISE la règle et la vérifie à chaque
-ouverture (colonne d'écart de `simulation_repartition_cohorte`, migration
-0309). Elle ne l'applique pas. Le jour où on décide de l'appliquer :
+Au 18/10 les 7 comptes de la cohorte sont sur Sophia, parce que le site a
+demandé `["sophia"]`. Ce n'est pas une propriété du système, c'est son état.
 
-### Le minimum, à la création depuis le site
+### Ce que l'OS en fait
 
-1. `_shared/hub_posteurs.ts` — `partsPourApplications` rend toujours la même
-   chose. Soit `null` (chemin historique, vaut 100 % Sophia), soit
-   `{sophia: 100}` explicite, ce qui immunise contre un changement futur du
-   sens de `null`. Fonction pure, testable seule.
-2. `_shared/hub_posteurs_test.ts` — ses assertions tombent, à réécrire dans le
-   même commit.
-3. `hub-posteurs/index.ts` — le site continuera d'envoyer `applications`.
-   Refuser (nouveau code d'erreur, à ajouter au tableau du **Contrat**) ou
-   ignorer. Si on ignore, garder la DEMANDE du site dans
-   `hub_posteurs.applications`, pas ce qui a été appliqué : c'est la seule
-   trace du désaccord.
-4. Ce fichier — la phrase du **Contrat** sur `applications` devient fausse.
+Rien à la création : il applique ce que le site demande. En revanche la page
+`/admin/repartition` en tient compte, parce que ces recrues-là échappent au
+moteur :
 
-### Pour que ça tienne aussi hors du guichet
+- `simulation_recrues_site` (migration 0310) rend, par marché, les recrues de
+  la fenêtre, combien venaient du site, et leur répartition RÉELLE entre
+  applications ;
+- `src/features/moteur/repartition/provenance.ts` en déduit le **plancher** de
+  chaque application, c'est-à-dire ce qu'elle reçoit quoi qu'il arrive, et dit
+  si une cible posée par un admin est atteignable. En français, 5 recrues sur
+  11 viennent du site : une cible qui demanderait à Sophia moins que ce que le
+  site lui envoie déjà est impossible, et la page le dit ;
+- la projection des 20 prochaines recrues réserve ces tirages-là et les envoie
+  où le site les envoie, pas où un slug écrit en dur le voudrait.
 
-5. Un helper partagé `estPosterCohorteRuul(supabase, posterId)`, une seule
-   définition de la cohorte dans l'OS.
-6. `manage-users` — la garde va après `lireChoixCompte` et **avant**
-   `createUser` : le fichier impose déjà cette discipline, un refus plus tard
-   laisse un login orphelin. Donc pas dans `preparerCompte`.
-7. Une migration avec un trigger sur `comptes.parts_applications` : sans elle,
-   un admin rebascule un compte Ruul sur Unswipe depuis sa fiche
-   (`majPartsApplicationsCompte`), et le trigger existant ne vérifie que
-   `is_admin`.
+**Tout est mesuré, rien n'est supposé.** Le jour où le site commencera à
+envoyer des comptes sur Unswipe, les planchers changeront d'application et les
+projections suivront sans qu'on touche à une ligne de code. C'est la raison
+d'être de la colonne de répartition de 0310 : une version antérieure posait
+`cohorte => sophia` en constante, et aurait affiché des chiffres faux à la
+première demande `["unswipe"]`.
 
-### Côté front
+### Si un jour on veut quand même contraindre
 
-8. Masquer le choix d'application quand la cible est un poster Ruul, plutôt
-   que d'afficher des curseurs qui échoueront à l'enregistrement. Prérequis :
-   le front doit savoir qui est Ruul, or `hub_posteurs` est en RLS admin
-   seule — il faut un drapeau sur la ligne poster ou une RPC `security
-   definer` rendant le booléen.
-
-### Le jour où le moteur choisit vraiment l'application
-
-9. **Aucun code serveur ne lit `reglages.repartition_applications`.** Il
-   faudrait porter `src/features/moteur/repartition/scoreApplication.ts` vers
-   `_shared/` et le brancher dans `manage-users`.
-10. L'ordre compte : une recrue Ruul n'est pas un siège que le moteur peut
-    attribuer. La garde doit court-circuiter le classement, et les comptes de
-    la cohorte doivent compter normalement dans la présence — c'est ce qui
-    fait que Sainte-Laguë se corrige seul. Voir l'en-tête de
-    `src/features/moteur/repartition/provenance.ts`, qui explique pourquoi
-    corriger la cible EN PLUS la corrigerait deux fois.
+Ce n'est pas prévu. Si ça le devenait, le point unique est
+`partsPourApplications` (`_shared/hub_posteurs.ts`), avec son test, plus une
+décision à prendre sur ce que devient la demande du site : refuser avec un
+code d'erreur documenté dans le **Contrat**, ou l'ignorer en gardant la trace
+de la demande dans `hub_posteurs.applications`. Deux autres portes resteraient
+ouvertes : un second compte via `ensure_compte` / `ajouter_compte`, et
+l'édition admin depuis la fiche compte (`majPartsApplicationsCompte`), que
+seul un trigger sur `comptes.parts_applications` fermerait. Et la garde devrait
+tomber **avant** `createUser`, jamais dans `preparerCompte` : plus tard, un
+refus laisse un login orphelin.
 
 ## Suite prévue
 

@@ -10,7 +10,7 @@ import { REGLAGES_CHOIX_LABEL_DEFAUT } from "@/features/moteur/repartition/score
 const lireMarchesApplications = vi.fn();
 const lireMarchesRepartition = vi.fn();
 const lireCibleRepartitionApps = vi.fn();
-const lireCohorteRecrutement = vi.fn();
+const lireRecruesSite = vi.fn();
 const lireReglagesRepartition = vi.fn();
 
 vi.mock("@/features/moteur/repartition/apiRepartition", () => ({
@@ -19,7 +19,7 @@ vi.mock("@/features/moteur/repartition/apiRepartition", () => ({
   lireCibleRepartitionApps: (slugs: readonly string[]) => lireCibleRepartitionApps(slugs),
   lireMarchesApplications: () => lireMarchesApplications(),
   lireMarchesRepartition: (id: string) => lireMarchesRepartition(id),
-  lireCohorteRecrutement: (jours: number) => lireCohorteRecrutement(jours),
+  lireRecruesSite: (jours: number) => lireRecruesSite(jours),
   lireReglagesRepartition: () => lireReglagesRepartition(),
 }));
 
@@ -94,9 +94,9 @@ const MARCHES_LABELS = MARCHES_APPS.map((m) => ({
 // de la cohorte. En allemand, aucune. En espagnol, l'échantillon est trop
 // mince pour parler du marché.
 const PROVENANCE = [
-  { langue: "fr", pays: "FR", recrues: 11, recruesRuul: 5, recruesRuulHorsSophia: 0 },
-  { langue: "de", pays: "DE", recrues: 15, recruesRuul: 0, recruesRuulHorsSophia: 0 },
-  { langue: "es", pays: "ES", recrues: 2, recruesRuul: 0, recruesRuulHorsSophia: 0 },
+  { langue: "fr", pays: "FR", recrues: 11, recruesSite: 5, siteParApp: { sophia: 5 } },
+  { langue: "de", pays: "DE", recrues: 15, recruesSite: 0, siteParApp: {} },
+  { langue: "es", pays: "ES", recrues: 2, recruesSite: 0, siteParApp: {} },
 ];
 
 function renderPage() {
@@ -110,24 +110,24 @@ function renderPage() {
   );
 }
 
-/** La ligne du tableau de la carte cohorte qui porte ce marché. */
-function ligneCohorte(marche: RegExp): HTMLElement {
-  const titre = screen.getByText(/Recrues de la cohorte Ruul|Recruits from the Ruul cohort/);
+/** La ligne du tableau de la carte des recrues du site qui porte ce marché. */
+function ligneSite(marche: RegExp): HTMLElement {
+  const titre = screen.getByText(/Recrues venues du site|Recruits from the website/);
   const carte = titre.closest("div[class*='rounded']") as HTMLElement;
   const ligne = within(carte)
     .getAllByRole("row")
     .find((r) => marche.test(r.textContent ?? ""));
-  if (!ligne) throw new Error(`ligne ${marche} absente de la carte cohorte`);
+  if (!ligne) throw new Error(`ligne ${marche} absente de la carte des recrues du site`);
   return ligne;
 }
 
-describe("AdminRepartitionPage — cohorte Ruul", () => {
+describe("AdminRepartitionPage — recrues venues du site", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     lireReglagesRepartition.mockResolvedValue(REGLAGES_CHOIX_LABEL_DEFAUT);
     lireMarchesApplications.mockResolvedValue(MARCHES_APPS);
     lireMarchesRepartition.mockResolvedValue(MARCHES_LABELS);
-    lireCohorteRecrutement.mockResolvedValue(PROVENANCE);
+    lireRecruesSite.mockResolvedValue(PROVENANCE);
     lireCibleRepartitionApps.mockResolvedValue({
       source: "reglage",
       parts: { sophia: 60, unswipe: 25, micabo: 15 },
@@ -136,52 +136,52 @@ describe("AdminRepartitionPage — cohorte Ruul", () => {
 
   it("la provenance est lue sur la même fenêtre que celle affichée", async () => {
     renderPage();
-    await waitFor(() => expect(lireCohorteRecrutement).toHaveBeenCalledWith(30));
+    await waitFor(() => expect(lireRecruesSite).toHaveBeenCalledWith(30));
   });
 
   it("le résumé donne les effectifs de la flotte, pas qu'un pourcentage", async () => {
     renderPage();
     // 11 + 15 + 2 = 28 recrues, dont 5 de la cohorte.
-    await screen.findByText(/28 recrues sur 30 jours, dont 5 de la cohorte|28 recruits over 30 days, 5 of them from the cohort/);
+    await screen.findByText(/28 recrues sur 30 jours, dont 5 venues du site|28 recruits over 30 days, 5 of them from the website/);
   });
 
-  it("le français montre ses 5 recrues sur 11 et sa part promise", async () => {
+  it("le français montre ses 5 recrues sur 11 et sa part hors moteur", async () => {
     renderPage();
-    await screen.findByText(/Recrues de la cohorte Ruul|Recruits from the Ruul cohort/);
-    const ligne = ligneCohorte(/Français|French/);
+    await screen.findByText(/Recrues venues du site|Recruits from the website/);
+    const ligne = ligneSite(/Français|French/);
     expect(ligne.textContent).toMatch(/45 %/);
     expect(within(ligne).getByText("5")).toBeTruthy();
   });
 
   it("un échantillon trop mince le dit, au lieu de faire parler deux comptes", async () => {
     renderPage();
-    await screen.findByText(/Recrues de la cohorte Ruul|Recruits from the Ruul cohort/);
-    expect(ligneCohorte(/Espagnol|Spanish/).textContent).toMatch(
+    await screen.findByText(/Recrues venues du site|Recruits from the website/);
+    expect(ligneSite(/Espagnol|Spanish/).textContent).toMatch(
       /la flotte \(échantillon trop mince\)|the fleet \(sample too thin\)/,
     );
-    expect(ligneCohorte(/Français|French/).textContent).toMatch(/ce marché|this market/);
+    expect(ligneSite(/Français|French/).textContent).toMatch(/ce marché|this market/);
   });
 
   it("une cible atteignable est annoncée comme telle", async () => {
     renderPage();
-    await screen.findByText(/Recrues de la cohorte Ruul|Recruits from the Ruul cohort/);
+    await screen.findByText(/Recrues venues du site|Recruits from the website/);
     // Cible Sophia 60 %, cohorte 45,5 % : il reste de la marge.
-    expect(ligneCohorte(/Français|French/).textContent).toMatch(/Atteignable|Reachable/);
+    expect(ligneSite(/Français|French/).textContent).toMatch(/Atteignable|Reachable/);
   });
 
-  it("viser moins de Sophia que la cohorte n'en fournit est signalé impossible", async () => {
+  it("viser moins que ce que le site envoie déjà est signalé impossible", async () => {
     lireCibleRepartitionApps.mockResolvedValue({
       source: "reglage",
       parts: { sophia: 30, unswipe: 40, micabo: 30 },
     });
     renderPage();
-    await screen.findByText(/Recrues de la cohorte Ruul|Recruits from the Ruul cohort/);
+    await screen.findByText(/Recrues venues du site|Recruits from the website/);
     // C'est le cœur de la carte : 30 % demandés, 45,5 % déjà promis.
-    expect(ligneCohorte(/Français|French/).textContent).toMatch(
-      /Impossible sous 45 %|Impossible below 45 %/,
+    expect(ligneSite(/Français|French/).textContent).toMatch(
+      /Impossible : sophia ≥ 45 %|Impossible: sophia ≥ 45 %/,
     );
     // L'allemand n'a aucune recrue de la cohorte : rien ne l'empêche.
-    expect(ligneCohorte(/Allemand|German/).textContent).toMatch(/Atteignable|Reachable/);
+    expect(ligneSite(/Allemand|German/).textContent).toMatch(/Atteignable|Reachable/);
   });
 
   it("sans cible posée, aucun verdict : on ne juge pas une cible que personne n'a choisie", async () => {
@@ -193,15 +193,15 @@ describe("AdminRepartitionPage — cohorte Ruul", () => {
       parts: { sophia: 100 / 3, unswipe: 100 / 3, micabo: 100 / 3 },
     });
     renderPage();
-    await screen.findByText(/Recrues de la cohorte Ruul|Recruits from the Ruul cohort/);
-    const ligne = ligneCohorte(/Français|French/);
+    await screen.findByText(/Recrues venues du site|Recruits from the website/);
+    const ligne = ligneSite(/Français|French/);
     expect(ligne.textContent).toMatch(/cible non posée|no target set/);
     expect(ligne.textContent).not.toMatch(/Impossible/);
     // Le plancher, lui, ne dépend pas de la cible : il reste affiché.
     expect(ligne.textContent).toMatch(/45 %/);
   });
 
-  it("la projection dit combien des vingt prochaines recrues sont promises", async () => {
+  it("la projection dit combien des vingt prochaines recrues viennent du site", async () => {
     renderPage();
     const titre = await screen.findByText(
       /Composition des 20 prochaines recrues|Mix of the next 20 hires/,
@@ -214,25 +214,29 @@ describe("AdminRepartitionPage — cohorte Ruul", () => {
     expect(ligne?.textContent).toMatch(/9 \/ 20/);
   });
 
-  it("la règle est vérifiée, pas supposée : elle tient aujourd'hui", async () => {
+  it("la page dit où le site a envoyé ses recrues", async () => {
     renderPage();
-    await screen.findByText(
-      /La règle tient aujourd'hui|The rule holds today/,
-    );
+    await screen.findByText(/Le site les a envoyées sur : sophia 5|The website sent them to: sophia 5/);
   });
 
-  it("un créateur de la cohorte ailleurs que sur Sophia est signalé fort", async () => {
-    // Rien dans l'OS n'applique la règle : c'est le site qui choisit, et il
-    // sait demander Unswipe. Le jour où ça arrive, la page doit le crier,
-    // pas afficher une projection fausse sans le dire.
-    lireCohorteRecrutement.mockResolvedValue([
-      { langue: "fr", pays: "FR", recrues: 11, recruesRuul: 5, recruesRuulHorsSophia: 2 },
-      { langue: "de", pays: "DE", recrues: 15, recruesRuul: 0, recruesRuulHorsSophia: 0 },
-      { langue: "es", pays: "ES", recrues: 2, recruesRuul: 0, recruesRuulHorsSophia: 0 },
+  it("le site envoie sur Unswipe : la page suit, sans rien d'écrit en dur", async () => {
+    // C'est le site qui décide, candidat par candidat. Le jour où il envoie
+    // ailleurs, le plancher change d'application tout seul.
+    lireRecruesSite.mockResolvedValue([
+      { langue: "fr", pays: "FR", recrues: 11, recruesSite: 5, siteParApp: { unswipe: 5 } },
+      { langue: "de", pays: "DE", recrues: 15, recruesSite: 0, siteParApp: {} },
+      { langue: "es", pays: "ES", recrues: 2, recruesSite: 0, siteParApp: {} },
     ]);
+    lireCibleRepartitionApps.mockResolvedValue({
+      source: "reglage",
+      parts: { sophia: 90, unswipe: 5, micabo: 5 },
+    });
     renderPage();
-    await screen.findByText(/2 d'entre elles ne sont PAS sur Sophia|2 of them are NOT on Sophia/);
-    expect(screen.queryByText(/La règle tient aujourd'hui|The rule holds today/)).toBeNull();
+    await screen.findByText(/Recrues venues du site|Recruits from the website/);
+    const ligne = ligneSite(/Français|French/);
+    expect(ligne.textContent).toMatch(/unswipe 45 %/);
+    // Et c'est Unswipe qui bloque la cible, pas Sophia.
+    expect(ligne.textContent).toMatch(/Impossible : unswipe|Impossible: unswipe/);
   });
 
   it("pas de verdict rouge sur un échantillon emprunté à la flotte", async () => {
@@ -244,20 +248,20 @@ describe("AdminRepartitionPage — cohorte Ruul", () => {
       parts: { sophia: 1, unswipe: 60, micabo: 39 },
     });
     renderPage();
-    await screen.findByText(/Recrues de la cohorte Ruul|Recruits from the Ruul cohort/);
-    const es = ligneCohorte(/Espagnol|Spanish/);
+    await screen.findByText(/Recrues venues du site|Recruits from the website/);
+    const es = ligneSite(/Espagnol|Spanish/);
     expect(es.textContent).toMatch(/échantillon trop mince pour juger|sample too thin to judge/);
     expect(es.textContent).not.toMatch(/Impossible/);
     // Le français, lui, parle pour lui-même : le verdict franc est permis.
-    expect(ligneCohorte(/Français|French/).textContent).toMatch(/Impossible/);
+    expect(ligneSite(/Français|French/).textContent).toMatch(/Impossible/);
   });
 
   it("une erreur de droits reste lisible et ne laisse pas un tableau vide", async () => {
-    lireCohorteRecrutement.mockRejectedValue(new Error("reserve aux administrateurs"));
+    lireRecruesSite.mockRejectedValue(new Error("reserve aux administrateurs"));
     renderPage();
     await screen.findByText("reserve aux administrateurs");
     expect(
-      screen.queryByText(/Recrues de la cohorte Ruul|Recruits from the Ruul cohort/),
+      screen.queryByText(/Recrues venues du site|Recruits from the website/),
     ).toBeNull();
   });
 });

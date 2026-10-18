@@ -2691,27 +2691,30 @@ export const en = {
         "⚠️ Don't forget to warm up the account before you start posting (and every week, scroll for 5-6 minutes so TikTok doesn't take you for a robot)!",
       warmupADemarrer: "Warmup not started yet",
       warmupADemarrerAideUgc:
-        "When your TikTok and Instagram accounts are ready, click “Start warmup”. The timer starts; when it ends, you get one video a day to post on both.",
+        "When your TikTok and Instagram accounts are ready, click “Start warmup”. Your warm-up then lasts until the next Monday, and your first video arrives that Monday morning. Start today → first video on {{lundi}}.",
       warmupADemarrerAide:
-        "When your TikTok account is ready, click “Start warmup”. The timer starts; when it ends, you enter the process (assigned posts).",
+        "When your TikTok account is ready, click “Start warmup”. Your warm-up then lasts until the next Monday, and your first posts arrive that Monday morning. Start today → first posts on {{lundi}}.",
+      warmupEnCours: "Warm-up in progress: your first posts arrive on {{jour}}",
+      warmupEnCoursUgc: "Warm-up in progress: your first video arrives on {{jour}}",
+      warmupEnCoursAide:
+        "Until then, use TikTok normally every day: scroll, like, follow. Never post. Nothing to post yet: that is normal.",
+      caseWarmup: "Warm-up",
+      casePremiersPosts: "FIRST POSTS",
+      legendeWarmup: "🔥 Warm-up: use TikTok normally, never post. 🚀 First posts: they arrive that morning.",
       ruul: {
         frise: {
           titre: "Your first week, step by step",
           lancer: "Click “Start warmup” (just below)",
-          lancerQuand: "Now, and on {{samedi}} at the latest",
-          lancerDimanche: "Now. Started today, your warm-up spills over into Monday: your first slideshows come on Tuesday",
+          lancerQuand: "Now, and on {{dimanche}} at the latest",
           lancerRetard: "Now: your first week started on {{lundi}}",
           lancerFait: "Done",
           warmup: "Warm-up",
           warmupJusqua: "Until {{fin}} (Paris time)",
           lundiMinuit: "{{lundi}} at 00:00",
-          warmup24h: "24 hours, from the moment you click",
           warmupFini: "Finished",
           warmupDetail: "Use TikTok normally every day: scroll, like, follow. Never post. Nothing to post yet: that is normal.",
           posts: "Your first 2 slideshows",
           postsLundi: "{{lundi}}, in the morning",
-          postsMardi: "Tuesday morning",
-          postsLendemain: "The morning after your warm-up ends",
           postsEnCours: "In your dashboard every morning",
           postsDetail: "Post both during the day. Then 2 new slideshows every day, 7 days a week.",
           paiement: "First payment, through Ruul",
@@ -2744,7 +2747,7 @@ export const en = {
         "When a poster is created, a queue entry (label + UGC or not) is taken from the front. The account only enters the process (assignment, rankings, stats) after warmup.",
       heures: "Warmup duration (hours)",
       heuresAide:
-        "Timer starts when the creator clicks “Start warmup” in their calendar (default 24 h).",
+        "Ruul cohort only (minimum before their start Monday). Every other creator: the warm-up lasts from the click on “Start warmup” until the next Monday 00:00 (Paris), first posts that Monday.",
       fileTitre: "Next accounts queue (label + UGC)",
       fileApp: "{{app}} creators queue — a new {{app}} account gets the next label at creation.",
       fileDesc:
@@ -2793,7 +2796,7 @@ export const en = {
       skipAide: "Skip the warmup timer — the account becomes active (in process) immediately.",
       enCours: "Warmup · {{temps}}",
       apresCreation:
-        "Next: the creator clicks “Start warmup” in their calendar to start the timer. When it ends, the account enters the process.",
+        "Next: the creator clicks “Start warmup” in their calendar. The warm-up lasts until the next Monday, and the account gets its first posts that Monday.",
       phasePasCree: "Account not created",
       phaseWarmupAttente: "Warmup — not started",
       phaseWarmup: "Warmup · {{temps}}",

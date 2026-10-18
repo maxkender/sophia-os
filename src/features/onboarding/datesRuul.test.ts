@@ -22,10 +22,10 @@ describe("dates de la cohorte Ruul", () => {
     ).toEqual({ cas: "a_lancer" });
   });
 
-  it("pas lancé, le dimanche d'avant : posts le mardi", () => {
+  it("pas lancé, le dimanche d'avant : encore à temps, posts le lundi (plus de minimum de 24 h)", () => {
     expect(
       conseilWarmupRuul({ debutLe: DEBUT, warmupStartedAt: null, warmupEndsAt: null, maintenant: new Date("2026-10-25T09:00:00Z") }),
-    ).toEqual({ cas: "a_lancer_dimanche" });
+    ).toEqual({ cas: "a_lancer" });
   });
 
   it("pas lancé, lundi passé : en retard", () => {
@@ -45,7 +45,7 @@ describe("dates de la cohorte Ruul", () => {
     ).toEqual({ cas: "en_cours", fin: "2026-10-25T23:00:00Z", finAuLundi: true });
   });
 
-  it("lancé dimanche : déborde sur le lundi, pas « ce matin-là »", () => {
+  it("fin hors minuit (ancien minuteur de 24 h) : pas « ce matin-là »", () => {
     const c = conseilWarmupRuul({
       debutLe: DEBUT,
       warmupStartedAt: "2026-10-25T09:00:00Z",

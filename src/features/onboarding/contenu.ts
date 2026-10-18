@@ -177,7 +177,7 @@ export const ECRANS: Ecran[] = [
       {
         type: "alerte",
         ton: "orange",
-        titre: "The next 24 hours",
+        titre: "Until your first posts, on the Monday after you start",
         items: [
           "Scroll through a few videos, about 5 minutes, IN THE NICHE YOU WILL BE POSTING IN.",
           "Follow a few people, leave comments, repost.",
@@ -322,7 +322,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     cle: "warmup",
-    question: "What do you do during the 24 hours of warmup?",
+    question: "What do you do during your warmup?",
     options: [
       "Post your first slideshow straight away",
       "Scroll about 5 minutes in your niche, follow, comment and repost, without posting yet",

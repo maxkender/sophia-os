@@ -99,9 +99,9 @@ dans la file à `created_at + 50 h` (30 h avant la fin) et porte l'indication
 TRIAL avec les heures restantes. Rien n'est coupé automatiquement à l'échéance :
 c'est une revue, pas un couperet.
 
-À ne pas confondre avec le **warmup** (`warmup_started_at/ends_at`, 24 h par
-défaut, déclenché par le créateur lui-même) : deux compteurs différents, le
-warmup n'a pas changé.
+À ne pas confondre avec le **warmup** (`warmup_started_at/ends_at`, déclenché
+par le créateur lui-même, jusqu'au lundi qui suit son clic depuis 0301) : deux
+compteurs différents.
 
 ## Nudges
 

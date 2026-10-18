@@ -153,37 +153,44 @@ export async function lireMarchesApplications(): Promise<MarcheApplications[]> {
   return [...parMarche.values()];
 }
 
-interface LigneProvenance {
+interface LigneCohorte {
   langue: string;
   pays: string | null;
   recrues: number | string;
   recrues_ruul: number | string;
+  recrues_ruul_hors_sophia: number | string;
 }
 
 /** Nombre de jours sur lesquels on mesure la provenance des recrues. */
 export const PROVENANCE_JOURS = 30;
 
 /**
- * Combien de recrues par marché, et combien venaient de la cohorte Ruul.
+ * Combien de recrues par marché, combien venaient de la cohorte Ruul, et
+ * combien de celles-là démentent la règle.
  *
- * Ces créateurs-là partent TOUJOURS sur Sophia (migration 0308). Sans ce
- * chiffre, la page montrerait une cible « 60 % Sophia » comme si les trois
- * applications se disputaient chaque recrue, alors qu'une partie est promise
- * d'avance — en français, près d'une sur deux.
+ * Un créateur de la cohorte est censé partir sur Sophia. Sans ce chiffre, la
+ * page montrerait une cible « 60 % Sophia » comme si les trois applications se
+ * disputaient chaque recrue, alors qu'une partie est promise d'avance — en
+ * français, près d'une sur deux.
+ *
+ * La troisième colonne est là parce que la règle n'est appliquée NULLE PART :
+ * c'est le site qui choisit l'application de ses candidats et il sait demander
+ * Unswipe. La page vérifie donc au lieu de supposer (migration 0309).
  */
-export async function lireProvenanceRecrutement(
+export async function lireCohorteRecrutement(
   jours: number = PROVENANCE_JOURS,
 ): Promise<ProvenanceMarche[]> {
-  const { data, error } = await supabase.rpc("simulation_repartition_provenance", {
+  const { data, error } = await supabase.rpc("simulation_repartition_cohorte", {
     p_jours: jours,
   });
   if (error) throw error;
 
-  return ((data ?? []) as LigneProvenance[]).map((l) => ({
+  return ((data ?? []) as LigneCohorte[]).map((l) => ({
     langue: l.langue,
     pays: l.pays ?? null,
     recrues: nombre(l.recrues),
     recruesRuul: nombre(l.recrues_ruul),
+    recruesRuulHorsSophia: nombre(l.recrues_ruul_hors_sophia),
   }));
 }
 

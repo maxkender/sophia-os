@@ -12,8 +12,13 @@ import { lireCibleApplications } from "./scoreApplication";
 
 const SLUGS = ["sophia", "unswipe", "micabo"];
 
-function prov(langue: string, recrues: number, recruesRuul: number): ProvenanceMarche {
-  return { langue, pays: langue.toUpperCase(), recrues, recruesRuul };
+function prov(
+  langue: string,
+  recrues: number,
+  recruesRuul: number,
+  recruesRuulHorsSophia = 0,
+): ProvenanceMarche {
+  return { langue, pays: langue.toUpperCase(), recrues, recruesRuul, recruesRuulHorsSophia };
 }
 
 // Les chiffres de la prod au 18/10, fenêtre de 30 jours : c'est le cas qui a
@@ -55,7 +60,13 @@ describe("part promise à la cohorte", () => {
 
   it("sans aucune recrue nulle part, la part est zéro et c'est annoncé", () => {
     const p = partCohorte(undefined, []);
-    expect(p).toEqual({ part: 0, base: "aucune", recrues: 0, recruesRuul: 0 });
+    expect(p).toEqual({
+      part: 0,
+      base: "aucune",
+      recrues: 0,
+      recruesRuul: 0,
+      recruesRuulHorsSophia: 0,
+    });
   });
 
   it("une flotte sans cohorte donne zéro, pas une division ratée", () => {

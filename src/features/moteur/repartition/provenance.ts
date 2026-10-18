@@ -65,6 +65,16 @@ export interface ProvenanceMarche {
   recrues: number;
   /** Parmi eux, ceux d'un poster de la cohorte Ruul. */
   recruesRuul: number;
+  /**
+   * Parmi ceux-là, ceux qui ne sont PAS entièrement sur Sophia.
+   *
+   * La règle n'est appliquée nulle part : c'est le site qui choisit
+   * l'application de ses candidats, et il sait demander Unswipe ou un 50/50.
+   * Ce compteur existe pour que la page VÉRIFIE la règle au lieu de la
+   * supposer. À zéro, elle tient ; au-dessus, la projection ci-dessous est
+   * fausse d'autant et la page doit le dire.
+   */
+  recruesRuulHorsSophia: number;
 }
 
 /**
@@ -84,6 +94,8 @@ export interface PartCohorte {
   /** Effectifs ayant servi au calcul, pour que la page montre l'échantillon. */
   recrues: number;
   recruesRuul: number;
+  /** Recrues de la cohorte qui démentent la règle, sur la même base. */
+  recruesRuulHorsSophia: number;
 }
 
 /**
@@ -104,15 +116,23 @@ export function partCohorte(
       base: "marche",
       recrues: marche.recrues,
       recruesRuul: marche.recruesRuul,
+      recruesRuulHorsSophia: marche.recruesRuulHorsSophia,
     };
   }
 
   const recrues = flotte.reduce((a, m) => a + m.recrues, 0);
   const ruul = flotte.reduce((a, m) => a + m.recruesRuul, 0);
+  const hors = flotte.reduce((a, m) => a + m.recruesRuulHorsSophia, 0);
   if (recrues <= 0) {
-    return { part: 0, base: "aucune", recrues: 0, recruesRuul: 0 };
+    return { part: 0, base: "aucune", recrues: 0, recruesRuul: 0, recruesRuulHorsSophia: 0 };
   }
-  return { part: borner(ruul / recrues), base: "flotte", recrues, recruesRuul: ruul };
+  return {
+    part: borner(ruul / recrues),
+    base: "flotte",
+    recrues,
+    recruesRuul: ruul,
+    recruesRuulHorsSophia: hors,
+  };
 }
 
 function borner(x: number): number {
@@ -198,10 +218,14 @@ export function cibleHorsCohorte(
  * Le rang `i` (à partir de 0) sur `n` tirages est-il une recrue de la cohorte ?
  *
  * Pas de hasard : la page doit donner le même tableau à chaque ouverture,
- * sinon personne ne peut s'en servir pour décider. On répartit les `round(n×p)`
+ * sinon personne ne peut s'en servir pour décider. On répartit `floor(n×p)`
  * recrues promises régulièrement sur la suite, à la façon d'un tracé de
  * droite : le tirage `i` est de la cohorte dès que la part cumulée franchit un
  * entier de plus qu'au tirage précédent.
+ *
+ * `floor` et pas `round` : on préfère sous-estimer la contrainte. Annoncer une
+ * recrue promise de plus qu'il n'y en aura fermerait une place que le moteur
+ * avait le droit d'attribuer.
  */
 export function estTirageCohorte(i: number, part: number): boolean {
   const p = borner(part);

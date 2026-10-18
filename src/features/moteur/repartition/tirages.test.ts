@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 
+import { cibleHorsCohorte } from "./provenance";
 import { lireCibleApplications, type MarcheApplications } from "./scoreApplication";
 import { REGLAGES_CHOIX_LABEL_DEFAUT, type StatLabel } from "./scoreLabel";
 import { simulerTirages } from "./tirages";
@@ -153,17 +154,53 @@ describe("cohorte Ruul dans la projection", () => {
     expect(avant.every((x) => x.comptesCohorte === 0)).toBe(true);
   });
 
-  it("LE test : la répartition par application ne bouge pas quand la cohorte grossit", () => {
+  it("tant que la cohorte reste sous la cible, la répartition ne bouge pas", () => {
     // C'est la propriété qui justifie de passer la cible de l'admin TELLE
     // QUELLE à la projection. Les comptes de la cohorte comptent comme les
     // autres, donc Sainte-Laguë envoie d'autant moins de recrues placées par
     // le moteur vers Sophia, et le total retombe sur 60/40 tout seul.
-    // Corriger la cible EN PLUS la corrigerait deux fois et ferait chuter
-    // Sophia bien en dessous de ce que l'admin a demandé.
+    //
+    // L'invariant n'est PAS universel, et le nom ne doit pas le laisser
+    // croire : il vaut tant que la part promise reste sous la cible de
+    // Sophia. Au-delà, voir le test suivant.
     for (const p of [0, 0.25, 5 / 11, 0.5]) {
       const t = simulerTirages(marche("fr"), stats, cible, APPS, R, 20, { partCohorte: p });
       expect(parApp(t), `part ${p}`).toEqual({ sophia: 12, unswipe: 8 });
     }
+  });
+
+  it("au-dessus de la cible, Sophia la dépasse : c'est le cas inatteignable", () => {
+    // 70 % de recrues promises contre une cible à 60 % : le moteur ne peut
+    // plus rien y faire, et la projection doit le montrer au lieu de
+    // prétendre tenir la cible.
+    const t = simulerTirages(marche("fr"), stats, cible, APPS, R, 20, { partCohorte: 0.7 });
+    const obtenu = parApp(t);
+    expect(obtenu.sophia).toBeGreaterThan(12);
+    expect(obtenu.sophia).toBeGreaterThanOrEqual(14);
+    // Et c'est exactement le plancher qu'annonce cibleHorsCohorte.
+    expect(cibleHorsCohorte(cible, 0.7).atteignable).toBe(false);
+    expect(cibleHorsCohorte(cible, 0.7).minimum).toBeCloseTo(70);
+  });
+
+  it("corriger la cible EN PLUS ferait chuter Sophia sous le demandé", () => {
+    // Le piège que les deux modules documentent en majuscules, enfin mis en
+    // évidence : on fait exprès la bêtise et on constate les dégâts.
+    const p = 5 / 11;
+    const brute = simulerTirages(marche("fr"), stats, cible, APPS, R, 20, { partCohorte: p });
+    const corrigee = cibleHorsCohorte(cible, p);
+    const doublement = simulerTirages(
+      marche("fr"),
+      stats,
+      { source: "reglage", parts: corrigee.parts },
+      APPS,
+      R,
+      20,
+      { partCohorte: p },
+    );
+    // La bonne façon tombe sur la cible de l'admin, 60 % de 20.
+    expect(parApp(brute).sophia).toBe(12);
+    // La double correction, elle, sous-sert Sophia.
+    expect(parApp(doublement).sophia).toBeLessThan(12);
   });
 
   it("le nombre de recrues promises est celui annoncé, et toutes sont sur Sophia", () => {

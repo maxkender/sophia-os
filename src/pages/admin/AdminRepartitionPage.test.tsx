@@ -10,7 +10,7 @@ import { REGLAGES_CHOIX_LABEL_DEFAUT } from "@/features/moteur/repartition/score
 const lireMarchesApplications = vi.fn();
 const lireMarchesRepartition = vi.fn();
 const lireCibleRepartitionApps = vi.fn();
-const lireProvenanceRecrutement = vi.fn();
+const lireCohorteRecrutement = vi.fn();
 const lireReglagesRepartition = vi.fn();
 
 vi.mock("@/features/moteur/repartition/apiRepartition", () => ({
@@ -19,13 +19,13 @@ vi.mock("@/features/moteur/repartition/apiRepartition", () => ({
   lireCibleRepartitionApps: (slugs: readonly string[]) => lireCibleRepartitionApps(slugs),
   lireMarchesApplications: () => lireMarchesApplications(),
   lireMarchesRepartition: (id: string) => lireMarchesRepartition(id),
-  lireProvenanceRecrutement: (jours: number) => lireProvenanceRecrutement(jours),
+  lireCohorteRecrutement: (jours: number) => lireCohorteRecrutement(jours),
   lireReglagesRepartition: () => lireReglagesRepartition(),
 }));
 
 const APPS = [
   { id: "id-sophia", slug: "sophia", langues: null, actif: true },
-  { id: "id-unswipe", slug: "unswipe", langues: ["fr", "en", "de"], actif: true },
+  { id: "id-unswipe", slug: "unswipe", langues: ["fr", "en", "de", "es"], actif: true },
   { id: "id-micabo", slug: "micabo", langues: ["fr", "de"], actif: true },
 ];
 
@@ -94,9 +94,9 @@ const MARCHES_LABELS = MARCHES_APPS.map((m) => ({
 // de la cohorte. En allemand, aucune. En espagnol, l'échantillon est trop
 // mince pour parler du marché.
 const PROVENANCE = [
-  { langue: "fr", pays: "FR", recrues: 11, recruesRuul: 5 },
-  { langue: "de", pays: "DE", recrues: 15, recruesRuul: 0 },
-  { langue: "es", pays: "ES", recrues: 2, recruesRuul: 0 },
+  { langue: "fr", pays: "FR", recrues: 11, recruesRuul: 5, recruesRuulHorsSophia: 0 },
+  { langue: "de", pays: "DE", recrues: 15, recruesRuul: 0, recruesRuulHorsSophia: 0 },
+  { langue: "es", pays: "ES", recrues: 2, recruesRuul: 0, recruesRuulHorsSophia: 0 },
 ];
 
 function renderPage() {
@@ -127,7 +127,7 @@ describe("AdminRepartitionPage — cohorte Ruul", () => {
     lireReglagesRepartition.mockResolvedValue(REGLAGES_CHOIX_LABEL_DEFAUT);
     lireMarchesApplications.mockResolvedValue(MARCHES_APPS);
     lireMarchesRepartition.mockResolvedValue(MARCHES_LABELS);
-    lireProvenanceRecrutement.mockResolvedValue(PROVENANCE);
+    lireCohorteRecrutement.mockResolvedValue(PROVENANCE);
     lireCibleRepartitionApps.mockResolvedValue({
       source: "reglage",
       parts: { sophia: 60, unswipe: 25, micabo: 15 },
@@ -136,7 +136,7 @@ describe("AdminRepartitionPage — cohorte Ruul", () => {
 
   it("la provenance est lue sur la même fenêtre que celle affichée", async () => {
     renderPage();
-    await waitFor(() => expect(lireProvenanceRecrutement).toHaveBeenCalledWith(30));
+    await waitFor(() => expect(lireCohorteRecrutement).toHaveBeenCalledWith(30));
   });
 
   it("le résumé donne les effectifs de la flotte, pas qu'un pourcentage", async () => {
@@ -149,7 +149,7 @@ describe("AdminRepartitionPage — cohorte Ruul", () => {
     renderPage();
     await screen.findByText(/Recrues de la cohorte Ruul|Recruits from the Ruul cohort/);
     const ligne = ligneCohorte(/Français|French/);
-    expect(ligne.textContent).toMatch(/45,5 %/);
+    expect(ligne.textContent).toMatch(/45 %/);
     expect(within(ligne).getByText("5")).toBeTruthy();
   });
 
@@ -178,7 +178,7 @@ describe("AdminRepartitionPage — cohorte Ruul", () => {
     await screen.findByText(/Recrues de la cohorte Ruul|Recruits from the Ruul cohort/);
     // C'est le cœur de la carte : 30 % demandés, 45,5 % déjà promis.
     expect(ligneCohorte(/Français|French/).textContent).toMatch(
-      /Impossible sous 45,5 %|Impossible below 45,5 %/,
+      /Impossible sous 45 %|Impossible below 45 %/,
     );
     // L'allemand n'a aucune recrue de la cohorte : rien ne l'empêche.
     expect(ligneCohorte(/Allemand|German/).textContent).toMatch(/Atteignable|Reachable/);
@@ -198,7 +198,7 @@ describe("AdminRepartitionPage — cohorte Ruul", () => {
     expect(ligne.textContent).toMatch(/cible non posée|no target set/);
     expect(ligne.textContent).not.toMatch(/Impossible/);
     // Le plancher, lui, ne dépend pas de la cible : il reste affiché.
-    expect(ligne.textContent).toMatch(/45,5 %/);
+    expect(ligne.textContent).toMatch(/45 %/);
   });
 
   it("la projection dit combien des vingt prochaines recrues sont promises", async () => {
@@ -214,8 +214,46 @@ describe("AdminRepartitionPage — cohorte Ruul", () => {
     expect(ligne?.textContent).toMatch(/9 \/ 20/);
   });
 
+  it("la règle est vérifiée, pas supposée : elle tient aujourd'hui", async () => {
+    renderPage();
+    await screen.findByText(
+      /La règle tient aujourd'hui|The rule holds today/,
+    );
+  });
+
+  it("un créateur de la cohorte ailleurs que sur Sophia est signalé fort", async () => {
+    // Rien dans l'OS n'applique la règle : c'est le site qui choisit, et il
+    // sait demander Unswipe. Le jour où ça arrive, la page doit le crier,
+    // pas afficher une projection fausse sans le dire.
+    lireCohorteRecrutement.mockResolvedValue([
+      { langue: "fr", pays: "FR", recrues: 11, recruesRuul: 5, recruesRuulHorsSophia: 2 },
+      { langue: "de", pays: "DE", recrues: 15, recruesRuul: 0, recruesRuulHorsSophia: 0 },
+      { langue: "es", pays: "ES", recrues: 2, recruesRuul: 0, recruesRuulHorsSophia: 0 },
+    ]);
+    renderPage();
+    await screen.findByText(/2 d'entre elles ne sont PAS sur Sophia|2 of them are NOT on Sophia/);
+    expect(screen.queryByText(/La règle tient aujourd'hui|The rule holds today/)).toBeNull();
+  });
+
+  it("pas de verdict rouge sur un échantillon emprunté à la flotte", async () => {
+    // L'espagnol n'a que 2 recrues : sa part vient de la flotte. Déclarer sa
+    // cible impossible sur un chiffre emprunté pousserait l'admin à la
+    // gonfler pour rien.
+    lireCibleRepartitionApps.mockResolvedValue({
+      source: "reglage",
+      parts: { sophia: 1, unswipe: 60, micabo: 39 },
+    });
+    renderPage();
+    await screen.findByText(/Recrues de la cohorte Ruul|Recruits from the Ruul cohort/);
+    const es = ligneCohorte(/Espagnol|Spanish/);
+    expect(es.textContent).toMatch(/échantillon trop mince pour juger|sample too thin to judge/);
+    expect(es.textContent).not.toMatch(/Impossible/);
+    // Le français, lui, parle pour lui-même : le verdict franc est permis.
+    expect(ligneCohorte(/Français|French/).textContent).toMatch(/Impossible/);
+  });
+
   it("une erreur de droits reste lisible et ne laisse pas un tableau vide", async () => {
-    lireProvenanceRecrutement.mockRejectedValue(new Error("reserve aux administrateurs"));
+    lireCohorteRecrutement.mockRejectedValue(new Error("reserve aux administrateurs"));
     renderPage();
     await screen.findByText("reserve aux administrateurs");
     expect(

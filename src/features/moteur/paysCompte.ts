@@ -1,4 +1,4 @@
-import { paysParDefaut } from "@/features/moteur/pays";
+import { paysParDefaut, paysProposes } from "@/features/moteur/pays";
 
 /**
  * Le pays doit-il être SAISI pour cette langue ?
@@ -21,9 +21,13 @@ export function paysRequis(langue: string): boolean {
 /**
  * Pays à envoyer à la création. `undefined` quand la langue suffit : on laisse
  * alors le trigger trancher, plutôt que d'avoir deux sources de vérité qui
- * peuvent diverger.
+ * peuvent diverger. Seule exception : un AUTRE pays proposé pour la langue
+ * (allemand → Autriche, Suisse), choisi par le HM.
  */
 export function paysAEnvoyer(langue: string, choisi: string): string | undefined {
-  if (!paysRequis(langue)) return undefined;
+  if (!paysRequis(langue)) {
+    const autre = choisi && choisi !== paysParDefaut(langue) && paysProposes(langue)?.includes(choisi);
+    return autre ? choisi : undefined;
+  }
   return choisi || undefined;
 }

@@ -128,3 +128,18 @@ export const PAYS_PAR_DEFAUT_LANGUE: Readonly<Record<string, string>> = Object.f
 export function paysParDefaut(langue: string | null | undefined): string | null {
   return PAYS_PAR_DEFAUT_LANGUE[langue ?? ""] ?? null;
 }
+
+/**
+ * Langues dont le pays par défaut n'est pas le seul marché, mais de loin le
+ * premier : le HM garde le défaut pré-rempli et peut choisir un des autres
+ * pays de cette courte liste (défaut en tête). Rien à changer côté base : le
+ * trigger 0281 ne pose le défaut que si `pays` arrive vide.
+ *   `de` Allemagne, Autriche, Suisse (ticket Aram, 18/10).
+ */
+export const PAYS_PROPOSES_LANGUE: Readonly<Record<string, readonly string[]>> = Object.freeze({
+  de: ["DE", "AT", "CH"],
+});
+
+export function paysProposes(langue: string | null | undefined): readonly string[] | null {
+  return PAYS_PROPOSES_LANGUE[langue ?? ""] ?? null;
+}

@@ -1267,6 +1267,7 @@ export const en = {
       paysAide:
         "The account's market. Independent of the language: five English-speaking countries share \"English\", and their flag did not tell them apart.",
       paysDeduit: "Taken from the language, nothing to fill in.",
+      paysProposesAide: "Pre-filled from the language. Change it if the poster lives in another of these countries.",
       paysAChoisir: "Pick a country…",
       paysObligatoireAide:
         "This language covers several markets, nobody can guess for you. An account with no country shows up in none of the recruitment target rows.",

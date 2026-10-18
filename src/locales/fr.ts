@@ -1258,6 +1258,7 @@ export const fr = {
       equipeHoResume:
         "{{total}} créateur(s) · {{pasCree}} pas créé · {{warmup}} warmup · {{actif}} actif",
       sansRecruteur: "Sans recruteur",
+      changerRecruteur: "Recruteur (HM)",
       recruteur: "Recruteur",
       pays: "Pays",
       paysNonRenseigne: "Pays non renseigné",

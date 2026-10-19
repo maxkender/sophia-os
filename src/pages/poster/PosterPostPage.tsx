@@ -45,6 +45,7 @@ import {
   listerSlides,
   majMediaSlide,
   majPost,
+  autrePostAvecLien,
   paysDuCompte,
   rechargerPostCreateur,
   renettoyerSlide,
@@ -434,6 +435,8 @@ export function PosterPostPage() {
   const [lienPublie, setLienPublie] = React.useState("");
   const [editionLien, setEditionLien] = React.useState(false);
   const [nouveauLien, setNouveauLien] = React.useState("");
+  /** L'autre slideshow qui porte déjà le lien refusé (LIEN_DEJA_UTILISE). */
+  const [autrePostLien, setAutrePostLien] = React.useState<string | null>(null);
   const [loupe, setLoupe] = React.useState<string | null>(null);
   const [erreurPartage, setErreurPartage] = React.useState<string | null>(null);
   const [enCours, setEnCours] = React.useState(false);
@@ -562,7 +565,7 @@ export function PosterPostPage() {
       // Lien court « Partager » → lien complet du post, pour que le serveur
       // puisse reconnaître un post déjà déclaré pour un autre slideshow.
       const lien = await lienPourEnregistrement(saisi, resoudreTiktok);
-      return majPost(id!, {
+      return enregistrerLien(lien, {
         statut: "publie",
         publie_at: new Date().toISOString(),
         publie_url: lien,
@@ -571,13 +574,29 @@ export function PosterPostPage() {
     onSuccess: rafraichir,
   });
 
+  /**
+   * Enregistre le lien ; sur un refus « lien déjà utilisé », retrouve l'autre
+   * slideshow qui le porte pour proposer d'aller l'y corriger.
+   */
+  async function enregistrerLien(lien: string, patch: Partial<Post>) {
+    setAutrePostLien(null);
+    try {
+      await majPost(id!, patch);
+    } catch (erreur) {
+      if (dateDepuisErreurLienDejaUtilise(erreur) !== null && post.data?.compte_id) {
+        setAutrePostLien(await autrePostAvecLien(post.data.compte_id, id!, lien));
+      }
+      throw erreur;
+    }
+  }
+
   // Corriger le lien d'un post déjà publié, jusqu'à l'échéance (change 4).
   const majLien = useMutation({
     mutationFn: async () => {
       const saisi = nouveauLien.trim();
       if (!saisi) throw new Error(t("posts.lienObligatoire"));
       const lien = await lienPourEnregistrement(saisi, resoudreTiktok);
-      return majPost(id!, { publie_url: lien });
+      return enregistrerLien(lien, { publie_url: lien });
     },
     onSuccess: () => {
       setEditionLien(false);
@@ -1017,6 +1036,9 @@ export function PosterPostPage() {
                   {majLien.isError && (
                     <p className="text-sm text-destructive">{messageErreurPublication(majLien.error, t)}</p>
                   )}
+                  {majLien.isError && autrePostLien && (
+                    <LienAutreSlideshow postId={autrePostLien} />
+                  )}
                   <div className="flex gap-2">
                     <Button
                       size="sm"
@@ -1084,6 +1106,7 @@ export function PosterPostPage() {
               {publier.isError && (
                 <p className="text-sm text-destructive">{messageErreurPublication(publier.error, t)}</p>
               )}
+              {publier.isError && autrePostLien && <LienAutreSlideshow postId={autrePostLien} />}
 
               <Button
                 className="w-full"
@@ -1101,6 +1124,16 @@ export function PosterPostPage() {
         </CardContent>
       </Card>
     </div>
+  );
+}
+
+/** Lien vers l'autre slideshow qui porte déjà le lien refusé, pour l'y corriger. */
+function LienAutreSlideshow({ postId }: { postId: string }) {
+  const { t } = useTranslation();
+  return (
+    <Link to={`/posts/${postId}`} className="text-sm font-medium text-primary underline underline-offset-2">
+      {t("posts.lienDejaUtiliseOuvrir")}
+    </Link>
   );
 }
 

@@ -18,6 +18,7 @@ import {
   type VerdictAvis,
 } from "@/features/reviews/bancRelecture";
 import { extensionVideo } from "@/features/reviews/videoRemarque";
+import { idTiktokDepuisUrl } from "@/features/reviews/tiktokEmbed";
 import { normaliserZone, ZONE_LONGUEUR_MAX } from "@/features/hiring/zones";
 import { estRoleManager } from "@/features/auth/roles";
 import type { Role } from "@/features/auth/AuthContext";
@@ -2179,6 +2180,30 @@ export async function reordonnerSlides(slides: PostSlide[]): Promise<void> {
       .eq("id", slide.id);
     if (error) throw error;
   }
+}
+
+/**
+ * L'autre slideshow du compte qui porte déjà ce lien, après un refus
+ * LIEN_DEJA_UTILISE : le créateur a souvent collé le lien sur le mauvais des
+ * deux posts du jour (Fatma, 19/10) et reste bloqué sur le bon. On lui donne le
+ * chemin vers l'autre pour qu'il y corrige le lien. Null si introuvable.
+ */
+export async function autrePostAvecLien(
+  compteId: string,
+  postId: string,
+  lien: string,
+): Promise<string | null> {
+  const idTiktok = idTiktokDepuisUrl(lien);
+  let q = supabase
+    .from("posts")
+    .select("id")
+    .eq("compte_id", compteId)
+    .neq("id", postId)
+    .not("publie_url", "is", null);
+  q = idTiktok ? q.like("publie_url", `%/${idTiktok}%`) : q.eq("publie_url", lien);
+  const { data, error } = await q.limit(1);
+  if (error) return null;
+  return (data?.[0]?.id as string | undefined) ?? null;
 }
 
 export async function majPost(id: string, patch: Partial<Post>): Promise<void> {

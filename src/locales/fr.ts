@@ -2898,6 +2898,7 @@ export const fr = {
       caseWarmup: "Warm-up",
       casePremiersPosts: "PREMIERS POSTS",
       legendeWarmup: "🔥 Warm-up : utilise TikTok normalement, ne poste jamais. 🚀 Premiers posts : ils arrivent ce matin-là.",
+      legendeWarmupHeure: "🔥 Warm-up : utilise TikTok normalement, ne poste jamais. 🚀 Premiers posts : ils arrivent ce jour-là vers {{heure}} (ton heure).",
       ruul: {
         frise: {
           titre: "Ta première semaine, étape par étape",
@@ -2929,6 +2930,7 @@ export const fr = {
       aVenir: "À venir",
       passe: "Passé",
       rien: "Rien de prévu aujourd'hui.",
+      arriveeVers: "Les posts du jour arrivent vers {{heure}} (ton heure).",
       creneau: "Créneau {{n}}",
       voirPost: "Voir le post",
       moisPrecedent: "Mois précédent",

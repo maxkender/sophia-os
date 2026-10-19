@@ -142,6 +142,37 @@ export function echeancePublication(date: string, pays: string | null | undefine
   return new Date(Math.max(finDuJour(date, fuseauPays(pays)), finDuJour(date, "Europe/Paris")));
 }
 
+/**
+ * Arrivée des posts du jour `date` : minuit à Paris, quand l'OS les crée. En
+ * Nouvelle-Zélande, c'est 11 h du matin ce même jour.
+ */
+export function arriveePosts(date: string): Date {
+  const [a, m, j] = date.split("-").map(Number);
+  const veille = new Date(Date.UTC(a, m - 1, j - 1)).toISOString().slice(0, 10);
+  return new Date(finDuJour(veille, "Europe/Paris"));
+}
+
+/**
+ * Heure d'arrivée à annoncer au poster (HH:MM, son fuseau), ou null quand ses
+ * posts arrivent la veille ou avant 6 h : « dans la matinée » suffit alors.
+ * Seuls les posters en avance sur Paris (Asie, Océanie) ont une heure à lire.
+ */
+export function heureArriveeAnnoncee(date: string, fuseau?: string): string | null {
+  const arrivee = arriveePosts(date);
+  const parties = new Intl.DateTimeFormat("en-CA", {
+    timeZone: fuseau,
+    hourCycle: "h23",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).formatToParts(arrivee);
+  const v = (type: string) => parties.find((p) => p.type === type)?.value ?? "";
+  if (`${v("year")}-${v("month")}-${v("day")}` !== date || Number(v("hour")) < 6) return null;
+  return `${v("hour")}:${v("minute")}`;
+}
+
 /** Post non publié dont l'échéance est passée : manqué. */
 export function estManque(
   post: { date_publication_prevue: string | null; publie_at: string | null },

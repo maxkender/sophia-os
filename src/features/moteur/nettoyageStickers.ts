@@ -1,14 +1,13 @@
 /**
  * Nettoyage stickers d'un label (page Slideshows) : scanner tous ses
  * slideshows avec l'OCR d'import (fonction `test-stickers`, à blanc), puis
- * retirer ceux qui portent un sticker des familles cochées (fonction
- * `nettoyer-stickers`) et remplacer leurs posts du jour (`revoquer-post`).
+ * retirer ceux qui portent un sticker PUB (fonction `nettoyer-stickers`) et
+ * remplacer leurs posts du jour (`revoquer-post`). Les stickers de contenu
+ * restent : ils portent la recommandation.
  * Pods, tier A ou mieux et nos applis sont écartés côté serveur.
  */
 
-import type { FamilleSticker, SlideshowStickerTest, StickerTestResultat } from "./testStickers";
-
-export type FamilleNettoyage = Exclude<FamilleSticker, null>;
+import type { SlideshowStickerTest, StickerTestResultat } from "./testStickers";
 
 export interface SlideshowLabelSticker extends SlideshowStickerTest {
   tier: string | null;
@@ -36,9 +35,9 @@ export const LOT_NETTOYAGE = 100;
 /** Remplacements de posts menés en même temps (chacun relance une assignation). */
 export const CONCURRENCE_REMPLACEMENT = 2;
 
-/** Le slideshow porte un sticker d'une des familles cochées. */
-export function aRetirer(resultat: StickerTestResultat, familles: ReadonlyArray<FamilleNettoyage>): boolean {
-  return resultat.slides.some((s) => s.sticker !== null && familles.includes(s.sticker));
+/** Le slideshow porte au moins un sticker PUB. */
+export function aRetirer(resultat: StickerTestResultat): boolean {
+  return resultat.slides.some((s) => s.sticker === "pub");
 }
 
 /** Découpe une liste en lots de `taille`. */

@@ -15,7 +15,8 @@ import {
  *     → { retires, ignores: [{ id, raison }], postsARemplacer: string[] }
  *
  * Les contenus viennent du scan à blanc (`test-stickers`, actions `label` puis
- * `analyser`) : la page n'envoie que ceux où l'OCR a vu un sticker. On revérifie
+ * `analyser`) : la page n'envoie que ceux où l'OCR a vu un sticker PUB (les
+ * stickers de contenu restent). On revérifie
  * ici ce qui protège un slideshow, l'écran ayant pu vieillir : encore valide,
  * pas un pod, pas au tier A ou mieux (Sophia ou une autre application).
  * Retirer = `statut = rejete` : il sort de toutes les réserves.

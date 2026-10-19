@@ -7,7 +7,6 @@ import { ScanSearch, Sticker, Trash2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
@@ -23,7 +22,6 @@ import {
   CONCURRENCE_REMPLACEMENT,
   enLots,
   LOT_NETTOYAGE,
-  type FamilleNettoyage,
   type SlideshowLabelSticker,
   type SlideshowsLabelStickers,
 } from "./nettoyageStickers";
@@ -44,15 +42,15 @@ interface BilanRetrait {
 /**
  * Nettoyage stickers d'un label : passe tous ses slideshows dans l'OCR
  * d'import (à blanc, CONCURRENCE_STICKERS à la fois), montre ceux qui portent
- * un sticker des familles cochées, puis — sur confirmation — les retire
- * (`statut = rejete`) et remplace leurs posts du jour pas encore publiés.
- * Pods, tier A ou mieux et nos applis (Sophia, UnSwipe, Micabo) sont gardés.
+ * un sticker PUB, puis — sur confirmation — les retire (`statut = rejete`) et
+ * remplace leurs posts du jour pas encore publiés. Les stickers de contenu
+ * restent ; pods, tier A ou mieux et nos applis (Sophia, UnSwipe, Micabo)
+ * sont gardés.
  */
 export function NettoyageStickersLabelCard() {
   const { t } = useTranslation();
   const labels = useQuery({ queryKey: ["labels"], queryFn: () => listerLabels(), staleTime: 60_000 });
   const [labelId, setLabelId] = React.useState("");
-  const [familles, setFamilles] = React.useState<FamilleNettoyage[]>(["pub", "contenu"]);
   const [liste, setListe] = React.useState<SlideshowsLabelStickers | null>(null);
   const [etats, setEtats] = React.useState<Record<string, EtatStickerTest>>({});
   const [phase, setPhase] = React.useState<"repos" | "scan" | "retrait">("repos");
@@ -61,9 +59,6 @@ export function NettoyageStickersLabelCard() {
 
   const label = (labels.data ?? []).find((l) => l.id === labelId) ?? null;
   const occupe = phase !== "repos";
-
-  const basculer = (f: FamilleNettoyage, coche: boolean) =>
-    setFamilles((avant) => (coche ? [...new Set([...avant, f])] : avant.filter((x) => x !== f)));
 
   const scanner = async () => {
     if (!labelId) return;
@@ -96,7 +91,7 @@ export function NettoyageStickersLabelCard() {
   const erreurs = candidats.filter((s) => etats[s.id]?.statut === "erreur").length;
   const aRetirerListe = candidats.filter((s) => {
     const e = etats[s.id];
-    return e?.statut === "ok" && aRetirer(e.resultat, familles);
+    return e?.statut === "ok" && aRetirer(e.resultat);
   });
 
   const retirer = async () => {
@@ -169,22 +164,6 @@ export function NettoyageStickersLabelCard() {
               ))}
             </select>
           </div>
-          <label className="flex items-center gap-2 text-sm">
-            <Checkbox
-              checked={familles.includes("pub")}
-              disabled={occupe}
-              onCheckedChange={(v) => basculer("pub", Boolean(v))}
-            />
-            {t("nettoyageStickers.famillePub")}
-          </label>
-          <label className="flex items-center gap-2 text-sm">
-            <Checkbox
-              checked={familles.includes("contenu")}
-              disabled={occupe}
-              onCheckedChange={(v) => basculer("contenu", Boolean(v))}
-            />
-            {t("nettoyageStickers.familleContenu")}
-          </label>
           <Button onClick={scanner} disabled={!labelId || occupe}>
             <ScanSearch className="size-4" />
             {phase === "scan" ? t("tests.enCours") : t("nettoyageStickers.analyser")}
@@ -238,7 +217,7 @@ export function NettoyageStickersLabelCard() {
 
         <div className="space-y-3">
           {aRetirerListe.map((s) => (
-            <LigneARetirer key={s.id} slideshow={s} etat={etats[s.id]} familles={familles} />
+            <LigneARetirer key={s.id} slideshow={s} etat={etats[s.id]} />
           ))}
         </div>
       </CardContent>
@@ -246,15 +225,7 @@ export function NettoyageStickersLabelCard() {
   );
 }
 
-function LigneARetirer({
-  slideshow,
-  etat,
-  familles,
-}: {
-  slideshow: SlideshowLabelSticker;
-  etat?: EtatStickerTest;
-  familles: FamilleNettoyage[];
-}) {
+function LigneARetirer({ slideshow, etat }: { slideshow: SlideshowLabelSticker; etat?: EtatStickerTest }) {
   const resultat = etat?.statut === "ok" ? etat.resultat : null;
   const parPosition = new Map((resultat?.slides ?? []).map((x) => [x.position, x]));
   return (
@@ -273,7 +244,7 @@ function LigneARetirer({
       <div className="flex gap-2 overflow-x-auto pb-1">
         {slideshow.slides.map((slide) => {
           const r = parPosition.get(slide.position);
-          const visee = r?.sticker && familles.includes(r.sticker) ? r.sticker : null;
+          const pub = r?.sticker === "pub";
           return (
             <a
               key={slide.position}
@@ -282,18 +253,13 @@ function LigneARetirer({
               rel="noreferrer"
               className={cn(
                 "relative block shrink-0 overflow-hidden rounded-md border-2",
-                visee === "pub" ? "border-destructive" : visee === "contenu" ? "border-info" : "border-transparent",
+                pub ? "border-destructive" : "border-transparent",
               )}
             >
               <img src={slide.url} alt="" loading="lazy" className="h-28 w-16 object-cover" />
-              {visee && (
-                <span
-                  className={cn(
-                    "absolute inset-x-0 bottom-0 py-0.5 text-center text-[9px] font-semibold text-white",
-                    visee === "pub" ? "bg-destructive" : "bg-info",
-                  )}
-                >
-                  {visee === "pub" ? "PUB" : "CONTENU"}
+              {pub && (
+                <span className="absolute inset-x-0 bottom-0 bg-destructive py-0.5 text-center text-[9px] font-semibold text-white">
+                  PUB
                 </span>
               )}
             </a>

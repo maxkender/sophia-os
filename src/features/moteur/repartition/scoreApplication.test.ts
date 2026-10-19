@@ -1,4 +1,7 @@
+import { readFileSync } from "node:fs";
+
 import { describe, expect, it } from "vitest";
+
 
 import {
   applicationsEligibles,
@@ -15,6 +18,49 @@ const APPS = [
   { id: "id-unswipe", slug: "unswipe", langues: ["fr", "en", "de", "it", "es", "tr"] },
   { id: "id-micabo", slug: "micabo", langues: ["fr", "tr", "de", "es"] },
 ];
+const DENO = "supabase/functions/_shared/choix_application.ts";
+const FRONT = "src/features/moteur/repartition/scoreApplication.ts";
+
+/**
+ * Le moteur d'application existe en deux exemplaires : ce fichier, que la page
+ * Répartition affiche, et `_shared/choix_application.ts`, que `manage-users`
+ * exécute à la création d'un compte. Deux copies qui dérivent, c'est une page
+ * qui montre autre chose que ce que fait la production, et personne qui s'en
+ * aperçoit. On compare donc le TEXTE SOURCE, commentaires compris.
+ *
+ * Même mécanisme que « copie Deno » dans scoreLabel.test.ts, où exactement ce
+ * bug s'était produit : le miroir lisait `ouverts` quand le moteur lisait
+ * `labels_ouverts`.
+ */
+describe("copie Deno", () => {
+  const bloc = (chemin: string, debut: string, fin: string) => {
+    const src = readFileSync(chemin, "utf8");
+    const i = src.indexOf(debut);
+    expect(i, `${debut} absent de ${chemin}`).toBeGreaterThan(-1);
+    const j = src.indexOf(fin, i);
+    expect(j, `fin de ${debut} absente de ${chemin}`).toBeGreaterThan(-1);
+    return src.slice(i, j).replace(/\s+/g, " ").trim();
+  };
+
+  it.each([
+    ["applicationsEligibles", "export function applicationsEligibles("],
+    ["lireCibleApplications", "export function lireCibleApplications("],
+    ["classerApplications", "export function classerApplications("],
+  ])("le code de %s est le même des deux côtés", (_nom, debut) => {
+    expect(bloc(FRONT, debut, "\n}")).toBe(bloc(DENO, debut, "\n}"));
+  });
+
+  it.each([
+    ["ApplicationCandidate", "export interface ApplicationCandidate {"],
+    ["PartApplication", "export interface PartApplication {"],
+    ["MarcheApplications", "export interface MarcheApplications {"],
+    ["CibleApplications", "export interface CibleApplications {"],
+    ["ApplicationClassee", "export interface ApplicationClassee {"],
+  ])("le type %s est le même des deux côtés", (_nom, debut) => {
+    expect(bloc(FRONT, debut, "\n}")).toBe(bloc(DENO, debut, "\n}"));
+  });
+});
+
 const SLUGS = APPS.map((a) => a.slug);
 
 function marche(parts: Record<string, number>, langue = "de", pays: string | null = "DE"): MarcheApplications {

@@ -371,6 +371,11 @@ export const fr = {
       bilanRetires: "{{n}} slideshows retirés · {{ignores}} ignorés (déjà retirés, pod ou tier A+)",
       bilanPosts: "Posts du jour à remplacer : {{n}} · {{remplaces}} remplacés · {{sans}} sans remplaçant",
       bilanErreurs: "{{n}} remplacements en erreur",
+      chrono: "Écoulé {{ecoule}}",
+      reste: "reste ~{{reste}}",
+      remplacements: "{{n}} / {{total}} posts du jour traités",
+      journal: "Journal ({{n}} lignes)",
+      copierJournal: "Copier",
     },
     contenusABlanc: {
       title: "Tester la notation et le placement (à blanc)",

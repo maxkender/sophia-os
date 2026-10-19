@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { ScanSearch, Sticker, Trash2 } from "lucide-react";
+import { Copy, ScanSearch, Sticker, Trash2 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -21,7 +21,11 @@ import {
   aRetirer,
   CONCURRENCE_REMPLACEMENT,
   enLots,
+  formatDuree,
+  ligneAnalyse,
   LOT_NETTOYAGE,
+  resumeIgnores,
+  tempsRestant,
   type SlideshowLabelSticker,
   type SlideshowsLabelStickers,
 } from "./nettoyageStickers";
@@ -29,6 +33,9 @@ import { CONCURRENCE_STICKERS, enParallele, type EtatStickerTest } from "./testS
 
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
+
+/** Lignes gardées dans le journal (les plus anciennes partent au-delà). */
+const JOURNAL_MAX = 5000;
 
 interface BilanRetrait {
   retires: number;
@@ -56,31 +63,74 @@ export function NettoyageStickersLabelCard() {
   const [phase, setPhase] = React.useState<"repos" | "scan" | "retrait">("repos");
   const [erreur, setErreur] = React.useState<string | null>(null);
   const [bilan, setBilan] = React.useState<BilanRetrait | null>(null);
+  const [journal, setJournal] = React.useState<string[]>([]);
+  const [debut, setDebut] = React.useState<number | null>(null);
+  const [maintenant, setMaintenant] = React.useState(() => Date.now());
+  const journalRef = React.useRef<HTMLDivElement>(null);
 
   const label = (labels.data ?? []).find((l) => l.id === labelId) ?? null;
   const occupe = phase !== "repos";
 
+  const log = React.useCallback((ligne: string) => {
+    const heure = new Date().toLocaleTimeString("fr-FR", { hour12: false });
+    setJournal((j) => [...j, `${heure}  ${ligne}`].slice(-JOURNAL_MAX));
+  }, []);
+
+  // Chrono : une seconde de résolution tant qu'une opération tourne.
+  React.useEffect(() => {
+    if (!occupe) return;
+    const id = window.setInterval(() => setMaintenant(Date.now()), 1000);
+    return () => window.clearInterval(id);
+  }, [occupe]);
+
+  // Le journal suit la dernière ligne.
+  React.useEffect(() => {
+    const el = journalRef.current;
+    if (el) el.scrollTop = el.scrollHeight;
+  }, [journal]);
+
   const scanner = async () => {
     if (!labelId) return;
+    const t0 = Date.now();
     setPhase("scan");
     setErreur(null);
     setBilan(null);
     setListe(null);
     setEtats({});
+    setJournal([]);
+    setDebut(t0);
+    setMaintenant(t0);
+    log(`Label « ${label?.nom ?? labelId} » : lecture des slideshows…`);
     try {
       const l = await listerSlideshowsLabelStickers(labelId);
       setListe(l);
+      log(
+        `${l.total} slideshows valides : ${l.slideshows.length} à analyser · ${l.proteges} gardés (tier A ou mieux) · ` +
+          `${l.pods} pods · ${l.sansImages} sans images brutes`,
+      );
+      let pubs = 0;
+      let enErreur = 0;
       const maj = (id: string, etat: EtatStickerTest) => setEtats((avant) => ({ ...avant, [id]: etat }));
       await enParallele(l.slideshows, CONCURRENCE_STICKERS, async (s) => {
         maj(s.id, { statut: "encours" });
+        let etat: Extract<EtatStickerTest, { statut: "ok" | "erreur" }>;
         try {
-          maj(s.id, { statut: "ok", resultat: await analyserStickersSlideshow(s.id) });
+          etat = { statut: "ok", resultat: await analyserStickersSlideshow(s.id) };
+          if (aRetirer(etat.resultat)) pubs += 1;
         } catch (e) {
-          maj(s.id, { statut: "erreur", message: (e as Error).message });
+          etat = { statut: "erreur", message: (e as Error).message };
+          enErreur += 1;
         }
+        maj(s.id, etat);
+        log(ligneAnalyse(s, etat));
       });
+      log(
+        `Analyse terminée en ${formatDuree(Date.now() - t0)} : ${pubs} à retirer (sticker pub)` +
+          (enErreur ? `, ${enErreur} en erreur` : ""),
+      );
     } catch (e) {
       setErreur((e as Error).message);
+      log(`⚠ Arrêt : ${(e as Error).message}`);
     } finally {
       setPhase("repos");
     }
@@ -99,37 +149,72 @@ export function NettoyageStickersLabelCard() {
     if (!window.confirm(t("nettoyageStickers.confirmer", { n: aRetirerListe.length, label: label?.nom ?? "" }))) {
       return;
     }
+    const t0 = Date.now();
     setPhase("retrait");
     setErreur(null);
+    setDebut(t0);
+    setMaintenant(t0);
     const b: BilanRetrait = { retires: 0, ignores: 0, posts: 0, remplaces: 0, sansRemplacant: 0, erreurs: [] };
+    setBilan({ ...b });
+    const lots = enLots(aRetirerListe.map((s) => s.id), LOT_NETTOYAGE);
+    log(`Retrait de ${aRetirerListe.length} slideshows en ${lots.length} lot${lots.length > 1 ? "s" : ""}…`);
     try {
       const posts: string[] = [];
-      for (const lot of enLots(aRetirerListe.map((s) => s.id), LOT_NETTOYAGE)) {
+      for (const [i, lot] of lots.entries()) {
         const r = await appliquerNettoyageStickers(lot, label?.nom ?? null);
         b.retires += r.retires.length;
         b.ignores += r.ignores.length;
         posts.push(...r.postsARemplacer);
         setBilan({ ...b });
+        const laisses = resumeIgnores(r.ignores);
+        log(
+          `Lot ${i + 1}/${lots.length} : ${r.retires.length} retirés` +
+            (r.ignores.length ? `, ${r.ignores.length} laissés (${laisses})` : "") +
+            `, ${r.postsARemplacer.length} posts du jour à remplacer`,
+        );
       }
       b.posts = posts.length;
       setBilan({ ...b });
+      log(posts.length ? `Remplacement de ${posts.length} posts du jour…` : "Aucun post du jour à remplacer.");
       await enParallele(posts, CONCURRENCE_REMPLACEMENT, async (postId) => {
         try {
           const r = await revoquerPost(postId);
-          if (r.newPostId) b.remplaces += 1;
-          else b.sansRemplacant += 1;
+          if (r.newPostId) {
+            b.remplaces += 1;
+            log(`↻ post ${postId.slice(0, 8)} → nouveau post ${r.newPostId.slice(0, 8)}`);
+          } else {
+            b.sansRemplacant += 1;
+            const detail = (r as { detail?: string }).detail ?? r.error ?? "aucun slideshow disponible";
+            log(`· post ${postId.slice(0, 8)} : pas de remplaçant (${detail})`);
+          }
         } catch (e) {
           b.erreurs.push((e as Error).message);
+          log(`⚠ post ${postId.slice(0, 8)} : ${(e as Error).message}`);
         }
         setBilan({ ...b, erreurs: [...b.erreurs] });
       });
+      log(
+        `Terminé en ${formatDuree(Date.now() - t0)} : ${b.retires} retirés, ${b.remplaces}/${b.posts} posts remplacés` +
+          (b.sansRemplacant ? `, ${b.sansRemplacant} sans remplaçant` : "") +
+          (b.erreurs.length ? `, ${b.erreurs.length} en erreur` : ""),
+      );
     } catch (e) {
       setErreur((e as Error).message);
+      log(`⚠ Arrêt : ${(e as Error).message}`);
     } finally {
       setBilan({ ...b, erreurs: [...b.erreurs] });
       setPhase("repos");
     }
   };
+
+  const ecoule = debut ? maintenant - debut : 0;
+  const remplacementsFaits = bilan ? bilan.remplaces + bilan.sansRemplacant + bilan.erreurs.length : 0;
+  const reste =
+    phase === "scan"
+      ? tempsRestant(analyses, candidats.length, ecoule)
+      : phase === "retrait" && bilan && bilan.posts > 0
+        ? tempsRestant(remplacementsFaits, bilan.posts, ecoule)
+        : null;
 
   return (
     <Card>
@@ -154,6 +239,7 @@ export function NettoyageStickersLabelCard() {
                 setListe(null);
                 setEtats({});
                 setBilan(null);
+                setJournal([]);
               }}
             >
               <option value="">{t("nettoyageStickers.choisirLabel")}</option>
@@ -190,6 +276,22 @@ export function NettoyageStickersLabelCard() {
           </div>
         )}
 
+        {occupe && debut && (
+          <p className="text-xs tabular-nums text-muted-foreground">
+            {t("nettoyageStickers.chrono", { ecoule: formatDuree(ecoule) })}
+            {reste !== null && ` · ${t("nettoyageStickers.reste", { reste: formatDuree(reste) })}`}
+          </p>
+        )}
+
+        {phase === "retrait" && bilan && bilan.posts > 0 && (
+          <div className="space-y-1">
+            <Progress value={(remplacementsFaits / bilan.posts) * 100} />
+            <p className="text-xs text-muted-foreground">
+              {t("nettoyageStickers.remplacements", { n: remplacementsFaits, total: bilan.posts })}
+            </p>
+          </div>
+        )}
+
         {liste && analyses === candidats.length && phase === "repos" && aRetirerListe.length > 0 && (
           <Button variant="destructive" onClick={retirer}>
             <Trash2 className="size-4" />
@@ -212,6 +314,44 @@ export function NettoyageStickersLabelCard() {
                 {t("nettoyageStickers.bilanErreurs", { n: bilan.erreurs.length })} — {bilan.erreurs[0]}
               </p>
             )}
+          </div>
+        )}
+
+        {journal.length > 0 && (
+          <div className="space-y-1">
+            <div className="flex items-center justify-between gap-2">
+              <p className="text-xs font-medium text-muted-foreground">
+                {t("nettoyageStickers.journal", { n: journal.length })}
+              </p>
+              <Button
+                size="sm"
+                variant="ghost"
+                onClick={() => void navigator.clipboard?.writeText(journal.join("\n"))}
+              >
+                <Copy className="size-3.5" />
+                {t("nettoyageStickers.copierJournal")}
+              </Button>
+            </div>
+            <div
+              ref={journalRef}
+              className="max-h-64 space-y-0.5 overflow-y-auto rounded border bg-muted/30 px-2.5 py-2 font-mono text-[11px] leading-relaxed"
+            >
+              {journal.map((l, i) => (
+                <div
+                  key={`j-${i}`}
+                  className={cn(
+                    "break-words",
+                    l.includes("✗ PUB") || l.includes("⚠")
+                      ? "text-destructive"
+                      : l.includes("↻")
+                        ? "text-foreground"
+                        : "text-muted-foreground",
+                  )}
+                >
+                  {l}
+                </div>
+              ))}
+            </div>
           </div>
         )}
 

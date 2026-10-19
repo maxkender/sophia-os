@@ -370,6 +370,11 @@ export const en = {
       bilanRetires: "{{n}} slideshows removed · {{ignores}} skipped (already removed, pod or tier A+)",
       bilanPosts: "Today's posts to replace: {{n}} · {{remplaces}} replaced · {{sans}} without replacement",
       bilanErreurs: "{{n}} replacements failed",
+      chrono: "Elapsed {{ecoule}}",
+      reste: "~{{reste}} left",
+      remplacements: "{{n}} / {{total}} of today's posts handled",
+      journal: "Log ({{n}} lines)",
+      copierJournal: "Copy",
     },
     contenusABlanc: {
       title: "Test scoring and placement (dry run)",

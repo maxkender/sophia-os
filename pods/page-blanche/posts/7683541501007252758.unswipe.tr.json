@@ -1,0 +1,235 @@
+{
+ "post_id": "7683541501007252758",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "zekanı geri getiren 10/10 alışkanlık"
+    },
+    "T2": {
+     "en": [
+      "(science-backed sources)"
+     ],
+     "fr": "(prouvé par la science)",
+     "alignement": "droite",
+     "texte": "(bilimle desteklenmiş)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "use AI to help you think,",
+      "not replace you"
+     ],
+     "fr": "utilise l'IA pour réfléchir, [[pas à ta place]]",
+     "texte": "yapay zeka düşünmene yardım etsin, [[yerine geçmesin]]"
+    },
+    "T2": {
+     "en": [
+      "using AI to do all your work",
+      "is seriously rotting your",
+      "brain"
+     ],
+     "fr": "faire tout ton taf avec l'IA [[te ramollit grave le cerveau]]",
+     "texte": "bütün işini yapay zekaya yaptırmak [[beynini resmen çürütüyor]]"
+    },
+    "T3": {
+     "en": [
+      "a 2025 study found that the",
+      "more people trusted the AI,",
+      "the less critical thinking they",
+      "reported doing"
+     ],
+     "fr": "une étude de 2025 a montré que plus les gens font confiance à l'IA, [[moins ils réfléchissent par eux-mêmes]]",
+     "texte": "2025'te yapılan bir araştırmaya göre insanlar yapay zekaya ne kadar güvenirse o kadar [[az eleştirel düşünüyor]]"
+    },
+    "T4": {
+     "en": [
+      "use AI to question your",
+      "thinking, not outsource it"
+     ],
+     "fr": "l'IA doit challenger tes idées, pas les remplacer",
+     "texte": "yapay zekayla düşünceni sorgula, düşünmeyi ona bırakma"
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder",
+    "I3": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop going on your phone",
+      "when you eat"
+     ],
+     "fr": "lâche ton tel pendant les repas",
+     "texte": "yemek yerken telefona bakmayı bırak"
+    },
+    "T2": {
+     "en": [
+      "going on your phone every",
+      "time you eat is teaching",
+      "your brain that every quiet",
+      "moment needs stimulation"
+     ],
+     "fr": "sortir ton tel à chaque repas, ça apprend à ton cerveau que le moindre moment calme doit être rempli",
+     "texte": "her yemekte telefonu eline almak, beynine her sessiz anın bir uyarıcıyla doldurulması gerektiğini öğretiyor"
+    },
+    "T3": {
+     "en": [
+      "give your brain 20 minutes",
+      "where nothing is fighting for",
+      "your attention"
+     ],
+     "fr": "laisse ton cerveau tranquille 20 minutes, sans rien qui le sollicite",
+     "texte": "beynini 20 dakika rahat bırak, dikkatin için yarışan hiçbir şey olmasın"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go on walks without",
+      "listening to anything"
+     ],
+     "fr": "va marcher sans rien dans les oreilles",
+     "texte": "kulaklıksız, hiçbir şey dinlemeden yürü"
+    },
+    "T2": {
+     "en": [
+      "you do not need podcast",
+      "or music every time you",
+      "leave the house"
+     ],
+     "fr": "pas besoin d'un podcast ou de musique dès que tu sors",
+     "texte": "evden her çıktığında podcast ya da müzik açmak zorunda değilsin"
+    },
+    "T3": {
+     "en": [
+      "a Stanford study found",
+      "that walking increased",
+      "people's creative output by",
+      "an average of 60%"
+     ],
+     "fr": "une étude de Stanford a montré que marcher boostait la créativité des gens de 60 % en moyenne",
+     "texte": "bir Stanford araştırmasına göre yürümek insanların yaratıcılığını ortalama %60 artırıyor"
+    },
+    "T4": {
+     "en": [
+      "sometimes the smartest",
+      "thing you can listen to is",
+      "your own thoughts"
+     ],
+     "fr": "parfois, [[le plus intelligent à écouter, c'est tes propres pensées]]",
+     "texte": "bazen [[dinleyebileceğin en akıllıca şey kendi kafanın içindekiler]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read CLASSIC books"
+     ],
+     "fr": "lis des CLASSIQUES",
+     "texte": "SONSUZ akışı bırak"
+    },
+    "T4": {
+     "en": [
+      "one study found that just 6",
+      "minutes of reading reduced",
+      "stress levels by up to 68%"
+     ],
+     "fr": "une étude a montré que 6 minutes de lecture suffisent à [[faire baisser le stress jusqu'à 68 %]]",
+     "texte": "2025 tarihli bir derleme, çok kısa video izlemeyi [[zayıf dikkat ve öz kontrolle]] ilişkilendiriyor"
+    },
+    "T5": {
+     "en": [
+      "if you struggle getting off your",
+      "phone and reading books, i",
+      "recommend ReadUp, it blocks",
+      "your doomscrolling apps until",
+      "you read"
+     ],
+     "fr": "si t'as du mal à lâcher ton tel, perso j'ai remplacé mon scroll par 5 min sur l'appli Sophia, un truc nouveau chaque jour",
+     "texte": "bunu sadece iradeyle çözemezsin. en kolay yolu: instagram'daki Reels'i [[UnSwipe uygulamasıyla]] kaldırmak"
+    }
+   },
+   "images": {
+    "I2": "sophia_appstore"
+   },
+   "zones": [
+    {
+     "elements": [
+      "I1",
+      "T2",
+      "T3",
+      "T7",
+      "T8",
+      "T9",
+      "T10",
+      "I3",
+      "T11",
+      "T6"
+     ],
+     "action": "sophia_capture"
+    }
+   ]
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "turn off all notifications",
+      "on your phone"
+     ],
+     "fr": "désactive toutes tes notifs sur ton tel",
+     "texte": "telefonundaki bütün bildirimleri kapat"
+    },
+    "T2": {
+     "en": [
+      "i don't have",
+      "notifications on for",
+      "every single thing in",
+      "every app,"
+     ],
+     "fr": "j'ai pas de notifs pour le moindre truc dans chaque appli,",
+     "texte": "her uygulamada, her küçük şey için bildirimlerim açık değil,"
+    },
+    "T3": {
+     "en": [
+      "you don't need to",
+      "respond instantly, it's",
+      "fine"
+     ],
+     "fr": "t'as pas besoin de répondre direct, c'est ok",
+     "texte": "hemen cevap vermek zorunda değilsin, sorun yok"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ },
+ "application": "unswipe"
+}

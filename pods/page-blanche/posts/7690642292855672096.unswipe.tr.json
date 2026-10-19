@@ -1,0 +1,252 @@
+{
+ "post_id": "7690642292855672096",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 niche traits of highly",
+      "successful people"
+     ],
+     "fr": "10/10 traits méconnus des gens qui réussissent",
+     "texte": "çok başarılı insanların 10/10 niş özelliği"
+    },
+    "T2": {
+     "en": [
+      "(science-backed)"
+     ],
+     "fr": "(la science le dit)",
+     "alignement": "droite",
+     "texte": "(bilim destekli)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they make decisions fast"
+     ],
+     "fr": "ils [[décident vite]]",
+     "texte": "[[hızlı karar veriyorlar]]"
+    },
+    "T2": {
+     "en": [
+      "successful people don’t procrastinate. they don’t",
+      "ask for permission, but instead act and ask for",
+      "forgiveness"
+     ],
+     "fr": "les gens qui réussissent [[remettent rien à plus tard]]. ils [[demandent pas la permission]] : ils foncent et [[s'excusent après]]",
+     "texte": "başarılı insanlar [[işi ertelemez]]. [[izin istemezler]], onun yerine harekete geçer ve [[sonra özür dilerler]]"
+    },
+    "T3": {
+     "en": [
+      "they don’t spend 3",
+      "weeks thinking",
+      "about a reversible",
+      "choice"
+     ],
+     "fr": "ils passent pas 3 semaines à cogiter sur [[un choix réversible]]",
+     "texte": "[[geri alınabilecek bir seçim]] için 3 hafta kafa yormazlar"
+    },
+    "T4": {
+     "en": [
+      "if the downside is small, they decide, act, and",
+      "adjust. speed matters most when decisions can",
+      "be changed later"
+     ],
+     "fr": "si le risque est petit, ils décident, foncent et ajustent. [[aller vite compte surtout]] quand tu peux changer d'avis après",
+     "texte": "kaybedecekleri azsa karar verir, harekete geçer ve düzeltirler. kararlar sonradan değişebiliyorsa [[en önemli şey hız]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they get comfortable looking",
+      "stupid"
+     ],
+     "fr": "ils [[s'en fichent d'avoir l'air bêtes]]",
+     "texte": "[[aptal görünmekten]] rahatsız olmazlar"
+    },
+    "T2": {
+     "en": [
+      "they ask basic questions, try things before they feel",
+      "ready, and admit when they don’t know"
+     ],
+     "fr": "ils posent des questions bêtes, se lancent avant d'être prêts et [[disent quand ils savent pas]]",
+     "texte": "basit sorular sorarlar, hazır hissetmeden bir şeyler denerler ve [[bilmediklerini kabul ederler]]"
+    },
+    "T3": {
+     "en": [
+      "protecting your",
+      "ego feels safe,",
+      "but it slows",
+      "learning down",
+      "massively"
+     ],
+     "fr": "protéger ton ego, ça rassure, mais ça [[te fait apprendre beaucoup moins vite]]",
+     "texte": "egonu korumak güvenli hissettirir ama [[öğrenmeyi müthiş yavaşlatır]]"
+    },
+    "T4": {
+     "en": [
+      "growth feels uncomfortable, but",
+      "nothing changes if nothing changes"
+     ],
+     "fr": "évoluer, c'est inconfortable, mais [[si tu changes rien, rien change]]",
+     "texte": "gelişmek rahatsız eder ama [[hiçbir şey değişmezse hiçbir şey değişmez]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they read classic books written",
+      "by the greats"
+     ],
+     "fr": "ils lisent les classiques [[des grands auteurs]]",
+     "texte": "[[doomscrolling]] yapmazlar"
+    },
+    "T2a": {
+     "en": [
+      "they know endless tiktok scrolling rots their",
+      "attention"
+     ],
+     "fr": "ils savent que le scroll infini [[leur bousille l'attention]]",
+     "texte": "sonsuz kaydırmanın [[dikkatlerini çürüttüğünü]] bilirler"
+    },
+    "T2b": {
+     "en": [
+      "instead, they read ideas that",
+      "survived decades or",
+      "centuries"
+     ],
+     "fr": "alors ils lisent des idées [[qui tiennent depuis des siècles]]",
+     "texte": "o yüzden akışa [[ulaşmayı zorlaştırırlar]]"
+    },
+    "T3": {
+     "en": [
+      "from people who thought",
+      "deeply about psychology,",
+      "power, business, and human",
+      "nature"
+     ],
+     "fr": "de gens qui ont vraiment creusé [[la psycho]], [[le pouvoir]], [[le business]] et [[la nature humaine]]",
+     "texte": "telefonda tiktok yok, instagram'da Reels yok, iş aralarında [[dalıp gidecek bir şey yok]]"
+    },
+    "T4": {
+     "en": [
+      "if you’re stuck on tiktok, you",
+      "can try readup which blocks",
+      "your apps until you read"
+     ],
+     "fr": "si t'es scotchée à tiktok, remplace ton scroll par [[5 min sur l'appli Sophia]]",
+     "texte": "bunu kurmanın en kolay yolu: [[UnSwipe uygulaması]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   },
+   "scissions": {
+    "T2": 2
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they tolerate long periods with",
+      "no reward"
+     ],
+     "fr": "ils tiennent [[longtemps]] [[sans récompense]]",
+     "texte": "[[ödülsüz]] [[uzun dönemlere]] katlanırlar"
+    },
+    "T2": {
+     "en": [
+      "they can keep working when",
+      "nobody is watching, nothing",
+      "is going viral, and the results",
+      "still look unimpressive"
+     ],
+     "fr": "ils continuent à bosser quand [[personne regarde]], que rien ne fait le buzz et que les résultats [[font pas rêver]]",
+     "texte": "[[kimse izlemezken]], hiçbir şey viral olmazken ve sonuçlar hâlâ [[sönük]] görünürken çalışmaya devam edebilirler"
+    },
+    "T3": {
+     "en": [
+      "most people need constant",
+      "proof that something is",
+      "working"
+     ],
+     "fr": "la plupart des gens veulent sans arrêt la preuve que ça marche",
+     "texte": "çoğu insan bir şeyin işe yaradığına dair sürekli kanıt ister"
+    },
+    "T4": {
+     "en": [
+      "successful people can stay",
+      "consistent long enough for the",
+      "payoff to arrive."
+     ],
+     "fr": "ceux qui réussissent [[restent réguliers assez longtemps]] pour que ça finisse par payer.",
+     "texte": "başarılı insanlar karşılığını alana kadar [[yeterince uzun süre istikrarlı]] kalabilir."
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they obsess over leverage"
+     ],
+     "fr": "ils sont obsédés par [[l'effet de levier]]",
+     "texte": "[[kaldıraca]] kafayı takarlar"
+    },
+    "T2": {
+     "en": [
+      "they constantly look for",
+      "ways to make one hour of",
+      "work create more than",
+      "one hour of value"
+     ],
+     "fr": "ils cherchent toujours comment faire qu'[[une heure de boulot]] rapporte [[bien plus qu'une heure]]",
+     "texte": "sürekli [[bir saatlik işin]] [[bir saatten fazla değer]] üretmesinin yollarını ararlar"
+    },
+    "T3": {
+     "en": [
+      "software, systems,",
+      "content, capital,",
+      "automation, teams"
+     ],
+     "fr": "outils, systèmes, contenu, capital, automatisation, équipes",
+     "texte": "yazılım, sistemler, içerik, sermaye, otomasyon, ekipler"
+    },
+    "T4": {
+     "en": [
+      "they’re not just trying to",
+      "work harder, they’re trying"
+     ],
+     "fr": "pas juste bosser plus, mais [[démultiplier leurs efforts]]",
+     "texte": "sadece daha çok çalışmıyorlar, [[emeklerini katlanır hale getiriyorlar]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ },
+ "application": "unswipe"
+}

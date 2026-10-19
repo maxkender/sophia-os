@@ -29,6 +29,19 @@ Deno.test("citeConcurrent : turboresume (label RH), pas « turbo » seul", () =>
   assertEquals(citeConcurrent("my resume got me the interview"), false);
 });
 
+Deno.test("citeConcurrent : bycat et l'appli actualize (label beau_smart_girl), pas le verbe", () => {
+  assertEquals(citeConcurrent("i upload all my material to\nBycat (with free trial) and"), true);
+  assertEquals(citeConcurrent("notlarımı Bycat'e yüklüyorum"), true);
+  assertEquals(citeConcurrent("я открываю bycat tool"), true);
+  assertEquals(citeConcurrent("my favorite\n\nActualize: Daily Microlearning\nCourses for Personal Growth"), true);
+  assertEquals(citeConcurrent("i use the actualize.app for example for 5mins a day"), true);
+  assertEquals(citeConcurrent("On the Actualize Daily app"), true);
+  assertEquals(citeConcurrent("мое любимое приложение, actualize"), true);
+  assertEquals(citeConcurrent("habits that help you actualize your potential"), false);
+  assertEquals(citeConcurrent("learn to self-actualize"), false);
+  assertEquals(citeConcurrent("i walked by cat cafés every day"), false);
+});
+
 Deno.test("retirerConcurrent : turboresume retiré, le reste de la slide gardé", () => {
   assertEquals(
     retirerConcurrent("4\n« ce trou dans votre cv ? »\ntu réponds\n« un projet perso et une formation »\nmon cv racontait déjà ça : adapté à l'offre avec turboresume, le trou devient une compétence"),
@@ -90,7 +103,10 @@ Deno.test("motif par application : Sophia (et inconnue) = le motif d'avant, Unsw
   assertStrictEquals(motifConcurrentApplication(undefined), MOTIF_CONCURRENT);
   assertStrictEquals(motifConcurrentApplication("autre"), MOTIF_CONCURRENT);
   assertStrictEquals(motifConcurrentApplication(" Unswipe "), MOTIF_CONCURRENT_UNSWIPE);
-  assertEquals(MOTIF_CONCURRENT.source, String.raw`\b(vent[\s-]?now|readup|turbo[\s-]?resume)\b`);
+  assertEquals(
+    MOTIF_CONCURRENT.source,
+    String.raw`\b(vent[\s-]?now|readup|turbo[\s-]?resume|bycat|(?<!self[\s-])actualize(?!\s+(?:your|my|our|their|his|her|its|the|a|an|yourself|myself|ourselves|themselves|oneself)\b))\b`,
+  );
   assertEquals(MOTIF_CONCURRENT.flags, "i");
   // Les concurrents de Sophia le sont aussi d'Unswipe.
   assertEquals(citeConcurrent("the vent now app", UNSWIPE), true);

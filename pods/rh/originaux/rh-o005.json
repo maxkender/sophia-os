@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o005",
+ "schema_id": "insider-rh",
+ "titre": "quand j'étais rh, voilà ce qu'on se disait APRÈS ton entretien (j'en suis pas fière) #rechercheemploi #emploi #entretien #cv #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "Schéma insider-rh (r 3,49 sur 5 passages, d3d9cd2f). Accroches écrites : « quand j'étais rh, voilà ce qu'on se disait APRÈS ton entretien (j'en suis pas fière) » (retenue : le gabarit gagnant, la confession et le moment caché du débrief), « ce que je notais vraiment pendant tes entretiens quand j'étais rh » (écartée : moins de transgression), « les trucs que les rh disent de toi quand t'as quitté la salle » (écartée : sans la confession). Format récit : le constat entre « », puis la scène et ce que j'en ai tiré. Six items neufs (l'accueil, aucune question posée, une phrase retenue par candidat, le « je sais pas » honnête, la conversation hors sujet, le mail de remerciement), aucune reprise de la source (tri des cv, photo, dimanche, budget, refus vague, poste interne, 7 secondes). Rien de discriminatoire ni de chiffre inventé présenté comme une donnée, aucune entreprise réelle. Le « je sais pas » honnête va dans le sens de la règle : on n'invente jamais. Sophia en 5 sur la conversation hors boulot. Inspirations : slides 1 à 5 et 7 de d3d9cd2f (sa 6 montre une appli concurrente), 2 et 6 de b80c0573 (ses 5 et 7 en montrent une).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2988d9a3",
+   "texte_overlay": "quand j'étais rh, voilà ce qu'on se disait\nAPRÈS ton entretien\n(j'en suis pas fière)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0b886b8c",
+   "texte_overlay": "« t'as vu comment il a parlé à l'accueil ? »\nla personne de l'accueil nous faisait toujours un retour.\nsois aussi sympa avec elle qu'avec moi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0572127c",
+   "texte_overlay": "« elle a posé zéro question »\nen débrief, ça se traduisait direct par « pas motivée ».\nprépare-en au moins deux, même si t'as tout compris",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "03193bd4",
+   "texte_overlay": "« c'était laquelle déjà ? »\naprès 8 entretiens dans la journée, on retenait UNE phrase par candidat.\narrive avec une histoire précise, pas un résumé de ton cv",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0d9e3856",
+   "texte_overlay": "« elle a dit “je sais pas”, j'ai bien aimé »\ncelles qui inventaient une réponse, on le voyait à chaque fois.\n« je sais pas, mais voilà comment je chercherais » marquait des points",
+   "texte_sophia": "« on a parlé d'autre chose à la fin, c'était cool »\nles 5 minutes hors sujet, c'est souvent là que ça se jouait.\nperso j'ouvre l'appli Sophia 5 minutes chaque matin, et j'ai toujours une anecdote pour finir sur une vraie conversation",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "062cf685",
+   "texte_overlay": "« on a parlé d'autre chose à la fin, c'était cool »\nles 5 minutes hors sujet, c'est souvent là que ça se jouait.\naie toujours un truc à raconter qui a rien à voir avec le boulot",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0c39b6d4",
+   "texte_overlay": "« elle a envoyé un petit mail, c'est mignon »\npresque personne remerciait après l'entretien.\nles 2 ou 3 qui le faisaient, on en reparlait en débrief",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "14c334e7",
+   "texte_overlay": "j'en suis pas fière\nmais maintenant tu sais ce qui se dit quand la porte se ferme\nlaquelle tu savais pas ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

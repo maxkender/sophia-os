@@ -47,3 +47,43 @@ export function enLots<T>(items: readonly T[], taille: number): T[][] {
   for (let i = 0; i < items.length; i += n) lots.push(items.slice(i, i + n));
   return lots;
 }
+
+/** Titre court d'un slideshow pour le journal. */
+function titreCourt(s: { id: string; titre: string | null }): string {
+  const t = (s.titre ?? "").replace(/\s+/g, " ").trim();
+  return t ? (t.length > 60 ? `${t.slice(0, 57)}…` : t) : s.id.slice(0, 8);
+}
+
+/** Ligne du journal pour un slideshow analysé. */
+export function ligneAnalyse(
+  s: { id: string; titre: string | null },
+  etat: { statut: "ok"; resultat: StickerTestResultat } | { statut: "erreur"; message: string },
+): string {
+  if (etat.statut === "erreur") return `⚠ ${titreCourt(s)} — erreur : ${etat.message}`;
+  const pubs = etat.resultat.slides.filter((x) => x.sticker === "pub").map((x) => x.position);
+  return pubs.length > 0
+    ? `✗ PUB slide${pubs.length > 1 ? "s" : ""} ${pubs.join(", ")} — ${titreCourt(s)}`
+    : `✓ ${titreCourt(s)}`;
+}
+
+/** « tier A ou mieux ×5, pod ×1 » : raisons des slideshows que le serveur a laissés. */
+export function resumeIgnores(ignores: ReadonlyArray<{ raison: string }>): string {
+  const compte = new Map<string, number>();
+  for (const i of ignores) compte.set(i.raison, (compte.get(i.raison) ?? 0) + 1);
+  return [...compte].map(([raison, n]) => `${raison} ×${n}`).join(", ");
+}
+
+/** Durée en m:ss (ou h:mm:ss au-delà d'une heure). */
+export function formatDuree(ms: number): string {
+  const s = Math.max(0, Math.round(ms / 1000));
+  const h = Math.floor(s / 3600);
+  const m = Math.floor((s % 3600) / 60);
+  const ss = String(s % 60).padStart(2, "0");
+  return h > 0 ? `${h}:${String(m).padStart(2, "0")}:${ss}` : `${m}:${ss}`;
+}
+
+/** Temps restant estimé au rythme moyen depuis le début, ou null tant qu'on n'a rien fini. */
+export function tempsRestant(fait: number, total: number, ecouleMs: number): number | null {
+  if (fait <= 0 || total <= fait) return fait >= total && total > 0 ? 0 : null;
+  return (ecouleMs / fait) * (total - fait);
+}

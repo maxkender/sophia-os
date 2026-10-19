@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { LogOut, Menu } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Eye, LogOut, Menu } from "lucide-react";
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -13,6 +14,7 @@ import {
 } from "@/components/ui/select";
 import { useAuth } from "@/features/auth/AuthContext";
 import { signOut } from "@/features/auth/api";
+import { ACCUEIL_HO } from "@/features/auth/pagesHeadOfOps";
 import { SUPPORTED_LANGUAGES } from "@/locales";
 import { ChatWidget } from "@/features/chatbot/ChatWidget";
 import { MobileDrawer, Sidebar, type NavGroup } from "./Sidebar";
@@ -69,12 +71,26 @@ export function AppShell({
   sidebarExtra?: React.ReactNode;
 }) {
   const { t, i18n } = useTranslation();
+  const { roleReel, apercuHo, basculerApercuHo } = useAuth();
+  const navigate = useNavigate();
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const langue = i18n.resolvedLanguage ?? "fr";
+
+  // Aperçu Head of Ops : l'admin voit l'OS comme lui, sans son mot de passe.
+  const apercu = (actif: boolean) => {
+    basculerApercuHo(actif);
+    navigate(actif ? ACCUEIL_HO : "/admin");
+  };
 
   const footer = (
     <div className="space-y-3">
       {sidebarExtra}
+      {roleReel === "admin" && !apercuHo && (
+        <Button variant="outline" size="sm" className="w-full" onClick={() => apercu(true)}>
+          <Eye />
+          {t("headOfOps.voirComme")}
+        </Button>
+      )}
       <UserBlock />
     </div>
   );
@@ -138,6 +154,14 @@ export function AppShell({
               </Button>
             </div>
           </div>
+          {apercuHo && (
+            <div className="flex flex-wrap items-center justify-between gap-2 border-t border-amber-300 bg-amber-50 px-4 py-2 text-sm text-amber-900 lg:px-8">
+              <span>{t("headOfOps.apercu")}</span>
+              <Button size="sm" variant="outline" onClick={() => apercu(false)}>
+                {t("headOfOps.quitterApercu")}
+              </Button>
+            </div>
+          )}
         </header>
 
         <main className="flex-1 animate-fade-in px-4 py-6 lg:px-8 lg:py-8">

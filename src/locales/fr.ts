@@ -1407,6 +1407,10 @@ export const fr = {
       autreEspace: "Autre espace",
       espaceAdmin: "Espace Head of Ops",
       espaceAdminDesc: "Planning, créateurs, reviews et parrainages",
+      voirComme: "Voir comme Head of Ops",
+      apercu:
+        "Aperçu Head of Ops : menus et pages tels que les voit un Head of Ops, avec tes droits d'admin. Les listes « mes créateurs » montrent les tiens, pas les siens.",
+      quitterApercu: "Quitter l'aperçu",
     },
     choixCompteCreation: {
       application: "Application du compte",

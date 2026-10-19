@@ -73,7 +73,7 @@ export function AdminCreateurPage() {
 
   const posts = useQuery({
     queryKey: ["posts-calendrier-admin"],
-    queryFn: postsCalendrierAdmin,
+    queryFn: () => postsCalendrierAdmin(),
     enabled: Boolean(date),
   });
 

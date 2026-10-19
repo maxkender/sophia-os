@@ -1397,6 +1397,8 @@ export interface MonCompte {
   videos_uniquement: boolean;
   avatar_url: string | null;
   langue: string;
+  /** Marché du compte (0278) : fuseau de l'échéance de publication (0304). */
+  pays: string | null;
   warmup_started_at: string | null;
   warmup_ends_at: string | null;
 }
@@ -1406,7 +1408,7 @@ export async function mesComptes(): Promise<MonCompte[]> {
   const { data, error } = await supabase
     .from("comptes")
     .select(
-      "id, type_compte, persona_nom, persona_bio, handle_tiktok, handle_instagram, videos_uniquement, avatar_url, langue, warmup_started_at, warmup_ends_at",
+      "id, type_compte, persona_nom, persona_bio, handle_tiktok, handle_instagram, videos_uniquement, avatar_url, langue, pays, warmup_started_at, warmup_ends_at",
     )
     .eq("is_active", true)
     .order("created_at", { ascending: true });
@@ -2752,6 +2754,10 @@ export interface PostCalendrierAdmin {
   slideshow_vide: boolean;
   /** Application promue par le post (0256) ; null = Sophia (post d'avant). */
   application_id: string | null;
+  /** Pays du compte : fuseau de l'échéance de publication (0304). */
+  pays: string | null;
+  /** Image de la slide 1 (option `miniatures`), pour comparer avec TikTok. */
+  miniature_url: string | null;
 }
 
 /** Médias uniques liés aux slides des posts prévus un jour (planning). */
@@ -2794,17 +2800,27 @@ export async function mediasPostsPrevusJour(date: string): Promise<
   return out;
 }
 
-/** Posts (non-test) pour le planning admin jour par jour. */
-export async function postsCalendrierAdmin(): Promise<PostCalendrierAdmin[]> {
+/**
+ * Posts (non-test) pour le planning jour par jour.
+ *
+ * `du` / `au` bornent les dates (calendrier HM sur 2 semaines) ; sans eux, les
+ * 800 derniers. `miniatures` ramène l'image de la slide 1 de chaque post.
+ */
+export async function postsCalendrierAdmin(
+  options: { du?: string; au?: string; miniatures?: boolean } = {},
+): Promise<PostCalendrierAdmin[]> {
   // L'embed profiles sous comptes fonctionne depuis la FK
   // comptes.poster_id → profiles.id (migration 0109).
-  const { data, error } = await supabase
+  let requete = supabase
     .from("posts")
     .select(
       "id, compte_id, date_publication_prevue, type, statut, pipeline_statut, publie_at, publie_url, application_id, " +
-        "sujets(titre), comptes(handle_tiktok, persona_nom, avatar_url, langue, classement, ugc_ai, ugc_ai_video, profiles(prenom, nom))",
+        "sujets(titre), comptes(handle_tiktok, persona_nom, avatar_url, langue, pays, classement, ugc_ai, ugc_ai_video, profiles(prenom, nom))",
     )
-    .eq("est_test", false)
+    .eq("est_test", false);
+  if (options.du) requete = requete.gte("date_publication_prevue", options.du);
+  if (options.au) requete = requete.lte("date_publication_prevue", options.au);
+  const { data, error } = await requete
     .order("date_publication_prevue", { ascending: false, nullsFirst: false })
     .limit(800);
   if (error) throw error;
@@ -2814,20 +2830,24 @@ export async function postsCalendrierAdmin(): Promise<PostCalendrierAdmin[]> {
   const rows = (data ?? []) as any[];
   const ids = rows.map((p) => p.id as string);
   const slidesParPost = new Map<string, { nb: number; media: number }>();
+  const miniatureParPost = new Map<string, string>();
   const chunk = 80;
   for (let i = 0; i < ids.length; i += chunk) {
     const slice = ids.slice(i, i + chunk);
     const { data: slides, error: e2 } = await supabase
       .from("post_slides")
-      .select("post_id, media_id")
+      .select(options.miniatures ? "post_id, media_id, position, media_library(url)" : "post_id, media_id")
       .in("post_id", slice);
     if (e2) throw e2;
-    for (const s of slides ?? []) {
+    // deno-lint-ignore no-explicit-any
+    for (const s of (slides ?? []) as any[]) {
       const pid = s.post_id as string;
       const cur = slidesParPost.get(pid) ?? { nb: 0, media: 0 };
       cur.nb += 1;
       if (s.media_id) cur.media += 1;
       slidesParPost.set(pid, cur);
+      const url = s.media_library?.url as string | undefined;
+      if (s.position === 1 && url) miniatureParPost.set(pid, url);
     }
   }
 
@@ -2858,8 +2878,17 @@ export async function postsCalendrierAdmin(): Promise<PostCalendrierAdmin[]> {
       nb_media: counts.media,
       slideshow_vide,
       application_id: (p.application_id as string | null) ?? null,
+      pays: (p.comptes?.pays as string | null) ?? null,
+      miniature_url: miniatureParPost.get(p.id as string) ?? null,
     };
   });
+}
+
+/** Pays d'un compte (RLS : le sien, ceux de ses créateurs, tous pour l'admin). */
+export async function paysDuCompte(compteId: string): Promise<string | null> {
+  const { data, error } = await supabase.from("comptes").select("pays").eq("id", compteId).maybeSingle();
+  if (error) throw error;
+  return (data?.pays as string | null) ?? null;
 }
 
 export interface CompteCreateurDetail {

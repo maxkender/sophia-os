@@ -851,6 +851,15 @@ export async function assignerCompteJour(
     log(`Persona UGC OK (${persona.id.slice(0, 8)})`);
   }
 
+  /**
+   * Decks Sophia ratés pendant la pioche. Quand il y en a, c'est EUX la cause
+   * d'un créneau vide, pas le pool : sans ce compte, le diagnostic du pool
+   * concluait « pool OK, minuit n'a pas atteint ce compte » alors que chaque
+   * deck levait (19/10 : `pt-br` hors langues cibles, 0 post sur 4 comptes).
+   */
+  let decksSophiaRates = 0;
+  let derniereErreurDeckSophia = "";
+
   for (let t = 0; t < maxTentatives && crees.length < manquants; t += 1) {
     log(`Pioche contenu ${crees.length + 1}/${manquants} (tentative ${t + 1})…`);
 
@@ -919,10 +928,14 @@ export async function assignerCompteJour(
         slides = deck.slides;
         hashtagsDeck = deck.hashtags;
       } catch (e) {
-        log(`Deck échoué : ${e instanceof Error ? e.message : String(e)}`);
+        decksSophiaRates += 1;
+        derniereErreurDeckSophia = e instanceof Error ? e.message : String(e);
+        log(`Deck échoué : ${derniereErreurDeckSophia}`);
         continue;
       }
       if (!slides.length) {
+        decksSophiaRates += 1;
+        derniereErreurDeckSophia = "deck vide";
         log("Deck vide — contenu suivant");
         continue;
       }
@@ -1049,15 +1062,17 @@ export async function assignerCompteJour(
   }
 
   if (crees.length < manquants) {
-    const diag = await diagnostiquerPoolVide(
-      supabase,
-      labelsSophia,
-      nomsSophia,
-      langue,
-      ugcAi,
-      ignorerTierlist,
-      memo,
-    );
+    const diag = decksSophiaRates > 0
+      ? raisonDecksRates(langue, decksSophiaRates, derniereErreurDeckSophia)
+      : await diagnostiquerPoolVide(
+        supabase,
+        labelsSophia,
+        nomsSophia,
+        langue,
+        ugcAi,
+        ignorerTierlist,
+        memo,
+      );
     log(diag);
 
     // Fallback : baisser posts_par_jour au nombre réellement assigné aujourd'hui
@@ -1099,12 +1114,26 @@ export async function assignerCompteJour(
   return finir({ ids: crees });
 }
 
+/**
+ * Créneaux vides parce que les decks ont échoué. Le pool n'est pas en cause :
+ * la raison donne l'erreur réelle, et le quota ne baisse pas (voir
+ * `estRaisonPoolPourBaisseQuota`).
+ */
+function raisonDecksRates(langue: string, rates: number, derniereErreur: string): string {
+  return (
+    `Deck ${langue.toUpperCase()} impossible : ${rates} essai(s) échoué(s), dernier « ${derniereErreur} ». ` +
+    `Le pool n'est pas en cause, quota inchangé.`
+  );
+}
+
 /** Pool labels×langue trop mince / épuisé → candidat au fallback baisse de quota. */
 function estRaisonPoolPourBaisseQuota(diag: string): boolean {
   // Ne pas baisser le quota si le pool est OK (timeout batch) — on doit réessayer.
   if (/Pool « .+ » × .+ OK \(/i.test(diag) || /n'a probablement pas atteint/i.test(diag)) {
     return false;
   }
+  // Ni quand les decks ont échoué : c'est une panne à corriger, pas un pool mince.
+  if (/^Deck .+ impossible/.test(diag)) return false;
   return (
     /trop mince|épuisé|déjà tout assigné|importe \/ labellise/i.test(diag) ||
     /aucun éligible|pas de ligne ELO|pas de score ELO/i.test(diag) ||

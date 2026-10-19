@@ -123,15 +123,23 @@ function decalage(instant: number, fuseau: string): number {
   return mural - Math.floor(instant / 1000) * 1000;
 }
 
-/** Fin du jour `date` (AAAA-MM-JJ) dans le fuseau du pays : minuit qui le termine. */
-export function echeancePublication(date: string, pays: string | null | undefined): Date {
-  const fuseau = fuseauPays(pays);
+/** Minuit qui termine le jour `date` (AAAA-MM-JJ) dans `fuseau`. */
+function finDuJour(date: string, fuseau: string): number {
   const [a, m, j] = date.split("-").map(Number);
   const minuitMural = Date.UTC(a, m - 1, j + 1, 0, 0, 0);
   // Deux passes : la seconde corrige un changement d'heure entre les deux.
   let instant = minuitMural - decalage(minuitMural, fuseau);
   instant = minuitMural - decalage(instant, fuseau);
-  return new Date(instant);
+  return instant;
+}
+
+/**
+ * Échéance d'un post du jour `date` : fin de ce jour dans le fuseau du pays,
+ * jamais avant la fin de ce jour à Paris (0320). Les posts arrivent à minuit
+ * Paris : sans ce plancher, la Nouvelle-Zélande n'avait que 13 h pour publier.
+ */
+export function echeancePublication(date: string, pays: string | null | undefined): Date {
+  return new Date(Math.max(finDuJour(date, fuseauPays(pays)), finDuJour(date, "Europe/Paris")));
 }
 
 /** Post non publié dont l'échéance est passée : manqué. */

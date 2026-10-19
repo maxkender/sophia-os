@@ -28,7 +28,7 @@ import {
 } from "@/features/moteur/api";
 import { BandeauCohorteRuul, FriseCohorteRuul } from "@/features/onboarding/CohorteRuulCalendrier";
 import { ajouterJours, formaterJour, partiesParis, premierPaiementRuul } from "@/features/onboarding/datesRuul";
-import { estManque } from "@/features/moteur/echeancePublication";
+import { arriveePosts, estManque, heureArriveeAnnoncee } from "@/features/moteur/echeancePublication";
 import { debutParDefaut, joursFenetre, libelleFenetre, lundiDe } from "@/features/moteur/semaines";
 import {
   comptePrincipal,
@@ -330,6 +330,10 @@ export function PosterCalendrierPage() {
 
   const duJour = parJour.get(jour) ?? [];
   const titreJour = t("calendrier.aujourdhui");
+  // En avance sur Paris (Nouvelle-Zélande…), les posts du jour arrivent en
+  // pleine journée : on annonce l'heure plutôt que « rien de prévu » le matin.
+  const heureArrivee = heureArriveeAnnoncee(jour);
+  const postsAVenir = duJour.length === 0 && heureArrivee !== null && maintenant < arriveePosts(jour);
 
   // Noms de jours tirés de la locale plutôt que codés en dur : une bascule en
   // anglais ne doit pas laisser « lun mar mer » dans la grille.
@@ -486,7 +490,11 @@ export function PosterCalendrierPage() {
         {duJour.length === 0 ? (
           <EmptyState
             icon={<CalendarCheck className="size-5" />}
-            title={t("calendrier.rien")}
+            title={
+              postsAVenir && warmupStatut === "termine"
+                ? t("calendrier.arriveeVers", { heure: heureArrivee })
+                : t("calendrier.rien")
+            }
           />
         ) : (
           <div className="grid gap-4 sm:grid-cols-2">
@@ -619,7 +627,11 @@ export function PosterCalendrierPage() {
 
         <p className="text-xs text-muted-foreground">{t("calendrier.legende")}</p>
         {casesWarmup && (
-          <p className="text-xs text-muted-foreground">{t("calendrier.legendeWarmup")}</p>
+          <p className="text-xs text-muted-foreground">
+            {heureArriveeAnnoncee(casesWarmup.premiersPosts)
+              ? t("calendrier.legendeWarmupHeure", { heure: heureArriveeAnnoncee(casesWarmup.premiersPosts) })
+              : t("calendrier.legendeWarmup")}
+          </p>
         )}
       </section>
       )}

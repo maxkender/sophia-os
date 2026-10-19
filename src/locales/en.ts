@@ -351,6 +351,28 @@ export const en = {
       erreurRun: "Test interrupted (partial result, nothing was written): {{erreur}}",
       erreur: "Error",
     },
+    nettoyageStickers: {
+      titre: "Label sticker cleanup",
+      description:
+        "Runs every slideshow of a label through the import OCR (dry run), shows the ones carrying a sticker, then — after confirmation — removes them and replaces their posts scheduled today that are not posted yet. Kept: pods, tier A or better, our apps (Sophia, UnSwipe, Micabo).",
+      label: "Label",
+      choisirLabel: "Pick a label…",
+      famillePub: "Ad sticker",
+      familleContenu: "Content sticker",
+      analyser: "Scan the label",
+      analyses: "{{n}} / {{total}} scanned ({{valides}} valid in the label)",
+      aRetirer: "{{n}} to remove",
+      proteges: "{{n}} kept: tier A or better",
+      pods: "{{n}} pods (exempt)",
+      sansImages: "{{n}} without raw images",
+      erreurs: "{{n}} failed",
+      retirer: "Remove {{n}} slideshows and replace today's posts",
+      confirmer:
+        "Remove {{n}} slideshows from label {{label}} (status rejected) and replace their posts scheduled today that are not posted yet?",
+      bilanRetires: "{{n}} slideshows removed · {{ignores}} skipped (already removed, pod or tier A+)",
+      bilanPosts: "Today's posts to replace: {{n}} · {{remplaces}} replaced · {{sans}} without replacement",
+      bilanErreurs: "{{n}} replacements failed",
+    },
     contenusABlanc: {
       title: "Test scoring and placement (dry run)",
       subtitle:

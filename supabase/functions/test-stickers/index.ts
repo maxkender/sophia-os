@@ -1,5 +1,6 @@
 import { ocrSlideImport } from "../_shared/gemini.ts";
 import { lireParLots, lireTout } from "../_shared/lots.ts";
+import { tierProtege } from "../_shared/nettoyage_stickers.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 /**
@@ -20,6 +21,11 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
  *     importé) ; `contenu` : au moins un sticker de contenu (importé quand
  *     même). L'import s'arrête à la première pub ; ici toutes les slides sont
  *     lues, pour montrer lesquelles.
+ *   { action: "label", labelId }
+ *     → { slideshows, total, pods, proteges, sansImages }
+ *     les slideshows valides d'un label que le nettoyage stickers peut
+ *     retirer (hors pods, hors tier A ou mieux, avec images brutes), à passer
+ *     ensuite un par un dans `analyser`. Les écartés ne sont que comptés.
  *
  * Le parallélisme entre slideshows est piloté par le navigateur (un appel par
  * slideshow) : 100 slideshows dans un seul appel dépasseraient les 150 s d'une
@@ -90,6 +96,72 @@ async function tirerSlideshows(n: number) {
   return { slideshows };
 }
 
+async function slideshowsDuLabel(labelId: string) {
+  const supabase = serviceClient();
+  const liens = await lireTout<{ contenu_id: string }>(
+    "Slideshows du label",
+    (curseur, taille) => {
+      let q = supabase.from("contenu_labels").select("contenu_id").eq("label_id", labelId);
+      if (curseur) q = q.gt("contenu_id", curseur.contenu_id);
+      return q.order("contenu_id", { ascending: true }).limit(taille);
+    },
+    { ancre: (l) => l.contenu_id },
+  );
+  const ids = liens.map((l) => l.contenu_id);
+
+  const contenus = await lireParLots<Record<string, unknown>>(
+    ids,
+    "Contenus du label",
+    (lot) =>
+      supabase
+        .from("contenus")
+        .select("id, titre, created_at, tier, pod, structure_slides")
+        .eq("statut", "valide")
+        .in("id", lot),
+  );
+  const tiersApps = await lireParLots<{ contenu_id: string; tier: string | null; eligible: boolean | null }>(
+    contenus.map((c) => c.id as string),
+    "Tiers des autres applications",
+    (lot) => supabase.from("contenu_application_tier_etat").select("contenu_id, tier, eligible").in("contenu_id", lot),
+  );
+  const tiersParContenu = new Map<string, string[]>();
+  for (const t of tiersApps) {
+    if (!t.eligible || !t.tier) continue;
+    tiersParContenu.set(t.contenu_id, [...(tiersParContenu.get(t.contenu_id) ?? []), t.tier]);
+  }
+
+  let pods = 0;
+  let proteges = 0;
+  let sansImages = 0;
+  const slideshows = [];
+  for (const c of contenus) {
+    const id = c.id as string;
+    if (c.pod) {
+      pods += 1;
+      continue;
+    }
+    const tier = (c.tier as string | null) ?? null;
+    if (tierProtege([tier, ...(tiersParContenu.get(id) ?? [])])) {
+      proteges += 1;
+      continue;
+    }
+    const slides = slidesAvecImage(c.structure_slides);
+    if (slides.length === 0) {
+      sansImages += 1;
+      continue;
+    }
+    slideshows.push({
+      id,
+      titre: (c.titre as string | null) ?? null,
+      created_at: c.created_at as string,
+      tier,
+      slides,
+    });
+  }
+  slideshows.sort((a, b) => b.created_at.localeCompare(a.created_at));
+  return { slideshows, total: contenus.length, pods, proteges, sansImages };
+}
+
 async function analyser(contenuId: string) {
   const supabase = serviceClient();
   const { data, error } = await supabase
@@ -122,7 +194,7 @@ Deno.serve(async (request) => {
   const denied = await assertAuthorised(request);
   if (denied) return denied;
 
-  let corps: { action?: string; n?: number; contenuId?: string } = {};
+  let corps: { action?: string; n?: number; contenuId?: string; labelId?: string } = {};
   try {
     corps = await request.json();
   } catch {
@@ -138,7 +210,11 @@ Deno.serve(async (request) => {
       if (!corps.contenuId) return json({ error: "contenuId requis" }, 400);
       return json(await analyser(corps.contenuId));
     }
-    return json({ error: "action inconnue (tirer | analyser)" }, 400);
+    if (corps.action === "label") {
+      if (!corps.labelId) return json({ error: "labelId requis" }, 400);
+      return json(await slideshowsDuLabel(corps.labelId));
+    }
+    return json({ error: "action inconnue (tirer | analyser | label)" }, 400);
   } catch (error) {
     return json({ error: messageErreur(error) }, 500);
   }

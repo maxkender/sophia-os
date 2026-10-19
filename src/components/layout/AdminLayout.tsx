@@ -10,6 +10,7 @@ import {
   FlaskConical,
   Gauge,
   LineChart,
+  ListChecks,
   Gift,
   Images,
   ListOrdered,
@@ -18,6 +19,7 @@ import {
   MoonStar,
   PenLine,
   Boxes,
+  Scale,
   Settings,
   ShieldAlert,
   Users,
@@ -193,6 +195,12 @@ export function AdminLayout() {
               description: t("navDesc.fileReviews"),
             },
             {
+              to: "/admin/banc-relecture",
+              label: t("nav.bancRelecture"),
+              icon: ListChecks,
+              description: t("navDesc.bancRelecture"),
+            },
+            {
               to: "/admin/parrainages",
               label: t("nav.referral"),
               icon: Gift,
@@ -208,6 +216,12 @@ export function AdminLayout() {
               label: t("nav.reglages"),
               icon: Settings,
               description: t("navDesc.reglages"),
+            },
+            {
+              to: "/admin/repartition",
+              label: t("nav.repartition"),
+              icon: Scale,
+              description: t("navDesc.repartition"),
             },
             {
               to: "/admin/prompts",

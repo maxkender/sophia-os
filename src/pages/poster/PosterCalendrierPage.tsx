@@ -20,11 +20,16 @@ import { supabase } from "@/lib/supabase/client";
 import {
   aujourdhui,
   demarrerWarmup,
+  lireCohorteAccueil,
   majMonHandle,
   majMonHandleInstagram,
   mesComptes,
   type MonCompte,
 } from "@/features/moteur/api";
+import { BandeauCohorteRuul, FriseCohorteRuul } from "@/features/onboarding/CohorteRuulCalendrier";
+import { ajouterJours, formaterJour, partiesParis, premierPaiementRuul } from "@/features/onboarding/datesRuul";
+import { estManque } from "@/features/moteur/echeancePublication";
+import { debutParDefaut, joursFenetre, libelleFenetre, lundiDe } from "@/features/moteur/semaines";
 import {
   comptePrincipal,
   ecrireCompteActif,
@@ -35,6 +40,7 @@ import { drapeauLangue } from "@/features/moteur/langues";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
 import { VideosAPoster } from "@/features/pods/VideosAPoster";
 import { statutWarmup } from "@/features/moteur/warmup";
+import { calendrierWarmup, lundiApres, premierJourPosts } from "@/features/moteur/premiersPosts";
 import { useAuth } from "@/features/auth/AuthContext";
 import { cn } from "@/lib/utils";
 
@@ -59,29 +65,6 @@ async function mesPosts(): Promise<PostCalendrier[]> {
     .limit(200);
   if (error) throw error;
   return data as PostCalendrier[];
-}
-
-/** `YYYY-MM-DD` local, sans passer par l'UTC qui décalerait d'un jour. */
-function isoDuJour(annee: number, mois: number, jour: number): string {
-  return `${annee}-${String(mois + 1).padStart(2, "0")}-${String(jour).padStart(2, "0")}`;
-}
-
-/**
- * Grille du mois, lundi en première colonne.
- *
- * `getDay()` compte à partir de dimanche : on décale pour coller à la semaine
- * française, sinon tout le mois glisse d'un cran.
- */
-function grilleDuMois(annee: number, mois: number) {
-  const premier = new Date(annee, mois, 1);
-  const decalage = (premier.getDay() + 6) % 7;
-  const joursDansLeMois = new Date(annee, mois + 1, 0).getDate();
-
-  const cases: Array<number | null> = Array.from({ length: decalage }, () => null);
-  for (let jour = 1; jour <= joursDansLeMois; jour += 1) cases.push(jour);
-  while (cases.length % 7 !== 0) cases.push(null);
-
-  return cases;
 }
 
 function CartePost({ post, creneau }: { post: PostCalendrier; creneau?: number }) {
@@ -296,6 +279,14 @@ export function PosterCalendrierPage() {
   const estCm = compte ? estCompteCm(compte) : false;
   // Compte UGC vidéo (pod 3) : une vidéo par jour, aucun slideshow à afficher.
   const ugc = Boolean(compte?.videos_uniquement);
+  // Cohorte Ruul (venus du site) : leurs dates en clair, et Slack toujours à portée.
+  const cohorte = useQuery({
+    queryKey: ["accueil-cohorte"],
+    queryFn: lireCohorteAccueil,
+    enabled: Boolean(user?.id),
+    staleTime: Infinity,
+  });
+  const debutRuul = cohorte.data?.cohorteRuul ? (cohorte.data.debutLe ?? null) : null;
 
   React.useEffect(() => {
     if (!user?.id || !comptes?.length) return;
@@ -318,10 +309,8 @@ export function PosterCalendrierPage() {
 
   const jour = aujourdhui();
   const maintenant = new Date();
-  const [mois, setMois] = React.useState(() => ({
-    annee: maintenant.getFullYear(),
-    mois: maintenant.getMonth(),
-  }));
+  // Fenêtre de 2 semaines (change 1), décalable semaine par semaine.
+  const [decalageSemaines, setDecalageSemaines] = React.useState(0);
 
   // Un jour peut porter plusieurs posts : la case affiche donc une liste.
   const parJour = React.useMemo(() => {
@@ -341,17 +330,6 @@ export function PosterCalendrierPage() {
 
   const duJour = parJour.get(jour) ?? [];
   const titreJour = t("calendrier.aujourdhui");
-  const cases = grilleDuMois(mois.annee, mois.mois);
-  const nomDuMois = new Date(mois.annee, mois.mois, 1).toLocaleDateString(i18n.language, {
-    month: "long",
-    year: "numeric",
-  });
-
-  const decaler = (pas: number) =>
-    setMois((actuel) => {
-      const date = new Date(actuel.annee, actuel.mois + pas, 1);
-      return { annee: date.getFullYear(), mois: date.getMonth() };
-    });
 
   // Noms de jours tirés de la locale plutôt que codés en dur : une bascule en
   // anglais ne doit pas laisser « lun mar mer » dans la grille.
@@ -366,6 +344,37 @@ export function PosterCalendrierPage() {
       })
     : null;
 
+  // Warm-up jusqu'au lundi qui suit le clic (0301), cohorte Ruul comprise (au
+  // plus tôt leur lundi de démarrage). Le bandeau dit quand arrivent les
+  // premiers posts, le calendrier couvre les jours de warm-up et marque la case
+  // « FIRST POSTS ».
+  const warmupLundi = Boolean(compte && !estCm);
+  const lundiApresAujourdhui = lundiApres(new Date());
+  const lundiSiLanceAujourdhui =
+    debutRuul && debutRuul > lundiApresAujourdhui ? debutRuul : lundiApresAujourdhui;
+  const premiersPostsLe =
+    warmupLundi && warmupStatut === "en_cours" && compte?.warmup_ends_at
+      ? premierJourPosts(compte.warmup_ends_at)
+      : null;
+  const casesWarmup =
+    warmupLundi && !ugc && compte
+      ? calendrierWarmup({
+          warmupStartedAt: compte.warmup_started_at,
+          warmupEndsAt: compte.warmup_ends_at,
+        })
+      : null;
+  const bandeauOrange = warmupStatut === "attente" || Boolean(premiersPostsLe);
+
+  // Deux semaines : la passée et celle en cours. En warm-up, si la case
+  // « FIRST POSTS » tombe après, on montre plutôt celle en cours et la suivante.
+  const debutHabituel = debutParDefaut(maintenant);
+  const debutDefaut =
+    casesWarmup && casesWarmup.premiersPosts > ajouterJours(debutHabituel, 13)
+      ? lundiDe(partiesParis(maintenant).date)
+      : debutHabituel;
+  const jours = joursFenetre(ajouterJours(debutDefaut, 7 * decalageSemaines));
+  const paysParCompte = new Map((comptes ?? []).map((c) => [c.id, c.pays]));
+
   return (
     <div className="space-y-8">
       {comptes && comptes.length > 0 && (
@@ -376,12 +385,21 @@ export function PosterCalendrierPage() {
         />
       )}
 
+      {/* Cohorte Ruul : la première semaine en quatre étapes datées, juste au-dessus du bouton. */}
+      {debutRuul && compte && !estCm && !ugc && (
+        <FriseCohorteRuul
+          debutLe={debutRuul}
+          warmupStartedAt={compte.warmup_started_at}
+          warmupEndsAt={compte.warmup_ends_at}
+        />
+      )}
+
       {/* Warmup : le créateur démarre le timer ici (plus côté HM). Pas pour les CM. */}
       {compte && !estCm && (
       <div
         className={cn(
           "flex flex-col gap-3 rounded-lg border p-3 sm:flex-row sm:items-center sm:justify-between",
-          warmupStatut === "attente"
+          bandeauOrange
             ? "border-warning/50 bg-warning/10"
             : "border-destructive/40 bg-destructive/10",
         )}
@@ -390,17 +408,26 @@ export function PosterCalendrierPage() {
           <p
             className={cn(
               "text-sm font-medium",
-              warmupStatut === "attente" ? "text-warning" : "text-destructive",
+              bandeauOrange ? "text-warning" : "text-destructive",
             )}
           >
             {warmupStatut === "attente"
               ? t("calendrier.warmupADemarrer")
-              : t("calendrier.warmupRappel")}
+              : premiersPostsLe
+                ? t(ugc ? "calendrier.warmupEnCoursUgc" : "calendrier.warmupEnCours", {
+                    jour: formaterJour(premiersPostsLe, i18n.language),
+                  })
+                : t("calendrier.warmupRappel")}
           </p>
-          {warmupStatut === "attente" && (
+          {warmupStatut === "attente" && !(debutRuul && !ugc) && (
             <p className="text-xs text-muted-foreground">
-              {ugc ? t("calendrier.warmupADemarrerAideUgc") : t("calendrier.warmupADemarrerAide")}
+              {t(ugc ? "calendrier.warmupADemarrerAideUgc" : "calendrier.warmupADemarrerAide", {
+                lundi: formaterJour(lundiSiLanceAujourdhui, i18n.language),
+              })}
             </p>
+          )}
+          {premiersPostsLe && (
+            <p className="text-xs text-muted-foreground">{t("calendrier.warmupEnCoursAide")}</p>
           )}
         </div>
         {compte && (
@@ -412,6 +439,7 @@ export function PosterCalendrierPage() {
               showStart={warmupStatut === "attente"}
               startPending={startWarmup.isPending}
               onStart={() => startWarmup.mutate()}
+              libelle={warmupLundi ? `🔥 ${t("calendrier.caseWarmup")}` : undefined}
             />
             {startWarmup.isError && (
               <span className="text-xs text-destructive">
@@ -422,6 +450,8 @@ export function PosterCalendrierPage() {
         )}
       </div>
       )}
+
+      {debutRuul && <BandeauCohorteRuul />}
 
       {compte && <IdentiteTikTok compte={compte} />}
 
@@ -471,30 +501,24 @@ export function PosterCalendrierPage() {
       {!ugc && (
       <section className="space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <h2 className="text-lg font-semibold capitalize tracking-tight">{nomDuMois}</h2>
+          <h2 className="text-lg font-semibold tracking-tight">{libelleFenetre(jours, i18n.language)}</h2>
           <div className="flex items-center gap-1">
             <Button
               size="icon"
               variant="ghost"
-              aria-label={t("calendrier.moisPrecedent")}
-              onClick={() => decaler(-1)}
+              aria-label={t("calendrier.semainePrecedente")}
+              onClick={() => setDecalageSemaines((d) => d - 1)}
             >
               <ChevronLeft />
             </Button>
-            <Button
-              size="sm"
-              variant="outline"
-              onClick={() =>
-                setMois({ annee: maintenant.getFullYear(), mois: maintenant.getMonth() })
-              }
-            >
+            <Button size="sm" variant="outline" onClick={() => setDecalageSemaines(0)}>
               {t("calendrier.revenirAujourdhui")}
             </Button>
             <Button
               size="icon"
               variant="ghost"
-              aria-label={t("calendrier.moisSuivant")}
-              onClick={() => decaler(1)}
+              aria-label={t("calendrier.semaineSuivante")}
+              onClick={() => setDecalageSemaines((d) => d + 1)}
             >
               <ChevronRight />
             </Button>
@@ -514,12 +538,7 @@ export function PosterCalendrierPage() {
           </div>
 
           <div className="grid grid-cols-7">
-            {cases.map((numero, index) => {
-              if (numero === null) {
-                return <div key={`vide-${index}`} className="min-h-20 border-b border-r bg-muted/20" />;
-              }
-
-              const date = isoDuJour(mois.annee, mois.mois, numero);
+            {jours.map((date) => {
               const duJourCase = parJour.get(date) ?? [];
               const estAujourdhui = date === jour;
 
@@ -531,6 +550,7 @@ export function PosterCalendrierPage() {
                     // colonne à s'élargir et fait déborder toute la grille.
                     "min-h-20 min-w-0 space-y-1 border-b border-r p-1.5",
                     estAujourdhui && "bg-primary/5",
+                    casesWarmup?.joursWarmup.has(date) && "bg-warning/10",
                   )}
                 >
                   <span
@@ -541,25 +561,56 @@ export function PosterCalendrierPage() {
                         : "text-muted-foreground",
                     )}
                   >
-                    {numero}
+                    {Number(date.slice(8, 10))}
                   </span>
 
-                  {duJourCase.map((post) => (
-                    <Link
-                      key={post.id}
-                      to={`/posts/${post.id}`}
-                      title={post.sujet_titre ?? undefined}
-                      className={cn(
-                        "block w-full max-w-full truncate rounded px-1.5 py-1 text-[11px] leading-tight transition-colors",
-                        post.publie_at
-                          ? "bg-success/15 text-success hover:bg-success/25"
-                          : "bg-primary/15 text-primary hover:bg-primary/25",
-                      )}
-                    >
-                      {post.publie_at ? "✓ " : ""}
-                      {post.sujet_titre ?? t("posts.title")}
-                    </Link>
-                  ))}
+                  {/* Cohorte Ruul : leur lundi prévu, tant que le warm-up ne pose pas ses propres cases. */}
+                  {debutRuul && !casesWarmup && date === debutRuul && (
+                    <p className="w-full max-w-full truncate rounded bg-warning/20 px-1.5 py-1 font-medium text-[11px] leading-tight">
+                      🚀 {t("calendrier.ruul.premierPost")}
+                    </p>
+                  )}
+                  {debutRuul && date === premierPaiementRuul(debutRuul) && (
+                    <p className="w-full max-w-full truncate rounded bg-success/15 px-1.5 py-1 font-medium text-[11px] text-success leading-tight">
+                      💰 {t("calendrier.ruul.premierPaiementCase")}
+                    </p>
+                  )}
+
+                  {casesWarmup?.joursWarmup.has(date) && (
+                    // Téléphone : la case teintée et 🔥 suffisent, le mot ne tiendrait pas.
+                    <p className="w-full max-w-full truncate rounded bg-warning/20 px-1.5 py-1 font-medium text-[11px] leading-tight">
+                      🔥<span className="hidden sm:inline"> {t("calendrier.caseWarmup")}</span>
+                    </p>
+                  )}
+                  {casesWarmup?.premiersPosts === date && (
+                    // Passe à la ligne plutôt que d'être tronquée : c'est LA case à lire.
+                    <p className="w-full max-w-full break-words rounded bg-primary px-1.5 py-1 font-semibold text-[11px] text-primary-foreground leading-tight">
+                      🚀 {t("calendrier.casePremiersPosts")}
+                    </p>
+                  )}
+
+                  {duJourCase.map((post) => {
+                    // Non marqué publié avant la fin de sa journée (heure locale) : manqué.
+                    const manque = estManque(post, paysParCompte.get(post.compte_id ?? "") ?? null, maintenant);
+                    return (
+                      <Link
+                        key={post.id}
+                        to={`/posts/${post.id}`}
+                        title={post.sujet_titre ?? undefined}
+                        className={cn(
+                          "block w-full max-w-full truncate rounded px-1.5 py-1 text-[11px] leading-tight transition-colors",
+                          post.publie_at
+                            ? "bg-success/15 text-success hover:bg-success/25"
+                            : manque
+                              ? "bg-destructive/10 text-destructive hover:bg-destructive/20"
+                              : "bg-primary/15 text-primary hover:bg-primary/25",
+                        )}
+                      >
+                        {post.publie_at ? "✓ " : manque ? "✗ " : ""}
+                        {post.sujet_titre ?? t("posts.title")}
+                      </Link>
+                    );
+                  })}
                 </div>
               );
             })}
@@ -567,6 +618,9 @@ export function PosterCalendrierPage() {
         </div>
 
         <p className="text-xs text-muted-foreground">{t("calendrier.legende")}</p>
+        {casesWarmup && (
+          <p className="text-xs text-muted-foreground">{t("calendrier.legendeWarmup")}</p>
+        )}
       </section>
       )}
     </div>

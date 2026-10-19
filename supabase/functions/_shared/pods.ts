@@ -221,20 +221,82 @@ export interface DeckDepose {
  */
 const RE_CODE_LANGUE = /^[a-z]{2}(-(?:[A-Z]{2}|\d{3}))?$/;
 
-/** Contrôles d'un dépôt AVANT tout envoi au stockage. Renvoie les erreurs. */
-export function verifierDepot(decks: Record<string, DeckDepose> | null | undefined, langueSource: string): string[] {
+/**
+ * Contrôles d'un dépôt AVANT tout envoi au stockage. Renvoie les erreurs.
+ *
+ * `slideApp` :
+ * - `"sophia"` (défaut) : le label sert Sophia, chaque deck porte la slide
+ *   Sophia (`position_sophia`) ;
+ * - `"application"` : le label ne sert PAS Sophia (pod 6, label UnSwipe seul).
+ *   Chaque deck porte UNE slide de l'application du label (`position_app`, ou
+ *   son alias `position_sophia`), jamais la couverture : l'OS en tire la
+ *   variante de l'application (`decksApplicationDepuisBase`).
+ */
+export function verifierDepot(
+  decks: Record<string, DeckDepose> | null | undefined,
+  langueSource: string,
+  slideApp: "sophia" | "application" = "sophia",
+): string[] {
   const erreurs: string[] = [];
   const langues = Object.keys(decks ?? {});
   if (!langues.length) return ["aucun deck"];
   if (!langues.includes(langueSource)) erreurs.push(`pas de deck dans la langue source (${langueSource})`);
   for (const [langue, deck] of Object.entries(decks ?? {})) {
     if (!RE_CODE_LANGUE.test(langue)) erreurs.push(`langue invalide : ${langue}`);
-    const positions = (deck?.slides ?? []).map((s) => Number(s.position));
+    const slides = deck?.slides ?? [];
+    const positions = slides.map((s) => Number(s.position));
     if (!positions.length) erreurs.push(`${langue} : deck vide`);
     if (new Set(positions).size !== positions.length) erreurs.push(`${langue} : positions en double`);
-    if (!(deck?.slides ?? []).some((s) => s.position_sophia)) erreurs.push(`${langue} : aucune slide de l'app`);
+    if (slideApp === "sophia") {
+      if (!slides.some((s) => s.position_sophia)) erreurs.push(`${langue} : aucune slide de l'app`);
+      continue;
+    }
+    const apps = slides.filter(estSlideApp);
+    if (apps.length !== 1) erreurs.push(`${langue} : ${apps.length} slide(s) de l'app (une seule attendue)`);
+    else if (positions.length && Number(apps[0].position) === Math.min(...positions)) {
+      erreurs.push(`${langue} : la slide de l'app ne peut pas être la couverture`);
+    }
   }
   return erreurs;
+}
+
+/** Slide d'un deck déposé, une fois son image au stockage. */
+export interface SlideEnvoyee {
+  position: number;
+  media_id: string;
+  url: string | null;
+  /** La slide de l'application (`position_app` ou `position_sophia` au dépôt). */
+  app: boolean;
+}
+
+/**
+ * Label qui ne sert pas Sophia : le deck déposé EST celui de l'application.
+ * On en tire sa variante (`decks_applications`), mêmes images, la slide de
+ * l'app marquée ; le deck de base garde ces images sans aucune slide Sophia.
+ */
+export function decksApplicationDepuisBase(
+  slugApp: string,
+  decks: Record<string, { hashtags: string; slides: SlideEnvoyee[] }>,
+): DecksApplicationsLivres {
+  const parLangue: Record<string, { hashtags?: string; slides: SlideAppLivree[] }> = {};
+  for (const [langue, deck] of Object.entries(decks)) {
+    parLangue[langue] = {
+      hashtags: deck.hashtags,
+      slides: [...deck.slides]
+        .sort((a, b) => a.position - b.position)
+        .map((s) => ({ position: s.position, media_id: s.media_id, url: s.url, position_sophia: s.app })),
+    };
+  }
+  return { [slugApp]: parLangue };
+}
+
+/**
+ * Applications servies par le label d'un pod, hors Sophia, ou `null` s'il sert
+ * Sophia (règle d'héritage : un label sans ligne sert Sophia).
+ */
+export function applicationsHorsSophia(idsApplicationsDuLabel: readonly string[], idSophia: string): string[] | null {
+  if (!idsApplicationsDuLabel.length || idsApplicationsDuLabel.includes(idSophia)) return null;
+  return [...idsApplicationsDuLabel];
 }
 
 /**
@@ -351,7 +413,7 @@ export async function ecrireDecksApplications(
   supabase: Supabase,
   contenuId: string,
   livraison: { id: string; decks_applications?: DecksApplicationsLivres | null },
-  opts: { tierForce: "A" | "B" | "C" | null; pertinenceScore: number | null; pod: string },
+  opts: { tierForce: "A" | "B" | "C" | null; pertinenceScore: number | null; pod: string; tierApp?: Tier | null },
 ): Promise<string[]> {
   const decksApps = livraison.decks_applications ?? {};
   const slugs = Object.keys(decksApps).filter((s) => Object.keys(decksApps[s] ?? {}).length > 0);
@@ -412,7 +474,9 @@ export async function ecrireDecksApplications(
     if (error) throw new Error(`médias : ${error.message ?? error}`);
   }
 
-  const tierApp: Tier = opts.tierForce ?? (TIER_ORIGINAL as Tier);
+  // Label hors Sophia (pod 6) : le rang vient de la note d'import, comme le
+  // rang Sophia d'un pod classique. Sinon : rang imposé, ou celui d'un original.
+  const tierApp: Tier = opts.tierApp ?? opts.tierForce ?? (TIER_ORIGINAL as Tier);
   const brut = Math.round(Number(opts.pertinenceScore ?? 0));
   const score = Math.max(PERTINENCE_MIN_HORS_SOPHIA, Math.min(100, Math.max(0, Number.isFinite(brut) ? brut : 0)));
   const note = NOTE_TIER_POD[tierApp as "A" | "B" | "C"] ?? NOTE_TIER_POD.B;
@@ -487,7 +551,7 @@ export const TIER_ORIGINAL = "B";
 const LONGUEUR_MAX_ACCROCHE = 120;
 const LONGUEUR_MAX_SLIDE = 320;
 const MOT_SOPHIA = /\bsophia\b/i;
-const AUTRE_APPLI = /\b(vent[\s-]?now|readup|unswipe)\b/i;
+const AUTRE_APPLI = /\b(vent[\s-]?now|readup|turbo[\s-]?resume|unswipe)\b/i;
 /** Les slides d'inspiration viennent du stockage de l'OS (`medias/brut/`), jamais d'un CDN qui expire. */
 export const REFERENCE_VALIDE = /^https:\/\/[a-z0-9]+\.supabase\.co\/storage\/v1\/object\/public\/medias\/brut\//;
 
@@ -521,6 +585,86 @@ export function verifierOriginal(slides: Partial<SlideOriginale>[] | null | unde
     }
   }
   return erreurs;
+}
+
+// ---------------------------------------------------------------------------
+// Preuve d'un original (pod 4) : « uniquement des posts qui font des vues »
+// ---------------------------------------------------------------------------
+
+/**
+ * Pods dont chaque original doit arriver avec la PREUVE que son schéma
+ * d'accroche fait des vues aujourd'hui (décidé le 15/10 pour le pod 4, même
+ * règle pour le pod 5).
+ */
+export const PODS_AVEC_PREUVE = new Set(["originaux_alpha_yellow", "originaux_rh"]);
+export const PREUVE_VUES_MIN = 200_000;
+export const PREUVE_JOURS_MAX = 30;
+export const PREUVE_R_MIN = 2;
+
+/**
+ * Un post TikTok de la niche (vues déclarées par l'agent, lien cliquable dans
+ * la file) ou un contenu du label (r recalculé par l'OS au dépôt).
+ */
+export type ReferencePreuve =
+  | { type: "tiktok"; url: string; vues: number; publie_le: string; enregistrements?: number | null }
+  | { type: "os"; contenu_id: string };
+
+export interface PreuveOriginal {
+  /** Le schéma d'accroche, tel qu'écrit dans le playbook du pod. */
+  schema: string;
+  references: ReferencePreuve[];
+}
+
+const URL_TIKTOK = /^https:\/\/www\.tiktok\.com\/@[\w.-]{2,40}\/(video|photo)\/\d{10,25}$/;
+const DATE_ISO = /^\d{4}-\d{2}-\d{2}$/;
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+const joursEntre = (debut: string, fin: string) =>
+  Math.round((Date.parse(`${fin}T00:00:00Z`) - Date.parse(`${debut}T00:00:00Z`)) / 86_400_000);
+
+/**
+ * Contrôle d'une preuve AVANT tout accès base. Rend les erreurs de forme, si
+ * une référence TikTok suffit déjà (≥ 200 k vues, publiée dans les 30 derniers
+ * jours) et les contenus du label dont l'OS doit recalculer le r.
+ */
+export function verifierPreuve(
+  preuve: unknown,
+  aujourdhui: string,
+): { erreurs: string[]; tiktokSuffit: boolean; contenusOs: string[] } {
+  const erreurs: string[] = [];
+  const p = (preuve ?? {}) as Partial<PreuveOriginal>;
+  const schema = String(p.schema ?? "").trim();
+  if (!schema) erreurs.push("preuve : schéma d'accroche manquant");
+  else if (schema.length > 200) erreurs.push("preuve : schéma trop long (200 caractères au plus)");
+  const refs = Array.isArray(p.references) ? p.references : [];
+  if (!refs.length || refs.length > 6) erreurs.push(`preuve : ${refs.length} référence(s) (1 à 6 attendues)`);
+  let tiktokSuffit = false;
+  const contenusOs: string[] = [];
+  for (const [i, ref] of refs.entries()) {
+    const r = (ref ?? {}) as Record<string, unknown>;
+    if (r.type === "tiktok") {
+      const urlOk = URL_TIKTOK.test(String(r.url ?? ""));
+      const vues = Number(r.vues);
+      const vuesOk = Number.isInteger(vues) && vues >= 0;
+      const date = String(r.publie_le ?? "");
+      if (!urlOk) erreurs.push(`preuve #${i + 1} : lien TikTok invalide`);
+      if (!vuesOk) erreurs.push(`preuve #${i + 1} : vues invalides`);
+      if (!DATE_ISO.test(date) || Number.isNaN(Date.parse(date))) {
+        erreurs.push(`preuve #${i + 1} : date de publication invalide (AAAA-MM-JJ)`);
+      } else if (date > aujourdhui) {
+        erreurs.push(`preuve #${i + 1} : date de publication dans le futur`);
+      } else if (urlOk && vuesOk && vues >= PREUVE_VUES_MIN && joursEntre(date, aujourdhui) <= PREUVE_JOURS_MAX) {
+        tiktokSuffit = true;
+      }
+    } else if (r.type === "os") {
+      const id = String(r.contenu_id ?? "");
+      if (UUID.test(id)) contenusOs.push(id.toLowerCase());
+      else erreurs.push(`preuve #${i + 1} : contenu_id invalide (uuid complet attendu)`);
+    } else {
+      erreurs.push(`preuve #${i + 1} : type « tiktok » ou « os » attendu`);
+    }
+  }
+  return { erreurs, tiktokSuffit, contenusOs: [...new Set(contenusOs)] };
 }
 
 // ---------------------------------------------------------------------------

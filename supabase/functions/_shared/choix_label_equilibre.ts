@@ -108,6 +108,15 @@ export interface ReglagesChoixLabel {
   ouverts: string[];
   /** Labels toujours fermés (fermeture manuelle), toutes applications. */
   fermes: string[];
+  /**
+   * Fermeture et réouverture manuelles POUR UNE APPLICATION, clés
+   * `application:label`. `fermes` et `ouverts` sont globaux : fermer
+   * `white_bg` le fermait partout, y compris là où il marche. Ces deux
+   * listes-ci permettent de le fermer sur Unswipe en le gardant sur Sophia.
+   * Elles gagnent sur les listes globales : le plus précis l'emporte.
+   */
+  fermesApp: string[];
+  ouvertsApp: string[];
   /** Fermetures décidées par la nuit, mémorisées. */
   fermesAuto: Record<string, FermetureAuto>;
 }
@@ -127,6 +136,8 @@ export const REGLAGES_CHOIX_LABEL_DEFAUT: Readonly<ReglagesChoixLabel> = Object.
   relabelsMaxParNuit: 20,
   ouverts: [],
   fermes: [],
+  fermesApp: [],
+  ouvertsApp: [],
   fermesAuto: {},
 });
 
@@ -195,6 +206,8 @@ export function lireReglagesChoixLabel(valeur: unknown): ReglagesChoixLabel {
     relabelsMaxParNuit: Math.max(0, Math.round(nombre(v.relabels_max_par_nuit ?? d.relabelsMaxParNuit))),
     ouverts: listeIds(v.labels_ouverts),
     fermes: listeIds(v.labels_fermes),
+    fermesApp: listeIds(v.labels_fermes_app),
+    ouvertsApp: listeIds(v.labels_ouverts_app),
     fermesAuto,
   };
 }
@@ -245,20 +258,28 @@ export function estFerme(
   r: ReglagesChoixLabel,
   s?: StatLabelCreation | null,
 ): boolean {
+  const k = cleFermeture(applicationId, labelId);
+  // Du plus précis au moins précis : une décision prise POUR une application
+  // l'emporte sur la même décision prise pour toutes.
+  if (r.ouvertsApp.includes(k)) return false;
+  if (r.fermesApp.includes(k)) return true;
   if (r.ouverts.includes(labelId)) return false;
   if (r.fermes.includes(labelId)) return true;
-  if (r.fermesAuto[cleFermeture(applicationId, labelId)]) return true;
+  if (r.fermesAuto[k]) return true;
   return s ? doitFermer(s, r) : false;
 }
 
 /** Labels fermés connus SANS chiffres (forcés + mémorisés) : pour filtrer la File. */
 export function labelsFermesConnus(r: ReglagesChoixLabel, applicationId: string): Set<string> {
-  const ids = new Set(r.fermes);
   const prefixe = `${applicationId}:`;
+  const ids = new Set(r.fermes);
   for (const k of Object.keys(r.fermesAuto)) {
     if (k.startsWith(prefixe)) ids.add(k.slice(prefixe.length));
   }
   for (const id of r.ouverts) ids.delete(id);
+  // Le plus précis en dernier, pour qu'il écrase les listes globales.
+  for (const k of r.fermesApp) if (k.startsWith(prefixe)) ids.add(k.slice(prefixe.length));
+  for (const k of r.ouvertsApp) if (k.startsWith(prefixe)) ids.delete(k.slice(prefixe.length));
   return ids;
 }
 

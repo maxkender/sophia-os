@@ -1,5 +1,7 @@
 /** File du jour : posts marqués publiés (jour Paris). */
 
+import { idTiktokDepuisUrl } from "./tiktokEmbed";
+
 /** Jour calendaire Paris d'un timestamptz ISO (ou null). */
 export function jourParisDepuisIso(iso: string | null | undefined): string | null {
   if (!iso) return null;
@@ -136,4 +138,43 @@ export function normaliserVideosReview(raw: unknown): ReviewVideo[] {
     out.push({ url, titre });
   }
   return out;
+}
+
+/** Clé d'un lien de post : l'ID TikTok quand on l'a (lien complet ou lien court résolu), sinon le lien nettoyé. */
+export function cleLienPost(url: string | null | undefined, idResolu?: string | null): string | null {
+  const id = idResolu ?? idTiktokDepuisUrl(url);
+  if (id) return `id:${id}`;
+  const brut = (url ?? "").trim();
+  if (!brut) return null;
+  return brut.toLowerCase().replace(/[?#].*$/, "").replace(/\/+$/, "");
+}
+
+/** Pour chaque post, les liens des AUTRES posts du même compte (le même jour, reviewés compris). */
+export function liensDesAutresPosts(
+  posts: Array<{ id: string; compte_id: string; publie_url: string | null }>,
+): Map<string, string[]> {
+  const out = new Map<string, string[]>();
+  for (const p of posts) {
+    out.set(
+      p.id,
+      posts
+        .filter((q) => q.id !== p.id && q.compte_id === p.compte_id && q.publie_url)
+        .map((q) => q.publie_url as string),
+    );
+  }
+  return out;
+}
+
+/**
+ * Combien d'autres posts mènent au même TikTok : le créateur a collé le même
+ * post pour plusieurs slideshows (asya.ogrenir761 et mia.thrives282 le 15/10,
+ * un lien complet puis le même en lien court « Partager »).
+ */
+export function compterMemeTiktok(
+  courant: { lien: string | null; id: string | null },
+  autres: Array<{ lien: string | null; id: string | null }>,
+): number {
+  const cle = cleLienPost(courant.lien, courant.id);
+  if (!cle) return 0;
+  return autres.filter((a) => cleLienPost(a.lien, a.id) === cle).length;
 }

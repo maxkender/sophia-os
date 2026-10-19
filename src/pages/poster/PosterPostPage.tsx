@@ -22,9 +22,12 @@ import QRCode from "qrcode";
 
 import { useAuth } from "@/features/auth/AuthContext";
 import {
+  messageDErreur,
   minutesAvantPublication,
   minutesDepuisErreurPublication,
 } from "@/features/moteur/delaiPublication";
+import { echeancePublication, publicationOuverte } from "@/features/moteur/echeancePublication";
+import { dateDepuisErreurLienDejaUtilise, lienPourEnregistrement } from "@/features/moteur/lienPublication";
 import { NettoyageEtapes } from "@/components/moteur/NettoyageEtapes";
 import { UpscaleMediaControl } from "@/components/moteur/UpscaleMediaControl";
 import { Badge } from "@/components/ui/badge";
@@ -42,9 +45,11 @@ import {
   listerSlides,
   majMediaSlide,
   majPost,
+  paysDuCompte,
   rechargerPostCreateur,
   renettoyerSlide,
   reordonnerSlides,
+  resoudreTiktok,
   signalerTexteSlide,
 } from "@/features/moteur/api";
 import {
@@ -66,6 +71,7 @@ import { useApplication } from "@/features/moteur/ApplicationContext";
 import { nomApplicationPromue } from "@/features/moteur/repartition/logique";
 import { classeDirectionTexte, directionTexte } from "@/features/moteur/langues";
 import { cleErreurSignalement, slideEstLivree, slideEstPropre } from "@/features/moteur/signalementTexte";
+import { referenceAffichee } from "@/features/moteur/referencePlacement";
 
 function nomFichier(postId: string, position: number) {
   return `${postId.slice(0, 8)}-${String(position).padStart(2, "0")}.jpg`;
@@ -192,10 +198,12 @@ function Visuel({
   url,
   legende,
   onZoom,
+  onError,
 }: {
   url: string;
   legende: string;
   onZoom: () => void;
+  onError?: () => void;
 }) {
   return (
     <figure className="space-y-1.5">
@@ -206,6 +214,7 @@ function Visuel({
         <img
           src={url}
           alt=""
+          onError={onError}
           className="w-full rounded-lg border object-contain transition hover:opacity-90"
         />
       </button>
@@ -423,6 +432,8 @@ export function PosterPostPage() {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const [lienPublie, setLienPublie] = React.useState("");
+  const [editionLien, setEditionLien] = React.useState(false);
+  const [nouveauLien, setNouveauLien] = React.useState("");
   const [loupe, setLoupe] = React.useState<string | null>(null);
   const [erreurPartage, setErreurPartage] = React.useState<string | null>(null);
   const [enCours, setEnCours] = React.useState(false);
@@ -450,6 +461,28 @@ export function PosterPostPage() {
   // AVANT qu'il ne se prenne un refus. Les admins ne sont pas concernés.
   const compteIdDuPost = post.data?.compte_id ?? null;
   const dejaPublie = Boolean(post.data?.publie_at);
+
+  // Échéance (0304) : fin du jour du post à l'heure locale du pays du compte.
+  // Après, ni « publié » ni lien modifiable (sauf admin / Head of Ops, qui
+  // tranchent les litiges) : le post compte comme manqué.
+  const paysCompte = useQuery({
+    queryKey: ["pays-compte", compteIdDuPost],
+    queryFn: () => paysDuCompte(compteIdDuPost!),
+    enabled: Boolean(compteIdDuPost),
+    staleTime: Infinity,
+  });
+  const peutForcer = role === "admin" || role === "head_of_ops";
+  const datePost = post.data?.date_publication_prevue ?? null;
+  const ouverte = peutForcer || publicationOuverte(datePost, paysCompte.data ?? null);
+  const echeanceTexte = datePost
+    ? echeancePublication(datePost, paysCompte.data ?? null).toLocaleString(i18n.language, {
+        weekday: "short",
+        day: "numeric",
+        month: "short",
+        hour: "2-digit",
+        minute: "2-digit",
+      })
+    : null;
   const contrainte = useQuery({
     queryKey: ["delai-publication", compteIdDuPost],
     queryFn: () => contrainteDelaiPublication(compteIdDuPost!),
@@ -476,6 +509,11 @@ export function PosterPostPage() {
   }, [minutesRestantes]);
 
   const liste = React.useMemo(() => slides.data ?? [], [slides.data]);
+  // Originaux qui ne se chargent pas (lien Apify expiré) : on emprunte celui
+  // d'une slide voisine (referencePlacement.ts).
+  const [refsEchouees, setRefsEchouees] = React.useState<ReadonlySet<string>>(() => new Set());
+  const marquerRefEchouee = (url: string) =>
+    setRefsEchouees((avant) => (avant.has(url) ? avant : new Set(avant).add(url)));
 
   // Préchargement des visuels : `navigator.share` doit être appelé dans la
   // foulée du tap, il ne peut pas attendre un fetch.
@@ -518,9 +556,12 @@ export function PosterPostPage() {
   });
 
   const publier = useMutation({
-    mutationFn: () => {
-      const lien = lienPublie.trim();
-      if (!lien) throw new Error(t("posts.lienObligatoire"));
+    mutationFn: async () => {
+      const saisi = lienPublie.trim();
+      if (!saisi) throw new Error(t("posts.lienObligatoire"));
+      // Lien court « Partager » → lien complet du post, pour que le serveur
+      // puisse reconnaître un post déjà déclaré pour un autre slideshow.
+      const lien = await lienPourEnregistrement(saisi, resoudreTiktok);
       return majPost(id!, {
         statut: "publie",
         publie_at: new Date().toISOString(),
@@ -528,6 +569,20 @@ export function PosterPostPage() {
       });
     },
     onSuccess: rafraichir,
+  });
+
+  // Corriger le lien d'un post déjà publié, jusqu'à l'échéance (change 4).
+  const majLien = useMutation({
+    mutationFn: async () => {
+      const saisi = nouveauLien.trim();
+      if (!saisi) throw new Error(t("posts.lienObligatoire"));
+      const lien = await lienPourEnregistrement(saisi, resoudreTiktok);
+      return majPost(id!, { publie_url: lien });
+    },
+    onSuccess: () => {
+      setEditionLien(false);
+      rafraichir();
+    },
   });
 
   /** Slideshow buggé : rejette le contenu et en refabrique un autre (max 2). */
@@ -851,13 +906,23 @@ export function PosterPostPage() {
                     </span>
                   </div>
                 )}
-                {slide.reference_url && (
-                  <Visuel
-                    url={slide.reference_url}
-                    legende={t("posts.placementTitre")}
-                    onZoom={() => setLoupe(slide.reference_url!)}
-                  />
-                )}
+                {(() => {
+                  const ref = referenceAffichee(liste, index, refsEchouees);
+                  if (!ref) return null;
+                  return (
+                    <Visuel
+                      key={ref.url}
+                      url={ref.url}
+                      legende={
+                        ref.autrePosition == null
+                          ? t("posts.placementTitre")
+                          : t("posts.placementAutreSlide", { position: ref.autrePosition })
+                      }
+                      onZoom={() => setLoupe(ref.url)}
+                      onError={() => marquerRefEchouee(ref.url)}
+                    />
+                  );
+                })()}
               </div>
 
               {estPropre(slide) && (
@@ -923,11 +988,71 @@ export function PosterPostPage() {
       <Card>
         <CardContent className="space-y-3 pt-5">
           {publie ? (
-            <p className="text-sm text-success">
-              {t("posts.publieLe", {
-                date: new Date(donnees.publie_at!).toLocaleString(i18n.language),
-              })}
-            </p>
+            <div className="space-y-2">
+              <p className="text-sm text-success">
+                {t("posts.publieLe", {
+                  date: new Date(donnees.publie_at!).toLocaleString(i18n.language),
+                })}
+              </p>
+              {/* Le lien, cliquable : vérifier le bon post (change 4). */}
+              {donnees.publie_url && !editionLien && (
+                <a
+                  href={donnees.publie_url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="block break-all text-sm text-primary underline underline-offset-2"
+                >
+                  {donnees.publie_url}
+                </a>
+              )}
+              {editionLien ? (
+                <div className="space-y-2">
+                  <Input
+                    type="url"
+                    inputMode="url"
+                    placeholder="https://www.tiktok.com/@..."
+                    value={nouveauLien}
+                    onChange={(e) => setNouveauLien(e.target.value)}
+                  />
+                  {majLien.isError && (
+                    <p className="text-sm text-destructive">{messageErreurPublication(majLien.error, t)}</p>
+                  )}
+                  <div className="flex gap-2">
+                    <Button
+                      size="sm"
+                      disabled={majLien.isPending || !nouveauLien.trim()}
+                      onClick={() => majLien.mutate()}
+                    >
+                      {majLien.isPending ? t("common.saving") : t("common.save")}
+                    </Button>
+                    <Button size="sm" variant="ghost" onClick={() => setEditionLien(false)}>
+                      {t("common.cancel")}
+                    </Button>
+                  </div>
+                </div>
+              ) : (
+                ouverte && (
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => {
+                      setNouveauLien(donnees.publie_url ?? "");
+                      setEditionLien(true);
+                    }}
+                  >
+                    {t("posts.modifierLien")}
+                  </Button>
+                )
+              )}
+              {ouverte && !peutForcer && echeanceTexte && (
+                <p className="text-xs text-muted-foreground">{t("posts.modifiableJusqua", { date: echeanceTexte })}</p>
+              )}
+            </div>
+          ) : !ouverte ? (
+            <div className="space-y-1 rounded-lg border border-destructive/40 bg-destructive/10 p-3">
+              <p className="text-sm font-semibold text-destructive">{t("posts.manqueTitre")}</p>
+              <p className="text-xs text-muted-foreground">{t("posts.manqueAide", { date: echeanceTexte })}</p>
+            </div>
           ) : (
             <>
               <div className="space-y-2">
@@ -942,6 +1067,9 @@ export function PosterPostPage() {
                   required
                 />
                 <p className="text-xs text-muted-foreground">{t("posts.lienObligatoireAide")}</p>
+                {!peutForcer && echeanceTexte && (
+                  <p className="text-xs font-medium text-foreground">{t("posts.echeanceAvant", { date: echeanceTexte })}</p>
+                )}
               </div>
 
               {minutesRestantes > 0 && (
@@ -992,6 +1120,9 @@ function messageErreurPublication(
 ): string {
   const minutes = minutesDepuisErreurPublication(erreur);
   if (minutes !== null) return t("posts.delaiRefus", { minutes });
+  const date = dateDepuisErreurLienDejaUtilise(erreur);
+  if (date !== null) return t("posts.lienDejaUtilise", { date });
+  if (messageDErreur(erreur).includes("DELAI_PUBLICATION_DEPASSE")) return t("posts.delaiDepasse");
 
   if (erreur instanceof Error && erreur.message) return erreur.message;
   if (erreur && typeof erreur === "object") {

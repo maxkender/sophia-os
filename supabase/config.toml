@@ -80,6 +80,14 @@ verify_jwt = false
 [functions.extraction]
 verify_jwt = false
 
+# Guichet du site (Sophia Culture Hub) : appelé serveur à serveur avec l'en-tête
+# x-hub-secret, contrôlé par la fonction elle-même — voir docs/hub-posteurs.md.
+[functions.hub-posteurs]
+verify_jwt = false
+
+[functions.hub-slack-cohorte]
+verify_jwt = false
+
 [functions.import-contenu]
 verify_jwt = false
 
@@ -127,6 +135,9 @@ verify_jwt = false
 verify_jwt = false
 
 [functions.rattrapage-elo]
+verify_jwt = false
+
+[functions.relecture-auto]
 verify_jwt = false
 
 [functions.renettoyer]

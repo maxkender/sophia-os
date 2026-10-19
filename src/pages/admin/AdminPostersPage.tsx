@@ -55,8 +55,10 @@ import {
   listerLabels,
   listerLanguesReference,
   listerPosters,
+  lireZonesCohorteRuul,
   majCompte,
   majLanguesRecruteur,
+  majRecruteur,
   majUpwork,
   majZoneRecruteur,
   setLabelsCompte,
@@ -488,6 +490,54 @@ function PaysCompteSelect({ compte }: { compte: CompteAvecDetails }) {
 }
 
 /**
+ * Recruteur d'un créateur. Un poster créé par l'admin ou le Head of Ops leur
+ * est rattaché : ils le passent ici au HM de sa zone (ticket Aram, 18/10).
+ */
+function ChoixRecruteur({
+  poster,
+  recruteurs,
+}: {
+  poster: PosterProfil;
+  recruteurs: PosterProfil[];
+}) {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const maj = useMutation({
+    mutationFn: (managerId: string) => majRecruteur(poster.id, managerId || null),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["posters"] });
+    },
+  });
+
+  return (
+    <div className="max-w-sm space-y-1">
+      <Label
+        htmlFor={`recruteur-${poster.id}`}
+        className="text-[10px] uppercase tracking-wide text-muted-foreground"
+      >
+        {t("posters.changerRecruteur")}
+      </Label>
+      <select
+        id={`recruteur-${poster.id}`}
+        className={selectClass}
+        value={poster.manager_id ?? ""}
+        disabled={maj.isPending}
+        onChange={(e) => maj.mutate(e.target.value)}
+      >
+        <option value="">{t("posters.sansRecruteur")}</option>
+        {recruteurs.map((r) => (
+          <option key={r.id} value={r.id}>
+            {nomAffiche(r)}
+            {r.zone_recrutement ? ` · ${r.zone_recrutement}` : ""}
+          </option>
+        ))}
+      </select>
+      {maj.isError && <p className="text-xs text-destructive">{messageErreur(maj.error)}</p>}
+    </div>
+  );
+}
+
+/**
  * Labels d'un compte. Tous les labels sont proposés (plus de cloison par
  * application) ; chaque pastille dit quelles applications le label sert, donc
  * ce que le compte pourra promouvoir.
@@ -574,6 +624,9 @@ export function AdminPostersPage() {
   const peutChoisirApps = peutChoisirApplicationsCompte(role);
   const queryClient = useQueryClient();
   const posters = useQuery({ queryKey: ["posters"], queryFn: listerPosters });
+  // Cohorte Ruul (posters venus du site) → HM de la zone de leur pays.
+  const cohorteRuul = useQuery({ queryKey: ["posters", "cohorte-ruul"], queryFn: lireZonesCohorteRuul });
+  const zonesCohorteRuul = cohorteRuul.data;
   // Zones déjà données aux recruteurs : filtre de la page et suggestions de saisie.
   const zonesExistantes = React.useMemo(() => zonesConnues(posters.data ?? []), [posters.data]);
   // Email du recruteur d'un créateur : chercher « hugo@… » garde ses créateurs,
@@ -619,6 +672,8 @@ export function AdminPostersPage() {
   const [filtrePays, setFiltrePays] = React.useState("");
   const [filtreLabel, setFiltreLabel] = React.useState("");
   const [filtreApp, setFiltreApp] = React.useState("tous");
+  // Seulement la cohorte Ruul (posters venus du site, payés par Ruul).
+  const [filtreRuul, setFiltreRuul] = React.useState(false);
   // Zone de recrutement (clé `cleZone`, ou CLE_SANS_ZONE) ; "" = toutes.
   const [filtreZone, setFiltreZone] = React.useState("");
   // Zone survolée sur la carte ou sur sa puce : les deux se répondent.
@@ -1140,6 +1195,7 @@ export function AdminPostersPage() {
       warmup_ends_at: p.warmup_ends_at,
     });
     if (filtrePhase !== "tous" && phase !== filtrePhase) return false;
+    if (filtreRuul && !zonesCohorteRuul?.has(p.id)) return false;
     const liste = comptesParPoster.get(p.id) ?? [];
     if (filtreLangue && !liste.some((c) => c.langue === filtreLangue)) return false;
     if (filtrePays) {
@@ -1207,6 +1263,7 @@ export function AdminPostersPage() {
     Boolean(filtrePays) ||
     Boolean(filtreLabel) ||
     (Boolean(filtreApp) && filtreApp !== "tous") ||
+    filtreRuul ||
     Boolean(rechercheNormalisee);
   const recruteurCherche = (r: PosterProfil) =>
     Boolean(rechercheNormalisee) &&
@@ -1323,6 +1380,15 @@ export function AdminPostersPage() {
           allowTous
         />
       </div>
+      <label className="flex items-center gap-2 text-sm sm:col-span-2 lg:col-span-6">
+        <input
+          type="checkbox"
+          className="size-4 accent-[var(--color-primary)]"
+          checked={filtreRuul}
+          onChange={(e) => setFiltreRuul(e.target.checked)}
+        />
+        {t("posters.filtreRuul", { n: zonesCohorteRuul?.size ?? 0 })}
+      </label>
     </div>
   );
 
@@ -1336,10 +1402,11 @@ export function AdminPostersPage() {
     filtreActif: filtreListe,
     garderRecruteur: recruteurCherche,
     trierCreateurs,
+    zonesCohorteRuul,
   });
   // Carte : toutes les zones, filtres ignorés — un filtre ne repeint pas la
   // carte, il ne fait que mettre sa zone en avant.
-  const zonesCarte: ZoneCarte[] = regrouperParZone(tous).zones.map((g) => ({
+  const zonesCarte: ZoneCarte[] = regrouperParZone(tous, { zonesCohorteRuul }).zones.map((g) => ({
     cle: g.cle,
     zone: g.zone ?? "",
     compteurs: g.compteurs,
@@ -1734,6 +1801,11 @@ export function AdminPostersPage() {
     fiche?.role === "poster" && fiche.manager_id
       ? tous.find((p) => p.id === fiche.manager_id && estRoleManager(p.role))
       : undefined;
+  // Changer le recruteur d'un créateur : admin et Head of Ops (RLS `is_admin`).
+  const peutChangerRecruteur = role === "admin" || role === "head_of_ops";
+  const recruteursPossibles = tous
+    .filter((p) => estRoleManager(p.role) && (p.is_active || p.id === fiche?.manager_id))
+    .sort((a, b) => nomAffiche(a).localeCompare(nomAffiche(b)));
 
   // Une requête en erreur ne doit pas se lire comme « ce créateur n'a aucun
   // compte » : sans ce bandeau, un 300/400 sur `comptes` affichait 0 compte
@@ -2019,8 +2091,11 @@ export function AdminPostersPage() {
                 )}
                 <span aria-hidden>·</span>
                 <MapPin className="size-3" />
-                <span>{zoneDuCreateur(fiche, tous) ?? t("posters.sansZone")}</span>
+                <span>{zoneDuCreateur(fiche, tous, zonesCohorteRuul) ?? t("posters.sansZone")}</span>
               </p>
+              {fiche.role === "poster" && peutChangerRecruteur && (
+                <ChoixRecruteur poster={fiche} recruteurs={recruteursPossibles} />
+              )}
 
               <CreateurUpwork
                 poster={fiche}

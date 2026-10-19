@@ -1,12 +1,13 @@
 import { Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { BookOpen, CalendarDays, FilePenLine, Gauge, HelpCircle, Rocket, UserPlus, Users } from "lucide-react";
+import { CalendarDays, FilePenLine, Gauge, UserPlus, Users } from "lucide-react";
 
 import { useAuth } from "@/features/auth/AuthContext";
+import { BoutonGuideNotion, GUIDE_NOTION_HM } from "@/features/documents/BoutonGuideNotion";
 import { AppShell } from "./AppShell";
 
 /**
- * Coquille HM / DM / HO : créer des posters + guides.
+ * Coquille HM / DM / HO : créer des posters ; le guide est sur Notion (bouton).
  *
  * Le DM a 2 entrées en plus. Le Head of Ops, lui, a un second espace (la coquille
  * admin restreinte) et n'a donc qu'un pont vers celui-ci.
@@ -68,15 +69,10 @@ export function HiringLayout() {
               },
             ]
           : []),
-        {
-          title: t("documents.rubrique"),
-          items: [
-            { to: "/manager/guide", label: t("documents.guideManager"), icon: BookOpen },
-            { to: "/manager/onboarding", label: t("documents.onboarding"), icon: Rocket },
-            { to: "/manager/faq", label: t("documents.faq"), icon: HelpCircle },
-          ],
-        },
       ]}
+      sidebarExtra={
+        <BoutonGuideNotion url={GUIDE_NOTION_HM} titre={t("documents.voirRegles")} sousTitre={t("documents.guideNotionHm")} />
+      }
     >
       <Outlet />
     </AppShell>

@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { ExternalLink } from "lucide-react";
 
 import { resoudreTiktok } from "@/features/moteur/api";
+import { cn } from "@/lib/utils";
 import {
   besoinResoudreTiktok,
   idTiktokDepuisUrl,
@@ -15,11 +16,14 @@ export function TikTokEmbed({
   titre,
   videLabel,
   chargementLabel,
+  pleineHauteur = false,
 }: {
   url: string | null;
   titre: string;
   videLabel: string;
   chargementLabel: string;
+  /** Le lecteur prend la hauteur de son parent au lieu de ses 680 px. */
+  pleineHauteur?: boolean;
 }) {
   const aResoudre = besoinResoudreTiktok(url);
   const apercu = useQuery({
@@ -37,7 +41,7 @@ export function TikTokEmbed({
   const attendApercu = aResoudre && apercu.isPending && !embed;
 
   return (
-    <div className="flex min-w-0 flex-col gap-2">
+    <div className={cn("flex min-w-0 flex-col gap-2", pleineHauteur && "h-full min-h-0")}>
       <div className="flex items-center justify-between gap-2">
         <p className="text-sm font-medium">{titre}</p>
         {lien ? (
@@ -60,7 +64,10 @@ export function TikTokEmbed({
         <iframe
           title={titre}
           src={embed}
-          className="mx-auto h-[680px] w-full max-w-[325px] rounded-xl border bg-muted"
+          className={cn(
+            "mx-auto w-full max-w-[325px] rounded-xl border bg-muted",
+            pleineHauteur ? "min-h-0 flex-1" : "h-[680px]",
+          )}
           allow="encrypted-media; fullscreen; picture-in-picture"
           allowFullScreen
         />

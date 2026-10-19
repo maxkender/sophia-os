@@ -71,7 +71,7 @@ export function AdminCalendrierPage() {
 
   const { data: posts, isPending } = useQuery({
     queryKey: ["posts-calendrier-admin"],
-    queryFn: postsCalendrierAdmin,
+    queryFn: () => postsCalendrierAdmin(),
   });
 
   const langues = React.useMemo(

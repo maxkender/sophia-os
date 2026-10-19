@@ -13,6 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { assignerTikTok, listerComptes, listerPostsTest, testerTraduction } from "@/features/moteur/api";
 import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import { SimulerOnboardingCard } from "@/features/onboarding/SimulerOnboardingCard";
+import { SimulerRetourCard } from "@/features/reviews/SimulerRetourCard";
 import { AssignationABlancCard } from "@/features/moteur/AssignationABlancCard";
 import { ContenusABlancCard } from "@/features/moteur/ContenusABlancCard";
 import { SimulerMinuitCard } from "@/features/moteur/SimulerMinuitCard";
@@ -283,6 +284,18 @@ const TESTS = [
     titreKey: "tests.onboardingTitre",
     descKey: "tests.onboardingDesc",
     render: () => <SimulerOnboardingCard />,
+  },
+  {
+    value: "onboarding-ruul",
+    titreKey: "tests.onboardingRuulTitre",
+    descKey: "tests.onboardingRuulDesc",
+    render: () => <SimulerOnboardingCard cohorteRuul />,
+  },
+  {
+    value: "retour",
+    titreKey: "tests.retourTitre",
+    descKey: "tests.retourDesc",
+    render: () => <SimulerRetourCard />,
   },
 ] as const;
 

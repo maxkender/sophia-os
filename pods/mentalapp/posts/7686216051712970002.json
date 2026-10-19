@@ -1,0 +1,3583 @@
+{
+ "source_id": "7686216051712970002",
+ "format": "comparatif",
+ "titre": "“you only live once”",
+ "legendes": {
+  "en": "yes, you only live once. which side are you on? #mentalmaxxing #dopamine #selfimprovement",
+  "fr": "oui, on ne vit qu’une fois. t’es de quel côté ? #mentalmaxxing #dopamine #developpementpersonnel",
+  "de": "ja, man lebt nur einmal. auf welcher Seite bist du? #mentalmaxxing #dopamin #selbstverbesserung",
+  "es": "sí, solo se vive una vez. ¿de qué lado estás? #mentalmaxxing #dopamina #superacionpersonal",
+  "it": "sì, si vive una volta sola. da che parte stai? #mentalmaxxing #dopamina #crescitapersonale",
+  "tr": "evet, hayat bir kere yaşanır. sen hangi taraftasın? #mentalmaxxing #dopamin #kişiselgelişim"
+ },
+ "app": {
+  "position": 2,
+  "icone": [
+   549,
+   817,
+   150,
+   153
+  ],
+  "legende": "t37"
+ },
+ "slides": [
+  {
+   "position": 1,
+   "blocs": [
+    {
+     "id": "t1",
+     "boite": [
+      541,
+      15,
+      65,
+      139
+     ],
+     "lignes": [
+      [
+       541,
+       15,
+       65,
+       139
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#3e2c25",
+     "fond": "#edf2eb",
+     "libre": [
+      427,
+      606
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t2",
+     "boite": [
+      649,
+      90,
+      46,
+      37
+     ],
+     "lignes": [
+      [
+       649,
+       90,
+       46,
+       37
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#7e6556",
+     "fond": "#edf2eb",
+     "libre": [
+      649,
+      833
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t3",
+     "boite": [
+      114,
+      109,
+      25,
+      45
+     ],
+     "lignes": [
+      [
+       114,
+       109,
+       25,
+       45
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#010600",
+     "fond": "#edf2eb",
+     "libre": [
+      114,
+      139
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t4",
+     "boite": [
+      841,
+      110,
+      84,
+      14
+     ],
+     "lignes": [
+      [
+       841,
+       110,
+       84,
+       14
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#090e08",
+     "fond": "#edf2eb",
+     "libre": [
+      702,
+      925
+     ],
+     "probable": "texte",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t5",
+     "boite": [
+      891,
+      110,
+      73,
+      14
+     ],
+     "lignes": [
+      [
+       891,
+       110,
+       73,
+       14
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#1e231d",
+     "fond": "#edf2eb",
+     "libre": [
+      891,
+      964
+     ],
+     "probable": "texte",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t6",
+     "boite": [
+      933,
+      111,
+      51,
+      13
+     ],
+     "lignes": [
+      [
+       933,
+       111,
+       51,
+       13
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#0a0f08",
+     "fond": "#edf2eb",
+     "libre": [
+      933,
+      1073
+     ],
+     "probable": "texte",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t7",
+     "boite": [
+      602,
+      118,
+      93,
+      35
+     ],
+     "lignes": [
+      [
+       602,
+       118,
+       93,
+       35
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#72594b",
+     "fond": "#edf2eb",
+     "libre": [
+      602,
+      833
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t8",
+     "boite": [
+      893,
+      133,
+      45,
+      10
+     ],
+     "lignes": [
+      [
+       893,
+       133,
+       45,
+       10
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#171c15",
+     "fond": "#eeeee4",
+     "libre": [
+      893,
+      938
+     ],
+     "probable": "texte",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t9",
+     "boite": [
+      97,
+      138,
+      84,
+      112
+     ],
+     "lignes": [
+      [
+       97,
+       138,
+       84,
+       112
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#010201",
+     "fond": "#edf2eb",
+     "libre": [
+      6,
+      291
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t10",
+     "boite": [
+      569,
+      153,
+      37,
+      40
+     ],
+     "lignes": [
+      [
+       569,
+       153,
+       37,
+       40
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#3f342b",
+     "fond": "#edf2eb",
+     "libre": [
+      569,
+      798
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t11",
+     "boite": [
+      351,
+      161,
+      62,
+      19
+     ],
+     "lignes": [
+      [
+       351,
+       161,
+       62,
+       19
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#a09784",
+     "fond": "#edf2eb",
+     "libre": [
+      188,
+      559
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t12",
+     "boite": [
+      806,
+      169,
+      23,
+      28
+     ],
+     "lignes": [
+      [
+       806,
+       169,
+       23,
+       28
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#346449",
+     "fond": "#edf2eb",
+     "libre": [
+      724,
+      829
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t13",
+     "boite": [
+      1001,
+      169,
+      25,
+      30
+     ],
+     "lignes": [
+      [
+       1001,
+       169,
+       25,
+       30
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#4f342e",
+     "fond": "#edf2eb",
+     "libre": [
+      1001,
+      1073
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t14",
+     "boite": [
+      302,
+      185,
+      152,
+      41
+     ],
+     "lignes": [
+      [
+       302,
+       185,
+       152,
+       41
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#010600",
+     "fond": "#edf2eb",
+     "libre": [
+      302,
+      531
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "alcohol"
+     ],
+     "textes": {
+      "fr": [
+       "alcool"
+      ],
+      "de": [
+       "Alkohol"
+      ],
+      "es": [
+       "alcohol"
+      ],
+      "it": [
+       "alcol"
+      ],
+      "tr": [
+       "alkol"
+      ]
+     }
+    },
+    {
+     "id": "t15",
+     "boite": [
+      539,
+      188,
+      178,
+      43
+     ],
+     "lignes": [
+      [
+       539,
+       188,
+       178,
+       43
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#010600",
+     "fond": "#edf2eb",
+     "libre": [
+      461,
+      798
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "laziness"
+     ],
+     "textes": {
+      "fr": [
+       "flemme"
+      ],
+      "de": [
+       "Faulheit"
+      ],
+      "es": [
+       "pereza"
+      ],
+      "it": [
+       "pigrizia"
+      ],
+      "tr": [
+       "tembellik"
+      ]
+     }
+    },
+    {
+     "id": "t16",
+     "boite": [
+      901,
+      234,
+      88,
+      27
+     ],
+     "lignes": [
+      [
+       901,
+       234,
+       88,
+       27
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#322d2a",
+     "fond": "#edf2eb",
+     "libre": [
+      901,
+      989
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t17",
+     "boite": [
+      35,
+      256,
+      230,
+      49
+     ],
+     "lignes": [
+      [
+       35,
+       256,
+       230,
+       49
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#020701",
+     "fond": "#edf2eb",
+     "libre": [
+      20,
+      290
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "low energy"
+     ],
+     "textes": {
+      "fr": [
+       "peu d’énergie"
+      ],
+      "de": [
+       "wenig Energie"
+      ],
+      "es": [
+       "poca energía"
+      ],
+      "it": [
+       "poca energia"
+      ],
+      "tr": [
+       "düşük enerji"
+      ]
+     }
+    },
+    {
+     "id": "t18",
+     "boite": [
+      782,
+      256,
+      266,
+      54
+     ],
+     "lignes": [
+      [
+       782,
+       256,
+       266,
+       54
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000500",
+     "fond": "#edf2eb",
+     "libre": [
+      760,
+      1060
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "high cortisol"
+     ],
+     "textes": {
+      "fr": [
+       "cortisol élevé"
+      ],
+      "de": [
+       "hohes Cortisol"
+      ],
+      "es": [
+       "cortisol alto"
+      ],
+      "it": [
+       "cortisolo alto"
+      ],
+      "tr": [
+       "yüksek kortizol"
+      ]
+     }
+    },
+    {
+     "id": "t19",
+     "boite": [
+      566,
+      435,
+      10,
+      29
+     ],
+     "lignes": [
+      [
+       566,
+       435,
+       10,
+       29
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#4a200a",
+     "fond": "#fbd142",
+     "libre": [
+      548,
+      576
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t20",
+     "boite": [
+      656,
+      442,
+      10,
+      38
+     ],
+     "lignes": [
+      [
+       656,
+       442,
+       10,
+       38
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#4e240f",
+     "fond": "#f7bc0b",
+     "libre": [
+      656,
+      679
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t21",
+     "boite": [
+      368,
+      444,
+      9,
+      36
+     ],
+     "lignes": [
+      [
+       368,
+       444,
+       9,
+       36
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#4d230c",
+     "fond": "#fcef54",
+     "libre": [
+      368,
+      389
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t22",
+     "boite": [
+      838,
+      478,
+      10,
+      18
+     ],
+     "lignes": [
+      [
+       838,
+       478,
+       10,
+       18
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#492405",
+     "fond": "#fbec5e",
+     "libre": [
+      823,
+      848
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t23",
+     "boite": [
+      542,
+      486,
+      18,
+      26
+     ],
+     "lignes": [
+      [
+       542,
+       486,
+       18,
+       26
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#492016",
+     "fond": "#fac51d",
+     "libre": [
+      542,
+      560
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t24",
+     "boite": [
+      485,
+      571,
+      17,
+      22
+     ],
+     "lignes": [
+      [
+       485,
+       571,
+       17,
+       22
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000000",
+     "fond": "#fad30f",
+     "libre": [
+      445,
+      536
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t25",
+     "boite": [
+      544,
+      591,
+      154,
+      62
+     ],
+     "lignes": [
+      [
+       544,
+       591,
+       154,
+       62
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#0a0603",
+     "fond": "#f3b309",
+     "libre": [
+      544,
+      698
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t26",
+     "boite": [
+      433,
+      600,
+      14,
+      17
+     ],
+     "lignes": [
+      [
+       433,
+       600,
+       14,
+       17
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000000",
+     "fond": "#fbc713",
+     "libre": [
+      404,
+      523
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t27",
+     "boite": [
+      145,
+      749,
+      19,
+      19
+     ],
+     "lignes": [
+      [
+       145,
+       749,
+       19,
+       19
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000400",
+     "fond": "#edf2eb",
+     "libre": [
+      6,
+      164
+     ],
+     "probable": "autre",
+     "action": "effacer",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t28",
+     "boite": [
+      145,
+      749,
+      790,
+      98
+     ],
+     "lignes": [
+      [
+       145,
+       749,
+       790,
+       98
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000400",
+     "fond": "#edf2eb",
+     "libre": [
+      60,
+      1020
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "“you only live once”"
+     ],
+     "textes": {
+      "fr": [
+       "“on ne vit qu’une fois”"
+      ],
+      "de": [
+       "“man lebt nur einmal”"
+      ],
+      "es": [
+       "“solo se vive una vez”"
+      ],
+      "it": [
+       "“si vive una volta sola”"
+      ],
+      "tr": [
+       "“hayat bir kere yaşanır”"
+      ]
+     }
+    },
+    {
+     "id": "t29",
+     "boite": [
+      916,
+      749,
+      19,
+      19
+     ],
+     "lignes": [
+      [
+       916,
+       749,
+       19,
+       19
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#010600",
+     "fond": "#edf2eb",
+     "libre": [
+      916,
+      1073
+     ],
+     "probable": "autre",
+     "action": "effacer",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t30",
+     "boite": [
+      944,
+      885,
+      69,
+      140
+     ],
+     "lignes": [
+      [
+       944,
+       885,
+       69,
+       140
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#8c6734",
+     "fond": "#edf2eb",
+     "libre": [
+      944,
+      1073
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t31",
+     "boite": [
+      61,
+      892,
+      142,
+      132
+     ],
+     "lignes": [
+      [
+       61,
+       892,
+       142,
+       132
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#b2b2b0",
+     "fond": "#edf2eb",
+     "libre": [
+      6,
+      310
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t32",
+     "boite": [
+      712,
+      916,
+      54,
+      44
+     ],
+     "lignes": [
+      [
+       712,
+       916,
+       54,
+       44
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#afa09e",
+     "fond": "#edf2eb",
+     "libre": [
+      606,
+      824
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t33",
+     "boite": [
+      732,
+      986,
+      4,
+      6
+     ],
+     "lignes": [
+      [
+       732,
+       986,
+       4,
+       6
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000000",
+     "fond": "#e0a211",
+     "libre": [
+      732,
+      744
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t34",
+     "boite": [
+      75,
+      1030,
+      3,
+      42
+     ],
+     "lignes": [
+      [
+       75,
+       1030,
+       3,
+       42
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#a46a27",
+     "fond": "#edf2eb",
+     "libre": [
+      75,
+      272
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t35",
+     "boite": [
+      280,
+      1049,
+      134,
+      75
+     ],
+     "lignes": [
+      [
+       280,
+       1049,
+       134,
+       36
+      ],
+      [
+       294,
+       1088,
+       114,
+       36
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#020701",
+     "fond": "#edf2eb",
+     "libre": [
+      255,
+      445
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "energy",
+      "drinks"
+     ],
+     "textes": {
+      "fr": [
+       "boissons",
+       "énergisantes"
+      ],
+      "de": [
+       "Energy-",
+       "drinks"
+      ],
+      "es": [
+       "bebidas",
+       "energéticas"
+      ],
+      "it": [
+       "energy",
+       "drink"
+      ],
+      "tr": [
+       "enerji",
+       "içeceği"
+      ]
+     }
+    },
+    {
+     "id": "t36",
+     "boite": [
+      494,
+      1052,
+      152,
+      53
+     ],
+     "lignes": [
+      [
+       494,
+       1052,
+       152,
+       53
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#010600",
+     "fond": "#edf2eb",
+     "libre": [
+      421,
+      693
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "vaping"
+     ],
+     "textes": {
+      "fr": [
+       "vapoter"
+      ],
+      "de": [
+       "Vapen"
+      ],
+      "es": [
+       "vapear"
+      ],
+      "it": [
+       "svapare"
+      ],
+      "tr": [
+       "vape"
+      ]
+     }
+    },
+    {
+     "id": "t37",
+     "boite": [
+      44,
+      1069,
+      170,
+      47
+     ],
+     "lignes": [
+      [
+       44,
+       1069,
+       170,
+       47
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#020701",
+     "fond": "#edf2eb",
+     "libre": [
+      20,
+      245
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "smoking"
+     ],
+     "textes": {
+      "fr": [
+       "fumer"
+      ],
+      "de": [
+       "Rauchen"
+      ],
+      "es": [
+       "fumar"
+      ],
+      "it": [
+       "fumare"
+      ],
+      "tr": [
+       "sigara"
+      ]
+     }
+    },
+    {
+     "id": "t38",
+     "boite": [
+      815,
+      1100,
+      195,
+      75
+     ],
+     "lignes": [
+      [
+       815,
+       1100,
+       195,
+       43
+      ],
+      [
+       874,
+       1140,
+       83,
+       35
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#030802",
+     "fond": "#edf2eb",
+     "libre": [
+      800,
+      1040
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "processed",
+      "food"
+     ],
+     "textes": {
+      "fr": [
+       "plats",
+       "industriels"
+      ],
+      "de": [
+       "Fertig-",
+       "essen"
+      ],
+      "es": [
+       "comida",
+       "procesada"
+      ],
+      "it": [
+       "cibo",
+       "processato"
+      ],
+      "tr": [
+       "işlenmiş",
+       "gıda"
+      ]
+     }
+    },
+    {
+     "id": "t39",
+     "boite": [
+      125,
+      1137,
+      52,
+      68
+     ],
+     "lignes": [
+      [
+       125,
+       1137,
+       52,
+       68
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#3f344c",
+     "fond": "#edf2eb",
+     "libre": [
+      125,
+      177
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t40",
+     "boite": [
+      269,
+      1150,
+      141,
+      94
+     ],
+     "lignes": [
+      [
+       269,
+       1150,
+       141,
+       94
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#010200",
+     "fond": "#edf2eb",
+     "libre": [
+      269,
+      470
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t41",
+     "boite": [
+      544,
+      1179,
+      27,
+      17
+     ],
+     "lignes": [
+      [
+       544,
+       1179,
+       27,
+       17
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#1d1d1d",
+     "fond": "#868685",
+     "libre": [
+      541,
+      571
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t42",
+     "boite": [
+      521,
+      1196,
+      5,
+      8
+     ],
+     "lignes": [
+      [
+       521,
+       1196,
+       5,
+       8
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000000",
+     "fond": "#807d7d",
+     "libre": [
+      521,
+      526
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t43",
+     "boite": [
+      570,
+      1204,
+      9,
+      19
+     ],
+     "lignes": [
+      [
+       570,
+       1204,
+       9,
+       19
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000000",
+     "fond": "#9ca0a7",
+     "libre": [
+      570,
+      579
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t44",
+     "boite": [
+      555,
+      1209,
+      11,
+      9
+     ],
+     "lignes": [
+      [
+       555,
+       1209,
+       11,
+       9
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#393939",
+     "fond": "#8f9193",
+     "libre": [
+      553,
+      566
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t45",
+     "boite": [
+      714,
+      1212,
+      45,
+      44
+     ],
+     "lignes": [
+      [
+       714,
+       1212,
+       45,
+       44
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000500",
+     "fond": "#edf2eb",
+     "libre": [
+      665,
+      810
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "oil"
+     ],
+     "textes": {
+      "fr": [
+       "huile"
+      ],
+      "de": [
+       "Öl"
+      ],
+      "es": [
+       "aceite"
+      ],
+      "it": [
+       "olio"
+      ],
+      "tr": [
+       "yağ"
+      ]
+     }
+    },
+    {
+     "id": "t46",
+     "boite": [
+      900,
+      1213,
+      17,
+      17
+     ],
+     "lignes": [
+      [
+       900,
+       1213,
+       17,
+       17
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#8e8d93",
+     "fond": "#f2f1f7",
+     "libre": [
+      900,
+      917
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t47",
+     "boite": [
+      828,
+      1214,
+      32,
+      16
+     ],
+     "lignes": [
+      [
+       828,
+       1214,
+       32,
+       16
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#919096",
+     "fond": "#f2f1f7",
+     "libre": [
+      766,
+      860
+     ],
+     "probable": "texte",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t48",
+     "boite": [
+      59,
+      1216,
+      133,
+      45
+     ],
+     "lignes": [
+      [
+       59,
+       1216,
+       133,
+       45
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#274673",
+     "fond": "#edf2eb",
+     "libre": [
+      59,
+      192
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t49",
+     "boite": [
+      829,
+      1248,
+      162,
+      96
+     ],
+     "lignes": [
+      [
+       831,
+       1248,
+       135,
+       30
+      ],
+      [
+       865,
+       1290,
+       90,
+       26
+      ],
+      [
+       829,
+       1318,
+       162,
+       26
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#070908",
+     "fond": "#eff2eb",
+     "libre": [
+      829,
+      991
+     ],
+     "probable": "texte",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t50",
+     "boite": [
+      257,
+      1249,
+      155,
+      87
+     ],
+     "lignes": [
+      [
+       257,
+       1249,
+       155,
+       48
+      ],
+      [
+       292,
+       1297,
+       86,
+       39
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#030701",
+     "fond": "#edf2eb",
+     "libre": [
+      245,
+      425
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "wasting",
+      "time"
+     ],
+     "textes": {
+      "fr": [
+       "perdre",
+       "son temps"
+      ],
+      "de": [
+       "Zeit",
+       "killen"
+      ],
+      "es": [
+       "perder",
+       "el tiempo"
+      ],
+      "it": [
+       "perdere",
+       "tempo"
+      ],
+      "tr": [
+       "zaman",
+       "kaybı"
+      ]
+     }
+    },
+    {
+     "id": "t51",
+     "boite": [
+      53,
+      1274,
+      153,
+      43
+     ],
+     "lignes": [
+      [
+       53,
+       1274,
+       153,
+       43
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#020701",
+     "fond": "#edf2eb",
+     "libre": [
+      20,
+      240
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "4h sleep"
+     ],
+     "textes": {
+      "fr": [
+       "dormir 4h"
+      ],
+      "de": [
+       "4h Schlaf"
+      ],
+      "es": [
+       "dormir 4h"
+      ],
+      "it": [
+       "dormire 4h"
+      ],
+      "tr": [
+       "4 saat uyku"
+      ]
+     }
+    },
+    {
+     "id": "t52",
+     "boite": [
+      437,
+      1297,
+      261,
+      43
+     ],
+     "lignes": [
+      [
+       437,
+       1297,
+       261,
+       43
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#030801",
+     "fond": "#edf2eb",
+     "libre": [
+      430,
+      705
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "doomscrolling"
+     ],
+     "textes": {
+      "fr": [
+       "doomscrolling"
+      ],
+      "de": [
+       "Doomscrolling"
+      ],
+      "es": [
+       "doomscrolling"
+      ],
+      "it": [
+       "doomscrolling"
+      ],
+      "tr": [
+       "doomscrolling"
+      ]
+     }
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "traduire",
+     "en": [
+      "a lot of",
+      "screen time"
+     ],
+     "textes": {
+      "fr": [
+       "beaucoup",
+       "d’écran"
+      ],
+      "de": [
+       "viel",
+       "Bildschirmzeit"
+      ],
+      "es": [
+       "mucha",
+       "pantalla"
+      ],
+      "it": [
+       "troppo",
+       "schermo"
+      ],
+      "tr": [
+       "çok fazla",
+       "ekran süresi"
+      ]
+     },
+     "couleur": "#151a13",
+     "fond": "#edf2eb",
+     "id": "m1",
+     "boite": [
+      829,
+      1290,
+      162,
+      54
+     ],
+     "lignes": [
+      [
+       865,
+       1290,
+       90,
+       26
+      ],
+      [
+       829,
+       1318,
+       162,
+       26
+      ]
+     ],
+     "libre": [
+      800,
+      1060
+     ]
+    }
+   ]
+  },
+  {
+   "position": 2,
+   "blocs": [
+    {
+     "id": "t1",
+     "boite": [
+      792,
+      36,
+      178,
+      175
+     ],
+     "lignes": [
+      [
+       807,
+       36,
+       134,
+       95
+      ],
+      [
+       792,
+       116,
+       178,
+       95
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#864921",
+     "fond": "#edf2eb",
+     "libre": [
+      728,
+      1073
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t2",
+     "boite": [
+      616,
+      160,
+      30,
+      20
+     ],
+     "lignes": [
+      [
+       616,
+       160,
+       30,
+       20
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#120400",
+     "fond": "#6e3d05",
+     "libre": [
+      613,
+      651
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t3",
+     "boite": [
+      673,
+      160,
+      18,
+      18
+     ],
+     "lignes": [
+      [
+       673,
+       160,
+       18,
+       18
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#160400",
+     "fond": "#6d3e05",
+     "libre": [
+      669,
+      691
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t4",
+     "boite": [
+      76,
+      204,
+      289,
+      38
+     ],
+     "lignes": [
+      [
+       76,
+       204,
+       289,
+       38
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#030802",
+     "fond": "#edf2eb",
+     "libre": [
+      20,
+      420
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "no distractions"
+     ],
+     "textes": {
+      "fr": [
+       "zéro distraction"
+      ],
+      "de": [
+       "keine Ablenkung"
+      ],
+      "es": [
+       "sin distracciones"
+      ],
+      "it": [
+       "zero distrazioni"
+      ],
+      "tr": [
+       "odak modu"
+      ]
+     }
+    },
+    {
+     "id": "t5",
+     "boite": [
+      271,
+      204,
+      94,
+      38
+     ],
+     "lignes": [
+      [
+       271,
+       204,
+       94,
+       38
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#010600",
+     "fond": "#edf2eb",
+     "libre": [
+      271,
+      403
+     ],
+     "probable": "texte",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t6",
+     "boite": [
+      416,
+      208,
+      27,
+      25
+     ],
+     "lignes": [
+      [
+       416,
+       208,
+       27,
+       25
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#160400",
+     "fond": "#73431b",
+     "libre": [
+      416,
+      443
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t7",
+     "boite": [
+      809,
+      209,
+      139,
+      42
+     ],
+     "lignes": [
+      [
+       809,
+       209,
+       139,
+       42
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#020600",
+     "fond": "#edf2eb",
+     "libre": [
+      756,
+      1073
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "coffee"
+     ],
+     "textes": {
+      "fr": [
+       "café"
+      ],
+      "de": [
+       "Kaffee"
+      ],
+      "es": [
+       "café"
+      ],
+      "it": [
+       "caffè"
+      ],
+      "tr": [
+       "kahve"
+      ]
+     }
+    },
+    {
+     "id": "t8",
+     "boite": [
+      578,
+      226,
+      14,
+      19
+     ],
+     "lignes": [
+      [
+       578,
+       226,
+       14,
+       19
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#150300",
+     "fond": "#6c3c07",
+     "libre": [
+      576,
+      592
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t9",
+     "boite": [
+      403,
+      254,
+      16,
+      17
+     ],
+     "lignes": [
+      [
+       403,
+       254,
+       16,
+       17
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#180300",
+     "fond": "#6c3f0e",
+     "libre": [
+      403,
+      419
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t10",
+     "boite": [
+      480,
+      275,
+      80,
+      47
+     ],
+     "lignes": [
+      [
+       480,
+       275,
+       80,
+       47
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#160300",
+     "fond": "#6e3f0a",
+     "libre": [
+      480,
+      560
+     ],
+     "probable": "texte",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t11",
+     "boite": [
+      574,
+      277,
+      15,
+      14
+     ],
+     "lignes": [
+      [
+       574,
+       277,
+       15,
+       14
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#290e00",
+     "fond": "#6f3d05",
+     "libre": [
+      573,
+      589
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t12",
+     "boite": [
+      408,
+      304,
+      23,
+      17
+     ],
+     "lignes": [
+      [
+       408,
+       304,
+       23,
+       17
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#160300",
+     "fond": "#6e3e06",
+     "libre": [
+      408,
+      432
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t13",
+     "boite": [
+      650,
+      304,
+      86,
+      26
+     ],
+     "lignes": [
+      [
+       650,
+       304,
+       86,
+       26
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#392102",
+     "fond": "#f4be8a",
+     "libre": [
+      650,
+      736
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t14",
+     "boite": [
+      653,
+      327,
+      55,
+      30
+     ],
+     "lignes": [
+      [
+       653,
+       327,
+       55,
+       30
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#0f0300",
+     "fond": "#f4be8a",
+     "libre": [
+      653,
+      720
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t15",
+     "boite": [
+      470,
+      329,
+      75,
+      61
+     ],
+     "lignes": [
+      [
+       470,
+       329,
+       75,
+       61
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#190900",
+     "fond": "#754823",
+     "libre": [
+      470,
+      545
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t16",
+     "boite": [
+      384,
+      340,
+      108,
+      60
+     ],
+     "lignes": [
+      [
+       384,
+       340,
+       108,
+       60
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#150400",
+     "fond": "#6f4011",
+     "libre": [
+      384,
+      492
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t17",
+     "boite": [
+      728,
+      345,
+      12,
+      15
+     ],
+     "lignes": [
+      [
+       728,
+       345,
+       12,
+       15
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#150100",
+     "fond": "#f4be8c",
+     "libre": [
+      715,
+      742
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t18",
+     "boite": [
+      595,
+      358,
+      8,
+      40
+     ],
+     "lignes": [
+      [
+       595,
+       358,
+       8,
+       40
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#140400",
+     "fond": "#f4bc89",
+     "libre": [
+      595,
+      612
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t19",
+     "boite": [
+      385,
+      378,
+      83,
+      38
+     ],
+     "lignes": [
+      [
+       385,
+       378,
+       83,
+       38
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#160300",
+     "fond": "#6f400e",
+     "libre": [
+      385,
+      468
+     ],
+     "probable": "texte",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t20",
+     "boite": [
+      620,
+      386,
+      50,
+      47
+     ],
+     "lignes": [
+      [
+       620,
+       386,
+       50,
+       47
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#140400",
+     "fond": "#f4bd89",
+     "libre": [
+      612,
+      681
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t21",
+     "boite": [
+      554,
+      390,
+      26,
+      26
+     ],
+     "lignes": [
+      [
+       554,
+       390,
+       26,
+       26
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#140300",
+     "fond": "#6f3d03",
+     "libre": [
+      554,
+      580
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t22",
+     "boite": [
+      709,
+      390,
+      48,
+      26
+     ],
+     "lignes": [
+      [
+       709,
+       390,
+       48,
+       26
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#110400",
+     "fond": "#f2bf8a",
+     "libre": [
+      677,
+      757
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t23",
+     "boite": [
+      407,
+      429,
+      29,
+      21
+     ],
+     "lignes": [
+      [
+       407,
+       429,
+       29,
+       21
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#150300",
+     "fond": "#6f3d03",
+     "libre": [
+      403,
+      436
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t24",
+     "boite": [
+      645,
+      480,
+      43,
+      32
+     ],
+     "lignes": [
+      [
+       645,
+       480,
+       43,
+       32
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#150200",
+     "fond": "#6d3e07",
+     "libre": [
+      643,
+      688
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t25",
+     "boite": [
+      583,
+      496,
+      25,
+      31
+     ],
+     "lignes": [
+      [
+       583,
+       496,
+       25,
+       31
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#190400",
+     "fond": "#703e05",
+     "libre": [
+      577,
+      608
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t26",
+     "boite": [
+      22,
+      506,
+      244,
+      59
+     ],
+     "lignes": [
+      [
+       22,
+       506,
+       244,
+       59
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000500",
+     "fond": "#edf2eb",
+     "libre": [
+      15,
+      290
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "7h+ sleep"
+     ],
+     "textes": {
+      "fr": [
+       "dormir 7h+"
+      ],
+      "de": [
+       "7h+ Schlaf"
+      ],
+      "es": [
+       "7h+ de sueño"
+      ],
+      "it": [
+       "7h+ di sonno"
+      ],
+      "tr": [
+       "7+ saat uyku"
+      ]
+     }
+    },
+    {
+     "id": "t27",
+     "boite": [
+      835,
+      550,
+      196,
+      49
+     ],
+     "lignes": [
+      [
+       835,
+       550,
+       196,
+       49
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#020701",
+     "fond": "#edf2eb",
+     "libre": [
+      791,
+      1073
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "discipline"
+     ],
+     "textes": {
+      "fr": [
+       "discipline"
+      ],
+      "de": [
+       "Disziplin"
+      ],
+      "es": [
+       "disciplina"
+      ],
+      "it": [
+       "disciplina"
+      ],
+      "tr": [
+       "disiplin"
+      ]
+     }
+    },
+    {
+     "id": "t28",
+     "boite": [
+      624,
+      560,
+      27,
+      22
+     ],
+     "lignes": [
+      [
+       624,
+       560,
+       27,
+       22
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#170200",
+     "fond": "#6e3f07",
+     "libre": [
+      624,
+      651
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t29",
+     "boite": [
+      471,
+      612,
+      89,
+      30
+     ],
+     "lignes": [
+      [
+       471,
+       612,
+       89,
+       30
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#521d74",
+     "fond": "#531e77",
+     "libre": [
+      461,
+      571
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t30",
+     "boite": [
+      74,
+      699,
+      952,
+      98
+     ],
+     "lignes": [
+      [
+       74,
+       699,
+       952,
+       98
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000400",
+     "fond": "#edf2eb",
+     "libre": [
+      50,
+      1035
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "Yes, you only live once."
+     ],
+     "textes": {
+      "fr": [
+       "Oui, on ne vit qu’une fois."
+      ],
+      "de": [
+       "Ja, man lebt nur einmal."
+      ],
+      "es": [
+       "Sí, solo se vive una vez."
+      ],
+      "it": [
+       "Sì, si vive una volta sola."
+      ],
+      "tr": [
+       "Evet, hayat bir kere yaşanır."
+      ]
+     }
+    },
+    {
+     "id": "t31",
+     "boite": [
+      242,
+      769,
+      7,
+      19
+     ],
+     "lignes": [
+      [
+       242,
+       769,
+       7,
+       19
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000500",
+     "fond": "#edf2eb",
+     "libre": [
+      242,
+      249
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t32",
+     "boite": [
+      290,
+      841,
+      86,
+      144
+     ],
+     "lignes": [
+      [
+       290,
+       841,
+       86,
+       144
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#864231",
+     "fond": "#edf2eb",
+     "libre": [
+      197,
+      376
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t33",
+     "boite": [
+      438,
+      881,
+      6,
+      15
+     ],
+     "lignes": [
+      [
+       438,
+       881,
+       6,
+       15
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#bfbaa9",
+     "fond": "#edf0df",
+     "libre": [
+      438,
+      543
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t34",
+     "boite": [
+      836,
+      900,
+      84,
+      96
+     ],
+     "lignes": [
+      [
+       836,
+       900,
+       84,
+       96
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#572b27",
+     "fond": "#edf2eb",
+     "libre": [
+      755,
+      920
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t35",
+     "boite": [
+      972,
+      927,
+      12,
+      17
+     ],
+     "lignes": [
+      [
+       972,
+       927,
+       12,
+       17
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#aaa694",
+     "fond": "#eef2eb",
+     "libre": [
+      964,
+      1073
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t36",
+     "boite": [
+      961,
+      949,
+      11,
+      14
+     ],
+     "lignes": [
+      [
+       961,
+       949,
+       11,
+       14
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#adaa98",
+     "fond": "#eff2eb",
+     "libre": [
+      947,
+      1073
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t37",
+     "boite": [
+      497,
+      968,
+      251,
+      78
+     ],
+     "lignes": [
+      [
+       497,
+       968,
+       251,
+       38
+      ],
+      [
+       527,
+       1007,
+       219,
+       39
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#030701",
+     "fond": "#edf2eb",
+     "libre": [
+      462,
+      804
+     ],
+     "probable": "texte",
+     "action": "effacer",
+     "en": [
+      "state tracking",
+      "(check bio)"
+     ],
+     "textes": {}
+    },
+    {
+     "id": "t38",
+     "boite": [
+      26,
+      985,
+      232,
+      38
+     ],
+     "lignes": [
+      [
+       26,
+       985,
+       232,
+       38
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#040903",
+     "fond": "#edf2eb",
+     "libre": [
+      15,
+      270
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "2l+ of water"
+     ],
+     "textes": {
+      "fr": [
+       "2l+ d’eau"
+      ],
+      "de": [
+       "2l+ Wasser"
+      ],
+      "es": [
+       "2l+ de agua"
+      ],
+      "it": [
+       "2l+ d’acqua"
+      ],
+      "tr": [
+       "2l+ su"
+      ]
+     }
+    },
+    {
+     "id": "t39",
+     "boite": [
+      290,
+      988,
+      161,
+      37
+     ],
+     "lignes": [
+      [
+       290,
+       988,
+       161,
+       37
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#020700",
+     "fond": "#edf2eb",
+     "libre": [
+      278,
+      456
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "real food"
+     ],
+     "textes": {
+      "fr": [
+       "vraie bouffe"
+      ],
+      "de": [
+       "gut essen"
+      ],
+      "es": [
+       "comida real"
+      ],
+      "it": [
+       "cibo vero"
+      ],
+      "tr": [
+       "ev yemeği"
+      ]
+     }
+    },
+    {
+     "id": "t40",
+     "boite": [
+      810,
+      1003,
+      192,
+      47
+     ],
+     "lignes": [
+      [
+       810,
+       1003,
+       192,
+       47
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#050a04",
+     "fond": "#edf2eb",
+     "libre": [
+      814,
+      1040
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "10k steps"
+     ],
+     "textes": {
+      "fr": [
+       "10k pas"
+      ],
+      "de": [
+       "10k Schritte"
+      ],
+      "es": [
+       "10k pasos"
+      ],
+      "it": [
+       "10k passi"
+      ],
+      "tr": [
+       "10k adım"
+      ]
+     }
+    },
+    {
+     "id": "t41",
+     "boite": [
+      579,
+      1065,
+      51,
+      36
+     ],
+     "lignes": [
+      [
+       579,
+       1065,
+       51,
+       36
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#3a1a0f",
+     "fond": "#edf2eb",
+     "libre": [
+      423,
+      877
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t42",
+     "boite": [
+      94,
+      1079,
+      89,
+      8
+     ],
+     "lignes": [
+      [
+       94,
+       1079,
+       89,
+       8
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#242424",
+     "fond": "#fefefe",
+     "libre": [
+      78,
+      199
+     ],
+     "probable": "texte",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t43",
+     "boite": [
+      123,
+      1106,
+      32,
+      7
+     ],
+     "lignes": [
+      [
+       123,
+       1106,
+       32,
+       7
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#313131",
+     "fond": "#fefdfc",
+     "libre": [
+      67,
+      210
+     ],
+     "probable": "texte",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t44",
+     "boite": [
+      540,
+      1128,
+      138,
+      113
+     ],
+     "lignes": [
+      [
+       540,
+       1128,
+       138,
+       113
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#1d1513",
+     "fond": "#edf2eb",
+     "libre": [
+      459,
+      824
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t45",
+     "boite": [
+      832,
+      1132,
+      109,
+      130
+     ],
+     "lignes": [
+      [
+       832,
+       1132,
+       109,
+       130
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#333232",
+     "fond": "#edf2eb",
+     "libre": [
+      685,
+      1073
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t46",
+     "boite": [
+      62,
+      1136,
+      13,
+      17
+     ],
+     "lignes": [
+      [
+       62,
+       1136,
+       13,
+       17
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#3a393e",
+     "fond": "#f2f8ee",
+     "libre": [
+      62,
+      75
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t47",
+     "boite": [
+      204,
+      1136,
+      12,
+      20
+     ],
+     "lignes": [
+      [
+       204,
+       1136,
+       12,
+       20
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#676767",
+     "fond": "#eff3ec",
+     "libre": [
+      204,
+      279
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t48",
+     "boite": [
+      89,
+      1182,
+      60,
+      25
+     ],
+     "lignes": [
+      [
+       89,
+       1182,
+       60,
+       25
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#2c2e2c",
+     "fond": "#fefefe",
+     "libre": [
+      89,
+      174
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t49",
+     "boite": [
+      67,
+      1230,
+      145,
+      76
+     ],
+     "lignes": [
+      [
+       73,
+       1230,
+       135,
+       36
+      ],
+      [
+       67,
+       1267,
+       145,
+       39
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#010600",
+     "fond": "#edf2eb",
+     "libre": [
+      20,
+      265
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "never",
+      "stress"
+     ],
+     "textes": {
+      "fr": [
+       "zéro",
+       "stress"
+      ],
+      "de": [
+       "null",
+       "Stress"
+      ],
+      "es": [
+       "cero",
+       "estrés"
+      ],
+      "it": [
+       "zero",
+       "stress"
+      ],
+      "tr": [
+       "sıfır",
+       "stres"
+      ]
+     }
+    },
+    {
+     "id": "t50",
+     "boite": [
+      298,
+      1252,
+      140,
+      69
+     ],
+     "lignes": [
+      [
+       298,
+       1252,
+       140,
+       31
+      ],
+      [
+       305,
+       1284,
+       132,
+       37
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#010600",
+     "fond": "#edf2eb",
+     "libre": [
+      270,
+      480
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "morning",
+      "sunlight"
+     ],
+     "textes": {
+      "fr": [
+       "soleil du",
+       "matin"
+      ],
+      "de": [
+       "Morgen-",
+       "sonne"
+      ],
+      "es": [
+       "sol de la",
+       "mañana"
+      ],
+      "it": [
+       "sole del",
+       "mattino"
+      ],
+      "tr": [
+       "sabah",
+       "güneşi"
+      ]
+     }
+    },
+    {
+     "id": "t51",
+     "boite": [
+      492,
+      1249,
+      229,
+      81
+     ],
+     "lignes": [
+      [
+       536,
+       1249,
+       161,
+       38
+      ],
+      [
+       492,
+       1288,
+       229,
+       42
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#030802",
+     "fond": "#edf2eb",
+     "libre": [
+      480,
+      750
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "training",
+      "consistently"
+     ],
+     "textes": {
+      "fr": [
+       "s’entraîner",
+       "souvent"
+      ],
+      "de": [
+       "immer",
+       "trainieren"
+      ],
+      "es": [
+       "entrenar",
+       "siempre"
+      ],
+      "it": [
+       "allenarsi",
+       "sempre"
+      ],
+      "tr": [
+       "düzenli",
+       "antrenman"
+      ]
+     }
+    },
+    {
+     "id": "t52",
+     "boite": [
+      370,
+      1252,
+      68,
+      69
+     ],
+     "lignes": [
+      [
+       370,
+       1252,
+       68,
+       69
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#020701",
+     "fond": "#edf2eb",
+     "libre": [
+      370,
+      484
+     ],
+     "probable": "texte",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t53",
+     "boite": [
+      762,
+      1273,
+      244,
+      50
+     ],
+     "lignes": [
+      [
+       762,
+       1273,
+       244,
+       50
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#010600",
+     "fond": "#edf2eb",
+     "libre": [
+      735,
+      1050
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "high activity"
+     ],
+     "textes": {
+      "fr": [
+       "bouger beaucoup"
+      ],
+      "de": [
+       "viel Bewegung"
+      ],
+      "es": [
+       "mucha actividad"
+      ],
+      "it": [
+       "tanto movimento"
+      ],
+      "tr": [
+       "bol hareket"
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "notes": "source : https://www.tiktok.com/@mentalapp/video/7686216051712970002 · 11000 vues · « YOLO, remember that, make right decisions. Check bio.\n#mental #mentalmaxxing #mentalhealth #yolo #healthylifestyle » · remake : comparatif YOLO (2 slides) : élément UnSwipe à la place de leur icône sombre « state tracking (check bio) » (slide 2) ; « a lot of screen time » refait en bloc manuel m1 sous le widget Screen Time gardé ; guillemets de la couverture intégrés au titre."
+}

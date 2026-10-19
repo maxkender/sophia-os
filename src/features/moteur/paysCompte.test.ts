@@ -26,6 +26,18 @@ describe("quand faut-il saisir le pays", () => {
     }
   });
 
+  it("allemand : Allemagne par défaut, Autriche ou Suisse envoyées si choisies", () => {
+    expect(paysRequis("de")).toBe(false);
+    expect(paysAEnvoyer("de", "")).toBeUndefined();
+    expect(paysAEnvoyer("de", "DE")).toBeUndefined();
+    expect(paysAEnvoyer("de", "AT")).toBe("AT");
+    expect(paysAEnvoyer("de", "CH")).toBe("CH");
+    // Hors liste proposée : ignoré, le trigger met l'Allemagne.
+    expect(paysAEnvoyer("de", "FR")).toBeUndefined();
+    // Les autres langues à défaut n'envoient toujours rien.
+    expect(paysAEnvoyer("sv", "NO")).toBeUndefined();
+  });
+
   it("ne demande rien tant qu'aucune langue n'est choisie", () => {
     expect(paysRequis("")).toBe(false);
   });

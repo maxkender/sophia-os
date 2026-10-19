@@ -19,6 +19,18 @@ export interface SlideLivraison {
   reference_url?: string;
 }
 
+/** Pod 4 : une référence de la preuve, telle que vérifiée par l'OS au dépôt. */
+export type ReferencePreuve =
+  | { type: "tiktok"; url: string; vues: number; publie_le: string; enregistrements: number | null }
+  | { type: "os"; contenu_id: string; publies: number; r_median: number | null };
+
+/** Pod 4 : pourquoi cet original devrait faire des vues (schéma d'accroche et ses preuves). */
+export interface PreuveOriginal {
+  schema: string;
+  verifiee_le: string;
+  references: ReferencePreuve[];
+}
+
 export interface Livraison {
   id: string;
   pod: string;
@@ -35,6 +47,11 @@ export interface Livraison {
   musique_titre: string | null;
   musique_url: string | null;
   decks: Record<string, { hashtags: string; slides: SlideLivraison[] }>;
+  /**
+   * Variantes par application autre que Sophia (0276), par langue. Label hors
+   * Sophia (pod 6, UnSwipe seul) : la seule version servie, tirée du deck déposé.
+   */
+  decks_applications?: Record<string, Record<string, { hashtags?: string; slides: SlideLivraison[] }>> | null;
   statut: StatutLivraison;
   motif: string | null;
   note_import: number | null;
@@ -42,10 +59,12 @@ export interface Livraison {
   contenu_id: string | null;
   created_at: string;
   decide_le: string | null;
+  /** Original d'un pod à preuve (pod 4) : rangée dans `transcription.preuve`. */
+  preuve?: PreuveOriginal | null;
 }
 
 const COLONNES =
-  "id, pod, type, source_url, source_vues, titre, langue_source, musique_titre, musique_url, decks, statut, motif, note_import, tier, contenu_id, created_at, decide_le";
+  "id, pod, type, source_url, source_vues, titre, langue_source, musique_titre, musique_url, decks, decks_applications, statut, motif, note_import, tier, contenu_id, created_at, decide_le, preuve:transcription->preuve";
 
 export interface Pod {
   slug: string;
@@ -113,6 +132,33 @@ export function languesOrdonnees(l: Pick<Livraison, "decks" | "langue_source">):
   return Object.keys(l.decks ?? {}).sort((a, b) =>
     a === l.langue_source ? -1 : b === l.langue_source ? 1 : a.localeCompare(b),
   );
+}
+
+const NOMS_APPLICATIONS: Record<string, string> = { sophia: "Sophia", unswipe: "UnSwipe", micabo: "micabo" };
+
+/** Nom affiché d'une application à partir de son slug. */
+export const nomApplication = (slug: string): string => NOMS_APPLICATIONS[slug] ?? slug;
+
+/**
+ * Versions montrables d'un deck dans une langue : le deck Sophia s'il porte la
+ * slide Sophia (ou s'il n'y a rien d'autre), puis chaque application livrée.
+ * Un pod hors Sophia (pod 6) n'a donc que sa version UnSwipe.
+ */
+export function variantesDeck(
+  l: Pick<Livraison, "decks" | "decks_applications">,
+  langue: string,
+): { cle: string; hashtags: string; slides: SlideLivraison[] }[] {
+  const base = l.decks?.[langue];
+  const apps = Object.entries(l.decks_applications ?? {}).filter(([, parLangue]) => parLangue?.[langue]?.slides?.length);
+  const sortie: { cle: string; hashtags: string; slides: SlideLivraison[] }[] = [];
+  if (base && (base.slides.some((s) => s.position_sophia) || !apps.length)) {
+    sortie.push({ cle: "sophia", hashtags: base.hashtags ?? "", slides: base.slides });
+  }
+  for (const [app, parLangue] of apps) {
+    const deck = parLangue[langue];
+    sortie.push({ cle: app, hashtags: deck.hashtags || base?.hashtags || "", slides: deck.slides });
+  }
+  return sortie;
 }
 
 // ---------------------------------------------------------------------------

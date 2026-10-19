@@ -36,7 +36,16 @@ export const LIEN_GUIDE =
 
 /** Invitation Slack de l'espace de travail. */
 export const LIEN_SLACK =
-  "https://join.slack.com/t/sophia-system/shared_invite/zt-44pqj3z39-X4KkPQI6cwOwWE2LNaLbig";
+  "https://join.slack.com/t/sophia-system/shared_invite/zt-4dusa2eyo-6_CjWI3ylCGdlAqA8737Ew";
+
+/** Le salon des posters venus du site, qui n'ont pas de HM. */
+export const SALON_COHORTE_RUUL = "#ruul-cohort";
+
+/** Le salon d'accueil, que les posters venus du site rejoignent aussi. */
+export const SALON_BIENVENUE = "#welcome";
+
+/** Page d'inscription freelancer de Ruul (paie de la cohorte Ruul). */
+export const LIEN_RUUL_INSCRIPTION = "https://app.ruul.io/register";
 
 import type { EtatMico } from "./Mico";
 
@@ -47,7 +56,9 @@ export type Bloc =
   | { type: "titre"; texte: string }
   | { type: "alerte"; ton: "rouge" | "orange"; titre?: string; items: string[] }
   | { type: "video"; src: string; titre: string }
-  | { type: "lien"; avant?: string; libelle: string; href: string };
+  | { type: "lien"; avant?: string; libelle: string; href: string }
+  /** Formulaire prénom + nom de la pièce d'identité (cohorte Ruul) : verrouille « Next ». */
+  | { type: "identite" };
 
 export interface Ecran {
   /** Identifiant stable : sert de clé React et d'ancre dans les tests. */
@@ -166,7 +177,7 @@ export const ECRANS: Ecran[] = [
       {
         type: "alerte",
         ton: "orange",
-        titre: "The next 24 hours",
+        titre: "Until your first posts, on the Monday after you start",
         items: [
           "Scroll through a few videos, about 5 minutes, IN THE NICHE YOU WILL BE POSTING IN.",
           "Follow a few people, leave comments, repost.",
@@ -311,7 +322,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     cle: "warmup",
-    question: "What do you do during the 24 hours of warmup?",
+    question: "What do you do during your warmup?",
     options: [
       "Post your first slideshow straight away",
       "Scroll about 5 minutes in your niche, follow, comment and repost, without posting yet",
@@ -321,3 +332,85 @@ export const QUESTIONS: Question[] = [
     ecran: "compte",
   },
 ];
+
+/**
+ * Ce que l'accueil sait du créateur. Les posters venus du site (Sophia Culture
+ * Hub) forment la « cohorte Ruul » : pas de HM, payés chaque semaine par Ruul,
+ * suivis dans un salon Slack à part. Leur accueil diffère sur deux écrans.
+ */
+export interface ContexteAccueil {
+  cohorteRuul: boolean;
+  /** L'adresse donnée sur le site : celle de leur compte Ruul. */
+  emailRuul: string | null;
+  /** Prénom et nom de la pièce d'identité, déjà donnés (pour l'ajout dans Ruul). */
+  identite?: { prenom: string; nom: string } | null;
+  /** Lundi de démarrage (AAAA-MM-JJ) : fin du warm-up, premiers posts, premier paiement. */
+  debutLe?: string | null;
+}
+
+function ecransCohorteRuul(emailRuul: string | null): Record<string, Ecran> {
+  return {
+    slack: {
+      cle: "slack",
+      titre: "Slack",
+      mico: "wave",
+      attente: ATTENTE_TEXTE_S,
+      blocs: [
+        { type: "p", texte: "First thing: all communication happens on Slack." },
+        {
+          type: "p",
+          texte:
+            `Join the ${SALON_BIENVENUE} and ${SALON_COHORTE_RUUL} channels. Ask all your questions in ${SALON_COHORTE_RUUL}, whether you hit a problem (technical, payment) or simply want to chat and connect with the Vik Studios team.`,
+        },
+        { type: "lien", avant: "Not in yet?", libelle: "Join the Slack workspace", href: LIEN_SLACK },
+      ],
+    },
+    paiements: {
+      cle: "paiements",
+      titre: "Payments",
+      mico: "happy",
+      attente: ATTENTE_TEXTE_S,
+      blocs: [
+        {
+          type: "p",
+          texte:
+            "You are paid every week through Ruul (ruul.io), our payment partner. Nothing to submit: every Monday, we pay you for the week of posts that just ended (Monday → Sunday). Your first payment date is shown on your calendar.",
+        },
+        { type: "titre", texte: "Before your first Monday" },
+        {
+          type: "etapes",
+          items: [
+            emailRuul
+              ? `Create your free freelancer account on ruul.io with this email address: ${emailRuul}.`
+              : "Create your free freelancer account on ruul.io with the email address you applied with.",
+            "Complete the identity check (ID and selfie, about 10 minutes).",
+            "Add your bank account in Ruul.",
+          ],
+        },
+        { type: "lien", avant: "Start here:", libelle: "Create my Ruul account", href: LIEN_RUUL_INSCRIPTION },
+        {
+          type: "alerte",
+          ton: "orange",
+          titre: "Same email address",
+          items: ["If you sign up on Ruul with another email address, we cannot pay you."],
+        },
+        {
+          type: "p",
+          texte: `Questions about money: send a direct message on Slack to the team running ${SALON_COHORTE_RUUL}, never in the channel.`,
+        },
+        { type: "identite" },
+      ],
+    },
+  };
+}
+
+/**
+ * Les écrans à montrer à ce créateur. Même nombre d'écrans dans tous les cas
+ * (la reprise et le compteur d'étapes s'appuient sur `ECRANS.length`) : la
+ * cohorte Ruul remplace deux écrans, elle n'en ajoute pas.
+ */
+export function ecransPour(contexte: ContexteAccueil | null | undefined): Ecran[] {
+  if (!contexte?.cohorteRuul) return ECRANS;
+  const remplacants = ecransCohorteRuul(contexte.emailRuul);
+  return ECRANS.map((e) => remplacants[e.cle] ?? e);
+}

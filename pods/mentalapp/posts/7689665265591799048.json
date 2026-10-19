@@ -1,0 +1,3278 @@
+{
+ "source_id": "7689665265591799048",
+ "format": "tier-list",
+ "titre": "tier list of Resting methods",
+ "legendes": {
+  "en": "resting methods tier list, how do you actually rest? #mentalmaxxing #dopamine #tierlist #selfimprovement",
+  "fr": "tier list des méthodes de repos, tu te reposes comment ? #mentalmaxxing #dopamine #tierlist #developpementpersonnel",
+  "de": "Tierlist der Erholungsmethoden, wie ruhst du dich aus? #mentalmaxxing #dopamin #tierlist #selbstverbesserung",
+  "es": "tier list de métodos de descanso, ¿tú cómo descansas? #mentalmaxxing #dopamina #tierlist #superacionpersonal",
+  "it": "tier list dei metodi di riposo, tu come ti riposi? #mentalmaxxing #dopamina #tierlist #crescitapersonale",
+  "tr": "dinlenme yöntemleri tier list, sen nasıl dinleniyorsun? #mentalmaxxing #dopamin #tierlist #kişiselgelişim"
+ },
+ "app": {
+  "position": 2,
+  "icone": [
+   231,
+   72,
+   77,
+   78
+  ],
+  "legende": "t4"
+ },
+ "slides": [
+  {
+   "position": 1,
+   "blocs": [
+    {
+     "id": "t1",
+     "boite": [
+      213,
+      92,
+      652,
+      120
+     ],
+     "lignes": [
+      [
+       213,
+       92,
+       652,
+       120
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#010201",
+     "fond": "#edf2eb",
+     "libre": [
+      6,
+      1073
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "tier list of"
+     ],
+     "textes": {
+      "fr": [
+       "tier list des"
+      ],
+      "de": [
+       "Tierlist der"
+      ],
+      "es": [
+       "tier list de"
+      ],
+      "it": [
+       "tier list dei"
+      ],
+      "tr": [
+       "tier list:"
+      ]
+     }
+    },
+    {
+     "id": "t2",
+     "boite": [
+      57,
+      268,
+      61,
+      147
+     ],
+     "lignes": [
+      [
+       57,
+       268,
+       61,
+       147
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#222e0d",
+     "fond": "#edf2eb",
+     "libre": [
+      6,
+      298
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t3",
+     "boite": [
+      539,
+      311,
+      53,
+      15
+     ],
+     "lignes": [
+      [
+       539,
+       311,
+       53,
+       15
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#290803",
+     "fond": "#d3975a",
+     "libre": [
+      532,
+      613
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t4",
+     "boite": [
+      495,
+      327,
+      91,
+      30
+     ],
+     "lignes": [
+      [
+       495,
+       327,
+       91,
+       30
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#250604",
+     "fond": "#d1975b",
+     "libre": [
+      449,
+      626
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t5",
+     "boite": [
+      416,
+      373,
+      4,
+      56
+     ],
+     "lignes": [
+      [
+       416,
+       373,
+       4,
+       56
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#3e180a",
+     "fond": "#d59a5a",
+     "libre": [
+      416,
+      639
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t6",
+     "boite": [
+      515,
+      435,
+      86,
+      37
+     ],
+     "lignes": [
+      [
+       515,
+       435,
+       86,
+       37
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#2e0600",
+     "fond": "#d0955a",
+     "libre": [
+      421,
+      635
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t7",
+     "boite": [
+      480,
+      700,
+      16,
+      20
+     ],
+     "lignes": [
+      [
+       480,
+       700,
+       16,
+       20
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#2b4c53",
+     "fond": "#b8dade",
+     "libre": [
+      468,
+      496
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t8",
+     "boite": [
+      569,
+      713,
+      21,
+      26
+     ],
+     "lignes": [
+      [
+       569,
+       713,
+       21,
+       26
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#28454b",
+     "fond": "#b8d9de",
+     "libre": [
+      561,
+      590
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t9",
+     "boite": [
+      463,
+      863,
+      137,
+      25
+     ],
+     "lignes": [
+      [
+       463,
+       863,
+       137,
+       25
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#929790",
+     "fond": "#edf2eb",
+     "libre": [
+      335,
+      600
+     ],
+     "probable": "texte",
+     "action": "effacer",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t10",
+     "boite": [
+      310,
+      1028,
+      444,
+      95
+     ],
+     "lignes": [
+      [
+       310,
+       1028,
+       444,
+       95
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000300",
+     "fond": "#edf2eb",
+     "libre": [
+      40,
+      1040
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "methods"
+     ],
+     "textes": {
+      "fr": [
+       "de repos"
+      ],
+      "de": [
+       "methoden"
+      ],
+      "es": [
+       "de descanso"
+      ],
+      "it": [
+       "di riposo"
+      ],
+      "tr": [
+       "yöntemleri"
+      ]
+     }
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "traduire",
+     "en": [
+      "Resting"
+     ],
+     "textes": {
+      "fr": [
+       "Méthodes"
+      ],
+      "de": [
+       "Erholungs-"
+      ],
+      "es": [
+       "Métodos"
+      ],
+      "it": [
+       "Metodi"
+      ],
+      "tr": [
+       "Dinlenme"
+      ]
+     },
+     "couleur": "#000300",
+     "fond": "#edf2eb",
+     "id": "m1",
+     "boite": [
+      247,
+      880,
+      571,
+      182
+     ],
+     "lignes": [
+      [
+       247,
+       880,
+       571,
+       182
+      ]
+     ],
+     "libre": [
+      40,
+      1040
+     ]
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "effacer",
+     "en": [],
+     "textes": {},
+     "couleur": "#000300",
+     "fond": "#edf2eb",
+     "id": "m2",
+     "boite": [
+      213,
+      222,
+      652,
+      18
+     ],
+     "lignes": [
+      [
+       213,
+       222,
+       652,
+       18
+      ]
+     ],
+     "libre": [
+      213,
+      865
+     ]
+    }
+   ]
+  },
+  {
+   "position": 2,
+   "blocs": [
+    {
+     "id": "t1",
+     "boite": [
+      79,
+      67,
+      260,
+      121
+     ],
+     "lignes": [
+      [
+       79,
+       67,
+       260,
+       121
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#0c0604",
+     "fond": "#edf2eb",
+     "libre": [
+      6,
+      437
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t2",
+     "boite": [
+      90,
+      102,
+      101,
+      55
+     ],
+     "lignes": [
+      [
+       90,
+       102,
+       101,
+       25
+      ],
+      [
+       121,
+       134,
+       38,
+       23
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#230201",
+     "fond": "#fccece",
+     "libre": [
+      90,
+      191
+     ],
+     "probable": "texte",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t3",
+     "boite": [
+      445,
+      144,
+      437,
+      50
+     ],
+     "lignes": [
+      [
+       445,
+       144,
+       437,
+       50
+      ]
+     ],
+     "alignement": "gauche",
+     "couleur": "#000500",
+     "fond": "#edf2eb",
+     "libre": [
+      346,
+      1030
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "prove me wrong"
+     ],
+     "textes": {
+      "fr": [
+       "prouve-moi le contraire"
+      ],
+      "de": [
+       "beweis mir das Gegenteil"
+      ],
+      "es": [
+       "demuéstrame lo contrario"
+      ],
+      "it": [
+       "dimostrami il contrario"
+      ],
+      "tr": [
+       "aksini kanıtla"
+      ]
+     }
+    },
+    {
+     "id": "t4",
+     "boite": [
+      222,
+      151,
+      94,
+      33
+     ],
+     "lignes": [
+      [
+       222,
+       151,
+       94,
+       14
+      ],
+      [
+       228,
+       167,
+       82,
+       17
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#2c3129",
+     "fond": "#edf2eb",
+     "libre": [
+      206,
+      336
+     ],
+     "probable": "texte",
+     "action": "effacer",
+     "en": [
+      "write it down",
+      "(check bio)"
+     ],
+     "textes": {}
+    },
+    {
+     "id": "t5",
+     "boite": [
+      109,
+      171,
+      29,
+      12
+     ],
+     "lignes": [
+      [
+       109,
+       171,
+       29,
+       12
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#532d2a",
+     "fond": "#f8cfce",
+     "libre": [
+      109,
+      138
+     ],
+     "probable": "texte",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t6",
+     "boite": [
+      155,
+      171,
+      10,
+      10
+     ],
+     "lignes": [
+      [
+       155,
+       171,
+       10,
+       10
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#51302a",
+     "fond": "#fbcece",
+     "libre": [
+      155,
+      165
+     ],
+     "probable": "texte",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t7",
+     "boite": [
+      639,
+      244,
+      24,
+      22
+     ],
+     "lignes": [
+      [
+       639,
+       244,
+       24,
+       22
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#221611",
+     "fond": "#eef2eb",
+     "libre": [
+      548,
+      678
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t8",
+     "boite": [
+      796,
+      246,
+      93,
+      109
+     ],
+     "lignes": [
+      [
+       796,
+       246,
+       93,
+       109
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#212223",
+     "fond": "#edf2eb",
+     "libre": [
+      756,
+      915
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t9",
+     "boite": [
+      614,
+      273,
+      96,
+      64
+     ],
+     "lignes": [
+      [
+       614,
+       273,
+       96,
+       64
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#160c06",
+     "fond": "#edf2eb",
+     "libre": [
+      549,
+      710
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t10",
+     "boite": [
+      255,
+      278,
+      140,
+      76
+     ],
+     "lignes": [
+      [
+       255,
+       278,
+       140,
+       76
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#4e391d",
+     "fond": "#edf2eb",
+     "libre": [
+      245,
+      435
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t11",
+     "boite": [
+      126,
+      290,
+      63,
+      46
+     ],
+     "lignes": [
+      [
+       126,
+       290,
+       63,
+       46
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#2b0100",
+     "fond": "#fc3a3a",
+     "libre": [
+      90,
+      231
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t12",
+     "boite": [
+      602,
+      336,
+      149,
+      45
+     ],
+     "lignes": [
+      [
+       645,
+       336,
+       59,
+       26
+      ],
+      [
+       602,
+       361,
+       149,
+       20
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#121710",
+     "fond": "#edf2eb",
+     "libre": [
+      577,
+      788
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "deep",
+      "conversation"
+     ],
+     "textes": {
+      "fr": [
+       "vraie",
+       "discussion"
+      ],
+      "de": [
+       "tiefes",
+       "Gespräch"
+      ],
+      "es": [
+       "charla",
+       "profunda"
+      ],
+      "it": [
+       "dialogo",
+       "profondo"
+      ],
+      "tr": [
+       "derin",
+       "sohbet"
+      ]
+     }
+    },
+    {
+     "id": "t13",
+     "boite": [
+      797,
+      354,
+      95,
+      22
+     ],
+     "lignes": [
+      [
+       797,
+       354,
+       95,
+       22
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#131911",
+     "fond": "#edf2eb",
+     "libre": [
+      758,
+      915
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "workout"
+     ],
+     "textes": {
+      "fr": [
+       "sport"
+      ],
+      "de": [
+       "Training"
+      ],
+      "es": [
+       "entreno"
+      ],
+      "it": [
+       "allenamento"
+      ],
+      "tr": [
+       "antrenman"
+      ]
+     }
+    },
+    {
+     "id": "t14",
+     "boite": [
+      250,
+      356,
+      144,
+      26
+     ],
+     "lignes": [
+      [
+       250,
+       356,
+       144,
+       26
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#10150e",
+     "fond": "#edf2eb",
+     "libre": [
+      245,
+      419
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "proper sleep"
+     ],
+     "textes": {
+      "fr": [
+       "vrai sommeil"
+      ],
+      "de": [
+       "guter Schlaf"
+      ],
+      "es": [
+       "dormir bien"
+      ],
+      "it": [
+       "buon sonno"
+      ],
+      "tr": [
+       "kaliteli uyku"
+      ]
+     }
+    },
+    {
+     "id": "t15",
+     "boite": [
+      427,
+      358,
+      143,
+      22
+     ],
+     "lignes": [
+      [
+       427,
+       358,
+       143,
+       22
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#11150e",
+     "fond": "#edf2eb",
+     "libre": [
+      401,
+      594
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "walk outside"
+     ],
+     "textes": {
+      "fr": [
+       "marcher dehors"
+      ],
+      "de": [
+       "Spaziergang"
+      ],
+      "es": [
+       "caminar fuera"
+      ],
+      "it": [
+       "passeggiata"
+      ],
+      "tr": [
+       "dışarıda yürüyüş"
+      ]
+     }
+    },
+    {
+     "id": "t16",
+     "boite": [
+      94,
+      363,
+      54,
+      17
+     ],
+     "lignes": [
+      [
+       94,
+       363,
+       54,
+       17
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#800100",
+     "fond": "#fc3a3a",
+     "libre": [
+      90,
+      148
+     ],
+     "probable": "texte",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t17",
+     "boite": [
+      163,
+      368,
+      65,
+      12
+     ],
+     "lignes": [
+      [
+       163,
+       368,
+       65,
+       12
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#840400",
+     "fond": "#fc3a3a",
+     "libre": [
+      163,
+      231
+     ],
+     "probable": "texte",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t18",
+     "boite": [
+      314,
+      394,
+      54,
+      26
+     ],
+     "lignes": [
+      [
+       314,
+       394,
+       54,
+       26
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#010400",
+     "fond": "#edf2eb",
+     "libre": [
+      245,
+      434
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t19",
+     "boite": [
+      442,
+      399,
+      94,
+      105
+     ],
+     "lignes": [
+      [
+       442,
+       399,
+       94,
+       105
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#242424",
+     "fond": "#edf2eb",
+     "libre": [
+      375,
+      594
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t20",
+     "boite": [
+      602,
+      402,
+      273,
+      259
+     ],
+     "lignes": [
+      [
+       609,
+       402,
+       91,
+       96
+      ],
+      [
+       602,
+       546,
+       273,
+       115
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#0e0f0a",
+     "fond": "#edf2eb",
+     "libre": [
+      602,
+      875
+     ],
+     "probable": "texte",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t21",
+     "boite": [
+      805,
+      402,
+      75,
+      28
+     ],
+     "lignes": [
+      [
+       805,
+       402,
+       75,
+       28
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#1e201c",
+     "fond": "#edf2eb",
+     "libre": [
+      805,
+      915
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t22",
+     "boite": [
+      806,
+      408,
+      54,
+      20
+     ],
+     "lignes": [
+      [
+       806,
+       408,
+       54,
+       20
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#191b17",
+     "fond": "#edf2eb",
+     "libre": [
+      806,
+      860
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t23",
+     "boite": [
+      140,
+      441,
+      38,
+      45
+     ],
+     "lignes": [
+      [
+       140,
+       441,
+       38,
+       45
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#190100",
+     "fond": "#fcbc75",
+     "libre": [
+      89,
+      231
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t24",
+     "boite": [
+      295,
+      460,
+      41,
+      37
+     ],
+     "lignes": [
+      [
+       295,
+       460,
+       41,
+       37
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#040903",
+     "fond": "#edf2eb",
+     "libre": [
+      245,
+      434
+     ],
+     "probable": "texte",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t25",
+     "boite": [
+      327,
+      460,
+      9,
+      36
+     ],
+     "lignes": [
+      [
+       327,
+       460,
+       9,
+       36
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#020701",
+     "fond": "#edf2eb",
+     "libre": [
+      327,
+      434
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t26",
+     "boite": [
+      259,
+      505,
+      140,
+      28
+     ],
+     "lignes": [
+      [
+       259,
+       505,
+       140,
+       28
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#0c110a",
+     "fond": "#edf2eb",
+     "libre": [
+      245,
+      426
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "long shower"
+     ],
+     "textes": {
+      "fr": [
+       "longue douche"
+      ],
+      "de": [
+       "lange Dusche"
+      ],
+      "es": [
+       "ducha larga"
+      ],
+      "it": [
+       "doccia lunga"
+      ],
+      "tr": [
+       "uzun duş"
+      ]
+     }
+    },
+    {
+     "id": "t27",
+     "boite": [
+      434,
+      505,
+      121,
+      22
+     ],
+     "lignes": [
+      [
+       434,
+       505,
+       121,
+       22
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#10150e",
+     "fond": "#edf2eb",
+     "libre": [
+      406,
+      581
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "meditation"
+     ],
+     "textes": {
+      "fr": [
+       "méditation"
+      ],
+      "de": [
+       "Meditation"
+      ],
+      "es": [
+       "meditación"
+      ],
+      "it": [
+       "meditazione"
+      ],
+      "tr": [
+       "meditasyon"
+      ]
+     }
+    },
+    {
+     "id": "t28",
+     "boite": [
+      589,
+      506,
+      139,
+      28
+     ],
+     "lignes": [
+      [
+       589,
+       506,
+       139,
+       28
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#161b14",
+     "fond": "#edf2eb",
+     "libre": [
+      564,
+      728
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "digital detox"
+     ],
+     "textes": {
+      "fr": [
+       "détox digitale"
+      ],
+      "de": [
+       "Digital Detox"
+      ],
+      "es": [
+       "detox digital"
+      ],
+      "it": [
+       "detox digitale"
+      ],
+      "tr": [
+       "dijital detoks"
+      ]
+     }
+    },
+    {
+     "id": "t29",
+     "boite": [
+      771,
+      506,
+      105,
+      28
+     ],
+     "lignes": [
+      [
+       771,
+       506,
+       105,
+       28
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#0e130c",
+     "fond": "#edf2eb",
+     "libre": [
+      771,
+      915
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "good film"
+     ],
+     "textes": {
+      "fr": [
+       "bon film"
+      ],
+      "de": [
+       "guter Film"
+      ],
+      "es": [
+       "buena peli"
+      ],
+      "it": [
+       "bel film"
+      ],
+      "tr": [
+       "iyi film"
+      ]
+     }
+    },
+    {
+     "id": "t30",
+     "boite": [
+      89,
+      514,
+      140,
+      18
+     ],
+     "lignes": [
+      [
+       89,
+       514,
+       140,
+       18
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#683604",
+     "fond": "#fcbc75",
+     "libre": [
+      89,
+      231
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "genuinely restores"
+     ],
+     "textes": {
+      "fr": [
+       "ressource vraiment"
+      ],
+      "de": [
+       "erholt wirklich"
+      ],
+      "es": [
+       "restaura de verdad"
+      ],
+      "it": [
+       "rigenera davvero"
+      ],
+      "tr": [
+       "gerçekten yeniler"
+      ]
+     }
+    },
+    {
+     "id": "t31",
+     "boite": [
+      267,
+      552,
+      99,
+      97
+     ],
+     "lignes": [
+      [
+       267,
+       552,
+       99,
+       97
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#9a4d43",
+     "fond": "#edf2eb",
+     "libre": [
+      245,
+      433
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t32",
+     "boite": [
+      143,
+      591,
+      33,
+      46
+     ],
+     "lignes": [
+      [
+       143,
+       591,
+       33,
+       46
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#120200",
+     "fond": "#fddd70",
+     "libre": [
+      89,
+      231
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t33",
+     "boite": [
+      797,
+      610,
+      83,
+      37
+     ],
+     "lignes": [
+      [
+       797,
+       610,
+       83,
+       37
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#030501",
+     "fond": "#edf2eb",
+     "libre": [
+      797,
+      915
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t34",
+     "boite": [
+      439,
+      637,
+      102,
+      49
+     ],
+     "lignes": [
+      [
+       439,
+       637,
+       102,
+       22
+      ],
+      [
+       464,
+       661,
+       56,
+       25
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#131811",
+     "fond": "#edf2eb",
+     "libre": [
+      389,
+      594
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "time with",
+      "a pet"
+     ],
+     "textes": {
+      "fr": [
+       "temps avec",
+       "un animal"
+      ],
+      "de": [
+       "Zeit mit",
+       "Haustier"
+      ],
+      "es": [
+       "tiempo con",
+       "tu mascota"
+      ],
+      "it": [
+       "tempo con",
+       "un animale"
+      ],
+      "tr": [
+       "evcil hayvanla",
+       "vakit"
+      ]
+     }
+    },
+    {
+     "id": "t35",
+     "boite": [
+      789,
+      658,
+      79,
+      22
+     ],
+     "lignes": [
+      [
+       789,
+       658,
+       79,
+       22
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#171c15",
+     "fond": "#edf2eb",
+     "libre": [
+      789,
+      868
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "silence"
+     ],
+     "textes": {
+      "fr": [
+       "silence"
+      ],
+      "de": [
+       "Stille"
+      ],
+      "es": [
+       "silencio"
+      ],
+      "it": [
+       "silenzio"
+      ],
+      "tr": [
+       "sessizlik"
+      ]
+     }
+    },
+    {
+     "id": "t36",
+     "boite": [
+      264,
+      659,
+      114,
+      25
+     ],
+     "lignes": [
+      [
+       264,
+       659,
+       114,
+       25
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#161b14",
+     "fond": "#edf2eb",
+     "libre": [
+      245,
+      431
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "good meal"
+     ],
+     "textes": {
+      "fr": [
+       "bon repas"
+      ],
+      "de": [
+       "gutes Essen"
+      ],
+      "es": [
+       "buena comida"
+      ],
+      "it": [
+       "buon pasto"
+      ],
+      "tr": [
+       "güzel yemek"
+      ]
+     }
+    },
+    {
+     "id": "t37",
+     "boite": [
+      100,
+      666,
+      121,
+      17
+     ],
+     "lignes": [
+      [
+       100,
+       666,
+       121,
+       17
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#5d4500",
+     "fond": "#fddc73",
+     "libre": [
+      90,
+      228
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "rest, but shallow"
+     ],
+     "textes": {
+      "fr": [
+       "repos, mais léger"
+      ],
+      "de": [
+       "Ruhe, aber flach"
+      ],
+      "es": [
+       "descanso, pero leve"
+      ],
+      "it": [
+       "riposo, ma leggero"
+      ],
+      "tr": [
+       "yüzeysel dinlenme"
+      ]
+     }
+    },
+    {
+     "id": "t38",
+     "boite": [
+      618,
+      666,
+      66,
+      22
+     ],
+     "lignes": [
+      [
+       618,
+       666,
+       66,
+       22
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#181d15",
+     "fond": "#edf2ea",
+     "libre": [
+      590,
+      750
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "a nap"
+     ],
+     "textes": {
+      "fr": [
+       "une sieste"
+      ],
+      "de": [
+       "ein Nickerchen"
+      ],
+      "es": [
+       "una siesta"
+      ],
+      "it": [
+       "un pisolino"
+      ],
+      "tr": [
+       "şekerleme"
+      ]
+     }
+    },
+    {
+     "id": "t39",
+     "boite": [
+      284,
+      694,
+      46,
+      117
+     ],
+     "lignes": [
+      [
+       284,
+       694,
+       46,
+       117
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#2e2b29",
+     "fond": "#edf2eb",
+     "libre": [
+      245,
+      409
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t40",
+     "boite": [
+      428,
+      699,
+      279,
+      249
+     ],
+     "lignes": [
+      [
+       428,
+       699,
+       279,
+       105
+      ],
+      [
+       570,
+       851,
+       92,
+       97
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#221b2c",
+     "fond": "#edf2eb",
+     "libre": [
+      428,
+      707
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t41",
+     "boite": [
+      459,
+      706,
+      10,
+      14
+     ],
+     "lignes": [
+      [
+       459,
+       706,
+       10,
+       14
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#171600",
+     "fond": "#edf2eb",
+     "libre": [
+      459,
+      469
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t42",
+     "boite": [
+      140,
+      741,
+      38,
+      47
+     ],
+     "lignes": [
+      [
+       140,
+       741,
+       38,
+       47
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#0d0700",
+     "fond": "#fffe68",
+     "libre": [
+      90,
+      231
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t43",
+     "boite": [
+      773,
+      764,
+      84,
+      39
+     ],
+     "lignes": [
+      [
+       773,
+       764,
+       84,
+       39
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#140b0a",
+     "fond": "#edf2eb",
+     "libre": [
+      773,
+      915
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t44",
+     "boite": [
+      417,
+      785,
+      129,
+      52
+     ],
+     "lignes": [
+      [
+       417,
+       785,
+       129,
+       25
+      ],
+      [
+       436,
+       809,
+       90,
+       28
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#151a13",
+     "fond": "#edf2eb",
+     "libre": [
+      388,
+      546
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "cooking for",
+      "yourself"
+     ],
+     "textes": {
+      "fr": [
+       "cuisiner",
+       "pour toi"
+      ],
+      "de": [
+       "für dich",
+       "kochen"
+      ],
+      "es": [
+       "cocinar",
+       "para ti"
+      ],
+      "it": [
+       "cucinare",
+       "per te"
+      ],
+      "tr": [
+       "kendine",
+       "yemek yapmak"
+      ]
+     }
+    },
+    {
+     "id": "t45",
+     "boite": [
+      775,
+      808,
+      67,
+      22
+     ],
+     "lignes": [
+      [
+       775,
+       808,
+       67,
+       22
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#0b1009",
+     "fond": "#eef2eb",
+     "libre": [
+      775,
+      915
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "music"
+     ],
+     "textes": {
+      "fr": [
+       "musique"
+      ],
+      "de": [
+       "Musik"
+      ],
+      "es": [
+       "música"
+      ],
+      "it": [
+       "musica"
+      ],
+      "tr": [
+       "müzik"
+      ]
+     }
+    },
+    {
+     "id": "t46",
+     "boite": [
+      255,
+      809,
+      125,
+      22
+     ],
+     "lignes": [
+      [
+       255,
+       809,
+       125,
+       22
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#0f140d",
+     "fond": "#edf2eb",
+     "libre": [
+      245,
+      409
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "drive alone"
+     ],
+     "textes": {
+      "fr": [
+       "rouler seul"
+      ],
+      "de": [
+       "allein fahren"
+      ],
+      "es": [
+       "conducir solo"
+      ],
+      "it": [
+       "guidare da solo"
+      ],
+      "tr": [
+       "yalnız sürüş"
+      ]
+     }
+    },
+    {
+     "id": "t47",
+     "boite": [
+      603,
+      810,
+      85,
+      25
+     ],
+     "lignes": [
+      [
+       603,
+       810,
+       85,
+       25
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#141912",
+     "fond": "#edf2eb",
+     "libre": [
+      603,
+      688
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "reading"
+     ],
+     "textes": {
+      "fr": [
+       "lire"
+      ],
+      "de": [
+       "Lesen"
+      ],
+      "es": [
+       "leer"
+      ],
+      "it": [
+       "leggere"
+      ],
+      "tr": [
+       "okumak"
+      ]
+     }
+    },
+    {
+     "id": "t48",
+     "boite": [
+      136,
+      817,
+      48,
+      14
+     ],
+     "lignes": [
+      [
+       136,
+       817,
+       48,
+       14
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#5c5800",
+     "fond": "#fefd68",
+     "libre": [
+      89,
+      231
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "neutral"
+     ],
+     "textes": {
+      "fr": [
+       "neutre"
+      ],
+      "de": [
+       "neutral"
+      ],
+      "es": [
+       "neutral"
+      ],
+      "it": [
+       "neutro"
+      ],
+      "tr": [
+       "nötr"
+      ]
+     }
+    },
+    {
+     "id": "t49",
+     "boite": [
+      823,
+      858,
+      45,
+      66
+     ],
+     "lignes": [
+      [
+       823,
+       858,
+       45,
+       66
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#381f1b",
+     "fond": "#edf2eb",
+     "libre": [
+      801,
+      915
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t50",
+     "boite": [
+      422,
+      864,
+      62,
+      64
+     ],
+     "lignes": [
+      [
+       422,
+       864,
+       62,
+       64
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#eb3656",
+     "fond": "#edf2eb",
+     "libre": [
+      381,
+      484
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t51",
+     "boite": [
+      749,
+      875,
+      29,
+      29
+     ],
+     "lignes": [
+      [
+       749,
+       875,
+       29,
+       29
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#6d1a21",
+     "fond": "#ecf1eb",
+     "libre": [
+      714,
+      778
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t52",
+     "boite": [
+      142,
+      892,
+      35,
+      46
+     ],
+     "lignes": [
+      [
+       142,
+       892,
+       35,
+       46
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#001000",
+     "fond": "#affd6b",
+     "libre": [
+      90,
+      231
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t53",
+     "boite": [
+      451,
+      899,
+      27,
+      25
+     ],
+     "lignes": [
+      [
+       451,
+       899,
+       27,
+       25
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#f6473a",
+     "fond": "#edf2eb",
+     "libre": [
+      451,
+      478
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t54",
+     "boite": [
+      629,
+      929,
+      19,
+      11
+     ],
+     "lignes": [
+      [
+       629,
+       929,
+       19,
+       11
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#1e1e20",
+     "fond": "#eff1ed",
+     "libre": [
+      629,
+      648
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t55",
+     "boite": [
+      417,
+      952,
+      93,
+      27
+     ],
+     "lignes": [
+      [
+       417,
+       952,
+       93,
+       27
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#121610",
+     "fond": "#edf2eb",
+     "libre": [
+      375,
+      560
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "scrolling"
+     ],
+     "textes": {
+      "fr": [
+       "scroller"
+      ],
+      "de": [
+       "Scrollen"
+      ],
+      "es": [
+       "scroll"
+      ],
+      "it": [
+       "scrollare"
+      ],
+      "tr": [
+       "scroll"
+      ]
+     }
+    },
+    {
+     "id": "t56",
+     "boite": [
+      568,
+      953,
+      113,
+      27
+     ],
+     "lignes": [
+      [
+       568,
+       953,
+       113,
+       27
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#121710",
+     "fond": "#edf2eb",
+     "libre": [
+      517,
+      708
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "oversleep"
+     ],
+     "textes": {
+      "fr": [
+       "trop dormir"
+      ],
+      "de": [
+       "verschlafen"
+      ],
+      "es": [
+       "dormir de más"
+      ],
+      "it": [
+       "dormire troppo"
+      ],
+      "tr": [
+       "fazla uyumak"
+      ]
+     }
+    },
+    {
+     "id": "t57",
+     "boite": [
+      716,
+      954,
+      178,
+      28
+     ],
+     "lignes": [
+      [
+       716,
+       954,
+       178,
+       28
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#141913",
+     "fond": "#edf2eb",
+     "libre": [
+      689,
+      915
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "binge-watching"
+     ],
+     "textes": {
+      "fr": [
+       "binge-watching"
+      ],
+      "de": [
+       "Binge-Watching"
+      ],
+      "es": [
+       "maratonear"
+      ],
+      "it": [
+       "binge-watching"
+      ],
+      "tr": [
+       "dizi maratonu"
+      ]
+     }
+    },
+    {
+     "id": "t58",
+     "boite": [
+      263,
+      956,
+      105,
+      27
+     ],
+     "lignes": [
+      [
+       263,
+       956,
+       105,
+       27
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#141912",
+     "fond": "#edf2eb",
+     "libre": [
+      245,
+      409
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "junk food"
+     ],
+     "textes": {
+      "fr": [
+       "malbouffe"
+      ],
+      "de": [
+       "Junkfood"
+      ],
+      "es": [
+       "comida basura"
+      ],
+      "it": [
+       "junk food"
+      ],
+      "tr": [
+       "abur cubur"
+      ]
+     }
+    },
+    {
+     "id": "t59",
+     "boite": [
+      98,
+      958,
+      123,
+      14
+     ],
+     "lignes": [
+      [
+       98,
+       958,
+       123,
+       14
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#317100",
+     "fond": "#affd6b",
+     "libre": [
+      90,
+      231
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "feels like rest, it isn’t"
+     ],
+     "textes": {
+      "fr": [
+       "faux repos"
+      ],
+      "de": [
+       "falsche Erholung"
+      ],
+      "es": [
+       "falso descanso"
+      ],
+      "it": [
+       "falso riposo"
+      ],
+      "tr": [
+       "sahte dinlenme"
+      ]
+     }
+    },
+    {
+     "id": "t60",
+     "boite": [
+      141,
+      1004,
+      39,
+      43
+     ],
+     "lignes": [
+      [
+       141,
+       1004,
+       39,
+       43
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000500",
+     "fond": "#edf2eb",
+     "libre": [
+      6,
+      1073
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t61",
+     "boite": [
+      808,
+      1071,
+      47,
+      64
+     ],
+     "lignes": [
+      [
+       808,
+       1071,
+       47,
+       64
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000500",
+     "fond": "#edf2eb",
+     "libre": [
+      688,
+      915
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t62",
+     "boite": [
+      81,
+      1072,
+      159,
+      144
+     ],
+     "lignes": [
+      [
+       81,
+       1072,
+       159,
+       144
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#7f7efd",
+     "fond": "#edf2eb",
+     "libre": [
+      6,
+      257
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t63",
+     "boite": [
+      331,
+      1082,
+      11,
+      8
+     ],
+     "lignes": [
+      [
+       331,
+       1082,
+       11,
+       8
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#020801",
+     "fond": "#edf2eb",
+     "libre": [
+      331,
+      342
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t64",
+     "boite": [
+      284,
+      1090,
+      237,
+      89
+     ],
+     "lignes": [
+      [
+       284,
+       1090,
+       237,
+       89
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#010101",
+     "fond": "#edf2eb",
+     "libre": [
+      247,
+      578
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t65",
+     "boite": [
+      401,
+      1091,
+      120,
+      71
+     ],
+     "lignes": [
+      [
+       401,
+       1091,
+       120,
+       71
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#010101",
+     "fond": "#edf2eb",
+     "libre": [
+      401,
+      578
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t66",
+     "boite": [
+      284,
+      1097,
+      65,
+      82
+     ],
+     "lignes": [
+      [
+       284,
+       1097,
+       65,
+       82
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#010201",
+     "fond": "#edf2eb",
+     "libre": [
+      247,
+      349
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t67",
+     "boite": [
+      145,
+      1118,
+      30,
+      46
+     ],
+     "lignes": [
+      [
+       145,
+       1118,
+       30,
+       46
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#000625",
+     "fond": "#7f7efd",
+     "libre": [
+      145,
+      175
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t68",
+     "boite": [
+      766,
+      1159,
+      132,
+      51
+     ],
+     "lignes": [
+      [
+       766,
+       1159,
+       132,
+       26
+      ],
+      [
+       766,
+       1183,
+       131,
+       27
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#070c05",
+     "fond": "#edf2eb",
+     "libre": [
+      745,
+      912
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "your option",
+      "(comment)"
+     ],
+     "textes": {
+      "fr": [
+       "ton choix",
+       "(commente)"
+      ],
+      "de": [
+       "deine Wahl",
+       "(kommentiere)"
+      ],
+      "es": [
+       "tu opción",
+       "(comenta)"
+      ],
+      "it": [
+       "la tua scelta",
+       "(commenta)"
+      ],
+      "tr": [
+       "senin seçimin",
+       "(yorum yap)"
+      ]
+     }
+    },
+    {
+     "id": "t69",
+     "boite": [
+      766,
+      1165,
+      13,
+      45
+     ],
+     "lignes": [
+      [
+       766,
+       1165,
+       13,
+       45
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#090e07",
+     "fond": "#edf2eb",
+     "libre": [
+      766,
+      779
+     ],
+     "probable": "autre",
+     "action": "garder",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "id": "t70",
+     "boite": [
+      404,
+      1170,
+      111,
+      42
+     ],
+     "lignes": [
+      [
+       404,
+       1170,
+       111,
+       21
+      ],
+      [
+       429,
+       1194,
+       66,
+       18
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#181d16",
+     "fond": "#edf2eb",
+     "libre": [
+      404,
+      515
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "competitive",
+      "games"
+     ],
+     "textes": {
+      "fr": [
+       "jeux",
+       "compétitifs"
+      ],
+      "de": [
+       "kompetitive",
+       "Games"
+      ],
+      "es": [
+       "juegos",
+       "competitivos"
+      ],
+      "it": [
+       "giochi",
+       "competitivi"
+      ],
+      "tr": [
+       "rekabetçi",
+       "oyunlar"
+      ]
+     }
+    },
+    {
+     "id": "t71",
+     "boite": [
+      550,
+      1172,
+      162,
+      40
+     ],
+     "lignes": [
+      [
+       550,
+       1172,
+       162,
+       22
+      ],
+      [
+       559,
+       1194,
+       143,
+       18
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#1c211a",
+     "fond": "#edf2eb",
+     "libre": [
+      545,
+      745
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "revenge bedtime",
+      "procrastination"
+     ],
+     "textes": {
+      "fr": [
+       "veiller tard",
+       "par revanche"
+      ],
+      "de": [
+       "spät ins Bett",
+       "aus Trotz"
+      ],
+      "es": [
+       "trasnochar",
+       "por venganza"
+      ],
+      "it": [
+       "fare tardi",
+       "per ripicca"
+      ],
+      "tr": [
+       "geç yatmak",
+       "inadına"
+      ]
+     }
+    },
+    {
+     "id": "t72",
+     "boite": [
+      96,
+      1186,
+      127,
+      17
+     ],
+     "lignes": [
+      [
+       96,
+       1186,
+       127,
+       17
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#292c8a",
+     "fond": "#7f7efd",
+     "libre": [
+      96,
+      223
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "actively costs you"
+     ],
+     "textes": {
+      "fr": [
+       "te coûte vraiment"
+      ],
+      "de": [
+       "kostet dich Kraft"
+      ],
+      "es": [
+       "te pasa factura"
+      ],
+      "it": [
+       "ti costa caro"
+      ],
+      "tr": [
+       "seni yorar"
+      ]
+     }
+    },
+    {
+     "id": "t73",
+     "boite": [
+      265,
+      1187,
+      98,
+      19
+     ],
+     "lignes": [
+      [
+       265,
+       1187,
+       98,
+       19
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#171c15",
+     "fond": "#edf2eb",
+     "libre": [
+      247,
+      363
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "addictions"
+     ],
+     "textes": {
+      "fr": [
+       "addictions"
+      ],
+      "de": [
+       "Süchte"
+      ],
+      "es": [
+       "adicciones"
+      ],
+      "it": [
+       "dipendenze"
+      ],
+      "tr": [
+       "bağımlılıklar"
+      ]
+     }
+    },
+    {
+     "id": "t74",
+     "boite": [
+      120,
+      1272,
+      334,
+      37
+     ],
+     "lignes": [
+      [
+       120,
+       1272,
+       334,
+       37
+      ]
+     ],
+     "alignement": "gauche",
+     "couleur": "#040903",
+     "fond": "#edf2eb",
+     "libre": [
+      6,
+      776
+     ],
+     "probable": "texte",
+     "action": "traduire",
+     "en": [
+      "check bio instead"
+     ],
+     "textes": {
+      "fr": [
+       "tu te reposes comment, toi ?"
+      ],
+      "de": [
+       "wie ruhst du dich aus?"
+      ],
+      "es": [
+       "¿tú cómo descansas?"
+      ],
+      "it": [
+       "tu come ti riposi?"
+      ],
+      "tr": [
+       "sen nasıl dinleniyorsun?"
+      ],
+      "en": [
+       "how do you actually rest?"
+      ]
+     }
+    },
+    {
+     "id": "t75",
+     "boite": [
+      784,
+      1281,
+      137,
+      25
+     ],
+     "lignes": [
+      [
+       784,
+       1281,
+       137,
+       25
+      ]
+     ],
+     "alignement": "centre",
+     "couleur": "#161b14",
+     "fond": "#edf2eb",
+     "libre": [
+      461,
+      1073
+     ],
+     "probable": "texte",
+     "action": "effacer",
+     "en": [],
+     "textes": {}
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "traduire",
+     "en": [
+      "try this out"
+     ],
+     "textes": {
+      "fr": [
+       "essaie ça"
+      ],
+      "de": [
+       "probier’s aus"
+      ],
+      "es": [
+       "pruébalo"
+      ],
+      "it": [
+       "provalo"
+      ],
+      "tr": [
+       "bunu dene"
+      ]
+     },
+     "couleur": "#51302a",
+     "fond": "#fbcece",
+     "id": "m1",
+     "boite": [
+      109,
+      171,
+      56,
+      12
+     ],
+     "lignes": [
+      [
+       109,
+       171,
+       56,
+       12
+      ]
+     ],
+     "libre": [
+      84,
+      200
+     ]
+    },
+    {
+     "probable": "texte",
+     "alignement": "centre",
+     "action": "traduire",
+     "en": [
+      "actually recover"
+     ],
+     "textes": {
+      "fr": [
+       "vraie récup"
+      ],
+      "de": [
+       "echte Erholung"
+      ],
+      "es": [
+       "recupera bien"
+      ],
+      "it": [
+       "recupero vero"
+      ],
+      "tr": [
+       "tam toparlanma"
+      ]
+     },
+     "couleur": "#800100",
+     "fond": "#fc3a3a",
+     "id": "m2",
+     "boite": [
+      94,
+      364,
+      134,
+      20
+     ],
+     "lignes": [
+      [
+       94,
+       364,
+       134,
+       20
+      ]
+     ],
+     "libre": [
+      86,
+      234
+     ]
+    }
+   ]
+  }
+ ],
+ "notes": "source : https://www.tiktok.com/@mentalapp/video/7689665265591799048 · 37400 vues · « Check bio for the best resting method!! #rest #tierlist #mental #mentalhealth #mentalmaxxing » · remake : couverture : « Resting » lu comme des images, refait en bloc manuel m1 (descendante du g comprise) ; « actually recover » et « try this out » coupés, refaits en m2/m1 ; élément UnSwipe à la place de leur icône de la case BONUS (« write it down (check bio) »)."
+}

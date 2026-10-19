@@ -218,6 +218,49 @@ Deno.test("fermeture : sous 0,75 de la flotte sur 150 posts au moins, jamais sur
   assertEquals([...labelsFermesConnus({ ...memo, fermes: ["y", "z"], ouverts: ["z"] }, APP)].sort(), ["x", "y"]);
 });
 
+Deno.test("fermeture manuelle PAR APPLICATION : fermer sur Unswipe sans fermer sur Sophia", () => {
+  const AUTRE = "autre-app";
+  const k = (app: string, lab: string) => cleFermeture(app, lab);
+
+  // Le cas qui motive la fonctionnalité : white_bg marche sur Sophia et pas
+  // sur Unswipe. `fermes` est global, il l'aurait fermé des deux côtés.
+  const parApp = reglages({ fermesApp: [k(AUTRE, "white_bg")] });
+  assert(estFerme("white_bg", AUTRE, parApp), "fermé sur l'application visée");
+  assert(!estFerme("white_bg", APP, parApp), "toujours ouvert ailleurs");
+
+  // Le plus précis gagne : rouvrir pour une application bat une fermeture
+  // globale, et fermer pour une application bat une réouverture globale.
+  assert(!estFerme("y", APP, reglages({ fermes: ["y"], ouvertsApp: [k(APP, "y")] })));
+  assert(estFerme("y", APP, reglages({ ouverts: ["y"], fermesApp: [k(APP, "y")] })));
+
+  // Et une réouverture par application rouvre aussi un label fermé par la nuit.
+  const auto = reglages({
+    fermesAuto: { [k(APP, "film")]: { depuis: "2026-10-16", perf: 0.58, posts: 234 } },
+    ouvertsApp: [k(APP, "film")],
+  });
+  assert(!estFerme("film", APP, auto));
+
+  // La liste « sans chiffres » suit la même échelle.
+  assertEquals(
+    [...labelsFermesConnus(reglages({ fermesApp: [k(APP, "a"), k(AUTRE, "b")] }), APP)].sort(),
+    ["a"],
+  );
+  assertEquals(
+    [...labelsFermesConnus(reglages({ fermes: ["a"], ouvertsApp: [k(APP, "a")] }), APP)],
+    [],
+  );
+});
+
+Deno.test("les listes par application se lisent dans le réglage", () => {
+  const r = lireReglagesChoixLabel({
+    labels_fermes_app: ["app1:lab1", "app1:lab1", " app2:lab2 "],
+    labels_ouverts_app: ["app3:lab3"],
+  });
+  assertEquals(r.fermesApp, ["app1:lab1", "app2:lab2"], "dédoublonné et détrimé");
+  assertEquals(r.ouvertsApp, ["app3:lab3"]);
+  assertEquals(lireReglagesChoixLabel({}).fermesApp, []);
+});
+
 Deno.test("un label fermé ne reçoit plus personne, même vidé de ses comptes (sam.focus429)", () => {
   // Le 15/10 : film sorti de ses 10 comptes, donc « en retard » partout, et
   // pourtant choisi pour un nouveau compte anglais. Plus maintenant.

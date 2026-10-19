@@ -24,12 +24,14 @@ import { AdminRecrutementsPage } from "@/pages/admin/AdminRecrutementsPage";
 import { AdminRecrutementsPaysPage } from "@/pages/admin/AdminRecrutementsPaysPage";
 import { AdminBibliothequePage } from "@/pages/admin/AdminBibliothequePage";
 import { AdminReglagesPage } from "@/pages/admin/AdminReglagesPage";
+import { AdminRepartitionPage } from "@/pages/admin/AdminRepartitionPage";
 import { AdminPromptsPage } from "@/pages/admin/AdminPromptsPage";
 import { AdminAnglesPage } from "@/pages/admin/AdminAnglesPage";
 import { AdminAnalyticsPage } from "@/pages/admin/AdminAnalyticsPage";
 import { AdminSuiviRcPage } from "@/pages/admin/AdminSuiviRcPage";
 import { AdminReviewsPage } from "@/pages/admin/AdminReviewsPage";
 import { AdminFileReviewsPage } from "@/pages/admin/AdminFileReviewsPage";
+import { AdminBancRelecturePage } from "@/pages/admin/AdminBancRelecturePage";
 import { AdminReferralsPage } from "@/pages/admin/AdminReferralsPage";
 import { AdminCalendrierPage } from "@/pages/admin/AdminCalendrierPage";
 import { AdminCreateurPage } from "@/pages/admin/AdminCreateurPage";
@@ -41,6 +43,8 @@ import { AdminCreationPage } from "@/pages/admin/AdminCreationPage";
 import { AdminPodsPage } from "@/pages/admin/AdminPodsPage";
 import { PosterCalendrierPage } from "@/pages/poster/PosterCalendrierPage";
 import { PosterReferralPage } from "@/pages/poster/PosterReferralPage";
+import { PosterPaiementsPage } from "@/pages/poster/PosterPaiementsPage";
+import { PosterRetoursPage } from "@/pages/poster/PosterRetoursPage";
 import { PosterPostPage } from "@/pages/poster/PosterPostPage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 
@@ -102,8 +106,10 @@ export function AppRouter() {
               <Route path="/admin/recrutements" element={<AdminRecrutementsPage />} />
               <Route path="/admin/bibliotheque" element={<AdminBibliothequePage />} />
               <Route path="/admin/tests" element={<AdminTestsPage />} />
+              <Route path="/admin/banc-relecture" element={<AdminBancRelecturePage />} />
               <Route path="/admin/test-nettoyage" element={<Navigate to="/admin/tests" replace />} />
               <Route path="/admin/reglages" element={<AdminReglagesPage />} />
+              <Route path="/admin/repartition" element={<AdminRepartitionPage />} />
               <Route path="/admin/prompts" element={<AdminPromptsPage />} />
               <Route path="/admin/angles" element={<AdminAnglesPage />} />
               {/* Papier CM et UGC AI retirés — les anciens liens retombent sur le pilotage. */}
@@ -117,6 +123,8 @@ export function AppRouter() {
           <Route element={<PosterLayout />}>
             <Route path="/calendrier" element={<PosterCalendrierPage />} />
             <Route path="/createur/parrainage" element={<PosterReferralPage />} />
+            <Route path="/createur/paiements" element={<PosterPaiementsPage />} />
+            <Route path="/createur/retours" element={<PosterRetoursPage />} />
             <Route path="/createur/contrat-papier" element={<Navigate to="/calendrier" replace />} />
             <Route path="/createur/guide" element={<DocumentView cle="guide_poster" />} />
             <Route path="/createur/faq" element={<DocumentView cle="faq_poster" />} />

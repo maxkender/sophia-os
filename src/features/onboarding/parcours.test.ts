@@ -42,6 +42,11 @@ describe("avancer d'un écran", () => {
     expect(peutAvancer({ ecoulees: 7, attente: 8, basAtteint: true })).toBe(false);
   });
 
+  it("cohorte Ruul : reste verrouillé tant que le nom de la pièce d'identité n'est pas enregistré", () => {
+    expect(peutAvancer({ ecoulees: 8, attente: 8, basAtteint: true, identiteManquante: true })).toBe(false);
+    expect(peutAvancer({ ecoulees: 8, attente: 8, basAtteint: true, identiteManquante: false })).toBe(true);
+  });
+
   it("décompte jusqu'à zéro et n'affiche jamais de négatif", () => {
     expect(secondesRestantes(0, 8)).toBe(8);
     expect(secondesRestantes(5, 8)).toBe(3);
@@ -234,5 +239,19 @@ describe("le créateur ne peut pas fermer", () => {
 
   it("Échap est neutralisé", () => {
     expect(source).toMatch(/Escape.*preventDefault|preventDefault.*Escape/s);
+  });
+});
+
+/**
+ * L'aperçu admin montre l'accueil choisi (standard ou cohorte Ruul), jamais
+ * celui qui découlerait du compte de l'admin.
+ */
+describe("aperçu admin", () => {
+  const source = fs.readFileSync(path.join(__dirname, "OnboardingParcours.tsx"), "utf8");
+
+  it("l'accueil vient du choix de l'aperçu, pas du compte connecté", () => {
+    expect(source).toContain("enabled: !simulation");
+    expect(source).toContain("const contexte = simulation ? contexteSimule : cohorte.data;");
+    expect(source).toContain("ecransPour(contexte)");
   });
 });

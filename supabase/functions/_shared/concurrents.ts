@@ -29,9 +29,14 @@
  * est de l'anglais courant. « turboresume » (aussi « TurboResume.ai ») : la
  * source du label RH (@careerswemma) le cite dans 117 contenus sur 228, et
  * 57 passages RH sur 139 sont partis avec (octobre 2026). Jamais « turbo »
- * seul (« en mode turbo », « disturbo »).
+ * seul (« en mode turbo », « disturbo »). Label beau_smart_girl (octobre
+ * 2026) : « bycat » (appli d'étude de @mia.study5, 45 passages publiés avec)
+ * et « actualize » (« Actualize: Daily Microlearning » de @smarter_with_sara,
+ * 79 slides du stock, toutes l'appli), sauf le verbe : jamais après « self- »
+ * ni devant un possessif ou un article (« actualize your potential »).
  */
-export const MOTIF_CONCURRENT = /\b(vent[\s-]?now|readup|turbo[\s-]?resume)\b/i;
+export const MOTIF_CONCURRENT =
+  /\b(vent[\s-]?now|readup|turbo[\s-]?resume|bycat|(?<!self[\s-])actualize(?!\s+(?:your|my|our|their|his|her|its|the|a|an|yourself|myself|ourselves|themselves|oneself)\b))\b/i;
 
 /**
  * Concurrents d'Unswipe : ceux de Sophia + les applis de temps d'écran.

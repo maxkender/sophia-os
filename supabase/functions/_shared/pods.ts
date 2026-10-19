@@ -551,7 +551,7 @@ export const TIER_ORIGINAL = "B";
 const LONGUEUR_MAX_ACCROCHE = 120;
 const LONGUEUR_MAX_SLIDE = 320;
 const MOT_SOPHIA = /\bsophia\b/i;
-const AUTRE_APPLI = /\b(vent[\s-]?now|readup|turbo[\s-]?resume|unswipe)\b/i;
+const AUTRE_APPLI = /\b(vent[\s-]?now|readup|turbo[\s-]?resume|bycat|actualize|unswipe)\b/i;
 /** Les slides d'inspiration viennent du stockage de l'OS (`medias/brut/`), jamais d'un CDN qui expire. */
 export const REFERENCE_VALIDE = /^https:\/\/[a-z0-9]+\.supabase\.co\/storage\/v1\/object\/public\/medias\/brut\//;
 
@@ -594,9 +594,9 @@ export function verifierOriginal(slides: Partial<SlideOriginale>[] | null | unde
 /**
  * Pods dont chaque original doit arriver avec la PREUVE que son schéma
  * d'accroche fait des vues aujourd'hui (décidé le 15/10 pour le pod 4, même
- * règle pour le pod 5).
+ * règle pour les pods 5 et 7).
  */
-export const PODS_AVEC_PREUVE = new Set(["originaux_alpha_yellow", "originaux_rh"]);
+export const PODS_AVEC_PREUVE = new Set(["originaux_alpha_yellow", "originaux_rh", "originaux_beau_smart_girl"]);
 export const PREUVE_VUES_MIN = 200_000;
 export const PREUVE_JOURS_MAX = 30;
 export const PREUVE_R_MIN = 2;

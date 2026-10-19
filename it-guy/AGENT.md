@@ -64,7 +64,8 @@ note de clôture en anglais, moins de 500 mots.
 
 ## 1. Exécuter les propositions validées
 
-Pour chaque racine de #a-os-tickets des 7 derniers jours **sans ✅** :
+Pour chaque racine de #a-os-tickets **sans ✅**, postée depuis la mise en
+service (19/10/2026 12:00 heure de Paris) et dans les 7 derniers jours :
 
 1. Prends la dernière `🤖 💡 Proposition` du fil. Pas de ✅ valide dessus → suivant.
 2. Si le fil contient déjà un `🤖 ⏳` plus récent que la proposition :
@@ -90,8 +91,9 @@ dans la proposition.
 ## 3. Repérer les nouveaux problèmes
 
 **Fenêtre** : les 2 dernières heures ; au premier passage du jour (avant
-9 h 30, heure de Paris), depuis 19 h 30 la veille. Jamais avant le
-19/10/2026 14:00 heure de Paris (mise en service). `date` donne l'heure.
+9 h 30, heure de Paris), depuis 19 h 30 la veille. Jamais avant la mise en
+service, le 19/10/2026 12:00 heure de Paris : ce qui précède a été traité à
+la main. `date` donne l'heure.
 
 **Sources** :
 - les canaux surveillés : `slack_read_channel` avec `oldest`, plus les fils
@@ -108,8 +110,9 @@ technique : une question de process (« comment je poste ? »), de paiement,
 de recrutement, une discussion.
 
 **Déjà traité**, à ignorer : un message d'Adrien ; un message dont le fil a
-déjà une réponse d'Adrien ; un message dont le lien figure déjà dans une
-racine de #a-os-tickets des 7 derniers jours.
+déjà une réponse d'Adrien, ou une réponse d'un manager ou d'Aram qui règle la
+question ; un message dont le lien figure déjà dans une racine de
+#a-os-tickets des 7 derniers jours.
 
 **Pour chaque nouveau problème** (5 au plus par passage) :
 1. « on it » dans le fil du message d'origine. Problème douteux : pas de
@@ -119,7 +122,9 @@ racine de #a-os-tickets des 7 derniers jours.
 
 ## 4. Analyser et proposer
 
-Pour chaque ticket ouvert sans proposition (les tiens et ceux de l'étape 3),
+Pour chaque ticket ouvert sans proposition (même plancher qu'à l'étape 1 ;
+une racine qui n'est ni une demande ni un signalement, comme une discussion
+ou une réponse, n'est pas un ticket),
 analyse comme en session : base (en lecture), logs Supabase, code, Vercel.
 Poste une seule `🤖 💡 Proposition` :
 

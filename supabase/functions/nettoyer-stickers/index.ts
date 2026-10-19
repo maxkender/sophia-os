@@ -17,10 +17,12 @@ import { slideshowsDuLabel } from "../_shared/nettoyage_stickers_label.ts";
 import { assertRole, aujourdhuiParis, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 /**
- * Nettoyage stickers d'un label, mené par le serveur (migration 0317) : la page
- * peut être fermée, le cron `nettoyage-stickers-drain` reprend chaque minute.
+ * Nettoyage stickers d'un label, mené par le serveur (migrations 0317, 0318) :
+ * la page peut être fermée. Le cron `nettoyage-stickers-drain` lance chaque
+ * minute PASSAGES_PAR_MINUTE passages indépendants (`slot` 1…8), seulement
+ * quand une tâche tourne.
  *
- *   {} ou { action: "drainer" }               → un passage (cron, ou relance)
+ *   {} ou { action: "drainer", slot? }         → un passage (cron, ou relance)
  *   { action: "lancer", labelId }              → { nettoyageId } ; scan des
  *       slideshows du label (hors pods, tier A ou mieux, sans images brutes)
  *   { action: "confirmer", nettoyageId }       → retrait des slideshows à
@@ -30,20 +32,17 @@ import { assertRole, aujourdhuiParis, json, messageErreur, serviceClient } from 
  *   { action: "rejeter", nettoyageId, contenuId }  → annule un repêchage
  *       (avant le retrait seulement)
  *   { action: "annuler", nettoyageId }         → arrête un scan / une liste
- *   { action: "analyser", nettoyageId, contenuId } → interne (drain) : analyse
- *       UN slideshow déjà réservé, dans cet appel
  *
  * Un passage du drain :
- *   1. retrait : réserve les slideshows à jeter par 100, revérifie ce qui les
+ *   1. retrait (passage `slot` 1, ou relance, seulement) : réserve les slideshows à jeter par 100, revérifie ce qui les
  *      protège (encore valide, pas un pod, pas au tier A ou mieux), les passe
  *      en `rejete` en gardant de quoi les repêcher, note les posts du jour pas
  *      encore publiés qui les utilisaient ; puis remplace ces posts un à un
  *      (`revoquer-post`, même créateur, même jour, même application) ;
- *   2. scan : l'OCR d'import (`ocrSlideImport`) sur chaque slide. Chaque
- *      slideshow part dans son propre appel (action `analyser`), plusieurs à
- *      la fois : le passage du drain ne fait qu'envoyer et attendre. Une slide
- *      illisible fait repasser le slideshow plus tard, puis le compte en
- *      erreur : elle ne passe jamais pour propre.
+ *   2. scan : l'OCR d'import (`ocrSlideImport`) sur chaque slide, au plus
+ *      MAX_SLIDESHOWS_PAR_PASSAGE slideshows par passage. Une slide illisible
+ *      fait repasser le slideshow plus tard, puis le compte en erreur : elle
+ *      ne passe jamais pour propre.
  * Chaque étape s'arrête avant la coupure à 150 s ; une ligne réservée par un
  * passage mort est reprise par un suivant (réservations SKIP LOCKED).
  */
@@ -51,22 +50,24 @@ import { assertRole, aujourdhuiParis, json, messageErreur, serviceClient } from 
 type Client = ReturnType<typeof serviceClient>;
 
 /** On ne réserve plus de slideshow à analyser au-delà. */
-const BUDGET_SCAN_MS = 90_000;
+const BUDGET_SCAN_MS = 60_000;
 /** On ne lance plus de remplacement au-delà : un remplacement dure jusqu'à ~110 s. */
 const BUDGET_REMPLACEMENT_MS = 30_000;
 const DELAI_REMPLACEMENT_MS = 110_000;
 /**
- * Le scan d'un slideshow tourne dans SON appel (action `analyser`) : une Edge
- * Function n'a que ~2 s de processeur, et préparer les images pour Gemini
- * (base64) les consomme. Tout analyser dans le passage du drain le faisait
- * couper au bout de ~25 s (« CPU Time exceeded », 546, 19/10), ses slideshows
- * en cours restant bloqués. Le drain ne fait plus qu'envoyer et attendre.
- * OUVRIERS_SCAN appels en vol par passage ; SLIDES_EN_PARALLELE dans chacun.
+ * Une Edge Function n'a que ~2 s de processeur, et préparer une image pour
+ * Gemini (base64) en coûte ~15 ms : un passage qui analysait tout était coupé
+ * au bout de ~25 s (« CPU Time exceeded », 546), ses slideshows en cours
+ * restant bloqués. Un appel par slideshow lancé depuis le drain butait, lui,
+ * sur la limite d'appels entre fonctions d'une même chaîne (« Rate limit
+ * exceeded for trace »). D'où : des passages courts (au plus
+ * MAX_SLIDESHOWS_PAR_PASSAGE slideshows, ~50 slides, < 1 s de processeur),
+ * lancés en parallèle par le cron, chacun étant un appel indépendant.
+ * Débit visé : 8 passages × 8 slideshows ≈ 60 slideshows / min (19/10).
  */
-const OUVRIERS_SCAN = 10;
+const MAX_SLIDESHOWS_PAR_PASSAGE = 8;
+const OUVRIERS_SCAN = 2;
 const SLIDES_EN_PARALLELE = 4;
-/** Au-delà, le drain rend le slideshow à la file (l'appel est mort ou coincé). */
-const DELAI_ANALYSE_MS = 55_000;
 /** Un slideshow resté réservé plus longtemps (passage mort) est repris. */
 const PERIME_SCAN = "2 minutes";
 /** Remplacements menés en même temps (chacun relance une assignation). */
@@ -163,48 +164,10 @@ async function analyserSlideshow(supabase: Client, ligne: LigneSlideshow): Promi
   return statut;
 }
 
-/** Action `analyser` : UN slideshow, déjà réservé par le drain, dans cet appel. */
-async function analyserUn(supabase: Client, nettoyageId: string, contenuId: string) {
-  const { data, error } = await supabase
-    .from("nettoyages_stickers_slideshows")
-    .select("nettoyage_id, contenu_id, titre, slides, statut, tentatives, avant")
-    .eq("nettoyage_id", nettoyageId)
-    .eq("contenu_id", contenuId)
-    .maybeSingle();
-  if (error) throw error;
-  if (!data) return json({ error: "Slideshow introuvable dans ce nettoyage" }, 404);
-  const ligne = data as LigneSlideshow;
-  if (ligne.statut !== "analyse") return json({ ignore: ligne.statut });
-  return json({ statut: await analyserSlideshow(supabase, ligne) });
-}
-
-/** Appelle cette fonction (un slideshow par appel, chacun avec son budget processeur). */
-async function appelAnalyse(nettoyageId: string, contenuId: string): Promise<string | null> {
-  const url = Deno.env.get("SUPABASE_URL");
-  const secret = Deno.env.get("CRON_SECRET");
-  if (!url || !secret) return "SUPABASE_URL / CRON_SECRET absents";
-  try {
-    const res = await fetch(`${url}/functions/v1/nettoyer-stickers`, {
-      method: "POST",
-      headers: { "content-type": "application/json", "x-cron-secret": secret },
-      body: JSON.stringify({ action: "analyser", nettoyageId, contenuId }),
-      signal: AbortSignal.timeout(DELAI_ANALYSE_MS),
-    });
-    if (res.ok) {
-      await res.body?.cancel();
-      return null;
-    }
-    const r = (await res.json().catch(() => ({}))) as { error?: string; code?: string };
-    if (res.status === 546) return "temps de calcul dépassé";
-    return r.error ?? r.code ?? `HTTP ${res.status}`;
-  } catch (e) {
-    return e instanceof DOMException && e.name === "TimeoutError" ? "délai dépassé" : messageErreur(e);
-  }
-}
-
 /**
- * L'appel d'analyse a échoué : le slideshow repart tout de suite dans la file
- * (ou finit illisible après TENTATIVES_SCAN), au lieu de rester réservé.
+ * L'analyse a échoué (erreur de base, coupure) : le slideshow repart tout de
+ * suite dans la file (ou finit illisible après TENTATIVES_SCAN), au lieu de
+ * rester réservé.
  */
 async function rendreSlideshow(supabase: Client, ligne: LigneSlideshow, erreur: string) {
   const statut = ligne.tentatives < TENTATIVES_SCAN ? "a_analyser" : "erreur";
@@ -221,9 +184,11 @@ async function rendreSlideshow(supabase: Client, ligne: LigneSlideshow, erreur: 
 }
 
 async function scanner(supabase: Client, tache: Tache, debut: number) {
+  let reserves = 0;
   let analyses = 0;
   const ouvrier = async () => {
-    while (Date.now() - debut < BUDGET_SCAN_MS) {
+    while (Date.now() - debut < BUDGET_SCAN_MS && reserves < MAX_SLIDESHOWS_PAR_PASSAGE) {
+      reserves += 1;
       const { data, error } = await supabase.rpc("nettoyage_stickers_reserver", {
         p_nettoyage: tache.id,
         p_de: "a_analyser",
@@ -234,9 +199,12 @@ async function scanner(supabase: Client, tache: Tache, debut: number) {
       if (error) throw error;
       const ligne = ((data ?? []) as LigneSlideshow[])[0];
       if (!ligne) return;
-      const echec = await appelAnalyse(tache.id, ligne.contenu_id);
-      if (echec) await rendreSlideshow(supabase, ligne, echec);
-      else analyses += 1;
+      try {
+        await analyserSlideshow(supabase, ligne);
+        analyses += 1;
+      } catch (e) {
+        await rendreSlideshow(supabase, ligne, messageErreur(e));
+      }
     }
   };
   await Promise.all(Array.from({ length: OUVRIERS_SCAN }, ouvrier));
@@ -512,7 +480,7 @@ async function finirRetrait(supabase: Client, tache: Tache) {
   );
 }
 
-async function drainer(supabase: Client) {
+async function drainer(supabase: Client, slot: number | null) {
   const debut = Date.now();
   const { data, error } = await supabase
     .from("nettoyages_stickers")
@@ -522,7 +490,11 @@ async function drainer(supabase: Client) {
   if (error) throw error;
   const taches = (data ?? []) as Tache[];
   // Le retrait d'abord : il est court, et un remplacement doit démarrer tôt.
-  for (const t of taches.filter((x) => x.statut === "retrait")) await retirer(supabase, t, debut);
+  // Un seul des passages parallèles s'en charge : chaque remplacement relance
+  // une assignation, on n'en veut que quelques-uns à la fois.
+  if (slot === null || slot <= 1) {
+    for (const t of taches.filter((x) => x.statut === "retrait")) await retirer(supabase, t, debut);
+  }
   let analyses = 0;
   for (const t of taches.filter((x) => x.statut === "scan")) analyses += await scanner(supabase, t, debut);
   return { taches: taches.length, analyses, dureeMs: Date.now() - debut };
@@ -712,7 +684,7 @@ Deno.serve(async (request) => {
   const acces = await assertRole(request, ["admin"]);
   if (acces instanceof Response) return acces;
 
-  let corps: { action?: string; labelId?: string; nettoyageId?: string; contenuId?: string } = {};
+  let corps: { action?: string; labelId?: string; nettoyageId?: string; contenuId?: string; slot?: unknown } = {};
   try {
     corps = await request.json();
   } catch {
@@ -722,17 +694,16 @@ Deno.serve(async (request) => {
   try {
     const supabase = serviceClient();
     const action = corps.action ?? "drainer";
-    if (action === "drainer") return json(await drainer(supabase));
+    if (action === "drainer") {
+      const slot = Number.isFinite(Number(corps.slot)) && corps.slot !== undefined ? Number(corps.slot) : null;
+      return json(await drainer(supabase, slot));
+    }
     if (action === "lancer") {
       if (!corps.labelId) return json({ error: "labelId requis" }, 400);
       const creePar = /^[0-9a-f-]{36}$/i.test(acces.userId) ? acces.userId : null;
       return await lancer(supabase, corps.labelId, creePar);
     }
     if (!corps.nettoyageId) return json({ error: "nettoyageId requis" }, 400);
-    if (action === "analyser") {
-      if (!corps.contenuId) return json({ error: "contenuId requis" }, 400);
-      return await analyserUn(supabase, corps.nettoyageId, corps.contenuId);
-    }
     if (action === "confirmer") return await confirmer(supabase, corps.nettoyageId);
     if (action === "annuler") return await annuler(supabase, corps.nettoyageId);
     if (action === "repecher" || action === "rejeter") {
@@ -741,7 +712,7 @@ Deno.serve(async (request) => {
         ? await repecher(supabase, corps.nettoyageId, corps.contenuId)
         : await rejeter(supabase, corps.nettoyageId, corps.contenuId);
     }
-    return json({ error: "action inconnue (drainer | lancer | analyser | confirmer | repecher | rejeter | annuler)" }, 400);
+    return json({ error: "action inconnue (drainer | lancer | confirmer | repecher | rejeter | annuler)" }, 400);
   } catch (error) {
     return json({ error: messageErreur(error) }, 500);
   }

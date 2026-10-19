@@ -1,8 +1,9 @@
 /**
  * Nettoyage stickers d'un label : quels slideshows déjà importés retirer.
  *
- * Un slideshow est retiré quand une de ses slides porte un sticker d'une
- * famille choisie (pub, contenu) — sauf :
+ * Un slideshow est retiré quand une de ses slides porte un sticker PUB (app,
+ * marque, site d'un concurrent). Les stickers de contenu (livre, vidéo,
+ * article) restent : ils portent la recommandation. Sauf, toujours :
  *   - un contenu de pod (`contenus.pod`, passe-droit) ;
  *   - un contenu au tier A ou mieux, pour Sophia (`contenus.tier`) ou pour une
  *     autre application (`contenu_application_tier_etat`, lignes éligibles) ;
@@ -10,8 +11,6 @@
  *     sticker du tout (consigne de `ocrSlideImport`).
  * Retirer = `statut = rejete` : le slideshow sort de toutes les réserves.
  */
-
-export type FamilleNettoyage = "pub" | "contenu";
 
 /** Tiers gardés quoi qu'il arrive : A et au-dessus. */
 export const TIERS_PROTEGES: ReadonlySet<string> = new Set(["A", "S", "S+"]);
@@ -21,15 +20,7 @@ export function tierProtege(tiers: ReadonlyArray<string | null | undefined>): bo
   return tiers.some((t) => typeof t === "string" && TIERS_PROTEGES.has(t.trim().toUpperCase()));
 }
 
-/** Une slide porte un sticker d'une des familles choisies. */
-export function porteSticker(
-  slides: ReadonlyArray<{ sticker: FamilleNettoyage | null }>,
-  familles: ReadonlyArray<FamilleNettoyage>,
-): boolean {
-  return slides.some((s) => s.sticker !== null && familles.includes(s.sticker));
-}
-
 /** Motif écrit sur le contenu retiré (`import_erreur`). */
 export function motifRetrait(libelleLabel: string | null): string {
-  return `Sticker (nettoyage stickers${libelleLabel ? ` du label ${libelleLabel}` : ""}) — retiré`;
+  return `Sticker pub (nettoyage stickers${libelleLabel ? ` du label ${libelleLabel}` : ""}) — retiré`;
 }

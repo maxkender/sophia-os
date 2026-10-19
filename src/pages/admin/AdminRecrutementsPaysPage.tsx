@@ -57,7 +57,7 @@ export function AdminRecrutementsPaysPage() {
 
   if (!estPaysOs(pays)) return <Navigate to="/admin/recrutements" replace />;
 
-  const hmsPays = hms.filter((h) => hmConcernePays(h, pays));
+  const hmsPays = hms.filter((h) => hmConcernePays(h, pays, createurs));
   const phase0 = hmsPays.filter((h) =>
     phasesHmPourPays(h, createursDuHmPays(createurs, h.id, pays), pays).includes(0),
   );

@@ -60,6 +60,7 @@ import {
   type ClassementReglages,
 } from "./classementComptes";
 import type { LigneJournalOubli } from "./oubliSource";
+import type { SlideshowStickerTest, StickerTestResultat } from "./testStickers";
 import { type MajSourcesRun } from "./majSequentielle";
 import { compteEnProcessus } from "./warmup";
 import { ugcVisages } from "./ugcVisages";
@@ -3349,6 +3350,20 @@ export async function listerMediasPourContenu(contenuId: string): Promise<Media[
   }
 
   return [...byId.values()];
+}
+
+/** Test à blanc stickers : n slideshows valides tirés au hasard, avec leurs images brutes. */
+export async function tirerSlideshowsStickers(n: number): Promise<SlideshowStickerTest[]> {
+  const r = await invoke<{ slideshows: SlideshowStickerTest[] }>("test-stickers", {
+    action: "tirer",
+    n,
+  });
+  return r.slideshows ?? [];
+}
+
+/** Test à blanc stickers : l'OCR d'import sur chaque slide d'UN slideshow (rien n'est écrit). */
+export async function analyserStickersSlideshow(contenuId: string): Promise<StickerTestResultat> {
+  return invoke<StickerTestResultat>("test-stickers", { action: "analyser", contenuId });
 }
 
 /** Nettoyage de test NON destructif : renvoie l'image nettoyée sans rien écraser. */

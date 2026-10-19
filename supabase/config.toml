@@ -173,6 +173,9 @@ verify_jwt = false
 [functions.suivi-rc]
 verify_jwt = false
 
+[functions.test-stickers]
+verify_jwt = false
+
 [functions.traduire-doc]
 verify_jwt = false
 

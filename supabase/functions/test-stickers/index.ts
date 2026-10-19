@@ -1,4 +1,5 @@
 import { ocrSlideImport } from "../_shared/gemini.ts";
+import { lireParLots, lireTout } from "../_shared/lots.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 /**
@@ -8,8 +9,9 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
  *
  *   { action: "tirer", n?: 100 }
  *     → { slideshows: [{ id, titre, created_at, slides: [{ position, url }] }] }
- *     n slideshows valides tirés au hasard parmi les POOL derniers imports qui
- *     ont gardé leurs images brutes (celles que l'OCR d'import lit).
+ *     n slideshows tirés au hasard parmi TOUS les imports valides qui ont
+ *     gardé leurs images brutes (celles que l'OCR d'import lit) — lecture
+ *     paginée, PostgREST plafonnant une réponse à 1 000 lignes.
  *   { action: "analyser", contenuId }
  *     → { id, sticker, slides: [{ position, url, sticker, texte, erreur? }] }
  *     l'OCR d'import sur chaque slide, en parallèle. L'import s'arrête au
@@ -20,7 +22,6 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
  * Edge Function.
  */
 
-const POOL = 2000;
 const N_MAX = 200;
 
 interface SlideBrute {
@@ -49,26 +50,31 @@ function tirer<T>(liste: T[], n: number): T[] {
 
 async function tirerSlideshows(n: number) {
   const supabase = serviceClient();
-  const { data: pool, error } = await supabase
-    .from("contenus")
-    .select("id")
-    .eq("statut", "valide")
-    .eq("import_statut", "done")
-    .not("structure_slides->0->>raw_url", "is", null)
-    .order("created_at", { ascending: false })
-    .limit(POOL);
-  if (error) throw error;
+  const pool = await lireTout<{ id: string }>(
+    "Slideshows importés à images brutes",
+    (curseur, taille) => {
+      let q = supabase
+        .from("contenus")
+        .select("id")
+        .eq("statut", "valide")
+        .eq("import_statut", "done")
+        .not("structure_slides->0->>raw_url", "is", null);
+      if (curseur) q = q.gt("id", curseur.id);
+      return q.order("id", { ascending: true }).limit(taille);
+    },
+    { ancre: (c) => c.id },
+  );
 
-  const ids = tirer((pool ?? []).map((r) => r.id as string), n);
+  const ids = tirer(pool.map((r) => r.id), n);
   if (ids.length === 0) return { slideshows: [] };
 
-  const { data, error: e2 } = await supabase
-    .from("contenus")
-    .select("id, titre, created_at, structure_slides")
-    .in("id", ids);
-  if (e2) throw e2;
+  const data = await lireParLots<Record<string, unknown>>(
+    ids,
+    "Slideshows tirés",
+    (lot) => supabase.from("contenus").select("id, titre, created_at, structure_slides").in("id", lot),
+  );
 
-  const slideshows = (data ?? [])
+  const slideshows = data
     .map((c) => ({
       id: c.id as string,
       titre: (c.titre as string | null) ?? null,

@@ -11,8 +11,10 @@ describe("échéance de publication", () => {
     expect(echeancePublication("2026-10-19", "FR").toISOString()).toBe("2026-10-19T22:00:00.000Z");
     // US → Los Angeles (PDT, UTC-7) : le plus à l'ouest.
     expect(echeancePublication("2026-10-19", "US").toISOString()).toBe("2026-10-20T07:00:00.000Z");
-    // NZ (NZDT, UTC+13).
-    expect(echeancePublication("2026-10-19", "NZ").toISOString()).toBe("2026-10-19T11:00:00.000Z");
+    // NZ (NZDT, UTC+13) : jamais avant minuit Paris (0320), sinon 13 h seulement.
+    expect(echeancePublication("2026-10-19", "NZ").toISOString()).toBe("2026-10-19T22:00:00.000Z");
+    // Turquie (UTC+3) : minuit Paris aussi, une heure après minuit à Istanbul.
+    expect(echeancePublication("2026-10-19", "TR").toISOString()).toBe("2026-10-19T22:00:00.000Z");
     // Après le passage à l'heure d'hiver à Paris (25/10).
     expect(echeancePublication("2026-10-26", "FR").toISOString()).toBe("2026-10-26T23:00:00.000Z");
     // Jour du changement d'heure lui-même.

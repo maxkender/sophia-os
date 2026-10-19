@@ -2410,7 +2410,8 @@ export const en = {
       delaiBouton: "Available in {{minutes}} min",
       delaiRefus: "Too soon: wait {{minutes}} more min before posting on this account.",
       lienDejaUtilise:
-        "This link is for a TikTok post you already used for another slideshow ({{date}}). Open the post of THIS slideshow on TikTok, tap Share, then Copy link, and paste it here.",
+        "This link is already on another of your slideshows (marked {{date}}). If you pasted it on the wrong one, open that slideshow, tap Edit link, paste the link of its own post, then come back here. Otherwise, open the post of THIS slideshow on TikTok, tap Share, then Copy link, and paste it here.",
+      lienDejaUtiliseOuvrir: "Open the other slideshow →",
       valider: "Approve this post",
       valide: "Approved",
       monterSlide: "Move up",

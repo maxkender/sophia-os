@@ -236,7 +236,11 @@ tapé dans le texte, le fond coloré derrière le texte, ni le watermark TikTok
 - CONTENU : le sticker porte la recommandation elle-même — couverture de livre,
   capture d'une vidéo YouTube, d'un article ou d'un podcast, note ou liste
   collée. Transcris la slide normalement, puis ajoute une dernière ligne
-  exactement : (sticker contenu)`;
+  exactement : (sticker contenu)
+Jamais une PUB, toujours du CONTENU :
+- nos applis : Sophia, UnSwipe, Micabo (carte, icône ou capture) ;
+- une grande plateforme citée comme outil dans le conseil de la slide :
+  LinkedIn, YouTube, Spotify, Substack, Google, Wikipedia, Instagram…`;
 
 /**
  * OCR seul, slide par slide : transcrit le texte incrusté en langue d'origine.

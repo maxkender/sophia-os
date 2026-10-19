@@ -50,9 +50,15 @@ const BUDGET_SCAN_MS = 90_000;
 /** On ne lance plus de remplacement au-delà : un remplacement dure jusqu'à ~110 s. */
 const BUDGET_REMPLACEMENT_MS = 30_000;
 const DELAI_REMPLACEMENT_MS = 110_000;
-/** Slideshows analysés en même temps par passage, et slides par slideshow. */
-const OUVRIERS_SCAN = 6;
-const SLIDES_EN_PARALLELE = 3;
+/**
+ * Slideshows analysés en même temps par passage, et slides par slideshow.
+ * 6 × 3 faisait ~30 slideshows / min (alpha_male_yellow, 19/10) : un appel
+ * Gemini dure ~7 s, le téléchargement est court. 10 × 5 = 50 appels en vol :
+ * ~3× plus vite, en restant loin de la mémoire de la fonction (chaque image
+ * en base64 est gardée le temps de son appel).
+ */
+const OUVRIERS_SCAN = 10;
+const SLIDES_EN_PARALLELE = 5;
 /** Remplacements menés en même temps (chacun relance une assignation). */
 const OUVRIERS_REMPLACEMENT = 2;
 const TENTATIVES_REMPLACEMENT = 2;

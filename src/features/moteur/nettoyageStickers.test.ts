@@ -1,51 +1,43 @@
 import { describe, expect, it } from "vitest";
 
-import { aRetirer, enLots, formatDuree, ligneAnalyse, resumeIgnores, tempsRestant } from "./nettoyageStickers";
-import type { StickerTestResultat } from "./testStickers";
+import { avancement, formatDuree, tempsRestant, tonLigne, tourne } from "./nettoyageStickers";
 
-const resultat = (stickers: Array<"pub" | "contenu" | null>): StickerTestResultat => ({
-  id: "x",
-  rejete: stickers.includes("pub"),
-  contenu: stickers.includes("contenu"),
-  slides: stickers.map((sticker, i) => ({ position: i + 1, url: `u${i}`, sticker, texte: "" })),
-});
-
-describe("aRetirer", () => {
-  it("retire seulement les slideshows avec un sticker pub", () => {
-    expect(aRetirer(resultat([null, "pub"]))).toBe(true);
-    expect(aRetirer(resultat(["contenu", "pub"]))).toBe(true);
+describe("avancement", () => {
+  it("compte le scan, la liste à jeter et les remplacements", () => {
+    const a = avancement({
+      slideshows: { a_analyser: 5, analyse: 2, propre: 80, pub: 6, retrait: 1, repeche: 2, erreur: 1, retire: 3 },
+      posts: { a_remplacer: 1, remplacement: 1, remplace: 4, sans_remplacant: 1, ignore: 1 },
+    });
+    expect(a.total).toBe(100);
+    expect(a.analyses).toBe(93);
+    expect(a.pubs).toBe(7);
+    expect(a.repeches).toBe(2);
+    expect(a.erreurs).toBe(1);
+    expect(a.retires).toBe(3);
+    expect(a.posts).toEqual({ total: 8, faits: 6, remplaces: 4, sansRemplacant: 1, ignores: 1, erreurs: 0 });
   });
 
-  it("sticker de contenu seul, ou aucun sticker : gardé", () => {
-    expect(aRetirer(resultat([null, "contenu"]))).toBe(false);
-    expect(aRetirer(resultat([null, null]))).toBe(false);
-  });
-});
-
-describe("enLots", () => {
-  it("découpe en lots de taille fixe, le dernier plus court", () => {
-    expect(enLots([1, 2, 3, 4, 5], 2)).toEqual([[1, 2], [3, 4], [5]]);
-    expect(enLots([], 100)).toEqual([]);
+  it("sans compteurs : tout à zéro", () => {
+    expect(avancement(null).total).toBe(0);
+    expect(avancement(undefined).posts.total).toBe(0);
   });
 });
 
-describe("journal", () => {
-  const s = { id: "abcdef1234", titre: "#reading #smart #phone" };
-  it("ligne d'analyse : pub, propre, erreur", () => {
-    expect(ligneAnalyse(s, { statut: "ok", resultat: resultat([null, "pub", "contenu", "pub"]) })).toBe(
-      "✗ PUB slides 2, 4 — #reading #smart #phone",
-    );
-    expect(ligneAnalyse(s, { statut: "ok", resultat: resultat([null, "contenu"]) })).toBe("✓ #reading #smart #phone");
-    expect(ligneAnalyse({ id: "abcdef1234", titre: null }, { statut: "erreur", message: "Gemini 503" })).toBe(
-      "⚠ abcdef12 — erreur : Gemini 503",
-    );
+describe("statut et journal", () => {
+  it("seuls le scan et le retrait tournent côté serveur", () => {
+    expect(tourne("scan")).toBe(true);
+    expect(tourne("retrait")).toBe(true);
+    expect(tourne("a_confirmer")).toBe(false);
+    expect(tourne("termine")).toBe(false);
+    expect(tourne(null)).toBe(false);
   });
 
-  it("raisons des ignorés regroupées", () => {
-    expect(resumeIgnores([{ raison: "pod" }, { raison: "tier A ou mieux" }, { raison: "pod" }])).toBe(
-      "pod ×2, tier A ou mieux ×1",
-    );
-    expect(resumeIgnores([])).toBe("");
+  it("couleur des lignes", () => {
+    expect(tonLigne("✗ PUB slide 2 — titre")).toBe("alerte");
+    expect(tonLigne("⚠ titre — erreur : 503")).toBe("alerte");
+    expect(tonLigne("↻ post abc → nouveau post def")).toBe("action");
+    expect(tonLigne("↩ repêché : titre")).toBe("action");
+    expect(tonLigne("✓ titre")).toBe("neutre");
   });
 
   it("durées et temps restant", () => {

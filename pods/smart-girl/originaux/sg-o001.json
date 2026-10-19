@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o001",
+ "schema_id": "vocabulary-words",
+ "titre": "5 words that will instantly expand your vocabulary #vocabulary #wordoftheday #englishwords #smartgirl #booktok",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "367627d1-175c-4fe0-8fff-45c923d6906d",
+  "46118b58-708c-4012-b3d2-143b20410565"
+ ],
+ "notes": "Schéma vocabulary-words (r 12,11 sur 7 passages, 367627d1 ; r 9,74, 95348884 ; r 5,79, 46118b58 ; r 4,29 sur 12, a7697985). Accroches écrites : « 5 words that will instantly expand your vocabulary » (retenue : le gagnant à 242 k vues, avec « instantly »), « 5 words that make you sound effortlessly well-read » (écartée : plus loin du gabarit), « words i stole from old novels to sound smarter » (écartée : promesse non prouvée). Cinq mots absents des 659 contenus du label (vérifié dans donnees/label.json ; halcyon, ineffable, sanguine et laconic y étaient déjà) : ebullient, reticent, lucid, pensive, autodidact. Définitions et prononciations reprises du sens courant du dictionnaire. Sophia sur le dernier mot (autodidact), comme les gagnants (« erudite… with an app like Sophia »), avec la formule « a micro-learning app like the Sophia app ». Images : captures de la série (style @gilmoreobssesed) pour l'accroche, les mots et la fin ; la slide Sophia sur des étagères de livres, sans personne réelle. Inspirations : slides 1 à 7 de 367627d1.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "28496760",
+   "texte_overlay": "5 words that will\ninstantly expand\nyour vocabulary",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "763080cb",
+   "texte_overlay": "Ebullient: cheerful and\nfull of energy\n(ih-BUL-yuhnt)\n\nExample:\nHer ebullient laugh filled\nthe whole café.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "53d69e68",
+   "texte_overlay": "Reticent: slow to share your\nthoughts or feelings\n(RET-uh-suhnt)\n\nExample:\nShe stayed reticent about\nher plans.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "253c1584",
+   "texte_overlay": "Lucid: clear and easy to\nunderstand\n(LOO-sid)\n\nExample:\nHer answer was short and\nlucid.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5992eea1",
+   "texte_overlay": "Pensive: lost in deep or\nserious thought\n(PEN-siv)\n\nExample:\nShe looked pensive by the\nwindow.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "312a65e8",
+   "texte_overlay": "Autodidact: a self-taught\nperson\n(aw-toh-DY-dakt)\n\nExample:\nShe became an autodidact,\nlearning something new\nevery morning.",
+   "texte_sophia": "Autodidact: a self-taught\nperson\n(aw-toh-DY-dakt)\n\nExample:\nShe became an autodidact with\na micro-learning app like the\nSophia app, 5 minutes a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9be5d884",
+   "texte_overlay": "follow for more daily words\nwhich one are you using today?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596335419705347350/7.jpg"
+  }
+ ]
+}

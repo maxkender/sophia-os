@@ -42,6 +42,24 @@ Deno.test("citeConcurrent : bycat et l'appli actualize (label beau_smart_girl), 
   assertEquals(citeConcurrent("i walked by cat cafés every day"), false);
 });
 
+Deno.test("citeConcurrent : elqo et unscroll (label smart_girl)", () => {
+  assertEquals(citeConcurrent("practicing my public speaking\non elqo.app for 5 min"), true);
+  assertEquals(citeConcurrent("vorbitul în public (încearcă www.elqo.app ca să exersezi)"), true);
+  assertEquals(citeConcurrent("unscroll: the curated internet\ncontent worth your time"), true);
+  assertEquals(citeConcurrent("εγώ χρησιμοποιώ το unscroll"), true);
+  assertEquals(citeConcurrent("i stopped the endless scroll"), false);
+  assertEquals(retirerConcurrent("mluvení na veřejnosti (zkus elqo.app, je to zadarmo)"), "mluvení na veřejnosti");
+});
+
+Deno.test("citeConcurrent : l'appli kodi ai, pas le mot « kodi » (codes en slovène)", () => {
+  assertEquals(citeConcurrent("i use the kodi ai app to train my voice"), true);
+  assertEquals(citeConcurrent("ive been using the kodi al app\nto practice"), true);
+  assertEquals(citeConcurrent("użyj aplikacji kodi ai, żeby ćwiczyć"), true);
+  assertEquals(citeConcurrent("frei sprechen üben\n(nutz die kodi ai app)"), true);
+  assertEquals(citeConcurrent("cheat kodi za tvoja 20-a\n(ki te bodo brutalno potisnili naprej)"), false);
+  assertEquals(retirerConcurrent("frei sprechen üben\n(nutz die kodi ai app)"), "frei sprechen üben");
+});
+
 Deno.test("retirerConcurrent : turboresume retiré, le reste de la slide gardé", () => {
   assertEquals(
     retirerConcurrent("4\n« ce trou dans votre cv ? »\ntu réponds\n« un projet perso et une formation »\nmon cv racontait déjà ça : adapté à l'offre avec turboresume, le trou devient une compétence"),
@@ -105,7 +123,7 @@ Deno.test("motif par application : Sophia (et inconnue) = le motif d'avant, Unsw
   assertStrictEquals(motifConcurrentApplication(" Unswipe "), MOTIF_CONCURRENT_UNSWIPE);
   assertEquals(
     MOTIF_CONCURRENT.source,
-    String.raw`\b(vent[\s-]?now|readup|turbo[\s-]?resume|bycat|(?<!self[\s-])actualize(?!\s+(?:your|my|our|their|his|her|its|the|a|an|yourself|myself|ourselves|themselves|oneself)\b))\b`,
+    String.raw`\b(vent[\s-]?now|readup|turbo[\s-]?resume|bycat|unscroll|elqo|kodi[\s-]+(?:a[il]|app)|(?<!self[\s-])actualize(?!\s+(?:your|my|our|their|his|her|its|the|a|an|yourself|myself|ourselves|themselves|oneself)\b))\b`,
   );
   assertEquals(MOTIF_CONCURRENT.flags, "i");
   // Les concurrents de Sophia le sont aussi d'Unswipe.
@@ -117,8 +135,6 @@ Deno.test("motif par application : Sophia (et inconnue) = le motif d'avant, Unsw
 Deno.test("Unswipe : les applis de temps d'écran sont reconnues", () => {
   for (const texte of [
     "2. j'ai installé Opal pour bloquer TikTok",
-    "i use unscroll: it blocks the apps that waste your time",
-    "bunu aşmamı sağlayan şey unscroll uygulaması oldu",
     "the one sec app makes you breathe before opening instagram",
     "onesec changed my mornings",
     "ScreenZen is free",
@@ -139,6 +155,15 @@ Deno.test("Unswipe : les applis de temps d'écran sont reconnues", () => {
     assertEquals(citeConcurrent(texte, UNSWIPE), true, texte);
     // Le motif Sophia n'en voit aucune : Sophia ne change pas.
     assertEquals(citeConcurrent(texte), false, `Sophia : ${texte}`);
+  }
+  // Unscroll propose un article à lire à la place des applis bloquées : il est
+  // aussi concurrent de Sophia.
+  for (const texte of [
+    "i use unscroll: it blocks the apps that waste your time",
+    "bunu aşmamı sağlayan şey unscroll uygulaması oldu",
+  ]) {
+    assertEquals(citeConcurrent(texte, UNSWIPE), true, texte);
+    assertEquals(citeConcurrent(texte), true, `Sophia : ${texte}`);
   }
 });
 
@@ -178,9 +203,12 @@ Deno.test("Unswipe : position imposée et nettoyage avec le motif de l'applicati
     { position: 4, texte_overlay: "3. lecture avant de dormir. merci unscroll pour ça." },
   ];
   assertEquals(positionConcurrent(slides, UNSWIPE), 3);
-  // Motif Sophia par défaut : rien vu, comportement d'avant.
-  assertEquals(positionConcurrent(slides), undefined);
-  assertEquals(sansConcurrent(slides).modifie, false);
+  // Motif Sophia : Opal n'est pas un concurrent de Sophia, unscroll si (il
+  // propose un article à lire à la place des applis bloquées).
+  assertEquals(positionConcurrent(slides), 4);
+  const sophia = sansConcurrent(slides);
+  assertEquals(sophia.slides[2].texte_overlay, "2. j'ai installé Opal pour bloquer TikTok");
+  assertEquals(sophia.slides[3].texte_overlay, "3. lecture avant de dormir.");
 
   const r = sansConcurrent(slides, UNSWIPE);
   assertEquals(r.modifie, true);

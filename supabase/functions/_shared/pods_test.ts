@@ -148,6 +148,7 @@ Deno.test("verifierOriginal : positions, images, une slide Sophia, inspiration, 
   assertEquals(verifierOriginal(avec(5, { texte_overlay: "the vent now app helped" })).length, 1);
   assertEquals(verifierOriginal(avec(4, { texte_overlay: "adapté à l'offre avec turboresume" })).length, 1);
   assertEquals(verifierOriginal(avec(4, { texte_overlay: "je mets mes cours dans bycat" })).length, 1);
+  assertEquals(verifierOriginal(avec(4, { texte_overlay: "i practice on elqo.app every day" })).length, 1);
   assertEquals(verifierOriginal(avec(0, { texte_overlay: "x".repeat(121) })).length, 1);
   assertEquals(verifierOriginal(avec(5, { texte_overlay: " " })), ["#6 : texte vide"]);
   assertEquals(verifierOriginal(avec(4, { texte_sophia: null })), ["0 slide(s) Sophia (une seule attendue)"]);
@@ -156,8 +157,13 @@ Deno.test("verifierOriginal : positions, images, une slide Sophia, inspiration, 
   assertEquals(verifierOriginal(avec(2, { reference_url: "https://p16.tiktokcdn.com/x.jpg" })).length, 1);
 });
 
-Deno.test("PODS_AVEC_PREUVE : pods 4, 5 et 7 seulement", () => {
-  assertEquals([...PODS_AVEC_PREUVE].sort(), ["originaux_alpha_yellow", "originaux_beau_smart_girl", "originaux_rh"]);
+Deno.test("PODS_AVEC_PREUVE : pods 4, 5, 7 et 8 seulement", () => {
+  assertEquals([...PODS_AVEC_PREUVE].sort(), [
+    "originaux_alpha_yellow",
+    "originaux_beau_smart_girl",
+    "originaux_rh",
+    "originaux_smart_girl",
+  ]);
 });
 
 Deno.test("verifierPreuve : 200 k vues en 30 jours suffisent ; sinon des contenus du label à faire mesurer par l'OS", () => {

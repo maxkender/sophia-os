@@ -1,0 +1,12 @@
+{
+  "note": "Comptes relevés par `npm run veille` : les comptes de référence du label smart_girl dans l'OS (tous en anglais). Retire un compte qui ne publie plus ou tombe sous 2 k vues médianes sur 30 jours ; ajoute un compte de la niche « smart girl » (culture, lecture, éloquence, habitudes) trouvé par --decouvrir quand il fait des vues ce mois-ci (au moins un diaporama à 100 k vues en 30 jours). Jamais un compte qui pousse une appli concurrente de Sophia. Retirés le 19/10 : @speakbetter14 (plus rien depuis le 05/07) et @brookeandbloom (1 k vues médianes sur 30 jours).",
+  "comptes": [
+    "gilmoreobssesed",
+    "richgirlacadmy_1",
+    "b3tteryou",
+    "leah.internet.hoarder",
+    "better.with.ava",
+    "diane.ellsworthh",
+    "c0coa_candle"
+  ]
+}

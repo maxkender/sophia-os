@@ -1,0 +1,63 @@
+{
+ "source_id": "bsg-o004",
+ "schema_id": "dangereusement-cultivee",
+ "titre": "les habitudes pour devenir dangereusement cultivée (et en finir avec le brain rot) #pourtoi #culture #apprentissage #education",
+ "musique_titre": "son original - martin",
+ "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+ "inspirations": [
+  "2e2ef1c3-2f69-4e42-aa4f-198428dea685",
+  "1a941e8c-f02f-4d72-b5a5-4f37e5154273"
+ ],
+ "notes": "Schéma dangereusement-cultivee (r 2,96 sur 8 passages, 2e2ef1c3 ; r 2,29, 1a941e8c ; r 2,04, 1c433d7b). Accroches écrites : « les habitudes pour devenir dangereusement cultivée (et en finir avec le brain rot) » (retenue : l'excès du schéma et la parenthèse du gagnant à r 2,04), « comment devenir scandaleusement cultivée en 5 minutes par jour » (écartée : promesse chiffrée, trop proche d'une pub), « les habitudes de la fille dangereusement intelligente que personne ne remarque » (écartée : plus vague). Habitudes en « tu », culture concrète et aucune promesse scientifique : ce qui s'est passé à cette date dans l'histoire, un siècle par mois, la vie de l'auteur avant le livre, l'histoire derrière une œuvre de musique, une question au-dessus du lit, 5 minutes d'apprentissage au lieu du scroll du soir. Rien de repris des sources (oméga 3, instrument, sudoku, sommeil, lecture, ennui, thé, écriture, curiosité, podcasts). Seul fait : les Quatre Saisons de Vivaldi sont quatre concertos, un par saison (vrai). Sophia sur le dernier item (6), la place du schéma. Images de la banque : la fille qui lit, regard baissé (accroche), la bibliothèque sombre, la fille au livre sur le canapé, la fille au grenier, la cuisine dorée, la fille à la fenêtre, le bol de matcha, la fille endormie. Inspirations : slides 2, 3, 5, 6, 7 de 2e2ef1c3, 1, 2, 5 de 1a941e8c (sa 4 cite une appli ; 1c433d7b écartée, ses slides montrent des applis).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4c52a5b4",
+   "texte_overlay": "les habitudes pour devenir\ndangereusement cultivée\n(et en finir avec le brain rot)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602039108269133078/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5a0d03c7",
+   "texte_overlay": "1. demande-toi chaque matin ce qui s'est passé à cette date.\n\nil y a toujours une bataille, une découverte ou un livre sorti ce jour-là.\ntu le cherches, tu le racontes au déj. essaie-le 3 jours.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a735581e",
+   "texte_overlay": "2. choisis un siècle par mois.\n\nun livre, un peintre et une invention de cette époque.\nau bout d'un an, l'histoire devient une frise dans ta tête.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f159d918",
+   "texte_overlay": "3. lis la vie de l'auteur avant son livre.\n\nqui il était, quand il a écrit, contre quoi il se battait.\nle livre devient une conversation avec quelqu'un.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8ba75f58",
+   "texte_overlay": "4. écoute la musique en connaissant son histoire.\n\nles quatre saisons de vivaldi, c'est quatre concertos, un par saison.\nquand tu le sais, tu entends le printemps arriver.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "aee9b83a",
+   "texte_overlay": "5. colle une question au-dessus de ton lit.\n\n« pourquoi le ciel est bleu ? » « qui a inventé le zéro ? »\ntu cherches la réponse avant de dormir. pas une vidéo, la réponse.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646443168124259597/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "eddd310d",
+   "texte_overlay": "6. remplace ton scroll du soir par 5 minutes d'apprentissage.\n\nde l'histoire, de l'art ou des sciences, en petites doses.\nton cerveau aime déjà les formats courts. donne-lui des vrais.",
+   "texte_sophia": "6. remplace ton scroll du soir par l'appli Sophia.\n\n5 minutes d'histoire, d'art ou de sciences, en petites doses.\nton cerveau aime déjà les formats courts. donne-lui des vrais.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602039108269133078/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "aea7ecf2",
+   "texte_overlay": "vole-moi une habitude, enregistre.\nlaquelle tu testes ce soir ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602039108269133078/2.jpg"
+  }
+ ]
+}

@@ -61,7 +61,13 @@ import {
 } from "./classementComptes";
 import type { LigneJournalOubli } from "./oubliSource";
 import type { SlideshowStickerTest, StickerTestResultat } from "./testStickers";
-import type { ResultatNettoyageStickers, SlideshowsLabelStickers } from "./nettoyageStickers";
+import {
+  STATUTS_LISTE,
+  type CompteursNettoyage,
+  type LigneJournalNettoyage,
+  type NettoyageStickers,
+  type SlideshowNettoyage,
+} from "./nettoyageStickers";
 import { type MajSourcesRun } from "./majSequentielle";
 import { compteEnProcessus } from "./warmup";
 import { ugcVisages } from "./ugcVisages";
@@ -3367,21 +3373,73 @@ export async function analyserStickersSlideshow(contenuId: string): Promise<Stic
   return invoke<StickerTestResultat>("test-stickers", { action: "analyser", contenuId });
 }
 
-/** Nettoyage stickers : slideshows d'un label que le nettoyage peut retirer (lecture seule). */
-export async function listerSlideshowsLabelStickers(labelId: string): Promise<SlideshowsLabelStickers> {
-  return invoke<SlideshowsLabelStickers>("test-stickers", { action: "label", labelId });
+/** Nettoyage stickers d'un label : lance le scan côté serveur (ou renvoie celui qui tourne déjà). */
+export async function lancerNettoyageStickers(labelId: string): Promise<{ nettoyageId: string; deja?: boolean }> {
+  return invoke<{ nettoyageId: string; deja?: boolean }>("nettoyer-stickers", { action: "lancer", labelId });
 }
 
-/** Nettoyage stickers : retire ≤ 100 slideshows (statut rejete) et liste les posts du jour à remplacer. */
-export async function appliquerNettoyageStickers(
-  contenuIds: string[],
-  label: string | null,
-): Promise<ResultatNettoyageStickers> {
-  return invoke<ResultatNettoyageStickers>("nettoyer-stickers", {
-    action: "appliquer",
-    contenuIds,
-    ...(label ? { label } : {}),
-  });
+/** Nettoyage stickers : « Tout jeter » (retrait + remplacement des posts du jour) ou arrêt du scan. */
+export async function actionNettoyageStickers(action: "confirmer" | "annuler", nettoyageId: string): Promise<void> {
+  await invoke<{ ok: boolean }>("nettoyer-stickers", { action, nettoyageId });
+}
+
+/** Nettoyage stickers : repêche un slideshow (gardé, ou remis en valide s'il était jeté), ou annule le repêchage. */
+export async function repecherSlideshowStickers(
+  action: "repecher" | "rejeter",
+  nettoyageId: string,
+  contenuId: string,
+): Promise<void> {
+  await invoke<{ ok: boolean }>("nettoyer-stickers", { action, nettoyageId, contenuId });
+}
+
+const COLONNES_NETTOYAGE =
+  "id, label_id, label_nom, statut, total, pods, proteges, sans_images, created_at, scan_fini_at, retrait_lance_at, fini_at";
+
+/** Dernier nettoyage stickers d'un label, ou le dernier tout court. */
+export async function dernierNettoyageStickers(labelId?: string): Promise<NettoyageStickers | null> {
+  let q = supabase.from("nettoyages_stickers").select(COLONNES_NETTOYAGE);
+  if (labelId) q = q.eq("label_id", labelId);
+  const { data, error } = await q.order("created_at", { ascending: false }).limit(1).maybeSingle();
+  if (error) throw error;
+  return (data as NettoyageStickers | null) ?? null;
+}
+
+export async function lireNettoyageStickers(id: string): Promise<NettoyageStickers | null> {
+  const { data, error } = await supabase.from("nettoyages_stickers").select(COLONNES_NETTOYAGE).eq("id", id).maybeSingle();
+  if (error) throw error;
+  return (data as NettoyageStickers | null) ?? null;
+}
+
+export async function compteursNettoyageStickers(id: string): Promise<CompteursNettoyage> {
+  const { data, error } = await supabase.rpc("nettoyage_stickers_compteurs", { p_nettoyage: id });
+  if (error) throw error;
+  return (data as CompteursNettoyage | null) ?? { slideshows: {}, posts: {} };
+}
+
+/** Lignes du journal après `apresId`, dans l'ordre (≤ 1 000 par appel : rappeler tant qu'il en vient 1 000). */
+export async function journalNettoyageStickers(id: string, apresId: number): Promise<LigneJournalNettoyage[]> {
+  const { data, error } = await supabase
+    .from("nettoyages_stickers_journal")
+    .select("id, at, ligne")
+    .eq("nettoyage_id", id)
+    .gt("id", apresId)
+    .order("id", { ascending: true })
+    .limit(1000);
+  if (error) throw error;
+  return (data ?? []) as LigneJournalNettoyage[];
+}
+
+/** Slideshows à jeter, jetés, repêchés ou laissés d'un nettoyage (les plus récents d'abord). */
+export async function slideshowsNettoyageStickers(id: string): Promise<SlideshowNettoyage[]> {
+  const { data, error } = await supabase
+    .from("nettoyages_stickers_slideshows")
+    .select("contenu_id, titre, tier, contenu_cree_at, slides, statut, erreur, raison, avant")
+    .eq("nettoyage_id", id)
+    .in("statut", [...STATUTS_LISTE])
+    .order("contenu_cree_at", { ascending: false })
+    .limit(1000);
+  if (error) throw error;
+  return (data ?? []) as SlideshowNettoyage[];
 }
 
 /** Nettoyage de test NON destructif : renvoie l'image nettoyée sans rien écraser. */

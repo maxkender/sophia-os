@@ -1,4 +1,4 @@
-import { render, screen, waitFor, within } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MemoryRouter } from "react-router-dom";
 import { beforeEach, describe, expect, it, vi } from "vitest";
@@ -13,8 +13,14 @@ const lireCibleRepartitionApps = vi.fn();
 const lireRecruesSite = vi.fn();
 const lireReglagesRepartition = vi.fn();
 
+const lireChoixApplicationAuto = vi.fn();
+const ecrireChoixApplicationAuto = vi.fn();
+
 vi.mock("@/features/moteur/repartition/apiRepartition", () => ({
   PROVENANCE_JOURS: 30,
+  CLE_CHOIX_APPLICATION_AUTO: "choix_application_auto",
+  lireChoixApplicationAuto: () => lireChoixApplicationAuto(),
+  ecrireChoixApplicationAuto: (actif: boolean) => ecrireChoixApplicationAuto(actif),
   ecrireCibleRepartitionApps: vi.fn(),
   lireCibleRepartitionApps: (slugs: readonly string[]) => lireCibleRepartitionApps(slugs),
   lireMarchesApplications: () => lireMarchesApplications(),
@@ -132,6 +138,8 @@ describe("AdminRepartitionPage — recrues venues du site", () => {
       source: "reglage",
       parts: { sophia: 60, unswipe: 25, micabo: 15 },
     });
+    lireChoixApplicationAuto.mockResolvedValue(false);
+    ecrireChoixApplicationAuto.mockResolvedValue(undefined);
   });
 
   it("la provenance est lue sur la même fenêtre que celle affichée", async () => {
@@ -254,6 +262,47 @@ describe("AdminRepartitionPage — recrues venues du site", () => {
     expect(es.textContent).not.toMatch(/Impossible/);
     // Le français, lui, parle pour lui-même : le verdict franc est permis.
     expect(ligneSite(/Français|French/).textContent).toMatch(/Impossible/);
+  });
+
+  it("l'interrupteur est refusé tant qu'aucune cible n'est posée", async () => {
+    // Allumer sans cible ne ferait rien de bon : le serveur s'abstient et
+    // tout repartirait sur Sophia. Mieux vaut l'interdire que de laisser
+    // croire que c'est branché.
+    lireCibleRepartitionApps.mockResolvedValue({
+      source: "defaut",
+      parts: { sophia: 100 / 3, unswipe: 100 / 3, micabo: 100 / 3 },
+    });
+    renderPage();
+    const interrupteur = await screen.findByRole("switch", {
+      name: /Le moteur choisit l'application|The engine picks the application/,
+    });
+    // Le Switch rend un <span role="switch"> : l'état désactivé passe par
+    // aria-disabled, pas par l'attribut disabled d'un contrôle de formulaire.
+    expect(interrupteur.getAttribute("aria-disabled")).toBe("true");
+    expect(
+      screen.getByText(/Pose d'abord une cible|Set a target first/),
+    ).toBeTruthy();
+  });
+
+  it("avec une cible, l'interrupteur bascule et prévient de l'effet", async () => {
+    renderPage();
+    const interrupteur = await screen.findByRole("switch", {
+      name: /Le moteur choisit l'application|The engine picks the application/,
+    });
+    // Il reste grisé le temps que l'état de l'interrupteur soit lu : on ne
+    // propose pas de basculer avant de savoir où on en est.
+    await waitFor(() => expect(interrupteur.getAttribute("aria-disabled")).not.toBe("true"));
+    // Le clic utile est sur l'input caché du Switch, pas sur le span.
+    const bouton = interrupteur.querySelector("input") ??
+      interrupteur.parentElement?.querySelector("input");
+    fireEvent.click(bouton!);
+    await waitFor(() => expect(ecrireChoixApplicationAuto).toHaveBeenCalledWith(true));
+  });
+
+  it("allumé, la page dit que les prochains comptes sont répartis par le moteur", async () => {
+    lireChoixApplicationAuto.mockResolvedValue(true);
+    renderPage();
+    await screen.findByText(/les prochains comptes créés sont répartis|the next accounts created are allocated/);
   });
 
   it("une erreur de droits reste lisible et ne laisse pas un tableau vide", async () => {

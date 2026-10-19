@@ -2092,6 +2092,13 @@ export const en = {
       cibleAide:
         "Whole percentages, renormalised to 100 when read. An application left at 0 gets nothing. The target is then narrowed to the applications that serve the market's language: aiming for 25% Unswipe means nothing in Polish, where Unswipe does not publish.",
       poserCible: "Set the target",
+      basculeTitre: "The engine picks the application",
+      basculeAide:
+        "Off, a new account's application is the one the recruiter ticks. On, the engine decides, by the rule projected below, and the field disappears from the creation screens. Existing accounts never move, recruits from the website keep the website's choice, and a label placed in the Queue pulls the account towards its application: that is how a new label gets started.",
+      basculeSansCible:
+        "Set a target first. Without one the engine abstains and everything would go to Sophia.",
+      basculeActifAvis:
+        "Active: the next accounts created are allocated by the engine. To stop, flip this switch back, it takes effect immediately.",
       sommeAide: "Entered total: {{total}} (renormalised to 100)",
       toutesLangues: "All languages",
       langues: "Languages: {{liste}}",

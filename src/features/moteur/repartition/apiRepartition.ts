@@ -217,6 +217,39 @@ export async function lireCibleRepartitionApps(
 
 
 
+/** `reglages.choix_application_auto` : l'interrupteur de la bascule. */
+export const CLE_CHOIX_APPLICATION_AUTO = "choix_application_auto";
+
+/**
+ * Le moteur choisit-il l'application à la création ?
+ *
+ * Éteint par défaut, et éteint aussi si la valeur est illisible : la même
+ * règle que côté serveur (`manage-users`), pour que les deux ne puissent pas
+ * se contredire. Les deux lisent CETTE clé, et c'est ce qui garantit qu'ils
+ * basculent ensemble : si le front cachait la case sans que le serveur
+ * décide, tout partirait sur Sophia ; si le serveur décidait sans que le
+ * front cache la case, le recruteur continuerait d'imposer son choix.
+ */
+export async function lireChoixApplicationAuto(): Promise<boolean> {
+  const { data, error } = await supabase
+    .from("reglages")
+    .select("valeur")
+    .eq("cle", CLE_CHOIX_APPLICATION_AUTO)
+    .maybeSingle();
+  if (error) throw error;
+  const v = data?.valeur;
+  return !!(v && typeof v === "object" && !Array.isArray(v) && (v as { actif?: unknown }).actif === true);
+}
+
+/**
+ * Allume ou éteint le choix automatique. C'est LA bascule : à partir de là,
+ * l'application d'un nouveau compte n'est plus cochée par le recruteur mais
+ * décidée par la cible ci-dessus. Les comptes existants ne bougent pas.
+ */
+export async function ecrireChoixApplicationAuto(actif: boolean): Promise<void> {
+  await ecrireReglage(CLE_CHOIX_APPLICATION_AUTO, { actif });
+}
+
 /** `reglages.choix_labels`. Absent en base : les valeurs par défaut du moteur. */
 export async function lireReglagesRepartition(): Promise<ReglagesChoixLabel> {
   const { data, error } = await supabase

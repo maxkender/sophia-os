@@ -8,12 +8,16 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { Switch } from "@/components/ui/switch";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { nomApplication } from "@/features/moteur/applications";
 import { nomLangue } from "@/features/moteur/langues";
 import { drapeauPays, nomPaysIso } from "@/features/moteur/pays";
 import {
+  CLE_CHOIX_APPLICATION_AUTO,
+  ecrireChoixApplicationAuto,
   ecrireCibleRepartitionApps,
+  lireChoixApplicationAuto,
   lireCibleRepartitionApps,
   lireMarchesApplications,
   lireMarchesRepartition,
@@ -403,6 +407,71 @@ function EtatLabel({ motif }: { motif: MotifFermeture | null }) {
 }
 
 /**
+ * L'interrupteur de la bascule.
+ *
+ * Tant qu'il est éteint, tout ce que montre cette page est une projection :
+ * l'application d'un nouveau compte reste celle que le recruteur coche.
+ * Allumé, c'est le moteur qui décide, par la même règle que la projection
+ * ci-dessous, et la case disparaît des écrans de création.
+ *
+ * DEUX CHOSES NE BOUGENT PAS, même allumé. Les comptes EXISTANTS : aucune
+ * rebascule, jamais. Et les recrues venues du site : c'est le site qui
+ * choisit pour ses candidats, le moteur leur laisse la main.
+ *
+ * LA FILE PASSE TOUJOURS AVANT. Un label mis dans la File d'une application
+ * attire le compte vers cette application, même si le classement aurait
+ * préféré une autre. C'est ce qui permet d'amorcer un label neuf sur deux ou
+ * trois comptes : sans ça, un label sans historique ne serait jamais choisi,
+ * donc n'aurait jamais d'historique.
+ */
+function InterrupteurChoixAuto({ cible }: { cible: CibleApplications }) {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const auto = useQuery({
+    queryKey: [CLE_CHOIX_APPLICATION_AUTO],
+    queryFn: lireChoixApplicationAuto,
+    retry: false,
+  });
+  const basculer = useMutation({
+    mutationFn: (actif: boolean) => ecrireChoixApplicationAuto(actif),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: [CLE_CHOIX_APPLICATION_AUTO] });
+    },
+  });
+
+  const actif = auto.data === true;
+  // Sans cible posée, allumer ne ferait rien de bon : le serveur s'abstient
+  // et tout repartirait sur Sophia. Autant l'interdire ici plutôt que de
+  // laisser croire que c'est branché.
+  const sansCible = cible.source === "defaut";
+
+  return (
+    <div className="rounded-md border p-3">
+      <div className="flex items-start justify-between gap-4">
+        <div className="space-y-1">
+          <p className="text-sm font-medium">{t("repartition.basculeTitre")}</p>
+          <p className="text-xs text-muted-foreground">
+            {sansCible ? t("repartition.basculeSansCible") : t("repartition.basculeAide")}
+          </p>
+        </div>
+        <Switch
+          checked={actif}
+          disabled={auto.isPending || basculer.isPending || sansCible}
+          onCheckedChange={(v) => basculer.mutate(v)}
+          aria-label={t("repartition.basculeTitre")}
+        />
+      </div>
+      {actif && (
+        <p className="mt-2 text-xs font-medium text-amber-700">{t("repartition.basculeActifAvis")}</p>
+      )}
+      {basculer.isError && (
+        <p className="mt-2 text-xs text-destructive">{messageErreur(basculer.error)}</p>
+      )}
+    </div>
+  );
+}
+
+/**
  * La cible de répartition entre applications, éditable ici.
  *
  * Les parts sont saisies en pourcentages entiers et renormalisées à 100 à la
@@ -458,6 +527,7 @@ function CarteCible({
             <AlertDescription>{t("repartition.cibleAbsenteAide")}</AlertDescription>
           </Alert>
         )}
+        <InterrupteurChoixAuto cible={cible} />
         <div className="grid gap-3 sm:grid-cols-3">
           {applications.map((a) => (
             <div key={a.slug} className="space-y-1">

@@ -1270,7 +1270,8 @@ async function rejetStickersActif(supabase: Supabase): Promise<boolean> {
 }
 
 /**
- * OCR d'une slide à l'import : `null` = sticker (règle allumée seulement).
+ * OCR d'une slide à l'import : `null` = sticker PUB (règle allumée seulement).
+ * Un sticker de contenu (livre, vidéo, article) est importé avec son texte.
  * Les contenus d'un pod (`contenus.pod`) ont un passe-droit : jamais rejetés
  * pour sticker, même s'ils repassent par ici (reprise d'un deck sans texte).
  */
@@ -1279,13 +1280,15 @@ async function lireSlideImport(
   contenu: { pod?: string | null },
   url: string,
 ): Promise<string | null> {
-  if (contenu.pod) return await ocrFrame(url);
-  return (await rejetStickersActif(supabase)) ? await ocrSlideImport(url) : await ocrFrame(url);
+  if (contenu.pod || !(await rejetStickersActif(supabase))) return await ocrFrame(url);
+  const lecture = await ocrSlideImport(url);
+  return lecture.sticker === "pub" ? null : lecture.texte;
 }
 
 /**
- * Sticker collé sur une slide (carte App Store, icône d'app, logo…) : le
- * TikTok n'est pas importé. Décidé à l'OCR, avant pertinence et nettoyage.
+ * Sticker PUB collé sur une slide (carte App Store, icône ou logo d'app, carte
+ * d'un site…) : le TikTok n'est pas importé. Décidé à l'OCR, avant pertinence
+ * et nettoyage.
  */
 async function rejeterSticker(
   supabase: Supabase,
@@ -1296,7 +1299,7 @@ async function rejeterSticker(
     statut: "rejete",
     import_statut: "done",
     import_etape: "sticker",
-    import_erreur: `Sticker collé sur la slide ${position} — TikTok non importé`,
+    import_erreur: `Sticker pub (app, marque) collé sur la slide ${position} — TikTok non importé`,
   });
   return { etape: "sticker", progres: true };
 }

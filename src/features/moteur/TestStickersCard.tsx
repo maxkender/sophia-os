@@ -6,7 +6,6 @@ import { Shuffle, Sticker } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
@@ -20,14 +19,19 @@ import {
   N_STICKERS_MAX,
   ordreAffichage,
   type EtatStickerTest,
+  type FiltreStickers,
   type SlideshowStickerTest,
 } from "./testStickers";
 
+const selectClass =
+  "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
+
 /**
- * Test à blanc de la règle « un TikTok avec un sticker n'est pas importé » :
- * tire N slideshows valides au hasard, passe chaque slide dans l'OCR d'import
- * (fonction `test-stickers`, CONCURRENCE_STICKERS slideshows à la fois) et
- * montre ceux qui auraient été rejetés, slide fautive encadrée. Rien n'est écrit.
+ * Test à blanc de la règle stickers de l'import : tire N slideshows valides
+ * au hasard, passe chaque slide dans l'OCR d'import (fonction `test-stickers`,
+ * CONCURRENCE_STICKERS slideshows à la fois) et montre les deux familles :
+ * sticker PUB (app, marque : le TikTok serait rejeté) et sticker de CONTENU
+ * (livre, vidéo, article : importé quand même). Rien n'est écrit.
  */
 export function TestStickersCard() {
   const { t } = useTranslation();
@@ -36,7 +40,7 @@ export function TestStickersCard() {
   const [etats, setEtats] = React.useState<Record<string, EtatStickerTest>>({});
   const [enCours, setEnCours] = React.useState(false);
   const [erreur, setErreur] = React.useState<string | null>(null);
-  const [stickersSeuls, setStickersSeuls] = React.useState(false);
+  const [filtre, setFiltre] = React.useState<FiltreStickers>("tous");
 
   const lancer = async () => {
     setEnCours(true);
@@ -64,7 +68,8 @@ export function TestStickersCard() {
   };
 
   const bilan = bilanStickers(slideshows, etats);
-  const affiches = ordreAffichage(slideshows, etats, stickersSeuls);
+  const affiches = ordreAffichage(slideshows, etats, filtre);
+  const pct = (x: number) => (bilan.termines ? Math.round((x / bilan.termines) * 100) : 0);
 
   return (
     <Card>
@@ -96,10 +101,19 @@ export function TestStickersCard() {
             <Shuffle className="size-4" />
             {enCours ? t("tests.enCours") : t("tests.stickersLancer")}
           </Button>
-          <label className="flex items-center gap-2 text-sm">
-            <Checkbox checked={stickersSeuls} onCheckedChange={(v) => setStickersSeuls(Boolean(v))} />
-            {t("tests.stickersSeuls")}
-          </label>
+          <div className="w-64 space-y-1">
+            <Label htmlFor="stickersFiltre">{t("tests.stickersFiltre")}</Label>
+            <select
+              id="stickersFiltre"
+              className={selectClass}
+              value={filtre}
+              onChange={(e) => setFiltre(e.target.value as FiltreStickers)}
+            >
+              <option value="tous">{t("tests.stickersFiltreTous")}</option>
+              <option value="pub">{t("tests.stickersFiltrePub")}</option>
+              <option value="contenu">{t("tests.stickersFiltreContenu")}</option>
+            </select>
+          </div>
         </div>
 
         {erreur && <p className="text-sm text-destructive">{erreur}</p>}
@@ -112,10 +126,13 @@ export function TestStickersCard() {
                 {t("tests.stickersAnalyses", { n: bilan.termines, total: bilan.total })}
               </Badge>
               <Badge variant="error">
-                {t("tests.stickersDetectes", {
-                  n: bilan.stickers,
-                  pct: bilan.termines ? Math.round((bilan.stickers / bilan.termines) * 100) : 0,
-                  slides: bilan.slidesSticker,
+                {t("tests.stickersPubs", { n: bilan.rejetes, pct: pct(bilan.rejetes), slides: bilan.slidesPub })}
+              </Badge>
+              <Badge variant="info">
+                {t("tests.stickersContenus", {
+                  n: bilan.contenus,
+                  pct: pct(bilan.contenus),
+                  slides: bilan.slidesContenu,
                 })}
               </Badge>
               <Badge variant="success">{t("tests.stickersPropres", { n: bilan.propres })}</Badge>
@@ -145,13 +162,16 @@ function LigneSlideshow({ slideshow, etat }: { slideshow: SlideshowStickerTest; 
     <div
       className={cn(
         "space-y-2 rounded-lg border p-3",
-        resultat?.sticker && "border-destructive/60 bg-destructive/5",
+        resultat?.rejete && "border-destructive/60 bg-destructive/5",
+        resultat && !resultat.rejete && resultat.contenu && "border-info/60 bg-info/5",
       )}
     >
       <div className="flex flex-wrap items-center gap-2 text-sm">
         {resultat ? (
-          resultat.sticker ? (
-            <Badge variant="error">{t("tests.stickersRejete")}</Badge>
+          resultat.rejete ? (
+            <Badge variant="error">{t("tests.stickersRejetePub")}</Badge>
+          ) : resultat.contenu ? (
+            <Badge variant="info">{t("tests.stickersImporteContenu")}</Badge>
           ) : (
             <Badge variant="success">{t("tests.stickersImporte")}</Badge>
           )
@@ -171,16 +191,29 @@ function LigneSlideshow({ slideshow, etat }: { slideshow: SlideshowStickerTest; 
       <div className="flex gap-2 overflow-x-auto pb-1">
         {slideshow.slides.map((slide) => {
           const r = parPosition.get(slide.position);
+          const titre =
+            r?.erreur ??
+            (r?.sticker === "pub"
+              ? t("tests.stickersSlidePub")
+              : [r?.sticker === "contenu" ? t("tests.stickersSlideContenu") : "", r?.texte ?? ""]
+                  .filter(Boolean)
+                  .join(" — ") || undefined);
           return (
             <a
               key={slide.position}
               href={slide.url}
               target="_blank"
               rel="noreferrer"
-              title={r?.erreur ?? (r?.sticker ? t("tests.stickersSlide") : r?.texte || undefined)}
+              title={titre}
               className={cn(
                 "relative block shrink-0 overflow-hidden rounded-md border-2",
-                r?.sticker ? "border-destructive" : r?.erreur ? "border-warning" : "border-transparent",
+                r?.sticker === "pub"
+                  ? "border-destructive"
+                  : r?.sticker === "contenu"
+                    ? "border-info"
+                    : r?.erreur
+                      ? "border-warning"
+                      : "border-transparent",
               )}
             >
               <img src={slide.url} alt="" loading="lazy" className="h-36 w-20 object-cover" />
@@ -188,8 +221,13 @@ function LigneSlideshow({ slideshow, etat }: { slideshow: SlideshowStickerTest; 
                 {slide.position}
               </span>
               {r?.sticker && (
-                <span className="absolute inset-x-0 bottom-0 bg-destructive py-0.5 text-center text-[10px] font-semibold text-white">
-                  STICKER
+                <span
+                  className={cn(
+                    "absolute inset-x-0 bottom-0 py-0.5 text-center text-[10px] font-semibold text-white",
+                    r.sticker === "pub" ? "bg-destructive" : "bg-info",
+                  )}
+                >
+                  {r.sticker === "pub" ? "PUB" : "CONTENU"}
                 </span>
               )}
             </a>

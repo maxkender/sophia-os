@@ -14,9 +14,12 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
  *     (passe-droit : la règle ne les vise pas) — lecture paginée, PostgREST
  *     plafonnant une réponse à 1 000 lignes.
  *   { action: "analyser", contenuId }
- *     → { id, sticker, slides: [{ position, url, sticker, texte, erreur? }] }
- *     l'OCR d'import sur chaque slide, en parallèle. L'import s'arrête au
- *     premier sticker ; ici toutes les slides sont lues, pour montrer lesquelles.
+ *     → { id, rejete, contenu, slides: [{ position, url, sticker, texte, erreur? }] }
+ *     l'OCR d'import sur chaque slide, en parallèle ; `sticker` vaut "pub",
+ *     "contenu" ou null. `rejete` : au moins une pub (le TikTok ne serait pas
+ *     importé) ; `contenu` : au moins un sticker de contenu (importé quand
+ *     même). L'import s'arrête à la première pub ; ici toutes les slides sont
+ *     lues, pour montrer lesquelles.
  *
  * Le parallélisme entre slideshows est piloté par le navigateur (un appel par
  * slideshow) : 100 slideshows dans un seul appel dépasseraient les 150 s d'une
@@ -100,14 +103,19 @@ async function analyser(contenuId: string) {
   const slides = await Promise.all(
     slidesAvecImage(data.structure_slides).map(async ({ position, url }) => {
       try {
-        const texte = await ocrSlideImport(url);
-        return { position, url, sticker: texte === null, texte: texte ?? "" };
+        const { texte, sticker } = await ocrSlideImport(url);
+        return { position, url, sticker, texte };
       } catch (error) {
-        return { position, url, sticker: false, texte: "", erreur: messageErreur(error) };
+        return { position, url, sticker: null, texte: "", erreur: messageErreur(error) };
       }
     }),
   );
-  return { id: contenuId, sticker: slides.some((s) => s.sticker), slides };
+  return {
+    id: contenuId,
+    rejete: slides.some((s) => s.sticker === "pub"),
+    contenu: slides.some((s) => s.sticker === "contenu"),
+    slides,
+  };
 }
 
 Deno.serve(async (request) => {

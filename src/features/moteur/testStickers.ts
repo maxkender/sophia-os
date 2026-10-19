@@ -10,20 +10,28 @@ export interface SlideshowStickerTest {
   slides: Array<{ position: number; url: string }>;
 }
 
+/** Pub d'app ou de marque (rejet), sticker qui porte le contenu (importé), ou rien. */
+export type FamilleSticker = "pub" | "contenu" | null;
+
 export interface SlideStickerResultat {
   position: number;
   url: string;
-  sticker: boolean;
-  /** Texte que l'OCR d'import aurait gardé ("" pour une slide à sticker). */
+  sticker: FamilleSticker;
+  /** Texte que l'OCR d'import aurait gardé ("" pour une slide à sticker pub). */
   texte: string;
   erreur?: string;
 }
 
 export interface StickerTestResultat {
   id: string;
-  sticker: boolean;
+  /** Au moins une slide à sticker pub : le TikTok ne serait pas importé. */
+  rejete: boolean;
+  /** Au moins une slide à sticker de contenu (importé quand même). */
+  contenu: boolean;
   slides: SlideStickerResultat[];
 }
+
+export type FiltreStickers = "tous" | "pub" | "contenu";
 
 export type EtatStickerTest =
   | { statut: "attente" }
@@ -65,11 +73,15 @@ export async function enParallele<T>(
 export interface BilanStickers {
   total: number;
   termines: number;
-  stickers: number;
+  /** Rejetés : au moins un sticker pub. */
+  rejetes: number;
+  /** Importés avec au moins un sticker de contenu (et aucune pub). */
+  contenus: number;
+  /** Importés sans aucun sticker. */
   propres: number;
   erreurs: number;
-  /** Slides à sticker, tous slideshows confondus. */
-  slidesSticker: number;
+  slidesPub: number;
+  slidesContenu: number;
 }
 
 export function bilanStickers(
@@ -79,18 +91,23 @@ export function bilanStickers(
   const bilan: BilanStickers = {
     total: slideshows.length,
     termines: 0,
-    stickers: 0,
+    rejetes: 0,
+    contenus: 0,
     propres: 0,
     erreurs: 0,
-    slidesSticker: 0,
+    slidesPub: 0,
+    slidesContenu: 0,
   };
   for (const s of slideshows) {
     const etat = etats[s.id];
     if (etat?.statut === "ok") {
+      const r = etat.resultat;
       bilan.termines += 1;
-      if (etat.resultat.sticker) bilan.stickers += 1;
+      if (r.rejete) bilan.rejetes += 1;
+      else if (r.contenu) bilan.contenus += 1;
       else bilan.propres += 1;
-      bilan.slidesSticker += etat.resultat.slides.filter((x) => x.sticker).length;
+      bilan.slidesPub += r.slides.filter((x) => x.sticker === "pub").length;
+      bilan.slidesContenu += r.slides.filter((x) => x.sticker === "contenu").length;
     } else if (etat?.statut === "erreur") {
       bilan.termines += 1;
       bilan.erreurs += 1;
@@ -99,22 +116,23 @@ export function bilanStickers(
   return bilan;
 }
 
-/** Rang d'affichage : stickers d'abord, puis erreurs, en cours, propres. */
+/** Rang d'affichage : rejetés (pub), stickers de contenu, erreurs, en cours, propres. */
 function rang(etat: EtatStickerTest | undefined): number {
-  if (etat?.statut === "ok") return etat.resultat.sticker ? 0 : 3;
-  if (etat?.statut === "erreur") return 1;
-  return 2;
+  if (etat?.statut === "ok") return etat.resultat.rejete ? 0 : etat.resultat.contenu ? 1 : 4;
+  if (etat?.statut === "erreur") return 2;
+  return 3;
 }
 
-/** Slideshows dans l'ordre d'affichage (ordre du tirage à rang égal) ; `stickersSeuls` filtre. */
+/** Slideshows dans l'ordre d'affichage (ordre du tirage à rang égal), filtrés par famille. */
 export function ordreAffichage(
   slideshows: readonly SlideshowStickerTest[],
   etats: Readonly<Record<string, EtatStickerTest>>,
-  stickersSeuls = false,
+  filtre: FiltreStickers = "tous",
 ): SlideshowStickerTest[] {
+  const garde = filtre === "pub" ? 0 : filtre === "contenu" ? 1 : null;
   return slideshows
     .map((s, i) => ({ s, i, r: rang(etats[s.id]) }))
-    .filter(({ r }) => !stickersSeuls || r === 0)
+    .filter(({ r }) => garde === null || r === garde)
     .sort((a, b) => a.r - b.r || a.i - b.i)
     .map(({ s }) => s);
 }

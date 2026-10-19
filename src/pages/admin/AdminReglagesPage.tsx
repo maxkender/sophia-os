@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -11,14 +12,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import {
   ecrireReglage,
   lireReglages,
-  listerLabelIdsAvecUgc,
-  listerLabels,
 } from "@/features/moteur/api";
-import {
-  FileLabelsApplicationEditeur,
-  type ChangementFileLabels,
-} from "@/features/moteur/repartition/FileLabelsApplicationEditeur";
-import { avecItemsApplication } from "@/features/moteur/repartition/fileApplication";
 import {
   SCHEMA_ASSIGNATION,
   SCHEMA_UPDATE_ELO,
@@ -197,21 +191,8 @@ export function AdminReglagesPage() {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const { data, isPending } = useQuery({ queryKey: ["reglages"], queryFn: lireReglages });
-  // Tous les labels : n'importe lequel peut aller sur un créateur, ce sont les
-  // applications qu'il sert (Pilotage) qui décident de ce que le compte promeut.
-  const labels = useQuery({
-    queryKey: ["labels"],
-    queryFn: () => listerLabels(),
-  });
-  const labelsUgc = useQuery({
-    queryKey: ["labels-avec-ugc"],
-    queryFn: () => listerLabelIdsAvecUgc(),
-    staleTime: 30_000,
-  });
-
   const [brouillon, setBrouillon] = React.useState<Reglages | null>(null);
   const reglages = brouillon ?? data ?? null;
-  const [fileSauveAt, setFileSauveAt] = React.useState<number | null>(null);
 
 
   const enregistrer = useMutation({
@@ -237,40 +218,11 @@ export function AdminReglagesPage() {
     },
   });
 
-  /**
-   * File admin : persistée immédiatement (prévaut sur l’auto à la création).
-   * Le changement est réappliqué sur la valeur RELUE en base, jamais sur
-   * l'instantané de la page : une embauche peut avoir tiré une entrée (de
-   * n'importe quelle application) depuis l'ouverture de Réglages.
-   */
-  const persisterFile = useMutation({
-    mutationFn: async (chg: ChangementFileLabels) => {
-      const frais = (await lireReglages()).file_labels_comptes;
-      const file = avecItemsApplication(frais, chg.slug, chg.cle, chg.items);
-      await ecrireReglage("file_labels_comptes", file);
-      return file;
-    },
-    onSuccess: (file) => {
-      setFileSauveAt(Date.now());
-      setBrouillon((b) => (b ? { ...b, file_labels_comptes: file } : b));
-      queryClient.setQueryData<Reglages>(["reglages"], (old) =>
-        old ? { ...old, file_labels_comptes: file } : old,
-      );
-    },
-  });
-
   if (isPending || !reglages) {
     return <p className="text-sm text-muted-foreground">{t("common.loading")}</p>;
   }
 
   const maj = (patch: Partial<Reglages>) => setBrouillon({ ...reglages, ...patch });
-  // File des créateurs PAR APPLICATION : l'éditeur rend le réglage complet
-  // (la tranche de l'application choisie, les autres intactes ; Sophia écrite
-  // comme avant, file racine comprise), persisté aussitôt.
-  const majFile = (file: Reglages["file_labels_comptes"], changement: ChangementFileLabels) => {
-    setBrouillon({ ...reglages, file_labels_comptes: file });
-    persisterFile.mutate(changement);
-  };
   const majScoring = (patch: Partial<Reglages["scoring"]>) =>
     maj({ scoring: { ...reglages.scoring, ...patch } });
   const majTierlist = (patch: Partial<Reglages["tierlist"]>) =>
@@ -742,29 +694,18 @@ export function AdminReglagesPage() {
             <p className="text-xs text-muted-foreground">{t("warmup.heuresAide")}</p>
           </section>
 
-          <section className="space-y-3">
+          {/* La File a déménagé sur la page Allocation : décider où va la
+              prochaine recrue et forcer la main au moteur sont la même
+              conversation, et elles se lisent mieux côte à côte. On laisse le
+              renvoi, parce que c'est ici qu'on a l'habitude de la chercher. */}
+          <section className="space-y-2">
             <h3 className="text-sm font-medium">{t("warmup.fileTitre")}</h3>
             <p className="text-xs text-muted-foreground">
-              {t("warmup.fileAutosave")}
-              {persisterFile.isPending
-                ? ` — ${t("common.saving")}`
-                : fileSauveAt
-                  ? ` — ${t("warmup.fileSauvee")}`
-                  : ""}
+              {t("warmup.fileDeplacee")}{" "}
+              <Link to="/admin/repartition" className="underline underline-offset-2">
+                {t("nav.repartition")}
+              </Link>
             </p>
-
-            <FileLabelsApplicationEditeur
-              file={reglages.file_labels_comptes}
-              onChange={majFile}
-              enCours={persisterFile.isPending}
-              labels={labels.data}
-              labelsUgc={labelsUgc.data}
-            />
-            {persisterFile.isError && (
-              <p className="text-xs text-destructive">
-                {(persisterFile.error as Error).message}
-              </p>
-            )}
           </section>
         </CardContent>
       </Card>

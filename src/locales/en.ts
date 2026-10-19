@@ -2094,6 +2094,9 @@ export const en = {
       cibleAide:
         "Whole percentages, renormalised to 100 when read. An application left at 0 gets nothing. The target is then narrowed to the applications that serve the market's language: aiming for 25% Unswipe means nothing in Polish, where Unswipe does not publish.",
       poserCible: "Set the target",
+      fileTitre: "Creator queue (overriding the engine)",
+      fileAide:
+        "What sits in the queue comes BEFORE the ranking, and even pulls the application: if a usable entry exists for a market, that application takes the account. Use it to start a new label, which otherwise would never be picked for lack of a track record, and so would never build one. Pick the application, then a language queue to target, or the general one. Every change is saved straight away.",
       basculeTitre: "The engine picks the application",
       basculeAide:
         "Off, a new account's application is the one the recruiter ticks. On, the engine decides, by the rule projected below, and the field disappears from the creation screens. Existing accounts never move, recruits from the website keep the website's choice, and a label placed in the Queue pulls the account towards its application: that is how a new label gets started.",
@@ -2894,6 +2897,7 @@ export const en = {
       fileAutosave:
         "Saved immediately on every add / reorder — no need for the bottom Save button.",
       fileSauvee: "queue up to date",
+      fileDeplacee: "The creator queue is now managed from the page",
       fileVideListe:
         "General queue empty — only used when the poster’s language queue is empty; otherwise the balanced pick.",
       fileVide:

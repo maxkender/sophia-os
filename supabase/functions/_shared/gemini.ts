@@ -8,6 +8,13 @@ import { nettoyerViaReplicateTextRemoval } from "./replicate_text_removal.ts";
 import { upscaleViaSeedVr } from "./fal_seedvr_upscale.ts";
 import { falHebergerOctets } from "./fal_queue.ts";
 import { serviceClient } from "./supabase.ts";
+import {
+  consigneNettoyage,
+  parserLectureSlide,
+  PROMPT_LECTURE_SLIDE,
+  PROMPT_LECTURE_SLIDE_TEXTE_LIBRE,
+  resumeEcartes,
+} from "./texte_slide.ts";
 import { retirerContentCredentials } from "./c2pa.ts";
 
 const BASE = "https://generativelanguage.googleapis.com/v1beta/models";
@@ -67,6 +74,8 @@ interface GenConfig {
   // explicitement ; sans ça ils décrivent la retouche en texte, ce que le
   // reste du code prenait à tort pour un refus.
   responseModalities?: string[];
+  // "application/json" : réponse JSON brute, sans bloc de code autour.
+  responseMimeType?: string;
 }
 
 async function call(model: string, parts: Part[], config?: GenConfig): Promise<Part[]> {
@@ -106,7 +115,11 @@ function estTransitoireGemini(message: string): boolean {
   );
 }
 
-export async function callWithFallback(models: string[], parts: Part[]): Promise<Part[]> {
+export async function callWithFallback(
+  models: string[],
+  parts: Part[],
+  config?: GenConfig,
+): Promise<Part[]> {
   // On essaie chaque modèle ; si TOUS échouent pour une raison PASSAGÈRE
   // (surcharge Gemini), on réessaie après une attente croissante + jitter, au
   // lieu de remonter une erreur 500 tout de suite. C'est ce qui manquait aux
@@ -123,7 +136,7 @@ export async function callWithFallback(models: string[], parts: Part[]): Promise
     failures = [];
     for (const model of models) {
       try {
-        return await call(model, parts);
+        return await call(model, parts, config);
       } catch (error) {
         failures.push(`${model}: ${messageErreur(error)}`);
       }
@@ -217,22 +230,34 @@ export const DEFAULT_TRANSLATE_PROMPT = `Règles de traduction impératives :
 - Conserve les URLs et les sources citées telles quelles.`;
 
 /**
- * OCR seul, slide par slide : transcrit le texte incrusté en langue d'origine.
- * La traduction se fait ensuite sur tout le deck d'un coup (translateSlideshow),
- * seule façon de tenir une persona et un genre cohérents d'une slide à l'autre.
+ * OCR seul, slide par slide : transcrit la LÉGENDE en langue d'origine — le
+ * texte des stickers, du décor et de l'interface est lu mais écarté (règle dans
+ * `texte_slide.ts`). La traduction se fait ensuite sur tout le deck d'un coup
+ * (translateSlideshow), seule façon de tenir une persona et un genre cohérents
+ * d'une slide à l'autre.
  */
 export async function ocrFrame(imageUrl: string): Promise<string> {
   const image = await fetchImageAsInline(imageUrl);
 
-  const prompt = `Transcris exactement le texte incrusté sur cette slide TikTok,
-en langue d'origine, sans le corriger ni le traduire.
+  for (let essai = 0; essai < 2; essai += 1) {
+    const parts = await callWithFallback(
+      TEXT_MODELS,
+      [{ text: PROMPT_LECTURE_SLIDE }, image],
+      { temperature: 0, responseMimeType: "application/json" },
+    );
+    const lecture = parserLectureSlide(textOf(parts));
+    if (!lecture) continue;
+    const ecartes = resumeEcartes(lecture.blocs);
+    if (ecartes) console.log(`[ocr] ${imageUrl.slice(-60)} : écartés ${ecartes}`);
+    return lecture.legende;
+  }
 
-Ignore : logos, marques dans le décor, texte sur les vêtements, barre de statut
-du téléphone. Garde le nom d'une app/d'un podcast si c'est le sujet de la slide.
-
-Si la slide ne contient aucun texte incrusté, réponds exactement : (aucun texte)`;
-
-  const parts = await callWithFallback(TEXT_MODELS, [{ text: prompt }, image]);
+  // Deux réponses sans JSON exploitable : texte libre, comme avant la lecture
+  // classée, pour ne jamais bloquer un import sur le format.
+  const parts = await callWithFallback(TEXT_MODELS, [
+    { text: PROMPT_LECTURE_SLIDE_TEXTE_LIBRE },
+    image,
+  ]);
   const text = textOf(parts).trim();
   return text === "(aucun texte)" ? "" : text;
 }
@@ -811,9 +836,21 @@ export interface CleanImageOpts {
   upscaleAvantStrip?: boolean;
   /** Facteur SeedVR (défaut ×2). */
   upscaleFactor?: number;
+  /**
+   * Consigne Kontext (test admin). Absente : celle du réglage `nettoyage` ;
+   * `null` : applis « text-removal » sans consigne (tout le texte part).
+   */
+  consigne?: string | null;
 }
 
-async function lireProviderPrincipal(): Promise<ProviderNettoyage> {
+/**
+ * Réglage `nettoyage` : qui passe en premier, et quelle consigne (voir
+ * `consigneNettoyage` : `mode: "tout_texte"` ramène l'ancien comportement).
+ */
+async function lireReglagesNettoyage(): Promise<{
+  premier: ProviderNettoyage;
+  consigne: string | null;
+}> {
   try {
     const sb = serviceClient();
     const { data } = await sb
@@ -822,9 +859,12 @@ async function lireProviderPrincipal(): Promise<ProviderNettoyage> {
       .eq("cle", "nettoyage")
       .maybeSingle();
     const v = (data?.valeur ?? {}) as { provider_principal?: string };
-    return v.provider_principal === "replicate" ? "replicate" : "fal";
+    return {
+      premier: v.provider_principal === "replicate" ? "replicate" : "fal",
+      consigne: consigneNettoyage(data?.valeur),
+    };
   } catch {
-    return "fal";
+    return { premier: "fal", consigne: consigneNettoyage(null) };
   }
 }
 
@@ -845,7 +885,9 @@ export async function cleanImage(
     await onEtape?.(e);
   };
 
-  const premier = await lireProviderPrincipal();
+  const reglage = await lireReglagesNettoyage();
+  const premier = reglage.premier;
+  const consigne = opts?.consigne !== undefined ? opts.consigne : reglage.consigne;
   const second: ProviderNettoyage = premier === "fal" ? "replicate" : "fal";
   const chaine: ProviderNettoyage[] = [premier, second];
 
@@ -910,7 +952,7 @@ export async function cleanImage(
                   detail: `${rang === 1 ? "①" : "②"} ${nom}: téléchargement résultat`,
                 });
               }
-            })
+            }, { consigne })
           : await nettoyerViaReplicateTextRemoval(imageUrl, async (p) => {
               if (typeof p.polls === "number") polls = p.polls;
               if (p.phase === "submit") {
@@ -938,7 +980,7 @@ export async function cleanImage(
                   detail: `${rang === 1 ? "①" : "②"} ${nom}: téléchargement résultat`,
                 });
               }
-            });
+            }, { consigne });
 
       if (resultat && !(await sembleDegeneree(resultat))) {
         base64 = resultat;
@@ -1178,7 +1220,7 @@ Règles STRICTES :
    - false si texte plat sans bordure (même sur fond sombre avec simple dégradé derrière)
    - Beaucoup de slides n'ont PAS de bordure : false est fréquent et correct
 
-Ignore watermarks TikTok (@username, logo) et UI.
+Ignore watermarks TikTok (@username, logo), UI, stickers (emoji, badges, cartes App Store, boutons d'app) et texte du décor (écriture sur papier, livre, panneau).
 Réponds UNIQUEMENT par un tableau JSON :
 [{"x":0.08,"y":0.42,"w":0.84,"h":0.28,"texte":"va marcher 🪻\\nça améliore…","couleur":"#FE2C55","ombre":true,"nbLignes":7,"role":"corps"}]
 Réponds [] si aucun texte incrusté.`;

@@ -1,5 +1,8 @@
 /**
- * Fallback nettoyage via Replicate — `flux-kontext-apps/text-removal`.
+ * Nettoyage via Replicate. Avec consigne (défaut, `texte_slide.ts`) :
+ * `black-forest-labs/flux-kontext-pro` ; sans (`reglages.nettoyage.mode =
+ * "tout_texte"`) : `flux-kontext-apps/text-removal`, même modèle à consigne
+ * figée « retire tout le texte ».
  *
  * Secret requis : `REPLICATE_API_TOKEN` (Supabase Edge Function secrets).
  * Même jeton que l’ancien LaMa ; tu peux le mettre à jour via :
@@ -8,8 +11,7 @@
  */
 
 const MODEL = "flux-kontext-apps/text-removal";
-const PREDICTIONS_URL =
-  `https://api.replicate.com/v1/models/${MODEL}/predictions`;
+const MODEL_CONSIGNE = "black-forest-labs/flux-kontext-pro";
 
 function replicateToken(): string | null {
   return Deno.env.get("REPLICATE_API_TOKEN") ?? null;
@@ -33,22 +35,27 @@ export type ReplicateProgress = (info: {
 }) => void | Promise<void>;
 
 /**
- * Nettoie `imageUrl` via Replicate FLUX Kontext text-removal.
- * Renvoie le JPEG/PNG en base64, ou `null` si le token est absent.
+ * Nettoie `imageUrl` via Replicate FLUX Kontext (avec consigne, ou
+ * text-removal sans). Renvoie le JPEG/PNG en base64, ou `null` si le token est
+ * absent.
  */
 export async function nettoyerViaReplicateTextRemoval(
   imageUrl: string,
   onProgress?: ReplicateProgress,
+  opts?: { consigne?: string | null },
 ): Promise<string | null> {
   const token = replicateToken();
   if (!token) return null;
 
+  const consigne = opts?.consigne?.trim() || null;
+  const modele = consigne ? MODEL_CONSIGNE : MODEL;
+
   await onProgress?.({
     phase: "submit",
-    detail: `modèle=${MODEL}`,
+    detail: `modèle=${modele}`,
   });
 
-  const submit = await fetch(PREDICTIONS_URL, {
+  const submit = await fetch(`https://api.replicate.com/v1/models/${modele}/predictions`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -58,6 +65,7 @@ export async function nettoyerViaReplicateTextRemoval(
     body: JSON.stringify({
       input: {
         input_image: imageUrl,
+        ...(consigne ? { prompt: consigne } : {}),
         aspect_ratio: "match_input_image",
         output_format: "png",
         // 2 = max permissif (stills TikTok / films souvent borderline).

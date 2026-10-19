@@ -1,14 +1,17 @@
 /**
- * Nettoyage d'image via Fal AI — `fal-ai/image-editing/text-removal`.
+ * Nettoyage d'image via Fal AI, ~$0.04/image.
  *
- * Spécialisé retrait de texte (captions / overlays), ~$0.04/image.
- * Remplace Seedream Pro Edit, trop lourd / cher pour ce job.
+ * Avec consigne (défaut, `texte_slide.ts`) : `fal-ai/flux-pro/kontext` — on
+ * dit quoi retirer (légende, stickers) et quoi garder (texte du décor).
+ * Sans consigne (`reglages.nettoyage.mode = "tout_texte"`) :
+ * `fal-ai/image-editing/text-removal`, même famille FLUX Kontext mais consigne
+ * figée « retire tout le texte » — stickers vidés, pages manuscrites blanchies.
  *
  * Secret requis : `FAL_KEY` (Supabase Edge Function secrets).
  */
 
 const MODEL = "fal-ai/image-editing/text-removal";
-const QUEUE = `https://queue.fal.run/${MODEL}`;
+const MODEL_CONSIGNE = "fal-ai/flux-pro/kontext";
 
 function falKey(): string | null {
   return Deno.env.get("FAL_KEY") ?? Deno.env.get("FAL_API_KEY") ?? null;
@@ -39,22 +42,28 @@ export type FalProgress = (info: {
 }) => void | Promise<void>;
 
 /**
- * Nettoie `imageUrl` via Fal text-removal (ex-Seedream Pro Edit).
+ * Nettoie `imageUrl` via Fal (Kontext avec consigne, ou text-removal sans).
  * Renvoie le PNG en base64 (pas de JPEG), ou `null` si `FAL_KEY` absent.
  */
 export async function nettoyerViaFalTextRemoval(
   imageUrl: string,
   onProgress?: FalProgress,
+  opts?: { consigne?: string | null },
 ): Promise<string | null> {
   const key = falKey();
   if (!key) return null;
 
-  await onProgress?.({ phase: "submit", detail: `modèle=${MODEL}` });
-  const submit = await fetch(QUEUE, {
+  const consigne = opts?.consigne?.trim() || null;
+  const modele = consigne ? MODEL_CONSIGNE : MODEL;
+  const queue = `https://queue.fal.run/${modele}`;
+
+  await onProgress?.({ phase: "submit", detail: `modèle=${modele}` });
+  const submit = await fetch(queue, {
     method: "POST",
     headers: authHeaders(key),
     body: JSON.stringify({
       image_url: imageUrl,
+      ...(consigne ? { prompt: consigne } : {}),
       // PNG : pas de compression JPEG en sortie (qualité max pour le poster).
       output_format: "png",
       // 6 = le plus permissif (photos TikTok souvent borderline).
@@ -72,10 +81,10 @@ export async function nettoyerViaFalTextRemoval(
   const requestId = queued.request_id as string | undefined;
   const statusUrl =
     (queued.status_url as string | undefined) ??
-    (requestId ? `${QUEUE}/requests/${requestId}/status` : null);
+    (requestId ? `${queue}/requests/${requestId}/status` : null);
   const resultUrl =
     (queued.response_url as string | undefined) ??
-    (requestId ? `${QUEUE}/requests/${requestId}` : null);
+    (requestId ? `${queue}/requests/${requestId}` : null);
 
   if (!statusUrl || !resultUrl) {
     throw new Error(

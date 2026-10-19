@@ -762,8 +762,10 @@ Deno.test("motifConcurrenceRefusee : une seule slide concurrente, hors couvertur
     motifConcurrenceRefusee(BASE_DEUX_CONCURRENTES, 4, motif),
     "plusieurs slides citent un concurrent de l'application",
   );
-  // Le motif de Sophia ne voit pas Opal : la règle est celle de l'application.
-  assertEquals(motifConcurrenceRefusee(BASE_DEUX_CONCURRENTES, undefined, motifConcurrentApplication("sophia")), null);
+  // Le motif de Sophia ne voit ni Opal ni Forest : la règle est celle de l'application.
+  const deuxEcrans = [...BASE_OPAL.slice(0, 3), slide(4, "3. the forest app"), ...BASE_OPAL.slice(4)];
+  assertEquals(motifConcurrenceRefusee(deuxEcrans, 3, motif), "plusieurs slides citent un concurrent de l'application");
+  assertEquals(motifConcurrenceRefusee(deuxEcrans, undefined, motifConcurrentApplication("sophia")), null);
 });
 
 Deno.test("cache prêt qui cite un concurrent d'Unswipe : recuit", async () => {

@@ -7,18 +7,24 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, EmptyState } from "@/components/ui/card";
 import {
+  aujourdhuiParis,
   lirePost,
   listerSlides,
   postsCalendrierAdmin,
   type PostCalendrierAdmin,
 } from "@/features/moteur/api";
+import { estManque } from "@/features/moteur/echeancePublication";
+import { miniatureStorage } from "@/features/moteur/miniature";
+import { debutParDefaut, joursFenetre, libelleFenetre } from "@/features/moteur/semaines";
+import { ajouterJours } from "@/features/onboarding/datesRuul";
 import { cn } from "@/lib/utils";
 
 /** Aperçu (lecture seule) d'un post : ses slides — image nettoyée + texte. */
-function ApercuPost({ postId, onClose }: { postId: string; onClose: () => void }) {
+function ApercuPost({ postId, pays, onClose }: { postId: string; pays: string | null; onClose: () => void }) {
   const { t } = useTranslation();
   const post = useQuery({ queryKey: ["post", postId], queryFn: () => lirePost(postId) });
   const slides = useQuery({ queryKey: ["slides", postId], queryFn: () => listerSlides(postId) });
+  const manque = post.data ? estManque(post.data, pays) : false;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4" onClick={onClose}>
@@ -35,11 +41,27 @@ function ApercuPost({ postId, onClose }: { postId: string; onClose: () => void }
                 {t(`statut.${post.data.statut}`)}
               </Badge>
             )}
+            {manque && <Badge variant="destructive">{t("hiring.apercuManque")}</Badge>}
           </div>
           <Button size="icon" variant="ghost" aria-label={t("common.close")} onClick={onClose}>
             <X />
           </Button>
         </div>
+
+        {/* Lien publié cliquable : vérifier le post sur TikTok (change 4). */}
+        {post.data?.publie_url && (
+          <p className="mb-3 text-sm">
+            <span className="text-muted-foreground">{t("hiring.apercuLien")} : </span>
+            <a
+              href={post.data.publie_url}
+              target="_blank"
+              rel="noreferrer"
+              className="break-all text-primary underline underline-offset-2"
+            >
+              {post.data.publie_url}
+            </a>
+          </p>
+        )}
 
         {slides.isPending && <p className="text-sm text-muted-foreground">{t("common.loading")}</p>}
         {slides.data && slides.data.length === 0 && (
@@ -74,19 +96,6 @@ function ApercuPost({ postId, onClose }: { postId: string; onClose: () => void }
   );
 }
 
-function isoDuJour(annee: number, mois: number, jour: number): string {
-  return `${annee}-${String(mois + 1).padStart(2, "0")}-${String(jour).padStart(2, "0")}`;
-}
-
-function grilleDuMois(annee: number, mois: number) {
-  const decalage = (new Date(annee, mois, 1).getDay() + 6) % 7;
-  const joursDansLeMois = new Date(annee, mois + 1, 0).getDate();
-  const cases: Array<number | null> = Array.from({ length: decalage }, () => null);
-  for (let jour = 1; jour <= joursDansLeMois; jour += 1) cases.push(jour);
-  while (cases.length % 7 !== 0) cases.push(null);
-  return cases;
-}
-
 /** Teinte stable par compte : le même créateur garde sa couleur d'un jour à l'autre. */
 function teinte(compteId: string): number {
   let hash = 0;
@@ -110,21 +119,27 @@ function nomCreateur(post: { poster_prenom?: string | null; poster_nom?: string 
  * Calendrier LECTURE SEULE pour le hiring manager : les posts de SES créateurs
  * par jour (la RLS `posts_select_hiring` limite déjà aux siens). Pas de
  * glisser-déposer ni de suppression — c'est une vue de suivi.
+ *
+ * Deux semaines, la passée et celle en cours (ticket Aram, change 1) : de quoi
+ * vérifier la semaine écoulée avant de payer. Chaque post montre la miniature
+ * de sa slide 1, à comparer avec le profil TikTok (change 2), et un post non
+ * marqué publié avant la fin de sa journée (heure locale) ressort en rouge
+ * (change 3).
  */
 export function HiringCalendrierPage() {
   const { t, i18n } = useTranslation();
 
+  const [debut, setDebut] = React.useState(() => debutParDefaut());
+  const jours = joursFenetre(debut);
+  const du = jours[0];
+  const au = jours[jours.length - 1];
+
   const { data: posts, isPending } = useQuery({
-    queryKey: ["posts-calendrier-manager"],
-    queryFn: postsCalendrierAdmin,
+    queryKey: ["posts-calendrier-manager", du, au],
+    queryFn: () => postsCalendrierAdmin({ du, au, miniatures: true }),
   });
 
-  const maintenant = new Date();
-  const [mois, setMois] = React.useState(() => ({
-    annee: maintenant.getFullYear(),
-    mois: maintenant.getMonth(),
-  }));
-  const [apercu, setApercu] = React.useState<string | null>(null);
+  const [apercu, setApercu] = React.useState<PostCalendrierAdmin | null>(null);
 
   const parJour = React.useMemo(() => {
     const carte = new Map<string, PostCalendrierAdmin[]>();
@@ -150,24 +165,15 @@ export function HiringCalendrierPage() {
     return <p className="text-sm text-muted-foreground">{t("common.loading")}</p>;
   }
 
-  const cases = grilleDuMois(mois.annee, mois.mois);
-  const nomDuMois = new Date(mois.annee, mois.mois, 1).toLocaleDateString(i18n.language, {
-    month: "long",
-    year: "numeric",
-  });
   const enTetes = Array.from({ length: 7 }, (_, index) =>
     new Date(2024, 0, index + 1).toLocaleDateString(i18n.language, { weekday: "short" }),
   );
-  const decaler = (pas: number) =>
-    setMois((actuel) => {
-      const date = new Date(actuel.annee, actuel.mois + pas, 1);
-      return { annee: date.getFullYear(), mois: date.getMonth() };
-    });
-  const jour = isoDuJour(maintenant.getFullYear(), maintenant.getMonth(), maintenant.getDate());
+  const jour = aujourdhuiParis();
+  const maintenant = new Date();
 
   return (
     <div className="space-y-4">
-      {apercu && <ApercuPost postId={apercu} onClose={() => setApercu(null)} />}
+      {apercu && <ApercuPost postId={apercu.id} pays={apercu.pays} onClose={() => setApercu(null)} />}
 
       <div>
         <h1 className="text-lg font-semibold tracking-tight">{t("hiring.calendrierTitre")}</h1>
@@ -175,19 +181,25 @@ export function HiringCalendrierPage() {
       </div>
 
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <h2 className="text-base font-semibold capitalize tracking-tight">{nomDuMois}</h2>
+        <h2 className="text-base font-semibold tracking-tight">{libelleFenetre(jours, i18n.language)}</h2>
         <div className="flex items-center gap-1">
-          <Button size="icon" variant="ghost" aria-label={t("calendrier.moisPrecedent")} onClick={() => decaler(-1)}>
+          <Button
+            size="icon"
+            variant="ghost"
+            aria-label={t("calendrier.semainePrecedente")}
+            onClick={() => setDebut((d) => ajouterJours(d, -7))}
+          >
             <ChevronLeft />
           </Button>
-          <Button
-            size="sm"
-            variant="outline"
-            onClick={() => setMois({ annee: maintenant.getFullYear(), mois: maintenant.getMonth() })}
-          >
+          <Button size="sm" variant="outline" onClick={() => setDebut(debutParDefaut())}>
             {t("calendrier.revenirAujourdhui")}
           </Button>
-          <Button size="icon" variant="ghost" aria-label={t("calendrier.moisSuivant")} onClick={() => decaler(1)}>
+          <Button
+            size="icon"
+            variant="ghost"
+            aria-label={t("calendrier.semaineSuivante")}
+            onClick={() => setDebut((d) => ajouterJours(d, 7))}
+          >
             <ChevronRight />
           </Button>
         </div>
@@ -217,11 +229,7 @@ export function HiringCalendrierPage() {
           </div>
 
           <div className="grid grid-cols-7">
-            {cases.map((numero, index) => {
-              if (numero === null) {
-                return <div key={`vide-${index}`} className="min-h-24 border-b border-r bg-muted/20" />;
-              }
-              const date = isoDuJour(mois.annee, mois.mois, numero);
+            {jours.map((date) => {
               const duJour = parJour.get(date) ?? [];
               const estAujourdhui = date === jour;
 
@@ -239,27 +247,43 @@ export function HiringCalendrierPage() {
                       estAujourdhui ? "bg-primary font-semibold text-primary-foreground" : "text-muted-foreground",
                     )}
                   >
-                    {numero}
+                    {Number(date.slice(8, 10))}
                   </span>
 
-                  {duJour.map((post) => (
-                    <button
-                      key={post.id}
-                      type="button"
-                      onClick={() => setApercu(post.id)}
-                      title={`${nomCreateur(post)} — ${post.sujet_titre ?? ""}`}
-                      style={couleurs(post.compte_id)}
-                      className={cn(
-                        "flex w-full max-w-full cursor-pointer items-center gap-1 rounded border px-1.5 py-1 text-left text-[11px] leading-tight transition hover:brightness-95",
-                        post.pipeline_statut !== "done" && "opacity-60",
-                      )}
-                    >
-                      <span className="min-w-0 flex-1 truncate">
-                        {post.publie_at ? "✓ " : ""}
-                        {nomCreateur(post)}
-                      </span>
-                    </button>
-                  ))}
+                  {duJour.map((post) => {
+                    const manque = estManque(post, post.pays, maintenant);
+                    const miniature = miniatureStorage(post.miniature_url);
+                    return (
+                      <button
+                        key={post.id}
+                        type="button"
+                        onClick={() => setApercu(post)}
+                        title={`${nomCreateur(post)} — ${post.sujet_titre ?? ""}`}
+                        style={manque ? undefined : couleurs(post.compte_id)}
+                        className={cn(
+                          "flex w-full max-w-full cursor-pointer items-center gap-1 rounded border px-1 py-0.5 text-left text-[11px] leading-tight transition hover:brightness-95",
+                          post.pipeline_statut !== "done" && "opacity-60",
+                          manque && "border-destructive/50 bg-destructive/10 text-destructive",
+                        )}
+                      >
+                        {/* Slide 1 en miniature : à comparer avec le profil TikTok. */}
+                        {miniature ? (
+                          <img
+                            src={miniature}
+                            alt=""
+                            loading="lazy"
+                            className="h-9 w-6 shrink-0 rounded-sm object-cover"
+                          />
+                        ) : (
+                          <span className="h-9 w-6 shrink-0 rounded-sm bg-muted" />
+                        )}
+                        <span className="min-w-0 flex-1 truncate">
+                          {post.publie_at ? "✓ " : manque ? "✗ " : ""}
+                          {nomCreateur(post)}
+                        </span>
+                      </button>
+                    );
+                  })}
                 </div>
               );
             })}

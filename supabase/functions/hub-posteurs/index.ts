@@ -238,6 +238,17 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     langue,
     type_compte: "perso",
     posts_par_jour: POSTS_PAR_JOUR,
+    // C'est le SITE qui choisit l'application de ses candidats, candidat par
+    // candidat (décision du 18/10). Ce marqueur le dit à manage-users, qui
+    // laisse alors son moteur de côté.
+    //
+    // Il est INDISPENSABLE et ne peut pas être déduit : `partsPourApplications`
+    // rend `null` quand le site demande Sophia seule, donc la clé
+    // `parts_applications` est absente — un corps strictement identique à
+    // celui d'un recruteur qui n'a rien coché. Sans ce marqueur, les posters
+    // du site repartiraient au choix automatique, et c'est justement le cas
+    // majoritaire : les 7 comptes de la cohorte au 18/10.
+    source: "hub-posteurs",
     ...(paysCompte ? { pays: paysCompte } : {}),
     ...(parts ? { parts_applications: parts } : {}),
   });

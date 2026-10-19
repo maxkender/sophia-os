@@ -11,6 +11,7 @@ import {
   type ChoixCreation,
   type OptionsChoixCreation,
 } from "./choixCreation";
+import { CLE_CHOIX_APPLICATION_AUTO, lireChoixApplicationAuto } from "./apiRepartition";
 import { CLE_APPLICATIONS_MULTI, CLE_LIENS_LABELS } from "./useMultiApp";
 
 /**
@@ -27,7 +28,24 @@ import { CLE_APPLICATIONS_MULTI, CLE_LIENS_LABELS } from "./useMultiApp";
  * Mêmes clés de cache que `useApplicationsMulti` / `useLiensLabels` et que la
  * liste des labels de la page Posters : rien de relu en double.
  */
-export function useChoixApplicationsCreation(actif: boolean, langue?: string | null) {
+export function useChoixApplicationsCreation(actifDemande: boolean, langue?: string | null) {
+  // La bascule : quand le moteur choisit l'application, il n'y a plus rien à
+  // cocher. On réutilise le chemin « inactif » qui existe déjà et qui est
+  // testé — aucune lecture, options vides, jamais bloquant — plutôt que
+  // d'arracher le composant.
+  //
+  // Tant qu'on ne SAIT PAS que l'interrupteur est allumé, la case reste : une
+  // lecture qui rate ne doit pas faire disparaître le choix et envoyer tous
+  // les comptes sur Sophia. Le serveur applique exactement la même règle, et
+  // les deux lisent la même clé, donc ils basculent ensemble.
+  const auto = useQuery({
+    queryKey: [CLE_CHOIX_APPLICATION_AUTO],
+    queryFn: lireChoixApplicationAuto,
+    staleTime: 60_000,
+    retry: false,
+    enabled: actifDemande,
+  });
+  const actif = actifDemande && auto.data !== true;
   const [choix, setChoix] = React.useState<ChoixCreation>(CHOIX_CREATION_DEFAUT);
   // Envois tentés sans application (compteur : chaque clic ramène le bloc
   // sous les yeux) ; remis à zéro à la fermeture, au changement de type de

@@ -2098,6 +2098,13 @@ export const fr = {
       cibleAide:
         "Des pourcentages entiers, renormalisés à 100 à la lecture. Une application laissée à 0 ne reçoit rien. La cible est ensuite ramenée aux seules applications qui servent la langue du marché : viser 25 % d'Unswipe ne veut rien dire en polonais, où Unswipe ne publie pas.",
       poserCible: "Poser la cible",
+      basculeTitre: "Le moteur choisit l'application",
+      basculeAide:
+        "Éteint, l'application d'un nouveau compte est celle que le recruteur coche. Allumé, c'est le moteur qui décide, par la règle projetée ci-dessous, et la case disparaît des écrans de création. Les comptes existants ne bougent jamais, les recrues venues du site gardent le choix du site, et un label mis dans la File attire le compte vers son application : c'est comme ça qu'on amorce un label neuf.",
+      basculeSansCible:
+        "Pose d'abord une cible. Sans elle le moteur s'abstient et tout repartirait sur Sophia.",
+      basculeActifAvis:
+        "Actif : les prochains comptes créés sont répartis par le moteur. Pour couper, repasse cet interrupteur, l'effet est immédiat.",
       sommeAide: "Somme saisie : {{total}} (renormalisée à 100)",
       toutesLangues: "Toutes les langues",
       langues: "Langues : {{liste}}",

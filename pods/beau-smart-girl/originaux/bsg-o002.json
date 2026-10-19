@@ -1,0 +1,63 @@
+{
+ "source_id": "bsg-o002",
+ "schema_id": "jolie-et-interessante",
+ "titre": "comment être jolie ET vraiment intéressante en même temps #pourtoi #culture #apprentissage #education",
+ "musique_titre": "effycore",
+ "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+ "inspirations": [
+  "675447a8-afc4-470d-b196-c7b30e600268",
+  "375ec54a-c305-4083-bf9c-2a47f0957e40"
+ ],
+ "notes": "Schéma jolie-et-interessante (preuve TikTok @mia.study5, 571 k vues le 23/09, valable jusqu'au 23/10 ; r 5,04 sur 7 passages, 675447a8 ; r 2,54, 375ec54a). Accroches écrites : « comment être jolie ET vraiment intéressante en même temps » (retenue : la traduction directe du gagnant à 571 k, avec le ET crié), « comment je suis devenue la fille qu'on décrit comme vraiment intéressante, sans jamais être populaire » (écartée : plus longue, gagnant plus faible à r 2,54), « les petits trucs qui m'ont rendue plus intéressante que jolie » (écartée : casse la promesse jolie ET cultivée). Conseils en « tu », six items neufs : un livre toujours dans le sac, l'histoire de sa propre ville, demander aux gens ce qui les passionne, le soin de soi comme rituel (jolie = prendre soin de soi, aucune norme physique), le musée seule, apprendre un truc sur le monde chaque jour. Rien de repris des sources (prédire le prof, school lore, opinions, mystère, souvenir des détails). Aucun fait à vérifier, aucune personne réelle. Sophia sur le dernier item (6). Images de la banque : la fille allongée au livre rouge, visage caché (accroche), la fille qui lit en librairie, le livre ouvert sous la lampe, la fille au thé, les produits de beauté, la fille qui dessine, le livre ouvert et les écouteurs. Inspirations : slides 1, 2, 4, 5, 6 de 675447a8 (sa 3 cite une appli), 1, 2, 7 de 375ec54a (sa 6 cite une appli).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "070d9d6c",
+   "texte_overlay": "comment être jolie\nET vraiment intéressante\nen même temps",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684754941944155406/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a2c90cf9",
+   "texte_overlay": "1. aie toujours un livre dans ton sac.\n\npas pour frimer. dans le métro ou dans une file d'attente, tu lis trois pages.\nà la fin du mois, t'as fini un livre sans y penser.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684754941944155406/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2ac44bad",
+   "texte_overlay": "2. apprends l'histoire de ta propre ville.\n\npourquoi ta rue porte ce nom, qui a construit ce pont, ce qu'il y avait avant ce café.\nà la prochaine balade, c'est toi la guide.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684754941944155406/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b51925dc",
+   "texte_overlay": "3. demande aux gens ce qui les passionne. puis écoute vraiment.\n\ntu apprends un truc à chaque conversation.\net ils repartent en se disant que t'es fascinante.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684754941944155406/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "67cb1a44",
+   "texte_overlay": "4. prends soin de toi comme d'un rituel, pas d'une corvée.\n\nune crème, un parfum, une tenue que t'aimes.\nquand tu te sens bien, t'oses parler. et c'est là qu'on t'écoute.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684754941944155406/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "914f2d3a",
+   "texte_overlay": "5. va au musée seule, une fois par mois.\n\nà ton rythme, sans personne qui s'ennuie à côté.\ntu restes dix minutes devant UNE œuvre si t'en as envie.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ff78e5e8",
+   "texte_overlay": "6. apprends un truc sur le monde chaque jour.\n\n5 minutes d'histoire, d'art ou de sciences le matin.\njolie, ok. mais la fille qui a toujours une histoire à raconter, on s'en souvient.",
+   "texte_sophia": "6. apprends un truc sur le monde chaque jour avec l'appli Sophia.\n\n5 minutes d'histoire, d'art ou de sciences le matin.\nla fille qui a toujours une histoire à raconter, on s'en souvient.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "12be5ef2",
+   "texte_overlay": "jolie, c'est bien.\nintéressante, c'est pour toujours.\nlaquelle tu commences ce soir ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681800874494070029/8.jpg"
+  }
+ ]
+}

@@ -211,7 +211,7 @@ describe("écart de la flotte", () => {
   it("l'écart est positif là où l'application manque", () => {
     const cible = lireCibleApplications({ sophia: 60, unswipe: 25, micabo: 15 }, SLUGS);
     const marches = [marche({ sophia: 80, unswipe: 10, micabo: 10 }, "de", "DE")];
-    const e = ecartsFlotte(marches, cible);
+    const e = ecartsFlotte(marches, cible, APPS);
     expect(e.find((x) => x.slug === "sophia")!.ecart).toBeCloseTo(-20);
     expect(e.find((x) => x.slug === "unswipe")!.ecart).toBeCloseTo(15);
   });
@@ -219,6 +219,48 @@ describe("écart de la flotte", () => {
   it("additionne tous les marchés", () => {
     const cible = lireCibleApplications(null, ["sophia"]);
     const marches = [marche({ sophia: 2 }, "de", "DE"), marche({ sophia: 3 }, "fr", "FR")];
-    expect(ecartsFlotte(marches, cible)[0].comptes).toBe(5);
+    expect(ecartsFlotte(marches, cible, APPS)[0].comptes).toBe(5);
+  });
+
+  it("LE test : la cible de la flotte tient compte des marchés où Sophia est seule", () => {
+    // Le piège qui a failli faire baisser la part de Sophia alors qu'il
+    // fallait la monter. Deux marchés de même taille : le polonais, que seule
+    // Sophia sert, et le français, que les trois servent. Si chacun atteint
+    // sa cible, la flotte N'EST PAS à 60 % de Sophia mais à 80 % :
+    // 100 % sur l'un, 60 % sur l'autre.
+    const cible = lireCibleApplications({ sophia: 60, unswipe: 25, micabo: 15 }, SLUGS);
+    const marches = [
+      marche({ sophia: 10 }, "pl", "PL"),
+      marche({ sophia: 6, unswipe: 2.5, micabo: 1.5 }, "fr", "FR"),
+    ];
+    const e = ecartsFlotte(marches, cible, APPS);
+    expect(e.find((x) => x.slug === "sophia")!.partVisee).toBeCloseTo(80);
+    // Et la flotte EST à sa cible : chaque marché y est, donc l'écart est nul.
+    expect(e.find((x) => x.slug === "sophia")!.ecart).toBeCloseTo(0);
+    expect(e.find((x) => x.slug === "unswipe")!.ecart).toBeCloseTo(0);
+  });
+
+  it("les cibles visées de la flotte somment à 100", () => {
+    const cible = lireCibleApplications({ sophia: 70, unswipe: 20, micabo: 10 }, SLUGS);
+    const marches = [
+      marche({ sophia: 10 }, "pl", "PL"),
+      marche({ sophia: 11 }, "it", "IT"),
+      marche({ sophia: 16, unswipe: 3, micabo: 2 }, "fr", "FR"),
+    ];
+    const somme = ecartsFlotte(marches, cible, APPS).reduce((a, x) => a + x.partVisee, 0);
+    expect(somme).toBeCloseTo(100);
+  });
+
+  it("un marché vide ne pèse pas dans la cible de la flotte", () => {
+    const cible = lireCibleApplications({ sophia: 60, unswipe: 40 }, SLUGS);
+    const avec = ecartsFlotte(
+      [marche({ sophia: 5, unswipe: 5 }, "fr", "FR"), marche({}, "pl", "PL")],
+      cible,
+      APPS,
+    );
+    const sans = ecartsFlotte([marche({ sophia: 5, unswipe: 5 }, "fr", "FR")], cible, APPS);
+    expect(avec.find((x) => x.slug === "sophia")!.partVisee).toBeCloseTo(
+      sans.find((x) => x.slug === "sophia")!.partVisee,
+    );
   });
 });

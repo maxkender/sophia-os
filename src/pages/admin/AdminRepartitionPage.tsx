@@ -804,7 +804,7 @@ function CarteApplications({
   applications: ApplicationCandidate[];
 }) {
   const { t } = useTranslation();
-  const flotte = ecartsFlotte(marches, cible);
+  const flotte = ecartsFlotte(marches, cible, applications);
   const lignes = marches
     .map((m) => {
       const total = m.parts.reduce((a, p) => a + p.comptes, 0);
@@ -865,8 +865,11 @@ function CarteApplications({
       </CardHeader>
       <CardContent className="space-y-6">
         <div>
-          <p className="mb-2 text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
+          <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
             {t("repartition.appsFlotte")}
+          </p>
+          <p className="mb-2 max-w-3xl text-xs text-muted-foreground">
+            {t("repartition.appsFlotteAide")}
           </p>
           <Tableau
             lignes={flotte}

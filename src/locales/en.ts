@@ -2115,6 +2115,8 @@ export const en = {
       appsAide:
         "Today a new account's application is ticked by hand by the recruiter, with no target at all. Here is the real split, for the whole fleet then market by market, and which application would take the next hire if a target were set.",
       appsFlotte: "Whole fleet",
+      appsFlotteAide:
+        "The \"target\" column is not the target you entered: it is the REACHABLE target, weighted by languages. 24 markets out of 36 are served by Sophia alone, so even if every market hit its target exactly, the fleet would not land on the entered share. Comparing against the raw target would read as too much Sophia where there is too little.",
       appsMarches: "By market (language × country)",
       cibleAbsenteTitre: "No target set",
       cibleAbsenteAide:

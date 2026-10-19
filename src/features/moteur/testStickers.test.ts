@@ -5,6 +5,7 @@ import {
   enParallele,
   ordreAffichage,
   type EtatStickerTest,
+  type FamilleSticker,
   type SlideshowStickerTest,
 } from "./testStickers";
 
@@ -15,14 +16,16 @@ const slideshow = (id: string): SlideshowStickerTest => ({
   slides: [{ position: 1, url: `https://x/${id}/1.jpg` }],
 });
 
-const ok = (id: string, sticker: boolean): EtatStickerTest => ({
+/** Un slideshow analysé dont la slide 1 porte `famille` (et la slide 2 rien). */
+const ok = (id: string, famille: FamilleSticker): EtatStickerTest => ({
   statut: "ok",
   resultat: {
     id,
-    sticker,
+    rejete: famille === "pub",
+    contenu: famille === "contenu",
     slides: [
-      { position: 1, url: "u1", sticker, texte: sticker ? "" : "texte" },
-      { position: 2, url: "u2", sticker: false, texte: "suite" },
+      { position: 1, url: "u1", sticker: famille, texte: famille === "pub" ? "" : "texte" },
+      { position: 2, url: "u2", sticker: null, texte: "suite" },
     ],
   },
 });
@@ -60,39 +63,62 @@ describe("enParallele", () => {
 });
 
 describe("bilanStickers", () => {
-  it("compte stickers, propres, erreurs et slides à sticker", () => {
-    const liste = ["a", "b", "c", "d", "e"].map(slideshow);
+  it("sépare rejetés (pub), stickers de contenu, propres et erreurs", () => {
+    const liste = ["a", "b", "c", "d", "e", "f"].map(slideshow);
     const etats: Record<string, EtatStickerTest> = {
-      a: ok("a", true),
-      b: ok("b", false),
-      c: { statut: "erreur", message: "Gemini 503" },
-      d: { statut: "encours" },
+      a: ok("a", "pub"),
+      b: ok("b", "contenu"),
+      c: ok("c", null),
+      d: { statut: "erreur", message: "Gemini 503" },
+      e: { statut: "encours" },
+      f: ok("f", "contenu"),
     };
     expect(bilanStickers(liste, etats)).toEqual({
-      total: 5,
-      termines: 3,
-      stickers: 1,
+      total: 6,
+      termines: 5,
+      rejetes: 1,
+      contenus: 2,
       propres: 1,
       erreurs: 1,
-      slidesSticker: 1,
+      slidesPub: 1,
+      slidesContenu: 2,
     });
+  });
+
+  it("pub et contenu dans le même slideshow : compté rejeté", () => {
+    const etat: EtatStickerTest = {
+      statut: "ok",
+      resultat: {
+        id: "x",
+        rejete: true,
+        contenu: true,
+        slides: [
+          { position: 1, url: "u1", sticker: "contenu", texte: "livre" },
+          { position: 2, url: "u2", sticker: "pub", texte: "" },
+        ],
+      },
+    };
+    const bilan = bilanStickers([slideshow("x")], { x: etat });
+    expect([bilan.rejetes, bilan.contenus, bilan.slidesPub, bilan.slidesContenu]).toEqual([1, 0, 1, 1]);
   });
 });
 
 describe("ordreAffichage", () => {
-  const liste = ["a", "b", "c", "d", "e"].map(slideshow);
+  const liste = ["a", "b", "c", "d", "e", "f"].map(slideshow);
   const etats: Record<string, EtatStickerTest> = {
-    a: ok("a", false),
-    b: ok("b", true),
+    a: ok("a", null),
+    b: ok("b", "pub"),
     c: { statut: "erreur", message: "x" },
-    e: ok("e", true),
+    e: ok("e", "contenu"),
+    f: ok("f", "pub"),
   };
 
-  it("stickers d'abord (ordre du tirage), puis erreurs, en cours, propres", () => {
-    expect(ordreAffichage(liste, etats).map((s) => s.id)).toEqual(["b", "e", "c", "d", "a"]);
+  it("rejetés d'abord (ordre du tirage), puis contenu, erreurs, en cours, propres", () => {
+    expect(ordreAffichage(liste, etats).map((s) => s.id)).toEqual(["b", "f", "e", "c", "d", "a"]);
   });
 
-  it("filtre « stickers seuls »", () => {
-    expect(ordreAffichage(liste, etats, true).map((s) => s.id)).toEqual(["b", "e"]);
+  it("filtres « pub » et « contenu »", () => {
+    expect(ordreAffichage(liste, etats, "pub").map((s) => s.id)).toEqual(["b", "f"]);
+    expect(ordreAffichage(liste, etats, "contenu").map((s) => s.id)).toEqual(["e"]);
   });
 });

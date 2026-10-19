@@ -1269,8 +1269,17 @@ async function rejetStickersActif(supabase: Supabase): Promise<boolean> {
   return (data?.valeur as { rejet_import?: unknown } | null)?.rejet_import === true;
 }
 
-/** OCR d'une slide à l'import : `null` = sticker (règle allumée seulement). */
-async function lireSlideImport(supabase: Supabase, url: string): Promise<string | null> {
+/**
+ * OCR d'une slide à l'import : `null` = sticker (règle allumée seulement).
+ * Les contenus d'un pod (`contenus.pod`) ont un passe-droit : jamais rejetés
+ * pour sticker, même s'ils repassent par ici (reprise d'un deck sans texte).
+ */
+async function lireSlideImport(
+  supabase: Supabase,
+  contenu: { pod?: string | null },
+  url: string,
+): Promise<string | null> {
+  if (contenu.pod) return await ocrFrame(url);
   return (await rejetStickersActif(supabase)) ? await ocrSlideImport(url) : await ocrFrame(url);
 }
 
@@ -1336,7 +1345,7 @@ async function executerPasImport(
 
     // 1 — OCR du hook
     if (slides[0] && (slides[0].texte_original === null || slides[0].texte_original === undefined)) {
-      const texte = await lireSlideImport(supabase, slides[0].raw_url);
+      const texte = await lireSlideImport(supabase, contenu, slides[0].raw_url);
       if (texte === null) return await rejeterSticker(supabase, contenu.id, slides[0].position);
       slides[0].texte_original = texte;
       await marquer(supabase, contenu.id, {
@@ -1394,7 +1403,7 @@ async function executerPasImport(
     const aOcr = slides.filter((s) => s.texte_original === null || s.texte_original === undefined);
     if (aOcr.length > 0) {
       for (const slide of aOcr.slice(0, SLIDES_PAR_PASSAGE)) {
-        const texte = await lireSlideImport(supabase, slide.raw_url);
+        const texte = await lireSlideImport(supabase, contenu, slide.raw_url);
         if (texte === null) return await rejeterSticker(supabase, contenu.id, slide.position);
         slide.texte_original = texte;
       }

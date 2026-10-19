@@ -7,19 +7,15 @@ const BUCKET = "medias";
 /**
  * Nettoyage de TEST, non destructif.
  *
- *   { url, stream?: true, consigne?: string, mode?: "tout_texte" }
+ *   { url, stream?: true }
  *     → JSON { ok, url, moteur, etapes }
  *     → ou NDJSON si stream=true (une ligne / étape, puis ready + url)
- *
- *   `consigne` : essayer une consigne Kontext avant de la mettre dans
- *   `reglages.nettoyage.prompt` ; `mode: "tout_texte"` : l'ancien text-removal,
- *   pour comparer. Sans les deux : le réglage en vigueur.
  */
 Deno.serve(async (request) => {
   const denied = await assertAuthorised(request);
   if (denied) return denied;
 
-  let corps: { url?: string; stream?: boolean; consigne?: string; mode?: string } = {};
+  let corps: { url?: string; stream?: boolean } = {};
   try {
     corps = await request.json();
   } catch {
@@ -34,12 +30,7 @@ Deno.serve(async (request) => {
     emit?: (e: Record<string, unknown>) => void,
   ) => {
     const onEtape = emit ? (e: EvenementEtape) => emit(e) : undefined;
-    const consigne = corps.mode === "tout_texte"
-      ? null
-      : typeof corps.consigne === "string" && corps.consigne.trim()
-        ? corps.consigne
-        : undefined;
-    const propre = await cleanImage(url, onEtape, { consigne });
+    const propre = await cleanImage(url, onEtape);
     if (!propre) {
       emit?.({ etape: "ready", statut: "echec", detail: "aucune image renvoyée" });
       return { ok: false as const, motif: "aucune image renvoyée", etapes: [] };

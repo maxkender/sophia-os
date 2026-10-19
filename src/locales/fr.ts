@@ -2113,6 +2113,9 @@ export const fr = {
       cibleAide:
         "Des pourcentages entiers, renormalisés à 100 à la lecture. Une application laissée à 0 ne reçoit rien. La cible est ensuite ramenée aux seules applications qui servent la langue du marché : viser 25 % d'Unswipe ne veut rien dire en polonais, où Unswipe ne publie pas.",
       poserCible: "Poser la cible",
+      fileTitre: "File des créateurs (forcer la main au moteur)",
+      fileAide:
+        "Ce qui est dans la File passe AVANT le classement, et attire même l'application : si une entrée utilisable existe pour un marché, c'est cette application-là qui prend le compte. Sert à amorcer un label neuf, qui sans ça ne serait jamais choisi faute d'historique, et n'aurait donc jamais d'historique. Choisis l'application, puis la file d'une langue pour cibler, ou la file générale. Chaque modification est enregistrée tout de suite.",
       basculeTitre: "Le moteur choisit l'application",
       basculeAide:
         "Éteint, l'application d'un nouveau compte est celle que le recruteur coche. Allumé, c'est le moteur qui décide, par la règle projetée ci-dessous, et la case disparaît des écrans de création. Les comptes existants ne bougent jamais, les recrues venues du site gardent le choix du site, et un label mis dans la File attire le compte vers son application : c'est comme ça qu'on amorce un label neuf.",
@@ -2910,6 +2913,7 @@ export const fr = {
       fileAutosave:
         "Enregistré immédiatement à chaque ajout / réordonnancement — pas besoin du bouton Enregistrer en bas.",
       fileSauvee: "file à jour",
+      fileDeplacee: "La File des créateurs se règle maintenant depuis la page",
       fileVideListe:
         "File générale vide — utilisée seulement si la file de la langue du poster est vide ; sinon choix équilibré.",
       fileVide:

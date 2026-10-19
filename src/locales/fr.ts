@@ -2119,6 +2119,8 @@ export const fr = {
       appsAide:
         "Aujourd'hui, l'application d'un compte est cochée à la main par le recruteur, sans aucune cible. Voici la répartition réelle, pour la flotte puis marché par marché, et quelle application prendrait la prochaine recrue si une cible était posée.",
       appsFlotte: "Toute la flotte",
+      appsFlotteAide:
+        "La colonne « visée » n'est pas la cible saisie : c'est la cible ATTEIGNABLE, pondérée par les langues. 24 marchés sur 36 ne sont servis que par Sophia, donc même si chaque marché atteignait exactement sa cible, la flotte ne serait pas à la part saisie. Comparer à la cible brute ferait lire un excès de Sophia là où il y a un manque.",
       appsMarches: "Par marché (langue × pays)",
       cibleAbsenteTitre: "Aucune cible posée",
       cibleAbsenteAide:

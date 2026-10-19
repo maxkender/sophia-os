@@ -160,10 +160,26 @@ export function classerApplications(
 /**
  * L'écart d'une application à sa cible sur toute la flotte, en points de
  * pourcentage. Positif = sous-représentée, c'est là que vont les recrues.
+ *
+ * LA CIBLE DE LA FLOTTE N'EST PAS LA CIBLE SAISIE, et c'est tout l'objet de
+ * cette fonction. La cible est une règle PAR MARCHÉ, et 24 des 36 marchés ne
+ * sont servis que par Sophia : viser « 20 % Unswipe » n'y veut rien dire.
+ * Au 19/10, 125 comptes sur 265 vivent dans un marché où Sophia est seule.
+ *
+ * Comparer la flotte réelle à la cible brute donnerait donc « Sophia 79 %
+ * contre 70 % visés, 9 points de trop » alors que si CHAQUE marché atteignait
+ * exactement sa cible, la flotte serait à 84 % de Sophia. On lirait un excès
+ * là où il y a un manque, et on serait tenté de baisser encore la part de
+ * Sophia — l'inverse de ce qu'il faut faire.
+ *
+ * On calcule donc la cible atteignable : pour chaque marché, la cible
+ * renormalisée sur les applications qui le servent, pondérée par le nombre de
+ * comptes du marché.
  */
 export function ecartsFlotte(
   marches: readonly MarcheApplications[],
   cible: CibleApplications,
+  applications: readonly ApplicationCandidate[],
 ): Array<{ slug: string; comptes: number; partReelle: number; partVisee: number; ecart: number }> {
   const comptesPar = new Map<string, number>();
   for (const m of marches) {
@@ -172,13 +188,31 @@ export function ecartsFlotte(
     }
   }
   const total = [...comptesPar.values()].reduce((a, b) => a + b, 0);
-  const slugs = new Set([...comptesPar.keys(), ...Object.keys(cible.parts)]);
 
+  // Cible atteignable, pondérée par le poids de chaque marché.
+  const viseePar = new Map<string, number>();
+  let poids = 0;
+  for (const m of marches) {
+    const comptesMarche = m.parts.reduce((a, p) => a + p.comptes, 0);
+    if (comptesMarche <= 0) continue;
+    const candidats = applicationsEligibles(m.langue, applications).filter(
+      (a) => (cible.parts[a.slug] ?? 0) > 0,
+    );
+    const somme = candidats.reduce((a, x) => a + (cible.parts[x.slug] ?? 0), 0);
+    if (somme <= 0) continue;
+    poids += comptesMarche;
+    for (const a of candidats) {
+      const visee = (100 * (cible.parts[a.slug] ?? 0)) / somme;
+      viseePar.set(a.slug, (viseePar.get(a.slug) ?? 0) + visee * comptesMarche);
+    }
+  }
+
+  const slugs = new Set([...comptesPar.keys(), ...Object.keys(cible.parts)]);
   return [...slugs]
     .map((slug) => {
       const comptes = comptesPar.get(slug) ?? 0;
       const partReelle = total > 0 ? (100 * comptes) / total : 0;
-      const partVisee = cible.parts[slug] ?? 0;
+      const partVisee = poids > 0 ? (viseePar.get(slug) ?? 0) / poids : 0;
       return { slug, comptes, partReelle, partVisee, ecart: partVisee - partReelle };
     })
     .sort((a, b) => b.comptes - a.comptes);

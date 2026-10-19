@@ -216,6 +216,22 @@ export const DEFAULT_TRANSLATE_PROMPT = `Règles de traduction impératives :
   n'est pas ton rôle de l'ajouter ici.
 - Conserve les URLs et les sources citées telles quelles.`;
 
+const OCR_CONSIGNE = `Transcris exactement le texte incrusté sur cette slide TikTok,
+en langue d'origine, sans le corriger ni le traduire.
+
+Ignore : logos, marques dans le décor, texte sur les vêtements, barre de statut
+du téléphone. Garde le nom d'une app/d'un podcast si c'est le sujet de la slide.`;
+
+const OCR_AUCUN_TEXTE =
+  `Si la slide ne contient aucun texte incrusté, réponds exactement : (aucun texte)`;
+
+const OCR_STICKER = `Si un élément graphique est COLLÉ par-dessus la photo (carte App Store ou
+Google Play, icône ou capture d'écran d'app, logo, badge, étiquette, image
+détourée), ne transcris rien et réponds exactement : (sticker)
+Ce n'est pas un sticker : un emoji tapé dans le texte, le fond coloré derrière le
+texte, le watermark TikTok (@pseudo), ce qui fait partie de la photo elle-même
+(objets, écrans, papiers, panneaux).`;
+
 /**
  * OCR seul, slide par slide : transcrit le texte incrusté en langue d'origine.
  * La traduction se fait ensuite sur tout le deck d'un coup (translateSlideshow),
@@ -223,17 +239,30 @@ export const DEFAULT_TRANSLATE_PROMPT = `Règles de traduction impératives :
  */
 export async function ocrFrame(imageUrl: string): Promise<string> {
   const image = await fetchImageAsInline(imageUrl);
-
-  const prompt = `Transcris exactement le texte incrusté sur cette slide TikTok,
-en langue d'origine, sans le corriger ni le traduire.
-
-Ignore : logos, marques dans le décor, texte sur les vêtements, barre de statut
-du téléphone. Garde le nom d'une app/d'un podcast si c'est le sujet de la slide.
-
-Si la slide ne contient aucun texte incrusté, réponds exactement : (aucun texte)`;
-
+  const prompt = `${OCR_CONSIGNE}\n\n${OCR_AUCUN_TEXTE}`;
   const parts = await callWithFallback(TEXT_MODELS, [{ text: prompt }, image]);
   const text = textOf(parts).trim();
+  return text === "(aucun texte)" ? "" : text;
+}
+
+/**
+ * OCR de l'import : la même lecture et le même appel qu'`ocrFrame`, plus une
+ * règle — `null` si un sticker est collé sur la slide. Le nettoyage
+ * (text-removal) ne sait pas retirer un sticker, il en efface seulement le
+ * texte, et l'OCR le recopiait dans la légende : un TikTok à sticker n'est pas
+ * importé (#questions, ticket stickers du 13/10).
+ */
+export async function ocrSlideImport(imageUrl: string): Promise<string | null> {
+  const image = await fetchImageAsInline(imageUrl);
+  const prompt = `${OCR_CONSIGNE}\n\n${OCR_STICKER}\n\n${OCR_AUCUN_TEXTE}`;
+  const parts = await callWithFallback(TEXT_MODELS, [{ text: prompt }, image]);
+  return lireOcrImport(textOf(parts));
+}
+
+/** Réponse de l'OCR → texte de la slide, "" sans texte, `null` si sticker. */
+export function lireOcrImport(reponse: string): string | null {
+  const text = reponse.trim();
+  if (text.split("\n").some((ligne) => ligne.trim().toLowerCase() === "(sticker)")) return null;
   return text === "(aucun texte)" ? "" : text;
 }
 

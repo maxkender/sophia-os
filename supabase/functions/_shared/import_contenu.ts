@@ -20,7 +20,7 @@ import {
   genererHashtagsSlideshow,
   integrateSophia,
   mimeDepuisBase64,
-  ocrFrame,
+  ocrSlideImport,
   scoreRelevance,
   translateSlideshow,
 } from "./gemini.ts";
@@ -1254,6 +1254,24 @@ export async function avancerImport(
 }
 
 /**
+ * Sticker collé sur une slide (carte App Store, icône d'app, logo…) : le
+ * TikTok n'est pas importé. Décidé à l'OCR, avant pertinence et nettoyage.
+ */
+async function rejeterSticker(
+  supabase: Supabase,
+  contenuId: string,
+  position: number,
+): Promise<AvancerImportResultat> {
+  await marquer(supabase, contenuId, {
+    statut: "rejete",
+    import_statut: "done",
+    import_etape: "sticker",
+    import_erreur: `Sticker collé sur la slide ${position} — TikTok non importé`,
+  });
+  return { etape: "sticker", progres: true };
+}
+
+/**
  * Un pas du pipeline. Ordre :
  * OCR hook → pertinence → OCR reste → ELO par langue (gate) → nettoyage (1×)
  * → caption visuelle (Florence → Moondream) → valide (texte OCR source uniquement).
@@ -1297,7 +1315,9 @@ async function executerPasImport(
 
     // 1 — OCR du hook
     if (slides[0] && (slides[0].texte_original === null || slides[0].texte_original === undefined)) {
-      slides[0].texte_original = await ocrFrame(slides[0].raw_url);
+      const texte = await ocrSlideImport(slides[0].raw_url);
+      if (texte === null) return await rejeterSticker(supabase, contenu.id, slides[0].position);
+      slides[0].texte_original = texte;
       await marquer(supabase, contenu.id, {
         structure_slides: slides,
         import_etape: "ocr",
@@ -1353,7 +1373,9 @@ async function executerPasImport(
     const aOcr = slides.filter((s) => s.texte_original === null || s.texte_original === undefined);
     if (aOcr.length > 0) {
       for (const slide of aOcr.slice(0, SLIDES_PAR_PASSAGE)) {
-        slide.texte_original = await ocrFrame(slide.raw_url);
+        const texte = await ocrSlideImport(slide.raw_url);
+        if (texte === null) return await rejeterSticker(supabase, contenu.id, slide.position);
+        slide.texte_original = texte;
       }
       await marquer(supabase, contenu.id, {
         structure_slides: slides,

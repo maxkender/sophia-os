@@ -10,8 +10,9 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
  *   { action: "tirer", n?: 100 }
  *     → { slideshows: [{ id, titre, created_at, slides: [{ position, url }] }] }
  *     n slideshows tirés au hasard parmi TOUS les imports valides qui ont
- *     gardé leurs images brutes (celles que l'OCR d'import lit) — lecture
- *     paginée, PostgREST plafonnant une réponse à 1 000 lignes.
+ *     gardé leurs images brutes (celles que l'OCR d'import lit), hors pods
+ *     (passe-droit : la règle ne les vise pas) — lecture paginée, PostgREST
+ *     plafonnant une réponse à 1 000 lignes.
  *   { action: "analyser", contenuId }
  *     → { id, sticker, slides: [{ position, url, sticker, texte, erreur? }] }
  *     l'OCR d'import sur chaque slide, en parallèle. L'import s'arrête au
@@ -58,6 +59,7 @@ async function tirerSlideshows(n: number) {
         .select("id")
         .eq("statut", "valide")
         .eq("import_statut", "done")
+        .is("pod", null)
         .not("structure_slides->0->>raw_url", "is", null);
       if (curseur) q = q.gt("id", curseur.id);
       return q.order("id", { ascending: true }).limit(taille);

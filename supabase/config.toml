@@ -106,6 +106,9 @@ verify_jwt = false
 [functions.nettoyer-media]
 verify_jwt = false
 
+[functions.nettoyer-stickers]
+verify_jwt = false
+
 [functions.nettoyer-test]
 verify_jwt = false
 

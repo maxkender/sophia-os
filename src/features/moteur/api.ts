@@ -61,6 +61,7 @@ import {
 } from "./classementComptes";
 import type { LigneJournalOubli } from "./oubliSource";
 import type { SlideshowStickerTest, StickerTestResultat } from "./testStickers";
+import type { ResultatNettoyageStickers, SlideshowsLabelStickers } from "./nettoyageStickers";
 import { type MajSourcesRun } from "./majSequentielle";
 import { compteEnProcessus } from "./warmup";
 import { ugcVisages } from "./ugcVisages";
@@ -3364,6 +3365,23 @@ export async function tirerSlideshowsStickers(n: number): Promise<SlideshowStick
 /** Test à blanc stickers : l'OCR d'import sur chaque slide d'UN slideshow (rien n'est écrit). */
 export async function analyserStickersSlideshow(contenuId: string): Promise<StickerTestResultat> {
   return invoke<StickerTestResultat>("test-stickers", { action: "analyser", contenuId });
+}
+
+/** Nettoyage stickers : slideshows d'un label que le nettoyage peut retirer (lecture seule). */
+export async function listerSlideshowsLabelStickers(labelId: string): Promise<SlideshowsLabelStickers> {
+  return invoke<SlideshowsLabelStickers>("test-stickers", { action: "label", labelId });
+}
+
+/** Nettoyage stickers : retire ≤ 100 slideshows (statut rejete) et liste les posts du jour à remplacer. */
+export async function appliquerNettoyageStickers(
+  contenuIds: string[],
+  label: string | null,
+): Promise<ResultatNettoyageStickers> {
+  return invoke<ResultatNettoyageStickers>("nettoyer-stickers", {
+    action: "appliquer",
+    contenuIds,
+    ...(label ? { label } : {}),
+  });
 }
 
 /** Nettoyage de test NON destructif : renvoie l'image nettoyée sans rien écraser. */

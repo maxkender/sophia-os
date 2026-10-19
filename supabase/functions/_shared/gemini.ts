@@ -237,10 +237,11 @@ tapé dans le texte, le fond coloré derrière le texte, ni le watermark TikTok
   capture d'une vidéo YouTube, d'un article ou d'un podcast, note ou liste
   collée. Transcris la slide normalement, puis ajoute une dernière ligne
   exactement : (sticker contenu)
-Jamais une PUB, toujours du CONTENU :
-- nos applis : Sophia, UnSwipe, Micabo (carte, icône ou capture) ;
-- une grande plateforme citée comme outil dans le conseil de la slide :
-  LinkedIn, YouTube, Spotify, Substack, Google, Wikipedia, Instagram…`;
+Pas un sticker du tout (transcris normalement, sans marque) : nos applis
+Sophia, UnSwipe, Micabo (carte, icône ou capture).
+Toujours du CONTENU, jamais une PUB : une grande plateforme citée comme outil
+dans le conseil de la slide (LinkedIn, YouTube, Spotify, Substack, Google,
+Wikipedia, Instagram…).`;
 
 /**
  * OCR seul, slide par slide : transcrit le texte incrusté en langue d'origine.

@@ -352,6 +352,28 @@ export const fr = {
       erreurRun: "Test interrompu (résultat partiel, rien n'a été écrit) : {{erreur}}",
       erreur: "Erreur",
     },
+    nettoyageStickers: {
+      titre: "Nettoyage stickers d'un label",
+      description:
+        "Passe tous les slideshows d'un label dans l'OCR d'import (à blanc), montre ceux qui portent un sticker, puis — sur confirmation — les retire et remplace leurs posts du jour pas encore postés. Gardés : pods, tier A ou mieux, nos applis (Sophia, UnSwipe, Micabo).",
+      label: "Label",
+      choisirLabel: "Choisir un label…",
+      famillePub: "Sticker pub",
+      familleContenu: "Sticker de contenu",
+      analyser: "Analyser le label",
+      analyses: "{{n}} / {{total}} analysés ({{valides}} valides dans le label)",
+      aRetirer: "{{n}} à retirer",
+      proteges: "{{n}} gardés : tier A ou mieux",
+      pods: "{{n}} pods (passe-droit)",
+      sansImages: "{{n}} sans images brutes",
+      erreurs: "{{n}} en erreur",
+      retirer: "Retirer {{n}} slideshows et remplacer les posts du jour",
+      confirmer:
+        "Retirer {{n}} slideshows du label {{label}} (statut rejeté) et remplacer leurs posts du jour pas encore postés ?",
+      bilanRetires: "{{n}} slideshows retirés · {{ignores}} ignorés (déjà retirés, pod ou tier A+)",
+      bilanPosts: "Posts du jour à remplacer : {{n}} · {{remplaces}} remplacés · {{sans}} sans remplaçant",
+      bilanErreurs: "{{n}} remplacements en erreur",
+    },
     contenusABlanc: {
       title: "Tester la notation et le placement (à blanc)",
       subtitle:

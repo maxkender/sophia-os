@@ -1091,6 +1091,25 @@ Deno.test("multi-app — schéma 0256 absent : le chemin d'avant, aucune table n
   });
 });
 
+Deno.test("decks Sophia qui lèvent à chaque essai : la raison dit l'erreur, le quota ne baisse pas", async () => {
+  await avecDecks(jamaisPret, async () => {
+    // 19/10 : langue `pt-br` (minuscules) hors langues cibles, chaque deck levait,
+    // et la raison disait « pool OK, minuit n'a probablement pas atteint ce compte ».
+    decksAssignation.sophia = () => Promise.reject(new Error("Langue pt-br hors langues cibles"));
+    const base = baseEssai({ compte: { langue: "pt-br", posts_par_jour: 2 } });
+    const { client, journal } = fauxMoteur(base);
+
+    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
+
+    assertEquals(detail.ids, []);
+    assert(detail.raison?.startsWith("Deck PT-BR impossible"), detail.raison);
+    assert(detail.raison?.includes("hors langues cibles"), detail.raison);
+    assert(!detail.raison?.includes("probablement pas atteint"), detail.raison);
+    assertEquals(detail.quotaBaisse, undefined);
+    assertEquals(journal.filter((o) => o.table === "comptes" && o.op === "update"), []);
+  });
+});
+
 Deno.test("multi-app — compte 100 % Sophia, schéma prêt : pas de fenêtre, pas de deck d'application, insert d'avant", async () => {
   await avecDecks(jamaisPret, async (appels) => {
     // Le label sert AUSSI Unswipe (active) : le compte y est éligible, mais sans

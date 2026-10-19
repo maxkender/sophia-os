@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o006",
+ "schema_id": "habitudes-chelous",
+ "titre": "les habitudes chelous que j'ai adoptées et qui ont tout changé #pourtoi #culture #apprentissage #education",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7638500399523056397",
+ "inspirations": [
+  "5a0fa56c-f03c-438e-adf3-1e4248da34b1",
+  "17310365-5191-4f37-b6d5-da5586bbb4a3"
+ ],
+ "notes": "Schéma habitudes-chelous (r 3,01 sur 7 passages, 5a0fa56c ; r 2,23, 17310365). Accroches écrites : « les habitudes chelous que j'ai adoptées et qui ont tout changé » (retenue : l'accroche des deux gagnants mot pour mot), « les habitudes bizarres que je garde depuis un an (et que personne comprend) » (écartée : plus longue, sans preuve), « mes règles chelous pour me cultiver sans jamais ouvrir un manuel » (écartée : plus loin du gagnant). Règles perso en « je », sans numéro comme la source, chacune avec son petit défi : 10 pages avant une série, marcher sans écouteurs, relire chaque année un livre adoré, un lieu nouveau chaque dimanche, une chose apprise chaque jour et racontée le soir. Rien de repris des sources (téléphone avant le café, note de la journée, 48 heures avant d'acheter, priorité du lendemain). Calcul : 10 pages par jour, c'est 3 650 pages par an, soit une dizaine de livres. Bien-être général seulement (marche, lecture). Sophia sur le dernier item, avant la slide de fin. Images de la banque : la fille qui lit de dos (accroche), la bougie et le livre, la fille qui marche, la fille qui lit dans la rue, la fille au coucher du soleil, la fille au café, la fille de profil. Inspirations : slides 1, 2, 4, 6, 7 de 5a0fa56c (sa 3 montre une capture d'appli ; 17310365 a la même structure, sa slide 5 montre une appli).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c5bc9b6f",
+   "texte_overlay": "les habitudes chelous\nque j'ai adoptées\net qui ont tout changé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "87cbec30",
+   "texte_overlay": "je lis 10 pages avant de lancer une série.\n\npas un chapitre. 10 pages.\nen un an, ça fait une dizaine de livres.\nessaie-le 3 jours.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "bd8676f5",
+   "texte_overlay": "je marche sans écouteurs une fois par jour.\n\npas de musique, pas de podcast.\nc'est là que j'ai mes meilleures idées.\nessaie 15 minutes, juste demain.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c1e5148e",
+   "texte_overlay": "je relis chaque année un livre que j'ai adoré.\n\nc'est jamais le même livre, parce que c'est plus la même moi.\nchoisis le tien ce week-end.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1b4523d8",
+   "texte_overlay": "le dimanche, je vais quelque part où je suis jamais allée.\n\nun musée minuscule, une église, une rue au hasard.\nma ville est devenue un livre que je feuillette.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0e9d2e0d",
+   "texte_overlay": "j'apprends une chose nouvelle chaque jour.\n\nde l'histoire, de l'art ou des sciences, 5 minutes.\nle soir, je la raconte à quelqu'un. c'est comme ça qu'elle reste.",
+   "texte_sophia": "j'apprends une chose nouvelle chaque jour avec l'appli Sophia.\n\n5 minutes d'histoire, d'art ou de sciences.\nle soir, je la raconte à quelqu'un. c'est comme ça qu'elle reste.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "52b811da",
+   "texte_overlay": "vole-moi une habitude ;)\nenregistre et dis-moi laquelle tu testes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/7.jpg"
+  }
+ ]
+}

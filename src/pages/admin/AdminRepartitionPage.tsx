@@ -50,6 +50,7 @@ import {
   type ReglagesChoixLabel,
   type StatLabel,
 } from "@/features/moteur/repartition/scoreLabel";
+import { CarteFileLabels } from "@/features/moteur/repartition/CarteFileLabels";
 import { Tableau, type ColonneTableau } from "@/features/moteur/repartition/Tableau";
 import { simulerTirages, TIRAGES_DEFAUT, type Tirage } from "@/features/moteur/repartition/tirages";
 
@@ -250,6 +251,10 @@ export function AdminRepartitionPage() {
       {pret && cible.data && marchesApps.data && (
         <>
           <CarteCible cible={cible.data} applications={actifs} />
+          {/* La File juste après la cible : c'est le moyen de forcer la main
+              au moteur, ça se lit dans la foulée de ce qu'on vient de lui
+              demander. */}
+          <CarteFileLabels />
           <CarteRecruesSite
             marches={marchesApps.data}
             cible={cible.data}

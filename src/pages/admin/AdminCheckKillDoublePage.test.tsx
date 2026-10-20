@@ -18,6 +18,7 @@ const api = vi.hoisted(() => ({
   lirePartBonsPosts: vi.fn(),
   listerHms: vi.fn(),
   enregistrerSlackHm: vi.fn(),
+  listerManques: vi.fn(),
 }));
 vi.mock("@/features/ckd/api", () => api);
 
@@ -104,6 +105,14 @@ describe("AdminCheckKillDoublePage", () => {
               hm_id: null,
               donnees: { ...proposition({}).donnees, handle: "katerina.exelissetai333" },
             }),
+            proposition({
+              id: "p4",
+              regle: "absent",
+              action: "ne_pas_renouveler",
+              compte_id: "compte-ionut",
+              poster_id: "poster-ionut",
+              donnees: { ...proposition({}).donnees, handle: "ionut.mentalitate346" },
+            }),
           ]
         : [
             proposition({
@@ -140,6 +149,28 @@ describe("AdminCheckKillDoublePage", () => {
       { profile_id: "sara", nom: "Sara B", zone: "France", posters: 16, slack_user_id: null },
     ]);
     api.enregistrerSlackHm.mockResolvedValue(undefined);
+    api.listerManques.mockResolvedValue([
+      // Déjà proposé en Absent : pas répété dans la carte.
+      { compte_id: "compte-ionut", handle: "ionut.mentalitate346", poster_id: "poster-ionut", hm_id: LUCIA,
+        pays: "RO", prevus: 10, publies: 0, jours: [] },
+      { compte_id: "compte-daniel", handle: "daniel.sila127", poster_id: "poster-daniel", hm_id: LUCIA,
+        pays: "CZ", prevus: 10, publies: 7, jours: ["2026-10-13", "2026-10-14", "2026-10-15"] },
+    ]);
+  });
+
+  it("propose Kill, Nudge ou Garder pour un absent, et liste les autres posts manqués pour info", async () => {
+    rendre();
+    const ionut = await screen.findByTestId("proposition-ionut.mentalitate346");
+    expect(within(ionut).getAllByText("Kill (ne pas renouveler)").length).toBeGreaterThan(0);
+    expect(within(ionut).getByText(/Absent : trop de posts manqués/)).toBeInTheDocument();
+    for (const nom of ["Kill", "Envoyer le nudge", "Garder"]) {
+      expect(within(ionut).getByRole("button", { name: nom })).toBeDisabled();
+    }
+    const carte = await screen.findByTestId("carte-manques");
+    expect(within(carte).getByTestId("manque-daniel.sila127")).toHaveTextContent("7/10");
+    expect(within(carte).getByTestId("manque-daniel.sila127")).toHaveTextContent("13/10, 14/10, 15/10");
+    expect(within(carte).queryByTestId("manque-ionut.mentalitate346")).toBeNull();
+    expect(api.listerManques).toHaveBeenCalledWith("2026-10-24");
   });
 
   it("montre les propositions du samedi groupées par HM, sans bouton actif", async () => {

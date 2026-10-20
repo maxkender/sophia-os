@@ -7,6 +7,7 @@ import {
   blocPrincipal,
   choisirPositions,
   controlesPost,
+  couleursCompatibles,
   familleCouleur,
   idMusique,
   jugerPaire,
@@ -197,6 +198,18 @@ Deno.test("familleCouleur : blanc cassé reste blanc, jaune et orange se disting
   assertEquals(familleCouleur("#FFF18A"), "blanc");
   assertEquals(familleCouleur("#ECC765"), "jaune");
   assertEquals(familleCouleur("#F8CD50"), "jaune");
+});
+
+Deno.test("couleursCompatibles : le jaune TikTok vaut un original jaune pâle, pas un vrai blanc", () => {
+  // Original alpha_male_yellow (Joanna Mar, 20/10) : la palette TikTok n'a pas ce jaune pâle.
+  assert(couleursCompatibles("#F8F0A8", "#F8CD50"));
+  assert(couleursCompatibles("#F8F8B8", "#FFE600"));
+  // Un vrai blanc, même cassé, reste un écart.
+  assert(!couleursCompatibles("#FFFFFF", "#F8CD50"));
+  assert(!couleursCompatibles("#F5F0E6", "#F8CD50"));
+  // Le sens inverse et les autres familles ne changent pas.
+  assert(couleursCompatibles("#F8F0A8", "#FFFFFF"));
+  assert(!couleursCompatibles("#F8CD50", "#FF8C00"));
 });
 
 Deno.test("slide publiée sans texte", () => {

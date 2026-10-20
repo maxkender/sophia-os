@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { ExternalLink, RefreshCw } from "lucide-react";
+import { ExternalLink, RefreshCw, Send } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -10,13 +10,27 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, EmptyState }
 import { Input } from "@/components/ui/input";
 import {
   type ActionCkd,
+  annulerCkd,
+  type ArretCkd,
   type ControleCkd,
+  deciderCkd,
+  enregistrerCanalSlack,
   enregistrerSlackHm,
+  enregistrerTextesNudges,
+  envoyerAuxHm,
+  envoyerNudgesCkd,
   type HmCkd,
   type LabelCkd,
   lancerControle,
+  lireCanalSlack,
+  lireTextesNudges,
+  listerArrets,
+  listerHandles,
   listerManques,
   type ManqueCkd,
+  MOTIFS_NUDGE,
+  type TextesNudges,
+  verifierSlackCkd,
   lirePartBonsPosts,
   listerControles,
   listerHms,
@@ -32,8 +46,14 @@ import {
   type TypeControle,
 } from "@/features/ckd/api";
 import {
+  aEnvoyer,
+  annulable,
+  boutonDeLaDecision,
   BOUTONS_PAR_REGLE,
   compterActions,
+  creeUnCompte,
+  DECISION_DU_BOUTON,
+  enRetard,
   defReglage,
   type DefReglage,
   exceptionsLabel,
@@ -92,8 +112,9 @@ function useDate() {
 /**
  * Admin → Check, Kill or Double (PROMPT 5, migration 0326). Le jeudi 6 h, les
  * nudges proposés aux comptes dans leur première semaine ; le samedi 6 h, les
- * comptes à tuer (recréer, ne pas renouveler) et les posteurs à doubler. Lecture
- * seule pour l'instant : les décisions arrivent avec la PR 2.
+ * comptes à tuer (recréer, ne pas renouveler) et les posteurs à doubler. L'admin
+ * décide ligne par ligne (0328) ; les décisions partent aux HMs dans
+ * #managers-hq (bouton, ou tout seul le dimanche à 12 h).
  */
 export function AdminCheckKillDoublePage() {
   const { t } = useTranslation();
@@ -109,7 +130,7 @@ export function AdminCheckKillDoublePage() {
           <li>{t("ckd.calendrierSamedi")}</li>
           <li>{t("ckd.calendrierVues")}</li>
         </ul>
-        <p className="rounded-md border border-warning/40 bg-warning/8 px-3 py-2 text-xs">{t("ckd.lectureSeule")}</p>
+        <p className="text-xs text-muted-foreground">{t("ckd.circuit")}</p>
       </div>
 
       <div className="flex flex-wrap gap-1.5" role="tablist">
@@ -166,8 +187,27 @@ function VueControles({ type }: { type: TypeControle }) {
       s.add(p.poster_id);
       if (p.hm_id) s.add(p.hm_id);
     }
+    for (const p of propositions.data ?? []) if (p.decision_par) s.add(p.decision_par);
     return [...s].sort();
   }, [propositions.data, manques.data]);
+  const comptesIds = React.useMemo(
+    () => [...new Set((propositions.data ?? []).map((p) => p.compte_id))].sort(),
+    [propositions.data],
+  );
+  const nouveauxIds = React.useMemo(
+    () => (propositions.data ?? []).map((p) => p.nouveau_compte_id).filter(Boolean).sort() as string[],
+    [propositions.data],
+  );
+  const arrets = useQuery({
+    queryKey: [...CLE, "arrets", comptesIds],
+    queryFn: () => listerArrets(comptesIds),
+    enabled: comptesIds.length > 0,
+  });
+  const nouveaux = useQuery({
+    queryKey: [...CLE, "nouveaux", nouveauxIds],
+    queryFn: () => listerHandles(nouveauxIds),
+    enabled: nouveauxIds.length > 0,
+  });
   const personnes = useQuery({
     queryKey: [...CLE, "personnes", ids],
     queryFn: () => listerPersonnes(ids),
@@ -179,6 +219,14 @@ function VueControles({ type }: { type: TypeControle }) {
     mutationFn: () => lancerControle(type, controle?.jour),
     onSettled: () => queryClient.invalidateQueries({ queryKey: CLE }),
   });
+  const envoyerNudges = useMutation({
+    mutationFn: () => envoyerNudgesCkd(controle!.id),
+    onSettled: () => queryClient.invalidateQueries({ queryKey: CLE }),
+  });
+  const envoyerHm = useMutation({
+    mutationFn: () => envoyerAuxHm(controle!.id),
+    onSettled: () => queryClient.invalidateQueries({ queryKey: CLE }),
+  });
 
   const parId = React.useMemo(
     () => new Map((personnes.data ?? []).map((p) => [p.id, p] as const)),
@@ -188,10 +236,22 @@ function VueControles({ type }: { type: TypeControle }) {
     () => new Map((labels.data ?? []).map((l) => [l.id, l] as const)),
     [labels.data],
   );
+  const arretDe = React.useMemo(
+    () => new Map((arrets.data ?? []).map((a) => [a.compte_id, a] as const)),
+    [arrets.data],
+  );
+  const handleDe = React.useMemo(
+    () => new Map((nouveaux.data ?? []).map((c) => [c.id, c.handle_tiktok] as const)),
+    [nouveaux.data],
+  );
   const liste = propositions.data ?? [];
   const compte = compterActions(liste);
   const groupes = grouperParHm(liste);
-  const erreur = controles.error ?? propositions.error ?? recalculer.error;
+  const nudgesEnAttente = liste.filter((p) => p.action === "nudge" && !p.decision).length;
+  const prets = liste.filter(aEnvoyer).length;
+  const sansDecision = liste.filter((p) => !p.decision).length;
+  const retards = liste.filter((p) => enRetard(p, type)).length;
+  const erreur = controles.error ?? propositions.error ?? recalculer.error ?? envoyerNudges.error ?? envoyerHm.error;
 
   return (
     <div className="space-y-4" data-testid={`vue-${type}`}>
@@ -249,6 +309,51 @@ function VueControles({ type }: { type: TypeControle }) {
               <span className="text-sm text-muted-foreground">{t(`ckd.vide.${type}`)}</span>
             )}
           </div>
+          {liste.length > 0 && (
+            <div className="flex flex-wrap items-center gap-2 rounded-md border px-3 py-2 text-xs" data-testid="barre-envoi">
+              <span>{t("ckd.etat", { sans: sansDecision, prets })}</span>
+              {retards > 0 && <Badge variant="warning">{t("ckd.enRetard", { n: retards })}</Badge>}
+              {controle.slack_ts && <span className="text-muted-foreground">{t("ckd.recapPoste")}</span>}
+              {controle.rappel_at && (
+                <span className="text-muted-foreground">
+                  {t("ckd.rappelEnvoye", { date: date(controle.rappel_at, { weekday: "short", day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }) })}
+                </span>
+              )}
+              <span className="ml-auto flex flex-wrap gap-1.5">
+                {type === "jeudi" && nudgesEnAttente > 0 && (
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    loading={envoyerNudges.isPending}
+                    onClick={() => {
+                      if (window.confirm(t("ckd.confirmNudges", { n: nudgesEnAttente }))) envoyerNudges.mutate();
+                    }}
+                  >
+                    {t("ckd.envoyerNudges", { n: nudgesEnAttente })}
+                  </Button>
+                )}
+                <Button
+                  size="sm"
+                  disabled={prets === 0}
+                  loading={envoyerHm.isPending}
+                  onClick={() => {
+                    if (window.confirm(t("ckd.confirmEnvoiHm", { n: prets }))) envoyerHm.mutate();
+                  }}
+                >
+                  <Send />
+                  {t("ckd.envoyerHm", { n: prets })}
+                </Button>
+              </span>
+              {controle.slack_erreur && (
+                <p role="alert" className="w-full text-destructive">
+                  {t("ckd.erreurSlack", { erreur: controle.slack_erreur })}
+                </p>
+              )}
+              {envoyerHm.data && (
+                <p className="w-full text-muted-foreground">{t("ckd.envoyees", { n: envoyerHm.data.envoyees })}</p>
+              )}
+            </div>
+          )}
           {groupes.map((g) => {
             const hm = g.hmId ? parId.get(g.hmId) : undefined;
             return (
@@ -262,8 +367,12 @@ function VueControles({ type }: { type: TypeControle }) {
                     <LigneProposition
                       key={p.id}
                       p={p}
+                      type={type}
                       poster={parId.get(p.poster_id)}
                       label={p.label_id ? labelParId.get(p.label_id) : undefined}
+                      decideur={p.decision_par ? parId.get(p.decision_par) : undefined}
+                      arret={arretDe.get(p.compte_id)}
+                      nouveauHandle={p.nouveau_compte_id ? handleDe.get(p.nouveau_compte_id) ?? null : null}
                     />
                   ))}
                 </CardContent>
@@ -352,7 +461,23 @@ function LienPost({ post }: { post: { vues: number; url: string; jour: string } 
   );
 }
 
-function LigneProposition({ p, poster, label }: { p: PropositionCkd; poster?: PersonneCkd; label?: LabelCkd }) {
+function LigneProposition({
+  p,
+  type,
+  poster,
+  label,
+  decideur,
+  arret,
+  nouveauHandle,
+}: {
+  p: PropositionCkd;
+  type: TypeControle;
+  poster?: PersonneCkd;
+  label?: LabelCkd;
+  decideur?: PersonneCkd;
+  arret?: ArretCkd;
+  nouveauHandle: string | null;
+}) {
   const { t } = useTranslation();
   const date = useDate();
   const d = p.donnees;
@@ -476,13 +601,131 @@ function LigneProposition({ p, poster, label }: { p: PropositionCkd; poster?: Pe
         </details>
       </div>
 
-      <div className="flex flex-wrap gap-1.5">
-        {BOUTONS_PAR_REGLE[p.regle].map((b) => (
-          <Button key={b} size="xs" variant="outline" disabled title={t("ckd.boutonBientot")}>
-            {t(`ckd.boutons.${b}`)}
-          </Button>
-        ))}
+      <BlocDecision p={p} type={type} decideur={decideur} arret={arret} nouveauHandle={nouveauHandle} />
+    </div>
+  );
+}
+
+/**
+ * Les boutons tant que rien n'est décidé (un clic ouvre la confirmation, avec
+ * une note facultative), puis ce que la décision est devenue : compte créé,
+ * arrêt prévu ou fait, envoi au HM, Done.
+ */
+function BlocDecision({
+  p,
+  type,
+  decideur,
+  arret,
+  nouveauHandle,
+}: {
+  p: PropositionCkd;
+  type: TypeControle;
+  decideur?: PersonneCkd;
+  arret?: ArretCkd;
+  nouveauHandle: string | null;
+}) {
+  const { t } = useTranslation();
+  const date = useDate();
+  const queryClient = useQueryClient();
+  const [choix, setChoix] = React.useState<string | null>(null);
+  const [note, setNote] = React.useState("");
+  const invalider = () => queryClient.invalidateQueries({ queryKey: CLE });
+  const decider = useMutation({
+    mutationFn: (bouton: string) => deciderCkd(p.id, DECISION_DU_BOUTON[bouton], note.trim() || null),
+    onSuccess: () => {
+      setChoix(null);
+      setNote("");
+    },
+    onSettled: invalider,
+  });
+  const annuler = useMutation({ mutationFn: () => annulerCkd(p.id), onSettled: invalider });
+  const heure = { weekday: "short", day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" } as const;
+  const erreur = decider.error ?? annuler.error;
+
+  if (!p.decision) {
+    return (
+      <div className="space-y-2" data-testid={`decision-${p.donnees.handle}`}>
+        <div className="flex flex-wrap items-center gap-1.5">
+          {BOUTONS_PAR_REGLE[p.regle].map((b) => (
+            <Button
+              key={b}
+              size="xs"
+              variant={choix === b ? "default" : "outline"}
+              disabled={decider.isPending}
+              onClick={() => setChoix(choix === b ? null : b)}
+            >
+              {t(`ckd.boutons.${b}`)}
+            </Button>
+          ))}
+          {enRetard(p, type) && <Badge variant="warning">{t("ckd.retard")}</Badge>}
+        </div>
+        {choix && (
+          <div className="flex flex-wrap items-center gap-2 rounded-md bg-muted/50 p-2 text-xs">
+            <span>{t(`ckd.consequences.${DECISION_DU_BOUTON[choix]}`, { handle: p.donnees.handle })}</span>
+            <Input
+              className="h-7 max-w-xs text-xs"
+              placeholder={t("ckd.notePlaceholder")}
+              aria-label={t("ckd.note")}
+              value={note}
+              onChange={(e) => setNote(e.target.value)}
+            />
+            <Button size="xs" loading={decider.isPending} onClick={() => decider.mutate(choix)}>
+              {t("ckd.confirmer", { action: t(`ckd.boutons.${choix}`) })}
+            </Button>
+            <Button size="xs" variant="ghost" disabled={decider.isPending} onClick={() => setChoix(null)}>
+              {t("common.cancel")}
+            </Button>
+          </div>
+        )}
+        {(erreur || p.erreur) && (
+          <p role="alert" className="text-xs text-destructive">
+            {erreur ? messageErreur(erreur) : t("ckd.erreurPrecedente", { erreur: p.erreur })}
+          </p>
+        )}
       </div>
+    );
+  }
+
+  const statut: string[] = [];
+  if (creeUnCompte(p.decision)) {
+    statut.push(p.nouveau_compte_id ? t("ckd.statut.compteCree", { handle: nouveauHandle ?? "…" }) : t("ckd.statut.compteAttente"));
+  }
+  if (arret && !arret.annule_at) {
+    statut.push(
+      arret.fait_at
+        ? t("ckd.statut.arrete", { date: date(arret.fait_at, heure) })
+        : t("ckd.statut.arretPrevu", { date: date(arret.prevu_at, heure) }),
+    );
+  }
+  if (p.envoye_at) statut.push(t("ckd.statut.envoye", { date: date(p.envoye_at, heure) }));
+  else if (aEnvoyer(p)) statut.push(t("ckd.statut.aEnvoyer"));
+  if (p.fait_at) statut.push(t("ckd.statut.fait", { date: date(p.fait_at, heure) }));
+
+  return (
+    <div className="space-y-1 rounded-md border px-3 py-2 text-xs" data-testid={`decision-${p.donnees.handle}`}>
+      <div className="flex flex-wrap items-center gap-2">
+        <Badge variant="outline">{t(`ckd.boutons.${boutonDeLaDecision(p.decision)}`)}</Badge>
+        <span className="text-muted-foreground">
+          {t("ckd.decidePar", { nom: nomPersonne(decideur) || "?", date: date(p.decision_at, heure) })}
+        </span>
+        {p.nouveau_compte_id && (
+          <Link to={`/admin/createurs/${p.nouveau_compte_id}`} className="underline-offset-2 hover:underline">
+            @{nouveauHandle ?? "…"}
+          </Link>
+        )}
+        {annulable(p, arret) && (
+          <Button className="ml-auto" size="xs" variant="ghost" loading={annuler.isPending} onClick={() => annuler.mutate()}>
+            {t("ckd.annuler")}
+          </Button>
+        )}
+      </div>
+      {statut.length > 0 && <p>{statut.join(" · ")}</p>}
+      {p.note && <p className="text-muted-foreground">{t("ckd.noteValeur", { note: p.note })}</p>}
+      {(erreur || p.erreur) && (
+        <p role="alert" className="text-destructive">
+          {erreur ? messageErreur(erreur) : p.erreur}
+        </p>
+      )}
     </div>
   );
 }
@@ -517,7 +760,9 @@ function VueReglages() {
       <CartePays reglages={reglages.data} pays={pays} />
       <CarteExceptions reglages={reglages.data} labels={labels.data ?? []} pays={pays} />
       <CartePartBons />
+      <CarteCanalSlack />
       <CarteSlack />
+      <CarteTextesNudges />
       <CarteJournal labels={labels.data ?? []} />
     </div>
   );
@@ -866,6 +1111,126 @@ function LigneSlack({ hm }: { hm: HmCkd }) {
         </div>
       </td>
     </tr>
+  );
+}
+
+/** Le canal des décisions (#managers-hq) et la vérification du bot, sans rien poster. */
+function CarteCanalSlack() {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const canal = useQuery({ queryKey: [...CLE, "canal-slack"], queryFn: lireCanalSlack });
+  const [saisie, setSaisie] = React.useState<string | null>(null);
+  const enregistrer = useMutation({
+    mutationFn: (v: string) => enregistrerCanalSlack(v),
+    onSuccess: () => setSaisie(null),
+    onSettled: () => queryClient.invalidateQueries({ queryKey: [...CLE, "canal-slack"] }),
+  });
+  const verifier = useMutation({ mutationFn: verifierSlackCkd });
+  const valeur = saisie ?? canal.data ?? "";
+  const valide = /^[CG][A-Z0-9]{6,}$/.test(valeur.trim());
+  const v = verifier.data;
+  return (
+    <Card data-testid="carte-canal-slack">
+      <CardHeader>
+        <CardTitle className="text-base">{t("ckd.canalSlack")}</CardTitle>
+        <CardDescription>{t("ckd.canalSlackAide")}</CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-2 text-xs">
+        <div className="flex flex-wrap items-center gap-2">
+          <Input
+            className="h-8 w-48 font-mono text-xs"
+            aria-label={t("ckd.canalSlack")}
+            value={valeur}
+            onChange={(e) => setSaisie(e.target.value.toUpperCase())}
+          />
+          <Button
+            size="sm"
+            variant="outline"
+            disabled={saisie === null || !valide}
+            loading={enregistrer.isPending}
+            onClick={() => enregistrer.mutate(valeur)}
+          >
+            {t("common.save")}
+          </Button>
+          <Button size="sm" variant="outline" loading={verifier.isPending} onClick={() => verifier.mutate()}>
+            {t("ckd.verifierSlack")}
+          </Button>
+        </div>
+        {v && (
+          <p role="status" className={cn(v.ok ? "text-success-foreground" : "text-destructive")}>
+            {v.ok
+              ? t("ckd.slackOk", { bot: v.bot, nom: v.nom ?? v.canal })
+              : v.membre === false
+                ? t("ckd.slackPasMembre", { bot: v.bot, nom: v.nom ?? v.canal })
+                : t("ckd.slackKo", { erreur: v.error })}
+          </p>
+        )}
+        {(verifier.error || enregistrer.error) && (
+          <p role="alert" className="text-destructive">{messageErreur(verifier.error ?? enregistrer.error)}</p>
+        )}
+      </CardContent>
+    </Card>
+  );
+}
+
+/** Les textes des nudges (en anglais, ce que lit le posteur). `{handle}` = son compte. */
+function CarteTextesNudges() {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const textes = useQuery({ queryKey: [...CLE, "textes-nudges"], queryFn: lireTextesNudges });
+  const [brouillon, setBrouillon] = React.useState<TextesNudges | null>(null);
+  const enregistrer = useMutation({
+    mutationFn: (v: TextesNudges) => enregistrerTextesNudges(v),
+    onSuccess: () => setBrouillon(null),
+    onSettled: () => queryClient.invalidateQueries({ queryKey: [...CLE, "textes-nudges"] }),
+  });
+  const courant = brouillon ?? textes.data ?? {};
+  const changer = (m: (typeof MOTIFS_NUDGE)[number], champ: "titre" | "corps", v: string) =>
+    setBrouillon({ ...courant, [m]: { titre: courant[m]?.titre ?? "", corps: courant[m]?.corps ?? "", [champ]: v } });
+  return (
+    <Card data-testid="carte-textes-nudges">
+      <CardHeader>
+        <CardTitle className="text-base">{t("ckd.textesNudges")}</CardTitle>
+        <CardDescription>{t("ckd.textesNudgesAide")}</CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-3 text-xs">
+        {MOTIFS_NUDGE.map((m) => (
+          <div key={m} className="space-y-1">
+            <p className="font-medium">{t(`ckd.motifsNudge.${m}`)}</p>
+            <Input
+              className="h-8 text-xs"
+              aria-label={t("ckd.titreNudge", { motif: t(`ckd.motifsNudge.${m}`) })}
+              value={courant[m]?.titre ?? ""}
+              onChange={(e) => changer(m, "titre", e.target.value)}
+            />
+            <textarea
+              className="min-h-16 w-full rounded-md border border-input bg-background px-2 py-1 text-xs shadow-sm"
+              aria-label={t("ckd.corpsNudge", { motif: t(`ckd.motifsNudge.${m}`) })}
+              value={courant[m]?.corps ?? ""}
+              onChange={(e) => changer(m, "corps", e.target.value)}
+            />
+          </div>
+        ))}
+        <div className="flex gap-2">
+          <Button
+            size="sm"
+            disabled={!brouillon}
+            loading={enregistrer.isPending}
+            onClick={() => brouillon && enregistrer.mutate(brouillon)}
+          >
+            {t("common.save")}
+          </Button>
+          {brouillon && (
+            <Button size="sm" variant="ghost" onClick={() => setBrouillon(null)}>
+              {t("common.cancel")}
+            </Button>
+          )}
+        </div>
+        {(textes.error || enregistrer.error) && (
+          <p role="alert" className="text-destructive">{messageErreur(textes.error ?? enregistrer.error)}</p>
+        )}
+      </CardContent>
+    </Card>
   );
 }
 

@@ -1,4 +1,13 @@
-import type { ActionCkd, PropositionCkd, RegleCkd, ReglageCkd, SourceReglage } from "./api";
+import type {
+  ActionCkd,
+  ArretCkd,
+  DecisionCkd,
+  PropositionCkd,
+  RegleCkd,
+  ReglageCkd,
+  SourceReglage,
+  TypeControle,
+} from "./api";
 
 /** Les réglages de 0326, dans l'ordre de la page. */
 export type TypeReglage = "nombre" | "part" | "oui_non";
@@ -178,6 +187,60 @@ export const BOUTONS_PAR_REGLE: Record<RegleCkd, readonly string[]> = {
   anciens: ["recreer", "nePasRenouveler", "garder"],
   doubler: ["doubler", "pasMaintenant"],
 };
+
+/** La décision enregistrée pour chaque bouton (même liste que `ckd_decisions_permises`). */
+export const DECISION_DU_BOUTON: Record<string, DecisionCkd> = {
+  envoyerNudge: "nudge",
+  rien: "rien",
+  nePasRenouveler: "ne_pas_renouveler",
+  recreer: "recreer",
+  doubler: "doubler",
+  garder: "garder",
+  pasMaintenant: "pas_maintenant",
+};
+
+/** Le bouton d'une décision (pour son libellé). */
+export function boutonDeLaDecision(decision: DecisionCkd): string {
+  return Object.keys(DECISION_DU_BOUTON).find((b) => DECISION_DU_BOUTON[b] === decision) ?? decision;
+}
+
+/** Ces décisions créent un compte : confirmation, et pas d'annulation. */
+export function creeUnCompte(decision: DecisionCkd): boolean {
+  return decision === "recreer" || decision === "doubler";
+}
+
+/** Les décisions qui partent aux HMs (les autres sont seulement notées). */
+export const DECISIONS_ENVOYEES: readonly DecisionCkd[] = ["ne_pas_renouveler", "recreer", "doubler", "nudge"];
+
+/** Décidée, pas encore partie au HM, et prête à partir (compte créé pour Recréer / Doubler). */
+export function aEnvoyer(p: PropositionCkd): boolean {
+  if (!p.decision || p.envoye_at || !DECISIONS_ENVOYEES.includes(p.decision)) return false;
+  return !creeUnCompte(p.decision) || Boolean(p.nouveau_compte_id);
+}
+
+/** Comme `ckd_annuler` : rien de parti, aucun compte créé ni arrêté. */
+export function annulable(p: PropositionCkd, arret?: ArretCkd): boolean {
+  if (!p.decision || p.envoye_at) return false;
+  if (!["garder", "pas_maintenant", "rien", "ne_pas_renouveler"].includes(p.decision)) return false;
+  return !(p.decision === "ne_pas_renouveler" && arret?.fait_at);
+}
+
+/**
+ * Sans décision après le dimanche 12 h (heure de Paris) qui suit le contrôle du
+ * samedi : un Recréer ou un Doubler décidé plus tard ne démarrerait que le
+ * lundi d'après.
+ */
+export function enRetard(p: PropositionCkd, type: TypeControle, maintenant: Date = new Date()): boolean {
+  if (p.decision || type !== "samedi") return false;
+  const jourParis = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(maintenant);
+  const heureParis = Number(
+    new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Paris", hour: "2-digit", hourCycle: "h23" }).format(maintenant),
+  );
+  const dimanche = new Date(`${p.jour}T12:00:00Z`);
+  dimanche.setUTCDate(dimanche.getUTCDate() + 1);
+  const jourDimanche = dimanche.toISOString().slice(0, 10);
+  return jourParis > jourDimanche || (jourParis === jourDimanche && heureParis >= 12);
+}
 
 /** Le lien TikTok d'un handle. */
 export function lienTiktok(handle: string | null | undefined): string | null {

@@ -1,0 +1,217 @@
+import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { MemoryRouter } from "react-router-dom";
+import { beforeEach, describe, expect, it, vi } from "vitest";
+
+import i18n from "@/locales";
+import type { PropositionCkd } from "@/features/ckd/api";
+
+const api = vi.hoisted(() => ({
+  listerControles: vi.fn(),
+  listerPropositions: vi.fn(),
+  listerPersonnes: vi.fn(),
+  listerLabels: vi.fn(),
+  lancerControle: vi.fn(),
+  listerReglages: vi.fn(),
+  reglerCkd: vi.fn(),
+  listerJournal: vi.fn(),
+  lirePartBonsPosts: vi.fn(),
+  listerHms: vi.fn(),
+  enregistrerSlackHm: vi.fn(),
+}));
+vi.mock("@/features/ckd/api", () => api);
+
+import { AdminCheckKillDoublePage } from "./AdminCheckKillDoublePage";
+
+const LUCIA = "7036791d-e2dd-4637-913c-247afc65d1b3";
+const LABEL = "11111111-0000-4000-8000-00000000000a";
+
+function proposition(p: Partial<PropositionCkd>): PropositionCkd {
+  return {
+    id: "p1",
+    controle_id: "ctrl-samedi",
+    type: "samedi",
+    jour: "2026-10-24",
+    regle: "anciens",
+    action: "recreer",
+    compte_id: "compte-clara",
+    poster_id: "poster-clara",
+    hm_id: LUCIA,
+    pays: "FR",
+    langue: "fr",
+    label_id: LABEL,
+    application: "sophia",
+    decision: null,
+    donnees: {
+      handle: "clara.eclaire390",
+      abonnes: 412,
+      j0: "2026-09-17",
+      motifs: [],
+      periode: {
+        du: "2026-09-26",
+        au: "2026-10-23",
+        attendus: 56,
+        publies: 55,
+        mesures: 55,
+        morts: 0,
+        bons: 0,
+        mediane: 609,
+        moyenne: 702,
+        bas: { vues: 210, url: "https://www.tiktok.com/@clara/photo/1", jour: "2026-10-02" },
+        haut: { vues: 3881, url: "https://www.tiktok.com/@clara/photo/2", jour: "2026-10-11" },
+        liens_manquants: [{ jour: "2026-10-14" }],
+        posts: [],
+      },
+      mediane_ref: { valeur: 1360, source: "pays", n_comptes: 22 },
+      seuil_bon_post: { valeur: 10000, source: "comment_masters" },
+      reglages: { part_mediane_pays: { v: 0.6, s: "defaut" } },
+      recreations: 0,
+      autres_comptes: [],
+    },
+    ...p,
+  };
+}
+
+function rendre() {
+  const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
+  return render(
+    <QueryClientProvider client={client}>
+      <MemoryRouter>
+        <AdminCheckKillDoublePage />
+      </MemoryRouter>
+    </QueryClientProvider>,
+  );
+}
+
+describe("AdminCheckKillDoublePage", () => {
+  beforeEach(async () => {
+    vi.clearAllMocks();
+    await i18n.changeLanguage("fr");
+    api.listerControles.mockResolvedValue([
+      { id: "ctrl-samedi", type: "samedi", jour: "2026-10-24", lance_at: "2026-10-24T04:00:00Z", nb_propositions: 2 },
+      { id: "ctrl-jeudi", type: "jeudi", jour: "2026-10-22", lance_at: "2026-10-22T04:00:00Z", nb_propositions: 1 },
+    ]);
+    api.listerPropositions.mockImplementation(async (id: string) =>
+      id === "ctrl-samedi"
+        ? [
+            proposition({}),
+            proposition({
+              id: "p2",
+              regle: "doubler",
+              action: "doubler",
+              compte_id: "compte-katerina",
+              poster_id: "poster-katerina",
+              hm_id: null,
+              donnees: { ...proposition({}).donnees, handle: "katerina.exelissetai333" },
+            }),
+          ]
+        : [
+            proposition({
+              id: "p3",
+              controle_id: "ctrl-jeudi",
+              type: "jeudi",
+              jour: "2026-10-22",
+              regle: "jeudi",
+              action: "nudge",
+              donnees: { ...proposition({}).donnees, handle: "alice.utvecklas492", motifs: ["surveiller", "discipline"] },
+            }),
+          ],
+    );
+    api.listerPersonnes.mockResolvedValue([
+      { id: LUCIA, prenom: "Lucia", nom: "D", zone_recrutement: "Italy + Croatia + Slovenia" },
+      { id: "poster-clara", prenom: "Clara", nom: "Martin", zone_recrutement: null },
+    ]);
+    api.listerLabels.mockResolvedValue([{ id: LABEL, nom: "smart_girl", slug: "smart-girl" }]);
+    api.lancerControle.mockResolvedValue(3);
+    api.listerReglages.mockResolvedValue([
+      { id: "r1", cle: "part_mediane_pays", pays: null, label_id: null, valeur: 0.6, maj_at: "" },
+      { id: "r2", cle: "doublement_autorise", pays: null, label_id: null, valeur: true, maj_at: "" },
+      { id: "r3", cle: "doublement_autorise", pays: "PT", label_id: null, valeur: false, maj_at: "" },
+      { id: "r4", cle: "seuil_bon_post", pays: null, label_id: null, valeur: null, maj_at: "" },
+    ]);
+    api.reglerCkd.mockResolvedValue(undefined);
+    api.listerJournal.mockResolvedValue([]);
+    api.lirePartBonsPosts.mockResolvedValue([
+      { pays: "DE", seuil: 8000, source: "comment_masters", posts: 833, au_dessus: 54, mediane: 1360 },
+      { pays: "PT", seuil: 6000, source: "comment_masters", posts: 611, au_dessus: 29, mediane: 1108 },
+    ]);
+    api.listerHms.mockResolvedValue([
+      { profile_id: LUCIA, nom: "Lucia D", zone: "Italy + Croatia + Slovenia", posters: 34, slack_user_id: "U0BN41ZNGNS" },
+      { profile_id: "sara", nom: "Sara B", zone: "France", posters: 16, slack_user_id: null },
+    ]);
+    api.enregistrerSlackHm.mockResolvedValue(undefined);
+  });
+
+  it("montre les propositions du samedi groupées par HM, sans bouton actif", async () => {
+    rendre();
+    const clara = await screen.findByTestId("proposition-clara.eclaire390");
+    const groupe = screen.getByTestId(`groupe-hm-${LUCIA}`);
+    expect(await within(groupe).findByText("Lucia D")).toBeInTheDocument();
+    expect(within(clara).getAllByText("Recréer").length).toBeGreaterThan(0);
+    expect(within(clara).getByText(/412 abonnés/)).toBeInTheDocument();
+    expect(within(clara).getByText(/référence 1\D?360/)).toBeInTheDocument();
+    expect(within(clara).getByText(/sans lien : 14\/10/)).toBeInTheDocument();
+    expect(within(clara).getByRole("link", { name: /3\D?881/ })).toHaveAttribute(
+      "href",
+      "https://www.tiktok.com/@clara/photo/2",
+    );
+    expect(within(clara).getByRole("button", { name: "Recréer le compte" })).toBeDisabled();
+    // Sans HM : en dernier.
+    expect(screen.getByTestId("groupe-hm-aucun")).toBeInTheDocument();
+    expect(screen.getByTestId("proposition-katerina.exelissetai333")).toBeInTheDocument();
+  });
+
+  it("recalcule le contrôle affiché", async () => {
+    rendre();
+    await screen.findByTestId("proposition-clara.eclaire390");
+    fireEvent.click(screen.getByRole("button", { name: /Recalculer/ }));
+    await waitFor(() => expect(api.lancerControle).toHaveBeenCalledWith("samedi", "2026-10-24"));
+  });
+
+  it("montre les nudges du jeudi avec leurs motifs", async () => {
+    rendre();
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    const alice = await screen.findByTestId("proposition-alice.utvecklas492");
+    expect(within(alice).getByText("à surveiller")).toBeInTheDocument();
+    expect(within(alice).getByText("discipline")).toBeInTheDocument();
+    expect(api.listerPropositions).toHaveBeenCalledWith("ctrl-jeudi");
+  });
+
+  it("règle une case par pays : la part se tape en %, le doublement en oui/non", async () => {
+    rendre();
+    fireEvent.click(await screen.findByRole("tab", { name: "Réglages" }));
+    const tableau = (await screen.findByText("Par pays")).closest("[data-slot='card']") ?? document.body;
+    // Le Portugal : doublement remplacé (non), en gras ; l'Allemagne hérite (oui).
+    const lignePt = within(tableau as HTMLElement).getByText(/PT$/).closest("tr")!;
+    const cellules = within(lignePt).getAllByRole("button");
+    const partMediane = cellules[5];
+    expect(partMediane).toHaveTextContent("60 %");
+    fireEvent.click(partMediane);
+    const saisie = within(lignePt).getByRole("textbox");
+    fireEvent.change(saisie, { target: { value: "50" } });
+    fireEvent.keyDown(saisie, { key: "Enter" });
+    await waitFor(() => expect(api.reglerCkd).toHaveBeenCalledWith("part_mediane_pays", "PT", null, 0.5));
+  });
+
+  it("refuse une saisie qui n'a pas de sens, sans rien enregistrer", async () => {
+    rendre();
+    fireEvent.click(await screen.findByRole("tab", { name: "Réglages" }));
+    const tableau = (await screen.findByText("Par pays")).closest("[data-slot='card']") ?? document.body;
+    const ligneDe = within(tableau as HTMLElement).getByText(/DE$/).closest("tr")!;
+    fireEvent.click(within(ligneDe).getAllByRole("button")[5]);
+    const saisie = within(ligneDe).getByRole("textbox");
+    fireEvent.change(saisie, { target: { value: "150" } });
+    fireEvent.keyDown(saisie, { key: "Enter" });
+    expect(await within(ligneDe).findByText("Une part entre 0 et 100 %.")).toBeInTheDocument();
+    expect(api.reglerCkd).not.toHaveBeenCalled();
+  });
+
+  it("enregistre l'ID Slack d'un HM qui n'en a pas", async () => {
+    rendre();
+    fireEvent.click(await screen.findByRole("tab", { name: "Réglages" }));
+    const saisie = await screen.findByRole("textbox", { name: "ID Slack de Sara B" });
+    fireEvent.change(saisie, { target: { value: "u0bst9hkkbq" } });
+    fireEvent.click(within(saisie.closest("tr")!).getByRole("button", { name: "Enregistrer" }));
+    await waitFor(() => expect(api.enregistrerSlackHm).toHaveBeenCalledWith("sara", "U0BST9HKKBQ"));
+  });
+});

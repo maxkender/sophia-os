@@ -19,6 +19,18 @@ const api = vi.hoisted(() => ({
   listerHms: vi.fn(),
   enregistrerSlackHm: vi.fn(),
   listerManques: vi.fn(),
+  deciderCkd: vi.fn(),
+  annulerCkd: vi.fn(),
+  envoyerNudgesCkd: vi.fn(),
+  envoyerAuxHm: vi.fn(),
+  verifierSlackCkd: vi.fn(),
+  listerArrets: vi.fn(),
+  listerHandles: vi.fn(),
+  lireTextesNudges: vi.fn(),
+  enregistrerTextesNudges: vi.fn(),
+  lireCanalSlack: vi.fn(),
+  enregistrerCanalSlack: vi.fn(),
+  MOTIFS_NUDGE: ["reveil", "surveiller", "discipline", "absent"],
 }));
 vi.mock("@/features/ckd/api", () => api);
 
@@ -43,6 +55,13 @@ function proposition(p: Partial<PropositionCkd>): PropositionCkd {
     label_id: LABEL,
     application: "sophia",
     decision: null,
+    decision_par: null,
+    decision_at: null,
+    note: null,
+    nouveau_compte_id: null,
+    envoye_at: null,
+    fait_at: null,
+    erreur: null,
     donnees: {
       handle: "clara.eclaire390",
       abonnes: 412,
@@ -89,8 +108,10 @@ describe("AdminCheckKillDoublePage", () => {
     vi.clearAllMocks();
     await i18n.changeLanguage("fr");
     api.listerControles.mockResolvedValue([
-      { id: "ctrl-samedi", type: "samedi", jour: "2026-10-24", lance_at: "2026-10-24T04:00:00Z", nb_propositions: 2 },
-      { id: "ctrl-jeudi", type: "jeudi", jour: "2026-10-22", lance_at: "2026-10-22T04:00:00Z", nb_propositions: 1 },
+      { id: "ctrl-samedi", type: "samedi", jour: "2026-10-24", lance_at: "2026-10-24T04:00:00Z", nb_propositions: 2,
+        slack_ts: null, slack_erreur: null, rappel_at: null },
+      { id: "ctrl-jeudi", type: "jeudi", jour: "2026-10-22", lance_at: "2026-10-22T04:00:00Z", nb_propositions: 1,
+        slack_ts: null, slack_erreur: null, rappel_at: null },
     ]);
     api.listerPropositions.mockImplementation(async (id: string) =>
       id === "ctrl-samedi"
@@ -149,6 +170,18 @@ describe("AdminCheckKillDoublePage", () => {
       { profile_id: "sara", nom: "Sara B", zone: "France", posters: 16, slack_user_id: null },
     ]);
     api.enregistrerSlackHm.mockResolvedValue(undefined);
+    api.deciderCkd.mockResolvedValue(undefined);
+    api.annulerCkd.mockResolvedValue(undefined);
+    api.envoyerNudgesCkd.mockResolvedValue(1);
+    api.envoyerAuxHm.mockResolvedValue({ envoyees: 1 });
+    api.verifierSlackCkd.mockResolvedValue({ ok: true, bot: "sophia_os", canal: "C0BL0084Y3F", nom: "managers-hq", membre: true });
+    api.listerArrets.mockResolvedValue([]);
+    api.listerHandles.mockResolvedValue([]);
+    api.lireTextesNudges.mockResolvedValue({ absent: { titre: "We haven't seen your posts", corps: "Post @{handle}" } });
+    api.enregistrerTextesNudges.mockResolvedValue(undefined);
+    api.lireCanalSlack.mockResolvedValue("C0BL0084Y3F");
+    api.enregistrerCanalSlack.mockResolvedValue(undefined);
+    vi.spyOn(window, "confirm").mockReturnValue(true);
     api.listerManques.mockResolvedValue([
       // Déjà proposé en Absent : pas répété dans la carte.
       { compte_id: "compte-ionut", handle: "ionut.mentalitate346", poster_id: "poster-ionut", hm_id: LUCIA,
@@ -164,7 +197,7 @@ describe("AdminCheckKillDoublePage", () => {
     expect(within(ionut).getAllByText("Kill (ne pas renouveler)").length).toBeGreaterThan(0);
     expect(within(ionut).getByText(/Absent : trop de posts manqués/)).toBeInTheDocument();
     for (const nom of ["Kill", "Envoyer le nudge", "Garder"]) {
-      expect(within(ionut).getByRole("button", { name: nom })).toBeDisabled();
+      expect(within(ionut).getByRole("button", { name: nom })).toBeEnabled();
     }
     const carte = await screen.findByTestId("carte-manques");
     expect(within(carte).getByTestId("manque-daniel.sila127")).toHaveTextContent("7/10");
@@ -173,7 +206,7 @@ describe("AdminCheckKillDoublePage", () => {
     expect(api.listerManques).toHaveBeenCalledWith("2026-10-24");
   });
 
-  it("montre les propositions du samedi groupées par HM, sans bouton actif", async () => {
+  it("montre les propositions du samedi groupées par HM", async () => {
     rendre();
     const clara = await screen.findByTestId("proposition-clara.eclaire390");
     const groupe = screen.getByTestId(`groupe-hm-${LUCIA}`);
@@ -186,10 +219,108 @@ describe("AdminCheckKillDoublePage", () => {
       "href",
       "https://www.tiktok.com/@clara/photo/2",
     );
-    expect(within(clara).getByRole("button", { name: "Recréer le compte" })).toBeDisabled();
+    expect(within(clara).getByRole("button", { name: "Recréer le compte" })).toBeEnabled();
     // Sans HM : en dernier.
     expect(screen.getByTestId("groupe-hm-aucun")).toBeInTheDocument();
     expect(screen.getByTestId("proposition-katerina.exelissetai333")).toBeInTheDocument();
+  });
+
+  it("décide un Kill après confirmation, avec la note pour le HM", async () => {
+    rendre();
+    const ionut = await screen.findByTestId("proposition-ionut.mentalitate346");
+    fireEvent.click(within(ionut).getByRole("button", { name: "Kill" }));
+    expect(within(ionut).getByText(/poste jusqu'au dimanche et s'arrête à 23 h 30/)).toBeInTheDocument();
+    expect(api.deciderCkd).not.toHaveBeenCalled();
+    fireEvent.change(within(ionut).getByRole("textbox", { name: "Note" }), { target: { value: " a posté sans lien ? " } });
+    fireEvent.click(within(ionut).getByRole("button", { name: "Confirmer : Kill" }));
+    await waitFor(() => expect(api.deciderCkd).toHaveBeenCalledWith("p4", "ne_pas_renouveler", "a posté sans lien ?"));
+  });
+
+  it("Recréer passe par la confirmation, sans note", async () => {
+    rendre();
+    const clara = await screen.findByTestId("proposition-clara.eclaire390");
+    fireEvent.click(within(clara).getByRole("button", { name: "Recréer le compte" }));
+    expect(within(clara).getByText(/Un nouveau compte est créé tout de suite/)).toBeInTheDocument();
+    fireEvent.click(within(clara).getByRole("button", { name: "Confirmer : Recréer le compte" }));
+    await waitFor(() => expect(api.deciderCkd).toHaveBeenCalledWith("p1", "recreer", null));
+  });
+
+  it("montre une décision prise, son arrêt prévu, et l'annule tant que rien n'est parti", async () => {
+    api.listerPropositions.mockResolvedValue([
+      proposition({
+        id: "p4",
+        regle: "absent",
+        action: "ne_pas_renouveler",
+        compte_id: "compte-ionut",
+        decision: "ne_pas_renouveler",
+        decision_par: "admin-1",
+        decision_at: "2026-10-24T08:00:00Z",
+        note: "vérifier ses liens",
+        donnees: { ...proposition({}).donnees, handle: "ionut.mentalitate346" },
+      }),
+    ]);
+    api.listerPersonnes.mockResolvedValue([{ id: "admin-1", prenom: "Adrien", nom: "M", zone_recrutement: null }]);
+    api.listerArrets.mockResolvedValue([
+      { compte_id: "compte-ionut", raison: "ne_pas_renouveler", prevu_at: "2026-10-25T22:30:00Z", fait_at: null, annule_at: null },
+    ]);
+    rendre();
+    const decision = await screen.findByTestId("decision-ionut.mentalitate346");
+    expect(await within(decision).findByText(/par Adrien M/)).toBeInTheDocument();
+    expect(await within(decision).findByText(/arrêt prévu .*23:30/)).toBeInTheDocument();
+    expect(within(decision).getByText(/pas encore envoyé au HM/)).toBeInTheDocument();
+    expect(within(decision).getByText("Note : vérifier ses liens")).toBeInTheDocument();
+    expect(screen.getByTestId("barre-envoi")).toHaveTextContent("0 sans décision · 1 à envoyer aux HM");
+    fireEvent.click(within(decision).getByRole("button", { name: "Annuler la décision" }));
+    await waitFor(() => expect(api.annulerCkd).toHaveBeenCalledWith("p4"));
+  });
+
+  it("envoie aux HM les décisions prêtes, après confirmation", async () => {
+    api.listerPropositions.mockResolvedValue([
+      proposition({ decision: "recreer", decision_par: "admin-1", decision_at: "2026-10-24T08:00:00Z" }),
+      proposition({
+        id: "p2",
+        regle: "doubler",
+        action: "doubler",
+        decision: "doubler",
+        nouveau_compte_id: "nouveau-1",
+        donnees: { ...proposition({}).donnees, handle: "katerina.exelissetai333" },
+      }),
+    ]);
+    api.listerHandles.mockResolvedValue([{ id: "nouveau-1", handle_tiktok: "katerina.nea" }]);
+    rendre();
+    // Recréer sans compte créé ne part pas : 1 seule décision prête.
+    const bouton = await screen.findByRole("button", { name: "Envoyer aux HM (1)" });
+    expect(await screen.findByText(/compte créé : @katerina.nea/)).toBeInTheDocument();
+    expect(screen.getByText(/compte pas encore confirmé/)).toBeInTheDocument();
+    fireEvent.click(bouton);
+    await waitFor(() => expect(api.envoyerAuxHm).toHaveBeenCalledWith("ctrl-samedi"));
+    expect(window.confirm).toHaveBeenCalled();
+  });
+
+  it("le jeudi, envoie tous les nudges encore sans décision", async () => {
+    rendre();
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Envoyer les nudges (1)" }));
+    await waitFor(() => expect(api.envoyerNudgesCkd).toHaveBeenCalledWith("ctrl-jeudi"));
+  });
+
+  it("vérifie le bot Slack et enregistre les textes des nudges", async () => {
+    rendre();
+    fireEvent.click(await screen.findByRole("tab", { name: "Réglages" }));
+    const canal = await screen.findByTestId("carte-canal-slack");
+    expect(await within(canal).findByDisplayValue("C0BL0084Y3F")).toBeInTheDocument();
+    fireEvent.click(within(canal).getByRole("button", { name: "Vérifier" }));
+    expect(await within(canal).findByText("OK : @sophia_os est bien dans #managers-hq.")).toBeInTheDocument();
+
+    const textes = screen.getByTestId("carte-textes-nudges");
+    const titre = await within(textes).findByRole("textbox", { name: "Titre (Absent (samedi))" });
+    fireEvent.change(titre, { target: { value: "Where are your posts?" } });
+    fireEvent.click(within(textes).getByRole("button", { name: "Enregistrer" }));
+    await waitFor(() =>
+      expect(api.enregistrerTextesNudges).toHaveBeenCalledWith({
+        absent: { titre: "Where are your posts?", corps: "Post @{handle}" },
+      }),
+    );
   });
 
   it("recalcule le contrôle affiché", async () => {

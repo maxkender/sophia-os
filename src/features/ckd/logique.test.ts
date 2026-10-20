@@ -1,8 +1,15 @@
+import fs from "node:fs";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import type { PropositionCkd, ReglageCkd } from "./api";
 import {
+  aEnvoyer,
+  annulable,
+  BOUTONS_PAR_REGLE,
   compterActions,
+  DECISION_DU_BOUTON,
+  enRetard,
   defReglage,
   exceptionsLabel,
   formaterValeur,
@@ -99,6 +106,13 @@ function proposition(p: Partial<PropositionCkd> & Pick<PropositionCkd, "action">
     label_id: null,
     application: "sophia",
     decision: null,
+    decision_par: null,
+    decision_at: null,
+    note: null,
+    nouveau_compte_id: null,
+    envoye_at: null,
+    fait_at: null,
+    erreur: null,
     ...p,
     donnees: { handle: "h", ...(p.donnees ?? {}) } as PropositionCkd["donnees"],
   };
@@ -127,5 +141,45 @@ describe("propositions", () => {
     expect(lienTiktok(null)).toBeNull();
     expect(pourcentage(54, 833)).toBe(6.5);
     expect(pourcentage(1, 0)).toBe(0);
+  });
+});
+
+describe("décisions", () => {
+  it("les boutons de chaque règle sont exactement les décisions permises en base (0328)", () => {
+    const sql = fs.readFileSync(path.join(process.cwd(), "supabase/migrations/0328_ckd_decisions.sql"), "utf8");
+    for (const [regle, boutons] of Object.entries(BOUTONS_PAR_REGLE)) {
+      const ligne = sql.match(new RegExp(`when '${regle}'\\s+then array\\[([^\\]]*)\\]`))?.[1] ?? "";
+      const permises = [...ligne.matchAll(/'([a-z_]+)'/g)].map((m) => m[1]);
+      expect(boutons.map((b) => DECISION_DU_BOUTON[b]), regle).toEqual(permises);
+    }
+  });
+
+  it("à envoyer : décidé, pas encore parti, et le compte créé pour Recréer / Doubler", () => {
+    expect(aEnvoyer(proposition({ action: "ne_pas_renouveler", decision: "ne_pas_renouveler" }))).toBe(true);
+    expect(aEnvoyer(proposition({ action: "recreer", decision: "recreer" }))).toBe(false);
+    expect(aEnvoyer(proposition({ action: "recreer", decision: "recreer", nouveau_compte_id: "n" }))).toBe(true);
+    expect(aEnvoyer(proposition({ action: "recreer", decision: "garder" }))).toBe(false);
+    expect(aEnvoyer(proposition({ action: "nudge", decision: "nudge", envoye_at: "2026-10-24T10:00:00Z" }))).toBe(false);
+    expect(aEnvoyer(proposition({ action: "nudge" }))).toBe(false);
+  });
+
+  it("annulable : comme ckd_annuler", () => {
+    const kill = proposition({ action: "ne_pas_renouveler", decision: "ne_pas_renouveler" });
+    const arret = { compte_id: "x", raison: "ne_pas_renouveler" as const, prevu_at: "", fait_at: null, annule_at: null };
+    expect(annulable(kill, arret)).toBe(true);
+    expect(annulable(kill, { ...arret, fait_at: "2026-10-25T21:30:00Z" })).toBe(false);
+    expect(annulable({ ...kill, envoye_at: "2026-10-24T10:00:00Z" })).toBe(false);
+    expect(annulable(proposition({ action: "recreer", decision: "recreer", nouveau_compte_id: "n" }))).toBe(false);
+    expect(annulable(proposition({ action: "nudge", decision: "nudge" }))).toBe(false);
+    expect(annulable(proposition({ action: "recreer", decision: "garder" }))).toBe(true);
+  });
+
+  it("en retard : sans décision après le dimanche 12 h de Paris", () => {
+    const p = proposition({ action: "recreer", jour: "2026-10-24" });
+    expect(enRetard(p, "samedi", new Date("2026-10-25T10:59:00Z"))).toBe(false);
+    expect(enRetard(p, "samedi", new Date("2026-10-25T11:00:00Z"))).toBe(true);
+    expect(enRetard(p, "samedi", new Date("2026-10-26T08:00:00Z"))).toBe(true);
+    expect(enRetard({ ...p, decision: "garder" }, "samedi", new Date("2026-10-26T08:00:00Z"))).toBe(false);
+    expect(enRetard(p, "jeudi", new Date("2026-10-26T08:00:00Z"))).toBe(false);
   });
 });

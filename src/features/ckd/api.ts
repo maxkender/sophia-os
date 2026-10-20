@@ -1,15 +1,18 @@
 import { supabase } from "@/lib/supabase/client";
+import { invoke } from "@/features/moteur/api";
 
 /**
- * Check, Kill or Double (migration 0326). Le calcul vit en SQL : le jeudi 6 h
- * (nudges des nouveaux comptes) et le samedi 6 h (kill, recréer, doubler), le
- * cron enregistre les propositions. La page les lit, relance un calcul et règle
- * les seuils. Les décisions arrivent avec la PR 2.
+ * Check, Kill or Double (migrations 0326 à 0328). Le calcul vit en SQL : le
+ * jeudi 6 h (nudges des nouveaux comptes) et le samedi 6 h (kill, recréer,
+ * doubler), le cron enregistre les propositions. La page les lit, relance un
+ * calcul, règle les seuils et décide ; Recréer, Doubler et l'envoi aux HMs
+ * passent par la fonction Edge `ckd`.
  */
 
 export type TypeControle = "jeudi" | "samedi";
 export type RegleCkd = "jeudi" | "premiere_semaine" | "anciens" | "doubler" | "absent";
 export type ActionCkd = "nudge" | "recreer" | "ne_pas_renouveler" | "doubler";
+export type DecisionCkd = ActionCkd | "garder" | "pas_maintenant" | "rien";
 export type SourceReglage = "defaut" | "pays" | "label" | "pays_label";
 
 export interface ControleCkd {
@@ -18,6 +21,9 @@ export interface ControleCkd {
   jour: string;
   lance_at: string;
   nb_propositions: number;
+  slack_ts: string | null;
+  slack_erreur: string | null;
+  rappel_at: string | null;
 }
 
 export interface PostCkd {
@@ -72,7 +78,14 @@ export interface PropositionCkd {
   label_id: string | null;
   application: string | null;
   donnees: DonneesCkd;
-  decision: string | null;
+  decision: DecisionCkd | null;
+  decision_par: string | null;
+  decision_at: string | null;
+  note: string | null;
+  nouveau_compte_id: string | null;
+  envoye_at: string | null;
+  fait_at: string | null;
+  erreur: string | null;
 }
 
 export interface PersonneCkd {
@@ -128,7 +141,7 @@ export interface HmCkd {
 export async function listerControles(): Promise<ControleCkd[]> {
   const { data, error } = await supabase
     .from("ckd_controles")
-    .select("id, type, jour, lance_at, nb_propositions")
+    .select("id, type, jour, lance_at, nb_propositions, slack_ts, slack_erreur, rappel_at")
     .order("jour", { ascending: false })
     .limit(30);
   if (error) throw error;
@@ -139,7 +152,7 @@ export async function listerPropositions(controleId: string): Promise<Propositio
   const { data, error } = await supabase
     .from("ckd_propositions")
     .select(
-      "id, controle_id, type, jour, regle, action, compte_id, poster_id, hm_id, pays, langue, label_id, application, donnees, decision",
+      "id, controle_id, type, jour, regle, action, compte_id, poster_id, hm_id, pays, langue, label_id, application, donnees, decision, decision_par, decision_at, note, nouveau_compte_id, envoye_at, fait_at, erreur",
     )
     .eq("controle_id", controleId);
   if (error) throw error;
@@ -237,5 +250,106 @@ export async function enregistrerSlackHm(profileId: string, slackUserId: string 
   const { error } = await supabase
     .from("hm_slack")
     .upsert({ profile_id: profileId, slack_user_id: slackUserId }, { onConflict: "profile_id" });
+  if (error) throw error;
+}
+
+// ---------------------------------------------------------------------------
+// Décisions (0328)
+// ---------------------------------------------------------------------------
+
+/**
+ * Décider. Recréer et Doubler créent un compte : ils passent par la fonction
+ * `ckd` (manage-users). Le reste se décide en SQL (`ckd_decider`).
+ */
+export async function deciderCkd(id: string, decision: DecisionCkd, note: string | null): Promise<void> {
+  if (decision === "recreer" || decision === "doubler") {
+    await invoke<{ ok: boolean }>("ckd", { action: "decider", id, decision, note });
+    return;
+  }
+  const { error } = await supabase.rpc("ckd_decider", { p_id: id, p_decision: decision, p_note: note });
+  if (error) throw error;
+}
+
+/** Garder, Pas maintenant, Rien et Kill s'annulent tant que rien n'est parti. */
+export async function annulerCkd(id: string): Promise<void> {
+  const { error } = await supabase.rpc("ckd_annuler", { p_id: id });
+  if (error) throw error;
+}
+
+/** Toutes les propositions de nudge du contrôle encore sans décision. */
+export async function envoyerNudgesCkd(controleId: string): Promise<number> {
+  const { data, error } = await supabase.rpc("ckd_envoyer_nudges", { p_controle: controleId });
+  if (error) throw error;
+  return Number(data ?? 0);
+}
+
+/** Poste dans Slack les décisions pas encore envoyées aux HMs. */
+export async function envoyerAuxHm(controleId: string): Promise<{ envoyees: number; erreurs?: string[] }> {
+  return await invoke("ckd", { action: "envoyer", controle_id: controleId });
+}
+
+export interface VerdictSlackCkd {
+  ok: boolean;
+  bot?: string;
+  canal?: string;
+  nom?: string | null;
+  membre?: boolean;
+  error?: string;
+}
+
+export async function verifierSlackCkd(): Promise<VerdictSlackCkd> {
+  return await invoke<VerdictSlackCkd>("ckd", { action: "verifier_slack" });
+}
+
+export interface ArretCkd {
+  compte_id: string;
+  raison: "ne_pas_renouveler" | "recreer";
+  prevu_at: string;
+  fait_at: string | null;
+  annule_at: string | null;
+}
+
+export async function listerArrets(compteIds: string[]): Promise<ArretCkd[]> {
+  if (compteIds.length === 0) return [];
+  const { data, error } = await supabase
+    .from("ckd_arrets")
+    .select("compte_id, raison, prevu_at, fait_at, annule_at")
+    .in("compte_id", compteIds);
+  if (error) throw error;
+  return (data ?? []) as ArretCkd[];
+}
+
+export async function listerHandles(compteIds: string[]): Promise<{ id: string; handle_tiktok: string | null }[]> {
+  if (compteIds.length === 0) return [];
+  const { data, error } = await supabase.from("comptes").select("id, handle_tiktok").in("id", compteIds);
+  if (error) throw error;
+  return (data ?? []) as { id: string; handle_tiktok: string | null }[];
+}
+
+export type MotifNudge = "reveil" | "surveiller" | "discipline" | "absent";
+export const MOTIFS_NUDGE: readonly MotifNudge[] = ["reveil", "surveiller", "discipline", "absent"];
+export type TextesNudges = Partial<Record<MotifNudge, { titre: string; corps: string }>>;
+
+export async function lireTextesNudges(): Promise<TextesNudges> {
+  const { data, error } = await supabase.from("reglages").select("valeur").eq("cle", "ckd_nudges").maybeSingle();
+  if (error) throw error;
+  return (data?.valeur ?? {}) as TextesNudges;
+}
+
+export async function enregistrerTextesNudges(textes: TextesNudges): Promise<void> {
+  const { error } = await supabase.from("reglages").upsert({ cle: "ckd_nudges", valeur: textes }, { onConflict: "cle" });
+  if (error) throw error;
+}
+
+export async function lireCanalSlack(): Promise<string> {
+  const { data, error } = await supabase.from("reglages").select("valeur").eq("cle", "ckd_slack").maybeSingle();
+  if (error) throw error;
+  return String((data?.valeur as { canal?: string } | null)?.canal ?? "");
+}
+
+export async function enregistrerCanalSlack(canal: string): Promise<void> {
+  const { error } = await supabase
+    .from("reglages")
+    .upsert({ cle: "ckd_slack", valeur: { canal: canal.trim() } }, { onConflict: "cle" });
   if (error) throw error;
 }

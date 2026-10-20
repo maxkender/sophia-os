@@ -24,6 +24,8 @@ import {
   CLE_BACKFILL_PERTINENCE,
   clePromptPertinenceApp,
   eligibiliteDepuisNote,
+  estOriginalDePod,
+  NOTE_ORIGINAL_POD,
   PERTINENCE_MIN_HORS_SOPHIA,
   pertinenceSuffisante,
   etatBackfillPertinence,
@@ -765,6 +767,34 @@ Deno.test("rattrapage : note la file (plus récents d'abord) sans toucher aux co
   const etat = normaliserReglageBackfill(base.table("reglages")[0].valeur)[ID_UNSWIPE];
   assertEquals([etat.actif, etat.faits, etat.erreurs, etat.bail_jusqu_a], [true, 5, 0, null]);
   assertEquals(etat.dernier_at, "2026-10-02T12:00:00.000Z");
+});
+
+Deno.test("rattrapage : un original de pod garde la note de son rang (60), seul son sujet décide", async () => {
+  oublierSondeMultiApp();
+  const base = baseRattrapage({ [ID_UNSWIPE]: { actif: true, demarre_at: "d", faits: 0, erreurs: 0 } });
+  // « neuf » est un original écrit par un pod : pas de post source, pas livré.
+  Object.assign(base.table("contenus").find((c) => c.id === "neuf")!, {
+    pod: "originaux_weird_alpha",
+    source_url: null,
+    livre: false,
+  });
+  const appels: Appel[] = [];
+  const deps = depsRattrapage(appels, [{ score: 90, reason: "oui" }, { score: 20, reason: "non" }]);
+  const pertinencesNotees: number[] = [];
+  const noteImport = deps.noteImport;
+  deps.noteImport = (o) => (pertinencesNotees.push(o.pertinence), noteImport(o));
+  await tickBackfillPertinence(base.client(), deps);
+  const lignes = base.table("contenu_pertinences");
+  const neuf = lignes.find((l) => l.contenu_id === "neuf")!;
+  assertEquals([neuf.score, neuf.note, neuf.eligible], [90, NOTE_ORIGINAL_POD, true]);
+  // L'import (« vieux ») garde la note d'import ; elle n'est calculée que pour lui.
+  const vieux = lignes.find((l) => l.contenu_id === "vieux")!;
+  assertEquals([vieux.note, vieux.eligible], [55, false]);
+  assertEquals(pertinencesNotees, [20]);
+  assertEquals(estOriginalDePod({ pod: "p", source_url: null, livre: false }), true);
+  assertEquals(estOriginalDePod({ pod: "p", source_url: "https://www.tiktok.com/@x/video/1", livre: false }), false);
+  assertEquals(estOriginalDePod({ pod: "p", source_url: null, livre: true }), false);
+  assertEquals(estOriginalDePod({ pod: null, source_url: null, livre: false }), false);
 });
 
 Deno.test("rattrapage : prompt de l'application manquant → campagne arrêtée, aucun appel", async () => {

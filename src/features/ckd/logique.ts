@@ -1,4 +1,4 @@
-import type { ActionCkd, PropositionCkd, ReglageCkd, SourceReglage } from "./api";
+import type { ActionCkd, PropositionCkd, RegleCkd, ReglageCkd, SourceReglage } from "./api";
 
 /** Les réglages de 0326, dans l'ordre de la page. */
 export type TypeReglage = "nombre" | "part" | "oui_non";
@@ -23,6 +23,7 @@ export const REGLAGES: readonly DefReglage[] = [
   { cle: "posts_min_anciens", type: "nombre" },
   { cle: "bons_posts_doubler", type: "nombre" },
   { cle: "manques_max_doubler", type: "nombre" },
+  { cle: "manques_absent", type: "nombre" },
   { cle: "doublement_autorise", type: "oui_non" },
   { cle: "comptes_min_mediane", type: "nombre", global: true },
 ];
@@ -164,6 +165,19 @@ export function grouperParHm(propositions: PropositionCkd[]): GroupeHm[] {
       return b.propositions.length - a.propositions.length;
     });
 }
+
+/**
+ * Les décisions possibles pour chaque règle, la proposée d'abord. « Kill » =
+ * ne pas renouveler : le compte s'arrête à la fin de la semaine payée, sans
+ * nouveau compte.
+ */
+export const BOUTONS_PAR_REGLE: Record<RegleCkd, readonly string[]> = {
+  jeudi: ["envoyerNudge", "rien"],
+  absent: ["nePasRenouveler", "envoyerNudge", "garder"],
+  premiere_semaine: ["nePasRenouveler", "recreer", "garder"],
+  anciens: ["recreer", "nePasRenouveler", "garder"],
+  doubler: ["doubler", "pasMaintenant"],
+};
 
 /** Le lien TikTok d'un handle. */
 export function lienTiktok(handle: string | null | undefined): string | null {

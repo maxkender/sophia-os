@@ -8,7 +8,7 @@ import { supabase } from "@/lib/supabase/client";
  */
 
 export type TypeControle = "jeudi" | "samedi";
-export type RegleCkd = "jeudi" | "premiere_semaine" | "anciens" | "doubler";
+export type RegleCkd = "jeudi" | "premiere_semaine" | "anciens" | "doubler" | "absent";
 export type ActionCkd = "nudge" | "recreer" | "ne_pas_renouveler" | "doubler";
 export type SourceReglage = "defaut" | "pays" | "label" | "pays_label";
 
@@ -212,6 +212,25 @@ export async function listerHms(): Promise<HmCkd[]> {
   const { data, error } = await supabase.rpc("ckd_hms");
   if (error) throw error;
   return ((data ?? []) as HmCkd[]).map((h) => ({ ...h, posters: Number(h.posters) }));
+}
+
+/** Un compte qui a manqué au moins un post du lundi au vendredi (pour info). */
+export interface ManqueCkd {
+  compte_id: string;
+  handle: string | null;
+  poster_id: string;
+  hm_id: string | null;
+  pays: string | null;
+  prevus: number;
+  publies: number;
+  jours: string[];
+}
+
+/** `jour` : le samedi du contrôle. */
+export async function listerManques(jour: string): Promise<ManqueCkd[]> {
+  const { data, error } = await supabase.rpc("ckd_manques_semaine", { p_jour: jour });
+  if (error) throw error;
+  return ((data ?? []) as ManqueCkd[]).map((m) => ({ ...m, prevus: Number(m.prevus), publies: Number(m.publies) }));
 }
 
 export async function enregistrerSlackHm(profileId: string, slackUserId: string | null) {

@@ -15,6 +15,8 @@ import {
   type HmCkd,
   type LabelCkd,
   lancerControle,
+  listerManques,
+  type ManqueCkd,
   lirePartBonsPosts,
   listerControles,
   listerHms,
@@ -30,6 +32,7 @@ import {
   type TypeControle,
 } from "@/features/ckd/api";
 import {
+  BOUTONS_PAR_REGLE,
   compterActions,
   defReglage,
   type DefReglage,
@@ -151,14 +154,20 @@ function VueControles({ type }: { type: TypeControle }) {
     queryFn: () => listerPropositions(controle!.id),
     enabled: Boolean(controle),
   });
+  // Le samedi, les posts manqués de la semaine (pour info, sous les propositions).
+  const manques = useQuery({
+    queryKey: [...CLE, "manques", controle?.jour],
+    queryFn: () => listerManques(controle!.jour),
+    enabled: type === "samedi" && Boolean(controle),
+  });
   const ids = React.useMemo(() => {
     const s = new Set<string>();
-    for (const p of propositions.data ?? []) {
+    for (const p of [...(propositions.data ?? []), ...(manques.data ?? [])]) {
       s.add(p.poster_id);
       if (p.hm_id) s.add(p.hm_id);
     }
     return [...s].sort();
-  }, [propositions.data]);
+  }, [propositions.data, manques.data]);
   const personnes = useQuery({
     queryKey: [...CLE, "personnes", ids],
     queryFn: () => listerPersonnes(ids),
@@ -261,9 +270,73 @@ function VueControles({ type }: { type: TypeControle }) {
               </Card>
             );
           })}
+          {type === "samedi" && (
+            <CarteManques manques={manques.data ?? []} propositions={liste} parId={parId} />
+          )}
         </>
       )}
     </div>
+  );
+}
+
+/**
+ * Les comptes qui ont manqué des posts cette semaine sans sortir en Absent :
+ * pour info (la discipline se règle avec le HM), groupés par HM.
+ */
+function CarteManques({
+  manques,
+  propositions,
+  parId,
+}: {
+  manques: ManqueCkd[];
+  propositions: PropositionCkd[];
+  parId: Map<string, PersonneCkd>;
+}) {
+  const { t } = useTranslation();
+  const date = useDate();
+  const absents = new Set(propositions.filter((p) => p.regle === "absent").map((p) => p.compte_id));
+  const lignes = manques
+    .filter((m) => !absents.has(m.compte_id))
+    .sort(
+      (a, b) =>
+        b.prevus - b.publies - (a.prevus - a.publies) || (a.handle ?? "").localeCompare(b.handle ?? ""),
+    );
+  if (lignes.length === 0) return null;
+  return (
+    <Card data-testid="carte-manques">
+      <CardHeader>
+        <CardTitle className="text-base">{t("ckd.manques.titre", { n: lignes.length })}</CardTitle>
+        <CardDescription>{t("ckd.manques.aide")}</CardDescription>
+      </CardHeader>
+      <CardContent className="overflow-x-auto">
+        <table className="w-full text-xs">
+          <thead className="text-left text-muted-foreground">
+            <tr>
+              <th className="py-1 pr-3 font-medium">{t("ckd.manques.compte")}</th>
+              <th className="py-1 pr-3 font-medium">{t("ckd.hm")}</th>
+              <th className="py-1 pr-3 text-right font-medium">{t("ckd.manques.publies")}</th>
+              <th className="py-1 font-medium">{t("ckd.manques.jours")}</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y">
+            {lignes.map((m) => (
+              <tr key={m.compte_id} data-testid={`manque-${m.handle}`}>
+                <td className="py-1 pr-3">
+                  <Link to={`/admin/createurs/${m.compte_id}`} className="underline-offset-2 hover:underline">
+                    {drapeauPays(m.pays)} @{m.handle}
+                  </Link>
+                </td>
+                <td className="py-1 pr-3">{m.hm_id ? nomPersonne(parId.get(m.hm_id)) : t("ckd.sansHm")}</td>
+                <td className="py-1 pr-3 text-right tabular-nums">
+                  {m.publies}/{m.prevus}
+                </td>
+                <td className="py-1 text-muted-foreground">{m.jours.map((j) => date(j)).join(", ")}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </CardContent>
+    </Card>
   );
 }
 
@@ -404,12 +477,7 @@ function LigneProposition({ p, poster, label }: { p: PropositionCkd; poster?: Pe
       </div>
 
       <div className="flex flex-wrap gap-1.5">
-        {(p.action === "nudge"
-          ? ["envoyerNudge", "rien"]
-          : p.action === "doubler"
-            ? ["doubler", "pasMaintenant"]
-            : ["recreer", "nePasRenouveler", "garder"]
-        ).map((b) => (
+        {BOUTONS_PAR_REGLE[p.regle].map((b) => (
           <Button key={b} size="xs" variant="outline" disabled title={t("ckd.boutonBientot")}>
             {t(`ckd.boutons.${b}`)}
           </Button>

@@ -97,6 +97,15 @@ export function fautInviterBot(code: string | null | undefined): boolean {
   return base === "not_in_channel" || base === "channel_not_found";
 }
 
+/**
+ * Nom du canal Slack privé d'une région : #comments-<langue>, sauf l'Amérique
+ * latine (#comments-latam) et le Brésil (#comments-br), nommés au ticket.
+ */
+export function canalConseille(langue: string): string {
+  const special: Record<string, string> = { "es-419": "latam", "pt-BR": "br" };
+  return `comments-${special[langue] ?? langue.toLowerCase()}`;
+}
+
 export function seuilValide(valeur: number): boolean {
   return Number.isInteger(valeur) && valeur >= SEUIL_PLANCHER;
 }

@@ -32,6 +32,7 @@ import {
   AGE_ABANDON_MIN,
   bonus,
   CADENCE_RELEVE_MIN,
+  canalConseille,
   canalVerifie,
   CIBLE_DECLENCHEMENT,
   coutEstime,
@@ -482,7 +483,9 @@ function BlocCanal({ region }: { region: RegionCommentMaster }) {
           {verifier.isPending ? t("commentMasters.verification") : t("commentMasters.verifier")}
         </Button>
       </div>
-      <p className="text-xs text-muted-foreground">{t("commentMasters.canalAide", { langue: region.langue })}</p>
+      <p className="text-xs text-muted-foreground">
+        {t("commentMasters.canalAide", { canal: canalConseille(region.langue) })}
+      </p>
       {verifie && !code && (
         <p className="text-xs text-success">
           {t("commentMasters.verifie", {

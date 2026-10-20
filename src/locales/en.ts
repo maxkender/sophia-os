@@ -857,7 +857,7 @@ export const en = {
       mandat: "{{nom}}: from {{debut}} to {{fin}}",
       canal: "Slack channel (ID)",
       canalAide:
-        "ID of the private #comments-{{langue}} channel: in Slack, channel details, at the very bottom (it starts with C). The channel is checked when saved.",
+        "ID of the private #{{canal}} channel: in Slack, channel details, at the very bottom (it starts with C). The channel is checked when saved.",
       verifier: "Check",
       verification: "Checking…",
       verifie: "#{{nom}}: the bot is a member (checked on {{date}}).",

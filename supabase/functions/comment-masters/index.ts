@@ -1,6 +1,7 @@
 import { scrapeCommentaires } from "../_shared/apify.ts";
 import {
   blocsSlack,
+  canalInutilisable,
   CLE_PROMPT,
   cleSeuil,
   type DecisionReleve,
@@ -1035,6 +1036,7 @@ async function recalibrerSiLundi(supabase: Supabase) {
  * région : canal vérifié, ou code d'erreur Slack affiché par la page. Un canal
  * devenu inutilisable perd sa vérification, ce qui éteint une région active
  * (trigger de 0321) : elle ne paierait plus que des relevés sans destinataire.
+ * Un droit Slack manquant s'affiche sans rien éteindre (`canalInutilisable`).
  */
 async function verifierCanal(supabase: Supabase, slack: string, langue: string) {
   const { data: region, error } = await supabase
@@ -1075,7 +1077,7 @@ async function verifierCanal(supabase: Supabase, slack: string, langue: string) 
     return { ok: true, canal: verdict.nom, bot: nomBot };
   }
 
-  const definitif = ERREURS_CANAL.has(verdict.code.split(":")[0]);
+  const definitif = canalInutilisable(verdict.code);
   const { error: errMaj } = await supabase
     .from("comment_master_regions")
     .update({

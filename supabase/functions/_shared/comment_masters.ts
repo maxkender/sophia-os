@@ -341,6 +341,16 @@ export function verdictCanal(r: {
 /** Erreurs d'envoi qui disent que le canal est inutilisable : affichées sur la région. */
 export const ERREURS_CANAL = new Set(["not_in_channel", "channel_not_found", "is_archived", "missing_scope"]);
 
+/**
+ * Le bot ne peut PAS poster dans ce canal : la vérification tombe, et une
+ * région active s'éteint. Un droit manquant (`missing_scope:…`) n'en fait pas
+ * partie : il empêche de LIRE le canal (conversations.info), pas d'y poster
+ * (chat:write) — éteindre de ou it pour ça couperait des envois qui marchent.
+ */
+export function canalInutilisable(code: string): boolean {
+  return ["not_in_channel", "channel_not_found", "is_archived"].includes(code);
+}
+
 export interface DemandeSlack {
   id: string;
   langue: string;

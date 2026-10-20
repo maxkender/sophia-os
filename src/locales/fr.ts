@@ -907,6 +907,40 @@ export const fr = {
       bonus: "bonus {{dollars}} $ · encore {{reste}} pour le suivant",
       sansCommentMaster: "Sans comment master",
     },
+    lien1000: {
+      titre: "Lien à 1 000 abonnés",
+      description:
+        "À 1 000 abonnés, TikTok ouvre le champ « Liens » du profil. Chaque lundi, les comptes qui ont passé le cap sans le bon lien reçoivent un pop-up (en anglais) avec le lien de leur application, une seule relance 7 jours après. Abonnés et lien relevés chaque nuit avec les vues, sans coût en plus.",
+      envoiAuto: "Envoi automatique le lundi",
+      envoiEteint:
+        "Envoi éteint : le contrôle du lundi ne fait que calculer la liste ci-dessous. Valide-la, puis envoie ou allume l'envoi automatique.",
+      envoyer: "Envoyer maintenant ({{n}})",
+      envoiEnCours: "Envoi…",
+      envoye: "Envoyé : les pop-ups s'afficheront à la prochaine connexion des posters.",
+      confirmerEnvoi:
+        "Envoyer maintenant {{n}} pop-up(s) ? Les {{faits}} compte(s) qui ont déjà le bon lien seront marqués faits.",
+      vide: "Aucun compte à 1 000 abonnés pour l'instant.",
+      aucunLien: "aucun",
+      messageLe: "message le {{date}}",
+      relanceLe: "relancé le {{date}}",
+      colonnes: {
+        compte: "Compte",
+        poster: "Poster",
+        abonnes: "Abonnés",
+        lien: "Lien attendu",
+        actuel: "Lien actuel",
+        statut: "Statut",
+      },
+      actions: {
+        message: "À envoyer",
+        relance: "À relancer",
+        lien_en_place: "Lien déjà en place",
+        attente: "Message envoyé",
+        sans_suite: "Relancé, sans suite",
+        fait: "Fait",
+        pas_de_releve: "Pas de relevé récent",
+      },
+    },
     common: {
       loading: "Chargement…",
       saving: "Enregistrement…",
@@ -2760,6 +2794,8 @@ export const fr = {
       sansCompte: "—",
     },
     nudgeCreateur: {
+      copier: "Copier le lien",
+      copie: "Lien copié",
       titre: "Message de l'équipe",
       ok: "Compris",
     },

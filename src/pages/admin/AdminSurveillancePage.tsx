@@ -54,6 +54,7 @@ import {
 } from "@/features/moteur/classementComptes";
 import { drapeauLangue } from "@/features/moteur/langues";
 import type { ModeleNudge } from "@/features/moteur/types";
+import { Lien1000Card } from "@/features/moteur/Lien1000Card";
 
 const selectClass =
   "h-8 rounded-md border border-input bg-background px-2 text-xs shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
@@ -609,6 +610,8 @@ export function AdminSurveillancePage() {
           )}
         </CardContent>
       </Card>
+
+      <Lien1000Card />
     </div>
   );
 }

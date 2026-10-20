@@ -111,6 +111,12 @@ describe("erreurs Slack", () => {
 });
 
 describe("divers", () => {
+  it("nom de canal conseillé : latam et br comme au ticket", () => {
+    expect(L.canalConseille("de")).toBe("comments-de");
+    expect(L.canalConseille("es-419")).toBe("comments-latam");
+    expect(L.canalConseille("pt-BR")).toBe("comments-br");
+  });
+
   it("un seuil est un entier d'au moins 3 000", () => {
     expect(L.seuilValide(3000)).toBe(true);
     expect(L.seuilValide(2999)).toBe(false);

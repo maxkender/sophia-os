@@ -858,7 +858,7 @@ export const fr = {
       mandat: "{{nom}} : du {{debut}} au {{fin}}",
       canal: "Canal Slack (ID)",
       canalAide:
-        "ID du canal privé #comments-{{langue}} : dans Slack, détails du canal, tout en bas (il commence par C). Le canal est vérifié à l'enregistrement.",
+        "ID du canal privé #{{canal}} : dans Slack, détails du canal, tout en bas (il commence par C). Le canal est vérifié à l'enregistrement.",
       verifier: "Vérifier",
       verification: "Vérification…",
       verifie: "#{{nom}} : le bot est membre (vérifié le {{date}}).",

@@ -8,6 +8,7 @@ import { assert, assertEquals } from "jsr:@std/assert@1";
 import {
   AGE_ABANDON_MIN,
   blocsSlack,
+  canalInutilisable,
   cleSeuil,
   decisionReleve,
   drapeauPays,
@@ -248,4 +249,13 @@ Deno.test("retrouverCommentaire : le commentaire retouché, posté après l'envo
   assertEquals(retrouverCommentaire(commentaires, genere, envoye)?.cid, "3");
   assertEquals(retrouverCommentaire(commentaires.slice(0, 2), genere, envoye), null);
   assert(similarite("abc def", "abc def") === 1);
+});
+
+Deno.test("canalInutilisable : un droit manquant n'éteint pas une région qui poste", () => {
+  assert(canalInutilisable("not_in_channel"));
+  assert(canalInutilisable("channel_not_found"));
+  assert(canalInutilisable("is_archived"));
+  assert(!canalInutilisable("missing_scope:groups:read"));
+  assert(!canalInutilisable("ratelimited"));
+  assert(!canalInutilisable("invalid_auth"));
 });

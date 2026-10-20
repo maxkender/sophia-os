@@ -1,7 +1,9 @@
 import type {
   ActionCkd,
   ArretCkd,
+  ChiffresCkd,
   DecisionCkd,
+  HistoriqueCkd,
   PropositionCkd,
   RegleCkd,
   ReglageCkd,
@@ -252,4 +254,74 @@ export function lienTiktok(handle: string | null | undefined): string | null {
 export function pourcentage(partie: number, total: number): number {
   if (!total) return 0;
   return Math.round((partie / total) * 1000) / 10;
+}
+
+// ---------------------------------------------------------------------------
+// Historique : ce que les décisions sont devenues
+// ---------------------------------------------------------------------------
+
+export type Tendance = "hausse" | "baisse" | "stable";
+
+/** Part des posts publiés, ou null sans post attendu. */
+export function partPubliee(c: ChiffresCkd | null | undefined): number | null {
+  if (!c?.attendus) return null;
+  return (c.publies ?? 0) / c.attendus;
+}
+
+/**
+ * Avant → après : la médiane des vues (±20 %) si on l'a des deux côtés, sinon
+ * la part des posts publiés (±20 points, pour un absent qui ne postait pas).
+ * null tant qu'il n'y a rien à comparer.
+ */
+export function tendance(avant: ChiffresCkd | null | undefined, apres: ChiffresCkd | null | undefined): Tendance | null {
+  if (!avant || !apres) return null;
+  const ma = avant.mediane ?? null;
+  const mp = apres.mediane ?? null;
+  if (ma !== null && mp !== null && ma > 0) {
+    const r = mp / ma;
+    return r >= 1.2 ? "hausse" : r <= 0.8 ? "baisse" : "stable";
+  }
+  const pa = partPubliee(avant);
+  const pp = partPubliee(apres);
+  if (pa === null || pp === null) return null;
+  const e = pp - pa;
+  return e >= 0.2 ? "hausse" : e <= -0.2 ? "baisse" : "stable";
+}
+
+/**
+ * La tendance d'une décision : Recréer compare le nouveau compte à l'ancien ;
+ * les autres comparent le compte à lui-même. Kill : rien (compte arrêté).
+ */
+export function tendanceDecision(h: HistoriqueCkd): Tendance | null {
+  if (h.decision === "recreer") return tendance(h.avant, h.apres_nouveau);
+  if (h.decision === "ne_pas_renouveler") return null;
+  return tendance(h.avant, h.apres);
+}
+
+export interface ResumeDecision {
+  decision: DecisionCkd;
+  total: number;
+  /** Suivis jusqu'au bout (2 semaines complètes). */
+  complets: number;
+  hausse: number;
+  stable: number;
+  baisse: number;
+}
+
+/** Par décision : combien, combien suivies jusqu'au bout, et dans quel sens. */
+export function resumerHistorique(lignes: HistoriqueCkd[]): ResumeDecision[] {
+  const parDecision = new Map<DecisionCkd, ResumeDecision>();
+  for (const h of lignes) {
+    const r = parDecision.get(h.decision) ??
+      { decision: h.decision, total: 0, complets: 0, hausse: 0, stable: 0, baisse: 0 };
+    r.total += 1;
+    if (h.complet) {
+      r.complets += 1;
+      const t = tendanceDecision(h);
+      if (t) r[t] += 1;
+    }
+    parDecision.set(h.decision, r);
+  }
+  const ordre: DecisionCkd[] = ["garder", "pas_maintenant", "doubler", "recreer", "ne_pas_renouveler", "nudge", "rien"];
+  return [...parDecision.values()].sort((a, b) => ordre.indexOf(a.decision) - ordre.indexOf(b.decision));
 }

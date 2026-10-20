@@ -30,6 +30,7 @@ const api = vi.hoisted(() => ({
   enregistrerTextesNudges: vi.fn(),
   lireCanalSlack: vi.fn(),
   enregistrerCanalSlack: vi.fn(),
+  listerHistorique: vi.fn(),
   MOTIFS_NUDGE: ["reveil", "surveiller", "discipline", "absent"],
 }));
 vi.mock("@/features/ckd/api", () => api);
@@ -182,6 +183,34 @@ describe("AdminCheckKillDoublePage", () => {
     api.lireCanalSlack.mockResolvedValue("C0BL0084Y3F");
     api.enregistrerCanalSlack.mockResolvedValue(undefined);
     vi.spyOn(window, "confirm").mockReturnValue(true);
+    api.listerHistorique.mockResolvedValue([
+      {
+        id: "h1", type: "samedi", jour: "2026-10-24", regle: "anciens", action: "recreer", decision: "garder",
+        decision_par: "admin-1", decision_at: "2026-10-24T09:00:00Z", note: "laisse-lui une chance",
+        compte_id: "compte-clara", poster_id: "poster-clara", hm_id: LUCIA, pays: "FR", handle: "clara.eclaire390",
+        nouveau_compte_id: null, nouveau_handle: null,
+        avant: { mediane: 609, publies: 55, attendus: 56, bons: 0 }, mediane_ref: 1360,
+        du: "2026-10-26", au: "2026-11-08", complet: true,
+        apres: { mediane: 1250, publies: 28, attendus: 28, bons: 1 }, apres_nouveau: null, arrete_at: null,
+      },
+      {
+        id: "h2", type: "samedi", jour: "2026-10-24", regle: "doubler", action: "doubler", decision: "doubler",
+        decision_par: "admin-1", decision_at: "2026-10-24T09:05:00Z", note: null,
+        compte_id: "compte-katerina", poster_id: "poster-katerina", hm_id: null, pays: "GR", handle: "katerina.exelissetai333",
+        nouveau_compte_id: "nouveau-1", nouveau_handle: "katerina.nea",
+        avant: { mediane: 2100, publies: 10, attendus: 10, bons: 7 }, mediane_ref: 1500,
+        du: "2026-10-26", au: "2026-11-08", complet: false,
+        apres: { mediane: 1900, publies: 6, attendus: 6 }, apres_nouveau: { mediane: 1400, publies: 4, attendus: 4 }, arrete_at: null,
+      },
+      {
+        id: "h3", type: "samedi", jour: "2026-10-24", regle: "absent", action: "ne_pas_renouveler", decision: "ne_pas_renouveler",
+        decision_par: "admin-1", decision_at: "2026-10-24T09:10:00Z", note: null,
+        compte_id: "compte-ionut", poster_id: "poster-ionut", hm_id: LUCIA, pays: "RO", handle: "ionut.mentalitate346",
+        nouveau_compte_id: null, nouveau_handle: null,
+        avant: { mediane: null, publies: 0, attendus: 10 }, mediane_ref: null,
+        du: "2026-10-26", au: "2026-11-08", complet: false, apres: null, apres_nouveau: null, arrete_at: "2026-10-25T22:30:00Z",
+      },
+    ]);
     api.listerManques.mockResolvedValue([
       // Déjà proposé en Absent : pas répété dans la carte.
       { compte_id: "compte-ionut", handle: "ionut.mentalitate346", poster_id: "poster-ionut", hm_id: LUCIA,
@@ -321,6 +350,33 @@ describe("AdminCheckKillDoublePage", () => {
         absent: { titre: "Where are your posts?", corps: "Post @{handle}" },
       }),
     );
+  });
+
+  it("l'historique : les décisions, avant et après 2 semaines, la tendance et le résumé", async () => {
+    rendre();
+    fireEvent.click(await screen.findByRole("tab", { name: "Historique" }));
+    const clara = await screen.findByTestId("historique-clara.eclaire390");
+    expect(within(clara).getByText("Garder")).toBeInTheDocument();
+    expect(within(clara).getByText(/méd\. 609 · 55\/56 publiés/)).toBeInTheDocument();
+    expect(within(clara).getByText(/méd\. 1\D?250 · 28\/28 publiés · 1 bon/)).toBeInTheDocument();
+    expect(within(clara).getByText("↗ en hausse")).toBeInTheDocument();
+    expect(within(clara).getByText("laisse-lui une chance")).toBeInTheDocument();
+
+    const katerina = screen.getByTestId("historique-katerina.exelissetai333");
+    expect(within(katerina).getByRole("link", { name: "@katerina.nea" })).toHaveAttribute("href", "/admin/createurs/nouveau-1");
+    expect(within(katerina).getByText(/en cours, jusqu'au 08\/11/)).toBeInTheDocument();
+    // Pas fini : la tendance est marquée d'une étoile.
+    expect(within(katerina).getByText("→ stable *")).toBeInTheDocument();
+
+    const ionut = screen.getByTestId("historique-ionut.mentalitate346");
+    expect(within(ionut).getByText(/compte arrêté le 25\/10/)).toBeInTheDocument();
+
+    expect(screen.getByTestId("resume-historique")).toHaveTextContent(
+      "Garder : 1 · 1 suivie(s) jusqu'au bout : 1 en hausse, 0 stable(s), 0 en baisse",
+    );
+    fireEvent.change(screen.getByRole("combobox", { name: "Filtrer par décision" }), { target: { value: "doubler" } });
+    expect(screen.queryByTestId("historique-clara.eclaire390")).toBeNull();
+    expect(screen.getByTestId("historique-katerina.exelissetai333")).toBeInTheDocument();
   });
 
   it("recalcule le contrôle affiché", async () => {

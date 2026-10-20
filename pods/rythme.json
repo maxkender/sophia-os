@@ -1,0 +1,11 @@
+{
+ "_doc": "Livraisons par jour de chaque podz : par_jour (1 par défaut, 3 au plus), pause (true = rien à livrer). Tenu par le chef des podz, voir pods/chef/AGENT.md.",
+ "page-blanche": { "par_jour": 1 },
+ "originaux": { "par_jour": 1 },
+ "reactions": { "par_jour": 0, "pause": true, "motif": "routine vidéo en pause depuis le 07/10" },
+ "alpha-yellow": { "par_jour": 1 },
+ "rh": { "par_jour": 1 },
+ "mentalapp": { "par_jour": 1 },
+ "beau-smart-girl": { "par_jour": 1 },
+ "smart-girl": { "par_jour": 1 }
+}

@@ -102,6 +102,8 @@ Le pilote `originaux/rh-o001.json` est l'exemple complet. Les champs :
 
 ## La boucle de la semaine
 
+Chaque matin, une tâche planifiée lance ta routine : suis `pods/ROUTINE.md` (combien livrer, dans quel ordre, un essai une fois sur cinq). Cette boucle en est le détail pour ton podz.
+
 1. **Chaque jour** : `npm run playbook -- --mesurer`. Les schémas en attente s'activent quand leur r passe 2.
 2. **Lundi, veille** :
 	- `npm run veille` ;
@@ -109,7 +111,7 @@ Le pilote `originaux/rh-o001.json` est l'exemple complet. Les champs :
 	- puis mise à jour du playbook.
 3. **Originaux** sur les schémas actifs : `apercu`, relecture, `deposer`.
 4. **Suivi à J+3** : `npm run suivi`.
-	- Propose la coupe d'un original dont tous les passages sont sous r 0,6.
+	- Un original dont tous les passages sont sous r 0,6 : les tiers le coupent seuls. Note pourquoi il a raté et évite cet angle.
 	- Écris 2 ou 3 variantes d'un original à r ≥ 2.
 5. **Compte rendu en 5 lignes**.
 

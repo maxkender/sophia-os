@@ -102,6 +102,12 @@ Décision du 17/10 : une tier list neuve de 2 slides dans le style du compte.
 - **Id** : `mm-o` + numéro, jamais réutilisé une fois validé ou rejeté.
 - **Flux** : `npm run original -- <id>`, relis la planche, montre-la à l'humain, puis `--deposer`. Validé, l'original entre au rang original.
 
+## La routine du matin
+
+Chaque matin, une tâche planifiée lance ta routine : suis `pods/ROUTINE.md`
+(combien livrer, dans quel ordre). Ta livraison normale : le post suivant de
+la liste de `npm run releve`, dans les 6 langues. La liste finie, un original.
+
 ## Règles
 
 - **Tu proposes, l'humain valide.** Ne contourne jamais la file.

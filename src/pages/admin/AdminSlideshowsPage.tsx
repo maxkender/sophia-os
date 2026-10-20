@@ -23,6 +23,7 @@ import {
 import { NettoyageEtapes } from "@/components/moteur/NettoyageEtapes";
 import { UpscaleMediaControl } from "@/components/moteur/UpscaleMediaControl";
 import { LabelEditor } from "@/features/moteur/LabelPicker";
+import { NettoyageStickersLabelCard } from "@/features/moteur/NettoyageStickersLabelCard";
 import {
   captionnerMediaBiblio,
   collecterMediaIdsContenus,
@@ -2386,6 +2387,8 @@ export function AdminSlideshowsPage() {
           </div>
         </CardContent>
       </Card>
+
+      <NettoyageStickersLabelCard />
 
       {ouvert && <DetailSlideshow id={ouvert} onFermer={fermerDetail} />}
     </div>

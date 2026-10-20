@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o001",
+ "schema_id": "vole-habitudes",
+ "titre": "les habitudes insolites que j'ai volées à la fille la plus cultivée de ma promo #pourtoi #culture #apprentissage #education",
+ "musique_titre": "Probe",
+ "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+ "inspirations": [
+  "83ef5e79-d95d-4928-b0c3-b2b3b1169f25",
+  "5a0fa56c-f03c-438e-adf3-1e4248da34b1"
+ ],
+ "notes": "Schéma vole-habitudes (r 7,58 sur 11 passages, 83ef5e79 ; r 3,87, d1970d80). Accroches écrites : « les habitudes insolites que j'ai volées à la fille la plus cultivée de ma promo pour me cultiver sans y penser » (retenue : le gabarit gagnant, la personne admirée et la promesse sans effort ; une fille de la promo plutôt qu'une prof, plus proche de la « smart girl » du label), « les habitudes bizarres que j'ai volées à ma grand-mère qui connaît tout le Louvre » (écartée : moins désirable, et un fait à vérifier), « elle a réponse à tout : ses 5 habitudes que je copie depuis un an » (écartée : sans « volées », plus loin du gagnant). Récit « elle », cinq items neufs : le mot du jour replacé trois fois, le cartel lu avant le tableau, la carte du monde au-dessus du bureau, la question que tout le monde se pose, 5 minutes de culture au lieu du scroll du matin. Rien de repris de la source (musée à trois œuvres, podcast trois soirs, Wikipédia en trois langues, carnet de questions). Aucun fait à vérifier, aucune personne réelle. Sophia sur le dernier item (6), comme le gagnant. Images de la banque : la fille qui écrit en bibliothèque (accroche), les étagères sombres, la fille de dos devant un tableau, le bureau à la lampe, la fille au café, le café sur le livre rouge, la fille au casque qui lit. Inspirations : slides 1 à 5 de 83ef5e79 (sa 6 cite une appli), 2 et 7 de 5a0fa56c.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6ea33df3",
+   "texte_overlay": "les habitudes insolites que\nj'ai volées à la fille la plus\ncultivée de ma promo pour\nme cultiver sans y penser",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ff86ec67",
+   "texte_overlay": "1. elle apprenait un seul mot par jour.\n\nun mot qu'elle connaissait pas, trouvé dans un livre ou une chanson.\nelle le replaçait trois fois dans la journée.\nle soir, il était à elle.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8a07dff1",
+   "texte_overlay": "2. elle lisait le cartel avant de regarder le tableau.\n\nau musée, la petite étiquette d'abord, puis l'œuvre, en cherchant ce qu'elle venait de lire.\ntu vois deux fois plus de choses.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7447dc62",
+   "texte_overlay": "3. elle avait une carte du monde au-dessus de son bureau.\n\nchaque fois qu'un pays passait dans les infos ou dans une série, elle allait le chercher dessus.\nun an plus tard, elle savait tout placer.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "351be11b",
+   "texte_overlay": "4. elle osait poser la question que tout le monde se pose.\n\n« attends, c'était quand, ça ? »\n« ça veut dire quoi, exactement ? »\nles autres hochaient la tête. elle, elle repartait en sachant.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2c5057e4",
+   "texte_overlay": "5. elle remplaçait son scroll du matin par 5 minutes de culture.\n\nun peu d'histoire, d'art ou de sciences avec son café.\ndu coup, elle avait toujours une anecdote à raconter.",
+   "texte_sophia": "5. elle remplaçait son scroll du matin par l'appli Sophia.\n\n5 minutes d'histoire, d'art ou de sciences avec son café.\ndu coup, elle avait toujours une anecdote à raconter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c4c55ad9",
+   "texte_overlay": "vole-lui une habitude.\nlaquelle tu testes en premier ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/7.jpg"
+  }
+ ]
+}

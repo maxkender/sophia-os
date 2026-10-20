@@ -1,0 +1,392 @@
+{
+  "maj_le": "2026-10-19",
+  "regle": "Un schéma n'est actif que s'il a une preuve valable aujourd'hui : un post de la niche à 200 k vues ou plus publié il y a 30 jours au plus, ou un contenu du label à r ≥ 2 (3 passages au moins, recalculé par l'OS au dépôt). Un schéma « en attente » a des contenus du label qui marchent mais pas encore 3 passages mûrs : `npm run playbook -- --mesurer` chaque jour, il s'active tout seul quand son r passe 2.",
+  "schemas": [
+    {
+      "id": "vole-habitudes",
+      "schema": "les habitudes insolites que j'ai volées à [ma prof de fac / ma mère / la fille la plus cultivée que je connais] pour me cultiver sans m'en rendre compte",
+      "exemples": [
+        "les habitudes insolites que j'ai volé à ma prof de fac pour se cultiver sans s'en rendre compte (r 7,58 sur 11 passages, 179 k vues en italien)",
+        "les règles que j'ai volé à ma mère pour devenir ridiculement cultivée (et avoir une mémoire dingue) (r 3,87)",
+        "les habitudes inconnues que j'ai volées aux filles toujours parfaites <3 (@studyavec_lea, 70 k vues le 12/10)"
+      ],
+      "pourquoi": "Le secret d'une personne admirée, raconté à la troisième personne (« elle allait au musée pour voir trois œuvres. trois. puis elle repartait. »). Chaque item est concret, un peu bizarre et facile à voler. C'est LE format du label.",
+      "inspiration_contenus": [
+        "83ef5e79-d95d-4928-b0c3-b2b3b1169f25",
+        "d1970d80-1def-4b7c-9d3a-36d45b5cd96a"
+      ],
+      "musiques": [
+        {
+          "titre": "Probe",
+          "url": "https://www.tiktok.com/music/probe-7277602986661283842"
+        }
+      ],
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "83ef5e79-d95d-4928-b0c3-b2b3b1169f25",
+          "r_median": 7.58,
+          "publies": 11,
+          "releve_le": "2026-10-19"
+        },
+        {
+          "type": "os",
+          "contenu_id": "d1970d80-1def-4b7c-9d3a-36d45b5cd96a",
+          "r_median": 3.87,
+          "publies": 7,
+          "releve_le": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "je-note-tout",
+      "schema": "je note TOUS les trucs bizarres que j'ai essayés pour [me cultiver / avoir une mémoire de dingue / arrêter de scroller], avec une note sur 10 à chaque slide",
+      "exemples": [
+        "je note TOUS les trucs bizarres que j'ai fait pour me cultiver (r 7,45 sur 9 passages)",
+        "je note TOUTES les astuces chelous que j'ai essayé pour me cultiver (r 4,52)",
+        "je NOTE TOUTES les choses que j'ai essayé pour arrêter de scroller (@studyavec_lea, 115 k vues le 15/10)"
+      ],
+      "pourquoi": "La note sur 10 crée le suspense (on attend le 10/10) et fait commenter. Les 0/10 et 4/10 rendent le récit honnête.",
+      "inspiration_contenus": [
+        "d61696f9-869d-4515-a411-9eb6bf2fe7f7",
+        "f0cfb4f0-d793-4403-8b0e-7618b8821c1e"
+      ],
+      "musiques": [
+        {
+          "titre": "Touch daft punk",
+          "url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297"
+        }
+      ],
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "d61696f9-869d-4515-a411-9eb6bf2fe7f7",
+          "r_median": 7.45,
+          "publies": 9,
+          "releve_le": "2026-10-19"
+        },
+        {
+          "type": "os",
+          "contenu_id": "f0cfb4f0-d793-4403-8b0e-7618b8821c1e",
+          "r_median": 4.51,
+          "publies": 3,
+          "releve_le": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "jolie-et-interessante",
+      "schema": "comment être jolie ET vraiment intéressante en même temps / comment je suis devenue la fille qu'on décrit comme « vraiment intéressante » (sans jamais être populaire)",
+      "exemples": [
+        "how to be pretty af and insanely interesting at the same time (@mia.study5, 571 k vues, 9,8 % d'enregistrements, le 23/09)",
+        "how i became the girl people describe as \"actually interesting to be around\" without ever being popular (r 2,54)",
+        "how i made school actually INTERESTING again (r 5,04 sur 7 passages)"
+      ],
+      "pourquoi": "Le cœur du label : jolie ET cultivée. L'accroche promet une identité, et les items sont des habitudes de culture (« apprends des trucs basiques sur le monde, je te jure que c'est canon »).",
+      "inspiration_contenus": [
+        "675447a8-afc4-470d-b196-c7b30e600268",
+        "375ec54a-c305-4083-bf9c-2a47f0957e40"
+      ],
+      "musiques": [
+        {
+          "titre": "effycore",
+          "url": "https://www.tiktok.com/music/effycore-7668805365308114961"
+        },
+        {
+          "titre": "original sound - DAZZLING",
+          "url": "https://www.tiktok.com/music/original-sound-dazzling-7660538187258694421"
+        }
+      ],
+      "preuves": [
+        {
+          "type": "tiktok",
+          "url": "https://www.tiktok.com/@mia.study5/video/7688823951224524045",
+          "vues": 570900,
+          "enregistrements": 56192,
+          "publie_le": "2026-09-23",
+          "releve_le": "2026-10-19"
+        },
+        {
+          "type": "os",
+          "contenu_id": "675447a8-afc4-470d-b196-c7b30e600268",
+          "r_median": 5.04,
+          "publies": 7,
+          "releve_le": "2026-10-19"
+        },
+        {
+          "type": "os",
+          "contenu_id": "375ec54a-c305-4083-bf9c-2a47f0957e40",
+          "r_median": 2.54,
+          "publies": 3,
+          "releve_le": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "habitudes-chelous",
+      "schema": "les habitudes chelous que j'ai adoptées et qui ont tout changé",
+      "exemples": [
+        "les habitudes chelous que j'ai adoptées et qui ont tout changé (r 3,01 sur 7 passages, 28,6 k vues en néerlandais)"
+      ],
+      "pourquoi": "Des règles perso courtes, à la première personne, avec un défi (« essaie-le 3 jours »). La slide de fin : « vole-moi une habitude ;) enregistre et abonne-toi ».",
+      "inspiration_contenus": [
+        "5a0fa56c-f03c-438e-adf3-1e4248da34b1",
+        "17310365-5191-4f37-b6d5-da5586bbb4a3"
+      ],
+      "musiques": [
+        {
+          "titre": "original sound",
+          "url": "https://www.tiktok.com/music/original-sound-7638500399523056397"
+        }
+      ],
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "5a0fa56c-f03c-438e-adf3-1e4248da34b1",
+          "r_median": 3.01,
+          "publies": 7,
+          "releve_le": "2026-10-19"
+        },
+        {
+          "type": "os",
+          "contenu_id": "17310365-5191-4f37-b6d5-da5586bbb4a3",
+          "r_median": 2.23,
+          "publies": 3,
+          "releve_le": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "confiance-incassable",
+      "schema": "N conseils pour avoir tellement confiance en toi que personne ne peut te briser",
+      "exemples": [
+        "5 conseils pour avoir tellement confiance en toi que personne ne peux te briser (r 3,06, 41,6 k vues en turc)",
+        "How to become more confident (@leadher.global, r 2,75)"
+      ],
+      "pourquoi": "Une promesse forte et des gestes concrets (parler plus lentement, écrire ses pensées). La culture y entre par « avoir toujours quelque chose à dire ».",
+      "inspiration_contenus": [
+        "47161282-1c77-482c-9fc3-2ed4d2752b38",
+        "4284f474-242f-4cf5-b7ff-46eed200076b"
+      ],
+      "musiques": [
+        {
+          "titre": "original sound",
+          "url": "https://www.tiktok.com/music/original-sound-7623077459746933534"
+        }
+      ],
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "47161282-1c77-482c-9fc3-2ed4d2752b38",
+          "r_median": 3.06,
+          "publies": 6,
+          "releve_le": "2026-10-19"
+        },
+        {
+          "type": "os",
+          "contenu_id": "4284f474-242f-4cf5-b7ff-46eed200076b",
+          "r_median": 2.75,
+          "publies": 5,
+          "releve_le": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "dangereusement-cultivee",
+      "schema": "les habitudes pour devenir dangereusement intelligente / scandaleusement cultivée (et en finir avec le brain rot)",
+      "exemples": [
+        "habits that make you smarter (naturally) (r 2,96 sur 8 passages)",
+        "habits to become dangerously intelligent (r 2,29)",
+        "Habits to Become Disgustingly Well Educated (and finally end brain rot) (r 2,04)"
+      ],
+      "pourquoi": "L'excès dans l'accroche (« dangereusement », « scandaleusement ») et des habitudes de culture concrètes. La slide « remplacer le scroll par 5 minutes d'apprentissage » est la place naturelle de Sophia.",
+      "inspiration_contenus": [
+        "2e2ef1c3-2f69-4e42-aa4f-198428dea685",
+        "1a941e8c-f02f-4d72-b5a5-4f37e5154273",
+        "1c433d7b-d970-4c2d-8e44-cbf6e81dd1aa"
+      ],
+      "musiques": [
+        {
+          "titre": "son original - martin",
+          "url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170"
+        }
+      ],
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "2e2ef1c3-2f69-4e42-aa4f-198428dea685",
+          "r_median": 2.96,
+          "publies": 8,
+          "releve_le": "2026-10-19"
+        },
+        {
+          "type": "os",
+          "contenu_id": "1a941e8c-f02f-4d72-b5a5-4f37e5154273",
+          "r_median": 2.29,
+          "publies": 4,
+          "releve_le": "2026-10-19"
+        },
+        {
+          "type": "os",
+          "contenu_id": "1c433d7b-d970-4c2d-8e44-cbf6e81dd1aa",
+          "r_median": 2.04,
+          "publies": 6,
+          "releve_le": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "prouve-par-la-science",
+      "schema": "N trucs prouvés par la science pour [ton vocabulaire / ton cerveau / ta mémoire], avec les sources à la fin",
+      "exemples": [
+        "new words to add to your vocabulary backed by science (r 3,99 sur 8 passages)",
+        "how to strengthen your immune system backed by science (with sources) (@wagamamalover, 307 k vues le 25/09)",
+        "ways to keep your brain fresh and young backed by science (sources included) (r 2,55 sur 10 passages)"
+      ],
+      "pourquoi": "Marche quand le sujet est PRÉCIS (vocabulaire, cerveau, mémoire). Flop quand il est vague (« améliorer sa vie », « baisser son cortisol ») : sur 70 contenus de @wagamamalover mesurés, le r médian est de 0,90.",
+      "inspiration_contenus": [
+        "5d279e37-6a3d-443d-be7a-95b95c715510",
+        "54d238cb-f9a8-4ed6-b1cf-a39452b50e29"
+      ],
+      "musiques": [
+        {
+          "titre": "original sound",
+          "url": "https://www.tiktok.com/music/original-sound-7170306404024765186"
+        }
+      ],
+      "preuves": [
+        {
+          "type": "tiktok",
+          "url": "https://www.tiktok.com/@wagamamalover/video/7689574129745382678",
+          "vues": 306700,
+          "enregistrements": 6145,
+          "publie_le": "2026-09-25",
+          "releve_le": "2026-10-19"
+        },
+        {
+          "type": "os",
+          "contenu_id": "5d279e37-6a3d-443d-be7a-95b95c715510",
+          "r_median": 3.99,
+          "publies": 8,
+          "releve_le": "2026-10-19"
+        },
+        {
+          "type": "os",
+          "contenu_id": "1e54b0b5-ba38-4925-af3c-d5dc261cbdcb",
+          "r_median": 2.88,
+          "publies": 8,
+          "releve_le": "2026-10-19"
+        },
+        {
+          "type": "os",
+          "contenu_id": "54d238cb-f9a8-4ed6-b1cf-a39452b50e29",
+          "r_median": 2.55,
+          "publies": 10,
+          "releve_le": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "independante",
+      "schema": "les choses que j'ai commencé à faire seule et qui m'ont rendue indépendante",
+      "exemples": [
+        "things I started doing on my own that made me independent (@cleanlifestyle.t, rang S, r 2,16 sur 7 passages, 30 k vues en allemand)"
+      ],
+      "pourquoi": "Une liste de petites victoires d'autonomie, très concrètes (cuisiner, un horaire de sommeil, une routine écrite).",
+      "inspiration_contenus": [
+        "71ef7d85-19b2-46c0-a4cc-97313387e592"
+      ],
+      "musiques": [
+        {
+          "titre": "original sound",
+          "url": "https://www.tiktok.com/music/original-sound-7434388289938492206"
+        }
+      ],
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "71ef7d85-19b2-46c0-a4cc-97313387e592",
+          "r_median": 2.16,
+          "publies": 7,
+          "releve_le": "2026-10-19"
+        }
+      ]
+    }
+  ],
+  "a_eviter": [
+    {
+      "schema": "la liste « prouvée par la science » VAGUE : améliorer sa vie, sa personnalité, son énergie, baisser son cortisol, arrêter d'être paresseuse",
+      "pourquoi": "r 0,29 à 0,51 sur 7 ou 8 passages chacun : sans sujet précis, la science ne suffit pas.",
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "5f1f2c7a-f0d2-48eb-b926-abd406b3d814",
+          "r_median": 0.29,
+          "publies": 8,
+          "releve_le": "2026-10-19"
+        },
+        {
+          "type": "os",
+          "contenu_id": "acea327c-d5d1-4001-ae87-2285a9642f73",
+          "r_median": 0.46,
+          "publies": 8,
+          "releve_le": "2026-10-19"
+        },
+        {
+          "type": "os",
+          "contenu_id": "40c40efa-292f-4f24-ba16-32f629df8a97",
+          "r_median": 0.49,
+          "publies": 8,
+          "releve_le": "2026-10-19"
+        },
+        {
+          "type": "os",
+          "contenu_id": "2588c2b7-be04-4b39-9276-932e174123ed",
+          "r_median": 0.51,
+          "publies": 7,
+          "releve_le": "2026-10-19"
+        },
+        {
+          "type": "os",
+          "contenu_id": "d3b340d6-3bf8-4f91-bba2-6533c9405cca",
+          "r_median": 0.5,
+          "publies": 7,
+          "releve_le": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "schema": "l'anti-scroll ou la concentration en liste générique, sans récit : « things to do instead of doomscrolling », « how to actually increase your attention span »",
+      "pourquoi": "r 0,27 et 0,38. Le même thème marche raconté et noté (« je note tout ce que j'ai essayé pour arrêter de scroller »).",
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "07f4a8b8-50d1-4f19-a2d8-d5b462fdfc37",
+          "r_median": 0.27,
+          "publies": 3,
+          "releve_le": "2026-10-19"
+        },
+        {
+          "type": "os",
+          "contenu_id": "293f3dd1-c998-479d-9e12-0c94148006b5",
+          "r_median": 0.38,
+          "publies": 3,
+          "releve_le": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "schema": "la promesse vague à soi-même : « how to become the person you promised yourself you'd be »",
+      "pourquoi": "r 0,45 sur 5 passages : rien de concret à voler.",
+      "preuves": [
+        {
+          "type": "os",
+          "contenu_id": "e234bbcd-73f5-42e6-a062-aa0b9f60c615",
+          "r_median": 0.45,
+          "publies": 5,
+          "releve_le": "2026-10-19"
+        }
+      ]
+    }
+  ]
+}

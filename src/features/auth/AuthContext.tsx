@@ -2,7 +2,7 @@ import * as React from "react";
 import type { Session, User } from "@supabase/supabase-js";
 
 import { supabase } from "@/lib/supabase/client";
-import type { Role } from "./roles";
+import { roleAffiche, type Role } from "./roles";
 
 export type { Role };
 export { badgeManager, estRoleManager } from "./roles";
@@ -23,10 +23,36 @@ export interface Profil {
 interface AuthState {
   session: Session | null;
   user: User | null;
+  /** Rôle sous lequel l'appli s'affiche (voir `roleAffiche`). */
   role: Role | null;
+  /** Rôle réel en base : admin même en aperçu Head of Ops. */
+  roleReel: Role | null;
   profil: Profil | null;
   loading: boolean;
   refresh: () => void;
+  /** Admin seulement : l'appli s'affiche comme pour un Head of Ops. */
+  apercuHo: boolean;
+  basculerApercuHo: (actif: boolean) => void;
+}
+
+/** Clé de l'aperçu Head of Ops : par onglet, il ne survit pas à sa fermeture. */
+const CLE_APERCU_HO = "apercu-head-of-ops";
+
+function lireApercuHo(): boolean {
+  try {
+    return sessionStorage.getItem(CLE_APERCU_HO) === "1";
+  } catch {
+    return false;
+  }
+}
+
+function ecrireApercuHo(actif: boolean) {
+  try {
+    if (actif) sessionStorage.setItem(CLE_APERCU_HO, "1");
+    else sessionStorage.removeItem(CLE_APERCU_HO);
+  } catch {
+    // Stockage indisponible : l'aperçu tient jusqu'au rechargement.
+  }
 }
 
 const AuthContext = React.createContext<AuthState | undefined>(undefined);
@@ -64,7 +90,9 @@ async function chargerProfil(userId: string): Promise<Profil | null> {
 }
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [state, setState] = React.useState<Omit<AuthState, "refresh">>({
+  const [state, setState] = React.useState<
+    Omit<AuthState, "refresh" | "roleReel" | "apercuHo" | "basculerApercuHo">
+  >({
     session: null,
     user: null,
     role: null,
@@ -111,7 +139,23 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     };
   }, [jeton]);
 
-  const value = React.useMemo(() => ({ ...state, refresh }), [state, refresh]);
+  const [apercuHo, setApercuHo] = React.useState(lireApercuHo);
+  const basculerApercuHo = React.useCallback((actif: boolean) => {
+    ecrireApercuHo(actif);
+    setApercuHo(actif);
+  }, []);
+
+  const value = React.useMemo(
+    () => ({
+      ...state,
+      role: roleAffiche(state.role, apercuHo),
+      roleReel: state.role,
+      apercuHo: state.role === "admin" && apercuHo,
+      basculerApercuHo,
+      refresh,
+    }),
+    [state, apercuHo, basculerApercuHo, refresh],
+  );
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 

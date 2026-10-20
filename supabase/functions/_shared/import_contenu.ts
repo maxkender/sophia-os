@@ -21,6 +21,7 @@ import {
   integrateSophia,
   mimeDepuisBase64,
   ocrFrame,
+  ocrSlideImport,
   scoreRelevance,
   translateSlideshow,
 } from "./gemini.ts";
@@ -1254,6 +1255,56 @@ export async function avancerImport(
 }
 
 /**
+ * Règle stickers allumée ? `reglages.stickers.rejet_import`, éteinte par
+ * défaut : on la vérifie d'abord à blanc (page Tests → « Stickers à
+ * l'import »). Ligne absente ou lecture ratée → éteinte, l'import reste
+ * celui d'avant.
+ */
+async function rejetStickersActif(supabase: Supabase): Promise<boolean> {
+  const { data } = await supabase
+    .from("reglages")
+    .select("valeur")
+    .eq("cle", "stickers")
+    .maybeSingle();
+  return (data?.valeur as { rejet_import?: unknown } | null)?.rejet_import === true;
+}
+
+/**
+ * OCR d'une slide à l'import : `null` = sticker PUB (règle allumée seulement).
+ * Un sticker de contenu (livre, vidéo, article) est importé avec son texte.
+ * Les contenus d'un pod (`contenus.pod`) ont un passe-droit : jamais rejetés
+ * pour sticker, même s'ils repassent par ici (reprise d'un deck sans texte).
+ */
+async function lireSlideImport(
+  supabase: Supabase,
+  contenu: { pod?: string | null },
+  url: string,
+): Promise<string | null> {
+  if (contenu.pod || !(await rejetStickersActif(supabase))) return await ocrFrame(url);
+  const lecture = await ocrSlideImport(url);
+  return lecture.sticker === "pub" ? null : lecture.texte;
+}
+
+/**
+ * Sticker PUB collé sur une slide (carte App Store, icône ou logo d'app, carte
+ * d'un site…) : le TikTok n'est pas importé. Décidé à l'OCR, avant pertinence
+ * et nettoyage.
+ */
+async function rejeterSticker(
+  supabase: Supabase,
+  contenuId: string,
+  position: number,
+): Promise<AvancerImportResultat> {
+  await marquer(supabase, contenuId, {
+    statut: "rejete",
+    import_statut: "done",
+    import_etape: "sticker",
+    import_erreur: `Sticker pub (app, marque) collé sur la slide ${position} — TikTok non importé`,
+  });
+  return { etape: "sticker", progres: true };
+}
+
+/**
  * Un pas du pipeline. Ordre :
  * OCR hook → pertinence → OCR reste → ELO par langue (gate) → nettoyage (1×)
  * → caption visuelle (Florence → Moondream) → valide (texte OCR source uniquement).
@@ -1297,7 +1348,9 @@ async function executerPasImport(
 
     // 1 — OCR du hook
     if (slides[0] && (slides[0].texte_original === null || slides[0].texte_original === undefined)) {
-      slides[0].texte_original = await ocrFrame(slides[0].raw_url);
+      const texte = await lireSlideImport(supabase, contenu, slides[0].raw_url);
+      if (texte === null) return await rejeterSticker(supabase, contenu.id, slides[0].position);
+      slides[0].texte_original = texte;
       await marquer(supabase, contenu.id, {
         structure_slides: slides,
         import_etape: "ocr",
@@ -1353,7 +1406,9 @@ async function executerPasImport(
     const aOcr = slides.filter((s) => s.texte_original === null || s.texte_original === undefined);
     if (aOcr.length > 0) {
       for (const slide of aOcr.slice(0, SLIDES_PAR_PASSAGE)) {
-        slide.texte_original = await ocrFrame(slide.raw_url);
+        const texte = await lireSlideImport(supabase, contenu, slide.raw_url);
+        if (texte === null) return await rejeterSticker(supabase, contenu.id, slide.position);
+        slide.texte_original = texte;
       }
       await marquer(supabase, contenu.id, {
         structure_slides: slides,

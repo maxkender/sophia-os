@@ -216,6 +216,33 @@ export const DEFAULT_TRANSLATE_PROMPT = `Règles de traduction impératives :
   n'est pas ton rôle de l'ajouter ici.
 - Conserve les URLs et les sources citées telles quelles.`;
 
+const OCR_CONSIGNE = `Transcris exactement le texte incrusté sur cette slide TikTok,
+en langue d'origine, sans le corriger ni le traduire.
+
+Ignore : logos, marques dans le décor, texte sur les vêtements, barre de statut
+du téléphone. Garde le nom d'une app/d'un podcast si c'est le sujet de la slide.`;
+
+const OCR_AUCUN_TEXTE =
+  `Si la slide ne contient aucun texte incrusté, réponds exactement : (aucun texte)`;
+
+const OCR_STICKER = `STICKERS : éléments graphiques COLLÉS par-dessus la photo. Ne compte pas ce qui
+fait partie de la photo elle-même (objets, écrans, papiers, panneaux), un emoji
+tapé dans le texte, le fond coloré derrière le texte, ni le watermark TikTok
+(@pseudo). Deux familles :
+- PUB : le sticker fait la promotion d'une app, d'une marque ou d'un site —
+  carte App Store ou Google Play, icône ou logo d'app, logo de marque, capture
+  de l'interface d'une app, bouton GET / Obtenir / Download, carte d'un site.
+  S'il y en a un, ne transcris rien et réponds exactement : (sticker pub)
+- CONTENU : le sticker porte la recommandation elle-même — couverture de livre,
+  capture d'une vidéo YouTube, d'un article ou d'un podcast, note ou liste
+  collée. Transcris la slide normalement, puis ajoute une dernière ligne
+  exactement : (sticker contenu)
+Pas un sticker du tout (transcris normalement, sans marque) : nos applis
+Sophia, UnSwipe, Micabo (carte, icône ou capture).
+Toujours du CONTENU, jamais une PUB : une grande plateforme citée comme outil
+dans le conseil de la slide (LinkedIn, YouTube, Spotify, Substack, Google,
+Wikipedia, Instagram…).`;
+
 /**
  * OCR seul, slide par slide : transcrit le texte incrusté en langue d'origine.
  * La traduction se fait ensuite sur tout le deck d'un coup (translateSlideshow),
@@ -223,18 +250,56 @@ export const DEFAULT_TRANSLATE_PROMPT = `Règles de traduction impératives :
  */
 export async function ocrFrame(imageUrl: string): Promise<string> {
   const image = await fetchImageAsInline(imageUrl);
-
-  const prompt = `Transcris exactement le texte incrusté sur cette slide TikTok,
-en langue d'origine, sans le corriger ni le traduire.
-
-Ignore : logos, marques dans le décor, texte sur les vêtements, barre de statut
-du téléphone. Garde le nom d'une app/d'un podcast si c'est le sujet de la slide.
-
-Si la slide ne contient aucun texte incrusté, réponds exactement : (aucun texte)`;
-
+  const prompt = `${OCR_CONSIGNE}\n\n${OCR_AUCUN_TEXTE}`;
   const parts = await callWithFallback(TEXT_MODELS, [{ text: prompt }, image]);
   const text = textOf(parts).trim();
   return text === "(aucun texte)" ? "" : text;
+}
+
+/** Sticker vu par l'OCR d'import : pub d'app ou de marque, ou porteur du contenu. */
+export type StickerImport = "pub" | "contenu" | null;
+
+export interface LectureImport {
+  /** Texte de la slide ("" sans texte, ou pour une slide à sticker pub). */
+  texte: string;
+  sticker: StickerImport;
+}
+
+/**
+ * OCR de l'import : la même lecture et le même appel qu'`ocrFrame`, plus le
+ * classement des stickers. Le nettoyage (text-removal) ne sait pas retirer un
+ * sticker, il en efface seulement le texte, et l'OCR le recopiait dans la
+ * légende (#questions, ticket stickers du 13/10). Seule la PUB fait rejeter le
+ * TikTok : c'est le concurrent visible sur la slide où l'on place l'appli. Un
+ * sticker de CONTENU (livre, vidéo, article) est la recommandation même : test
+ * à blanc du 19/10, ces slideshows marchent comme les autres.
+ */
+export async function ocrSlideImport(imageUrl: string): Promise<LectureImport> {
+  const image = await fetchImageAsInline(imageUrl);
+  const prompt = `${OCR_CONSIGNE}\n\n${OCR_STICKER}\n\n${OCR_AUCUN_TEXTE}`;
+  const parts = await callWithFallback(TEXT_MODELS, [{ text: prompt }, image]);
+  return lireOcrImport(textOf(parts));
+}
+
+const MARQUE_PUB = "(sticker pub)";
+const MARQUE_CONTENU = "(sticker contenu)";
+
+/**
+ * Réponse de l'OCR d'import → texte et sticker. Un « (sticker) » sans famille
+ * (ancienne consigne) compte comme une pub : dans le doute, la règle rejette.
+ */
+export function lireOcrImport(reponse: string): LectureImport {
+  const lignes = reponse.trim().split("\n");
+  const marque = (m: string) => lignes.some((l) => l.trim().toLowerCase() === m);
+  if (marque(MARQUE_PUB) || marque("(sticker)")) return { texte: "", sticker: "pub" };
+  const texte = lignes
+    .filter((l) => l.trim().toLowerCase() !== MARQUE_CONTENU)
+    .join("\n")
+    .trim();
+  return {
+    texte: texte === "(aucun texte)" ? "" : texte,
+    sticker: marque(MARQUE_CONTENU) ? "contenu" : null,
+  };
 }
 
 /**

@@ -106,6 +106,9 @@ verify_jwt = false
 [functions.nettoyer-media]
 verify_jwt = false
 
+[functions.nettoyer-stickers]
+verify_jwt = false
+
 [functions.nettoyer-test]
 verify_jwt = false
 
@@ -171,6 +174,9 @@ verify_jwt = false
 verify_jwt = false
 
 [functions.suivi-rc]
+verify_jwt = false
+
+[functions.test-stickers]
 verify_jwt = false
 
 [functions.traduire-doc]

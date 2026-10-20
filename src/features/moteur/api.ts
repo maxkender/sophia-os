@@ -18,6 +18,7 @@ import {
   type VerdictAvis,
 } from "@/features/reviews/bancRelecture";
 import { extensionVideo } from "@/features/reviews/videoRemarque";
+import { idTiktokDepuisUrl } from "@/features/reviews/tiktokEmbed";
 import { normaliserZone, ZONE_LONGUEUR_MAX } from "@/features/hiring/zones";
 import { estRoleManager } from "@/features/auth/roles";
 import type { Role } from "@/features/auth/AuthContext";
@@ -60,6 +61,14 @@ import {
   type ClassementReglages,
 } from "./classementComptes";
 import type { LigneJournalOubli } from "./oubliSource";
+import type { SlideshowStickerTest, StickerTestResultat } from "./testStickers";
+import {
+  STATUTS_LISTE,
+  type CompteursNettoyage,
+  type LigneJournalNettoyage,
+  type NettoyageStickers,
+  type SlideshowNettoyage,
+} from "./nettoyageStickers";
 import { type MajSourcesRun } from "./majSequentielle";
 import { compteEnProcessus } from "./warmup";
 import { ugcVisages } from "./ugcVisages";
@@ -2173,6 +2182,30 @@ export async function reordonnerSlides(slides: PostSlide[]): Promise<void> {
   }
 }
 
+/**
+ * L'autre slideshow du compte qui porte déjà ce lien, après un refus
+ * LIEN_DEJA_UTILISE : le créateur a souvent collé le lien sur le mauvais des
+ * deux posts du jour (Fatma, 19/10) et reste bloqué sur le bon. On lui donne le
+ * chemin vers l'autre pour qu'il y corrige le lien. Null si introuvable.
+ */
+export async function autrePostAvecLien(
+  compteId: string,
+  postId: string,
+  lien: string,
+): Promise<string | null> {
+  const idTiktok = idTiktokDepuisUrl(lien);
+  let q = supabase
+    .from("posts")
+    .select("id")
+    .eq("compte_id", compteId)
+    .neq("id", postId)
+    .not("publie_url", "is", null);
+  q = idTiktok ? q.like("publie_url", `%/${idTiktok}%`) : q.eq("publie_url", lien);
+  const { data, error } = await q.limit(1);
+  if (error) return null;
+  return (data?.[0]?.id as string | undefined) ?? null;
+}
+
 export async function majPost(id: string, patch: Partial<Post>): Promise<void> {
   if (patch.statut === "publie" && !String(patch.publie_url ?? "").trim()) {
     throw new Error("Lien TikTok obligatoire pour marquer comme publié");
@@ -3376,6 +3409,89 @@ export async function listerMediasPourContenu(contenuId: string): Promise<Media[
   }
 
   return [...byId.values()];
+}
+
+/** Test à blanc stickers : n slideshows valides tirés au hasard, avec leurs images brutes. */
+export async function tirerSlideshowsStickers(n: number): Promise<SlideshowStickerTest[]> {
+  const r = await invoke<{ slideshows: SlideshowStickerTest[] }>("test-stickers", {
+    action: "tirer",
+    n,
+  });
+  return r.slideshows ?? [];
+}
+
+/** Test à blanc stickers : l'OCR d'import sur chaque slide d'UN slideshow (rien n'est écrit). */
+export async function analyserStickersSlideshow(contenuId: string): Promise<StickerTestResultat> {
+  return invoke<StickerTestResultat>("test-stickers", { action: "analyser", contenuId });
+}
+
+/** Nettoyage stickers d'un label : lance le scan côté serveur (ou renvoie celui qui tourne déjà). */
+export async function lancerNettoyageStickers(labelId: string): Promise<{ nettoyageId: string; deja?: boolean }> {
+  return invoke<{ nettoyageId: string; deja?: boolean }>("nettoyer-stickers", { action: "lancer", labelId });
+}
+
+/** Nettoyage stickers : « Tout jeter » (retrait + remplacement des posts du jour) ou arrêt du scan. */
+export async function actionNettoyageStickers(action: "confirmer" | "annuler", nettoyageId: string): Promise<void> {
+  await invoke<{ ok: boolean }>("nettoyer-stickers", { action, nettoyageId });
+}
+
+/** Nettoyage stickers : repêche un slideshow (gardé, ou remis en valide s'il était jeté), ou annule le repêchage. */
+export async function repecherSlideshowStickers(
+  action: "repecher" | "rejeter",
+  nettoyageId: string,
+  contenuId: string,
+): Promise<void> {
+  await invoke<{ ok: boolean }>("nettoyer-stickers", { action, nettoyageId, contenuId });
+}
+
+const COLONNES_NETTOYAGE =
+  "id, label_id, label_nom, statut, total, pods, proteges, sans_images, created_at, scan_fini_at, retrait_lance_at, fini_at";
+
+/** Dernier nettoyage stickers d'un label, ou le dernier tout court. */
+export async function dernierNettoyageStickers(labelId?: string): Promise<NettoyageStickers | null> {
+  let q = supabase.from("nettoyages_stickers").select(COLONNES_NETTOYAGE);
+  if (labelId) q = q.eq("label_id", labelId);
+  const { data, error } = await q.order("created_at", { ascending: false }).limit(1).maybeSingle();
+  if (error) throw error;
+  return (data as NettoyageStickers | null) ?? null;
+}
+
+export async function lireNettoyageStickers(id: string): Promise<NettoyageStickers | null> {
+  const { data, error } = await supabase.from("nettoyages_stickers").select(COLONNES_NETTOYAGE).eq("id", id).maybeSingle();
+  if (error) throw error;
+  return (data as NettoyageStickers | null) ?? null;
+}
+
+export async function compteursNettoyageStickers(id: string): Promise<CompteursNettoyage> {
+  const { data, error } = await supabase.rpc("nettoyage_stickers_compteurs", { p_nettoyage: id });
+  if (error) throw error;
+  return (data as CompteursNettoyage | null) ?? { slideshows: {}, posts: {} };
+}
+
+/** Lignes du journal après `apresId`, dans l'ordre (≤ 1 000 par appel : rappeler tant qu'il en vient 1 000). */
+export async function journalNettoyageStickers(id: string, apresId: number): Promise<LigneJournalNettoyage[]> {
+  const { data, error } = await supabase
+    .from("nettoyages_stickers_journal")
+    .select("id, at, ligne")
+    .eq("nettoyage_id", id)
+    .gt("id", apresId)
+    .order("id", { ascending: true })
+    .limit(1000);
+  if (error) throw error;
+  return (data ?? []) as LigneJournalNettoyage[];
+}
+
+/** Slideshows à jeter, jetés, repêchés ou laissés d'un nettoyage (les plus récents d'abord). */
+export async function slideshowsNettoyageStickers(id: string): Promise<SlideshowNettoyage[]> {
+  const { data, error } = await supabase
+    .from("nettoyages_stickers_slideshows")
+    .select("contenu_id, titre, tier, contenu_cree_at, slides, statut, erreur, raison, avant")
+    .eq("nettoyage_id", id)
+    .in("statut", [...STATUTS_LISTE])
+    .order("contenu_cree_at", { ascending: false })
+    .limit(1000);
+  if (error) throw error;
+  return (data ?? []) as SlideshowNettoyage[];
 }
 
 /** Nettoyage de test NON destructif : renvoie l'image nettoyée sans rien écraser. */

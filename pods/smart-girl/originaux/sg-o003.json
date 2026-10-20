@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o003",
+ "schema_id": "hobbies-smarter",
+ "titre": "6 quiet hobbies that will make you noticeably smarter #hobbies #smartgirl #selfimprovement #booktok #thatgirl",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "1ab301c9-5abd-45b8-8207-637aa49bcf2e",
+  "c4229613-5ba2-4376-a464-771bd6474c65"
+ ],
+ "notes": "Schéma hobbies-smarter (r 9,5 sur 7 passages, 1ab301c9 ; r 5,99, a00d2d63 ; r 4,64 sur 12, c4229613 ; r 4,06 sur 13, 01c616ec). Accroches écrites : « 6 quiet hobbies that will make you noticeably smarter » (retenue : le gagnant r 9,5 avec « quiet » en twist), « hobbies that will make you dangerously intelligent (that nobody talks about) » (écartée : plus longue), « \"not like other girls\" hobbies that train your brain » (écartée : une version de ce gabarit a fait r 0,28). Minuscules comme @brookeandbloom. Six hobbies absents des deux inspirations : les constellations, marcher sans GPS (fait vérifié : les chauffeurs de taxi londoniens apprennent la ville par cœur, « The Knowledge »), dessiner d'après nature, les mots croisés cryptiques, le carnet de citations (commonplace book), 5 minutes de culture par jour. Sophia sur ce dernier item, « learn something new every day in 5 minutes », avec la formule « a micro-learning app like the Sophia app ». Images de la banque du label, sans texte ni écran ; slide Sophia sur un carnet et une bougie, sans personne ; captures d'actrice (e39799ca, f4ec9760) et couvertures de livres écartées.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a545bcf2",
+   "texte_overlay": "6 quiet hobbies that will make\nyou noticeably smarter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a8f727ff",
+   "texte_overlay": "1. learning the constellations\ntrains your visual memory and\nteaches you to find your way\nby the night sky.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "55f4a62d",
+   "texte_overlay": "2. walking your city without GPS\nbuilds spatial memory, the same\nskill london taxi drivers train\nwhen they learn every street\nby heart.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9cbe8e26",
+   "texte_overlay": "3. drawing what you see\n(not what you imagine)\nteaches you to notice details\nmost people walk past.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "52b3d3b9",
+   "texte_overlay": "4. solving cryptic crosswords\nevery clue is a small riddle.\nit sharpens wordplay, logic and\nlateral thinking at once.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "110c51e2",
+   "texte_overlay": "5. keeping a commonplace book\ncopy the lines and ideas that\nstop you while reading.\nwriting them down helps you\nremember them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a63f51cf",
+   "texte_overlay": "6. learning something new\nevery day in 5 minutes\na little history, art or science\neach morning. small lessons add\nup to real general knowledge.",
+   "texte_sophia": "6. learning something new\nevery day in 5 minutes\ni do it with a micro-learning app\nlike the sophia app. a little\nhistory, art or science with\nmy morning coffee.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "cd1d47de",
+   "texte_overlay": "which one are you\ntrying first?\nfollow for more",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679073584589049111/9.jpg"
+  }
+ ]
+}

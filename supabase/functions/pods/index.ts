@@ -29,7 +29,7 @@
  *       (reference_url). Validé, il devient un contenu CLASSIQUE au rang
  *       TIER_ORIGINAL : images sans texte, texte à part, traduit et placé à
  *       l'assignation pour les autres langues.
- *       Pods de PODS_AVEC_PREUVE (pod 4) : `preuve` obligatoire,
+ *       Pods de PODS_AVEC_PREUVE (pods 4, 5, 7 et 8) : `preuve` obligatoire,
  *         { schema, references: [{ type: "tiktok", url, vues, publie_le },
  *                                { type: "os", contenu_id }] }
  *       Il faut un post de la niche à 200 k vues ou plus publié dans les

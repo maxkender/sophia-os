@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o003",
+ "schema_id": "je-note-tout",
+ "titre": "je note TOUS les trucs bizarres que j'ai essayés pour me cultiver #pourtoi #culture #apprentissage #education",
+ "musique_titre": "Touch daft punk",
+ "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+ "inspirations": [
+  "d61696f9-869d-4515-a411-9eb6bf2fe7f7",
+  "f0cfb4f0-d793-4403-8b0e-7618b8821c1e"
+ ],
+ "notes": "Schéma je-note-tout (r 7,45 sur 9 passages, d61696f9 ; r 4,52, f0cfb4f0). Accroches écrites : « je note TOUS les trucs bizarres que j'ai essayés pour me cultiver » (retenue : le gagnant mot pour mot, la note promise et le TOUS crié), « je note TOUTES les astuces chelous que j'ai testées pour retenir ce que je lis » (écartée : le sujet mémoire appelle des preuves scientifiques), « j'ai testé 6 méthodes bizarres pour me cultiver : mes notes honnêtes » (écartée : plus loin du gabarit). Notes sur 10 en « je », du plus bas au 10/10 : un classique énorme en une semaine 3/10, des post-it de vocabulaire sur le miroir 6/10, un documentaire au lieu d'une série le dimanche 7/10, des cartes postales de tableaux au mur 8/10, 5 minutes chaque matin 10/10. Rien de repris des sources (cours en ligne, podcasts en dormant, tout écrire, avis de monuments, prof imaginaire, écrire le matin). Seul fait : Guerre et Paix est un très long roman (vrai). Sophia sur le 10/10, dernier item. Images de la banque : la fille qui écrit, de profil (accroche), la tasse et le carnet rouge, la fille qui trie des feuilles, la fille dans le canapé, l'aquarelle, la fille qui écrit au café, la fille au casque. Inspirations : slides 1, 3, 4 de d61696f9 (sa 2 montre un écran), 1, 2, 3, 4, 6 de f0cfb4f0 (sa 5 cite une appli).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "51b47800",
+   "texte_overlay": "je note TOUS les trucs\nbizarres que j'ai essayés\npour me cultiver",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "cbf528b7",
+   "texte_overlay": "1. lire guerre et paix en une semaine\n\n3/10\nj'ai tenu 80 pages. commence par un classique court, je te jure.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6dda546d",
+   "texte_overlay": "2. coller des post-it de vocabulaire sur le miroir\n\n6/10\nça marche pour les trois premiers mots. après, je les voyais plus du tout.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c1011960",
+   "texte_overlay": "3. un documentaire au lieu d'une série le dimanche soir\n\n7/10\nle premier est dur. au troisième, c'est moi qui racontais des anecdotes au dîner.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a12a87de",
+   "texte_overlay": "4. acheter des cartes postales de tableaux au musée et les coller au mur\n\n8/10\nchaque matin je vois une œuvre. au bout d'un mois, je reconnais les peintres sans lire le nom.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/4.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "795caf02",
+   "texte_overlay": "5. apprendre un truc sur le monde chaque matin, 5 minutes chrono\n\n10/10\nde l'histoire, de l'art ou des sciences avec mon café. j'ai toujours une histoire à raconter maintenant.",
+   "texte_sophia": "5. l'appli Sophia, 5 minutes chaque matin\n\n10/10\nde l'histoire, de l'art ou des sciences avec mon café. j'ai toujours une histoire à raconter maintenant.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "51c43c06",
+   "texte_overlay": "c'est quoi ton truc bizarre à toi ?\ndis-le en commentaire, je le teste et je le note.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/6.jpg"
+  }
+ ]
+}

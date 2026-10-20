@@ -28,6 +28,7 @@ export const ROUTES_HO: readonly string[] = [
   "/admin/parrainages", // Referrals
   "/admin/documents", // Documents, en écriture
   "/admin/assistant", // Assistant
+  "/admin/comment-masters", // Comment masters : changer qui commente, suivre les bonus
   // Sans ces deux-là, Schedule et Account watch sont des culs-de-sac : elles
   // renvoient toutes les deux vers la fiche d'un créateur, qui renvoie vers le
   // détail d'un post.

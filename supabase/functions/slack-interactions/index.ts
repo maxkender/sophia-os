@@ -46,7 +46,7 @@ Deno.serve(async (request) => {
 
     const { data: d, error } = await supabase
       .from("comment_master_demandes")
-      .select("id, langue, application, publie_url, vues_declenchement, age_minutes, commentaire, traduction_en, fait_at, comptes(handle_tiktok)")
+      .select("id, langue, pays, application, publie_url, vues_declenchement, age_minutes, commentaire, traduction_en, fait_at, comptes(handle_tiktok)")
       .eq("id", action.value)
       .single();
     if (error) throw error;

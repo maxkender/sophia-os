@@ -6,9 +6,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { ecrirePrompt, lirePrompt } from "@/features/moteur/api";
-import { CLE_PROMPT_COMMENT_MASTER, testerPromptCommentaires, VARIABLES_PROMPT } from "./api";
-
-const DRAPEAU: Record<string, string> = { de: "🇩🇪", it: "🇮🇹" };
+import { drapeauLangue, nomLangue } from "@/features/moteur/langues";
+import { drapeauPays } from "@/features/moteur/pays";
+import {
+  CLE_PROMPT_COMMENT_MASTER,
+  lireConfigCommentMasters,
+  testerPromptCommentaires,
+  VARIABLES_PROMPT,
+} from "./api";
 
 function vuesCourtes(n: number): string {
   return n >= 1000 ? `${Math.round(n / 100) / 10}k` : String(n);
@@ -16,8 +21,10 @@ function vuesCourtes(n: number): string {
 
 /**
  * Le prompt des commentaires envoyés aux comment masters, avec un essai à
- * blanc : « Tester » génère les commentaires de vrais posts 8k+ avec le texte
- * de la zone, enregistré ou non, sans rien envoyer sur Slack.
+ * blanc : « Tester » génère les commentaires de vrais posts au-dessus du seuil
+ * de leur pays (régions actives, ou une langue choisie, même pas encore
+ * ouverte) avec le texte de la zone, enregistré ou non, sans rien envoyer sur
+ * Slack.
  */
 export function PromptCommentMasterCard() {
   const { t } = useTranslation();
@@ -25,6 +32,8 @@ export function PromptCommentMasterCard() {
   const cle = CLE_PROMPT_COMMENT_MASTER;
   const { data, isPending } = useQuery({ queryKey: ["prompt", cle], queryFn: () => lirePrompt(cle) });
 
+  const config = useQuery({ queryKey: ["comment-masters", "config"], queryFn: lireConfigCommentMasters });
+  const [langueTest, setLangueTest] = React.useState("");
   const [brouillon, setBrouillon] = React.useState<string | null>(null);
   const valeur = brouillon ?? data ?? "";
   const modifie = brouillon !== null && brouillon !== (data ?? "");
@@ -36,7 +45,7 @@ export function PromptCommentMasterCard() {
       queryClient.invalidateQueries({ queryKey: ["prompt", cle] });
     },
   });
-  const tester = useMutation({ mutationFn: () => testerPromptCommentaires(valeur) });
+  const tester = useMutation({ mutationFn: () => testerPromptCommentaires(valeur, langueTest || null) });
 
   return (
     <Card>
@@ -63,6 +72,22 @@ export function PromptCommentMasterCard() {
               placeholder={t("prompts.commentMaster.vide")}
             />
             <div className="flex flex-wrap items-center gap-3">
+              <select
+                aria-label={t("prompts.commentMaster.testerLangue")}
+                className="h-9 rounded-md border border-input bg-background px-2 text-sm shadow-sm"
+                value={langueTest}
+                onChange={(e) => setLangueTest(e.target.value)}
+              >
+                <option value="">{t("prompts.commentMaster.testerActives")}</option>
+                {(config.data?.regions ?? [])
+                  .map((r) => r.langue)
+                  .sort((a, b) => nomLangue(a).localeCompare(nomLangue(b)))
+                  .map((l) => (
+                    <option key={l} value={l}>
+                      {drapeauLangue(l)} {nomLangue(l)}
+                    </option>
+                  ))}
+              </select>
               <Button variant="outline" disabled={tester.isPending} onClick={() => tester.mutate()}>
                 {tester.isPending ? t("prompts.commentMaster.enCours") : t("prompts.commentMaster.tester")}
               </Button>
@@ -78,12 +103,15 @@ export function PromptCommentMasterCard() {
               <p className="text-sm text-destructive">{(enregistrer.error as Error).message}</p>
             )}
             {tester.isError && <p className="text-sm text-destructive">{(tester.error as Error).message}</p>}
-            {tester.data && (
+            {tester.data?.length === 0 && (
+              <p className="text-sm text-muted-foreground">{t("prompts.commentMaster.aucunPost")}</p>
+            )}
+            {tester.data && tester.data.length > 0 && (
               <ul className="space-y-2">
                 {tester.data.map((a) => (
                   <li key={a.lien} className="rounded-lg border p-3 text-sm">
                     <p className="text-xs text-muted-foreground">
-                      {DRAPEAU[a.langue] ?? a.langue} {a.handle ? `@${a.handle}` : ""} · {a.appli} ·{" "}
+                      {drapeauPays(a.pays) || drapeauLangue(a.langue)} {a.handle ? `@${a.handle}` : ""} · {a.appli} ·{" "}
                       {t("prompts.commentMaster.vues", { vues: vuesCourtes(a.vues) })} ·{" "}
                       <a href={a.lien} target="_blank" rel="noreferrer" className="underline">
                         TikTok

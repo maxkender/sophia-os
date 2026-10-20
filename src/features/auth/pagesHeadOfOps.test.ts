@@ -28,6 +28,7 @@ const PAGES_DEMANDEES = [
   "/admin/parrainages", // Referrals
   "/admin/documents", // Documents
   "/admin/assistant", // Assistant
+  "/admin/comment-masters", // Comment masters (ticket 002)
 ];
 
 const routeur = fs.readFileSync(

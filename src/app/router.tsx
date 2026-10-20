@@ -15,6 +15,7 @@ import { HiringCalendrierPage } from "@/pages/hiring/HiringCalendrierPage";
 import { HiringPosterPage } from "@/pages/hiring/HiringPosterPage";
 import { AdminDocumentsPage } from "@/pages/admin/AdminDocumentsPage";
 import { AdminChatbotPage } from "@/pages/admin/AdminChatbotPage";
+import { AdminCheckKillDoublePage } from "@/pages/admin/AdminCheckKillDoublePage";
 import { AdminCommentMastersPage } from "@/pages/admin/AdminCommentMastersPage";
 import { DocumentView } from "@/features/documents/DocumentView";
 import { AdminPilotagePage } from "@/pages/admin/AdminPilotagePage";
@@ -97,6 +98,7 @@ export function AppRouter() {
               <Route path="/admin/posts" element={<Navigate to="/admin/calendrier" replace />} />
               <Route path="/admin/analytics" element={<AdminAnalyticsPage />} />
               <Route path="/admin/suivi-rc" element={<AdminSuiviRcPage />} />
+              <Route path="/admin/check-kill-double" element={<AdminCheckKillDoublePage />} />
               <Route path="/admin/sources" element={<AdminSourcesPage />} />
               <Route path="/admin/contenus" element={<Navigate to="/admin/slideshows" replace />} />
               <Route path="/admin/slideshows" element={<AdminSlideshowsPage />} />

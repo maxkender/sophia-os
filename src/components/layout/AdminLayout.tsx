@@ -8,6 +8,7 @@ import {
   Columns2,
   Crosshair,
   FlaskConical,
+  Gavel,
   Gauge,
   LineChart,
   ListChecks,
@@ -173,6 +174,12 @@ export function AdminLayout() {
               label: t("nav.surveillance"),
               icon: ShieldAlert,
               description: t("navDesc.surveillance"),
+            },
+            {
+              to: "/admin/check-kill-double",
+              label: t("nav.checkKillDouble"),
+              icon: Gavel,
+              description: t("navDesc.checkKillDouble"),
             },
             // Toujours visible : le recrutement relève de l'identité des
             // comptes, qui reste Sophia quelle que soit l'application choisie.

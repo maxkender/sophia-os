@@ -353,3 +353,60 @@ export async function enregistrerCanalSlack(canal: string): Promise<void> {
     .upsert({ cle: "ckd_slack", valeur: { canal: canal.trim() } }, { onConflict: "cle" });
   if (error) throw error;
 }
+
+// ---------------------------------------------------------------------------
+// Historique des décisions et leur devenir (0329)
+// ---------------------------------------------------------------------------
+
+/** Les chiffres d'une période (sans la liste des posts). */
+export interface ChiffresCkd {
+  du?: string;
+  au?: string;
+  attendus?: number;
+  publies?: number;
+  mesures?: number;
+  morts?: number;
+  bons?: number;
+  mediane?: number | null;
+  moyenne?: number | null;
+}
+
+export interface HistoriqueCkd {
+  id: string;
+  type: TypeControle;
+  jour: string;
+  regle: RegleCkd;
+  action: ActionCkd;
+  decision: DecisionCkd;
+  decision_par: string | null;
+  decision_at: string | null;
+  note: string | null;
+  compte_id: string;
+  poster_id: string;
+  hm_id: string | null;
+  pays: string | null;
+  handle: string | null;
+  nouveau_compte_id: string | null;
+  nouveau_handle: string | null;
+  /** Les chiffres de la proposition, figés au contrôle. */
+  avant: ChiffresCkd;
+  mediane_ref: number | null;
+  /** Les 2 semaines suivies (du lundi après le contrôle au dimanche d'après). */
+  du: string;
+  au: string;
+  complet: boolean;
+  /** Le même compte sur ces 2 semaines (null : pas commencé, ou compte arrêté). */
+  apres: ChiffresCkd | null;
+  /** Le compte créé par Recréer ou Doubler. */
+  apres_nouveau: ChiffresCkd | null;
+  arrete_at: string | null;
+}
+
+export async function listerHistorique(semaines = 12): Promise<HistoriqueCkd[]> {
+  const { data, error } = await supabase.rpc("ckd_historique", { p_semaines: semaines });
+  if (error) throw error;
+  return ((data ?? []) as HistoriqueCkd[]).map((h) => ({
+    ...h,
+    mediane_ref: h.mediane_ref === null ? null : Number(h.mediane_ref),
+  }));
+}

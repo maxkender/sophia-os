@@ -19,6 +19,10 @@ import {
   enregistrerTextesNudges,
   envoyerAuxHm,
   envoyerNudgesCkd,
+  type ChiffresCkd,
+  type DecisionCkd,
+  type HistoriqueCkd,
+  listerHistorique,
   type HmCkd,
   type LabelCkd,
   lancerControle,
@@ -54,6 +58,9 @@ import {
   creeUnCompte,
   DECISION_DU_BOUTON,
   enRetard,
+  resumerHistorique,
+  type Tendance,
+  tendanceDecision,
   defReglage,
   type DefReglage,
   exceptionsLabel,
@@ -83,7 +90,7 @@ const VARIANTE: Record<ActionCkd, "error" | "warning" | "success" | "info"> = {
   nudge: "info",
 };
 
-type Onglet = "samedi" | "jeudi" | "reglages";
+type Onglet = "samedi" | "jeudi" | "historique" | "reglages";
 
 function messageErreur(err: unknown): string {
   if (err instanceof Error) return err.message;
@@ -134,7 +141,7 @@ export function AdminCheckKillDoublePage() {
       </div>
 
       <div className="flex flex-wrap gap-1.5" role="tablist">
-        {(["samedi", "jeudi", "reglages"] as const).map((o) => (
+        {(["samedi", "jeudi", "historique", "reglages"] as const).map((o) => (
           <Button
             key={o}
             role="tab"
@@ -148,7 +155,13 @@ export function AdminCheckKillDoublePage() {
         ))}
       </div>
 
-      {onglet === "reglages" ? <VueReglages /> : <VueControles key={onglet} type={onglet} />}
+      {onglet === "reglages" ? (
+        <VueReglages />
+      ) : onglet === "historique" ? (
+        <VueHistorique />
+      ) : (
+        <VueControles key={onglet} type={onglet} />
+      )}
     </div>
   );
 }
@@ -727,6 +740,191 @@ function BlocDecision({
         </p>
       )}
     </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Historique : ce que les décisions sont devenues (0329)
+// ---------------------------------------------------------------------------
+
+const VARIANTE_TENDANCE: Record<Tendance, "success" | "error" | "outline"> = {
+  hausse: "success",
+  baisse: "error",
+  stable: "outline",
+};
+
+/**
+ * Toutes les décisions des 12 dernières semaines et, sur les 2 semaines qui
+ * suivent, les chiffres du compte gardé ou doublé, et du compte créé. Pour voir
+ * si les seuils sont trop durs (les gardés remontent) ou trop mous.
+ */
+function VueHistorique() {
+  const { t } = useTranslation();
+  const historique = useQuery({ queryKey: [...CLE, "historique"], queryFn: () => listerHistorique(12) });
+  const [filtre, setFiltre] = React.useState<DecisionCkd | "">("");
+  const lignes = React.useMemo(() => historique.data ?? [], [historique.data]);
+  const ids = React.useMemo(
+    () => [...new Set(lignes.flatMap((h) => [h.poster_id, h.decision_par]).filter(Boolean))].sort() as string[],
+    [lignes],
+  );
+  const personnes = useQuery({
+    queryKey: [...CLE, "personnes", ids],
+    queryFn: () => listerPersonnes(ids),
+    enabled: ids.length > 0,
+  });
+  const parId = React.useMemo(
+    () => new Map((personnes.data ?? []).map((p) => [p.id, p] as const)),
+    [personnes.data],
+  );
+  const resume = resumerHistorique(lignes);
+  const visibles = filtre ? lignes.filter((h) => h.decision === filtre) : lignes;
+
+  if (historique.error) {
+    return (
+      <p role="alert" className="text-sm text-destructive">
+        {messageErreur(historique.error)}
+      </p>
+    );
+  }
+  return (
+    <Card data-testid="vue-historique">
+      <CardHeader>
+        <CardTitle className="text-base">{t("ckd.historique.titre")}</CardTitle>
+        <CardDescription>{t("ckd.historique.aide")}</CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        {historique.isPending ? (
+          <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
+        ) : lignes.length === 0 ? (
+          <EmptyState title={t("ckd.historique.vide")} />
+        ) : (
+          <>
+            <ul className="space-y-0.5 text-xs" data-testid="resume-historique">
+              {resume.map((r) => (
+                <li key={r.decision}>
+                  <span className="font-medium">{t(`ckd.decisions.${r.decision}`)}</span> :{" "}
+                  {t("ckd.historique.resume", { ...r })}
+                </li>
+              ))}
+            </ul>
+            <select
+              className={selectClass}
+              aria-label={t("ckd.historique.filtre")}
+              value={filtre}
+              onChange={(e) => setFiltre(e.target.value as DecisionCkd | "")}
+            >
+              <option value="">{t("ckd.historique.toutes", { n: lignes.length })}</option>
+              {resume.map((r) => (
+                <option key={r.decision} value={r.decision}>
+                  {t(`ckd.decisions.${r.decision}`)} ({r.total})
+                </option>
+              ))}
+            </select>
+            <div className="overflow-x-auto">
+              <table className="w-full text-xs">
+                <thead className="text-left text-muted-foreground">
+                  <tr>
+                    <th className="py-1 pr-3 font-medium">{t("ckd.historique.colonnes.decision")}</th>
+                    <th className="py-1 pr-3 font-medium">{t("ckd.historique.colonnes.compte")}</th>
+                    <th className="py-1 pr-3 font-medium">{t("ckd.historique.colonnes.avant")}</th>
+                    <th className="py-1 pr-3 font-medium">{t("ckd.historique.colonnes.apres")}</th>
+                    <th className="py-1 pr-3 font-medium">{t("ckd.historique.colonnes.nouveau")}</th>
+                    <th className="py-1 font-medium">{t("ckd.historique.colonnes.tendance")}</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y">
+                  {visibles.map((h) => (
+                    <LigneHistorique key={h.id} h={h} poster={parId.get(h.poster_id)} decideur={h.decision_par ? parId.get(h.decision_par) : undefined} />
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
+      </CardContent>
+    </Card>
+  );
+}
+
+function Chiffres({ c }: { c: ChiffresCkd }) {
+  const { t } = useTranslation();
+  return (
+    <span className="tabular-nums">
+      {c.mediane !== null && c.mediane !== undefined ? t("ckd.historique.mediane", { n: c.mediane.toLocaleString() }) : "—"}
+      {" · "}
+      {t("ckd.historique.publies", { publies: c.publies ?? 0, attendus: c.attendus ?? 0 })}
+      {c.bons ? ` · ${t("ckd.historique.bons", { n: c.bons })}` : ""}
+    </span>
+  );
+}
+
+function LigneHistorique({ h, poster, decideur }: { h: HistoriqueCkd; poster?: PersonneCkd; decideur?: PersonneCkd }) {
+  const { t } = useTranslation();
+  const date = useDate();
+  const tend = tendanceDecision(h);
+  const pasCommence = !h.apres && !h.apres_nouveau && !h.arrete_at;
+  return (
+    <tr className="align-top" data-testid={`historique-${h.handle}`}>
+      <td className="py-1.5 pr-3">
+        <Badge variant="outline">{t(`ckd.decisions.${h.decision}`)}</Badge>
+        <div className="mt-0.5 text-muted-foreground">
+          {t("ckd.historique.decide", { date: date(h.decision_at ?? h.jour), nom: nomPersonne(decideur) || "?" })}
+        </div>
+        {h.note && <div className="text-muted-foreground italic">{h.note}</div>}
+      </td>
+      <td className="py-1.5 pr-3">
+        <Link to={`/admin/createurs/${h.compte_id}`} className="underline-offset-2 hover:underline">
+          {drapeauPays(h.pays)} @{h.handle}
+        </Link>
+        <div className="text-muted-foreground">
+          {[nomPersonne(poster), t(`ckd.reglesCourtes.${h.regle}`)].filter(Boolean).join(" · ")}
+        </div>
+      </td>
+      <td className="py-1.5 pr-3">
+        <Chiffres c={h.avant} />
+        {h.mediane_ref !== null && (
+          <div className="text-muted-foreground">{t("ckd.historique.reference", { n: h.mediane_ref.toLocaleString() })}</div>
+        )}
+      </td>
+      <td className="py-1.5 pr-3">
+        {h.arrete_at ? (
+          <span className="text-muted-foreground">{t("ckd.historique.arrete", { date: date(h.arrete_at) })}</span>
+        ) : pasCommence ? (
+          <span className="text-muted-foreground">{t("ckd.historique.commence", { date: date(h.du) })}</span>
+        ) : (
+          h.apres && <Chiffres c={h.apres} />
+        )}
+        {!pasCommence && !h.complet && (
+          <div className="text-muted-foreground">{t("ckd.historique.enCours", { date: date(h.au) })}</div>
+        )}
+      </td>
+      <td className="py-1.5 pr-3">
+        {h.nouveau_compte_id ? (
+          <>
+            <Link to={`/admin/createurs/${h.nouveau_compte_id}`} className="underline-offset-2 hover:underline">
+              @{h.nouveau_handle ?? "…"}
+            </Link>
+            {h.apres_nouveau && (
+              <div>
+                <Chiffres c={h.apres_nouveau} />
+              </div>
+            )}
+          </>
+        ) : (
+          <span className="text-muted-foreground">—</span>
+        )}
+      </td>
+      <td className="py-1.5">
+        {tend ? (
+          <Badge variant={VARIANTE_TENDANCE[tend]}>
+            {t(`ckd.historique.tendances.${tend}`)}
+            {!h.complet && " *"}
+          </Badge>
+        ) : (
+          <span className="text-muted-foreground">—</span>
+        )}
+      </td>
+    </tr>
   );
 }
 

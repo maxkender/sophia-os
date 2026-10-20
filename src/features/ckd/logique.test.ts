@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
-import type { PropositionCkd, ReglageCkd } from "./api";
+import type { HistoriqueCkd, PropositionCkd, ReglageCkd } from "./api";
 import {
   aEnvoyer,
   annulable,
@@ -18,6 +18,9 @@ import {
   lireSaisie,
   pourcentage,
   reglageDuNiveau,
+  resumerHistorique,
+  tendance,
+  tendanceDecision,
   valeurEffective,
   valeurEnSaisie,
 } from "./logique";
@@ -181,5 +184,66 @@ describe("décisions", () => {
     expect(enRetard(p, "samedi", new Date("2026-10-26T08:00:00Z"))).toBe(true);
     expect(enRetard({ ...p, decision: "garder" }, "samedi", new Date("2026-10-26T08:00:00Z"))).toBe(false);
     expect(enRetard(p, "jeudi", new Date("2026-10-26T08:00:00Z"))).toBe(false);
+  });
+});
+
+function historique(h: Partial<HistoriqueCkd>): HistoriqueCkd {
+  return {
+    id: Math.random().toString(36).slice(2),
+    type: "samedi",
+    jour: "2026-10-24",
+    regle: "anciens",
+    action: "recreer",
+    decision: "garder",
+    decision_par: null,
+    decision_at: "2026-10-24T09:00:00Z",
+    note: null,
+    compte_id: "c",
+    poster_id: "p",
+    hm_id: null,
+    pays: "FR",
+    handle: "h",
+    nouveau_compte_id: null,
+    nouveau_handle: null,
+    avant: { mediane: 600, publies: 10, attendus: 10 },
+    mediane_ref: 1300,
+    du: "2026-10-26",
+    au: "2026-11-08",
+    complet: true,
+    apres: null,
+    apres_nouveau: null,
+    arrete_at: null,
+    ...h,
+  };
+}
+
+describe("historique", () => {
+  it("tendance : la médiane ±20 %, sinon la part des posts publiés", () => {
+    expect(tendance({ mediane: 600 }, { mediane: 1250 })).toBe("hausse");
+    expect(tendance({ mediane: 600 }, { mediane: 650 })).toBe("stable");
+    expect(tendance({ mediane: 600 }, { mediane: 400 })).toBe("baisse");
+    // Absent : pas de vues avant, on compare la part publiée.
+    expect(tendance({ mediane: null, publies: 0, attendus: 10 }, { mediane: null, publies: 9, attendus: 14 })).toBe("hausse");
+    expect(tendance({ mediane: null, publies: 0, attendus: 10 }, { publies: 1, attendus: 14 })).toBe("stable");
+    expect(tendance({ mediane: 600 }, null)).toBeNull();
+    expect(tendance({}, { attendus: 0 })).toBeNull();
+  });
+
+  it("Recréer compare le nouveau compte à l'ancien ; Kill n'a pas de tendance", () => {
+    expect(tendanceDecision(historique({ decision: "recreer", apres_nouveau: { mediane: 1100 } }))).toBe("hausse");
+    expect(tendanceDecision(historique({ decision: "doubler", apres: { mediane: 400 }, apres_nouveau: { mediane: 5000 } }))).toBe("baisse");
+    expect(tendanceDecision(historique({ decision: "ne_pas_renouveler", apres: { mediane: 5000 } }))).toBeNull();
+  });
+
+  it("résume par décision : seules les 2 semaines complètes comptent", () => {
+    const r = resumerHistorique([
+      historique({ decision: "doubler", apres: { mediane: 900 } }),
+      historique({ decision: "garder", apres: { mediane: 1250 } }),
+      historique({ decision: "garder", apres: { mediane: 300 } }),
+      historique({ decision: "garder", apres: { mediane: 1250 }, complet: false }),
+    ]);
+    expect(r.map((x) => x.decision)).toEqual(["garder", "doubler"]);
+    expect(r[0]).toEqual({ decision: "garder", total: 3, complets: 2, hausse: 1, stable: 0, baisse: 1 });
+    expect(r[1]).toMatchObject({ total: 1, complets: 1, hausse: 1 });
   });
 });

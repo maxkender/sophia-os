@@ -79,9 +79,10 @@ insert into public.reglages (cle, valeur) values (
       'micabo', 'taap.it/micabo'
     ),
     -- D'autres liens tenus pour bons, par application (aucun message s'ils sont
-    -- en place). 32 comptes Sophia ont déjà `taap.it/sophia.culture` (relevé du
-    -- 20/10) : à ajouter ici s'il mène au même endroit que `taap.it/sophia`.
-    'liens_acceptes', jsonb_build_object('sophia', '[]'::jsonb, 'unswipe', '[]'::jsonb, 'micabo', '[]'::jsonb),
+    -- en place). `taap.it/sophia.culture` : déjà sur 32 comptes Sophia au relevé
+    -- du 20/10, validé comme bon lien.
+    'liens_acceptes', jsonb_build_object(
+      'sophia', '["taap.it/sophia.culture"]'::jsonb, 'unswipe', '[]'::jsonb, 'micabo', '[]'::jsonb),
     'titre', '1,000 followers 🎉',
     'message', 'Congrats, @{handle} just passed 1,000 followers! Please add the following link to the link section in your TikTok settings (Edit profile → Links). Please don''t put it in your bio, as it isn''t clickable there: {lien}',
     'titre_relance', 'Reminder: your TikTok link',

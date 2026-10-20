@@ -14,13 +14,17 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useAuth } from "@/features/auth/AuthContext";
-import { marquerNudgeLu, mesNudges } from "@/features/moteur/api";
+import { etatOnboarding, marquerNudgeLu, mesNudges, mesReviewsNonVues } from "@/features/moteur/api";
 
 /**
  * Nudge côté créateur : le message déposé depuis la page de surveillance (ou
  * par le contrôle « lien à 1 000 abonnés ») s'affiche à sa connexion.
  * « Compris » le marque lu et enchaîne sur le suivant. Rien à afficher → rien
  * ne se monte (même contrat que `ReviewPopup`).
+ *
+ * Un pop-up à la fois : il attend que l'onboarding soit fini et que les
+ * retours (reviews) soient vus. Sinon les dialogues s'empilent, et aucun ne se
+ * ferme d'un clic à côté.
  *
  * Réservé au VRAI poster : la RLS laisse l'admin et le Head of Ops lire tous les
  * nudges, et ils traversent `PosterLayout` en ouvrant un post (`/posts/:id`).
@@ -37,6 +41,8 @@ function NudgesPoster() {
   const { t, i18n } = useTranslation();
   const queryClient = useQueryClient();
   const { data } = useQuery({ queryKey: ["mes-nudges"], queryFn: mesNudges });
+  const onboarding = useQuery({ queryKey: ["onboarding-etat"], queryFn: etatOnboarding });
+  const reviews = useQuery({ queryKey: ["mes-reviews"], queryFn: mesReviewsNonVues });
   const [copie, setCopie] = React.useState(false);
 
   const marquer = useMutation({
@@ -48,7 +54,9 @@ function NudgesPoster() {
   });
 
   const courant = (data ?? [])[0];
-  if (!courant) return null;
+  const apres =
+    onboarding.isPending || onboarding.data?.vu === false || reviews.isPending || (reviews.data?.length ?? 0) > 0;
+  if (!courant || apres) return null;
 
   const copier = async () => {
     if (!courant.lien) return;

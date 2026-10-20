@@ -7,11 +7,15 @@ import i18n from "@/locales";
 
 const mesNudges = vi.fn();
 const marquerNudgeLu = vi.fn();
+const etatOnboarding = vi.fn();
+const mesReviewsNonVues = vi.fn();
 let roleReel = "poster";
 
 vi.mock("@/features/moteur/api", () => ({
   mesNudges: () => mesNudges(),
   marquerNudgeLu: (id: string) => marquerNudgeLu(id),
+  etatOnboarding: () => etatOnboarding(),
+  mesReviewsNonVues: () => mesReviewsNonVues(),
 }));
 vi.mock("@/features/auth/AuthContext", () => ({ useAuth: () => ({ roleReel }) }));
 
@@ -42,7 +46,31 @@ describe("NudgePopup", () => {
     roleReel = "poster";
     mesNudges.mockResolvedValue([NUDGE]);
     marquerNudgeLu.mockResolvedValue(undefined);
+    etatOnboarding.mockResolvedValue({ vu: true, etape: 0 });
+    mesReviewsNonVues.mockResolvedValue([]);
     await i18n.changeLanguage("fr");
+  });
+
+  it("attend la fin de l'onboarding et des retours non vus : un pop-up à la fois", async () => {
+    etatOnboarding.mockResolvedValue({ vu: false, etape: 0 });
+    mesReviewsNonVues.mockResolvedValue([{ id: "rev-1" }]);
+    const premier = rendre();
+    await waitFor(() => expect(mesReviewsNonVues).toHaveBeenCalled());
+    await new Promise((r) => setTimeout(r, 0));
+    expect(screen.queryByText("1,000 followers 🎉")).toBeNull();
+    premier.unmount();
+
+    // Onboarding fini, mais un retour toujours pas vu : il passe avant.
+    etatOnboarding.mockResolvedValue({ vu: true, etape: 0 });
+    const second = rendre();
+    await waitFor(() => expect(etatOnboarding).toHaveBeenCalledTimes(2));
+    await new Promise((r) => setTimeout(r, 0));
+    expect(screen.queryByText("1,000 followers 🎉")).toBeNull();
+    second.unmount();
+
+    mesReviewsNonVues.mockResolvedValue([]);
+    rendre();
+    expect(await screen.findByText("1,000 followers 🎉")).toBeInTheDocument();
   });
 
   it("montre le message et un bouton pour copier le lien", async () => {

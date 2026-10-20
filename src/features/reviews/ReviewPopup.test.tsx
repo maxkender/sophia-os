@@ -6,8 +6,10 @@ import "@/locales";
 
 const mesReviewsNonVues = vi.fn();
 const marquerReviewVue = vi.fn();
+const etatOnboarding = vi.fn();
 vi.mock("@/features/moteur/api", () => ({
   mesReviewsNonVues: () => mesReviewsNonVues(),
+  etatOnboarding: () => etatOnboarding(),
   marquerReviewVue: (id: string) => marquerReviewVue(id),
   resoudreTiktok: vi.fn().mockResolvedValue({ url: "", id: null, thumbnail: null }),
 }));
@@ -53,6 +55,7 @@ describe("ReviewPopup", () => {
   beforeEach(() => {
     mesReviewsNonVues.mockReset();
     marquerReviewVue.mockReset().mockResolvedValue(undefined);
+    etatOnboarding.mockReset().mockResolvedValue({ vu: true, etape: 0 });
     vi.spyOn(HTMLMediaElement.prototype, "play").mockResolvedValue(undefined);
     hauteurs(500); // tout tient à l'écran
   });

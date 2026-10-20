@@ -64,8 +64,11 @@ note de clôture en anglais, moins de 500 mots.
 
 ## 1. Exécuter les propositions validées
 
-Pour chaque racine de #a-os-tickets **sans ✅**, postée depuis la mise en
-service (19/10/2026 12:00 heure de Paris) et dans les 7 derniers jours :
+Pour chaque ticket **ouvert**, posté depuis la mise en service
+(19/10/2026 12:00 heure de Paris) et dans les 7 derniers jours. Un ticket est
+ouvert tant que son fil ne contient pas de `🤖 ✅ Solution sent`. Un ✅ posé sur
+la racine ne le ferme pas : Adrien ou Max y cochent parfois en même temps que
+la proposition.
 
 1. Prends la dernière `🤖 💡 Proposition` du fil. Pas de ✅ valide dessus → suivant.
 2. Si le fil contient déjà un `🤖 ⏳` plus récent que la proposition :

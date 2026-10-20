@@ -135,13 +135,15 @@ sera ensuite relu dans la PR.
 
 ## La boucle de la semaine
 
+Chaque matin, une tâche planifiée lance ta routine : suis `pods/ROUTINE.md` (combien livrer, dans quel ordre, un essai une fois sur cinq). Cette boucle en est le détail pour ton podz.
+
 1. **Lundi, veille**.
 	- `npm run veille`, puis lis les planches des meilleurs posts.
 	- Une fois par semaine : `npm run veille -- --decouvrir …` avec les accroches et hashtags du moment (#lifemaxxing, #targetaudience, « skills in your 20s », « social hacks »). Ajoute à `veille/comptes.json` les comptes qui ont au moins un diaporama à 100 k vues ou plus en 30 jours, au format du label.
 	- Mets à jour `playbook.json` : nouvelles preuves, nouveaux schémas, schémas qui s'usent. Lance aussi `npm run playbook -- --mesurer`.
 2. **Originaux** : écris-les sur les schémas actifs, en commençant par ceux dont la preuve expire bientôt (`npm run playbook`). Puis `apercu`, relecture, `deposer`.
 3. **Suivi à J+3** : `npm run suivi`.
-	- Un original dont tous les passages sont sous r 0,6 : **propose la coupe** à l'humain (tu ne touches pas aux rangs).
+	- Un original dont tous les passages sont sous r 0,6 : les tiers le coupent seuls (tu ne touches pas aux rangs). Note pourquoi il a raté et évite cet angle.
 	- Un original à r ≥ 2 : écris **2 ou 3 variantes** (même schéma, items neufs).
 4. **Compte rendu en 5 lignes** :
 	- ce qui marche dans la niche ;

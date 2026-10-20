@@ -906,6 +906,40 @@ export const en = {
       bonus: "bonus ${{dollars}} · {{reste}} more for the next one",
       sansCommentMaster: "No comment master",
     },
+    lien1000: {
+      titre: "Link at 1,000 followers",
+      description:
+        "At 1,000 followers, TikTok opens the profile “Links” field. Every Monday, accounts that passed the mark without the right link get a pop-up (in English) with their app's link, and a single reminder 7 days later. Followers and link are read every night with the views, at no extra cost.",
+      envoiAuto: "Automatic sending on Mondays",
+      envoiEteint:
+        "Sending is off: Monday's check only computes the list below. Validate it, then send or turn automatic sending on.",
+      envoyer: "Send now ({{n}})",
+      envoiEnCours: "Sending…",
+      envoye: "Sent: the pop-ups will show at the posters' next login.",
+      confirmerEnvoi:
+        "Send {{n}} pop-up(s) now? The {{faits}} account(s) that already have the right link will be marked done.",
+      vide: "No account at 1,000 followers yet.",
+      aucunLien: "none",
+      messageLe: "message on {{date}}",
+      relanceLe: "reminded on {{date}}",
+      colonnes: {
+        compte: "Account",
+        poster: "Poster",
+        abonnes: "Followers",
+        lien: "Expected link",
+        actuel: "Current link",
+        statut: "Status",
+      },
+      actions: {
+        message: "To send",
+        relance: "To remind",
+        lien_en_place: "Link already set",
+        attente: "Message sent",
+        sans_suite: "Reminded, no change",
+        fait: "Done",
+        pas_de_releve: "No recent reading",
+      },
+    },
     common: {
       loading: "Loading…",
       saving: "Saving…",
@@ -2755,6 +2789,8 @@ export const en = {
       sansCompte: "—",
     },
     nudgeCreateur: {
+      copier: "Copy link",
+      copie: "Copied",
       titre: "Message from the team",
       ok: "Got it",
     },

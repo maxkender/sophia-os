@@ -7602,6 +7602,8 @@ export interface NudgeRecu {
   compte_id: string;
   titre: string;
   corps: string;
+  /** Lien à copier, affiché avec un bouton (lien à 1 000 abonnés, 0325). */
+  lien: string | null;
   created_at: string;
   lu_at: string | null;
 }
@@ -7610,7 +7612,7 @@ export interface NudgeRecu {
 export async function mesNudges(): Promise<NudgeRecu[]> {
   const { data, error } = await supabase
     .from("compte_nudges")
-    .select("id, compte_id, titre, corps, created_at, lu_at")
+    .select("id, compte_id, titre, corps, lien, created_at, lu_at")
     .is("lu_at", null)
     .order("created_at", { ascending: false })
     .limit(20);

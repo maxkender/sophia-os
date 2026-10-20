@@ -831,7 +831,8 @@ revoke all on public.ckd_reglages, public.ckd_reglages_journal, public.ckd_contr
               public.ckd_propositions, public.ckd_recreations, public.hm_slack from anon, authenticated;
 grant select on public.ckd_reglages, public.ckd_reglages_journal, public.ckd_controles,
                 public.ckd_propositions, public.ckd_recreations, public.hm_slack to authenticated;
-grant insert, update, delete on public.hm_slack to authenticated;
+-- La page enregistre ou vide un ID (upsert) ; elle ne supprime pas de ligne.
+grant insert, update on public.hm_slack to authenticated;
 grant all on public.ckd_reglages, public.ckd_reglages_journal, public.ckd_controles,
              public.ckd_propositions, public.ckd_recreations, public.hm_slack to service_role;
 

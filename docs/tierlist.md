@@ -77,6 +77,7 @@ exclus). Les règles « un passage à plus de 30k / 150k » sont **prioritaires*
 | C            | 5 000 ≤ m < 30 000             | A            |
 | C            | un passage ≥ 30 000            | S            |
 | B            | m < 1 000                      | C            |
+| B            | 1 000 ≤ m < 5 000, aucun passage ≥ `plancher_b` sur ≥ 2 mesures | C |
 | B            | 1 000 ≤ m < 5 000              | B            |
 | B            | 5 000 ≤ m < 30 000             | A            |
 | B            | un passage ≥ 30 000            | S            |
@@ -90,6 +91,15 @@ exclus). Les règles « un passage à plus de 30k / 150k » sont **prioritaires*
 | S            | un passage ≥ 150 000           | S+           |
 | S+           | deux passages ≥ 150 000        | S+           |
 | S+           | sinon                          | S            |
+
+**Plancher de B (21/10).** Un B dont aucun passage mesuré n'atteint
+`tierlist.plancher_b` (3 000 par défaut), sur au moins 2 mesures, descend en C
+même si `m` est entre 1 000 et 5 000. Avant, un contenu à 1 500 vues cycle
+après cycle restait en B indéfiniment, servi avant tout C : 23 posts par jour à
+0,8 fois la normale du compte (`analyse/rapports/2026-10-21.md`). Deux mesures
+au moins, parce qu'un seul passage faible ne prédit presque rien. Un A n'est
+pas touché : il descend d'un cran, en B, et le cycle suivant tranche. `0`
+désactive le plancher.
 
 Après requalification, le compteur de passages repart plein au nouveau rang et le
 cycle (`contenus.tier_cycle`) est incrémenté — les passages du cycle précédent
@@ -269,6 +279,7 @@ Les posts repartent au cycle 1 avec le compteur plein : les passages historiques
 | `remix_par_requalif` | 3      | remix débloqués par une requalification en S+    |
 | `repechage_passages` | 1      | passages rendus à un D repêché                   |
 | `requalif_max_jours` | 3      | attente max d'une mesure avant relance au même rang |
+| `plancher_b`         | 3 000  | vues qu'un passage d'un B doit atteindre pour rester en B (0 désactive) |
 
 ## Par application (0270)
 

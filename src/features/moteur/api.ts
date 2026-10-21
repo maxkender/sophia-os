@@ -4025,6 +4025,7 @@ export async function lireReglages(): Promise<Reglages> {
       repechage_passages: 1,
       requalif_max_jours: 3,
       ecart_min_meme_contenu: 14,
+      plancher_b: 3_000,
       ...((map.get("tierlist") as Partial<Reglages["tierlist"]> | undefined) ?? {}),
     },
     classement_comptes: lireClassementReglages(map.get("classement_comptes")),

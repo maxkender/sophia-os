@@ -255,9 +255,9 @@ export const SCHEMA_ASSIGNATION: PipelineAction = {
       label: "Requalification tierlist",
       kind: "logic",
       detail:
-        "cycle terminé (tous les passages publiés + recul) → m = moyenne des vues · un passage ≥ 30k monte en S, ≥ 150k en S+ · S+ débloque 3 remix en A · sans aucune mesure (posts introuvables, ou attente max dépassée) le cycle repart au même rang au lieu de dormir",
+        "cycle terminé (tous les passages publiés + recul) → m = moyenne des vues · un passage ≥ 30k monte en S, ≥ 150k en S+ · un B sans aucun passage ≥ plancher_b (sur ≥ 2 mesures) descend en C · S+ débloque 3 remix en A · sans aucune mesure (posts introuvables, ou attente max dépassée) le cycle repart au même rang au lieu de dormir",
       api: "requalifierContenus",
-      reglage: "tierlist.recul_jours · remix_par_requalif · requalif_max_jours",
+      reglage: "tierlist.recul_jours · remix_par_requalif · requalif_max_jours · plancher_b",
     },
     {
       id: "pool",

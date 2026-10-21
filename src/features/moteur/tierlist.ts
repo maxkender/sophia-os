@@ -199,6 +199,17 @@ export interface RequalifEntree {
   maxVues: number;
   /** Nombre de passages du cycle au-dessus de 150k. */
   nb150k: number;
+  /**
+   * Passages du cycle portant une mesure de vues. Sert au plancher de B :
+   * absent, la règle ne s'applique pas (un appelant qui ne sait pas compter
+   * ses mesures garde le barème d'avant).
+   */
+  mesures?: number;
+  /**
+   * Vues qu'au moins un passage du cycle doit atteindre pour qu'un B reste en
+   * B (`reglages.tierlist.plancher_b`, 3 000 par défaut ; 0 désactive).
+   */
+  plancherB?: number;
 }
 
 export interface RequalifSortie {
@@ -212,11 +223,25 @@ export interface RequalifSortie {
  *
  * Les règles « un passage à plus de 30k / 150k » sont prioritaires sur `m` :
  * un seul passage qui perce suffit à monter, même si la moyenne est basse.
+ *
+ * Plancher de B (21/10) : un B dont aucun passage mesuré n'atteint
+ * `plancherB` sur au moins MESURES_PLANCHER_B mesures descend en C, même avec
+ * `m` entre 1 000 et 5 000. Avant, un contenu qui faisait 1 500 vues cycle
+ * après cycle restait en B indéfiniment, servi avant tout C : 23 posts par
+ * jour à 0,8 fois la normale du compte (analyse du 21/10). Deux mesures au
+ * moins : un seul passage faible ne prédit presque rien (un contenu à un
+ * passage entre 1,5 et 3 k fait ensuite 0,98 fois la normale), deux sous le
+ * plancher tombent à 0,79. Un A n'est pas touché : il descend d'un cran, en
+ * B, et c'est le cycle suivant qui tranche.
  */
+export const MESURES_PLANCHER_B = 2;
+
 export function requalifier(e: RequalifEntree): RequalifSortie {
   const { tier, moyenne: m, maxVues, nb150k } = e;
   const perce150k = maxVues >= SEUIL_PASSAGE_S_PLUS;
   const perce30k = maxVues >= SEUIL_PASSAGE_S;
+  const plancherB = e.plancherB ?? 0;
+  const sousPlancherB = plancherB > 0 && (e.mesures ?? 0) >= MESURES_PLANCHER_B && maxVues < plancherB;
 
   switch (tier) {
     case "D":
@@ -237,6 +262,12 @@ export function requalifier(e: RequalifEntree): RequalifSortie {
       if (perce150k) return { tier: "S+", regle: "un passage ≥ 150 000" };
       if (perce30k) return { tier: "S", regle: "un passage ≥ 30 000" };
       if (m >= 5_000) return { tier: "A", regle: "5 000 ≤ m < 30 000" };
+      if (m >= 1_000 && sousPlancherB) {
+        return {
+          tier: "C",
+          regle: `1 000 ≤ m < 5 000 mais aucun passage ≥ ${plancherB.toLocaleString("fr-FR")} sur ${e.mesures} mesures`,
+        };
+      }
       if (m >= 1_000) return { tier: "B", regle: "1 000 ≤ m < 5 000" };
       return { tier: "C", regle: "m < 1 000" };
 

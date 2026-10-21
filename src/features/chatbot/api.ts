@@ -112,7 +112,7 @@ export async function supprimerChatbotContexte(id: string): Promise<void> {
 export async function listerChatbotQuestions(): Promise<ChatbotQuestion[]> {
   const { data, error } = await supabase
     .from("chatbot_questions")
-    .select("id, user_id, role, question, reponse, created_at, profiles(prenom, nom, email)")
+    .select("id, user_id, role, question, reponse, created_at, profiles!chatbot_questions_user_id_fkey(prenom, nom, email)")
     // La bulle d'aide seulement : les questions Slack sont dans le journal de la FAQ.
     .eq("source", "os")
     .order("created_at", { ascending: false })
@@ -173,7 +173,7 @@ export interface BilanCopieGuides {
 const COLONNES_FAQ =
   "id, source, role, question, reponse, reponse_faq, section_guide, etat, test, envoye_at, slack_canal, slack_ts, " +
   "slack_nom, slack_user_id, reponse_humaine, reponse_humaine_par, reponse_admin, ajoute_base_at, erreur, created_at, " +
-  "profiles(prenom, nom, email)";
+  "profiles!chatbot_questions_user_id_fkey(prenom, nom, email)";
 
 function avecProfil(lignes: unknown[]): QuestionFaq[] {
   return lignes.map((ligne) => {

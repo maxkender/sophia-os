@@ -40,6 +40,7 @@ import {
   slidesEpuisees,
   tentativesSlide,
 } from "./nettoyage_file.ts";
+import { decisionStickerImport } from "./nettoyage_stickers.ts";
 import {
   incrementerTentativeSlide,
   patchSlideMediaId,
@@ -169,6 +170,11 @@ export interface SlideBrut {
   media_id: string | null;
   texte_original?: string | null;
   tentatives?: number;
+  /**
+   * Slide promo d'une source autorisée (`reglages.stickers.remplacer_slide_sources`) :
+   * son image est remplacée par une photo propre du label au nettoyage.
+   */
+  sticker_pub?: boolean;
 }
 
 export interface SlideLangue {
@@ -1257,34 +1263,54 @@ export async function avancerImport(
 }
 
 /**
- * Règle stickers allumée ? `reglages.stickers.rejet_import`, éteinte par
- * défaut : on la vérifie d'abord à blanc (page Tests → « Stickers à
- * l'import »). Ligne absente ou lecture ratée → éteinte, l'import reste
- * celui d'avant.
+ * Règle stickers : `reglages.stickers.rejet_import` (éteinte par défaut : on
+ * la vérifie d'abord à blanc, page Tests → « Stickers à l'import ») et
+ * `remplacer_slide_sources`, les sources dont la slide promo est remplacée au
+ * lieu de rejeter le TikTok (21/10). Ligne absente ou lecture ratée → éteinte,
+ * l'import reste celui d'avant.
  */
-async function rejetStickersActif(supabase: Supabase): Promise<boolean> {
+async function reglesStickers(supabase: Supabase): Promise<{ rejet: boolean; remplacer: string[] }> {
   const { data } = await supabase
     .from("reglages")
     .select("valeur")
     .eq("cle", "stickers")
     .maybeSingle();
-  return (data?.valeur as { rejet_import?: unknown } | null)?.rejet_import === true;
+  const v = (data?.valeur ?? null) as { rejet_import?: unknown; remplacer_slide_sources?: unknown } | null;
+  const remplacer = Array.isArray(v?.remplacer_slide_sources)
+    ? v.remplacer_slide_sources.filter((x): x is string => typeof x === "string")
+    : [];
+  return { rejet: v?.rejet_import === true, remplacer };
 }
 
 /**
- * OCR d'une slide à l'import : `null` = sticker PUB (règle allumée seulement).
- * Un sticker de contenu (livre, vidéo, article) est importé avec son texte.
- * Les contenus d'un pod (`contenus.pod`) ont un passe-droit : jamais rejetés
- * pour sticker, même s'ils repassent par ici (reprise d'un deck sans texte).
+ * OCR d'une slide à l'import : `null` = sticker PUB (règle allumée seulement),
+ * le TikTok est rejeté. Un sticker de contenu (livre, vidéo, article) est
+ * importé avec son texte. Pour une source de `remplacer_slide_sources`, la
+ * slide promo (pas la couverture, une seule par TikTok) revient avec son texte
+ * et `stickerPub` : son image sera remplacée au nettoyage
+ * (`decisionStickerImport`). Les contenus d'un pod (`contenus.pod`) ont un
+ * passe-droit : jamais rejetés pour sticker, même s'ils repassent par ici
+ * (reprise d'un deck sans texte).
  */
 async function lireSlideImport(
   supabase: Supabase,
-  contenu: { pod?: string | null },
-  url: string,
-): Promise<string | null> {
-  if (contenu.pod || !(await rejetStickersActif(supabase))) return await ocrFrame(url);
-  const lecture = await ocrSlideImport(url);
-  return lecture.sticker === "pub" ? null : lecture.texte;
+  contenu: { pod?: string | null; compte_reference_id?: string | null },
+  slide: SlideBrut,
+  slides: SlideBrut[],
+): Promise<{ texte: string; stickerPub: boolean } | null> {
+  const regles = contenu.pod ? null : await reglesStickers(supabase);
+  if (!regles?.rejet) return { texte: await ocrFrame(slide.raw_url), stickerPub: false };
+  const lecture = await ocrSlideImport(slide.raw_url);
+  const decision = decisionStickerImport({
+    sticker: lecture.sticker,
+    remplacable: Boolean(contenu.compte_reference_id) && regles.remplacer.includes(contenu.compte_reference_id!),
+    couverture: slide.position === slides[0]?.position,
+    dejaUne: slides.some((s) => s.sticker_pub && s.position !== slide.position),
+  });
+  if (decision === "rejeter") return null;
+  if (decision === "garder") return { texte: lecture.texte, stickerPub: false };
+  // L'OCR d'import ne rend pas le texte d'une slide pub : on le relit.
+  return { texte: await ocrFrame(slide.raw_url), stickerPub: true };
 }
 
 /**
@@ -1350,9 +1376,9 @@ async function executerPasImport(
 
     // 1 — OCR du hook
     if (slides[0] && (slides[0].texte_original === null || slides[0].texte_original === undefined)) {
-      const texte = await lireSlideImport(supabase, contenu, slides[0].raw_url);
-      if (texte === null) return await rejeterSticker(supabase, contenu.id, slides[0].position);
-      slides[0].texte_original = texte;
+      const lecture = await lireSlideImport(supabase, contenu, slides[0], slides);
+      if (lecture === null) return await rejeterSticker(supabase, contenu.id, slides[0].position);
+      slides[0].texte_original = lecture.texte;
       await marquer(supabase, contenu.id, {
         structure_slides: slides,
         import_etape: "ocr",
@@ -1408,9 +1434,10 @@ async function executerPasImport(
     const aOcr = slides.filter((s) => s.texte_original === null || s.texte_original === undefined);
     if (aOcr.length > 0) {
       for (const slide of aOcr.slice(0, SLIDES_PAR_PASSAGE)) {
-        const texte = await lireSlideImport(supabase, contenu, slide.raw_url);
-        if (texte === null) return await rejeterSticker(supabase, contenu.id, slide.position);
-        slide.texte_original = texte;
+        const lecture = await lireSlideImport(supabase, contenu, slide, slides);
+        if (lecture === null) return await rejeterSticker(supabase, contenu.id, slide.position);
+        slide.texte_original = lecture.texte;
+        if (lecture.stickerPub) slide.sticker_pub = true;
       }
       await marquer(supabase, contenu.id, {
         structure_slides: slides,
@@ -1572,6 +1599,24 @@ async function executerPasImport(
     if (slides.some((s) => !s.media_id)) {
       const rapports: NettoyageSlideRapport[] = [];
       let progres = false;
+
+      // 5· — Slide promo d'une source autorisée : sa carte App Store ou sa
+      // capture d'appli ne se nettoie pas. Son image est remplacée par une
+      // photo propre du même label ; sans remplaçant, rejet comme avant.
+      for (const slide of slides.filter((s) => s.sticker_pub && !s.media_id)) {
+        const rapport: NettoyageSlideRapport = {
+          position: slide.position,
+          ok: false,
+          lignes: [`slide #${slide.position} · slide promo (sticker pub)`],
+        };
+        const remplacant = await tenterRemplacementLabel(supabase, contenu, slides, rapport);
+        if (!remplacant) return await rejeterSticker(supabase, contenu.id, slide.position);
+        rapport.motif = "slide promo : image remplacée (biblio même label)";
+        slide.media_id = remplacant;
+        await patchSlideMediaId(supabase, contenu.id, slide.position, remplacant);
+        rapports.push(rapport);
+        progres = true;
+      }
 
       // 5a — Slides à bout d'essais : on les sort de la file SANS rappeler le
       // provider. Sinon elles repassent en tête à chaque passage et le reste du

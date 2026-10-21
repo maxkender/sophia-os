@@ -123,7 +123,7 @@ Deno.test("motif par application : Sophia (et inconnue) = le motif d'avant, Unsw
   assertStrictEquals(motifConcurrentApplication(" Unswipe "), MOTIF_CONCURRENT_UNSWIPE);
   assertEquals(
     MOTIF_CONCURRENT.source,
-    String.raw`\b(vent[\s-]?now|readup|turbo[\s-]?resume|bycat|unscroll|elqo|kodi[\s-]+(?:a[il]|app)|(?<!self[\s-])actualize(?!\s+(?:your|my|our|their|his|her|its|the|a|an|yourself|myself|ourselves|themselves|oneself)\b))\b`,
+    String.raw`\b(vent[\s-]?now|readup|turbo[\s-]?resume|bycat|unscroll|elqo|noctua|kodi[\s-]+(?:a[il]|app)|(?<!self[\s-])actualize(?!\s+(?:your|my|our|their|his|her|its|the|a|an|yourself|myself|ourselves|themselves|oneself)\b))\b`,
   );
   assertEquals(MOTIF_CONCURRENT.flags, "i");
   // Les concurrents de Sophia le sont aussi d'Unswipe.
@@ -328,4 +328,11 @@ Deno.test("citeConcurrent : un motif global n'a pas de mémoire entre deux appel
   const global = new RegExp(MOTIF_CONCURRENT.source, "gi");
   assertEquals(citeConcurrent("vent now", global), true);
   assertEquals(citeConcurrent("vent now", global), true);
+});
+
+Deno.test("citeConcurrent : Noctua (slide promo de @smarterhabitsdaily), pour toutes les applications", () => {
+  assertEquals(citeConcurrent("3. daily microlearning\nwith Noctua I get quick insights from books"), true);
+  assertEquals(citeConcurrent("I use Noctua — quick insights", MOTIF_CONCURRENT_UNSWIPE), true);
+  assertEquals(citeConcurrent("I use Noctua — quick insights", MOTIF_CONCURRENT_MICABO), true);
+  assertEquals(citeConcurrent("a nocturnal routine"), false);
 });

@@ -506,6 +506,10 @@ export const en = {
       onboardingRuulTitre: "Preview the Ruul creator onboarding",
       onboardingRuulDesc:
         "Open the welcome flow as a creator from the site (Ruul cohort, no HM) sees it at their first login. Nothing is saved.",
+      premierPostTitre: "Preview the first-post checklist",
+      premierPostDesc:
+        "Opens the pop-up a brand-new poster must pass when opening their very first post: five warm-up questions, and a red screen if any answer is \"No\". Placebo: nothing is saved, nobody sees the answers.",
+      premierPostOuvrir: "Open the checklist",
       onboardingDepart: "Start at:",
       onboardingQuiz: "Quiz",
       onboardingOuvrir: "Open the onboarding",
@@ -2508,6 +2512,9 @@ export const en = {
       communsDesc: "Translation, UGC identity and writing guidance: the same whichever application is promoted.",
       traductionTitle: "Prompt — Translation (French)",
       traductionDesc: "The tone of texts translated to French, readable on TikTok.",
+      localisationScolaireTitle: "Prompt — School localisation (all languages)",
+      localisationScolaireDesc:
+        "Added to every slideshow translation: grades, exams and school levels from another country (A*, A-levels, GPA…) become those of the target country. One line per country, formatted \"TR: …\". The country is read from the language's accounts; a language posted in several countries (es-419, en, ar) uses neutral words.",
       ugcFaceSwapTitle: "Prompt — UGC full-identity transfer (Nano Banana)",
       ugcFaceSwapDesc:
         "On UGC AI assignment: Figure 1 = slide (pose/scene), Figures 2+ = persona. FULL-body identity transfer (skin, face, hair) — not a head paste. Keep pose, expression, grain and clothing from the slide.",

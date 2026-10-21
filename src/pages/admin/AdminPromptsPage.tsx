@@ -27,6 +27,11 @@ import { PromptCommentMasterCard } from "@/features/commentMasters/PromptComment
  */
 const PROMPTS_COMMUNS = [
   { cle: "traduction", titre: "prompts.traductionTitle", desc: "prompts.traductionDesc" },
+  {
+    cle: "localisation_scolaire",
+    titre: "prompts.localisationScolaireTitle",
+    desc: "prompts.localisationScolaireDesc",
+  },
   { cle: "ugc_face_swap", titre: "prompts.ugcFaceSwapTitle", desc: "prompts.ugcFaceSwapDesc" },
   { cle: "composition_recycle", titre: "prompts.recycleTitle", desc: "prompts.recycleDesc" },
   { cle: "composition_nouveau", titre: "prompts.nouveauTitle", desc: "prompts.nouveauDesc" },

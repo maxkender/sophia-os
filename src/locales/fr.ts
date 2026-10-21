@@ -507,6 +507,10 @@ export const fr = {
       onboardingRuulTitre: "Aperçu de l'accueil des créateurs Ruul",
       onboardingRuulDesc:
         "Ouvre le parcours de bienvenue tel qu'un créateur venu du site (cohorte Ruul, sans HM) le voit à sa première connexion. Rien n'est enregistré.",
+      premierPostTitre: "Aperçu de la checklist avant le 1er post",
+      premierPostDesc:
+        "Ouvre le pop-up qu'un posteur tout nouveau doit passer en ouvrant son tout premier post : cinq questions sur le warm-up, et un écran rouge si une réponse est « No ». Placebo : rien n'est enregistré, personne ne voit les réponses.",
+      premierPostOuvrir: "Ouvrir la checklist",
       onboardingDepart: "Démarrer à :",
       onboardingQuiz: "Quiz",
       onboardingOuvrir: "Ouvrir l'accueil",
@@ -2512,6 +2516,9 @@ export const fr = {
       communsDesc: "Traduction, identité UGC et consignes de rédaction : les mêmes quelle que soit l'application promue.",
       traductionTitle: "Prompt — Traduction (Français)",
       traductionDesc: "Le ton des textes traduits en français, lisibles sur TikTok.",
+      localisationScolaireTitle: "Prompt — Localisation scolaire (toutes les langues)",
+      localisationScolaireDesc:
+        "Ajouté à chaque traduction de slideshow : les notes, examens et niveaux d'un autre pays (A*, A-levels, GPA…) deviennent ceux du pays cible. Une ligne par pays au format « TR : … ». Le pays se lit sur les comptes de la langue ; une langue publiée dans plusieurs pays (es-419, en, ar) passe en mots neutres.",
       ugcFaceSwapTitle: "Prompt — Identité UGC (corps entier, Nano Banana)",
       ugcFaceSwapDesc:
         "À l’assignation UGC AI : Figure 1 = slide (pose/scène), Figures 2+ = persona. Transfert d’identité CORPS ENTIER (peau, visage, cheveux) — pas un collage de tête. Pose, expression, grain et vêtements de la slide restent.",

@@ -9,8 +9,8 @@
  * label est ensuite tiré par manage-users :
  * File des créateurs DE CETTE APPLICATION (file de la langue du compte, puis sa
  * file générale), et à défaut un choix équilibré (stock × vues, par langue)
- * parmi les labels qui servent l'application (`label_applications`, un label sans ligne sert Sophia —
- * `applicationsDuLabel`).
+ * parmi les labels qui servent l'application (`label_applications` ; un label
+ * sans application cochée ne sert personne — `applicationsDuLabel`).
  *
  * Contrat manage-users :
  * - Sophia → AUCUNE clé de plus : corps identique à celui d'avant, à l'octet
@@ -94,7 +94,7 @@ export function choixApplicationVisible(applications: readonly ApplicationMoteur
 /**
  * Labels qui servent une application : ceux que la File a le droit de poser
  * sur un créateur slideshow (ni système, ni UGC AI vidéo) ET dont les
- * applications servies (`label_applications`, héritage Sophia) la contiennent.
+ * applications servies (cochées dans `label_applications`) la contiennent.
  * La colonne historique `labels.application_id` n'est PAS lue.
  */
 export function labelsDeLApplication<T extends LabelFileSlideshow & { id: string }>(

@@ -25,6 +25,7 @@ const MEDICAL = { id: "l-medical", slug: "medical-study", nom: "Medical Study" }
 const UGC = { id: "l-ugc", slug: "ugc-x", nom: "UGC X", ugc_ai_video: true };
 const LABELS = [SMART, CLASSIC, MEDICAL, UGC];
 const LIENS = [
+  { label_id: SMART.id, application_id: ID_SOPHIA },
   { label_id: CLASSIC.id, application_id: ID_UNSWIPE },
   { label_id: MEDICAL.id, application_id: ID_MICABO },
   { label_id: MEDICAL.id, application_id: ID_UNSWIPE },
@@ -78,14 +79,15 @@ describe("tranche d'une application", () => {
 });
 
 describe("labels proposés et entrées signalées", () => {
-  it("seulement les labels slideshow qui servent l'application (héritage Sophia)", () => {
+  it("seulement les labels slideshow qui servent l'application (cochée)", () => {
     expect(labelsAjoutables(ID_SOPHIA, LABELS, LIENS).map((l) => l.id)).toEqual([SMART.id]);
     expect(labelsAjoutables(ID_UNSWIPE, LABELS, LIENS).map((l) => l.id)).toEqual([CLASSIC.id, MEDICAL.id]);
     expect(labelsAjoutables(ID_MICABO, LABELS, LIENS).map((l) => l.id)).toEqual([MEDICAL.id]);
   });
-  it("liens pas encore lus : rien n'est proposé ; table absente ([]) : tout sert Sophia", () => {
+  it("liens pas encore lus : rien ; « tous » (liens illisibles, File Sophia) : tous les slideshow ; aucun lien : personne", () => {
     expect(labelsAjoutables(ID_SOPHIA, LABELS, null)).toEqual([]);
-    expect(labelsAjoutables(ID_SOPHIA, LABELS, []).map((l) => l.id)).toEqual([SMART.id, CLASSIC.id, MEDICAL.id]);
+    expect(labelsAjoutables(ID_SOPHIA, LABELS, "tous").map((l) => l.id)).toEqual([SMART.id, CLASSIC.id, MEDICAL.id]);
+    expect(labelsAjoutables(ID_SOPHIA, LABELS, [])).toEqual([]);
     expect(labelsAjoutables(ID_UNSWIPE, LABELS, [])).toEqual([]);
   });
   it("une entrée dont le label ne sert plus l'application est signalée", () => {

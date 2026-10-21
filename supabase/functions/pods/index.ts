@@ -196,7 +196,7 @@ async function legendeLocale(textes: string[], titre: string | null, langue: str
 /**
  * Application du label d'un pod quand ce label ne sert PAS Sophia (pod 6,
  * label UnSwipe seul) : son id et son slug. `null` : le label sert Sophia, le
- * cas de tous les pods d'avant (un label sans ligne sert Sophia). Un label hors
+ * cas de tous les pods d'avant (ou aucune application cochée : deck Sophia). Un label hors
  * Sophia qui sert plusieurs applications lève : un deck déposé ne porte qu'une
  * pub.
  */

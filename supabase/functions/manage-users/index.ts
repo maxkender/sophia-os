@@ -134,7 +134,7 @@ function resoudrePremierCompte(
  *     parmi les labels qui les servent toutes ;
  *   - `label_id` (vieux client) : ce label, validé, sans File.
  * Éligibilité d'un label à une File et au repli : `label_applications` (un
- * label sans ligne sert Sophia), jamais la colonne historique
+ * label sans application cochée ne sert personne), jamais la colonne historique
  * `labels.application_id`.
  */
 Deno.serve(async (request) => {
@@ -1100,7 +1100,7 @@ async function idsLabelsFileSlideshow(supabase: Supabase): Promise<Set<string>> 
 
 /**
  * Labels qu'une File peut donner : slideshow ET qui servent l'application de la
- * tranche (`label_applications`, un label sans ligne sert Sophia). Deux lectures,
+ * tranche (cochée dans `label_applications`). Deux lectures,
  * qui LÈVENT si elles ratent — toujours AVANT la moindre écriture de la File.
  */
 async function idsLabelsEligiblesFile(
@@ -1750,7 +1750,7 @@ async function labelMoinsUtiliseParLangue(
   }
   if (requises) {
     // Une application après l'autre : le pool rétrécit à chaque passe et ne
-    // garde que les labels qui les servent toutes (héritage Sophia compris).
+    // garde que les labels qui les servent toutes.
     for (const app of requises) {
       pool = await filtrerPoolParApplication(supabase, pool, app);
     }

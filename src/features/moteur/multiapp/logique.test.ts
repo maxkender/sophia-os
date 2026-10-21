@@ -20,32 +20,28 @@ import {
 const UNSWIPE = "00000000-0000-4000-8000-000000000003";
 
 describe("bascule d'une application sur un label", () => {
-  it("un label sans ligne sert Sophia : cocher Unswipe écrit les DEUX", () => {
-    // Le premier clic matérialise l'héritage. Écrire {Unswipe} seul retirerait
-    // Sophia sans que personne l'ait décoché, et viderait son stock.
+  it("un label sans application cochée : cocher Unswipe écrit Unswipe seule", () => {
     expect(labelImplicite("l1", [])).toBe(true);
     expect(basculerApplicationLabel("l1", [], UNSWIPE)).toEqual({
       ok: true,
-      applications: [ID_SOPHIA, UNSWIPE].sort(),
+      applications: [UNSWIPE],
+      aucune: false,
     });
   });
 
-  it("décocher Sophia d'un label implicite est refusé (dernière application)", () => {
-    expect(basculerApplicationLabel("l1", [], ID_SOPHIA)).toEqual({ ok: false, raison: "derniere" });
-  });
-
-  it("retire une application quand il en reste une autre", () => {
+  it("retirer une application ; retirer la dernière met le label de côté (aucune, 21/10)", () => {
     const liens = [
       { label_id: "l1", application_id: ID_SOPHIA },
       { label_id: "l1", application_id: UNSWIPE },
       { label_id: "l2", application_id: UNSWIPE },
     ];
     expect(labelImplicite("l1", liens)).toBe(false);
-    expect(basculerApplicationLabel("l1", liens, ID_SOPHIA)).toEqual({ ok: true, applications: [UNSWIPE] });
-    expect(basculerApplicationLabel("l2", liens, UNSWIPE)).toEqual({ ok: false, raison: "derniere" });
+    expect(basculerApplicationLabel("l1", liens, ID_SOPHIA)).toEqual({ ok: true, applications: [UNSWIPE], aucune: false });
+    expect(basculerApplicationLabel("l2", liens, UNSWIPE)).toEqual({ ok: true, applications: [], aucune: true });
     expect(basculerApplicationLabel("l2", liens, ID_SOPHIA)).toEqual({
       ok: true,
       applications: [ID_SOPHIA, UNSWIPE].sort(),
+      aucune: false,
     });
   });
 });

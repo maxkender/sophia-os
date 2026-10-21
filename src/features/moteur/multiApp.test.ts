@@ -40,8 +40,8 @@ const liens: LienLabelApplication[] = [
 ];
 
 describe("applicationsDuLabel", () => {
-  it("un label sans ligne sert Sophia (héritage)", () => {
-    expect(applicationsDuLabel("alpha", liens)).toEqual([ID_SOPHIA]);
+  it("un label sans application cochée n'est disponible pour personne (21/10)", () => {
+    expect(applicationsDuLabel("alpha", liens)).toEqual([]);
   });
 
   it("un label dual sert ses deux applications", () => {
@@ -59,7 +59,8 @@ describe("labelsParApplication / applicationsServies", () => {
       [{ id: "alpha" }, { id: "clean" }, { id: "detox" }, { id: "hook", slug: "hook" }],
       liens,
     );
-    expect(parApp.get(ID_SOPHIA)).toEqual(["alpha", "clean"]);
+    // « alpha » n'a aucune application cochée : dans aucune liste.
+    expect(parApp.get(ID_SOPHIA)).toEqual(["clean"]);
     expect(parApp.get(ID_UNSWIPE)).toEqual(["clean", "detox"]);
   });
 

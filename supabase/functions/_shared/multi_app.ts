@@ -74,11 +74,13 @@ export function estLabelSystemeSlug(slug: string | null | undefined): boolean {
 }
 
 /**
- * Applications servies par UN label.
+ * Applications servies par UN label : celles cochées dans `label_applications`.
  *
- * Règle d'héritage : un label sans aucune ligne `label_applications` sert
- * Sophia. Un backfill oublié, ou un label créé par un vieux front, ne peut donc
- * jamais vider le stock Sophia — c'est le seul sens d'erreur acceptable.
+ * Aucune application cochée = le label n'est disponible pour personne (décision
+ * du 21/10 : c'est ainsi qu'on met un label de côté, sans le supprimer). Avant,
+ * un label sans ligne servait Sophia par héritage ; au 21/10, tous les labels
+ * utiles avaient leurs lignes explicites (seuls Hook et UGC AI VIDEO, labels
+ * système, n'en avaient pas), donc rien n'a changé pour la flotte.
  */
 export function applicationsDuLabel(
   labelId: string,
@@ -88,7 +90,7 @@ export function applicationsDuLabel(
   for (const l of liens) {
     if (l.label_id === labelId) ids.add(l.application_id);
   }
-  return ids.size > 0 ? [...ids].sort() : [ID_SOPHIA];
+  return [...ids].sort();
 }
 
 /**
@@ -113,7 +115,9 @@ export function labelsParApplication(
 
 /**
  * Applications servies par un ensemble de labels (union, triée). Sans label
- * utile : Sophia — c'est le comportement historique d'un contenu non tagué.
+ * utile, ou si aucun ne sert d'application : Sophia, pour la seule porte
+ * d'import (un contenu doit avoir un score). Aucun pool ne le sert pour autant :
+ * le moteur part de `labelsParApplication`, qui ne connaît que les cases cochées.
  */
 export function applicationsServies(
   labels: readonly LabelRef[],

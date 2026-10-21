@@ -657,7 +657,7 @@ export function AdminPostersPage() {
   const applications = useQuery({ queryKey: ["applications"], queryFn: listerApplications });
   // Liens label → application : pour le filtre « application » (comptes dont
   // les labels servent l'application). En erreur (avant 0256), le filtre
-  // retombe sur la règle « label sans ligne = Sophia ».
+  // retombe sur Sophia (`applicationsServies` sans lien).
   const liensLabels = useLiensLabels();
   const labelsComptes = useQuery({
     queryKey: ["compte-labels-all", (comptes.data ?? []).map((c) => c.id).join(",")],

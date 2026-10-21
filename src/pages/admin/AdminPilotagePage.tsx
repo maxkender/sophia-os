@@ -76,15 +76,15 @@ function LabelsPilotageCard() {
   const [nom, setNom] = React.useState("");
   const [couleur, setCouleur] = React.useState("#2f6f4e");
   const [genre, setGenre] = React.useState<LabelGenre>("femme");
-  // Défaut Sophia seule : c'est aussi ce que sert un label sans ligne, donc un
-  // label créé sans toucher aux cases se comporte exactement comme avant.
+  // Défaut Sophia seule : un label créé sans toucher aux cases sert Sophia,
+  // comme avant (sans case cochée, il ne servirait personne).
   const [appsNouveau, setAppsNouveau] = React.useState<string[]>([ID_SOPHIA]);
 
   const creer = useMutation({
     mutationFn: async () => {
       const lab = await creerLabel(nom.trim(), couleur, { genre });
-      // Le label existe déjà si cette écriture échoue : il sert alors Sophia par
-      // héritage, et l'erreur dit quoi recocher.
+      // Le label existe déjà si cette écriture échoue : il ne sert alors
+      // personne, et l'erreur dit quoi recocher.
       if (multi.multiDispo) {
         try {
           await definirApplicationsLabel(lab.id, appsNouveau);
@@ -258,6 +258,7 @@ function LabelsPilotageCard() {
               {multi.multiDispo && multi.liens && (
                 <LabelApplications
                   labelId={lab.id}
+                  labelNom={lab.nom}
                   applications={applications}
                   liens={multi.liens}
                   reserves={multi.reservesParLabel?.get(lab.id)}

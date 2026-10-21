@@ -40,6 +40,7 @@ import {
   type LienLabelApplication,
 } from "./multi_app.ts";
 import { chargerPrompt, messageErreur } from "./supabase.ts";
+import { tierInitialDepuisNote } from "./tierlist.ts";
 
 type Supabase = ReturnType<typeof import("./supabase.ts").serviceClient>;
 
@@ -187,10 +188,57 @@ export function finaliserPertinence(
  */
 export const PERTINENCE_MIN_HORS_SOPHIA = 50;
 
-/** Le score de pertinence permet-il le pool de l'application ? Sophia : toujours. */
-export function pertinenceSuffisante(applicationId: string, score: number): boolean {
-  return applicationId === ID_SOPHIA ||
-    (Number.isFinite(score) && score >= PERTINENCE_MIN_HORS_SOPHIA);
+/**
+ * Le score de pertinence permet-il le pool de l'application ? Sophia : toujours.
+ *
+ * `minimum` : le seuil réglé pour ce contenu sur cette application
+ * (`label_applications.pertinence_min`, 0330 ; 60 pour classic_study ×
+ * Micabo au 21/10), jamais sous le plancher. Entre le plancher et ce seuil, un
+ * contenu qui entre en tier A (ou mieux) reste éligible : `note` = sa note
+ * d'import pour cette application.
+ */
+export function pertinenceSuffisante(
+  applicationId: string,
+  score: number,
+  opts: { minimum?: number; note?: number | null } = {},
+): boolean {
+  if (applicationId === ID_SOPHIA) return true;
+  if (!Number.isFinite(score) || score < PERTINENCE_MIN_HORS_SOPHIA) return false;
+  const minimum = Math.max(PERTINENCE_MIN_HORS_SOPHIA, opts.minimum ?? PERTINENCE_MIN_HORS_SOPHIA);
+  if (score >= minimum) return true;
+  return ["A", "S", "S+"].includes(tierInitialDepuisNote(opts.note ?? null));
+}
+
+/**
+ * Seuil réglé par application à partir des lignes `label_applications` des
+ * labels d'un contenu : le plus exigeant, jamais sous le plancher.
+ */
+export function minimumsParApplication(
+  lignes: ReadonlyArray<{ application_id: string; pertinence_min?: number | string | null }>,
+): Map<string, number> {
+  const out = new Map<string, number>();
+  for (const l of lignes) {
+    const v = Number(l.pertinence_min ?? PERTINENCE_MIN_HORS_SOPHIA);
+    if (!Number.isFinite(v)) continue;
+    out.set(l.application_id, Math.max(out.get(l.application_id) ?? PERTINENCE_MIN_HORS_SOPHIA, v));
+  }
+  return out;
+}
+
+/** Les seuils réglés d'un contenu (ses labels × applications). Lecture ratée : lève. */
+export async function chargerMinimumsPertinence(
+  supabase: Supabase,
+  contenuId: string,
+): Promise<Map<string, number>> {
+  const labels = await chargerLabelsDuContenu(supabase, contenuId);
+  const ids = labels.map((l) => l.id);
+  if (ids.length === 0) return new Map();
+  const { data, error } = await supabase
+    .from("label_applications")
+    .select("application_id, pertinence_min")
+    .in("label_id", ids);
+  if (error) throw new Error(`Seuils de pertinence du contenu ${contenuId} : ${messageErreur(error)}`);
+  return minimumsParApplication((data ?? []) as Array<{ application_id: string; pertinence_min: number | null }>);
 }
 
 /**
@@ -205,9 +253,14 @@ export function eligibiliteDepuisNote(
   note: number,
   seuil: number,
   force: boolean,
-  pertinence?: { applicationId: string; score: number },
+  pertinence?: { applicationId: string; score: number; minimum?: number },
 ): boolean {
-  if (pertinence && !pertinenceSuffisante(pertinence.applicationId, pertinence.score)) return false;
+  if (
+    pertinence &&
+    !pertinenceSuffisante(pertinence.applicationId, pertinence.score, { minimum: pertinence.minimum, note })
+  ) {
+    return false;
+  }
   return force || (Number.isFinite(note) && note >= seuil);
 }
 
@@ -585,6 +638,7 @@ export async function majNotesPertinences(
   const lignes = await lirePertinences(supabase, contenuId);
   if (lignes.length === 0) return {};
   const applications = await chargerApplicationsMoteur(supabase);
+  const minimums = await chargerMinimumsPertinence(supabase, contenuId);
   const slugDe = (id: string) => applications.find((a) => a.id === id)?.slug ?? id;
 
   const rapport: PertinencesRapport = {};
@@ -595,6 +649,7 @@ export async function majNotesPertinences(
       eligible = eligibiliteDepuisNote(note, opts.seuil, opts.force, {
         applicationId: l.application_id,
         score: l.score,
+        minimum: minimums.get(l.application_id),
       });
       const { error } = await supabase
         .from("contenu_pertinences")
@@ -870,6 +925,7 @@ export async function noterContenuBackfill(
       eligible: original ? pertinenceSuffisante(app.id, stocke) : eligibiliteDepuisNote(note, scoring.eloSeuil, forcee, {
         applicationId: app.id,
         score: stocke,
+        minimum: (await chargerMinimumsPertinence(supabase, contenuId)).get(app.id),
       }),
       // Colonne héritée des angles de label (abandonnés) : plus alimentée.
       angles: null,

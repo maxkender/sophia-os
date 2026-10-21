@@ -42,7 +42,7 @@ export function nomApplicationPromue(
   return app ? nomApplication(app) : "Sophia";
 }
 
-/** Noms des applications servies par un label (règle « sans ligne = Sophia »). */
+/** Noms des applications servies par un label (cochées ; aucune = personne). */
 export function nomsApplicationsDuLabel(
   labelId: string,
   liens: readonly LienLabelApplication[],
@@ -214,7 +214,7 @@ export function etatPartsCompte(args: {
  * répartition (NULL, ou une part Sophia > 0) le permet : le diagnostic
  * historique s'applique alors tel quel, rien ne change pour ces comptes. Même
  * règle que le moteur (`applicationsServies`, `applicationsEligiblesCompte`,
- * `partsEffectives`) : un label sans ligne sert Sophia, les labels système
+ * `partsEffectives`) : un label sans application cochée ne sert personne, les labels système
  * sont ignorés.
  */
 export function diagnosticCompteSansSophia(args: {
@@ -288,7 +288,7 @@ function diagnosticRepartitionSansSophia(args: {
   const { compte, labelsTxt, parts, idsServis } = args;
   // Sophia toujours au catalogue, comme `chargerApplicationsMoteur` côté
   // moteur : l'appelant ne liste que les applications jointes aux lignes
-  // `label_applications`, et un label sans ligne sert Sophia par héritage.
+  // `label_applications`, et un compte sans label utile retombe sur Sophia.
   const applications = args.applications.some((a) => a.id === ID_SOPHIA)
     ? args.applications
     : [{ id: ID_SOPHIA, slug: SLUG_SOPHIA, nom: "Sophia", actif: true, langues: null }, ...args.applications];
@@ -484,7 +484,7 @@ export function etatRequalifCycle(
 /**
  * Aucun label du contenu ne sert Sophia : il n'a pas de rang Sophia (0270 —
  * import « hors Sophia »). Même règle que le moteur (`applicationsServies` :
- * un label sans ligne sert Sophia, labels système ignorés, aucun label utile =
+ * les applications cochées, labels système ignorés, aucun label utile =
  * Sophia). Faux tant que les liens ne sont pas lisibles : dans le doute, la
  * fiche garde l'affichage d'avant.
  */

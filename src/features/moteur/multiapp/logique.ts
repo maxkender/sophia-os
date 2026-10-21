@@ -41,7 +41,7 @@ export function estErreurSchemaAbsent(err: unknown): boolean {
     .test(String(message ?? ""));
 }
 
-/** Le label n'a aucune ligne `label_applications` : il sert Sophia par héritage. */
+/** Le label n'a aucune application cochée : il n'est disponible pour personne (21/10). */
 export function labelImplicite(
   labelId: string,
   liens: readonly LienLabelApplication[],
@@ -50,18 +50,13 @@ export function labelImplicite(
 }
 
 export type BasculeApplicationLabel =
-  | { ok: true; applications: string[] }
+  | { ok: true; applications: string[]; aucune: boolean }
   | { ok: false; raison: "derniere" };
 
 /**
- * Ensemble EXPLICITE d'applications après un clic sur une puce.
- *
- * On part de ce que le label sert réellement, héritage compris : un label sans
- * ligne sert Sophia, donc cocher Unswipe dessus écrit {Sophia, Unswipe} et pas
- * {Unswipe} seul — sinon le premier clic retirerait Sophia en silence et
- * viderait son stock sur ce label. Retirer la dernière application est refusé :
- * le label retomberait sur Sophia par héritage, ce qui n'est pas ce que l'admin
- * a demandé en décochant Sophia.
+ * Ensemble EXPLICITE d'applications après un clic sur une puce. Retirer la
+ * dernière est permis depuis le 21/10 : le label n'est alors disponible pour
+ * personne (`aucune`, l'écran demande confirmation).
  */
 export function basculerApplicationLabel(
   labelId: string,
@@ -71,10 +66,9 @@ export function basculerApplicationLabel(
   const actuelles = applicationsDuLabel(labelId, liens);
   if (actuelles.includes(applicationId)) {
     const suivantes = actuelles.filter((a) => a !== applicationId);
-    if (suivantes.length === 0) return { ok: false, raison: "derniere" };
-    return { ok: true, applications: suivantes };
+    return { ok: true, applications: suivantes, aucune: suivantes.length === 0 };
   }
-  return { ok: true, applications: [...actuelles, applicationId].sort() };
+  return { ok: true, applications: [...actuelles, applicationId].sort(), aucune: false };
 }
 
 /**

@@ -2729,15 +2729,18 @@ export const fr = {
       },
       labels: {
         applicationsServies: "Applications",
-        aide: "Clique une application pour l'ajouter au label ou l'en retirer. Pointillés : le label n'a encore aucun réglage et sert Sophia par défaut.",
-        implicite: "Aucun réglage : ce label sert Sophia par défaut.",
+        aide: "Clique une application pour l'ajouter au label ou l'en retirer. Sans aucune application cochée, le label n'est disponible pour personne (mis de côté, rien n'est supprimé).",
+        implicite: "Aucune application cochée : ce label n'est disponible pour personne.",
+        seuil: "Seuil {{app}}",
+        seuilAide: "Score de pertinence minimum pour qu'un contenu importé de ce label entre dans {{app}} (50 au moins ; un contenu tier A passe dès 50). Vaut pour les prochains imports.",
         applicationInactive: "Application inactive : le label est prêt, elle ne publie pas encore.",
         derniereApplication: "Un label sert au moins une application : coche l'autre avant de retirer celle-ci.",
+        confirmerAucune: "Décocher la dernière application : « {{nom}} » ne sera plus disponible pour personne (aucun compte, aucun contenu servi). Continuer ?",
         schemaAbsent:
           "Applications par label indisponibles (migration 0256 pas encore passée) : réserve affichée comme avant.",
         erreurLiens: "Applications des labels illisibles : {{message}}",
         creeSansApplications:
-          "Label « {{nom}} » créé, mais ses applications n'ont pas été enregistrées ({{message}}) : il sert Sophia par défaut. Recoche-les ci-dessous.",
+          "Label « {{nom}} » créé, mais ses applications n'ont pas été enregistrées ({{message}}) : il n'est disponible pour personne. Recoche-les ci-dessous.",
       },
       replis: {
         titre: "Replis sur Sophia",

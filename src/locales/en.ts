@@ -506,6 +506,10 @@ export const en = {
       onboardingRuulTitre: "Preview the Ruul creator onboarding",
       onboardingRuulDesc:
         "Open the welcome flow as a creator from the site (Ruul cohort, no HM) sees it at their first login. Nothing is saved.",
+      premierPostTitre: "Preview the first-post checklist",
+      premierPostDesc:
+        "Opens the pop-up a brand-new poster must pass when opening their very first post: five warm-up questions, and a red screen if any answer is \"No\". Placebo: nothing is saved, nobody sees the answers.",
+      premierPostOuvrir: "Open the checklist",
       onboardingDepart: "Start at:",
       onboardingQuiz: "Quiz",
       onboardingOuvrir: "Open the onboarding",

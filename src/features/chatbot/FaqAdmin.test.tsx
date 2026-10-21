@@ -53,17 +53,30 @@ vi.mock("./api", () => ({
       reponse_humaine_par: "Aram",
     }),
     question({ id: "q3", question: "Dashboard is blank", etat: "bug" }),
+    // Une question de la bulle d'avant le cerveau : l'ancien assistant a répondu.
+    question({
+      id: "q4",
+      source: "os",
+      question: "I want to change my password",
+      etat: null,
+      test: false,
+      reponse: "Contact your manager on Slack.",
+      slack_canal: null,
+      slack_ts: null,
+      slack_nom: null,
+      slack_user_id: null,
+      profiles: { prenom: "Efi", nom: "Tsimaki", email: null },
+    }),
   ]),
   traiterQuestionFaq: vi.fn(async () => ({ envoye: false, raison: "mode test" })),
   ignorerQuestionFaq: vi.fn(async () => undefined),
-  ajouterBaseFaq: vi.fn(async () => undefined),
 }));
 
-function renderFaq() {
+function renderFaq(onAjouterReponse?: (q: QuestionFaq) => void) {
   const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
   return render(
     <QueryClientProvider client={client}>
-      <FaqAdmin />
+      <FaqAdmin onAjouterReponse={onAjouterReponse} />
     </QueryClientProvider>,
   );
 }
@@ -90,17 +103,25 @@ describe("FaqAdmin", () => {
     await waitFor(() => expect(mocks.traiterQuestionFaq).toHaveBeenCalledWith("q1", "No, never delete them.", true));
   });
 
-  it("le journal compte les décisions et propose d'ajouter la réponse de l'équipe", async () => {
-    const mocks = await import("./api");
-    renderFaq();
+  it("le journal montre Slack et la bulle, compte les décisions, et pré-remplit une réponse validée", async () => {
+    const ajouter = vi.fn();
+    renderFaq(ajouter);
 
     const journal = await screen.findByTestId("faq-journal");
     await within(journal).findByText("Which link should I send her?");
     expect(within(journal).getByRole("button", { name: /bug → it guy · 1/i })).toBeInTheDocument();
     expect(within(journal).getByText(/Someone asks for the app or its link/)).toBeInTheDocument();
+    // La bulle d'avant : ancien assistant, et ce que la personne a reçu.
+    expect(within(journal).getByText("I want to change my password")).toBeInTheDocument();
+    expect(within(journal).getByText("Contact your manager on Slack.")).toBeInTheDocument();
+    expect(within(journal).getByText(/(old assistant|ancien assistant)/i)).toBeInTheDocument();
 
-    fireEvent.click(within(journal).getByRole("button", { name: /(add this answer|ajouter cette réponse)/i }));
-    await waitFor(() => expect(mocks.ajouterBaseFaq).toHaveBeenCalledWith("q2", "Use the taap.it link"));
+    const ligne = within(journal).getByText("Which link should I send her?").closest("div.space-y-2") as HTMLElement;
+    fireEvent.click(within(ligne).getByRole("button", { name: /(add to approved answers|ajouter aux réponses validées)/i }));
+    expect(ajouter).toHaveBeenCalledWith(expect.objectContaining({ id: "q2", reponse_humaine: "Use the taap.it link" }));
+
+    fireEvent.change(within(journal).getByRole("combobox"), { target: { value: "slack" } });
+    expect(within(journal).queryByText("I want to change my password")).not.toBeInTheDocument();
 
     fireEvent.click(within(journal).getByRole("button", { name: /bug → it guy/i }));
     expect(within(journal).queryByText("Which link should I send her?")).not.toBeInTheDocument();

@@ -7,11 +7,11 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, EmptyState } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
 import {
-  ajouterBaseFaq,
   ecrireReglagesFaq,
   ignorerQuestionFaq,
   lireReglagesFaqAdmin,
@@ -52,15 +52,22 @@ function auteur(q: QuestionFaq): string {
  * Page Assistant → la FAQ automatique (docs/faq-automatique.md) : les modes,
  * la copie du guide Notion, ce qui attend l'admin, et le journal des décisions.
  */
-export function FaqAdmin() {
+export function FaqAdmin({ onAjouterReponse }: { onAjouterReponse?: (q: QuestionFaq) => void }) {
   const reglages = useQuery({ queryKey: [...CLE, "reglages"], queryFn: lireReglagesFaqAdmin });
   return (
     <div className="space-y-6">
       <ReglagesFaqCard reglages={reglages.data} chargement={reglages.isPending} erreur={reglages.error} />
       <ATraiterCard reglages={reglages.data} />
-      <JournalFaqCard />
+      <JournalFaqCard onAjouterReponse={onAjouterReponse} />
     </div>
   );
+}
+
+function libelleRole(role: string, t: (k: string) => string): string {
+  if (role === "poster") return t("chatbot.rolePoster");
+  if (role === "directing_manager") return t("chatbot.roleDm");
+  if (role === "hiring_manager" || role === "head_of_ops") return t("chatbot.roleHm");
+  return t("chatbot.roleAdmin");
 }
 
 function ReglagesFaqCard({
@@ -230,12 +237,15 @@ function Entete({ q }: { q: QuestionFaq }) {
   return (
     <div className="flex flex-wrap items-center gap-2">
       <span className="text-sm font-medium">{auteur(q)}</span>
+      <Badge variant="outline">{libelleRole(q.role, t)}</Badge>
       <Badge variant="secondary">
         {q.source === "slack"
           ? `${t("chatbot.faq.sourceSlack")} ${q.slack_canal ? (NOMS_CANAUX[q.slack_canal] ?? "") : ""}`.trim()
           : t("chatbot.faq.sourceOs")}
       </Badge>
-      {q.etat && <Badge variant={VARIANTE_ETAT[q.etat]}>{t(`chatbot.faq.etats.${q.etat}`)}</Badge>}
+      {q.etat
+        ? <Badge variant={VARIANTE_ETAT[q.etat]}>{t(`chatbot.faq.etats.${q.etat}`)}</Badge>
+        : <Badge variant="outline">{t("chatbot.faq.ancien")}</Badge>}
       {q.test && <Badge variant="outline">{t("chatbot.faq.test")}</Badge>}
       <span className="text-xs text-muted-foreground">{new Date(q.created_at).toLocaleString(i18n.language)}</span>
       {q.slack_canal && q.slack_ts && (
@@ -345,17 +355,25 @@ function LigneATraiter({ q, reglages }: { q: QuestionFaq; reglages: ReglagesFaq 
   );
 }
 
-function JournalFaqCard() {
+const SOURCES = ["toutes", "slack", "os"] as const;
+type SourceJournal = (typeof SOURCES)[number];
+
+function JournalFaqCard({ onAjouterReponse }: { onAjouterReponse?: (q: QuestionFaq) => void }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const [filtre, setFiltre] = React.useState<FiltreJournal>("tous");
+  const [source, setSource] = React.useState<SourceJournal>("toutes");
+  const [recherche, setRecherche] = React.useState("");
   const journal = useQuery({ queryKey: [...CLE, "journal"], queryFn: listerFaqJournal });
-  const lignes = journal.data ?? [];
-  const compte = compterDecisions(lignes.map((l) => l.etat));
-  const ajouter = useMutation({
-    mutationFn: ({ id, reponse }: { id: string; reponse: string }) => ajouterBaseFaq(id, reponse),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: CLE }),
+
+  const texte = recherche.trim().toLowerCase();
+  const lignes = (journal.data ?? []).filter((q) => {
+    if (source !== "toutes" && q.source !== source) return false;
+    if (!texte) return true;
+    return [q.question, q.reponse, q.reponse_faq, q.reponse_humaine, auteur(q)]
+      .some((champ) => (champ ?? "").toLowerCase().includes(texte));
   });
+  const compte = compterDecisions(lignes.map((l) => l.etat));
 
   return (
     <Card data-testid="faq-journal">
@@ -375,6 +393,26 @@ function JournalFaqCard() {
         </div>
       </CardHeader>
       <CardContent className="space-y-3">
+        <div className="flex flex-wrap items-center gap-2">
+          <Input
+            value={recherche}
+            onChange={(e) => setRecherche(e.target.value)}
+            placeholder={t("chatbot.filtrePlaceholder")}
+            className="max-w-sm"
+          />
+          <select
+            aria-label={t("chatbot.faq.source")}
+            className="h-9 rounded-md border border-input bg-background px-2 text-sm"
+            value={source}
+            onChange={(e) => setSource(e.target.value as SourceJournal)}
+          >
+            {SOURCES.map((s) => (
+              <option key={s} value={s}>
+                {t(`chatbot.faq.sources.${s}`)}
+              </option>
+            ))}
+          </select>
+        </div>
         <div className="flex flex-wrap gap-1.5">
           {FILTRES_JOURNAL.map((f) => (
             <Button
@@ -397,45 +435,42 @@ function JournalFaqCard() {
         {lignes
           .filter((q) => dansFiltre(q.etat, filtre))
           .map((q) => {
-            // Ce qui a vraiment été envoyé, quand ce n'est pas la proposition telle quelle.
-            const parti = q.envoye_at && q.reponse && q.reponse !== q.reponse_faq ? q.reponse : null;
+            // Ce que la personne a vraiment reçu, quand ce n'est pas la proposition
+            // telle quelle : la réponse de l'ancien assistant (bulle en test, ou
+            // questions d'avant), le message d'attente, la réponse de l'admin.
+            const recu = q.reponse && q.reponse !== q.reponse_faq ? q.reponse : null;
+            const cerveau = q.etat !== null || q.reponse_faq !== null;
             return (
               <div key={q.id} className="space-y-2 rounded-md border border-border/80 p-3">
-                <Entete q={q} />
+                <div className="flex flex-wrap items-start justify-between gap-2">
+                  <Entete q={q} />
+                  {onAjouterReponse && (
+                    q.ajoute_base_at
+                      ? <Badge variant="success">{t("chatbot.faq.dansLaBase")}</Badge>
+                      : (
+                        <Button size="sm" variant="outline" onClick={() => onAjouterReponse(q)}>
+                          {t("chatbot.ajouterContexte")}
+                        </Button>
+                      )
+                  )}
+                </div>
                 <p className="whitespace-pre-wrap text-sm">{q.question}</p>
-                <Encadre titre={t("chatbot.faq.propositionCerveau")}>
-                  {q.reponse_faq || t("chatbot.faq.rienPropose")}
-                  {q.section_guide ? `\n📖 ${q.section_guide}` : ""}
-                </Encadre>
-                {parti && <Encadre titre={t("chatbot.faq.envoyeA")}>{parti}</Encadre>}
+                {cerveau && (
+                  <Encadre titre={t("chatbot.faq.propositionCerveau")}>
+                    {q.reponse_faq || t("chatbot.faq.rienPropose")}
+                    {q.section_guide ? `\n📖 ${q.section_guide}` : ""}
+                  </Encadre>
+                )}
+                {recu && <Encadre titre={t("chatbot.faq.recu")}>{recu}</Encadre>}
                 {q.reponse_humaine && (
-                  <div className="space-y-1">
-                    <Encadre titre={t("chatbot.faq.reponseHumaine", { nom: q.reponse_humaine_par ?? "—" })}>
-                      {q.reponse_humaine}
-                    </Encadre>
-                    {q.ajoute_base_at ? (
-                      <Badge variant="success">{t("chatbot.faq.dansLaBase")}</Badge>
-                    ) : (
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        disabled={ajouter.isPending}
-                        onClick={() => ajouter.mutate({ id: q.id, reponse: q.reponse_humaine! })}
-                      >
-                        {t("chatbot.faq.ajouterReponseHumaine")}
-                      </Button>
-                    )}
-                  </div>
+                  <Encadre titre={t("chatbot.faq.reponseHumaine", { nom: q.reponse_humaine_par ?? "—" })}>
+                    {q.reponse_humaine}
+                  </Encadre>
                 )}
                 {q.erreur && <p className="text-xs text-destructive">{q.erreur}</p>}
               </div>
             );
           })}
-        {ajouter.error && (
-          <p role="alert" className="text-xs text-destructive">
-            {messageErreur(ajouter.error)}
-          </p>
-        )}
       </CardContent>
     </Card>
   );

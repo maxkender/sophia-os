@@ -3285,9 +3285,6 @@ export const fr = {
       contexteVide: "Aucune réponse validée",
       contexteVideAide:
         "Normal au départ : l'assistant s'appuie sur le guide Notion. Les réponses s'ajoutent ici depuis « À traiter ».",
-      questionsTitle: "Questions posées",
-      questionsSubtitle: "Tout ce que les créateurs, managers et admins ont demandé.",
-      questionsVide: "Aucune question pour l'instant.",
       filtrePlaceholder: "Filtrer une question, une réponse, un nom…",
       ajouterContexte: "Ajouter aux réponses validées",
       questionLabel: "Question",
@@ -3334,7 +3331,7 @@ export const fr = {
         garde: "Gardé, pas envoyé : {{raison}}",
         journalTitre: "Journal du cerveau",
         journalDescription:
-          "Chaque décision, Slack et bulle. En test, compare ce qu'il aurait dit avec ce que l'équipe a répondu.",
+          "Toutes les questions, Slack et bulle d'aide : ce que le cerveau a décidé, ce que la personne a reçu, ce que l'équipe a répondu dans le fil. « Ajouter aux réponses validées » pré-remplit une réponse dans la section du dessous.",
         journalVide: "Aucune décision pour l'instant.",
         filtres: {
           tous: "Tout",
@@ -3344,6 +3341,10 @@ export const fr = {
           hors_sujet: "Hors sujet",
           traite: "Traité",
         },
+        ancien: "Ancien assistant",
+        source: "Source",
+        sources: { toutes: "Slack + bulle d'aide", slack: "Slack", os: "Bulle d'aide" },
+        recu: "Ce que la personne a reçu",
         etats: {
           repondu: "Répondu",
           bug: "Bug → IT guy",
@@ -3354,8 +3355,6 @@ export const fr = {
           traite_slack: "Réglé sur Slack",
           ignore: "Ignoré",
         },
-        envoyeA: "Parti",
-        ajouterReponseHumaine: "Ajouter cette réponse à la base",
         dansLaBase: "Dans la base",
         rienPropose: "Rien proposé.",
       },

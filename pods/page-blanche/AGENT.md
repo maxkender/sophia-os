@@ -43,6 +43,7 @@ regarde-la avec l'outil Read. Ne déclare jamais un post prêt sans l'avoir rega
   calibrer la police : ne jamais les modifier.
 - `STYLE_FR.md` : la voix française (obligatoire pour toute écriture en français).
 - `CONSIGNES.md` : format, soulignés `[[ ]]`, zones, scissions, `garder`.
+- `UNSWIPE.md` : la slide UnSwipe des variantes `<id>.unswipe.<langue>.json` (à lire avant d'en écrire une).
 
 **Versions** : avant de réécrire un fichier qui existe déjà, commite l'état
 actuel. On ne repart jamais de zéro et on ne perd jamais une version.

@@ -1,18 +1,19 @@
-// Usage : node atelier/cli-rendu.ts <slides-source> <transcription.json> <sortie> [langue=fr]
+// Usage : node atelier/cli-rendu.ts <slides-source> <transcription.json> <sortie> [langue=fr] [app=sophia]
 // transcription.json : { "post_id": "...", "slides": { "1": Transcription, ... } }
 // Rend chaque slide du post (géométrie recalculée depuis la source) en JPEG
 // sans métadonnées, et écrit un rapport des avertissements.
 
 import { mkdirSync, readFileSync, writeFileSync, existsSync } from "node:fs";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { analyserSlide } from "./geometrie.ts";
 import { chargerRessources, rendreSlide, type Transcription } from "./rendu.ts";
 import { retirerMetadonnees, metadonneesRestantes } from "./metadonnees.ts";
 
-const [dossierSource, fichierTr, sortie, langue = "fr"] = process.argv.slice(2);
+const [dossierSource, fichierTr, sortie, langue = "fr", app = "sophia"] = process.argv.slice(2);
 const tr = JSON.parse(readFileSync(fichierTr, "utf8")) as { post_id: string; slides: Record<string, Transcription> };
 mkdirSync(sortie, { recursive: true });
-const ressources = await chargerRessources(langue);
+const ressources = await chargerRessources(langue, join(dirname(fileURLToPath(import.meta.url)), "..", "assets", app));
 // Une capture différente d'un post à l'autre, toujours la même pour un post donné.
 const variante = [...tr.post_id].reduce((a, c) => a + c.charCodeAt(0), 0);
 

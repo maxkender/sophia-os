@@ -1,0 +1,247 @@
+{
+ "post_id": "var-ruin20s-2",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "top 5 modi per avere una vita noiosa"
+    },
+    "T2": {
+     "en": [
+      "(science-backed sources)"
+     ],
+     "fr": "(prouvé par la science)",
+     "alignement": "droite",
+     "texte": "(verità scomoda)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "train a martial art"
+     ],
+     "fr": "fais un sport de combat",
+     "texte": "mai niente di nuovo"
+    },
+    "T2": {
+     "en": [
+      "you get corrected constantly, exposed when your",
+      "technique is bad, and forced to keep going when",
+      "you're tired"
+     ],
+     "fr": "on te [[corrige sans arrêt]], on voit direct quand ta technique est nulle, et tu dois continuer [[même crevée]]",
+     "texte": "stesso cibo, stesso bar, stessa strada, le stesse 4 canzoni in loop. mai fatto prima? [[perché iniziare ora]]?"
+    },
+    "T3": {
+     "en": [
+      "martial arts teaches",
+      "you to stay calm under",
+      "pressure"
+     ],
+     "fr": "ça t'apprend à [[rester calme sous pression]]",
+     "texte": "partire da zero in qualcosa è [[troppo imbarazzante]]"
+    },
+    "T4": {
+     "en": [
+      "instead of quitting the",
+      "second something gets",
+      "uncomfortable"
+     ],
+     "fr": "au lieu de tout lâcher dès que ça devient inconfortable",
+     "texte": "meglio non saper fare niente che [[faticare su qualcosa di nuovo]]!"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn a difficult instrument"
+     ],
+     "fr": "apprends [[un instrument difficile]]",
+     "texte": "non avere neanche un hobby"
+    },
+    "T2": {
+     "en": [
+      "you can't shortcut being bad at piano, guitar,",
+      "drums, whatever"
+     ],
+     "fr": "piano, guitare, batterie : au début t'es nulle, [[y'a pas de raccourci]]",
+     "texte": "piano, ceramica, arrampicata? [[troppa fatica]], lascia perdere"
+    },
+    "T3": {
+     "en": [
+      "progress comes from",
+      "repeating boring",
+      "fundamentals until they",
+      "finally become automatic"
+     ],
+     "fr": "tu progresses en [[répétant les bases ennuyeuses]] jusqu'à ce que ça devienne automatique",
+     "texte": "tutta la tua personalità può essere lavoro, telefono e [[stanchezza cronica]]"
+    },
+    "T4": {
+     "en": [
+      "it teaches patience, consistency, and delayed",
+      "gratification better than most productivity advice"
+     ],
+     "fr": "ça t'apprend [[la patience, la régularité et à savoir attendre]] mieux que n'importe quel conseil productivité",
+     "texte": "quando ti chiedono cosa fai nel tempo libero, rispondi \"[[niente, boh]]\" e guarda la conversazione morire"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "have more conversations with",
+      "smart people"
+     ],
+     "fr": "traîne avec des gens plus calés que toi",
+     "texte": "parla solo delle serie che stai guardando"
+    },
+    "T2": {
+     "en": [
+      "your surroundings shape",
+      "you"
+     ],
+     "fr": "ton entourage déteint sur toi",
+     "texte": "pensieri? [[troppo rischioso]]"
+    },
+    "T3": {
+     "en": [
+      "good conversations force",
+      "you to explain ideas,",
+      "defend assumptions, and",
+      "notice where your",
+      "thinking is weak"
+     ],
+     "fr": "une vraie discussion t'oblige à expliquer tes idées, à les défendre et à voir où ton raisonnement coince",
+     "texte": "racconta la serie che hai visto ieri sera, non chiedere mai cosa pensano gli altri, cosa amano o [[perché]]"
+    },
+    "T4": {
+     "en": [
+      "spend more time around people who know",
+      "things you don’t instead of people who agree",
+      "with everything you say"
+     ],
+     "fr": "entoure-toi de gens qui savent des trucs que tu sais pas, pas de gens qui te donnent raison sur tout",
+     "texte": "se il discorso diventa più profondo di un finale di stagione, cambia argomento prima di [[scoprire qualcosa di qualcuno]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop scrolling and start reading"
+     ],
+     "fr": "[[lâche ton tel]] et [[ouvre un livre]]",
+     "texte": "mai annoiarsi, neanche un secondo"
+    },
+    "T2": {
+     "en": [
+      "short-form content keeps",
+      "your brain chasing novelty",
+      "every few seconds"
+     ],
+     "fr": "avec les vidéos courtes, ton cerveau veut du neuf [[toutes les 3 secondes]]",
+     "texte": "la noia è dove nasce la curiosità, e [[la curiosità è pericolosa]]"
+    },
+    "T3": {
+     "en": [
+      "books force sustained",
+      "attention, memory and",
+      "imagination to stay",
+      "switched on"
+     ],
+     "fr": "un livre [[t'oblige]] à garder [[attention]], [[mémoire]] et [[imagination]] allumées",
+     "texte": "ogni secondo libero, apri i reel. sala d'attesa, bus, bagno, [[letto]]"
+    },
+    "T4": {
+     "en": [
+      "if you want your brain to",
+      "feel sharper again, replace",
+      "your scrolling with reading"
+     ],
+     "fr": "si tu veux [[retrouver un cerveau vif]], remplace ton scroll par de la lecture",
+     "texte": "se scrolli abbastanza a lungo, non avrai mai più [[un solo pensiero davvero tuo]]"
+    },
+    "T5": {
+     "en": [
+      "i use readup to block my",
+      "apps until i read, or you",
+      "can move your phone to a",
+      "different room"
+     ],
+     "fr": "perso je remplace mon scroll par 5 min sur l'appli Sophia, sinon mets ton tel dans une autre pièce",
+     "texte": "e qualunque cosa tu faccia, non togliere mai i Reels da instagram con [[l'app UnSwipe]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things that are difficult",
+      "on purpose"
+     ],
+     "fr": "force-toi à apprendre [[des trucs difficiles]]",
+     "texte": "mai leggere niente più lungo di [[una didascalia]]"
+    },
+    "T2": {
+     "en": [
+      "if everything you consume is",
+      "easy, your brain has no",
+      "reason to adapt"
+     ],
+     "fr": "si tout ce que tu regardes est facile, ton cerveau a zéro raison de progresser",
+     "texte": "i libri sono lunghi, silenziosi e pieni di [[idee degli altri]]. no grazie"
+    },
+    "T3": {
+     "en": [
+      "read harder books, study",
+      "unfamiliar topics, solve",
+      "problems without",
+      "immediately searching the",
+      "answer"
+     ],
+     "fr": "lis des livres plus costauds, plonge dans des sujets inconnus, résous des problèmes sans googler direct",
+     "texte": "resta su didascalie, commenti e titoli che non apri mai, così le tue opinioni [[non devono mai cambiare]]"
+    },
+    "T4": {
+     "en": [
+      "cognitive effort is the point"
+     ],
+     "fr": "tout l'intérêt, c'est l'effort",
+     "texte": "la noia è [[una scelta]]. sceglila!"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

@@ -1,4 +1,7 @@
 // Usage : node atelier/cli-livrer.ts [sources] <post_id|all> [--langues fr,de] [--essai <dossier>]
+//         [--unswipe <dossier>] [--app-seul]
+// --app-seul : complément d'un post déjà validé, ne dépose QUE les variantes
+// d'application (decks Sophia vides, rien n'est re-rendu côté Sophia).
 //                                    [--unswipe <dossier>]
 //
 // Rend un post (une version par langue dont la traduction existe :
@@ -46,6 +49,7 @@ const opt = (nom: string) => {
 const langues = (opt("--langues") ?? "fr").split(",").map((l) => l.trim()).filter(Boolean);
 const essai = opt("--essai");
 const dossierUnswipe = opt("--unswipe");
+const appSeul = args.includes("--app-seul");
 const langueSource = langues[0];
 
 const manifeste = JSON.parse(readFileSync("posts/manifeste.json", "utf8")) as Manifeste;
@@ -110,6 +114,11 @@ for (const p of posts) {
     const slides = [];
     const textesLangue: string[] = [];
     for (const [num, t] of Object.entries(tr.slides).sort((a, b) => Number(a[0]) - Number(b[0]))) {
+      if (appSeul) {
+        slides.push({ position: Number(num), position_sophia: estSlideApp(t), jpeg_base64: "" });
+        textesLangue.push(texteSlide(t));
+        continue;
+      }
       const source = join(dossierSource, `${p.post_id}_${num}.jpg`);
       const geo = await analyserSlide(source);
       const { jpeg, rapport } = await rendreSlide(source, geo, t, { ressources, variante });
@@ -135,6 +144,13 @@ for (const p of posts) {
     continue;
   }
 
+  // Complément « app seule » : les decks Sophia ne servent qu'à situer la slide de l'app.
+  const decksEnvoyes = appSeul ? {} : decks;
+  if (appSeul && !Object.keys(unswipe).length) {
+    bilan.push(`${p.post_id} : aucune variante d'application, ignoré`);
+    continue;
+  }
+
   const corps = {
     action: "deposer",
     pod: POD,
@@ -147,7 +163,7 @@ for (const p of posts) {
     musique_url: p.musique.url_tiktok,
     musique_titre: p.musique.titre,
     textes,
-    decks,
+    decks: decksEnvoyes,
     ...(Object.keys(unswipe).length ? { decks_applications: { unswipe } } : {}),
   };
 
@@ -155,7 +171,7 @@ for (const p of posts) {
     mkdirSync(essai, { recursive: true });
     writeFileSync(join(essai, `${p.post_id}.depot.json`), JSON.stringify(corps));
     const app = Object.keys(unswipe).length ? ` + unswipe ${Object.keys(unswipe).join(",")}` : "";
-    bilan.push(`${p.post_id} : écrit (${Object.keys(decks).join(",")}${app})`);
+    bilan.push(`${p.post_id} : écrit (${Object.keys(decksEnvoyes).join(",")}${app})`);
     continue;
   }
 

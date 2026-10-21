@@ -1,0 +1,248 @@
+{
+ "post_id": "var-ruin20s-1",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "top 5 ways to ruin your 20s"
+     ],
+     "fr": "top 5 pour foirer ta vingtaine",
+     "texte": "top 5: so bleibst du pleite"
+    },
+    "T2": {
+     "en": [
+      "(harsh truth)"
+     ],
+     "fr": "(ça pique)",
+     "alignement": "droite",
+     "texte": "(harte Wahrheit)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn how money actually works"
+     ],
+     "fr": "comprends l'argent, [[pour de vrai]]",
+     "texte": "spar niemals auch nur einen cent"
+    },
+    "T2": {
+     "en": [
+      "understand investing,",
+      "cash flow, debt, and",
+      "compound growth",
+      "before you start earning",
+      "serious money"
+     ],
+     "fr": "comprends l'investissement, le cash-flow, les dettes et [[les intérêts composés]] avant de [[gagner gros]]",
+     "texte": "geld auf dem konto ist [[geld, das du noch nicht ausgegeben hast]]. ein sparkonto? das ist was für langweiler"
+    },
+    "T3": {
+     "en": [
+      "making more helps, but",
+      "keeping and allocating it",
+      "properly is what stops",
+      "you from being broke"
+     ],
+     "fr": "gagner plus, ça aide, mais ce qui [[t'empêche d'être à sec]], c'est de bien le garder et le placer",
+     "texte": "jeden einzelnen monat schon am 25. pleite? das ist kein muster, das ist [[einfach nur pech]]"
+    },
+    "T4": {
+     "en": [
+      "you can't save your way to wealth,",
+      "you have to earn your way there!"
+     ],
+     "fr": "[[on devient pas riche en épargnant, on devient riche en gagnant plus !]]",
+     "texte": "ein notgroschen ist was für leute, die [[mit notfällen rechnen]]!"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "4. put your phone in another room"
+     ],
+     "fr": "4. mets ton tel [[dans une autre pièce]]",
+     "alignement": "gauche",
+     "texte": "kauf alles, sobald du es siehst"
+    },
+    "T2": {
+     "en": [
+      "willpower alone is a",
+      "terrible phone blocker"
+     ],
+     "fr": "la volonté, [[ça suffit pas]] contre ton tel",
+     "texte": "warum 24 stunden warten, wenn [[ein klick]] reicht?"
+    },
+    "T3": {
+     "en": [
+      "one study of nearly",
+      "800 people"
+     ],
+     "fr": "une étude sur presque 800 personnes",
+     "texte": "2 uhr nachts, karte gespeichert"
+    },
+    "T4": {
+     "en": [
+      "found that just having",
+      "your phone nearby",
+      "reduced available",
+      "cognitive capacity"
+     ],
+     "fr": "a montré qu'avoir juste ton tel à côté [[suffit à te ralentir le cerveau]]",
+     "texte": "[[der perfekte moment]] für den vierten hoodie, den du genau einmal trägst"
+    },
+    "T5": {
+     "en": [
+      "even when you weren't using it!!"
+     ],
+     "fr": "[[même quand tu t'en sers pas !!]]",
+     "texte": "dein zukunfts-ich [[zahlt das schon]]!!"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read classic books"
+     ],
+     "fr": "inspire-toi des [[classiques]]",
+     "texte": "scroll jeden abend"
+    },
+    "T2": {
+     "en": [
+      "people have faced ambition, failure, and hard choices",
+      "for centuries"
+     ],
+     "fr": "l'ambition, l'échec, les choix durs : on vit ça [[depuis des siècles]]",
+     "texte": "deine abende könnten dir einen skill bringen, also [[gib sie den reels]]"
+    },
+    "T3": {
+     "en": [
+      "people are more illiterate",
+      "than ever and attention",
+      "spans across the world are",
+      "being destroyed by",
+      "short-form content"
+     ],
+     "fr": "[[on n'a jamais aussi peu lu]] et partout, notre attention est [[grillée par les vidéos courtes]]",
+     "texte": "3 stunden reels pro abend sind 1.000 stunden im jahr. eine sprache, [[eine ganze karriere]], ein side project. verschwende sie"
+    },
+    "T4": {
+     "en": [
+      "i used to struggle with",
+      "reading long books but i",
+      "found this thing that",
+      "blocks my apps until i read"
+     ],
+     "fr": "j'arrivais plus à me concentrer, puis j'ai remplacé mon scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "und egal was du tust, nimm bloß nicht die Reels aus instagram raus mit [[der UnSwipe-App]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they make decisions fast"
+     ],
+     "fr": "ils [[décident vite]]",
+     "texte": "frag nie nach mehr gehalt"
+    },
+    "T2": {
+     "en": [
+      "successful people don’t procrastinate. they don’t",
+      "ask for permission, but instead act and ask for",
+      "forgiveness"
+     ],
+     "fr": "les gens qui réussissent [[remettent rien à plus tard]]. ils [[demandent pas la permission]] : ils foncent et [[s'excusent après]]",
+     "texte": "warte still ab. dein chef wird die unbezahlten überstunden [[bestimmt bemerken]] und dich [[aus reiner güte]] besser bezahlen"
+    },
+    "T3": {
+     "en": [
+      "they don’t spend 3",
+      "weeks thinking",
+      "about a reversible",
+      "choice"
+     ],
+     "fr": "ils passent pas 3 semaines à cogiter sur [[un choix réversible]]",
+     "texte": "verhandeln ist unangenehm, und [[unangenehm ist schlimmer als pleite]]"
+    },
+    "T4": {
+     "en": [
+      "if the downside is small, they decide, act, and",
+      "adjust. speed matters most when decisions can",
+      "be changed later"
+     ],
+     "fr": "si le risque est petit, ils décident, foncent et ajustent. [[aller vite compte surtout]] quand tu peux changer d'avis après",
+     "texte": "bleib 6 jahre im selben job zum selben gehalt, während [[der neue]] in [[einer mail]] 20 % mehr raushandelt"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they tolerate long periods with",
+      "no reward"
+     ],
+     "fr": "ils tiennent [[longtemps]] [[sans récompense]]",
+     "texte": "leb die ganze woche nur fürs wochenende"
+    },
+    "T2": {
+     "en": [
+      "they can keep working when",
+      "nobody is watching, nothing",
+      "is going viral, and the results",
+      "still look unimpressive"
+     ],
+     "fr": "ils continuent à bosser quand [[personne regarde]], que rien ne fait le buzz et que les résultats [[font pas rêver]]",
+     "texte": "hass deinen job von montag bis freitag und hau samstags [[dein ganzes geld]] raus, damit [[es sich lohnt]]"
+    },
+    "T3": {
+     "en": [
+      "most people need constant",
+      "proof that something is",
+      "working"
+     ],
+     "fr": "la plupart des gens veulent sans arrêt la preuve que ça marche",
+     "texte": "bau nie was nebenher auf, das ist [[viel zu viel arbeit]]"
+    },
+    "T4": {
+     "en": [
+      "successful people can stay",
+      "consistent long enough for the",
+      "payoff to arrive."
+     ],
+     "fr": "ceux qui réussissent [[restent réguliers assez longtemps]] pour que ça finisse par payer.",
+     "texte": "mach das 40 jahre lang und nenn es [[erwachsensein]]. was soll schon schiefgehen?"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

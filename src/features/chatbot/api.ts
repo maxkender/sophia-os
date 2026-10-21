@@ -123,6 +123,9 @@ export interface QuestionFaq {
   reponse_admin: string | null;
   ajoute_base_at: string | null;
   erreur: string | null;
+  /** Bug : où en est l'IT guy, d'après son « on it » et sa réponse dans le fil. */
+  it_statut: "pris_en_charge" | "repondu" | null;
+  it_maj_at: string | null;
   created_at: string;
   profiles: { prenom: string | null; nom: string | null; email: string | null } | null;
 }
@@ -144,7 +147,8 @@ export interface BilanCopieGuides {
 
 const COLONNES_FAQ =
   "id, source, role, question, reponse, reponse_faq, section_guide, etat, test, envoye_at, slack_canal, slack_ts, " +
-  "slack_nom, slack_user_id, reponse_humaine, reponse_humaine_par, reponse_admin, ajoute_base_at, erreur, created_at, " +
+  "slack_nom, slack_user_id, reponse_humaine, reponse_humaine_par, reponse_admin, ajoute_base_at, erreur, it_statut, " +
+  "it_maj_at, created_at, " +
   "profiles!chatbot_questions_user_id_fkey(prenom, nom, email)";
 
 function avecProfil(lignes: unknown[]): QuestionFaq[] {

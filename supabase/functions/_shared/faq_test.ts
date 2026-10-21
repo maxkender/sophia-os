@@ -19,6 +19,7 @@ import {
   lireReglagesFaq,
   estRemerciement,
   estMoiAussi,
+  estOnIt,
   lireReponseFaq,
   reponseDansFil,
   reponseEquipeDansFil,
@@ -190,14 +191,32 @@ Deno.test("fil : l'équipe règle la question, un poster de passage non", () => 
   assertEquals(suiteDeFil(attente, "U0BL6E14JKH", "   ", equipe), null);
 });
 
-Deno.test("fil : sur une question déjà tranchée, on garde la première réponse humaine pour comparer", () => {
+Deno.test("fil : sur une question répondue, on garde la première réponse humaine pour comparer", () => {
   const equipe = new Set(["U0BL6E14JKH"]);
-  const bug = { etat: "bug" as const, slack_user_id: "UPOSTER", envoye_at: null, reponse_humaine: null };
-  assertEquals(suiteDeFil(bug, "U0BL6E14JKH", "We're on it", equipe), {
-    reponse_humaine: "We're on it",
+  const repondue = { etat: "repondu" as const, slack_user_id: "UPOSTER", envoye_at: null, reponse_humaine: null };
+  assertEquals(suiteDeFil(repondue, "U0BL6E14JKH", "Yes, use any sound", equipe), {
+    reponse_humaine: "Yes, use any sound",
     reponse_humaine_par: "U0BL6E14JKH",
   });
-  assertEquals(suiteDeFil({ ...bug, reponse_humaine: "We're on it" }, "U0BL6E14JKH", "Fixed", equipe), null);
+  assertEquals(suiteDeFil({ ...repondue, reponse_humaine: "Yes" }, "U0BL6E14JKH", "Also…", equipe), null);
+});
+
+Deno.test("fil : sur un bug, on suit l'IT guy (« on it » puis sa réponse)", () => {
+  const equipe = new Set(["U0BMTK7BLCW"]);
+  const bug = { etat: "bug" as const, slack_user_id: "UREGINA", envoye_at: null, reponse_humaine: null, it_statut: null };
+  assertEquals(suiteDeFil(bug, "U0BMTK7BLCW", "on it\n*Sent using* Claude", equipe), { it_statut: "pris_en_charge" });
+  const pris = { ...bug, it_statut: "pris_en_charge" as const };
+  assertEquals(suiteDeFil(pris, "U0BMTK7BLCW", "on it", equipe), null);
+  assertEquals(suiteDeFil(pris, "U0BMTK7BLCW", "Hi Regina! Yes, that's expected…", equipe), {
+    it_statut: "repondu",
+    reponse_humaine: "Hi Regina! Yes, that's expected…",
+    reponse_humaine_par: "U0BMTK7BLCW",
+  });
+  assertEquals(suiteDeFil({ ...bug, it_statut: "repondu" as const }, "U0BMTK7BLCW", "Fixed", equipe), null);
+  // Un poster qui passe ne dit rien de l'IT guy.
+  assertEquals(suiteDeFil(bug, "UAUTRE", "on it", equipe), null);
+  assert(estOnIt("On it!"));
+  assert(!estOnIt("Lucia is on it"));
 });
 
 Deno.test("texte Slack : réponse, section du guide, et comment relancer", () => {

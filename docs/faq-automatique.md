@@ -86,7 +86,9 @@ compte d'Adrien) sort la question de « À traiter ».
   et la question sort de la liste. Une réponse de l'équipe dans le fil sort
   aussi la question de « À traiter » toute seule.
 - **L'IT guy** ne touche pas un fil où le bot a répondu, et le bot se tait sur
-  les bugs. Un message modifié ou renvoyé par Slack ne donne pas de seconde
+  les bugs. Le journal suit ce que l'IT guy en fait, d'après le fil : « pas
+  encore pris », « pris en charge » (son « on it », la proposition attend un ✅
+  dans #a-os-tickets), puis « réglé » (sa réponse est arrivée dans le fil). Un message modifié ou renvoyé par Slack ne donne pas de seconde
   réponse.
 
 ## Mise en service

@@ -31,6 +31,7 @@ import {
   etatBackfillPertinence,
   finaliserPertinence,
   majNotesPertinences,
+  minimumsParApplication,
   normaliserReglageBackfill,
   noteStockee,
   noterPertinenceImport,
@@ -197,6 +198,37 @@ Deno.test("éligibilité : note ≥ seuil, ou import forcé", () => {
   assert(!eligibiliteDepuisNote(54, 55, false, sophia(100)));
   assert(pertinenceSuffisante(ID_SOPHIA, Number.NaN));
   assert(!pertinenceSuffisante(ID_UNSWIPE, 49));
+});
+
+Deno.test("seuil réglé par label (0330) : 60 sur classic_study × Micabo, tier A gardé, plancher 50 dur", () => {
+  // Sans réglage : le plancher, comme avant.
+  assert(pertinenceSuffisante(ID_UNSWIPE, 55));
+  // Seuil 60 : 55 ne passe plus, 60 passe.
+  assert(!pertinenceSuffisante(ID_UNSWIPE, 55, { minimum: 60, note: 65 }), "tier B : retiré");
+  assert(pertinenceSuffisante(ID_UNSWIPE, 60, { minimum: 60, note: 56 }));
+  // Entre 50 et 60, un contenu qui entre en tier A (note ≥ 70) reste.
+  assertEquals(tierInitialDepuisNote(70), "A");
+  assert(pertinenceSuffisante(ID_UNSWIPE, 55, { minimum: 60, note: 70 }), "tier A : gardé");
+  // Le plancher reste dur, tier A ou pas ; un réglage sous 50 ne l'abaisse pas.
+  assert(!pertinenceSuffisante(ID_UNSWIPE, 45, { minimum: 60, note: 90 }));
+  assert(!pertinenceSuffisante(ID_UNSWIPE, 45, { minimum: 20 }));
+  // Sophia : jamais de seuil.
+  assert(pertinenceSuffisante(ID_SOPHIA, 10, { minimum: 90 }));
+  // Même règle dans la note d'import.
+  assert(!eligibiliteDepuisNote(65, 55, false, { applicationId: ID_UNSWIPE, score: 55, minimum: 60 }));
+  assert(eligibiliteDepuisNote(72, 55, false, { applicationId: ID_UNSWIPE, score: 55, minimum: 60 }));
+});
+
+Deno.test("minimumsParApplication : le plus exigeant des labels du contenu, jamais sous 50", () => {
+  const m = minimumsParApplication([
+    { application_id: "micabo", pertinence_min: 60 },
+    { application_id: "micabo", pertinence_min: 50 },
+    { application_id: "unswipe", pertinence_min: null },
+    { application_id: "sophia", pertinence_min: 30 },
+  ]);
+  assertEquals(m.get("micabo"), 60);
+  assertEquals(m.get("unswipe"), PERTINENCE_MIN_HORS_SOPHIA);
+  assertEquals(m.get("sophia"), PERTINENCE_MIN_HORS_SOPHIA);
 });
 
 Deno.test("accroche du stock : base sans pub d'abord, slide pub sautée", () => {

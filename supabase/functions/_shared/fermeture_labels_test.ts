@@ -72,13 +72,13 @@ Deno.test("plan : un compte UGC sans autre label est laissé à un humain", () =
   assertEquals(b.manuel, undefined);
 });
 
-Deno.test("pool : les labels qui servent toutes les applications du compte (sans ligne = Sophia)", () => {
+Deno.test("pool : les labels qui servent toutes les applications du compte (sans application cochée = personne)", () => {
   const liens = [
     { label_id: "bsg", application_id: ID_SOPHIA },
     { label_id: "bsg", application_id: UNSWIPE },
     { label_id: "med", application_id: MICABO },
   ];
-  assertEquals(poolPourApplications(["bsg", "med", "weird"], liens, [ID_SOPHIA]), ["bsg", "weird"]);
+  assertEquals(poolPourApplications(["bsg", "med", "weird"], liens, [ID_SOPHIA]), ["bsg"]);
   assertEquals(poolPourApplications(["bsg", "med", "weird"], liens, [UNSWIPE, ID_SOPHIA]), ["bsg"]);
   assertEquals(poolPourApplications(["bsg", "med", "weird"], liens, [MICABO]), ["med"]);
 });

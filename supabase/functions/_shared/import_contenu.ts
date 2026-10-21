@@ -58,14 +58,15 @@ import {
 } from "./applications.ts";
 import {
   chargerAnglePlacement,
+  chargerApplicationsMoteur,
   erreurSchemaAbsent,
   schemaMultiAppPret,
 } from "./applications_moteur.ts";
 import {
+  chargerMinimumsPertinence,
   majNotesPertinences,
   noteStockee,
   noterPertinenceImport,
-  PERTINENCE_MIN_HORS_SOPHIA,
   pertinenceSuffisante,
   placementSophiaImport,
   type PertinencesRapport,
@@ -1493,7 +1494,7 @@ async function executerPasImport(
       await marquer(supabase, contenu.id, { import_elo_rapport: elo });
 
       // Contenu hors Sophia dont AUCUNE application ne veut (pertinence sous
-      // PERTINENCE_MIN_HORS_SOPHIA partout) : la porte (le max) le laisserait
+      // le seuil de ses labels partout, 50 au moins) : la porte (le max) le laisserait
       // passer, mais aucun pool ne pourrait le servir. Rejeté ici, avant les
       // appels modèle des étapes suivantes. Un contenu servi par Sophia n'est
       // jamais concerné (son mode n'est pas « hors_sophia »).
@@ -1508,7 +1509,7 @@ async function executerPasImport(
           import_statut: "done",
           import_etape: "elo_insuffisant",
           import_erreur:
-            `Pertinence sous ${PERTINENCE_MIN_HORS_SOPHIA} pour toutes ses applications (${detail}) — TikTok non importé`,
+            `Pertinence sous le seuil de ses labels pour toutes ses applications (${detail}) — TikTok non importé`,
           import_elo_rapport: elo,
         });
         return { etape: "elo_insuffisant", elo, progres: true };
@@ -2890,8 +2891,11 @@ export async function forcerImportElo(
   // application sous le seuil est planchée au seuil, comme la note Sophia
   // forcée ci-dessus (`noteStockee`) : son tier d'entrée (0270) en dépend.
   // Forcer passe outre les vues et la piste, PAS le sujet : une ligne d'une
-  // autre application sous PERTINENCE_MIN_HORS_SOPHIA reste hors de son pool.
+  // autre application sous le seuil de ses labels (PERTINENCE_MIN_HORS_SOPHIA
+  // au moins, `label_applications.pertinence_min`) reste hors de son pool.
   if (await schemaMultiAppPret(supabase)) {
+    const minimums = await chargerMinimumsPertinence(supabase, contenuId);
+    const eligibleParApp = new Map<string, boolean>();
     // Éligibilité posée ligne par ligne (Sophia : toujours ; autres : selon le
     // plancher), jamais « tout à true puis corrigé » : un échec en cours de
     // route ne laisse pas de ligne sous le plancher éligible.
@@ -2907,14 +2911,16 @@ export async function forcerImportElo(
         score: number | string | null;
       }>
     ) {
+      const brute = l.note === null || l.note === undefined ? null : Number(l.note);
+      const noteForcee = brute === null ? null : noteStockee(brute, l.application_id, scoring.eloSeuil, true);
       const maj: { note?: number; eligible: boolean } = {
-        eligible: pertinenceSuffisante(l.application_id, Number(l.score)),
+        eligible: pertinenceSuffisante(l.application_id, Number(l.score), {
+          minimum: minimums.get(l.application_id),
+          note: noteForcee,
+        }),
       };
-      if (l.note !== null && l.note !== undefined) {
-        const brute = Number(l.note);
-        const note = noteStockee(brute, l.application_id, scoring.eloSeuil, true);
-        if (note !== brute) maj.note = note;
-      }
+      if (brute !== null && noteForcee !== null && noteForcee !== brute) maj.note = noteForcee;
+      eligibleParApp.set(l.application_id, maj.eligible);
       const { error: errU } = await supabase
         .from("contenu_pertinences")
         .update({ ...maj, updated_at: new Date().toISOString() })
@@ -2924,15 +2930,17 @@ export async function forcerImportElo(
     }
     const avant = (contenu.import_elo_rapport as { pertinences?: PertinencesRapport } | null)
       ?.pertinences;
+    const idParSlug = new Map((await chargerApplicationsMoteur(supabase)).map((a) => [a.slug, a.id] as const));
     if (avant && typeof avant === "object") {
       elo.pertinences = Object.fromEntries(
         Object.entries(avant).map(([slug, p]) => [
           slug,
           {
             ...p,
-            // Même règle que la ligne : hors Sophia, plancher de pertinence.
+            // Même règle que la ligne : hors Sophia, seuil de ses labels.
             eligible: slug === SLUG_SOPHIA ||
-              (Number.isFinite(Number(p.score)) && Number(p.score) >= PERTINENCE_MIN_HORS_SOPHIA),
+              (eligibleParApp.get(idParSlug.get(slug) ?? "") ??
+                pertinenceSuffisante(idParSlug.get(slug) ?? slug, Number(p.score))),
             // Même plancher que la ligne (Sophia : note brute, inchangée).
             ...(slug !== SLUG_SOPHIA && p.note !== null && Number.isFinite(p.note)
               ? { note: Math.max(p.note, scoring.eloSeuil) }

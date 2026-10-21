@@ -299,7 +299,8 @@ export function decksApplicationDepuisBase(
 
 /**
  * Applications servies par le label d'un pod, hors Sophia, ou `null` s'il sert
- * Sophia (règle d'héritage : un label sans ligne sert Sophia).
+ * Sophia. Sans application cochée : `null` aussi (deck Sophia, comme les pods
+ * d'avant), mais le label n'est disponible pour personne (0330).
  */
 export function applicationsHorsSophia(idsApplicationsDuLabel: readonly string[], idSophia: string): string[] | null {
   if (!idsApplicationsDuLabel.length || idsApplicationsDuLabel.includes(idSophia)) return null;

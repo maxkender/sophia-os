@@ -175,10 +175,10 @@ Deno.test("label Unswipe seul : jamais un compte qui a une part Sophia", () => {
   assertEquals(labelServitToutes("unswipe-seul", liens, [ID_SOPHIA, UNSWIPE]), false);
 });
 
-Deno.test("label sans ligne label_applications : sert Sophia seule (héritage)", () => {
-  assertEquals(labelServitToutes("ancien", liens, [ID_SOPHIA]), true);
+Deno.test("label sans application cochée : disponible pour personne (21/10)", () => {
+  assertEquals(labelServitToutes("ancien", liens, [ID_SOPHIA]), false);
   assertEquals(labelServitToutes("ancien", liens, [UNSWIPE]), false);
-  assertEquals(labelServitToutes("ancien", [], [ID_SOPHIA]), true);
+  assertEquals(labelServitToutes("ancien", [], [ID_SOPHIA]), false);
 });
 
 Deno.test("label choisi : inexistant, système ou UGC AI VIDEO → LABEL_INCOMPATIBLE", () => {

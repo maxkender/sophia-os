@@ -30,7 +30,10 @@ const lab = (id: string, nom: string): Label =>
   ({ id, nom, slug: nom.toLowerCase().replace(/\s+/g, "-"), ugc_ai_video: false }) as Label;
 const SMART = lab("l-smart", "Smart Girl");
 const CLASSIC = lab("l-classic", "Classic Study");
-const LIENS = [{ label_id: CLASSIC.id, application_id: ID_UNSWIPE }];
+const LIENS = [
+  { label_id: SMART.id, application_id: ID_SOPHIA },
+  { label_id: CLASSIC.id, application_id: ID_UNSWIPE },
+];
 
 const PROD: ReglagesFileLabels = {
   items: [],

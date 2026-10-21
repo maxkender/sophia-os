@@ -18,8 +18,14 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
   angle actif : placement seul, prompt identique octet pour octet. Voir
   § « Angle de placement ». La pertinence ne le lit pas :
   `contenu_pertinences.angles` reste en base, toujours écrite à `null`.
-  - **Règle d'héritage** : un label SANS ligne sert Sophia. Un oubli de backfill
-    ne peut jamais vider le stock Sophia.
+  - **Aucune application cochée = disponible pour personne** (0330, 21/10).
+    C'est ainsi qu'on met un label de côté sans rien supprimer (medical_study,
+    faceless_study). Avant, un label sans ligne servait Sophia par héritage.
+  - **Seuil de pertinence par label × application**
+    (`label_applications.pertinence_min`, 50 par défaut, jamais moins) : à
+    l'import, un contenu entre dans le pool d'une application si son score
+    atteint le seuil le plus exigeant de ses labels, ou s'il entre en tier A
+    ou mieux. Réglable dans Pilotage → Labels. Sophia n'a pas de seuil.
   - Labels système (`hook`, `ugc-ai-video`) : aucune application.
   - Démarrer Unswipe = créer des labels **dédiés** cochés Unswipe seul. Ne pas
     retirer Sophia d'un label existant : tous ses comptes passeraient en 100 %
@@ -122,7 +128,7 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
     label ne sert Unswipe.
 - **Répartition par compte : DEUX NIVEAUX.**
   1. **Le label** dit ce que le compte PEUT promouvoir : `label_applications`
-     (un label sans ligne sert Sophia), restreint aux applications actives,
+     (aucune application cochée = personne), restreint aux applications actives,
      ciblant sa langue (`applications.langues`, `NULL` = toutes), et à Sophia
      seule pour un compte UGC.
   2. **La répartition du compte** (`comptes.parts_applications` jsonb,
@@ -232,7 +238,7 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
      (`reglages.file_labels_comptes.par_application[slug].par_langue[langue]`),
   2. puis sa file générale (`par_application[slug].items`),
   3. sinon le choix ÉQUILIBRÉ parmi les labels qui servent cette application
-     (`label_applications`, un label sans ligne sert Sophia ; la colonne
+     (cochée dans `label_applications` ; la colonne
      historique `labels.application_id` n'est plus lue) : sans hasard, la
      langue du compte suit la part de chaque label (√stock × performance des
      28 derniers jours rapportée à la langue des posts, part plafonnée à 1/2),
@@ -598,7 +604,7 @@ de placement de l'application pour les slideshows de ce label.
   `anglesTestPourApplication`, `angleBrouillon` ou `ignorerCache` apparaît
   ailleurs que dans les fichiers du test à blanc.
 - **Labels qui servent** : seuls comptent les angles des labels qui SERVENT
-  l'application (`label_applications`, un label sans ligne sert Sophia).
+  l'application (cochée dans `label_applications`).
   Décocher une application d'un label garde ses angles, sans qu'ils servent
   (la page les montre « ne sert plus ») ; la recocher les rend à nouveau
   actifs.

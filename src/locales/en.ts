@@ -2725,15 +2725,18 @@ export const en = {
       },
       labels: {
         applicationsServies: "Applications",
-        aide: "Click an application to add it to the label or remove it. Dashed: the label has no setting yet and serves Sophia by default.",
-        implicite: "No setting: this label serves Sophia by default.",
+        aide: "Click an application to add it to the label or remove it. With no application ticked, the label is available to nobody (set aside, nothing is deleted).",
+        implicite: "No application ticked: this label is available to nobody.",
+        seuil: "{{app}} threshold",
+        seuilAide: "Minimum relevance score for a content imported in this label to enter {{app}} (50 at least; a tier A content passes from 50). Applies to the next imports.",
         applicationInactive: "Inactive application: the label is ready, it does not publish yet.",
         derniereApplication: "A label serves at least one application: tick the other one before removing this one.",
+        confirmerAucune: "Unticking the last application: “{{nom}}” will be available to nobody (no account, no content served). Continue?",
         schemaAbsent:
           "Applications per label unavailable (migration 0256 not applied yet): reserve shown as before.",
         erreurLiens: "Label applications unreadable: {{message}}",
         creeSansApplications:
-          "Label “{{nom}}” created, but its applications were not saved ({{message}}): it serves Sophia by default. Tick them again below.",
+          "Label “{{nom}}” created, but its applications were not saved ({{message}}): it is available to nobody. Tick them again below.",
       },
       replis: {
         titre: "Fallbacks to Sophia",

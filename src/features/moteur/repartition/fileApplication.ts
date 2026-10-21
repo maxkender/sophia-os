@@ -59,9 +59,9 @@ export function avecItemsApplication(
 }
 
 /**
- * Le label sert-il l'application ? `label_applications`, héritage Sophia (un
- * label sans ligne sert Sophia). La colonne `labels.application_id` n'est pas
- * lue.
+ * Le label sert-il l'application ? `label_applications` : sans application
+ * cochée, le label ne sert personne (21/10). La colonne `labels.application_id`
+ * n'est pas lue.
  */
 export function labelSertApplication(
   labelId: string,
@@ -79,9 +79,11 @@ export function labelSertApplication(
 export function labelsAjoutables<T extends LabelFileSlideshow & { id: string }>(
   applicationId: string,
   labels: readonly T[],
-  liens: readonly LienLabelApplication[] | null,
+  /** `"tous"` : liens pas (encore) lisibles, la File Sophia propose tous les labels slideshow. */
+  liens: readonly LienLabelApplication[] | null | "tous",
 ): T[] {
   if (!liens) return [];
+  if (liens === "tous") return labels.filter((l) => estLabelFileSlideshow(l));
   return labels.filter(
     (l) => estLabelFileSlideshow(l) && labelSertApplication(l.id, applicationId, liens),
   );

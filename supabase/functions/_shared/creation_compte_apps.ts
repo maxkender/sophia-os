@@ -5,7 +5,7 @@
  *
  * DEUX NIVEAUX (docs/multi-applications.md) :
  *   1. le LABEL dit ce que le compte PEUT promouvoir (`label_applications`,
- *      un label sans ligne sert Sophia : `applicationsDuLabel`) ;
+ *      aucune application cochée = personne : `applicationsDuLabel`) ;
  *   2. la RÉPARTITION (`comptes.parts_applications`) choisit parmi ce que le
  *      label permet. Une répartition explicite n'autorise QUE ses applications
  *      à part > 0 : un compte réglé 100 % Unswipe avec un label Sophia +
@@ -184,7 +184,7 @@ export function applicationsRequises(
     .sort();
 }
 
-/** Le label sert-il chacune des applications `requises` (héritage Sophia compris) ? */
+/** Le label sert-il chacune des applications `requises` ? */
 export function labelServitToutes(
   labelId: string,
   liens: readonly LienLabelApplication[],

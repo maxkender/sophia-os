@@ -5712,7 +5712,7 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
   // label ne la sert (« 100 % Unswipe »), ou sa répartition explicite lui
   // donne 0 % — n'y pioche jamais : la suite lui annoncerait « pool OK…
   // timeout batch… baisse auto du quota », à tort. On lit donc les
-  // applications de ses labels (un label sans ligne sert Sophia, comme au
+  // applications de ses labels (cochées dans `label_applications`, comme au
   // moteur) et, sans repli Sophia, on rend la vraie cause. Un compte dont un
   // label sert Sophia, sans répartition, continue exactement comme avant.
   const { data: liensApps, error: errApps } = await supabase
@@ -6238,8 +6238,9 @@ export async function listerLabelIdsAvecUgc(): Promise<string[]> {
 /**
  * Crée un label et le RENVOIE (l'appelant enchaîne sur ses applications via
  * `definirApplicationsLabel`). Plus d'`application_id` envoyé : la colonne
- * prend son défaut Sophia, et un label sans ligne `label_applications` sert
- * Sophia — exactement le comportement d'avant pour un label créé sans choix.
+ * prend son défaut Sophia, sans effet. Tant qu'aucune application n'est
+ * cochée dans `label_applications`, le label n'est disponible pour personne
+ * (0330).
  */
 export async function creerLabel(
   nom: string,

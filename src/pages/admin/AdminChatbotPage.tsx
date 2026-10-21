@@ -24,6 +24,7 @@ import {
   type ChatbotContexte,
   type ChatbotQuestion,
 } from "@/features/chatbot/api";
+import { FaqAdmin } from "@/features/chatbot/FaqAdmin";
 import type { AudienceSnippet } from "@/features/chatbot/prompt";
 import type { Role } from "@/features/auth/AuthContext";
 
@@ -223,6 +224,8 @@ export function AdminChatbotPage() {
           <CardDescription>{t("chatbot.pageSubtitle")}</CardDescription>
         </CardHeader>
       </Card>
+
+      <FaqAdmin />
 
       <Card>
         <CardHeader>

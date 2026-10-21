@@ -1,3 +1,5 @@
+import { etatDepuisDecision, type TourFaq } from "../_shared/faq.ts";
+import { chargerBase, chargerReglagesFaq, demanderAuCerveau } from "../_shared/faq_moteur.ts";
 import { generateTextFast } from "../_shared/gemini.ts";
 import { LOT_IDS, type ReponseLot, decouperEnLots, lireParLots, lireTout } from "../_shared/lots.ts";
 import { garderDocumentsPoster, posterGuideCle } from "../_shared/poster_guide.ts";
@@ -551,6 +553,86 @@ QUESTION :
 ${input.question}`;
 }
 
+interface EntreeCerveau {
+  role: Role;
+  question: string;
+  live: string;
+  historique: Tour[];
+  locale: string;
+}
+
+/**
+ * Mode actif : le cerveau répond, et sa décision est journalisée. `null` si
+ * le guide n'est pas encore copié ou si le cerveau échoue : l'ancien assistant
+ * prend le relais, la personne a toujours une réponse.
+ */
+async function repondreAvecLeCerveau(
+  db: ReturnType<typeof serviceClient>,
+  entree: EntreeCerveau & { userId: string | null },
+): Promise<string | null> {
+  try {
+    const charge = await chargerBase(db, entree.role);
+    if (!charge.pages) return null;
+    const r = await demanderAuCerveau({
+      canal: "os",
+      role: entree.role,
+      question: entree.question,
+      base: charge.base,
+      live: entree.live,
+      historique: entree.historique as TourFaq[],
+      langueRepli: NOM_LANGUE[entree.locale] ?? "English",
+    });
+    if (!r.reponse) return null;
+    const reponse = r.decision === "repondu" && r.section ? `${r.reponse}\n\n📖 ${r.section}` : r.reponse;
+    const { error } = await db.from("chatbot_questions").insert({
+      user_id: entree.userId,
+      role: entree.role,
+      question: entree.question,
+      reponse,
+      reponse_faq: r.reponse,
+      section_guide: r.section,
+      etat: etatDepuisDecision(r.decision),
+      envoye_at: new Date().toISOString(),
+    });
+    if (error) console.error("chatbot_questions insert (faq)", error);
+    return reponse;
+  } catch (erreur) {
+    console.warn(`[chatbot] cerveau FAQ indisponible, ancien assistant : ${messageErreur(erreur)}`);
+    return null;
+  }
+}
+
+/** Mode test : ce que le cerveau aurait répondu, rangé à côté de la vraie réponse. */
+async function cerveauEnOmbre(
+  db: ReturnType<typeof serviceClient>,
+  id: string,
+  entree: EntreeCerveau,
+): Promise<void> {
+  let patch: Record<string, unknown>;
+  try {
+    const charge = await chargerBase(db, entree.role);
+    const r = await demanderAuCerveau({
+      canal: "os",
+      role: entree.role,
+      question: entree.question,
+      base: charge.base,
+      live: entree.live,
+      historique: entree.historique as TourFaq[],
+      langueRepli: NOM_LANGUE[entree.locale] ?? "English",
+    });
+    patch = {
+      etat: etatDepuisDecision(r.decision),
+      reponse_faq: r.reponse || null,
+      section_guide: r.section,
+      erreur: charge.pages ? null : "guide Notion pas encore copié (guides-notion)",
+    };
+  } catch (erreur) {
+    patch = { etat: "a_traiter", erreur: `cerveau : ${messageErreur(erreur)}` };
+  }
+  const { error } = await db.from("chatbot_questions").update(patch).eq("id", id);
+  if (error) console.error("chatbot_questions (ombre)", error);
+}
+
 Deno.serve(async (request) => {
   const acces = await assertRole(request, [
     "admin",
@@ -608,6 +690,16 @@ Deno.serve(async (request) => {
     }
 
     const locale = langueDepuisProfil(langues, repliUi);
+    const userId = acces.userId === "cron" ? null : acces.userId;
+
+    // FAQ automatique (docs/faq-automatique.md). En actif, le cerveau répond et
+    // ce qu'il ne sait pas part à l'admin. En test, l'ancien assistant répond
+    // comme avant et le cerveau tourne à côté, sans rien montrer.
+    const reglages = await chargerReglagesFaq(db);
+    if (reglages.mode_os === "actif") {
+      const reponseFaq = await repondreAvecLeCerveau(db, { userId, role, question, live, historique, locale });
+      if (reponseFaq) return json({ ok: true, reponse: reponseFaq, locale });
+    }
 
     // Tables éditées à la main par l'admin : petites aujourd'hui, non bornées
     // dans le code. Elles constituent la section DOCS du prompt, et le prompt
@@ -666,13 +758,20 @@ Deno.serve(async (request) => {
     const reponse = (await generateTextFast(prompt)).trim();
     if (!reponse) return json({ error: "Réponse vide" }, 502);
 
-    const { error: insertError } = await db.from("chatbot_questions").insert({
-      user_id: acces.userId === "cron" ? null : acces.userId,
-      role,
-      question,
-      reponse,
-    });
+    const { data: ligne, error: insertError } = await db
+      .from("chatbot_questions")
+      .insert({ user_id: userId, role, question, reponse, test: reglages.mode_os === "test" })
+      .select("id")
+      .single();
     if (insertError) console.error("chatbot_questions insert", insertError);
+
+    if (ligne && reglages.mode_os === "test") {
+      // Après la réponse : la personne n'attend pas le cerveau.
+      const ombre = cerveauEnOmbre(db, ligne.id as string, { role, question, live, historique, locale });
+      const edge = (globalThis as { EdgeRuntime?: { waitUntil: (p: Promise<unknown>) => void } }).EdgeRuntime;
+      if (edge) edge.waitUntil(ombre);
+      else await ombre;
+    }
 
     return json({ ok: true, reponse, locale });
   } catch (error) {

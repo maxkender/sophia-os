@@ -110,16 +110,22 @@ la main. `date` donne l'heure.
 - #a-os-tickets : une racine postée directement par quelqu'un (Aram…) ou
   transférée à la main par Adrien est déjà un ticket, ne la retransfère pas.
 
-**Ce qui est un problème technique** : quelque chose de l'OS qui ne marche
-pas ou affiche faux — page vide, posts absents, erreur, connexion, données
-fausses, bouton sans effet, calendrier, notifications. **Pas** un problème
-technique : une question de process (« comment je poste ? »), de paiement,
-de recrutement, une discussion.
+**Ce qui est un problème technique** : la définition fait foi dans
+`supabase/functions/_shared/frontiere_it.ts` (`DEFINITION_PROBLEME_TECHNIQUE`),
+lis-la à chaque passage. C'est le même texte que lit la FAQ automatique
+(docs/faq-automatique.md) : ce qui est cassé est à toi, une question de
+process (« comment je poste ? »), de paiement ou de recrutement est à elle,
+une discussion n'est à personne. Dans le doute, c'est à toi.
 
 **Déjà traité**, à ignorer : un message d'Adrien ; un message dont le fil a
 déjà une réponse d'Adrien, ou une réponse d'un manager ou d'Aram qui règle la
 question ; un message dont le lien figure déjà dans une racine de
-#a-os-tickets des 7 derniers jours.
+#a-os-tickets des 7 derniers jours ; un message dont le fil a une réponse
+de l'appli Slack de l'OS (la FAQ automatique) à la question, sauf si
+l'auteur a répondu ensuite que ça n'a pas réglé son problème. Son message
+d'attente (« I've passed your question to the team ») ne règle rien : si le
+message est en fait un problème technique, il reste à toi. Les messages de
+l'appli de l'OS ne sont jamais des tickets.
 
 **Pour chaque nouveau problème** (5 au plus par passage) :
 1. « on it » dans le fil du message d'origine. Problème douteux : pas de

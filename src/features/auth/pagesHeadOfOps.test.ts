@@ -29,6 +29,7 @@ const PAGES_DEMANDEES = [
   "/admin/documents", // Documents
   "/admin/assistant", // Assistant
   "/admin/comment-masters", // Comment masters (ticket 002)
+  "/admin/check-kill-double", // Check, Kill or Double (21/10)
 ];
 
 const routeur = fs.readFileSync(

@@ -1,4 +1,4 @@
-import { etatDepuisDecision, type TourFaq } from "../_shared/faq.ts";
+import { etatDepuisDecision, propositionDe, type TourFaq } from "../_shared/faq.ts";
 import { chargerBase, chargerReglagesFaq, demanderAuCerveau } from "../_shared/faq_moteur.ts";
 import { generateTextFast } from "../_shared/gemini.ts";
 import { LOT_IDS, type ReponseLot, decouperEnLots, lireParLots, lireTout } from "../_shared/lots.ts";
@@ -590,7 +590,7 @@ async function repondreAvecLeCerveau(
       role: entree.role,
       question: entree.question,
       reponse,
-      reponse_faq: r.reponse,
+      reponse_faq: propositionDe(r),
       section_guide: r.section,
       etat: etatDepuisDecision(r.decision),
       envoye_at: new Date().toISOString(),
@@ -623,7 +623,7 @@ async function cerveauEnOmbre(
     });
     patch = {
       etat: etatDepuisDecision(r.decision),
-      reponse_faq: r.reponse || null,
+      reponse_faq: propositionDe(r),
       section_guide: r.section,
       erreur: charge.pages ? null : "guide Notion pas encore copié (guides-notion)",
     };

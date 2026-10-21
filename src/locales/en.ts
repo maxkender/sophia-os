@@ -3296,14 +3296,14 @@ export const en = {
       faq: {
         titre: "Automatic FAQ",
         description:
-          "The brain answers questions from #questions on Slack and from the help bubble, using the Notion guide and the approved answers. Anything broken is left to the IT guy. Anything it doesn't know lands in \"To handle\".",
+          "The brain answers questions from #questions on Slack and from the help bubble, using the Notion guide and the approved answers. Anything broken is left to the IT guy. Anything it doesn't know, or isn't sure about, lands in \"To handle\".",
         modeSlack: "Slack",
         modeOs: "Help bubble",
         modes: { eteint: "Off", test: "Test", actif: "Live" },
         aideTest: "Test mode: nothing is sent. You see here what the brain would have done.",
         confirmerActif: "Switch \"{{quoi}}\" to live? The brain will answer for real.",
         canaux: "Channels read: {{canaux}}",
-        messageAttente: "Let people know on Slack when it doesn't know (\"I've passed your question to the team\")",
+        messageAttente: "Let people know on Slack when it doesn't know or isn't sure (\"I've passed your question to the team\")",
         guideTitre: "Notion guide",
         guidePages: "{{n}} pages copied · last copy {{date}}",
         guideVide:
@@ -3314,7 +3314,7 @@ export const en = {
         voirPages: "See the pages",
         aTraiterTitre: "To handle",
         aTraiterDescription:
-          "Questions the brain couldn't settle, and follow-ups after one of its answers. Your answer goes back where the question was asked.",
+          "Questions the brain couldn't settle, those it wasn't sure about (its answer is prefilled: check it, fix it if needed, send), and follow-ups after one of its answers. Your answer goes back where the question was asked.",
         aTraiterVide: "Nothing to handle.",
         sourceSlack: "Slack",
         sourceOs: "Help bubble",
@@ -3325,6 +3325,8 @@ export const en = {
         tonTexte: "Your answer",
         ajouterBase: "Add to the base (next time, it answers on its own)",
         envoyer: "Send",
+        validerEnvoyer: "Approve and send",
+        aValiderAide: "The brain wasn't sure: nothing was sent. Check its answer below, fix it if needed, then send.",
         enregistrerTest: "Save (test mode: nothing is sent)",
         ignorer: "Dismiss",
         envoye: "Sent.",
@@ -3349,6 +3351,7 @@ export const en = {
           repondu: "Answered",
           bug: "Bug → IT guy",
           hors_sujet: "Off topic",
+          a_valider: "To approve (unsure)",
           a_traiter: "To handle",
           relance: "Follow-up",
           traite_admin: "Handled in the OS",

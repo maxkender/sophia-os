@@ -3,7 +3,9 @@
 Un seul cerveau dans l'OS, deux entrées : **#questions sur Slack** et **la bulle
 d'aide du dashboard**. Il répond à partir du guide Notion et des réponses
 validées par l'admin. Ce qui est cassé, il le laisse à l'IT guy. Ce qu'il ne
-sait pas arrive dans l'OS, page **Assistant → À traiter**.
+sait pas arrive dans l'OS, page **Assistant → À traiter**. Ce dont il n'est
+pas sûr aussi, avec sa réponse déjà écrite : l'admin la valide avant qu'elle
+parte.
 
 **Au départ, tout est en mode test** : rien ne part sur Slack, la bulle répond
 comme avant, et la page Assistant montre ce que le cerveau aurait fait.
@@ -19,12 +21,13 @@ comme avant, et la page Assistant montre ce que le cerveau aurait fait.
                          |
    +---------------------+----------------------+-----------------+
    |                     |                      |                 |
- repondu               bug                  a_traiter         hors_sujet
+ repondu               bug          a_valider / a_traiter      hors_sujet
  il répond          il se tait :        « I've passed your     rien
  (fil Slack /       l'IT guy le prend    question to the team »
   bulle)                                 → OS › Assistant › À traiter
                                                 |
-                                     l'admin tape la réponse (faq-admin)
+                          a_valider : sa réponse est pré-remplie, l'admin la
+                          relit et l'envoie ; a_traiter : l'admin l'écrit (faq-admin)
                                                 |
                       elle repart là où la question a été posée :
                       fil Slack · pop-up du poster · message privé Slack au manager
@@ -58,6 +61,18 @@ comme avant, et la page Assistant montre ce que le cerveau aurait fait.
   cerveau ne lit le Manager Guide que pour un manager. Un poster qui demande son
   montant reçoit la règle (« celui de ton contrat Upwork, demande à ton
   manager en privé »).
+
+## Quand il n'est pas sûr
+
+Le cerveau ne répond seul (« repondu ») que quand il est sûr. Quand le guide
+parle du sujet sans couvrir clairement le cas (une règle proche, un cas
+particulier, une info qui a pu changer), il tranche « incertain » : il écrit sa
+réponse probable, mais **rien ne part**. Sur Slack, seul le message d'attente
+est posté ; dans la bulle, la personne lit que sa question est transmise. La
+question arrive dans « À traiter », état **À valider**, la réponse déjà dans la
+case : tu la relis, la corriges si besoin, et « Valider et envoyer ». Une
+réponse de l'équipe dans le fil entre-temps la règle, comme pour « À traiter ».
+Quand le guide ne dit rien d'utile, c'est « inconnu » : la case est vide.
 
 ## La frontière avec l'IT guy
 

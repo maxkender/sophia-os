@@ -301,7 +301,9 @@ function ATraiterCard({ reglages }: { reglages: ReglagesFaq | undefined }) {
 function LigneATraiter({ q, reglages }: { q: QuestionFaq; reglages: ReglagesFaq | undefined }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
-  const [reponse, setReponse] = React.useState("");
+  // Pas sûr : sa réponse est déjà là, il reste à la relire et l'envoyer.
+  const aValider = q.etat === "a_valider" && Boolean(q.reponse_faq);
+  const [reponse, setReponse] = React.useState(aValider ? (q.reponse_faq ?? "") : "");
   const [base, setBase] = React.useState(true);
   const actif = q.source === "slack" ? reglages?.mode_slack === "actif" : reglages?.mode_os === "actif";
   const rafraichir = () => queryClient.invalidateQueries({ queryKey: CLE });
@@ -321,7 +323,14 @@ function LigneATraiter({ q, reglages }: { q: QuestionFaq; reglages: ReglagesFaq 
     <div className="space-y-2 rounded-md border border-border/80 p-3" data-testid={`faq-question-${q.id}`}>
       <Entete q={q} />
       <p className="whitespace-pre-wrap text-sm">{q.question}</p>
-      {q.reponse_faq && <Encadre titre={t("chatbot.faq.propositionCerveau")}>{q.reponse_faq}</Encadre>}
+      {aValider
+        ? (
+          <p className="text-xs text-warning-foreground">
+            {t("chatbot.faq.aValiderAide")}
+            {q.section_guide ? ` 📖 ${q.section_guide}` : ""}
+          </p>
+        )
+        : q.reponse_faq && <Encadre titre={t("chatbot.faq.propositionCerveau")}>{q.reponse_faq}</Encadre>}
       {q.reponse_humaine && (
         <Encadre titre={t("chatbot.faq.reponseHumaine", { nom: q.reponse_humaine_par ?? "—" })}>
           {q.reponse_humaine}
@@ -332,7 +341,7 @@ function LigneATraiter({ q, reglages }: { q: QuestionFaq; reglages: ReglagesFaq 
         placeholder={t("chatbot.faq.tonTexte")}
         value={reponse}
         onChange={(e) => setReponse(e.target.value)}
-        rows={3}
+        rows={aValider ? 5 : 3}
       />
       <label className="flex items-center gap-2 text-sm">
         <Checkbox checked={base} onCheckedChange={(v) => setBase(v === true)} />
@@ -340,7 +349,11 @@ function LigneATraiter({ q, reglages }: { q: QuestionFaq; reglages: ReglagesFaq 
       </label>
       <div className="flex flex-wrap items-center gap-2">
         <Button size="sm" disabled={!reponse.trim() || traiter.isPending} onClick={() => traiter.mutate()}>
-          {actif ? t("chatbot.faq.envoyer") : t("chatbot.faq.enregistrerTest")}
+          {!actif
+            ? t("chatbot.faq.enregistrerTest")
+            : aValider
+            ? t("chatbot.faq.validerEnvoyer")
+            : t("chatbot.faq.envoyer")}
         </Button>
         <Button size="sm" variant="ghost" disabled={ignorer.isPending} onClick={() => ignorer.mutate()}>
           {t("chatbot.faq.ignorer")}

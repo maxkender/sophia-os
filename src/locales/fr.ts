@@ -3297,14 +3297,14 @@ export const fr = {
       faq: {
         titre: "FAQ automatique",
         description:
-          "Le cerveau répond aux questions de #questions sur Slack et de la bulle d'aide, à partir du guide Notion et des réponses validées. Ce qui est cassé, il le laisse à l'IT guy. Ce qu'il ne sait pas arrive dans « À traiter ».",
+          "Le cerveau répond aux questions de #questions sur Slack et de la bulle d'aide, à partir du guide Notion et des réponses validées. Ce qui est cassé, il le laisse à l'IT guy. Ce qu'il ne sait pas, ou dont il n'est pas sûr, arrive dans « À traiter ».",
         modeSlack: "Slack",
         modeOs: "Bulle d'aide",
         modes: { eteint: "Éteint", test: "Test", actif: "Actif" },
         aideTest: "Mode test : rien ne part. Tu vois ici ce que le cerveau aurait fait.",
         confirmerActif: "Passer « {{quoi}} » en actif ? Le cerveau répondra pour de vrai.",
         canaux: "Canaux lus : {{canaux}}",
-        messageAttente: "Prévenir sur Slack quand il ne sait pas (« I've passed your question to the team »)",
+        messageAttente: "Prévenir sur Slack quand il ne sait pas ou n'est pas sûr (« I've passed your question to the team »)",
         guideTitre: "Guide Notion",
         guidePages: "{{n}} pages copiées · dernière copie {{date}}",
         guideVide:
@@ -3315,7 +3315,7 @@ export const fr = {
         voirPages: "Voir les pages",
         aTraiterTitre: "À traiter",
         aTraiterDescription:
-          "Les questions que le cerveau n'a pas su trancher, et les relances après une de ses réponses. Ta réponse repart là où la question a été posée.",
+          "Les questions que le cerveau n'a pas su trancher, celles dont il n'était pas sûr (sa réponse est pré-remplie : vérifie, corrige si besoin, envoie), et les relances après une de ses réponses. Ta réponse repart là où la question a été posée.",
         aTraiterVide: "Rien à traiter.",
         sourceSlack: "Slack",
         sourceOs: "Bulle d'aide",
@@ -3326,6 +3326,8 @@ export const fr = {
         tonTexte: "Ta réponse",
         ajouterBase: "Ajouter à la base (la prochaine fois, il répond seul)",
         envoyer: "Envoyer",
+        validerEnvoyer: "Valider et envoyer",
+        aValiderAide: "Le cerveau n'était pas sûr : rien n'est parti. Vérifie sa réponse ci-dessous, corrige-la si besoin, puis envoie.",
         enregistrerTest: "Enregistrer (mode test : rien ne part)",
         ignorer: "Ignorer",
         envoye: "Envoyé.",
@@ -3350,6 +3352,7 @@ export const fr = {
           repondu: "Répondu",
           bug: "Bug → IT guy",
           hors_sujet: "Hors sujet",
+          a_valider: "À valider (pas sûr)",
           a_traiter: "À traiter",
           relance: "Relance",
           traite_admin: "Traité dans l'OS",

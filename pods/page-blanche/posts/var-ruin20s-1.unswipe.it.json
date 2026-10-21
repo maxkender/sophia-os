@@ -1,0 +1,248 @@
+{
+ "post_id": "var-ruin20s-1",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "top 5 ways to ruin your 20s"
+     ],
+     "fr": "top 5 pour foirer ta vingtaine",
+     "texte": "top 5 per restare al verde"
+    },
+    "T2": {
+     "en": [
+      "(harsh truth)"
+     ],
+     "fr": "(ça pique)",
+     "alignement": "droite",
+     "texte": "(verità scomoda)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn how money actually works"
+     ],
+     "fr": "comprends l'argent, [[pour de vrai]]",
+     "texte": "non risparmiare mai un centesimo"
+    },
+    "T2": {
+     "en": [
+      "understand investing,",
+      "cash flow, debt, and",
+      "compound growth",
+      "before you start earning",
+      "serious money"
+     ],
+     "fr": "comprends l'investissement, le cash-flow, les dettes et [[les intérêts composés]] avant de [[gagner gros]]",
+     "texte": "i soldi sul conto sono [[soldi che non hai ancora speso]]. un conto deposito? roba da noiosi"
+    },
+    "T3": {
+     "en": [
+      "making more helps, but",
+      "keeping and allocating it",
+      "properly is what stops",
+      "you from being broke"
+     ],
+     "fr": "gagner plus, ça aide, mais ce qui [[t'empêche d'être à sec]], c'est de bien le garder et le placer",
+     "texte": "già al verde il 25 di ogni singolo mese? non è uno schema, è [[solo tanta, tanta sfortuna]]"
+    },
+    "T4": {
+     "en": [
+      "you can't save your way to wealth,",
+      "you have to earn your way there!"
+     ],
+     "fr": "[[on devient pas riche en épargnant, on devient riche en gagnant plus !]]",
+     "texte": "un fondo d'emergenza è per chi [[ha in programma delle emergenze]]!"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "4. put your phone in another room"
+     ],
+     "fr": "4. mets ton tel [[dans une autre pièce]]",
+     "alignement": "gauche",
+     "texte": "compra subito tutto quello che vedi"
+    },
+    "T2": {
+     "en": [
+      "willpower alone is a",
+      "terrible phone blocker"
+     ],
+     "fr": "la volonté, [[ça suffit pas]] contre ton tel",
+     "texte": "perché aspettare 24 ore se [[basta un clic]]?"
+    },
+    "T3": {
+     "en": [
+      "one study of nearly",
+      "800 people"
+     ],
+     "fr": "une étude sur presque 800 personnes",
+     "texte": "le 2 di notte, carta salvata"
+    },
+    "T4": {
+     "en": [
+      "found that just having",
+      "your phone nearby",
+      "reduced available",
+      "cognitive capacity"
+     ],
+     "fr": "a montré qu'avoir juste ton tel à côté [[suffit à te ralentir le cerveau]]",
+     "texte": "[[il momento perfetto]] per comprare la quarta felpa che metterai una volta sola"
+    },
+    "T5": {
+     "en": [
+      "even when you weren't using it!!"
+     ],
+     "fr": "[[même quand tu t'en sers pas !!]]",
+     "texte": "il te del futuro [[pagherà il conto]]!!"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read classic books"
+     ],
+     "fr": "inspire-toi des [[classiques]]",
+     "texte": "scrolla ogni sera"
+    },
+    "T2": {
+     "en": [
+      "people have faced ambition, failure, and hard choices",
+      "for centuries"
+     ],
+     "fr": "l'ambition, l'échec, les choix durs : on vit ça [[depuis des siècles]]",
+     "texte": "le tue serate potrebbero darti una competenza, quindi [[regalale ai reel]]"
+    },
+    "T3": {
+     "en": [
+      "people are more illiterate",
+      "than ever and attention",
+      "spans across the world are",
+      "being destroyed by",
+      "short-form content"
+     ],
+     "fr": "[[on n'a jamais aussi peu lu]] et partout, notre attention est [[grillée par les vidéos courtes]]",
+     "texte": "3 ore di reel a sera sono 1.000 ore l'anno. una lingua, un progetto tuo, [[un'intera carriera]]. sprecale"
+    },
+    "T4": {
+     "en": [
+      "i used to struggle with",
+      "reading long books but i",
+      "found this thing that",
+      "blocks my apps until i read"
+     ],
+     "fr": "j'arrivais plus à me concentrer, puis j'ai remplacé mon scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "e qualunque cosa succeda, non provare a togliere i Reels da instagram con [[l'app UnSwipe]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they make decisions fast"
+     ],
+     "fr": "ils [[décident vite]]",
+     "texte": "non chiedere mai un aumento"
+    },
+    "T2": {
+     "en": [
+      "successful people don’t procrastinate. they don’t",
+      "ask for permission, but instead act and ask for",
+      "forgiveness"
+     ],
+     "fr": "les gens qui réussissent [[remettent rien à plus tard]]. ils [[demandent pas la permission]] : ils foncent et [[s'excusent après]]",
+     "texte": "aspetta in silenzio. il tuo capo [[noterà di sicuro]] tutti quegli straordinari non pagati e ti alzerà lo stipendio [[per bontà]]"
+    },
+    "T3": {
+     "en": [
+      "they don’t spend 3",
+      "weeks thinking",
+      "about a reversible",
+      "choice"
+     ],
+     "fr": "ils passent pas 3 semaines à cogiter sur [[un choix réversible]]",
+     "texte": "trattare è imbarazzante, e [[l'imbarazzo fa più paura del conto vuoto]]"
+    },
+    "T4": {
+     "en": [
+      "if the downside is small, they decide, act, and",
+      "adjust. speed matters most when decisions can",
+      "be changed later"
+     ],
+     "fr": "si le risque est petit, ils décident, foncent et ajustent. [[aller vite compte surtout]] quand tu peux changer d'avis après",
+     "texte": "resta 6 anni nello stesso posto con lo stesso stipendio mentre [[il nuovo arrivato]] ottiene il 20 % in più [[con una mail]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they tolerate long periods with",
+      "no reward"
+     ],
+     "fr": "ils tiennent [[longtemps]] [[sans récompense]]",
+     "texte": "passa la settimana ad aspettare il venerdì"
+    },
+    "T2": {
+     "en": [
+      "they can keep working when",
+      "nobody is watching, nothing",
+      "is going viral, and the results",
+      "still look unimpressive"
+     ],
+     "fr": "ils continuent à bosser quand [[personne regarde]], que rien ne fait le buzz et que les résultats [[font pas rêver]]",
+     "texte": "odia il tuo lavoro dal lunedì al venerdì, poi il sabato spendi [[tutto lo stipendio]] perché [[ne valga la pena]]"
+    },
+    "T3": {
+     "en": [
+      "most people need constant",
+      "proof that something is",
+      "working"
+     ],
+     "fr": "la plupart des gens veulent sans arrêt la preuve que ça marche",
+     "texte": "non costruire mai niente di tuo, è davvero [[troppa fatica]]"
+    },
+    "T4": {
+     "en": [
+      "successful people can stay",
+      "consistent long enough for the",
+      "payoff to arrive."
+     ],
+     "fr": "ceux qui réussissent [[restent réguliers assez longtemps]] pour que ça finisse par payer.",
+     "texte": "ripeti per 40 anni e chiamala [[vita da adulti]]. cosa potrebbe andare storto?"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

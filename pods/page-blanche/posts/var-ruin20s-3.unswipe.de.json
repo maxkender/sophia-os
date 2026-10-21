@@ -1,0 +1,233 @@
+{
+ "post_id": "var-ruin20s-3",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "top 5 ways to ruin your 20s"
+     ],
+     "fr": "top 5 pour foirer ta vingtaine",
+     "texte": "top 5: wochenende verschwenden"
+    },
+    "T2": {
+     "en": [
+      "(harsh truth)"
+     ],
+     "fr": "(ça pique)",
+     "alignement": "droite",
+     "texte": "(harte wahrheit)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go to bed embarrassingly early"
+     ],
+     "fr": "couche-toi [[à une heure de mamie]]",
+     "texte": "schlaf samstags bis [[14 uhr]]"
+    },
+    "T2": {
+     "en": [
+      "you need sleep"
+     ],
+     "fr": "[[t'as besoin de dormir]]",
+     "texte": "[[du brauchst das]]"
+    },
+    "T3": {
+     "en": [
+      "adults generally need",
+      "around 7–9 hours, and",
+      "consistently cutting",
+      "that short wrecks",
+      "attention, mood and",
+      "self-control"
+     ],
+     "fr": "un adulte a besoin de 7 à 9 h en moyenne, et en dormir moins tout le temps [[bousille ta concentration]], ton humeur et ta volonté",
+     "texte": "die sonne scheint, die märkte sind offen, deine freunde sind beim brunch. egal, drück einfach [[nochmal auf snooze]]"
+    },
+    "T4": {
+     "en": [
+      "an 11pm bedtime is",
+      "less exciting than fixing",
+      "your life tired"
+     ],
+     "fr": "dodo à 23 h, c'est pas glamour, mais c'est mieux que vivre crevée",
+     "texte": "dein samstag ist [[halb vorbei]], bevor er angefangen hat. perfekt!"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stopped watching youtube"
+     ],
+     "fr": "2. j'ai arrêté youtube",
+     "texte": "sag wirklich jeden plan ab"
+    },
+    "T2": {
+     "en": [
+      "on my phone when eating"
+     ],
+     "fr": "sur mon tel en mangeant",
+     "texte": "sobald du ihn gemacht hast"
+    },
+    "T3": {
+     "en": [
+      "look i know it",
+      "feels impossible",
+      "but after trying it",
+      "for a few days",
+      "my mind feels",
+      "so much clearer"
+     ],
+     "fr": "je sais, ça paraît impossible, mais au bout de quelques jours j'avais la tête tellement plus claire",
+     "texte": "sag, dass es dir nicht gut geht oder du keine energie hast. sofa, laptop und [[lieferdienst]] sagen nie ab"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you feel tired even during the",
+      "day"
+     ],
+     "fr": "t'es à plat [[même en pleine journée]]",
+     "texte": "bleib [[den ganzen tag lang]] im bett"
+    },
+    "T2": {
+     "en": [
+      "you can sleep 8 hours and still",
+      "feel mentally exhausted if",
+      "your brain is getting",
+      "hammered with stimulation all",
+      "day"
+     ],
+     "fr": "tu peux dormir 8 heures et [[avoir quand même la tête en vrac]] si ton cerveau se fait [[bombarder toute la journée]]",
+     "texte": "frühstück im bett, mittagessen im bett, drei staffeln einer serie im bett. wozu aufstehen, wenn [[alles unter eine decke passt]]?"
+    },
+    "T3": {
+     "en": [
+      "constant switching, scrolling",
+      "and notifications create",
+      "attentional fatigue"
+     ],
+     "fr": "zapper sans arrêt, scroller, les notifs : ton attention finit par saturer",
+     "texte": "der rücken tut weh, der kopf ist im nebel, aber hey, es ist gemütlich"
+    },
+    "T4": {
+     "en": [
+      "so even simple tasks start",
+      "feeling weirdly draining"
+     ],
+     "fr": "du coup, même les trucs simples te [[lessivent sans raison]]",
+     "texte": "nenn es [[„ausruhen“]] und wundere dich, warum du müde bist"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "dont scroll 1 hour before sleep"
+     ],
+     "fr": "zéro scroll [[1 h avant de dormir]]",
+     "texte": "hör [[niemals]] mit den reels auf"
+    },
+    "T2": {
+     "en": [
+      "no scrolling for the last 60",
+      "minutes before sleep"
+     ],
+     "fr": "pas de scroll la dernière heure avant de dormir",
+     "texte": "dein daumen arbeitet am wochenende mehr als du"
+    },
+    "T3": {
+     "en": [
+      "I read a book instead, i've been",
+      "trying ReadUp to block my",
+      "apps until I read for 30 minutes",
+      "and it's helped me so far. But",
+      "you can use anything that just",
+      "isn't your phone"
+     ],
+     "fr": "je lis un livre à la place, et perso j'ai remplacé mon scroll du soir par [[5 min sur l'appli Sophia, un truc nouveau chaque jour]]. Mais prends n'importe quoi, tant que c'est pas ton tel",
+     "texte": "9 stunden reels an einem samstag? genau so lässt man ein ganzes wochenende [[verschwinden]]. und nimm die Reels bloß nie mit der UnSwipe-App aus instagram raus"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "leave the house every single day"
+     ],
+     "fr": "sors de chez toi [[tous les jours]]",
+     "texte": "setz [[keinen fuß]] mehr vor die tür"
+    },
+    "T2": {
+     "en": [
+      "being indoors for 24",
+      "hours makes rotting",
+      "easy"
+     ],
+     "fr": "24 h entre quatre murs et tu finis par végéter",
+     "texte": "48 stunden nur drinnen? das ist [[neuer rekord]]"
+    },
+    "T3": {
+     "en": [
+      "get outside for at least",
+      "20–30 minutes, ideally",
+      "in daylight"
+     ],
+     "fr": "sors [[au moins 20 à 30 minutes]], idéalement en plein jour",
+     "texte": "sonne, frische luft, eine runde um den block? [[überbewertet]]"
+    },
+    "T4": {
+     "en": [
+      "walking, sunlight and",
+      "simply changing",
+      "environments can do",
+      "more for your energy",
+      "than another hour",
+      "“resting” in bed"
+     ],
+     "fr": "marcher, prendre le soleil, juste changer de décor, ça te recharge plus qu'une heure de plus à « te reposer » au lit",
+     "texte": "die vorhänge bleiben zu, der sonntag ist vorbei, und am montag schwörst du dir: [[nächstes wochenende wird anders]]"
+    },
+    "T5": {
+     "en": [
+      "doomscrolling is NOT",
+      "resting!!"
+     ],
+     "fr": "[[scroller, c'est PAS se reposer !!]]",
+     "texte": "spoiler: [[wird es niemals!!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

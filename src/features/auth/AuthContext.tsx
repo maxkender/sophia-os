@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useQueryClient } from "@tanstack/react-query";
 import type { Session, User } from "@supabase/supabase-js";
 
 import { supabase } from "@/lib/supabase/client";
@@ -103,12 +104,28 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const refresh = React.useCallback(() => setJeton((n) => n + 1), []);
 
+  // Changement de compte dans le même onglet (déconnexion puis autre
+  // connexion) : rien du compte précédent ne doit rester en cache. Sans ça, une
+  // lecture gardée indéfiniment (`accueil-cohorte`, staleTime: Infinity)
+  // montrait la frise et la page Payments de la cohorte Ruul à un poster hors
+  // cohorte. `undefined` = aucun compte encore chargé.
+  const queryClient = useQueryClient();
+  const compteCharge = React.useRef<string | null | undefined>(undefined);
+  const oublierCompteChange = React.useCallback(
+    (id: string | null) => {
+      if (compteCharge.current !== undefined && compteCharge.current !== id) queryClient.clear();
+      compteCharge.current = id;
+    },
+    [queryClient],
+  );
+
   React.useEffect(() => {
     let monte = true;
 
     async function charger(session: Session | null) {
       if (!session?.user) {
         if (monte) {
+          oublierCompteChange(null);
           setState({ session: null, user: null, role: null, profil: null, loading: false });
         }
         return;
@@ -119,7 +136,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         chargerProfil(session.user.id),
       ]);
 
-      if (monte) setState({ session, user: session.user, role, profil, loading: false });
+      if (monte) {
+        oublierCompteChange(session.user.id);
+        setState({ session, user: session.user, role, profil, loading: false });
+      }
     }
 
     supabase.auth
@@ -137,7 +157,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       monte = false;
       sub.subscription.unsubscribe();
     };
-  }, [jeton]);
+  }, [jeton, oublierCompteChange]);
 
   const [apercuHo, setApercuHo] = React.useState(lireApercuHo);
   const basculerApercuHo = React.useCallback((actif: boolean) => {

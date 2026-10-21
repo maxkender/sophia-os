@@ -7,6 +7,7 @@ import { assert, assertEquals } from "jsr:@std/assert@1";
 import {
   ACTION_DONE,
   blocsRecap,
+  blocsZone,
   blocsZoneJeudi,
   blocsZoneSamedi,
   type DecisionSlack,
@@ -76,7 +77,9 @@ Deno.test("texteDecision : ce que le HM doit faire, décision par décision", ()
   assert(doubler.includes('"Week 44 (2 acc)"'));
 
   const nudge = texteDecision(decision({ decision: "nudge", publies: 3, attendus: 10, note: "parle-lui" }), 44);
+  assert(nudge.includes("*Follow up*"));
   assert(nudge.includes("Posted 3/10 this week"));
+  assert(nudge.includes("Talk to them today"));
   assert(nudge.includes("_Note: parle-lui_"));
 });
 
@@ -107,13 +110,31 @@ Deno.test("blocsRecap : par zone, sans mention, avec le suivi des Done", () => {
   assert(!texte.includes("<@U0C61CLD82E>"));
   const jeudi = JSON.stringify(blocsRecap("jeudi", "2026-10-22", [zone([decision({ decision: "nudge" })])]));
   assert(jeudi.includes("started Mon 19 Oct"));
-  assert(!jeudi.includes("done"));
+  assert(jeudi.includes("follow up with each of them today"));
+  assert(jeudi.includes("1 to follow up · ⏳ 0/1 done"));
 });
 
-Deno.test("blocsZoneJeudi : pour info, les motifs en anglais, sans bouton", () => {
-  const blocs = blocsZoneJeudi(zone([decision({ decision: "nudge", regle: "jeudi", motifs: ["reveil", "discipline"] })]));
-  assertEquals(blocs.length, 1);
-  assert(blocs[0].text.text.includes("no post took off, missing posts or links"));
+Deno.test("blocsZoneJeudi : le HM relance chaque nouveau posteur, quoi vérifier, et Done", () => {
+  const blocs = blocsZoneJeudi(zone([
+    decision({ id: "a", decision: "nudge", regle: "jeudi", motifs: ["surveiller", "discipline"], publies: 3, attendus: 4 }),
+    decision({ id: "b", decision: "nudge", regle: "jeudi", motifs: ["reveil"], fait: { par: "U1", heure: "11:20" } }),
+  ]));
+  assert(blocs[0].text.text.startsWith("<@U0C61CLD82E> · *UAE + Slovakia*: 2 new posters to follow up today"));
+  const texte = JSON.stringify(blocs);
+  assert(texte.includes("*Follow up* @emma.vyvija827"));
+  assert(texte.includes("Look at that post with them"));
+  assert(texte.includes("paste each link. (3/4 published)"));
+  assert(texte.includes("None of their first posts took off"));
+  const boutons = blocs.filter((b) => b.type === "actions");
+  assertEquals(boutons.length, 1);
+  assertEquals(boutons[0].elements[0].value, "a");
+  assert(texte.includes("✅ Done by <@U1> at 11:20"));
+  // Le Done réécrit le bon message selon le contrôle.
+  assertEquals(
+    blocsZone("jeudi", zone([decision({ decision: "nudge", regle: "jeudi" })]), "2026-10-22")[0].text.text,
+    "<@U0C61CLD82E> · *UAE + Slovakia*: 1 new poster to follow up today",
+  );
+  assert(blocsZone("samedi", zone([decision({})]), "2026-10-24")[0].text.text.endsWith("1 decision for week 44"));
 });
 
 Deno.test("texteRappel : qui ne pas financer, qui passe à 2 comptes ; rien sinon", () => {

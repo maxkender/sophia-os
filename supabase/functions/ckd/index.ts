@@ -1,14 +1,12 @@
 import {
   ajouterJours,
   blocsRecap,
-  blocsZoneJeudi,
-  blocsZoneSamedi,
+  blocsZone,
   COLONNES_PROPOSITION,
   DECISIONS_ENVOYEES,
   maintenantParis,
   majRecap,
   type PropositionSlack,
-  semaineDesDecisions,
   slackApi,
   texteRappel,
   texteRecap,
@@ -312,7 +310,6 @@ async function envoyer(supabase: Supabase, controleId: string) {
     await supabase.from("ckd_controles").update({ slack_canal: canal, slack_ts: fil, slack_erreur: null }).eq("id", controleId);
   }
 
-  const semaine = semaineDesDecisions(c.jour);
   let envoyees = 0;
   const erreurs: string[] = [];
   for (const z of await zonesDe(supabase, props)) {
@@ -320,7 +317,7 @@ async function envoyer(supabase: Supabase, controleId: string) {
       channel: canal,
       thread_ts: fil,
       text: `Check, Kill or Double: ${z.decisions.length} decision${z.decisions.length > 1 ? "s" : ""} for ${z.zone ?? z.hmNom}`,
-      blocks: c.type === "samedi" ? blocsZoneSamedi(z, semaine) : blocsZoneJeudi(z),
+      blocks: blocsZone(c.type, z, c.jour),
       unfurl_links: false,
       unfurl_media: false,
     });

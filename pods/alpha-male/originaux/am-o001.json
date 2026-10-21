@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o001",
+ "schema_id": "weird-advice",
+ "titre": "Weird advice that 100% works (part 2) #selfimprovement #discipline #mindset #men #advice",
+ "musique_titre": "bipolar (Slowed)",
+ "musique_url": "https://www.tiktok.com/music/bipolar-slowed-7391819517150660624",
+ "inspirations": [
+  "ffa5e1d4-830b-4eba-8ad9-44218026db3a",
+  "3d553a29-a71e-4428-9636-e429d2234e12"
+ ],
+ "notes": "Schéma weird-advice (r 7,39 sur 6 passages, ffa5e1d4 ; r 6,77 sur 5 passages et 137 k vues, 3d553a29). Accroches écrites : « Weird Advice That 100% Works (Part 2) » (retenue : l'accroche exacte du gagnant, « part 2 » donne la suite), « Weird Habits That Actually Work » (écartée : plus loin du gagnant), « Strange advice that changed my life » (écartée : promesse en « je » non prouvée sur ce label). Cinq conseils absents du label (vérifié dans donnees/label.json) : téléphone dans une autre pièce (Ward et al. 2017, « Brain Drain »), 3 tâches du lendemain écrites avant de dormir (Scullin et al. 2018 : on s'endort plus vite), se parler avec son prénom quand on est stressé (Kross et al. 2014 : le « je » distancé calme), attendre 2 secondes avant de répondre, apprendre un fait au hasard avant d'ouvrir un fil. Sophia sur le dernier conseil, comme les deux gagnants (« Learn one new thing every day • Use a micro-learning app like the Sophia app… »). Images : la banque du label, sans visage reconnaissable ; la slide Sophia sur un salon avec un tableau, sans personne. Inspirations : slides 1 à 6 de ffa5e1d4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6a2ef06b",
+   "texte_overlay": "Weird Advice That\n100% Works (Part 2)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "362abc77",
+   "texte_overlay": "1. Work with your phone\nin another room\n\n• Even face down, it keeps\npulling at your focus.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "da49894f",
+   "texte_overlay": "2. Write tomorrow's 3 tasks\nbefore bed\n\n• Your mind stops looping\non them, so you fall\nasleep faster.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9fafb92d",
+   "texte_overlay": "3. Talk to yourself by your\nname when you're stressed\n\n• Your name instead of \"I\"\nhelps you think more calmly.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "810a60a9",
+   "texte_overlay": "4. Wait 2 seconds before\nyou answer\n\n• You sound calmer and say\nfewer things you regret.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "632b7144",
+   "texte_overlay": "5. Learn one random fact\nbefore you open any feed\n\n• Your morning starts\ncurious, not comparing.",
+   "texte_sophia": "5. Learn one random fact\nbefore you open any feed\n\n• Use a micro-learning app\nlike the Sophia app: history,\nscience or art in 5 minutes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/6.jpg"
+  }
+ ]
+}

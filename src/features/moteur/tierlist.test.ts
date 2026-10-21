@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
 import {
+  MESURES_PLANCHER_B,
   PASSAGES_PAR_TIER,
   TIERS,
   TIER_MIN_PRIORITAIRE,
@@ -122,6 +123,39 @@ describe("requalification depuis B", () => {
   it("monte en S puis S+ sur un passage qui perce", () => {
     expect(requalifier({ tier: "B", moyenne: 1_200, maxVues: 30_000, nb150k: 0 }).tier).toBe("S");
     expect(requalifier({ tier: "B", moyenne: 1_200, maxVues: 150_000, nb150k: 1 }).tier).toBe("S+");
+  });
+});
+
+describe("plancher de B", () => {
+  const b = (moyenne: number, maxVues: number, mesures?: number, plancherB = 3_000) =>
+    requalifier({ tier: "B", moyenne, maxVues, nb150k: 0, mesures, plancherB });
+
+  it("descend en C quand aucun passage n'atteint le plancher sur deux mesures", () => {
+    const r = b(1_500, 2_000, 2);
+    expect(r.tier).toBe("C");
+    expect(r.regle).toContain("aucun passage ≥ 3");
+  });
+
+  it("reste en B dès qu'un passage atteint le plancher", () => {
+    expect(b(1_500, 3_000, 2).tier).toBe("B");
+    expect(b(4_000, 4_000, MESURES_PLANCHER_B).tier).toBe("B");
+  });
+
+  it("une seule mesure ne suffit pas à couper", () => {
+    expect(b(1_500, 1_500, 1).tier).toBe("B");
+    expect(b(1_500, 1_500, 0).tier).toBe("B");
+  });
+
+  it("sans compte de mesures ou plancher à 0, le barème d'avant s'applique", () => {
+    expect(b(1_500, 1_500).tier).toBe("B");
+    expect(b(1_500, 1_500, 4, 0).tier).toBe("B");
+  });
+
+  it("ne touche ni les montées ni les autres rangs", () => {
+    expect(b(999, 999, 2).tier).toBe("C");
+    expect(b(5_000, 5_000, 2).tier).toBe("A");
+    expect(requalifier({ tier: "A", moyenne: 1_500, maxVues: 2_000, nb150k: 0, mesures: 4, plancherB: 3_000 }).tier).toBe("B");
+    expect(requalifier({ tier: "C", moyenne: 1_500, maxVues: 1_500, nb150k: 0, mesures: 2, plancherB: 3_000 }).tier).toBe("B");
   });
 });
 

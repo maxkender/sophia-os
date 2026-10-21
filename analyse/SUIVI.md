@@ -7,7 +7,7 @@ une piste infirmée reste, c'est ce qui évite de la reproposer.
 
 | # | Ouverte le | Piste / alerte | Qui | Mesure | Statut | Dernier point |
 | --- | --- | --- | --- | --- | --- | --- |
-| P1 | 2026-10-13 | Coupe anticipée tierlist : requalifier dès que les 2 premiers passages font r < 0,6 (647 passages gâchés en 60 j) | moteur | `05b` passages_apres_verdict | ouverte | 13/10 : 647 passages, r 0,70 |
+| P1 | 2026-10-13 | Coupe anticipée tierlist : requalifier dès que les 2 premiers passages font r < 0,6 (647 passages gâchés en 60 j) | moteur | `05b` passages_apres_verdict ; part des posts sur contenus déjà passés sous 3 k (`15_moteurs_vues`) | corrigée, à confirmer | 21/10 : plancher de B — un B dont aucun passage mesuré n'atteint 3 000 (sur ≥ 2 mesures) descend en C à la requalification (`reglages.tierlist.plancher_b`). Simulé sur 01-18/10 : 23 posts/jour concernés à r 0,8, gain ≈ +47 k vues/jour (+3,7 %). Pas de coupe en milieu de cycle (les A finissent leur cycle : 6 posts/jour, +9 k seulement, et un A mal parti remonte à 0,88). Ce soir : 32 B → C (16 smart_girl, 7 alpha_male_yellow). Attendu : part des posts sur contenus < 3 k de 19 % à < 8 % |
 | P2 | 2026-10-13 | @supermaxing déclaré `en`, contenu français (197 contenus dont 126 valides) | moteur | `09` + decks « en » de @supermaxing recréés | corrigée | 13/10 09 h 23 : migration 0278 appliquée. 14/10 : premier deck « en » recréé, entièrement en anglais, slide Sophia en 5 |
 | P3 | 2026-10-13 | Compte bridé `mia.arbeit842` (de) | ops | `08`, apify | ouverte | 13/10 : 26-118 vues en direct |
 | P4 | 2026-10-13 | Compte mort `aleksandar.distsiplina37` (bg), toujours actif | ops | `08`, apify | ouverte | 14/10 : toujours 2 créneaux par jour, 0 post |

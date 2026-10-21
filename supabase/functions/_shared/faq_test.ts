@@ -1,7 +1,8 @@
 /**
  * Cerveau FAQ : ce qui fait qu'il ne parle jamais à côté.
  *  - une valeur de réglage inconnue retombe en test, jamais en actif ;
- *  - un « repondu » vide n'est pas une réponse ;
+ *  - un « repondu » vide n'est pas une réponse ; un « incertain » ne part
+ *    pas, sa proposition attend un admin ;
  *  - Slack : seuls les vrais messages racines des canaux suivis sont des
  *    questions, les admins n'en posent pas, un bot ne se répond pas ;
  *  - un fil : l'auteur ne relance qu'après une vraie réponse, un poster de
@@ -15,12 +16,14 @@ import {
   assemblerBase,
   construirePromptFaq,
   etatDepuisDecision,
+  ETATS_EN_ATTENTE,
   lienSlack,
   lireReglagesFaq,
   estRemerciement,
   estMoiAussi,
   estOnIt,
   lireReponseFaq,
+  propositionDe,
   reponseDansFil,
   reponseEquipeDansFil,
   suiteDeFil,
@@ -54,24 +57,58 @@ Deno.test("réponse du modèle : JSON entouré de texte, em dash retiré, sectio
   assertEquals(r, {
     decision: "repondu",
     reponse: "Use any sound, one that fits.",
+    proposition: "",
     section: "Poster Guide › Quick answers › Can I use a different sound?",
   });
-  assertEquals(lireReponseFaq('{"decision":"bug","reponse":"","section":"null"}'), {
+  assertEquals(lireReponseFaq('{"decision":"bug","reponse":"","proposition":"x","section":"null"}'), {
     decision: "bug",
     reponse: "",
+    proposition: "",
     section: null,
   });
 });
 
 Deno.test("réponse du modèle : un « repondu » vide redevient « inconnu », l'illisible vaut null", () => {
-  assertEquals(lireReponseFaq('{"decision":"repondu","reponse":"  "}'), { decision: "inconnu", reponse: "", section: null });
+  assertEquals(lireReponseFaq('{"decision":"repondu","reponse":"  "}'), {
+    decision: "inconnu",
+    reponse: "",
+    proposition: "",
+    section: null,
+  });
   assertEquals(lireReponseFaq('{"decision":"peut-être","reponse":"x"}'), null);
   assertEquals(lireReponseFaq("pas de json"), null);
   assertEquals(lireReponseFaq('{"decision": "repondu", "reponse": '), null);
 });
 
-Deno.test("décision → état : seul « inconnu » part à l'admin", () => {
+Deno.test("réponse du modèle : « incertain » garde sa proposition, sans elle c'est « inconnu »", () => {
+  const r = lireReponseFaq(
+    '{"decision":"incertain","reponse":"","proposition":"Probably yes — ask your manager.","section":"Poster Guide › Quick answers"}',
+  );
+  assertEquals(r, {
+    decision: "incertain",
+    reponse: "",
+    proposition: "Probably yes, ask your manager.",
+    section: "Poster Guide › Quick answers",
+  });
+  assertEquals(propositionDe(r!), "Probably yes, ask your manager.");
+  // Bulle d'aide : la personne lit « transmis à l'équipe », l'admin la proposition.
+  const os = lireReponseFaq('{"decision":"incertain","reponse":"Passed to the team.","proposition":"Yes."}');
+  assertEquals(os?.reponse, "Passed to the team.");
+  assertEquals(propositionDe(os!), "Yes.");
+  assertEquals(lireReponseFaq('{"decision":"incertain","reponse":"Passed to the team.","proposition":" "}'), {
+    decision: "inconnu",
+    reponse: "Passed to the team.",
+    proposition: "",
+    section: null,
+  });
+  assertEquals(propositionDe({ decision: "repondu", reponse: "Yes.", proposition: "", section: null }), "Yes.");
+  assertEquals(propositionDe({ decision: "bug", reponse: "", proposition: "", section: null }), null);
+});
+
+Deno.test("décision → état : « inconnu » et « incertain » partent à l'admin", () => {
   assertEquals(etatDepuisDecision("inconnu"), "a_traiter");
+  assertEquals(etatDepuisDecision("incertain"), "a_valider");
+  assert(ETATS_EN_ATTENTE.includes("a_valider"));
   assertEquals(etatDepuisDecision("repondu"), "repondu");
   assertEquals(etatDepuisDecision("bug"), "bug");
   assertEquals(etatDepuisDecision("hors_sujet"), "hors_sujet");
@@ -111,7 +148,8 @@ Deno.test("prompt : la frontière de l'IT guy y est mot pour mot, la consigne d�
   const base = { guide: "### [Poster Guide]\nRules", notes: "" };
   const slack = construirePromptFaq({ canal: "slack", role: "poster", question: "Which link?", base });
   assert(slack.includes(DEFINITION_PROBLEME_TECHNIQUE));
-  assert(slack.includes("tu ne réponds QUE quand la base répond"));
+  assert(slack.includes("tu ne réponds QUE quand la base répond clairement"));
+  assert(slack.includes('"repondu" seulement si tu es sûr : dans le doute, "incertain"'));
   assert(slack.includes("MESSAGE :\nWhich link?"));
   assert(!slack.includes("SITUATION DE LA PERSONNE"));
 
@@ -187,6 +225,7 @@ Deno.test("fil : l'équipe règle la question, un poster de passage non", () => 
     reponse_humaine_par: "U0BL6E14JKH",
   });
   assertEquals(suiteDeFil({ ...attente, etat: "relance" }, "U0BMTK7BLCW", "on it", equipe)?.etat, "traite_slack");
+  assertEquals(suiteDeFil({ ...attente, etat: "a_valider" }, "U0BL6E14JKH", "Yes you can", equipe)?.etat, "traite_slack");
   assertEquals(suiteDeFil(attente, "UAUTRE", "same here", equipe), null);
   assertEquals(suiteDeFil(attente, "U0BL6E14JKH", "   ", equipe), null);
 });
@@ -220,11 +259,11 @@ Deno.test("fil : sur un bug, on suit l'IT guy (« on it » puis sa réponse)", (
 });
 
 Deno.test("texte Slack : réponse, section du guide, et comment relancer", () => {
-  const t = texteReponseSlack({ decision: "repondu", reponse: "Post it anyway.", section: "Poster Guide › Quick answers" });
+  const t = texteReponseSlack({ reponse: "Post it anyway.", section: "Poster Guide › Quick answers" });
   assert(t.startsWith("Post it anyway."));
   assert(t.includes("📖 _Poster Guide › Quick answers_"));
   assert(t.includes("Reply in this thread"));
-  assert(!texteReponseSlack({ decision: "repondu", reponse: "x", section: null }).includes("📖"));
+  assert(!texteReponseSlack({ reponse: "x", section: null }).includes("📖"));
   assertEquals(
     lienSlack("C0BL56RJH7T", "1792143200.511969"),
     "https://sophia-system.slack.com/archives/C0BL56RJH7T/p1792143200511969",

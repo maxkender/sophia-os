@@ -18,8 +18,9 @@ describe("réglages de la FAQ", () => {
 });
 
 describe("journal", () => {
-  it("range relances avec « À traiter » et les trois issues humaines avec « Traité »", () => {
+  it("range « à valider » et relances avec « À traiter », et les trois issues humaines avec « Traité »", () => {
     expect(dansFiltre("relance", "a_traiter")).toBe(true);
+    expect(dansFiltre("a_valider", "a_traiter")).toBe(true);
     expect(dansFiltre("traite_slack", "traite")).toBe(true);
     expect(dansFiltre("ignore", "traite")).toBe(true);
     expect(dansFiltre("bug", "repondu")).toBe(false);

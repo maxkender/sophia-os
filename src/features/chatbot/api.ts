@@ -179,12 +179,12 @@ export async function ecrireReglagesFaq(reglages: ReglagesFaq): Promise<void> {
   if (error) throw error;
 }
 
-/** Ce que le cerveau n'a pas su trancher, et les relances après une réponse. */
+/** Ce que le cerveau n'a pas su trancher ou fait valider, et les relances après une réponse. */
 export async function listerFaqATraiter(): Promise<QuestionFaq[]> {
   const { data, error } = await supabase
     .from("chatbot_questions")
     .select(COLONNES_FAQ)
-    .in("etat", ["a_traiter", "relance"])
+    .in("etat", ["a_valider", "a_traiter", "relance"])
     .order("created_at", { ascending: false })
     .limit(100);
   if (error) throw error;

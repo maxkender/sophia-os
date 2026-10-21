@@ -63,21 +63,27 @@ compte d'Adrien) sort la question de « À traiter ».
    déploie `slack-faq`, `guides-notion`, `faq-admin` (avec leur
    `verify_jwt = false` de `supabase/config.toml`).
 3. **Notion** : l'intégration de `NOTION_TOKEN` (celle qui écrit « Hired »)
-   doit avoir accès aux deux guides. Page du guide → `•••` → Connexions →
-   ajouter l'intégration (les sous-pages suivent). Puis page Assistant →
+   doit avoir accès aux deux guides. Pour la reconnaître : base Recruitment
+   Targets → `•••` → Connexions, c'est celle qui y est connectée. Puis, sur le
+   Poster Guide et sur le Manager Guide : `•••` → Connexions → chercher son
+   nom → Confirmer (les sous-pages suivent). Enfin, page Assistant →
    « Recopier maintenant » : le message dit ce qui manque.
-4. **Slack**, dans l'appli de l'OS (celle des comment masters, sur
-   api.slack.com/apps) :
-   - *OAuth & Permissions* → Bot Token Scopes : `channels:history`,
-     `chat:write`, `users:read`, puis réinstaller l'appli dans le workspace ;
-   - *Event Subscriptions* → activer, Request URL :
+4. **Slack**, dans l'appli **« Sophia OS »** (celle de Check, Kill or Double,
+   secrets `SLACK_HM_BOT_TOKEN` / `SLACK_HM_SIGNING_SECRET`), **pas** « Sophia
+   Comments » (comment masters), sur api.slack.com/apps :
+   - *OAuth & Permissions* → *Scopes* → *Bot Token Scopes* → ajouter
+     `channels:history`, `users:read` (et `chat:write` s'il manque), puis le
+     bandeau jaune → *reinstall your app* → *Allow* ;
+   - dans Slack, `/invite @Sophia OS` dans #questions ;
+   - **après le déploiement de `slack-faq`** (sinon Slack refuse l'URL) :
+     *Event Subscriptions* → *Enable Events* → Request URL
      `https://mbikecieskoobeizixig.supabase.co/functions/v1/slack-faq`
-     (Slack la vérifie tout de suite), puis *Subscribe to bot events* →
-     `message.channels` ;
-   - inviter l'appli dans #questions (`/invite @Sophia OS`).
+     (Slack affiche *Verified*), puis *Subscribe to bot events* → *Add Bot
+     User Event* → `message.channels` → *Save Changes*.
 
    Pour une appli Slack à part : secrets `SLACK_FAQ_BOT_TOKEN` et
-   `SLACK_FAQ_SIGNING_SECRET` (sinon `SLACK_BOT_TOKEN` / `SLACK_SIGNING_SECRET`).
+   `SLACK_FAQ_SIGNING_SECRET` (sinon `SLACK_HM_BOT_TOKEN` /
+   `SLACK_HM_SIGNING_SECRET`).
 5. **Laisser tourner en test 2-3 jours**, lire le journal (filtres Répondu /
    Bug → IT guy / À traiter), corriger le guide ou ajouter des réponses à la
    base. Puis passer Slack et/ou la bulle en **Actif** sur la page Assistant.

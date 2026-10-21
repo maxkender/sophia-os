@@ -79,15 +79,17 @@ export async function demanderAuCerveau(
 type Fetch = typeof fetch;
 
 /**
- * Le jeton du bot qui répond. Par défaut celui de l'appli de l'OS (comment
- * masters) ; `SLACK_FAQ_BOT_TOKEN` permet une appli à part sans redéploiement.
+ * Le bot qui répond est l'appli Slack « Sophia OS » (celle de Check, Kill or
+ * Double : `SLACK_HM_*`), pas « Sophia Comments » (`SLACK_BOT_TOKEN`, comment
+ * masters) : une réponse signée « Sophia Comments » dans #questions ne
+ * voudrait rien dire. `SLACK_FAQ_*` permet une appli à part sans redéploiement.
  */
 export function jetonSlackFaq(): string | null {
-  return Deno.env.get("SLACK_FAQ_BOT_TOKEN") ?? Deno.env.get("SLACK_BOT_TOKEN") ?? null;
+  return Deno.env.get("SLACK_FAQ_BOT_TOKEN") ?? Deno.env.get("SLACK_HM_BOT_TOKEN") ?? null;
 }
 
 export function secretSignatureFaq(): string | null {
-  return Deno.env.get("SLACK_FAQ_SIGNING_SECRET") ?? Deno.env.get("SLACK_SIGNING_SECRET") ?? null;
+  return Deno.env.get("SLACK_FAQ_SIGNING_SECRET") ?? Deno.env.get("SLACK_HM_SIGNING_SECRET") ?? null;
 }
 
 interface ReponseSlack {

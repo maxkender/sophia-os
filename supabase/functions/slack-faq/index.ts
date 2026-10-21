@@ -27,8 +27,8 @@ import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 /**
  * slack-faq — l'entrée Slack de la FAQ automatique (docs/faq-automatique.md).
  *
- * Appelée par Slack (Event Subscriptions, événement `message.channels`) à
- * chaque message des canaux publics où l'appli est. Pas de x-cron-secret ni de
+ * Appelée par Slack (appli « Sophia OS », Event Subscriptions, événement
+ * `message.channels`) à chaque message des canaux publics où l'appli est. Pas de x-cron-secret ni de
  * JWT : c'est la signature Slack qui authentifie, comme `slack-interactions`.
  *
  * Slack veut son 200 en moins de 3 s, et la réponse du cerveau en prend
@@ -44,7 +44,7 @@ Deno.serve(async (request) => {
   if (!signature) return json({ error: "unauthorized" }, 401);
 
   const secret = secretSignatureFaq();
-  if (!secret) return json({ error: "SLACK_SIGNING_SECRET manquant" }, 500);
+  if (!secret) return json({ error: "SLACK_HM_SIGNING_SECRET manquant" }, 500);
 
   const corps = await request.text();
   const valide = await signatureSlackValide(
@@ -162,7 +162,7 @@ async function repondre(
       : (!r || r.decision === "inconnu") && reglages.message_attente
       ? MESSAGE_ATTENTE_SLACK
       : null;
-    if (texte && !token) erreurs.push("jeton Slack absent (SLACK_BOT_TOKEN)");
+    if (texte && !token) erreurs.push("jeton Slack absent (SLACK_HM_BOT_TOKEN)");
     if (texte && token) {
       const envoi = await posterSlack(token, q.canal, texte, q.ts);
       if (envoi.ok) {

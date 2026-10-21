@@ -11,6 +11,7 @@ import { chargerAnglePlacement } from "./applications_moteur.ts";
 import { contenuIdsDesLabels } from "./assignation_contenu.ts";
 import { LANGUES_CIBLES, type SlideLangue, tracerAngleSophia } from "./import_contenu.ts";
 import { ID_SOPHIA } from "./multi_app.ts";
+import { regleLocalisationScolaire } from "./localisation_scolaire.ts";
 import { lireParLots } from "./lots.ts";
 import { chargerPrompt, messageErreur, serviceClient } from "./supabase.ts";
 
@@ -306,7 +307,8 @@ export async function creerVariation(
   const base = dedie ??
     (candidat.langue === "fr" ? await chargerPrompt(supabase, "traduction") : undefined);
   const consignes = await chargerPrompt(supabase, "composition_remanie");
-  const regles = [base, consignes, voix ? `Voix propre à cette source :\n${voix}` : null]
+  const scolaire = await regleLocalisationScolaire(supabase, candidat.langue);
+  const regles = [base, scolaire, consignes, voix ? `Voix propre à cette source :\n${voix}` : null]
     .filter(Boolean)
     .join("\n\n");
 

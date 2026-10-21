@@ -2512,6 +2512,9 @@ export const en = {
       communsDesc: "Translation, UGC identity and writing guidance: the same whichever application is promoted.",
       traductionTitle: "Prompt — Translation (French)",
       traductionDesc: "The tone of texts translated to French, readable on TikTok.",
+      localisationScolaireTitle: "Prompt — School localisation (all languages)",
+      localisationScolaireDesc:
+        "Added to every slideshow translation: grades, exams and school levels from another country (A*, A-levels, GPA…) become those of the target country. One line per country, formatted \"TR: …\". The country is read from the language's accounts; a language posted in several countries (es-419, en, ar) uses neutral words.",
       ugcFaceSwapTitle: "Prompt — UGC full-identity transfer (Nano Banana)",
       ugcFaceSwapDesc:
         "On UGC AI assignment: Figure 1 = slide (pose/scene), Figures 2+ = persona. FULL-body identity transfer (skin, face, hair) — not a head paste. Keep pose, expression, grain and clothing from the slide.",

@@ -1044,7 +1044,7 @@ export const en = {
       envoyees: "{{n}} decision(s) sent.",
       erreurSlack: "Slack: {{erreur}}",
       consequences: {
-        nudge: "@{{handle}} gets the pop-up at their next login (text set in Settings).",
+        nudge: "@{{handle}} gets the pop-up at their next login (text set in Settings), and their HM must follow up: #managers-hq tells them what to check, with a Done button.",
         rien: "Nothing is sent.",
         ne_pas_renouveler: "@{{handle}} posts until Sunday and stops at 11:30 pm (right away on a Monday before 10 am). A poster with no other account is deactivated.",
         recreer: "A new account is created right away (same app, label from the distribution). @{{handle}} stops on Sunday at 11:30 pm.",

@@ -1045,7 +1045,7 @@ export const fr = {
       envoyees: "{{n}} décision(s) envoyée(s).",
       erreurSlack: "Slack : {{erreur}}",
       consequences: {
-        nudge: "@{{handle}} reçoit le pop-up à sa prochaine connexion (texte réglable dans Réglages).",
+        nudge: "@{{handle}} reçoit le pop-up à sa prochaine connexion (texte réglable dans Réglages), et son HM doit le relancer : #managers-hq lui dit quoi vérifier, avec un bouton Done.",
         rien: "Rien n'est envoyé.",
         ne_pas_renouveler: "@{{handle}} poste jusqu'au dimanche et s'arrête à 23 h 30 (tout de suite un lundi avant 10 h). Un posteur sans autre compte est désactivé.",
         recreer: "Un nouveau compte est créé tout de suite (même application, label de la répartition). @{{handle}} s'arrête dimanche à 23 h 30.",

@@ -120,10 +120,12 @@ function titreZone(z: ZoneSlack, mention: boolean): string {
   return [quiHm(z, mention), z.zone ? `*${z.zone}*` : null].filter(Boolean).join(" · ");
 }
 
-const MOTIF_EN: Record<string, string> = {
-  reveil: "no post took off",
-  surveiller: "one post with almost no views",
-  discipline: "missing posts or links",
+/** Ce que le HM vérifie avec un nouveau posteur, motif par motif (jeudi). */
+const SUIVI_MOTIF: Record<string, string> = {
+  reveil: "None of their first posts took off. Go through them together: posting time, first slide, sound, " +
+    "and that they post from the right account.",
+  surveiller: "One of their first posts got almost no views. Look at that post with them: posting time, first slide, sound.",
+  discipline: "Some posts are missing or have no link in the OS. Make sure they publish everything planned and paste each link.",
 };
 
 const LIBELLE_DECISION: Record<DecisionEnvoyee, string> = {
@@ -157,11 +159,43 @@ export function texteDecision(d: DecisionSlack, semaine: number): string {
     );
   } else {
     const publies = d.attendus ? ` Posted ${d.publies ?? 0}/${d.attendus} this week.` : "";
-    lignes.push(`:speech_balloon: *Nudge* ${qui}`);
-    lignes.push(`They got a message in the OS.${publies} Please check in with them.`);
+    lignes.push(`:speech_balloon: *Follow up* ${qui}`);
+    lignes.push(
+      `They got a message in the OS.${publies} Talk to them today: are they posting without pasting the links ` +
+        "in the OS, or not posting at all?",
+    );
   }
   if (d.note) lignes.push(`_Note: ${d.note}_`);
   return lignes.join("\n");
+}
+
+/** Le texte d'un nouveau posteur à relancer (jeudi) : quoi vérifier avec lui. */
+export function texteSuiviJeudi(d: DecisionSlack): string {
+  const qui = `${compte(d.handle)} (${[d.poster, drapeauPays(d.pays)].filter(Boolean).join(" ")})${lienTiktok(d.handle)}`;
+  const publies = d.attendus ? ` (${d.publies ?? 0}/${d.attendus} published)` : "";
+  const lignes = [`:eyes: *Follow up* ${qui}`];
+  for (const m of d.motifs) {
+    const texte = SUIVI_MOTIF[m];
+    if (texte) lignes.push(`• ${texte}${m === "discipline" ? publies : ""}`);
+  }
+  if (lignes.length === 1) lignes.push("• Check in with them: they got a message in the OS.");
+  if (d.note) lignes.push(`_Note: ${d.note}_`);
+  return lignes.join("\n");
+}
+
+function boutonDone(d: DecisionSlack): Bloc {
+  return d.fait
+    ? { type: "context", elements: [{ type: "mrkdwn", text: `✅ Done by <@${d.fait.par}> at ${d.fait.heure}` }] }
+    : {
+      type: "actions",
+      elements: [{
+        type: "button",
+        style: "primary",
+        action_id: ACTION_DONE,
+        value: d.id,
+        text: { type: "plain_text", text: "✅ Done" },
+      }],
+    };
 }
 
 /** Le message d'une zone, le samedi : une section et un bouton Done par décision. */
@@ -176,42 +210,39 @@ export function blocsZoneSamedi(z: ZoneSlack, semaine: number): Bloc[] {
   for (const d of z.decisions) {
     blocs.push({ type: "divider" });
     blocs.push({ type: "section", text: { type: "mrkdwn", text: texteDecision(d, semaine) } });
-    blocs.push(
-      d.fait
-        ? { type: "context", elements: [{ type: "mrkdwn", text: `✅ Done by <@${d.fait.par}> at ${d.fait.heure}` }] }
-        : {
-          type: "actions",
-          elements: [{
-            type: "button",
-            style: "primary",
-            action_id: ACTION_DONE,
-            value: d.id,
-            text: { type: "plain_text", text: "✅ Done" },
-          }],
-        },
-    );
+    blocs.push(boutonDone(d));
   }
   return blocs;
 }
 
-/** Le message d'une zone, le jeudi : pour info, sans bouton. */
+/**
+ * Le message d'une zone, le jeudi : les nouveaux posteurs qui démarrent mal. Ils
+ * ont eu un nudge dans l'OS ; le HM les relance le jour même, puis clique Done.
+ */
 export function blocsZoneJeudi(z: ZoneSlack): Bloc[] {
-  const lignes = z.decisions.map((d) => {
-    const motifs = d.motifs.map((m) => MOTIF_EN[m] ?? m).join(", ");
-    return `• ${compte(d.handle)} (${[d.poster, drapeauPays(d.pays)].filter(Boolean).join(" ")})${lienTiktok(d.handle)}${
-      motifs ? `: ${motifs}` : ""
-    }`;
-  });
-  return [{
+  const n = z.decisions.length;
+  const blocs: Bloc[] = [{
     type: "section",
     text: {
       type: "mrkdwn",
-      text: `${titreZone(z, true)}: nudged in the OS, nothing to do\n${lignes.join("\n")}`,
+      text: `${titreZone(z, true)}: ${n} new poster${n > 1 ? "s" : ""} to follow up today`,
     },
   }];
+  for (const d of z.decisions) {
+    blocs.push({ type: "divider" });
+    blocs.push({ type: "section", text: { type: "mrkdwn", text: texteSuiviJeudi(d) } });
+    blocs.push(boutonDone(d));
+  }
+  return blocs;
 }
 
-function comptes(z: ZoneSlack): string {
+/** Le message d'une zone selon le contrôle. */
+export function blocsZone(type: "jeudi" | "samedi", z: ZoneSlack, jour: string): Bloc[] {
+  return type === "samedi" ? blocsZoneSamedi(z, semaineDesDecisions(jour)) : blocsZoneJeudi(z);
+}
+
+function comptes(type: "jeudi" | "samedi", z: ZoneSlack): string {
+  if (type === "jeudi") return `${z.decisions.length} to follow up`;
   const parDecision = new Map<DecisionEnvoyee, number>();
   for (const d of z.decisions) parDecision.set(d.decision, (parDecision.get(d.decision) ?? 0) + 1);
   return DECISIONS_ENVOYEES.filter((k) => parDecision.has(k))
@@ -225,11 +256,12 @@ export function blocsRecap(type: "jeudi" | "samedi", jour: string, zones: ZoneSl
     ? `:clipboard: *Check, Kill or Double · week ${semaineDesDecisions(jour)}*\n` +
       `Decisions of ${jourCourt(jour)} for next week. Each zone's details are in the thread: click Done once it's handled.`
     : `:eyes: *Check, Kill or Double · Thursday check* (accounts that started ${jourCourt(ajouterJours(jour, -3))})\n` +
-      "These posters got a nudge in the OS. Nothing to do: details per zone in the thread.";
+      "New posters off to a weak start. They got a nudge in the OS: now follow up with each of them today. " +
+      "What to check is in the thread: click Done once you've talked to them.";
   const lignes = zones.map((z) => {
     const faits = z.decisions.filter((d) => d.fait).length;
-    const suivi = type === "samedi" ? ` · ${faits === z.decisions.length ? "✅" : "⏳"} ${faits}/${z.decisions.length} done` : "";
-    return `• ${titreZone(z, false)}: ${comptes(z)}${suivi}`;
+    const suivi = ` · ${faits === z.decisions.length ? "✅" : "⏳"} ${faits}/${z.decisions.length} done`;
+    return `• ${titreZone(z, false)}: ${comptes(type, z)}${suivi}`;
   });
   return [
     { type: "section", text: { type: "mrkdwn", text: tete } },
@@ -240,7 +272,7 @@ export function blocsRecap(type: "jeudi" | "samedi", jour: string, zones: ZoneSl
 export function texteRecap(type: "jeudi" | "samedi", jour: string): string {
   return type === "samedi"
     ? `Check, Kill or Double: week ${semaineDesDecisions(jour)} decisions`
-    : "Check, Kill or Double: Thursday check";
+    : "Check, Kill or Double: Thursday follow-ups";
 }
 
 /**

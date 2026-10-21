@@ -1,11 +1,10 @@
 import { blocsSlack, signatureSlackValide } from "../_shared/comment_masters.ts";
 import {
   ACTION_DONE,
-  blocsZoneSamedi,
+  blocsZone,
   COLONNES_PROPOSITION,
   majRecap,
   type PropositionSlack,
-  semaineDesDecisions,
   zonesDe,
 } from "../_shared/ckd.ts";
 import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
@@ -15,7 +14,8 @@ import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
  *   * comment masters (SLACK_SIGNING_SECRET) : le bouton « ✅ Done » sous
  *     chaque post à commenter ;
  *   * « Sophia OS » (SLACK_HM_SIGNING_SECRET) : le bouton « ✅ Done » sous
- *     chaque décision Check, Kill or Double, dans le fil de la zone du HM.
+ *     chaque décision Check, Kill or Double (samedi) et chaque posteur à
+ *     relancer (jeudi), dans le fil de la zone du HM.
  *
  * Appelée par Slack, pas par un cron ni par l'OS : pas de x-cron-secret ni de
  * JWT, c'est la signature Slack qui authentifie (l'un ou l'autre secret).
@@ -135,7 +135,7 @@ async function ckdFait(payload: any, action: any) {
   }
 
   const [{ data: controle, error: errC }, { data: memes, error: errM }] = await Promise.all([
-    supabase.from("ckd_controles").select("jour").eq("id", p.controle_id).single(),
+    supabase.from("ckd_controles").select("type, jour").eq("id", p.controle_id).single(),
     supabase.from("ckd_propositions").select(COLONNES_PROPOSITION).eq("controle_id", p.controle_id).eq("slack_ts", p.slack_ts),
   ]);
   if (errC) throw errC;
@@ -148,7 +148,7 @@ async function ckdFait(payload: any, action: any) {
       body: JSON.stringify({
         replace_original: true,
         text: `Check, Kill or Double: ${zone.zone ?? zone.hmNom}`,
-        blocks: blocsZoneSamedi(zone, semaineDesDecisions(controle.jour)),
+        blocks: blocsZone(controle.type, zone, controle.jour),
       }),
     });
   }

@@ -8,8 +8,9 @@
  * qui garde exactement un passage et un appel Gemini.
  *
  * La consigne passée à `scoreRelevance` est le prompt stocké TEL QUEL
- * (`undefined` pour Sophia sans prompt : le défaut de `scoreRelevance`) : plus
- * d'angle de label injecté. Le texte envoyé à Gemini pour un contenu Sophia
+ * (`undefined` pour Sophia sans prompt : le défaut de `scoreRelevance`) : aucun
+ * angle de label injecté (l'angle de placement, `angles_placement`, ne
+ * sert qu'au placement : angle_placement.ts). Le texte envoyé à Gemini pour un contenu Sophia
  * est octet pour octet celui d'avant le multi-app. La colonne
  * `contenu_pertinences.angles` reste en base, toujours écrite à `null`.
  *
@@ -208,6 +209,19 @@ export function eligibiliteDepuisNote(
 ): boolean {
   if (pertinence && !pertinenceSuffisante(pertinence.applicationId, pertinence.score)) return false;
   return force || (Number.isFinite(note) && note >= seuil);
+}
+
+/**
+ * Note d'un ORIGINAL de pod pour une application : celle de son rang d'entrée
+ * (B, la même que `NOTE_TIER_POD.B` de pods.ts, qui importe ce module). Un
+ * original n'a pas de vues source : la note d'import (70 % de vues)
+ * l'écarterait toujours, quel que soit son sujet.
+ */
+export const NOTE_ORIGINAL_POD = 60;
+
+/** Original écrit par un agent de pod : `pod` posé, pas de post source, pas livré en images finies. */
+export function estOriginalDePod(c: { pod?: string | null; source_url?: string | null; livre?: boolean | null }): boolean {
+  return Boolean(c.pod) && !c.source_url && !c.livre;
 }
 
 /**
@@ -791,7 +805,7 @@ export async function noterContenuBackfill(
 ): Promise<void> {
   const { data: contenu, error } = await supabase
     .from("contenus")
-    .select("id, titre, langue_source, vues_source, import_elo_force_seuil, compte_reference_id")
+    .select("id, titre, langue_source, vues_source, import_elo_force_seuil, compte_reference_id, pod, source_url, livre")
     .eq("id", contenuId)
     .maybeSingle();
   if (error) throw new Error(`Contenu ${contenuId} : ${messageErreur(error)}`);
@@ -803,6 +817,9 @@ export async function noterContenuBackfill(
     vues_source: number | null;
     import_elo_force_seuil: boolean | null;
     compte_reference_id?: string | null;
+    pod?: string | null;
+    source_url?: string | null;
+    livre?: boolean | null;
   };
   const langueSource = c.langue_source ?? "fr";
   // Même note qu'à l'étape 4 de l'import : piste du compte source et son poids
@@ -827,7 +844,9 @@ export async function noterContenuBackfill(
   });
   const stocke = scoreStockable(score);
   const forcee = Boolean(c.import_elo_force_seuil);
-  const brute = deps.noteImport({
+  // Original de pod : la note de son rang d'entrée, et seul son sujet décide.
+  const original = estOriginalDePod(c);
+  const brute = original ? NOTE_ORIGINAL_POD : deps.noteImport({
     pertinence: stocke,
     vues: c.vues_source ?? null,
     langue: langueSource,
@@ -840,7 +859,7 @@ export async function noterContenuBackfill(
     poidsSource: scoring.poidsSource,
   });
   // Import forcé : note planchée au seuil, comme côté Sophia (`noteStockee`).
-  const note = noteStockee(brute, app.id, scoring.eloSeuil, forcee);
+  const note = original ? brute : noteStockee(brute, app.id, scoring.eloSeuil, forcee);
   const { error: errUp } = await supabase.from("contenu_pertinences").upsert(
     {
       contenu_id: contenuId,
@@ -848,7 +867,7 @@ export async function noterContenuBackfill(
       score: stocke,
       raison: reason,
       note,
-      eligible: eligibiliteDepuisNote(note, scoring.eloSeuil, forcee, {
+      eligible: original ? pertinenceSuffisante(app.id, stocke) : eligibiliteDepuisNote(note, scoring.eloSeuil, forcee, {
         applicationId: app.id,
         score: stocke,
       }),

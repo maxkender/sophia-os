@@ -1,4 +1,9 @@
-import { applicationSophia, type ApplicationRow, SLUG_SOPHIA } from "../_shared/applications.ts";
+import {
+  applicationParId,
+  applicationSophia,
+  type ApplicationRow,
+  SLUG_SOPHIA,
+} from "../_shared/applications.ts";
 import {
   consommerFileSlideshow,
   estLabelFileSlideshow,
@@ -27,7 +32,15 @@ import {
   valeurFileLabels,
 } from "../_shared/file_labels_comptes.ts";
 import { filtrerPoolParApplication } from "../_shared/labels_repli.ts";
-import { choisirLabelEquilibre, normaliserStatLabel } from "../_shared/choix_label_equilibre.ts";
+import { choisirLabel, labelsFermesConnus } from "../_shared/choix_label_equilibre.ts";
+import {
+  type ApplicationCandidate,
+  classerApplications,
+  lireCibleApplications,
+  type MarcheApplications,
+  partsPourApplication,
+} from "../_shared/choix_application.ts";
+import { chargerReglagesChoixLabel, statsChoixLabel } from "../_shared/fermeture_labels.ts";
 import { lireTout } from "../_shared/lots.ts";
 import { ID_SOPHIA, type PartsApplications } from "../_shared/multi_app.ts";
 import { appliquerIdentiteInstantanee } from "../_shared/persona.ts";
@@ -50,6 +63,23 @@ interface PersonaUgcLibre {
   nom: string;
   image_face_url: string;
   image_profile_url: string | null;
+}
+
+/**
+ * Marché du compte envoyé par le front, en ISO-3166-1 alpha-2.
+ *
+ * Le front ne l'envoie QUE lorsque la langue ne désigne pas un seul marché
+ * (en, ar, es-419, ru). Pour les 24 autres langues, la clé est absente et le
+ * trigger `comptes_pays_defaut` (migration 0281) la déduit : une seule source
+ * de vérité, donc rien à resynchroniser le jour où un marché s'ajoute.
+ *
+ * On normalise en majuscules et on refuse tout ce qui n'est pas deux lettres,
+ * plutôt que de laisser la contrainte CHECK de la table faire échouer la
+ * création entière d'un poster sur une faute de frappe.
+ */
+function paysSaisi(body: unknown): string | null {
+  const brut = String((body as { pays?: unknown } | null)?.pays ?? "").trim().toUpperCase();
+  return /^[A-Z]{2}$/.test(brut) ? brut : null;
 }
 
 /** Aligné sur `resoudrePremierCompte` (src/features/moteur/comptesCm.ts). */
@@ -292,18 +322,40 @@ async function gererRequete(request: Request): Promise<Response> {
       } else if (choix) {
         // Application choisie : SA File (remise en tête de SA tranche si la
         // création échoue plus bas), puis le choix équilibré parmi ses labels.
-        const res = await resoudreChoixCompte(supabase, choix, langue);
+        const res = await resoudreChoixCompte(supabase, choix, langue, paysSaisi(body));
         if (!res.ok) return res.reponse;
         fileItem = res.fileItem;
         fileItemQueue = res.fileItemQueue;
         personaUgc = res.personaUgc;
         partsApplications = res.parts;
       } else {
-        const prep = await preparerFileEtPersona(supabase, langue, application);
+        // Aucun choix explicite : c'est ICI que le moteur décide, et nulle
+        // part ailleurs. Le refus éventuel tombe encore avant createUser
+        // (ligne plus bas), comme l'exige le commentaire du haut.
+        //
+        // `application` n'est PAS remplacée : elle reste Sophia et part telle
+        // quelle dans `preparerCompte`, exactement comme quand le recruteur
+        // choisit lui-même. `comptes.application_id` est une colonne
+        // historique ; ce sont les LABELS et `parts_applications` qui disent
+        // ce que le compte promeut. Seule la File et le pool de labels
+        // suivent l'application choisie.
+        const auto = await choisirApplicationPourCompte(supabase, {
+          langue,
+          pays: paysSaisi(body),
+          defaut: application,
+          horsMoteur: vientDuGuichet(acces, body),
+        });
+        const prep = await preparerFileEtPersona(
+          supabase,
+          langue,
+          auto.application,
+          paysSaisi(body),
+        );
         if (!prep.ok) return json({ error: prep.error }, 409);
         fileItem = prep.fileItem;
         fileItemQueue = prep.fileItemQueue;
         personaUgc = prep.personaUgc;
+        partsApplications = auto.parts;
       }
     }
 
@@ -388,7 +440,7 @@ async function gererRequete(request: Request): Promise<Response> {
           postsParJour,
           personaUgc,
           fileItemQueue,
-          { ugcAiVideo: modeUgcAiVideo, application, partsApplications },
+          { ugcAiVideo: modeUgcAiVideo, application, partsApplications, pays: paysSaisi(body) },
         )),
         type_compte: "perso",
       };
@@ -482,6 +534,7 @@ async function gererRequete(request: Request): Promise<Response> {
       "",
       application,
       lecture.choix,
+      paysSaisi(body),
     );
   }
 
@@ -516,6 +569,7 @@ async function gererRequete(request: Request): Promise<Response> {
       String(body.handle_tiktok ?? "").trim().replace(/^@+/, ""),
       application,
       lecture.choix,
+      paysSaisi(body),
     );
   }
 
@@ -650,15 +704,40 @@ async function gererRequete(request: Request): Promise<Response> {
     });
   }
 
-  if (body.action === "delete") {
-    if (!body.userId) return json({ error: "userId requis" }, 400);
-    if (acces.role !== "admin") {
+  if (body.action === "activer") {
+    if (!body.userId || typeof body.actif !== "boolean") {
+      return json({ error: "userId et actif requis" }, 400);
+    }
+    if (acces.role !== "admin" && acces.role !== "head_of_ops") {
       const { data: cible } = await supabase
         .from("profiles")
         .select("manager_id")
         .eq("id", body.userId)
         .single();
       if (!cible || cible.manager_id !== acces.userId) return json({ error: "forbidden" }, 403);
+    }
+    const { error } = await supabase
+      .from("profiles")
+      .update({ is_active: body.actif })
+      .eq("id", body.userId);
+    if (error) return json({ error: error.message }, 400);
+    // Désactiver le créateur met aussi ses comptes en dormant : le moteur ne
+    // lit que les comptes actifs, sans quoi il continuerait de leur générer
+    // des posts que personne ne publie. Réactiver les réveille.
+    const { error: errComptes } = await supabase
+      .from("comptes")
+      .update({ is_active: body.actif })
+      .eq("poster_id", body.userId);
+    if (errComptes) return json({ error: errComptes.message }, 400);
+    return json({ ok: true });
+  }
+
+  if (body.action === "delete") {
+    if (!body.userId) return json({ error: "userId requis" }, 400);
+    // Supprimer efface tout l'historique du créateur en cascade : réservé à
+    // l'admin et au Head of Ops. Un recruteur désactive (action « activer »).
+    if (acces.role !== "admin" && acces.role !== "head_of_ops") {
+      return json({ error: "forbidden" }, 403);
     }
     await supabase
       .from("profiles")
@@ -765,6 +844,8 @@ async function creerComptePersoPourPoster(
   application?: ApplicationRow | null,
   /** Application choisie (ou label d'un vieux client) ; `null` = File Sophia puis repli, comme avant. */
   choix: ChoixCompte | null = null,
+  /** Marché saisi par le HM ; `null` = déduit de la langue par le trigger 0281. */
+  pays: string | null = null,
 ): Promise<Response> {
   const modeUgcAiVideo = await modeUgcAiVideoPourPoster(supabase, acces, userId);
   if (choix && !choixApplicableAuCompte({ typeCompte: "perso", ugcAiVideo: modeUgcAiVideo })) {
@@ -780,18 +861,29 @@ async function creerComptePersoPourPoster(
     if (!personaUgc) return json({ error: "NO_UGC_PERSONA" }, 409);
   } else if (choix) {
     // Application choisie : SA File, remise en tête de SA tranche si l'insert échoue.
-    const res = await resoudreChoixCompte(supabase, choix, langue);
+    const res = await resoudreChoixCompte(supabase, choix, langue, pays);
     if (!res.ok) return res.reponse;
     fileItem = res.fileItem;
     fileItemQueue = res.fileItemQueue;
     personaUgc = res.personaUgc;
     partsApplications = res.parts;
   } else {
-    const prep = await preparerFileEtPersona(supabase, langue, application);
+    // Même greffe que dans `create`. Le guichet du site ne passe jamais par
+    // ici (il appelle l'action `create`), d'où `horsMoteur: false` : un
+    // second compte ajouté à un poster du site est une décision de l'OS, pas
+    // du site, et le moteur a le droit de la prendre.
+    const auto = await choisirApplicationPourCompte(supabase, {
+      langue,
+      pays,
+      defaut: application ?? await applicationSophia(supabase),
+      horsMoteur: false,
+    });
+    const prep = await preparerFileEtPersona(supabase, langue, auto.application, pays);
     if (!prep.ok) return json({ error: prep.error }, 409);
     fileItem = prep.fileItem;
     fileItemQueue = prep.fileItemQueue;
     personaUgc = prep.personaUgc;
+    partsApplications = auto.parts;
   }
 
   const referenceId = await referenceLibre(supabase, langue, application?.id ?? null);
@@ -805,7 +897,7 @@ async function creerComptePersoPourPoster(
     postsParJour,
     personaUgc,
     fileItemQueue,
-    { ugcAiVideo: modeUgcAiVideo, application, partsApplications },
+    { ugcAiVideo: modeUgcAiVideo, application, partsApplications, pays },
   );
   if (!compte.id) return json({ error: "CREATION_COMPTE_ECHOUEE" }, 500);
   if (handleTiktok) {
@@ -830,6 +922,7 @@ async function creerCompteCmPourPoster(
   const notesHm = String(body.notes_hm ?? "").trim();
   const handle = String(body.handle_tiktok ?? "").trim().replace(/^@+/, "") || cible.instagram;
   const personaNom = String(body.persona_nom ?? "").trim();
+  const pays = paysSaisi(body);
 
   const { data: deja } = await supabase
     .from("comptes")
@@ -857,6 +950,7 @@ async function creerCompteCmPourPoster(
       ugc_ai: false,
       ugc_ai_video: false,
       ugc_persona_id: null,
+      ...(pays ? { pays } : {}),
       handle_tiktok: handle || null,
       persona_nom: personaNom || null,
     })
@@ -1055,6 +1149,8 @@ async function popLabelFile(
   supabase: Supabase,
   langue: string,
   application?: ApplicationRow | null,
+  /** Marché du compte (saisi par le HM) ; vide = celui de la langue. */
+  pays: string | null = null,
 ): Promise<
   | { ok: true; item: FileLabelItem; fromQueue: false }
   | { ok: true; item: FileLabelItem; fromQueue: true; queueKey: string }
@@ -1064,7 +1160,14 @@ async function popLabelFile(
   const slug = application?.slug ?? SLUG_SOPHIA;
   const slice = sliceFileLabels(file, slug);
   const lang = String(langue ?? "").trim().toLowerCase();
-  const eligible = await idsLabelsEligiblesFile(supabase, application?.id ?? null);
+  // Un label fermé (fermeture forcée ou décidée par la nuit) ne sort plus de la
+  // File : l'entrée est sautée et retirée, comme un label qui ne sert pas
+  // l'application. Sinon la nuit le retirerait au compte dès le lendemain.
+  const reglagesChoix = await chargerReglagesChoixLabel(supabase);
+  const fermes = labelsFermesConnus(reglagesChoix, application?.id ?? ID_SOPHIA);
+  const eligible = new Set(
+    [...await idsLabelsEligiblesFile(supabase, application?.id ?? null)].filter((id) => !fermes.has(id)),
+  );
 
   let parLangueActuel = { ...slice.par_langue };
   const fileLangue = lang ? (parLangueActuel[lang] ?? []) : [];
@@ -1104,6 +1207,7 @@ async function popLabelFile(
   const labelId = await labelMoinsUtiliseParLangue(supabase, langue, {
     ugcOnly: false,
     applicationId: application?.id ?? null,
+    pays,
   });
   if (!labelId) return { ok: false, error: "NO_LABELS" };
   const ok = await filtrerLabelsCompte(supabase, [labelId]);
@@ -1208,10 +1312,213 @@ async function labelsPourCreateurUgcVideo(
  * Consomme la file admin (langue > générale) + persona UGC si besoin.
  * `fileItemQueue` = entrée exacte à remettre dans LA MÊME file en cas d'échec.
  */
+/**
+ * La recrue vient-elle du guichet du site ?
+ *
+ * Le site choisit l'application de ses candidats, candidat par candidat
+ * (décision du 18/10), et le moteur doit lui laisser la main. On ne peut PAS
+ * le déduire de l'absence de `parts_applications` : `partsPourApplications`
+ * rend `null` quand le site demande Sophia seule, et le corps est alors
+ * identique à celui d'un recruteur qui n'a rien coché. D'où le marqueur
+ * explicite posé par hub-posteurs.
+ *
+ * `userId === "cron"` seul ne suffit pas non plus : il est partagé avec
+ * pg_cron. Il faut les deux.
+ */
+function vientDuGuichet(acces: { userId: string }, body: Record<string, unknown>): boolean {
+  return acces.userId === "cron" && String(body?.source ?? "") === "hub-posteurs";
+}
+
+/** `reglages.choix_application_auto` : l'interrupteur de la bascule. */
+const CLE_CHOIX_APPLICATION_AUTO = "choix_application_auto";
+/** `reglages.repartition_applications` : la cible posée par les admins. */
+const CLE_REPARTITION_APPLICATIONS = "repartition_applications";
+
+async function lireValeurReglage(supabase: Supabase, cle: string): Promise<unknown> {
+  const { data, error } = await supabase
+    .from("reglages")
+    .select("valeur")
+    .eq("cle", cle)
+    .maybeSingle();
+  if (error) throw new Error(`reglages.${cle} : ${error.message}`);
+  return (data as { valeur?: unknown } | null)?.valeur ?? null;
+}
+
+/**
+ * Le moteur choisit-il l'application ? Éteint par défaut, et éteint aussi si
+ * le réglage est illisible : on ne bascule pas la production sur un doute.
+ */
+async function choixApplicationAutoActif(supabase: Supabase): Promise<boolean> {
+  try {
+    const v = await lireValeurReglage(supabase, CLE_CHOIX_APPLICATION_AUTO);
+    return !!(v && typeof v === "object" && (v as { actif?: unknown }).actif === true);
+  } catch (e) {
+    console.warn(
+      `[choix application] interrupteur illisible, reste éteint : ${
+        e instanceof Error ? e.message : String(e)
+      }`,
+    );
+    return false;
+  }
+}
+
+/** Les candidats du marché, déjà filtrés par langue côté SQL (0313). */
+async function statsChoixApplication(
+  supabase: Supabase,
+  args: { langue: string; pays: string | null },
+): Promise<Array<{ application_id: string; slug: string; comptes: number }>> {
+  const { data, error } = await supabase.rpc("stats_choix_application", {
+    p_langue: args.langue,
+    p_pays: args.pays,
+  });
+  if (error) throw new Error(`stats_choix_application : ${error.message}`);
+  return ((data ?? []) as Record<string, unknown>[]).map((r) => ({
+    application_id: String(r.application_id ?? ""),
+    slug: String(r.slug ?? ""),
+    comptes: Number(r.comptes ?? 0) || 0,
+  }));
+}
+
+/**
+ * La File de cette application a-t-elle une entrée utilisable pour ce marché ?
+ *
+ * LECTURE SEULE, et c'est tout l'intérêt : `popLabelFile` consomme, lui. On ne
+ * peut pas s'en servir pour choisir l'application puisqu'il faudrait d'abord
+ * savoir laquelle. On rejoue donc la même décision sur une copie.
+ *
+ * POURQUOI ÇA EXISTE. Un label neuf n'a pas d'historique : le moteur ne le
+ * choisira jamais de lui-même, et il n'aura donc jamais d'historique. La File
+ * est la sortie de cette boucle — on y met un label pour l'amorcer sur deux ou
+ * trois comptes. Si le choix d'application passait avant la File, mettre
+ * `mentalmaxxing` (Unswipe seul) dans la File d'Unswipe ne servirait à rien :
+ * le moteur enverrait les recrues ailleurs et la File ne serait jamais lue.
+ */
+function fileAUneEntree(
+  file: FileLabelsValeur,
+  slug: string,
+  langue: string,
+  eligibles: Set<string>,
+): boolean {
+  const slice = sliceFileLabels(file, slug);
+  const lang = String(langue ?? "").trim().toLowerCase();
+  const fileLangue = lang ? (slice.par_langue[lang] ?? []) : [];
+  if (consommerFileSlideshow([...fileLangue], eligibles).item) return true;
+  return !!consommerFileSlideshow([...slice.items], eligibles).item;
+}
+
+/**
+ * L'application du nouveau compte, choisie par le moteur.
+ *
+ * TROIS RAISONS DE NE RIEN CHOISIR, et toutes rendent l'application par
+ * défaut (Sophia), c'est-à-dire le comportement d'avant la bascule :
+ *
+ *  1. `horsMoteur` : la recrue vient du site, qui a déjà choisi pour elle ;
+ *  2. l'interrupteur est éteint ;
+ *  3. aucune cible n'est posée. `lireCibleApplications` retombe alors sur des
+ *     parts ÉGALES avec `source: "defaut"`, ce qui est un choix de PLAYGROUND
+ *     destiné à montrer le manque à l'écran. Appliqué ici, il enverrait un
+ *     compte sur trois vers Micabo dès la première création. Le moteur
+ *     s'abstient donc tant que personne n'a décidé.
+ *
+ * ET LA FILE PASSE AVANT. Si une application a une entrée utilisable dans sa
+ * File pour ce marché, c'est elle qui prend le compte, même si Sainte-Laguë
+ * aurait préféré une autre. Une entrée de File est une décision humaine
+ * explicite ; le classement n'est qu'un équilibrage.
+ *
+ * Toute erreur de lecture rend l'application par défaut. Une recrue n'est
+ * jamais bloquée par le moteur, c'est la même règle que `jamaisSansLabel`.
+ */
+async function choisirApplicationPourCompte(
+  supabase: Supabase,
+  args: {
+    langue: string;
+    pays: string | null;
+    defaut: ApplicationRow;
+    horsMoteur: boolean;
+  },
+): Promise<{ application: ApplicationRow; parts: PartsApplications | null }> {
+  const rien = { application: args.defaut, parts: null };
+  if (args.horsMoteur) return rien;
+
+  try {
+    if (!(await choixApplicationAutoActif(supabase))) return rien;
+
+    const candidats = await statsChoixApplication(supabase, {
+      langue: args.langue,
+      pays: args.pays,
+    });
+    if (candidats.length === 0) return rien;
+
+    const cible = lireCibleApplications(
+      await lireValeurReglage(supabase, CLE_REPARTITION_APPLICATIONS),
+      candidats.map((c) => c.slug),
+    );
+    if (cible.source === "defaut") return rien;
+
+    // Le SQL a déjà écarté les applications qui ne servent pas la langue :
+    // `langues: null` ici veut donc dire « déjà éligible », pas « sert tout ».
+    const applications: ApplicationCandidate[] = candidats.map((c) => ({
+      id: c.application_id,
+      slug: c.slug,
+      langues: null,
+    }));
+    const marche: MarcheApplications = {
+      langue: args.langue,
+      pays: args.pays,
+      parts: candidats.map((c) => ({
+        application_id: c.application_id,
+        slug: c.slug,
+        comptes: c.comptes,
+      })),
+    };
+
+    const classement = classerApplications(marche, cible, applications);
+    if (classement.length === 0) return rien;
+
+    // La File d'abord : le premier du classement qui en a une utilisable.
+    let gagnant = classement[0];
+    try {
+      const file = await lireFileLabels(supabase);
+      const reglagesChoix = await chargerReglagesChoixLabel(supabase);
+      for (const candidat of classement) {
+        const fermes = labelsFermesConnus(reglagesChoix, candidat.application_id);
+        const eligibles = new Set(
+          [...await idsLabelsEligiblesFile(supabase, candidat.application_id)].filter(
+            (id) => !fermes.has(id),
+          ),
+        );
+        if (fileAUneEntree(file, candidat.slug, args.langue, eligibles)) {
+          gagnant = candidat;
+          break;
+        }
+      }
+    } catch (e) {
+      // File illisible : on garde le classement seul, c'est dégradé mais juste.
+      console.warn(
+        `[choix application] File illisible, classement seul : ${
+          e instanceof Error ? e.message : String(e)
+        }`,
+      );
+    }
+
+    const row = await applicationParId(supabase, gagnant.application_id);
+    if (!row) return rien;
+    return { application: row, parts: partsPourApplication(row.slug, SLUG_SOPHIA) };
+  } catch (e) {
+    console.warn(
+      `[choix application] échec, Sophia par défaut : ${
+        e instanceof Error ? e.message : String(e)
+      }`,
+    );
+    return rien;
+  }
+}
+
 async function preparerFileEtPersona(
   supabase: Supabase,
   langue: string,
   application?: ApplicationRow | null,
+  pays: string | null = null,
 ): Promise<
   | {
     ok: true;
@@ -1221,7 +1528,7 @@ async function preparerFileEtPersona(
   }
   | { ok: false; error: string }
 > {
-  const popped = await popLabelFile(supabase, langue, application);
+  const popped = await popLabelFile(supabase, langue, application, pays);
   if (!popped.ok) return { ok: false, error: popped.error };
 
   let fileItem = popped.item;
@@ -1247,6 +1554,7 @@ async function preparerFileEtPersona(
         fallback = await labelMoinsUtiliseParLangue(supabase, langue, {
           ugcOnly: true,
           applicationId: application?.id ?? null,
+          pays,
         });
       } catch (error) {
         // Lecture ratée : l'entrée tirée de la file y retourne avant l'erreur.
@@ -1298,6 +1606,7 @@ async function resoudreChoixCompte(
   supabase: Supabase,
   choix: ChoixCompte,
   langue: string,
+  pays: string | null = null,
 ): Promise<
   | {
     ok: true;
@@ -1350,7 +1659,7 @@ async function resoudreChoixCompte(
     const app = mode.application;
     if (app.slug === SLUG_SOPHIA) {
       // `{ sophia: 100 }` : le chemin historique, File Sophia et UGC compris.
-      const prep = await preparerFileEtPersona(supabase, langue, app);
+      const prep = await preparerFileEtPersona(supabase, langue, app, pays);
       if (!prep.ok) return { ok: false, reponse: json({ error: prep.error }, 409) };
       return {
         ok: true,
@@ -1360,7 +1669,7 @@ async function resoudreChoixCompte(
         parts,
       };
     }
-    const popped = await popLabelFile(supabase, langue, app);
+    const popped = await popLabelFile(supabase, langue, app, pays);
     if (!popped.ok) {
       return { ok: false, reponse: json({ error: "NO_LABELS_APPLICATION" }, 409) };
     }
@@ -1378,6 +1687,7 @@ async function resoudreChoixCompte(
   const labelId = await labelMoinsUtiliseParLangue(supabase, langue, {
     ugcOnly: false,
     applicationsRequises: requises,
+    pays,
   });
   const autorise = labelId ? (await filtrerLabelsCompte(supabase, [labelId]))[0] : undefined;
   if (!autorise) return { ok: false, reponse: json({ error: "NO_LABELS_APPLICATION" }, 409) };
@@ -1390,7 +1700,7 @@ async function resoudreChoixCompte(
   };
 }
 
-/** Derniers comptes de la langue regardés contre les rafales (cf. choix équilibré). */
+/** Derniers comptes de la langue (et du pays) regardés contre les rafales (cf. choix équilibré). */
 const RECENTS_LABEL_LANGUE = 3;
 
 /**
@@ -1399,14 +1709,17 @@ const RECENTS_LABEL_LANGUE = 3;
  * défaut) — `applicationsRequises` (répartition à plusieurs applications) : le
  * label doit les servir TOUTES.
  *
- * Choix ÉQUILIBRÉ, sans hasard (`_shared/choix_label_equilibre.ts`) : la langue
- * du compte suit la part de chaque label (√stock × performance des 28 derniers
- * jours, rapportée à la langue des posts ; part plafonnée à 1/2), jamais 3 fois
- * le même label sur 4 comptes de la langue, et pas celui du dernier compte tant
- * qu'un autre est en retard ; la flotte départage. Les chiffres viennent de
- * `stats_choix_label_creation` (0275) en une lecture ; si elle échoue, repli
- * sur l'ancien « moins de comptes actifs dans la langue » : une création ne
- * casse jamais pour ça.
+ * Choix ÉQUILIBRÉ, sans hasard (`_shared/choix_label_equilibre.ts`) : les
+ * labels fermés (performance sous 0,75 de la flotte sur 150 posts, ou fermés à
+ * la main) sont écartés ; chaque label pèse sa performance au carré × sa
+ * réserve restante (plafonnée à 14 jours) ; la langue ET le pays du compte
+ * suivent ces parts (plafonnées à 1/2), jamais 3 fois le même label sur 4
+ * comptes de la langue, puis du pays ; un label à court de réserve passe après
+ * les autres. Les chiffres viennent de `stats_choix_label` (0287) en une
+ * lecture, les réglages de `reglages.choix_labels` ; si la lecture échoue,
+ * repli sur l'ancien « moins de comptes actifs dans la langue » : une création
+ * ne casse jamais pour ça. Aucun label ouvert : on choisit quand même parmi
+ * les fermés (une recrue ne reste pas sans label), la nuit l'en sortira.
  *
  * Limite connue : deux créations dans la même langue à la même seconde lisent
  * les mêmes chiffres et reçoivent le même label (le lien compte ↔ label n'est
@@ -1422,6 +1735,8 @@ async function labelMoinsUtiliseParLangue(
     ugcOnly: boolean;
     applicationId?: string | null;
     applicationsRequises?: readonly string[];
+    /** Marché saisi par le HM ; vide = celui de la langue (`pays_defaut_langue`). */
+    pays?: string | null;
   },
 ): Promise<string | null> {
   const requises = opts.applicationsRequises?.length ? opts.applicationsRequises : null;
@@ -1452,23 +1767,29 @@ async function labelMoinsUtiliseParLangue(
   const appStats = requises
     ? (requises.includes(ID_SOPHIA) ? ID_SOPHIA : requises[0])
     : (opts.applicationId ?? null);
-  const { data: stats, error } = await supabase.rpc("stats_choix_label_creation", {
-    p_labels: pool,
-    p_application: appStats,
-    p_langue: langueStats,
-    p_recents: RECENTS_LABEL_LANGUE,
-  });
-  if (!error && Array.isArray(stats)) {
-    const choix = choisirLabelEquilibre(
-      (stats as Record<string, unknown>[])
-        .map(normaliserStatLabel)
-        .filter((st) => pool.includes(st.label_id)),
+  const application = appStats ?? ID_SOPHIA;
+  let raison = "aucune ligne";
+  try {
+    const [stats, reglages] = await Promise.all([
+      statsChoixLabel(supabase, {
+        labels: pool,
+        application,
+        langue: langueStats,
+        pays: String(opts.pays ?? "").trim().toUpperCase() || null,
+        recents: RECENTS_LABEL_LANGUE,
+      }),
+      chargerReglagesChoixLabel(supabase),
+    ]);
+    const choix = choisirLabel(
+      stats.filter((st) => pool.includes(st.label_id)),
+      reglages,
+      { applicationId: application, jamaisSansLabel: true },
     );
     if (choix) return choix;
+  } catch (error) {
+    raison = error instanceof Error ? error.message : String(error);
   }
-  console.warn(
-    `[manage-users] choix équilibré indisponible (${error?.message ?? "aucune ligne"}) : repli « moins utilisé »`,
-  );
+  console.warn(`[manage-users] choix équilibré indisponible (${raison}) : repli « moins utilisé »`);
   return await labelMoinsUtiliseRepli(supabase, langue, pool);
 }
 
@@ -1675,6 +1996,13 @@ async function preparerCompte(
     application?: ApplicationRow | null;
     /** Répartition choisie par l'admin ; absente = clé omise de l'insert (NULL en base). */
     partsApplications?: PartsApplications | null;
+    /**
+     * Marché du compte, saisi par le HM quand la langue ne le désigne pas
+     * (en, ar, es-419, ru). Absent = clé omise, et le trigger
+     * `comptes_pays_defaut` (0281) le déduit de la langue. Ne jamais écrire
+     * une valeur devinée ici : un pays faux ne se voit pas, un pays vide si.
+     */
+    pays?: string | null;
   } = {},
 ): Promise<{
   id: string;
@@ -1716,6 +2044,7 @@ async function preparerCompte(
       ugc_persona_id: avecPersona ? personaUgc!.id : null,
       persona_nom: avecPersona ? personaUgc!.nom.trim() : null,
       ...(opts.partsApplications ? { parts_applications: opts.partsApplications } : {}),
+      ...(opts.pays ? { pays: opts.pays } : {}),
     })
     .select("id")
     .single();

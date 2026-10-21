@@ -10,6 +10,11 @@
  *  - autre langue : `slides_base` de la ligne cible, écrite ici par une
  *    traduction propre (même choix de prompt et de voix que Sophia).
  *
+ * Une base qui porte déjà une slide Sophia (pub écrite avant `slides_base`,
+ * ou source qui faisait la promo de Sophia) n'est plus refusée : cette slide
+ * est remplacée par la pub de l'application, comme une slide concurrente
+ * (`analyserSophiaBase`).
+ *
  * Il n'écrit JAMAIS `contenu_langues.slides` : c'est le deck Sophia publié.
  * Sur `contenu_langues`, il ne touche qu'à `slides_base` (base de la langue),
  * `hashtags` (s'ils manquent, générés sans pub) et à la création de la ligne,
@@ -33,8 +38,9 @@ import {
   type Supabase,
   traduireBaseDeck,
 } from "./import_contenu.ts";
+import { normaliserAngle } from "./angle_placement.ts";
 import { type ApplicationMoteur, ID_SOPHIA, SLUG_SOPHIA } from "./multi_app.ts";
-import { schemaMultiAppPret } from "./applications_moteur.ts";
+import { chargerAnglePlacement, schemaMultiAppPret } from "./applications_moteur.ts";
 import { clePromptPlacement } from "./applications.ts";
 import { baseDeTraduction, estDeckPret } from "./deck_langue.ts";
 import { integrerApplication, MOT_SOPHIA } from "./placement_application.ts";
@@ -72,13 +78,21 @@ export interface OptionsDeckApplication {
    * ou `false` (la nuit, l'assignation test) : comportement inchangé.
    */
   ignorerCache?: boolean;
+  /**
+   * Test à blanc seulement : angle à essayer À LA PLACE de l'angle actif du
+   * label du contenu (`""` = essayer sans angle) — c'est ainsi que le test
+   * compare les angles en test. Absent : l'angle ACTIF (`angles_placement`)
+   * est lu comme la nuit ; un angle en test ne l'est jamais.
+   */
+  angleBrouillon?: string;
 }
 
 /**
  * Un `echec` en cache n'est retenté qu'après ce délai. Un prompt manquant ou
  * un modèle muet ne se répare pas d'une minute à l'autre ; sans délai, chaque
  * nuit d'assignation repayait traduction + 4 essais de placement sur les mêmes
- * contenus. Un `ineligible` (base polluée) ne se retente jamais.
+ * contenus. Un `ineligible` (deux slides de pub, couverture qui cite une
+ * marque…) ne se retente jamais.
  */
 export const DELAI_REESSAI_ECHEC_MS = 24 * 60 * 60 * 1000;
 
@@ -94,6 +108,11 @@ type Placement = {
   /** Slide qui citait un concurrent de l'application, imposée au placement. */
   positionImposee?: number;
   prompt_cle: string;
+  /**
+   * Angle du label ajouté au prompt (angle_placement.ts). Absent quand il n'y
+   * en avait pas : le placement d'un deck sans angle s'écrit comme avant.
+   */
+  angle?: string;
 };
 
 type Cuisson =
@@ -103,23 +122,67 @@ type Cuisson =
 const horsDelai = (opts: OptionsDeckApplication) =>
   opts.echeance !== undefined && Date.now() > opts.echeance;
 
-/**
- * Pourquoi une base ne peut PAS porter une autre application, ou `null`.
- *
- * Une slide marquée `position_sophia` = la pub Sophia a écrasé le texte
- * d'origine (517 lignes sources polluées avant `slides_base`) : on ne peut
- * pas la retirer, et poser Unswipe à côté ferait un post à deux pubs. Un texte
- * qui cite Sophia hors marquage (source qui parlait déjà de l'appli, deck
- * remanié à la main) a le même effet.
- */
-export function motifBasePolluee(base: readonly SlideLangue[]): string | null {
-  if (base.some((s) => s.position_sophia)) return "base polluée par une pub Sophia";
-  if (base.some((s) => MOT_SOPHIA.test(s.texte_overlay ?? ""))) return "base qui cite Sophia";
-  return null;
-}
-
 const aDuTexte = (deck: readonly SlideLangue[]) =>
   deck.length > 0 && deck.some((s) => (s.texte_overlay ?? "").trim());
+
+/** Une slide qui porte Sophia : marquée `position_sophia`, ou qui la nomme. */
+const porteSophia = (s: SlideLangue) =>
+  Boolean(s.position_sophia) || MOT_SOPHIA.test(s.texte_overlay ?? "");
+
+/**
+ * Slide Sophia d'une base : sa position, ou pourquoi elle rend la base
+ * inutilisable pour une autre application. `{}` = aucune slide Sophia.
+ *
+ * Une base « polluée » porte une slide Sophia : la pub Sophia a écrasé le
+ * texte d'origine (517 lignes sources avant `slides_base`), ou la source
+ * faisait déjà la promo de l'appli (@studyavec_lea, carte App Store
+ * incrustée). Mesuré sur le stock (2026-10-14) : la slide écrasée était
+ * presque toujours DÉJÀ un emplacement de pub (Sophia, ou un concurrent comme
+ * Vent Now que Sophia avait remplacé), et son image nettoyée est neutre. On la
+ * traite donc comme une slide concurrente : c'est la position imposée du
+ * placement, réécrite en entier par la pub de l'application. Les refus sont
+ * ceux des concurrents (`motifConcurrenceRefusee`), pour les mêmes raisons :
+ *
+ *  - la couverture porte Sophia (elle porte l'accroche) ;
+ *  - plusieurs slides portent Sophia (une seule est remplacée, l'autre
+ *    partirait avec la marque) ;
+ *  - la slide Sophia est la seule à porter du texte.
+ *
+ * Avant cette règle, toute base polluée était refusée : ≈ 110 contenus
+ * servables d'Unswipe et 23 de micabo, et des créneaux perdus quand
+ * l'assignation tombait trois fois de suite sur eux.
+ */
+export function analyserSophiaBase(
+  base: readonly SlideLangue[],
+): { position?: number; refus?: string } {
+  const sophia = base.filter(porteSophia);
+  if (sophia.length === 0) return {};
+  const premiere = Math.min(...base.map((s) => s.position));
+  if (sophia.some((s) => s.position <= 1 || s.position === premiere)) {
+    return { refus: "couverture qui cite Sophia" };
+  }
+  if (sophia.length > 1) return { refus: "plusieurs slides citent Sophia" };
+  const position = sophia[0].position;
+  if (!aDuTexte(base.filter((s) => s.position !== position))) {
+    return { refus: "aucun texte hors de la slide Sophia" };
+  }
+  return { position };
+}
+
+/**
+ * Position imposée du placement : la slide concurrente, sinon la slide Sophia.
+ * Deux emplacements de pub DIFFÉRENTS (un concurrent ici, Sophia là) feraient
+ * un post à deux pubs une fois l'un remplacé : refus.
+ */
+function positionPub(
+  concurrent: number | undefined,
+  sophia: number | undefined,
+): { position?: number; refus?: string } {
+  if (concurrent !== undefined && sophia !== undefined && concurrent !== sophia) {
+    return { refus: "une slide Sophia et une slide concurrente" };
+  }
+  return { position: concurrent ?? sophia };
+}
 
 /**
  * Pourquoi une base ne peut pas porter le placement d'une application dont les
@@ -301,13 +364,16 @@ async function cuire(
   if (!ligneSource) return { statut: "echec", raison: `ligne langue source ${langueSource} absente` };
   await assurerSlidesBase(supabase, ligneSource);
   const base = baseDeTraduction(ligneSource) as SlideLangue[];
-  const pollution = motifBasePolluee(base);
-  if (pollution) return { statut: "ineligible", raison: pollution };
   if (!aDuTexte(base)) return { statut: "echec", raison: "base source sans texte" };
-  // Applis concurrentes de CETTE application (concurrents.ts) : un refus se lit
-  // sur la base source, avant de payer une traduction ou un placement.
+  // Slide Sophia et applis concurrentes de CETTE application (concurrents.ts) :
+  // un refus se lit sur la base source, avant de payer une traduction ou un
+  // placement.
+  const sophiaSource = analyserSophiaBase(base);
+  if (sophiaSource.refus) return { statut: "ineligible", raison: sophiaSource.refus };
   const motif = motifConcurrentApplication(app.slug);
-  const refusSource = motifConcurrenceRefusee(base, positionConcurrent(base, motif), motif);
+  const pubSource = positionPub(positionConcurrent(base, motif), sophiaSource.position);
+  if (pubSource.refus) return { statut: "ineligible", raison: pubSource.refus };
+  const refusSource = motifConcurrenceRefusee(base, pubSource.position, motif);
   if (refusSource) return { statut: "ineligible", raison: refusSource };
 
   // 2. Prompt de placement AVANT toute traduction : sans lui, rien ne sert de
@@ -335,8 +401,11 @@ async function cuire(
     // Même règle que Sophia : une traduction vide ne se persiste pas.
     if (traduction.traduits === 0) return { statut: "echec", raison: `traduction ${langue} vide` };
     baseCible = traduction.slides;
-    const pollutionTraduite = motifBasePolluee(baseCible);
-    if (pollutionTraduite) return { statut: "ineligible", raison: `traduction : ${pollutionTraduite}` };
+    // La slide Sophia de la source reste marquée dans la traduction
+    // (`fusionnerDeckTraduit` reporte le drapeau). Une traduction qui ferait
+    // apparaître Sophia ailleurs n'est pas sauvegardée.
+    const sophiaTraduite = analyserSophiaBase(baseCible);
+    if (sophiaTraduite.refus) return { statut: "ineligible", raison: `traduction : ${sophiaTraduite.refus}` };
 
     // `slides_base` SEULEMENT : `slides` reste au deck Sophia de cette langue.
     const maj: Record<string, unknown> = { slides_base: baseCible };
@@ -350,21 +419,36 @@ async function cuire(
       if (maj.hashtags) ligne.hashtags = traduction.hashtags;
     }
   }
-  // La slide qui cite un concurrent est la position imposée du placement, comme
-  // pour Sophia. Positions identiques entre langues : la base source rattrape
-  // une traduction qui aurait perdu le nom de la marque. Elle reste telle quelle
-  // dans la base envoyée au modèle, qui doit voir son texte pour la remplacer
-  // entièrement ; aucune autre slide ne cite de concurrent (refus sinon, voir
-  // `motifConcurrenceRefusee`) : il n'y a rien à nettoyer ailleurs.
-  const positionImposee = positionConcurrent(baseCible, motif) ?? positionConcurrent(base, motif);
+  // La slide qui cite un concurrent — ou, à défaut, la slide Sophia — est la
+  // position imposée du placement, comme pour Sophia. Positions identiques
+  // entre langues : la base source rattrape une traduction qui aurait perdu le
+  // nom de la marque. Elle reste telle quelle dans la base envoyée au modèle,
+  // qui doit voir son texte pour la remplacer entièrement ; aucune autre slide
+  // ne cite de concurrent ni Sophia (refus sinon, voir `motifConcurrenceRefusee`
+  // et `analyserSophiaBase`) : il n'y a rien à nettoyer ailleurs.
+  const sophiaCible = analyserSophiaBase(baseCible);
+  if (sophiaCible.refus) return { statut: "ineligible", raison: `base ${langue} : ${sophiaCible.refus}` };
+  const pubCible = positionPub(
+    positionConcurrent(baseCible, motif) ?? positionConcurrent(base, motif),
+    sophiaCible.position ?? sophiaSource.position,
+  );
+  if (pubCible.refus) return { statut: "ineligible", raison: `base ${langue} : ${pubCible.refus}` };
+  const positionImposee = pubCible.position;
   const refusCible = motifConcurrenceRefusee(baseCible, positionImposee, motif);
   if (refusCible) return { statut: "ineligible", raison: `base ${langue} : ${refusCible}` };
-  const pollutionCible = motifBasePolluee(baseCible);
-  if (pollutionCible) return { statut: "ineligible", raison: `base ${langue} : ${pollutionCible}` };
   if (!aDuTexte(baseCible)) return { statut: "echec", raison: `base ${langue} sans texte` };
 
-  // 4. Placement.
+  // 4. Placement, avec l'angle du label du contenu pour cette application
+  //    (vide = prompt d'avant). Le test à blanc peut en essayer un autre.
   if (horsDelai(opts)) return { statut: "echec", raison: RAISON_BUDGET };
+  // Un angle EN TEST ne doit JAMAIS atteindre un placement véritable : l'angle
+  // imposé n'est accepté qu'avec `ignorerCache`, l'option du seul test à blanc
+  // (angle_test_seulement_test.ts vérifie qu'aucun autre appelant ne les
+  // passe). Sinon, seul l'angle ACTIF est lu.
+  const angle = opts.angleBrouillon !== undefined && opts.ignorerCache === true
+    ? normaliserAngle(opts.angleBrouillon)
+    : await chargerAnglePlacement(supabase, contenu.id, app.id);
+  const traceAngle = angle ? { angle } : {};
   const placement = await integrerApplication({
     masterPrompt,
     slides: baseCible.map((s) => ({ position: s.position, text: s.texte_overlay ?? "" })),
@@ -372,12 +456,14 @@ async function cuire(
     langue,
     application: { slug: app.slug, nom: app.nom },
     positionImposee,
+    angle,
   }, { echeance: opts.echeance });
   if (!placement) {
     return {
       statut: "echec",
-      raison: "placement impossible",
-      placement: { positionImposee, prompt_cle: cle },
+      // Un angle trop contraignant se voit dans les échecs, pas en silence.
+      raison: angle ? "placement impossible (avec angle)" : "placement impossible",
+      placement: { positionImposee, prompt_cle: cle, ...traceAngle },
     };
   }
 
@@ -394,8 +480,9 @@ async function cuire(
       // Par sécurité : aucune mention de concurrent ne part, même si la slide
       // imposée n'a pas été celle remplacée.
       slides: sansConcurrent(deck, motif).slides,
-      // Base des hashtags : sans pub ET sans la slide concurrente gardée pour le modèle.
-      baseCible: sansConcurrent(baseCible, motif).slides,
+      // Base des hashtags : sans pub ET sans la slide concurrente ou Sophia
+      // gardée pour le modèle.
+      baseCible: sansConcurrent(baseCible, motif).slides.filter((s) => !porteSophia(s)),
       placement: {
         mode: placement.mode,
         variants: placement.variants,
@@ -403,13 +490,14 @@ async function cuire(
         chosenPosition: placement.chosenPosition,
         positionImposee,
         prompt_cle: cle,
+        ...traceAngle,
       },
     };
   }
   return {
     statut: "echec",
     raison: "deck placé refusé par les garde-fous",
-    placement: { ...placement, positionImposee, prompt_cle: cle },
+    placement: { ...placement, positionImposee, prompt_cle: cle, ...traceAngle },
   };
 }
 

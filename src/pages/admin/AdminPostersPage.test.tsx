@@ -273,6 +273,42 @@ describe("AdminPostersPage — par zone", () => {
     expect(within(section).getByRole("combobox")).toBeTruthy();
   });
 
+  it("en-tête d'un recruteur : les pays de ses comptes, pas ceux de ses langues", async () => {
+    listerPosters.mockResolvedValue([
+      ...PROFILS,
+      profil({
+        id: "erla",
+        role: "hiring_manager",
+        prenom: "Erla",
+        langues: ["fi", "ru", "et"],
+        zone_recrutement: "Estonia + Finland + Russian-speaking",
+      }),
+      profil({ id: "alua", role: "poster", prenom: "Alua", manager_id: "erla", manager_nom: "Erla" }),
+      profil({ id: "kaisi", role: "poster", prenom: "Kaisi", manager_id: "erla", manager_nom: "Erla" }),
+    ]);
+    const compte = (id: string, poster_id: string, langue: string, pays: string) => ({
+      id,
+      poster_id,
+      handle_tiktok: id,
+      persona_nom: id,
+      langue,
+      pays,
+      type_compte: "perso",
+      is_active: true,
+      classement: "passable",
+      warmup_started_at: null,
+      warmup_ends_at: null,
+      avatar_url: null,
+      parts_applications: null,
+      ugc_ai_video: false,
+    });
+    listerComptes.mockResolvedValue([compte("c-alua", "alua", "ru", "KZ"), compte("c-kaisi", "kaisi", "et", "EE")]);
+    renderPage();
+    const section = await waitFor(() => sectionZone("Estonia + Finland + Russian-speaking"));
+    await waitFor(() => expect(within(section).getByLabelText("Estonia, Kazakhstan")).toBeTruthy());
+    expect(within(section).queryByTitle("Russian")).toBeNull();
+  });
+
   it("DM : total de toute son équipe (HM compris), comme l'ancien arbre", async () => {
     renderPage();
     await screen.findByRole("heading", { level: 2, name: "Turkey + Israel" });

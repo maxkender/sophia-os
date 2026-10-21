@@ -8,6 +8,8 @@ import {
   insererRemarqueDansBrouillon,
   isoBornesJourParis,
   jourParisDepuisIso,
+  compterMemeTiktok,
+  liensDesAutresPosts,
   normaliserRemarquesReview,
   normaliserVideosReview,
   retirerRemarqueUtilisee,
@@ -97,5 +99,32 @@ describe("fileJour", () => {
         { url: "https://cdn/a.mp4", titre: "dup" },
       ]),
     ).toEqual([{ url: "https://cdn/a.mp4", titre: "Hook" }]);
+  });
+
+  it("repère le même TikTok collé pour plusieurs posts, lien court résolu compris", () => {
+    // asya.ogrenir761 le 15/10 : lien complet à 00:56, puis le même post en lien court deux fois.
+    const complet = "https://www.tiktok.com/@asya.ogrenir761/photo/7696656855547825409";
+    const court = "https://vt.tiktok.com/ZSgdFvsVU/";
+    expect(
+      compterMemeTiktok({ lien: court, id: "7696656855547825409" }, [
+        { lien: complet, id: null },
+        { lien: court, id: "7696656855547825409" },
+        { lien: "https://www.tiktok.com/@asya.ogrenir761/photo/7696657695868275988", id: null },
+      ]),
+    ).toBe(2);
+    // Lien court pas encore résolu : on compare au moins les liens identiques.
+    expect(compterMemeTiktok({ lien: court, id: null }, [{ lien: "https://vt.tiktok.com/ZSgdFvsVU", id: null }])).toBe(1);
+    expect(compterMemeTiktok({ lien: null, id: null }, [{ lien: court, id: null }])).toBe(0);
+  });
+
+  it("liste les liens des autres posts du même compte", () => {
+    const liens = liensDesAutresPosts([
+      { id: "a", compte_id: "c1", publie_url: "u1" },
+      { id: "b", compte_id: "c1", publie_url: "u2" },
+      { id: "c", compte_id: "c2", publie_url: "u3" },
+      { id: "d", compte_id: "c1", publie_url: null },
+    ]);
+    expect(liens.get("a")).toEqual(["u2"]);
+    expect(liens.get("c")).toEqual([]);
   });
 });

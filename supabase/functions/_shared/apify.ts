@@ -9,6 +9,12 @@ export interface ScrapedPost {
   musicTitle: string | null;
   createTime: number | null;
   stats: { vues: number; likes: number; commentaires: number; partages: number };
+  /**
+   * Le profil de l'auteur au moment du scrape, répété sur chaque post : nombre
+   * d'abonnés et lien cliquable du profil (Modifier le profil → Liens), pas
+   * celui écrit dans la bio. Sert au contrôle « lien à 1 000 abonnés » (0323).
+   */
+  auteur: { abonnes: number | null; lienBio: string | null };
 }
 
 /** Post vidéo TikTok (download Apify activé → mediaUrls KV). */
@@ -49,6 +55,9 @@ interface ApifyItem {
     avatarMedium?: string;
     avatarThumb?: string;
     originalAvatarUrl?: string;
+    fans?: number;
+    /** Chaîne, ou objet `{ link }` selon les versions de l'acteur. */
+    bioLink?: unknown;
   };
   createTimeISO?: string;
   createTime?: number;
@@ -164,6 +173,17 @@ function pickCoverUrl(item: ApifyItem): string | null {
   return fromMedia ?? null;
 }
 
+/** Le lien cliquable du profil, quelle que soit sa forme dans la réponse Apify. */
+export function lienBioDe(bioLink: unknown): string | null {
+  if (typeof bioLink === "string") return bioLink.trim() || null;
+  if (bioLink && typeof bioLink === "object") {
+    const o = bioLink as { link?: unknown; url?: unknown };
+    const lien = typeof o.link === "string" ? o.link : typeof o.url === "string" ? o.url : "";
+    return lien.trim() || null;
+  }
+  return null;
+}
+
 async function runActor(
   input: Record<string, unknown>,
   // Le pipeline ne veut que des posts photo ; la collecte de métriques, elle,
@@ -208,6 +228,10 @@ async function runActor(
         likes: item.diggCount ?? 0,
         commentaires: item.commentCount ?? 0,
         partages: item.shareCount ?? 0,
+      },
+      auteur: {
+        abonnes: typeof item.authorMeta?.fans === "number" ? item.authorMeta.fans : null,
+        lienBio: lienBioDe(item.authorMeta?.bioLink),
       },
     }))
     .filter((post) => post.postId && (!photosSeulement || post.imageUrls.length > 0));
@@ -401,6 +425,68 @@ export function scrapeStats(handle: string, resultsPerPage: number) {
     },
     false,
   );
+}
+
+/**
+ * Stats de posts précis, en UN seul run : un résultat par lien, facturé au
+ * résultat. Bien moins cher que `scrapeStats` (30 posts par compte) quand on
+ * ne suit que les posts récents. `webVideoUrl` revient en /video/ même pour un
+ * post photo : comparer sur l'ID numérique.
+ */
+export function scrapeStatsPosts(urls: string[]) {
+  return runActor(
+    {
+      postURLs: urls,
+      resultsPerPage: 1,
+      shouldDownloadSlideshowImages: false,
+      shouldDownloadVideos: false,
+      shouldDownloadCovers: false,
+    },
+    false,
+  );
+}
+
+export interface CommentaireTiktok {
+  cid: string;
+  auteur: string;
+  texte: string;
+  likes: number;
+  creeAt: string | null;
+}
+
+/** Commentaires de premier niveau d'un post (acteur dédié, facturé au commentaire). */
+export async function scrapeCommentaires(url: string, max: number): Promise<CommentaireTiktok[]> {
+  const token = Deno.env.get("APIFY_TOKEN");
+  if (!token) throw new Error("APIFY_TOKEN manquant");
+
+  const response = await fetch(
+    `https://api.apify.com/v2/acts/clockworks~tiktok-comments-scraper/run-sync-get-dataset-items?token=${token}`,
+    {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ postURLs: [url], commentsPerPost: max, maxRepliesPerComment: 0 }),
+    },
+  );
+  if (!response.ok) {
+    throw new Error(`Apify commentaires ${response.status}: ${(await response.text()).slice(0, 300)}`);
+  }
+
+  const items = (await response.json()) as Array<{
+    cid?: string;
+    uniqueId?: string;
+    text?: string;
+    diggCount?: number;
+    createTimeISO?: string;
+  }>;
+  return items
+    .filter((c) => c.cid)
+    .map((c) => ({
+      cid: c.cid!,
+      auteur: c.uniqueId ?? "",
+      texte: c.text ?? "",
+      likes: c.diggCount ?? 0,
+      creeAt: c.createTimeISO ?? null,
+    }));
 }
 
 /** Scrape un seul post par son URL, pour tester le pipeline sur un TikTok précis. */

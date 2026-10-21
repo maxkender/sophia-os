@@ -34,6 +34,7 @@ import {
 } from "@/features/hiring/zones";
 import { CompteEditor, PostsParJourCompte } from "@/features/moteur/CompteEditor";
 import { estCompteCm } from "@/features/moteur/comptesCm";
+import { paysAEnvoyer, paysRequis } from "@/features/moteur/paysCompte";
 import { ChampsPremierCompte, type PremierCompte } from "@/features/moteur/ChampsPremierCompte";
 import { DeplacerCompte } from "@/features/moteur/DeplacerCompte";
 import { FormulaireAjouterCompte } from "@/features/moteur/FormulaireAjouterCompte";
@@ -41,6 +42,7 @@ import { BadgeClassement } from "@/features/moteur/BadgeClassement";
 import { EnteteCompte } from "@/features/moteur/VignetteCompte";
 import {
   assurerComptePoster,
+  activerPoster,
   creerCompteUgcVideo,
   creerPoster,
   creerRecruteur,
@@ -53,9 +55,10 @@ import {
   listerLabels,
   listerLanguesReference,
   listerPosters,
+  lireZonesCohorteRuul,
   majCompte,
   majLanguesRecruteur,
-  majPoster,
+  majRecruteur,
   majUpwork,
   majZoneRecruteur,
   setLabelsCompte,
@@ -77,6 +80,7 @@ import { PartsApplicationsCompte } from "@/features/moteur/repartition/PartsAppl
 import { useLiensLabels } from "@/features/moteur/repartition/useMultiApp";
 import { SelectApplication } from "@/features/moteur/SelectApplication";
 import { drapeauLangue, langueInitiale, nomLangue } from "@/features/moteur/langues";
+import { drapeauPays, estCodePays, nomPaysIso, paysTries } from "@/features/moteur/pays";
 import { WarmupBadge } from "@/features/moteur/WarmupBadge";
 import { phaseCreateur, type PhaseCreateur } from "@/features/moteur/warmup";
 import type {
@@ -117,6 +121,9 @@ function nomAffiche(p: PosterProfil): string {
   return [p.prenom, p.nom].filter(Boolean).join(" ") || p.email || "—";
 }
 
+/** Valeur du filtre « pays à renseigner » : un `comptes.pays` encore NULL. */
+const CLE_SANS_PAYS = "__sans_pays__";
+
 /** Petits drapeaux en haut à droite des cartes grille (aperçu rapide des langues). */
 function DrapeauxLangues({ codes }: { codes: string[] }) {
   const uniques = [...new Set(codes.filter(Boolean))];
@@ -129,6 +136,28 @@ function DrapeauxLangues({ codes }: { codes: string[] }) {
       {uniques.map((code) => (
         <span key={code} title={nomLangue(code)} className="select-none">
           {drapeauLangue(code)}
+        </span>
+      ))}
+    </span>
+  );
+}
+
+/**
+ * Drapeaux des PAYS où l'équipe d'un recruteur poste réellement. Les langues
+ * gérées ne disent pas le pays : « ru » sortait 🇷🇺 alors que la Russie n'est
+ * pas un de nos marchés et que les comptes russophones sont kazakhs.
+ */
+function DrapeauxPays({ codes }: { codes: string[] }) {
+  const uniques = [...new Set(codes.filter((c) => estCodePays(c)))].sort();
+  if (uniques.length === 0) return null;
+  return (
+    <span
+      className="flex shrink-0 flex-wrap items-center justify-end gap-0.5 text-[15px] leading-none"
+      aria-label={uniques.map((c) => nomPaysIso(c)).join(", ")}
+    >
+      {uniques.map((code) => (
+        <span key={code} title={nomPaysIso(code)} className="select-none">
+          {drapeauPays(code)}
         </span>
       ))}
     </span>
@@ -421,6 +450,94 @@ function LangueCompteSelect({ compte }: { compte: CompteAvecDetails }) {
 }
 
 /**
+ * Pays du compte. Séparé de la langue exprès : cinq marchés anglophones
+ * partagent `en`, et tant que le drapeau suivait la langue ils étaient tous
+ * 🇬🇧. Le moteur ne lit pas ce champ, le changer ne touche ni l'assignation
+ * ni la traduction.
+ */
+function PaysCompteSelect({ compte }: { compte: CompteAvecDetails }) {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const options = React.useMemo(() => paysTries(), []);
+  const maj = useMutation({
+    mutationFn: (pays: string) => majCompte(compte.id, { pays: pays || null }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["comptes"] });
+      queryClient.invalidateQueries({ queryKey: ["posters"] });
+    },
+  });
+
+  return (
+    <div className="space-y-1">
+      <Label className="text-[10px] uppercase tracking-wide text-muted-foreground">
+        {t("posters.pays")}
+      </Label>
+      <select
+        className={selectClass}
+        value={compte.pays ?? ""}
+        disabled={maj.isPending}
+        onChange={(e) => maj.mutate(e.target.value)}
+      >
+        <option value="">{t("posters.paysARenseigner")}</option>
+        {options.map((p) => (
+          <option key={p.code} value={p.code}>
+            {drapeauPays(p.code)} {p.nom}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
+/**
+ * Recruteur d'un créateur. Un poster créé par l'admin ou le Head of Ops leur
+ * est rattaché : ils le passent ici au HM de sa zone (ticket Aram, 18/10).
+ */
+function ChoixRecruteur({
+  poster,
+  recruteurs,
+}: {
+  poster: PosterProfil;
+  recruteurs: PosterProfil[];
+}) {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const maj = useMutation({
+    mutationFn: (managerId: string) => majRecruteur(poster.id, managerId || null),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["posters"] });
+    },
+  });
+
+  return (
+    <div className="max-w-sm space-y-1">
+      <Label
+        htmlFor={`recruteur-${poster.id}`}
+        className="text-[10px] uppercase tracking-wide text-muted-foreground"
+      >
+        {t("posters.changerRecruteur")}
+      </Label>
+      <select
+        id={`recruteur-${poster.id}`}
+        className={selectClass}
+        value={poster.manager_id ?? ""}
+        disabled={maj.isPending}
+        onChange={(e) => maj.mutate(e.target.value)}
+      >
+        <option value="">{t("posters.sansRecruteur")}</option>
+        {recruteurs.map((r) => (
+          <option key={r.id} value={r.id}>
+            {nomAffiche(r)}
+            {r.zone_recrutement ? ` · ${r.zone_recrutement}` : ""}
+          </option>
+        ))}
+      </select>
+      {maj.isError && <p className="text-xs text-destructive">{messageErreur(maj.error)}</p>}
+    </div>
+  );
+}
+
+/**
  * Labels d'un compte. Tous les labels sont proposés (plus de cloison par
  * application) ; chaque pastille dit quelles applications le label sert, donc
  * ce que le compte pourra promouvoir.
@@ -507,6 +624,9 @@ export function AdminPostersPage() {
   const peutChoisirApps = peutChoisirApplicationsCompte(role);
   const queryClient = useQueryClient();
   const posters = useQuery({ queryKey: ["posters"], queryFn: listerPosters });
+  // Cohorte Ruul (posters venus du site) → HM de la zone de leur pays.
+  const cohorteRuul = useQuery({ queryKey: ["posters", "cohorte-ruul"], queryFn: lireZonesCohorteRuul });
+  const zonesCohorteRuul = cohorteRuul.data;
   // Zones déjà données aux recruteurs : filtre de la page et suggestions de saisie.
   const zonesExistantes = React.useMemo(() => zonesConnues(posters.data ?? []), [posters.data]);
   // Email du recruteur d'un créateur : chercher « hugo@… » garde ses créateurs,
@@ -518,6 +638,21 @@ export function AdminPostersPage() {
   // Comptes en sommeil compris (badge « Dormant ») : sous la clé ["comptes"],
   // les invalidations de la page les rechargent aussi.
   const comptes = useQuery({ queryKey: ["comptes", "avec-dormants"], queryFn: listerComptesAvecDormants });
+  // TOUS les pays, avec le nombre de comptes de chacun. Une première version
+  // ne listait que les marchés déjà ouverts : l'Australie, la Nouvelle-Zélande
+  // et l'Irlande manquaient donc à l'appel, précisément les pays où l'on veut
+  // recruter. Un pays à zéro n'est pas du bruit ici, c'est la cible.
+  const paysOptions = React.useMemo(() => {
+    const compte = new Map<string, number>();
+    for (const c of comptes.data ?? []) {
+      if (c.pays) compte.set(c.pays, (compte.get(c.pays) ?? 0) + 1);
+    }
+    return paysTries().map((p) => ({ ...p, n: compte.get(p.code) ?? 0 }));
+  }, [comptes.data]);
+  const comptesSansPays = React.useMemo(
+    () => (comptes.data ?? []).filter((c) => !c.pays).length,
+    [comptes.data],
+  );
   const langues = useQuery({ queryKey: ["langues-reference"], queryFn: listerLanguesReference });
   const applications = useQuery({ queryKey: ["applications"], queryFn: listerApplications });
   // Liens label → application : pour le filtre « application » (comptes dont
@@ -533,8 +668,12 @@ export function AdminPostersPage() {
   // Défaut « tous » : les nouveaux (warmup pas démarré) restent visibles.
   const [filtrePhase, setFiltrePhase] = React.useState<"tous" | PhaseCreateur>("tous");
   const [filtreLangue, setFiltreLangue] = React.useState("");
+  // Pays du compte (ISO-3166), ou CLE_SANS_PAYS pour « à renseigner ».
+  const [filtrePays, setFiltrePays] = React.useState("");
   const [filtreLabel, setFiltreLabel] = React.useState("");
   const [filtreApp, setFiltreApp] = React.useState("tous");
+  // Seulement la cohorte Ruul (posters venus du site, payés par Ruul).
+  const [filtreRuul, setFiltreRuul] = React.useState(false);
   // Zone de recrutement (clé `cleZone`, ou CLE_SANS_ZONE) ; "" = toutes.
   const [filtreZone, setFiltreZone] = React.useState("");
   // Zone survolée sur la carte ou sur sa puce : les deux se répondent.
@@ -578,7 +717,7 @@ export function AdminPostersPage() {
   const [ficheCompteId, setFicheCompteId] = React.useState<string | null>(null);
 
   // « Créer le premier compte » d'une fiche sans compte : même choix de
-  // l'application, repart de Sophia à chaque fiche ouverte.
+  // l'application, à refaire (rien de coché) à chaque fiche ouverte.
   const choixAppsPremier = useChoixApplicationsCreation(
     peutChoisirApps && ficheId !== null,
     (posters.data ?? []).find((p) => p.id === ficheId)?.langues[0] ?? "fr",
@@ -615,6 +754,11 @@ export function AdminPostersPage() {
     setLangue((actuel) => langueInitiale(liste, actuel));
   }, [langues.data]);
   const [premierCompte, setPremierCompte] = React.useState<PremierCompte>("perso");
+  const [paysCompte, setPaysCompte] = React.useState("");
+  // Un pays choisi pour l'anglais n'a plus de sens une fois passé au suédois.
+  React.useEffect(() => {
+    setPaysCompte("");
+  }, [langue]);
   const [postsParJour, setPostsParJour] = React.useState<1 | 2 | 3>(2);
   const [handleTiktok, setHandleTiktok] = React.useState("");
   // Compte UGC vidéo (pod 3) : login seul côté manage-users, puis le compte
@@ -624,9 +768,9 @@ export function AdminPostersPage() {
   const [password, setPassword] = React.useState(MOT_DE_PASSE_INITIAL);
   // Application du premier compte : seulement quand manage-users crée un
   // compte slideshow (ni « aucun compte », ni UGC vidéo — celui-là n'a pas de
-  // label). Inactif ou Sophia : options vides, corps inchangé.
+  // label), formulaire ouvert. Inactif ou Sophia : options vides, corps inchangé.
   const choixAppsPoster = useChoixApplicationsCreation(
-    peutChoisirApps && !ugcVideo && premierCompte === "perso",
+    peutChoisirApps && ajout === "poster" && !ugcVideo && premierCompte === "perso",
     langue,
   );
   const [cree, setCree] = React.useState<{
@@ -644,6 +788,9 @@ export function AdminPostersPage() {
         await creerCompteUgcVideo({
           posterId: r.userId,
           langue,
+          ...(paysAEnvoyer(langue, paysCompte)
+            ? { pays: paysAEnvoyer(langue, paysCompte)! }
+            : {}),
           personaNom: prenom,
           handleTiktok,
           handleInstagram,
@@ -658,6 +805,9 @@ export function AdminPostersPage() {
         type_compte: premierCompte,
         posts_par_jour: premierCompte === "perso" ? postsParJour : undefined,
         handle_tiktok: premierCompte === "perso" ? handleTiktok : undefined,
+        ...(paysAEnvoyer(langue, paysCompte)
+          ? { pays: paysAEnvoyer(langue, paysCompte)! }
+          : {}),
         ...choixAppsPoster.options,
       });
     },
@@ -668,6 +818,7 @@ export function AdminPostersPage() {
       setNom("");
       setHandleTiktok("");
       setHandleInstagram("");
+      setPaysCompte("");
       setPostsParJour(2);
       setPassword(MOT_DE_PASSE_INITIAL);
       rafraichir();
@@ -735,7 +886,7 @@ export function AdminPostersPage() {
   });
   const basculer = useMutation({
     mutationFn: (input: { id: string; actif: boolean }) =>
-      majPoster(input.id, { is_active: input.actif }),
+      activerPoster(input.id, input.actif),
     onSuccess: rafraichir,
   });
   const warmupStart = useMutation({
@@ -785,6 +936,8 @@ export function AdminPostersPage() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
+            // Application du compte non choisie : le bloc le dit, rien ne part.
+            if (!choixAppsPoster.verifier()) return;
             setCree(null);
             creer.mutate();
           }}
@@ -831,6 +984,8 @@ export function AdminPostersPage() {
             langues={langues.data ?? []}
             langue={langue}
             onLangue={setLangue}
+            pays={paysCompte}
+            onPays={setPaysCompte}
             postsParJour={ugcVideo ? undefined : postsParJour}
             onPostsParJour={ugcVideo ? undefined : setPostsParJour}
             handle={handleTiktok}
@@ -873,11 +1028,17 @@ export function AdminPostersPage() {
               disabled={
                 creer.isPending ||
                 ((ugcVideo || premierCompte !== "aucun") && !langue) ||
+                ((ugcVideo || premierCompte !== "aucun") &&
+                  paysRequis(langue) &&
+                  !paysCompte) ||
                 choixAppsPoster.bloque
               }
             >
               {creer.isPending ? t("common.saving") : t("posters.create")}
             </Button>
+            {choixAppsPoster.signalerManquant && (
+              <p className="mt-2 text-sm text-destructive">{t("choixCompteCreation.choisirAvant")}</p>
+            )}
             {creer.isError && (
               <p className="mt-2 text-sm text-destructive">
                 {(creer.error as Error).message === "NO_LABELS"
@@ -1034,8 +1195,16 @@ export function AdminPostersPage() {
       warmup_ends_at: p.warmup_ends_at,
     });
     if (filtrePhase !== "tous" && phase !== filtrePhase) return false;
+    if (filtreRuul && !zonesCohorteRuul?.has(p.id)) return false;
     const liste = comptesParPoster.get(p.id) ?? [];
     if (filtreLangue && !liste.some((c) => c.langue === filtreLangue)) return false;
+    if (filtrePays) {
+      const correspond =
+        filtrePays === CLE_SANS_PAYS
+          ? liste.some((c) => !c.pays)
+          : liste.some((c) => c.pays === filtrePays);
+      if (!correspond) return false;
+    }
     if (filtreLabel) {
       const labs = liste.flatMap((c) => labelsComptes.data?.get(c.id) ?? []);
       if (!labs.some((l) => l.id === filtreLabel)) return false;
@@ -1091,16 +1260,18 @@ export function AdminPostersPage() {
   // filtre de zone, lui, choisit des zones entières.
   const filtreListe =
     Boolean(filtreLangue) ||
+    Boolean(filtrePays) ||
     Boolean(filtreLabel) ||
     (Boolean(filtreApp) && filtreApp !== "tous") ||
+    filtreRuul ||
     Boolean(rechercheNormalisee);
   const recruteurCherche = (r: PosterProfil) =>
     Boolean(rechercheNormalisee) &&
     [nomAffiche(r), r.email].some((v) => v && sansAccents(v).includes(rechercheNormalisee));
 
   const barreFiltres = (
-    <div className="grid gap-3 rounded-lg border bg-muted/20 p-3 sm:grid-cols-2 lg:grid-cols-5">
-      <div className="space-y-1 sm:col-span-2 lg:col-span-5">
+    <div className="grid gap-3 rounded-lg border bg-muted/20 p-3 sm:grid-cols-2 lg:grid-cols-6">
+      <div className="space-y-1 sm:col-span-2 lg:col-span-6">
         <Label htmlFor="recherchePosters">{t("posters.recherche")}</Label>
         <div className="relative">
           <Search className="pointer-events-none absolute left-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
@@ -1162,6 +1333,28 @@ export function AdminPostersPage() {
         </select>
       </div>
       <div className="space-y-1">
+        <Label htmlFor="filtrePays">{t("posters.filtrePays")}</Label>
+        <select
+          id="filtrePays"
+          className={selectClass}
+          value={filtrePays}
+          onChange={(e) => setFiltrePays(e.target.value)}
+        >
+          <option value="">{t("posters.filtreTous")}</option>
+          {paysOptions.map((p) => (
+            <option key={p.code} value={p.code}>
+              {drapeauPays(p.code)} {p.nom}
+              {p.n > 0 ? ` (${p.n})` : ""}
+            </option>
+          ))}
+          {comptesSansPays > 0 && (
+            <option value={CLE_SANS_PAYS}>
+              {t("posters.paysARenseigner")} ({comptesSansPays})
+            </option>
+          )}
+        </select>
+      </div>
+      <div className="space-y-1">
         <Label htmlFor="filtreLabel">{t("posters.filtreLabel")}</Label>
         <select
           id="filtreLabel"
@@ -1187,6 +1380,15 @@ export function AdminPostersPage() {
           allowTous
         />
       </div>
+      <label className="flex items-center gap-2 text-sm sm:col-span-2 lg:col-span-6">
+        <input
+          type="checkbox"
+          className="size-4 accent-[var(--color-primary)]"
+          checked={filtreRuul}
+          onChange={(e) => setFiltreRuul(e.target.checked)}
+        />
+        {t("posters.filtreRuul", { n: zonesCohorteRuul?.size ?? 0 })}
+      </label>
     </div>
   );
 
@@ -1200,10 +1402,11 @@ export function AdminPostersPage() {
     filtreActif: filtreListe,
     garderRecruteur: recruteurCherche,
     trierCreateurs,
+    zonesCohorteRuul,
   });
   // Carte : toutes les zones, filtres ignorés — un filtre ne repeint pas la
   // carte, il ne fait que mettre sa zone en avant.
-  const zonesCarte: ZoneCarte[] = regrouperParZone(tous).zones.map((g) => ({
+  const zonesCarte: ZoneCarte[] = regrouperParZone(tous, { zonesCohorteRuul }).zones.map((g) => ({
     cle: g.cle,
     zone: g.zone ?? "",
     compteurs: g.compteurs,
@@ -1237,8 +1440,17 @@ export function AdminPostersPage() {
   const languesRecruteur = (poster: PosterProfil) =>
     poster.langues?.length > 0 ? poster.langues : poster.nationalite ? [poster.nationalite] : [];
 
+  /** Pays des comptes de ses créateurs directs ; les langues seulement s'il n'en a aucun. */
+  const drapeauxRecruteur = (poster: PosterProfil) => {
+    const pays = tousCreateurs
+      .filter((c) => c.manager_id === poster.id)
+      .flatMap((c) => (comptesParPoster.get(c.id) ?? []).map((x) => x.pays ?? ""));
+    return pays.some((c) => estCodePays(c))
+      ? <DrapeauxPays codes={pays} />
+      : <DrapeauxLangues codes={languesRecruteur(poster)} />;
+  };
+
   const carteRecruteur = (poster: PosterProfil) => {
-    const langues = languesRecruteur(poster);
     return (
       <article
         key={poster.id}
@@ -1261,7 +1473,7 @@ export function AdminPostersPage() {
             )}
             {!poster.is_active && <Badge variant="secondary">{t("posters.disabled")}</Badge>}
           </div>
-          <DrapeauxLangues codes={langues} />
+          {drapeauxRecruteur(poster)}
         </div>
         <LangueRecruteurDropdown recruteur={poster} />
       </article>
@@ -1393,7 +1605,7 @@ export function AdminPostersPage() {
             </Badge>
           )}
           {!r.is_active && <Badge variant="secondary">{t("posters.disabled")}</Badge>}
-          <DrapeauxLangues codes={languesRecruteur(r)} />
+          {drapeauxRecruteur(r)}
           <div className="w-48">
             <LangueRecruteurDropdown recruteur={r} />
           </div>
@@ -1589,6 +1801,11 @@ export function AdminPostersPage() {
     fiche?.role === "poster" && fiche.manager_id
       ? tous.find((p) => p.id === fiche.manager_id && estRoleManager(p.role))
       : undefined;
+  // Changer le recruteur d'un créateur : admin et Head of Ops (RLS `is_admin`).
+  const peutChangerRecruteur = role === "admin" || role === "head_of_ops";
+  const recruteursPossibles = tous
+    .filter((p) => estRoleManager(p.role) && (p.is_active || p.id === fiche?.manager_id))
+    .sort((a, b) => nomAffiche(a).localeCompare(nomAffiche(b)));
 
   // Une requête en erreur ne doit pas se lire comme « ce créateur n'a aucun
   // compte » : sans ce bandeau, un 300/400 sur `comptes` affichait 0 compte
@@ -1874,8 +2091,11 @@ export function AdminPostersPage() {
                 )}
                 <span aria-hidden>·</span>
                 <MapPin className="size-3" />
-                <span>{zoneDuCreateur(fiche, tous) ?? t("posters.sansZone")}</span>
+                <span>{zoneDuCreateur(fiche, tous, zonesCohorteRuul) ?? t("posters.sansZone")}</span>
               </p>
+              {fiche.role === "poster" && peutChangerRecruteur && (
+                <ChoixRecruteur poster={fiche} recruteurs={recruteursPossibles} />
+              )}
 
               <CreateurUpwork
                 poster={fiche}
@@ -1899,7 +2119,10 @@ export function AdminPostersPage() {
                       <Button
                         size="sm"
                         disabled={creerCompteVide.isPending || choixAppsPremier.bloque}
-                        onClick={() => creerCompteVide.mutate(fiche)}
+                        onClick={() => {
+                          if (!choixAppsPremier.verifier()) return;
+                          creerCompteVide.mutate(fiche);
+                        }}
                       >
                         {creerCompteVide.isPending ? t("common.saving") : t("posters.creerCompte")}
                       </Button>
@@ -1963,6 +2186,7 @@ export function AdminPostersPage() {
                               {!estCompteCm(c) && (
                                 <div className="grid gap-3 sm:grid-cols-2">
                                   <LangueCompteSelect compte={c} />
+                                  <PaysCompteSelect compte={c} />
                                   <LabelsCompteSelect compteId={c.id} actifs={labs} />
                                   <div className="sm:col-span-2">
                                     <PostsParJourCompte compte={c} />

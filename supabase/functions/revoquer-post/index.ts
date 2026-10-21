@@ -17,9 +17,11 @@ const MAX_RECHARGES_CREATEUR = 2;
  *   Poster : { postId } → { ok, newPostId, recharges_createur, restantes }
  *            — max 2 recharges, uniquement si non publié.
  *
- * v-next (`type=contenu`) : supprime le passage lié + le post, puis relance
- * l'assignation forcée (labels ∩ score). Le pont post est déjà
- * `pipeline_statut=done` (pas de boucle composition).
+ * v-next (`type=contenu`) : relance l'assignation forcée (labels ∩ score),
+ * puis supprime le passage lié + l'ancien post SEULEMENT une fois le
+ * remplaçant créé. Dans l'autre ordre, un timeout de 150 s (504) entre les
+ * deux laissait le créateur sans post pour ce créneau (claudia, 14/10).
+ * Le pont post est déjà `pipeline_statut=done` (pas de boucle composition).
  *
  * Le contenu n'est rejeté globalement QUE sur révocation admin. Une recharge
  * créateur l'écarte seulement de ce tirage-là : le slideshow reste disponible
@@ -176,9 +178,6 @@ Deno.serve(async (request) => {
           })
           .eq("id", contenuRejete);
       }
-      if (passage) {
-        await supabase.from("passages").delete().eq("id", passage.id);
-      }
     } else if (post.sujet_id && !estRechargeCreateur) {
       await supabase
         .from("sujets")
@@ -188,8 +187,6 @@ Deno.serve(async (request) => {
         })
         .eq("id", post.sujet_id);
     }
-
-    await supabase.from("posts").delete().eq("id", post.id);
 
     // Autres coquilles du même jour (orphelins / posts sans slides)
     const { data: autresOrphelins } = await supabase
@@ -204,7 +201,11 @@ Deno.serve(async (request) => {
 
     // Assignation forcée in-process (évite un fetch HTTP imbriqué + timeout 150s
     // sur la boucle composition). ignorerWarmup : un créateur en warmup doit
-    // quand même pouvoir recharger un slideshow buggé.
+    // quand même pouvoir recharger un slideshow buggé. `forcer` crée un passage
+    // même quota rempli : l'ancien post est encore là, il ne part qu'après.
+    // Effet de bord accepté : il compte encore dans le budget de son
+    // application pendant le tirage, d'où un repli Sophia possible si ce
+    // budget est pile atteint.
     const resultats = await assignerTousComptes(supabase, jour, compteId, {
       forcer: true,
       ignorerWarmup: true,
@@ -249,20 +250,13 @@ Deno.serve(async (request) => {
       .eq("compte_id", compteId)
       .eq("date_publication_prevue", jour)
       .eq("est_test", false)
+      .neq("id", post.id)
       .order("created_at", { ascending: false })
       .limit(1)
       .maybeSingle();
 
     if (!neuf?.id) {
       return json({ ok: true, newPostId: null, error: "RECHARGE_AUCUN" });
-    }
-
-    // Transférer / poser le compteur créateur sur le nouveau post
-    if (acces.role === "poster") {
-      await supabase
-        .from("posts")
-        .update({ recharges_createur: rechargesSuivantes })
-        .eq("id", neuf.id);
     }
 
     // Vérifie qu'on n'a pas re-créé une coquille vide
@@ -282,6 +276,20 @@ Deno.serve(async (request) => {
             ? Math.max(0, MAX_RECHARGES_CREATEUR - rechargesSuivantes)
             : undefined,
       });
+    }
+
+    // Le remplaçant existe : l'ancien peut partir.
+    if (passage) {
+      await supabase.from("passages").delete().eq("id", passage.id);
+    }
+    await supabase.from("posts").delete().eq("id", post.id);
+
+    // Transférer / poser le compteur créateur sur le nouveau post
+    if (acces.role === "poster") {
+      await supabase
+        .from("posts")
+        .update({ recharges_createur: rechargesSuivantes })
+        .eq("id", neuf.id);
     }
 
     // v-next : le post est déjà pipeline done à la matérialisation.

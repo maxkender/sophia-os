@@ -5,7 +5,6 @@ import { en } from "@/locales/en";
 import { fr } from "@/locales/fr";
 import {
   BONUS_PAR_RECRUE_USD,
-  POSTS_POUR_BONUS,
   bonusPotentielUsd,
   texteOuNull,
   validerReferral,
@@ -19,7 +18,6 @@ function payloadValide(over: Partial<ReferralPayload> = {}): ReferralPayload {
     pays: "fr",
     contact_upwork: "https://www.upwork.com/freelancers/~alex",
     contact_email: "",
-    contact_telephone: "",
     confirme_present: true,
     confirme_fiable: true,
     confirme_majeur: true,
@@ -46,8 +44,7 @@ describe("PAYS_OS", () => {
 });
 
 describe("bonusPotentielUsd", () => {
-  it("compte 10 $ par recrue éligible (5 posts)", () => {
-    expect(POSTS_POUR_BONUS).toBe(5);
+  it("compte 10 $ par recrue éligible (première semaine de posts terminée)", () => {
     expect(BONUS_PAR_RECRUE_USD).toBe(10);
     expect(bonusPotentielUsd(0)).toBe(0);
     expect(bonusPotentielUsd(1)).toBe(10);
@@ -62,21 +59,12 @@ describe("validerReferral", () => {
     expect(validerReferral(payloadValide())).toBeNull();
   });
 
-  it("accepte email ou téléphone à la place d’Upwork", () => {
+  it("accepte l’email à la place d’Upwork", () => {
     expect(
       validerReferral(
         payloadValide({
           contact_upwork: "",
           contact_email: "alex@example.com",
-        }),
-      ),
-    ).toBeNull();
-    expect(
-      validerReferral(
-        payloadValide({
-          contact_upwork: "  ",
-          contact_email: "",
-          contact_telephone: "+33 6 12 34 56 78",
         }),
       ),
     ).toBeNull();
@@ -90,7 +78,6 @@ describe("validerReferral", () => {
         payloadValide({
           contact_upwork: "",
           contact_email: "",
-          contact_telephone: "",
         }),
       ),
     ).toBe("referral.err.contact");
@@ -117,14 +104,6 @@ describe("validerReferral", () => {
         }),
       ),
     ).toBe("referral.err.email");
-    expect(
-      validerReferral(
-        payloadValide({
-          contact_upwork: "",
-          contact_telephone: "123",
-        }),
-      ),
-    ).toBe("referral.err.telephone");
   });
 
   it("accepte un profil Upwork sans schéma http", () => {

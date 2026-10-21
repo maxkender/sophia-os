@@ -68,6 +68,12 @@ verify_jwt = false
 [functions.chatbot]
 verify_jwt = false
 
+[functions.ckd]
+verify_jwt = false
+
+[functions.comment-masters]
+verify_jwt = false
+
 [functions.composition]
 verify_jwt = false
 
@@ -75,6 +81,14 @@ verify_jwt = false
 verify_jwt = false
 
 [functions.extraction]
+verify_jwt = false
+
+# Guichet du site (Sophia Culture Hub) : appelé serveur à serveur avec l'en-tête
+# x-hub-secret, contrôlé par la fonction elle-même — voir docs/hub-posteurs.md.
+[functions.hub-posteurs]
+verify_jwt = false
+
+[functions.hub-slack-cohorte]
 verify_jwt = false
 
 [functions.import-contenu]
@@ -95,7 +109,15 @@ verify_jwt = false
 [functions.nettoyer-media]
 verify_jwt = false
 
+[functions.nettoyer-stickers]
+verify_jwt = false
+
 [functions.nettoyer-test]
+verify_jwt = false
+
+# Appelée par pg_cron, qui n'envoie que x-cron-secret : un JWT exigé par la
+# passerelle la rendrait inappelable. Le contrôle est interne (assertAuthorised).
+[functions.notion-hired]
 verify_jwt = false
 
 [functions.oublier-source]
@@ -119,6 +141,9 @@ verify_jwt = false
 verify_jwt = false
 
 [functions.rattrapage-elo]
+verify_jwt = false
+
+[functions.relecture-auto]
 verify_jwt = false
 
 [functions.renettoyer]
@@ -145,10 +170,16 @@ verify_jwt = false
 [functions.signaler-texte]
 verify_jwt = false
 
+[functions.slack-interactions]
+verify_jwt = false
+
 [functions.strip-c2pa]
 verify_jwt = false
 
 [functions.suivi-rc]
+verify_jwt = false
+
+[functions.test-stickers]
 verify_jwt = false
 
 [functions.traduire-doc]

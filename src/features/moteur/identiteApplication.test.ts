@@ -34,12 +34,16 @@ describe("identité Sophia", () => {
     );
     const themes = ["alpha_male", "smart_girl", "clean_girl", "cinema", "anciens", "default"];
     for (const code of LANGUES_CIBLES) {
-      expect(src, `prénoms ${code}`).toMatch(new RegExp(`\\n  ${code}: \\{\\n    prenomsH:`));
+      // Une variante régionale (`es-419`, `pt-BR`) est une clé à tiret : elle
+      // ne peut s'écrire qu'entre guillemets en TS, d'où le `"?` optionnel.
+      expect(src, `prénoms ${code}`).toMatch(
+        new RegExp(`\\n  "?${code}"?: \\{\\n    prenomsH:`),
+      );
       for (const theme of themes) {
         const start = src.indexOf(`  ${theme}: {`);
         expect(start, theme).toBeGreaterThan(-1);
-        const bloc = src.slice(start, start + 8000);
-        expect(bloc, `${theme}.${code}`).toMatch(new RegExp(`\\n    ${code}: \\[`));
+        const bloc = src.slice(start, start + 9000);
+        expect(bloc, `${theme}.${code}`).toMatch(new RegExp(`\\n    "?${code}"?: \\[`));
       }
     }
   });

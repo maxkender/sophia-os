@@ -8,6 +8,7 @@ import { describe, expect, it } from "vitest";
 import {
   applicationsProposees,
   CHOIX_CREATION_DEFAUT,
+  choixApplicationRequis,
   choixApplicationVisible,
   cleErreurChoixCompte,
   labelsDeLApplication,
@@ -56,8 +57,12 @@ describe("peutChoisirApplicationsCompte", () => {
 });
 
 describe("ce qui part dans le corps", () => {
-  it("défaut = Sophia : aucune clé (corps d'avant à l'octet près)", () => {
-    expect(CHOIX_CREATION_DEFAUT).toEqual({ application: "sophia" });
+  it("pas de défaut : rien de coché d'avance", () => {
+    expect(CHOIX_CREATION_DEFAUT).toEqual({ application: null });
+  });
+
+  it("Sophia (ou rien) : aucune clé (corps d'avant à l'octet près)", () => {
+    expect(optionsDuChoix(choix("sophia"))).toStrictEqual({});
     expect(optionsDuChoix(CHOIX_CREATION_DEFAUT)).toStrictEqual({});
     expect(optionsDuChoix(choix(""))).toStrictEqual({});
   });
@@ -80,6 +85,22 @@ describe("applications proposées et visibilité", () => {
   });
 });
 
+describe("choixApplicationRequis", () => {
+  it("exigé dès deux applications actives, jamais quand le choix n'est pas permis", () => {
+    expect(choixApplicationRequis(true, APPS)).toBe(true);
+    expect(choixApplicationRequis(false, APPS)).toBe(false);
+    expect(choixApplicationRequis(false, null)).toBe(false);
+  });
+  it("une seule application active : pas un choix, pas exigé", () => {
+    expect(choixApplicationRequis(true, APPS.filter((a) => a.slug === "sophia" || a.slug === "zen"))).toBe(false);
+    expect(choixApplicationRequis(true, [])).toBe(false);
+  });
+  it("catalogue pas encore lu (ou illisible) : exigé — jamais de choix implicite", () => {
+    expect(choixApplicationRequis(true, null)).toBe(true);
+    expect(choixApplicationRequis(true, undefined)).toBe(true);
+  });
+});
+
 describe("labelsDeLApplication", () => {
   it("label_applications avec héritage Sophia, labels slideshow seulement", () => {
     expect(labelsDeLApplication(ID_SOPHIA, LABELS, LIENS).map((l) => l.id)).toEqual([SMART.id]);
@@ -99,12 +120,16 @@ describe("labelsDeLApplication", () => {
 
 describe("validerChoixCreation", () => {
   it("Sophia ne bloque jamais, même sans aucune lecture", () => {
-    expect(valider(CHOIX_CREATION_DEFAUT)).toMatchObject({ ok: true, erreurs: [], infos: [] });
+    expect(valider(choix("sophia"))).toMatchObject({ ok: true, erreurs: [], infos: [] });
     expect(
-      validerChoixCreation({ choix: CHOIX_CREATION_DEFAUT, applications: null, liens: null, labels: null }),
+      validerChoixCreation({ choix: choix("sophia"), applications: null, liens: null, labels: null }),
     ).toMatchObject({ ok: true, erreurs: [], infos: [] });
     // Même si aucun label ne sert Sophia : c'est le chemin d'avant, manage-users décide.
-    expect(valider(CHOIX_CREATION_DEFAUT, "fr", LIENS, [MEDICAL])).toMatchObject({ ok: true });
+    expect(valider(choix("sophia"), "fr", LIENS, [MEDICAL])).toMatchObject({ ok: true });
+  });
+
+  it("rien de choisi : pas une erreur de ce choix (l'exigence du clic est à part)", () => {
+    expect(valider(CHOIX_CREATION_DEFAUT)).toStrictEqual({ application: null, erreurs: [], infos: [], ok: true });
   });
 
   it("Unswipe avec un label qui la sert : ok, sans info pour une langue ciblée", () => {

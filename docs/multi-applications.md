@@ -9,10 +9,15 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
 - **Les comptes portent des LABELS, pas des applications.** Identité d'un compte
   (bio, lien, persona) : Sophia, toujours.
 - **Un label sert une ou plusieurs applications** (`label_applications`).
-  Pas d'« angle » par label : le prompt de placement de l'application suffit
-  (décision du 2026-10-08). Les colonnes `label_applications.angle` et
-  `contenu_pertinences.angles` restent en base, inutilisées (`angles` est
-  toujours écrite à `null`).
+  **Angles de placement** par paire label × application (`angles_placement`,
+  migration 0285 ; décision du 2026-10-13, qui revient sur celle du
+  2026-10-08, statuts test / actif le 2026-10-14) : une consigne libre, ajoutée
+  au prompt de placement de l'application pour les slideshows de ce label
+  (ex. weird_alpha × Unswipe = « insister sur le côté … »). ACTIF = utilisé
+  partout ; EN TEST = lu seulement par le test à blanc « contenus ». Sans
+  angle actif : placement seul, prompt identique octet pour octet. Voir
+  § « Angle de placement ». La pertinence ne le lit pas :
+  `contenu_pertinences.angles` reste en base, toujours écrite à `null`.
   - **Règle d'héritage** : un label SANS ligne sert Sophia. Un oubli de backfill
     ne peut jamais vider le stock Sophia.
   - Labels système (`hook`, `ugc-ai-video`) : aucune application.
@@ -216,8 +221,11 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
   choisit PAS le label : on choisit seulement l'**application du compte**
   (bloc « Application du compte », `ChoixApplicationsCreation`, dans les
   formulaires de création de Posters, de la fiche d'un créateur sans compte et
-  de /embauche). Une option par application ACTIVE, Sophia par défaut et
-  sélectionnée ; le bloc n'apparaît qu'à partir de deux applications actives,
+  de /embauche). Une CARTE cliquable par application ACTIVE (Sophia d'abord),
+  AUCUNE cochée d'avance : « Créer » sans choix affiche « tu dois choisir
+  l'application » et n'envoie rien (catalogue en lecture ou illisible :
+  choix exigé aussi, jamais Sophia d'office). Le bloc n'apparaît qu'à partir
+  de deux applications actives,
   pour un compte perso seulement, jamais pour un HM UGC AI vidéo. Le label est
   ensuite tiré par manage-users :
   1. File des créateurs DE CETTE APPLICATION pour la langue du compte
@@ -264,9 +272,11 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
 | Objet | Rôle |
 |---|---|
 | `applications.langues text[]`, `applications.actif bool` | langues ciblées (`NULL` = toutes), interrupteur |
-| `label_applications(label_id, application_id, angle)` | applications servies par un label (`angle` : inutilisée) |
+| `label_applications(label_id, application_id, angle)` | applications servies par un label ; `angle` : obsolète depuis 0285 (plus lue ; une écriture non vide est refusée par un déclencheur) |
+| `angles_placement(id, label_id, application_id, texte, statut, created_by)` (0285) | angles de placement d'une paire label × application : `statut` `actif` (au plus un par paire, index unique partiel) ou `test` ; ajout par `ajouter_angle_placement(label, application, texte, actif)`, activation par `activer_angle_placement(id)` (une transaction chacune) |
 | `contenu_pertinences(contenu_id, application_id, score, raison, note, eligible, angles, prompt_cle)` | pertinence par application (`angles` : toujours `null`) |
-| `contenu_langue_decks(contenu_langue_id, contenu_id, langue, application_id, variante, statut, raison, slides, placement)` | deck placé hors Sophia (`statut` : `pret` / `echec` / `ineligible`) |
+| `contenu_langue_decks(contenu_langue_id, contenu_id, langue, application_id, variante, statut, raison, slides, placement)` | deck placé hors Sophia (`statut` : `pret` / `echec` / `ineligible` ; `placement.angle` : angle utilisé, absent sans angle) |
+| `contenu_langues.angle_placement` (0279) | angle utilisé pour poser Sophia sur ce deck (NULL = sans angle, ou posé avant 0279) |
 | `passages.application_id` (défaut Sophia), `passages.application_visee_id`, `passages.repli_motif` | application promue, repli |
 | `posts.application_id` (défaut Sophia) | copie pour les pages posteur/admin |
 | `comptes.parts_applications jsonb` | répartition ; écriture réservée admin (trigger) |
@@ -512,6 +522,40 @@ Reste à faire, le jour de la bascule : réveil des comptes (`is_active = true`
 + label `classic_study`), arrêt de ces comptes dans micabo-os, activation de
 micabo.
 
+### Angle de placement (0279) — avant le merge
+
+Appliquer `supabase/migrations/0279_angle_placement.sql` (SQL Editor ou MCP)
+AVANT de merger le code qui écrit `contenu_langues.angle_placement`. Additive
+(colonne nullable) ; sans elle, seul le traçage des angles Sophia est perdu
+(avertissement dans les logs), jamais un deck. Vérification :
+`select 1 from information_schema.columns where table_name = 'contenu_langues'
+and column_name = 'angle_placement';` → 1 ligne.
+
+### Angles de placement v2 (0285) — avant le merge
+
+Appliquer `supabase/migrations/0285_angles_placement.sql` AVANT de merger le
+code qui lit `angles_placement` (le moteur ne lève jamais sur cette lecture :
+sans la table, placement sans angle et un avertissement dans les logs).
+Additive : une table, ses index, ses droits (lecture authentifiée, écriture
+admin), les fonctions `ajouter_angle_placement` et `activer_angle_placement`,
+et un déclencheur qui REFUSE une écriture non vide de
+`label_applications.angle` (un ancien onglet resté ouvert reçoit une erreur au
+lieu d'un « enregistré » qui ne servirait jamais). Reprend en `actif` les
+angles non vides de `label_applications.angle` (aucun en prod au 2026-10-14),
+APRÈS la pose du déclencheur : une sauvegarde de l'ancien écran en cours à cet
+instant est reprise, les suivantes sont refusées ; rejouée, la reprise ne
+touche pas une paire qui a déjà un angle.
+Vérification : `select statut, count(*) from angles_placement group by 1;`,
+`select proname from pg_proc where proname in ('ajouter_angle_placement',
+'activer_angle_placement');` → 2 lignes, `select tgname from pg_trigger where
+tgname = 'label_applications_angle_remplacee';` → 1 ligne. Après le
+déploiement : `select count(*) from label_applications la where
+nullif(btrim(la.angle), '') is not null and not exists (select 1 from
+angles_placement ap where ap.label_id = la.label_id and ap.application_id =
+la.application_id);` → 0. Retour arrière : le code d'avant ne lit pas la
+table ; la LAISSER (la supprimer effacerait les angles saisis) ; seul le
+déclencheur se retire.
+
 ## 4. Plus tard (décidé, pas fait)
 
 1. **`manage-users` : repli « label le moins utilisé ».** Quand on crée un
@@ -528,3 +572,83 @@ pertinences dépassent un seuil élevé sur un label commun. Le modèle le perme
 déjà : variante `dual:sophia+unswipe` dans `contenu_langue_decks`, poids 0,5 par
 application dans la fenêtre de répartition (`EntreeFenetre.poids`), et une
 colonne `passages.application_secondaire_id` à ajouter.
+
+## Angle de placement (label × application)
+
+Décision du 2026-10-13, statuts le 2026-10-14. Des consignes libres par paire
+label × application (`angles_placement`, migration 0285), ajoutées au prompt
+de placement de l'application pour les slideshows de ce label.
+
+- **Statuts** :
+  - **actif** : utilisé partout, tout le temps (préparation des decks, nuit,
+    assignation, variations). Au plus UN par paire (index unique partiel) ;
+    en activer un autre renvoie le précédent en test, dans la même
+    transaction (`activer_angle_placement`).
+  - **test** : lu SEULEMENT par le test à blanc « contenus », jamais par le
+    vrai placement. Plusieurs par paire possibles : le test place chaque
+    slideshow une fois avec la référence (l'angle actif, ou sans angle), puis
+    une fois par angle en test (au plus `MAX_ANGLES_TEST` = 4, les plus
+    anciens), côte à côte pour comparer.
+- **Pourquoi un angle en test ne peut pas fuir dans le vrai placement** :
+  `chargerAnglePlacement` ne lit que `statut = 'actif'` (filtre SQL, puis
+  `liensActifs` dans le code) ; l'angle essayé n'entre dans
+  `assurerDeckApplication` que par `angleBrouillon`, honoré SEULEMENT avec
+  `ignorerCache` (option du test à blanc) ; et
+  `angle_test_seulement_test.ts` fait échouer les tests si `chargerAnglesTest`,
+  `anglesTestPourApplication`, `angleBrouillon` ou `ignorerCache` apparaît
+  ailleurs que dans les fichiers du test à blanc.
+- **Labels qui servent** : seuls comptent les angles des labels qui SERVENT
+  l'application (`label_applications`, un label sans ligne sert Sophia).
+  Décocher une application d'un label garde ses angles, sans qu'ils servent
+  (la page les montre « ne sert plus ») ; la recocher les rend à nouveau
+  actifs.
+
+- **Où il entre** : uniquement dans le placement — `integrerApplication`
+  (Unswipe, micabo) et `integrateSophia` (Sophia), via un bloc « CONSIGNE
+  PROPRE À CE SLIDESHOW » posé juste après le prompt maître, avant les
+  données du deck (`_shared/angle_placement.ts`). Le mot « angle » n'est pas
+  dans le texte envoyé au modèle : les prompts maîtres l'emploient déjà pour
+  les 3 variantes. La consigne oriente le fond de la slide pub, jamais sa
+  forme (langue, longueur, préfixe, casse, ton, mention de la marque).
+- **Angle vide** : aucun octet ajouté — instantanés Sophia
+  (`gemini_placement_golden_test.ts`) intacts, tests dédiés pour les autres
+  applications (`angle_placement_test.ts`).
+- **Quel angle** : celui du label du CONTENU (`contenu_labels`), pas du compte
+  — le cache des decks est par contenu × langue × application, partagé entre
+  comptes. Labels système exclus ; plusieurs angles (aucun cas aujourd'hui :
+  un label par contenu) = liste à puces. Lecture en panne = placement sans
+  angle, jamais un deck perdu (`chargerAnglePlacement`).
+- **Quand il s'applique** : aux prochaines préparations seulement. Un deck déjà
+  prêt (`contenu_langue_decks`, `contenu_langues.slides`) est servi tel quel ;
+  un post déjà assigné garde son texte. Les contenus livrés par un pod (images
+  finies) ne passent pas par le placement : l'angle ne s'y applique pas. Les
+  originaux de pod (`pod` renseigné, slide Sophia écrite par le pod puis
+  traduite) n'ont pas d'angle Sophia non plus ; Unswipe et micabo, placés
+  depuis la base sans pub, ont bien le leur.
+- **Trace** : `contenu_langue_decks.placement.angle` (absente sans angle) ;
+  pour Sophia (et les variations), `contenu_langues.angle_placement`
+  (migration 0279, écrite à part après le deck, seulement quand l'angle a
+  vraiment servi). Limite : un deck Sophia reposé plus tard SANS angle (import
+  forcé dans la langue source) garde l'ancienne trace. Hors Sophia, un
+  placement qui échoue avec un angle le dit dans sa raison (« placement
+  impossible (avec angle) ») ; pour Sophia, un échec retombe sur le texte de
+  repli (`placementParDefaut`), sans raison ni trace d'angle.
+- **Garde-fou** : hors français, une variante qui recopie 6 mots d'affilée de
+  l'angle (casse, accents et ponctuation ignorés) est écartée comme celles qui
+  disent « l'appli » (`variantesSansCopieAngle`) ; s'il n'en reste aucune, le
+  modèle est relancé.
+- **Où le régler** : Configuration → Angles de placement (`/admin/angles`),
+  pour l'application du sélecteur : une carte par label qui la sert, avec son
+  angle actif, ses angles en test, et l'ajout (« en test » ou « actif », en
+  une transaction). Chaque angle se modifie, s'active, repasse en test ou se
+  supprime. 500 caractères au plus, écrit en français comme une consigne, pas
+  comme un slogan à recopier. Un texte déjà présent dans la paire est refusé ;
+  un angle en test que le test à blanc ne comparera pas (identique à l'actif,
+  doublon, au-delà de 4) est marqué. La page Prompts renvoie vers elle.
+- **L'essayer** : écrire l'angle en test, puis Tests → test à blanc
+  « contenus » (Sophia comprise : placement seul, sans notation). Chaque
+  slideshow montre la référence et un placement par angle en test (slide pub,
+  variantes, deck complet). Quand un angle convainc : l'activer.
+- **Hors périmètre** : la composition legacy (`composer.ts`, sans label de
+  contenu, inactive) ne lit pas d'angle ; les variations (dormantes) lisent
+  celui du label du parent.

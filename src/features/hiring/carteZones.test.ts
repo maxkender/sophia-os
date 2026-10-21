@@ -18,6 +18,7 @@ const NOMS_CARTE = [
   "Russia",
   "Belarus",
   "Kazakhstan",
+  "Ukraine",
   "United States of America",
   "United Kingdom",
   "Australia",
@@ -69,11 +70,18 @@ describe("paysDeZone", () => {
     ]);
   });
 
-  it("« Russian-speaking » couvre les grands pays russophones, sans doublon", () => {
-    expect(paysDeZone("Estonia + Finland + Russian-speaking + Russia", NOMS_CARTE)).toEqual({
-      pays: ["Estonia", "Finland", "Russia", "Belarus", "Kazakhstan"],
+  it("« Russian-speaking » : Kazakhstan, Ukraine, Biélorussie, pas la Russie", () => {
+    expect(paysDeZone("Estonia + Finland + Russian-speaking", NOMS_CARTE)).toEqual({
+      pays: ["Estonia", "Finland", "Kazakhstan", "Ukraine", "Belarus"],
       inconnus: [],
     });
+    // La Russie n'apparaît que si la zone la nomme, et une seule fois.
+    expect(paysDeZone("Russian-speaking + Russia + Kazakhstan", NOMS_CARTE).pays).toEqual([
+      "Kazakhstan",
+      "Ukraine",
+      "Belarus",
+      "Russia",
+    ]);
   });
 
   it("noms français et accents", () => {

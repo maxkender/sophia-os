@@ -1,5 +1,6 @@
 import { scrapeStats } from "../_shared/apify.ts";
 import { lireTout } from "../_shared/lots.ts";
+import { enregistrerProfil } from "../_shared/profil_compte.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
@@ -86,6 +87,8 @@ async function releverCompte(
     partages: somme((s) => s.partages),
     nb_posts: enLigne.length,
   });
+  // Abonnés et lien du profil, sur le même scrape (contrôle 1 000 abonnés).
+  await enregistrerProfil(supabase, compteId, enLigne);
 
   // Relevé PAR POST pour ceux dont on a le lien (garde le détail par post :
   // viraux, meilleurs posts…).

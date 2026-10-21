@@ -6,23 +6,33 @@ import { Boxes, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, EmptyState } from "@/components/ui/card";
+import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { drapeauLangue } from "@/features/moteur/langues";
 import {
+  autonomieMin,
   deciderPersona,
+  echeanceAutoValidation,
   enregistrerDemo,
   itemsVideo,
   languesOrdonnees,
+  lireTableauPods,
   listerDemos,
   listerPersonas,
+  majAutoValidation,
   nomsComptes,
+  partSurPeriode,
   POD_VIDEO,
   listerLivraisons,
   listerPods,
+  nomApplication,
   parPod,
   rejeterLivraison,
   validerLivraison,
+  variantesDeck,
   type Livraison,
+  type Pod,
+  type PreuveOriginal,
   type StatutLivraison,
 } from "@/features/pods/api";
 
@@ -37,7 +47,10 @@ function Deck({ livraison }: { livraison: Livraison }) {
   const { t } = useTranslation();
   const langues = languesOrdonnees(livraison);
   const [langue, setLangue] = React.useState(langues[0]);
-  const deck = livraison.decks[langue];
+  // Sophia et/ou les applications livrées (pod 6 : UnSwipe seul).
+  const variantes = variantesDeck(livraison, langue);
+  const [cle, setCle] = React.useState<string | null>(null);
+  const deck = variantes.find((v) => v.cle === cle) ?? variantes[0];
   return (
     <div className="space-y-2">
       {langues.length > 1 && (
@@ -45,6 +58,15 @@ function Deck({ livraison }: { livraison: Livraison }) {
           {langues.map((l) => (
             <Button key={l} size="sm" variant={l === langue ? "default" : "outline"} onClick={() => setLangue(l)}>
               {drapeauLangue(l)} {l}
+            </Button>
+          ))}
+        </div>
+      )}
+      {(variantes.length > 1 || (deck && deck.cle !== "sophia")) && (
+        <div className="flex flex-wrap gap-1">
+          {variantes.map((v) => (
+            <Button key={v.cle} size="sm" variant={v.cle === deck?.cle ? "secondary" : "ghost"} onClick={() => setCle(v.cle)}>
+              {nomApplication(v.cle)}
             </Button>
           ))}
         </div>
@@ -84,10 +106,54 @@ function Deck({ livraison }: { livraison: Livraison }) {
   );
 }
 
-function LigneLivraison({ livraison }: { livraison: Livraison }) {
+const nombreCourt = (n: number) =>
+  n >= 1_000_000 ? `${(n / 1_000_000).toFixed(1).replace(/\.0$/, "")} M` : n >= 1_000 ? `${Math.round(n / 1_000)} k` : String(n);
+
+/** Pod 4 : le schéma d'accroche et ce qui prouve qu'il fait des vues aujourd'hui. */
+function Preuve({ preuve }: { preuve: PreuveOriginal }) {
+  const { t } = useTranslation();
+  return (
+    <div className="space-y-1 rounded-lg border border-dashed p-2 text-xs">
+      <p>
+        <span className="font-medium">{t("pods.preuve")} :</span> {t("pods.preuveSchema", { schema: preuve.schema })}
+      </p>
+      <ul className="flex flex-wrap gap-x-3 gap-y-1 text-muted-foreground">
+        {preuve.references.map((r) =>
+          r.type === "tiktok" ? (
+            <li key={r.url}>
+              <a className="inline-flex items-center gap-1 underline" href={r.url} target="_blank" rel="noreferrer">
+                {t("pods.preuveTiktok", {
+                  vues: nombreCourt(r.vues),
+                  date: new Date(`${r.publie_le}T12:00:00Z`).toLocaleDateString(),
+                })}
+                <ExternalLink className="size-3" />
+              </a>
+              {r.enregistrements != null && ` · ${t("pods.preuveEnregistrements", { n: nombreCourt(r.enregistrements) })}`}
+            </li>
+          ) : (
+            <li key={r.contenu_id}>
+              {t("pods.preuveOs", {
+                r: r.r_median?.toLocaleString() ?? "—",
+                n: r.publies,
+                contenu: r.contenu_id.slice(0, 8),
+              })}
+            </li>
+          ),
+        )}
+      </ul>
+    </div>
+  );
+}
+
+function LigneLivraison({ livraison, pod }: { livraison: Livraison; pod?: Pod }) {
   const { t } = useTranslation();
   const qc = useQueryClient();
   const [motif, setMotif] = React.useState("");
+  // Podz sûr : la livraison sera validée toute seule au bout du délai.
+  const echeance =
+    pod?.auto_validation && livraison.type !== "video"
+      ? echeanceAutoValidation(livraison.depose_le, pod.auto_validation_heures)
+      : null;
   const rafraichir = () => qc.invalidateQueries({ queryKey: ["pods", "livraisons"] });
   const valider = useMutation({ mutationFn: () => validerLivraison(livraison.id), onSuccess: rafraichir });
   const rejeter = useMutation({ mutationFn: () => rejeterLivraison(livraison.id, motif), onSuccess: rafraichir });
@@ -131,10 +197,23 @@ function LigneLivraison({ livraison }: { livraison: Livraison }) {
         <Badge variant={varianteStatut(livraison.statut)}>{t(`pods.statut.${livraison.statut}`)}</Badge>
       </div>
 
+      {livraison.preuve && <Preuve preuve={livraison.preuve} />}
+
       {livraison.type === "video" ? <DeckVideo livraison={livraison} /> : <Deck livraison={livraison} />}
 
       {livraison.statut === "a_valider" ? (
         <div className="space-y-2">
+          {livraison.auto_erreur ? (
+            <p className="text-xs text-destructive">{t("pods.autoErreur", { erreur: livraison.auto_erreur })}</p>
+          ) : (
+            echeance && (
+              <p className="text-xs text-muted-foreground">
+                {t("pods.autoEcheance", {
+                  heure: echeance.toLocaleString(undefined, { weekday: "short", hour: "2-digit", minute: "2-digit" }),
+                })}
+              </p>
+            )
+          )}
           <Textarea value={motif} onChange={(e) => setMotif(e.target.value)} placeholder={t("pods.motif")} rows={1} />
           <div className="flex gap-2">
             <Button disabled={occupe} onClick={() => valider.mutate()}>
@@ -152,6 +231,7 @@ function LigneLivraison({ livraison }: { livraison: Livraison }) {
             (livraison.type === "video"
               ? t("pods.videoValidee")
               : t("pods.valide", { tier: livraison.tier, note: livraison.note_import }))}
+          {livraison.statut === "validee" && livraison.decide_auto && ` · ${t("pods.autoFaite")}`}
           {livraison.statut === "ecartee_note" && t("pods.ecartee", { note: livraison.note_import })}
           {livraison.statut === "rejetee" && `${t("pods.rejete")}${livraison.motif ? ` — ${livraison.motif}` : ""}`}
         </p>
@@ -281,6 +361,150 @@ function PanneauDemos() {
   );
 }
 
+/** Le tableau de bord des podz (fonction SQL `pods_tableau`, 0324) : part des podz, chiffres par podz, percées. */
+function TableauDeBord() {
+  const { t } = useTranslation();
+  const { data, error } = useQuery({ queryKey: ["pods", "tableau"], queryFn: () => lireTableauPods(14) });
+  if (error) {
+    return <p className="text-sm text-destructive">{t("pods.tableau.erreur", { message: (error as Error).message })}</p>;
+  }
+  if (!data) return null;
+  const vide = t("pods.tableau.sansMesure");
+  const nombre = (n: number | null | undefined) => (n == null ? vide : n.toLocaleString());
+  // Le dernier jour est en cours : « hier » est l'avant-dernier, et les 7 jours s'arrêtent à hier.
+  const hier = data.jours[data.jours.length - 2];
+  const septJours = partSurPeriode(data.jours.slice(-8, -1));
+  const nomPod = new Map(data.pods.map((p) => [p.slug, p.nom]));
+  const lignes = data.pods.filter((p) => p.actif && (p.publies_30j > 0 || p.contenus > 0));
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>{t("pods.tableau.titre")}</CardTitle>
+        <CardDescription>{t("pods.tableau.description")}</CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        {hier && (
+          <p className="text-sm">
+            {t("pods.tableau.hier", { part: nombre(hier.part), pods: hier.publies_pods, total: hier.publies })}
+            {septJours != null && ` ${t("pods.tableau.septJours", { part: septJours.toLocaleString() })}`}
+          </p>
+        )}
+        <div>
+          <p className="mb-1 text-xs font-medium text-muted-foreground">{t("pods.tableau.jours")}</p>
+          <div className="flex flex-wrap gap-1 text-xs">
+            {data.jours.slice(-8).map((j) => (
+              <span key={j.jour} className="rounded border px-2 py-1 tabular-nums" title={`${j.publies_pods} / ${j.publies}`}>
+                {new Date(`${j.jour}T12:00:00Z`).toLocaleDateString(undefined, { day: "2-digit", month: "2-digit" })} ·{" "}
+                {j.part == null ? vide : `${j.part.toLocaleString()} %`}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead className="text-left text-xs text-muted-foreground">
+              <tr>
+                <th className="py-1 pr-3 font-medium">{t("pods.tableau.podz")}</th>
+                <th className="py-1 pr-3 text-right font-medium">{t("pods.tableau.vuesMediane")}</th>
+                <th className="py-1 pr-3 text-right font-medium">{t("pods.tableau.pct10k")}</th>
+                <th className="py-1 pr-3 text-right font-medium">{t("pods.tableau.meilleur")}</th>
+                <th className="py-1 pr-3 text-right font-medium">{t("pods.tableau.r")}</th>
+                <th className="py-1 pr-3 text-right font-medium">{t("pods.tableau.publies7j")}</th>
+                <th className="py-1 pr-3 text-right font-medium" title={t("pods.tableau.runwayAide")}>
+                  {t("pods.tableau.runway")}
+                </th>
+                <th className="py-1 pr-3 text-right font-medium">{t("pods.tableau.aValider")}</th>
+                <th className="py-1 text-right font-medium">{t("pods.tableau.rangs")}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {lignes.map((p) => {
+                const runway = autonomieMin(p.autonomie);
+                return (
+                  <tr key={p.slug} className="border-t">
+                    <td className="py-1 pr-3">
+                      <a href={`#pod-${p.slug}`} className="underline-offset-2 hover:underline">
+                        {p.nom}
+                      </a>
+                      {p.auto_validation && (
+                        <Badge variant="secondary" className="ml-1">
+                          {t("pods.tableau.auto")}
+                        </Badge>
+                      )}
+                    </td>
+                    <td className="py-1 pr-3 text-right tabular-nums">{p.vues_mediane == null ? vide : nombreCourt(p.vues_mediane)}</td>
+                    <td className="py-1 pr-3 text-right tabular-nums">{p.pct_10k == null ? vide : `${p.pct_10k.toLocaleString()} %`}</td>
+                    <td className="py-1 pr-3 text-right tabular-nums">{p.max_vues ? nombreCourt(p.max_vues) : vide}</td>
+                    <td className="py-1 pr-3 text-right tabular-nums">{nombre(p.r_mediane)}</td>
+                    <td className="py-1 pr-3 text-right tabular-nums">{p.publies_7j}</td>
+                    <td className="py-1 pr-3 text-right tabular-nums" title={runway ? nomApplication(runway.application) : undefined}>
+                      {runway
+                        ? `${runway.jours!.toLocaleString()} j${runway.reserve_label_jours == null ? "" : ` (${runway.reserve_label_jours.toLocaleString()} j)`}`
+                        : vide}
+                    </td>
+                    <td className="py-1 pr-3 text-right tabular-nums">{p.a_valider}</td>
+                    <td className="py-1 text-right tabular-nums">
+                      {p.coupes} · {p.en_tete}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <p className="mb-1 text-xs font-medium text-muted-foreground">{t("pods.tableau.percees")}</p>
+          {data.percees.length ? (
+            <ul className="space-y-1 text-sm">
+              {data.percees.slice(0, 8).map((pe) => (
+                <li key={`${pe.contenu_id}-${pe.compte}-${pe.jour}`} className="flex flex-wrap items-baseline gap-x-2">
+                  <span className="font-medium tabular-nums">{nombreCourt(pe.vues)}</span>
+                  {pe.url ? (
+                    <a href={pe.url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 underline">
+                      {pe.accroche?.replace(/\s+/g, " ")} <ExternalLink className="size-3" />
+                    </a>
+                  ) : (
+                    <span>{pe.accroche?.replace(/\s+/g, " ")}</span>
+                  )}
+                  <span className="text-xs text-muted-foreground">
+                    {nomPod.get(pe.pod) ?? pe.pod} · {drapeauLangue(pe.langue)} {pe.langue} · {nomApplication(pe.application)} · {pe.tier ?? vide}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="text-sm text-muted-foreground">{t("pods.tableau.aucunePercee")}</p>
+          )}
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
+/** Podz sûr : ses livraisons en attente sont validées en B toutes seules, après son délai. */
+function InterrupteurAuto({ pod }: { pod: Pod }) {
+  const { t } = useTranslation();
+  const qc = useQueryClient();
+  const basculer = useMutation({
+    mutationFn: (actif: boolean) => majAutoValidation(pod.slug, actif),
+    onSettled: () => qc.invalidateQueries({ queryKey: ["pods"] }),
+  });
+  return (
+    <div className="space-y-1">
+      <label className="flex items-center gap-2 text-sm">
+        <Switch
+          checked={pod.auto_validation}
+          disabled={basculer.isPending}
+          onCheckedChange={(v) => basculer.mutate(v === true)}
+          aria-label={t("pods.autoInterrupteurAria", { pod: pod.nom })}
+        />
+        <span>{t("pods.autoInterrupteur", { heures: pod.auto_validation_heures })}</span>
+      </label>
+      {basculer.error && <p className="text-xs text-destructive">{(basculer.error as Error).message}</p>}
+    </div>
+  );
+}
+
 /** Valide toute la file d'un pod au rang B, une livraison après l'autre. */
 function ToutValiderEnB({ livraisons }: { livraisons: Livraison[] }) {
   const { t } = useTranslation();
@@ -351,6 +575,8 @@ export function AdminPodsPage() {
         )}
       </Card>
 
+      <TableauDeBord />
+
       {(error || pods.error) && <p className="text-sm text-destructive">{((error ?? pods.error) as Error).message}</p>}
 
       {!isLoading && !slugs.length && (
@@ -372,6 +598,7 @@ export function AdminPodsPage() {
               <CardDescription>
                 {t("pods.aValider")} ({aValider.length})
               </CardDescription>
+              {pod && slug !== POD_VIDEO && <InterrupteurAuto pod={pod} />}
             </CardHeader>
             <CardContent className="space-y-4">
               {slug === POD_VIDEO ? (
@@ -383,7 +610,7 @@ export function AdminPodsPage() {
                 <ToutValiderEnB livraisons={aValider} />
               )}
               {aValider.length ? (
-                aValider.map((l) => <LigneLivraison key={l.id} livraison={l} />)
+                aValider.map((l) => <LigneLivraison key={l.id} livraison={l} pod={pod} />)
               ) : (
                 <p className="text-sm text-muted-foreground">{t("pods.vide")}</p>
               )}

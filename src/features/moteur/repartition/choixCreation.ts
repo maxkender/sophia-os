@@ -4,7 +4,9 @@
  * `ChoixApplicationsCreation` ne fait qu'afficher ce qui se décide ici).
  *
  * On ne choisit PAS le label. On choisit seulement l'application que le compte
- * promeut (Sophia par défaut). Le label est ensuite tiré par manage-users :
+ * promeut — un choix EXPLICITE : aucune application n'est cochée d'avance, et
+ * l'envoi exige un clic dès qu'il y a au moins deux applications actives. Le
+ * label est ensuite tiré par manage-users :
  * File des créateurs DE CETTE APPLICATION (file de la langue du compte, puis sa
  * file générale), et à défaut un choix équilibré (stock × vues, par langue)
  * parmi les labels qui servent l'application (`label_applications`, un label sans ligne sert Sophia —
@@ -42,12 +44,26 @@ export function peutChoisirApplicationsCompte(role: string | null | undefined): 
 }
 
 export interface ChoixCreation {
-  /** Slug de l'application du compte (Sophia par défaut). */
-  application: string;
+  /** Slug de l'application du compte ; `null` = pas encore choisie (il faut cliquer). */
+  application: string | null;
 }
 
-/** Sophia : rien n'est envoyé, le comportement d'avant tel quel. */
-export const CHOIX_CREATION_DEFAUT: ChoixCreation = { application: SLUG_SOPHIA };
+/** Rien de choisi : pas d'application par défaut, le recruteur doit cliquer. */
+export const CHOIX_CREATION_DEFAUT: ChoixCreation = { application: null };
+
+/**
+ * Le choix est-il exigé ? Oui dès que le formulaire le permet, sauf quand on
+ * SAIT qu'il n'y a qu'une application active (Sophia seule n'est pas un choix).
+ * Catalogue encore en lecture ou illisible : exigé aussi — jamais de choix
+ * implicite faute d'avoir pu montrer les applications.
+ */
+export function choixApplicationRequis(
+  actif: boolean,
+  applications: readonly ApplicationMoteur[] | null | undefined,
+): boolean {
+  if (!actif) return false;
+  return applications ? choixApplicationVisible(applications) : true;
+}
 
 /** Ce qui part dans le corps manage-users (clé absente = Sophia, chemin d'avant). */
 export interface OptionsChoixCreation {
@@ -92,8 +108,9 @@ export function labelsDeLApplication<T extends LabelFileSlideshow & { id: string
 }
 
 /**
- * Options du corps : Sophia (ou rien de choisi) → {} (corps d'avant à
- * l'octet près) ; autre application → { partsApplications: { slug: 100 } }.
+ * Options du corps : Sophia (ou rien de choisi — l'envoi est alors bloqué en
+ * amont quand le choix est exigé) → {} (corps d'avant à l'octet près) ; autre
+ * application → { partsApplications: { slug: 100 } }.
  */
 export function optionsDuChoix(choix: ChoixCreation): OptionsChoixCreation {
   const slug = String(choix.application ?? "").trim();
@@ -137,7 +154,10 @@ export function validerChoixCreation(args: {
   const { choix, applications, liens, labels, langue } = args;
   const erreurs: ErreurChoixCreation[] = [];
   const infos: InfoChoixCreation[] = [];
-  const slug = String(choix.application ?? "").trim() || SLUG_SOPHIA;
+  const slug = String(choix.application ?? "").trim();
+  // Rien de choisi : pas une erreur de CE choix (l'exigence d'un clic est
+  // portée par `choixApplicationRequis`, au moment d'envoyer).
+  if (!slug) return { application: null, erreurs, infos, ok: true };
   const app = applications?.find((a) => a.slug === slug) ?? null;
 
   if (slug !== SLUG_SOPHIA && applications) {

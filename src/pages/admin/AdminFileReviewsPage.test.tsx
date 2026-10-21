@@ -9,12 +9,16 @@ const listerReviewRemarques = vi.fn();
 const compterRemarquesParCreateur = vi.fn();
 const envoyerReview = vi.fn();
 const ameliorerReview = vi.fn();
+const listerRelecturesAuto = vi.fn();
+const testerRelecture = vi.fn();
 vi.mock("@/features/moteur/api", () => ({
   aujourdhuiParis: () => "2026-09-09",
-  listerFileReviewsJour: () => listerFileReviewsJour(),
+  listerFileReviewsJour: (opts?: { jour?: string }) => listerFileReviewsJour(opts),
+  listerRelecturesAuto: (ids: string[]) => listerRelecturesAuto(ids),
+  testerRelecture: (postId: string) => testerRelecture(postId),
   listerReviewRemarques: () => listerReviewRemarques(),
   compterRemarquesParCreateur: (ids: string[]) => compterRemarquesParCreateur(ids),
-  resoudreTiktok: vi.fn(),
+  resoudreTiktok: vi.fn().mockResolvedValue({ url: "", id: null, thumbnail: null }),
   uploaderVideoRemarque: vi.fn(),
   retirerVideoRemarque: vi.fn(),
   envoyerReview: (...args: unknown[]) => envoyerReview(...args),
@@ -71,6 +75,9 @@ describe("AdminFileReviewsPage", () => {
     envoyerReview.mockResolvedValue(undefined);
     ameliorerReview.mockReset();
     ameliorerReview.mockResolvedValue({ texte: "The hook is too slow, rewritten." });
+    listerRelecturesAuto.mockReset();
+    listerRelecturesAuto.mockResolvedValue({});
+    testerRelecture.mockReset();
   });
   it("affiche l'état vide quand la file est soldée", async () => {
     listerFileReviewsJour.mockResolvedValue([]);
@@ -179,5 +186,161 @@ describe("AdminFileReviewsPage", () => {
     expect(screen.getByDisplayValue("Timing")).toBeInTheDocument();
     expect(screen.queryByPlaceholderText(/Titre \(bouton\)|Title \(button\)/)).not.toBeInTheDocument();
     expect(screen.getByTestId("liste-remarques")).toHaveClass("overflow-y-auto");
+  });
+
+  it("ouvre la file d'hier, que l'agent a relue cette nuit", async () => {
+    listerFileReviewsJour.mockResolvedValue([]);
+    listerReviewRemarques.mockResolvedValue([]);
+    renderPage();
+    await screen.findByText(/File du jour vide|Today's queue is empty/);
+    expect(listerFileReviewsJour).toHaveBeenLastCalledWith({ jour: "2026-09-09" });
+    fireEvent.click(screen.getByRole("button", { name: /^(Hier|Yesterday)$/ }));
+    await waitFor(() => expect(listerFileReviewsJour).toHaveBeenLastCalledWith({ jour: "2026-09-08" }));
+  });
+
+  it("« Tester » fait relire le post et pré-remplit la review de l'agent", async () => {
+    listerFileReviewsJour.mockResolvedValue([POST]);
+    listerReviewRemarques.mockResolvedValue([
+      { ...REMARQUE, id: "j", titre: "Jutifier", video_url: "https://cdn.example/justif.mp4" },
+    ]);
+    testerRelecture.mockResolvedValue({
+      post_id: "post-1",
+      statut: "fait",
+      defauts: [
+        { code: "justification", niveau: "remarque", slides: [5, 6], detail: "lignes trop courtes" },
+        { code: "police", niveau: "info", slides: [1], detail: "police peut-être différente" },
+      ],
+      brouillon: "On slides 5 and 6, your lines are shorter than in the original.",
+      remarques: [{ id: "j", titre: "Jutifier" }],
+      erreur: null,
+    });
+    renderPage();
+    expect(await screen.findByText(/Pas encore relu|Not reviewed yet/)).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /^(Tester|Test)$/ }));
+    await waitFor(() =>
+      expect(screen.getByPlaceholderText(/Ton retour|Your feedback/)).toHaveValue(
+        "On slides 5 and 6, your lines are shorter than in the original.",
+      ),
+    );
+    expect(testerRelecture).toHaveBeenCalledWith("post-1");
+    expect(screen.getByText("Lignes trop courtes (slides 5 et 6)")).toBeInTheDocument();
+    expect(screen.getByText("Police peut-être différente (slide 1)")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /Envoyer|Send/ }));
+    // Brouillon non retouché : il part mot pour mot, sans repasser par l'IA.
+    await waitFor(() => {
+      expect(envoyerReview).toHaveBeenCalledWith(
+        "poster-1",
+        "On slides 5 and 6, your lines are shorter than in the original.",
+        expect.objectContaining({
+          remarques: [{ id: "j", titre: "Jutifier" }],
+          videos: [{ url: "https://cdn.example/justif.mp4", titre: "Jutifier" }],
+        }),
+      );
+    });
+    expect(ameliorerReview).not.toHaveBeenCalled();
+  });
+
+  it("un brouillon de l'agent retouché repasse par l'IA avant l'envoi", async () => {
+    listerFileReviewsJour.mockResolvedValue([POST]);
+    listerReviewRemarques.mockResolvedValue([]);
+    testerRelecture.mockResolvedValue({
+      post_id: "post-1",
+      statut: "fait",
+      defauts: [{ code: "taille", niveau: "remarque", slides: [2], detail: "texte trop gros" }],
+      brouillon: "On slide 2, your text is bigger than in the original.",
+      remarques: [],
+      erreur: null,
+    });
+    renderPage();
+    fireEvent.click(await screen.findByRole("button", { name: /^(Tester|Test)$/ }));
+    const champ = screen.getByPlaceholderText(/Ton retour|Your feedback/);
+    await waitFor(() => expect(champ).toHaveValue("On slide 2, your text is bigger than in the original."));
+    fireEvent.change(champ, { target: { value: "On slide 2, your text is way too big." } });
+    fireEvent.click(screen.getByRole("button", { name: /Envoyer|Send/ }));
+    await waitFor(() =>
+      expect(envoyerReview).toHaveBeenCalledWith("poster-1", "The hook is too slow, rewritten.", expect.anything()),
+    );
+    expect(ameliorerReview).toHaveBeenCalledWith("On slide 2, your text is way too big.");
+  });
+
+  it("« Tester » sans rien à signaler laisse la review vide", async () => {
+    listerFileReviewsJour.mockResolvedValue([POST]);
+    listerReviewRemarques.mockResolvedValue([]);
+    testerRelecture.mockResolvedValue({
+      post_id: "post-1",
+      statut: "fait",
+      defauts: [],
+      brouillon: null,
+      remarques: [],
+      erreur: null,
+    });
+    renderPage();
+    fireEvent.click(await screen.findByRole("button", { name: /^(Tester|Test)$/ }));
+    expect(await screen.findByText(/Rien à signaler|Nothing to flag/)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/Ton retour|Your feedback/)).toHaveValue("");
+  });
+
+  it("montre la relecture de la nuit et le compte des reviews proposées", async () => {
+    listerFileReviewsJour.mockResolvedValue([POST]);
+    listerReviewRemarques.mockResolvedValue([]);
+    listerRelecturesAuto.mockResolvedValue({
+      "post-1": {
+        post_id: "post-1",
+        statut: "ignore",
+        defauts: [],
+        brouillon: null,
+        remarques: [],
+        erreur: "publié en vidéo",
+      },
+    });
+    renderPage();
+    expect(await screen.findByText(/Pas relu : publié en vidéo|Not reviewed: publié en vidéo/)).toBeInTheDocument();
+  });
+
+  it("un post qui marche : pas de remarque, ses points sont montrés comme non envoyés", async () => {
+    listerFileReviewsJour.mockResolvedValue([POST]);
+    listerReviewRemarques.mockResolvedValue([]);
+    listerRelecturesAuto.mockResolvedValue({
+      "post-1": {
+        post_id: "post-1",
+        statut: "fait",
+        defauts: [{ code: "justification", niveau: "remarque", slides: [2, 3], detail: "lignes trop courtes" }],
+        brouillon: null,
+        remarques: [],
+        erreur: null,
+        vues: 12300,
+      },
+    });
+    renderPage();
+    expect(await screen.findByText(/(Le post marche|The post is doing well) \(12/)).toBeInTheDocument();
+    expect(screen.getByText(/pas envoyé \(le post marche\)|not sent \(the post is doing well\)/)).toBeInTheDocument();
+    expect(screen.getByText("Lignes trop courtes (slides 2 et 3)")).toBeInTheDocument();
+  });
+
+  it("annonce un post pas encore relu", async () => {
+    listerFileReviewsJour.mockResolvedValue([POST]);
+    listerReviewRemarques.mockResolvedValue([]);
+    renderPage();
+    expect(await screen.findByText(/Pas encore relu|Not reviewed yet/)).toBeInTheDocument();
+  });
+
+  it("prévient quand le créateur a collé le même lien pour un autre post", async () => {
+    // Même post TikTok (même ID) collé pour un autre slideshow du compte.
+    listerFileReviewsJour.mockResolvedValue([
+      { ...POST, autres_liens: ["https://www.tiktok.com/@crea/photo/1?lang=fr", "https://www.tiktok.com/@crea/photo/9"] },
+    ]);
+    listerReviewRemarques.mockResolvedValue([]);
+    renderPage();
+    expect(
+      await screen.findByText(/aussi été collé pour un autre slideshow|also pasted for another slideshow/),
+    ).toBeInTheDocument();
+  });
+
+  it("ne prévient pas quand les autres posts du compte ont leur propre TikTok", async () => {
+    listerFileReviewsJour.mockResolvedValue([{ ...POST, autres_liens: ["https://www.tiktok.com/@crea/photo/9"] }]);
+    listerReviewRemarques.mockResolvedValue([]);
+    renderPage();
+    await screen.findByText(/TikTok du créateur|Creator's TikTok/);
+    expect(screen.queryByText(/aussi été collé|also pasted/)).not.toBeInTheDocument();
   });
 });

@@ -26,9 +26,9 @@ export interface ApplicationMulti extends ApplicationOs {
 }
 
 /**
- * Lien label → application. La colonne `angle` reste en base (nullable) mais
- * n'est plus ni lue ni écrite : pas d'angle par label, le prompt de placement
- * de l'application suffit.
+ * Lien label → application. Les angles de placement d'une paire vivent dans
+ * `angles_placement` (apiAngles.ts) ; la colonne `label_applications.angle`
+ * n'est plus ni lue ni écrite.
  */
 export interface LienLabelApplicationRow {
   label_id: string;

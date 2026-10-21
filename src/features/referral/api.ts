@@ -50,7 +50,6 @@ function corpsInsert(referrerId: string, payload: ReferralPayload) {
     pays: payload.pays,
     contact_upwork: texteOuNull(payload.contact_upwork),
     contact_email: texteOuNull(payload.contact_email),
-    contact_telephone: texteOuNull(payload.contact_telephone),
     confirme_present: true,
     confirme_fiable: true,
     confirme_majeur: true,

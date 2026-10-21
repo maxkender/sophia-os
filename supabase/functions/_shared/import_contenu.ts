@@ -21,6 +21,7 @@ import {
   integrateSophia,
   mimeDepuisBase64,
   ocrFrame,
+  ocrSlideImport,
   scoreRelevance,
   translateSlideshow,
 } from "./gemini.ts";
@@ -55,7 +56,11 @@ import {
   clePromptPlacement,
   placementParDefaut,
 } from "./applications.ts";
-import { erreurSchemaAbsent, schemaMultiAppPret } from "./applications_moteur.ts";
+import {
+  chargerAnglePlacement,
+  erreurSchemaAbsent,
+  schemaMultiAppPret,
+} from "./applications_moteur.ts";
 import {
   majNotesPertinences,
   noteStockee,
@@ -67,7 +72,7 @@ import {
   type PlacementSophia,
 } from "./pertinence_apps.ts";
 import { lireParLots, lireTout } from "./lots.ts";
-import { SLUG_SOPHIA } from "./multi_app.ts";
+import { ID_SOPHIA, SLUG_SOPHIA } from "./multi_app.ts";
 import {
   estTier,
   passagesPourTier,
@@ -80,13 +85,47 @@ import { chargerPrompt, messageErreur, serviceClient } from "./supabase.ts";
 export type Supabase = ReturnType<typeof serviceClient>;
 
 const BUCKET = "medias";
+
+/**
+ * Un diaporama publiable fait au moins TROIS slides.
+ *
+ * En dessous il ne reste qu'une accroche et le placement de l'application :
+ * le deck n'a plus de corps, et le placement se retrouve seul. C'est là qu'il
+ * dérape — le 12/10/2026 un créateur allemand a reçu deux photos dont la
+ * seconde s'ouvrait sur « 6. », en continuant une liste que le deck ne
+ * contenait pas. 217 contenus étaient dans ce cas, 186 n'avaient jamais servi.
+ *
+ * Le plancher est posé à l'ENDROIT LE PLUS TÔT possible (la création, avant
+ * OCR, pertinence, ELO, nettoyage et traduction), pour qu'un deck trop court
+ * ne coûte pas un seul appel de modèle. La validation finale le revérifie :
+ * c'est elle qui ouvre le contenu au tirage, et aucun chemin ne doit pouvoir
+ * y arriver en passant à côté.
+ */
+export const SLIDES_MIN = 3;
+
+/** `true` quand le deck n'atteint pas le plancher. */
+export function deckTropCourt(slides: readonly unknown[] | null | undefined): boolean {
+  return (slides?.length ?? 0) < SLIDES_MIN;
+}
+
+/** Le motif écrit dans `import_erreur`, en clair pour l'admin. */
+export function motifDeckTropCourt(n: number): string {
+  return `${n} slide${n > 1 ? "s" : ""} seulement, minimum ${SLIDES_MIN} — TikTok non importé`;
+}
+
+/** Copie Deno de `src/features/moteur/langues.ts` — garder synchro.
+ *  `es-419` / `pt-BR` sont des variantes régionales : une langue à part
+ *  entière pour le moteur, c'est `LANGUES` (gemini.ts) qui porte la région
+ *  jusqu'au modèle. */
 export const LANGUES_CIBLES = [
   "fr",
   "en",
   "de",
   "it",
   "es",
+  "es-419",
   "pt",
+  "pt-BR",
   "cs",
   "nl",
   "el",
@@ -526,6 +565,9 @@ async function reouvrirContenuPourReimport(
   langueSource: string,
 ): Promise<void> {
   const slides = await slidesBrutesDepuisPost(supabase, post);
+  // Même plancher au RÉIMPORT : un contenu qui revient plus court qu'avant
+  // (la source a retiré des photos) ne doit pas se rouvrir au tirage.
+  const tropCourt = deckTropCourt(slides);
   const { error } = await supabase
     .from("contenus")
     .update({
@@ -539,10 +581,10 @@ async function reouvrirContenuPourReimport(
       vues_source: post.stats?.vues ?? null,
       pertinence_score: null,
       pertinence_raison: null,
-      statut: "brouillon",
-      import_statut: "pending",
-      import_etape: null,
-      import_erreur: null,
+      statut: tropCourt ? "rejete" : "brouillon",
+      import_statut: tropCourt ? "done" : "pending",
+      import_etape: tropCourt ? "trop_court" : null,
+      import_erreur: tropCourt ? motifDeckTropCourt(slides.length) : null,
       import_tentatives: 0,
     })
     .eq("id", contenuId);
@@ -589,6 +631,12 @@ export async function creerContenuDepuisPost(
 
   const slides = await slidesBrutesDepuisPost(supabase, post);
 
+  // Plancher (SLIDES_MIN) : on garde une LIGNE, rejetée, plutôt que de ne rien
+  // créer. L'admin voit alors pourquoi ce TikTok n'est pas entré, et
+  // `trouverContenuParUrl` le reconnaît au prochain scrape au lieu de le
+  // retenter indéfiniment.
+  const tropCourt = deckTropCourt(slides);
+
   const { data: contenu, error } = await supabase
     .from("contenus")
     .insert({
@@ -600,9 +648,10 @@ export async function creerContenuDepuisPost(
       musique_url: post.musicUrl,
       musique_titre: post.musicTitle,
       vues_source: post.stats?.vues ?? null,
-      statut: "brouillon",
-      import_statut: "pending",
-      import_etape: null,
+      statut: tropCourt ? "rejete" : "brouillon",
+      import_statut: tropCourt ? "done" : "pending",
+      import_etape: tropCourt ? "trop_court" : null,
+      import_erreur: tropCourt ? motifDeckTropCourt(slides.length) : null,
       profondeur: 0,
     })
     .select("id")
@@ -1206,6 +1255,56 @@ export async function avancerImport(
 }
 
 /**
+ * Règle stickers allumée ? `reglages.stickers.rejet_import`, éteinte par
+ * défaut : on la vérifie d'abord à blanc (page Tests → « Stickers à
+ * l'import »). Ligne absente ou lecture ratée → éteinte, l'import reste
+ * celui d'avant.
+ */
+async function rejetStickersActif(supabase: Supabase): Promise<boolean> {
+  const { data } = await supabase
+    .from("reglages")
+    .select("valeur")
+    .eq("cle", "stickers")
+    .maybeSingle();
+  return (data?.valeur as { rejet_import?: unknown } | null)?.rejet_import === true;
+}
+
+/**
+ * OCR d'une slide à l'import : `null` = sticker PUB (règle allumée seulement).
+ * Un sticker de contenu (livre, vidéo, article) est importé avec son texte.
+ * Les contenus d'un pod (`contenus.pod`) ont un passe-droit : jamais rejetés
+ * pour sticker, même s'ils repassent par ici (reprise d'un deck sans texte).
+ */
+async function lireSlideImport(
+  supabase: Supabase,
+  contenu: { pod?: string | null },
+  url: string,
+): Promise<string | null> {
+  if (contenu.pod || !(await rejetStickersActif(supabase))) return await ocrFrame(url);
+  const lecture = await ocrSlideImport(url);
+  return lecture.sticker === "pub" ? null : lecture.texte;
+}
+
+/**
+ * Sticker PUB collé sur une slide (carte App Store, icône ou logo d'app, carte
+ * d'un site…) : le TikTok n'est pas importé. Décidé à l'OCR, avant pertinence
+ * et nettoyage.
+ */
+async function rejeterSticker(
+  supabase: Supabase,
+  contenuId: string,
+  position: number,
+): Promise<AvancerImportResultat> {
+  await marquer(supabase, contenuId, {
+    statut: "rejete",
+    import_statut: "done",
+    import_etape: "sticker",
+    import_erreur: `Sticker pub (app, marque) collé sur la slide ${position} — TikTok non importé`,
+  });
+  return { etape: "sticker", progres: true };
+}
+
+/**
  * Un pas du pipeline. Ordre :
  * OCR hook → pertinence → OCR reste → ELO par langue (gate) → nettoyage (1×)
  * → caption visuelle (Florence → Moondream) → valide (texte OCR source uniquement).
@@ -1249,7 +1348,9 @@ async function executerPasImport(
 
     // 1 — OCR du hook
     if (slides[0] && (slides[0].texte_original === null || slides[0].texte_original === undefined)) {
-      slides[0].texte_original = await ocrFrame(slides[0].raw_url);
+      const texte = await lireSlideImport(supabase, contenu, slides[0].raw_url);
+      if (texte === null) return await rejeterSticker(supabase, contenu.id, slides[0].position);
+      slides[0].texte_original = texte;
       await marquer(supabase, contenu.id, {
         structure_slides: slides,
         import_etape: "ocr",
@@ -1305,7 +1406,9 @@ async function executerPasImport(
     const aOcr = slides.filter((s) => s.texte_original === null || s.texte_original === undefined);
     if (aOcr.length > 0) {
       for (const slide of aOcr.slice(0, SLIDES_PAR_PASSAGE)) {
-        slide.texte_original = await ocrFrame(slide.raw_url);
+        const texte = await lireSlideImport(supabase, contenu, slide.raw_url);
+        if (texte === null) return await rejeterSticker(supabase, contenu.id, slide.position);
+        slide.texte_original = texte;
       }
       await marquer(supabase, contenu.id, {
         structure_slides: slides,
@@ -1652,6 +1755,21 @@ async function executerPasImport(
       reference_url: s.reference_url ?? s.raw_url,
     }));
 
+    // Dernier filet du plancher : c'est CETTE écriture qui ouvre le contenu au
+    // tirage (le pool ne lit que `statut = valide`). Quel que soit le chemin
+    // parcouru, un deck sous SLIDES_MIN n'en sort pas validé.
+    if (deckTropCourt(slidesPropres)) {
+      await marquer(supabase, contenu.id, {
+        structure_slides: slidesPropres,
+        statut: "rejete",
+        import_statut: "done",
+        import_etape: "trop_court",
+        import_erreur: motifDeckTropCourt(slidesPropres.length),
+        import_tentatives: 0,
+      });
+      return { etape: "trop_court", progres: true };
+    }
+
     await marquer(supabase, contenu.id, {
       structure_slides: slidesPropres,
       statut: "valide",
@@ -1704,6 +1822,10 @@ async function placerSophiaSurDeck(
   // d'`application_id` sélectionné plus haut) — un reste de micabo, et deux
   // lectures de plus par placement. Les autres applications cuisent leur deck
   // dans `contenu_langue_decks` (deck_application.ts).
+  //
+  // Angle du label du contenu pour Sophia (angle_placement.ts) : vide tant
+  // qu'aucun n'est saisi, et le prompt reste alors octet pour octet le même.
+  const angle = await chargerAnglePlacement(supabase, contenu.id, ID_SOPHIA);
   const placement = await integrateSophia({
     masterPrompt: (await chargerPrompt(supabase, clePromptPlacement("sophia"))) ?? "",
     corrections: (corrections ?? []).map((c) => ({
@@ -1714,6 +1836,7 @@ async function placerSophiaSurDeck(
     caption: contenu.titre ?? "",
     langue,
     positionImposee,
+    ...(angle ? { angle } : {}),
   });
 
   if (placement) {
@@ -1725,10 +1848,33 @@ async function placerSophiaSurDeck(
         position_sophia: true,
       };
       await supabase.from("contenu_langues").update({ slides: deck }).eq("id", contenuLangueId);
+      if (angle) await tracerAngleSophia(supabase, { id: contenuLangueId }, angle);
       return "ok";
     }
   }
   return "retry";
+}
+
+/**
+ * Garde l'angle qui a servi au placement Sophia de ce deck
+ * (`contenu_langues.angle_placement`, migration 0279), pour comparer plus tard
+ * les posts avec et sans angle. Écriture à part, après celle du deck : une
+ * colonne absente ou une écriture refusée ne coûte jamais le deck. Ligne visée
+ * par son id, ou par (contenu, langue) quand elle vient d'être insérée.
+ */
+export async function tracerAngleSophia(
+  supabase: Supabase,
+  ligne: { id: string } | { contenuId: string; langue: string },
+  angle: string,
+): Promise<void> {
+  let requete = supabase.from("contenu_langues").update({ angle_placement: angle });
+  requete = "id" in ligne
+    ? requete.eq("id", ligne.id)
+    : requete.eq("contenu_id", ligne.contenuId).eq("langue", ligne.langue);
+  const { error } = await requete;
+  if (error) {
+    console.warn(`[angle] ${JSON.stringify(ligne)} : angle non tracé (${messageErreur(error)})`);
+  }
 }
 
 export type LigneLangue = {
@@ -1841,7 +1987,7 @@ export async function traduireBaseDeck(
  * porte sa slide Sophia dans `slides`, la base sans appli dans `slides_base`.
  * C'est ce deck-là qu'on traduit pour les autres langues, au lieu de placer.
  */
-function deckSophiaDuPod(
+export function deckSophiaDuPod(
   contenu: { pod?: string | null },
   ligneSource: LigneLangue | null,
 ): SlideLangue[] | null {

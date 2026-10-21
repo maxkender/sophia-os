@@ -19,7 +19,6 @@ import { PAYS_OS, drapeauLangue } from "@/features/moteur/langues";
 import { creerReferral, listerMesReferrals } from "@/features/referral/api";
 import {
   BONUS_PAR_RECRUE_USD,
-  POSTS_POUR_BONUS,
   bonusPotentielUsd,
   validerReferral,
   type ReferralPayload,
@@ -35,7 +34,6 @@ const formulaireVide: ReferralPayload = {
   pays: "fr",
   contact_upwork: "",
   contact_email: "",
-  contact_telephone: "",
   confirme_present: false,
   confirme_fiable: false,
   confirme_majeur: false,
@@ -97,7 +95,6 @@ export function PosterReferralPage() {
             <p className="text-sm font-semibold">{t("referral.bonusTitre")}</p>
             <p className="mt-1 text-sm">
               {t("referral.bonusCorps", {
-                posts: POSTS_POUR_BONUS,
                 bonus: BONUS_PAR_RECRUE_USD,
                 dizaine: bonusPotentielUsd(10),
               })}
@@ -181,27 +178,15 @@ export function PosterReferralPage() {
                 inputMode="url"
               />
             </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="space-y-1.5">
-                <Label htmlFor="ref-email">{t("referral.email")}</Label>
-                <Input
-                  id="ref-email"
-                  type="email"
-                  value={form.contact_email ?? ""}
-                  onChange={(e) => setChamp("contact_email", e.target.value)}
-                  autoComplete="email"
-                />
-              </div>
-              <div className="space-y-1.5">
-                <Label htmlFor="ref-tel">{t("referral.telephone")}</Label>
-                <Input
-                  id="ref-tel"
-                  type="tel"
-                  value={form.contact_telephone ?? ""}
-                  onChange={(e) => setChamp("contact_telephone", e.target.value)}
-                  autoComplete="tel"
-                />
-              </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="ref-email">{t("referral.email")}</Label>
+              <Input
+                id="ref-email"
+                type="email"
+                value={form.contact_email ?? ""}
+                onChange={(e) => setChamp("contact_email", e.target.value)}
+                autoComplete="email"
+              />
             </div>
             <p className="text-xs text-muted-foreground">{t("referral.contactAide")}</p>
 

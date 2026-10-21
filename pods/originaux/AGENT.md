@@ -107,6 +107,12 @@ ou de déposer.
 Compare tes originaux aux contenus du label. Propose la suite : refaire ce qui
 marche, abandonner ce qui ne marche pas.
 
+## La routine du matin
+
+Chaque matin, une tâche planifiée lance ta routine : suis `pods/ROUTINE.md`
+(combien livrer, dans quel ordre, un essai une fois sur cinq). Ta livraison
+normale : un original, comme « Écris N originaux » avec N = 1.
+
 ## Règles
 - **Tu proposes, l'humain valide.** Ne contourne jamais la file.
 - **Versions** : commite avant de réécrire un fichier existant.

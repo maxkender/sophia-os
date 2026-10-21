@@ -11,7 +11,6 @@ import {
   MAX_CONTENUS_A_BLANC,
   PLAFOND_IA_PAR_CONTENU,
 } from "../_shared/a_blanc_contenus.ts";
-import { ID_SOPHIA } from "../_shared/multi_app.ts";
 import { reponseNdjson } from "../_shared/nettoyage_etapes.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
@@ -39,10 +38,13 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
  *   POST { mode: "contenus", applicationId, contenuIds (1 à 3), langue? }
  *   → même flux NDJSON, puis { etape: "ready", aBlanc: true, mode: "contenus", resultat }.
  *
- * Note 1 à 3 slideshows pour une application AUTRE que Sophia (le vrai calcul
- * du rattrapage de pertinence), puis fait son placement (le vrai deck
- * d'application, cache ignoré). IA obligatoire : mêmes refus la nuit, plafond
- * de PLAFOND_IA_PAR_CONTENU appels par slideshow. Voir _shared/a_blanc_contenus.ts.
+ * Note 1 à 3 slideshows pour une application (le vrai calcul du rattrapage de
+ * pertinence ; pas de notation pour Sophia), puis fait son placement (le vrai
+ * deck d'application, cache ignoré ; pour Sophia, la slide posée sur la base
+ * sans pub) : une fois avec l'angle ACTIF du label (ou sans angle), puis une
+ * fois par angle EN TEST du label, pour comparer. Les angles en test ne sont
+ * lus que par ce mode. IA obligatoire : mêmes refus la nuit, plafond de
+ * PLAFOND_IA_PAR_CONTENU appels par slideshow. Voir _shared/a_blanc_contenus.ts.
  *
  * Voir docs/assignation-a-blanc.md.
  */
@@ -179,9 +181,6 @@ function lancerModeContenus(body: Record<string, unknown>): Response {
   const contenuIds = [...new Set(brut.filter((x): x is string => typeof x === "string"))];
   const langue = typeof body.langue === "string" && body.langue.trim() ? body.langue.trim() : null;
   if (!UUID.test(applicationId)) return json({ error: "applicationId (uuid) requis" }, 400);
-  if (applicationId === ID_SOPHIA) {
-    return json({ error: "Mode contenus réservé aux applications autres que Sophia" }, 400);
-  }
   if (
     contenuIds.length === 0 || contenuIds.length > MAX_CONTENUS_A_BLANC ||
     contenuIds.length !== brut.length || !contenuIds.every((id) => UUID.test(id))
@@ -221,7 +220,12 @@ function lancerModeContenus(body: Record<string, unknown>): Response {
             `Test à BLANC · notation + placement · ${contenuIds.length} slideshow(s)` +
               `${langue ? ` · ${langue}` : ""} · IA autorisée (rien n'est enregistré)`,
           );
-          const r = await executerContenusABlanc(serviceClient(), ctx, { applicationId, contenuIds, langue, onLog: log });
+          const r = await executerContenusABlanc(serviceClient(), ctx, {
+            applicationId,
+            contenuIds,
+            langue,
+            onLog: log,
+          });
           emettre({
             etape: "ready",
             statut: r.erreurRun ? "echec" : "ok",

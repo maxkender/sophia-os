@@ -76,8 +76,12 @@ export interface CompteResumePoster {
   id: string;
   type_compte: TypeCompte;
   langue: string;
+  /** Marché du compte (0278). Sans lui, la vignette HM disait « Country not set ». */
+  pays: string | null;
   application_id: string | null;
   application_slug: string | null;
+  /** Répartition par application ; sans elle, la vignette HM affichait « sophia » pour un compte Unswipe. */
+  parts_applications: unknown;
   handle_tiktok: string | null;
   persona_nom: string | null;
   persona_bio: string | null;
@@ -95,6 +99,13 @@ export interface Compte {
   compte_reference_id: string | null;
   type_compte: TypeCompte;
   langue: string;
+  /**
+   * Marché du compte en ISO-3166-1 alpha-2 (`GB`, `US`, `AU`…), migration
+   * 0278. Distinct de `langue`, qui reste la seule chose que le moteur lit :
+   * cinq pays anglophones partagent `en` et ne se distinguaient pas.
+   * `null` = pas encore renseigné par le HM.
+   */
+  pays?: string | null;
   /**
    * Toujours Sophia : identité du compte (bio, persona, recrutement). Ce que
    * le compte PROMEUT se règle par `parts_applications` et ses labels.

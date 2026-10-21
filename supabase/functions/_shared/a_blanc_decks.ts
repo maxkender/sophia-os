@@ -20,7 +20,7 @@
  *       montre le texte qui serait traduit / placé ;
  *     - autre application : on lance le VRAI `assurerDeckApplication` avec une
  *       échéance déjà passée. Il passe tous les refus sans IA (cache prêt,
- *       inéligible, échec récent, base polluée, concurrence, prompt manquant,
+ *       inéligible, échec récent, slide Sophia ou concurrente, prompt manquant,
  *       base sans texte) et s'arrête en « budget » juste avant la traduction
  *       ou le placement, sans écrire de cache. Ce « budget »-là devient un
  *       aperçu prêt « à fabriquer ».

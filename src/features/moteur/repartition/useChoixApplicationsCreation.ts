@@ -3,29 +3,57 @@ import { useQuery } from "@tanstack/react-query";
 
 import { listerLabels } from "../api";
 import { listerApplicationsMulti, listerLiensLabels } from "../apiMultiApp";
-import { SLUG_SOPHIA } from "../multiApp";
 import {
   CHOIX_CREATION_DEFAUT,
-  choixApplicationVisible,
+  choixApplicationRequis,
   optionsDuChoix,
   validerChoixCreation,
   type ChoixCreation,
   type OptionsChoixCreation,
 } from "./choixCreation";
+import { CLE_CHOIX_APPLICATION_AUTO, lireChoixApplicationAuto } from "./apiRepartition";
 import { CLE_APPLICATIONS_MULTI, CLE_LIENS_LABELS } from "./useMultiApp";
 
 /**
  * État du choix « Application du compte » d'un formulaire de création de
  * compte (admin, Head of Ops, DM, HM). Inactif (compte CM, UGC vidéo,
  * formulaire fermé) : AUCUNE lecture, options vides, jamais bloquant — le
- * formulaire envoie exactement le corps d'avant. Sophia (défaut) : options
- * vides aussi.
+ * formulaire envoie exactement le corps d'avant. Sophia : options vides aussi.
+ *
+ * Aucune application n'est cochée d'avance : dès qu'il y en a au moins deux
+ * actives, le recruteur DOIT cliquer. Le bouton d'envoi reste cliquable ; il
+ * appelle `verifier()`, qui affiche « choisis l'application » et refuse
+ * l'envoi tant que rien n'est choisi.
  *
  * Mêmes clés de cache que `useApplicationsMulti` / `useLiensLabels` et que la
  * liste des labels de la page Posters : rien de relu en double.
  */
-export function useChoixApplicationsCreation(actif: boolean, langue?: string | null) {
+export function useChoixApplicationsCreation(actifDemande: boolean, langue?: string | null) {
+  // La bascule : quand le moteur choisit l'application, il n'y a plus rien à
+  // cocher. On réutilise le chemin « inactif » qui existe déjà et qui est
+  // testé — aucune lecture, options vides, jamais bloquant — plutôt que
+  // d'arracher le composant.
+  //
+  // Tant qu'on ne SAIT PAS que l'interrupteur est allumé, la case reste : une
+  // lecture qui rate ne doit pas faire disparaître le choix et envoyer tous
+  // les comptes sur Sophia. Le serveur applique exactement la même règle, et
+  // les deux lisent la même clé, donc ils basculent ensemble.
+  const auto = useQuery({
+    queryKey: [CLE_CHOIX_APPLICATION_AUTO],
+    queryFn: lireChoixApplicationAuto,
+    staleTime: 60_000,
+    retry: false,
+    enabled: actifDemande,
+  });
+  const actif = actifDemande && auto.data !== true;
   const [choix, setChoix] = React.useState<ChoixCreation>(CHOIX_CREATION_DEFAUT);
+  // Envois tentés sans application (compteur : chaque clic ramène le bloc
+  // sous les yeux) ; remis à zéro à la fermeture, au changement de type de
+  // compte et après une création.
+  const [tentatives, setTentatives] = React.useState(0);
+  React.useEffect(() => {
+    if (!actif) setTentatives(0);
+  }, [actif]);
   const applications = useQuery({
     queryKey: CLE_APPLICATIONS_MULTI,
     queryFn: listerApplicationsMulti,
@@ -58,26 +86,54 @@ export function useChoixApplicationsCreation(actif: boolean, langue?: string | n
     [choix, applications.data, liens.data, labels.data, langue],
   );
 
-  const reinitialiser = React.useCallback(() => setChoix(CHOIX_CREATION_DEFAUT), []);
+  const reinitialiser = React.useCallback(() => {
+    setChoix(CHOIX_CREATION_DEFAUT);
+    setTentatives(0);
+  }, []);
   const options: OptionsChoixCreation = actif ? optionsDuChoix(choix) : {};
-  // Au moins deux applications actives ; ou une autre application déjà
-  // choisie (éteinte entre-temps) : le bloc reste pour montrer pourquoi
+  // Choix exigé : au moins deux applications actives, ou catalogue pas encore
+  // lu (jamais de choix implicite). Le bloc reste aussi visible quand une
+  // application déjà choisie s'est éteinte entre-temps, pour dire pourquoi
   // l'envoi est bloqué.
-  const visible =
-    actif && (choixApplicationVisible(applications.data) || choix.application !== SLUG_SOPHIA);
+  const requis = choixApplicationRequis(actif, applications.data);
+  const manquant = requis && !choix.application;
+  // Catalogue pas encore lu, ou illisible : rien à cliquer — l'envoi est grisé
+  // (jamais Sophia d'office), sans « choisis l'application ».
+  const chargement = actif && applications.isPending;
+  const illisible = actif && !applications.data && applications.isError;
+  const visible = actif && !chargement && (requis || choix.application !== null);
+  /** À appeler avant d'envoyer : `false` (et message affiché) si rien n'est choisi. */
+  const verifier = React.useCallback((): boolean => {
+    if (!manquant) return true;
+    if (!chargement && !illisible) setTentatives((n) => n + 1);
+    return false;
+  }, [manquant, chargement, illisible]);
 
   return {
     actif,
-    /** Le bloc s'affiche (actif et au moins deux applications actives). */
+    /** Le bloc s'affiche (choix exigé, ou application déjà choisie). */
     visible,
     choix,
     setChoix,
     reinitialiser,
+    /** Une application doit être choisie et ne l'est pas encore. */
+    manquant,
+    /** Envoi tenté sans application : message « choisis l'application ». */
+    signalerManquant: tentatives > 0 && manquant,
+    /** Nombre d'envois tentés sans application (chaque clic ramène le bloc). */
+    tentatives,
+    /** Catalogue illisible : le bloc montre l'erreur et « Réessayer ». */
+    illisible,
+    verifier,
     validation,
     /** À étaler dans l'appel API : {} pour Sophia (corps d'avant). */
     options,
-    /** Envoi à bloquer (choix invalide). Toujours faux quand inactif ou Sophia. */
-    bloque: actif && !validation.ok,
+    /**
+     * Bouton à griser : application choisie mais impossible (éteinte, sans
+     * label), ou catalogue en lecture / illisible. Rien de choisi ne grise PAS :
+     * le clic passe par `verifier()`.
+     */
+    bloque: actif && (!validation.ok || chargement || illisible),
     applications,
     liens,
     labels,

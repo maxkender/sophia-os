@@ -1,3 +1,4 @@
+import { blocConsignePlacement, variantesSansCopieAngle } from "./angle_placement.ts";
 import { downloadImage } from "./apify.ts";
 import { variantesSansFrancaisResiduel } from "./deck_langue.ts";
 import { messageErreur } from "./supabase.ts";
@@ -215,6 +216,33 @@ export const DEFAULT_TRANSLATE_PROMPT = `Règles de traduction impératives :
   n'est pas ton rôle de l'ajouter ici.
 - Conserve les URLs et les sources citées telles quelles.`;
 
+const OCR_CONSIGNE = `Transcris exactement le texte incrusté sur cette slide TikTok,
+en langue d'origine, sans le corriger ni le traduire.
+
+Ignore : logos, marques dans le décor, texte sur les vêtements, barre de statut
+du téléphone. Garde le nom d'une app/d'un podcast si c'est le sujet de la slide.`;
+
+const OCR_AUCUN_TEXTE =
+  `Si la slide ne contient aucun texte incrusté, réponds exactement : (aucun texte)`;
+
+const OCR_STICKER = `STICKERS : éléments graphiques COLLÉS par-dessus la photo. Ne compte pas ce qui
+fait partie de la photo elle-même (objets, écrans, papiers, panneaux), un emoji
+tapé dans le texte, le fond coloré derrière le texte, ni le watermark TikTok
+(@pseudo). Deux familles :
+- PUB : le sticker fait la promotion d'une app, d'une marque ou d'un site —
+  carte App Store ou Google Play, icône ou logo d'app, logo de marque, capture
+  de l'interface d'une app, bouton GET / Obtenir / Download, carte d'un site.
+  S'il y en a un, ne transcris rien et réponds exactement : (sticker pub)
+- CONTENU : le sticker porte la recommandation elle-même — couverture de livre,
+  capture d'une vidéo YouTube, d'un article ou d'un podcast, note ou liste
+  collée. Transcris la slide normalement, puis ajoute une dernière ligne
+  exactement : (sticker contenu)
+Pas un sticker du tout (transcris normalement, sans marque) : nos applis
+Sophia, UnSwipe, Micabo (carte, icône ou capture).
+Toujours du CONTENU, jamais une PUB : une grande plateforme citée comme outil
+dans le conseil de la slide (LinkedIn, YouTube, Spotify, Substack, Google,
+Wikipedia, Instagram…).`;
+
 /**
  * OCR seul, slide par slide : transcrit le texte incrusté en langue d'origine.
  * La traduction se fait ensuite sur tout le deck d'un coup (translateSlideshow),
@@ -222,18 +250,56 @@ export const DEFAULT_TRANSLATE_PROMPT = `Règles de traduction impératives :
  */
 export async function ocrFrame(imageUrl: string): Promise<string> {
   const image = await fetchImageAsInline(imageUrl);
-
-  const prompt = `Transcris exactement le texte incrusté sur cette slide TikTok,
-en langue d'origine, sans le corriger ni le traduire.
-
-Ignore : logos, marques dans le décor, texte sur les vêtements, barre de statut
-du téléphone. Garde le nom d'une app/d'un podcast si c'est le sujet de la slide.
-
-Si la slide ne contient aucun texte incrusté, réponds exactement : (aucun texte)`;
-
+  const prompt = `${OCR_CONSIGNE}\n\n${OCR_AUCUN_TEXTE}`;
   const parts = await callWithFallback(TEXT_MODELS, [{ text: prompt }, image]);
   const text = textOf(parts).trim();
   return text === "(aucun texte)" ? "" : text;
+}
+
+/** Sticker vu par l'OCR d'import : pub d'app ou de marque, ou porteur du contenu. */
+export type StickerImport = "pub" | "contenu" | null;
+
+export interface LectureImport {
+  /** Texte de la slide ("" sans texte, ou pour une slide à sticker pub). */
+  texte: string;
+  sticker: StickerImport;
+}
+
+/**
+ * OCR de l'import : la même lecture et le même appel qu'`ocrFrame`, plus le
+ * classement des stickers. Le nettoyage (text-removal) ne sait pas retirer un
+ * sticker, il en efface seulement le texte, et l'OCR le recopiait dans la
+ * légende (#questions, ticket stickers du 13/10). Seule la PUB fait rejeter le
+ * TikTok : c'est le concurrent visible sur la slide où l'on place l'appli. Un
+ * sticker de CONTENU (livre, vidéo, article) est la recommandation même : test
+ * à blanc du 19/10, ces slideshows marchent comme les autres.
+ */
+export async function ocrSlideImport(imageUrl: string): Promise<LectureImport> {
+  const image = await fetchImageAsInline(imageUrl);
+  const prompt = `${OCR_CONSIGNE}\n\n${OCR_STICKER}\n\n${OCR_AUCUN_TEXTE}`;
+  const parts = await callWithFallback(TEXT_MODELS, [{ text: prompt }, image]);
+  return lireOcrImport(textOf(parts));
+}
+
+const MARQUE_PUB = "(sticker pub)";
+const MARQUE_CONTENU = "(sticker contenu)";
+
+/**
+ * Réponse de l'OCR d'import → texte et sticker. Un « (sticker) » sans famille
+ * (ancienne consigne) compte comme une pub : dans le doute, la règle rejette.
+ */
+export function lireOcrImport(reponse: string): LectureImport {
+  const lignes = reponse.trim().split("\n");
+  const marque = (m: string) => lignes.some((l) => l.trim().toLowerCase() === m);
+  if (marque(MARQUE_PUB) || marque("(sticker)")) return { texte: "", sticker: "pub" };
+  const texte = lignes
+    .filter((l) => l.trim().toLowerCase() !== MARQUE_CONTENU)
+    .join("\n")
+    .trim();
+  return {
+    texte: texte === "(aucun texte)" ? "" : texte,
+    sticker: marque(MARQUE_CONTENU) ? "contenu" : null,
+  };
 }
 
 /**
@@ -242,13 +308,26 @@ Si la slide ne contient aucun texte incrusté, réponds exactement : (aucun text
  * une bonne fois. Renvoie une traduction par position + hashtags (légende TikTok)
  * dans la langue cible.
  */
+/**
+ * Nom de la langue DONNÉ AU MODÈLE. C'est le seul endroit où la région d'une
+ * variante devient une consigne : le prompt ouvre sur
+ * `LANGUE DE SORTIE : ${langue.toUpperCase()}` et y revient à chaque section.
+ *
+ * `es` et `pt` étaient nus (« espagnol », « portugais »). Sans région, le
+ * modèle retombe sur sa variante la plus représentée : du brésilien pour le
+ * portugais. Les posteuses du Portugal recevaient donc des slides brésiliennes
+ * et les réécrivaient à la main, slide par slide, avant publication. Nommer la
+ * région des quatre codes supprime la cause.
+ */
 export const LANGUES: Record<string, string> = {
   fr: "français",
   en: "anglais",
-  es: "espagnol",
+  es: "espagnol d'Espagne (castillan)",
+  "es-419": "espagnol d'Amérique latine (neutre, ni castillan ni voseo)",
   it: "italien",
   de: "allemand",
-  pt: "portugais",
+  pt: "portugais du Portugal (européen)",
+  "pt-BR": "portugais du Brésil",
   cs: "tchèque",
   nl: "néerlandais",
   el: "grec",
@@ -496,6 +575,12 @@ export async function integrateSophia(input: {
    * c'est ELLE que Sophia remplace, même hors des 3 dernières slides.
    */
   positionImposee?: number;
+  /**
+   * Angle ACTIF du label du contenu pour Sophia (`angles_placement`, voir
+   * angle_placement.ts). Vide ou absent : prompt identique octet pour octet
+   * (instantanés de gemini_placement_golden_test.ts).
+   */
+  angle?: string;
 }): Promise<SophiaPlacement | null> {
   // Sophia DOIT tomber dans les 2-3 dernières slides (jamais au début) : on borne
   // les positions permises aux 3 dernières (hors couverture = slide 1). Une slide
@@ -532,7 +617,7 @@ export async function integrateSophia(input: {
 Les variantes que tu écris doivent être en ${langue}, quelle que soit la langue
 des consignes ci-dessous.
 
-${input.masterPrompt}
+${input.masterPrompt}${blocConsignePlacement(input.angle, "Sophia", langue)}
 
 --- DONNÉES ---
 Légende de la vidéo : ${input.caption || "(aucune)"}
@@ -597,7 +682,14 @@ Réponds UNIQUEMENT en JSON, sans bloc de code ni commentaire :
       // « l'appli » hors français, mais un prompt n'est qu'une consigne. Une
       // variante qui la contient est écartée ; s'il n'en reste aucune, on
       // relance le modèle plutôt que de publier une pub moitié française.
-      const variants = variantesSansFrancaisResiduel(brutes, input.langue);
+      // Même règle pour l'angle (français) : une variante qui en recopie une
+      // formule hors français est écartée (angle_placement.ts). Sans angle :
+      // aucun effet.
+      const variants = variantesSansCopieAngle(
+        variantesSansFrancaisResiduel(brutes, input.langue),
+        input.angle,
+        input.langue,
+      );
 
       // La position choisie DOIT être dans les 2-3 dernières slides. Si le modèle
       // sort une position hors zone, on la ramène sur la dernière slide autorisée

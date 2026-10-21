@@ -71,9 +71,11 @@ export function AdminCreateurPage() {
     enabled: Boolean(compteId),
   });
 
+  // Même correctif que la page Calendrier : on borne au jour demandé au lieu
+  // de prendre les 800 posts les plus récents et de filtrer ici.
   const posts = useQuery({
-    queryKey: ["posts-calendrier-admin"],
-    queryFn: postsCalendrierAdmin,
+    queryKey: ["posts-calendrier-admin", date],
+    queryFn: () => postsCalendrierAdmin({ du: date!, au: date! }),
     enabled: Boolean(date),
   });
 

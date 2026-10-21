@@ -24,15 +24,32 @@
  * appels Sophia (import, composer) ne changent pas.
  */
 
-/** Noms d'applis concurrentes de Sophia. « readup » collé seulement : « read up » est de l'anglais courant. */
-export const MOTIF_CONCURRENT = /\b(vent[\s-]?now|readup)\b/i;
+/**
+ * Noms d'applis concurrentes de Sophia. « readup » collé seulement : « read up »
+ * est de l'anglais courant. « turboresume » (aussi « TurboResume.ai ») : la
+ * source du label RH (@careerswemma) le cite dans 117 contenus sur 228, et
+ * 57 passages RH sur 139 sont partis avec (octobre 2026). Jamais « turbo »
+ * seul (« en mode turbo », « disturbo »). Label beau_smart_girl (octobre
+ * 2026) : « bycat » (appli d'étude de @mia.study5, 45 passages publiés avec)
+ * et « actualize » (« Actualize: Daily Microlearning » de @smarter_with_sara,
+ * 79 slides du stock, toutes l'appli), sauf le verbe : jamais après « self- »
+ * ni devant un possessif ou un article (« actualize your potential »). Label
+ * smart_girl (octobre 2026) : « unscroll » (il bloque les applis et propose
+ * un article à lire, 30 passages Sophia publiés avec), « elqo » (« elqo.app »,
+ * appli d'élocution en 5 minutes par jour, 87 passages publiés avec) et
+ * « kodi ai » (appli d'élocution glissée par @b3tteryou, 24 contenus), jamais
+ * « kodi » seul : « cheat kodi » veut dire « codes » en slovène et en croate.
+ */
+export const MOTIF_CONCURRENT =
+  /\b(vent[\s-]?now|readup|turbo[\s-]?resume|bycat|unscroll|elqo|kodi[\s-]+(?:a[il]|app)|(?<!self[\s-])actualize(?!\s+(?:your|my|our|their|his|her|its|the|a|an|yourself|myself|ourselves|themselves|oneself)\b))\b/i;
 
 /**
  * Concurrents d'Unswipe : ceux de Sophia + les applis de temps d'écran.
  * Plusieurs noms sont des mots courants, d'où les conditions (mesurées sur
  * les 77 212 slides du stock, octobre 2026) :
  *  - « unscroll » : bloque les applis et propose un article à lire (97 slides,
- *    82 contenus) — le concurrent le plus cité du stock ;
+ *    82 contenus) — le concurrent le plus cité du stock. Il l'est aussi de
+ *    Sophia : il vient donc de MOTIF_CONCURRENT ;
  *  - « opal » : sauf bijou / ongles / couleur (« opal ring », « opal nails ») ;
  *  - « one sec » suivi de « app » seulement (« hold eye contact one second ») ;
  *    « onesec », « appblock(er) », « clearspace » collés seulement (« a clear
@@ -49,7 +66,6 @@ export const MOTIF_CONCURRENT = /\b(vent[\s-]?now|readup)\b/i;
 export const MOTIF_CONCURRENT_UNSWIPE = new RegExp(
   [
     MOTIF_CONCURRENT.source,
-    String.raw`\bunscroll\b`,
     String.raw`(?<!\b(?:an|fire|black|white|pink|blue)\s)\bopal\b(?![\s-]*(?:rings?|stones?|necklaces?|earrings?|pendants?|nails?|manicure|polish|chrome|glaz\w*|jewel\w*|gem\w*|colou?r\w*)\b)`,
     String.raw`\bone[\s-]?sec[\s-]?app\b`,
     String.raw`\bonesec\b`,

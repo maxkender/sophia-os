@@ -298,7 +298,12 @@ function LigneATraiter({ q, reglages }: { q: QuestionFaq; reglages: ReglagesFaq 
 
   const traiter = useMutation({
     mutationFn: () => traiterQuestionFaq(q.id, reponse.trim(), base),
-    onSuccess: rafraichir,
+    onSuccess: (r) => {
+      // Quelqu'un de l'équipe a répondu dans le fil entre-temps : rien n'est
+      // parti, la ligne va disparaître de la liste, on dit pourquoi.
+      if (r.deja && r.raison) window.alert(r.raison);
+      void rafraichir();
+    },
   });
   const ignorer = useMutation({ mutationFn: () => ignorerQuestionFaq(q.id), onSuccess: rafraichir });
 

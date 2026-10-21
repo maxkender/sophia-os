@@ -231,7 +231,7 @@ export async function traiterQuestionFaq(
   id: string,
   reponse: string,
   ajouterBase: boolean,
-): Promise<{ envoye: boolean; raison: string | null }> {
+): Promise<{ envoye: boolean; raison: string | null; deja?: boolean }> {
   return invoke("faq-admin", { action: "traiter", id, reponse, ajouter_base: ajouterBase });
 }
 

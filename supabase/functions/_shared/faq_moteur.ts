@@ -4,11 +4,13 @@
  */
 
 import {
+  ADMINS_SLACK,
   assemblerBase,
   type BaseFaq,
   construirePromptFaq,
   lireReglagesFaq,
   lireReponseFaq,
+  type MessageFil,
   type NoteBase,
   type PageGuide,
   type ReglagesFaq,
@@ -157,6 +159,33 @@ export async function nomSlack(token: string, userId: string, fetchFn: Fetch = f
   }
   if (!r.ok || !r.user) return null;
   return r.user.profile?.display_name?.trim() || r.user.profile?.real_name?.trim() || r.user.real_name?.trim() || null;
+}
+
+/**
+ * Les messages d'un fil (scope `channels:history`). `null` si Slack refuse :
+ * l'appelant décide alors s'il poste quand même.
+ */
+export async function lireFil(
+  token: string,
+  canal: string,
+  ts: string,
+  fetchFn: Fetch = fetch,
+): Promise<MessageFil[] | null> {
+  try {
+    const url = `https://slack.com/api/conversations.replies?channel=${encodeURIComponent(canal)}&ts=${encodeURIComponent(ts)}&limit=100`;
+    const reponse = await fetchFn(url, { headers: { authorization: `Bearer ${token}` } });
+    if (!reponse.ok) return null;
+    const r = (await reponse.json()) as { ok: boolean; messages?: MessageFil[] };
+    return r.ok ? (r.messages ?? []) : null;
+  } catch {
+    return null;
+  }
+}
+
+/** L'équipe sur Slack : les admins (constantes) et les managers connus de l'OS. */
+export async function chargerEquipeSlack(db: Db): Promise<Set<string>> {
+  const managers = await chargerManagersSlack(db);
+  return new Set([...Object.keys(ADMINS_SLACK), ...managers.keys()]);
 }
 
 /**

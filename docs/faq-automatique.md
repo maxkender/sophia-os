@@ -72,6 +72,21 @@ l'auteur dit ensuite que ça n'a pas marché. Le message d'attente ne règle rie
 un bug mal classé reste à l'IT guy. Son « on it » dans le fil (posté avec le
 compte d'Adrien) sort la question de « À traiter ».
 
+## Jamais deux réponses à la même question
+
+- **Le bot répond en premier** (quelques secondes) : l'équipe voit sa réponse
+  dans le fil et n'a pas à répondre.
+- **Juste avant de poster**, il relit le fil : si un admin ou un manager a déjà
+  répondu, il se tait et sa réponse règle la question (un autre poster qui
+  passe ne compte pas).
+- **Depuis l'OS** (« À traiter »), même relecture avant d'envoyer : si quelqu'un
+  de l'équipe a répondu dans le fil entre-temps, rien ne part, la page le dit
+  et la question sort de la liste. Une réponse de l'équipe dans le fil sort
+  aussi la question de « À traiter » toute seule.
+- **L'IT guy** ne touche pas un fil où le bot a répondu, et le bot se tait sur
+  les bugs. Un message modifié ou renvoyé par Slack ne donne pas de seconde
+  réponse.
+
 ## Mise en service
 
 1. **Migration** `0331_faq_automatique.sql` : l'appliquer comme les autres

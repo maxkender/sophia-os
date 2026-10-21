@@ -1,5 +1,11 @@
-import { audiencesNotes } from "../_shared/faq.ts";
-import { chargerReglagesFaq, jetonSlackFaq, posterSlack } from "../_shared/faq_moteur.ts";
+import { ADMINS_SLACK, audiencesNotes, reponseEquipeDansFil } from "../_shared/faq.ts";
+import {
+  chargerEquipeSlack,
+  chargerReglagesFaq,
+  jetonSlackFaq,
+  lireFil,
+  posterSlack,
+} from "../_shared/faq_moteur.ts";
 import { estRoleManager } from "../_shared/roles.ts";
 import { assertRole, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
@@ -75,11 +81,15 @@ Deno.serve(async (request) => {
 
     const envoi = await livrer(db, question, reponse);
     const patch: Record<string, unknown> = {
-      etat: "traite_admin",
+      etat: envoi.deja ? "traite_slack" : "traite_admin",
       reponse_admin: reponse,
       traite_par: par,
       traite_at: maintenant,
     };
+    if (envoi.deja) {
+      patch.reponse_humaine = envoi.deja.texte;
+      patch.reponse_humaine_par = envoi.deja.nom;
+    }
     if (envoi.envoye) {
       patch.reponse = reponse;
       patch.envoye_at = maintenant;
@@ -87,20 +97,35 @@ Deno.serve(async (request) => {
     const { error: e } = await db.from("chatbot_questions").update(patch).eq("id", id);
     if (e) throw e;
     if (body?.ajouter_base) await ajouterABase(db, question, reponse);
-    return json({ ok: true, envoye: envoi.envoye, raison: envoi.raison ?? null });
+    return json({ ok: true, envoye: envoi.envoye, raison: envoi.raison ?? null, deja: Boolean(envoi.deja) });
   } catch (error) {
     return json({ ok: false, error: messageErreur(error) }, 500);
   }
 });
 
 /** Là où la question a été posée. En mode test, nulle part. */
-async function livrer(db: Db, q: Question, reponse: string): Promise<{ envoye: boolean; raison?: string }> {
+interface Livraison {
+  envoye: boolean;
+  raison?: string;
+  /** Une réponse de l'équipe était déjà dans le fil Slack. */
+  deja?: { user: string; texte: string; nom: string };
+}
+
+async function livrer(db: Db, q: Question, reponse: string): Promise<Livraison> {
   const reglages = await chargerReglagesFaq(db);
 
   if (q.source === "slack") {
     if (reglages.mode_slack !== "actif") return { envoye: false, raison: "mode test : rien ne part sur Slack" };
     const token = jetonSlackFaq();
     if (!token || !q.slack_canal || !q.slack_ts) return { envoye: false, raison: "jeton ou message Slack manquant" };
+    // Quelqu'un de l'équipe a répondu dans le fil depuis (et le passage de
+    // slack-faq ne l'a pas encore vu) : on ne double pas sa réponse.
+    const fil = await lireFil(token, q.slack_canal, q.slack_ts);
+    const deja = fil ? reponseEquipeDansFil(fil, q.slack_ts, await chargerEquipeSlack(db)) : null;
+    if (deja) {
+      const nom = ADMINS_SLACK[deja.user] ?? deja.user;
+      return { envoye: false, raison: `${nom} a déjà répondu dans le fil : rien n'est envoyé`, deja: { ...deja, nom } };
+    }
     const r = await posterSlack(token, q.slack_canal, reponse, q.slack_ts);
     return r.ok ? { envoye: true } : { envoye: false, raison: `Slack : ${r.error}` };
   }

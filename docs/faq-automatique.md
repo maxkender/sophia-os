@@ -40,6 +40,25 @@ comme avant, et la page Assistant montre ce que le cerveau aurait fait.
 | `chatbot_questions` | Le journal : une ligne par question, bulle ou Slack, avec la décision (`etat`), ce que le cerveau propose (`reponse_faq`), ce qui est vraiment parti (`reponse`), la réponse de l'équipe dans le fil (`reponse_humaine`). |
 | `reglages.faq_automatique` | `mode_slack` (eteint / test / actif), `mode_os` (test / actif), `canaux_slack`, `message_attente`. Les modes se changent sur la page Assistant ; les canaux en SQL. |
 
+## Source de vérité : Notion, puis les réponses validées
+
+- **Le guide Notion fait foi** (Poster Guide, Manager Guide). Une règle qui
+  change (paiement hebdomadaire, montants par zone, process) se modifie **dans
+  Notion**. L'OS le recopie chaque heure, le cerveau et la bulle suivent : rien
+  à toucher dans l'OS.
+- **Les réponses validées** (`chatbot_contexte`, page Assistant) ne servent qu'à
+  ce que le guide ne dit pas. Elles naissent surtout de « À traiter » (case
+  « ajouter à la base ») ou d'une réponse de l'équipe dans un fil Slack. Si
+  elles contredisent le guide, le guide gagne.
+- **Le chemin d'une réponse** : question sans réponse → l'admin répond dans
+  l'OS → réponse validée (automatique la fois suivante). Quand elle revient
+  souvent, ou que c'est une vraie règle, elle monte dans Notion (Quick answers)
+  et sort des réponses validées. La base reste courte, le guide complet.
+- **Les montants** sont dans le Manager Guide, jamais dans le Poster Guide : le
+  cerveau ne lit le Manager Guide que pour un manager. Un poster qui demande son
+  montant reçoit la règle (« celui de ton contrat Upwork, demande à ton
+  manager en privé »).
+
 ## La frontière avec l'IT guy
 
 Écrite **une seule fois**, dans `supabase/functions/_shared/frontiere_it.ts`,

@@ -455,12 +455,19 @@ function JournalFaqCard({ onAjouterReponse }: { onAjouterReponse?: (q: QuestionF
                   )}
                 </div>
                 <p className="whitespace-pre-wrap text-sm">{q.question}</p>
-                {cerveau && (
-                  <Encadre titre={t("chatbot.faq.propositionCerveau")}>
-                    {q.reponse_faq || t("chatbot.faq.rienPropose")}
-                    {q.section_guide ? `\n📖 ${q.section_guide}` : ""}
-                  </Encadre>
-                )}
+                {/* Bug ou hors sujet sur Slack : le bot se tait exprès, rien à « proposer ». */}
+                {cerveau && !q.reponse_faq && (q.etat === "bug" || q.etat === "hors_sujet")
+                  ? (
+                    <p className="text-xs text-muted-foreground">
+                      {t(q.etat === "bug" ? "chatbot.faq.laisseIt" : "chatbot.faq.rienARepondre")}
+                    </p>
+                  )
+                  : cerveau && (
+                    <Encadre titre={t("chatbot.faq.propositionCerveau")}>
+                      {q.reponse_faq || t("chatbot.faq.rienPropose")}
+                      {q.section_guide ? `\n📖 ${q.section_guide}` : ""}
+                    </Encadre>
+                  )}
                 {recu && <Encadre titre={t("chatbot.faq.recu")}>{recu}</Encadre>}
                 {q.reponse_humaine && (
                   <Encadre titre={t("chatbot.faq.reponseHumaine", { nom: q.reponse_humaine_par ?? "—" })}>

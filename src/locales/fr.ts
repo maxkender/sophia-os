@@ -3358,6 +3358,8 @@ export const fr = {
         },
         dansLaBase: "Dans la base",
         rienPropose: "Rien proposé.",
+        laisseIt: "Problème technique : le bot ne poste rien, l'IT guy le prend (ticket dans #a-os-tickets).",
+        rienARepondre: "Pas une question : le bot ne poste rien.",
       },
     },
     paiementsRuul: {

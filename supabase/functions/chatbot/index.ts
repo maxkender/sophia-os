@@ -532,6 +532,7 @@ function construirePrompt(input: {
   return `Tu es l'assistant interne de Sophia (atelier de contenu TikTok).
 Tu réponds UNIQUEMENT à partir du snapshot LIVE et des DOCS ci-dessous.
 Si l'info n'y est pas, dis-le. N'invente aucun chiffre, process, délai, mot de passe.
+Si le GUIDE OFFICIEL et un autre texte se contredisent, le guide gagne.
 
 ${cadreRole(input.role)}
 
@@ -747,13 +748,25 @@ Deno.serve(async (request) => {
       )
       : docs as DocumentLigne[];
 
-    const docsTexte = assemblerDocs(
-      snippets as Snippet[],
-      docsRole,
-      role,
-      locale,
-      Math.max(4_000, CONTEXTE_MAX - live.length - 800),
-    );
+    // Le guide Notion recopié (guides_notion) passe en tête : c'est lui qui
+    // fait foi, et les documents de l'OS ne sont plus que des liens vers lui.
+    // Sans copie (Notion injoignable), on retombe sur les seuls textes de l'OS.
+    const guide = await chargerBase(db, role)
+      .then((c) => c.base.guide)
+      .catch((erreur) => {
+        console.warn(`[chatbot] guide Notion illisible : ${messageErreur(erreur)}`);
+        return "";
+      });
+    const docsTexte = [
+      guide ? `## GUIDE OFFICIEL (Notion, fait foi)\n${guide}` : "",
+      assemblerDocs(
+        snippets as Snippet[],
+        docsRole,
+        role,
+        locale,
+        Math.max(4_000, CONTEXTE_MAX - live.length - 800),
+      ),
+    ].filter(Boolean).join("\n\n");
     const prompt = construirePrompt({ question, live, docs: docsTexte, role, locale, historique });
     const reponse = (await generateTextFast(prompt)).trim();
     if (!reponse) return json({ error: "Réponse vide" }, 502);

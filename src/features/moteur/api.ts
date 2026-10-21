@@ -493,6 +493,28 @@ export async function listerComptesAvecDormants(): Promise<CompteAvecDetails[]> 
   });
 }
 
+/**
+ * Premier jour de posts prévu de chaque compte (`comptes_premier_jour`, 0333) :
+ * le jour 0 qui fixe la cohorte du lundi sur la page Posters. Compte absent =
+ * aucun post encore (warm-up en cours ou pas lancé).
+ */
+export async function premiersJoursComptes(): Promise<Map<string, string>> {
+  const page = 1000;
+  const parCompte = new Map<string, string>();
+  for (let from = 0; ; from += page) {
+    const { data, error } = await supabase
+      .from("comptes_premier_jour")
+      .select("compte_id, premier_jour")
+      .order("compte_id")
+      .range(from, from + page - 1);
+    if (error) throw error;
+    const lot = (data ?? []) as { compte_id: string; premier_jour: string | null }[];
+    for (const l of lot) if (l.premier_jour) parCompte.set(l.compte_id, l.premier_jour);
+    if (lot.length < page) break;
+  }
+  return parCompte;
+}
+
 export async function creerCompte(input: {
   posterId: string;
   compteReferenceId: string | null;

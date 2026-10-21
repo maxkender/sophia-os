@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
+import { useSearchParams } from "react-router-dom";
 import { HelpCircle, MapPin, Plus, Search, UserPlus, X } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -39,6 +40,18 @@ import { ChampsPremierCompte, type PremierCompte } from "@/features/moteur/Champ
 import { DeplacerCompte } from "@/features/moteur/DeplacerCompte";
 import { FormulaireAjouterCompte } from "@/features/moteur/FormulaireAjouterCompte";
 import { BadgeClassement } from "@/features/moteur/BadgeClassement";
+import {
+  aujourdhuiParis,
+  cohortePosteur,
+  COHORTE_PAS_DEMARRE,
+  comparerCohortes,
+  lundiDepartCompte,
+  optionsCohortes,
+  semaineDansCohorte,
+  semaineIso,
+  TRIS_POSTERS,
+  type TriPosters,
+} from "@/features/moteur/cohortes";
 import { EnteteCompte } from "@/features/moteur/VignetteCompte";
 import {
   assurerComptePoster,
@@ -57,6 +70,7 @@ import {
   listerPosters,
   lireZonesCohorteRuul,
   majCompte,
+  premiersJoursComptes,
   majLanguesRecruteur,
   majRecruteur,
   majUpwork,
@@ -617,7 +631,7 @@ function LabelsCompteSelect({
 
 
 export function AdminPostersPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { user, role } = useAuth();
   // Choix de l'application du compte à la création (admin, Head of Ops, DM,
   // HM). Vérifié quand même ici : manage-users refuse tout autre rôle.
@@ -686,6 +700,21 @@ export function AdminPostersPage() {
       ? filtreZone
       : "";
   const [recherche, setRecherche] = React.useState("");
+  // Cohorte et tri dans l'adresse : un lien partagé ouvre la même cohorte.
+  const [params, setParams] = useSearchParams();
+  const filtreCohorte = params.get("cohorte") ?? "";
+  const triParam = params.get("tri") as TriPosters | null;
+  const tri: TriPosters = triParam && TRIS_POSTERS.includes(triParam) ? triParam : "phase";
+  const majParam = (cle: string, valeur: string) =>
+    setParams(
+      (avant) => {
+        const suite = new URLSearchParams(avant);
+        if (valeur) suite.set(cle, valeur);
+        else suite.delete(cle);
+        return suite;
+      },
+      { replace: true },
+    );
   const labels = useQuery({
     queryKey: ["labels"],
     queryFn: () => listerLabels(),
@@ -712,6 +741,28 @@ export function AdminPostersPage() {
     }
     return m;
   }, [comptes.data]);
+
+  // Cohortes du lundi : le lundi de départ de chaque compte (premier post
+  // prévu, sinon fin du warm-up), et pour le posteur le plus ancien de ses
+  // comptes, sommeil compris (un posteur recréé ou doublé garde sa cohorte).
+  const premiersJours = useQuery({ queryKey: ["comptes-premier-jour"], queryFn: premiersJoursComptes });
+  const lundiParCompte = React.useMemo(() => {
+    const m = new Map<string, string | null>();
+    for (const c of comptes.data ?? []) {
+      m.set(c.id, lundiDepartCompte(premiersJours.data?.get(c.id), c.warmup_ends_at));
+    }
+    return m;
+  }, [comptes.data, premiersJours.data]);
+  const cohorteDe = React.useCallback(
+    (posterId: string) =>
+      cohortePosteur((comptesParPoster.get(posterId) ?? []).map((c) => lundiParCompte.get(c.id) ?? null)),
+    [comptesParPoster, lundiParCompte],
+  );
+  const aujourdhui = aujourdhuiParis();
+  const dateCourte = (jour: string) =>
+    new Intl.DateTimeFormat(i18n.language, { day: "numeric", month: "short", timeZone: "UTC" }).format(
+      new Date(`${jour}T12:00:00Z`),
+    );
 
   const [ficheId, setFicheId] = React.useState<string | null>(null);
   const [ficheCompteId, setFicheCompteId] = React.useState<string | null>(null);
@@ -1196,6 +1247,7 @@ export function AdminPostersPage() {
     });
     if (filtrePhase !== "tous" && phase !== filtrePhase) return false;
     if (filtreRuul && !zonesCohorteRuul?.has(p.id)) return false;
+    if (filtreCohorte && (cohorteDe(p.id) ?? COHORTE_PAS_DEMARRE) !== filtreCohorte) return false;
     const liste = comptesParPoster.get(p.id) ?? [];
     if (filtreLangue && !liste.some((c) => c.langue === filtreLangue)) return false;
     if (filtrePays) {
@@ -1238,6 +1290,11 @@ export function AdminPostersPage() {
 
   const trierCreateurs = (liste: PosterProfil[]) =>
     [...liste].sort((a, b) => {
+      const parNom = () => nomAffiche(a).localeCompare(nomAffiche(b), "fr");
+      if (tri === "nom") return parNom();
+      if (tri === "cohorte_recente" || tri === "cohorte_ancienne") {
+        return comparerCohortes(cohorteDe(a.id), cohorteDe(b.id), tri === "cohorte_recente") || parNom();
+      }
       const pa = phaseCreateur({
         compteId: a.compte_id,
         warmup_started_at: a.warmup_started_at,
@@ -1264,6 +1321,7 @@ export function AdminPostersPage() {
     Boolean(filtreLabel) ||
     (Boolean(filtreApp) && filtreApp !== "tous") ||
     filtreRuul ||
+    Boolean(filtreCohorte) ||
     Boolean(rechercheNormalisee);
   const recruteurCherche = (r: PosterProfil) =>
     Boolean(rechercheNormalisee) &&
@@ -1380,6 +1438,43 @@ export function AdminPostersPage() {
           allowTous
         />
       </div>
+      <div className="space-y-1 lg:col-span-2">
+        <Label htmlFor="filtreCohorte">{t("posters.filtreCohorte")}</Label>
+        <select
+          id="filtreCohorte"
+          className={selectClass}
+          value={filtreCohorte}
+          onChange={(e) => majParam("cohorte", e.target.value)}
+        >
+          <option value="">{t("posters.cohorteToutes")}</option>
+          {optionsCohortes((posters.data ?? []).filter((p) => p.role === "poster").map((p) => cohorteDe(p.id))).map(
+            (o) => (
+              <option key={o.cle} value={o.cle}>
+                {o.cle === COHORTE_PAS_DEMARRE
+                  ? t("posters.cohortePasDemarre", { n: o.n })
+                  : semaineDansCohorte(o.cle, aujourdhui) < 1
+                  ? t("posters.cohorteAVenir", { date: dateCourte(o.cle), n: o.n })
+                  : t("posters.cohorteOption", { date: dateCourte(o.cle), semaine: semaineIso(o.cle), n: o.n })}
+              </option>
+            ),
+          )}
+        </select>
+      </div>
+      <div className="space-y-1">
+        <Label htmlFor="triPosters">{t("posters.tri")}</Label>
+        <select
+          id="triPosters"
+          className={selectClass}
+          value={tri}
+          onChange={(e) => majParam("tri", e.target.value === "phase" ? "" : e.target.value)}
+        >
+          {TRIS_POSTERS.map((x) => (
+            <option key={x} value={x}>
+              {t(`posters.tris.${x}`)}
+            </option>
+          ))}
+        </select>
+      </div>
       <label className="flex items-center gap-2 text-sm sm:col-span-2 lg:col-span-6">
         <input
           type="checkbox"
@@ -1482,6 +1577,8 @@ export function AdminPostersPage() {
 
   const carteCreateur = (poster: PosterProfil) => {
     const liste = comptesParPoster.get(poster.id) ?? [];
+    const cohorte = cohorteDe(poster.id);
+    const semaine = cohorte ? semaineDansCohorte(cohorte, aujourdhui) : null;
     return (
       <article
         key={poster.id}
@@ -1501,6 +1598,13 @@ export function AdminPostersPage() {
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-sm font-semibold tracking-tight">{nomAffiche(poster)}</span>
               {!poster.is_active && <Badge variant="secondary">{t("posters.disabled")}</Badge>}
+              {cohorte && semaine !== null && (
+                <Badge variant="outline">
+                  {semaine < 1
+                    ? t("posters.badgeCohorteAVenir", { date: dateCourte(cohorte) })
+                    : t("posters.badgeCohorte", { date: dateCourte(cohorte), n: semaine })}
+                </Badge>
+              )}
             </div>
             <p className="truncate text-[11px] text-muted-foreground">{poster.email}</p>
           </div>
@@ -1531,6 +1635,9 @@ export function AdminPostersPage() {
                     <div className="mt-1 flex flex-wrap items-center gap-2 text-[11px] text-muted-foreground">
                       {!c.is_active && <BadgeDormant />}
                       <BadgeClassement classement={c.classement} size="sm" />
+                      {liste.length > 1 && lundiParCompte.get(c.id) && (
+                        <span>{t("posters.departCompte", { date: dateCourte(lundiParCompte.get(c.id)!) })}</span>
+                      )}
                       {c.is_active && !estCompteCm(c) && (
                         <WarmupBadge
                           compteId={c.id}

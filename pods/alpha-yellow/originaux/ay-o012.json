@@ -7,12 +7,12 @@
  "inspirations": [
   "2a9d2d47-9eb0-4122-bbba-49a09ba8a933"
  ],
- "notes": "variante de ay-o005 (58 500 vues sur un passage, r 5,79 et 4,55). Schéma social-hacks (303 k vues le 11/10 chez @stonemag.co, preuve jusqu'au 10/11). Items neufs : aucun repris d'ay-o005 ni des autres originaux. Aucune manipulation : des répliques qui mettent les autres à l'aise. Le numéro 010 aurait dû être un essai, mais la routine fait passer les variantes d'un post à 30 k avant : l'essai passe à ay-o015. Accroches écrites : « 7 social hacks for awkward moments that feel like cheating » (retenue : le gabarit exact, et des scènes gênantes que tout le monde a vécues), « How to escape any awkward moment like a pro » (écartée : quitte le schéma), « Social hacks that save you from awkward silence » (écartée : trop étroit). Accroche sur 9eb457c2 (deux hommes face à face, une scène gênante). Sophia en 5 sur le surfeur 5305ee58 (visage invisible).",
+ "notes": "variante de ay-o005 (58 500 vues sur un passage, r 5,79 et 4,55). Schéma social-hacks (303 k vues le 11/10 chez @stonemag.co, preuve jusqu'au 10/11). Items neufs : aucun repris d'ay-o005 ni des autres originaux. Aucune manipulation : des répliques qui mettent les autres à l'aise. Le numéro 010 aurait dû être un essai, mais la routine fait passer les variantes d'un post à 30 k avant : l'essai passe à ay-o015. Accroches écrites : « 7 social hacks for awkward moments that feel like cheating » (retenue : le gabarit exact, et des scènes gênantes que tout le monde a vécues), « How to escape any awkward moment like a pro » (écartée : quitte le schéma), « Social hacks that save you from awkward silence » (écartée : trop étroit). Accroche sur 5792bc29 (9eb457c2 écarté : texte illisible sur les rideaux blancs). Sophia en 5 sur le surfeur 5305ee58 (visage invisible).",
  "slides": [
   {
    "position": 1,
-   "media_id": "9eb457c2",
-   "texte_overlay": "7 social hacks for awkward moments\nthat feel like cheating",
+   "media_id": "5792bc29",
+   "texte_overlay": "7 social hacks for\nawkward moments that\nfeel like cheating",
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
   },
   {
@@ -42,7 +42,7 @@
   },
   {
    "position": 6,
-   "media_id": "5792bc29",
+   "media_id": "0e83746b",
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
    "texte_overlay": "Didn't catch what someone said for the third time? Stop nodding. Say \"Sorry, it's so loud in here, say that again?\" Blame the room. Pretending you heard is how you end up agreeing to weird stuff."
   },

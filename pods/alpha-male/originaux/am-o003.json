@@ -1,0 +1,50 @@
+{
+ "source_id": "am-o003",
+ "schema_id": "situational-rules",
+ "titre": "Unspoken rules every man should know #men #respect #discipline #selfimprovement #mindset",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7396335998531308320",
+ "inspirations": [
+  "a776694b-f434-4371-b4ba-14ce13361bcd"
+ ],
+ "notes": "Schéma situational-rules (preuve TikTok : @millyjhino 382 k vues le 19/10 ; r 5,26 sur 4 passages, a776694b « Unspoken rules you should know »). Accroches écrites : « Unspoken rules every man should know » (retenue : l'accroche du gagnant chez nous, avec « every man » qui parle à l'homme), « 5 military level rules that make you manlier » (écartée : copie trop près du post à 382 k, dont les items sont des habitudes, pas des situations), « 5 manly rules nobody teaches you » (écartée : plus loin des deux gagnants). Format de a776694b : « If [situation]... [le réflexe]: », 2 ou 3 lignes courtes, une phrase de sagesse. Cinq situations absentes du label (vérifié dans donnees/label.json ; écartés car déjà présents : rendre ce qu'on emprunte, ne pas arriver les mains vides). Sophia sur le dernier item (apprendre ce qu'on ne connaît pas). Images : la banque du label, sans visage reconnaissable ; la slide Sophia sur un salon, sans personne. Musique de a776694b.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9b85e7f5",
+   "texte_overlay": "Unspoken rules every\nman should know",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3002392e",
+   "texte_overlay": "1. If Someone Tells a Story...\nDon't Top It:\n\nLet them finish.\nAsk one question about it.\nThe man who listens is\nthe one people remember.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "67fb0095",
+   "texte_overlay": "2. If Someone Loses an\nArgument in Public...\nLet Them Save Face:\n\nDon't pile on.\nDon't laugh with the room.\nTalk to them privately later.\nWinning in front of others\ncosts more than it earns.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "cf1e0def",
+   "texte_overlay": "3. If a Friend Calls\nLate at Night... Pick Up:\n\nNot a text back tomorrow.\nNot a \"what's up?\" on read.\nPeople rarely call at 2am\nfor small things.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e42553ba",
+   "texte_overlay": "4. If You Make a Mistake\nat Work... Say It First:\n\nWhat happened.\nHow you'll fix it.\nNo excuses.\nTrust is built in the moments\nyou could have hidden.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4f2b4ecb",
+   "texte_overlay": "5. If Someone Mentions\nSomething You Don't Know...\nAsk About It:\n\nDon't nod along.\nDon't fake it.\nLook it up that night.\nPretending costs you respect.\nCuriosity earns it.",
+   "texte_sophia": "5. If Someone Mentions\nSomething You Don't Know...\nAsk About It:\n\nDon't nod along.\nDon't fake it.\nThen learn a little every day\nwith a micro-learning app\nlike the Sophia app.\nCuriosity earns respect.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/6.jpg"
+  }
+ ]
+}

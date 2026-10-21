@@ -1,14 +1,66 @@
 /**
  * Comment masters (TICKET 002) : la partie pure, testable sans réseau.
  *
- * Prompt du commentaire (modèle éditable), contrôle minimal, message Slack,
- * signature Slack et rapprochement du commentaire réellement posté.
+ * Langues et pays des régions, prompt du commentaire (modèle éditable),
+ * contrôle minimal, rythme des relevés, recalibrage des seuils, message et
+ * signature Slack, rapprochement du commentaire réellement posté.
  */
 
+/**
+ * Les langues des régions de comment masters (migration 0321) : le nom donné
+ * au modèle, au plus près de la variante écrite, et un drapeau pour les
+ * messages. Une langue absente d'ici tombe sur son code brut dans le prompt :
+ * à compléter AVANT d'ouvrir une région dans une nouvelle langue.
+ */
 export const LANGUE_REGION: Record<string, { nom: string; drapeau: string }> = {
   de: { nom: "German", drapeau: "🇩🇪" },
   it: { nom: "Italian", drapeau: "🇮🇹" },
+  tr: { nom: "Turkish", drapeau: "🇹🇷" },
+  fr: { nom: "French", drapeau: "🇫🇷" },
+  es: { nom: "Spanish (Spain)", drapeau: "🇪🇸" },
+  "es-419": { nom: "Latin American Spanish", drapeau: "🌎" },
+  pt: { nom: "European Portuguese", drapeau: "🇵🇹" },
+  "pt-BR": { nom: "Brazilian Portuguese", drapeau: "🇧🇷" },
+  hu: { nom: "Hungarian", drapeau: "🇭🇺" },
+  pl: { nom: "Polish", drapeau: "🇵🇱" },
+  ro: { nom: "Romanian", drapeau: "🇷🇴" },
+  el: { nom: "Greek", drapeau: "🇬🇷" },
+  hr: { nom: "Croatian", drapeau: "🇭🇷" },
+  // Sur TikTok, le serbe s'écrit surtout en alphabet latin.
+  sr: { nom: "Serbian (Latin script)", drapeau: "🇷🇸" },
+  sl: { nom: "Slovenian", drapeau: "🇸🇮" },
+  cs: { nom: "Czech", drapeau: "🇨🇿" },
+  sk: { nom: "Slovak", drapeau: "🇸🇰" },
+  nl: { nom: "Dutch", drapeau: "🇳🇱" },
+  sv: { nom: "Swedish", drapeau: "🇸🇪" },
+  no: { nom: "Norwegian (Bokmål)", drapeau: "🇳🇴" },
+  fi: { nom: "Finnish", drapeau: "🇫🇮" },
+  et: { nom: "Estonian", drapeau: "🇪🇪" },
+  bg: { nom: "Bulgarian", drapeau: "🇧🇬" },
+  en: { nom: "English", drapeau: "🇬🇧" },
+  ru: { nom: "Russian", drapeau: "🇰🇿" },
+  ar: { nom: "Arabic", drapeau: "🇦🇪" },
 };
+
+export function nomLangue(langue: string): string {
+  return LANGUE_REGION[langue]?.nom ?? langue;
+}
+
+/** Drapeau d'un code ISO alpha-2 (deux « regional indicators »), vide sinon. */
+export function drapeauPays(pays: string | null | undefined): string {
+  if (!pays || !/^[A-Z]{2}$/.test(pays)) return "";
+  return String.fromCodePoint(...[...pays].map((c) => 0x1f1e6 + c.charCodeAt(0) - 65));
+}
+
+/** Nom anglais d'un pays ISO alpha-2 (« United States »), le code si inconnu. */
+export function nomPays(pays: string | null | undefined): string {
+  if (!pays) return "";
+  try {
+    return new Intl.DisplayNames(["en"], { type: "region" }).of(pays) ?? pays;
+  } catch {
+    return pays;
+  }
+}
 
 // Nom d'appli tel qu'il doit apparaître dans le commentaire. La table
 // `applications` écrit « Unswipe » et « micabo » ; sur TikTok c'est UnSwipe et Micabo.
@@ -24,11 +76,11 @@ export const CLE_PROMPT = "comment_master";
 /**
  * Prompt par défaut, utilisé tant que la clé `comment_master` est vide. Les
  * règles et les exemples sont ceux du ticket de Max. Variables remplacées à
- * chaque post : {{langue}}, {{appli}}, {{slides}}, {{hashtags}}.
+ * chaque post : {{langue}}, {{pays}}, {{appli}}, {{slides}}, {{hashtags}}.
  */
 export const PROMPT_DEFAUT = `You write ONE TikTok comment, as a regular viewer, under the post below.
 
-Write it in {{langue}}, the way a young {{langue}}-speaking person really types on TikTok: casual, lowercase is fine, light slang is fine, never formal, never sounding like an ad.
+Write it in {{langue}}, the way a young person from {{pays}} really types on TikTok: casual, lowercase is fine, light slang is fine, never formal, never sounding like an ad.
 
 The comment MUST mention the app {{appli}} (write the name exactly like that), as someone who uses it and loves it.
 
@@ -58,21 +110,28 @@ Hashtags: {{hashtags}}`;
 const CONSIGNE_JSON =
   `\n\nAnswer with JSON only, no code fence: {"comment": "...", "translation_en": "..."}`;
 
-export function promptCommentaire(
-  input: { langue: string; appli: string; slides: string[]; hashtags: string | null },
-  modele: string = PROMPT_DEFAUT,
-): string {
-  const langue = LANGUE_REGION[input.langue]?.nom ?? input.langue;
+export interface EntreeCommentaire {
+  langue: string;
+  /** Pays ISO du compte. Sans pays, {{pays}} retombe sur la langue. */
+  pays?: string | null;
+  appli: string;
+  slides: string[];
+  hashtags: string | null;
+}
+
+export function promptCommentaire(input: EntreeCommentaire, modele: string = PROMPT_DEFAUT): string {
+  const langue = nomLangue(input.langue);
   const slides = input.slides
     .map((t, i) => `${i + 1}. ${t.replace(/\s+/g, " ").trim()}`)
     .join("\n");
   const valeurs: Record<string, string> = {
     langue,
+    pays: input.pays ? nomPays(input.pays) : `a country where people speak ${langue}`,
     appli: input.appli,
     slides: slides || "(no text)",
     hashtags: input.hashtags?.trim() || "(none)",
   };
-  return modele.replace(/\{\{\s*(langue|appli|slides|hashtags)\s*\}\}/g, (_, k: string) => valeurs[k]) +
+  return modele.replace(/\{\{\s*(langue|pays|appli|slides|hashtags)\s*\}\}/g, (_, k: string) => valeurs[k]) +
     CONSIGNE_JSON;
 }
 
@@ -120,9 +179,183 @@ export function idDuLien(url: string): string {
   return url.match(/\/(?:photo|video)\/(\d+)/)?.[1] ?? url;
 }
 
+// ---------------------------------------------------------------------------
+// Rythme des relevés (0321)
+//
+// Chaque relevé est un post facturé par Apify (~0,0023 $). Sur tous les pays,
+// relever chaque heure tous les posts de moins de 12 h coûterait 300 à 450 $
+// par mois. D'où : un relevé toutes les 2 h, dès 2 h d'âge ; un post qui fait
+// moins de 20 % du seuil de son pays à 6 h n'est plus suivi ; les liens partent
+// en runs asynchrones de 50 au plus (un run synchrone de plusieurs centaines de
+// liens dépasse le délai de la fonction).
+// ---------------------------------------------------------------------------
+
+export const CADENCE_RELEVE_MIN = 120;
+export const AGE_ABANDON_MIN = 360;
+export const PART_SEUIL_ABANDON = 0.2;
+export const LIENS_PAR_LOT = 50;
+/** Un passage du cron (15 min) de grâce : le relevé « de 12 h » part à 12 h–12 h 15. */
+export const TOLERANCE_FENETRE_MIN = 15;
+/** Prix Apify d'un post relevé (clockworks~tiktok-scraper, palier SILVER). */
+export const PRIX_RELEVE_USD = 0.0023;
+/** Prix Apify d'un commentaire relu à 48 h (clockworks~tiktok-comments-scraper, SILVER). */
+export const PRIX_COMMENTAIRE_USD = 0.00075;
+
+/** Un post est-il à relever maintenant ? `dernierReleveMs` null : jamais relevé. */
+export function releveDu(
+  publieMs: number,
+  dernierReleveMs: number | null,
+  fenetreHeures: number,
+  maintenant = Date.now(),
+): boolean {
+  const ageMin = (maintenant - publieMs) / 60_000;
+  if (ageMin < CADENCE_RELEVE_MIN) return false;
+  if (ageMin > fenetreHeures * 60 + TOLERANCE_FENETRE_MIN) return false;
+  if (dernierReleveMs === null) return true;
+  // 5 min de marge : le passage suivant du cron tombe à 2 h pile, à quelques
+  // secondes près ; sans marge, chaque relevé glisserait d'un quart d'heure.
+  return (maintenant - dernierReleveMs) / 60_000 >= CADENCE_RELEVE_MIN - 5;
+}
+
+export type DecisionReleve = "declencher" | "abandonner" | "terminer" | "continuer";
+
+/**
+ * Après un relevé fait à `ageMin` de la publication : déclencher le
+ * commentaire, abandonner le post (trop faible à 6 h), le terminer (plus de
+ * relevé possible dans la fenêtre) ou continuer à le suivre.
+ */
+export function decisionReleve(input: {
+  ageMin: number;
+  vues: number | null;
+  seuil: number;
+  fenetreHeures: number;
+}): DecisionReleve {
+  const fin = input.fenetreHeures * 60 + TOLERANCE_FENETRE_MIN;
+  const vues = input.vues ?? 0;
+  if (input.vues !== null && vues >= input.seuil && input.ageMin <= fin) return "declencher";
+  if (input.ageMin >= AGE_ABANDON_MIN && vues < input.seuil * PART_SEUIL_ABANDON) return "abandonner";
+  if (input.ageMin + CADENCE_RELEVE_MIN > fin) return "terminer";
+  return "continuer";
+}
+
+export function enLots<T>(elements: T[], taille = LIENS_PAR_LOT): T[][] {
+  const lots: T[][] = [];
+  for (let i = 0; i < elements.length; i += taille) lots.push(elements.slice(i, i + taille));
+  return lots;
+}
+
+/** Clé d'un seuil : un pays peut parler deux langues (la Suisse, la Belgique…). */
+export function cleSeuil(langue: string, pays: string | null | undefined): string {
+  return `${langue}|${pays ?? ""}`;
+}
+
+export interface RegionActive {
+  langue: string;
+  slack_channel_id: string;
+  fenetre_heures: number;
+}
+
+export interface SeuilPays {
+  langue: string;
+  pays: string;
+  seuil_vues: number;
+}
+
+/** Seuil et région de chaque couple (langue, pays) suivi : seulement les régions actives. */
+export function indexerSeuils(
+  regions: RegionActive[],
+  pays: SeuilPays[],
+): Map<string, { region: RegionActive; seuil: number }> {
+  const parLangue = new Map(regions.map((r) => [r.langue, r]));
+  const index = new Map<string, { region: RegionActive; seuil: number }>();
+  for (const p of pays) {
+    const region = parLangue.get(p.langue);
+    if (region) index.set(cleSeuil(p.langue, p.pays), { region, seuil: p.seuil_vues });
+  }
+  return index;
+}
+
+// ---------------------------------------------------------------------------
+// Recalibrage du lundi : vers ~1 post sur 20 qui déclenche, comme l'Allemagne
+// au départ. Les pays sous cadenas n'y passent pas (filtré par l'appelant).
+// ---------------------------------------------------------------------------
+
+export const CIBLE_DECLENCHEMENT = 0.05;
+/** Posts suivis jusqu'au bout sur la fenêtre de mesure, sous lesquels on ne touche à rien. */
+export const ECHANTILLON_MIN_RECALIBRAGE = 60;
+export const JOURS_RECALIBRAGE = 28;
+export const SEUIL_PLANCHER = 3000;
+const PAS_SEUIL = 500;
+// Un pas à la fois : au plus −20 % / +25 % par semaine, pour ne jamais
+// sur-corriger sur une semaine atypique.
+const FACTEUR_MIN = 0.8;
+const FACTEUR_MAX = 1.25;
+
+export interface Recalibrage {
+  seuil: number;
+  raison: "echantillon" | "inchange" | "ajuste";
+  taux: number | null;
+  facteur: number | null;
+}
+
+export function seuilRecalibre(seuil: number, conclus: number, declenches: number): Recalibrage {
+  if (conclus < ECHANTILLON_MIN_RECALIBRAGE) return { seuil, raison: "echantillon", taux: null, facteur: null };
+  const taux = declenches / conclus;
+  // Racine : la moitié de l'écart à la cible, en multiplicatif.
+  const brut = declenches === 0 ? FACTEUR_MIN : Math.sqrt(taux / CIBLE_DECLENCHEMENT);
+  const facteur = Math.min(FACTEUR_MAX, Math.max(FACTEUR_MIN, brut));
+  const nouveau = Math.max(SEUIL_PLANCHER, Math.round((seuil * facteur) / PAS_SEUIL) * PAS_SEUIL);
+  if (nouveau === seuil) return { seuil, raison: "inchange", taux, facteur };
+  return { seuil: nouveau, raison: "ajuste", taux, facteur };
+}
+
+/** Le jour (AAAA-MM-JJ, heure de Paris) est-il un lundi ? */
+export function estLundi(jour: string): boolean {
+  return new Date(`${jour}T12:00:00Z`).getUTCDay() === 1;
+}
+
+// ---------------------------------------------------------------------------
+// Canal Slack
+// ---------------------------------------------------------------------------
+
+/**
+ * Le bot peut-il poster dans le canal ? Lu sur la réponse de `conversations.info`.
+ * Un canal PRIVÉ dont le bot n'est pas membre lui est invisible :
+ * `channel_not_found`. Les codes d'erreur sont traduits par la page.
+ */
+export function verdictCanal(r: {
+  ok: boolean;
+  error?: string;
+  needed?: string;
+  channel?: { name?: string; is_member?: boolean; is_archived?: boolean };
+}): { ok: true; nom: string | null } | { ok: false; code: string } {
+  if (!r.ok) {
+    if (r.error === "missing_scope" && r.needed) return { ok: false, code: `missing_scope:${r.needed}` };
+    return { ok: false, code: r.error ?? "inconnue" };
+  }
+  if (r.channel?.is_archived) return { ok: false, code: "is_archived" };
+  if (r.channel?.is_member === false) return { ok: false, code: "not_in_channel" };
+  return { ok: true, nom: r.channel?.name ?? null };
+}
+
+/** Erreurs d'envoi qui disent que le canal est inutilisable : affichées sur la région. */
+export const ERREURS_CANAL = new Set(["not_in_channel", "channel_not_found", "is_archived", "missing_scope"]);
+
+/**
+ * Le bot ne peut PAS poster dans ce canal : la vérification tombe, et une
+ * région active s'éteint. Un droit manquant (`missing_scope:…`) n'en fait pas
+ * partie : il empêche de LIRE le canal (conversations.info), pas d'y poster
+ * (chat:write) — éteindre de ou it pour ça couperait des envois qui marchent.
+ */
+export function canalInutilisable(code: string): boolean {
+  return ["not_in_channel", "channel_not_found", "is_archived"].includes(code);
+}
+
 export interface DemandeSlack {
   id: string;
   langue: string;
+  /** Pays du compte : son drapeau ouvre le message (les demandes d'avant 0321 n'en ont pas). */
+  pays?: string | null;
   handle: string | null;
   application: string;
   publie_url: string;
@@ -137,7 +370,7 @@ type Bloc = Record<string, any>;
 
 /** Le message du comment master. `fait` remplace le bouton une fois cliqué. */
 export function blocsSlack(d: DemandeSlack, fait?: { par: string; heure: string }): Bloc[] {
-  const drapeau = LANGUE_REGION[d.langue]?.drapeau ?? "";
+  const drapeau = drapeauPays(d.pays) || (LANGUE_REGION[d.langue]?.drapeau ?? "");
   const blocs: Bloc[] = [
     {
       type: "section",

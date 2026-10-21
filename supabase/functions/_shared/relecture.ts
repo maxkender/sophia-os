@@ -377,6 +377,26 @@ export function familleCouleur(hex: string): string {
   return "rose";
 }
 
+/**
+ * Blanc nettement teinté de jaune (#F8F0A8, alpha_male_yellow) : la palette de
+ * TikTok n'a pas ce jaune pâle, son jaune est le choix le plus proche.
+ */
+export function blancJauni(hex: string): boolean {
+  const v = parseInt(hex.slice(1), 16);
+  const r = (v >> 16) & 255, g = (v >> 8) & 255, b = v & 255;
+  return Math.min(r, g, b) >= 120 && Math.max(r, g, b) >= 225 && (r + g) / 2 - b >= 30;
+}
+
+/**
+ * Même couleur aux yeux du poster : même famille, ou le jaune de TikTok face à
+ * un jaune pâle que sa palette n'a pas (Joanna Mar, 20/10 : trois retours
+ * « jaune au lieu de blanc » sur un original #F8F0A8).
+ */
+export function couleursCompatibles(original: string, publie: string): boolean {
+  const famA = familleCouleur(original), famB = familleCouleur(publie);
+  return famA === famB || (famA === "blanc" && famB === "jaune" && blancJauni(original));
+}
+
 function centreVertical(blocs: BlocTexte[]): number {
   const haut = Math.min(...blocs.map((b) => b.y));
   const bas = Math.max(...blocs.map((b) => b.y + b.h));
@@ -479,7 +499,9 @@ export function jugerPaire(
   // Style du paragraphe principal : couleur et effet (envoyés), graisse et police (info).
   evalues.push("couleur", "effet", "gras");
   const famA = familleCouleur(pa.couleur), famB = familleCouleur(pb.couleur);
-  if (famA !== famB) ajouter("couleur", `texte ${famB} au lieu de ${famA}`, { original: famA, publie: famB });
+  if (!couleursCompatibles(pa.couleur, pb.couleur)) {
+    ajouter("couleur", `texte ${famB} au lieu de ${famA}`, { original: famA, publie: famB });
+  }
   if (pa.effet !== pb.effet) {
     ajouter("effet", `texte ${EFFET_FR[pb.effet]} au lieu de ${EFFET_FR[pa.effet]}`, { original: pa.effet, publie: pb.effet });
   }

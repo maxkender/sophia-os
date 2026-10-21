@@ -7,8 +7,15 @@
  * traduit pas, n'y place pas l'app, et ne le sert que dans ses langues livrées.
  */
 
-import { PERTINENCE_MIN_HORS_SOPHIA } from "./pertinence_apps.ts";
-import { SLUG_SOPHIA } from "./multi_app.ts";
+import { schemaMultiAppPret } from "./applications_moteur.ts";
+import {
+  clePromptPertinenceApp,
+  PERTINENCE_MIN_HORS_SOPHIA,
+  pertinenceSuffisante,
+  scoreStockable,
+} from "./pertinence_apps.ts";
+import { ID_SOPHIA, SLUG_SOPHIA } from "./multi_app.ts";
+import { chargerPrompt } from "./supabase.ts";
 import { passagesPourTier, type Tier } from "./tierlist.ts";
 import { sonderSchemaTiersApplication, TABLE_TIERS_APPLICATION } from "./tiers_application.ts";
 
@@ -292,7 +299,8 @@ export function decksApplicationDepuisBase(
 
 /**
  * Applications servies par le label d'un pod, hors Sophia, ou `null` s'il sert
- * Sophia (règle d'héritage : un label sans ligne sert Sophia).
+ * Sophia. Sans application cochée : `null` aussi (deck Sophia, comme les pods
+ * d'avant), mais le label n'est disponible pour personne (0330).
  */
 export function applicationsHorsSophia(idsApplicationsDuLabel: readonly string[], idSophia: string): string[] | null {
   if (!idsApplicationsDuLabel.length || idsApplicationsDuLabel.includes(idSophia)) return null;
@@ -551,7 +559,7 @@ export const TIER_ORIGINAL = "B";
 const LONGUEUR_MAX_ACCROCHE = 120;
 const LONGUEUR_MAX_SLIDE = 320;
 const MOT_SOPHIA = /\bsophia\b/i;
-const AUTRE_APPLI = /\b(vent[\s-]?now|readup|turbo[\s-]?resume|bycat|actualize|unswipe)\b/i;
+const AUTRE_APPLI = /\b(vent[\s-]?now|readup|turbo[\s-]?resume|bycat|actualize|unscroll|elqo|kodi[\s-]+(?:ai|app)|unswipe|micabo)\b/i;
 /** Les slides d'inspiration viennent du stockage de l'OS (`medias/brut/`), jamais d'un CDN qui expire. */
 export const REFERENCE_VALIDE = /^https:\/\/[a-z0-9]+\.supabase\.co\/storage\/v1\/object\/public\/medias\/brut\//;
 
@@ -594,9 +602,14 @@ export function verifierOriginal(slides: Partial<SlideOriginale>[] | null | unde
 /**
  * Pods dont chaque original doit arriver avec la PREUVE que son schéma
  * d'accroche fait des vues aujourd'hui (décidé le 15/10 pour le pod 4, même
- * règle pour les pods 5 et 7).
+ * règle pour les pods 5, 7 et 8).
  */
-export const PODS_AVEC_PREUVE = new Set(["originaux_alpha_yellow", "originaux_rh", "originaux_beau_smart_girl"]);
+export const PODS_AVEC_PREUVE = new Set([
+  "originaux_alpha_yellow",
+  "originaux_rh",
+  "originaux_beau_smart_girl",
+  "originaux_smart_girl",
+]);
 export const PREUVE_VUES_MIN = 200_000;
 export const PREUVE_JOURS_MAX = 30;
 export const PREUVE_R_MIN = 2;
@@ -726,4 +739,170 @@ export function prochainJour(dernier: string | null, aujourdhui: string): string
     if (apres > jour) jour = apres;
   }
   return jour.toISOString().slice(0, 10);
+}
+
+// ---------------------------------------------------------------------------
+// Originaux servis aux autres applications du label (UnSwipe, Micabo)
+// ---------------------------------------------------------------------------
+
+/**
+ * Pertinence d'un original pour une application autre que Sophia. Un original
+ * n'a pas de vues source : la note d'import classique (70 % de vues) l'écarte
+ * toujours. Il entre donc au rang d'un original (note NOTE_TIER_POD.B, rang B
+ * paresseux de 0270) dès que son SUJET convient à l'application.
+ */
+export function pertinenceOriginalApplication(applicationId: string, score: number): { note: number; eligible: boolean } {
+  return { note: NOTE_TIER_POD.B, eligible: pertinenceSuffisante(applicationId, score) };
+}
+
+export interface ApplicationOuverte {
+  slug: string;
+  score: number;
+  eligible: boolean;
+  /** Score déjà mesuré (campagne de rattrapage) : repris, sans nouvel appel. */
+  repris: boolean;
+}
+
+type NoteurPertinence = (input: { caption: string; hookText: string; instructions?: string }) => Promise<{
+  score: number;
+  reason: string;
+}>;
+
+/**
+ * Ouvre un original validé aux applications de son label autres que Sophia.
+ * Pour chacune qui a son prompt `pertinence_<slug>` (sans prompt : rien, jamais
+ * la grille Sophia), une ligne `contenu_pertinences` (note d'un original,
+ * éligible si le sujet convient) et, si 0270 est là, son rang d'entrée B sans
+ * écraser un rang déjà vécu. Le deck de l'application naît à l'assignation,
+ * depuis `slides_base` (traduit, appli placée), comme pour un import.
+ * Un score déjà en base est repris : rejouer ne coûte aucun appel.
+ */
+export async function ouvrirApplicationsOriginal(
+  supabase: Supabase,
+  contenuId: string,
+  labelId: string,
+  texte: { accroche: string; legende: string; pod: string },
+  noter: NoteurPertinence,
+): Promise<ApplicationOuverte[]> {
+  if (!(await schemaMultiAppPret(supabase))) return [];
+  const { data: liens, error } = await supabase.from("label_applications").select("application_id").eq("label_id", labelId);
+  if (error) throw new Error(`label_applications : ${error.message ?? error}`);
+  const ids = [...new Set(((liens ?? []) as { application_id: string }[]).map((l) => l.application_id))]
+    .filter((id) => id !== ID_SOPHIA);
+  if (!ids.length) return [];
+  const { data: apps, error: aErr } = await supabase.from("applications").select("id, slug").in("id", ids);
+  if (aErr) throw new Error(`applications : ${aErr.message ?? aErr}`);
+  const { data: deja, error: pErr } = await supabase
+    .from("contenu_pertinences")
+    .select("application_id, score")
+    .eq("contenu_id", contenuId)
+    .in("application_id", ids);
+  if (pErr) throw new Error(`contenu_pertinences : ${pErr.message ?? pErr}`);
+  const scoreDeja = new Map(
+    ((deja ?? []) as { application_id: string; score: number | null }[])
+      .filter((l) => l.score != null)
+      .map((l) => [l.application_id, Number(l.score)]),
+  );
+
+  const tiersPrets = (await sonderSchemaTiersApplication(supabase)) === "pret";
+  const resultats: ApplicationOuverte[] = [];
+  const triees = [...((apps ?? []) as { id: string; slug: string }[])].sort((a, b) => a.slug.localeCompare(b.slug));
+  for (const app of triees) {
+    const cle = clePromptPertinenceApp(app);
+    const repris = scoreDeja.has(app.id);
+    let score = scoreDeja.get(app.id) ?? 0;
+    let raison: string | null = null;
+    if (!repris) {
+      const prompt = await chargerPrompt(supabase, cle);
+      if (!prompt) continue;
+      const r = await noter({ caption: texte.legende, hookText: texte.accroche, instructions: prompt });
+      score = scoreStockable(r.score);
+      raison = r.reason;
+    }
+    const { note, eligible } = pertinenceOriginalApplication(app.id, score);
+    const maintenant = new Date().toISOString();
+    const { error: uErr } = await supabase.from("contenu_pertinences").upsert(
+      {
+        contenu_id: contenuId,
+        application_id: app.id,
+        score,
+        note,
+        eligible,
+        // Score repris : sa raison et son prompt restent ceux de la mesure.
+        ...(repris ? {} : { raison, prompt_cle: cle, angles: null }),
+        updated_at: maintenant,
+      },
+      { onConflict: "contenu_id,application_id" },
+    );
+    if (uErr) throw new Error(`pertinence ${app.slug} : ${uErr.message ?? uErr}`);
+    if (eligible && tiersPrets) {
+      const tier = TIER_ORIGINAL as Tier;
+      const passages = passagesPourTier(tier);
+      const { error: tErr } = await supabase.from(TABLE_TIERS_APPLICATION).upsert(
+        {
+          contenu_id: contenuId,
+          application_id: app.id,
+          tier,
+          passages_prevus: passages,
+          tier_cycle: 0,
+          tier_maj_at: maintenant,
+          tier_rapport: { origine: "pod_original", pod: texte.pod, tier, passages },
+        },
+        { onConflict: "contenu_id,application_id", ignoreDuplicates: true },
+      );
+      if (tErr) throw new Error(`rang ${app.slug} : ${tErr.message ?? tErr}`);
+    }
+    resultats.push({ slug: app.slug, score, eligible, repris });
+  }
+  return resultats;
+}
+
+// ---------------------------------------------------------------------------
+// Validation automatique des podz sûrs (0323)
+// ---------------------------------------------------------------------------
+
+/** Délai par défaut entre le dépôt et la validation automatique (`pods.auto_validation_heures`). */
+export const AUTO_VALIDATION_HEURES = 12;
+
+export interface PodAutoValidation {
+  slug: string;
+  actif: boolean;
+  auto_validation: boolean;
+  auto_validation_heures: number | null;
+}
+
+export interface LivraisonEnAttente {
+  id: string;
+  pod: string;
+  type: string;
+  statut: string;
+  depose_le: string | null;
+  auto_erreur: string | null;
+}
+
+/**
+ * Livraisons à valider automatiquement, la plus ancienne d'abord : podz sûr et
+ * actif, livraison toujours en attente, déposée depuis au moins le délai du
+ * podz, jamais en échec (`auto_erreur` : à décider à la main). Jamais une
+ * vidéo : chaque compte y reçoit une date de publication, à voir par une
+ * personne.
+ */
+export function livraisonsAutoValidables<T extends LivraisonEnAttente>(
+  pods: readonly PodAutoValidation[],
+  livraisons: readonly T[],
+  maintenant: Date,
+): T[] {
+  const delaiMs = new Map(
+    pods
+      .filter((p) => p.actif && p.auto_validation)
+      .map((p) => [p.slug, (p.auto_validation_heures ?? AUTO_VALIDATION_HEURES) * 3_600_000]),
+  );
+  const depot = (l: T) => Date.parse(l.depose_le ?? "");
+  return livraisons
+    .filter((l) => {
+      const delai = delaiMs.get(l.pod);
+      return delai !== undefined && l.statut === "a_valider" && l.type !== "video" && !l.auto_erreur &&
+        Number.isFinite(depot(l)) && maintenant.getTime() - depot(l) >= delai;
+    })
+    .sort((a, b) => depot(a) - depot(b));
 }

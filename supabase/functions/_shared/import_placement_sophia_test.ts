@@ -289,7 +289,7 @@ Deno.test("pipeline, contenu hors Sophia sous le plancher de pertinence : rejet√
   assertEquals(updatesRang(journal), []);
   const c = tables.contenus[0];
   assertEquals([c.statut, c.import_statut, c.import_etape], ["rejete", "done", "elo_insuffisant"]);
-  assert(String(c.import_erreur).includes("Pertinence sous 50"), String(c.import_erreur));
+  assert(String(c.import_erreur).includes("Pertinence sous le seuil de ses labels"), String(c.import_erreur));
   assertEquals(tables.contenu_pertinences[0].eligible, false);
   oublierSondes();
 });

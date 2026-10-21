@@ -24,6 +24,9 @@ vi.mock("@/features/moteur/api", () => ({
   supprimerPost: (id: string) => supprimerPost(id),
 }));
 
+// La carte « Lien à 1 000 abonnés » a ses propres tests (Lien1000Card.test.tsx).
+vi.mock("@/features/moteur/Lien1000Card", () => ({ Lien1000Card: () => null }));
+
 import { AdminSurveillancePage } from "./AdminSurveillancePage";
 
 /** Un compte INACTIF : il tombe dans la file de surveillance. */

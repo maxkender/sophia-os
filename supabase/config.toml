@@ -68,6 +68,9 @@ verify_jwt = false
 [functions.chatbot]
 verify_jwt = false
 
+[functions.ckd]
+verify_jwt = false
+
 [functions.comment-masters]
 verify_jwt = false
 
@@ -82,6 +85,14 @@ verify_jwt = false
 
 # Guichet du site (Sophia Culture Hub) : appelé serveur à serveur avec l'en-tête
 # x-hub-secret, contrôlé par la fonction elle-même — voir docs/hub-posteurs.md.
+# Actions de l'admin sur la FAQ automatique (assertRole admin / head_of_ops).
+[functions.faq-admin]
+verify_jwt = false
+
+# Copie du guide Notion pour la FAQ : cron (x-cron-secret) ou admin (JWT).
+[functions.guides-notion]
+verify_jwt = false
+
 [functions.hub-posteurs]
 verify_jwt = false
 
@@ -165,6 +176,11 @@ verify_jwt = false
 verify_jwt = false
 
 [functions.signaler-texte]
+verify_jwt = false
+
+# Entrée Slack de la FAQ automatique : c'est la signature Slack qui
+# authentifie (comme slack-interactions), jamais un JWT.
+[functions.slack-faq]
 verify_jwt = false
 
 [functions.slack-interactions]

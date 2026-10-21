@@ -28,13 +28,14 @@ const APPS = [
   { id: ID_MICABO, slug: "micabo", nom: "Micabo", langues: null, actif: true },
   { id: ID_ZEN, slug: "zen", nom: "Zen", langues: null, actif: false },
 ];
-/** Smart Girl sans ligne (= Sophia) ; Medical Study sert Micabo + Unswipe ; UGC X est UGC AI vidéo. */
+/** Smart Girl sert Sophia ; Medical Study sert Micabo + Unswipe ; UGC X est UGC AI vidéo. */
 const SMART = { id: "l-smart", slug: "smart_girl", nom: "Smart Girl" };
 const MEDICAL = { id: "l-medical", slug: "medical-study", nom: "Medical Study" };
 const MICABO_SEUL = { id: "l-mic", slug: "mic", nom: "Mic" };
 const UGC_UNSWIPE = { id: "l-ugc", slug: "ugc-x", nom: "UGC X", ugc_ai_video: true };
 const LABELS = [SMART, MEDICAL, MICABO_SEUL, UGC_UNSWIPE];
 const LIENS = [
+  { label_id: SMART.id, application_id: ID_SOPHIA },
   { label_id: MEDICAL.id, application_id: ID_MICABO },
   { label_id: MEDICAL.id, application_id: ID_UNSWIPE },
   { label_id: MICABO_SEUL.id, application_id: ID_MICABO },
@@ -102,7 +103,7 @@ describe("choixApplicationRequis", () => {
 });
 
 describe("labelsDeLApplication", () => {
-  it("label_applications avec héritage Sophia, labels slideshow seulement", () => {
+  it("label_applications, labels slideshow seulement", () => {
     expect(labelsDeLApplication(ID_SOPHIA, LABELS, LIENS).map((l) => l.id)).toEqual([SMART.id]);
     // UGC X sert Unswipe mais est UGC AI vidéo : jamais posé par la File.
     expect(labelsDeLApplication(ID_UNSWIPE, LABELS, LIENS).map((l) => l.id)).toEqual([MEDICAL.id]);
@@ -115,6 +116,9 @@ describe("labelsDeLApplication", () => {
     const labels = [{ ...SMART, application_id: ID_UNSWIPE }];
     expect(labelsDeLApplication(ID_UNSWIPE, labels, LIENS)).toEqual([]);
     expect(labelsDeLApplication(ID_SOPHIA, labels, LIENS).map((l) => l.id)).toEqual([SMART.id]);
+  });
+  it("un label sans application cochée n'est disponible pour personne (21/10)", () => {
+    expect(labelsDeLApplication(ID_SOPHIA, [SMART], [])).toEqual([]);
   });
 });
 

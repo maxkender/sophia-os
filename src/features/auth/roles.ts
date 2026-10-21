@@ -20,6 +20,15 @@ export function estRoleManager(role: string | null | undefined): boolean {
   );
 }
 
+/**
+ * Rôle sous lequel l'appli s'affiche. Un admin en aperçu Head of Ops voit les
+ * menus, pages et routes du Head of Ops, sans se connecter sur son compte : seul
+ * l'affichage change, ses droits en base restent ceux d'un admin.
+ */
+export function roleAffiche(roleReel: Role | null, apercuHo: boolean): Role | null {
+  return roleReel === "admin" && apercuHo ? "head_of_ops" : roleReel;
+}
+
 /** Badge court : HO / DM / HM. */
 export function badgeManager(
   role: string | null | undefined,

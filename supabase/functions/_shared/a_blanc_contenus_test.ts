@@ -60,6 +60,9 @@ function base(extra: Record<string, unknown[]> = {}) {
       { id: UNSWIPE, slug: "unswipe", nom: "Unswipe", langues: null, actif: false, created_at: "2026-09-01" },
     ],
     label_applications: [{ label_id: "L1", application_id: ID_SOPHIA }],
+    // Lus par le seuil réglé de chaque label (`chargerMinimumsPertinence`).
+    contenu_labels: [] as unknown[],
+    labels: [] as unknown[],
     passages: [{ id: "p0", application_id: ID_SOPHIA }],
     prompts: [
       { cle: "pertinence_unswipe", contenu: "Note la pertinence pour Unswipe." },

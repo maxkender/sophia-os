@@ -1,0 +1,231 @@
+{
+ "post_id": "7680975889932225814",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "7 ways to stop doomscrolling",
+      "and reclaim your life"
+     ],
+     "fr": "7 trucs pour arrêter de scroller et reprendre ta vie",
+     "texte": "7 modi per smettere di scrollare e riprenderti la vita"
+    },
+    "T2": {
+     "en": [
+      "from an",
+      "ex-chronic",
+      "scroller"
+     ],
+     "fr": "par une ex-accro au scroll",
+     "texte": "da un'ex malata di scroll"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "1. Stop taking your phone",
+      "everywhere with you"
+     ],
+     "fr": "1. Arrête de traîner ton tel [[partout]] avec toi",
+     "alignement": "gauche",
+     "texte": "1. Smetti di portarti il telefono [[ovunque]]"
+    },
+    "T2": {
+     "en": [
+      "You don't need your",
+      "phone to go",
+      "to the bathroom,",
+      "stop taking it with",
+      "you everywhere!!"
+     ],
+     "fr": "T'as pas besoin de ton tel pour aller aux toilettes, arrête de le traîner partout !!",
+     "texte": "Non ti serve il telefono per andare in bagno, smettila di portartelo ovunque!!"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. Stop pretending like"
+     ],
+     "fr": "2. Arrête de te dire que",
+     "texte": "2. Smettila di credere che"
+    },
+    "T2": {
+     "en": [
+      "scrolling Substack is better"
+     ],
+     "fr": "scroller Substack, c'est mieux",
+     "texte": "scrollare Substack sia meglio"
+    },
+    "T3": {
+     "en": [
+      "It feels productive but",
+      "doomscrolling on substack",
+      "or pinterest is just as",
+      "bad as tiktok"
+     ],
+     "fr": "On a l'impression d'être productive, mais scroller sur substack ou pinterest, c'est aussi nul que tiktok",
+     "texte": "Ti sembra di essere produttiva, ma scrollare su substack o pinterest fa male quanto tiktok"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "3. Relearn how to be bored"
+     ],
+     "fr": "3. Réapprends à t'ennuyer",
+     "texte": "3. Reimpara ad annoiarti"
+    },
+    "T2": {
+     "en": [
+      "All best ideas come",
+      "when you give them",
+      "space to grow"
+     ],
+     "fr": "Les bonnes idées ont besoin d'espace pour pousser",
+     "texte": "Le idee migliori arrivano quando gli lasci spazio"
+    },
+    "T3": {
+     "en": [
+      "Stop scrolling",
+      "anytime you're free"
+     ],
+     "fr": "Arrête de scroller dès que t'as 2 min",
+     "texte": "Non scrollare appena hai un attimo"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "Never scroll in bed"
+     ],
+     "fr": "Jamais de scroll au lit",
+     "texte": "Mai scrollare a letto"
+    },
+    "T2": {
+     "en": [
+      "4."
+     ],
+     "fr": "4.",
+     "texte": "4."
+    },
+    "T4": {
+     "en": [
+      "I read a book instead, i've been",
+      "trying ReadUp to block my",
+      "apps until I read for 30 minutes",
+      "and it's helped me so far. But",
+      "you can use anything that just",
+      "isn't your phone"
+     ],
+     "fr": "Je lis un livre à la place, et j'ai remplacé mon scroll du soir par 5 min sur l'appli Sophia, un truc nouveau par jour. Mais tout marche, sauf ton tel",
+     "texte": "Il letto è per dormire, non per un altro Reel. Leggi qualche pagina invece. Quello che mi ha davvero tolto il vizio: togliere i Reels da Instagram con [[l'app UnSwipe]]"
+    }
+   },
+   "images": {
+    "I3": "sophia_appstore"
+   },
+   "zones": [
+    {
+     "elements": [
+      "T3",
+      "I1",
+      "T5",
+      "T6",
+      "T7",
+      "I2",
+      "T8"
+     ],
+     "action": "sophia_capture"
+    }
+   ]
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "Turn off notifications"
+     ],
+     "fr": "Coupe tes notifications",
+     "texte": "Spegni le notifiche"
+    },
+    "T2": {
+     "en": [
+      "5."
+     ],
+     "fr": "5.",
+     "texte": "5."
+    },
+    "T3": {
+     "en": [
+      "Don't have",
+      "notifications on for",
+      "every event in every",
+      "app, you don't need to",
+      "respond instantly"
+     ],
+     "fr": "T'as pas besoin de notifs pour le moindre truc dans chaque appli, ni de répondre direct",
+     "texte": "Non tenere le notifiche attive per ogni cosa in ogni app, non devi rispondere subito"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "7": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6."
+     ],
+     "fr": "6.",
+     "texte": "6."
+    },
+    "T2": {
+     "en": [
+      "Keep your phone in",
+      "a different room"
+     ],
+     "fr": "Laisse ton tel dans une autre pièce",
+     "texte": "Lascia il telefono in un'altra stanza"
+    },
+    "T3": {
+     "en": [
+      "Leave it in another",
+      "room or across from",
+      "you, you'll never get",
+      "any work done with",
+      "your phone by you"
+     ],
+     "fr": "Laisse-le dans une autre pièce ou loin de toi : avec ton tel à côté, tu feras jamais rien",
+     "texte": "Lascialo in un'altra stanza o lontano da te, col telefono accanto non combinerai mai niente"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ },
+ "application": "unswipe"
+}

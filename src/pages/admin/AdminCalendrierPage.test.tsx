@@ -15,7 +15,7 @@ const postsCalendrierAdmin = vi.fn();
 vi.mock("@/features/moteur/api", async (importOriginal) => ({
   ...(await importOriginal<typeof import("@/features/moteur/api")>()),
   aujourdhui: () => JOUR,
-  postsCalendrierAdmin: () => postsCalendrierAdmin(),
+  postsCalendrierAdmin: (options: unknown) => postsCalendrierAdmin(options),
 }));
 
 vi.mock("@/features/moteur/apiMultiApp", async (importOriginal) => ({
@@ -113,5 +113,27 @@ describe("AdminCalendrierPage — applications", () => {
     const sectionMicabo = screen.getByRole("heading", { level: 2, name: "micabo" }).closest("section")!;
     expect(within(sectionMicabo).getByText("2 creator(s) · 1/3 posted")).toBeInTheDocument();
     expect(within(sectionMicabo).queryByText("Lea")).not.toBeInTheDocument();
+  });
+
+  it("ne demande QUE le jour affiché, jamais les N derniers posts", async () => {
+    // Régression. La page prenait les 800 posts les plus récents, toutes
+    // dates confondues, et filtrait sur le jour côté navigateur. Passé
+    // 400 posts par jour le plafond tombait AU MILIEU d'une journée : les
+    // créateurs dont le deuxième post était au-delà de la coupe
+    // s'affichaient « 1/1 posté » alors qu'ils en avaient bien deux, et
+    // les jours plus anciens sortaient vides. Une fenêtre de dates tronque
+    // visiblement, un plafond de lignes tronque en silence.
+    rendre();
+    await screen.findByText("Ayse");
+    expect(postsCalendrierAdmin).toHaveBeenCalledWith({ du: JOUR, au: JOUR });
+
+    // Et elle suit la navigation : changer de jour redemande CE jour-là.
+    fireEvent.click(screen.getByRole("button", { name: "Previous day" }));
+    await vi.waitFor(() =>
+      expect(postsCalendrierAdmin).toHaveBeenCalledWith({
+        du: "2026-10-11",
+        au: "2026-10-11",
+      }),
+    );
   });
 });

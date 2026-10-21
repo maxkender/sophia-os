@@ -12,6 +12,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Textarea } from "@/components/ui/textarea";
 import { assignerTikTok, listerComptes, listerPostsTest, testerTraduction } from "@/features/moteur/api";
 import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
+import { SimulerChecklistPremierPostCard } from "@/features/onboarding/SimulerChecklistPremierPostCard";
 import { SimulerOnboardingCard } from "@/features/onboarding/SimulerOnboardingCard";
 import { SimulerRetourCard } from "@/features/reviews/SimulerRetourCard";
 import { AssignationABlancCard } from "@/features/moteur/AssignationABlancCard";
@@ -297,6 +298,12 @@ const TESTS = [
     titreKey: "tests.onboardingRuulTitre",
     descKey: "tests.onboardingRuulDesc",
     render: () => <SimulerOnboardingCard cohorteRuul />,
+  },
+  {
+    value: "premier-post",
+    titreKey: "tests.premierPostTitre",
+    descKey: "tests.premierPostDesc",
+    render: () => <SimulerChecklistPremierPostCard />,
   },
   {
     value: "retour",

@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
-import { marquerReviewVue, mesReviewsNonVues } from "@/features/moteur/api";
+import { etatOnboarding, marquerReviewVue, mesReviewsNonVues } from "@/features/moteur/api";
 import { RetourParcours } from "./RetourParcours";
 
 /**
@@ -9,9 +9,14 @@ import { RetourParcours } from "./RetourParcours";
  * de l'original, puis le message et les vidéos). « Compris » la marque vue et
  * enchaîne sur la suivante. Rien à afficher → rien ne se monte. Il peut la
  * relire ensuite dans « Mes retours ».
+ *
+ * Un pop-up à la fois : l'onboarding d'abord, puis les retours, puis les
+ * messages (`NudgePopup`). Mêmes requêtes que `OnboardingPopup` : servies par
+ * le cache, aucun appel de plus.
  */
 export function ReviewPopup() {
   const queryClient = useQueryClient();
+  const onboarding = useQuery({ queryKey: ["onboarding-etat"], queryFn: etatOnboarding });
   const { data } = useQuery({ queryKey: ["mes-reviews"], queryFn: mesReviewsNonVues });
 
   const marquer = useMutation({
@@ -23,7 +28,7 @@ export function ReviewPopup() {
   });
 
   const courante = (data ?? [])[0];
-  if (!courante) return null;
+  if (!courante || onboarding.isPending || onboarding.data?.vu === false) return null;
 
   return (
     <RetourParcours

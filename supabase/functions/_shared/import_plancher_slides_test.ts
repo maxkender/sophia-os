@@ -91,6 +91,7 @@ function post(nbImages: number): ScrapedPost {
     musicTitle: null,
     createTime: null,
     stats: { vues: 1000, likes: 0, commentaires: 0, partages: 0 },
+    auteur: { abonnes: null, lienBio: null },
   };
 }
 

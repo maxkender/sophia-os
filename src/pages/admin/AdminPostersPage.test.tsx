@@ -12,6 +12,7 @@ const listerComptes = vi.fn();
 const listerApplications = vi.fn();
 const labelsDesComptes = vi.fn();
 const listerLiensLabels = vi.fn();
+const premiersJoursComptes = vi.fn();
 
 vi.mock("@/features/auth/AuthContext", async (importOriginal) => ({
   ...(await importOriginal<typeof import("@/features/auth/AuthContext")>()),
@@ -27,6 +28,7 @@ vi.mock("@/features/moteur/api", async (importOriginal) => ({
   listerLabels: async () => [],
   labelsDesComptes: (ids: string[]) => labelsDesComptes(ids),
   majZoneRecruteur: (id: string, zone: string | null) => majZoneRecruteur(id, zone),
+  premiersJoursComptes: () => premiersJoursComptes(),
 }));
 
 vi.mock("@/features/moteur/apiMultiApp", async (importOriginal) => ({
@@ -84,11 +86,11 @@ const PROFILS = [
   profil({ id: "seule", role: "poster", prenom: "Solo" }),
 ];
 
-function renderPage() {
+function renderPage(adresse = "/") {
   const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
   return render(
     <QueryClientProvider client={client}>
-      <MemoryRouter>
+      <MemoryRouter initialEntries={[adresse]}>
         <AdminPostersPage />
       </MemoryRouter>
     </QueryClientProvider>,
@@ -115,6 +117,8 @@ describe("AdminPostersPage — par zone", () => {
     labelsDesComptes.mockResolvedValue(new Map());
     listerLiensLabels.mockReset();
     listerLiensLabels.mockResolvedValue([]);
+    premiersJoursComptes.mockReset();
+    premiersJoursComptes.mockResolvedValue(new Map());
   });
 
   it("range chaque créateur sous la zone de son recruteur", async () => {
@@ -412,5 +416,69 @@ describe("AdminPostersPage — par zone", () => {
     fireEvent.change(filtre, { target: { value: "sophia" } });
     expect(screen.getByText("beyza@sophia.com")).toBeTruthy();
     expect(screen.queryByText("omer@sophia.com")).toBeNull();
+  });
+
+  describe("cohortes du lundi", () => {
+    const compte = (id: string, poster_id: string, warmup_ends_at: string | null = null) => ({
+      id,
+      poster_id,
+      handle_tiktok: id,
+      persona_nom: id,
+      langue: "tr",
+      type_compte: "perso",
+      is_active: true,
+      classement: "passable",
+      warmup_started_at: warmup_ends_at ? "2026-10-20T10:00:00Z" : null,
+      warmup_ends_at,
+      avatar_url: null,
+      parts_applications: null,
+      ugc_ai_video: false,
+    });
+
+    beforeEach(() => {
+      // Beyza : 1er post le mardi 20/10 (cohorte 19/10), puis un 2e compte (doublée) parti le 26/10.
+      // Marta : partie le 12/10. Élodie : en warm-up jusqu'au lundi 26/10. Solo : aucun compte.
+      listerComptes.mockResolvedValue([
+        compte("c-beyza", "beyza"),
+        compte("c-beyza-2", "beyza", "2026-10-25T23:00:00Z"),
+        compte("c-marta", "marta"),
+        compte("c-elodie", "elodie", "2026-10-25T23:00:00Z"),
+      ]);
+      premiersJoursComptes.mockResolvedValue(
+        new Map([
+          ["c-beyza", "2026-10-20"],
+          ["c-marta", "2026-10-12"],
+        ]),
+      );
+    });
+
+    it("filtre par lundi de démarrage ; un posteur doublé reste dans sa cohorte d'origine", async () => {
+      renderPage();
+      await screen.findByRole("heading", { level: 2, name: "Turkey + Israel" });
+      const filtre = screen.getByLabelText("Cohort (start Monday)") as HTMLSelectElement;
+      await waitFor(() => expect(within(filtre).getByRole("option", { name: /Oct 19 · W43 \(1\)/ })).toBeTruthy());
+      expect(within(filtre).getByRole("option", { name: /Oct 12 · W42 \(1\)/ })).toBeTruthy();
+      expect(within(filtre).getByRole("option", { name: "Not started yet (1)" })).toBeTruthy();
+
+      fireEvent.change(filtre, { target: { value: "2026-10-19" } });
+      await waitFor(() => expect(screen.queryByText("marta@sophia.com")).toBeNull());
+      expect(screen.getByText("beyza@sophia.com")).toBeTruthy();
+      expect(screen.queryByText("elodie@sophia.com")).toBeNull();
+      expect(screen.queryByText("seule@sophia.com")).toBeNull();
+      // Chaque compte d'un posteur à plusieurs comptes garde son propre lundi.
+      expect(screen.getByText("started Oct 26")).toBeTruthy();
+
+      fireEvent.change(filtre, { target: { value: "pas-demarre" } });
+      await waitFor(() => expect(screen.getByText("seule@sophia.com")).toBeTruthy());
+      expect(screen.queryByText("beyza@sophia.com")).toBeNull();
+    });
+
+    it("la cohorte se lit dans l'adresse : un lien partagé ouvre la même cohorte", async () => {
+      renderPage("/admin/posters?cohorte=2026-10-12");
+      await waitFor(() => expect(screen.getByText("marta@sophia.com")).toBeTruthy());
+      expect(screen.queryByText("beyza@sophia.com")).toBeNull();
+      expect((screen.getByLabelText("Cohort (start Monday)") as HTMLSelectElement).value).toBe("2026-10-12");
+      expect(screen.getByText(/^Cohort Oct 12 · week \d+$/)).toBeTruthy();
+    });
   });
 });

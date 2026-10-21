@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 
 import {
   definirApplicationsLabel,
+  definirSeuilPertinenceLabel,
   type ApplicationMulti,
   type LienLabelApplicationRow,
   type ReserveLabelApplication,
@@ -27,18 +28,21 @@ function messageErreur(err: unknown): string {
  * placement d'une paire (page Angles de placement, table `angles_placement`)
  * ne dépendent pas de cette ligne : décocher une application les garde.
  *
- * Un label sans ligne affiche Sophia servie (héritage) ; la première
- * modification écrit l'ensemble EXPLICITE complet, Sophia comprise. La
- * dernière application ne se retire pas : le label retomberait sur Sophia.
+ * Sans aucune application cochée, le label n'est disponible pour personne
+ * (21/10) : décocher la dernière demande confirmation. Pour chaque application
+ * cochée autre que Sophia, le seuil de pertinence à l'import (0330).
  */
 export function LabelApplications({
   labelId,
+  labelNom,
   applications,
   liens,
   reserves,
   applicationSelectionneeId,
 }: {
   labelId: string;
+  /** Pour la confirmation avant de décocher la dernière application. */
+  labelNom?: string;
   applications: readonly ApplicationMulti[];
   liens: readonly LienLabelApplicationRow[];
   reserves: Map<string, ReserveLabelApplication> | undefined;
@@ -58,17 +62,26 @@ export function LabelApplications({
     },
   });
 
+  const seuil = useMutation({
+    mutationFn: (v: { applicationId: string; valeur: number }) =>
+      definirSeuilPertinenceLabel(labelId, v.applicationId, v.valeur),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["label-applications"] }),
+  });
+
   const basculer = (applicationId: string) => {
     const r = basculerApplicationLabel(labelId, liens, applicationId);
     if (!r.ok) {
       setRefus(t("multiApp.labels.derniereApplication"));
       return;
     }
+    if (r.aucune && !window.confirm(t("multiApp.labels.confirmerAucune", { nom: labelNom ?? "" }))) return;
     setRefus(null);
     definir.mutate(r.applications);
   };
 
   const appsServies = applications.filter((a) => servies.includes(a.id));
+  const seuilDe = (applicationId: string) =>
+    liens.find((l) => l.label_id === labelId && l.application_id === applicationId)?.pertinence_min ?? 50;
 
   return (
     <div className="space-y-1.5">
@@ -82,13 +95,7 @@ export function LabelApplications({
               type="button"
               disabled={definir.isPending}
               aria-pressed={sert}
-              title={
-                implicite && app.id === ID_SOPHIA
-                  ? t("multiApp.labels.implicite")
-                  : app.actif
-                    ? undefined
-                    : t("multiApp.labels.applicationInactive")
-              }
+              title={app.actif ? undefined : t("multiApp.labels.applicationInactive")}
               onClick={() => basculer(app.id)}
               className={cn(
                 "rounded-full border px-2 py-0.5 text-[10px] transition-colors disabled:opacity-50",
@@ -96,7 +103,6 @@ export function LabelApplications({
                   ? "border-primary bg-primary text-primary-foreground"
                   : "border-border bg-background text-muted-foreground hover:bg-muted",
                 selectionnee && "font-semibold",
-                implicite && sert && "border-dashed",
                 !app.actif && "italic",
               )}
             >
@@ -117,8 +123,38 @@ export function LabelApplications({
           />
         ))}
       </div>
+      {implicite && <p className="text-[11px] text-muted-foreground">{t("multiApp.labels.implicite")}</p>}
+      {appsServies.some((a) => a.id !== ID_SOPHIA) && (
+        <div className="flex flex-wrap items-center gap-2">
+          {appsServies
+            .filter((a) => a.id !== ID_SOPHIA)
+            .map((app) => (
+              <label
+                key={`${app.id}-${seuilDe(app.id)}`}
+                className="flex items-center gap-1 text-[10px] text-muted-foreground"
+                title={t("multiApp.labels.seuilAide", { app: nomApplication(app) })}
+              >
+                {t("multiApp.labels.seuil", { app: nomApplication(app) })}
+                <input
+                  type="number"
+                  min={50}
+                  max={100}
+                  defaultValue={seuilDe(app.id)}
+                  disabled={seuil.isPending}
+                  aria-label={t("multiApp.labels.seuil", { app: nomApplication(app) })}
+                  className="h-5 w-12 rounded border border-input bg-background px-1 text-[10px]"
+                  onBlur={(e) => {
+                    const valeur = Number(e.target.value);
+                    if (valeur !== seuilDe(app.id)) seuil.mutate({ applicationId: app.id, valeur });
+                  }}
+                />
+              </label>
+            ))}
+        </div>
+      )}
       {refus && <p className="text-[11px] text-destructive">{refus}</p>}
       {definir.isError && <p className="text-[11px] text-destructive">{messageErreur(definir.error)}</p>}
+      {seuil.isError && <p className="text-[11px] text-destructive">{messageErreur(seuil.error)}</p>}
     </div>
   );
 }

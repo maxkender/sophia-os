@@ -14,6 +14,7 @@
 import { scrapePost, scrapeStats, type ScrapedPost } from "./apify.ts";
 import { requalifierClassementComptes } from "./classement_comptes.ts";
 import { lireTout } from "./lots.ts";
+import { enregistrerProfil } from "./profil_compte.ts";
 import {
   chargerScoring,
   performancePassage,
@@ -371,6 +372,8 @@ async function releverStatsFenetre(
           partages: somme((s) => s.partages),
           nb_posts: enLigne.length,
         });
+        // Abonnés et lien du profil, sur le même scrape (contrôle 1 000 abonnés).
+        await enregistrerProfil(supabase, compte.id as string, enLigne);
       }
 
       for (const passage of liste) {
@@ -938,6 +941,7 @@ export async function rattrapageElo(
           partages: somme((s) => s.partages),
           nb_posts: enLigne.length,
         });
+        await enregistrerProfil(supabase, c.id as string, enLigne);
         journal.push("ok", `@${c.handle_tiktok} — metrics profil (${enLigne.length} posts)`);
       } catch (e) {
         journal.push(

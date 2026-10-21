@@ -39,7 +39,7 @@ export function PertinencesApplications({
   sophia,
 }: {
   contenuId: string;
-  /** Sophia (sans ligne en base) montrée en tête ; absent : pas de ligne Sophia. */
+  /** Sophia (sans ligne `contenu_pertinences`) montrée en tête ; absent : pas de ligne Sophia. */
   sophia?: ResumeSophiaContenu | null;
 }) {
   const { t } = useTranslation();

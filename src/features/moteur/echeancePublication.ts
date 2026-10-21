@@ -123,15 +123,54 @@ function decalage(instant: number, fuseau: string): number {
   return mural - Math.floor(instant / 1000) * 1000;
 }
 
-/** Fin du jour `date` (AAAA-MM-JJ) dans le fuseau du pays : minuit qui le termine. */
-export function echeancePublication(date: string, pays: string | null | undefined): Date {
-  const fuseau = fuseauPays(pays);
+/** Minuit qui termine le jour `date` (AAAA-MM-JJ) dans `fuseau`. */
+function finDuJour(date: string, fuseau: string): number {
   const [a, m, j] = date.split("-").map(Number);
   const minuitMural = Date.UTC(a, m - 1, j + 1, 0, 0, 0);
   // Deux passes : la seconde corrige un changement d'heure entre les deux.
   let instant = minuitMural - decalage(minuitMural, fuseau);
   instant = minuitMural - decalage(instant, fuseau);
-  return new Date(instant);
+  return instant;
+}
+
+/**
+ * Échéance d'un post du jour `date` : fin de ce jour dans le fuseau du pays,
+ * jamais avant la fin de ce jour à Paris (0320). Les posts arrivent à minuit
+ * Paris : sans ce plancher, la Nouvelle-Zélande n'avait que 13 h pour publier.
+ */
+export function echeancePublication(date: string, pays: string | null | undefined): Date {
+  return new Date(Math.max(finDuJour(date, fuseauPays(pays)), finDuJour(date, "Europe/Paris")));
+}
+
+/**
+ * Arrivée des posts du jour `date` : minuit à Paris, quand l'OS les crée. En
+ * Nouvelle-Zélande, c'est 11 h du matin ce même jour.
+ */
+export function arriveePosts(date: string): Date {
+  const [a, m, j] = date.split("-").map(Number);
+  const veille = new Date(Date.UTC(a, m - 1, j - 1)).toISOString().slice(0, 10);
+  return new Date(finDuJour(veille, "Europe/Paris"));
+}
+
+/**
+ * Heure d'arrivée à annoncer au poster (HH:MM, son fuseau), ou null quand ses
+ * posts arrivent la veille ou avant 6 h : « dans la matinée » suffit alors.
+ * Seuls les posters en avance sur Paris (Asie, Océanie) ont une heure à lire.
+ */
+export function heureArriveeAnnoncee(date: string, fuseau?: string): string | null {
+  const arrivee = arriveePosts(date);
+  const parties = new Intl.DateTimeFormat("en-CA", {
+    timeZone: fuseau,
+    hourCycle: "h23",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).formatToParts(arrivee);
+  const v = (type: string) => parties.find((p) => p.type === type)?.value ?? "";
+  if (`${v("year")}-${v("month")}-${v("day")}` !== date || Number(v("hour")) < 6) return null;
+  return `${v("hour")}:${v("minute")}`;
 }
 
 /** Post non publié dont l'échéance est passée : manqué. */

@@ -24,11 +24,14 @@ import {
   CLE_BACKFILL_PERTINENCE,
   clePromptPertinenceApp,
   eligibiliteDepuisNote,
+  estOriginalDePod,
+  NOTE_ORIGINAL_POD,
   PERTINENCE_MIN_HORS_SOPHIA,
   pertinenceSuffisante,
   etatBackfillPertinence,
   finaliserPertinence,
   majNotesPertinences,
+  minimumsParApplication,
   normaliserReglageBackfill,
   noteStockee,
   noterPertinenceImport,
@@ -195,6 +198,37 @@ Deno.test("éligibilité : note ≥ seuil, ou import forcé", () => {
   assert(!eligibiliteDepuisNote(54, 55, false, sophia(100)));
   assert(pertinenceSuffisante(ID_SOPHIA, Number.NaN));
   assert(!pertinenceSuffisante(ID_UNSWIPE, 49));
+});
+
+Deno.test("seuil réglé par label (0330) : 60 sur classic_study × Micabo, tier A gardé, plancher 50 dur", () => {
+  // Sans réglage : le plancher, comme avant.
+  assert(pertinenceSuffisante(ID_UNSWIPE, 55));
+  // Seuil 60 : 55 ne passe plus, 60 passe.
+  assert(!pertinenceSuffisante(ID_UNSWIPE, 55, { minimum: 60, note: 65 }), "tier B : retiré");
+  assert(pertinenceSuffisante(ID_UNSWIPE, 60, { minimum: 60, note: 56 }));
+  // Entre 50 et 60, un contenu qui entre en tier A (note ≥ 70) reste.
+  assertEquals(tierInitialDepuisNote(70), "A");
+  assert(pertinenceSuffisante(ID_UNSWIPE, 55, { minimum: 60, note: 70 }), "tier A : gardé");
+  // Le plancher reste dur, tier A ou pas ; un réglage sous 50 ne l'abaisse pas.
+  assert(!pertinenceSuffisante(ID_UNSWIPE, 45, { minimum: 60, note: 90 }));
+  assert(!pertinenceSuffisante(ID_UNSWIPE, 45, { minimum: 20 }));
+  // Sophia : jamais de seuil.
+  assert(pertinenceSuffisante(ID_SOPHIA, 10, { minimum: 90 }));
+  // Même règle dans la note d'import.
+  assert(!eligibiliteDepuisNote(65, 55, false, { applicationId: ID_UNSWIPE, score: 55, minimum: 60 }));
+  assert(eligibiliteDepuisNote(72, 55, false, { applicationId: ID_UNSWIPE, score: 55, minimum: 60 }));
+});
+
+Deno.test("minimumsParApplication : le plus exigeant des labels du contenu, jamais sous 50", () => {
+  const m = minimumsParApplication([
+    { application_id: "micabo", pertinence_min: 60 },
+    { application_id: "micabo", pertinence_min: 50 },
+    { application_id: "unswipe", pertinence_min: null },
+    { application_id: "sophia", pertinence_min: 30 },
+  ]);
+  assertEquals(m.get("micabo"), 60);
+  assertEquals(m.get("unswipe"), PERTINENCE_MIN_HORS_SOPHIA);
+  assertEquals(m.get("sophia"), PERTINENCE_MIN_HORS_SOPHIA);
 });
 
 Deno.test("accroche du stock : base sans pub d'abord, slide pub sautée", () => {
@@ -765,6 +799,34 @@ Deno.test("rattrapage : note la file (plus récents d'abord) sans toucher aux co
   const etat = normaliserReglageBackfill(base.table("reglages")[0].valeur)[ID_UNSWIPE];
   assertEquals([etat.actif, etat.faits, etat.erreurs, etat.bail_jusqu_a], [true, 5, 0, null]);
   assertEquals(etat.dernier_at, "2026-10-02T12:00:00.000Z");
+});
+
+Deno.test("rattrapage : un original de pod garde la note de son rang (60), seul son sujet décide", async () => {
+  oublierSondeMultiApp();
+  const base = baseRattrapage({ [ID_UNSWIPE]: { actif: true, demarre_at: "d", faits: 0, erreurs: 0 } });
+  // « neuf » est un original écrit par un pod : pas de post source, pas livré.
+  Object.assign(base.table("contenus").find((c) => c.id === "neuf")!, {
+    pod: "originaux_weird_alpha",
+    source_url: null,
+    livre: false,
+  });
+  const appels: Appel[] = [];
+  const deps = depsRattrapage(appels, [{ score: 90, reason: "oui" }, { score: 20, reason: "non" }]);
+  const pertinencesNotees: number[] = [];
+  const noteImport = deps.noteImport;
+  deps.noteImport = (o) => (pertinencesNotees.push(o.pertinence), noteImport(o));
+  await tickBackfillPertinence(base.client(), deps);
+  const lignes = base.table("contenu_pertinences");
+  const neuf = lignes.find((l) => l.contenu_id === "neuf")!;
+  assertEquals([neuf.score, neuf.note, neuf.eligible], [90, NOTE_ORIGINAL_POD, true]);
+  // L'import (« vieux ») garde la note d'import ; elle n'est calculée que pour lui.
+  const vieux = lignes.find((l) => l.contenu_id === "vieux")!;
+  assertEquals([vieux.note, vieux.eligible], [55, false]);
+  assertEquals(pertinencesNotees, [20]);
+  assertEquals(estOriginalDePod({ pod: "p", source_url: null, livre: false }), true);
+  assertEquals(estOriginalDePod({ pod: "p", source_url: "https://www.tiktok.com/@x/video/1", livre: false }), false);
+  assertEquals(estOriginalDePod({ pod: "p", source_url: null, livre: true }), false);
+  assertEquals(estOriginalDePod({ pod: null, source_url: null, livre: false }), false);
 });
 
 Deno.test("rattrapage : prompt de l'application manquant → campagne arrêtée, aucun appel", async () => {

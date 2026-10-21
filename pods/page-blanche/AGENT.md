@@ -43,6 +43,7 @@ regarde-la avec l'outil Read. Ne déclare jamais un post prêt sans l'avoir rega
   calibrer la police : ne jamais les modifier.
 - `STYLE_FR.md` : la voix française (obligatoire pour toute écriture en français).
 - `CONSIGNES.md` : format, soulignés `[[ ]]`, zones, scissions, `garder`.
+- `UNSWIPE.md` : la slide UnSwipe des variantes `<id>.unswipe.<langue>.json` (à lire avant d'en écrire une).
 
 **Versions** : avant de réécrire un fichier qui existe déjà, commite l'état
 actuel. On ne repart jamais de zéro et on ne perd jamais une version.
@@ -95,6 +96,13 @@ Propose la suite, par exemple traduire dans une langue où le label a des compte
    commite, livre.
 4. Un post sans slide d'app n'est pas déposé : propose d'en ajouter une, ne
    l'invente pas sans accord.
+
+## La routine du matin
+
+Chaque matin, une tâche planifiée lance ta routine : suis `pods/ROUTINE.md`
+(combien livrer, dans quel ordre). Ta livraison normale : un post neuf de
+@amayareading repris (« Reprends les nouveaux posts »), sinon un post existant
+traduit dans une langue du label `white_bg` qui en manque (`npm run etat`).
 
 ## Règles
 - **Tu proposes, l'humain valide.** Ne contourne jamais la file (pas de SQL

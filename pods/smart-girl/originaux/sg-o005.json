@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o005",
+ "schema_id": "magnetic-speaking",
+ "titre": "stop saying \"very\": words that make you sound dangerously well spoken #vocabulary #speakbetter #eloquence #smartgirl #englishwords",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "229c66cb-15c6-4195-868e-9e7b53a3006a",
+  "322dd035-c396-4b43-bf09-531275f71cfb"
+ ],
+ "notes": "essai (sg-o005, une livraison sur cinq). Format neuf chez nous : remplacer « very + adjectif » par un mot plus précis, en paires « instead of … say … » (format de 229c66cb ; les émojis ❌ / ✅ de 322dd035 ne passent pas au rendu). « very » n'apparaît dans aucun contenu du label comme mot à remplacer (vérifié dans donnees/label.json). La logique « mauvais mot / bon mot » vient de « How to Speak like a CEO » (322dd035, r 3,19, 172 k vues) ; l'accroche vient de « words that make you sound dangerously well spoken » (229c66cb, r 3,15). Schéma magnetic-speaking (preuves : d9fe736b r 4,04 sur 16 passages, 322dd035, 229c66cb). Accroches écrites : « stop saying \"very\": words that make you sound dangerously well spoken » (retenue : l'accroche gagnante mot pour mot, avec un ordre net en tête), « replace \"very\" and instantly sound more eloquent » (écartée : plus loin du gabarit), « how to never say \"very\" again » (écartée : promesse sans gain). Minuscules comme @speakbetter14. Paires vérifiées au sens courant du dictionnaire : exhausted, elated, stunning, brilliant, terrified, furious, tiny, ancient, fascinating. L'OS traduit en paires équivalentes dans la langue du compte. Sophia sur la dernière paire (fascinating), avec la formule « a micro-learning app like the Sophia app ». Images de la banque, sans texte ni marque ; captures de personnes connues (3d165d16, b0824906, f870596f) et images à marques ou texte lisible écartées ; slide Sophia sur deux tasses de thé, sans personne.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8b7addbe",
+   "texte_overlay": "stop saying \"very\"\nwords that make you sound\ndangerously well spoken",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2a4838df",
+   "texte_overlay": "instead of \"very tired\"\nsay \"exhausted\"\n\ninstead of \"very happy\"\nsay \"elated\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675343103527587092/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "72d0ac7b",
+   "texte_overlay": "instead of \"very beautiful\"\nsay \"stunning\"\n\ninstead of \"very smart\"\nsay \"brilliant\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675343103527587092/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1190246d",
+   "texte_overlay": "instead of \"very scared\"\nsay \"terrified\"\n\ninstead of \"very angry\"\nsay \"furious\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675343103527587092/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "91caff6b",
+   "texte_overlay": "instead of \"very small\"\nsay \"tiny\"\n\ninstead of \"very old\"\nsay \"ancient\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675343103527587092/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9e26d608",
+   "texte_overlay": "one precise word always\nsounds stronger than\n\"very\" + a weak one.\nit tells people you\nchoose your words.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/3.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "dcee09aa",
+   "texte_overlay": "instead of \"very interesting\"\nsay \"fascinating\"\n\nthe real secret?\nlearn a little every day.\nnew ideas bring new words.",
+   "texte_sophia": "instead of \"very interesting\"\nsay \"fascinating\"\n\nthe real secret?\ni learn 5 minutes a day with\na micro-learning app like the\nsophia app. new ideas bring\nnew words.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "15bf6f2f",
+   "texte_overlay": "save this and swap one\nword today\nwhich \"very\" do you\nsay the most?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/8.jpg"
+  }
+ ]
+}

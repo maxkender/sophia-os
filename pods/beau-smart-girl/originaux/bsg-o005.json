@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o005",
+ "schema_id": "vole-habitudes",
+ "titre": "les habitudes insolites que j'ai volées à ma prof d'histoire de l'art #pourtoi #culture #apprentissage #education",
+ "musique_titre": "Probe",
+ "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+ "inspirations": [
+  "83ef5e79-d95d-4928-b0c3-b2b3b1169f25",
+  "d1970d80-1def-4b7c-9d3a-36d45b5cd96a"
+ ],
+ "notes": "Schéma vole-habitudes (r 7,58 sur 11 passages, 83ef5e79 ; r 3,87, d1970d80). Deuxième original du schéma après bsg-o001 (la fille de la promo) : ici la prof, comme le gagnant. Accroches écrites : « les habitudes insolites que j'ai volées à ma prof d'histoire de l'art pour me cultiver sans m'en rendre compte » (retenue : le gabarit exact du gagnant à r 7,58, avec une prof plus précise et plus désirable), « les règles que j'ai volées à ma grand-mère pour devenir ridiculement cultivée » (écartée : plus loin du gagnant, et « ma mère » est déjà prise par d1970d80), « ce que faisait la fille la plus cultivée de mon stage, et que j'ai copié » (écartée : sans « volées », et trop proche de bsg-o001). Récit « elle », cinq items neufs : le croquis de deux minutes au musée, un auteur lu dans l'ordre de ses livres, l'étymologie des mots de tous les jours, la vraie histoire avant un film historique, 5 minutes de culture dans les transports. Rien de repris des sources ni de bsg-o001. Seul fait : « salaire » vient du latin salarium, dérivé de sal, le sel (étymologie admise ; je ne reprends pas la légende des soldats payés en sel, discutée). Aucune personne réelle. Sophia sur le dernier item (5). Images de la banque : la fille de dos qui prend un livre dans une bibliothèque (accroche), la galerie de musée, la fille qui lit en librairie, la tasse et le carnet, la fille de profil, le tram, l'escalier en colimaçon. Inspirations : slides 1 à 5 de 83ef5e79, 2 et 3 de d1970d80 (sa 6 cite un outil).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "75be1754",
+   "texte_overlay": "les habitudes insolites que\nj'ai volées à ma prof d'histoire\nde l'art pour me cultiver\nsans m'en rendre compte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a159f9ee",
+   "texte_overlay": "1. elle dessinait ce qu'elle voyait au musée.\n\npas bien. un croquis de deux minutes dans un petit carnet.\npour dessiner, t'es obligée de regarder vraiment.\ndes années après, elle se souvenait de tout.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6e0ebd64",
+   "texte_overlay": "2. elle lisait un auteur dans l'ordre où il avait écrit.\n\ndu premier livre au dernier.\ntu le vois douter, changer, grandir.\nc'est comme lire sa vie en cachette.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9340ebca",
+   "texte_overlay": "3. elle cherchait d'où venaient les mots de tous les jours.\n\n« salaire » vient du mot latin pour le sel.\ndepuis, elle voyait des histoires cachées partout dans la langue.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e2dce736",
+   "texte_overlay": "4. avant un film historique, elle lisait la vraie histoire.\n\ncinq minutes, pas plus.\npendant le film, elle savait ce qui était vrai et ce qui était inventé.\net elle adorait le dire.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "75af5845",
+   "texte_overlay": "5. elle apprenait un truc sur le monde dans les transports.\n\n5 minutes d'histoire, d'art ou de sciences entre deux stations.\nelle arrivait en cours avec une anecdote, tous les jours.",
+   "texte_sophia": "5. dans les transports, elle ouvrait l'appli Sophia.\n\n5 minutes d'histoire, d'art ou de sciences entre deux stations.\nelle arrivait en cours avec une anecdote, tous les jours.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7642024522647899424/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "53f99a6f",
+   "texte_overlay": "vole-lui une habitude.\nlaquelle tu testes en premier ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7642024522647899424/3.jpg"
+  }
+ ]
+}

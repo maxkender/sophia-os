@@ -18,14 +18,13 @@ import { Textarea } from "@/components/ui/textarea";
 import {
   creerChatbotContexte,
   listerChatbotContexte,
-  listerChatbotQuestions,
   majChatbotContexte,
   supprimerChatbotContexte,
   type ChatbotContexte,
-  type ChatbotQuestion,
+  type QuestionFaq,
 } from "@/features/chatbot/api";
+import { FaqAdmin } from "@/features/chatbot/FaqAdmin";
 import type { AudienceSnippet } from "@/features/chatbot/prompt";
-import type { Role } from "@/features/auth/AuthContext";
 
 function labelAudience(aud: AudienceSnippet, t: (k: string) => string): string {
   if (aud === "poster") return t("chatbot.rolePoster");
@@ -34,10 +33,12 @@ function labelAudience(aud: AudienceSnippet, t: (k: string) => string): string {
   return t("chatbot.audienceTous");
 }
 
-function nomAuteur(q: ChatbotQuestion): string {
-  const p = q.profiles;
-  const complet = [p?.prenom, p?.nom].filter(Boolean).join(" ");
-  return complet || p?.email || "—";
+/** Une réponse validée se range pour le rôle de celui qui a demandé. */
+function audienceDuRole(role: string): AudienceSnippet {
+  if (role === "poster") return "poster";
+  if (role === "hiring_manager" || role === "directing_manager" || role === "head_of_ops") return "hiring_manager";
+  if (role === "admin") return "admin";
+  return "all";
 }
 
 function EditeurSnippet({
@@ -161,15 +162,8 @@ function LigneContexte({
   );
 }
 
-function badgeRole(role: Role, t: (k: string) => string): string {
-  if (role === "poster") return t("chatbot.rolePoster");
-  if (role === "directing_manager") return t("chatbot.roleDm");
-  if (role === "hiring_manager") return t("chatbot.roleHm");
-  return t("chatbot.roleAdmin");
-}
-
 export function AdminChatbotPage() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const queryClient = useQueryClient();
   const [nouveau, setNouveau] = React.useState(false);
   const [brouillon, setBrouillon] = React.useState<{
@@ -177,11 +171,9 @@ export function AdminChatbotPage() {
     contenu: string;
     audience: AudienceSnippet;
   } | null>(null);
-  const [filtre, setFiltre] = React.useState("");
   const formRef = React.useRef<HTMLDivElement>(null);
 
   const contexte = useQuery({ queryKey: ["chatbot-contexte"], queryFn: listerChatbotContexte });
-  const questions = useQuery({ queryKey: ["chatbot-questions"], queryFn: listerChatbotQuestions });
 
   const rafraichirContexte = () => {
     void queryClient.invalidateQueries({ queryKey: ["chatbot-contexte"] });
@@ -189,31 +181,17 @@ export function AdminChatbotPage() {
     setBrouillon(null);
   };
 
-  function ajouterDepuisQuestion(q: ChatbotQuestion) {
-    const audience: AudienceSnippet =
-      q.role === "poster" || q.role === "hiring_manager" || q.role === "directing_manager" || q.role === "admin"
-        ? q.role === "directing_manager"
-          ? "hiring_manager"
-          : q.role
-        : "all";
+  /** Depuis le journal : la question, et la réponse de l'équipe s'il y en a une. */
+  function ajouterDepuisQuestion(q: QuestionFaq) {
+    const reponse = q.reponse_humaine ?? q.reponse_admin ?? "";
     setBrouillon({
       titre: q.question.slice(0, 80),
-      contenu: `${t("chatbot.questionLabel")} : ${q.question}\n\n${t("chatbot.reponseLabel")} :\n`,
-      audience,
+      contenu: `${t("chatbot.questionLabel")} : ${q.question}\n\n${t("chatbot.reponseLabel")} :\n${reponse}`,
+      audience: audienceDuRole(q.role),
     });
     setNouveau(true);
     requestAnimationFrame(() => formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }));
   }
-
-  const questionsFiltrees = (questions.data ?? []).filter((q) => {
-    const qte = filtre.trim().toLowerCase();
-    if (!qte) return true;
-    return (
-      q.question.toLowerCase().includes(qte) ||
-      (q.reponse ?? "").toLowerCase().includes(qte) ||
-      nomAuteur(q).toLowerCase().includes(qte)
-    );
-  });
 
   return (
     <div className="space-y-6">
@@ -223,6 +201,8 @@ export function AdminChatbotPage() {
           <CardDescription>{t("chatbot.pageSubtitle")}</CardDescription>
         </CardHeader>
       </Card>
+
+      <FaqAdmin onAjouterReponse={ajouterDepuisQuestion} />
 
       <Card>
         <CardHeader>
@@ -254,54 +234,6 @@ export function AdminChatbotPage() {
           )}
           {contexte.data?.map((s) => (
             <LigneContexte key={s.id} snippet={s} onChange={rafraichirContexte} />
-          ))}
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-base">{t("chatbot.questionsTitle")}</CardTitle>
-          <CardDescription>{t("chatbot.questionsSubtitle")}</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-3">
-          <div className="flex flex-wrap items-center gap-2">
-            <Input
-              value={filtre}
-              onChange={(e) => setFiltre(e.target.value)}
-              placeholder={t("chatbot.filtrePlaceholder")}
-              className="max-w-sm"
-            />
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => void queryClient.invalidateQueries({ queryKey: ["chatbot-questions"] })}
-            >
-              {t("common.refresh")}
-            </Button>
-          </div>
-          {questions.isPending && <p className="text-sm text-muted-foreground">{t("common.loading")}</p>}
-          {questions.data?.length === 0 && <EmptyState title={t("chatbot.questionsVide")} />}
-          {questionsFiltrees.map((q) => (
-            <div key={q.id} className="space-y-2 rounded-md border border-border/80 p-3">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-sm font-medium">{nomAuteur(q)}</span>
-                  <Badge variant="secondary">{badgeRole(q.role, t)}</Badge>
-                  <span className="text-xs text-muted-foreground">
-                    {new Date(q.created_at).toLocaleString(i18n.language)}
-                  </span>
-                </div>
-                <Button size="sm" variant="outline" onClick={() => ajouterDepuisQuestion(q)}>
-                  {t("chatbot.ajouterContexte")}
-                </Button>
-              </div>
-              <p className="text-sm">{q.question}</p>
-              {q.reponse && (
-                <p className="whitespace-pre-wrap rounded-md bg-muted/50 px-3 py-2 text-sm text-muted-foreground">
-                  {q.reponse}
-                </p>
-              )}
-            </div>
           ))}
         </CardContent>
       </Card>

@@ -6,6 +6,7 @@ import {
 import { positionConcurrent } from "./concurrents.ts";
 import { integrateSophia, translateSlideshow } from "./gemini.ts";
 import { hashtagsPour } from "./hashtags_langue.ts";
+import { regleLocalisationScolaire } from "./localisation_scolaire.ts";
 import { lireTout } from "./lots.ts";
 import { avecMentionPublicite } from "./mention_publicite.ts";
 import { chargerPrompt, messageErreur, serviceClient } from "./supabase.ts";
@@ -173,8 +174,10 @@ export async function avancerPost(supabase: Supabase, post: any): Promise<string
         voixSource = ref?.style_profile ?? null;
       }
 
+      const scolaire = await regleLocalisationScolaire(supabase, compte.langue);
       const regles = [
         base,
+        scolaire,
         consignesType,
         voixSource ? `Voix propre à cette source :\n${voixSource}` : null,
       ]

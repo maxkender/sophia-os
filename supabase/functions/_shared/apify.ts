@@ -9,6 +9,12 @@ export interface ScrapedPost {
   musicTitle: string | null;
   createTime: number | null;
   stats: { vues: number; likes: number; commentaires: number; partages: number };
+  /**
+   * Le profil de l'auteur au moment du scrape, répété sur chaque post : nombre
+   * d'abonnés et lien cliquable du profil (Modifier le profil → Liens), pas
+   * celui écrit dans la bio. Sert au contrôle « lien à 1 000 abonnés » (0323).
+   */
+  auteur: { abonnes: number | null; lienBio: string | null };
 }
 
 /** Post vidéo TikTok (download Apify activé → mediaUrls KV). */
@@ -49,6 +55,9 @@ interface ApifyItem {
     avatarMedium?: string;
     avatarThumb?: string;
     originalAvatarUrl?: string;
+    fans?: number;
+    /** Chaîne, ou objet `{ link }` selon les versions de l'acteur. */
+    bioLink?: unknown;
   };
   createTimeISO?: string;
   createTime?: number;
@@ -164,6 +173,17 @@ function pickCoverUrl(item: ApifyItem): string | null {
   return fromMedia ?? null;
 }
 
+/** Le lien cliquable du profil, quelle que soit sa forme dans la réponse Apify. */
+export function lienBioDe(bioLink: unknown): string | null {
+  if (typeof bioLink === "string") return bioLink.trim() || null;
+  if (bioLink && typeof bioLink === "object") {
+    const o = bioLink as { link?: unknown; url?: unknown };
+    const lien = typeof o.link === "string" ? o.link : typeof o.url === "string" ? o.url : "";
+    return lien.trim() || null;
+  }
+  return null;
+}
+
 async function runActor(
   input: Record<string, unknown>,
   // Le pipeline ne veut que des posts photo ; la collecte de métriques, elle,
@@ -208,6 +228,10 @@ async function runActor(
         likes: item.diggCount ?? 0,
         commentaires: item.commentCount ?? 0,
         partages: item.shareCount ?? 0,
+      },
+      auteur: {
+        abonnes: typeof item.authorMeta?.fans === "number" ? item.authorMeta.fans : null,
+        lienBio: lienBioDe(item.authorMeta?.bioLink),
       },
     }))
     .filter((post) => post.postId && (!photosSeulement || post.imageUrls.length > 0));

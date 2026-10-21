@@ -602,13 +602,14 @@ export function verifierOriginal(slides: Partial<SlideOriginale>[] | null | unde
 /**
  * Pods dont chaque original doit arriver avec la PREUVE que son schéma
  * d'accroche fait des vues aujourd'hui (décidé le 15/10 pour le pod 4, même
- * règle pour les pods 5, 7 et 8).
+ * règle pour les pods 5, 7, 8 et 9).
  */
 export const PODS_AVEC_PREUVE = new Set([
   "originaux_alpha_yellow",
   "originaux_rh",
   "originaux_beau_smart_girl",
   "originaux_smart_girl",
+  "originaux_alpha_male",
 ]);
 export const PREUVE_VUES_MIN = 200_000;
 export const PREUVE_JOURS_MAX = 30;

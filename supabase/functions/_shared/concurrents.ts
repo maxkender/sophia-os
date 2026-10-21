@@ -39,9 +39,11 @@
  * appli d'élocution en 5 minutes par jour, 87 passages publiés avec) et
  * « kodi ai » (appli d'élocution glissée par @b3tteryou, 24 contenus), jamais
  * « kodi » seul : « cheat kodi » veut dire « codes » en slovène et en croate.
+ * « noctua » (« Noctua: Daily Insights », appli de micro-lecture de
+ * @smarterhabitsdaily, sur la slide promo de presque tous ses posts, 21/10).
  */
 export const MOTIF_CONCURRENT =
-  /\b(vent[\s-]?now|readup|turbo[\s-]?resume|bycat|unscroll|elqo|kodi[\s-]+(?:a[il]|app)|(?<!self[\s-])actualize(?!\s+(?:your|my|our|their|his|her|its|the|a|an|yourself|myself|ourselves|themselves|oneself)\b))\b/i;
+  /\b(vent[\s-]?now|readup|turbo[\s-]?resume|bycat|unscroll|elqo|noctua|kodi[\s-]+(?:a[il]|app)|(?<!self[\s-])actualize(?!\s+(?:your|my|our|their|his|her|its|the|a|an|yourself|myself|ourselves|themselves|oneself)\b))\b/i;
 
 /**
  * Concurrents d'Unswipe : ceux de Sophia + les applis de temps d'écran.

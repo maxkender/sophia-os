@@ -1,6 +1,7 @@
 import { assert, assertEquals, assertRejects } from "jsr:@std/assert@1";
 
 import {
+  decisionStickerImport,
   avecReprise,
   enParallele,
   ligneScan,
@@ -96,4 +97,16 @@ Deno.test("en parallèle : résultats dans l'ordre, concurrence bornée", async 
   });
   assertEquals(r, [10, 20, 30, 40, 50]);
   assertEquals(max, 2);
+});
+
+Deno.test("sticker à l'import : rejet par défaut ; slide promo remplacée seulement pour une source autorisée", () => {
+  const base = { remplacable: true, couverture: false, dejaUne: false };
+  assertEquals(decisionStickerImport({ ...base, sticker: null }), "garder");
+  assertEquals(decisionStickerImport({ ...base, sticker: "contenu" }), "garder");
+  assertEquals(decisionStickerImport({ ...base, sticker: "pub" }), "remplacer");
+  // Source pas dans la liste : rejet, comme avant.
+  assertEquals(decisionStickerImport({ ...base, sticker: "pub", remplacable: false }), "rejeter");
+  // Jamais la couverture, et une seule slide promo par TikTok.
+  assertEquals(decisionStickerImport({ ...base, sticker: "pub", couverture: true }), "rejeter");
+  assertEquals(decisionStickerImport({ ...base, sticker: "pub", dejaUne: true }), "rejeter");
 });

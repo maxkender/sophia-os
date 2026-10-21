@@ -72,6 +72,7 @@ import {
   type PertinencesRapport,
   type PlacementSophia,
 } from "./pertinence_apps.ts";
+import { regleLocalisationScolaire } from "./localisation_scolaire.ts";
 import { lireParLots, lireTout } from "./lots.ts";
 import { ID_SOPHIA, SLUG_SOPHIA } from "./multi_app.ts";
 import {
@@ -1953,7 +1954,8 @@ export async function traduireBaseDeck(
   const dedie = await chargerPrompt(supabase, `traduction_${langue}`);
   const base =
     dedie ?? (langue === "fr" ? await chargerPrompt(supabase, "traduction") : undefined);
-  const regles = [base, voix ? `Voix propre à cette source :\n${voix}` : null]
+  const scolaire = await regleLocalisationScolaire(supabase, langue);
+  const regles = [base, scolaire, voix ? `Voix propre à cette source :\n${voix}` : null]
     .filter(Boolean)
     .join("\n\n");
 

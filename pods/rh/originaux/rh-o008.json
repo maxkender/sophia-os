@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o008",
+ "schema_id": "mentir-entretien",
+ "titre": "les trucs sur lesquels j'ai dit à ma petite sœur de MENTIR pour son premier entretien #rechercheemploi #emploi #entretien #cv #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "variante de rh-o004. Angle : la grande sœur qui transmet, pour un premier job (jeunes diplômés). Accroches écrites : « les trucs sur lesquels j'ai dit à ma petite sœur de MENTIR pour son premier entretien » (retenue : transgression, intime, nouvelle cible), « ce que j'ai appris à ma sœur avant son premier entretien » (écartée : sans le mot mentir), « premier entretien : les 6 réponses à « arranger » » (écartée : plate). Format : question, « tu dis », le pourquoi. Sophia en 5 sur « qu'est-ce qui vous rend curieuse ? », où l'appli rend la réponse vraie. Schéma mentir-entretien (actif, r 2,1 sur 4 passages, 81f87361). Variante de rh-o004 (36 300 vues en ru, r ≈ 10 sur le compte) : même schéma, autre angle, six questions neuves, aucune reprise de rh-o001 à rh-o006 ni des sources. On recadre, on n'invente jamais : chaque réponse est vraie ou se rend vraie. Inspirations : sans la slide 5 de chaque source (elle montre une appli concurrente).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0203c879",
+   "texte_overlay": "les trucs sur lesquels j'ai dit\nà ma petite sœur de MENTIR\npour son premier entretien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "181198d5",
+   "texte_overlay": "1\n« qu'est-ce que vous savez de nous ? »\njamais « pas grand-chose »\ntu dis « j'ai vu votre dernier projet, c'est ce qui m'a donné envie »\n10 minutes sur leur site avant, et c'est vrai",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "043f7624",
+   "texte_overlay": "2\n« vous avez de l'expérience ? »\njamais « non »\ntu dis « pas encore en entreprise, mais dans mon job étudiant j'ai appris X »\nton job étudiant compte. raconte ce que t'y as vraiment fait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2c3ed904",
+   "texte_overlay": "3\n« vous êtes organisée ? »\njamais « oui, très »\ntu dis « j'ai un système : une liste le soir pour le lendemain »\ntrouve ton vrai système. un exemple vaut dix adjectifs",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "16be2f21",
+   "texte_overlay": "4\n« qu'est-ce qui vous rend curieuse ? »\njamais « euh… »\ntu dis « j'aime comprendre d'où viennent les choses, j'apprends un truc d'histoire chaque jour »\nils recrutent aussi quelqu'un avec qui déjeuner",
+   "texte_sophia": "4\n« qu'est-ce qui vous rend curieuse ? »\ntu dis « j'apprends un truc d'histoire chaque jour »\net pour que ce soit vrai : 5 minutes par jour sur l'appli Sophia au lieu de scroller",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "29194e70",
+   "texte_overlay": "5\n« télétravail ou bureau ? »\njamais « télétravail à fond »\ntu dis « je m'adapte, comment fonctionne l'équipe ? »\nle télétravail se négocie après l'offre, pas au premier entretien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "338c0377",
+   "texte_overlay": "6\n« comment vous prenez une critique ? »\njamais « bien »\ntu dis « je demande un exemple précis, et je corrige »\npersonne aime ça. ils veulent juste savoir que tu boudes pas",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "3b448e8d",
+   "texte_overlay": "t'as rien à inventer\njuste à bien choisir tes mots\nenvoie-le à ta sœur",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

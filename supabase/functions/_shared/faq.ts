@@ -399,6 +399,7 @@ export function suiteDeFil(
 ): PatchSuite | null {
   if (!texte.trim()) return null;
   if (auteur === ligne.slack_user_id) {
+    if (estRemerciement(texte)) return null;
     return ligne.etat === "repondu" && ligne.envoye_at ? { etat: "relance" } : null;
   }
   if (!equipe.has(auteur)) return null;
@@ -407,6 +408,22 @@ export function suiteDeFil(
   }
   if (!ligne.reponse_humaine) return { reponse_humaine: texte, reponse_humaine_par: auteur };
   return null;
+}
+
+const MOTS_MERCI =
+  /\b(thanks?|thank you|thx|ty|ok(ay)?|got it|perfect|great|super|cool|noted|understood|clear|merci|parfait|d'accord|danke|grazie|gracias|obrigad[oa]|dzi[eę]kuj[eę]|dzi[eę]ki|te[sş]ekk[uü]r|ευχαριστ\w*|mul[tț]umesc|dank je|tack|hvala|děkuji|dakujem|köszönöm)\b/iu;
+
+/**
+ * « Ah okay, thanks! » sous une réponse du bot n'est pas une relance : la
+ * personne dit que c'est réglé. Court, sans question, avec un mot de merci ou
+ * d'accord (ou seulement des émojis) : on ne la renvoie pas à l'admin.
+ */
+export function estRemerciement(texte: string): boolean {
+  const t = texte.replace(/:[a-z0-9_+-]+:/gi, " ").trim();
+  if (!t) return true;
+  if (t.includes("?") || t.length > 80) return false;
+  if (/\b(not|still|but|doesn'?t|didn'?t|isn'?t|can'?t|pas|toujours|mais)\b/i.test(t)) return false;
+  return MOTS_MERCI.test(t) || !/\p{L}/u.test(t);
 }
 
 export interface MessageFil {

@@ -17,6 +17,7 @@ import {
   etatDepuisDecision,
   lienSlack,
   lireReglagesFaq,
+  estRemerciement,
   lireReponseFaq,
   reponseEquipeDansFil,
   suiteDeFil,
@@ -223,4 +224,17 @@ Deno.test("fil : une réponse de l'équipe déjà là bloque la nôtre, un poste
   });
   // Le message racine d'un admin n'est pas une réponse à lui-même.
   assertEquals(reponseEquipeDansFil([{ ts: "1.0", user: "U0BL6E14JKH", text: "x" }], "1.0", equipe), null);
+});
+
+Deno.test("fil : un merci de la personne sous la réponse du bot n'est pas une relance", () => {
+  const equipe = new Set(["U0BL6E14JKH"]);
+  const envoyee = { etat: "repondu" as const, slack_user_id: "UPOSTER", envoye_at: "2026-10-21T14:38:45Z", reponse_humaine: null };
+  for (const merci of ["Ah okay, thanks!", "Thank you, I appreciate it :blush:", "ok", "Merci !", "Got it 👍", ":pray:", "Grazie mille"]) {
+    assertEquals(suiteDeFil(envoyee, "UPOSTER", merci, equipe), null, merci);
+  }
+  for (const relance of ["Thanks but it still doesn't work", "ok but where is the link?", "It's not what I asked, I can't find the sound"]) {
+    assertEquals(suiteDeFil(envoyee, "UPOSTER", relance, equipe), { etat: "relance" }, relance);
+  }
+  assert(estRemerciement("Ah okay, thanks!"));
+  assert(!estRemerciement("Thanks, and what about the second post?"));
 });

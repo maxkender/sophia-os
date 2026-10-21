@@ -37,7 +37,8 @@ validation** de l'OS (Pilotage → Pods), où un humain valide ou rejette.
 - **Jamais** « Journey », « Mental », « check bio », « lien en bio », ni d'appel à télécharger.
 - **En bas de slide**, « check bio instead » devient une question qui fait commenter. Exemple : « which one would you move? ».
 - **Le filigrane @mentalapp** s'efface : action `effacer`.
-- **Les célébrités restent** (décision du 17/10). Les images ne changent pas.
+- **Les célébrités restent** (décision du 17/10, confirmée le 21/10). Les images ne changent pas.
+  - Elles restent aussi sur la slide de l'élément UnSwipe, remakes comme originaux : pour ce pod, le garde-fou « aucune personne réelle sur la slide de l'app » de `pods/ROUTINE.md` ne s'applique pas (décision d'Adrien du 21/10).
 - **Traductions** : courtes, naturelles, en minuscules comme la source, sans tiret long. Voir `posts/CONSIGNES.md`.
 
 ## Tes outils (dans `pods/mentalapp/`)

@@ -369,6 +369,19 @@ export function PosterCalendrierPage() {
       : null;
   const bandeauOrange = warmupStatut === "attente" || Boolean(premiersPostsLe);
 
+  // Hors cohorte Ruul (posters Upwork) : la même frise, payée par le HM sur
+  // Upwork. Pas de lundi fixé d'avance : celui qui suit la fin du warm-up, ou,
+  // pas encore lancé, celui qu'un clic aujourd'hui donnerait. Attendre la
+  // réponse de la cohorte, sinon un poster Ruul verrait d'abord la version
+  // Upwork. Une fois le premier paiement passé, la frise disparaît seule.
+  const debutUpwork =
+    cohorte.isSuccess && !debutRuul && compte && !estCm && !ugc
+      ? compte.warmup_started_at && compte.warmup_ends_at
+        ? premierJourPosts(compte.warmup_ends_at)
+        : lundiApresAujourdhui
+      : null;
+  const debutFrise = debutRuul ?? debutUpwork;
+
   // Deux semaines : la passée et celle en cours. En warm-up, si la case
   // « FIRST POSTS » tombe après, on montre plutôt celle en cours et la suivante.
   const debutHabituel = debutParDefaut(maintenant);
@@ -389,12 +402,13 @@ export function PosterCalendrierPage() {
         />
       )}
 
-      {/* Cohorte Ruul : la première semaine en quatre étapes datées, juste au-dessus du bouton. */}
-      {debutRuul && compte && !estCm && !ugc && (
+      {/* La première semaine en quatre étapes datées, juste au-dessus du bouton. */}
+      {debutFrise && compte && !estCm && !ugc && (
         <FriseCohorteRuul
-          debutLe={debutRuul}
+          debutLe={debutFrise}
           warmupStartedAt={compte.warmup_started_at}
           warmupEndsAt={compte.warmup_ends_at}
+          paiePar={debutRuul ? "ruul" : "upwork"}
         />
       )}
 
@@ -423,7 +437,7 @@ export function PosterCalendrierPage() {
                   })
                 : t("calendrier.warmupRappel")}
           </p>
-          {warmupStatut === "attente" && !(debutRuul && !ugc) && (
+          {warmupStatut === "attente" && !(debutFrise && !ugc) && (
             <p className="text-xs text-muted-foreground">
               {t(ugc ? "calendrier.warmupADemarrerAideUgc" : "calendrier.warmupADemarrerAide", {
                 lundi: formaterJour(lundiSiLanceAujourdhui, i18n.language),

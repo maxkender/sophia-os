@@ -507,6 +507,10 @@ export const fr = {
       onboardingRuulTitre: "Aperçu de l'accueil des créateurs Ruul",
       onboardingRuulDesc:
         "Ouvre le parcours de bienvenue tel qu'un créateur venu du site (cohorte Ruul, sans HM) le voit à sa première connexion. Rien n'est enregistré.",
+      premierPostTitre: "Aperçu de la checklist avant le 1er post",
+      premierPostDesc:
+        "Ouvre le pop-up qu'un posteur tout nouveau doit passer en ouvrant son tout premier post : cinq questions sur le warm-up, et un écran rouge si une réponse est « No ». Placebo : rien n'est enregistré, personne ne voit les réponses.",
+      premierPostOuvrir: "Ouvrir la checklist",
       onboardingDepart: "Démarrer à :",
       onboardingQuiz: "Quiz",
       onboardingOuvrir: "Ouvrir l'accueil",

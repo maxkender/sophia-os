@@ -7628,3 +7628,22 @@ export async function marquerNudgeLu(id: string): Promise<void> {
     .eq("id", id);
   if (error) throw error;
 }
+
+/**
+ * Le créateur connecté a-t-il déjà publié un post slideshow (hors tests), sur
+ * n'importe lequel de ses comptes ? Décide la checklist avant le premier post
+ * (`ChecklistPremierPost`) : un 2e compte d'un posteur actif ne la voit pas.
+ */
+export async function aDejaPublie(): Promise<boolean> {
+  const { data: sess } = await supabase.auth.getUser();
+  const uid = sess.user?.id;
+  if (!uid) return true;
+  const { data, error } = await supabase
+    .from("posts_poster")
+    .select("id")
+    .eq("poster_id", uid)
+    .not("publie_at", "is", null)
+    .limit(1);
+  if (error) throw error;
+  return (data ?? []).length > 0;
+}

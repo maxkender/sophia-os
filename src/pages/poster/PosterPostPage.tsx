@@ -73,6 +73,7 @@ import { nomApplicationPromue } from "@/features/moteur/repartition/logique";
 import { classeDirectionTexte, directionTexte } from "@/features/moteur/langues";
 import { cleErreurSignalement, slideEstLivree, slideEstPropre } from "@/features/moteur/signalementTexte";
 import { referenceAffichee } from "@/features/moteur/referencePlacement";
+import { ChecklistPremierPost } from "@/features/onboarding/ChecklistPremierPost";
 
 function nomFichier(postId: string, position: number) {
   return `${postId.slice(0, 8)}-${String(position).padStart(2, "0")}.jpg`;
@@ -734,6 +735,8 @@ export function PosterPostPage() {
 
   return (
     <div className="mx-auto max-w-2xl space-y-4 pb-10">
+      {/* Tout premier post d'un posteur : checklist de warm-up avant tout. */}
+      <ChecklistPremierPost />
       {loupe && <Loupe url={loupe} onClose={() => setLoupe(null)} />}
 
       <Button variant="outline" size="sm" asChild>

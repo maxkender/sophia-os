@@ -126,6 +126,8 @@ describe("FaqAdmin", () => {
     fireEvent.click(within(journal).getByRole("button", { name: /bug → it guy/i }));
     expect(within(journal).queryByText("Which link should I send her?")).not.toBeInTheDocument();
     expect(within(journal).getByText("Dashboard is blank")).toBeInTheDocument();
+    // Un bug sur Slack : pas de « proposition vide », on dit que l'IT guy le prend.
+    expect(within(journal).getByText(/(it guy takes it|l'it guy le prend)/i)).toBeInTheDocument();
   });
 
   it("passer Slack en actif demande confirmation : refusée, rien ne change", async () => {

@@ -3357,6 +3357,8 @@ export const en = {
         },
         dansLaBase: "In the base",
         rienPropose: "Nothing suggested.",
+        laisseIt: "Technical problem: the bot posts nothing, the IT guy takes it (ticket in #a-os-tickets).",
+        rienARepondre: "Not a question: the bot posts nothing.",
       },
     },
     paiementsRuul: {

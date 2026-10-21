@@ -426,6 +426,14 @@ export function estRemerciement(texte: string): boolean {
   return MOTS_MERCI.test(t) || !/\p{L}/u.test(t);
 }
 
+/** « Same here », « me too », « +1 » : quelqu'un qui a le même souci, pas une réponse. */
+export function estMoiAussi(texte: string): boolean {
+  const t = texte.replace(/:[a-z0-9_+-]+:/gi, " ").trim().toLowerCase();
+  if (!t) return true;
+  if (t.length > 60) return false;
+  return /^(\+1|same( here| problem| issue| for me| question)?|me too|me as well|same thing|moi aussi|pareil|idem|anche io|yo también|eu também|ich auch|ben de)\b/i.test(t);
+}
+
 export interface MessageFil {
   ts?: string;
   user?: string;
@@ -434,11 +442,31 @@ export interface MessageFil {
 }
 
 /**
- * Juste avant de poster (le cerveau a pris quelques secondes, l'admin quelques
- * heures) : quelqu'un de l'équipe a-t-il déjà répondu dans le fil ? Si oui, on
- * se tait — jamais deux réponses à la même question. Un autre poster qui passe
- * (« same here ») ne compte pas, un bot non plus.
+ * Avant que l'admin envoie depuis « À traiter » (parfois des heures après) :
+ * quelqu'un de l'équipe a-t-il déjà répondu dans le fil ? Si oui, on se tait.
+ * Ici, la réponse d'un autre poster ne bloque pas : celle de l'admin est la
+ * réponse officielle.
  */
+/**
+ * Juste avant que le bot poste : quelqu'un a-t-il déjà répondu dans le fil ?
+ * Toute personne autre que l'auteur compte (équipe ou autre poster), sauf un
+ * bot et un simple « same here ». `equipe` dit si cette réponse règle aussi la
+ * question côté OS (une réponse d'un poster laisse « À traiter » à l'admin).
+ */
+export function reponseDansFil(
+  messages: MessageFil[],
+  parentTs: string,
+  auteur: string,
+  equipe: ReadonlySet<string>,
+): { user: string; texte: string; equipe: boolean } | null {
+  for (const m of messages) {
+    if (!m.ts || m.ts === parentTs || m.bot_id || !m.user || m.user === auteur) continue;
+    const texte = (m.text ?? "").trim();
+    if (texte && !estMoiAussi(texte)) return { user: m.user, texte, equipe: equipe.has(m.user) };
+  }
+  return null;
+}
+
 export function reponseEquipeDansFil(
   messages: MessageFil[],
   parentTs: string,

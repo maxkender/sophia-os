@@ -18,7 +18,9 @@ import {
   lienSlack,
   lireReglagesFaq,
   estRemerciement,
+  estMoiAussi,
   lireReponseFaq,
+  reponseDansFil,
   reponseEquipeDansFil,
   suiteDeFil,
   texteReponseSlack,
@@ -237,4 +239,27 @@ Deno.test("fil : un merci de la personne sous la réponse du bot n'est pas une r
   }
   assert(estRemerciement("Ah okay, thanks!"));
   assert(!estRemerciement("Thanks, and what about the second post?"));
+});
+
+Deno.test("fil : avant que le bot poste, la réponse d'un autre poster l'arrête aussi, pas un « same here »", () => {
+  const equipe = new Set(["U0BL6E14JKH"]);
+  const fil = [
+    { ts: "1.0", user: "UBARBORA", text: "Do I need to use my own photos?" },
+    { ts: "1.1", user: "UAUTRE", text: "same here" },
+    { ts: "1.2", user: "UBARBORA", text: "anyone?" },
+  ];
+  assertEquals(reponseDansFil(fil, "1.0", "UBARBORA", equipe), null);
+  const kinga = { ts: "1.3", user: "UKINGA", text: "You will be provided with all the photos, text and sound" };
+  assertEquals(reponseDansFil([...fil, kinga], "1.0", "UBARBORA", equipe), {
+    user: "UKINGA",
+    texte: "You will be provided with all the photos, text and sound",
+    equipe: false,
+  });
+  assertEquals(
+    reponseDansFil([...fil, { ts: "1.4", user: "U0BL6E14JKH", text: "Yes, all provided" }], "1.0", "UBARBORA", equipe)?.equipe,
+    true,
+  );
+  assert(estMoiAussi("Same problem :("));
+  assert(estMoiAussi("+1"));
+  assert(!estMoiAussi("Same for me, I just used a sound suggested by TikTok and it was fine"));
 });

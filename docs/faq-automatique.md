@@ -76,9 +76,11 @@ compte d'Adrien) sort la question de « À traiter ».
 
 - **Le bot répond en premier** (quelques secondes) : l'équipe voit sa réponse
   dans le fil et n'a pas à répondre.
-- **Juste avant de poster**, il relit le fil : si un admin ou un manager a déjà
-  répondu, il se tait et sa réponse règle la question (un autre poster qui
-  passe ne compte pas).
+- **Juste avant de poster**, il relit le fil : si quelqu'un a déjà répondu
+  (l'équipe ou un autre poster), il se tait. Un simple « same here » ou « +1 »
+  ne compte pas. Une réponse de l'équipe règle la question ; celle d'un poster
+  la laisse dans « À traiter » si le guide ne la couvrait pas, pour que l'admin
+  vérifie.
 - **Depuis l'OS** (« À traiter »), même relecture avant d'envoyer : si quelqu'un
   de l'équipe a répondu dans le fil entre-temps, rien ne part, la page le dit
   et la question sort de la liste. Une réponse de l'équipe dans le fil sort

@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o009",
+ "schema_id": "mentir-entretien",
+ "titre": "mes réponses d'entretien à 22 ans vs à 28 ans (j'ai appris à MENTIR… un peu) #rechercheemploi #emploi #entretien #cv #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "variante de rh-o004. Angle : avant / maintenant, la même personne qui a appris à recadrer. Accroches écrites : « mes réponses d'entretien à 22 ans vs à 28 ans (j'ai appris à MENTIR… un peu) » (retenue : contraste + transgression), « ce que je répondais en entretien avant vs maintenant » (écartée : sans mentir), « à 22 ans je disais la vérité brute en entretien, grosse erreur » (écartée : trop longue). Format : question, « à 22 ans », « maintenant », le pourquoi. Sophia en 5 sur la culture générale. Schéma mentir-entretien (actif, r 2,1 sur 4 passages, 81f87361). Variante de rh-o004 (36 300 vues en ru, r ≈ 10 sur le compte) : même schéma, autre angle, six questions neuves, aucune reprise de rh-o001 à rh-o006 ni des sources. On recadre, on n'invente jamais : chaque réponse est vraie ou se rend vraie. Inspirations : sans la slide 5 de chaque source (elle montre une appli concurrente).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3a76ac0e",
+   "texte_overlay": "mes réponses d'entretien\nà 22 ans vs à 28 ans\n(j'ai appris à MENTIR… un peu)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "21bd2bc4",
+   "texte_overlay": "1\n« qu'est-ce qui vous motive ? »\nà 22 ans : « le salaire »\nmaintenant : « progresser vite, et voir l'impact de ce que je fais »\nle salaire compte, mais il se négocie plus tard",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1c992fb5",
+   "texte_overlay": "2\n« plusieurs projets en même temps, ça va ? »\nà 22 ans : « je suis multitâche »\nmaintenant : « je classe par urgence chaque matin, et je préviens quand ça déborde »\nune méthode, pas un adjectif",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "36afaee2",
+   "texte_overlay": "3\n« vous aimez la routine ? »\nà 22 ans : « non, je m'ennuie vite »\nmaintenant : « j'aime une base stable, et un projet nouveau de temps en temps »\nmême envie, mais dite sans faire peur",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "23052a99",
+   "texte_overlay": "4\n« vous avez une bonne culture générale ? »\nà 22 ans : « euh, ça dépend »\nmaintenant : « je m'y remets 5 minutes par jour, en ce moment c'est l'histoire de l'art »\npersonne la demande, tout le monde la remarque",
+   "texte_sophia": "4\n« vous avez une bonne culture générale ? »\nà 22 ans : « euh, ça dépend »\nmaintenant : « je m'y remets 5 minutes par jour sur l'appli Sophia, en ce moment c'est l'histoire de l'art »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2be6f97b",
+   "texte_overlay": "5\n« à l'aise à l'oral ? »\nà 22 ans : « pas trop »\nmaintenant : « plus à l'aise en petit groupe, et je prépare toujours mes interventions »\nvrai, et ça rassure plus qu'un « oui » forcé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "31e748b6",
+   "texte_overlay": "6\n« un exemple de leadership ? »\nà 22 ans : « je suis pas manager »\nmaintenant : « j'ai lancé le tableau de suivi que toute l'équipe utilise »\npas besoin d'un titre pour entraîner les autres",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "0e53bde4",
+   "texte_overlay": "j'ai pas changé\nj'ai juste appris à le dire\nt'en es où toi, 22 ou 28 ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

@@ -355,6 +355,30 @@ function LigneATraiter({ q, reglages }: { q: QuestionFaq; reglages: ReglagesFaq 
   );
 }
 
+const CANAL_TICKETS = "https://sophia-system.slack.com/archives/C0C92QP1R28";
+
+/** Un bug laissé à l'IT guy : pas encore vu, pris en charge (« on it »), ou réglé. */
+function SuiviIt({ q }: { q: QuestionFaq }) {
+  const { t, i18n } = useTranslation();
+  const heure = q.it_maj_at
+    ? new Intl.DateTimeFormat(i18n.language, { hour: "2-digit", minute: "2-digit" }).format(new Date(q.it_maj_at))
+    : "";
+  if (q.it_statut === "repondu") {
+    return <p className="text-xs text-success">{t("chatbot.faq.itRepondu", { heure })}</p>;
+  }
+  if (q.it_statut === "pris_en_charge") {
+    return (
+      <p className="text-xs text-info-foreground">
+        {t("chatbot.faq.itPris", { heure })}{" "}
+        <a href={CANAL_TICKETS} target="_blank" rel="noreferrer" className="underline underline-offset-2">
+          #a-os-tickets
+        </a>
+      </p>
+    );
+  }
+  return <p className="text-xs text-warning-foreground">{t("chatbot.faq.itAttente")}</p>;
+}
+
 const SOURCES = ["toutes", "slack", "os"] as const;
 type SourceJournal = (typeof SOURCES)[number];
 
@@ -455,13 +479,12 @@ function JournalFaqCard({ onAjouterReponse }: { onAjouterReponse?: (q: QuestionF
                   )}
                 </div>
                 <p className="whitespace-pre-wrap text-sm">{q.question}</p>
-                {/* Bug ou hors sujet sur Slack : le bot se tait exprès, rien à « proposer ». */}
-                {cerveau && !q.reponse_faq && (q.etat === "bug" || q.etat === "hors_sujet")
-                  ? (
-                    <p className="text-xs text-muted-foreground">
-                      {t(q.etat === "bug" ? "chatbot.faq.laisseIt" : "chatbot.faq.rienARepondre")}
-                    </p>
-                  )
+                {/* Bug ou hors sujet sur Slack : le bot se tait exprès, rien à « proposer ».
+                    Sur un bug, on montre où en est l'IT guy. */}
+                {cerveau && !q.reponse_faq && q.etat === "bug"
+                  ? <SuiviIt q={q} />
+                  : cerveau && !q.reponse_faq && q.etat === "hors_sujet"
+                  ? <p className="text-xs text-muted-foreground">{t("chatbot.faq.rienARepondre")}</p>
                   : cerveau && (
                     <Encadre titre={t("chatbot.faq.propositionCerveau")}>
                       {q.reponse_faq || t("chatbot.faq.rienPropose")}

@@ -372,12 +372,22 @@ export interface LigneSuivie {
   slack_user_id: string | null;
   envoye_at: string | null;
   reponse_humaine: string | null;
+  it_statut?: StatutIt | null;
 }
+
+/** Où en est l'IT guy d'un bug, d'après ce qui arrive dans le fil. */
+export type StatutIt = "pris_en_charge" | "repondu";
 
 export interface PatchSuite {
   etat?: EtatFaq;
   reponse_humaine?: string;
   reponse_humaine_par?: string;
+  it_statut?: StatutIt;
+}
+
+/** L'« on it » de l'IT guy (posté avec le compte d'Adrien), ou d'un humain de l'équipe. */
+export function estOnIt(texte: string): boolean {
+  return /^\s*on it\b/i.test(texte);
 }
 
 /**
@@ -403,6 +413,16 @@ export function suiteDeFil(
     return ligne.etat === "repondu" && ligne.envoye_at ? { etat: "relance" } : null;
   }
   if (!equipe.has(auteur)) return null;
+  // Un bug : on suit l'IT guy. « on it » = pris en charge ; la réponse qui
+  // suit (celle que sa proposition validée envoie) = réglé.
+  if (ligne.etat === "bug") {
+    if (estOnIt(texte)) {
+      return ligne.it_statut ? null : { it_statut: "pris_en_charge" };
+    }
+    return ligne.it_statut === "repondu"
+      ? null
+      : { it_statut: "repondu", reponse_humaine: texte, reponse_humaine_par: auteur };
+  }
   if (ligne.etat === "a_traiter" || ligne.etat === "relance") {
     return { etat: "traite_slack", reponse_humaine: texte, reponse_humaine_par: auteur };
   }

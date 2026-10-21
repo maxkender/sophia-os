@@ -26,6 +26,8 @@ const question = (patch: Partial<QuestionFaq>): QuestionFaq => ({
   reponse_admin: null,
   ajoute_base_at: null,
   erreur: null,
+  it_statut: null,
+  it_maj_at: null,
   created_at: "2026-10-21T08:00:00Z",
   profiles: null,
   ...patch,
@@ -52,7 +54,7 @@ vi.mock("./api", () => ({
       reponse_humaine: "Use the taap.it link",
       reponse_humaine_par: "Aram",
     }),
-    question({ id: "q3", question: "Dashboard is blank", etat: "bug" }),
+    question({ id: "q3", question: "Dashboard is blank", etat: "bug", it_statut: "pris_en_charge", it_maj_at: "2026-10-21T16:28:00Z" }),
     // Une question de la bulle d'avant le cerveau : l'ancien assistant a répondu.
     question({
       id: "q4",
@@ -126,8 +128,8 @@ describe("FaqAdmin", () => {
     fireEvent.click(within(journal).getByRole("button", { name: /bug → it guy/i }));
     expect(within(journal).queryByText("Which link should I send her?")).not.toBeInTheDocument();
     expect(within(journal).getByText("Dashboard is blank")).toBeInTheDocument();
-    // Un bug sur Slack : pas de « proposition vide », on dit que l'IT guy le prend.
-    expect(within(journal).getByText(/(it guy takes it|l'it guy le prend)/i)).toBeInTheDocument();
+    // Un bug sur Slack : pas de « proposition vide », on dit où en est l'IT guy.
+    expect(within(journal).getByText(/(picked up by the it guy|pris en charge par l'it guy)/i)).toBeInTheDocument();
   });
 
   it("passer Slack en actif demande confirmation : refusée, rien ne change", async () => {

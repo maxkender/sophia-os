@@ -203,7 +203,7 @@ async function suivreFil(
 ): Promise<void> {
   const { data: ligne, error } = await db
     .from("chatbot_questions")
-    .select("id, etat, slack_user_id, envoye_at, reponse_humaine")
+    .select("id, etat, slack_user_id, envoye_at, reponse_humaine, it_statut")
     .eq("slack_canal", s.canal)
     .eq("slack_ts", s.parentTs)
     .maybeSingle();
@@ -217,6 +217,7 @@ async function suivreFil(
     patch.reponse_humaine_par = ADMINS_SLACK[s.auteur] ?? (token ? await nomSlack(token, s.auteur) : null) ?? s.auteur;
   }
   if (patch.etat === "traite_slack") patch.traite_at = new Date().toISOString();
+  if (patch.it_statut) patch.it_maj_at = new Date().toISOString();
 
   const { error: majErreur } = await db.from("chatbot_questions").update(patch).eq("id", ligne.id);
   if (majErreur) throw new Error(`chatbot_questions (fil) : ${messageErreur(majErreur)}`);

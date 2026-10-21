@@ -18,6 +18,7 @@ import {
   lienSlack,
   lireReglagesFaq,
   lireReponseFaq,
+  reponseEquipeDansFil,
   suiteDeFil,
   texteReponseSlack,
   trierEvenementSlack,
@@ -206,4 +207,20 @@ Deno.test("texte Slack : réponse, section du guide, et comment relancer", () =>
     lienSlack("C0BL56RJH7T", "1792143200.511969"),
     "https://sophia-system.slack.com/archives/C0BL56RJH7T/p1792143200511969",
   );
+});
+
+Deno.test("fil : une réponse de l'équipe déjà là bloque la nôtre, un poster ou un bot non", () => {
+  const equipe = new Set(["U0BL6E14JKH"]);
+  const fil = [
+    { ts: "1.0", user: "UPOSTER", text: "Should we delete negative comments?" },
+    { ts: "1.1", user: "UAUTRE", text: "same question here" },
+    { ts: "1.2", user: "U0CAUJ6U40H", bot_id: "B1", text: "I've passed your question to the team." },
+  ];
+  assertEquals(reponseEquipeDansFil(fil, "1.0", equipe), null);
+  assertEquals(reponseEquipeDansFil([...fil, { ts: "1.3", user: "U0BL6E14JKH", text: "No, just ignore them" }], "1.0", equipe), {
+    user: "U0BL6E14JKH",
+    texte: "No, just ignore them",
+  });
+  // Le message racine d'un admin n'est pas une réponse à lui-même.
+  assertEquals(reponseEquipeDansFil([{ ts: "1.0", user: "U0BL6E14JKH", text: "x" }], "1.0", equipe), null);
 });

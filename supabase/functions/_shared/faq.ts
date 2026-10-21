@@ -408,3 +408,29 @@ export function suiteDeFil(
   if (!ligne.reponse_humaine) return { reponse_humaine: texte, reponse_humaine_par: auteur };
   return null;
 }
+
+export interface MessageFil {
+  ts?: string;
+  user?: string;
+  bot_id?: string;
+  text?: string;
+}
+
+/**
+ * Juste avant de poster (le cerveau a pris quelques secondes, l'admin quelques
+ * heures) : quelqu'un de l'équipe a-t-il déjà répondu dans le fil ? Si oui, on
+ * se tait — jamais deux réponses à la même question. Un autre poster qui passe
+ * (« same here ») ne compte pas, un bot non plus.
+ */
+export function reponseEquipeDansFil(
+  messages: MessageFil[],
+  parentTs: string,
+  equipe: ReadonlySet<string>,
+): { user: string; texte: string } | null {
+  for (const m of messages) {
+    if (!m.ts || m.ts === parentTs || m.bot_id || !m.user || !equipe.has(m.user)) continue;
+    const texte = (m.text ?? "").trim();
+    if (texte) return { user: m.user, texte };
+  }
+  return null;
+}

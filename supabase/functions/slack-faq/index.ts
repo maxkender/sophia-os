@@ -5,6 +5,7 @@ import {
   type EvenementSlack,
   type LigneSuivie,
   MESSAGE_ATTENTE_SLACK,
+  reponseEquipeDansFil,
   type ReglagesFaq,
   type ReponseFaq,
   suiteDeFil,
@@ -18,6 +19,7 @@ import {
   chargerReglagesFaq,
   demanderAuCerveau,
   jetonSlackFaq,
+  lireFil,
   nomSlack,
   posterSlack,
   secretSignatureFaq,
@@ -163,7 +165,18 @@ async function repondre(
       ? MESSAGE_ATTENTE_SLACK
       : null;
     if (texte && !token) erreurs.push("jeton Slack absent (SLACK_HM_BOT_TOKEN)");
-    if (texte && token) {
+    // Le temps que le cerveau tranche, quelqu'un de l'équipe a pu répondre :
+    // dans ce cas on se tait, et sa réponse règle la question.
+    const fil = texte && token ? await lireFil(token, q.canal, q.ts) : null;
+    const deja = fil ? reponseEquipeDansFil(fil, q.ts, new Set([...Object.keys(ADMINS_SLACK), ...managers.keys()])) : null;
+    if (deja) {
+      patch.reponse_humaine = deja.texte;
+      patch.reponse_humaine_par = ADMINS_SLACK[deja.user] ?? (await nomSlack(token!, deja.user)) ?? deja.user;
+      if (patch.etat === "a_traiter") {
+        patch.etat = "traite_slack";
+        patch.traite_at = new Date().toISOString();
+      }
+    } else if (texte && token) {
       const envoi = await posterSlack(token, q.canal, texte, q.ts);
       if (envoi.ok) {
         patch.reponse = texte;

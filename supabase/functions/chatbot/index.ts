@@ -537,7 +537,7 @@ Si le GUIDE OFFICIEL et un autre texte se contredisent, le guide gagne.
 ${cadreRole(input.role)}
 
 Règles :
-- Réponds en ${langue} (langue de cet utilisateur), tutoiement, phrases courtes.
+- Réponds dans la langue de la QUESTION (une question en anglais reçoit une réponse en anglais). Si elle est trop courte pour la deviner, réponds en ${langue}. Tutoiement, phrases courtes.
 - Interlocuteur : ${roleLabel}.
 - Les chiffres viennent UNIQUEMENT du snapshot live. Un jour = date Paris.
 - Pas d'em dash. Pas d'emoji sauf si le contexte en a.

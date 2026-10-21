@@ -13,16 +13,6 @@ export interface ChatbotContexte {
   updated_at: string;
 }
 
-export interface ChatbotQuestion {
-  id: string;
-  user_id: string | null;
-  role: Role;
-  question: string;
-  reponse: string | null;
-  created_at: string;
-  profiles: { prenom: string | null; nom: string | null; email: string | null } | null;
-}
-
 async function invoke<T>(name: string, body: Record<string, unknown>): Promise<T> {
   const { data, error } = await supabase.functions.invoke(name, { body });
   if (error) {
@@ -107,24 +97,6 @@ export async function majChatbotContexte(
 export async function supprimerChatbotContexte(id: string): Promise<void> {
   const { error } = await supabase.from("chatbot_contexte").delete().eq("id", id);
   if (error) throw error;
-}
-
-export async function listerChatbotQuestions(): Promise<ChatbotQuestion[]> {
-  const { data, error } = await supabase
-    .from("chatbot_questions")
-    .select("id, user_id, role, question, reponse, created_at, profiles!chatbot_questions_user_id_fkey(prenom, nom, email)")
-    // La bulle d'aide seulement : les questions Slack sont dans le journal de la FAQ.
-    .eq("source", "os")
-    .order("created_at", { ascending: false })
-    .limit(200);
-  if (error) throw error;
-  return (data ?? []).map((ligne) => {
-    const raw = ligne as ChatbotQuestion & {
-      profiles: ChatbotQuestion["profiles"] | ChatbotQuestion["profiles"][];
-    };
-    const profil = Array.isArray(raw.profiles) ? (raw.profiles[0] ?? null) : raw.profiles;
-    return { ...raw, profiles: profil };
-  });
 }
 
 /* -------------------------------------------------------------------------
@@ -215,14 +187,17 @@ export async function listerFaqATraiter(): Promise<QuestionFaq[]> {
   return avecProfil(data ?? []);
 }
 
-/** Toutes les décisions du cerveau, bulle et Slack, les plus récentes d'abord. */
+/**
+ * Toutes les questions, bulle et Slack, les plus récentes d'abord : avec la
+ * décision du cerveau quand il a tourné, et celles d'avant lui (ancien
+ * assistant, `etat` null).
+ */
 export async function listerFaqJournal(): Promise<QuestionFaq[]> {
   const { data, error } = await supabase
     .from("chatbot_questions")
     .select(COLONNES_FAQ)
-    .not("etat", "is", null)
     .order("created_at", { ascending: false })
-    .limit(200);
+    .limit(300);
   if (error) throw error;
   return avecProfil(data ?? []);
 }
@@ -237,10 +212,6 @@ export async function traiterQuestionFaq(
 
 export async function ignorerQuestionFaq(id: string): Promise<void> {
   await invoke("faq-admin", { action: "ignorer", id });
-}
-
-export async function ajouterBaseFaq(id: string, reponse: string): Promise<void> {
-  await invoke("faq-admin", { action: "ajouter_base", id, reponse });
 }
 
 export async function listerGuidesCopies(): Promise<PageGuideCopiee[]> {

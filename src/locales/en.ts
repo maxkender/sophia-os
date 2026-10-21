@@ -3284,9 +3284,6 @@ export const en = {
       contexteVide: "No approved answers yet",
       contexteVideAide:
         "Normal at first: the assistant relies on the Notion guide. Answers get added here from \"To handle\".",
-      questionsTitle: "Questions asked",
-      questionsSubtitle: "Everything creators, managers and admins have asked.",
-      questionsVide: "No questions yet.",
       filtrePlaceholder: "Filter a question, an answer, a name…",
       ajouterContexte: "Add to approved answers",
       questionLabel: "Question",
@@ -3333,7 +3330,7 @@ export const en = {
         garde: "Saved, not sent: {{raison}}",
         journalTitre: "Brain log",
         journalDescription:
-          "Every decision, Slack and bubble. In test mode, compare what it would have said with what the team answered.",
+          "Every question, Slack and help bubble: what the brain decided, what the person received, what the team answered in the thread. \"Add to approved answers\" pre-fills an answer in the section below.",
         journalVide: "No decisions yet.",
         filtres: {
           tous: "All",
@@ -3343,6 +3340,10 @@ export const en = {
           hors_sujet: "Off topic",
           traite: "Handled",
         },
+        ancien: "Old assistant",
+        source: "Source",
+        sources: { toutes: "Slack + help bubble", slack: "Slack", os: "Help bubble" },
+        recu: "What the person received",
         etats: {
           repondu: "Answered",
           bug: "Bug → IT guy",
@@ -3353,8 +3354,6 @@ export const en = {
           traite_slack: "Settled on Slack",
           ignore: "Dismissed",
         },
-        envoyeA: "Sent",
-        ajouterReponseHumaine: "Add this answer to the base",
         dansLaBase: "In the base",
         rienPropose: "Nothing suggested.",
       },

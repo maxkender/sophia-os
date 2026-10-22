@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o010",
+ "schema_id": "insider-rh",
+ "titre": "quand j'étais rh, voilà ce qui rendait un candidat INOUBLIABLE (et c'était jamais le cv) #rechercheemploi #emploi #entretien #cv #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "essai (routine : rh-o010 finit par 0). Angle jamais fait chez nous : « ce qui rend inoubliable », qui perce au podz 4 (« Rare skills that will make you unforgettable », 67 k vues en en, 61 k en tr, suggestion du chef des podz du 21/10). Greffé sur le schéma insider-rh pour garder une preuve valable (r 3,49 sur 5 passages, d3d9cd2f) : l'angle seul ne la passait pas (hors niche et sous 200 k). Accroches écrites : « quand j'étais rh, voilà ce qui rendait un candidat INOUBLIABLE (et c'était jamais le cv) » (retenue : confession d'initiée + l'angle neuf), « les petites choses qui rendent un candidat inoubliable pour un recruteur » (écartée : perd la confession qui porte le schéma), « les candidats dont je me souviens encore, 3 ans après » (écartée : plus vague). Format récit : la scène entre « », puis le pourquoi. Six items neufs, aucun repris de rh-o005 ni des sources. Le « vrai chiffre » insiste sur le vrai : on n'invente jamais. Sophia en 5 sur le lien avec une anecdote d'histoire. Inspirations : sans la slide 6 de d3d9cd2f ni les 5 et 7 de b80c0573 (appli concurrente).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3f7cf12b",
+   "texte_overlay": "quand j'étais rh, voilà ce qui rendait\nun candidat INOUBLIABLE\n(et c'était jamais le cv)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "392219e8",
+   "texte_overlay": "« elle reformulait ma question avant de répondre »\n« si je comprends bien, vous voulez savoir si… »\non se sentait écoutés. et elle répondait pile à ce qu'on demandait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "35520137",
+   "texte_overlay": "« il connaissait le prénom de la personne qui l'avait appelé »\nil l'a saluée en partant.\nle genre de détail qui remonte toujours en débrief",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2f2ab02e",
+   "texte_overlay": "« elle avait un vrai chiffre, même petit »\n« j'ai réduit de moitié le temps de traitement des demandes »\nun chiffre vrai bat dix adjectifs. on le notait mot pour mot",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "28d2ab12",
+   "texte_overlay": "« elle a fait un lien qu'on avait jamais entendu »\nentre notre métier et une anecdote d'histoire.\non en parlait encore le lendemain à la machine à café",
+   "texte_sophia": "« elle a fait un lien qu'on avait jamais entendu »\nentre notre métier et une anecdote d'histoire.\nça s'entraîne : 5 minutes par jour sur l'appli Sophia, et t'as toujours une histoire à relier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2983297b",
+   "texte_overlay": "« il racontait ses erreurs avec humour »\npas pour se moquer de lui, pour montrer qu'il avait appris.\nles parfaits, on les oubliait. lui, non",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "36125a70",
+   "texte_overlay": "« elle est arrivée avec 3 idées sur une feuille »\npas des idées géniales, juste les siennes, pour le poste.\nla seule qui s'était déjà projetée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "619fb75d",
+   "texte_overlay": "le cv t'ouvre la porte\nça, c'est ce qui te fait rester dans nos têtes\nlaquelle tu fais déjà ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

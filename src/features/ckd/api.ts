@@ -257,17 +257,41 @@ export async function enregistrerSlackHm(profileId: string, slackUserId: string 
 // Décisions (0328)
 // ---------------------------------------------------------------------------
 
+/** Le titre et le texte du pop-up d'un nudge. */
+export interface TexteNudge {
+  titre: string;
+  corps: string;
+}
+
 /**
  * Décider. Recréer et Doubler créent un compte : ils passent par la fonction
- * `ckd` (manage-users). Le reste se décide en SQL (`ckd_decider`).
+ * `ckd` (manage-users). Le reste se décide en SQL (`ckd_decider`). `texte` :
+ * pour un Nudge, le texte modifié pour ce posteur (0338) ; absent, celui de
+ * Réglages.
  */
-export async function deciderCkd(id: string, decision: DecisionCkd, note: string | null): Promise<void> {
+export async function deciderCkd(
+  id: string,
+  decision: DecisionCkd,
+  note: string | null,
+  texte?: TexteNudge | null,
+): Promise<void> {
   if (decision === "recreer" || decision === "doubler") {
     await invoke<{ ok: boolean }>("ckd", { action: "decider", id, decision, note });
     return;
   }
-  const { error } = await supabase.rpc("ckd_decider", { p_id: id, p_decision: decision, p_note: note });
+  const { error } =
+    decision === "nudge" && texte
+      ? await supabase.rpc("ckd_decider_nudge", { p_id: id, p_titre: texte.titre, p_corps: texte.corps, p_note: note })
+      : await supabase.rpc("ckd_decider", { p_id: id, p_decision: decision, p_note: note });
   if (error) throw error;
+}
+
+/** Le texte qu'un Nudge enverrait à ce posteur, tel que Réglages le donne (0338). */
+export async function apercuNudgeCkd(id: string): Promise<TexteNudge> {
+  const { data, error } = await supabase.rpc("ckd_apercu_nudge", { p_id: id });
+  if (error) throw error;
+  const ligne = (Array.isArray(data) ? data[0] : data) as Partial<TexteNudge> | null;
+  return { titre: ligne?.titre ?? "", corps: ligne?.corps ?? "" };
 }
 
 /** Garder, Pas maintenant, Rien et Kill s'annulent tant que rien n'est parti. */

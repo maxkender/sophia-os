@@ -20,6 +20,7 @@ const api = vi.hoisted(() => ({
   enregistrerSlackHm: vi.fn(),
   listerManques: vi.fn(),
   deciderCkd: vi.fn(),
+  apercuNudgeCkd: vi.fn(),
   annulerCkd: vi.fn(),
   envoyerNudgesCkd: vi.fn(),
   envoyerAuxHm: vi.fn(),
@@ -172,6 +173,10 @@ describe("AdminCheckKillDoublePage", () => {
     ]);
     api.enregistrerSlackHm.mockResolvedValue(undefined);
     api.deciderCkd.mockResolvedValue(undefined);
+    api.apercuNudgeCkd.mockResolvedValue({
+      titre: "Some posts are missing",
+      corps: "Some posts planned for @alice.utvecklas492 were not published.",
+    });
     api.annulerCkd.mockResolvedValue(undefined);
     api.envoyerNudgesCkd.mockResolvedValue(1);
     api.envoyerAuxHm.mockResolvedValue({ envoyees: 1 });
@@ -384,6 +389,47 @@ describe("AdminCheckKillDoublePage", () => {
     await screen.findByTestId("proposition-clara.eclaire390");
     fireEvent.click(screen.getByRole("button", { name: /Recalculer/ }));
     await waitFor(() => expect(api.lancerControle).toHaveBeenCalledWith("samedi", "2026-10-24"));
+  });
+
+  it("le nudge d'un posteur : texte de Réglages pré-rempli, modifiable pour lui seul", async () => {
+    rendre();
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    const alice = await screen.findByTestId("proposition-alice.utvecklas492");
+    fireEvent.click(within(alice).getByRole("button", { name: "Envoyer le nudge" }));
+    const titre = await within(alice).findByRole("textbox", { name: "Titre du pop-up" });
+    expect(titre).toHaveValue("Some posts are missing");
+    const corps = within(alice).getByRole("textbox", { name: "Texte du pop-up" });
+    expect(corps).toHaveValue("Some posts planned for @alice.utvecklas492 were not published.");
+    expect(api.apercuNudgeCkd).toHaveBeenCalledWith("p3");
+
+    fireEvent.change(corps, { target: { value: "  Your first day was Sunday: post every day from now on.  " } });
+    expect(within(alice).getByText("modifié pour ce posteur")).toBeInTheDocument();
+    fireEvent.click(within(alice).getByRole("button", { name: "Confirmer : Envoyer le nudge" }));
+    await waitFor(() =>
+      expect(api.deciderCkd).toHaveBeenCalledWith("p3", "nudge", null, {
+        titre: "Some posts are missing",
+        corps: "Your first day was Sunday: post every day from now on.",
+      }),
+    );
+  });
+
+  it("nudge sans retouche : le texte de Réglages, et un texte vidé bloque la confirmation", async () => {
+    rendre();
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    const alice = await screen.findByTestId("proposition-alice.utvecklas492");
+    fireEvent.click(within(alice).getByRole("button", { name: "Envoyer le nudge" }));
+    const corps = await within(alice).findByRole("textbox", { name: "Texte du pop-up" });
+    const confirmer = within(alice).getByRole("button", { name: "Confirmer : Envoyer le nudge" });
+
+    fireEvent.change(corps, { target: { value: "   " } });
+    expect(confirmer).toBeDisabled();
+    expect(within(alice).getByText("Le titre et le texte ne peuvent pas être vides.")).toBeInTheDocument();
+
+    fireEvent.click(within(alice).getByRole("button", { name: "Revenir au texte par défaut" }));
+    expect(corps).toHaveValue("Some posts planned for @alice.utvecklas492 were not published.");
+    expect(confirmer).toBeEnabled();
+    fireEvent.click(confirmer);
+    await waitFor(() => expect(api.deciderCkd).toHaveBeenCalledWith("p3", "nudge", null));
   });
 
   it("montre les nudges du jeudi avec leurs motifs", async () => {

@@ -85,7 +85,10 @@ La FAQ voit chaque message en premier (quelques secondes contre 30 min). Elle
 se tait sur un bug, et l'IT guy ignore un fil où l'appli a répondu, sauf si
 l'auteur dit ensuite que ça n'a pas marché. Le message d'attente ne règle rien :
 un bug mal classé reste à l'IT guy. Son « on it » dans le fil (posté avec le
-compte d'Adrien) sort la question de « À traiter ».
+compte d'Adrien) n'est pas une réponse : sur une question en attente, il la
+passe en suivi IT (« pris en charge »), et sa réponse suivante la règle. Un
+retour (review) que la personne conteste est un problème technique : la FAQ
+se tait, l'IT guy compare le post à l'original.
 
 ## Jamais deux réponses à la même question
 
@@ -99,7 +102,8 @@ compte d'Adrien) sort la question de « À traiter ».
 - **Depuis l'OS** (« À traiter »), même relecture avant d'envoyer : si quelqu'un
   de l'équipe a répondu dans le fil entre-temps, rien ne part, la page le dit
   et la question sort de la liste. Une réponse de l'équipe dans le fil sort
-  aussi la question de « À traiter » toute seule.
+  aussi la question de « À traiter » toute seule. Un « on it » n'est pas une
+  réponse : celui de l'IT guy la fait passer en suivi IT.
 - **L'IT guy** ne touche pas un fil où le bot a répondu, et le bot se tait sur
   les bugs. Le journal suit ce que l'IT guy en fait, d'après le fil : « pas
   encore pris », « pris en charge » (son « on it », la proposition attend un ✅

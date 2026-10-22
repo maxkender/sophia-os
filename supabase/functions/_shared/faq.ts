@@ -414,15 +414,21 @@ export function estOnIt(texte: string): boolean {
   return /^\s*on it\b/i.test(texte);
 }
 
+/** L'IT guy poste avec le compte d'Adrien (it-guy/AGENT.md). */
+export const COMPTE_IT_GUY = "U0BMTK7BLCW";
+
 /**
  * Une réponse arrive dans le fil d'une question qu'on suit.
  *
  *  - L'auteur relance après une VRAIE réponse du bot (« ça n'a pas marché ») :
  *    la question repasse à l'admin. En mode test rien n'est parti, il n'y a
  *    rien à relancer.
- *  - Quelqu'un de l'équipe répond (admin, Head of Ops, manager — l'« on it » de
- *    l'IT guy compris) : une question en attente sort de « À traiter ». Sur les
- *    autres, on garde sa première réponse pour la comparer à celle du bot.
+ *  - Quelqu'un de l'équipe répond (admin, Head of Ops, manager) : une question
+ *    en attente sort de « À traiter ». Sur les autres, on garde sa première
+ *    réponse pour la comparer à celle du bot.
+ *  - « on it » n'est jamais une réponse. Celui de l'IT guy sur une question en
+ *    attente veut dire qu'il la prend comme un problème technique : elle passe
+ *    en suivi IT (bug, « pris en charge »), et sa réponse suivante la règle.
  *  - Tout autre poster qui passe (« same here ») ne règle rien.
  */
 export function suiteDeFil(
@@ -448,6 +454,7 @@ export function suiteDeFil(
       : { it_statut: "repondu", reponse_humaine: texte, reponse_humaine_par: auteur };
   }
   if (ligne.etat && ETATS_EN_ATTENTE.includes(ligne.etat)) {
+    if (estOnIt(texte)) return auteur === COMPTE_IT_GUY ? { etat: "bug", it_statut: "pris_en_charge" } : null;
     return { etat: "traite_slack", reponse_humaine: texte, reponse_humaine_par: auteur };
   }
   if (!ligne.reponse_humaine) return { reponse_humaine: texte, reponse_humaine_par: auteur };

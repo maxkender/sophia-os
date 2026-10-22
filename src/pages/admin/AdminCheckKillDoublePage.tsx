@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import {
   type ActionCkd,
   annulerCkd,
+  apercuHmCkd,
   apercuNudgeCkd,
   type ArretCkd,
   type ControleCkd,
@@ -46,6 +47,7 @@ import {
   listerReglages,
   type PersonneCkd,
   type PropositionCkd,
+  type PersonnalisationNudge,
   type ReglageCkd,
   reglerCkd,
   type TexteNudge,
@@ -646,32 +648,20 @@ function BlocDecision({
   const queryClient = useQueryClient();
   const [choix, setChoix] = React.useState<string | null>(null);
   const [note, setNote] = React.useState("");
-  // Le texte du nudge tel que l'admin l'a modifié ; `null` = celui de Réglages.
-  const [texte, setTexte] = React.useState<TexteNudge | null>(null);
   const nudge = choix !== null && DECISION_DU_BOUTON[choix] === "nudge";
-  const apercu = useQuery({
-    queryKey: [...CLE, "apercu-nudge", p.id],
-    queryFn: () => apercuNudgeCkd(p.id),
-    enabled: nudge && !p.decision,
-    staleTime: Infinity,
-  });
-  const texteNudge = texte ?? apercu.data ?? null;
-  const texteModifie =
-    texte !== null && (!apercu.data || texte.titre !== apercu.data.titre || texte.corps !== apercu.data.corps);
-  const texteVide = nudge && texteNudge !== null && (!texteNudge.titre.trim() || !texteNudge.corps.trim());
+  const perso = usePersonnalisationNudge(p, nudge);
   const fermer = () => {
     setChoix(null);
     setNote("");
-    setTexte(null);
+    perso.reinitialiser();
   };
   const invalider = () => queryClient.invalidateQueries({ queryKey: CLE });
   const decider = useMutation({
     mutationFn: (bouton: string) => {
       const decision = DECISION_DU_BOUTON[bouton];
       const n = note.trim() || null;
-      return decision === "nudge" && texteModifie && texte
-        ? deciderCkd(p.id, decision, n, { titre: texte.titre.trim(), corps: texte.corps.trim() })
-        : deciderCkd(p.id, decision, n);
+      const modifs = decision === "nudge" ? perso.personnalisation() : null;
+      return modifs ? deciderCkd(p.id, decision, n, modifs) : deciderCkd(p.id, decision, n);
     },
     onSuccess: fermer,
     onSettled: invalider,
@@ -691,7 +681,7 @@ function BlocDecision({
               variant={choix === b ? "default" : "outline"}
               disabled={decider.isPending}
               onClick={() => {
-                setTexte(null);
+                perso.reinitialiser();
                 setChoix(choix === b ? null : b);
               }}
             >
@@ -703,56 +693,21 @@ function BlocDecision({
         {choix && (
           <div className="flex flex-wrap items-center gap-2 rounded-md bg-muted/50 p-2 text-xs">
             <span>{t(`ckd.consequences.${DECISION_DU_BOUTON[choix]}`, { handle: p.donnees.handle })}</span>
-            {nudge && (
-              <div className="basis-full space-y-1.5 rounded-md border bg-background p-2" data-testid={`texte-nudge-${p.donnees.handle}`}>
-                <p className="font-medium">{t("ckd.texteNudge.titre")}</p>
-                <p className="text-muted-foreground">{t("ckd.texteNudge.aide")}</p>
-                {apercu.isLoading ? (
-                  <p className="text-muted-foreground">{t("common.loading")}</p>
-                ) : apercu.error ? (
-                  <p role="alert" className="text-destructive">
-                    {t("ckd.texteNudge.erreur", { erreur: messageErreur(apercu.error) })}
-                  </p>
-                ) : (
-                  <>
-                    <Input
-                      className="h-7 text-xs"
-                      aria-label={t("ckd.texteNudge.champTitre")}
-                      maxLength={200}
-                      value={texteNudge?.titre ?? ""}
-                      onChange={(e) => setTexte({ titre: e.target.value, corps: texteNudge?.corps ?? "" })}
-                    />
-                    <textarea
-                      className="min-h-24 w-full rounded-md border border-input bg-background px-2 py-1 text-xs shadow-sm"
-                      aria-label={t("ckd.texteNudge.champCorps")}
-                      maxLength={3000}
-                      value={texteNudge?.corps ?? ""}
-                      onChange={(e) => setTexte({ titre: texteNudge?.titre ?? "", corps: e.target.value })}
-                    />
-                    <div className="flex flex-wrap items-center gap-2">
-                      {texteModifie && <Badge variant="outline">{t("ckd.texteNudge.modifie")}</Badge>}
-                      {texteModifie && (
-                        <Button size="xs" variant="ghost" onClick={() => setTexte(null)}>
-                          {t("ckd.texteNudge.retablir")}
-                        </Button>
-                      )}
-                      {texteVide && <span className="text-destructive">{t("ckd.texteNudge.vide")}</span>}
-                    </div>
-                  </>
-                )}
-              </div>
+            {nudge ? (
+              <PanneauNudge handle={p.donnees.handle} perso={perso} />
+            ) : (
+              <Input
+                className="h-7 max-w-xs text-xs"
+                placeholder={t("ckd.notePlaceholder")}
+                aria-label={t("ckd.note")}
+                value={note}
+                onChange={(e) => setNote(e.target.value)}
+              />
             )}
-            <Input
-              className="h-7 max-w-xs text-xs"
-              placeholder={t("ckd.notePlaceholder")}
-              aria-label={t("ckd.note")}
-              value={note}
-              onChange={(e) => setNote(e.target.value)}
-            />
             <Button
               size="xs"
               loading={decider.isPending}
-              disabled={texteVide || (nudge && apercu.isLoading)}
+              disabled={nudge && perso.bloquant}
               onClick={() => decider.mutate(choix)}
             >
               {t("ckd.confirmer", { action: t(`ckd.boutons.${choix}`) })}
@@ -783,6 +738,7 @@ function BlocDecision({
     );
   }
   if (p.envoye_at) statut.push(t("ckd.statut.envoye", { date: date(p.envoye_at, heure) }));
+  else if (p.decision === "nudge" && p.hm_suivi === false) statut.push(t("ckd.statut.sansSuiviHm"));
   else if (aEnvoyer(p)) statut.push(t("ckd.statut.aEnvoyer"));
   if (p.fait_at) statut.push(t("ckd.statut.fait", { date: date(p.fait_at, heure) }));
 
@@ -812,6 +768,151 @@ function BlocDecision({
         </p>
       )}
     </div>
+  );
+}
+
+/**
+ * Ce qu'un Nudge enverra, pré-rempli et modifiable pour ce posteur : le pop-up
+ * (Réglages, 0338), la consigne au HM (fonction `ckd`) et son suivi dans
+ * #managers-hq, désactivable (0339). Rien de modifié : tout part par défaut.
+ */
+function usePersonnalisationNudge(p: PropositionCkd, actif: boolean) {
+  const [popup, setPopup] = React.useState<TexteNudge | null>(null);
+  const [hm, setHm] = React.useState<string | null>(null);
+  const [suiviHm, setSuiviHm] = React.useState(true);
+  const apercuPopup = useQuery({
+    queryKey: [...CLE, "apercu-nudge", p.id],
+    queryFn: () => apercuNudgeCkd(p.id),
+    enabled: actif && !p.decision,
+    staleTime: Infinity,
+  });
+  const apercuHm = useQuery({
+    queryKey: [...CLE, "apercu-hm", p.id],
+    queryFn: () => apercuHmCkd(p.id),
+    enabled: actif && !p.decision,
+    staleTime: Infinity,
+  });
+  const popupAffiche = popup ?? apercuPopup.data ?? null;
+  const hmAffiche = hm ?? apercuHm.data ?? null;
+  const popupModifie =
+    popup !== null && (!apercuPopup.data || popup.titre !== apercuPopup.data.titre || popup.corps !== apercuPopup.data.corps);
+  const hmModifie = hm !== null && hm !== apercuHm.data;
+  const popupVide = actif && popupAffiche !== null && (!popupAffiche.titre.trim() || !popupAffiche.corps.trim());
+  const hmVide = actif && suiviHm && hmAffiche !== null && !hmAffiche.trim();
+  return {
+    apercuPopup,
+    popupAffiche,
+    setPopup,
+    popupModifie,
+    popupVide,
+    apercuHm,
+    hmAffiche,
+    setHm,
+    hmModifie,
+    hmVide,
+    suiviHm,
+    setSuiviHm,
+    bloquant: popupVide || hmVide || apercuPopup.isLoading || (suiviHm && apercuHm.isLoading),
+    /** Ce qui a changé ; `null` : rien, la décision part par défaut. */
+    personnalisation: (): PersonnalisationNudge | null => {
+      const pop = popupModifie && popup ? { titre: popup.titre.trim(), corps: popup.corps.trim() } : null;
+      const consigne = suiviHm && hmModifie && hm ? hm.trim() : null;
+      return pop || consigne || !suiviHm ? { popup: pop, hm: consigne, suiviHm } : null;
+    },
+    reinitialiser: () => {
+      setPopup(null);
+      setHm(null);
+      setSuiviHm(true);
+    },
+  };
+}
+
+type Personnalisation = ReturnType<typeof usePersonnalisationNudge>;
+
+/** Les deux textes d'un Nudge : le pop-up du posteur, puis le message au HM. */
+function PanneauNudge({ handle, perso }: { handle: string | null | undefined; perso: Personnalisation }) {
+  const { t } = useTranslation();
+  const champ = "w-full rounded-md border border-input bg-background px-2 py-1 text-xs shadow-sm";
+  return (
+    <>
+      <div className="basis-full space-y-1.5 rounded-md border bg-background p-2" data-testid={`texte-nudge-${handle}`}>
+        <p className="font-medium">{t("ckd.texteNudge.titre")}</p>
+        <p className="text-muted-foreground">{t("ckd.texteNudge.aide")}</p>
+        {perso.apercuPopup.isLoading ? (
+          <p className="text-muted-foreground">{t("common.loading")}</p>
+        ) : perso.apercuPopup.error ? (
+          <p role="alert" className="text-destructive">
+            {t("ckd.texteNudge.erreur", { erreur: messageErreur(perso.apercuPopup.error) })}
+          </p>
+        ) : (
+          <>
+            <Input
+              className="h-7 text-xs"
+              aria-label={t("ckd.texteNudge.champTitre")}
+              maxLength={200}
+              value={perso.popupAffiche?.titre ?? ""}
+              onChange={(e) => perso.setPopup({ titre: e.target.value, corps: perso.popupAffiche?.corps ?? "" })}
+            />
+            <textarea
+              className={cn(champ, "min-h-24")}
+              aria-label={t("ckd.texteNudge.champCorps")}
+              maxLength={3000}
+              value={perso.popupAffiche?.corps ?? ""}
+              onChange={(e) => perso.setPopup({ titre: perso.popupAffiche?.titre ?? "", corps: e.target.value })}
+            />
+            <div className="flex flex-wrap items-center gap-2">
+              {perso.popupModifie && <Badge variant="outline">{t("ckd.texteNudge.modifie")}</Badge>}
+              {perso.popupModifie && (
+                <Button size="xs" variant="ghost" onClick={() => perso.setPopup(null)}>
+                  {t("ckd.texteNudge.retablir")}
+                </Button>
+              )}
+              {perso.popupVide && <span className="text-destructive">{t("ckd.texteNudge.vide")}</span>}
+            </div>
+          </>
+        )}
+      </div>
+
+      <div className="basis-full space-y-1.5 rounded-md border bg-background p-2" data-testid={`message-hm-${handle}`}>
+        <label className="flex items-center gap-2 font-medium">
+          <input type="checkbox" checked={perso.suiviHm} onChange={(e) => perso.setSuiviHm(e.target.checked)} />
+          {t("ckd.messageHm.suivi")}
+        </label>
+        {!perso.suiviHm ? (
+          <p className="text-muted-foreground">{t("ckd.messageHm.sansSuivi")}</p>
+        ) : (
+          <>
+            <p className="text-muted-foreground">{t("ckd.messageHm.aide", { handle })}</p>
+            {perso.apercuHm.isLoading ? (
+              <p className="text-muted-foreground">{t("common.loading")}</p>
+            ) : perso.apercuHm.error ? (
+              <p role="alert" className="text-destructive">
+                {t("ckd.messageHm.erreur", { erreur: messageErreur(perso.apercuHm.error) })}
+              </p>
+            ) : (
+              <>
+                <textarea
+                  className={cn(champ, "min-h-20")}
+                  aria-label={t("ckd.messageHm.champ")}
+                  maxLength={2000}
+                  value={perso.hmAffiche ?? ""}
+                  onChange={(e) => perso.setHm(e.target.value)}
+                />
+                <div className="flex flex-wrap items-center gap-2">
+                  {perso.hmModifie && <Badge variant="outline">{t("ckd.messageHm.modifie")}</Badge>}
+                  {perso.hmModifie && (
+                    <Button size="xs" variant="ghost" onClick={() => perso.setHm(null)}>
+                      {t("ckd.messageHm.retablir")}
+                    </Button>
+                  )}
+                  {perso.hmVide && <span className="text-destructive">{t("ckd.messageHm.vide")}</span>}
+                </div>
+              </>
+            )}
+          </>
+        )}
+      </div>
+    </>
   );
 }
 

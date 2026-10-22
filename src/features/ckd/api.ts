@@ -86,6 +86,8 @@ export interface PropositionCkd {
   envoye_at: string | null;
   fait_at: string | null;
   erreur: string | null;
+  /** Faux : la décision ne part pas dans #managers-hq (0339). */
+  hm_suivi?: boolean;
 }
 
 export interface PersonneCkd {
@@ -152,7 +154,7 @@ export async function listerPropositions(controleId: string): Promise<Propositio
   const { data, error } = await supabase
     .from("ckd_propositions")
     .select(
-      "id, controle_id, type, jour, regle, action, compte_id, poster_id, hm_id, pays, langue, label_id, application, donnees, decision, decision_par, decision_at, note, nouveau_compte_id, envoye_at, fait_at, erreur",
+      "id, controle_id, type, jour, regle, action, compte_id, poster_id, hm_id, pays, langue, label_id, application, donnees, decision, decision_par, decision_at, note, nouveau_compte_id, envoye_at, fait_at, erreur, hm_suivi",
     )
     .eq("controle_id", controleId);
   if (error) throw error;
@@ -264,26 +266,49 @@ export interface TexteNudge {
 }
 
 /**
+ * Ce qu'un Nudge envoie, modifié pour ce posteur : le pop-up (0338), la
+ * consigne au HM et son suivi dans #managers-hq (0339). Absent ou `null` : par
+ * défaut.
+ */
+export interface PersonnalisationNudge {
+  popup: TexteNudge | null;
+  hm: string | null;
+  suiviHm: boolean;
+}
+
+/**
  * Décider. Recréer et Doubler créent un compte : ils passent par la fonction
- * `ckd` (manage-users). Le reste se décide en SQL (`ckd_decider`). `texte` :
- * pour un Nudge, le texte modifié pour ce posteur (0338) ; absent, celui de
- * Réglages.
+ * `ckd` (manage-users). Le reste se décide en SQL (`ckd_decider`), un Nudge
+ * modifié par `ckd_nudge_personnalise`.
  */
 export async function deciderCkd(
   id: string,
   decision: DecisionCkd,
   note: string | null,
-  texte?: TexteNudge | null,
+  nudge?: PersonnalisationNudge | null,
 ): Promise<void> {
   if (decision === "recreer" || decision === "doubler") {
     await invoke<{ ok: boolean }>("ckd", { action: "decider", id, decision, note });
     return;
   }
   const { error } =
-    decision === "nudge" && texte
-      ? await supabase.rpc("ckd_decider_nudge", { p_id: id, p_titre: texte.titre, p_corps: texte.corps, p_note: note })
+    decision === "nudge" && nudge
+      ? await supabase.rpc("ckd_nudge_personnalise", {
+        p_id: id,
+        p_titre: nudge.popup?.titre ?? null,
+        p_corps: nudge.popup?.corps ?? null,
+        p_hm: nudge.hm,
+        p_suivi: nudge.suiviHm,
+        p_note: note,
+      })
       : await supabase.rpc("ckd_decider", { p_id: id, p_decision: decision, p_note: note });
   if (error) throw error;
+}
+
+/** La consigne par défaut d'un nudge pour le HM, pour ce posteur (fonction `ckd`, 0339). */
+export async function apercuHmCkd(id: string): Promise<string> {
+  const r = await invoke<{ ok: boolean; texte?: string }>("ckd", { action: "apercu_hm", id });
+  return r.texte ?? "";
 }
 
 /** Le texte qu'un Nudge enverrait à ce posteur, tel que Réglages le donne (0338). */

@@ -21,6 +21,7 @@ const api = vi.hoisted(() => ({
   listerManques: vi.fn(),
   deciderCkd: vi.fn(),
   apercuNudgeCkd: vi.fn(),
+  apercuHmCkd: vi.fn(),
   annulerCkd: vi.fn(),
   envoyerNudgesCkd: vi.fn(),
   envoyerAuxHm: vi.fn(),
@@ -177,6 +178,7 @@ describe("AdminCheckKillDoublePage", () => {
       titre: "Some posts are missing",
       corps: "Some posts planned for @alice.utvecklas492 were not published.",
     });
+    api.apercuHmCkd.mockResolvedValue("• Some posts are missing or have no link in the OS. (2/4 published)");
     api.annulerCkd.mockResolvedValue(undefined);
     api.envoyerNudgesCkd.mockResolvedValue(1);
     api.envoyerAuxHm.mockResolvedValue({ envoyees: 1 });
@@ -407,9 +409,49 @@ describe("AdminCheckKillDoublePage", () => {
     fireEvent.click(within(alice).getByRole("button", { name: "Confirmer : Envoyer le nudge" }));
     await waitFor(() =>
       expect(api.deciderCkd).toHaveBeenCalledWith("p3", "nudge", null, {
-        titre: "Some posts are missing",
-        corps: "Your first day was Sunday: post every day from now on.",
+        popup: { titre: "Some posts are missing", corps: "Your first day was Sunday: post every day from now on." },
+        hm: null,
+        suiviHm: true,
       }),
+    );
+  });
+
+  it("le message au HM : consigne par défaut pré-remplie, modifiable, et pas de note à part", async () => {
+    rendre();
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    const alice = await screen.findByTestId("proposition-alice.utvecklas492");
+    fireEvent.click(within(alice).getByRole("button", { name: "Envoyer le nudge" }));
+    const message = await within(alice).findByRole("textbox", { name: "Message au HM" });
+    expect(message).toHaveValue("• Some posts are missing or have no link in the OS. (2/4 published)");
+    expect(api.apercuHmCkd).toHaveBeenCalledWith("p3");
+    expect(within(alice).queryByRole("textbox", { name: "Note" })).toBeNull();
+    expect(within(alice).getByRole("checkbox", { name: "Suivi du HM dans #managers-hq" })).toBeChecked();
+
+    fireEvent.change(message, { target: { value: " Her 2 missing posts are from Sunday, her first day. " } });
+    expect(within(alice).getByText("modifié pour ce posteur")).toBeInTheDocument();
+    fireEvent.click(within(alice).getByRole("button", { name: "Confirmer : Envoyer le nudge" }));
+    await waitFor(() =>
+      expect(api.deciderCkd).toHaveBeenCalledWith("p3", "nudge", null, {
+        popup: null,
+        hm: "Her 2 missing posts are from Sunday, her first day.",
+        suiviHm: true,
+      }),
+    );
+  });
+
+  it("suivi du HM décoché : seul le pop-up part, et la décision ne compte pas dans « Envoyer aux HM »", async () => {
+    rendre();
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    const alice = await screen.findByTestId("proposition-alice.utvecklas492");
+    fireEvent.click(within(alice).getByRole("button", { name: "Envoyer le nudge" }));
+    const suivi = await within(alice).findByRole("checkbox", { name: "Suivi du HM dans #managers-hq" });
+    await within(alice).findByRole("textbox", { name: "Message au HM" });
+    fireEvent.click(suivi);
+    expect(within(alice).queryByRole("textbox", { name: "Message au HM" })).toBeNull();
+    expect(within(alice).getByText(/seul le pop-up part/)).toBeInTheDocument();
+    fireEvent.click(within(alice).getByRole("button", { name: "Confirmer : Envoyer le nudge" }));
+    await waitFor(() =>
+      expect(api.deciderCkd).toHaveBeenCalledWith("p3", "nudge", null, { popup: null, hm: null, suiviHm: false }),
     );
   });
 
@@ -430,6 +472,35 @@ describe("AdminCheckKillDoublePage", () => {
     expect(confirmer).toBeEnabled();
     fireEvent.click(confirmer);
     await waitFor(() => expect(api.deciderCkd).toHaveBeenCalledWith("p3", "nudge", null));
+  });
+
+  it("un nudge décidé sans suivi du HM : affiché comme tel, jamais à envoyer aux HM", async () => {
+    const avant = api.listerPropositions.getMockImplementation()!;
+    api.listerPropositions.mockImplementation(async (id: string) =>
+      id === "ctrl-jeudi"
+        ? [
+          proposition({
+            id: "p3",
+            controle_id: "ctrl-jeudi",
+            type: "jeudi",
+            jour: "2026-10-22",
+            regle: "jeudi",
+            action: "nudge",
+            decision: "nudge",
+            decision_par: "admin-1",
+            decision_at: "2026-10-22T10:00:00Z",
+            hm_suivi: false,
+            donnees: { ...proposition({}).donnees, handle: "alice.utvecklas492", motifs: ["discipline"] },
+          }),
+        ]
+        : avant(id),
+    );
+    rendre();
+    fireEvent.click(await screen.findByRole("tab", { name: "Jeudi : nudges" }));
+    const alice = await screen.findByTestId("proposition-alice.utvecklas492");
+    expect(await within(alice).findByText(/sans suivi HM/)).toBeInTheDocument();
+    expect(within(alice).queryByText(/pas encore envoyé au HM/)).toBeNull();
+    expect(screen.getByRole("button", { name: "Envoyer aux HM (0)" })).toBeDisabled();
   });
 
   it("montre les nudges du jeudi avec leurs motifs", async () => {

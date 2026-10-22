@@ -3,6 +3,7 @@ import {
   blocsRecap,
   blocsZone,
   COLONNES_PROPOSITION,
+  consigneNudge,
   DECISIONS_ENVOYEES,
   maintenantParis,
   majRecap,
@@ -38,6 +39,9 @@ type Supabase = ReturnType<typeof serviceClient>;
  *       Dans le fil du samedi : qui ne pas financer, qui passe à 2 comptes.
  *   { action: "verifier_slack" }                                       admin
  *       Le jeton marche-t-il, et le bot est-il dans le canal ? N'écrit rien.
+ *   { action: "apercu_hm", id }                                        admin
+ *       La consigne par défaut d'un nudge pour le HM (ce qu'il vérifie avec
+ *       le posteur), que la page pré-remplit et laisse modifier (0339).
  *
  * Le bouton Done des messages arrive dans `slack-interactions`.
  * Secrets : SLACK_HM_BOT_TOKEN (le bot « Sophia OS »), CRON_SECRET.
@@ -73,6 +77,8 @@ Deno.serve(async (request) => {
       }
       case "verifier_slack":
         return json(await verifierSlack(supabase));
+      case "apercu_hm":
+        return json(await apercuHm(supabase, String(body.id ?? "")));
       default:
         return json({ ok: false, error: "action inconnue" }, 400);
     }
@@ -282,7 +288,9 @@ async function envoyer(supabase: Supabase, controleId: string) {
     .select(COLONNES_PROPOSITION)
     .eq("controle_id", controleId)
     .in("decision", DECISIONS_ENVOYEES as unknown as string[])
-    .is("envoye_at", null);
+    .is("envoye_at", null)
+    // Suivi du HM désactivé sur la page (0339) : rien dans #managers-hq.
+    .eq("hm_suivi", true);
   if (errProps) throw errProps;
   // Recréer et Doubler ne partent qu'avec leur nouveau compte.
   const props = ((brutes ?? []) as PropositionSlack[]).filter(
@@ -364,6 +372,14 @@ async function rappel(supabase: Supabase, controleId: string) {
   if (!r.ok) throw new Error(`Slack : ${r.error}`);
   await supabase.from("ckd_controles").update({ rappel_at: new Date().toISOString() }).eq("id", controleId);
   return { ok: true, rappel: true };
+}
+
+async function apercuHm(supabase: Supabase, id: string) {
+  if (!id) throw new Error("id requis");
+  const { data, error } = await supabase.from("ckd_propositions").select(COLONNES_PROPOSITION).eq("id", id).single();
+  if (error) throw error;
+  const [zone] = await zonesDe(supabase, [{ ...(data as PropositionSlack), hm_texte: null }]);
+  return { ok: true, texte: consigneNudge(zone.decisions[0]) };
 }
 
 async function verifierSlack(supabase: Supabase) {

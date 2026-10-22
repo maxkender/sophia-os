@@ -6,7 +6,8 @@
  *  - Slack : seuls les vrais messages racines des canaux suivis sont des
  *    questions, les admins n'en posent pas, un bot ne se répond pas ;
  *  - un fil : l'auteur ne relance qu'après une vraie réponse, un poster de
- *    passage ne règle rien, l'équipe (l'« on it » de l'IT guy compris) oui.
+ *    passage ne règle rien, l'équipe oui ; un « on it » n'est jamais une
+ *    réponse : celui de l'IT guy passe la question en suivi IT.
  */
 
 import { assert, assertEquals } from "jsr:@std/assert@1";
@@ -224,10 +225,30 @@ Deno.test("fil : l'équipe règle la question, un poster de passage non", () => 
     reponse_humaine: "No, never delete them",
     reponse_humaine_par: "U0BL6E14JKH",
   });
-  assertEquals(suiteDeFil({ ...attente, etat: "relance" }, "U0BMTK7BLCW", "on it", equipe)?.etat, "traite_slack");
+  assertEquals(suiteDeFil({ ...attente, etat: "relance" }, "U0BMTK7BLCW", "Fixed, try again", equipe)?.etat, "traite_slack");
   assertEquals(suiteDeFil({ ...attente, etat: "a_valider" }, "U0BL6E14JKH", "Yes you can", equipe)?.etat, "traite_slack");
   assertEquals(suiteDeFil(attente, "UAUTRE", "same here", equipe), null);
   assertEquals(suiteDeFil(attente, "U0BL6E14JKH", "   ", equipe), null);
+});
+
+Deno.test("fil : « on it » n'est pas une réponse ; celui de l'IT guy passe la question en suivi IT", () => {
+  const equipe = new Set(["U0BL6E14JKH", "U0BMTK7BLCW"]);
+  const attente = { etat: "a_traiter" as const, slack_user_id: "UPOSTER", envoye_at: null, reponse_humaine: null };
+  // Karmen, 22/10 : message d'attente, puis l'« on it » de l'IT guy (compte d'Adrien).
+  assertEquals(suiteDeFil(attente, "U0BMTK7BLCW", "on it *Sent using* Claude", equipe), {
+    etat: "bug",
+    it_statut: "pris_en_charge",
+  });
+  assertEquals(suiteDeFil({ ...attente, etat: "a_valider" }, "U0BMTK7BLCW", "On it!", equipe)?.etat, "bug");
+  // Son vrai message, au passage suivant : la question est réglée, avec ce texte.
+  const prise = { ...attente, etat: "bug" as const, it_statut: "pris_en_charge" as const };
+  assertEquals(suiteDeFil(prise, "U0BMTK7BLCW", "Hi Karmen! Your words do match.", equipe), {
+    it_statut: "repondu",
+    reponse_humaine: "Hi Karmen! Your words do match.",
+    reponse_humaine_par: "U0BMTK7BLCW",
+  });
+  // Un « on it » d'Aram ne règle rien et ne passe pas la question à l'IT guy.
+  assertEquals(suiteDeFil(attente, "U0BL6E14JKH", "on it", equipe), null);
 });
 
 Deno.test("fil : sur une question répondue, on garde la première réponse humaine pour comparer", () => {

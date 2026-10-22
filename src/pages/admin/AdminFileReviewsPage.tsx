@@ -71,6 +71,7 @@ import { besoinResoudreTiktok, idTiktokDepuisUrl } from "@/features/reviews/tikt
 import { controlerVideoRemarque, premierFichierVideo } from "@/features/reviews/videoRemarque";
 import { cn } from "@/lib/utils";
 import { AvatarCompte } from "@/features/moteur/VignetteCompte";
+import { localeDate } from "@/locales/localeDate";
 
 /** « Tester » : l'agent relit le post (scrape puis mesure), on le rappelle jusqu'au verdict. */
 const SONDAGE_TEST_MS = 5000;
@@ -523,7 +524,7 @@ export function AdminFileReviewsPage() {
   const titreRemarque = (c: CompteRemarque) =>
     (remarques.data ?? []).find((r) => r.id === c.id)?.titre || c.titre;
 
-  const labelJour = new Date(`${jour}T12:00:00`).toLocaleDateString(i18n.language, {
+  const labelJour = new Date(`${jour}T12:00:00`).toLocaleDateString(localeDate(i18n.language), {
     weekday: "long",
     day: "numeric",
     month: "long",

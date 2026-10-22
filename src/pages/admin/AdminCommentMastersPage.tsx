@@ -52,6 +52,7 @@ import {
 import { drapeauLangue, nomLangue } from "@/features/moteur/langues";
 import { drapeauPays, nomPaysIso } from "@/features/moteur/pays";
 import { cn } from "@/lib/utils";
+import { localeDate } from "@/locales/localeDate";
 
 const CLE = ["comment-masters"] as const;
 
@@ -69,7 +70,7 @@ function useFormatDate() {
   return React.useCallback(
     (iso: string | null | undefined, avecHeure = false) => {
       if (!iso) return "";
-      return new Intl.DateTimeFormat(i18n.language, {
+      return new Intl.DateTimeFormat(localeDate(i18n.language), {
         timeZone: "Europe/Paris",
         day: "2-digit",
         month: "2-digit",
@@ -116,7 +117,7 @@ export function AdminCommentMastersPage() {
   const recalibrage = useQuery({ queryKey: [...CLE, "recalibrage"], queryFn: lireDernierRecalibrage });
 
   const erreur = config.error ?? candidats.error ?? stats.error;
-  const libelleMois = new Intl.DateTimeFormat(i18n.language, {
+  const libelleMois = new Intl.DateTimeFormat(localeDate(i18n.language), {
     month: "long",
     year: "numeric",
     timeZone: "UTC",

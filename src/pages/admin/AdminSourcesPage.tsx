@@ -41,6 +41,7 @@ import { ImportJobsPanel } from "@/features/moteur/ImportJobsPanel";
 import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import type { CompteReference, Label as NicheLabel } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
+import { localeDate } from "@/locales/localeDate";
 
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
@@ -592,7 +593,7 @@ function LigneSource({
               source.niche,
               source.dernier_scrape_at
                 ? t("sources.extraitLe", {
-                    date: new Date(source.dernier_scrape_at).toLocaleDateString(i18n.language),
+                    date: new Date(source.dernier_scrape_at).toLocaleDateString(localeDate(i18n.language)),
                   })
                 : t("sources.jamais"),
             ]

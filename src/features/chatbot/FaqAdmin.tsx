@@ -34,6 +34,7 @@ import {
   type ReglagesFaq,
   VARIANTE_ETAT,
 } from "./faq";
+import { localeDate } from "@/locales/localeDate";
 
 const CLE = ["faq"] as const;
 
@@ -183,7 +184,7 @@ function ReglagesFaqCard({
                 {pages.length && derniere
                   ? t("chatbot.faq.guidePages", {
                     n: pages.length,
-                    date: new Date(derniere).toLocaleString(i18n.language),
+                    date: new Date(derniere).toLocaleString(localeDate(i18n.language)),
                   })
                   : t("chatbot.faq.guideVide")}
               </p>
@@ -247,7 +248,7 @@ function Entete({ q }: { q: QuestionFaq }) {
         ? <Badge variant={VARIANTE_ETAT[q.etat]}>{t(`chatbot.faq.etats.${q.etat}`)}</Badge>
         : <Badge variant="outline">{t("chatbot.faq.ancien")}</Badge>}
       {q.test && <Badge variant="outline">{t("chatbot.faq.test")}</Badge>}
-      <span className="text-xs text-muted-foreground">{new Date(q.created_at).toLocaleString(i18n.language)}</span>
+      <span className="text-xs text-muted-foreground">{new Date(q.created_at).toLocaleString(localeDate(i18n.language))}</span>
       {q.slack_canal && q.slack_ts && (
         <a
           href={lienSlack(q.slack_canal, q.slack_ts)}

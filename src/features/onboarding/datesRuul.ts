@@ -10,6 +10,7 @@
  * - Premier paiement : le lundi qui suit la première semaine de posts
  *   (lundi → dimanche), comme chaque paiement ensuite.
  */
+import { localeDate } from "@/locales/localeDate";
 
 export type ConseilWarmupRuul =
   /** Pas lancé, au plus tard le dimanche d'avant le lundi : posts le lundi. */
@@ -110,14 +111,14 @@ export function friseRuul(opts: {
 
 /** « Monday 26 October » dans la langue de l'interface (date de calendrier). */
 export function formaterJour(jour: string, langue: string): string {
-  return new Intl.DateTimeFormat(langue, { weekday: "long", day: "numeric", month: "long", timeZone: "UTC" }).format(
+  return new Intl.DateTimeFormat(localeDate(langue), { weekday: "long", day: "numeric", month: "long", timeZone: "UTC" }).format(
     new Date(`${jour}T12:00:00Z`),
   );
 }
 
 /** « Monday 26 October, 00:00 » en heure de Paris. */
 export function formaterInstantParis(instant: string, langue: string): string {
-  return new Intl.DateTimeFormat(langue, {
+  return new Intl.DateTimeFormat(localeDate(langue), {
     weekday: "long",
     day: "numeric",
     month: "long",

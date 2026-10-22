@@ -36,6 +36,7 @@ import { CLASSEMENTS } from "@/features/moteur/classementComptes";
 import { LigneTiersApplicationsMinuit } from "@/features/moteur/multiapp/TiersApplicationsRun";
 import { nomLangue } from "@/features/moteur/langues";
 import { cn } from "@/lib/utils";
+import { localeDate } from "@/locales/localeDate";
 
 function BanniereAssignation({
   data,
@@ -624,11 +625,11 @@ export function AdminMinuitPage() {
               <p className="font-medium text-foreground">
                 {eloRun.data.done
                   ? t("minuit.eloDernierRunDone", {
-                      at: new Date(eloRun.data.at).toLocaleString(),
+                      at: new Date(eloRun.data.at).toLocaleString(localeDate()),
                       n: eloRun.data.traitesCumules ?? eloRun.data.total ?? 0,
                     })
                   : t("minuit.eloDernierRunProgress", {
-                      at: new Date(eloRun.data.at).toLocaleString(),
+                      at: new Date(eloRun.data.at).toLocaleString(localeDate()),
                       i: eloRun.data.traitesCumules ?? eloRun.data.offset ?? 0,
                       n: eloRun.data.total ?? "?",
                     })}

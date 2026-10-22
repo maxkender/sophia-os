@@ -84,7 +84,7 @@ describe("calendrier poster : warm-up jusqu'au lundi", () => {
     // Hors cohorte Ruul : la même frise, payée par le HM sur Upwork.
     expect(screen.getByText("Your first week, step by step")).toBeInTheDocument();
     expect(screen.getByText("First payment, through Upwork")).toBeInTheDocument();
-    expect(screen.getByText(/For your first week of posts \(Monday, October 26 → Sunday, November 1\)/)).toBeInTheDocument();
+    expect(screen.getByText(/For your first week of posts \(Monday 26 October → Sunday 1 November\)/)).toBeInTheDocument();
     expect(screen.queryByText(/through Ruul/)).not.toBeInTheDocument();
   });
 
@@ -93,8 +93,8 @@ describe("calendrier poster : warm-up jusqu'au lundi", () => {
     afficher();
 
     expect(await screen.findByText("Your first week, step by step")).toBeInTheDocument();
-    expect(screen.getByText(/Now, and on Sunday, October 25 at the latest/)).toBeInTheDocument();
-    expect(screen.getByText("Monday, October 26, in the morning")).toBeInTheDocument();
+    expect(screen.getByText(/Now, and on Sunday 25 October at the latest/)).toBeInTheDocument();
+    expect(screen.getByText("Monday 26 October, in the morning")).toBeInTheDocument();
     expect(screen.getByText("First payment, through Upwork")).toBeInTheDocument();
     expect(screen.queryByText(/FIRST POSTS/)).not.toBeInTheDocument();
   });

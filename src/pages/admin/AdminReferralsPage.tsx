@@ -25,6 +25,7 @@ import {
   bonusPotentielUsd,
   type StatutReferral,
 } from "@/features/referral/referral";
+import { localeDate } from "@/locales/localeDate";
 
 function badgeStatut(statut: StatutReferral): "warning" | "success" | "destructive" {
   if (statut === "accepte") return "success";
@@ -78,11 +79,11 @@ function LigneReferral({
         ))}
       </ul>
       <p className="text-xs text-muted-foreground">
-        {t("referral.recuLe")} {new Date(row.created_at).toLocaleString(i18n.language)}
+        {t("referral.recuLe")} {new Date(row.created_at).toLocaleString(localeDate(i18n.language))}
         {row.decide_at && (
           <>
             {" · "}
-            {t("referral.decideLe")} {new Date(row.decide_at).toLocaleString(i18n.language)}
+            {t("referral.decideLe")} {new Date(row.decide_at).toLocaleString(localeDate(i18n.language))}
           </>
         )}
       </p>

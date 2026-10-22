@@ -27,12 +27,13 @@ import {
 } from "@/features/revenuecat/performanceCreateurs";
 import type { ChartNormalise, ChartRcBrut, MesureRc } from "@/features/revenuecat/types";
 import { cn } from "@/lib/utils";
+import { localeDate } from "@/locales/localeDate";
 
 const TTL_MS = 4 * 60 * 60 * 1000;
 
 function libellePeriode(iso: string, locale: string): string {
   const [y, m, d] = iso.split("-").map(Number);
-  return new Date(y, m - 1, d).toLocaleDateString(locale, {
+  return new Date(y, m - 1, d).toLocaleDateString(localeDate(locale), {
     day: "2-digit",
     month: "short",
   });
@@ -42,7 +43,7 @@ function formaterQuand(iso: string | undefined, locale: string): string {
   if (!iso) return "—";
   const d = new Date(iso);
   if (Number.isNaN(d.getTime())) return "—";
-  return d.toLocaleString(locale, { dateStyle: "short", timeStyle: "short" });
+  return d.toLocaleString(localeDate(locale), { dateStyle: "short", timeStyle: "short" });
 }
 
 function TableauPaysPeriodes({

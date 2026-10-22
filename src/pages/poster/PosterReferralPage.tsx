@@ -24,6 +24,7 @@ import {
   type ReferralPayload,
   type StatutReferral,
 } from "@/features/referral/referral";
+import { localeDate } from "@/locales/localeDate";
 
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
@@ -259,7 +260,7 @@ export function PosterReferralPage() {
                   </div>
                   <p className="text-xs text-muted-foreground">
                     {drapeauLangue(r.pays)} {t(`referral.pays.${r.pays}`)} ·{" "}
-                    {new Date(r.created_at).toLocaleDateString(i18n.language)}
+                    {new Date(r.created_at).toLocaleDateString(localeDate(i18n.language))}
                   </p>
                 </li>
               ))}

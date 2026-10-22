@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 
 import { LecteurVideosReview } from "./LecteurVideosReview";
 import { TikTokEmbed } from "./TikTokEmbed";
+import { localeDate } from "@/locales/localeDate";
 
 /** Ce que le parcours affiche d'un retour : le message et le post qu'il commente. */
 export type RetourAffiche = Pick<
@@ -118,7 +119,7 @@ export function RetourParcours({
   const compte =
     retour.compte_label || (retour.handle_tiktok ? `@${retour.handle_tiktok.replace(/^@/, "")}` : null);
   const date = retour.date_publication
-    ? new Date(`${retour.date_publication}T12:00:00`).toLocaleDateString(i18n.language, {
+    ? new Date(`${retour.date_publication}T12:00:00`).toLocaleDateString(localeDate(i18n.language), {
         day: "numeric",
         month: "long",
       })

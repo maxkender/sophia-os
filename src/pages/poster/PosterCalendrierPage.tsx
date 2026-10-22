@@ -43,6 +43,7 @@ import { statutWarmup } from "@/features/moteur/warmup";
 import { calendrierWarmup, lundiApres, premierJourPosts } from "@/features/moteur/premiersPosts";
 import { useAuth } from "@/features/auth/AuthContext";
 import { cn } from "@/lib/utils";
+import { localeDate } from "@/locales/localeDate";
 
 interface PostCalendrier {
   id: string;
@@ -338,7 +339,7 @@ export function PosterCalendrierPage() {
   // Noms de jours tirés de la locale plutôt que codés en dur : une bascule en
   // anglais ne doit pas laisser « lun mar mer » dans la grille.
   const enTetes = Array.from({ length: 7 }, (_, index) =>
-    new Date(2024, 0, index + 1).toLocaleDateString(i18n.language, { weekday: "short" }),
+    new Date(2024, 0, index + 1).toLocaleDateString(localeDate(i18n.language), { weekday: "short" }),
   );
 
   const warmupStatut = compte

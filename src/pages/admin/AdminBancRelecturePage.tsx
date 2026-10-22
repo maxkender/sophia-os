@@ -61,6 +61,7 @@ import {
 import { RetourParcours } from "@/features/reviews/RetourParcours";
 import { TikTokEmbed } from "@/features/reviews/TikTokEmbed";
 import { cn } from "@/lib/utils";
+import { localeDate } from "@/locales/localeDate";
 
 type Filtre = "tous" | "avecMessage" | "sansMessage" | "horsBanc";
 const FILTRES: Filtre[] = ["tous", "avecMessage", "sansMessage", "horsBanc"];
@@ -167,7 +168,7 @@ export function AdminBancRelecturePage() {
   });
 
   const labelJour = (j: string) =>
-    new Date(`${j}T12:00:00`).toLocaleDateString(i18n.language, { weekday: "long", day: "numeric", month: "long" });
+    new Date(`${j}T12:00:00`).toLocaleDateString(localeDate(i18n.language), { weekday: "long", day: "numeric", month: "long" });
   const libelleCode = (code: string) => t(`banc.codes.${code}`, { defaultValue: code });
 
   return (

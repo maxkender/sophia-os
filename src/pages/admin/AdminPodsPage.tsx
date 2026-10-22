@@ -35,6 +35,7 @@ import {
   type PreuveOriginal,
   type StatutLivraison,
 } from "@/features/pods/api";
+import { localeDate } from "@/locales/localeDate";
 
 function varianteStatut(s: StatutLivraison): "warning" | "success" | "destructive" | "secondary" {
   if (s === "validee") return "success";
@@ -124,7 +125,7 @@ function Preuve({ preuve }: { preuve: PreuveOriginal }) {
               <a className="inline-flex items-center gap-1 underline" href={r.url} target="_blank" rel="noreferrer">
                 {t("pods.preuveTiktok", {
                   vues: nombreCourt(r.vues),
-                  date: new Date(`${r.publie_le}T12:00:00Z`).toLocaleDateString(),
+                  date: new Date(`${r.publie_le}T12:00:00Z`).toLocaleDateString(localeDate()),
                 })}
                 <ExternalLink className="size-3" />
               </a>
@@ -209,7 +210,7 @@ function LigneLivraison({ livraison, pod }: { livraison: Livraison; pod?: Pod })
             echeance && (
               <p className="text-xs text-muted-foreground">
                 {t("pods.autoEcheance", {
-                  heure: echeance.toLocaleString(undefined, { weekday: "short", hour: "2-digit", minute: "2-digit" }),
+                  heure: echeance.toLocaleString(localeDate(), { weekday: "short", hour: "2-digit", minute: "2-digit" }),
                 })}
               </p>
             )
@@ -394,7 +395,7 @@ function TableauDeBord() {
           <div className="flex flex-wrap gap-1 text-xs">
             {data.jours.slice(-8).map((j) => (
               <span key={j.jour} className="rounded border px-2 py-1 tabular-nums" title={`${j.publies_pods} / ${j.publies}`}>
-                {new Date(`${j.jour}T12:00:00Z`).toLocaleDateString(undefined, { day: "2-digit", month: "2-digit" })} ·{" "}
+                {new Date(`${j.jour}T12:00:00Z`).toLocaleDateString(localeDate(), { day: "2-digit", month: "2-digit" })} ·{" "}
                 {j.part == null ? vide : `${j.part.toLocaleString()} %`}
               </span>
             ))}

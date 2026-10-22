@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/card";
 import { envoyerReview, listerPosters, listerReviews, type Review } from "@/features/moteur/api";
 import type { PosterProfil } from "@/features/moteur/types";
+import { localeDate } from "@/locales/localeDate";
 
 /** Un créateur + son composeur de review + le statut de la dernière envoyée. */
 function LigneReview({
@@ -70,7 +71,7 @@ function LigneReview({
           )}
           {derniere.body}
           <span className="ml-1 opacity-70">
-            · {new Date(derniere.created_at).toLocaleDateString(i18n.language)}
+            · {new Date(derniere.created_at).toLocaleDateString(localeDate(i18n.language))}
           </span>
         </p>
       )}

@@ -11,6 +11,7 @@ import {
   type ImportHistoriqueLigne,
 } from "@/features/moteur/api";
 import { cn } from "@/lib/utils";
+import { localeDate } from "@/locales/localeDate";
 
 function resumeStatut(ligne: ImportHistoriqueLigne): {
   labelKey: string;
@@ -80,7 +81,7 @@ function LigneHistorique({
               <Badge variant="outline">{t("sources.histForce")}</Badge>
             )}
             <span className="text-[11px] text-muted-foreground">
-              {new Date(ligne.createdAt).toLocaleString(undefined, {
+              {new Date(ligne.createdAt).toLocaleString(localeDate(), {
                 day: "2-digit",
                 month: "2-digit",
                 hour: "2-digit",

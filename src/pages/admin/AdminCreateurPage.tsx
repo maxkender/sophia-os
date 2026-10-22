@@ -31,6 +31,7 @@ import {
 } from "@/features/moteur/api";
 import { nomLangue } from "@/features/moteur/langues";
 import { cn } from "@/lib/utils";
+import { localeDate } from "@/locales/localeDate";
 
 function abrege(n: number): string {
   if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
@@ -123,7 +124,7 @@ export function AdminCreateurPage() {
     ? `https://www.tiktok.com/@${c.handle_tiktok.replace(/^@/, "")}`
     : null;
   const labelDate = date
-    ? new Date(`${date}T12:00:00`).toLocaleDateString(i18n.language, {
+    ? new Date(`${date}T12:00:00`).toLocaleDateString(localeDate(i18n.language), {
         weekday: "long",
         day: "numeric",
         month: "long",
@@ -176,7 +177,7 @@ export function AdminCreateurPage() {
               {c.classement_maj_at && (
                 <span className="text-xs">
                   {t("classement.maj", {
-                    date: new Date(c.classement_maj_at).toLocaleString(i18n.language),
+                    date: new Date(c.classement_maj_at).toLocaleString(localeDate(i18n.language)),
                   })}
                 </span>
               )}
@@ -357,9 +358,9 @@ export function AdminCreateurPage() {
                 <p className="text-xs text-muted-foreground">
                   {[
                     p.date_publication_prevue
-                      ? new Date(p.date_publication_prevue).toLocaleDateString(i18n.language)
+                      ? new Date(p.date_publication_prevue).toLocaleDateString(localeDate(i18n.language))
                       : p.publie_at
-                        ? new Date(p.publie_at).toLocaleDateString(i18n.language)
+                        ? new Date(p.publie_at).toLocaleDateString(localeDate(i18n.language))
                         : null,
                     p.langue ? nomLangue(p.langue) : null,
                   ]

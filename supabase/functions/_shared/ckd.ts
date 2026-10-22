@@ -34,6 +34,8 @@ export interface DecisionSlack {
   publies: number | null;
   attendus: number | null;
   note: string | null;
+  /** Le message au HM modifié sur la page pour ce posteur (0339) : remplace la consigne par défaut d'un nudge. */
+  texteHm: string | null;
   fait: { par: string; heure: string } | null;
 }
 
@@ -135,6 +137,36 @@ const LIBELLE_DECISION: Record<DecisionEnvoyee, string> = {
   nudge: "nudge",
 };
 
+/**
+ * Ce que le HM doit faire avec un posteur nudgé, sans l'en-tête ni la note :
+ * le jeudi, quoi vérifier motif par motif ; le samedi (absent), la question à
+ * lui poser. C'est le texte que la page pré-remplit et que l'admin peut
+ * modifier pour ce posteur (`texteHm`).
+ */
+export function consigneNudge(d: Pick<DecisionSlack, "regle" | "motifs" | "publies" | "attendus">): string {
+  if (d.regle === "jeudi") {
+    const publies = d.attendus ? ` (${d.publies ?? 0}/${d.attendus} published)` : "";
+    const lignes = d.motifs
+      .filter((m) => SUIVI_MOTIF[m])
+      .map((m) => `• ${SUIVI_MOTIF[m]}${m === "discipline" ? publies : ""}`);
+    return lignes.length > 0 ? lignes.join("\n") : "• Check in with them: they got a message in the OS.";
+  }
+  const publies = d.attendus ? ` Posted ${d.publies ?? 0}/${d.attendus} this week.` : "";
+  return `They got a message in the OS.${publies} Talk to them today: are they posting without pasting the links ` +
+    "in the OS, or not posting at all?";
+}
+
+/** `&`, `<` et `>` sont des caractères de contrôle du mrkdwn de Slack. */
+function echapperSlack(texte: string): string {
+  return texte.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+/** La consigne qui part : celle modifiée sur la page (échappée), sinon celle par défaut. */
+function consigneEnvoyee(d: DecisionSlack): string {
+  const modifiee = d.texteHm?.trim();
+  return modifiee ? echapperSlack(modifiee) : consigneNudge(d);
+}
+
 /** Le texte d'une décision dans le fil de sa zone (samedi). */
 export function texteDecision(d: DecisionSlack, semaine: number): string {
   const qui = `${compte(d.handle)} (${[d.poster, drapeauPays(d.pays)].filter(Boolean).join(" ")})${lienTiktok(d.handle)}`;
@@ -158,12 +190,8 @@ export function texteDecision(d: DecisionSlack, semaine: number): string {
         `start the warm-up in the OS before Sunday midnight. Next milestone: "Week ${semaine} (2 acc)".`,
     );
   } else {
-    const publies = d.attendus ? ` Posted ${d.publies ?? 0}/${d.attendus} this week.` : "";
     lignes.push(`:speech_balloon: *Follow up* ${qui}`);
-    lignes.push(
-      `They got a message in the OS.${publies} Talk to them today: are they posting without pasting the links ` +
-        "in the OS, or not posting at all?",
-    );
+    lignes.push(consigneEnvoyee(d));
   }
   if (d.note) lignes.push(`_Note: ${d.note}_`);
   return lignes.join("\n");
@@ -172,13 +200,7 @@ export function texteDecision(d: DecisionSlack, semaine: number): string {
 /** Le texte d'un nouveau posteur à relancer (jeudi) : quoi vérifier avec lui. */
 export function texteSuiviJeudi(d: DecisionSlack): string {
   const qui = `${compte(d.handle)} (${[d.poster, drapeauPays(d.pays)].filter(Boolean).join(" ")})${lienTiktok(d.handle)}`;
-  const publies = d.attendus ? ` (${d.publies ?? 0}/${d.attendus} published)` : "";
-  const lignes = [`:eyes: *Follow up* ${qui}`];
-  for (const m of d.motifs) {
-    const texte = SUIVI_MOTIF[m];
-    if (texte) lignes.push(`• ${texte}${m === "discipline" ? publies : ""}`);
-  }
-  if (lignes.length === 1) lignes.push("• Check in with them: they got a message in the OS.");
+  const lignes = [`:eyes: *Follow up* ${qui}`, consigneEnvoyee(d)];
   if (d.note) lignes.push(`_Note: ${d.note}_`);
   return lignes.join("\n");
 }
@@ -312,6 +334,7 @@ export interface PropositionSlack {
   pays: string | null;
   donnees: { handle?: string | null; motifs?: string[]; periode?: { publies?: number; attendus?: number } };
   note: string | null;
+  hm_texte: string | null;
   nouveau_compte_id: string | null;
   envoye_at: string | null;
   fait_at: string | null;
@@ -320,7 +343,7 @@ export interface PropositionSlack {
 }
 
 export const COLONNES_PROPOSITION =
-  "id, controle_id, regle, decision, compte_id, poster_id, hm_id, pays, donnees, note, nouveau_compte_id, envoye_at, fait_at, fait_par, slack_ts";
+  "id, controle_id, regle, decision, compte_id, poster_id, hm_id, pays, donnees, note, hm_texte, nouveau_compte_id, envoye_at, fait_at, fait_par, slack_ts";
 
 function nom(p: { prenom: string | null; nom: string | null } | undefined): string {
   return [p?.prenom, p?.nom].filter(Boolean).join(" ").trim();
@@ -388,6 +411,7 @@ export async function zonesDe(supabase: Supabase, props: PropositionSlack[]): Pr
       publies: p.donnees?.periode?.publies ?? null,
       attendus: p.donnees?.periode?.attendus ?? null,
       note: p.note,
+      texteHm: p.hm_texte ?? null,
       fait: p.fait_at && p.fait_par ? { par: p.fait_par, heure: heureCourteParis(p.fait_at) } : null,
     });
   }

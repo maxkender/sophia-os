@@ -217,6 +217,8 @@ export const DECISIONS_ENVOYEES: readonly DecisionCkd[] = ["ne_pas_renouveler", 
 /** Décidée, pas encore partie au HM, et prête à partir (compte créé pour Recréer / Doubler). */
 export function aEnvoyer(p: PropositionCkd): boolean {
   if (!p.decision || p.envoye_at || !DECISIONS_ENVOYEES.includes(p.decision)) return false;
+  // Suivi du HM désactivé (0339) : rien ne part dans #managers-hq.
+  if (p.hm_suivi === false) return false;
   return !creeUnCompte(p.decision) || Boolean(p.nouveau_compte_id);
 }
 

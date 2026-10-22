@@ -164,6 +164,9 @@ describe("décisions", () => {
     expect(aEnvoyer(proposition({ action: "recreer", decision: "garder" }))).toBe(false);
     expect(aEnvoyer(proposition({ action: "nudge", decision: "nudge", envoye_at: "2026-10-24T10:00:00Z" }))).toBe(false);
     expect(aEnvoyer(proposition({ action: "nudge" }))).toBe(false);
+    expect(aEnvoyer(proposition({ action: "nudge", decision: "nudge" }))).toBe(true);
+    // Suivi du HM désactivé : jamais dans #managers-hq.
+    expect(aEnvoyer(proposition({ action: "nudge", decision: "nudge", hm_suivi: false }))).toBe(false);
   });
 
   it("annulable : comme ckd_annuler", () => {

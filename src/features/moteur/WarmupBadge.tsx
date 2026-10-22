@@ -9,6 +9,7 @@ import {
   statutWarmup,
   warmupRestantMs,
 } from "@/features/moteur/warmup";
+import { localeDate } from "@/locales/localeDate";
 
 /**
  * Badge des 3 phases créateur : compte pas créé → warmup → actif.
@@ -93,7 +94,7 @@ export function WarmupBadge({
   const restant = warmupRestantMs(endsAt);
   return (
     <span className="inline-flex flex-wrap items-center gap-2">
-      <Badge variant="warning" title={endsAt ? new Date(endsAt).toLocaleString() : undefined}>
+      <Badge variant="warning" title={endsAt ? new Date(endsAt).toLocaleString(localeDate()) : undefined}>
         {libelle ?? t("warmup.phaseWarmup", { temps: formaterDuree(restant) })}
       </Badge>
       {showSkip && onSkip && (

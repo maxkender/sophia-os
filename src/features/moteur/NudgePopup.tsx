@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/dialog";
 import { useAuth } from "@/features/auth/AuthContext";
 import { etatOnboarding, marquerNudgeLu, mesNudges, mesReviewsNonVues } from "@/features/moteur/api";
+import { localeDate } from "@/locales/localeDate";
 
 /**
  * Nudge côté créateur : le message déposé depuis la page de surveillance (ou
@@ -96,7 +97,7 @@ function NudgesPoster() {
             </div>
           )}
           <p className="text-xs text-muted-foreground">
-            {new Date(courant.created_at).toLocaleString(i18n.language)}
+            {new Date(courant.created_at).toLocaleString(localeDate(i18n.language))}
           </p>
         </DialogPanel>
         <DialogFooter>

@@ -77,6 +77,7 @@ import {
 } from "@/features/ckd/logique";
 import { drapeauPays, nomPaysIso } from "@/features/moteur/pays";
 import { cn } from "@/lib/utils";
+import { localeDate } from "@/locales/localeDate";
 
 const CLE = ["ckd"] as const;
 
@@ -110,7 +111,7 @@ function useDate() {
       if (!iso) return "";
       // Une date seule (« 2026-10-24 ») est une date de Paris : midi évite tout décalage.
       const d = iso.length === 10 ? new Date(`${iso}T12:00:00Z`) : new Date(iso);
-      return new Intl.DateTimeFormat(i18n.language, { timeZone: "Europe/Paris", ...options }).format(d);
+      return new Intl.DateTimeFormat(localeDate(i18n.language), { timeZone: "Europe/Paris", ...options }).format(d);
     },
     [i18n.language],
   );

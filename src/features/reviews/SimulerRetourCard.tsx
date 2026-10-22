@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { listerReviewsExemples } from "@/features/moteur/api";
 
 import { RetourParcours } from "./RetourParcours";
+import { localeDate } from "@/locales/localeDate";
 
 const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
@@ -47,7 +48,7 @@ export function SimulerRetourCard() {
               >
                 {(exemples.data ?? []).map((r) => (
                   <option key={r.id} value={r.id}>
-                    {new Date(r.created_at).toLocaleDateString(i18n.language, { day: "numeric", month: "short" })}
+                    {new Date(r.created_at).toLocaleDateString(localeDate(i18n.language), { day: "numeric", month: "short" })}
                     {" · "}
                     {r.compte_label || (r.handle_tiktok ? `@${r.handle_tiktok}` : "—")}
                     {" · "}

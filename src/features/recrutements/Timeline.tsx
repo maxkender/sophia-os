@@ -42,6 +42,7 @@ import type {
   RecrutementCreateur,
   RecrutementHm,
 } from "./types";
+import { localeDate } from "@/locales/localeDate";
 
 const ICONES_PHASE0: Record<EtapePhase0, LucideIcon> = {
   talks: MessageCircle,
@@ -63,7 +64,7 @@ const ICONES_CREATEUR: Record<EtapeCreateur, LucideIcon> = {
 
 function formatQuand(iso: string | null, lang: string): string | null {
   if (!iso) return null;
-  return new Date(iso).toLocaleString(lang, {
+  return new Date(iso).toLocaleString(localeDate(lang), {
     dateStyle: "medium",
     timeStyle: "short",
     timeZone: "Europe/Paris",
@@ -72,7 +73,7 @@ function formatQuand(iso: string | null, lang: string): string | null {
 
 function formatDateCourte(iso: string | null, lang: string): string | null {
   if (!iso) return null;
-  return new Date(iso).toLocaleDateString(lang, {
+  return new Date(iso).toLocaleDateString(localeDate(lang), {
     day: "numeric",
     month: "short",
     timeZone: "Europe/Paris",

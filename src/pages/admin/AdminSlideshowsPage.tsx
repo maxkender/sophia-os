@@ -92,6 +92,7 @@ import {
   executerEnLot,
 } from "@/lib/lot";
 import { cn } from "@/lib/utils";
+import { localeDate } from "@/locales/localeDate";
 
 /**
  * Où en est la requalification d'un cycle, en clair.
@@ -1735,7 +1736,7 @@ function DetailSlideshow({
                       <p className="text-muted-foreground">
                         {p.date_publication_prevue
                           ? new Date(p.date_publication_prevue).toLocaleDateString(
-                              i18n.language,
+                              localeDate(i18n.language),
                             )
                           : "—"}
                         {" · "}

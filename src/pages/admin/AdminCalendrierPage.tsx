@@ -34,6 +34,7 @@ import { nomApplicationPromue } from "@/features/moteur/repartition/logique";
 import { useApplicationsMulti } from "@/features/moteur/repartition/useMultiApp";
 import { AGENTS_UPSCALE, AGENTS_UPSCALE_SEEDVR, executerEnLot } from "@/lib/lot";
 import { cn } from "@/lib/utils";
+import { localeDate } from "@/locales/localeDate";
 
 function ajouterJours(yyyyMmDd: string, delta: number): string {
   const d = new Date(`${yyyyMmDd}T12:00:00`);
@@ -151,7 +152,7 @@ export function AdminCalendrierPage() {
   const prevus = duJour.length;
   const postes = duJour.filter(estPoste).length;
   const vides = duJour.filter((p) => p.slideshow_vide && !estPoste(p)).length;
-  const labelDate = new Date(`${date}T12:00:00`).toLocaleDateString(i18n.language, {
+  const labelDate = new Date(`${date}T12:00:00`).toLocaleDateString(localeDate(i18n.language), {
     weekday: "long",
     day: "numeric",
     month: "long",

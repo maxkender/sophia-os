@@ -1,0 +1,551 @@
+{
+ "id": "mm-o003",
+ "titre": "tier list of Discipline builders",
+ "position_app": 2,
+ "legendes": {
+  "en": "what actually builds discipline, ranked #discipline #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "ce qui construit vraiment la discipline, classé #discipline #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "was wirklich Disziplin aufbaut, im Ranking #disziplin #mentalmaxxing #tierlist #selbstverbesserung",
+  "es": "lo que de verdad construye disciplina, en ranking #disciplina #mentalmaxxing #tierlist #superacionpersonal",
+  "it": "cosa costruisce davvero la disciplina, in classifica #disciplina #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "disiplini gerçekten ne inşa eder, sıralama #disiplin #mentalmaxxing #tierlist #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7690401294120389889/2",
+   "boite": [
+    216,
+    6,
+    648,
+    498
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list :",
+   "de": "Tierlist:",
+   "es": "tier list:",
+   "it": "tier list:",
+   "tr": "tier list:"
+  },
+  "gros": {
+   "en": "Discipline",
+   "fr": "discipline",
+   "de": "Disziplin",
+   "es": "disciplina",
+   "it": "disciplina",
+   "tr": "disiplin"
+  },
+  "bas": {
+   "en": "builders",
+   "fr": "ce qui la construit",
+   "de": "was sie aufbaut",
+   "es": "lo que la construye",
+   "it": "cosa la costruisce",
+   "tr": "inşa edenler"
+  }
+ },
+ "titre_tableau": {
+  "en": "change my mind",
+  "fr": "fais-moi changer d’avis",
+  "de": "überzeug mich vom Gegenteil",
+  "es": "hazme cambiar de opinión",
+  "it": "fammi cambiare idea",
+  "tr": "fikrimi değiştir"
+ },
+ "pied": {
+  "en": "what built yours?",
+  "fr": "qu’est-ce qui a construit la tienne ?",
+  "de": "was hat deine aufgebaut?",
+  "es": "¿qué construyó la tuya?",
+  "it": "cosa ha costruito la tua?",
+  "tr": "seninkini ne inşa etti?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "builds it",
+    "fr": "la construit",
+    "de": "baut sie auf",
+    "es": "la construye",
+    "it": "la costruisce",
+    "tr": "inşa eder"
+   },
+   "cases": [
+    {
+     "app": true
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      28,
+      624,
+      196,
+      156
+     ],
+     "t": {
+      "en": "training|at 6am",
+      "fr": "muscu à 6h",
+      "de": "Training um 6",
+      "es": "entrenar|a las 6",
+      "it": "allenarsi alle 6",
+      "tr": "sabah 6’da spor"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      695,
+      236,
+      114,
+      152
+     ],
+     "t": {
+      "en": "cold shower",
+      "fr": "douche froide",
+      "de": "kalte Dusche",
+      "es": "ducha fría",
+      "it": "doccia fredda",
+      "tr": "soğuk duş"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      241,
+      864,
+      179,
+      116
+     ],
+     "t": {
+      "en": "making|your bed",
+      "fr": "faire son lit",
+      "de": "Bett machen",
+      "es": "hacer la cama",
+      "it": "rifare il letto",
+      "tr": "yatağını toplamak"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "strong",
+    "fr": "fort",
+    "de": "stark",
+    "es": "fuerte",
+    "it": "forte",
+    "tr": "güçlü"
+   },
+   "cases": [
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      662,
+      239,
+      102,
+      99
+     ],
+     "t": {
+      "en": "beating|your PR",
+      "fr": "battre ton record",
+      "de": "Rekord brechen",
+      "es": "superar|tu récord",
+      "it": "battere il record",
+      "tr": "rekorunu kırmak"
+     }
+    },
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      443,
+      241,
+      140,
+      112
+     ],
+     "t": {
+      "en": "reading daily",
+      "fr": "lire chaque jour",
+      "de": "täglich lesen",
+      "es": "leer cada día",
+      "it": "leggere ogni giorno",
+      "tr": "her gün okumak"
+     }
+    },
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      805,
+      241,
+      99,
+      94
+     ],
+     "t": {
+      "en": "learning|a skill",
+      "fr": "apprendre un skill",
+      "de": "etwas Neues lernen",
+      "es": "aprender algo",
+      "it": "imparare qualcosa",
+      "tr": "yeni beceri"
+     }
+    },
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      432,
+      392,
+      80,
+      86
+     ],
+     "t": {
+      "en": "hard hobbies",
+      "fr": "hobbies durs",
+      "de": "harte Hobbys",
+      "es": "hobbies duros",
+      "it": "hobby tosti",
+      "tr": "zor hobiler"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "solid",
+    "fr": "solide",
+    "de": "solide",
+    "es": "sólido",
+    "it": "solido",
+    "tr": "sağlam"
+   },
+   "cases": [
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      508,
+      631,
+      113,
+      172
+     ],
+     "t": {
+      "en": "10k steps",
+      "fr": "10k pas",
+      "de": "10k Schritte",
+      "es": "10k pasos",
+      "it": "10k passi",
+      "tr": "10k adım"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      255,
+      630,
+      185,
+      175
+     ],
+     "t": {
+      "en": "meal prep",
+      "fr": "meal prep",
+      "de": "Meal Prep",
+      "es": "meal prep",
+      "it": "meal prep",
+      "tr": "yemek hazırlığı"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      692,
+      855,
+      156,
+      144
+     ],
+     "t": {
+      "en": "deep work",
+      "fr": "travail concentré",
+      "de": "Deep Work",
+      "es": "trabajo profundo",
+      "it": "deep work",
+      "tr": "derin çalışma"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      643,
+      20,
+      168,
+      150
+     ],
+     "t": {
+      "en": "coffee / tea",
+      "fr": "café / thé",
+      "de": "Kaffee / Tee",
+      "es": "café / té",
+      "it": "caffè / tè",
+      "tr": "kahve / çay"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "helps a bit",
+    "fr": "aide un peu",
+    "de": "hilft etwas",
+    "es": "ayuda un poco",
+    "it": "aiuta un po’",
+    "tr": "biraz yardımcı"
+   },
+   "cases": [
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      265,
+      692,
+      112,
+      108
+     ],
+     "t": {
+      "en": "gym playlist",
+      "fr": "playlist muscu",
+      "de": "Gym-Playlist",
+      "es": "playlist del gym",
+      "it": "playlist palestra",
+      "tr": "spor listesi"
+     }
+    },
+    {
+     "src": "7685931101587623186/2",
+     "boite": [
+      731,
+      873,
+      69,
+      117
+     ],
+     "t": {
+      "en": "fat burners",
+      "fr": "brûle-graisses",
+      "de": "Fatburner",
+      "es": "quemagrasas",
+      "it": "brucia grassi",
+      "tr": "yağ yakıcılar"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      266,
+      247,
+      117,
+      104
+     ],
+     "t": {
+      "en": "written goals",
+      "fr": "objectifs écrits",
+      "de": "Ziele aufschreiben",
+      "es": "metas por escrito",
+      "it": "obiettivi scritti",
+      "tr": "yazılı hedefler"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      569,
+      849,
+      99,
+      106
+     ],
+     "t": {
+      "en": "no snooze",
+      "fr": "zéro snooze",
+      "de": "kein Snooze",
+      "es": "sin posponer",
+      "it": "niente snooze",
+      "tr": "erteleme yok"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "fake discipline",
+    "fr": "fausse discipline",
+    "de": "Fake-Disziplin",
+    "es": "falsa disciplina",
+    "it": "finta disciplina",
+    "tr": "sahte disiplin"
+   },
+   "cases": [
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      597,
+      861,
+      86,
+      84
+     ],
+     "t": {
+      "en": "motivation reels",
+      "fr": "reels motivation",
+      "de": "Motivations-Reels",
+      "es": "reels de motivación",
+      "it": "reel motivazionali",
+      "tr": "motivasyon reels"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "productivity|youtube",
+      "fr": "youtube|productivité",
+      "de": "Produktivitäts-|YouTube",
+      "es": "youtube de|productividad",
+      "it": "youtube sulla|produttività",
+      "tr": "verimlilik|youtube’u"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      662,
+      1087,
+      71,
+      89
+     ],
+     "t": {
+      "en": "buying new gear",
+      "fr": "acheter du matos",
+      "de": "neues Equipment",
+      "es": "comprar equipo",
+      "it": "comprare attrezzatura",
+      "tr": "yeni ekipman almak"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      272,
+      853,
+      90,
+      94
+     ],
+     "t": {
+      "en": "posting your|routine",
+      "fr": "poster sa|routine",
+      "de": "die Routine|posten",
+      "es": "postear tu|rutina",
+      "it": "postare la|routine",
+      "tr": "rutinini|paylaşmak"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "kills it",
+   "fr": "la tue",
+   "de": "zerstört sie",
+   "es": "la mata",
+   "it": "la uccide",
+   "tr": "yok eder"
+  },
+  "cases": [
+   {
+    "src": "7688926567183027474/2",
+    "boite": [
+     272,
+     848,
+     91,
+     97
+    ],
+    "t": {
+     "en": "doomscrolling",
+     "fr": "scroller sans fin",
+     "de": "Doomscrolling",
+     "es": "scroll infinito",
+     "it": "doomscrolling",
+     "tr": "sonsuz scroll"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     264,
+     845,
+     104,
+     110
+    ],
+    "t": {
+     "en": "junk food",
+     "fr": "malbouffe",
+     "de": "Junkfood",
+     "es": "comida basura",
+     "it": "cibo spazzatura",
+     "tr": "abur cubur"
+    }
+   },
+   {
+    "src": "7688926567183027474/2",
+    "boite": [
+     389,
+     1082,
+     90,
+     102
+    ],
+    "t": {
+     "en": "gambling",
+     "fr": "jeux d’argent",
+     "de": "Glücksspiel",
+     "es": "apuestas",
+     "it": "gioco d’azzardo",
+     "tr": "kumar"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine Wahl|(kommentiere)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 22/10 : original sur le schéma tier list 2 slides (mm-o001, mm-o002), sujet discipline. Couverture : l'homme en costume de la banque ; célébrités autorisées sur la slide de l'app (décision du 21/10)."
+}

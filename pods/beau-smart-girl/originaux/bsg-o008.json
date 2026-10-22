@@ -1,0 +1,56 @@
+{
+ "source_id": "bsg-o008",
+ "schema_id": "independante",
+ "titre": "les choses que j'ai commencé à faire seule et qui m'ont rendue indépendante #pourtoi #independance #culture #apprentissage",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7434388289938492206",
+ "inspirations": [
+  "71ef7d85-19b2-46c0-a4cc-97313387e592"
+ ],
+ "notes": "Routine du 22/10. Schéma independante (r 2,1, 71ef7d85, rang S). C'est le premier original du pod sur ce schéma. Pas un essai : le prochain essai sera bsg-o010. Accroches écrites : « les choses que j'ai commencé à faire seule et qui m'ont rendue indépendante » (retenue : la traduction directe du gagnant), « les petites choses que je fais seule et qui m'ont rendue plus sûre de moi » (écartée : glisse vers confiance-incassable, déjà fait hier), « ce que j'ai appris à faire seule l'année de mes 20 ans » (écartée : sans preuve propre). Petites victoires en « je », sans numéro comme la source, cinq items neufs : une journée seule en train, gérer ses rendez-vous soi-même, choisir ses livres sans suivre les classements, tenir un budget dans un carnet, apprendre un truc sur le monde chaque matin. Rien de repris de la source (lessive, horaire de sommeil, cuisine, études, ménage, routine écrite) ni du musée seule de bsg-o002. Aucun fait à vérifier, aucun conseil médical ni financier précis, aucune personne réelle. Sophia sur le dernier item, avant la slide de fin. Images de la banque : la fille assise face à la mer (accroche), la fille dans les herbes au bord de l'eau, le bureau à la fenêtre, la fille qui lit dans son lit, la fille qui écrit dans un carnet, la fille au casque dehors, les brioches au four. Inspirations : slides 1, 2, 3, 4, 8 de 71ef7d85 (ses 5 et 6 montrent un écran d'ordinateur).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "cb9a445c",
+   "texte_overlay": "les choses que j'ai commencé\nà faire seule et qui m'ont\nrendue indépendante",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c2995380",
+   "texte_overlay": "partir une journée seule en train\n\nun billet, une ville à une heure, un carnet.\nj'ai découvert que je savais me débrouiller. et que j'aimais ma propre compagnie.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f1441393",
+   "texte_overlay": "gérer mes rendez-vous moi-même\n\nappeler la banque, le proprio, prendre un rendez-vous.\nça me faisait peur au début. maintenant ça me prend cinq minutes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "98d1e27e",
+   "texte_overlay": "choisir mes livres sans demander d'avis\n\npas les classements, pas les tendances.\nje lis ce qui m'intrigue, et j'ai enfin des goûts à moi.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "868dba81",
+   "texte_overlay": "tenir un petit budget dans un carnet\n\nchaque dépense, une ligne.\nau bout de deux mois, je savais exactement où partait mon argent.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/2.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c1d0c7e2",
+   "texte_overlay": "apprendre un truc sur le monde chaque matin\n\n5 minutes d'histoire, d'art ou de sciences.\nj'arrive toujours avec mes propres sujets de conversation.",
+   "texte_sophia": "apprendre un truc sur le monde chaque matin avec l'appli Sophia\n\n5 minutes d'histoire, d'art ou de sciences.\nj'arrive toujours avec mes propres sujets de conversation.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/3.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ff4376be",
+   "texte_overlay": "et toi, c'est quoi la chose\nque t'as appris à faire seule ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674302623750655264/8.jpg"
+  }
+ ]
+}

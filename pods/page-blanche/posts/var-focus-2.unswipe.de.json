@@ -1,0 +1,230 @@
+{
+ "post_id": "var-focus-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 to habits to become",
+      "disgustingly productive"
+     ],
+     "fr": "10/10 habitudes pour devenir ultra productive",
+     "texte": "10/10 Dinge, die langsam dein Gedächtnis ruinieren"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(laut Neurowissenschaft)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "become dangerously good",
+      "at communication"
+     ],
+     "fr": "deviens [[une machine]] en communication",
+     "texte": "alles fotografieren [[statt hinzusehen]]"
+    },
+    "T2": {
+     "en": [
+      "learn how to speak",
+      "clearly, ask better",
+      "questions, negotiate,",
+      "listen, and handle",
+      "uncomfortable",
+      "conversations"
+     ],
+     "fr": "apprends à parler clairement, à poser les bonnes questions, à négocier, à écouter et à gérer les discussions gênantes",
+     "texte": "Konzerte, Reisen, Vorlesungsfolien... sobald du ein Foto machst, [[überlässt dein Gehirn das Erinnern der Galerie]]"
+    },
+    "T3": {
+     "en": [
+      "a lot of “talent” gets ignored because the",
+      "person can't explain what they know or",
+      "get other people on board"
+     ],
+     "fr": "plein de « talents » passent à la trappe parce qu'ils savent pas expliquer ce qu'ils savent ni embarquer les autres",
+     "texte": "schau beim nächsten Mal [[erst richtig hin]], 10 Sekunden lang, und mach das Foto danach, wenn du willst"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "protect your first 90 minutes"
+     ],
+     "fr": "protège tes [[90 premières minutes]]",
+     "texte": "Multitasking [[rund um die Uhr]]"
+    },
+    "T2": {
+     "en": [
+      "don’t spend your best attention on messages, email, or",
+      "scrolling"
+     ],
+     "fr": "gâche pas ton meilleur focus sur les messages, les mails ou le scroll",
+     "texte": "beim Lernen texten, eine Serie beim Arbeiten, zehn Tabs offen"
+    },
+    "T3": {
+     "en": [
+      "use the first 60–90 minutes",
+      "for the hardest thing you",
+      "need to move forward"
+     ],
+     "fr": "mets [[tes 60–90 premières minutes sur la tâche la plus dure]] pour avancer",
+     "texte": "dein Gehirn kann kein Multitasking, es [[springt hin und her]] und verliert Details"
+    },
+    "T4": {
+     "en": [
+      "once the day gets noisy,",
+      "that level of focus gets",
+      "much harder to recover"
+     ],
+     "fr": "dès que la journée s'agite, ce niveau de focus devient dur à retrouver",
+     "texte": "mach eine Sache nach der anderen und du [[merkst sie dir wirklich]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn from history's greatest minds"
+     ],
+     "fr": "inspire-toi [[des plus grands esprits]]",
+     "texte": "stundenlang [[Kurzvideos schauen]]"
+    },
+    "T2": {
+     "en": [
+      "read philosophy, history,",
+      "biographies and literature",
+      "from people who spent",
+      "decades thinking deeply"
+     ],
+     "fr": "lis de la philo, de l'histoire, des biographies et des romans de gens qui ont [[passé leur vie à réfléchir]]",
+     "texte": "alle paar Sekunden ein neuer Clip, nichts bleibt lange genug im Kopf, [[um hängen zu bleiben]]"
+    },
+    "T3": {
+     "en": [
+      "if you can't focus",
+      "because you get bored",
+      "and start scrolling, use",
+      "readup to block your",
+      "apps until you've read for",
+      "20 minutes"
+     ],
+     "fr": "si tu t'ennuies vite et que tu finis sur tiktok, commence par [[5 minutes par jour sur l'appli Sophia]]",
+     "texte": "weniger scrollen, und Sachen [[bleiben wieder hängen]]. Reels aus Instagram entfernen und TikTok blockieren geht mit der UnSwipe-App"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop checking your phone constantly"
+     ],
+     "fr": "arrête de checker ton tel [[H24]]",
+     "texte": "dein Handy [[alles merken]] lassen"
+    },
+    "T2": {
+     "en": [
+      "instagram, tiktok, snapchat, random notifications"
+     ],
+     "fr": "instagram, tiktok, snapchat, notifs en tout genre",
+     "texte": "Geburtstage, Nummern, Wege, jede Idee, jedes To-do"
+    },
+    "T3": {
+     "en": [
+      "you're not going to miss",
+      "anything important by not",
+      "going on your phone!!"
+     ],
+     "fr": "tu vas [[rien rater d'important]] si tu vas pas sur ton tel!!",
+     "texte": "wenn es eh gespeichert ist, [[strengt sich dein Gehirn nicht mehr an]], es zu behalten"
+    },
+    "T4": {
+     "en": [
+      "relax,"
+     ],
+     "fr": "relax,",
+     "texte": "besser,"
+    },
+    "T5": {
+     "en": [
+      "keep your phone away",
+      "when working/studying",
+      "until you're taking a break"
+     ],
+     "fr": "[[range ton tel quand tu bosses/révises]] jusqu'à ta pause",
+     "texte": "versuch, [[dich erst selbst zu erinnern]], und schau nur aufs Handy, wenn du hängst"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "spend more time without stimulation"
+     ],
+     "fr": "passe plus de temps [[à ne rien faire]]",
+     "texte": "[[jede Nacht]] viel zu wenig schlafen"
+    },
+    "T2": {
+     "en": [
+      "stop filling every walk,",
+      "meal, and spare minute",
+      "with content and music"
+     ],
+     "fr": "lâche [[les vidéos]] et [[la musique]] pendant tes balades, tes repas, [[tes temps morts]]",
+     "texte": "lange wach bleiben zum Scrollen oder Lernen und trotzdem um 7 aufstehen"
+    },
+    "T3": {
+     "en": [
+      "quiet gives your brain",
+      "room to replay",
+      "information, connect",
+      "ideas, and form its own",
+      "thoughts"
+     ],
+     "fr": "dans le calme, ton cerveau digère ce qu'il a vu, fait des liens et [[se fait ses propres idées]]",
+     "texte": "im Schlaf [[speichert dein Gehirn, was du gelernt hast]]. schläfst du zu wenig, geht ein Teil davon verloren"
+    },
+    "T4": {
+     "en": [
+      "constant short-form content is making your brain rot",
+      "and ruining your attention span!!"
+     ],
+     "fr": "les vidéos courtes non-stop te [[grillent le cerveau]] et [[flinguent ta concentration!!]]",
+     "texte": "vor der Prüfung die Nacht durchmachen ist der schlechteste Weg, [[sich etwas zu merken!!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ },
+ "application": "unswipe"
+}

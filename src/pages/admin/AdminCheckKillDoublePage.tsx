@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import {
   type ActionCkd,
   annulerCkd,
+  apercuNudgeCkd,
   type ArretCkd,
   type ControleCkd,
   deciderCkd,
@@ -47,6 +48,7 @@ import {
   type PropositionCkd,
   type ReglageCkd,
   reglerCkd,
+  type TexteNudge,
   type TypeControle,
 } from "@/features/ckd/api";
 import {
@@ -622,8 +624,9 @@ function LigneProposition({
 
 /**
  * Les boutons tant que rien n'est décidé (un clic ouvre la confirmation, avec
- * une note facultative), puis ce que la décision est devenue : compte créé,
- * arrêt prévu ou fait, envoi au HM, Done.
+ * une note facultative pour le HM et, pour un Nudge, le texte du pop-up à
+ * modifier pour ce posteur), puis ce que la décision est devenue : compte
+ * créé, arrêt prévu ou fait, envoi au HM, Done.
  */
 function BlocDecision({
   p,
@@ -643,13 +646,34 @@ function BlocDecision({
   const queryClient = useQueryClient();
   const [choix, setChoix] = React.useState<string | null>(null);
   const [note, setNote] = React.useState("");
+  // Le texte du nudge tel que l'admin l'a modifié ; `null` = celui de Réglages.
+  const [texte, setTexte] = React.useState<TexteNudge | null>(null);
+  const nudge = choix !== null && DECISION_DU_BOUTON[choix] === "nudge";
+  const apercu = useQuery({
+    queryKey: [...CLE, "apercu-nudge", p.id],
+    queryFn: () => apercuNudgeCkd(p.id),
+    enabled: nudge && !p.decision,
+    staleTime: Infinity,
+  });
+  const texteNudge = texte ?? apercu.data ?? null;
+  const texteModifie =
+    texte !== null && (!apercu.data || texte.titre !== apercu.data.titre || texte.corps !== apercu.data.corps);
+  const texteVide = nudge && texteNudge !== null && (!texteNudge.titre.trim() || !texteNudge.corps.trim());
+  const fermer = () => {
+    setChoix(null);
+    setNote("");
+    setTexte(null);
+  };
   const invalider = () => queryClient.invalidateQueries({ queryKey: CLE });
   const decider = useMutation({
-    mutationFn: (bouton: string) => deciderCkd(p.id, DECISION_DU_BOUTON[bouton], note.trim() || null),
-    onSuccess: () => {
-      setChoix(null);
-      setNote("");
+    mutationFn: (bouton: string) => {
+      const decision = DECISION_DU_BOUTON[bouton];
+      const n = note.trim() || null;
+      return decision === "nudge" && texteModifie && texte
+        ? deciderCkd(p.id, decision, n, { titre: texte.titre.trim(), corps: texte.corps.trim() })
+        : deciderCkd(p.id, decision, n);
     },
+    onSuccess: fermer,
     onSettled: invalider,
   });
   const annuler = useMutation({ mutationFn: () => annulerCkd(p.id), onSettled: invalider });
@@ -666,7 +690,10 @@ function BlocDecision({
               size="xs"
               variant={choix === b ? "default" : "outline"}
               disabled={decider.isPending}
-              onClick={() => setChoix(choix === b ? null : b)}
+              onClick={() => {
+                setTexte(null);
+                setChoix(choix === b ? null : b);
+              }}
             >
               {t(`ckd.boutons.${b}`)}
             </Button>
@@ -676,6 +703,45 @@ function BlocDecision({
         {choix && (
           <div className="flex flex-wrap items-center gap-2 rounded-md bg-muted/50 p-2 text-xs">
             <span>{t(`ckd.consequences.${DECISION_DU_BOUTON[choix]}`, { handle: p.donnees.handle })}</span>
+            {nudge && (
+              <div className="basis-full space-y-1.5 rounded-md border bg-background p-2" data-testid={`texte-nudge-${p.donnees.handle}`}>
+                <p className="font-medium">{t("ckd.texteNudge.titre")}</p>
+                <p className="text-muted-foreground">{t("ckd.texteNudge.aide")}</p>
+                {apercu.isLoading ? (
+                  <p className="text-muted-foreground">{t("common.loading")}</p>
+                ) : apercu.error ? (
+                  <p role="alert" className="text-destructive">
+                    {t("ckd.texteNudge.erreur", { erreur: messageErreur(apercu.error) })}
+                  </p>
+                ) : (
+                  <>
+                    <Input
+                      className="h-7 text-xs"
+                      aria-label={t("ckd.texteNudge.champTitre")}
+                      maxLength={200}
+                      value={texteNudge?.titre ?? ""}
+                      onChange={(e) => setTexte({ titre: e.target.value, corps: texteNudge?.corps ?? "" })}
+                    />
+                    <textarea
+                      className="min-h-24 w-full rounded-md border border-input bg-background px-2 py-1 text-xs shadow-sm"
+                      aria-label={t("ckd.texteNudge.champCorps")}
+                      maxLength={3000}
+                      value={texteNudge?.corps ?? ""}
+                      onChange={(e) => setTexte({ titre: texteNudge?.titre ?? "", corps: e.target.value })}
+                    />
+                    <div className="flex flex-wrap items-center gap-2">
+                      {texteModifie && <Badge variant="outline">{t("ckd.texteNudge.modifie")}</Badge>}
+                      {texteModifie && (
+                        <Button size="xs" variant="ghost" onClick={() => setTexte(null)}>
+                          {t("ckd.texteNudge.retablir")}
+                        </Button>
+                      )}
+                      {texteVide && <span className="text-destructive">{t("ckd.texteNudge.vide")}</span>}
+                    </div>
+                  </>
+                )}
+              </div>
+            )}
             <Input
               className="h-7 max-w-xs text-xs"
               placeholder={t("ckd.notePlaceholder")}
@@ -683,10 +749,15 @@ function BlocDecision({
               value={note}
               onChange={(e) => setNote(e.target.value)}
             />
-            <Button size="xs" loading={decider.isPending} onClick={() => decider.mutate(choix)}>
+            <Button
+              size="xs"
+              loading={decider.isPending}
+              disabled={texteVide || (nudge && apercu.isLoading)}
+              onClick={() => decider.mutate(choix)}
+            >
               {t("ckd.confirmer", { action: t(`ckd.boutons.${choix}`) })}
             </Button>
-            <Button size="xs" variant="ghost" disabled={decider.isPending} onClick={() => setChoix(null)}>
+            <Button size="xs" variant="ghost" disabled={decider.isPending} onClick={fermer}>
               {t("common.cancel")}
             </Button>
           </div>

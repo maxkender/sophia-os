@@ -1,0 +1,241 @@
+{
+ "post_id": "var-focus-1",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6 habits to become",
+      "disgustingly productive"
+     ],
+     "fr": "6 habitudes pour devenir ultra productive",
+     "texte": "10/10 cose che ti rovinano il sonno di nascosto"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(lo dice la scienza)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stop trying to multitask"
+     ],
+     "fr": "2. arrête [[le multitâche]]",
+     "texte": "bere caffè [[il pomeriggio]]"
+    },
+    "T2": {
+     "en": [
+      "every task switch forces",
+      "your working memory to",
+      "drop one context and",
+      "load another"
+     ],
+     "fr": "chaque fois que tu changes de tâche, ta mémoire doit tout lâcher et tout recharger",
+     "texte": "in 5 ore circa se ne va solo metà della caffeina, il latte delle 16 è ancora attivo alle 21"
+    },
+    "T3": {
+     "en": [
+      "doing 2 things at once",
+      "feels productive, but",
+      "your brain is just",
+      "constantly re-orienting"
+     ],
+     "fr": "faire 2 trucs à la fois, ça [[a l'air productif]], mais ton cerveau passe son temps à se recaler",
+     "texte": "magari ti addormenti lo stesso, ma il [[sonno profondo si alleggerisce]] e ti svegli senza energie"
+    },
+    "T4": {
+     "en": [
+      "one task, one tab, until it's finished"
+     ],
+     "fr": "une tâche, un onglet, [[jusqu'au bout]]",
+     "texte": "[[ultimo caffè entro mezzogiorno]], poi deca"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you feel tired even during the",
+      "day"
+     ],
+     "fr": "t'es à plat [[même en pleine journée]]",
+     "texte": "dormire fino a tardi [[ogni weekend]]"
+    },
+    "T2": {
+     "en": [
+      "you can sleep 8 hours and still",
+      "feel mentally exhausted if",
+      "your brain is getting",
+      "hammered with stimulation all",
+      "day"
+     ],
+     "fr": "tu peux dormir 8 heures et [[avoir quand même la tête en vrac]] si ton cerveau se fait [[bombarder toute la journée]]",
+     "texte": "fare tardi il venerdì e dormire fino a mezzogiorno sposta il tuo orologio interno, in pratica [[jet lag senza viaggio]]"
+    },
+    "T3": {
+     "en": [
+      "constant switching, scrolling",
+      "and notifications create",
+      "attentional fatigue"
+     ],
+     "fr": "zapper sans arrêt, scroller, les notifs : ton attention finit par saturer",
+     "texte": "così la domenica sera non riesci a dormire e il lunedì mattina è un trauma"
+    },
+    "T4": {
+     "en": [
+      "so even simple tasks start",
+      "feeling weirdly draining"
+     ],
+     "fr": "du coup, même les trucs simples te [[lessivent sans raison]]",
+     "texte": "svegliati [[sempre alla stessa ora]], anche nel weekend"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "dont scroll 1 hour before sleep"
+     ],
+     "fr": "zéro scroll [[1 h avant de dormir]]",
+     "texte": "scrollare a letto [[fino alle 2]]"
+    },
+    "T2": {
+     "en": [
+      "no scrolling for the last 60",
+      "minutes before sleep"
+     ],
+     "fr": "pas de scroll la dernière heure avant de dormir",
+     "texte": "ancora un video, e all'improvviso sono le 2"
+    },
+    "T3": {
+     "en": [
+      "I read a book instead, i've been",
+      "trying ReadUp to block my",
+      "apps until I read for 30 minutes",
+      "and it's helped me so far. But",
+      "you can use anything that just",
+      "isn't your phone"
+     ],
+     "fr": "je lis un livre à la place, et perso j'ai remplacé mon scroll du soir par [[5 min sur l'appli Sophia, un truc nouveau chaque jour]]. Mais prends n'importe quoi, tant que c'est pas ton tel",
+     "texte": "il feed è fatto per non finire mai, il cervello non riceve mai il segnale di fermarsi. senza reel e tiktok a letto, ti addormenti [[molto più in fretta]]. l'app UnSwipe può bloccare tiktok del tutto"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you watch everything at",
+      "2x speed"
+     ],
+     "fr": "tu regardes tout [[en vitesse x2]]",
+     "texte": "tenere [[luci forti]] accese la sera"
+    },
+    "T2": {
+     "en": [
+      "a 20-minute video becoming 10 feels efficient, but",
+      "you're teaching yourself that normal pacing is too",
+      "slow"
+     ],
+     "fr": "passer une vidéo de 20 min en 10, ça a l'air [[rentable]] mais ton cerveau retient qu'un rythme normal, c'est [[trop lent]]",
+     "texte": "il cervello scambia la luce intensa per giorno, quindi [[ritarda la melatonina]], l'ormone del sonno"
+    },
+    "T3": {
+     "en": [
+      "eventually lectures,",
+      "reading, and even",
+      "conversations start",
+      "feeling painfully",
+      "under-stimulating"
+     ],
+     "fr": "à force, même les cours, les livres et les [[conversations]] te paraissent [[d'un ennui mortel]]",
+     "texte": "plafoniera accesa alle 23, laptop a tutta luminosità, e poi ti chiedi perché [[il sonno non arriva]]"
+    },
+    "T4": {
+     "en": [
+      "are you really in a rush",
+      "to watch a tiktok?"
+     ],
+     "fr": "y'a vraiment urgence à regarder [[un tiktok]] ?",
+     "texte": "abbassa tutto [[un'ora prima di dormire]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you reach for your phone the",
+      "second nothing is happening"
+     ],
+     "fr": "tu sors ton tel [[à la seconde où]] il se passe rien",
+     "texte": "fare [[una cena enorme e pesante]] subito prima di andare a dormire"
+    },
+    "T2": {
+     "en": [
+      "waiting 30 seconds,",
+      "standing in a queue, sitting",
+      "in a lift, you instantly need",
+      "input"
+     ],
+     "fr": "30 secondes d'attente, une file, un ascenseur… et [[il te faut direct un truc à regarder]]",
+     "texte": "a stomaco pieno il corpo sta ancora digerendo quando dovrebbe [[rallentare]]"
+    },
+    "T3": {
+     "en": [
+      "boredom is where your",
+      "brain gets a chance to",
+      "wander, reflect and",
+      "connect ideas"
+     ],
+     "fr": "l'ennui, c'est le moment où ton cerveau peut divaguer, réfléchir et faire des liens",
+     "texte": "e sdraiarti subito dopo è praticamente un invito al bruciore di stomaco"
+    },
+    "T4": {
+     "en": [
+      "stop deleting every empty",
+      "moment"
+     ],
+     "fr": "[[arrête de remplir]] chaque temps mort",
+     "texte": "[[cena prima]], 2-3 ore prima di dormire"
+    },
+    "T5": {
+     "en": [
+      "listen to your thoughts"
+     ],
+     "fr": "[[écoute tes pensées]]",
+     "texte": "[[il sonno ti ringrazierà]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

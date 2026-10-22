@@ -1,0 +1,244 @@
+{
+ "post_id": "var-focus-3",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 niche traits of highly",
+      "successful people"
+     ],
+     "fr": "10/10 traits méconnus des gens qui réussissent",
+     "texte": "10/10 cose che stanno uccidendo la tua motivazione"
+    },
+    "T2": {
+     "en": [
+      "(science-backed)"
+     ],
+     "fr": "(la science le dit)",
+     "alignement": "droite",
+     "texte": "(prove alla mano)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "become good at multiple things"
+     ],
+     "fr": "deviens bonne en [[plein de trucs]]",
+     "texte": "liste di cose da fare [[infinite]]"
+    },
+    "T2": {
+     "en": [
+      "learn to write, communicate, build, sell ideas, analyse,",
+      "and use technology well"
+     ],
+     "fr": "apprends à écrire, parler, créer, vendre tes idées, analyser et maîtriser la tech",
+     "texte": "30 cose su una pagina e finisci la giornata in ritardo, anche quando hai fatto tanto"
+    },
+    "T3": {
+     "en": [
+      "you don’t need to be",
+      "world-class at",
+      "everything"
+     ],
+     "fr": "pas besoin d'être la meilleure au monde en tout",
+     "texte": "una lista non finita [[ti gira sempre in testa]]"
+    },
+    "T4": {
+     "en": [
+      "being good across",
+      "several valuable skills",
+      "makes you unusually",
+      "hard to replace"
+     ],
+     "fr": "être bonne dans plusieurs compétences utiles te rend [[super dure à remplacer]]",
+     "texte": "spuntare una cosa piccola ti dà [[la sensazione di avanzare]], ed è quello che ti spinge"
+    },
+    "T5": {
+     "en": [
+      "a jack of all trades is better than a master of one"
+     ],
+     "fr": "[[mieux vaut être touche-à-tout qu'experte en un seul truc]]",
+     "texte": "[[scegli 3 cose per oggi]], il resto può aspettare"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "comparing yourself to others"
+     ],
+     "fr": "te comparer aux autres",
+     "texte": "confrontarti sempre [[sui social]]"
+    },
+    "T2": {
+     "en": [
+      "you’re comparing your everyday life to someone",
+      "else’s best moments, biggest wins, and carefully",
+      "edited highlights"
+     ],
+     "fr": "tu compares [[ton quotidien]] aux meilleurs moments des autres, leurs plus grosses réussites, [[leurs photos bien retouchées]]",
+     "texte": "scorri tra promozioni, glow-up e viaggi da sogno degli altri, e poi guardi [[il tuo martedì normalissimo]]"
+    },
+    "T3": {
+     "en": [
+      "it makes your own",
+      "progress feel smaller",
+      "than it actually is"
+     ],
+     "fr": "du coup tes progrès [[ont l'air plus petits qu'en vrai]]",
+     "texte": "ti senti [[sempre indietro]], e impegnarti sembra inutile"
+    },
+    "T4": {
+     "en": [
+      "use other people as",
+      "proof of what’s possible,",
+      "not as a reason to feel",
+      "behind"
+     ],
+     "fr": "les autres te montrent [[ce qui est possible]], pas que t'es en retard",
+     "texte": "confrontati con chi eri l'anno scorso, non con [[i momenti migliori degli altri]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "prendere il telefono [[al risveglio]]"
+    },
+    "T2": {
+     "en": [
+      "reading makes you hold",
+      "attention, remember",
+      "details, and build the",
+      "picture in your own head"
+     ],
+     "fr": "lire t'oblige à [[rester concentrée]], à retenir des détails et à [[te faire le film]] dans ta tête",
+     "texte": "notifiche e reel prima ancora di alzarti, il cervello riceve [[dopamina facile]] senza sforzo"
+    },
+    "T3": {
+     "en": [
+      "if you want your brain to",
+      "feel sharper again, swap",
+      "some of your scrolling for",
+      "books"
+     ],
+     "fr": "si tu veux [[retrouver un cerveau vif]], remplace un peu de [[scroll par des livres]]",
+     "texte": "dopo, tutto ciò che è lento, come studiare o lavorare, [[pesa molto di più]]"
+    },
+    "T4": {
+     "en": [
+      "i use readup to lock my",
+      "apps until i’ve read for 20",
+      "minutes, or just put your",
+      "phone in another room"
+     ],
+     "fr": "perso j'ai remplacé mon scroll du soir par [[5 min sur l'appli Sophia]], sinon laisse ton tel dans une autre pièce",
+     "texte": "se prendi il telefono comunque, fai una lezione di 5 minuti con [[l'app Sophia]] invece dei reel"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to tolerate boring repetition"
+     ],
+     "fr": "apprends à [[supporter la routine chiante]]",
+     "texte": "iniziare cose e [[non finirle mai]]"
+    },
+    "T2": {
+     "en": [
+      "most success is less",
+      "exciting than it looks"
+     ],
+     "fr": "réussir, c'est [[moins excitant]] que ça en a l'air",
+     "texte": "iniziare è bellissimo perché [[è una novità]]"
+    },
+    "T3": {
+     "en": [
+      "it’s doing the same",
+      "useful things for",
+      "months after the",
+      "novelty disappears"
+     ],
+     "fr": "c'est répéter les mêmes trucs utiles [[des mois]], bien après l'effet waouh",
+     "texte": "quando la novità passa molli, e il cervello impara che [[mollare è normale]]"
+    },
+    "T4": {
+     "en": [
+      "consistency gets powerful when other people get bored",
+      "and move on"
+     ],
+     "fr": "[[la régularité]] devient une force quand les autres s'ennuient et lâchent",
+     "texte": "[[finisci una cosa]] prima di iniziarne un'altra, anche se non è perfetta"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "seeking approval from everyone"
+     ],
+     "fr": "vouloir plaire à tout le monde",
+     "texte": "non muoverti [[per tutto il giorno]]"
+    },
+    "T2": {
+     "en": [
+      "if every decision has to make your friends, family,",
+      "or strangers online happy, you’ll slowly build a life",
+      "that doesn’t even feel like yours"
+     ],
+     "fr": "si chaque choix doit plaire à tes potes, ta famille ou [[des inconnus sur internet]], tu vas finir avec une vie [[qui te ressemble même pas]]",
+     "texte": "letto, scrivania, divano, letto. il tuo corpo si muove a malapena, e [[la poca energia]] che senti la scambi per [[poca motivazione]]"
+    },
+    "T3": {
+     "en": [
+      "learn to",
+      "disappoint",
+      "people",
+      "sometimes"
+     ],
+     "fr": "accepte de [[décevoir des gens]]",
+     "texte": "fai [[una camminata di 10 minuti]] al giorno"
+    },
+    "T4": {
+     "en": [
+      "your 20s are for figuring out what you actually",
+      "want, not performing for everyone else"
+     ],
+     "fr": "tes 20 ans, c'est pour savoir [[ce que toi tu veux]], pas pour jouer un rôle devant les autres",
+     "texte": "muoverti è uno dei modi più facili per [[alzare umore ed energia]], senza palestra"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

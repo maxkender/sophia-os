@@ -16,7 +16,7 @@
   "titre": "sonido original",
   "url": "https://www.tiktok.com/music/sonido-original-7301405245357132549"
  },
- "notes": "Sophia à la fin (leur post n'avait pas de slide d'appli). Pas d'UnSwipe : une liste de compétences ne s'y prête pas. Ses titres en affiche (une taille par ligne, le mot-clé en couleur) ; cinq compétences à nous, chacune avec une vraie vidéo sans grand visage.",
+ "notes": "Sophia en carte d'appli à l'étape 3 « ANSWER RANDOM QUESTIONS », au milieu de la liste comme une compétence (leur post n'avait pas de slide d'appli). Pas d'UnSwipe : une liste de compétences ne s'y prête pas. Ses titres en affiche (une taille par ligne, le mot-clé en couleur) ; quatre compétences à nous, chacune avec une vraie vidéo sans grand visage.",
  "slides": [
   {
    "type": "couverture",
@@ -100,34 +100,30 @@
   },
   {
    "type": "etape",
+   "app": "sophia",
    "en": {
     "titre": [
-     "FIND",
+     "ANSWER",
      [
       {
-       "t": "NORTH",
+       "t": "RANDOM",
        "couleur": "#1f4f14"
       }
      ],
-     "USING THE STARS"
+     "QUESTIONS"
     ],
     "tailles": [
      180,
      206,
      160
     ],
-    "video": {
-     "id": "Bh5kHTBr0gU",
-     "titre": "How To Navigate Using the Stars",
-     "chaine": "Atlas Pro",
-     "vues": "1M views",
-     "date": "8 years ago",
-     "duree": "7:39",
-     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lNKUUZ7uB2FnjBJ0qEfNj8Yh6he3meLFrKeHNE5ZFG4is=s176-c-k-c0x00ffffff-no-rj"
-    },
-    "sous": [
-     "1 hour to learn."
-    ]
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
    }
   },
   {
@@ -191,18 +187,6 @@
     },
     "sous": [
      "2–3 hours to learn."
-    ]
-   }
-  },
-  {
-   "type": "app",
-   "app": "sophia",
-   "en": {
-    "nom": "SOPHIA",
-    "sous": "ON THE APP STORE",
-    "texte": [
-     "Learn something new",
-     "every day, in 5 minutes."
     ]
    }
   }

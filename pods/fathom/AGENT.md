@@ -14,7 +14,7 @@ rejette est validée toute seule 12 h après son dépôt.
 	- Des listes sur fond blanc (« 5 Ways To… », « 10/10 Skills… », « S Tier YouTube Videos ») : titres géants, une vraie vidéo YouTube par étape, sa slide d'appli à la fin.
 	- Médiane 32 k vues, tubes à **3,6 M**, **2,9 M** et **818 k**, 5 à 9 % d'enregistrements. Il recycle ses accroches.
 	- `ANALYSE.md` donne le détail, `sources/manifeste.json` la liste de ses posts et l'ordre de travail.
-- **L'appli** : **Sophia**, une appli de culture générale : « apprends un truc nouveau chaque jour en 5 minutes ». Sa slide Fathomly devient la slide Sophia.
+- **L'appli** : **Sophia**, une appli de culture générale : « apprends un truc nouveau chaque jour en 5 minutes ». Elle entre dans la liste comme une étape, en carte d'appli, comme UnSwipe (décision du 23/10) : sa slide Fathomly de fin disparaît.
 - **Double intégration** (décision du 23/10) : **UnSwipe** (« tes réseaux, sans les Reels ») en carte d'appli sur l'étape qui s'y prête, dans le même deck.
 	- Elle s'y prête quand l'étape parle de scroll, de vidéos courtes, de temps d'écran, d'attention ou de réseaux (« DELETE SOCIAL MEDIA », « Instead Of Scrolling », « ScreenTime »).
 	- Jamais plaquée : une liste de compétences ou de vidéos à regarder n'a pas d'étape UnSwipe.
@@ -33,8 +33,10 @@ rejette est validée toute seule 12 h après son dépôt.
 	- La vidéo répond vraiment à l'étape, d'une chaîne sérieuse, dans la langue du deck.
 	- Préfère une miniature sans grand visage. Un visage n'est permis que si c'est celui de l'auteur de la chaîne. Jamais une miniature trompeuse ou choquante.
 	- Jamais une vidéo d'une appli concurrente.
-- **La slide Sophia** : une seule par deck, à la fin comme sa slide Fathomly (`"type": "app", "app": "sophia"`, que l'OS marque `position_sophia`).
-	- « SOPHIA », « ON THE APP STORE », l'icône, et la phrase de son positionnement (« Learn something new every day, in 5 minutes. »).
+- **La slide Sophia** : une seule par deck, **une étape native au milieu de la liste**, en carte d'appli comme UnSwipe (`"type": "etape", "app": "sophia"`, avec `carte`, que l'OS marque `position_sophia`). Décision du 23/10 : plus de slide d'appli à la fin.
+	- Le titre est une vraie étape de la liste, dans son style : « LEARN NEW TOPICS » (une liste « 5 Ways »), « ANSWER RANDOM QUESTIONS » (une liste de compétences).
+	- Elle remplace une étape : on garde son nombre d'étapes (« 5 Ways » = 5 étapes, Sophia et UnSwipe comprises), donc une slide de moins que lui quand il avait une slide d'appli.
+	- La carte : « SOPHIA » et la phrase de son positionnement (« learn something new every day, », « in 5 minutes. »).
 	- Jamais une formule de pub (prompt `placement_sophia`) : ni « download », ni « try », ni « link in bio », ni « free », ni « the best app ».
 - **La carte UnSwipe** (`"type": "etape", "app": "unswipe"`, avec `carte`) : « UNSWIPE » et une ou deux lignes.
 	- Ce qu'elle fait vraiment : Instagram sans les Reels (on garde les messages, les stories et les posts des amis), les autres applis sans les vidéos courtes ni le scroll infini, une appli comme TikTok bloquée en entier. « no need to delete anything ».
@@ -51,7 +53,7 @@ rejette est validée toute seule 12 h après son dépôt.
 - **Étapes** : le titre géant (la ligne la plus longue bord à bord, capitale de 346 px au plus), puis la carte YouTube de l'appli iOS, ou la carte d'appli. `sous` ajoute la ligne en dessous (« 2–3 hours to learn. »).
 - **Étapes en affiche** (ses « 10/10 Skills ») : `tailles` donne la capitale maximale de chaque ligne, chaque ligne remplit seule 920 px, le mot-clé dans sa couleur (`{ "t": "CLOUD TYPE", "couleur": "#0231c5" }`). `sous` en Inter SemiBold 54 px.
 - **Carte d'appli** : icône 380 px, nom en Anton à la couleur de l'appli, une ou deux lignes en Inter Medium.
-- **Slide Sophia** : comme sa slide Fathomly (nom, ligne, icône 493 px, phrase en 66 px).
+- **Carte Sophia** : la même carte d'appli qu'UnSwipe (icône 380 px, « SOPHIA » en rose). L'ancienne slide de fin (`type: "app"`) reste dans l'atelier mais ne sert plus.
 - **Pas encore dans l'atelier** : ses cartes YouTube sans titre (« S Tier YouTube Videos »), ses listes d'applis à une appli par slide (« 5 Apps… »). Ajoute-les dans `atelier/` en les mesurant sur ses slides (`npm run veille` les met en cache dans `donnees/cache/`), avec le même soin que le reste.
 
 ## Tes outils (dans `pods/fathom/`)
@@ -83,7 +85,7 @@ Le pilote `posts/fa-001.json` est l'exemple complet. Les ids : `fa-001`, `fa-002
 - `slides` : une entrée par slide, son contenu sous la clé `en`.
 	- `couverture` : `{ "statue": "assets/statues/….webp", "en": { "lignes": [[{ "t": "5 ", "bronze": true }, { "t": "WAYS TO BE" }], …] } }`.
 	- `etape` : `{ "en": { "titre": ["READ", "EVERY DAY"], "video": { … }, "sous": ["…"] } }`, ou avec `"app": "unswipe"` et `"carte": { "nom": "UNSWIPE", "texte": ["…", "…"] }`.
-	- `app` : `{ "app": "sophia", "en": { "nom": "SOPHIA", "sous": "ON THE APP STORE", "texte": ["Learn something new", "every day, in 5 minutes."] } }`.
+	- l'étape Sophia : `{ "type": "etape", "app": "sophia", "en": { "titre": ["LEARN NEW", "TOPICS"], "carte": { "nom": "SOPHIA", "texte": ["learn something new every day,", "in 5 minutes."] } } }`.
 
 ## L'ordre de travail
 

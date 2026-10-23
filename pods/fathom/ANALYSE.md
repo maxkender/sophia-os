@@ -30,7 +30,7 @@ Sources des données :
 
 - **Sophia** est une appli de culture générale : « apprends un truc nouveau chaque jour en 5 minutes » (App Store : « Sophia : Culture Générale », 4,6 ★, 26 langues).
 - Fathomly lui fait concurrence de front : sa slide de fin devient la slide Sophia, dans son propre format. Ce n'est pas plaqué, c'est sa place.
-- **UnSwipe** (« tes réseaux, sans les Reels ») a aussi sa place naturelle dans plusieurs de ses accroches : « DELETE SOCIAL MEDIA », « Instead Of Scrolling », « Based On Your ScreenTime », « Build Peak Intelligence ». C'est la **double intégration** : UnSwipe sur l'étape qui s'y prête, Sophia à la fin, dans le même deck.
+- **UnSwipe** (« tes réseaux, sans les Reels ») a aussi sa place naturelle dans plusieurs de ses accroches : « DELETE SOCIAL MEDIA », « Instead Of Scrolling », « Based On Your ScreenTime », « Build Peak Intelligence ». C'est la **double intégration** : UnSwipe sur l'étape qui s'y prête, Sophia sur une autre étape au milieu de la liste (décision du 23/10), dans le même deck.
 
 ## 4. Ce qu'on en a fait
 
@@ -41,5 +41,5 @@ Sources des données :
 - **Le pilote `fa-001`**, « 5 Ways To Be Unrecognisable In 6 Months » (son post à 818 k), en 7 slides :
 	- leur « DELETE SOCIAL MEDIA » devient « QUIT SHORT VIDEOS », avec la carte UnSwipe (« keep Instagram, lose the Reels. no need to delete anything. ») ;
 	- quatre vraies vidéos : TEDx (lecture, 3,4 M), Dr Thomas Smithyman (contact visuel, 374 k), GTN (course, 2 M), TED-Ed (sommeil, 2,6 M) ;
-	- Sophia à la fin, sur le modèle de sa slide Fathomly, sans « link in bio ».
+	- Sophia d'abord à la fin, sur le modèle de sa slide Fathomly ; le 23/10 elle devient une étape native au milieu (« LEARN NEW TOPICS », à la place du contact visuel), en carte d'appli comme UnSwipe.
 - **L'ordre des suivants** : `sources/manifeste.json`.

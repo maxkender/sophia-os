@@ -16,15 +16,28 @@
   "titre": "lol",
   "url": "https://www.tiktok.com/music/lol-7573723683745237774"
  },
- "notes": "Double intégration : UnSwipe à l'étape 1 (leur « DELETE SOCIAL MEDIA » devient « QUIT SHORT VIDEOS » : pas besoin de supprimer), Sophia à la place de leur slide Fathomly.",
+ "notes": "Double intégration : UnSwipe à l'étape 1 (leur « DELETE SOCIAL MEDIA » devient « QUIT SHORT VIDEOS » : pas besoin de supprimer), Sophia en carte d'appli à l'étape 3 « LEARN NEW TOPICS », au milieu du deck comme UnSwipe (leur slide Fathomly de fin disparaît).",
  "slides": [
   {
    "type": "couverture",
    "statue": "assets/statues/hercule-lion.webp",
    "en": {
     "lignes": [
-     [{ "t": "5 ", "bronze": true }, { "t": "WAYS TO BE" }],
-     [{ "t": "UNRECOGNISABLE", "bronze": true }],
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "WAYS TO BE"
+      }
+     ],
+     [
+      {
+       "t": "UNRECOGNISABLE",
+       "bronze": true
+      }
+     ],
      "IN 6 MONTHS"
     ]
    }
@@ -33,17 +46,26 @@
    "type": "etape",
    "app": "unswipe",
    "en": {
-    "titre": ["QUIT SHORT", "VIDEOS"],
+    "titre": [
+     "QUIT SHORT",
+     "VIDEOS"
+    ],
     "carte": {
      "nom": "UNSWIPE",
-     "texte": ["keep Instagram, lose the Reels.", "no need to delete anything."]
+     "texte": [
+      "keep Instagram, lose the Reels.",
+      "no need to delete anything."
+     ]
     }
    }
   },
   {
    "type": "etape",
    "en": {
-    "titre": ["READ", "EVERY DAY"],
+    "titre": [
+     "READ",
+     "EVERY DAY"
+    ],
     "video": {
      "id": "e2-ahs905MQ",
      "titre": "How to Read a Book a Day | Jordan Harry | TEDxBathUniversity",
@@ -57,23 +79,28 @@
   },
   {
    "type": "etape",
+   "app": "sophia",
    "en": {
-    "titre": ["LEARN TO HOLD", "EYE CONTACT"],
-    "video": {
-     "id": "LhD4pSL3Fvw",
-     "titre": "The Psychology of Eye Contact (What We Get Wrong)",
-     "chaine": "Dr Thomas Smithyman",
-     "vues": "374K views",
-     "date": "1 year ago",
-     "duree": "15:04",
-     "avatar": "https://yt3.ggpht.com/nHM8TcQ5-zVTj85gpfcyFMK_9GBHFrH_Br_K3SfgWj2xvZh-pZpSOv9a1v1CwZ4dhBkP7_PA=s176-c-k-c0x00ffffff-no-rj"
+    "titre": [
+     "LEARN NEW",
+     "TOPICS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
     }
    }
   },
   {
    "type": "etape",
    "en": {
-    "titre": ["START", "RUNNING"],
+    "titre": [
+     "START",
+     "RUNNING"
+    ],
     "video": {
      "id": "kVnyY17VS9Y",
      "titre": "11 Beginner Run Tips | How To Start Running!",
@@ -88,7 +115,10 @@
   {
    "type": "etape",
    "en": {
-    "titre": ["FIX YOUR", "SLEEP"],
+    "titre": [
+     "FIX YOUR",
+     "SLEEP"
+    ],
     "video": {
      "id": "Amkg1cdDCpM",
      "titre": "Can you change your sleep schedule?",
@@ -98,15 +128,6 @@
      "duree": "4:38",
      "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
     }
-   }
-  },
-  {
-   "type": "app",
-   "app": "sophia",
-   "en": {
-    "nom": "SOPHIA",
-    "sous": "ON THE APP STORE",
-    "texte": ["Learn something new", "every day, in 5 minutes."]
    }
   }
  ]

@@ -32,6 +32,8 @@ export type ContenuEtape = {
   video?: Video;
   /** … ou la carte de l'appli de l'étape (`app` de la slide). */
   carte?: CarteAppli;
+  /** La ligne sous la carte, comme les siennes (« 2–3 hours to learn. », « reason clearly, argue well… »). */
+  sous?: string[];
 };
 /** La slide de l'appli (Sophia) : son nom, la ligne en dessous, l'icône et sa phrase. */
 export type ContenuApp = { nom: string; sous: string; texte: string[] };
@@ -112,11 +114,13 @@ async function etape(ctx: ReturnType<ReturnType<typeof createCanvas>["getContext
   const t = mesurerTitre(ctx, c.titre, optTitre);
   const ecart = c.carte ? 70 : 17;
   const hCarte = c.carte ? hauteurCarteAppli(c.carte) : hauteurCarte;
-  const y0 = Math.round((H - (t.hauteur + ecart + hCarte)) / 2 + 24);
+  const hSous = c.sous?.length ? 60 + c.sous.length * 62 : 0;
+  const y0 = Math.round((H - (t.hauteur + ecart + hCarte + hSous)) / 2 + 24);
   const r = titreGeant(ctx, c.titre, { ...optTitre, y: y0 });
   const yCarte = r.bas + ecart;
   if (c.video) {
-    await carteYoutube(ctx, c.video, yCarte);
+    const bas = await carteYoutube(ctx, c.video, yCarte);
+    if (c.sous?.length) lignesCentrees(ctx, c.sous, { y: bas + 60 + 44, police: POLICE.texte, taille: 46, pas: 62, couleur: COULEUR.texte, largeurMax: 980 });
     return;
   }
   if (!c.carte || !s.app) throw new Error("une étape montre une vidéo YouTube ou la carte de son appli (`app`)");

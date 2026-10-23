@@ -1,0 +1,22 @@
+{
+  "name": "pod-yasmine",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Pod 10 — remakes @yasminespixels pour micabo : ses posts « that girl / studytok » qui ont marché (titre jaune, iPad de notes, iPhone), refaits avec nos photos, nos notes et les vraies captures de micabo, livrés en images finies au label that_girl_study (micabo seul), en français pour l'instant.",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "veille": "NODE_USE_ENV_PROXY=1 node atelier/cli-veille.ts",
+    "rendu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "livrer": "NODE_USE_ENV_PROXY=1 node atelier/cli-livrer.ts",
+    "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts",
+    "photos": "NODE_USE_ENV_PROXY=1 node atelier/cli-photos.ts"
+  }
+}

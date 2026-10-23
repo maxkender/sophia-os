@@ -18,6 +18,7 @@ import {
   NOTE_TIER_POD,
   ouvrirApplicationsOriginal,
   pertinenceOriginalApplication,
+  motsCherches,
   PODS_AVEC_PREUVE,
   prochainJour,
   sha256Hex,
@@ -656,4 +657,11 @@ Deno.test("livraisonsAutoValidables : podz sûr et actif, délai écoulé, ni vi
   ];
   assertEquals(livraisonsAutoValidables(pods, livraisons, maintenant).map((x) => x.id), ["vieille", "defaut", "pile", "vite"]);
   assertEquals(livraisonsAutoValidables([], livraisons, maintenant), []);
+});
+
+Deno.test("motsCherches : 3 lettres au moins, 5 mots au plus, sans caractères de filtre", () => {
+  assertEquals(motsCherches("Desk  laptop, a"), ["desk", "laptop"]);
+  assertEquals(motsCherches("café%_ (night)"), ["café", "night"]);
+  assertEquals(motsCherches("one two three four five six seven"), ["one", "two", "three", "four", "five"]);
+  assertEquals(motsCherches("  "), []);
 });

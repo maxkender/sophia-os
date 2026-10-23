@@ -38,6 +38,10 @@
  *   { action: "label", pod, limite? }   — agent : contenus du label avec texte
  *       source, rang et vues chez nous (de quoi voir ce qui marche).
  *   { action: "images", pod }   — agent : banque d'images propres du label.
+ *   { action: "photos", pod, cherche, limite? }   — agent : photos propres de
+ *       TOUTE la banque dont la description (en anglais) contient chaque mot
+ *       cherché, sans visage reconnaissable ni texte restant (pod 10 : son
+ *       label n'a pas de banque à lui).
  *   { action: "top_posts", pod, compte?, limite? }   — agent : nos posts
  *       publiés (avec la slide Sophia) les plus vus, avec leur texte, leurs
  *       images et les slides TikTok d'origine du contenu (modèles de mise en page).
@@ -90,6 +94,7 @@ import {
   PREUVE_R_MIN,
   PREUVE_VUES_MIN,
   prochainJour,
+  motsCherches,
   sha256Hex,
   TIER_ORIGINAL,
   verifierVideo,
@@ -151,6 +156,7 @@ Deno.serve(async (request) => {
     if (body?.action === "etat") return await etat(request, supabase, String(body.pod ?? ""));
     if (body?.action === "label") return await contenusDuLabel(request, supabase, body);
     if (body?.action === "images") return await imagesDuLabel(request, supabase, String(body.pod ?? ""));
+    if (body?.action === "photos") return await photosDeLaBanque(request, supabase, body);
     if (body?.action === "top_posts") return await topPosts(request, supabase, body);
     if (body?.action === "auto_valider" || body?.action === "ouvrir_applications_originaux") {
       const acces = await assertRole(request, ["admin"]);
@@ -168,7 +174,7 @@ Deno.serve(async (request) => {
         ? await valider(supabase, String(body.id ?? ""), userId, tierForce)
         : await rejeter(supabase, String(body.id ?? ""), userId, body.motif ? String(body.motif) : null);
     }
-    return json({ ok: false, error: "action inconnue (deposer | etat | label | images | top_posts | upload_url | persona | comptes | valider | rejeter | auto_valider | ouvrir_applications_originaux | valider_persona | rejeter_persona)" }, 400);
+    return json({ ok: false, error: "action inconnue (deposer | etat | label | images | photos | top_posts | upload_url | persona | comptes | valider | rejeter | auto_valider | ouvrir_applications_originaux | valider_persona | rejeter_persona)" }, 400);
   } catch (e) {
     return json({ ok: false, error: messageErreur(e) }, 500);
   }
@@ -1366,6 +1372,32 @@ async function imagesDuLabel(request: Request, supabase: Supabase, slug: string)
     images.push({ id: m.id, url: m.url, est_hook: Boolean(m.est_hook), used_count: m.used_count ?? 0, contenu_id: m.contenu_id });
   }
   return json({ ok: true, total: images.length, images });
+}
+
+/**
+ * Photos propres de toute la banque de l'OS dont la description contient
+ * chaque mot cherché (les descriptions sont en anglais), sans visage
+ * reconnaissable ni texte restant, les moins utilisées d'abord. Pour un pod
+ * dont le label n'a pas encore de banque (pod 10) : fonds et photos de ses
+ * remakes. Lecture seule.
+ */
+async function photosDeLaBanque(request: Request, supabase: Supabase, body: Record<string, unknown>) {
+  const pod = await podDuJeton(request, supabase, String(body.pod ?? ""));
+  if (!pod) return json({ ok: false, error: "unauthorized" }, 401);
+  const mots = motsCherches(String(body.cherche ?? ""));
+  if (!mots.length) return json({ ok: false, error: "cherche : au moins un mot de 3 lettres (en anglais)" }, 400);
+  const limite = Math.min(Math.max(Number(body.limite) || 48, 1), 120);
+  let q = supabase
+    .from("media_library")
+    .select("id, url, caption, used_count")
+    .like("storage_path", "propre/%")
+    .not("visage_identifiable", "is", true)
+    .not("visage_premier_plan", "is", true)
+    .not("texte_restant", "is", true);
+  for (const m of mots) q = q.ilike("caption", `%${m}%`);
+  const { data, error } = await q.order("used_count", { ascending: true }).order("id").limit(limite);
+  if (error) return json({ ok: false, error: messageErreur(error) }, 500);
+  return json({ ok: true, photos: data ?? [] });
 }
 
 const mediane = (xs: number[]) => {

@@ -16,7 +16,10 @@ import {
   type MesureSlide,
   normaliserBlocs,
   parserMesure,
+  NOTE_ECART_LEGER,
   pointAnglais,
+  postersEnPause,
+  RAISON_DELAI,
   redigerBrouillon,
   reformulationValide,
   SEUIL_VUES_SANS_REMARQUE,
@@ -136,7 +139,7 @@ Deno.test("police : le verdict du modèle compte quand il se prononce", () => {
   assert(!jugerPaire(2, a, b, null).evalues.includes("police"));
 });
 
-Deno.test("agreger : un alignement différent sur la seule accroche suffit", () => {
+Deno.test("agreger : un alignement différent sur la seule accroche est relevé, mais reste une info (écart léger)", () => {
   const accrocheA = slide([bloc({ role: "titre", texte: "things that will make you\ndisgustingly intelligent", lignes: 2, alignement: "gauche" })]);
   const accrocheB = slide([bloc({ role: "titre", texte: "πράγματα που θα σε\nκάνουν αδιανόητα έξυπνο", lignes: 2, alignement: "centre" })]);
   const corps = slide([bloc({ texte: PARAGRAPHE_LARGE })]);
@@ -144,6 +147,8 @@ Deno.test("agreger : un alignement différent sur la seule accroche suffit", () 
   const al = defauts.find((d) => d.code === "alignement");
   assert(al);
   assertEquals(al.slides, [1]);
+  assertEquals(al.niveau, "info");
+  assert(al.detail.endsWith(NOTE_ECART_LEGER));
 });
 
 Deno.test("taille : seul un écart net est relevé (×2 oui, ×1,3 non)", () => {
@@ -249,6 +254,11 @@ Deno.test("alignement : une slide suffit pour gauche / centre, pas pour « droit
   assertEquals(unDroite.find((d) => d.code === "alignement"), undefined);
   const deuxDroite = agreger([jugerPaire(2, centre, droite), jugerPaire(3, centre, centre), jugerPaire(4, centre, droite)]);
   assertEquals(deuxDroite.find((d) => d.code === "alignement")?.slides, [2, 4]);
+  // Relevés, mais ni l'un ni l'autre ne couvre presque tout le post : info pour l'admin.
+  assertEquals(unGauche.find((d) => d.code === "alignement")?.niveau, "info");
+  assertEquals(deuxDroite.find((d) => d.code === "alignement")?.niveau, "info");
+  const partout = agreger([jugerPaire(2, centre, gauche), jugerPaire(3, centre, gauche), jugerPaire(4, centre, gauche)]);
+  assertEquals(partout.find((d) => d.code === "alignement")?.niveau, "remarque");
 });
 
 Deno.test("largeur : un texte à peine plus petit n'est pas relevé (cas lina.entwickelt399)", () => {
@@ -293,8 +303,8 @@ Deno.test("redigerBrouillon : deux points au plus, les plus importants, en mots 
     { code: "musique", niveau: "remarque", slides: [], confiance: 1, detail: "" },
     { code: "justification", niveau: "remarque", slides: [2, 4], confiance: 1, detail: "", valeurs: { car_ligne_original: 39, car_ligne_publie: 17, sens: "courtes" } },
   ], REMARQUES);
-  assertEquals(points.map((p) => p.code), ["justification", "taille"]);
-  assertEquals(remarques.map((r) => r.id), ["h", "j", "s"]);
+  assertEquals(points.map((p) => p.code), ["taille", "justification"]);
+  assertEquals(remarques.map((r) => r.id), ["h", "s", "j"]);
   assert(texte.includes("On some of your slides, your lines are shorter than in the original, so the paragraph looks like a thin column. Here's how to fix it:"));
   assert(!/slides? \d/.test(texte), "jamais de numéro de slide : l'agent n'en compare que 3");
   assert(texte.includes("\n1. Tap your text to edit it.\n2. A small slider appears on the right edge of the screen (a white dot on a thin line). Slide the dot down"));
@@ -457,4 +467,45 @@ Deno.test("choisirRetoursAEnvoyer : un retour par créateur, le défaut le plus 
   assert(raisons.c1.includes("déjà reviewé"));
   assert(raisons.a1.includes("un retour par créateur"));
   assert(raisons.z1.includes("un retour par créateur"));
+});
+
+Deno.test("choisirRetoursAEnvoyer : un créateur servi il y a moins de 3 jours attend", () => {
+  const d: Defaut = { code: "taille", niveau: "remarque", slides: [1], confiance: 1, detail: "" };
+  const lignes = [
+    { id: "d1", post_id: "p1", poster_id: "dan", defauts: [d] },
+    { id: "e1", post_id: "p2", poster_id: "eva", defauts: [d] },
+  ];
+  // Aujourd'hui le 23 : dan a reçu un retour le 21 (attend le 24), eva le 20 (de nouveau servie).
+  const pause = postersEnPause(
+    [{ poster_id: "dan", jour: "2026-10-21" }, { poster_id: "eva", jour: "2026-10-20" }, { poster_id: null, jour: "2026-10-23" }],
+    "2026-10-23",
+  );
+  assertEquals([...pause], ["dan"]);
+  const { envoyer, sauter } = choisirRetoursAEnvoyer(lignes, new Set(), new Set(), pause);
+  assertEquals(envoyer.map((l) => l.id), ["e1"]);
+  assertEquals(sauter, [{ id: "d1", raison: RAISON_DELAI }]);
+});
+
+Deno.test("écart fort : lignes très courtes envoyées, lignes un peu courtes gardées pour l'admin", () => {
+  const a = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, w: 0.8, h: 0.12 })]);
+  // Colonne de 45 % contre 80 % (j ≈ 0,56) : envoyé.
+  const fort = slide([bloc({ texte: PARAGRAPHE_ETROIT, lignes: 10, w: 0.45, h: 0.3 })]);
+  const justifFort = agreger([jugerPaire(2, a, fort), jugerPaire(3, a, fort)]).find((d) => d.code === "justification");
+  assertEquals(justifFort?.niveau, "remarque");
+  // Colonne de 55 % (j ≈ 0,69) : relevé, pas envoyé.
+  const leger = slide([bloc({ texte: PARAGRAPHE_ETROIT, lignes: 10, w: 0.55, h: 0.3 })]);
+  const justifLeger = agreger([jugerPaire(2, a, leger), jugerPaire(3, a, leger)]).find((d) => d.code === "justification");
+  assertEquals(justifLeger?.niveau, "info");
+  assertEquals(redigerBrouillon(agreger([jugerPaire(2, a, leger), jugerPaire(3, a, leger)]), REMARQUES).texte, "");
+});
+
+Deno.test("écart fort : un paragraphe un peu plus large reste une info, la taille franche part seule", () => {
+  const a = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, w: 0.5, h: 0.12 })]);
+  // ×1,2 de largeur (léger) mais lettres ×1,5 (taille franche) : un seul point, la taille.
+  const b = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, w: 0.6, h: 0.18 })]);
+  const defauts = agreger([jugerPaire(2, a, b), jugerPaire(3, a, b)]);
+  assertEquals(defauts.map((d) => [d.code, d.niveau]), [["taille", "remarque"]]);
+  // ×1,5 de largeur : écart fort, la largeur part (et la taille, même geste, s'efface).
+  const c = slide([bloc({ texte: PARAGRAPHE_LARGE, lignes: 4, w: 0.75, h: 0.18 })]);
+  assertEquals(agreger([jugerPaire(2, a, c), jugerPaire(3, a, c)]).map((d) => [d.code, d.niveau]), [["largeur", "remarque"]]);
 });

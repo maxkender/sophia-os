@@ -48,15 +48,19 @@ le pincement ne la change pas, seul le curseur la change.
 
 ### Les règles
 
-| Défaut | Règle | Envoyé ? | Remarque-type |
+Dans l'ordre de priorité (`PRIORITE`). « Envoyé si » : l'écart fort, mesuré le
+23/10 (voir plus bas) ; en dessous, le défaut reste relevé pour l'admin avec la
+mention « écart léger : pas envoyé ».
+
+| Défaut | Règle (relevé) | Envoyé si | Remarque-type |
 | --- | --- | --- | --- |
-| `texte_absent` | slide publiée sans texte | oui | — |
-| `justification` | largeur en hauteurs de ligne, publiée ÷ originale, sous 0,75 (lignes courtes) ou au-dessus de 1,35, confirmé par la ligne la plus longue (en caractères) ; paragraphe de 3 lignes et 60 caractères ou plus. **Jamais de comparaison du nombre de lignes** : le texte est traduit, une version plus longue fait plus de lignes de la même largeur | oui | Jutifier |
-| `hierarchie` | l'original distingue un titre, le publié non | oui | Corpus / head |
-| `largeur` | largeur du paragraphe sur l'écran (ses marges), publiée ÷ originale, sous ×0,78 ou au-dessus de ×1,15, avec des lettres elles aussi plus petites (ou plus grosses) d'au moins 10 % : le bloc a été pincé trop petit ou trop grand. Plus large à taille égale (traduction plus longue) : rien. Le message parle d'un texte « plus petit / plus grand », pas de marges | oui | Jutifier |
-| `taille` | hauteur de ligne (rapportée à la largeur de l'image) hors de ×0,7 à ×1,4 ; pas de second point si `largeur` dit déjà « pincer » | oui | text not the same |
-| `alignement` | gauche / centre / droite du paragraphe principal (2 lignes ou plus), jugé sur les lignes entre elles, pas sur la place du bloc dans l'image | oui | — |
-| `couleur`, `effet` | famille de couleur (un blanc crème ou un jaune très pâle compte comme du blanc) ; effet du bouton A (aucun, contour, fond) | oui | text not the same |
+| `texte_absent` | slide publiée sans texte | toujours | — |
+| `taille` | hauteur de ligne (rapportée à la largeur de l'image) hors de ×0,7 à ×1,4 ; pas de second point si `largeur` (envoyée) dit déjà « pincer » | toujours | text not the same |
+| `largeur` | largeur du paragraphe sur l'écran (ses marges), publiée ÷ originale, sous ×0,78 ou au-dessus de ×1,15, avec des lettres elles aussi plus petites (ou plus grosses) d'au moins 10 % : le bloc a été pincé trop petit ou trop grand. Plus large à taille égale (traduction plus longue) : rien. Le message parle d'un texte « plus petit / plus grand », pas de marges | plus étroit : toujours ; plus large : au-delà de ×1,30 | Jutifier |
+| `justification` | largeur en hauteurs de ligne, publiée ÷ originale (j), sous 0,75 (lignes courtes) ou au-dessus de 1,35, confirmé par la ligne la plus longue (en caractères) ; paragraphe de 3 lignes et 60 caractères ou plus. **Jamais de comparaison du nombre de lignes** : le texte est traduit, une version plus longue fait plus de lignes de la même largeur | j médian sous 0,60 (ou au-dessus de 1,60) | Jutifier |
+| `hierarchie` | l'original distingue un titre, le publié non | sur 2 slides et ¾ des slides jugées | Corpus / head |
+| `alignement` | gauche / centre / droite du paragraphe principal (2 lignes ou plus), jugé sur les lignes entre elles, pas sur la place du bloc dans l'image | sur 2 slides et ¾ des slides jugées | — |
+| `couleur`, `effet` | famille de couleur (un blanc crème ou un jaune très pâle compte comme du blanc) ; effet du bouton A (aucun, contour, fond) | sur 2 slides et ¾ des slides jugées | text not the same |
 | `nb_slides`, `musique` | nombre de slides ou son différents de ce qui était fourni : souvent une erreur d'assignation, et TikTok sert parfois le même son sous un autre identifiant | **non**, info admin | — |
 | `police`, `gras`, `placement` | avis de Gemini sur la police ; graisse ; centre du texte décalé de plus de 25 % de la hauteur | **non**, info admin | — |
 
@@ -65,6 +69,17 @@ des slides où la règle s'applique, et sur 2 slides dès qu'il y en a 2 à juge
 Sauf l'alignement gauche / centre : souvent seule l'accroche a un alignement
 propre, une slide suffit. Pas pour « droite » : Gemini prend un bloc centré posé
 à droite de l'image pour un texte aligné à droite (cas ben.wissen295 du 16/10).
+
+**Écart fort (23/10).** Une semaine d'envois a fait baisser les défauts de
+30 % sans changer les vues : à contenu égal (même slideshow posté avec et sans
+le défaut, posts du 16 au 20/10), seul le texte plus petit que l'original coûte
+des vues (largeur étroite ×0,32, taille plus petite ×0,21, lignes très courtes
+j < 0,60 ×0,43 ; taille plus grande ×0,83). Une justification légère, un
+paragraphe un peu plus large, l'alignement, la couleur, l'effet et la
+hiérarchie ne coûtent rien, même sur tout le post
+(`analyse/rapports/2026-10-23-retours-agent.md`). D'où la taille en tête et les
+seuils d'envoi ci-dessus (`ecartFort`). Échantillons de 3 à 22 slideshows par
+case : à remesurer (`analyse/requetes/16_effet_retours_agent.sql`, partie C).
 
 Recalé le 17/10 sur les cas jugés faux au banc d'essai : lina.entwickelt399
 (texte à peine plus petit), ben.wissen295 (« aligné à droite »),
@@ -151,6 +166,10 @@ dans `/admin/reviews`) :
 - seulement les posts de la veille relus par le cron (pas les « Tester ») ;
 - **un retour par créateur et par nuit** : celui du post au défaut le plus
   important, puis au plus de points ; ses autres posts restent en brouillon ;
+- **au plus un retour tous les 3 jours par créateur** (`DELAI_ENTRE_RETOURS_JOURS`) :
+  reçu un jour J (heure de Paris, de l'agent ou de l'admin), le suivant part au
+  plus tôt à J + 3. Sans ce délai, un créateur sur cinq en recevait un presque
+  chaque matin (rapport du 23/10) ;
 - jamais pour un post déjà reviewé ou passé à la main dans la file.
 
 `relectures_auto.envoi` garde ce que l'envoi a fait de chaque relecture

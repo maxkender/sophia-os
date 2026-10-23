@@ -46,6 +46,8 @@ import {
   type RemarqueType,
   trier,
   choisirRetoursAEnvoyer,
+  DELAI_ENTRE_RETOURS_JOURS,
+  postersEnPause,
   type Defaut,
 } from "../_shared/relecture.ts";
 import {
@@ -644,7 +646,9 @@ async function envoyerRetours(supabase: Client, types: RemarqueType[]): Promise<
 
   const postIds = [...new Set(lignes.map((l) => l.post_id).filter((x): x is string => Boolean(x)))];
   const posterIds = [...new Set(lignes.map((l) => l.poster_id).filter((x): x is string => Boolean(x)))];
-  const [reviews, passes, servis] = await Promise.all([
+  // Délai entre deux retours : les retours reçus ces derniers jours (heure de Paris).
+  const depuis = new Date(Date.now() - (DELAI_ENTRE_RETOURS_JOURS + 1) * 86_400_000).toISOString();
+  const [reviews, passes, servis, recents] = await Promise.all([
     parLots(postIds, async (lot) => {
       const { data: d, error: e } = await supabase.from("reviews").select("post_id").in("post_id", lot);
       if (e) throw e;
@@ -665,9 +669,23 @@ async function envoyerRetours(supabase: Client, types: RemarqueType[]): Promise<
       if (e) throw e;
       return (d ?? []).map((r) => r.poster_id as string);
     }),
+    parLots(posterIds, async (lot) => {
+      const { data: d, error: e } = await supabase
+        .from("reviews")
+        .select("poster_id, created_at")
+        .gte("created_at", depuis)
+        .in("poster_id", lot);
+      if (e) throw e;
+      return (d ?? []).map((r) => ({ poster_id: r.poster_id as string, jour: jourParis(r.created_at as string) }));
+    }),
   ]);
 
-  const { envoyer, sauter } = choisirRetoursAEnvoyer(lignes, new Set([...reviews, ...passes]), new Set(servis));
+  const { envoyer, sauter } = choisirRetoursAEnvoyer(
+    lignes,
+    new Set([...reviews, ...passes]),
+    new Set(servis),
+    postersEnPause(recents, aujourdhuiParis()),
+  );
   const parRaison = new Map<string, string[]>();
   for (const s of sauter) parRaison.set(s.raison, [...(parRaison.get(s.raison) ?? []), s.id]);
   for (const [raison, ids] of parRaison) {

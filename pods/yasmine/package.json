@@ -15,6 +15,7 @@
     "typecheck": "tsc -p .",
     "veille": "NODE_USE_ENV_PROXY=1 node atelier/cli-veille.ts",
     "rendu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "apercu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
     "livrer": "NODE_USE_ENV_PROXY=1 node atelier/cli-livrer.ts",
     "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts",
     "photos": "NODE_USE_ENV_PROXY=1 node atelier/cli-photos.ts"

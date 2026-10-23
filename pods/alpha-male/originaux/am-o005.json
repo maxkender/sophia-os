@@ -1,0 +1,56 @@
+{
+ "source_id": "am-o005",
+ "schema_id": "situational-rules",
+ "titre": "6 military level habits that make you unshakeable #men #discipline #selfimprovement #mindset #military",
+ "musique_titre": "angels",
+ "musique_url": "https://www.tiktok.com/music/angels-7439542776280451089",
+ "inspirations": [
+  "a776694b-f434-4371-b4ba-14ce13361bcd"
+ ],
+ "notes": "essai (am-o005, une livraison sur cinq). Forme d'accroche jamais faite chez nous (aucun « military » dans donnees/label.json) : « 5 military level habits that make you manlier » de @millyjhino, 382 k vues le 19/10 (preuve TikTok du schéma situational-rules, valable jusqu'au 18/11). Accroches écrites : « 6 military level habits that make you unshakeable » (retenue : la forme exacte du post à 382 k avec un twist sur la fin), « 5 military habits every man should steal » (écartée : plus loin du gagnant), « military level rules that make you manlier » (écartée : copie trop près). Minuscules comme @millyjhino. Items au format règle (le geste, puis une ligne de pourquoi), sans prêter de pratique précise à une armée réelle : formulés comme des habitudes de discipline. Six habitudes absentes du label (cirer ses chaussures, se lever quand quelqu'un entre, la réponse d'abord, vérifier ses affaires avant de sortir, s'entraîner sous la pluie). Sophia sur la dernière. Images : la banque du label, sans visage reconnaissable ; slide Sophia sur une chambre sombre sans personne. Pas de relevé de ses slides en local : reference_url prises sur a776694b (même compte, même mise en page), toutes vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9fafb92d",
+   "texte_overlay": "6 military level habits\nthat make you unshakeable",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "da49894f",
+   "texte_overlay": "1. shine your shoes\nevery sunday\n\nsmall details show people\nhow you handle big ones.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "637da86f",
+   "texte_overlay": "2. stand up when someone\nwalks into the room\n\nit costs you two seconds.\nthey remember it for years.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2e80afd4",
+   "texte_overlay": "3. answer first,\nexplain after\n\n\"yes\", \"no\" or \"done\".\nthen the details, if they ask.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "eb31a205",
+   "texte_overlay": "4. check your things\nbefore you leave\n\nkeys, wallet, phone.\na man who forgets nothing\nnever has to rush back.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "810a60a9",
+   "texte_overlay": "5. train when it rains\n\ndiscipline that needs\ngood weather\nisn't discipline.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "cdc68ec1",
+   "texte_overlay": "6. sharpen your mind\nevery single day\n\na strong body with\nan empty head\nis only half the job.",
+   "texte_sophia": "6. sharpen your mind\nevery single day\n\nuse a micro-learning app\nlike the Sophia app:\nhistory, science or art\nin 5 minutes a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/6.jpg"
+  }
+ ]
+}

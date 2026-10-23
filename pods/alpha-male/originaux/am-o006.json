@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o006",
+ "schema_id": "rules-as-a-man",
+ "titre": "6 mandatory rules as a man #men #discipline #selfimprovement #mindset #respect",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7522978417551248134",
+ "inspirations": [
+  "7eca8678-2dc5-4616-bed4-bd4df168bfbe",
+  "47946fb4-f8bc-4d38-b565-196df3cf3778"
+ ],
+ "notes": "Schéma rules-as-a-man (r 8,05, rang S, 7eca8678 ; r 3,24, 47946fb4). Accroches écrites : « 6 mandatory rules as a man: » (retenue : la forme exacte du gagnant au rang S), « 6 lessons every young man needs to know » (écartée : moins ferme), « The laws of a respected man » (écartée : abstraite, proche des flops « injonctions abstraites »). Format du gagnant : une règle ferme, puis au plus une ligne de raison. Six règles neuves (vérifié dans donnees/label.json) ; écartées car déjà présentes : parler de quelqu'un qui n'est pas là, cuisiner, se plaindre, décider en colère, et les règles du gagnant (regard, 5 minutes d'avance, téléphone à table, responsabilité, prière). Sophia sur la dernière règle, comme le gagnant (« Stop wasting your screen time. Use a micro-learning app like the Sophia app… ») mais reformulée. Images : la banque du label, sans visage reconnaissable ; slide Sophia sur un salon sans personne. reference_url toutes vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "80dad647",
+   "texte_overlay": "6 mandatory rules\nas a man:",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629494368684018966/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "abb1076e",
+   "texte_overlay": "1. Never talk about someone\nbehind their back.\nIf you won't say it to\ntheir face, don't say it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629494368684018966/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "21d51582",
+   "texte_overlay": "2. Check in on your family\nevery Sunday.\nEven when you have\nnothing new to say.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629494368684018966/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "069675e8",
+   "texte_overlay": "3. Offer to carry\nthe heavy thing.\nDon't wait to be asked.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629494368684018966/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "52962a12",
+   "texte_overlay": "4. Never make a promise\nwhen you're excited.\nYour word should come\nfrom a calm head.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629494368684018966/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "11d4375f",
+   "texte_overlay": "5. Lose with class.\nShake the winner's hand\nand mean it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7503440328431521046/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "632b7144",
+   "texte_overlay": "6. Learn something new\nbefore bed instead\nof scrolling.\nTen minutes a night\nadds up to a sharper man.",
+   "texte_sophia": "6. Learn something new\nbefore bed instead\nof scrolling.\nA micro-learning app like\nthe Sophia app takes\n5 minutes a night.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7503440328431521046/5.jpg"
+  }
+ ]
+}

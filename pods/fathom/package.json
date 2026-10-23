@@ -1,0 +1,23 @@
+{
+  "name": "pod-fathom",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Pod 11 — remakes @fathom0g (Fathomly) pour Sophia : ses listes « 5 ways » et « 10/10 skills » sur fond blanc, titres géants, vraies vidéos YouTube, la slide Sophia à la place de Fathomly, et UnSwipe sur l'étape qui s'y prête (double intégration).",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "veille": "NODE_USE_ENV_PROXY=1 node atelier/cli-veille.ts",
+    "youtube": "NODE_USE_ENV_PROXY=1 node atelier/cli-youtube.ts",
+    "rendu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "apercu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "livrer": "NODE_USE_ENV_PROXY=1 node atelier/cli-livrer.ts",
+    "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts"
+  }
+}

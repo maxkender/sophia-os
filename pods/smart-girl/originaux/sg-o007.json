@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o007",
+ "schema_id": "vocabulary-words",
+ "titre": "5 words that will make you sound effortlessly well read #vocabulary #wordoftheday #englishwords #smartgirl #booktok",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "46118b58-708c-4012-b3d2-143b20410565",
+  "367627d1-175c-4fe0-8fff-45c923d6906d"
+ ],
+ "notes": "Schéma vocabulary-words (367627d1 r 8,01 sur 8 passages ; 95348884 r 9,67 ; 46118b58 r 5,75 ; a7697985 r 4,29). Accroches écrites : « 5 words that will make you sound effortlessly well read » (retenue : le gabarit « 5 words that… » de @gilmoreobssesed, avec une promesse que l'accroche écartée du pilote n'a pas encore testée), « 5 words to help expand your vocabulary (part 2) » (écartée : trop proche du pilote sg-o001), « words i stole from classic novels » (écartée : promesse non prouvée). Cinq mots absents des contenus du label (vérifié dans donnees/label.json) : effervescent, gregarious, circumspect, quixotic, polymath. Définitions et prononciations au sens courant du dictionnaire. Sophia sur le dernier mot (polymath), comme le pilote, avec la formule « a micro-learning app like the Sophia app ». Images : captures de la série (style @gilmoreobssesed) pour l'accroche, les mots et la fin, autres que celles du pilote ; slide Sophia sur une bougie et une plante, sans personne.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "536f0639",
+   "texte_overlay": "5 words that will\nmake you sound\neffortlessly well read",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "253c1584",
+   "texte_overlay": "Effervescent:\nbubbly, lively and\nfull of enthusiasm\n(ef-er-VES-uhnt)\n\nExample:\nHer effervescent mood\nmade the long day\nfeel short.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3a7872f6",
+   "texte_overlay": "Gregarious:\nfond of company,\nsociable\n(gri-GAIR-ee-uhs)\n\nExample:\nShe was gregarious and\nknew everyone at\nthe party.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e6942530",
+   "texte_overlay": "Circumspect:\ncareful to weigh every\nrisk before acting\n(SUR-kuhm-spekt)\n\nExample:\nShe stayed circumspect\nand read the contract\ntwice.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "cf301555",
+   "texte_overlay": "Quixotic:\nidealistic in a way\nthat is not practical\n(kwik-SOT-ik)\n\nExample:\nHer plan to read every\nbook in the library\nwas quixotic.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5f180fc0",
+   "texte_overlay": "Polymath:\nsomeone who knows a lot\nabout many subjects\n(POL-ee-math)\n\nExample:\nShe became a quiet\npolymath, learning a little\nhistory, art and science\nevery day.",
+   "texte_sophia": "Polymath:\nsomeone who knows a lot\nabout many subjects\n(POL-ee-math)\n\nExample:\nShe became a quiet\npolymath with a micro-\nlearning app like the\nSophia app, 5 minutes\na day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b580f650",
+   "texte_overlay": "follow for more daily words\nwhich one will you use first?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609790828923456790/7.jpg"
+  }
+ ]
+}

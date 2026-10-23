@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
-import { etatOnboarding, marquerReviewVue, mesReviewsNonVues } from "@/features/moteur/api";
+import { contesterReview, etatOnboarding, marquerReviewVue, mesReviewsNonVues } from "@/features/moteur/api";
 import { RetourParcours } from "./RetourParcours";
 
 /**
@@ -27,6 +27,11 @@ export function ReviewPopup() {
     },
   });
 
+  const contester = useMutation({
+    mutationFn: ({ id, mot }: { id: string; mot: string }) => contesterReview(id, mot),
+    onSuccess: () => void queryClient.invalidateQueries({ queryKey: ["mes-reviews-toutes"] }),
+  });
+
   const courante = (data ?? [])[0];
   if (!courante || onboarding.isPending || onboarding.data?.vu === false) return null;
 
@@ -38,6 +43,9 @@ export function ReviewPopup() {
       occupe={marquer.isPending}
       ensuite={(data ?? []).length - 1}
       onCompris={() => marquer.mutate(courante.id)}
+      onContester={async (mot) => {
+        await contester.mutateAsync({ id: courante.id, mot });
+      }}
     />
   );
 }

@@ -7,7 +7,9 @@ import "@/locales";
 const mesReviewsNonVues = vi.fn();
 const marquerReviewVue = vi.fn();
 const etatOnboarding = vi.fn();
+const contesterReview = vi.fn();
 vi.mock("@/features/moteur/api", () => ({
+  contesterReview: (id: string, mot: string) => contesterReview(id, mot),
   mesReviewsNonVues: () => mesReviewsNonVues(),
   etatOnboarding: () => etatOnboarding(),
   marquerReviewVue: (id: string) => marquerReviewVue(id),
@@ -55,6 +57,7 @@ describe("ReviewPopup", () => {
   beforeEach(() => {
     mesReviewsNonVues.mockReset();
     marquerReviewVue.mockReset().mockResolvedValue(undefined);
+    contesterReview.mockReset().mockResolvedValue(undefined);
     etatOnboarding.mockReset().mockResolvedValue({ vu: true, etape: 0 });
     vi.spyOn(HTMLMediaElement.prototype, "play").mockResolvedValue(undefined);
     hauteurs(500); // tout tient à l'écran
@@ -105,6 +108,22 @@ describe("ReviewPopup", () => {
     fireEvent.scroll(zone);
     const compris = await screen.findByRole("button", { name: /Compris, merci|Got it, thanks/ });
     expect(compris).toBeEnabled();
+  });
+
+  it("« Ce retour me semble faux » : au bout du message, un mot facultatif, puis merci", async () => {
+    mesReviewsNonVues.mockResolvedValue([{ ...REVIEW, publie_url: null, source_url: null, videos: [] }]);
+    renderPopup();
+    fireEvent.click(await screen.findByRole("button", { name: /Ce retour me semble faux|This feedback seems wrong/ }));
+    fireEvent.change(screen.getByRole("textbox", { name: /Qu’est-ce qui ne va pas|What’s wrong/ }), {
+      target: { value: "My text is the same size as the original" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: /^(Envoyer|Send)$/ }));
+    await waitFor(() => expect(contesterReview).toHaveBeenCalledWith("rev-1", "My text is the same size as the original"));
+    expect(await screen.findByText(/Merci, on vérifie|Thanks, we’ll check/)).toBeInTheDocument();
+    // Le retour reste à fermer : « Compris » le marque lu.
+    expect(marquerReviewVue).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByRole("button", { name: /Compris, merci|Got it, thanks/ }));
+    await waitFor(() => expect(marquerReviewVue).toHaveBeenCalledWith("rev-1"));
   });
 
   it("annonce les retours qui suivent", async () => {

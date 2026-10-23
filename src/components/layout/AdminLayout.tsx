@@ -1,3 +1,4 @@
+import { useQuery } from "@tanstack/react-query";
 import { Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
@@ -8,6 +9,7 @@ import {
   Columns2,
   Crosshair,
   FlaskConical,
+  Flag,
   Gavel,
   Gauge,
   LineChart,
@@ -29,6 +31,7 @@ import {
 } from "lucide-react";
 
 import { useAuth } from "@/features/auth/AuthContext";
+import { compterContestationsAVerifier } from "@/features/moteur/api";
 import { hoVoitLien } from "@/features/auth/pagesHeadOfOps";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { nomApplication } from "@/features/moteur/applications";
@@ -41,6 +44,12 @@ export function AdminLayout() {
   const { role } = useAuth();
   const { applications, slug, setSlug, application } = useApplication();
   const estHo = role === "head_of_ops";
+  // Retours que des créateurs disent faux, en attente d'une vérification (0340).
+  const contestations = useQuery({
+    queryKey: ["contestations-a-verifier"],
+    queryFn: compterContestationsAVerifier,
+    refetchInterval: 5 * 60_000,
+  });
 
   /**
    * Le Head of Ops partage la coquille de l'admin mais n'a droit qu'aux
@@ -195,6 +204,13 @@ export function AdminLayout() {
               label: t("nav.reviews"),
               icon: MessageSquareQuote,
               description: t("navDesc.reviews"),
+            },
+            {
+              to: "/admin/retours-contestes",
+              label: t("nav.retoursContestes"),
+              icon: Flag,
+              description: t("navDesc.retoursContestes"),
+              badge: contestations.data ?? 0,
             },
             {
               to: "/admin/file-reviews",

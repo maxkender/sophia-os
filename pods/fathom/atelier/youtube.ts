@@ -7,7 +7,7 @@
 import { loadImage, type Image } from "@napi-rs/canvas";
 import { type Ctx, COULEUR, imageRemplie, L, rectArrondi } from "./dessin.ts";
 import { image } from "./planche.ts";
-import { POLICE } from "./polices.ts";
+import { POLICE, POLICE_EMOJI } from "./polices.ts";
 
 /** Une vidéo telle que la carte l'affiche, dans la langue de la slide. */
 export type Video = {
@@ -129,7 +129,7 @@ export async function carteYoutube(ctx: Ctx, v: Video, y: number): Promise<numbe
 
   // Le titre (deux lignes au plus), puis chaîne · vues · date.
   ctx.save();
-  ctx.font = `${CARTE.tailleTitre}px "${POLICE.youtube}"`;
+  ctx.font = `${CARTE.tailleTitre}px "${POLICE.youtube}"${POLICE_EMOJI}`;
   ctx.fillStyle = COULEUR.ytTitre;
   ctx.textBaseline = "alphabetic";
   const lignes = lignesTitre(ctx, v.titre, CARTE.lTexte);
@@ -138,7 +138,7 @@ export async function carteYoutube(ctx: Ctx, v: Video, y: number): Promise<numbe
     ctx.fillText(t, CARTE.xTexte, base);
     base += CARTE.pasTitre;
   }
-  ctx.font = `${CARTE.tailleMeta}px "${POLICE.youtubeMeta}"`;
+  ctx.font = `${CARTE.tailleMeta}px "${POLICE.youtubeMeta}"${POLICE_EMOJI}`;
   ctx.fillStyle = COULEUR.ytMeta;
   const meta = couper(ctx, `${v.chaine} · ${v.vues} · ${v.date}`, CARTE.lTexte + 40);
   ctx.fillText(meta, CARTE.xTexte, base - CARTE.pasTitre + 58);
@@ -224,6 +224,8 @@ export type Resultat = {
   date: string;
   duree: string;
   avatar: string;
+  /** Le chiffre compact de YouTube dans la langue (« 1,2 Mio. », « 374 K », « 101 mi »). */
+  vues_courtes: string;
 };
 
 /**
@@ -250,6 +252,7 @@ export async function chercher(requete: string, langue = "en", n = 12): Promise<
       date: texte(v.publishedTimeText),
       duree: texte(v.lengthText),
       avatar: String(avatar).replace(/=s\d+-/, "=s176-"),
+      vues_courtes: texte(v.shortViewCountText),
     });
     if (res.length >= n) break;
   }
@@ -258,6 +261,18 @@ export async function chercher(requete: string, langue = "en", n = 12): Promise<
 
 /** « 8y ago » → « 8 years ago » (la page de résultats abrège parfois, l'appli jamais). */
 export function dateAppli(date: string, langue = "en"): string {
+  // La page abrège aussi en français et en espagnol (« il y a 8 a », « hace 8 a ») ; l'appli écrit le mot entier.
+  const n = (x: string) => Number(x) > 1;
+  const fr = date.match(/^il y a (\d+)\s*(a|m\.|sem\.|j|h|min)$/);
+  if (langue === "fr" && fr) {
+    const mot = { a: n(fr[1]) ? "ans" : "an", "m.": "mois", "sem.": n(fr[1]) ? "semaines" : "semaine", j: n(fr[1]) ? "jours" : "jour", h: n(fr[1]) ? "heures" : "heure", min: "min" }[fr[2]];
+    return `il y a ${fr[1]} ${mot}`;
+  }
+  const es = date.match(/^hace (\d+)\s*(a|m|sem\.|d|h|min)$/);
+  if (langue === "es" && es) {
+    const mot = { a: n(es[1]) ? "años" : "año", m: n(es[1]) ? "meses" : "mes", "sem.": n(es[1]) ? "semanas" : "semana", d: n(es[1]) ? "días" : "día", h: n(es[1]) ? "horas" : "hora", min: "min" }[es[2]];
+    return `hace ${es[1]} ${mot}`;
+  }
   const m = date.match(/^(\d+)\s*(y|yr|mo|w|wk|d|h|min)s?\s+ago$/i);
   if (!m || langue !== "en") return date;
   const unite = { y: "year", yr: "year", mo: "month", w: "week", wk: "week", d: "day", h: "hour", min: "minute" }[m[2].toLowerCase()] ?? m[2];
@@ -265,21 +280,39 @@ export function dateAppli(date: string, langue = "en"): string {
 }
 
 /** Ce que la carte affiche pour une vidéo précise, relevé sur la page de résultats. */
-export async function details(id: string, langue = "en"): Promise<Video & { vues_exactes: number | null }> {
-  const r = (await chercher(id, langue, 20)).find((x) => x.id === id);
+export async function details(id: string, langue = "en", recherche?: string): Promise<Video & { vues_exactes: number | null }> {
+  // La recherche par id rate parfois une vidéo bien publique : on reformule avant de conclure.
+  let r: Resultat | undefined;
+  // Le titre natif d'abord : par son id, YouTube rend parfois le titre traduit qu'a ajouté la chaîne.
+  for (const requete of [...(recherche ? [recherche] : []), id, `"${id}"`, `youtube.com/watch?v=${id}`]) {
+    r = (await chercher(requete, langue, 20)).find((x) => x.id === id);
+    if (r) break;
+  }
   if (!r) throw new Error(`${id} : introuvable dans les résultats de YouTube (vidéo privée, supprimée, ou id mal recopié)`);
   if (!r.avatar) throw new Error(`${id} : avatar de la chaîne introuvable`);
   return {
     id,
     titre: r.titre,
     chaine: r.chaine,
-    vues: r.vues_exactes !== null ? formatVues(r.vues_exactes, langue) : r.vues,
+    vues: VUES_LOCALES[langue] && r.vues_courtes ? VUES_LOCALES[langue](r.vues_courtes) : r.vues_exactes !== null ? formatVues(r.vues_exactes, langue) : r.vues,
     date: dateAppli(r.date, langue),
     duree: r.duree,
     avatar: r.avatar,
     vues_exactes: r.vues_exactes,
   };
 }
+
+/**
+ * Les vues comme l'appli les écrit en de, es, it et pt : le chiffre compact
+ * que YouTube donne lui-même dans la langue, puis le mot (« 1,2 Mio. Aufrufe »,
+ * « 1,2 M de visualizaciones », « 1,2 Mln visualizzazioni », « 1,2 mi visualizações »).
+ */
+const VUES_LOCALES: Record<string, (court: string) => string> = {
+  de: (c) => `${c} Aufrufe`,
+  es: (c) => (/\sM$/.test(c) ? `${c} de visualizaciones` : `${c} visualizaciones`),
+  it: (c) => `${c} visualizzazioni`,
+  pt: (c) => `${c} visualizações`,
+};
 
 /** « 3.4M views » : un chiffre après la virgule sous 10, tronqué comme l'appli. */
 export function formatVues(n: number, langue = "en"): string {

@@ -8,7 +8,7 @@
 import { createCanvas, loadImage } from "@napi-rs/canvas";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { COULEUR, type Ctx, H, icone, L, type LigneTitre, lignesCentrees, mesurerTitre, titreAffiche, titreGeant } from "./dessin.ts";
+import { COULEUR, type Ctx, ecartAccents, H, icone, L, type LigneTitre, lignesCentrees, mesurerTitre, titreAffiche, titreGeant } from "./dessin.ts";
 import { retirerMetadonnees } from "./metadonnees.ts";
 import { POLICE } from "./polices.ts";
 import { carteYoutube, hauteurCarte, type Video } from "./youtube.ts";
@@ -129,10 +129,14 @@ const hauteurCarteAppli = (c: CarteAppli) => 380 + 64 + 118 + 50 + c.texte.lengt
  */
 function titreParLignes(ctx: Ctx, c: ContenuEtape, y: number, dessiner: boolean): number {
   let haut = y;
+  let tailleAvant = 0;
   c.titre.forEach((ligne, i) => {
     const o = { largeur: 920, capMax: c.tailles![i] ?? 180 };
-    const cap = dessiner ? titreGeant(ctx, [ligne], { ...o, y: haut }).cap : mesurerTitre(ctx, [ligne], o).cap;
-    haut += cap + 20;
+    const m = mesurerTitre(ctx, [ligne], o);
+    if (i > 0) haut += ecartAccents(ctx, c.titre, i, m.taille, tailleAvant);
+    if (dessiner) titreGeant(ctx, [ligne], { ...o, y: haut });
+    tailleAvant = m.taille;
+    haut += m.cap + 20;
   });
   return haut - 20;
 }

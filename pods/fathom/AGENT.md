@@ -19,7 +19,7 @@ rejette est validée toute seule 12 h après son dépôt.
 	- Elle s'y prête quand l'étape parle de scroll, de vidéos courtes, de temps d'écran, d'attention ou de réseaux (« DELETE SOCIAL MEDIA », « Instead Of Scrolling », « ScreenTime »).
 	- Jamais plaquée : une liste de compétences ou de vidéos à regarder n'a pas d'étape UnSwipe.
 - **Le label** : `Fathomly`, qui sert **Sophia seul**. Aucun compte n'y est rattaché pour l'instant : Adrien et Max choisissent les comptes Sophia anglais.
-- **En anglais d'abord** (décision du 23/10). Une autre langue demandera des vidéos YouTube dans cette langue.
+- **En six langues** : l'anglais d'abord, puis fr, es, de, it et pt (`LANGUES` dans `atelier/api.ts`). Chaque langue a ses propres vidéos YouTube, cherchées dans cette langue (`npm run youtube -- "…" --langue fr`), avec un titre natif : si YouTube renvoie le titre traduit d'une chaîne, passe `--recherche "<titre natif>"` ou change de vidéo.
 - **Parfait ou rien**. Un remake part seulement quand chaque slide est au niveau des siennes. Sinon, il attend le lendemain.
 
 ## Les règles d'un remake

@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o010",
+ "schema_id": "je-note-tout",
+ "titre": "je NOTE TOUT ce que j'ai essayé pour arrêter de scroller (et me cultiver à la place) #pourtoi #culture #apprentissage #education",
+ "musique_titre": "Touch daft punk",
+ "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+ "inspirations": [
+  "d61696f9-869d-4515-a411-9eb6bf2fe7f7",
+  "f0cfb4f0-d793-4403-8b0e-7618b8821c1e"
+ ],
+ "notes": "essai. Routine du 23/10, livraison 2 sur 2 (le numéro finit par 0). L'essai : l'angle « arrêter de scroller » du schéma je-note-tout, vu dans la veille (@studyavec_lea, « je NOTE TOUTES les choses que j'ai essayé pour arrêter de scroller », 115 k vues le 15/10) et jamais fait chez nous. La preuve reste celle du schéma (r 7,45 sur 9 passages, d61696f9 ; r 4,51, f0cfb4f0). Le playbook met en garde contre l'anti-scroll en liste générique : ici il est raconté et noté, la forme qui marche. Accroches écrites : « je NOTE TOUT ce que j'ai essayé pour arrêter de scroller (et me cultiver à la place) » (retenue : la forme exacte du post à 115 k, plus la culture du label), « j'ai testé 6 astuces pour arrêter de scroller : mes notes honnêtes » (écartée : sans le NOTE crié), « je note TOUTES les astuces pour lâcher mon téléphone le soir » (écartée : sans la culture). Notes sur 10 en « je », du 0/10 au 10/10, items neufs : supprimer les applis de réseaux puis les réinstaller 0/10, l'écran en noir et blanc 5/10, le téléphone dans une autre pièce le soir 7/10, un livre posé sur le téléphone 8/10, 5 minutes d'apprentissage à la place du scroll 10/10. Aucune appli nommée, aucun fait à vérifier. Sophia sur le 10/10, dernier item. Images de la banque : la fille de dos au téléphone, l'écran caché (accroche), le jean et les lunettes sur le livre, les écouteurs sur le pull, le bureau à la fenêtre, les écouteurs et le crayon, la fille aux lunettes bleues, les bottines. Inspirations : slides 1, 3, 4 de d61696f9 (sa 2 montre un écran), 1, 2, 3, 4, 6 de f0cfb4f0 (sa 5 cite une appli).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e5c6ee8b",
+   "texte_overlay": "je NOTE TOUT ce que j'ai essayé\npour arrêter de scroller\n(et me cultiver à la place)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "935b6db0",
+   "texte_overlay": "1. supprimer les applis de réseaux sociaux\n\n0/10\nje les ai réinstallées le lendemain. et j'ai scrollé deux fois plus.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2c486594",
+   "texte_overlay": "2. mettre mon écran en noir et blanc\n\n5/10\nc'est moins joli, donc je scrolle un peu moins. mais j'ai fini par remettre les couleurs.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1572b7df",
+   "texte_overlay": "3. laisser mon téléphone dans une autre pièce le soir\n\n7/10\nles dix premières minutes sont horribles. après, je lis enfin.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "400433d1",
+   "texte_overlay": "4. poser un livre sur mon téléphone\n\n8/10\nquand je veux le prendre, je tombe d'abord sur le livre. une fois sur deux, c'est lui que j'ouvre.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/4.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "eb814e19",
+   "texte_overlay": "5. remplacer le scroll par 5 minutes d'apprentissage\n\n10/10\nmême geste, même format court. mais je ressors avec une anecdote sur l'histoire ou l'art, au lieu de rien.",
+   "texte_sophia": "5. remplacer le scroll par l'appli Sophia\n\n10/10\nmême geste, même format court. mais je ressors avec une anecdote sur l'histoire ou l'art, au lieu de rien.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0edcacf5",
+   "texte_overlay": "et toi, c'est quoi ton astuce ?\ndis-la en commentaire, je la teste et je la note.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661310151802080544/6.jpg"
+  }
+ ]
+}

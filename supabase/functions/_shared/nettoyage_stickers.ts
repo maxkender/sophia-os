@@ -51,6 +51,28 @@ export interface SlideAnalysee {
   erreur?: string;
 }
 
+/**
+ * Sticker lu à l'import sur une slide (21/10). Par défaut un sticker pub rejette
+ * le TikTok. Pour une source listée dans `reglages.stickers.remplacer_slide_sources`
+ * (des comptes qui font la promo d'une appli sur UNE slide de chaque post), la
+ * slide promo est gardée : son texte part au placement (c'est là que notre appli
+ * prend la place du concurrent) et son image est remplacée par une photo propre
+ * du label. Jamais la couverture, et une seule slide par TikTok : au-delà, rejet.
+ */
+export function decisionStickerImport(args: {
+  sticker: "pub" | "contenu" | null;
+  /** La source du contenu est dans `remplacer_slide_sources`. */
+  remplacable: boolean;
+  /** Slide de couverture (le hook). */
+  couverture: boolean;
+  /** Une autre slide du TikTok est déjà une slide promo remplacée. */
+  dejaUne: boolean;
+}): "garder" | "remplacer" | "rejeter" {
+  if (args.sticker !== "pub") return "garder";
+  if (!args.remplacable || args.couverture || args.dejaUne) return "rejeter";
+  return "remplacer";
+}
+
 /** Passages du drain sur un slideshow dont une slide n'a pas pu être lue. */
 export const TENTATIVES_SCAN = 3;
 

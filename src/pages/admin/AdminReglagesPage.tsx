@@ -476,6 +476,14 @@ export function AdminReglagesPage() {
                 valeur={reglages.tierlist.requalif_max_jours}
                 onChange={(n) => majTierlist({ requalif_max_jours: n })}
               />
+              <ChampNombre
+                id="plancherB"
+                label={t("reglages.plancherB")}
+                min={0}
+                step={500}
+                valeur={reglages.tierlist.plancher_b}
+                onChange={(n) => majTierlist({ plancher_b: n })}
+              />
             </div>
             <p className="text-xs text-muted-foreground">{t("reglages.tierlistParamsAide")}</p>
           </section>

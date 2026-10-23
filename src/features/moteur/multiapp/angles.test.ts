@@ -57,11 +57,10 @@ describe("angles de placement", () => {
     ]);
   });
 
-  it("Sophia : un label sans aucune ligne la sert (héritage)", () => {
+  it("Sophia : un label sans application cochée ne la sert pas (21/10)", () => {
     expect(groupesAnglesApplication(SOPHIA, LABELS, LIENS, []).map((x) => x.nom)).toEqual([
       "smart_girl",
       "weird_alpha",
-      "zen",
     ]);
   });
 

@@ -1,0 +1,62 @@
+{
+ "source_id": "bsg-o009",
+ "schema_id": "prouve-par-la-science",
+ "titre": "4 trucs prouvés par la science pour retenir ce que tu lis (sources à la fin) #pourtoi #memoire #apprentissage #education",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7170306404024765186",
+ "inspirations": [
+  "54d238cb-f9a8-4ed6-b1cf-a39452b50e29"
+ ],
+ "notes": "Routine du 23/10, livraison 1 sur 2. Schéma prouve-par-la-science (r 4,07, 5d279e37 ; r 2,71, 54d238cb ; preuve TikTok à 307 k jusqu'au 25/10), sur un sujet PRÉCIS (la mémoire), jamais vague. Accroches écrites : « 4 trucs prouvés par la science pour retenir ce que tu lis (sources à la fin) » (retenue : le gabarit des deux gagnants, sujet précis, sources promises), « pourquoi tu oublies tout ce que tu lis (et 4 façons prouvées d'y remédier) » (écartée : plus longue), « ce que la science dit pour avoir une mémoire de dingue » (écartée : promesse trop forte). Items en « tu », chacun appuyé sur une étude que j'ai ouverte sur Europe PMC le 23/10 et qui dit ce que dit la slide : (1) Roediger & Karpicke, Psychological Science 2006, doi 10.1111/j.1467-9280.2006.01693.x : se tester donne une rétention nettement meilleure que relire aux tests différés ; (2) Cepeda, Pashler, Vul, Wixted & Rohrer, Psychological Bulletin 2006, doi 10.1037/0033-2909.132.3.354 : méta-analyse de 317 expériences sur l'apprentissage espacé ; (3) Wammes, Meade & Fernandes, Quarterly Journal of Experimental Psychology 2016, doi 10.1080/17470218.2015.1094494 : dans 7 expériences, les mots dessinés sont mieux rappelés que les mots écrits ; (4) Rasch, Büchel, Gais & Born, Science 2007, doi 10.1126/science.1138581 : « le sommeil facilite la consolidation de la mémoire ». Aucun conseil médical, aucune promesse chiffrée. Sophia sur le dernier item (5) : un peu chaque jour plutôt que tout d'un coup. J'ai écarté les images de la planche du schéma qui montrent des célébrités. Images de la banque : la fille aux feuilles, la main sur la bouche (accroche), le classeur, l'étoffe sombre, la fille qui dessine sur le tapis, la fille allongée, la fille souriante, le vieux carnet, le casque et le pull. Inspirations : slides 2, 3, 6, 7 de 54d238cb (ses slides 1 et 4, et 5d279e37, montrent des célébrités).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ee0f9525",
+   "texte_overlay": "4 trucs prouvés par la science\npour retenir ce que tu lis\n(sources à la fin)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626722299550403862/3.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "97aa7503",
+   "texte_overlay": "1. teste-toi au lieu de relire\n\nferme le livre et essaie de retrouver ce que tu viens de lire.\ndans une étude de 2006, ceux qui s'étaient testés retenaient bien mieux quelques jours plus tard que ceux qui avaient relu. (1)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626722299550403862/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7acba2ee",
+   "texte_overlay": "2. espace tes révisions\n\nun peu aujourd'hui, un peu dans quelques jours, plutôt que tout d'un coup.\nune synthèse de 317 expériences le confirme : réviser en plusieurs fois aide à mieux retenir. (2)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626722299550403862/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d6c47950",
+   "texte_overlay": "3. dessine ce que tu veux retenir\n\npas besoin de savoir dessiner, un croquis rapide suffit.\ndans 7 expériences, les mots dessinés étaient mieux retenus que les mots écrits. (3)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626722299550403862/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "69e8c45f",
+   "texte_overlay": "4. dors après avoir appris\n\nle sommeil aide le cerveau à consolider ce que tu as appris dans la journée.\nréviser le soir puis dormir, c'est pas de la paresse. (4)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626722299550403862/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3d580f5e",
+   "texte_overlay": "5. un peu chaque jour, plutôt que tout d'un coup\n\n5 minutes d'histoire, d'art ou de sciences chaque matin.\nc'est le principe des révisions espacées, appliqué à ta culture.",
+   "texte_sophia": "5. un peu chaque jour avec l'appli Sophia\n\n5 minutes d'histoire, d'art ou de sciences chaque matin.\nc'est le principe des révisions espacées, appliqué à ta culture.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626722299550403862/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "783307e7",
+   "texte_overlay": "sources\n\n(1) roediger & karpicke, psychological science, 2006\n(2) cepeda et al., psychological bulletin, 2006\n(3) wammes, meade & fernandes, quarterly journal of experimental psychology, 2016\n(4) rasch et al., science, 2007",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626722299550403862/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "2b7900be",
+   "texte_overlay": "lequel tu testes ce soir ?\nenregistre pour tes prochaines révisions.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626722299550403862/2.jpg"
+  }
+ ]
+}

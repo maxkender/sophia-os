@@ -29,7 +29,7 @@
  *       (reference_url). Validé, il devient un contenu CLASSIQUE au rang
  *       TIER_ORIGINAL : images sans texte, texte à part, traduit et placé à
  *       l'assignation pour les autres langues.
- *       Pods de PODS_AVEC_PREUVE (pods 4, 5 et 7) : `preuve` obligatoire,
+ *       Pods de PODS_AVEC_PREUVE (pods 4, 5, 7, 8 et 9) : `preuve` obligatoire,
  *         { schema, references: [{ type: "tiktok", url, vues, publie_le },
  *                                { type: "os", contenu_id }] }
  *       Il faut un post de la niche à 200 k vues ou plus publié dans les
@@ -51,6 +51,16 @@
  *
  *   { action: "rejeter", id, motif? }   — admin
  *
+ *   { action: "auto_valider" }   — cron horaire `pods-auto-validation` (0323)
+ *       Podz sûrs (`pods.auto_validation`) : chaque livraison en attente depuis
+ *       `auto_validation_heures` (12 h) après son dépôt est validée au rang B,
+ *       comme « Tout valider en B ». Un échec est noté dans `auto_erreur` et
+ *       n'est plus retenté : la livraison reste à décider à la main.
+ *
+ *   { action: "ouvrir_applications_originaux" }   — admin, rattrapage rejouable
+ *       Ouvre les originaux déjà validés aux applications de leur label autres
+ *       que Sophia (UnSwipe, Micabo), comme le fait désormais la validation.
+ *
  *   { action: "etat", pod }   — agent du pod (lecture seule) : file, rangs et
  *       vues des contenus en ligne (avec le r de chaque passage mûr), comptes
  *       du label par langue.
@@ -69,6 +79,9 @@ import {
   applicationsHorsSophia,
   CHEMIN_POD,
   decksApplicationDepuisBase,
+  livraisonsAutoValidables,
+  type LivraisonEnAttente,
+  ouvrirApplicationsOriginal,
   ecrireDecksApplications,
   estSlideApp,
   metadonneesJpeg,
@@ -139,6 +152,11 @@ Deno.serve(async (request) => {
     if (body?.action === "label") return await contenusDuLabel(request, supabase, body);
     if (body?.action === "images") return await imagesDuLabel(request, supabase, String(body.pod ?? ""));
     if (body?.action === "top_posts") return await topPosts(request, supabase, body);
+    if (body?.action === "auto_valider" || body?.action === "ouvrir_applications_originaux") {
+      const acces = await assertRole(request, ["admin"]);
+      if (acces instanceof Response) return acces;
+      return body.action === "auto_valider" ? await autoValider(supabase) : await ouvrirApplicationsOriginaux(supabase);
+    }
     if (body?.action === "valider" || body?.action === "rejeter") {
       const acces = await assertRole(request, ["admin"]);
       if (acces instanceof Response) return acces;
@@ -150,7 +168,7 @@ Deno.serve(async (request) => {
         ? await valider(supabase, String(body.id ?? ""), userId, tierForce)
         : await rejeter(supabase, String(body.id ?? ""), userId, body.motif ? String(body.motif) : null);
     }
-    return json({ ok: false, error: "action inconnue (deposer | etat | label | images | top_posts | upload_url | persona | comptes | valider | rejeter | valider_persona | rejeter_persona)" }, 400);
+    return json({ ok: false, error: "action inconnue (deposer | etat | label | images | top_posts | upload_url | persona | comptes | valider | rejeter | auto_valider | ouvrir_applications_originaux | valider_persona | rejeter_persona)" }, 400);
   } catch (e) {
     return json({ ok: false, error: messageErreur(e) }, 500);
   }
@@ -178,7 +196,7 @@ async function legendeLocale(textes: string[], titre: string | null, langue: str
 /**
  * Application du label d'un pod quand ce label ne sert PAS Sophia (pod 6,
  * label UnSwipe seul) : son id et son slug. `null` : le label sert Sophia, le
- * cas de tous les pods d'avant (un label sans ligne sert Sophia). Un label hors
+ * cas de tous les pods d'avant (ou aucune application cochée : deck Sophia). Un label hors
  * Sophia qui sert plusieurs applications lève : un deck déposé ne porte qu'une
  * pub.
  */
@@ -462,6 +480,9 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
       decks: sortie,
       transcription: { textes: Array.isArray(body.textes) ? body.textes.map(String) : [] },
       statut: "a_valider",
+      // 0323 : le délai de la validation automatique part du DERNIER dépôt.
+      depose_le: new Date().toISOString(),
+      auto_erreur: null,
     };
     // Une livraison « langues » encore en attente pour ce post : on y fusionne.
     const enAttente = attente?.statut === "a_valider";
@@ -509,6 +530,8 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
     ...(decksAppsFinal ? { decks_applications: decksAppsFinal } : {}),
     transcription: { textes: Array.isArray(body.textes) ? body.textes.map(String) : [] },
     statut: "a_valider",
+    depose_le: new Date().toISOString(),
+    auto_erreur: null,
   };
   const { data: livraison, error } = await supabase
     .from("pod_livraisons")
@@ -716,10 +739,13 @@ async function valider(
     throw e;
   }
 
-  await supabase
+  const { data: decidee } = await supabase
     .from("pod_livraisons")
     .update({ statut: "validee", contenu_id: contenu.id, note_import: note, tier, decide_par: userId, decide_le: maintenant, motif: null })
-    .eq("id", id);
+    .eq("id", id)
+    .eq("statut", "a_valider")
+    .select("id");
+  if (!decidee?.length) return await defaireApresDecision(supabase, contenu.id);
   return json({ ok: true, statut: "validee", contenu_id: contenu.id, tier, note });
 }
 
@@ -770,10 +796,15 @@ async function validerLangues(supabase: Supabase, l: any, userId: string | null)
     pertinenceScore: contenu?.pertinence_score ?? null,
     pod: l.pod,
   });
-  await supabase
+  const { data: decidee } = await supabase
     .from("pod_livraisons")
     .update({ statut: "validee", decide_par: userId, decide_le: new Date().toISOString(), motif: null })
-    .eq("id", l.id);
+    .eq("id", l.id)
+    .eq("statut", "a_valider")
+    .select("id");
+  // Décidée pendant la validation : les langues sont déjà dans le contenu (rien
+  // à défaire sans toucher au contenu en ligne), on le dit.
+  if (!decidee?.length) return json({ ok: false, error: "livraison décidée pendant la validation (langues déjà ajoutées)" }, 409);
   return json({ ok: true, statut: "validee", contenu_id: l.contenu_id, langues: Object.keys(decks), applications });
 }
 
@@ -926,6 +957,8 @@ async function deposerOriginal(request: Request, supabase: Supabase, body: Recor
       ...(preuve ? { preuve } : {}),
     },
     statut: "a_valider",
+    depose_le: new Date().toISOString(),
+    auto_erreur: null,
   };
   const { data: l, error } = await supabase
     .from("pod_livraisons")
@@ -1082,11 +1115,144 @@ async function validerOriginal(supabase: Supabase, l: any, userId: string | null
     throw e;
   }
 
-  await supabase
+  const { data: decidee } = await supabase
     .from("pod_livraisons")
     .update({ statut: "validee", contenu_id: contenu.id, tier, decide_par: userId, decide_le: maintenant, motif: null })
-    .eq("id", l.id);
-  return json({ ok: true, statut: "validee", contenu_id: contenu.id, tier });
+    .eq("id", l.id)
+    .eq("statut", "a_valider")
+    .select("id");
+  if (!decidee?.length) return await defaireApresDecision(supabase, contenu.id);
+
+  // UnSwipe, Micabo… : l'original entre aussi dans la réserve des autres
+  // applications de son label. Jamais bloquant : le contenu Sophia est validé.
+  let applications: Awaited<ReturnType<typeof ouvrirApplicationsOriginal>> = [];
+  let applicationsErreur: string | null = null;
+  try {
+    applications = await ouvrirApplicationsOriginal(
+      supabase,
+      contenu.id,
+      pod.label_id,
+      { accroche: deck[0]?.texte_overlay ?? "", legende: legende || deck[0]?.texte_overlay || "", pod: l.pod },
+      scoreRelevance,
+    );
+  } catch (e) {
+    applicationsErreur = messageErreur(e);
+  }
+  return json({
+    ok: true,
+    statut: "validee",
+    contenu_id: contenu.id,
+    tier,
+    applications,
+    ...(applicationsErreur ? { applications_erreur: applicationsErreur } : {}),
+  });
+}
+
+/**
+ * La livraison a été décidée (rejetée à la main, par exemple) pendant que la
+ * validation créait son contenu : on défait le contenu, comme sur une erreur.
+ */
+async function defaireApresDecision(supabase: Supabase, contenuId: string) {
+  await supabase.from("contenus").delete().eq("id", contenuId);
+  return json({ ok: false, error: "livraison décidée pendant la validation : contenu défait" }, 409);
+}
+
+/** Budget d'un passage de la validation automatique (la fonction est coupée vers 150 s). */
+const BUDGET_AUTO_MS = 90_000;
+
+/**
+ * Validation automatique des podz sûrs (cron horaire, 0323). Une livraison à
+ * la fois, par le même chemin que « Tout valider en B ». Ce qui dépasse le
+ * budget attend le passage suivant ; un échec est noté (`auto_erreur`) et
+ * n'est plus retenté.
+ */
+async function autoValider(supabase: Supabase) {
+  const debut = Date.now();
+  const { data: pods, error } = await supabase
+    .from("pods")
+    .select("slug, actif, auto_validation, auto_validation_heures")
+    .eq("auto_validation", true);
+  if (error) throw new Error(`pods : ${messageErreur(error)}`);
+  if (!pods?.length) return json({ ok: true, validees: [], erreurs: [], reportees: 0 });
+  const { data: attente, error: aErr } = await supabase
+    .from("pod_livraisons")
+    .select("id, pod, type, statut, titre, depose_le, auto_erreur")
+    .in("pod", pods.map((p: { slug: string }) => p.slug))
+    .eq("statut", "a_valider")
+    .is("auto_erreur", null)
+    .order("depose_le")
+    .limit(100);
+  if (aErr) throw new Error(`livraisons : ${messageErreur(aErr)}`);
+
+  const validees: { id: string; pod: string; titre: string | null }[] = [];
+  const erreurs: { id: string; pod: string; erreur: string }[] = [];
+  let reportees = 0;
+  const enAttente = (attente ?? []) as (LivraisonEnAttente & { titre: string | null })[];
+  for (const l of livraisonsAutoValidables(pods, enAttente, new Date())) {
+    if (Date.now() - debut > BUDGET_AUTO_MS) {
+      reportees++;
+      continue;
+    }
+    let erreur: string | null = null;
+    try {
+      const reponse = await valider(supabase, l.id, null, "B");
+      const corps = await reponse.json();
+      if (corps?.ok && corps.statut === "validee") {
+        await supabase.from("pod_livraisons").update({ decide_auto: true }).eq("id", l.id);
+        validees.push({ id: l.id, pod: l.pod, titre: l.titre ?? null });
+        continue;
+      }
+      erreur = String(corps?.error ?? `statut ${corps?.statut ?? reponse.status}`);
+    } catch (e) {
+      erreur = messageErreur(e);
+    }
+    // Décidée entre-temps par une personne : rien à noter.
+    await supabase.from("pod_livraisons").update({ auto_erreur: erreur.slice(0, 500) }).eq("id", l.id).eq("statut", "a_valider");
+    erreurs.push({ id: l.id, pod: l.pod, erreur });
+  }
+  return json({ ok: true, validees, erreurs, reportees });
+}
+
+/**
+ * Rattrapage, rejouable : ouvre aux autres applications de leur label les
+ * originaux validés avant que la validation le fasse. Un score déjà mesuré est
+ * repris sans appel ; ce qui dépasse le budget attend l'appel suivant.
+ */
+async function ouvrirApplicationsOriginaux(supabase: Supabase) {
+  const debut = Date.now();
+  const { data: pods, error } = await supabase.from("pods").select("slug, label_id");
+  if (error) throw new Error(`pods : ${messageErreur(error)}`);
+  const labelDuPod = new Map(((pods ?? []) as { slug: string; label_id: string | null }[]).map((p) => [p.slug, p.label_id]));
+  const { data: originaux, error: oErr } = await supabase
+    .from("pod_livraisons")
+    .select("id, pod, contenu_id, titre, langue_source, decks, transcription")
+    .eq("type", "original")
+    .eq("statut", "validee")
+    .not("contenu_id", "is", null)
+    .order("decide_le")
+    .limit(500);
+  if (oErr) throw new Error(`originaux : ${messageErreur(oErr)}`);
+
+  const resultats: { contenu_id: string; pod: string; applications?: unknown; erreur?: string }[] = [];
+  let restants = 0;
+  for (const l of originaux ?? []) {
+    const labelId = labelDuPod.get(l.pod);
+    if (!labelId) continue;
+    if (Date.now() - debut > BUDGET_AUTO_MS) {
+      restants++;
+      continue;
+    }
+    const deck = (l.decks?.[l.langue_source]?.slides ?? []) as SlideOriginale[];
+    const accroche = [...deck].sort((a, b) => a.position - b.position)[0]?.texte_overlay ?? "";
+    const legende = String(l.transcription?.legende ?? l.titre ?? "").trim() || accroche;
+    try {
+      const applications = await ouvrirApplicationsOriginal(supabase, l.contenu_id, labelId, { accroche, legende, pod: l.pod }, scoreRelevance);
+      if (applications.length) resultats.push({ contenu_id: l.contenu_id, pod: l.pod, applications });
+    } catch (e) {
+      resultats.push({ contenu_id: l.contenu_id, pod: l.pod, erreur: messageErreur(e) });
+    }
+  }
+  return json({ ok: true, ouverts: resultats.length, restants, resultats });
 }
 
 /** Handle TikTok d'une URL source (« @compte »), ou null. */
@@ -1577,6 +1743,8 @@ async function deposerVideo(request: Request, supabase: Supabase, body: Record<s
     decks,
     transcription: { texte_source: body.texte_source ? String(body.texte_source) : null },
     statut: "a_valider",
+    depose_le: new Date().toISOString(),
+    auto_erreur: null,
   };
   const { data: l, error } = await supabase
     .from("pod_livraisons")

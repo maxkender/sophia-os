@@ -70,7 +70,7 @@ export function ContenusABlancCard() {
     applicationChoisie || (apps.find((a) => a.slug === SLUG_DEFAUT) ?? apps[0])?.id || "";
 
   const labels = useQuery({ queryKey: ["labels"], queryFn: () => listerLabels(), staleTime: 60_000 });
-  // Un label sans ligne sert Sophia (héritage) : `applicationsDuLabel` le dit.
+  // Applications cochées de chaque label (aucune : personne) : `applicationsDuLabel`.
   const liens = useQuery({ queryKey: ["label-applications"], queryFn: listerLiensLabels, retry: false });
   const labelsOrdonnes = React.useMemo(() => {
     const liste = labels.data ?? [];

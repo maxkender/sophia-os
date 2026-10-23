@@ -19,7 +19,6 @@ import {
   ugcPossible,
   type CleFile,
 } from "./fileApplication";
-import { estErreurSchemaAbsent } from "../multiapp/logique";
 import { useApplicationsMulti, useLiensLabels } from "./useMultiApp";
 
 const selectClass =
@@ -30,7 +29,7 @@ const selectClass =
  * labels »). Un sélecteur d'application (actives, Sophia par défaut) choisit la
  * tranche éditée (`par_application[slug]`, items + par_langue), avec la même
  * ergonomie qu'avant. Les labels proposés à l'ajout sont ceux qui servent
- * l'application (`label_applications`, héritage Sophia) ; une entrée dont le
+ * l'application (cochée dans `label_applications`) ; une entrée dont le
  * label ne la sert plus est signalée, pas masquée. La case « Compte UGC »
  * n'existe que pour Sophia.
  *
@@ -62,15 +61,15 @@ export function FileLabelsApplicationEditeur({
   const { t } = useTranslation();
   const applications = useApplicationsMulti();
   const liensQ = useLiensLabels();
-  // Table absente (avant 0256) : tout label sert Sophia (héritage), comme
-  // avant. Lecture en cours ou en panne : `null`, rien n'est signalé.
-  const liens = liensQ.data ?? (liensQ.isError && estErreurSchemaAbsent(liensQ.error) ? [] : null);
+  // Lecture en cours, en panne ou table absente (avant 0256) : `null`, rien
+  // n'est signalé.
+  const liens = liensQ.data ?? null;
 
   const [slug, setSlug] = React.useState<string>(SLUG_SOPHIA);
   // Liens illisibles : la File Sophia propose tous les labels slideshow, comme
   // avant (manage-users saute une entrée qui ne sert pas Sophia) ; une autre
   // application ne propose rien tant qu'on ne sait pas ce qui la sert.
-  const liensAjout = liens ?? (slug === SLUG_SOPHIA ? [] : null);
+  const liensAjout = liens ?? (slug === SLUG_SOPHIA ? "tous" : null);
   const [cle, setCle] = React.useState<CleFile>("general");
   const [labelAjout, setLabelAjout] = React.useState("");
   const [ugcAjout, setUgcAjout] = React.useState(false);

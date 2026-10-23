@@ -24,7 +24,7 @@ sont pas encore là. **Un seul jour de recul : piste, pas preuve.**
 
 ## Chiffres clés
 
-Le défaut du message revient-il le lendemain ? (`15`, partie A)
+Le défaut du message revient-il le lendemain ? (`16`, partie A)
 
 | Groupe | Créateurs | Posts suivants avec le défaut (moy. par créateur) | Créateurs qui le refont |
 | --- | ---: | ---: | ---: |
@@ -51,7 +51,7 @@ Le 17/10 est le jour de sélection (on sert ceux qui ont un défaut), d'où les
 extrêmes. Par rapport au 16/10, les servis baissent (−11 points) quand les
 autres montent (+5 points).
 
-Vues à âge égal (r = vues à ~10 h ÷ médiane du compte, `15` partie B) :
+Vues à âge égal (r = vues à ~10 h ÷ médiane du compte, `16` partie B) :
 
 | Posts du | Servis | Autres |
 | --- | ---: | ---: |
@@ -83,8 +83,8 @@ Aucune. Deux nuits d'envoi sans doublon ni erreur (voir le bilan du 18/10).
 
 - **ops** : relire au banc les 13 cas « couleur » du 18/10 où le défaut est
   revenu : mesure fausse ou message pas compris ? Gain : 8 % des points envoyés
-  (11 sur 138 le 18/10), sans effet aujourd'hui. On saura avec `15` A bis.
-- **analyste** : relancer `15` le 22/10 (vues J+2 du 18/10, défauts du 19 et
+  (11 sur 138 le 18/10), sans effet aujourd'hui. On saura avec `16` A bis.
+- **analyste** : relancer `16` le 22/10 (vues J+2 du 18/10, défauts du 19 et
   du 20/10) puis le 26/10 (une semaine). Conclure sur les vues seulement si
   l'écart tient sur plusieurs jours et sur les vues mûres.
 - **moteur (plus tard)** : à partir du 19/10, presque tous les créateurs
@@ -98,4 +98,4 @@ Aucune. Deux nuits d'envoi sans doublon ni erreur (voir le bilan du 18/10).
 - P27 (justification coûte des vues) : toujours ouverte ; la justification se
   corrige après retour (34 % → 21 %).
 - P28 (une review fait progresser) : renforcée sur les défauts, à confirmer sur les vues.
-- Nouvelles pistes : P34 (effet des retours de l'agent), P35 (couleur).
+- Nouvelles pistes : P35 (effet des retours de l'agent), P36 (couleur).

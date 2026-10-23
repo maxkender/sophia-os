@@ -37,7 +37,8 @@ validation** de l'OS (Pilotage → Pods), où un humain valide ou rejette.
 - **Jamais** « Journey », « Mental », « check bio », « lien en bio », ni d'appel à télécharger.
 - **En bas de slide**, « check bio instead » devient une question qui fait commenter. Exemple : « which one would you move? ».
 - **Le filigrane @mentalapp** s'efface : action `effacer`.
-- **Les célébrités restent** (décision du 17/10). Les images ne changent pas.
+- **Les célébrités restent** (décision du 17/10, confirmée le 21/10). Les images ne changent pas.
+  - Elles restent aussi sur la slide de l'élément UnSwipe, remakes comme originaux : pour ce pod, le garde-fou « aucune personne réelle sur la slide de l'app » de `pods/ROUTINE.md` ne s'applique pas (décision d'Adrien du 21/10).
 - **Traductions** : courtes, naturelles, en minuscules comme la source, sans tiret long. Voir `posts/CONSIGNES.md`.
 
 ## Tes outils (dans `pods/mentalapp/`)
@@ -101,6 +102,12 @@ Décision du 17/10 : une tier list neuve de 2 slides dans le style du compte.
 - **Textes** : par langue ; `|` force un retour à la ligne, sinon une légende trop large se coupe seule. Mêmes règles que `posts/CONSIGNES.md`.
 - **Id** : `mm-o` + numéro, jamais réutilisé une fois validé ou rejeté.
 - **Flux** : `npm run original -- <id>`, relis la planche, montre-la à l'humain, puis `--deposer`. Validé, l'original entre au rang original.
+
+## La routine du matin
+
+Chaque matin, une tâche planifiée lance ta routine : suis `pods/ROUTINE.md`
+(combien livrer, dans quel ordre). Ta livraison normale : le post suivant de
+la liste de `npm run releve`, dans les 6 langues. La liste finie, un original.
 
 ## Règles
 

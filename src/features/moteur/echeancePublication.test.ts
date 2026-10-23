@@ -3,7 +3,32 @@ import { resolve } from "node:path";
 
 import { describe, expect, it } from "vitest";
 
-import { FUSEAU_PAYS, echeancePublication, estManque, fuseauPays, publicationOuverte } from "./echeancePublication";
+import {
+  FUSEAU_PAYS,
+  arriveePosts,
+  echeancePublication,
+  estManque,
+  fuseauPays,
+  heureArriveeAnnoncee,
+  publicationOuverte,
+} from "./echeancePublication";
+
+describe("arrivée des posts", () => {
+  it("minuit à Paris, quand l'OS les crée", () => {
+    expect(arriveePosts("2026-10-20").toISOString()).toBe("2026-10-19T22:00:00.000Z");
+    // Après l'heure d'hiver à Paris (25/10).
+    expect(arriveePosts("2026-10-27").toISOString()).toBe("2026-10-26T23:00:00.000Z");
+  });
+
+  it("heure annoncée seulement aux posters en avance sur Paris", () => {
+    // Celestine, Nouvelle-Zélande : 11 h ce jour-là.
+    expect(heureArriveeAnnoncee("2026-10-20", "Pacific/Auckland")).toBe("11:00");
+    // Paris : minuit, « dans la matinée » suffit.
+    expect(heureArriveeAnnoncee("2026-10-20", "Europe/Paris")).toBeNull();
+    // Amériques : la veille au soir, pareil.
+    expect(heureArriveeAnnoncee("2026-10-20", "America/Sao_Paulo")).toBeNull();
+  });
+});
 
 describe("échéance de publication", () => {
   it("fin du jour à l'heure locale du pays", () => {

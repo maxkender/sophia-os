@@ -34,10 +34,12 @@ const CINEMA = { id: "l-cinema", slug: "cinema", nom: "Cinéma" };
 const HOOK = { id: "l-hook", slug: "hook", nom: "Hook" };
 type LabelRefTest = { id: string; slug: string; nom: string };
 
-/** Clean Girl sert Sophia + Unswipe ; Cinéma n'a aucune ligne (= Sophia). */
+/** Clean Girl sert Sophia + Unswipe ; Cinéma sert Sophia seule. */
+const CINEMA_SOPHIA = { label_id: CINEMA.id, application_id: ID_SOPHIA };
 const LIENS = [
   { label_id: CLEAN.id, application_id: ID_SOPHIA },
   { label_id: CLEAN.id, application_id: ID_UNSWIPE },
+  CINEMA_SOPHIA,
 ];
 
 describe("nomApplicationPromue", () => {
@@ -51,8 +53,9 @@ describe("nomApplicationPromue", () => {
 });
 
 describe("applications d'un label", () => {
-  it("un label sans ligne sert Sophia", () => {
+  it("les applications cochées ; aucune cochée : personne (21/10)", () => {
     expect(nomsApplicationsDuLabel(CINEMA.id, LIENS, APPS)).toEqual(["Sophia"]);
+    expect(nomsApplicationsDuLabel(CINEMA.id, [], APPS)).toEqual([]);
     expect(nomsApplicationsDuLabel(CLEAN.id, LIENS, APPS).sort()).toEqual(["Sophia", "Unswipe"]);
   });
 
@@ -354,7 +357,9 @@ describe("diagnosticCompteSansSophia (panneau Minuit)", () => {
   it("un label sert Sophia : null, le diagnostic historique s'applique tel quel", () => {
     expect(diagnosticCompteSansSophia({ ...base, liens: LIENS })).toBeNull();
     expect(diagnosticCompteSansSophia({ ...base, labels: [CINEMA], liens: [] })).toBeNull();
-    expect(diagnosticCompteSansSophia({ ...base, labels: [CLEAN, CINEMA], liens: SEUL_UNSWIPE })).toBeNull();
+    expect(
+      diagnosticCompteSansSophia({ ...base, labels: [CLEAN, CINEMA], liens: [...SEUL_UNSWIPE, CINEMA_SOPHIA] }),
+    ).toBeNull();
     // Labels système seuls : Sophia (même règle que le moteur).
     expect(diagnosticCompteSansSophia({ ...base, labels: [HOOK], liens: SEUL_UNSWIPE })).toBeNull();
   });

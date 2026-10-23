@@ -1,6 +1,15 @@
 import { describe, expect, it } from "vitest";
 
-import { nomApplication, parPod, variantesDeck, type Livraison } from "./api";
+import {
+  autonomieMin,
+  echeanceAutoValidation,
+  nomApplication,
+  parPod,
+  partSurPeriode,
+  variantesDeck,
+  type AutonomiePod,
+  type Livraison,
+} from "./api";
 
 const liv = (id: string, pod: string) => ({ id, pod }) as Livraison;
 
@@ -41,5 +50,43 @@ describe("variantesDeck", () => {
   it("nomApplication : nom connu, sinon le slug", () => {
     expect(nomApplication("unswipe")).toBe("UnSwipe");
     expect(nomApplication("autre")).toBe("autre");
+  });
+});
+
+describe("echeanceAutoValidation", () => {
+  it("dépôt + délai du podz", () => {
+    expect(echeanceAutoValidation("2026-10-21T06:30:00.000Z", 12)?.toISOString()).toBe("2026-10-21T18:30:00.000Z");
+  });
+  it("sans date de dépôt ou sans délai : pas d'échéance", () => {
+    expect(echeanceAutoValidation(null, 12)).toBeNull();
+    expect(echeanceAutoValidation("pas une date", 12)).toBeNull();
+    expect(echeanceAutoValidation("2026-10-21T06:30:00.000Z", 0)).toBeNull();
+  });
+});
+
+describe("partSurPeriode", () => {
+  it("posts des podz sur posts publiés, au dixième", () => {
+    expect(partSurPeriode([{ publies: 300, publies_pods: 24 }, { publies: 442, publies_pods: 40 }])).toBe(8.6);
+  });
+  it("rien de publié : pas de part", () => {
+    expect(partSurPeriode([])).toBeNull();
+    expect(partSurPeriode([{ publies: 0, publies_pods: 0 }])).toBeNull();
+  });
+});
+
+describe("autonomieMin", () => {
+  const a = (application: string, jours: number | null): AutonomiePod => ({
+    application,
+    a_publier: 10,
+    par_jour: 1,
+    jours,
+    reserve_label_jours: null,
+  });
+  it("l'application la plus courte, en ignorant celles sans rythme", () => {
+    expect(autonomieMin([a("sophia", 9.8), a("unswipe", 3.4), a("micabo", null)])?.application).toBe("unswipe");
+  });
+  it("rien de mesuré : null", () => {
+    expect(autonomieMin([])).toBeNull();
+    expect(autonomieMin([a("sophia", null)])).toBeNull();
   });
 });

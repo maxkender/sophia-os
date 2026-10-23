@@ -1799,15 +1799,18 @@ Deno.test("sonde illisible — compte Sophia pur, filet lisible : chemin histori
   });
 });
 
-Deno.test("sonde illisible — label sans ligne (héritage) : sert Sophia, chemin historique", async () => {
+Deno.test("sonde illisible — label sans application cochée : disponible pour personne, à rejouer (21/10)", async () => {
   await avecDecks(jamaisPret, async (appels) => {
     const base = baseEssai({ liens: [] });
-    const { client } = fauxMoteur(base, { pannes: { applications: Infinity } });
+    const { client, journal } = fauxMoteur(base, { pannes: { applications: Infinity } });
 
-    const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
-
-    assertEquals(detail.ids.length, 1);
-    assertEquals(appels.sophia.length, 1);
+    await assertRejects(
+      () => assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {}),
+      Error,
+      "à rejouer",
+    );
+    assertEquals(appels.sophia, []);
+    assertEquals(insertsPassages(journal), []);
   });
 });
 
@@ -1831,7 +1834,7 @@ Deno.test("sonde illisible — filet en échec (panne, pas une absence) : lève,
 Deno.test("sonde illisible — filet : un hoquet est retenté une fois, puis le compte Sophia passe", async () => {
   await avecDecks(jamaisPret, async (appels) => {
     // Sonde : 2 essais en panne. Filet : 1er essai en panne, le 2e passe.
-    const base = baseEssai({ liens: [] });
+    const base = baseEssai({ liens: [{ label_id: "L1", application_id: ID_SOPHIA }] });
     const { client, journal } = fauxMoteur(base, { pannes: { label_applications: 3 } });
 
     const detail = await assignerCompteJour(client, base.comptes[0], JOUR, REGLAGES, {});
@@ -1860,7 +1863,7 @@ Deno.test("sonde illisible — « illisible » n'est pas gardé pour le lot : le
   await avecDecks(jamaisPret, async () => {
     // Les deux essais de la sonde du premier compte tombent en panne ; la base
     // revient ensuite. Avant, le mémo gardait « illisible » pour tout le lot.
-    const base = baseEssai({ liens: [], compte: { posts_par_jour: 2 }, n: 4 });
+    const base = baseEssai({ liens: [{ label_id: "L1", application_id: ID_SOPHIA }], compte: { posts_par_jour: 2 }, n: 4 });
     const { client, journal } = fauxMoteur(base, { pannes: { applications: 2 } });
     const memo = creerMemoAssignation();
     const estSonde = (o: Op) => o.table === "label_applications" && o.filtres.length === 0;
@@ -1893,7 +1896,9 @@ Deno.test("sonde illisible — « illisible » n'est pas gardé pour le lot : le
 
 /** k1 : 100 % Unswipe (label L2). k2 : Sophia pur (label L1, sans ligne). */
 function baseDrain() {
-  const base = baseEssai({ liens: [{ label_id: "L2", application_id: UNSWIPE }] });
+  const base = baseEssai({
+    liens: [{ label_id: "L1", application_id: ID_SOPHIA }, { label_id: "L2", application_id: UNSWIPE }],
+  });
   const fin = new Date(Date.now() - 86_400_000).toISOString();
   const compte = base.comptes[0];
   return {
@@ -2338,7 +2343,10 @@ Deno.test("compteSertApplicationRappel : la règle", () => {
   const sophiaHeritee = { id: "L1", slug: "smart-girl" };
   const unswipeSeul = { id: "L2", slug: "focus" };
   const hook = { id: "H", slug: "hook" };
-  const liens = [{ label_id: "L2", application_id: UNSWIPE }];
+  // Depuis le 21/10, un label sert Sophia seulement si elle est cochée.
+  const liens = [{ label_id: "L1", application_id: ID_SOPHIA }, { label_id: "L2", application_id: UNSWIPE }];
+  const sansApplication = { id: "L3", slug: "medical-study" };
+  assert(!compteSertApplicationRappel([sansApplication, unswipeSeul], liens, ID_SOPHIA), "label sans application : personne");
   // Sophia : un label qui la sert, ou aucun label utile (le rappel d'avant).
   assert(compteSertApplicationRappel([sophiaHeritee], liens, ID_SOPHIA));
   assert(compteSertApplicationRappel([sophiaHeritee, unswipeSeul], liens, ID_SOPHIA));

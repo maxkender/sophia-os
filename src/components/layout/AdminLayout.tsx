@@ -8,6 +8,7 @@ import {
   Columns2,
   Crosshair,
   FlaskConical,
+  Gavel,
   Gauge,
   LineChart,
   ListChecks,
@@ -16,6 +17,7 @@ import {
   ListOrdered,
   MessageCircle,
   MessageSquareQuote,
+  MessagesSquare,
   MoonStar,
   PenLine,
   Boxes,
@@ -173,6 +175,12 @@ export function AdminLayout() {
               icon: ShieldAlert,
               description: t("navDesc.surveillance"),
             },
+            {
+              to: "/admin/check-kill-double",
+              label: t("nav.checkKillDouble"),
+              icon: Gavel,
+              description: t("navDesc.checkKillDouble"),
+            },
             // Toujours visible : le recrutement relève de l'identité des
             // comptes, qui reste Sophia quelle que soit l'application choisie.
             {
@@ -205,6 +213,12 @@ export function AdminLayout() {
               label: t("nav.referral"),
               icon: Gift,
               description: t("navDesc.referral"),
+            },
+            {
+              to: "/admin/comment-masters",
+              label: t("nav.commentMasters"),
+              icon: MessagesSquare,
+              description: t("navDesc.commentMasters"),
             },
           ],
         },

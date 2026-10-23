@@ -34,6 +34,7 @@ import { nomApplicationPromue } from "@/features/moteur/repartition/logique";
 import { useApplicationsMulti } from "@/features/moteur/repartition/useMultiApp";
 import { AGENTS_UPSCALE, AGENTS_UPSCALE_SEEDVR, executerEnLot } from "@/lib/lot";
 import { cn } from "@/lib/utils";
+import { localeDate } from "@/locales/localeDate";
 
 function ajouterJours(yyyyMmDd: string, delta: number): string {
   const d = new Date(`${yyyyMmDd}T12:00:00`);
@@ -69,15 +70,24 @@ export function AdminCalendrierPage() {
   );
   const [upscaleLogs, setUpscaleLogs] = React.useState<string[]>([]);
 
+  // On ne charge QUE le jour affiché. Avant, la page prenait les 800 posts les
+  // plus récents toutes dates confondues et filtrait ici : passé 400 posts par
+  // jour, le plafond tombait au milieu d'une journée et les créateurs dont le
+  // deuxième post était au-delà s'affichaient « 1/1 posté ».
   const { data: posts, isPending } = useQuery({
-    queryKey: ["posts-calendrier-admin"],
-    queryFn: () => postsCalendrierAdmin(),
+    queryKey: ["posts-calendrier-admin", date],
+    queryFn: () => postsCalendrierAdmin({ du: date, au: date }),
   });
 
-  const langues = React.useMemo(
-    () => [...new Set((posts ?? []).map((p) => p.langue).filter(Boolean))].sort() as string[],
-    [posts],
-  );
+  // Les langues présentes CE JOUR-LÀ, plus celle qu'on a choisie. Depuis qu'on
+  // ne charge que le jour affiché, une langue sans post ce jour-là sortirait
+  // de la liste : le <select> porterait alors une valeur absente de ses
+  // options, donc une case vide, pendant que la grille resterait filtrée.
+  const langues = React.useMemo(() => {
+    const vues = new Set((posts ?? []).map((p) => p.langue).filter(Boolean) as string[]);
+    if (filtreLangue) vues.add(filtreLangue);
+    return [...vues].sort();
+  }, [posts, filtreLangue]);
 
   // Posts du jour dans la langue choisie, toutes applications : les puces
   // d'application en donnent la répartition et servent de filtre.
@@ -142,7 +152,7 @@ export function AdminCalendrierPage() {
   const prevus = duJour.length;
   const postes = duJour.filter(estPoste).length;
   const vides = duJour.filter((p) => p.slideshow_vide && !estPoste(p)).length;
-  const labelDate = new Date(`${date}T12:00:00`).toLocaleDateString(i18n.language, {
+  const labelDate = new Date(`${date}T12:00:00`).toLocaleDateString(localeDate(i18n.language), {
     weekday: "long",
     day: "numeric",
     month: "long",

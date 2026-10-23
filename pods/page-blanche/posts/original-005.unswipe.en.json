@@ -1,0 +1,234 @@
+{
+ "post_id": "original-005",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "5 signs that you've harmed",
+      "your brain from scrolling"
+     ],
+     "fr": "5 signes que le scroll t'a grillé le cerveau",
+     "texte": "10/10 habits to finally get your attention span back"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience-backed sources at the end)"
+     ],
+     "fr": "(les sources en neurosciences sont à la fin)",
+     "texte": "(backed by neuroscience, not by vibes)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "spend more time without stimulation"
+     ],
+     "fr": "passe plus de temps [[à ne rien faire]]",
+     "texte": "do [[nothing]] for 10 minutes a day"
+    },
+    "T2": {
+     "en": [
+      "stop filling every walk,",
+      "meal, and spare minute",
+      "with content and music"
+     ],
+     "fr": "lâche [[les vidéos]] et [[la musique]] pendant tes balades, tes repas, [[tes temps morts]]",
+     "texte": "no phone, no music, no podcast. just lie down and [[stare at the sky]]"
+    },
+    "T3": {
+     "en": [
+      "quiet gives your brain",
+      "room to replay",
+      "information, connect",
+      "ideas, and form its own",
+      "thoughts"
+     ],
+     "fr": "dans le calme, ton cerveau digère ce qu'il a vu, fait des liens et [[se fait ses propres idées]]",
+     "texte": "with no input, your brain switches to its [[default mode network]], which sorts memories and links ideas"
+    },
+    "T4": {
+     "en": [
+      "constant short-form content is making your brain rot",
+      "and ruining your attention span!!"
+     ],
+     "fr": "les vidéos courtes non-stop te [[grillent le cerveau]] et [[flinguent ta concentration!!]]",
+     "texte": "it feels useless the first few days, then [[your mind gets quieter]] and [[focus comes easier!!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you want to stop scrolling but",
+      "can't"
+     ],
+     "fr": "tu veux décrocher [[mais t'y arrives pas]]",
+     "texte": "keep your phone [[fully out of sight]]"
+    },
+    "T2": {
+     "en": [
+      "if you keep opening tiktok",
+      "without even deciding to,",
+      "that's the problem"
+     ],
+     "fr": "si t'ouvres tiktok sans même l'avoir décidé, [[le problème est là]]",
+     "texte": "just having your phone on the desk, even turned off, [[lowers your focus]]"
+    },
+    "T3": {
+     "en": [
+      "endless feeds remove",
+      "natural stopping points, so",
+      "“5 minutes” turns into 45"
+     ],
+     "fr": "le fil est sans fin, rien ne t'arrête, du coup [[« 5 min » ça devient 45]]",
+     "texte": "part of your brain is busy [[not checking it]], so less is left for your actual work"
+    },
+    "T4": {
+     "en": [
+      "make scrolling harder, not",
+      "your self-control stronger"
+     ],
+     "fr": "complique-toi le scroll [[au lieu de]] forcer sur ta volonté",
+     "texte": "when you work, put it [[in another room]], not face down"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn from history's greatest minds"
+     ],
+     "fr": "inspire-toi [[des plus grands esprits]]",
+     "texte": "get rid of [[the endless video feed]]"
+    },
+    "T2": {
+     "en": [
+      "read philosophy, history,",
+      "biographies and literature",
+      "from people who spent",
+      "decades thinking deeply"
+     ],
+     "fr": "lis de la philo, de l'histoire, des biographies et des romans de gens qui ont [[passé leur vie à réfléchir]]",
+     "texte": "every reel trains your brain to expect something new every 3 seconds, so [[anything longer feels unbearable]]"
+    },
+    "T3": {
+     "en": [
+      "if you can't focus",
+      "because you get bored",
+      "and start scrolling, use",
+      "readup to block your",
+      "apps until you've read for",
+      "20 minutes"
+     ],
+     "fr": "si tu t'ennuies vite et que tu finis sur tiktok, commence par [[5 minutes par jour sur l'appli Sophia]]",
+     "texte": "a week without them and [[a whole chapter feels doable again]]. take the Reels off instagram, or block tiktok, with [[the UnSwipe app]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "be comfortable being",
+      "uncomfortable"
+     ],
+     "fr": "apprends à aimer [[l'inconfort]]",
+     "texte": "move [[before]] you need to focus"
+    },
+    "T2": {
+     "en": [
+      "do things that make your",
+      "brain work:"
+     ],
+     "fr": "fais vraiment bosser ton cerveau :",
+     "texte": "even a quick workout counts, like:"
+    },
+    "T3": {
+     "en": [
+      "difficult books, hard",
+      "conversations, learning",
+      "unfamiliar skills, solving",
+      "problems without",
+      "immediately searching",
+      "the answer"
+     ],
+     "fr": "des livres costauds, des discussions difficiles, des compétences nouvelles, des problèmes à résoudre [[sans chercher direct la réponse]]",
+     "texte": "a plank, a few squats, jumping jacks in your room, a fast walk around the block, anything that [[gets your heart pumping]]"
+    },
+    "T4": {
+     "en": [
+      "cognitive growth rarely happens while you're",
+      "doing what already feels easy"
+     ],
+     "fr": "ton [[cerveau progresse]] rarement quand tu fais ce qui te [[paraît déjà facile]]",
+     "texte": "research shows one short workout [[sharpens your focus]] for up to [[2 hours]] after"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you watch everything at",
+      "2x speed"
+     ],
+     "fr": "tu regardes tout [[en vitesse x2]]",
+     "texte": "your phone sleeps [[out of your room]]"
+    },
+    "T2": {
+     "en": [
+      "a 20-minute video becoming 10 feels efficient, but",
+      "you're teaching yourself that normal pacing is too",
+      "slow"
+     ],
+     "fr": "passer une vidéo de 20 min en 10, ça a l'air [[rentable]] mais ton cerveau retient qu'un rythme normal, c'est [[trop lent]]",
+     "texte": "scrolling in the dark pushes your sleep back, and deep sleep is when your brain [[clears out the day's junk]]"
+    },
+    "T3": {
+     "en": [
+      "eventually lectures,",
+      "reading, and even",
+      "conversations start",
+      "feeling painfully",
+      "under-stimulating"
+     ],
+     "fr": "à force, même les cours, les livres et les [[conversations]] te paraissent [[d'un ennui mortel]]",
+     "texte": "after one bad night, [[your attention drops]] the next day, no matter how much coffee you drink"
+    },
+    "T4": {
+     "en": [
+      "are you really in a rush",
+      "to watch a tiktok?"
+     ],
+     "fr": "y'a vraiment urgence à regarder [[un tiktok]] ?",
+     "texte": "just buy a [[cheap alarm clock]], seriously"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

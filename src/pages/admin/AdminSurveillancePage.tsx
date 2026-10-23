@@ -54,6 +54,8 @@ import {
 } from "@/features/moteur/classementComptes";
 import { drapeauLangue } from "@/features/moteur/langues";
 import type { ModeleNudge } from "@/features/moteur/types";
+import { Lien1000Card } from "@/features/moteur/Lien1000Card";
+import { localeDate } from "@/locales/localeDate";
 
 const selectClass =
   "h-8 rounded-md border border-input bg-background px-2 text-xs shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
@@ -88,7 +90,7 @@ function Rapport({ ligne }: { ligne: LigneSurveillance }) {
       : null,
     ligne.classement_maj_at
       ? t("classement.maj", {
-        date: new Date(ligne.classement_maj_at).toLocaleDateString(i18n.language),
+        date: new Date(ligne.classement_maj_at).toLocaleDateString(localeDate(i18n.language)),
       })
       : null,
   ].filter(Boolean);
@@ -224,9 +226,9 @@ function PostsCompte({ compteId, nom }: { compteId: string; nom: string }) {
               </Badge>
               <span className="text-xs text-muted-foreground">
                 {post.date_publication_prevue
-                  ? new Date(post.date_publication_prevue).toLocaleDateString(i18n.language)
+                  ? new Date(post.date_publication_prevue).toLocaleDateString(localeDate(i18n.language))
                   : post.publie_at
-                    ? new Date(post.publie_at).toLocaleDateString(i18n.language)
+                    ? new Date(post.publie_at).toLocaleDateString(localeDate(i18n.language))
                     : "—"}
               </span>
               <span className="truncate text-xs">
@@ -300,14 +302,14 @@ function LigneFile({
       {skippe && ligne.surveillance_skip_jusqu && (
         <p className="text-xs text-muted-foreground">
           {t("surveillance.skipJusqu", {
-            date: new Date(ligne.surveillance_skip_jusqu).toLocaleDateString(i18n.language),
+            date: new Date(ligne.surveillance_skip_jusqu).toLocaleDateString(localeDate(i18n.language)),
           })}
         </p>
       )}
       {ligne.dernier_nudge_at && (
         <p className="text-xs text-muted-foreground">
           {t("surveillance.nudgeDernier", {
-            date: new Date(ligne.dernier_nudge_at).toLocaleDateString(i18n.language),
+            date: new Date(ligne.dernier_nudge_at).toLocaleDateString(localeDate(i18n.language)),
           })}
         </p>
       )}
@@ -444,7 +446,7 @@ function LigneNonRenouveler({
       {ligne.non_renouveler_at && (
         <p className="text-xs text-muted-foreground">
           {t("surveillance.ajouteLe", {
-            date: new Date(ligne.non_renouveler_at).toLocaleDateString(i18n.language),
+            date: new Date(ligne.non_renouveler_at).toLocaleDateString(localeDate(i18n.language)),
           })}
         </p>
       )}
@@ -460,7 +462,7 @@ function LigneNonRenouveler({
             <span className="ml-1.5 text-xs text-muted-foreground">
               {t("surveillance.hmDemandeFait", {
                 date: new Date(ligne.non_renouveler_hm_demande_at).toLocaleDateString(
-                  i18n.language,
+                  localeDate(i18n.language),
                 ),
               })}
             </span>
@@ -609,6 +611,8 @@ export function AdminSurveillancePage() {
           )}
         </CardContent>
       </Card>
+
+      <Lien1000Card />
     </div>
   );
 }

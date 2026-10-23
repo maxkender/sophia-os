@@ -8,8 +8,9 @@
  * qu'Unswipe. Sans ce filtre, un label « Unswipe seul » tout neuf (0 compte,
  * donc le moins utilisé) partait chez TOUTES les recrues Sophia dont la file
  * de langue est vide. La vérité est `label_applications`, avec la règle
- * d'héritage de `multi_app.ts` : un label sans aucune ligne sert Sophia. La
- * colonne historique n'est plus lue nulle part dans manage-users.
+ * d'héritage de `multi_app.ts`. La
+ * colonne historique n'est plus lue nulle part dans manage-users. Un label sans
+ * application cochée n'est disponible pour personne (21/10).
  *
  * File : une entrée dont le label ne sert pas l'application de la tranche est
  * sautée et retirée de la File (comme un label système ou UGC AI VIDEO).
@@ -19,7 +20,7 @@
  */
 import { applicationsDuLabel, ID_SOPHIA, type LienLabelApplication } from "./multi_app.ts";
 
-/** Labels de `labelIds` qui servent `applicationId` (Sophia par défaut). Ordre conservé. */
+/** Labels de `labelIds` qui servent `applicationId` (Sophia si absent). Ordre conservé. */
 export function labelsServantApplication(
   labelIds: readonly string[],
   liens: readonly LienLabelApplication[],

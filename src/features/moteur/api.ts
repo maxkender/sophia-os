@@ -18,6 +18,7 @@ import {
   type VerdictAvis,
 } from "@/features/reviews/bancRelecture";
 import { extensionVideo } from "@/features/reviews/videoRemarque";
+import { idTiktokDepuisUrl } from "@/features/reviews/tiktokEmbed";
 import { normaliserZone, ZONE_LONGUEUR_MAX } from "@/features/hiring/zones";
 import { estRoleManager } from "@/features/auth/roles";
 import type { Role } from "@/features/auth/AuthContext";
@@ -490,6 +491,28 @@ export async function listerComptesAvecDormants(): Promise<CompteAvecDetails[]> 
       application_slug: app?.slug ?? null,
     };
   });
+}
+
+/**
+ * Premier jour de posts prévu de chaque compte (`comptes_premier_jour`, 0333) :
+ * le jour 0 qui fixe la cohorte du lundi sur la page Posters. Compte absent =
+ * aucun post encore (warm-up en cours ou pas lancé).
+ */
+export async function premiersJoursComptes(): Promise<Map<string, string>> {
+  const page = 1000;
+  const parCompte = new Map<string, string>();
+  for (let from = 0; ; from += page) {
+    const { data, error } = await supabase
+      .from("comptes_premier_jour")
+      .select("compte_id, premier_jour")
+      .order("compte_id")
+      .range(from, from + page - 1);
+    if (error) throw error;
+    const lot = (data ?? []) as { compte_id: string; premier_jour: string | null }[];
+    for (const l of lot) if (l.premier_jour) parCompte.set(l.compte_id, l.premier_jour);
+    if (lot.length < page) break;
+  }
+  return parCompte;
 }
 
 export async function creerCompte(input: {
@@ -2181,6 +2204,30 @@ export async function reordonnerSlides(slides: PostSlide[]): Promise<void> {
   }
 }
 
+/**
+ * L'autre slideshow du compte qui porte déjà ce lien, après un refus
+ * LIEN_DEJA_UTILISE : le créateur a souvent collé le lien sur le mauvais des
+ * deux posts du jour (Fatma, 19/10) et reste bloqué sur le bon. On lui donne le
+ * chemin vers l'autre pour qu'il y corrige le lien. Null si introuvable.
+ */
+export async function autrePostAvecLien(
+  compteId: string,
+  postId: string,
+  lien: string,
+): Promise<string | null> {
+  const idTiktok = idTiktokDepuisUrl(lien);
+  let q = supabase
+    .from("posts")
+    .select("id")
+    .eq("compte_id", compteId)
+    .neq("id", postId)
+    .not("publie_url", "is", null);
+  q = idTiktok ? q.like("publie_url", `%/${idTiktok}%`) : q.eq("publie_url", lien);
+  const { data, error } = await q.limit(1);
+  if (error) return null;
+  return (data?.[0]?.id as string | undefined) ?? null;
+}
+
 export async function majPost(id: string, patch: Partial<Post>): Promise<void> {
   if (patch.statut === "publie" && !String(patch.publie_url ?? "").trim()) {
     throw new Error("Lien TikTok obligatoire pour marquer comme publié");
@@ -2809,33 +2856,60 @@ export async function mediasPostsPrevusJour(date: string): Promise<
 }
 
 /**
- * Posts (non-test) pour le planning jour par jour.
+ * Taille de page des posts du calendrier. Volontairement sous le plafond
+ * `max-rows` de PostgREST : une journée de la flotte (470 posts au 20/10)
+ * tient en un seul aller-retour, et la boucle enchaîne toute seule au-delà.
+ * Les lignes portent des embeds (sujet, compte, profil), d'où 500 et pas 1000.
+ */
+const PAGE_POSTS_CALENDRIER = 500;
+
+/**
+ * Posts (non-test) pour le planning jour par jour, sur la fenêtre `du` → `au`.
  *
- * `du` / `au` bornent les dates (calendrier HM sur 2 semaines) ; sans eux, les
- * 800 derniers. `miniatures` ramène l'image de la slide 1 de chaque post.
+ * LA FENÊTRE EST OBLIGATOIRE, et c'est le correctif d'un bug qui a duré. La
+ * fonction prenait les 800 posts les plus récents, toutes dates confondues,
+ * et laissait l'appelant filtrer par jour. Tant que la flotte tenait sous
+ * 400 posts par jour, 800 couvrait deux journées et personne ne voyait rien.
+ * À 235 comptes, soit 470 posts par jour, le plafond tombait AU MILIEU d'une
+ * journée : la page Calendrier affichait « 1/1 posté » pour les créateurs
+ * dont le deuxième post était au-delà de la coupe, et une page vide pour
+ * tous les jours antérieurs. Une borne de dates tronque VISIBLEMENT (on ne
+ * voit que les jours qu'on a demandés) ; un plafond de lignes tronque en
+ * silence, et c'est pour ça qu'il a fallu des mois pour s'en apercevoir.
+ *
+ * Dans la fenêtre on PAGINE : aucune ligne n'est perdue, quelle que soit la
+ * taille de la flotte. Le tri porte aussi sur `id`, sinon deux pages
+ * successives pourraient se recouvrir ou se sauter sur les ex aequo de date.
+ *
+ * `miniatures` ramène l'image de la slide 1 de chaque post.
  */
 export async function postsCalendrierAdmin(
-  options: { du?: string; au?: string; miniatures?: boolean } = {},
+  options: { du: string; au: string; miniatures?: boolean },
 ): Promise<PostCalendrierAdmin[]> {
   // L'embed profiles sous comptes fonctionne depuis la FK
   // comptes.poster_id → profiles.id (migration 0109).
-  let requete = supabase
-    .from("posts")
-    .select(
-      "id, compte_id, date_publication_prevue, type, statut, pipeline_statut, publie_at, publie_url, application_id, " +
-        "sujets(titre), comptes(handle_tiktok, persona_nom, avatar_url, langue, pays, classement, ugc_ai, ugc_ai_video, profiles(prenom, nom))",
-    )
-    .eq("est_test", false);
-  if (options.du) requete = requete.gte("date_publication_prevue", options.du);
-  if (options.au) requete = requete.lte("date_publication_prevue", options.au);
-  const { data, error } = await requete
-    .order("date_publication_prevue", { ascending: false, nullsFirst: false })
-    .limit(800);
-  if (error) throw error;
+  // deno-lint-ignore no-explicit-any
+  const rows: any[] = [];
+  for (let from = 0; ; from += PAGE_POSTS_CALENDRIER) {
+    const { data, error } = await supabase
+      .from("posts")
+      .select(
+        "id, compte_id, date_publication_prevue, type, statut, pipeline_statut, publie_at, publie_url, application_id, " +
+          "sujets(titre), comptes(handle_tiktok, persona_nom, avatar_url, langue, pays, classement, ugc_ai, ugc_ai_video, profiles(prenom, nom))",
+      )
+      .eq("est_test", false)
+      .gte("date_publication_prevue", options.du)
+      .lte("date_publication_prevue", options.au)
+      .order("date_publication_prevue", { ascending: false, nullsFirst: false })
+      .order("id", { ascending: true })
+      .range(from, from + PAGE_POSTS_CALENDRIER - 1);
+    if (error) throw error;
+    const lot = (data ?? []) as unknown[];
+    rows.push(...lot);
+    if (lot.length < PAGE_POSTS_CALENDRIER) break;
+  }
 
   // Embeds profils / sujets : typage PostgREST parfois trop strict.
-  // deno-lint-ignore no-explicit-any
-  const rows = (data ?? []) as any[];
   const ids = rows.map((p) => p.id as string);
   const slidesParPost = new Map<string, { nb: number; media: number }>();
   const miniatureParPost = new Map<string, string>();
@@ -3951,6 +4025,7 @@ export async function lireReglages(): Promise<Reglages> {
       repechage_passages: 1,
       requalif_max_jours: 3,
       ecart_min_meme_contenu: 14,
+      plancher_b: 3_000,
       ...((map.get("tierlist") as Partial<Reglages["tierlist"]> | undefined) ?? {}),
     },
     classement_comptes: lireClassementReglages(map.get("classement_comptes")),
@@ -5660,7 +5735,7 @@ export async function diagnostiquerQuotaCompte(compteId: string): Promise<string
   // label ne la sert (« 100 % Unswipe »), ou sa répartition explicite lui
   // donne 0 % — n'y pioche jamais : la suite lui annoncerait « pool OK…
   // timeout batch… baisse auto du quota », à tort. On lit donc les
-  // applications de ses labels (un label sans ligne sert Sophia, comme au
+  // applications de ses labels (cochées dans `label_applications`, comme au
   // moteur) et, sans repli Sophia, on rend la vraie cause. Un compte dont un
   // label sert Sophia, sans répartition, continue exactement comme avant.
   const { data: liensApps, error: errApps } = await supabase
@@ -6186,8 +6261,9 @@ export async function listerLabelIdsAvecUgc(): Promise<string[]> {
 /**
  * Crée un label et le RENVOIE (l'appelant enchaîne sur ses applications via
  * `definirApplicationsLabel`). Plus d'`application_id` envoyé : la colonne
- * prend son défaut Sophia, et un label sans ligne `label_applications` sert
- * Sophia — exactement le comportement d'avant pour un label créé sans choix.
+ * prend son défaut Sophia, sans effet. Tant qu'aucune application n'est
+ * cochée dans `label_applications`, le label n'est disponible pour personne
+ * (0330).
  */
 export async function creerLabel(
   nom: string,
@@ -7550,6 +7626,8 @@ export interface NudgeRecu {
   compte_id: string;
   titre: string;
   corps: string;
+  /** Lien à copier, affiché avec un bouton (lien à 1 000 abonnés, 0325). */
+  lien: string | null;
   created_at: string;
   lu_at: string | null;
 }
@@ -7558,7 +7636,7 @@ export interface NudgeRecu {
 export async function mesNudges(): Promise<NudgeRecu[]> {
   const { data, error } = await supabase
     .from("compte_nudges")
-    .select("id, compte_id, titre, corps, created_at, lu_at")
+    .select("id, compte_id, titre, corps, lien, created_at, lu_at")
     .is("lu_at", null)
     .order("created_at", { ascending: false })
     .limit(20);
@@ -7572,4 +7650,23 @@ export async function marquerNudgeLu(id: string): Promise<void> {
     .update({ lu_at: new Date().toISOString() })
     .eq("id", id);
   if (error) throw error;
+}
+
+/**
+ * Le créateur connecté a-t-il déjà publié un post slideshow (hors tests), sur
+ * n'importe lequel de ses comptes ? Décide la checklist avant le premier post
+ * (`ChecklistPremierPost`) : un 2e compte d'un posteur actif ne la voit pas.
+ */
+export async function aDejaPublie(): Promise<boolean> {
+  const { data: sess } = await supabase.auth.getUser();
+  const uid = sess.user?.id;
+  if (!uid) return true;
+  const { data, error } = await supabase
+    .from("posts_poster")
+    .select("id")
+    .eq("poster_id", uid)
+    .not("publie_at", "is", null)
+    .limit(1);
+  if (error) throw error;
+  return (data ?? []).length > 0;
 }

@@ -20,6 +20,7 @@ import {
   type EvenementEtape,
   type ProviderNettoyage,
 } from "@/features/moteur/nettoyageEtapes";
+import { localeDate } from "@/locales/localeDate";
 
 /**
  * Photos que les posters ont signalées encore écrites (migration 0255). Chaque
@@ -122,7 +123,7 @@ function Signalement({
       <p className="text-[11px] leading-snug text-muted-foreground">
         {t("signalementsTexte.par", {
           poster: signalement.poster ?? t("signalementsTexte.posterInconnu"),
-          date: new Date(signalement.created_at).toLocaleString(i18n.language),
+          date: new Date(signalement.created_at).toLocaleString(localeDate(i18n.language)),
         })}
         {" · "}
         {signalement.remplace_par

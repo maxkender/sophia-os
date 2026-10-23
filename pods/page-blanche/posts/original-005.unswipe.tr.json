@@ -1,0 +1,234 @@
+{
+ "post_id": "original-005",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "5 signs that you've harmed",
+      "your brain from scrolling"
+     ],
+     "fr": "5 signes que le scroll t'a grillé le cerveau",
+     "texte": "10/10 dikkatini sonunda geri kazandıran alışkanlıklar"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience-backed sources at the end)"
+     ],
+     "fr": "(les sources en neurosciences sont à la fin)",
+     "texte": "(vibe'a göre değil, nörobilime göre)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "spend more time without stimulation"
+     ],
+     "fr": "passe plus de temps [[à ne rien faire]]",
+     "texte": "günde 10 dakika [[hiçbir şey]] yapma"
+    },
+    "T2": {
+     "en": [
+      "stop filling every walk,",
+      "meal, and spare minute",
+      "with content and music"
+     ],
+     "fr": "lâche [[les vidéos]] et [[la musique]] pendant tes balades, tes repas, [[tes temps morts]]",
+     "texte": "telefon yok, müzik yok, podcast yok. sadece uzan ve [[gökyüzüne bak]]"
+    },
+    "T3": {
+     "en": [
+      "quiet gives your brain",
+      "room to replay",
+      "information, connect",
+      "ideas, and form its own",
+      "thoughts"
+     ],
+     "fr": "dans le calme, ton cerveau digère ce qu'il a vu, fait des liens et [[se fait ses propres idées]]",
+     "texte": "girdi olmayınca beynin [[varsayılan mod ağına]] geçer, anıları düzenler ve fikirleri bağlar"
+    },
+    "T4": {
+     "en": [
+      "constant short-form content is making your brain rot",
+      "and ruining your attention span!!"
+     ],
+     "fr": "les vidéos courtes non-stop te [[grillent le cerveau]] et [[flinguent ta concentration!!]]",
+     "texte": "ilk günler boşa geliyor, sonra [[kafan sakinleşiyor]] ve [[odaklanmak kolaylaşıyor!!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you want to stop scrolling but",
+      "can't"
+     ],
+     "fr": "tu veux décrocher [[mais t'y arrives pas]]",
+     "texte": "telefonunu [[tamamen gözden uzak]] tut"
+    },
+    "T2": {
+     "en": [
+      "if you keep opening tiktok",
+      "without even deciding to,",
+      "that's the problem"
+     ],
+     "fr": "si t'ouvres tiktok sans même l'avoir décidé, [[le problème est là]]",
+     "texte": "telefonun masada durması bile, kapalı olsa da, [[odağını düşürür]]"
+    },
+    "T3": {
+     "en": [
+      "endless feeds remove",
+      "natural stopping points, so",
+      "“5 minutes” turns into 45"
+     ],
+     "fr": "le fil est sans fin, rien ne t'arrête, du coup [[« 5 min » ça devient 45]]",
+     "texte": "beyninin bir kısmı [[ona bakmamakla]] meşgul, asıl işine daha az kalır"
+    },
+    "T4": {
+     "en": [
+      "make scrolling harder, not",
+      "your self-control stronger"
+     ],
+     "fr": "complique-toi le scroll [[au lieu de]] forcer sur ta volonté",
+     "texte": "çalışırken ekranı ters çevirmek yetmez, [[başka odaya]] koy"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn from history's greatest minds"
+     ],
+     "fr": "inspire-toi [[des plus grands esprits]]",
+     "texte": "[[bitmeyen video akışından]] kurtul"
+    },
+    "T2": {
+     "en": [
+      "read philosophy, history,",
+      "biographies and literature",
+      "from people who spent",
+      "decades thinking deeply"
+     ],
+     "fr": "lis de la philo, de l'histoire, des biographies et des romans de gens qui ont [[passé leur vie à réfléchir]]",
+     "texte": "her reels beynini 3 saniyede bir yenilik beklemeye alıştırır, o yüzden [[uzun olan her şey sıkar]]"
+    },
+    "T3": {
+     "en": [
+      "if you can't focus",
+      "because you get bored",
+      "and start scrolling, use",
+      "readup to block your",
+      "apps until you've read for",
+      "20 minutes"
+     ],
+     "fr": "si tu t'ennuies vite et que tu finis sur tiktok, commence par [[5 minutes par jour sur l'appli Sophia]]",
+     "texte": "bir hafta onlarsız kal, [[koca bir bölüm yine kolay gelir]]. Reels'ı instagram'dan kaldır ya da tiktok'u engelle, [[UnSwipe uygulamasıyla]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "be comfortable being",
+      "uncomfortable"
+     ],
+     "fr": "apprends à aimer [[l'inconfort]]",
+     "texte": "odaklanmadan [[önce]] hareket et"
+    },
+    "T2": {
+     "en": [
+      "do things that make your",
+      "brain work:"
+     ],
+     "fr": "fais vraiment bosser ton cerveau :",
+     "texte": "kısa bir egzersiz bile yeter, mesela:"
+    },
+    "T3": {
+     "en": [
+      "difficult books, hard",
+      "conversations, learning",
+      "unfamiliar skills, solving",
+      "problems without",
+      "immediately searching",
+      "the answer"
+     ],
+     "fr": "des livres costauds, des discussions difficiles, des compétences nouvelles, des problèmes à résoudre [[sans chercher direct la réponse]]",
+     "texte": "bir plank, birkaç squat, odanda jumping jack, mahallede hızlı bir yürüyüş, yani [[kalbini hızlandıran]] her şey olur"
+    },
+    "T4": {
+     "en": [
+      "cognitive growth rarely happens while you're",
+      "doing what already feels easy"
+     ],
+     "fr": "ton [[cerveau progresse]] rarement quand tu fais ce qui te [[paraît déjà facile]]",
+     "texte": "araştırmalara göre kısa bir egzersiz sonraki [[2 saate]] kadar [[odağını keskinleştiriyor]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you watch everything at",
+      "2x speed"
+     ],
+     "fr": "tu regardes tout [[en vitesse x2]]",
+     "texte": "telefonun [[odanın dışında]] uyusun"
+    },
+    "T2": {
+     "en": [
+      "a 20-minute video becoming 10 feels efficient, but",
+      "you're teaching yourself that normal pacing is too",
+      "slow"
+     ],
+     "fr": "passer une vidéo de 20 min en 10, ça a l'air [[rentable]] mais ton cerveau retient qu'un rythme normal, c'est [[trop lent]]",
+     "texte": "karanlıkta kaydırmak uykunu öteler, oysa derin uyku beyninin [[günün çöplerini temizlediği]] zamandır"
+    },
+    "T3": {
+     "en": [
+      "eventually lectures,",
+      "reading, and even",
+      "conversations start",
+      "feeling painfully",
+      "under-stimulating"
+     ],
+     "fr": "à force, même les cours, les livres et les [[conversations]] te paraissent [[d'un ennui mortel]]",
+     "texte": "tek bir kötü geceden sonra ertesi gün [[dikkatin düşer]], ne kadar kahve içersen iç"
+    },
+    "T4": {
+     "en": [
+      "are you really in a rush",
+      "to watch a tiktok?"
+     ],
+     "fr": "y'a vraiment urgence à regarder [[un tiktok]] ?",
+     "texte": "sadece [[ucuz bir çalar saat]] al, cidden"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

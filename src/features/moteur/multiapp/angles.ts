@@ -89,7 +89,7 @@ export function anglesTestCompares<A extends { id: string; texte: string }>(
 
 /**
  * Une carte par label pour l'application : ceux qui la servent (ligne
- * `label_applications` ; un label sans ligne sert Sophia), plus ceux qui ont
+ * `label_applications` cochée), plus ceux qui ont
  * encore des angles pour elle sans la servir (angles gardés, inutilisés : le
  * moteur ne les lit pas). Labels système exclus ; ceux qui servent d'abord,
  * puis par nom.

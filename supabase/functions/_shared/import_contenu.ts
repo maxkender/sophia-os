@@ -40,6 +40,7 @@ import {
   slidesEpuisees,
   tentativesSlide,
 } from "./nettoyage_file.ts";
+import { decisionStickerImport } from "./nettoyage_stickers.ts";
 import {
   incrementerTentativeSlide,
   patchSlideMediaId,
@@ -58,19 +59,21 @@ import {
 } from "./applications.ts";
 import {
   chargerAnglePlacement,
+  chargerApplicationsMoteur,
   erreurSchemaAbsent,
   schemaMultiAppPret,
 } from "./applications_moteur.ts";
 import {
+  chargerMinimumsPertinence,
   majNotesPertinences,
   noteStockee,
   noterPertinenceImport,
-  PERTINENCE_MIN_HORS_SOPHIA,
   pertinenceSuffisante,
   placementSophiaImport,
   type PertinencesRapport,
   type PlacementSophia,
 } from "./pertinence_apps.ts";
+import { regleLocalisationScolaire } from "./localisation_scolaire.ts";
 import { lireParLots, lireTout } from "./lots.ts";
 import { ID_SOPHIA, SLUG_SOPHIA } from "./multi_app.ts";
 import {
@@ -167,6 +170,11 @@ export interface SlideBrut {
   media_id: string | null;
   texte_original?: string | null;
   tentatives?: number;
+  /**
+   * Slide promo d'une source autorisée (`reglages.stickers.remplacer_slide_sources`) :
+   * son image est remplacée par une photo propre du label au nettoyage.
+   */
+  sticker_pub?: boolean;
 }
 
 export interface SlideLangue {
@@ -1255,34 +1263,54 @@ export async function avancerImport(
 }
 
 /**
- * Règle stickers allumée ? `reglages.stickers.rejet_import`, éteinte par
- * défaut : on la vérifie d'abord à blanc (page Tests → « Stickers à
- * l'import »). Ligne absente ou lecture ratée → éteinte, l'import reste
- * celui d'avant.
+ * Règle stickers : `reglages.stickers.rejet_import` (éteinte par défaut : on
+ * la vérifie d'abord à blanc, page Tests → « Stickers à l'import ») et
+ * `remplacer_slide_sources`, les sources dont la slide promo est remplacée au
+ * lieu de rejeter le TikTok (21/10). Ligne absente ou lecture ratée → éteinte,
+ * l'import reste celui d'avant.
  */
-async function rejetStickersActif(supabase: Supabase): Promise<boolean> {
+async function reglesStickers(supabase: Supabase): Promise<{ rejet: boolean; remplacer: string[] }> {
   const { data } = await supabase
     .from("reglages")
     .select("valeur")
     .eq("cle", "stickers")
     .maybeSingle();
-  return (data?.valeur as { rejet_import?: unknown } | null)?.rejet_import === true;
+  const v = (data?.valeur ?? null) as { rejet_import?: unknown; remplacer_slide_sources?: unknown } | null;
+  const remplacer = Array.isArray(v?.remplacer_slide_sources)
+    ? v.remplacer_slide_sources.filter((x): x is string => typeof x === "string")
+    : [];
+  return { rejet: v?.rejet_import === true, remplacer };
 }
 
 /**
- * OCR d'une slide à l'import : `null` = sticker PUB (règle allumée seulement).
- * Un sticker de contenu (livre, vidéo, article) est importé avec son texte.
- * Les contenus d'un pod (`contenus.pod`) ont un passe-droit : jamais rejetés
- * pour sticker, même s'ils repassent par ici (reprise d'un deck sans texte).
+ * OCR d'une slide à l'import : `null` = sticker PUB (règle allumée seulement),
+ * le TikTok est rejeté. Un sticker de contenu (livre, vidéo, article) est
+ * importé avec son texte. Pour une source de `remplacer_slide_sources`, la
+ * slide promo (pas la couverture, une seule par TikTok) revient avec son texte
+ * et `stickerPub` : son image sera remplacée au nettoyage
+ * (`decisionStickerImport`). Les contenus d'un pod (`contenus.pod`) ont un
+ * passe-droit : jamais rejetés pour sticker, même s'ils repassent par ici
+ * (reprise d'un deck sans texte).
  */
 async function lireSlideImport(
   supabase: Supabase,
-  contenu: { pod?: string | null },
-  url: string,
-): Promise<string | null> {
-  if (contenu.pod || !(await rejetStickersActif(supabase))) return await ocrFrame(url);
-  const lecture = await ocrSlideImport(url);
-  return lecture.sticker === "pub" ? null : lecture.texte;
+  contenu: { pod?: string | null; compte_reference_id?: string | null },
+  slide: SlideBrut,
+  slides: SlideBrut[],
+): Promise<{ texte: string; stickerPub: boolean } | null> {
+  const regles = contenu.pod ? null : await reglesStickers(supabase);
+  if (!regles?.rejet) return { texte: await ocrFrame(slide.raw_url), stickerPub: false };
+  const lecture = await ocrSlideImport(slide.raw_url);
+  const decision = decisionStickerImport({
+    sticker: lecture.sticker,
+    remplacable: Boolean(contenu.compte_reference_id) && regles.remplacer.includes(contenu.compte_reference_id!),
+    couverture: slide.position === slides[0]?.position,
+    dejaUne: slides.some((s) => s.sticker_pub && s.position !== slide.position),
+  });
+  if (decision === "rejeter") return null;
+  if (decision === "garder") return { texte: lecture.texte, stickerPub: false };
+  // L'OCR d'import ne rend pas le texte d'une slide pub : on le relit.
+  return { texte: await ocrFrame(slide.raw_url), stickerPub: true };
 }
 
 /**
@@ -1348,9 +1376,9 @@ async function executerPasImport(
 
     // 1 — OCR du hook
     if (slides[0] && (slides[0].texte_original === null || slides[0].texte_original === undefined)) {
-      const texte = await lireSlideImport(supabase, contenu, slides[0].raw_url);
-      if (texte === null) return await rejeterSticker(supabase, contenu.id, slides[0].position);
-      slides[0].texte_original = texte;
+      const lecture = await lireSlideImport(supabase, contenu, slides[0], slides);
+      if (lecture === null) return await rejeterSticker(supabase, contenu.id, slides[0].position);
+      slides[0].texte_original = lecture.texte;
       await marquer(supabase, contenu.id, {
         structure_slides: slides,
         import_etape: "ocr",
@@ -1406,9 +1434,10 @@ async function executerPasImport(
     const aOcr = slides.filter((s) => s.texte_original === null || s.texte_original === undefined);
     if (aOcr.length > 0) {
       for (const slide of aOcr.slice(0, SLIDES_PAR_PASSAGE)) {
-        const texte = await lireSlideImport(supabase, contenu, slide.raw_url);
-        if (texte === null) return await rejeterSticker(supabase, contenu.id, slide.position);
-        slide.texte_original = texte;
+        const lecture = await lireSlideImport(supabase, contenu, slide, slides);
+        if (lecture === null) return await rejeterSticker(supabase, contenu.id, slide.position);
+        slide.texte_original = lecture.texte;
+        if (lecture.stickerPub) slide.sticker_pub = true;
       }
       await marquer(supabase, contenu.id, {
         structure_slides: slides,
@@ -1493,7 +1522,7 @@ async function executerPasImport(
       await marquer(supabase, contenu.id, { import_elo_rapport: elo });
 
       // Contenu hors Sophia dont AUCUNE application ne veut (pertinence sous
-      // PERTINENCE_MIN_HORS_SOPHIA partout) : la porte (le max) le laisserait
+      // le seuil de ses labels partout, 50 au moins) : la porte (le max) le laisserait
       // passer, mais aucun pool ne pourrait le servir. Rejeté ici, avant les
       // appels modèle des étapes suivantes. Un contenu servi par Sophia n'est
       // jamais concerné (son mode n'est pas « hors_sophia »).
@@ -1508,7 +1537,7 @@ async function executerPasImport(
           import_statut: "done",
           import_etape: "elo_insuffisant",
           import_erreur:
-            `Pertinence sous ${PERTINENCE_MIN_HORS_SOPHIA} pour toutes ses applications (${detail}) — TikTok non importé`,
+            `Pertinence sous le seuil de ses labels pour toutes ses applications (${detail}) — TikTok non importé`,
           import_elo_rapport: elo,
         });
         return { etape: "elo_insuffisant", elo, progres: true };
@@ -1570,6 +1599,24 @@ async function executerPasImport(
     if (slides.some((s) => !s.media_id)) {
       const rapports: NettoyageSlideRapport[] = [];
       let progres = false;
+
+      // 5· — Slide promo d'une source autorisée : sa carte App Store ou sa
+      // capture d'appli ne se nettoie pas. Son image est remplacée par une
+      // photo propre du même label ; sans remplaçant, rejet comme avant.
+      for (const slide of slides.filter((s) => s.sticker_pub && !s.media_id)) {
+        const rapport: NettoyageSlideRapport = {
+          position: slide.position,
+          ok: false,
+          lignes: [`slide #${slide.position} · slide promo (sticker pub)`],
+        };
+        const remplacant = await tenterRemplacementLabel(supabase, contenu, slides, rapport);
+        if (!remplacant) return await rejeterSticker(supabase, contenu.id, slide.position);
+        rapport.motif = "slide promo : image remplacée (biblio même label)";
+        slide.media_id = remplacant;
+        await patchSlideMediaId(supabase, contenu.id, slide.position, remplacant);
+        rapports.push(rapport);
+        progres = true;
+      }
 
       // 5a — Slides à bout d'essais : on les sort de la file SANS rappeler le
       // provider. Sinon elles repassent en tête à chaque passage et le reste du
@@ -1952,7 +1999,8 @@ export async function traduireBaseDeck(
   const dedie = await chargerPrompt(supabase, `traduction_${langue}`);
   const base =
     dedie ?? (langue === "fr" ? await chargerPrompt(supabase, "traduction") : undefined);
-  const regles = [base, voix ? `Voix propre à cette source :\n${voix}` : null]
+  const scolaire = await regleLocalisationScolaire(supabase, langue);
+  const regles = [base, scolaire, voix ? `Voix propre à cette source :\n${voix}` : null]
     .filter(Boolean)
     .join("\n\n");
 
@@ -2890,8 +2938,11 @@ export async function forcerImportElo(
   // application sous le seuil est planchée au seuil, comme la note Sophia
   // forcée ci-dessus (`noteStockee`) : son tier d'entrée (0270) en dépend.
   // Forcer passe outre les vues et la piste, PAS le sujet : une ligne d'une
-  // autre application sous PERTINENCE_MIN_HORS_SOPHIA reste hors de son pool.
+  // autre application sous le seuil de ses labels (PERTINENCE_MIN_HORS_SOPHIA
+  // au moins, `label_applications.pertinence_min`) reste hors de son pool.
   if (await schemaMultiAppPret(supabase)) {
+    const minimums = await chargerMinimumsPertinence(supabase, contenuId);
+    const eligibleParApp = new Map<string, boolean>();
     // Éligibilité posée ligne par ligne (Sophia : toujours ; autres : selon le
     // plancher), jamais « tout à true puis corrigé » : un échec en cours de
     // route ne laisse pas de ligne sous le plancher éligible.
@@ -2907,14 +2958,16 @@ export async function forcerImportElo(
         score: number | string | null;
       }>
     ) {
+      const brute = l.note === null || l.note === undefined ? null : Number(l.note);
+      const noteForcee = brute === null ? null : noteStockee(brute, l.application_id, scoring.eloSeuil, true);
       const maj: { note?: number; eligible: boolean } = {
-        eligible: pertinenceSuffisante(l.application_id, Number(l.score)),
+        eligible: pertinenceSuffisante(l.application_id, Number(l.score), {
+          minimum: minimums.get(l.application_id),
+          note: noteForcee,
+        }),
       };
-      if (l.note !== null && l.note !== undefined) {
-        const brute = Number(l.note);
-        const note = noteStockee(brute, l.application_id, scoring.eloSeuil, true);
-        if (note !== brute) maj.note = note;
-      }
+      if (brute !== null && noteForcee !== null && noteForcee !== brute) maj.note = noteForcee;
+      eligibleParApp.set(l.application_id, maj.eligible);
       const { error: errU } = await supabase
         .from("contenu_pertinences")
         .update({ ...maj, updated_at: new Date().toISOString() })
@@ -2924,15 +2977,17 @@ export async function forcerImportElo(
     }
     const avant = (contenu.import_elo_rapport as { pertinences?: PertinencesRapport } | null)
       ?.pertinences;
+    const idParSlug = new Map((await chargerApplicationsMoteur(supabase)).map((a) => [a.slug, a.id] as const));
     if (avant && typeof avant === "object") {
       elo.pertinences = Object.fromEntries(
         Object.entries(avant).map(([slug, p]) => [
           slug,
           {
             ...p,
-            // Même règle que la ligne : hors Sophia, plancher de pertinence.
+            // Même règle que la ligne : hors Sophia, seuil de ses labels.
             eligible: slug === SLUG_SOPHIA ||
-              (Number.isFinite(Number(p.score)) && Number(p.score) >= PERTINENCE_MIN_HORS_SOPHIA),
+              (eligibleParApp.get(idParSlug.get(slug) ?? "") ??
+                pertinenceSuffisante(idParSlug.get(slug) ?? slug, Number(p.score))),
             // Même plancher que la ligne (Sophia : note brute, inchangée).
             ...(slug !== SLUG_SOPHIA && p.note !== null && Number.isFinite(p.note)
               ? { note: Math.max(p.note, scoring.eloSeuil) }

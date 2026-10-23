@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o007",
+ "schema_id": "mentir-entretien",
+ "titre": "6 fois où j'ai « MENTI » en entretien… et le recruteur a adoré #rechercheemploi #emploi #entretien #cv #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "variante de rh-o004. Angle : le même récit à la première personne, mais centré sur la réaction du recruteur. Accroches écrites : « 6 fois où j'ai « MENTI » en entretien… et le recruteur a adoré » (retenue), « j'ai « menti » 6 fois à mon dernier entretien et ils m'ont rappelée » (écartée : promet un résultat qu'on ne montre pas), « les « mensonges » qui ont fait sourire mon recruteur » (écartée : plus faible). Format : question, « j'ai dit », « la vérité », le pourquoi. Sophia en 5 sur « vous lisez quoi en ce moment ? ». Schéma mentir-entretien (actif, r 2,1 sur 4 passages, 81f87361). Variante de rh-o004 (36 300 vues en ru, r ≈ 10 sur le compte) : même schéma, autre angle, six questions neuves, aucune reprise de rh-o001 à rh-o006 ni des sources. On recadre, on n'invente jamais : chaque réponse est vraie ou se rend vraie. Inspirations : sans la slide 5 de chaque source (elle montre une appli concurrente).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "15c57cc0",
+   "texte_overlay": "6 fois où j'ai « MENTI » en entretien…\net le recruteur a adoré",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "008c05fe",
+   "texte_overlay": "1\n« pourquoi vous plutôt qu'une autre ? »\nj'ai dit « parce que je peux être utile dès la première semaine sur ce que vous cherchez »\nla vérité : j'avais relu l'annonce 10 fois\nréponds avec leurs mots à eux",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "17ba6fbf",
+   "texte_overlay": "2\n« vous parlez anglais ? »\nj'ai dit « je suis à l'aise à l'écrit, et je pratique l'oral chaque semaine »\nla vérité : mes séries en vo\ndonne ton vrai niveau, et ce que tu fais pour progresser",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0f33e31c",
+   "texte_overlay": "3\n« vous avez déjà dit non à votre manager ? »\nj'ai dit « oui, j'ai proposé une autre date avec une solution »\nla vérité : j'avais la trouille, je l'ai fait par mail\nc'est le fond qu'ils écoutent, pas le courage du moment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "04e46e61",
+   "texte_overlay": "4\n« vous lisez quoi en ce moment ? »\nj'ai dit « plein de petites choses sur l'histoire de l'art »\nla vérité : 5 minutes par jour dans le métro\ncourt, mais j'avais de quoi en parler 10 minutes",
+   "texte_sophia": "4\n« vous lisez quoi en ce moment ? »\nj'ai dit « plein de petites choses sur l'histoire de l'art »\nla vérité : 5 minutes par jour sur l'appli Sophia dans le métro, et j'avais de quoi en parler 10 minutes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "12021169",
+   "texte_overlay": "5\n« vous avez du mal à déléguer ? »\nj'ai dit « j'ai appris, je fais des points courts pour garder le fil »\nla vérité : oui, grave\ntu reconnais le défaut, et tu montres ce que tu fais contre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0708e548",
+   "texte_overlay": "6\n« si on vous rappelle demain, vous signez ? »\nj'ai dit « si le poste est celui qu'on a décrit, oui, avec plaisir »\nla vérité : j'avais envie de crier oui\nmotivée, sans avoir l'air aux abois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "22e92383",
+   "texte_overlay": "j'ai rien inventé\nj'ai juste choisi comment dire la vérité\nlaquelle tu vas oser ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

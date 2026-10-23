@@ -1,6 +1,10 @@
 import { assertEquals, assertRejects } from "jsr:@std/assert@1";
+import { oublierSondeMultiApp } from "./applications_moteur.ts";
+import { ID_SOPHIA } from "./multi_app.ts";
+import { NOTE_ORIGINAL_POD } from "./pertinence_apps.ts";
 import {
   applicationsHorsSophia,
+  AUTO_VALIDATION_HEURES,
   CHEMIN_POD,
   contenusLivresHorsApplication,
   contenusLivresHorsLangue,
@@ -9,7 +13,11 @@ import {
   decksApplicationDepuisBase,
   ecrireDecksApplications,
   estSlideApp,
+  livraisonsAutoValidables,
   metadonneesJpeg,
+  NOTE_TIER_POD,
+  ouvrirApplicationsOriginal,
+  pertinenceOriginalApplication,
   PODS_AVEC_PREUVE,
   prochainJour,
   sha256Hex,
@@ -148,6 +156,8 @@ Deno.test("verifierOriginal : positions, images, une slide Sophia, inspiration, 
   assertEquals(verifierOriginal(avec(5, { texte_overlay: "the vent now app helped" })).length, 1);
   assertEquals(verifierOriginal(avec(4, { texte_overlay: "adapté à l'offre avec turboresume" })).length, 1);
   assertEquals(verifierOriginal(avec(4, { texte_overlay: "je mets mes cours dans bycat" })).length, 1);
+  assertEquals(verifierOriginal(avec(4, { texte_overlay: "i practice on elqo.app every day" })).length, 1);
+  assertEquals(verifierOriginal(avec(4, { texte_overlay: "j'apprends avec Micabo" })).length, 1);
   assertEquals(verifierOriginal(avec(0, { texte_overlay: "x".repeat(121) })).length, 1);
   assertEquals(verifierOriginal(avec(5, { texte_overlay: " " })), ["#6 : texte vide"]);
   assertEquals(verifierOriginal(avec(4, { texte_sophia: null })), ["0 slide(s) Sophia (une seule attendue)"]);
@@ -156,8 +166,14 @@ Deno.test("verifierOriginal : positions, images, une slide Sophia, inspiration, 
   assertEquals(verifierOriginal(avec(2, { reference_url: "https://p16.tiktokcdn.com/x.jpg" })).length, 1);
 });
 
-Deno.test("PODS_AVEC_PREUVE : pods 4, 5 et 7 seulement", () => {
-  assertEquals([...PODS_AVEC_PREUVE].sort(), ["originaux_alpha_yellow", "originaux_beau_smart_girl", "originaux_rh"]);
+Deno.test("PODS_AVEC_PREUVE : pods 4, 5, 7, 8 et 9 seulement", () => {
+  assertEquals([...PODS_AVEC_PREUVE].sort(), [
+    "originaux_alpha_male",
+    "originaux_alpha_yellow",
+    "originaux_beau_smart_girl",
+    "originaux_rh",
+    "originaux_smart_girl",
+  ]);
 });
 
 Deno.test("verifierPreuve : 200 k vues en 30 jours suffisent ; sinon des contenus du label à faire mesurer par l'OS", () => {
@@ -510,4 +526,134 @@ Deno.test("ecrireDecksApplications : rien à écrire sans decks ; lève si la la
   const tables = mondeValidation();
   tables.contenu_langues = [];
   await assertRejects(() => ecrireDecksApplications(fauxEtat(tables, []), "c1", LIVRAISON, opts));
+});
+
+// ---------------------------------------------------------------------------
+// Originaux ouverts aux autres applications du label
+// ---------------------------------------------------------------------------
+
+Deno.test("pertinenceOriginalApplication : note d'un original (B), seul le sujet décide hors Sophia", () => {
+  assertEquals(NOTE_ORIGINAL_POD, NOTE_TIER_POD.B);
+  assertEquals(pertinenceOriginalApplication("app-unswipe", 50), { note: 60, eligible: true });
+  assertEquals(pertinenceOriginalApplication("app-unswipe", 49), { note: 60, eligible: false });
+  assertEquals(pertinenceOriginalApplication(ID_SOPHIA, 0), { note: 60, eligible: true });
+});
+
+function mondeOriginal() {
+  return {
+    label_applications: [
+      { label_id: "l1", application_id: ID_SOPHIA },
+      { label_id: "l1", application_id: "app-unswipe" },
+      { label_id: "l1", application_id: "app-micabo" },
+      { label_id: "l-sophia", application_id: ID_SOPHIA },
+    ] as L[],
+    applications: [
+      { id: ID_SOPHIA, slug: "sophia" },
+      { id: "app-unswipe", slug: "unswipe" },
+      { id: "app-micabo", slug: "micabo" },
+    ] as L[],
+    prompts: [
+      { cle: "pertinence_unswipe", contenu: "P UNSWIPE" },
+      { cle: "pertinence_micabo", contenu: "P MICABO" },
+    ] as L[],
+    // Ligne de la campagne de rattrapage : note des vues (27,5), inéligible.
+    contenu_pertinences: [
+      { contenu_id: "c1", application_id: "app-unswipe", score: 55, note: 27.5, eligible: false, raison: "campagne", prompt_cle: "pertinence_unswipe" },
+    ] as L[],
+    contenu_tiers_application: [] as L[],
+    contenu_application_tier_etat: [] as L[],
+    passages: [] as L[],
+  };
+}
+
+Deno.test("ouvrirApplicationsOriginal : score repris sans appel, sinon noté ; rang B pour l'éligible seulement", async () => {
+  oublierSondeMultiApp();
+  oublierSondeTiersApplication();
+  const tables = mondeOriginal();
+  const ecrits: Ecrit[] = [];
+  const appels: unknown[] = [];
+  const noter = (i: unknown) => (appels.push(i), Promise.resolve({ score: 40, reason: "hors sujet" }));
+  const r = await ouvrirApplicationsOriginal(
+    fauxEtat(tables, ecrits),
+    "c1",
+    "l1",
+    { accroche: "hook", legende: "légende", pod: "originaux_weird_alpha" },
+    noter,
+  );
+  assertEquals(r, [
+    { slug: "micabo", score: 40, eligible: false, repris: false },
+    { slug: "unswipe", score: 55, eligible: true, repris: true },
+  ]);
+  assertEquals(appels, [{ caption: "légende", hookText: "hook", instructions: "P MICABO" }]);
+  const unswipe = tables.contenu_pertinences.find((l) => l.application_id === "app-unswipe")!;
+  assertEquals([unswipe.score, unswipe.note, unswipe.eligible, unswipe.raison, unswipe.prompt_cle], [55, 60, true, "campagne", "pertinence_unswipe"]);
+  const micabo = tables.contenu_pertinences.find((l) => l.application_id === "app-micabo")!;
+  assertEquals([micabo.score, micabo.note, micabo.eligible, micabo.raison, micabo.prompt_cle], [40, 60, false, "hors sujet", "pertinence_micabo"]);
+  // Jamais de ligne Sophia.
+  assertEquals(tables.contenu_pertinences.some((l) => l.application_id === ID_SOPHIA), false);
+  assertEquals(tables.contenu_tiers_application.map((l) => [l.application_id, l.tier, l.passages_prevus]), [["app-unswipe", "B", 2]]);
+  const rang = ecrits.find((e) => e.table === "contenu_tiers_application")!;
+  assertEquals(rang.options, { onConflict: "contenu_id,application_id", ignoreDuplicates: true });
+
+  // Rejouer : tout est repris, aucun appel.
+  const r2 = await ouvrirApplicationsOriginal(fauxEtat(tables, []), "c1", "l1", { accroche: "", legende: "", pod: "p" }, noter);
+  assertEquals(r2.map((x) => [x.slug, x.repris]), [["micabo", true], ["unswipe", true]]);
+  assertEquals(appels.length, 1);
+  oublierSondeMultiApp();
+  oublierSondeTiersApplication();
+});
+
+Deno.test("ouvrirApplicationsOriginal : label Sophia seul, ou application sans prompt → rien", async () => {
+  oublierSondeMultiApp();
+  oublierSondeTiersApplication();
+  const ecrits: Ecrit[] = [];
+  const noter = () => Promise.reject(new Error("appel inattendu"));
+  const texte = { accroche: "a", legende: "l", pod: "p" };
+  assertEquals(await ouvrirApplicationsOriginal(fauxEtat(mondeOriginal(), ecrits), "c2", "l-sophia", texte, noter), []);
+  const sansPrompt = mondeOriginal();
+  sansPrompt.prompts = [];
+  assertEquals(await ouvrirApplicationsOriginal(fauxEtat(sansPrompt, ecrits), "c2", "l1", texte, noter), []);
+  assertEquals(ecrits, []);
+  oublierSondeMultiApp();
+  oublierSondeTiersApplication();
+});
+
+// ---------------------------------------------------------------------------
+// Validation automatique des podz sûrs
+// ---------------------------------------------------------------------------
+
+Deno.test("livraisonsAutoValidables : podz sûr et actif, délai écoulé, ni vidéo ni échec, la plus ancienne d'abord", () => {
+  assertEquals(AUTO_VALIDATION_HEURES, 12);
+  const pods = [
+    { slug: "sur", actif: true, auto_validation: true, auto_validation_heures: 12 },
+    { slug: "vite", actif: true, auto_validation: true, auto_validation_heures: 2 },
+    { slug: "defaut", actif: true, auto_validation: true, auto_validation_heures: null },
+    { slug: "manuel", actif: true, auto_validation: false, auto_validation_heures: 12 },
+    { slug: "pause", actif: false, auto_validation: true, auto_validation_heures: 12 },
+  ];
+  const maintenant = new Date("2026-10-21T12:00:00Z");
+  const l = (id: string, pod: string, heures: number, autre: Record<string, unknown> = {}) => ({
+    id,
+    pod,
+    type: "original",
+    statut: "a_valider",
+    depose_le: new Date(maintenant.getTime() - heures * 3_600_000).toISOString(),
+    auto_erreur: null as string | null,
+    ...autre,
+  });
+  const livraisons = [
+    l("trop-tot", "sur", 11.9),
+    l("pile", "sur", 12),
+    l("vieille", "sur", 30),
+    l("manuel", "manuel", 30),
+    l("pause", "pause", 30),
+    l("vite", "vite", 3),
+    l("video", "sur", 30, { type: "video" }),
+    l("echec", "sur", 30, { auto_erreur: "déjà rejetee" }),
+    l("rejetee", "sur", 30, { statut: "rejetee" }),
+    l("sans-date", "sur", 30, { depose_le: null }),
+    l("defaut", "defaut", 12.5),
+  ];
+  assertEquals(livraisonsAutoValidables(pods, livraisons, maintenant).map((x) => x.id), ["vieille", "defaut", "pile", "vite"]);
+  assertEquals(livraisonsAutoValidables([], livraisons, maintenant), []);
 });

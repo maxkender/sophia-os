@@ -1,0 +1,232 @@
+{
+ "post_id": "original-004",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 things that are rapidly",
+      "destroying your ability to focus"
+     ],
+     "fr": "10/10 trucs qui flinguent ta concentration à vitesse grand V",
+     "texte": "5 easy steps to fry your brain and stay average forever"
+    },
+    "T2": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": ""
+    },
+    "T3": {
+     "en": [
+      "(neuroscience backed)"
+     ],
+     "fr": "(prouvé par la science)",
+     "alignement": "droite",
+     "texte": "(results guaranteed)"
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stop trying to multitask"
+     ],
+     "fr": "2. arrête [[le multitâche]]",
+     "texte": "1. multitask [[all the time]]"
+    },
+    "T2": {
+     "en": [
+      "every task switch forces",
+      "your working memory to",
+      "drop one context and",
+      "load another"
+     ],
+     "fr": "chaque fois que tu changes de tâche, ta mémoire doit tout lâcher et tout recharger",
+     "texte": "reply to texts in class, check insta mid-sentence and keep 14 tabs open at all times"
+    },
+    "T3": {
+     "en": [
+      "doing 2 things at once",
+      "feels productive, but",
+      "your brain is just",
+      "constantly re-orienting"
+     ],
+     "fr": "faire 2 trucs à la fois, ça [[a l'air productif]], mais ton cerveau passe son temps à se recaler",
+     "texte": "your brain loves dropping one thing to load another, it [[never gets tired]] at all"
+    },
+    "T4": {
+     "en": [
+      "one task, one tab, until it's finished"
+     ],
+     "fr": "une tâche, un onglet, [[jusqu'au bout]]",
+     "texte": "finishing things is [[overrated]] anyway"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stopped watching youtube"
+     ],
+     "fr": "2. j'ai arrêté youtube",
+     "texte": "2. never eat a single meal"
+    },
+    "T2": {
+     "en": [
+      "on my phone when eating"
+     ],
+     "fr": "sur mon tel en mangeant",
+     "texte": "without a [[screen]] in front"
+    },
+    "T3": {
+     "en": [
+      "look i know it",
+      "feels impossible",
+      "but after trying it",
+      "for a few days",
+      "my mind feels",
+      "so much clearer"
+     ],
+     "fr": "je sais, ça paraît impossible, mais au bout de quelques jours j'avais la tête tellement plus claire",
+     "texte": "why taste your food or [[hear your own thoughts]] when there's a 40-minute video to finish?"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "doomscrolling everyday"
+     ],
+     "fr": "doomscroller [[tous les jours]]",
+     "texte": "3. never stop scrolling"
+    },
+    "T2": {
+     "en": [
+      "you go on tiktok without even",
+      "realising, then lose hours of",
+      "your day to it. that is frying",
+      "your attention span"
+     ],
+     "fr": "tu vas sur tiktok [[sans même t'en rendre compte]] et t'y perds des heures. ça te grille la concentration",
+     "texte": "you open tiktok [[without even realising]] and lose 3 hours of your day. your attention span was overrated anyway"
+    },
+    "T3": {
+     "en": [
+      "you can try using willpower to",
+      "stop, but i use a thing that",
+      "blocks tiktok until i read a",
+      "book for 20 minutes"
+     ],
+     "fr": "tu peux compter sur ta volonté pour arrêter, moi j'ai remplacé mon scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "and whatever you do, never take the Reels out of instagram or block tiktok with [[the UnSwipe app]]"
+    },
+    "T4": {
+     "en": [
+      "don't become illiterate!!"
+     ],
+     "fr": "deviens pas inculte !!",
+     "texte": "keep [[frying your brain]]!!"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "4. put your phone in another room"
+     ],
+     "fr": "4. mets ton tel [[dans une autre pièce]]",
+     "alignement": "gauche",
+     "texte": "4. keep your phone [[on your pillow]]"
+    },
+    "T2": {
+     "en": [
+      "willpower alone is a",
+      "terrible phone blocker"
+     ],
+     "fr": "la volonté, [[ça suffit pas]] contre ton tel",
+     "texte": "scroll until 2am, check it at 7, [[repeat]]"
+    },
+    "T3": {
+     "en": [
+      "one study of nearly",
+      "800 people"
+     ],
+     "fr": "une étude sur presque 800 personnes",
+     "texte": "one study of nearly 800 people"
+    },
+    "T4": {
+     "en": [
+      "found that just having",
+      "your phone nearby",
+      "reduced available",
+      "cognitive capacity"
+     ],
+     "fr": "a montré qu'avoir juste ton tel à côté [[suffit à te ralentir le cerveau]]",
+     "texte": "found that just having your phone close by [[drains the brainpower you have left]]"
+    },
+    "T5": {
+     "en": [
+      "even when you weren't using it!!"
+     ],
+     "fr": "[[même quand tu t'en sers pas !!]]",
+     "texte": "so keep it [[right by your face]]!!"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "3. Relearn how to be bored"
+     ],
+     "fr": "3. Réapprends à t'ennuyer",
+     "texte": "5. never sit with boredom"
+    },
+    "T2": {
+     "en": [
+      "All best ideas come",
+      "when you give them",
+      "space to grow"
+     ],
+     "fr": "Les bonnes idées ont besoin d'espace pour pousser",
+     "texte": "your best ideas need [[empty, boring time]] to finally show up"
+    },
+    "T3": {
+     "en": [
+      "Stop scrolling",
+      "anytime you're free"
+     ],
+     "fr": "Arrête de scroller dès que t'as 2 min",
+     "texte": "so make sure you [[never have any]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

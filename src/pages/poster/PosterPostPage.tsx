@@ -45,6 +45,7 @@ import {
   listerSlides,
   majMediaSlide,
   majPost,
+  autrePostAvecLien,
   paysDuCompte,
   rechargerPostCreateur,
   renettoyerSlide,
@@ -72,6 +73,8 @@ import { nomApplicationPromue } from "@/features/moteur/repartition/logique";
 import { classeDirectionTexte, directionTexte } from "@/features/moteur/langues";
 import { cleErreurSignalement, slideEstLivree, slideEstPropre } from "@/features/moteur/signalementTexte";
 import { referenceAffichee } from "@/features/moteur/referencePlacement";
+import { ChecklistPremierPost } from "@/features/onboarding/ChecklistPremierPost";
+import { localeDate } from "@/locales/localeDate";
 
 function nomFichier(postId: string, position: number) {
   return `${postId.slice(0, 8)}-${String(position).padStart(2, "0")}.jpg`;
@@ -434,6 +437,8 @@ export function PosterPostPage() {
   const [lienPublie, setLienPublie] = React.useState("");
   const [editionLien, setEditionLien] = React.useState(false);
   const [nouveauLien, setNouveauLien] = React.useState("");
+  /** L'autre slideshow qui porte déjà le lien refusé (LIEN_DEJA_UTILISE). */
+  const [autrePostLien, setAutrePostLien] = React.useState<string | null>(null);
   const [loupe, setLoupe] = React.useState<string | null>(null);
   const [erreurPartage, setErreurPartage] = React.useState<string | null>(null);
   const [enCours, setEnCours] = React.useState(false);
@@ -475,7 +480,7 @@ export function PosterPostPage() {
   const datePost = post.data?.date_publication_prevue ?? null;
   const ouverte = peutForcer || publicationOuverte(datePost, paysCompte.data ?? null);
   const echeanceTexte = datePost
-    ? echeancePublication(datePost, paysCompte.data ?? null).toLocaleString(i18n.language, {
+    ? echeancePublication(datePost, paysCompte.data ?? null).toLocaleString(localeDate(i18n.language), {
         weekday: "short",
         day: "numeric",
         month: "short",
@@ -562,7 +567,7 @@ export function PosterPostPage() {
       // Lien court « Partager » → lien complet du post, pour que le serveur
       // puisse reconnaître un post déjà déclaré pour un autre slideshow.
       const lien = await lienPourEnregistrement(saisi, resoudreTiktok);
-      return majPost(id!, {
+      return enregistrerLien(lien, {
         statut: "publie",
         publie_at: new Date().toISOString(),
         publie_url: lien,
@@ -571,13 +576,29 @@ export function PosterPostPage() {
     onSuccess: rafraichir,
   });
 
+  /**
+   * Enregistre le lien ; sur un refus « lien déjà utilisé », retrouve l'autre
+   * slideshow qui le porte pour proposer d'aller l'y corriger.
+   */
+  async function enregistrerLien(lien: string, patch: Partial<Post>) {
+    setAutrePostLien(null);
+    try {
+      await majPost(id!, patch);
+    } catch (erreur) {
+      if (dateDepuisErreurLienDejaUtilise(erreur) !== null && post.data?.compte_id) {
+        setAutrePostLien(await autrePostAvecLien(post.data.compte_id, id!, lien));
+      }
+      throw erreur;
+    }
+  }
+
   // Corriger le lien d'un post déjà publié, jusqu'à l'échéance (change 4).
   const majLien = useMutation({
     mutationFn: async () => {
       const saisi = nouveauLien.trim();
       if (!saisi) throw new Error(t("posts.lienObligatoire"));
       const lien = await lienPourEnregistrement(saisi, resoudreTiktok);
-      return majPost(id!, { publie_url: lien });
+      return enregistrerLien(lien, { publie_url: lien });
     },
     onSuccess: () => {
       setEditionLien(false);
@@ -715,6 +736,8 @@ export function PosterPostPage() {
 
   return (
     <div className="mx-auto max-w-2xl space-y-4 pb-10">
+      {/* Tout premier post d'un posteur : checklist de warm-up avant tout. */}
+      <ChecklistPremierPost />
       {loupe && <Loupe url={loupe} onClose={() => setLoupe(null)} />}
 
       <Button variant="outline" size="sm" asChild>
@@ -991,7 +1014,7 @@ export function PosterPostPage() {
             <div className="space-y-2">
               <p className="text-sm text-success">
                 {t("posts.publieLe", {
-                  date: new Date(donnees.publie_at!).toLocaleString(i18n.language),
+                  date: new Date(donnees.publie_at!).toLocaleString(localeDate(i18n.language)),
                 })}
               </p>
               {/* Le lien, cliquable : vérifier le bon post (change 4). */}
@@ -1016,6 +1039,9 @@ export function PosterPostPage() {
                   />
                   {majLien.isError && (
                     <p className="text-sm text-destructive">{messageErreurPublication(majLien.error, t)}</p>
+                  )}
+                  {majLien.isError && autrePostLien && (
+                    <LienAutreSlideshow postId={autrePostLien} />
                   )}
                   <div className="flex gap-2">
                     <Button
@@ -1084,6 +1110,7 @@ export function PosterPostPage() {
               {publier.isError && (
                 <p className="text-sm text-destructive">{messageErreurPublication(publier.error, t)}</p>
               )}
+              {publier.isError && autrePostLien && <LienAutreSlideshow postId={autrePostLien} />}
 
               <Button
                 className="w-full"
@@ -1101,6 +1128,16 @@ export function PosterPostPage() {
         </CardContent>
       </Card>
     </div>
+  );
+}
+
+/** Lien vers l'autre slideshow qui porte déjà le lien refusé, pour l'y corriger. */
+function LienAutreSlideshow({ postId }: { postId: string }) {
+  const { t } = useTranslation();
+  return (
+    <Link to={`/posts/${postId}`} className="text-sm font-medium text-primary underline underline-offset-2">
+      {t("posts.lienDejaUtiliseOuvrir")}
+    </Link>
   );
 }
 

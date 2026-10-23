@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { telechargerUrl } from "@/features/moteur/telechargement";
 import { supabase } from "@/lib/supabase/client";
+import { localeDate } from "@/locales/localeDate";
 
 /** Vidéo de pod (pod 3) prévue pour un compte : réaction + démo + textes à coller. */
 interface VideoPod {
@@ -152,7 +153,7 @@ function CarteVideo({
       ? { fait: "TikTok", reste: "Instagram" }
       : { fait: "Instagram", reste: "TikTok" }
     : null;
-  const jour = new Date(`${video.date_publication_prevue}T12:00:00`).toLocaleDateString(i18n.language, {
+  const jour = new Date(`${video.date_publication_prevue}T12:00:00`).toLocaleDateString(localeDate(i18n.language), {
     weekday: "long",
     day: "numeric",
     month: "long",

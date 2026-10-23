@@ -9,6 +9,7 @@ import { listerReplisApplications } from "@/features/moteur/apiMultiApp";
 import { nomApplication } from "@/features/moteur/applications";
 
 import { estErreurSchemaAbsent, grouperReplis, jourParisIlYa } from "./logique";
+import { localeDate } from "@/locales/localeDate";
 
 /** Une semaine : assez pour voir un label s'épuiser, assez court pour rester lisible. */
 const JOURS_REPLIS = 7;
@@ -48,7 +49,7 @@ export function ReplisCard() {
     return app ? nomApplication(app) : id.slice(0, 8);
   };
   const fmtJour = (jour: string) =>
-    new Date(`${jour}T12:00:00`).toLocaleDateString(i18n.language, { day: "numeric", month: "short" });
+    new Date(`${jour}T12:00:00`).toLocaleDateString(localeDate(i18n.language), { day: "numeric", month: "short" });
 
   return (
     <Card>

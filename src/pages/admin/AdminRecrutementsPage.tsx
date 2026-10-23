@@ -11,6 +11,7 @@ import { hmConcernePays, phasesHmPourPays } from "@/features/recrutements/phases
 import { useRecrutements } from "@/features/recrutements/useRecrutements";
 import { drapeauLangue, nomPays, PAYS_OS } from "@/features/moteur/langues";
 import { cn } from "@/lib/utils";
+import { localeDate } from "@/locales/localeDate";
 
 export function AdminRecrutementsPage() {
   const { t, i18n } = useTranslation();
@@ -42,7 +43,7 @@ export function AdminRecrutementsPage() {
         {run?.finished_at && (
           <p className="text-xs tabular-nums text-muted-foreground">
             {t("recrutements.dernierRun", {
-              date: new Date(run.finished_at).toLocaleString(i18n.language, {
+              date: new Date(run.finished_at).toLocaleString(localeDate(i18n.language), {
                 dateStyle: "short",
                 timeStyle: "short",
                 timeZone: "Europe/Paris",

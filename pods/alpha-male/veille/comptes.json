@@ -1,0 +1,11 @@
+{
+  "note": "Comptes relevés par `npm run veille` : les comptes de référence du label alpha_male dans l'OS. Retire un compte qui ne publie plus ou tombe sous 2 k vues médianes sur 30 jours ; ajoute un compte de la niche « alpha male » (règles d'homme, discipline, habitudes, psychologie sociale) trouvé par --decouvrir quand il fait des vues ce mois-ci (au moins un diaporama à 100 k vues en 30 jours). Jamais un compte qui pousse une appli concurrente de Sophia.",
+  "comptes": [
+    "selfsculpt_",
+    "millyjhino",
+    "motiondreambig",
+    "relatableoutof10",
+    "infinitydream7",
+    "cjlearnngrow"
+  ]
+}

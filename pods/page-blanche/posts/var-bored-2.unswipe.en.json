@@ -1,0 +1,229 @@
+{
+ "application": "unswipe",
+ "post_id": "var-bored-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "10/10 habits of people who thrive alone"
+    },
+    "T2": {
+     "en": [
+      "(in this age of",
+      "short-form content)"
+     ],
+     "fr": "(à l'époque des vidéos de 10 secondes)",
+     "texte": "(the weirdly specific edition)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "listening to something",
+      "constantly"
+     ],
+     "fr": "écouter un truc [[non-stop]]",
+     "texte": "they take [[day trips on their own]]"
+    },
+    "T2": {
+     "en": [
+      "music, podcasts, YouTube in the background,",
+      "your brain is almost never doing just one",
+      "thing"
+     ],
+     "fr": "musique, podcasts, YouTube en fond : ton cerveau [[fait presque jamais une seule chose]]",
+     "texte": "a random train, [[a town they've never seen]], no plan and nobody to negotiate lunch with"
+    },
+    "T3": {
+     "en": [
+      "especially with",
+      "lyrics, part of",
+      "your attention is",
+      "still processing",
+      "language"
+     ],
+     "fr": "[[surtout avec des paroles]] : une partie de ton attention traite encore les mots",
+     "texte": "[[window seat]], no headphones, just watching the fields go by and thinking"
+    },
+    "T4": {
+     "en": [
+      "silence feels boring because you've stopped",
+      "practicing it"
+     ],
+     "fr": "le silence te paraît chiant parce que t'en as [[perdu l'habitude]]",
+     "texte": "they come back tired, happy, and with [[a brain that feels new]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "consuming everything at 2x speed"
+     ],
+     "fr": "tout mettre [[en vitesse x2]]",
+     "texte": "they cook [[proper dinners]] for one"
+    },
+    "T2": {
+     "en": [
+      "when every podcast, video",
+      "and voice note is sped up,",
+      "normal-speed information",
+      "starts feeling painfully slow"
+     ],
+     "fr": "quand tes podcasts, vidéos et vocaux sont tous accélérés, le rythme normal te paraît [[atrocement lent]]",
+     "texte": "not toast over the sink. a candle, a real plate, the nice glass, [[like they're hosting someone they love]]"
+    },
+    "T3": {
+     "en": [
+      "you're training yourself to",
+      "need constant density"
+     ],
+     "fr": "ton cerveau s'habitue à [[en vouloir toujours plus]]",
+     "texte": "because that night, [[they're the guest of honour]]"
+    },
+    "T4": {
+     "en": [
+      "instead, actually sit with an",
+      "idea for more than 10",
+      "seconds"
+     ],
+     "fr": "à la place, pose-toi sur une idée plus de 10 secondes",
+     "texte": "they eat at the table, slowly, and actually taste the food"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start reading everyday"
+     ],
+     "fr": "apprends un truc [[chaque jour]]",
+     "texte": "they [[hardly ever scroll]]"
+    },
+    "T2": {
+     "en": [
+      "scrolling feeds you",
+      "constant dopamine and",
+      "burns your dopamine",
+      "receptors"
+     ],
+     "fr": "le scroll t'envoie [[de la dopamine non-stop]] et [[crame tes récepteurs]]",
+     "texte": "so their alone time is actually alone, [[not with 400 strangers]]"
+    },
+    "T3": {
+     "en": [
+      "i use readup to block my",
+      "apps for 20 minutes until i",
+      "read"
+     ],
+     "fr": "perso j'ai remplacé mon scroll par [[5 min sur l'appli Sophia]]",
+     "texte": "their head gets quiet enough to [[hear their own ideas]] again"
+    },
+    "T4": {
+     "en": [
+      "reading forces you to hold",
+      "attention, remember",
+      "details, and follow one",
+      "idea for longer"
+     ],
+     "fr": "apprendre, ça t'oblige à [[te concentrer]], [[retenir des détails]] et suivre une idée jusqu'au bout",
+     "texte": "it started the day they took the Reels off their instagram, just to see what would happen"
+    },
+    "T5": {
+     "en": [
+      "even a little every day is",
+      "enough to start rebuilding",
+      "your attention span"
+     ],
+     "fr": "même un petit peu par jour suffit à [[réparer ta concentration]]",
+     "texte": "and blocked tiktok completely with [[the UnSwipe app]]. they don't miss it"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop waiting to feel motivated"
+     ],
+     "fr": "arrête [[d'attendre la motivation]]",
+     "texte": "they carry [[a tiny notebook]]"
+    },
+    "T2": {
+     "en": [
+      "motivation comes",
+      "after starting, not",
+      "before"
+     ],
+     "fr": "la motivation vient en faisant, pas avant",
+     "texte": "ideas, overheard lines, things that annoyed them"
+    },
+    "T3": {
+     "en": [
+      "make yourself do just 10 minutes of the thing you're",
+      "avoiding. once you've crossed the initial resistance,",
+      "continuing is dramatically easier than starting from",
+      "zero."
+     ],
+     "fr": "force-toi à faire [[juste 10 minutes]] du truc que tu repousses. une fois le plus dur passé, continuer est mille fois plus facile que de partir de zéro.",
+     "texte": "they write like nobody will ever read it, because nobody will. it's where they argue with themselves and figure out what they really think. [[cheaper than therapy]], too."
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "3. Relearn how to be bored"
+     ],
+     "fr": "3. Réapprends à t'ennuyer",
+     "texte": "they watch [[sunsets alone]]"
+    },
+    "T2": {
+     "en": [
+      "All best ideas come",
+      "when you give them",
+      "space to grow"
+     ],
+     "fr": "Les bonnes idées ont besoin d'espace pour pousser",
+     "texte": "no photo, no story, just them and the sky changing color"
+    },
+    "T3": {
+     "en": [
+      "Stop scrolling",
+      "anytime you're free"
+     ],
+     "fr": "Arrête de scroller dès que t'as 2 min",
+     "texte": "[[honestly the best free show in town!!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

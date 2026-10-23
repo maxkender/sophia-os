@@ -234,7 +234,7 @@ export async function chargerLabelsDuContenu(
 /**
  * Angles (`angles_placement`, 0285) des labels d'un contenu pour une
  * application, au statut demandé. Seulement ceux des labels qui SERVENT
- * l'application (`label_applications`, un label sans ligne sert Sophia) :
+ * l'application (cochée dans `label_applications`) :
  * décocher l'application d'un label garde ses angles, sans qu'ils servent.
  * Lève sur une lecture en panne.
  */

@@ -1,0 +1,249 @@
+{
+ "post_id": "original-006",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 hobbies to make you",
+      "dangerously disciplined"
+     ],
+     "fr": "10/10 hobbies pour devenir ultra disciplinée",
+     "texte": "yapmayı bıraktığım ve beynimi geri getiren 5 şey"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(tekrar kitap okuyorum)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never travel"
+     ],
+     "fr": "ne pars jamais",
+     "texte": "yatakta telefon"
+    },
+    "T2": {
+     "en": [
+      "there's nothing out there you need to experience",
+      "yourself"
+     ],
+     "fr": "y'a [[rien là-dehors]] qui mérite que tu le vives en vrai",
+     "texte": "eskiden tiktok hâlâ açık, [[kaydırırken]] uyuyakalırdım"
+    },
+    "T3": {
+     "en": [
+      "you can see mountains,",
+      "cities, cultures and people",
+      "through a 6-inch screen",
+      "anyway"
+     ],
+     "fr": "montagnes, villes, cultures, gens : tu vois tout [[sur un écran de 15 cm, de toute façon]]",
+     "texte": "şimdi telefonum mutfakta şarj oluyor, ben de gözlerim kapanana kadar [[on sayfa]] okuyorum"
+    },
+    "T4": {
+     "en": [
+      "stay where it's",
+      "comfortable"
+     ],
+     "fr": "reste [[dans ta zone de confort]]",
+     "texte": "[[çok daha çabuk]] uyuyakalıyorum"
+    },
+    "T5": {
+     "en": [
+      "why risk discovering that",
+      "the world is much bigger",
+      "than the life you've built?"
+     ],
+     "fr": "pourquoi risquer de découvrir que le monde est [[bien plus grand]] que ta petite vie ?",
+     "texte": "ve [[gerçekten dinlenmiş]] uyanıyorum, başkasının dramasıyla daha sabahtan yorulmuş değil"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop always listening",
+      "to music"
+     ],
+     "fr": "arrête [[la musique non-stop]]",
+     "texte": "her sessizliğe [[bir podcast]]"
+    },
+    "T2": {
+     "en": [
+      "stop filling every empty second with podcasts,",
+      "music, youtube, or scrolling"
+     ],
+     "fr": "arrête de combler [[le moindre blanc]] avec podcasts, musique, youtube ou scroll",
+     "texte": "bulaşık, duş, yürüyüş, otobüs... hep biri [[kulağıma bir şey anlatıyordu]]"
+    },
+    "T3": {
+     "en": [
+      "your brain",
+      "needs quiet",
+      "time to connect",
+      "ideas, replay",
+      "information, and",
+      "actually form its",
+      "own thought"
+     ],
+     "fr": "ton cerveau a besoin de calme pour faire des liens, digérer les infos et [[vraiment avoir ses propres idées]]",
+     "texte": "şimdi aklımı serbest bırakıyorum. sessizlikte fikirler sonunda birleşiyor ve [[kendi düşüncelerimi duyabiliyorum]]"
+    },
+    "T4": {
+     "en": [
+      "instead of constantly reacting to",
+      "someone else’s"
+     ],
+     "fr": "au lieu de [[toujours réagir]] à [[celles des autres]]",
+     "texte": "sadece [[başkalarının fikirlerini]] tekrar tekrar değil"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "tam otomatik pilotta [[kısa videolar]]"
+    },
+    "T2": {
+     "en": [
+      "reading makes you hold",
+      "attention, remember",
+      "details, and build the",
+      "picture in your own head"
+     ],
+     "fr": "lire t'oblige à [[rester concentrée]], à retenir des détails et à [[te faire le film]] dans ta tête",
+     "texte": "instagram'ı tek bir mesaja cevap vermek için açıp hatırlamadığım reels'lara [[40 dakika kaybederdim]]"
+    },
+    "T3": {
+     "en": [
+      "if you want your brain to",
+      "feel sharper again, swap",
+      "some of your scrolling for",
+      "books"
+     ],
+     "fr": "si tu veux [[retrouver un cerveau vif]], remplace un peu de [[scroll par des livres]]",
+     "texte": "onlar gidince [[dikkat sürem]] geri geldi. artık yine koca bir filmi izleyebiliyorum"
+    },
+    "T4": {
+     "en": [
+      "i use readup to lock my",
+      "apps until i’ve read for 20",
+      "minutes, or just put your",
+      "phone in another room"
+     ],
+     "fr": "perso j'ai remplacé mon scroll du soir par [[5 min sur l'appli Sophia]], sinon laisse ton tel dans une autre pièce",
+     "texte": "instagram'ımda artık reels yok, sadece mesajlar ve arkadaşların hikâyeleri. [[UnSwipe uygulaması]] bunu yapabiliyor"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "study longer than you want to"
+     ],
+     "fr": "bosse [[même quand t'as plus envie]]",
+     "texte": "aynı anda [[üç şey]] birden yapmak"
+    },
+    "T2": {
+     "en": [
+      "the useful part usually starts when your brain",
+      "wants to quit"
+     ],
+     "fr": "le plus utile commence souvent quand [[ton cerveau veut lâcher]]",
+     "texte": "ders videosu, notlar, başka sekmede dizi, [[elimde telefon]]"
+    },
+    "T3": {
+     "en": [
+      "stay for another",
+      "20–30 minutes",
+      "after you feel",
+      "bored, distracted,",
+      "or restless"
+     ],
+     "fr": "reste encore 20 à 30 min [[après]] avoir commencé à t'ennuyer ou à décrocher",
+     "texte": "üretken hissettiriyordu ama hiçbir şey bitirmedim, [[aklımda kalan daha da azdı]]"
+    },
+    "T4": {
+     "en": [
+      "you're not just learning the subject, you're training",
+      "yourself to keep going when motivation disappears"
+     ],
+     "fr": "t'apprends pas juste la matière, tu t'entraînes [[à continuer quand t'as plus de motivation]]",
+     "texte": "şimdi tek sekme, tek iş, tek zamanlayıcı. bir saatte [[eskiden bütün akşamımı alan işi]] bitiriyorum"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never sit in silence"
+     ],
+     "fr": "jamais de silence",
+     "texte": "masamdaki telefonum"
+    },
+    "T2": {
+     "en": [
+      "always have music, podcasts, youtube,",
+      "anything playing in the background"
+     ],
+     "fr": "mets [[toujours]] un truc en fond : musique, podcast, youtube, n'importe quoi",
+     "texte": "ters dursa bile beynimin bir kısmı hep [[titreşmesini bekliyordu]]"
+    },
+    "T3": {
+     "en": [
+      "never let",
+      "your brain",
+      "hear itself",
+      "for too long"
+     ],
+     "fr": "ton cerveau ne doit jamais s'entendre penser",
+     "texte": "şimdi [[işim bitene kadar]] çantamda duruyor"
+    },
+    "T4": {
+     "en": [
+      "or you might start thinking about what you",
+      "actually want, what you're avoiding, or what",
+      "needs to change. that would be scary"
+     ],
+     "fr": "sinon tu risques de penser à ce que tu [[veux vraiment]], à ce que [[tu fuis]], à ce qui [[doit changer]]. et ça, ça fait peur",
+     "texte": "ilk 10 dakika garip geliyor. sonra birden [[yaptığım işe gömülüyorum]], kafamı kaldırıyorum ve iki saat geçmiş oluyor"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

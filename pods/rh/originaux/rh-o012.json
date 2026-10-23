@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o012",
+ "schema_id": "job-toxique",
+ "titre": "comment quitter un job toxique sans démissionner sur un coup de tête (et garder tes droits) #rechercheemploi #emploi #travail #carriere #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "Schéma job-toxique (actif depuis le 23/10, r 7,57 sur 4 passages, bf49b37f, musique reprise de ce contenu). Sujet sensible : tout reste général, et le deck renvoie deux fois vers un juriste, un syndicat ou les rh, sans conseil juridique précis (rien sur les conditions ni les montants de la rupture conventionnelle ou du chômage). Accroches écrites : « comment quitter un job toxique sans démissionner sur un coup de tête (et garder tes droits) » (retenue : le gabarit gagnant, avec « garder tes droits »), « les trucs que personne te dit quand tu veux quitter un job toxique » (écartée : plus vague), « j'ai quitté un job toxique sans claquer la porte, voilà comment je me suis préparée » (écartée : longue). Six étapes neuves, aucune reprise de la source (110 %, deadline secrète, recherche invisible, 20 minutes par jour, signer avant de démissionner). Sophia en 5 sur « garde un truc à toi ». Inspirations : sans la slide 5 de la source (appli concurrente).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1ad07d86",
+   "texte_overlay": "comment quitter un job toxique\nsans démissionner sur un coup de tête\n(et garder tes droits)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "39752103",
+   "texte_overlay": "1. note tout, sobrement\nun carnet perso : la date, ce qui s'est dit, qui était là.\npas d'émotion, des faits. et jamais sur l'ordi du boulot",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1bb42c25",
+   "texte_overlay": "2. parle à quelqu'un qui connaît le droit\nun juriste, un syndicat, ou les rh si t'as confiance.\nchaque situation est différente, renseigne-toi avant de bouger",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "06edbb00",
+   "texte_overlay": "3. connais tes options avant d'en parler\ndémission, rupture conventionnelle, autre chose…\nchacune a ses conséquences. fais-toi expliquer lesquelles s'appliquent à toi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0607bdbd",
+   "texte_overlay": "4. garde un truc à toi, hors boulot\nquand le job prend toute la place, tout devient le job.\n5 minutes par jour qui n'appartiennent qu'à toi, c'est déjà ça",
+   "texte_sophia": "4. garde un truc à toi, hors boulot\nquand le job prend toute la place, tout devient le job.\nmoi c'était 5 minutes d'histoire sur l'appli Sophia le matin, avant d'ouvrir mes mails",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4ee7a3a4",
+   "texte_overlay": "5. réveille ton réseau avant ton cv\nreprends contact avec 3 anciens collègues, sans rien demander.\nbeaucoup de postes passent par quelqu'un",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1d1fd80b",
+   "texte_overlay": "6. la médecine du travail, c'est pas que pour les visites\nsi ça t'atteint, tu peux demander à la rencontrer.\nça reste entre vous",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "45590f95",
+   "texte_overlay": "t'es pas obligée de redouter chaque lundi pour toujours\nprépare ta sortie, fais-toi conseiller\nenregistre-le pour le jour où t'en as besoin",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

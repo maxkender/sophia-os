@@ -1,4 +1,4 @@
--- 15 · Effet des retours envoyés par l'agent de relecture (relectures_auto,
+-- 16 · Effet des retours envoyés par l'agent de relecture (relectures_auto,
 -- envoi = 'envoye' depuis la nuit du 17 au 18/10).
 --
 -- A. Le défaut revient-il ? Pour chaque retour envoyé (posts du jour J), les
@@ -67,3 +67,21 @@ from par_createur group by 1, 2, 3 order by 3 desc, 1, 2;
 --   where r.origine = 'cron' and r.statut = 'fait' and r.jour >= '2026-10-16' and r.vues is not null)
 -- select jour, servi, count(*) n, round(percentile_cont(0.5) within group (order by rr)::numeric, 2) r_10h
 -- from x group by 1, 2 order by 2, 1;
+
+-- C. Un défaut coûte-t-il des vues ? Même contenu posté par plusieurs comptes,
+-- passages avec et sans défaut (remarque) : ratio des r médians (r = vues J+2 ÷
+-- médiane du compte figée avant les retours). Posts mûrs seulement (≥ 3 jours).
+-- with ref as (select p.compte_id, percentile_cont(0.5) within group (order by p.vues) m
+--   from passages p where p.statut = 'publie' and not coalesce(p.est_rappel, false) and p.vues is not null
+--     and p.publie_at between '2026-09-01' and '2026-10-15' group by 1 having count(*) >= 5),
+-- x as (select p.contenu_id, p.vues / nullif(ref.m, 0) rr, r.defauts,
+--     exists (select 1 from jsonb_array_elements(r.defauts) d where d ->> 'niveau' = 'remarque') defaut
+--   from relectures_auto r join passages p on p.id = r.passage_id join ref on ref.compte_id = p.compte_id
+--   where r.origine = 'cron' and r.statut = 'fait' and r.jour >= '2026-10-16' and r.jour <= current_date - 3
+--     and p.vues is not null and not coalesce(p.est_rappel, false)),
+-- codes as (select distinct x.contenu_id, x.rr, d ->> 'code' code from x
+--   cross join lateral jsonb_array_elements(x.defauts) d where d ->> 'niveau' = 'remarque'),
+-- propre as (select contenu_id, percentile_cont(0.5) within group (order by rr) r_propre from x where not defaut group by 1)
+-- select c.code, count(*) n, round(percentile_cont(0.5) within group (order by c.rr / nullif(p.r_propre, 0))::numeric, 2) ratio,
+--        round(100.0 * avg((c.rr < p.r_propre)::int), 1) pct_moins_bien
+-- from codes c join propre p using (contenu_id) group by 1 order by 1;

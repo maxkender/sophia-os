@@ -1,0 +1,243 @@
+{
+ "post_id": "var-bored-1",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 hobbies to make you",
+      "dangerously intelligent"
+     ],
+     "fr": "10/10 hobbies pour devenir ultra intelligente",
+     "texte": "10/10 abitudini di chi ha sempre qualcosa da raccontare"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(edizione conversazione)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they get comfortable looking",
+      "stupid"
+     ],
+     "fr": "ils [[s'en fichent d'avoir l'air bêtes]]",
+     "texte": "vanno a [[conferenze random]] in città"
+    },
+    "T2": {
+     "en": [
+      "they ask basic questions, try things before they feel",
+      "ready, and admit when they don’t know"
+     ],
+     "fr": "ils posent des questions bêtes, se lancent avant d'être prêts et [[disent quand ils savent pas]]",
+     "texte": "un talk sulle api, una notte al museo, la presentazione di un autore sconosciuto"
+    },
+    "T3": {
+     "en": [
+      "protecting your",
+      "ego feels safe,",
+      "but it slows",
+      "learning down",
+      "massively"
+     ],
+     "fr": "protéger ton ego, ça rassure, mais ça [[te fait apprendre beaucoup moins vite]]",
+     "texte": "si siedono in prima fila e [[restano per le domande]] alla fine"
+    },
+    "T4": {
+     "en": [
+      "growth feels uncomfortable, but",
+      "nothing changes if nothing changes"
+     ],
+     "fr": "évoluer, c'est inconfortable, mais [[si tu changes rien, rien change]]",
+     "texte": "ora sanno [[troppe cose sulle api]], e a cena lo scoprono tutti"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "practice rational thinking"
+     ],
+     "fr": "entraîne [[ta logique]]",
+     "texte": "ignorano [[i grandi titoli]]"
+    },
+    "T2": {
+     "en": [
+      "stop blindly trusting the first explanation your brain",
+      "gives you"
+     ],
+     "fr": "arrête de [[gober direct]] la première explication de ton cerveau",
+     "texte": "leggono invece le piccole notizie strane in fondo alla pagina"
+    },
+    "T3": {
+     "en": [
+      "write down predictions,",
+      "judge your biases,",
+      "actively argue against",
+      "your own opinion"
+     ],
+     "fr": "note tes prédictions, repère tes biais, et défends exprès [[l'avis contraire au tien]]",
+     "texte": "un cane eletto sindaco, un quadro rubato ritrovato [[nella cucina di una nonna]]"
+    },
+    "T4": {
+     "en": [
+      "being smart matters",
+      "less if your reasoning is",
+      "full of blind spots"
+     ],
+     "fr": "le QI compte moins si ton raisonnement est plein d'angles morts",
+     "texte": "la grande notizia la sanno tutti. [[del cane nessuno sa niente]]"
+    },
+    "T5": {
+     "en": [
+      "don't make decisions when you're angry,",
+      "don't make promises when you're happy"
+     ],
+     "fr": "jamais de décision sous le coup de la colère, jamais de promesse sous le coup de la joie",
+     "texte": "[[le piccole storie sono quelle che si raccontano]] agli amici il giorno dopo"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "3. read classic books"
+     ],
+     "fr": "3. lis des [[classiques]]",
+     "texte": "[[non scrollano quasi mai]]"
+    },
+    "T2": {
+     "en": [
+      "do you remember what tiktok",
+      "you saw 5 scrolls ago?"
+     ],
+     "fr": "tu te souviens du tiktok d'il y a [[5 scrolls]] ?",
+     "texte": "quindi non ti raccontano mai il video [[che hai già visto]]"
+    },
+    "T3": {
+     "en": [
+      "exactly. read 20 pages",
+      "of a good book instead"
+     ],
+     "fr": "[[bah voilà]]. lis plutôt 20 pages d'un bon livre",
+     "texte": "le loro storie vengono dalla [[loro vita vera]]"
+    },
+    "T4": {
+     "en": [
+      "books that survived 50–",
+      "100+ years usually",
+      "survived for a reason"
+     ],
+     "fr": "un livre qui tient depuis 50 ou 100 ans, c'est rarement un hasard",
+     "texte": "hanno semplicemente tolto i Reels da insta e bloccato tiktok"
+    },
+    "T5": {
+     "en": [
+      "fix your attention span"
+     ],
+     "fr": "[[répare ta concentration]]",
+     "texte": "con [[l'app UnSwipe]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "play and study chess"
+     ],
+     "fr": "mets-toi aux échecs",
+     "texte": "fanno [[domande strane]]"
+    },
+    "T2": {
+     "en": [
+      "chess forces you to calculate ahead, recognise",
+      "patterns, and constantly ask “what am I missing?”"
+     ],
+     "fr": "aux échecs, tu dois anticiper, repérer des schémas et te demander sans arrêt « je rate quoi ? »",
+     "texte": "mai “che lavoro fai?”. piuttosto “il peggior lavoro della tua vita?” o “cosa collezioni?”"
+    },
+    "T3": {
+     "en": [
+      "don't just play random",
+      "games, analyse them",
+      "afterwards"
+     ],
+     "fr": "joue pas juste pour jouer, [[décortique tes parties]] après",
+     "texte": "poi stanno zitti e [[ascoltano davvero]] la risposta"
+    },
+    "T4": {
+     "en": [
+      "science proves that",
+      "even 20–30 minutes a",
+      "day gives your brain",
+      "deliberate problem-",
+      "solving practice"
+     ],
+     "fr": "même [[20 à 30 min par jour]] entraînent ton cerveau à [[résoudre des problèmes]], c'est prouvé",
+     "texte": "alla gente piace parlare di sé, quindi tornano a casa con [[dieci storie nuove]] e un amico in più"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6. work before you communicate"
+     ],
+     "fr": "6. bosse [[avant]] de répondre",
+     "texte": "si appuntano [[le belle storie]]"
+    },
+    "T2": {
+     "en": [
+      "give yourself 60–90",
+      "minutes of uninterrupted",
+      "creation before",
+      "becoming available to",
+      "everyone else"
+     ],
+     "fr": "garde-toi 60-90 minutes pour [[créer sans interruption]] avant d'être dispo pour les autres",
+     "texte": "una frase buffa di uno sconosciuto, una curiosità, un disastro assurdo successo in treno"
+    },
+    "T3": {
+     "en": [
+      "your priorities should",
+      "enter your head before",
+      "theirs do"
+     ],
+     "fr": "tes priorités d'abord dans ta tête, celles des autres après",
+     "texte": "[[chi racconta bene non è più divertente, prende appunti]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

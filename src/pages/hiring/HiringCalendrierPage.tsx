@@ -18,6 +18,7 @@ import { miniatureStorage } from "@/features/moteur/miniature";
 import { debutParDefaut, joursFenetre, libelleFenetre } from "@/features/moteur/semaines";
 import { ajouterJours } from "@/features/onboarding/datesRuul";
 import { cn } from "@/lib/utils";
+import { localeDate } from "@/locales/localeDate";
 
 /** Aperçu (lecture seule) d'un post : ses slides — image nettoyée + texte. */
 function ApercuPost({ postId, pays, onClose }: { postId: string; pays: string | null; onClose: () => void }) {
@@ -166,7 +167,7 @@ export function HiringCalendrierPage() {
   }
 
   const enTetes = Array.from({ length: 7 }, (_, index) =>
-    new Date(2024, 0, index + 1).toLocaleDateString(i18n.language, { weekday: "short" }),
+    new Date(2024, 0, index + 1).toLocaleDateString(localeDate(i18n.language), { weekday: "short" }),
   );
   const jour = aujourdhuiParis();
   const maintenant = new Date();

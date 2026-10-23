@@ -396,6 +396,8 @@ export interface ReglagesTierlist {
   ecart_min_meme_contenu: number;
   /** Jours d'attente d'une mesure avant de relancer le cycle au même rang. */
   requalif_max_jours: number;
+  /** Vues qu'un passage d'un B doit atteindre pour qu'il reste en B (0 désactive). */
+  plancher_b: number;
 }
 
 export interface ReglagesScoring {

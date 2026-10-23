@@ -1,0 +1,225 @@
+{
+ "post_id": "var-bored-3",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "5 things i did that fixed my",
+      "phone addiction"
+     ],
+     "fr": "5 trucs qui ont guéri mon addiction au tel",
+     "texte": "10/10 habitudes des gens jamais pressés"
+    },
+    "T2": {
+     "en": [
+      "(from 14 hours",
+      "screen time to 3)"
+     ],
+     "fr": "(de 14 h d'écran par jour à 3)",
+     "texte": "(alors qu'ils ont 24 h comme toi)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "make decisions before you feel ready"
+     ],
+     "fr": "décide [[avant de te sentir prête]]",
+     "texte": "ils partent [[10 minutes en avance]]"
+    },
+    "T2": {
+     "en": [
+      "there will never be a",
+      "perfect moment, you will",
+      "never feel ready"
+     ],
+     "fr": "[[le moment parfait n'existe pas]], tu te sentiras jamais prête",
+     "texte": "pas de sprint pour le bus, pas de [[« j'arrive dans 5 min »]] du canap"
+    },
+    "T3": {
+     "en": [
+      "take that risk you've",
+      "been thinking about, you",
+      "have nothing to lose"
+     ],
+     "fr": "prends ce risque auquel tu penses depuis longtemps, [[t'as rien à perdre]]",
+     "texte": "ils arrivent zen, avec le temps de [[regarder autour et respirer]]"
+    },
+    "T4": {
+     "en": [
+      "procrastination is making you lose trust in yourself"
+     ],
+     "fr": "procrastiner te fait [[perdre confiance en toi]]",
+     "texte": "[[être en avance, c'est le luxe le moins cher qui existe]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "5. switched off all triggers"
+     ],
+     "fr": "5. j'ai viré les tentations",
+     "texte": "ils gardent [[un seul onglet]]"
+    },
+    "T2": {
+     "en": [
+      "i literally have 0",
+      "notifications on for all",
+      "my messaging",
+      "platforms"
+     ],
+     "fr": "j'ai littéralement 0 notif sur toutes mes applis de messagerie",
+     "texte": "une tâche, un onglet. les 23 autres, ils les ferment pour de bon"
+    },
+    "T3": {
+     "en": [
+      "gives me no reason to",
+      "check until i want to"
+     ],
+     "fr": "du coup j'ouvre seulement quand j'en ai envie",
+     "texte": "du coup un truc de 20 min [[prend 20 min]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read CLASSIC books"
+     ],
+     "fr": "lis des CLASSIQUES",
+     "texte": "ils se CULTIVENT"
+    },
+    "T4": {
+     "en": [
+      "one study found that just 6",
+      "minutes of reading reduced",
+      "stress levels by up to 68%"
+     ],
+     "fr": "une étude a montré que 6 minutes de lecture suffisent à [[faire baisser le stress jusqu'à 68 %]]",
+     "texte": "pendant que les autres scrollent une heure, eux passent [[5 minutes sur une idée nouvelle]]"
+    },
+    "T5": {
+     "en": [
+      "if you struggle getting off your",
+      "phone and reading books, i",
+      "recommend ReadUp, it blocks",
+      "your doomscrolling apps until",
+      "you read"
+     ],
+     "fr": "si t'as du mal à lâcher ton tel, perso j'ai remplacé mon scroll par 5 min sur l'appli Sophia, un truc nouveau chaque jour",
+     "texte": "quand ils attrapent leur tel par réflexe, ils ouvrent [[l'appli Sophia]] à la place, font une petite leçon et le reposent"
+    }
+   },
+   "images": {
+    "I2": "sophia_appstore"
+   },
+   "zones": [
+    {
+     "elements": [
+      "I1",
+      "T2",
+      "T3",
+      "T7",
+      "T8",
+      "T9",
+      "T10",
+      "I3",
+      "T11",
+      "T6"
+     ],
+     "action": "sophia_capture"
+    }
+   ]
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop going on your phone",
+      "when you eat"
+     ],
+     "fr": "lâche ton tel pendant les repas",
+     "texte": "ils [[sortent pas le tel]] en attendant"
+    },
+    "T2": {
+     "en": [
+      "going on your phone every",
+      "time you eat is teaching",
+      "your brain that every quiet",
+      "moment needs stimulation"
+     ],
+     "fr": "sortir ton tel à chaque repas, ça apprend à ton cerveau que le moindre moment calme doit être rempli",
+     "texte": "la queue à la boulange, les 4 min avant le train, la salle d'attente. ils attendent et [[laissent leur tête divaguer]]"
+    },
+    "T3": {
+     "en": [
+      "give your brain 20 minutes",
+      "where nothing is fighting for",
+      "your attention"
+     ],
+     "fr": "laisse ton cerveau tranquille 20 minutes, sans rien qui le sollicite",
+     "texte": "c'est là qu'ils planifient leur semaine, sans [[jamais s'y mettre exprès]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "work out in the morning"
+     ],
+     "fr": "fais du sport [[le matin]]",
+     "texte": "ils rangent [[10 minutes]]"
+    },
+    "T2": {
+     "en": [
+      "your cortisol is at it's peak in the morning, and how",
+      "you begin your day sets the mood for the rest of it"
+     ],
+     "fr": "ton cortisol est [[au max le matin]], et comment tu démarres ta journée [[conditionne tout le reste]]",
+     "texte": "chaque soir : vaisselle, bureau, les fringues sur la chaise. un minuteur de 10 min, et ils s'arrêtent quand ça sonne"
+    },
+    "T3": {
+     "en": [
+      "working out helps",
+      "you practice delayed",
+      "gratification, in a",
+      "world that runs on",
+      "short-form content"
+     ],
+     "fr": "le sport t'apprend [[à attendre ta récompense]], à l'époque des [[vidéos de 10 secondes]]",
+     "texte": "du coup chaque matin commence dans une chambre calme, pas sur [[une scène de crime]] à déblayer"
+    },
+    "T4": {
+     "en": [
+      "discipline gets easier when discomfort becomes part",
+      "of the routine"
+     ],
+     "fr": "la discipline vient toute seule quand [[l'inconfort]] devient [[la routine]]",
+     "texte": "[[10 min par soir, ça vaut mieux que sacrifier ton dimanche au ménage]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

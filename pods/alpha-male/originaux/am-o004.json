@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o004",
+ "schema_id": "become-unrecognizable",
+ "titre": "How to become unrecognizable by next year (part 2) #selfimprovement #discipline #men #mindset #glowup",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7564143750901959455",
+ "inspirations": [
+  "5ff64648-8872-4c3e-90ff-e6e34b637fcc",
+  "c08fe825-4a39-4fd9-a9b9-1ead4a30d39b"
+ ],
+ "notes": "Schéma become-unrecognizable (r 18,87 sur 3 passages, 5ff64648 ; r 2,87, c08fe825). Accroches écrites : « How to Become Unrecognizable by Next Year (Part 2) » (retenue : l'accroche exacte du gagnant à r 18,87, « part 2 » donne la suite), « How to become unrecognizable in 90 days » (écartée : échéance non prouvée), « How to surpass your old self by summer » (écartée : plus loin des gagnants). Format du gagnant : un domaine en capitales par slide, puis 4 gestes. Domaines et gestes neufs (vérifié dans donnees/label.json : rien sur les 8 000 pas, les blocs de 45 minutes, parler plus lentement, utiliser les prénoms) ; écartés car déjà présents ou hors garde-fous : faire son lit, lire 10 pages, conseils d'argent (VOO), régime. Sophia sur le dernier domaine (KNOWLEDGE). Images : la banque du label (accroche changée : l'image du jet portait le filigrane « SELFSCULPT »), sans aucune des photos de footballeurs de la planche ; la slide Sophia sur un salon sombre, sans personne. reference_url toutes vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "83943c73",
+   "texte_overlay": "How to Become\nUnrecognizable by Next Year\n(Part 2)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7578662546761288962/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4600e40f",
+   "texte_overlay": "1) BODY\n• Walk 8,000 steps a day\n• Train 3x a week,\neven for 30 minutes\n• Same bedtime,\neven on weekends\n• Stretch 5 minutes\nafter waking up",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7578662546761288962/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "236b8fe0",
+   "texte_overlay": "2) FOCUS\n• Work in 45-minute blocks\n• Notifications off,\nexcept calls\n• Finish one thing\nbefore the next\n• Say no to what doesn't\nmove you forward",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7578662546761288962/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "21c38cc1",
+   "texte_overlay": "3) PRESENCE\n• Stand straight,\nshoulders back\n• Speak slower, pause more\n• Remember names\nand use them\n• Keep your word,\neven on small things",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7578662546761288962/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4dfa1f99",
+   "texte_overlay": "4) ROUTINE\n• Wake up at the same time,\n7 days a week\n• Lay out tomorrow's\nclothes the night before\n• Do one hard thing\nbefore noon\n• Review your week\nevery Sunday",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7578662546761288962/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4589815c",
+   "texte_overlay": "5) KNOWLEDGE\n• Learn one new thing\nevery day\n• Ask \"why\" more often\n• Explain what you learned\nto someone else\n• Stay curious, not certain",
+   "texte_sophia": "5) KNOWLEDGE\n• Learn one new thing\nevery day with a\nmicro-learning app\nlike the Sophia app\n• History, science or art\nin 5 minutes\n• Stay curious, not certain",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7578662546761288962/6.jpg"
+  }
+ ]
+}

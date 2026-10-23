@@ -33,6 +33,8 @@ export interface ApplicationMulti extends ApplicationOs {
 export interface LienLabelApplicationRow {
   label_id: string;
   application_id: string;
+  /** Seuil de pertinence à l'import pour cette application (0330, 50 par défaut). */
+  pertinence_min?: number;
 }
 
 export interface ReserveLabelApplication {
@@ -123,23 +125,27 @@ export async function majApplication(
 export async function listerLiensLabels(): Promise<LienLabelApplicationRow[]> {
   const { data, error } = await supabase
     .from("label_applications")
-    .select("label_id, application_id")
+    .select("label_id, application_id, pertinence_min")
     .order("created_at");
   if (error) throw error;
   return (data ?? []) as LienLabelApplicationRow[];
 }
 
 /**
- * Remplace l'ensemble des applications servies par un label. Au moins une :
- * un label sans lien retomberait sur Sophia en silence, ce qui ne doit jamais
- * arriver par un décochage.
+ * Remplace l'ensemble des applications servies par un label. Vide : le label
+ * n'est plus disponible pour personne (21/10). Le seuil de pertinence d'une
+ * application déjà cochée est gardé.
  */
 export async function definirApplicationsLabel(
   labelId: string,
   applicationIds: string[],
 ): Promise<void> {
   const voulues = [...new Set(applicationIds)];
-  if (voulues.length === 0) throw new Error("Un label doit servir au moins une application.");
+  if (voulues.length === 0) {
+    const { error } = await supabase.from("label_applications").delete().eq("label_id", labelId);
+    if (error) throw error;
+    return;
+  }
   const { error: errIns } = await supabase
     .from("label_applications")
     .upsert(
@@ -153,6 +159,24 @@ export async function definirApplicationsLabel(
     .eq("label_id", labelId)
     .not("application_id", "in", `(${voulues.join(",")})`);
   if (errDel) throw errDel;
+}
+
+/** Seuil de pertinence à l'import d'un label pour une application (0330). */
+export async function definirSeuilPertinenceLabel(
+  labelId: string,
+  applicationId: string,
+  seuil: number,
+): Promise<void> {
+  const valeur = Math.round(seuil);
+  if (!Number.isFinite(valeur) || valeur < 50 || valeur > 100) {
+    throw new Error("Le seuil est un score entre 50 et 100.");
+  }
+  const { error } = await supabase
+    .from("label_applications")
+    .update({ pertinence_min: valeur })
+    .eq("label_id", labelId)
+    .eq("application_id", applicationId);
+  if (error) throw error;
 }
 
 export async function listerReserveLabelsApplications(): Promise<ReserveLabelApplication[]> {

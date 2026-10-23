@@ -43,6 +43,7 @@ import type {
   LabelGenre,
 } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
+import { localeDate } from "@/locales/localeDate";
 
 const selectClass =
   "h-9 rounded-md border border-input bg-background px-2 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
@@ -76,15 +77,15 @@ function LabelsPilotageCard() {
   const [nom, setNom] = React.useState("");
   const [couleur, setCouleur] = React.useState("#2f6f4e");
   const [genre, setGenre] = React.useState<LabelGenre>("femme");
-  // Défaut Sophia seule : c'est aussi ce que sert un label sans ligne, donc un
-  // label créé sans toucher aux cases se comporte exactement comme avant.
+  // Défaut Sophia seule : un label créé sans toucher aux cases sert Sophia,
+  // comme avant (sans case cochée, il ne servirait personne).
   const [appsNouveau, setAppsNouveau] = React.useState<string[]>([ID_SOPHIA]);
 
   const creer = useMutation({
     mutationFn: async () => {
       const lab = await creerLabel(nom.trim(), couleur, { genre });
-      // Le label existe déjà si cette écriture échoue : il sert alors Sophia par
-      // héritage, et l'erreur dit quoi recocher.
+      // Le label existe déjà si cette écriture échoue : il ne sert alors
+      // personne, et l'erreur dit quoi recocher.
       if (multi.multiDispo) {
         try {
           await definirApplicationsLabel(lab.id, appsNouveau);
@@ -258,6 +259,7 @@ function LabelsPilotageCard() {
               {multi.multiDispo && multi.liens && (
                 <LabelApplications
                   labelId={lab.id}
+                  labelNom={lab.nom}
                   applications={applications}
                   liens={multi.liens}
                   reserves={multi.reservesParLabel?.get(lab.id)}
@@ -434,7 +436,7 @@ function GraphVuesDelta({
   const fmtExact = (n: number) =>
     Math.round(n).toLocaleString(i18n.language === "fr" ? "fr-FR" : "en-US");
   const fmtJour = (jour: string) =>
-    new Date(`${jour}T12:00:00`).toLocaleDateString(i18n.language, {
+    new Date(`${jour}T12:00:00`).toLocaleDateString(localeDate(i18n.language), {
       day: "numeric",
       month: "short",
     });

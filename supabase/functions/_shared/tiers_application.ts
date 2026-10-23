@@ -507,7 +507,14 @@ async function requalifierLesEtats(
     const moyenne = Number(e.moyenne_vues ?? 0);
     const maxVues = Number(e.max_vues ?? 0);
     const verdict = decision.surMesure
-      ? requalifier({ tier: e.tier, moyenne, maxVues, nb150k: e.nb_150k ?? 0 })
+      ? requalifier({
+        tier: e.tier,
+        moyenne,
+        maxVues,
+        nb150k: e.nb_150k ?? 0,
+        mesures: e.mesures ?? 0,
+        plancherB: reglages.plancherB,
+      })
       : {
         tier: e.tier,
         regle: decision.motif === "introuvable"

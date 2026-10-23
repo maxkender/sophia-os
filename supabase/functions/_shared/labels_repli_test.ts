@@ -18,18 +18,18 @@ const liens = [
 ];
 const pool = ["ancien", "unswipe-seul", "partage", "micabo-seul"];
 
-Deno.test("Sophia : labels sans ligne et labels partagés, jamais un label d'une autre app seule", () => {
-  assertEquals(labelsServantApplication(pool, liens, ID_SOPHIA), ["ancien", "partage"]);
-  assertEquals(labelsServantApplication(pool, liens, null), ["ancien", "partage"]);
-  assertEquals(labelsServantApplication(pool, liens, undefined), ["ancien", "partage"]);
+Deno.test("Sophia : les labels qui la servent, jamais un label sans application ni d'une autre app seule", () => {
+  assertEquals(labelsServantApplication(pool, liens, ID_SOPHIA), ["partage"]);
+  assertEquals(labelsServantApplication(pool, liens, null), ["partage"]);
+  assertEquals(labelsServantApplication(pool, liens, undefined), ["partage"]);
 });
 
 Deno.test("Unswipe : seulement les labels qui le servent", () => {
   assertEquals(labelsServantApplication(pool, liens, UNSWIPE), ["unswipe-seul", "partage"]);
 });
 
-Deno.test("aucun lien : tout le pool sert Sophia (règle d'héritage)", () => {
-  assertEquals(labelsServantApplication(pool, [], ID_SOPHIA), pool);
+Deno.test("aucune application cochée : le label n'est disponible pour personne (21/10)", () => {
+  assertEquals(labelsServantApplication(pool, [], ID_SOPHIA), []);
   assertEquals(labelsServantApplication(pool, [], UNSWIPE), []);
 });
 
@@ -56,7 +56,7 @@ function fauxClient(reponse: { data: unknown; error: { message: string } | null 
 Deno.test("filtrerPoolParApplication lit label_applications pour le pool, dédoublonné", async () => {
   const { client, appels } = fauxClient({ data: liens, error: null });
   const out = await filtrerPoolParApplication(client, [...pool, "partage", ""], ID_SOPHIA);
-  assertEquals(out, ["ancien", "partage"]);
+  assertEquals(out, ["partage"]);
   assertEquals(appels, [{
     table: "label_applications",
     colonnes: "label_id, application_id",

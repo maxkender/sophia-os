@@ -16,6 +16,7 @@ import {
   type DecisionRequalifEntree,
   type RequalificationResultat,
   type Supabase,
+  requalifier,
 } from "./tierlist.ts";
 
 const JOUR_MS = 86_400_000;
@@ -831,4 +832,15 @@ Deno.test("0270 — cohérence : la vue par application est nommée dans l'alert
   const surplus = verifierCoherenceLecture(6, 5, undefined, vue);
   assert(surplus.alerte?.startsWith(`Lecture de ${vue} plus longue`), surplus.alerte ?? "");
   assertEquals(verifierCoherenceLecture(5, 5, undefined, vue).alerte, null);
+});
+
+Deno.test("plancher de B — deux passages sous 3 000 : C, même avec m entre 1 000 et 5 000", () => {
+  const r = requalifier({ tier: "B", moyenne: 1_500, maxVues: 2_000, nb150k: 0, mesures: 2, plancherB: 3_000 });
+  assertEquals(r.tier, "C");
+  assert(r.regle.includes("aucun passage"));
+  assertEquals(requalifier({ tier: "B", moyenne: 1_500, maxVues: 3_000, nb150k: 0, mesures: 2, plancherB: 3_000 }).tier, "B");
+  assertEquals(requalifier({ tier: "B", moyenne: 1_500, maxVues: 1_500, nb150k: 0, mesures: 1, plancherB: 3_000 }).tier, "B");
+  assertEquals(requalifier({ tier: "B", moyenne: 1_500, maxVues: 1_500, nb150k: 0, mesures: 2, plancherB: 0 }).tier, "B");
+  assertEquals(requalifier({ tier: "B", moyenne: 1_500, maxVues: 1_500, nb150k: 0 }).tier, "B");
+  assertEquals(requalifier({ tier: "A", moyenne: 1_500, maxVues: 1_500, nb150k: 0, mesures: 4, plancherB: 3_000 }).tier, "B");
 });

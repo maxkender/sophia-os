@@ -7,10 +7,24 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!--
+      Polices chargées sans bloquer l'affichage : une feuille Google Fonts lente
+      sur un réseau mobile laissait la page noire (Nadya, Yettel 5G, 22/10).
+      `media="print"` ne bloque pas le rendu ; on la bascule une fois chargée.
+      En attendant, les polices système de --font-sans / --font-mono.
+    -->
     <link
       href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
     <title>Sophia — Moteur éditorial</title>
   </head>
   <body>

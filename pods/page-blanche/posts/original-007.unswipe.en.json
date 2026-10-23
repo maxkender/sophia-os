@@ -1,0 +1,274 @@
+{
+ "post_id": "original-007",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "dangerously successful"
+     ],
+     "fr": "10/10 habitudes pour réussir à un niveau flippant",
+     "texte": "10/10 habits of people who are never bored"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(version niche)",
+     "alignement": "droite",
+     "texte": "(niche edition)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop always listening to something"
+     ],
+     "fr": "arrête d'[[écouter un truc non-stop]]",
+     "texte": "they listen to [[full albums]], in order"
+    },
+    "T2": {
+     "en": [
+      "music, podcasts, youtube, something constantly playing in",
+      "the background means your brain never gets to rest"
+     ],
+     "fr": "musique, podcasts, youtube : si y'a toujours un truc en fond, [[ton cerveau se repose jamais]]",
+     "texte": "no shuffle, no skipping after 10 seconds. track 1 to the end, [[the way the artist meant it]] to be heard"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    },
+    "T5": {
+     "en": [
+      "leave parts of",
+      "your day",
+      "completely quiet",
+      "so your brain can",
+      "actually think",
+      "and come up with",
+      "its own ideas"
+     ],
+     "fr": "garde des moments de vrai silence dans ta journée, ton cerveau pourra enfin réfléchir et [[avoir ses idées à lui]]",
+     "texte": "the songs they would have skipped become their favourites, and suddenly they have [[real opinions about music]]"
+    },
+    "T6": {
+     "en": [
+      "you don't need music every time you go outside"
+     ],
+     "fr": "[[t'as pas besoin de musique dès que tu sors]]",
+     "texte": "[[an album is a movie for your ears, treat it like one]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "become good at multiple things"
+     ],
+     "fr": "deviens bonne en [[plein de trucs]]",
+     "texte": "they go down [[random rabbit holes]]"
+    },
+    "T2": {
+     "en": [
+      "learn to write, communicate, build, sell ideas, analyse,",
+      "and use technology well"
+     ],
+     "fr": "apprends à écrire, parler, créer, vendre tes idées, analyser et maîtriser la tech",
+     "texte": "why do cats purr? who invented the fork? they open a note and actually look it up"
+    },
+    "T3": {
+     "en": [
+      "you don’t need to be",
+      "world-class at",
+      "everything"
+     ],
+     "fr": "pas besoin d'être la meilleure au monde en tout",
+     "texte": "one question turns into ten, then twenty"
+    },
+    "T4": {
+     "en": [
+      "being good across",
+      "several valuable skills",
+      "makes you unusually",
+      "hard to replace"
+     ],
+     "fr": "être bonne dans plusieurs compétences utiles te rend [[super dure à remplacer]]",
+     "texte": "an hour later they know way too much about [[the history of forks]] and love it"
+    },
+    "T5": {
+     "en": [
+      "a jack of all trades is better than a master of one"
+     ],
+     "fr": "[[mieux vaut être touche-à-tout qu'experte en un seul truc]]",
+     "texte": "[[curious people are never bored, they're busy]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "apprends [[au lieu de scroller]]",
+     "texte": "they scroll [[way less]] than you"
+    },
+    "T2": {
+     "en": [
+      "short-form content destroys your attention span"
+     ],
+     "fr": "les vidéos courtes [[te bousillent la concentration]]",
+     "texte": "that's where [[all their free time]] comes from"
+    },
+    "T3": {
+     "en": [
+      "books force you to stay with",
+      "one idea, remember what",
+      "came before, and actually",
+      "think"
+     ],
+     "fr": "apprendre te force à suivre une idée, à retenir ce qui précède et à vraiment réfléchir",
+     "texte": "so their brain gets a little bored, and goes looking for something better to do"
+    },
+    "T4": {
+     "en": [
+      "i used to struggle with",
+      "doomscrolling too much"
+     ],
+     "fr": "[[avant, je doomscrollais]] beaucoup trop",
+     "texte": "they took all the Reels off their instagram"
+    },
+    "T5": {
+     "en": [
+      "until i found this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "puis j'ai remplacé le scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "and blocked tiktok with [[the UnSwipe app]]. boredom did all the rest"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "protect your first 90 minutes"
+     ],
+     "fr": "protège tes [[90 premières minutes]]",
+     "texte": "they go to [[cafés on their own]]"
+    },
+    "T2": {
+     "en": [
+      "don’t spend your best attention on messages, email, or",
+      "scrolling"
+     ],
+     "fr": "gâche pas ton meilleur focus sur les messages, les mails ou le scroll",
+     "texte": "no laptop, no headphones, just a coffee and a seat by the window"
+    },
+    "T3": {
+     "en": [
+      "use the first 60–90 minutes",
+      "for the hardest thing you",
+      "need to move forward"
+     ],
+     "fr": "mets [[tes 60–90 premières minutes sur la tâche la plus dure]] pour avancer",
+     "texte": "they people-watch, make up stories, overhear [[the best conversations]]"
+    },
+    "T4": {
+     "en": [
+      "once the day gets noisy,",
+      "that level of focus gets",
+      "much harder to recover"
+     ],
+     "fr": "dès que la journée s'agite, ce niveau de focus devient dur à retrouver",
+     "texte": "that's why they always have [[something weird and funny to tell you]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "leave the house every single day"
+     ],
+     "fr": "sors de chez toi [[tous les jours]]",
+     "texte": "they always take [[the long way home]]"
+    },
+    "T2": {
+     "en": [
+      "being indoors for 24",
+      "hours makes rotting",
+      "easy"
+     ],
+     "fr": "24 h entre quatre murs et tu finis par végéter",
+     "texte": "a new street, a different stop, a detour"
+    },
+    "T3": {
+     "en": [
+      "get outside for at least",
+      "20–30 minutes, ideally",
+      "in daylight"
+     ],
+     "fr": "sors [[au moins 20 à 30 minutes]], idéalement en plein jour",
+     "texte": "they get a little lost on purpose, [[at least once a week]]"
+    },
+    "T4": {
+     "en": [
+      "walking, sunlight and",
+      "simply changing",
+      "environments can do",
+      "more for your energy",
+      "than another hour",
+      "“resting” in bed"
+     ],
+     "fr": "marcher, prendre le soleil, juste changer de décor, ça te recharge plus qu'une heure de plus à « te reposer » au lit",
+     "texte": "that's how they find the tiny bookshop, the best bakery in town and the bench with the view nobody else knows"
+    },
+    "T5": {
+     "en": [
+      "doomscrolling is NOT",
+      "resting!!"
+     ],
+     "fr": "[[scroller, c'est PAS se reposer !!]]",
+     "texte": "[[same route, same thoughts!!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

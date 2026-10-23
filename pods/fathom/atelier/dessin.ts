@@ -104,6 +104,30 @@ function largeurLigne(ctx: Ctx, ligne: LigneTitre, taille: number, espacement: n
   return l;
 }
 
+/**
+ * Ce qui dépasse des capitales d'une ligne, en px : les accents au-dessus
+ * (« É », « Ê », « À »), la cédille en dessous (« Ç »). La queue du Q, déjà
+ * dans ses slides, ne compte pas.
+ */
+export function depassements(ctx: Ctx, ligne: LigneTitre, taille: number): { haut: number; bas: number } {
+  ctx.save();
+  ctx.font = `${taille}px "${POLICE.titre}"`;
+  const t = morceaux(ligne).map((m) => m.t.toUpperCase()).join("");
+  const cap = ctx.measureText("H").actualBoundingBoxAscent;
+  const haut = ctx.measureText(t).actualBoundingBoxAscent - cap;
+  const bas = ctx.measureText(t.replace(/Q/g, "")).actualBoundingBoxDescent;
+  ctx.restore();
+  // Un accent garde un filet de blanc (6 % de la capitale) avant la ligne du dessus.
+  // Les lettres rondes débordent de 1 à 2 % : seul un vrai signe (plus de 5 %) compte.
+  return { haut: haut > cap * 0.05 ? haut + cap * 0.06 : 0, bas: bas > cap * 0.05 ? bas + cap * 0.06 : 0 };
+}
+
+/** L'écart supplémentaire avant la ligne `i` d'un titre, pour ses accents et la cédille de la ligne d'avant. */
+export function ecartAccents(ctx: Ctx, lignes: LigneTitre[], i: number, taille: number, tailleAvant = taille): number {
+  if (i === 0) return 0;
+  return depassements(ctx, lignes[i], taille).haut + depassements(ctx, lignes[i - 1], tailleAvant).bas;
+}
+
 export type OptionsTitre = {
   /** Haut des capitales de la première ligne. */
   y: number;
@@ -128,7 +152,8 @@ export function mesurerTitre(ctx: Ctx, lignes: LigneTitre[], o: Omit<OptionsTitr
   const plusLongue = Math.max(...lignes.map((l) => largeurLigne(ctx, l, ref, espacement)));
   const taille = Math.min((ref * (o.largeur ?? 1040)) / plusLongue, (ref * (o.capMax ?? 346)) / capRef);
   const cap = (capRef * taille) / ref;
-  return { taille, cap, hauteur: lignes.length * cap + (lignes.length - 1) * cap * (o.interligne ?? 0.055) };
+  const accents = lignes.reduce((t, _, i) => t + ecartAccents(ctx, lignes, i, taille), 0);
+  return { taille, cap, hauteur: lignes.length * cap + (lignes.length - 1) * cap * (o.interligne ?? 0.055) + accents };
 }
 
 /**
@@ -150,7 +175,8 @@ export function titreGeant(ctx: Ctx, lignes: LigneTitre[], o: OptionsTitre): { b
   ctx.letterSpacing = `${espacement * taille}px`;
   ctx.textBaseline = "alphabetic";
   let base = o.y + cap;
-  for (const ligne of lignes) {
+  for (const [i, ligne] of lignes.entries()) {
+    base += ecartAccents(ctx, lignes, i, taille);
     const l = largeurLigne(ctx, ligne, taille, espacement);
     ctx.font = `${taille}px "${POLICE.titre}"`;
     ctx.letterSpacing = `${espacement * taille}px`;
@@ -180,9 +206,13 @@ export function titreGeant(ctx: Ctx, lignes: LigneTitre[], o: OptionsTitre): { b
 export function titreAffiche(ctx: Ctx, lignes: LigneTitre[], o: OptionsTitre): number {
   let y = o.y;
   let bas = y;
-  for (const ligne of lignes) {
+  let tailleAvant = 0;
+  for (const [i, ligne] of lignes.entries()) {
+    const m = mesurerTitre(ctx, [ligne], o);
+    if (i > 0) y += ecartAccents(ctx, lignes, i, m.taille, tailleAvant);
     const r = titreGeant(ctx, [ligne], { ...o, y });
     bas = r.bas;
+    tailleAvant = r.taille;
     y = r.bas + r.cap * (o.interligne ?? 0.12);
   }
   return bas;

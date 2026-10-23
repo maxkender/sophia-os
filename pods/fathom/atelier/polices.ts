@@ -2,6 +2,7 @@
 // enregistrées sous des noms à nous.
 
 import { GlobalFonts } from "@napi-rs/canvas";
+import { existsSync } from "node:fs";
 import { join } from "node:path";
 
 const DOSSIER = join(import.meta.dirname, "..", "polices");
@@ -24,3 +25,11 @@ GlobalFonts.registerFromPath(join(DOSSIER, "Roboto-Medium.ttf"), POLICE.youtube)
 GlobalFonts.registerFromPath(join(DOSSIER, "Roboto-Regular.ttf"), POLICE.youtubeMeta);
 GlobalFonts.registerFromPath(join(DOSSIER, "Inter-Medium.ttf"), POLICE.texte);
 GlobalFonts.registerFromPath(join(DOSSIER, "Inter-SemiBold.ttf"), POLICE.sous);
+
+/**
+ * Les emojis d'un titre de vidéo (« 🧠 Comment TROUVER… ») : l'appli les
+ * affiche en couleur. Noto Color Emoji de la machine, en secours des polices
+ * de la carte YouTube.
+ */
+const EMOJI = "/usr/share/fonts/truetype/noto/NotoColorEmoji.ttf";
+export const POLICE_EMOJI = existsSync(EMOJI) && GlobalFonts.registerFromPath(EMOJI, "FA Emoji") ? ', "FA Emoji"' : "";

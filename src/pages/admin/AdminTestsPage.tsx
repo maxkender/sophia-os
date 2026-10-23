@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 import { BarreChargement } from "@/components/ui/progress";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
-import { assignerTikTok, listerComptes, listerPostsTest, testerTraduction } from "@/features/moteur/api";
+import { assignerTikTok, comparerTraduction, listerComptes, listerPostsTest, testerTraduction } from "@/features/moteur/api";
 import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import { SimulerChecklistPremierPostCard } from "@/features/onboarding/SimulerChecklistPremierPostCard";
 import { SimulerOnboardingCard } from "@/features/onboarding/SimulerOnboardingCard";
@@ -162,6 +162,8 @@ function TestTraduction() {
   const [langue, setLangue] = React.useState("en");
 
   const traduire = useMutation({ mutationFn: () => testerTraduction(texte, langue) });
+  const comparer = useMutation({ mutationFn: () => comparerTraduction(texte, langue) });
+  const occupe = traduire.isPending || comparer.isPending;
 
   return (
     <Card className="border-primary/30">
@@ -177,11 +179,12 @@ function TestTraduction() {
           <Label htmlFor="tradTexte">{t("tests.tradTexte")}</Label>
           <Textarea
             id="tradTexte"
-            rows={3}
+            rows={8}
             value={texte}
             onChange={(e) => setTexte(e.target.value)}
             placeholder={t("tests.tradPlaceholder")}
           />
+          <p className="text-xs text-muted-foreground">{t("tests.tradComparerAide")}</p>
         </div>
         <div className="space-y-2 sm:max-w-xs">
           <Label htmlFor="tradLangue">{t("tests.langue")}</Label>
@@ -198,12 +201,68 @@ function TestTraduction() {
             ))}
           </select>
         </div>
-        <Button disabled={traduire.isPending || !texte.trim()} onClick={() => traduire.mutate()}>
-          <Languages className="size-4" />
-          {traduire.isPending ? t("tests.enCours") : t("tests.tradLancer")}
-        </Button>
+        <div className="flex flex-wrap gap-2">
+          <Button disabled={occupe || !texte.trim()} onClick={() => traduire.mutate()}>
+            <Languages className="size-4" />
+            {traduire.isPending ? t("tests.enCours") : t("tests.tradLancer")}
+          </Button>
+          <Button variant="outline" disabled={occupe || !texte.trim()} onClick={() => comparer.mutate()}>
+            <FlaskConical className="size-4" />
+            {comparer.isPending ? t("tests.enCours") : t("tests.tradComparer")}
+          </Button>
+        </div>
         {traduire.isError && (
           <p className="text-sm text-destructive">{(traduire.error as Error).message}</p>
+        )}
+        {comparer.isError && (
+          <p className="text-sm text-destructive">{(comparer.error as Error).message}</p>
+        )}
+        {comparer.data?.slides && (
+          <div className="space-y-3">
+            <p className="text-xs text-muted-foreground">
+              {t("tests.tradAncres", { n: comparer.data.ancres })}
+              {comparer.data.brief?.ton ? ` · ${comparer.data.brief.ton}` : ""}
+            </p>
+            <div className="overflow-x-auto rounded-lg border">
+              <table className="w-full text-sm">
+                <thead className="bg-muted/40 text-xs text-muted-foreground">
+                  <tr>
+                    <th className="p-2 text-left font-medium">{t("tests.tradSource")}</th>
+                    <th className="p-2 text-left font-medium">{t("tests.tradActuel")}</th>
+                    <th className="p-2 text-left font-medium">{t("tests.tradNatif")}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparer.data.slides.map((s) => (
+                    <tr key={s.position} className="border-t align-top">
+                      <td className="w-1/3 whitespace-pre-wrap p-2 text-muted-foreground">
+                        <span className="mr-1 text-xs font-medium">{s.position}.</span>
+                        {s.original}
+                      </td>
+                      <td className="w-1/3 whitespace-pre-wrap p-2">{s.actuel}</td>
+                      <td className="w-1/3 whitespace-pre-wrap p-2">{s.natif}</td>
+                    </tr>
+                  ))}
+                  <tr className="border-t text-xs text-muted-foreground">
+                    <td className="p-2">{t("tests.tradHashtags")}</td>
+                    <td className="p-2">{comparer.data.hashtags.actuel}</td>
+                    <td className="p-2">{comparer.data.hashtags.natif}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <details className="text-xs text-muted-foreground">
+              <summary className="cursor-pointer">{t("tests.tradBrief")}</summary>
+              <ul className="mt-1 list-disc space-y-0.5 pl-4">
+                {comparer.data.brief.slides.map((b) => (
+                  <li key={b.position}>
+                    {b.position}. {b.role} : {b.idees.join(" · ")}
+                    {b.concurrent ? ` [${b.concurrent}]` : ""}
+                  </li>
+                ))}
+              </ul>
+            </details>
+          </div>
         )}
         {traduire.data?.traduction && (
           <div className="space-y-1">

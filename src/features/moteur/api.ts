@@ -6243,6 +6243,22 @@ export interface PostScrapeTest {
 export const testerTraduction = (texte: string, langue: string) =>
   invoke<{ ok: boolean; traduction: string }>("traduire-test", { texte, langue });
 
+export interface ComparaisonTraduction {
+  ok: boolean;
+  langue: string;
+  slides: Array<{ position: number; original: string; actuel: string; natif: string }>;
+  hashtags: { actuel: string; natif: string };
+  brief: { ton: string; adresse: string; slides: Array<{ position: number; role: string; idees: string[]; concurrent: string | null }> };
+  ancres: number;
+  error?: string;
+}
+
+/** Compare, slide par slide, la traduction actuelle et l'« écriture native »
+ *  (brief en mots-clés, puis écriture dans la langue depuis des exemples natifs
+ *  qui ont marché). Plusieurs slides : séparées par une ligne vide. Rien n'est créé. */
+export const comparerTraduction = (texte: string, langue: string) =>
+  invoke<ComparaisonTraduction>("traduire-test", { texte, langue, comparer: true });
+
 /** Teste le scrape d'un compte de référence : renvoie ses posts avec leurs vues
  *  (triés par vues), SANS rien créer — pour vérifier que le moteur repère bien
  *  les TikToks qui performent. */

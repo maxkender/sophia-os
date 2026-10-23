@@ -30,6 +30,7 @@ const PAGES_DEMANDEES = [
   "/admin/assistant", // Assistant
   "/admin/comment-masters", // Comment masters (ticket 002)
   "/admin/check-kill-double", // Check, Kill or Double (21/10)
+  "/admin/retours-contestes", // Retours que les créateurs disent faux, à côté des Reviews (23/10)
 ];
 
 const routeur = fs.readFileSync(

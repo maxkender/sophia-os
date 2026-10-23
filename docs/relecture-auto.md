@@ -198,6 +198,19 @@ le même parcours. L'admin voit ce parcours sans rien marquer : dans
 `/admin/tests` (« Aperçu d'un retour créateur », sur un vrai retour envoyé) et
 sur le banc d'essai (« Voir comme le créateur », sur le brouillon de l'agent).
 
+**Contester un retour (0340).** Au bout du message, « Ce retour me semble
+faux » ouvre un mot facultatif ; le créateur ne peut contester qu'une fois
+(un trigger sur `reviews` ne le laisse modifier que `seen_at` et la
+contestation, l'heure étant posée par la base). « Compris » reste à cliquer.
+Dans « Mes retours », le retour porte « Contesté · on vérifie », puis « Tu
+avais raison » ou « Retour confirmé », avec la réponse de l'admin dans le
+retour. Côté admin, **Retours contestés** (`/admin/retours-contestes`, avec un
+compteur dans le menu, ouvert au Head of Ops) : les plus anciens à vérifier
+d'abord, le mot du créateur, les deux TikToks, le message reçu ; pour un retour
+de l'agent, ✓ / ✗ sur chacun de ses points (enregistrés dans `relecture_avis`,
+ils comptent sur le banc d'essai) ; puis « Le créateur a raison » ou « Le
+retour était juste », avec une réponse facultative.
+
 ### Banc d'essai
 
 `/admin/banc-relecture` (« Agent test bench », menu Suivi) : les relectures d'un

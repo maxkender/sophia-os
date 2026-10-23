@@ -114,30 +114,73 @@
    "type": "photo",
    "app": true,
    "photo": {
-    "media_id": "2c68848a-6425-41d1-84ab-dcd1f9a05d94",
-    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/26b19584-46cc-4229-a08e-f08683abe1c4/5.jpg?v=1791725513691",
+    "media_id": "3e21a801-8213-4f4b-a478-4fc3d314666a",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/61457f9e-f332-4b16-9778-cec7e1868d14/4.jpg?v=1790607875766",
     "cadrage": {
-     "x": 0.5,
-     "y": 0.5
-    }
+     "x": 0.3,
+     "y": 1.0,
+     "zoom": 1.5
+    },
+    "ecrans": [
+     {
+      "coins": [
+       [
+        305,
+        1290
+       ],
+       [
+        959,
+        1276
+       ],
+       [
+        961,
+        1691
+       ],
+       [
+        313,
+        1715
+       ]
+      ],
+      "capture": "assets/micabo/fr/site.jpg",
+      "gabarit": "plein",
+      "lumiere": 0.95,
+      "devant": 256
+     },
+     {
+      "coins": [
+       [
+        227,
+        2134
+       ],
+       [
+        985,
+        2080
+       ],
+       [
+        1117,
+        2477
+       ],
+       [
+        128,
+        2565
+       ]
+      ],
+      "capture": "assets/micabo/fr/parcours.jpg",
+      "gabarit": "ipad-paysage",
+      "lumiere": 0.97
+     }
+    ]
    },
    "fr": {
     "legende": {
      "lignes": [
-      "temps d'étude📚"
+      "temps d’étude, 2 h par jour📚"
      ],
-     "sous": [
-      "vise 2 h par jour, puis 10 min de micabo⏰"
-     ],
-     "y": 250,
-     "taille": 62,
-     "couleur": "jaune"
-    },
-    "iphone": {
-     "haut": 390,
-     "largeur": 500
-    },
-    "capture": "assets/micabo/fr/a-retenir.jpg"
+     "x": 540,
+     "y": 1840,
+     "taille": 56,
+     "couleur": "brun"
+    }
    }
   },
   {
@@ -220,9 +263,9 @@
    "fr": {
     "legende": {
      "lignes": [
-      "douche🫧"
+      "douche et skincare🫧"
      ],
-     "x": 300,
+     "x": 420,
      "y": 457,
      "taille": 54,
      "couleur": "jaune"
@@ -232,22 +275,22 @@
   {
    "type": "photo",
    "photo": {
-    "media_id": "4cfa46c6-7fdd-41cd-b5b7-d968e7f06ac8",
-    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/48cb2118-89c2-4510-b04e-8f80e77403aa/3.jpg?v=1789055539959",
+    "media_id": "2b38fe82-8163-4152-b48e-44be9665ccd4",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/3289e68c-e019-4615-8a52-e08f0d035df2/6.jpg?v=1792600949207",
     "cadrage": {
-     "x": 0.75,
+     "x": 0.8,
      "y": 0.5
     }
    },
    "fr": {
     "legende": {
      "lignes": [
-      "skincare et brossage de dents🦷"
+      "prépare ta journée de demain📝"
      ],
-     "x": 540,
-     "y": 1330,
-     "taille": 44,
-     "couleur": "brun"
+     "x": 560,
+     "y": 1180,
+     "taille": 48,
+     "couleur": "jaune"
     }
    }
   },
@@ -297,5 +340,5 @@
    }
   }
  ],
- "notes": "brouillon du 23/10 : slide 10 (skincare) pas au niveau, il faut une photo de soins sans marque lisible ; le reste est prêt"
+ "notes": "slide « study time » : le site micabo.app sur le Mac et le parcours sur l'iPad (demande d'Adrien, 23/10). Skincare regroupée avec la douche (aucune photo de soins sans marque), slide 10 : préparer sa journée."
 }

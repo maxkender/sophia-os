@@ -27,8 +27,10 @@ rejette est validée toute seule 12 h après son dépôt.
 	- **La banque n'a pas de photo au niveau pour une étape** (une marque partout, rien de net) : adapte l'étape plutôt que de livrer une slide faible ou de bloquer le remake.
 		- Même place, même ton, et un sujet que la banque montre net. Exemple : « prépare ta journée de demain » au lieu de « skincare ».
 		- Jamais l'accroche ni la slide micabo. Note l'adaptation dans `notes` du post.
-- **Une seule slide micabo**, jamais la couverture, marquée `"app": true`. C'est là où elle montrait un outil d'étude, ou à la fin (« et pour réviser, je mets mes notes dans micabo »).
-	- Elle montre une **vraie capture** de micabo dans l'iPhone : `assets/micabo/fr/` (parcours, notes, a-retenir, lecons).
+- **Une seule slide micabo**, jamais la couverture, marquée `"app": true`.
+	- **micabo prend seulement la place d'une appli que son post montre déjà** : une carte d'appli (« productivity apps », à la place de Goodnotes), un écran d'accueil (« organise my phone »).
+	- **Jamais un iPhone avec une capture plaqué sur un post qui ne montre pas d'appli** : ni à la fin (« et pour réviser… »), ni sur une étape de routine. Adrien le juge « pas fluide du tout » (23/10, yp-001 et yp-002). Les formats « routine » attendent sa décision.
+	- Une capture, quand le post en montre une : une **vraie capture** de micabo, `assets/micabo/fr/` (parcours, notes, a-retenir, lecons).
 	- Jamais une capture avec une notification ou une donnée perso.
 	- La phrase est naturelle, d'élève à élève. Jamais d'appel à télécharger, jamais « lien en bio ».
 - **Aucune appli concurrente** citée ou montrée (GoodNotes, Quizlet, Anki, autres applis de révision ou de notes).

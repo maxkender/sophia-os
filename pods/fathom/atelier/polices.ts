@@ -15,9 +15,12 @@ export const POLICE = {
   youtubeMeta: "FA YouTube Meta",
   /** Le texte des cartes d'appli et de la slide Sophia : Inter Medium. */
   texte: "FA Texte",
+  /** La ligne sous la carte YouTube (« 2–3 hours to learn. ») : Inter SemiBold. */
+  sous: "FA Sous",
 } as const;
 
 GlobalFonts.registerFromPath(join(DOSSIER, "Anton-Regular.ttf"), POLICE.titre);
 GlobalFonts.registerFromPath(join(DOSSIER, "Roboto-Medium.ttf"), POLICE.youtube);
 GlobalFonts.registerFromPath(join(DOSSIER, "Roboto-Regular.ttf"), POLICE.youtubeMeta);
 GlobalFonts.registerFromPath(join(DOSSIER, "Inter-Medium.ttf"), POLICE.texte);
+GlobalFonts.registerFromPath(join(DOSSIER, "Inter-SemiBold.ttf"), POLICE.sous);

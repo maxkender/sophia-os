@@ -8,7 +8,7 @@
 import { createCanvas, loadImage } from "@napi-rs/canvas";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { COULEUR, H, icone, L, type LigneTitre, lignesCentrees, mesurerTitre, titreAffiche, titreGeant } from "./dessin.ts";
+import { COULEUR, type Ctx, H, icone, L, type LigneTitre, lignesCentrees, mesurerTitre, titreAffiche, titreGeant } from "./dessin.ts";
 import { retirerMetadonnees } from "./metadonnees.ts";
 import { POLICE } from "./polices.ts";
 import { carteYoutube, hauteurCarte, type Video } from "./youtube.ts";
@@ -28,6 +28,12 @@ export type CarteAppli = { nom: string; texte: string[] };
 export type ContenuEtape = {
   /** Le titre géant, une entrée par ligne. */
   titre: LigneTitre[];
+  /**
+   * Titre « en affiche », comme ses « 10/10 Skills » : chaque ligne remplit
+   * seule la largeur, sous sa hauteur de capitale maximale (une entrée par
+   * ligne ; une petite valeur fait la ligne d'appoint, « HOW TO »).
+   */
+  tailles?: number[];
   /** La vraie vidéo YouTube (`npm run youtube`)… */
   video?: Video;
   /** … ou la carte de l'appli de l'étape (`app` de la slide). */
@@ -106,21 +112,41 @@ async function couverture(ctx: ReturnType<ReturnType<typeof createCanvas>["getCo
   ctx.drawImage(img, x, y, l, h);
 }
 
+/** La ligne sous la carte (« 2–3 hours to learn. ») : Inter SemiBold 54 px, 74 px sous la carte, relevée sur ses slides. */
+const SOUS = { taille: 54, pas: 70, ecart: 74 };
+
 /** Hauteur de la carte d'une appli : icône, nom, puis ses lignes de texte. */
 const hauteurCarteAppli = (c: CarteAppli) => 380 + 64 + 118 + 50 + c.texte.length * 72;
 
-async function etape(ctx: ReturnType<ReturnType<typeof createCanvas>["getContext"]>, s: Slide, c: ContenuEtape) {
+/**
+ * Le titre « en affiche » d'une étape (relevé sur ses « 10/10 Skills », 23/10) :
+ * chaque ligne occupe 920 px au plus sous sa hauteur de capitale, 20 px entre
+ * deux lignes. Sans `dessiner`, mesure seulement.
+ */
+function titreParLignes(ctx: Ctx, c: ContenuEtape, y: number, dessiner: boolean): number {
+  let haut = y;
+  c.titre.forEach((ligne, i) => {
+    const o = { largeur: 920, capMax: c.tailles![i] ?? 180 };
+    const cap = dessiner ? titreGeant(ctx, [ligne], { ...o, y: haut }).cap : mesurerTitre(ctx, [ligne], o).cap;
+    haut += cap + 20;
+  });
+  return haut - 20;
+}
+
+async function etape(ctx: Ctx, s: Slide, c: ContenuEtape) {
   const optTitre = { largeur: 1040, capMax: 346 };
-  const t = mesurerTitre(ctx, c.titre, optTitre);
-  const ecart = c.carte ? 70 : 17;
+  const affiche = !!c.tailles?.length;
+  const hTitre = affiche ? titreParLignes(ctx, c, 0, false) : mesurerTitre(ctx, c.titre, optTitre).hauteur;
+  // Ses « 10/10 Skills » laissent 82 px entre le titre et la carte.
+  const ecart = c.carte ? 70 : affiche ? 82 : 17;
   const hCarte = c.carte ? hauteurCarteAppli(c.carte) : hauteurCarte;
-  const hSous = c.sous?.length ? 60 + c.sous.length * 62 : 0;
-  const y0 = Math.round((H - (t.hauteur + ecart + hCarte + hSous)) / 2 + 24);
-  const r = titreGeant(ctx, c.titre, { ...optTitre, y: y0 });
-  const yCarte = r.bas + ecart;
+  const hSous = c.sous?.length ? SOUS.ecart + c.sous.length * SOUS.pas : 0;
+  const y0 = Math.round((H - (hTitre + ecart + hCarte + hSous)) / 2 + 24);
+  const bas = affiche ? titreParLignes(ctx, c, y0, true) : titreGeant(ctx, c.titre, { ...optTitre, y: y0 }).bas;
+  const yCarte = bas + ecart;
   if (c.video) {
     const bas = await carteYoutube(ctx, c.video, yCarte);
-    if (c.sous?.length) lignesCentrees(ctx, c.sous, { y: bas + 60 + 44, police: POLICE.texte, taille: 46, pas: 62, couleur: COULEUR.texte, largeurMax: 980 });
+    if (c.sous?.length) lignesCentrees(ctx, c.sous, { y: bas + SOUS.ecart + 44, police: POLICE.sous, taille: SOUS.taille, pas: SOUS.pas, couleur: COULEUR.texte, largeurMax: 980 });
     return;
   }
   if (!c.carte || !s.app) throw new Error("une étape montre une vidéo YouTube ou la carte de son appli (`app`)");

@@ -1,0 +1,210 @@
+{
+ "id": "fa-002",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7668724896284937494",
+  "vues": 3600000,
+  "publie_le": "2026-07-31",
+  "accroche": "10/10 Skills You Can Learn In A Day!"
+ },
+ "titre": {
+  "en": "10/10 Skills You Can Learn In A Day!"
+ },
+ "legendes": {
+  "en": "10/10 Skills You Can Learn In A Day! #selfimprovement #learnontiktok #selfmastery"
+ },
+ "musique": {
+  "titre": "sonido original",
+  "url": "https://www.tiktok.com/music/sonido-original-7301405245357132549"
+ },
+ "notes": "Sophia à la fin (leur post n'avait pas de slide d'appli). Pas d'UnSwipe : une liste de compétences ne s'y prête pas. Ses titres en affiche (une taille par ligne, le mot-clé en couleur) ; cinq compétences à nous, chacune avec une vraie vidéo sans grand visage.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS YOU CAN",
+     "LEARN IN A DAY"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "NAME EVERY",
+     [
+      {
+       "t": "CLOUD TYPE",
+       "couleur": "#0231c5"
+      }
+     ],
+     "JUST BY LOOKING UP"
+    ],
+    "tailles": [
+     104,
+     170,
+     84
+    ],
+    "video": {
+     "id": "FMagDRCpJ14",
+     "titre": "Weather 101: A Tutorial on Cloud Types",
+     "chaine": "NWSAlbuquerque",
+     "vues": "2M views",
+     "date": "12 years ago",
+     "duree": "5:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mJhXvRTHqLJw5zTwsKO3vdQafLlzgXmD3udx7_5Y59Eg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1–2 hours to learn."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "KNOW THE",
+     [
+      {
+       "t": "WEEKDAY",
+       "couleur": "#e3161d"
+      }
+     ],
+     "OF ANY DATE IN HISTORY"
+    ],
+    "tailles": [
+     183,
+     184,
+     148
+    ],
+    "video": {
+     "id": "714LTMNJy5M",
+     "titre": "How to Figure Out the Day of the Week For Any Date Ever",
+     "chaine": "Be Smart",
+     "vues": "1.2M views",
+     "date": "8 years ago",
+     "duree": "7:53",
+     "avatar": "https://yt3.ggpht.com/vZZ2-IB7QjYxt-VQPzQyMVqxBQZVWaL-hYu1WsZLsMCtqH0ECwhCWfeMmMP-kPiQsNgES2nglA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 hours to learn."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "FIND",
+     [
+      {
+       "t": "NORTH",
+       "couleur": "#1f4f14"
+      }
+     ],
+     "USING THE STARS"
+    ],
+    "tailles": [
+     180,
+     206,
+     160
+    ],
+    "video": {
+     "id": "Bh5kHTBr0gU",
+     "titre": "How To Navigate Using the Stars",
+     "chaine": "Atlas Pro",
+     "vues": "1M views",
+     "date": "8 years ago",
+     "duree": "7:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lNKUUZ7uB2FnjBJ0qEfNj8Yh6he3meLFrKeHNE5ZFG4is=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "SOLVE A",
+     [
+      {
+       "t": "RUBIK'S",
+       "couleur": "#4913cd"
+      }
+     ],
+     "CUBE"
+    ],
+    "tailles": [
+     178,
+     187,
+     197
+    ],
+    "video": {
+     "id": "7Ron6MN45LY",
+     "titre": "Learn How to Solve a Rubik's Cube in 10 Minutes (Beginner Tutorial)",
+     "chaine": "J Perm",
+     "vues": "101M views",
+     "date": "8 years ago",
+     "duree": "10:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lp5RPKxsgc_GGP5150cfSRPkVTKTV-DCDvII-EcX_c3QU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3–5 hours to learn."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "DRAW IN",
+     [
+      {
+       "t": "PERSPECTIVE",
+       "couleur": "#3256a0"
+      }
+     ],
+     "WITH JUST A PENCIL"
+    ],
+    "tailles": [
+     180,
+     184,
+     150
+    ],
+    "video": {
+     "id": "qOojGBEsWQw",
+     "titre": "How to Draw a Room in 1-Point Perspective for Beginners",
+     "chaine": "Circle Line Art School",
+     "vues": "5.5M views",
+     "date": "7 years ago",
+     "duree": "10:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n7u7h9wwRg02pUxXnAIcuEglvAIlkSd71zQht3WcvR6xo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 hours to learn."
+    ]
+   }
+  },
+  {
+   "type": "app",
+   "app": "sophia",
+   "en": {
+    "nom": "SOPHIA",
+    "sous": "ON THE APP STORE",
+    "texte": [
+     "Learn something new",
+     "every day, in 5 minutes."
+    ]
+   }
+  }
+ ]
+}

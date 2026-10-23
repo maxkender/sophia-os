@@ -2,8 +2,11 @@
 //
 // Cherche des photos dans TOUTE la banque de l'OS (action `photos` de la
 // fonction `pods`) : leur description, en anglais, contient chaque mot
-// cherché. Sans visage reconnaissable ni texte restant, les moins utilisées
-// d'abord. Écrit donnees/photos.json et la planche sortie/photos/<mots>.jpg :
+// cherché. Jamais une personne entière (une main ou des pieds au plus), ni
+// texte, ni collage ; les moins utilisées d'abord. La description peut se
+// tromper : regarde chaque photo retenue en taille réelle (aucun visage,
+// aucune marque, aucun texte lisible).
+// Écrit donnees/photos.json et la planche sortie/photos/<mots>.jpg :
 // chaque vignette porte les 8 premiers caractères de son id. Regarde-la avec
 // l'outil Read, puis mets l'id complet et l'url dans le `fond` du post.
 

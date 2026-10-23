@@ -88,6 +88,7 @@ import {
   ouvrirApplicationsOriginal,
   ecrireDecksApplications,
   estSlideApp,
+  LEGENDE_A_ECARTER,
   metadonneesJpeg,
   PODS_AVEC_PREUVE,
   PREUVE_JOURS_MAX,
@@ -1376,10 +1377,11 @@ async function imagesDuLabel(request: Request, supabase: Supabase, slug: string)
 
 /**
  * Photos propres de toute la banque de l'OS dont la description contient
- * chaque mot cherché (les descriptions sont en anglais), sans visage
- * reconnaissable ni texte restant, les moins utilisées d'abord. Pour un pod
- * dont le label n'a pas encore de banque (pod 10) : fonds et photos de ses
- * remakes. Lecture seule.
+ * chaque mot cherché (les descriptions sont en anglais), les moins utilisées
+ * d'abord. Jamais une personne entière (une main ou des pieds au plus), ni
+ * texte, ni collage : c'est la description qui les écarte, les drapeaux de
+ * visage n'étant remplis que pour l'UGC. Pour un pod dont le label n'a pas
+ * encore de banque (pod 10) : fonds et photos de ses remakes. Lecture seule.
  */
 async function photosDeLaBanque(request: Request, supabase: Supabase, body: Record<string, unknown>) {
   const pod = await podDuJeton(request, supabase, String(body.pod ?? ""));
@@ -1391,6 +1393,7 @@ async function photosDeLaBanque(request: Request, supabase: Supabase, body: Reco
     .from("media_library")
     .select("id, url, caption, used_count")
     .like("storage_path", "propre/%")
+    .not("caption", "imatch", LEGENDE_A_ECARTER)
     .not("visage_identifiable", "is", true)
     .not("visage_premier_plan", "is", true)
     .not("texte_restant", "is", true);

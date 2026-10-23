@@ -5,6 +5,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { IPAD_CARTE, ipad, iphone } from "./appareils.ts";
 import { type Carte, carte } from "./cartes.ts";
+import { type EcranPhoto, gabaritIpadPaysage, incruster, pleinEcran } from "./ecran-photo.ts";
 import { type NoteIos, noteIos } from "./note-ios.ts";
 import { type Cadrage, type Couverture, fond, H, L, legende, legendePhoto, type LegendePhoto, titreCouverture } from "./dessin.ts";
 import { retirerMetadonnees } from "./metadonnees.ts";
@@ -38,8 +39,8 @@ export type ContenuSlide = {
   iphone?: { cx?: number; haut?: number; largeur?: number };
 };
 
-/** Une photo de la banque de l'OS et son cadrage. */
-export type Photo = { media_id: string; url: string; cadrage?: Cadrage };
+/** Une photo de la banque de l'OS et son cadrage ; `ecrans` y incruste des captures de micabo. */
+export type Photo = { media_id: string; url: string; cadrage?: Cadrage; ecrans?: EcranPhoto[] };
 
 export type Slide = {
   /** photo : une photo pleine par slide, petite légende (« after school routine »). */
@@ -100,6 +101,19 @@ export async function chargerPhoto(photo: Photo): Promise<Image> {
   return loadImage(chemin);
 }
 
+/** La photo d'une slide, avec les captures incrustées dans ses écrans. */
+async function photoSlide(photo: Photo): Promise<Image> {
+  const img = await chargerPhoto(photo);
+  if (!photo.ecrans?.length) return img;
+  let c = null;
+  for (const e of photo.ecrans) {
+    const capture = await loadImage(join(RACINE, e.capture));
+    const contenu = e.gabarit === "ipad-paysage" ? gabaritIpadPaysage(capture) : pleinEcran(capture);
+    c = incruster(c ?? img, e, contenu.getContext("2d").getImageData(0, 0, contenu.width, contenu.height));
+  }
+  return loadImage(c!.toBuffer("image/png"));
+}
+
 /** La photo de fond du post. */
 export function chargerFond(p: Post): Promise<Image> {
   return chargerPhoto(p.fond);
@@ -122,7 +136,7 @@ export async function rendreSlide(p: Post, s: Slide, langue: Langue, photo: Imag
     // Une photo pleine, sans assombrir, comme les siennes ; la légende par-dessus.
     if (!s.photo) throw new Error("slide photo sans photo");
     if (!c.legende && !c.note) throw new Error("slide photo sans légende ni note");
-    fond(ctx, await chargerPhoto(s.photo), s.photo.cadrage);
+    fond(ctx, await photoSlide(s.photo), s.photo.cadrage);
     if (c.note) noteIos(ctx, c.note);
     if (c.capture) iphone(ctx, await loadImage(join(RACINE, c.capture)), { haut: 352, largeur: 540, ...c.iphone });
     if (c.legende) legendePhoto(ctx, c.legende);

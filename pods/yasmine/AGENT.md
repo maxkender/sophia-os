@@ -30,7 +30,7 @@ rejette est validée toute seule 12 h après son dépôt.
 		- Jamais l'accroche ni la slide micabo. Note l'adaptation dans `notes` du post.
 - **Une seule slide micabo**, jamais la couverture, marquée `"app": true`.
 	- **micabo prend seulement la place d'une appli que son post montre déjà** : une carte d'appli (« productivity apps », à la place de Goodnotes), un écran d'accueil (« organise my phone »).
-	- **Jamais un iPhone avec une capture plaqué sur un post qui ne montre pas d'appli** : ni à la fin (« et pour réviser… »), ni sur une étape de routine. Adrien le juge « pas fluide du tout » (23/10, yp-001 et yp-002). Les formats « routine » attendent sa décision.
+	- **Jamais un iPhone avec une capture plaqué sur un post qui ne montre pas d'appli** : ni à la fin (« et pour réviser… »), ni sur une étape de routine. Adrien le juge « pas fluide du tout » (23/10, yp-001 et yp-002). Sur un post « routine », micabo entre par un écran de la photo (`photo.ecrans`, yp-002).
 	- Une capture, quand le post en montre une : une **vraie capture** de micabo, `assets/micabo/fr/` (parcours, notes, a-retenir, lecons).
 	- Jamais une capture avec une notification ou une donnée perso.
 	- La phrase est naturelle, d'élève à élève. Jamais d'appel à télécharger, jamais « lien en bio ».
@@ -56,6 +56,7 @@ rejette est validée toute seule 12 h après son dépôt.
 - **Les légendes** : Poppins jaune pâle, au-dessus de l'appareil (42 px) et en dessous (48 px).
 - **Les notes remplies** : écriture Gochi Hand, surligneur `#fde79c`, titres jaunes, flèches dessinées (la police n'a pas « → »).
 - **Slides photo** (« after school routine ») : `type: "photo"`, sa propre `photo`, une `legende` en texte TikTok (TikTok Sans SemiBold, jaune `#fdf2ab` ou brun `#3d2c28`, emojis), photo non assombrie ; l'iPhone s'y pose avec `capture`. Couverture centrée : `aligne: "centre"`, `texte_bas`.
+- **Écrans incrustés** (`photo.ecrans`) : une vraie capture de micabo posée en perspective dans l'écran d'un appareil d'une photo de la banque (4 coins relevés à la main ; `ipad-paysage` pour une capture d'iPhone, `plein` pour le site `assets/micabo/fr/site.jpg`). Le crayon posé sur l'écran reste devant. C'est l'intégration validée par Adrien pour un post « routine » (yp-002, 23/10).
 - **Notes iOS sur photo** (« things i do to SMASH EVERY EXAM ») : slide `photo` avec `note` (`x` 108 ou 308, `y`, `titre`, `texte`), barre d'état et boutons de l'app Notes, Inter Medium 41/37 px. micabo y entre dans le texte d'un conseil, jamais en capture.
 - **Cartes d'applis** (« my favorite productivity apps ») : `type: "carte"`, l'iPad blanc plus petit (`IPAD_CARTE`), icône 168 px, nom et texte en Inter Medium `#323232`. Icônes dans `assets/applis/` (App Store ; Calendrier repeint en français).
 - **Pas encore dans l'atelier** : les cartes « Notes » blanches (« school tips », « digital declutter »), l'écran d'accueil d'iPhone (« organise my phone »).

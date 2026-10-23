@@ -24,6 +24,9 @@ rejette est validée toute seule 12 h après son dépôt.
 	- On garde son accroche (traduite), son nombre de slides, ses formats, sa typographie et ses couleurs.
 	- On ne reprend **jamais** ses photos ni ses écrans : ils montrent ses données et d'autres applis, et TikTok repère les images reprises.
 	- Les photos viennent de la banque de l'OS (`npm run photos`) ; les notes, schémas et listes, on les écrit.
+	- **La banque n'a pas de photo au niveau pour une étape** (une marque partout, rien de net) : adapte l'étape plutôt que de livrer une slide faible ou de bloquer le remake.
+		- Même place, même ton, et un sujet que la banque montre net. Exemple : « prépare ta journée de demain » au lieu de « skincare ».
+		- Jamais l'accroche ni la slide micabo. Note l'adaptation dans `notes` du post.
 - **Une seule slide micabo**, jamais la couverture, marquée `"app": true`. C'est là où elle montrait un outil d'étude, ou à la fin (« et pour réviser, je mets mes notes dans micabo »).
 	- Elle montre une **vraie capture** de micabo dans l'iPhone : `assets/micabo/fr/` (parcours, notes, a-retenir, lecons).
 	- Jamais une capture avec une notification ou une donnée perso.

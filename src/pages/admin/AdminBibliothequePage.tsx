@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import {
   Check,
   ChevronLeft,
@@ -52,6 +52,7 @@ import {
   type ProviderNettoyage,
 } from "@/features/moteur/nettoyageEtapes";
 import { SignalementsTexteCard } from "@/features/moteur/SignalementsTexteCard";
+import { CapturesOnglet, IntegrateursOnglet, MisesEnSceneOnglet } from "@/features/misesEnScene/BanqueOnglets";
 import type { Media } from "@/features/moteur/types";
 
 const selectClass =
@@ -244,7 +245,45 @@ function VignetteMedia({
   );
 }
 
+const ONGLETS = ["photos", "captures", "integrateurs", "mises-en-scene"] as const;
+type Onglet = (typeof ONGLETS)[number];
+
+/**
+ * Bibliothèque : les photos (banque des labels), puis les captures de nos
+ * applis, les intégrateurs (photos choisies par support) et les mises en scène
+ * (0344). Captures et mises en scène ne sortent jamais dans les tirages de
+ * photos des labels.
+ */
 export function AdminBibliothequePage() {
+  const { t } = useTranslation();
+  const [params, setParams] = useSearchParams();
+  const brut = params.get("onglet");
+  const onglet: Onglet = ONGLETS.find((o) => o === brut) ?? "photos";
+  return (
+    <div className="space-y-4">
+      <div role="tablist" className="flex flex-wrap gap-1">
+        {ONGLETS.map((o) => (
+          <Button
+            key={o}
+            role="tab"
+            aria-selected={onglet === o}
+            size="sm"
+            variant={onglet === o ? "default" : "outline"}
+            onClick={() => setParams(o === "photos" ? {} : { onglet: o }, { replace: true })}
+          >
+            {t(`misesEnScene.onglets.${o}`)}
+          </Button>
+        ))}
+      </div>
+      {onglet === "captures" && <CapturesOnglet />}
+      {onglet === "integrateurs" && <IntegrateursOnglet />}
+      {onglet === "mises-en-scene" && <MisesEnSceneOnglet />}
+      {onglet === "photos" && <BibliothequePhotos />}
+    </div>
+  );
+}
+
+function BibliothequePhotos() {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const [labelId, setLabelId] = React.useState("");

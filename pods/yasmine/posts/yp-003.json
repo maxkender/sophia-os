@@ -1,0 +1,526 @@
+{
+ "id": "yp-003",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7669753213578415382",
+  "vues": 12400,
+  "enregistrements": 412,
+  "publie_le": "2026-08-03",
+  "titre": "my favorite productivity apps (non-sponsored)"
+ },
+ "titre": {
+  "fr": "mes applis de productivité préférées",
+  "es": "mis apps de productividad favoritas",
+  "de": "meine liebsten Produktivitäts-Apps",
+  "tr": "favori verimlilik uygulamalarım"
+ },
+ "legendes": {
+  "fr": "celles que j’utilise vraiment 📱 #productivite #studytok #revisions #thatgirl #applis",
+  "es": "las que uso de verdad 📱 #productividad #studytok #estudiar #thatgirl #apps",
+  "de": "die ich wirklich nutze 📱 #produktivität #studytok #lernen #thatgirl #apps",
+  "tr": "gerçekten kullandıklarım 📱 #verimlilik #studytok #ders #thatgirl #uygulamalar"
+ },
+ "musique": {
+  "titre": "suara asli - Zahraaaa🌸",
+  "url": "https://www.tiktok.com/music/suara-asli-zahraaaa-7436786504011221776"
+ },
+ "fond": {
+  "media_id": "2f2ab02e-4b6f-4b1f-b9a0-279f062a075b",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/b4f29c45-882d-4ad5-aa7f-60536761e1ec/2.jpg?v=1790607124813",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "mes applis de",
+     "script_place": "gauche",
+     "lignes": [
+      "productivité",
+      "préférées"
+     ],
+     "taille": 137,
+     "interligne": 0.82,
+     "taille_script": 84,
+     "y": 868
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "mis apps de",
+     "script_place": "gauche",
+     "lignes": [
+      "productividad",
+      "favoritas"
+     ],
+     "taille": 137,
+     "interligne": 0.82,
+     "taille_script": 84,
+     "y": 868
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "meine liebsten",
+     "script_place": "gauche",
+     "lignes": [
+      "produktivitäts-",
+      "apps"
+     ],
+     "taille": 120,
+     "interligne": 0.82,
+     "taille_script": 84,
+     "y": 868
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "favori",
+     "script_place": "gauche",
+     "lignes": [
+      "verimlilik",
+      "uygulamalarım"
+     ],
+     "taille": 124,
+     "interligne": 0.82,
+     "taille_script": 84,
+     "y": 868
+    }
+   }
+  },
+  {
+   "type": "carte",
+   "fr": {
+    "carte": {
+     "nom": "FocusPomo",
+     "icone": "assets/applis/focuspomo.jpg",
+     "lignes": [
+      "Simple et minimaliste",
+      "pour suivre tes",
+      "sessions de travail.",
+      "",
+      "Je fais 50 min,",
+      "10 min de pause,",
+      "et 20 à 40 min",
+      "de pause après",
+      "2 sessions."
+     ],
+     "taille": 48
+    }
+   },
+   "es": {
+    "carte": {
+     "nom": "FocusPomo",
+     "icone": "assets/applis/focuspomo.jpg",
+     "lignes": [
+      "Simple y minimalista",
+      "para seguir tus",
+      "sesiones de estudio.",
+      "",
+      "Hago 50 min,",
+      "10 min de descanso,",
+      "y de 20 a 40 min",
+      "de descanso tras",
+      "2 sesiones."
+     ],
+     "taille": 48
+    }
+   },
+   "de": {
+    "carte": {
+     "nom": "FocusPomo",
+     "icone": "assets/applis/focuspomo.jpg",
+     "lignes": [
+      "Simpel und minimal,",
+      "um deine Lern-",
+      "sessions zu tracken.",
+      "",
+      "Ich mache 50 Min.,",
+      "10 Min. Pause und",
+      "nach 2 Sessions",
+      "20 bis 40 Min. Pause."
+     ],
+     "taille": 44
+    }
+   },
+   "tr": {
+    "carte": {
+     "nom": "FocusPomo",
+     "icone": "assets/applis/focuspomo.jpg",
+     "lignes": [
+      "Çalışma seanslarını",
+      "takip etmek için",
+      "sade ve minimalist.",
+      "",
+      "50 dk çalışıyorum,",
+      "10 dk mola veriyorum,",
+      "2 seanstan sonra da",
+      "20-40 dk mola."
+     ],
+     "taille": 46
+    }
+   }
+  },
+  {
+   "type": "carte",
+   "fr": {
+    "carte": {
+     "nom": "UnSwipe",
+     "icone": "assets/applis/unswipe.jpg",
+     "lignes": [
+      "Pour mon addiction",
+      "au téléphone.",
+      "",
+      "Elle supprime les",
+      "vidéos courtes. Fini",
+      "le scroll sans fin,",
+      "j’ai retrouvé des heures",
+      "dans mes journées."
+     ],
+     "taille": 46
+    }
+   },
+   "es": {
+    "carte": {
+     "nom": "UnSwipe",
+     "icone": "assets/applis/unswipe.jpg",
+     "lignes": [
+      "Para mi adicción",
+      "al móvil.",
+      "",
+      "Elimina los vídeos",
+      "cortos. Se acabó",
+      "el scroll infinito,",
+      "he recuperado horas",
+      "en mis días."
+     ],
+     "taille": 46
+    }
+   },
+   "de": {
+    "carte": {
+     "nom": "UnSwipe",
+     "icone": "assets/applis/unswipe.jpg",
+     "lignes": [
+      "Gegen meine",
+      "Handysucht.",
+      "",
+      "Sie löscht die",
+      "Kurzvideos. Kein",
+      "endloses Scrollen mehr,",
+      "ich habe Stunden in",
+      "meinen Tagen zurück."
+     ],
+     "taille": 44
+    }
+   },
+   "tr": {
+    "carte": {
+     "nom": "UnSwipe",
+     "icone": "assets/applis/unswipe.jpg",
+     "lignes": [
+      "Telefon bağımlılığım",
+      "için.",
+      "",
+      "Kısa videoları",
+      "siliyor. Sonsuz",
+      "kaydırma bitti,",
+      "günlerime saatler",
+      "geri kazandım."
+     ],
+     "taille": 46
+    }
+   }
+  },
+  {
+   "type": "carte",
+   "fr": {
+    "carte": {
+     "nom": "Sophia",
+     "icone": "assets/applis/sophia.jpg",
+     "lignes": [
+      "Remplacer le scroll",
+      "par la culture générale.",
+      "",
+      "5 minutes par jour,",
+      "rien de plus,",
+      "rien de moins.",
+      "10/10, je recommande."
+     ],
+     "taille": 46
+    }
+   },
+   "es": {
+    "carte": {
+     "nom": "Sophia",
+     "icone": "assets/applis/sophia.jpg",
+     "lignes": [
+      "Cambiar el scroll",
+      "por cultura general.",
+      "",
+      "5 minutos al día,",
+      "ni más ni menos.",
+      "10/10, la recomiendo."
+     ],
+     "taille": 46
+    }
+   },
+   "de": {
+    "carte": {
+     "nom": "Sophia",
+     "icone": "assets/applis/sophia.jpg",
+     "lignes": [
+      "Scrollen durch",
+      "Allgemeinwissen",
+      "ersetzen.",
+      "",
+      "5 Minuten am Tag,",
+      "nicht mehr,",
+      "nicht weniger.",
+      "10/10, klare Empfehlung."
+     ],
+     "taille": 44
+    }
+   },
+   "tr": {
+    "carte": {
+     "nom": "Sophia",
+     "icone": "assets/applis/sophia.jpg",
+     "lignes": [
+      "Kaydırmak yerine",
+      "genel kültür.",
+      "",
+      "Günde 5 dakika,",
+      "ne eksik ne fazla.",
+      "10/10, tavsiye ederim."
+     ],
+     "taille": 46
+    }
+   }
+  },
+  {
+   "type": "carte",
+   "fr": {
+    "carte": {
+     "nom": "micabo",
+     "icone": "assets/micabo/icone.png",
+     "lignes": [
+      "J’y mets mes cours",
+      "et elle m’en fait",
+      "des quiz et des",
+      "flashcards.",
+      "",
+      "10 min par jour,",
+      "et j’arrive prête",
+      "aux contrôles."
+     ],
+     "taille": 48
+    }
+   },
+   "app": true,
+   "es": {
+    "carte": {
+     "nom": "micabo",
+     "icone": "assets/micabo/icone.png",
+     "lignes": [
+      "Subo mis apuntes",
+      "y me hace tests",
+      "y flashcards.",
+      "",
+      "10 min al día,",
+      "y llego preparada",
+      "a los exámenes."
+     ],
+     "taille": 48
+    }
+   },
+   "de": {
+    "carte": {
+     "nom": "micabo",
+     "icone": "assets/micabo/icone.png",
+     "lignes": [
+      "Ich lade meine",
+      "Unterlagen hoch und",
+      "sie macht daraus Quiz",
+      "und Karteikarten.",
+      "",
+      "10 Min. am Tag,",
+      "und ich bin für jede",
+      "Prüfung bereit."
+     ],
+     "taille": 44
+    }
+   },
+   "tr": {
+    "carte": {
+     "nom": "micabo",
+     "icone": "assets/micabo/icone.png",
+     "lignes": [
+      "Ders notlarımı",
+      "yüklüyorum, benim",
+      "için testler ve",
+      "bilgi kartları yapıyor.",
+      "",
+      "Günde 10 dk ve",
+      "sınavlara hazır",
+      "giriyorum."
+     ],
+     "taille": 46
+    }
+   }
+  },
+  {
+   "type": "carte",
+   "fr": {
+    "carte": {
+     "nom": "Calendrier",
+     "icone": "assets/applis/calendrier.fr.jpg",
+     "lignes": [
+      "Franchement sous-coté,",
+      "surtout si tu as au",
+      "moins 2 appareils Apple.",
+      "",
+      "Je l’utilise pour",
+      "bloquer mes créneaux",
+      "et pour les rappels",
+      "importants."
+     ],
+     "taille": 44
+    }
+   },
+   "es": {
+    "carte": {
+     "nom": "Calendario",
+     "icone": "assets/applis/calendrier.es.jpg",
+     "lignes": [
+      "Infravalorado de verdad,",
+      "sobre todo si tienes",
+      "al menos 2 dispositivos",
+      "Apple.",
+      "",
+      "Lo uso para bloquear",
+      "mis horarios y para",
+      "los recordatorios",
+      "importantes."
+     ],
+     "taille": 42
+    }
+   },
+   "de": {
+    "carte": {
+     "nom": "Kalender",
+     "icone": "assets/applis/calendrier.de.jpg",
+     "lignes": [
+      "Ehrlich unterschätzt,",
+      "vor allem, wenn du",
+      "mindestens 2 Apple-",
+      "Geräte hast.",
+      "",
+      "Ich nutze ihn für",
+      "Zeitblöcke und",
+      "Erinnerungen an",
+      "wichtige Termine."
+     ],
+     "taille": 42
+    }
+   },
+   "tr": {
+    "carte": {
+     "nom": "Takvim",
+     "icone": "assets/applis/calendrier.tr.jpg",
+     "lignes": [
+      "Gerçekten hafife",
+      "alınıyor, özellikle en",
+      "az 2 Apple cihazın",
+      "varsa.",
+      "",
+      "Zaman bloklarım ve",
+      "önemli hatırlatmalar",
+      "için kullanıyorum."
+     ],
+     "taille": 44
+    }
+   }
+  },
+  {
+   "type": "carte",
+   "fr": {
+    "carte": {
+     "nom": "Notion",
+     "icone": "assets/applis/notion.jpg",
+     "lignes": [
+      "L’outil d’organisation",
+      "ultime. Je m’en sers",
+      "pour mes to-do, le suivi",
+      "de mes examens, et",
+      "comme base de données",
+      "de ma vie, honnêtement.",
+      "",
+      "Mieux sur ordinateur."
+     ],
+     "taille": 44
+    }
+   },
+   "es": {
+    "carte": {
+     "nom": "Notion",
+     "icone": "assets/applis/notion.jpg",
+     "lignes": [
+      "La herramienta de",
+      "organización definitiva.",
+      "La uso para mis to-do,",
+      "el seguimiento de",
+      "mis exámenes y como",
+      "base de datos de mi",
+      "vida, la verdad.",
+      "",
+      "Mejor en el ordenador."
+     ],
+     "taille": 42
+    }
+   },
+   "de": {
+    "carte": {
+     "nom": "Notion",
+     "icone": "assets/applis/notion.jpg",
+     "lignes": [
+      "Das ultimative",
+      "Planungstool. Ich nutze",
+      "es für To-dos, meine",
+      "Prüfungen und ehrlich",
+      "gesagt als Datenbank",
+      "für mein ganzes Leben.",
+      "",
+      "Am besten am Laptop."
+     ],
+     "taille": 42
+    }
+   },
+   "tr": {
+    "carte": {
+     "nom": "Notion",
+     "icone": "assets/applis/notion.jpg",
+     "lignes": [
+      "Nihai planlama aracı.",
+      "Yapılacaklar listem,",
+      "sınav takibim ve",
+      "dürüst olmak gerekirse",
+      "hayatımın veritabanı",
+      "olarak kullanıyorum.",
+      "",
+      "En iyisi bilgisayarda."
+     ],
+     "taille": 42
+    }
+   }
+  }
+ ],
+ "notes": "livré le 23/10. Version 2 (demande d'Adrien, pour ce post seulement) : UnSwipe à la place d'Opal, Sophia à la place de Substack ; FocusPomo, Calendrier, Notion gardées ; micabo à la place de Goodnotes. « non-sponsored » retiré de la couverture."
+}

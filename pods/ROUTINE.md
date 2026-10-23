@@ -48,20 +48,25 @@ Le chef des podz tient ce fichier à jour (`pods/chef/AGENT.md`).
    - podz d'originaux (2, 4, 5, 7, 8, 9) : un original sur un schéma qui marche ;
    - podz 1 : un post neuf de la source repris, sinon un post existant traduit
      dans une langue du label qui en manque ;
-   - podz 6 : le post suivant de la liste, sinon un original.
+   - podz 6 : le post suivant de la liste, sinon un original ;
+   - podz 10 : le remake suivant de `sources/manifeste.json`, sinon une
+     variante d'un format déjà rendu. Parfait ou rien : un remake pas prêt
+     attend le lendemain.
+   - podz 11 : le remake suivant de `sources/manifeste.json`, sinon une
+     variante d'une accroche déjà faite. Parfait ou rien, comme le podz 10.
 4. **Une livraison sur cinq est un essai.** Quand le numéro de ton prochain
    original finit par 0 ou 5 (`sg-o010`, `rh-o015`), teste du neuf : une
    accroche ou un format qui marche ailleurs (veille récente), jamais fait
    chez nous. Il respecte la règle de preuve si ton podz en a une. Note
    `essai` dans `notes`.
    - Podz 1 : un post d'un autre compte au même format.
-   - Podz 6 : pas d'essai tant que la liste n'est pas finie.
+   - Podz 6, 10 et 11 : pas d'essai tant que la liste n'est pas finie.
 
 ## 5. Livrer
 
 1. Écris, `npm run apercu`, regarde chaque slide avec l'outil Read, corrige.
-2. `npm run deposer` (ou `npm run livrer` au podz 6), avec la preuve pour les
-   podz 4, 5, 7, 8 et 9.
+2. `npm run deposer` (ou `npm run livrer` aux podz 6, 10 et 11), avec la preuve
+   pour les podz 4, 5, 7, 8 et 9.
 3. Commite, ouvre une PR vers `main` limitée à ton dossier, merge-la.
 
 ## 6. Rendre compte

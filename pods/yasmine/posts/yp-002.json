@@ -1,0 +1,344 @@
+{
+ "id": "yp-002",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/video/7666878168279584002",
+  "vues": 835200,
+  "enregistrements": 46857,
+  "publie_le": "2026-07-26",
+  "titre": "the perfect AFTER SCHOOL ROUTINE for a peaceful life"
+ },
+ "titre": {
+  "fr": "la parfaite routine après les cours pour une vie sereine"
+ },
+ "legendes": {
+  "fr": "ma routine du soir, sans stress 🌙 #routine #apreslescours #studytok #thatgirl #revisions"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7230798699515939630"
+ },
+ "fond": {
+  "media_id": "2e6deaed-95c0-4513-aafa-b94caf645ac1",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/3839cbaa-0cf4-4dd4-b75f-627c620d62f5/2.jpg?v=1790679938367",
+  "cadrage": {
+   "x": 0.6,
+   "y": 0.5
+  }
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "la routine parfaite",
+     "lignes": [
+      "APRÈS",
+      "LES",
+      "COURS"
+     ],
+     "taille": 174,
+     "taille_script": 68,
+     "y": 757,
+     "texte_bas": "pour une vie sereine🌙"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "abd7ae87-c92f-4882-9a72-186c6ccbd9e8",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/9ae86482-eb1c-4d7c-ba92-df143108d2c0/6.jpg?v=1787159422491",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "prends un goûter🍫"
+     ],
+     "x": 430,
+     "y": 437,
+     "taille": 58,
+     "couleur": "brun"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "5cbb4645-8d26-4bf1-80ca-077a0b59f1c6",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/dfe42aac-3f4a-4c4f-84d8-5af8d41bbe4f/7.jpg?v=1792600998310",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "et une boisson chaude☕"
+     ],
+     "x": 640,
+     "y": 720,
+     "taille": 52,
+     "couleur": "brun"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "8476a77e-9656-4ffb-9bc4-f412e6732e61",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/43f14645-73dc-4a07-bcea-c71b7dcfdb81/4-upscale.jpg?v=1785795671233",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "enfile une tenue confort🧦"
+     ],
+     "x": 420,
+     "y": 443,
+     "taille": 46,
+     "couleur": "brun"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "3e21a801-8213-4f4b-a478-4fc3d314666a",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/61457f9e-f332-4b16-9778-cec7e1868d14/4.jpg?v=1790607875766",
+    "cadrage": {
+     "x": 0.3,
+     "y": 1.0,
+     "zoom": 1.5
+    },
+    "ecrans": [
+     {
+      "coins": [
+       [
+        305,
+        1290
+       ],
+       [
+        959,
+        1276
+       ],
+       [
+        961,
+        1691
+       ],
+       [
+        313,
+        1715
+       ]
+      ],
+      "capture": "assets/micabo/fr/site.jpg",
+      "gabarit": "plein",
+      "lumiere": 0.95,
+      "devant": 256
+     },
+     {
+      "coins": [
+       [
+        227,
+        2134
+       ],
+       [
+        985,
+        2080
+       ],
+       [
+        1117,
+        2477
+       ],
+       [
+        128,
+        2565
+       ]
+      ],
+      "capture": "assets/micabo/fr/parcours.jpg",
+      "gabarit": "ipad-paysage",
+      "lumiere": 0.97
+     }
+    ]
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "temps d’étude, 2 h par jour📚"
+     ],
+     "x": 540,
+     "y": 1840,
+     "taille": 56,
+     "couleur": "brun"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "2ce3c5b8-5aa1-4e7e-9200-12d8824cadc4",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/06b26b31-7602-4ba3-a4d1-0668c6703bbe/7.jpg?v=1790606894713",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "range vite ta chambre et ton bureau🖥️"
+     ],
+     "x": 470,
+     "y": 554,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "c3bd93dd-81cb-4d78-a524-30b53c988169",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/05f1213a-943b-4694-b6ba-667e39ac9650/4.jpg?v=1789055315445",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5,
+     "zoom": 1.33
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "dîner🍠"
+     ],
+     "x": 420,
+     "y": 215,
+     "taille": 56,
+     "couleur": "brun"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "a0ccd97f-e1fb-4cb1-8256-d58baca9e85a",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/a7081430-d2ec-4e30-9fe3-36d409f6f45d/1.jpg?v=1790678475207",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "détends-toi🍵"
+     ],
+     "x": 640,
+     "y": 1059,
+     "taille": 50,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "aad9cecd-34e6-434b-9487-0fb197e12d60",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/254078fb-d6ac-4bfd-b0bb-4812ba2055b3/2.jpg?v=1789047845315",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "douche et skincare🫧"
+     ],
+     "x": 420,
+     "y": 457,
+     "taille": 54,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "2b38fe82-8163-4152-b48e-44be9665ccd4",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/3289e68c-e019-4615-8a52-e08f0d035df2/6.jpg?v=1792600949207",
+    "cadrage": {
+     "x": 0.8,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "prépare ta journée de demain📝"
+     ],
+     "x": 560,
+     "y": 1180,
+     "taille": 48,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "098497fd-fc3a-4a24-a904-c9e7ef04d154",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/2e6a8f59-1f58-4cbe-a750-75658bfc5093/6.jpg?v=1792601565928",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "lis avant de dormir📖"
+     ],
+     "x": 540,
+     "y": 479,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1262dd30-9b6e-4427-9f22-c62bdd757b57",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/8f9fe944-f80f-49f5-ad03-8f5450c1eae8/7.jpg?v=1790678721667",
+    "cadrage": {
+     "x": 1.0,
+     "y": 0.5,
+     "zoom": 1.18
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "bonne nuit !😴💤🌙"
+     ],
+     "x": 520,
+     "y": 740,
+     "taille": 58,
+     "couleur": "jaune"
+    }
+   }
+  }
+ ],
+ "notes": "slide « study time » : le site micabo.app sur le Mac et le parcours sur l'iPad (demande d'Adrien, 23/10). Skincare regroupée avec la douche (aucune photo de soins sans marque), slide 10 : préparer sa journée."
+}

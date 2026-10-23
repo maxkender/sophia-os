@@ -1,0 +1,134 @@
+{
+ "id": "fa-001",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7690948590805519638",
+  "vues": 817700,
+  "publie_le": "2026-09-29",
+  "accroche": "5 Ways To Be Unrecognisable In 6 Months"
+ },
+ "titre": {
+  "en": "5 Ways To Be Unrecognisable In 6 Months"
+ },
+ "legendes": {
+  "en": "5 Ways To Be Unrecognisable In 6 Months #selfimprovement #learnontiktok #selfmastery"
+ },
+ "musique": {
+  "titre": "lol",
+  "url": "https://www.tiktok.com/music/lol-7573723683745237774"
+ },
+ "notes": "Double intégration : UnSwipe à l'étape 1 (leur « DELETE SOCIAL MEDIA » devient « QUIT SHORT VIDEOS » : pas besoin de supprimer), Sophia en carte d'appli à l'étape 3 « LEARN NEW TOPICS », au milieu du deck comme UnSwipe (leur slide Fathomly de fin disparaît).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "WAYS TO BE"
+      }
+     ],
+     [
+      {
+       "t": "UNRECOGNISABLE",
+       "bronze": true
+      }
+     ],
+     "IN 6 MONTHS"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "unswipe",
+   "en": {
+    "titre": [
+     "QUIT SHORT",
+     "VIDEOS"
+    ],
+    "carte": {
+     "nom": "UNSWIPE",
+     "texte": [
+      "keep Instagram, lose the Reels.",
+      "no need to delete anything."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "READ",
+     "EVERY DAY"
+    ],
+    "video": {
+     "id": "e2-ahs905MQ",
+     "titre": "How to Read a Book a Day | Jordan Harry | TEDxBathUniversity",
+     "chaine": "TEDx Talks",
+     "vues": "3.4M views",
+     "date": "8 years ago",
+     "duree": "10:50",
+     "avatar": "https://yt3.ggpht.com/1gDPO-4YPWFErfn3yQBnv0yxpkmiud1m5CrorApkOqUYdNd9FrZQ9xB9C9VmDt4EsgArnlwqAQc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN NEW",
+     "TOPICS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "START",
+     "RUNNING"
+    ],
+    "video": {
+     "id": "kVnyY17VS9Y",
+     "titre": "11 Beginner Run Tips | How To Start Running!",
+     "chaine": "Global Triathlon Network",
+     "vues": "2M views",
+     "date": "6 years ago",
+     "duree": "6:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ns7y5bTVS0-YQYpC2m3HDPnqhmcOH9dFKfvRjJ1VO72A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "FIX YOUR",
+     "SLEEP"
+    ],
+    "video": {
+     "id": "Amkg1cdDCpM",
+     "titre": "Can you change your sleep schedule?",
+     "chaine": "TED-Ed",
+     "vues": "2.6M views",
+     "date": "3 years ago",
+     "duree": "4:38",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

@@ -181,6 +181,31 @@ export async function contenusLivresHorsApplication(
 // Dépôt d'une livraison (fonction `pods`)
 // ---------------------------------------------------------------------------
 
+/**
+ * Les mots d'une recherche de photos (action `photos`) : 3 lettres au moins,
+ * 5 mots au plus, sans les caractères spéciaux des filtres PostgREST.
+ */
+export function motsCherches(cherche: string): string[] {
+  return cherche
+    .toLowerCase()
+    .split(/\s+/)
+    .map((m) => m.replace(/[^\p{L}\p{N}'-]/gu, ""))
+    .filter((m) => m.length >= 3)
+    .slice(0, 5);
+}
+
+/**
+ * Descriptions à écarter d'une recherche de photos (action `photos`), en
+ * expression valable en JavaScript comme en Postgres (`~*`) :
+ * - une personne entière (« a young woman… », « a person sitting… ») : son
+ *   visage peut se voir, et les drapeaux de visage de la banque ne sont
+ *   remplis que pour l'UGC. Une partie du corps reste permise (« a person's
+ *   hand… », « a person's feet… ») ;
+ * - du texte, un logo, un collage, une capture d'écran.
+ */
+export const LEGENDE_A_ECARTER =
+  "(^|[^a-z])(woman|women|girls?|man|men|boys?|lady|ladies|child|children|kids?|students?|persons?|people|teenagers?|actor|actress|couple|baby|someone|faces?|head|eyes|profile|portrait|selfie|smiles?|smiling|texts?|titled|reads|says|logos?|collage|graphic|screenshot|posters?|memes?|quotes?|words|brand)([^a-z'’]|$)";
+
 /** SHA-256 hexadécimal (jeton d'agent comparé à `pods.jeton_hash`). */
 export async function sha256Hex(texte: string): Promise<string> {
   const d = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(texte));

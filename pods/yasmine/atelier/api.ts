@@ -5,8 +5,8 @@
 export const POD = "remakes_yasmine";
 /** Le compte refait : « that girl / studytok », gros succès de la rentrée de juillet. */
 export const COMPTE_SOURCE = "yasminespixels";
-/** Les langues livrées : le français seulement pour l'instant (décision du 23/10). */
-export const LANGUES = ["fr"] as const;
+/** Les langues livrées : le français, puis l'espagnol, l'allemand et le turc (langues de micabo, 23/10). */
+export const LANGUES = ["fr", "es", "de", "tr"] as const;
 /** La langue du deck de base déposé (l'OS l'exige dans `decks`). */
 export const LANGUE_SOURCE = "fr";
 

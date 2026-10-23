@@ -1,4 +1,5 @@
 import { translateSlideshow } from "../_shared/gemini.ts";
+import { chargerAncresNatives, ecrireNatif, slidesDepuisTexte } from "../_shared/traduction_native.ts";
 import { regleLocalisationScolaire } from "../_shared/localisation_scolaire.ts";
 import { assertAuthorised, chargerPrompt, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
@@ -8,7 +9,12 @@ import { assertAuthorised, chargerPrompt, json, messageErreur, serviceClient } f
  * français, sinon règles neutres), localisation scolaire comprise. Sert à
  * régler les prompts de traduction sans fabriquer un post entier. Ne crée rien.
  *
- *   { texte, langue }  → { ok, traduction }
+ *   { texte, langue }                  → { ok, traduction }
+ *   { texte, langue, comparer: true } → { ok, slides: [{ position, original, actuel, natif }],
+ *                                         hashtags: { actuel, natif }, brief, ancres }
+ * Le mode « comparer » met côte à côte la traduction actuelle et l'écriture
+ * native (`_shared/traduction_native.ts`, brief + ancres natives de la langue) ;
+ * plusieurs slides séparées par une ligne vide. Rien n'est écrit en base.
  */
 Deno.serve(async (request) => {
   const denied = await assertAuthorised(request);
@@ -29,6 +35,28 @@ Deno.serve(async (request) => {
     const base = dedie ?? (langue === "fr" ? await chargerPrompt(supabase, "traduction") : undefined);
     const scolaire = await regleLocalisationScolaire(supabase, langue);
     const regles = [base, scolaire].filter(Boolean).join("\n\n");
+
+    if (body?.comparer) {
+      const slides = slidesDepuisTexte(texte);
+      if (!slides.length) return json({ error: "Texte vide" }, 400);
+      const ancres = await chargerAncresNatives(supabase, langue);
+      const [actuel, natif] = await Promise.all([
+        translateSlideshow({ slides, sourceTitle: "", rules: regles || undefined, langue }),
+        ecrireNatif({ slides, sourceTitle: "", langue, ancres, regles: dedie ?? base }),
+      ]);
+      const parPosition = (liste: Array<{ position: number }>, cle: string) =>
+        new Map(liste.map((s) => [s.position, (s as unknown as Record<string, string>)[cle] ?? ""]));
+      const a = parPosition(actuel.slides, "translated");
+      const n = parPosition(natif.slides, "texte");
+      return json({
+        ok: true,
+        langue,
+        slides: slides.map((s) => ({ position: s.position, original: s.original, actuel: a.get(s.position) ?? "", natif: n.get(s.position) ?? "" })),
+        hashtags: { actuel: actuel.hashtags, natif: natif.hashtags },
+        brief: natif.brief,
+        ancres: natif.ancres,
+      });
+    }
 
     const out = await translateSlideshow({
       slides: [{ position: 1, original: texte }],

@@ -547,6 +547,15 @@ export const fr = {
       tradTexte: "Texte à traduire",
       tradPlaceholder: "Colle ici un texte de slide (dans sa langue d'origine)…",
       tradLancer: "Traduire",
+      tradComparer: "Comparer les deux modèles",
+      tradComparerAide:
+        "Plusieurs slides : sépare-les par une ligne vide. « Comparer » met côte à côte la traduction actuelle et l'écriture native : un brief en mots-clés, puis le texte écrit dans la langue à partir d'exemples natifs qui ont marché (les originaux des podz pour le français). Rien n'est créé.",
+      tradSource: "Source",
+      tradActuel: "Traduction actuelle",
+      tradNatif: "Écriture native",
+      tradAncres: "{{n}} exemples natifs utilisés",
+      tradBrief: "Le brief (mots-clés)",
+      tradHashtags: "Hashtags",
       stickersTitre: "Stickers à l'import (à blanc)",
       stickersDesc:
         "Tire des slideshows valides au hasard (hors pods) et passe chaque slide brute dans l'OCR d'import. Deux familles : sticker PUB (app, marque, site) → le TikTok serait rejeté ; sticker de CONTENU (livre, vidéo, article, note) → importé quand même. Rien n'est écrit.",

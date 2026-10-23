@@ -546,6 +546,15 @@ export const en = {
       tradTexte: "Text to translate",
       tradPlaceholder: "Paste a slide text here (in its original language)…",
       tradLancer: "Translate",
+      tradComparer: "Compare both models",
+      tradComparerAide:
+        "Several slides: separate them with a blank line. \"Compare\" shows the current translation next to native writing: a keyword brief, then text written in the language from native examples that performed (the pods' originals for French). Nothing is created.",
+      tradSource: "Source",
+      tradActuel: "Current translation",
+      tradNatif: "Native writing",
+      tradAncres: "{{n}} native examples used",
+      tradBrief: "The brief (keywords)",
+      tradHashtags: "Hashtags",
       stickersTitre: "Stickers at import (dry run)",
       stickersDesc:
         "Draws random valid slideshows (pods excluded) and runs each raw slide through the import OCR. Two families: AD sticker (app, brand, website) → the TikTok would be rejected; CONTENT sticker (book, video, article, note) → imported anyway. Nothing is saved.",

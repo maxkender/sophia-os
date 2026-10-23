@@ -5,8 +5,10 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import "@/locales";
 
 const mesReviews = vi.fn();
+const contesterReview = vi.fn();
 vi.mock("@/features/moteur/api", () => ({
   mesReviews: () => mesReviews(),
+  contesterReview: (id: string, mot: string) => contesterReview(id, mot),
   resoudreTiktok: vi.fn().mockResolvedValue({ url: "", id: null, thumbnail: null }),
 }));
 
@@ -62,5 +64,24 @@ describe("PosterRetoursPage", () => {
     mesReviews.mockResolvedValue([]);
     renderPage();
     expect(await screen.findByText(/Pas encore de retour|No feedback yet/)).toBeInTheDocument();
+  });
+
+  it("montre où en est un retour contesté, et la réponse de l'admin dans le retour", async () => {
+    contesterReview.mockReset().mockResolvedValue(undefined);
+    mesReviews.mockResolvedValue([
+      { ...base, id: "r3", body: "Text is yellow.", created_at: "2026-10-18T08:00:00Z", seen_at: "2026-10-18T09:00:00Z", date_publication: "2026-10-17", contestee_at: "2026-10-18T09:00:00Z", contestation_verdict: null },
+      { ...base, id: "r2", body: "Lines are short.", created_at: "2026-10-16T08:00:00Z", seen_at: "2026-10-16T09:00:00Z", date_publication: "2026-10-15", contestee_at: "2026-10-16T09:00:00Z", contestation_verdict: "fondee", contestation_reponse: "You were right, sorry!" },
+      { ...base, id: "r1", body: "Use the sound.", created_at: "2026-10-10T08:00:00Z", seen_at: "2026-10-10T09:00:00Z", date_publication: "2026-10-09", contestee_at: null },
+    ]);
+    renderPage();
+    expect(await screen.findByText(/^(Contesté · on vérifie|Disputed · we’re checking)$/)).toBeInTheDocument();
+    expect(screen.getByText(/^(Tu avais raison|You were right)$/)).toBeInTheDocument();
+
+    fireEvent.click(screen.getAllByRole("button", { name: /^(Revoir|Open)$/ })[1]);
+    fireEvent.click(await screen.findByRole("button", { name: /Voir le retour|See the feedback/ }));
+    expect(screen.getByText(/Vérifié : tu avais raison|Checked: you were right/)).toBeInTheDocument();
+    expect(screen.getByText(/You were right, sorry!/)).toBeInTheDocument();
+    // Déjà contesté : plus de bouton pour le contester.
+    expect(screen.queryByRole("button", { name: /Ce retour me semble faux|This feedback seems wrong/ })).not.toBeInTheDocument();
   });
 });

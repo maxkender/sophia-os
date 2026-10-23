@@ -758,7 +758,17 @@ export interface Review {
   remarques: ReviewRemarqueUtilisee[];
   /** admin : écrit à la main ; agent : envoyé par l'agent de relecture (0296). */
   origine: "admin" | "agent";
+  /** Le créateur a dit « ce retour est faux » (0340), avec son mot s'il en a laissé un. */
+  contestee_at: string | null;
+  contestation: string | null;
+  /** Décision de l'admin : fondee (le créateur a raison) ou non_fondee ; null = à vérifier. */
+  contestation_verdict: VerdictContestation | null;
+  contestation_traitee_at: string | null;
+  /** Réponse de l'admin au créateur, montrée dans « Mes retours ». */
+  contestation_reponse: string | null;
 }
+
+export type VerdictContestation = "fondee" | "non_fondee";
 
 export type ReviewCible = {
   post_id?: string | null;
@@ -771,17 +781,29 @@ export type ReviewCible = {
   remarques?: ReviewRemarqueUtilisee[];
 };
 
+// Une seule chaîne littérale : supabase-js en déduit le type des lignes.
 const REVIEW_COLONNES =
-  "id, poster_id, body, note, created_at, seen_at, post_id, publie_url, source_url, handle_tiktok, compte_label, date_publication, videos, remarques, origine";
+  "id, poster_id, body, note, created_at, seen_at, post_id, publie_url, source_url, handle_tiktok, compte_label, date_publication, videos, remarques, origine, contestee_at, contestation, contestation_verdict, contestation_traitee_at, contestation_reponse";
 
 function mapperReview(
-  row: Omit<Review, "videos" | "remarques" | "origine"> & { videos?: unknown; remarques?: unknown; origine?: unknown },
+  row: Omit<Review, "videos" | "remarques" | "origine" | "contestation_verdict"> & {
+    videos?: unknown;
+    remarques?: unknown;
+    origine?: unknown;
+    contestation_verdict?: unknown;
+  },
 ): Review {
   return {
     ...row,
     videos: normaliserVideosReview(row.videos),
     remarques: normaliserRemarquesReview(row.remarques),
     origine: row.origine === "agent" ? "agent" : "admin",
+    contestee_at: row.contestee_at ?? null,
+    contestation: row.contestation ?? null,
+    contestation_verdict:
+      row.contestation_verdict === "fondee" || row.contestation_verdict === "non_fondee" ? row.contestation_verdict : null,
+    contestation_traitee_at: row.contestation_traitee_at ?? null,
+    contestation_reponse: row.contestation_reponse ?? null,
   };
 }
 
@@ -876,6 +898,69 @@ export async function marquerReviewVue(id: string): Promise<void> {
     .update({ seen_at: new Date().toISOString() })
     .eq("id", id);
   if (error) throw error;
+}
+
+/**
+ * Le créateur conteste un retour (« ce retour est faux »), une seule fois, avec
+ * son mot s'il en laisse un. L'heure est posée par la base (trigger de 0340).
+ */
+export async function contesterReview(id: string, commentaire: string): Promise<void> {
+  const { error } = await supabase
+    .from("reviews")
+    .update({ contestee_at: new Date().toISOString(), contestation: commentaire.trim() || null })
+    .eq("id", id);
+  if (error) throw error;
+}
+
+/** Retours contestés (admin), les plus récents d'abord. */
+export async function listerReviewsContestees(): Promise<Review[]> {
+  const { data, error } = await supabase
+    .from("reviews")
+    .select(REVIEW_COLONNES)
+    .not("contestee_at", "is", null)
+    .order("contestee_at", { ascending: false })
+    .limit(300);
+  if (error) throw error;
+  return (data ?? []).map((r) => mapperReview(r as Review));
+}
+
+/** Contestations encore à vérifier (compteur du menu admin). */
+export async function compterContestationsAVerifier(): Promise<number> {
+  const { count, error } = await supabase
+    .from("reviews")
+    .select("id", { count: "exact", head: true })
+    .not("contestee_at", "is", null)
+    .is("contestation_verdict", null);
+  if (error) throw error;
+  return count ?? 0;
+}
+
+/** L'admin tranche : le créateur a raison (fondee) ou le retour était juste, avec une réponse facultative. */
+export async function trancherContestation(id: string, verdict: VerdictContestation, reponse: string): Promise<void> {
+  const { data: auth } = await supabase.auth.getUser();
+  const { error } = await supabase
+    .from("reviews")
+    .update({
+      contestation_verdict: verdict,
+      contestation_traitee_at: new Date().toISOString(),
+      contestation_admin_id: auth.user?.id ?? null,
+      contestation_reponse: reponse.trim() || null,
+    })
+    .eq("id", id);
+  if (error) throw error;
+}
+
+/** La relecture de l'agent qui a produit ce retour (null pour un retour écrit par l'admin). */
+export async function relectureDuRetour(reviewId: string): Promise<(RelectureAuto & { id: string; jour: string }) | null> {
+  const { data, error } = await supabase
+    .from("relectures_auto")
+    .select("id, jour, post_id, statut, defauts, brouillon, remarques, erreur, vues")
+    .eq("review_id", reviewId)
+    .maybeSingle();
+  if (error) throw error;
+  if (!data) return null;
+  const r = normaliserRelecture(data as Record<string, unknown>);
+  return r ? { ...r, id: String(data.id), jour: String(data.jour) } : null;
 }
 
 export interface PostFileReview {

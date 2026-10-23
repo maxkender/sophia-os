@@ -1,8 +1,9 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { ArrowLeft, ArrowRight, Check, Lock, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Flag, Lock, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogPopup } from "@/components/ui/dialog";
 import type { Review } from "@/features/moteur/api";
 import { Mico } from "@/features/onboarding/Mico";
@@ -17,7 +18,8 @@ import { localeDate } from "@/locales/localeDate";
 export type RetourAffiche = Pick<
   Review,
   "id" | "body" | "publie_url" | "source_url" | "handle_tiktok" | "compte_label" | "date_publication" | "videos"
->;
+> &
+  Partial<Pick<Review, "contestee_at" | "contestation_verdict" | "contestation_reponse">>;
 
 /**
  * Dans tous les modes, on ne sort qu'à la fin, par le bouton du bas.
@@ -53,6 +55,104 @@ function Pastilles({ total, actuelle }: { total: number; actuelle: number }) {
 }
 
 /**
+ * « Ce retour me semble faux » (0340) : un lien discret au bout du message,
+ * puis un mot facultatif. Déjà contesté : où en est la vérification, et la
+ * réponse de l'admin quand il a tranché.
+ */
+function Contestation({
+  retour,
+  mode,
+  onContester,
+}: {
+  retour: RetourAffiche;
+  mode: ModeRetour;
+  onContester?: (commentaire: string) => Promise<void>;
+}) {
+  const { t } = useTranslation();
+  const [etat, setEtat] = React.useState<"ferme" | "ouvert" | "envoi" | "envoye">("ferme");
+  const [mot, setMot] = React.useState("");
+  const [erreur, setErreur] = React.useState<string | null>(null);
+
+  if (retour.contestee_at) {
+    const verdict = retour.contestation_verdict;
+    return (
+      <div className="space-y-1 rounded-xl border border-dashed p-3 text-sm">
+        <p className="flex items-center gap-2 font-medium">
+          <Flag className="size-4 text-muted-foreground" />
+          {verdict === "fondee"
+            ? t("retour.contesteFondee")
+            : verdict === "non_fondee"
+              ? t("retour.contesteNonFondee")
+              : t("retour.conteste")}
+        </p>
+        {verdict && retour.contestation_reponse && (
+          <p className="whitespace-pre-wrap text-muted-foreground">
+            {t("retour.reponseAdmin")} {retour.contestation_reponse}
+          </p>
+        )}
+      </div>
+    );
+  }
+  if (!onContester && mode !== "apercu") return null;
+  if (etat === "envoye") {
+    return (
+      <p className="flex items-center gap-2 rounded-xl border border-dashed p-3 text-sm" role="status">
+        <Check className="size-4 text-success" />
+        {t("retour.contesteMerci")}
+      </p>
+    );
+  }
+  if (etat === "ferme") {
+    return (
+      <Button variant="ghost" size="sm" className="text-muted-foreground" onClick={() => setEtat("ouvert")}>
+        <Flag />
+        {t("retour.contester")}
+      </Button>
+    );
+  }
+  const envoyer = async () => {
+    setErreur(null);
+    if (mode === "apercu" || !onContester) {
+      setEtat("envoye");
+      return;
+    }
+    setEtat("envoi");
+    try {
+      await onContester(mot);
+      setEtat("envoye");
+    } catch (e) {
+      setErreur(e instanceof Error ? e.message : String(e));
+      setEtat("ouvert");
+    }
+  };
+  return (
+    <div className="space-y-2 rounded-xl border p-3">
+      <label htmlFor={`contester-${retour.id}`} className="font-medium text-sm">
+        {t("retour.contesterAide")}
+      </label>
+      <Textarea
+        id={`contester-${retour.id}`}
+        value={mot}
+        maxLength={2000}
+        rows={3}
+        placeholder={t("retour.contesterPlaceholder")}
+        onChange={(e) => setMot(e.target.value)}
+      />
+      {erreur && <p className="text-destructive text-sm">{erreur}</p>}
+      <div className="flex justify-end gap-2">
+        <Button variant="ghost" size="sm" onClick={() => setEtat("ferme")} disabled={etat === "envoi"}>
+          {t("retour.contesterAnnuler")}
+        </Button>
+        <Button size="sm" variant="outline" loading={etat === "envoi"} onClick={() => void envoyer()}>
+          <Flag />
+          {t("retour.contesterEnvoyer")}
+        </Button>
+      </div>
+    </div>
+  );
+}
+
+/**
  * Un retour de l'admin, vu par le créateur, comme un petit onboarding :
  *   1. son post à côté de l'original (les lecteurs TikTok, comme dans la file
  *      de l'admin), pour qu'il voie la différence avant de lire quoi que ce soit ;
@@ -68,6 +168,7 @@ export function RetourParcours({
   onCompris,
   occupe = false,
   ensuite = 0,
+  onContester,
 }: {
   retour: RetourAffiche;
   mode: ModeRetour;
@@ -79,6 +180,11 @@ export function RetourParcours({
   occupe?: boolean;
   /** Retours non lus qui suivent celui-ci (ils s'enchaînent après « Compris »). */
   ensuite?: number;
+  /**
+   * « Ce retour me semble faux » : le créateur le dit, avec son mot s'il veut
+   * (0340). Sans ce rappel, pas de bouton ; en aperçu, rien n'est enregistré.
+   */
+  onContester?: (commentaire: string) => Promise<void>;
 }) {
   const { t, i18n } = useTranslation();
   const etapes = etapesDuRetour(retour);
@@ -221,6 +327,8 @@ export function RetourParcours({
                   progressLabel={(current, total) => t("reviews.videoProgress", { current, total })}
                 />
               )}
+              {/* Au bout du message : on conteste après l'avoir lu. */}
+              <Contestation retour={retour} mode={mode} onContester={onContester} />
             </div>
           )}
         </div>

@@ -20,6 +20,8 @@ export interface NavItem {
   description?: string;
   /** Exact path match (default). Set false so nested routes stay highlighted. */
   end?: boolean;
+  /** Compteur à droite du libellé (ex. contestations à vérifier) ; caché à 0. */
+  badge?: number;
 }
 
 /** Un bloc de navigation, avec un intitulé de section optionnel. */
@@ -38,7 +40,7 @@ function NavList({ groups, onNavigate }: { groups: NavGroup[]; onNavigate?: () =
               {groupe.title}
             </p>
           )}
-          {groupe.items.map(({ to, label, icon: Icon, description, end = true }) => (
+          {groupe.items.map(({ to, label, icon: Icon, description, end = true, badge }) => (
             <NavLink
               key={to}
               to={to}
@@ -65,6 +67,11 @@ function NavList({ groups, onNavigate }: { groups: NavGroup[]; onNavigate?: () =
                     )}
                   />
                   <span className="truncate">{label}</span>
+                  {badge ? (
+                    <span className="ml-auto rounded-full bg-warning/20 px-1.5 font-medium text-[11px] text-warning-foreground tabular-nums">
+                      {badge}
+                    </span>
+                  ) : null}
                 </>
               )}
             </NavLink>

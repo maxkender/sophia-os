@@ -24,6 +24,7 @@ export const ROUTES_HO: readonly string[] = [
   "/admin/posters", // Posters
   "/admin/surveillance", // Account watch
   "/admin/reviews", // Reviews
+  "/admin/retours-contestes", // Retours que les créateurs disent faux : vérifier, répondre (0340)
   "/admin/file-reviews", // Today's queue
   "/admin/parrainages", // Referrals
   "/admin/documents", // Documents, en écriture

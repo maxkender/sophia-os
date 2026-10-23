@@ -143,6 +143,22 @@ export const SEUIL_LARGEUR_MIN = 0.78;
 export const ECART_TAILLE_LARGEUR = 0.1;
 /** Écart vertical du centre du texte, en fraction de la hauteur (info admin). */
 export const SEUIL_PLACEMENT = 0.25;
+
+/**
+ * Écart fort : seul un écart fort part chez le créateur, un écart léger reste
+ * une info pour l'admin. Mesuré le 23/10 sur les posts du 16 au 20/10, même
+ * slideshow posté avec et sans le défaut (analyse/rapports/2026-10-23) : le
+ * texte plus petit que l'original coûte des vues (largeur étroite ×0,32, taille
+ * ×0,21, lignes très courtes ×0,43) ; une justification légère (j de 0,60 à
+ * 0,75), un paragraphe un peu plus large, l'alignement, la couleur, l'effet et
+ * la hiérarchie ne coûtent rien, même sur tout le post.
+ * Taille et largeur étroite partent à leurs seuils de mesure, déjà francs.
+ */
+export const SEUIL_JUSTIF_COURTES_FORT = 0.6;
+export const SEUIL_JUSTIF_LONGUES_FORT = 1.6;
+export const SEUIL_LARGEUR_MAX_FORT = 1.3;
+/** Défauts de style (alignement, couleur, effet, hiérarchie) : sur presque tout le post, 2 slides au moins. */
+export const PART_SLIDES_FORT = 0.75;
 /** Au plus autant de points dans une review : au-delà, le créateur décroche. */
 export const MAX_POINTS_REVIEW = 2;
 /**
@@ -152,9 +168,12 @@ export const MAX_POINTS_REVIEW = 2;
  */
 export const SEUIL_VUES_SANS_REMARQUE = 5000;
 
-/** Ce qui peut partir dans la review, du plus important au moins important. */
+/**
+ * Ce qui peut partir dans la review, du plus important au moins important :
+ * d'abord la taille du texte, le seul écart qui coûte des vues (23/10).
+ */
 export const PRIORITE: CodeDefaut[] = [
-  "texte_absent", "justification", "largeur", "hierarchie", "taille", "alignement", "couleur", "effet",
+  "texte_absent", "taille", "largeur", "justification", "hierarchie", "alignement", "couleur", "effet",
 ];
 /**
  * Mesuré, montré à l'admin, jamais envoyé : la mesure est trop fragile ou
@@ -550,6 +569,37 @@ function vuSurUneSlideSuffit(constats: Constat[]): boolean {
     constats.every((c) => c.valeurs?.original !== "droite" && c.valeurs?.publie !== "droite");
 }
 
+const mediane = (valeurs: number[]): number => {
+  const v = [...valeurs].sort((p, q) => p - q);
+  return v.length % 2 ? v[(v.length - 1) / 2] : (v[v.length / 2 - 1] + v[v.length / 2]) / 2;
+};
+
+/** L'écart vaut-il un retour (voir SEUIL_JUSTIF_COURTES_FORT) ? Sinon, info pour l'admin. */
+export function ecartFort(constats: Constat[], evalues: number): boolean {
+  const { code } = constats[0];
+  const sens = constats[0].valeurs?.sens;
+  const valeur = (cle: string) =>
+    mediane(constats.map((c) => Number(c.valeurs?.[cle])).filter((n) => Number.isFinite(n)));
+  switch (code) {
+    case "texte_absent":
+    case "taille":
+      return true;
+    case "largeur":
+      return sens === "etroit" || valeur("ratio") > SEUIL_LARGEUR_MAX_FORT;
+    case "justification":
+      return sens === "longues" ? valeur("j") > SEUIL_JUSTIF_LONGUES_FORT : valeur("j") < SEUIL_JUSTIF_COURTES_FORT;
+    case "hierarchie":
+    case "alignement":
+    case "couleur":
+    case "effet":
+      return constats.length >= 2 && constats.length / evalues >= PART_SLIDES_FORT;
+    default:
+      return false;
+  }
+}
+
+export const NOTE_ECART_LEGER = " (écart léger : pas envoyé)";
+
 export function agreger(jugements: JugementPaire[]): Defaut[] {
   const evalues = new Map<CodeDefaut, number>();
   for (const j of jugements) for (const code of j.evalues) evalues.set(code, (evalues.get(code) ?? 0) + 1);
@@ -568,23 +618,28 @@ export function agreger(jugements: JugementPaire[]): Defaut[] {
     const vus = constats.length;
     if (!vuSurUneSlideSuffit(constats) && (vus / n < 0.5 || vus < Math.min(2, n))) continue;
     const premier = constats[0];
+    const leger = !INFO.includes(code) && !ecartFort(constats, n);
     defauts.push({
       code,
-      niveau: INFO.includes(code) ? "info" : "remarque",
+      niveau: INFO.includes(code) || leger ? "info" : "remarque",
       slides: constats.map((c) => c.position).sort((p, q) => p - q),
       confiance: arrondi(vus / n),
-      detail: premier.detail,
+      detail: leger ? premier.detail + NOTE_ECART_LEGER : premier.detail,
       valeurs: premier.valeurs,
     });
   }
   // Un paragraphe plus large et des lettres plus grosses, c'est le même geste
-  // (pincer) : un seul point.
-  const sensLargeur = defauts.find((d) => d.code === "largeur")?.valeurs?.sens;
-  const doublon = (d: Defaut) =>
+  // (pincer) : un seul point, la largeur, sauf si son écart est léger (la
+  // taille, franche, part alors seule).
+  const largeur = defauts.find((d) => d.code === "largeur");
+  const memeGeste = (d: Defaut) =>
     d.code === "taille" &&
-    ((sensLargeur === "large" && d.valeurs?.sens === "plus grand") ||
-      (sensLargeur === "etroit" && d.valeurs?.sens === "plus petit"));
-  return trier(defauts.filter((d) => !doublon(d)));
+    ((largeur?.valeurs?.sens === "large" && d.valeurs?.sens === "plus grand") ||
+      (largeur?.valeurs?.sens === "etroit" && d.valeurs?.sens === "plus petit"));
+  const doublon = !defauts.some(memeGeste)
+    ? null
+    : largeur?.niveau === "remarque" ? defauts.find(memeGeste) : largeur;
+  return trier(defauts.filter((d) => d !== doublon));
 }
 
 function rang(code: CodeDefaut): number {
@@ -861,13 +916,39 @@ Draft:
 export const RAISON_DEJA_TRAITE = "post déjà reviewé ou passé dans la file";
 export const RAISON_UN_PAR_CREATEUR = "un retour par créateur et par nuit : un autre de ses posts est parti";
 export const RAISON_SANS_CREATEUR = "compte sans créateur";
+/**
+ * Au plus un retour tous les DELAI_ENTRE_RETOURS_JOURS jours par créateur :
+ * reçu un jour J (heure de Paris), le suivant part au plus tôt à J + 3. Sans
+ * ce délai, un créateur sur cinq recevait un retour presque chaque matin
+ * (rapport du 23/10).
+ */
+export const DELAI_ENTRE_RETOURS_JOURS = 3;
+export const RAISON_DELAI = `retour reçu il y a moins de ${DELAI_ENTRE_RETOURS_JOURS} jours (un tous les ${DELAI_ENTRE_RETOURS_JOURS} jours au plus)`;
+
+/**
+ * Créateurs encore dans le délai : ceux qui ont reçu un retour (de l'agent ou
+ * de l'admin) un jour de Paris à moins de DELAI_ENTRE_RETOURS_JOURS jours
+ * d'aujourd'hui (aujourd'hui compris).
+ */
+export function postersEnPause(
+  retours: Array<{ poster_id: string | null; jour: string }>,
+  aujourdhui: string,
+  delai = DELAI_ENTRE_RETOURS_JOURS,
+): Set<string> {
+  const jourMs = (j: string) => Date.parse(`${j}T12:00:00Z`);
+  const limite = jourMs(aujourdhui) - (delai - 1) * 86_400_000;
+  return new Set(
+    retours.filter((r) => r.poster_id && jourMs(r.jour) >= limite).map((r) => r.poster_id as string),
+  );
+}
 
 /**
  * Un retour par créateur et par nuit : celui du post au défaut le plus
  * important (rang du premier point dans PRIORITE), puis celui qui a le plus de
  * points. Ses autres posts restent en brouillon pour l'admin. Un post déjà
- * reviewé ou passé à la main n'est jamais repris, et un créateur qui a déjà
- * reçu le retour de l'agent cette nuit n'en reçoit pas un deuxième.
+ * reviewé ou passé à la main n'est jamais repris, un créateur qui a déjà
+ * reçu le retour de l'agent cette nuit n'en reçoit pas un deuxième, et un
+ * créateur servi il y a moins de 3 jours attend (postersEnPause).
  */
 export function choisirRetoursAEnvoyer<
   L extends { id: string; post_id: string | null; poster_id: string | null; defauts: Defaut[] },
@@ -875,6 +956,7 @@ export function choisirRetoursAEnvoyer<
   lignes: L[],
   postsDejaTraites: Set<string>,
   postersDejaServis: Set<string>,
+  postersEnDelai: Set<string> = new Set(),
 ): { envoyer: L[]; sauter: Array<{ id: string; raison: string }> } {
   const sauter: Array<{ id: string; raison: string }> = [];
   const parPoster = new Map<string, L[]>();
@@ -882,6 +964,7 @@ export function choisirRetoursAEnvoyer<
     if (!l.poster_id) sauter.push({ id: l.id, raison: RAISON_SANS_CREATEUR });
     else if (l.post_id && postsDejaTraites.has(l.post_id)) sauter.push({ id: l.id, raison: RAISON_DEJA_TRAITE });
     else if (postersDejaServis.has(l.poster_id)) sauter.push({ id: l.id, raison: RAISON_UN_PAR_CREATEUR });
+    else if (postersEnDelai.has(l.poster_id)) sauter.push({ id: l.id, raison: RAISON_DELAI });
     else parPoster.set(l.poster_id, [...(parPoster.get(l.poster_id) ?? []), l]);
   }
   const poids = (l: L) => {

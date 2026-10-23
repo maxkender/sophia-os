@@ -109,8 +109,11 @@ export function formaterAncres(ancres: ReadonlyArray<Ancre>, max = 12): string {
 
 /**
  * Ancres natives d'une langue : les slideshows écrits DANS cette langue
- * (originaux des podz, `langue_source` = langue), valides, les mieux vus
- * d'abord. Texte pris dans `contenu_langues` (base sans Sophia si elle existe).
+ * (`langue_source` = langue), valides, les mieux vus d'abord. D'abord les
+ * IMPORTS, écrits par de vrais créateurs natifs (careerswemma, studyavec_lea…
+ * pour le français) ; les originaux des podz, écrits par des agents et porteurs
+ * des mêmes tics, ne servent qu'en complément s'il manque d'imports. Texte pris
+ * dans `contenu_langues` (base OCR sans Sophia si elle existe).
  */
 export async function chargerAncresNatives(
   supabase: ReturnType<typeof serviceClient>,
@@ -119,12 +122,17 @@ export async function chargerAncresNatives(
 ): Promise<Ancre[]> {
   const { data: contenus } = await supabase
     .from("contenus")
-    .select("id")
+    .select("id, pod, creation_mode")
     .eq("langue_source", langue)
     .eq("statut", "valide")
-    .or("pod.not.is.null,creation_mode.eq.manuel")
-    .limit(300);
-  const ids = (contenus ?? []).map((c: { id: string }) => c.id);
+    .limit(600);
+  const liste = (contenus ?? []) as Array<
+    { id: string; pod: string | null; creation_mode: string | null }
+  >;
+  const estOriginal = new Map(
+    liste.map((c) => [c.id, c.pod != null || c.creation_mode === "manuel"]),
+  );
+  const ids = liste.map((c) => c.id);
   if (!ids.length) return [];
 
   const [{ data: langues }, { data: passages }] = await Promise.all([
@@ -142,7 +150,8 @@ export async function chargerAncresNatives(
       Math.max(maxVues.get(p.contenu_id) ?? 0, p.vues ?? 0),
     );
   }
-  const ancres: Ancre[] = [];
+  const natifs: Ancre[] = [];
+  const originaux: Ancre[] = [];
   for (
     const l of (langues ?? []) as Array<
       { contenu_id: string; slides: unknown; slides_base: unknown }
@@ -150,9 +159,13 @@ export async function chargerAncresNatives(
   ) {
     const texte = texteAncre(l.slides_base ?? l.slides);
     if (texte.split("\n").length < 3) continue;
-    ancres.push({ texte, vues: maxVues.get(l.contenu_id) ?? null });
+    const ancre = { texte, vues: maxVues.get(l.contenu_id) ?? null };
+    (estOriginal.get(l.contenu_id) ? originaux : natifs).push(ancre);
   }
-  return ancres.sort((a, b) => (b.vues ?? 0) - (a.vues ?? 0)).slice(0, n);
+  const parVues = (a: Ancre, b: Ancre) => (b.vues ?? 0) - (a.vues ?? 0);
+  const choisis = natifs.sort(parVues).slice(0, n);
+  if (choisis.length >= 5) return choisis;
+  return [...choisis, ...originaux.sort(parVues)].slice(0, n);
 }
 
 /** Passage 1 : le brief, en mots-clés anglais, sans phrases. */

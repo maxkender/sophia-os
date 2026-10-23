@@ -18,6 +18,7 @@ quand tout est vert.
 | Quoi | Valeur |
 | --- | --- |
 | #a-os-sanity | `C0CBJNRD9LN` (privé : Adrien `U0BMTK7BLCW`, Max `U0BL5FRLBEU`) ; tu postes avec le compte d'Adrien |
+| Ta session et ta tâche planifiée | session `session_01KxpovgqRcS8ZzuehBz8mAT` (modèle Sonnet), tâche `trig_019g22RxrASvyhNYmsaytSCQ`, 8 h 33 Paris tous les jours |
 | Base | Supabase prod `mbikecieskoobeizixig`, connecteur MCP `execute_sql`, **lecture seule** |
 | La source des chiffres | `select public.sanity_quotidien();` (migration 0341) : un seul JSON, pour la veille. `select public.sanity_quotidien('2026-10-22');` pour un autre jour |
 | La méthode | `analyse/AGENT.md` : vues relevées une fois vers J+2, r = vues / médiane du compte, rappels J+7 exclus |

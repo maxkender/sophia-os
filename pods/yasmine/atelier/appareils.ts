@@ -9,33 +9,48 @@ export const IPAD = { x: 153, y: 357, l: 774, h: 1075, r: 76 } as const;
 /** L'écran de l'iPad. Les notes se dessinent dans ce repère (0..696 × 0..997). */
 export const ECRAN = { x: 192, y: 396, l: 696, h: 997, r: 22 } as const;
 
+type Boite = { x: number; y: number; l: number; h: number; r: number };
+/** Un iPad : boîtier, écran, crayon (bord gauche, haut et bas), papier quadrillé ou blanc. */
+export type GeometrieIpad = { boitier: Boite; ecran: Boite; crayon: { x: number; l: number; y0: number; y1: number }; quadrille: boolean };
+
+/** L'iPad des notes (« how I take notes ») : grand, quadrillé façon GoodNotes. */
+export const IPAD_NOTES: GeometrieIpad = { boitier: IPAD, ecran: ECRAN, crayon: { x: 930, l: 33, y0: 541, y1: 1262 }, quadrille: true };
+
+/**
+ * L'iPad des cartes d'applis (« my favorite productivity apps ») : plus petit,
+ * écran blanc, mesuré sur ses slides (écran 224..855 × 402..1307).
+ */
+export const IPAD_CARTE: GeometrieIpad = {
+  boitier: { x: 189, y: 368, l: 700, h: 974, r: 58 },
+  ecran: { x: 224, y: 402, l: 632, h: 906, r: 12 },
+  crayon: { x: 903, l: 24, y0: 540, y1: 1186 },
+  quadrille: false,
+};
+
 /** Papier quadrillé de GoodNotes : un carreau très clair tous les 22 px. */
-function quadrillage(ctx: Ctx) {
+function quadrillage(ctx: Ctx, ecran: Boite) {
   ctx.save();
   ctx.strokeStyle = "rgba(20,30,60,0.055)";
   ctx.lineWidth = 1;
-  for (let x = 11; x < ECRAN.l; x += 22) {
+  for (let x = 11; x < ecran.l; x += 22) {
     ctx.beginPath();
     ctx.moveTo(x + 0.5, 0);
-    ctx.lineTo(x + 0.5, ECRAN.h);
+    ctx.lineTo(x + 0.5, ecran.h);
     ctx.stroke();
   }
-  for (let y = 11; y < ECRAN.h; y += 22) {
+  for (let y = 11; y < ecran.h; y += 22) {
     ctx.beginPath();
     ctx.moveTo(0, y + 0.5);
-    ctx.lineTo(ECRAN.l, y + 0.5);
+    ctx.lineTo(ecran.l, y + 0.5);
     ctx.stroke();
   }
   ctx.restore();
 }
 
 /** L'Apple Pencil posé contre le bord droit, pointe en haut. */
-function crayon(ctx: Ctx) {
-  const x = 930;
-  const l = 33;
-  const y0 = 541;
-  const y1 = 1262;
-  const cone = 44;
+function crayon(ctx: Ctx, c: GeometrieIpad["crayon"]) {
+  const { x, l, y0, y1 } = c;
+  const cone = Math.round(l * 1.33);
   ctx.save();
   ctx.shadowColor = "rgba(0,0,0,0.32)";
   ctx.shadowBlur = 10;
@@ -76,9 +91,11 @@ function crayon(ctx: Ctx) {
 
 /**
  * L'iPad avec son écran. `ecran` dessine dans le repère de l'écran
- * (0..696 × 0..997), déjà découpé et quadrillé.
+ * (0..696 × 0..997 pour l'iPad des notes), déjà découpé et quadrillé.
  */
-export function ipad(ctx: Ctx, ecran: (ctx: Ctx) => void) {
+export function ipad(ctx: Ctx, ecran: (ctx: Ctx) => void, geo: GeometrieIpad = IPAD_NOTES) {
+  const IPAD = geo.boitier;
+  const ECRAN = geo.ecran;
   ctx.save();
   // Le boîtier : noir, ombre douce, bord argenté.
   ctx.shadowColor = "rgba(0,0,0,0.30)";
@@ -102,15 +119,17 @@ export function ipad(ctx: Ctx, ecran: (ctx: Ctx) => void) {
   ctx.stroke();
   // La caméra et ses capteurs, dans le bord du haut.
   const cy = IPAD.y + 19;
-  for (const [cx, r, c] of [
-    [481, 6, "#232325"],
-    [511, 8, "#1d1d20"],
-    [540, 3.5, "#1f2a3a"],
-    [570, 3, "#202022"],
-    [598, 7, "#212123"],
+  const k = IPAD.l / 774;
+  const milieu = IPAD.x + IPAD.l / 2;
+  for (const [dx, r, c] of [
+    [-59, 6, "#232325"],
+    [-29, 8, "#1d1d20"],
+    [0, 3.5, "#1f2a3a"],
+    [30, 3, "#202022"],
+    [58, 7, "#212123"],
   ] as const) {
     ctx.beginPath();
-    ctx.arc(cx, cy, r, 0, Math.PI * 2);
+    ctx.arc(milieu + dx * k, IPAD.y + (cy - IPAD.y) * k, r * k, 0, Math.PI * 2);
     ctx.fillStyle = c;
     ctx.fill();
   }
@@ -121,10 +140,10 @@ export function ipad(ctx: Ctx, ecran: (ctx: Ctx) => void) {
   ctx.fillStyle = "#fefefe";
   ctx.fillRect(ECRAN.x, ECRAN.y, ECRAN.l, ECRAN.h);
   ctx.translate(ECRAN.x, ECRAN.y);
-  quadrillage(ctx);
+  if (geo.quadrille) quadrillage(ctx, ECRAN);
   ecran(ctx);
   ctx.restore();
-  crayon(ctx);
+  crayon(ctx, geo.crayon);
   ctx.restore();
 }
 

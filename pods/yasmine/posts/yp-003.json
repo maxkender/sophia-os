@@ -1,0 +1,170 @@
+{
+ "id": "yp-003",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7669753213578415382",
+  "vues": 12400,
+  "enregistrements": 412,
+  "publie_le": "2026-08-03",
+  "titre": "my favorite productivity apps (non-sponsored)"
+ },
+ "titre": {
+  "fr": "mes applis de productivité préférées"
+ },
+ "legendes": {
+  "fr": "celles que j’utilise vraiment 📱 #productivite #studytok #revisions #thatgirl #applis"
+ },
+ "musique": {
+  "titre": "suara asli - Zahraaaa🌸",
+  "url": "https://www.tiktok.com/music/suara-asli-zahraaaa-7436786504011221776"
+ },
+ "fond": {
+  "media_id": "2f2ab02e-4b6f-4b1f-b9a0-279f062a075b",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/b4f29c45-882d-4ad5-aa7f-60536761e1ec/2.jpg?v=1790607124813",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "mes applis de",
+     "script_place": "gauche",
+     "lignes": [
+      "productivité",
+      "préférées"
+     ],
+     "taille": 137,
+     "interligne": 0.82,
+     "taille_script": 84,
+     "y": 868
+    }
+   }
+  },
+  {
+   "type": "carte",
+   "fr": {
+    "carte": {
+     "nom": "FocusPomo",
+     "icone": "assets/applis/focuspomo.jpg",
+     "lignes": [
+      "Simple et minimaliste",
+      "pour suivre tes",
+      "sessions de travail.",
+      "",
+      "Je fais 50 min,",
+      "10 min de pause,",
+      "et 20 à 40 min",
+      "de pause après",
+      "2 sessions."
+     ],
+     "taille": 48
+    }
+   }
+  },
+  {
+   "type": "carte",
+   "fr": {
+    "carte": {
+     "nom": "Opal",
+     "icone": "assets/applis/opal.jpg",
+     "lignes": [
+      "Pour mon addiction",
+      "au téléphone.",
+      "",
+      "Je limite les réseaux",
+      "à 10-20 min par jour.",
+      "Ça marche trop bien,",
+      "je suis trop impatiente",
+      "pour attendre que TikTok",
+      "s’ouvre, alors je lâche."
+     ],
+     "taille": 44
+    }
+   }
+  },
+  {
+   "type": "carte",
+   "fr": {
+    "carte": {
+     "nom": "Substack",
+     "icone": "assets/applis/substack.jpg",
+     "lignes": [
+      "Remplacer le scroll",
+      "par la lecture.",
+      "",
+      "Rien de plus,",
+      "rien de moins.",
+      "10/10, je recommande."
+     ],
+     "taille": 48
+    }
+   }
+  },
+  {
+   "type": "carte",
+   "fr": {
+    "carte": {
+     "nom": "micabo",
+     "icone": "assets/micabo/icone.png",
+     "lignes": [
+      "J’y mets mes cours",
+      "et elle m’en fait",
+      "des quiz et des",
+      "flashcards.",
+      "",
+      "10 min par jour,",
+      "et j’arrive prête",
+      "aux contrôles."
+     ],
+     "taille": 48
+    }
+   },
+   "app": true
+  },
+  {
+   "type": "carte",
+   "fr": {
+    "carte": {
+     "nom": "Calendrier",
+     "icone": "assets/applis/calendrier.jpg",
+     "lignes": [
+      "Franchement sous-coté,",
+      "surtout si tu as au",
+      "moins 2 appareils Apple.",
+      "",
+      "Je l’utilise pour",
+      "bloquer mes créneaux",
+      "et pour les rappels",
+      "importants."
+     ],
+     "taille": 44
+    }
+   }
+  },
+  {
+   "type": "carte",
+   "fr": {
+    "carte": {
+     "nom": "Notion",
+     "icone": "assets/applis/notion.jpg",
+     "lignes": [
+      "L’outil d’organisation",
+      "ultime. Je m’en sers",
+      "pour mes to-do, le suivi",
+      "de mes examens, et",
+      "comme base de données",
+      "de ma vie, honnêtement.",
+      "",
+      "Mieux sur ordinateur."
+     ],
+     "taille": 44
+    }
+   }
+  }
+ ],
+ "notes": "brouillon du 23/10 : attend assets/micabo/icone.png (Adrien la dépose). Cartes FocusPomo, Opal, Substack, Calendrier, Notion gardées (concurrents indirects, décision du 23/10) ; micabo à la place de Goodnotes. « non-sponsored » retiré de la couverture : le post met micabo en avant."
+}

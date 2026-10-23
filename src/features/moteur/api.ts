@@ -6248,14 +6248,16 @@ export interface ComparaisonTraduction {
   langue: string;
   slides: Array<{ position: number; original: string; actuel: string; natif: string }>;
   hashtags: { actuel: string; natif: string };
-  brief: { ton: string; adresse: string; slides: Array<{ position: number; role: string; idees: string[]; concurrent: string | null }> };
+  controle: Array<{ position: number; fidele: boolean; remarque: string }>;
+  reprises: number[];
   ancres: number;
   error?: string;
 }
 
-/** Compare, slide par slide, la traduction actuelle et l'« écriture native »
- *  (brief en mots-clés, puis écriture dans la langue depuis des exemples natifs
- *  qui ont marché). Plusieurs slides : séparées par une ligne vide. Rien n'est créé. */
+/** Compare, slide par slide, la traduction actuelle et la « traduction ancrée »
+ *  (même texte, formulé comme les créateurs natifs de la langue qui ont marché,
+ *  avec un contrôle de fidélité). Plusieurs slides : séparées par une ligne vide.
+ *  Rien n'est créé. */
 export const comparerTraduction = (texte: string, langue: string) =>
   invoke<ComparaisonTraduction>("traduire-test", { texte, langue, comparer: true });
 

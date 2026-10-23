@@ -1,18 +1,20 @@
 /**
- * « Écriture native » : l'autre façon de passer un slideshow dans une langue.
+ * « Traduction ancrée » : l'autre façon de passer un slideshow dans une langue.
  *
- * La traduction actuelle (`translateSlideshow`) montre la slide source et dit
- * « traduis » : quelles que soient les règles, le modèle reste collé à la
- * structure de la phrase anglaise, et ça se voit (constat d'Adrien, 23/10, sur
- * le français). Ici, deux passages :
- *   1. un BRIEF télégraphique, en mots-clés anglais, sans phrases : les idées de
- *      chaque slide, son rôle, le concurrent cité s'il y en a un, le ton ;
- *   2. l'ÉCRITURE dans la langue cible à partir du brief et d'ANCRES NATIVES
- *      (des slideshows écrits par des natifs qui ont marché), sans jamais voir
- *      le texte source.
+ * La traduction actuelle (`translateSlideshow`) dit « traduis » avec des règles :
+ * quelles que soient les règles, le modèle garde des calques de l'anglais, et ça
+ * se voit (constat d'Adrien, 23/10, sur le français). Ici, le modèle garde le
+ * texte source sous les yeux (on TRADUIT, on ne réécrit pas : mêmes idées, même
+ * nombre de phrases, rien d'ajouté ni retiré), mais il a aussi des ANCRES
+ * NATIVES, des slideshows écrits par de vrais créateurs de la langue qui ont
+ * marché, et la consigne de formuler comme eux. Un contrôle de fidélité relit
+ * ensuite chaque slide ; une slide infidèle est retraduite une fois.
+ *
+ * Première version (23/10, le matin) : un brief en mots-clés puis une écriture
+ * libre. Trop libre : elle ajoutait des titres et changeait le propos. Abandonnée.
+ *
  * Le placement de Sophia n'est pas touché : il tourne après, sur ce texte,
- * comme sur une traduction. Une slide reste une slide (mêmes positions), et la
- * slide qui citait un concurrent reste repérée dans le brief.
+ * comme sur une traduction. Une slide reste une slide (mêmes positions).
  *
  * Servi par `traduire-test` (comparaison des deux modèles) ; pas branché sur le
  * moteur tant que le test n'a pas tranché.
@@ -32,17 +34,10 @@ export interface SlideSource {
   original: string;
 }
 
-export interface BriefSlide {
+export interface ControleSlide {
   position: number;
-  role: string;
-  idees: string[];
-  concurrent: string | null;
-}
-
-export interface Brief {
-  ton: string;
-  adresse: string;
-  slides: BriefSlide[];
+  fidele: boolean;
+  remarque: string;
 }
 
 export interface Ancre {
@@ -51,10 +46,13 @@ export interface Ancre {
 }
 
 export interface EcritureNative {
-  brief: Brief;
   slides: Array<{ position: number; texte: string }>;
   hashtags: string;
   ancres: number;
+  /** Contrôle de fidélité, slide par slide, sur la version rendue. */
+  controle: ControleSlide[];
+  /** Slides retraduites après un contrôle négatif. */
+  reprises: number[];
 }
 
 /** Slides depuis un texte collé : une slide par bloc séparé par une ligne vide (ou `---`). */
@@ -168,98 +166,63 @@ export async function chargerAncresNatives(
   return [...choisis, ...originaux.sort(parVues)].slice(0, n);
 }
 
-/** Passage 1 : le brief, en mots-clés anglais, sans phrases. */
-export async function resumerSlideshow(
-  slides: ReadonlyArray<SlideSource>,
-  sourceTitle: string,
-): Promise<Brief> {
-  const deck = slides.map((s) =>
-    `Slide ${s.position}: "${s.original || "(no text)"}"`
-  ).join("\n");
-  const prompt =
-    `You read a TikTok slideshow (advice / listicle). Write a BRIEF, in telegraphic English
-keywords, never sentences: for each slide, 2 to 5 ideas of 3 to 8 words, the role
-("hook", "tip", "conclusion", "other"), and the name of any competing app, product or
-tool it recommends (null otherwise). Add the overall tone (e.g. "blunt, big sister, dry
-humour") and the address ("second person" or "impersonal").
-Do NOT translate and do NOT rephrase into sentences: nobody should be able to rebuild
-the original wording from the brief. Keep every slide, same positions.
-
-Caption of the source video: ${sourceTitle || "(none)"}
-
-${deck}
-
-Answer with JSON only, no code block:
-{"ton":"...","adresse":"...","slides":[{"position":1,"role":"hook","idees":["..."],"concurrent":null}]}`;
-  const brut = textOf(await callWithFallback(TEXT_MODELS, [{ text: prompt }]));
-  const brief = parseJsonModele<Brief>(brut);
-  if (!brief || !Array.isArray(brief.slides)) {
-    throw new Error("brief illisible");
-  }
-  return {
-    ton: String(brief.ton ?? ""),
-    adresse: String(brief.adresse ?? ""),
-    slides: brief.slides.map((s) => ({
-      position: Number(s.position),
-      role: String(s.role ?? "other"),
-      idees: Array.isArray(s.idees) ? s.idees.map(String) : [],
-      concurrent: s.concurrent ? String(s.concurrent) : null,
-    })),
-  };
-}
-
-/** Passage 2 : l'écriture dans la langue, depuis le brief et les ancres, sans le texte source. */
-export async function ecrireDepuisBrief(input: {
-  brief: Brief;
+/** Traduction fidèle, formulée comme les natifs des ancres. */
+export async function traduireAncre(input: {
+  slides: ReadonlyArray<SlideSource>;
   langue: string;
   ancres: ReadonlyArray<Ancre>;
   /** Règles de la langue (le prompt `traduction_<langue>`), facultatives. */
   regles?: string;
+  /** Remarques du contrôle de fidélité, pour une reprise. */
+  reprises?: ReadonlyArray<ControleSlide>;
 }): Promise<
   { slides: Array<{ position: number; texte: string }>; hashtags: string }
 > {
   const langue = LANGUES[input.langue] ?? input.langue;
-  const briefTxt = input.brief.slides
-    .map((s) =>
-      `Slide ${s.position} (${s.role}) : ${s.idees.join(" · ")}${
-        s.concurrent ? ` [cite un concurrent : ${s.concurrent}]` : ""
-      }`
-    )
+  const deck = input.slides
+    .map((s) => `Slide ${s.position} : "${s.original || "(aucun texte)"}"`)
     .join("\n");
+  const reprises = (input.reprises ?? []).filter((r) => !r.fidele);
   const prompt = `LANGUE DE SORTIE : ${langue.toUpperCase()}.
 Tout le texte que tu produis doit être en ${langue}, sans exception.
 
-Tu es un·e créateur·rice TikTok natif·ve de cette langue. Tu n'as pas le texte
-d'origine, seulement un brief en mots-clés : tu ÉCRIS le slideshow, tu ne
-traduis rien.
+Tu TRADUIS un slideshow TikTok. Tu ne le réécris pas :
+- une slide source = une slide traduite, même position ;
+- mêmes idées, même propos, même ordre ; rien d'ajouté (pas de titre, pas de
+  reformulation en question), rien de retiré ;
+- même nombre de phrases, à une près ; même personne (tu / je / on) que la source ;
+- si la traduction directe sonne déjà naturelle, garde-la : la fidélité gagne.
 
+Ta seule liberté, c'est la FORMULATION : les mots, le rythme, les tournures.
+Elle doit sonner comme les créateurs natifs ci-dessous, pas comme une phrase
+anglaise mise en ${langue}.
 ${
     input.ancres.length
-      ? `Voici des slideshows écrits par des créateurs natifs de ta langue, dans la même
+      ? `
+Slideshows écrits par de vrais créateurs natifs de ta langue, dans la même
 niche, qui ont marché. Imite leur registre, la longueur de leurs lignes, leur
-ponctuation, leur façon de s'adresser au lecteur, leurs emojis quand ils en
-mettent. Ne recopie aucune de leurs phrases.
+ponctuation, leur façon de s'adresser au lecteur. Ne recopie aucune phrase.
 
 ${formaterAncres(input.ancres)}
-
 `
       : ""
-  }Le brief (idées en mots-clés, pas des phrases) :
-Ton : ${input.brief.ton || "(non précisé)"}. Adresse : ${
-    input.brief.adresse || "(non précisée)"
-  }.
-${briefTxt}
+  }
+Règles fixes : pas de tiret long (—) ni demi-cadratin (–) ; pas de vocabulaire
+marketing ; pas de point d'exclamation en rafale ; genre et tutoiement fixés une
+fois pour tout le slideshow ; aucun produit tiers (une slide qui en cite un
+devient une action pure ; le seul produit qui existe ici est l'appli Sophia et
+ce n'est pas ton rôle de l'ajouter) ; URLs et sources citées gardées telles quelles.
+${input.regles ? `\nRègles de la langue :\n${input.regles}\n` : ""}${
+    reprises.length
+      ? `\nUn relecteur a trouvé ces écarts dans une première version ; corrige-les
+en restant fidèle :\n${
+        reprises.map((r) => `- slide ${r.position} : ${r.remarque}`).join("\n")
+      }\n`
+      : ""
+  }
+Le slideshow source, dans l'ordre (slide 1 = couverture) :
+${deck}
 
-Écris le slideshow en ${langue} :
-- une slide par position, même nombre, même ordre ; la slide 1 est l'accroche ;
-- chaque slide se lit en 2 à 3 secondes, au pouce ;
-- les idées du brief sont toutes là, dites comme tu les dirais à un·e ami·e ;
-- aucun produit tiers : une slide qui cite un concurrent devient une action pure
-  (le seul produit qui existe ici est l'appli Sophia, et ce n'est pas ton rôle
-  de l'ajouter) ;
-- pas de tiret long (—) ni demi-cadratin (–) ; pas de vocabulaire marketing ;
-  pas de point d'exclamation en rafale ; genre et tutoiement fixés une fois.
-${input.regles ? `\nRègles de la langue :\n${input.regles}\n` : ""}
 Hashtags : EXACTEMENT 3, en ${langue}, un mot chacun, collés au sujet.
 
 Réponds uniquement en JSON, sans bloc de code :
@@ -269,7 +232,7 @@ Réponds uniquement en JSON, sans bloc de code :
     { slides?: Array<{ position: number; texte: string }>; hashtags?: string }
   >(brut);
   if (!sortie || !Array.isArray(sortie.slides)) {
-    throw new Error("écriture illisible");
+    throw new Error("traduction illisible");
   }
   return {
     slides: sortie.slides.map((s) => ({
@@ -280,6 +243,41 @@ Réponds uniquement en JSON, sans bloc de code :
   };
 }
 
+/** Relecture : chaque slide traduite dit-elle la même chose que la source ? */
+export async function controlerFidelite(
+  slides: ReadonlyArray<SlideSource>,
+  traduites: ReadonlyArray<{ position: number; texte: string }>,
+): Promise<ControleSlide[]> {
+  const parPosition = new Map(traduites.map((t) => [t.position, t.texte]));
+  const paires = slides
+    .map((s) =>
+      `Slide ${s.position}\nSOURCE : "${s.original}"\nTRADUITE : "${
+        parPosition.get(s.position) ?? ""
+      }"`
+    )
+    .join("\n\n");
+  const prompt =
+    `Tu compares, slide par slide, un texte source et sa traduction.
+Pour chaque slide, dis si la traduction est FIDÈLE : mêmes idées, même propos,
+rien d'ajouté (titre, question, exemple), rien de retiré, même personne (tu / je / on).
+Une formulation différente mais qui dit la même chose est fidèle. Une slide
+vide des deux côtés est fidèle.
+
+${paires}
+
+Réponds uniquement en JSON, sans bloc de code :
+{"slides":[{"position":1,"fidele":true,"remarque":""}]}
+La remarque, en français, courte, seulement quand fidele est false : ce qui
+manque ou ce qui a été ajouté.`;
+  const brut = textOf(await callWithFallback(TEXT_MODELS, [{ text: prompt }]));
+  const sortie = parseJsonModele<{ slides?: ControleSlide[] }>(brut);
+  return (sortie?.slides ?? []).map((c) => ({
+    position: Number(c.position),
+    fidele: Boolean(c.fidele),
+    remarque: String(c.remarque ?? ""),
+  }));
+}
+
 export async function ecrireNatif(input: {
   slides: ReadonlyArray<SlideSource>;
   sourceTitle: string;
@@ -287,17 +285,29 @@ export async function ecrireNatif(input: {
   ancres: ReadonlyArray<Ancre>;
   regles?: string;
 }): Promise<EcritureNative> {
-  const brief = await resumerSlideshow(input.slides, input.sourceTitle);
-  const ecrit = await ecrireDepuisBrief({
-    brief,
+  let rendu = await traduireAncre({
+    slides: input.slides,
     langue: input.langue,
     ancres: input.ancres,
     regles: input.regles,
   });
+  let controle = await controlerFidelite(input.slides, rendu.slides);
+  const reprises = controle.filter((c) => !c.fidele).map((c) => c.position);
+  if (reprises.length) {
+    rendu = await traduireAncre({
+      slides: input.slides,
+      langue: input.langue,
+      ancres: input.ancres,
+      regles: input.regles,
+      reprises: controle,
+    });
+    controle = await controlerFidelite(input.slides, rendu.slides);
+  }
   return {
-    brief,
-    slides: ecrit.slides,
-    hashtags: ecrit.hashtags,
+    slides: rendu.slides,
+    hashtags: rendu.hashtags,
     ancres: input.ancres.length,
+    controle,
+    reprises,
   };
 }

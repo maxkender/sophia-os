@@ -221,7 +221,9 @@ function TestTraduction() {
           <div className="space-y-3">
             <p className="text-xs text-muted-foreground">
               {t("tests.tradAncres", { n: comparer.data.ancres })}
-              {comparer.data.brief?.ton ? ` · ${comparer.data.brief.ton}` : ""}
+              {comparer.data.reprises?.length
+                ? ` · ${t("tests.tradReprises", { n: comparer.data.reprises.length })}`
+                : ""}
             </p>
             <div className="overflow-x-auto rounded-lg border">
               <table className="w-full text-sm">
@@ -252,12 +254,11 @@ function TestTraduction() {
               </table>
             </div>
             <details className="text-xs text-muted-foreground">
-              <summary className="cursor-pointer">{t("tests.tradBrief")}</summary>
+              <summary className="cursor-pointer">{t("tests.tradControle")}</summary>
               <ul className="mt-1 list-disc space-y-0.5 pl-4">
-                {comparer.data.brief.slides.map((b) => (
-                  <li key={b.position}>
-                    {b.position}. {b.role} : {b.idees.join(" · ")}
-                    {b.concurrent ? ` [${b.concurrent}]` : ""}
+                {comparer.data.controle.map((c) => (
+                  <li key={c.position}>
+                    {c.position}. {c.fidele ? t("tests.tradFidele") : c.remarque || t("tests.tradInfidele")}
                   </li>
                 ))}
               </ul>

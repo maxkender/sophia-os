@@ -2,7 +2,7 @@
 // photo, légendes jaunes et titre de couverture.
 
 import type { Image, SKRSContext2D } from "@napi-rs/canvas";
-import { POLICE } from "./polices.ts";
+import { EMOJIS, POLICE } from "./polices.ts";
 
 /** Le format des slides du compte (9:16). */
 export const L = 1080;
@@ -16,6 +16,10 @@ export const COULEUR = {
   marine: "#1c2b4b",
   /** Le surligneur jaune des notes (#fde79c). */
   surligneur: "#fde79c",
+  /** Les petites légendes TikTok des slides photo : jaune pâle sur les photos sombres… */
+  tiktok_jaune: "#fdf2ab",
+  /** … brun foncé sur les photos claires (mesurés sur « after school routine »). */
+  tiktok_brun: "#3d2c28",
 } as const;
 
 export type Ctx = SKRSContext2D;
@@ -116,14 +120,23 @@ export type Couverture = {
   y?: number;
   /** Taille du titre (124 px chez elle). */
   taille?: number;
+  /** « centre » : chaque ligne centrée, sans escalier (« after school routine », 174 px). */
+  aligne?: "escalier" | "centre";
+  /** Taille de l'écriture fine (par défaut 0,55 × le titre). */
+  taille_script?: number;
+  /** Sous le titre, en texte TikTok blanc calé à gauche du titre (« for a peaceful life🌙 »). */
+  texte_bas?: string;
 };
 
 /** Le titre de couverture : capitales jaunes en escalier, écriture fine blanche. */
 export function titreCouverture(ctx: Ctx, c: Couverture) {
   const taille = c.taille ?? 124;
-  const interligne = Math.round(taille * 1.07);
+  const centre = c.aligne === "centre";
+  // Centré, ses lignes se touchent presque : une ligne tous les 1,0 × la taille.
+  const interligne = Math.round(taille * (centre ? 1.0 : 1.07));
   const y0 = c.y ?? 712;
   const decalages = c.decalages ?? [135, 300, 330];
+  const tailleScript = c.taille_script ?? Math.round(taille * 0.55);
   ctx.save();
   ctx.font = `${taille}px "${POLICE.titre}"`;
   ctx.letterSpacing = `${-taille * 0.012}px`;
@@ -133,16 +146,20 @@ export function titreCouverture(ctx: Ctx, c: Couverture) {
   ctx.shadowColor = "rgba(0,0,0,0.18)";
   ctx.shadowBlur = 18;
   let droite = 0;
+  let gauche = L;
   c.lignes.forEach((ligne, i) => {
-    const x = decalages[Math.min(i, decalages.length - 1)];
+    const l = ctx.measureText(ligne).width;
+    const x = centre ? Math.round(L / 2 - l / 2) : decalages[Math.min(i, decalages.length - 1)];
+    if (x < 40 || x + l > L - 40) throw new Error(`couverture : « ${ligne} » déborde`);
     ctx.fillText(ligne, x, y0 + i * interligne);
-    droite = Math.max(droite, x + ctx.measureText(ligne).width);
+    droite = Math.max(droite, x + l);
+    gauche = Math.min(gauche, x);
   });
   ctx.letterSpacing = "0px";
   sansOmbre(ctx);
-  const script = (texte: string, x: number, y: number, align: "left" | "right") => {
+  const script = (texte: string, x: number, y: number, align: "left" | "right" | "center") => {
     ctx.save();
-    ctx.font = `${Math.round(taille * 0.55)}px "${POLICE.script}"`;
+    ctx.font = `${tailleScript}px "${POLICE.script}"`;
     ctx.fillStyle = "#ffffff";
     ctx.shadowColor = "rgba(0,0,0,0.25)";
     ctx.shadowBlur = 8;
@@ -153,7 +170,73 @@ export function titreCouverture(ctx: Ctx, c: Couverture) {
     ctx.fillText(texte, 0, 0);
     ctx.restore();
   };
-  if (c.script_haut) script(c.script_haut, decalages[0] + 8, y0 - taille * 0.98, "left");
+  if (c.script_haut) {
+    if (centre) script(c.script_haut, L / 2 + tailleScript * 0.12, y0 - taille * 1.02, "center");
+    else script(c.script_haut, decalages[0] + 8, y0 - taille * 0.98, "left");
+  }
   if (c.script_bas) script(c.script_bas, droite + 20, y0 + (c.lignes.length - 1) * interligne + taille * 0.68, "right");
+  if (c.texte_bas) {
+    texteTiktok(ctx, [c.texte_bas], { x: gauche + 12, y: y0 + (c.lignes.length - 1) * interligne + Math.round(taille * 0.5), taille: Math.round(taille * 0.24), couleur: "#ffffff", aligne: "gauche" });
+  }
   ctx.restore();
+}
+
+/** Une petite légende posée sur une slide photo, comme le texte natif de TikTok. */
+export type LegendePhoto = {
+  /** Les lignes, emojis compris (« prends un goûter🥨 »). */
+  lignes: string[];
+  /** Des lignes plus petites dessous (« aim for 2 hours a day⏰ »). */
+  sous?: string[];
+  /** Centre du texte (ou son bord gauche si `aligne` vaut « gauche »). 540 par défaut. */
+  x?: number;
+  /** Ligne de base de la première ligne. */
+  y: number;
+  /** 36 à 62 px chez elle, selon la slide. */
+  taille?: number;
+  taille_sous?: number;
+  /** « jaune » sur une photo sombre, « brun » sur une photo claire. */
+  couleur?: "jaune" | "brun" | "blanc";
+  aligne?: "centre" | "gauche";
+};
+
+type PlaceTiktok = { x: number; y: number; taille: number; couleur: string; aligne: "centre" | "gauche" };
+
+/**
+ * Le texte natif de TikTok : TikTok Sans SemiBold, approche serrée
+ * (−0,025 em), pas d'ombre, emojis en couleur. Rend la ligne de base suivante.
+ */
+function texteTiktok(ctx: Ctx, lignes: string[], p: PlaceTiktok): number {
+  if (!EMOJIS && lignes.some((l) => /\p{Extended_Pictographic}/u.test(l))) {
+    throw new Error("police d'emojis introuvable (Noto Color Emoji) : les emojis ne se dessineraient pas");
+  }
+  ctx.save();
+  ctx.font = `${p.taille}px "${POLICE.tiktok}", "${POLICE.emoji}"`;
+  ctx.letterSpacing = `${-p.taille * 0.025}px`;
+  ctx.textBaseline = "alphabetic";
+  ctx.textAlign = "left";
+  ctx.fillStyle = p.couleur;
+  sansOmbre(ctx);
+  const interligne = Math.round(p.taille * 1.18);
+  let y = p.y;
+  for (const ligne of lignes) {
+    const l = ctx.measureText(ligne).width;
+    const x = p.aligne === "gauche" ? p.x : Math.round(p.x - l / 2);
+    if (x < 40 || x + l > L - 40) throw new Error(`légende : « ${ligne} » déborde de la slide`);
+    ctx.fillText(ligne, x, y);
+    y += interligne;
+  }
+  ctx.restore();
+  return y;
+}
+
+/** La légende d'une slide photo : ses lignes, puis les petites lignes dessous. */
+export function legendePhoto(ctx: Ctx, l: LegendePhoto) {
+  const couleur = l.couleur === "brun" ? COULEUR.tiktok_brun : l.couleur === "blanc" ? "#ffffff" : COULEUR.tiktok_jaune;
+  const taille = l.taille ?? 52;
+  const base = { x: l.x ?? L / 2, couleur, aligne: l.aligne ?? "centre" } as const;
+  const suivante = texteTiktok(ctx, l.lignes, { ...base, y: l.y, taille });
+  if (l.sous?.length) {
+    const ts = l.taille_sous ?? Math.round(taille * 0.62);
+    texteTiktok(ctx, l.sous, { ...base, y: suivante - Math.round(taille * 1.18) + Math.round(ts * 1.3), taille: ts });
+  }
 }

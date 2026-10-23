@@ -47,7 +47,8 @@ rejette est validée toute seule 12 h après son dépôt.
 	- l'**iPhone**, avec une capture.
 - **Les légendes** : Poppins jaune pâle, au-dessus de l'appareil (42 px) et en dessous (48 px).
 - **Les notes remplies** : écriture Gochi Hand, surligneur `#fde79c`, titres jaunes, flèches dessinées (la police n'a pas « → »).
-- **Pas encore dans l'atelier** : les cartes « Notes » blanches (« school tips », « digital declutter »), les photos à petites légendes (« after school routine »), l'écran d'accueil d'iPhone (« organise my phone »).
+- **Slides photo** (« after school routine ») : `type: "photo"`, sa propre `photo`, une `legende` en texte TikTok (TikTok Sans SemiBold, jaune `#fdf2ab` ou brun `#3d2c28`, emojis), photo non assombrie ; l'iPhone s'y pose avec `capture`. Couverture centrée : `aligne: "centre"`, `texte_bas`.
+- **Pas encore dans l'atelier** : les cartes « Notes » blanches (« school tips », « digital declutter »), l'écran d'accueil d'iPhone (« organise my phone »).
 	- Ajoute-les dans `atelier/` en les mesurant sur ses slides (`npm run veille` les met en cache dans `donnees/cache/`).
 	- Garde le même soin que le reste.
 

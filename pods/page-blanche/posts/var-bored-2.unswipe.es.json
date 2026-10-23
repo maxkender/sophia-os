@@ -1,0 +1,229 @@
+{
+ "application": "unswipe",
+ "post_id": "var-bored-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "10/10 hábitos de los pros de la soledad"
+    },
+    "T2": {
+     "en": [
+      "(in this age of",
+      "short-form content)"
+     ],
+     "fr": "(à l'époque des vidéos de 10 secondes)",
+     "texte": "(edición extrañamente específica)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "listening to something",
+      "constantly"
+     ],
+     "fr": "écouter un truc [[non-stop]]",
+     "texte": "se van [[de excursión por su cuenta]]"
+    },
+    "T2": {
+     "en": [
+      "music, podcasts, YouTube in the background,",
+      "your brain is almost never doing just one",
+      "thing"
+     ],
+     "fr": "musique, podcasts, YouTube en fond : ton cerveau [[fait presque jamais une seule chose]]",
+     "texte": "un tren al azar, [[un pueblo que no conocen]], sin plan y sin nadie con quien negociar dónde comer"
+    },
+    "T3": {
+     "en": [
+      "especially with",
+      "lyrics, part of",
+      "your attention is",
+      "still processing",
+      "language"
+     ],
+     "fr": "[[surtout avec des paroles]] : une partie de ton attention traite encore les mots",
+     "texte": "[[ventanilla]], sin cascos, solo campos pasando y sus propios pensamientos"
+    },
+    "T4": {
+     "en": [
+      "silence feels boring because you've stopped",
+      "practicing it"
+     ],
+     "fr": "le silence te paraît chiant parce que t'en as [[perdu l'habitude]]",
+     "texte": "vuelven cansados, felices y con [[la cabeza como nueva]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "consuming everything at 2x speed"
+     ],
+     "fr": "tout mettre [[en vitesse x2]]",
+     "texte": "se cocinan [[una cena de verdad]]"
+    },
+    "T2": {
+     "en": [
+      "when every podcast, video",
+      "and voice note is sped up,",
+      "normal-speed information",
+      "starts feeling painfully slow"
+     ],
+     "fr": "quand tes podcasts, vidéos et vocaux sont tous accélérés, le rythme normal te paraît [[atrocement lent]]",
+     "texte": "nada de tostada encima del fregadero. una vela, un plato bonito, la copa buena, [[como si invitaran a alguien que quieren]]"
+    },
+    "T3": {
+     "en": [
+      "you're training yourself to",
+      "need constant density"
+     ],
+     "fr": "ton cerveau s'habitue à [[en vouloir toujours plus]]",
+     "texte": "porque esa noche [[el invitado de honor son ellos]]"
+    },
+    "T4": {
+     "en": [
+      "instead, actually sit with an",
+      "idea for more than 10",
+      "seconds"
+     ],
+     "fr": "à la place, pose-toi sur une idée plus de 10 secondes",
+     "texte": "comen en la mesa, despacio, y saborean de verdad lo que comen"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start reading everyday"
+     ],
+     "fr": "apprends un truc [[chaque jour]]",
+     "texte": "casi [[no hacen scroll]]"
+    },
+    "T2": {
+     "en": [
+      "scrolling feeds you",
+      "constant dopamine and",
+      "burns your dopamine",
+      "receptors"
+     ],
+     "fr": "le scroll t'envoie [[de la dopamine non-stop]] et [[crame tes récepteurs]]",
+     "texte": "así su tiempo a solas es de verdad a solas, [[no con 400 desconocidos]]"
+    },
+    "T3": {
+     "en": [
+      "i use readup to block my",
+      "apps for 20 minutes until i",
+      "read"
+     ],
+     "fr": "perso j'ai remplacé mon scroll par [[5 min sur l'appli Sophia]]",
+     "texte": "su cabeza se calma lo suficiente para [[oír sus propias ideas]]"
+    },
+    "T4": {
+     "en": [
+      "reading forces you to hold",
+      "attention, remember",
+      "details, and follow one",
+      "idea for longer"
+     ],
+     "fr": "apprendre, ça t'oblige à [[te concentrer]], [[retenir des détails]] et suivre une idée jusqu'au bout",
+     "texte": "empezó el día que quitaron los Reels de su instagram, solo para ver qué pasaba"
+    },
+    "T5": {
+     "en": [
+      "even a little every day is",
+      "enough to start rebuilding",
+      "your attention span"
+     ],
+     "fr": "même un petit peu par jour suffit à [[réparer ta concentration]]",
+     "texte": "y bloquearon tiktok del todo con [[la app UnSwipe]]. no lo echan nada de menos"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop waiting to feel motivated"
+     ],
+     "fr": "arrête [[d'attendre la motivation]]",
+     "texte": "siempre llevan [[una libretita]]"
+    },
+    "T2": {
+     "en": [
+      "motivation comes",
+      "after starting, not",
+      "before"
+     ],
+     "fr": "la motivation vient en faisant, pas avant",
+     "texte": "ideas, frases que oyen, cosas que les molestaron"
+    },
+    "T3": {
+     "en": [
+      "make yourself do just 10 minutes of the thing you're",
+      "avoiding. once you've crossed the initial resistance,",
+      "continuing is dramatically easier than starting from",
+      "zero."
+     ],
+     "fr": "force-toi à faire [[juste 10 minutes]] du truc que tu repousses. une fois le plus dur passé, continuer est mille fois plus facile que de partir de zéro.",
+     "texte": "escriben como si nadie fuera a leerlo, porque nadie lo leerá. ahí discuten consigo mismos y descubren qué piensan de verdad. [[más barato que la terapia]]."
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "3. Relearn how to be bored"
+     ],
+     "fr": "3. Réapprends à t'ennuyer",
+     "texte": "ven [[atardeceres a solas]]"
+    },
+    "T2": {
+     "en": [
+      "All best ideas come",
+      "when you give them",
+      "space to grow"
+     ],
+     "fr": "Les bonnes idées ont besoin d'espace pour pousser",
+     "texte": "sin foto, sin story, solo ellos y el cielo cambiando"
+    },
+    "T3": {
+     "en": [
+      "Stop scrolling",
+      "anytime you're free"
+     ],
+     "fr": "Arrête de scroller dès que t'as 2 min",
+     "texte": "[[el mejor show gratis del barrio!!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

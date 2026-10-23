@@ -60,7 +60,7 @@ Lance `npm install` une fois par session. `livrer`, `etat` et `photos` demandent
 
 | Commande | Effet |
 | --- | --- |
-| `npm run veille` | Relève ses posts en direct (Apify), avec la planche de leurs slides. Budget : 1 $ par semaine glissante. |
+| `npm run veille` | Relève ses posts en direct (Apify) : 60 posts sur 400 jours, les 20 meilleurs en planche. Chaque slide reste en taille réelle dans `donnees/cache/tt_<id du post>_<n>.jpg`. Budget : 1 $ par semaine glissante (un relevé coûte environ 0,15 $). |
 | `npm run photos -- "desk notebook"` | Cherche dans la banque de l'OS : la description, en anglais, contient chaque mot. Jamais une personne entière (une main ou des pieds au plus), ni texte, ni collage. Planche `sortie/photos/…` avec les ids. |
 | `npm run rendu -- <id>` (ou `apercu`) | Rend chaque slide (`sortie/<id>/fr/<n>.jpg`) et la planche `sortie/apercus/<id>.fr.jpg`. |
 | `npm run livrer -- <id> [--essai <dossier>]` | Rend et dépose dans la file. Contrôle la slide micabo (une seule, pas la couverture). |

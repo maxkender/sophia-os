@@ -1,5 +1,5 @@
 // Usage :
-//   node atelier/cli-veille.ts [--comptes a,b] [--posts 30] [--jours 14] [--top 10]
+//   node atelier/cli-veille.ts [--comptes a,b] [--posts 60] [--jours 400] [--top 20]
 //   node atelier/cli-veille.ts --decouvrir "skills in your 20s" "#lifemaxxing" [--posts 30] [--top 10]
 //   (+ --hors-budget, seulement avec l'accord de l'humain)
 //
@@ -11,6 +11,9 @@
 // Puis les meilleurs diaporamas des --jours derniers jours : vues,
 // enregistrements, musique, et une PLANCHE de toutes leurs slides
 // (sortie/veille/<date>/…) à LIRE avec Read : c'est là qu'est l'accroche.
+// Podz 10 : ses succès datent de juillet, d'où 60 posts sur 400 jours par
+// défaut. Chaque slide est gardée en taille réelle dans
+// donnees/cache/tt_<id du post>_<n>.jpg : c'est là qu'on la mesure.
 // Liste enfin les posts qui valent PREUVE (≥ 200 k vues, publiés il y a
 // 30 jours au plus), prêts à coller dans playbook.json.
 //
@@ -29,9 +32,9 @@ const JOURNAL = "donnees/depenses_apify.json";
 
 const args = process.argv.slice(2);
 const opt = (n: string) => (args.includes(n) ? args[args.indexOf(n) + 1] : undefined);
-const posts = Number(opt("--posts") ?? 30);
-const fenetre = Number(opt("--jours") ?? 14);
-const top = Number(opt("--top") ?? 10);
+const posts = Number(opt("--posts") ?? 60);
+const fenetre = Number(opt("--jours") ?? 400);
+const top = Number(opt("--top") ?? 20);
 const iDec = args.indexOf("--decouvrir");
 const requetes = iDec >= 0 ? args.slice(iDec + 1).filter((a, i, t) => !a.startsWith("--") && !(i > 0 && t[i - 1].startsWith("--"))) : [];
 const decouverte = iDec >= 0;

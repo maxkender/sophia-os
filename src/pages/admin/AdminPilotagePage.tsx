@@ -43,6 +43,7 @@ import type {
   LabelGenre,
 } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
+import { localeDate } from "@/locales/localeDate";
 
 const selectClass =
   "h-9 rounded-md border border-input bg-background px-2 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
@@ -435,7 +436,7 @@ function GraphVuesDelta({
   const fmtExact = (n: number) =>
     Math.round(n).toLocaleString(i18n.language === "fr" ? "fr-FR" : "en-US");
   const fmtJour = (jour: string) =>
-    new Date(`${jour}T12:00:00`).toLocaleDateString(i18n.language, {
+    new Date(`${jour}T12:00:00`).toLocaleDateString(localeDate(i18n.language), {
       day: "numeric",
       month: "short",
     });

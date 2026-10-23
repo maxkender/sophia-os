@@ -13,6 +13,7 @@ import {
 } from "@/features/moteur/api";
 import { nomLangue } from "@/features/moteur/langues";
 import type { PosterProfil } from "@/features/moteur/types";
+import { localeDate } from "@/locales/localeDate";
 
 function LienEdition({
   pub,
@@ -186,10 +187,10 @@ export function CreateurPublications({
                     {[
                       p.date_publication_prevue
                         ? new Date(p.date_publication_prevue).toLocaleDateString(
-                            i18n.language,
+                            localeDate(i18n.language),
                           )
                         : p.publie_at
-                          ? new Date(p.publie_at).toLocaleDateString(i18n.language)
+                          ? new Date(p.publie_at).toLocaleDateString(localeDate(i18n.language))
                           : null,
                       p.langue ? nomLangue(p.langue) : null,
                     ]

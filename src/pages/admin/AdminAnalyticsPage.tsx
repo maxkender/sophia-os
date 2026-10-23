@@ -20,6 +20,7 @@ import { useApplication } from "@/features/moteur/ApplicationContext";
 import { BadgeClassement } from "@/features/moteur/BadgeClassement";
 import { rangClassement } from "@/features/moteur/classementComptes";
 import type { StatsPost } from "@/features/moteur/types";
+import { localeDate } from "@/locales/localeDate";
 
 /** Un post « viral » : ≥ 7 jours après publication (N+7) ET plus de 30 000 vues.
  *  Le signal que ce contenu a vraiment percé — à repérer pour le rejouer. */
@@ -182,7 +183,7 @@ export function AdminAnalyticsPage() {
                 <p className="text-xs text-muted-foreground">
                   {[
                     p.persona_nom ?? p.handle_tiktok,
-                    p.publie_at ? new Date(p.publie_at).toLocaleDateString(i18n.language) : null,
+                    p.publie_at ? new Date(p.publie_at).toLocaleDateString(localeDate(i18n.language)) : null,
                   ]
                     .filter(Boolean)
                     .join(" · ")}
@@ -349,7 +350,7 @@ export function AdminAnalyticsPage() {
                     p.persona_nom ?? p.handle_tiktok,
                     t(`type.${p.type}`),
                     p.publie_at
-                      ? new Date(p.publie_at).toLocaleDateString(i18n.language)
+                      ? new Date(p.publie_at).toLocaleDateString(localeDate(i18n.language))
                       : null,
                   ]
                     .filter(Boolean)

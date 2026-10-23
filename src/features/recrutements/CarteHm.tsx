@@ -44,6 +44,7 @@ import type {
   RecrutementSuggestion,
   StatsCreateur10j,
 } from "./types";
+import { localeDate } from "@/locales/localeDate";
 
 function initiales(nom: string): string {
   const parts = nom.trim().split(/\s+/).filter(Boolean);
@@ -232,7 +233,7 @@ function MiniStat({ label, valeur }: { label: string; valeur: string }) {
 
 function formatQuand(iso: string | null, lang: string): string | null {
   if (!iso) return null;
-  return new Date(iso).toLocaleString(lang, {
+  return new Date(iso).toLocaleString(localeDate(lang), {
     dateStyle: "medium",
     timeStyle: "short",
     timeZone: "Europe/Paris",

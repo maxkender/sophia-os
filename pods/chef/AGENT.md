@@ -40,6 +40,7 @@ Les podz :
 | 6 · Remakes @mentalapp | `mentalapp` | `session_011K2Rbg2qneX3JJLP7cYmC7` | mentalmaxxing |
 | 7 · Originaux beau_smart_girl | `beau-smart-girl` | `session_01THEUnC81JyhMwLkGH5utSQ` | beau_smart_girl |
 | 8 · Originaux smart_girl | `smart-girl` | `session_01Tm4VDGW1KMgkF1hzdLhHL1` | smart_girl |
+| 9 · Originaux alpha_male | `alpha-male` | `session_01EvmYq9dqbSLEAHnULpx8f7` | alpha_male |
 
 ## Règles absolues
 

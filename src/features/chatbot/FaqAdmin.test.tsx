@@ -26,6 +26,8 @@ const question = (patch: Partial<QuestionFaq>): QuestionFaq => ({
   reponse_admin: null,
   ajoute_base_at: null,
   erreur: null,
+  it_statut: null,
+  it_maj_at: null,
   created_at: "2026-10-21T08:00:00Z",
   profiles: null,
   ...patch,
@@ -40,7 +42,19 @@ vi.mock("./api", () => ({
   ecrireReglagesFaq: vi.fn(async () => undefined),
   listerGuidesCopies: vi.fn(async () => []),
   recopierGuides: vi.fn(async () => ({ ok: true, guides: [] })),
-  listerFaqATraiter: vi.fn(async () => [question({})]),
+  listerFaqATraiter: vi.fn(async () => [
+    question({}),
+    // Pas sûr : sa réponse attend qu'un admin la valide.
+    question({
+      id: "q5",
+      question: "Is the app on Android?",
+      etat: "a_valider",
+      test: false,
+      reponse: "I've passed your question to the team. You'll get the answer right here in this thread.",
+      reponse_faq: "Yes, Sophia is on Google Play.",
+      section_guide: "Poster Guide › Quick answers",
+    }),
+  ]),
   listerFaqJournal: vi.fn(async () => [
     question({}),
     question({
@@ -52,7 +66,7 @@ vi.mock("./api", () => ({
       reponse_humaine: "Use the taap.it link",
       reponse_humaine_par: "Aram",
     }),
-    question({ id: "q3", question: "Dashboard is blank", etat: "bug" }),
+    question({ id: "q3", question: "Dashboard is blank", etat: "bug", it_statut: "pris_en_charge", it_maj_at: "2026-10-21T16:28:00Z" }),
     // Une question de la bulle d'avant le cerveau : l'ancien assistant a répondu.
     question({
       id: "q4",
@@ -126,6 +140,27 @@ describe("FaqAdmin", () => {
     fireEvent.click(within(journal).getByRole("button", { name: /bug → it guy/i }));
     expect(within(journal).queryByText("Which link should I send her?")).not.toBeInTheDocument();
     expect(within(journal).getByText("Dashboard is blank")).toBeInTheDocument();
+    // Un bug sur Slack : pas de « proposition vide », on dit où en est l'IT guy.
+    expect(within(journal).getByText(/(picked up by the it guy|pris en charge par l'it guy)/i)).toBeInTheDocument();
+  });
+
+  it("pas sûr : sa réponse est pré-remplie, un clic la valide et l'envoie", async () => {
+    const mocks = await import("./api");
+    const avant = api.reglages;
+    api.reglages = { ...avant, mode_slack: "actif" };
+    try {
+      renderFaq();
+      const ligne = await screen.findByTestId("faq-question-q5");
+      expect(within(ligne).getByText(/(wasn't sure|n'était pas sûr)/i)).toBeInTheDocument();
+      const texte = within(ligne).getByRole("textbox");
+      expect(texte).toHaveValue("Yes, Sophia is on Google Play.");
+      fireEvent.click(await within(ligne).findByRole("button", { name: /(approve and send|valider et envoyer)/i }));
+      await waitFor(() =>
+        expect(mocks.traiterQuestionFaq).toHaveBeenCalledWith("q5", "Yes, Sophia is on Google Play.", true),
+      );
+    } finally {
+      api.reglages = avant;
+    }
   });
 
   it("passer Slack en actif demande confirmation : refusée, rien ne change", async () => {

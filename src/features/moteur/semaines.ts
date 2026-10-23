@@ -4,6 +4,7 @@
  * Paris (le jour métier de l'OS). Elle bascule le dimanche à minuit, Paris.
  */
 import { ajouterJours, partiesParis } from "@/features/onboarding/datesRuul";
+import { localeDate } from "@/locales/localeDate";
 
 export const NB_SEMAINES = 2;
 
@@ -26,7 +27,7 @@ export function joursFenetre(debut: string, nbSemaines: number = NB_SEMAINES): s
 /** « 12 Oct – 25 Oct 2026 » dans la langue de l'interface. */
 export function libelleFenetre(jours: string[], langue: string): string {
   const fmt = (j: string, annee: boolean) =>
-    new Intl.DateTimeFormat(langue, {
+    new Intl.DateTimeFormat(localeDate(langue), {
       day: "numeric",
       month: "short",
       ...(annee ? { year: "numeric" as const } : {}),

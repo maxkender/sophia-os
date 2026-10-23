@@ -10,12 +10,14 @@ import {
   blocsZone,
   blocsZoneJeudi,
   blocsZoneSamedi,
+  consigneNudge,
   type DecisionSlack,
   maintenantParis,
   semaineDesDecisions,
   semaineIso,
   texteDecision,
   texteRappel,
+  texteSuiviJeudi,
   type ZoneSlack,
 } from "./ckd.ts";
 
@@ -33,6 +35,7 @@ function decision(partiel: Partial<DecisionSlack>): DecisionSlack {
     publies: 0,
     attendus: 10,
     note: null,
+    texteHm: null,
     fait: null,
     ...partiel,
   };
@@ -149,4 +152,30 @@ Deno.test("texteRappel : qui ne pas financer, qui passe à 2 comptes ; rien sino
   assert(t.includes('fund "Week 44 (2 acc)" for @b.one (B)'));
   assert(!t.includes("c.one"));
   assertEquals(texteRappel("2026-10-24", [zone([decision({ decision: "recreer" })])]), null);
+});
+
+Deno.test("consigne d'un nudge : par défaut, ou le message modifié sur la page (échappé)", () => {
+  const jeudi = decision({ decision: "nudge", regle: "jeudi", motifs: ["reveil", "discipline"], publies: 2, attendus: 4 });
+  assertEquals(
+    consigneNudge(jeudi),
+    "• None of their first posts took off. Go through them together: posting time, first slide, sound, " +
+      "and that they post from the right account.\n" +
+      "• Some posts are missing or have no link in the OS. Make sure they publish everything planned and paste " +
+      "each link. (2/4 published)",
+  );
+  assert(texteSuiviJeudi(jeudi).includes(consigneNudge(jeudi)));
+
+  const modifie = texteSuiviJeudi({ ...jeudi, texteHm: "  Her 2 missing posts are from Sunday <18/10> & her first day.  " });
+  assert(modifie.startsWith(":eyes: *Follow up* @emma.vyvija827"));
+  assert(modifie.includes("Her 2 missing posts are from Sunday &lt;18/10&gt; &amp; her first day."));
+  assert(!modifie.includes("None of their first posts"));
+
+  const absent = decision({ decision: "nudge", regle: "absent", publies: 3, attendus: 10 });
+  assert(consigneNudge(absent).includes("Posted 3/10 this week."));
+  const absentModifie = texteDecision({ ...absent, texteHm: "Ask if her phone is broken." }, 44);
+  assert(absentModifie.includes("*Follow up*"));
+  assert(absentModifie.includes("Ask if her phone is broken."));
+  assert(!absentModifie.includes("Posted 3/10"));
+  // Vide : la consigne par défaut.
+  assert(texteDecision({ ...absent, texteHm: "   " }, 44).includes("Posted 3/10 this week."));
 });

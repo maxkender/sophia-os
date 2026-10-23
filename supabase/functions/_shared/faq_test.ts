@@ -1,11 +1,13 @@
 /**
  * Cerveau FAQ : ce qui fait qu'il ne parle jamais à côté.
  *  - une valeur de réglage inconnue retombe en test, jamais en actif ;
- *  - un « repondu » vide n'est pas une réponse ;
+ *  - un « repondu » vide n'est pas une réponse ; un « incertain » ne part
+ *    pas, sa proposition attend un admin ;
  *  - Slack : seuls les vrais messages racines des canaux suivis sont des
  *    questions, les admins n'en posent pas, un bot ne se répond pas ;
  *  - un fil : l'auteur ne relance qu'après une vraie réponse, un poster de
- *    passage ne règle rien, l'équipe (l'« on it » de l'IT guy compris) oui.
+ *    passage ne règle rien, l'équipe oui ; un « on it » n'est jamais une
+ *    réponse : celui de l'IT guy passe la question en suivi IT.
  */
 
 import { assert, assertEquals } from "jsr:@std/assert@1";
@@ -15,11 +17,14 @@ import {
   assemblerBase,
   construirePromptFaq,
   etatDepuisDecision,
+  ETATS_EN_ATTENTE,
   lienSlack,
   lireReglagesFaq,
   estRemerciement,
   estMoiAussi,
+  estOnIt,
   lireReponseFaq,
+  propositionDe,
   reponseDansFil,
   reponseEquipeDansFil,
   suiteDeFil,
@@ -53,24 +58,58 @@ Deno.test("réponse du modèle : JSON entouré de texte, em dash retiré, sectio
   assertEquals(r, {
     decision: "repondu",
     reponse: "Use any sound, one that fits.",
+    proposition: "",
     section: "Poster Guide › Quick answers › Can I use a different sound?",
   });
-  assertEquals(lireReponseFaq('{"decision":"bug","reponse":"","section":"null"}'), {
+  assertEquals(lireReponseFaq('{"decision":"bug","reponse":"","proposition":"x","section":"null"}'), {
     decision: "bug",
     reponse: "",
+    proposition: "",
     section: null,
   });
 });
 
 Deno.test("réponse du modèle : un « repondu » vide redevient « inconnu », l'illisible vaut null", () => {
-  assertEquals(lireReponseFaq('{"decision":"repondu","reponse":"  "}'), { decision: "inconnu", reponse: "", section: null });
+  assertEquals(lireReponseFaq('{"decision":"repondu","reponse":"  "}'), {
+    decision: "inconnu",
+    reponse: "",
+    proposition: "",
+    section: null,
+  });
   assertEquals(lireReponseFaq('{"decision":"peut-être","reponse":"x"}'), null);
   assertEquals(lireReponseFaq("pas de json"), null);
   assertEquals(lireReponseFaq('{"decision": "repondu", "reponse": '), null);
 });
 
-Deno.test("décision → état : seul « inconnu » part à l'admin", () => {
+Deno.test("réponse du modèle : « incertain » garde sa proposition, sans elle c'est « inconnu »", () => {
+  const r = lireReponseFaq(
+    '{"decision":"incertain","reponse":"","proposition":"Probably yes — ask your manager.","section":"Poster Guide › Quick answers"}',
+  );
+  assertEquals(r, {
+    decision: "incertain",
+    reponse: "",
+    proposition: "Probably yes, ask your manager.",
+    section: "Poster Guide › Quick answers",
+  });
+  assertEquals(propositionDe(r!), "Probably yes, ask your manager.");
+  // Bulle d'aide : la personne lit « transmis à l'équipe », l'admin la proposition.
+  const os = lireReponseFaq('{"decision":"incertain","reponse":"Passed to the team.","proposition":"Yes."}');
+  assertEquals(os?.reponse, "Passed to the team.");
+  assertEquals(propositionDe(os!), "Yes.");
+  assertEquals(lireReponseFaq('{"decision":"incertain","reponse":"Passed to the team.","proposition":" "}'), {
+    decision: "inconnu",
+    reponse: "Passed to the team.",
+    proposition: "",
+    section: null,
+  });
+  assertEquals(propositionDe({ decision: "repondu", reponse: "Yes.", proposition: "", section: null }), "Yes.");
+  assertEquals(propositionDe({ decision: "bug", reponse: "", proposition: "", section: null }), null);
+});
+
+Deno.test("décision → état : « inconnu » et « incertain » partent à l'admin", () => {
   assertEquals(etatDepuisDecision("inconnu"), "a_traiter");
+  assertEquals(etatDepuisDecision("incertain"), "a_valider");
+  assert(ETATS_EN_ATTENTE.includes("a_valider"));
   assertEquals(etatDepuisDecision("repondu"), "repondu");
   assertEquals(etatDepuisDecision("bug"), "bug");
   assertEquals(etatDepuisDecision("hors_sujet"), "hors_sujet");
@@ -110,7 +149,8 @@ Deno.test("prompt : la frontière de l'IT guy y est mot pour mot, la consigne d�
   const base = { guide: "### [Poster Guide]\nRules", notes: "" };
   const slack = construirePromptFaq({ canal: "slack", role: "poster", question: "Which link?", base });
   assert(slack.includes(DEFINITION_PROBLEME_TECHNIQUE));
-  assert(slack.includes("tu ne réponds QUE quand la base répond"));
+  assert(slack.includes("tu ne réponds QUE quand la base répond clairement"));
+  assert(slack.includes('"repondu" seulement si tu es sûr : dans le doute, "incertain"'));
   assert(slack.includes("MESSAGE :\nWhich link?"));
   assert(!slack.includes("SITUATION DE LA PERSONNE"));
 
@@ -185,27 +225,66 @@ Deno.test("fil : l'équipe règle la question, un poster de passage non", () => 
     reponse_humaine: "No, never delete them",
     reponse_humaine_par: "U0BL6E14JKH",
   });
-  assertEquals(suiteDeFil({ ...attente, etat: "relance" }, "U0BMTK7BLCW", "on it", equipe)?.etat, "traite_slack");
+  assertEquals(suiteDeFil({ ...attente, etat: "relance" }, "U0BMTK7BLCW", "Fixed, try again", equipe)?.etat, "traite_slack");
+  assertEquals(suiteDeFil({ ...attente, etat: "a_valider" }, "U0BL6E14JKH", "Yes you can", equipe)?.etat, "traite_slack");
   assertEquals(suiteDeFil(attente, "UAUTRE", "same here", equipe), null);
   assertEquals(suiteDeFil(attente, "U0BL6E14JKH", "   ", equipe), null);
 });
 
-Deno.test("fil : sur une question déjà tranchée, on garde la première réponse humaine pour comparer", () => {
+Deno.test("fil : « on it » n'est pas une réponse ; celui de l'IT guy passe la question en suivi IT", () => {
+  const equipe = new Set(["U0BL6E14JKH", "U0BMTK7BLCW"]);
+  const attente = { etat: "a_traiter" as const, slack_user_id: "UPOSTER", envoye_at: null, reponse_humaine: null };
+  // Karmen, 22/10 : message d'attente, puis l'« on it » de l'IT guy (compte d'Adrien).
+  assertEquals(suiteDeFil(attente, "U0BMTK7BLCW", "on it *Sent using* Claude", equipe), {
+    etat: "bug",
+    it_statut: "pris_en_charge",
+  });
+  assertEquals(suiteDeFil({ ...attente, etat: "a_valider" }, "U0BMTK7BLCW", "On it!", equipe)?.etat, "bug");
+  // Son vrai message, au passage suivant : la question est réglée, avec ce texte.
+  const prise = { ...attente, etat: "bug" as const, it_statut: "pris_en_charge" as const };
+  assertEquals(suiteDeFil(prise, "U0BMTK7BLCW", "Hi Karmen! Your words do match.", equipe), {
+    it_statut: "repondu",
+    reponse_humaine: "Hi Karmen! Your words do match.",
+    reponse_humaine_par: "U0BMTK7BLCW",
+  });
+  // Un « on it » d'Aram ne règle rien et ne passe pas la question à l'IT guy.
+  assertEquals(suiteDeFil(attente, "U0BL6E14JKH", "on it", equipe), null);
+});
+
+Deno.test("fil : sur une question répondue, on garde la première réponse humaine pour comparer", () => {
   const equipe = new Set(["U0BL6E14JKH"]);
-  const bug = { etat: "bug" as const, slack_user_id: "UPOSTER", envoye_at: null, reponse_humaine: null };
-  assertEquals(suiteDeFil(bug, "U0BL6E14JKH", "We're on it", equipe), {
-    reponse_humaine: "We're on it",
+  const repondue = { etat: "repondu" as const, slack_user_id: "UPOSTER", envoye_at: null, reponse_humaine: null };
+  assertEquals(suiteDeFil(repondue, "U0BL6E14JKH", "Yes, use any sound", equipe), {
+    reponse_humaine: "Yes, use any sound",
     reponse_humaine_par: "U0BL6E14JKH",
   });
-  assertEquals(suiteDeFil({ ...bug, reponse_humaine: "We're on it" }, "U0BL6E14JKH", "Fixed", equipe), null);
+  assertEquals(suiteDeFil({ ...repondue, reponse_humaine: "Yes" }, "U0BL6E14JKH", "Also…", equipe), null);
+});
+
+Deno.test("fil : sur un bug, on suit l'IT guy (« on it » puis sa réponse)", () => {
+  const equipe = new Set(["U0BMTK7BLCW"]);
+  const bug = { etat: "bug" as const, slack_user_id: "UREGINA", envoye_at: null, reponse_humaine: null, it_statut: null };
+  assertEquals(suiteDeFil(bug, "U0BMTK7BLCW", "on it\n*Sent using* Claude", equipe), { it_statut: "pris_en_charge" });
+  const pris = { ...bug, it_statut: "pris_en_charge" as const };
+  assertEquals(suiteDeFil(pris, "U0BMTK7BLCW", "on it", equipe), null);
+  assertEquals(suiteDeFil(pris, "U0BMTK7BLCW", "Hi Regina! Yes, that's expected…", equipe), {
+    it_statut: "repondu",
+    reponse_humaine: "Hi Regina! Yes, that's expected…",
+    reponse_humaine_par: "U0BMTK7BLCW",
+  });
+  assertEquals(suiteDeFil({ ...bug, it_statut: "repondu" as const }, "U0BMTK7BLCW", "Fixed", equipe), null);
+  // Un poster qui passe ne dit rien de l'IT guy.
+  assertEquals(suiteDeFil(bug, "UAUTRE", "on it", equipe), null);
+  assert(estOnIt("On it!"));
+  assert(!estOnIt("Lucia is on it"));
 });
 
 Deno.test("texte Slack : réponse, section du guide, et comment relancer", () => {
-  const t = texteReponseSlack({ decision: "repondu", reponse: "Post it anyway.", section: "Poster Guide › Quick answers" });
+  const t = texteReponseSlack({ reponse: "Post it anyway.", section: "Poster Guide › Quick answers" });
   assert(t.startsWith("Post it anyway."));
   assert(t.includes("📖 _Poster Guide › Quick answers_"));
   assert(t.includes("Reply in this thread"));
-  assert(!texteReponseSlack({ decision: "repondu", reponse: "x", section: null }).includes("📖"));
+  assert(!texteReponseSlack({ reponse: "x", section: null }).includes("📖"));
   assertEquals(
     lienSlack("C0BL56RJH7T", "1792143200.511969"),
     "https://sophia-system.slack.com/archives/C0BL56RJH7T/p1792143200511969",

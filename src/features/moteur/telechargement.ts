@@ -15,14 +15,68 @@
  * l'ordinateur un ZIP.
  */
 
+export const MESSAGE_VISUEL_INCOMPLET =
+  "This photo didn't fully download. Check your connection and try again.";
+
 /** iOS exige que `share()` parte du geste de l'utilisateur : les fichiers
  * doivent donc déjà être en mémoire au moment du tap, jamais téléchargés
- * pendant. D'où le préchargement dès l'ouverture du post. */
+ * pendant. D'où le préchargement dès l'ouverture du post.
+ *
+ * Un transfert coupé (réseau faible) donnait un fichier tronqué, enregistré
+ * tel quel : moitié grise dans la galerie (Ana Tavares, 21/10). On vérifie
+ * donc qu'il est complet, on le reprend une fois sans le cache du navigateur,
+ * et on refuse plutôt que d'enregistrer une image coupée. */
 export async function recupererFichier(url: string, nom: string): Promise<File> {
-  const reponse = await fetch(url);
+  let blob = await telechargerBlob(url, "default");
+  if (await estIncomplet(blob.donnees, blob.attendu)) {
+    blob = await telechargerBlob(url, "reload");
+    if (await estIncomplet(blob.donnees, blob.attendu)) throw new Error(MESSAGE_VISUEL_INCOMPLET);
+  }
+  return new File([blob.donnees], nom, { type: blob.donnees.type || "image/jpeg" });
+}
+
+async function telechargerBlob(
+  url: string,
+  cache: RequestCache,
+): Promise<{ donnees: Blob; attendu: number | null }> {
+  const reponse = await fetch(url, { cache });
   if (!reponse.ok) throw new Error(`Visuel indisponible (${reponse.status})`);
-  const blob = await reponse.blob();
-  return new File([blob], nom, { type: blob.type || "image/jpeg" });
+  const longueur = Number(reponse.headers.get("content-length"));
+  return {
+    donnees: await reponse.blob(),
+    attendu: Number.isFinite(longueur) && longueur > 0 ? longueur : null,
+  };
+}
+
+/**
+ * Plus court que annoncé, ou image sans sa marque de fin (JPEG : FF D9 ;
+ * PNG : bloc IEND). Seul le « plus court » compte : un corps décompressé peut
+ * dépasser la longueur annoncée sans être abîmé. On cherche la marque dans
+ * les derniers octets pour tolérer un peu de remplissage après elle.
+ */
+export async function estIncomplet(blob: Blob, attendu: number | null): Promise<boolean> {
+  if (attendu != null && blob.size < attendu) return true;
+  const fin = await lireOctets(blob.slice(Math.max(0, blob.size - 64)));
+  const tete = await lireOctets(blob.slice(0, 8));
+  if (tete[0] === 0xff && tete[1] === 0xd8) {
+    for (let i = fin.length - 2; i >= 0; i--) if (fin[i] === 0xff && fin[i + 1] === 0xd9) return false;
+    return true;
+  }
+  if (tete[0] === 0x89 && tete[1] === 0x50 && tete[2] === 0x4e && tete[3] === 0x47) {
+    const texte = String.fromCharCode(...fin);
+    return !texte.includes("IEND");
+  }
+  return false;
+}
+
+/** `FileReader` plutôt que `Blob.arrayBuffer()`, absent des vieux Safari. */
+function lireOctets(blob: Blob): Promise<Uint8Array> {
+  return new Promise((resolve, reject) => {
+    const lecteur = new FileReader();
+    lecteur.onload = () => resolve(new Uint8Array(lecteur.result as ArrayBuffer));
+    lecteur.onerror = () => reject(lecteur.error);
+    lecteur.readAsArrayBuffer(blob);
+  });
 }
 
 export function estIos(

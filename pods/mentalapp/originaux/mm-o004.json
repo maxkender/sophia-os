@@ -1,0 +1,551 @@
+{
+ "id": "mm-o004",
+ "titre": "tier list of Morning habits",
+ "position_app": 2,
+ "legendes": {
+  "en": "morning habits, ranked #morningroutine #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "les habitudes du matin, classées #routinedumatin #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "Morgengewohnheiten im Ranking #morgenroutine #mentalmaxxing #tierlist #selbstverbesserung",
+  "es": "hábitos de la mañana, en ranking #rutinademañana #mentalmaxxing #tierlist #superacionpersonal",
+  "it": "abitudini del mattino, in classifica #routinemattutina #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "sabah alışkanlıkları sıralaması #sabahrutini #mentalmaxxing #tierlist #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7692811167261248775/1",
+   "boite": [
+    134,
+    280,
+    746,
+    588
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list des",
+   "de": "Tierlist:",
+   "es": "tier list de",
+   "it": "tier list delle",
+   "tr": "tier list:"
+  },
+  "gros": {
+   "en": "Morning",
+   "fr": "habitudes",
+   "de": "Morgen-",
+   "es": "hábitos",
+   "it": "abitudini",
+   "tr": "sabah"
+  },
+  "bas": {
+   "en": "habits",
+   "fr": "du matin",
+   "de": "gewohnheiten",
+   "es": "de la mañana",
+   "it": "del mattino",
+   "tr": "alışkanlıkları"
+  }
+ },
+ "titre_tableau": {
+  "en": "prove me wrong",
+  "fr": "prouve-moi le contraire",
+  "de": "beweis mir das Gegenteil",
+  "es": "demuéstrame lo contrario",
+  "it": "dimostrami il contrario",
+  "tr": "aksini kanıtla"
+ },
+ "pied": {
+  "en": "what’s your first move?",
+  "fr": "tu fais quoi en premier ?",
+  "de": "was machst du zuerst?",
+  "es": "¿qué haces primero?",
+  "it": "cosa fai per prima?",
+  "tr": "ilk ne yapıyorsun?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "sets the day",
+    "fr": "lance ta journée",
+    "de": "setzt den Tag",
+    "es": "marca el día",
+    "it": "decide la giornata",
+    "tr": "günü belirler"
+   },
+   "cases": [
+    {
+     "app": true
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      452,
+      245,
+      154,
+      154
+     ],
+     "t": {
+      "en": "sunlight first",
+      "fr": "soleil d’abord",
+      "de": "zuerst Sonne",
+      "es": "sol primero",
+      "it": "prima il sole",
+      "tr": "önce güneş"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      676,
+      890,
+      142,
+      139
+     ],
+     "t": {
+      "en": "no phone|first hour",
+      "fr": "pas de tél|la 1re heure",
+      "de": "1. Stunde|ohne Handy",
+      "es": "sin móvil|la 1ª hora",
+      "it": "niente telefono|la 1ª ora",
+      "tr": "ilk saat|telefon yok"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      241,
+      864,
+      179,
+      116
+     ],
+     "t": {
+      "en": "making|your bed",
+      "fr": "faire son lit",
+      "de": "Bett machen",
+      "es": "hacer la cama",
+      "it": "rifare il letto",
+      "tr": "yatağını|toplamak"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "strong",
+    "fr": "fort",
+    "de": "stark",
+    "es": "fuerte",
+    "it": "forte",
+    "tr": "güçlü"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      289,
+      393,
+      79,
+      107
+     ],
+     "t": {
+      "en": "cold shower",
+      "fr": "douche froide",
+      "de": "kalte Dusche",
+      "es": "ducha fría",
+      "it": "doccia fredda",
+      "tr": "soğuk duş"
+     }
+    },
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      267,
+      239,
+      120,
+      114
+     ],
+     "t": {
+      "en": "morning|workout",
+      "fr": "séance|du matin",
+      "de": "Training|am Morgen",
+      "es": "entreno|de mañana",
+      "it": "allenamento|mattutino",
+      "tr": "sabah|antrenmanı"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      766,
+      394,
+      110,
+      110
+     ],
+     "t": {
+      "en": "walk outside",
+      "fr": "marcher dehors",
+      "de": "draußen gehen",
+      "es": "caminar fuera",
+      "it": "camminare fuori",
+      "tr": "dışarıda yürüyüş"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      508,
+      862,
+      100,
+      134
+     ],
+     "t": {
+      "en": "water first",
+      "fr": "de l’eau d’abord",
+      "de": "zuerst Wasser",
+      "es": "agua primero",
+      "it": "prima l’acqua",
+      "tr": "önce su"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "solid",
+    "fr": "solide",
+    "de": "solide",
+    "es": "sólido",
+    "it": "solido",
+    "tr": "sağlam"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      265,
+      551,
+      102,
+      98
+     ],
+     "t": {
+      "en": "real breakfast",
+      "fr": "vrai petit-déj",
+      "de": "echtes Frühstück",
+      "es": "desayuno real",
+      "it": "colazione vera",
+      "tr": "gerçek kahvaltı"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      398,
+      712,
+      150,
+      94
+     ],
+     "t": {
+      "en": "10 pages",
+      "fr": "10 pages",
+      "de": "10 Seiten",
+      "es": "10 páginas",
+      "it": "10 pagine",
+      "tr": "10 sayfa"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      266,
+      247,
+      117,
+      104
+     ],
+     "t": {
+      "en": "planning|the day",
+      "fr": "planifier|la journée",
+      "de": "den Tag|planen",
+      "es": "planear|el día",
+      "it": "pianificare|la giornata",
+      "tr": "günü|planlamak"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      441,
+      398,
+      96,
+      104
+     ],
+     "t": {
+      "en": "meditation",
+      "fr": "méditation",
+      "de": "Meditation",
+      "es": "meditación",
+      "it": "meditazione",
+      "tr": "meditasyon"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "helps a bit",
+    "fr": "aide un peu",
+    "de": "hilft etwas",
+    "es": "ayuda un poco",
+    "it": "aiuta un po’",
+    "tr": "biraz yardımcı"
+   },
+   "cases": [
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      54,
+      866,
+      146,
+      106
+     ],
+     "t": {
+      "en": "coffee|right away",
+      "fr": "café|direct",
+      "de": "sofort|Kaffee",
+      "es": "café|al instante",
+      "it": "caffè|subito",
+      "tr": "hemen|kahve"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      430,
+      727,
+      114,
+      73
+     ],
+     "t": {
+      "en": "music",
+      "fr": "musique",
+      "de": "Musik",
+      "es": "música",
+      "it": "musica",
+      "tr": "müzik"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      692,
+      855,
+      156,
+      144
+     ],
+     "t": {
+      "en": "journaling",
+      "fr": "écrire",
+      "de": "Journaling",
+      "es": "escribir",
+      "it": "scrivere",
+      "tr": "günlük yazmak"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      569,
+      849,
+      99,
+      106
+     ],
+     "t": {
+      "en": "5 alarms",
+      "fr": "5 réveils",
+      "de": "5 Wecker",
+      "es": "5 alarmas",
+      "it": "5 sveglie",
+      "tr": "5 alarm"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "fake productive",
+    "fr": "faux productif",
+    "de": "fake produktiv",
+    "es": "falso productivo",
+    "it": "finto produttivo",
+    "tr": "sahte verimli"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "youtube with|breakfast",
+      "fr": "youtube au|petit-déj",
+      "de": "YouTube zum|Frühstück",
+      "es": "youtube en el|desayuno",
+      "it": "youtube a|colazione",
+      "tr": "kahvaltıda|youtube"
+     }
+    },
+    {
+     "src": "7685931101587623186/2",
+     "boite": [
+      731,
+      873,
+      69,
+      117
+     ],
+     "t": {
+      "en": "pills stack",
+      "fr": "cachets à gogo",
+      "de": "Pillen-Stack",
+      "es": "montón de pastillas",
+      "it": "pile di pillole",
+      "tr": "hap yığını"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      272,
+      853,
+      90,
+      94
+     ],
+     "t": {
+      "en": "checking insta",
+      "fr": "checker insta",
+      "de": "Insta checken",
+      "es": "mirar insta",
+      "it": "controllare insta",
+      "tr": "insta’ya bakmak"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      662,
+      1087,
+      71,
+      89
+     ],
+     "t": {
+      "en": "online|shopping",
+      "fr": "shopping|en ligne",
+      "de": "Online-|Shopping",
+      "es": "compras|online",
+      "it": "shopping|online",
+      "tr": "online|alışveriş"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "ruins it",
+   "fr": "la gâche",
+   "de": "ruiniert ihn",
+   "es": "lo arruina",
+   "it": "la rovina",
+   "tr": "mahveder"
+  },
+  "cases": [
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "reels in bed",
+     "fr": "reels au lit",
+     "de": "Reels im Bett",
+     "es": "reels en la cama",
+     "it": "reel a letto",
+     "tr": "yatakta reels"
+    }
+   },
+   {
+    "src": "7688926567183027474/2",
+    "boite": [
+     272,
+     848,
+     91,
+     97
+    ],
+    "t": {
+     "en": "doomscrolling",
+     "fr": "scroller sans fin",
+     "de": "Doomscrolling",
+     "es": "scroll infinito",
+     "it": "doomscrolling",
+     "tr": "sonsuz scroll"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     264,
+     845,
+     104,
+     110
+    ],
+    "t": {
+     "en": "junk breakfast",
+     "fr": "petit-déj malbouffe",
+     "de": "Junk-Frühstück",
+     "es": "desayuno basura",
+     "it": "colazione spazzatura",
+     "tr": "abur cubur kahvaltı"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine Wahl|(kommentiere)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 23/10 : original sur le schéma tier list 2 slides, sujet matin. Couverture : le moine au thé de la banque."
+}

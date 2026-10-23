@@ -3,7 +3,9 @@
 Un seul cerveau dans l'OS, deux entrées : **#questions sur Slack** et **la bulle
 d'aide du dashboard**. Il répond à partir du guide Notion et des réponses
 validées par l'admin. Ce qui est cassé, il le laisse à l'IT guy. Ce qu'il ne
-sait pas arrive dans l'OS, page **Assistant → À traiter**.
+sait pas arrive dans l'OS, page **Assistant → À traiter**. Ce dont il n'est
+pas sûr aussi, avec sa réponse déjà écrite : l'admin la valide avant qu'elle
+parte.
 
 **Au départ, tout est en mode test** : rien ne part sur Slack, la bulle répond
 comme avant, et la page Assistant montre ce que le cerveau aurait fait.
@@ -19,12 +21,13 @@ comme avant, et la page Assistant montre ce que le cerveau aurait fait.
                          |
    +---------------------+----------------------+-----------------+
    |                     |                      |                 |
- repondu               bug                  a_traiter         hors_sujet
+ repondu               bug          a_valider / a_traiter      hors_sujet
  il répond          il se tait :        « I've passed your     rien
  (fil Slack /       l'IT guy le prend    question to the team »
   bulle)                                 → OS › Assistant › À traiter
                                                 |
-                                     l'admin tape la réponse (faq-admin)
+                          a_valider : sa réponse est pré-remplie, l'admin la
+                          relit et l'envoie ; a_traiter : l'admin l'écrit (faq-admin)
                                                 |
                       elle repart là où la question a été posée :
                       fil Slack · pop-up du poster · message privé Slack au manager
@@ -59,6 +62,18 @@ comme avant, et la page Assistant montre ce que le cerveau aurait fait.
   montant reçoit la règle (« celui de ton contrat Upwork, demande à ton
   manager en privé »).
 
+## Quand il n'est pas sûr
+
+Le cerveau ne répond seul (« repondu ») que quand il est sûr. Quand le guide
+parle du sujet sans couvrir clairement le cas (une règle proche, un cas
+particulier, une info qui a pu changer), il tranche « incertain » : il écrit sa
+réponse probable, mais **rien ne part**. Sur Slack, seul le message d'attente
+est posté ; dans la bulle, la personne lit que sa question est transmise. La
+question arrive dans « À traiter », état **À valider**, la réponse déjà dans la
+case : tu la relis, la corriges si besoin, et « Valider et envoyer ». Une
+réponse de l'équipe dans le fil entre-temps la règle, comme pour « À traiter ».
+Quand le guide ne dit rien d'utile, c'est « inconnu » : la case est vide.
+
 ## La frontière avec l'IT guy
 
 Écrite **une seule fois**, dans `supabase/functions/_shared/frontiere_it.ts`,
@@ -70,7 +85,10 @@ La FAQ voit chaque message en premier (quelques secondes contre 30 min). Elle
 se tait sur un bug, et l'IT guy ignore un fil où l'appli a répondu, sauf si
 l'auteur dit ensuite que ça n'a pas marché. Le message d'attente ne règle rien :
 un bug mal classé reste à l'IT guy. Son « on it » dans le fil (posté avec le
-compte d'Adrien) sort la question de « À traiter ».
+compte d'Adrien) n'est pas une réponse : sur une question en attente, il la
+passe en suivi IT (« pris en charge »), et sa réponse suivante la règle. Un
+retour (review) que la personne conteste est un problème technique : la FAQ
+se tait, l'IT guy compare le post à l'original.
 
 ## Jamais deux réponses à la même question
 
@@ -84,9 +102,12 @@ compte d'Adrien) sort la question de « À traiter ».
 - **Depuis l'OS** (« À traiter »), même relecture avant d'envoyer : si quelqu'un
   de l'équipe a répondu dans le fil entre-temps, rien ne part, la page le dit
   et la question sort de la liste. Une réponse de l'équipe dans le fil sort
-  aussi la question de « À traiter » toute seule.
+  aussi la question de « À traiter » toute seule. Un « on it » n'est pas une
+  réponse : celui de l'IT guy la fait passer en suivi IT.
 - **L'IT guy** ne touche pas un fil où le bot a répondu, et le bot se tait sur
-  les bugs. Un message modifié ou renvoyé par Slack ne donne pas de seconde
+  les bugs. Le journal suit ce que l'IT guy en fait, d'après le fil : « pas
+  encore pris », « pris en charge » (son « on it », la proposition attend un ✅
+  dans #a-os-tickets), puis « réglé » (sa réponse est arrivée dans le fil). Un message modifié ou renvoyé par Slack ne donne pas de seconde
   réponse.
 
 ## Mise en service

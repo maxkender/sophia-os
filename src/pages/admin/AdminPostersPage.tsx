@@ -103,6 +103,7 @@ import type {
   Label as LabelType,
   PosterProfil,
 } from "@/features/moteur/types";
+import { localeDate } from "@/locales/localeDate";
 
 // Carte des zones : d3-geo et le fond de carte dans un morceau à part.
 const CarteZones = React.lazy(() => import("@/features/hiring/CarteZones"));
@@ -760,7 +761,7 @@ export function AdminPostersPage() {
   );
   const aujourdhui = aujourdhuiParis();
   const dateCourte = (jour: string) =>
-    new Intl.DateTimeFormat(i18n.language, { day: "numeric", month: "short", timeZone: "UTC" }).format(
+    new Intl.DateTimeFormat(localeDate(i18n.language), { day: "numeric", month: "short", timeZone: "UTC" }).format(
       new Date(`${jour}T12:00:00Z`),
     );
 

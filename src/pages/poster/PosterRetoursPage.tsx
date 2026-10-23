@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardHeader, CardTitle, EmptyState } from "@/components/ui/card";
 import { mesReviews, type Review } from "@/features/moteur/api";
 import { RetourParcours } from "@/features/reviews/RetourParcours";
+import { localeDate } from "@/locales/localeDate";
 
 /**
  * « Mes retours » : tous les retours de l'admin au créateur, lus ou non. Un
@@ -22,7 +23,7 @@ export function PosterRetoursPage() {
 
   const dateDe = (r: Review) =>
     new Date(r.date_publication ? `${r.date_publication}T12:00:00` : r.created_at).toLocaleDateString(
-      i18n.language,
+      localeDate(i18n.language),
       { weekday: "short", day: "numeric", month: "long" },
     );
 

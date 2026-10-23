@@ -74,6 +74,7 @@ import { classeDirectionTexte, directionTexte } from "@/features/moteur/langues"
 import { cleErreurSignalement, slideEstLivree, slideEstPropre } from "@/features/moteur/signalementTexte";
 import { referenceAffichee } from "@/features/moteur/referencePlacement";
 import { ChecklistPremierPost } from "@/features/onboarding/ChecklistPremierPost";
+import { localeDate } from "@/locales/localeDate";
 
 function nomFichier(postId: string, position: number) {
   return `${postId.slice(0, 8)}-${String(position).padStart(2, "0")}.jpg`;
@@ -479,7 +480,7 @@ export function PosterPostPage() {
   const datePost = post.data?.date_publication_prevue ?? null;
   const ouverte = peutForcer || publicationOuverte(datePost, paysCompte.data ?? null);
   const echeanceTexte = datePost
-    ? echeancePublication(datePost, paysCompte.data ?? null).toLocaleString(i18n.language, {
+    ? echeancePublication(datePost, paysCompte.data ?? null).toLocaleString(localeDate(i18n.language), {
         weekday: "short",
         day: "numeric",
         month: "short",
@@ -1013,7 +1014,7 @@ export function PosterPostPage() {
             <div className="space-y-2">
               <p className="text-sm text-success">
                 {t("posts.publieLe", {
-                  date: new Date(donnees.publie_at!).toLocaleString(i18n.language),
+                  date: new Date(donnees.publie_at!).toLocaleString(localeDate(i18n.language)),
                 })}
               </p>
               {/* Le lien, cliquable : vérifier le bon post (change 4). */}

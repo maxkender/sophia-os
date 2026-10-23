@@ -34,6 +34,7 @@ import {
   type ReglagesFaq,
   VARIANTE_ETAT,
 } from "./faq";
+import { localeDate } from "@/locales/localeDate";
 
 const CLE = ["faq"] as const;
 
@@ -183,7 +184,7 @@ function ReglagesFaqCard({
                 {pages.length && derniere
                   ? t("chatbot.faq.guidePages", {
                     n: pages.length,
-                    date: new Date(derniere).toLocaleString(i18n.language),
+                    date: new Date(derniere).toLocaleString(localeDate(i18n.language)),
                   })
                   : t("chatbot.faq.guideVide")}
               </p>
@@ -247,7 +248,7 @@ function Entete({ q }: { q: QuestionFaq }) {
         ? <Badge variant={VARIANTE_ETAT[q.etat]}>{t(`chatbot.faq.etats.${q.etat}`)}</Badge>
         : <Badge variant="outline">{t("chatbot.faq.ancien")}</Badge>}
       {q.test && <Badge variant="outline">{t("chatbot.faq.test")}</Badge>}
-      <span className="text-xs text-muted-foreground">{new Date(q.created_at).toLocaleString(i18n.language)}</span>
+      <span className="text-xs text-muted-foreground">{new Date(q.created_at).toLocaleString(localeDate(i18n.language))}</span>
       {q.slack_canal && q.slack_ts && (
         <a
           href={lienSlack(q.slack_canal, q.slack_ts)}
@@ -301,7 +302,9 @@ function ATraiterCard({ reglages }: { reglages: ReglagesFaq | undefined }) {
 function LigneATraiter({ q, reglages }: { q: QuestionFaq; reglages: ReglagesFaq | undefined }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
-  const [reponse, setReponse] = React.useState("");
+  // Pas sûr : sa réponse est déjà là, il reste à la relire et l'envoyer.
+  const aValider = q.etat === "a_valider" && Boolean(q.reponse_faq);
+  const [reponse, setReponse] = React.useState(aValider ? (q.reponse_faq ?? "") : "");
   const [base, setBase] = React.useState(true);
   const actif = q.source === "slack" ? reglages?.mode_slack === "actif" : reglages?.mode_os === "actif";
   const rafraichir = () => queryClient.invalidateQueries({ queryKey: CLE });
@@ -321,7 +324,14 @@ function LigneATraiter({ q, reglages }: { q: QuestionFaq; reglages: ReglagesFaq 
     <div className="space-y-2 rounded-md border border-border/80 p-3" data-testid={`faq-question-${q.id}`}>
       <Entete q={q} />
       <p className="whitespace-pre-wrap text-sm">{q.question}</p>
-      {q.reponse_faq && <Encadre titre={t("chatbot.faq.propositionCerveau")}>{q.reponse_faq}</Encadre>}
+      {aValider
+        ? (
+          <p className="text-xs text-warning-foreground">
+            {t("chatbot.faq.aValiderAide")}
+            {q.section_guide ? ` 📖 ${q.section_guide}` : ""}
+          </p>
+        )
+        : q.reponse_faq && <Encadre titre={t("chatbot.faq.propositionCerveau")}>{q.reponse_faq}</Encadre>}
       {q.reponse_humaine && (
         <Encadre titre={t("chatbot.faq.reponseHumaine", { nom: q.reponse_humaine_par ?? "—" })}>
           {q.reponse_humaine}
@@ -332,7 +342,7 @@ function LigneATraiter({ q, reglages }: { q: QuestionFaq; reglages: ReglagesFaq 
         placeholder={t("chatbot.faq.tonTexte")}
         value={reponse}
         onChange={(e) => setReponse(e.target.value)}
-        rows={3}
+        rows={aValider ? 5 : 3}
       />
       <label className="flex items-center gap-2 text-sm">
         <Checkbox checked={base} onCheckedChange={(v) => setBase(v === true)} />
@@ -340,7 +350,11 @@ function LigneATraiter({ q, reglages }: { q: QuestionFaq; reglages: ReglagesFaq 
       </label>
       <div className="flex flex-wrap items-center gap-2">
         <Button size="sm" disabled={!reponse.trim() || traiter.isPending} onClick={() => traiter.mutate()}>
-          {actif ? t("chatbot.faq.envoyer") : t("chatbot.faq.enregistrerTest")}
+          {!actif
+            ? t("chatbot.faq.enregistrerTest")
+            : aValider
+            ? t("chatbot.faq.validerEnvoyer")
+            : t("chatbot.faq.envoyer")}
         </Button>
         <Button size="sm" variant="ghost" disabled={ignorer.isPending} onClick={() => ignorer.mutate()}>
           {t("chatbot.faq.ignorer")}
@@ -353,6 +367,30 @@ function LigneATraiter({ q, reglages }: { q: QuestionFaq; reglages: ReglagesFaq 
       </div>
     </div>
   );
+}
+
+const CANAL_TICKETS = "https://sophia-system.slack.com/archives/C0C92QP1R28";
+
+/** Un bug laissé à l'IT guy : pas encore vu, pris en charge (« on it »), ou réglé. */
+function SuiviIt({ q }: { q: QuestionFaq }) {
+  const { t, i18n } = useTranslation();
+  const heure = q.it_maj_at
+    ? new Intl.DateTimeFormat(i18n.language, { hour: "2-digit", minute: "2-digit" }).format(new Date(q.it_maj_at))
+    : "";
+  if (q.it_statut === "repondu") {
+    return <p className="text-xs text-success">{t("chatbot.faq.itRepondu", { heure })}</p>;
+  }
+  if (q.it_statut === "pris_en_charge") {
+    return (
+      <p className="text-xs text-info-foreground">
+        {t("chatbot.faq.itPris", { heure })}{" "}
+        <a href={CANAL_TICKETS} target="_blank" rel="noreferrer" className="underline underline-offset-2">
+          #a-os-tickets
+        </a>
+      </p>
+    );
+  }
+  return <p className="text-xs text-warning-foreground">{t("chatbot.faq.itAttente")}</p>;
 }
 
 const SOURCES = ["toutes", "slack", "os"] as const;
@@ -455,12 +493,18 @@ function JournalFaqCard({ onAjouterReponse }: { onAjouterReponse?: (q: QuestionF
                   )}
                 </div>
                 <p className="whitespace-pre-wrap text-sm">{q.question}</p>
-                {cerveau && (
-                  <Encadre titre={t("chatbot.faq.propositionCerveau")}>
-                    {q.reponse_faq || t("chatbot.faq.rienPropose")}
-                    {q.section_guide ? `\n📖 ${q.section_guide}` : ""}
-                  </Encadre>
-                )}
+                {/* Sur un bug, on montre où en est l'IT guy (aussi quand il a pris une
+                    question d'abord rangée « À traiter »). Bug ou hors sujet : le bot se
+                    tait exprès, rien à « proposer ». */}
+                {q.etat === "bug" && <SuiviIt q={q} />}
+                {cerveau && !q.reponse_faq && q.etat === "hors_sujet"
+                  ? <p className="text-xs text-muted-foreground">{t("chatbot.faq.rienARepondre")}</p>
+                  : cerveau && (q.reponse_faq || q.etat !== "bug") && (
+                    <Encadre titre={t("chatbot.faq.propositionCerveau")}>
+                      {q.reponse_faq || t("chatbot.faq.rienPropose")}
+                      {q.section_guide ? `\n📖 ${q.section_guide}` : ""}
+                    </Encadre>
+                  )}
                 {recu && <Encadre titre={t("chatbot.faq.recu")}>{recu}</Encadre>}
                 {q.reponse_humaine && (
                   <Encadre titre={t("chatbot.faq.reponseHumaine", { nom: q.reponse_humaine_par ?? "—" })}>

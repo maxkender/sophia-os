@@ -2,9 +2,12 @@ import { signatureSlackValide } from "../_shared/comment_masters.ts";
 import {
   ADMINS_SLACK,
   etatDepuisDecision,
+  type EtatFaq,
+  ETATS_EN_ATTENTE,
   type EvenementSlack,
   type LigneSuivie,
   MESSAGE_ATTENTE_SLACK,
+  propositionDe,
   reponseDansFil,
   type ReglagesFaq,
   type ReponseFaq,
@@ -152,16 +155,18 @@ async function repondre(
   const patch: Record<string, unknown> = {
     etat: r ? etatDepuisDecision(r.decision) : "a_traiter",
     slack_nom: nom,
-    reponse_faq: r?.reponse || null,
+    reponse_faq: r ? propositionDe(r) : null,
     section_guide: r?.section ?? null,
   };
 
   // Rien ne part sans guide : sans lui, le cerveau dirait « je ne sais pas » à
-  // tout le monde et chaque question recevrait le message d'attente.
+  // tout le monde et chaque question recevrait le message d'attente. Une réponse
+  // dont il n'est pas sûr attend la validation d'un admin : seul le message
+  // d'attente part.
   if (!test && charge.pages) {
     const texte = r?.decision === "repondu"
       ? texteReponseSlack(r)
-      : (!r || r.decision === "inconnu") && reglages.message_attente
+      : (!r || r.decision === "inconnu" || r.decision === "incertain") && reglages.message_attente
       ? MESSAGE_ATTENTE_SLACK
       : null;
     if (texte && !token) erreurs.push("jeton Slack absent (SLACK_HM_BOT_TOKEN)");
@@ -174,7 +179,7 @@ async function repondre(
     if (deja) {
       patch.reponse_humaine = deja.texte;
       patch.reponse_humaine_par = ADMINS_SLACK[deja.user] ?? (await nomSlack(token!, deja.user)) ?? deja.user;
-      if (deja.equipe && patch.etat === "a_traiter") {
+      if (deja.equipe && ETATS_EN_ATTENTE.includes(patch.etat as EtatFaq)) {
         patch.etat = "traite_slack";
         patch.traite_at = new Date().toISOString();
       }
@@ -203,7 +208,7 @@ async function suivreFil(
 ): Promise<void> {
   const { data: ligne, error } = await db
     .from("chatbot_questions")
-    .select("id, etat, slack_user_id, envoye_at, reponse_humaine")
+    .select("id, etat, slack_user_id, envoye_at, reponse_humaine, it_statut")
     .eq("slack_canal", s.canal)
     .eq("slack_ts", s.parentTs)
     .maybeSingle();
@@ -217,6 +222,7 @@ async function suivreFil(
     patch.reponse_humaine_par = ADMINS_SLACK[s.auteur] ?? (token ? await nomSlack(token, s.auteur) : null) ?? s.auteur;
   }
   if (patch.etat === "traite_slack") patch.traite_at = new Date().toISOString();
+  if (patch.it_statut) patch.it_maj_at = new Date().toISOString();
 
   const { error: majErreur } = await db.from("chatbot_questions").update(patch).eq("id", ligne.id);
   if (majErreur) throw new Error(`chatbot_questions (fil) : ${messageErreur(majErreur)}`);

@@ -20,6 +20,7 @@ import {
   trierLignes,
 } from "@/features/moteur/lien1000";
 import { cn } from "@/lib/utils";
+import { localeDate } from "@/locales/localeDate";
 
 const CLE = ["lien-1000"] as const;
 
@@ -58,7 +59,7 @@ export function Lien1000Card() {
   const compte = compterActions(lignes);
   const aEnvoyer = ACTIONS_ENVOYEES.reduce((n, a) => n + compte[a], 0);
   const date = (iso: string | null) =>
-    iso ? new Intl.DateTimeFormat(i18n.language, { day: "2-digit", month: "2-digit" }).format(new Date(iso)) : "";
+    iso ? new Intl.DateTimeFormat(localeDate(i18n.language), { day: "2-digit", month: "2-digit" }).format(new Date(iso)) : "";
 
   const lancerEnvoi = () => {
     if (window.confirm(t("lien1000.confirmerEnvoi", { n: aEnvoyer, faits: compte.lien_en_place }))) envoyer.mutate();

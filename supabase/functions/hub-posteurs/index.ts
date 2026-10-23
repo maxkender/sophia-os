@@ -56,7 +56,7 @@ import {
 import { lireParLots } from "../_shared/lots.ts";
 import { corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
-const VERSION = "2026-10-17d";
+const VERSION = "2026-10-22";
 const POSTS_PAR_JOUR = 2;
 const PROFILS_MAX = 500;
 
@@ -112,12 +112,16 @@ Deno.serve(async (request) => {
 
 // ---------------------------------------------------------------------------
 
-/** HM actifs qui ont une zone, avec leur nombre de créateurs actifs. */
+/**
+ * HM actifs qui ont une zone, avec leur nombre de créateurs actifs. Un Head of
+ * Ops cumule l'espace HM et garde sa zone et ses créateurs : il compte aussi
+ * (sinon passer HM → Head of Ops fermait ses pays au site, Italie le 22/10).
+ */
 async function lireRecruteurs(supabase: Supabase): Promise<Recruteur[]> {
   const { data: roles, error: errRoles } = await supabase
     .from("user_roles")
     .select("user_id")
-    .eq("role", "hiring_manager");
+    .in("role", ["hiring_manager", "head_of_ops"]);
   if (errRoles) throw errRoles;
   const ids = [...new Set((roles ?? []).map((r: { user_id: string }) => r.user_id))] as string[];
   if (ids.length === 0) return [];

@@ -166,8 +166,9 @@ Deno.test("verifierOriginal : positions, images, une slide Sophia, inspiration, 
   assertEquals(verifierOriginal(avec(2, { reference_url: "https://p16.tiktokcdn.com/x.jpg" })).length, 1);
 });
 
-Deno.test("PODS_AVEC_PREUVE : pods 4, 5, 7 et 8 seulement", () => {
+Deno.test("PODS_AVEC_PREUVE : pods 4, 5, 7, 8 et 9 seulement", () => {
   assertEquals([...PODS_AVEC_PREUVE].sort(), [
+    "originaux_alpha_male",
     "originaux_alpha_yellow",
     "originaux_beau_smart_girl",
     "originaux_rh",

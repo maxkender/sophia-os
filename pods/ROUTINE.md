@@ -28,7 +28,7 @@ Le chef des podz tient ce fichier à jour (`pods/chef/AGENT.md`).
 
 ## 3. Mesurer
 
-- Podz à preuve (4, 5, 7, 8) : `npm run playbook -- --mesurer`.
+- Podz à preuve (4, 5, 7, 8, 9) : `npm run playbook -- --mesurer`.
 - Tous : `npm run etat`, puis `npm run suivi` si ton podz l'a et qu'un passage
   a 3 jours.
 - **Le lundi**, avant de livrer : la veille de ton `AGENT.md` (`npm run
@@ -45,7 +45,7 @@ Le chef des podz tient ce fichier à jour (`pods/chef/AGENT.md`).
    `variante de <source_id>` dans `notes`. Les 3 variantes remplacent les
    livraisons du jour.
 3. **Sinon, ta livraison normale** (voir ton `AGENT.md`) :
-   - podz d'originaux (2, 4, 5, 7, 8) : un original sur un schéma qui marche ;
+   - podz d'originaux (2, 4, 5, 7, 8, 9) : un original sur un schéma qui marche ;
    - podz 1 : un post neuf de la source repris, sinon un post existant traduit
      dans une langue du label qui en manque ;
    - podz 6 : le post suivant de la liste, sinon un original.
@@ -61,7 +61,7 @@ Le chef des podz tient ce fichier à jour (`pods/chef/AGENT.md`).
 
 1. Écris, `npm run apercu`, regarde chaque slide avec l'outil Read, corrige.
 2. `npm run deposer` (ou `npm run livrer` au podz 6), avec la preuve pour les
-   podz 4, 5, 7 et 8.
+   podz 4, 5, 7, 8 et 9.
 3. Commite, ouvre une PR vers `main` limitée à ton dossier, merge-la.
 
 ## 6. Rendre compte

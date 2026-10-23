@@ -77,18 +77,36 @@ describe("calendrier poster : warm-up jusqu'au lundi", () => {
     afficher();
 
     expect(await screen.findByText(/Warm-up in progress: your first posts arrive on/)).toBeInTheDocument();
-    expect(screen.getByText(/Never post/)).toBeInTheDocument();
+    expect(screen.getAllByText(/Never post/).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText(/FIRST POSTS/)).toHaveLength(1);
     // Mardi 20 → dimanche 25 : 6 jours couverts.
     expect(screen.getAllByText("🔥", { exact: false }).length).toBeGreaterThanOrEqual(6);
+    // Hors cohorte Ruul : la même frise, payée par le HM sur Upwork.
+    expect(screen.getByText("Your first week, step by step")).toBeInTheDocument();
+    expect(screen.getByText("First payment, through Upwork")).toBeInTheDocument();
+    expect(screen.getByText(/For your first week of posts \(Monday 26 October → Sunday 1 November\)/)).toBeInTheDocument();
+    expect(screen.queryByText(/through Ruul/)).not.toBeInTheDocument();
   });
 
-  it("pas démarré : dit quel lundi arrivent les posts si on lance aujourd'hui", async () => {
+  it("pas démarré : la frise dit quel lundi arrivent les posts si on lance aujourd'hui", async () => {
     mesComptes.mockResolvedValue([compte({})]);
     afficher();
 
-    expect(await screen.findByText(/Start today → first posts on .*26/)).toBeInTheDocument();
+    expect(await screen.findByText("Your first week, step by step")).toBeInTheDocument();
+    expect(screen.getByText(/Now, and on Sunday 25 October at the latest/)).toBeInTheDocument();
+    expect(screen.getByText("Monday 26 October, in the morning")).toBeInTheDocument();
+    expect(screen.getByText("First payment, through Upwork")).toBeInTheDocument();
     expect(screen.queryByText(/FIRST POSTS/)).not.toBeInTheDocument();
+  });
+
+  it("warm-up fini depuis longtemps : plus de frise", async () => {
+    mesComptes.mockResolvedValue([
+      compte({ warmup_started_at: "2026-08-01T08:00:00Z", warmup_ends_at: "2026-08-02T08:00:00Z" }),
+    ]);
+    afficher();
+
+    expect((await screen.findAllByText("Today")).length).toBeGreaterThanOrEqual(1);
+    expect(screen.queryByText("Your first week, step by step")).not.toBeInTheDocument();
   });
 
   it("cohorte Ruul, pas lancé : leur lundi prévu sur le calendrier", async () => {
@@ -97,6 +115,8 @@ describe("calendrier poster : warm-up jusqu'au lundi", () => {
     afficher();
 
     expect(await screen.findByText("Your first week, step by step")).toBeInTheDocument();
+    expect(screen.getByText("First payment, through Ruul")).toBeInTheDocument();
+    expect(screen.queryByText(/through Upwork/)).not.toBeInTheDocument();
     expect(screen.queryByText(/FIRST POSTS/)).not.toBeInTheDocument();
   });
 

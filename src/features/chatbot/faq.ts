@@ -12,6 +12,7 @@ export type EtatFaq =
   | "repondu"
   | "bug"
   | "hors_sujet"
+  | "a_valider"
   | "a_traiter"
   | "relance"
   | "traite_admin"
@@ -61,6 +62,7 @@ export const VARIANTE_ETAT: Record<EtatFaq, "success" | "info" | "warning" | "er
   repondu: "success",
   bug: "info",
   hors_sujet: "outline",
+  a_valider: "warning",
   a_traiter: "warning",
   relance: "error",
   traite_admin: "secondary",
@@ -73,7 +75,7 @@ export type FiltreJournal = (typeof FILTRES_JOURNAL)[number];
 
 export function dansFiltre(etat: EtatFaq | null, filtre: FiltreJournal): boolean {
   if (filtre === "tous") return true;
-  if (filtre === "a_traiter") return etat === "a_traiter" || etat === "relance";
+  if (filtre === "a_traiter") return etat === "a_valider" || etat === "a_traiter" || etat === "relance";
   if (filtre === "traite") return etat === "traite_admin" || etat === "traite_slack" || etat === "ignore";
   return etat === filtre;
 }

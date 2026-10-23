@@ -54,18 +54,21 @@ function Etape({
 }
 
 /**
- * Cohorte Ruul : la première semaine en quatre étapes datées, du clic sur
- * « Start warmup » au premier paiement (le lundi qui suit la première semaine
- * de posts). Disparaît une fois ce paiement passé.
+ * La première semaine en quatre étapes datées, du clic sur « Start warmup » au
+ * premier paiement (le lundi qui suit la première semaine de posts). Disparaît
+ * une fois ce paiement passé. Cohorte Ruul : payée par Ruul ; les autres
+ * posters (`paiePar` = upwork) : payés par leur HM sur Upwork, sans date fixe.
  */
 export function FriseCohorteRuul({
   debutLe,
   warmupStartedAt,
   warmupEndsAt,
+  paiePar = "ruul",
 }: {
   debutLe: string;
   warmupStartedAt: string | null;
   warmupEndsAt: string | null;
+  paiePar?: "ruul" | "upwork";
 }) {
   const { t, i18n } = useTranslation();
   const frise = friseRuul({ debutLe, warmupStartedAt, warmupEndsAt });
@@ -119,14 +122,25 @@ export function FriseCohorteRuul({
           quand={quandPosts}
           detail={t("calendrier.ruul.frise.postsDetail")}
         />
-        <Etape
-          numero={4}
-          etat={etats.paiement}
-          titre={t("calendrier.ruul.frise.paiement")}
-          quand={paiement}
-          detail={t("calendrier.ruul.frise.paiementDetail", { lundi, dimanche })}
-          derniere
-        />
+        {paiePar === "upwork" ? (
+          <Etape
+            numero={4}
+            etat={etats.paiement}
+            titre={t("calendrier.ruul.frise.paiementUpwork")}
+            quand={t("calendrier.ruul.frise.paiementUpworkQuand", { lundi, dimanche })}
+            detail={t("calendrier.ruul.frise.paiementUpworkDetail")}
+            derniere
+          />
+        ) : (
+          <Etape
+            numero={4}
+            etat={etats.paiement}
+            titre={t("calendrier.ruul.frise.paiement")}
+            quand={paiement}
+            detail={t("calendrier.ruul.frise.paiementDetail", { lundi, dimanche })}
+            derniere
+          />
+        )}
       </ol>
     </section>
   );

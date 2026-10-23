@@ -456,8 +456,8 @@ describe("AdminPostersPage — par zone", () => {
       renderPage();
       await screen.findByRole("heading", { level: 2, name: "Turkey + Israel" });
       const filtre = screen.getByLabelText("Cohort (start Monday)") as HTMLSelectElement;
-      await waitFor(() => expect(within(filtre).getByRole("option", { name: /Oct 19 · W43 \(1\)/ })).toBeTruthy());
-      expect(within(filtre).getByRole("option", { name: /Oct 12 · W42 \(1\)/ })).toBeTruthy();
+      await waitFor(() => expect(within(filtre).getByRole("option", { name: /19 Oct · W43 \(1\)/ })).toBeTruthy());
+      expect(within(filtre).getByRole("option", { name: /12 Oct · W42 \(1\)/ })).toBeTruthy();
       expect(within(filtre).getByRole("option", { name: "Not started yet (1)" })).toBeTruthy();
 
       fireEvent.change(filtre, { target: { value: "2026-10-19" } });
@@ -466,7 +466,7 @@ describe("AdminPostersPage — par zone", () => {
       expect(screen.queryByText("elodie@sophia.com")).toBeNull();
       expect(screen.queryByText("seule@sophia.com")).toBeNull();
       // Chaque compte d'un posteur à plusieurs comptes garde son propre lundi.
-      expect(screen.getByText("started Oct 26")).toBeTruthy();
+      expect(screen.getByText("started 26 Oct")).toBeTruthy();
 
       fireEvent.change(filtre, { target: { value: "pas-demarre" } });
       await waitFor(() => expect(screen.getByText("seule@sophia.com")).toBeTruthy());
@@ -478,7 +478,7 @@ describe("AdminPostersPage — par zone", () => {
       await waitFor(() => expect(screen.getByText("marta@sophia.com")).toBeTruthy());
       expect(screen.queryByText("beyza@sophia.com")).toBeNull();
       expect((screen.getByLabelText("Cohort (start Monday)") as HTMLSelectElement).value).toBe("2026-10-12");
-      expect(screen.getByText(/^Cohort Oct 12 · week \d+$/)).toBeTruthy();
+      expect(screen.getByText(/^Cohort 12 Oct · week \d+$/)).toBeTruthy();
     });
   });
 });

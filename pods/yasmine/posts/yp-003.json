@@ -69,20 +69,19 @@
    "type": "carte",
    "fr": {
     "carte": {
-     "nom": "Opal",
-     "icone": "assets/applis/opal.jpg",
+     "nom": "UnSwipe",
+     "icone": "assets/applis/unswipe.jpg",
      "lignes": [
       "Pour mon addiction",
       "au téléphone.",
       "",
-      "Je limite les réseaux",
-      "à 10-20 min par jour.",
-      "Ça marche trop bien,",
-      "je suis trop impatiente",
-      "pour attendre que TikTok",
-      "s’ouvre, alors je lâche."
+      "Elle supprime les",
+      "vidéos courtes. Fini",
+      "le scroll sans fin,",
+      "j’ai retrouvé des heures",
+      "dans mes journées."
      ],
-     "taille": 44
+     "taille": 46
     }
    }
   },
@@ -90,17 +89,18 @@
    "type": "carte",
    "fr": {
     "carte": {
-     "nom": "Substack",
-     "icone": "assets/applis/substack.jpg",
+     "nom": "Sophia",
+     "icone": "assets/applis/sophia.jpg",
      "lignes": [
       "Remplacer le scroll",
-      "par la lecture.",
+      "par la culture générale.",
       "",
-      "Rien de plus,",
+      "5 minutes par jour,",
+      "rien de plus,",
       "rien de moins.",
       "10/10, je recommande."
      ],
-     "taille": 48
+     "taille": 46
     }
    }
   },
@@ -166,5 +166,5 @@
    }
   }
  ],
- "notes": "livré le 23/10 (e9a86d84). Cartes FocusPomo, Opal, Substack, Calendrier, Notion gardées (concurrents indirects, décision du 23/10) ; micabo à la place de Goodnotes. « non-sponsored » retiré de la couverture."
+ "notes": "livré le 23/10. Version 2 (demande d'Adrien, pour ce post seulement) : UnSwipe à la place d'Opal, Sophia à la place de Substack ; FocusPomo, Calendrier, Notion gardées ; micabo à la place de Goodnotes. « non-sponsored » retiré de la couverture."
 }

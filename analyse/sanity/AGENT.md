@@ -55,61 +55,84 @@ quand tout est vert.
 | `langues_7j`, `labels_7j` | 7 jours mûrs contre les 7 d'avant | r 0,9 à 1,1 ; % à 10 k 5 à 12 |
 | `pods_7j` | originaux mûrs sur 7 jours | % à 10 k 15 à 25 |
 
-## Le feu
+## Le feu, ligne par ligne
 
-🔴 si l'un de ces cas :
-- relevé de plus de 36 h, ou plus de 10 % de posts mûrs sans vues ;
-- moins de 80 % des posts du jour mûr relevés ;
-- `n_10k` sous la moitié de `ref_14j.n_10k_jour` ;
-- un label Sophia avec `demande_jour ≥ 10` et `reserve_jours < 2` ;
-- 5 comptes établis suspects ou plus ;
-- `non_publies_prevus` au-dessus de 20 % des posts d'hier.
+Chaque ligne du tableau porte sa couleur ; le feu du titre est la pire des
+lignes (un 🔴 suffit ; sinon un 🟠 suffit ; sinon 🟢). ⚪ = pas comparable
+(moins de 80 % des posts du jour mûr relevés) : la ligne reste, sans jugement.
 
-🟠 si l'un de ces cas (et rien de rouge) :
-- `n_10k` entre 50 et 75 % de la référence ;
-- plus de 50 % des posts d'hier sur du contenu de plus de 45 jours, ou moins de 20 % sur du ≤ 21 j ;
-- moins de 150 contenus valides en 7 jours ;
-- un label Sophia sous 5 jours de réserve ;
-- 2 à 4 comptes établis suspects, ou `non_publies_prevus` entre 10 et 20 % ;
-- une langue (≥ 40 posts) dont le r médian passe sous 0,7 ou dont le % à 10 k perd plus de la moitié.
-
-🟢 sinon.
+| Ligne | 🟢 | 🟠 | 🔴 |
+| --- | --- | --- | --- |
+| Relevé des vues | < 12 h et < 5 % de posts mûrs sans vues | 12 à 36 h, ou 5 à 10 % | > 36 h, ou > 10 % |
+| Posts publiés hier | à ± 20 % de `ref_14j.posts_jour` | 20 à 40 % sous la référence | plus de 40 % sous |
+| Comptes et posts prévus | < 10 % de comptes attendus sans post et < 10 % de prévus non publiés | 10 à 20 % sur l'un des deux | > 20 % sur l'un des deux |
+| Contenus postés hier | ≤ 21 j ≥ 30 % et > 45 j ≤ 40 % | ≤ 21 j entre 20 et 30 %, ou > 45 j entre 40 et 50 % | ≤ 21 j < 20 %, ou > 45 j > 50 % |
+| Percées du jour mûr | `n_10k` ≥ 75 % de `ref_14j.n_10k_jour` | 50 à 75 % | < 50 % |
+| Imports 7 j | ≥ 250 contenus valides | 150 à 250 | < 150 |
+| Réserve des labels (Sophia) | tous > 5 j | un label < 5 j | un label avec `demande_jour ≥ 10` et `reserve_jours < 2` |
+| Comptes suspects | 0 ou 1 établi (`nouveau` = false) | 2 à 4 | 5 et plus |
+| Langues 7 j | aucune langue (≥ 40 posts) sous r 0,8 | une langue sous r 0,7, ou dont le % à 10 k perd plus de la moitié | deux langues ou plus |
+| Podz 7 j | ≥ 15 % à 10 k (≥ 30 posts) | 8 à 15 % | < 8 % |
 
 ## Le message
 
-Slack, markdown simple, 15 à 20 lignes, le même squelette chaque jour. Les
-nombres en chiffres, les pourcentages arrondis, pas de décimale inutile.
-Les handles de comptes tels quels (pas de lien). Les titres de posts entre
-guillemets, coupés à 60 caractères.
+Slack, markdown avec des **tableaux** et des pastilles de couleur, jamais une
+ligne de données brutes. 25 lignes au plus. Les nombres en chiffres, les
+pourcentages arrondis, pas de décimale inutile. Les handles tels quels (pas
+de lien). Les titres de posts entre guillemets, coupés à 60 caractères. La
+colonne *Normale* reprend la référence du JSON (`ref_14j`) quand elle existe,
+sinon la normale du tableau « Le JSON, clé par clé ».
 
 ```
-🔴 Sanity du jeu. 23/10 — posts d'hier (22/10), percées des posts du 20/10
+🔴 **Sanity du jeu. 23/10** · posts d'hier (22/10) · percées des posts du 20/10
 
-*Données* : relevé il y a 9 h · 1 % de posts mûrs sans vues
-*Hier* : 424 posts (Sophia 333 · Unswipe 64 · Micabo 27) · 217 comptes sur 232, 16 sans post · 59 prévus non publiés (14 %) · 15 nouveaux comptes
-*Contenus postés hier* : ≤ 7 j 41 % · ≤ 21 j 49 % · > 45 j 30 % · originaux 13 %
-*Percées (posts du 20/10, 99 % relevés)* : 16 à 10 k (3,9 %) et 1 à 50 k, contre 22 et 4,4 par jour sur 14 j (7,6 %)
-  Top : 53 k clara.grandit369 (fr, white_bg, original) « 10/10 habitudes de gens qui s'ennuient jamais » · 44 k valeria.sabiduria677 (es, alpha_male_yellow, original) · 37 k alessia.mentalita837 (it, weird_alpha, original)
-*Stock* : 7 j : 830 contenus arrivés, 600 valides, 73 originaux, 4 % de sources ≥ 200 k · passages restants ≤ 21 j : 762, > 45 j : 2 162 · réserve < 5 j : clean_study 0 j, white_bg 2,2 j, alpha_male_yellow 3,8 j
-*Comptes* : 5 établis effondrés (onur.zihniyet132 ×0,04, azra.zihniyet650 ×0,11, irem.tekrar327, hugo.notes813, dariya.razvitie263) · 10 nouveaux sous 200 vues · 9 comptes avec des posts sous 50 vues · 4 silencieux depuis 3 j · 18 en warm-up
-*Langues 7 j* : rien à signaler (ou : tr r 0,78 contre 1,02 la semaine d'avant)
-*Labels 7 j* : RH 18 % à 10 k (part 6 %) · alpha_male_film 1 %
-*Podz 7 j* : 172 posts mûrs, 15 % à 10 k
+| | Indicateur | Valeur | Normale |
+| --- | --- | --- | --- |
+| 🟢 | Relevé des vues | il y a 11 h · 2,8 % de posts mûrs sans vues | < 12 h · < 5 % |
+| 🟢 | Posts publiés hier | 424 (Sophia 333 · Unswipe 64 · Micabo 27) | 304 / j |
+| 🟠 | Comptes | 217 / 232 ont posté · 59 prévus non publiés (14 %) | < 10 % |
+| 🟢 | Contenus postés hier | ≤ 7 j 41 % · ≤ 21 j 49 % · > 45 j 30 % · originaux 13 % | ≤ 21 j ≥ 30 % · > 45 j ≤ 40 % |
+| 🟠 | Percées (posts du 20/10, 99 % relevés) | 16 à 10 k (3,9 %) · 1 à 50 k | 22 et 4,4 / j (7,6 %) |
+| 🟢 | Imports 7 j | 600 valides · 73 originaux · 4 % de sources ≥ 200 k | ≥ 250 valides |
+| 🔴 | Réserve des labels | clean_study 0 j (18 / j) · white_bg 2,2 j · alpha_male_yellow 3,8 j | > 5 j |
+| 🔴 | Comptes suspects | 5 établis effondrés · 10 nouveaux sous 200 vues · 4 silencieux 3 j | 0-1 établi |
+| 🟠 | Langues 7 j | bg r 0,74 (1,04 avant) · hu 6 % à 10 k (12 avant) · hr 3 % (11) · sr 2 % (8) | r 0,9-1,1 |
+| 🟠 | Podz 7 j | 214 posts · 10,7 % à 10 k · 8 à 50 k | ≥ 15 % |
 
-*À retenir*
-- Le 20/10 perce moitié moins que la normale : c'est le jour des 60 nouveaux comptes (400 posts), pas une baisse des comptes établis.
-- Le stock est redressé par l'import de la semaine, mais 96 % des sources font moins de 50 k vues.
-- Trois comptes turcs effondrés en même temps (onur, azra, irem) : à vérifier en direct.
+**Top du 20/10**
+| Vues | Compte | Langue | Label | Titre |
+| --- | --- | --- | --- | --- |
+| 53 k | clara.grandit369 | fr | white_bg · original | « 10/10 habitudes de gens qui s'ennuient jamais » |
+| 44 k | valeria.sabiduria677 | es | alpha_male_yellow · original | « Things that make you quietly confident » |
+| 37 k | alessia.mentalita837 | it | weird_alpha · original | « hobbies that will make you disgustingly intelligent » |
+| 35 k | petra.mentalitas545 | hu | RH | « #rechercheemploi #emploi #entretien » |
+| 32 k | emma.inspira316 | ro | RH | « y'a des choses qu'on met jamais par écrit » |
+
+**Comptes à regarder**
+| | Compte | Langue | Signal |
+| --- | --- | --- | --- |
+| 🔴 | onur.zihniyet132 | tr | médiane 97 contre 2 610 avant (×0,04) |
+| 🔴 | azra.zihniyet650 | tr | 201 contre 1 844 (×0,11) |
+| 🔴 | irem.tekrar327 | tr | 478 contre 2 336 (×0,20) |
+| 🟠 | hugo.notes813 | fr | 638 contre 2 411 (×0,26) |
+| 🟠 | ella.mindset714 | hu | 8 posts sous 50 vues en 14 j : posts non publics ? |
+
+**À retenir**
+- Le 20/10 perce moitié moins que la normale (16 contre 22) : c'est la journée des nouveaux comptes (419 posts, 81 comptes créés en 7 j), pas une baisse des établis.
+- Trois comptes turcs effondrés en même temps (onur, azra, irem) et weird_alpha passé de 9 à 4 % de percée : vérifier en direct ?
+- clean_study (Sophia) à 0 passage restant pour 18 posts par jour de demande, white_bg à 2 jours.
 ```
 
-L'exemple reprend les chiffres réels du 23/10 : il est rouge à cause de clean_study
-à 0 jour de réserve pour 18 posts par jour de demande et des 5 comptes établis
-effondrés. Le feu vient toujours des seuils de la section « Le feu », jamais de
-l'exemple.
+L'exemple reprend les chiffres réels du 23/10. Le feu de chaque ligne vient
+du tableau « Le feu, ligne par ligne », jamais de l'exemple.
 
-Les lignes *Langues* et *Labels* ne listent que les écarts (une langue qui
-bouge de plus de 0,2 de r ou de moitié en % à 10 k ; un label sous 3 % ou
-au-dessus de 15 %). Rien à signaler : écris « rien à signaler ».
+Le tableau **Top** : les 5 meilleurs posts du jour mûr, toujours. Le tableau
+**Comptes à regarder** : les comptes établis suspects (🔴 sous ×0,25, 🟠
+au-dessus) puis les comptes à posts sous 50 vues (🟠), 8 lignes au plus ; les
+nouveaux comptes sous 200 vues restent comptés dans la ligne *Comptes
+suspects*, sans ligne à eux. Les lignes *Langues* et *Labels* : seulement
+les écarts (une langue qui bouge de plus de 0,2 de r ou de moitié en % à
+10 k ; un label sous 3 % ou au-dessus de 15 %) ; rien : « rien à signaler ».
 
 *À retenir* : trois lignes au plus, des faits reliés entre eux, et au plus
 une recommandation, formulée comme une question à Adrien et Max (« vérifier

@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o011",
+ "schema_id": "copie-habitudes",
+ "titre": "j'ai copié 6 habitudes de la fille la plus respectée de mon open space pendant 3 mois #rechercheemploi #emploi #travail #carriere #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "Schéma copie-habitudes (actif depuis le 23/10, r 5,92 sur 3 passages, 63ffa170). Accroches écrites : « j'ai copié 6 habitudes de la fille la plus respectée de mon open space pendant 3 mois » (retenue : le gabarit gagnant, avec une cible nouvelle), « les 6 habitudes de ma collègue que tout le monde écoute en réunion » (écartée : sans le « j'ai copié » qui fait le récit), « j'ai observé la personne la plus respectée de ma boîte pendant 3 mois » (écartée : moins concrète). Format récit : l'habitude, la scène avec une réplique, ce que j'en ai tiré. Six habitudes neuves, aucune reprise des sources (répondre plus tard, « je vérifie et je reviens », récap de réunion, cv prêt, parler d'impact, 3 priorités, « oui pour vendredi », modèles). Fin sans fausse promotion : « on a commencé à me demander mon avis ». Sophia en 5 sur l'anecdote de la pause café. Musique : Blue Lamp Window (le schéma n'en a pas, celle des sources est un son original de la ferme concurrente). Inspirations : sans les slides 5 des deux sources (appli concurrente).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "12090370",
+   "texte_overlay": "j'ai copié 6 habitudes de la fille\nla plus respectée de mon open space\npendant 3 mois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0c080615",
+   "texte_overlay": "elle arrivait en réunion avec UNE question\npas dix. une seule, précise, notée avant.\nj'ai fait pareil. on a commencé à attendre ma question",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "10cfc668",
+   "texte_overlay": "elle remerciait en public, et recadrait en privé\n« merci à léa pour le dossier » devant tout le monde.\nle reste, à deux, porte fermée. tout le monde lui faisait confiance",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2f2ab02e",
+   "texte_overlay": "elle bloquait une heure sans réunion chaque matin\ndans son agenda, en vrai rendez-vous.\nc'est là qu'elle faisait tout ce qui compte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2ce3c5b8",
+   "texte_overlay": "elle avait toujours une anecdote à la pause café\nun truc qui avait rien à voir avec le boulot.\ntout le monde finissait autour d'elle",
+   "texte_sophia": "elle avait toujours une anecdote à la pause café\nun truc qui avait rien à voir avec le boulot.\nmon équivalent : 5 minutes par jour sur l'appli Sophia, et maintenant c'est moi qu'on vient voir à la pause",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "32cdf4a0",
+   "texte_overlay": "elle demandait du feedback avant qu'on le lui donne\n« qu'est-ce que je pourrais faire mieux sur ce dossier ? »\nune fois par mois. sa manager adorait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "35c06208",
+   "texte_overlay": "elle parlait plus lentement que tout le monde\nen réunion, posée, avec des silences.\nmoi je parlais vite pour pas qu'on me coupe. erreur",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "4274c341",
+   "texte_overlay": "personne m'a promue en 3 mois\nmais on a commencé à me demander mon avis\nlaquelle tu vas copier ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

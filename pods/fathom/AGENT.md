@@ -49,6 +49,7 @@ rejette est validée toute seule 12 h après son dépôt.
 - **Format** : 1080 × 1920, JPEG sans métadonnées. Fond `#fdfdfd` (liste), `#fafafa` (slide de l'appli).
 - **Couverture** : chaque ligne du titre remplit la largeur (Anton, capitales), le chiffre et les mots forts en bronze (`{ "t": "5 ", "bronze": true }`). Le titre commence à y 250 (sous les onglets de TikTok), la statue s'arrête à y 1 750 (au-dessus de la légende).
 - **Étapes** : le titre géant (la ligne la plus longue bord à bord, capitale de 346 px au plus), puis la carte YouTube de l'appli iOS, ou la carte d'appli. `sous` ajoute la ligne en dessous (« 2–3 hours to learn. »).
+- **Étapes en affiche** (ses « 10/10 Skills ») : `tailles` donne la capitale maximale de chaque ligne, chaque ligne remplit seule 920 px, le mot-clé dans sa couleur (`{ "t": "CLOUD TYPE", "couleur": "#0231c5" }`). `sous` en Inter SemiBold 54 px.
 - **Carte d'appli** : icône 380 px, nom en Anton à la couleur de l'appli, une ou deux lignes en Inter Medium.
 - **Slide Sophia** : comme sa slide Fathomly (nom, ligne, icône 493 px, phrase en 66 px).
 - **Pas encore dans l'atelier** : ses cartes YouTube sans titre (« S Tier YouTube Videos »), ses listes d'applis à une appli par slide (« 5 Apps… »). Ajoute-les dans `atelier/` en les mesurant sur ses slides (`npm run veille` les met en cache dans `donnees/cache/`), avec le même soin que le reste.

@@ -549,7 +549,7 @@ export const fr = {
       tradLancer: "Traduire",
       tradComparer: "Comparer les deux modèles",
       tradComparerAide:
-        "Plusieurs slides : sépare-les par une ligne vide. « Comparer » met côte à côte la traduction actuelle et l'écriture native : un brief en mots-clés, puis le texte écrit dans la langue à partir d'exemples natifs qui ont marché (les originaux des podz pour le français). Rien n'est créé.",
+        "Plusieurs slides : sépare-les par une ligne vide. « Comparer » met côte à côte la traduction actuelle et l'écriture native : un brief en mots-clés, puis le texte écrit dans la langue à partir d'exemples natifs qui ont marché (pour le français : les TikToks importés de vrais créateurs, careerswemma, studyavec_lea…). Rien n'est créé.",
       tradSource: "Source",
       tradActuel: "Traduction actuelle",
       tradNatif: "Écriture native",

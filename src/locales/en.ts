@@ -548,7 +548,7 @@ export const en = {
       tradLancer: "Translate",
       tradComparer: "Compare both models",
       tradComparerAide:
-        "Several slides: separate them with a blank line. \"Compare\" shows the current translation next to native writing: a keyword brief, then text written in the language from native examples that performed (the pods' originals for French). Nothing is created.",
+        "Several slides: separate them with a blank line. \"Compare\" shows the current translation next to native writing: a keyword brief, then text written in the language from native examples that performed (for French: TikToks imported from real creators, careerswemma, studyavec_lea…). Nothing is created.",
       tradSource: "Source",
       tradActuel: "Current translation",
       tradNatif: "Native writing",

@@ -18,6 +18,7 @@ import {
   NOTE_TIER_POD,
   ouvrirApplicationsOriginal,
   pertinenceOriginalApplication,
+  LEGENDE_A_ECARTER,
   motsCherches,
   PODS_AVEC_PREUVE,
   prochainJour,
@@ -664,4 +665,18 @@ Deno.test("motsCherches : 3 lettres au moins, 5 mots au plus, sans caractères d
   assertEquals(motsCherches("café%_ (night)"), ["café", "night"]);
   assertEquals(motsCherches("one two three four five six seven"), ["one", "two", "three", "four", "five"]);
   assertEquals(motsCherches("  "), []);
+});
+
+Deno.test("LEGENDE_A_ECARTER : une personne entière, du texte ou un collage, jamais une main seule", () => {
+  const ecartee = (caption: string) => new RegExp(LEGENDE_A_ECARTER, "i").test(caption);
+  assertEquals(ecartee("The image shows a young woman sitting at a desk with a notebook and a pen."), true);
+  assertEquals(ecartee("The image shows a person sitting at a desk with their head in their hands."), true);
+  assertEquals(ecartee("The image shows a Man in a suit holding a glass of whiskey."), true);
+  assertEquals(ecartee("The image shows a woman's face reflected in a mirror."), true);
+  assertEquals(ecartee("The image is a collage of three photos."), true);
+  assertEquals(ecartee('The image shows a dimly lit room with a quote that reads "keep going".'), true);
+  assertEquals(ecartee("The image shows a person's hand holding a pen and writing in an open notebook."), false);
+  assertEquals(ecartee("The image shows a person's legs and feet standing on a bed of fallen leaves."), false);
+  assertEquals(ecartee("The image shows a desk with a laptop, a notebook, and a white mug on it."), false);
+  assertEquals(ecartee("The image shows handwritten notes next to a menu and a human body model."), false);
 });

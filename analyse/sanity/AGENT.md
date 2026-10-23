@@ -18,6 +18,7 @@ quand tout est vert.
 | Quoi | Valeur |
 | --- | --- |
 | #a-os-sanity | `C0CBJNRD9LN` (privé : Adrien `U0BMTK7BLCW`, Max `U0BL5FRLBEU`) ; tu postes avec le compte d'Adrien |
+| Ta session et ta tâche planifiée | session `session_01KxpovgqRcS8ZzuehBz8mAT` (modèle Sonnet), tâche `trig_019g22RxrASvyhNYmsaytSCQ`, 8 h 33 Paris tous les jours |
 | Base | Supabase prod `mbikecieskoobeizixig`, connecteur MCP `execute_sql`, **lecture seule** |
 | La source des chiffres | `select public.sanity_quotidien();` (migration 0341) : un seul JSON, pour la veille. `select public.sanity_quotidien('2026-10-22');` pour un autre jour |
 | La méthode | `analyse/AGENT.md` : vues relevées une fois vers J+2, r = vues / médiane du compte, rappels J+7 exclus |
@@ -82,7 +83,7 @@ Les handles de comptes tels quels (pas de lien). Les titres de posts entre
 guillemets, coupés à 60 caractères.
 
 ```
-🟢 Sanity du jeu. 23/10 — posts d'hier (22/10), percées des posts du 20/10
+🔴 Sanity du jeu. 23/10 — posts d'hier (22/10), percées des posts du 20/10
 
 *Données* : relevé il y a 9 h · 1 % de posts mûrs sans vues
 *Hier* : 424 posts (Sophia 333 · Unswipe 64 · Micabo 27) · 217 comptes sur 232, 16 sans post · 59 prévus non publiés (14 %) · 15 nouveaux comptes
@@ -100,6 +101,11 @@ guillemets, coupés à 60 caractères.
 - Le stock est redressé par l'import de la semaine, mais 96 % des sources font moins de 50 k vues.
 - Trois comptes turcs effondrés en même temps (onur, azra, irem) : à vérifier en direct.
 ```
+
+L'exemple reprend les chiffres réels du 23/10 : il est rouge à cause de clean_study
+à 0 jour de réserve pour 18 posts par jour de demande et des 5 comptes établis
+effondrés. Le feu vient toujours des seuils de la section « Le feu », jamais de
+l'exemple.
 
 Les lignes *Langues* et *Labels* ne listent que les écarts (une langue qui
 bouge de plus de 0,2 de r ou de moitié en % à 10 k ; un label sous 3 % ou

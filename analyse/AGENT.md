@@ -92,6 +92,11 @@ Les requêtes sont dans `requetes/`. Elles se lancent telles quelles (fenêtres
 glissantes), sauf `10b` (dates de la fenêtre RevenueCat) et `12` (bloc Apify à
 coller).
 
+Chaque matin à 8 h 33, la tâche planifiée « Sanity du matin » poste dans
+#a-os-sanity l'état de la machine (données, posts d'hier, percées des posts
+mûrs, stock, comptes, langues) : `analyse/sanity/AGENT.md`, chiffres de
+`select public.sanity_quotidien();` (migration 0341).
+
 ## Demandes types
 
 - **« Pourquoi ce post a flop / marché ? »** Retrouve le passage (URL ou id).

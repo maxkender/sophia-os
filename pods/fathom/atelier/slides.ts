@@ -79,8 +79,12 @@ export function languesCompletes(post: Post): string[] {
   return Object.keys(post.titre).filter((l) => post.legendes[l] && post.slides.every((s) => s[l]));
 }
 
-/** La slide de l'appli Sophia : celle que l'OS marque `position_sophia`. */
-export const estSlideSophia = (s: Slide) => s.type === "app" && s.app === "sophia";
+/**
+ * La slide Sophia, que l'OS marque `position_sophia` : une étape au milieu du
+ * deck avec la carte Sophia, comme la carte UnSwipe (décision du 23/10), ou
+ * l'ancienne slide de fin (`type: "app"`).
+ */
+export const estSlideSophia = (s: Slide) => s.app === "sophia" && (s.type === "etape" || s.type === "app");
 
 /**
  * Les zones que TikTok couvre sur un diaporama : les onglets en haut, la

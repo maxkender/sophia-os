@@ -181,6 +181,19 @@ export async function contenusLivresHorsApplication(
 // Dépôt d'une livraison (fonction `pods`)
 // ---------------------------------------------------------------------------
 
+/**
+ * Les mots d'une recherche de photos (action `photos`) : 3 lettres au moins,
+ * 5 mots au plus, sans les caractères spéciaux des filtres PostgREST.
+ */
+export function motsCherches(cherche: string): string[] {
+  return cherche
+    .toLowerCase()
+    .split(/\s+/)
+    .map((m) => m.replace(/[^\p{L}\p{N}'-]/gu, ""))
+    .filter((m) => m.length >= 3)
+    .slice(0, 5);
+}
+
 /** SHA-256 hexadécimal (jeton d'agent comparé à `pods.jeton_hash`). */
 export async function sha256Hex(texte: string): Promise<string> {
   const d = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(texte));

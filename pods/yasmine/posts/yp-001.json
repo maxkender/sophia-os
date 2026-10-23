@@ -1,0 +1,2233 @@
+{
+ "id": "yp-001",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/video/7668214193757097238",
+  "vues": 184600,
+  "enregistrements": 15546,
+  "publie_le": "2026-07-30",
+  "titre": "HOW I TAKE NOTES for each subject"
+ },
+ "titre": {
+  "fr": "comment je prends mes notes pour chaque matière"
+ },
+ "legendes": {
+  "fr": "ma méthode pour chaque matière 📝 #prisedenotes #studytok #revisions #bac #methodedetravail"
+ },
+ "musique": {
+  "titre": "Genesis",
+  "url": "https://www.tiktok.com/music/genesis-6751217134107363329"
+ },
+ "fond": {
+  "media_id": "3389a136-ff4b-46db-b7ee-98c749f72ca3",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/10e11aef-bea5-424e-b491-e551dad686ea/3.jpg",
+  "cadrage": {
+   "x": 0.15,
+   "y": 0.15,
+   "zoom": 1.25
+  }
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "script_haut": "comment je",
+     "lignes": [
+      "PRENDS",
+      "MES",
+      "NOTES"
+     ],
+     "decalages": [
+      135,
+      300,
+      330
+     ],
+     "script_bas": "pour chaque matière",
+     "y": 720
+    }
+   }
+  },
+  {
+   "type": "ipad",
+   "fr": {
+    "haut": [
+     "la base"
+    ],
+    "modele": "base",
+    "etiquettes": {
+     "titre": "TITRE",
+     "notions": [
+      "Notion 1",
+      "Notion 2",
+      "Notion 3"
+     ]
+    }
+   }
+  },
+  {
+   "type": "ipad",
+   "fr": {
+    "haut": [
+     "parfait pour : toutes les matières"
+    ],
+    "page": {
+     "ecrits": [
+      {
+       "t": "titre",
+       "x": 34,
+       "y": 62,
+       "texte": "LA PHOTOSYNTHÈSE",
+       "taille": 32
+      },
+      {
+       "t": "ligne",
+       "x": 36,
+       "y": 110,
+       "morceaux": [
+        "se passe dans les ",
+        {
+         "texte": "chloroplastes",
+         "surligne": true
+        },
+        " (cellules des feuilles)"
+       ],
+       "puce": "fleche"
+      },
+      {
+       "t": "ligne",
+       "x": 36,
+       "y": 139,
+       "morceaux": [
+        "la plante fabrique sa ",
+        {
+         "texte": "matière organique",
+         "surligne": true
+        },
+        " (glucose)"
+       ],
+       "puce": "fleche"
+      },
+      {
+       "t": "sous-titre",
+       "x": 60,
+       "y": 192,
+       "texte": "équation bilan"
+      },
+      {
+       "t": "boite",
+       "x": 36,
+       "y": 207,
+       "l": 624,
+       "h": 98
+      },
+      {
+       "t": "texte",
+       "x": 58,
+       "y": 254,
+       "morceaux": [
+        "6 CO",
+        {
+         "texte": "2",
+         "indice": true
+        },
+        " + 6 H",
+        {
+         "texte": "2",
+         "indice": true
+        },
+        "O"
+       ],
+       "taille": 24
+      },
+      {
+       "t": "fleche",
+       "de": [
+        258,
+        246
+       ],
+       "a": [
+        356,
+        246
+       ],
+       "couleur": "bleu"
+      },
+      {
+       "t": "texte",
+       "x": 307,
+       "y": 234,
+       "morceaux": [
+        "lumière"
+       ],
+       "taille": 16,
+       "couleur": "bleu",
+       "align": "centre"
+      },
+      {
+       "t": "texte",
+       "x": 374,
+       "y": 254,
+       "morceaux": [
+        "C",
+        {
+         "texte": "6",
+         "indice": true
+        },
+        "H",
+        {
+         "texte": "12",
+         "indice": true
+        },
+        "O",
+        {
+         "texte": "6",
+         "indice": true
+        },
+        " + 6 O",
+        {
+         "texte": "2",
+         "indice": true
+        }
+       ],
+       "taille": 24
+      },
+      {
+       "t": "texte",
+       "x": 58,
+       "y": 288,
+       "morceaux": [
+        "absorbés par la plante"
+       ],
+       "taille": 16,
+       "couleur": "jaune"
+      },
+      {
+       "t": "texte",
+       "x": 374,
+       "y": 288,
+       "morceaux": [
+        "glucose + dioxygène rejeté"
+       ],
+       "taille": 16,
+       "couleur": "jaune"
+      },
+      {
+       "t": "sous-titre",
+       "x": 60,
+       "y": 352,
+       "texte": "les 2 phases"
+      },
+      {
+       "t": "ligne",
+       "x": 36,
+       "y": 390,
+       "morceaux": [
+        {
+         "texte": "phase photochimique",
+         "surligne": true
+        },
+        " ",
+        {
+         "fleche": true
+        },
+        " dans les thylakoïdes"
+       ],
+       "puce": "point"
+      },
+      {
+       "t": "ligne",
+       "x": 62,
+       "y": 419,
+       "morceaux": [
+        "a besoin de lumière"
+       ],
+       "puce": "fleche"
+      },
+      {
+       "t": "ligne",
+       "x": 62,
+       "y": 448,
+       "morceaux": [
+        "photolyse de l'eau : 2 H",
+        {
+         "texte": "2",
+         "indice": true
+        },
+        "O ",
+        {
+         "fleche": true
+        },
+        " O",
+        {
+         "texte": "2",
+         "indice": true
+        },
+        " + 4 H",
+        {
+         "texte": "+",
+         "exposant": true
+        },
+        " + 4 e",
+        {
+         "texte": "-",
+         "exposant": true
+        }
+       ],
+       "puce": "fleche"
+      },
+      {
+       "t": "ligne",
+       "x": 62,
+       "y": 477,
+       "morceaux": [
+        "produit de l'",
+        {
+         "texte": "ATP",
+         "couleur": "bleu"
+        },
+        " et du ",
+        {
+         "texte": "NADPH",
+         "couleur": "bleu"
+        }
+       ],
+       "puce": "fleche"
+      },
+      {
+       "t": "ligne",
+       "x": 36,
+       "y": 518,
+       "morceaux": [
+        {
+         "texte": "phase chimique",
+         "surligne": true
+        },
+        " (cycle de Calvin) ",
+        {
+         "fleche": true
+        },
+        " dans le stroma"
+       ],
+       "puce": "point"
+      },
+      {
+       "t": "ligne",
+       "x": 62,
+       "y": 547,
+       "morceaux": [
+        "fixe le CO",
+        {
+         "texte": "2",
+         "indice": true
+        },
+        " grâce à l'ATP et au NADPH"
+       ],
+       "puce": "fleche"
+      },
+      {
+       "t": "ligne",
+       "x": 62,
+       "y": 576,
+       "morceaux": [
+        "fabrique le glucose ",
+        {
+         "fleche": true
+        },
+        " stocké en ",
+        {
+         "texte": "amidon",
+         "surligne": true
+        }
+       ],
+       "puce": "fleche"
+      },
+      {
+       "t": "sous-titre",
+       "x": 60,
+       "y": 632,
+       "texte": "les pigments"
+      },
+      {
+       "t": "ligne",
+       "x": 36,
+       "y": 668,
+       "morceaux": [
+        "chlorophylles a et b + caroténoïdes"
+       ],
+       "puce": "fleche"
+      },
+      {
+       "t": "ligne",
+       "x": 36,
+       "y": 697,
+       "morceaux": [
+        "absorbent le ",
+        {
+         "texte": "bleu",
+         "couleur": "bleu"
+        },
+        " et le ",
+        {
+         "texte": "rouge",
+         "couleur": "rose"
+        },
+        ", renvoient le ",
+        {
+         "texte": "vert",
+         "couleur": "vert"
+        }
+       ],
+       "puce": "fleche"
+      },
+      {
+       "t": "texte",
+       "x": 60,
+       "y": 724,
+       "morceaux": [
+        "d'où la couleur verte des feuilles !"
+       ],
+       "taille": 17,
+       "couleur": "bleu"
+      },
+      {
+       "t": "sous-titre",
+       "x": 60,
+       "y": 782,
+       "texte": "à retenir"
+      },
+      {
+       "t": "boite",
+       "x": 36,
+       "y": 798,
+       "l": 270,
+       "h": 172
+      },
+      {
+       "t": "texte",
+       "x": 171,
+       "y": 834,
+       "morceaux": [
+        "lumière"
+       ],
+       "taille": 21,
+       "align": "centre"
+      },
+      {
+       "t": "fleche",
+       "de": [
+        171,
+        845
+       ],
+       "a": [
+        171,
+        868
+       ]
+      },
+      {
+       "t": "texte",
+       "x": 171,
+       "y": 893,
+       "morceaux": [
+        "ATP + NADPH"
+       ],
+       "taille": 21,
+       "align": "centre"
+      },
+      {
+       "t": "fleche",
+       "de": [
+        171,
+        904
+       ],
+       "a": [
+        171,
+        927
+       ]
+      },
+      {
+       "t": "texte",
+       "x": 171,
+       "y": 953,
+       "morceaux": [
+        {
+         "texte": "glucose",
+         "surligne": true
+        }
+       ],
+       "taille": 21,
+       "align": "centre"
+      },
+      {
+       "t": "texte",
+       "x": 498,
+       "y": 800,
+       "morceaux": [
+        "le chloroplaste"
+       ],
+       "taille": 18,
+       "couleur": "vert",
+       "align": "centre"
+      },
+      {
+       "t": "ellipse",
+       "cx": 498,
+       "cy": 886,
+       "rx": 150,
+       "ry": 64,
+       "couleur": "vert",
+       "epaisseur": 2.2,
+       "fond": "#eef7ef"
+      },
+      {
+       "t": "ellipse",
+       "cx": 498,
+       "cy": 886,
+       "rx": 139,
+       "ry": 54,
+       "couleur": "vert",
+       "epaisseur": 1.2
+      },
+      {
+       "t": "boite",
+       "x": 408,
+       "y": 864,
+       "l": 36,
+       "h": 7,
+       "couleur": "vert",
+       "fond": "#9fd3ab",
+       "r": 3.5,
+       "epaisseur": 1
+      },
+      {
+       "t": "boite",
+       "x": 408,
+       "y": 873,
+       "l": 36,
+       "h": 7,
+       "couleur": "vert",
+       "fond": "#9fd3ab",
+       "r": 3.5,
+       "epaisseur": 1
+      },
+      {
+       "t": "boite",
+       "x": 408,
+       "y": 882,
+       "l": 36,
+       "h": 7,
+       "couleur": "vert",
+       "fond": "#9fd3ab",
+       "r": 3.5,
+       "epaisseur": 1
+      },
+      {
+       "t": "boite",
+       "x": 408,
+       "y": 891,
+       "l": 36,
+       "h": 7,
+       "couleur": "vert",
+       "fond": "#9fd3ab",
+       "r": 3.5,
+       "epaisseur": 1
+      },
+      {
+       "t": "boite",
+       "x": 468,
+       "y": 892,
+       "l": 36,
+       "h": 7,
+       "couleur": "vert",
+       "fond": "#9fd3ab",
+       "r": 3.5,
+       "epaisseur": 1
+      },
+      {
+       "t": "boite",
+       "x": 468,
+       "y": 901,
+       "l": 36,
+       "h": 7,
+       "couleur": "vert",
+       "fond": "#9fd3ab",
+       "r": 3.5,
+       "epaisseur": 1
+      },
+      {
+       "t": "boite",
+       "x": 468,
+       "y": 910,
+       "l": 36,
+       "h": 7,
+       "couleur": "vert",
+       "fond": "#9fd3ab",
+       "r": 3.5,
+       "epaisseur": 1
+      },
+      {
+       "t": "boite",
+       "x": 468,
+       "y": 919,
+       "l": 36,
+       "h": 7,
+       "couleur": "vert",
+       "fond": "#9fd3ab",
+       "r": 3.5,
+       "epaisseur": 1
+      },
+      {
+       "t": "boite",
+       "x": 530,
+       "y": 860,
+       "l": 36,
+       "h": 7,
+       "couleur": "vert",
+       "fond": "#9fd3ab",
+       "r": 3.5,
+       "epaisseur": 1
+      },
+      {
+       "t": "boite",
+       "x": 530,
+       "y": 869,
+       "l": 36,
+       "h": 7,
+       "couleur": "vert",
+       "fond": "#9fd3ab",
+       "r": 3.5,
+       "epaisseur": 1
+      },
+      {
+       "t": "boite",
+       "x": 530,
+       "y": 878,
+       "l": 36,
+       "h": 7,
+       "couleur": "vert",
+       "fond": "#9fd3ab",
+       "r": 3.5,
+       "epaisseur": 1
+      },
+      {
+       "t": "boite",
+       "x": 530,
+       "y": 887,
+       "l": 36,
+       "h": 7,
+       "couleur": "vert",
+       "fond": "#9fd3ab",
+       "r": 3.5,
+       "epaisseur": 1
+      },
+      {
+       "t": "boite",
+       "x": 580,
+       "y": 895,
+       "l": 36,
+       "h": 7,
+       "couleur": "vert",
+       "fond": "#9fd3ab",
+       "r": 3.5,
+       "epaisseur": 1
+      },
+      {
+       "t": "boite",
+       "x": 580,
+       "y": 904,
+       "l": 36,
+       "h": 7,
+       "couleur": "vert",
+       "fond": "#9fd3ab",
+       "r": 3.5,
+       "epaisseur": 1
+      },
+      {
+       "t": "boite",
+       "x": 580,
+       "y": 913,
+       "l": 36,
+       "h": 7,
+       "couleur": "vert",
+       "fond": "#9fd3ab",
+       "r": 3.5,
+       "epaisseur": 1
+      },
+      {
+       "t": "boite",
+       "x": 580,
+       "y": 922,
+       "l": 36,
+       "h": 7,
+       "couleur": "vert",
+       "fond": "#9fd3ab",
+       "r": 3.5,
+       "epaisseur": 1
+      },
+      {
+       "t": "fleche",
+       "de": [
+        622,
+        842
+       ],
+       "a": [
+        600,
+        860
+       ],
+       "couleur": "noir"
+      },
+      {
+       "t": "texte",
+       "x": 626,
+       "y": 838,
+       "morceaux": [
+        "granum"
+       ],
+       "taille": 15
+      },
+      {
+       "t": "fleche",
+       "de": [
+        438,
+        966
+       ],
+       "a": [
+        452,
+        928
+       ],
+       "couleur": "noir",
+       "courbe": 6
+      },
+      {
+       "t": "texte",
+       "x": 392,
+       "y": 984,
+       "morceaux": [
+        "thylakoïdes"
+       ],
+       "taille": 15
+      },
+      {
+       "t": "fleche",
+       "de": [
+        590,
+        966
+       ],
+       "a": [
+        560,
+        920
+       ],
+       "couleur": "noir",
+       "courbe": -6
+      },
+      {
+       "t": "texte",
+       "x": 570,
+       "y": 984,
+       "morceaux": [
+        "stroma"
+       ],
+       "taille": 15
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "ipad",
+   "fr": {
+    "haut": [
+     "cornell"
+    ],
+    "modele": "cornell",
+    "etiquettes": {
+     "titre": "TITRE",
+     "colonne": "mots-clés / questions",
+     "principal": "notes principales",
+     "resume": "résumé (optionnel)"
+    },
+    "bas": [
+     "idéal pour réviser !"
+    ]
+   }
+  },
+  {
+   "type": "ipad",
+   "fr": {
+    "haut": [
+     "parfait pour : histoire, SVT,",
+     "géo, langues"
+    ],
+    "page": {
+     "modele": "cornell",
+     "ecrits": [
+      {
+       "t": "texte",
+       "x": 330,
+       "y": 71,
+       "morceaux": [
+        "LA RÉVOLUTION FRANÇAISE"
+       ],
+       "taille": 29,
+       "align": "centre",
+       "gras": true
+      },
+      {
+       "t": "texte",
+       "x": 662,
+       "y": 71,
+       "morceaux": [
+        "1789-1799"
+       ],
+       "taille": 17,
+       "couleur": "bleu",
+       "align": "droite"
+      },
+      {
+       "t": "texte",
+       "x": 36,
+       "y": 137,
+       "morceaux": [
+        "pourquoi ?"
+       ],
+       "taille": 19,
+       "couleur": "rose"
+      },
+      {
+       "t": "texte",
+       "x": 36,
+       "y": 330,
+       "morceaux": [
+        "1789"
+       ],
+       "taille": 24,
+       "couleur": "rose"
+      },
+      {
+       "t": "texte",
+       "x": 36,
+       "y": 524,
+       "morceaux": [
+        "la"
+       ],
+       "taille": 19,
+       "couleur": "rose"
+      },
+      {
+       "t": "texte",
+       "x": 36,
+       "y": 546,
+       "morceaux": [
+        "République"
+       ],
+       "taille": 19,
+       "couleur": "rose"
+      },
+      {
+       "t": "texte",
+       "x": 36,
+       "y": 708,
+       "morceaux": [
+        "la fin ?"
+       ],
+       "taille": 19,
+       "couleur": "rose"
+      },
+      {
+       "t": "ligne",
+       "x": 150,
+       "y": 135,
+       "morceaux": [
+        {
+         "texte": "crise financière",
+         "surligne": true
+        },
+        " : l'État est endetté"
+       ],
+       "puce": "point",
+       "taille": 19
+      },
+      {
+       "t": "ligne",
+       "x": 150,
+       "y": 164,
+       "morceaux": [
+        "société d'ordres : clergé, noblesse, ",
+        {
+         "texte": "tiers état",
+         "surligne": true
+        }
+       ],
+       "puce": "point",
+       "taille": 19
+      },
+      {
+       "t": "ligne",
+       "x": 166,
+       "y": 193,
+       "morceaux": [
+        "le tiers état (98 % des Français)"
+       ],
+       "puce": "fleche",
+       "taille": 19
+      },
+      {
+       "t": "ligne",
+       "x": 189,
+       "y": 219,
+       "morceaux": [
+        "paie presque tous les impôts"
+       ],
+       "taille": 19
+      },
+      {
+       "t": "ligne",
+       "x": 150,
+       "y": 248,
+       "morceaux": [
+        "idées des ",
+        {
+         "texte": "Lumières",
+         "surligne": true
+        },
+        " (Montesquieu, Rousseau)"
+       ],
+       "puce": "point",
+       "taille": 19
+      },
+      {
+       "t": "ligne",
+       "x": 150,
+       "y": 277,
+       "morceaux": [
+        "mauvaises récoltes en 1788 ",
+        {
+         "fleche": true
+        },
+        " pain trop cher"
+       ],
+       "puce": "point",
+       "taille": 19
+      },
+      {
+       "t": "trait",
+       "points": [
+        [
+         148,
+         302
+        ],
+        [
+         664,
+         302
+        ]
+       ],
+       "couleur": "#d6d6d6",
+       "epaisseur": 1.2
+      },
+      {
+       "t": "ligne",
+       "x": 150,
+       "y": 333,
+       "morceaux": [
+        {
+         "texte": "5 mai",
+         "couleur": "rose"
+        },
+        " : ouverture des États généraux"
+       ],
+       "taille": 19
+      },
+      {
+       "t": "ligne",
+       "x": 150,
+       "y": 362,
+       "morceaux": [
+        {
+         "texte": "20 juin",
+         "couleur": "rose"
+        },
+        " : serment du Jeu de paume"
+       ],
+       "taille": 19
+      },
+      {
+       "t": "ligne",
+       "x": 150,
+       "y": 391,
+       "morceaux": [
+        {
+         "texte": "14 juillet",
+         "couleur": "rose"
+        },
+        " : prise de la ",
+        {
+         "texte": "Bastille",
+         "surligne": true
+        }
+       ],
+       "taille": 19
+      },
+      {
+       "t": "ligne",
+       "x": 150,
+       "y": 420,
+       "morceaux": [
+        {
+         "texte": "4 août",
+         "couleur": "rose"
+        },
+        " : abolition des privilèges"
+       ],
+       "taille": 19
+      },
+      {
+       "t": "ligne",
+       "x": 150,
+       "y": 449,
+       "morceaux": [
+        {
+         "texte": "26 août",
+         "couleur": "rose"
+        },
+        " : ",
+        {
+         "texte": "DDHC",
+         "surligne": true
+        }
+       ],
+       "taille": 19
+      },
+      {
+       "t": "texte",
+       "x": 174,
+       "y": 474,
+       "morceaux": [
+        "Déclaration des droits de l'homme et du citoyen"
+       ],
+       "taille": 16,
+       "couleur": "gris"
+      },
+      {
+       "t": "trait",
+       "points": [
+        [
+         148,
+         497
+        ],
+        [
+         664,
+         497
+        ]
+       ],
+       "couleur": "#d6d6d6",
+       "epaisseur": 1.2
+      },
+      {
+       "t": "ligne",
+       "x": 150,
+       "y": 528,
+       "morceaux": [
+        {
+         "texte": "1791",
+         "couleur": "rose"
+        },
+        " : monarchie constitutionnelle"
+       ],
+       "taille": 19
+      },
+      {
+       "t": "ligne",
+       "x": 150,
+       "y": 557,
+       "morceaux": [
+        {
+         "texte": "10 août 1792",
+         "couleur": "rose"
+        },
+        " : chute de la monarchie"
+       ],
+       "taille": 19
+      },
+      {
+       "t": "ligne",
+       "x": 150,
+       "y": 586,
+       "morceaux": [
+        {
+         "texte": "22 sept. 1792",
+         "couleur": "rose"
+        },
+        " : la I",
+        {
+         "texte": "re",
+         "exposant": true
+        },
+        " ",
+        {
+         "texte": "République",
+         "surligne": true
+        }
+       ],
+       "taille": 19
+      },
+      {
+       "t": "ligne",
+       "x": 150,
+       "y": 615,
+       "morceaux": [
+        {
+         "texte": "21 janv. 1793",
+         "couleur": "rose"
+        },
+        " : exécution de Louis XVI"
+       ],
+       "taille": 19
+      },
+      {
+       "t": "ligne",
+       "x": 150,
+       "y": 644,
+       "morceaux": [
+        {
+         "texte": "1793-1794",
+         "couleur": "rose"
+        },
+        " : la ",
+        {
+         "texte": "Terreur",
+         "surligne": true
+        },
+        " (Robespierre)"
+       ],
+       "taille": 19
+      },
+      {
+       "t": "trait",
+       "points": [
+        [
+         148,
+         669
+        ],
+        [
+         664,
+         669
+        ]
+       ],
+       "couleur": "#d6d6d6",
+       "epaisseur": 1.2
+      },
+      {
+       "t": "ligne",
+       "x": 150,
+       "y": 704,
+       "morceaux": [
+        {
+         "texte": "9 nov. 1799",
+         "couleur": "rose"
+        },
+        " : coup d'État de Bonaparte"
+       ],
+       "taille": 19
+      },
+      {
+       "t": "ligne",
+       "x": 166,
+       "y": 733,
+       "morceaux": [
+        "le 18 Brumaire ",
+        {
+         "fleche": true
+        },
+        " fin de la Révolution"
+       ],
+       "puce": "fleche",
+       "taille": 19
+      },
+      {
+       "t": "texte",
+       "x": 42,
+       "y": 884,
+       "morceaux": [
+        {
+         "texte": "résumé : ",
+         "couleur": "rose"
+        },
+        "la Révolution met fin à la monarchie absolue"
+       ],
+       "taille": 19
+      },
+      {
+       "t": "texte",
+       "x": 42,
+       "y": 913,
+       "morceaux": [
+        "et aux privilèges. Le pouvoir appartient désormais"
+       ],
+       "taille": 19
+      },
+      {
+       "t": "texte",
+       "x": 42,
+       "y": 942,
+       "morceaux": [
+        "à la ",
+        {
+         "texte": "nation",
+         "surligne": true
+        },
+        " (DDHC, 1789)."
+       ],
+       "taille": 19
+      }
+     ]
+    },
+    "bas": [
+     "cache la partie droite et récite à voix haute !"
+    ]
+   }
+  },
+  {
+   "type": "ipad",
+   "fr": {
+    "haut": [
+     "par blocs"
+    ],
+    "modele": "blocs",
+    "etiquettes": {
+     "titre": "TITRE",
+     "blocs": [
+      "explications",
+      "formules",
+      "exemple + explication",
+      "exercices d'entraînement"
+     ]
+    }
+   }
+  },
+  {
+   "type": "ipad",
+   "fr": {
+    "haut": [
+     "parfait pour : maths, physique, chimie"
+    ],
+    "page": {
+     "modele": "blocs",
+     "ecrits": [
+      {
+       "t": "texte",
+       "x": 349,
+       "y": 72,
+       "morceaux": [
+        "TRIGONOMÉTRIE"
+       ],
+       "taille": 30,
+       "align": "centre",
+       "gras": true
+      },
+      {
+       "t": "texte",
+       "x": 40,
+       "y": 152,
+       "morceaux": [
+        "dans un triangle rectangle :"
+       ],
+       "taille": 17,
+       "couleur": "vert"
+      },
+      {
+       "t": "trait",
+       "points": [
+        [
+         70,
+         300
+        ],
+        [
+         330,
+         300
+        ],
+        [
+         330,
+         172
+        ]
+       ],
+       "ferme": true,
+       "epaisseur": 1.8
+      },
+      {
+       "t": "trait",
+       "points": [
+        [
+         316,
+         300
+        ],
+        [
+         316,
+         286
+        ],
+        [
+         330,
+         286
+        ]
+       ],
+       "epaisseur": 1.3
+      },
+      {
+       "t": "arc",
+       "cx": 70,
+       "cy": 300,
+       "r": 34,
+       "de": -26.2,
+       "a": 0,
+       "couleur": "bleu",
+       "epaisseur": 1.6
+      },
+      {
+       "t": "texte",
+       "x": 110,
+       "y": 292,
+       "morceaux": [
+        "Â"
+       ],
+       "taille": 17,
+       "couleur": "bleu"
+      },
+      {
+       "t": "texte",
+       "x": 52,
+       "y": 316,
+       "morceaux": [
+        "A"
+       ],
+       "taille": 17
+      },
+      {
+       "t": "texte",
+       "x": 334,
+       "y": 318,
+       "morceaux": [
+        "B"
+       ],
+       "taille": 17
+      },
+      {
+       "t": "texte",
+       "x": 334,
+       "y": 170,
+       "morceaux": [
+        "C"
+       ],
+       "taille": 17
+      },
+      {
+       "t": "texte",
+       "x": 196,
+       "y": 224,
+       "morceaux": [
+        "hypoténuse"
+       ],
+       "taille": 16,
+       "couleur": "rose",
+       "align": "centre",
+       "rotation": -26.2
+      },
+      {
+       "t": "texte",
+       "x": 200,
+       "y": 322,
+       "morceaux": [
+        "adjacent"
+       ],
+       "taille": 16,
+       "couleur": "bleu",
+       "align": "centre"
+      },
+      {
+       "t": "texte",
+       "x": 340,
+       "y": 246,
+       "morceaux": [
+        "opposé"
+       ],
+       "taille": 16,
+       "couleur": "vert"
+      },
+      {
+       "t": "ligne",
+       "x": 442,
+       "y": 162,
+       "morceaux": [
+        "cos Â = ",
+        {
+         "texte": "adj",
+         "couleur": "bleu"
+        },
+        " / ",
+        {
+         "texte": "hyp",
+         "couleur": "rose"
+        }
+       ],
+       "taille": 20
+      },
+      {
+       "t": "ligne",
+       "x": 442,
+       "y": 198,
+       "morceaux": [
+        "sin Â = ",
+        {
+         "texte": "opp",
+         "couleur": "vert"
+        },
+        " / ",
+        {
+         "texte": "hyp",
+         "couleur": "rose"
+        }
+       ],
+       "taille": 20
+      },
+      {
+       "t": "ligne",
+       "x": 442,
+       "y": 234,
+       "morceaux": [
+        "tan Â = ",
+        {
+         "texte": "opp",
+         "couleur": "vert"
+        },
+        " / ",
+        {
+         "texte": "adj",
+         "couleur": "bleu"
+        }
+       ],
+       "taille": 20
+      },
+      {
+       "t": "texte",
+       "x": 551,
+       "y": 280,
+       "morceaux": [
+        {
+         "texte": "CAH SOH TOA",
+         "surligne": true
+        }
+       ],
+       "taille": 21,
+       "align": "centre"
+      },
+      {
+       "t": "texte",
+       "x": 551,
+       "y": 314,
+       "morceaux": [
+        "cos² Â + sin² Â = 1"
+       ],
+       "taille": 16,
+       "couleur": "gris",
+       "align": "centre"
+      },
+      {
+       "t": "texte",
+       "x": 40,
+       "y": 390,
+       "morceaux": [
+        "exemple :"
+       ],
+       "taille": 18,
+       "couleur": "rose"
+      },
+      {
+       "t": "ligne",
+       "x": 40,
+       "y": 422,
+       "morceaux": [
+        "AC = 10 cm et Â = 30°. Calculer BC."
+       ],
+       "taille": 19
+      },
+      {
+       "t": "ligne",
+       "x": 40,
+       "y": 454,
+       "morceaux": [
+        "BC est ",
+        {
+         "texte": "opposé",
+         "couleur": "vert"
+        },
+        " à Â, AC est l'",
+        {
+         "texte": "hypoténuse",
+         "couleur": "rose"
+        }
+       ],
+       "puce": "fleche",
+       "taille": 19
+      },
+      {
+       "t": "ligne",
+       "x": 40,
+       "y": 486,
+       "morceaux": [
+        "j'utilise ",
+        {
+         "texte": "SOH",
+         "surligne": true
+        },
+        " : sin Â = BC / AC"
+       ],
+       "puce": "fleche",
+       "taille": 19
+      },
+      {
+       "t": "ligne",
+       "x": 64,
+       "y": 518,
+       "morceaux": [
+        "BC = AC × sin 30° = 10 × 0,5"
+       ],
+       "taille": 19
+      },
+      {
+       "t": "ligne",
+       "x": 64,
+       "y": 550,
+       "morceaux": [
+        "BC = ",
+        {
+         "texte": "5 cm",
+         "surligne": true
+        }
+       ],
+       "taille": 19
+      },
+      {
+       "t": "trait",
+       "points": [
+        [
+         520,
+         540
+        ],
+        [
+         646,
+         540
+        ],
+        [
+         646,
+         466
+        ]
+       ],
+       "ferme": true,
+       "epaisseur": 1.6
+      },
+      {
+       "t": "trait",
+       "points": [
+        [
+         636,
+         540
+        ],
+        [
+         636,
+         530
+        ],
+        [
+         646,
+         530
+        ]
+       ],
+       "epaisseur": 1.1
+      },
+      {
+       "t": "arc",
+       "cx": 520,
+       "cy": 540,
+       "r": 26,
+       "de": -30.4,
+       "a": 0,
+       "couleur": "bleu",
+       "epaisseur": 1.4
+      },
+      {
+       "t": "texte",
+       "x": 552,
+       "y": 535,
+       "morceaux": [
+        "30°"
+       ],
+       "taille": 14,
+       "couleur": "bleu"
+      },
+      {
+       "t": "texte",
+       "x": 568,
+       "y": 494,
+       "morceaux": [
+        "10 cm"
+       ],
+       "taille": 15,
+       "couleur": "rose",
+       "align": "centre",
+       "rotation": -30.4
+      },
+      {
+       "t": "texte",
+       "x": 650,
+       "y": 508,
+       "morceaux": [
+        "?"
+       ],
+       "taille": 17,
+       "couleur": "vert"
+      },
+      {
+       "t": "texte",
+       "x": 40,
+       "y": 628,
+       "morceaux": [
+        "à m'entraîner :"
+       ],
+       "taille": 18,
+       "couleur": "rose"
+      },
+      {
+       "t": "ligne",
+       "x": 40,
+       "y": 664,
+       "morceaux": [
+        "1) AB = 8 cm et Â = 60°. Calculer AC."
+       ],
+       "taille": 19
+      },
+      {
+       "t": "ligne",
+       "x": 64,
+       "y": 694,
+       "morceaux": [
+        "cos 60° = AB / AC donc AC = 8 / 0,5 = ",
+        {
+         "texte": "16 cm",
+         "surligne": true
+        }
+       ],
+       "puce": "fleche",
+       "taille": 19
+      },
+      {
+       "t": "ligne",
+       "x": 40,
+       "y": 742,
+       "morceaux": [
+        "2) tan Â = 1. Que vaut Â ?"
+       ],
+       "taille": 19
+      },
+      {
+       "t": "ligne",
+       "x": 64,
+       "y": 772,
+       "morceaux": [
+        "Â = ",
+        {
+         "texte": "45°",
+         "surligne": true
+        },
+        " (triangle rectangle isocèle)"
+       ],
+       "puce": "fleche",
+       "taille": 19
+      },
+      {
+       "t": "ligne",
+       "x": 40,
+       "y": 820,
+       "morceaux": [
+        "3) Montrer que cos² Â + sin² Â = 1."
+       ],
+       "taille": 19
+      },
+      {
+       "t": "ligne",
+       "x": 64,
+       "y": 850,
+       "morceaux": [
+        "indice : utiliser ",
+        {
+         "texte": "Pythagore",
+         "surligne": true
+        },
+        " !"
+       ],
+       "puce": "fleche",
+       "taille": 19
+      },
+      {
+       "t": "ligne",
+       "x": 40,
+       "y": 898,
+       "morceaux": [
+        "4) BC = 3 cm et AB = 4 cm. Calculer AC puis cos Â."
+       ],
+       "taille": 19
+      },
+      {
+       "t": "ligne",
+       "x": 64,
+       "y": 928,
+       "morceaux": [
+        "AC = 5 cm (Pythagore) donc cos Â = 4 / 5 = ",
+        {
+         "texte": "0,8",
+         "surligne": true
+        }
+       ],
+       "puce": "fleche",
+       "taille": 19
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "ipad",
+   "fr": {
+    "haut": [
+     "carte mentale"
+    ],
+    "modele": "carte",
+    "etiquettes": {
+     "titre": "TITRE",
+     "notions": [
+      "notion 1",
+      "notion 2",
+      "notion 3",
+      "notion 4"
+     ]
+    }
+   }
+  },
+  {
+   "type": "ipad",
+   "fr": {
+    "haut": [
+     "parfait pour : histoire, géo, SVT"
+    ],
+    "page": {
+     "ecrits": [
+      {
+       "t": "bulle",
+       "x": 222,
+       "y": 466,
+       "l": 252,
+       "h": 104,
+       "fond": "#fce4f3",
+       "taille": 22,
+       "lignes": [
+        [
+         "1",
+         {
+          "texte": "re",
+          "exposant": true
+         },
+         " Guerre mondiale"
+        ],
+        [
+         {
+          "texte": "1914 - 1918",
+          "couleur": "rose"
+         }
+        ]
+       ]
+      },
+      {
+       "t": "texte",
+       "x": 150,
+       "y": 372,
+       "morceaux": [
+        {
+         "texte": "causes",
+         "surligne": "#f9c6da"
+        }
+       ],
+       "taille": 20,
+       "align": "centre"
+      },
+      {
+       "t": "fleche",
+       "de": [
+        268,
+        474
+       ],
+       "a": [
+        176,
+        386
+       ],
+       "courbe": -14
+      },
+      {
+       "t": "fleche",
+       "de": [
+        134,
+        352
+       ],
+       "a": [
+        150,
+        172
+       ],
+       "courbe": -6
+      },
+      {
+       "t": "texte",
+       "x": 26,
+       "y": 112,
+       "morceaux": [
+        "assassinat de"
+       ],
+       "taille": 17
+      },
+      {
+       "t": "texte",
+       "x": 26,
+       "y": 135,
+       "morceaux": [
+        "François-Ferdinand"
+       ],
+       "taille": 17
+      },
+      {
+       "t": "texte",
+       "x": 26,
+       "y": 158,
+       "morceaux": [
+        "à Sarajevo ",
+        {
+         "texte": "(28 juin 1914)",
+         "couleur": "rose"
+        }
+       ],
+       "taille": 17
+      },
+      {
+       "t": "fleche",
+       "de": [
+        168,
+        352
+       ],
+       "a": [
+        212,
+        272
+       ],
+       "courbe": -8
+      },
+      {
+       "t": "texte",
+       "x": 196,
+       "y": 262,
+       "morceaux": [
+        "alliances"
+       ],
+       "taille": 17
+      },
+      {
+       "t": "fleche",
+       "de": [
+        118,
+        352
+       ],
+       "a": [
+        72,
+        272
+       ],
+       "courbe": 8
+      },
+      {
+       "t": "texte",
+       "x": 22,
+       "y": 262,
+       "morceaux": [
+        "nationalismes"
+       ],
+       "taille": 17
+      },
+      {
+       "t": "fleche",
+       "de": [
+        194,
+        362
+       ],
+       "a": [
+        238,
+        334
+       ],
+       "courbe": -6
+      },
+      {
+       "t": "texte",
+       "x": 244,
+       "y": 318,
+       "morceaux": [
+        "rivalités"
+       ],
+       "taille": 17
+      },
+      {
+       "t": "texte",
+       "x": 244,
+       "y": 340,
+       "morceaux": [
+        "coloniales"
+       ],
+       "taille": 17
+      },
+      {
+       "t": "texte",
+       "x": 548,
+       "y": 372,
+       "morceaux": [
+        {
+         "texte": "les 2 camps",
+         "surligne": "#f9c6da"
+        }
+       ],
+       "taille": 20,
+       "align": "centre"
+      },
+      {
+       "t": "fleche",
+       "de": [
+        428,
+        474
+       ],
+       "a": [
+        524,
+        386
+       ],
+       "courbe": 14
+      },
+      {
+       "t": "fleche",
+       "de": [
+        520,
+        352
+       ],
+       "a": [
+        470,
+        172
+       ],
+       "courbe": -10
+      },
+      {
+       "t": "texte",
+       "x": 346,
+       "y": 112,
+       "morceaux": [
+        "les Alliés :"
+       ],
+       "taille": 17,
+       "couleur": "bleu"
+      },
+      {
+       "t": "texte",
+       "x": 346,
+       "y": 135,
+       "morceaux": [
+        "France, Royaume-Uni,"
+       ],
+       "taille": 17
+      },
+      {
+       "t": "texte",
+       "x": 346,
+       "y": 158,
+       "morceaux": [
+        "Russie (+ USA en 1917)"
+       ],
+       "taille": 17
+      },
+      {
+       "t": "fleche",
+       "de": [
+        590,
+        352
+       ],
+       "a": [
+        604,
+        296
+       ],
+       "courbe": 6
+      },
+      {
+       "t": "texte",
+       "x": 548,
+       "y": 210,
+       "morceaux": [
+        "Empires centraux :"
+       ],
+       "taille": 17,
+       "couleur": "bleu"
+      },
+      {
+       "t": "texte",
+       "x": 548,
+       "y": 233,
+       "morceaux": [
+        "Allemagne,"
+       ],
+       "taille": 17
+      },
+      {
+       "t": "texte",
+       "x": 548,
+       "y": 256,
+       "morceaux": [
+        "Autriche-Hongrie,"
+       ],
+       "taille": 17
+      },
+      {
+       "t": "texte",
+       "x": 548,
+       "y": 279,
+       "morceaux": [
+        "Empire ottoman"
+       ],
+       "taille": 17
+      },
+      {
+       "t": "texte",
+       "x": 150,
+       "y": 690,
+       "morceaux": [
+        {
+         "texte": "les étapes",
+         "surligne": "#f9c6da"
+        }
+       ],
+       "taille": 20,
+       "align": "centre"
+      },
+      {
+       "t": "fleche",
+       "de": [
+        268,
+        562
+       ],
+       "a": [
+        176,
+        674
+       ],
+       "courbe": 14
+      },
+      {
+       "t": "fleche",
+       "de": [
+        150,
+        704
+       ],
+       "a": [
+        150,
+        732
+       ]
+      },
+      {
+       "t": "ligne",
+       "x": 24,
+       "y": 764,
+       "morceaux": [
+        {
+         "texte": "1914",
+         "couleur": "rose"
+        },
+        " : bataille de la Marne"
+       ],
+       "taille": 17
+      },
+      {
+       "t": "ligne",
+       "x": 24,
+       "y": 794,
+       "morceaux": [
+        {
+         "texte": "1915-1917",
+         "couleur": "rose"
+        },
+        " : guerre de position"
+       ],
+       "taille": 17
+      },
+      {
+       "t": "ligne",
+       "x": 24,
+       "y": 824,
+       "morceaux": [
+        {
+         "texte": "1916",
+         "couleur": "rose"
+        },
+        " : Verdun, la Somme"
+       ],
+       "taille": 17
+      },
+      {
+       "t": "ligne",
+       "x": 24,
+       "y": 854,
+       "morceaux": [
+        {
+         "texte": "1917",
+         "couleur": "rose"
+        },
+        " : entrée des USA,"
+       ],
+       "taille": 17
+      },
+      {
+       "t": "ligne",
+       "x": 72,
+       "y": 878,
+       "morceaux": [
+        "révolution russe"
+       ],
+       "taille": 17
+      },
+      {
+       "t": "ligne",
+       "x": 24,
+       "y": 910,
+       "morceaux": [
+        {
+         "texte": "11 nov. 1918",
+         "couleur": "rose"
+        },
+        " : ",
+        {
+         "texte": "armistice",
+         "surligne": true
+        }
+       ],
+       "taille": 17
+      },
+      {
+       "t": "texte",
+       "x": 548,
+       "y": 690,
+       "morceaux": [
+        {
+         "texte": "conséquences",
+         "surligne": "#f9c6da"
+        }
+       ],
+       "taille": 20,
+       "align": "centre"
+      },
+      {
+       "t": "fleche",
+       "de": [
+        428,
+        562
+       ],
+       "a": [
+        524,
+        674
+       ],
+       "courbe": -14
+      },
+      {
+       "t": "fleche",
+       "de": [
+        548,
+        704
+       ],
+       "a": [
+        548,
+        732
+       ]
+      },
+      {
+       "t": "ligne",
+       "x": 384,
+       "y": 764,
+       "morceaux": [
+        "près de 10 millions"
+       ],
+       "puce": "fleche",
+       "taille": 17
+      },
+      {
+       "t": "ligne",
+       "x": 407,
+       "y": 788,
+       "morceaux": [
+        "de soldats tués"
+       ],
+       "taille": 17
+      },
+      {
+       "t": "ligne",
+       "x": 384,
+       "y": 820,
+       "morceaux": [
+        "traité de ",
+        {
+         "texte": "Versailles",
+         "surligne": true
+        },
+        " (1919)"
+       ],
+       "puce": "fleche",
+       "taille": 17
+      },
+      {
+       "t": "ligne",
+       "x": 384,
+       "y": 850,
+       "morceaux": [
+        "création de la SDN (1920)"
+       ],
+       "puce": "fleche",
+       "taille": 17
+      },
+      {
+       "t": "ligne",
+       "x": 384,
+       "y": 880,
+       "morceaux": [
+        "les femmes au travail"
+       ],
+       "puce": "fleche",
+       "taille": 17
+      },
+      {
+       "t": "ligne",
+       "x": 384,
+       "y": 910,
+       "morceaux": [
+        "la carte de l'Europe change"
+       ],
+       "puce": "fleche",
+       "taille": 17
+      }
+     ]
+    },
+    "bas": [
+     "je les préfère en mode paysage, perso !"
+    ]
+   }
+  },
+  {
+   "type": "iphone",
+   "app": true,
+   "fr": {
+    "haut": [
+     "et pour réviser,",
+     "je mets mes notes dans micabo"
+    ],
+    "capture": "assets/micabo/fr/parcours.jpg",
+    "bas": [
+     "il en fait des quiz et des flashcards"
+    ]
+   }
+  }
+ ]
+}

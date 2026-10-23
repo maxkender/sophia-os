@@ -126,8 +126,13 @@ export type Couverture = {
   taille_script?: number;
   /** Sous le titre, en texte TikTok blanc calé à gauche du titre (« for a peaceful life🌙 »). */
   texte_bas?: string;
+  /** Le texte du bas : centre en x (sinon calé sur le bord gauche du titre), taille. */
+  texte_bas_x?: number;
+  texte_bas_taille?: number;
   /** L'interligne du titre, en fraction de la taille (0,82 pour « productivity apps », en minuscules). */
   interligne?: number;
+  /** Remonte l'écriture fine du haut (px), quand la première ligne porte un accent (« RÉUSSIR »). */
+  script_monte?: number;
   /** Centré : l'écriture fine au-dessus, centrée (par défaut) ou calée sur le bord gauche du titre. */
   script_place?: "centre" | "gauche";
 };
@@ -176,12 +181,15 @@ export function titreCouverture(ctx: Ctx, c: Couverture) {
   };
   if (c.script_haut) {
     if (centre && c.script_place === "gauche") script(c.script_haut, gauche + 24, y0 - taille * 0.78, "left");
-    else if (centre) script(c.script_haut, L / 2 + tailleScript * 0.12, y0 - taille * 1.02, "center");
+    else if (centre) script(c.script_haut, L / 2 + tailleScript * 0.12, y0 - taille * 1.02 - (c.script_monte ?? 0), "center");
     else script(c.script_haut, decalages[0] + 8, y0 - taille * 0.98, "left");
   }
   if (c.script_bas) script(c.script_bas, droite + 20, y0 + (c.lignes.length - 1) * interligne + taille * 0.68, "right");
   if (c.texte_bas) {
-    texteTiktok(ctx, [c.texte_bas], { x: gauche + 12, y: y0 + (c.lignes.length - 1) * interligne + Math.round(taille * 0.5), taille: Math.round(taille * 0.24), couleur: "#ffffff", aligne: "gauche" });
+    const tb = c.texte_bas_taille ?? Math.round(taille * 0.24);
+    const yb = y0 + (c.lignes.length - 1) * interligne + Math.round(taille * 0.5);
+    if (c.texte_bas_x) texteTiktok(ctx, [c.texte_bas], { x: c.texte_bas_x, y: yb, taille: tb, couleur: "#ffffff", aligne: "centre" });
+    else texteTiktok(ctx, [c.texte_bas], { x: gauche + 12, y: yb, taille: tb, couleur: "#ffffff", aligne: "gauche" });
   }
   ctx.restore();
 }

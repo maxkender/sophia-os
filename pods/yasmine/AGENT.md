@@ -56,6 +56,7 @@ rejette est validée toute seule 12 h après son dépôt.
 - **Les légendes** : Poppins jaune pâle, au-dessus de l'appareil (42 px) et en dessous (48 px).
 - **Les notes remplies** : écriture Gochi Hand, surligneur `#fde79c`, titres jaunes, flèches dessinées (la police n'a pas « → »).
 - **Slides photo** (« after school routine ») : `type: "photo"`, sa propre `photo`, une `legende` en texte TikTok (TikTok Sans SemiBold, jaune `#fdf2ab` ou brun `#3d2c28`, emojis), photo non assombrie ; l'iPhone s'y pose avec `capture`. Couverture centrée : `aligne: "centre"`, `texte_bas`.
+- **Notes iOS sur photo** (« things i do to SMASH EVERY EXAM ») : slide `photo` avec `note` (`x` 108 ou 308, `y`, `titre`, `texte`), barre d'état et boutons de l'app Notes, Inter Medium 41/37 px. micabo y entre dans le texte d'un conseil, jamais en capture.
 - **Cartes d'applis** (« my favorite productivity apps ») : `type: "carte"`, l'iPad blanc plus petit (`IPAD_CARTE`), icône 168 px, nom et texte en Inter Medium `#323232`. Icônes dans `assets/applis/` (App Store ; Calendrier repeint en français).
 - **Pas encore dans l'atelier** : les cartes « Notes » blanches (« school tips », « digital declutter »), l'écran d'accueil d'iPhone (« organise my phone »).
 	- Ajoute-les dans `atelier/` en les mesurant sur ses slides (`npm run veille` les met en cache dans `donnees/cache/`).

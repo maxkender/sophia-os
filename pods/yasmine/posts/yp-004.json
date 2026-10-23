@@ -1,0 +1,149 @@
+{
+ "id": "yp-004",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7664208221808135446",
+  "vues": 122200,
+  "enregistrements": 6415,
+  "publie_le": "2026-07-19",
+  "titre": "things i do to SMASH EVERY EXAM part 1"
+ },
+ "titre": {
+  "fr": "ce que je fais pour réussir tous mes exams"
+ },
+ "legendes": {
+  "fr": "mes habitudes avant chaque exam 📚 #revisions #studytok #examens #bac #thatgirl"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7575815280899656462"
+ },
+ "fond": {
+  "media_id": "07be87d8-55d7-455c-baa8-efbee0aa0dac",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/c1694fb0-62c7-465d-b896-031551f62e9e/1.jpg?v=1791726738368",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "ce que je fais pour",
+     "lignes": [
+      "RÉUSSIR",
+      "TOUS MES",
+      "EXAMS"
+     ],
+     "taille": 176,
+     "taille_script": 88,
+     "y": 680,
+     "texte_bas": "partie 1",
+     "texte_bas_x": 715,
+     "texte_bas_taille": 46,
+     "script_monte": 28
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "172292c1-2f55-4f9c-9081-0e4a3ee20d39",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/dee43f06-d3c0-41cd-be10-d5ed8a4e6fa8/1.jpg?v=1791726283377",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 108,
+     "y": 454,
+     "titre": "réveille-toi tôt pour réviser.🎧",
+     "texte": "oui, même le week-end. j’arrive à caser 4 h de révisions avant 10 h."
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "6fdadcb4-cecd-46a1-9b93-9fd29c02339e",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/243bb016-f7f4-45fe-a10a-75c9e621ec61/4.jpg?v=1790606900683",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 308,
+     "y": 336,
+     "titre": "fais du vendredi un jour comme les autres.📚",
+     "texte": "fais un effort de plus et révise le vendredi après les cours, au moins tes devoirs. tu seras récompensée par plus de temps libre le week-end."
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "5e5a6e80-5c0e-4b43-84df-a3269e4fdb93",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/f6aeb186-e6bb-4353-9620-c5e6a4450825/2.jpg?v=1791725331542",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 108,
+     "y": 454,
+     "titre": "révise tôt🌸",
+     "texte": "le bachotage de dernière minute, c’est le pire pour ta santé mentale. moi, je mets mes cours dans micabo et je fais 10 min de quiz par jour : rien ne s’empile."
+    }
+   },
+   "app": true
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "581bf928-3252-4b90-81cd-1c929fceb355",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/b923bf1d-7252-4fd3-87da-2bcd89b8d4c5/6.jpg?v=1790679737340",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 108,
+     "y": 809,
+     "titre": "habille-toi pour réviser.🧥",
+     "texte": "je sais, le pyjama c’est trop confortable. mais ce que tu portes compte : en pyjama, tu es plus endormie et plus flemmarde."
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "20dbc0c5-daf9-48c0-b966-c51fb1b235cc",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/535b6732-2833-4f74-9269-5f790e009001/5.jpg?v=1791727179359",
+    "cadrage": {
+     "x": 0.3,
+     "y": 0.0,
+     "zoom": 1.1
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 308,
+     "y": 411,
+     "titre": "révise à la bibliothèque ou au café☕",
+     "texte": "change d’endroit le plus souvent possible. la procrastination ? connais pas."
+    }
+   }
+  }
+ ],
+ "notes": "livré le 23/10 (40a32f49), demande d'Adrien. micabo dans le texte du conseil « révise tôt » (sa note « study early »), sans capture."
+}

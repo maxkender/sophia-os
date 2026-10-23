@@ -5,6 +5,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { IPAD_CARTE, ipad, iphone } from "./appareils.ts";
 import { type Carte, carte } from "./cartes.ts";
+import { type NoteIos, noteIos } from "./note-ios.ts";
 import { type Cadrage, type Couverture, fond, H, L, legende, legendePhoto, type LegendePhoto, titreCouverture } from "./dessin.ts";
 import { retirerMetadonnees } from "./metadonnees.ts";
 import { type Etiquettes, type Modele, modele, page, type Page } from "./notes.ts";
@@ -29,6 +30,8 @@ export type ContenuSlide = {
   /** Slide photo : la petite légende posée sur la photo, et une seconde (sous l'iPhone). */
   legende?: LegendePhoto;
   legende_bas?: LegendePhoto;
+  /** Note de l'app Notes posée sur la photo (« things i do to SMASH EVERY EXAM »). */
+  note?: NoteIos;
   /** Carte d'appli dans l'iPad blanc (« my favorite productivity apps »). */
   carte?: Carte;
   /** Slide photo avec l'iPhone : où le poser (centre, haut, largeur de l'écran). */
@@ -118,10 +121,11 @@ export async function rendreSlide(p: Post, s: Slide, langue: Langue, photo: Imag
   } else if (s.type === "photo") {
     // Une photo pleine, sans assombrir, comme les siennes ; la légende par-dessus.
     if (!s.photo) throw new Error("slide photo sans photo");
-    if (!c.legende) throw new Error("slide photo sans légende");
+    if (!c.legende && !c.note) throw new Error("slide photo sans légende ni note");
     fond(ctx, await chargerPhoto(s.photo), s.photo.cadrage);
+    if (c.note) noteIos(ctx, c.note);
     if (c.capture) iphone(ctx, await loadImage(join(RACINE, c.capture)), { haut: 352, largeur: 540, ...c.iphone });
-    legendePhoto(ctx, c.legende);
+    if (c.legende) legendePhoto(ctx, c.legende);
     if (c.legende_bas) legendePhoto(ctx, c.legende_bas);
   } else if (s.type === "carte") {
     if (!c.carte) throw new Error("slide carte sans carte");

@@ -548,12 +548,15 @@ export const en = {
       tradLancer: "Translate",
       tradComparer: "Compare both models",
       tradComparerAide:
-        "Several slides: separate them with a blank line. \"Compare\" shows the current translation next to native writing: a keyword brief, then text written in the language from native examples that performed (for French: TikToks imported from real creators, careerswemma, studyavec_lea…). Nothing is created.",
+        "Several slides: separate them with a blank line. \"Compare\" shows the current translation next to the anchored translation: the same text, translated faithfully (same ideas, same sentence count) but phrased like native creators who performed (for French: TikToks imported from careerswemma, studyavec_lea…), then checked slide by slide. Nothing is created.",
       tradSource: "Source",
       tradActuel: "Current translation",
-      tradNatif: "Native writing",
+      tradNatif: "Anchored translation",
       tradAncres: "{{n}} native examples used",
-      tradBrief: "The brief (keywords)",
+      tradControle: "Fidelity check, slide by slide",
+      tradFidele: "faithful",
+      tradInfidele: "deviation",
+      tradReprises: "{{n}} slide(s) retranslated after the check",
       tradHashtags: "Hashtags",
       stickersTitre: "Stickers at import (dry run)",
       stickersDesc:

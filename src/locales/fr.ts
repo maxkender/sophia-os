@@ -549,12 +549,15 @@ export const fr = {
       tradLancer: "Traduire",
       tradComparer: "Comparer les deux modèles",
       tradComparerAide:
-        "Plusieurs slides : sépare-les par une ligne vide. « Comparer » met côte à côte la traduction actuelle et l'écriture native : un brief en mots-clés, puis le texte écrit dans la langue à partir d'exemples natifs qui ont marché (pour le français : les TikToks importés de vrais créateurs, careerswemma, studyavec_lea…). Rien n'est créé.",
+        "Plusieurs slides : sépare-les par une ligne vide. « Comparer » met côte à côte la traduction actuelle et la traduction ancrée : le même texte, traduit fidèlement (mêmes idées, même nombre de phrases) mais formulé comme les créateurs natifs qui ont marché (pour le français : les TikToks importés de careerswemma, studyavec_lea…), puis relu slide par slide. Rien n'est créé.",
       tradSource: "Source",
       tradActuel: "Traduction actuelle",
-      tradNatif: "Écriture native",
+      tradNatif: "Traduction ancrée",
       tradAncres: "{{n}} exemples natifs utilisés",
-      tradBrief: "Le brief (mots-clés)",
+      tradControle: "Contrôle de fidélité, slide par slide",
+      tradFidele: "fidèle",
+      tradInfidele: "écart",
+      tradReprises: "{{n}} slide(s) retraduite(s) après contrôle",
       tradHashtags: "Hashtags",
       stickersTitre: "Stickers à l'import (à blanc)",
       stickersDesc:

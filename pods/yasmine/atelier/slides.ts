@@ -3,7 +3,8 @@
 import { createCanvas, type Image, loadImage } from "@napi-rs/canvas";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
-import { ipad, iphone } from "./appareils.ts";
+import { IPAD_CARTE, ipad, iphone } from "./appareils.ts";
+import { type Carte, carte } from "./cartes.ts";
 import { type Cadrage, type Couverture, fond, H, L, legende, legendePhoto, type LegendePhoto, titreCouverture } from "./dessin.ts";
 import { retirerMetadonnees } from "./metadonnees.ts";
 import { type Etiquettes, type Modele, modele, page, type Page } from "./notes.ts";
@@ -28,6 +29,8 @@ export type ContenuSlide = {
   /** Slide photo : la petite légende posée sur la photo, et une seconde (sous l'iPhone). */
   legende?: LegendePhoto;
   legende_bas?: LegendePhoto;
+  /** Carte d'appli dans l'iPad blanc (« my favorite productivity apps »). */
+  carte?: Carte;
   /** Slide photo avec l'iPhone : où le poser (centre, haut, largeur de l'écran). */
   iphone?: { cx?: number; haut?: number; largeur?: number };
 };
@@ -37,7 +40,8 @@ export type Photo = { media_id: string; url: string; cadrage?: Cadrage };
 
 export type Slide = {
   /** photo : une photo pleine par slide, petite légende (« after school routine »). */
-  type: "couverture" | "ipad" | "iphone" | "photo";
+  /** carte : une carte d'appli dans l'iPad blanc, sur la photo assombrie (« my favorite productivity apps »). */
+  type: "couverture" | "ipad" | "iphone" | "photo" | "carte";
   /** La slide de l'appli (une seule par deck, jamais la couverture). */
   app?: boolean;
   /** Sa propre photo (slides photo, et couverture d'un post photo) ; sinon le `fond` du post. */
@@ -119,6 +123,11 @@ export async function rendreSlide(p: Post, s: Slide, langue: Langue, photo: Imag
     if (c.capture) iphone(ctx, await loadImage(join(RACINE, c.capture)), { haut: 352, largeur: 540, ...c.iphone });
     legendePhoto(ctx, c.legende);
     if (c.legende_bas) legendePhoto(ctx, c.legende_bas);
+  } else if (s.type === "carte") {
+    if (!c.carte) throw new Error("slide carte sans carte");
+    const icone = await loadImage(join(RACINE, c.carte.icone));
+    fond(ctx, photo, p.fond.cadrage, ASSOMBRIR);
+    ipad(ctx, (e) => carte(e, c.carte!, icone), IPAD_CARTE);
   } else if (s.type === "ipad") {
     fond(ctx, photo, p.fond.cadrage, ASSOMBRIR);
     legende(ctx, c.haut ?? [], { bas: 322 }, 42);

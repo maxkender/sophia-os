@@ -31,7 +31,9 @@ rejette est validée toute seule 12 h après son dépôt.
 	- Elle montre une **vraie capture** de micabo dans l'iPhone : `assets/micabo/fr/` (parcours, notes, a-retenir, lecons).
 	- Jamais une capture avec une notification ou une donnée perso.
 	- La phrase est naturelle, d'élève à élève. Jamais d'appel à télécharger, jamais « lien en bio ».
-- **Aucune autre appli** citée ou montrée (Notion, GoodNotes, Quizlet, Anki…).
+- **Aucune appli concurrente** citée ou montrée (GoodNotes, Quizlet, Anki, autres applis de révision ou de notes).
+	- Les concurrents **indirects** restent quand le post les montre (décision du 23/10) : minuteurs, blocage d'écran, lecture, calendrier, Notion. micabo prend la place de l'appli d'étude (« productivity apps » : à la place de Goodnotes).
+	- Jamais « non sponsorisé » ni « pas une pub » : le post met micabo en avant.
 - **Les faits sont vrais.** Cours, dates, formules : vérifie chaque ligne, c'est du contenu que des élèves enregistrent.
 - **Le français** : espace avant « : ! ? », guillemets « », minuscules dans les légendes comme les siennes, aucune faute.
 - **Aucun visage reconnaissable.** Mains, pieds, objets et paysages seulement.
@@ -51,6 +53,7 @@ rejette est validée toute seule 12 h après son dépôt.
 - **Les légendes** : Poppins jaune pâle, au-dessus de l'appareil (42 px) et en dessous (48 px).
 - **Les notes remplies** : écriture Gochi Hand, surligneur `#fde79c`, titres jaunes, flèches dessinées (la police n'a pas « → »).
 - **Slides photo** (« after school routine ») : `type: "photo"`, sa propre `photo`, une `legende` en texte TikTok (TikTok Sans SemiBold, jaune `#fdf2ab` ou brun `#3d2c28`, emojis), photo non assombrie ; l'iPhone s'y pose avec `capture`. Couverture centrée : `aligne: "centre"`, `texte_bas`.
+- **Cartes d'applis** (« my favorite productivity apps ») : `type: "carte"`, l'iPad blanc plus petit (`IPAD_CARTE`), icône 168 px, nom et texte en Inter Medium `#323232`. Icônes dans `assets/applis/` (App Store ; Calendrier repeint en français).
 - **Pas encore dans l'atelier** : les cartes « Notes » blanches (« school tips », « digital declutter »), l'écran d'accueil d'iPhone (« organise my phone »).
 	- Ajoute-les dans `atelier/` en les mesurant sur ses slides (`npm run veille` les met en cache dans `donnees/cache/`).
 	- Garde le même soin que le reste.

@@ -126,6 +126,10 @@ export type Couverture = {
   taille_script?: number;
   /** Sous le titre, en texte TikTok blanc calé à gauche du titre (« for a peaceful life🌙 »). */
   texte_bas?: string;
+  /** L'interligne du titre, en fraction de la taille (0,82 pour « productivity apps », en minuscules). */
+  interligne?: number;
+  /** Centré : l'écriture fine au-dessus, centrée (par défaut) ou calée sur le bord gauche du titre. */
+  script_place?: "centre" | "gauche";
 };
 
 /** Le titre de couverture : capitales jaunes en escalier, écriture fine blanche. */
@@ -133,7 +137,7 @@ export function titreCouverture(ctx: Ctx, c: Couverture) {
   const taille = c.taille ?? 124;
   const centre = c.aligne === "centre";
   // Centré, ses lignes se touchent presque : une ligne tous les 1,0 × la taille.
-  const interligne = Math.round(taille * (centre ? 1.0 : 1.07));
+  const interligne = Math.round(taille * (c.interligne ?? (centre ? 1.0 : 1.07)));
   const y0 = c.y ?? 712;
   const decalages = c.decalages ?? [135, 300, 330];
   const tailleScript = c.taille_script ?? Math.round(taille * 0.55);
@@ -171,7 +175,8 @@ export function titreCouverture(ctx: Ctx, c: Couverture) {
     ctx.restore();
   };
   if (c.script_haut) {
-    if (centre) script(c.script_haut, L / 2 + tailleScript * 0.12, y0 - taille * 1.02, "center");
+    if (centre && c.script_place === "gauche") script(c.script_haut, gauche + 24, y0 - taille * 0.78, "left");
+    else if (centre) script(c.script_haut, L / 2 + tailleScript * 0.12, y0 - taille * 1.02, "center");
     else script(c.script_haut, decalages[0] + 8, y0 - taille * 0.98, "left");
   }
   if (c.script_bas) script(c.script_bas, droite + 20, y0 + (c.lignes.length - 1) * interligne + taille * 0.68, "right");

@@ -46,12 +46,13 @@ for (const langue of langues) {
 
 // Les textes lus par la note de pertinence : l'accroche d'abord, puis les légendes des slides.
 const s0 = contenu(post.slides[0], LANGUE_SOURCE).couverture;
-const accroche = [s0?.script_haut, ...(s0?.lignes ?? []), s0?.script_bas].filter(Boolean).join(" ");
+const accroche = [s0?.script_haut, ...(s0?.lignes ?? []), s0?.script_bas, s0?.texte_bas].filter(Boolean).join(" ");
 const textes = [
   accroche,
   ...post.slides.slice(1).map((s) => {
     const c = contenu(s, LANGUE_SOURCE);
-    return [...(c.haut ?? []), ...(c.bas ?? [])].join(" ");
+    const photo = [c.legende, c.legende_bas].flatMap((l) => (l ? [...l.lignes, ...(l.sous ?? [])] : []));
+    return [...(c.haut ?? []), ...photo, ...(c.bas ?? [])].join(" ");
   }),
 ].filter(Boolean);
 

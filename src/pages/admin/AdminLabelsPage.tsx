@@ -1,0 +1,396 @@
+import * as React from "react";
+import { Link } from "react-router-dom";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
+
+import { PageHeader } from "@/components/layout/PageHeader";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  creerLabel,
+  listerLabels,
+  majLabel,
+  supprimerLabel,
+} from "@/features/moteur/api";
+import { definirApplicationsLabel } from "@/features/moteur/apiMultiApp";
+import { useApplication } from "@/features/moteur/ApplicationContext";
+import { nomApplication } from "@/features/moteur/applications";
+import {
+  exemplesFeedDepuisTexte,
+  exemplesFeedVersTexte,
+} from "@/features/moteur/creationManuelle";
+import { ID_SOPHIA } from "@/features/moteur/multiApp";
+import { ApplicationsCard } from "@/features/moteur/multiapp/ApplicationsCard";
+import { BadgeReserve } from "@/features/moteur/multiapp/BadgeReserve";
+import { LabelApplications } from "@/features/moteur/multiapp/LabelApplications";
+import { ReplisCard } from "@/features/moteur/multiapp/ReplisCard";
+import { useLabelsApplications } from "@/features/moteur/multiapp/useLabelsApplications";
+import type {
+  Label as LabelMoteur,
+  LabelGenre,
+} from "@/features/moteur/types";
+
+const selectClass =
+  "h-9 rounded-md border border-input bg-background px-2 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
+
+/**
+ * Les labels ne sont plus cloisonnés par application : la carte les montre
+ * TOUS, chacun avec les applications qu'il sert. Le sélecteur d'application ne
+ * fait plus que mettre en avant la réserve de celle qu'on pilote.
+ */
+const CLE_TOUS_LABELS = ["labels", "tous"] as const;
+
+function LabelsCard() {
+  const { t } = useTranslation();
+  const qc = useQueryClient();
+  const { applicationId, applications } = useApplication();
+  const labels = useQuery({
+    queryKey: CLE_TOUS_LABELS,
+    queryFn: () => listerLabels(),
+  });
+  // Requêtes à part, et pas un enrichissement de `listerLabels` : la gestion
+  // des labels doit rester utilisable même si 0256 (liens label × application,
+  // vue `label_application_reserve`) n'est pas encore appliquée en base. Un
+  // badge manquant n'empêche pas de créer un label.
+  const multi = useLabelsApplications(applicationId);
+  const [nom, setNom] = React.useState("");
+  const [couleur, setCouleur] = React.useState("#2f6f4e");
+  const [genre, setGenre] = React.useState<LabelGenre>("femme");
+  // Défaut Sophia seule : un label créé sans toucher aux cases sert Sophia,
+  // comme avant (sans case cochée, il ne servirait personne).
+  const [appsNouveau, setAppsNouveau] = React.useState<string[]>([ID_SOPHIA]);
+
+  const creer = useMutation({
+    mutationFn: async () => {
+      const lab = await creerLabel(nom.trim(), couleur, { genre });
+      // Le label existe déjà si cette écriture échoue : il ne sert alors
+      // personne, et l'erreur dit quoi recocher.
+      if (multi.multiDispo) {
+        try {
+          await definirApplicationsLabel(lab.id, appsNouveau);
+        } catch (err) {
+          throw new Error(
+            t("multiApp.labels.creeSansApplications", {
+              nom: lab.nom,
+              message: err instanceof Error ? err.message : String((err as { message?: unknown })?.message ?? err),
+            }),
+          );
+        }
+      }
+      return lab;
+    },
+    onSuccess: () => {
+      setNom("");
+      setGenre("femme");
+      setAppsNouveau([ID_SOPHIA]);
+    },
+    onSettled: () => {
+      qc.invalidateQueries({ queryKey: ["labels"] });
+      qc.invalidateQueries({ queryKey: ["label-applications"] });
+      qc.invalidateQueries({ queryKey: ["label-application-reserve"] });
+    },
+  });
+  const changerGenre = useMutation({
+    mutationFn: (input: { id: string; genre: LabelGenre }) =>
+      majLabel(input.id, { genre: input.genre }),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["labels"] }),
+  });
+  const supprimer = useMutation({
+    mutationFn: (id: string) => supprimerLabel(id),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["labels"] });
+      qc.invalidateQueries({ queryKey: ["label-applications"] });
+    },
+  });
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>{t("labels.gestion")}</CardTitle>
+        <CardDescription>{t("labels.gestionDesc")}</CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        {multi.schemaAbsent && (
+          <p className="text-[11px] text-muted-foreground">{t("multiApp.labels.schemaAbsent")}</p>
+        )}
+        {multi.erreurLiens != null && (
+          <p className="text-xs text-destructive">
+            {t("multiApp.labels.erreurLiens", {
+              message: (multi.erreurLiens as { message?: string }).message ?? String(multi.erreurLiens),
+            })}
+          </p>
+        )}
+        <form
+          className="flex flex-wrap items-end gap-2"
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (nom.trim() && appsNouveau.length > 0) creer.mutate();
+          }}
+        >
+          <div className="space-y-1">
+            <Label htmlFor="labNom">{t("labels.nom")}</Label>
+            <Input id="labNom" value={nom} onChange={(e) => setNom(e.target.value)} required />
+          </div>
+          <div className="space-y-1">
+            <Label htmlFor="labCoul">{t("labels.couleur")}</Label>
+            <Input
+              id="labCoul"
+              type="color"
+              className="h-9 w-14 p-1"
+              value={couleur}
+              onChange={(e) => setCouleur(e.target.value)}
+            />
+          </div>
+          <div className="space-y-1">
+            <Label htmlFor="labGenre">{t("labels.genre")}</Label>
+            <select
+              id="labGenre"
+              className={selectClass}
+              value={genre}
+              onChange={(e) => setGenre(e.target.value as LabelGenre)}
+            >
+              <option value="femme">{t("labels.genreFemme")}</option>
+              <option value="homme">{t("labels.genreHomme")}</option>
+            </select>
+          </div>
+          {multi.multiDispo && applications.length > 1 && (
+            <fieldset className="space-y-1">
+              <legend className="text-sm font-medium">{t("multiApp.labels.applicationsServies")}</legend>
+              <div className="flex h-9 flex-wrap items-center gap-3">
+                {applications.map((app) => (
+                  <label key={app.id} className="flex items-center gap-1.5 text-xs">
+                    <input
+                      type="checkbox"
+                      className="size-3.5"
+                      checked={appsNouveau.includes(app.id)}
+                      onChange={(e) =>
+                        setAppsNouveau((avant) =>
+                          e.target.checked ? [...avant, app.id] : avant.filter((id) => id !== app.id),
+                        )
+                      }
+                    />
+                    {nomApplication(app)}
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+          )}
+          <Button type="submit" disabled={creer.isPending || !nom.trim() || appsNouveau.length === 0}>
+            {creer.isPending ? t("common.saving") : t("labels.creer")}
+          </Button>
+          {creer.isError && (
+            <p className="w-full text-xs text-destructive">{(creer.error as Error).message}</p>
+          )}
+        </form>
+        <p className="text-xs text-muted-foreground">{t("labels.genreAide")}</p>
+        {multi.multiDispo && (
+          <p className="text-xs text-muted-foreground">{t("multiApp.labels.aide")}</p>
+        )}
+        {labels.isError && (
+          <p className="text-xs text-destructive">{(labels.error as Error).message}</p>
+        )}
+        <div className="list-enter grid gap-2 md:grid-cols-2">
+          {(labels.data ?? []).map((lab) => (
+            <div
+              key={lab.id}
+              className="space-y-1.5 border border-border/80 px-2 py-1.5 text-xs"
+            >
+              <div className="flex flex-wrap items-center gap-1.5">
+                <span
+                  className="size-2.5 rounded-full"
+                  style={{ backgroundColor: lab.couleur ?? "#888" }}
+                />
+                <span className="font-medium">{lab.nom}</span>
+                {multi.reservesHistoriques && (
+                  <BadgeReserve reserve={multi.reservesHistoriques?.get(lab.id)} />
+                )}
+                <select
+                  className="h-7 rounded border border-input bg-background px-1 text-[11px]"
+                  value={lab.genre === "homme" ? "homme" : "femme"}
+                  disabled={changerGenre.isPending}
+                  title={t("labels.genre")}
+                  onChange={(e) =>
+                    changerGenre.mutate({
+                      id: lab.id,
+                      genre: e.target.value as LabelGenre,
+                    })
+                  }
+                >
+                  <option value="femme">{t("labels.genreFemme")}</option>
+                  <option value="homme">{t("labels.genreHomme")}</option>
+                </select>
+                <Link
+                  to={`/admin/creation?label=${lab.id}`}
+                  className="text-[10px] text-primary underline-offset-2 hover:underline"
+                >
+                  {t("labels.creerPost")}
+                </Link>
+                <button
+                  type="button"
+                  className="ml-auto text-muted-foreground hover:text-destructive"
+                  onClick={() => {
+                    if (confirm(t("labels.confirmDelete"))) supprimer.mutate(lab.id);
+                  }}
+                >
+                  ×
+                </button>
+              </div>
+              {multi.multiDispo && multi.liens && (
+                <LabelApplications
+                  labelId={lab.id}
+                  labelNom={lab.nom}
+                  applications={applications}
+                  liens={multi.liens}
+                  reserves={multi.reservesParLabel?.get(lab.id)}
+                  applicationSelectionneeId={applicationId}
+                />
+              )}
+            </div>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
+function LabelStyleCard() {
+  const { t } = useTranslation();
+  const qc = useQueryClient();
+  const labels = useQuery({
+    queryKey: CLE_TOUS_LABELS,
+    queryFn: () => listerLabels(),
+  });
+  const [labelId, setLabelId] = React.useState("");
+  const [styleTheme, setStyleTheme] = React.useState("");
+  const [promptCreation, setPromptCreation] = React.useState("");
+  const [feed, setFeed] = React.useState("");
+
+  const choisi = (labels.data ?? []).find((l) => l.id === labelId) ?? null;
+
+  React.useEffect(() => {
+    if (!choisi) {
+      setStyleTheme("");
+      setPromptCreation("");
+      setFeed("");
+      return;
+    }
+    setStyleTheme(choisi.style_theme ?? "");
+    setPromptCreation(choisi.prompt_creation ?? "");
+    setFeed(exemplesFeedVersTexte(choisi.exemples_feed));
+  }, [choisi]);
+
+  const sauver = useMutation({
+    mutationFn: () =>
+      majLabel(labelId, {
+        style_theme: styleTheme.trim() || null,
+        prompt_creation: promptCreation.trim() || null,
+        exemples_feed: exemplesFeedDepuisTexte(feed),
+      }),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["labels"] }),
+  });
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>{t("labels.styleTheme")}</CardTitle>
+        <CardDescription>{t("labels.styleThemeAide")}</CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        <div className="space-y-1">
+          <Label htmlFor="labStyle">{t("creation.label")}</Label>
+          <select
+            id="labStyle"
+            className={selectClass}
+            value={labelId}
+            onChange={(e) => setLabelId(e.target.value)}
+          >
+            <option value="">{t("creation.choisirLabel")}</option>
+            {(labels.data ?? []).map((l: LabelMoteur) => (
+              <option key={l.id} value={l.id}>
+                {l.nom}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="space-y-1">
+          <Label htmlFor="labTheme">{t("labels.styleTheme")}</Label>
+          <Textarea
+            id="labTheme"
+            rows={3}
+            value={styleTheme}
+            onChange={(e) => setStyleTheme(e.target.value)}
+            disabled={!labelId}
+          />
+        </div>
+        <div className="space-y-1">
+          <Label htmlFor="labPrompt">{t("labels.promptCreation")}</Label>
+          <p className="text-[11px] text-muted-foreground">{t("labels.promptCreationAide")}</p>
+          <Textarea
+            id="labPrompt"
+            rows={4}
+            value={promptCreation}
+            onChange={(e) => setPromptCreation(e.target.value)}
+            disabled={!labelId}
+          />
+        </div>
+        <div className="space-y-1">
+          <Label htmlFor="labFeed">{t("labels.feed")}</Label>
+          <p className="text-[11px] text-muted-foreground">{t("labels.feedAide")}</p>
+          <Textarea
+            id="labFeed"
+            rows={6}
+            value={feed}
+            onChange={(e) => setFeed(e.target.value)}
+            disabled={!labelId}
+          />
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          <Button
+            disabled={!labelId || sauver.isPending}
+            onClick={() => sauver.mutate()}
+          >
+            {sauver.isPending ? t("common.saving") : t("labels.enregistrerStyle")}
+          </Button>
+          {labelId ? (
+            <Link
+              to={`/admin/creation?label=${labelId}`}
+              className="text-sm text-primary underline underline-offset-2"
+            >
+              {t("labels.creerPost")}
+            </Link>
+          ) : null}
+          {sauver.isError && (
+            <p className="text-sm text-destructive">{(sauver.error as Error).message}</p>
+          )}
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
+/**
+ * Labels & applications : la configuration qui vivait en bas du Pilotage.
+ * Les cartes sont reprises telles quelles ; le Pilotage ne sert plus qu'à
+ * piloter la journée.
+ */
+export function AdminLabelsPage() {
+  const { t } = useTranslation();
+  return (
+    <div className="space-y-6">
+      <PageHeader title={t("labelsPage.title")} description={t("labelsPage.description")} />
+      <LabelsCard />
+      <LabelStyleCard />
+      <ApplicationsCard />
+      <ReplisCard />
+    </div>
+  );
+}

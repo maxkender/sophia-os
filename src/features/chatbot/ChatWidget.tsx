@@ -103,12 +103,14 @@ export function ChatWidget() {
     }
   }
 
+  // Le bouton vit dans la barre du haut ; le panneau, lui, reste ancré en bas
+  // à droite de l'écran, par-dessus la page.
   return (
-    <div className="pointer-events-none fixed bottom-4 right-4 z-40 flex flex-col items-end gap-3">
+    <>
       {ouvert && (
         <section
           aria-label={t("chatbot.widgetTitle")}
-          className="pointer-events-auto flex h-[min(70vh,32rem)] w-[min(calc(100vw-2rem),24rem)] flex-col overflow-hidden rounded-2xl border bg-card shadow-lifted"
+          className="fixed bottom-4 right-4 z-40 flex h-[min(70vh,32rem)] w-[min(calc(100vw-2rem),24rem)] flex-col overflow-hidden rounded-2xl border bg-card shadow-lifted"
         >
           <header className="flex items-center justify-between gap-2 border-b bg-gradient-to-br from-primary/10 via-primary/5 to-transparent px-3 py-2">
             <div key={humeur} className="w-10 shrink-0 animate-in zoom-in-50 duration-500" data-testid="mico-bulle" data-humeur={humeur}>
@@ -175,16 +177,16 @@ export function ChatWidget() {
 
       <Button
         type="button"
-        size="lg"
-        className="pointer-events-auto h-11 rounded-full px-4 shadow-lifted"
+        variant={ouvert ? "secondary" : "ghost"}
+        size="sm"
         onClick={() => setOuvert((v) => !v)}
         aria-expanded={ouvert}
         aria-label={ouvert ? t("common.close") : t("chatbot.ouvrir")}
       >
-        {ouvert ? <X /> : <MessageCircle />}
-        <span className="hidden sm:inline">{ouvert ? t("common.close") : t("chatbot.ouvrir")}</span>
+        <MessageCircle />
+        <span className="hidden sm:inline">{t("chatbot.ouvrir")}</span>
       </Button>
-    </div>
+    </>
   );
 }
 

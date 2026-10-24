@@ -52,6 +52,7 @@ import type {
 import { PASSAGES_PAR_TIER } from "./types";
 import {
   CLASSEMENT_REGLAGES_DEFAUT,
+  CLASSEMENTS,
   estClassement,
   finDuSkip,
   lireClassementReglages,
@@ -2584,6 +2585,8 @@ export type PilotageDashboard = {
     vues: number;
     publie_url: string | null;
     compte_id: string;
+    /** L'application que le post promeut. */
+    application_id: string | null;
   }>;
   /** Les meilleures cases (STAR puis BIEN). */
   classementTop: Array<{
@@ -2612,7 +2615,20 @@ export type PilotageDashboard = {
       joursSansPost: number;
     }>;
   };
+  /** Tous les comptes hors warmup, case par case (de STAR à INACTIF). */
+  parCase: Array<{
+    classement: Classement;
+    comptes: Array<{ compte_id: string; nom: string; handle: string | null }>;
+  }>;
+  /**
+   * Posts prévus et publiés, jour par jour (Paris), sur les 14 jours qui
+   * finissent hier. Mêmes posts que le Planning : hors tests, prêts côté poster.
+   */
+  postsJours: Array<{ jour: string; prevus: number; publies: number }>;
 };
+
+/** Combien de jours de posts le Pilotage remonte pour « publiés / prévus ». */
+const JOURS_POSTS_PILOTAGE = 14;
 
 /** Données Pilotage : courbe vues, classements ELO / recruteurs, alertes posts. */
 export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
@@ -2627,11 +2643,13 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
     { data: profils, error: errProfils },
     { data: postsVeille, error: errPosts },
   ] = await Promise.all([
+    // Les 90 DERNIERS relevés : trié croissant avec un plafond, on aurait eu
+    // les plus anciens, et la courbe se serait figée une fois le plafond atteint.
     supabase
       .from("vues_globales_jour")
       .select("jour, vues_totales, vues_delta, nb_comptes")
-      .order("jour", { ascending: true })
-      .limit(60),
+      .order("jour", { ascending: false })
+      .limit(90),
     supabase
       .from("comptes")
       .select(
@@ -2642,7 +2660,7 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
     supabase.from("profiles").select("id, prenom, nom, manager_id, is_active"),
     supabase
       .from("passages")
-      .select("id, compte_id, vues, publie_url, contenus(titre), comptes(handle_tiktok, persona_nom)")
+      .select("id, compte_id, application_id, vues, publie_url, contenus(titre), comptes(handle_tiktok, persona_nom)")
       .eq("statut", "publie")
       .eq("date_publication_prevue", veille)
       .not("vues", "is", null)
@@ -2793,6 +2811,15 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
 
   niveau2.sort((a, b) => b.joursSansPost - a.joursSansPost);
 
+  const parCase = [...CLASSEMENTS].reverse().map((classement) => ({
+    classement,
+    comptes: casesListe
+      .filter((c) => c.classement === classement)
+      .map(({ compte_id, nom, handle }) => ({ compte_id, nom, handle })),
+  }));
+
+  const postsJours = await chargerPostsJours(ajouterJoursParisCalendaire(auj, -JOURS_POSTS_PILOTAGE), veille);
+
   // deno-lint-ignore no-explicit-any
   const postsVeilleMapped = ((postsVeille ?? []) as any[]).map((p) => ({
     id: p.id as string,
@@ -2801,10 +2828,12 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
     vues: Number(p.vues ?? 0),
     publie_url: (p.publie_url as string | null) ?? null,
     compte_id: p.compte_id as string,
+    application_id: (p.application_id as string | null) ?? null,
   }));
 
   return {
-    vuesSerie: (serie ?? []).map((s) => ({
+    // Lu du plus récent au plus ancien (voir la requête) : remis dans l'ordre du temps.
+    vuesSerie: [...(serie ?? [])].sort((a, b) => String(a.jour).localeCompare(String(b.jour))).map((s) => ({
       jour: s.jour as string,
       vues_totales: Number(s.vues_totales),
       vues_delta: s.vues_delta == null ? null : Number(s.vues_delta),
@@ -2832,7 +2861,43 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
         classement,
       })),
     alertes: { niveau1, niveau2 },
+    parCase,
+    postsJours,
   };
+}
+
+/**
+ * Posts prévus / publiés par jour, de `du` à `au` inclus. Paginé : sur 14 jours
+ * la flotte dépasse vite le plafond de lignes de PostgREST, et un total
+ * tronqué en silence ferait mentir le taux de publication.
+ */
+async function chargerPostsJours(
+  du: string,
+  au: string,
+): Promise<PilotageDashboard["postsJours"]> {
+  const parJour = new Map<string, { prevus: number; publies: number }>();
+  for (let j = du; j <= au; j = ajouterJoursParisCalendaire(j, 1)) parJour.set(j, { prevus: 0, publies: 0 });
+  for (let from = 0; ; from += PAGE_POSTS_CALENDRIER) {
+    const { data, error } = await supabase
+      .from("posts")
+      .select("id, date_publication_prevue, statut")
+      .eq("est_test", false)
+      .eq("pipeline_statut", "done")
+      .gte("date_publication_prevue", du)
+      .lte("date_publication_prevue", au)
+      .order("id", { ascending: true })
+      .range(from, from + PAGE_POSTS_CALENDRIER - 1);
+    if (error) throw error;
+    const lot = data ?? [];
+    for (const p of lot) {
+      const cur = parJour.get(p.date_publication_prevue as string);
+      if (!cur) continue;
+      cur.prevus += 1;
+      if (p.statut === "publie") cur.publies += 1;
+    }
+    if (lot.length < PAGE_POSTS_CALENDRIER) break;
+  }
+  return [...parJour.entries()].map(([jour, v]) => ({ jour, ...v }));
 }
 
 /**

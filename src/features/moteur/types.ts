@@ -398,6 +398,10 @@ export interface ReglagesTierlist {
   requalif_max_jours: number;
   /** Vues qu'un passage d'un B doit atteindre pour qu'il reste en B (0 désactive). */
   plancher_b: number;
+  /** Fatigue : passages mesurés (toute la vie) sans percée au-delà desquels un B ou un A descend en C (0 désactive). */
+  fatigue_passages: number;
+  /** Fatigue : vues qu'un passage de toute la vie doit avoir atteintes pour y échapper (0 désactive). */
+  fatigue_plafond: number;
 }
 
 export interface ReglagesScoring {

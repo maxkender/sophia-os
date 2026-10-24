@@ -35,8 +35,6 @@ import {
   supprimerSource,
   type LigneJournalOubli,
   lireMajSourcesRun,
-  demarrerMajSourcesServeur,
-  annulerMajSourcesServeur,
 } from "@/features/moteur/api";
 import {
   etatStock,
@@ -46,12 +44,11 @@ import {
   SEUIL_STOCK_SOURCE,
   type GroupeSource,
 } from "@/features/moteur/groupesSources";
-import { demarrerImportCompte, demarrerImportLien, syncMajJobDepuisRun } from "@/features/moteur/importJobs";
-import { etatDepuisRun } from "@/features/moteur/majSequentielle";
+import { demarrerImportCompte, demarrerImportLien } from "@/features/moteur/importJobs";
 import { ImportHistoriquePanel } from "@/features/moteur/ImportHistoriquePanel";
 import { ImportJobsPanel } from "@/features/moteur/ImportJobsPanel";
+import { MajSourcesPanel } from "@/features/moteur/MajSourcesPanel";
 import { drapeauLangue, LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
-import { Aide } from "@/features/moteur/repartition/graphes";
 import type { CompteReference, Label as NicheLabel } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
 import { localeDate } from "@/locales/localeDate";
@@ -897,99 +894,6 @@ function LigneGroupe({
   );
 }
 
-/**
- * La mise à jour de toutes les sources déjà importées, côté serveur : un
- * compte à la fois. Le bouton vit dans l'en-tête, l'avancement juste dessous.
- */
-function useMajSources(sources: CompteReference[]) {
-  const { t } = useTranslation();
-  const queryClient = useQueryClient();
-  const [message, setMessage] = React.useState<string | null>(null);
-  const aJour = sources.filter((s) => s.is_active && s.dernier_scrape_at && s.langue);
-
-  const run = useQuery({
-    queryKey: ["maj-sources-run"],
-    queryFn: lireMajSourcesRun,
-    refetchInterval: 4_000,
-  });
-
-  React.useEffect(() => {
-    syncMajJobDepuisRun(run.data ?? null);
-  }, [run.data]);
-
-  const maj = etatDepuisRun(run.data ?? null);
-
-  const lancerMut = useMutation({
-    mutationFn: () =>
-      demarrerMajSourcesServeur(
-        aJour.map((s) => ({
-          id: s.id,
-          handle: s.handle_tiktok,
-          langue: s.langue,
-        })),
-      ),
-    onSuccess: async (r) => {
-      syncMajJobDepuisRun(r.etat);
-      await queryClient.invalidateQueries({ queryKey: ["maj-sources-run"] });
-      setMessage(t("sources.updateToutesLance", { count: aJour.length }));
-    },
-    onError: (e) => setMessage((e as Error).message),
-  });
-
-  const stopMut = useMutation({
-    mutationFn: annulerMajSourcesServeur,
-    onSuccess: async (r) => {
-      syncMajJobDepuisRun(r.etat);
-      await queryClient.invalidateQueries({ queryKey: ["maj-sources-run"] });
-    },
-  });
-
-  const lancer = () => {
-    if (aJour.length === 0) {
-      setMessage(t("sources.updateToutesVide"));
-      return;
-    }
-    lancerMut.mutate();
-  };
-
-  const enCours = maj.actif
-    ? maj.phase === "attente"
-      ? t("sources.updateToutesAttente", {
-          index: Math.min(maj.faits + 1, maj.total),
-          total: maj.total,
-          restant: maj.restant,
-        })
-      : t("sources.updateToutesEnCours", {
-          index: Math.min(maj.faits + 1, maj.total),
-          total: maj.total,
-          handle: maj.handle ?? "",
-        })
-    : null;
-
-  return { aJour, actif: maj.actif, enCours, message, lancer, lancerMut, stopMut };
-}
-
-type MajSources = ReturnType<typeof useMajSources>;
-
-function BoutonMajSources({ maj }: { maj: MajSources }) {
-  const { t } = useTranslation();
-  return (
-    <span className="inline-flex items-center gap-1.5">
-      {maj.actif ? (
-        <Button variant="outline" onClick={() => maj.stopMut.mutate()} disabled={maj.stopMut.isPending}>
-          {t("sources.updateToutesStop")}
-        </Button>
-      ) : (
-        <Button variant="outline" disabled={maj.aJour.length === 0 || maj.lancerMut.isPending} onClick={maj.lancer}>
-          <RefreshCw className="size-3.5" />
-          {t("sources.updateToutesGo", { count: maj.aJour.length })}
-        </Button>
-      )}
-      <Aide libelle={t("sources.updateToutes")}>{t("sources.updateToutesAide")}</Aide>
-    </span>
-  );
-}
-
 function ChiffresSources({ groupes }: { groupes: GroupeSource[] }) {
   const { t, i18n } = useTranslation();
   const r = resumeSources(groupes);
@@ -1029,6 +933,7 @@ export function AdminSourcesPage() {
   const { t } = useTranslation();
   const [bilanOubli, setBilanOubli] = React.useState<BilanOubli | null>(null);
   const [ajout, setAjout] = React.useState(false);
+  const [majOuverte, setMajOuverte] = React.useState(false);
   const [recherche, setRecherche] = React.useState("");
   const [ouverte, setOuverte] = React.useState<string | null>(null);
   // Toutes les sources : un post importé sert toutes les applications de ses
@@ -1046,7 +951,10 @@ export function AdminSourcesPage() {
   const toutes = sources.data ?? [];
   const groupes = groupesSources(toutes, stock.data ?? {});
   const visibles = filtrerGroupes(groupes, recherche);
-  const maj = useMajSources(toutes);
+  // Même requête que le panneau (cache partagé) : une mise à jour en cours
+  // garde le panneau ouvert, pour suivre la séquence.
+  const run = useQuery({ queryKey: ["maj-sources-run"], queryFn: lireMajSourcesRun, refetchInterval: 4_000 });
+  const majVisible = majOuverte || run.data?.statut === "running";
 
   return (
     <div className="space-y-6">
@@ -1055,7 +963,10 @@ export function AdminSourcesPage() {
         description={t("sources.subtitle")}
         actions={
           <>
-            <BoutonMajSources maj={maj} />
+            <Button variant="outline" onClick={() => setMajOuverte((v) => !v)} aria-expanded={majVisible}>
+              <RefreshCw className="size-3.5" />
+              {t("sources.majTitre")}
+            </Button>
             <Button onClick={() => setAjout((v) => !v)} aria-expanded={ajout}>
               <Plus />
               {t("sources.ajouterSource")}
@@ -1064,15 +975,9 @@ export function AdminSourcesPage() {
         }
       />
 
-      {(maj.enCours || maj.message) && (
-        <p role="status" className="text-sm text-muted-foreground">
-          {maj.enCours && <span className="font-medium text-foreground">{maj.enCours}</span>}
-          {maj.enCours && maj.message && " · "}
-          {maj.message}
-        </p>
-      )}
-
       {ajout && <FormAjoutSource niches={niches.data ?? []} onFermer={() => setAjout(false)} />}
+
+      {majVisible && <MajSourcesPanel sources={toutes} stock={stock.data ?? {}} />}
 
       <ImportJobsPanel />
 

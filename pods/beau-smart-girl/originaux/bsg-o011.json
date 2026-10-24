@@ -1,0 +1,57 @@
+{
+ "source_id": "bsg-o011",
+ "schema_id": "vole-habitudes",
+ "titre": "les habitudes insolites que j'ai volées à ma grand-mère pour me cultiver #pourtoi #culture #apprentissage #education",
+ "musique_titre": "Probe",
+ "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+ "inspirations": [
+  "83ef5e79-d95d-4928-b0c3-b2b3b1169f25",
+  "5a0fa56c-f03c-438e-adf3-1e4248da34b1"
+ ],
+ "notes": "Routine du 24/10, livraison 1 sur 2. Schéma vole-habitudes (r 7,58 sur 11 passages, 83ef5e79), le plus fort du label. Troisième personne admirée après la fille de la promo (bsg-o001) et la prof (bsg-o005). Accroches écrites : « les habitudes insolites que j'ai volées à ma grand-mère pour me cultiver sans m'en rendre compte » (retenue : le gabarit exact du gagnant, et une grand-mère cultivée est attendrissante et facile à admirer), « les règles de ma grand-mère qui connaît le nom de tous les arbres » (écartée : plus loin du gagnant), « ce que ma grand-mère de 80 ans fait mieux que nous pour se cultiver » (écartée : la comparaison générationnelle peut braquer). Récit « elle », cinq items neufs : le journal lu un crayon à la main, des lettres plutôt que des messages, le nom des arbres de sa rue, l'origine des plats de famille, 5 minutes de culture avec son café. Rien de repris des sources ni de bsg-o001 et bsg-o005. Aucun fait à vérifier, aucune personne réelle. Sophia sur le dernier item (5). Images de la banque, aucune encore utilisée par le pod : la fille au fond d'une vieille bibliothèque (accroche), la main sur les vieux livres, le livre crème ouvert, la forêt dans la lumière, la tasse de thé, la fille qui lit près de la cheminée, le vieux carnet. Inspirations : slides 1 à 5 de 83ef5e79, 7 de 5a0fa56c.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1afb4bd8",
+   "texte_overlay": "les habitudes insolites que\nj'ai volées à ma grand-mère\npour me cultiver sans\nm'en rendre compte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "39abd761",
+   "texte_overlay": "1. elle lisait le journal un crayon à la main.\n\nelle entourait chaque nom ou chaque lieu qu'elle connaissait pas.\nle soir, elle cherchait.\nà 80 ans, elle apprenait encore tous les jours.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "87862e30",
+   "texte_overlay": "2. elle écrivait des lettres, pas des messages.\n\nune page, à la main, à une amie.\nça l'obligeait à raconter sa semaine comme une histoire.\net elle racontait si bien.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c4803638",
+   "texte_overlay": "3. elle connaissait le nom des arbres de sa rue.\n\nun tilleul, un platane, un marronnier.\nchaque balade avec elle devenait une leçon, sans qu'on s'en rende compte.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "be8c9bb1",
+   "texte_overlay": "4. elle racontait d'où venait chaque plat.\n\nla soupe, la tarte, le gâteau du dimanche.\nchaque repas devenait un petit cours d'histoire.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673875007562386721/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b3aedb17",
+   "texte_overlay": "5. elle apprenait un truc nouveau chaque matin, avec son café.\n\n5 minutes d'histoire, d'art ou de sciences.\nà table, c'était toujours elle qui avait l'anecdote.",
+   "texte_sophia": "5. chaque matin, avec son café, elle ouvrait l'appli Sophia.\n\n5 minutes d'histoire, d'art ou de sciences.\nà table, c'était toujours elle qui avait l'anecdote.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "3dddc828",
+   "texte_overlay": "vole-lui une habitude.\nlaquelle tu testes cette semaine ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654697775342357792/7.jpg"
+  }
+ ]
+}

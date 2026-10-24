@@ -80,7 +80,11 @@ curl -s https://mbikecieskoobeizixig.supabase.co/functions/v1/mises-en-scene \
 - Quand le podz met une mise en scène dans un post livré, il le dit à l'OS : `{"action":"utiliser","pod":"…","id":"<id>"}`. Le compteur d'usage monte d'un cran.
 - `{"action":"captures","pod":"…",…}` donne les captures validées et à jour, avec les mêmes filtres.
 - Un podz ne fabrique jamais de mise en scène lui-même. S'il lui en manque une, il la demande à l'agent « Mises en scène », par le chef des podz.
-- **Traductions à la demande (décision d'Adrien, 24/10)** : un podz peut demander à l'agent « Mises en scène » la version d'une image dans une langue (son jeton ne fait que lire). L'agent la lance sans attendre Adrien, dans la seule limite du budget Fal de la semaine. La relecture et la validation restent humaines.
+- **Traductions à la demande des podz (décisions d'Adrien, 24/10)** : un podz fait traduire une mise en scène validée quand il veut, dans la seule limite du budget Fal de la semaine. Chaque étape produite pour lui est **validée d'office** (badge « Validée auto (podz) »), sans relecture humaine.
+	- Lui-même, avec son jeton : `{"action":"traduire_mise_en_scene","pod":"…","id":"<mise en scène fr validée>","langue":"es"}`. Un premier appel traduit la capture à plat, un second pose l'écran traduit dans l'image. `versions_manquantes` lui dit où il en est.
+	- Ou en le demandant à l'agent « Mises en scène », qui agit avec `pour_pod`.
+	- Une capture déjà en attente d'un humain n'est jamais validée d'office : elle attend sa relecture.
+	- Les garde-fous restent : format de sortie, une seule relance, budget.
 
 ## Pour l'agent « Mises en scène »
 

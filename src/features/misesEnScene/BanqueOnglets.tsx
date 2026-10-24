@@ -33,6 +33,7 @@ import {
   SUPPORTS,
   traduireCapture,
   traduireMiseEnScene,
+  valideeAuto,
   versionsManquantes,
   type CaptureApp,
   type CarteVersions,
@@ -458,7 +459,9 @@ function CarteCapture({ capture }: { capture: CaptureApp }) {
         />
       </a>
       <div className="flex flex-wrap gap-1">
-        <Badge variant={VARIANTE_STATUT[capture.statut]}>{t(`misesEnScene.statuts.${capture.statut}`)}</Badge>
+        <Badge variant={VARIANTE_STATUT[capture.statut]}>
+          {valideeAuto(capture) ? t("misesEnScene.valideeAuto") : t(`misesEnScene.statuts.${capture.statut}`)}
+        </Badge>
         <Badge variant="outline">{capture.application}</Badge>
         <Badge variant="outline">{capture.ecran}</Badge>
         <Badge variant="outline">{capture.langue}</Badge>
@@ -761,7 +764,9 @@ function CarteMiseEnScene({ carte }: { carte: CarteVersions }) {
         })}
       </div>
       <div className="flex flex-wrap gap-1">
-        <Badge variant={VARIANTE_STATUT[mise.statut]}>{t(`misesEnScene.statuts.${mise.statut}`)}</Badge>
+        <Badge variant={VARIANTE_STATUT[mise.statut]}>
+          {valideeAuto(mise) ? t("misesEnScene.valideeAuto") : t(`misesEnScene.statuts.${mise.statut}`)}
+        </Badge>
         {mise.a_refaire && <Badge variant="warning">{t("misesEnScene.aRefaire")}</Badge>}
         <Badge variant="outline">{mise.application}</Badge>
         <Badge variant="outline">{mise.ecran}</Badge>

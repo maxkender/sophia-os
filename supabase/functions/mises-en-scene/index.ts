@@ -23,8 +23,11 @@
  *   - agent « Mises en scène » (en-tête `x-agent-jeton`, empreinte dans
  *     reglages.mises_en_scene.jeton_hash) : importe, propose des intégrateurs,
  *     met en scène, lit tout ; ne valide ni ne rejette jamais ;
- *   - podz (en-tête `x-pod-jeton` + `pod`) : lecture des images validées et
- *     compteur d'usage.
+ *   - podz (en-tête `x-pod-jeton` + `pod`) : lecture des images validées,
+ *     compteur d'usage, et `traduire_mise_en_scene` / `versions_manquantes` :
+ *     un podz fait traduire ce qu'il veut, dans la limite du budget, et ce qui
+ *     est produit pour lui est validé d'office (décision d'Adrien, 24/10).
+ *     L'agent peut agir pour un podz avec `pour_pod` (même règle).
  *
  * Lecture :
  *   { action: "captures", application?, ecran?, langue?, support?, nature?, statut? }
@@ -93,10 +96,10 @@ import { assertRole, chargerPrompt, corsHeaders, json, messageErreur, serviceCli
 
 const BUCKET = "medias";
 const COLONNES_CAPTURE =
-  "id, application_id, ecran, support, langue, nature, originale_id, url, largeur, hauteur, statut, motif_rejet, remplace_id, remplacee_par, created_at";
+  "id, application_id, ecran, support, langue, nature, originale_id, url, largeur, hauteur, statut, motif_rejet, remplace_id, remplacee_par, decide_par, decide_le, created_at";
 const COLONNES_INTEGRATEUR = "id, media_id, support, note, statut, motif_rejet, created_at, media:media_library (url, caption)";
 const COLONNES_MES =
-  "id, capture_id, integrateur_id, scene_id, application_id, ecran, langue, support, url, largeur, hauteur, statut, motif_rejet, essai, relance_de, version_de, used_count, created_at";
+  "id, capture_id, integrateur_id, scene_id, application_id, ecran, langue, support, url, largeur, hauteur, statut, motif_rejet, essai, relance_de, version_de, used_count, decide_par, decide_le, created_at";
 
 // deno-lint-ignore no-explicit-any
 type Supabase = any;
@@ -148,8 +151,30 @@ Deno.serve(async (request) => {
         return json({ ok: true, budget: await budget(supabase) });
     }
 
-    if (appelant.role === "pod") return json({ ok: false, error: "forbidden" }, 403);
-    const par = appelant.role === "admin" ? `admin:${appelant.userId ?? "cron"}` : "agent:mises-en-scene";
+    // Demande d'un podz (décision d'Adrien, 24/10) : il peut faire traduire une
+    // mise en scène, dans la seule limite du budget, et chaque étape produite
+    // pour lui est validée d'office. L'agent peut aussi agir pour un podz
+    // (`pour_pod`) : même règle.
+    const podDemandeur = appelant.role === "pod"
+      ? appelant.slug
+      : appelant.role === "agent" && body?.pour_pod
+      ? await podActif(supabase, String(body.pour_pod))
+      : null;
+    if (appelant.role === "agent" && body?.pour_pod && !podDemandeur) {
+      return json({ ok: false, error: "pour_pod : slug d'un podz actif" }, 400);
+    }
+    if (appelant.role === "pod") {
+      if (body?.action === "traduire_mise_en_scene") {
+        return await traduireMiseEnScene(supabase, body, `pod:${appelant.slug}`, false, appelant.slug);
+      }
+      if (body?.action === "versions_manquantes") return await versionsManquantes(supabase, body);
+      return json({ ok: false, error: "forbidden" }, 403);
+    }
+    const par = appelant.role === "admin"
+      ? `admin:${appelant.userId ?? "cron"}`
+      : podDemandeur
+      ? `agent:mises-en-scene pour pod:${podDemandeur}`
+      : "agent:mises-en-scene";
     const horsBudget = appelant.role === "admin" && body?.hors_budget === true;
 
     switch (body?.action) {
@@ -164,7 +189,7 @@ Deno.serve(async (request) => {
       case "mettre_en_scene":
         return await mettreEnScene(supabase, body, par, horsBudget);
       case "traduire_mise_en_scene":
-        return await traduireMiseEnScene(supabase, body, par, horsBudget);
+        return await traduireMiseEnScene(supabase, body, par, horsBudget, podDemandeur);
       case "versions_manquantes":
         return await versionsManquantes(supabase, body);
       case "renettoyer":
@@ -463,8 +488,15 @@ async function traduireCapture(supabase: Supabase, body: Record<string, unknown>
 }
 
 /** Traduit à plat une originale (Nano Banana Pro) : nouvelle capture `traduite`, à valider. */
-// deno-lint-ignore no-explicit-any
-async function creerCaptureTraduite(supabase: Supabase, orig: any, langue: string, par: string, prix: number) {
+async function creerCaptureTraduite(
+  supabase: Supabase,
+  // deno-lint-ignore no-explicit-any
+  orig: any,
+  langue: string,
+  par: string,
+  prix: number,
+  validationAuto = false,
+) {
   const app = (await applications(supabase)).find((a) => a.id === orig.application_id);
   const prompt = promptTraduction(await chargerPrompt(supabase, "mise_en_scene_traduction"), langue, app?.nom ?? "");
   const depart = orig.largeur && orig.hauteur ? { largeur: orig.largeur, hauteur: orig.hauteur } : await tailleDistante(orig.url);
@@ -499,6 +531,7 @@ async function creerCaptureTraduite(supabase: Supabase, orig: any, langue: strin
     url,
     largeur: taille?.largeur ?? null,
     hauteur: taille?.hauteur ?? null,
+    ...validationAutomatique(validationAuto),
   }).select(COLONNES_CAPTURE).single();
   if (error) throw error;
   return data;
@@ -571,8 +604,16 @@ async function mettreEnScene(supabase: Supabase, body: Record<string, unknown>, 
  * Version `langue` d'une mise en scène originale validée. Sans capture
  * traduite : la traduit à plat (à valider par un humain) et s'arrête là.
  * Avec la capture traduite validée : remplace l'écran de l'image d'origine.
+ * Pour un podz (`podDemandeur`) : la capture et la version qu'il fait produire
+ * sont validées d'office ; une capture déjà en attente reste à un humain.
  */
-async function traduireMiseEnScene(supabase: Supabase, body: Record<string, unknown>, par: string, horsBudget: boolean) {
+async function traduireMiseEnScene(
+  supabase: Supabase,
+  body: Record<string, unknown>,
+  par: string,
+  horsBudget: boolean,
+  podDemandeur: string | null = null,
+) {
   const langue = body.langue;
   if (!langueValide(langue)) return json({ ok: false, error: "langue inconnue" }, 400);
   const { data: racine } = await supabase.from("mises_en_scene").select("*").eq("id", String(body.id ?? "")).maybeSingle();
@@ -599,7 +640,7 @@ async function traduireMiseEnScene(supabase: Supabase, body: Record<string, unkn
     const { budget: b, refus } = await verifierBudget(supabase, horsBudget);
     if (refus) return refus;
     const { data: orig } = await supabase.from("captures_app").select("*").eq("id", racine.capture_id).single();
-    const capture = await creerCaptureTraduite(supabase, orig, langue, par, b.prix_image);
+    const capture = await creerCaptureTraduite(supabase, orig, langue, par, b.prix_image, Boolean(podDemandeur));
     return json({ ok: true, etape: "capture_traduite", capture, budget: await budget(supabase) });
   }
   if (traduite.statut !== "validee") {
@@ -617,6 +658,7 @@ async function traduireMiseEnScene(supabase: Supabase, body: Record<string, unkn
     integrateurId: racine.integrateur_id,
     sceneId: racine.scene_id,
     versionDe: racine.id,
+    validationAuto: Boolean(podDemandeur),
     ...essai,
   }, par, b.prix_image);
   return json({ ok: true, etape: "version", mise_en_scene: data, budget: await budget(supabase) });
@@ -711,6 +753,17 @@ async function essaiSuivant(
   return { essai: ancien.essai + 1, relanceDe: ancien.id };
 }
 
+/** Statut d'une image produite pour un podz : validée d'office (decide_par vide). */
+function validationAutomatique(auto: boolean) {
+  return auto ? { statut: "validee", decide_le: new Date().toISOString() } : {};
+}
+
+/** Slug d'un podz actif, ou null. */
+async function podActif(supabase: Supabase, slug: string): Promise<string | null> {
+  const { data } = await supabase.from("pods").select("slug, actif").eq("slug", slug).maybeSingle();
+  return data?.actif ? data.slug : null;
+}
+
 /** Largeur × hauteur d'une image en ligne (PNG ou JPEG). */
 async function tailleDistante(url: string): Promise<{ largeur: number; hauteur: number }> {
   const r = await fetch(url);
@@ -733,6 +786,7 @@ async function produire(
     versionDe: string | null;
     essai: number;
     relanceDe: string | null;
+    validationAuto?: boolean;
   },
   par: string,
   prix: number,
@@ -783,6 +837,7 @@ async function produire(
     relance_de: p.relanceDe,
     version_de: p.versionDe,
     prompt: p.prompt,
+    ...validationAutomatique(Boolean(p.validationAuto)),
   }).select(COLONNES_MES).single();
   if (error) throw error;
   return data;

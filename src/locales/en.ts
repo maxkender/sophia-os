@@ -2068,6 +2068,7 @@ export const en = {
       importerLot_one: "Import {{count}} original",
       importerLot_other: "Import {{count}} originals",
       envoiLot: "Uploading… {{fait}}/{{total}}",
+      valideeAuto: "Auto-approved (pod)",
       relancer: "Retry (once)",
       relance: "Retry",
       aRefaire: "To redo",

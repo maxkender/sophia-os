@@ -2756,6 +2756,8 @@ export const en = {
       remixParRequalif: "Remixes unlocked by S+",
       requalifMaxJours: "Max wait for a measurement (days)",
       plancherB: "Floor to stay in B (views)",
+      fatiguePassages: "Fatigue: measured passages without a breakout (B or A → C)",
+      fatiguePlafond: "Fatigue: views that count as a breakout",
       varSeuil: "Variation — score threshold",
       varPassages: "Variation — min. passages",
       varAge: "Variation — age (days)",

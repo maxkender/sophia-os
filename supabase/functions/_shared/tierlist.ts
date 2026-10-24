@@ -1,5 +1,12 @@
-import { LOT_IDS, PLAFOND_LIGNES, decouperEnLots, lireParLots, lireTout } from "./lots.ts";
+import {
+  decouperEnLots,
+  lireParLots,
+  lireTout,
+  LOT_IDS,
+  PLAFOND_LIGNES,
+} from "./lots.ts";
 import { serviceClient } from "./supabase.ts";
+import { SLUG_SOPHIA } from "./applications.ts";
 
 export type Supabase = ReturnType<typeof serviceClient>;
 
@@ -231,6 +238,17 @@ export interface RequalifEntree {
    * B (`reglages.tierlist.plancher_b`, 3 000 par défaut ; 0 désactive).
    */
   plancherB?: number;
+  /**
+   * Fatigue (24/10) : passages mesurés de TOUTE la vie du contenu (hors
+   * rappels) et meilleur passage de toute sa vie, lus dans
+   * `contenu_passages_historique` (0342). Absents, la règle ne s'applique pas.
+   */
+  mesuresTotal?: number;
+  maxVuesTotal?: number;
+  /** `reglages.tierlist.fatigue_passages` (8 par défaut ; 0 désactive). */
+  fatiguePassages?: number;
+  /** `reglages.tierlist.fatigue_plafond` (10 000 par défaut ; 0 désactive). */
+  fatiguePlafond?: number;
 }
 
 export interface RequalifSortie {
@@ -254,6 +272,17 @@ export interface RequalifSortie {
  * passage entre 1,5 et 3 k fait ensuite 0,98 fois la normale), deux sous le
  * plancher tombent à 0,79. Un A n'est pas touché : il descend d'un cran, en
  * B, et c'est le cycle suivant qui tranche.
+ *
+ * Fatigue (24/10) : un B ou un A qui a `fatiguePassages` passages mesurés
+ * dans toute sa vie sans qu'aucun n'atteigne `fatiguePlafond` descend en C,
+ * quelle que soit la moyenne du cycle. Le plancher de B ne voit que le cycle
+ * en cours : un contenu à 2 000 de moyenne avec une pointe à 4 000 restait B
+ * cycle après cycle, et rien ne comptait ses passages. Mesuré le 24/10 : 87
+ * contenus B ou A à 8 passages ou plus sans jamais 10 k, 26 posts par jour à
+ * 2 800 vues le passage, contre 5 700 pour un premier passage et 10 400 pour
+ * un gagnant frais (SUIVI P41). C n'étant servi qu'à pool B+ vide, c'est une
+ * sortie de fait. Les règles « un passage ≥ 30 k / 150 k » restent
+ * prioritaires ; C et D ne sont pas concernés (ils ne montent que sur mesure).
  */
 export const MESURES_PLANCHER_B = 2;
 
@@ -262,7 +291,16 @@ export function requalifier(e: RequalifEntree): RequalifSortie {
   const perce150k = maxVues >= SEUIL_PASSAGE_S_PLUS;
   const perce30k = maxVues >= SEUIL_PASSAGE_S;
   const plancherB = e.plancherB ?? 0;
-  const sousPlancherB = plancherB > 0 && (e.mesures ?? 0) >= MESURES_PLANCHER_B && maxVues < plancherB;
+  const sousPlancherB = plancherB > 0 &&
+    (e.mesures ?? 0) >= MESURES_PLANCHER_B && maxVues < plancherB;
+  const fatiguePassages = e.fatiguePassages ?? 0;
+  const fatiguePlafond = e.fatiguePlafond ?? 0;
+  const fatigue = fatiguePassages > 0 && fatiguePlafond > 0 &&
+    (e.mesuresTotal ?? 0) >= fatiguePassages &&
+    (e.maxVuesTotal ?? 0) < fatiguePlafond;
+  const regleFatigue = `${e.mesuresTotal} passages mesurés sans aucun ≥ ${
+    fatiguePlafond.toLocaleString("fr-FR")
+  } (fatigue)`;
 
   switch (tier) {
     case "D":
@@ -282,11 +320,14 @@ export function requalifier(e: RequalifEntree): RequalifSortie {
     case "B":
       if (perce150k) return { tier: "S+", regle: "un passage ≥ 150 000" };
       if (perce30k) return { tier: "S", regle: "un passage ≥ 30 000" };
+      if (fatigue) return { tier: "C", regle: regleFatigue };
       if (m >= 5_000) return { tier: "A", regle: "5 000 ≤ m < 30 000" };
       if (m >= 1_000 && sousPlancherB) {
         return {
           tier: "C",
-          regle: `1 000 ≤ m < 5 000 mais aucun passage ≥ ${plancherB.toLocaleString("fr-FR")} sur ${e.mesures} mesures`,
+          regle: `1 000 ≤ m < 5 000 mais aucun passage ≥ ${
+            plancherB.toLocaleString("fr-FR")
+          } sur ${e.mesures} mesures`,
         };
       }
       if (m >= 1_000) return { tier: "B", regle: "1 000 ≤ m < 5 000" };
@@ -295,6 +336,7 @@ export function requalifier(e: RequalifEntree): RequalifSortie {
     case "A":
       if (perce150k) return { tier: "S+", regle: "un passage ≥ 150 000" };
       if (perce30k) return { tier: "S", regle: "un passage ≥ 30 000" };
+      if (fatigue) return { tier: "C", regle: regleFatigue };
       if (m >= 5_000) return { tier: "A", regle: "5 000 ≤ m < 30 000" };
       return { tier: "B", regle: "m < 5 000" };
 
@@ -379,12 +421,16 @@ const JOUR_MS = 86_400_000;
 export function deciderRequalif(e: DecisionRequalifEntree): DecisionRequalif {
   // Un contenu en D (0 passage) dort : il n'est pas dans un cycle.
   if (e.passagesPrevus <= 0) return { requalifier: false, motif: "passages" };
-  if (e.publies < e.passagesPrevus) return { requalifier: false, motif: "passages" };
+  if (e.publies < e.passagesPrevus) {
+    return { requalifier: false, motif: "passages" };
+  }
 
   // Vues encore trop fraîches — on requalifiera au prochain minuit.
   const age = e.maintenantMs - e.dernierPublieMs;
   const date = Number.isFinite(e.dernierPublieMs);
-  if (date && age < e.reculJours * JOUR_MS) return { requalifier: false, motif: "recul" };
+  if (date && age < e.reculJours * JOUR_MS) {
+    return { requalifier: false, motif: "recul" };
+  }
 
   // Au moins une mesure : le barème s'applique, sur ce qui est mesuré. `m` non
   // nul vaut `mesures > 0` par construction de la vue — on s'aligne sur `m`,
@@ -460,6 +506,10 @@ export interface TierlistReglages {
   requalifMaxJours: number;
   /** Vues qu'un passage d'un B doit atteindre pour qu'il reste en B (0 désactive). */
   plancherB: number;
+  /** Fatigue : passages mesurés (toute la vie) sans percée au-delà desquels un B ou un A descend en C (0 désactive). */
+  fatiguePassages: number;
+  /** Fatigue : vues qu'au moins un passage de toute la vie doit avoir atteintes pour échapper à la règle (0 désactive). */
+  fatiguePlafond: number;
 }
 
 export async function chargerTierlistReglages(
@@ -480,7 +530,60 @@ export async function chargerTierlistReglages(
     repechagePassages: v.repechage_passages ?? 1,
     requalifMaxJours: v.requalif_max_jours ?? 3,
     plancherB: v.plancher_b ?? 3_000,
+    fatiguePassages: v.fatigue_passages ?? 8,
+    fatiguePlafond: v.fatigue_plafond ?? 10_000,
   };
+}
+
+// ---------------------------------------------------------------------------
+// Historique de toute la vie d'un contenu (règle de fatigue, 0342)
+// ---------------------------------------------------------------------------
+
+export interface HistoriquePassages {
+  mesuresTotal: number;
+  maxVuesTotal: number;
+}
+
+/**
+ * `contenu_passages_historique` pour ces contenus et cette application : Sophia
+ * par son slug (un passage sans application est un passage Sophia), les autres
+ * par leur id. Lu seulement pour les cycles terminés, donc quelques dizaines
+ * d'id par nuit, par lots. L'erreur remonte : une fatigue illisible ne doit pas
+ * passer pour une absence de fatigue en silence.
+ */
+export async function lireHistoriquePassages(
+  supabase: Supabase,
+  contenuIds: string[],
+  application: { slug: string } | { id: string },
+): Promise<Map<string, HistoriquePassages>> {
+  const out = new Map<string, HistoriquePassages>();
+  if (!contenuIds.length) return out;
+  const lignes = await lireParLots<
+    {
+      contenu_id: string;
+      mesures_total: number | null;
+      max_vues_total: number | null;
+    }
+  >(
+    contenuIds,
+    "Historique des passages (fatigue)",
+    (lot) => {
+      const q = supabase
+        .from("contenu_passages_historique")
+        .select("contenu_id, mesures_total, max_vues_total")
+        .in("contenu_id", lot);
+      return "slug" in application
+        ? q.eq("slug", application.slug)
+        : q.eq("application_id", application.id);
+    },
+  );
+  for (const l of lignes) {
+    out.set(l.contenu_id, {
+      mesuresTotal: Number(l.mesures_total ?? 0),
+      maxVuesTotal: Number(l.max_vues_total ?? 0),
+    });
+  }
+  return out;
 }
 
 // ---------------------------------------------------------------------------
@@ -588,7 +691,9 @@ export function verifierCoherenceLecture(
       lues,
       attendues: null,
       ok: true,
-      alerte: `Complétude non vérifiée (${motifNonVerifie ?? "comptage indisponible"}).`,
+      alerte: `Complétude non vérifiée (${
+        motifNonVerifie ?? "comptage indisponible"
+      }).`,
     };
   }
   if (lues === attendues) return { lues, attendues, ok: true, alerte: null };
@@ -604,7 +709,9 @@ export function verifierCoherenceLecture(
       alerte:
         `Lecture INCOMPLÈTE de ${vue} : ${lues} ligne(s) lue(s) pour ${attendues} annoncée(s).` +
         plafond +
-        ` ${attendues - lues} cycle(s) terminé(s) n'ont pas été examinés ce run.`,
+        ` ${
+          attendues - lues
+        } cycle(s) terminé(s) n'ont pas été examinés ce run.`,
     };
   }
 
@@ -767,7 +874,9 @@ interface LectureEtats {
  * selon la source. Ce que ce prédicat préserve, ce sont les COMPTEURS, donc la
  * comparabilité d'un run dégradé avec un run normal.
  */
-export function estCycleTermine(e: Pick<TierEtat, "passages_prevus" | "publies">): boolean {
+export function estCycleTermine(
+  e: Pick<TierEtat, "passages_prevus" | "publies">,
+): boolean {
   return e.passages_prevus > 0 && e.publies >= e.passages_prevus;
 }
 
@@ -822,7 +931,9 @@ function relationAbsente(erreur: ErreurPostgrest): boolean {
  * la requalification parce que son thermomètre est cassé serait exactement le
  * travers inverse de celui qu'on répare.
  */
-async function compterCyclesTermines(supabase: Supabase): Promise<number | null> {
+async function compterCyclesTermines(
+  supabase: Supabase,
+): Promise<number | null> {
   const { count, error } = await supabase
     .from("contenu_a_requalifier")
     .select("contenu_id", { count: "exact", head: true });
@@ -872,7 +983,11 @@ async function lireCyclesTermines(supabase: Supabase): Promise<LectureEtats> {
       { ancre: (e) => e.contenu_id },
     );
 
-    return { etats, repli: false, coherence: verifierCoherenceLecture(etats.length, attendues) };
+    return {
+      etats,
+      repli: false,
+      coherence: verifierCoherenceLecture(etats.length, attendues),
+    };
   } catch (erreur) {
     // Toute autre erreur LÈVE : c'est la doctrine, une lecture douteuse ne doit
     // pas passer pour complète.
@@ -911,7 +1026,9 @@ async function lireCyclesTermines(supabase: Supabase): Promise<LectureEtats> {
  * — une alerte de troncature permanente et fausse. On déclare donc la
  * complétude NON VÉRIFIÉE, ce qui est exactement la vérité.
  */
-async function lireCyclesTerminesRepli(supabase: Supabase): Promise<LectureEtats> {
+async function lireCyclesTerminesRepli(
+  supabase: Supabase,
+): Promise<LectureEtats> {
   const brut = await lireTout<TierEtat>(
     "Requalification — repli contenu_tier_etat (vue 0253 absente)",
     async (curseur, taille) => {
@@ -956,7 +1073,10 @@ async function lireCyclesTerminesRepli(supabase: Supabase): Promise<LectureEtats
  * Une ligne, donc ni pagination ni témoin de complétude : `maybeSingle()` ne
  * peut pas être tronqué par `max-rows`.
  */
-async function lireUnContenu(supabase: Supabase, contenuId: string): Promise<LectureEtats> {
+async function lireUnContenu(
+  supabase: Supabase,
+  contenuId: string,
+): Promise<LectureEtats> {
   const { data, error } = await supabase
     .from("contenu_tier_etat")
     .select(COLONNES_ETAT)
@@ -1028,7 +1148,10 @@ export async function requalifierContenus(
     repli,
   };
 
-  type Mur = { etat: TierEtat; decision: Extract<DecisionRequalif, { requalifier: true }> };
+  type Mur = {
+    etat: TierEtat;
+    decision: Extract<DecisionRequalif, { requalifier: true }>;
+  };
   const mursOk: Mur[] = [];
   const attentes: TierEtat[] = [];
   const maintenantMs = Date.now();
@@ -1040,7 +1163,9 @@ export async function requalifierContenus(
       introuvables: e.introuvables ?? 0,
       enAttenteMesure: e.en_attente_mesure ?? 0,
       moyenne: e.moyenne_vues ?? null,
-      dernierPublieMs: e.dernier_publie_at ? Date.parse(e.dernier_publie_at) : Number.NaN,
+      dernierPublieMs: e.dernier_publie_at
+        ? Date.parse(e.dernier_publie_at)
+        : Number.NaN,
       maintenantMs,
       reculJours: reglages.reculJours,
       requalifMaxJours: reglages.requalifMaxJours,
@@ -1091,7 +1216,9 @@ export async function requalifierContenus(
   } catch (e) {
     console.warn(
       `[tierlist] titres des contenus illisibles (${ids.length} id) : ` +
-        `${e instanceof Error ? e.message : String(e)}. Les ${mursOk.length} requalification(s) ` +
+        `${
+          e instanceof Error ? e.message : String(e)
+        }. Les ${mursOk.length} requalification(s) ` +
         `se font quand même, avec des titres vides dans le rapport.`,
     );
   }
@@ -1108,6 +1235,18 @@ export async function requalifierContenus(
     });
   }
 
+  // Règle de fatigue : l'historique de toute la vie des seuls contenus qu'on
+  // va trancher sur mesure. Désactivée (0), on ne lit rien.
+  const fatigueActive = reglages.fatiguePassages > 0 &&
+    reglages.fatiguePlafond > 0;
+  const historique = fatigueActive
+    ? await lireHistoriquePassages(
+      supabase,
+      mursOk.filter((m) => m.decision.surMesure).map((m) => m.etat.contenu_id),
+      { slug: SLUG_SOPHIA },
+    )
+    : new Map<string, HistoriquePassages>();
+
   for (const { etat: e, decision } of mursOk) {
     if (!estTier(e.tier)) continue;
     const moyenne = Number(e.moyenne_vues ?? 0);
@@ -1122,11 +1261,17 @@ export async function requalifierContenus(
         nb150k: e.nb_150k ?? 0,
         mesures: e.mesures ?? 0,
         plancherB: reglages.plancherB,
+        mesuresTotal: historique.get(e.contenu_id)?.mesuresTotal,
+        maxVuesTotal: historique.get(e.contenu_id)?.maxVuesTotal,
+        fatiguePassages: reglages.fatiguePassages,
+        fatiguePlafond: reglages.fatiguePlafond,
       })
       : {
         tier: e.tier,
         regle: decision.motif === "introuvable"
-          ? `aucune mesure possible (${e.introuvables ?? 0} post(s) introuvable(s)) — cycle relancé au même rang`
+          ? `aucune mesure possible (${
+            e.introuvables ?? 0
+          } post(s) introuvable(s)) — cycle relancé au même rang`
           : `aucune vue relevée après ${reglages.requalifMaxJours} j — cycle relancé au même rang`,
       };
     const passages = passagesPourTier(verdict.tier);
@@ -1327,7 +1472,9 @@ const COLONNES_PASSAGE_RAPPEL =
  * pour une colonne dont ils n'ont pas besoin.
  */
 function colonnesPassageRappel(multiApp: boolean): string {
-  return multiApp ? `${COLONNES_PASSAGE_RAPPEL}, application_id` : COLONNES_PASSAGE_RAPPEL;
+  return multiApp
+    ? `${COLONNES_PASSAGE_RAPPEL}, application_id`
+    : COLONNES_PASSAGE_RAPPEL;
 }
 
 /**
@@ -1389,9 +1536,15 @@ async function lireSourcesDejaRappelees(
   const lignes = await lireParLots<{ rappel_source_id: string | null }>(
     sourceIds,
     "Rappels J+7 — sources déjà rappelées",
-    (lot) => supabase.from("passages").select("rappel_source_id").in("rappel_source_id", lot),
+    (lot) =>
+      supabase.from("passages").select("rappel_source_id").in(
+        "rappel_source_id",
+        lot,
+      ),
   );
-  return new Set(lignes.map((r) => r.rappel_source_id as string).filter(Boolean));
+  return new Set(
+    lignes.map((r) => r.rappel_source_id as string).filter(Boolean),
+  );
 }
 
 /** Quota quotidien des comptes concernés. Une ligne par id : le découpage suffit. */
@@ -1399,13 +1552,18 @@ async function lireQuotasComptes(
   supabase: Supabase,
   compteIds: string[],
 ): Promise<Map<string, number>> {
-  const comptes = await lireParLots<{ id: string; posts_par_jour: number | null }>(
+  const comptes = await lireParLots<
+    { id: string; posts_par_jour: number | null }
+  >(
     compteIds,
     "Rappels J+7 — quotas des comptes",
-    (lot) => supabase.from("comptes").select("id, posts_par_jour").in("id", lot),
+    (lot) =>
+      supabase.from("comptes").select("id, posts_par_jour").in("id", lot),
   );
   return new Map(
-    comptes.map((c) => [c.id, Math.min(3, Math.max(1, Number(c.posts_par_jour ?? 1)))]),
+    comptes.map((
+      c,
+    ) => [c.id, Math.min(3, Math.max(1, Number(c.posts_par_jour ?? 1)))]),
   );
 }
 
@@ -1438,7 +1596,9 @@ async function lireOccupationFuture(
       async (curseur, taille) => {
         let q = supabase
           .from("passages")
-          .select("id, compte_id, date_publication_prevue, posts!inner(est_test)")
+          .select(
+            "id, compte_id, date_publication_prevue, posts!inner(est_test)",
+          )
           .in("compte_id", lot)
           .gte("date_publication_prevue", premierJour)
           .eq("posts.est_test", false)
@@ -1509,9 +1669,15 @@ export async function programmerRappels(
 
   // Borné à un mois : au-delà, reprogrammer un J+7 n'a plus de sens, et ça
   // évite de rescanner tout l'historique des passages à chaque minuit.
-  const depuis = new Date(Date.now() - 30 * 86_400_000).toISOString().slice(0, 10);
+  const depuis = new Date(Date.now() - 30 * 86_400_000).toISOString().slice(
+    0,
+    10,
+  );
   // Le jour même est figé (posts déjà distribués) : on part de demain.
-  const premierJour = new Date(Date.now() + 86_400_000).toISOString().slice(0, 10);
+  const premierJour = new Date(Date.now() + 86_400_000).toISOString().slice(
+    0,
+    10,
+  );
 
   const parId = new Map<string, LignePassage>();
   let places: PlacementRappel[] = [];
@@ -1564,7 +1730,8 @@ export async function programmerRappels(
         compteId: p.compte_id as string,
         publieLe,
         jourCible: new Date(
-          Date.parse(`${publieLe}T00:00:00Z`) + reglages.rappelJours * 86_400_000,
+          Date.parse(`${publieLe}T00:00:00Z`) +
+            reglages.rappelJours * 86_400_000,
         )
           .toISOString()
           .slice(0, 10),
@@ -1576,7 +1743,11 @@ export async function programmerRappels(
     const compteIds = [...new Set(aPlacer.map((c) => c.compteId))];
     const quotas = await lireQuotasComptes(supabase, compteIds);
     // Ce qui occupe déjà les jours à venir (rappels d'un run précédent compris).
-    const occupes = await lireOccupationFuture(supabase, compteIds, premierJour);
+    const occupes = await lireOccupationFuture(
+      supabase,
+      compteIds,
+      premierJour,
+    );
 
     places = etalerRappels(aPlacer, {
       premierJour,
@@ -1585,7 +1756,9 @@ export async function programmerRappels(
     });
   } catch (e) {
     const message = e instanceof Error ? e.message : String(e);
-    out.erreurs.push(`lecture des rappels impossible, aucun rappel programmé : ${message}`);
+    out.erreurs.push(
+      `lecture des rappels impossible, aucun rappel programmé : ${message}`,
+    );
     console.error(`[tierlist] rappels J+7 — ${message}`);
     return out;
   }
@@ -1620,7 +1793,8 @@ export async function programmerRappels(
           hashtags: (p.hashtags as string | null) ?? null,
           rappel_rang: Number(p.rappel_rang ?? 0),
           tier_cycle: Number(p.tier_cycle ?? 0),
-          application_id: (p.application_id as string | null | undefined) ?? null,
+          application_id: (p.application_id as string | null | undefined) ??
+            null,
         },
         jour,
       });
@@ -1635,7 +1809,9 @@ export async function programmerRappels(
       });
     } catch (e) {
       out.erreurs.push(
-        `passage ${String(p.id).slice(0, 8)} : ${e instanceof Error ? e.message : String(e)}`,
+        `passage ${String(p.id).slice(0, 8)} : ${
+          e instanceof Error ? e.message : String(e)
+        }`,
       );
     }
   }

@@ -4188,6 +4188,8 @@ export async function lireReglages(): Promise<Reglages> {
       requalif_max_jours: 3,
       ecart_min_meme_contenu: 14,
       plancher_b: 3_000,
+      fatigue_passages: 8,
+      fatigue_plafond: 10_000,
       ...((map.get("tierlist") as Partial<Reglages["tierlist"]> | undefined) ?? {}),
     },
     classement_comptes: lireClassementReglages(map.get("classement_comptes")),

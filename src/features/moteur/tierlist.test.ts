@@ -159,6 +159,29 @@ describe("plancher de B", () => {
   });
 });
 
+describe("fatigue", () => {
+  const base = { nb150k: 0, mesures: 2, plancherB: 3_000, fatiguePassages: 8, fatiguePlafond: 10_000 };
+
+  it("un B ou un A à 8 passages mesurés sans aucun ≥ 10 000 descend en C, quelle que soit m", () => {
+    const r = requalifier({ ...base, tier: "B", moyenne: 4_000, maxVues: 6_000, mesuresTotal: 8, maxVuesTotal: 7_600 });
+    expect(r.tier).toBe("C");
+    expect(r.regle).toContain("fatigue");
+    expect(requalifier({ ...base, tier: "A", moyenne: 6_000, maxVues: 8_000, mesuresTotal: 9, maxVuesTotal: 9_000 }).tier).toBe("C");
+  });
+
+  it("un seul passage à 10 000 dans sa vie, ou moins de 8 passages, et le barème normal s'applique", () => {
+    expect(requalifier({ ...base, tier: "B", moyenne: 4_000, maxVues: 6_000, mesuresTotal: 12, maxVuesTotal: 10_000 }).tier).toBe("B");
+    expect(requalifier({ ...base, tier: "B", moyenne: 6_000, maxVues: 6_000, mesuresTotal: 7, maxVuesTotal: 7_600 }).tier).toBe("A");
+  });
+
+  it("les percées du cycle priment, 0 désactive, sans historique rien ne change, C et D ne sont pas concernés", () => {
+    expect(requalifier({ ...base, tier: "B", moyenne: 4_000, maxVues: 31_000, mesuresTotal: 8, maxVuesTotal: 31_000 }).tier).toBe("S");
+    expect(requalifier({ ...base, tier: "B", moyenne: 4_000, maxVues: 6_000, mesuresTotal: 8, maxVuesTotal: 7_600, fatiguePassages: 0 }).tier).toBe("B");
+    expect(requalifier({ ...base, tier: "B", moyenne: 4_000, maxVues: 6_000 }).tier).toBe("B");
+    expect(requalifier({ ...base, tier: "C", moyenne: 1_500, maxVues: 2_000, mesuresTotal: 10, maxVuesTotal: 3_000 }).tier).toBe("B");
+  });
+});
+
 describe("requalification depuis A", () => {
   it("descend en B sous 5 000", () => {
     expect(surM("A", 4_999)).toBe("B");

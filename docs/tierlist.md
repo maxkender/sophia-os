@@ -76,12 +76,14 @@ exclus). Les règles « un passage à plus de 30k / 150k » sont **prioritaires*
 | C            | 1 000 ≤ m < 5 000              | B            |
 | C            | 5 000 ≤ m < 30 000             | A            |
 | C            | un passage ≥ 30 000            | S            |
+| B            | ≥ `fatigue_passages` passages mesurés dans sa vie, aucun ≥ `fatigue_plafond` | C |
 | B            | m < 1 000                      | C            |
 | B            | 1 000 ≤ m < 5 000, aucun passage ≥ `plancher_b` sur ≥ 2 mesures | C |
 | B            | 1 000 ≤ m < 5 000              | B            |
 | B            | 5 000 ≤ m < 30 000             | A            |
 | B            | un passage ≥ 30 000            | S            |
 | B            | un passage ≥ 150 000           | S+           |
+| A            | ≥ `fatigue_passages` passages mesurés dans sa vie, aucun ≥ `fatigue_plafond` | C |
 | A            | m < 5 000                      | B            |
 | A            | 5 000 ≤ m < 30 000             | A            |
 | A            | un passage ≥ 30 000            | S            |
@@ -100,6 +102,21 @@ après cycle restait en B indéfiniment, servi avant tout C : 23 posts par jour 
 au moins, parce qu'un seul passage faible ne prédit presque rien. Un A n'est
 pas touché : il descend d'un cran, en B, et le cycle suivant tranche. `0`
 désactive le plancher.
+
+**Fatigue (24/10).** Un B ou un A qui compte `tierlist.fatigue_passages`
+passages mesurés dans **toute sa vie** (8 par défaut, hors rappels J+7) sans
+qu'aucun passage, rappels compris, n'ait atteint `tierlist.fatigue_plafond`
+(10 000 par défaut) descend en C, quelle que soit la moyenne du cycle. Le
+plancher de B ne voit que le cycle en cours : un contenu à 2 000 de moyenne
+avec une pointe à 4 000 restait B indéfiniment, et rien ne comptait ses
+passages. Le 24/10 : 87 contenus B ou A à 8 passages ou plus sans jamais 10 k,
+26 posts par jour à 2 800 vues le passage, contre 5 700 pour un premier passage
+(`analyse/SUIVI.md`, P41). C n'étant servi qu'à pool B+ vide, c'est une sortie
+de fait. L'historique vient de la vue `contenu_passages_historique` (0342), par
+application. C et D ne sont pas concernés : un C fatigué qui serait tiré et
+ferait 1 000 remonterait en B, puis redescendrait au cycle suivant ; C étant
+rarement servi, la fuite est négligeable. `0` sur l'un des deux réglages
+désactive la règle.
 
 Après requalification, le compteur de passages repart plein au nouveau rang et le
 cycle (`contenus.tier_cycle`) est incrémenté — les passages du cycle précédent

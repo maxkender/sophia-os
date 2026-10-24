@@ -19,6 +19,7 @@ const lireReglagesChoixLabelPoses = vi.fn();
 const ecrireReglagesChoixLabel = vi.fn();
 const remettreReglagesChoixLabelDefaut = vi.fn();
 const ecrireEtatManuelLabel = vi.fn();
+const ecrireCibleRepartitionApps = vi.fn();
 
 vi.mock("@/features/moteur/repartition/apiRepartition", () => ({
   PROVENANCE_JOURS: 30,
@@ -26,7 +27,7 @@ vi.mock("@/features/moteur/repartition/apiRepartition", () => ({
   CLE_CHOIX_LABELS: "choix_labels",
   lireChoixApplicationAuto: () => lireChoixApplicationAuto(),
   ecrireChoixApplicationAuto: (actif: boolean) => ecrireChoixApplicationAuto(actif),
-  ecrireCibleRepartitionApps: vi.fn(),
+  ecrireCibleRepartitionApps: (p: unknown) => ecrireCibleRepartitionApps(p),
   lireCibleRepartitionApps: (slugs: readonly string[]) => lireCibleRepartitionApps(slugs),
   lireMarchesApplications: () => lireMarchesApplications(),
   lireMarchesRepartition: (id: string) => lireMarchesRepartition(id),
@@ -145,35 +146,42 @@ function renderPage() {
   );
 }
 
-/** La ligne du tableau de la carte des recrues du site qui porte ce marché. */
-function ligneSite(marche: RegExp): HTMLElement {
-  const titre = screen.getByText(/Recrues venues du site|Recruits from the website/);
-  const carte = titre.closest("div[class*='rounded']") as HTMLElement;
-  const ligne = within(carte)
-    .getAllByRole("row")
-    .find((r) => marche.test(r.textContent ?? ""));
-  if (!ligne) throw new Error(`ligne ${marche} absente de la carte des recrues du site`);
-  return ligne;
+/** Le bloc « Site de recrutement » de la carte des applications. */
+async function blocSite(): Promise<HTMLElement> {
+  return screen.findByTestId("bloc-site");
+}
+
+/** Déplie un marché et rend son détail (la ligne qui suit la sienne). */
+async function detailMarche(cle: string): Promise<HTMLElement> {
+  const ligne = await screen.findByTestId(`marche-${cle}`);
+  fireEvent.click(ligne);
+  const detail = ligne.nextElementSibling as HTMLElement | null;
+  if (!detail) throw new Error(`le détail du marché ${cle} ne s'est pas ouvert`);
+  return detail;
+}
+
+function poserDonnees() {
+  vi.clearAllMocks();
+  lireReglagesRepartition.mockResolvedValue(REGLAGES_CHOIX_LABEL_DEFAUT);
+  lireMarchesApplications.mockResolvedValue(MARCHES_APPS);
+  lireMarchesRepartition.mockResolvedValue(MARCHES_LABELS);
+  lireRecruesSite.mockResolvedValue(PROVENANCE);
+  lireCibleRepartitionApps.mockResolvedValue({
+    source: "reglage",
+    parts: { sophia: 60, unswipe: 25, micabo: 15 },
+  });
+  lireChoixApplicationAuto.mockResolvedValue(false);
+  ecrireChoixApplicationAuto.mockResolvedValue(undefined);
+  lireReglagesChoixLabelPoses.mockResolvedValue(false);
+  ecrireReglagesChoixLabel.mockResolvedValue(undefined);
+  remettreReglagesChoixLabelDefaut.mockResolvedValue(undefined);
+  ecrireEtatManuelLabel.mockResolvedValue(undefined);
+  ecrireCibleRepartitionApps.mockResolvedValue(undefined);
+  lireReglages.mockResolvedValue({ file_labels_comptes: { items: [], par_langue: {} } });
 }
 
 describe("AdminRepartitionPage — recrues venues du site", () => {
-  beforeEach(() => {
-    vi.clearAllMocks();
-    lireReglagesRepartition.mockResolvedValue(REGLAGES_CHOIX_LABEL_DEFAUT);
-    lireMarchesApplications.mockResolvedValue(MARCHES_APPS);
-    lireMarchesRepartition.mockResolvedValue(MARCHES_LABELS);
-    lireRecruesSite.mockResolvedValue(PROVENANCE);
-    lireCibleRepartitionApps.mockResolvedValue({
-      source: "reglage",
-      parts: { sophia: 60, unswipe: 25, micabo: 15 },
-    });
-    lireChoixApplicationAuto.mockResolvedValue(false);
-    ecrireChoixApplicationAuto.mockResolvedValue(undefined);
-    lireReglagesChoixLabelPoses.mockResolvedValue(false);
-    ecrireReglagesChoixLabel.mockResolvedValue(undefined);
-    remettreReglagesChoixLabelDefaut.mockResolvedValue(undefined);
-    ecrireEtatManuelLabel.mockResolvedValue(undefined);
-  });
+  beforeEach(poserDonnees);
 
   it("la provenance est lue sur la même fenêtre que celle affichée", async () => {
     renderPage();
@@ -182,32 +190,34 @@ describe("AdminRepartitionPage — recrues venues du site", () => {
 
   it("le résumé donne les effectifs de la flotte, pas qu'un pourcentage", async () => {
     renderPage();
-    // 11 + 15 + 2 = 28 recrues, dont 5 de la cohorte.
-    await screen.findByText(/28 recrues sur 30 jours, dont 5 venues du site|28 recruits over 30 days, 5 of them from the website/);
+    // 11 + 15 + 2 = 28 recrues, dont 5 venues du site.
+    const bloc = await blocSite();
+    expect(bloc.textContent).toMatch(/5 recrues sur 28 en 30 jours|5 of 28 recruits in 30 days/);
   });
 
   it("le français montre ses 5 recrues sur 11 et sa part hors moteur", async () => {
     renderPage();
-    await screen.findByText(/Recrues venues du site|Recruits from the website/);
-    const ligne = ligneSite(/Français|French/);
-    expect(ligne.textContent).toMatch(/45 %/);
-    expect(within(ligne).getByText("5")).toBeTruthy();
+    const detail = await detailMarche("fr|FR");
+    expect(detail.textContent).toMatch(
+      /5 recrues sur 11 venues du site \(45 %\)|5 of 11 recruits came from the website \(45 %\)/,
+    );
   });
 
   it("un échantillon trop mince le dit, au lieu de faire parler deux comptes", async () => {
     renderPage();
-    await screen.findByText(/Recrues venues du site|Recruits from the website/);
-    expect(ligneSite(/Espagnol|Spanish/).textContent).toMatch(
+    expect((await detailMarche("es|ES")).textContent).toMatch(
       /la flotte \(échantillon trop mince\)|the fleet \(sample too thin\)/,
     );
-    expect(ligneSite(/Français|French/).textContent).toMatch(/ce marché|this market/);
+    expect((await detailMarche("fr|FR")).textContent).toMatch(/ce marché|this market/);
   });
 
   it("une cible atteignable est annoncée comme telle", async () => {
     renderPage();
-    await screen.findByText(/Recrues venues du site|Recruits from the website/);
-    // Cible Sophia 60 %, cohorte 45,5 % : il reste de la marge.
-    expect(ligneSite(/Français|French/).textContent).toMatch(/Atteignable|Reachable/);
+    // Cible Sophia 60 %, site 45,5 % : il reste de la marge.
+    expect((await detailMarche("fr|FR")).textContent).toMatch(/Cible atteignable|Target reachable/);
+    expect((await blocSite()).textContent).toMatch(
+      /atteignable sur tous les marchés|reachable in every market/,
+    );
   });
 
   it("viser moins que ce que le site envoie déjà est signalé impossible", async () => {
@@ -216,48 +226,47 @@ describe("AdminRepartitionPage — recrues venues du site", () => {
       parts: { sophia: 30, unswipe: 40, micabo: 30 },
     });
     renderPage();
-    await screen.findByText(/Recrues venues du site|Recruits from the website/);
-    // C'est le cœur de la carte : 30 % demandés, 45,5 % déjà promis.
-    expect(ligneSite(/Français|French/).textContent).toMatch(
-      /Impossible : sophia ≥ 45 %|Impossible: sophia ≥ 45 %/,
+    // C'est le cœur du bloc : 30 % demandés, 45,5 % déjà promis par le site.
+    const bloc = await blocSite();
+    await waitFor(() =>
+      expect(bloc.textContent).toMatch(
+        /Sophia reçoit déjà au moins 45 % via le site|Sophia already gets at least 45 % from the website/,
+      ),
     );
-    // L'allemand n'a aucune recrue de la cohorte : rien ne l'empêche.
-    expect(ligneSite(/Allemand|German/).textContent).toMatch(/Atteignable|Reachable/);
+    expect(bloc.textContent).toMatch(/Français|French/);
+    // L'allemand n'a aucune recrue du site : rien ne l'empêche.
+    expect(bloc.textContent).not.toMatch(/Allemand|German/);
+    expect((await detailMarche("de|DE")).textContent).toMatch(/Cible atteignable|Target reachable/);
   });
 
   it("sans cible posée, aucun verdict : on ne juge pas une cible que personne n'a choisie", async () => {
     // Sans réglage, la page calcule avec des parts ÉGALES pour montrer le
     // manque. En français, 33,3 % de Sophia contre 45,5 % promis ferait
-    // « impossible » — un faux reproche adressé à une cible fictive.
+    // « impossible » : un faux reproche adressé à une cible fictive.
     lireCibleRepartitionApps.mockResolvedValue({
       source: "defaut",
       parts: { sophia: 100 / 3, unswipe: 100 / 3, micabo: 100 / 3 },
     });
     renderPage();
-    await screen.findByText(/Recrues venues du site|Recruits from the website/);
-    const ligne = ligneSite(/Français|French/);
-    expect(ligne.textContent).toMatch(/cible non posée|no target set/);
-    expect(ligne.textContent).not.toMatch(/Impossible/);
+    const detail = await detailMarche("fr|FR");
+    expect(detail.textContent).toMatch(/cible non posée|no target set/);
+    expect(detail.textContent).not.toMatch(/reçoit déjà|already gets/);
     // Le plancher, lui, ne dépend pas de la cible : il reste affiché.
-    expect(ligne.textContent).toMatch(/45 %/);
+    expect(detail.textContent).toMatch(/Plancher : Sophia 45 %|Floor: Sophia 45 %/);
+    expect((await blocSite()).textContent).not.toMatch(/reçoit déjà|already gets/);
   });
 
   it("la projection dit combien des vingt prochaines recrues viennent du site", async () => {
     renderPage();
-    const titre = await screen.findByText(
-      /Composition des 20 prochaines recrues|Mix of the next 20 hires/,
-    );
-    const carte = titre.closest("div[class*='rounded']") as HTMLElement;
-    const ligne = within(carte)
-      .getAllByRole("row")
-      .find((r) => /Français|French/.test(r.textContent ?? ""));
     // 45,5 % de 20, soit 9 recrues que le moteur ne place pas.
-    expect(ligne?.textContent).toMatch(/9 \/ 20/);
+    const ligne = await screen.findByTestId("marche-fr|FR");
+    expect(ligne.textContent).toMatch(/9 \/ 20/);
   });
 
   it("la page dit où le site a envoyé ses recrues", async () => {
     renderPage();
-    await screen.findByText(/Le site les a envoyées sur : sophia 5|The website sent them to: sophia 5/);
+    const bloc = await blocSite();
+    expect(bloc.textContent).toMatch(/(envoyées vers|sent to)\s*Sophia\s*5/);
   });
 
   it("le site envoie sur Unswipe : la page suit, sans rien d'écrit en dur", async () => {
@@ -273,11 +282,10 @@ describe("AdminRepartitionPage — recrues venues du site", () => {
       parts: { sophia: 90, unswipe: 5, micabo: 5 },
     });
     renderPage();
-    await screen.findByText(/Recrues venues du site|Recruits from the website/);
-    const ligne = ligneSite(/Français|French/);
-    expect(ligne.textContent).toMatch(/unswipe 45 %/);
+    const detail = await detailMarche("fr|FR");
+    expect(detail.textContent).toMatch(/Plancher : Unswipe 45 %|Floor: Unswipe 45 %/);
     // Et c'est Unswipe qui bloque la cible, pas Sophia.
-    expect(ligne.textContent).toMatch(/Impossible : unswipe|Impossible: unswipe/);
+    expect(detail.textContent).toMatch(/Unswipe reçoit déjà au moins|Unswipe already gets at least/);
   });
 
   it("pas de verdict rouge sur un échantillon emprunté à la flotte", async () => {
@@ -289,18 +297,20 @@ describe("AdminRepartitionPage — recrues venues du site", () => {
       parts: { sophia: 1, unswipe: 60, micabo: 39 },
     });
     renderPage();
-    await screen.findByText(/Recrues venues du site|Recruits from the website/);
-    const es = ligneSite(/Espagnol|Spanish/);
-    expect(es.textContent).toMatch(/échantillon trop mince pour juger|sample too thin to judge/);
-    expect(es.textContent).not.toMatch(/Impossible/);
+    const es = await detailMarche("es|ES");
+    expect(es.textContent).toMatch(/Échantillon trop mince pour juger|Sample too thin to judge/);
+    expect(es.textContent).not.toMatch(/reçoit déjà|already gets/);
     // Le français, lui, parle pour lui-même : le verdict franc est permis.
-    expect(ligneSite(/Français|French/).textContent).toMatch(/Impossible/);
+    expect((await detailMarche("fr|FR")).textContent).toMatch(/reçoit déjà|already gets/);
+    // Et le bloc du site ne liste que lui.
+    const bloc = await blocSite();
+    expect(bloc.textContent).toMatch(/Français|French/);
+    expect(bloc.textContent).not.toMatch(/Espagnol|Spanish/);
   });
 
   it("l'interrupteur est refusé tant qu'aucune cible n'est posée", async () => {
     // Allumer sans cible ne ferait rien de bon : le serveur s'abstient et
-    // tout repartirait sur Sophia. Mieux vaut l'interdire que de laisser
-    // croire que c'est branché.
+    // tout repartirait sur Sophia.
     lireCibleRepartitionApps.mockResolvedValue({
       source: "defaut",
       parts: { sophia: 100 / 3, unswipe: 100 / 3, micabo: 100 / 3 },
@@ -312,103 +322,108 @@ describe("AdminRepartitionPage — recrues venues du site", () => {
     // Le Switch rend un <span role="switch"> : l'état désactivé passe par
     // aria-disabled, pas par l'attribut disabled d'un contrôle de formulaire.
     expect(interrupteur.getAttribute("aria-disabled")).toBe("true");
-    expect(
-      screen.getByText(/Pose d'abord une cible|Set a target first/),
-    ).toBeTruthy();
+    expect(screen.getAllByText(/Pose d'abord une cible|Set a target first/).length).toBeGreaterThan(0);
   });
 
-  it("avec une cible, l'interrupteur bascule et prévient de l'effet", async () => {
+  it("avec une cible, l'interrupteur bascule", async () => {
     renderPage();
     const interrupteur = await screen.findByRole("switch", {
       name: /Le moteur choisit l'application|The engine picks the application/,
     });
-    // Il reste grisé le temps que l'état de l'interrupteur soit lu : on ne
-    // propose pas de basculer avant de savoir où on en est.
+    // Il reste grisé le temps que son état soit lu : on ne propose pas de
+    // basculer avant de savoir où on en est.
     await waitFor(() => expect(interrupteur.getAttribute("aria-disabled")).not.toBe("true"));
-    // Le clic utile est sur l'input caché du Switch, pas sur le span.
-    const bouton = interrupteur.querySelector("input") ??
-      interrupteur.parentElement?.querySelector("input");
+    const bouton = interrupteur.querySelector("input") ?? interrupteur.parentElement?.querySelector("input");
     fireEvent.click(bouton!);
     await waitFor(() => expect(ecrireChoixApplicationAuto).toHaveBeenCalledWith(true));
   });
 
-  it("allumé, la page dit que les prochains comptes sont répartis par le moteur", async () => {
+  it("allumé, la page dit que c'est le moteur qui choisit l'appli", async () => {
     lireChoixApplicationAuto.mockResolvedValue(true);
     renderPage();
-    await screen.findByText(/les prochains comptes créés sont répartis|the next accounts created are allocated/);
+    await screen.findByText(
+      /Allumé : le moteur choisit l'appli de chaque nouveau compte|On: the engine picks the app of every new account/,
+    );
   });
 
   it("une erreur de droits reste lisible et ne laisse pas un tableau vide", async () => {
     lireRecruesSite.mockRejectedValue(new Error("reserve aux administrateurs"));
     renderPage();
     await screen.findByText("reserve aux administrateurs");
-    expect(
-      screen.queryByText(/Recrues venues du site|Recruits from the website/),
-    ).toBeNull();
+    expect(screen.queryByTestId("bloc-site")).toBeNull();
   });
 });
 
-/**
- * La carte qui porte ce titre.
- *
- * On filtre sur l'ancêtre « carte » : le texte d'introduction de la page cite
- * les noms de deux cartes, donc une recherche par texte seul tombait dessus et
- * rendait un élément sans carte autour.
- */
-function carte(titre: RegExp): HTMLElement {
-  const trouve = screen
-    .getAllByText(titre)
-    .map((e) => e.closest("div[class*='rounded']"))
-    .find((e): e is HTMLElement => e !== null);
-  if (!trouve) throw new Error(`aucune carte ne porte le titre ${titre}`);
-  return trouve;
+describe("AdminRepartitionPage — la cible et le réel", () => {
+  beforeEach(poserDonnees);
+
+  it("la cible s'édite dans le tableau et part en base", async () => {
+    renderPage();
+    const champ = await screen.findByLabelText(/Cible de Sophia|Target for Sophia/);
+    // Rien à enregistrer tant qu'on n'a rien touché : pas de bouton grisé en permanence.
+    expect(screen.queryByRole("button", { name: /Poser la cible|Set the target/ })).toBeNull();
+    fireEvent.change(champ, { target: { value: "70" } });
+    fireEvent.click(screen.getByRole("button", { name: /Poser la cible|Set the target/ }));
+    await waitFor(() =>
+      expect(ecrireCibleRepartitionApps).toHaveBeenCalledWith({ sophia: 70, unswipe: 25, micabo: 15 }),
+    );
+  });
+
+  it("l'écart se lit réel moins cible, dans le sens des barres", async () => {
+    // Sophia porte 42 comptes sur 47, bien au-dessus de sa cible : l'écart
+    // doit être POSITIF. L'ancienne page écrivait « cible − réel » et
+    // affichait Sophia en négatif alors que sa barre dépassait.
+    renderPage();
+    const champ = await screen.findByLabelText(/Cible de Sophia|Target for Sophia/);
+    const ligneSophia = champ.closest("tr")!;
+    expect(ligneSophia.textContent).toMatch(/\+\d+ pts/);
+    const ligneMicabo = (await screen.findByLabelText(/Cible de micabo|Target for micabo/)).closest("tr")!;
+    expect(ligneMicabo.textContent).toMatch(/-\d+ pts/);
+  });
+
+  it("la règle « proposée » qui ne tourne nulle part n'est plus affichée", async () => {
+    renderPage();
+    await screen.findByTestId("marche-fr|FR");
+    expect(screen.queryByText(/règle proposée|proposed rule/i)).toBeNull();
+    expect(screen.queryByText(/^(Proposée|Proposed)$/)).toBeNull();
+  });
+
+  it("chaque marché donne son prochain compte", async () => {
+    renderPage();
+    const ligne = await screen.findByTestId("marche-de|DE");
+    expect(ligne.textContent).toMatch(/study|gym/);
+  });
+});
+
+/** Déplie la carte des réglages, repliée par défaut. */
+async function ouvrirReglages() {
+  fireEvent.click(await screen.findByRole("button", { name: /Réglages avancés|Advanced settings/ }));
 }
 
 describe("AdminRepartitionPage — les réglages de label s'éditent", () => {
-  beforeEach(() => {
-    vi.clearAllMocks();
-    lireReglagesRepartition.mockResolvedValue(REGLAGES_CHOIX_LABEL_DEFAUT);
-    lireMarchesApplications.mockResolvedValue(MARCHES_APPS);
-    lireMarchesRepartition.mockResolvedValue(MARCHES_LABELS);
-    lireRecruesSite.mockResolvedValue(PROVENANCE);
-    lireCibleRepartitionApps.mockResolvedValue({
-      source: "reglage",
-      parts: { sophia: 60, unswipe: 25, micabo: 15 },
-    });
-    lireChoixApplicationAuto.mockResolvedValue(false);
-    lireReglagesChoixLabelPoses.mockResolvedValue(false);
-    ecrireReglagesChoixLabel.mockResolvedValue(undefined);
-    remettreReglagesChoixLabelDefaut.mockResolvedValue(undefined);
-    ecrireEtatManuelLabel.mockResolvedValue(undefined);
-  });
+  beforeEach(poserDonnees);
 
-  it("le bandeau ne prétend plus que la page ne touche à rien", async () => {
+  it("la page ne se dit jamais en lecture seule", async () => {
     renderPage();
-    await screen.findByText(/Cette page agit sur le moteur|This page acts on the engine/);
-    expect(screen.queryByText(/Lecture seule\.|Read only\./)).toBeNull();
+    await screen.findByRole("switch", { name: /Le moteur choisit l'application|The engine picks the application/ });
+    expect(screen.queryByText(/Lecture seule|Read only/)).toBeNull();
   });
 
   it("sans valeur en base, la page dit que ce sont les défauts du code", async () => {
     renderPage();
-    await screen.findByText(
-      /Aucune valeur n'est posée en base|No value is stored/,
-    );
+    await screen.findByText(/Aucune valeur n'est posée en base|No value is stored/);
   });
 
   it("une valeur modifiée part en base avec les onze autres", async () => {
     renderPage();
-    const champ = await screen.findByLabelText(
-      /Exposant de performance|Performance exponent/,
-    );
+    await ouvrirReglages();
+    const champ = await screen.findByLabelText(/Exposant de performance|Performance exponent/);
     fireEvent.change(champ, { target: { value: "3" } });
-    fireEvent.click(
-      screen.getByRole("button", { name: /Enregistrer les réglages|Save settings/ }),
-    );
+    fireEvent.click(screen.getByRole("button", { name: /Enregistrer les réglages|Save settings/ }));
     await waitFor(() => expect(ecrireReglagesChoixLabel).toHaveBeenCalled());
     const envoye = ecrireReglagesChoixLabel.mock.calls[0][0];
     expect(envoye.perfExposant).toBe(3);
-    // Les autres partent inchangés : on écrit les douze d'un bloc, jamais un
-    // réglage isolé qui laisserait les autres dans un état incertain.
+    // Les autres partent inchangés : on écrit les douze d'un bloc.
     expect(envoye.partMax).toBe(REGLAGES_CHOIX_LABEL_DEFAUT.partMax);
     expect(Object.keys(envoye)).toHaveLength(12);
   });
@@ -417,13 +432,10 @@ describe("AdminRepartitionPage — les réglages de label s'éditent", () => {
     // `positif(0, 2)` rend 2 : laisser passer zéro afficherait 0 ici et
     // appliquerait 2 là-bas, sans que rien ne le dise.
     renderPage();
-    const champ = await screen.findByLabelText(
-      /Exposant de performance|Performance exponent/,
-    );
+    await ouvrirReglages();
+    const champ = await screen.findByLabelText(/Exposant de performance|Performance exponent/);
     fireEvent.change(champ, { target: { value: "0" } });
-    const bouton = screen.getByRole("button", {
-      name: /Enregistrer les réglages|Save settings/,
-    });
+    const bouton = screen.getByRole("button", { name: /Enregistrer les réglages|Save settings/ });
     await waitFor(() => expect(bouton).toBeDisabled());
     await screen.findByText(/Une valeur au moins est refusée|At least one value is refused/);
     fireEvent.click(bouton);
@@ -432,82 +444,64 @@ describe("AdminRepartitionPage — les réglages de label s'éditent", () => {
 
   it("une borne basse au-dessus de la haute est nommée, pas juste refusée", async () => {
     renderPage();
-    fireEvent.change(
-      await screen.findByLabelText(/Performance, borne basse|Performance, lower bound/),
-      { target: { value: "5" } },
-    );
+    await ouvrirReglages();
+    fireEvent.change(await screen.findByLabelText(/Performance, borne basse|Performance, lower bound/), {
+      target: { value: "5" },
+    });
     await screen.findByText(
       /La borne basse de performance dépasse la borne haute|The lower performance bound is above the upper one/,
     );
-    expect(
-      screen.getByRole("button", { name: /Enregistrer les réglages|Save settings/ }),
-    ).toBeDisabled();
+    expect(screen.getByRole("button", { name: /Enregistrer les réglages|Save settings/ })).toBeDisabled();
   });
 
   it("les réglages restent éditables même sans label à classer", async () => {
     // Ils valent pour TOUTES les applications : la carte n'a pas à
-    // disparaître parce que celle affichée n'a aucun label.
+    // disparaître parce qu'aucun label n'est à classer.
     lireMarchesRepartition.mockResolvedValue([]);
     renderPage();
-    await screen.findByText(/Réglages du choix de label|Label-choice settings/);
-    expect(
-      screen.getByRole("button", { name: /Enregistrer les réglages|Save settings/ }),
-    ).toBeTruthy();
+    await ouvrirReglages();
+    expect(screen.getByRole("button", { name: /Enregistrer les réglages|Save settings/ })).toBeTruthy();
   });
 
   it("revenir aux défauts retire les clés au lieu de figer des nombres", async () => {
     renderPage();
-    fireEvent.click(
-      await screen.findByRole("button", {
-        name: /Revenir aux valeurs par défaut|Back to default values/,
-      }),
-    );
+    await ouvrirReglages();
+    fireEvent.click(await screen.findByRole("button", { name: /Revenir aux valeurs par défaut|Back to default values/ }));
     await waitFor(() => expect(remettreReglagesChoixLabelDefaut).toHaveBeenCalled());
     expect(ecrireReglagesChoixLabel).not.toHaveBeenCalled();
   });
 });
 
 describe("AdminRepartitionPage — ouvrir et fermer un label", () => {
-  beforeEach(() => {
-    vi.clearAllMocks();
-    lireReglagesRepartition.mockResolvedValue(REGLAGES_CHOIX_LABEL_DEFAUT);
-    lireMarchesApplications.mockResolvedValue(MARCHES_APPS);
-    lireMarchesRepartition.mockResolvedValue(MARCHES_LABELS);
-    lireRecruesSite.mockResolvedValue(PROVENANCE);
-    lireCibleRepartitionApps.mockResolvedValue({
-      source: "reglage",
-      parts: { sophia: 60, unswipe: 25, micabo: 15 },
-    });
-    lireChoixApplicationAuto.mockResolvedValue(false);
-    lireReglagesChoixLabelPoses.mockResolvedValue(false);
-    ecrireEtatManuelLabel.mockResolvedValue(undefined);
-  });
+  beforeEach(poserDonnees);
 
-  /** La ligne du tableau « État des labels » qui porte ce label. */
+  /** La ligne du tableau des labels qui porte ce label. */
   async function ligneLabel(nom: string): Promise<HTMLElement> {
-    // On attend LA CARTE, pas son nom : le texte d'introduction de la page
-    // cite les deux cartes qui suivent le sélecteur, donc attendre un texte
-    // rendait la main avant que les données soient là.
-    await waitFor(() => carte(/État des labels|Label status/));
-    // Le nom du label ouvre la ligne, collé au premier chiffre : `\b` ne
-    // tient pas entre « study » et « 1,00 », les deux sont des caractères de
-    // mot. On ancre au début.
-    const ligne = within(carte(/État des labels|Label status/))
-      .getAllByRole("row")
-      .find((r) => (r.textContent ?? "").startsWith(nom));
-    if (!ligne) throw new Error(`ligne ${nom} absente du tableau des labels`);
-    return ligne;
+    return screen.findByTestId(`label-${nom}`);
   }
 
   it("fermer un label l'écrit pour l'application affichée, pas pour toutes", async () => {
     renderPage();
     const ligne = await ligneLabel("study");
-    fireEvent.click(
-      within(ligne).getByRole("button", { name: /^(Fermé|Closed)$/ }),
-    );
+    fireEvent.click(within(ligne).getByRole("button", { name: /^(Fermé|Closed)$/ }));
     await waitFor(() =>
       expect(ecrireEtatManuelLabel).toHaveBeenCalledWith({
         applicationId: "id-sophia",
+        labelId: "study",
+        etat: "ferme",
+      }),
+    );
+  });
+
+  it("l'onglet d'une autre appli décide pour elle", async () => {
+    renderPage();
+    await ligneLabel("study");
+    fireEvent.click(screen.getByRole("tab", { name: /Unswipe/ }));
+    const ligne = await ligneLabel("study");
+    fireEvent.click(within(ligne).getByRole("button", { name: /^(Fermé|Closed)$/ }));
+    await waitFor(() =>
+      expect(ecrireEtatManuelLabel).toHaveBeenCalledWith({
+        applicationId: "id-unswipe",
         labelId: "study",
         etat: "ferme",
       }),
@@ -532,8 +526,6 @@ describe("AdminRepartitionPage — ouvrir et fermer un label", () => {
   });
 
   it("recliquer l'état en cours n'écrit rien", async () => {
-    // Le bouton reste cliquable pour rester lisible, mais reposer la même
-    // décision n'a rien à dire à la base.
     renderPage();
     const ligne = await ligneLabel("study");
     fireEvent.click(within(ligne).getByRole("button", { name: /^(Auto)$/ }));
@@ -546,12 +538,8 @@ describe("AdminRepartitionPage — ouvrir et fermer un label", () => {
     // ne doit pas avoir l'air protégé.
     renderPage();
     const ligne = await ligneLabel("study");
-    expect(
-      within(ligne).getByRole("button", { name: /^(Auto)$/ }).getAttribute("aria-pressed"),
-    ).toBe("true");
-    expect(
-      within(ligne).getByRole("button", { name: /^(Fermé|Closed)$/ }).getAttribute("aria-pressed"),
-    ).toBe("false");
+    expect(within(ligne).getByRole("button", { name: /^(Auto)$/ }).getAttribute("aria-pressed")).toBe("true");
+    expect(within(ligne).getByRole("button", { name: /^(Fermé|Closed)$/ }).getAttribute("aria-pressed")).toBe("false");
   });
 
   it("un label fermé à la main montre sa décision au rechargement", async () => {
@@ -561,11 +549,27 @@ describe("AdminRepartitionPage — ouvrir et fermer un label", () => {
     });
     renderPage();
     const ligne = await ligneLabel("study");
-    expect(
-      within(ligne).getByRole("button", { name: /^(Fermé|Closed)$/ }).getAttribute("aria-pressed"),
-    ).toBe("true");
-    // Et l'état calculé suit : la colonne de gauche dit pourquoi.
+    expect(within(ligne).getByRole("button", { name: /^(Fermé|Closed)$/ }).getAttribute("aria-pressed")).toBe("true");
     expect(ligne.textContent).toMatch(/Fermé pour cette app|Closed for this app/);
+  });
+
+  it("un label livré absent d'une langue le signale, et garde son stock entier pour ses jours", async () => {
+    // Depuis 0348, la réserve d'un label livré par un pod tombe à zéro dans
+    // une langue sans deck. Sur la carte des labels, ça ne doit ni le faire
+    // passer pour vide, ni passer inaperçu.
+    lireMarchesRepartition.mockResolvedValue(
+      MARCHES_APPS.map((m) => ({
+        langue: m.langue,
+        pays: m.pays,
+        comptes: 10,
+        stats: [stat("study"), { ...stat("gym"), passages_restants: m.langue === "de" ? 0 : 2000 }],
+      })),
+    );
+    renderPage();
+    const ligne = await ligneLabel("gym");
+    expect(ligne.textContent).toMatch(/absent dans 1 langue|missing in 1 language/);
+    // 2000 / (10 + 2) = 167 jours : le stock entier, pas le zéro allemand.
+    expect(ligne.textContent).toMatch(/167 (j|d)/);
   });
 });
 
@@ -577,17 +581,7 @@ describe("AdminRepartitionPage — ce que la projection reçoit", () => {
   };
 
   beforeEach(() => {
-    vi.clearAllMocks();
-    lireReglagesRepartition.mockResolvedValue(REGLAGES_CHOIX_LABEL_DEFAUT);
-    lireMarchesApplications.mockResolvedValue(MARCHES_APPS);
-    lireMarchesRepartition.mockResolvedValue(MARCHES_LABELS);
-    lireRecruesSite.mockResolvedValue(PROVENANCE);
-    lireCibleRepartitionApps.mockResolvedValue({
-      source: "reglage",
-      parts: { sophia: 60, unswipe: 25, micabo: 15 },
-    });
-    lireChoixApplicationAuto.mockResolvedValue(false);
-    lireReglagesChoixLabelPoses.mockResolvedValue(false);
+    poserDonnees();
     lireReglages.mockResolvedValue({ file_labels_comptes: FILE });
   });
 
@@ -596,18 +590,21 @@ describe("AdminRepartitionPage — ce que la projection reçoit", () => {
     // projection qui ne la reçoit pas annonce la mauvaise paire.
     renderPage();
     await waitFor(() => expect(simulerTirages).toHaveBeenCalled());
-    const options = simulerTirages.mock.calls.at(-1)![6];
-    expect(options.file).toEqual(FILE);
+    await waitFor(() => expect(simulerTirages.mock.calls.at(-1)![6].file).toEqual(FILE));
   });
 
   it("une part du site empruntée à la flotte ne réserve aucun tirage", async () => {
     // L'espagnol n'a que 2 recrues : sa part vient de la flotte. La réserver
-    // ici donnerait des tirages à un guichet qui n'a peut-être jamais envoyé
+    // ici donnerait des tirages à un site qui n'a peut-être jamais envoyé
     // personne sur ce marché.
     renderPage();
     await waitFor(() => expect(simulerTirages).toHaveBeenCalled());
+    // Seuls les tirages de VINGT portent la part du site ; celui d'un seul
+    // compte (le prochain, placé par le moteur) n'en a pas, par construction.
     const parMarche = new Map(
-      simulerTirages.mock.calls.map((c) => [`${c[0].langue}|${c[0].pays ?? ""}`, c[6]]),
+      simulerTirages.mock.calls
+        .filter((c) => c[5] === 20)
+        .map((c) => [`${c[0].langue}|${c[0].pays ?? ""}`, c[6]]),
     );
     expect(parMarche.get("es|ES").partSite).toBe(0);
     // Le français, lui, est mesuré sur son propre marché : 5 recrues sur 11.

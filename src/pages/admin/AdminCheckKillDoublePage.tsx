@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Check, ChevronRight, ExternalLink, RefreshCw, Send } from "lucide-react";
+import { Check, ChevronRight, ExternalLink, List, RefreshCw, Send, Users } from "lucide-react";
 
 import { LogoApplication } from "@/components/brand/LogoApplication";
 import { PageHeader } from "@/components/layout/PageHeader";
@@ -84,6 +84,7 @@ import {
   valeurEffective,
   valeurEnSaisie,
 } from "@/features/ckd/logique";
+import { VueCohorte } from "@/features/ckd/cohorte/VueCohorte";
 import { drapeauPays, nomPaysIso } from "@/features/moteur/pays";
 import { Aide, BarreRepartition } from "@/features/moteur/repartition/graphes";
 import { cn } from "@/lib/utils";
@@ -137,15 +138,37 @@ function useDate() {
   );
 }
 
+/** Les comptes d'une cohorte et le jour de son contrôle : la vue cohorte ne montre qu'eux (0356). */
+interface FiltreCohorte {
+  jour: string;
+  comptes: ReadonlySet<string>;
+}
+
 /**
  * Admin → Check, Kill or Double (PROMPT 5, migration 0326). Le jeudi 6 h, les
  * nudges proposés aux comptes dans leur première semaine ; le samedi 6 h, les
  * comptes à tuer (recréer, ne pas renouveler) et les posteurs à doubler. L'admin
  * décide ligne par ligne (0328) ; les décisions partent aux HMs dans
  * #managers-hq (bouton, ou tout seul le dimanche à 12 h).
+ *
+ * Deux vues (0356) : « Suivi cohorte », la paire de cohortes de nouveaux
+ * posteurs (celle qui poste, celle en warm-up), et « Suivi global », la page
+ * telle qu'elle était, pour toutes les cohortes. `?vue=global` ouvre la seconde.
  */
 export function AdminCheckKillDoublePage() {
   const { t } = useTranslation();
+  const [params, setParams] = useSearchParams();
+  const vue = params.get("vue") === "global" ? "global" : "cohorte";
+  const choisirVue = (v: "cohorte" | "global") =>
+    setParams(
+      (p) => {
+        const n = new URLSearchParams(p);
+        if (v === "global") n.set("vue", "global");
+        else n.delete("vue");
+        return n;
+      },
+      { replace: true },
+    );
   const [onglet, setOnglet] = React.useState<Onglet>("samedi");
 
   return (
@@ -165,21 +188,63 @@ export function AdminCheckKillDoublePage() {
           </span>
         }
         description={t("ckd.description")}
+        actions={<ChoixVue vue={vue} onChange={choisirVue} />}
       />
 
-      <Semaine />
+      {vue === "cohorte" ? (
+        <VueCohorte
+          ouvrirGlobal={() => choisirVue("global")}
+          rendreControle={(type, jour, comptes) => (
+            <VueControles key={`${type}-${jour}`} type={type} cohorte={{ jour, comptes }} />
+          )}
+        />
+      ) : (
+        <>
+          <Semaine />
 
-      <Onglets actif={onglet} onChange={setOnglet} />
+          <Onglets actif={onglet} onChange={setOnglet} />
 
-      <div id="panneau-ckd" role="tabpanel" aria-labelledby={`onglet-ckd-${onglet}`}>
-        {onglet === "reglages" ? (
-          <VueReglages />
-        ) : onglet === "historique" ? (
-          <VueHistorique />
-        ) : (
-          <VueControles key={onglet} type={onglet} />
-        )}
-      </div>
+          <div id="panneau-ckd" role="tabpanel" aria-labelledby={`onglet-ckd-${onglet}`}>
+            {onglet === "reglages" ? (
+              <VueReglages />
+            ) : onglet === "historique" ? (
+              <VueHistorique />
+            ) : (
+              <VueControles key={onglet} type={onglet} />
+            )}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
+/** Suivi cohorte ou suivi global : deux boutons collés, celui de la vue affichée en avant. */
+function ChoixVue({ vue, onChange }: { vue: "cohorte" | "global"; onChange: (v: "cohorte" | "global") => void }) {
+  const { t } = useTranslation();
+  return (
+    <div role="group" aria-label={t("ckd.cohorte.vues.aria")} className="inline-flex rounded-lg border bg-muted/40 p-1">
+      {(
+        [
+          { v: "cohorte", icone: <Users className="size-4" aria-hidden /> },
+          { v: "global", icone: <List className="size-4" aria-hidden /> },
+        ] as const
+      ).map(({ v, icone }) => (
+        <button
+          key={v}
+          type="button"
+          aria-pressed={vue === v}
+          onClick={() => onChange(v)}
+          className={cn(
+            "inline-flex items-center gap-2 rounded-md px-3 py-1.5 text-sm transition-colors",
+            "focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ring",
+            vue === v ? "bg-background font-medium shadow-sm" : "text-muted-foreground hover:text-foreground",
+          )}
+        >
+          {icone}
+          {t(`ckd.cohorte.vues.${v}`)}
+        </button>
+      ))}
     </div>
   );
 }
@@ -249,7 +314,12 @@ function Onglets({ actif, onChange }: { actif: Onglet; onChange: (o: Onglet) => 
 // Propositions (samedi) et nudges (jeudi)
 // ---------------------------------------------------------------------------
 
-function VueControles({ type }: { type: TypeControle }) {
+/**
+ * Les propositions d'un contrôle. Avec `cohorte` (vue cohorte, 0356) : le
+ * contrôle de ce jour-là seulement, réduit aux comptes de la cohorte, sans les
+ * boutons qui agissent sur tout le contrôle (recalcul, envois aux HM).
+ */
+function VueControles({ type, cohorte }: { type: TypeControle; cohorte?: FiltreCohorte }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const date = useDate();
@@ -260,7 +330,9 @@ function VueControles({ type }: { type: TypeControle }) {
     [controles.data, type],
   );
   const [choisi, setChoisi] = React.useState<string | null>(null);
-  const controle: ControleCkd | undefined = duType.find((c) => c.id === choisi) ?? duType[0];
+  const controle: ControleCkd | undefined = cohorte
+    ? duType.find((c) => c.jour === cohorte.jour)
+    : (duType.find((c) => c.id === choisi) ?? duType[0]);
 
   const propositions = useQuery({
     queryKey: [...CLE, "propositions", controle?.id],
@@ -268,11 +340,14 @@ function VueControles({ type }: { type: TypeControle }) {
     enabled: Boolean(controle),
   });
   // Le samedi, les posts manqués de la semaine (pour info, sous les propositions).
-  const manques = useQuery({
+  const manquesBruts = useQuery({
     queryKey: [...CLE, "manques", controle?.jour],
     queryFn: () => listerManques(controle!.jour),
     enabled: type === "samedi" && Boolean(controle),
   });
+  const manques = {
+    data: cohorte ? manquesBruts.data?.filter((m) => cohorte.comptes.has(m.compte_id)) : manquesBruts.data,
+  };
   const ids = React.useMemo(() => {
     const s = new Set<string>();
     for (const p of [...(propositions.data ?? []), ...(manques.data ?? [])]) {
@@ -336,7 +411,8 @@ function VueControles({ type }: { type: TypeControle }) {
     () => new Map((nouveaux.data ?? []).map((c) => [c.id, c.handle_tiktok] as const)),
     [nouveaux.data],
   );
-  const liste = propositions.data ?? [];
+  const toutes = propositions.data ?? [];
+  const liste = cohorte ? toutes.filter((p) => cohorte.comptes.has(p.compte_id)) : toutes;
   const groupes = grouperParHm(liste);
   const nudgesEnAttente = liste.filter((p) => p.action === "nudge" && !p.decision).length;
   const prets = liste.filter(aEnvoyer).length;
@@ -344,58 +420,68 @@ function VueControles({ type }: { type: TypeControle }) {
 
   return (
     <div className="space-y-5" data-testid={`vue-${type}`}>
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-2" data-testid="barre-envoi">
-        {duType.length > 0 && (
-          <select
-            className={selectClass}
-            aria-label={t("ckd.controle")}
-            value={controle?.id ?? ""}
-            onChange={(e) => setChoisi(e.target.value)}
-          >
-            {duType.map((c) => (
-              <option key={c.id} value={c.id}>
-                {t("ckd.controleDu", { date: date(c.jour, { weekday: "long", day: "numeric", month: "long" }) })}
-              </option>
-            ))}
-          </select>
-        )}
-        {controle && (
-          <span className="text-xs text-muted-foreground">
+      {cohorte ? (
+        controle && (
+          <p className="text-xs text-muted-foreground" data-testid="barre-cohorte">
             {t("ckd.calculeLe", { date: date(controle.lance_at, { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }) })}
-          </span>
-        )}
-        <div className="ml-auto flex flex-wrap items-center gap-2">
-          <Button size="sm" variant="outline" loading={recalculer.isPending} onClick={() => recalculer.mutate()}>
-            <RefreshCw />
-            {controle ? t("ckd.recalculer") : t("ckd.calculer")}
-          </Button>
-          {controle && liste.length > 0 && type === "jeudi" && nudgesEnAttente > 0 && (
-            <Button
-              size="sm"
-              variant="outline"
-              loading={envoyerNudges.isPending}
-              onClick={() => {
-                if (window.confirm(t("ckd.confirmNudges", { n: nudgesEnAttente }))) envoyerNudges.mutate();
-              }}
+            {" · "}
+            {t("ckd.cohorte.focus.envoiGlobal")}
+          </p>
+        )
+      ) : (
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-2" data-testid="barre-envoi">
+          {duType.length > 0 && (
+            <select
+              className={selectClass}
+              aria-label={t("ckd.controle")}
+              value={controle?.id ?? ""}
+              onChange={(e) => setChoisi(e.target.value)}
             >
-              {t("ckd.envoyerNudges", { n: nudgesEnAttente })}
-            </Button>
+              {duType.map((c) => (
+                <option key={c.id} value={c.id}>
+                  {t("ckd.controleDu", { date: date(c.jour, { weekday: "long", day: "numeric", month: "long" }) })}
+                </option>
+              ))}
+            </select>
           )}
-          {controle && liste.length > 0 && (
-            <Button
-              size="sm"
-              disabled={prets === 0}
-              loading={envoyerHm.isPending}
-              onClick={() => {
-                if (window.confirm(t("ckd.confirmEnvoiHm", { n: prets }))) envoyerHm.mutate();
-              }}
-            >
-              <Send />
-              {t("ckd.envoyerHm", { n: prets })}
-            </Button>
+          {controle && (
+            <span className="text-xs text-muted-foreground">
+              {t("ckd.calculeLe", { date: date(controle.lance_at, { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }) })}
+            </span>
           )}
+          <div className="ml-auto flex flex-wrap items-center gap-2">
+            <Button size="sm" variant="outline" loading={recalculer.isPending} onClick={() => recalculer.mutate()}>
+              <RefreshCw />
+              {controle ? t("ckd.recalculer") : t("ckd.calculer")}
+            </Button>
+            {controle && liste.length > 0 && type === "jeudi" && nudgesEnAttente > 0 && (
+              <Button
+                size="sm"
+                variant="outline"
+                loading={envoyerNudges.isPending}
+                onClick={() => {
+                  if (window.confirm(t("ckd.confirmNudges", { n: nudgesEnAttente }))) envoyerNudges.mutate();
+                }}
+              >
+                {t("ckd.envoyerNudges", { n: nudgesEnAttente })}
+              </Button>
+            )}
+            {controle && liste.length > 0 && (
+              <Button
+                size="sm"
+                disabled={prets === 0}
+                loading={envoyerHm.isPending}
+                onClick={() => {
+                  if (window.confirm(t("ckd.confirmEnvoiHm", { n: prets }))) envoyerHm.mutate();
+                }}
+              >
+                <Send />
+                {t("ckd.envoyerHm", { n: prets })}
+              </Button>
+            )}
+          </div>
         </div>
-      </div>
+      )}
 
       {erreur && (
         <p role="alert" className="text-sm text-destructive">
@@ -416,12 +502,12 @@ function VueControles({ type }: { type: TypeControle }) {
       {controles.isPending ? (
         <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
       ) : !controle ? (
-        <EmptyState title={t(`ckd.aucunControle.${type}`)} />
+        <EmptyState title={t(cohorte ? `ckd.cohorte.focus.pasDeControle.${type}` : `ckd.aucunControle.${type}`)} />
       ) : liste.length === 0 ? (
         propositions.isPending ? (
           <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
         ) : (
-          <EmptyState title={t(`ckd.vide.${type}`)} />
+          <EmptyState title={t(cohorte ? `ckd.cohorte.focus.vide.${type}` : `ckd.vide.${type}`)} />
         )
       ) : (
         <>

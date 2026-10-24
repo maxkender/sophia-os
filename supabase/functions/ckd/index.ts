@@ -14,6 +14,7 @@ import {
   zonesDe,
 } from "../_shared/ckd.ts";
 import { estLabelFileSlideshow } from "../_shared/labels_file.ts";
+import { lireProfilTiktok } from "../_shared/profil_tiktok.ts";
 import { filtrerPoolParApplication } from "../_shared/labels_repli.ts";
 import { chargerReglagesChoixLabel, statsChoixLabel } from "../_shared/fermeture_labels.ts";
 import { choisirLabel } from "../_shared/choix_label_equilibre.ts";
@@ -42,6 +43,11 @@ type Supabase = ReturnType<typeof serviceClient>;
  *   { action: "apercu_hm", id }                                        admin
  *       La consigne par défaut d'un nudge pour le HM (ce qu'il vérifie avec
  *       le posteur), que la page pré-remplit et laisse modifier (0339).
+ *   { action: "releve_warmup" }                                        admin
+ *       Lit le profil TikTok public de chaque compte de la cohorte en warm-up
+ *       (existe ?, abonnements, likes) et l'enregistre (0356). Sans Apify.
+ *   { action: "releve_warmup_planifie" }   cron, 8 h et 20 h (heure de Paris)
+ *       Pareil.
  *
  * Le bouton Done des messages arrive dans `slack-interactions`.
  * Secrets : SLACK_HM_BOT_TOKEN (le bot « Sophia OS »), CRON_SECRET.
@@ -79,6 +85,13 @@ Deno.serve(async (request) => {
         return json(await verifierSlack(supabase));
       case "apercu_hm":
         return json(await apercuHm(supabase, String(body.id ?? "")));
+      case "releve_warmup":
+        return json(await releverWarmup(supabase));
+      case "releve_warmup_planifie": {
+        const p = maintenantParis();
+        if (!body.force && p.heure !== 8 && p.heure !== 20) return json({ ok: true, ignore: "pas 8 h ni 20 h" });
+        return json(await releverWarmup(supabase));
+      }
       default:
         return json({ ok: false, error: "action inconnue" }, 400);
     }
@@ -380,6 +393,50 @@ async function apercuHm(supabase: Supabase, id: string) {
   if (error) throw error;
   const [zone] = await zonesDe(supabase, [{ ...(data as PropositionSlack), hm_texte: null }]);
   return { ok: true, texte: consigneNudge(zone.decisions[0]) };
+}
+
+// ---------------------------------------------------------------------------
+// Warm-up : le profil TikTok public des comptes de la cohorte (0356)
+// ---------------------------------------------------------------------------
+
+/** Quelques pages à la fois : assez pour finir vite, assez peu pour ne pas se faire bloquer. */
+const PAGES_EN_PARALLELE = 4;
+
+async function releverWarmup(supabase: Supabase) {
+  const { data, error } = await supabase.rpc("ckd_warmup_a_relever");
+  if (error) throw error;
+  const comptes = (data ?? []) as { compte_id: string; handle: string }[];
+
+  const lignes: Record<string, unknown>[] = [];
+  for (let i = 0; i < comptes.length; i += PAGES_EN_PARALLELE) {
+    const lot = comptes.slice(i, i + PAGES_EN_PARALLELE);
+    const profils = await Promise.all(lot.map((c) => lireProfilTiktok(c.handle)));
+    lot.forEach((c, k) => {
+      const p = profils[k]!;
+      lignes.push({
+        compte_id: c.compte_id,
+        handle: c.handle,
+        existe: p.existe,
+        cree_tiktok_at: p.creeLe,
+        abonnements: p.abonnements,
+        likes: p.likes,
+        abonnes: p.abonnes,
+        videos: p.videos,
+        erreur: p.erreur,
+      });
+    });
+  }
+  if (lignes.length > 0) {
+    const { error: errIns } = await supabase.from("ckd_warmup_releves").insert(lignes);
+    if (errIns) throw errIns;
+  }
+  return {
+    ok: true,
+    comptes: lignes.length,
+    existent: lignes.filter((l) => l.existe === true).length,
+    introuvables: lignes.filter((l) => l.existe === false).length,
+    illisibles: lignes.filter((l) => l.existe === null).length,
+  };
 }
 
 async function verifierSlack(supabase: Supabase) {

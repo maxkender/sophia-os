@@ -7,10 +7,20 @@
   "accroche": "5 Pointless Skills That Make You Instantly Cooler!"
  },
  "titre": {
-  "en": "5 Pointless Skills That Make You Instantly Cooler!"
+  "en": "5 Pointless Skills That Make You Instantly Cooler!",
+  "fr": "5 compétences inutiles qui te rendent instantanément plus cool !",
+  "es": "¡5 habilidades inútiles que te hacen más cool al instante!",
+  "de": "5 sinnlose Skills, die dich sofort cooler machen!",
+  "it": "5 abilità inutili che ti rendono subito più cool!",
+  "pt": "5 habilidades inúteis que te deixam mais legal na hora!"
  },
  "legendes": {
-  "en": "5 Pointless Skills That Make You Instantly Cooler! #selfimprovement #learnontiktok #selfmastery"
+  "en": "5 Pointless Skills That Make You Instantly Cooler! #selfimprovement #learnontiktok #selfmastery",
+  "fr": "5 compétences inutiles qui te rendent instantanément plus cool ! #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "es": "¡5 habilidades inútiles que te hacen más cool al instante! #desarrollopersonal #aprendeentiktok #superacionpersonal",
+  "de": "5 sinnlose Skills, die dich sofort cooler machen! #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "5 abilità inutili che ti rendono subito più cool! #crescitapersonale #imparacontiktok #miglioramentopersonale",
+  "pt": "5 habilidades inúteis que te deixam mais legal na hora! #desenvolvimentopessoal #aprendanotiktok #autoconhecimento"
  },
  "musique": {
   "titre": "Cinderella (Instrumental)",
@@ -41,6 +51,115 @@
       }
      ]
     ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "COMPÉTENCES INUTILES"
+      }
+     ],
+     "QUI TE RENDENT",
+     [
+      {
+       "t": "INSTANTANÉMENT ",
+       "bronze": true
+      },
+      {
+       "t": "PLUS COOL"
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "5",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES INÚTILES",
+     "QUE TE HACEN",
+     [
+      {
+       "t": "MÁS COOL "
+      },
+      {
+       "t": "AL INSTANTE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "SINNLOSE SKILLS,"
+      }
+     ],
+     "DIE DICH",
+     [
+      {
+       "t": "SOFORT ",
+       "bronze": true
+      },
+      {
+       "t": "COOLER MACHEN"
+      }
+     ]
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "5",
+       "bronze": true
+      }
+     ],
+     "ABILITÀ INUTILI",
+     "CHE TI RENDONO",
+     [
+      {
+       "t": "SUBITO ",
+       "bronze": true
+      },
+      {
+       "t": "PIÙ COOL"
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "5",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES INÚTEIS",
+     "QUE TE DEIXAM",
+     [
+      {
+       "t": "MAIS LEGAL "
+      },
+      {
+       "t": "NA HORA",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -58,6 +177,81 @@
      "date": "7 years ago",
      "duree": "13:37",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_lOzROZXubZiy5eJJBW8B3zaYPN9Zkqd6TLUmUd1XMTwcY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "JONGLER AVEC",
+     "TROIS BALLES"
+    ],
+    "video": {
+     "id": "1AwZr-uhuZ8",
+     "titre": "TUTO JONGLER À 3 BALLES (simple, basique)",
+     "chaine": "Jean-Manu",
+     "vues": "412 k vues",
+     "date": "il y a 15 ans",
+     "duree": "8:31",
+     "avatar": "https://yt3.ggpht.com/O6uKo7Cn67sZ_Lvj4Xsozc3mie-rOnaGy_UDKmciuIUFj7qe1u3oeYXMqDvFmQsFJAwdSdWhCb8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "HACER MALABARES",
+     "CON TRES PELOTAS"
+    ],
+    "video": {
+     "id": "Ys5cJ6fMBOc",
+     "titre": "Tutorial Malabares - 3 pelotas - Cascada",
+     "chaine": "Juggler Master",
+     "vues": "529 K visualizaciones",
+     "date": "hace 9 años",
+     "duree": "3:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lEZnXAlvG06saIMplUt6JF_kSsXrNaTSlljYO6kVvecg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "MIT DREI BÄLLEN",
+     "JONGLIEREN"
+    ],
+    "video": {
+     "id": "N4y6P6P2T5o",
+     "titre": "Jonglieren lernen mit 3 Bällen in 3 Minuten 💡 Jonglieren Tutorial",
+     "chaine": "Der Schlaumacher | Geniale Fakten, Tipps & Lifehacks",
+     "vues": "854.817 Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "3:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lfTS9KM2CJ-tY3C1k3_sRqukgW7aWFBjRUyuiQdUzLJmw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "FARE IL GIOCOLIERE",
+     "CON TRE PALLINE"
+    ],
+    "video": {
+     "id": "Y8OBT5ofc2g",
+     "titre": "COME FARE il GIOCOLIERE con 3 PALLINE (in soli 3 minuti!) || Geocolerie d'appartamento",
+     "chaine": "Geo il Giocoliere",
+     "vues": "108K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "3:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lgWeUiTgxRJgwfWc3pEiVV5j_UkeSqNw0WNCwDw7-iMg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "FAZER MALABARISMO",
+     "COM TRÊS BOLINHAS"
+    ],
+    "video": {
+     "id": "9pi9ZctiGu0",
+     "titre": "Como fazer malabarismo com 3 bolinhas em 3 passos",
+     "chaine": "Manual do Mundo",
+     "vues": "1,2 mi visualizações",
+     "date": "há 14 anos",
+     "duree": "6:06",
+     "avatar": "https://yt3.ggpht.com/eeXFm7_mIItuMYmrE9HRFjtwjXEG6Qvs7yJTZBdHmNyFwbi1v28gDd3tQ9JjzsjE1lSTOtb_=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -77,6 +271,81 @@
      "duree": "6:54",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_n7_9ONsKPZV7OzyZaL5qWTnX3mQGg1k2TGWI0DpDAuSuA=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "FAIRE TOURNER",
+     "UN STYLO"
+    ],
+    "video": {
+     "id": "MdYdekdM9uo",
+     "titre": "Tourner Un STYLO AUTOUR DU POUCE - Tuto Thumbaround Penspinning",
+     "chaine": "AlphaSnap21",
+     "vues": "408 k vues",
+     "date": "il y a 9 ans",
+     "duree": "5:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lJKAtvvwTHrDjTHZpmNrTSB8byREv_t074WuGIz5cgT8s=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "GIRAR UN BOLI",
+     "ENTRE LOS DEDOS"
+    ],
+    "video": {
+     "id": "aJ7jmTBedsQ",
+     "titre": "FINGERPASS, Truco de pen spinning [Tutorial nivel: fácil] como girar lapices en español",
+     "chaine": "Inaki.penspinning",
+     "vues": "304 K visualizaciones",
+     "date": "hace 3 años",
+     "duree": "2:31",
+     "avatar": "https://yt3.ggpht.com/8NbM1GbGP2UgyHp4tUqGs9THoC80cARJJXpKZ-JsGC3mtMDp3olXnX2optDz0FWd7sjyor_BuA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "EINEN STIFT",
+     "DREHEN"
+    ],
+    "video": {
+     "id": "yNdsdikUq08",
+     "titre": "Penspinning Tutorial für Anfänger - THUMBAROUND [Linkshänder | Rechtshänder][Deutsch]",
+     "chaine": "lookslikeLink",
+     "vues": "456.958 Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "5:13",
+     "avatar": "https://yt3.ggpht.com/S0OVvJXpqFZN5AtFaDYh6uxySEaZV8xXZEclSWyQGTml0Ct5mUbvh5dafQKA7BPvoAer_RY5KwQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "FAR GIRARE",
+     "LA PENNA"
+    ],
+    "video": {
+     "id": "YicqkdNqgN4",
+     "titre": "come far girare la penna tra le dita, perfetto per la scuola",
+     "chaine": "Jack Nobile",
+     "vues": "566K visualizzazioni",
+     "date": "13 anni fa",
+     "duree": "3:07",
+     "avatar": "https://yt3.ggpht.com/SUyrlrFnx2vnJ0YZvqpZv74Hiyx0ueS1n7Us3KBXvpUoqk3O-B0BdSPCHExzthxt0n1QZH7Svw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "GIRAR A CANETA",
+     "NOS DEDOS"
+    ],
+    "video": {
+     "id": "-mtVhdna5VA",
+     "titre": "Aprendendo a Girar Caneta - Manobra Thumb Around (TA) - [Pen Spinning Aula 1] RSVP MX 0%",
+     "chaine": "Brasil Pen Spinning",
+     "vues": "2,1 mi visualizações",
+     "date": "há 6 anos",
+     "duree": "4:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mmyqBOdzpe5lj-O8xTKV2wfR9ezeDtWluWPJYtcIqIig=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -92,6 +361,71 @@
      "texte": [
       "learn something new every day,",
       "in 5 minutes."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "SORTIR UNE ANECDOTE",
+     "SUR N'IMPORTE QUOI"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau chaque jour,",
+      "en 5 minutes."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "SOLTAR UN DATO CURIOSO",
+     "DE CUALQUIER TEMA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo cada día,",
+      "en 5 minutos."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "ZU JEDEM THEMA EINEN",
+     "FUN FACT PARAT HABEN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "TIRARE FUORI UNA CURIOSITÀ",
+     "SU QUALSIASI ARGOMENTO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo ogni giorno,",
+      "in 5 minuti."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "SOLTAR UMA CURIOSIDADE",
+     "SOBRE QUALQUER ASSUNTO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo todo dia,",
+      "em 5 minutos."
      ]
     }
    }
@@ -112,6 +446,81 @@
      "duree": "6:41",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_mGp-GWu8LkHNkzKa6QTz9iOqiFa8wuO_TJ8J1UCAH-MUM=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "PLIER UNE",
+     "GRUE EN PAPIER"
+    ],
+    "video": {
+     "id": "bZcl8eKG3HU",
+     "titre": "Origami ! La Grue traditionnelle [HD]",
+     "chaine": "L'Atelier de Thomas",
+     "vues": "779 k vues",
+     "date": "il y a 10 ans",
+     "duree": "4:21",
+     "avatar": "https://yt3.ggpht.com/7rqyaoG0qMafPaa37JOyZuskBzwZwWDID-RyfsEDqJbxEY2gmT_3MVh4iWynPbYT7QbO3UXI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "HACER UNA",
+     "GRULLA DE PAPEL"
+    ],
+    "video": {
+     "id": "UkA-v1g5hu4",
+     "titre": "Cómo hacer una grulla de papel con origami ¡Fácil! Tutorial paso a paso",
+     "chaine": "Manualidades Play",
+     "vues": "2,9 M de visualizaciones",
+     "date": "hace 4 años",
+     "duree": "4:33",
+     "avatar": "https://yt3.ggpht.com/ebUZcUT-pZZm1MHvMXoLMMKkNS143JeRCivKEcCnJIzz7264KyODt1crMNwTOmMNrA7CxLJ45Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "EINEN PAPIER-",
+     "KRANICH FALTEN"
+    ],
+    "video": {
+     "id": "QuNjh0HyD7Q",
+     "titre": "Origami Kranich falten lernen in 5 Minuten - einfache Anleitung",
+     "chaine": "todoki - Dein Japan Shop",
+     "vues": "52.525 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "5:20",
+     "avatar": "https://yt3.ggpht.com/8JwbEFAI4TZJXq5ZjVAkGqD8hSn77PULudPhGT8jy9dqVjmFx7o8l2hkWFpy6hDTgObwTz7dyA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "PIEGARE UNA",
+     "GRU DI CARTA"
+    ],
+    "video": {
+     "id": "J12yYZAq5j4",
+     "titre": "Gru / Tsuru - Origami Giapponesi Tutorial",
+     "chaine": "The Japanese Dreams",
+     "vues": "56K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "4:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lkrTlhEwGc9d-AzhsN9rarhaDacIy8JbEd52pMJa2IfgI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "FAZER UM",
+     "TSURU DE PAPEL"
+    ],
+    "video": {
+     "id": "pzS0ToWZ9DA",
+     "titre": "Origami: Tsuru - Instruções em Português BR",
+     "chaine": "Easy Origami",
+     "vues": "10 mi visualizações",
+     "date": "há 9 anos",
+     "duree": "6:57",
+     "avatar": "https://yt3.ggpht.com/XWJAkif4NMjuBV1RnyUbjdn-KDC4outbCycA1rlgLTR7r3U5AyyPaS4ZZpB8AIh93UjFdVX2bOQ=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -129,6 +538,81 @@
      "date": "8 years ago",
      "duree": "2:12",
      "avatar": "https://yt3.ggpht.com/V5fk25aK3A3SXjyKAAcWBCUQ5IUYK-xw0Orme7ts5xLN5x9ET-AE1mCgfSWgvb9WMWiRDgUk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "FAIRE UN BEAT",
+     "EN BEATBOX"
+    ],
+    "video": {
+     "id": "yl1UVxfWDbQ",
+     "titre": "TUTO BEATBOX #1 - APPRENDRE FACILEMENT LE 1ER SON (KICK)",
+     "chaine": "Le Svendro",
+     "vues": "416 k vues",
+     "date": "il y a 8 ans",
+     "duree": "3:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nODXV1xmrIeGT0sWZp64me8_fP5vXnG1g4DIK8BpfLJw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "HACER",
+     "BEATBOX BÁSICO"
+    ],
+    "video": {
+     "id": "ARSOTPjHlhA",
+     "titre": "Tutorial de Beatbox #1 | Sonidos Basicos | Orodreth",
+     "chaine": "Orodreth",
+     "vues": "549 K visualizaciones",
+     "date": "hace 8 años",
+     "duree": "5:42",
+     "avatar": "https://yt3.ggpht.com/_965lGYf0ZAbF26hVlgR9mE64pJ60gEHXJhx4Y5LpUGTOunQNugct2I0ONeHFIaJO0m1HuCcvQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DEN ERSTEN",
+     "BEAT BEATBOXEN"
+    ],
+    "video": {
+     "id": "O68R5klOCZ4",
+     "titre": "Beatboxen lernen für Kinder & Anfänger",
+     "chaine": "Miguel Camero",
+     "vues": "730.846 Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "6:56",
+     "avatar": "https://yt3.ggpht.com/OwZsnDWTgS9ucnK-SOVomefkhxuaLfRLpybLDodPLzsVxew-_vW4_ByCdUuAHTyzWJc8uvuZ6Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "FARE LE BASI",
+     "DEL BEATBOX"
+    ],
+    "video": {
+     "id": "npLuIHnXfVw",
+     "titre": "COME IMPARARE LE BASI DEL BEATBOX IN 5 MINUTI",
+     "chaine": "BlackRoll • Beatbox",
+     "vues": "24K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "5:22",
+     "avatar": "https://yt3.ggpht.com/W89S_nlD60IQ5lStOOCSjZGeA2M-Oc69TZeVdL3PqVfY446WM1shvjRe079iwJgSdnDfstBwnA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "FAZER O BÁSICO",
+     "DO BEATBOX"
+    ],
+    "video": {
+     "id": "5t8vg4TG558",
+     "titre": "Como Fazer BEATBOX Sendo INICIANTE do Zero!",
+     "chaine": "Bruno Lira",
+     "vues": "314 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "8:24",
+     "avatar": "https://yt3.ggpht.com/qgCFglzdZhI1pZGTQo98g6h8SsfucUXzdCoOk4lVIyqQOfG-llQPcLNNZst3N4dV98UctAFPlw=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

@@ -408,7 +408,7 @@ export const en = {
     contenusABlanc: {
       title: "Test scoring and placement (dry run)",
       subtitle:
-        "Pick 1 to 3 slideshows from a label: we compute their relevance score for an application (same computation as the backfill), their eligibility and entry tier, then run the application placement — once with the reference, then once per test angle of the label, to compare. Sophia: placement only. Nothing is saved: do this before launching the backfill on a whole label.",
+        "Pick 1 to 12 slideshows from a label (tested in batches of 3, in parallel): we compute their relevance score for an application (same computation as the backfill), their eligibility and entry tier, then run the application placement — once with the reference, then once per test angle of the label, to compare. Sophia: placement only. Nothing is saved: do this before launching the backfill on a whole label.",
       garantie:
         "Zero writes: the score, the translated deck and the placed deck stay in memory for the duration of the test. AI is used (a few cents).",
       application: "Application",

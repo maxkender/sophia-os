@@ -30,6 +30,11 @@ for (const f of fichiers) {
     console.log(`${o.source_id} : REFUSÉ schéma « ${o.schema_id} » expiré (aucune preuve de moins de 30 jours) : refais la veille`);
     continue;
   }
+  // L'OS refuse un schéma de plus de 200 caractères : raccourcis-le dans playbook.json.
+  if (preuve.schema.length > 200) {
+    console.log(`${o.source_id} : REFUSÉ schéma « ${o.schema_id} » de ${preuve.schema.length} caractères (200 au plus)`);
+    continue;
+  }
   const slides = o.slides.map((s) => {
     const im = r.images.find((i) => i.id === s.media_id || i.id.startsWith(s.media_id));
     if (!im) throw new Error(`${o.source_id} #${s.position} : image ${s.media_id} hors banque`);

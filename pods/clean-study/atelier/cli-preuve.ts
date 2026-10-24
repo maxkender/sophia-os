@@ -25,9 +25,14 @@ type PostTiktok = {
   musique: { titre: string; url: string } | null;
 };
 
-/** Le post tel que la page publique de TikTok le décrit (données de réhydratation). */
+/**
+ * Le post tel que la page publique de TikTok le décrit (données de réhydratation).
+ * On lit toujours la page `/video/<id>` : celle d'un diaporama (`/photo/<id>`)
+ * ne porte pas le post, la page vidéo du même id oui.
+ */
 async function lirePost(url: string): Promise<PostTiktok> {
-  const r = await fetch(url, { headers: { "user-agent": UA, "accept-language": "en-US,en;q=0.9" } });
+  const page = url.replace(/\/photo\/(\d+)/, "/video/$1");
+  const r = await fetch(page, { headers: { "user-agent": UA, "accept-language": "en-US,en;q=0.9" } });
   if (!r.ok) throw new Error(`${url} : HTTP ${r.status}`);
   const html = await r.text();
   const brut = html.match(/<script id="__UNIVERSAL_DATA_FOR_REHYDRATION__"[^>]*>([\s\S]*?)<\/script>/)?.[1];

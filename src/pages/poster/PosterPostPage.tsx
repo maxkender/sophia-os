@@ -45,6 +45,7 @@ import {
   listerSlides,
   majMediaSlide,
   majPost,
+  podDuPost,
   autrePostAvecLien,
   paysDuCompte,
   rechargerPostCreateur,
@@ -454,6 +455,16 @@ export function PosterPostPage() {
     queryFn: () => listerSlides(id!),
     enabled: Boolean(id),
   });
+  // Original de pod (0347) : ses « photos d'origine » sont un TikTok
+  // d'inspiration, photo et texte différents exprès. On le dit sur la page,
+  // sinon les posters croient à une erreur et ne publient pas.
+  const pod = useQuery({
+    queryKey: ["pod-du-post", id],
+    queryFn: () => podDuPost(id!),
+    enabled: Boolean(id),
+    staleTime: Infinity,
+  });
+  const originalPod = Boolean(pod.data);
   // Bibliothèque source pour le remplacement d'image (contrôles admin seulement).
   const refId = useQuery({
     queryKey: ["post-ref", id],
@@ -937,9 +948,11 @@ export function PosterPostPage() {
                       key={ref.url}
                       url={ref.url}
                       legende={
-                        ref.autrePosition == null
-                          ? t("posts.placementTitre")
-                          : t("posts.placementAutreSlide", { position: ref.autrePosition })
+                        originalPod
+                          ? t("posts.inspirationTitre")
+                          : ref.autrePosition == null
+                            ? t("posts.placementTitre")
+                            : t("posts.placementAutreSlide", { position: ref.autrePosition })
                       }
                       onZoom={() => setLoupe(ref.url)}
                       onError={() => marquerRefEchouee(ref.url)}
@@ -963,8 +976,11 @@ export function PosterPostPage() {
                 <SignalerTexte slide={slide} postId={id!} propre={estPropre(slide)} />
               )}
 
-              {slide.texte_overlay && (
+              {slide.texte_overlay ? (
                 <TexteCopiable texte={slide.texte_overlay} label={t("posts.texteSlide")} />
+              ) : (
+                // Sans rien ici, le poster croit que le texte manque.
+                <p className="text-sm text-muted-foreground">{t("posts.slideSansTexte")}</p>
               )}
 
               {estAdmin && (

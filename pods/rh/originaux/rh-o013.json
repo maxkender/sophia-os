@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o013",
+ "schema_id": "boite-te-merite",
+ "titre": "mes nouvelles règles non négociables au boulot (ma santé mentale me dit merci) #travail #emploi #santementale #carriere #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "1fd9d1f3-71b5-423b-aadc-d27c2a00601b",
+  "bbe75cf0-48c8-4181-b88b-19bd7b8e13a3"
+ ],
+ "notes": "Schéma boite-te-merite (actif depuis le 24/10, r 6,96 sur 3 passages, 1fd9d1f3, musique reprise de ce contenu). Accroches écrites : « mes nouvelles règles non négociables au boulot (ma santé mentale me dit merci) » (retenue : le gabarit gagnant, avec le « nouvelles » qui fait suite), « les règles que j'ai posées au travail après avoir frôlé le burn out » (écartée : sujet médical, on reste léger), « ce que je ne fais plus au travail, et je m'en porte mieux » (écartée : plus faible). Six règles neuves, aucune reprise de la source (messages après 19 h, rtt, cv prêt, pas de oui tout de suite, valeur et productivité) ni de bbe75cf0 (période d'essai). Sophia en 5 sur les 5 minutes hors métier. Inspirations : sans la slide 4 de 1fd9d1f3 ni la 5 de bbe75cf0 (appli concurrente).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "379989d8",
+   "texte_overlay": "mes nouvelles règles non négociables\nau boulot\n(ma santé mentale me dit merci)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3409ff7c",
+   "texte_overlay": "je déjeune loin de mon écran\n30 minutes sans le pc, même seule.\nmon après-midi n'a plus rien à voir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1fe950b2",
+   "texte_overlay": "je note ce que j'ai fait chaque vendredi\n5 lignes, pas plus.\nle jour de l'entretien annuel, j'ai mes preuves au lieu de mes souvenirs",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2ce0ba07",
+   "texte_overlay": "je pose mes questions en réunion, même les « bêtes »\nla moitié de la salle se posait la même.\net personne ne s'en souvient, à part moi qui ai compris",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "28ccfa22",
+   "texte_overlay": "je garde 5 minutes par jour pour un truc qui n'a rien à voir avec mon métier\nmon cerveau sort enfin du boulot.\net c'est souvent là que j'ai mes meilleures idées",
+   "texte_sophia": "je garde 5 minutes par jour pour un truc qui n'a rien à voir avec mon métier\nles miennes : l'appli Sophia dans le métro, un peu d'histoire ou d'art, et mon cerveau sort enfin du boulot",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3ab758a4",
+   "texte_overlay": "je ne fais pas le travail de deux personnes sans en parler\nsi on me rajoute un dossier, je demande ce qu'on enlève.\nposément, sans drame",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1d9ab0b7",
+   "texte_overlay": "je ne participe pas aux ragots\nje reste polie, mais je passe mon tour.\nce qui se dit sur les autres se dira sur toi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/2.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "2b10e71d",
+   "texte_overlay": "je suis pas moins investie\nje suis juste encore là, et en forme\nlaquelle tu poses lundi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/7.jpg"
+  }
+ ]
+}

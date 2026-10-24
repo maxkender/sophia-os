@@ -59,7 +59,7 @@ vi.mock("@/features/moteur/repartition/tirages", async (importOriginal) => {
   };
 });
 
-const APPS = [
+const APPS: Array<{ id: string; slug: string; langues: string[] | null; actif: boolean }> = [
   { id: "id-sophia", slug: "sophia", langues: null, actif: true },
   { id: "id-unswipe", slug: "unswipe", langues: ["fr", "en", "de", "es"], actif: true },
   { id: "id-micabo", slug: "micabo", langues: ["fr", "de"], actif: true },
@@ -205,9 +205,11 @@ describe("AdminRepartitionPage — recrues venues du site", () => {
 
   it("un échantillon trop mince le dit, au lieu de faire parler deux comptes", async () => {
     renderPage();
-    expect((await detailMarche("es|ES")).textContent).toMatch(
-      /la flotte \(échantillon trop mince\)|the fleet \(sample too thin\)/,
-    );
+    const es = await detailMarche("es|ES");
+    expect(es.textContent).toMatch(/la flotte \(échantillon trop mince\)|the fleet \(sample too thin\)/);
+    // Les effectifs affichés sont ceux de l'Espagne (2), pas ceux de la flotte (28).
+    expect(es.textContent).toMatch(/Seulement 2 recrues ici|Only 2 recruits here/);
+    expect(es.textContent).not.toMatch(/sur 28|of 28/);
     expect((await detailMarche("fr|FR")).textContent).toMatch(/ce marché|this market/);
   });
 
@@ -254,6 +256,10 @@ describe("AdminRepartitionPage — recrues venues du site", () => {
     // Le plancher, lui, ne dépend pas de la cible : il reste affiché.
     expect(detail.textContent).toMatch(/Plancher : Sophia 45 %|Floor: Sophia 45 %/);
     expect((await blocSite()).textContent).not.toMatch(/reçoit déjà|already gets/);
+    // Et aucune barre « cible » dessinée avec des parts égales inventées.
+    expect(screen.queryByRole("img", { name: /^(Cible|Target) :/ })).toBeNull();
+    const ligneSophia = (await screen.findByLabelText(/Cible de Sophia|Target for Sophia/)).closest("tr")!;
+    expect(ligneSophia.textContent).not.toMatch(/pts/);
   });
 
   it("la projection dit combien des vingt prochaines recrues viennent du site", async () => {
@@ -381,11 +387,73 @@ describe("AdminRepartitionPage — la cible et le réel", () => {
     expect(ligneMicabo.textContent).toMatch(/-\d+ pts/);
   });
 
+  it("avec une appli restreinte, la visée est affichée et l'écart se lit contre elle", async () => {
+    // micabo ne sert que fr et de : sur l'espagnol, sa part va aux autres. La
+    // flotte vise donc 12,8 % de micabo et non les 15 % saisis, et l'écart doit
+    // se déduire des chiffres de la ligne : 0 % réel − 13 % visé = −13.
+    renderPage();
+    await screen.findByRole("columnheader", { name: /^(Visée|Aimed)$/ });
+    const ligneMicabo = (await screen.findByLabelText(/Cible de micabo|Target for micabo/)).closest("tr")!;
+    const cellules = within(ligneMicabo).getAllByRole("cell").map((c) => c.textContent);
+    expect(cellules.slice(2)).toEqual(["13 %", "0 %", "-13 pts"]);
+  });
+
+  it("sans appli restreinte, pas de colonne « visée » : elle répéterait la cible", async () => {
+    // C'est le cas de la prod depuis le 21/10 : les trois applis servent toutes les langues.
+    const avant = APPS.map((x) => x.langues);
+    APPS.forEach((x) => (x.langues = null));
+    try {
+      renderPage();
+      await screen.findByLabelText(/Cible de Sophia|Target for Sophia/);
+      expect(screen.queryByRole("columnheader", { name: /^(Visée|Aimed)$/ })).toBeNull();
+      expect(screen.getByRole("columnheader", { name: /^(vs cible|vs target)$/ })).toBeTruthy();
+    } finally {
+      APPS.forEach((x, i) => (x.langues = avant[i]));
+    }
+  });
+
   it("la règle « proposée » qui ne tourne nulle part n'est plus affichée", async () => {
     renderPage();
     await screen.findByTestId("marche-fr|FR");
     expect(screen.queryByText(/règle proposée|proposed rule/i)).toBeNull();
     expect(screen.queryByText(/^(Proposée|Proposed)$/)).toBeNull();
+  });
+
+  it("un marché se déplie au bouton, donc au clavier", async () => {
+    renderPage();
+    const bouton = await screen.findByRole("button", { name: /^(Détail :|Detail:) (Français|French)/ });
+    expect(bouton.getAttribute("aria-expanded")).toBe("false");
+    fireEvent.click(bouton);
+    expect(bouton.getAttribute("aria-expanded")).toBe("true");
+    const ligne = screen.getByTestId("marche-fr|FR");
+    expect((ligne.nextElementSibling as HTMLElement).textContent).toMatch(/Plancher|Floor/);
+  });
+
+  it("les recrues sans label ouvert gardent leur place dans la barre des 20", async () => {
+    // Un label FERMÉ est encore donné (le moteur ne laisse jamais une recrue
+    // sans label) : une recrue n'est perdue que si aucune appli n'a de label.
+    lireMarchesRepartition.mockResolvedValue(
+      MARCHES_APPS.map((m) => ({ langue: m.langue, pays: m.pays, comptes: 10, stats: [] })),
+    );
+    renderPage();
+    const ligne = await screen.findByTestId("marche-de|DE");
+    await waitFor(() => expect(ligne.textContent).toMatch(/20 sans label ouvert|20 with no open label/));
+    expect(within(ligne).getByRole("img", { name: /(Sans label ouvert|No open label) 20 (sur|of) 20/ })).toBeTruthy();
+  });
+
+  it("des marchés trop minces pour juger ne font pas dire « atteignable partout »", async () => {
+    lireRecruesSite.mockResolvedValue([
+      { langue: "fr", pays: "FR", recrues: 3, recruesSite: 3, siteParApp: { sophia: 3 } },
+      { langue: "de", pays: "DE", recrues: 15, recruesSite: 0, siteParApp: {} },
+      { langue: "es", pays: "ES", recrues: 2, recruesSite: 0, siteParApp: {} },
+    ]);
+    lireCibleRepartitionApps.mockResolvedValue({ source: "reglage", parts: { sophia: 10, unswipe: 60, micabo: 30 } });
+    renderPage();
+    const bloc = await blocSite();
+    await waitFor(() =>
+      expect(bloc.textContent).toMatch(/2 marchés sont trop minces pour juger|2 markets are too thin to judge/),
+    );
+    expect(bloc.textContent).not.toMatch(/sur tous les marchés\.|in every market\./);
   });
 
   it("chaque marché donne son prochain compte", async () => {
@@ -506,6 +574,19 @@ describe("AdminRepartitionPage — ouvrir et fermer un label", () => {
         etat: "ferme",
       }),
     );
+  });
+
+  it("les onglets d'appli se parcourent aux flèches", async () => {
+    renderPage();
+    await ligneLabel("study");
+    const sophia = screen.getByRole("tab", { name: /Sophia/ });
+    expect(sophia.getAttribute("aria-selected")).toBe("true");
+    expect(sophia.getAttribute("tabindex")).toBe("0");
+    fireEvent.keyDown(screen.getByRole("tablist"), { key: "ArrowRight" });
+    const micabo = screen.getByRole("tab", { name: /micabo/ });
+    await waitFor(() => expect(micabo.getAttribute("aria-selected")).toBe("true"));
+    expect(sophia.getAttribute("tabindex")).toBe("-1");
+    expect(screen.getByRole("tabpanel").getAttribute("aria-labelledby")).toBe(micabo.id);
   });
 
   it("le troisième bouton rend le label à l'automatique", async () => {

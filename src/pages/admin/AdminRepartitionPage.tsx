@@ -20,7 +20,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
-import { Tooltip, TooltipPopup, TooltipTrigger } from "@/components/ui/tooltip";
 import { lireReglages } from "@/features/moteur/api";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import type { ReglagesFileLabels } from "@/features/moteur/types";
@@ -47,6 +46,7 @@ import { fileDeLApplication } from "@/features/moteur/repartition/fileApplicatio
 import {
   Aide,
   BarreRepartition,
+  Bulle,
   BarreReserve,
   LegendeApplications,
 } from "@/features/moteur/repartition/graphes";
@@ -424,7 +424,11 @@ function CarteParcours({
       applications: fileParApp.map((x) => x.slug),
       mesure: (
         <span className="text-muted-foreground">
-          {entreesFile > 0 ? t("repartition.etapeFileMesure", { count: entreesFile }) : t("repartition.etapeFileVide")}
+          {!file
+            ? t("repartition.fileNonLue")
+            : entreesFile > 0
+              ? t("repartition.etapeFileMesure", { count: entreesFile })
+              : t("repartition.etapeFileVide")}
         </span>
       ),
     },
@@ -433,18 +437,25 @@ function CarteParcours({
       icone: "app",
       titre: t("repartition.etapeAppTitre"),
       regle: t("repartition.etapeAppRegle"),
-      mesure: (
-        <div className="w-full space-y-1">
-          <BarreRepartition
-            hauteur="sm"
-            aria-label={t("repartition.cible")}
-            segments={segmentsApplications(applications.map((a) => ({ slug: a.slug, valeur: cible.parts[a.slug] ?? 0 })))}
-          />
-          <span className="text-muted-foreground">
-            {applications.map((a) => `${nomAffiche(a.slug)} ${pourcent(cible.parts[a.slug] ?? 0)}`).join(" · ")}
-          </span>
-        </div>
-      ),
+      // Sans cible posée, la page calcule avec des parts égales pour montrer le
+      // manque : les dessiner ici les ferait passer pour une décision.
+      mesure:
+        cible.source === "defaut" ? (
+          <span className="text-muted-foreground">{t("repartition.cibleAbsenteTitre")}</span>
+        ) : (
+          <div className="w-full space-y-1.5">
+            <BarreRepartition
+              hauteur="sm"
+              aria-label={t("repartition.cible")}
+              segments={segmentsApplications(applications.map((a) => ({ slug: a.slug, valeur: cible.parts[a.slug] ?? 0 })))}
+            />
+            <LegendeApplications
+              elements={applications
+                .filter((a) => (cible.parts[a.slug] ?? 0) > 0)
+                .map((a) => ({ slug: a.slug, valeur: pourcent(cible.parts[a.slug] ?? 0) }))}
+            />
+          </div>
+        ),
     },
     {
       cle: "label",
@@ -578,7 +589,12 @@ function CarteApplications({
   // Seul un verdict MESURÉ sur le marché peut accuser la cible : sur un
   // échantillon emprunté à la flotte, ce serait pousser à la gonfler pour rien.
   const impossibles = verdicts.filter((v) => v.part.base === "marche" && !v.atteignable);
+  // Les verdicts NÉGATIFS mesurés sur l'échantillon de la flotte : pas de quoi
+  // accuser la cible, mais pas de quoi la dire atteignable partout non plus.
+  const incertains = verdicts.filter((v) => v.part.base === "flotte" && !v.atteignable);
   const restreintes = applications.filter((a) => a.langues !== null);
+  const sansCible = cible.source === "defaut" && !brouillon;
+  const autres = Math.max(0, 100 - applications.reduce((x, a) => x + (reel.get(a.slug)?.partReelle ?? 0), 0));
 
   return (
     <Card>
@@ -599,94 +615,123 @@ function CarteApplications({
         )}
 
         {/* Les deux barres l'une sous l'autre, même échelle : l'écart se lit
-            d'un coup d'œil, sans faire la soustraction. */}
+            d'un coup d'œil, sans faire la soustraction. Sans cible posée, pas
+            de barre « cible » : des parts égales inventées passeraient pour
+            une décision. */}
         <div className="space-y-3">
-          {[
-            { cle: "cible", libelle: t("repartition.cible"), parts: partsCible },
-            {
-              cle: "reel",
-              libelle: t("repartition.reel"),
-              parts: Object.fromEntries(applications.map((a) => [a.slug, reel.get(a.slug)?.comptes ?? 0])),
-            },
-          ].map((barre) => (
-            <div key={barre.cle} className="grid grid-cols-[5.5rem_minmax(0,1fr)] items-center gap-3">
-              <span className="text-xs font-medium text-muted-foreground">{barre.libelle}</span>
+          <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] items-center gap-3">
+            <span className="text-xs font-medium text-muted-foreground">{t("repartition.cible")}</span>
+            {sansCible ? (
+              <span className="flex h-7 items-center rounded-[4px] border border-dashed px-3 text-xs text-muted-foreground">
+                {t("repartition.cibleAbsenteTitre")}
+              </span>
+            ) : (
               <BarreRepartition
                 hauteur="lg"
                 etiquettes
-                aria-label={barre.libelle}
-                segments={segmentsApplications(
+                aria-label={t("repartition.cible")}
+                segments={segmentsApplications(applications.map((a) => ({ slug: a.slug, valeur: partsCible[a.slug] ?? 0 })))}
+              />
+            )}
+          </div>
+          <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] items-center gap-3">
+            <span className="text-xs font-medium text-muted-foreground">{t("repartition.reel")}</span>
+            {/* Même base que la colonne « Réel » : la part de toute la flotte,
+                une appli inactive qui porte encore des comptes compte en « autre ». */}
+            <BarreRepartition
+              hauteur="lg"
+              etiquettes
+              aria-label={t("repartition.reel")}
+              segments={[
+                ...segmentsApplications(
                   applications.map((a) => ({
                     slug: a.slug,
-                    valeur: barre.parts[a.slug] ?? 0,
-                    valeurAffichee:
-                      barre.cle === "reel"
-                        ? t("repartition.nComptes", { count: Math.round(reel.get(a.slug)?.comptes ?? 0) })
-                        : undefined,
+                    valeur: reel.get(a.slug)?.partReelle ?? 0,
+                    valeurAffichee: t("repartition.nComptes", { count: Math.round(reel.get(a.slug)?.comptes ?? 0) }),
                   })),
-                )}
-              />
-            </div>
-          ))}
+                ),
+                ...(autres >= 0.5
+                  ? [{ cle: "autre", valeur: autres, couleur: couleurApplication(""), libelle: t("repartition.autresApps") }]
+                  : []),
+              ]}
+            />
+          </div>
         </div>
 
         {/* Le tableau sous le graphe : c'est aussi l'éditeur de la cible. */}
-        <table className="w-full max-w-xl text-sm">
-          <thead>
-            <tr className="text-[11px] uppercase tracking-wide text-muted-foreground">
-              <th className="pb-1.5 text-left font-medium">{t("repartition.colApp")}</th>
-              <th className="pb-1.5 text-right font-medium">{t("repartition.cible")}</th>
-              <th className="pb-1.5 text-right font-medium">{t("repartition.reel")}</th>
-              <th className="pb-1.5 text-right font-medium">{t("repartition.colEcart")}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {applications.map((a) => {
-              const f = reel.get(a.slug);
-              // Réel MOINS cible : « +7 pts », c'est 7 points au-dessus de la
-              // cible, dans le sens où la barre « Réel » est plus longue.
-              const ecart = -(f?.ecart ?? 0);
-              const fort = Math.abs(ecart) >= 5;
-              return (
-                <tr key={a.slug} className="border-t border-border/40">
-                  <td className="py-1.5">
-                    <span className="flex items-center gap-2">
-                      <span className="inline-block size-2.5 rounded-[3px]" style={{ background: couleurApplication(a.slug) }} aria-hidden />
-                      <EtiquetteApplication slug={a.slug} />
-                      {a.langues !== null && (
-                        <span className="text-xs text-muted-foreground">
-                          {t("repartition.langues", { liste: a.langues.join(", ") })}
+        <div className="overflow-x-auto">
+          <table className="w-full max-w-2xl text-sm">
+            <thead>
+              <tr className="text-[11px] uppercase tracking-wide text-muted-foreground">
+                <th className="pb-1.5 text-left font-medium">{t("repartition.colApp")}</th>
+                <th className="pb-1.5 pl-3 text-right font-medium">{t("repartition.cible")}</th>
+                {restreintes.length > 0 && <th className="pb-1.5 pl-3 text-right font-medium">{t("repartition.visee")}</th>}
+                <th className="pb-1.5 pl-3 text-right font-medium">{t("repartition.reel")}</th>
+                <th className="pb-1.5 pl-3 text-right font-medium">
+                  {restreintes.length > 0 ? t("repartition.vsVisee") : t("repartition.colEcart")}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {applications.map((a) => {
+                const f = reel.get(a.slug);
+                // Réel MOINS visée, arrondi AVANT de choisir le signe : « +7 pts »
+                // veut dire 7 points au-dessus, dans le sens où la barre « Réel »
+                // est plus longue ; jamais « +0 » ni « -0 ».
+                const ecart = Math.round(-(f?.ecart ?? 0)) || 0;
+                const fort = Math.abs(ecart) >= 5;
+                return (
+                  <tr key={a.slug} className="border-t border-border/40">
+                    <td className="py-1.5">
+                      <span className="flex items-center gap-2">
+                        <span className="inline-block size-2.5 shrink-0 rounded-[3px]" style={{ background: couleurApplication(a.slug) }} aria-hidden />
+                        <span className="min-w-0">
+                          <EtiquetteApplication slug={a.slug} />
+                          {a.langues !== null && (
+                            <span className="block text-xs text-muted-foreground">
+                              {t("repartition.langues", { liste: a.langues.join(", ") })}
+                            </span>
+                          )}
+                        </span>
+                      </span>
+                    </td>
+                    <td className="py-1.5 pl-3 text-right">
+                      <span className="inline-flex items-center gap-1">
+                        <Input
+                          id={`cible-${a.slug}`}
+                          aria-label={t("repartition.cibleDe", { app: nomAffiche(a.slug) })}
+                          type="number"
+                          min={0}
+                          max={100}
+                          value={valeurs[a.slug] ?? ""}
+                          onChange={(e) => setBrouillon({ ...valeurs, [a.slug]: e.target.value })}
+                          className="h-8 w-16 text-right tabular-nums"
+                        />
+                        <span className="text-xs text-muted-foreground">%</span>
+                      </span>
+                    </td>
+                    {restreintes.length > 0 && (
+                      <td className="whitespace-nowrap py-1.5 pl-3 text-right tabular-nums text-muted-foreground">
+                        {sansCible || !f ? "—" : pourcent(f.partVisee)}
+                      </td>
+                    )}
+                    <td className="whitespace-nowrap py-1.5 pl-3 text-right tabular-nums">{f ? pourcent(f.partReelle) : "—"}</td>
+                    <td className="whitespace-nowrap py-1.5 pl-3 text-right tabular-nums">
+                      {sansCible ? (
+                        <span className="text-muted-foreground">—</span>
+                      ) : (
+                        <span className={cn("inline-flex items-center gap-0.5", fort ? "font-semibold" : "text-muted-foreground")}>
+                          {fort && (ecart > 0 ? <ArrowUpRight className="size-3.5" aria-hidden /> : <ArrowDownRight className="size-3.5" aria-hidden />)}
+                          {t("repartition.points", { n: `${ecart > 0 ? "+" : ""}${ecart}` })}
                         </span>
                       )}
-                    </span>
-                  </td>
-                  <td className="py-1.5 text-right">
-                    <span className="inline-flex items-center gap-1">
-                      <Input
-                        id={`cible-${a.slug}`}
-                        aria-label={t("repartition.cibleDe", { app: nomAffiche(a.slug) })}
-                        type="number"
-                        min={0}
-                        max={100}
-                        value={valeurs[a.slug] ?? ""}
-                        onChange={(e) => setBrouillon({ ...valeurs, [a.slug]: e.target.value })}
-                        className="h-8 w-16 text-right tabular-nums"
-                      />
-                      <span className="text-xs text-muted-foreground">%</span>
-                    </span>
-                  </td>
-                  <td className="py-1.5 text-right tabular-nums">{f ? pourcent(f.partReelle) : "—"}</td>
-                  <td className="py-1.5 text-right tabular-nums">
-                    <span className={cn("inline-flex items-center gap-0.5", fort ? "font-semibold" : "text-muted-foreground")}>
-                      {fort && (ecart > 0 ? <ArrowUpRight className="size-3.5" aria-hidden /> : <ArrowDownRight className="size-3.5" aria-hidden />)}
-                      {t("repartition.points", { n: `${ecart > 0 ? "+" : ""}${nombre(ecart, 0)}` })}
-                    </span>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
 
         {(brouillon || enregistrer.isError) && (
           <div className="flex flex-wrap items-center gap-3">
@@ -719,7 +764,7 @@ function CarteApplications({
                 : t("repartition.siteVide")}
             </span>
             {site.destinations.length > 0 && (
-              <span className="inline-flex items-center gap-1.5 text-muted-foreground">
+              <span className="inline-flex flex-wrap items-center gap-x-1.5 gap-y-1 text-muted-foreground">
                 {t("repartition.siteVers")}
                 {site.destinations.map(([slug, n]) => (
                   <span key={slug} className="inline-flex items-center gap-1">
@@ -733,6 +778,10 @@ function CarteApplications({
           </p>
           {cible.source === "defaut" ? (
             <p className="text-xs text-muted-foreground">{t("repartition.verdictSansCible")}</p>
+          ) : verdicts.length === 0 ? null : impossibles.length === 0 && incertains.length > 0 ? (
+            <p className="text-xs text-muted-foreground">
+              {t("repartition.cibleAtteignableMesures", { count: incertains.length })}
+            </p>
           ) : impossibles.length === 0 ? (
             <p className="flex items-center gap-1.5 text-xs text-emerald-700 dark:text-emerald-400">
               <CheckCircle2 className="size-3.5" aria-hidden />
@@ -740,7 +789,7 @@ function CarteApplications({
             </p>
           ) : (
             <div className="space-y-1">
-              <p className="flex items-center gap-1.5 text-xs font-medium text-destructive">
+              <p className="flex items-center gap-1.5 text-xs font-medium text-destructive-foreground">
                 <AlertTriangle className="size-3.5" aria-hidden />
                 {t("repartition.cibleImpossible", { count: impossibles.length })}
               </p>
@@ -852,98 +901,132 @@ function CarteMarches({
         <LegendeApplications className="pt-1" elements={applications.map((a) => ({ slug: a.slug }))} />
       </CardHeader>
       <CardContent className="overflow-x-auto">
-        <table className="w-full border-collapse text-sm sm:min-w-[44rem]">
-          <thead>
-            <tr className="border-b text-[11px] uppercase tracking-wide text-muted-foreground">
-              <th className="w-6 pb-2" aria-hidden />
-              <th className="pb-2 text-left font-medium">{t("repartition.colMarche")}</th>
-              <th className="hidden pb-2 pr-4 text-right font-medium sm:table-cell">{t("repartition.colComptes")}</th>
-              <th className="hidden w-[18%] pb-2 pr-4 text-left font-medium md:table-cell">{t("repartition.colAujourdhui")}</th>
-              <th className="pb-2 pr-4 text-left font-medium">{t("repartition.colProchaine")}</th>
-              <th className="w-[22%] pb-2 pr-4 text-left font-medium">{t("repartition.colVingt", { n: TIRAGES_DEFAUT })}</th>
-              <th className="hidden pb-2 text-right font-medium sm:table-cell">{t("repartition.colDuSite")}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {visibles.map((l) => {
-              const actif = ouvert === l.cle;
-              const parAppVingt = new Map<string, number>();
-              for (const x of l.tirages) parAppVingt.set(x.app, (parAppVingt.get(x.app) ?? 0) + x.comptes);
-              return (
-                <React.Fragment key={l.cle}>
-                  <tr
-                    className={cn("cursor-pointer border-b border-border/40 hover:bg-muted/50", actif && "bg-muted/40")}
-                    onClick={() => setOuvert(actif ? null : l.cle)}
-                    aria-expanded={actif}
-                    data-testid={`marche-${l.cle}`}
-                  >
-                    <td className="py-2 text-muted-foreground">
-                      {actif ? <ChevronDown className="size-3.5" aria-hidden /> : <ChevronRight className="size-3.5" aria-hidden />}
-                    </td>
-                    <td className="py-2 pr-4">
-                      <CelluleMarche langue={l.marche.langue} pays={l.marche.pays} />
-                    </td>
-                    <td className="hidden py-2 pr-4 text-right tabular-nums text-muted-foreground sm:table-cell">{Math.round(l.comptes)}</td>
-                    <td className="hidden py-2 pr-4 md:table-cell">
-                      <BarreRepartition
-                        hauteur="sm"
-                        aria-label={t("repartition.colAujourdhui")}
-                        segments={segmentsApplications(
-                          applications.map((a) => {
-                            const n = l.marche.parts.find((p) => p.slug === a.slug)?.comptes ?? 0;
-                            return { slug: a.slug, valeur: n, valeurAffichee: t("repartition.nComptes", { count: Math.round(n) }) };
-                          }),
+        {lignes.length === 0 ? (
+          <p className="text-sm text-muted-foreground">{t("repartition.marchesVide")}</p>
+        ) : (
+          <table className="w-full border-collapse text-sm sm:min-w-[44rem]">
+            <thead>
+              <tr className="border-b text-[11px] uppercase tracking-wide text-muted-foreground">
+                <th className="w-6 pb-2" aria-hidden />
+                <th className="pb-2 text-left font-medium">{t("repartition.colMarche")}</th>
+                <th className="hidden pb-2 pr-4 text-right font-medium sm:table-cell">{t("repartition.colComptes")}</th>
+                <th className="hidden w-[18%] pb-2 pr-4 text-left font-medium md:table-cell">{t("repartition.colAujourdhui")}</th>
+                <th className="pb-2 pr-4 text-left font-medium">{t("repartition.colProchaine")}</th>
+                <th className="w-[22%] pb-2 pr-4 text-left font-medium">{t("repartition.colVingt", { n: TIRAGES_DEFAUT })}</th>
+                <th className="hidden whitespace-nowrap pb-2 text-right font-medium sm:table-cell">{t("repartition.colDuSite")}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {visibles.map((l) => {
+                const actif = ouvert === l.cle;
+                const parAppVingt = new Map<string, number>();
+                for (const x of l.tirages) parAppVingt.set(x.app, (parAppVingt.get(x.app) ?? 0) + x.comptes);
+                return (
+                  <React.Fragment key={l.cle}>
+                    <tr
+                      className={cn("cursor-pointer border-b border-border/40 hover:bg-muted/50", actif && "bg-muted/40")}
+                      onClick={() => setOuvert(actif ? null : l.cle)}
+                      data-testid={`marche-${l.cle}`}
+                    >
+                      <td className="py-2 text-muted-foreground">
+                        {/* Le clic sur toute la ligne est un confort de souris ;
+                            ce bouton est le vrai contrôle, au clavier comme au
+                            lecteur d'écran. */}
+                        <button
+                          type="button"
+                          aria-expanded={actif}
+                          aria-label={t("repartition.deplierMarche", { marche: `${nomLangue(l.marche.langue)}${l.marche.pays ? ` ${nomPaysIso(l.marche.pays)}` : ""}` })}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setOuvert(actif ? null : l.cle);
+                          }}
+                          className="inline-flex size-5 items-center justify-center rounded border-0 bg-transparent p-0 focus-visible:outline-2 focus-visible:outline-ring"
+                        >
+                          {actif ? <ChevronDown className="size-3.5" aria-hidden /> : <ChevronRight className="size-3.5" aria-hidden />}
+                        </button>
+                      </td>
+                      <td className="py-2 pr-4">
+                        <CelluleMarche langue={l.marche.langue} pays={l.marche.pays} />
+                      </td>
+                      <td className="hidden py-2 pr-4 text-right tabular-nums text-muted-foreground sm:table-cell">{Math.round(l.comptes)}</td>
+                      <td className="hidden py-2 pr-4 md:table-cell">
+                        <BarreRepartition
+                          hauteur="sm"
+                          aria-label={t("repartition.colAujourdhui")}
+                          segments={segmentsApplications(
+                            applications.map((a) => {
+                              const n = l.marche.parts.find((p) => p.slug === a.slug)?.comptes ?? 0;
+                              return { slug: a.slug, valeur: n, valeurAffichee: t("repartition.nComptes", { count: Math.round(n) }) };
+                            }),
+                          )}
+                        />
+                      </td>
+                      <td className="py-2 pr-4">
+                        {l.prochain ? (
+                          <span className="flex min-w-0 items-center gap-1.5">
+                            <LogoApplication slug={l.prochain.app} taille="sm" />
+                            <span className="truncate font-mono text-xs">{l.prochain.label_nom}</span>
+                          </span>
+                        ) : (
+                          <span className="text-xs text-muted-foreground">{t("repartition.aucun")}</span>
                         )}
-                      />
-                    </td>
-                    <td className="py-2 pr-4">
-                      {l.prochain ? (
-                        <span className="flex min-w-0 items-center gap-1.5">
-                          <LogoApplication slug={l.prochain.app} taille="sm" />
-                          <span className="truncate font-mono text-xs">{l.prochain.label_nom}</span>
-                        </span>
-                      ) : (
-                        <span className="text-xs text-muted-foreground">{t("repartition.aucun")}</span>
-                      )}
-                    </td>
-                    <td className="py-2 pr-4">
-                      <BarreRepartition
-                        hauteur="sm"
-                        aria-label={t("repartition.colVingt", { n: TIRAGES_DEFAUT })}
-                        vide={t("repartition.aucun")}
-                        segments={segmentsApplications(
-                          applications.map((a) => {
-                            const n = parAppVingt.get(a.slug) ?? 0;
-                            const labels = l.tirages.filter((x) => x.app === a.slug);
-                            return {
-                              slug: a.slug,
-                              valeur: n,
-                              valeurAffichee: t("repartition.nSurVingt", { n, total: TIRAGES_DEFAUT }),
-                              detail: labels.map((x) => `${x.label_nom} ${x.comptes}`).join(" · "),
-                            };
-                          }),
+                      </td>
+                      <td className="py-2 pr-4">
+                        <BarreRepartition
+                          hauteur="sm"
+                          aria-label={t("repartition.colVingt", { n: TIRAGES_DEFAUT })}
+                          vide={t("repartition.aucun")}
+                          // Les recrues qu'aucune appli n'a pu prendre gardent leur
+                          // place dans la barre : la renormaliser à 100 % sur les
+                          // seules placées cacherait des comptes à créer quand même.
+                          segments={[
+                            ...segmentsApplications(
+                              applications.map((a) => {
+                                const n = parAppVingt.get(a.slug) ?? 0;
+                                const labels = l.tirages.filter((x) => x.app === a.slug);
+                                return {
+                                  slug: a.slug,
+                                  valeur: n,
+                                  valeurAffichee: t("repartition.nSurVingt", { n, total: TIRAGES_DEFAUT }),
+                                  detail: labels.map((x) => `${x.label_nom} ${x.comptes}`).join(" · "),
+                                };
+                              }),
+                            ),
+                            ...(l.perdues > 0
+                              ? [{
+                                  cle: "perdues",
+                                  valeur: l.perdues,
+                                  couleur: couleurApplication(""),
+                                  libelle: t("repartition.sansLabelOuvert"),
+                                  valeurAffichee: t("repartition.nSurVingt", { n: l.perdues, total: TIRAGES_DEFAUT }),
+                                }]
+                              : []),
+                          ]}
+                        />
+                        {l.perdues > 0 && (
+                          <span className="mt-0.5 flex items-center gap-1 text-xs text-destructive-foreground">
+                            <AlertTriangle className="size-3" aria-hidden />
+                            {t("repartition.tiragesPerdus", { n: l.perdues })}
+                          </span>
                         )}
-                      />
-                      {l.perdues > 0 && (
-                        <span className="mt-0.5 block text-xs text-destructive">{t("repartition.tiragesPerdus", { n: l.perdues })}</span>
-                      )}
-                    </td>
-                    <td className="hidden py-2 text-right tabular-nums text-muted-foreground sm:table-cell">
-                      {l.site > 0 ? t("repartition.dontSite", { n: l.site, total: TIRAGES_DEFAUT }) : "—"}
-                    </td>
-                  </tr>
-                  {actif && (
-                    <tr>
-                      <td colSpan={7} className="pb-3">
-                        <DetailMarche ligne={l} applications={applications} verdict={verdicts.get(l.cle)} cible={cible} />
+                      </td>
+                      <td className="hidden whitespace-nowrap py-2 text-right tabular-nums text-muted-foreground sm:table-cell">
+                        {l.site > 0 ? t("repartition.dontSite", { n: l.site, total: TIRAGES_DEFAUT }) : "—"}
                       </td>
                     </tr>
-                  )}
-                </React.Fragment>
-              );
-            })}
-          </tbody>
-        </table>
+                    {actif && (
+                      <tr>
+                        <td colSpan={7} className="pb-3">
+                          <DetailMarche ligne={l} applications={applications} verdict={verdicts.get(l.cle)} cible={cible} />
+                        </td>
+                      </tr>
+                    )}
+                  </React.Fragment>
+                );
+              })}
+            </tbody>
+          </table>
+        )}
         {lignes.length > MARCHES_VISIBLES && (
           <Button variant="ghost" size="sm" className="mt-2" onClick={() => setTous(!tous)}>
             {tous ? t("repartition.marchesMoins") : t("repartition.marchesTous", { n: lignes.length })}
@@ -989,7 +1072,7 @@ function DetailMarche({
               <li key={`${x.application_id}:${x.label_id}`} className="grid grid-cols-[1.25rem_minmax(0,9rem)_minmax(0,1fr)_auto] items-center gap-2 text-xs">
                 <LogoApplication slug={x.app} taille="xs" />
                 <span className="truncate font-mono">{x.label_nom}</span>
-                <span className="h-2 rounded-r-[4px]" style={{ width: `${x.part}%`, background: couleurApplication(x.app) }} aria-hidden />
+                <span className="h-2 rounded-r-[4px]" style={{ width: `${(100 * x.comptes) / TIRAGES_DEFAUT}%`, background: couleurApplication(x.app) }} aria-hidden />
                 <span className="whitespace-nowrap text-right tabular-nums">
                   {x.comptes}
                   {x.comptesSite > 0 && <span className="text-muted-foreground"> ({t("repartition.dontSiteCourt", { n: x.comptesSite })})</span>}
@@ -1011,11 +1094,16 @@ function DetailMarche({
         ) : (
           <>
             <p>
-              {t("repartition.detailSite", {
-                site: p.recruesSite,
-                recrues: p.recrues,
-                part: pourcent(100 * p.part),
-              })}
+              {p.base === "flotte"
+                ? t("repartition.detailSiteMince", {
+                    recrues: verdict?.recrues ?? 0,
+                    part: pourcent(100 * p.part),
+                  })
+                : t("repartition.detailSite", {
+                    site: p.recruesSite,
+                    recrues: p.recrues,
+                    part: pourcent(100 * p.part),
+                  })}
             </p>
             <p className="text-muted-foreground">
               {t("repartition.mesureSur", { base: t(`repartition.mesure_${p.base}`) })}
@@ -1141,13 +1229,36 @@ function CarteLabels({
             </CardTitle>
             <CardDescription>{t("repartition.labelsAide", { jours: reglages.reserveMinJours })}</CardDescription>
           </div>
-          <div role="tablist" aria-label={t("repartition.colApp")} className="inline-flex gap-1 rounded-lg border bg-muted/40 p-1">
+          <div
+            role="tablist"
+            aria-label={t("repartition.colApp")}
+            className="inline-flex gap-1 rounded-lg border bg-muted/40 p-1"
+            onKeyDown={(ev) => {
+              // Flèches, Début et Fin : le motif d'onglets ARIA. Un seul onglet
+              // est dans l'ordre de tabulation, celui qui est choisi.
+              const i = applications.findIndex((a) => a.id === appId);
+              const n = applications.length;
+              const vers =
+                ev.key === "ArrowRight" ? (i + 1) % n
+                : ev.key === "ArrowLeft" ? (i - 1 + n) % n
+                : ev.key === "Home" ? 0
+                : ev.key === "End" ? n - 1
+                : -1;
+              if (vers < 0 || n === 0) return;
+              ev.preventDefault();
+              setChoix(applications[vers].id);
+              document.getElementById(`onglet-labels-${applications[vers].id}`)?.focus();
+            }}
+          >
             {applications.map((a) => (
               <button
                 key={a.id}
+                id={`onglet-labels-${a.id}`}
                 type="button"
                 role="tab"
                 aria-selected={a.id === appId}
+                aria-controls="panneau-labels"
+                tabIndex={a.id === appId ? 0 : -1}
                 onClick={() => setChoix(a.id)}
                 className={cn(
                   "inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-sm transition-colors",
@@ -1161,7 +1272,12 @@ function CarteLabels({
           </div>
         </div>
       </CardHeader>
-      <CardContent className="overflow-x-auto">
+      <CardContent
+        className="overflow-x-auto"
+        id="panneau-labels"
+        role="tabpanel"
+        aria-labelledby={appId ? `onglet-labels-${appId}` : undefined}
+      >
         {!app || lignes.length === 0 ? (
           <p className="text-sm text-muted-foreground">{t("repartition.labelsVide")}</p>
         ) : (
@@ -1182,19 +1298,23 @@ function CarteLabels({
                   <td className="py-2 pr-4">
                     <span className="font-mono text-xs">{e.stat.label_nom}</span>
                     {e.absents.length > 0 && (
-                      <Tooltip>
-                        <TooltipTrigger
-                          delay={120}
-                          className="ml-2 inline-flex items-center gap-1 rounded border-0 bg-transparent p-0 text-[11px] text-amber-700 dark:text-amber-400"
-                        >
-                          <AlertTriangle className="size-3" aria-hidden />
-                          {t("repartition.absentLangues", { count: e.absents.length })}
-                        </TooltipTrigger>
-                        <TooltipPopup side="top" className="w-64 p-2.5 text-left leading-snug">
-                          {t("repartition.absentLanguesAide", { liste: e.absents.join(", ") })}
-                        </TooltipPopup>
-                      </Tooltip>
+                      <Bulle
+                        libelle={t("repartition.absentLangues", { count: e.absents.length })}
+                        className="ml-2 text-[11px] text-amber-700 dark:text-amber-400"
+                        declencheur={
+                          <>
+                            <AlertTriangle className="size-3" aria-hidden />
+                            {t("repartition.absentLangues", { count: e.absents.length })}
+                          </>
+                        }
+                      >
+                        {t("repartition.absentLanguesAide", { liste: e.absents.join(", ") })}
+                      </Bulle>
                     )}
+                    {/* Sous md, la colonne État est masquée : le badge passe ici. */}
+                    <span className="mt-1 block md:hidden">
+                      <EtatLabel motif={e.motif} />
+                    </span>
                   </td>
                   <td className="py-2 pr-4">
                     <span className="flex items-center gap-2">
@@ -1205,15 +1325,18 @@ function CarteLabels({
                       />
                       <span
                         className={cn(
-                          "w-12 shrink-0 text-right tabular-nums",
-                          e.jours < reglages.reserveMinJours ? "font-semibold text-destructive" : "text-muted-foreground",
+                          "inline-flex w-14 shrink-0 items-center justify-end gap-0.5 tabular-nums",
+                          e.jours < reglages.reserveMinJours
+                            ? "font-semibold text-destructive-foreground"
+                            : "text-muted-foreground",
                         )}
                       >
+                        {e.jours < reglages.reserveMinJours && <AlertTriangle className="size-3" aria-hidden />}
                         {t("repartition.nJours", { n: nombre(e.jours, e.jours < 10 ? 1 : 0) })}
                       </span>
                     </span>
                   </td>
-                  <td className="hidden py-2 pr-4 text-right tabular-nums md:table-cell">
+                  <td className="hidden whitespace-nowrap py-2 pr-4 text-right tabular-nums md:table-cell">
                     {e.perf === null ? (
                       <span className="text-muted-foreground">—</span>
                     ) : (
@@ -1222,7 +1345,7 @@ function CarteLabels({
                       </span>
                     )}
                   </td>
-                  <td className="hidden py-2 pr-4 text-right tabular-nums md:table-cell">
+                  <td className="hidden whitespace-nowrap py-2 pr-4 text-right tabular-nums md:table-cell">
                     {e.stat.comptes_total}
                     <span className="ml-1 text-xs text-muted-foreground">({pourcent(e.part)})</span>
                   </td>

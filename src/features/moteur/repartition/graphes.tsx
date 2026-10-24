@@ -1,6 +1,8 @@
 import * as React from "react";
 
+import { Popover } from "@base-ui/react/popover";
 import { Info } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 import { couleurApplication, nomAffiche } from "@/components/brand/identiteApplications";
 import { LogoApplication } from "@/components/brand/LogoApplication";
@@ -16,8 +18,10 @@ import { cn } from "@/lib/utils";
  *     4 px côté valeur et carré côté base ;
  *   * le texte ne prend jamais la couleur de la donnée : l'identité passe par
  *     le logo et la pastille de couleur à côté ;
- *   * chaque segment a son infobulle au survol ET au focus clavier, et chaque
- *     chiffre reste lisible ailleurs sans survoler (légende, tableau).
+ *   * chaque segment a son infobulle au survol ; au clavier et au lecteur
+ *     d'écran, la barre entière dit toutes ses valeurs (`aria-label`), et
+ *     chaque chiffre reste lisible ailleurs sans survoler (légende, tableau).
+ *     Pas d'arrêt de tabulation par segment : une barre est une image.
  */
 
 function pourcent(n: number): string {
@@ -48,7 +52,9 @@ export function BarreRepartition({
   if (total <= 0 || visibles.length === 0) {
     return <span className="text-xs text-muted-foreground">{vide}</span>;
   }
-  const resume = visibles.map((s) => `${s.libelle} ${pourcent((100 * s.valeur) / total)}`).join(", ");
+  const resume = visibles
+    .map((s) => `${s.libelle} ${s.valeurAffichee ?? pourcent((100 * s.valeur) / total)}`)
+    .join(", ");
   return (
     <div
       role="img"
@@ -66,16 +72,14 @@ export function BarreRepartition({
             <TooltipTrigger
               delay={80}
               render={<div />}
-              tabIndex={0}
-              aria-label={`${s.libelle} ${pourcent(part)}`}
               className={cn(
-                "flex h-full min-w-[3px] items-center justify-center outline-none transition-[filter] hover:brightness-110 focus-visible:ring-2 focus-visible:ring-ring",
+                "flex h-full min-w-[3px] items-center justify-center transition-[filter] hover:brightness-110",
                 dernier && "rounded-r-[4px]",
               )}
               style={{ flexGrow: s.valeur, flexBasis: 0, background: s.couleur }}
             >
               {ecrit && (
-                <span className="px-1 text-[11px] font-semibold text-white tabular-nums">{pourcent(part)}</span>
+                <span className="px-1 text-xs font-semibold text-white tabular-nums">{pourcent(part)}</span>
               )}
             </TooltipTrigger>
             <TooltipPopup side="top" className="flex-col items-start gap-0.5 px-2.5 py-1.5">
@@ -148,20 +152,54 @@ export function BarreReserve({
   );
 }
 
-/** Une aide repliée derrière une icône : le détail est là pour qui le cherche, pas en pavé. */
-export function Aide({ children, libelle }: { children: React.ReactNode; libelle: string }) {
+/**
+ * Une bulle qui s'ouvre au CLIC (et au toucher, et au clavier) : le détail est
+ * là pour qui le cherche, pas en pavé. Pas une infobulle de survol, qu'un
+ * téléphone n'ouvre jamais.
+ */
+export function Bulle({
+  declencheur,
+  libelle,
+  children,
+  className,
+}: {
+  declencheur: React.ReactNode;
+  libelle: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
-    <Tooltip>
-      <TooltipTrigger
-        delay={120}
+    <Popover.Root>
+      <Popover.Trigger
         aria-label={libelle}
-        className="inline-flex size-4 items-center justify-center rounded-full border-0 bg-transparent p-0 text-muted-foreground hover:text-foreground"
+        className={cn(
+          "inline-flex cursor-pointer items-center gap-1 rounded border-0 bg-transparent p-0 focus-visible:outline-2 focus-visible:outline-ring",
+          className,
+        )}
       >
-        <Info className="size-3.5" aria-hidden />
-      </TooltipTrigger>
-      <TooltipPopup side="top" className="w-72 max-w-[min(18rem,var(--available-width))] p-2.5 text-left font-normal leading-snug">
-        {children}
-      </TooltipPopup>
-    </Tooltip>
+        {declencheur}
+      </Popover.Trigger>
+      <Popover.Portal>
+        <Popover.Positioner side="top" sideOffset={6} className="z-50">
+          <Popover.Popup className="w-72 max-w-[min(18rem,var(--available-width))] rounded-md border bg-popover p-2.5 text-left text-xs font-normal leading-snug text-popover-foreground shadow-md outline-none">
+            {children}
+          </Popover.Popup>
+        </Popover.Positioner>
+      </Popover.Portal>
+    </Popover.Root>
+  );
+}
+
+/** L'aide d'un titre : une icône « i » qui ouvre son explication. */
+export function Aide({ children, libelle }: { children: React.ReactNode; libelle: string }) {
+  const { t } = useTranslation();
+  return (
+    <Bulle
+      libelle={t("repartition.aideDe", { titre: libelle })}
+      className="size-4 justify-center rounded-full text-muted-foreground hover:text-foreground"
+      declencheur={<Info className="size-3.5" aria-hidden />}
+    >
+      {children}
+    </Bulle>
   );
 }

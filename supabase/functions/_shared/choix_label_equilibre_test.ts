@@ -295,9 +295,11 @@ Deno.test("pool de prod du 15/10 : RH et weird_alpha devant, yellow, beau_smart_
   const part = (id: string) => classes.find((c) => c.label_id === id)?.part ?? 0;
   assert(part("weird_alpha") > part("alpha_male"));
   assert(part("RH") > part("alpha_male"), `RH ${part("RH")} / alpha_male ${part("alpha_male")}`);
-  for (const id of ["alpha_male_yellow", "beau_smart_girl", "white_bg"]) {
+  for (const id of ["alpha_male_yellow", "white_bg"]) {
     assert(classes.find((c) => c.label_id === id)?.suspendu, `${id} devrait attendre du stock`);
   }
+  // Seuil de réserve à 5 jours depuis le 24/10 : beau_smart_girl (5,1 j) n'attend plus.
+  assertEquals(classes.find((c) => c.label_id === "beau_smart_girl")?.suspendu, false);
   // 20 comptes allemands : les labels suspendus n'en reçoivent aucun, RH plus qu'alpha_male.
   const n = compter(simuler(poolProd(), enLangue(20)).map((c) => c.label));
   assertEquals(n.get("alpha_male_yellow") ?? 0, 0);
@@ -590,4 +592,27 @@ Deno.test("test pod : au-delà de 3 comptes, le test est passé pour de bon (tou
   // Servi par une 2e application où il n'a aucun post : pas bloqué non plus.
   const autreApp = stat({ ...FATHOMLY, comptes_total: 4, passages: 0, perf_label: null });
   assertEquals(testPodPlein(autreApp, R, "00000000-0000-4000-8000-000000000003"), false);
+});
+
+// ── Pays saturé (0354) : l'élément central contre la sur-utilisation d'un marché ──
+
+Deno.test("pays saturé : 4 alpha_male sur 5 en Pologne, le 6e va ailleurs même avec réserve et perf", () => {
+  const pologne = (o: Partial<StatLabelCreation> & { label_id: string }) => stat({ comptes_langue: 0, comptes_pays: 0, ...o });
+  // Les autres labels sont SOUS le seuil de réserve : avant 0354, alpha_male gagnait.
+  const pool = [
+    pologne({ label_id: "alpha_male", comptes_langue: 4, comptes_pays: 4, passages_restants: 1535, demande_jour: 44, passages: 500, perf_label: 1.3 }),
+    pologne({ label_id: "smart_girl", comptes_langue: 1, comptes_pays: 1, passages_restants: 300, demande_jour: 102, passages: 1200, perf_label: 1.0 }),
+    pologne({ label_id: "rh", passages_restants: 100, demande_jour: 32, passages: 262, perf_label: 1.31 }),
+  ];
+  assert(classerLabels(pool, R).every((c) => c.label_id === "alpha_male" || c.suspendu), "les autres sont en réserve basse");
+  const classes = classerLabels(pool, R);
+  assertEquals(classes.at(-1)?.label_id, "alpha_male");
+  assert(classes.at(-1)?.saturePays);
+  assert(choisirLabel(pool, R) !== "alpha_male");
+  // Moitié pile (2 sur 4) : pas saturé, la règle ne joue pas encore.
+  assertEquals(classerLabels([{ ...pool[0], comptes_pays: 2 }, { ...pool[1], comptes_pays: 2 }], R)[0].saturePays, false);
+  // Seul label possible : il est donné quand même (une règle ne bloque jamais tout).
+  assertEquals(choisirLabel([pool[0]], R), "alpha_male");
+  // Le seuil se règle.
+  assertEquals(lireReglagesChoixLabel({ part_max_pays: 0.4 }).partMaxPays, 0.4);
 });

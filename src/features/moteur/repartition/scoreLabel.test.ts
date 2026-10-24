@@ -69,6 +69,7 @@ describe("copie Deno", () => {
     ["enAvanceRemplissage", "export function enAvanceRemplissage("],
     ["estSuspendu", "export function estSuspendu("],
     ["estASec", "export function estASec("],
+    ["estSaturePays", "export function estSaturePays("],
     ["enTestPod", "export function enTestPod("],
     ["testPodPlein", "export function testPodPlein("],
     ["poidsLabel", "export function poidsLabel("],

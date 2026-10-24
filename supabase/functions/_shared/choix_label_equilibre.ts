@@ -26,7 +26,8 @@
  *      (passages restants ÷ (demande + `postsParJourNouveau`)), rapportés à
  *      `reserveCibleJours` (14) et plafonnés à 1 : au-delà de deux semaines de
  *      stock, le stock ne compte plus, seule la performance départage.
- *   3. RÉSERVE. Un label à moins de `reserveMinJours` (7) jours avec ce compte
+ *   3. RÉSERVE. Un label à moins de `reserveMinJours` (5 depuis le 24/10, 7
+ *      avant) jours avec ce compte
  *      en plus passe après les autres (il recevrait un compte qu'il nourrirait
  *      mal), rafales mises à part (voir 6) ; à moins d'un jour (`JOURS_A_SEC`),
  *      il passe après TOUS les autres : un compte sans contenu à poster perd
@@ -37,12 +38,18 @@
  *      Un label en retard dans les deux passe d'abord, puis en retard dans une
  *      seule : un pays déjà rempli d'un label (5 fois le même en Suisse) ne le
  *      reçoit plus tant que les autres n'ont pas rattrapé.
+ *      PAYS SATURÉ (0354), L'ÉLÉMENT CENTRAL : un label qui tient déjà plus de
+ *      `partMaxPays` (1/2) des comptes du pays passe après tous les autres,
+ *      seuls « à sec » et la rafale de langue passent avant. Avant, la réserve basse passait AVANT la
+ *      diversité : 4 alpha_male sur 5 en Pologne, les autres sous 7 jours de
+ *      réserve, et alpha_male prenait le 6e. Les mêmes posts tournaient sur
+ *      tout un marché.
  *   6. PAS DE RAFALE : un label présent sur `rafaleRecents` (2) des 3 derniers
  *      comptes de la langue attend ; de même dans le pays, mais APRÈS la
  *      langue. Même label + même langue = le même contenu traduit à
  *      l'identique sur plusieurs comptes : c'est la répétition la plus chère.
- *      Ordre des écarts : à sec > rafale langue > rafale pays > réserve basse
- *      (une réserve sous 7 jours reste un signal souple : le label a encore de
+ *      Ordre des écarts : à sec > rafale langue > pays saturé > rafale pays >
+ *      réserve basse (une réserve sous 5 jours reste un signal souple : le label a encore de
  *      quoi poster, le sourcing est prévenu ; une rafale dans un pays se voit).
  *      Chaque règle ne joue que si elle ne frappe pas tous les candidats.
  *   7. Parmi les labels en retard, celui qui a servi le moins récemment (langue
@@ -132,6 +139,8 @@ export interface ReglagesChoixLabel {
   reserveCibleJours: number;
   postsParJourNouveau: number;
   partMax: number;
+  /** Part des comptes d'un PAYS au-delà de laquelle un label n'en reçoit plus (0354). */
+  partMaxPays: number;
   rafaleRecents: number;
   /** Comptes réaffectés au plus par nuit (garde-fou d'un réglage mal posé). */
   relabelsMaxParNuit: number;
@@ -163,10 +172,11 @@ export const REGLAGES_CHOIX_LABEL_DEFAUT: Readonly<ReglagesChoixLabel> = Object.
   perfMax: 4,
   fermeturePerf: 0.75,
   fermetureMinPosts: 150,
-  reserveMinJours: 7,
+  reserveMinJours: 5,
   reserveCibleJours: 14,
   postsParJourNouveau: 2,
   partMax: 0.5,
+  partMaxPays: 0.5,
   rafaleRecents: 2,
   relabelsMaxParNuit: 20,
   testPodComptes: 3,
@@ -239,6 +249,7 @@ export function lireReglagesChoixLabel(valeur: unknown): ReglagesChoixLabel {
     reserveCibleJours: positif(v.reserve_cible_jours, d.reserveCibleJours),
     postsParJourNouveau: positif(v.posts_par_jour_nouveau, d.postsParJourNouveau),
     partMax: Math.min(1, positif(v.part_max, d.partMax)),
+    partMaxPays: Math.min(1, positif(v.part_max_pays, d.partMaxPays)),
     rafaleRecents: positif(v.rafale_recents, d.rafaleRecents),
     relabelsMaxParNuit: Math.max(0, Math.round(nombre(v.relabels_max_par_nuit ?? d.relabelsMaxParNuit))),
     testPodComptes: Math.max(1, Math.round(positif(v.test_pod_comptes, d.testPodComptes))),
@@ -409,6 +420,17 @@ export function estSuspendu(
   return joursApresCompte(s, r) < r.reserveMinJours;
 }
 
+/**
+ * Le label tient déjà plus de `partMaxPays` des comptes du PAYS (parmi les
+ * labels candidats) : les mêmes posts tourneraient sur trop de comptes d'un
+ * même marché. Exemple : 4 comptes alpha_male sur 5 en Pologne, le 6e va à un
+ * autre label, même si alpha_male a une bonne réserve et une bonne perf.
+ * Sans pays connu (`nPays` nul), la règle ne joue pas.
+ */
+export function estSaturePays({ comptes_pays }: StatLabelCreation, nPays: number, r: ReglagesChoixLabel): boolean {
+  return nPays > 0 && comptes_pays > r.partMaxPays * nPays + EPS;
+}
+
 /** Passe après TOUS : à sec, ou, pour un label 100 % pod, langue que son pod ne sert pas (compte muet). */
 export function estASec(
   s: StatLabelCreation,
@@ -465,6 +487,8 @@ export interface LabelClasse {
   rafaleLangue: boolean;
   /** Déjà sur `rafaleRecents` des derniers comptes du pays. */
   rafalePays: boolean;
+  /** Déjà plus de `partMaxPays` des comptes du pays (0354). */
+  saturePays: boolean;
   /** Moins de `reserveMinJours` de réserve avec ce compte en plus. */
   suspendu: boolean;
   /** Moins de `JOURS_A_SEC` de réserve avec ce compte en plus. */
@@ -508,6 +532,7 @@ export function classerLabels(
     recence: Math.max(s.recence_langue, s.recence_pays),
     rafaleLangue: s.recents_langue >= r.rafaleRecents,
     rafalePays: s.recents_pays >= r.rafaleRecents,
+    saturePays: estSaturePays(s, nPays, r),
     suspendu: estSuspendu(s, r),
     aSec: estASec(s, r),
   }));
@@ -515,6 +540,11 @@ export function classerLabels(
   const regles: Array<(c: LabelClasse) => boolean> = [
     (c) => c.aSec,
     (c) => c.rafaleLangue,
+    // L'ÉLÉMENT CENTRAL (0354) : un label qui tient déjà plus de la moitié d'un
+    // pays n'y reçoit plus de compte, quels que soient sa réserve et sa perf.
+    // Seuls « à sec » et l'anti-rafale de la langue (2 des 3 derniers comptes,
+    // la répétition la plus fraîche) passent avant.
+    (c) => c.saturePays,
     (c) => c.rafalePays,
     (c) => c.suspendu,
   ];

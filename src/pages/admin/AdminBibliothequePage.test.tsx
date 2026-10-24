@@ -13,6 +13,8 @@ const listerIntegrateurs = vi.fn();
 const couplesManquants = vi.fn();
 const mettreEnScene = vi.fn();
 const traduireMiseEnScene = vi.fn();
+const traduireCapture = vi.fn();
+const versionsManquantes = vi.fn();
 
 vi.mock("@/features/misesEnScene/api", async (importOriginal) => ({
   ...(await importOriginal<typeof import("@/features/misesEnScene/api")>()),
@@ -24,6 +26,8 @@ vi.mock("@/features/misesEnScene/api", async (importOriginal) => ({
   couplesManquants: (...a: unknown[]) => couplesManquants(...a),
   mettreEnScene: (...a: unknown[]) => mettreEnScene(...a),
   traduireMiseEnScene: (...a: unknown[]) => traduireMiseEnScene(...a),
+  traduireCapture: (...a: unknown[]) => traduireCapture(...a),
+  versionsManquantes: (...a: unknown[]) => versionsManquantes(...a),
   chercherScenes: async () => [],
 }));
 
@@ -98,6 +102,8 @@ describe("Bibliothèque — captures et mises en scène", () => {
     couplesManquants.mockReset().mockResolvedValue([]);
     mettreEnScene.mockReset().mockResolvedValue({});
     traduireMiseEnScene.mockReset().mockResolvedValue("capture_traduite");
+    traduireCapture.mockReset().mockResolvedValue({});
+    versionsManquantes.mockReset().mockResolvedValue({ pretes: [], captures_a_traduire: [], captures_a_valider: [] });
   });
 
   it("onglet Captures : une capture à valider se valide, le budget Fal s'affiche", async () => {
@@ -192,5 +198,38 @@ describe("Bibliothèque — captures et mises en scène", () => {
     fireEvent.click(screen.getByRole("button", { name: /^Traduire$/ }));
     await waitFor(() => expect(traduireMiseEnScene).toHaveBeenCalledWith("fr1", "es"));
     expect(await screen.findByText(/relis-la et valide-la dans Captures/)).toBeTruthy();
+  });
+
+  it("onglet Captures : « Traduire en… » seulement sur une originale validée", async () => {
+    listerCaptures.mockResolvedValue([
+      capture({ statut: "validee" }),
+      capture({ id: "c2", ecran: "notes", statut: "a_valider" }),
+      capture({ id: "c3", langue: "es", nature: "traduite", originale_id: "c0000000-0000-4000-8000-000000000001", statut: "a_valider" }),
+    ]);
+    rendre("/admin/bibliotheque?onglet=captures");
+    await screen.findByAltText("micabo parcours es");
+    const choix = screen.getAllByRole("combobox", { name: "Traduire en…" });
+    expect(choix).toHaveLength(1);
+    fireEvent.change(choix[0], { target: { value: "es" } });
+    fireEvent.click(screen.getByRole("button", { name: /^Traduire$/ }));
+    await waitFor(() => expect(traduireCapture).toHaveBeenCalledWith("c0000000-0000-4000-8000-000000000001", "es"));
+  });
+
+  it("onglet Mises en scène : une image à valider dit qu'il faut la valider avant d'ajouter des langues", async () => {
+    listerMisesEnScene.mockResolvedValue([mise({ id: "fr1", statut: "a_valider" })]);
+    rendre("/admin/bibliotheque?onglet=mises-en-scene");
+    expect(await screen.findByText("Valide l'image pour lui ajouter des langues.")).toBeTruthy();
+    expect(screen.queryByRole("combobox", { name: "Ajouter une langue…" })).toBeNull();
+  });
+
+  it("onglet Mises en scène : le lot de versions d'une langue lance les images prêtes", async () => {
+    listerMisesEnScene.mockResolvedValue([]);
+    versionsManquantes.mockResolvedValue({ pretes: ["fr1", "fr2"], captures_a_traduire: ["c9"], captures_a_valider: [] });
+    rendre("/admin/bibliotheque?onglet=mises-en-scene");
+    fireEvent.change(await screen.findByRole("combobox", { name: "Versions en…" }), { target: { value: "es" } });
+    expect(await screen.findByText("2 prêtes · 1 écrans à traduire · 0 captures à relire")).toBeTruthy();
+    fireEvent.click(screen.getByRole("button", { name: "Générer 2 versions" }));
+    await waitFor(() => expect(traduireMiseEnScene).toHaveBeenCalledTimes(2));
+    expect(traduireMiseEnScene.mock.calls).toEqual([["fr1", "es"], ["fr2", "es"]]);
   });
 });

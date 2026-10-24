@@ -12,6 +12,7 @@ import {
   promptTraduction,
   promptVersion,
   relancePermise,
+  sansMetadonnees,
   supportValide,
   tailleImage,
 } from "./mises_en_scene.ts";
@@ -130,4 +131,40 @@ Deno.test("prompt de version : seul l'écran change", () => {
   const p = promptVersion(undefined, "iphone");
   assert(p.includes("Replace ONLY the content of the phone screen"));
   assert(!p.includes("{appareil}"));
+});
+
+function morceauPng(type: string, data: Uint8Array): Uint8Array {
+  const m = new Uint8Array(12 + data.length);
+  new DataView(m.buffer).setUint32(0, data.length);
+  m.set([...type].map((c) => c.charCodeAt(0)), 4);
+  m.set(data, 8);
+  return m; // CRC laissé à zéro : sans importance pour le tri des morceaux.
+}
+
+Deno.test("métadonnées : le XMP « IA » de Nano Banana sort du PNG, les pixels restent", () => {
+  const xmp = new TextEncoder().encode("XML:com.adobe.xmp\0\0\0\0\0DigitalSourceType trainedAlgorithmicMedia Made with Google AI");
+  const ihdr = morceauPng("IHDR", new Uint8Array(13));
+  const idat = morceauPng("IDAT", new Uint8Array([1, 2, 3]));
+  const png = new Uint8Array([
+    0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a,
+    ...ihdr, ...morceauPng("iTXt", xmp), ...morceauPng("zTXt", new Uint8Array(4)), ...morceauPng("caBX", new Uint8Array(4)),
+    ...idat, ...morceauPng("IEND", new Uint8Array()),
+  ]);
+  const propre = sansMetadonnees(png);
+  const texte = new TextDecoder("latin1").decode(propre);
+  assert(!texte.includes("trainedAlgorithmicMedia") && !texte.includes("Google"));
+  assert(!texte.includes("iTXt") && !texte.includes("zTXt") && !texte.includes("caBX"));
+  assert(texte.includes("IHDR") && texte.includes("IDAT") && texte.includes("IEND"));
+  assertEquals(propre.length, 8 + ihdr.length + idat.length + 12);
+});
+
+Deno.test("métadonnées : JPEG sans EXIF, XMP ni C2PA (APP1, APP11), avec JFIF et ICC", () => {
+  const seg = (m: number, n: number) => [0xff, m, 0, n + 2, ...new Array(n).fill(7)];
+  const jpg = new Uint8Array([
+    0xff, 0xd8, ...seg(0xe0, 2), ...seg(0xe1, 3), ...seg(0xe2, 2), ...seg(0xeb, 4), ...seg(0xfe, 1),
+    ...seg(0xdb, 2), 0xff, 0xda, 0, 2, 9, 9, 0xff, 0xd9,
+  ]);
+  const propre = sansMetadonnees(jpg);
+  const marqueurs = [...propre].flatMap((v, i) => (v === 0xff && propre[i + 1] >= 0xc0 ? [propre[i + 1]] : []));
+  assertEquals(marqueurs, [0xd8, 0xe0, 0xe2, 0xdb, 0xda, 0xd9]);
 });

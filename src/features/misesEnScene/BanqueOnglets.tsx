@@ -8,7 +8,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Check, Plus, RotateCcw, Upload, Wand2, X } from "lucide-react";
+import { Check, Languages, Plus, RotateCcw, Upload, Wand2, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
@@ -30,7 +30,9 @@ import {
   listerMisesEnScene,
   mettreEnScene,
   SUPPORTS,
+  traduireCapture,
   traduireMiseEnScene,
+  versionsManquantes,
   type CaptureApp,
   type CarteVersions,
   type EtapeTraduction,
@@ -299,6 +301,42 @@ function ImporterCapture({ captures }: { captures: CaptureApp[] }) {
   );
 }
 
+/** « Traduire en… » sur une originale validée : la capture traduite (à plat) arrive à relire. */
+function TraduireEn({ capture }: { capture: CaptureApp }) {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const [langue, setLangue] = React.useState("");
+  const traduire = useMutation({
+    mutationFn: () => traduireCapture(capture.id, langue),
+    onSuccess: () => {
+      setLangue("");
+      invaliderBanque(queryClient);
+    },
+  });
+  return (
+    <div className="space-y-1">
+      <div className="flex gap-1">
+        <select
+          aria-label={t("misesEnScene.traduireEn")}
+          className={cn(selectClass, "min-w-0 flex-1")}
+          value={langue}
+          onChange={(e) => setLangue(e.target.value)}
+        >
+          <option value="">{t("misesEnScene.traduireEn")}</option>
+          {LANGUES_CIBLES.filter((l) => l !== capture.langue).map((l) => (
+            <option key={l} value={l}>{nomLangue(l)}</option>
+          ))}
+        </select>
+        <Button size="sm" variant="outline" disabled={!langue || traduire.isPending} onClick={() => traduire.mutate()}>
+          <Languages className="size-3.5" />
+          {traduire.isPending ? t("misesEnScene.enCours") : t("misesEnScene.traduire")}
+        </Button>
+      </div>
+      {traduire.error && <p className="text-xs text-destructive">{(traduire.error as Error).message}</p>}
+    </div>
+  );
+}
+
 function CarteCapture({ capture }: { capture: CaptureApp }) {
   const { t } = useTranslation();
   return (
@@ -322,6 +360,9 @@ function CarteCapture({ capture }: { capture: CaptureApp }) {
       </div>
       {capture.motif_rejet && <p className="text-xs text-muted-foreground">{capture.motif_rejet}</p>}
       <Decision objet="capture" id={capture.id} statut={capture.statut} />
+      {capture.nature === "originale" && capture.statut === "validee" && !capture.remplacee_par && (
+        <TraduireEn capture={capture} />
+      )}
     </div>
   );
 }
@@ -433,6 +474,74 @@ function GenererManquantes() {
         </Button>
       </div>
       <p className="text-xs text-muted-foreground">{t("misesEnScene.genererAide")}</p>
+      {erreur && <p className="text-xs text-destructive">{erreur}</p>}
+    </div>
+  );
+}
+
+/** Lot de versions d'une langue : toutes les images validées dont la capture traduite est validée. */
+function GenererVersions() {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const [application, setApplication] = React.useState<string>("micabo");
+  const [langue, setLangue] = React.useState("");
+  const [lot, setLot] = React.useState<{ fait: number; total: number } | null>(null);
+  const [erreur, setErreur] = React.useState<string | null>(null);
+  const etat = useQuery({
+    queryKey: ["banque-couples", "versions", application, langue],
+    queryFn: () => versionsManquantes(application, langue),
+    enabled: Boolean(langue),
+  });
+  const pretes = etat.data?.pretes ?? [];
+
+  async function generer() {
+    setErreur(null);
+    setLot({ fait: 0, total: pretes.length });
+    try {
+      for (const [i, id] of pretes.entries()) {
+        await traduireMiseEnScene(id, langue);
+        setLot({ fait: i + 1, total: pretes.length });
+        invaliderBanque(queryClient);
+      }
+    } catch (e) {
+      setErreur((e as Error).message);
+    } finally {
+      setLot(null);
+      invaliderBanque(queryClient);
+    }
+  }
+
+  return (
+    <div className="space-y-1 rounded-md border border-dashed p-3">
+      <div className="flex flex-wrap items-center gap-2">
+        <select aria-label={t("misesEnScene.application")} className={selectClass} value={application} onChange={(e) => setApplication(e.target.value)}>
+          {APPLICATIONS_BANQUE.map((a) => (
+            <option key={a} value={a}>{a}</option>
+          ))}
+        </select>
+        <select aria-label={t("misesEnScene.langueVersions")} className={selectClass} value={langue} onChange={(e) => setLangue(e.target.value)}>
+          <option value="">{t("misesEnScene.langueVersions")}</option>
+          {LANGUES_CIBLES.map((l) => (
+            <option key={l} value={l}>{nomLangue(l)}</option>
+          ))}
+        </select>
+        {etat.data && (
+          <span className="text-xs text-muted-foreground">
+            {t("misesEnScene.etatVersions", {
+              pretes: pretes.length,
+              traduire: etat.data.captures_a_traduire.length,
+              valider: etat.data.captures_a_valider.length,
+            })}
+          </span>
+        )}
+        <Button size="sm" disabled={!pretes.length || lot !== null} onClick={() => void generer()}>
+          <Languages className="size-3.5" />
+          {lot
+            ? t("misesEnScene.lotEnCours", { fait: lot.fait, total: lot.total })
+            : t("misesEnScene.genererVersions", { count: pretes.length })}
+        </Button>
+      </div>
+      <p className="text-xs text-muted-foreground">{t("misesEnScene.genererVersionsAide")}</p>
       {erreur && <p className="text-xs text-destructive">{erreur}</p>}
     </div>
   );
@@ -557,7 +666,11 @@ function CarteMiseEnScene({ carte }: { carte: CarteVersions }) {
       {mise.motif_rejet && <p className="text-xs text-muted-foreground">{mise.motif_rejet}</p>}
       <Decision objet="mise_en_scene" id={mise.id} statut={mise.statut} />
       {mise.essai < 2 && mise.statut === "a_valider" && !mise.a_refaire && <Relancer mise={mise} origine={origine} />}
-      {origine.statut === "validee" && !origine.a_refaire && <AjouterLangue carte={carte} />}
+      {origine.statut === "validee" && !origine.a_refaire ? (
+        <AjouterLangue carte={carte} />
+      ) : origine.statut === "a_valider" ? (
+        <p className="text-xs text-muted-foreground">{t("misesEnScene.langueApresValidation")}</p>
+      ) : null}
     </div>
   );
 }
@@ -590,6 +703,7 @@ export function MisesEnSceneOnglet() {
       </CardHeader>
       <CardContent className="space-y-3">
         <GenererManquantes />
+        <GenererVersions />
         <Filtres valeur={filtres} onChange={setFiltres} avecLangue={false} />
         {mises.error && <p className="text-sm text-destructive">{(mises.error as Error).message}</p>}
         {mises.isLoading ? (

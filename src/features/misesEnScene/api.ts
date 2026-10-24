@@ -201,6 +201,24 @@ export async function traduireMiseEnScene(id: string, langue: string, relance_de
   return r.etape;
 }
 
+export interface VersionsManquantes {
+  /** Mises en scène d'origine prêtes : capture traduite validée, pas encore de version. */
+  pretes: string[];
+  /** Captures d'origine encore à traduire (à plat) dans cette langue. */
+  captures_a_traduire: string[];
+  /** Captures traduites qui attendent leur relecture. */
+  captures_a_valider: string[];
+}
+
+export async function versionsManquantes(application: string, langue: string, support?: Support): Promise<VersionsManquantes> {
+  return await invoke<VersionsManquantes>(FONCTION, {
+    action: "versions_manquantes",
+    application,
+    langue,
+    ...(support ? { support } : {}),
+  });
+}
+
 export interface CarteVersions {
   origine: MiseEnScene;
   /** Par langue, la version vivante (ou la dernière rejetée). Contient la langue d'origine. */

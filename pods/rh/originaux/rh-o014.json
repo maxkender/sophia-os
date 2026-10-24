@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o014",
+ "schema_id": "erreurs-chomage",
+ "titre": "5 erreurs débiles qui m'ont gardée au chômage pendant 7 mois (et ce que j'ai changé) #rechercheemploi #emploi #chomage #cv #jobtips",
+ "musique_titre": "BEST INTEREST",
+ "musique_url": "https://www.tiktok.com/music/best-interest-7162267272931706882",
+ "inspirations": [
+  "4adc261e-6c81-4b3a-b8da-485c6bc2c4c2"
+ ],
+ "notes": "Schéma erreurs-chomage (réactivé le 24/10, r 2,03 sur 4 passages, 4adc261e, musique reprise de ce contenu). Accroches écrites : « 5 erreurs débiles qui m'ont gardée au chômage pendant 7 mois (et ce que j'ai changé) » (retenue : le gabarit gagnant, autres chiffres), « ce que je referais autrement si je cherchais un job demain » (écartée : sans l'échec raconté), « j'ai mis 7 mois à retrouver un job, voilà mes erreurs » (écartée : plus plate). Cinq erreurs neuves plus une fin, aucune reprise de la source (annonces, sites d'emploi, préparation, même cv, tenue, refus perso). Aucun chiffre présenté comme une statistique générale. Sophia en 5 : apprendre au lieu de scroller les offres. Inspirations : sans les slides 4 et 5 de la source (autres applis citées).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "23ca134d",
+   "texte_overlay": "5 erreurs débiles qui m'ont gardée au chômage\npendant 7 mois\n(et ce que j'ai changé)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1f249554",
+   "texte_overlay": "1. je postulais à tout\n15 candidatures par jour, zéro conviction. ça se sentait.\nmaintenant : moins, mais des postes que je peux défendre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "31d533cb",
+   "texte_overlay": "2. je relançais jamais\nje pensais que ça faisait insistante.\nun mail court une semaine après, et j'ai eu deux réponses de plus",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "34b9b6ab",
+   "texte_overlay": "3. je cachais mes mois sans emploi\nj'avais honte, je bafouillais.\nmaintenant je dis ce que j'ai fait de ce temps, en une phrase, sans m'excuser",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1c8f0e7f",
+   "texte_overlay": "4. je passais mes journées à scroller les offres\n4 heures devant les annonces, la tête vide le soir.\nmaintenant : une plage fixe le matin, et le reste pour apprendre",
+   "texte_sophia": "4. je passais mes journées à scroller les offres\nmaintenant : une plage fixe le matin, et 5 minutes sur l'appli Sophia au lieu de scroller. j'avais enfin des trucs à raconter en entretien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3997b3dd",
+   "texte_overlay": "5. je demandais jamais de retour après un refus\nune phrase polie suffit : « qu'est-ce qui m'a manqué ? »\npas tout le monde répond, mais ceux qui répondent t'aident vraiment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "246db26e",
+   "texte_overlay": "et la pire : je le disais à personne\nj'avais honte d'en parler à mes proches.\nle jour où je l'ai fait, ils m'ont envoyé des pistes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "2ae02b4f",
+   "texte_overlay": "si t'es en plein dedans, t'es pas en retard\ncommence par une seule cette semaine\nlaquelle tu fais encore ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/8.jpg"
+  }
+ ]
+}

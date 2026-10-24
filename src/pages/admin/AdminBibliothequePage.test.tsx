@@ -261,4 +261,16 @@ describe("Bibliothèque — captures et mises en scène", () => {
       langue: "fr",
     });
   });
+
+  it("une version validée d'office pour un podz porte le badge « Validée auto »", async () => {
+    listerMisesEnScene.mockResolvedValue([
+      mise({ id: "fr1", decide_par: "u1", decide_le: "2026-10-24T10:00:00Z" }),
+      mise({ id: "de1", langue: "de", version_de: "fr1", decide_par: null, decide_le: "2026-10-24T11:00:00Z" }),
+    ]);
+    rendre("/admin/bibliotheque?onglet=mises-en-scene");
+    await screen.findByRole("tab", { name: "fr ✓" });
+    expect(screen.queryByText("Validée auto (podz)")).toBeNull();
+    fireEvent.click(screen.getByRole("tab", { name: "de ✓" }));
+    expect(await screen.findByText("Validée auto (podz)")).toBeTruthy();
+  });
 });

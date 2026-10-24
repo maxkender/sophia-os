@@ -29,6 +29,8 @@ export interface CaptureApp {
   motif_rejet: string | null;
   remplace_id: string | null;
   remplacee_par: string | null;
+  decide_par?: string | null;
+  decide_le?: string | null;
   created_at: string;
 }
 
@@ -69,6 +71,8 @@ export interface MiseEnScene {
   /** Version traduite : la mise en scène d'origine (même photo, même écran). */
   version_de: string | null;
   used_count: number;
+  decide_par?: string | null;
+  decide_le?: string | null;
   a_refaire: boolean;
   created_at: string;
 }
@@ -99,6 +103,11 @@ const FONCTION = "mises-en-scene";
 
 function filtres(f: FiltresBanque): Record<string, string> {
   return Object.fromEntries(Object.entries(f).filter(([, v]) => Boolean(v))) as Record<string, string>;
+}
+
+/** Validée d'office, à la demande d'un podz (personne n'a cliqué). */
+export function valideeAuto(l: { statut: StatutBanque; decide_par?: string | null; decide_le?: string | null }): boolean {
+  return l.statut === "validee" && !l.decide_par && Boolean(l.decide_le);
 }
 
 export async function listerCaptures(f: FiltresBanque = {}): Promise<CaptureApp[]> {

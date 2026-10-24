@@ -2071,6 +2071,7 @@ export const fr = {
       importerLot_one: "Importer {{count}} originale",
       importerLot_other: "Importer {{count}} originales",
       envoiLot: "Envoi… {{fait}}/{{total}}",
+      valideeAuto: "Validée auto (podz)",
       relancer: "Relancer (une fois)",
       relance: "Relance",
       aRefaire: "À refaire",

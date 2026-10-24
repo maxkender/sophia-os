@@ -2731,17 +2731,17 @@ export const en = {
       remanieDesc: "How to reword an already-published topic, with other images.",
     },
     repartition: {
-      titre: "Label allocation — {{nom}}",
+      titre: "Label allocation",
       description:
-        "Where the next hire would go, market by market, and why. Two columns: what the engine picks today, and what the proposed rule would give. Switch application with the sidebar selector.",
+        "Where the next hire would go, market by market, and why. Most cards cover ALL THREE applications: the target, the Queue, provenance, the projected mix and the label-choice settings. Only \"The next hires\" and \"Label status\" follow the application picked in the sidebar, and they carry its name.",
       playgroundTitre: "This page acts on the engine",
       playgroundAide:
         "Everything editable here is written to the database and used at the next creation: the switch, the target across applications, the Queue, the label-choice settings, and opening or closing a label. What it does not do: create an account, or move an existing one — closing a label removes it from future creations, and the night assignment is what pulls the accounts that carry it. The figures shown are the ones the engine actually receives.",
       erreurTitre: "Figures unavailable",
-      prochainesTitre: "The next hires",
+      prochainesTitre: "The next hires — {{nom}}",
       prochainesAide:
         "{{marches}} markets. The proposed rule would change the answer on {{changements}} of them. Click a row to see the calculation.",
-      etatTitre: "Label status",
+      etatTitre: "Label status — {{nom}}",
       etatAide:
         "Performance against the fleet, days of content left with one more account, accounts across the whole fleet. Below 7 days, a label goes after the others. The last column decides, for the application on screen: Auto lets the figures speak and the night may close, Open holds the label open even against its figures, Closed removes it from the next creations.",
       colDecision: "Decision",

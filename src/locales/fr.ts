@@ -2735,17 +2735,17 @@ export const fr = {
       remanieDesc: "Comment reformuler un sujet déjà publié, avec d'autres images.",
     },
     repartition: {
-      titre: "Répartition des labels — {{nom}}",
+      titre: "Allocation des labels",
       description:
-        "Où partirait la prochaine recrue, marché par marché, et pourquoi. Deux colonnes : ce que le moteur choisit aujourd'hui, et ce que donnerait la règle proposée. Change d'application avec le sélecteur de la barre latérale.",
+        "Où partirait la prochaine recrue, marché par marché, et pourquoi. La plupart des cartes valent pour LES TROIS applications : la cible, la File, la provenance, la composition projetée et les réglages du choix de label. Seules « Les prochaines recrues » et « État des labels » suivent l'application du sélecteur de la barre latérale, et elles portent son nom.",
       playgroundTitre: "Cette page agit sur le moteur",
       playgroundAide:
         "Tout ce qui est modifiable ici part en base et sert à la prochaine création : l'interrupteur, la cible entre applications, la File, les réglages du choix de label, l'ouverture et la fermeture d'un label. Ce qu'elle ne fait pas : créer un compte, ni déplacer un compte existant — fermer un label le retire des futures créations, et c'est l'assignation de nuit qui en sortira les comptes qui le portent. Les chiffres affichés sont ceux que le moteur reçoit vraiment.",
       erreurTitre: "Chiffres indisponibles",
-      prochainesTitre: "Les prochaines recrues",
+      prochainesTitre: "Les prochaines recrues — {{nom}}",
       prochainesAide:
         "{{marches}} marchés. La règle proposée changerait la réponse sur {{changements}} d'entre eux. Clique une ligne pour voir le détail du calcul.",
-      etatTitre: "État des labels",
+      etatTitre: "État des labels — {{nom}}",
       etatAide:
         "Performance face à la flotte, jours de contenu restants avec un compte de plus, comptes dans toute la flotte. Sous 7 jours, le label passe après les autres. La dernière colonne décide, pour l'application affichée : Auto laisse les chiffres parler et la nuit peut fermer, Ouvert tient le label ouvert même contre ses chiffres, Fermé le retire des prochaines créations.",
       colDecision: "Décision",

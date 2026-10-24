@@ -80,6 +80,7 @@ curl -s https://mbikecieskoobeizixig.supabase.co/functions/v1/mises-en-scene \
 - Quand le podz met une mise en scène dans un post livré, il le dit à l'OS : `{"action":"utiliser","pod":"…","id":"<id>"}`. Le compteur d'usage monte d'un cran.
 - `{"action":"captures","pod":"…",…}` donne les captures validées et à jour, avec les mêmes filtres.
 - Un podz ne fabrique jamais de mise en scène lui-même. S'il lui en manque une, il la demande à l'agent « Mises en scène », par le chef des podz.
+- **Traductions à la demande (décision d'Adrien, 24/10)** : un podz peut demander à l'agent « Mises en scène » la version d'une image dans une langue (son jeton ne fait que lire). L'agent la lance sans attendre Adrien, dans la seule limite du budget Fal de la semaine. La relecture et la validation restent humaines.
 
 ## Pour l'agent « Mises en scène »
 

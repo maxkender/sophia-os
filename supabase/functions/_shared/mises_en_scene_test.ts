@@ -174,6 +174,9 @@ Deno.test("métadonnées : JPEG sans EXIF, XMP ni C2PA (APP1, APP11), avec JFIF 
 Deno.test("format : imposé d'après l'image de départ, rendu refusé s'il prend celui de la capture", () => {
   assertEquals(ratioImpose({ largeur: 1696, hauteur: 2528 }), "2:3");
   assertEquals(ratioImpose({ largeur: 1792, hauteur: 2400 }), "3:4");
+  // Capture d'iPhone (9:19,5) : aucun ratio Fal à 4 % près, on suit l'image.
+  assertEquals(ratioImpose({ largeur: 739, hauteur: 1600 }), "auto");
+  assertEquals(ratioImpose({ largeur: 3024, hauteur: 1920 }), "auto"); // site micabo, 1,575 : entre 3:2 et 16:9
   const origine = { largeur: 1696, hauteur: 2528 };
   assert(formatRespecte(origine, { largeur: 1696, hauteur: 2528 }));
   assert(formatRespecte(origine, { largeur: 1664, hauteur: 2496 }));

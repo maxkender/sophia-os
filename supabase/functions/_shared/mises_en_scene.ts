@@ -5,7 +5,7 @@
  */
 
 import { nomLangue } from "./comment_masters.ts";
-import { aspectRatioProche } from "./fal_nano_banana.ts";
+import { aspectRatioProche, type FalAspectRatio } from "./fal_nano_banana.ts";
 
 /** Le support d'une capture, d'un intégrateur et de leur mise en scène. */
 export const SUPPORTS = ["iphone", "tablette", "ordinateur"] as const;
@@ -206,9 +206,13 @@ export function cheminMiseEnScene(
  * Ratio Fal à imposer : celui de l'image de départ (la photo, ou l'image
  * d'origine d'une version). En `auto`, Nano Banana a pris le format de la
  * capture (image 2) et inventé une interface d'appli autour de la scène.
+ * Quand aucun ratio Fal ne colle à 4 % près (une capture d'iPhone, 9:19,5),
+ * `auto` : avec une seule image (traduction à plat), il suit cette image.
  */
-export function ratioImpose(taille: { largeur: number; hauteur: number }) {
-  return aspectRatioProche(taille.largeur, taille.hauteur);
+export function ratioImpose(taille: { largeur: number; hauteur: number }): FalAspectRatio {
+  const proche = aspectRatioProche(taille.largeur, taille.hauteur);
+  const [l, h] = proche.split(":").map(Number);
+  return formatRespecte(taille, { largeur: l, hauteur: h }) ? proche : "auto";
 }
 
 /** Le rendu garde-t-il le format de l'image de départ (à 4 % près) ? */

@@ -29,8 +29,11 @@ import {
 } from "./assignationABlanc";
 import {
   basculerSelection,
+  decouperEnLots,
   formatNote,
+  fusionnerResultats,
   MAX_CONTENUS_A_BLANC,
+  MAX_SELECTION_A_BLANC,
   motifNonEligibleCle,
   ordonnerLabels,
   raisonDeckCle,
@@ -40,6 +43,7 @@ import {
   type ContenusABlancResultat,
   type ContenuTesteABlanc,
   type DeckTesteABlanc,
+  type LotABlanc,
   type SlideshowABlanc,
   type SlideTesteeABlanc,
 } from "./contenusABlanc";
@@ -50,7 +54,8 @@ const selectClass =
 const SLUG_DEFAUT = "unswipe";
 
 /**
- * Test à blanc « contenus » : choisir 1 à 3 slideshows d'un label, puis voir
+ * Test à blanc « contenus » : choisir 1 à 12 slideshows d'un label (un appel
+ * par lot de 3, en parallèle), puis voir
  * la note de pertinence d'une application (calcul du rattrapage), son
  * éligibilité, son tier d'entrée et son placement — sans rien enregistrer
  * (fonction `assignation-a-blanc`, mode `contenus`). Sert à vérifier les
@@ -120,20 +125,37 @@ export function ContenusABlancCard() {
     });
   };
 
+  // Un appel serveur par lot de MAX_CONTENUS_A_BLANC, tous en parallèle : chaque
+  // lot garde son mur de 150 s et son plafond d'IA. Un lot en échec n'emporte
+  // pas les autres (fusionnerResultats).
   const tester = useMutation({
-    mutationFn: () => {
+    mutationFn: async () => {
       setLogs([]);
-      return lancerContenusABlanc(
-        applicationId,
-        choisis.map((c) => c.id),
-        langue || null,
-        (ligne) => setLogs((prev) => [...prev, ligne]),
+      const lots = decouperEnLots(choisis.map((c) => c.id));
+      const issues = await Promise.allSettled(
+        lots.map((ids, i) =>
+          lancerContenusABlanc(applicationId, ids, langue || null, (ligne) =>
+            setLogs((prev) => [
+              ...prev,
+              lots.length > 1 ? { ...ligne, detail: `[${i + 1}/${lots.length}] ${ligne.detail}` } : ligne,
+            ]),
+          ),
+        ),
       );
+      const fusion = fusionnerResultats(
+        issues.map((x): LotABlanc =>
+          x.status === "fulfilled"
+            ? { ok: true, resultat: x.value }
+            : { ok: false, erreur: x.reason instanceof Error ? x.reason.message : String(x.reason) },
+        ),
+      );
+      if (!fusion) throw issues.find((x) => x.status === "rejected")?.reason ?? new Error("test échoué");
+      return fusion;
     },
   });
 
   const liste = slideshows.data ?? [];
-  const pleine = choisis.length >= MAX_CONTENUS_A_BLANC;
+  const pleine = choisis.length >= MAX_SELECTION_A_BLANC;
 
   return (
     <Card className="border-primary/30">
@@ -257,7 +279,7 @@ export function ContenusABlancCard() {
             <p className="text-xs text-muted-foreground">
               {slideshows.isLoading
                 ? t("contenusABlanc.chargement")
-                : t("contenusABlanc.nbSlideshows", { n: liste.length, max: MAX_CONTENUS_A_BLANC })}
+                : t("contenusABlanc.nbSlideshows", { n: liste.length, max: MAX_SELECTION_A_BLANC })}
             </p>
             {slideshows.isError && (
               <p className="text-xs text-destructive">{(slideshows.error as Error).message}</p>
@@ -370,6 +392,11 @@ function ResultatContenus({ r }: { r: ContenusABlancResultat }) {
           {t("aBlanc.erreurRun", { erreur: r.erreurRun })}
         </p>
       )}
+      {r.erreursLots?.map((e) => (
+        <p key={e} className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">
+          {t("aBlanc.erreurRun", { erreur: e })}
+        </p>
+      ))}
       {!r.erreurRun && <p className="rounded-md bg-success/10 p-3 text-sm font-medium text-success">{r.resume}</p>}
       {r.prompts && r.notation !== false && !r.prompts.pertinence.present && (
         <p className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">

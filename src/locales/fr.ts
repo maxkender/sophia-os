@@ -409,7 +409,7 @@ export const fr = {
     contenusABlanc: {
       title: "Tester la notation et le placement (à blanc)",
       subtitle:
-        "Choisis 1 à 3 slideshows d'un label : on calcule leur score de pertinence pour une application (même calcul que le rattrapage), leur éligibilité et leur tier d'entrée, puis on fait le placement de l'application — une fois avec la référence, puis une fois par angle en test du label, pour comparer. Sophia : placement seul. Rien n'est enregistré : à faire avant de lancer le rattrapage de tout un label.",
+        "Choisis 1 à 12 slideshows d'un label (testés par lots de 3, en parallèle) : on calcule leur score de pertinence pour une application (même calcul que le rattrapage), leur éligibilité et leur tier d'entrée, puis on fait le placement de l'application — une fois avec la référence, puis une fois par angle en test du label, pour comparer. Sophia : placement seul. Rien n'est enregistré : à faire avant de lancer le rattrapage de tout un label.",
       garantie:
         "Zéro écriture : la note, le deck traduit et le deck placé restent en mémoire le temps du test. L'IA est utilisée (quelques centimes).",
       application: "Application",

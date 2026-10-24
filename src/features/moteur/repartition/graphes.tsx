@@ -213,8 +213,15 @@ export function IconePod({ className }: { className?: string }) {
   const { t } = useTranslation();
   const libelle = t("repartition.labelPod");
   return (
-    <span title={libelle} className={cn("inline-flex shrink-0 text-muted-foreground", className)}>
-      <Boxes className="size-3.5" aria-hidden />
+    <span
+      title={libelle}
+      className={cn(
+        "inline-flex shrink-0 items-center gap-0.5 rounded-full border px-1.5 py-px font-sans text-[10px] font-medium text-foreground/80",
+        className,
+      )}
+    >
+      <Boxes className="size-3" aria-hidden />
+      Podz
       <span className="sr-only">{libelle}</span>
     </span>
   );

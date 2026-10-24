@@ -506,8 +506,8 @@ function InterrupteurAuto({ pod }: { pod: Pod }) {
   );
 }
 
-/** Valide toute la file d'un pod au rang B, une livraison après l'autre. */
-function ToutValiderEnB({ livraisons }: { livraisons: Livraison[] }) {
+/** Valide une file de livraisons au rang B, une livraison après l'autre. `tous` : toute la file de la page, tous podz confondus. */
+function ToutValiderEnB({ livraisons, tous = false }: { livraisons: Livraison[]; tous?: boolean }) {
   const { t } = useTranslation();
   const qc = useQueryClient();
   const [fait, setFait] = React.useState(0);
@@ -532,9 +532,13 @@ function ToutValiderEnB({ livraisons }: { livraisons: Livraison[] }) {
     <div className="space-y-1">
       <Button
         disabled={tout.isPending}
-        onClick={() => window.confirm(t("pods.toutValiderBConfirm", { n: livraisons.length })) && tout.mutate()}
+        onClick={() =>
+          window.confirm(t(tous ? "pods.toutValiderTousConfirm" : "pods.toutValiderBConfirm", { n: livraisons.length })) && tout.mutate()
+        }
       >
-        {tout.isPending ? t("pods.toutValiderBEnCours", { fait, n: livraisons.length }) : t("pods.toutValiderB", { n: livraisons.length })}
+        {tout.isPending
+          ? t("pods.toutValiderBEnCours", { fait, n: livraisons.length })
+          : t(tous ? "pods.toutValiderTous" : "pods.toutValiderB", { n: livraisons.length })}
       </Button>
       {erreurs.map((e) => (
         <p key={e} className="text-sm text-destructive">
@@ -555,6 +559,8 @@ export function AdminPodsPage() {
   const faites = parPod(liste, data?.decidees ?? []);
   const slugs = [...new Set([...attente.keys(), ...faites.keys()])];
   const infos = (slug: string) => liste.find((p) => p.slug === slug);
+  // La vidéo n'est pas un podz sûr : elle reste à valider une par une.
+  const toutesAValider = [...attente.entries()].filter(([slug]) => slug !== POD_VIDEO).flatMap(([, ls]) => ls);
 
   return (
     <div className="space-y-6">
@@ -562,6 +568,7 @@ export function AdminPodsPage() {
         <CardHeader>
           <CardTitle>{t("pods.title")}</CardTitle>
           <CardDescription>{t("pods.subtitle")}</CardDescription>
+          <ToutValiderEnB livraisons={toutesAValider} tous />
         </CardHeader>
         {slugs.length > 1 && (
           <CardContent className="flex flex-wrap gap-2">

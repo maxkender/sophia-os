@@ -12,13 +12,14 @@
  *
  * Maintenant, sans aucun hasard :
  *   1. FERMETURE. Un label dont la médiane des vues (rapportées à leur langue,
- *      28 jours) reste sous `fermeturePerf` (0,75) de celle de la flotte, sur
+ *      15 jours glissants depuis 0353, 28 avant) reste sous `fermeturePerf` (0,75) de celle de la flotte, sur
  *      au moins `fermetureMinPosts` (150) posts, est fermé : plus aucun compte
  *      ne le reçoit, et l'assignation de nuit le retire aux comptes qui le
  *      portent. Une fermeture est mémorisée (`fermesAuto`) : un label fermé ne
  *      poste plus, ses chiffres s'éteignent, il ne doit pas se rouvrir tout
  *      seul. Réouverture = décision humaine (`labels_ouverts` dans le réglage).
- *   2. POIDS = facteur de performance ^ `perfExposant` (2) × capacité.
+ *   2. POIDS = facteur de performance ^ `perfExposant` (3 depuis le 24/10, 2
+ *      avant : la performance pèse plus) × capacité.
  *      Facteur : la performance du label face à la flotte, lissée vers 1 par
  *      `perfLissage` (30) posts fictifs, bornée à [×0,25 ; ×4]. Capacité : les
  *      jours de réserve qui resteraient au label avec un compte de plus
@@ -56,6 +57,15 @@
  * langue la moins remplie (parmi les autres où l'application recrute) = il
  * attend, à la place de « réserve basse ».
  *
+ * TEST D'UN LABEL 100 % POD (0353). Avant d'être rempli langue par langue, un
+ * tel label est testé sur `testPodComptes` (3) comptes au plus, toutes langues
+ * confondues (le remplissage en largeur les met dans trois langues). Il sort du
+ * test à `testPodPosts` (30) posts mesurés si sa performance atteint
+ * `fermeturePerf` (0,75 de la flotte), ou quand un humain le tient « Ouvert ».
+ * Sinon il reste à 3 comptes, et la fermeture habituelle le juge à 150 posts.
+ * Plein, il est écarté comme un label fermé, mais ce n'est pas une fermeture :
+ * la nuit ne le retire à personne.
+ *
  * Module pur : les chiffres viennent de `stats_choix_label` (migration 0287),
  * les réglages de `reglages.choix_labels` (`lireReglagesChoixLabel`).
  */
@@ -74,7 +84,7 @@ export interface StatLabelCreation {
   passages_restants: number;
   /** Passages consommés par jour par les comptes du label, pour l'application. */
   demande_jour: number;
-  /** Posts publiés sur 28 j (application du compte) avec des vues. */
+  /** Posts publiés sur 15 j (application du compte) avec des vues (0353). */
   passages: number;
   /** Médiane des vues de ses posts, chacune rapportée à la médiane de sa langue. */
   perf_label: number | null;
@@ -125,6 +135,10 @@ export interface ReglagesChoixLabel {
   rafaleRecents: number;
   /** Comptes réaffectés au plus par nuit (garde-fou d'un réglage mal posé). */
   relabelsMaxParNuit: number;
+  /** Label 100 % pod en test : comptes au plus, toutes langues confondues (0353). */
+  testPodComptes: number;
+  /** Posts mesurés qu'il lui faut pour sortir du test (à `fermeturePerf` au moins). */
+  testPodPosts: number;
   /** Labels jamais fermés (réouverture manuelle), toutes applications. */
   ouverts: string[];
   /** Labels toujours fermés (fermeture manuelle), toutes applications. */
@@ -143,7 +157,7 @@ export interface ReglagesChoixLabel {
 }
 
 export const REGLAGES_CHOIX_LABEL_DEFAUT: Readonly<ReglagesChoixLabel> = Object.freeze({
-  perfExposant: 2,
+  perfExposant: 3,
   perfLissage: 30,
   perfMin: 0.25,
   perfMax: 4,
@@ -155,6 +169,8 @@ export const REGLAGES_CHOIX_LABEL_DEFAUT: Readonly<ReglagesChoixLabel> = Object.
   partMax: 0.5,
   rafaleRecents: 2,
   relabelsMaxParNuit: 20,
+  testPodComptes: 3,
+  testPodPosts: 30,
   ouverts: [],
   fermes: [],
   fermesApp: [],
@@ -225,6 +241,8 @@ export function lireReglagesChoixLabel(valeur: unknown): ReglagesChoixLabel {
     partMax: Math.min(1, positif(v.part_max, d.partMax)),
     rafaleRecents: positif(v.rafale_recents, d.rafaleRecents),
     relabelsMaxParNuit: Math.max(0, Math.round(nombre(v.relabels_max_par_nuit ?? d.relabelsMaxParNuit))),
+    testPodComptes: Math.max(1, Math.round(positif(v.test_pod_comptes, d.testPodComptes))),
+    testPodPosts: Math.max(1, Math.round(positif(v.test_pod_posts, d.testPodPosts))),
     ouverts: listeIds(v.labels_ouverts),
     fermes: listeIds(v.labels_fermes),
     fermesApp: listeIds(v.labels_fermes_app),
@@ -343,6 +361,36 @@ export function enAvanceRemplissage(s: StatLabelCreation): boolean {
   return estPodSeul(s) && s.niveau_pod !== null && s.niveau_pod !== undefined && s.comptes_langue > s.niveau_pod;
 }
 
+/**
+ * Label 100 % pod encore EN TEST (0353) : il n'a pas `testPodPosts` posts
+ * mesurés, ou sa performance reste sous `fermeturePerf`. Un label tenu
+ * « Ouvert » à la main (pour l'application ou partout) sort du test.
+ *
+ * Au-delà de `testPodComptes` comptes (toutes applications), le test est
+ * passé une fois pour toutes : il n'a pu en avoir plus qu'en sortant du test
+ * (ou par la File, une décision humaine). Le nombre de comptes sert de
+ * mémoire : sans lui, un label validé replongerait « en test », donc bloqué,
+ * dès que ses posts sur 15 jours faiblissent ; et un label servi par deux
+ * applications, validé sur l'une, resterait bloqué sur l'autre où il n'a
+ * aucun post à mesurer.
+ */
+export function enTestPod(s: StatLabelCreation, r: ReglagesChoixLabel, applicationId: string): boolean {
+  if (!estPodSeul(s)) return false;
+  if (s.comptes_total > r.testPodComptes) return false;
+  if (r.ouvertsApp.includes(cleFermeture(applicationId, s.label_id)) || r.ouverts.includes(s.label_id)) return false;
+  const rel = perfRelative(s);
+  return !(s.passages >= r.testPodPosts && rel !== null && rel >= r.fermeturePerf);
+}
+
+/**
+ * Label en test qui a déjà ses `testPodComptes` comptes : il n'en reçoit pas
+ * d'autre tant que le test n'est pas fini. Ce n'est PAS une fermeture : la nuit
+ * ne le retire à personne, il attend ses chiffres.
+ */
+export function testPodPlein(s: StatLabelCreation, r: ReglagesChoixLabel, applicationId: string): boolean {
+  return enTestPod(s, r, applicationId) && s.comptes_total >= r.testPodComptes;
+}
+
 /** Stock compté dans le poids ; un label 100 % pod n'est pas jugé sur son stock. */
 export function capacite(
   s: StatLabelCreation,
@@ -440,7 +488,7 @@ export function classerLabels(
   const uniques = new Map<string, StatLabelCreation>();
   for (const s of stats) if (s.label_id && !uniques.has(s.label_id)) uniques.set(s.label_id, s);
   const liste = [...uniques.values()].filter(
-    (s) => opts.ignorerFermeture || !estFerme(s.label_id, app, r, s),
+    (s) => opts.ignorerFermeture || (!estFerme(s.label_id, app, r, s) && !testPodPlein(s, r, app)),
   );
   if (liste.length === 0) return [];
 

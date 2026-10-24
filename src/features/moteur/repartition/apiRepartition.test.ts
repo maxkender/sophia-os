@@ -15,17 +15,20 @@ vi.mock("../api", () => ({
 }));
 
 const maybeSingle = vi.fn();
+const rpc = vi.fn();
 vi.mock("@/lib/supabase/client", () => ({
   supabase: {
     from: () => ({
       select: () => ({ eq: () => ({ maybeSingle: () => maybeSingle() }) }),
     }),
+    rpc: (nom: string, args: unknown) => rpc(nom, args),
   },
 }));
 
 import {
   ecrireEtatManuelLabel,
   ecrireReglagesChoixLabel,
+  lireMarchesRepartition,
   lireReglagesChoixLabelPoses,
   remettreReglagesChoixLabelDefaut,
 } from "./apiRepartition";
@@ -147,5 +150,42 @@ describe("savoir si les réglages sont posés", () => {
   it("clé absente : valeurs par défaut", async () => {
     maybeSingle.mockResolvedValue({ data: null, error: null });
     await expect(lireReglagesChoixLabelPoses()).resolves.toBe(false);
+  });
+});
+
+describe("lire les marchés d'une application (simulation_repartition)", () => {
+  const ligne = {
+    langue: "fr",
+    pays: "FR",
+    label_id: "l1",
+    label_nom: "beau_smart_girl",
+    comptes_langue: 3,
+    comptes_pays: 3,
+    comptes_total: 45,
+    passages_restants: "494",
+    demande_jour: "10.0",
+    passages: 20,
+    perf_label: "0.45",
+    perf_flotte: "1",
+    recents_langue: 0,
+    recence_langue: 0,
+    recents_pays: 0,
+    recence_pays: 0,
+  };
+
+  it("lit les colonnes de 0352 : pod, langue servie, niveau, comptes de l'application", async () => {
+    rpc.mockResolvedValue({
+      data: [{ ...ligne, pod_seul: true, livre_langue: false, niveau_pod: "2", comptes_app: 6 }],
+      error: null,
+    });
+    const [m] = await lireMarchesRepartition("id-micabo");
+    expect(rpc).toHaveBeenCalledWith("simulation_repartition", { p_application: "id-micabo" });
+    expect(m.stats[0]).toMatchObject({ pod_seul: true, livre_langue: false, niveau_pod: 2, comptes_app: 6, comptes_total: 45 });
+  });
+
+  it("sans ces colonnes (avant 0352) : label ordinaire, comptes de l'application = total", async () => {
+    rpc.mockResolvedValue({ data: [ligne], error: null });
+    const [m] = await lireMarchesRepartition("id-micabo");
+    expect(m.stats[0]).toMatchObject({ pod_seul: false, livre_langue: true, niveau_pod: null, comptes_app: 45 });
   });
 });

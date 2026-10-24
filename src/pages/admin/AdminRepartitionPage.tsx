@@ -6,6 +6,7 @@ import {
   ArrowDownRight,
   ArrowUpRight,
   CheckCircle2,
+  Clock,
   ChevronDown,
   ChevronRight,
   Globe,
@@ -42,6 +43,7 @@ import {
   remettreReglagesChoixLabelDefaut,
 } from "@/features/moteur/repartition/apiRepartition";
 import { CarteFileLabels } from "@/features/moteur/repartition/CarteFileLabels";
+import { CartePodz } from "@/features/moteur/repartition/CartePodz";
 import { fileDeLApplication } from "@/features/moteur/repartition/fileApplication";
 import {
   Aide,
@@ -77,7 +79,9 @@ import {
   type MarcheApplications,
 } from "@/features/moteur/repartition/scoreApplication";
 import {
+  enTestPod,
   motifFermeture,
+  testPodPlein,
   type MotifFermeture,
   type ReglagesChoixLabel,
   type StatLabel,
@@ -133,8 +137,17 @@ function CelluleMarche({ langue, pays }: { langue: string; pays: string | null }
   );
 }
 
-function EtatLabel({ motif }: { motif: MotifFermeture | null }) {
+function EtatLabel({ motif, testPlein = false }: { motif: MotifFermeture | null; testPlein?: boolean }) {
   const { t } = useTranslation();
+  // Ouvert, mais le moteur ne lui donne plus de compte tant que son test dure.
+  if (motif === null && testPlein) {
+    return (
+      <Badge variant="outline" className="gap-1">
+        <Clock className="size-3 text-amber-600" aria-hidden />
+        {t("repartition.testComplet")}
+      </Badge>
+    );
+  }
   if (motif === null) {
     return (
       <Badge variant="outline" className="gap-1">
@@ -236,6 +249,11 @@ export function AdminRepartitionPage() {
     return out;
   }, [actifs, parApp]);
 
+  const marchesParApp = React.useMemo(
+    () => Object.fromEntries(actifs.map((a, i) => [a.id, parApp[i]?.data ?? []])),
+    [actifs, parApp],
+  );
+
   /** Les labels 100 % podz (0352), toutes applications : leur nom porte la marque pod. */
   const labelsPod = React.useMemo(() => {
     const out = new Set<string>();
@@ -292,9 +310,10 @@ export function AdminRepartitionPage() {
           <CarteLabels
             applications={actifs}
             applicationParDefaut={applicationId}
-            marchesParApp={Object.fromEntries(actifs.map((a, i) => [a.id, parApp[i]?.data ?? []]))}
+            marchesParApp={marchesParApp}
             reglages={reglages.data}
           />
+          <CartePodz applications={actifs} marchesParApp={marchesParApp} reglages={reglages.data} />
           <CarteFileLabels />
         </>
       )}
@@ -1180,6 +1199,11 @@ function VerdictSite({ verdict, cible }: { verdict: VerdictMarche; cible: CibleA
 // 4. Les labels d'une application
 // ---------------------------------------------------------------------------
 
+function bornesRemplissage(r: { min: number; max: number; niveau: number | null } | undefined) {
+  if (!r) return { min: 0, max: 0 };
+  return { min: r.niveau ?? r.min, max: Math.max(r.max, r.niveau ?? 0) };
+}
+
 function CarteLabels({
   applications,
   applicationParDefaut,
@@ -1220,8 +1244,13 @@ function CarteLabels({
       }
     }
     // Remplissage d'un label 100 % podz : ses comptes par langue servie, du
-    // moins rempli au plus rempli (le moteur le remplit en largeur).
-    const remplissage = new Map<string, { min: number; max: number }>();
+    // moins rempli au plus rempli (le moteur le remplit en largeur). Le bas se
+    // lit dans `niveau_pod`, que le moteur calcule sur les seules langues où
+    // l'application recrute : une langue servie sans recrue ne le tire pas à 0.
+    // `niveau_pod` d'un marché = le moins rempli des AUTRES langues qui
+    // recrutent ; sur tous les marchés, ça couvre toutes ces langues. Sans
+    // aucun niveau (une seule langue recrute), le bas des marchés servis.
+    const remplissage = new Map<string, { min: number; max: number; niveau: number | null }>();
     for (const m of marches) {
       for (const s of m.stats) {
         if (!s.pod_seul || s.livre_langue === false) continue;
@@ -1229,10 +1258,17 @@ function CarteLabels({
         remplissage.set(s.label_id, {
           min: Math.min(r?.min ?? Infinity, s.comptes_langue),
           max: Math.max(r?.max ?? 0, s.comptes_langue),
+          niveau:
+            s.niveau_pod === null || s.niveau_pod === undefined
+              ? (r?.niveau ?? null)
+              : Math.min(r?.niveau ?? Infinity, s.niveau_pod),
         });
       }
     }
-    const totalFlotte = [...parLabel.values()].reduce((a, e) => a + e.stat.comptes_total, 0);
+    // Les comptes de CETTE application : l'onglet micabo ne doit pas compter
+    // les comptes Sophia d'un label partagé (le moteur, lui, compte tout).
+    const comptesApp = (s: StatLabel) => s.comptes_app ?? s.comptes_total;
+    const totalApp = [...parLabel.values()].reduce((a, e) => a + comptesApp(e.stat), 0);
     return [...parLabel.values()]
       .map(({ stat, max, absents }) => ({
         stat,
@@ -1240,9 +1276,12 @@ function CarteLabels({
         decision: etatManuelLabel(stat.label_id, appId, reglages),
         jours: max / (stat.demande_jour + reglages.postsParJourNouveau),
         perf: stat.perf_flotte && stat.perf_label !== null && stat.passages > 0 ? stat.perf_label / stat.perf_flotte : null,
-        part: totalFlotte > 0 ? (100 * stat.comptes_total) / totalFlotte : 0,
+        comptes: comptesApp(stat),
+        part: totalApp > 0 ? (100 * comptesApp(stat)) / totalApp : 0,
         absents: [...new Set(absents)],
-        remplissage: stat.pod_seul ? (remplissage.get(stat.label_id) ?? { min: 0, max: 0 }) : null,
+        remplissage: stat.pod_seul ? bornesRemplissage(remplissage.get(stat.label_id)) : null,
+        enTest: enTestPod(stat, reglages, appId),
+        testPlein: testPodPlein(stat, reglages, appId),
       }))
       // Les 100 % podz en dernier : leur réserve ne les juge pas.
       .sort((a, b) => Number(a.remplissage !== null) - Number(b.remplissage !== null) || a.jours - b.jours);
@@ -1257,7 +1296,7 @@ function CarteLabels({
               {t("repartition.labelsTitre")}
               <Aide libelle={t("repartition.labelsTitre")}>{t("repartition.etatAide")}</Aide>
             </CardTitle>
-            <CardDescription>{t("repartition.labelsAide", { jours: reglages.reserveMinJours })}</CardDescription>
+            <CardDescription>{t("repartition.labelsAide", { jours: reglages.reserveMinJours, test: reglages.testPodComptes })}</CardDescription>
           </div>
           <div
             role="tablist"
@@ -1327,7 +1366,8 @@ function CarteLabels({
                 <tr key={e.stat.label_id} className="border-b border-border/40" data-testid={`label-${e.stat.label_nom}`}>
                   <td className="py-2 pr-4">
                     <NomLabel nom={e.stat.label_nom} pod={e.stat.pod_seul} className="text-xs" />
-                    {e.absents.length > 0 && (
+                    {/* Un label 100 % podz montre ses langues dans sa propre carte. */}
+                    {e.absents.length > 0 && !e.stat.pod_seul && (
                       <Bulle
                         libelle={t("repartition.absentLangues", { count: e.absents.length })}
                         className="ml-2 text-[11px] text-amber-700 dark:text-amber-400"
@@ -1343,14 +1383,32 @@ function CarteLabels({
                     )}
                     {/* Sous md, la colonne État est masquée : le badge passe ici. */}
                     <span className="mt-1 block md:hidden">
-                      <EtatLabel motif={e.motif} />
+                      <EtatLabel motif={e.motif} testPlein={e.testPlein} />
                     </span>
                   </td>
                   <td className="py-2 pr-4">
                     {e.remplissage ? (
-                      <span className="text-xs text-muted-foreground" data-testid="remplissage-pod">
-                        {t("repartition.remplissagePod", { min: e.remplissage.min, max: e.remplissage.max })}
-                      </span>
+                      e.enTest ? (
+                        <span className="flex items-center gap-1 text-xs text-muted-foreground" data-testid="test-pod">
+                          {t("repartition.testPod", {
+                            comptes: e.stat.comptes_total,
+                            max: reglages.testPodComptes,
+                            posts: e.stat.passages,
+                            postsMax: reglages.testPodPosts,
+                          })}
+                          <Aide libelle={t("repartition.colReserve")}>
+                            {t("repartition.testPodAide", {
+                              max: reglages.testPodComptes,
+                              postsMax: reglages.testPodPosts,
+                              seuil: nombre(reglages.fermeturePerf, 2),
+                            })}
+                          </Aide>
+                        </span>
+                      ) : (
+                        <span className="text-xs text-muted-foreground" data-testid="remplissage-pod">
+                          {t("repartition.podzVoirCarte")}
+                        </span>
+                      )
                     ) : (
                       <span className="flex items-center gap-2">
                         <BarreReserve
@@ -1381,12 +1439,17 @@ function CarteLabels({
                       </span>
                     )}
                   </td>
-                  <td className="hidden whitespace-nowrap py-2 pr-4 text-right tabular-nums md:table-cell">
-                    {e.stat.comptes_total}
+                  <td className="hidden whitespace-nowrap py-2 pr-4 text-right tabular-nums md:table-cell" data-testid="comptes-label">
+                    {e.comptes}
                     <span className="ml-1 text-xs text-muted-foreground">({pourcent(e.part)})</span>
+                    {e.stat.comptes_total !== e.comptes && (
+                      <span className="block text-[11px] text-muted-foreground">
+                        {t("repartition.comptesToutesApps", { n: e.stat.comptes_total })}
+                      </span>
+                    )}
                   </td>
                   <td className="hidden py-2 pr-4 md:table-cell">
-                    <EtatLabel motif={e.motif} />
+                    <EtatLabel motif={e.motif} testPlein={e.testPlein} />
                   </td>
                   <td className="py-2">
                     <DecisionLabel applicationId={appId!} labelId={e.stat.label_id} etat={e.decision} />

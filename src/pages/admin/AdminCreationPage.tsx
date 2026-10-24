@@ -285,7 +285,7 @@ export function AdminCreationPage() {
               {label.style_theme || label.prompt_creation
                 ? t("creation.labelPrepare")
                 : t("creation.labelVide")}{" "}
-              <Link to="/admin" className="text-primary underline underline-offset-2">
+              <Link to="/admin/labels" className="text-primary underline underline-offset-2">
                 {t("creation.editerLabel")}
               </Link>
             </p>

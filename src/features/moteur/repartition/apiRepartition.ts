@@ -70,6 +70,7 @@ interface LigneSimulation {
   pod_seul?: boolean | null;
   livre_langue?: boolean | null;
   niveau_pod?: number | string | null;
+  comptes_app?: number | string | null;
 }
 
 function nombre(v: number | string | null | undefined): number {
@@ -125,6 +126,8 @@ export async function lireMarchesRepartition(
       pod_seul: l.pod_seul === true,
       livre_langue: l.livre_langue !== false,
       niveau_pod: nombreOuNull(l.niveau_pod),
+      // Absent avant 0352 : on retombe sur le total, l'affichage d'avant.
+      comptes_app: l.comptes_app === undefined || l.comptes_app === null ? nombre(l.comptes_total) : nombre(l.comptes_app),
     });
   }
 

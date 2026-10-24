@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o019",
+ "schema_id": "boite-te-merite",
+ "titre": "les red flags que j'ignore PLUS pendant une période d'essai (la boîte aussi passe un test) #periodedessai #travail #santementale #carriere #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "1fd9d1f3-71b5-423b-aadc-d27c2a00601b",
+  "bbe75cf0-48c8-4181-b88b-19bd7b8e13a3"
+ ],
+ "notes": "Accroche 100 % neuve chez nous, à la demande de l'équipe (24/10) : ni le mot, ni l'angle, ni le format d'accroche n'ont été utilisés de rh-o001 à rh-o017. Schéma boite-te-merite (r 6,96 sur 3 passages, 1fd9d1f3) : le renversement du rapport de force. Accroches écrites : « les red flags que j'ignore PLUS pendant une période d'essai (la boîte aussi passe un test) » (retenue : « red flags » jamais utilisé, renversement clair), « en période d'essai, c'est moi qui note la boîte » (écartée : trop proche de bbe75cf0), « 6 signes qu'une boîte ne te mérite pas, vus dès le premier mois » (écartée : longue). Six signaux neufs, aucune reprise de bbe75cf0 (onboarding, points hebdo, heure de départ, la personne remplacée). Aucun conseil juridique sur la rupture de la période d'essai. CTA jamais utilisé : répondre par un chiffre (« ta boîte actuelle en coche combien ? »). Sophia en 5 : garder 5 minutes à soi. Inspirations : sans la slide 4 de 1fd9d1f3 ni la 5 de bbe75cf0 (appli concurrente).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3e25fa07",
+   "texte_overlay": "les red flags que j'ignore PLUS\npendant une période d'essai\n(la boîte aussi passe un test)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "28827c81",
+   "texte_overlay": "personne sait vraiment ce que je dois faire\ntrois personnes, trois réponses sur ma mission.\nau bout de 2 semaines, c'est plus du flou, c'est un signal",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1cc3bac4",
+   "texte_overlay": "le turnover dont tout le monde rigole\n« encore un pot de départ, on va finir par avoir un abonnement »\nquand ça fait rire, c'est que ça dure",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2f644d6b",
+   "texte_overlay": "les mails de la direction à 23 h, et les réponses à 23 h 05\npersonne t'oblige. mais tout le monde le fait.\nregarde ce que les gens font, pas ce que dit la charte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2ac68b47",
+   "texte_overlay": "plus une minute à moi dès la 2e semaine\nmême pas 5 minutes le matin pour autre chose.\nsi c'est déjà le cas au début, ça va pas s'arranger",
+   "texte_sophia": "plus une minute à moi dès la 2e semaine\nmes 5 minutes d'appli Sophia le matin, c'est mon test : si même ça devient impossible, c'est un signal",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1d99efaa",
+   "texte_overlay": "mes questions sont prises pour des critiques\n« pourquoi on fait comme ça ? » et on me répond « c'est comme ça ».\nune équipe qui supporte pas les questions apprend jamais rien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "23d0d06e",
+   "texte_overlay": "« ça va se calmer après le rush »\nle rush dure depuis 2 ans, d'après les collègues.\ndemande-leur depuis quand, discrètement",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "6cb193bf",
+   "texte_overlay": "ta boîte actuelle, elle en coche combien ?\nréponds juste le chiffre en commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/7.jpg"
+  }
+ ]
+}

@@ -11,6 +11,7 @@ import {
   classerLabels,
   cleFermeture,
   doitFermer,
+  enTestPod,
   estFerme,
   estSuspendu,
   facteurPerformance,
@@ -23,6 +24,7 @@ import {
   REGLAGES_CHOIX_LABEL_DEFAUT,
   type ReglagesChoixLabel,
   type StatLabelCreation,
+  testPodPlein,
 } from "./choix_label_equilibre.ts";
 
 const R = REGLAGES_CHOIX_LABEL_DEFAUT;
@@ -195,10 +197,11 @@ Deno.test("poids : la performance pèse plus que le stock", () => {
   // RH (1,45, 8 jours) contre alpha_male (0,90, 46 jours) : RH plus lourd.
   const [rh, am] = [poolProd()[1], poolProd()[2]];
   assert(poidsLabel(rh) > poidsLabel(am), `RH ${poidsLabel(rh)} / alpha_male ${poidsLabel(am)}`);
-  // À stock égal et confortable, le poids suit le carré de la performance.
+  // À stock égal et confortable, le poids suit le CUBE de la performance
+  // (exposant 3 depuis le 24/10) : deux fois meilleur = huit fois plus lourd.
   const a = stat({ label_id: "a", passages: 100_000, perf_label: 1.2 });
   const b = stat({ label_id: "b", passages: 100_000, perf_label: 0.6 });
-  assertAlmostEquals(poidsLabel(a) / poidsLabel(b), 4, 0.01);
+  assertAlmostEquals(poidsLabel(a) / poidsLabel(b), 8, 0.02);
 });
 
 Deno.test("fermeture : sous 0,75 de la flotte sur 150 posts au moins, jamais sur peu de posts", () => {
@@ -534,4 +537,57 @@ Deno.test("100 % pod : jamais dans une langue que son pod ne sert pas, même san
 Deno.test("100 % pod : les colonnes de la RPC sont lues", () => {
   const s = normaliserStatLabel({ label_id: "x", pod_seul: true, livre_langue: false, niveau_pod: "2" });
   assertEquals([s.pod_seul, s.livre_langue, s.niveau_pod], [true, false, 2]);
+});
+
+// ── Test d'un label 100 % pod (0353) : 3 comptes au plus avant d'être jugé ──
+
+Deno.test("test pod : 3 comptes au plus tant que le test n'est pas fini", () => {
+  const app = APP;
+  // 2 comptes : il peut encore en recevoir un (dans une langue où il n'est pas).
+  const deux = stat({ ...FATHOMLY, comptes_total: 2 });
+  assert(enTestPod(deux, R, app));
+  assertEquals(testPodPlein(deux, R, app), false);
+  assertEquals(choisirLabel([...FR_24_10, deux], R), "fathomly");
+  // 3 comptes : plein, écarté comme un label fermé, même à zéro compte dans la langue.
+  const trois = stat({ ...FATHOMLY, comptes_total: 3 });
+  assert(testPodPlein(trois, R, app));
+  assertEquals(classerLabels([...FR_24_10, trois], R).some((c) => c.label_id === "fathomly"), false);
+  // Ce n'est pas une fermeture : la nuit ne le retire à personne.
+  assertEquals(estFerme("fathomly", app, R, trois), false);
+  // Dernier recours d'une création sans label ouvert : il revient.
+  assertEquals(choisirLabel([trois], R, { jamaisSansLabel: true }), "fathomly");
+});
+
+Deno.test("test pod : fini à 30 posts mesurés et une perf d'au moins ×0,75", () => {
+  const app = APP;
+  const base = { ...FATHOMLY, comptes_total: 3 };
+  assert(enTestPod(stat({ ...base, passages: 29, perf_label: 1.4 }), R, app));
+  assertEquals(enTestPod(stat({ ...base, passages: 30, perf_label: 0.8 }), R, app), false);
+  // Mesuré mais faible : il reste à 3 comptes ; la fermeture le juge à 150 posts.
+  assert(testPodPlein(stat({ ...base, passages: 60, perf_label: 0.6 }), R, app));
+  // Un label ordinaire n'est jamais en test.
+  assertEquals(enTestPod(stat({ label_id: "alpha_male", comptes_total: 42 }), R, app), false);
+});
+
+Deno.test("test pod : « Ouvert » à la main le sort du test ; le réglage se lit", () => {
+  const app = APP;
+  const trois = stat({ ...FATHOMLY, comptes_total: 3 });
+  assertEquals(testPodPlein(trois, reglages({ ouvertsApp: [cleFermeture(app, "fathomly")] }), app), false);
+  assertEquals(testPodPlein(trois, reglages({ ouverts: ["fathomly"] }), app), false);
+  const lu = lireReglagesChoixLabel({ test_pod_comptes: 2, test_pod_posts: 50 });
+  assertEquals([lu.testPodComptes, lu.testPodPosts], [2, 50]);
+  assertEquals(testPodPlein(stat({ ...FATHOMLY, comptes_total: 2 }), lu, app), true);
+  // Valeurs absurdes : retour aux défauts, jamais un test à zéro compte.
+  const absurde = lireReglagesChoixLabel({ test_pod_comptes: 0, test_pod_posts: -5 });
+  assertEquals([absurde.testPodComptes, absurde.testPodPosts], [3, 30]);
+});
+
+Deno.test("test pod : au-delà de 3 comptes, le test est passé pour de bon (toutes applis)", () => {
+  // Validé puis monté à 9 comptes : ses posts sur 28 j faiblissent, il ne replonge pas.
+  const valide = stat({ ...FATHOMLY, comptes_total: 9, passages: 12, perf_label: 0.6 });
+  assertEquals(enTestPod(valide, R, APP), false);
+  assertEquals(testPodPlein(valide, R, APP), false);
+  // Servi par une 2e application où il n'a aucun post : pas bloqué non plus.
+  const autreApp = stat({ ...FATHOMLY, comptes_total: 4, passages: 0, perf_label: null });
+  assertEquals(testPodPlein(autreApp, R, "00000000-0000-4000-8000-000000000003"), false);
 });

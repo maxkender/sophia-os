@@ -125,6 +125,9 @@ export function AppShell({
             </div>
 
             <div className="flex items-center gap-2">
+              {/* Dans la barre plutôt qu'en bulle flottante : la bulle cachait
+                  le bord droit des pages. */}
+              <ChatWidget />
               {SUPPORTED_LANGUAGES.length > 1 && (
                 <Select
                   value={langue}
@@ -168,7 +171,6 @@ export function AppShell({
           <div className="mx-auto w-full max-w-6xl space-y-6">{children}</div>
         </main>
       </div>
-      <ChatWidget />
     </div>
   );
 }

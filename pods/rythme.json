@@ -3,7 +3,7 @@
  "page-blanche": { "par_jour": 2 },
  "originaux": { "par_jour": 3 },
  "reactions": { "par_jour": 0, "pause": true, "motif": "routine vidéo en pause depuis le 07/10" },
- "alpha-yellow": { "par_jour": 2 },
+ "alpha-yellow": { "par_jour": 3 },
  "rh": { "par_jour": 2 },
  "mentalapp": { "par_jour": 2 },
  "beau-smart-girl": { "par_jour": 2 },

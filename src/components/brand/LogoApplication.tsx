@@ -37,7 +37,13 @@ export function LogoApplication({
 }) {
   const nom = nomAffiche(slug);
   const src = LOGOS[slug];
-  const classe = cn("inline-block shrink-0 object-cover ring-1 ring-black/10 dark:ring-white/25", TAILLES[taille], className);
+  // `max-w-none` : sans lui, le `max-width: 100%` des images (preflight) écrase
+  // le logo en largeur dès que sa colonne de tableau se resserre.
+  const classe = cn(
+    "inline-block max-w-none shrink-0 object-cover ring-1 ring-black/10 dark:ring-white/25",
+    TAILLES[taille],
+    className,
+  );
   if (src) {
     return <img src={src} alt={decoratif ? "" : nom} title={nom} className={classe} draggable={false} />;
   }

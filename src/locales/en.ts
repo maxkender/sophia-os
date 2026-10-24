@@ -2275,6 +2275,8 @@ export const en = {
       toutValiderB: "Approve all as B ({{n}})",
       toutValiderBEnCours: "Approving… {{fait}}/{{n}}",
       toutValiderBConfirm: "Approve the {{n}} pending deliveries at tier B? They become active content.",
+      toutValiderTous: "Approve all, every pod ({{n}})",
+      toutValiderTousConfirm: "Approve the {{n}} pending deliveries of every pod at tier B (except video)? They become active content.",
       historique: "Already decided",
       vide: "No delivery waiting",
       videDesc: "Pod agents drop their finished content here.",

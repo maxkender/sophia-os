@@ -2278,6 +2278,8 @@ export const fr = {
       toutValiderB: "Tout valider en B ({{n}})",
       toutValiderBEnCours: "Validation… {{fait}}/{{n}}",
       toutValiderBConfirm: "Valider les {{n}} livraisons en attente au rang B ? Elles deviennent des contenus actifs.",
+      toutValiderTous: "Tout valider, tous podz ({{n}})",
+      toutValiderTousConfirm: "Valider les {{n}} livraisons en attente de tous les podz au rang B (sauf la vidéo) ? Elles deviennent des contenus actifs.",
       historique: "Déjà décidées",
       vide: "Aucune livraison en attente",
       videDesc: "Les agents des pods déposent ici leurs contenus finis.",

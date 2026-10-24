@@ -8,10 +8,14 @@
   "titre": "the perfect AFTER SCHOOL ROUTINE for a peaceful life"
  },
  "titre": {
-  "fr": "la parfaite routine après les cours pour une vie sereine"
+  "fr": "la parfaite routine après les cours pour une vie sereine",
+  "de": "die perfekte After-School-Routine für ein entspanntes Leben",
+  "tr": "huzurlu bir hayat için mükemmel okul sonrası rutini"
  },
  "legendes": {
-  "fr": "ma routine du soir, sans stress 🌙 #routine #apreslescours #studytok #thatgirl #revisions"
+  "fr": "ma routine du soir, sans stress 🌙 #routine #apreslescours #studytok #thatgirl #revisions",
+  "de": "meine Routine nach der Schule, ohne Stress 🌙 #routine #nachderschule #studytok #thatgirl #lernen",
+  "tr": "stressiz okul sonrası rutinim 🌙 #rutin #okulsonrası #studytok #thatgirl #ders"
  },
  "musique": {
   "titre": "original sound",
@@ -42,6 +46,36 @@
      "y": 757,
      "texte_bas": "pour une vie sereine🌙"
     }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "die perfekte",
+     "lignes": [
+      "ROUTINE",
+      "NACH DER",
+      "SCHULE"
+     ],
+     "taille": 160,
+     "taille_script": 68,
+     "y": 757,
+     "texte_bas": "für ein entspanntes Leben🌙"
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "mükemmel",
+     "lignes": [
+      "OKUL",
+      "SONRASI",
+      "RUTİNİ"
+     ],
+     "taille": 170,
+     "taille_script": 68,
+     "y": 757,
+     "texte_bas": "huzurlu bir hayat için🌙"
+    }
    }
   },
   {
@@ -58,6 +92,28 @@
     "legende": {
      "lignes": [
       "prends un goûter🍫"
+     ],
+     "x": 430,
+     "y": 437,
+     "taille": 58,
+     "couleur": "brun"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "mach dir einen Snack🍫"
+     ],
+     "x": 430,
+     "y": 437,
+     "taille": 58,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "bir şeyler atıştır🍫"
      ],
      "x": 430,
      "y": 437,
@@ -86,6 +142,28 @@
      "taille": 52,
      "couleur": "brun"
     }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "und ein warmes Getränk☕"
+     ],
+     "x": 640,
+     "y": 720,
+     "taille": 52,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "bir de sıcak bir içecek☕"
+     ],
+     "x": 640,
+     "y": 720,
+     "taille": 52,
+     "couleur": "brun"
+    }
    }
   },
   {
@@ -102,6 +180,28 @@
     "legende": {
      "lignes": [
       "enfile une tenue confort🧦"
+     ],
+     "x": 420,
+     "y": 443,
+     "taille": 46,
+     "couleur": "brun"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "zieh was Gemütliches an🧦"
+     ],
+     "x": 420,
+     "y": 443,
+     "taille": 46,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "rahat bir şeyler giy🧦"
      ],
      "x": 420,
      "y": 443,
@@ -145,6 +245,72 @@
      "couleur": "blanc",
      "aligne": "gauche"
     }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "Lernzeit📚"
+     ],
+     "sous": [
+      "mindestens 2 Std. am Tag⏰"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 60,
+     "couleur": "brun"
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/de/parcours-iphone-6faec9d2.png",
+     "mise_en_scene": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "ders saati📚"
+     ],
+     "sous": [
+      "günde en az 2 saat⏰"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 60,
+     "couleur": "brun"
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/tr/parcours-iphone-6dcb1c35.png",
+     "mise_en_scene": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
    }
   },
   {
@@ -161,6 +327,28 @@
     "legende": {
      "lignes": [
       "range vite ta chambre et ton bureau🖥️"
+     ],
+     "x": 470,
+     "y": 554,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "räum kurz Zimmer und Schreibtisch auf🖥️"
+     ],
+     "x": 470,
+     "y": 554,
+     "taille": 40,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "odanı ve masanı hızlıca topla🖥️"
      ],
      "x": 470,
      "y": 554,
@@ -190,6 +378,28 @@
      "taille": 56,
      "couleur": "brun"
     }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "Abendessen🍠"
+     ],
+     "x": 420,
+     "y": 215,
+     "taille": 56,
+     "couleur": "brun"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "akşam yemeği🍠"
+     ],
+     "x": 420,
+     "y": 215,
+     "taille": 56,
+     "couleur": "brun"
+    }
    }
   },
   {
@@ -206,6 +416,28 @@
     "legende": {
      "lignes": [
       "détends-toi🍵"
+     ],
+     "x": 640,
+     "y": 1059,
+     "taille": 50,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "entspann dich🍵"
+     ],
+     "x": 640,
+     "y": 1059,
+     "taille": 50,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "rahatla🍵"
      ],
      "x": 640,
      "y": 1059,
@@ -234,6 +466,28 @@
      "taille": 54,
      "couleur": "jaune"
     }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "Dusche und Skincare🫧"
+     ],
+     "x": 420,
+     "y": 457,
+     "taille": 54,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "duş ve cilt bakımı🫧"
+     ],
+     "x": 420,
+     "y": 457,
+     "taille": 54,
+     "couleur": "jaune"
+    }
    }
   },
   {
@@ -250,6 +504,28 @@
     "legende": {
      "lignes": [
       "prépare ta journée de demain📝"
+     ],
+     "x": 560,
+     "y": 1180,
+     "taille": 48,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "plan schon den nächsten Tag📝"
+     ],
+     "x": 560,
+     "y": 1180,
+     "taille": 48,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "yarını şimdiden planla📝"
      ],
      "x": 560,
      "y": 1180,
@@ -278,6 +554,28 @@
      "taille": 52,
      "couleur": "jaune"
     }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "lies vor dem Schlafen📖"
+     ],
+     "x": 540,
+     "y": 479,
+     "taille": 52,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "uyumadan önce kitap oku📖"
+     ],
+     "x": 540,
+     "y": 479,
+     "taille": 52,
+     "couleur": "jaune"
+    }
    }
   },
   {
@@ -286,7 +584,7 @@
     "media_id": "1262dd30-9b6e-4427-9f22-c62bdd757b57",
     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/8f9fe944-f80f-49f5-ad03-8f5450c1eae8/7.jpg?v=1790678721667",
     "cadrage": {
-     "x": 1.0,
+     "x": 1,
      "y": 0.5,
      "zoom": 1.18
     }
@@ -301,11 +599,35 @@
      "taille": 58,
      "couleur": "jaune"
     }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "gute Nacht!😴💤🌙"
+     ],
+     "x": 520,
+     "y": 740,
+     "taille": 58,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "iyi geceler!😴💤🌙"
+     ],
+     "x": 520,
+     "y": 740,
+     "taille": 58,
+     "couleur": "jaune"
+    }
    }
   }
  ],
  "notes": "slide « temps d'étude » : la mise en scène validée a83da81b de l'OS (iPhone en main, parcours micabo), 24/10. Skincare regroupée avec la douche, slide 10 : préparer sa journée.",
  "mises_en_scene_notees": [
-  "a83da81b-2434-485c-8069-f4db3b953794"
+  "a83da81b-2434-485c-8069-f4db3b953794",
+  "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
  ]
 }

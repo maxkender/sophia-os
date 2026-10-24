@@ -28,6 +28,8 @@ export type ContenuSlide = {
   page?: Page;
   /** iPhone : la capture d'écran de l'appli, chemin depuis le dossier du pod. */
   capture?: string;
+  /** Slide photo : la photo de cette langue (la version traduite d'une mise en scène de l'OS), à la place de celle de la slide. */
+  photo?: Photo;
   /** Slide photo : la petite légende posée sur la photo, et une seconde (sous l'iPhone). */
   legende?: LegendePhoto;
   legende_bas?: LegendePhoto;
@@ -144,9 +146,10 @@ export async function rendreSlide(p: Post, s: Slide, langue: Langue, photo: Imag
     titreCouverture(ctx, c.couverture);
   } else if (s.type === "photo") {
     // Une photo pleine, sans assombrir, comme les siennes ; la légende par-dessus.
-    if (!s.photo) throw new Error("slide photo sans photo");
+    const photoLangue = c.photo ?? s.photo;
+    if (!photoLangue) throw new Error("slide photo sans photo");
     if (!c.legende && !c.note && !c.notes?.length) throw new Error("slide photo sans légende ni note");
-    fond(ctx, await photoSlide(s.photo), s.photo.cadrage);
+    fond(ctx, await photoSlide(photoLangue), photoLangue.cadrage);
     for (const n of [...(c.note ? [c.note] : []), ...(c.notes ?? [])]) noteIos(ctx, n);
     if (c.capture) iphone(ctx, await loadImage(join(RACINE, c.capture)), { haut: 352, largeur: 540, ...c.iphone });
     if (c.legende) legendePhoto(ctx, c.legende);

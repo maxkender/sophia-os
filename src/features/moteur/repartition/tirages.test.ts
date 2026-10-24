@@ -217,6 +217,26 @@ describe("projection des prochains tirages", () => {
     ).toEqual(["a"]);
   });
 
+  it("chaque compte projeté consomme : un label court en stock s'arrête au seuil de réserve (0354)", () => {
+    // « court » : 66 passages pour 9 posts/jour -> 6 jours avec un compte de
+    // plus, puis 5,1, puis 4,4 : sous les 5 jours au 3e, il passe derrière.
+    // « long » a de quoi tenir des mois. Avant, la réserve de « court » ne
+    // bougeait pas et il pouvait rafler toute la projection.
+    // Deux « longs » déjà présents à parts égales : aucun ne sature le pays.
+    const stats = {
+      "id-sophia": [
+        stat("court", { passages_restants: 66, demande_jour: 9, perf_label: 2 }),
+        stat("long1", { passages_restants: 100_000, demande_jour: 10, comptes_langue: 5, comptes_pays: 5, comptes_total: 5 }),
+        stat("long2", { passages_restants: 100_000, demande_jour: 10, comptes_langue: 5, comptes_pays: 5, comptes_total: 5 }),
+      ],
+    };
+    const seule = lireCibleApplications(null, ["sophia"]);
+    const tirages = simulerTirages(marche("pl"), stats, seule, [SOPHIA], R, 10);
+    const court = tirages.find((x) => x.label_nom === "court")?.comptes ?? 0;
+    expect(court).toBeGreaterThan(0);
+    expect(court).toBeLessThanOrEqual(2);
+  });
+
   it("n = 0 ne rend rien", () => {
     expect(simulerTirages(marche("fr"), stats, cible, APPS, R, 0)).toEqual([]);
   });

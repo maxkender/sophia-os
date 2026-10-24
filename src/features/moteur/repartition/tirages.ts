@@ -9,8 +9,11 @@
  * fera le moteur, dont elle déroule le classement, `classerLabels` — et rend la
  * composition obtenue, en pourcentage.
  *
- * C'est une PROJECTION, pas une prédiction : elle suppose que le stock, la
- * performance et la cible ne bougent pas pendant les vingt embauches. En
+ * C'est une PROJECTION, pas une prédiction : elle suppose que le stock livré,
+ * la performance et la cible ne bougent pas pendant les vingt embauches. La
+ * consommation, elle, suit : chaque compte projeté ajoute ses posts du jour à
+ * la demande de son label (un compte compte dès son assignation, 0354), donc
+ * un label se vide au fil des tirages comme il le fera vraiment. En
  * pratique le stock se recharge et la performance dérive. Elle répond à « vers
  * quoi penche le système aujourd'hui », ce qui est la question qu'on se pose
  * en regardant une langue.
@@ -154,6 +157,13 @@ export function simulerTirages(
   // monter quelle que soit celle qui vient de le prendre. L'ancienne clé
   // laissait `beau_smart_girl` repartir à zéro en changeant d'application.
   const ajoutLabel = new Map<string, number>();
+  // La CONSOMMATION, elle, est par application (`demande_jour` de
+  // `label_application_reserve`) : un compte compte dès son assignation
+  // (0354), donc chaque compte projeté ajoute ses posts du jour à la demande
+  // de son label DANS SON application. Sans ça, la projection donnait 8 comptes
+  // sur 20 à RH en Turquie, réserve intacte, alors que le moteur l'aurait
+  // relégué (réserve basse) au bout de deux ou trois.
+  const ajoutDemande = new Map<string, number>();
   const obtenus = new Map<string, Tirage>();
   const parApp = options.siteParApp ?? {};
   // Bornée ici et pas seulement chez l'appelant : un NaN qui passerait ferait
@@ -191,9 +201,10 @@ export function simulerTirages(
       .map((s) => s.label_id)
       .filter((id) => !estFerme(id, applicationId, reglages));
 
-  const avecAjouts = (stats: StatLabel[]): StatLabel[] =>
+  const avecAjouts = (stats: StatLabel[], applicationId: string): StatLabel[] =>
     stats.map((s) => {
       const plus = ajoutLabel.get(s.label_id) ?? 0;
+      const demande = (ajoutDemande.get(`${applicationId}:${s.label_id}`) ?? 0) * reglages.postsParJourNouveau;
       const r = rafale(fenetre, s.label_id, s.recents_langue, s.recence_langue);
       const rp = marche.pays
         ? rafale(fenetre, s.label_id, s.recents_pays, s.recence_pays)
@@ -203,6 +214,7 @@ export function simulerTirages(
         comptes_pays: s.comptes_pays + plus,
         comptes_langue: s.comptes_langue + plus,
         comptes_total: s.comptes_total + plus,
+        demande_jour: s.demande_jour + demande,
         recents_langue: r.recents,
         recence_langue: r.recence,
         recents_pays: rp.recents,
@@ -279,7 +291,7 @@ export function simulerTirages(
         epuise[genre] = true;
         continue;
       }
-      const prets = avecAjouts(stats);
+      const prets = avecAjouts(stats, app.application_id);
       const opts = { applicationId: app.application_id };
       // `jamaisSansLabel` : quand tous les labels de l'application sont
       // fermés, le moteur en redonne un quand même plutôt que de refuser le
@@ -299,6 +311,8 @@ export function simulerTirages(
     }
 
     ajoutLabel.set(labelId, (ajoutLabel.get(labelId) ?? 0) + 1);
+    const cleDemande = `${app.application_id}:${labelId}`;
+    ajoutDemande.set(cleDemande, (ajoutDemande.get(cleDemande) ?? 0) + 1);
     fenetre = avecTirage(fenetre, labelId);
     comptesApp.set(app.slug, (comptesApp.get(app.slug) ?? 0) + 1);
     if (duSite) attribuesSite[app.slug] = (attribuesSite[app.slug] ?? 0) + 1;

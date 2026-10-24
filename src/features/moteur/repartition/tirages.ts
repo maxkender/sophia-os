@@ -5,8 +5,9 @@
  * compte. Mis bout à bout ils ne disent pas la composition : un label peut
  * gagner le premier tirage et ne plus jamais revenir, un autre peut sortir
  * quatre fois. Ce module déroule donc la suite réelle, compte après compte, en
- * mettant à jour la présence à chaque fois — exactement ce que fera le moteur
- * — et rend la composition obtenue, en pourcentage.
+ * mettant à jour les comptes de chaque label à chaque fois — exactement ce que
+ * fera le moteur, dont elle déroule le classement, `classerLabels` — et rend la
+ * composition obtenue, en pourcentage.
  *
  * C'est une PROJECTION, pas une prédiction : elle suppose que le stock, la
  * performance et la cible ne bougent pas pendant les vingt embauches. En
@@ -23,6 +24,7 @@ import {
   type MarcheApplications,
 } from "./scoreApplication";
 import {
+  classerLabels,
   classerPropose,
   REGLAGES_CHOIX_LABEL_DEFAUT,
   type ReglagesChoixLabel,
@@ -58,6 +60,20 @@ export interface OptionsTirages {
    * Vide, il n'y a pas de tirage du site, quelle que soit la part.
    */
   siteParApp?: Readonly<Record<string, number>>;
+  /**
+   * Quel classement de label dérouler.
+   *
+   * `moteur` est le défaut, et c'est le seul qui dit la vérité : la carte
+   * promet « exactement comme le fera le moteur », et le moteur appelle
+   * `classerLabels` (`choisirLabel`, `_shared/choix_label_equilibre.ts`).
+   * La projection a longtemps déroulé `classerPropose`, la règle d'une page
+   * Notion du 18/10 que personne n'a branchée côté serveur : elle annonçait
+   * donc une composition que la prod ne produit pas.
+   *
+   * `propose` reste joignable pour comparer les deux règles sur vingt
+   * embauches, comme la carte « Les prochaines recrues » les compare sur une.
+   */
+  regle?: "moteur" | "propose";
 }
 
 function cle(applicationId: string, labelId: string): string {
@@ -126,6 +142,9 @@ export function simulerTirages(
   const peutSite = part > 0;
   const peutRecrutement = part < 1;
 
+  // Le classement du moteur, sauf demande explicite de dérouler la proposition.
+  const classer = options.regle === "propose" ? classerPropose : classerLabels;
+
   const avecAjouts = (applicationId: string, stats: StatLabel[]): StatLabel[] =>
     stats.map((s) => {
       const plus = ajoutLabel.get(cle(applicationId, s.label_id)) ?? 0;
@@ -181,7 +200,7 @@ export function simulerTirages(
     for (const app of candidats) {
       const stats = statsParApp[app.application_id];
       if (!stats || stats.length === 0) continue;
-      const labels = classerPropose(avecAjouts(app.application_id, stats), reglages, {
+      const labels = classer(avecAjouts(app.application_id, stats), reglages, {
         applicationId: app.application_id,
       });
       if (labels.length === 0) continue;

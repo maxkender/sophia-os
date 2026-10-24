@@ -119,6 +119,46 @@ describe("projection des prochains tirages", () => {
     expect(t.map((x) => x.label_nom)).toEqual(["b"]);
   });
 
+  it("la projection déroule le classement DU MOTEUR, pas la règle proposée", () => {
+    // La carte promet « exactement comme le fera le moteur ». Elle a longtemps
+    // déroulé `classerPropose`, la règle d'une page Notion que personne n'a
+    // branchée côté serveur. Les deux règles se séparent ici : le moteur a une
+    // barrière anti-rafale — un label qui vient de prendre les derniers
+    // comptes de la langue passe derrière tous les autres — que la règle
+    // proposée n'a pas du tout, son score ne regarde que la présence.
+    const rafale = {
+      "id-sophia": [stat("a", { recents_langue: R.rafaleRecents }), stat("b")],
+    };
+    const seule = lireCibleApplications(null, ["sophia"]);
+    const moteur = simulerTirages(marche("pl"), rafale, seule, [SOPHIA], R, 1);
+    expect(moteur.map((x) => x.label_nom)).toEqual(["b"]);
+
+    const propose = simulerTirages(marche("pl"), rafale, seule, [SOPHIA], R, 1, {
+      regle: "propose",
+    });
+    expect(propose.map((x) => x.label_nom)).toEqual(["a"]);
+  });
+
+  it("la réserve basse relègue aussi, et seule la règle du moteur le voit", () => {
+    // Deuxième barrière que la règle proposée ignore : sous la réserve
+    // minimale, le label passe après les autres même s'il est moins présent.
+    const maigre = {
+      "id-sophia": [
+        stat("a", { passages_restants: 30 }),
+        stat("b", { comptes_langue: 8, comptes_pays: 8, comptes_total: 8 }),
+      ],
+    };
+    const seule = lireCibleApplications(null, ["sophia"]);
+    expect(
+      simulerTirages(marche("pl"), maigre, seule, [SOPHIA], R, 1).map((x) => x.label_nom),
+    ).toEqual(["b"]);
+    expect(
+      simulerTirages(marche("pl"), maigre, seule, [SOPHIA], R, 1, { regle: "propose" }).map(
+        (x) => x.label_nom,
+      ),
+    ).toEqual(["a"]);
+  });
+
   it("n = 0 ne rend rien", () => {
     expect(simulerTirages(marche("fr"), stats, cible, APPS, R, 0)).toEqual([]);
   });

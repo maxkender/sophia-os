@@ -52,8 +52,8 @@ Lance `npm install` une fois par session. Toutes les commandes, sauf `playbook` 
 
 | Commande | Effet |
 | --- | --- |
-| `npm run veille` | Relève en direct (Apify) les comptes de `veille/comptes.json`.<br>Donne leurs vues sur 30 jours, les meilleurs diaporamas avec une **planche de leurs slides**, et les posts qui valent preuve.<br>**Bloqué jusqu'au 6/11** : le compte Apify a atteint sa limite du mois. |
-| `npm run veille -- --decouvrir "mots-clés" "#hashtag"` | Cherche d'autres comptes de la niche (#studytok #studytips #studymethod #school). Bloqué aussi jusqu'au 6/11. |
+| `npm run veille` | Relève en direct (Apify) les comptes de `veille/comptes.json`.<br>Donne leurs vues sur 30 jours, les meilleurs diaporamas avec une **planche de leurs slides**, et les posts qui valent preuve. |
+| `npm run veille -- --decouvrir "mots-clés" "#hashtag"` | Cherche d'autres comptes de la niche (#studytok #studytips #studymethod #school). |
 | `npm run preuve -- <lien TikTok…>` | Lit la page publique d'un post, **sans Apify ni frais** : vues, enregistrements, date, musique. Imprime la référence de preuve à coller dans `playbook.json`. |
 | `npm run preuve -- --maj` | Relit les vues de toutes les preuves TikTok du playbook. |
 | `npm run playbook` | Affiche les schémas : actifs, en attente, pas prouvés ou expirés. |
@@ -127,7 +127,7 @@ Chaque matin, une tâche planifiée lance ta routine : suis `pods/ROUTINE.md` (c
 1. **Chaque jour** : `npm run playbook -- --mesurer`. Un schéma expire quand ses preuves ne tiennent plus.
 2. **Lundi, veille** :
 	- `npm run veille`, puis `--decouvrir` une fois par semaine, puis mise à jour du playbook ;
-	- **jusqu'au 6/11, Apify est bloqué** : à la place, `npm run preuve -- --maj`, et `npm run preuve` sur les liens que l'humain ou le chef te donnent.
+	- si Apify est bloqué (limite du mois atteinte) : à la place, `npm run preuve -- --maj`, et `npm run preuve` sur les liens que l'humain ou le chef te donnent.
 3. **Originaux** sur les schémas actifs : `apercu`, relecture, `deposer`.
 	- Commence par `methods-per-subject` et `study-hacks-earlier`.
 	- Varie : ne dépose pas deux fois de suite le même schéma quand deux sont actifs.

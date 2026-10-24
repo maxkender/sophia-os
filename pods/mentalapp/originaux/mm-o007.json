@@ -1,0 +1,551 @@
+{
+ "id": "mm-o007",
+ "titre": "tier list of Night routine habits",
+ "position_app": 2,
+ "legendes": {
+  "en": "night routine habits, ranked #nightroutine #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "la routine du soir, classée #routinedusoir #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "Abendroutine im Ranking #abendroutine #mentalmaxxing #tierlist #selbstverbesserung",
+  "es": "rutina de noche, en ranking #rutinadenoche #mentalmaxxing #tierlist #superacionpersonal",
+  "it": "routine serale, in classifica #routineserale #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "gece rutini sıralaması #gecerutini #mentalmaxxing #tierlist #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7689665265591799048/1",
+   "boite": [
+    290,
+    246,
+    402,
+    616
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list de la",
+   "de": "Tierlist der",
+   "es": "tier list de la",
+   "it": "tier list della",
+   "tr": "tier list:"
+  },
+  "gros": {
+   "en": "Night",
+   "fr": "routine",
+   "de": "Abend-",
+   "es": "rutina",
+   "it": "routine",
+   "tr": "gece"
+  },
+  "bas": {
+   "en": "routine habits",
+   "fr": "du soir",
+   "de": "routine",
+   "es": "de noche",
+   "it": "serale",
+   "tr": "rutini"
+  }
+ },
+ "titre_tableau": {
+  "en": "fight me on this",
+  "fr": "viens débattre",
+  "de": "diskutier mit mir",
+  "es": "debátemelo",
+  "it": "discutiamone",
+  "tr": "tartışalım"
+ },
+ "pied": {
+  "en": "what’s your last move before bed?",
+  "fr": "ton dernier truc avant de dormir ?",
+  "de": "was machst du als Letztes?",
+  "es": "¿qué haces antes de dormir?",
+  "it": "l’ultima cosa prima di dormire?",
+  "tr": "yatmadan önce son ne yapıyorsun?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "perfect sleep",
+    "fr": "sommeil parfait",
+    "de": "perfekter Schlaf",
+    "es": "sueño perfecto",
+    "it": "sonno perfetto",
+    "tr": "kusursuz uyku"
+   },
+   "cases": [
+    {
+     "app": true
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      676,
+      890,
+      142,
+      139
+     ],
+     "t": {
+      "en": "phone out of|the bedroom",
+      "fr": "pas de tél|dans la chambre",
+      "de": "Handy raus aus|dem Schlafzimmer",
+      "es": "móvil fuera|del cuarto",
+      "it": "telefono fuori|dalla camera",
+      "tr": "telefon|yatak odası dışında"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      760,
+      258,
+      115,
+      92
+     ],
+     "t": {
+      "en": "same bedtime",
+      "fr": "même heure|de coucher",
+      "de": "gleiche|Schlafenszeit",
+      "es": "misma hora|de dormir",
+      "it": "stessa ora|di dormire",
+      "tr": "aynı yatış|saati"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      398,
+      712,
+      150,
+      94
+     ],
+     "t": {
+      "en": "reading|in bed",
+      "fr": "lire au lit",
+      "de": "im Bett|lesen",
+      "es": "leer en|la cama",
+      "it": "leggere|a letto",
+      "tr": "yatakta|okumak"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "strong",
+    "fr": "fort",
+    "de": "stark",
+    "es": "fuerte",
+    "it": "forte",
+    "tr": "güçlü"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      766,
+      394,
+      110,
+      110
+     ],
+     "t": {
+      "en": "evening walk",
+      "fr": "balade du soir",
+      "de": "Abendspaziergang",
+      "es": "paseo nocturno",
+      "it": "passeggiata serale",
+      "tr": "akşam yürüyüşü"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      289,
+      393,
+      79,
+      107
+     ],
+     "t": {
+      "en": "hot shower",
+      "fr": "douche chaude",
+      "de": "heiße Dusche",
+      "es": "ducha caliente",
+      "it": "doccia calda",
+      "tr": "sıcak duş"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      896,
+      866,
+      164,
+      126
+     ],
+     "t": {
+      "en": "herbal tea",
+      "fr": "tisane",
+      "de": "Kräutertee",
+      "es": "infusión",
+      "it": "tisana",
+      "tr": "bitki çayı"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      692,
+      855,
+      156,
+      144
+     ],
+     "t": {
+      "en": "journaling",
+      "fr": "écrire",
+      "de": "Journaling",
+      "es": "escribir",
+      "it": "scrivere",
+      "tr": "günlük yazmak"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "solid",
+    "fr": "solide",
+    "de": "solide",
+    "es": "sólido",
+    "it": "solido",
+    "tr": "sağlam"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      441,
+      398,
+      96,
+      104
+     ],
+     "t": {
+      "en": "meditation",
+      "fr": "méditation",
+      "de": "Meditation",
+      "es": "meditación",
+      "it": "meditazione",
+      "tr": "meditasyon"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      265,
+      551,
+      102,
+      98
+     ],
+     "t": {
+      "en": "light dinner",
+      "fr": "dîner léger",
+      "de": "leichtes Abendessen",
+      "es": "cena ligera",
+      "it": "cena leggera",
+      "tr": "hafif akşam yemeği"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      266,
+      247,
+      117,
+      104
+     ],
+     "t": {
+      "en": "planning|tomorrow",
+      "fr": "préparer|demain",
+      "de": "morgen|planen",
+      "es": "planear|mañana",
+      "it": "pianificare|domani",
+      "tr": "yarını|planlamak"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      439,
+      550,
+      100,
+      84
+     ],
+     "t": {
+      "en": "time with|a pet",
+      "fr": "temps avec|un animal",
+      "de": "Zeit mit|dem Haustier",
+      "es": "tiempo con|tu mascota",
+      "it": "tempo con|un animale",
+      "tr": "evcil hayvanla|vakit"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "helps a bit",
+    "fr": "aide un peu",
+    "de": "hilft etwas",
+    "es": "ayuda un poco",
+    "it": "aiuta un po’",
+    "tr": "biraz yardımcı"
+   },
+   "cases": [
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      265,
+      692,
+      112,
+      108
+     ],
+     "t": {
+      "en": "calm music",
+      "fr": "musique calme",
+      "de": "ruhige Musik",
+      "es": "música tranquila",
+      "it": "musica calma",
+      "tr": "sakin müzik"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      769,
+      401,
+      111,
+      102
+     ],
+     "t": {
+      "en": "one episode",
+      "fr": "un épisode",
+      "de": "eine Folge",
+      "es": "un episodio",
+      "it": "un episodio",
+      "tr": "tek bölüm"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      602,
+      714,
+      96,
+      94
+     ],
+     "t": {
+      "en": "cool room",
+      "fr": "chambre fraîche",
+      "de": "kühles Zimmer",
+      "es": "cuarto fresco",
+      "it": "camera fresca",
+      "tr": "serin oda"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      569,
+      849,
+      99,
+      106
+     ],
+     "t": {
+      "en": "fixed alarm",
+      "fr": "réveil fixe",
+      "de": "fester Wecker",
+      "es": "alarma fija",
+      "it": "sveglia fissa",
+      "tr": "sabit alarm"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "fake rest",
+    "fr": "faux repos",
+    "de": "Fake-Erholung",
+    "es": "falso descanso",
+    "it": "finto riposo",
+    "tr": "sahte dinlenme"
+   },
+   "cases": [
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      54,
+      866,
+      146,
+      106
+     ],
+     "t": {
+      "en": "late coffee",
+      "fr": "café le soir",
+      "de": "Kaffee am Abend",
+      "es": "café de noche",
+      "it": "caffè la sera",
+      "tr": "akşam kahvesi"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "“one more”|video",
+      "fr": "« encore une »|vidéo",
+      "de": "„noch ein“|Video",
+      "es": "“un vídeo|más”",
+      "it": "“ancora un”|video",
+      "tr": "“bir video|daha”"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      601,
+      847,
+      99,
+      106
+     ],
+     "t": {
+      "en": "late snacks",
+      "fr": "grignoter tard",
+      "de": "später Snack",
+      "es": "picar tarde",
+      "it": "spuntino tardi",
+      "tr": "gece atıştırma"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      272,
+      853,
+      90,
+      94
+     ],
+     "t": {
+      "en": "checking insta",
+      "fr": "checker insta",
+      "de": "Insta checken",
+      "es": "mirar insta",
+      "it": "controllare insta",
+      "tr": "insta’ya bakmak"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "ruins sleep",
+   "fr": "ruine le sommeil",
+   "de": "ruiniert den Schlaf",
+   "es": "arruina el sueño",
+   "it": "rovina il sonno",
+   "tr": "uykuyu mahveder"
+  },
+  "cases": [
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "reels in bed",
+     "fr": "reels au lit",
+     "de": "Reels im Bett",
+     "es": "reels en la cama",
+     "it": "reel a letto",
+     "tr": "yatakta reels"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     401,
+     1089,
+     121,
+     75
+    ],
+    "t": {
+     "en": "ranked games",
+     "fr": "parties classées",
+     "de": "Ranked-Spiele",
+     "es": "partidas ranked",
+     "it": "partite ranked",
+     "tr": "dereceli maçlar"
+    }
+   },
+   {
+    "src": "7688926567183027474/2",
+    "boite": [
+     272,
+     848,
+     91,
+     97
+    ],
+    "t": {
+     "en": "doomscrolling",
+     "fr": "scroller sans fin",
+     "de": "Doomscrolling",
+     "es": "scroll infinito",
+     "it": "doomscrolling",
+     "tr": "sonsuz scroll"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine Wahl|(kommentiere)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 24/10 : original sur le schéma tier list 2 slides, sujet routine du soir. Couverture : le chien de « Resting methods » de la banque."
+}

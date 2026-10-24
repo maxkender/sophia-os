@@ -493,7 +493,7 @@ describe("AdminRepartitionPage — les réglages de label s'éditent", () => {
     expect(envoye.perfExposant).toBe(3);
     // Les autres partent inchangés : on écrit les douze d'un bloc.
     expect(envoye.partMax).toBe(REGLAGES_CHOIX_LABEL_DEFAUT.partMax);
-    expect(Object.keys(envoye)).toHaveLength(12);
+    expect(Object.keys(envoye)).toHaveLength(14);
   });
 
   it("une valeur que le moteur aurait réécrite bloque l'enregistrement", async () => {
@@ -680,6 +680,41 @@ describe("AdminRepartitionPage — ouvrir et fermer un label", () => {
     expect(ligne.textContent).toMatch(/absent dans 1 langue|missing in 1 language/);
     // Le label ordinaire, lui, n'a pas la marque.
     expect(within(await ligneLabel("study")).queryByText(/100 % podz|100% pods/)).toBeNull();
+  });
+
+  it("un label 100 % podz en test montre ses comptes et posts de test", async () => {
+    lireMarchesRepartition.mockResolvedValue(
+      MARCHES_APPS.map((m) => ({
+        langue: m.langue,
+        pays: m.pays,
+        comptes: 10,
+        stats: [
+          stat("study"),
+          { ...stat("fathomly"), comptes_total: 1, passages: 10, pod_seul: true, livre_langue: true, niveau_pod: 0 },
+        ],
+      })),
+    );
+    renderPage();
+    const ligne = await ligneLabel("fathomly");
+    expect(within(ligne).getByTestId("test-pod").textContent).toMatch(/1\/3 .*10\/30/);
+  });
+
+  it("la colonne comptes compte l'application affichée, le total toutes applis à côté", async () => {
+    lireMarchesRepartition.mockResolvedValue(
+      MARCHES_APPS.map((m) => ({
+        langue: m.langue,
+        pays: m.pays,
+        comptes: 10,
+        stats: [{ ...stat("study"), comptes_total: 45, comptes_app: 6 }, { ...stat("gym"), comptes_total: 6, comptes_app: 6 }],
+      })),
+    );
+    renderPage();
+    const cellule = within(await ligneLabel("study")).getByTestId("comptes-label");
+    expect(cellule.textContent).toMatch(/^6/);
+    expect(cellule.textContent).toMatch(/50/);
+    expect(cellule.textContent).toMatch(/45 (toutes applis|across apps)/);
+    // Total égal : pas de mention redondante.
+    expect(within(await ligneLabel("gym")).getByTestId("comptes-label").textContent).not.toMatch(/toutes applis|across apps/);
   });
 });
 

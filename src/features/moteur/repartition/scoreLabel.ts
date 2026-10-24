@@ -55,6 +55,11 @@ export interface StatLabel {
    * servies où l'application recrute ; `null` s'il n'y en a aucune.
    */
   niveau_pod?: number | null;
+  /**
+   * Comptes du label qui servent l'application affichée (page seulement : le
+   * moteur compte toutes les applications, `comptes_total`).
+   */
+  comptes_app?: number;
 }
 
 export interface FermetureAuto {
@@ -78,6 +83,10 @@ export interface ReglagesChoixLabel {
   rafaleRecents: number;
   /** Comptes réaffectés au plus par nuit (garde-fou d'un réglage mal posé). */
   relabelsMaxParNuit: number;
+  /** Label 100 % pod en test : comptes au plus, toutes langues confondues (0353). */
+  testPodComptes: number;
+  /** Posts mesurés qu'il lui faut pour sortir du test (à `fermeturePerf` au moins). */
+  testPodPosts: number;
   /** Labels jamais fermés (réouverture manuelle), toutes applications. */
   ouverts: string[];
   /** Labels toujours fermés (fermeture manuelle), toutes applications. */
@@ -107,6 +116,8 @@ export const REGLAGES_CHOIX_LABEL_DEFAUT: Readonly<ReglagesChoixLabel> = Object.
   partMax: 0.5,
   rafaleRecents: 2,
   relabelsMaxParNuit: 20,
+  testPodComptes: 3,
+  testPodPosts: 30,
   ouverts: [],
   fermes: [],
   fermesApp: [],
@@ -176,6 +187,8 @@ export function lireReglagesChoixLabel(valeur: unknown): ReglagesChoixLabel {
     partMax: Math.min(1, positif(v.part_max, d.partMax)),
     rafaleRecents: positif(v.rafale_recents, d.rafaleRecents),
     relabelsMaxParNuit: Math.max(0, Math.round(nombre(v.relabels_max_par_nuit ?? d.relabelsMaxParNuit))),
+    testPodComptes: Math.max(1, Math.round(positif(v.test_pod_comptes, d.testPodComptes))),
+    testPodPosts: Math.max(1, Math.round(positif(v.test_pod_posts, d.testPodPosts))),
     ouverts: listeIds(v.labels_ouverts),
     fermes: listeIds(v.labels_fermes),
     fermesApp: listeIds(v.labels_fermes_app),
@@ -275,6 +288,27 @@ export function enAvanceRemplissage(s: StatLabel): boolean {
   return estPodSeul(s) && s.niveau_pod !== null && s.niveau_pod !== undefined && s.comptes_langue > s.niveau_pod;
 }
 
+/**
+ * Label 100 % pod encore EN TEST (0353) : il n'a pas `testPodPosts` posts
+ * mesurés, ou sa performance reste sous `fermeturePerf`. Un label tenu
+ * « Ouvert » à la main (pour l'application ou partout) sort du test.
+ */
+export function enTestPod(s: StatLabel, r: ReglagesChoixLabel, applicationId: string): boolean {
+  if (!estPodSeul(s)) return false;
+  if (r.ouvertsApp.includes(cleFermeture(applicationId, s.label_id)) || r.ouverts.includes(s.label_id)) return false;
+  const rel = perfRelative(s);
+  return !(s.passages >= r.testPodPosts && rel !== null && rel >= r.fermeturePerf);
+}
+
+/**
+ * Label en test qui a déjà ses `testPodComptes` comptes : il n'en reçoit pas
+ * d'autre tant que le test n'est pas fini. Ce n'est PAS une fermeture : la nuit
+ * ne le retire à personne, il attend ses chiffres.
+ */
+export function testPodPlein(s: StatLabel, r: ReglagesChoixLabel, applicationId: string): boolean {
+  return enTestPod(s, r, applicationId) && s.comptes_total >= r.testPodComptes;
+}
+
 /** Stock compté dans le poids ; un label 100 % pod n'est pas jugé sur son stock. */
 export function capacite(
   s: StatLabel,
@@ -369,7 +403,9 @@ function prepare(
   const uniques = new Map<string, StatLabel>();
   for (const s of stats) if (s.label_id && !uniques.has(s.label_id)) uniques.set(s.label_id, s);
   const liste = [...uniques.values()].filter(
-    (s) => opts.ignorerFermeture || !estFerme(s.label_id, opts.applicationId, r, s),
+    (s) =>
+      opts.ignorerFermeture ||
+      (!estFerme(s.label_id, opts.applicationId, r, s) && !testPodPlein(s, r, opts.applicationId)),
   );
   if (liste.length === 0) return [];
 

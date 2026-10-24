@@ -25,6 +25,9 @@
 --     derniers jours (une langue qui ne recrute pas ne retient personne).
 --     Le label est « en avance » dans une langue quand il y a plus de comptes
 --     que ce niveau : il attend que les autres rattrapent.
+-- `simulation_repartition` rend en plus `comptes_app` : les comptes du label
+-- qui servent l'application affichée (le moteur, lui, compte toutes les
+-- applications). Pour la page seulement.
 -- La décision reste dans `choix_label_equilibre.ts` (et son miroir front).
 --
 -- Le type de retour change : les deux fonctions sont supprimées puis recréées,
@@ -285,7 +288,8 @@ returns table (
   recence_pays integer,
   pod_seul boolean,
   livre_langue boolean,
-  niveau_pod integer
+  niveau_pod integer,
+  comptes_app integer
 )
 language plpgsql
 stable
@@ -397,6 +401,26 @@ begin
         else false
       end
   ),
+  -- Comptes du label qui servent CETTE application. Le moteur compte toutes
+  -- applications confondues (même contenu, même langue = répétition) ; la
+  -- page montre les deux, sinon l'onglet micabo affiche 45 comptes
+  -- beau_smart_girl dont 6 seulement sont à micabo.
+  par_app as materialized (
+    select cl.label_id, count(*) as n
+    from public.compte_labels cl
+    join public.comptes c on c.id = cl.compte_id
+    join public.applications a on a.id = v_app
+    where c.is_active
+      and cl.label_id = any(v_pool)
+      and case
+        when c.parts_applications is null or c.parts_applications = '{}'::jsonb
+          then v_app = '00000000-0000-4000-8000-000000000001'::uuid
+        when jsonb_typeof(c.parts_applications -> a.slug) = 'number'
+          then (c.parts_applications ->> a.slug)::numeric > 0
+        else false
+      end
+    group by cl.label_id
+  ),
   -- Les langues servies qui recrutent, avec les comptes du label dans chacune.
   servies_actives as materialized (
     select s.label_id, s.langue, coalesce(pl.n, 0) as n
@@ -490,7 +514,8 @@ begin
     coalesce(pod.seul, false),
     exists (select 1 from servies s where s.label_id = lab.label_id and s.langue = m.lg),
     (select min(sa.n) from servies_actives sa
-      where sa.label_id = lab.label_id and sa.langue <> m.lg)::integer
+      where sa.label_id = lab.label_id and sa.langue <> m.lg)::integer,
+    coalesce(pa.n, 0)::integer
   from marches m
   cross join lab
   join public.labels l on l.id = lab.label_id
@@ -503,6 +528,7 @@ begin
   left join porteurs_langue rl on rl.label_id = lab.label_id and rl.langue = m.lg
   left join porteurs_pays rp on rp.label_id = lab.label_id and rp.pays = m.py
   left join pod on pod.label_id = lab.label_id
+  left join par_app pa on pa.label_id = lab.label_id
   order by m.lg_brut, m.py_brut, l.nom;
 end;
 $$;

@@ -16,7 +16,7 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { appelPod, LANGUE_SOURCE, LANGUES, POD } from "./api.ts";
 import { metadonneesRestantes } from "./metadonnees.ts";
-import { chargerFond, contenu, languesCompletes, lirePost, RACINE, rendreSlide } from "./slides.ts";
+import { chargerFond, type ContenuSlide, contenu, languesCompletes, lirePost, RACINE, rendreSlide } from "./slides.ts";
 
 const args = process.argv.slice(2);
 const id = args[0];
@@ -83,7 +83,8 @@ if (essai) {
   // Les mises en scène de l'OS utilisées dans ce post : leur compteur d'usage monte d'un cran,
   // une seule fois par post (un redépôt ne recompte pas : posts/<id>.json garde la liste).
   const notees = new Set(post.mises_en_scene_notees ?? []);
-  for (const m of new Set(post.slides.flatMap((s) => (s.photo?.mise_en_scene ? [s.photo.mise_en_scene] : [])))) {
+  const photos = post.slides.flatMap((s) => [s.photo, ...langues.map((l) => (typeof s[l] === "object" ? (s[l] as ContenuSlide).photo : undefined))]);
+  for (const m of new Set(photos.flatMap((p) => (p?.mise_en_scene ? [p.mise_en_scene] : [])))) {
     if (notees.has(m)) {
       console.log(`  mise en scène ${m.slice(0, 8)} : usage déjà noté pour ce post`);
       continue;

@@ -1,0 +1,551 @@
+{
+ "id": "mm-o006",
+ "titre": "tier list of Brainrot cures",
+ "position_app": 2,
+ "legendes": {
+  "en": "brainrot cures, ranked #brainrot #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "les remèdes au brainrot, classés #brainrot #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "Mittel gegen Brainrot im Ranking #brainrot #mentalmaxxing #tierlist #selbstverbesserung",
+  "es": "curas para el brainrot, en ranking #brainrot #mentalmaxxing #tierlist #superacionpersonal",
+  "it": "cure per il brainrot, in classifica #brainrot #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "brainrot çareleri sıralaması #brainrot #mentalmaxxing #tierlist #kişiselgelişim"
+ },
+ "couverture": {
+  "image": {
+   "src": "7687663666392583432/1",
+   "boite": [
+    128,
+    498,
+    824,
+    450
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list des",
+   "de": "Tierlist der",
+   "es": "tier list de",
+   "it": "tier list delle",
+   "tr": "tier list:"
+  },
+  "gros": {
+   "en": "Brainrot",
+   "fr": "remèdes",
+   "de": "Brainrot-",
+   "es": "curas",
+   "it": "cure",
+   "tr": "brainrot"
+  },
+  "bas": {
+   "en": "cures",
+   "fr": "au brainrot",
+   "de": "Heilmittel",
+   "es": "para el brainrot",
+   "it": "per il brainrot",
+   "tr": "çareleri"
+  }
+ },
+ "titre_tableau": {
+  "en": "argue with me",
+  "fr": "dis-moi si t’es pas d’accord",
+  "de": "widersprich mir",
+  "es": "discúteme esto",
+  "it": "dimmi se non sei d’accordo",
+  "tr": "itiraz et"
+ },
+ "pied": {
+  "en": "what cured yours?",
+  "fr": "qu’est-ce qui a soigné le tien ?",
+  "de": "was hat deinen geheilt?",
+  "es": "¿qué curó el tuyo?",
+  "it": "cosa ha curato il tuo?",
+  "tr": "seninkini ne iyileştirdi?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "cures it",
+    "fr": "le soigne",
+    "de": "heilt ihn",
+    "es": "lo cura",
+    "it": "lo cura",
+    "tr": "iyileştirir"
+   },
+   "cases": [
+    {
+     "app": true
+    },
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      443,
+      241,
+      140,
+      112
+     ],
+     "t": {
+      "en": "reading|real books",
+      "fr": "lire de|vrais livres",
+      "de": "echte Bücher|lesen",
+      "es": "leer libros|de verdad",
+      "it": "leggere|libri veri",
+      "tr": "gerçek kitap|okumak"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      596,
+      552,
+      92,
+      96
+     ],
+     "t": {
+      "en": "touching grass",
+      "fr": "toucher l’herbe",
+      "de": "Gras anfassen",
+      "es": "tocar césped",
+      "it": "toccare l’erba",
+      "tr": "çimlere dokunmak"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      508,
+      631,
+      113,
+      172
+     ],
+     "t": {
+      "en": "long walks",
+      "fr": "longues marches",
+      "de": "lange Spaziergänge",
+      "es": "paseos largos",
+      "it": "lunghe passeggiate",
+      "tr": "uzun yürüyüşler"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "strong",
+    "fr": "fort",
+    "de": "stark",
+    "es": "fuerte",
+    "it": "forte",
+    "tr": "güçlü"
+   },
+   "cases": [
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      805,
+      241,
+      99,
+      94
+     ],
+     "t": {
+      "en": "learning|a skill",
+      "fr": "apprendre|un skill",
+      "de": "etwas Neues|lernen",
+      "es": "aprender|algo",
+      "it": "imparare|qualcosa",
+      "tr": "yeni bir şey|öğrenmek"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      613,
+      701,
+      75,
+      106
+     ],
+     "t": {
+      "en": "chess",
+      "fr": "échecs",
+      "de": "Schach",
+      "es": "ajedrez",
+      "it": "scacchi",
+      "tr": "satranç"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      692,
+      855,
+      156,
+      144
+     ],
+     "t": {
+      "en": "journaling",
+      "fr": "écrire",
+      "de": "Journaling",
+      "es": "escribir",
+      "it": "scrivere",
+      "tr": "günlük yazmak"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      776,
+      552,
+      104,
+      99
+     ],
+     "t": {
+      "en": "sitting|in silence",
+      "fr": "rester|en silence",
+      "de": "in Stille|sitzen",
+      "es": "estar|en silencio",
+      "it": "stare|in silenzio",
+      "tr": "sessizlikte|oturmak"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "solid",
+    "fr": "solide",
+    "de": "solide",
+    "es": "sólido",
+    "it": "solido",
+    "tr": "sağlam"
+   },
+   "cases": [
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      28,
+      624,
+      196,
+      156
+     ],
+     "t": {
+      "en": "lifting",
+      "fr": "muscu",
+      "de": "Krafttraining",
+      "es": "pesas",
+      "it": "pesi",
+      "tr": "ağırlık"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      592,
+      556,
+      122,
+      84
+     ],
+     "t": {
+      "en": "cooking",
+      "fr": "cuisiner",
+      "de": "Kochen",
+      "es": "cocinar",
+      "it": "cucinare",
+      "tr": "aşçılık"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      430,
+      727,
+      114,
+      73
+     ],
+     "t": {
+      "en": "full albums",
+      "fr": "albums entiers",
+      "de": "ganze Alben",
+      "es": "álbumes enteros",
+      "it": "album interi",
+      "tr": "tam albümler"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      449,
+      512,
+      162,
+      104
+     ],
+     "t": {
+      "en": "8h of sleep",
+      "fr": "8h de sommeil",
+      "de": "8h Schlaf",
+      "es": "8h de sueño",
+      "it": "8 ore di sonno",
+      "tr": "8 saat uyku"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "helps a bit",
+    "fr": "aide un peu",
+    "de": "hilft etwas",
+    "es": "ayuda un poco",
+    "it": "aiuta un po’",
+    "tr": "biraz yardımcı"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      756,
+      697,
+      104,
+      107
+     ],
+     "t": {
+      "en": "lofi",
+      "fr": "lofi",
+      "de": "Lofi",
+      "es": "lofi",
+      "it": "lofi",
+      "tr": "lofi"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      769,
+      401,
+      111,
+      102
+     ],
+     "t": {
+      "en": "one movie",
+      "fr": "un seul film",
+      "de": "ein Film",
+      "es": "una peli",
+      "it": "un film",
+      "tr": "tek film"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      54,
+      866,
+      146,
+      106
+     ],
+     "t": {
+      "en": "coffee",
+      "fr": "café",
+      "de": "Kaffee",
+      "es": "café",
+      "it": "caffè",
+      "tr": "kahve"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      266,
+      405,
+      95,
+      98
+     ],
+     "t": {
+      "en": "a nap",
+      "fr": "une sieste",
+      "de": "ein Nickerchen",
+      "es": "una siesta",
+      "it": "un pisolino",
+      "tr": "şekerleme"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "fake cure",
+    "fr": "faux remède",
+    "de": "Fake-Heilung",
+    "es": "falsa cura",
+    "it": "finta cura",
+    "tr": "sahte çare"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "video essays",
+      "fr": "vidéos essais",
+      "de": "Video-Essays",
+      "es": "video ensayos",
+      "it": "video essay",
+      "tr": "video denemeler"
+     }
+    },
+    {
+     "src": "7685931101587623186/2",
+     "boite": [
+      731,
+      873,
+      69,
+      117
+     ],
+     "t": {
+      "en": "supplements",
+      "fr": "compléments",
+      "de": "Supplements",
+      "es": "suplementos",
+      "it": "integratori",
+      "tr": "takviyeler"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      759,
+      856,
+      120,
+      96
+     ],
+     "t": {
+      "en": "gaming|“to unwind”",
+      "fr": "gaming « pour|décompresser »",
+      "de": "Gaming „zum|Abschalten“",
+      "es": "gaming “para|desconectar”",
+      "it": "gaming “per|staccare”",
+      "tr": "“kafa dağıtmak|için” oyun"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      272,
+      853,
+      90,
+      94
+     ],
+     "t": {
+      "en": "detox|story post",
+      "fr": "story|« détox »",
+      "de": "Detox-|Story",
+      "es": "story de|détox",
+      "it": "storia|“detox”",
+      "tr": "detoks|hikâyesi"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "feeds it",
+   "fr": "le nourrit",
+   "de": "füttert ihn",
+   "es": "lo alimenta",
+   "it": "lo alimenta",
+   "tr": "besler"
+  },
+  "cases": [
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     597,
+     861,
+     86,
+     84
+    ],
+    "t": {
+     "en": "endless reels",
+     "fr": "reels sans fin",
+     "de": "endlose Reels",
+     "es": "reels sin fin",
+     "it": "reel infiniti",
+     "tr": "bitmeyen reels"
+    }
+   },
+   {
+    "src": "7688926567183027474/2",
+    "boite": [
+     272,
+     848,
+     91,
+     97
+    ],
+    "t": {
+     "en": "doomscrolling",
+     "fr": "scroller sans fin",
+     "de": "Doomscrolling",
+     "es": "scroll infinito",
+     "it": "doomscrolling",
+     "tr": "sonsuz scroll"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "3am scrolling",
+     "fr": "scroller à 3h",
+     "de": "Scrollen um 3",
+     "es": "scroll a las 3",
+     "it": "scrollare alle 3",
+     "tr": "gece 3’te scroll"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine Wahl|(kommentiere)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 24/10 : original sur le schéma tier list 2 slides, sujet brainrot. Couverture : les deux scanners de cerveau de la banque (au-dessous du filigrane, rogné)."
+}

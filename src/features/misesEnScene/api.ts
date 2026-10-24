@@ -141,6 +141,19 @@ export async function lireBudgetFal(): Promise<BudgetFal> {
   return r.budget;
 }
 
+/** Écran déduit d'un nom de fichier : « À retenir.PNG » → « a-retenir ». */
+export function ecranDepuisNom(nom: string): string {
+  return nom
+    .replace(/\.[^.]+$/, "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 40)
+    .replace(/-+$/, "");
+}
+
 async function fichierEnBase64(fichier: File): Promise<string> {
   const octets = new Uint8Array(await fichier.arrayBuffer());
   let bin = "";

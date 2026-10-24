@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQueries, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { AlertTriangle, Lock, UserCheck } from "lucide-react";
+import { AlertTriangle, UserCheck, Zap } from "lucide-react";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
@@ -17,15 +17,28 @@ import {
   CLE_CHOIX_APPLICATION_AUTO,
   ecrireChoixApplicationAuto,
   ecrireCibleRepartitionApps,
+  ecrireEtatManuelLabel,
+  ecrireReglagesChoixLabel,
   lireChoixApplicationAuto,
   lireCibleRepartitionApps,
   lireMarchesApplications,
   lireMarchesRepartition,
   lireRecruesSite,
+  lireReglagesChoixLabelPoses,
   lireReglagesRepartition,
   PROVENANCE_JOURS,
+  remettreReglagesChoixLabelDefaut,
   type MarcheRepartition,
 } from "@/features/moteur/repartition/apiRepartition";
+import {
+  brouillonDepuisReglages,
+  CHAMPS_REGLAGE_LABEL,
+  etatManuelLabel,
+  validerReglagesLabel,
+  type BrouillonReglageLabel,
+  type ChampReglageLabel,
+  type EtatManuelLabel,
+} from "@/features/moteur/repartition/reglagesLabel";
 import {
   cibleHorsSite,
   partSite,
@@ -214,6 +227,7 @@ export function AdminRepartitionPage() {
       .map((s) => ({
         stat: s,
         motif: motifFermeture(s.label_id, applicationId, r, s),
+        decision: etatManuelLabel(s.label_id, applicationId, r),
         jours: s.passages_restants / (s.demande_jour + r.postsParJourNouveau),
         perf:
           s.perf_flotte && s.perf_label !== null && s.passages > 0
@@ -231,7 +245,7 @@ export function AdminRepartitionPage() {
       </div>
 
       <Alert>
-        <Lock className="h-4 w-4" />
+        <Zap className="h-4 w-4" />
         <AlertTitle>{t("repartition.playgroundTitre")}</AlertTitle>
         <AlertDescription>{t("repartition.playgroundAide")}</AlertDescription>
       </Alert>
@@ -383,14 +397,28 @@ export function AdminRepartitionPage() {
                     titre: t("repartition.colEtat"),
                     rendu: (e) => <EtatLabel motif={e.motif} />,
                   },
+                  {
+                    cle: "decision",
+                    titre: t("repartition.colDecision"),
+                    rendu: (e) => (
+                      <DecisionLabel
+                        applicationId={applicationId!}
+                        labelId={e.stat.label_id}
+                        etat={e.decision}
+                      />
+                    ),
+                  },
                 ]}
               />
             </CardContent>
           </Card>
-
-          <CarteReglages reglages={reglages.data} />
         </>
       )}
+
+      {/* Hors du bloc ci-dessus : les douze réglages valent pour TOUTES les
+          applications, donc la carte ne doit pas disparaître parce que
+          l'application affichée n'a aucun label à classer. */}
+      {pret && reglages.data && <CarteReglages reglages={reglages.data} />}
     </div>
   );
 }
@@ -1102,45 +1130,196 @@ function DetailMarche({
   );
 }
 
+type Traduire = ReturnType<typeof useTranslation>["t"];
+
+/** L'intervalle que le moteur accepte vraiment, écrit sous le champ. */
+function aideChamp(c: ChampReglageLabel, t: Traduire): string {
+  const borne =
+    c.max !== undefined
+      ? t("repartition.borneIntervalle", { min: c.min, max: c.max })
+      : c.strict
+        ? t("repartition.borneSup", { min: c.min })
+        : t("repartition.borneSupEgal", { min: c.min });
+  return c.entier ? `${borne}, ${t("repartition.borneEntier")}` : borne;
+}
+
+/**
+ * Les réglages du choix de label, éditables.
+ *
+ * ILS NE S'ÉDITAIENT QU'EN SQL, donc en pratique jamais : la clé ne portait
+ * que la trace des runs de nuit, et le moteur tournait sur les valeurs par
+ * défaut du code. La carte les affichait pour qu'ils cessent d'être
+ * invisibles ; les voir sans pouvoir les toucher n'a servi personne.
+ *
+ * REFUSER PLUTÔT QUE SE FAIRE RÉÉCRIRE. Le lecteur du moteur ne rejette rien :
+ * il remplace une valeur qu'il n'aime pas par celle par défaut, sans le dire.
+ * Poser `perf_exposant: 0` afficherait donc 0 ici et appliquerait 2 là-bas.
+ * `validerReglagesLabel` recopie ses bornes et bloque l'enregistrement, pour
+ * que l'écran et le moteur racontent la même chose.
+ *
+ * REVENIR AUX DÉFAUTS RETIRE LES CLÉS au lieu de réécrire les mêmes nombres :
+ * autrement on figerait en base des valeurs qui bougeraient au prochain
+ * déploiement, et la page jurerait qu'elles sont « par défaut ».
+ */
 function CarteReglages({ reglages }: { reglages: ReglagesChoixLabel }) {
   const { t } = useTranslation();
-  const lignes: Array<{ cle: string; label: string; valeur: string }> = [
-    { cle: "exp", label: t("repartition.rPerfExposant"), valeur: String(reglages.perfExposant) },
-    { cle: "lis", label: t("repartition.rPerfLissage"), valeur: String(reglages.perfLissage) },
-    { cle: "bor", label: t("repartition.rPerfBornes"), valeur: `${reglages.perfMin} – ${reglages.perfMax}` },
-    {
-      cle: "fer",
-      label: t("repartition.rFermeture"),
-      valeur: `${reglages.fermeturePerf} / ${reglages.fermetureMinPosts}`,
-    },
-    { cle: "rmin", label: t("repartition.rReserveMin"), valeur: `${reglages.reserveMinJours} j` },
-    { cle: "rcib", label: t("repartition.rReserveCible"), valeur: `${reglages.reserveCibleJours} j` },
-    { cle: "ppj", label: t("repartition.rPostsNouveau"), valeur: String(reglages.postsParJourNouveau) },
-    { cle: "pmax", label: t("repartition.rPartMax"), valeur: String(reglages.partMax) },
-    { cle: "raf", label: t("repartition.rRafale"), valeur: String(reglages.rafaleRecents) },
-    { cle: "rel", label: t("repartition.rRelabels"), valeur: String(reglages.relabelsMaxParNuit) },
-    {
-      cle: "ferm",
-      label: t("repartition.rFermesApp"),
-      valeur: String(reglages.fermesApp.length + reglages.fermes.length),
-    },
-  ];
+  const queryClient = useQueryClient();
+  const [brouillon, setBrouillon] = React.useState<BrouillonReglageLabel | null>(null);
+  const poses = useQuery({
+    queryKey: ["repartition-reglages-poses"],
+    queryFn: lireReglagesChoixLabelPoses,
+    retry: false,
+  });
+
+  const valeurs = brouillon ?? brouillonDepuisReglages(reglages);
+  const verdict = validerReglagesLabel(valeurs);
+
+  const rafraichir = () => {
+    setBrouillon(null);
+    void queryClient.invalidateQueries({ queryKey: ["repartition-reglages"] });
+    void queryClient.invalidateQueries({ queryKey: ["repartition-reglages-poses"] });
+  };
+
+  const enregistrer = useMutation({
+    mutationFn: () => ecrireReglagesChoixLabel(verdict.valeurs!),
+    onSuccess: rafraichir,
+  });
+  const defauts = useMutation({
+    mutationFn: () => remettreReglagesChoixLabelDefaut(),
+    onSuccess: rafraichir,
+  });
+  const enCours = enregistrer.isPending || defauts.isPending;
+
   return (
     <Card>
       <CardHeader>
         <CardTitle>{t("repartition.reglagesTitre")}</CardTitle>
         <CardDescription>{t("repartition.reglagesAide")}</CardDescription>
       </CardHeader>
-      <CardContent>
-        <div className="grid gap-x-8 gap-y-1 sm:grid-cols-2">
-          {lignes.map((l) => (
-            <div key={l.cle} className="flex items-baseline justify-between gap-4 text-sm">
-              <span className="text-muted-foreground">{l.label}</span>
-              <span className="font-mono tabular-nums">{l.valeur}</span>
-            </div>
-          ))}
+      <CardContent className="space-y-4">
+        <p className="text-xs text-muted-foreground">
+          {poses.data
+            ? t("repartition.reglagesSourcePosee")
+            : t("repartition.reglagesSourceDefaut")}
+        </p>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {CHAMPS_REGLAGE_LABEL.map((c) => {
+            const faute = verdict.erreurs[c.cle];
+            return (
+              <div key={c.cle} className="space-y-1">
+                <label htmlFor={`reglage-${c.cle}`} className="text-sm font-medium">
+                  {t(`repartition.${c.cleI18n}`)}
+                </label>
+                <Input
+                  id={`reglage-${c.cle}`}
+                  type="number"
+                  step={c.pas}
+                  min={c.min}
+                  max={c.max}
+                  aria-invalid={faute ? true : undefined}
+                  value={valeurs[c.cle]}
+                  onChange={(e) => setBrouillon({ ...valeurs, [c.cle]: e.target.value })}
+                  className={`h-9 ${faute ? "border-destructive" : ""}`}
+                />
+                <p className={`text-xs ${faute ? "text-destructive" : "text-muted-foreground"}`}>
+                  {aideChamp(c, t)}
+                </p>
+              </div>
+            );
+          })}
         </div>
+        {verdict.bornesCroisees && (
+          <p className="text-xs text-destructive">{t("repartition.reglagesBornesCroisees")}</p>
+        )}
+        <div className="flex flex-wrap items-center gap-3">
+          <Button
+            size="sm"
+            disabled={enCours || verdict.valeurs === null}
+            onClick={() => enregistrer.mutate()}
+          >
+            {enregistrer.isPending ? t("common.saving") : t("repartition.reglagesEnregistrer")}
+          </Button>
+          <Button
+            size="sm"
+            variant="outline"
+            disabled={enCours}
+            onClick={() => defauts.mutate()}
+          >
+            {t("repartition.reglagesDefaut")}
+          </Button>
+          {brouillon && (
+            <Button size="sm" variant="ghost" disabled={enCours} onClick={() => setBrouillon(null)}>
+              {t("common.cancel")}
+            </Button>
+          )}
+          <span className="text-xs text-muted-foreground">
+            {t("repartition.rFermesApp")} : {reglages.fermesApp.length + reglages.fermes.length}
+          </span>
+        </div>
+        {verdict.valeurs === null && !verdict.bornesCroisees && (
+          <p className="text-xs text-destructive">{t("repartition.reglagesRefus")}</p>
+        )}
+        {(enregistrer.isError || defauts.isError) && (
+          <p className="text-xs text-destructive">
+            {messageErreur(enregistrer.error ?? defauts.error)}
+          </p>
+        )}
       </CardContent>
     </Card>
+  );
+}
+
+/**
+ * Ouvrir, fermer ou rendre à l'automatique un label, pour l'application
+ * affichée.
+ *
+ * Trois boutons plutôt qu'un interrupteur, parce qu'il y a bien trois états et
+ * que « auto » n'est pas « ouvert » : un label en auto suit ses chiffres et la
+ * nuit peut le fermer, un label ouvert est tenu ouvert contre ses chiffres.
+ * Un interrupteur aurait forcé à choisir un camp pour tous les labels que
+ * personne n'a jamais touchés.
+ */
+function DecisionLabel({
+  applicationId,
+  labelId,
+  etat,
+}: {
+  applicationId: string;
+  labelId: string;
+  etat: EtatManuelLabel;
+}) {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const poser = useMutation({
+    mutationFn: (vers: EtatManuelLabel) =>
+      ecrireEtatManuelLabel({ applicationId, labelId, etat: vers }),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: ["repartition-reglages"] });
+    },
+  });
+
+  const choix: Array<{ valeur: EtatManuelLabel; libelle: string }> = [
+    { valeur: "auto", libelle: t("repartition.decisionAuto") },
+    { valeur: "ouvert", libelle: t("repartition.decisionOuvert") },
+    { valeur: "ferme", libelle: t("repartition.decisionFerme") },
+  ];
+
+  return (
+    <span className="inline-flex gap-1">
+      {choix.map((c) => (
+        <Button
+          key={c.valeur}
+          size="sm"
+          variant={etat === c.valeur ? "default" : "outline"}
+          aria-pressed={etat === c.valeur}
+          disabled={poser.isPending}
+          // Reposer l'état en cours n'écrirait rien de neuf : on garde le
+          // bouton cliquable, mais on n'envoie pas la requête pour rien.
+          onClick={() => etat !== c.valeur && poser.mutate(c.valeur)}
+        >
+          {c.libelle}
+        </Button>
+      ))}
+    </span>
   );
 }

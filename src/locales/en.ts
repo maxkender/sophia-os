@@ -2733,19 +2733,35 @@ export const en = {
       titre: "Label allocation — {{nom}}",
       description:
         "Where the next hire would go, market by market, and why. Two columns: what the engine picks today, and what the proposed rule would give. Switch application with the sidebar selector.",
-      playgroundTitre: "Playground: this page activates nothing",
+      playgroundTitre: "This page acts on the engine",
       playgroundAide:
-        "Read only. No setting can be changed here, no label is closed or reopened, no account is created. The figures are the ones the engine actually receives when an account is created.",
+        "Everything editable here is written to the database and used at the next creation: the switch, the target across applications, the Queue, the label-choice settings, and opening or closing a label. What it does not do: create an account, or move an existing one — closing a label removes it from future creations, and the night assignment is what pulls the accounts that carry it. The figures shown are the ones the engine actually receives.",
       erreurTitre: "Figures unavailable",
       prochainesTitre: "The next hires",
       prochainesAide:
         "{{marches}} markets. The proposed rule would change the answer on {{changements}} of them. Click a row to see the calculation.",
       etatTitre: "Label status",
       etatAide:
-        "Performance against the fleet, days of content left with one more account, accounts across the whole fleet. Below 7 days, a label goes after the others.",
-      reglagesTitre: "Settings in force",
+        "Performance against the fleet, days of content left with one more account, accounts across the whole fleet. Below 7 days, a label goes after the others. The last column decides, for the application on screen: Auto lets the figures speak and the night may close, Open holds the label open even against its figures, Closed removes it from the next creations.",
+      colDecision: "Decision",
+      decisionAuto: "Auto",
+      decisionOuvert: "Open",
+      decisionFerme: "Closed",
+      reglagesTitre: "Label-choice settings",
       reglagesAide:
-        "Read from reglages.choix_labels. Today they can only be edited in SQL: this page shows them so they stop being invisible.",
+        "The twelve numbers that decide which label the next account gets, and which labels close on their own. They live in reglages.choix_labels and apply to ALL applications. The screen refuses a value the engine would have silently rewritten, so that what is displayed is what runs.",
+      reglagesSourceDefaut:
+        "No value is stored: the engine runs on the code defaults, shown here. Saving freezes them.",
+      reglagesSourcePosee: "Values stored in the database. They win over the code defaults.",
+      reglagesEnregistrer: "Save settings",
+      reglagesDefaut: "Back to default values",
+      reglagesRefus: "At least one value is refused: nothing is saved until it is fixed.",
+      reglagesBornesCroisees:
+        "The lower performance bound is above the upper one: the engine clamps by min then max, so the upper bound would vanish and every label would be worth the lower one.",
+      borneSup: "> {{min}}",
+      borneSupEgal: "≥ {{min}}",
+      borneIntervalle: "> {{min}} and ≤ {{max}}",
+      borneEntier: "whole number",
       detailAide:
         "Candidates for an account created now in {{langue}}, best score first. The current rank is today's engine.",
       colMarche: "Market",
@@ -2808,8 +2824,10 @@ export const en = {
       ferme_chiffres: "Closes on its figures",
       rPerfExposant: "Performance exponent",
       rPerfLissage: "Smoothing (fictional posts)",
-      rPerfBornes: "Performance bounds",
-      rFermeture: "Closure (threshold / min posts)",
+      rPerfMin: "Performance, lower bound",
+      rPerfMax: "Performance, upper bound",
+      rFermeturePerf: "Closure: perf below which we close",
+      rFermetureMinPosts: "Closure: minimum posts to judge",
       rReserveMin: "Minimum reserve",
       rReserveCible: "Target reserve",
       rPostsNouveau: "Posts/day of a new account",

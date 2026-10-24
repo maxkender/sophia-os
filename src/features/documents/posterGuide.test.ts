@@ -49,7 +49,7 @@ describe("posterGuideCle — nouveaux posters, codes OS", () => {
   });
 
   it("Zone B via langue du compte", () => {
-    for (const l of ["es", "it", "pt", "el", "cs", "hu", "pl"]) {
+    for (const l of ["es", "it", "pt", "el", "cs", "hu", "pl", "he"]) {
       expect(cle({ compteLangues: [l] })).toBe("guide_poster_zone_b");
     }
   });
@@ -174,6 +174,16 @@ describe("cas limites", () => {
     expect(resoudreZonePoster("Argentina")).toBe("c");
     expect(resoudreZonePoster("arabic")).toBe("b");
     expect(resoudreZonePoster("UAE")).toBe("b");
+  });
+
+  it("hébreu : la langue suffit, comme le pays", () => {
+    // Israël était en Zone B par son code pays, mais le code LANGUE `he`
+    // n'était nulle part : un créateur hébréophone sans nationalité renseignée
+    // retombait sur l'ancien guide, donc sur le mauvais tarif.
+    expect(resoudreZonePoster("Israel")).toBe("b");
+    expect(resoudreZonePoster(null, ["he"])).toBe("b");
+    expect(resoudreZonePoster(null, null, ["he"])).toBe("b");
+    expect(resoudreZonePoster("Hebrew")).toBe("b");
   });
 
   it("langues du profil en dernier, la dernière ajoutée d’abord", () => {

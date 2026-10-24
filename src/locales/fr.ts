@@ -2737,19 +2737,35 @@ export const fr = {
       titre: "Répartition des labels — {{nom}}",
       description:
         "Où partirait la prochaine recrue, marché par marché, et pourquoi. Deux colonnes : ce que le moteur choisit aujourd'hui, et ce que donnerait la règle proposée. Change d'application avec le sélecteur de la barre latérale.",
-      playgroundTitre: "Playground : cette page n'active rien",
+      playgroundTitre: "Cette page agit sur le moteur",
       playgroundAide:
-        "Lecture seule. Aucun réglage n'est modifiable ici, aucun label n'est fermé ni rouvert, aucun compte n'est créé. Les chiffres sont ceux que le moteur reçoit vraiment à la création d'un compte.",
+        "Tout ce qui est modifiable ici part en base et sert à la prochaine création : l'interrupteur, la cible entre applications, la File, les réglages du choix de label, l'ouverture et la fermeture d'un label. Ce qu'elle ne fait pas : créer un compte, ni déplacer un compte existant — fermer un label le retire des futures créations, et c'est l'assignation de nuit qui en sortira les comptes qui le portent. Les chiffres affichés sont ceux que le moteur reçoit vraiment.",
       erreurTitre: "Chiffres indisponibles",
       prochainesTitre: "Les prochaines recrues",
       prochainesAide:
         "{{marches}} marchés. La règle proposée changerait la réponse sur {{changements}} d'entre eux. Clique une ligne pour voir le détail du calcul.",
       etatTitre: "État des labels",
       etatAide:
-        "Performance face à la flotte, jours de contenu restants avec un compte de plus, comptes dans toute la flotte. Sous 7 jours, le label passe après les autres.",
-      reglagesTitre: "Réglages en vigueur",
+        "Performance face à la flotte, jours de contenu restants avec un compte de plus, comptes dans toute la flotte. Sous 7 jours, le label passe après les autres. La dernière colonne décide, pour l'application affichée : Auto laisse les chiffres parler et la nuit peut fermer, Ouvert tient le label ouvert même contre ses chiffres, Fermé le retire des prochaines créations.",
+      colDecision: "Décision",
+      decisionAuto: "Auto",
+      decisionOuvert: "Ouvert",
+      decisionFerme: "Fermé",
+      reglagesTitre: "Réglages du choix de label",
       reglagesAide:
-        "Lus dans reglages.choix_labels. Ils ne s'éditent aujourd'hui qu'en SQL : cette page les affiche pour qu'ils cessent d'être invisibles.",
+        "Les douze nombres qui décident quel label prend le prochain compte, et lesquels se ferment tout seuls. Ils vivent dans reglages.choix_labels et valent pour TOUTES les applications. L'écran refuse une valeur que le moteur aurait réécrite en silence, pour que ce qui est affiché soit ce qui tourne.",
+      reglagesSourceDefaut:
+        "Aucune valeur n'est posée en base : le moteur tourne sur les valeurs par défaut du code, affichées ici. Enregistrer les fige.",
+      reglagesSourcePosee: "Valeurs posées en base. Elles l'emportent sur les défauts du code.",
+      reglagesEnregistrer: "Enregistrer les réglages",
+      reglagesDefaut: "Revenir aux valeurs par défaut",
+      reglagesRefus: "Une valeur au moins est refusée : rien n'est enregistré tant qu'elle n'est pas corrigée.",
+      reglagesBornesCroisees:
+        "La borne basse de performance dépasse la borne haute : le moteur borne par min puis max, donc la haute disparaîtrait et tous les labels vaudraient la basse.",
+      borneSup: "> {{min}}",
+      borneSupEgal: "≥ {{min}}",
+      borneIntervalle: "> {{min}} et ≤ {{max}}",
+      borneEntier: "entier",
       detailAide:
         "Candidats pour un compte créé maintenant en {{langue}}, du meilleur score au moins bon. Le rang actuel est celui du moteur d'aujourd'hui.",
       colMarche: "Marché",
@@ -2812,8 +2828,10 @@ export const fr = {
       ferme_chiffres: "Ferme sur ses chiffres",
       rPerfExposant: "Exposant de performance",
       rPerfLissage: "Lissage (posts fictifs)",
-      rPerfBornes: "Bornes de performance",
-      rFermeture: "Fermeture (seuil / posts min)",
+      rPerfMin: "Performance, borne basse",
+      rPerfMax: "Performance, borne haute",
+      rFermeturePerf: "Fermeture : perf sous laquelle on ferme",
+      rFermetureMinPosts: "Fermeture : posts minimum pour juger",
       rReserveMin: "Réserve minimale",
       rReserveCible: "Réserve cible",
       rPostsNouveau: "Posts/jour d'un nouveau compte",

@@ -1,0 +1,220 @@
+{
+ "id": "yp-006",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7670976729481088278",
+  "vues": 12400,
+  "enregistrements": 215,
+  "publie_le": "2026-08-06",
+  "titre": "RATING STUDY HACKS worth it or not worth it?"
+ },
+ "titre": {
+  "fr": "je note des astuces de révision : ça vaut le coup ou pas ?"
+ },
+ "legendes": {
+  "fr": "mes notes sur 10, sans filtre 📚 #revisions #studytok #astuces #methodedetravail #thatgirl"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7177490894231931654"
+ },
+ "fond": {
+  "media_id": "c4c9dc5d-0484-4f60-a831-e58d3b2fd990",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/d26ffef8-70f6-46ef-bc56-8567fb5f7558/4-upscale.jpg?v=1785989253793",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "JE NOTE",
+      "DES HACKS",
+      "D’ÉTUDE"
+     ],
+     "taille": 170,
+     "interligne": 1.0,
+     "y": 520,
+     "taille_script": 92,
+     "script_lignes": [
+      {
+       "texte": "ça vaut le coup",
+       "x": 230,
+       "y": 1000
+      },
+      {
+       "texte": "ou pas ?",
+       "x": 430,
+       "y": 1100
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "3653f12f-90f3-46b3-9d35-9a5c560382ee",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/5c5cfd06-00b1-4dfe-bc08-1d199aaeb589/3.jpg?v=1791726382157",
+    "cadrage": {
+     "x": 0.75,
+     "y": 0.15,
+     "zoom": 1.4
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "les nuits blanches🌙",
+      "texte": "0/10\nabsolument pas. le sommeil est essentiel pour mémoriser. tu oublies même le peu que tu savais si tu ne dors pas.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "236346f1-4b9e-4045-86fe-36b6ac634ab8",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/55692dc5-f02c-4a63-bc50-773e8a88bd99/3.jpg?v=1791726975376",
+    "cadrage": {
+     "x": 0.15,
+     "y": 0.75,
+     "zoom": 1.2
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "supprimer les réseaux📱",
+      "texte": "10/10\nla vie est tellement plus paisible. si tu sais, tu sais.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "af37feb3-a805-4ce1-8b35-6b18c46d9d38",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/00879a21-a7c2-4b32-a41f-5c2de6f6801d/4.jpg",
+    "cadrage": {
+     "x": 1.0,
+     "y": 0.6,
+     "zoom": 1.35
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "s’expliquer les cours à deux🧑‍🏫",
+      "texte": "9/10\nparfait pour toutes les matières : expliquer à voix haute, c’est le meilleur moyen de voir ce que tu n’as pas compris.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "10806652-a6ae-420e-8f2a-3798afed29d5",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/dee43f06-d3c0-41cd-be10-d5ed8a4e6fa8/3.jpg?v=1791726524655",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "recopier ses notes✍️",
+      "texte": "2/10\nnon. teste-toi plutôt : moi, je mets mes cours dans micabo et je fais ses quiz. je vois direct ce que je n’ai pas retenu.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   },
+   "app": true
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "202542a2-1544-4b5f-8b76-ae98073d1d28",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/d5aad6be-6479-4c16-a1c9-b7ee20df6e3c/1.jpg?v=1791725408940",
+    "cadrage": {
+     "x": 0.3,
+     "y": 0.3,
+     "zoom": 1.12
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "changer d’endroit☕",
+      "texte": "10/10\nça marche à tous les coups. c’est trop gênant de sortir ton ordi au café ou à la bibliothèque pour scroller sur ton téléphone.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "172292c1-2f55-4f9c-9081-0e4a3ee20d39",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/dee43f06-d3c0-41cd-be10-d5ed8a4e6fa8/1.jpg?v=1791726283377",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 242,
+      "titre": "se lever tôt pour réviser📖",
+      "texte": "9/10\noui, même le week-end. c’est dur, mais ça paie. pas besoin de te lever à 4 h, 6 h suffit.",
+      "grand": true,
+      "taille": 41,
+      "pas": 52,
+      "base": 223,
+      "annuler": false
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -134,6 +134,16 @@
      "y": 190,
      "taille": 60,
      "couleur": "brun"
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
     }
    }
   },

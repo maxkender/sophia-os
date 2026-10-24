@@ -10,6 +10,7 @@ import {
   lireReglagesMisesEnScene,
   promptIncrustation,
   promptTraduction,
+  promptVersion,
   relancePermise,
   supportValide,
   tailleImage,
@@ -123,4 +124,10 @@ Deno.test("couples manquants : même support, variés, sans les existants", () =
   ]);
   // Jamais une capture d'iPhone sur un ordinateur.
   assert(!couples.some((c) => c.capture_id === "site" && c.integrateur_id !== "ordi"));
+});
+
+Deno.test("prompt de version : seul l'écran change", () => {
+  const p = promptVersion(undefined, "iphone");
+  assert(p.includes("Replace ONLY the content of the phone screen"));
+  assert(!p.includes("{appareil}"));
 });

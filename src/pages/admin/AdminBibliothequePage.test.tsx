@@ -12,6 +12,7 @@ const deciderBanque = vi.fn();
 const listerIntegrateurs = vi.fn();
 const couplesManquants = vi.fn();
 const mettreEnScene = vi.fn();
+const traduireMiseEnScene = vi.fn();
 
 vi.mock("@/features/misesEnScene/api", async (importOriginal) => ({
   ...(await importOriginal<typeof import("@/features/misesEnScene/api")>()),
@@ -22,6 +23,7 @@ vi.mock("@/features/misesEnScene/api", async (importOriginal) => ({
   listerIntegrateurs: (f: unknown) => listerIntegrateurs(f),
   couplesManquants: (...a: unknown[]) => couplesManquants(...a),
   mettreEnScene: (...a: unknown[]) => mettreEnScene(...a),
+  traduireMiseEnScene: (...a: unknown[]) => traduireMiseEnScene(...a),
   chercherScenes: async () => [],
 }));
 
@@ -67,6 +69,7 @@ function mise(sur: Partial<MiseEnScene> = {}): MiseEnScene {
     motif_rejet: null,
     essai: 1,
     relance_de: null,
+    version_de: null,
     used_count: 2,
     a_refaire: false,
     created_at: "2026-10-23T10:00:00Z",
@@ -94,6 +97,7 @@ describe("Bibliothèque — captures et mises en scène", () => {
     listerIntegrateurs.mockReset().mockResolvedValue([]);
     couplesManquants.mockReset().mockResolvedValue([]);
     mettreEnScene.mockReset().mockResolvedValue({});
+    traduireMiseEnScene.mockReset().mockResolvedValue("capture_traduite");
   });
 
   it("onglet Captures : une capture à valider se valide, le budget Fal s'affiche", async () => {
@@ -164,5 +168,29 @@ describe("Bibliothèque — captures et mises en scène", () => {
     fireEvent.change(screen.getByRole("textbox", { name: "Motif du rejet" }), { target: { value: "texte déformé" } });
     fireEvent.submit(screen.getByRole("textbox", { name: "Motif du rejet" }).closest("form") as HTMLFormElement);
     await waitFor(() => expect(deciderBanque).toHaveBeenCalledWith("mise_en_scene", "m1", "rejetee", "texte déformé"));
+  });
+
+  it("onglet Mises en scène : une carte par image, les langues en pastilles", async () => {
+    listerMisesEnScene.mockResolvedValue([
+      mise({ id: "fr1", url: "https://exemple.test/fr.png" }),
+      mise({ id: "es-rate", langue: "es", version_de: "fr1", statut: "rejetee", url: "https://exemple.test/es-0.png", created_at: "2026-10-24T09:00:00Z" }),
+      mise({ id: "es1", langue: "es", version_de: "fr1", statut: "a_valider", url: "https://exemple.test/es.png", created_at: "2026-10-24T10:00:00Z" }),
+    ]);
+    rendre("/admin/bibliotheque?onglet=mises-en-scene");
+    expect(await screen.findByRole("tab", { name: "fr ✓" })).toBeTruthy();
+    // Une seule carte : la version espagnole vivante l'emporte sur l'essai rejeté.
+    expect(screen.getAllByAltText(/micabo parcours/)).toHaveLength(1);
+    fireEvent.click(screen.getByRole("tab", { name: "es …" }));
+    expect((screen.getByAltText("micabo parcours es") as HTMLImageElement).src).toBe("https://exemple.test/es.png");
+  });
+
+  it("onglet Mises en scène : « ajouter une langue » part de l'image d'origine et dit l'étape", async () => {
+    listerMisesEnScene.mockResolvedValue([mise({ id: "fr1" })]);
+    rendre("/admin/bibliotheque?onglet=mises-en-scene");
+    const choix = await screen.findByRole("combobox", { name: "Ajouter une langue…" });
+    fireEvent.change(choix, { target: { value: "es" } });
+    fireEvent.click(screen.getByRole("button", { name: /^Traduire$/ }));
+    await waitFor(() => expect(traduireMiseEnScene).toHaveBeenCalledWith("fr1", "es"));
+    expect(await screen.findByText(/relis-la et valide-la dans Captures/)).toBeTruthy();
   });
 });

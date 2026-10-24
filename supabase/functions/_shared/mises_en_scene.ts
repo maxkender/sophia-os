@@ -32,7 +32,8 @@ export function supportValide(s: unknown): s is Support {
 
 // ---------------------------------------------------------------------------
 // Prompts (clés `prompts` éditables : mise_en_scene_traduction,
-// mise_en_scene_incrustation ; {langue}, {app} et {appareil} remplacés ici).
+// mise_en_scene_incrustation, mise_en_scene_version ; {langue}, {app} et
+// {appareil} remplacés ici).
 // ---------------------------------------------------------------------------
 
 export const PROMPT_TRADUCTION_DEFAUT = `This image is a real screenshot of a mobile app.
@@ -50,6 +51,12 @@ Keep the hand and fingers that pass in front of the screen IN FRONT of it, untou
 Do not change anything else in the photo: same framing, same objects, same colors, same grain. Do not add any text, logo or person.
 Output at the size and aspect ratio of image 1, high definition.`;
 
+export const PROMPT_VERSION_DEFAUT = `Image 1 is a finished photo: a hand holds a {appareil} whose screen shows an app. Image 2 is the same app screen, translated.
+
+Replace ONLY the content of the {appareil} screen in image 1 with image 2, exactly as it is: the whole screenshot, every word identical, at the same position, size and perspective as the current screen content.
+Keep absolutely everything else of image 1 identical: the hand and fingers in front of the screen, the reflections and light on the glass, the background, the framing, the colors, the grain. Do not add any text, logo or person.
+Output at the size and aspect ratio of image 1, high definition.`;
+
 const NOM_SUPPORT: Record<Support, string> = {
   iphone: "phone",
   tablette: "tablet",
@@ -62,6 +69,11 @@ export function promptTraduction(modele: string | undefined, langue: string, nom
 
 export function promptIncrustation(modele: string | undefined, support: Support): string {
   return (modele ?? PROMPT_INCRUSTATION_DEFAUT).replaceAll("{appareil}", NOM_SUPPORT[support]);
+}
+
+/** Version traduite d'une mise en scène : seul l'écran change (clé `mise_en_scene_version`). */
+export function promptVersion(modele: string | undefined, support: Support): string {
+  return (modele ?? PROMPT_VERSION_DEFAUT).replaceAll("{appareil}", NOM_SUPPORT[support]);
 }
 
 // ---------------------------------------------------------------------------

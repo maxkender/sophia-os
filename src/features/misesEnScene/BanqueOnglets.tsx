@@ -21,6 +21,7 @@ import {
   chercherScenes,
   couplesManquants,
   deciderBanque,
+  grouperVersions,
   ECRANS_CONNUS,
   importerCapture,
   lireBudgetFal,
@@ -29,7 +30,10 @@ import {
   listerMisesEnScene,
   mettreEnScene,
   SUPPORTS,
+  traduireMiseEnScene,
   type CaptureApp,
+  type CarteVersions,
+  type EtapeTraduction,
   type FiltresBanque,
   type Integrateur,
   type MiseEnScene,
@@ -74,10 +78,12 @@ function Filtres({
   valeur,
   onChange,
   avecEcran = true,
+  avecLangue = true,
 }: {
   valeur: FiltresBanque;
   onChange: (f: FiltresBanque) => void;
   avecEcran?: boolean;
+  avecLangue?: boolean;
 }) {
   const { t } = useTranslation();
   return (
@@ -117,17 +123,19 @@ function Filtres({
           ))}
         </select>
       )}
-      <select
-        aria-label={t("misesEnScene.langue")}
-        className={selectClass}
-        value={valeur.langue ?? ""}
-        onChange={(e) => onChange({ ...valeur, langue: e.target.value || undefined })}
-      >
-        <option value="">{t("misesEnScene.toutesLangues")}</option>
-        {LANGUES_CIBLES.map((l) => (
-          <option key={l} value={l}>{nomLangue(l)}</option>
-        ))}
-      </select>
+      {avecLangue && (
+        <select
+          aria-label={t("misesEnScene.langue")}
+          className={selectClass}
+          value={valeur.langue ?? ""}
+          onChange={(e) => onChange({ ...valeur, langue: e.target.value || undefined })}
+        >
+          <option value="">{t("misesEnScene.toutesLangues")}</option>
+          {LANGUES_CIBLES.map((l) => (
+            <option key={l} value={l}>{nomLangue(l)}</option>
+          ))}
+        </select>
+      )}
       <select
         aria-label={t("misesEnScene.statut")}
         className={selectClass}
@@ -430,12 +438,15 @@ function GenererManquantes() {
   );
 }
 
-function Relancer({ mise }: { mise: MiseEnScene }) {
+/** Relance (une seule) d'un essai raté : l'origine, ou la version d'une langue. */
+function Relancer({ mise, origine }: { mise: MiseEnScene; origine: MiseEnScene }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const relancer = useMutation({
-    mutationFn: () =>
-      mettreEnScene({ capture_id: mise.capture_id, integrateur_id: mise.integrateur_id, relance_de: mise.id }),
+    mutationFn: async () => {
+      if (mise.version_de) await traduireMiseEnScene(origine.id, mise.langue, mise.id);
+      else await mettreEnScene({ capture_id: mise.capture_id, integrateur_id: mise.integrateur_id, relance_de: mise.id });
+    },
     onSuccess: () => invaliderBanque(queryClient),
   });
   return (
@@ -449,8 +460,58 @@ function Relancer({ mise }: { mise: MiseEnScene }) {
   );
 }
 
-function CarteMiseEnScene({ mise }: { mise: MiseEnScene }) {
+/** « + langue » : traduit la capture à plat, puis (une fois validée) l'écran de la même image. */
+function AjouterLangue({ carte }: { carte: CarteVersions }) {
   const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const [langue, setLangue] = React.useState("");
+  const [etape, setEtape] = React.useState<EtapeTraduction | null>(null);
+  const traduire = useMutation({
+    mutationFn: () => traduireMiseEnScene(carte.origine.id, langue),
+    onSuccess: (e) => {
+      setEtape(e);
+      invaliderBanque(queryClient);
+    },
+  });
+  const libres = LANGUES_CIBLES.filter((l) => {
+    const v = carte.versions[l];
+    return !v || v.statut === "rejetee";
+  });
+  return (
+    <div className="space-y-1">
+      <div className="flex gap-1">
+        <select
+          aria-label={t("misesEnScene.ajouterLangue")}
+          className={cn(selectClass, "min-w-0 flex-1")}
+          value={langue}
+          onChange={(e) => {
+            setLangue(e.target.value);
+            setEtape(null);
+          }}
+        >
+          <option value="">{t("misesEnScene.ajouterLangue")}</option>
+          {libres.map((l) => (
+            <option key={l} value={l}>{nomLangue(l)}</option>
+          ))}
+        </select>
+        <Button size="sm" variant="outline" disabled={!langue || traduire.isPending} onClick={() => traduire.mutate()}>
+          <Plus className="size-3.5" />
+          {traduire.isPending ? t("misesEnScene.enCours") : t("misesEnScene.traduire")}
+        </Button>
+      </div>
+      {etape && <p className="text-xs text-muted-foreground">{t(`misesEnScene.etapes.${etape}`)}</p>}
+      {traduire.error && <p className="text-xs text-destructive">{(traduire.error as Error).message}</p>}
+    </div>
+  );
+}
+
+/** Une photo × un écran ; les langues en sont des versions (pastilles). */
+function CarteMiseEnScene({ carte }: { carte: CarteVersions }) {
+  const { t } = useTranslation();
+  const { origine } = carte;
+  const [langue, setLangue] = React.useState(origine.langue);
+  const mise = carte.versions[langue] ?? origine;
+  const langues = [origine.langue, ...Object.keys(carte.versions).filter((l) => l !== origine.langue).sort()];
   return (
     <div className="space-y-1.5">
       <a href={mise.url} target="_blank" rel="noreferrer">
@@ -461,12 +522,32 @@ function CarteMiseEnScene({ mise }: { mise: MiseEnScene }) {
           className={cn("aspect-[3/4] w-full rounded-md border object-cover", mise.a_refaire && "opacity-50")}
         />
       </a>
+      <div role="tablist" aria-label={t("misesEnScene.langue")} className="flex flex-wrap gap-1">
+        {langues.map((l) => {
+          const v = carte.versions[l];
+          return (
+            <button
+              key={l}
+              type="button"
+              role="tab"
+              aria-selected={l === langue}
+              onClick={() => setLangue(l)}
+              className={cn(
+                "rounded-full border px-2 py-0.5 text-xs",
+                l === langue ? "border-primary bg-primary text-primary-foreground" : "bg-background",
+              )}
+            >
+              {l}
+              {v.statut === "validee" ? " ✓" : v.statut === "rejetee" ? " ✗" : " …"}
+            </button>
+          );
+        })}
+      </div>
       <div className="flex flex-wrap gap-1">
         <Badge variant={VARIANTE_STATUT[mise.statut]}>{t(`misesEnScene.statuts.${mise.statut}`)}</Badge>
         {mise.a_refaire && <Badge variant="warning">{t("misesEnScene.aRefaire")}</Badge>}
         <Badge variant="outline">{mise.application}</Badge>
         <Badge variant="outline">{mise.ecran}</Badge>
-        <Badge variant="outline">{mise.langue}</Badge>
         <Badge variant="outline">{t(`misesEnScene.supports.${mise.support}`)}</Badge>
         {mise.essai > 1 && <Badge variant="info">{t("misesEnScene.relance")}</Badge>}
       </div>
@@ -475,7 +556,8 @@ function CarteMiseEnScene({ mise }: { mise: MiseEnScene }) {
       </p>
       {mise.motif_rejet && <p className="text-xs text-muted-foreground">{mise.motif_rejet}</p>}
       <Decision objet="mise_en_scene" id={mise.id} statut={mise.statut} />
-      {mise.essai < 2 && mise.statut === "a_valider" && !mise.a_refaire && <Relancer mise={mise} />}
+      {mise.essai < 2 && mise.statut === "a_valider" && !mise.a_refaire && <Relancer mise={mise} origine={origine} />}
+      {origine.statut === "validee" && !origine.a_refaire && <AjouterLangue carte={carte} />}
     </div>
   );
 }
@@ -483,9 +565,15 @@ function CarteMiseEnScene({ mise }: { mise: MiseEnScene }) {
 export function MisesEnSceneOnglet() {
   const { t } = useTranslation();
   const [filtres, setFiltres] = React.useState<FiltresBanque>({});
-  const mises = useQuery({ queryKey: ["banque-mises-en-scene", filtres], queryFn: () => listerMisesEnScene(filtres) });
+  // Le statut se lit sur l'image d'origine : toutes les versions viennent avec elle.
+  const { statut, ...filtresServeur } = filtres;
+  const mises = useQuery({
+    queryKey: ["banque-mises-en-scene", filtresServeur],
+    queryFn: () => listerMisesEnScene(filtresServeur),
+  });
   const liste = mises.data ?? [];
-  const aRefaire = liste.filter((m) => m.a_refaire && m.statut !== "rejetee").length;
+  const cartes = grouperVersions(liste).filter((c) => !statut || c.origine.statut === statut);
+  const aRefaire = cartes.filter((c) => c.origine.a_refaire && c.origine.statut !== "rejetee").length;
   return (
     <Card>
       <CardHeader>
@@ -502,16 +590,16 @@ export function MisesEnSceneOnglet() {
       </CardHeader>
       <CardContent className="space-y-3">
         <GenererManquantes />
-        <Filtres valeur={filtres} onChange={setFiltres} />
+        <Filtres valeur={filtres} onChange={setFiltres} avecLangue={false} />
         {mises.error && <p className="text-sm text-destructive">{(mises.error as Error).message}</p>}
         {mises.isLoading ? (
           <p className="text-sm text-muted-foreground">{t("misesEnScene.chargement")}</p>
-        ) : liste.length === 0 ? (
+        ) : cartes.length === 0 ? (
           <EmptyState title={t("misesEnScene.misesVide")} />
         ) : (
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-            {liste.map((m) => (
-              <CarteMiseEnScene key={m.id} mise={m} />
+            {cartes.map((c) => (
+              <CarteMiseEnScene key={c.origine.id} carte={c} />
             ))}
           </div>
         )}

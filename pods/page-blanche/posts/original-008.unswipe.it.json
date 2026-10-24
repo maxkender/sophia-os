@@ -1,0 +1,223 @@
+{
+ "post_id": "original-008",
+ "application": "unswipe",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "7 ways to stop doomscrolling",
+      "and reclaim your life"
+     ],
+     "fr": "7 trucs pour arrêter de scroller et reprendre ta vie",
+     "texte": "ho mollato [[i reels]] per 30 giorni e ho tenuto un diario"
+    },
+    "T2": {
+     "en": [
+      "from an",
+      "ex-chronic",
+      "scroller"
+     ],
+     "fr": "par une ex-accro au scroll",
+     "texte": "(e il mio cervello è cambiato)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "1. set my phone to greyscale"
+     ],
+     "fr": "1. mon tel en noir et blanc",
+     "texte": "giorno 1: [[pollice impazzito]]"
+    },
+    "T2": {
+     "en": [
+      "everyone says to do it",
+      "but it actually helps,",
+      "keep it grey for tiktok",
+      "and reels too."
+     ],
+     "fr": "tout le monde le dit, mais ça marche vraiment. et laisse le gris même sur tiktok et les reels.",
+     "texte": "cancellato tiktok, tenuto insta solo per i messaggi. aperto comunque 40 volte prima di pranzo."
+    },
+    "T3": {
+     "en": [
+      "scrolling is so",
+      "boring now"
+     ],
+     "fr": "scroller me saoule trop",
+     "texte": "è [[pura memoria muscolare]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. Stop pretending like"
+     ],
+     "fr": "2. Arrête de te dire que",
+     "texte": "giorno 4: [[l'astinenza]]"
+    },
+    "T2": {
+     "en": [
+      "scrolling Substack is better"
+     ],
+     "fr": "scroller Substack, c'est mieux",
+     "texte": "e la noia è insopportabile"
+    },
+    "T3": {
+     "en": [
+      "It feels productive but",
+      "doomscrolling on substack",
+      "or pinterest is just as",
+      "bad as tiktok"
+     ],
+     "fr": "On a l'impression d'être productive, mais scroller sur substack ou pinterest, c'est aussi nul que tiktok",
+     "texte": "all'una di notte scrollavo pinterest solo per sentire qualcosa. stessa botta, altra app"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "Never scroll in bed"
+     ],
+     "fr": "Jamais de scroll au lit",
+     "texte": "giorno 10: [[silenzio]]"
+    },
+    "T2": {
+     "en": [
+      "4."
+     ],
+     "fr": "4.",
+     "texte": ""
+    },
+    "T4": {
+     "en": [
+      "I read a book instead, i've been",
+      "trying ReadUp to block my",
+      "apps until I read for 30 minutes",
+      "and it's helped me so far. But",
+      "you can use anything that just",
+      "isn't your phone"
+     ],
+     "fr": "Je lis un livre à la place, et j'ai remplacé mon scroll du soir par 5 min sur l'appli Sophia, un truc nouveau par jour. Mais tout marche, sauf ton tel",
+     "texte": "[[la voglia finalmente tace]]. il mio «controllo solo i messaggi» finiva sempre in un'ora di reels, così stamattina ho tolto i Reels da instagram con l'app UnSwipe"
+    }
+   },
+   "images": {
+    "I3": "sophia_appstore"
+   },
+   "zones": [
+    {
+     "elements": [
+      "T3",
+      "I1",
+      "T5",
+      "T6",
+      "T7",
+      "I2",
+      "T8"
+     ],
+     "action": "sophia_capture"
+    }
+   ]
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "explain what you learn out loud"
+     ],
+     "fr": "dis [[à voix haute]] ce que t'as appris",
+     "texte": "giorno 21: [[riesco a concentrarmi]]"
+    },
+    "T2": {
+     "en": [
+      "close the book, article, or",
+      "video and explain the idea",
+      "from memory"
+     ],
+     "fr": "ferme le livre, l'article ou la vidéo et réexplique l'idée [[de tête]]",
+     "texte": "ho retto una lezione di due ore senza mai prendere in mano il telefono"
+    },
+    "T3": {
+     "en": [
+      "the moment you get vague",
+      "or confused, you’ve found",
+      "the gap"
+     ],
+     "fr": "dès que tu t'embrouilles, t'as trouvé ce que t'as pas compris",
+     "texte": "e il giorno dopo [[sapevo rispiegarla tutta]] a memoria"
+    },
+    "T4": {
+     "en": [
+      "teaching exposes weak",
+      "understanding faster than",
+      "rereading does"
+     ],
+     "fr": "[[expliquer fait ressortir tes lacunes]] plus vite que relire",
+     "texte": "e [[leggo di nuovo]]: 40 pagine ogni sera senza mai distrarmi"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go to bed embarrassingly early"
+     ],
+     "fr": "couche-toi [[à une heure de mamie]]",
+     "texte": "giorno 30: [[finalmente dormo]]"
+    },
+    "T2": {
+     "en": [
+      "you need sleep"
+     ],
+     "fr": "[[t'as besoin de dormir]]",
+     "texte": "[[a letto alle 23]]"
+    },
+    "T3": {
+     "en": [
+      "adults generally need",
+      "around 7–9 hours, and",
+      "consistently cutting",
+      "that short wrecks",
+      "attention, mood and",
+      "self-control"
+     ],
+     "fr": "un adulte a besoin de 7 à 9 h en moyenne, et en dormir moins tout le temps [[bousille ta concentration]], ton humeur et ta volonté",
+     "texte": "basta «ultimo video» all'una. il telefono si carica in cucina e mi addormento in pochi minuti, niente più occhi sbarrati"
+    },
+    "T4": {
+     "en": [
+      "an 11pm bedtime is",
+      "less exciting than fixing",
+      "your life tired"
+     ],
+     "fr": "dodo à 23 h, c'est pas glamour, mais c'est mieux que vivre crevée",
+     "texte": "30 giorni fa ci avrei riso su. adesso non torno più indietro"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

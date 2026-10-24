@@ -1,0 +1,274 @@
+{
+ "post_id": "original-009",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "dangerously successful"
+     ],
+     "fr": "10/10 habitudes pour réussir à un niveau flippant",
+     "texte": "avis impopulaires qui m'ont rendu ma concentration"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(version niche)",
+     "alignement": "droite",
+     "texte": "(le #4 va piquer)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you reach for your phone the",
+      "second nothing is happening"
+     ],
+     "fr": "tu sors ton tel [[à la seconde où]] il se passe rien",
+     "texte": "1. [[s'ennuyer, ça s'apprend]], et on a tous oublié comment"
+    },
+    "T2": {
+     "en": [
+      "waiting 30 seconds,",
+      "standing in a queue, sitting",
+      "in a lift, you instantly need",
+      "input"
+     ],
+     "fr": "30 secondes d'attente, une file, un ascenseur… et [[il te faut direct un truc à regarder]]",
+     "texte": "attendre 30 secondes que l'eau chauffe, avant c'était rien. maintenant [[on tient pas sans écran]]"
+    },
+    "T3": {
+     "en": [
+      "boredom is where your",
+      "brain gets a chance to",
+      "wander, reflect and",
+      "connect ideas"
+     ],
+     "fr": "l'ennui, c'est le moment où ton cerveau peut divaguer, réfléchir et faire des liens",
+     "texte": "c'est dans ces minutes vides que ton cerveau divague, range tout et relie les idées"
+    },
+    "T4": {
+     "en": [
+      "stop deleting every empty",
+      "moment"
+     ],
+     "fr": "[[arrête de remplir]] chaque temps mort",
+     "texte": "[[ennuie-toi exprès]], c'est un muscle"
+    },
+    "T5": {
+     "en": [
+      "listen to your thoughts"
+     ],
+     "fr": "[[écoute tes pensées]]",
+     "texte": "[[et ça vient super vite]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop always listening to something"
+     ],
+     "fr": "arrête d'[[écouter un truc non-stop]]",
+     "texte": "2. [[les podcasts, c'est pas productif]]"
+    },
+    "T2": {
+     "en": [
+      "music, podcasts, youtube, something constantly playing in",
+      "the background means your brain never gets to rest"
+     ],
+     "fr": "musique, podcasts, youtube : si y'a toujours un truc en fond, [[ton cerveau se repose jamais]]",
+     "texte": "3 h de développement perso dans les oreilles par jour, t'as l'impression d'avancer, mais [[t'en retiens presque rien]]"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    },
+    "T5": {
+     "en": [
+      "leave parts of",
+      "your day",
+      "completely quiet",
+      "so your brain can",
+      "actually think",
+      "and come up with",
+      "its own ideas"
+     ],
+     "fr": "garde des moments de vrai silence dans ta journée, ton cerveau pourra enfin réfléchir et [[avoir ses idées à lui]]",
+     "texte": "c'est surtout du bruit qui t'empêche de te retrouver avec tes pensées. [[les idées arrivent dans le silence]]"
+    },
+    "T6": {
+     "en": [
+      "you don't need music every time you go outside"
+     ],
+     "fr": "[[t'as pas besoin de musique dès que tu sors]]",
+     "texte": "[[une balade par jour sans rien dans les oreilles]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they read classic books written",
+      "by the greats"
+     ],
+     "fr": "ils lisent les classiques [[des grands auteurs]]",
+     "texte": "3. des faits au hasard > [[ton livre de dev perso]]"
+    },
+    "T2a": {
+     "en": [
+      "they know endless tiktok scrolling rots their",
+      "attention"
+     ],
+     "fr": "ils savent que le scroll infini [[leur bousille l'attention]]",
+     "texte": "le dev perso répète les 5 mêmes idées sur [[300 pages]]"
+    },
+    "T2b": {
+     "en": [
+      "instead, they read ideas that",
+      "survived decades or",
+      "centuries"
+     ],
+     "fr": "alors ils lisent des idées [[qui tiennent depuis des siècles]]",
+     "texte": "une anecdote sur rome ou les trous noirs, [[ça te reste]]"
+    },
+    "T3": {
+     "en": [
+      "from people who thought",
+      "deeply about psychology,",
+      "power, business, and human",
+      "nature"
+     ],
+     "fr": "de gens qui ont vraiment creusé [[la psycho]], [[le pouvoir]], [[le business]] et [[la nature humaine]]",
+     "texte": "et ça réveille [[ta curiosité]], tout l'inverse de ce que le scroll fait à ton cerveau"
+    },
+    "T4": {
+     "en": [
+      "if you’re stuck on tiktok, you",
+      "can try readup which blocks",
+      "your apps until you read"
+     ],
+     "fr": "si t'es scotchée à tiktok, remplace ton scroll par [[5 min sur l'appli Sophia]]",
+     "texte": "tant qu'à être sur ton tel, ouvre [[l'appli Sophia]], une leçon de 5 min par jour"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   },
+   "scissions": {
+    "T2": 2
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they tolerate long periods with",
+      "no reward"
+     ],
+     "fr": "ils tiennent [[longtemps]] [[sans récompense]]",
+     "texte": "4. [[tu dois à personne]] une réponse immédiate"
+    },
+    "T2": {
+     "en": [
+      "they can keep working when",
+      "nobody is watching, nothing",
+      "is going viral, and the results",
+      "still look unimpressive"
+     ],
+     "fr": "ils continuent à bosser quand [[personne regarde]], que rien ne fait le buzz et que les résultats [[font pas rêver]]",
+     "texte": "répondre à chaque message dans la minute, ça veut dire que ton attention t'appartient jamais et que [[rien n'a toute ta tête]]"
+    },
+    "T3": {
+     "en": [
+      "most people need constant",
+      "proof that something is",
+      "working"
+     ],
+     "fr": "la plupart des gens veulent sans arrêt la preuve que ça marche",
+     "texte": "pendant des siècles, on attendait des jours pour une lettre"
+    },
+    "T4": {
+     "en": [
+      "successful people can stay",
+      "consistent long enough for the",
+      "payoff to arrive."
+     ],
+     "fr": "ceux qui réussissent [[restent réguliers assez longtemps]] pour que ça finisse par payer.",
+     "texte": "mets ton tel en ne pas déranger une heure, puis [[réponds à tout d'un coup]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get good at writing"
+     ],
+     "fr": "apprends à bien écrire",
+     "texte": "5. [[vive le papier]]"
+    },
+    "T2": {
+     "en": [
+      "clear writing forces clear",
+      "thinking"
+     ],
+     "fr": "écrire clair, ça oblige à penser clair",
+     "texte": "écrire à la main, ça t'oblige à ralentir"
+    },
+    "T3": {
+     "en": [
+      "learn how to explain",
+      "complicated ideas",
+      "simply, write convincing",
+      "messages, and make",
+      "people actually care"
+     ],
+     "fr": "apprends à expliquer simplement des trucs compliqués, à convaincre par écrit et à [[toucher vraiment les gens]]",
+     "texte": "tu peux pas tout noter, donc ton cerveau doit trier ce qui compte, et c'est pour ça que [[tu t'en souviens]]"
+    },
+    "T4": {
+     "en": [
+      "if you can write well, you'll be better at",
+      "marketing, leadership, sales, and building an",
+      "audience"
+     ],
+     "fr": "si tu sais écrire, tout devient plus simple : marketing, management, vente, et te créer une commu",
+     "texte": "prends tes notes sur papier pendant une semaine et tu verras, [[tu révises deux fois plus vite]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

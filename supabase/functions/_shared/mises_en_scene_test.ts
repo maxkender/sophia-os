@@ -6,11 +6,13 @@ import {
   ecranValide,
   etatBudget,
   extensionImage,
+  formatRespecte,
   langueValide,
   lireReglagesMisesEnScene,
   promptIncrustation,
   promptTraduction,
   promptVersion,
+  ratioImpose,
   relancePermise,
   sansMetadonnees,
   supportValide,
@@ -167,4 +169,15 @@ Deno.test("métadonnées : JPEG sans EXIF, XMP ni C2PA (APP1, APP11), avec JFIF 
   const propre = sansMetadonnees(jpg);
   const marqueurs = [...propre].flatMap((v, i) => (v === 0xff && propre[i + 1] >= 0xc0 ? [propre[i + 1]] : []));
   assertEquals(marqueurs, [0xd8, 0xe0, 0xe2, 0xdb, 0xda, 0xd9]);
+});
+
+Deno.test("format : imposé d'après l'image de départ, rendu refusé s'il prend celui de la capture", () => {
+  assertEquals(ratioImpose({ largeur: 1696, hauteur: 2528 }), "2:3");
+  assertEquals(ratioImpose({ largeur: 1792, hauteur: 2400 }), "3:4");
+  const origine = { largeur: 1696, hauteur: 2528 };
+  assert(formatRespecte(origine, { largeur: 1696, hauteur: 2528 }));
+  assert(formatRespecte(origine, { largeur: 1664, hauteur: 2496 }));
+  // Le cas du 24/10 : version allemande au format de la capture.
+  assert(!formatRespecte(origine, { largeur: 1408, hauteur: 3040 }));
+  assert(!formatRespecte(origine, null));
 });

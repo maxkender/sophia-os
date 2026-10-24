@@ -71,12 +71,14 @@ import { editerNanoBananaPro } from "../_shared/fal_nano_banana.ts";
 import {
   aRefaire,
   promptVersion,
+  ratioImpose,
   cheminCapture,
   cheminMiseEnScene,
   couplesManquants,
   ecranValide,
   etatBudget,
   extensionImage,
+  formatRespecte,
   langueValide,
   lireReglagesMisesEnScene,
   promptIncrustation,
@@ -465,7 +467,12 @@ async function traduireCapture(supabase: Supabase, body: Record<string, unknown>
 async function creerCaptureTraduite(supabase: Supabase, orig: any, langue: string, par: string, prix: number) {
   const app = (await applications(supabase)).find((a) => a.id === orig.application_id);
   const prompt = promptTraduction(await chargerPrompt(supabase, "mise_en_scene_traduction"), langue, app?.nom ?? "");
-  const res = await editerNanoBananaPro(orig.url, prompt, undefined, { aspectRatio: "auto", resolution: "2K", budgetMs: 130_000 });
+  const depart = orig.largeur && orig.hauteur ? { largeur: orig.largeur, hauteur: orig.hauteur } : await tailleDistante(orig.url);
+  const res = await editerNanoBananaPro(orig.url, prompt, undefined, {
+    aspectRatio: ratioImpose(depart),
+    resolution: "2K",
+    budgetMs: 130_000,
+  });
   const id = crypto.randomUUID();
   await noterDepense(supabase, "traduire_capture", id, prix, par);
   const nettoye = await retirerContentCredentialsBytes(res.bytes);
@@ -473,6 +480,11 @@ async function creerCaptureTraduite(supabase: Supabase, orig: any, langue: strin
   const mime = nettoye.mime;
   const ext = extensionImage(bytes) ?? "png";
   const taille = tailleImage(bytes);
+  if (!formatRespecte(depart, taille)) {
+    throw new Error(
+      `Nano Banana a rendu ${taille?.largeur ?? "?"}×${taille?.hauteur ?? "?"} au lieu du format de la capture (${depart.largeur}×${depart.hauteur}) : rien n'est gardé, relance`,
+    );
+  }
   const chemin = cheminCapture(app?.slug ?? "app", langue, orig.ecran, orig.support, id, ext);
   const url = await ranger(supabase, chemin, bytes, mime === "application/octet-stream" ? "image/png" : mime);
   const { data, error } = await supabase.from("captures_app").insert({
@@ -699,6 +711,15 @@ async function essaiSuivant(
   return { essai: ancien.essai + 1, relanceDe: ancien.id };
 }
 
+/** Largeur × hauteur d'une image en ligne (PNG ou JPEG). */
+async function tailleDistante(url: string): Promise<{ largeur: number; hauteur: number }> {
+  const r = await fetch(url);
+  if (!r.ok) throw new Error(`image de départ ${r.status}`);
+  const taille = tailleImage(new Uint8Array(await r.arrayBuffer()));
+  if (!taille) throw new Error("image de départ : format inconnu");
+  return taille;
+}
+
 /** Appel Nano Banana Pro, stockage sans C2PA, dépense notée, ligne insérée. */
 async function produire(
   supabase: Supabase,
@@ -716,8 +737,10 @@ async function produire(
   par: string,
   prix: number,
 ) {
+  // Le format est celui de l'image de départ (image 1), jamais celui de la capture.
+  const depart = await tailleDistante(p.images[0]);
   const res = await editerNanoBananaPro(p.images, p.prompt, undefined, {
-    aspectRatio: "auto",
+    aspectRatio: ratioImpose(depart),
     resolution: "2K",
     budgetMs: 130_000,
   });
@@ -728,6 +751,11 @@ async function produire(
   const mime = nettoye.mime;
   const ext = extensionImage(bytes) ?? "png";
   const taille = tailleImage(bytes);
+  if (!formatRespecte(depart, taille)) {
+    throw new Error(
+      `Nano Banana a rendu ${taille?.largeur ?? "?"}×${taille?.hauteur ?? "?"} au lieu du format de l'image de départ (${depart.largeur}×${depart.hauteur}) : rien n'est gardé, relance`,
+    );
+  }
   const c = p.capture;
   const slug = (await applications(supabase)).find((a) => a.id === c.application_id)?.slug ?? "app";
   const chemin = cheminMiseEnScene(slug, c.langue, c.ecran, c.support, id, ext);

@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o017",
+ "schema_id": "mentir-entretien",
+ "titre": "les trucs sur lesquels tu DOIS « mentir » en entretien de stage ou d'alternance #stage #alternance #entretien #etudiant #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "CTA jamais utilisé, à la demande de l'équipe (24/10) : « raconte en commentaire la pire question qu'on t'a posée » (le public écrit son histoire, au lieu de choisir un item). Schéma mentir-entretien (r 17,03 sur 3 passages, 496f8d72). Angle neuf : stage et alternance, une cible étudiante jamais visée. Accroches écrites : « les trucs sur lesquels tu DOIS « mentir » en entretien de stage ou d'alternance » (retenue : gabarit gagnant + cible neuve), « premier entretien d'alternance : les 6 réponses à arranger » (écartée : sans mentir), « ce que j'aurais aimé savoir avant mon entretien de stage » (écartée : plate). Six questions neuves, aucune reprise de rh-o001 à rh-o014 ni des sources. On recadre sans inventer : le projet de groupe est raconté tel qu'il a été. Sophia en 5 : décrocher entre l'école et l'entreprise. Inspirations : sans la slide 5 de chaque source (appli concurrente).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "64566fa7",
+   "texte_overlay": "les trucs sur lesquels tu DOIS « mentir »\nen entretien de stage\nou d'alternance",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "37b240ad",
+   "texte_overlay": "1\n« pourquoi chez nous et pas ailleurs ? »\ntu dis « ce que vous faites sur X me permet de pratiquer tout de suite ce que j'apprends »\nlis leur site 15 minutes avant, et c'est vrai",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3879ecc0",
+   "texte_overlay": "2\n« vous comptez rester après le diplôme ? »\ntu réponds\n« si la mission me fait progresser comme prévu, c'est ce que je vise »\nmême si t'en sais rien. ils vérifient juste que tu les vois pas comme un tremplin",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1c8943c3",
+   "texte_overlay": "3\n« vous avez déjà travaillé en équipe ? »\njamais « pas vraiment »\ntu racontes ton vrai projet de groupe, avec ton rôle exact\nle projet d'école compte. ce qui compte, c'est ce que t'y as fait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2909a863",
+   "texte_overlay": "4\n« comment vous allez gérer l'école et l'entreprise ? »\ntu réponds\n« je m'organise par créneaux, et je garde un moment pour décrocher chaque jour »\nils ont peur que tu craques en mars. rassure-les",
+   "texte_sophia": "4\n« comment vous allez gérer l'école et l'entreprise ? »\ntu réponds\n« je m'organise par créneaux, et je garde 5 minutes par jour pour décrocher »\nles miennes : l'appli Sophia entre deux cours",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "310df0a4",
+   "texte_overlay": "5\n« vous connaissez nos concurrents ? »\njamais « non »\ntu dis « j'en ai regardé deux, et ce qui vous différencie, c'est… »\n15 minutes de recherche, et tu sors du lot",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "222408d9",
+   "texte_overlay": "6\n« vous pourriez commencer plus tôt ? »\njamais un oui que tu peux pas tenir\ntu dis « je vérifie avec mon école et je vous confirme demain »\nt'as l'air sérieuse, pas désespérée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "6109bb8c",
+   "texte_overlay": "raconte en commentaire\nla pire question qu'on t'a posée\nen entretien de stage",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

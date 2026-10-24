@@ -11,13 +11,19 @@
   "fr": "mes applis de productivité préférées",
   "es": "mis apps de productividad favoritas",
   "de": "meine liebsten Produktivitäts-Apps",
-  "tr": "favori verimlilik uygulamalarım"
+  "tr": "favori verimlilik uygulamalarım",
+  "en": "my favorite productivity apps",
+  "it": "le mie app di produttività preferite",
+  "pt": "meus apps de produtividade favoritos"
  },
  "legendes": {
   "fr": "celles que j’utilise vraiment 📱 #productivite #studytok #revisions #thatgirl #applis",
   "es": "las que uso de verdad 📱 #productividad #studytok #estudiar #thatgirl #apps",
   "de": "die ich wirklich nutze 📱 #produktivität #studytok #lernen #thatgirl #apps",
-  "tr": "gerçekten kullandıklarım 📱 #verimlilik #studytok #ders #thatgirl #uygulamalar"
+  "tr": "gerçekten kullandıklarım 📱 #verimlilik #studytok #ders #thatgirl #uygulamalar",
+  "en": "the ones i actually use 📱 #productivity #studytok #studytips #thatgirl #apps",
+  "it": "quelle che uso davvero 📱 #produttività #studytok #studiare #thatgirl #app",
+  "pt": "os que eu uso de verdade 📱 #produtividade #studytok #estudos #thatgirl #apps"
  },
  "musique": {
   "titre": "suara asli - Zahraaaa🌸",
@@ -87,6 +93,51 @@
      "lignes": [
       "verimlilik",
       "uygulamalarım"
+     ],
+     "taille": 124,
+     "interligne": 0.82,
+     "taille_script": 84,
+     "y": 868
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "my favorite",
+     "script_place": "gauche",
+     "lignes": [
+      "productivity",
+      "apps"
+     ],
+     "taille": 124,
+     "interligne": 0.82,
+     "taille_script": 84,
+     "y": 868
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "le mie app di",
+     "script_place": "gauche",
+     "lignes": [
+      "produttività",
+      "preferite"
+     ],
+     "taille": 124,
+     "interligne": 0.82,
+     "taille_script": 84,
+     "y": 868
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "meus apps de",
+     "script_place": "gauche",
+     "lignes": [
+      "produtividade",
+      "favoritos"
      ],
      "taille": 124,
      "interligne": 0.82,
@@ -166,6 +217,60 @@
      ],
      "taille": 46
     }
+   },
+   "en": {
+    "carte": {
+     "nom": "FocusPomo",
+     "icone": "assets/applis/focuspomo.jpg",
+     "lignes": [
+      "Simple and minimalist",
+      "app for tracking your",
+      "study sessions.",
+      "",
+      "I do 50 min,",
+      "a 10 min break,",
+      "and a 20-40 min",
+      "break after",
+      "2 sessions."
+     ],
+     "taille": 48
+    }
+   },
+   "it": {
+    "carte": {
+     "nom": "FocusPomo",
+     "icone": "assets/applis/focuspomo.jpg",
+     "lignes": [
+      "Semplice e minimal",
+      "per tenere traccia",
+      "delle sessioni di studio.",
+      "",
+      "Faccio 50 min,",
+      "10 min di pausa,",
+      "e 20-40 min",
+      "di pausa dopo",
+      "2 sessioni."
+     ],
+     "taille": 46
+    }
+   },
+   "pt": {
+    "carte": {
+     "nom": "FocusPomo",
+     "icone": "assets/applis/focuspomo.jpg",
+     "lignes": [
+      "Simples e minimalista",
+      "para acompanhar suas",
+      "sessões de estudo.",
+      "",
+      "Eu faço 50 min,",
+      "10 min de pausa,",
+      "e 20 a 40 min",
+      "de pausa depois",
+      "de 2 sessões."
+     ],
+     "taille": 46
+    }
    }
   },
   {
@@ -237,6 +342,57 @@
      ],
      "taille": 46
     }
+   },
+   "en": {
+    "carte": {
+     "nom": "UnSwipe",
+     "icone": "assets/applis/unswipe.jpg",
+     "lignes": [
+      "For my phone",
+      "addiction.",
+      "",
+      "It deletes short",
+      "videos. No more",
+      "endless scrolling,",
+      "I got hours back",
+      "in my days."
+     ],
+     "taille": 46
+    }
+   },
+   "it": {
+    "carte": {
+     "nom": "UnSwipe",
+     "icone": "assets/applis/unswipe.jpg",
+     "lignes": [
+      "Per la mia dipendenza",
+      "dal telefono.",
+      "",
+      "Elimina i video",
+      "brevi. Basta",
+      "scroll infinito,",
+      "ho recuperato ore",
+      "nelle mie giornate."
+     ],
+     "taille": 46
+    }
+   },
+   "pt": {
+    "carte": {
+     "nom": "UnSwipe",
+     "icone": "assets/applis/unswipe.jpg",
+     "lignes": [
+      "Para o meu vício",
+      "no celular.",
+      "",
+      "Ele apaga os vídeos",
+      "curtos. Chega de",
+      "scroll infinito,",
+      "recuperei horas",
+      "nos meus dias."
+     ],
+     "taille": 46
+    }
    }
   },
   {
@@ -300,6 +456,54 @@
       "Günde 5 dakika,",
       "ne eksik ne fazla.",
       "10/10, tavsiye ederim."
+     ],
+     "taille": 46
+    }
+   },
+   "en": {
+    "carte": {
+     "nom": "Sophia",
+     "icone": "assets/applis/sophia.jpg",
+     "lignes": [
+      "Replacing scrolling",
+      "with general knowledge.",
+      "",
+      "5 minutes a day,",
+      "nothing more,",
+      "nothing less.",
+      "10/10, recommend."
+     ],
+     "taille": 46
+    }
+   },
+   "it": {
+    "carte": {
+     "nom": "Sophia",
+     "icone": "assets/applis/sophia.jpg",
+     "lignes": [
+      "Sostituire lo scroll",
+      "con la cultura generale.",
+      "",
+      "5 minuti al giorno,",
+      "niente di più,",
+      "niente di meno.",
+      "10/10, la consiglio."
+     ],
+     "taille": 44
+    }
+   },
+   "pt": {
+    "carte": {
+     "nom": "Sophia",
+     "icone": "assets/applis/sophia.jpg",
+     "lignes": [
+      "Trocar o scroll",
+      "por cultura geral.",
+      "",
+      "5 minutos por dia,",
+      "nem mais,",
+      "nem menos.",
+      "10/10, recomendo."
      ],
      "taille": 46
     }
@@ -374,6 +578,56 @@
      ],
      "taille": 46
     }
+   },
+   "en": {
+    "carte": {
+     "nom": "micabo",
+     "icone": "assets/micabo/icone.png",
+     "lignes": [
+      "I put my notes in",
+      "and it turns them",
+      "into quizzes and",
+      "flashcards.",
+      "",
+      "10 min a day,",
+      "and I walk into",
+      "every test ready."
+     ],
+     "taille": 48
+    }
+   },
+   "it": {
+    "carte": {
+     "nom": "micabo",
+     "icone": "assets/micabo/icone.png",
+     "lignes": [
+      "Ci carico i miei",
+      "appunti e lei ne fa",
+      "quiz e flashcard.",
+      "",
+      "10 min al giorno,",
+      "e arrivo pronta",
+      "alle verifiche."
+     ],
+     "taille": 48
+    }
+   },
+   "pt": {
+    "carte": {
+     "nom": "micabo",
+     "icone": "assets/micabo/icone.png",
+     "lignes": [
+      "Coloco minhas",
+      "anotações e ele",
+      "faz quizzes e",
+      "flashcards.",
+      "",
+      "10 min por dia,",
+      "e chego preparada",
+      "nas provas."
+     ],
+     "taille": 48
+    }
    }
   },
   {
@@ -447,6 +701,56 @@
      ],
      "taille": 44
     }
+   },
+   "en": {
+    "carte": {
+     "nom": "Calendar",
+     "icone": "assets/applis/calendrier.en.jpg",
+     "lignes": [
+      "Honestly underrated,",
+      "especially if you have",
+      "at least 2 Apple devices.",
+      "",
+      "I use it to block",
+      "out my time and for",
+      "important reminders."
+     ],
+     "taille": 44
+    }
+   },
+   "it": {
+    "carte": {
+     "nom": "Calendario",
+     "icone": "assets/applis/calendrier.it.jpg",
+     "lignes": [
+      "Sottovalutato davvero,",
+      "soprattutto se hai",
+      "almeno 2 dispositivi",
+      "Apple.",
+      "",
+      "Lo uso per bloccare",
+      "i miei orari e per",
+      "i promemoria importanti."
+     ],
+     "taille": 42
+    }
+   },
+   "pt": {
+    "carte": {
+     "nom": "Calendário",
+     "icone": "assets/applis/calendrier.pt.jpg",
+     "lignes": [
+      "Muito subestimado,",
+      "principalmente se você",
+      "tem pelo menos 2",
+      "aparelhos Apple.",
+      "",
+      "Uso para bloquear",
+      "meus horários e para",
+      "lembretes importantes."
+     ],
+     "taille": 42
+    }
    }
   },
   {
@@ -516,6 +820,58 @@
       "olarak kullanıyorum.",
       "",
       "En iyisi bilgisayarda."
+     ],
+     "taille": 42
+    }
+   },
+   "en": {
+    "carte": {
+     "nom": "Notion",
+     "icone": "assets/applis/notion.jpg",
+     "lignes": [
+      "The ultimate organizing",
+      "tool. I use it for my",
+      "to-dos, tracking my",
+      "exams, and honestly as",
+      "a database for my",
+      "whole life.",
+      "",
+      "Better on a laptop."
+     ],
+     "taille": 44
+    }
+   },
+   "it": {
+    "carte": {
+     "nom": "Notion",
+     "icone": "assets/applis/notion.jpg",
+     "lignes": [
+      "Lo strumento definitivo",
+      "per organizzarsi. Lo uso",
+      "per le to-do, per",
+      "seguire gli esami e,",
+      "sinceramente, come",
+      "database della mia vita.",
+      "",
+      "Meglio sul computer."
+     ],
+     "taille": 42
+    }
+   },
+   "pt": {
+    "carte": {
+     "nom": "Notion",
+     "icone": "assets/applis/notion.jpg",
+     "lignes": [
+      "A ferramenta de",
+      "organização definitiva.",
+      "Uso para as tarefas,",
+      "para acompanhar as",
+      "provas e, sinceramente,",
+      "como banco de dados",
+      "da minha vida.",
+      "",
+      "Melhor no computador."
      ],
      "taille": 42
     }

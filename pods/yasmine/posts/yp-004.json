@@ -11,13 +11,19 @@
   "fr": "ce que je fais pour réussir tous mes exams",
   "es": "lo que hago para aprobar todos mis exámenes",
   "de": "was ich tue, um jede Prüfung zu rocken",
-  "tr": "her sınavda başarılı olmak için yaptıklarım"
+  "tr": "her sınavda başarılı olmak için yaptıklarım",
+  "en": "things i do to smash every exam",
+  "it": "cosa faccio per superare ogni esame",
+  "pt": "o que eu faço para arrasar em todas as provas"
  },
  "legendes": {
   "fr": "mes habitudes avant chaque exam 📚 #revisions #studytok #examens #bac #thatgirl",
   "es": "mis hábitos antes de cada examen 📚 #estudiar #studytok #examenes #selectividad #thatgirl",
   "de": "meine Routine vor jeder Prüfung 📚 #lernen #studytok #prüfung #abitur #thatgirl",
-  "tr": "her sınavdan önceki alışkanlıklarım 📚 #ders #studytok #sınav #yks #thatgirl"
+  "tr": "her sınavdan önceki alışkanlıklarım 📚 #ders #studytok #sınav #yks #thatgirl",
+  "en": "my habits before every exam 📚 #studytok #studytips #exams #studying #thatgirl",
+  "it": "le mie abitudini prima di ogni esame 📚 #studiare #studytok #esami #maturità #thatgirl",
+  "pt": "meus hábitos antes de cada prova 📚 #estudos #studytok #provas #enem #thatgirl"
  },
  "musique": {
   "titre": "original sound",
@@ -107,6 +113,60 @@
      "script_monte": 22,
      "interligne": 1.12
     }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "things i do to",
+     "lignes": [
+      "SMASH",
+      "EVERY",
+      "EXAM"
+     ],
+     "taille": 190,
+     "taille_script": 88,
+     "y": 680,
+     "texte_bas": "part 1",
+     "texte_bas_x": 715,
+     "texte_bas_taille": 46,
+     "script_monte": 0
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "cosa faccio per",
+     "lignes": [
+      "SUPERARE",
+      "OGNI",
+      "ESAME"
+     ],
+     "taille": 176,
+     "taille_script": 88,
+     "y": 680,
+     "texte_bas": "parte 1",
+     "texte_bas_x": 715,
+     "texte_bas_taille": 46,
+     "script_monte": 0
+    }
+   },
+   "pt": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "o que eu faço para",
+     "lignes": [
+      "ARRASAR",
+      "EM TODAS",
+      "AS PROVAS"
+     ],
+     "taille": 160,
+     "taille_script": 88,
+     "y": 680,
+     "texte_bas": "parte 1",
+     "texte_bas_x": 715,
+     "texte_bas_taille": 46,
+     "script_monte": 0
+    }
    }
   },
   {
@@ -150,6 +210,30 @@
      "titre": "ders çalışmak için erken kalk.🎧",
      "texte": "evet, hafta sonları bile. saat 10’dan önce 4 saat ders çalışmayı sığdırabiliyorum."
     }
+   },
+   "en": {
+    "note": {
+     "x": 108,
+     "y": 454,
+     "titre": "wake up early to study.🎧",
+     "texte": "yes, even on weekends. i manage to fit in 4 hours of studying before 10am."
+    }
+   },
+   "it": {
+    "note": {
+     "x": 108,
+     "y": 454,
+     "titre": "svegliati presto per studiare.🎧",
+     "texte": "sì, anche nel weekend. riesco a fare 4 ore di studio prima delle 10."
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 108,
+     "y": 454,
+     "titre": "acorde cedo para estudar.🎧",
+     "texte": "sim, até no fim de semana. consigo encaixar 4 horas de estudo antes das 10h."
+    }
    }
   },
   {
@@ -192,6 +276,30 @@
      "y": 336,
      "titre": "cumayı diğer günler gibi gör.📚",
      "texte": "biraz daha gayret et ve cuma günü okuldan sonra ders çalış, en azından ödevlerini yap. hafta sonu daha fazla boş zamanla ödüllendirileceksin."
+    }
+   },
+   "en": {
+    "note": {
+     "x": 308,
+     "y": 336,
+     "titre": "treat friday like any other day.📚",
+     "texte": "go the extra mile and study on friday after school, at least your homework. you’ll be rewarded with more free time on the weekend."
+    }
+   },
+   "it": {
+    "note": {
+     "x": 308,
+     "y": 336,
+     "titre": "tratta il venerdì come gli altri giorni.📚",
+     "texte": "fai uno sforzo in più e studia il venerdì dopo la scuola, almeno i compiti. sarai ripagata con più tempo libero nel weekend."
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 308,
+     "y": 336,
+     "titre": "trate a sexta como qualquer outro dia.📚",
+     "texte": "faça um esforço a mais e estude na sexta depois da aula, pelo menos a lição de casa. você vai ganhar mais tempo livre no fim de semana."
     }
    }
   },
@@ -237,6 +345,30 @@
      "titre": "erken çalış🌸",
      "texte": "son dakika ezberi ruh sağlığın için yapabileceğin en kötü şey. ben ders notlarımı micabo’ya yüklüyorum ve her gün 10 dk test çözüyorum: böylece hiçbir şey birikmiyor."
     }
+   },
+   "en": {
+    "note": {
+     "x": 108,
+     "y": 454,
+     "titre": "study early🌸",
+     "texte": "last-minute cramming is the worst for your mental health. i put my notes in micabo and do 10 min of quizzes a day: nothing piles up."
+    }
+   },
+   "it": {
+    "note": {
+     "x": 108,
+     "y": 454,
+     "titre": "studia per tempo🌸",
+     "texte": "studiare tutto all’ultimo minuto è il peggio per la tua salute mentale. io carico i miei appunti su micabo e faccio 10 min di quiz al giorno: niente si accumula."
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 108,
+     "y": 454,
+     "titre": "estude com antecedência🌸",
+     "texte": "estudar tudo na última hora é o pior para a sua saúde mental. eu coloco minhas anotações no micabo e faço 10 min de quiz por dia: nada acumula."
+    }
    }
   },
   {
@@ -279,6 +411,30 @@
      "y": 809,
      "titre": "ders çalışmak için giyin.🧥",
      "texte": "biliyorum, pijama çok rahat. ama ne giydiğin önemli: pijamayla daha uykulu ve daha tembel olursun."
+    }
+   },
+   "en": {
+    "note": {
+     "x": 108,
+     "y": 809,
+     "titre": "get dressed to study.🧥",
+     "texte": "i know, pajamas are so comfy. but what you wear matters: in pajamas you’re sleepier and lazier."
+    }
+   },
+   "it": {
+    "note": {
+     "x": 108,
+     "y": 809,
+     "titre": "vestiti per studiare.🧥",
+     "texte": "lo so, il pigiama è comodissimo. ma quello che indossi conta: in pigiama sei più assonnata e più pigra."
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 108,
+     "y": 809,
+     "titre": "se arrume para estudar.🧥",
+     "texte": "eu sei, o pijama é muito confortável. mas o que você veste importa: de pijama, você fica mais sonolenta e mais preguiçosa."
     }
    }
   },
@@ -323,6 +479,30 @@
      "y": 411,
      "titre": "kütüphanede ya da kafede çalış☕",
      "texte": "mümkün olduğunca sık yer değiştir. erteleme mi? o da kim?"
+    }
+   },
+   "en": {
+    "note": {
+     "x": 308,
+     "y": 411,
+     "titre": "study at the library or a café☕",
+     "texte": "change places as often as you can. procrastination? never heard of it."
+    }
+   },
+   "it": {
+    "note": {
+     "x": 308,
+     "y": 411,
+     "titre": "studia in biblioteca o al bar☕",
+     "texte": "cambia posto il più spesso possibile. la procrastinazione? mai sentita."
+    }
+   },
+   "pt": {
+    "note": {
+     "x": 308,
+     "y": 411,
+     "titre": "estude na biblioteca ou num café☕",
+     "texte": "mude de lugar sempre que puder. procrastinação? nem conheço."
     }
    }
   }

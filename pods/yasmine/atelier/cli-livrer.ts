@@ -27,7 +27,10 @@ const essai = opt("--essai");
 const post = lirePost(id);
 const completes = languesCompletes(post);
 const langues = (opt("--langues")?.split(",") ?? [...LANGUES]).filter((l) => completes.includes(l));
-if (!langues.includes(LANGUE_SOURCE)) throw new Error(`${id} : le deck ${LANGUE_SOURCE} n'est pas complet (titre, légende et chaque slide)`);
+// Le deck source doit être complet ; avec --langues, un redépôt peut n'apporter que d'autres langues
+// (la fonction refuse plus de ~5 langues d'un coup : WORKER_LIMIT, HTTP 546).
+if (!completes.includes(LANGUE_SOURCE)) throw new Error(`${id} : le deck ${LANGUE_SOURCE} n'est pas complet (titre, légende et chaque slide)`);
+if (!langues.length) throw new Error(`${id} : aucune langue complète à déposer`);
 const apps = post.slides.flatMap((s, i) => (s.app ? [i] : []));
 if (apps.length !== 1 || apps[0] === 0) throw new Error(`${id} : une seule slide de l'appli, jamais la couverture (trouvé : ${apps.map((i) => i + 1).join(", ") || "aucune"})`);
 

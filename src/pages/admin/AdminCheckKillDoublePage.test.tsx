@@ -4,6 +4,7 @@ import { MemoryRouter } from "react-router-dom";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import i18n from "@/locales";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import type { PropositionCkd } from "@/features/ckd/api";
 
 const api = vi.hoisted(() => ({
@@ -95,12 +96,19 @@ function proposition(p: Partial<PropositionCkd>): PropositionCkd {
   };
 }
 
+/** Une case des chiffres clés du contrôle, par son intitulé. */
+function chiffre(intitule: string): HTMLElement {
+  return within(screen.getByTestId("chiffres-ckd")).getByText(intitule).closest("div") as HTMLElement;
+}
+
 function rendre() {
   const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
   return render(
     <QueryClientProvider client={client}>
       <MemoryRouter>
-        <AdminCheckKillDoublePage />
+        <TooltipProvider>
+          <AdminCheckKillDoublePage />
+        </TooltipProvider>
       </MemoryRouter>
     </QueryClientProvider>,
   );
@@ -305,7 +313,8 @@ describe("AdminCheckKillDoublePage", () => {
     expect(await within(decision).findByText(/arrêt prévu .*23:30/)).toBeInTheDocument();
     expect(within(decision).getByText(/pas encore envoyé au HM/)).toBeInTheDocument();
     expect(within(decision).getByText("Note : vérifier ses liens")).toBeInTheDocument();
-    expect(screen.getByTestId("barre-envoi")).toHaveTextContent("0 sans décision · 1 à envoyer aux HM");
+    expect(chiffre("Sans décision")).toHaveTextContent(/^Sans décision0/);
+    expect(chiffre("À envoyer aux HM")).toHaveTextContent(/^À envoyer aux HM1/);
     fireEvent.click(within(decision).getByRole("button", { name: "Annuler la décision" }));
     await waitFor(() => expect(api.annulerCkd).toHaveBeenCalledWith("p4"));
   });
@@ -378,12 +387,27 @@ describe("AdminCheckKillDoublePage", () => {
     const ionut = screen.getByTestId("historique-ionut.mentalitate346");
     expect(within(ionut).getByText(/compte arrêté le 25\/10/)).toBeInTheDocument();
 
-    expect(screen.getByTestId("resume-historique")).toHaveTextContent(
-      "Garder : 1 · 1 suivie(s) jusqu'au bout : 1 en hausse, 0 stable(s), 0 en baisse",
-    );
+    // Le résumé : une ligne par décision, combien, combien suivies, ce qu'elles sont devenues.
+    const garder = within(screen.getByTestId("resume-historique")).getByText("Garder").closest("tr")!;
+    const [, total, suivies] = within(garder).getAllByRole("cell");
+    expect(total).toHaveTextContent("1");
+    expect(suivies).toHaveTextContent("1");
+    expect(garder).toHaveTextContent("1 en hausse · 0 stable(s) · 0 en baisse");
     fireEvent.change(screen.getByRole("combobox", { name: "Filtrer par décision" }), { target: { value: "doubler" } });
     expect(screen.queryByTestId("historique-clara.eclaire390")).toBeNull();
     expect(screen.getByTestId("historique-katerina.exelissetai333")).toBeInTheDocument();
+  });
+
+  it("un clic sur une ligne du résumé filtre l'historique, un second clic le vide", async () => {
+    rendre();
+    fireEvent.click(await screen.findByRole("tab", { name: "Historique" }));
+    await screen.findByTestId("historique-clara.eclaire390");
+    const resume = screen.getByTestId("resume-historique");
+    fireEvent.click(within(resume).getByText("Doubler"));
+    expect(screen.queryByTestId("historique-clara.eclaire390")).toBeNull();
+    expect(screen.getByRole("combobox", { name: "Filtrer par décision" })).toHaveValue("doubler");
+    fireEvent.click(within(resume).getByText("Doubler"));
+    expect(screen.getByTestId("historique-clara.eclaire390")).toBeInTheDocument();
   });
 
   it("recalcule le contrôle affiché", async () => {

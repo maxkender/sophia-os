@@ -2783,7 +2783,7 @@ export const fr = {
       colScore: "Score",
       cibleTitre: "Cible de répartition entre applications",
       cibleAide:
-        "Des pourcentages entiers, renormalisés à 100 à la lecture. Une application laissée à 0 ne reçoit rien. La cible est ensuite ramenée aux seules applications qui servent la langue du marché : viser 25 % d'Unswipe ne veut rien dire en polonais, où Unswipe ne publie pas.",
+        "Des pourcentages entiers, renormalisés à 100 à la lecture. Une application laissée à 0 ne reçoit rien. La cible est ensuite ramenée aux seules applications qui servent la langue du marché : restreindre les langues d'une application la fait disparaître des marchés qu'elle ne sert pas, et sa part va aux autres. Aujourd'hui les trois servent toutes les langues, donc rien n'est retiré.",
       poserCible: "Poser la cible",
       fileTitre: "File des créateurs (forcer la main au moteur)",
       fileAide:
@@ -2801,16 +2801,16 @@ export const fr = {
       nonServie: "—",
       tiragesTitre: "Composition des {{n}} prochaines recrues",
       tiragesAide:
-        "Pour chaque marché, on déroule les {{n}} prochaines créations en mettant à jour la présence à chaque fois, exactement comme le fera le moteur, et on compte ce qu'on obtient. C'est une projection à stock et performance figés, pas une prédiction.",
+        "Pour chaque marché, on déroule les {{n}} prochaines créations en rejouant le classement du moteur, celui qui tourne aujourd'hui, et en remettant à jour les comptes de chaque label après chaque embauche. C'est une projection à stock et performance figés, pas une prédiction.",
       colMix: "Application × label",
       colPart: "Part",
       rFermesApp: "Labels fermés à la main",
       appsTitre: "Répartition par application",
       appsAide:
-        "Aujourd'hui, l'application d'un compte est cochée à la main par le recruteur, sans aucune cible. Voici la répartition réelle, pour la flotte puis marché par marché, et quelle application prendrait la prochaine recrue si une cible était posée.",
+        "La répartition réelle, pour la flotte puis marché par marché, et quelle application prendrait la prochaine recrue. Quand l'interrupteur est éteint, c'est le recruteur qui coche et cette colonne ne dit que ce qui se passerait ; quand il est allumé, c'est ce qui va se passer.",
       appsFlotte: "Toute la flotte",
       appsFlotteAide:
-        "La colonne « visée » n'est pas la cible saisie : c'est la cible ATTEIGNABLE, pondérée par les langues. 24 marchés sur 36 ne sont servis que par Sophia, donc même si chaque marché atteignait exactement sa cible, la flotte ne serait pas à la part saisie. Comparer à la cible brute ferait lire un excès de Sophia là où il y a un manque.",
+        "La colonne « visée » n'est pas la cible saisie : c'est la cible ATTEIGNABLE, pondérée par les langues. Un marché que certaines applications ne servent pas rend sa part aux autres, donc même si chaque marché atteignait exactement sa cible, la flotte ne tomberait pas sur la part saisie. Comparer à la cible brute ferait lire un excès là où il y a un manque. Les deux colonnes se rejoignent quand aucune application n'est restreinte, ce qui est le cas aujourd'hui.",
       appsMarches: "Par marché (langue × pays)",
       cibleAbsenteTitre: "Aucune cible posée",
       cibleAbsenteAide:

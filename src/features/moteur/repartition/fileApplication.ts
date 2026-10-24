@@ -10,7 +10,11 @@
  * `par_langue`, que lisent les lecteurs historiques).
  */
 import { avecFileLabelsApplication, fileLabelsDeLApplication } from "../applications";
-import { estLabelFileSlideshow, type LabelFileSlideshow } from "../fileLabelsSlideshow";
+import {
+  consommerFileSlideshow,
+  estLabelFileSlideshow,
+  type LabelFileSlideshow,
+} from "../fileLabelsSlideshow";
 import {
   applicationsDuLabel,
   SLUG_SOPHIA,
@@ -105,4 +109,60 @@ export function entreeHorsApplication(
 /** La case « Compte UGC » n'existe que pour Sophia : un compte d'une autre application n'est jamais UGC. */
 export function ugcPossible(slug: string): boolean {
   return slug === SLUG_SOPHIA;
+}
+
+/**
+ * Tire le prochain label de la File d'une application, et rend la File amputée
+ * de ce qui a été consommé.
+ *
+ * Miroir de `popLabelFile` (manage-users) : la file de la LANGUE d'abord, puis
+ * la file GÉNÉRALE de l'application. Une entrée dont le label n'est pas
+ * éligible — il ne sert pas cette application, ou il est fermé — est RETIRÉE
+ * sans rien donner, exactement comme côté serveur : sinon la nuit reprendrait
+ * le label au compte dès le lendemain.
+ *
+ * La File est un STOCK, pas un bonus permanent : une entrée sert un compte et
+ * disparaît. C'est pour ça que cette fonction rend la File suivante, et que
+ * l'appelant doit la reprendre pour le tirage d'après.
+ */
+export function tirerDeLaFile(
+  file: ReglagesFileLabels,
+  slug: string,
+  langue: string,
+  eligibles: Iterable<string>,
+): { item: FileLabelCompteItem | null; file: ReglagesFileLabels } {
+  const ok = new Set([...eligibles].filter(Boolean));
+  const lang = String(langue ?? "").trim().toLowerCase();
+  let courant = file;
+
+  if (lang) {
+    const parLangue = fileDeLApplication(courant, slug).par_langue[lang] ?? [];
+    const pop = consommerFileSlideshow([...parLangue], ok);
+    if (pop.item || pop.skipped.length > 0) {
+      courant = avecItemsApplication(courant, slug, lang, pop.rest);
+    }
+    if (pop.item) return { item: pop.item, file: courant };
+  }
+
+  const general = fileDeLApplication(courant, slug).items;
+  const pop = consommerFileSlideshow([...general], ok);
+  if (pop.item || pop.skipped.length > 0) {
+    courant = avecItemsApplication(courant, slug, "general", pop.rest);
+  }
+  return { item: pop.item, file: courant };
+}
+
+/**
+ * La File de cette application a-t-elle une entrée utilisable pour cette
+ * langue ? Miroir de `fileAUneEntree` (manage-users), qui sert à DÉTOURNER
+ * l'application : le moteur descend son classement et prend le premier
+ * candidat qui en a une. Ne consomme rien, `tirerDeLaFile` étant pure.
+ */
+export function fileAUneEntree(
+  file: ReglagesFileLabels,
+  slug: string,
+  langue: string,
+  eligibles: Iterable<string>,
+): boolean {
+  return tirerDeLaFile(file, slug, langue, eligibles).item !== null;
 }

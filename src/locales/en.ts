@@ -2779,7 +2779,7 @@ export const en = {
       colScore: "Score",
       cibleTitre: "Target split between applications",
       cibleAide:
-        "Whole percentages, renormalised to 100 when read. An application left at 0 gets nothing. The target is then narrowed to the applications that serve the market's language: aiming for 25% Unswipe means nothing in Polish, where Unswipe does not publish.",
+        "Whole percentages, renormalised to 100 when read. An application left at 0 gets nothing. The target is then narrowed to the applications that serve the market's language: restricting an application's languages removes it from the markets it does not serve, and its share goes to the others. Today all three serve every language, so nothing is removed.",
       poserCible: "Set the target",
       fileTitre: "Creator queue (overriding the engine)",
       fileAide:
@@ -2797,16 +2797,16 @@ export const en = {
       nonServie: "—",
       tiragesTitre: "Mix of the next {{n}} hires",
       tiragesAide:
-        "For each market, the next {{n}} creations are played out one by one, updating presence each time exactly as the engine will, and the result is counted. It is a projection at frozen stock and performance, not a prediction.",
+        "For each market, the next {{n}} creations are played out one by one, replaying the ranking the engine runs today and updating each label's counts after every hire. It is a projection at frozen stock and performance, not a prediction.",
       colMix: "Application × label",
       colPart: "Share",
       rFermesApp: "Labels closed by hand",
       appsTitre: "Allocation by application",
       appsAide:
-        "Today a new account's application is ticked by hand by the recruiter, with no target at all. Here is the real split, for the whole fleet then market by market, and which application would take the next hire if a target were set.",
+        "The real split, for the whole fleet then market by market, and which application would take the next hire. With the switch off, the recruiter ticks and this column only says what would happen; with it on, this is what will happen.",
       appsFlotte: "Whole fleet",
       appsFlotteAide:
-        "The \"target\" column is not the target you entered: it is the REACHABLE target, weighted by languages. 24 markets out of 36 are served by Sophia alone, so even if every market hit its target exactly, the fleet would not land on the entered share. Comparing against the raw target would read as too much Sophia where there is too little.",
+        "The \"target\" column is not the target you entered: it is the REACHABLE target, weighted by languages. A market some applications do not serve hands its share to the others, so even if every market hit its target exactly, the fleet would not land on the entered share. Comparing against the raw target would read as too much where there is too little. The two columns meet when no application is restricted, which is the case today.",
       appsMarches: "By market (language × country)",
       cibleAbsenteTitre: "No target set",
       cibleAbsenteAide:

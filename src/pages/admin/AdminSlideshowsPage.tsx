@@ -9,17 +9,14 @@ import { useTranslation } from "react-i18next";
 import { Link, useSearchParams } from "react-router-dom";
 import { Check, ImageUp, PenLine, RefreshCw, ScanText, Sparkles, Trash2, X } from "lucide-react";
 
+import { PageHeader } from "@/components/layout/PageHeader";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-  EmptyState,
-} from "@/components/ui/card";
+import { MICRO_LABEL } from "@/components/ui/micro-label";
+import { Segments } from "@/components/ui/segments";
+import { StatGroup, StatTile } from "@/components/ui/stat";
+import { Card, CardContent, EmptyState } from "@/components/ui/card";
 import { NettoyageEtapes } from "@/components/moteur/NettoyageEtapes";
 import { UpscaleMediaControl } from "@/components/moteur/UpscaleMediaControl";
 import { LabelEditor } from "@/features/moteur/LabelPicker";
@@ -52,6 +49,7 @@ import {
   type ContenuListe,
   type JobReimportPhoto,
   type SlideshowDetail,
+  type StatsCompteSlideshows,
 } from "@/features/moteur/api";
 import {
   appliquerEvenement,
@@ -66,6 +64,8 @@ import {
   TiersApplications,
 } from "@/features/moteur/repartition/ApplicationsContenu";
 import { ID_SOPHIA } from "@/features/moteur/multiApp";
+import { BarreRepartition } from "@/features/moteur/repartition/graphes";
+import { repartitionTiers, totauxSlideshows } from "@/features/moteur/resumeSlideshows";
 import {
   contenuHorsSophia,
   nomApplicationPromue,
@@ -126,14 +126,17 @@ function etatRequalif(
   };
 }
 
-/** Couleur par rang — un S+ doit sauter aux yeux dans la grille. */
+/**
+ * Un rang par intensité, comme la page Allocation : du gris clair (D) au noir
+ * plein (S+). Un S+ saute aux yeux sans couleur de plus dans la grille.
+ */
 const CLASSE_TIER: Record<Tier, string> = {
-  D: "border-muted-foreground/30 bg-muted text-muted-foreground",
-  C: "border-slate-300 bg-slate-100 text-slate-700",
-  B: "border-sky-300 bg-sky-100 text-sky-800",
-  A: "border-emerald-300 bg-emerald-100 text-emerald-800",
-  S: "border-amber-300 bg-amber-100 text-amber-900",
-  "S+": "border-fuchsia-300 bg-fuchsia-100 text-fuchsia-900",
+  D: "border-transparent bg-muted text-muted-foreground",
+  C: "border-border bg-background text-muted-foreground",
+  B: "border-border bg-background text-foreground",
+  A: "border-foreground/50 bg-background text-foreground",
+  S: "border-foreground/80 bg-foreground/80 text-background",
+  "S+": "border-foreground bg-foreground text-background",
 };
 
 function BadgeTier({ tier, className }: { tier: Tier; className?: string }) {
@@ -344,33 +347,6 @@ function trierSlideshows(
     default:
       return arr.sort(parDate);
   }
-}
-
-function Chip({
-  actif,
-  onClick,
-  children,
-  style,
-}: {
-  actif: boolean;
-  onClick: () => void;
-  children: React.ReactNode;
-  style?: React.CSSProperties;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      style={style}
-      className={
-        actif
-          ? "rounded-md bg-primary px-2.5 py-1 text-xs font-medium text-primary-foreground"
-          : "rounded-md border px-2.5 py-1 text-xs hover:bg-muted"
-      }
-    >
-      {children}
-    </button>
-  );
 }
 
 const DeckLangue = React.memo(function DeckLangue({
@@ -1258,17 +1234,10 @@ function DetailSlideshow({
             </div>
 
             <div className="flex flex-wrap items-center gap-2">
-              <Badge
-                variant={
-                  d.statut === "valide"
-                    ? "success"
-                    : d.statut === "rejete"
-                      ? "destructive"
-                      : "secondary"
-                }
-              >
-                {d.statut}
-              </Badge>
+              <span className="inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 text-xs font-medium">
+                <span className={cn("size-1.5 rounded-full", POINT_STATUT[d.statut] ?? "bg-muted-foreground")} aria-hidden />
+                {t(`slideshows.statuts.${d.statut}`, { defaultValue: d.statut })}
+              </span>
               <Badge variant="outline">{d.import_statut}</Badge>
               {d.import_etape && <Badge variant="outline">{d.import_etape}</Badge>}
               {d.creation_mode === "manuel" && (
@@ -1799,6 +1768,224 @@ function DetailSlideshow({
   );
 }
 
+/** La couleur de chaque statut ; le texte reste neutre. */
+const POINT_STATUT: Record<string, string> = {
+  valide: "bg-success",
+  rejete: "bg-destructive",
+  brouillon: "bg-muted-foreground",
+};
+
+/** Les rangs du plus clair (D) au plus foncé (S+) : une seule teinte, l'intensité dit le rang. */
+const TEINTE_TIER: Record<Tier, string> = {
+  D: "color-mix(in oklab, var(--foreground) 12%, transparent)",
+  C: "color-mix(in oklab, var(--foreground) 26%, transparent)",
+  B: "color-mix(in oklab, var(--foreground) 42%, transparent)",
+  A: "color-mix(in oklab, var(--foreground) 58%, transparent)",
+  S: "color-mix(in oklab, var(--foreground) 78%, transparent)",
+  "S+": "var(--foreground)",
+};
+
+/** Les quatre chiffres du haut : gardés, rejetés, en cours (tous comptes), et les hauts rangs affichés. */
+function ChiffresSlideshows({
+  stats,
+  contenus,
+}: {
+  stats: StatsCompteSlideshows[];
+  contenus: ContenuListe[];
+}) {
+  const { t } = useTranslation();
+  const tot = totauxSlideshows(stats);
+  const rangs = repartitionTiers(contenus);
+  return (
+    <StatGroup>
+      <StatTile
+        label={t("slideshows.chiffres.gardes")}
+        value={tot.gardes.toLocaleString()}
+        detail={
+          tot.partGardes === null
+            ? undefined
+            : t("slideshows.chiffres.gardesDetail", { pct: tot.partGardes, importes: tot.importes.toLocaleString() })
+        }
+      />
+      <StatTile label={t("slideshows.chiffres.rejetes")} value={tot.rejetes.toLocaleString()} />
+      <StatTile
+        label={t("slideshows.chiffres.encours")}
+        value={tot.encours.toLocaleString()}
+        detail={t("slideshows.chiffres.encoursDetail")}
+      />
+      <StatTile
+        label={t("slideshows.chiffres.hauts")}
+        value={(rangs.S + rangs["S+"]).toLocaleString()}
+        detail={t("slideshows.chiffres.hautsDetail", { n: contenus.length })}
+      />
+    </StatGroup>
+  );
+}
+
+/** La répartition des rangs des slideshows affichés, en une barre et sa légende. */
+function RepartitionRangs({ contenus }: { contenus: ContenuListe[] }) {
+  const { t } = useTranslation();
+  const rangs = repartitionTiers(contenus);
+  if (contenus.length === 0) return null;
+  return (
+    <div className="flex min-w-0 flex-1 flex-wrap items-center gap-x-3 gap-y-1.5">
+      <div className="w-40 shrink-0">
+        <BarreRepartition
+          hauteur="sm"
+          aria-label={t("slideshows.rangs")}
+          segments={TIERS.map((tier) => ({
+            cle: tier,
+            valeur: rangs[tier],
+            couleur: TEINTE_TIER[tier],
+            libelle: tier,
+            valeurAffichee: String(rangs[tier]),
+          }))}
+        />
+      </div>
+      <ul className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted-foreground">
+        {TIERS.filter((tier) => rangs[tier] > 0).map((tier) => (
+          <li key={tier} className="inline-flex items-center gap-1 tabular-nums">
+            <span className="inline-block size-2 rounded-[2px]" style={{ background: TEINTE_TIER[tier] }} aria-hidden />
+            <span className="font-medium text-foreground">{tier}</span> {rangs[tier]}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+/** Un filtre de la barre : son intitulé en petites capitales, puis le contrôle. */
+function Filtre({ libelle, htmlFor, children }: { libelle: string; htmlFor?: string; children: React.ReactNode }) {
+  return (
+    <div className="min-w-0 space-y-1.5">
+      {htmlFor ? (
+        <label htmlFor={htmlFor} className={cn(MICRO_LABEL, "block")}>
+          {libelle}
+        </label>
+      ) : (
+        <p className={MICRO_LABEL}>{libelle}</p>
+      )}
+      {children}
+    </div>
+  );
+}
+
+const selectFiltre =
+  "h-8 w-full max-w-64 rounded-md border border-input bg-background px-2 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
+
+function CarteSlideshow({
+  c,
+  handle,
+  horsSophia,
+  requalifEnAttente,
+  onOuvrir,
+  onLabel,
+}: {
+  c: ContenuListe;
+  handle: string;
+  horsSophia: boolean;
+  requalifEnAttente: boolean;
+  onOuvrir: () => void;
+  onLabel: (id: string) => void;
+}) {
+  const { t } = useTranslation();
+  const img = vignette(c);
+  const labels = (c.labels ?? []).slice().sort((a, b) => a.nom.localeCompare(b.nom, undefined, { sensitivity: "base" }));
+  return (
+    <button
+      type="button"
+      onClick={onOuvrir}
+      className={cn(
+        "group overflow-hidden rounded-xl border bg-card text-left transition hover:border-foreground/30 hover:shadow-sm focus-visible:outline-2 focus-visible:outline-ring",
+        c.statut === "rejete" && "opacity-70",
+      )}
+    >
+      <div className="relative">
+        {img ? (
+          <img src={img} alt="" loading="lazy" className="aspect-[3/4] w-full object-cover" />
+        ) : (
+          <div className="flex aspect-[3/4] items-center justify-center bg-muted text-xs text-muted-foreground">
+            {t("slideshows.sansImage")}
+          </div>
+        )}
+        <span className="absolute left-2 top-2">
+          {c.tier === "D" && horsSophia ? (
+            <span
+              className="rounded border bg-background/90 px-1.5 py-0.5 text-[10px] font-bold text-muted-foreground"
+              title={t("slideshows.horsSophiaCourt")}
+            >
+              —
+            </span>
+          ) : (
+            <BadgeTier tier={c.tier} />
+          )}
+        </span>
+        {c.ugc_compatible && (
+          <span className="absolute right-2 top-2 inline-flex items-center gap-0.5 rounded bg-background/90 px-1.5 py-0.5 text-[10px] font-medium">
+            <Check className="size-2.5" aria-hidden />
+            {t("slideshows.ugcBadge")}
+          </span>
+        )}
+      </div>
+      <div className="space-y-1.5 p-3">
+        <p className="line-clamp-2 text-sm font-medium leading-snug">{c.titre || t("contenus.sansTitre")}</p>
+        <p className="truncate text-xs text-muted-foreground">{handle ? `@${handle}` : t("slideshows.sansCompte")}</p>
+        <div className="flex flex-wrap gap-x-2 gap-y-0.5">
+          {labels.length === 0 ? (
+            <span className="text-[11px] text-muted-foreground">{t("slideshows.sansLabel")}</span>
+          ) : (
+            labels.slice(0, 3).map((l) => (
+              <span
+                key={l.id}
+                role="button"
+                tabIndex={0}
+                title={t("slideshows.filtreLabel")}
+                className="font-mono text-[11px] text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onLabel(l.id);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    onLabel(l.id);
+                  }
+                }}
+              >
+                {l.nom}
+              </span>
+            ))
+          )}
+          {labels.length > 3 && <span className="text-[11px] text-muted-foreground">+{labels.length - 3}</span>}
+        </div>
+        <div className="flex items-center justify-between gap-2 border-t pt-1.5 text-[11px] tabular-nums text-muted-foreground">
+          <span
+            title={t("slideshows.passagesRestants", {
+              restants: c.tierEtat?.restants ?? 0,
+              prevus: c.tierEtat?.passages_prevus ?? c.passages_prevus,
+            })}
+          >
+            {t("slideshows.passagesPublies", {
+              publies: c.tierEtat?.publies ?? 0,
+              prevus: c.tierEtat?.passages_prevus ?? c.passages_prevus,
+            })}
+          </span>
+          <span>{t("slideshows.nbPosts", { count: c.nb_posts ?? 0 })}</span>
+        </div>
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[11px]">
+          <span className="inline-flex items-center gap-1">
+            <span className={cn("size-1.5 rounded-full", POINT_STATUT[c.statut] ?? "bg-muted-foreground")} aria-hidden />
+            {t(`slideshows.statuts.${c.statut}`, { defaultValue: c.statut })}
+          </span>
+          {c.creation_mode === "manuel" && <span className="text-muted-foreground">{t("slideshows.manuelBadge")}</span>}
+          {requalifEnAttente && <span className="font-medium text-warning-foreground">{t("slideshows.requalifBloquee")}</span>}
+        </div>
+      </div>
+    </button>
+  );
+}
+
 export function AdminSlideshowsPage() {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
@@ -1904,11 +2091,12 @@ export function AdminSlideshowsPage() {
   }, [contenus.data, filtreUgc, tri, handleParId]);
 
   const statsActives = statsComptes.data ?? [];
-  const statsFiltre = statsActives.find((s) =>
-    filtreCompte === "__none__"
-      ? s.compteReferenceId === null
-      : s.compteReferenceId === filtreCompte,
-  );
+  // Sans filtre de compte, pas de résumé : `null` tomberait sur les orphelins.
+  const statsFiltre = filtreCompte
+    ? statsActives.find((s) =>
+        filtreCompte === "__none__" ? s.compteReferenceId === null : s.compteReferenceId === filtreCompte,
+      )
+    : undefined;
 
   const groupesCompte = React.useMemo(() => {
     if (tri !== "compte" || filtreCompte) return null;
@@ -1994,24 +2182,27 @@ export function AdminSlideshowsPage() {
     void queryClient.invalidateQueries({ queryKey: ["medias-biblio"] });
   }
 
+  const ouvrir = (id: string) => {
+    seedSlideshowDetail(queryClient, id);
+    setOuvert(id);
+    setSearchParams({ id }, { replace: true });
+  };
+  const filtreActif = Boolean(filtreLabel || filtreCompte || filtreUgc !== "tous" || filtre !== "tous");
+
   return (
-    <div className="space-y-4">
-      <Card>
-        <CardHeader>
-          <div className="flex flex-wrap items-start justify-between gap-2">
-            <div>
-              <CardTitle>{t("slideshows.title")}</CardTitle>
-              <CardDescription>{t("slideshows.subtitle")}</CardDescription>
-            </div>
-            <div className="flex flex-wrap gap-2">
-            <Button size="sm" variant="outline" asChild>
+    <div className="space-y-6">
+      <PageHeader
+        title={t("slideshows.title")}
+        description={t("slideshows.subtitle")}
+        actions={
+          <>
+            <Button variant="outline" asChild>
               <Link to="/admin/creation">
                 <PenLine className="size-4" />
                 {t("labels.creerPost")}
               </Link>
             </Button>
             <Button
-              size="sm"
               variant="outline"
               disabled={reimport !== null}
               onClick={() => void reimporterPhotosValides()}
@@ -2025,371 +2216,173 @@ export function AdminSlideshowsPage() {
                   })
                 : t("slideshows.reimportPhotos")}
             </Button>
-            </div>
-          </div>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          {reimportLogs.length > 0 && (
-            <div className="max-h-40 space-y-0.5 overflow-y-auto rounded border bg-muted/30 px-2.5 py-2 font-mono text-[11px] leading-relaxed">
-              {reimportLogs.map((l, i) => (
-                <div
-                  key={`reimp-${i}-${l.slice(0, 16)}`}
-                  className="break-words text-muted-foreground"
-                >
-                  {l}
-                </div>
-              ))}
-            </div>
-          )}
-          <div className="space-y-3">
-            <div className="flex flex-wrap items-center gap-1.5">
-              {(["tous", "valide", "rejete"] as const).map((f) => (
-                <Chip key={f} actif={filtre === f} onClick={() => setFiltre(f)}>
-                  {t(`contenus.filtre.${f}`)}
-                </Chip>
-              ))}
-            </div>
+          </>
+        }
+      />
 
-            <div className="space-y-1.5">
-              <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
-                {t("slideshows.filtreCompte")}
-              </p>
-              <div className="flex flex-wrap gap-1.5">
-                <Chip
-                  actif={filtreCompte === null}
-                  onClick={() => setFiltreCompte(null)}
-                >
-                  {t("slideshows.filtreComptesTous")}
-                </Chip>
-                {statsActives.map((s) => {
-                  const cle = s.compteReferenceId ?? "__none__";
-                  const label = s.compteReferenceId
-                    ? `@${s.handle}`
-                    : t("slideshows.sansCompte");
-                  return (
-                    <Chip
-                      key={cle}
-                      actif={filtreCompte === cle}
-                      onClick={() =>
-                        setFiltreCompte(filtreCompte === cle ? null : cle)
-                      }
-                    >
-                      <span className="flex flex-col items-start gap-0.5 text-left leading-tight">
-                        <span>{label}</span>
-                        <span className="font-normal opacity-80">
-                          {t("slideshows.compteChip", {
-                            gardes: s.gardes,
-                            importes: s.importes,
-                          })}
-                          {s.rejetes > 0 || s.encours > 0
-                            ? ` · ${t("slideshows.compteChipSuite", {
-                                rejetes: s.rejetes,
-                                encours: s.encours,
-                              })}`
-                            : ""}
-                        </span>
-                      </span>
-                    </Chip>
-                  );
-                })}
-              </div>
-              {statsFiltre && (
-                <p className="text-[11px] text-muted-foreground">
-                  {statsFiltre.compteReferenceId
-                    ? t("slideshows.compteResume", {
-                        handle: statsFiltre.handle,
-                        importes: statsFiltre.importes,
-                        gardes: statsFiltre.gardes,
-                        rejetes: statsFiltre.rejetes,
-                        encours: statsFiltre.encours,
-                      })
-                    : `${t("slideshows.sansCompte")} — ${t("slideshows.compteStats", {
-                        importes: statsFiltre.importes,
-                        gardes: statsFiltre.gardes,
-                        rejetes: statsFiltre.rejetes,
-                        encours: statsFiltre.encours,
-                      })}`}
-                </p>
-              )}
+      {reimportLogs.length > 0 && (
+        <div className="max-h-40 space-y-0.5 overflow-y-auto rounded-lg border bg-muted/30 px-3 py-2 font-mono text-[11px] leading-relaxed">
+          {reimportLogs.map((l, i) => (
+            <div key={`reimp-${i}-${l.slice(0, 16)}`} className="break-words text-muted-foreground">
+              {l}
             </div>
+          ))}
+        </div>
+      )}
 
-            <div className="space-y-1.5">
-              <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
-                {t("slideshows.filtreLabel")}
-              </p>
-              <div className="flex flex-wrap gap-1.5">
-                <Chip
-                  actif={filtreLabel === null}
-                  onClick={() => setFiltreLabel(null)}
-                >
-                  {t("slideshows.filtreLabelsTous")}
-                </Chip>
-                <Chip
-                  actif={filtreLabel === "__none__"}
-                  onClick={() => setFiltreLabel("__none__")}
-                >
-                  {t("slideshows.sansLabel")}
-                </Chip>
-                {labelsDisponibles.map((l) => (
-                  <Chip
-                    key={l.id}
-                    actif={filtreLabel === l.id}
-                    onClick={() =>
-                      setFiltreLabel(filtreLabel === l.id ? null : l.id)
-                    }
-                    style={
-                      filtreLabel === l.id || !l.couleur
-                        ? undefined
-                        : { borderColor: l.couleur, color: l.couleur }
-                    }
-                  >
-                    {l.nom}
-                  </Chip>
+      {statsActives.length > 0 && <ChiffresSlideshows stats={statsActives} contenus={contenusTries} />}
+
+      <Card>
+        <CardContent className="space-y-5 pt-6">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:flex lg:flex-wrap lg:items-end lg:gap-x-6">
+            <Filtre libelle={t("slideshows.filtres.statut")}>
+              <Segments
+                libelle={t("slideshows.filtres.statut")}
+                actif={filtre}
+                onChange={setFiltre}
+                options={(["tous", "valide", "rejete"] as const).map((f) => ({ cle: f, contenu: t(`contenus.filtre.${f}`) }))}
+              />
+            </Filtre>
+            <Filtre libelle={t("slideshows.filtres.compte")} htmlFor="filtre-compte">
+              <select
+                id="filtre-compte"
+                className={selectFiltre}
+                value={filtreCompte ?? ""}
+                onChange={(e) => setFiltreCompte(e.target.value || null)}
+              >
+                <option value="">{t("slideshows.filtreComptesTous")}</option>
+                {statsActives.map((s) => (
+                  <option key={s.compteReferenceId ?? "__none__"} value={s.compteReferenceId ?? "__none__"}>
+                    {s.compteReferenceId
+                      ? t("slideshows.compteOption", { handle: s.handle, gardes: s.gardes, importes: s.importes })
+                      : t("slideshows.sansCompte")}
+                  </option>
                 ))}
-              </div>
-            </div>
+              </select>
+            </Filtre>
+            <Filtre libelle={t("slideshows.filtres.label")} htmlFor="filtre-label">
+              <select
+                id="filtre-label"
+                className={selectFiltre}
+                value={filtreLabel ?? ""}
+                onChange={(e) => setFiltreLabel(e.target.value || null)}
+              >
+                <option value="">{t("slideshows.filtreLabelsTous")}</option>
+                <option value="__none__">{t("slideshows.sansLabel")}</option>
+                {labelsDisponibles.map((l) => (
+                  <option key={l.id} value={l.id}>
+                    {l.nom}
+                  </option>
+                ))}
+              </select>
+            </Filtre>
+            <Filtre libelle={t("slideshows.filtres.ugc")}>
+              <Segments
+                libelle={t("slideshows.filtres.ugc")}
+                actif={filtreUgc}
+                onChange={setFiltreUgc}
+                options={(
+                  [
+                    ["tous", "filtreUgcTous"],
+                    ["oui", "filtreUgcOui"],
+                    ["non", "filtreUgcNon"],
+                  ] as const
+                ).map(([k, cle]) => ({ cle: k, contenu: t(`slideshows.${cle}`) }))}
+              />
+            </Filtre>
+            <Filtre libelle={t("slideshows.filtres.tri")}>
+              <Segments
+                libelle={t("slideshows.filtres.tri")}
+                actif={tri}
+                onChange={setTri}
+                options={(["recent", "tier", "posts", "compte"] as const).map((k) => ({ cle: k, contenu: t(`slideshows.tri.${k}`) }))}
+              />
+            </Filtre>
+          </div>
 
-            <div className="flex flex-wrap items-end justify-between gap-3">
-              <div className="space-y-1.5">
-                <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
-                  {t("slideshows.filtreUgc")}
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {(
-                    [
-                      ["tous", "filtreUgcTous"],
-                      ["oui", "filtreUgcOui"],
-                      ["non", "filtreUgcNon"],
-                    ] as const
-                  ).map(([k, cle]) => (
-                    <Chip
-                      key={k}
-                      actif={filtreUgc === k}
-                      onClick={() => setFiltreUgc(k)}
-                    >
-                      {t(`slideshows.${cle}`)}
-                    </Chip>
-                  ))}
-                </div>
-              </div>
+          {statsFiltre && (
+            <p className="text-xs text-muted-foreground">
+              {statsFiltre.compteReferenceId
+                ? t("slideshows.compteResume", {
+                    handle: statsFiltre.handle,
+                    importes: statsFiltre.importes,
+                    gardes: statsFiltre.gardes,
+                    rejetes: statsFiltre.rejetes,
+                    encours: statsFiltre.encours,
+                  })
+                : `${t("slideshows.sansCompte")} — ${t("slideshows.compteStats", {
+                    importes: statsFiltre.importes,
+                    gardes: statsFiltre.gardes,
+                    rejetes: statsFiltre.rejetes,
+                    encours: statsFiltre.encours,
+                  })}`}
+            </p>
+          )}
 
-              <div className="space-y-1.5">
-                <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
-                  {t("slideshows.triLabel")}
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {(["recent", "tier", "posts", "compte"] as const).map((k) => (
-                    <Chip key={k} actif={tri === k} onClick={() => setTri(k)}>
-                      {t(`slideshows.tri.${k}`)}
-                    </Chip>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {!contenus.isPending && (
-              <p className="text-[11px] text-muted-foreground">
+          {!contenus.isPending && (
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-t pt-4">
+              <p className="text-sm font-medium tabular-nums">
                 {t("slideshows.resultatFiltre", { count: contenusTries.length })}
               </p>
-            )}
-          </div>
+              <RepartitionRangs contenus={contenusTries} />
+            </div>
+          )}
 
           {contenus.isPending && (
             <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
           )}
           {!contenus.isPending && contenusTries.length === 0 && (
-            <EmptyState
-              title={
-                filtreLabel ||
-                  filtreCompte ||
-                  filtreUgc !== "tous" ||
-                  filtre !== "tous"
-                  ? t("slideshows.emptyFiltre")
-                  : t("slideshows.empty")
-              }
-            />
+            <EmptyState title={filtreActif ? t("slideshows.emptyFiltre") : t("slideshows.empty")} />
           )}
 
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-            {(groupesCompte ?? [{ key: "flat", handle: "", items: contenusTries }]).flatMap(
-              (groupe) => {
-                const header =
-                  groupesCompte &&
-                  (() => {
-                    const st = statsActives.find((s) =>
-                      groupe.key === "__none__"
-                        ? s.compteReferenceId === null
-                        : s.compteReferenceId === groupe.key,
-                    );
-                    return (
-                      <div
-                        key={`h-${groupe.key}`}
-                        className="col-span-2 flex flex-wrap items-baseline justify-between gap-2 border-b pb-1 sm:col-span-3 lg:col-span-4"
-                      >
-                        <p className="text-sm font-medium">
-                          {groupe.handle
-                            ? `@${groupe.handle}`
-                            : t("slideshows.sansCompte")}
-                        </p>
-                        {st && (
-                          <p className="text-[11px] text-muted-foreground">
-                            {t("slideshows.compteStats", {
-                              importes: st.importes,
-                              gardes: st.gardes,
-                              rejetes: st.rejetes,
-                              encours: st.encours,
-                            })}
-                          </p>
-                        )}
-                      </div>
-                    );
-                  })();
-                return [
-                  ...(header ? [header] : []),
-                  ...groupe.items.map((c) => {
-              const img = vignette(c);
-              const labels = (c.labels ?? [])
-                .slice()
-                .sort((a, b) =>
-                  a.nom.localeCompare(b.nom, undefined, { sensitivity: "base" }),
-                );
-              return (
-                <button
-                  key={c.id}
-                  type="button"
-                  onClick={() => {
-                    seedSlideshowDetail(queryClient, c.id);
-                    setOuvert(c.id);
-                    setSearchParams({ id: c.id }, { replace: true });
-                  }}
-                  className={cn(
-                    "overflow-hidden rounded-lg border text-left transition hover:ring-2 hover:ring-primary",
-                    c.statut === "rejete" && "opacity-70",
-                  )}
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            {(groupesCompte ?? [{ key: "flat", handle: "", items: contenusTries }]).flatMap((groupe) => {
+              const st = groupesCompte
+                ? statsActives.find((s) =>
+                    groupe.key === "__none__" ? s.compteReferenceId === null : s.compteReferenceId === groupe.key,
+                  )
+                : undefined;
+              const entete = groupesCompte ? (
+                <div
+                  key={`h-${groupe.key}`}
+                  className="col-span-full flex flex-wrap items-baseline justify-between gap-2 border-b pb-1.5 pt-2 first:pt-0"
                 >
-                  {img ? (
-                    <img src={img} alt="" className="aspect-[3/4] w-full object-cover" />
-                  ) : (
-                    <div className="flex aspect-[3/4] items-center justify-center bg-muted text-xs text-muted-foreground">
-                      {t("slideshows.sansImage")}
-                    </div>
-                  )}
-                  <div className="space-y-1 p-2">
-                    <p className="line-clamp-2 text-xs font-medium">
-                      {c.titre || t("contenus.sansTitre")}
+                  <p className="text-sm font-medium">{groupe.handle ? `@${groupe.handle}` : t("slideshows.sansCompte")}</p>
+                  {st && (
+                    <p className="text-xs text-muted-foreground">
+                      {t("slideshows.compteStats", {
+                        importes: st.importes,
+                        gardes: st.gardes,
+                        rejetes: st.rejetes,
+                        encours: st.encours,
+                      })}
                     </p>
-                    {handleDuContenu(c, handleParId) ? (
-                      <p className="text-[10px] text-muted-foreground">
-                        @{handleDuContenu(c, handleParId)}
-                      </p>
-                    ) : (
-                      <p className="text-[10px] text-muted-foreground">
-                        {t("slideshows.sansCompte")}
-                      </p>
-                    )}
-                    <div className="flex flex-wrap gap-1">
-                      {labels.length === 0 ? (
-                        <span className="text-[10px] text-muted-foreground">
-                          {t("slideshows.sansLabel")}
-                        </span>
-                      ) : (
-                        labels.slice(0, 3).map((l) => (
-                          <span
-                            key={l.id}
-                            role="button"
-                            tabIndex={0}
-                            className="rounded border px-1 py-0.5 text-[10px] hover:bg-muted"
-                            style={
-                              l.couleur
-                                ? { borderColor: l.couleur, color: l.couleur }
-                                : undefined
-                            }
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setFiltreLabel(l.id);
-                            }}
-                            onKeyDown={(e) => {
-                              if (e.key === "Enter" || e.key === " ") {
-                                e.preventDefault();
-                                e.stopPropagation();
-                                setFiltreLabel(l.id);
-                              }
-                            }}
-                          >
-                            {l.nom}
-                          </span>
-                        ))
-                      )}
-                    </div>
-                    <div className="flex flex-wrap items-center gap-1">
-                      {c.tier === "D" && contenuHorsSophia(c.labels ?? [], liensLisibles) ? (
-                        <span
-                          className="px-1.5 text-[10px] font-bold text-muted-foreground"
-                          title={t("slideshows.horsSophiaCourt")}
-                        >
-                          —
-                        </span>
-                      ) : (
-                        <BadgeTier tier={c.tier} />
-                      )}
-                      <span
-                        className="text-[10px] tabular-nums text-muted-foreground"
-                        title={t("slideshows.passagesRestants", {
-                          restants: c.tierEtat?.restants ?? 0,
-                          prevus: c.tierEtat?.passages_prevus ?? c.passages_prevus,
-                        })}
-                      >
-                        {t("slideshows.passagesPublies", {
-                          publies: c.tierEtat?.publies ?? 0,
-                          prevus: c.tierEtat?.passages_prevus ?? c.passages_prevus,
-                        })}
-                      </span>
-                      {etatRequalif(c.tierEtat, reglages.data?.tierlist)?.alerte ? (
-                        <Badge variant="outline" className="text-[10px] text-amber-600">
-                          {t("slideshows.requalifBloquee")}
-                        </Badge>
-                      ) : null}
-                    </div>
-                    <div className="flex flex-wrap items-center gap-1">
-                      <Badge
-                        variant={
-                          c.statut === "valide"
-                            ? "success"
-                            : c.statut === "rejete"
-                              ? "destructive"
-                              : "secondary"
-                        }
-                        className="text-[10px]"
-                      >
-                        {c.statut}
-                      </Badge>
-                      {c.creation_mode === "manuel" && (
-                        <Badge variant="outline" className="text-[10px]">
-                          {t("slideshows.manuelBadge")}
-                        </Badge>
-                      )}
-                      {c.ugc_compatible && (
-                        <Badge variant="success" className="gap-0.5 text-[10px]">
-                          <Check className="size-2.5" />
-                          {t("slideshows.ugcBadge")}
-                        </Badge>
-                      )}
-                      <span className="text-[10px] tabular-nums text-muted-foreground">
-                        {t("slideshows.nbPosts", { count: c.nb_posts ?? 0 })}
-                      </span>
-                    </div>
-                  </div>
-                </button>
-              );
-                  }),
-                ];
-              },
-            )}
+                  )}
+                </div>
+              ) : null;
+              return [
+                ...(entete ? [entete] : []),
+                ...groupe.items.map((c) => (
+                  <CarteSlideshow
+                    key={c.id}
+                    c={c}
+                    handle={handleDuContenu(c, handleParId)}
+                    horsSophia={contenuHorsSophia(c.labels ?? [], liensLisibles)}
+                    requalifEnAttente={Boolean(etatRequalif(c.tierEtat, reglages.data?.tierlist)?.alerte)}
+                    onOuvrir={() => ouvrir(c.id)}
+                    onLabel={setFiltreLabel}
+                  />
+                )),
+              ];
+            })}
           </div>
         </CardContent>
       </Card>
 
-      <NettoyageStickersLabelCard />
+      <section className="space-y-3">
+        <h2 className={MICRO_LABEL}>{t("slideshows.outils")}</h2>
+        <NettoyageStickersLabelCard />
+      </section>
 
       {ouvert && <DetailSlideshow id={ouvert} onFermer={fermerDetail} />}
     </div>

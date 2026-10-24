@@ -303,6 +303,17 @@ export async function creerSource(input: {
   return data as CompteReference;
 }
 
+/** Slideshows importés par source (tous statuts) et validés prêts (0355). */
+export async function contenusParSource(): Promise<Record<string, { importes: number; valides: number }>> {
+  const { data, error } = await supabase.from("source_contenus_stats").select("compte_reference_id, importes, valides");
+  if (error) throw error;
+  const m: Record<string, { importes: number; valides: number }> = {};
+  for (const r of data ?? []) {
+    m[r.compte_reference_id as string] = { importes: Number(r.importes), valides: Number(r.valides) };
+  }
+  return m;
+}
+
 /** Stock de slideshows reproductibles PAR source (compte de référence). Le front
  *  agrège par groupe (principal + conjoints) pour flaguer un groupe épuisé. */
 export async function stockParSource(): Promise<Record<string, number>> {
@@ -4188,6 +4199,8 @@ export async function lireReglages(): Promise<Reglages> {
       requalif_max_jours: 3,
       ecart_min_meme_contenu: 14,
       plancher_b: 3_000,
+      fatigue_passages: 8,
+      fatigue_plafond: 10_000,
       ...((map.get("tierlist") as Partial<Reglages["tierlist"]> | undefined) ?? {}),
     },
     classement_comptes: lireClassementReglages(map.get("classement_comptes")),

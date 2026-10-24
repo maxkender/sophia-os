@@ -33,24 +33,26 @@ import {
   erreurSchemaAbsent,
 } from "./applications_moteur.ts";
 import { lireParLots, lireTout } from "./lots.ts";
-import { ID_SOPHIA, type ApplicationMoteur } from "./multi_app.ts";
+import { type ApplicationMoteur, ID_SOPHIA } from "./multi_app.ts";
 import {
+  type AttenteMesureDetail,
   blocRunTierlist,
   chargerTierlistReglages,
+  type CoherenceLecture,
   COLONNES_ETAT,
   deciderRequalif,
-  estTier,
-  passagesPourTier,
-  requalifier,
-  verifierCoherenceLecture,
-  type AttenteMesureDetail,
-  type CoherenceLecture,
   type DecisionRequalif,
+  estTier,
+  type HistoriquePassages,
+  lireHistoriquePassages,
+  passagesPourTier,
   type RequalifDetail,
   type RequalificationResultat,
+  requalifier,
   type RunTierlist,
   type Tier,
   type TierEtat,
+  verifierCoherenceLecture,
 } from "./tierlist.ts";
 
 type Supabase = ReturnType<typeof import("./supabase.ts").serviceClient>;
@@ -78,7 +80,9 @@ class EcheanceDepassee extends Error {
 }
 
 function controlerEcheance(echeance: number | undefined): void {
-  if (echeance !== undefined && Date.now() > echeance) throw new EcheanceDepassee();
+  if (echeance !== undefined && Date.now() > echeance) {
+    throw new EcheanceDepassee();
+  }
 }
 
 /** Colonnes lues sur les vues par application (celles de Sophia, puis les siennes). */
@@ -108,7 +112,9 @@ async function lireSonde(
   // filtre Sophia de `contenu_tier_etat` en place, B étant atomique.
   const lectures = [
     () => supabase.from(TABLE_TIERS_APPLICATION).select("contenu_id").limit(1),
-    () => supabase.from(VUE_TIER_APPLICATION).select("contenu_id, materialise").limit(1),
+    () =>
+      supabase.from(VUE_TIER_APPLICATION).select("contenu_id, materialise")
+        .limit(1),
   ];
   for (const lecture of lectures) {
     const { error, status } = await lecture();
@@ -145,7 +151,9 @@ export async function sonderSchemaTiersApplication(
     return "illisible";
   }
   if (!r.pret) {
-    console.warn("[tiers-app] schéma 0270 absent : aucune application non-Sophia servie");
+    console.warn(
+      "[tiers-app] schéma 0270 absent : aucune application non-Sophia servie",
+    );
   }
   sonde = { pret: r.pret, at: maintenant };
   return r.pret ? "pret" : "absent";
@@ -218,7 +226,10 @@ export async function lireEtatsTierApplication(
  */
 export async function materialiserTierApplication(
   supabase: Supabase,
-  e: Pick<EtatTierApplication, "contenu_id" | "application_id" | "tier" | "passages_prevus" | "note">,
+  e: Pick<
+    EtatTierApplication,
+    "contenu_id" | "application_id" | "tier" | "passages_prevus" | "note"
+  >,
 ): Promise<void> {
   const tier: Tier = estTier(e.tier) ? e.tier : "D";
   const { error } = await supabase.from(TABLE_TIERS_APPLICATION).upsert(
@@ -326,7 +337,12 @@ async function lireCyclesTerminesApplication(
   );
   return {
     etats,
-    coherence: verifierCoherenceLecture(etats.length, attendues, undefined, VUE_REQUALIF_APPLICATION),
+    coherence: verifierCoherenceLecture(
+      etats.length,
+      attendues,
+      undefined,
+      VUE_REQUALIF_APPLICATION,
+    ),
   };
 }
 
@@ -391,7 +407,9 @@ export async function requalifierApplications(
   const etat = await sonderSchemaTiersApplication(supabase);
   if (etat !== "pret") return { etat, parApplication: {} };
   if (opts.applicationId === ID_SOPHIA) {
-    throw new Error("Sophia se requalifie par l'étape tierlist (contenus.tier), pas par application");
+    throw new Error(
+      "Sophia se requalifie par l'étape tierlist (contenus.tier), pas par application",
+    );
   }
 
   const applications = (await chargerApplicationsMoteur(supabase)).filter((a) =>
@@ -405,7 +423,14 @@ export async function requalifierApplications(
   const parApplication: Record<string, ResultatApplication> = {};
 
   for (const app of applications) {
-    const res = resultatVide(verifierCoherenceLecture(0, null, "lecture non faite", VUE_REQUALIF_APPLICATION));
+    const res = resultatVide(
+      verifierCoherenceLecture(
+        0,
+        null,
+        "lecture non faite",
+        VUE_REQUALIF_APPLICATION,
+      ),
+    );
     parApplication[app.slug] = res;
     try {
       const lecture = opts.contenuId
@@ -425,7 +450,9 @@ export async function requalifierApplications(
         continue;
       }
       res.erreur = e instanceof Error ? e.message : String(e);
-      console.error(`[tiers-app] requalification ${app.slug} en échec : ${res.erreur}`);
+      console.error(
+        `[tiers-app] requalification ${app.slug} en échec : ${res.erreur}`,
+      );
     }
   }
   return { etat, parApplication };
@@ -443,7 +470,10 @@ async function requalifierLesEtats(
   },
 ): Promise<void> {
   const { reglages } = args;
-  type Mur = { etat: EtatTierApplication; decision: Extract<DecisionRequalif, { requalifier: true }> };
+  type Mur = {
+    etat: EtatTierApplication;
+    decision: Extract<DecisionRequalif, { requalifier: true }>;
+  };
   const mursOk: Mur[] = [];
   const attentes: EtatTierApplication[] = [];
   const maintenantMs = Date.now();
@@ -455,7 +485,9 @@ async function requalifierLesEtats(
       introuvables: e.introuvables ?? 0,
       enAttenteMesure: e.en_attente_mesure ?? 0,
       moyenne: e.moyenne_vues ?? null,
-      dernierPublieMs: e.dernier_publie_at ? Date.parse(e.dernier_publie_at) : Number.NaN,
+      dernierPublieMs: e.dernier_publie_at
+        ? Date.parse(e.dernier_publie_at)
+        : Number.NaN,
       maintenantMs,
       reculJours: reglages.reculJours,
       requalifMaxJours: reglages.requalifMaxJours,
@@ -472,7 +504,10 @@ async function requalifierLesEtats(
   // Titres : NON fatal, comme côté Sophia — ils ne décident de rien. Lecture
   // seule de `contenus` (jamais d'écriture). Échéance contrôlée avant.
   controlerEcheance(args.echeance);
-  const ids = [...mursOk.map((m) => m.etat.contenu_id), ...attentes.map((e) => e.contenu_id)];
+  const ids = [
+    ...mursOk.map((m) => m.etat.contenu_id),
+    ...attentes.map((e) => e.contenu_id),
+  ];
   let titreParId = new Map<string, string>();
   try {
     const titres = await lireParLots<{ id: string; titre: string | null }>(
@@ -484,7 +519,9 @@ async function requalifierLesEtats(
   } catch (e) {
     console.warn(
       `[tiers-app] titres illisibles (${app.slug}, ${ids.length} id) : ` +
-        `${e instanceof Error ? e.message : String(e)} — requalification faite, titres vides.`,
+        `${
+          e instanceof Error ? e.message : String(e)
+        } — requalification faite, titres vides.`,
     );
   }
 
@@ -501,6 +538,18 @@ async function requalifierLesEtats(
     res.attentesMesure.push(attente);
   }
 
+  // Règle de fatigue (0342) : l'historique de toute la vie du contenu pour
+  // CETTE application, sur les seuls cycles tranchés sur mesure.
+  const fatigueActive = reglages.fatiguePassages > 0 &&
+    reglages.fatiguePlafond > 0;
+  const historique = fatigueActive
+    ? await lireHistoriquePassages(
+      supabase,
+      mursOk.filter((m) => m.decision.surMesure).map((m) => m.etat.contenu_id),
+      { id: app.id },
+    )
+    : new Map<string, HistoriquePassages>();
+
   for (const { etat: e, decision } of mursOk) {
     if (!estTier(e.tier)) continue;
     controlerEcheance(args.echeance);
@@ -514,11 +563,17 @@ async function requalifierLesEtats(
         nb150k: e.nb_150k ?? 0,
         mesures: e.mesures ?? 0,
         plancherB: reglages.plancherB,
+        mesuresTotal: historique.get(e.contenu_id)?.mesuresTotal,
+        maxVuesTotal: historique.get(e.contenu_id)?.maxVuesTotal,
+        fatiguePassages: reglages.fatiguePassages,
+        fatiguePlafond: reglages.fatiguePlafond,
       })
       : {
         tier: e.tier,
         regle: decision.motif === "introuvable"
-          ? `aucune mesure possible (${e.introuvables ?? 0} post(s) introuvable(s)) — cycle relancé au même rang`
+          ? `aucune mesure possible (${
+            e.introuvables ?? 0
+          } post(s) introuvable(s)) — cycle relancé au même rang`
           : `aucune vue relevée après ${reglages.requalifMaxJours} j — cycle relancé au même rang`,
       };
     const passages = passagesPourTier(verdict.tier);

@@ -1,29 +1,36 @@
-import { assert, assertEquals, assertNotEquals, assertRejects } from "jsr:@std/assert@1";
+import {
+  assert,
+  assertEquals,
+  assertNotEquals,
+  assertRejects,
+} from "jsr:@std/assert@1";
 
 import { IN_MAX_VALEURS, PLAFOND_LIGNES, TAILLE_PAGE } from "./lots.ts";
 import { surveillerBuilder } from "./supabase.ts";
 import {
   blocRunTierlist,
   deciderRequalif,
+  type DecisionRequalifEntree,
   estCycleTermine,
   jourSuivant,
   programmerRappels,
   reporterBlocTierlist,
+  type RequalificationResultat,
+  requalifier,
   requalifierContenus,
+  type Supabase,
   tierImport,
   tierInitialDepuisNote,
   verifierCoherenceLecture,
-  type DecisionRequalifEntree,
-  type RequalificationResultat,
-  type Supabase,
-  requalifier,
 } from "./tierlist.ts";
 
 const JOUR_MS = 86_400_000;
 const MAINTENANT = Date.parse("2026-09-21T00:00:00Z");
 
 /** Cycle terminé, mesuré, assez vieux pour être jugé — le cas nominal. */
-function entree(p: Partial<DecisionRequalifEntree> = {}): DecisionRequalifEntree {
+function entree(
+  p: Partial<DecisionRequalifEntree> = {},
+): DecisionRequalifEntree {
   return {
     publies: 4,
     passagesPrevus: 4,
@@ -90,7 +97,10 @@ Deno.test("vue 0253 — tout ce que deciderRequalif requalifie passe le filtre d
 Deno.test("vue 0253 — le contenu limite (publies = passages_prevus) est dedans, pas un de moins", () => {
   // La frontière du filtre. `>=` et non `>` : un cycle qui vient de finir son
   // dernier passage est requalifiable au prochain minuit, pas au suivant.
-  assertEquals(deciderRequalif(entree({ publies: 4, passagesPrevus: 4 })).requalifier, true);
+  assertEquals(
+    deciderRequalif(entree({ publies: 4, passagesPrevus: 4 })).requalifier,
+    true,
+  );
   const avant = deciderRequalif(entree({ publies: 3, passagesPrevus: 4 }));
   assertEquals(avant.requalifier, false);
   assertEquals(avant.requalifier === false && avant.motif, "passages");
@@ -109,20 +119,32 @@ Deno.test("vue 0253 — les gardes recul et délai restent en TS, elles ne sont 
   // donc des lignes que la vue laisse passer : c'est voulu, et c'est la raison
   // pour laquelle elles ne descendent pas en SQL. Une vue qui trancherait à
   // leur place ferait diverger minuit de ce que la page Slideshows affiche.
-  const recul = deciderRequalif(entree({ dernierPublieMs: MAINTENANT - 3600_000 }));
+  const recul = deciderRequalif(
+    entree({ dernierPublieMs: MAINTENANT - 3600_000 }),
+  );
   assertEquals(recul.requalifier, false);
   assertEquals(recul.requalifier === false && recul.motif, "recul");
 
   const mesure = deciderRequalif(
-    entree({ moyenne: null, mesures: 0, enAttenteMesure: 2, dernierPublieMs: MAINTENANT - 2 * JOUR_MS }),
+    entree({
+      moyenne: null,
+      mesures: 0,
+      enAttenteMesure: 2,
+      dernierPublieMs: MAINTENANT - 2 * JOUR_MS,
+    }),
   );
   assertEquals(mesure.requalifier, false);
   assertEquals(mesure.requalifier === false && mesure.motif, "mesure");
 
   // Les deux portes sans mesure, elles, sont bien dans le périmètre de la vue.
-  const introuvable = deciderRequalif(entree({ moyenne: null, mesures: 0, introuvables: 4 }));
+  const introuvable = deciderRequalif(
+    entree({ moyenne: null, mesures: 0, introuvables: 4 }),
+  );
   assertEquals(introuvable.requalifier, true);
-  assertEquals(introuvable.requalifier === true && introuvable.surMesure, false);
+  assertEquals(
+    introuvable.requalifier === true && introuvable.surMesure,
+    false,
+  );
 });
 
 /* -------------------------------------------------------------------------
@@ -164,7 +186,11 @@ Deno.test("cohérence — plus de lignes que comptées : signalé, mais sans dra
 });
 
 Deno.test("cohérence — comptage indisponible : on ne fait pas passer l'ignorance pour une garantie", () => {
-  const c = verifierCoherenceLecture(202, null, "lecture ciblée d'un seul contenu, sans objet");
+  const c = verifierCoherenceLecture(
+    202,
+    null,
+    "lecture ciblée d'un seul contenu, sans objet",
+  );
   // `ok` reste vrai : aucun écart n'est CONSTATÉ. Mais l'alerte dit qu'on n'a
   // rien vérifié — c'est exactement la nuance que la panne a exploitée.
   assertEquals(c.ok, true);
@@ -177,7 +203,9 @@ Deno.test("cohérence — comptage indisponible : on ne fait pas passer l'ignora
  * Forme du JSON de run, et sa survie au drain.
  * ---------------------------------------------------------------------- */
 
-function resultat(p: Partial<RequalificationResultat> = {}): RequalificationResultat {
+function resultat(
+  p: Partial<RequalificationResultat> = {},
+): RequalificationResultat {
   return {
     examines: 202,
     requalifies: 143,
@@ -212,7 +240,10 @@ Deno.test("run tierlist — le bloc JSON porte les quatre compteurs et le témoi
 
 Deno.test("run tierlist — une lecture tronquée est écrite dans le JSON, pas avalée", () => {
   const bloc = blocRunTierlist(
-    resultat({ examines: PLAFOND_LIGNES, coherence: verifierCoherenceLecture(PLAFOND_LIGNES, 2521) }),
+    resultat({
+      examines: PLAFOND_LIGNES,
+      coherence: verifierCoherenceLecture(PLAFOND_LIGNES, 2521),
+    }),
     new Date(MAINTENANT),
   );
   assertEquals(bloc.complet, false);
@@ -239,7 +270,10 @@ Deno.test("run tierlist — le bloc survit au merge cumulatif du drain d'assigna
     crees: 20,
     ...reporterBlocTierlist(ancien, memeJour),
   };
-  assertEquals((valeur as { tierlist?: { requalifies: number } }).tierlist?.requalifies, 143);
+  assertEquals(
+    (valeur as { tierlist?: { requalifies: number } }).tierlist?.requalifies,
+    143,
+  );
 });
 
 Deno.test("run tierlist — le bloc de la veille n'est pas reporté sur le run du jour", () => {
@@ -253,7 +287,10 @@ Deno.test("run tierlist — le bloc de la veille n'est pas reporté sur le run d
 });
 
 Deno.test("run tierlist — un ancien JSON sans bloc tierlist ne casse pas le report", () => {
-  assertEquals(reporterBlocTierlist({ jour: "2026-09-21", crees: 3 }, true), {});
+  assertEquals(
+    reporterBlocTierlist({ jour: "2026-09-21", crees: 3 }, true),
+    {},
+  );
   assertEquals(reporterBlocTierlist(null, true), {});
   assertEquals(reporterBlocTierlist("pas un objet", true), {});
 });
@@ -397,7 +434,9 @@ function fauxClient(
 
         const simulee = panne?.(r) ?? null;
         if (simulee) {
-          return Promise.resolve(onfulfilled?.({ data: null, count: null, error: simulee }));
+          return Promise.resolve(
+            onfulfilled?.({ data: null, count: null, error: simulee }),
+          );
         }
 
         const lignes = base[r.table];
@@ -416,15 +455,27 @@ function fauxClient(
         }
 
         let out = lignes.filter((l) => r.filtres.every((f) => applique(f, l)));
-        if (r.ordre) out = [...out].sort((a, b) => cmp(a[r.ordre!], b[r.ordre!]));
-        if (r.head) return Promise.resolve(onfulfilled?.({ data: null, count: out.length, error: null }));
+        if (r.ordre) {
+          out = [...out].sort((a, b) => cmp(a[r.ordre!], b[r.ordre!]));
+        }
+        if (r.head) {
+          return Promise.resolve(
+            onfulfilled?.({ data: null, count: out.length, error: null }),
+          );
+        }
         if (r.single) {
-          return Promise.resolve(onfulfilled?.({ data: out[0] ?? null, count: null, error: null }));
+          return Promise.resolve(
+            onfulfilled?.({ data: out[0] ?? null, count: null, error: null }),
+          );
         }
         // `max-rows` PAR-DESSUS le `limit` demandé : toute la panne tient là.
         const coupe = Math.min(r.limite ?? PLAFOND_LIGNES, PLAFOND_LIGNES);
         return Promise.resolve(
-          onfulfilled?.({ data: out.slice(0, coupe), count: null, error: null }),
+          onfulfilled?.({
+            data: out.slice(0, coupe),
+            count: null,
+            error: null,
+          }),
         );
       },
     };
@@ -479,9 +530,12 @@ function baseAvecVue(etats: Ligne[], reste: Record<string, Ligne[]> = {}) {
   return {
     reglages: [{ cle: "tierlist", valeur: {} }],
     contenus: [],
+    // Règle de fatigue (0342) : la vue existe et ne dit rien de ces contenus.
+    contenu_passages_historique: [],
     contenu_tier_etat: etats,
     contenu_a_requalifier: etats.filter((e) =>
-      (e.passages_prevus as number) > 0 && (e.publies as number) >= (e.passages_prevus as number)
+      (e.passages_prevus as number) > 0 &&
+      (e.publies as number) >= (e.passages_prevus as number)
     ),
     ...reste,
   };
@@ -534,7 +588,10 @@ Deno.test("câblage — requalifierContenus lit la vue 0253, et pas la table bru
   assertEquals(res.examines, 3);
   assertEquals(res.requalifies, 3);
   assertEquals(res.repli, false);
-  assert(lectures(traces, "contenu_a_requalifier").length > 0, "la vue n'a pas été lue");
+  assert(
+    lectures(traces, "contenu_a_requalifier").length > 0,
+    "la vue n'a pas été lue",
+  );
   assertEquals(lectures(traces, "contenu_tier_etat").length, 0);
 });
 
@@ -550,8 +607,12 @@ Deno.test("câblage — le comptage de cohérence est pris, et AVANT la lecture"
   assertEquals(res.coherence.ok, true);
   assertEquals(res.coherence.alerte, null);
 
-  const comptage = traces.findIndex((t) => t.table === "contenu_a_requalifier" && t.head);
-  const premierePage = traces.findIndex((t) => t.table === "contenu_a_requalifier" && !t.head);
+  const comptage = traces.findIndex((t) =>
+    t.table === "contenu_a_requalifier" && t.head
+  );
+  const premierePage = traces.findIndex((t) =>
+    t.table === "contenu_a_requalifier" && !t.head
+  );
   assert(comptage >= 0, "aucun count(*) sur la vue");
   // Après la lecture, les requalifications auraient fait SORTIR de la vue les
   // contenus relancés : le comptage mesurerait un autre ensemble.
@@ -577,7 +638,9 @@ Deno.test("câblage — 1500 cycles terminés sont TOUS examinés (l'ancienne le
   const pages = lectures(traces, "contenu_a_requalifier");
   assertEquals(pages.length, 2);
   assertEquals(pages[0].limite, TAILLE_PAGE);
-  assert(pages[1].filtres.some((f) => f.op === "gt" && f.colonne === "contenu_id"));
+  assert(
+    pages[1].filtres.some((f) => f.op === "gt" && f.colonne === "contenu_id"),
+  );
   // 1500 titres à lire : sans découpage, `verifierTailleIn` lèverait à 400.
   const titres = lectures(traces, "contenus");
   assertEquals(titres.length, 15);
@@ -610,9 +673,11 @@ Deno.test("câblage — vue 0253 absente (42P01) : repli tracé sur contenu_tier
   assert(repli.length > 0, "le repli n'a pas lu contenu_tier_etat");
   // Le repli est la lecture d'avant, PAGINÉE : c'est elle qui butait sur max-rows.
   assertEquals(repli[0].limite, TAILLE_PAGE);
-  assert(repli[0].filtres.some((f) =>
-    f.op === "gt" && f.colonne === "passages_prevus" && f.valeur === 0
-  ));
+  assert(
+    repli[0].filtres.some((f) =>
+      f.op === "gt" && f.colonne === "passages_prevus" && f.valeur === 0
+    ),
+  );
 });
 
 Deno.test("câblage — une panne réseau ne déclenche PAS le repli : elle lève", async () => {
@@ -622,7 +687,10 @@ Deno.test("câblage — une panne réseau ne déclenche PAS le repli : elle lèv
     traces,
     (r) =>
       r.table === "contenu_a_requalifier" && !r.head
-        ? { code: "08006", message: "error sending request: connection reset by peer" }
+        ? {
+          code: "08006",
+          message: "error sending request: connection reset by peer",
+        }
         : null,
   );
 
@@ -636,7 +704,10 @@ Deno.test("câblage — le clic admin lit la source complète, pas la vue", asyn
   const traces: Requete[] = [];
   // Un cycle NON terminé : absent de la vue par construction. Lu là, l'admin
   // lirait « 0 examiné » — un contenu devenu introuvable d'un clic.
-  const supabase = fauxClient(baseAvecVue([ligneEtat(1, { publies: 2 })]), traces);
+  const supabase = fauxClient(
+    baseAvecVue([ligneEtat(1, { publies: 2 })]),
+    traces,
+  );
 
   const res = await requalifierContenus(supabase, {
     dryRun: true,
@@ -715,7 +786,11 @@ Deno.test("rappels J+7 — 1200 percées : toutes lues, et le in(...) découpé"
   const passages = Array.from({ length: 1200 }, (_, i) => lignePassage(i + 1));
   const comptes = passages.map((p) => ({ id: p.compte_id, posts_par_jour: 3 }));
   const traces: Requete[] = [];
-  const supabase = fauxClient({ reglages: [{ cle: "tierlist", valeur: {} }], passages, comptes }, traces);
+  const supabase = fauxClient({
+    reglages: [{ cle: "tierlist", valeur: {} }],
+    passages,
+    comptes,
+  }, traces);
 
   const res = await programmerRappels(supabase, jamais, { dryRun: true });
 
@@ -730,7 +805,10 @@ Deno.test("rappels J+7 — 1200 percées : toutes lues, et le in(...) découpé"
   for (const t of traces) {
     for (const f of t.filtres) {
       if (f.op !== "in") continue;
-      assert((f.valeur as unknown[]).length <= IN_MAX_VALEURS, `in de ${(f.valeur as unknown[]).length} valeurs`);
+      assert(
+        (f.valeur as unknown[]).length <= IN_MAX_VALEURS,
+        `in de ${(f.valeur as unknown[]).length} valeurs`,
+      );
     }
   }
   const pages = traces.filter((t) =>
@@ -827,20 +905,206 @@ Deno.test("0270 — cohérence : la vue par application est nommée dans l'alert
   const vue = "contenu_application_a_requalifier";
   const manque = verifierCoherenceLecture(3, 5, undefined, vue);
   assertEquals(manque.ok, false);
-  assert(manque.alerte?.startsWith(`Lecture INCOMPLÈTE de ${vue} :`), manque.alerte ?? "");
+  assert(
+    manque.alerte?.startsWith(`Lecture INCOMPLÈTE de ${vue} :`),
+    manque.alerte ?? "",
+  );
   assert(!manque.alerte?.includes("contenu_a_requalifier"));
   const surplus = verifierCoherenceLecture(6, 5, undefined, vue);
-  assert(surplus.alerte?.startsWith(`Lecture de ${vue} plus longue`), surplus.alerte ?? "");
+  assert(
+    surplus.alerte?.startsWith(`Lecture de ${vue} plus longue`),
+    surplus.alerte ?? "",
+  );
   assertEquals(verifierCoherenceLecture(5, 5, undefined, vue).alerte, null);
 });
 
 Deno.test("plancher de B — deux passages sous 3 000 : C, même avec m entre 1 000 et 5 000", () => {
-  const r = requalifier({ tier: "B", moyenne: 1_500, maxVues: 2_000, nb150k: 0, mesures: 2, plancherB: 3_000 });
+  const r = requalifier({
+    tier: "B",
+    moyenne: 1_500,
+    maxVues: 2_000,
+    nb150k: 0,
+    mesures: 2,
+    plancherB: 3_000,
+  });
   assertEquals(r.tier, "C");
   assert(r.regle.includes("aucun passage"));
-  assertEquals(requalifier({ tier: "B", moyenne: 1_500, maxVues: 3_000, nb150k: 0, mesures: 2, plancherB: 3_000 }).tier, "B");
-  assertEquals(requalifier({ tier: "B", moyenne: 1_500, maxVues: 1_500, nb150k: 0, mesures: 1, plancherB: 3_000 }).tier, "B");
-  assertEquals(requalifier({ tier: "B", moyenne: 1_500, maxVues: 1_500, nb150k: 0, mesures: 2, plancherB: 0 }).tier, "B");
-  assertEquals(requalifier({ tier: "B", moyenne: 1_500, maxVues: 1_500, nb150k: 0 }).tier, "B");
-  assertEquals(requalifier({ tier: "A", moyenne: 1_500, maxVues: 1_500, nb150k: 0, mesures: 4, plancherB: 3_000 }).tier, "B");
+  assertEquals(
+    requalifier({
+      tier: "B",
+      moyenne: 1_500,
+      maxVues: 3_000,
+      nb150k: 0,
+      mesures: 2,
+      plancherB: 3_000,
+    }).tier,
+    "B",
+  );
+  assertEquals(
+    requalifier({
+      tier: "B",
+      moyenne: 1_500,
+      maxVues: 1_500,
+      nb150k: 0,
+      mesures: 1,
+      plancherB: 3_000,
+    }).tier,
+    "B",
+  );
+  assertEquals(
+    requalifier({
+      tier: "B",
+      moyenne: 1_500,
+      maxVues: 1_500,
+      nb150k: 0,
+      mesures: 2,
+      plancherB: 0,
+    }).tier,
+    "B",
+  );
+  assertEquals(
+    requalifier({ tier: "B", moyenne: 1_500, maxVues: 1_500, nb150k: 0 }).tier,
+    "B",
+  );
+  assertEquals(
+    requalifier({
+      tier: "A",
+      moyenne: 1_500,
+      maxVues: 1_500,
+      nb150k: 0,
+      mesures: 4,
+      plancherB: 3_000,
+    }).tier,
+    "B",
+  );
+});
+
+Deno.test("fatigue — 8 passages mesurés dans sa vie sans aucun ≥ 10 000 : un B ou un A descend en C, quelle que soit m", () => {
+  const base = {
+    nb150k: 0,
+    mesures: 2,
+    plancherB: 3_000,
+    fatiguePassages: 8,
+    fatiguePlafond: 10_000,
+  };
+  const r = requalifier({
+    ...base,
+    tier: "B",
+    moyenne: 4_000,
+    maxVues: 6_000,
+    mesuresTotal: 8,
+    maxVuesTotal: 7_600,
+  });
+  assertEquals(r.tier, "C");
+  assert(r.regle.includes("fatigue"));
+  assertEquals(
+    requalifier({
+      ...base,
+      tier: "A",
+      moyenne: 6_000,
+      maxVues: 8_000,
+      mesuresTotal: 9,
+      maxVuesTotal: 9_000,
+    }).tier,
+    "C",
+  );
+  // Un seul passage à 10 k dans sa vie suffit à l'épargner.
+  assertEquals(
+    requalifier({
+      ...base,
+      tier: "B",
+      moyenne: 4_000,
+      maxVues: 6_000,
+      mesuresTotal: 12,
+      maxVuesTotal: 10_000,
+    }).tier,
+    "B",
+  );
+  // Pas assez de passages : barème normal.
+  assertEquals(
+    requalifier({
+      ...base,
+      tier: "B",
+      moyenne: 4_000,
+      maxVues: 6_000,
+      mesuresTotal: 7,
+      maxVuesTotal: 7_600,
+    }).tier,
+    "B",
+  );
+  assertEquals(
+    requalifier({
+      ...base,
+      tier: "B",
+      moyenne: 6_000,
+      maxVues: 6_000,
+      mesuresTotal: 7,
+      maxVuesTotal: 7_600,
+    }).tier,
+    "A",
+  );
+  // Les percées du cycle restent prioritaires.
+  assertEquals(
+    requalifier({
+      ...base,
+      tier: "B",
+      moyenne: 4_000,
+      maxVues: 31_000,
+      mesuresTotal: 8,
+      maxVuesTotal: 31_000,
+    }).tier,
+    "S",
+  );
+  // 0 désactive ; sans historique, rien ne change.
+  assertEquals(
+    requalifier({
+      ...base,
+      tier: "B",
+      moyenne: 4_000,
+      maxVues: 6_000,
+      mesuresTotal: 8,
+      maxVuesTotal: 7_600,
+      fatiguePassages: 0,
+    }).tier,
+    "B",
+  );
+  assertEquals(
+    requalifier({
+      ...base,
+      tier: "B",
+      moyenne: 4_000,
+      maxVues: 6_000,
+      mesuresTotal: 8,
+      maxVuesTotal: 7_600,
+      fatiguePlafond: 0,
+    }).tier,
+    "B",
+  );
+  assertEquals(
+    requalifier({ ...base, tier: "B", moyenne: 4_000, maxVues: 6_000 }).tier,
+    "B",
+  );
+  // C et D ne sont pas concernés.
+  assertEquals(
+    requalifier({
+      ...base,
+      tier: "C",
+      moyenne: 1_500,
+      maxVues: 2_000,
+      mesuresTotal: 10,
+      maxVuesTotal: 3_000,
+    }).tier,
+    "B",
+  );
+  assertEquals(
+    requalifier({
+      ...base,
+      tier: "D",
+      moyenne: 1_500,
+      maxVues: 2_000,
+      mesuresTotal: 10,
+      maxVuesTotal: 3_000,
+    }).tier,
+    "B",
+  );
 });

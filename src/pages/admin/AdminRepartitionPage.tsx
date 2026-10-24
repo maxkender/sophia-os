@@ -43,6 +43,7 @@ import {
   remettreReglagesChoixLabelDefaut,
 } from "@/features/moteur/repartition/apiRepartition";
 import { CarteFileLabels } from "@/features/moteur/repartition/CarteFileLabels";
+import { CartePodz } from "@/features/moteur/repartition/CartePodz";
 import { fileDeLApplication } from "@/features/moteur/repartition/fileApplication";
 import {
   Aide,
@@ -248,6 +249,11 @@ export function AdminRepartitionPage() {
     return out;
   }, [actifs, parApp]);
 
+  const marchesParApp = React.useMemo(
+    () => Object.fromEntries(actifs.map((a, i) => [a.id, parApp[i]?.data ?? []])),
+    [actifs, parApp],
+  );
+
   /** Les labels 100 % podz (0352), toutes applications : leur nom porte la marque pod. */
   const labelsPod = React.useMemo(() => {
     const out = new Set<string>();
@@ -304,9 +310,10 @@ export function AdminRepartitionPage() {
           <CarteLabels
             applications={actifs}
             applicationParDefaut={applicationId}
-            marchesParApp={Object.fromEntries(actifs.map((a, i) => [a.id, parApp[i]?.data ?? []]))}
+            marchesParApp={marchesParApp}
             reglages={reglages.data}
           />
+          <CartePodz applications={actifs} marchesParApp={marchesParApp} reglages={reglages.data} />
           <CarteFileLabels />
         </>
       )}
@@ -1359,7 +1366,8 @@ function CarteLabels({
                 <tr key={e.stat.label_id} className="border-b border-border/40" data-testid={`label-${e.stat.label_nom}`}>
                   <td className="py-2 pr-4">
                     <NomLabel nom={e.stat.label_nom} pod={e.stat.pod_seul} className="text-xs" />
-                    {e.absents.length > 0 && (
+                    {/* Un label 100 % podz montre ses langues dans sa propre carte. */}
+                    {e.absents.length > 0 && !e.stat.pod_seul && (
                       <Bulle
                         libelle={t("repartition.absentLangues", { count: e.absents.length })}
                         className="ml-2 text-[11px] text-amber-700 dark:text-amber-400"
@@ -1398,7 +1406,7 @@ function CarteLabels({
                         </span>
                       ) : (
                         <span className="text-xs text-muted-foreground" data-testid="remplissage-pod">
-                          {t("repartition.remplissagePod", { min: e.remplissage.min, max: e.remplissage.max })}
+                          {t("repartition.podzVoirCarte")}
                         </span>
                       )
                     ) : (

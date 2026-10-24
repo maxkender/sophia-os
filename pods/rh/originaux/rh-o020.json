@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o020",
+ "schema_id": "erreurs-chomage",
+ "titre": "lettre à moi, il y a un an, au 4e mois de chômage #chomage #rechercheemploi #emploi #santementale #jobtips",
+ "musique_titre": "BEST INTEREST",
+ "musique_url": "https://www.tiktok.com/music/best-interest-7162267272931706882",
+ "inspirations": [
+  "4adc261e-6c81-4b3a-b8da-485c6bc2c4c2"
+ ],
+ "notes": "essai (rh-o020 finit par 0) : format « lettre à moi-même », jamais fait chez nous. Accroche 100 % neuve chez nous, à la demande de l'équipe (24/10) : ni le mot, ni l'angle, ni le format d'accroche n'ont été utilisés de rh-o001 à rh-o017. Schéma erreurs-chomage (r 2,03 sur 4 passages, 4adc261e) : l'échec raconté puis réparé, ici sous forme de lettre. Accroches écrites : « lettre à moi, il y a un an, au 4e mois de chômage » (retenue : intime, inédite, courte), « ce que je dirais à la moi au chômage d'il y a un an » (écartée : plus longue), « si t'es au chômage depuis des mois, lis ça » (écartée : injonction sans récit). Six conseils neufs, aucune reprise de rh-o014 ni de la source. CTA jamais utilisé : la communauté écrit la phrase qu'elle aurait voulu entendre. Sophia en 5 : continuer d'apprendre. Inspirations : sans les slides 4 et 5 de la source (autres applis citées).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "17bb00d4",
+   "texte_overlay": "lettre à moi, il y a un an,\nau 4e mois de chômage",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3dfa5f04",
+   "texte_overlay": "arrête de compter les refus.\ncompte les entretiens que t'as décrochés.\nl'un te démolit, l'autre te montre que ça avance",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "36125a70",
+   "texte_overlay": "garde des horaires.\nlève-toi à la même heure, habille-toi, sors.\nta tête a besoin d'un rythme, même sans bureau",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1379049d",
+   "texte_overlay": "fais relire ton cv par 3 personnes du métier.\npas ta mère, pas ta meilleure amie.\nquelqu'un qui recrute pour ce poste",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0b886b8c",
+   "texte_overlay": "continue d'apprendre, même un peu.\npas forcément pour le boulot.\ntu vas avoir besoin de parler d'autre chose que de ta recherche",
+   "texte_sophia": "continue d'apprendre, même un peu.\n5 minutes par jour sur l'appli Sophia, de l'histoire ou des sciences.\nta tête va mieux, et t'as enfin autre chose à raconter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "50da26fc",
+   "texte_overlay": "postule aux postes « un peu trop hauts ».\nle pire qui peut arriver, c'est un non.\net ce non, tu l'avais déjà",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "784198ed",
+   "texte_overlay": "sois douce avec toi.\nce mois-là compte pas moins que les autres.\nc'est juste un mois difficile",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "2b10e71d",
+   "texte_overlay": "écris en commentaire la phrase\nque t'aurais aimé entendre ce mois-là\nquelqu'un en a besoin aujourd'hui",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/8.jpg"
+  }
+ ]
+}

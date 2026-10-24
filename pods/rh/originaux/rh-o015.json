@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o015",
+ "schema_id": "copie-habitudes",
+ "titre": "j'ai copié 5 habitudes de notre stagiaire pendant 1 mois (et j'ai honte d'avoir attendu) #travail #stage #carriere #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "essai (rh-o015 finit par 5) + CTA jamais utilisé, à la demande de l'équipe (24/10) : « identifie la collègue… » (identification, au lieu de « laquelle… ? » ou « enregistre-le »). Angle jamais fait : le gabarit copie-habitudes inversé, la senior copie la stagiaire. Schéma copie-habitudes (r 5,99 sur 4 passages, 63ffa170). Accroches écrites : « j'ai copié 5 habitudes de notre stagiaire pendant 1 mois (et j'ai honte d'avoir attendu) » (retenue : rapport de force inversé + aveu), « notre stagiaire avait 5 réflexes que j'avais perdus en 6 ans » (écartée : sans le « j'ai copié »), « ce que la stagiaire m'a appris sans le savoir » (écartée : plus vague). Cinq habitudes neuves, aucune reprise de rh-o011 ni des sources. Sophia en 5 : elle apprenait un truc chaque jour. Inspirations : sans les slides 5 des deux sources (appli concurrente).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "42d00bfa",
+   "texte_overlay": "j'ai copié 5 habitudes de notre stagiaire\npendant 1 mois\n(et j'ai honte d'avoir attendu)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "36ccc7e9",
+   "texte_overlay": "elle demandait « pourquoi on fait comme ça ? »\nsans gêne, en réunion.\nla moitié de nos process n'avaient plus aucune raison d'être",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1e180a7f",
+   "texte_overlay": "elle prenait des notes à la main\npendant que moi je « retenais ».\nelle se souvenait de tout. moi de rien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "271d8ff5",
+   "texte_overlay": "elle disait bonjour à tout l'étage\nen 3 semaines, elle connaissait plus de monde que moi en 6 ans.\net tout le monde l'aidait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1ec53714",
+   "texte_overlay": "elle apprenait un truc nouveau chaque jour\nmême hors boulot, pendant sa pause.\nelle avait toujours une question ou une histoire à raconter",
+   "texte_sophia": "elle apprenait un truc nouveau chaque jour\npendant sa pause, sur l'appli Sophia : 5 minutes d'histoire ou de sciences.\nje l'ai installée le soir même",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "28b4643f",
+   "texte_overlay": "elle demandait de l'aide tout de suite\nmoi je galérais 2 jours seule pour « pas déranger ».\nelle, 5 minutes, et c'était réglé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0ff0ce95",
+   "texte_overlay": "identifie la collègue qui fait déjà tout ça\n(ou celle qui en a besoin)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

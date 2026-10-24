@@ -49,6 +49,7 @@ import {
   Bulle,
   BarreReserve,
   LegendeApplications,
+  NomLabel,
 } from "@/features/moteur/repartition/graphes";
 import { segmentsApplications } from "@/features/moteur/repartition/segments";
 import {
@@ -235,6 +236,13 @@ export function AdminRepartitionPage() {
     return out;
   }, [actifs, parApp]);
 
+  /** Les labels 100 % podz (0352), toutes applications : leur nom porte la marque pod. */
+  const labelsPod = React.useMemo(() => {
+    const out = new Set<string>();
+    for (const q of parApp) for (const m of q.data ?? []) for (const s of m.stats) if (s.pod_seul) out.add(s.label_id);
+    return out;
+  }, [parApp]);
+
   return (
     <div className="space-y-6" data-testid="page-repartition">
       <div className="flex flex-wrap items-end justify-between gap-3">
@@ -279,6 +287,7 @@ export function AdminRepartitionPage() {
             partParMarche={partParMarche}
             flotte={provenance.data ?? []}
             file={reglagesOs.data?.file_labels_comptes}
+            labelsPod={labelsPod}
           />
           <CarteLabels
             applications={actifs}
@@ -830,6 +839,7 @@ function CarteMarches({
   partParMarche,
   flotte,
   file,
+  labelsPod,
 }: {
   marches: MarcheApplications[];
   statsParAppEtMarche: Record<string, Record<string, StatLabel[]>>;
@@ -839,6 +849,7 @@ function CarteMarches({
   partParMarche: Map<string, PartSite>;
   flotte: RecruesMarche[];
   file: ReglagesFileLabels | undefined;
+  labelsPod: Set<string>;
 }) {
   const { t } = useTranslation();
   const [ouvert, setOuvert] = React.useState<string | null>(null);
@@ -965,7 +976,7 @@ function CarteMarches({
                         {l.prochain ? (
                           <span className="flex min-w-0 items-center gap-1.5">
                             <LogoApplication slug={l.prochain.app} taille="sm" />
-                            <span className="truncate font-mono text-xs">{l.prochain.label_nom}</span>
+                            <NomLabel nom={l.prochain.label_nom} pod={labelsPod.has(l.prochain.label_id)} className="text-xs" />
                           </span>
                         ) : (
                           <span className="text-xs text-muted-foreground">{t("repartition.aucun")}</span>
@@ -1017,7 +1028,7 @@ function CarteMarches({
                     {actif && (
                       <tr>
                         <td colSpan={7} className="pb-3">
-                          <DetailMarche ligne={l} applications={applications} verdict={verdicts.get(l.cle)} cible={cible} />
+                          <DetailMarche ligne={l} applications={applications} verdict={verdicts.get(l.cle)} cible={cible} labelsPod={labelsPod} />
                         </td>
                       </tr>
                     )}
@@ -1043,6 +1054,7 @@ function DetailMarche({
   applications,
   verdict,
   cible,
+  labelsPod,
 }: {
   ligne: {
     marche: MarcheApplications;
@@ -1053,6 +1065,7 @@ function DetailMarche({
   applications: ApplicationCandidate[];
   verdict: VerdictMarche | undefined;
   cible: CibleApplications;
+  labelsPod: Set<string>;
 }) {
   const { t } = useTranslation();
   const p = ligne.provenance;
@@ -1071,7 +1084,7 @@ function DetailMarche({
             {tries.map((x) => (
               <li key={`${x.application_id}:${x.label_id}`} className="grid grid-cols-[1.25rem_minmax(0,9rem)_minmax(0,1fr)_auto] items-center gap-2 text-xs">
                 <LogoApplication slug={x.app} taille="xs" />
-                <span className="truncate font-mono">{x.label_nom}</span>
+                <NomLabel nom={x.label_nom} pod={labelsPod.has(x.label_id)} />
                 <span className="h-2 rounded-r-[4px]" style={{ width: `${(100 * x.comptes) / TIRAGES_DEFAUT}%`, background: couleurApplication(x.app) }} aria-hidden />
                 <span className="whitespace-nowrap text-right tabular-nums">
                   {x.comptes}
@@ -1201,7 +1214,22 @@ function CarteLabels({
     for (const m of marches) {
       for (const s of m.stats) {
         const e = parLabel.get(s.label_id)!;
-        if (e.max > 0 && s.passages_restants <= 0) e.absents.push(nomLangue(m.langue));
+        // 100 % podz (0352) : absent là où son pod ne livre pas, stock ou non.
+        const absent = s.pod_seul ? s.livre_langue === false : e.max > 0 && s.passages_restants <= 0;
+        if (absent) e.absents.push(nomLangue(m.langue));
+      }
+    }
+    // Remplissage d'un label 100 % podz : ses comptes par langue servie, du
+    // moins rempli au plus rempli (le moteur le remplit en largeur).
+    const remplissage = new Map<string, { min: number; max: number }>();
+    for (const m of marches) {
+      for (const s of m.stats) {
+        if (!s.pod_seul || s.livre_langue === false) continue;
+        const r = remplissage.get(s.label_id);
+        remplissage.set(s.label_id, {
+          min: Math.min(r?.min ?? Infinity, s.comptes_langue),
+          max: Math.max(r?.max ?? 0, s.comptes_langue),
+        });
       }
     }
     const totalFlotte = [...parLabel.values()].reduce((a, e) => a + e.stat.comptes_total, 0);
@@ -1214,8 +1242,10 @@ function CarteLabels({
         perf: stat.perf_flotte && stat.perf_label !== null && stat.passages > 0 ? stat.perf_label / stat.perf_flotte : null,
         part: totalFlotte > 0 ? (100 * stat.comptes_total) / totalFlotte : 0,
         absents: [...new Set(absents)],
+        remplissage: stat.pod_seul ? (remplissage.get(stat.label_id) ?? { min: 0, max: 0 }) : null,
       }))
-      .sort((a, b) => a.jours - b.jours);
+      // Les 100 % podz en dernier : leur réserve ne les juge pas.
+      .sort((a, b) => Number(a.remplissage !== null) - Number(b.remplissage !== null) || a.jours - b.jours);
   }, [appId, marches, reglages]);
 
   return (
@@ -1296,7 +1326,7 @@ function CarteLabels({
               {lignes.map((e) => (
                 <tr key={e.stat.label_id} className="border-b border-border/40" data-testid={`label-${e.stat.label_nom}`}>
                   <td className="py-2 pr-4">
-                    <span className="font-mono text-xs">{e.stat.label_nom}</span>
+                    <NomLabel nom={e.stat.label_nom} pod={e.stat.pod_seul} className="text-xs" />
                     {e.absents.length > 0 && (
                       <Bulle
                         libelle={t("repartition.absentLangues", { count: e.absents.length })}
@@ -1317,24 +1347,30 @@ function CarteLabels({
                     </span>
                   </td>
                   <td className="py-2 pr-4">
-                    <span className="flex items-center gap-2">
-                      <BarreReserve
-                        jours={e.jours}
-                        seuil={reglages.reserveMinJours}
-                        libelleSeuil={t("repartition.seuilReserve", { jours: reglages.reserveMinJours })}
-                      />
-                      <span
-                        className={cn(
-                          "inline-flex w-14 shrink-0 items-center justify-end gap-0.5 tabular-nums",
-                          e.jours < reglages.reserveMinJours
-                            ? "font-semibold text-destructive-foreground"
-                            : "text-muted-foreground",
-                        )}
-                      >
-                        {e.jours < reglages.reserveMinJours && <AlertTriangle className="size-3" aria-hidden />}
-                        {t("repartition.nJours", { n: nombre(e.jours, e.jours < 10 ? 1 : 0) })}
+                    {e.remplissage ? (
+                      <span className="text-xs text-muted-foreground" data-testid="remplissage-pod">
+                        {t("repartition.remplissagePod", { min: e.remplissage.min, max: e.remplissage.max })}
                       </span>
-                    </span>
+                    ) : (
+                      <span className="flex items-center gap-2">
+                        <BarreReserve
+                          jours={e.jours}
+                          seuil={reglages.reserveMinJours}
+                          libelleSeuil={t("repartition.seuilReserve", { jours: reglages.reserveMinJours })}
+                        />
+                        <span
+                          className={cn(
+                            "inline-flex w-14 shrink-0 items-center justify-end gap-0.5 tabular-nums",
+                            e.jours < reglages.reserveMinJours
+                              ? "font-semibold text-destructive-foreground"
+                              : "text-muted-foreground",
+                          )}
+                        >
+                          {e.jours < reglages.reserveMinJours && <AlertTriangle className="size-3" aria-hidden />}
+                          {t("repartition.nJours", { n: nombre(e.jours, e.jours < 10 ? 1 : 0) })}
+                        </span>
+                      </span>
+                    )}
                   </td>
                   <td className="hidden whitespace-nowrap py-2 pr-4 text-right tabular-nums md:table-cell">
                     {e.perf === null ? (

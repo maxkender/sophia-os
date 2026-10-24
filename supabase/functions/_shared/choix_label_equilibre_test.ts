@@ -481,8 +481,57 @@ Deno.test("rien à choisir : null ; doublons ignorés ; lignes RPC normalisées"
       recence_langue: 3,
       recents_pays: 1,
       recence_pays: 2,
+      pod_seul: false,
+      livre_langue: true,
+      niveau_pod: null,
     },
   );
   const vide = normaliserStatLabel({ label_id: "x" });
   assertEquals([vide.recents_pays, vide.passages_restants, vide.perf_label], [0, 0, null]);
+});
+
+// ── Label 100 % pod (0352) : remplissage langue par langue, sans réserve ──
+
+/** Les chiffres FR du 24/10 (Sophia) : alpha_male gagnait parce que les autres manquaient de stock. */
+const FR_24_10: StatLabelCreation[] = [
+  stat({ label_id: "alpha_male", comptes_langue: 3, comptes_pays: 3, comptes_total: 42, passages_restants: 1535, demande_jour: 44, passages: 925, perf_label: 0.891, recents_langue: 1, recence_langue: 2, recents_pays: 1, recence_pays: 2 }),
+  stat({ label_id: "beau_smart_girl", comptes_langue: 2, comptes_pays: 2, comptes_total: 45, passages_restants: 687, demande_jour: 31, passages: 625, perf_label: 0.884 }),
+  stat({ label_id: "smart_girl", comptes_langue: 5, comptes_pays: 5, comptes_total: 69, passages_restants: 944, demande_jour: 102, passages: 2348, perf_label: 0.997 }),
+  stat({ label_id: "rh", comptes_langue: 3, comptes_pays: 3, comptes_total: 19, passages_restants: 165, demande_jour: 32, passages: 321, perf_label: 1.405 }),
+];
+const FATHOMLY = { label_id: "fathomly", passages_restants: 8, pod_seul: true, livre_langue: true, niveau_pod: 0 };
+
+Deno.test("100 % pod : la réserve ne le juge plus, il sort dans une langue où il n'a aucun compte", () => {
+  const avant = stat({ ...FATHOMLY, pod_seul: false });
+  assert(estSuspendu(avant, R));
+  assert(choisirLabel([...FR_24_10, avant], R) !== "fathomly");
+
+  const pod = stat(FATHOMLY);
+  assertEquals(capacite(pod, R), 1);
+  assertEquals(estSuspendu(pod, R), false);
+  assertEquals(choisirLabel([...FR_24_10, pod], R), "fathomly");
+});
+
+Deno.test("100 % pod : en avance dans cette langue, il attend que les autres langues rattrapent", () => {
+  // 1 compte en FR, 0 dans sa langue la moins remplie : il passe après les autres.
+  const enAvance = stat({ ...FATHOMLY, comptes_langue: 1, comptes_pays: 1, comptes_total: 1 });
+  assert(estSuspendu(enAvance, R));
+  assert(choisirLabel([...FR_24_10, enAvance], R) !== "fathomly");
+  // Toutes les langues à 1 : il repart pour le 2e tour.
+  const auNiveau = stat({ ...FATHOMLY, comptes_langue: 1, comptes_pays: 1, comptes_total: 8, niveau_pod: 1 });
+  assertEquals(estSuspendu(auNiveau, R), false);
+  // Aucune autre langue qui recrute : rien ne le retient.
+  assertEquals(estSuspendu(stat({ ...FATHOMLY, comptes_langue: 4, niveau_pod: null }), R), false);
+});
+
+Deno.test("100 % pod : jamais dans une langue que son pod ne sert pas, même sans autre choix réservé", () => {
+  const muet = stat({ ...FATHOMLY, livre_langue: false });
+  const classes = classerLabels([...FR_24_10, muet], R);
+  assertEquals(classes.at(-1)?.label_id, "fathomly");
+  assert(classes.at(-1)?.aSec);
+});
+
+Deno.test("100 % pod : les colonnes de la RPC sont lues", () => {
+  const s = normaliserStatLabel({ label_id: "x", pod_seul: true, livre_langue: false, niveau_pod: "2" });
+  assertEquals([s.pod_seul, s.livre_langue, s.niveau_pod], [true, false, 2]);
 });

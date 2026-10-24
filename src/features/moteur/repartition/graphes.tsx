@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { Popover } from "@base-ui/react/popover";
-import { Info } from "lucide-react";
+import { Boxes, Info } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 import { couleurApplication, nomAffiche } from "@/components/brand/identiteApplications";
@@ -201,5 +201,31 @@ export function Aide({ children, libelle }: { children: React.ReactNode; libelle
     >
       {children}
     </Bulle>
+  );
+}
+
+/**
+ * Marque d'un label 100 % podz (0352) : tout son contenu est livré par un pod.
+ * Même icône que l'entrée « Podz » du menu. Le moteur ne le juge pas sur sa
+ * réserve, il le remplit langue par langue.
+ */
+export function IconePod({ className }: { className?: string }) {
+  const { t } = useTranslation();
+  const libelle = t("repartition.labelPod");
+  return (
+    <span title={libelle} className={cn("inline-flex shrink-0 text-muted-foreground", className)}>
+      <Boxes className="size-3.5" aria-hidden />
+      <span className="sr-only">{libelle}</span>
+    </span>
+  );
+}
+
+/** Le nom d'un label, suivi de la marque pod s'il est 100 % podz. */
+export function NomLabel({ nom, pod, className }: { nom: string; pod?: boolean; className?: string }) {
+  return (
+    <span className={cn("inline-flex min-w-0 items-center gap-1", className)}>
+      <span className="truncate font-mono">{nom}</span>
+      {pod && <IconePod />}
+    </span>
   );
 }

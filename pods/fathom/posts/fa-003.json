@@ -1,0 +1,136 @@
+{
+ "id": "fa-003",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7672019241062747425",
+  "vues": 2900000,
+  "publie_le": "2026-08-09",
+  "accroche": "5 Pointless Skills That Make You Instantly Cooler!"
+ },
+ "titre": {
+  "en": "5 Pointless Skills That Make You Instantly Cooler!"
+ },
+ "legendes": {
+  "en": "5 Pointless Skills That Make You Instantly Cooler! #selfimprovement #learnontiktok #selfmastery"
+ },
+ "musique": {
+  "titre": "Cinderella (Instrumental)",
+  "url": "https://www.tiktok.com/music/cinderella-instrumental-7638943072840910864"
+ },
+ "notes": "Sophia en carte d'appli à l'étape 3 « DROP A FUN FACT ON ANY TOPIC », au milieu de la liste comme UnSwipe dans fa-001 (leur post n'avait pas de slide d'appli). Pas d'UnSwipe : une liste de compétences ne s'y prête pas. Quatre compétences à nous, une vraie vidéo chacune.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "5",
+       "bronze": true
+      }
+     ],
+     "POINTLESS SKILLS",
+     "THAT MAKE YOU",
+     [
+      {
+       "t": "INSTANTLY ",
+       "bronze": true
+      },
+      {
+       "t": "COOLER"
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "JUGGLE",
+     "THREE BALLS"
+    ],
+    "video": {
+     "id": "dCYDZDlcO6g",
+     "titre": "Learn to JUGGLE 3 BALLS - Beginner Tutorial",
+     "chaine": "Taylor Tries",
+     "vues": "2.8M views",
+     "date": "7 years ago",
+     "duree": "13:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lOzROZXubZiy5eJJBW8B3zaYPN9Zkqd6TLUmUd1XMTwcY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "SPIN A PEN",
+     "LIKE A PRO"
+    ],
+    "video": {
+     "id": "5ecy9AE-zEg",
+     "titre": "Learn How to Spin A Pen - In Only 5 Minutes - Cool Skill While Bored",
+     "chaine": "pigmie",
+     "vues": "10M views",
+     "date": "5 years ago",
+     "duree": "6:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n7_9ONsKPZV7OzyZaL5qWTnX3mQGg1k2TGWI0DpDAuSuA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "DROP A FUN FACT",
+     "ON ANY TOPIC"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "FOLD A",
+     "PAPER CRANE"
+    ],
+    "video": {
+     "id": "GC_Szxdqh2Y",
+     "titre": "How To Make a Paper Crane - Origami Crane Easy - Step by Step Tutorial",
+     "chaine": "Easy Paper Origami",
+     "vues": "8.2M views",
+     "date": "5 years ago",
+     "duree": "6:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mGp-GWu8LkHNkzKa6QTz9iOqiFa8wuO_TJ8J1UCAH-MUM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "BEATBOX",
+     "THE BASIC BEAT"
+    ],
+    "video": {
+     "id": "EAHExoZIgjM",
+     "titre": "How To Beatbox Basics In 1 Minute",
+     "chaine": "Spencer X",
+     "vues": "13M views",
+     "date": "8 years ago",
+     "duree": "2:12",
+     "avatar": "https://yt3.ggpht.com/V5fk25aK3A3SXjyKAAcWBCUQ5IUYK-xw0Orme7ts5xLN5x9ET-AE1mCgfSWgvb9WMWiRDgUk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

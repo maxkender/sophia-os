@@ -94,7 +94,7 @@ export function AdminLayout() {
             </p>
             <div className="flex items-center gap-2">
               {application && (
-                <LogoApplication slug={application.slug} nom={nomApplication(application)} size="md" />
+                <LogoApplication slug={application.slug} taille="md" />
               )}
               <div className="min-w-0 flex-1">
                 <SelectApplication

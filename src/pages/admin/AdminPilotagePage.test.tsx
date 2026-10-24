@@ -115,13 +115,13 @@ describe("AdminPilotagePage", () => {
 
     const stock = (await screen.findByText("Stock des labels")).closest("[data-slot=card]") as HTMLElement;
     // Le logo de l'application à la place de son nom.
-    expect(within(stock).getByRole("img", { name: "Sophia" })).toHaveAttribute("src", "/applications/sophia.png");
+    expect(within(stock).getByRole("img", { name: "Sophia" })).toBeInTheDocument();
     expect(within(stock).getByText("2,0")).toHaveClass("text-destructive");
     expect(within(stock).getByText("12,0")).not.toHaveClass("text-destructive");
     expect(screen.getByRole("link", { name: /Labels & applications/ })).toHaveAttribute("href", "/admin/labels");
 
     // Chaque post d'hier montre le logo de l'application qu'il promeut.
     const posts = screen.getByText("Top posts d’hier").closest("[data-slot=card]") as HTMLElement;
-    expect(within(posts).getByRole("img", { name: "UnSwipe" })).toBeInTheDocument();
+    expect(within(posts).getByRole("img", { name: "Unswipe" })).toBeInTheDocument();
   });
 });

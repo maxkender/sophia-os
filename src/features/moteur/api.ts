@@ -1,6 +1,6 @@
 import { supabase } from "@/lib/supabase/client";
 import { DELAI_PUBLICATION_MIN_DEFAUT } from "@/features/moteur/delaiPublication";
-import { LANGUES_CIBLES } from "@/features/moteur/langues";
+import { canoniserLangue, LANGUES_CIBLES } from "@/features/moteur/langues";
 import {
   estCompteSlideshowAssigne,
   isoBornesJourParis,
@@ -4123,10 +4123,12 @@ export function normaliserFileLabels(raw: unknown): Reglages["file_labels_compte
   const par_langue: Record<string, Reglages["file_labels_comptes"]["items"]> = {};
   if (v.par_langue && typeof v.par_langue === "object" && !Array.isArray(v.par_langue)) {
     for (const [code, arr] of Object.entries(v.par_langue)) {
-      const lang = String(code ?? "").trim().toLowerCase();
+      // Clé canonique (`pt-BR`) : c'est elle que lit l'éditeur. Une ancienne
+      // clé `pt-br` rejoint la même file, à la suite.
+      const lang = canoniserLangue(code);
       if (!lang) continue;
       const liste = normaliserFileLabelItems(arr);
-      if (liste.length > 0) par_langue[lang] = liste;
+      if (liste.length > 0) par_langue[lang] = [...(par_langue[lang] ?? []), ...liste];
     }
   }
 

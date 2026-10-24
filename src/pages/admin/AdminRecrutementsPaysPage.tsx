@@ -16,7 +16,7 @@ import {
   phasesHmPourPays,
 } from "@/features/recrutements/phases";
 import { useRecrutements } from "@/features/recrutements/useRecrutements";
-import { drapeauLangue, estPaysOs, nomPays } from "@/features/moteur/langues";
+import { canoniserLangue, drapeauLangue, estPaysOs, nomPays } from "@/features/moteur/langues";
 import { cn } from "@/lib/utils";
 import type { RecrutementHm } from "@/features/recrutements/types";
 
@@ -50,7 +50,7 @@ function VidePhase({ texte }: { texte: string }) {
 
 export function AdminRecrutementsPaysPage() {
   const { pays: brut } = useParams();
-  const pays = (brut ?? "").toLowerCase();
+  const pays = canoniserLangue(brut);
   const { t } = useTranslation();
   const { hms, createurs, suggestions, stats, fiches, statsPending, isPending, error } =
     useRecrutements();

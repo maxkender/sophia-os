@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { AlertTriangle, Clock, ExternalLink, Flag, PackageOpen, Tags } from "lucide-react";
 
+import { couleurApplication } from "@/components/brand/identiteApplications";
 import { LogoApplication } from "@/components/brand/LogoApplication";
 import { BarChart, type PointBarre } from "@/components/charts/BarChart";
 import { InlineBar } from "@/components/charts/InlineBar";
@@ -27,7 +28,6 @@ import {
   type PilotageDashboard,
 } from "@/features/moteur/api";
 import { useApplication } from "@/features/moteur/ApplicationContext";
-import { nomApplication } from "@/features/moteur/applications";
 import { useLabelsApplications } from "@/features/moteur/multiapp/useLabelsApplications";
 import {
   lignesStock,
@@ -36,9 +36,14 @@ import {
   tauxPublication,
   type LigneStock,
 } from "@/features/moteur/pilotage";
-// Le tableau de la page Allocation : même gabarit ici, titres en petites
-// capitales, chiffres alignés à droite, ligne dépliable.
+// Les briques de la page Allocation, pour que les deux pages se lisent pareil :
+// le tableau (titres en petites capitales, ligne dépliable), la barre
+// empilée, la barre de réserve avec son repère des 7 jours et l'aide « i »
+// qui s'ouvre au clic (un téléphone n'ouvre jamais une infobulle de survol).
+import { Aide, BarreRepartition, BarreReserve } from "@/features/moteur/repartition/graphes";
+import type { Segment } from "@/features/moteur/repartition/segments";
 import { Tableau } from "@/features/moteur/repartition/Tableau";
+import type { Classement } from "@/features/moteur/classementComptes";
 import { cn } from "@/lib/utils";
 import { localeDate } from "@/locales/localeDate";
 
@@ -336,11 +341,26 @@ function CarteAFaire({
   );
 }
 
+/** Même code couleur que `BadgeClassement` ; PASSABLE prend le gris « autre » des graphes. */
+const COULEUR_CASE: Record<Classement, string> = {
+  star: "var(--success)",
+  bien: "var(--info)",
+  passable: couleurApplication(""),
+  mauvaises_vues: "var(--warning)",
+  inactif: "var(--destructive)",
+};
+
 function CarteSante({ parCase }: { parCase: PilotageDashboard["parCase"] }) {
   const { t, i18n } = useTranslation();
   const [ouvert, setOuvert] = React.useState<string | null>(null);
   const total = parCase.reduce((n, c) => n + c.comptes.length, 0);
-  const plusGrand = Math.max(1, ...parCase.map((c) => c.comptes.length));
+  const segments: Segment[] = parCase.map((c) => ({
+    cle: c.classement,
+    valeur: c.comptes.length,
+    couleur: COULEUR_CASE[c.classement],
+    libelle: t(`classement.${c.classement}`),
+    valeurAffichee: t("pilotage.nComptes", { n: c.comptes.length }),
+  }));
 
   return (
     <Card>
@@ -348,7 +368,8 @@ function CarteSante({ parCase }: { parCase: PilotageDashboard["parCase"] }) {
         <CardTitle>{t("pilotage.santeTitre")}</CardTitle>
         <CardDescription>{t("pilotage.santeDesc", { n: total })}</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="space-y-4">
+        <BarreRepartition segments={segments} aria-label={t("pilotage.santeTitre")} />
         <Defilant>
           <Tableau
             lignes={parCase}
@@ -357,7 +378,20 @@ function CarteSante({ parCase }: { parCase: PilotageDashboard["parCase"] }) {
             ligneActive={(c) => ouvert === c.classement}
             detail={(c) => <ListeComptes comptes={c.comptes} vide={t("pilotage.santeVide")} />}
             colonnes={[
-              { cle: "case", titre: t("pilotage.colCase"), rendu: (c) => <BadgeClassement classement={c.classement} /> },
+              {
+                cle: "case",
+                titre: t("pilotage.colCase"),
+                rendu: (c) => (
+                  <span className="flex items-center gap-2">
+                    <span
+                      className="inline-block size-2.5 shrink-0 rounded-[3px]"
+                      style={{ background: COULEUR_CASE[c.classement] }}
+                      aria-hidden
+                    />
+                    <BadgeClassement classement={c.classement} />
+                  </span>
+                ),
+              },
               {
                 cle: "comptes",
                 titre: t("pilotage.colComptes"),
@@ -371,12 +405,6 @@ function CarteSante({ parCase }: { parCase: PilotageDashboard["parCase"] }) {
                 classe: "text-muted-foreground",
                 rendu: (c) => (total > 0 ? pourcent(c.comptes.length / total, i18n.language) : "—"),
               },
-              {
-                cle: "barre",
-                titre: "",
-                classe: "w-1/3",
-                rendu: (c) => <InlineBar value={c.comptes.length} max={plusGrand} />,
-              },
             ]}
           />
         </Defilant>
@@ -385,26 +413,15 @@ function CarteSante({ parCase }: { parCase: PilotageDashboard["parCase"] }) {
   );
 }
 
-function CarteStock({
-  lignes,
-  dormants,
-  app,
-}: {
-  lignes: LigneStock[];
-  dormants: string[];
-  app: { slug: string; nom: string };
-}) {
+function CarteStock({ lignes, dormants, slug }: { lignes: LigneStock[]; dormants: string[]; slug: string }) {
   const { t, i18n } = useTranslation();
-  // Échelle commune : au moins deux fois le seuil, pour que le trait des 7 jours
-  // ne colle pas au bord quand tout le stock est court.
-  const max = Math.max(SEUIL_STOCK_JOURS * 2, ...lignes.map((l) => l.jours));
 
   return (
     <Card>
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           {t("pilotage.stockTitre")}
-          <LogoApplication slug={app.slug} nom={app.nom} />
+          <LogoApplication slug={slug} />
         </CardTitle>
         <CardDescription>{t("pilotage.stockDesc")}</CardDescription>
       </CardHeader>
@@ -430,12 +447,12 @@ function CarteStock({
                 cle: "barre",
                 titre: "",
                 classe: "w-1/3",
+                // Même barre que la page Allocation : échelle fixe de 30 jours, repère à 7.
                 rendu: (l) => (
-                  <InlineBar
-                    value={l.jours}
-                    max={max}
-                    threshold={SEUIL_STOCK_JOURS}
-                    tone={l.jours < SEUIL_STOCK_JOURS ? "alerte" : "neutre"}
+                  <BarreReserve
+                    jours={l.jours}
+                    seuil={SEUIL_STOCK_JOURS}
+                    libelleSeuil={t("pilotage.seuilStock", { n: SEUIL_STOCK_JOURS })}
                   />
                 ),
               },
@@ -511,7 +528,7 @@ function CartePostsVeille({ posts }: { posts: PilotageDashboard["postsVeille"] }
                 titre: t("pilotage.colApp"),
                 rendu: (p) => {
                   const app = p.application_id ? appParId.get(p.application_id) : undefined;
-                  return app ? <LogoApplication slug={app.slug} nom={nomApplication(app)} size="xs" /> : null;
+                  return app ? <LogoApplication slug={app.slug} /> : null;
                 },
               },
               {
@@ -576,8 +593,7 @@ function CarteRecruteurs({ recruteurs }: { recruteurs: PilotageDashboard["recrut
 export function AdminPilotagePage() {
   const { t, i18n } = useTranslation();
   const langue = i18n.language;
-  const { applicationId, application, slug } = useApplication();
-  const nomApp = application ? nomApplication(application) : nomApplication({ slug });
+  const { applicationId, slug } = useApplication();
 
   const dash = useQuery({ queryKey: ["pilotage-dashboard"], queryFn: chargerPilotageDashboard });
   // Même clé que le badge du menu : une seule requête pour les deux.
@@ -636,7 +652,7 @@ export function AdminPilotagePage() {
             <StatTile
               label={t("pilotage.statVues")}
               value={vues ? abrege(vues.delta, langue) : "—"}
-              info={t("pilotage.statVuesInfo")}
+              aide={<Aide libelle={t("pilotage.statVues")}>{t("pilotage.statVuesInfo")}</Aide>}
               detail={
                 vues
                   ? [
@@ -661,7 +677,7 @@ export function AdminPilotagePage() {
               label={t("pilotage.statPosts")}
               value={posts?.publies ?? 0}
               unit={`/ ${posts?.prevus ?? 0}`}
-              info={t("pilotage.statPostsInfo")}
+              aide={<Aide libelle={t("pilotage.statPosts")}>{t("pilotage.statPostsInfo")}</Aide>}
               detail={
                 posts?.taux != null
                   ? t("pilotage.statPostsPart", { pct: Math.round(posts.taux * 100) })
@@ -693,7 +709,7 @@ export function AdminPilotagePage() {
 
           {/* Rangés par paires de hauteur voisine : les plus longues listes ensemble. */}
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-            <CarteStock lignes={stock.lignes} dormants={stock.dormants} app={{ slug, nom: nomApp }} />
+            <CarteStock lignes={stock.lignes} dormants={stock.dormants} slug={slug} />
             <CartePostsVeille posts={d.postsVeille} />
             <CarteSante parCase={parCase} />
             <CarteRecruteurs recruteurs={d.recruteurs} />

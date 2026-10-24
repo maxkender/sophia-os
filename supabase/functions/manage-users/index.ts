@@ -41,6 +41,7 @@ import {
   partsPourApplication,
 } from "../_shared/choix_application.ts";
 import { chargerReglagesChoixLabel, statsChoixLabel } from "../_shared/fermeture_labels.ts";
+import { canoniserLangue } from "../_shared/langues_cibles.ts";
 import { lireTout } from "../_shared/lots.ts";
 import { ID_SOPHIA, type PartsApplications } from "../_shared/multi_app.ts";
 import { appliquerIdentiteInstantanee } from "../_shared/persona.ts";
@@ -265,11 +266,11 @@ async function gererRequete(request: Request): Promise<Response> {
     const prenom = String(body.prenom ?? "").trim();
     const nom = String(body.nom ?? "").trim();
     const password = String(body.password ?? "");
-    const langue = String(body.langue ?? "").trim().toLowerCase();
+    const langue = canoniserLangue(body.langue as string | null | undefined);
     const typePremier = resoudrePremierCompte(body.type_compte, langue);
     const languesRecues = Array.isArray(body.langues)
       ? (body.langues as unknown[])
-        .map((l) => String(l ?? "").trim().toLowerCase())
+        .map((l) => canoniserLangue(String(l ?? "")))
         .filter(Boolean)
       : [];
     // Un recruteur peut désormais en recruter un autre, comme l'admin. Le
@@ -495,7 +496,7 @@ async function gererRequete(request: Request): Promise<Response> {
   // Poster existant sans compte : consomme la file admin (label + UGC) comme à la création.
   if (body.action === "ensure_compte") {
     const userId = String(body.userId ?? "").trim();
-    const langue = String(body.langue ?? "").trim().toLowerCase();
+    const langue = canoniserLangue(body.langue as string | null | undefined);
     if (!userId || !langue) {
       return json({ error: "userId et langue requis" }, 400);
     }
@@ -540,7 +541,7 @@ async function gererRequete(request: Request): Promise<Response> {
 
   if (body.action === "ajouter_compte" || body.action === "ajouter_compte_perso") {
     const userId = String(body.userId ?? "").trim();
-    const langue = String(body.langue ?? "").trim().toLowerCase();
+    const langue = canoniserLangue(body.langue as string | null | undefined);
     const typeCompte = body.action === "ajouter_compte_perso"
       ? "perso"
       : (String(body.type_compte ?? "perso") === "cm" ? "cm" : "perso");
@@ -575,7 +576,7 @@ async function gererRequete(request: Request): Promise<Response> {
 
   if (body.action === "ajouter_compte_cm") {
     const userId = String(body.userId ?? "").trim();
-    const langue = String(body.langue ?? "").trim().toLowerCase();
+    const langue = canoniserLangue(body.langue as string | null | undefined);
     if (!userId || !langue) return json({ error: "userId et langue requis" }, 400);
 
     const interdit = await refuserSiHorsEquipe(supabase, acces, userId);
@@ -761,7 +762,7 @@ async function etendreLanguesManager(
   langue: string,
 ): Promise<void> {
   if (!estRoleManager(acces.role) || acces.userId === "cron") return;
-  const code = langue.trim().toLowerCase();
+  const code = canoniserLangue(langue);
   if (!code) return;
 
   const { data: hm } = await supabase
@@ -769,7 +770,7 @@ async function etendreLanguesManager(
     .select("langues")
     .eq("id", acces.userId)
     .maybeSingle();
-  const actuelles = ((hm?.langues as string[] | null) ?? []).map((l) => l.toLowerCase());
+  const actuelles = [...new Set(((hm?.langues as string[] | null) ?? []).map(canoniserLangue))];
   if (!actuelles.includes(code)) {
     await supabase
       .from("profiles")
@@ -783,7 +784,7 @@ async function etendreLanguesManager(
     .eq("profile_id", acces.userId)
     .maybeSingle();
   if (!fiche) return;
-  const pays = ((fiche.pays as string[] | null) ?? []).map((p) => p.toLowerCase());
+  const pays = [...new Set(((fiche.pays as string[] | null) ?? []).map(canoniserLangue))];
   if (pays.includes(code)) return;
   await supabase
     .from("recrutement_hms")
@@ -801,11 +802,12 @@ async function ajouterLangueProfil(
     .select("langues")
     .eq("id", userId)
     .maybeSingle();
-  const actuelles = ((prof?.langues as string[] | null) ?? []).map((l) => l.toLowerCase());
-  if (actuelles.includes(langue)) return;
+  const code = canoniserLangue(langue);
+  const actuelles = [...new Set(((prof?.langues as string[] | null) ?? []).map(canoniserLangue))];
+  if (actuelles.includes(code)) return;
   await supabase
     .from("profiles")
-    .update({ langues: [...actuelles, langue] })
+    .update({ langues: [...actuelles, code] })
     .eq("id", userId);
 }
 
@@ -1159,7 +1161,7 @@ async function popLabelFile(
   const file = await lireFileLabels(supabase);
   const slug = application?.slug ?? SLUG_SOPHIA;
   const slice = sliceFileLabels(file, slug);
-  const lang = String(langue ?? "").trim().toLowerCase();
+  const lang = canoniserLangue(langue);
   // Un label fermé (fermeture forcée ou décidée par la nuit) ne sort plus de la
   // File : l'entrée est sautée et retirée, comme un label qui ne sert pas
   // l'application. Sinon la nuit le retirerait au compte dès le lendemain.
@@ -1400,7 +1402,7 @@ function fileAUneEntree(
   eligibles: Set<string>,
 ): boolean {
   const slice = sliceFileLabels(file, slug);
-  const lang = String(langue ?? "").trim().toLowerCase();
+  const lang = canoniserLangue(langue);
   const fileLangue = lang ? (slice.par_langue[lang] ?? []) : [];
   if (consommerFileSlideshow([...fileLangue], eligibles).item) return true;
   return !!consommerFileSlideshow([...slice.items], eligibles).item;

@@ -11,6 +11,7 @@ import {
 } from "../api";
 import type { Reglages } from "../types";
 import { avecItemsApplication } from "./fileApplication";
+import { Aide } from "./graphes";
 import {
   FileLabelsApplicationEditeur,
   type ChangementFileLabels,
@@ -73,7 +74,10 @@ export function CarteFileLabels() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>{t("repartition.fileTitre")}</CardTitle>
+        <CardTitle className="flex items-center gap-2">
+          {t("repartition.fileTitre")}
+          <Aide libelle={t("repartition.fileTitre")}>{t("repartition.fileAideDetail")}</Aide>
+        </CardTitle>
         <CardDescription>{t("repartition.fileAide")}</CardDescription>
       </CardHeader>
       <CardContent className="space-y-3">

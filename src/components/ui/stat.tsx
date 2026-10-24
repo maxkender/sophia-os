@@ -1,7 +1,6 @@
 import type React from "react";
 
 import { Card } from "@/components/ui/card";
-import { InfoTip } from "@/components/ui/info-tip";
 import { MICRO_LABEL } from "@/components/ui/micro-label";
 import { Sparkline } from "@/components/charts/Sparkline";
 import { cn } from "@/lib/utils";
@@ -28,7 +27,7 @@ export function StatTile({
   value,
   unit,
   detail,
-  info,
+  aide,
   trend,
   tone = "neutre",
 }: {
@@ -37,8 +36,8 @@ export function StatTile({
   /** Après la valeur, en plus petit (« / 24 »). */
   unit?: React.ReactNode;
   detail?: React.ReactNode;
-  /** Comment le chiffre est calculé : en infobulle. */
-  info?: React.ReactNode;
+  /** L'aide « i » qui dit comment le chiffre est calculé, posée après l'intitulé. */
+  aide?: React.ReactNode;
   trend?: ReadonlyArray<number | null>;
   tone?: "neutre" | "alerte";
 }) {
@@ -46,7 +45,7 @@ export function StatTile({
     <div className="flex min-w-0 flex-col gap-1 bg-card px-5 py-4">
       <p className={cn(MICRO_LABEL, "flex items-start gap-1")}>
         <span>{label}</span>
-        {info ? <InfoTip label={label}>{info}</InfoTip> : null}
+        {aide}
       </p>
       <p className={cn("text-2xl font-semibold leading-tight", tone === "alerte" && "text-destructive")}>
         {value}

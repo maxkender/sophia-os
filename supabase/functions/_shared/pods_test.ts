@@ -8,11 +8,13 @@ import {
   CHEMIN_POD,
   contenusLivresHorsApplication,
   contenusLivresHorsLangue,
+  deckLivre,
   deckLivreApplication,
   deckLivrePret,
   decksApplicationDepuisBase,
   ecrireDecksApplications,
   estSlideApp,
+  languesDeckLivre,
   livraisonsAutoValidables,
   metadonneesJpeg,
   NOTE_TIER_POD,
@@ -702,4 +704,108 @@ Deno.test("LEGENDE_A_ECARTER : une personne entière, du texte ou un collage, ja
   assertEquals(ecartee("The image shows a person's legs and feet standing on a bed of fallen leaves."), false);
   assertEquals(ecartee("The image shows a desk with a laptop, a notebook, and a white mug on it."), false);
   assertEquals(ecartee("The image shows handwritten notes next to a menu and a human body model."), false);
+});
+
+// ---------------------------------------------------------------------------
+// Variante régionale → langue de base, pour les contenus livrés seulement
+// ---------------------------------------------------------------------------
+
+Deno.test("languesDeckLivre : la variante régionale d'abord, puis sa langue de base, jamais l'inverse", () => {
+  assertEquals(languesDeckLivre("pt-BR"), ["pt-BR", "pt"]);
+  assertEquals(languesDeckLivre("es-419"), ["es-419", "es"]);
+  assertEquals(languesDeckLivre("fr"), ["fr"]);
+  assertEquals(languesDeckLivre("pt"), ["pt"]);
+});
+
+const ok = (m: string) => [{ position: 1, media_id: m, texte_overlay: "", position_sophia: false }];
+
+Deno.test("contenusLivresHorsLangue : un deck portugais sert un compte brésilien, pas l'inverse", async () => {
+  const sb = faux({
+    contenus: [
+      { id: "pt-seul", livre: true },
+      { id: "br-seul", livre: true },
+    ],
+    contenu_langues: [
+      { contenu_id: "pt-seul", langue: "pt", slides: ok("m1") },
+      { contenu_id: "br-seul", langue: "pt-BR", slides: ok("m2") },
+    ],
+  });
+  assertEquals([...(await contenusLivresHorsLangue(sb, "pt-BR"))], []);
+  // Un compte portugais n'a pas droit au deck brésilien.
+  assertEquals([...(await contenusLivresHorsLangue(sb, "pt"))], ["br-seul"]);
+});
+
+Deno.test("deckLivre : la variante exacte si elle est prête, sinon la langue de base, légende comprise", async () => {
+  const exacte = faux({
+    contenu_langues: [
+      { contenu_id: "c1", langue: "pt", slides: ok("m-pt"), hashtags: "#pt" },
+      { contenu_id: "c1", langue: "pt-BR", slides: ok("m-br"), hashtags: "#br" },
+    ],
+  });
+  assertEquals(await deckLivre(exacte, "c1", "pt-BR"), { slides: ok("m-br"), hashtags: "#br" });
+
+  // Le deck brésilien est incomplet : on sert le portugais, AVEC ses hashtags.
+  const repli = faux({
+    contenu_langues: [
+      { contenu_id: "c1", langue: "pt", slides: ok("m-pt"), hashtags: " #pt " },
+      { contenu_id: "c1", langue: "pt-BR", slides: [{ position: 1, media_id: null }], hashtags: "#br" },
+    ],
+  });
+  assertEquals(await deckLivre(repli, "c1", "pt-BR"), { slides: ok("m-pt"), hashtags: "#pt" });
+
+  // Rien dans aucune des deux : échec franc, comme avant.
+  const rien = faux({ contenu_langues: [{ contenu_id: "c1", langue: "fr", slides: ok("m"), hashtags: "" }] });
+  await assertRejects(() => deckLivre(rien, "c1", "pt-BR"), Error, "pas de deck en pt-BR");
+});
+
+Deno.test("deckLivreApplication : repli sur la langue de base, et la légende suit la langue SERVIE", async () => {
+  const ecrits: Ecrit[] = [];
+  const sb = fauxEtat({
+    contenu_langue_decks: [{ contenu_id: "c1", langue: "es", variante: "unswipe", statut: "pret", slides: ok("m-es") }],
+    contenu_langues: [
+      { contenu_id: "c1", langue: "es", hashtags: "#es" },
+      { contenu_id: "c1", langue: "es-419", hashtags: "#latam" },
+    ],
+  }, ecrits);
+  // Des images espagnoles avec des hashtags latinos ne seraient pas le deck du pod.
+  assertEquals(await deckLivreApplication(sb, "c1", "es-419", UNSWIPE_APP), {
+    statut: "pret",
+    slides: ok("m-es"),
+    hashtags: "#es",
+    cuit: false,
+  });
+  assertEquals(ecrits, []);
+});
+
+Deno.test("contenusLivresHorsApplication : le deck de base de CETTE application couvre la variante régionale", async () => {
+  const sb = faux({
+    contenus: [{ id: "a", livre: true }],
+    contenu_langue_decks: [{ contenu_id: "a", langue: "es", variante: "unswipe", statut: "pret", slides: ok("m") }],
+  });
+  assertEquals([...(await contenusLivresHorsApplication(sb, "es-419", UNSWIPE_APP))], []);
+  assertEquals([...(await contenusLivresHorsApplication(sb, "pt-BR", UNSWIPE_APP))], ["a"]);
+});
+
+Deno.test("deckLivreApplication : la variante exacte prime sur la base, et un refus nomme la langue DEMANDÉE", async () => {
+  const sb = fauxEtat({
+    contenu_langue_decks: [
+      { contenu_id: "c1", langue: "es", variante: "unswipe", statut: "pret", slides: ok("m-es") },
+      { contenu_id: "c1", langue: "es-419", variante: "unswipe", statut: "pret", slides: ok("m-latam") },
+    ],
+    contenu_langues: [
+      { contenu_id: "c1", langue: "es", hashtags: "#es" },
+      { contenu_id: "c1", langue: "es-419", hashtags: "#latam" },
+    ],
+  }, []);
+  assertEquals(await deckLivreApplication(sb, "c1", "es-419", UNSWIPE_APP), {
+    statut: "pret",
+    slides: ok("m-latam"),
+    hashtags: "#latam",
+    cuit: false,
+  });
+  // Ni pt-BR ni pt : le refus parle de la langue du compte, pas de la dernière essayée.
+  assertEquals(await deckLivreApplication(sb, "c1", "pt-BR", UNSWIPE_APP), {
+    statut: "ineligible",
+    raison: "contenu livré : pas de deck unswipe en pt-BR",
+  });
 });

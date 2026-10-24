@@ -7,6 +7,7 @@ import {
   type ScrapedPost,
 } from "./apify.ts";
 import { deckLivre, estContenuLivre } from "./pods.ts";
+import { canoniserLangue, LANGUES_CIBLES } from "./langues_cibles.ts";
 import { positionConcurrent, sansConcurrent } from "./concurrents.ts";
 import {
   baseDeTraduction,
@@ -116,40 +117,7 @@ export function motifDeckTropCourt(n: number): string {
   return `${n} slide${n > 1 ? "s" : ""} seulement, minimum ${SLIDES_MIN} — TikTok non importé`;
 }
 
-/** Copie Deno de `src/features/moteur/langues.ts` — garder synchro.
- *  `es-419` / `pt-BR` sont des variantes régionales : une langue à part
- *  entière pour le moteur, c'est `LANGUES` (gemini.ts) qui porte la région
- *  jusqu'au modèle. */
-export const LANGUES_CIBLES = [
-  "fr",
-  "en",
-  "de",
-  "it",
-  "es",
-  "es-419",
-  "pt",
-  "pt-BR",
-  "cs",
-  "nl",
-  "el",
-  "hu",
-  "pl",
-  "ro",
-  "sv",
-  "tr",
-  "da",
-  "no",
-  "ru",
-  "hr",
-  "sl",
-  "sk",
-  "sr",
-  "ar",
-  "he",
-  "fi",
-  "et",
-  "bg",
-] as const;
+export { LANGUES_CIBLES } from "./langues_cibles.ts";
 const SLIDES_PAR_PASSAGE = 2;
 /** Captions Florence/Moondream : plus légères que le nettoyage Fal. */
 const SLIDES_CAPTION_PAR_PASSAGE = 2;
@@ -911,10 +879,10 @@ export function lignePlacementSophia(r: ResumePlacementSophia, seuil: number): s
     : `→ rang Sophia : ${tier} (${passagesPourTier(tier)} passage(s)) — note ${note} sur la pertinence SOPHIA (plus le max des applications)`;
 }
 
-/** Normalise un code langue (fr, en, …) ou null si invalide. */
+/** Normalise un code langue (fr, en, pt-BR, …) ou null si invalide. */
 function normaliserLangue(raw: string | null | undefined): string | null {
   if (!raw) return null;
-  const code = raw.trim().toLowerCase().slice(0, 8);
+  const code = canoniserLangue(raw.trim().slice(0, 8));
   if (!(LANGUES_CIBLES as readonly string[]).includes(code)) return null;
   return code;
 }

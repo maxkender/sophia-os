@@ -12,11 +12,11 @@
 // Environnement : POD_JETON. --essai écrit le corps de la requête sur disque
 // au lieu de l'envoyer.
 
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { appelPod, LANGUE_SOURCE, LANGUES, POD } from "./api.ts";
 import { metadonneesRestantes } from "./metadonnees.ts";
-import { chargerFond, contenu, languesCompletes, lirePost, rendreSlide } from "./slides.ts";
+import { chargerFond, contenu, languesCompletes, lirePost, RACINE, rendreSlide } from "./slides.ts";
 
 const args = process.argv.slice(2);
 const id = args[0];
@@ -80,9 +80,21 @@ if (essai) {
   const r = await appelPod<{ id?: string; langues?: string[]; applications?: Record<string, string[]> }>(corps);
   if (!r.ok) throw new Error(`${id} : dépôt refusé : ${r.error}`);
   console.log(`${id} : déposé (livraison ${r.id}) · langues ${r.langues?.join(", ")} · applications ${JSON.stringify(r.applications)}`);
-  // Les mises en scène de l'OS utilisées dans ce post : leur compteur d'usage monte d'un cran.
+  // Les mises en scène de l'OS utilisées dans ce post : leur compteur d'usage monte d'un cran,
+  // une seule fois par post (un redépôt ne recompte pas : posts/<id>.json garde la liste).
+  const notees = new Set(post.mises_en_scene_notees ?? []);
   for (const m of new Set(post.slides.flatMap((s) => (s.photo?.mise_en_scene ? [s.photo.mise_en_scene] : [])))) {
+    if (notees.has(m)) {
+      console.log(`  mise en scène ${m.slice(0, 8)} : usage déjà noté pour ce post`);
+      continue;
+    }
     const u = await appelPod({ action: "utiliser", id: m }, "mises-en-scene");
     console.log(`  mise en scène ${m.slice(0, 8)} : ${u.ok ? "usage noté" : `usage non noté (${u.error})`}`);
+    if (u.ok) notees.add(m);
+  }
+  if (notees.size) {
+    const brut = JSON.parse(readFileSync(join(RACINE, "posts", `${id}.json`), "utf8"));
+    brut.mises_en_scene_notees = [...notees];
+    writeFileSync(join(RACINE, "posts", `${id}.json`), `${JSON.stringify(brut, null, 1)}\n`);
   }
 }

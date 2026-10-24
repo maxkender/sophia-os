@@ -43,6 +43,7 @@ Les podz :
 | 9 · Originaux alpha_male | `alpha-male` | `session_01EvmYq9dqbSLEAHnULpx8f7` | alpha_male |
 | 10 · Remakes @yasminespixels (micabo) | `yasmine` | `session_01QT1sUhhR1rWp6BoCvA6xN5` | that_girl_study (micabo seul, français) |
 | 11 · Remakes @fathom0g (Sophia) | `fathom` | `session_01T1YweZ2oXEptQ6jpdRf18c` | Fathomly (Sophia seul, anglais ; UnSwipe en carte dans les decks) |
+| 12 · Originaux clean_study | `clean-study` | `session_017vrvWpn3BvUR1gGwHo2he4` | clean_study (micabo et UnSwipe, pas Sophia ; anglais, l'OS place l'appli) |
 
 ## Règles absolues
 

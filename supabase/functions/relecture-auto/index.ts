@@ -16,6 +16,9 @@
  *   { rejuger: { jour } | { post_ids } }            → réapplique les règles aux mesures
  *                                                     déjà stockées (après un changement de
  *                                                     seuil), sans nouveau scrape ni mesure
+ *   { envoyer: { jour } }                           → envoie les retours de ce jour hors de
+ *                                                     la fenêtre 2 h-10 h (rattrapage d'une
+ *                                                     nuit ratée, 3 derniers jours seulement)
  *
  * Déclenché par le cron `relecture-drain` (toutes les 2 min, 01:00-05:58 UTC) ;
  * la file est remplie par `relecture-enfiler` (01:00 UTC, posts de la veille).
@@ -47,6 +50,9 @@ import {
   trier,
   choisirRetoursAEnvoyer,
   DELAI_ENTRE_RETOURS_JOURS,
+  ENVOI_MANUEL_JOURS_MAX,
+  ERREUR_SANS_CREDIT,
+  estSansCreditApify,
   postersEnPause,
   type Defaut,
 } from "../_shared/relecture.ts";
@@ -239,7 +245,16 @@ async function lancerScrapes(supabase: Client): Promise<number> {
     await maj(supabase, ids, { apify_run_id: runId, erreur: null });
     return aLancer.length;
   } catch (error) {
-    await maj(supabase, ids, { statut: "a_scraper", erreur: `lancement Apify : ${messageErreur(error)}` });
+    const message = messageErreur(error);
+    if (estSansCreditApify(message)) {
+      // Pas la faute du post : la réservation rend la tentative qu'elle a comptée.
+      for (const t of new Set(aLancer.map((l) => l.tentatives))) {
+        const memes = aLancer.filter((l) => l.tentatives === t).map((l) => l.id);
+        await maj(supabase, memes, { statut: "a_scraper", tentatives: Math.max(0, t - 1), erreur: ERREUR_SANS_CREDIT });
+      }
+    } else {
+      await maj(supabase, ids, { statut: "a_scraper", erreur: `lancement Apify : ${message}` });
+    }
     throw error;
   }
 }
@@ -616,14 +631,18 @@ interface LigneEnvoi {
  * envoie les retours : un par créateur (choisirRetoursAEnvoyer), en review
  * « agent ». Chaque ligne est réservée avant l'envoi : deux drains qui se
  * chevauchent n'envoient pas deux fois (et l'index unique de 0296 tient bon).
+ * `jourManuel` : rattrapage d'une nuit ratée, envoyé à la main hors de la
+ * fenêtre horaire ; mêmes règles (interrupteur, un par créateur, délai).
  */
-async function envoyerRetours(supabase: Client, types: RemarqueType[]): Promise<number> {
+async function envoyerRetours(supabase: Client, types: RemarqueType[], jourManuel?: string): Promise<number> {
   const { data: reglage } = await supabase.from("reglages").select("valeur").eq("cle", "relecture_envoi_auto").maybeSingle();
   if ((reglage?.valeur as { actif?: boolean } | null)?.actif !== true) return 0;
-  const heure = heureParis();
-  if (heure < ENVOI_HEURE_MIN || heure >= ENVOI_HEURE_MAX) return 0;
+  if (!jourManuel) {
+    const heure = heureParis();
+    if (heure < ENVOI_HEURE_MIN || heure >= ENVOI_HEURE_MAX) return 0;
+  }
 
-  const jour = veille(aujourdhuiParis());
+  const jour = jourManuel ?? veille(aujourdhuiParis());
   const { count, error: errCours } = await supabase
     .from("relectures_auto")
     .select("id", { count: "exact", head: true })
@@ -880,6 +899,7 @@ Deno.serve(async (request) => {
     enfiler?: { jour?: unknown; limite?: unknown; aleatoire?: unknown };
     relire?: { post_id?: unknown };
     rejuger?: { jour?: unknown; post_ids?: unknown };
+    envoyer?: { jour?: unknown };
   } = {};
   try {
     corps = (await request.json()) ?? {};
@@ -898,6 +918,21 @@ Deno.serve(async (request) => {
     try {
       const bilan = await rejuger(supabase, corps.rejuger, await remarquesTypes());
       return json({ ok: true, rejuges: bilan.length, bilan, duree_ms: Date.now() - debut });
+    } catch (error) {
+      return json({ ok: false, error: messageErreur(error) }, 500);
+    }
+  }
+
+  if (corps.envoyer) {
+    const jour = String(corps.envoyer.jour ?? "");
+    const ecart = (Date.parse(`${aujourdhuiParis()}T12:00:00Z`) - Date.parse(`${jour}T12:00:00Z`)) / 86_400_000;
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(jour) || !(ecart >= 1 && ecart <= ENVOI_MANUEL_JOURS_MAX)) {
+      return json({ error: `jour attendu : un des ${ENVOI_MANUEL_JOURS_MAX} derniers jours (AAAA-MM-JJ)` }, 400);
+    }
+    try {
+      const envoyes = await envoyerRetours(supabase, await remarquesTypes(), jour);
+      console.log(`[relecture-auto] envoi manuel du ${jour} : ${envoyes} retour(s) envoyé(s)`);
+      return json({ ok: true, jour, envoyes, duree_ms: Date.now() - debut });
     } catch (error) {
       return json({ ok: false, error: messageErreur(error) }, 500);
     }

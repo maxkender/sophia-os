@@ -1,0 +1,255 @@
+{
+ "id": "yp-005",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/video/7667147856670706966",
+  "vues": 53800,
+  "enregistrements": 1330,
+  "publie_le": "2026-07-27",
+  "titre": "SCHOOL TIPS from a highschool graduate"
+ },
+ "titre": {
+  "fr": "conseils de lycée d’une jeune bachelière"
+ },
+ "legendes": {
+  "fr": "ce que j’aurais aimé savoir avant 📚 #conseils #studytok #lycee #revisions #thatgirl"
+ },
+ "musique": {
+  "titre": "young folks nightcore",
+  "url": "https://www.tiktok.com/music/young-folks-nightcore-7070641315155757826"
+ },
+ "fond": {
+  "media_id": "622b6d44-7707-493c-a7c8-2530669f5f4a",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/bb2eeefa-d48f-4aab-9e65-405885ce9658/5.jpg?v=1792527172139",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CONSEILS",
+      "DE LYCÉE"
+     ],
+     "taille": 170,
+     "interligne": 1.0,
+     "y": 620,
+     "taille_script": 96,
+     "script_lignes": [
+      {
+       "texte": "d’une jeune",
+       "x": 190,
+       "y": 930
+      },
+      {
+       "texte": "bachelière",
+       "x": 470,
+       "y": 1040
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "057a2a14-f14b-41ee-884f-eb6706e1d789",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/a6464591-1e49-465a-bef1-2047471a7c50/4.jpg?v=1790606976020",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 264,
+      "texte": "pas besoin d’une trousse énorme.\n2 stylos, 2 crayons et 2 surligneurs, c’est tout ce qu’il te faut.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "218e7569-b42a-47ee-adad-3350fba6c2b0",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/d628759d-ac4e-4d53-9a72-b8d59ebf877b/3.jpg",
+    "cadrage": {
+     "x": 0.0,
+     "y": 0.0,
+     "zoom": 1.4
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1053,
+      "texte": "garde un stylo, un crayon et un surligneur de rechange dans ton sac, au cas où tu perds les premiers.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "015e2113-006e-4989-acac-1ba16709b280",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/4d1df318-f28f-4e5c-b095-2efdb0f72b00/2.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 376,
+      "titre": "les jolies notes ? inutiles📝",
+      "texte": "tu perds du temps et tu rates des infos si tu cherches à faire de jolies notes en cours.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "f2eb537d-f6a8-426e-ae71-8292b4798c61",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/f8917e20-dcf7-40d9-946c-5f20566922b2/3.jpg?v=1791725352560",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 310,
+      "titre": "mes notes, un bon jour😅",
+      "texte": "tu notes les infos importantes et tu écoutes ton prof. c’est ça, le but.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "3fb54b14-c828-4db7-be3e-48039388d22d",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/e89e4c2f-e705-4f8c-baee-a8a093d6c18b/4.jpg",
+    "cadrage": {
+     "x": 0.15,
+     "y": 0.6,
+     "zoom": 1.25
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 335,
+      "texte": "ne recopie pas tes notes, SAUF si tu en as besoin pour un examen en fin d’année.\ngarde-les en flashcards : moi, je mets mes cours dans micabo, qui m’en fait des flashcards.",
+      "grand": true
+     }
+    ]
+   },
+   "app": true
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "c169736c-0068-430a-8d21-9cdfea656a69",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/b7cf2471-5d0c-4563-9856-b1fe99ba804a/7.jpg?v=1791725571103",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 311,
+      "titre": "ou en cartes mentales💭",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "c5f4e53d-14f9-4222-9a08-b785878a66b5",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/741e7669-a63d-4fcc-af3d-7d065404d6aa/6.jpg?v=1792527219673",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 311,
+      "titre": "ou en fiches de synthèse comme celles-ci ! fais-les quand tu as une vue d’ensemble.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "26b82053-61a3-4613-b1f3-6ba18b9ab3b7",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/d0625f4c-eef4-4e2d-8049-38e9b024ae63/2.jpg?v=1791725568474",
+    "cadrage": {
+     "x": 0.55,
+     "y": 0.55,
+     "zoom": 1.6
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 626,
+      "texte": "range tes flashcards, cartes mentales ou fiches dans des classeurs pour ne pas les perdre.📂",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "26bf28c0-d831-40cb-a2b5-3b6f570a4e8a",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/488b1909-38b8-49e3-8265-4c9ad73e803d/3.jpg?v=1792601626908",
+    "cadrage": {
+     "x": 0.95,
+     "y": 0.45,
+     "zoom": 1.1
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 311,
+      "titre": "mention spéciale :",
+      "texte": "tu peux te faire un agenda avec n’importe quel carnet ! de préférence à pages blanches ou quadrillées.",
+      "grand": true
+     }
+    ]
+   }
+  }
+ ]
+}

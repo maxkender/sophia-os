@@ -569,9 +569,9 @@
      "aligne": "gauche"
     },
     "photo": {
-     "media_id": "69e2649e-2a7d-4a8f-a4ba-3411c323d7b1",
-     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-69e2649e.png",
-     "mise_en_scene": "69e2649e-2a7d-4a8f-a4ba-3411c323d7b1",
+     "media_id": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-42eefd6b.png",
+     "mise_en_scene": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
      "cadrage": {
       "x": 0.45,
       "y": 0.5
@@ -1271,6 +1271,7 @@
   "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
   "8672a7fd-0cf0-438d-a238-9dc926276627",
   "f696da01-96bf-44da-8365-2c78e2c517f0",
-  "c041df08-1ae1-4879-b6c6-3a5891009c49"
+  "c041df08-1ae1-4879-b6c6-3a5891009c49",
+  "42eefd6b-3616-4cc5-b459-bac326ebb5e0"
  ]
 }

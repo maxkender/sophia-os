@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import type { MajSourcesRun } from "./majSequentielle";
-import { joursDepuis, resultatsDuJournal, sourcesMettables, suiviParSource, totalEnfilees } from "./majSourcesVue";
+import { finDuRun, joursDepuis, resultatsDuJournal, sourcesMettables, suiviParSource, totalEnfilees } from "./majSourcesVue";
 import type { CompteReference } from "./types";
 
 const JOUR = 86_400_000;
@@ -128,5 +128,15 @@ describe("statut de chaque source dans la séquence", () => {
 
   it("sans séquence, rien", () => {
     expect(suiviParSource(null)).toEqual([]);
+  });
+
+  it("date de la séquence : sa dernière ligne de journal", () => {
+    // « t4 » n'est pas une date : pas de date plutôt qu'une date fausse.
+    expect(finDuRun(run({ journal: JOURNAL }))).toBeNull();
+    expect(finDuRun(run({ journal: [{ at: "2026-08-19T17:12:02.541Z", niveau: "ok", message: "Séquence terminée" }] }))).toBe(
+      "2026-08-19T17:12:02.541Z",
+    );
+    expect(finDuRun(run({ journal: [] }))).toBeNull();
+    expect(finDuRun(null)).toBeNull();
   });
 });

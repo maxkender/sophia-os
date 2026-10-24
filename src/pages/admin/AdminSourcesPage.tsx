@@ -1011,7 +1011,7 @@ export function AdminSourcesPage() {
       </CardHeader>
       <CardContent className="space-y-6">
         <FormAjoutSource niches={niches.data ?? []} />
-        <MajSourcesPanel sources={toutes} stock={stock.data ?? {}} />
+        <MajSourcesPanel sources={toutes} />
         <ImportJobsPanel />
         <ImportHistoriquePanel />
 

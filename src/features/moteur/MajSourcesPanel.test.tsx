@@ -9,11 +9,13 @@ import type { MajSourcesRun } from "./majSequentielle";
 import type { CompteReference } from "./types";
 
 const lireMajSourcesRun = vi.fn();
+const contenusParSource = vi.fn();
 const demarrerMajSourcesServeur = vi.fn();
 const annulerMajSourcesServeur = vi.fn();
 
 vi.mock("@/features/moteur/api", () => ({
   lireMajSourcesRun: () => lireMajSourcesRun(),
+  contenusParSource: () => contenusParSource(),
   demarrerMajSourcesServeur: (c: unknown) => demarrerMajSourcesServeur(c),
   annulerMajSourcesServeur: () => annulerMajSourcesServeur(),
 }));
@@ -34,7 +36,7 @@ function rendre() {
   const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
   return render(
     <QueryClientProvider client={client}>
-      <MajSourcesPanel sources={SOURCES} stock={{ recente: 40, vieille: 3 }} />
+      <MajSourcesPanel sources={SOURCES} />
     </QueryClientProvider>,
   );
 }
@@ -43,16 +45,20 @@ describe("MajSourcesPanel", () => {
   beforeEach(async () => {
     vi.clearAllMocks();
     lireMajSourcesRun.mockResolvedValue(null);
+    contenusParSource.mockResolvedValue({ recente: { importes: 40, valides: 35 }, vieille: { importes: 53, valides: 45 } });
     await i18n.changeLanguage("fr");
   });
 
-  it("liste chaque source avec la date de son dernier import, la plus ancienne d'abord", async () => {
+  it("liste chaque source avec la date de sa dernière mise à jour et ses slideshows importés", async () => {
     rendre();
     const cases = await screen.findAllByRole("checkbox");
     expect(cases.map((c) => c.getAttribute("aria-label"))).toEqual(["@vieille", "@moyenne", "@recente"]);
-    expect(screen.getByTestId("maj-date-vieille").textContent).toMatch(/Dernier import il y a 12 jours/);
-    expect(screen.getByTestId("maj-date-recente").textContent).toMatch(/Dernier import hier/);
-    expect(screen.getByText("40 en stock")).toBeTruthy();
+    expect(screen.getByTestId("maj-date-vieille").textContent).toMatch(/Dernière mise à jour il y a 12 jours/);
+    expect(screen.getByTestId("maj-date-recente").textContent).toMatch(/Dernière mise à jour hier/);
+    // Les contenus importés de la source, pas les sujets reproductibles.
+    await waitFor(() => expect(screen.getByTestId("maj-importes-vieille").textContent).toBe("53 importés"));
+    expect(screen.getByTestId("maj-importes-vieille").getAttribute("title")).toMatch(/dont 45 validé/);
+    expect(screen.getByTestId("maj-importes-moyenne").textContent).toBe("0 importé");
   });
 
   it("n'envoie que les sources cochées", async () => {
@@ -108,7 +114,42 @@ describe("MajSourcesPanel", () => {
     const premiere = within(suivi).getByTestId("maj-suivi-vieille");
     expect(premiere.dataset.statut).toBe("file");
     expect(premiere.textContent).toMatch(/Import en cours : 9 slideshows, 7 élément\(s\) encore dans la file/);
-    expect(premiere.textContent).toMatch(/20 au profil · 11 déjà en stock · 9 manquants/);
+    expect(premiere.textContent).toMatch(/20 au profil · 11 déjà importés · 9 manquants/);
     expect(within(suivi).getByTestId("maj-suivi-moyenne").textContent).toMatch(/En attente de son tour/);
+  });
+
+  it("une vieille séquence finie dit sa date et replie son détail", async () => {
+    const run: MajSourcesRun = {
+      statut: "done",
+      comptes: [{ id: "vieille", handle: "vieille", langue: "en" }],
+      index: 1,
+      faits: 1,
+      handle: "vieille",
+      phase: "import",
+      restant: 0,
+      minRestant: null,
+      maxFaits: null,
+      dernierProgresAt: null,
+      journal: [
+        {
+          at: il(66),
+          niveau: "info",
+          message: "[1/1] @vieille — rien à rattraper",
+          detail: "profil=53 slideshow(s) · déjà en stock=53 · manquants=0\nenfilées=0 · déjà en file=0 · source=apify",
+        },
+      ],
+    };
+    lireMajSourcesRun.mockResolvedValue(run);
+    rendre();
+    const suivi = await screen.findByTestId("maj-suivi");
+    expect(within(suivi).getByTestId("maj-suivi-date").textContent).toMatch(/il y a 66 jours/);
+    expect(within(suivi).queryByTestId("maj-suivi-vieille")).toBeNull();
+    // Les cases restent là : on peut relancer.
+    expect(screen.getAllByRole("checkbox")).toHaveLength(3);
+
+    fireEvent.click(within(suivi).getByRole("button", { name: /Voir le détail \(1 source\)/ }));
+    expect(within(suivi).getByTestId("maj-suivi-vieille").textContent).toMatch(
+      /rien à rattraper, tout était déjà importé.*53 au profil · 53 déjà importés · 0 manquants/,
+    );
   });
 });

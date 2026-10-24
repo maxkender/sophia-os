@@ -119,6 +119,17 @@ export function suiviParSource(run: MajSourcesRun | null): SuiviSource[] {
   });
 }
 
+/**
+ * Quand la séquence a bougé pour la dernière fois (dernière ligne du journal).
+ * Le panneau garde la dernière séquence affichée, même vieille de deux mois :
+ * sans cette date, son bilan se lit comme s'il venait d'arriver.
+ */
+export function finDuRun(run: MajSourcesRun | null): string | null {
+  const journal = run?.journal ?? [];
+  const derniere = journal[journal.length - 1]?.at;
+  return derniere && Number.isFinite(Date.parse(derniere)) ? derniere : null;
+}
+
 /** Slideshows envoyés à l'import sur toute la séquence. */
 export function totalEnfilees(suivi: readonly SuiviSource[]): number {
   return suivi.reduce((n, s) => n + (s.resultat?.enfilees ?? 0), 0);

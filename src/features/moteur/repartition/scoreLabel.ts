@@ -42,6 +42,19 @@ export interface StatLabel {
   recence_langue: number;
   recents_pays: number;
   recence_pays: number;
+  /**
+   * Label 100 % pod (0352) : tous ses contenus validés sont livrés par un pod.
+   * Son stock suit les comptes (le pod produit pour eux) : la réserve ne le
+   * juge pas, il se remplit langue par langue.
+   */
+  pod_seul?: boolean;
+  /** Le pod sert la langue du compte (vrai sans langue). */
+  livre_langue?: boolean;
+  /**
+   * Comptes du label dans sa langue la moins remplie, parmi les AUTRES langues
+   * servies où l'application recrute ; `null` s'il n'y en a aucune.
+   */
+  niveau_pod?: number | null;
 }
 
 export interface FermetureAuto {
@@ -247,18 +260,46 @@ export function joursApresCompte(
   return s.passages_restants / (s.demande_jour + r.postsParJourNouveau);
 }
 
+/** Label 100 % pod (0352) : la réserve ne le juge pas, il se remplit langue par langue. */
+export function estPodSeul(s: StatLabel): boolean {
+  return s.pod_seul === true;
+}
+
+/**
+ * Label 100 % pod déjà plus présent dans cette langue que dans sa langue la
+ * moins remplie : il attend que les autres rattrapent (1 compte par langue,
+ * puis 2…). Un post livré sert toutes les langues : la charge du pod suit les
+ * comptes PAR LANGUE, remplir en largeur la garde égale.
+ */
+export function enAvanceRemplissage(s: StatLabel): boolean {
+  return estPodSeul(s) && s.niveau_pod !== null && s.niveau_pod !== undefined && s.comptes_langue > s.niveau_pod;
+}
+
+/** Stock compté dans le poids ; un label 100 % pod n'est pas jugé sur son stock. */
 export function capacite(
   s: StatLabel,
   r: ReglagesChoixLabel = REGLAGES_CHOIX_LABEL_DEFAUT,
 ): number {
+  if (estPodSeul(s)) return 1;
   return Math.min(1, Math.max(CAPACITE_MIN, joursApresCompte(s, r) / r.reserveCibleJours));
 }
 
+/** Passe après les autres : réserve basse, ou, pour un label 100 % pod, en avance de remplissage. */
 export function estSuspendu(
   s: StatLabel,
   r: ReglagesChoixLabel = REGLAGES_CHOIX_LABEL_DEFAUT,
 ): boolean {
+  if (estPodSeul(s)) return enAvanceRemplissage(s);
   return joursApresCompte(s, r) < r.reserveMinJours;
+}
+
+/** Passe après TOUS : à sec, ou, pour un label 100 % pod, langue que son pod ne sert pas (compte muet). */
+export function estASec(
+  s: StatLabel,
+  r: ReglagesChoixLabel = REGLAGES_CHOIX_LABEL_DEFAUT,
+): boolean {
+  if (estPodSeul(s)) return s.livre_langue === false;
+  return joursApresCompte(s, r) < JOURS_A_SEC;
 }
 
 export function poidsLabel(
@@ -350,7 +391,7 @@ function prepare(
     rafaleLangue: s.recents_langue >= r.rafaleRecents,
     rafalePays: s.recents_pays >= r.rafaleRecents,
     suspendu: estSuspendu(s, r),
-    aSec: joursApresCompte(s, r) < JOURS_A_SEC,
+    aSec: estASec(s, r),
     jours: joursApresCompte(s, r),
     perf: perfRelative(s),
   }));

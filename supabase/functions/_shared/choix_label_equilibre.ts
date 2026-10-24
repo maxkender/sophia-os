@@ -48,6 +48,14 @@
  *      ou pays) passe d'abord ; puis le plus en retard (le plus petit des deux
  *      retards), puis la flotte, puis le poids, puis l'identifiant (stable).
  *
+ * LABEL 100 % POD (0352). Son stock suit les comptes (le pod produit pour eux) :
+ * sans compte il ne produit pas, et la règle de réserve l'enfermait dehors.
+ * Pour lui, la réserve ne compte plus (capacité 1, pas de « réserve basse ») ;
+ * il ne va que dans une langue que son pod sert (sinon « à sec ») et se
+ * remplit langue par langue : plus de comptes dans cette langue que dans sa
+ * langue la moins remplie (parmi les autres où l'application recrute) = il
+ * attend, à la place de « réserve basse ».
+ *
  * Module pur : les chiffres viennent de `stats_choix_label` (migration 0287),
  * les réglages de `reglages.choix_labels` (`lireReglagesChoixLabel`).
  */
@@ -80,6 +88,19 @@ export interface StatLabelCreation {
   recents_pays: number;
   /** Récence dans le pays, même échelle. */
   recence_pays: number;
+  /**
+   * Label 100 % pod (0352) : tous ses contenus validés sont livrés par un pod.
+   * Son stock suit les comptes (le pod produit pour eux) : la réserve ne le
+   * juge pas, il se remplit langue par langue.
+   */
+  pod_seul?: boolean;
+  /** Le pod sert la langue du compte (vrai sans langue). */
+  livre_langue?: boolean;
+  /**
+   * Comptes du label dans sa langue la moins remplie, parmi les AUTRES langues
+   * servies où l'application recrute ; `null` s'il n'y en a aucune.
+   */
+  niveau_pod?: number | null;
 }
 
 /** Une fermeture mémorisée : clé `cleFermeture(application, label)`. */
@@ -228,6 +249,9 @@ export function normaliserStatLabel(brut: Record<string, unknown>): StatLabelCre
     recence_langue: Math.max(0, nombre(brut.recence_langue)),
     recents_pays: Math.max(0, nombre(brut.recents_pays)),
     recence_pays: Math.max(0, nombre(brut.recence_pays)),
+    pod_seul: brut.pod_seul === true,
+    livre_langue: brut.livre_langue !== false,
+    niveau_pod: nombreOuNull(brut.niveau_pod),
   };
 }
 
@@ -304,18 +328,46 @@ export function joursApresCompte(
   return s.passages_restants / (s.demande_jour + r.postsParJourNouveau);
 }
 
+/** Label 100 % pod (0352) : la réserve ne le juge pas, il se remplit langue par langue. */
+export function estPodSeul(s: StatLabelCreation): boolean {
+  return s.pod_seul === true;
+}
+
+/**
+ * Label 100 % pod déjà plus présent dans cette langue que dans sa langue la
+ * moins remplie : il attend que les autres rattrapent (1 compte par langue,
+ * puis 2…). Un post livré sert toutes les langues : la charge du pod suit les
+ * comptes PAR LANGUE, remplir en largeur la garde égale.
+ */
+export function enAvanceRemplissage(s: StatLabelCreation): boolean {
+  return estPodSeul(s) && s.niveau_pod !== null && s.niveau_pod !== undefined && s.comptes_langue > s.niveau_pod;
+}
+
+/** Stock compté dans le poids ; un label 100 % pod n'est pas jugé sur son stock. */
 export function capacite(
   s: StatLabelCreation,
   r: ReglagesChoixLabel = REGLAGES_CHOIX_LABEL_DEFAUT,
 ): number {
+  if (estPodSeul(s)) return 1;
   return Math.min(1, Math.max(CAPACITE_MIN, joursApresCompte(s, r) / r.reserveCibleJours));
 }
 
+/** Passe après les autres : réserve basse, ou, pour un label 100 % pod, en avance de remplissage. */
 export function estSuspendu(
   s: StatLabelCreation,
   r: ReglagesChoixLabel = REGLAGES_CHOIX_LABEL_DEFAUT,
 ): boolean {
+  if (estPodSeul(s)) return enAvanceRemplissage(s);
   return joursApresCompte(s, r) < r.reserveMinJours;
+}
+
+/** Passe après TOUS : à sec, ou, pour un label 100 % pod, langue que son pod ne sert pas (compte muet). */
+export function estASec(
+  s: StatLabelCreation,
+  r: ReglagesChoixLabel = REGLAGES_CHOIX_LABEL_DEFAUT,
+): boolean {
+  if (estPodSeul(s)) return s.livre_langue === false;
+  return joursApresCompte(s, r) < JOURS_A_SEC;
 }
 
 export function poidsLabel(
@@ -409,7 +461,7 @@ export function classerLabels(
     rafaleLangue: s.recents_langue >= r.rafaleRecents,
     rafalePays: s.recents_pays >= r.rafaleRecents,
     suspendu: estSuspendu(s, r),
-    aSec: joursApresCompte(s, r) < JOURS_A_SEC,
+    aSec: estASec(s, r),
   }));
   // Un écart ne joue que s'il ne frappe pas tous les candidats.
   const regles: Array<(c: LabelClasse) => boolean> = [

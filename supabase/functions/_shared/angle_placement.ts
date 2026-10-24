@@ -10,7 +10,7 @@
  * Depuis 0285 (2026-10-14), les angles vivent dans `angles_placement` : une
  * paire peut en porter plusieurs, chacun ACTIF (ajouté au prompt partout) ou
  * en TEST (lu seulement par le test à blanc « contenus », une variante par
- * angle pour comparer). Depuis 0353 (2026-10-24), une paire peut avoir
+ * angle pour comparer). Depuis 0354 (2026-10-24), une paire peut avoir
  * plusieurs actifs : chaque contenu en reçoit UN (`choisirAngleActif`), le
  * même dans toutes ses langues, et les contenus se répartissent entre eux.
  * Le moteur de la nuit ne lit que les actifs ; `label_applications.angle`
@@ -88,7 +88,7 @@ export function normaliserAngle(angle: string | null | undefined): string {
 }
 
 /**
- * Angles ACTIFS des labels d'un contenu pour une application (0353 : une paire
+ * Angles ACTIFS des labels d'un contenu pour une application (0354 : une paire
  * peut en avoir plusieurs) : non vides, dédoublonnés par texte (le plus ancien
  * reçu reste), labels système exclus, rangés par id pour que le choix de
  * `choisirAngleActif` ne dépende pas de l'ordre de lecture.

@@ -96,7 +96,7 @@ export function ContenusABlancCard() {
   const [langue, setLangue] = React.useState("");
   const angles = useQuery({ queryKey: ["angles-placement"], queryFn: listerAnglesPlacement, retry: false });
   const anglesPaire = (angles.data ?? []).filter((a) => a.label_id === labelId && a.application_id === applicationId);
-  // Plusieurs actifs (0353) : chaque slideshow en reçoit un, sa référence.
+  // Plusieurs actifs (0354) : chaque slideshow en reçoit un, sa référence.
   const anglesActifs = anglesPaire.filter((a) => a.statut === "actif");
   // Règle du moteur pour un slideshow de ce seul label : sans doublon ni copie
   // d'un actif, au plus MAX (plusieurs labels : le résultat fait foi).

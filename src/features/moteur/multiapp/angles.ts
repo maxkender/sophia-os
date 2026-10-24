@@ -6,7 +6,7 @@
  * l'application pour les slideshows du label (placement seulement, pas la
  * pertinence). Statuts (table `angles_placement`, migration 0285) :
  *  - actif : utilisé partout (nuit, assignation). Plusieurs par paire depuis
- *            0353 : chaque slideshow en reçoit UN, toujours le même ;
+ *            0354 : chaque slideshow en reçoit UN, toujours le même ;
  *  - test  : utilisé SEULEMENT par le test à blanc « contenus » (Tests), une
  *            variante par angle en test, à côté de la référence.
  * Le moteur le lit dans `supabase/functions/_shared/angle_placement.ts`.

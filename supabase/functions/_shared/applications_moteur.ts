@@ -273,7 +273,7 @@ const avertirAngle = (contenuId: string, applicationId: string, quoi: string, er
 
 /**
  * Angle de placement ACTIF servi à un contenu pour une application : UN des
- * actifs de ses labels (`angles_placement`, 0353 : plusieurs par paire),
+ * actifs de ses labels (`angles_placement`, 0354 : plusieurs par paire),
  * toujours le même pour ce contenu (`choisirAngleActif`). null s'il n'y en a
  * pas — le prompt de placement reste alors celui d'avant. Les angles en test
  * ne sont JAMAIS lus ici (seul le test à blanc les lit).

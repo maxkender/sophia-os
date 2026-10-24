@@ -2781,6 +2781,8 @@ export const fr = {
       remixParRequalif: "Remix débloqués par S+",
       requalifMaxJours: "Attente max d'une mesure (jours)",
       plancherB: "Plancher pour rester en B (vues)",
+      fatiguePassages: "Fatigue : passages mesurés sans percée (B ou A → C)",
+      fatiguePlafond: "Fatigue : vues qui comptent comme une percée",
       varSeuil: "Variation — seuil score",
       varPassages: "Variation — min. passages",
       varAge: "Variation — âge (jours)",

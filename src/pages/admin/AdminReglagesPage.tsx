@@ -484,6 +484,21 @@ export function AdminReglagesPage() {
                 valeur={reglages.tierlist.plancher_b}
                 onChange={(n) => majTierlist({ plancher_b: n })}
               />
+              <ChampNombre
+                id="fatiguePassages"
+                label={t("reglages.fatiguePassages")}
+                min={0}
+                valeur={reglages.tierlist.fatigue_passages}
+                onChange={(n) => majTierlist({ fatigue_passages: n })}
+              />
+              <ChampNombre
+                id="fatiguePlafond"
+                label={t("reglages.fatiguePlafond")}
+                min={0}
+                step={1000}
+                valeur={reglages.tierlist.fatigue_plafond}
+                onChange={(n) => majTierlist({ fatigue_plafond: n })}
+              />
             </div>
             <p className="text-xs text-muted-foreground">{t("reglages.tierlistParamsAide")}</p>
           </section>

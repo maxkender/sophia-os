@@ -210,6 +210,17 @@ export interface RequalifEntree {
    * B (`reglages.tierlist.plancher_b`, 3 000 par défaut ; 0 désactive).
    */
   plancherB?: number;
+  /**
+   * Fatigue (24/10) : passages mesurés de TOUTE la vie du contenu (hors
+   * rappels) et meilleur passage de toute sa vie (`contenu_passages_historique`).
+   * Absents, la règle ne s'applique pas.
+   */
+  mesuresTotal?: number;
+  maxVuesTotal?: number;
+  /** `reglages.tierlist.fatigue_passages` (8 par défaut ; 0 désactive). */
+  fatiguePassages?: number;
+  /** `reglages.tierlist.fatigue_plafond` (10 000 par défaut ; 0 désactive). */
+  fatiguePlafond?: number;
 }
 
 export interface RequalifSortie {
@@ -242,6 +253,14 @@ export function requalifier(e: RequalifEntree): RequalifSortie {
   const perce30k = maxVues >= SEUIL_PASSAGE_S;
   const plancherB = e.plancherB ?? 0;
   const sousPlancherB = plancherB > 0 && (e.mesures ?? 0) >= MESURES_PLANCHER_B && maxVues < plancherB;
+  const fatiguePassages = e.fatiguePassages ?? 0;
+  const fatiguePlafond = e.fatiguePlafond ?? 0;
+  const fatigue =
+    fatiguePassages > 0 &&
+    fatiguePlafond > 0 &&
+    (e.mesuresTotal ?? 0) >= fatiguePassages &&
+    (e.maxVuesTotal ?? 0) < fatiguePlafond;
+  const regleFatigue = `${e.mesuresTotal} passages mesurés sans aucun ≥ ${fatiguePlafond.toLocaleString("fr-FR")} (fatigue)`;
 
   switch (tier) {
     case "D":
@@ -261,6 +280,7 @@ export function requalifier(e: RequalifEntree): RequalifSortie {
     case "B":
       if (perce150k) return { tier: "S+", regle: "un passage ≥ 150 000" };
       if (perce30k) return { tier: "S", regle: "un passage ≥ 30 000" };
+      if (fatigue) return { tier: "C", regle: regleFatigue };
       if (m >= 5_000) return { tier: "A", regle: "5 000 ≤ m < 30 000" };
       if (m >= 1_000 && sousPlancherB) {
         return {
@@ -274,6 +294,7 @@ export function requalifier(e: RequalifEntree): RequalifSortie {
     case "A":
       if (perce150k) return { tier: "S+", regle: "un passage ≥ 150 000" };
       if (perce30k) return { tier: "S", regle: "un passage ≥ 30 000" };
+      if (fatigue) return { tier: "C", regle: regleFatigue };
       if (m >= 5_000) return { tier: "A", regle: "5 000 ≤ m < 30 000" };
       return { tier: "B", regle: "m < 5 000" };
 

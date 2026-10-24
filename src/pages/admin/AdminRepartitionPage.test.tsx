@@ -15,10 +15,15 @@ const lireReglagesRepartition = vi.fn();
 
 const lireChoixApplicationAuto = vi.fn();
 const ecrireChoixApplicationAuto = vi.fn();
+const lireReglagesChoixLabelPoses = vi.fn();
+const ecrireReglagesChoixLabel = vi.fn();
+const remettreReglagesChoixLabelDefaut = vi.fn();
+const ecrireEtatManuelLabel = vi.fn();
 
 vi.mock("@/features/moteur/repartition/apiRepartition", () => ({
   PROVENANCE_JOURS: 30,
   CLE_CHOIX_APPLICATION_AUTO: "choix_application_auto",
+  CLE_CHOIX_LABELS: "choix_labels",
   lireChoixApplicationAuto: () => lireChoixApplicationAuto(),
   ecrireChoixApplicationAuto: (actif: boolean) => ecrireChoixApplicationAuto(actif),
   ecrireCibleRepartitionApps: vi.fn(),
@@ -27,6 +32,10 @@ vi.mock("@/features/moteur/repartition/apiRepartition", () => ({
   lireMarchesRepartition: (id: string) => lireMarchesRepartition(id),
   lireRecruesSite: (jours: number) => lireRecruesSite(jours),
   lireReglagesRepartition: () => lireReglagesRepartition(),
+  lireReglagesChoixLabelPoses: () => lireReglagesChoixLabelPoses(),
+  ecrireReglagesChoixLabel: (v: unknown) => ecrireReglagesChoixLabel(v),
+  remettreReglagesChoixLabelDefaut: () => remettreReglagesChoixLabelDefaut(),
+  ecrireEtatManuelLabel: (a: unknown) => ecrireEtatManuelLabel(a),
 }));
 
 const APPS = [
@@ -140,6 +149,10 @@ describe("AdminRepartitionPage — recrues venues du site", () => {
     });
     lireChoixApplicationAuto.mockResolvedValue(false);
     ecrireChoixApplicationAuto.mockResolvedValue(undefined);
+    lireReglagesChoixLabelPoses.mockResolvedValue(false);
+    ecrireReglagesChoixLabel.mockResolvedValue(undefined);
+    remettreReglagesChoixLabelDefaut.mockResolvedValue(undefined);
+    ecrireEtatManuelLabel.mockResolvedValue(undefined);
   });
 
   it("la provenance est lue sur la même fenêtre que celle affichée", async () => {
@@ -312,5 +325,212 @@ describe("AdminRepartitionPage — recrues venues du site", () => {
     expect(
       screen.queryByText(/Recrues venues du site|Recruits from the website/),
     ).toBeNull();
+  });
+});
+
+/** La carte ou le tableau qui porte ce titre. */
+function carte(titre: RegExp): HTMLElement {
+  return screen.getByText(titre).closest("div[class*='rounded']") as HTMLElement;
+}
+
+describe("AdminRepartitionPage — les réglages de label s'éditent", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    lireReglagesRepartition.mockResolvedValue(REGLAGES_CHOIX_LABEL_DEFAUT);
+    lireMarchesApplications.mockResolvedValue(MARCHES_APPS);
+    lireMarchesRepartition.mockResolvedValue(MARCHES_LABELS);
+    lireRecruesSite.mockResolvedValue(PROVENANCE);
+    lireCibleRepartitionApps.mockResolvedValue({
+      source: "reglage",
+      parts: { sophia: 60, unswipe: 25, micabo: 15 },
+    });
+    lireChoixApplicationAuto.mockResolvedValue(false);
+    lireReglagesChoixLabelPoses.mockResolvedValue(false);
+    ecrireReglagesChoixLabel.mockResolvedValue(undefined);
+    remettreReglagesChoixLabelDefaut.mockResolvedValue(undefined);
+    ecrireEtatManuelLabel.mockResolvedValue(undefined);
+  });
+
+  it("le bandeau ne prétend plus que la page ne touche à rien", async () => {
+    renderPage();
+    await screen.findByText(/Cette page agit sur le moteur|This page acts on the engine/);
+    expect(screen.queryByText(/Lecture seule\.|Read only\./)).toBeNull();
+  });
+
+  it("sans valeur en base, la page dit que ce sont les défauts du code", async () => {
+    renderPage();
+    await screen.findByText(
+      /Aucune valeur n'est posée en base|No value is stored/,
+    );
+  });
+
+  it("une valeur modifiée part en base avec les onze autres", async () => {
+    renderPage();
+    const champ = await screen.findByLabelText(
+      /Exposant de performance|Performance exponent/,
+    );
+    fireEvent.change(champ, { target: { value: "3" } });
+    fireEvent.click(
+      screen.getByRole("button", { name: /Enregistrer les réglages|Save settings/ }),
+    );
+    await waitFor(() => expect(ecrireReglagesChoixLabel).toHaveBeenCalled());
+    const envoye = ecrireReglagesChoixLabel.mock.calls[0][0];
+    expect(envoye.perfExposant).toBe(3);
+    // Les autres partent inchangés : on écrit les douze d'un bloc, jamais un
+    // réglage isolé qui laisserait les autres dans un état incertain.
+    expect(envoye.partMax).toBe(REGLAGES_CHOIX_LABEL_DEFAUT.partMax);
+    expect(Object.keys(envoye)).toHaveLength(12);
+  });
+
+  it("une valeur que le moteur aurait réécrite bloque l'enregistrement", async () => {
+    // `positif(0, 2)` rend 2 : laisser passer zéro afficherait 0 ici et
+    // appliquerait 2 là-bas, sans que rien ne le dise.
+    renderPage();
+    const champ = await screen.findByLabelText(
+      /Exposant de performance|Performance exponent/,
+    );
+    fireEvent.change(champ, { target: { value: "0" } });
+    const bouton = screen.getByRole("button", {
+      name: /Enregistrer les réglages|Save settings/,
+    });
+    await waitFor(() => expect(bouton).toBeDisabled());
+    await screen.findByText(/Une valeur au moins est refusée|At least one value is refused/);
+    fireEvent.click(bouton);
+    expect(ecrireReglagesChoixLabel).not.toHaveBeenCalled();
+  });
+
+  it("une borne basse au-dessus de la haute est nommée, pas juste refusée", async () => {
+    renderPage();
+    fireEvent.change(
+      await screen.findByLabelText(/Performance, borne basse|Performance, lower bound/),
+      { target: { value: "5" } },
+    );
+    await screen.findByText(
+      /La borne basse de performance dépasse la borne haute|The lower performance bound is above the upper one/,
+    );
+    expect(
+      screen.getByRole("button", { name: /Enregistrer les réglages|Save settings/ }),
+    ).toBeDisabled();
+  });
+
+  it("les réglages restent éditables même sans label à classer", async () => {
+    // Ils valent pour TOUTES les applications : la carte n'a pas à
+    // disparaître parce que celle affichée n'a aucun label.
+    lireMarchesRepartition.mockResolvedValue([]);
+    renderPage();
+    await screen.findByText(/Réglages du choix de label|Label-choice settings/);
+    expect(
+      screen.getByRole("button", { name: /Enregistrer les réglages|Save settings/ }),
+    ).toBeTruthy();
+  });
+
+  it("revenir aux défauts retire les clés au lieu de figer des nombres", async () => {
+    renderPage();
+    fireEvent.click(
+      await screen.findByRole("button", {
+        name: /Revenir aux valeurs par défaut|Back to default values/,
+      }),
+    );
+    await waitFor(() => expect(remettreReglagesChoixLabelDefaut).toHaveBeenCalled());
+    expect(ecrireReglagesChoixLabel).not.toHaveBeenCalled();
+  });
+});
+
+describe("AdminRepartitionPage — ouvrir et fermer un label", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    lireReglagesRepartition.mockResolvedValue(REGLAGES_CHOIX_LABEL_DEFAUT);
+    lireMarchesApplications.mockResolvedValue(MARCHES_APPS);
+    lireMarchesRepartition.mockResolvedValue(MARCHES_LABELS);
+    lireRecruesSite.mockResolvedValue(PROVENANCE);
+    lireCibleRepartitionApps.mockResolvedValue({
+      source: "reglage",
+      parts: { sophia: 60, unswipe: 25, micabo: 15 },
+    });
+    lireChoixApplicationAuto.mockResolvedValue(false);
+    lireReglagesChoixLabelPoses.mockResolvedValue(false);
+    ecrireEtatManuelLabel.mockResolvedValue(undefined);
+  });
+
+  /** La ligne du tableau « État des labels » qui porte ce label. */
+  async function ligneLabel(nom: string): Promise<HTMLElement> {
+    await screen.findByText(/État des labels|Label status/);
+    // Le nom du label ouvre la ligne, collé au premier chiffre : `\b` ne
+    // tient pas entre « study » et « 1,00 », les deux sont des caractères de
+    // mot. On ancre au début.
+    const ligne = within(carte(/État des labels|Label status/))
+      .getAllByRole("row")
+      .find((r) => (r.textContent ?? "").startsWith(nom));
+    if (!ligne) throw new Error(`ligne ${nom} absente du tableau des labels`);
+    return ligne;
+  }
+
+  it("fermer un label l'écrit pour l'application affichée, pas pour toutes", async () => {
+    renderPage();
+    const ligne = await ligneLabel("study");
+    fireEvent.click(
+      within(ligne).getByRole("button", { name: /^(Fermé|Closed)$/ }),
+    );
+    await waitFor(() =>
+      expect(ecrireEtatManuelLabel).toHaveBeenCalledWith({
+        applicationId: "id-sophia",
+        labelId: "study",
+        etat: "ferme",
+      }),
+    );
+  });
+
+  it("le troisième bouton rend le label à l'automatique", async () => {
+    lireReglagesRepartition.mockResolvedValue({
+      ...REGLAGES_CHOIX_LABEL_DEFAUT,
+      ouvertsApp: ["id-sophia:gym"],
+    });
+    renderPage();
+    const ligne = await ligneLabel("gym");
+    fireEvent.click(within(ligne).getByRole("button", { name: /^(Auto)$/ }));
+    await waitFor(() =>
+      expect(ecrireEtatManuelLabel).toHaveBeenCalledWith({
+        applicationId: "id-sophia",
+        labelId: "gym",
+        etat: "auto",
+      }),
+    );
+  });
+
+  it("recliquer l'état en cours n'écrit rien", async () => {
+    // Le bouton reste cliquable pour rester lisible, mais reposer la même
+    // décision n'a rien à dire à la base.
+    renderPage();
+    const ligne = await ligneLabel("study");
+    fireEvent.click(within(ligne).getByRole("button", { name: /^(Auto)$/ }));
+    await new Promise((r) => setTimeout(r, 20));
+    expect(ecrireEtatManuelLabel).not.toHaveBeenCalled();
+  });
+
+  it("l'état en cours est celui qui est enfoncé", async () => {
+    // Sans décision posée, c'est « Auto » : un label que personne n'a touché
+    // ne doit pas avoir l'air protégé.
+    renderPage();
+    const ligne = await ligneLabel("study");
+    expect(
+      within(ligne).getByRole("button", { name: /^(Auto)$/ }).getAttribute("aria-pressed"),
+    ).toBe("true");
+    expect(
+      within(ligne).getByRole("button", { name: /^(Fermé|Closed)$/ }).getAttribute("aria-pressed"),
+    ).toBe("false");
+  });
+
+  it("un label fermé à la main montre sa décision au rechargement", async () => {
+    lireReglagesRepartition.mockResolvedValue({
+      ...REGLAGES_CHOIX_LABEL_DEFAUT,
+      fermesApp: ["id-sophia:study"],
+    });
+    renderPage();
+    const ligne = await ligneLabel("study");
+    expect(
+      within(ligne).getByRole("button", { name: /^(Fermé|Closed)$/ }).getAttribute("aria-pressed"),
+    ).toBe("true");
+    // Et l'état calculé suit : la colonne de gauche dit pourquoi.
+    expect(ligne.textContent).toMatch(/Fermé pour cette app|Closed for this app/);
   });
 });

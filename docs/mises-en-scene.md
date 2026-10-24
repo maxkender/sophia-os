@@ -41,6 +41,7 @@ la même photo, la même main, la même lumière, seul l'écran change.
 	2. on relance : Nano Banana Pro reprend l'image d'origine validée et n'y remplace que l'écran par la capture traduite.
 - La capture traduite sert ensuite à toutes les images de cet écran.
 - Une version a droit à une seule relance, comme l'origine.
+- Le format de sortie est imposé : celui de la photo (ou de l'image d'origine pour une version). Un rendu à un autre format est refusé et rien n'est gardé. En « auto », Nano Banana avait pris le format de la capture et inventé une interface autour de la scène (24/10).
 - Si la capture d'origine est remplacée, toutes les versions de la carte passent « à refaire ».
 - Côté podz, rien ne change : `langue: "es"` donne les versions espagnoles validées.
 

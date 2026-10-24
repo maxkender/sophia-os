@@ -5,6 +5,7 @@
  */
 
 import { nomLangue } from "./comment_masters.ts";
+import { aspectRatioProche } from "./fal_nano_banana.ts";
 
 /** Le support d'une capture, d'un intégrateur et de leur mise en scène. */
 export const SUPPORTS = ["iphone", "tablette", "ordinateur"] as const;
@@ -49,12 +50,14 @@ export const PROMPT_INCRUSTATION_DEFAUT = `Image 1 is a real photo (the scene). 
 Replace the content of the {appareil} screen in image 1 with image 2, exactly as it is: the whole screenshot, uncropped, unaltered, every word identical, following the perspective, curvature and rounded corners of the screen.
 Keep the hand and fingers that pass in front of the screen IN FRONT of it, untouched. Keep the scene's reflections, glare and lighting on the glass, so the screen looks really lit inside this photo.
 Do not change anything else in the photo: same framing, same objects, same colors, same grain. Do not add any text, logo or person.
+The output is image 1's frame, nothing else: image 2 only fills the screen, it is never the output frame. Never add app bars, a status bar or any interface around the photo.
 Output at the size and aspect ratio of image 1, high definition.`;
 
 export const PROMPT_VERSION_DEFAUT = `Image 1 is a finished photo: a hand holds a {appareil} whose screen shows an app. Image 2 is the same app screen, translated.
 
 Replace ONLY the content of the {appareil} screen in image 1 with image 2, exactly as it is: the whole screenshot, every word identical, at the same position, size and perspective as the current screen content.
 Keep absolutely everything else of image 1 identical: the hand and fingers in front of the screen, the reflections and light on the glass, the background, the framing, the colors, the grain. Do not add any text, logo or person.
+The output is image 1's frame, nothing else: image 2 only fills the screen, it is never the output frame. Never add app bars, a status bar or any interface around the photo.
 Output at the size and aspect ratio of image 1, high definition.`;
 
 const NOM_SUPPORT: Record<Support, string> = {
@@ -193,6 +196,31 @@ export function cheminMiseEnScene(
   ext: string,
 ) {
   return `mises-en-scene/${app}/${langue}/${ecran}-${support}-${id.slice(0, 8)}.${ext}`;
+}
+
+// ---------------------------------------------------------------------------
+// Format de sortie
+// ---------------------------------------------------------------------------
+
+/**
+ * Ratio Fal à imposer : celui de l'image de départ (la photo, ou l'image
+ * d'origine d'une version). En `auto`, Nano Banana a pris le format de la
+ * capture (image 2) et inventé une interface d'appli autour de la scène.
+ */
+export function ratioImpose(taille: { largeur: number; hauteur: number }) {
+  return aspectRatioProche(taille.largeur, taille.hauteur);
+}
+
+/** Le rendu garde-t-il le format de l'image de départ (à 4 % près) ? */
+export function formatRespecte(
+  attendu: { largeur: number; hauteur: number },
+  obtenu: { largeur: number; hauteur: number } | null,
+  tolerance = 0.04,
+): boolean {
+  if (!obtenu || !(attendu.largeur > 0 && attendu.hauteur > 0)) return false;
+  const r1 = attendu.largeur / attendu.hauteur;
+  const r2 = obtenu.largeur / obtenu.hauteur;
+  return Math.abs(r2 - r1) / r1 <= tolerance;
 }
 
 // ---------------------------------------------------------------------------

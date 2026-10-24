@@ -3803,7 +3803,7 @@ export const fr = {
       fileTitre: "File des prochains comptes (label + UGC)",
       fileApp: "File des créateurs de {{app}} — un nouveau compte {{app}} prend le label suivant à sa création.",
       fileDesc:
-        "À la création d’un compte {{app}} : file de SA langue d’abord (prioritaire), sinon file générale, sinon un choix équilibré parmi les labels qui servent {{app}} (chaque langue suit la part de chaque label selon son stock et ses vues des 28 derniers jours, jamais 3 fois le même label sur 4 comptes). FIFO : la 1ʳᵉ entrée décide le label (et, pour Sophia, si le compte est UGC). Les labels UGC AI VIDEO (ex. test) n’entrent pas dans cette file : ils vont uniquement aux créateurs d’un HM vidéo.",
+        "À la création d’un compte {{app}} : file de SA langue d’abord (prioritaire), sinon file générale, sinon un choix équilibré parmi les labels qui servent {{app}} (chaque langue suit la part de chaque label selon son stock et ses vues des 15 derniers jours, jamais 3 fois le même label sur 4 comptes). FIFO : la 1ʳᵉ entrée décide le label (et, pour Sophia, si le compte est UGC). Les labels UGC AI VIDEO (ex. test) n’entrent pas dans cette file : ils vont uniquement aux créateurs d’un HM vidéo.",
       fileApplication: "Application",
       fileApplicationAide:
         "Chaque application a sa File. Le compte créé prend la File de l’application choisie à sa création (Sophia par défaut).",

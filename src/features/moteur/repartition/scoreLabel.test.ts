@@ -101,7 +101,7 @@ describe("copie Deno", () => {
 describe("lecture du réglage", () => {
   it("une valeur absente retombe sur le défaut", () => {
     expect(lireReglagesChoixLabel(null)).toEqual(REGLAGES_CHOIX_LABEL_DEFAUT);
-    expect(lireReglagesChoixLabel({ perf_exposant: 0 }).perfExposant).toBe(2);
+    expect(lireReglagesChoixLabel({ perf_exposant: 0 }).perfExposant).toBe(3);
   });
 
   it("une fermeture automatique est lue avec sa date et ses chiffres", () => {

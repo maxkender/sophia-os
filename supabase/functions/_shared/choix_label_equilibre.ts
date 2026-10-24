@@ -12,13 +12,14 @@
  *
  * Maintenant, sans aucun hasard :
  *   1. FERMETURE. Un label dont la médiane des vues (rapportées à leur langue,
- *      28 jours) reste sous `fermeturePerf` (0,75) de celle de la flotte, sur
+ *      15 jours glissants depuis 0353, 28 avant) reste sous `fermeturePerf` (0,75) de celle de la flotte, sur
  *      au moins `fermetureMinPosts` (150) posts, est fermé : plus aucun compte
  *      ne le reçoit, et l'assignation de nuit le retire aux comptes qui le
  *      portent. Une fermeture est mémorisée (`fermesAuto`) : un label fermé ne
  *      poste plus, ses chiffres s'éteignent, il ne doit pas se rouvrir tout
  *      seul. Réouverture = décision humaine (`labels_ouverts` dans le réglage).
- *   2. POIDS = facteur de performance ^ `perfExposant` (2) × capacité.
+ *   2. POIDS = facteur de performance ^ `perfExposant` (3 depuis le 24/10, 2
+ *      avant : la performance pèse plus) × capacité.
  *      Facteur : la performance du label face à la flotte, lissée vers 1 par
  *      `perfLissage` (30) posts fictifs, bornée à [×0,25 ; ×4]. Capacité : les
  *      jours de réserve qui resteraient au label avec un compte de plus
@@ -83,7 +84,7 @@ export interface StatLabelCreation {
   passages_restants: number;
   /** Passages consommés par jour par les comptes du label, pour l'application. */
   demande_jour: number;
-  /** Posts publiés sur 28 j (application du compte) avec des vues. */
+  /** Posts publiés sur 15 j (application du compte) avec des vues (0353). */
   passages: number;
   /** Médiane des vues de ses posts, chacune rapportée à la médiane de sa langue. */
   perf_label: number | null;
@@ -156,7 +157,7 @@ export interface ReglagesChoixLabel {
 }
 
 export const REGLAGES_CHOIX_LABEL_DEFAUT: Readonly<ReglagesChoixLabel> = Object.freeze({
-  perfExposant: 2,
+  perfExposant: 3,
   perfLissage: 30,
   perfMin: 0.25,
   perfMax: 4,
@@ -369,7 +370,7 @@ export function enAvanceRemplissage(s: StatLabelCreation): boolean {
  * passé une fois pour toutes : il n'a pu en avoir plus qu'en sortant du test
  * (ou par la File, une décision humaine). Le nombre de comptes sert de
  * mémoire : sans lui, un label validé replongerait « en test », donc bloqué,
- * dès que ses posts sur 28 jours faiblissent ; et un label servi par deux
+ * dès que ses posts sur 15 jours faiblissent ; et un label servi par deux
  * applications, validé sur l'une, resterait bloqué sur l'autre où il n'a
  * aucun post à mesurer.
  */

@@ -83,11 +83,11 @@ describe("validation : refuser ce que le moteur aurait réécrit en silence", ()
   it("les valeurs par défaut passent telles quelles", () => {
     const v = validerReglagesLabel(brouillon());
     expect(v.erreurs).toEqual({});
-    expect(v.valeurs?.perfExposant).toBe(2);
+    expect(v.valeurs?.perfExposant).toBe(3);
   });
 
   it("zéro sur un champ que le moteur veut strictement positif est refusé", () => {
-    // `positif(0, 2)` rend 2 : poser zéro afficherait 0 et appliquerait 2.
+    // `positif(0, 3)` rend 3 : poser zéro afficherait 0 et appliquerait 3.
     expect(validerReglagesLabel(brouillon({ perfExposant: "0" })).erreurs.perfExposant).toBe(
       "borne",
     );

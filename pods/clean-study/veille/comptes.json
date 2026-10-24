@@ -1,0 +1,8 @@
+{
+  "note": "Comptes relevés par `npm run veille` : les comptes de référence du label clean_study dans l'OS. Retire un compte qui ne publie plus ou tombe sous 2 k vues médianes sur 30 jours ; ajoute un compte de la niche « study girl » (méthodes de travail, année scolaire, motivation, focus, studytok) trouvé par --decouvrir quand il fait des vues ce mois-ci (au moins un diaporama à 100 k vues en 30 jours). @renaraise pousse l'appli Bycat, concurrente de micabo : on regarde ses accroches, jamais ses slides d'appli.",
+  "comptes": [
+    "icedlattebrunette",
+    "renaraise",
+    "sooftqs._"
+  ]
+}

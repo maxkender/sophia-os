@@ -569,6 +569,8 @@ export interface SlideOriginale {
    * Sur UNE slide : la version de ce texte qui intègre l'appli Sophia, écrite
    * par le pod dans la langue source. Servie telle quelle aux comptes de cette
    * langue ; les autres langues reçoivent le placement de l'OS sur la base.
+   * Jamais pour un label qui ne sert pas Sophia (pod 12, micabo et UnSwipe) :
+   * l'OS y place l'appli de chaque compte, dans toutes les langues.
    */
   texte_sophia?: string | null;
   /**
@@ -584,12 +586,21 @@ export const TIER_ORIGINAL = "B";
 const LONGUEUR_MAX_ACCROCHE = 120;
 const LONGUEUR_MAX_SLIDE = 320;
 const MOT_SOPHIA = /\bsophia\b/i;
-const AUTRE_APPLI = /\b(vent[\s-]?now|readup|turbo[\s-]?resume|bycat|actualize|unscroll|elqo|kodi[\s-]+(?:ai|app)|unswipe|micabo)\b/i;
+// Les applis d'étude de la niche du pod 12 (Penman, Quizlet, Anki, Knowt, StudyFetch) comptent aussi.
+const AUTRE_APPLI =
+  /\b(vent[\s-]?now|readup|turbo[\s-]?resume|bycat|actualize|unscroll|elqo|kodi[\s-]+(?:ai|app)|unswipe|micabo|penman|quizlet|anki|knowt|study[\s-]?fetch)\b/i;
 /** Les slides d'inspiration viennent du stockage de l'OS (`medias/brut/`), jamais d'un CDN qui expire. */
 export const REFERENCE_VALIDE = /^https:\/\/[a-z0-9]+\.supabase\.co\/storage\/v1\/object\/public\/medias\/brut\//;
 
-/** Contrôles d'un original AVANT tout accès base. */
-export function verifierOriginal(slides: Partial<SlideOriginale>[] | null | undefined): string[] {
+/**
+ * Contrôles d'un original AVANT tout accès base. `sophia` : le label du pod
+ * sert-il Sophia (vrai par défaut) ? Oui : UNE slide Sophia. Non (pod 12) :
+ * aucune, l'OS place l'appli de chaque compte à l'assignation.
+ */
+export function verifierOriginal(
+  slides: Partial<SlideOriginale>[] | null | undefined,
+  { sophia: labelSophia = true }: { sophia?: boolean } = {},
+): string[] {
   const deck = slides ?? [];
   const erreurs: string[] = [];
   if (deck.length < 4 || deck.length > 10) erreurs.push(`${deck.length} slides (4 à 10 attendues)`);
@@ -599,7 +610,10 @@ export function verifierOriginal(slides: Partial<SlideOriginale>[] | null | unde
   if (medias.some((m) => !/^[0-9a-f-]{36}$/i.test(m))) erreurs.push("media_id manquant ou invalide");
   if (new Set(medias).size !== medias.length) erreurs.push("même image utilisée deux fois");
   const sophia = deck.filter((s) => String(s.texte_sophia ?? "").trim());
-  if (sophia.length !== 1) erreurs.push(`${sophia.length} slide(s) Sophia (une seule attendue)`);
+  if (labelSophia && sophia.length !== 1) erreurs.push(`${sophia.length} slide(s) Sophia (une seule attendue)`);
+  if (!labelSophia && sophia.length) {
+    erreurs.push(`${sophia.length} slide(s) Sophia : le label ne sert pas Sophia, l'OS place l'appli de chaque compte (aucune attendue)`);
+  }
   for (const s of deck) {
     const t = String(s.texte_overlay ?? "").trim();
     const max = Number(s.position) === 1 ? LONGUEUR_MAX_ACCROCHE : LONGUEUR_MAX_SLIDE;
@@ -627,7 +641,7 @@ export function verifierOriginal(slides: Partial<SlideOriginale>[] | null | unde
 /**
  * Pods dont chaque original doit arriver avec la PREUVE que son schéma
  * d'accroche fait des vues aujourd'hui (décidé le 15/10 pour le pod 4, même
- * règle pour les pods 5, 7, 8 et 9).
+ * règle pour les pods 5, 7, 8, 9 et 12).
  */
 export const PODS_AVEC_PREUVE = new Set([
   "originaux_alpha_yellow",
@@ -635,6 +649,7 @@ export const PODS_AVEC_PREUVE = new Set([
   "originaux_beau_smart_girl",
   "originaux_smart_girl",
   "originaux_alpha_male",
+  "originaux_clean_study",
 ]);
 export const PREUVE_VUES_MIN = 200_000;
 export const PREUVE_JOURS_MAX = 30;

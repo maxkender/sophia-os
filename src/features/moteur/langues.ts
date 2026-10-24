@@ -67,6 +67,18 @@ export const LANGUES_CIBLES = [
   "bg",
 ] as const;
 
+/**
+ * Code canonique de `LANGUES_CIBLES` pour une saisie de casse quelconque :
+ * `pt-br` → `pt-BR`. Les colonnes et les clés de File stockent le code
+ * canonique ; un `.toLowerCase()` produisait `pt-br`, que ni la liste ni les
+ * tables clées par langue ne connaissent. Code inconnu : minuscules.
+ * Rien à voir avec le repli régional des contenus livrés (`pt-BR` → `pt`).
+ */
+export function canoniserLangue(code: string | null | undefined): string {
+  const bas = String(code ?? "").trim().toLowerCase();
+  return LANGUES_CIBLES.find((c) => c.toLowerCase() === bas) ?? bas;
+}
+
 export const LANGUES_RTL = ["ar", "he"] as const;
 
 const NOM_LANGUE: Record<string, string> = {

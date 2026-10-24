@@ -27,6 +27,8 @@
  * manage-users seul : le toucher ne redéploie aucune autre fonction.
  */
 
+import { canoniserLangue } from "./langues_cibles.ts";
+
 export const SLUG_SOPHIA_FILE = "sophia";
 
 export interface FileLabelItem {
@@ -75,10 +77,12 @@ function normaliserParLangue(raw: unknown): Record<string, FileLabelItem[]> {
   const par_langue: Record<string, FileLabelItem[]> = {};
   if (raw && typeof raw === "object" && !Array.isArray(raw)) {
     for (const [code, arr] of Object.entries(raw as Record<string, unknown>)) {
-      const lang = String(code ?? "").trim().toLowerCase();
+      // Clé canonique (`pt-BR`) : c'est elle que lisent l'éditeur et les
+      // comptes. Une ancienne clé `pt-br` rejoint la même file, à la suite.
+      const lang = canoniserLangue(code);
       if (!lang) continue;
       const liste = normaliserFileLabelItemList(arr);
-      if (liste.length > 0) par_langue[lang] = liste;
+      if (liste.length > 0) par_langue[lang] = [...(par_langue[lang] ?? []), ...liste];
     }
   }
   return par_langue;

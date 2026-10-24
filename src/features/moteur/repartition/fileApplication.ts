@@ -20,6 +20,7 @@ import {
   SLUG_SOPHIA,
   type LienLabelApplication,
 } from "../multiApp";
+import { canoniserLangue } from "../langues";
 import type { FileLabelCompteItem, FileLabelsApplication, ReglagesFileLabels } from "../types";
 
 /** `"general"` ou code langue. */
@@ -132,7 +133,7 @@ export function tirerDeLaFile(
   eligibles: Iterable<string>,
 ): { item: FileLabelCompteItem | null; file: ReglagesFileLabels } {
   const ok = new Set([...eligibles].filter(Boolean));
-  const lang = String(langue ?? "").trim().toLowerCase();
+  const lang = canoniserLangue(langue);
   let courant = file;
 
   if (lang) {

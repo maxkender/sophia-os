@@ -172,6 +172,16 @@ dans `/admin/reviews`) :
   chaque matin (rapport du 23/10) ;
 - jamais pour un post déjà reviewé ou passé à la main dans la file.
 
+**Rattraper une nuit ratée** : `{ "envoyer": { "jour": "AAAA-MM-JJ" } }` envoie
+les retours de ce jour hors de la fenêtre horaire, avec les mêmes règles
+(interrupteur, un par créateur, délai de 3 jours) ; seulement pour les 3
+derniers jours, un vieux retour n'a plus de sens.
+
+**Plus de crédit Apify** (limite mensuelle atteinte, nuit du 23 au 24/10) : le
+run est refusé (402), les posts restent en file sans compter de tentative
+(erreur « Apify sans crédit… ») et la relecture reprend seule quand le crédit
+revient. Avant, six refus suffisaient à les passer tous en échec.
+
 `relectures_auto.envoi` garde ce que l'envoi a fait de chaque relecture
 (« envoye » avec `review_id`, ou la raison du non-envoi), affiché sur le banc.
 Chaque ligne est réservée avant l'envoi et un index unique interdit deux

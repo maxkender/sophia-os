@@ -2902,7 +2902,7 @@ export const fr = {
       cibleAtteignableMesures_one: "Atteignable sur tous les marchés mesurés ; {{count}} marché est trop mince pour juger.",
       cibleAtteignableMesures_other: "Atteignable sur tous les marchés mesurés ; {{count}} marchés sont trop minces pour juger.",
       sansLabelOuvert: "Sans label ouvert",
-      detailSiteMince: "Seulement {{recrues}} recrues ici, trop peu pour juger : part de la flotte {{part}}",
+      detailSiteMince: "Petit pays : {{recrues}} recrues en 30 jours (moins de {{seuil}}), on prend la part de toute la flotte, {{part}}",
       deplierMarche: "Détail : {{marche}}",
       marchesVide: "Aucun marché pour l'instant.",
       autresApps: "Autres applis",

@@ -2,12 +2,16 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { ExternalLink, RefreshCw, Send } from "lucide-react";
+import { Check, ChevronRight, ExternalLink, RefreshCw, Send } from "lucide-react";
 
+import { LogoApplication } from "@/components/brand/LogoApplication";
+import { PageHeader } from "@/components/layout/PageHeader";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, EmptyState } from "@/components/ui/card";
+import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle, EmptyState } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { MICRO_LABEL } from "@/components/ui/micro-label";
+import { StatGroup, StatTile } from "@/components/ui/stat";
 import {
   type ActionCkd,
   annulerCkd,
@@ -63,6 +67,7 @@ import {
   DECISION_DU_BOUTON,
   enRetard,
   resumerHistorique,
+  type ResumeDecision,
   type Tendance,
   tendanceDecision,
   defReglage,
@@ -80,22 +85,33 @@ import {
   valeurEnSaisie,
 } from "@/features/ckd/logique";
 import { drapeauPays, nomPaysIso } from "@/features/moteur/pays";
+import { Aide, BarreRepartition } from "@/features/moteur/repartition/graphes";
 import { cn } from "@/lib/utils";
 import { localeDate } from "@/locales/localeDate";
 
 const CLE = ["ckd"] as const;
 
 const selectClass =
-  "h-8 rounded-md border border-input bg-background px-2 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:opacity-60";
+  "h-8 max-w-full rounded-md border border-input bg-background px-2 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:opacity-60";
 
-const VARIANTE: Record<ActionCkd, "error" | "warning" | "success" | "info"> = {
-  ne_pas_renouveler: "error",
-  recreer: "warning",
-  doubler: "success",
-  nudge: "info",
+/** Les tableaux de la page Allocation : en-têtes en petites capitales, lignes fines. */
+const TH = "pb-2 pr-4 text-left text-[11px] font-medium uppercase tracking-wide text-muted-foreground last:pr-0";
+const TD = "py-2 pr-4 align-top last:pr-0";
+const LIGNE = "border-b border-border/40";
+
+/** La pastille de chaque action. La couleur dit le sens (kill, doubler…), le texte reste neutre. */
+const POINT_ACTION: Record<ActionCkd, string> = {
+  ne_pas_renouveler: "bg-destructive",
+  recreer: "bg-warning",
+  doubler: "bg-success",
+  nudge: "bg-info",
 };
 
-type Onglet = "samedi" | "jeudi" | "historique" | "reglages";
+const ONGLETS = ["samedi", "jeudi", "historique", "reglages"] as const;
+type Onglet = (typeof ONGLETS)[number];
+
+/** La semaine du contrôle, dans l'ordre : ce qui tourne, qui décide, quand ça part. */
+const ETAPES = ["jeudi", "samedi", "decision", "envoi"] as const;
 
 function messageErreur(err: unknown): string {
   if (err instanceof Error) return err.message;
@@ -133,40 +149,98 @@ export function AdminCheckKillDoublePage() {
   const [onglet, setOnglet] = React.useState<Onglet>("samedi");
 
   return (
-    <div className="space-y-5" data-testid="page-ckd">
-      <div className="space-y-2">
-        <h2 className="text-sm font-semibold">{t("ckd.titre")}</h2>
-        <p className="text-xs text-muted-foreground">{t("ckd.description")}</p>
-        <ul className="list-disc space-y-0.5 pl-4 text-xs text-muted-foreground">
-          <li>{t("ckd.calendrierJeudi")}</li>
-          <li>{t("ckd.calendrierSamedi")}</li>
-          <li>{t("ckd.calendrierVues")}</li>
-        </ul>
-        <p className="text-xs text-muted-foreground">{t("ckd.circuit")}</p>
-      </div>
+    <div className="space-y-6" data-testid="page-ckd">
+      <PageHeader
+        title={
+          <span className="inline-flex items-center gap-2">
+            {t("ckd.titre")}
+            <Aide libelle={t("ckd.titre")}>
+              <ul className="list-disc space-y-1 pl-4">
+                <li>{t("ckd.calendrierJeudi")}</li>
+                <li>{t("ckd.calendrierSamedi")}</li>
+                <li>{t("ckd.calendrierVues")}</li>
+              </ul>
+              <p className="mt-1.5">{t("ckd.circuit")}</p>
+            </Aide>
+          </span>
+        }
+        description={t("ckd.description")}
+      />
 
-      <div className="flex flex-wrap gap-1.5" role="tablist">
-        {(["samedi", "jeudi", "historique", "reglages"] as const).map((o) => (
-          <Button
-            key={o}
-            role="tab"
-            aria-selected={onglet === o}
-            size="sm"
-            variant={onglet === o ? "default" : "outline"}
-            onClick={() => setOnglet(o)}
-          >
-            {t(`ckd.onglets.${o}`)}
-          </Button>
-        ))}
-      </div>
+      <Semaine />
 
-      {onglet === "reglages" ? (
-        <VueReglages />
-      ) : onglet === "historique" ? (
-        <VueHistorique />
-      ) : (
-        <VueControles key={onglet} type={onglet} />
-      )}
+      <Onglets actif={onglet} onChange={setOnglet} />
+
+      <div id="panneau-ckd" role="tabpanel" aria-labelledby={`onglet-ckd-${onglet}`}>
+        {onglet === "reglages" ? (
+          <VueReglages />
+        ) : onglet === "historique" ? (
+          <VueHistorique />
+        ) : (
+          <VueControles key={onglet} type={onglet} />
+        )}
+      </div>
+    </div>
+  );
+}
+
+/** Les quatre temps de la semaine, en une bande : remplace le pavé d'explications. */
+function Semaine() {
+  const { t } = useTranslation();
+  return (
+    <ol className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border bg-border/70 sm:grid-cols-2 lg:grid-cols-4">
+      {ETAPES.map((e) => (
+        <li key={e} className="min-w-0 bg-card px-4 py-3">
+          <p className={MICRO_LABEL}>{t(`ckd.semaine.${e}Quand`)}</p>
+          <p className="mt-0.5 text-sm font-medium">{t(`ckd.semaine.${e}`)}</p>
+          <p className="text-xs text-muted-foreground">{t(`ckd.semaine.${e}Detail`)}</p>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+/** Les onglets de la page Allocation : flèches, Début et Fin pour passer de l'un à l'autre. */
+function Onglets({ actif, onChange }: { actif: Onglet; onChange: (o: Onglet) => void }) {
+  const { t } = useTranslation();
+  return (
+    <div
+      role="tablist"
+      aria-label={t("ckd.ongletsAria")}
+      className="inline-flex w-fit max-w-full flex-wrap gap-1 rounded-lg border bg-muted/40 p-1"
+      onKeyDown={(ev) => {
+        const i = ONGLETS.indexOf(actif);
+        const n = ONGLETS.length;
+        const vers =
+          ev.key === "ArrowRight" ? (i + 1) % n
+          : ev.key === "ArrowLeft" ? (i - 1 + n) % n
+          : ev.key === "Home" ? 0
+          : ev.key === "End" ? n - 1
+          : -1;
+        if (vers < 0) return;
+        ev.preventDefault();
+        onChange(ONGLETS[vers]!);
+        document.getElementById(`onglet-ckd-${ONGLETS[vers]}`)?.focus();
+      }}
+    >
+      {ONGLETS.map((o) => (
+        <button
+          key={o}
+          id={`onglet-ckd-${o}`}
+          type="button"
+          role="tab"
+          aria-selected={o === actif}
+          aria-controls="panneau-ckd"
+          tabIndex={o === actif ? 0 : -1}
+          onClick={() => onChange(o)}
+          className={cn(
+            "rounded-md px-2.5 py-1 text-sm transition-colors",
+            o === actif ? "bg-background font-medium shadow-sm" : "text-muted-foreground hover:text-foreground",
+          )}
+        >
+          {t(`ckd.onglets.${o}`)}
+        </button>
+      ))}
     </div>
   );
 }
@@ -263,17 +337,14 @@ function VueControles({ type }: { type: TypeControle }) {
     [nouveaux.data],
   );
   const liste = propositions.data ?? [];
-  const compte = compterActions(liste);
   const groupes = grouperParHm(liste);
   const nudgesEnAttente = liste.filter((p) => p.action === "nudge" && !p.decision).length;
   const prets = liste.filter(aEnvoyer).length;
-  const sansDecision = liste.filter((p) => !p.decision).length;
-  const retards = liste.filter((p) => enRetard(p, type)).length;
   const erreur = controles.error ?? propositions.error ?? recalculer.error ?? envoyerNudges.error ?? envoyerHm.error;
 
   return (
-    <div className="space-y-4" data-testid={`vue-${type}`}>
-      <div className="flex flex-wrap items-center gap-2">
+    <div className="space-y-5" data-testid={`vue-${type}`}>
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-2" data-testid="barre-envoi">
         {duType.length > 0 && (
           <select
             className={selectClass}
@@ -293,16 +364,37 @@ function VueControles({ type }: { type: TypeControle }) {
             {t("ckd.calculeLe", { date: date(controle.lance_at, { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }) })}
           </span>
         )}
-        <Button
-          className="ml-auto"
-          size="sm"
-          variant="outline"
-          loading={recalculer.isPending}
-          onClick={() => recalculer.mutate()}
-        >
-          <RefreshCw />
-          {controle ? t("ckd.recalculer") : t("ckd.calculer")}
-        </Button>
+        <div className="ml-auto flex flex-wrap items-center gap-2">
+          <Button size="sm" variant="outline" loading={recalculer.isPending} onClick={() => recalculer.mutate()}>
+            <RefreshCw />
+            {controle ? t("ckd.recalculer") : t("ckd.calculer")}
+          </Button>
+          {controle && liste.length > 0 && type === "jeudi" && nudgesEnAttente > 0 && (
+            <Button
+              size="sm"
+              variant="outline"
+              loading={envoyerNudges.isPending}
+              onClick={() => {
+                if (window.confirm(t("ckd.confirmNudges", { n: nudgesEnAttente }))) envoyerNudges.mutate();
+              }}
+            >
+              {t("ckd.envoyerNudges", { n: nudgesEnAttente })}
+            </Button>
+          )}
+          {controle && liste.length > 0 && (
+            <Button
+              size="sm"
+              disabled={prets === 0}
+              loading={envoyerHm.isPending}
+              onClick={() => {
+                if (window.confirm(t("ckd.confirmEnvoiHm", { n: prets }))) envoyerHm.mutate();
+              }}
+            >
+              <Send />
+              {t("ckd.envoyerHm", { n: prets })}
+            </Button>
+          )}
+        </div>
       </div>
 
       {erreur && (
@@ -310,77 +402,41 @@ function VueControles({ type }: { type: TypeControle }) {
           {messageErreur(erreur)}
         </p>
       )}
+      {controle?.slack_erreur && (
+        <p role="alert" className="text-sm text-destructive">
+          {t("ckd.erreurSlack", { erreur: controle.slack_erreur })}
+        </p>
+      )}
+      {envoyerHm.data && (
+        <p role="status" className="text-sm text-muted-foreground">
+          {t("ckd.envoyees", { n: envoyerHm.data.envoyees })}
+        </p>
+      )}
 
       {controles.isPending ? (
         <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
       ) : !controle ? (
         <EmptyState title={t(`ckd.aucunControle.${type}`)} />
+      ) : liste.length === 0 ? (
+        propositions.isPending ? (
+          <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
+        ) : (
+          <EmptyState title={t(`ckd.vide.${type}`)} />
+        )
       ) : (
         <>
-          <div className="flex flex-wrap gap-1.5">
-            {ORDRE_ACTIONS.filter((a) => compte[a] > 0).map((a) => (
-              <Badge key={a} variant={VARIANTE[a]}>
-                {t(`ckd.actions.${a}`)} · {compte[a]}
-              </Badge>
-            ))}
-            {liste.length === 0 && !propositions.isPending && (
-              <span className="text-sm text-muted-foreground">{t(`ckd.vide.${type}`)}</span>
-            )}
-          </div>
-          {liste.length > 0 && (
-            <div className="flex flex-wrap items-center gap-2 rounded-md border px-3 py-2 text-xs" data-testid="barre-envoi">
-              <span>{t("ckd.etat", { sans: sansDecision, prets })}</span>
-              {retards > 0 && <Badge variant="warning">{t("ckd.enRetard", { n: retards })}</Badge>}
-              {controle.slack_ts && <span className="text-muted-foreground">{t("ckd.recapPoste")}</span>}
-              {controle.rappel_at && (
-                <span className="text-muted-foreground">
-                  {t("ckd.rappelEnvoye", { date: date(controle.rappel_at, { weekday: "short", day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }) })}
-                </span>
-              )}
-              <span className="ml-auto flex flex-wrap gap-1.5">
-                {type === "jeudi" && nudgesEnAttente > 0 && (
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    loading={envoyerNudges.isPending}
-                    onClick={() => {
-                      if (window.confirm(t("ckd.confirmNudges", { n: nudgesEnAttente }))) envoyerNudges.mutate();
-                    }}
-                  >
-                    {t("ckd.envoyerNudges", { n: nudgesEnAttente })}
-                  </Button>
-                )}
-                <Button
-                  size="sm"
-                  disabled={prets === 0}
-                  loading={envoyerHm.isPending}
-                  onClick={() => {
-                    if (window.confirm(t("ckd.confirmEnvoiHm", { n: prets }))) envoyerHm.mutate();
-                  }}
-                >
-                  <Send />
-                  {t("ckd.envoyerHm", { n: prets })}
-                </Button>
-              </span>
-              {controle.slack_erreur && (
-                <p role="alert" className="w-full text-destructive">
-                  {t("ckd.erreurSlack", { erreur: controle.slack_erreur })}
-                </p>
-              )}
-              {envoyerHm.data && (
-                <p className="w-full text-muted-foreground">{t("ckd.envoyees", { n: envoyerHm.data.envoyees })}</p>
-              )}
-            </div>
-          )}
+          <ChiffresControle type={type} controle={controle} liste={liste} />
           {groupes.map((g) => {
             const hm = g.hmId ? parId.get(g.hmId) : undefined;
             return (
               <Card key={g.hmId ?? "sans-hm"} data-testid={`groupe-hm-${g.hmId ?? "aucun"}`}>
                 <CardHeader>
                   <CardTitle className="text-base">{hm ? nomPersonne(hm) : t("ckd.sansHm")}</CardTitle>
-                  {hm?.zone_recrutement && <CardDescription>{hm.zone_recrutement}</CardDescription>}
+                  <CardDescription>
+                    {[hm?.zone_recrutement, t("ckd.comptes", { count: g.propositions.length })].filter(Boolean).join(" · ")}
+                  </CardDescription>
                 </CardHeader>
-                <CardContent className="divide-y">
+                <CardContent className="divide-y divide-border/60">
                   {g.propositions.map((p) => (
                     <LigneProposition
                       key={p.id}
@@ -402,6 +458,92 @@ function VueControles({ type }: { type: TypeControle }) {
           )}
         </>
       )}
+    </div>
+  );
+}
+
+/**
+ * Où en est le contrôle, en quatre chiffres : ce qui est proposé, ce qui
+ * attend une décision (en rouge une fois le dimanche midi passé), ce qui est
+ * prêt à partir aux HMs, et ce qui est déjà parti.
+ */
+function ChiffresControle({ type, controle, liste }: { type: TypeControle; controle: ControleCkd; liste: PropositionCkd[] }) {
+  const { t } = useTranslation();
+  const date = useDate();
+  const compte = compterActions(liste);
+  const sansDecision = liste.filter((p) => !p.decision).length;
+  const retards = liste.filter((p) => enRetard(p, type)).length;
+  const prets = liste.filter(aEnvoyer).length;
+  const envoyees = liste.filter((p) => p.envoye_at).length;
+  const attenteCompte = liste.filter(
+    (p) => p.decision && creeUnCompte(p.decision) && !p.nouveau_compte_id && !p.envoye_at,
+  ).length;
+
+  // Le samedi, les propositions par action ; le jeudi, tout est nudge : on compte les motifs.
+  let repartition: string;
+  if (type === "jeudi") {
+    const motifs = new Map<string, number>();
+    for (const p of liste) for (const m of p.donnees.motifs) motifs.set(m, (motifs.get(m) ?? 0) + 1);
+    repartition = [...motifs.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .map(([m, n]) => `${n} ${t(`ckd.motifs.${m}`)}`)
+      .join(" · ");
+  } else {
+    repartition = ORDRE_ACTIONS.filter((a) => compte[a] > 0)
+      .map((a) => `${compte[a]} ${t(`ckd.actionsCourtes.${a}`)}`)
+      .join(" · ");
+  }
+
+  const heure = { weekday: "short", day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" } as const;
+  return (
+    <div data-testid="chiffres-ckd">
+      <StatGroup>
+        <StatTile
+          label={t(type === "jeudi" ? "ckd.chiffres.nudges" : "ckd.chiffres.propositions")}
+          value={liste.length}
+          detail={repartition || undefined}
+        />
+        <StatTile
+          label={t("ckd.chiffres.sansDecision")}
+          value={sansDecision}
+          tone={retards > 0 ? "alerte" : "neutre"}
+          detail={
+            retards > 0
+              ? t("ckd.enRetard", { n: retards })
+              : sansDecision === 0
+                ? undefined
+                : type === "samedi"
+                  ? t("ckd.chiffres.avantDimanche")
+                  : t("ckd.chiffres.nudgesDUnCoup")
+          }
+        />
+        <StatTile
+          label={t("ckd.chiffres.aEnvoyer")}
+          value={prets}
+          detail={
+            attenteCompte > 0
+              ? t("ckd.chiffres.attenteCompte", { n: attenteCompte })
+              : prets === 0
+                ? undefined
+                : type === "samedi"
+                  ? t("ckd.chiffres.partentSeules")
+                  : t("ckd.chiffres.auClic")
+          }
+        />
+        <StatTile
+          label={t("ckd.chiffres.envoyees")}
+          value={envoyees}
+          detail={
+            controle.rappel_at
+              ? t("ckd.rappelEnvoye", { date: date(controle.rappel_at, heure) })
+              : controle.slack_ts
+                ? t("ckd.recapPoste")
+                : envoyees === 0
+                  ? t("ckd.chiffres.rien")
+                  : undefined
+          }
+        />
+      </StatGroup>
     </div>
   );
 }
@@ -432,32 +574,43 @@ function CarteManques({
   return (
     <Card data-testid="carte-manques">
       <CardHeader>
-        <CardTitle className="text-base">{t("ckd.manques.titre", { n: lignes.length })}</CardTitle>
-        <CardDescription>{t("ckd.manques.aide")}</CardDescription>
+        <CardTitle className="flex items-center gap-2 text-base">
+          {t("ckd.manques.titre", { n: lignes.length })}
+          <Aide libelle={t("ckd.manques.titre", { n: lignes.length })}>{t("ckd.manques.aide")}</Aide>
+        </CardTitle>
+        <CardDescription>{t("ckd.aidesCourtes.manques")}</CardDescription>
       </CardHeader>
-      <CardContent className="overflow-x-auto">
-        <table className="w-full text-xs">
-          <thead className="text-left text-muted-foreground">
-            <tr>
-              <th className="py-1 pr-3 font-medium">{t("ckd.manques.compte")}</th>
-              <th className="py-1 pr-3 font-medium">{t("ckd.hm")}</th>
-              <th className="py-1 pr-3 text-right font-medium">{t("ckd.manques.publies")}</th>
-              <th className="py-1 font-medium">{t("ckd.manques.jours")}</th>
+      <CardContent className="relative overflow-x-auto">
+        <table className="w-full border-collapse text-sm">
+          <thead>
+            <tr className="border-b">
+              <th className={TH}>{t("ckd.manques.compte")}</th>
+              <th className={TH}>{t("ckd.hm")}</th>
+              <th className={cn(TH, "text-right")}>{t("ckd.manques.publies")}</th>
+              <th className={cn(TH, "hidden w-32 sm:table-cell")}>
+                <span className="sr-only">{t("ckd.manques.publies")}</span>
+              </th>
+              <th className={TH}>{t("ckd.manques.jours")}</th>
             </tr>
           </thead>
-          <tbody className="divide-y">
+          <tbody>
             {lignes.map((m) => (
-              <tr key={m.compte_id} data-testid={`manque-${m.handle}`}>
-                <td className="py-1 pr-3">
-                  <Link to={`/admin/createurs/${m.compte_id}`} className="underline-offset-2 hover:underline">
+              <tr key={m.compte_id} className={LIGNE} data-testid={`manque-${m.handle}`}>
+                <td className={TD}>
+                  <Link to={`/admin/createurs/${m.compte_id}`} className="whitespace-nowrap underline-offset-2 hover:underline">
                     {drapeauPays(m.pays)} @{m.handle}
                   </Link>
                 </td>
-                <td className="py-1 pr-3">{m.hm_id ? nomPersonne(parId.get(m.hm_id)) : t("ckd.sansHm")}</td>
-                <td className="py-1 pr-3 text-right tabular-nums">
+                <td className={cn(TD, "whitespace-nowrap text-muted-foreground")}>
+                  {m.hm_id ? nomPersonne(parId.get(m.hm_id)) : t("ckd.sansHm")}
+                </td>
+                <td className={cn(TD, "text-right tabular-nums")}>
                   {m.publies}/{m.prevus}
                 </td>
-                <td className="py-1 text-muted-foreground">{m.jours.map((j) => date(j)).join(", ")}</td>
+                <td className={cn(TD, "hidden sm:table-cell")}>
+                  <PartPubliee publies={m.publies} prevus={m.prevus} />
+                </td>
+                <td className={cn(TD, "text-xs text-muted-foreground")}>{m.jours.map((j) => date(j)).join(", ")}</td>
               </tr>
             ))}
           </tbody>
@@ -467,15 +620,85 @@ function CarteManques({
   );
 }
 
+/** Publiés sur prévus : la barre pleine, c'est tout publié ; le vide, ce qui manque. */
+function PartPubliee({ publies, prevus }: { publies: number; prevus: number }) {
+  const part = prevus > 0 ? Math.min(1, publies / prevus) : 0;
+  return (
+    <div className="mt-1.5 h-2 w-full rounded-[3px] bg-muted" aria-hidden>
+      <div
+        className={cn("h-full rounded-r-[4px]", part < 0.8 ? "bg-warning" : "bg-foreground/70")}
+        style={{ width: `${part * 100}%` }}
+      />
+    </div>
+  );
+}
+
 function LienPost({ post }: { post: { vues: number; url: string; jour: string } | null }) {
   const date = useDate();
   if (!post) return <span className="text-muted-foreground">—</span>;
   return (
     <a href={post.url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 underline-offset-2 hover:underline">
       <span className="tabular-nums">{post.vues.toLocaleString()}</span>
-      <span className="text-muted-foreground">({date(post.jour)})</span>
-      <ExternalLink className="size-3" />
+      <span className="font-normal text-muted-foreground">({date(post.jour)})</span>
+      <ExternalLink className="size-3 text-muted-foreground" />
     </a>
+  );
+}
+
+function PastilleAction({ action }: { action: ActionCkd }) {
+  const { t } = useTranslation();
+  return (
+    <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border px-2 py-0.5 text-xs font-medium">
+      <span className={cn("size-1.5 rounded-full", POINT_ACTION[action])} aria-hidden />
+      {t(`ckd.actions.${action}`)}
+    </span>
+  );
+}
+
+/** Un chiffre de la proposition : intitulé en petites capitales, la valeur, une ligne de détail. */
+function Mesure({
+  label,
+  children,
+  detail,
+  ton,
+}: {
+  label: string;
+  children: React.ReactNode;
+  detail?: React.ReactNode;
+  ton?: "alerte" | "attention";
+}) {
+  return (
+    <div className="min-w-0">
+      <dt className={MICRO_LABEL}>{label}</dt>
+      <dd
+        className={cn(
+          "mt-0.5 text-sm font-medium tabular-nums",
+          ton === "alerte" && "text-destructive",
+          ton === "attention" && "text-warning-foreground",
+        )}
+      >
+        {children}
+      </dd>
+      {detail ? <dd className="text-xs text-muted-foreground">{detail}</dd> : null}
+    </div>
+  );
+}
+
+/**
+ * La médiane du compte face à celle de référence (le trait). En rouge quand
+ * c'est elle qui fait proposer le compte : un compte ancien sous la part de la
+ * médiane du pays.
+ */
+function BarreMediane({ valeur, reference, alerte }: { valeur: number; reference: number; alerte: boolean }) {
+  const max = Math.max(reference * 1.25, valeur, 1);
+  return (
+    <div className="relative mt-1.5 h-1.5 w-full max-w-36 rounded-[3px] bg-muted" aria-hidden>
+      <div
+        className={cn("h-full rounded-r-[4px]", alerte ? "bg-destructive" : "bg-foreground/70")}
+        style={{ width: `${(100 * valeur) / max}%` }}
+      />
+      <div className="absolute -top-0.5 h-[calc(100%+0.25rem)] w-px bg-foreground/60" style={{ left: `${(100 * reference) / max}%` }} />
+    </div>
   );
 }
 
@@ -502,27 +725,49 @@ function LigneProposition({
   const per = d.periode;
   const tiktok = lienTiktok(d.handle);
   const manques = per.attendus - per.publies;
+  const reference = d.mediane_ref.valeur ?? 0;
+  const mediane = typeof per.mediane === "number" ? per.mediane : null;
+  const part = d.reglages.part_mediane_pays?.v;
+  const sousLaPart = p.regle === "anciens" && typeof part === "number" && mediane !== null && mediane < reference * part;
+
+  // Qui poste, où, pour quelle appli, sur quel label : une ligne, l'appli par son logo.
+  const contexte: React.ReactNode[] = [];
+  if (nomPersonne(poster)) contexte.push(nomPersonne(poster));
+  if (p.pays) contexte.push(nomPaysIso(p.pays));
+  if (p.application) contexte.push(<LogoApplication key="app" slug={p.application} taille="xs" />);
+  if (label) contexte.push(<span key="label" className="font-mono">{label.nom}</span>);
 
   return (
-    <div className="space-y-2 py-3" data-testid={`proposition-${d.handle}`}>
-      <div className="flex flex-wrap items-center gap-2">
-        <Badge variant={VARIANTE[p.action]}>{t(`ckd.actions.${p.action}`)}</Badge>
-        <span className="font-medium">
+    <div className="space-y-3 py-4 first:pt-0 last:pb-0" data-testid={`proposition-${d.handle}`}>
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+        <PastilleAction action={p.action} />
+        <Link
+          to={`/admin/createurs/${p.compte_id}`}
+          title={t("ckd.ficheCompte")}
+          className="font-medium underline-offset-2 hover:underline"
+        >
           {drapeauPays(p.pays)} @{d.handle}
-        </span>
+        </Link>
         {tiktok && (
-          <a href={tiktok} target="_blank" rel="noreferrer" className="text-xs text-muted-foreground underline-offset-2 hover:underline">
-            TikTok <ExternalLink className="inline size-3" />
+          <a
+            href={tiktok}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-0.5 text-xs text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+          >
+            TikTok <ExternalLink className="size-3" />
           </a>
         )}
-        <Link to={`/admin/createurs/${p.compte_id}`} className="text-xs text-muted-foreground underline-offset-2 hover:underline">
-          {t("ckd.ficheCompte")}
-        </Link>
-        <span className="text-xs text-muted-foreground">
-          {[nomPersonne(poster), nomPaysIso(p.pays), p.application, label?.nom].filter(Boolean).join(" · ")}
+        <span className="inline-flex flex-wrap items-center gap-x-1.5 text-xs text-muted-foreground">
+          {contexte.map((c, i) => (
+            <React.Fragment key={i}>
+              {i > 0 && <span aria-hidden>·</span>}
+              {c}
+            </React.Fragment>
+          ))}
         </span>
         {d.abonnes !== null && d.abonnes !== undefined && (
-          <Badge variant="outline">{t("ckd.abonnes", { n: d.abonnes.toLocaleString() })}</Badge>
+          <span className="text-xs tabular-nums text-muted-foreground">{t("ckd.abonnes", { n: d.abonnes.toLocaleString() })}</span>
         )}
       </div>
 
@@ -531,93 +776,98 @@ function LigneProposition({
         {d.motifs.length > 0 && (
           <span className="ml-2 inline-flex flex-wrap gap-1 align-middle">
             {d.motifs.map((m) => (
-              <Badge key={m} variant="info" size="sm">
+              <span key={m} className="rounded-full border px-1.5 py-px text-[11px] text-muted-foreground">
                 {t(`ckd.motifs.${m}`)}
-              </Badge>
+              </span>
             ))}
           </span>
         )}
       </p>
 
-      <dl className="grid gap-x-6 gap-y-1 text-xs sm:grid-cols-2 lg:grid-cols-3">
-        <div>
-          <dt className="text-muted-foreground">{t("ckd.periode")}</dt>
-          <dd>{t("ckd.periodeValeur", { du: date(per.du), au: date(per.au) })}</dd>
-        </div>
-        <div>
-          <dt className="text-muted-foreground">{t("ckd.publies")}</dt>
-          <dd className={cn(manques > 0 && "text-warning-foreground")}>
-            {t("ckd.publiesValeur", { publies: per.publies, attendus: per.attendus, mesures: per.mesures })}
-            {per.liens_manquants.length > 0 && (
-              <span className="ml-1">
-                · {t("ckd.liensManquants", { jours: per.liens_manquants.map((l) => date(l.jour)).join(", ") })}
-              </span>
-            )}
-          </dd>
-        </div>
-        <div>
-          <dt className="text-muted-foreground">{t("ckd.medianeMoyenne")}</dt>
-          <dd className="tabular-nums">
-            {(per.mediane ?? 0).toLocaleString()} / {(per.moyenne ?? 0).toLocaleString()}
-            <span className="ml-1 text-muted-foreground">
-              {t("ckd.medianeRef", {
-                valeur: (d.mediane_ref.valeur ?? 0).toLocaleString(),
-                source: t(`ckd.sourcesMediane.${d.mediane_ref.source}`),
-                n: d.mediane_ref.n_comptes,
-              })}
+      <dl className="grid grid-cols-2 gap-x-6 gap-y-3 sm:grid-cols-3 lg:grid-cols-5">
+        <Mesure label={t("ckd.mesures.periode")}>{t("ckd.periodeValeur", { du: date(per.du), au: date(per.au) })}</Mesure>
+        <Mesure
+          label={t("ckd.mesures.publies")}
+          ton={manques > 0 ? "attention" : undefined}
+          detail={[
+            t("ckd.mesures.releves", { n: per.mesures }),
+            per.liens_manquants.length > 0
+              ? t("ckd.liensManquants", { jours: per.liens_manquants.map((l) => date(l.jour)).join(", ") })
+              : null,
+          ]
+            .filter(Boolean)
+            .join(" · ")}
+        >
+          {per.publies}/{per.attendus}
+        </Mesure>
+        <Mesure
+          label={t("ckd.mesures.mediane")}
+          ton={sousLaPart ? "alerte" : undefined}
+          detail={t("ckd.medianeRef", {
+            valeur: reference.toLocaleString(),
+            source: t(`ckd.sourcesMediane.${d.mediane_ref.source}`),
+            n: d.mediane_ref.n_comptes,
+          })}
+        >
+          {mediane !== null ? mediane.toLocaleString() : "—"}
+          {mediane !== null && reference > 0 && <BarreMediane valeur={mediane} reference={reference} alerte={sousLaPart} />}
+        </Mesure>
+        <Mesure
+          label={t("ckd.mesures.meilleur")}
+          detail={
+            <span className="inline-flex flex-wrap items-center gap-1">
+              {t("ckd.mesures.plusBas")} <LienPost post={per.bas} />
             </span>
-          </dd>
-        </div>
-        <div>
-          <dt className="text-muted-foreground">{t("ckd.plusBas")}</dt>
-          <dd>
-            <LienPost post={per.bas} />
-          </dd>
-        </div>
-        <div>
-          <dt className="text-muted-foreground">{t("ckd.plusHaut")}</dt>
-          <dd>
-            <LienPost post={per.haut} />
-          </dd>
-        </div>
-        <div>
-          <dt className="text-muted-foreground">{t("ckd.seuilBon")}</dt>
-          <dd className="tabular-nums">
-            {d.seuil_bon_post.valeur.toLocaleString()}{" "}
-            <span className="text-muted-foreground">({t(`ckd.sources.${d.seuil_bon_post.source}`)})</span>
-            {" · "}
-            {t("ckd.bonsMorts", { bons: per.bons, morts: per.morts })}
-          </dd>
-        </div>
+          }
+        >
+          <LienPost post={per.haut} />
+        </Mesure>
+        <Mesure
+          label={t("ckd.mesures.bonsMorts")}
+          detail={t("ckd.mesures.seuil", {
+            n: d.seuil_bon_post.valeur.toLocaleString(),
+            source: t(`ckd.sources.${d.seuil_bon_post.source}`),
+          })}
+        >
+          {per.bons} / {per.morts}
+        </Mesure>
       </dl>
 
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground">
-        <span>{t("ckd.recreations", { n: d.recreations })}</span>
-        {d.autres_comptes.length > 0 && (
-          <span>
-            {t("ckd.autresComptes")}{" "}
-            {d.autres_comptes.map((c, i) => (
-              <React.Fragment key={c.id}>
-                {i > 0 && ", "}
-                <Link to={`/admin/createurs/${c.id}`} className={cn("underline-offset-2 hover:underline", !c.actif && "line-through")}>
-                  @{c.handle ?? "?"}
-                </Link>
-              </React.Fragment>
-            ))}
-          </span>
-        )}
-        <details>
-          <summary className="cursor-pointer">{t("ckd.seuilsAppliques")}</summary>
-          <ul className="mt-1 grid gap-x-6 sm:grid-cols-2">
-            {REGLAGES.filter((r) => d.reglages[r.cle]).map((r) => (
-              <li key={r.cle}>
-                {t(`ckd.reglages.${r.cle}`)} : {formaterValeur(r, d.reglages[r.cle].v, t("ckd.oui"), t("ckd.non"))}{" "}
-                <span>({t(`ckd.sources.${d.reglages[r.cle].s}`)})</span>
-              </li>
-            ))}
-          </ul>
-        </details>
-      </div>
+      <details className="group text-xs text-muted-foreground">
+        <summary className="inline-flex cursor-pointer list-none items-center gap-1 select-none hover:text-foreground [&::-webkit-details-marker]:hidden">
+          <ChevronRight className="size-3.5 transition-transform group-open:rotate-90" aria-hidden />
+          {t("ckd.details")}
+        </summary>
+        <div className="mt-2 space-y-2 pl-4.5">
+          <p>
+            {t("ckd.mesures.moyenne", { n: (per.moyenne ?? 0).toLocaleString() })} · {t("ckd.recreations", { n: d.recreations })}
+          </p>
+          {d.autres_comptes.length > 0 && (
+            <p>
+              {t("ckd.autresComptes")}{" "}
+              {d.autres_comptes.map((c, i) => (
+                <React.Fragment key={c.id}>
+                  {i > 0 && ", "}
+                  <Link to={`/admin/createurs/${c.id}`} className={cn("underline-offset-2 hover:underline", !c.actif && "line-through")}>
+                    @{c.handle ?? "?"}
+                  </Link>
+                </React.Fragment>
+              ))}
+            </p>
+          )}
+          <div>
+            <p className="font-medium text-foreground/80">{t("ckd.seuilsAppliques")}</p>
+            <ul className="mt-1 grid gap-x-6 sm:grid-cols-2">
+              {REGLAGES.filter((r) => d.reglages[r.cle]).map((r) => (
+                <li key={r.cle}>
+                  {t(`ckd.reglages.${r.cle}`)} : {formaterValeur(r, d.reglages[r.cle].v, t("ckd.oui"), t("ckd.non"))}{" "}
+                  <span>({t(`ckd.sources.${d.reglages[r.cle].s}`)})</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </details>
 
       <BlocDecision p={p} type={type} decideur={decideur} arret={arret} nouveauHandle={nouveauHandle} />
     </div>
@@ -677,7 +927,7 @@ function BlocDecision({
           {BOUTONS_PAR_REGLE[p.regle].map((b) => (
             <Button
               key={b}
-              size="xs"
+              size="sm"
               variant={choix === b ? "default" : "outline"}
               disabled={decider.isPending}
               onClick={() => {
@@ -688,33 +938,38 @@ function BlocDecision({
               {t(`ckd.boutons.${b}`)}
             </Button>
           ))}
-          {enRetard(p, type) && <Badge variant="warning">{t("ckd.retard")}</Badge>}
+          {enRetard(p, type) && <span className="ml-1 text-xs font-semibold text-destructive">{t("ckd.retard")}</span>}
         </div>
         {choix && (
-          <div className="flex flex-wrap items-center gap-2 rounded-md bg-muted/50 p-2 text-xs">
-            <span>{t(`ckd.consequences.${DECISION_DU_BOUTON[choix]}`, { handle: p.donnees.handle })}</span>
+          <div className="space-y-2.5 rounded-lg border bg-muted/40 p-3 text-xs">
+            <p className="text-sm">{t(`ckd.consequences.${DECISION_DU_BOUTON[choix]}`, { handle: p.donnees.handle })}</p>
             {nudge ? (
-              <PanneauNudge handle={p.donnees.handle} perso={perso} />
-            ) : (
-              <Input
-                className="h-7 max-w-xs text-xs"
-                placeholder={t("ckd.notePlaceholder")}
-                aria-label={t("ckd.note")}
-                value={note}
-                onChange={(e) => setNote(e.target.value)}
-              />
-            )}
-            <Button
-              size="xs"
-              loading={decider.isPending}
-              disabled={nudge && perso.bloquant}
-              onClick={() => decider.mutate(choix)}
-            >
-              {t("ckd.confirmer", { action: t(`ckd.boutons.${choix}`) })}
-            </Button>
-            <Button size="xs" variant="ghost" disabled={decider.isPending} onClick={fermer}>
-              {t("common.cancel")}
-            </Button>
+              <div className="grid gap-2 lg:grid-cols-2">
+                <PanneauNudge handle={p.donnees.handle} perso={perso} />
+              </div>
+            ) : null}
+            <div className="flex flex-wrap items-center gap-2">
+              {!nudge && (
+                <Input
+                  className="h-8 max-w-xs text-xs"
+                  placeholder={t("ckd.notePlaceholder")}
+                  aria-label={t("ckd.note")}
+                  value={note}
+                  onChange={(e) => setNote(e.target.value)}
+                />
+              )}
+              <Button
+                size="sm"
+                loading={decider.isPending}
+                disabled={nudge && perso.bloquant}
+                onClick={() => decider.mutate(choix)}
+              >
+                {t("ckd.confirmer", { action: t(`ckd.boutons.${choix}`) })}
+              </Button>
+              <Button size="sm" variant="ghost" disabled={decider.isPending} onClick={fermer}>
+                {t("common.cancel")}
+              </Button>
+            </div>
           </div>
         )}
         {(erreur || p.erreur) && (
@@ -743,27 +998,31 @@ function BlocDecision({
   if (p.fait_at) statut.push(t("ckd.statut.fait", { date: date(p.fait_at, heure) }));
 
   return (
-    <div className="space-y-1 rounded-md border px-3 py-2 text-xs" data-testid={`decision-${p.donnees.handle}`}>
-      <div className="flex flex-wrap items-center gap-2">
-        <Badge variant="outline">{t(`ckd.boutons.${boutonDeLaDecision(p.decision)}`)}</Badge>
-        <span className="text-muted-foreground">
-          {t("ckd.decidePar", { nom: nomPersonne(decideur) || "?", date: date(p.decision_at, heure) })}
-        </span>
-        {p.nouveau_compte_id && (
-          <Link to={`/admin/createurs/${p.nouveau_compte_id}`} className="underline-offset-2 hover:underline">
-            @{nouveauHandle ?? "…"}
-          </Link>
-        )}
-        {annulable(p, arret) && (
-          <Button className="ml-auto" size="xs" variant="ghost" loading={annuler.isPending} onClick={() => annuler.mutate()}>
-            {t("ckd.annuler")}
-          </Button>
-        )}
-      </div>
-      {statut.length > 0 && <p>{statut.join(" · ")}</p>}
-      {p.note && <p className="text-muted-foreground">{t("ckd.noteValeur", { note: p.note })}</p>}
+    <div
+      className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-lg border bg-muted/30 px-3 py-2 text-xs"
+      data-testid={`decision-${p.donnees.handle}`}
+    >
+      <span className="inline-flex items-center gap-1.5 text-sm font-medium">
+        <Check className="size-3.5" aria-hidden />
+        {t(`ckd.boutons.${boutonDeLaDecision(p.decision)}`)}
+      </span>
+      <span className="text-muted-foreground">
+        {t("ckd.decidePar", { nom: nomPersonne(decideur) || "?", date: date(p.decision_at, heure) })}
+      </span>
+      {p.nouveau_compte_id && (
+        <Link to={`/admin/createurs/${p.nouveau_compte_id}`} className="underline-offset-2 hover:underline">
+          @{nouveauHandle ?? "…"}
+        </Link>
+      )}
+      {statut.length > 0 && <span>{statut.join(" · ")}</span>}
+      {annulable(p, arret) && (
+        <Button className="ml-auto" size="xs" variant="ghost" loading={annuler.isPending} onClick={() => annuler.mutate()}>
+          {t("ckd.annuler")}
+        </Button>
+      )}
+      {p.note && <p className="basis-full text-muted-foreground">{t("ckd.noteValeur", { note: p.note })}</p>}
       {(erreur || p.erreur) && (
-        <p role="alert" className="text-destructive">
+        <p role="alert" className="basis-full text-destructive">
           {erreur ? messageErreur(erreur) : p.erreur}
         </p>
       )}
@@ -835,7 +1094,7 @@ function PanneauNudge({ handle, perso }: { handle: string | null | undefined; pe
   const champ = "w-full rounded-md border border-input bg-background px-2 py-1 text-xs shadow-sm";
   return (
     <>
-      <div className="basis-full space-y-1.5 rounded-md border bg-background p-2" data-testid={`texte-nudge-${handle}`}>
+      <div className="min-w-0 space-y-1.5 rounded-md border bg-background p-2.5" data-testid={`texte-nudge-${handle}`}>
         <p className="font-medium">{t("ckd.texteNudge.titre")}</p>
         <p className="text-muted-foreground">{t("ckd.texteNudge.aide")}</p>
         {perso.apercuPopup.isLoading ? (
@@ -873,7 +1132,7 @@ function PanneauNudge({ handle, perso }: { handle: string | null | undefined; pe
         )}
       </div>
 
-      <div className="basis-full space-y-1.5 rounded-md border bg-background p-2" data-testid={`message-hm-${handle}`}>
+      <div className="min-w-0 space-y-1.5 rounded-md border bg-background p-2.5" data-testid={`message-hm-${handle}`}>
         <label className="flex items-center gap-2 font-medium">
           <input type="checkbox" checked={perso.suiviHm} onChange={(e) => perso.setSuiviHm(e.target.checked)} />
           {t("ckd.messageHm.suivi")}
@@ -920,10 +1179,11 @@ function PanneauNudge({ handle, perso }: { handle: string | null | undefined; pe
 // Historique : ce que les décisions sont devenues (0329)
 // ---------------------------------------------------------------------------
 
-const VARIANTE_TENDANCE: Record<Tendance, "success" | "error" | "outline"> = {
-  hausse: "success",
-  baisse: "error",
-  stable: "outline",
+/** Hausse et baisse en couleur, stable en gris : la couleur ne sert qu'à ce qui bouge. */
+const COULEUR_TENDANCE: Record<Tendance, string> = {
+  hausse: "var(--success)",
+  stable: "var(--muted-foreground)",
+  baisse: "var(--destructive)",
 };
 
 /**
@@ -962,24 +1222,13 @@ function VueHistorique() {
   return (
     <Card data-testid="vue-historique">
       <CardHeader>
-        <CardTitle className="text-base">{t("ckd.historique.titre")}</CardTitle>
-        <CardDescription>{t("ckd.historique.aide")}</CardDescription>
-      </CardHeader>
-      <CardContent className="space-y-3">
-        {historique.isPending ? (
-          <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
-        ) : lignes.length === 0 ? (
-          <EmptyState title={t("ckd.historique.vide")} />
-        ) : (
-          <>
-            <ul className="space-y-0.5 text-xs" data-testid="resume-historique">
-              {resume.map((r) => (
-                <li key={r.decision}>
-                  <span className="font-medium">{t(`ckd.decisions.${r.decision}`)}</span> :{" "}
-                  {t("ckd.historique.resume", { ...r })}
-                </li>
-              ))}
-            </ul>
+        <CardTitle className="flex items-center gap-2">
+          {t("ckd.historique.titre")}
+          <Aide libelle={t("ckd.historique.titre")}>{t("ckd.historique.aide")}</Aide>
+        </CardTitle>
+        <CardDescription>{t("ckd.aidesCourtes.historique")}</CardDescription>
+        {lignes.length > 0 && (
+          <CardAction>
             <select
               className={selectClass}
               aria-label={t("ckd.historique.filtre")}
@@ -993,19 +1242,30 @@ function VueHistorique() {
                 </option>
               ))}
             </select>
-            <div className="overflow-x-auto">
-              <table className="w-full text-xs">
-                <thead className="text-left text-muted-foreground">
-                  <tr>
-                    <th className="py-1 pr-3 font-medium">{t("ckd.historique.colonnes.decision")}</th>
-                    <th className="py-1 pr-3 font-medium">{t("ckd.historique.colonnes.compte")}</th>
-                    <th className="py-1 pr-3 font-medium">{t("ckd.historique.colonnes.avant")}</th>
-                    <th className="py-1 pr-3 font-medium">{t("ckd.historique.colonnes.apres")}</th>
-                    <th className="py-1 pr-3 font-medium">{t("ckd.historique.colonnes.nouveau")}</th>
-                    <th className="py-1 font-medium">{t("ckd.historique.colonnes.tendance")}</th>
+          </CardAction>
+        )}
+      </CardHeader>
+      <CardContent className="space-y-6">
+        {historique.isPending ? (
+          <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
+        ) : lignes.length === 0 ? (
+          <EmptyState title={t("ckd.historique.vide")} />
+        ) : (
+          <>
+            <ResumeHistorique resume={resume} filtre={filtre} onFiltre={setFiltre} />
+            <div className="relative overflow-x-auto">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="border-b">
+                    <th className={TH}>{t("ckd.historique.colonnes.decision")}</th>
+                    <th className={TH}>{t("ckd.historique.colonnes.compte")}</th>
+                    <th className={TH}>{t("ckd.historique.colonnes.avant")}</th>
+                    <th className={TH}>{t("ckd.historique.colonnes.apres")}</th>
+                    <th className={TH}>{t("ckd.historique.colonnes.nouveau")}</th>
+                    <th className={TH}>{t("ckd.historique.colonnes.tendance")}</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y">
+                <tbody>
                   {visibles.map((h) => (
                     <LigneHistorique key={h.id} h={h} poster={parId.get(h.poster_id)} decideur={h.decision_par ? parId.get(h.decision_par) : undefined} />
                   ))}
@@ -1016,6 +1276,72 @@ function VueHistorique() {
         )}
       </CardContent>
     </Card>
+  );
+}
+
+/**
+ * Une ligne par décision : combien, combien suivies jusqu'au bout, et ce que
+ * ces dernières sont devenues. Un clic sur la ligne filtre le tableau.
+ */
+function ResumeHistorique({
+  resume,
+  filtre,
+  onFiltre,
+}: {
+  resume: ResumeDecision[];
+  filtre: DecisionCkd | "";
+  onFiltre: (d: DecisionCkd | "") => void;
+}) {
+  const { t } = useTranslation();
+  return (
+    <div className="relative overflow-x-auto">
+      <table className="w-full border-collapse text-sm" data-testid="resume-historique">
+        <thead>
+          <tr className="border-b">
+            <th className={TH}>{t("ckd.resume.decision")}</th>
+            <th className={cn(TH, "text-right")}>{t("ckd.resume.total")}</th>
+            <th className={cn(TH, "text-right")}>{t("ckd.resume.suivies")}</th>
+            <th className={cn(TH, "w-1/2")}>{t("ckd.resume.apres")}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {resume.map((r) => (
+            <tr
+              key={r.decision}
+              title={t("ckd.resume.filtrer")}
+              className={cn(LIGNE, "cursor-pointer hover:bg-muted/50", filtre === r.decision && "bg-muted/60")}
+              onClick={() => onFiltre(filtre === r.decision ? "" : r.decision)}
+            >
+              <td className={cn(TD, "font-medium")}>{t(`ckd.decisions.${r.decision}`)}</td>
+              <td className={cn(TD, "text-right tabular-nums")}>{r.total}</td>
+              <td className={cn(TD, "text-right tabular-nums")}>{r.complets}</td>
+              <td className={TD}>
+                {r.complets === 0 ? (
+                  <span className="text-muted-foreground">—</span>
+                ) : (
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <div className="w-32 shrink-0">
+                      <BarreRepartition
+                        hauteur="sm"
+                        aria-label={t(`ckd.decisions.${r.decision}`)}
+                        segments={(["hausse", "stable", "baisse"] as const).map((k) => ({
+                          cle: k,
+                          valeur: r[k],
+                          couleur: COULEUR_TENDANCE[k],
+                          libelle: t(`ckd.resume.${k}`),
+                          valeurAffichee: String(r[k]),
+                        }))}
+                      />
+                    </div>
+                    <span className="text-xs text-muted-foreground">{t("ckd.resume.tendances", { ...r })}</span>
+                  </div>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
@@ -1037,29 +1363,29 @@ function LigneHistorique({ h, poster, decideur }: { h: HistoriqueCkd; poster?: P
   const tend = tendanceDecision(h);
   const pasCommence = !h.apres && !h.apres_nouveau && !h.arrete_at;
   return (
-    <tr className="align-top" data-testid={`historique-${h.handle}`}>
-      <td className="py-1.5 pr-3">
-        <Badge variant="outline">{t(`ckd.decisions.${h.decision}`)}</Badge>
-        <div className="mt-0.5 text-muted-foreground">
+    <tr className={cn(LIGNE, "text-xs")} data-testid={`historique-${h.handle}`}>
+      <td className={TD}>
+        <span className="text-sm font-medium">{t(`ckd.decisions.${h.decision}`)}</span>
+        <div className="mt-0.5 whitespace-nowrap text-muted-foreground">
           {t("ckd.historique.decide", { date: date(h.decision_at ?? h.jour), nom: nomPersonne(decideur) || "?" })}
         </div>
         {h.note && <div className="text-muted-foreground italic">{h.note}</div>}
       </td>
-      <td className="py-1.5 pr-3">
-        <Link to={`/admin/createurs/${h.compte_id}`} className="underline-offset-2 hover:underline">
+      <td className={TD}>
+        <Link to={`/admin/createurs/${h.compte_id}`} className="whitespace-nowrap text-sm underline-offset-2 hover:underline">
           {drapeauPays(h.pays)} @{h.handle}
         </Link>
         <div className="text-muted-foreground">
           {[nomPersonne(poster), t(`ckd.reglesCourtes.${h.regle}`)].filter(Boolean).join(" · ")}
         </div>
       </td>
-      <td className="py-1.5 pr-3">
+      <td className={TD}>
         <Chiffres c={h.avant} />
         {h.mediane_ref !== null && (
           <div className="text-muted-foreground">{t("ckd.historique.reference", { n: h.mediane_ref.toLocaleString() })}</div>
         )}
       </td>
-      <td className="py-1.5 pr-3">
+      <td className={TD}>
         {h.arrete_at ? (
           <span className="text-muted-foreground">{t("ckd.historique.arrete", { date: date(h.arrete_at) })}</span>
         ) : pasCommence ? (
@@ -1071,7 +1397,7 @@ function LigneHistorique({ h, poster, decideur }: { h: HistoriqueCkd; poster?: P
           <div className="text-muted-foreground">{t("ckd.historique.enCours", { date: date(h.au) })}</div>
         )}
       </td>
-      <td className="py-1.5 pr-3">
+      <td className={TD}>
         {h.nouveau_compte_id ? (
           <>
             <Link to={`/admin/createurs/${h.nouveau_compte_id}`} className="underline-offset-2 hover:underline">
@@ -1087,12 +1413,19 @@ function LigneHistorique({ h, poster, decideur }: { h: HistoriqueCkd; poster?: P
           <span className="text-muted-foreground">—</span>
         )}
       </td>
-      <td className="py-1.5">
+      <td className={TD}>
         {tend ? (
-          <Badge variant={VARIANTE_TENDANCE[tend]}>
+          <span
+            className={cn(
+              "whitespace-nowrap text-sm font-medium",
+              tend === "hausse" && "text-success-foreground",
+              tend === "baisse" && "text-destructive",
+              tend === "stable" && "text-muted-foreground",
+            )}
+          >
             {t(`ckd.historique.tendances.${tend}`)}
             {!h.complet && " *"}
-          </Badge>
+          </span>
         ) : (
           <span className="text-muted-foreground">—</span>
         )}
@@ -1126,16 +1459,35 @@ function VueReglages() {
   if (!reglages.data) return <p className="text-sm text-muted-foreground">{t("common.loading")}</p>;
 
   return (
-    <div className="space-y-5" data-testid="vue-reglages">
-      <CarteDefauts reglages={reglages.data} />
-      <CartePays reglages={reglages.data} pays={pays} />
-      <CarteExceptions reglages={reglages.data} labels={labels.data ?? []} pays={pays} />
-      <CartePartBons />
-      <CarteCanalSlack />
-      <CarteSlack />
-      <CarteTextesNudges />
+    <div className="space-y-8" data-testid="vue-reglages">
+      <section className="space-y-4">
+        <h2 className={MICRO_LABEL}>{t("ckd.sections.seuils")}</h2>
+        <CarteDefauts reglages={reglages.data} />
+        <CartePays reglages={reglages.data} pays={pays} />
+        <CarteExceptions reglages={reglages.data} labels={labels.data ?? []} pays={pays} />
+        <CartePartBons />
+      </section>
+      <section className="space-y-4">
+        <h2 className={MICRO_LABEL}>{t("ckd.sections.slack")}</h2>
+        <CarteCanalSlack />
+        <CarteSlack />
+        <CarteTextesNudges />
+      </section>
       <CarteJournal labels={labels.data ?? []} />
     </div>
+  );
+}
+
+/** Le titre d'une carte de réglages : le nom, son « i » pour le détail, une ligne pour l'essentiel. */
+function EnTeteReglage({ titre, aide, resume }: { titre: string; aide?: string; resume?: string }) {
+  return (
+    <CardHeader>
+      <CardTitle className="flex items-center gap-2 text-base">
+        {titre}
+        {aide && <Aide libelle={titre}>{aide}</Aide>}
+      </CardTitle>
+      {resume && <CardDescription>{resume}</CardDescription>}
+    </CardHeader>
   );
 }
 
@@ -1226,7 +1578,7 @@ function CelluleReglage({
       type="button"
       onClick={ouvrir}
       className={cn(
-        "rounded px-1.5 py-0.5 text-left text-xs tabular-nums hover:bg-accent",
+        "-mx-1.5 rounded px-1.5 py-0.5 text-left text-sm whitespace-nowrap tabular-nums hover:bg-accent",
         herite ? "text-muted-foreground" : "font-semibold text-foreground",
       )}
       title={herite ? t("ckd.herite") : t("ckd.remplace")}
@@ -1240,14 +1592,11 @@ function CarteDefauts({ reglages }: { reglages: ReglageCkd[] }) {
   const { t } = useTranslation();
   return (
     <Card>
-      <CardHeader>
-        <CardTitle className="text-base">{t("ckd.defauts")}</CardTitle>
-        <CardDescription>{t("ckd.defautsAide")}</CardDescription>
-      </CardHeader>
+      <EnTeteReglage titre={t("ckd.defauts")} aide={t("ckd.defautsAide")} resume={t("ckd.aidesCourtes.defauts")} />
       <CardContent>
-        <dl className="grid gap-x-6 gap-y-1.5 sm:grid-cols-2">
+        <dl className="grid gap-x-10 sm:grid-cols-2">
           {REGLAGES.map((r) => (
-            <div key={r.cle} className="flex items-center justify-between gap-3">
+            <div key={r.cle} className={cn(LIGNE, "flex items-center justify-between gap-3 py-1.5")}>
               <dt className="text-sm">{t(`ckd.reglages.${r.cle}`)}</dt>
               <dd>
                 <CelluleReglage def={r} reglages={reglages} pays={null} labelId={null} />
@@ -1265,30 +1614,27 @@ function CartePays({ reglages, pays }: { reglages: ReglageCkd[]; pays: string[] 
   const colonnes = REGLAGES.filter((r) => !r.global);
   return (
     <Card>
-      <CardHeader>
-        <CardTitle className="text-base">{t("ckd.parPays")}</CardTitle>
-        <CardDescription>{t("ckd.parPaysAide")}</CardDescription>
-      </CardHeader>
-      <CardContent className="overflow-x-auto">
-        <table className="w-full text-xs">
-          <thead className="text-left text-muted-foreground">
-            <tr>
-              <th className="py-1 pr-2 font-medium">{t("ckd.pays")}</th>
+      <EnTeteReglage titre={t("ckd.parPays")} aide={t("ckd.parPaysAide")} resume={t("ckd.aidesCourtes.parPays")} />
+      <CardContent className="relative overflow-x-auto">
+        <table className="w-full border-collapse text-sm">
+          <thead>
+            <tr className="border-b">
+              <th className={TH}>{t("ckd.pays")}</th>
               {colonnes.map((r) => (
-                <th key={r.cle} className="py-1 pr-2 font-medium">
+                <th key={r.cle} className={cn(TH, "align-bottom")} title={t(`ckd.reglages.${r.cle}`)}>
                   {t(`ckd.reglagesCourts.${r.cle}`)}
                 </th>
               ))}
             </tr>
           </thead>
-          <tbody className="divide-y">
+          <tbody>
             {pays.map((code) => (
-              <tr key={code}>
-                <td className="whitespace-nowrap py-1 pr-2">
+              <tr key={code} className={LIGNE}>
+                <td className={cn(TD, "whitespace-nowrap")}>
                   {drapeauPays(code)} {code}
                 </td>
                 {colonnes.map((r) => (
-                  <td key={r.cle} className="py-0.5 pr-2">
+                  <td key={r.cle} className="py-1 pr-4 last:pr-0">
                     <CelluleReglage def={r} reglages={reglages} pays={code} labelId={null} />
                   </td>
                 ))}
@@ -1330,35 +1676,50 @@ function CarteExceptions({ reglages, labels, pays }: { reglages: ReglageCkd[]; l
 
   return (
     <Card>
-      <CardHeader>
-        <CardTitle className="text-base">{t("ckd.exceptions")}</CardTitle>
-        <CardDescription>{t("ckd.exceptionsAide")}</CardDescription>
-      </CardHeader>
-      <CardContent className="space-y-3">
+      <EnTeteReglage titre={t("ckd.exceptions")} aide={t("ckd.exceptionsAide")} resume={t("ckd.aidesCourtes.exceptions")} />
+      <CardContent className="space-y-4">
         {exceptions.length === 0 ? (
           <p className="text-sm text-muted-foreground">{t("ckd.aucuneException")}</p>
         ) : (
-          <ul className="divide-y text-sm">
-            {exceptions.map((r) => {
-              const def = defReglage(r.cle);
-              return (
-                <li key={r.id} className="flex flex-wrap items-center gap-2 py-1.5">
-                  <Badge variant="outline">{labelParId.get(r.label_id ?? "")?.nom ?? r.label_id}</Badge>
-                  <span>{r.pays ? `${drapeauPays(r.pays)} ${r.pays}` : t("ckd.tousPays")}</span>
-                  <span className="text-muted-foreground">{t(`ckd.reglages.${r.cle}`)}</span>
-                  <span className="font-semibold">{formaterValeur(def, r.valeur, t("ckd.oui"), t("ckd.non"))}</span>
-                  <Button
-                    className="ml-auto"
-                    size="xs"
-                    variant="ghost"
-                    onClick={() => regler.mutate({ cle: r.cle, pays: r.pays, labelId: r.label_id, valeur: null })}
-                  >
-                    {t("common.delete")}
-                  </Button>
-                </li>
-              );
-            })}
-          </ul>
+          <div className="relative overflow-x-auto">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="border-b">
+                  <th className={TH}>{t("ckd.colonnesExceptions.label")}</th>
+                  <th className={TH}>{t("ckd.colonnesExceptions.pays")}</th>
+                  <th className={TH}>{t("ckd.colonnesExceptions.reglage")}</th>
+                  <th className={cn(TH, "text-right")}>{t("ckd.colonnesExceptions.valeur")}</th>
+                  <th className={TH}>
+                    <span className="sr-only">{t("common.delete")}</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {exceptions.map((r) => {
+                  const def = defReglage(r.cle);
+                  return (
+                    <tr key={r.id} className={LIGNE}>
+                      <td className={cn(TD, "font-mono")}>{labelParId.get(r.label_id ?? "")?.nom ?? r.label_id}</td>
+                      <td className={cn(TD, "whitespace-nowrap")}>{r.pays ? `${drapeauPays(r.pays)} ${r.pays}` : t("ckd.tousPays")}</td>
+                      <td className={cn(TD, "text-muted-foreground")}>{t(`ckd.reglages.${r.cle}`)}</td>
+                      <td className={cn(TD, "text-right font-semibold tabular-nums")}>
+                        {formaterValeur(def, r.valeur, t("ckd.oui"), t("ckd.non"))}
+                      </td>
+                      <td className="py-1 text-right">
+                        <Button
+                          size="xs"
+                          variant="ghost"
+                          onClick={() => regler.mutate({ cle: r.cle, pays: r.pays, labelId: r.label_id, valeur: null })}
+                        >
+                          {t("common.delete")}
+                        </Button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         )}
         <div className="flex flex-wrap items-end gap-2">
           <select className={selectClass} aria-label={t("ckd.label")} value={label} onChange={(e) => setLabel(e.target.value)}>
@@ -1407,37 +1768,48 @@ function CartePartBons() {
   const lignes = [...(part.data ?? [])].sort((a, b) => b.posts - a.posts);
   return (
     <Card>
-      <CardHeader>
-        <CardTitle className="text-base">{t("ckd.partBons")}</CardTitle>
-        <CardDescription>{t("ckd.partBonsAide")}</CardDescription>
-      </CardHeader>
-      <CardContent className="overflow-x-auto">
-        <table className="w-full text-xs">
-          <thead className="text-left text-muted-foreground">
-            <tr>
-              <th className="py-1 pr-3 font-medium">{t("ckd.pays")}</th>
-              <th className="py-1 pr-3 text-right font-medium">{t("ckd.seuilBon")}</th>
-              <th className="py-1 pr-3 text-right font-medium">{t("ckd.posts")}</th>
-              <th className="py-1 pr-3 text-right font-medium">{t("ckd.auDessus")}</th>
-              <th className="py-1 text-right font-medium">{t("ckd.medianePays")}</th>
+      <EnTeteReglage titre={t("ckd.partBons")} aide={t("ckd.partBonsAide")} resume={t("ckd.aidesCourtes.partBons")} />
+      <CardContent className="relative overflow-x-auto">
+        <table className="w-full border-collapse text-sm">
+          <thead>
+            <tr className="border-b">
+              <th className={TH}>{t("ckd.pays")}</th>
+              <th className={cn(TH, "text-right")}>{t("ckd.seuilBon")}</th>
+              <th className={cn(TH, "text-right")}>{t("ckd.posts")}</th>
+              <th className={cn(TH, "text-right")}>{t("ckd.auDessus")}</th>
+              <th className={cn(TH, "hidden w-32 sm:table-cell")}>
+                <span className="sr-only">{t("ckd.auDessus")}</span>
+              </th>
+              <th className={cn(TH, "text-right")}>{t("ckd.medianePays")}</th>
             </tr>
           </thead>
-          <tbody className="divide-y">
+          <tbody>
             {lignes.map((l) => {
               const pct = pourcentage(l.au_dessus, l.posts);
+              const horsCible = pct < 3 || pct > 12;
               return (
-                <tr key={l.pays}>
-                  <td className="py-1 pr-3">
+                <tr key={l.pays} className={LIGNE}>
+                  <td className={cn(TD, "whitespace-nowrap")}>
                     {drapeauPays(l.pays)} {nomPaysIso(l.pays)}
                   </td>
-                  <td className="py-1 pr-3 text-right tabular-nums">
-                    {l.seuil.toLocaleString()} <span className="text-muted-foreground">({t(`ckd.sources.${l.source}`)})</span>
+                  <td className={cn(TD, "whitespace-nowrap text-right tabular-nums")}>
+                    {l.seuil.toLocaleString()} <span className="text-xs text-muted-foreground">({t(`ckd.sources.${l.source}`)})</span>
                   </td>
-                  <td className="py-1 pr-3 text-right tabular-nums">{l.posts.toLocaleString()}</td>
-                  <td className={cn("py-1 pr-3 text-right tabular-nums", (pct < 3 || pct > 12) && "text-warning-foreground")}>
+                  <td className={cn(TD, "text-right tabular-nums")}>{l.posts.toLocaleString()}</td>
+                  <td className={cn(TD, "whitespace-nowrap text-right tabular-nums", horsCible && "font-semibold text-warning-foreground")}>
                     {pct.toLocaleString()} %
                   </td>
-                  <td className="py-1 text-right tabular-nums">{(l.mediane ?? 0).toLocaleString()}</td>
+                  <td className={cn(TD, "hidden sm:table-cell")}>
+                    {/* La cible : entre 3 et 12 % des posts au-dessus du seuil ; l'échelle s'arrête à 20 %. */}
+                    <div className="relative mt-1.5 h-2 w-full rounded-[3px] bg-muted" aria-hidden>
+                      <div className="absolute inset-y-0 bg-foreground/10" style={{ left: "15%", width: "45%" }} />
+                      <div
+                        className={cn("relative h-full rounded-r-[4px]", horsCible ? "bg-warning" : "bg-foreground/70")}
+                        style={{ width: `${Math.min(100, (100 * pct) / 20)}%` }}
+                      />
+                    </div>
+                  </td>
+                  <td className={cn(TD, "text-right tabular-nums")}>{(l.mediane ?? 0).toLocaleString()}</td>
                 </tr>
               );
             })}
@@ -1459,11 +1831,11 @@ function LigneSlack({ hm }: { hm: HmCkd }) {
   const valide = texte.trim() === "" || /^[UW][A-Z0-9]{6,}$/.test(texte.trim());
   const change = texte.trim() !== (hm.slack_user_id ?? "");
   return (
-    <tr>
-      <td className="py-1 pr-3">{hm.nom}</td>
-      <td className="py-1 pr-3 text-muted-foreground">{hm.zone ?? "—"}</td>
-      <td className="py-1 pr-3 text-right tabular-nums">{hm.posters}</td>
-      <td className="py-1">
+    <tr className={LIGNE}>
+      <td className={cn(TD, "whitespace-nowrap")}>{hm.nom}</td>
+      <td className={cn(TD, "text-muted-foreground")}>{hm.zone ?? "—"}</td>
+      <td className={cn(TD, "text-right tabular-nums")}>{hm.posters}</td>
+      <td className="py-1.5">
         <div className="flex items-center gap-2">
           <Input
             className={cn("h-7 w-36 font-mono text-xs", !valide && "border-destructive")}
@@ -1478,7 +1850,7 @@ function LigneSlack({ hm }: { hm: HmCkd }) {
             </Button>
           )}
           {!hm.slack_user_id && !change && <Badge variant="warning">{t("ckd.slackManquant")}</Badge>}
-          {enregistrer.error && <span className="text-destructive">{messageErreur(enregistrer.error)}</span>}
+          {enregistrer.error && <span className="text-xs text-destructive">{messageErreur(enregistrer.error)}</span>}
         </div>
       </td>
     </tr>
@@ -1502,11 +1874,8 @@ function CarteCanalSlack() {
   const v = verifier.data;
   return (
     <Card data-testid="carte-canal-slack">
-      <CardHeader>
-        <CardTitle className="text-base">{t("ckd.canalSlack")}</CardTitle>
-        <CardDescription>{t("ckd.canalSlackAide")}</CardDescription>
-      </CardHeader>
-      <CardContent className="space-y-2 text-xs">
+      <EnTeteReglage titre={t("ckd.canalSlack")} aide={t("ckd.canalSlackAide")} resume={t("ckd.aidesCourtes.canalSlack")} />
+      <CardContent className="space-y-2 text-sm">
         <div className="flex flex-wrap items-center gap-2">
           <Input
             className="h-8 w-48 font-mono text-xs"
@@ -1560,28 +1929,27 @@ function CarteTextesNudges() {
     setBrouillon({ ...courant, [m]: { titre: courant[m]?.titre ?? "", corps: courant[m]?.corps ?? "", [champ]: v } });
   return (
     <Card data-testid="carte-textes-nudges">
-      <CardHeader>
-        <CardTitle className="text-base">{t("ckd.textesNudges")}</CardTitle>
-        <CardDescription>{t("ckd.textesNudgesAide")}</CardDescription>
-      </CardHeader>
-      <CardContent className="space-y-3 text-xs">
-        {MOTIFS_NUDGE.map((m) => (
-          <div key={m} className="space-y-1">
-            <p className="font-medium">{t(`ckd.motifsNudge.${m}`)}</p>
-            <Input
-              className="h-8 text-xs"
-              aria-label={t("ckd.titreNudge", { motif: t(`ckd.motifsNudge.${m}`) })}
-              value={courant[m]?.titre ?? ""}
-              onChange={(e) => changer(m, "titre", e.target.value)}
-            />
-            <textarea
-              className="min-h-16 w-full rounded-md border border-input bg-background px-2 py-1 text-xs shadow-sm"
-              aria-label={t("ckd.corpsNudge", { motif: t(`ckd.motifsNudge.${m}`) })}
-              value={courant[m]?.corps ?? ""}
-              onChange={(e) => changer(m, "corps", e.target.value)}
-            />
-          </div>
-        ))}
+      <EnTeteReglage titre={t("ckd.textesNudges")} aide={t("ckd.textesNudgesAide")} resume={t("ckd.aidesCourtes.textesNudges")} />
+      <CardContent className="space-y-4 text-xs">
+        <div className="grid gap-4 lg:grid-cols-2">
+          {MOTIFS_NUDGE.map((m) => (
+            <div key={m} className="space-y-1.5">
+              <p className={MICRO_LABEL}>{t(`ckd.motifsNudge.${m}`)}</p>
+              <Input
+                className="h-8 text-xs"
+                aria-label={t("ckd.titreNudge", { motif: t(`ckd.motifsNudge.${m}`) })}
+                value={courant[m]?.titre ?? ""}
+                onChange={(e) => changer(m, "titre", e.target.value)}
+              />
+              <textarea
+                className="min-h-20 w-full rounded-md border border-input bg-background px-2 py-1 text-xs shadow-sm"
+                aria-label={t("ckd.corpsNudge", { motif: t(`ckd.motifsNudge.${m}`) })}
+                value={courant[m]?.corps ?? ""}
+                onChange={(e) => changer(m, "corps", e.target.value)}
+              />
+            </div>
+          ))}
+        </div>
         <div className="flex gap-2">
           <Button
             size="sm"
@@ -1611,22 +1979,19 @@ function CarteSlack() {
   const lignes = [...(hms.data ?? [])].sort((a, b) => b.posters - a.posters);
   return (
     <Card>
-      <CardHeader>
-        <CardTitle className="text-base">{t("ckd.slackHms")}</CardTitle>
-        <CardDescription>{t("ckd.slackHmsAide")}</CardDescription>
-      </CardHeader>
-      <CardContent className="overflow-x-auto">
+      <EnTeteReglage titre={t("ckd.slackHms")} aide={t("ckd.slackHmsAide")} resume={t("ckd.aidesCourtes.slackHms")} />
+      <CardContent className="relative overflow-x-auto">
         {hms.error && <p className="text-xs text-destructive">{messageErreur(hms.error)}</p>}
-        <table className="w-full text-xs">
-          <thead className="text-left text-muted-foreground">
-            <tr>
-              <th className="py-1 pr-3 font-medium">{t("ckd.hm")}</th>
-              <th className="py-1 pr-3 font-medium">{t("ckd.zone")}</th>
-              <th className="py-1 pr-3 text-right font-medium">{t("ckd.posters")}</th>
-              <th className="py-1 font-medium">{t("ckd.idSlack")}</th>
+        <table className="w-full border-collapse text-sm">
+          <thead>
+            <tr className="border-b">
+              <th className={TH}>{t("ckd.hm")}</th>
+              <th className={TH}>{t("ckd.zone")}</th>
+              <th className={cn(TH, "text-right")}>{t("ckd.posters")}</th>
+              <th className={TH}>{t("ckd.idSlack")}</th>
             </tr>
           </thead>
-          <tbody className="divide-y">
+          <tbody>
             {lignes.map((h) => (
               <LigneSlack key={`${h.profile_id}-${h.slack_user_id ?? ""}`} hm={h} />
             ))}
@@ -1655,28 +2020,43 @@ function CarteJournal({ labels }: { labels: LabelCkd[] }) {
   const lignes = journal.data ?? [];
   return (
     <Card>
-      <CardHeader>
-        <CardTitle className="text-base">{t("ckd.journal")}</CardTitle>
-      </CardHeader>
-      <CardContent>
+      <EnTeteReglage titre={t("ckd.journal")} />
+      <CardContent className="relative overflow-x-auto">
         {lignes.length === 0 ? (
           <p className="text-sm text-muted-foreground">{t("ckd.journalVide")}</p>
         ) : (
-          <ul className="space-y-1 text-xs">
-            {lignes.map((j) => {
-              const def = defReglage(j.cle);
-              const niveau = [j.pays, j.label_id ? labelParId.get(j.label_id) : null].filter(Boolean).join(" × ") || t("ckd.niveauDefaut");
-              return (
-                <li key={j.id}>
-                  <span className="text-muted-foreground">
-                    {date(j.at, { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })}
-                  </span>{" "}
-                  {j.par ? nom.get(j.par) ?? "" : t("ckd.systeme")} · {t(`ckd.reglages.${j.cle}`)} ({niveau}) :{" "}
-                  {formaterValeur(def, j.ancienne, t("ckd.oui"), t("ckd.non"))} → {formaterValeur(def, j.nouvelle, t("ckd.oui"), t("ckd.non"))}
-                </li>
-              );
-            })}
-          </ul>
+          <table className="w-full border-collapse text-sm">
+            <thead>
+              <tr className="border-b">
+                <th className={TH}>{t("ckd.colonnesJournal.quand")}</th>
+                <th className={TH}>{t("ckd.colonnesJournal.par")}</th>
+                <th className={TH}>{t("ckd.colonnesJournal.reglage")}</th>
+                <th className={TH}>{t("ckd.colonnesJournal.niveau")}</th>
+                <th className={TH}>{t("ckd.colonnesJournal.changement")}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {lignes.map((j) => {
+                const def = defReglage(j.cle);
+                const niveau =
+                  [j.pays, j.label_id ? labelParId.get(j.label_id) : null].filter(Boolean).join(" × ") || t("ckd.niveauDefaut");
+                return (
+                  <tr key={j.id} className={cn(LIGNE, "text-xs")}>
+                    <td className={cn(TD, "whitespace-nowrap tabular-nums text-muted-foreground")}>
+                      {date(j.at, { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })}
+                    </td>
+                    <td className={cn(TD, "whitespace-nowrap")}>{j.par ? nom.get(j.par) ?? "" : t("ckd.systeme")}</td>
+                    <td className={TD}>{t(`ckd.reglages.${j.cle}`)}</td>
+                    <td className={cn(TD, "whitespace-nowrap text-muted-foreground")}>{niveau}</td>
+                    <td className={cn(TD, "whitespace-nowrap tabular-nums")}>
+                      {formaterValeur(def, j.ancienne, t("ckd.oui"), t("ckd.non"))} →{" "}
+                      <span className="font-semibold">{formaterValeur(def, j.nouvelle, t("ckd.oui"), t("ckd.non"))}</span>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         )}
       </CardContent>
     </Card>

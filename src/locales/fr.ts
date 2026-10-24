@@ -3011,6 +3011,8 @@ export const fr = {
       voirPlacement: "Voir où poser le texte",
       placementTitre: "Photo d'origine",
       placementAutreSlide: "Photo d'origine de la slide {{position}} (même mise en page du texte)",
+      inspirationTitre: "Inspiration : reprends la place et la taille du texte, pas le texte ni la photo",
+      slideSansTexte: "Pas de texte sur cette slide : poste la photo telle quelle.",
       photoAPoster: "Photo à poster",
       placementAide:
         "Visuel d'origine : reproduis la même position et la même taille de texte dans TikTok.",

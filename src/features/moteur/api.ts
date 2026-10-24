@@ -2264,6 +2264,16 @@ export async function lirePost(id: string): Promise<Post | null> {
   return (data as Post) ?? null;
 }
 
+/**
+ * Pod du contenu de ce post (0347), null pour un post importé. Ses « photos
+ * d'origine » sont alors des slides d'inspiration, pas l'original du post.
+ */
+export async function podDuPost(postId: string): Promise<string | null> {
+  const { data, error } = await supabase.rpc("pod_du_post", { p_post_id: postId });
+  if (error) throw error;
+  return (data as string | null) ?? null;
+}
+
 export async function listerSlides(postId: string): Promise<PostSlide[]> {
   const { data, error } = await supabase
     .from("post_slides")

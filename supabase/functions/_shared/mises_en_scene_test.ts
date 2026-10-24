@@ -61,8 +61,8 @@ Deno.test("budget : semaine glissante, une image de plus", () => {
 });
 
 Deno.test("réglages : repli sur les défauts", () => {
-  assertEquals(lireReglagesMisesEnScene(null), { budget_fal_usd_semaine: 3, prix_image_usd: 0.15 });
-  assertEquals(lireReglagesMisesEnScene({ budget_fal_usd_semaine: "x" }).budget_fal_usd_semaine, 3);
+  assertEquals(lireReglagesMisesEnScene(null), { budget_fal_usd_semaine: 5, prix_image_usd: 0.15 });
+  assertEquals(lireReglagesMisesEnScene({ budget_fal_usd_semaine: "x" }).budget_fal_usd_semaine, 5);
 });
 
 Deno.test("taille d'un PNG et d'un JPEG", () => {

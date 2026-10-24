@@ -74,7 +74,7 @@ export interface ReglagesMisesEnScene {
 }
 
 export const REGLAGES_DEFAUT: ReglagesMisesEnScene = {
-  budget_fal_usd_semaine: 3,
+  budget_fal_usd_semaine: 5,
   prix_image_usd: 0.15,
 };
 

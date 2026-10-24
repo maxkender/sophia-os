@@ -136,9 +136,9 @@ revoke all on function public.utiliser_mise_en_scene(uuid) from public, anon, au
 grant execute on function public.utiliser_mise_en_scene(uuid) to service_role;
 
 -- Budget Fal par semaine glissante. Prix d'une image Nano Banana Pro à
--- confirmer sur la facture Fal ; Adrien fixe le plafond.
+-- confirmer sur la facture Fal ; plafond fixé par Adrien à 5 $ (24/10).
 insert into public.reglages (cle, valeur)
-values ('mises_en_scene', '{"budget_fal_usd_semaine": 3, "prix_image_usd": 0.15}'::jsonb)
+values ('mises_en_scene', '{"budget_fal_usd_semaine": 5, "prix_image_usd": 0.15}'::jsonb)
 on conflict (cle) do nothing;
 
 alter table public.captures_app enable row level security;
